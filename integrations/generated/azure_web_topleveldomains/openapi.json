@@ -6,7 +6,7 @@
   "host": "management.azure.com",
   "info": {
     "title": "TopLevelDomains API Client",
-    "version": "2015-04-01",
+    "version": "2018-02-01",
     "x-apisguru-categories": [
       "cloud"
     ],
@@ -16,7 +16,7 @@
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/web/resource-manager/Microsoft.DomainRegistration/stable/2015-04-01/TopLevelDomains.json",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/web/resource-manager/Microsoft.DomainRegistration/stable/2018-02-01/TopLevelDomains.json",
         "version": "2.0"
       }
     ],
@@ -91,6 +91,66 @@
             "schema": {
               "$ref": "#/definitions/TopLevelDomainCollection"
             }
+          },
+          "default": {
+            "description": "App Service error response.",
+            "schema": {
+              "description": "App Service error response.",
+              "properties": {
+                "error": {
+                  "description": "Error model.",
+                  "properties": {
+                    "code": {
+                      "description": "Standardized string to programmatically identify the error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "details": {
+                      "items": {
+                        "description": "Detailed errors.",
+                        "properties": {
+                          "code": {
+                            "description": "Standardized string to programmatically identify the error.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "message": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "target": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          }
+                        },
+                        "readOnly": true
+                      },
+                      "type": "array"
+                    },
+                    "innererror": {
+                      "description": "More information to debug error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "message": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "target": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    }
+                  },
+                  "readOnly": true,
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
           }
         },
         "summary": "Get all top-level domains supported for registration.",
@@ -100,7 +160,7 @@
         "x-ms-examples": {
           "List Top Level Domains": {
             "parameters": {
-              "api-version": "2015-04-01",
+              "api-version": "2018-02-01",
               "subscriptionId": "34adfa4f-cedf-4dc0-ba29-b6d1a69ab345"
             },
             "responses": {
@@ -109,7 +169,6 @@
                   "value": [
                     {
                       "id": "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/providers/Microsoft.DomainRegistration/topLevelDomains/com",
-                      "location": "global",
                       "name": "com",
                       "properties": {
                         "name": "com",
@@ -119,7 +178,6 @@
                     },
                     {
                       "id": "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/providers/Microsoft.DomainRegistration/topLevelDomains/net",
-                      "location": "global",
                       "name": "net",
                       "properties": {
                         "name": "net",
@@ -129,7 +187,6 @@
                     },
                     {
                       "id": "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/providers/Microsoft.DomainRegistration/topLevelDomains/co.uk",
-                      "location": "global",
                       "name": "co.uk",
                       "properties": {
                         "name": "co.uk",
@@ -139,7 +196,6 @@
                     },
                     {
                       "id": "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/providers/Microsoft.DomainRegistration/topLevelDomains/org",
-                      "location": "global",
                       "name": "org",
                       "properties": {
                         "name": "org",
@@ -149,7 +205,6 @@
                     },
                     {
                       "id": "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/providers/Microsoft.DomainRegistration/topLevelDomains/nl",
-                      "location": "global",
                       "name": "nl",
                       "properties": {
                         "name": "nl",
@@ -159,7 +214,6 @@
                     },
                     {
                       "id": "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/providers/Microsoft.DomainRegistration/topLevelDomains/in",
-                      "location": "global",
                       "name": "in",
                       "properties": {
                         "name": "in",
@@ -169,7 +223,6 @@
                     },
                     {
                       "id": "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/providers/Microsoft.DomainRegistration/topLevelDomains/biz",
-                      "location": "global",
                       "name": "biz",
                       "properties": {
                         "name": "biz",
@@ -179,7 +232,6 @@
                     },
                     {
                       "id": "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/providers/Microsoft.DomainRegistration/topLevelDomains/org.uk",
-                      "location": "global",
                       "name": "org.uk",
                       "properties": {
                         "name": "org.uk",
@@ -189,7 +241,6 @@
                     },
                     {
                       "id": "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/providers/Microsoft.DomainRegistration/topLevelDomains/co.in",
-                      "location": "global",
                       "name": "co.in",
                       "properties": {
                         "name": "co.in",
@@ -234,6 +285,66 @@
             "schema": {
               "$ref": "#/definitions/TopLevelDomain"
             }
+          },
+          "default": {
+            "description": "App Service error response.",
+            "schema": {
+              "description": "App Service error response.",
+              "properties": {
+                "error": {
+                  "description": "Error model.",
+                  "properties": {
+                    "code": {
+                      "description": "Standardized string to programmatically identify the error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "details": {
+                      "items": {
+                        "description": "Detailed errors.",
+                        "properties": {
+                          "code": {
+                            "description": "Standardized string to programmatically identify the error.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "message": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "target": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          }
+                        },
+                        "readOnly": true
+                      },
+                      "type": "array"
+                    },
+                    "innererror": {
+                      "description": "More information to debug error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "message": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "target": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    }
+                  },
+                  "readOnly": true,
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
           }
         },
         "summary": "Get details of a top-level domain.",
@@ -243,7 +354,7 @@
         "x-ms-examples": {
           "Get Top Level Domain": {
             "parameters": {
-              "api-version": "2015-04-01",
+              "api-version": "2018-02-01",
               "name": "com",
               "subscriptionId": "34adfa4f-cedf-4dc0-ba29-b6d1a69ab345"
             },
@@ -251,7 +362,6 @@
               "200": {
                 "body": {
                   "id": "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/providers/Microsoft.DomainRegistration/topLevelDomains/com",
-                  "location": "global",
                   "name": "com",
                   "properties": {
                     "name": "com",
@@ -300,6 +410,66 @@
             "schema": {
               "$ref": "#/definitions/TldLegalAgreementCollection"
             }
+          },
+          "default": {
+            "description": "App Service error response.",
+            "schema": {
+              "description": "App Service error response.",
+              "properties": {
+                "error": {
+                  "description": "Error model.",
+                  "properties": {
+                    "code": {
+                      "description": "Standardized string to programmatically identify the error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "details": {
+                      "items": {
+                        "description": "Detailed errors.",
+                        "properties": {
+                          "code": {
+                            "description": "Standardized string to programmatically identify the error.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "message": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "target": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          }
+                        },
+                        "readOnly": true
+                      },
+                      "type": "array"
+                    },
+                    "innererror": {
+                      "description": "More information to debug error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "message": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "target": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    }
+                  },
+                  "readOnly": true,
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
           }
         },
         "summary": "Gets all legal agreements that user needs to accept before purchasing a domain.",
@@ -309,7 +479,11 @@
         "x-ms-examples": {
           "List Top Level Domain Agreements": {
             "parameters": {
-              "api-version": "2015-04-01",
+              "agreementOption": {
+                "forTransfer": false,
+                "includePrivacy": true
+              },
+              "api-version": "2018-02-01",
               "name": "in",
               "subscriptionId": "34adfa4f-cedf-4dc0-ba29-b6d1a69ab345"
             },
@@ -424,12 +598,6 @@
         "properties": {
           "description": "TopLevelDomain resource specific properties",
           "properties": {
-            "name": {
-              "description": "Name of the top level domain.",
-              "readOnly": true,
-              "type": "string",
-              "x-ms-client-name": "domainName"
-            },
             "privacy": {
               "description": "If <code>true</code>, then the top level domain supports domain privacy; otherwise, <code>false</code>.",
               "type": "boolean"

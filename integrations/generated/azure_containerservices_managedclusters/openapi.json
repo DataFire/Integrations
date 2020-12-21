@@ -7,7 +7,7 @@
   "info": {
     "description": "The Container Service Client.",
     "title": "ContainerServiceClient",
-    "version": "2017-08-31",
+    "version": "2018-08-01-preview",
     "x-apisguru-categories": [
       "cloud"
     ],
@@ -17,7 +17,7 @@
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/containerservices/resource-manager/Microsoft.ContainerService/stable/2017-08-31/managedClusters.json",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/containerservices/resource-manager/Microsoft.ContainerService/preview/2018-08-01-preview/managedClusters.json",
         "version": "2.0"
       }
     ],
@@ -76,6 +76,29 @@
     }
   },
   "paths": {
+    "/providers/Microsoft.ContainerService/operations": {
+      "get": {
+        "description": "Gets a list of compute operations.",
+        "operationId": "Operations_List",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/OperationListResult"
+            }
+          }
+        },
+        "tags": [
+          "managedClusters"
+        ],
+        "x-ms-pageable": {}
+      }
+    },
     "/subscriptions/{subscriptionId}/providers/Microsoft.ContainerService/managedClusters": {
       "get": {
         "description": "Gets a list of managed clusters in the specified subscription. The operation returns properties of each managed cluster.",
@@ -103,7 +126,7 @@
         "x-ms-examples": {
           "List Managed Clusters": {
             "parameters": {
-              "api-version": "2017-08-31",
+              "api-version": "2018-08-01-preview",
               "subscriptionId": "subid1"
             },
             "responses": {
@@ -113,25 +136,21 @@
                     {
                       "id": "/subscriptions/subid1/providers/Microsoft.ContainerService/managedClusters",
                       "location": "location1",
-                      "name": "mycluster1",
+                      "name": "clustername1",
                       "properties": {
                         "agentPoolProfiles": [
                           {
-                            "count": 1,
-                            "dnsPrefix": "agentpool1dnsPrefix",
-                            "fqdn": "agentpool1fqdn",
-                            "name": "agentpool1",
+                            "count": 3,
+                            "maxPods": 110,
+                            "name": "nodepool1",
                             "osType": "Linux",
-                            "ports": [
-                              1
-                            ],
-                            "storageProfile": "ManagedDisks",
-                            "vmSize": "Standard_D2_v2"
+                            "vmSize": "Standard_DS1_v2"
                           }
                         ],
                         "dnsPrefix": "dnsprefix1",
-                        "fqdn": "dnsprefix1-123456.abc.location1.azmk8s.io",
-                        "kubernetesVersion": "1.7.7",
+                        "enableRBAC": false,
+                        "fqdn": "dnsprefix1-abcd1234.hcp.eastus.azmk8s.io",
+                        "kubernetesVersion": "1.9.6",
                         "linuxProfile": {
                           "adminUsername": "azureuser",
                           "ssh": {
@@ -142,14 +161,23 @@
                             ]
                           }
                         },
+                        "networkProfile": {
+                          "dnsServiceIP": "10.0.0.10",
+                          "dockerBridgeCidr": "172.17.0.1/16",
+                          "networkPlugin": "kubenet",
+                          "podCidr": "10.244.0.0/16",
+                          "serviceCidr": "10.0.0.0/16"
+                        },
+                        "nodeResourceGroup": "MC_rg1_clustername1_location1",
                         "provisioningState": "Succeeded",
                         "servicePrincipalProfile": {
-                          "clientId": "clientid",
-                          "keyVaultSecretRef": null,
-                          "secret": "secret"
+                          "clientId": "clientid"
                         }
                       },
-                      "tags": "managed-cluster",
+                      "tags": {
+                        "archv2": "",
+                        "tier": "production"
+                      },
                       "type": "Microsoft.ContainerService/ManagedClusters"
                     }
                   ]
@@ -197,7 +225,7 @@
         "x-ms-examples": {
           "Get Managed Clusters by Resource Group": {
             "parameters": {
-              "api-version": "2017-08-31",
+              "api-version": "2018-08-01-preview",
               "resourceGroupName": "rg1",
               "subscriptionId": "subid1"
             },
@@ -206,27 +234,23 @@
                 "body": {
                   "value": [
                     {
-                      "id": "/subscriptions/subid1/resourceGroups/rg1/providers/Microsoft.ContainerService/managedClusters",
+                      "id": "/subscriptions/subid1/resourcegroups/rg1/providers/Microsoft.ContainerService/managedClusters",
                       "location": "location1",
-                      "name": "mycluster1",
+                      "name": "clustername1",
                       "properties": {
                         "agentPoolProfiles": [
                           {
-                            "count": 1,
-                            "dnsPrefix": "agentpool1dnsPrefix",
-                            "fqdn": "agentpool1fqdn",
-                            "name": "agentpool1",
+                            "count": 3,
+                            "maxPods": 110,
+                            "name": "nodepool1",
                             "osType": "Linux",
-                            "ports": [
-                              1
-                            ],
-                            "storageProfile": "ManagedDisks",
-                            "vmSize": "Standard_D2_v2"
+                            "vmSize": "Standard_DS1_v2"
                           }
                         ],
                         "dnsPrefix": "dnsprefix1",
-                        "fqdn": "dnsprefix1-123456.abc.location1.azmk8s.io",
-                        "kubernetesVersion": "1.7.7",
+                        "enableRBAC": false,
+                        "fqdn": "dnsprefix1-abcd1234.hcp.eastus.azmk8s.io",
+                        "kubernetesVersion": "1.9.6",
                         "linuxProfile": {
                           "adminUsername": "azureuser",
                           "ssh": {
@@ -237,14 +261,23 @@
                             ]
                           }
                         },
+                        "networkProfile": {
+                          "dnsServiceIP": "10.0.0.10",
+                          "dockerBridgeCidr": "172.17.0.1/16",
+                          "networkPlugin": "kubenet",
+                          "podCidr": "10.244.0.0/16",
+                          "serviceCidr": "10.0.0.0/16"
+                        },
+                        "nodeResourceGroup": "MC_rg1_clustername1_location1",
                         "provisioningState": "Succeeded",
                         "servicePrincipalProfile": {
-                          "clientId": "clientid",
-                          "keyVaultSecretRef": null,
-                          "secret": "secret"
+                          "clientId": "clientid"
                         }
                       },
-                      "tags": "managed-cluster",
+                      "tags": {
+                        "archv2": "",
+                        "tier": "production"
+                      },
                       "type": "Microsoft.ContainerService/ManagedClusters"
                     }
                   ]
@@ -299,7 +332,7 @@
         "x-ms-examples": {
           "Delete Managed Cluster": {
             "parameters": {
-              "api-version": "2017-08-31",
+              "api-version": "2018-08-01-preview",
               "resourceGroupName": "rg1",
               "resourceName": "clustername1",
               "subscriptionId": "subid1"
@@ -352,7 +385,7 @@
         "x-ms-examples": {
           "Get Managed Cluster": {
             "parameters": {
-              "api-version": "2017-08-31",
+              "api-version": "2018-08-01-preview",
               "resourceGroupName": "rg1",
               "resourceName": "clustername1",
               "subscriptionId": "subid1"
@@ -362,25 +395,21 @@
                 "body": {
                   "id": "/subscriptions/subid1/resourcegroups/rg1/providers/Microsoft.ContainerService/managedClusters/clustername1",
                   "location": "location1",
-                  "name": "mycluster1",
+                  "name": "clustername1",
                   "properties": {
                     "agentPoolProfiles": [
                       {
-                        "count": 1,
-                        "dnsPrefix": "agentpool1dnsPrefix",
-                        "fqdn": "agentpool1fqdn",
-                        "name": "agentpool1",
+                        "count": 3,
+                        "maxPods": 110,
+                        "name": "nodepool1",
                         "osType": "Linux",
-                        "ports": [
-                          1
-                        ],
-                        "storageProfile": "ManagedDisks",
-                        "vmSize": "Standard_D2_v2"
+                        "vmSize": "Standard_DS1_v2"
                       }
                     ],
                     "dnsPrefix": "dnsprefix1",
-                    "fqdn": "dnsprefix1-123456.abc.location1.azmk8s.io",
-                    "kubernetesVersion": "1.7.7",
+                    "enableRBAC": false,
+                    "fqdn": "dnsprefix1-abcd1234.hcp.eastus.azmk8s.io",
+                    "kubernetesVersion": "1.9.6",
                     "linuxProfile": {
                       "adminUsername": "azureuser",
                       "ssh": {
@@ -391,20 +420,144 @@
                         ]
                       }
                     },
+                    "networkProfile": {
+                      "dnsServiceIP": "10.0.0.10",
+                      "dockerBridgeCidr": "172.17.0.1/16",
+                      "networkPlugin": "kubenet",
+                      "podCidr": "10.244.0.0/16",
+                      "serviceCidr": "10.0.0.0/16"
+                    },
+                    "nodeResourceGroup": "MC_rg1_clustername1_location1",
                     "provisioningState": "Succeeded",
                     "servicePrincipalProfile": {
-                      "clientId": "clientid",
-                      "keyVaultSecretRef": null,
-                      "secret": "secret"
+                      "clientId": "clientid"
                     }
                   },
-                  "tags": "managed-cluster",
+                  "tags": {
+                    "archv2": "",
+                    "tier": "production"
+                  },
                   "type": "Microsoft.ContainerService/ManagedClusters"
                 }
               }
             }
           }
         }
+      },
+      "patch": {
+        "description": "Updates a managed cluster with the specified tags.",
+        "operationId": "ManagedClusters_UpdateTags",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "description": "The name of the resource group.",
+            "in": "path",
+            "name": "resourceGroupName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The name of the managed cluster resource.",
+            "in": "path",
+            "name": "resourceName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Parameters supplied to the Update Managed Cluster Tags operation.",
+            "in": "body",
+            "name": "parameters",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/TagsObject"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ManagedCluster"
+            }
+          }
+        },
+        "summary": "Updates tags on a managed cluster.",
+        "tags": [
+          "ManagedClusters"
+        ],
+        "x-ms-examples": {
+          "Update Managed Cluster Tags": {
+            "parameters": {
+              "api-version": "2018-08-01-preview",
+              "parameters": {
+                "tags": {
+                  "archv3": "",
+                  "tier": "testing"
+                }
+              },
+              "resourceGroupName": "rg1",
+              "resourceName": "clustername1",
+              "subscriptionId": "subid1"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "id": "/subscriptions/subid1/resourcegroups/rg1/providers/Microsoft.ContainerService/managedClusters/clustername1",
+                  "location": "location1",
+                  "name": "clustername1",
+                  "properties": {
+                    "agentPoolProfiles": [
+                      {
+                        "count": 3,
+                        "maxPods": 110,
+                        "name": "nodepool1",
+                        "osType": "Linux",
+                        "vmSize": "Standard_DS1_v2"
+                      }
+                    ],
+                    "dnsPrefix": "dnsprefix1",
+                    "enableRBAC": false,
+                    "fqdn": "dnsprefix1-abcd1234.hcp.eastus.azmk8s.io",
+                    "kubernetesVersion": "1.9.6",
+                    "linuxProfile": {
+                      "adminUsername": "azureuser",
+                      "ssh": {
+                        "publicKeys": [
+                          {
+                            "keyData": "keydata"
+                          }
+                        ]
+                      }
+                    },
+                    "networkProfile": {
+                      "dnsServiceIP": "10.0.0.10",
+                      "dockerBridgeCidr": "172.17.0.1/16",
+                      "networkPlugin": "kubenet",
+                      "podCidr": "10.244.0.0/16",
+                      "serviceCidr": "10.0.0.0/16"
+                    },
+                    "nodeResourceGroup": "MC_rg1_clustername1_location1",
+                    "provisioningState": "Succeeded",
+                    "servicePrincipalProfile": {
+                      "clientId": "clientid"
+                    }
+                  },
+                  "tags": {
+                    "archv3": "",
+                    "tier": "testing"
+                  },
+                  "type": "Microsoft.ContainerService/ManagedClusters"
+                }
+              }
+            }
+          }
+        },
+        "x-ms-long-running-operation": true
       },
       "put": {
         "description": "Creates or updates a managed cluster with the specified configuration for agents and Kubernetes version.",
@@ -461,19 +614,40 @@
         "x-ms-examples": {
           "Create/Update Managed Cluster": {
             "parameters": {
-              "api-version": "2017-08-31",
+              "api-version": "2018-08-01-preview",
               "parameters": {
                 "location": "location1",
                 "properties": {
+                  "addonProfiles": {},
                   "agentPoolProfiles": [
                     {
-                      "count": 1,
-                      "name": "agentpool1",
-                      "vmSize": "Standard_D2_v2"
+                      "count": 3,
+                      "name": "nodepool1",
+                      "osType": "Linux",
+                      "vmSize": "Standard_DS1_v2"
                     }
                   ],
                   "dnsPrefix": "dnsprefix1",
-                  "kubernetesVersion": "1.7.7"
+                  "enableRBAC": false,
+                  "kubernetesVersion": "",
+                  "linuxProfile": {
+                    "adminUsername": "azureuser",
+                    "ssh": {
+                      "publicKeys": [
+                        {
+                          "keyData": "keydata"
+                        }
+                      ]
+                    }
+                  },
+                  "servicePrincipalProfile": {
+                    "clientId": "clientid",
+                    "secret": "secret"
+                  }
+                },
+                "tags": {
+                  "archv2": "",
+                  "tier": "production"
                 }
               },
               "resourceGroupName": "rg1",
@@ -485,25 +659,21 @@
                 "body": {
                   "id": "/subscriptions/subid1/resourcegroups/rg1/providers/Microsoft.ContainerService/managedClusters/clustername1",
                   "location": "location1",
-                  "name": "mycluster1",
+                  "name": "clustername1",
                   "properties": {
                     "agentPoolProfiles": [
                       {
-                        "count": 1,
-                        "dnsPrefix": "agentpool1dnsPrefix",
-                        "fqdn": "agentpool1fqdn",
-                        "name": "agentpool1",
+                        "count": 3,
+                        "maxPods": 110,
+                        "name": "nodepool1",
                         "osType": "Linux",
-                        "ports": [
-                          1
-                        ],
-                        "storageProfile": "ManagedDisks",
-                        "vmSize": "Standard_D2_v2"
+                        "vmSize": "Standard_DS1_v2"
                       }
                     ],
                     "dnsPrefix": "dnsprefix1",
-                    "fqdn": "dnsprefix1-123456.abc.location1.azmk8s.io",
-                    "kubernetesVersion": "1.7.7",
+                    "enableRBAC": false,
+                    "fqdn": "dnsprefix1-abcd1234.hcp.eastus.azmk8s.io",
+                    "kubernetesVersion": "1.9.6",
                     "linuxProfile": {
                       "adminUsername": "azureuser",
                       "ssh": {
@@ -514,14 +684,23 @@
                         ]
                       }
                     },
+                    "networkProfile": {
+                      "dnsServiceIP": "10.0.0.10",
+                      "dockerBridgeCidr": "172.17.0.1/16",
+                      "networkPlugin": "kubenet",
+                      "podCidr": "10.244.0.0/16",
+                      "serviceCidr": "10.0.0.0/16"
+                    },
+                    "nodeResourceGroup": "MC_rg1_clustername1_location1",
                     "provisioningState": "Succeeded",
                     "servicePrincipalProfile": {
-                      "clientId": "clientid",
-                      "keyVaultSecretRef": null,
-                      "secret": "secret"
+                      "clientId": "clientid"
                     }
                   },
-                  "tags": "managedcluster",
+                  "tags": {
+                    "archv2": "",
+                    "tier": "production"
+                  },
                   "type": "Microsoft.ContainerService/ManagedClusters"
                 }
               },
@@ -529,25 +708,20 @@
                 "body": {
                   "id": "/subscriptions/subid1/resourcegroups/rg1/providers/Microsoft.ContainerService/managedClusters/clustername1",
                   "location": "location1",
-                  "name": "mycluster1",
+                  "name": "clustername1",
                   "properties": {
                     "agentPoolProfiles": [
                       {
-                        "count": 1,
-                        "dnsPrefix": "agentpool1dnsPrefix",
-                        "fqdn": "agentpool1fqdn",
-                        "name": "agentpool1",
+                        "count": 3,
+                        "maxPods": 110,
+                        "name": "nodepool1",
                         "osType": "Linux",
-                        "ports": [
-                          1
-                        ],
-                        "storageProfile": "ManagedDisks",
-                        "vmSize": "Standard_D2_v2"
+                        "vmSize": "Standard_DS1_v2"
                       }
                     ],
                     "dnsPrefix": "dnsprefix1",
-                    "fqdn": "dnsprefix1-123456.abc.location1.azmk8s.io",
-                    "kubernetesVersion": "1.7.7",
+                    "enableRBAC": false,
+                    "kubernetesVersion": "1.9.6",
                     "linuxProfile": {
                       "adminUsername": "azureuser",
                       "ssh": {
@@ -558,14 +732,23 @@
                         ]
                       }
                     },
-                    "provisioningState": "Succeeded",
+                    "networkProfile": {
+                      "dnsServiceIP": "10.0.0.10",
+                      "dockerBridgeCidr": "172.17.0.1/16",
+                      "networkPlugin": "kubenet",
+                      "podCidr": "10.244.0.0/16",
+                      "serviceCidr": "10.0.0.0/16"
+                    },
+                    "nodeResourceGroup": "MC_rg1_clustername1_location1",
+                    "provisioningState": "Creating",
                     "servicePrincipalProfile": {
-                      "clientId": "clientid",
-                      "keyVaultSecretRef": null,
-                      "secret": "secret"
+                      "clientId": "clientid"
                     }
                   },
-                  "tags": "managedcluster",
+                  "tags": {
+                    "archv2": "",
+                    "tier": "production"
+                  },
                   "type": "Microsoft.ContainerService/ManagedClusters"
                 }
               }
@@ -573,78 +756,6 @@
           }
         },
         "x-ms-long-running-operation": true
-      }
-    },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/accessProfiles/{roleName}": {
-      "get": {
-        "deprecated": true,
-        "description": "Use ManagedClusters_GetAccessProfile instead.",
-        "operationId": "ManagedClusters_GetAccessProfiles",
-        "parameters": [
-          {
-            "$ref": "#/parameters/ApiVersionParameter"
-          },
-          {
-            "$ref": "#/parameters/SubscriptionIdParameter"
-          },
-          {
-            "description": "The name of the resource group.",
-            "in": "path",
-            "name": "resourceGroupName",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The name of the managed cluster resource.",
-            "in": "path",
-            "name": "resourceName",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The name of the role for managed cluster accessProfile resource.",
-            "in": "path",
-            "name": "roleName",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/ManagedClusterAccessProfile"
-            }
-          }
-        },
-        "summary": "Gets access profile of a managed cluster.",
-        "tags": [
-          "ManagedClusters"
-        ],
-        "x-ms-examples": {
-          "Get Managed Cluster": {
-            "parameters": {
-              "api-version": "2017-08-31",
-              "resourceGroupName": "rg1",
-              "resourceName": "clustername1",
-              "roleName": "clusterUser",
-              "subscriptionId": "subid1"
-            },
-            "responses": {
-              "200": {
-                "body": {
-                  "id": "/subscriptions/subid1/resourcegroups/rg1/providers/Microsoft.ContainerService/managedClusters/clustername1/accessProfiles/clusterUser",
-                  "location": "location1",
-                  "name": "clusterUser",
-                  "properties": {
-                    "kubeConfig": "kubeConfig1"
-                  },
-                  "type": "Microsoft.ContainerService/ManagedClusters/AccessProfiles"
-                }
-              }
-            }
-          }
-        }
       }
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/accessProfiles/{roleName}/listCredential": {
@@ -695,7 +806,7 @@
         "x-ms-examples": {
           "Get Managed Cluster": {
             "parameters": {
-              "api-version": "2017-08-31",
+              "api-version": "2018-08-01-preview",
               "resourceGroupName": "rg1",
               "resourceName": "clustername1",
               "roleName": "clusterUser",
@@ -716,6 +827,397 @@
             }
           }
         }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/listClusterAdminCredential": {
+      "post": {
+        "description": "Gets cluster admin credential of the managed cluster with a specified resource group and name.",
+        "operationId": "ManagedClusters_ListClusterAdminCredentials",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "description": "The name of the resource group.",
+            "in": "path",
+            "name": "resourceGroupName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The name of the managed cluster resource.",
+            "in": "path",
+            "name": "resourceName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/CredentialResults"
+            }
+          }
+        },
+        "summary": "Gets cluster admin credential of a managed cluster.",
+        "tags": [
+          "ManagedClusters"
+        ],
+        "x-ms-examples": {
+          "Get Managed Cluster": {
+            "parameters": {
+              "api-version": "2018-08-01-preview",
+              "resourceGroupName": "rg1",
+              "resourceName": "clustername1",
+              "subscriptionId": "subid1"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "kubeconfigs": [
+                    {
+                      "name": "credentialName1",
+                      "value": "credentialValue1"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/listClusterUserCredential": {
+      "post": {
+        "description": "Gets cluster user credential of the managed cluster with a specified resource group and name.",
+        "operationId": "ManagedClusters_ListClusterUserCredentials",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "description": "The name of the resource group.",
+            "in": "path",
+            "name": "resourceGroupName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The name of the managed cluster resource.",
+            "in": "path",
+            "name": "resourceName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/CredentialResults"
+            }
+          }
+        },
+        "summary": "Gets cluster user credential of a managed cluster.",
+        "tags": [
+          "ManagedClusters"
+        ],
+        "x-ms-examples": {
+          "Get Managed Cluster": {
+            "parameters": {
+              "api-version": "2018-08-01-preview",
+              "resourceGroupName": "rg1",
+              "resourceName": "clustername1",
+              "subscriptionId": "subid1"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "kubeconfigs": [
+                    {
+                      "name": "credentialName1",
+                      "value": "credentialValue1"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/resetAADProfile": {
+      "post": {
+        "description": "Update the AAD Profile for a managed cluster.",
+        "operationId": "ManagedClusters_ResetAADProfile",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "description": "The name of the resource group.",
+            "in": "path",
+            "name": "resourceGroupName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The name of the managed cluster resource.",
+            "in": "path",
+            "name": "resourceName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Parameters supplied to the Reset AAD Profile operation for a Managed Cluster.",
+            "in": "body",
+            "name": "parameters",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ManagedClusterAADProfile"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ManagedCluster"
+            }
+          },
+          "202": {
+            "description": "Accepted",
+            "schema": {
+              "$ref": "#/definitions/ManagedCluster"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed. If the cluster doesn't exist, 404 (Not found) is returned.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
+          }
+        },
+        "summary": "Reset AAD Profile of a managed cluster.",
+        "tags": [
+          "ManagedClusters"
+        ],
+        "x-ms-examples": {
+          "Reset Service Principal Profile": {
+            "parameters": {
+              "api-version": "2018-08-01-preview",
+              "parameters": {
+                "aadProfile": {
+                  "clientAppID": "clientappid",
+                  "serverAppID": "serverappid",
+                  "serverAppSecret": "serverappsecret",
+                  "tenantID": "tenantid"
+                }
+              },
+              "resourceGroupName": "rg1",
+              "resourceName": "clustername1",
+              "subscriptionId": "subid1"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "id": "/subscriptions/subid1/resourcegroups/rg1/providers/Microsoft.ContainerService/managedClusters/clustername1",
+                  "location": "location1",
+                  "name": "clustername1",
+                  "properties": {
+                    "aadProfile": {
+                      "clientAppID": "clientappid",
+                      "serverAppID": "serverappid",
+                      "tenantID": "tenantid"
+                    },
+                    "agentPoolProfiles": [
+                      {
+                        "count": 3,
+                        "maxPods": 110,
+                        "name": "nodepool1",
+                        "osType": "Linux",
+                        "storageProfile": "ManagedDisks",
+                        "vmSize": "Standard_DS1_v2"
+                      }
+                    ],
+                    "dnsPrefix": "dnsprefix1",
+                    "enableRBAC": false,
+                    "fqdn": "dnsprefix1-abcd1234.hcp.eastus.azmk8s.io",
+                    "kubernetesVersion": "1.9.6",
+                    "linuxProfile": {
+                      "adminUsername": "azureuser",
+                      "ssh": {
+                        "publicKeys": [
+                          {
+                            "keyData": "keydata"
+                          }
+                        ]
+                      }
+                    },
+                    "networkProfile": {
+                      "dnsServiceIP": "10.0.0.10",
+                      "dockerBridgeCidr": "172.17.0.1/16",
+                      "networkPlugin": "kubenet",
+                      "podCidr": "10.244.0.0/16",
+                      "serviceCidr": "10.0.0.0/16"
+                    },
+                    "nodeResourceGroup": "MC_rg1_clustername1_location1",
+                    "provisioningState": "Succeeded",
+                    "servicePrincipalProfile": {
+                      "clientId": "clientid"
+                    }
+                  },
+                  "tags": {
+                    "archv2": "",
+                    "tier": "production"
+                  },
+                  "type": "Microsoft.ContainerService/ManagedClusters"
+                }
+              }
+            }
+          }
+        },
+        "x-ms-long-running-operation": true
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/resetServicePrincipalProfile": {
+      "post": {
+        "description": "Update the service principal Profile for a managed cluster.",
+        "operationId": "ManagedClusters_ResetServicePrincipalProfile",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "description": "The name of the resource group.",
+            "in": "path",
+            "name": "resourceGroupName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The name of the managed cluster resource.",
+            "in": "path",
+            "name": "resourceName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Parameters supplied to the Reset Service Principal Profile operation for a Managed Cluster.",
+            "in": "body",
+            "name": "parameters",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ManagedClusterServicePrincipalProfile"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ManagedCluster"
+            }
+          },
+          "202": {
+            "description": "Accepted",
+            "schema": {
+              "$ref": "#/definitions/ManagedCluster"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed. If the cluster doesn't exist, 404 (Not found) is returned.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
+          }
+        },
+        "summary": "Reset Service Principal Profile of a managed cluster.",
+        "tags": [
+          "ManagedClusters"
+        ],
+        "x-ms-examples": {
+          "Reset Service Principal Profile": {
+            "parameters": {
+              "api-version": "2018-08-01-preview",
+              "parameters": {
+                "servicePrincipalProfile": {
+                  "clientId": "clientid",
+                  "secret": "secret"
+                }
+              },
+              "resourceGroupName": "rg1",
+              "resourceName": "clustername1",
+              "subscriptionId": "subid1"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "id": "/subscriptions/subid1/resourcegroups/rg1/providers/Microsoft.ContainerService/managedClusters/clustername1",
+                  "location": "location1",
+                  "name": "clustername1",
+                  "properties": {
+                    "agentPoolProfiles": [
+                      {
+                        "count": 3,
+                        "maxPods": 110,
+                        "name": "nodepool1",
+                        "osType": "Linux",
+                        "storageProfile": "ManagedDisks",
+                        "vmSize": "Standard_DS1_v2"
+                      }
+                    ],
+                    "dnsPrefix": "dnsprefix1",
+                    "enableRBAC": false,
+                    "fqdn": "dnsprefix1-abcd1234.hcp.eastus.azmk8s.io",
+                    "kubernetesVersion": "1.9.6",
+                    "linuxProfile": {
+                      "adminUsername": "azureuser",
+                      "ssh": {
+                        "publicKeys": [
+                          {
+                            "keyData": "keydata"
+                          }
+                        ]
+                      }
+                    },
+                    "networkProfile": {
+                      "dnsServiceIP": "10.0.0.10",
+                      "dockerBridgeCidr": "172.17.0.1/16",
+                      "networkPlugin": "kubenet",
+                      "podCidr": "10.244.0.0/16",
+                      "serviceCidr": "10.0.0.0/16"
+                    },
+                    "nodeResourceGroup": "MC_rg1_clustername1_location1",
+                    "provisioningState": "Succeeded",
+                    "servicePrincipalProfile": {
+                      "clientId": "clientid"
+                    }
+                  },
+                  "tags": {
+                    "archv2": "",
+                    "tier": "production"
+                  },
+                  "type": "Microsoft.ContainerService/ManagedClusters"
+                }
+              }
+            }
+          }
+        },
+        "x-ms-long-running-operation": true
       }
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/upgradeProfiles/default": {
@@ -759,7 +1261,7 @@
         "x-ms-examples": {
           "Get Upgrade Profile for Managed Cluster": {
             "parameters": {
-              "api-version": "2017-08-31",
+              "api-version": "2018-08-01-preview",
               "resourceGroupName": "rg1",
               "resourceName": "clustername1",
               "subscriptionId": "subid1"
@@ -810,64 +1312,52 @@
       },
       "type": "object"
     },
-    "ContainerServiceAgentPoolProfile": {
-      "description": "Profile for the container service agent pool.",
+    "AgentPoolType": {
+      "description": "AgentPoolType represents types of an agent pool",
+      "enum": [
+        "VirtualMachineScaleSets",
+        "AvailabilitySet"
+      ],
+      "type": "string",
+      "x-ms-enum": {
+        "modelAsString": true,
+        "name": "AgentPoolType"
+      }
+    },
+    "CloudError": {
+      "description": "An error response from the Container service.",
       "properties": {
-        "count": {
-          "default": 1,
-          "description": "Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1. ",
-          "format": "int32",
-          "maximum": 100,
-          "minimum": 1,
-          "type": "integer"
-        },
-        "dnsPrefix": {
-          "description": "DNS prefix to be used to create the FQDN for the agent pool.",
+        "error": {
+          "$ref": "#/definitions/CloudErrorBody",
+          "description": "Details about the error."
+        }
+      },
+      "x-ms-external": true
+    },
+    "CloudErrorBody": {
+      "description": "An error response from the Container service.",
+      "properties": {
+        "code": {
+          "description": "An identifier for the error. Codes are invariant and are intended to be consumed programmatically.",
           "type": "string"
         },
-        "fqdn": {
-          "description": "FDQN for the agent pool.",
-          "readOnly": true,
-          "type": "string"
-        },
-        "name": {
-          "description": "Unique name of the agent pool profile in the context of the subscription and resource group.",
-          "type": "string"
-        },
-        "osDiskSizeGB": {
-          "$ref": "#/definitions/ContainerServiceOSDisk",
-          "description": "OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified."
-        },
-        "osType": {
-          "$ref": "#/definitions/OSType",
-          "description": "OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux."
-        },
-        "ports": {
-          "description": "Ports number array used to expose on this agent pool. The default opened ports are different based on your choice of orchestrator.",
+        "details": {
+          "description": "A list of additional details about the error.",
           "items": {
-            "maximum": 65535,
-            "minimum": 1,
-            "type": "integer"
+            "$ref": "#/definitions/CloudErrorBody"
           },
           "type": "array"
         },
-        "storageProfile": {
-          "$ref": "#/definitions/ContainerServiceStorageProfile",
-          "description": "Storage profile specifies what kind of storage used. Choose from StorageAccount and ManagedDisks. Leave it empty, we will choose for you based on the orchestrator choice."
+        "message": {
+          "description": "A message describing the error, intended to be suitable for display in a user interface.",
+          "type": "string"
         },
-        "vmSize": {
-          "$ref": "#/definitions/ContainerServiceVMSize",
-          "description": "Size of agent VMs."
-        },
-        "vnetSubnetID": {
-          "$ref": "#/definitions/ContainerServiceVnetSubnetID",
-          "description": "VNet SubnetID specifies the vnet's subnet identifier. If you specify either master VNet Subnet, or agent VNet Subnet, you need to specify both. And they have to be in the same VNet."
+        "target": {
+          "description": "The target of the particular error. For example, the name of the property in error.",
+          "type": "string"
         }
       },
-      "required": [
-        "name",
-        "vmSize"
-      ]
+      "x-ms-external": true
     },
     "ContainerServiceDiagnosticsProfile": {
       "description": "Profile for diagnostics on the container service cluster.",
@@ -886,7 +1376,7 @@
       "properties": {
         "adminUsername": {
           "description": "The administrator username to use for Linux VMs.",
-          "pattern": "^[a-z][a-z0-9_-]*$",
+          "pattern": "^[A-Za-z][-A-Za-z0-9_]*$",
           "type": "string"
         },
         "ssh": {
@@ -927,7 +1417,7 @@
           "type": "string"
         },
         "fqdn": {
-          "description": "FDQN for the master pool.",
+          "description": "FQDN for the master pool.",
           "readOnly": true,
           "type": "string"
         },
@@ -945,7 +1435,7 @@
         },
         "vnetSubnetID": {
           "$ref": "#/definitions/ContainerServiceVnetSubnetID",
-          "description": "VNet SubnetID specifies the vnet's subnet identifier. If you specify either master VNet Subnet, or agent VNet Subnet, you need to specify both. And they have to be in the same VNet."
+          "description": "VNet SubnetID specifies the VNet's subnet identifier."
         }
       },
       "required": [
@@ -953,32 +1443,65 @@
         "vmSize"
       ]
     },
+    "ContainerServiceNetworkProfile": {
+      "description": "Profile of network configuration.",
+      "properties": {
+        "dnsServiceIP": {
+          "default": "10.0.0.10",
+          "description": "An IP address assigned to the Kubernetes DNS service. It must be within the Kubernetes service address range specified in serviceCidr.",
+          "pattern": "^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$",
+          "type": "string"
+        },
+        "dockerBridgeCidr": {
+          "default": "172.17.0.1/16",
+          "description": "A CIDR notation IP range assigned to the Docker bridge network. It must not overlap with any Subnet IP ranges or the Kubernetes service address range.",
+          "pattern": "^([0-9]{1,3}\\.){3}[0-9]{1,3}(\\/([0-9]|[1-2][0-9]|3[0-2]))?$",
+          "type": "string"
+        },
+        "networkPlugin": {
+          "default": "kubenet",
+          "description": "Network plugin used for building Kubernetes network.",
+          "enum": [
+            "azure",
+            "kubenet"
+          ],
+          "type": "string",
+          "x-ms-enum": {
+            "modelAsString": true,
+            "name": "NetworkPlugin"
+          }
+        },
+        "networkPolicy": {
+          "description": "Network policy used for building Kubernetes network.",
+          "enum": [
+            "calico"
+          ],
+          "type": "string",
+          "x-ms-enum": {
+            "modelAsString": true,
+            "name": "NetworkPolicy"
+          }
+        },
+        "podCidr": {
+          "default": "10.244.0.0/16",
+          "description": "A CIDR notation IP range from which to assign pod IPs when kubenet is used.",
+          "pattern": "^([0-9]{1,3}\\.){3}[0-9]{1,3}(\\/([0-9]|[1-2][0-9]|3[0-2]))?$",
+          "type": "string"
+        },
+        "serviceCidr": {
+          "default": "10.0.0.0/16",
+          "description": "A CIDR notation IP range from which to assign service cluster IPs. It must not overlap with any Subnet IP ranges.",
+          "pattern": "^([0-9]{1,3}\\.){3}[0-9]{1,3}(\\/([0-9]|[1-2][0-9]|3[0-2]))?$",
+          "type": "string"
+        }
+      }
+    },
     "ContainerServiceOSDisk": {
       "description": "OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.",
       "format": "int32",
       "maximum": 1023,
       "minimum": 0,
       "type": "integer"
-    },
-    "ContainerServiceServicePrincipalProfile": {
-      "description": "Information about a service principal identity for the cluster to use for manipulating Azure APIs. Either secret or keyVaultSecretRef must be specified.",
-      "properties": {
-        "clientId": {
-          "description": "The ID for the service principal.",
-          "type": "string"
-        },
-        "keyVaultSecretRef": {
-          "$ref": "#/definitions/KeyVaultSecretRef",
-          "description": "Reference to a secret stored in Azure Key Vault."
-        },
-        "secret": {
-          "description": "The secret password associated with the service principal in plain text.",
-          "type": "string"
-        }
-      },
-      "required": [
-        "clientId"
-      ]
     },
     "ContainerServiceSshConfiguration": {
       "description": "SSH configuration for Linux-based VMs running on Azure.",
@@ -1221,7 +1744,7 @@
       }
     },
     "ContainerServiceVnetSubnetID": {
-      "description": "VNet SubnetID specifies the vnet's subnet identifier. If you specify either master VNet Subnet, or agent VNet Subnet, you need to specify both. And they have to be in the same VNet.",
+      "description": "VNet SubnetID specifies the VNet's subnet identifier.",
       "type": "string"
     },
     "ContainerServiceWindowsProfile": {
@@ -1243,26 +1766,34 @@
         "adminPassword"
       ]
     },
-    "KeyVaultSecretRef": {
-      "description": "Reference to a secret stored in Azure Key Vault.",
+    "CredentialResult": {
+      "description": "The credential result response.",
       "properties": {
-        "secretName": {
-          "description": "The secret name.",
+        "name": {
+          "description": "The name of the credential.",
+          "readOnly": true,
           "type": "string"
         },
-        "vaultID": {
-          "description": "Key vault identifier.",
-          "type": "string"
-        },
-        "version": {
-          "description": "The secret version.",
+        "value": {
+          "description": "Base64-encoded Kubernetes configuration file.",
+          "format": "byte",
+          "readOnly": true,
           "type": "string"
         }
       },
-      "required": [
-        "vaultID",
-        "secretName"
-      ]
+      "type": "object"
+    },
+    "CredentialResults": {
+      "description": "The list of credential result response.",
+      "properties": {
+        "kubeconfigs": {
+          "items": {
+            "$ref": "#/definitions/CredentialResult"
+          },
+          "readOnly": true,
+          "type": "array"
+        }
+      }
     },
     "ManagedCluster": {
       "allOf": [
@@ -1281,6 +1812,31 @@
       ],
       "description": "Managed cluster."
     },
+    "ManagedClusterAADProfile": {
+      "description": "AADProfile specifies attributes for Azure Active Directory integration.",
+      "properties": {
+        "clientAppID": {
+          "description": "The client AAD application ID.",
+          "type": "string"
+        },
+        "serverAppID": {
+          "description": "The server AAD application ID.",
+          "type": "string"
+        },
+        "serverAppSecret": {
+          "description": "The server AAD application secret.",
+          "type": "string"
+        },
+        "tenantID": {
+          "description": "The AAD tenant ID to use for authentication. If not specified, will use the tenant of the deployment subscription.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "clientAppID",
+        "serverAppID"
+      ]
+    },
     "ManagedClusterAccessProfile": {
       "allOf": [
         {
@@ -1296,7 +1852,87 @@
           }
         }
       ],
-      "description": "Managed cluster Access Profile."
+      "description": "Managed cluster Access Profile.",
+      "x-ms-azure-resource": false
+    },
+    "ManagedClusterAddonProfile": {
+      "description": "A Kubernetes add-on profile for a managed cluster.",
+      "properties": {
+        "config": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "Key-value pairs for configuring an add-on."
+        },
+        "enabled": {
+          "description": "Whether the add-on is enabled or not.",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "enabled"
+      ]
+    },
+    "ManagedClusterAgentPoolProfile": {
+      "description": "Profile for the container service agent pool.",
+      "properties": {
+        "count": {
+          "default": 1,
+          "description": "Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1. ",
+          "format": "int32",
+          "maximum": 100,
+          "minimum": 1,
+          "type": "integer"
+        },
+        "enableAutoScaling": {
+          "description": "Whether to enable auto-scaler",
+          "type": "boolean"
+        },
+        "maxCount": {
+          "description": "Maximum number of nodes for auto-scaling",
+          "format": "int32",
+          "type": "integer"
+        },
+        "maxPods": {
+          "description": "Maximum number of pods that can run on a node.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "minCount": {
+          "description": "Minimum number of nodes for auto-scaling",
+          "format": "int32",
+          "type": "integer"
+        },
+        "name": {
+          "description": "Unique name of the agent pool profile in the context of the subscription and resource group.",
+          "type": "string"
+        },
+        "osDiskSizeGB": {
+          "$ref": "#/definitions/ContainerServiceOSDisk",
+          "description": "OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified."
+        },
+        "osType": {
+          "$ref": "#/definitions/OSType",
+          "description": "OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux."
+        },
+        "type": {
+          "$ref": "#/definitions/AgentPoolType",
+          "description": "AgentPoolType represents types of an agent pool"
+        },
+        "vmSize": {
+          "$ref": "#/definitions/ContainerServiceVMSize",
+          "description": "Size of agent VMs."
+        },
+        "vnetSubnetID": {
+          "$ref": "#/definitions/ContainerServiceVnetSubnetID",
+          "description": "VNet SubnetID specifies the VNet's subnet identifier."
+        }
+      },
+      "required": [
+        "name",
+        "vmSize",
+        "count"
+      ]
     },
     "ManagedClusterListResult": {
       "description": "The response from the List Managed Clusters operation.",
@@ -1354,10 +1990,20 @@
     "ManagedClusterProperties": {
       "description": "Properties of the managed cluster.",
       "properties": {
+        "aadProfile": {
+          "$ref": "#/definitions/ManagedClusterAADProfile",
+          "description": "Profile of Azure Active Directory configuration."
+        },
+        "addonProfiles": {
+          "additionalProperties": {
+            "$ref": "#/definitions/ManagedClusterAddonProfile"
+          },
+          "description": "Profile of managed cluster add-on."
+        },
         "agentPoolProfiles": {
           "description": "Properties of the agent pool.",
           "items": {
-            "$ref": "#/definitions/ContainerServiceAgentPoolProfile"
+            "$ref": "#/definitions/ManagedClusterAgentPoolProfile"
           },
           "type": "array"
         },
@@ -1365,8 +2011,12 @@
           "description": "DNS prefix specified when creating the managed cluster.",
           "type": "string"
         },
+        "enableRBAC": {
+          "description": "Whether to enable Kubernetes Role-Based Access Control.",
+          "type": "boolean"
+        },
         "fqdn": {
-          "description": "FDQN for the master pool.",
+          "description": "FQDN for the master pool.",
           "readOnly": true,
           "type": "string"
         },
@@ -1378,16 +2028,41 @@
           "$ref": "#/definitions/ContainerServiceLinuxProfile",
           "description": "Profile for Linux VMs in the container service cluster."
         },
+        "networkProfile": {
+          "$ref": "#/definitions/ContainerServiceNetworkProfile",
+          "description": "Profile of network configuration."
+        },
+        "nodeResourceGroup": {
+          "description": "Name of the resource group containing agent pool nodes.",
+          "readOnly": true,
+          "type": "string"
+        },
         "provisioningState": {
           "description": "The current deployment or provisioning state, which only appears in the response.",
           "readOnly": true,
           "type": "string"
         },
         "servicePrincipalProfile": {
-          "$ref": "#/definitions/ContainerServiceServicePrincipalProfile",
-          "description": "Information about a service principal identity for the cluster to use for manipulating Azure APIs. Either secret or keyVaultSecretRef must be specified."
+          "$ref": "#/definitions/ManagedClusterServicePrincipalProfile",
+          "description": "Information about a service principal identity for the cluster to use for manipulating Azure APIs."
         }
       }
+    },
+    "ManagedClusterServicePrincipalProfile": {
+      "description": "Information about a service principal identity for the cluster to use for manipulating Azure APIs.",
+      "properties": {
+        "clientId": {
+          "description": "The ID for the service principal.",
+          "type": "string"
+        },
+        "secret": {
+          "description": "The secret password associated with the service principal in plain text.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "clientId"
+      ]
     },
     "ManagedClusterUpgradeProfile": {
       "description": "The list of available upgrades for compute pools.",
@@ -1450,6 +2125,64 @@
         "name": "OSType"
       }
     },
+    "OperationListResult": {
+      "description": "The List Compute Operation operation response.",
+      "properties": {
+        "value": {
+          "description": "The list of compute operations",
+          "items": {
+            "$ref": "#/definitions/OperationValue"
+          },
+          "readOnly": true,
+          "type": "array"
+        }
+      }
+    },
+    "OperationValue": {
+      "description": "Describes the properties of a Compute Operation value.",
+      "properties": {
+        "display": {
+          "$ref": "#/definitions/OperationValueDisplay",
+          "description": "Describes the properties of a Compute Operation Value Display.",
+          "x-ms-client-flatten": true
+        },
+        "name": {
+          "description": "The name of the compute operation.",
+          "readOnly": true,
+          "type": "string"
+        },
+        "origin": {
+          "description": "The origin of the compute operation.",
+          "readOnly": true,
+          "type": "string"
+        }
+      }
+    },
+    "OperationValueDisplay": {
+      "description": "Describes the properties of a Compute Operation Value Display.",
+      "properties": {
+        "description": {
+          "description": "The description of the operation.",
+          "readOnly": true,
+          "type": "string"
+        },
+        "operation": {
+          "description": "The display name of the compute operation.",
+          "readOnly": true,
+          "type": "string"
+        },
+        "provider": {
+          "description": "The resource provider for the operation.",
+          "readOnly": true,
+          "type": "string"
+        },
+        "resource": {
+          "description": "The display name of the resource the operation applies to.",
+          "readOnly": true,
+          "type": "string"
+        }
+      }
+    },
     "OrchestratorProfile": {
       "description": "Contains information about orchestrator.",
       "properties": {
@@ -1505,6 +2238,18 @@
         "location"
       ],
       "x-ms-azure-resource": true
+    },
+    "TagsObject": {
+      "description": "Tags object for patch operations.",
+      "properties": {
+        "tags": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "Resource tags.",
+          "type": "object"
+        }
+      }
     }
   }
 }

@@ -19,7 +19,7 @@
       {
         "converter": {
           "url": "https://github.com/lucybot/api-spec-converter",
-          "version": "2.6.2"
+          "version": "2.7.25"
         },
         "format": "swagger",
         "url": "https://api.geneea.com/api-docs?group=s1",

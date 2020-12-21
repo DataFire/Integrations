@@ -1,6 +1,6 @@
 # @datafire/crossbrowsertesting
 
-Client library for Crossbrowsertesting.com Screenshot Comparisons
+Client library for Crossbrowsertesting.com Screenshot Comparisons API
 
 ## Installation and Usage
 ```bash
@@ -12,11 +12,7 @@ let crossbrowsertesting = require('@datafire/crossbrowsertesting').create({
   password: ""
 });
 
-crossbrowsertesting.screenshots.target_screenshot_test_id.target_version_id.comparison.parallel.base_version_id.get({
-  "target_screenshot_test_id": 0,
-  "target_version_id": 0,
-  "base_version_id": 0
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

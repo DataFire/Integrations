@@ -19,7 +19,7 @@
     "x-origin": [
       {
         "format": "swagger",
-        "url": "http://vocadb.net/swagger/docs/v1",
+        "url": "https://vocadb.net/swagger/docs/v1",
         "version": "2.0"
       }
     ],
@@ -76,6 +76,27 @@
             "type": "string"
           },
           {
+            "description": "Entry type. Optional.",
+            "enum": [
+              "Undefined",
+              "Album",
+              "Artist",
+              "DiscussionTopic",
+              "PV",
+              "ReleaseEvent",
+              "ReleaseEventSeries",
+              "Song",
+              "SongList",
+              "Tag",
+              "User",
+              "Venue"
+            ],
+            "in": "query",
+            "name": "entryType",
+            "required": false,
+            "type": "string"
+          },
+          {
             "description": "Maximum number of results to return. Default 50. Maximum value 500.",
             "format": "int32",
             "in": "query",
@@ -120,7 +141,7 @@
             "type": "string"
           },
           {
-            "description": "Content language preference.",
+            "description": "Content language preference. Optional.",
             "enum": [
               "Default",
               "Japanese",
@@ -129,6 +150,17 @@
             ],
             "in": "query",
             "name": "lang",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Sort rule. Optional.",
+            "enum": [
+              "CreateDateDescending",
+              "CreateDate"
+            ],
+            "in": "query",
+            "name": "sortRule",
             "required": false,
             "type": "string"
           }
@@ -352,7 +384,7 @@
             "type": "boolean"
           },
           {
-            "description": "Whether to search for deleted entries. If this is true, only deleted entries will be returned.",
+            "description": "Whether to search for deleted entries.\r\n            If this is true, only deleted entries will be returned.\r\n            If this is false (default), deleted entries are not returned.",
             "in": "query",
             "name": "deleted",
             "required": false,
@@ -631,28 +663,21 @@
     },
     "/api/albums/top": {
       "get": {
-        "consumes": [
-          "application/json",
-          "text/json",
-          "application/xml",
-          "text/xml",
-          "application/x-www-form-urlencoded"
-        ],
+        "consumes": [],
         "deprecated": false,
         "description": "Output is cached for 1 hour.",
         "operationId": "AlbumApi_GetTopAlbums",
         "parameters": [
           {
-            "in": "body",
+            "collectionFormat": "multi",
+            "in": "query",
+            "items": {
+              "format": "int32",
+              "type": "integer"
+            },
             "name": "ignoreIds",
-            "required": true,
-            "schema": {
-              "items": {
-                "format": "int32",
-                "type": "integer"
-              },
-              "type": "array"
-            }
+            "required": false,
+            "type": "array"
           },
           {
             "enum": [
@@ -933,6 +958,130 @@
         ]
       }
     },
+    "/api/albums/{id}/reviews": {
+      "get": {
+        "consumes": [],
+        "deprecated": false,
+        "operationId": "AlbumApi_GetReviews",
+        "parameters": [
+          {
+            "format": "int32",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "languageCode",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml",
+          "text/javascript",
+          "application/javascript",
+          "application/json-p"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/AlbumReviewContract"
+              },
+              "type": "array"
+            }
+          }
+        },
+        "tags": [
+          "AlbumApi"
+        ]
+      },
+      "post": {
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml",
+          "application/x-www-form-urlencoded"
+        ],
+        "deprecated": false,
+        "operationId": "AlbumApi_PostReview",
+        "parameters": [
+          {
+            "format": "int32",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "in": "body",
+            "name": "reviewContract",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AlbumReviewContract"
+            }
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml",
+          "text/javascript",
+          "application/javascript",
+          "application/json-p"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/AlbumReviewContract"
+            }
+          }
+        },
+        "tags": [
+          "AlbumApi"
+        ]
+      }
+    },
+    "/api/albums/{id}/reviews/{reviewId}": {
+      "delete": {
+        "consumes": [],
+        "deprecated": false,
+        "operationId": "AlbumApi_DeleteReview",
+        "parameters": [
+          {
+            "format": "int32",
+            "in": "path",
+            "name": "reviewId",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "produces": [],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "tags": [
+          "AlbumApi"
+        ]
+      }
+    },
     "/api/albums/{id}/tracks": {
       "get": {
         "consumes": [],
@@ -1012,10 +1161,9 @@
       "get": {
         "consumes": [],
         "deprecated": false,
-        "operationId": "AlbumApi_GetTracksFormatted",
+        "operationId": "AlbumApi_GetTracksFields",
         "parameters": [
           {
-            "description": "Album ID.",
             "format": "int32",
             "in": "path",
             "name": "id",
@@ -1024,7 +1172,6 @@
           },
           {
             "collectionFormat": "multi",
-            "description": "Field to be included, for example \"featvocalists\" or \"url\". Can be specified multiple times.",
             "in": "query",
             "items": {
               "type": "string"
@@ -1034,7 +1181,13 @@
             "type": "array"
           },
           {
-            "description": "Language preference.",
+            "format": "int32",
+            "in": "query",
+            "name": "discNumber",
+            "required": false,
+            "type": "integer"
+          },
+          {
             "enum": [
               "Default",
               "Japanese",
@@ -1071,7 +1224,57 @@
             }
           }
         },
-        "summary": "Gets tracks for an album formatted using the CSV format string.",
+        "tags": [
+          "AlbumApi"
+        ]
+      }
+    },
+    "/api/albums/{id}/user-collections": {
+      "get": {
+        "consumes": [],
+        "deprecated": false,
+        "operationId": "AlbumApi_GetUserCollections",
+        "parameters": [
+          {
+            "format": "int32",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "enum": [
+              "Default",
+              "Japanese",
+              "Romaji",
+              "English"
+            ],
+            "in": "query",
+            "name": "languagePreference",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml",
+          "text/javascript",
+          "application/javascript",
+          "application/json-p"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/AlbumForUserForApiContract"
+              },
+              "type": "array"
+            }
+          }
+        },
         "tags": [
           "AlbumApi"
         ]
@@ -1630,6 +1833,7 @@
         "operationId": "CommentApi_GetComments",
         "parameters": [
           {
+            "description": "Entry type.",
             "enum": [
               "Undefined",
               "Album",
@@ -1641,7 +1845,8 @@
               "Song",
               "SongList",
               "Tag",
-              "User"
+              "User",
+              "Venue"
             ],
             "in": "path",
             "name": "entryType",
@@ -1691,6 +1896,7 @@
         "operationId": "CommentApi_PostNewComment",
         "parameters": [
           {
+            "description": "Entry type.",
             "enum": [
               "Undefined",
               "Album",
@@ -1702,7 +1908,8 @@
               "Song",
               "SongList",
               "Tag",
-              "User"
+              "User",
+              "Venue"
             ],
             "in": "path",
             "name": "entryType",
@@ -1750,6 +1957,7 @@
         "operationId": "CommentApi_DeleteComment",
         "parameters": [
           {
+            "description": "Entry type.",
             "enum": [
               "Undefined",
               "Album",
@@ -1761,7 +1969,8 @@
               "Song",
               "SongList",
               "Tag",
-              "User"
+              "User",
+              "Venue"
             ],
             "in": "path",
             "name": "entryType",
@@ -1801,6 +2010,7 @@
         "operationId": "CommentApi_PostEditComment",
         "parameters": [
           {
+            "description": "Entry type.",
             "enum": [
               "Undefined",
               "Album",
@@ -1812,7 +2022,8 @@
               "Song",
               "SongList",
               "Tag",
-              "User"
+              "User",
+              "Venue"
             ],
             "in": "path",
             "name": "entryType",
@@ -2382,6 +2593,27 @@
             "type": "boolean"
           },
           {
+            "description": "Included entry types (optional).",
+            "enum": [
+              "Nothing",
+              "Album",
+              "Artist",
+              "DiscussionTopic",
+              "PV",
+              "ReleaseEvent",
+              "ReleaseEventSeries",
+              "Song",
+              "SongList",
+              "Tag",
+              "User",
+              "Venue"
+            ],
+            "in": "query",
+            "name": "entryTypes",
+            "required": false,
+            "type": "string"
+          },
+          {
             "description": "Filter by entry status (optional).",
             "enum": [
               "Draft",
@@ -2560,6 +2792,79 @@
         ]
       }
     },
+    "/api/entry-types/{entryType}/{subType}/tag": {
+      "get": {
+        "consumes": [],
+        "deprecated": false,
+        "operationId": "EntryTypesApi_GetMappedTag",
+        "parameters": [
+          {
+            "enum": [
+              "Undefined",
+              "Album",
+              "Artist",
+              "DiscussionTopic",
+              "PV",
+              "ReleaseEvent",
+              "ReleaseEventSeries",
+              "Song",
+              "SongList",
+              "Tag",
+              "User",
+              "Venue"
+            ],
+            "in": "path",
+            "name": "entryType",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "subType",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "None",
+              "AdditionalNames",
+              "AliasedTo",
+              "Description",
+              "MainPicture",
+              "Names",
+              "Parent",
+              "RelatedTags",
+              "TranslatedDescription",
+              "WebLinks"
+            ],
+            "in": "query",
+            "name": "fields",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml",
+          "text/javascript",
+          "application/javascript",
+          "application/json-p"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/TagForApiContract"
+            }
+          }
+        },
+        "tags": [
+          "EntryTypesApi"
+        ]
+      }
+    },
     "/api/pvs/for-songs": {
       "get": {
         "consumes": [],
@@ -2567,9 +2872,35 @@
         "operationId": "PVApi_GetList",
         "parameters": [
           {
+            "description": "PV title (optional).",
+            "in": "query",
+            "name": "name",
+            "required": false,
+            "type": "string"
+          },
+          {
             "description": "Uploader name (optional).",
             "in": "query",
             "name": "author",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "PV service (optional).",
+            "enum": [
+              "NicoNicoDouga",
+              "Youtube",
+              "SoundCloud",
+              "Vimeo",
+              "Piapro",
+              "Bilibili",
+              "File",
+              "LocalFile",
+              "Creofuga",
+              "Bandcamp"
+            ],
+            "in": "query",
+            "name": "service",
             "required": false,
             "type": "string"
           },
@@ -2639,6 +2970,22 @@
             "type": "string"
           },
           {
+            "description": "Optional fields to include.",
+            "enum": [
+              "None",
+              "AdditionalNames",
+              "Description",
+              "Events",
+              "MainPicture",
+              "Names",
+              "WebLinks"
+            ],
+            "in": "query",
+            "name": "fields",
+            "required": false,
+            "type": "string"
+          },
+          {
             "description": "First item to be retrieved (optional).",
             "format": "int32",
             "in": "query",
@@ -2702,7 +3049,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/PartialFindResult[ReleaseEventSeriesContract]"
+              "$ref": "#/definitions/PartialFindResult[ReleaseEventSeriesForApiContract]"
             }
           }
         },
@@ -2748,6 +3095,68 @@
           }
         },
         "summary": "Deletes an event series.",
+        "tags": [
+          "ReleaseEventSeriesApi"
+        ]
+      },
+      "get": {
+        "consumes": [],
+        "deprecated": false,
+        "operationId": "ReleaseEventSeriesApi_GetOne",
+        "parameters": [
+          {
+            "format": "int32",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "enum": [
+              "None",
+              "AdditionalNames",
+              "Description",
+              "Events",
+              "MainPicture",
+              "Names",
+              "WebLinks"
+            ],
+            "in": "query",
+            "name": "fields",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "Default",
+              "Japanese",
+              "Romaji",
+              "English"
+            ],
+            "in": "query",
+            "name": "lang",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml",
+          "text/javascript",
+          "application/javascript",
+          "application/json-p"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ReleaseEventSeriesForApiContract"
+            }
+          }
+        },
+        "summary": "Gets single event series by ID.",
         "tags": [
           "ReleaseEventSeriesApi"
         ]
@@ -2917,7 +3326,8 @@
               "Name",
               "Date",
               "AdditionDate",
-              "SeriesName"
+              "SeriesName",
+              "VenueName"
             ],
             "in": "query",
             "name": "sort",
@@ -2935,6 +3345,8 @@
               "Names",
               "Series",
               "SongList",
+              "Tags",
+              "Venue",
               "WebLinks"
             ],
             "in": "query",
@@ -3295,6 +3707,8 @@
               "Names",
               "Series",
               "SongList",
+              "Tags",
+              "Venue",
               "WebLinks"
             ],
             "in": "query",
@@ -3515,6 +3929,25 @@
             "type": "string"
           },
           {
+            "collectionFormat": "multi",
+            "description": "Filter by one or more tag Ids (optional).",
+            "in": "query",
+            "items": {
+              "format": "int32",
+              "type": "integer"
+            },
+            "name": "tagId",
+            "required": false,
+            "type": "array"
+          },
+          {
+            "description": "Include child tags, if the tags being filtered by have any.",
+            "in": "query",
+            "name": "childTags",
+            "required": false,
+            "type": "boolean"
+          },
+          {
             "description": "Match mode for list name (optional, defaults to Auto).",
             "enum": [
               "Auto",
@@ -3575,6 +4008,33 @@
             ],
             "in": "query",
             "name": "sort",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "List of optional fields (optional).",
+            "enum": [
+              "None",
+              "Description",
+              "Events",
+              "MainPicture",
+              "Tags"
+            ],
+            "in": "query",
+            "name": "fields",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Content language preference (optional).",
+            "enum": [
+              "Default",
+              "Japanese",
+              "Romaji",
+              "English"
+            ],
+            "in": "query",
+            "name": "lang",
             "required": false,
             "type": "string"
           }
@@ -3848,7 +4308,8 @@
               "Bilibili",
               "File",
               "LocalFile",
-              "Creofuga"
+              "Creofuga",
+              "Bandcamp"
             ],
             "in": "query",
             "name": "pvServices",
@@ -3926,7 +4387,8 @@
               "AdditionDate",
               "PublishDate",
               "FavoritedTimes",
-              "RatingScore"
+              "RatingScore",
+              "TagUsageCount"
             ],
             "in": "query",
             "name": "sort",
@@ -4026,6 +4488,22 @@
             "type": "string"
           },
           {
+            "description": "Filter by songs published after this date (inclusive).",
+            "format": "date-time",
+            "in": "query",
+            "name": "afterDate",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Filter by songs published before this date (exclusive).",
+            "format": "date-time",
+            "in": "query",
+            "name": "beforeDate",
+            "required": false,
+            "type": "string"
+          },
+          {
             "collectionFormat": "multi",
             "description": "Filter by one or more tag names (optional).",
             "in": "query",
@@ -4052,6 +4530,13 @@
             "description": "Include child tags, if the tags being filtered by have any.",
             "in": "query",
             "name": "childTags",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "description": "When searching by song type, search by associated tag as well, and vice versa.",
+            "in": "query",
+            "name": "unifyTypesAndTags",
             "required": false,
             "type": "boolean"
           },
@@ -4112,7 +4597,8 @@
               "Bilibili",
               "File",
               "LocalFile",
-              "Creofuga"
+              "Creofuga",
+              "Bandcamp"
             ],
             "in": "query",
             "name": "pvServices",
@@ -4148,6 +4634,14 @@
             "format": "int32",
             "in": "query",
             "name": "releaseEventId",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Filter by parent song. By default there is no filtering.",
+            "format": "int32",
+            "in": "query",
+            "name": "parentSongId",
             "required": false,
             "type": "integer"
           },
@@ -4204,7 +4698,8 @@
               "AdditionDate",
               "PublishDate",
               "FavoritedTimes",
-              "RatingScore"
+              "RatingScore",
+              "TagUsageCount"
             ],
             "in": "query",
             "name": "sort",
@@ -4307,7 +4802,8 @@
               "Bilibili",
               "File",
               "LocalFile",
-              "Creofuga"
+              "Creofuga",
+              "Bandcamp"
             ],
             "in": "query",
             "name": "pvService",
@@ -5637,6 +6133,27 @@
             "type": "string"
           },
           {
+            "description": "Tag usage entry type. Optional - if not specified, all entry types are included.",
+            "enum": [
+              "Undefined",
+              "Album",
+              "Artist",
+              "DiscussionTopic",
+              "PV",
+              "ReleaseEvent",
+              "ReleaseEventSeries",
+              "Song",
+              "SongList",
+              "Tag",
+              "User",
+              "Venue"
+            ],
+            "in": "query",
+            "name": "entryType",
+            "required": false,
+            "type": "string"
+          },
+          {
             "description": "Maximum number of tags to return.",
             "format": "int32",
             "in": "query",
@@ -6389,7 +6906,8 @@
               "Song",
               "SongList",
               "Tag",
-              "User"
+              "User",
+              "Venue"
             ],
             "in": "query",
             "name": "entryType",
@@ -6976,6 +7494,18 @@
             "type": "string"
           },
           {
+            "collectionFormat": "multi",
+            "description": "Filter by tag Id (optional). This filter can be specified multiple times.",
+            "in": "query",
+            "items": {
+              "format": "int32",
+              "type": "integer"
+            },
+            "name": "tagId",
+            "required": false,
+            "type": "array"
+          },
+          {
             "description": "Filter by artist type.",
             "enum": [
               "Unknown",
@@ -7461,6 +7991,17 @@
             "type": "boolean"
           },
           {
+            "description": "Logical grouping for artists.",
+            "enum": [
+              "And",
+              "Or"
+            ],
+            "in": "query",
+            "name": "artistGrouping",
+            "required": false,
+            "type": "string"
+          },
+          {
             "description": "Filter songs by given rating (optional).",
             "enum": [
               "Nothing",
@@ -7500,7 +8041,8 @@
               "Bilibili",
               "File",
               "LocalFile",
-              "Creofuga"
+              "Creofuga",
+              "Bandcamp"
             ],
             "in": "query",
             "name": "pvServices",
@@ -7679,6 +8221,56 @@
         ]
       }
     },
+    "/api/users/{id}/reports": {
+      "post": {
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml",
+          "application/x-www-form-urlencoded"
+        ],
+        "deprecated": false,
+        "operationId": "UserApi_PostReport",
+        "parameters": [
+          {
+            "format": "int32",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "in": "body",
+            "name": "model",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateReportModel"
+            }
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml",
+          "text/javascript",
+          "application/javascript",
+          "application/json-p"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        },
+        "tags": [
+          "UserApi"
+        ]
+      }
+    },
     "/api/users/{id}/settings/{settingName}": {
       "post": {
         "consumes": [
@@ -7735,7 +8327,6 @@
         "operationId": "UserApi_GetSongLists",
         "parameters": [
           {
-            "description": "User whose song lists are to be loaded.",
             "format": "int32",
             "in": "path",
             "name": "id",
@@ -7743,14 +8334,29 @@
             "type": "integer"
           },
           {
-            "description": "Song list name query (optional).",
             "in": "query",
             "name": "query",
             "required": false,
             "type": "string"
           },
           {
-            "description": "Match mode for song name (optional, defaults to Auto).",
+            "collectionFormat": "multi",
+            "in": "query",
+            "items": {
+              "format": "int32",
+              "type": "integer"
+            },
+            "name": "tagId",
+            "required": false,
+            "type": "array"
+          },
+          {
+            "in": "query",
+            "name": "childTags",
+            "required": false,
+            "type": "boolean"
+          },
+          {
             "enum": [
               "Auto",
               "Partial",
@@ -7764,7 +8370,6 @@
             "type": "string"
           },
           {
-            "description": "First item to be retrieved (optional, defaults to 0).",
             "format": "int32",
             "in": "query",
             "name": "start",
@@ -7772,7 +8377,6 @@
             "type": "integer"
           },
           {
-            "description": "Maximum number of results to be loaded (optional, defaults to 10, maximum of 50).",
             "format": "int32",
             "in": "query",
             "name": "maxResults",
@@ -7780,14 +8384,12 @@
             "type": "integer"
           },
           {
-            "description": "Whether to load total number of items (optional, default to false).",
             "in": "query",
             "name": "getTotalCount",
             "required": false,
             "type": "boolean"
           },
           {
-            "description": "Sort option for the song lists. Possible values are None, Name, Date, CreateDate. Default is Name.",
             "enum": [
               "None",
               "Name",
@@ -7800,11 +8402,12 @@
             "type": "string"
           },
           {
-            "description": "List of optional fields.",
             "enum": [
               "None",
               "Description",
-              "MainPicture"
+              "Events",
+              "MainPicture",
+              "Tags"
             ],
             "in": "query",
             "name": "fields",
@@ -7829,9 +8432,253 @@
             }
           }
         },
-        "summary": "Gets a list of song lists for a user.",
         "tags": [
           "UserApi"
+        ]
+      }
+    },
+    "/api/venues": {
+      "get": {
+        "consumes": [],
+        "deprecated": false,
+        "operationId": "VenueApi_GetList",
+        "parameters": [
+          {
+            "description": "Text query.",
+            "in": "query",
+            "name": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Optional fields to include.",
+            "enum": [
+              "None",
+              "AdditionalNames",
+              "Description",
+              "Events",
+              "Names",
+              "WebLinks"
+            ],
+            "in": "query",
+            "name": "fields",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "First item to be retrieved (optional).",
+            "format": "int32",
+            "in": "query",
+            "name": "start",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Maximum number of results to be loaded (optional).",
+            "format": "int32",
+            "in": "query",
+            "name": "maxResults",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Whether to load total number of items (optional).",
+            "in": "query",
+            "name": "getTotalCount",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "description": "Match mode for event name (optional).",
+            "enum": [
+              "Auto",
+              "Partial",
+              "StartsWith",
+              "Exact",
+              "Words"
+            ],
+            "in": "query",
+            "name": "nameMatchMode",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Content language preference (optional).",
+            "enum": [
+              "Default",
+              "Japanese",
+              "Romaji",
+              "English"
+            ],
+            "in": "query",
+            "name": "lang",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Sort rule (optional, defaults to Name). Possible values are None, Name, Distance.",
+            "enum": [
+              "None",
+              "Name",
+              "Distance"
+            ],
+            "in": "query",
+            "name": "sortRule",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Latitude (optional).",
+            "format": "double",
+            "in": "query",
+            "name": "latitude",
+            "required": false,
+            "type": "number"
+          },
+          {
+            "description": "Longitude (optional).",
+            "format": "double",
+            "in": "query",
+            "name": "longitude",
+            "required": false,
+            "type": "number"
+          },
+          {
+            "description": "Radius (optional).",
+            "format": "double",
+            "in": "query",
+            "name": "radius",
+            "required": false,
+            "type": "number"
+          },
+          {
+            "description": "Unit of length (optional). Possible values are Kilometers, Miles.",
+            "enum": [
+              "Kilometers",
+              "Miles"
+            ],
+            "in": "query",
+            "name": "distanceUnit",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml",
+          "text/javascript",
+          "application/javascript",
+          "application/json-p"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/PartialFindResult[VenueForApiContract]"
+            }
+          }
+        },
+        "summary": "Gets a page of event venue.",
+        "tags": [
+          "VenueApi"
+        ]
+      }
+    },
+    "/api/venues/{id}": {
+      "delete": {
+        "consumes": [],
+        "deprecated": false,
+        "operationId": "VenueApi_Delete",
+        "parameters": [
+          {
+            "description": "ID of the venue to be deleted.",
+            "format": "int32",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Notes.",
+            "in": "query",
+            "name": "notes",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "If true, the entry is hard deleted. Hard deleted entries cannot be restored normally, but they will be moved to trash.\r\n            If false, the entry is soft deleted, meaning it can still be restored.",
+            "in": "query",
+            "name": "hardDelete",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "produces": [],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "summary": "Deletes a venue.",
+        "tags": [
+          "VenueApi"
+        ]
+      }
+    },
+    "/api/venues/{id}/reports": {
+      "post": {
+        "consumes": [],
+        "deprecated": false,
+        "operationId": "VenueApi_PostReport",
+        "parameters": [
+          {
+            "description": "Venue to be reported.",
+            "format": "int32",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Report type.",
+            "enum": [
+              "InvalidInfo",
+              "Duplicate",
+              "Inappropriate",
+              "Other"
+            ],
+            "in": "query",
+            "name": "reportType",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Notes. Optional.",
+            "in": "query",
+            "name": "notes",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Version to be reported. Optional.",
+            "format": "int32",
+            "in": "query",
+            "name": "versionNumber",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "produces": [],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "summary": "Creates a new report.",
+        "tags": [
+          "VenueApi"
         ]
       }
     }
@@ -8161,6 +9008,9 @@
         "rating": {
           "format": "int32",
           "type": "integer"
+        },
+        "user": {
+          "$ref": "#/definitions/UserForApiContract"
         }
       },
       "type": "object"
@@ -8169,6 +9019,35 @@
       "properties": {
         "value": {
           "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "AlbumReviewContract": {
+      "properties": {
+        "albumId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "date": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "languageCode": {
+          "type": "string"
+        },
+        "text": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "user": {
+          "$ref": "#/definitions/UserForApiContract"
         }
       },
       "type": "object"
@@ -8208,6 +9087,9 @@
         },
         "description": {
           "type": "string"
+        },
+        "disabled": {
+          "type": "boolean"
         },
         "url": {
           "type": "string"
@@ -8407,6 +9289,9 @@
             "English"
           ],
           "type": "string"
+        },
+        "deleted": {
+          "type": "boolean"
         },
         "description": {
           "type": "string"
@@ -8682,6 +9567,23 @@
       },
       "type": "object"
     },
+    "CreateReportModel": {
+      "properties": {
+        "reason": {
+          "type": "string"
+        },
+        "reportType": {
+          "enum": [
+            "MaliciousIP",
+            "Spamming",
+            "RemovePermissions",
+            "Other"
+          ],
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "DiscussionFolderContract": {
       "properties": {
         "description": {
@@ -8844,7 +9746,8 @@
             "Song",
             "SongList",
             "Tag",
-            "User"
+            "User",
+            "Venue"
           ],
           "type": "string"
         },
@@ -8962,7 +9865,8 @@
             "Song",
             "SongList",
             "Tag",
-            "User"
+            "User",
+            "Venue"
           ],
           "type": "string"
         },
@@ -8987,7 +9891,8 @@
             "Song",
             "SongList",
             "Tag",
-            "User"
+            "User",
+            "Venue"
           ],
           "type": "string"
         },
@@ -9008,6 +9913,9 @@
     "EntryThumbForApiContract": {
       "properties": {
         "mime": {
+          "type": "string"
+        },
+        "urlOriginal": {
           "type": "string"
         },
         "urlSmallThumb": {
@@ -9124,6 +10032,25 @@
       },
       "type": "object"
     },
+    "OptionalGeoPointContract": {
+      "properties": {
+        "formatted": {
+          "type": "string"
+        },
+        "hasValue": {
+          "type": "boolean"
+        },
+        "latitude": {
+          "format": "double",
+          "type": "number"
+        },
+        "longitude": {
+          "format": "double",
+          "type": "number"
+        }
+      },
+      "type": "object"
+    },
     "PVContract": {
       "properties": {
         "author": {
@@ -9175,7 +10102,8 @@
             "Bilibili",
             "File",
             "LocalFile",
-            "Creofuga"
+            "Creofuga",
+            "Bandcamp"
           ],
           "type": "string"
         },
@@ -9247,7 +10175,8 @@
             "Bilibili",
             "File",
             "LocalFile",
-            "Creofuga"
+            "Creofuga",
+            "Bandcamp"
           ],
           "type": "string"
         },
@@ -9461,11 +10390,11 @@
       },
       "type": "object"
     },
-    "PartialFindResult[ReleaseEventSeriesContract]": {
+    "PartialFindResult[ReleaseEventSeriesForApiContract]": {
       "properties": {
         "items": {
           "items": {
-            "$ref": "#/definitions/ReleaseEventSeriesContract"
+            "$ref": "#/definitions/ReleaseEventSeriesForApiContract"
           },
           "type": "array"
         },
@@ -9587,6 +10516,24 @@
       },
       "type": "object"
     },
+    "PartialFindResult[VenueForApiContract]": {
+      "properties": {
+        "items": {
+          "items": {
+            "$ref": "#/definitions/VenueForApiContract"
+          },
+          "type": "array"
+        },
+        "term": {
+          "type": "string"
+        },
+        "totalCount": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
     "RatedSongForUserForApiContract": {
       "properties": {
         "date": {
@@ -9630,6 +10577,100 @@
             "$ref": "#/definitions/SongForApiContract"
           },
           "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "ReleaseEventContract": {
+      "properties": {
+        "additionalNames": {
+          "type": "string"
+        },
+        "category": {
+          "enum": [
+            "Unspecified",
+            "AlbumRelease",
+            "Anniversary",
+            "Club",
+            "Concert",
+            "Contest",
+            "Convention",
+            "Other"
+          ],
+          "type": "string"
+        },
+        "customName": {
+          "type": "boolean"
+        },
+        "date": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "deleted": {
+          "type": "boolean"
+        },
+        "description": {
+          "type": "string"
+        },
+        "endDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "hasVenueOrVenueName": {
+          "readOnly": true,
+          "type": "boolean"
+        },
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "inheritedCategory": {
+          "enum": [
+            "Unspecified",
+            "AlbumRelease",
+            "Anniversary",
+            "Club",
+            "Concert",
+            "Contest",
+            "Convention",
+            "Other"
+          ],
+          "readOnly": true,
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "pictureMime": {
+          "type": "string"
+        },
+        "series": {
+          "$ref": "#/definitions/ReleaseEventSeriesContract"
+        },
+        "songList": {
+          "$ref": "#/definitions/SongListBaseContract"
+        },
+        "status": {
+          "enum": [
+            "Draft",
+            "Finished",
+            "Approved",
+            "Locked"
+          ],
+          "type": "string"
+        },
+        "urlSlug": {
+          "type": "string"
+        },
+        "venue": {
+          "$ref": "#/definitions/VenueContract"
+        },
+        "venueName": {
+          "type": "string"
+        },
+        "version": {
+          "format": "int32",
+          "type": "integer"
         }
       },
       "type": "object"
@@ -9711,8 +10752,17 @@
           ],
           "type": "string"
         },
+        "tags": {
+          "items": {
+            "$ref": "#/definitions/TagUsageForApiContract"
+          },
+          "type": "array"
+        },
         "urlSlug": {
           "type": "string"
+        },
+        "venue": {
+          "$ref": "#/definitions/VenueForApiContract"
         },
         "venueName": {
           "type": "string"
@@ -9789,6 +10839,74 @@
       },
       "type": "object"
     },
+    "ReleaseEventSeriesForApiContract": {
+      "properties": {
+        "additionalNames": {
+          "type": "string"
+        },
+        "category": {
+          "enum": [
+            "Unspecified",
+            "AlbumRelease",
+            "Anniversary",
+            "Club",
+            "Concert",
+            "Contest",
+            "Convention",
+            "Other"
+          ],
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "events": {
+          "items": {
+            "$ref": "#/definitions/ReleaseEventForApiContract"
+          },
+          "type": "array"
+        },
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "mainPicture": {
+          "$ref": "#/definitions/EntryThumbForApiContract"
+        },
+        "name": {
+          "type": "string"
+        },
+        "names": {
+          "items": {
+            "$ref": "#/definitions/LocalizedStringContract"
+          },
+          "type": "array"
+        },
+        "status": {
+          "enum": [
+            "Draft",
+            "Finished",
+            "Approved",
+            "Locked"
+          ],
+          "type": "string"
+        },
+        "urlSlug": {
+          "type": "string"
+        },
+        "version": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "webLinks": {
+          "items": {
+            "$ref": "#/definitions/WebLinkForApiContract"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
     "SongContract": {
       "properties": {
         "additionalNames": {
@@ -9837,7 +10955,8 @@
             "Bilibili",
             "File",
             "LocalFile",
-            "Creofuga"
+            "Creofuga",
+            "Bandcamp"
           ],
           "type": "string"
         },
@@ -9918,6 +11037,9 @@
           ],
           "type": "string"
         },
+        "deleted": {
+          "type": "boolean"
+        },
         "favoritedTimes": {
           "format": "int32",
           "type": "integer"
@@ -9971,7 +11093,8 @@
             "Bilibili",
             "File",
             "LocalFile",
-            "Creofuga"
+            "Creofuga",
+            "Bandcamp"
           ],
           "type": "string"
         },
@@ -10121,9 +11244,21 @@
         "author": {
           "$ref": "#/definitions/UserForApiContract"
         },
+        "deleted": {
+          "type": "boolean"
+        },
+        "description": {
+          "type": "string"
+        },
         "eventDate": {
           "format": "date-time",
           "type": "string"
+        },
+        "events": {
+          "items": {
+            "$ref": "#/definitions/ReleaseEventForApiContract"
+          },
+          "type": "array"
         },
         "featuredCategory": {
           "enum": [
@@ -10139,11 +11274,32 @@
           "format": "int32",
           "type": "integer"
         },
+        "latestComments": {
+          "items": {
+            "$ref": "#/definitions/CommentForApiContract"
+          },
+          "type": "array"
+        },
         "mainPicture": {
           "$ref": "#/definitions/EntryThumbForApiContract"
         },
         "name": {
           "type": "string"
+        },
+        "status": {
+          "enum": [
+            "Draft",
+            "Finished",
+            "Approved",
+            "Locked"
+          ],
+          "type": "string"
+        },
+        "tags": {
+          "items": {
+            "$ref": "#/definitions/TagUsageForApiContract"
+          },
+          "type": "array"
         }
       },
       "type": "object"
@@ -10466,6 +11622,113 @@
       },
       "type": "object"
     },
+    "VenueContract": {
+      "properties": {
+        "additionalNames": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        },
+        "addressCountryCode": {
+          "type": "string"
+        },
+        "coordinates": {
+          "$ref": "#/definitions/OptionalGeoPointContract"
+        },
+        "deleted": {
+          "type": "boolean"
+        },
+        "description": {
+          "type": "string"
+        },
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "Draft",
+            "Finished",
+            "Approved",
+            "Locked"
+          ],
+          "type": "string"
+        },
+        "version": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "webLinks": {
+          "items": {
+            "$ref": "#/definitions/WebLinkContract"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "VenueForApiContract": {
+      "properties": {
+        "additionalNames": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        },
+        "addressCountryCode": {
+          "type": "string"
+        },
+        "coordinates": {
+          "$ref": "#/definitions/OptionalGeoPointContract"
+        },
+        "description": {
+          "type": "string"
+        },
+        "events": {
+          "items": {
+            "$ref": "#/definitions/ReleaseEventContract"
+          },
+          "type": "array"
+        },
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "names": {
+          "items": {
+            "$ref": "#/definitions/LocalizedStringContract"
+          },
+          "type": "array"
+        },
+        "status": {
+          "enum": [
+            "Draft",
+            "Finished",
+            "Approved",
+            "Locked"
+          ],
+          "type": "string"
+        },
+        "version": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "webLinks": {
+          "items": {
+            "$ref": "#/definitions/WebLinkForApiContract"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
     "WebLinkContract": {
       "properties": {
         "category": {
@@ -10482,6 +11745,9 @@
         },
         "descriptionOrUrl": {
           "type": "string"
+        },
+        "disabled": {
+          "type": "boolean"
         },
         "id": {
           "format": "int32",
@@ -10506,6 +11772,12 @@
         },
         "description": {
           "type": "string"
+        },
+        "descriptionOrUrl": {
+          "type": "string"
+        },
+        "disabled": {
+          "type": "boolean"
         },
         "id": {
           "format": "int32",

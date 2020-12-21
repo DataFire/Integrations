@@ -15,28 +15,25 @@ let azure_azsadmin_infrarole = require('@datafire/azure_azsadmin_infrarole').cre
   redirect_uri: ""
 });
 
-azure_azsadmin_infrarole.InfraRoles_List({
-  "subscriptionId": "",
-  "location": "",
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
 
 ## Description
 
-InfraRole operation endpoints and objects.
+Infrastructure role operation endpoints and objects.
 
 ## Actions
 
 ### InfraRoles_List
-Get a list of all infra roles at a location.
+Returns a list of all infrastructure roles at a location.
 
 
 ```js
 azure_azsadmin_infrarole.InfraRoles_List({
   "subscriptionId": "",
+  "resourceGroupName": "",
   "location": "",
   "api-version": ""
 }, context)
@@ -44,21 +41,23 @@ azure_azsadmin_infrarole.InfraRoles_List({
 
 #### Input
 * input `object`
-  * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription.The subscription ID forms part of the URI for every service call.
+  * subscriptionId **required** `string`: Subscription credentials that uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+  * resourceGroupName **required** `string`: Name of the resource group.
   * location **required** `string`: Location of the resource.
-  * api-version **required** `string`: Client Api Version.
+  * api-version **required** `string`: Client API Version.
   * $filter `string`: OData filter parameter.
 
 #### Output
 * output [InfraRoleList](#infrarolelist)
 
 ### InfraRoles_Get
-Get an infra role description.
+Returns the requested infrastructure role description.
 
 
 ```js
 azure_azsadmin_infrarole.InfraRoles_Get({
   "subscriptionId": "",
+  "resourceGroupName": "",
   "location": "",
   "infraRole": "",
   "api-version": ""
@@ -67,36 +66,64 @@ azure_azsadmin_infrarole.InfraRoles_Get({
 
 #### Input
 * input `object`
-  * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription.The subscription ID forms part of the URI for every service call.
+  * subscriptionId **required** `string`: Subscription credentials that uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+  * resourceGroupName **required** `string`: Name of the resource group.
   * location **required** `string`: Location of the resource.
-  * infraRole **required** `string`: Infra role name.
-  * api-version **required** `string`: Client Api Version.
+  * infraRole **required** `string`: Infrastructure role name.
+  * api-version **required** `string`: Client API Version.
 
 #### Output
 * output [InfraRole](#infrarole)
+
+### InfraRoles_Restart
+Restarts the requested infrastructure role.
+
+
+```js
+azure_azsadmin_infrarole.InfraRoles_Restart({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "location": "",
+  "infraRole": "",
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: Subscription credentials that uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+  * resourceGroupName **required** `string`: Name of the resource group.
+  * location **required** `string`: Location of the resource.
+  * infraRole **required** `string`: Infrastructure role name.
+  * api-version **required** `string`: Client API Version.
+
+#### Output
+*Output schema unknown*
 
 
 
 ## Definitions
 
 ### InfraRole
-* InfraRole `object`: Get an infra role description.
+* InfraRole `object`: Infrastructure role description.
   * properties [InfraRoleModel](#infrarolemodel)
   * id `string`: URI of the resource.
-  * location `string`: Region Location of resource.
+  * location `string`: The region where the resource is located.
   * name `string`: Name of the resource.
-  * tags `object`: List of key value pairs.
+  * tags `object`: List of key-value pairs.
   * type `string`: Type of resource.
 
 ### InfraRoleList
-* InfraRoleList `object`: Pageable list of infra roles.
+* InfraRoleList `object`: Pageable list of infrastructure roles.
   * nextLink `string`: URI to the next page.
-  * value `array`: List of infra roles for this page.
+  * value `array`: List of infrastructure roles.
     * items [InfraRole](#infrarole)
 
 ### InfraRoleModel
-* InfraRoleModel `object`: Infra role properties.
-  * instances `array`: List of infra role instances.
+* InfraRoleModel `object`: Infrastructure role properties.
+  * displayName `string`: Display name for the infrastructure role.
+  * instances `array`: List of infrastructure role instances.
     * items `string`
+  * restartable `boolean`: Value indicating whether the infrastructure role can be restarted.
 
 

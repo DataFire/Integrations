@@ -1,8 +1,8 @@
 {
   "name": "@datafire/google_serviceconsumermanagement",
-  "version": "4.0.0",
+  "version": "5.0.0",
   "main": "index.js",
-  "description": "DataFire integration for Service Consumer Management",
+  "description": "DataFire integration for Service Consumer Management API",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DataFire/integrations.git"
@@ -14,8 +14,8 @@
   },
   "homepage": "https://github.com/DataFire/integrations#readme",
   "datafire": {
-    "origin": "https://api.apis.guru/v2/specs/googleapis.com/serviceconsumermanagement/v1/swagger.json",
-    "type": "openapi"
+    "origin": "https://api.apis.guru/v2/specs/googleapis.com/serviceconsumermanagement/v1beta1/openapi.json",
+    "type": "openapi_3"
   },
   "peerDependencies": {
     "datafire": "^2.0.0"

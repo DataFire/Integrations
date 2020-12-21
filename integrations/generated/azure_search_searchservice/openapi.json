@@ -5,9 +5,9 @@
   ],
   "host": "azure.local",
   "info": {
-    "description": "Client that can be used to manage and query indexes and documents, as well as manage other resources, on an Azure Search service.",
+    "description": "Client that can be used to manage and query indexes and documents, as well as manage other resources, on a search service.",
     "title": "SearchServiceClient",
-    "version": "2016-09-01-Preview",
+    "version": "2019-05-06-Preview",
     "x-apisguru-categories": [
       "cloud"
     ],
@@ -17,7 +17,7 @@
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/search/data-plane/Microsoft.Azure.Search.Service/preview/2016-09-01-preview/searchservice.json",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/search/data-plane/Microsoft.Azure.Search.Service/track1/preview/2019-05-06-preview/searchservice.json",
         "version": "2.0"
       }
     ],
@@ -95,7 +95,7 @@
     },
     "SearchDnsSuffixParameter": {
       "default": "search.windows.net",
-      "description": "The DNS suffix of the Azure Search service. The default is search.windows.net.",
+      "description": "The DNS suffix of the search service. The default is search.windows.net.",
       "in": "path",
       "name": "searchDnsSuffix",
       "required": true,
@@ -104,7 +104,7 @@
       "x-ms-skip-url-encoding": true
     },
     "SearchServiceNameParameter": {
-      "description": "The name of the Azure Search service.",
+      "description": "The name of the search service.",
       "in": "path",
       "name": "searchServiceName",
       "required": true,
@@ -116,12 +116,19 @@
   "paths": {
     "/datasources": {
       "get": {
-        "description": "Lists all datasources available for an Azure Search service.",
+        "description": "Lists all datasources available for a search service.",
         "externalDocs": {
           "url": "https://docs.microsoft.com/rest/api/searchservice/List-Data-Sources"
         },
         "operationId": "DataSources_List",
         "parameters": [
+          {
+            "description": "Selects which top-level properties of the data sources to retrieve. Specified as a comma-separated list of JSON property names, or '*' for all properties. The default is all properties.",
+            "in": "query",
+            "name": "$select",
+            "required": false,
+            "type": "string"
+          },
           {
             "$ref": "#/parameters/ClientRequestIdParameter"
           },
@@ -143,7 +150,8 @@
         "x-ms-examples": {
           "SearchServiceListDataSources": {
             "parameters": {
-              "api-version": "2016-09-01-Preview",
+              "$select": "*",
+              "api-version": "2019-05-06-Preview",
               "searchDnsSuffix": "search.windows.net",
               "searchServiceName": "myservice"
             },
@@ -170,20 +178,7 @@
                       },
                       "description": "My Cosmos DB data source.",
                       "name": "mydocdbdatasource",
-                      "type": "documentdb"
-                    },
-                    {
-                      "container": {
-                        "name": "mycontainer"
-                      },
-                      "credentials": {
-                        "connectionString": null
-                      },
-                      "dataChangeDetectionPolicy": null,
-                      "dataDeletionDetectionPolicy": null,
-                      "description": "My Azure Blob data source.",
-                      "name": "myblobdatasource",
-                      "type": "azureblob"
+                      "type": "cosmosdb"
                     }
                   ]
                 }
@@ -194,7 +189,7 @@
         "x-ms-request-id": "request-id"
       },
       "post": {
-        "description": "Creates a new Azure Search datasource.",
+        "description": "Creates a new datasource.",
         "externalDocs": {
           "url": "https://docs.microsoft.com/rest/api/searchservice/Create-Data-Source"
         },
@@ -230,7 +225,7 @@
         "x-ms-examples": {
           "SearchServiceCreateDataSource": {
             "parameters": {
-              "api-version": "2016-09-01-Preview",
+              "api-version": "2019-05-06-Preview",
               "dataSource": {
                 "container": {
                   "name": "myDocDbCollectionId",
@@ -250,7 +245,7 @@
                 },
                 "description": "My Cosmos DB data source.",
                 "name": "mydocdbdatasource",
-                "type": "documentdb"
+                "type": "cosmosdb"
               },
               "searchDnsSuffix": "search.windows.net",
               "searchServiceName": "myservice"
@@ -276,7 +271,7 @@
                   },
                   "description": "My Cosmos DB data source.",
                   "name": "mydocdbdatasource",
-                  "type": "documentdb"
+                  "type": "cosmosdb"
                 }
               }
             }
@@ -287,7 +282,7 @@
     },
     "/datasources('{dataSourceName}')": {
       "delete": {
-        "description": "Deletes an Azure Search datasource.",
+        "description": "Deletes a datasource.",
         "externalDocs": {
           "url": "https://docs.microsoft.com/rest/api/searchservice/Delete-Data-Source"
         },
@@ -327,7 +322,7 @@
         "x-ms-examples": {
           "SearchServiceDeleteDataSource": {
             "parameters": {
-              "api-version": "2016-09-01-Preview",
+              "api-version": "2019-05-06-Preview",
               "dataSourceName": "mydatasource",
               "searchDnsSuffix": "search.windows.net",
               "searchServiceName": "myservice"
@@ -341,7 +336,7 @@
         "x-ms-request-id": "request-id"
       },
       "get": {
-        "description": "Retrieves a datasource definition from Azure Search.",
+        "description": "Retrieves a datasource definition.",
         "externalDocs": {
           "url": "https://docs.microsoft.com/rest/api/searchservice/Get-Data-Source"
         },
@@ -375,7 +370,7 @@
         "x-ms-examples": {
           "SearchServiceGetDataSource": {
             "parameters": {
-              "api-version": "2016-09-01-Preview",
+              "api-version": "2019-05-06-Preview",
               "dataSourceName": "mydatasource",
               "searchDnsSuffix": "search.windows.net",
               "searchServiceName": "myservice"
@@ -401,7 +396,7 @@
                   },
                   "description": "My Cosmos DB data source.",
                   "name": "mydocdbdatasource",
-                  "type": "documentdb"
+                  "type": "cosmosdb"
                 }
               }
             }
@@ -410,7 +405,7 @@
         "x-ms-request-id": "request-id"
       },
       "put": {
-        "description": "Creates a new Azure Search datasource or updates a datasource if it already exists.",
+        "description": "Creates a new datasource or updates a datasource if it already exists.",
         "externalDocs": {
           "url": "https://docs.microsoft.com/rest/api/searchservice/Update-Data-Source"
         },
@@ -469,7 +464,7 @@
           "SearchServiceCreateOrUpdateDataSource": {
             "parameters": {
               "Prefer": "return=representation",
-              "api-version": "2016-09-01-Preview",
+              "api-version": "2019-05-06-Preview",
               "dataSource": {
                 "container": {
                   "name": "myDocDbCollectionId",
@@ -489,7 +484,7 @@
                 },
                 "description": "My Cosmos DB data source.",
                 "name": "mydocdbdatasource",
-                "type": "documentdb"
+                "type": "cosmosdb"
               },
               "dataSourceName": "mydatasource",
               "searchDnsSuffix": "search.windows.net",
@@ -516,7 +511,7 @@
                   },
                   "description": "My Cosmos DB data source.",
                   "name": "mydocdbdatasource",
-                  "type": "documentdb"
+                  "type": "cosmosdb"
                 }
               },
               "201": {
@@ -539,7 +534,7 @@
                   },
                   "description": "My Cosmos DB data source.",
                   "name": "mydocdbdatasource",
-                  "type": "documentdb"
+                  "type": "cosmosdb"
                 }
               }
             }
@@ -550,12 +545,19 @@
     },
     "/indexers": {
       "get": {
-        "description": "Lists all indexers available for an Azure Search service.",
+        "description": "Lists all indexers available for a search service.",
         "externalDocs": {
           "url": "https://docs.microsoft.com/rest/api/searchservice/List-Indexers"
         },
         "operationId": "Indexers_List",
         "parameters": [
+          {
+            "description": "Selects which top-level properties of the indexers to retrieve. Specified as a comma-separated list of JSON property names, or '*' for all properties. The default is all properties.",
+            "in": "query",
+            "name": "$select",
+            "required": false,
+            "type": "string"
+          },
           {
             "$ref": "#/parameters/ClientRequestIdParameter"
           },
@@ -577,7 +579,8 @@
         "x-ms-examples": {
           "SearchServiceListIndexers": {
             "parameters": {
-              "api-version": "2016-09-01-Preview",
+              "$select": "*",
+              "api-version": "2019-05-06-Preview",
               "searchDnsSuffix": "search.windows.net",
               "searchServiceName": "myservice"
             },
@@ -646,7 +649,7 @@
         "x-ms-request-id": "request-id"
       },
       "post": {
-        "description": "Creates a new Azure Search indexer.",
+        "description": "Creates a new indexer.",
         "externalDocs": {
           "url": "https://docs.microsoft.com/rest/api/searchservice/Create-Indexer"
         },
@@ -682,7 +685,7 @@
         "x-ms-examples": {
           "SearchServiceCreateIndexer": {
             "parameters": {
-              "api-version": "2016-09-01-Preview",
+              "api-version": "2019-05-06-Preview",
               "indexer": {
                 "dataSourceName": "mydatasource",
                 "description": "a cool indexer",
@@ -727,7 +730,7 @@
     },
     "/indexers('{indexerName}')": {
       "delete": {
-        "description": "Deletes an Azure Search indexer.",
+        "description": "Deletes an indexer.",
         "externalDocs": {
           "url": "https://docs.microsoft.com/rest/api/searchservice/Delete-Indexer"
         },
@@ -767,7 +770,7 @@
         "x-ms-examples": {
           "SearchServiceDeleteIndexer": {
             "parameters": {
-              "api-version": "2016-09-01-Preview",
+              "api-version": "2019-05-06-Preview",
               "indexerName": "myindexer",
               "searchDnsSuffix": "search.windows.net",
               "searchServiceName": "myservice"
@@ -781,7 +784,7 @@
         "x-ms-request-id": "request-id"
       },
       "get": {
-        "description": "Retrieves an indexer definition from Azure Search.",
+        "description": "Retrieves an indexer definition.",
         "externalDocs": {
           "url": "https://docs.microsoft.com/rest/api/searchservice/Get-Indexer"
         },
@@ -815,7 +818,7 @@
         "x-ms-examples": {
           "SearchServiceGetIndexer": {
             "parameters": {
-              "api-version": "2016-09-01-Preview",
+              "api-version": "2019-05-06-Preview",
               "indexerName": "myindexer",
               "searchDnsSuffix": "search.windows.net",
               "searchServiceName": "myservice"
@@ -845,7 +848,7 @@
         "x-ms-request-id": "request-id"
       },
       "put": {
-        "description": "Creates a new Azure Search indexer or updates an indexer if it already exists.",
+        "description": "Creates a new indexer or updates an indexer if it already exists.",
         "externalDocs": {
           "url": "https://docs.microsoft.com/rest/api/searchservice/Create-Indexer"
         },
@@ -904,7 +907,7 @@
           "SearchServiceCreateOrUpdateIndexer": {
             "parameters": {
               "Prefer": "return=representation",
-              "api-version": "2016-09-01-Preview",
+              "api-version": "2019-05-06-Preview",
               "indexer": {
                 "dataSourceName": "mydatasource",
                 "description": "a cool indexer",
@@ -968,7 +971,7 @@
     },
     "/indexers('{indexerName}')/search.reset": {
       "post": {
-        "description": "Resets the change tracking state associated with an Azure Search indexer.",
+        "description": "Resets the change tracking state associated with an indexer.",
         "externalDocs": {
           "url": "https://docs.microsoft.com/rest/api/searchservice/Reset-Indexer"
         },
@@ -999,7 +1002,7 @@
         "x-ms-examples": {
           "SearchServiceResetIndexer": {
             "parameters": {
-              "api-version": "2016-09-01-Preview",
+              "api-version": "2019-05-06-Preview",
               "indexerName": "myindexer",
               "searchDnsSuffix": "search.windows.net",
               "searchServiceName": "myservice"
@@ -1014,7 +1017,7 @@
     },
     "/indexers('{indexerName}')/search.run": {
       "post": {
-        "description": "Runs an Azure Search indexer on-demand.",
+        "description": "Runs an indexer on-demand.",
         "externalDocs": {
           "url": "https://docs.microsoft.com/rest/api/searchservice/Run-Indexer"
         },
@@ -1045,7 +1048,7 @@
         "x-ms-examples": {
           "SearchServiceRunIndexer": {
             "parameters": {
-              "api-version": "2016-09-01-Preview",
+              "api-version": "2019-05-06-Preview",
               "indexerName": "myindexer",
               "searchDnsSuffix": "search.windows.net",
               "searchServiceName": "myservice"
@@ -1094,7 +1097,7 @@
         "x-ms-examples": {
           "SearchServiceGetIndexerStatus": {
             "parameters": {
-              "api-version": "2016-09-01-Preview",
+              "api-version": "2019-05-06-Preview",
               "indexerName": "myindexer",
               "searchDnsSuffix": "search.windows.net",
               "searchServiceName": "myservice"
@@ -1120,22 +1123,42 @@
                       "errorMessage": null,
                       "errors": [
                         {
+                          "details": null,
+                          "documentationLink": null,
                           "errorMessage": "Document key cannot be missing or empty.",
                           "key": "",
-                          "status": false,
+                          "name": null,
+                          "statusCode": 400
+                        },
+                        {
+                          "details": "The file could not be parsed.",
+                          "documentationLink": "https://go.microsoft.com/fwlink/?linkid=2049388",
+                          "errorMessage": "Could not read the value of column 'foo' at index '0'.",
+                          "key": "document id 1",
+                          "name": "DocumentExtraction.AzureBlob.MyDataSource",
                           "statusCode": 400
                         }
                       ],
                       "finalTrackingState": null,
                       "initialTrackingState": null,
-                      "itemsFailed": 1,
+                      "itemsFailed": 2,
                       "itemsProcessed": 1,
                       "startTime": "2014-11-26T03:28:10.125Z",
                       "status": "transientFailure",
                       "warnings": [
                         {
+                          "details": null,
+                          "documentationLink": null,
                           "key": "document id",
-                          "message": "A warning doesn't stop indexing, and is intended to inform you of certain interesting situations, like when a blob indexer truncates the amount of text extracted from a blob."
+                          "message": "A warning doesn't stop indexing, and is intended to inform you of certain interesting situations, like when a blob indexer truncates the amount of text extracted from a blob.",
+                          "name": null
+                        },
+                        {
+                          "details": "The skill did something that didn't break anything, nonetheless something we didn't expect happened, so it might be worth double checking.",
+                          "documentationLink": "https://go.microsoft.com/fwlink/?linkid=2099692",
+                          "key": "document id 2",
+                          "message": "Document was truncated to 50000 characters.",
+                          "name": "Enrichment.LanguageDetectionSkill.#4"
                         }
                       ]
                     }
@@ -1152,6 +1175,11 @@
                     "status": "success",
                     "warnings": []
                   },
+                  "limits": {
+                    "maxDocumentContentCharactersToExtract": 4000000,
+                    "maxDocumentExtractionSize": 256000000,
+                    "maxRunTime": "22:00:00"
+                  },
                   "status": "running"
                 }
               }
@@ -1163,14 +1191,14 @@
     },
     "/indexes": {
       "get": {
-        "description": "Lists all indexes available for an Azure Search service.",
+        "description": "Lists all indexes available for a search service.",
         "externalDocs": {
           "url": "https://docs.microsoft.com/rest/api/searchservice/List-Indexes"
         },
         "operationId": "Indexes_List",
         "parameters": [
           {
-            "description": "Selects which properties of the index definitions to retrieve. Specified as a comma-separated list of JSON property names, or '*' for all properties. The default is all properties.",
+            "description": "Selects which top-level properties of the index definitions to retrieve. Specified as a comma-separated list of JSON property names, or '*' for all properties. The default is all properties.",
             "in": "query",
             "name": "$select",
             "required": false,
@@ -1197,8 +1225,8 @@
         "x-ms-examples": {
           "SearchServiceListIndexes": {
             "parameters": {
-              "$select": "name",
-              "api-version": "2016-09-01-Preview",
+              "$select": "*",
+              "api-version": "2019-05-06-Preview",
               "searchDnsSuffix": "search.windows.net",
               "searchServiceName": "myservice"
             },
@@ -1225,6 +1253,12 @@
                         "maxAgeInSeconds": 60
                       },
                       "defaultScoringProfile": "geo",
+                      "encryptionKey": {
+                        "accessCredentials": null,
+                        "keyVaultKeyName": "myKeyName",
+                        "keyVaultKeyVersion": "myKeyVersion",
+                        "keyVaultUri": "https://myKeyVault.vault.azure.net"
+                      },
                       "fields": [
                         {
                           "analyzer": null,
@@ -1435,6 +1469,7 @@
                       "charFilters": [],
                       "corsOptions": null,
                       "defaultScoringProfile": null,
+                      "encryptionKey": null,
                       "fields": [
                         {
                           "analyzer": null,
@@ -1480,7 +1515,7 @@
         "x-ms-request-id": "request-id"
       },
       "post": {
-        "description": "Creates a new Azure Search index.",
+        "description": "Creates a new search index.",
         "externalDocs": {
           "url": "https://docs.microsoft.com/rest/api/searchservice/Create-Index"
         },
@@ -1516,7 +1551,7 @@
         "x-ms-examples": {
           "SearchServiceCreateIndex": {
             "parameters": {
-              "api-version": "2016-09-01-Preview",
+              "api-version": "2019-05-06-Preview",
               "index": {
                 "analyzers": [
                   {
@@ -1535,6 +1570,15 @@
                   "maxAgeInSeconds": 60
                 },
                 "defaultScoringProfile": "geo",
+                "encryptionKey": {
+                  "accessCredentials": {
+                    "applicationId": "00000000-0000-0000-0000-000000000000",
+                    "applicationSecret": "myapplicationsecret"
+                  },
+                  "keyVaultKeyName": "myUserManagedEncryptionKey-createdinAzureKeyVault",
+                  "keyVaultKeyVersion": "myKeyVersion-32charAlphaNumericString",
+                  "keyVaultUri": "https://myKeyVault.vault.azure.net"
+                },
                 "fields": [
                   {
                     "key": true,
@@ -1652,6 +1696,15 @@
                     "maxAgeInSeconds": 60
                   },
                   "defaultScoringProfile": "geo",
+                  "encryptionKey": {
+                    "accessCredentials": {
+                      "applicationId": "00000000-0000-0000-0000-000000000000",
+                      "applicationSecret": null
+                    },
+                    "keyVaultKeyName": "myUserManagedEncryptionKey-createdinAzureKeyVault",
+                    "keyVaultKeyVersion": "myKeyVersion-32charAlphaNumericString",
+                    "keyVaultUri": "https://myKeyVault.vault.azure.net"
+                  },
                   "fields": [
                     {
                       "analyzer": null,
@@ -1866,7 +1919,7 @@
     },
     "/indexes('{indexName}')": {
       "delete": {
-        "description": "Deletes an Azure Search index and all the documents it contains.",
+        "description": "Deletes a search index and all the documents it contains.",
         "externalDocs": {
           "url": "https://docs.microsoft.com/rest/api/searchservice/Delete-Index"
         },
@@ -1906,7 +1959,7 @@
         "x-ms-examples": {
           "SearchServiceDeleteIndex": {
             "parameters": {
-              "api-version": "2016-09-01-Preview",
+              "api-version": "2019-05-06-Preview",
               "indexName": "myindex",
               "searchDnsSuffix": "search.windows.net",
               "searchServiceName": "myservice"
@@ -1920,7 +1973,7 @@
         "x-ms-request-id": "request-id"
       },
       "get": {
-        "description": "Retrieves an index definition from Azure Search.",
+        "description": "Retrieves an index definition.",
         "externalDocs": {
           "url": "https://docs.microsoft.com/rest/api/searchservice/Get-Index"
         },
@@ -1954,7 +2007,7 @@
         "x-ms-examples": {
           "SearchServiceGetIndex": {
             "parameters": {
-              "api-version": "2016-09-01-Preview",
+              "api-version": "2019-05-06-Preview",
               "indexName": "hotels",
               "searchDnsSuffix": "search.windows.net",
               "searchServiceName": "myservice"
@@ -1980,6 +2033,15 @@
                     "maxAgeInSeconds": 60
                   },
                   "defaultScoringProfile": "geo",
+                  "encryptionKey": {
+                    "accessCredentials": {
+                      "applicationId": "00000000-0000-0000-0000-000000000000",
+                      "applicationSecret": null
+                    },
+                    "keyVaultKeyName": "myKeyName",
+                    "keyVaultKeyVersion": "myKeyVersion",
+                    "keyVaultUri": "https://myKeyVault.vault.azure.net"
+                  },
                   "fields": [
                     {
                       "analyzer": null,
@@ -2192,7 +2254,7 @@
         "x-ms-request-id": "request-id"
       },
       "put": {
-        "description": "Creates a new Azure Search index or updates an index if it already exists.",
+        "description": "Creates a new search index or updates an index if it already exists.",
         "externalDocs": {
           "url": "https://docs.microsoft.com/rest/api/searchservice/Update-Index"
         },
@@ -2259,7 +2321,7 @@
             "parameters": {
               "Prefer": "return=representation",
               "allowIndexDowntime": false,
-              "api-version": "2016-09-01-Preview",
+              "api-version": "2019-05-06-Preview",
               "index": {
                 "analyzers": [
                   {
@@ -2278,6 +2340,12 @@
                   "maxAgeInSeconds": 60
                 },
                 "defaultScoringProfile": "geo",
+                "encryptionKey": {
+                  "accessCredentials": null,
+                  "keyVaultKeyName": "myUserManagedEncryptionKey-createdinAzureKeyVault",
+                  "keyVaultKeyVersion": "myKeyVersion-32charAlphaNumericString",
+                  "keyVaultUri": "https://myKeyVault.vault.azure.net"
+                },
                 "fields": [
                   {
                     "key": true,
@@ -2396,6 +2464,12 @@
                     "maxAgeInSeconds": 60
                   },
                   "defaultScoringProfile": "geo",
+                  "encryptionKey": {
+                    "accessCredentials": null,
+                    "keyVaultKeyName": "myUserManagedEncryptionKey-createdinAzureKeyVault",
+                    "keyVaultKeyVersion": "myKeyVersion-32charAlphaNumericString",
+                    "keyVaultUri": "https://myKeyVault.vault.azure.net"
+                  },
                   "fields": [
                     {
                       "analyzer": null,
@@ -2622,6 +2696,12 @@
                     "maxAgeInSeconds": 60
                   },
                   "defaultScoringProfile": "geo",
+                  "encryptionKey": {
+                    "accessCredentials": null,
+                    "keyVaultKeyName": "myUserManagedEncryptionKey-createdinAzureKeyVault",
+                    "keyVaultKeyVersion": "myKeyVersion-32charAlphaNumericString",
+                    "keyVaultUri": "https://myKeyVault.vault.azure.net"
+                  },
                   "fields": [
                     {
                       "analyzer": null,
@@ -2879,10 +2959,10 @@
         "x-ms-examples": {
           "SearchServiceIndexAnalyze": {
             "parameters": {
-              "api-version": "2016-09-01-Preview",
+              "api-version": "2019-05-06-Preview",
               "indexName": "hotels",
               "request": {
-                "analyzer": "standard",
+                "analyzer": "standard.lucene",
                 "text": "Text to analyze"
               },
               "searchDnsSuffix": "search.windows.net",
@@ -2955,7 +3035,7 @@
         "x-ms-examples": {
           "SearchServiceGetIndexStatistics": {
             "parameters": {
-              "api-version": "2016-09-01-Preview",
+              "api-version": "2019-05-06-Preview",
               "indexName": "hotels",
               "searchDnsSuffix": "search.windows.net",
               "searchServiceName": "myservice"
@@ -2975,7 +3055,7 @@
     },
     "/servicestats": {
       "get": {
-        "description": "Gets service level statistics for an Azure Search service.",
+        "description": "Gets service level statistics for a search service.",
         "operationId": "GetServiceStatistics",
         "parameters": [
           {
@@ -2999,7 +3079,7 @@
         "x-ms-examples": {
           "SearchServiceGetServiceStatistics": {
             "parameters": {
-              "api-version": "2016-09-01-Preview",
+              "api-version": "2019-05-06-Preview",
               "searchDnsSuffix": "search.windows.net",
               "searchServiceName": "myservice"
             },
@@ -3034,6 +3114,7 @@
                   },
                   "limits": {
                     "maxComplexCollectionFieldsPerIndex": 100,
+                    "maxComplexObjectsInCollectionsPerDocument": 3000,
                     "maxFieldNestingDepthPerIndex": 10,
                     "maxFieldsPerIndex": 1000
                   }
@@ -3045,14 +3126,1139 @@
         "x-ms-request-id": "request-id"
       }
     },
+    "/skillsets": {
+      "get": {
+        "description": "List all skillsets in a search service.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/rest/api/searchservice/list-skillset"
+        },
+        "operationId": "Skillsets_List",
+        "parameters": [
+          {
+            "description": "Selects which top-level properties of the skillsets to retrieve. Specified as a comma-separated list of JSON property names, or '*' for all properties. The default is all properties.",
+            "in": "query",
+            "name": "$select",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "$ref": "#/parameters/ClientRequestIdParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The list is successfully returned.",
+            "schema": {
+              "$ref": "#/definitions/SkillsetListResult"
+            }
+          }
+        },
+        "tags": [
+          "Skillsets"
+        ],
+        "x-ms-examples": {
+          "SearchServiceListSkillsets": {
+            "parameters": {
+              "$select": "*",
+              "api-version": "2019-05-06-Preview",
+              "searchDnsSuffix": "search.windows.net",
+              "searchServiceName": "myservice"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "value": [
+                    {
+                      "description": "Extract entities, detect language and extract key-phrases",
+                      "name": "demoskillset",
+                      "skills": [
+                        {
+                          "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
+                          "categories": [
+                            "organization"
+                          ],
+                          "context": null,
+                          "defaultLanguageCode": "en",
+                          "description": null,
+                          "inputs": [
+                            {
+                              "name": "text",
+                              "source": "/document/content"
+                            }
+                          ],
+                          "minimumPrecision": 0.7,
+                          "name": "#1",
+                          "outputs": [
+                            {
+                              "name": "organizations",
+                              "targetName": "organizations"
+                            }
+                          ]
+                        },
+                        {
+                          "@odata.type": "#Microsoft.Skills.Text.LanguageDetectionSkill",
+                          "context": null,
+                          "description": null,
+                          "inputs": [
+                            {
+                              "name": "text",
+                              "source": "/document/content"
+                            }
+                          ],
+                          "name": "#2",
+                          "outputs": [
+                            {
+                              "name": "languageCode",
+                              "targetName": "languageCode"
+                            }
+                          ]
+                        },
+                        {
+                          "@odata.type": "#Microsoft.Skills.Text.SplitSkill",
+                          "context": null,
+                          "defaultLanguageCode": null,
+                          "description": null,
+                          "inputs": [
+                            {
+                              "name": "text",
+                              "source": "/document/content"
+                            },
+                            {
+                              "name": "languageCode",
+                              "source": "/document/languageCode"
+                            }
+                          ],
+                          "maximumPageLength": 4000,
+                          "name": "#3",
+                          "outputs": [
+                            {
+                              "name": "textItems",
+                              "targetName": "pages"
+                            }
+                          ],
+                          "textSplitMode": "pages"
+                        },
+                        {
+                          "@odata.type": "#Microsoft.Skills.Text.KeyPhraseExtractionSkill",
+                          "context": "/document/pages/*",
+                          "defaultLanguageCode": null,
+                          "description": null,
+                          "inputs": [
+                            {
+                              "name": "text",
+                              "source": "/document/pages/*"
+                            },
+                            {
+                              "name": "languageCode",
+                              "source": "/document/languageCode"
+                            }
+                          ],
+                          "maxKeyPhraseCount": null,
+                          "name": "#4",
+                          "outputs": [
+                            {
+                              "name": "keyPhrases",
+                              "targetName": "keyPhrases"
+                            }
+                          ]
+                        },
+                        {
+                          "@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
+                          "batchSize": 1,
+                          "context": "/document",
+                          "degreeOfParallelism": null,
+                          "description": null,
+                          "httpHeaders": {},
+                          "httpMethod": "POST",
+                          "inputs": [
+                            {
+                              "name": "text",
+                              "source": "/document/pages/*"
+                            },
+                            {
+                              "name": "languageCode",
+                              "source": "/document/languageCode"
+                            }
+                          ],
+                          "name": "MyCustomWebApiSkill",
+                          "outputs": [
+                            {
+                              "name": "customresult",
+                              "targetName": "result"
+                            }
+                          ],
+                          "timeout": "PT30S",
+                          "uri": "https://contoso.example.org"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "x-ms-request-id": "request-id"
+      },
+      "post": {
+        "description": "Creates a new skillset in a search service.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/rest/api/searchservice/create-skillset"
+        },
+        "operationId": "Skillsets_Create",
+        "parameters": [
+          {
+            "description": "The skillset containing one or more skills to create in a search service.",
+            "in": "body",
+            "name": "skillset",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Skillset"
+            }
+          },
+          {
+            "$ref": "#/parameters/ClientRequestIdParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "The skillset is successfully created.",
+            "schema": {
+              "$ref": "#/definitions/Skillset"
+            }
+          }
+        },
+        "tags": [
+          "Skillsets"
+        ],
+        "x-ms-examples": {
+          "SearchServiceCreateSkillset": {
+            "parameters": {
+              "Prefer": "return=representation",
+              "api-version": "2019-05-06-Preview",
+              "searchDnsSuffix": "search.windows.net",
+              "searchServiceName": "myservice",
+              "skillset": {
+                "description": "Extract entities, detect language and extract key-phrases",
+                "name": "demoskillset",
+                "skills": [
+                  {
+                    "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
+                    "categories": [
+                      "organization"
+                    ],
+                    "defaultLanguageCode": "en",
+                    "inputs": [
+                      {
+                        "name": "text",
+                        "source": "/document/content"
+                      }
+                    ],
+                    "minimumPrecision": 0.7,
+                    "outputs": [
+                      {
+                        "name": "organizations",
+                        "targetName": "organizations"
+                      }
+                    ]
+                  },
+                  {
+                    "@odata.type": "#Microsoft.Skills.Text.LanguageDetectionSkill",
+                    "inputs": [
+                      {
+                        "name": "text",
+                        "source": "/document/content"
+                      }
+                    ],
+                    "outputs": [
+                      {
+                        "name": "languageCode",
+                        "targetName": "languageCode"
+                      }
+                    ]
+                  },
+                  {
+                    "@odata.type": "#Microsoft.Skills.Text.SplitSkill",
+                    "inputs": [
+                      {
+                        "name": "text",
+                        "source": "/document/content"
+                      },
+                      {
+                        "name": "languageCode",
+                        "source": "/document/languageCode"
+                      }
+                    ],
+                    "maximumPageLength": 4000,
+                    "outputs": [
+                      {
+                        "name": "textItems",
+                        "targetName": "pages"
+                      }
+                    ],
+                    "textSplitMode": "pages"
+                  },
+                  {
+                    "@odata.type": "#Microsoft.Skills.Text.KeyPhraseExtractionSkill",
+                    "context": "/document/pages/*",
+                    "inputs": [
+                      {
+                        "name": "text",
+                        "source": "/document/pages/*"
+                      },
+                      {
+                        "name": "languageCode",
+                        "source": "/document/languageCode"
+                      }
+                    ],
+                    "outputs": [
+                      {
+                        "name": "keyPhrases",
+                        "targetName": "keyPhrases"
+                      }
+                    ]
+                  },
+                  {
+                    "@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
+                    "batchSize": 1,
+                    "httpHeaders": {},
+                    "httpMethod": "POST",
+                    "inputs": [
+                      {
+                        "name": "text",
+                        "source": "/document/pages/*"
+                      },
+                      {
+                        "name": "languageCode",
+                        "source": "/document/languageCode"
+                      }
+                    ],
+                    "name": "MyCustomWebApiSkill",
+                    "outputs": [
+                      {
+                        "name": "customresult",
+                        "targetName": "result"
+                      }
+                    ],
+                    "timeout": "PT30S",
+                    "uri": "https://contoso.example.org"
+                  }
+                ]
+              },
+              "skillsetName": "demoskillset"
+            },
+            "responses": {
+              "201": {
+                "body": {
+                  "description": "Extract entities, detect language and extract key-phrases",
+                  "name": "demoskillset",
+                  "skills": [
+                    {
+                      "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
+                      "categories": [
+                        "organization"
+                      ],
+                      "context": null,
+                      "defaultLanguageCode": "en",
+                      "description": null,
+                      "inputs": [
+                        {
+                          "name": "text",
+                          "source": "/document/content"
+                        }
+                      ],
+                      "minimumPrecision": 0.7,
+                      "name": "#1",
+                      "outputs": [
+                        {
+                          "name": "organizations",
+                          "targetName": "organizations"
+                        }
+                      ]
+                    },
+                    {
+                      "@odata.type": "#Microsoft.Skills.Text.LanguageDetectionSkill",
+                      "context": null,
+                      "description": null,
+                      "inputs": [
+                        {
+                          "name": "text",
+                          "source": "/document/content"
+                        }
+                      ],
+                      "name": "#2",
+                      "outputs": [
+                        {
+                          "name": "languageCode",
+                          "targetName": "languageCode"
+                        }
+                      ]
+                    },
+                    {
+                      "@odata.type": "#Microsoft.Skills.Text.SplitSkill",
+                      "context": null,
+                      "defaultLanguageCode": null,
+                      "description": null,
+                      "inputs": [
+                        {
+                          "name": "text",
+                          "source": "/document/content"
+                        },
+                        {
+                          "name": "languageCode",
+                          "source": "/document/languageCode"
+                        }
+                      ],
+                      "maximumPageLength": 4000,
+                      "name": "#3",
+                      "outputs": [
+                        {
+                          "name": "textItems",
+                          "targetName": "pages"
+                        }
+                      ],
+                      "textSplitMode": "pages"
+                    },
+                    {
+                      "@odata.type": "#Microsoft.Skills.Text.KeyPhraseExtractionSkill",
+                      "context": "/document/pages/*",
+                      "defaultLanguageCode": null,
+                      "description": null,
+                      "inputs": [
+                        {
+                          "name": "text",
+                          "source": "/document/pages/*"
+                        },
+                        {
+                          "name": "languageCode",
+                          "source": "/document/languageCode"
+                        }
+                      ],
+                      "maxKeyPhraseCount": null,
+                      "name": "#4",
+                      "outputs": [
+                        {
+                          "name": "keyPhrases",
+                          "targetName": "keyPhrases"
+                        }
+                      ]
+                    },
+                    {
+                      "@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
+                      "batchSize": 1,
+                      "context": "/document",
+                      "degreeOfParallelism": null,
+                      "description": null,
+                      "httpHeaders": {},
+                      "httpMethod": "POST",
+                      "inputs": [
+                        {
+                          "name": "text",
+                          "source": "/document/pages/*"
+                        },
+                        {
+                          "name": "languageCode",
+                          "source": "/document/languageCode"
+                        }
+                      ],
+                      "name": "MyCustomWebApiSkill",
+                      "outputs": [
+                        {
+                          "name": "customresult",
+                          "targetName": "result"
+                        }
+                      ],
+                      "timeout": "PT30S",
+                      "uri": "https://contoso.example.org"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "x-ms-request-id": "request-id"
+      }
+    },
+    "/skillsets('{skillsetName}')": {
+      "delete": {
+        "description": "Deletes a skillset in a search service.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/rest/api/searchservice/delete-skillset"
+        },
+        "operationId": "Skillsets_Delete",
+        "parameters": [
+          {
+            "description": "The name of the skillset to delete.",
+            "in": "path",
+            "name": "skillsetName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "$ref": "#/parameters/ClientRequestIdParameter"
+          },
+          {
+            "$ref": "#/parameters/IfMatchParameter"
+          },
+          {
+            "$ref": "#/parameters/IfNoneMatchParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "The skillset is successfully deleted."
+          },
+          "404": {
+            "description": "The provided skillset name is not found."
+          }
+        },
+        "tags": [
+          "Skillsets"
+        ],
+        "x-ms-examples": {
+          "SearchServiceDeleteSkillset": {
+            "parameters": {
+              "api-version": "2019-05-06-Preview",
+              "searchDnsSuffix": "search.windows.net",
+              "searchServiceName": "myservice",
+              "skillsetName": "demoskillset"
+            },
+            "responses": {
+              "204": {},
+              "404": {}
+            }
+          }
+        },
+        "x-ms-request-id": "request-id"
+      },
+      "get": {
+        "description": "Retrieves a skillset in a search service.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/rest/api/searchservice/get-skillset"
+        },
+        "operationId": "Skillsets_Get",
+        "parameters": [
+          {
+            "description": "The name of the skillset to retrieve.",
+            "in": "path",
+            "name": "skillsetName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "$ref": "#/parameters/ClientRequestIdParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The skillset is successfully returned.",
+            "schema": {
+              "$ref": "#/definitions/Skillset"
+            }
+          }
+        },
+        "tags": [
+          "Skillsets"
+        ],
+        "x-ms-examples": {
+          "SearchServiceGetSkillset": {
+            "parameters": {
+              "api-version": "2019-05-06-Preview",
+              "searchDnsSuffix": "search.windows.net",
+              "searchServiceName": "myservice",
+              "skillsetName": "demoskillset"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "description": "Extract entities, detect language and extract key-phrases",
+                  "name": "demoskillset",
+                  "skills": [
+                    {
+                      "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
+                      "categories": [
+                        "organization"
+                      ],
+                      "context": null,
+                      "defaultLanguageCode": "en",
+                      "description": null,
+                      "inputs": [
+                        {
+                          "name": "text",
+                          "source": "/document/content"
+                        }
+                      ],
+                      "minimumPrecision": 0.7,
+                      "name": "#1",
+                      "outputs": [
+                        {
+                          "name": "organizations",
+                          "targetName": "organizations"
+                        }
+                      ]
+                    },
+                    {
+                      "@odata.type": "#Microsoft.Skills.Text.LanguageDetectionSkill",
+                      "context": null,
+                      "description": null,
+                      "inputs": [
+                        {
+                          "name": "text",
+                          "source": "/document/content"
+                        }
+                      ],
+                      "name": "#2",
+                      "outputs": [
+                        {
+                          "name": "languageCode",
+                          "targetName": "languageCode"
+                        }
+                      ]
+                    },
+                    {
+                      "@odata.type": "#Microsoft.Skills.Text.SplitSkill",
+                      "context": null,
+                      "defaultLanguageCode": null,
+                      "description": null,
+                      "inputs": [
+                        {
+                          "name": "text",
+                          "source": "/document/content"
+                        },
+                        {
+                          "name": "languageCode",
+                          "source": "/document/languageCode"
+                        }
+                      ],
+                      "maximumPageLength": 4000,
+                      "name": "#3",
+                      "outputs": [
+                        {
+                          "name": "textItems",
+                          "targetName": "pages"
+                        }
+                      ],
+                      "textSplitMode": "pages"
+                    },
+                    {
+                      "@odata.type": "#Microsoft.Skills.Text.KeyPhraseExtractionSkill",
+                      "context": "/document/pages/*",
+                      "defaultLanguageCode": null,
+                      "description": null,
+                      "inputs": [
+                        {
+                          "name": "text",
+                          "source": "/document/pages/*"
+                        },
+                        {
+                          "name": "languageCode",
+                          "source": "/document/languageCode"
+                        }
+                      ],
+                      "maxKeyPhraseCount": null,
+                      "name": "#4",
+                      "outputs": [
+                        {
+                          "name": "keyPhrases",
+                          "targetName": "keyPhrases"
+                        }
+                      ]
+                    },
+                    {
+                      "@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
+                      "batchSize": 1,
+                      "context": "/document",
+                      "degreeOfParallelism": null,
+                      "description": null,
+                      "httpHeaders": {},
+                      "httpMethod": "POST",
+                      "inputs": [
+                        {
+                          "name": "text",
+                          "source": "/document/pages/*"
+                        },
+                        {
+                          "name": "languageCode",
+                          "source": "/document/languageCode"
+                        }
+                      ],
+                      "name": "MyCustomWebApiSkill",
+                      "outputs": [
+                        {
+                          "name": "customresult",
+                          "targetName": "result"
+                        }
+                      ],
+                      "timeout": "PT30S",
+                      "uri": "https://contoso.example.org"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "x-ms-request-id": "request-id"
+      },
+      "put": {
+        "description": "Creates a new skillset in a search service or updates the skillset if it already exists.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/rest/api/searchservice/update-skillset"
+        },
+        "operationId": "Skillsets_CreateOrUpdate",
+        "parameters": [
+          {
+            "description": "The name of the skillset to create or update.",
+            "in": "path",
+            "name": "skillsetName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The skillset containing one or more skills to create or update in a search service.",
+            "in": "body",
+            "name": "skillset",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Skillset"
+            }
+          },
+          {
+            "$ref": "#/parameters/ClientRequestIdParameter"
+          },
+          {
+            "$ref": "#/parameters/IfMatchParameter"
+          },
+          {
+            "$ref": "#/parameters/IfNoneMatchParameter"
+          },
+          {
+            "$ref": "#/parameters/PreferHeaderParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The skillset is successfully updated.",
+            "schema": {
+              "$ref": "#/definitions/Skillset"
+            }
+          },
+          "201": {
+            "description": "The skillset is successfully created.",
+            "schema": {
+              "$ref": "#/definitions/Skillset"
+            }
+          }
+        },
+        "tags": [
+          "Skillsets"
+        ],
+        "x-ms-examples": {
+          "SearchServiceCreateOrUpdateSkillset": {
+            "parameters": {
+              "Prefer": "return=representation",
+              "api-version": "2019-05-06-Preview",
+              "searchDnsSuffix": "search.windows.net",
+              "searchServiceName": "myservice",
+              "skillset": {
+                "description": "Extract entities, detect language and extract key-phrases",
+                "name": "demoskillset",
+                "skills": [
+                  {
+                    "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
+                    "categories": [
+                      "organization"
+                    ],
+                    "defaultLanguageCode": "en",
+                    "inputs": [
+                      {
+                        "name": "text",
+                        "source": "/document/content"
+                      }
+                    ],
+                    "minimumPrecision": 0.7,
+                    "outputs": [
+                      {
+                        "name": "organizations",
+                        "targetName": "organizations"
+                      }
+                    ]
+                  },
+                  {
+                    "@odata.type": "#Microsoft.Skills.Text.LanguageDetectionSkill",
+                    "inputs": [
+                      {
+                        "name": "text",
+                        "source": "/document/content"
+                      }
+                    ],
+                    "outputs": [
+                      {
+                        "name": "languageCode",
+                        "targetName": "languageCode"
+                      }
+                    ]
+                  },
+                  {
+                    "@odata.type": "#Microsoft.Skills.Text.SplitSkill",
+                    "inputs": [
+                      {
+                        "name": "text",
+                        "source": "/document/content"
+                      },
+                      {
+                        "name": "languageCode",
+                        "source": "/document/languageCode"
+                      }
+                    ],
+                    "maximumPageLength": 4000,
+                    "outputs": [
+                      {
+                        "name": "textItems",
+                        "targetName": "pages"
+                      }
+                    ],
+                    "textSplitMode": "pages"
+                  },
+                  {
+                    "@odata.type": "#Microsoft.Skills.Text.KeyPhraseExtractionSkill",
+                    "context": "/document/pages/*",
+                    "inputs": [
+                      {
+                        "name": "text",
+                        "source": "/document/pages/*"
+                      },
+                      {
+                        "name": "languageCode",
+                        "source": "/document/languageCode"
+                      }
+                    ],
+                    "outputs": [
+                      {
+                        "name": "keyPhrases",
+                        "targetName": "keyPhrases"
+                      }
+                    ]
+                  },
+                  {
+                    "@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
+                    "batchSize": 1,
+                    "httpHeaders": {},
+                    "httpMethod": "POST",
+                    "inputs": [
+                      {
+                        "name": "text",
+                        "source": "/document/pages/*"
+                      },
+                      {
+                        "name": "languageCode",
+                        "source": "/document/languageCode"
+                      }
+                    ],
+                    "name": "MyCustomWebApiSkill",
+                    "outputs": [
+                      {
+                        "name": "customresult",
+                        "targetName": "result"
+                      }
+                    ],
+                    "timeout": "PT30S",
+                    "uri": "https://contoso.example.org"
+                  }
+                ]
+              },
+              "skillsetName": "demoskillset"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "description": "Extract entities, detect language and extract key-phrases",
+                  "name": "demoskillset",
+                  "skills": [
+                    {
+                      "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
+                      "categories": [
+                        "organization"
+                      ],
+                      "context": null,
+                      "defaultLanguageCode": "en",
+                      "description": null,
+                      "inputs": [
+                        {
+                          "name": "text",
+                          "source": "/document/content"
+                        }
+                      ],
+                      "minimumPrecision": 0.7,
+                      "name": "#1",
+                      "outputs": [
+                        {
+                          "name": "organizations",
+                          "targetName": "organizations"
+                        }
+                      ]
+                    },
+                    {
+                      "@odata.type": "#Microsoft.Skills.Text.LanguageDetectionSkill",
+                      "context": null,
+                      "description": null,
+                      "inputs": [
+                        {
+                          "name": "text",
+                          "source": "/document/content"
+                        }
+                      ],
+                      "name": "#2",
+                      "outputs": [
+                        {
+                          "name": "languageCode",
+                          "targetName": "languageCode"
+                        }
+                      ]
+                    },
+                    {
+                      "@odata.type": "#Microsoft.Skills.Text.SplitSkill",
+                      "context": null,
+                      "defaultLanguageCode": null,
+                      "description": null,
+                      "inputs": [
+                        {
+                          "name": "text",
+                          "source": "/document/content"
+                        },
+                        {
+                          "name": "languageCode",
+                          "source": "/document/languageCode"
+                        }
+                      ],
+                      "maximumPageLength": 4000,
+                      "name": "#3",
+                      "outputs": [
+                        {
+                          "name": "textItems",
+                          "targetName": "pages"
+                        }
+                      ],
+                      "textSplitMode": "pages"
+                    },
+                    {
+                      "@odata.type": "#Microsoft.Skills.Text.KeyPhraseExtractionSkill",
+                      "context": "/document/pages/*",
+                      "defaultLanguageCode": null,
+                      "description": null,
+                      "inputs": [
+                        {
+                          "name": "text",
+                          "source": "/document/pages/*"
+                        },
+                        {
+                          "name": "languageCode",
+                          "source": "/document/languageCode"
+                        }
+                      ],
+                      "maxKeyPhraseCount": null,
+                      "name": "#4",
+                      "outputs": [
+                        {
+                          "name": "keyPhrases",
+                          "targetName": "keyPhrases"
+                        }
+                      ]
+                    },
+                    {
+                      "@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
+                      "batchSize": 1,
+                      "context": "/document",
+                      "degreeOfParallelism": null,
+                      "description": null,
+                      "httpHeaders": {},
+                      "httpMethod": "POST",
+                      "inputs": [
+                        {
+                          "name": "text",
+                          "source": "/document/pages/*"
+                        },
+                        {
+                          "name": "languageCode",
+                          "source": "/document/languageCode"
+                        }
+                      ],
+                      "name": "MyCustomWebApiSkill",
+                      "outputs": [
+                        {
+                          "name": "customresult",
+                          "targetName": "result"
+                        }
+                      ],
+                      "timeout": "PT30S",
+                      "uri": "https://contoso.example.org"
+                    }
+                  ]
+                }
+              },
+              "201": {
+                "body": {
+                  "description": "Extract entities, detect language and extract key-phrases",
+                  "name": "demoskillset",
+                  "skills": [
+                    {
+                      "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
+                      "categories": [
+                        "organization"
+                      ],
+                      "context": null,
+                      "defaultLanguageCode": "en",
+                      "description": null,
+                      "inputs": [
+                        {
+                          "name": "text",
+                          "source": "/document/content"
+                        }
+                      ],
+                      "minimumPrecision": 0.7,
+                      "name": "#1",
+                      "outputs": [
+                        {
+                          "name": "organizations",
+                          "targetName": "organizations"
+                        }
+                      ]
+                    },
+                    {
+                      "@odata.type": "#Microsoft.Skills.Text.LanguageDetectionSkill",
+                      "context": null,
+                      "description": null,
+                      "inputs": [
+                        {
+                          "name": "text",
+                          "source": "/document/content"
+                        }
+                      ],
+                      "name": "#2",
+                      "outputs": [
+                        {
+                          "name": "languageCode",
+                          "targetName": "languageCode"
+                        }
+                      ]
+                    },
+                    {
+                      "@odata.type": "#Microsoft.Skills.Text.SplitSkill",
+                      "context": null,
+                      "defaultLanguageCode": null,
+                      "description": null,
+                      "inputs": [
+                        {
+                          "name": "text",
+                          "source": "/document/content"
+                        },
+                        {
+                          "name": "languageCode",
+                          "source": "/document/languageCode"
+                        }
+                      ],
+                      "maximumPageLength": 4000,
+                      "name": "#3",
+                      "outputs": [
+                        {
+                          "name": "textItems",
+                          "targetName": "pages"
+                        }
+                      ],
+                      "textSplitMode": "pages"
+                    },
+                    {
+                      "@odata.type": "#Microsoft.Skills.Text.KeyPhraseExtractionSkill",
+                      "context": "/document/pages/*",
+                      "defaultLanguageCode": null,
+                      "description": null,
+                      "inputs": [
+                        {
+                          "name": "text",
+                          "source": "/document/pages/*"
+                        },
+                        {
+                          "name": "languageCode",
+                          "source": "/document/languageCode"
+                        }
+                      ],
+                      "maxKeyPhraseCount": null,
+                      "name": "#4",
+                      "outputs": [
+                        {
+                          "name": "keyPhrases",
+                          "targetName": "keyPhrases"
+                        }
+                      ]
+                    },
+                    {
+                      "@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
+                      "batchSize": 1,
+                      "context": "/document",
+                      "degreeOfParallelism": null,
+                      "description": null,
+                      "httpHeaders": {},
+                      "httpMethod": "POST",
+                      "inputs": [
+                        {
+                          "name": "text",
+                          "source": "/document/pages/*"
+                        },
+                        {
+                          "name": "languageCode",
+                          "source": "/document/languageCode"
+                        }
+                      ],
+                      "name": "MyCustomWebApiSkill",
+                      "outputs": [
+                        {
+                          "name": "customresult",
+                          "targetName": "result"
+                        }
+                      ],
+                      "timeout": "PT30S",
+                      "uri": "https://contoso.example.org"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "x-ms-request-id": "request-id"
+      }
+    },
     "/synonymmaps": {
       "get": {
-        "description": "Lists all synonym maps available for an Azure Search service.",
+        "description": "Lists all synonym maps available for a search service.",
         "externalDocs": {
           "url": "https://docs.microsoft.com/rest/api/searchservice/List-Synonym-Maps"
         },
         "operationId": "SynonymMaps_List",
         "parameters": [
+          {
+            "description": "Selects which top-level properties of the synonym maps to retrieve. Specified as a comma-separated list of JSON property names, or '*' for all properties. The default is all properties.",
+            "in": "query",
+            "name": "$select",
+            "required": false,
+            "type": "string"
+          },
           {
             "$ref": "#/parameters/ClientRequestIdParameter"
           },
@@ -3074,7 +4280,7 @@
         "x-ms-examples": {
           "SearchServiceListSynonymMaps": {
             "parameters": {
-              "api-version": "2016-09-01-Preview",
+              "api-version": "2019-05-06-Preview",
               "searchDnsSuffix": "search.windows.net",
               "searchServiceName": "myservice"
             },
@@ -3083,11 +4289,18 @@
                 "body": {
                   "value": [
                     {
+                      "encryptionKey": {
+                        "accessCredentials": null,
+                        "keyVaultKeyName": "myKeyName",
+                        "keyVaultKeyVersion": "myKeyVersion",
+                        "keyVaultUri": "https://myKeyVault.vault.azure.net"
+                      },
                       "format": "solr",
                       "name": "mysynonymmap",
                       "synonyms": "United States, United States of America, USA\nWashington, Wash. => WA"
                     },
                     {
+                      "encryptionKey": null,
                       "format": "solr",
                       "name": "myothersynonymmap",
                       "synonyms": "couch, sofa, chesterfield\npop, soda\ntoque, hat"
@@ -3101,7 +4314,7 @@
         "x-ms-request-id": "request-id"
       },
       "post": {
-        "description": "Creates a new Azure Search synonym map.",
+        "description": "Creates a new synonym map.",
         "externalDocs": {
           "url": "https://docs.microsoft.com/rest/api/searchservice/Create-Synonym-Map"
         },
@@ -3137,10 +4350,19 @@
         "x-ms-examples": {
           "SearchServiceCreateSynonymMap": {
             "parameters": {
-              "api-version": "2016-09-01-Preview",
+              "api-version": "2019-05-06-Preview",
               "searchDnsSuffix": "search.windows.net",
               "searchServiceName": "myservice",
               "synonymMap": {
+                "encryptionKey": {
+                  "accessCredentials": {
+                    "applicationId": "00000000-0000-0000-0000-000000000000",
+                    "applicationSecret": "myApplicationSecret"
+                  },
+                  "keyVaultKeyName": "myUserManagedEncryptionKey-createdinAzureKeyVault",
+                  "keyVaultKeyVersion": "myKeyVersion-32charAlphaNumericString",
+                  "keyVaultUri": "https://myKeyVault.vault.azure.net"
+                },
                 "format": "solr",
                 "name": "mysynonymmap",
                 "synonyms": "United States, United States of America, USA\nWashington, Wash. => WA"
@@ -3149,6 +4371,15 @@
             "responses": {
               "201": {
                 "body": {
+                  "encryptionKey": {
+                    "accessCredentials": {
+                      "applicationId": "00000000-0000-0000-0000-000000000000",
+                      "applicationSecret": null
+                    },
+                    "keyVaultKeyName": "myUserManagedEncryptionKey-createdinAzureKeyVault",
+                    "keyVaultKeyVersion": "myKeyVersion-32charAlphaNumericString",
+                    "keyVaultUri": "https://myKeyVault.vault.azure.net"
+                  },
                   "format": "solr",
                   "name": "mysynonymmap",
                   "synonyms": "United States, United States of America, USA\nWashington, Wash. => WA"
@@ -3162,7 +4393,7 @@
     },
     "/synonymmaps('{synonymMapName}')": {
       "delete": {
-        "description": "Deletes an Azure Search synonym map.",
+        "description": "Deletes a synonym map.",
         "externalDocs": {
           "url": "https://docs.microsoft.com/rest/api/searchservice/Delete-Synonym-Map"
         },
@@ -3202,7 +4433,7 @@
         "x-ms-examples": {
           "SearchServiceDeleteSynonymMap": {
             "parameters": {
-              "api-version": "2016-09-01-Preview",
+              "api-version": "2019-05-06-Preview",
               "searchDnsSuffix": "search.windows.net",
               "searchServiceName": "myservice",
               "synonymMapName": "mysynonymmap"
@@ -3216,7 +4447,7 @@
         "x-ms-request-id": "request-id"
       },
       "get": {
-        "description": "Retrieves a synonym map definition from Azure Search.",
+        "description": "Retrieves a synonym map definition.",
         "externalDocs": {
           "url": "https://docs.microsoft.com/rest/api/searchservice/Get-Synonym-Map"
         },
@@ -3250,7 +4481,7 @@
         "x-ms-examples": {
           "SearchServiceGetSynonymMap": {
             "parameters": {
-              "api-version": "2016-09-01-Preview",
+              "api-version": "2019-05-06-Preview",
               "searchDnsSuffix": "search.windows.net",
               "searchServiceName": "myservice",
               "synonymMapName": "mysynonymmap"
@@ -3258,6 +4489,15 @@
             "responses": {
               "200": {
                 "body": {
+                  "encryptionKey": {
+                    "accessCredentials": {
+                      "applicationId": "00000000-0000-0000-0000-000000000000",
+                      "applicationSecret": null
+                    },
+                    "keyVaultKeyName": "myKeyName",
+                    "keyVaultKeyVersion": "myKeyVersion",
+                    "keyVaultUri": "https://myKeyVault.vault.azure.net"
+                  },
                   "format": "solr",
                   "name": "mysynonymmap",
                   "synonyms": "United States, United States of America, USA\nWashington, Wash. => WA"
@@ -3269,7 +4509,7 @@
         "x-ms-request-id": "request-id"
       },
       "put": {
-        "description": "Creates a new Azure Search synonym map or updates a synonym map if it already exists.",
+        "description": "Creates a new synonym map or updates a synonym map if it already exists.",
         "externalDocs": {
           "url": "https://docs.microsoft.com/rest/api/searchservice/Update-Synonym-Map"
         },
@@ -3328,10 +4568,16 @@
           "SearchServiceCreateOrUpdateSynonymMap": {
             "parameters": {
               "Prefer": "return=representation",
-              "api-version": "2016-09-01-Preview",
+              "api-version": "2019-5-06-Preview",
               "searchDnsSuffix": "search.windows.net",
               "searchServiceName": "myservice",
               "synonymMap": {
+                "encryptionKey": {
+                  "accessCredentials": null,
+                  "keyVaultKeyName": "myUserManagedEncryptionKey-createdinAzureKeyVault",
+                  "keyVaultKeyVersion": "myKeyVersion-32charAlphaNumericString",
+                  "keyVaultUri": "https://myKeyVault.vault.azure.net"
+                },
                 "format": "solr",
                 "name": "mysynonymmap",
                 "synonyms": "United States, United States of America, USA\nWashington, Wash. => WA"
@@ -3341,6 +4587,12 @@
             "responses": {
               "200": {
                 "body": {
+                  "encryptionKey": {
+                    "accessCredentials": null,
+                    "keyVaultKeyName": "myUserManagedEncryptionKey-createdinAzureKeyVault",
+                    "keyVaultKeyVersion": "myKeyVersion-32charAlphaNumericString",
+                    "keyVaultUri": "https://myKeyVault.vault.azure.net"
+                  },
                   "format": "solr",
                   "name": "mysynonymmap",
                   "synonyms": "United States, United States of America, USA\nWashington, Wash. => WA"
@@ -3348,6 +4600,12 @@
               },
               "201": {
                 "body": {
+                  "encryptionKey": {
+                    "accessCredentials": null,
+                    "keyVaultKeyName": "myUserManagedEncryptionKey-createdinAzureKeyVault",
+                    "keyVaultKeyVersion": "myKeyVersion-32charAlphaNumericString",
+                    "keyVaultUri": "https://myKeyVault.vault.azure.net"
+                  },
                   "format": "solr",
                   "name": "mysynonymmap",
                   "synonyms": "United States, United States of America, USA\nWashington, Wash. => WA"
@@ -3371,7 +4629,8 @@
         "charFilters": {
           "description": "An optional list of character filters to use when breaking the given text. This parameter can only be set when using the tokenizer parameter.",
           "items": {
-            "$ref": "#/definitions/CharFilterName"
+            "$ref": "#/definitions/CharFilterName",
+            "x-nullable": false
           },
           "type": "array"
         },
@@ -3382,7 +4641,8 @@
         "tokenFilters": {
           "description": "An optional list of token filters to use when breaking the given text. This parameter can only be set when using the tokenizer parameter.",
           "items": {
-            "$ref": "#/definitions/TokenFilterName"
+            "$ref": "#/definitions/TokenFilterName",
+            "x-nullable": false
           },
           "type": "array"
         },
@@ -3428,16 +4688,110 @@
       ]
     },
     "AnalyzerName": {
-      "description": "Defines the names of all text analyzers supported by Azure Search.",
+      "description": "Defines the names of all text analyzers supported by Azure Cognitive Search.",
+      "enum": [
+        "ar.microsoft",
+        "ar.lucene",
+        "hy.lucene",
+        "bn.microsoft",
+        "eu.lucene",
+        "bg.microsoft",
+        "bg.lucene",
+        "ca.microsoft",
+        "ca.lucene",
+        "zh-Hans.microsoft",
+        "zh-Hans.lucene",
+        "zh-Hant.microsoft",
+        "zh-Hant.lucene",
+        "hr.microsoft",
+        "cs.microsoft",
+        "cs.lucene",
+        "da.microsoft",
+        "da.lucene",
+        "nl.microsoft",
+        "nl.lucene",
+        "en.microsoft",
+        "en.lucene",
+        "et.microsoft",
+        "fi.microsoft",
+        "fi.lucene",
+        "fr.microsoft",
+        "fr.lucene",
+        "gl.lucene",
+        "de.microsoft",
+        "de.lucene",
+        "el.microsoft",
+        "el.lucene",
+        "gu.microsoft",
+        "he.microsoft",
+        "hi.microsoft",
+        "hi.lucene",
+        "hu.microsoft",
+        "hu.lucene",
+        "is.microsoft",
+        "id.microsoft",
+        "id.lucene",
+        "ga.lucene",
+        "it.microsoft",
+        "it.lucene",
+        "ja.microsoft",
+        "ja.lucene",
+        "kn.microsoft",
+        "ko.microsoft",
+        "ko.lucene",
+        "lv.microsoft",
+        "lv.lucene",
+        "lt.microsoft",
+        "ml.microsoft",
+        "ms.microsoft",
+        "mr.microsoft",
+        "nb.microsoft",
+        "no.lucene",
+        "fa.lucene",
+        "pl.microsoft",
+        "pl.lucene",
+        "pt-BR.microsoft",
+        "pt-BR.lucene",
+        "pt-PT.microsoft",
+        "pt-PT.lucene",
+        "pa.microsoft",
+        "ro.microsoft",
+        "ro.lucene",
+        "ru.microsoft",
+        "ru.lucene",
+        "sr-cyrillic.microsoft",
+        "sr-latin.microsoft",
+        "sk.microsoft",
+        "sl.microsoft",
+        "es.microsoft",
+        "es.lucene",
+        "sv.microsoft",
+        "sv.lucene",
+        "ta.microsoft",
+        "te.microsoft",
+        "th.microsoft",
+        "th.lucene",
+        "tr.microsoft",
+        "tr.lucene",
+        "uk.microsoft",
+        "ur.microsoft",
+        "vi.microsoft",
+        "standard.lucene",
+        "standardasciifolding.lucene",
+        "keyword",
+        "pattern",
+        "simple",
+        "stop",
+        "whitespace"
+      ],
       "externalDocs": {
         "url": "https://docs.microsoft.com/rest/api/searchservice/Language-support"
       },
-      "properties": {
-        "name": {
-          "type": "string"
-        }
-      },
-      "x-ms-external": true
+      "type": "string",
+      "x-ms-enum": {
+        "modelAsString": true,
+        "name": "AnalyzerName"
+      }
     },
     "AsciiFoldingTokenFilter": {
       "allOf": [
@@ -3457,6 +4811,22 @@
         }
       },
       "x-ms-discriminator-value": "#Microsoft.Azure.Search.AsciiFoldingTokenFilter"
+    },
+    "AzureActiveDirectoryApplicationCredentials": {
+      "description": "Credentials of a registered application created for your search service, used for authenticated access to the encryption keys stored in Azure Key Vault.",
+      "properties": {
+        "applicationId": {
+          "description": "An AAD Application ID that was granted the required access permissions to the Azure Key Vault that is to be used when encrypting your data at rest. The Application ID should not be confused with the Object ID for your AAD Application.",
+          "type": "string"
+        },
+        "applicationSecret": {
+          "description": "The authentication key of the specified AAD application.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "applicationId"
+      ]
     },
     "CharFilter": {
       "description": "Abstract base class for character filters.",
@@ -3482,16 +4852,25 @@
       ]
     },
     "CharFilterName": {
-      "description": "Defines the names of all character filters supported by Azure Search.",
+      "description": "Defines the names of all character filters supported by Azure Cognitive Search.",
+      "enum": [
+        "html_strip"
+      ],
       "externalDocs": {
         "url": "https://docs.microsoft.com/rest/api/searchservice/Custom-analyzers-in-Azure-Search"
       },
-      "properties": {
-        "name": {
-          "type": "string"
-        }
-      },
-      "x-ms-external": true
+      "type": "string",
+      "x-ms-enum": {
+        "modelAsString": true,
+        "name": "CharFilterName",
+        "values": [
+          {
+            "description": "A character filter that attempts to strip out HTML constructs. See https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/charfilter/HTMLStripCharFilter.html",
+            "name": "HtmlStrip",
+            "value": "html_strip"
+          }
+        ]
+      }
     },
     "CjkBigramTokenFilter": {
       "allOf": [
@@ -3555,6 +4934,38 @@
       },
       "x-ms-discriminator-value": "#Microsoft.Azure.Search.ClassicTokenizer"
     },
+    "CognitiveServices": {
+      "description": "Abstract base class for describing any cognitive service resource attached to the skillset.",
+      "discriminator": "@odata.type",
+      "properties": {
+        "@odata.type": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "@odata.type"
+      ]
+    },
+    "CognitiveServicesByKey": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/CognitiveServices"
+        }
+      ],
+      "description": "A cognitive service resource provisioned with a key that is attached to a skillset.",
+      "properties": {
+        "key": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "key"
+      ],
+      "x-ms-discriminator-value": "#Microsoft.Azure.Search.CognitiveServicesByKey"
+    },
     "CommonGramTokenFilter": {
       "allOf": [
         {
@@ -3590,6 +5001,18 @@
       ],
       "x-ms-discriminator-value": "#Microsoft.Azure.Search.CommonGramTokenFilter"
     },
+    "ConditionalSkill": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Skill"
+        }
+      ],
+      "description": "A skill that enables scenarios that require a Boolean operation to determine the data to assign to an output.",
+      "externalDocs": {
+        "url": "https://docs.microsoft.com/azure/search/cognitive-search-skill-conditional"
+      },
+      "x-ms-discriminator-value": "#Microsoft.Skills.Util.ConditionalSkill"
+    },
     "CorsOptions": {
       "description": "Defines options to control Cross-Origin Resource Sharing (CORS) for an index.",
       "externalDocs": {
@@ -3604,7 +5027,7 @@
           "type": "array"
         },
         "maxAgeInSeconds": {
-          "description": "The duration for which browsers should cache CORS preflight responses. Defaults to 5 mintues.",
+          "description": "The duration for which browsers should cache CORS preflight responses. Defaults to 5 minutes.",
           "format": "int64",
           "type": "integer"
         }
@@ -3624,14 +5047,16 @@
         "charFilters": {
           "description": "A list of character filters used to prepare input text before it is processed by the tokenizer. For instance, they can replace certain characters or symbols. The filters are run in the order in which they are listed.",
           "items": {
-            "$ref": "#/definitions/CharFilterName"
+            "$ref": "#/definitions/CharFilterName",
+            "x-nullable": false
           },
           "type": "array"
         },
         "tokenFilters": {
           "description": "A list of token filters used to filter out or modify the tokens generated by a tokenizer. For example, you can specify a lowercase filter that converts all characters to lowercase. The filters are run in the order in which they are listed.",
           "items": {
-            "$ref": "#/definitions/TokenFilterName"
+            "$ref": "#/definitions/TokenFilterName",
+            "x-nullable": false
           },
           "type": "array"
         },
@@ -3658,10 +5083,10 @@
       ]
     },
     "DataContainer": {
-      "description": "Represents information about the entity (such as Azure SQL table or DocumentDb collection) that will be indexed.",
+      "description": "Represents information about the entity (such as Azure SQL table or CosmosDB collection) that will be indexed.",
       "properties": {
         "name": {
-          "description": "The name of the table or view (for Azure SQL data source) or collection (for DocumentDB data source) that will be indexed.",
+          "description": "The name of the table or view (for Azure SQL data source) or collection (for CosmosDB data source) that will be indexed.",
           "type": "string"
         },
         "query": {
@@ -3686,7 +5111,7 @@
       ]
     },
     "DataSource": {
-      "description": "Represents a datasource definition in Azure Search, which can be used to configure an indexer.",
+      "description": "Represents a datasource definition, which can be used to configure an indexer.",
       "properties": {
         "@odata.etag": {
           "description": "The ETag of the DataSource.",
@@ -3742,10 +5167,7 @@
           },
           "type": "string"
         }
-      },
-      "required": [
-        "connectionString"
-      ]
+      }
     },
     "DataSourceListResult": {
       "description": "Response from a List Datasources request. If successful, it includes the full definitions of all datasources.",
@@ -3762,22 +5184,68 @@
       }
     },
     "DataSourceType": {
-      "description": "Defines the type of an Azure Search datasource.",
-      "properties": {
-        "name": {
-          "type": "string"
-        }
-      },
-      "x-ms-external": true
+      "description": "Defines the type of a datasource.",
+      "enum": [
+        "azuresql",
+        "cosmosdb",
+        "azureblob",
+        "azuretable",
+        "mysql"
+      ],
+      "type": "string",
+      "x-ms-enum": {
+        "modelAsString": true,
+        "name": "DataSourceType",
+        "values": [
+          {
+            "name": "AzureSql",
+            "value": "azuresql"
+          },
+          {
+            "name": "CosmosDb",
+            "value": "cosmosdb"
+          },
+          {
+            "name": "AzureBlob",
+            "value": "azureblob"
+          },
+          {
+            "name": "AzureTable",
+            "value": "azuretable"
+          },
+          {
+            "name": "MySql",
+            "value": "mysql"
+          }
+        ]
+      }
     },
     "DataType": {
-      "description": "Defines the data type of a field in an Azure Search index.",
-      "properties": {
-        "name": {
-          "type": "string"
+      "description": "Defines the data type of a field in a search index.",
+      "enum": [
+        "Edm.String",
+        "Edm.Int32",
+        "Edm.Int64",
+        "Edm.Double",
+        "Edm.Boolean",
+        "Edm.DateTimeOffset",
+        "Edm.GeographyPoint",
+        "Edm.ComplexType"
+      ],
+      "type": "string",
+      "x-ms-enum": {
+        "modelAsString": true,
+        "name": "DataType"
+      }
+    },
+    "DefaultCognitiveServices": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/CognitiveServices"
         }
-      },
-      "x-ms-external": true
+      ],
+      "description": "An empty object that represents the default cognitive service resource for a skillset.",
+      "x-ms-discriminator-value": "#Microsoft.Azure.Search.DefaultCognitiveServices"
     },
     "DictionaryDecompounderTokenFilter": {
       "allOf": [
@@ -4003,79 +5471,283 @@
       },
       "x-ms-discriminator-value": "#Microsoft.Azure.Search.ElisionTokenFilter"
     },
+    "EncryptionKey": {
+      "description": "A customer-managed encryption key in Azure Key Vault. Keys that you create and manage can be used to encrypt or decrypt data-at-rest in Azure Cognitive Search, such as indexes and synonym maps.",
+      "properties": {
+        "accessCredentials": {
+          "$ref": "#/definitions/AzureActiveDirectoryApplicationCredentials",
+          "description": "Optional Azure Active Directory credentials used for accessing your Azure Key Vault. Not required if using managed identity instead.",
+          "externalDocs": {
+            "url": "https://aka.ms/azure-search-msi"
+          }
+        },
+        "keyVaultKeyName": {
+          "description": "The name of your Azure Key Vault key to be used to encrypt your data at rest.",
+          "type": "string"
+        },
+        "keyVaultKeyVersion": {
+          "description": "The version of your Azure Key Vault key to be used to encrypt your data at rest.",
+          "type": "string"
+        },
+        "keyVaultUri": {
+          "description": "The URI of your Azure Key Vault, also referred to as DNS name, that contains the key to be used to encrypt your data at rest. An example URI might be https://my-keyvault-name.vault.azure.net.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "keyVaultKeyName",
+        "keyVaultKeyVersion",
+        "keyVaultUri"
+      ]
+    },
+    "EntityCategory": {
+      "description": "A string indicating what entity categories to return.",
+      "enum": [
+        "location",
+        "organization",
+        "person",
+        "quantity",
+        "datetime",
+        "url",
+        "email"
+      ],
+      "type": "string",
+      "x-ms-enum": {
+        "modelAsString": false,
+        "name": "EntityCategory"
+      }
+    },
+    "EntityRecognitionSkill": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Skill"
+        }
+      ],
+      "description": "Text analytics entity recognition.",
+      "externalDocs": {
+        "url": "https://docs.microsoft.com/azure/search/cognitive-search-skill-entity-recognition"
+      },
+      "properties": {
+        "categories": {
+          "description": "A list of entity categories that should be extracted.",
+          "items": {
+            "$ref": "#/definitions/EntityCategory",
+            "x-nullable": false
+          },
+          "type": "array"
+        },
+        "defaultLanguageCode": {
+          "$ref": "#/definitions/EntityRecognitionSkillLanguage",
+          "description": "A value indicating which language code to use. Default is en."
+        },
+        "includeTypelessEntities": {
+          "description": "Determines whether or not to include entities which are well known but don't conform to a pre-defined type. If this configuration is not set (default), set to null or set to false, entities which don't conform to one of the pre-defined types will not be surfaced.",
+          "type": "boolean",
+          "x-nullable": true
+        },
+        "minimumPrecision": {
+          "description": "A value between 0 and 1 that be used to only include entities whose confidence score is greater than the value specified. If not set (default), or if explicitly set to null, all entities will be included.",
+          "format": "double",
+          "type": "number",
+          "x-nullable": true
+        }
+      },
+      "x-ms-discriminator-value": "#Microsoft.Skills.Text.EntityRecognitionSkill"
+    },
+    "EntityRecognitionSkillLanguage": {
+      "description": "The language codes supported for input text by EntityRecognitionSkill.",
+      "enum": [
+        "ar",
+        "cs",
+        "zh-Hans",
+        "zh-Hant",
+        "da",
+        "nl",
+        "en",
+        "fi",
+        "fr",
+        "de",
+        "el",
+        "hu",
+        "it",
+        "ja",
+        "ko",
+        "no",
+        "pl",
+        "pt-PT",
+        "pt-BR",
+        "ru",
+        "es",
+        "sv",
+        "tr"
+      ],
+      "type": "string",
+      "x-ms-enum": {
+        "modelAsString": true,
+        "name": "EntityRecognitionSkillLanguage",
+        "values": [
+          {
+            "description": "Arabic",
+            "value": "ar"
+          },
+          {
+            "description": "Czech",
+            "value": "cs"
+          },
+          {
+            "description": "Chinese-Simplified",
+            "value": "zh-Hans"
+          },
+          {
+            "description": "Chinese-Traditional",
+            "value": "zh-Hant"
+          },
+          {
+            "description": "Danish",
+            "value": "da"
+          },
+          {
+            "description": "Dutch",
+            "value": "nl"
+          },
+          {
+            "description": "English",
+            "value": "en"
+          },
+          {
+            "description": "Finnish",
+            "value": "fi"
+          },
+          {
+            "description": "French",
+            "value": "fr"
+          },
+          {
+            "description": "German",
+            "value": "de"
+          },
+          {
+            "description": "Greek",
+            "value": "el"
+          },
+          {
+            "description": "Hungarian",
+            "value": "hu"
+          },
+          {
+            "description": "Italian",
+            "value": "it"
+          },
+          {
+            "description": "Japanese",
+            "value": "ja"
+          },
+          {
+            "description": "Korean",
+            "value": "ko"
+          },
+          {
+            "description": "Norwegian (Bokmaal)",
+            "value": "no"
+          },
+          {
+            "description": "Polish",
+            "value": "pl"
+          },
+          {
+            "description": "Portuguese (Portugal)",
+            "value": "pt-PT"
+          },
+          {
+            "description": "Portuguese (Brazil)",
+            "value": "pt-BR"
+          },
+          {
+            "description": "Russian",
+            "value": "ru"
+          },
+          {
+            "description": "Spanish",
+            "value": "es"
+          },
+          {
+            "description": "Swedish",
+            "value": "sv"
+          },
+          {
+            "description": "Turkish",
+            "value": "tr"
+          }
+        ]
+      }
+    },
     "Field": {
-      "description": "Represents a field in an index definition in Azure Search, which describes the name, data type, and search behavior of a field.",
+      "description": "Represents a field in an index definition, which describes the name, data type, and search behavior of a field.",
       "externalDocs": {
         "url": "https://docs.microsoft.com/rest/api/searchservice/Create-Index"
       },
       "properties": {
         "analyzer": {
           "$ref": "#/definitions/AnalyzerName",
-          "description": "The name of the analyzer to use for the field at search time and indexing time. This option can be used only with searchable fields and it can't be set together with either searchAnalyzer or indexAnalyzer. Once the analyzer is chosen, it cannot be changed for the field.",
+          "description": "The name of the language analyzer to use for the field. This option can be used only with searchable fields and it can't be set together with either searchAnalyzer or indexAnalyzer. Once the analyzer is chosen, it cannot be changed for the field. Must be null for complex fields.",
           "externalDocs": {
             "url": "https://docs.microsoft.com/rest/api/searchservice/Language-support"
           }
         },
         "facetable": {
-          "description": "A value indicating whether it is possible to facet on this field. Not valid for geo-point fields. Default is false.",
-          "type": "boolean",
-          "x-ms-client-name": "isFacetable",
-          "x-nullable": false
+          "description": "A value indicating whether to enable the field to be referenced in facet queries. Typically used in a presentation of search results that includes hit count by category (for example, search for digital cameras and see hits by brand, by megapixels, by price, and so on). This property must be null for complex fields. Fields of type Edm.GeographyPoint or Collection(Edm.GeographyPoint) cannot be facetable. Default is true for all other simple fields.",
+          "type": "boolean"
+        },
+        "fields": {
+          "description": "A list of sub-fields if this is a field of type Edm.ComplexType or Collection(Edm.ComplexType). Must be null or empty for simple fields.",
+          "items": {
+            "$ref": "#/definitions/Field"
+          },
+          "type": "array"
         },
         "filterable": {
-          "description": "A value indicating whether the field can be used in filter expressions. Default is false.",
-          "type": "boolean",
-          "x-ms-client-name": "isFilterable",
-          "x-nullable": false
+          "description": "A value indicating whether to enable the field to be referenced in $filter queries. filterable differs from searchable in how strings are handled. Fields of type Edm.String or Collection(Edm.String) that are filterable do not undergo word-breaking, so comparisons are for exact matches only. For example, if you set such a field f to \"sunny day\", $filter=f eq 'sunny' will find no matches, but $filter=f eq 'sunny day' will. This property must be null for complex fields. Default is true for simple fields and null for complex fields.",
+          "type": "boolean"
         },
         "indexAnalyzer": {
           "$ref": "#/definitions/AnalyzerName",
-          "description": "The name of the analyzer used at indexing time for the field. This option can be used only with searchable fields. It must be set together with searchAnalyzer and it cannot be set together with the analyzer option. Once the analyzer is chosen, it cannot be changed for the field.",
+          "description": "The name of the analyzer used at indexing time for the field. This option can be used only with searchable fields. It must be set together with searchAnalyzer and it cannot be set together with the analyzer option. Once the analyzer is chosen, it cannot be changed for the field. Must be null for complex fields.",
           "externalDocs": {
             "url": "https://docs.microsoft.com/rest/api/searchservice/Language-support"
           }
         },
         "key": {
-          "description": "A value indicating whether the field is the key of the index. Valid only for string fields. Every index must have exactly one key field.",
-          "type": "boolean",
-          "x-ms-client-name": "isKey",
-          "x-nullable": false
+          "description": "A value indicating whether the field uniquely identifies documents in the index. Exactly one top-level field in each index must be chosen as the key field and it must be of type Edm.String. Key fields can be used to look up documents directly and update or delete specific documents. Default is false for simple fields and null for complex fields.",
+          "type": "boolean"
         },
         "name": {
-          "description": "The name of the field.",
+          "description": "The name of the field, which must be unique within the fields collection of the index or parent field.",
           "externalDocs": {
             "url": "https://docs.microsoft.com/rest/api/searchservice/Naming-rules"
           },
           "type": "string"
         },
         "retrievable": {
-          "default": true,
-          "description": "A value indicating whether the field can be returned in a search result. Default is true.",
-          "type": "boolean",
-          "x-ms-client-name": "isRetrievable",
-          "x-nullable": false
+          "description": "A value indicating whether the field can be returned in a search result. You can disable this option if you want to use a field (for example, margin) as a filter, sorting, or scoring mechanism but do not want the field to be visible to the end user. This property must be true for key fields, and it must be null for complex fields. This property can be changed on existing fields. Enabling this property does not cause any increase in index storage requirements. Default is true for simple fields and null for complex fields.",
+          "type": "boolean"
         },
         "searchAnalyzer": {
           "$ref": "#/definitions/AnalyzerName",
-          "description": "The name of the analyzer used at search time for the field. This option can be used only with searchable fields. It must be set together with indexAnalyzer and it cannot be set together with the analyzer option. This analyzer can be updated on an existing field.",
+          "description": "The name of the analyzer used at search time for the field. This option can be used only with searchable fields. It must be set together with indexAnalyzer and it cannot be set together with the analyzer option. This analyzer can be updated on an existing field. Must be null for complex fields.",
           "externalDocs": {
             "url": "https://docs.microsoft.com/rest/api/searchservice/Language-support"
           }
         },
         "searchable": {
-          "description": "A value indicating whether the field is included in full-text searches. Valid only forstring or string collection fields. Default is false.",
-          "type": "boolean",
-          "x-ms-client-name": "isSearchable",
-          "x-nullable": false
+          "description": "A value indicating whether the field is full-text searchable. This means it will undergo analysis such as word-breaking during indexing. If you set a searchable field to a value like \"sunny day\", internally it will be split into the individual tokens \"sunny\" and \"day\". This enables full-text searches for these terms. Fields of type Edm.String or Collection(Edm.String) are searchable by default. This property must be false for simple fields of other non-string data types, and it must be null for complex fields. Note: searchable fields consume extra space in your index since Azure Cognitive Search will store an additional tokenized version of the field value for full-text searches. If you want to save space in your index and you don't need a field to be included in searches, set searchable to false.",
+          "type": "boolean"
         },
         "sortable": {
-          "description": "A value indicating whether the field can be used in orderby expressions. Not valid for string collection fields. Default is false.",
-          "type": "boolean",
-          "x-ms-client-name": "isSortable",
-          "x-nullable": false
+          "description": "A value indicating whether to enable the field to be referenced in $orderby expressions. By default Azure Cognitive Search sorts results by score, but in many experiences users will want to sort by fields in the documents. A simple field can be sortable only if it is single-valued (it has a single value in the scope of the parent document). Simple collection fields cannot be sortable, since they are multi-valued. Simple sub-fields of complex collections are also multi-valued, and therefore cannot be sortable. This is true whether it's an immediate parent field, or an ancestor field, that's the complex collection. Complex fields cannot be sortable and the sortable property must be null for such fields. The default for sortable is true for single-valued simple fields, false for multi-valued simple fields, and null for complex fields.",
+          "type": "boolean"
         },
         "synonymMaps": {
-          "description": "A list of synonym maps to apply in query expansion. Only one synonym map is allowed in the list currently. Synonym maps must be uploaded first to be referenced. This option can be used only with searchable fields.",
+          "description": "A list of the names of synonym maps to associate with this field. This option can be used only with searchable fields. Currently only one synonym map per field is supported. Assigning a synonym map to a field ensures that query terms targeting that field are expanded at query-time using the rules in the synonym map. This attribute can be changed on existing fields. Must be null or an empty collection for complex fields.",
           "externalDocs": {
             "url": "https://docs.microsoft.com/rest/api/searchservice/Synonym-Map-operations"
           },
@@ -4086,14 +5758,16 @@
         },
         "type": {
           "$ref": "#/definitions/DataType",
-          "description": "The data type of the field."
+          "description": "The data type of the field.",
+          "externalDocs": {
+            "url": "https://docs.microsoft.com/rest/api/searchservice/supported-data-types"
+          }
         }
       },
       "required": [
         "name",
         "type"
-      ],
-      "x-ms-external": true
+      ]
     },
     "FieldMapping": {
       "description": "Defines a mapping between a field in a data source and a target field in an index.",
@@ -4193,8 +5867,76 @@
       ],
       "x-ms-discriminator-value": "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy"
     },
+    "ImageAnalysisSkill": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Skill"
+        }
+      ],
+      "description": "A skill that analyzes image files. It extracts a rich set of visual features based on the image content.",
+      "externalDocs": {
+        "url": "https://docs.microsoft.com/azure/search/cognitive-search-skill-image-analysis"
+      },
+      "properties": {
+        "defaultLanguageCode": {
+          "$ref": "#/definitions/ImageAnalysisSkillLanguage",
+          "description": "A value indicating which language code to use. Default is en."
+        },
+        "details": {
+          "description": "A string indicating which domain-specific details to return.",
+          "items": {
+            "$ref": "#/definitions/ImageDetail",
+            "x-nullable": false
+          },
+          "type": "array"
+        },
+        "visualFeatures": {
+          "description": "A list of visual features.",
+          "items": {
+            "$ref": "#/definitions/VisualFeature",
+            "x-nullable": false
+          },
+          "type": "array"
+        }
+      },
+      "x-ms-discriminator-value": "#Microsoft.Skills.Vision.ImageAnalysisSkill"
+    },
+    "ImageAnalysisSkillLanguage": {
+      "description": "The language codes supported for input by ImageAnalysisSkill.",
+      "enum": [
+        "en",
+        "zh"
+      ],
+      "type": "string",
+      "x-ms-enum": {
+        "modelAsString": true,
+        "name": "ImageAnalysisSkillLanguage",
+        "values": [
+          {
+            "description": "English",
+            "value": "en"
+          },
+          {
+            "description": "Chinese",
+            "value": "zh"
+          }
+        ]
+      }
+    },
+    "ImageDetail": {
+      "description": "A string indicating which domain-specific details to return.",
+      "enum": [
+        "celebrities",
+        "landmarks"
+      ],
+      "type": "string",
+      "x-ms-enum": {
+        "modelAsString": false,
+        "name": "ImageDetail"
+      }
+    },
     "Index": {
-      "description": "Represents an index definition in Azure Search, which describes the fields and search behavior of an index.",
+      "description": "Represents a search index definition, which describes the fields and search behavior of an index.",
       "properties": {
         "@odata.etag": {
           "description": "The ETag of the index.",
@@ -4228,6 +5970,13 @@
         "defaultScoringProfile": {
           "description": "The name of the scoring profile to use if none is specified in the query. If this property is not set and no scoring profile is specified in the query, then default scoring (tf-idf) will be used.",
           "type": "string"
+        },
+        "encryptionKey": {
+          "$ref": "#/definitions/EncryptionKey",
+          "description": "A description of an encryption key that you create in Azure Key Vault. This key is used to provide an additional level of encryption-at-rest for your data when you want full assurance that no one, not even Microsoft, can decrypt your data in Azure Cognitive Search. Once you have encrypted your data, it will always remain encrypted. Azure Cognitive Search will ignore attempts to set this property to null. You can change this property as needed if you want to rotate your encryption key; Your data will be unaffected. Encryption with customer-managed keys is not available for free search services, and is only available for paid services created on or after January 1, 2019.",
+          "externalDocs": {
+            "url": "https://aka.ms/azure-search-encryption-with-cmk"
+          }
         },
         "fields": {
           "description": "The fields of the index.",
@@ -4317,7 +6066,7 @@
       }
     },
     "Indexer": {
-      "description": "Represents an Azure Search indexer.",
+      "description": "Represents an indexer.",
       "externalDocs": {
         "url": "https://docs.microsoft.com/rest/api/searchservice/Indexer-operations"
       },
@@ -4358,6 +6107,16 @@
           },
           "type": "string"
         },
+        "outputFieldMappings": {
+          "description": "Output field mappings are applied after enrichment and immediately before indexing.",
+          "externalDocs": {
+            "url": "https://docs.microsoft.com/azure/search/search-indexer-field-mappings"
+          },
+          "items": {
+            "$ref": "#/definitions/FieldMapping"
+          },
+          "type": "array"
+        },
         "parameters": {
           "$ref": "#/definitions/IndexingParameters",
           "description": "Parameters for indexer execution."
@@ -4365,6 +6124,10 @@
         "schedule": {
           "$ref": "#/definitions/IndexingSchedule",
           "description": "The schedule for this indexer."
+        },
+        "skillsetName": {
+          "description": "The name of the skillset executing with this indexer.",
+          "type": "string"
         },
         "targetIndexName": {
           "description": "The name of the index to which this indexer writes data.",
@@ -4391,6 +6154,11 @@
         "lastResult": {
           "$ref": "#/definitions/IndexerExecutionResult",
           "description": "The result of the most recent or an in-progress indexer execution.",
+          "readOnly": true
+        },
+        "limits": {
+          "$ref": "#/definitions/IndexerLimits",
+          "description": "The execution limits for the indexer.",
           "readOnly": true
         },
         "status": {
@@ -4483,6 +6251,28 @@
       },
       "x-nullable": false
     },
+    "IndexerLimits": {
+      "properties": {
+        "maxDocumentContentCharactersToExtract": {
+          "description": "The maximum number of characters that will be extracted from a document picked up for indexing.",
+          "format": "int64",
+          "readOnly": true,
+          "type": "number"
+        },
+        "maxDocumentExtractionSize": {
+          "description": "The maximum size of a document, in bytes, which will be considered valid for indexing.",
+          "format": "int64",
+          "readOnly": true,
+          "type": "number"
+        },
+        "maxRunTime": {
+          "description": "The maximum duration that the indexer is permitted to run for one execution.",
+          "format": "duration",
+          "readOnly": true,
+          "type": "string"
+        }
+      }
+    },
     "IndexerListResult": {
       "description": "Response from a List Indexers request. If successful, it includes the full definitions of all indexers.",
       "properties": {
@@ -4563,9 +6353,46 @@
         "interval"
       ]
     },
+    "InputFieldMappingEntry": {
+      "description": "Input field mapping for a skill.",
+      "properties": {
+        "inputs": {
+          "description": "The recursive inputs used when creating a complex type.",
+          "items": {
+            "$ref": "#/definitions/InputFieldMappingEntry"
+          },
+          "type": "array"
+        },
+        "name": {
+          "description": "The name of the input.",
+          "type": "string"
+        },
+        "source": {
+          "description": "The source of the input.",
+          "type": "string"
+        },
+        "sourceContext": {
+          "description": "The source context used for selecting recursive inputs.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name"
+      ]
+    },
     "ItemError": {
       "description": "Represents an item- or document-level indexing error.",
       "properties": {
+        "details": {
+          "description": "Additional, verbose details about the error to assist in debugging the indexer. This may not be always available.",
+          "readOnly": true,
+          "type": "string"
+        },
+        "documentationLink": {
+          "description": "A link to a troubleshooting guide for these classes of errors. This may not be always available.",
+          "readOnly": true,
+          "type": "string"
+        },
         "errorMessage": {
           "description": "The message describing the error that occurred while processing the item.",
           "readOnly": true,
@@ -4575,12 +6402,34 @@
           "description": "The key of the item for which indexing failed.",
           "readOnly": true,
           "type": "string"
+        },
+        "name": {
+          "description": "The name of the source at which the error originated. For example, this could refer to a particular skill in the attached skillset. This may not be always available.",
+          "readOnly": true,
+          "type": "string"
+        },
+        "statusCode": {
+          "description": "The status code indicating why the indexing operation failed. Possible values include: 400 for a malformed input document, 404 for document not found, 409 for a version conflict, 422 when the index is temporarily unavailable, or 503 for when the service is too busy.",
+          "format": "int32",
+          "readOnly": true,
+          "type": "integer",
+          "x-nullable": false
         }
       }
     },
     "ItemWarning": {
       "description": "Represents an item-level warning.",
       "properties": {
+        "details": {
+          "description": "Additional, verbose details about the warning to assist in debugging the indexer. This may not be always available.",
+          "readOnly": true,
+          "type": "string"
+        },
+        "documentationLink": {
+          "description": "A link to a troubleshooting guide for these classes of warnings. This may not be always available.",
+          "readOnly": true,
+          "type": "string"
+        },
         "key": {
           "description": "The key of the item which generated a warning.",
           "readOnly": true,
@@ -4588,6 +6437,11 @@
         },
         "message": {
           "description": "The message describing the warning that occurred while processing the item.",
+          "readOnly": true,
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the source at which the warning originated. For example, this could refer to a particular skill in the attached skillset. This may not be always available.",
           "readOnly": true,
           "type": "string"
         }
@@ -4622,6 +6476,122 @@
         "keepWords"
       ],
       "x-ms-discriminator-value": "#Microsoft.Azure.Search.KeepTokenFilter"
+    },
+    "KeyPhraseExtractionSkill": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Skill"
+        }
+      ],
+      "description": "A skill that uses text analytics for key phrase extraction.",
+      "externalDocs": {
+        "url": "https://docs.microsoft.com/azure/search/cognitive-search-skill-keyphrases"
+      },
+      "properties": {
+        "defaultLanguageCode": {
+          "$ref": "#/definitions/KeyPhraseExtractionSkillLanguage",
+          "description": "A value indicating which language code to use. Default is en."
+        },
+        "maxKeyPhraseCount": {
+          "description": "A number indicating how many key phrases to return. If absent, all identified key phrases will be returned.",
+          "format": "int32",
+          "type": "integer",
+          "x-nullable": true
+        }
+      },
+      "x-ms-discriminator-value": "#Microsoft.Skills.Text.KeyPhraseExtractionSkill"
+    },
+    "KeyPhraseExtractionSkillLanguage": {
+      "description": "The language codes supported for input text by KeyPhraseExtractionSkill.",
+      "enum": [
+        "da",
+        "nl",
+        "en",
+        "fi",
+        "fr",
+        "de",
+        "it",
+        "ja",
+        "ko",
+        "no",
+        "pl",
+        "pt-PT",
+        "pt-BR",
+        "ru",
+        "es",
+        "sv"
+      ],
+      "type": "string",
+      "x-ms-enum": {
+        "modelAsString": true,
+        "name": "KeyPhraseExtractionSkillLanguage",
+        "values": [
+          {
+            "description": "Danish",
+            "value": "da"
+          },
+          {
+            "description": "Dutch",
+            "value": "nl"
+          },
+          {
+            "description": "English",
+            "value": "en"
+          },
+          {
+            "description": "Finnish",
+            "value": "fi"
+          },
+          {
+            "description": "French",
+            "value": "fr"
+          },
+          {
+            "description": "German",
+            "value": "de"
+          },
+          {
+            "description": "Italian",
+            "value": "it"
+          },
+          {
+            "description": "Japanese",
+            "value": "ja"
+          },
+          {
+            "description": "Korean",
+            "value": "ko"
+          },
+          {
+            "description": "Norwegian (Bokmaal)",
+            "value": "no"
+          },
+          {
+            "description": "Polish",
+            "value": "pl"
+          },
+          {
+            "description": "Portuguese (Portugal)",
+            "value": "pt-PT"
+          },
+          {
+            "description": "Portuguese (Brazil)",
+            "value": "pt-BR"
+          },
+          {
+            "description": "Russian",
+            "value": "ru"
+          },
+          {
+            "description": "Spanish",
+            "value": "es"
+          },
+          {
+            "description": "Swedish",
+            "value": "sv"
+          }
+        ]
+      }
     },
     "KeywordMarkerTokenFilter": {
       "allOf": [
@@ -4693,6 +6663,18 @@
         }
       },
       "x-ms-discriminator-value": "#Microsoft.Azure.Search.KeywordTokenizerV2"
+    },
+    "LanguageDetectionSkill": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Skill"
+        }
+      ],
+      "description": "A skill that detects the language of input text and reports a single language code for every document submitted on the request. The language code is paired with a score indicating the confidence of the analysis.",
+      "externalDocs": {
+        "url": "https://docs.microsoft.com/azure/search/cognitive-search-skill-language-detection"
+      },
+      "x-ms-discriminator-value": "#Microsoft.Skills.Text.LanguageDetectionSkill"
     },
     "LengthTokenFilter": {
       "allOf": [
@@ -4816,6 +6798,30 @@
         "mappings"
       ],
       "x-ms-discriminator-value": "#Microsoft.Azure.Search.MappingCharFilter"
+    },
+    "MergeSkill": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Skill"
+        }
+      ],
+      "description": "A skill for merging two or more strings into a single unified string, with an optional user-defined delimiter separating each component part.",
+      "externalDocs": {
+        "url": "https://docs.microsoft.com/azure/search/cognitive-search-skill-textmerger"
+      },
+      "properties": {
+        "insertPostTag": {
+          "default": " ",
+          "description": "The tag indicates the end of the merged text. By default, the tag is an empty space.",
+          "type": "string"
+        },
+        "insertPreTag": {
+          "default": " ",
+          "description": "The tag indicates the start of the merged text. By default, the tag is an empty space.",
+          "type": "string"
+        }
+      },
+      "x-ms-discriminator-value": "#Microsoft.Skills.Text.MergeSkill"
     },
     "MicrosoftLanguageStemmingTokenizer": {
       "allOf": [
@@ -5068,6 +7074,195 @@
         }
       },
       "x-ms-discriminator-value": "#Microsoft.Azure.Search.NGramTokenizer"
+    },
+    "OcrSkill": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Skill"
+        }
+      ],
+      "description": "A skill that extracts text from image files.",
+      "externalDocs": {
+        "url": "https://docs.microsoft.com/azure/search/cognitive-search-skill-ocr"
+      },
+      "properties": {
+        "defaultLanguageCode": {
+          "$ref": "#/definitions/OcrSkillLanguage",
+          "description": "A value indicating which language code to use. Default is en."
+        },
+        "detectOrientation": {
+          "default": false,
+          "description": "A value indicating to turn orientation detection on or not. Default is false.",
+          "type": "boolean",
+          "x-ms-client-name": "ShouldDetectOrientation"
+        },
+        "textExtractionAlgorithm": {
+          "$ref": "#/definitions/TextExtractionAlgorithm",
+          "description": "A value indicating which algorithm to use for extracting text. Default is printed."
+        }
+      },
+      "x-ms-discriminator-value": "#Microsoft.Skills.Vision.OcrSkill"
+    },
+    "OcrSkillLanguage": {
+      "description": "The language codes supported for input by OcrSkill.",
+      "enum": [
+        "zh-Hans",
+        "zh-Hant",
+        "cs",
+        "da",
+        "nl",
+        "en",
+        "fi",
+        "fr",
+        "de",
+        "el",
+        "hu",
+        "it",
+        "ja",
+        "ko",
+        "nb",
+        "pl",
+        "pt",
+        "ru",
+        "es",
+        "sv",
+        "tr",
+        "ar",
+        "ro",
+        "sr-Cyrl",
+        "sr-Latn",
+        "sk"
+      ],
+      "type": "string",
+      "x-ms-enum": {
+        "modelAsString": true,
+        "name": "OcrSkillLanguage",
+        "values": [
+          {
+            "description": "Chinese-Simplified",
+            "value": "zh-Hans"
+          },
+          {
+            "description": "Chinese-Traditional",
+            "value": "zh-Hant"
+          },
+          {
+            "description": "Czech",
+            "value": "cs"
+          },
+          {
+            "description": "Danish",
+            "value": "da"
+          },
+          {
+            "description": "Dutch",
+            "value": "nl"
+          },
+          {
+            "description": "English",
+            "value": "en"
+          },
+          {
+            "description": "Finnish",
+            "value": "fi"
+          },
+          {
+            "description": "French",
+            "value": "fr"
+          },
+          {
+            "description": "German",
+            "value": "de"
+          },
+          {
+            "description": "Greek",
+            "value": "el"
+          },
+          {
+            "description": "Hungarian",
+            "value": "hu"
+          },
+          {
+            "description": "Italian",
+            "value": "it"
+          },
+          {
+            "description": "Japanese",
+            "value": "ja"
+          },
+          {
+            "description": "Korean",
+            "value": "ko"
+          },
+          {
+            "description": "Norwegian (Bokmaal)",
+            "value": "nb"
+          },
+          {
+            "description": "Polish",
+            "value": "pl"
+          },
+          {
+            "description": "Portuguese",
+            "value": "pt"
+          },
+          {
+            "description": "Russian",
+            "value": "ru"
+          },
+          {
+            "description": "Spanish",
+            "value": "es"
+          },
+          {
+            "description": "Swedish",
+            "value": "sv"
+          },
+          {
+            "description": "Turkish",
+            "value": "tr"
+          },
+          {
+            "description": "Arabic",
+            "value": "ar"
+          },
+          {
+            "description": "Romanian",
+            "value": "ro"
+          },
+          {
+            "description": "Serbian (Cyrillic, Serbia)",
+            "value": "sr-Cyrl"
+          },
+          {
+            "description": "Serbian (Latin, Serbia)",
+            "value": "sr-Latn"
+          },
+          {
+            "description": "Slovak",
+            "value": "sk"
+          }
+        ]
+      }
+    },
+    "OutputFieldMappingEntry": {
+      "description": "Output field mapping for a skill.",
+      "externalDocs": {
+        "url": "https://docs.microsoft.com/rest/api/searchservice/naming-rules"
+      },
+      "properties": {
+        "name": {
+          "description": "The name of the output defined by the skill.",
+          "type": "string"
+        },
+        "targetName": {
+          "description": "The target name of the output. It is optional and default to name.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name"
+      ]
     },
     "PathHierarchyTokenizer": {
       "allOf": [
@@ -5355,15 +7550,24 @@
     },
     "RegexFlags": {
       "description": "Defines flags that can be combined to control how regular expressions are used in the pattern analyzer and pattern tokenizer.",
+      "enum": [
+        "CANON_EQ",
+        "CASE_INSENSITIVE",
+        "COMMENTS",
+        "DOTALL",
+        "LITERAL",
+        "MULTILINE",
+        "UNICODE_CASE",
+        "UNIX_LINES"
+      ],
       "externalDocs": {
         "url": "http://docs.oracle.com/javase/6/docs/api/java/util/regex/Pattern.html#field_summary"
       },
-      "properties": {
-        "name": {
-          "type": "string"
-        }
-      },
-      "x-ms-external": true
+      "type": "string",
+      "x-ms-enum": {
+        "modelAsString": true,
+        "name": "RegexFlags"
+      }
     },
     "ResourceCounter": {
       "description": "Represents a resource's usage and quota.",
@@ -5440,7 +7644,7 @@
       }
     },
     "ScoringProfile": {
-      "description": "Defines parameters for an Azure Search index that influence scoring in search queries.",
+      "description": "Defines parameters for a search index that influence scoring in search queries.",
       "externalDocs": {
         "url": "https://docs.microsoft.com/rest/api/searchservice/Add-scoring-profiles-to-a-search-index"
       },
@@ -5472,6 +7676,111 @@
       "required": [
         "name"
       ]
+    },
+    "SentimentSkill": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Skill"
+        }
+      ],
+      "description": "Text analytics positive-negative sentiment analysis, scored as a floating point value in a range of zero to 1.",
+      "externalDocs": {
+        "url": "https://docs.microsoft.com/azure/search/cognitive-search-skill-sentiment"
+      },
+      "properties": {
+        "defaultLanguageCode": {
+          "$ref": "#/definitions/SentimentSkillLanguage",
+          "description": "A value indicating which language code to use. Default is en."
+        }
+      },
+      "x-ms-discriminator-value": "#Microsoft.Skills.Text.SentimentSkill"
+    },
+    "SentimentSkillLanguage": {
+      "description": "The language codes supported for input text by SentimentSkill.",
+      "enum": [
+        "da",
+        "nl",
+        "en",
+        "fi",
+        "fr",
+        "de",
+        "el",
+        "it",
+        "no",
+        "pl",
+        "pt-PT",
+        "ru",
+        "es",
+        "sv",
+        "tr"
+      ],
+      "type": "string",
+      "x-ms-enum": {
+        "modelAsString": true,
+        "name": "SentimentSkillLanguage",
+        "values": [
+          {
+            "description": "Danish",
+            "value": "da"
+          },
+          {
+            "description": "Dutch",
+            "value": "nl"
+          },
+          {
+            "description": "English",
+            "value": "en"
+          },
+          {
+            "description": "Finnish",
+            "value": "fi"
+          },
+          {
+            "description": "French",
+            "value": "fr"
+          },
+          {
+            "description": "German",
+            "value": "de"
+          },
+          {
+            "description": "Greek",
+            "value": "el"
+          },
+          {
+            "description": "Italian",
+            "value": "it"
+          },
+          {
+            "description": "Norwegian (Bokmaal)",
+            "value": "no"
+          },
+          {
+            "description": "Polish",
+            "value": "pl"
+          },
+          {
+            "description": "Portuguese (Portugal)",
+            "value": "pt-PT"
+          },
+          {
+            "description": "Russian",
+            "value": "ru"
+          },
+          {
+            "description": "Spanish",
+            "value": "es"
+          },
+          {
+            "description": "Swedish",
+            "value": "sv"
+          },
+          {
+            "description": "Turkish",
+            "value": "tr"
+          }
+        ]
+      }
     },
     "ServiceCounters": {
       "description": "Represents service-level resource counters and quotas.",
@@ -5517,6 +7826,12 @@
           "type": "integer",
           "x-nullable": true
         },
+        "maxComplexObjectsInCollectionsPerDocument": {
+          "description": "The maximum number of objects in complex collections allowed per document.",
+          "format": "int32",
+          "type": "integer",
+          "x-nullable": true
+        },
         "maxFieldNestingDepthPerIndex": {
           "description": "The maximum depth which you can nest sub-fields in an index, including the top-level complex field. For example, a/b/c has a nesting depth of 3.",
           "format": "int32",
@@ -5543,6 +7858,18 @@
           "description": "Service level general limits."
         }
       }
+    },
+    "ShaperSkill": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Skill"
+        }
+      ],
+      "description": "A skill for reshaping the outputs. It creates a complex type to support composite fields (also known as multipart fields).",
+      "externalDocs": {
+        "url": "https://docs.microsoft.com/azure/search/cognitive-search-skill-shaper"
+      },
+      "x-ms-discriminator-value": "#Microsoft.Skills.Util.ShaperSkill"
     },
     "ShingleTokenFilter": {
       "allOf": [
@@ -5591,6 +7918,100 @@
         }
       },
       "x-ms-discriminator-value": "#Microsoft.Azure.Search.ShingleTokenFilter"
+    },
+    "Skill": {
+      "description": "Abstract base class for skills.",
+      "discriminator": "@odata.type",
+      "externalDocs": {
+        "url": "https://docs.microsoft.com/azure/search/cognitive-search-predefined-skills"
+      },
+      "properties": {
+        "@odata.type": {
+          "type": "string"
+        },
+        "context": {
+          "description": "Represents the level at which operations take place, such as the document root or document content (for example, /document or /document/content). The default is /document.",
+          "type": "string"
+        },
+        "description": {
+          "description": "The description of the skill which describes the inputs, outputs, and usage of the skill.",
+          "type": "string"
+        },
+        "inputs": {
+          "description": "Inputs of the skills could be a column in the source data set, or the output of an upstream skill.",
+          "items": {
+            "$ref": "#/definitions/InputFieldMappingEntry"
+          },
+          "type": "array"
+        },
+        "name": {
+          "description": "The name of the skill which uniquely identifies it within the skillset. A skill with no name defined will be given a default name of its 1-based index in the skills array, prefixed with the character '#'.",
+          "type": "string"
+        },
+        "outputs": {
+          "description": "The output of a skill is either a field in a search index, or a value that can be consumed as an input by another skill.",
+          "items": {
+            "$ref": "#/definitions/OutputFieldMappingEntry"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "@odata.type",
+        "inputs",
+        "outputs"
+      ]
+    },
+    "Skillset": {
+      "description": "A list of skills.",
+      "externalDocs": {
+        "url": "https://docs.microsoft.com/azure/search/cognitive-search-tutorial-blob"
+      },
+      "properties": {
+        "@odata.etag": {
+          "description": "The ETag of the skillset.",
+          "type": "string",
+          "x-ms-client-name": "ETag"
+        },
+        "cognitiveServices": {
+          "$ref": "#/definitions/CognitiveServices",
+          "description": "Details about cognitive services to be used when running skills."
+        },
+        "description": {
+          "description": "The description of the skillset.",
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the skillset.",
+          "type": "string"
+        },
+        "skills": {
+          "description": "A list of skills in the skillset.",
+          "items": {
+            "$ref": "#/definitions/Skill"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "name",
+        "description",
+        "skills"
+      ]
+    },
+    "SkillsetListResult": {
+      "description": "Response from a list Skillset request. If successful, it includes the full definitions of all skillsets.",
+      "properties": {
+        "value": {
+          "description": "The skillsets defined in the Search service.",
+          "items": {
+            "$ref": "#/definitions/Skillset"
+          },
+          "readOnly": true,
+          "type": "array",
+          "x-ms-client-name": "Skillsets"
+        }
+      }
     },
     "SnowballTokenFilter": {
       "allOf": [
@@ -5658,11 +8079,97 @@
           "type": "string"
         },
         "softDeleteMarkerValue": {
-          "description": "The marker value that indentifies an item as deleted.",
+          "description": "The marker value that identifies an item as deleted.",
           "type": "string"
         }
       },
       "x-ms-discriminator-value": "#Microsoft.Azure.Search.SoftDeleteColumnDeletionDetectionPolicy"
+    },
+    "SplitSkill": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Skill"
+        }
+      ],
+      "description": "A skill to split a string into chunks of text.",
+      "externalDocs": {
+        "url": "https://docs.microsoft.com/azure/search/cognitive-search-skill-textsplit"
+      },
+      "properties": {
+        "defaultLanguageCode": {
+          "$ref": "#/definitions/SplitSkillLanguage",
+          "description": "A value indicating which language code to use. Default is en."
+        },
+        "maximumPageLength": {
+          "description": "The desired maximum page length. Default is 10000.",
+          "format": "int32",
+          "type": "integer",
+          "x-nullable": true
+        },
+        "textSplitMode": {
+          "$ref": "#/definitions/TextSplitMode",
+          "description": "A value indicating which split mode to perform.",
+          "x-nullable": false
+        }
+      },
+      "x-ms-discriminator-value": "#Microsoft.Skills.Text.SplitSkill"
+    },
+    "SplitSkillLanguage": {
+      "description": "The language codes supported for input text by SplitSkill.",
+      "enum": [
+        "da",
+        "de",
+        "en",
+        "es",
+        "fi",
+        "fr",
+        "it",
+        "ko",
+        "pt"
+      ],
+      "type": "string",
+      "x-ms-enum": {
+        "modelAsString": true,
+        "name": "SplitSkillLanguage",
+        "values": [
+          {
+            "description": "Danish",
+            "value": "da"
+          },
+          {
+            "description": "German",
+            "value": "de"
+          },
+          {
+            "description": "English",
+            "value": "en"
+          },
+          {
+            "description": "Spanish",
+            "value": "es"
+          },
+          {
+            "description": "Finnish",
+            "value": "fi"
+          },
+          {
+            "description": "French",
+            "value": "fr"
+          },
+          {
+            "description": "Italian",
+            "value": "it"
+          },
+          {
+            "description": "Korean",
+            "value": "ko"
+          },
+          {
+            "description": "Portuguese",
+            "value": "pt"
+          }
+        ]
+      }
     },
     "SqlIntegratedChangeTrackingPolicy": {
       "allOf": [
@@ -5963,7 +8470,11 @@
           "enum": [
             "analyzingInfixMatching"
           ],
-          "type": "string"
+          "type": "string",
+          "x-ms-enum": {
+            "modelAsString": false,
+            "name": "searchMode"
+          }
         },
         "sourceFields": {
           "description": "The list of field names to which the suggester applies. Each field must be searchable.",
@@ -5980,16 +8491,30 @@
       ]
     },
     "SynonymMap": {
-      "description": "Represents a synonym map definition in Azure Search.",
+      "description": "Represents a synonym map definition.",
       "properties": {
         "@odata.etag": {
           "description": "The ETag of the synonym map.",
           "type": "string",
           "x-ms-client-name": "ETag"
         },
+        "encryptionKey": {
+          "$ref": "#/definitions/EncryptionKey",
+          "description": "A description of an encryption key that you create in Azure Key Vault. This key is used to provide an additional level of encryption-at-rest for your data when you want full assurance that no one, not even Microsoft, can decrypt your data in Azure Cognitive Search. Once you have encrypted your data, it will always remain encrypted. Azure Cognitive Search will ignore attempts to set this property to null. You can change this property as needed if you want to rotate your encryption key; Your data will be unaffected. Encryption with customer-managed keys is not available for free search services, and is only available for paid services created on or after January 1, 2019.",
+          "externalDocs": {
+            "url": "https://aka.ms/azure-search-encryption-with-cmk"
+          }
+        },
         "format": {
-          "$ref": "#/definitions/SynonymMapFormat",
-          "description": "The format of the synonym map. Only the 'solr' format is currently supported."
+          "description": "The format of the synonym map. Only the 'solr' format is currently supported.",
+          "enum": [
+            "solr"
+          ],
+          "type": "string",
+          "x-ms-enum": {
+            "modelAsString": false,
+            "name": "SynonymMapFormat"
+          }
         },
         "name": {
           "description": "The name of the synonym map.",
@@ -6011,15 +8536,6 @@
         "format",
         "synonyms"
       ]
-    },
-    "SynonymMapFormat": {
-      "description": "The format of the synonym map. Only the 'solr' format is currently supported.",
-      "properties": {
-        "name": {
-          "type": "string"
-        }
-      },
-      "x-ms-external": true
     },
     "SynonymMapListResult": {
       "description": "Response from a List SynonymMaps request. If successful, it includes the full definitions of all synonym maps.",
@@ -6103,6 +8619,386 @@
         "tagsParameter"
       ]
     },
+    "TextExtractionAlgorithm": {
+      "description": "A value indicating which algorithm to use. Default is printed.",
+      "enum": [
+        "printed",
+        "handwritten"
+      ],
+      "type": "string",
+      "x-ms-enum": {
+        "modelAsString": false,
+        "name": "TextExtractionAlgorithm"
+      }
+    },
+    "TextSplitMode": {
+      "description": "A value indicating which split mode to perform.",
+      "enum": [
+        "pages",
+        "sentences"
+      ],
+      "type": "string",
+      "x-ms-enum": {
+        "modelAsString": false,
+        "name": "TextSplitMode"
+      }
+    },
+    "TextTranslationSkill": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Skill"
+        }
+      ],
+      "description": "A skill to translate text from one language to another.",
+      "externalDocs": {
+        "url": "https://docs.microsoft.com/azure/search/cognitive-search-skill-text-translation"
+      },
+      "properties": {
+        "defaultFromLanguageCode": {
+          "$ref": "#/definitions/TextTranslationSkillLanguage",
+          "description": "The language code to translate documents from for documents that don't specify the from language explicitly."
+        },
+        "defaultToLanguageCode": {
+          "$ref": "#/definitions/TextTranslationSkillLanguage",
+          "description": "The language code to translate documents into for documents that don't specify the to language explicitly. "
+        },
+        "suggestedFrom": {
+          "$ref": "#/definitions/TextTranslationSkillLanguage",
+          "description": "The language code to translate documents from when neither the fromLanguageCode input nor the defaultFromLanguageCode parameter are provided, and the automatic language detection is unsuccessful. Default is en."
+        }
+      },
+      "required": [
+        "defaultToLanguageCode"
+      ],
+      "x-ms-discriminator-value": "#Microsoft.Skills.Text.TranslationSkill"
+    },
+    "TextTranslationSkillLanguage": {
+      "description": "The language codes supported for input text by TextTranslationSkill.",
+      "enum": [
+        "af",
+        "ar",
+        "bn",
+        "bs",
+        "bg",
+        "yue",
+        "ca",
+        "zh-Hans",
+        "zh-Hant",
+        "hr",
+        "cs",
+        "da",
+        "nl",
+        "en",
+        "et",
+        "fj",
+        "fil",
+        "fi",
+        "fr",
+        "de",
+        "el",
+        "ht",
+        "he",
+        "hi",
+        "mww",
+        "hu",
+        "is",
+        "id",
+        "it",
+        "ja",
+        "sw",
+        "tlh",
+        "ko",
+        "lv",
+        "lt",
+        "mg",
+        "ms",
+        "mt",
+        "nb",
+        "fa",
+        "pl",
+        "pt",
+        "otq",
+        "ro",
+        "ru",
+        "sm",
+        "sr-Cyrl",
+        "sr-Latn",
+        "sk",
+        "sl",
+        "es",
+        "sv",
+        "ty",
+        "ta",
+        "te",
+        "th",
+        "to",
+        "tr",
+        "uk",
+        "ur",
+        "vi",
+        "cy",
+        "yua"
+      ],
+      "type": "string",
+      "x-ms-enum": {
+        "modelAsString": true,
+        "name": "TextTranslationSkillLanguage",
+        "values": [
+          {
+            "description": "Afrikaans",
+            "value": "af"
+          },
+          {
+            "description": "Arabic",
+            "value": "ar"
+          },
+          {
+            "description": "Bangla",
+            "value": "bn"
+          },
+          {
+            "description": "Bosnian (Latin)",
+            "value": "bs"
+          },
+          {
+            "description": "Bulgarian",
+            "value": "bg"
+          },
+          {
+            "description": "Cantonese (Traditional)",
+            "value": "yue"
+          },
+          {
+            "description": "Catalan",
+            "value": "ca"
+          },
+          {
+            "description": "Chinese Simplified",
+            "value": "zh-Hans"
+          },
+          {
+            "description": "Chinese Traditional",
+            "value": "zh-Hant"
+          },
+          {
+            "description": "Croatian",
+            "value": "hr"
+          },
+          {
+            "description": "Czech",
+            "value": "cs"
+          },
+          {
+            "description": "Danish",
+            "value": "da"
+          },
+          {
+            "description": "Dutch",
+            "value": "nl"
+          },
+          {
+            "description": "English",
+            "value": "en"
+          },
+          {
+            "description": "Estonian",
+            "value": "et"
+          },
+          {
+            "description": "Fijian",
+            "value": "fj"
+          },
+          {
+            "description": "Filipino",
+            "value": "fil"
+          },
+          {
+            "description": "Finnish",
+            "value": "fi"
+          },
+          {
+            "description": "French",
+            "value": "fr"
+          },
+          {
+            "description": "German",
+            "value": "de"
+          },
+          {
+            "description": "Greek",
+            "value": "el"
+          },
+          {
+            "description": "Haitian Creole",
+            "value": "ht"
+          },
+          {
+            "description": "Hebrew",
+            "value": "he"
+          },
+          {
+            "description": "Hindi",
+            "value": "hi"
+          },
+          {
+            "description": "Hmong Daw",
+            "value": "mww"
+          },
+          {
+            "description": "Hungarian",
+            "value": "hu"
+          },
+          {
+            "description": "Icelandic",
+            "value": "is"
+          },
+          {
+            "description": "Indonesian",
+            "value": "id"
+          },
+          {
+            "description": "Italian",
+            "value": "it"
+          },
+          {
+            "description": "Japanese",
+            "value": "ja"
+          },
+          {
+            "description": "Kiswahili",
+            "value": "sw"
+          },
+          {
+            "description": "Klingon",
+            "value": "tlh"
+          },
+          {
+            "description": "Korean",
+            "value": "ko"
+          },
+          {
+            "description": "Latvian",
+            "value": "lv"
+          },
+          {
+            "description": "Lithuanian",
+            "value": "lt"
+          },
+          {
+            "description": "Malagasy",
+            "value": "mg"
+          },
+          {
+            "description": "Malay",
+            "value": "ms"
+          },
+          {
+            "description": "Maltese",
+            "value": "mt"
+          },
+          {
+            "description": "Norwegian",
+            "value": "nb"
+          },
+          {
+            "description": "Persian",
+            "value": "fa"
+          },
+          {
+            "description": "Polish",
+            "value": "pl"
+          },
+          {
+            "description": "Portuguese",
+            "value": "pt"
+          },
+          {
+            "description": "Queretaro Otomi",
+            "value": "otq"
+          },
+          {
+            "description": "Romanian",
+            "value": "ro"
+          },
+          {
+            "description": "Russian",
+            "value": "ru"
+          },
+          {
+            "description": "Samoan",
+            "value": "sm"
+          },
+          {
+            "description": "Serbian (Cyrillic)",
+            "value": "sr-Cyrl"
+          },
+          {
+            "description": "Serbian (Latin)",
+            "value": "sr-Latn"
+          },
+          {
+            "description": "Slovak",
+            "value": "sk"
+          },
+          {
+            "description": "Slovenian",
+            "value": "sl"
+          },
+          {
+            "description": "Spanish",
+            "value": "es"
+          },
+          {
+            "description": "Swedish",
+            "value": "sv"
+          },
+          {
+            "description": "Tahitian",
+            "value": "ty"
+          },
+          {
+            "description": "Tamil",
+            "value": "ta"
+          },
+          {
+            "description": "Telugu",
+            "value": "te"
+          },
+          {
+            "description": "Thai",
+            "value": "th"
+          },
+          {
+            "description": "Tongan",
+            "value": "to"
+          },
+          {
+            "description": "Turkish",
+            "value": "tr"
+          },
+          {
+            "description": "Ukrainian",
+            "value": "uk"
+          },
+          {
+            "description": "Urdu",
+            "value": "ur"
+          },
+          {
+            "description": "Vietnamese",
+            "value": "vi"
+          },
+          {
+            "description": "Welsh",
+            "value": "cy"
+          },
+          {
+            "description": "Yucatec Maya",
+            "value": "yua"
+          }
+        ]
+      }
+    },
     "TextWeights": {
       "description": "Defines weights on index fields for which matches should boost scoring in search queries.",
       "properties": {
@@ -6159,16 +9055,223 @@
       ]
     },
     "TokenFilterName": {
-      "description": "Defines the names of all token filters supported by Azure Search.",
+      "description": "Defines the names of all token filters supported by Azure Cognitive Search.",
+      "enum": [
+        "arabic_normalization",
+        "apostrophe",
+        "asciifolding",
+        "cjk_bigram",
+        "cjk_width",
+        "classic",
+        "common_grams",
+        "edgeNGram_v2",
+        "elision",
+        "german_normalization",
+        "hindi_normalization",
+        "indic_normalization",
+        "keyword_repeat",
+        "kstem",
+        "length",
+        "limit",
+        "lowercase",
+        "nGram_v2",
+        "persian_normalization",
+        "phonetic",
+        "porter_stem",
+        "reverse",
+        "scandinavian_normalization",
+        "scandinavian_folding",
+        "shingle",
+        "snowball",
+        "sorani_normalization",
+        "stemmer",
+        "stopwords",
+        "trim",
+        "truncate",
+        "unique",
+        "uppercase",
+        "word_delimiter"
+      ],
       "externalDocs": {
         "url": "https://docs.microsoft.com/rest/api/searchservice/Custom-analyzers-in-Azure-Search"
       },
-      "properties": {
-        "name": {
-          "type": "string"
-        }
-      },
-      "x-ms-external": true
+      "type": "string",
+      "x-ms-enum": {
+        "modelAsString": true,
+        "name": "TokenFilterName",
+        "values": [
+          {
+            "description": "A token filter that applies the Arabic normalizer to normalize the orthography. See http://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/ar/ArabicNormalizationFilter.html",
+            "name": "ArabicNormalization",
+            "value": "arabic_normalization"
+          },
+          {
+            "description": "Strips all characters after an apostrophe (including the apostrophe itself). See http://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/tr/ApostropheFilter.html",
+            "name": "Apostrophe",
+            "value": "apostrophe"
+          },
+          {
+            "description": "Converts alphabetic, numeric, and symbolic Unicode characters which are not in the first 127 ASCII characters (the \"Basic Latin\" Unicode block) into their ASCII equivalents, if such equivalents exist. See http://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/miscellaneous/ASCIIFoldingFilter.html",
+            "name": "AsciiFolding",
+            "value": "asciifolding"
+          },
+          {
+            "description": "Forms bigrams of CJK terms that are generated from StandardTokenizer. See http://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/cjk/CJKBigramFilter.html",
+            "name": "CjkBigram",
+            "value": "cjk_bigram"
+          },
+          {
+            "description": "Normalizes CJK width differences. Folds fullwidth ASCII variants into the equivalent basic Latin, and half-width Katakana variants into the equivalent Kana. See http://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/cjk/CJKWidthFilter.html",
+            "name": "CjkWidth",
+            "value": "cjk_width"
+          },
+          {
+            "description": "Removes English possessives, and dots from acronyms. See http://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/standard/ClassicFilter.html",
+            "name": "Classic",
+            "value": "classic"
+          },
+          {
+            "description": "Construct bigrams for frequently occurring terms while indexing. Single terms are still indexed too, with bigrams overlaid. See http://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/commongrams/CommonGramsFilter.html",
+            "name": "CommonGram",
+            "value": "common_grams"
+          },
+          {
+            "description": "Generates n-grams of the given size(s) starting from the front or the back of an input token. See http://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/ngram/EdgeNGramTokenFilter.html",
+            "name": "EdgeNGram",
+            "value": "edgeNGram_v2"
+          },
+          {
+            "description": "Removes elisions. For example, \"l'avion\" (the plane) will be converted to \"avion\" (plane). See http://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/util/ElisionFilter.html",
+            "name": "Elision",
+            "value": "elision"
+          },
+          {
+            "description": "Normalizes German characters according to the heuristics of the German2 snowball algorithm. See http://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/de/GermanNormalizationFilter.html",
+            "name": "GermanNormalization",
+            "value": "german_normalization"
+          },
+          {
+            "description": "Normalizes text in Hindi to remove some differences in spelling variations. See http://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/hi/HindiNormalizationFilter.html",
+            "name": "HindiNormalization",
+            "value": "hindi_normalization"
+          },
+          {
+            "description": "Normalizes the Unicode representation of text in Indian languages. See http://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/in/IndicNormalizationFilter.html",
+            "name": "IndicNormalization",
+            "value": "indic_normalization"
+          },
+          {
+            "description": "Emits each incoming token twice, once as keyword and once as non-keyword. See http://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/miscellaneous/KeywordRepeatFilter.html",
+            "name": "KeywordRepeat",
+            "value": "keyword_repeat"
+          },
+          {
+            "description": "A high-performance kstem filter for English. See http://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/en/KStemFilter.html",
+            "name": "KStem",
+            "value": "kstem"
+          },
+          {
+            "description": "Removes words that are too long or too short. See http://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/miscellaneous/LengthFilter.html",
+            "name": "Length",
+            "value": "length"
+          },
+          {
+            "description": "Limits the number of tokens while indexing. See http://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/miscellaneous/LimitTokenCountFilter.html",
+            "name": "Limit",
+            "value": "limit"
+          },
+          {
+            "description": "Normalizes token text to lower case. See http://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/core/LowerCaseFilter.htm",
+            "name": "Lowercase",
+            "value": "lowercase"
+          },
+          {
+            "description": "Generates n-grams of the given size(s). See http://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/ngram/NGramTokenFilter.html",
+            "name": "NGram",
+            "value": "nGram_v2"
+          },
+          {
+            "description": "Applies normalization for Persian. See http://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/fa/PersianNormalizationFilter.html",
+            "name": "PersianNormalization",
+            "value": "persian_normalization"
+          },
+          {
+            "description": "Create tokens for phonetic matches. See https://lucene.apache.org/core/4_10_3/analyzers-phonetic/org/apache/lucene/analysis/phonetic/package-tree.html",
+            "name": "Phonetic",
+            "value": "phonetic"
+          },
+          {
+            "description": "Uses the Porter stemming algorithm to transform the token stream. See http://tartarus.org/~martin/PorterStemmer",
+            "name": "PorterStem",
+            "value": "porter_stem"
+          },
+          {
+            "description": "Reverses the token string. See http://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/reverse/ReverseStringFilter.html",
+            "name": "Reverse",
+            "value": "reverse"
+          },
+          {
+            "description": "Normalizes use of the interchangeable Scandinavian characters. See http://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/miscellaneous/ScandinavianNormalizationFilter.html",
+            "name": "ScandinavianNormalization",
+            "value": "scandinavian_normalization"
+          },
+          {
+            "description": "Folds Scandinavian characters åÅäæÄÆ-&gt;a and öÖøØ-&gt;o. It also discriminates against use of double vowels aa, ae, ao, oe and oo, leaving just the first one. See http://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/miscellaneous/ScandinavianFoldingFilter.html",
+            "name": "ScandinavianFoldingNormalization",
+            "value": "scandinavian_folding"
+          },
+          {
+            "description": "Creates combinations of tokens as a single token. See http://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/shingle/ShingleFilter.html",
+            "name": "Shingle",
+            "value": "shingle"
+          },
+          {
+            "description": "A filter that stems words using a Snowball-generated stemmer. See http://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/snowball/SnowballFilter.html",
+            "name": "Snowball",
+            "value": "snowball"
+          },
+          {
+            "description": "Normalizes the Unicode representation of Sorani text. See http://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/ckb/SoraniNormalizationFilter.html",
+            "name": "SoraniNormalization",
+            "value": "sorani_normalization"
+          },
+          {
+            "description": "Language specific stemming filter. See https://docs.microsoft.com/rest/api/searchservice/Custom-analyzers-in-Azure-Search#TokenFilters",
+            "name": "Stemmer",
+            "value": "stemmer"
+          },
+          {
+            "description": "Removes stop words from a token stream. See http://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/core/StopFilter.html",
+            "name": "Stopwords",
+            "value": "stopwords"
+          },
+          {
+            "description": "Trims leading and trailing whitespace from tokens. See http://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/miscellaneous/TrimFilter.html",
+            "name": "Trim",
+            "value": "trim"
+          },
+          {
+            "description": "Truncates the terms to a specific length. See http://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/miscellaneous/TruncateTokenFilter.html",
+            "name": "Truncate",
+            "value": "truncate"
+          },
+          {
+            "description": "Filters out tokens with same text as the previous token. See http://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/miscellaneous/RemoveDuplicatesTokenFilter.html",
+            "name": "Unique",
+            "value": "unique"
+          },
+          {
+            "description": "Normalizes token text to upper case. See http://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/core/UpperCaseFilter.html",
+            "name": "Uppercase",
+            "value": "uppercase"
+          },
+          {
+            "description": "Splits words into subwords and performs optional transformations on subword groups.",
+            "name": "WordDelimiter",
+            "value": "word_delimiter"
+          }
+        ]
+      }
     },
     "TokenInfo": {
       "description": "Information about a token returned by an analyzer.",
@@ -6222,16 +9325,97 @@
       ]
     },
     "TokenizerName": {
-      "description": "Defines the names of all tokenizers supported by Azure Search.",
+      "description": "Defines the names of all tokenizers supported by Azure Cognitive Search.",
+      "enum": [
+        "classic",
+        "edgeNGram",
+        "keyword_v2",
+        "letter",
+        "lowercase",
+        "microsoft_language_tokenizer",
+        "microsoft_language_stemming_tokenizer",
+        "nGram",
+        "path_hierarchy_v2",
+        "pattern",
+        "standard_v2",
+        "uax_url_email",
+        "whitespace"
+      ],
       "externalDocs": {
         "url": "https://docs.microsoft.com/rest/api/searchservice/Custom-analyzers-in-Azure-Search"
       },
-      "properties": {
-        "name": {
-          "type": "string"
-        }
-      },
-      "x-ms-external": true
+      "type": "string",
+      "x-ms-enum": {
+        "modelAsString": true,
+        "name": "TokenizerName",
+        "values": [
+          {
+            "description": "Grammar-based tokenizer that is suitable for processing most European-language documents. See http://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/standard/ClassicTokenizer.html",
+            "name": "Classic",
+            "value": "classic"
+          },
+          {
+            "description": "Tokenizes the input from an edge into n-grams of the given size(s). See https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/ngram/EdgeNGramTokenizer.html",
+            "name": "EdgeNGram",
+            "value": "edgeNGram"
+          },
+          {
+            "description": "Emits the entire input as a single token. See http://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/core/KeywordTokenizer.html",
+            "name": "Keyword",
+            "value": "keyword_v2"
+          },
+          {
+            "description": "Divides text at non-letters. See http://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/core/LetterTokenizer.html",
+            "name": "Letter",
+            "value": "letter"
+          },
+          {
+            "description": "Divides text at non-letters and converts them to lower case. See http://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/core/LowerCaseTokenizer.html",
+            "name": "Lowercase",
+            "value": "lowercase"
+          },
+          {
+            "description": "Divides text using language-specific rules.",
+            "name": "MicrosoftLanguageTokenizer",
+            "value": "microsoft_language_tokenizer"
+          },
+          {
+            "description": "Divides text using language-specific rules and reduces words to their base forms.",
+            "name": "MicrosoftLanguageStemmingTokenizer",
+            "value": "microsoft_language_stemming_tokenizer"
+          },
+          {
+            "description": "Tokenizes the input into n-grams of the given size(s). See http://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/ngram/NGramTokenizer.html",
+            "name": "NGram",
+            "value": "nGram"
+          },
+          {
+            "description": "Tokenizer for path-like hierarchies. See http://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/path/PathHierarchyTokenizer.html",
+            "name": "PathHierarchy",
+            "value": "path_hierarchy_v2"
+          },
+          {
+            "description": "Tokenizer that uses regex pattern matching to construct distinct tokens. See http://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/pattern/PatternTokenizer.html",
+            "name": "Pattern",
+            "value": "pattern"
+          },
+          {
+            "description": "Standard Lucene analyzer; Composed of the standard tokenizer, lowercase filter and stop filter. See http://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/standard/StandardTokenizer.html",
+            "name": "Standard",
+            "value": "standard_v2"
+          },
+          {
+            "description": "Tokenizes urls and emails as one token. See http://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/standard/UAX29URLEmailTokenizer.html",
+            "name": "UaxUrlEmail",
+            "value": "uax_url_email"
+          },
+          {
+            "description": "Divides text at whitespace. See http://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/core/WhitespaceTokenizer.html",
+            "name": "Whitespace",
+            "value": "whitespace"
+          }
+        ]
+      }
     },
     "TruncateTokenFilter": {
       "allOf": [
@@ -6293,6 +9477,75 @@
         }
       },
       "x-ms-discriminator-value": "#Microsoft.Azure.Search.UniqueTokenFilter"
+    },
+    "VisualFeature": {
+      "description": "The strings indicating what visual feature types to return.",
+      "enum": [
+        "categories",
+        "tags",
+        "description",
+        "faces",
+        "imageType",
+        "color"
+      ],
+      "type": "string",
+      "x-ms-enum": {
+        "modelAsString": false,
+        "name": "VisualFeature"
+      }
+    },
+    "WebApiHttpHeaders": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "description": "A dictionary of http request headers.",
+      "type": "object"
+    },
+    "WebApiSkill": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Skill"
+        }
+      ],
+      "description": "A skill that can call a Web API endpoint, allowing you to extend a skillset by having it call your custom code.",
+      "externalDocs": {
+        "url": "https://docs.microsoft.com/azure/search/cognitive-search-custom-skill-web-api"
+      },
+      "properties": {
+        "batchSize": {
+          "description": "The desired batch size which indicates number of documents.",
+          "format": "int32",
+          "type": "integer",
+          "x-nullable": true
+        },
+        "degreeOfParallelism": {
+          "description": "If set, the number of parallel calls that can be made to the Web API.",
+          "format": "int32",
+          "type": "integer",
+          "x-nullable": true
+        },
+        "httpHeaders": {
+          "$ref": "#/definitions/WebApiHttpHeaders",
+          "description": "The headers required to make the http request."
+        },
+        "httpMethod": {
+          "description": "The method for the http request.",
+          "type": "string"
+        },
+        "timeout": {
+          "description": "The desired timeout for the request. Default is 30 seconds.",
+          "format": "duration",
+          "type": "string"
+        },
+        "uri": {
+          "description": "The url for the Web API.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "uri"
+      ],
+      "x-ms-discriminator-value": "#Microsoft.Skills.Custom.WebApiSkill"
     },
     "WordDelimiterTokenFilter": {
       "allOf": [

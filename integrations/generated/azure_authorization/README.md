@@ -15,9 +15,7 @@ let azure_authorization = require('@datafire/azure_authorization').create({
   redirect_uri: ""
 });
 
-azure_authorization.ProviderOperationsMetadata_List({
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -27,6 +25,23 @@ azure_authorization.ProviderOperationsMetadata_List({
 Role based access control provides you a way to apply granular level policy administration down to individual resources or resource groups. These operations enable you to manage role definitions and role assignments. A role definition describes the set of actions that can be performed on resources. A role assignment grants access to Azure Active Directory users.
 
 ## Actions
+
+### ElevateAccess_Post
+Elevates access for a Global Administrator.
+
+
+```js
+azure_authorization.ElevateAccess_Post({
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * api-version **required** `string`: The API version to use for this operation.
+
+#### Output
+*Output schema unknown*
 
 ### ProviderOperationsMetadata_List
 Gets provider operations metadata for all resource providers.
@@ -65,25 +80,6 @@ azure_authorization.ProviderOperationsMetadata_Get({
 
 #### Output
 * output [ProviderOperationsMetadata](#provideroperationsmetadata)
-
-### ClassicAdministrators_List
-Gets service administrator, account administrator, and co-administrators for the subscription.
-
-
-```js
-azure_authorization.ClassicAdministrators_List({
-  "api-version": "",
-  "subscriptionId": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * api-version **required** `string`: The API version to use for this operation.
-  * subscriptionId **required** `string`: The ID of the target subscription.
-
-#### Output
-* output [ClassicAdministratorListResult](#classicadministratorlistresult)
 
 ### RoleAssignments_List
 Gets all role assignments for the subscription.
@@ -440,24 +436,6 @@ azure_authorization.RoleDefinitions_CreateOrUpdate({
 
 ## Definitions
 
-### ClassicAdministrator
-* ClassicAdministrator `object`: Classic Administrators
-  * id `string`: The ID of the administrator.
-  * name `string`: The name of the administrator.
-  * properties [ClassicAdministratorProperties](#classicadministratorproperties)
-  * type `string`: The type of the administrator.
-
-### ClassicAdministratorListResult
-* ClassicAdministratorListResult `object`: ClassicAdministrator list result information.
-  * nextLink `string`: The URL to use for getting the next set of results.
-  * value `array`: An array of administrators.
-    * items [ClassicAdministrator](#classicadministrator)
-
-### ClassicAdministratorProperties
-* ClassicAdministratorProperties `object`: Classic Administrator properties.
-  * emailAddress `string`: The email address of the administrator.
-  * role `string`: The role of the administrator.
-
 ### Permission
 * Permission `object`: Role definition permissions.
   * actions `array`: Allowed actions.
@@ -512,7 +490,7 @@ azure_authorization.RoleDefinitions_CreateOrUpdate({
 
 ### RoleAssignmentCreateParameters
 * RoleAssignmentCreateParameters `object`: Role assignment create parameters.
-  * properties [RoleAssignmentProperties](#roleassignmentproperties)
+  * properties **required** [RoleAssignmentProperties](#roleassignmentproperties)
 
 ### RoleAssignmentFilter
 * RoleAssignmentFilter `object`: Role Assignments filter
@@ -526,8 +504,8 @@ azure_authorization.RoleDefinitions_CreateOrUpdate({
 
 ### RoleAssignmentProperties
 * RoleAssignmentProperties `object`: Role assignment properties.
-  * principalId `string`: The principal ID assigned to the role. This maps to the ID inside the Active Directory. It can point to a user, service principal, or security group.
-  * roleDefinitionId `string`: The role definition ID used in the role assignment.
+  * principalId **required** `string`: The principal ID assigned to the role. This maps to the ID inside the Active Directory. It can point to a user, service principal, or security group.
+  * roleDefinitionId **required** `string`: The role definition ID used in the role assignment.
 
 ### RoleAssignmentPropertiesWithScope
 * RoleAssignmentPropertiesWithScope `object`: Role assignment properties with scope.

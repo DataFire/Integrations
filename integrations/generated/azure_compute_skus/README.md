@@ -15,10 +15,7 @@ let azure_compute_skus = require('@datafire/azure_compute_skus').create({
   redirect_uri: ""
 });
 
-azure_compute_skus.ResourceSkus_List({
-  "api-version": "",
-  "subscriptionId": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -44,6 +41,7 @@ azure_compute_skus.ResourceSkus_List({
 * input `object`
   * api-version **required** `string`: Client Api Version.
   * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+  * $filter `string`: The filter to apply on the operation.
 
 #### Output
 * output [ResourceSkusResult](#resourceskusresult)
@@ -75,7 +73,7 @@ azure_compute_skus.ResourceSkus_List({
   * tier `string`: Specifies the tier of virtual machines in a scale set.<br /><br /> Possible Values:<br /><br /> **Standard**<br /><br /> **Basic**
 
 ### ResourceSkuCapabilities
-* ResourceSkuCapabilities `object`: Describes The SKU capabilites object.
+* ResourceSkuCapabilities `object`: Describes The SKU capabilities object.
   * name `string`: An invariant to describe the feature.
   * value `string`: An invariant if the feature is measured by quantity.
 
@@ -95,6 +93,8 @@ azure_compute_skus.ResourceSkus_List({
 ### ResourceSkuLocationInfo
 * ResourceSkuLocationInfo `object`
   * location `string`: Location of the SKU
+  * zoneDetails `array`: Details of capabilities available to a SKU in specific zones.
+    * items [ResourceSkuZoneDetails](#resourceskuzonedetails)
   * zones `array`: List of availability zones where the SKU is supported.
     * items `string`
 
@@ -113,9 +113,16 @@ azure_compute_skus.ResourceSkus_List({
   * values `array`: The value of restrictions. If the restriction type is set to location. This would be different locations where the SKU is restricted.
     * items `string`
 
+### ResourceSkuZoneDetails
+* ResourceSkuZoneDetails `object`: Describes The zonal capabilities of a SKU.
+  * capabilities `array`: A list of capabilities that are available for the SKU in the specified list of zones.
+    * items [ResourceSkuCapabilities](#resourceskucapabilities)
+  * name `array`: The set of zones that the SKU is available in with the specified capabilities.
+    * items `string`
+
 ### ResourceSkusResult
-* ResourceSkusResult `object`: The Compute List Skus operation response.
-  * nextLink `string`: The uri to fetch the next page of Compute Skus. Call ListNext() with this to fetch the next page of VMSS Skus.
+* ResourceSkusResult `object`: The List Resource Skus operation response.
+  * nextLink `string`: The URI to fetch the next page of Resource Skus. Call ListNext() with this URI to fetch the next page of Resource Skus
   * value **required** `array`: The list of skus available for the subscription.
     * items [ResourceSku](#resourcesku)
 

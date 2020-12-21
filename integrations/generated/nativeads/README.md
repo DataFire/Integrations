@@ -1,6 +1,6 @@
 # @datafire/nativeads
 
-Client library for Native Ads Publisher
+Client library for Native Ads Publisher API
 
 ## Installation and Usage
 ```bash
@@ -9,10 +9,7 @@ npm install --save @datafire/nativeads
 ```js
 let nativeads = require('@datafire/nativeads').create();
 
-nativeads.auth.default.login.post({
-  "username": "",
-  "password": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

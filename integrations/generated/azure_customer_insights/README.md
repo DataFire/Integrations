@@ -15,9 +15,7 @@ let azure_customer_insights = require('@datafire/azure_customer_insights').creat
   redirect_uri: ""
 });
 
-azure_customer_insights.Operations_List({
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -1540,7 +1538,7 @@ azure_customer_insights.Views_ListByHub({
   * hubName **required** `string`: The name of the hub.
   * api-version **required** `string`: Client Api Version.
   * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
-  * userId **required** `string`: The user ID. Use * to retreive hub level views.
+  * userId **required** `string`: The user ID. Use * to retrieve hub level views.
 
 #### Output
 * output [ViewListResult](#viewlistresult)
@@ -1567,7 +1565,7 @@ azure_customer_insights.Views_Delete({
   * viewName **required** `string`: The name of the view.
   * api-version **required** `string`: Client Api Version.
   * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
-  * userId **required** `string`: The user ID. Use * to retreive hub level view.
+  * userId **required** `string`: The user ID. Use * to retrieve hub level view.
 
 #### Output
 *Output schema unknown*
@@ -1594,13 +1592,13 @@ azure_customer_insights.Views_Get({
   * viewName **required** `string`: The name of the view.
   * api-version **required** `string`: Client Api Version.
   * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
-  * userId **required** `string`: The user ID. Use * to retreive hub level view.
+  * userId **required** `string`: The user ID. Use * to retrieve hub level view.
 
 #### Output
 * output [ViewResourceFormat](#viewresourceformat)
 
 ### Views_CreateOrUpdate
-Creates a view or updates an exisiting view in the hub.
+Creates a view or updates an existing view in the hub.
 
 
 ```js
@@ -1689,8 +1687,8 @@ azure_customer_insights.WidgetTypes_Get({
   * permissions **required** `array`: The permissions associated with the policy.
     * items [PermissionTypes](#permissiontypes)
   * policyName `string`: Name of the policy.
-  * primaryKey `string`: Primary key assiciated with the policy.
-  * secondaryKey `string`: Secondary key assiciated with the policy.
+  * primaryKey `string`: Primary key associated with the policy.
+  * secondaryKey `string`: Secondary key associated with the policy.
 
 ### AuthorizationPolicyListResult
 * AuthorizationPolicyListResult `object`: The response of list authorization policy operation.
@@ -1730,7 +1728,7 @@ azure_customer_insights.WidgetTypes_Get({
   * description `string`: Description of the connector.
   * displayName `string`: Display name of the connector.
   * isInternal `boolean`: If this is an internal connector.
-  * lastModified `string`: The last monified time.
+  * lastModified `string`: The last modified time.
   * state `string` (values: Creating, Created, Ready, Expiring, Deleting, Failed): State of connector.
   * tenantId `string`: The hub name.
 
@@ -1751,7 +1749,7 @@ azure_customer_insights.WidgetTypes_Get({
   * displayName `string`: Display name for the connector mapping.
   * entityType **required** `string` (values: None, Profile, Interaction, Relationship): Defines which entity type the file should map to.
   * entityTypeName **required** `string`: The mapping entity name.
-  * lastModified `string`: The last monified time.
+  * lastModified `string`: The last modified time.
   * mappingProperties **required** [ConnectorMappingProperties](#connectormappingproperties)
   * nextRunTime `string`: The next run time based on customer's settings.
   * runId `string`: The RunId.
@@ -1769,7 +1767,7 @@ azure_customer_insights.WidgetTypes_Get({
   * destinationFolder `string`: The destination folder where files will be moved to once the import is done.
 
 ### ConnectorMappingErrorManagement
-* ConnectorMappingErrorManagement `object`: The error mangement.
+* ConnectorMappingErrorManagement `object`: The error management.
   * errorLimit `integer`: The error limit allowed while importing data.
   * errorManagementType **required** `string` (values: RejectAndContinue, StopImport, RejectUntilLimit): The type of error management to use for the mapping.
 
@@ -1801,7 +1799,7 @@ azure_customer_insights.WidgetTypes_Get({
     * items [ConnectorMappingStructure](#connectormappingstructure)
 
 ### ConnectorMappingResourceFormat
-* ConnectorMappingResourceFormat `object`: The c onnector mapping resource format.
+* ConnectorMappingResourceFormat `object`: The connector mapping resource format.
   * properties [ConnectorMapping](#connectormapping)
   * id `string`: Resource ID.
   * name `string`: Resource name.
@@ -1881,7 +1879,7 @@ azure_customer_insights.WidgetTypes_Get({
 
 ### EntityTypeDefinition
 * EntityTypeDefinition `object`: Describes an entity.
-  * apiEntitySetName `string`: The api entity set name. This becomes the odata entity set name for the entity Type being refered in this object.
+  * apiEntitySetName `string`: The api entity set name. This becomes the odata entity set name for the entity Type being referred in this object.
   * entityType `string` (values: None, Profile, Interaction, Relationship): Type of entity.
   * fields `array`: The properties of the Profile.
     * items [PropertyDefinition](#propertydefinition)
@@ -1965,7 +1963,7 @@ azure_customer_insights.WidgetTypes_Get({
   * participantProfiles `array`: Profiles that participated in the interaction.
     * items [Participant](#participant)
   * primaryParticipantProfilePropertyName `string`: The primary participant property name for an interaction ,This is used to logically represent the agent of the interaction, Specify the participant name here from ParticipantName.
-  * apiEntitySetName `string`: The api entity set name. This becomes the odata entity set name for the entity Type being refered in this object.
+  * apiEntitySetName `string`: The api entity set name. This becomes the odata entity set name for the entity Type being referred in this object.
   * entityType `string` (values: None, Profile, Interaction, Relationship): Type of entity.
   * fields `array`: The properties of the Profile.
     * items [PropertyDefinition](#propertydefinition)
@@ -2061,7 +2059,7 @@ azure_customer_insights.WidgetTypes_Get({
   * participantPropertyReferences **required** `array`: The properties that represent the participating profile.
     * items [ParticipantPropertyReference](#participantpropertyreference)
   * provisioningState [ProvisioningState](#provisioningstate)
-  * referenceOnly `boolean`: Indicating whether the link is reference only link. This flag is ingored if the Mappings are defined. If the mappings are not defined and it is set to true, links processing will not create or update profiles.
+  * referenceOnly `boolean`: Indicating whether the link is reference only link. This flag is ignored if the Mappings are defined. If the mappings are not defined and it is set to true, links processing will not create or update profiles.
   * sourceEntityType **required** `string` (values: None, Profile, Interaction, Relationship): Type of source entity.
   * sourceEntityTypeName **required** `string`: Name of the source Entity Type.
   * targetEntityType **required** `string` (values: None, Profile, Interaction, Relationship): Type of target entity.
@@ -2187,7 +2185,7 @@ azure_customer_insights.WidgetTypes_Get({
   * modelVersion `string`: Version of the model.
   * predictionGuidId `string`: The prediction GUID ID.
   * predictionName `string`: The prediction name.
-  * signalsUsed `integer`: The singnas used.
+  * signalsUsed `integer`: The signals used.
   * status **required** `string` (values: New, Provisioning, ProvisioningFailed, PendingDiscovering, Discovering, PendingFeaturing, Featuring, FeaturingFailed, PendingTraining, Training, TrainingFailed, Evaluating, EvaluatingFailed, PendingModelConfirmation, Active, Deleted, HumanIntervention, Failed): Prediction model life cycle.  When prediction is in PendingModelConfirmation status, it is allowed to update the status to PendingFeaturing or Active through API.
   * tenantId `string`: The hub name.
   * testSetCount `integer`: Count of the test set.
@@ -2233,7 +2231,7 @@ azure_customer_insights.WidgetTypes_Get({
 * ProfileTypeDefinition `object`: The profile type definition.
   * strongIds `array`: The strong IDs.
     * items [StrongId](#strongid)
-  * apiEntitySetName `string`: The api entity set name. This becomes the odata entity set name for the entity Type being refered in this object.
+  * apiEntitySetName `string`: The api entity set name. This becomes the odata entity set name for the entity Type being referred in this object.
   * entityType `string` (values: None, Profile, Interaction, Relationship): Type of entity.
   * fields `array`: The properties of the Profile.
     * items [PropertyDefinition](#propertydefinition)
@@ -2268,7 +2266,7 @@ azure_customer_insights.WidgetTypes_Get({
   * isImage `boolean`: Whether the property is an Image.
   * isLocalizedString `boolean`: Whether the property is a localized string.
   * isName `boolean`: Whether the property is a name or a part of name.
-  * isRequired `boolean`: Whether property value is required on instances, IsRequired field only for Intercation. Profile Instance will not check for required field.
+  * isRequired `boolean`: Whether property value is required on instances, IsRequired field only for Interaction. Profile Instance will not check for required field.
   * maxLength `integer`: Max length of string. Used only if type is string.
   * propertyId `string`: The ID associated with the property.
   * schemaItemPropLink `string`: URL encoded schema.org item prop link for the property.

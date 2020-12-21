@@ -1,17 +1,12 @@
 {
   "swagger": "2.0",
-  "schemes": [
-    "https"
-  ],
-  "host": "circleci.com",
-  "basePath": "/api/v1",
   "info": {
     "description": "The CircleCI API is a RESTful, fully-featured API that allows you to do almost anything in CircleCI.\nYou can access all information and trigger all actions.\nThe only thing we don’t provide access to is billing functions, which must be done from the CircleCI web UI.\n",
     "license": {
       "name": "Attribution-NonCommercial-ShareAlike 4.0 International",
       "url": "http://creativecommons.org/licenses/by-nc-sa/4.0/"
     },
-    "title": "CircleCI",
+    "title": "CircleCI REST API",
     "version": "v1",
     "x-apisguru-categories": [
       "developer_tools"
@@ -21,9 +16,9 @@
     },
     "x-origin": [
       {
-        "format": "swagger",
-        "url": "https://raw.githubusercontent.com/blockenio/spec-circleci/master/swagger.yml",
-        "version": "2.0"
+        "format": "openapi",
+        "url": "https://raw.githubusercontent.com/kamikazechaser/spec-circleci/master/swagger.yml",
+        "version": "3.0"
       }
     ],
     "x-preferred": true,
@@ -34,116 +29,18 @@
       "type": "openapi"
     }
   },
-  "produces": [
-    "application/json"
+  "host": "circleci.com",
+  "basePath": "/api/v1",
+  "schemes": [
+    "https"
   ],
-  "securityDefinitions": {
-    "apikey": {
-      "in": "query",
-      "name": "circle-token",
-      "type": "apiKey"
-    }
-  },
-  "security": [
-    {
-      "apikey": []
-    }
-  ],
-  "parameters": {
-    "branch": {
-      "description": "The branch name should be url-encoded.\n",
-      "in": "path",
-      "name": "branch",
-      "required": true,
-      "type": "string"
-    },
-    "build_num": {
-      "description": "XXXXXXXXXX\n",
-      "in": "path",
-      "name": "build_num",
-      "required": true,
-      "type": "integer"
-    },
-    "envvar_name": {
-      "description": "XXXXXXXXXX\n",
-      "in": "path",
-      "name": "name",
-      "required": true,
-      "type": "string"
-    },
-    "filter": {
-      "description": "Restricts which builds are returned.\nSet to \"completed\", \"successful\", \"failed\", \"running\", or defaults to no filter.\n",
-      "enum": [
-        "completed",
-        "successful",
-        "failed",
-        "running"
-      ],
-      "in": "query",
-      "name": "filter",
-      "type": "string"
-    },
-    "fingerprint": {
-      "description": "XXXXXXXXXX\n",
-      "in": "path",
-      "name": "fingerprint",
-      "required": true,
-      "type": "string"
-    },
-    "limit": {
-      "default": 30,
-      "description": "The number of builds to return. Maximum 100, defaults to 30.\n",
-      "in": "query",
-      "maximum": 100,
-      "name": "limit",
-      "type": "integer"
-    },
-    "offset": {
-      "default": 0,
-      "description": "The API returns builds starting from this offset, defaults to 0.\n",
-      "in": "query",
-      "name": "offset",
-      "type": "integer"
-    },
-    "project": {
-      "description": "XXXXXXXXX\n",
-      "in": "path",
-      "name": "project",
-      "required": true,
-      "type": "string"
-    },
-    "username": {
-      "description": "XXXXXXXXX\n",
-      "in": "path",
-      "name": "username",
-      "required": true,
-      "type": "string"
-    }
-  },
-  "responses": {
-    "envvar": {
-      "description": "XXX",
-      "schema": {
-        "$ref": "#/definitions/Envvar"
-      }
-    },
-    "envvars": {
-      "description": "XXX",
-      "schema": {
-        "$ref": "#/definitions/Envvars"
-      }
-    },
-    "key": {
-      "description": "checkout key",
-      "schema": {
-        "$ref": "#/definitions/Key"
-      }
-    }
-  },
   "paths": {
     "/me": {
       "get": {
-        "description": "Provides information about the signed in user.\n",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": "signed in user",
@@ -152,21 +49,57 @@
             }
           }
         },
-        "operationId": "me.get"
+        "description": "Provides information about the signed in user.\n"
       }
     },
     "/project/{username}/{project}": {
+      "parameters": [
+        {
+          "description": "XXXXXXXXX\n",
+          "in": "path",
+          "name": "username",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "description": "XXXXXXXXX\n",
+          "in": "path",
+          "name": "project",
+          "required": true,
+          "type": "string"
+        }
+      ],
       "get": {
-        "description": "Build summary for each of the last 30 builds for a single git repo.\n",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "$ref": "#/parameters/limit"
+            "default": 30,
+            "description": "The number of builds to return. Maximum 100, defaults to 30.\n",
+            "in": "query",
+            "maximum": 100,
+            "name": "limit",
+            "type": "integer"
           },
           {
-            "$ref": "#/parameters/offset"
+            "default": 0,
+            "description": "The API returns builds starting from this offset, defaults to 0.\n",
+            "in": "query",
+            "name": "offset",
+            "type": "integer"
           },
           {
-            "$ref": "#/parameters/filter"
+            "description": "Restricts which builds are returned.\nSet to \"completed\", \"successful\", \"failed\", \"running\", or defaults to no filter.\n",
+            "enum": [
+              "completed",
+              "successful",
+              "failed",
+              "running"
+            ],
+            "in": "query",
+            "name": "filter",
+            "type": "string"
           }
         ],
         "responses": {
@@ -177,21 +110,15 @@
             }
           }
         },
-        "operationId": "project.username.project.get"
+        "description": "Build summary for each of the last 30 builds for a single git repo.\n"
       },
-      "parameters": [
-        {
-          "$ref": "#/parameters/username"
-        },
-        {
-          "$ref": "#/parameters/project"
-        }
-      ],
       "post": {
         "consumes": [
           "application/json"
         ],
-        "description": "Triggers a new build, returns a summary of the build.\n",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "in": "body",
@@ -223,12 +150,31 @@
             }
           }
         },
-        "operationId": "project.username.project.post"
+        "description": "Triggers a new build, returns a summary of the build.\n"
       }
     },
     "/project/{username}/{project}/build-cache": {
+      "parameters": [
+        {
+          "description": "XXXXXXXXX\n",
+          "in": "path",
+          "name": "username",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "description": "XXXXXXXXX\n",
+          "in": "path",
+          "name": "project",
+          "required": true,
+          "type": "string"
+        }
+      ],
       "delete": {
-        "description": "Clears the cache for a project.\n",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": "status message",
@@ -242,20 +188,31 @@
             }
           }
         },
-        "operationId": "project.username.project.build_cache.delete"
-      },
-      "parameters": [
-        {
-          "$ref": "#/parameters/username"
-        },
-        {
-          "$ref": "#/parameters/project"
-        }
-      ]
+        "description": "Clears the cache for a project.\n"
+      }
     },
     "/project/{username}/{project}/checkout-key": {
+      "parameters": [
+        {
+          "description": "XXXXXXXXX\n",
+          "in": "path",
+          "name": "username",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "description": "XXXXXXXXX\n",
+          "in": "path",
+          "name": "project",
+          "required": true,
+          "type": "string"
+        }
+      ],
       "get": {
-        "description": "Lists checkout keys.\n",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": "checkout keys",
@@ -264,23 +221,20 @@
             }
           }
         },
-        "operationId": "project.username.project.checkout_key.get"
+        "description": "Lists checkout keys.\n"
       },
-      "parameters": [
-        {
-          "$ref": "#/parameters/username"
-        },
-        {
-          "$ref": "#/parameters/project"
-        }
-      ],
       "post": {
-        "description": "Creates a new checkout key.\nOnly usable with a user API token.\n",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "The type of key to create. Can be 'deploy-key' or 'github-user-key'.\n",
             "in": "body",
-            "name": "type",
+            "name": "body",
             "schema": {
               "enum": [
                 "deploy-key",
@@ -292,15 +246,44 @@
         ],
         "responses": {
           "200": {
-            "$ref": "#/responses/key"
+            "description": "checkout key",
+            "schema": {
+              "$ref": "#/definitions/Key"
+            }
           }
         },
-        "operationId": "project.username.project.checkout_key.post"
+        "description": "Creates a new checkout key.\nOnly usable with a user API token.\n"
       }
     },
     "/project/{username}/{project}/checkout-key/{fingerprint}": {
+      "parameters": [
+        {
+          "description": "XXXXXXXXX\n",
+          "in": "path",
+          "name": "username",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "description": "XXXXXXXXX\n",
+          "in": "path",
+          "name": "project",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "description": "XXXXXXXXXX\n",
+          "in": "path",
+          "name": "fingerprint",
+          "required": true,
+          "type": "string"
+        }
+      ],
       "delete": {
-        "description": "Delete a checkout key.\n",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": "status message",
@@ -317,60 +300,101 @@
             }
           }
         },
-        "operationId": "project.username.project.checkout_key.fingerprint.delete"
+        "description": "Delete a checkout key.\n"
       },
       "get": {
-        "description": "Get a checkout key.\n",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
         "responses": {
           "200": {
-            "$ref": "#/responses/key"
+            "description": "checkout key",
+            "schema": {
+              "$ref": "#/definitions/Key"
+            }
           }
         },
-        "operationId": "project.username.project.checkout_key.fingerprint.get"
-      },
-      "parameters": [
-        {
-          "$ref": "#/parameters/username"
-        },
-        {
-          "$ref": "#/parameters/project"
-        },
-        {
-          "$ref": "#/parameters/fingerprint"
-        }
-      ]
+        "description": "Get a checkout key.\n"
+      }
     },
     "/project/{username}/{project}/envvar": {
-      "get": {
-        "description": "Lists the environment variables for :project\n",
-        "responses": {
-          "200": {
-            "$ref": "#/responses/envvars"
-          }
-        },
-        "operationId": "project.username.project.envvar.get"
-      },
       "parameters": [
         {
-          "$ref": "#/parameters/username"
+          "description": "XXXXXXXXX\n",
+          "in": "path",
+          "name": "username",
+          "required": true,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/project"
+          "description": "XXXXXXXXX\n",
+          "in": "path",
+          "name": "project",
+          "required": true,
+          "type": "string"
         }
       ],
-      "post": {
-        "description": "Creates a new environment variable\n",
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
         "responses": {
           "200": {
-            "$ref": "#/responses/envvar"
+            "description": "XXX",
+            "schema": {
+              "$ref": "#/definitions/Envvars"
+            }
           }
         },
-        "operationId": "project.username.project.envvar.post"
+        "description": "Lists the environment variables for :project\n"
+      },
+      "post": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "XXX",
+            "schema": {
+              "$ref": "#/definitions/Envvar"
+            }
+          }
+        },
+        "description": "Creates a new environment variable\n"
       }
     },
     "/project/{username}/{project}/envvar/{name}": {
+      "parameters": [
+        {
+          "description": "XXXXXXXXX\n",
+          "in": "path",
+          "name": "username",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "description": "XXXXXXXXX\n",
+          "in": "path",
+          "name": "project",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "description": "XXXXXXXXXX\n",
+          "in": "path",
+          "name": "name",
+          "required": true,
+          "type": "string"
+        }
+      ],
       "delete": {
-        "description": "Deletes the environment variable named ':name'\n",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": "Deletes the environment variable named ':name'\n",
@@ -387,43 +411,48 @@
             }
           }
         },
-        "operationId": "project.username.project.envvar.name.delete"
+        "description": "Deletes the environment variable named ':name'\n"
       },
       "get": {
-        "description": "Gets the hidden value of environment variable :name\n",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
         "responses": {
           "200": {
-            "$ref": "#/responses/envvar"
+            "description": "XXX",
+            "schema": {
+              "$ref": "#/definitions/Envvar"
+            }
           }
         },
-        "operationId": "project.username.project.envvar.name.get"
-      },
-      "parameters": [
-        {
-          "$ref": "#/parameters/username"
-        },
-        {
-          "$ref": "#/parameters/project"
-        },
-        {
-          "$ref": "#/parameters/envvar_name"
-        }
-      ]
+        "description": "Gets the hidden value of environment variable :name\n"
+      }
     },
     "/project/{username}/{project}/ssh-key": {
       "parameters": [
         {
-          "$ref": "#/parameters/username"
+          "description": "XXXXXXXXX\n",
+          "in": "path",
+          "name": "username",
+          "required": true,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/project"
+          "description": "XXXXXXXXX\n",
+          "in": "path",
+          "name": "project",
+          "required": true,
+          "type": "string"
         }
       ],
       "post": {
         "consumes": [
           "application/json"
         ],
-        "description": "Create an ssh key used to access external systems that require SSH key-based authentication\n",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "enum": [
@@ -454,11 +483,6 @@
         "responses": {
           "default": {
             "description": "no response expected",
-            "examples": {
-              "application/json": {
-                "message": "a private key is required"
-              }
-            },
             "schema": {
               "properties": {
                 "message": {
@@ -469,26 +493,40 @@
             }
           }
         },
-        "operationId": "project.username.project.ssh_key.post"
+        "description": "Create an ssh key used to access external systems that require SSH key-based authentication\n"
       }
     },
     "/project/{username}/{project}/tree/{branch}": {
       "parameters": [
         {
-          "$ref": "#/parameters/username"
+          "description": "XXXXXXXXX\n",
+          "in": "path",
+          "name": "username",
+          "required": true,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/project"
+          "description": "XXXXXXXXX\n",
+          "in": "path",
+          "name": "project",
+          "required": true,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/branch"
+          "description": "The branch name should be url-encoded.\n",
+          "in": "path",
+          "name": "branch",
+          "required": true,
+          "type": "string"
         }
       ],
       "post": {
         "consumes": [
           "application/json"
         ],
-        "description": "Triggers a new build, returns a summary of the build.\nOptional build parameters can be set using an experimental API.\n\nNote: For more about build parameters, read about [using parameterized builds](https://circleci.com/docs/parameterized-builds/)\n",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "in": "body",
@@ -523,12 +561,38 @@
             }
           }
         },
-        "operationId": "project.username.project.tree.branch.post"
+        "description": "Triggers a new build, returns a summary of the build.\nOptional build parameters can be set using an experimental API.\n\nNote: For more about build parameters, read about [using parameterized builds](https://circleci.com/docs/parameterized-builds/)\n"
       }
     },
     "/project/{username}/{project}/{build_num}": {
+      "parameters": [
+        {
+          "description": "XXXXXXXXX\n",
+          "in": "path",
+          "name": "username",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "description": "XXXXXXXXX\n",
+          "in": "path",
+          "name": "project",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "description": "XXXXXXXXXX\n",
+          "in": "path",
+          "name": "build_num",
+          "required": true,
+          "type": "integer"
+        }
+      ],
       "get": {
-        "description": "Full details for a single build. The response includes all of the fields from the build summary.\nThis is also the payload for the [notification webhooks](/docs/configuration/#notify), in which case this object is the value to a key named 'payload'.\n",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": "Full details for a single build",
@@ -537,23 +601,38 @@
             }
           }
         },
-        "operationId": "project.username.project.build_num.get"
-      },
-      "parameters": [
-        {
-          "$ref": "#/parameters/username"
-        },
-        {
-          "$ref": "#/parameters/project"
-        },
-        {
-          "$ref": "#/parameters/build_num"
-        }
-      ]
+        "description": "Full details for a single build. The response includes all of the fields from the build summary.\nThis is also the payload for the [notification webhooks](/docs/configuration/#notify), in which case this object is the value to a key named 'payload'.\n"
+      }
     },
     "/project/{username}/{project}/{build_num}/artifacts": {
+      "parameters": [
+        {
+          "description": "XXXXXXXXX\n",
+          "in": "path",
+          "name": "username",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "description": "XXXXXXXXX\n",
+          "in": "path",
+          "name": "project",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "description": "XXXXXXXXXX\n",
+          "in": "path",
+          "name": "build_num",
+          "required": true,
+          "type": "integer"
+        }
+      ],
       "get": {
-        "description": "List the artifacts produced by a given build.\n",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": "List the artifacts produced by a given build",
@@ -562,34 +641,38 @@
             }
           }
         },
-        "operationId": "project.username.project.build_num.artifacts.get"
-      },
-      "parameters": [
-        {
-          "$ref": "#/parameters/username"
-        },
-        {
-          "$ref": "#/parameters/project"
-        },
-        {
-          "$ref": "#/parameters/build_num"
-        }
-      ]
+        "description": "List the artifacts produced by a given build.\n"
+      }
     },
     "/project/{username}/{project}/{build_num}/cancel": {
       "parameters": [
         {
-          "$ref": "#/parameters/username"
+          "description": "XXXXXXXXX\n",
+          "in": "path",
+          "name": "username",
+          "required": true,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/project"
+          "description": "XXXXXXXXX\n",
+          "in": "path",
+          "name": "project",
+          "required": true,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/build_num"
+          "description": "XXXXXXXXXX\n",
+          "in": "path",
+          "name": "build_num",
+          "required": true,
+          "type": "integer"
         }
       ],
       "post": {
-        "description": "Cancels the build, returns a summary of the build.\n",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": "returns a summary of the build",
@@ -598,23 +681,38 @@
             }
           }
         },
-        "operationId": "project.username.project.build_num.cancel.post"
+        "description": "Cancels the build, returns a summary of the build.\n"
       }
     },
     "/project/{username}/{project}/{build_num}/retry": {
       "parameters": [
         {
-          "$ref": "#/parameters/username"
+          "description": "XXXXXXXXX\n",
+          "in": "path",
+          "name": "username",
+          "required": true,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/project"
+          "description": "XXXXXXXXX\n",
+          "in": "path",
+          "name": "project",
+          "required": true,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/build_num"
+          "description": "XXXXXXXXXX\n",
+          "in": "path",
+          "name": "build_num",
+          "required": true,
+          "type": "integer"
         }
       ],
       "post": {
-        "description": "Retries the build, returns a summary of the new build.\n",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": "returns a summary of the new build",
@@ -623,12 +721,38 @@
             }
           }
         },
-        "operationId": "project.username.project.build_num.retry.post"
+        "description": "Retries the build, returns a summary of the new build.\n"
       }
     },
     "/project/{username}/{project}/{build_num}/tests": {
+      "parameters": [
+        {
+          "description": "XXXXXXXXX\n",
+          "in": "path",
+          "name": "username",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "description": "XXXXXXXXX\n",
+          "in": "path",
+          "name": "project",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "description": "XXXXXXXXXX\n",
+          "in": "path",
+          "name": "build_num",
+          "required": true,
+          "type": "integer"
+        }
+      ],
       "get": {
-        "description": "Provides test metadata for a build\nNote: [Learn how to set up your builds to collect test metadata](https://circleci.com/docs/test-metadata/)\n",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": "test metadata for a build\n",
@@ -637,23 +761,15 @@
             }
           }
         },
-        "operationId": "project.username.project.build_num.tests.get"
-      },
-      "parameters": [
-        {
-          "$ref": "#/parameters/username"
-        },
-        {
-          "$ref": "#/parameters/project"
-        },
-        {
-          "$ref": "#/parameters/build_num"
-        }
-      ]
+        "description": "Provides test metadata for a build\nNote: [Learn how to set up your builds to collect test metadata](https://circleci.com/docs/test-metadata/)\n"
+      }
     },
     "/projects": {
       "get": {
-        "description": "List of all the projects you're following on CircleCI, with build information organized by branch.\n",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": "List of all the projects you're following on CircleCI\n",
@@ -662,18 +778,29 @@
             }
           }
         },
-        "operationId": "projects.get"
+        "description": "List of all the projects you're following on CircleCI, with build information organized by branch.\n"
       }
     },
     "/recent-builds": {
       "get": {
-        "description": "Build summary for each of the last 30 recent builds, ordered by build_num.\n",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "$ref": "#/parameters/limit"
+            "default": 30,
+            "description": "The number of builds to return. Maximum 100, defaults to 30.\n",
+            "in": "query",
+            "maximum": 100,
+            "name": "limit",
+            "type": "integer"
           },
           {
-            "$ref": "#/parameters/offset"
+            "default": 0,
+            "description": "The API returns builds starting from this offset, defaults to 0.\n",
+            "in": "query",
+            "name": "offset",
+            "type": "integer"
           }
         ],
         "responses": {
@@ -684,12 +811,15 @@
             }
           }
         },
-        "operationId": "recent_builds.get"
+        "description": "Build summary for each of the last 30 recent builds, ordered by build_num.\n"
       }
     },
     "/user/heroku-key": {
       "post": {
-        "description": "Adds your Heroku API key to CircleCI, takes apikey as form param name.\n",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
         "responses": {
           "403": {
             "description": "Your Heroku API key is invalid.\n",
@@ -703,7 +833,7 @@
             }
           }
         },
-        "operationId": "user.heroku_key.post"
+        "description": "Adds your Heroku API key to CircleCI, takes apikey as form param name.\n"
       }
     }
   },
@@ -734,10 +864,8 @@
     "Aws": {
       "properties": {
         "keypair": {
-          "type": [
-            "string",
-            "null"
-          ]
+          "type": "string",
+          "x-nullable": true
         }
       },
       "type": "object"
@@ -767,10 +895,8 @@
         },
         "dont_build": {
           "description": "reason why we didn't build, if we didn't build",
-          "type": [
-            "string",
-            "null"
-          ]
+          "type": "string",
+          "x-nullable": true
         },
         "lifecycle": {
           "$ref": "#/definitions/Lifecycle"
@@ -788,10 +914,8 @@
         },
         "retry_of": {
           "description": "build_num of the build this is a retry of",
-          "type": [
-            "integer",
-            "null"
-          ]
+          "type": "integer",
+          "x-nullable": true
         },
         "start_time": {
           "description": "time build started",
@@ -828,37 +952,29 @@
         },
         "compare": {
           "format": "uri",
-          "type": [
-            "string",
-            "null"
-          ]
+          "type": "string",
+          "x-nullable": true
         },
         "job_name": {
           "type": "string"
         },
         "node": {
-          "type": "null"
+          "x-nullable": true
         },
         "previous_successful_build": {
           "$ref": "#/definitions/PreviousBuild"
         },
         "retries": {
-          "type": [
-            "boolean",
-            "null"
-          ]
+          "type": "boolean",
+          "x-nullable": true
         },
         "ssh_enabled": {
-          "type": [
-            "boolean",
-            "null"
-          ]
+          "type": "boolean",
+          "x-nullable": true
         },
         "timedout": {
-          "type": [
-            "boolean",
-            "null"
-          ]
+          "type": "boolean",
+          "x-nullable": true
         },
         "usage_queued_at": {
           "format": "date-time",
@@ -1086,10 +1202,8 @@
               "type": "boolean"
             },
             "fleet": {
-              "type": [
-                "boolean",
-                "null"
-              ]
+              "type": "boolean",
+              "x-nullable": true
             },
             "junit": {
               "type": "boolean"
@@ -1128,10 +1242,8 @@
           "$ref": "#/definitions/StringOrNull"
         },
         "hipchat_notify_prefs": {
-          "type": [
-            "string",
-            "null"
-          ]
+          "type": "string",
+          "x-nullable": true
         },
         "hipchat_room": {
           "$ref": "#/definitions/StringOrNull"
@@ -1260,10 +1372,8 @@
       "type": "string"
     },
     "StringOrNull": {
-      "type": [
-        "string",
-        "null"
-      ]
+      "type": "string",
+      "x-nullable": true
     },
     "Tag": {
       "description": "The tag to build. Default is null. Cannot be used with revision parameter.\n",
@@ -1326,10 +1436,8 @@
           "type": "string"
         },
         "bitbucket": {
-          "type": [
-            "integer",
-            "null"
-          ]
+          "type": "integer",
+          "x-nullable": true
         },
         "bitbucket_authorized": {
           "type": "boolean"
@@ -1354,10 +1462,8 @@
           "type": "array"
         },
         "github_id": {
-          "type": [
-            "integer",
-            "null"
-          ]
+          "type": "integer",
+          "x-nullable": true
         },
         "github_oauth_scopes": {
           "items": {
@@ -1366,16 +1472,12 @@
           "type": "array"
         },
         "gravatar_id": {
-          "type": [
-            "integer",
-            "null"
-          ]
+          "type": "integer",
+          "x-nullable": true
         },
         "heroku_api_key": {
-          "type": [
-            "string",
-            "null"
-          ]
+          "type": "string",
+          "x-nullable": true
         },
         "in_beta_program": {
           "type": "boolean"
@@ -1393,10 +1495,8 @@
           "type": "integer"
         },
         "plan": {
-          "type": [
-            "string",
-            "null"
-          ]
+          "type": "string",
+          "x-nullable": true
         },
         "projects": {
           "type": "object"
@@ -1417,6 +1517,123 @@
         }
       },
       "type": "object"
+    }
+  },
+  "securityDefinitions": {
+    "apikey": {
+      "in": "query",
+      "name": "circle-token",
+      "type": "apiKey"
+    }
+  },
+  "security": [
+    {
+      "apikey": []
+    }
+  ],
+  "x-components": {
+    "parameters": {
+      "branch": {
+        "description": "The branch name should be url-encoded.\n",
+        "in": "path",
+        "name": "branch",
+        "required": true,
+        "type": "string"
+      },
+      "build_num": {
+        "description": "XXXXXXXXXX\n",
+        "in": "path",
+        "name": "build_num",
+        "required": true,
+        "type": "integer"
+      },
+      "envvar_name": {
+        "description": "XXXXXXXXXX\n",
+        "in": "path",
+        "name": "name",
+        "required": true,
+        "type": "string"
+      },
+      "filter": {
+        "description": "Restricts which builds are returned.\nSet to \"completed\", \"successful\", \"failed\", \"running\", or defaults to no filter.\n",
+        "enum": [
+          "completed",
+          "successful",
+          "failed",
+          "running"
+        ],
+        "in": "query",
+        "name": "filter",
+        "type": "string"
+      },
+      "fingerprint": {
+        "description": "XXXXXXXXXX\n",
+        "in": "path",
+        "name": "fingerprint",
+        "required": true,
+        "type": "string"
+      },
+      "limit": {
+        "default": 30,
+        "description": "The number of builds to return. Maximum 100, defaults to 30.\n",
+        "in": "query",
+        "maximum": 100,
+        "name": "limit",
+        "type": "integer"
+      },
+      "offset": {
+        "default": 0,
+        "description": "The API returns builds starting from this offset, defaults to 0.\n",
+        "in": "query",
+        "name": "offset",
+        "type": "integer"
+      },
+      "project": {
+        "description": "XXXXXXXXX\n",
+        "in": "path",
+        "name": "project",
+        "required": true,
+        "type": "string"
+      },
+      "username": {
+        "description": "XXXXXXXXX\n",
+        "in": "path",
+        "name": "username",
+        "required": true,
+        "type": "string"
+      }
+    },
+    "responses": {
+      "envvar": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/definitions/Envvar"
+            }
+          }
+        },
+        "description": "XXX"
+      },
+      "envvars": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/definitions/Envvars"
+            }
+          }
+        },
+        "description": "XXX"
+      },
+      "key": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/definitions/Key"
+            }
+          }
+        },
+        "description": "checkout key"
+      }
     }
   }
 }

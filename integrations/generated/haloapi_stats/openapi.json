@@ -16,9 +16,14 @@
       "entertainment"
     ],
     "x-logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_halo_profile_image.jpeg"
+      "url": "https://api.apis.guru/v2/cache/logo/https_upload.wikimedia.org_wikipedia_commons_d_d7_Halo_(series)_logo.svg"
     },
     "x-origin": [
+      {
+        "format": "swagger",
+        "url": "https://developer.haloapi.com/docs/services/58acdf27e2f7f71ad0dad84b/export?DocumentFormat=Swagger",
+        "version": "2.0"
+      },
       {
         "format": "swagger",
         "url": "https://developer.haloapi.com/docs/services/58acdf27e2f7f71ad0dad84b/export?DocumentFormat=Swagger",
@@ -33,9 +38,6 @@
       "type": "openapi"
     }
   },
-  "produces": [
-    "application/json"
-  ],
   "securityDefinitions": {
     "apiKeyHeader": {
       "in": "header",
@@ -56,11 +58,12 @@
       "apiKeyQuery": []
     }
   ],
+  "tags": [],
   "paths": {
     "/h5/arena/matches/{matchId}": {
       "get": {
-        "description": "<p>Retrieves detailed statistics for a Match with the Arena Game Mode.</p>\n<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>December 22, 2017:</strong></p>\n    <ul>\n        <li>Added Game Mode clarifications to the Endpoint description.</li>\n    </ul>\n</div>\n<div class=\"panel-body\">\n    <p><strong>February 21, 2017:</strong></p>\n    <ul>\n        <li>Renamed Endpoint from \"Post-Game Carnage Report: Arena\" to \"Halo 5 - Match Result - Arena\".</li>\n        <li>Removed \"{title}\" Request Parameter.</li>\n        <li>Updated the documentation for \"GameVariantResourceId\" and \"MapVariantResourceId\" to reference the UGC API.</li>\n    </ul>\n</div>\n<div class=\"panel-body\">\n    <p><strong>May 16, 2016:</strong></p>\n    <ul>\n        <li>Documented HTTP 503 Response Code.</li>\n        <li>Added documentation for the \"MatchSpeedWinAmount\", \"ObjectivesCompletedAmount\", and \"BoostData\" fields.</li>\n    </ul>\n</div>\n<div class=\"panel-body\">\n    <p><strong>April 20, 2016:</strong></p>\n    <ul>\n        <li>Added documentation for the \"GameVariantResourceId\", \"MapVariantResourceId\", and \"PlayerScore\" fields.</li>\n        <li>Updated the documentation for the \"MapVariantId\" and \"GameVariantId\" fields with the recommendation of using the \"MapVariantResourceId\" and \"GameVariantResourceId\" fields, respectively.</li>\n    </ul>\n</div>\n",
-        "operationId": "58acdf28e2f7f70db4854b37",
+        "description": "<p>Retrieves detailed statistics for a Match with the Arena Game Mode.</p>\n<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>December 12, 2018:</strong></p>\n    <ul>\n        <li>Updated the documentation for \"PlayerScore\".</li>\n    </ul>\n</div>\n<div class=\"panel-body\">\n    <p><strong>December 22, 2017:</strong></p>\n    <ul>\n        <li>Added Game Mode clarifications to the Endpoint description.</li>\n    </ul>\n</div>\n<div class=\"panel-body\">\n    <p><strong>February 21, 2017:</strong></p>\n    <ul>\n        <li>Renamed Endpoint from \"Post-Game Carnage Report: Arena\" to \"Halo 5 - Match Result - Arena\".</li>\n        <li>Removed \"{title}\" Request Parameter.</li>\n        <li>Updated the documentation for \"GameVariantResourceId\" and \"MapVariantResourceId\" to reference the UGC API.</li>\n    </ul>\n</div>\n<div class=\"panel-body\">\n    <p><strong>May 16, 2016:</strong></p>\n    <ul>\n        <li>Documented HTTP 503 Response Code.</li>\n        <li>Added documentation for the \"MatchSpeedWinAmount\", \"ObjectivesCompletedAmount\", and \"BoostData\" fields.</li>\n    </ul>\n</div>\n<div class=\"panel-body\">\n    <p><strong>April 20, 2016:</strong></p>\n    <ul>\n        <li>Added documentation for the \"GameVariantResourceId\", \"MapVariantResourceId\", and \"PlayerScore\" fields.</li>\n        <li>Updated the documentation for the \"MapVariantId\" and \"GameVariantId\" fields with the recommendation of using the \"MapVariantResourceId\" and \"GameVariantResourceId\" fields, respectively.</li>\n    </ul>\n</div>\n",
+        "operationId": "h5.arena.matches.matchId.get",
         "parameters": [
           {
             "description": "An ID that uniquely identifies a Match. Match IDs can be retrieved from the \"Halo 5 - Player Match History\" Endpoint.",
@@ -69,6 +72,9 @@
             "required": true,
             "type": "string"
           }
+        ],
+        "produces": [
+          "application/json"
         ],
         "responses": {
           "200": {
@@ -211,8 +217,12 @@
                       }
                     ],
                     "Player": {
-                      "Gamertag": "string"
+                      "Gamertag": "string",
+                      "Xuid": null
                     },
+                    "PlayerScore": "int",
+                    "PostMatchRatings": null,
+                    "PreMatchRatings": null,
                     "PreviousCsr": {
                       "Csr": "int",
                       "DesignationId": "int",
@@ -345,7 +355,7 @@
     "/h5/campaign/matches/{matchId}": {
       "get": {
         "description": "<p>Retrieves detailed statistics for a Match with the Campaign Game Mode.</p>\n<p>Every time a player plays a portion of a Campaign Mission, a Match will be generated whether the player finishes the Mission or not. If the \"Match\" ends because the Mission was completed, this will be indicated in the response.</p>\n<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>December 22, 2017:</strong></p>\n    <ul>\n        <li>Added Game Mode clarifications to the Endpoint description.</li>\n    </ul>\n</div>\n<div class=\"panel-body\">\n    <p><strong>February 21, 2017:</strong></p>\n    <ul>\n        <li>Renamed Endpoint from \"Post-Game Carnage Report: Campaign\" to \"Halo 5 - Match Result - Campaign\".</li>\n        <li>Removed \"{title}\" Request Parameter.</li>\n    </ul>\n</div>\n<div class=\"panel-body\">\n    <p><strong>May 16, 2016:</strong></p>\n    <ul>\n        <li>Documented HTTP 503 Response Code.</li>\n    </ul>\n</div>\n<div class=\"panel-body\">\n    <p><strong>April 20, 2016:</strong></p>\n    <ul>\n        <li>Added documentation for the \"GameVariantResourceId\", \"MapVariantResourceId\", and \"PlayerScore\" fields.</li>\n    </ul>\n</div>\n",
-        "operationId": "58acdf28e2f7f70db4854b38",
+        "operationId": "h5.campaign.matches.matchId.get",
         "parameters": [
           {
             "description": "An ID that uniquely identifies a Match. Match IDs can be retrieved from the \"Halo 5 - Player Match History\" Endpoint.",
@@ -354,6 +364,9 @@
             "required": true,
             "type": "string"
           }
+        ],
+        "produces": [
+          "application/json"
         ],
         "responses": {
           "200": {
@@ -384,6 +397,7 @@
                   {
                     "AvgLifeTimeOfPlayer": "string",
                     "BiggestKillScore": "int",
+                    "CharacterIndex": null,
                     "DNF": "boolean",
                     "DestroyedEnemyVehicles": [
                       {
@@ -446,8 +460,12 @@
                       }
                     ],
                     "Player": {
-                      "Gamertag": "string"
+                      "Gamertag": "string",
+                      "Xuid": null
                     },
+                    "PlayerScore": null,
+                    "PostMatchRatings": null,
+                    "PreMatchRatings": null,
                     "Rank": "int",
                     "Score": "uint32",
                     "TeamId": "int",
@@ -510,6 +528,7 @@
                   }
                 ],
                 "PlaylistId": "guid",
+                "SeasonId": null,
                 "Skulls": [
                   "int"
                 ],
@@ -534,7 +553,7 @@
     "/h5/companies/{companyId}": {
       "get": {
         "description": "<p>Retrieves information about the Company. The response will contain the Company's name, status, and members.</p>\n<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>July 14, 2017:</strong></p>\n    <ul>\n        <li>Added Endpoint.</li>\n    </ul>\n</div>\n",
-        "operationId": "596968ade2f7f7051870d29f",
+        "operationId": "h5.companies.companyId.get",
         "parameters": [
           {
             "description": "The ID for the Company. The Company ID for a player can be retrieved from the Profile APIs via the \"Halo 5 - Player Apperance\" Endpoint.",
@@ -543,6 +562,9 @@
             "required": true,
             "type": "string"
           }
+        ],
+        "produces": [
+          "application/json"
         ],
         "responses": {
           "200": {
@@ -567,7 +589,7 @@
     "/h5/companies/{companyId}/commendations": {
       "get": {
         "description": "<p>Retrieves the commendation state for a Company.</p>\n<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>July 14, 2017:</strong></p>\n    <ul>\n        <li>Added Endpoint.</li>\n    </ul>\n</div>\n",
-        "operationId": "596968ade2f7f7051870d2a0",
+        "operationId": "h5.companies.companyId.commendations.get",
         "parameters": [
           {
             "description": "The ID for the Company. The Company ID for a player can be retrieved from the Profile APIs via the \"Halo 5 - Player Apperance\" Endpoint.",
@@ -577,6 +599,9 @@
             "type": "string"
           }
         ],
+        "produces": [
+          "application/json"
+        ],
         "responses": {
           "200": {
             "description": "The response body will contain the commendation state for the Company.",
@@ -585,6 +610,7 @@
                 "LastUpdatedDateUtc": {
                   "ISO8601Date": "string"
                 },
+                "Links": null,
                 "MetaCommendations": [
                   {
                     "Id": "guid",
@@ -630,8 +656,8 @@
     },
     "/h5/custom/matches/{matchId}": {
       "get": {
-        "description": "<p>Retrieves detailed statistics for a Match with the Custom Game Mode. Games with the Custom Game Mode are played on Xbox Live Servers. For games played on Local Servers, use the \"Halo 5 - Match Result - Custom Local\" Endpoint.</p>\n<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>December 22, 2017:</strong></p>\n    <ul>\n        <li>Added Game Mode clarifications to the Endpoint description.</li>\n        <li>Added documentation for \"PresentInMatch\".</li>\n    </ul>\n</div>\n<div class=\"panel-body\">\n    <p><strong>February 21, 2017:</strong></p>\n    <ul>\n        <li>Renamed Endpoint from \"Post-Game Carnage Report: Custom\" to \"Halo 5 - Match Result - Custom\".</li>\n        <li>Removed \"{title}\" Request Parameter.</li>\n        <li>Updated the documentation for \"GameVariantResourceId\" and \"MapVariantResourceId\" to reference the UGC API.</li>\n    </ul>\n</div>\n<div class=\"panel-body\">\n    <p><strong>May 16, 2016:</strong></p>\n    <ul>\n        <li>Documented HTTP 503 Response Code.</li>\n    </ul>\n</div>\n<div class=\"panel-body\">\n    <p><strong>April 20, 2016:</strong></p>\n    <ul>\n        <li>Added documentation for the \"GameVariantResourceId\", \"MapVariantResourceId\", and \"PlayerScore\" fields.</li>\n        <li>Updated the documentation for the \"MapVariantId\" and \"GameVariantId\" fields with the recommendation of using the \"MapVariantResourceId\" and \"GameVariantResourceId\" fields, respectively.</li>\n    </ul>\n</div>\n",
-        "operationId": "58acdf28e2f7f70db4854b39",
+        "description": "<p>Retrieves detailed statistics for a Match with the Custom Game Mode. Games with the Custom Game Mode are played on Xbox Live Servers. For games played on Local Servers, use the \"Halo 5 - Match Result - Custom Local\" Endpoint.</p>\n<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>December 12, 2018:</strong></p>\n    <ul>\n        <li>Updated the documentation for \"PlayerScore\".</li>\n    </ul>\n</div>\n<div class=\"panel-body\">\n    <p><strong>December 22, 2017:</strong></p>\n    <ul>\n        <li>Added Game Mode clarifications to the Endpoint description.</li>\n        <li>Added documentation for \"PresentInMatch\".</li>\n    </ul>\n</div>\n<div class=\"panel-body\">\n    <p><strong>February 21, 2017:</strong></p>\n    <ul>\n        <li>Renamed Endpoint from \"Post-Game Carnage Report: Custom\" to \"Halo 5 - Match Result - Custom\".</li>\n        <li>Removed \"{title}\" Request Parameter.</li>\n        <li>Updated the documentation for \"GameVariantResourceId\" and \"MapVariantResourceId\" to reference the UGC API.</li>\n    </ul>\n</div>\n<div class=\"panel-body\">\n    <p><strong>May 16, 2016:</strong></p>\n    <ul>\n        <li>Documented HTTP 503 Response Code.</li>\n    </ul>\n</div>\n<div class=\"panel-body\">\n    <p><strong>April 20, 2016:</strong></p>\n    <ul>\n        <li>Added documentation for the \"GameVariantResourceId\", \"MapVariantResourceId\", and \"PlayerScore\" fields.</li>\n        <li>Updated the documentation for the \"MapVariantId\" and \"GameVariantId\" fields with the recommendation of using the \"MapVariantResourceId\" and \"GameVariantResourceId\" fields, respectively.</li>\n    </ul>\n</div>\n",
+        "operationId": "h5.custom.matches.matchId.get",
         "parameters": [
           {
             "description": "An ID that uniquely identifies a Match. Match IDs can be retrieved from the \"Halo 5 - Player Match History\" Endpoint.",
@@ -640,6 +666,9 @@
             "required": true,
             "type": "string"
           }
+        ],
+        "produces": [
+          "application/json"
         ],
         "responses": {
           "200": {
@@ -741,8 +770,12 @@
                       }
                     ],
                     "Player": {
-                      "Gamertag": "string"
+                      "Gamertag": "string",
+                      "Xuid": null
                     },
+                    "PlayerScore": "int",
+                    "PostMatchRatings": null,
+                    "PreMatchRatings": null,
                     "PresentInMatch": "boolean",
                     "Rank": "int",
                     "TeamId": "int",
@@ -805,6 +838,7 @@
                   }
                 ],
                 "PlaylistId": "guid",
+                "SeasonId": null,
                 "TeamStats": [
                   {
                     "Rank": "int",
@@ -838,8 +872,8 @@
     },
     "/h5/customlocal/matches/{matchId}": {
       "get": {
-        "description": "<p>Retrieves detailed statistics for a Match with the Custom Local Game Mode. Games with the Custom Local Game Mode are played on Local Servers. For games played on Xbox Live Servers, use the \"Halo 5 - Match Result - Custom\" Endpoint.</p>\n<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>December 22, 2017:</strong></p>\n    <ul>\n        <li>Added Endpoint.</li>\n    </ul>\n</div>\n",
-        "operationId": "5a3d9a2e51059d1090806fe8",
+        "description": "<p>Retrieves detailed statistics for a Match with the Custom Local Game Mode. Games with the Custom Local Game Mode are played on Local Servers. For games played on Xbox Live Servers, use the \"Halo 5 - Match Result - Custom\" Endpoint.</p>\n<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>December 12, 2018:</strong></p>\n    <ul>\n        <li>Updated the documentation for \"PlayerScore\".</li>\n    </ul>\n</div>\n<div class=\"panel-body\">\n    <p><strong>December 22, 2017:</strong></p>\n    <ul>\n        <li>Added Endpoint.</li>\n    </ul>\n</div>\n",
+        "operationId": "h5.customlocal.matches.matchId.get",
         "parameters": [
           {
             "description": "An ID that uniquely identifies a Match. Match IDs can be retrieved from the \"Halo 5 - Player Match History\" Endpoint.",
@@ -848,6 +882,9 @@
             "required": true,
             "type": "string"
           }
+        ],
+        "produces": [
+          "application/json"
         ],
         "responses": {
           "200": {
@@ -949,8 +986,12 @@
                       }
                     ],
                     "Player": {
-                      "Gamertag": "string"
+                      "Gamertag": "string",
+                      "Xuid": null
                     },
+                    "PlayerScore": "int",
+                    "PostMatchRatings": null,
+                    "PreMatchRatings": null,
                     "PresentInMatch": "boolean",
                     "Rank": "int",
                     "TeamId": "int",
@@ -1013,6 +1054,7 @@
                   }
                 ],
                 "PlaylistId": "guid",
+                "SeasonId": null,
                 "TeamStats": [
                   {
                     "Rank": "int",
@@ -1047,7 +1089,7 @@
     "/h5/matches/{matchId}/events": {
       "get": {
         "description": "<p>Retrieves a set of Events related to the Match specified. Events are only available once the Match has completed.</p>\n<p>The set of Events may grow over time as data becomes available.</p>\n<p>This Endpoint does not have the accuracy guarantees of other Endpoints have, so please use with caution. This endpoint may not return Matches before December 1, 2015.</p>\n<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>February 21, 2017:</strong></p>\n    <ul>\n        <li>Renamed Endpoint from \"Events for Match\" to \"Halo 5 - Match Events\".</li>\n        <li>Removed \"{title}\" Request Parameter.</li>\n    </ul>\n</div>\n<div class=\"panel-body\">\n    <p><strong>May 20, 2016:</strong></p>\n    <ul>\n        <li>The Endpoint now correctly reports the \"Content-Type\" Response Header as \"application/json\".</li>\n    </ul>\n</div>\n<div class=\"panel-body\">\n    <p><strong>May 16, 2016:</strong></p>\n    <ul>\n        <li>Documented HTTP 503 Response Code.</li>\n    </ul>\n</div>\n<div class=\"panel-body\">\n    <p><strong>April 20, 2016:</strong></p>\n    <ul>\n        <li>Added new types of events to the Endpoint: Impulses, Medals, Player Spawns, Round Stats, Round Ends, Weapon Drops, Weapon Pickups, and Weapon Pickup Pads.</li>\n        <li>Fixed an issue that caused the API to consistently return HTTP 500's for matches where a player left and rejoined the match.</li>\n    </ul>\n</div>\n",
-        "operationId": "58acdf28e2f7f70db4854b36",
+        "operationId": "h5.matches.matchId.events.get",
         "parameters": [
           {
             "description": "An ID that uniquely identifies a Match. Match IDs can be retrieved from the \"Halo 5 - Player Match History\" Endpoint.",
@@ -1057,70 +1099,14 @@
             "type": "string"
           }
         ],
+        "produces": [
+          "application/json"
+        ],
         "responses": {
           "200": {
             "description": "The response body will contain the Match Events.",
             "examples": {
-              "application/json": {
-                "GameEvents": [
-                  {
-                    "Assistants": [
-                      {
-                        "Gamertag": "string"
-                      }
-                    ],
-                    "DeathDisposition": "int",
-                    "EventName": "string",
-                    "ImpulseId": "int",
-                    "IsAssassination": "boolean",
-                    "IsGroundPound": "boolean",
-                    "IsHeadshot": "boolean",
-                    "IsMelee": "boolean",
-                    "IsShoulderBash": "boolean",
-                    "IsWeapon": "boolean",
-                    "Killer": {
-                      "Gamertag": "string"
-                    },
-                    "KillerAgent": "int",
-                    "KillerWeaponAttachmentIds": [
-                      "int"
-                    ],
-                    "KillerWeaponStockId": "int",
-                    "KillerWorldLocation": {
-                      "x": "double",
-                      "y": "double",
-                      "z": "double"
-                    },
-                    "MedalId": "int",
-                    "Player": {
-                      "Gamertag": "string"
-                    },
-                    "RoundIndex": "int",
-                    "ShotsFired": "int",
-                    "ShotsLanded": "int",
-                    "TimeSinceStart": "string",
-                    "TimeWeaponActiveAsPrimary": "string",
-                    "Victim": {
-                      "Gamertag": "string"
-                    },
-                    "VictimAgent": "int",
-                    "VictimAttachmentIds": [
-                      "int"
-                    ],
-                    "VictimStockId": "int",
-                    "VictimWorldLocation": {
-                      "x": "double",
-                      "y": "double",
-                      "z": "double"
-                    },
-                    "WeaponAttachmentIds": [
-                      "int"
-                    ],
-                    "WeaponStockId": "int"
-                  }
-                ],
-                "IsCompleteSetOfEvents": "boolean"
-              }
+              "application/json": "{\n  // Events that describe a match from start to completion. Events are reported in\n  // chronological order.\n  // Events can come in a variety of types indicated by the \"EventName\" field. Each event\n  // is documented in detail below the documentation for this return contract.\n  // Additional event types may be added in the future.\n  // When deserializing events, it is suggested to use a union of all of the fields\n  // across all of the different event types, shown below.\n  \"GameEvents\": [\n    {\n      \"Assistants\": [\n        {\n          \"Gamertag\": \"string\",\n\n          \"Xuid\": null\n        }\n      ],\n\n      \"DeathDisposition\": \"int\",\n\n      \"ImpulseId\": \"int\",\n\n      \"IsAssassination\": \"boolean\",\n\n      \"IsGroundPound\": \"boolean\",\n\n      \"IsHeadshot\": \"boolean\",\n\n      \"IsMelee\": \"boolean\",\n\n      \"IsShoulderBash\": \"boolean\",\n\n      \"IsWeapon\": \"boolean\",\n\n      \"Killer\": {\n\n        \"Gamertag\": \"string\",\n\n        \"Xuid\": null\n      },\n\n      \"KillerAgent\": \"int\",\n\n      \"KillerWeaponAttachmentIds\": [ \"int\" ],\n\n      \"KillerWeaponStockId\": \"int\",\n\n      \"KillerWorldLocation\": {\n\n        \"x\": \"double\",\n\n        \"y\": \"double\",\n\n        \"z\": \"double\"\n      },\n\n      \"MedalId\": \"int\",\n\n      \"Player\": {\n\n        \"Gamertag\": \"string\",\n\n        \"Xuid\": null\n      },\n\n      \"RoundIndex\": \"int\",\n\n      \"ShotsFired\": \"int\",\n\n      \"ShotsLanded\": \"int\",\n\n      \"TimeWeaponActiveAsPrimary\": \"string\",\n\n      \"Victim\": {\n\n        \"Gamertag\": \"string\",\n\n        \"Xuid\": null\n      },\n\n      \"VictimAgent\": \"int\",\n\n      \"VictimAttachmentIds\": [ \"int\" ],\n\n      \"VictimStockId\": \"int\",\n\n      \"VictimWorldLocation\": {\n\n        \"x\": \"double\",\n\n        \"y\": \"double\",\n\n        \"z\": \"double\"\n      },\n\n      \"WeaponAttachmentIds\": [ \"int\" ],\n\n      \"WeaponStockId\": \"int\",\n\n      // Descriptor to determine what fields will be filled in for the event. This list\n      // will grow over time as more events are exposed. Can be one of the following:\n      //   \"Death\" - An event that is created when a death occurs in the match.\n      //   \"Impulse\" - An event that is created when an impulse (invisible medal) is\n      // triggered in the match.\n      //   \"Medal\" - An event that is created when a medal is awarded in the match.\n      //   \"PlayerSpawn\" - An event that is created when a player spawns in the match.\n      //   \"RoundStart\" - An event that is created when a round starts. In regular\n      // matches, there is typically one round. However, some modes have multiple rounds..\n      //   \"RoundEnd\" - An event that is created when a round ends. In regular matches,\n      // there is typically one round. However, some modes have multiple rounds..\n      //   \"WeaponDrop\" - An event that is created when a player drops a weapon for a new\n      // weapon. This occurs when a player picks up a new weapon and drops their current\n      // one, when a player dies and drops their weapon(s), or at the end of the match\n      // for each player.\n      //   \"WeaponPickup\" - An event that is created when a player picks up a weapon.\n      // This can be when a player spawns, or when a player picks up a new weapon.\n      //   \"WeaponPickupPad\" - An event that is created when a player picks up a weapon\n      // off a pad. This will not be triggered if the weapon was picked up off the ground\n      // after another player who had picked it off a pad.\n      \"EventName\": \"string\",\n\n      // Time passed since the start of the match when the event occurred. This is\n      // expressed as an ISO 8601 Duration.\n      \"TimeSinceStart\": \"string\"\n    }\n  ],\n\n  // As this is an experimental API it has no guarantees around its accuracy. However we\n  // do try our best to ensure all events are valid and accounted for. If they do not\n  // match up to our expectations this field will return as false indicating this may not\n  // be the full set of events that occurred in game.\n  \"IsCompleteSetOfEvents\": \"boolean\",\n\n  // Internal use only. A set of related resource links.\n  \"Links\": null\n}\n\n// Death Event\n{\n  // The gamertags of players who contributed to a kill.\n  \"Assistants\": [\n  {\n    // The player's gamertag.\n    \"Gamertag\": \"string\",\n\n    // Internal use only. This will always be null.\n    \"Xuid\": null\n  }],\n\n  // The disposition of the death. Can be one of the following:\n  //   Friendly = 0,\n  //   Hostile = 1,\n  //   Neutral = 2\n  \"DeathDisposition\": \"int\",\n\n  // Describes if the death was committed by the killer from behind (Assassination or\n  // melee to back).\n  \"IsAssassination\": \"boolean\",\n\n  // Describes if the kill was committed by the killer with a ground pound.\n  \"IsGroundPound\": \"boolean\",\n\n  // Describes if the kill was committed by the killer with a head shot.\n  \"IsHeadshot\": \"boolean\",\n\n  // Describes if the kill was committed by the killer using melee.\n  \"IsMelee\": \"boolean\",\n\n  // Describes if the kill was committed by the killer with a shoulder bash.\n  \"IsShoulderBash\": \"boolean\",\n\n  // Describes if the kill was committed by the killer with a weapon.\n  \"IsWeapon\": \"boolean\",\n\n  // Describes the killer's information. Can be null if killer is not a player in the\n  // game.\n  \"Killer\": {\n\n    // The player's gamertag.\n    \"Gamertag\": \"string\",\n\n    // Internal use only. This will always be null.\n    \"Xuid\": null\n  },\n\n  // The type of killer that caused the death. Can be one of the following:\n  //   None = 0,\n  //   Player = 1,\n  //   AI = 2\n  \"KillerAgent\": \"int\",\n\n  // The IDs of any attachments that were associated with the weapon that was used to\n  // kill the victim.\n  \"KillerWeaponAttachmentIds\": [\"int\"],\n\n  // The ID of the weapon that was used to kill the victim. Depending on the type of the\n  // kill, this could be the ID of an Enemy, Vehicle, or Weapon, all of which are\n  // available via the Metadata APIs. Note that most vehicles are duplicated between both\n  // the Vehicle and Weapon Metadata APIs. If this was a standard kill with an actual\n  // weapon, then this will be the ID of the weapon that killed the victim. If this was a\n  // kill with a vehicle, then this will the ID of the vehicle that killed the victim. If\n  // this was a melee kill, then this will be the ID of the type of the object that\n  // killed the player (which will be either Spartan or the type of the type of the AI\n  // enemy that killed the player). Note that if the victim was killed by a weapon held\n  // by an AI enemy, the type of the AI enemy is unknown.\n  \"KillerWeaponStockId\": \"int\",\n\n  // Object describing the position of the killer on the map when they made the kill.\n  \"KillerWorldLocation\": {\n\n    \"x\": \"double\",\n\n    \"y\": \"double\",\n\n    \"z\": \"double\"\n  },\n\n  // Describes the victim's information. Can be null if victim is not a player in the\n  // game.\n  \"Victim\": {\n\n    // The player's gamertag.\n    \"Gamertag\": \"string\",\n\n    // Internal use only. This will always be null.\n    \"Xuid\": null\n  },\n\n  // The type of victim who was killed. Can be one of the following:\n  //   None = 0,\n  //   Player = 1,\n  //   AI = 2\n  \"VictimAgent\": \"int\",\n\n  // Any variants of the AI enemy, empty otherwise.\n  \"VictimAttachmentIds\": [\"int\"],\n\n  // The ID of the AI Enemy killed, zero otherwise. Enemy IDs are available via the\n  // Metadata API.\n  \"VictimStockId\": \"int\",\n\n  // Object describing the position of the victim on the map when they were killed.\n  \"VictimWorldLocation\": {\n\n    \"x\": \"double\",\n\n    \"y\": \"double\",\n\n    \"z\": \"double\"\n  },\n\n  // Descriptor to determine what fields will be filled in for the event.\n  \"EventName\": \"string\",\n\n  // Time passed since the start of the match when the event occurred. This is expressed\n  // as an ISO 8601 Duration.\n  \"TimeSinceStart\": \"string\"\n}\n\n// Impulse Event\n{\n  // The ID that uniquely identifies this impulse. Impulses are available via the\n  // Metadata API.\n  \"ImpulseId\" : \"int\",\n\n  // The player who received the impulse.\n  \"Player\": {\n\n    // The player's gamertag.\n    \"Gamertag\": \"string\",\n\n    // Internal use only. This will always be null.\n    \"Xuid\": null\n  }\n  // Descriptor to determine what fields will be filled in for the event.\n  \"EventName\": \"Impulse\",\n\n  // Time passed since the start of the match when the event occurred. This is expressed\n  // as an ISO 8601 Duration.\n  \"TimeSinceStart\": \"string\"\n}\n\n// Medal Event\n{\n  // The ID that uniquely identifies this medal. Medals are available via the Metadata\n  // API.\n  \"MedalId\" : \"int\",\n\n  // The player who received the medal.\n  \"Player\": {\n\n    // The player's gamertag.\n    \"Gamertag\": \"string\",\n\n    // Internal use only. This will always be null.\n    \"Xuid\": null\n  },\n\n  // Descriptor to determine what fields will be filled in for the event.\n  \"EventName\": \"Medal\",\n\n  // Time passed since the start of the match when the event occurred. This is expressed\n  // as an ISO 8601 Duration.\n  \"TimeSinceStart\": \"string\"\n}\n\n// PlayerSpawn Event\n{\n  // The player who spawned.\n  \"Player\": {\n\n    // The player's gamertag.\n    \"Gamertag\": \"string\",\n\n    // Internal use only. This will always be null.\n    \"Xuid\": null\n  },\n\n  // Descriptor to determine what fields will be filled in for the event.\n  \"EventName\": \"PlayerSpawn\",\n\n  // Time passed since the start of the match when the event occurred. This is expressed\n  // as an ISO 8601 Duration.\n  \"TimeSinceStart\": \"string\"\n}\n\n// RoundStart Event\n{\n  // The index of the round that started.\n  \"RoundIndex\" : \"int\",\n\n  // Descriptor to determine what fields will be filled in for the event.\n  \"EventName\": \"RoundStart\",\n\n  // Time passed since the start of the match when the event occurred. This is expressed\n  // as an ISO 8601 Duration.\n  \"TimeSinceStart\": \"string\"\n}\n\n// RoundEnd Event\n{\n  // The index of the round that ended.\n  \"RoundIndex\" : \"int\",\n\n  // Descriptor to determine what fields will be filled in for the event.\n  \"EventName\": \"RoundEnd\",\n\n  // Time passed since the start of the match when the event occurred. This is expressed\n  // as an ISO 8601 Duration.\n  \"TimeSinceStart\": \"string\"\n}\n\n// WeaponDrop Event\n{\n  // The player who dropped the weapon.\n  \"Player\": {\n\n    // The player's gamertag.\n    \"Gamertag\": \"string\",\n\n    // Internal use only. This will always be null.\n    \"Xuid\": null\n  },\n\n  // The number of shots fired with the weapon by the player.\n  \"ShotsFired\" : \"int\",\n\n  // The number of shots that hit the target with the weapon by the player.\n  \"ShotsLanded\" : \"int\",\n\n  // The amount of time the weapon was in the active slot of the player. This is\n  // expressed as an ISO 8601 Duration.\n  \"TimeWeaponActiveAsPrimary\": \"string\",\n\n  // The IDs of any attachments that were associated with the weapon that was dropped.\n  \"WeaponAttachmentIds\": [\"int\"],\n\n  // The ID of the weapon that was dropped. Weapons are available via the Metadata API.\n  \"WeaponStockId\": \"int\",\n\n  // Descriptor to determine what fields will be filled in for the event.\n  \"EventName\": \"WeaponDrop\",\n\n  // Time passed since the start of the match when the event occurred. This is expressed\n  // as an ISO 8601 Duration.\n  \"TimeSinceStart\": \"string\"\n}\n\n// WeaponPickup Event\n{\n  // The player who picked up the weapon.\n  \"Player\": {\n\n    // The player's gamertag.\n    \"Gamertag\": \"string\",\n\n    // Internal use only. This will always be null.\n    \"Xuid\": null\n  },\n\n  // The IDs of any attachments that were associated with the weapon that was picked up.\n  \"WeaponAttachmentIds\": [\"int\"],\n\n  // The ID of the weapon that was picked up. Weapons are available via the Metadata API.\n  \"WeaponStockId\": \"int\",\n\n  // Descriptor to determine what fields will be filled in for the event.\n  \"EventName\": \"WeaponPickup\",\n\n  // Time passed since the start of the match when the event occurred. This is expressed\n  // as an ISO 8601 Duration.\n  \"TimeSinceStart\": \"string\"\n}\n\n// WeaponPickupPad Event\n{\n  // The player who picked up the weapon.\n  \"Player\": {\n\n    // The player's gamertag.\n    \"Gamertag\": \"string\",\n\n    // Internal use only. This will always be null.\n    \"Xuid\": null\n  },\n\n  // The IDs of any attachments that were associated with the weapon that was picked up.\n  \"WeaponAttachmentIds\": [\"int\"],\n\n  // The ID of the weapon that was picked up. Weapons are available via the Metadata API.\n  \"WeaponStockId\": \"int\",\n\n  // Descriptor to determine what fields will be filled in for the event.\n  \"EventName\": \"WeaponPickupPad\",\n\n  // Time passed since the start of the match when the event occurred. This is expressed\n  // as an ISO 8601 Duration.\n  \"TimeSinceStart\": \"string\"\n}\n"
             }
           },
           "404": {
@@ -1139,7 +1125,7 @@
     "/h5/player-leaderboards/csr/{seasonId}/{playlistId}": {
       "get": {
         "description": "<p>Retrieves the Leaderboard for Player CSRs. The Leaderboard consists of the top Players with a CSR of 1800 or above for a given Playlist in a Season.</p>\n<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>March 6, 2018:</strong></p>\n    <ul>\n        <li>Fixed documentation typos for the names of the \"Player\" and \"Gamertag\" properties.</li>\n    </ul>\n</div>\n<div class=\"panel-body\">\n    <p><strong>July 31, 2017:</strong></p>\n    <ul>\n        <li>Clarified documentation for which players are included in the leaderboard.</li>\n    </ul>\n</div>\n<div class=\"panel-body\">\n    <p><strong>February 21, 2017:</strong></p>\n    <ul>\n        <li>Renamed Endpoint from \"Player Leaderboard\" to \"Halo 5 - Leaderboard Player CSR\".</li>\n        <li>Removed \"{title}\" Request Parameter.</li>\n    </ul>\n</div>\n<div class=\"panel-body\">\n    <p><strong>April 20, 2016:</strong></p>\n    <ul>\n        <li>Added Endpoint.</li>\n    </ul>\n</div>\n",
-        "operationId": "58acdf28e2f7f70db4854b35",
+        "operationId": "h5.player_leaderboards.csr.seasonId.playlistId.get",
         "parameters": [
           {
             "description": "The ID for the Season.",
@@ -1162,6 +1148,9 @@
             "type": "number"
           }
         ],
+        "produces": [
+          "application/json"
+        ],
         "responses": {
           "200": {
             "description": "The response body will contain the Players in the Leaderboard. An empty list will be returned if no Players are in the Leaderboard.",
@@ -1173,7 +1162,8 @@
                 "Results": [
                   {
                     "Player": {
-                      "Gamertag": "string"
+                      "Gamertag": "string",
+                      "Xuid": null
                     },
                     "Rank": "int",
                     "Score": {
@@ -1205,7 +1195,7 @@
     "/h5/players/{player}/commendations": {
       "get": {
         "description": "<p>Retrieves the commendation state for a Player.</p>\n<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>July 14, 2017:</strong></p>\n    <ul>\n        <li>Added Endpoint.</li>\n    </ul>\n</div>\n",
-        "operationId": "596968ade2f7f7051870d2a1",
+        "operationId": "h5.players.player.commendations.get",
         "parameters": [
           {
             "description": "The Player's Gamertag.",
@@ -1215,6 +1205,9 @@
             "type": "string"
           }
         ],
+        "produces": [
+          "application/json"
+        ],
         "responses": {
           "200": {
             "description": "The response body will contain the commendation state for the Player.",
@@ -1223,6 +1216,7 @@
                 "LastUpdatedDateUtc": {
                   "ISO8601Date": "string"
                 },
+                "Links": null,
                 "MetaCommendations": [
                   {
                     "Id": "guid",
@@ -1268,8 +1262,8 @@
     },
     "/h5/players/{player}/matches": {
       "get": {
-        "description": "<p>Retrieves a list of Matches that the Player has participated in and which have completed processing. If the Player is currently in a match, it is not returned in this API.</p>\n<p>This endpoint will include games played on Local Servers with the Custom Local Game Mode for games that occurred or after December 22, 2017.</p>\n<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>December 22, 2017:</strong></p>\n    <ul>\n        <li>Added support for the Custom Local Game mode.</li>\n    </ul>\n</div>\n<div class=\"panel-body\">\n    <p><strong>February 21, 2017:</strong></p>\n    <ul>\n        <li>Renamed Endpoint from \"Matches for Player\" to \"Halo 5 - Player Match History\".</li>\n        <li>Removed \"{title}\" Request Parameter.</li>\n    </ul>\n</div>\n<div class=\"panel-body\">\n    <p><strong>April 20, 2016:</strong></p>\n    <ul>\n        <li>Clarified documentation for the \"MapVariant\" and \"GameVariant\" fields.</li>\n        <li>Corrected \"OwnerType\" values for the \"MapVariant\" and \"GameVariant\" fields.</li>\n    </ul>\n</div>\n",
-        "operationId": "58acdf28e2f7f70db4854b3b",
+        "description": "<p>Retrieves a list of Matches that the Player has participated in and which have completed processing. If the Player is currently in a match, it is not returned in this API.</p>\n<p>This endpoint will include games played on Local Servers with the Custom Local Game Mode for games that occurred or after December 22, 2017.</p>\n<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>February 1, 2019:</strong></p>\n    <ul>\n        <li>Enabled support for viewing the time component of the \"MatchCompletedDate\" via the \"{include-times}\" Request Parameter.</li>\n    </ul>\n</div>\n<div class=\"panel-body\">\n    <p><strong>December 22, 2017:</strong></p>\n    <ul>\n        <li>Added support for the Custom Local Game mode.</li>\n    </ul>\n</div>\n<div class=\"panel-body\">\n    <p><strong>February 21, 2017:</strong></p>\n    <ul>\n        <li>Renamed Endpoint from \"Matches for Player\" to \"Halo 5 - Player Match History\".</li>\n        <li>Removed \"{title}\" Request Parameter.</li>\n    </ul>\n</div>\n<div class=\"panel-body\">\n    <p><strong>April 20, 2016:</strong></p>\n    <ul>\n        <li>Clarified documentation for the \"MapVariant\" and \"GameVariant\" fields.</li>\n        <li>Corrected \"OwnerType\" values for the \"MapVariant\" and \"GameVariant\" fields.</li>\n    </ul>\n</div>\n",
+        "operationId": "h5.players.player.matches.get",
         "parameters": [
           {
             "description": "The Player's Gamertag.",
@@ -1295,13 +1289,80 @@
             "in": "query",
             "name": "count",
             "type": "number"
+          },
+          {
+            "description": "When set to \"true\", this indicates that the time component of the \"MatchCompletedDate\" field should be populated.\n\nOtherwise, when set to \"false\" or when omitted, the time component will be set to \"00:00:00\".\n\nWhen the value contains a non-boolean, HTTP 400 (\"Bad Request\") is returned.",
+            "in": "query",
+            "name": "include-times",
+            "type": "boolean"
           }
+        ],
+        "produces": [
+          "application/json"
         ],
         "responses": {
           "200": {
             "description": "The response body will contain the Player's recent Matches. An empty list will be returned if the Player has not played any Matches in the specified Game Mode(s).",
             "examples": {
-              "application/json": "{\n  // The starting point that was used. When the \"start\" query string parameter is\n  // specified, this value is identical. When \"start\" is omitted, the default value is\n  // returned.\n  \"Start\": \"int\",  \n\n  // The number of results that the service attempted to retrieve to satisfy this\n  // request. Normally this value is equal to the \"count\" parameter. If the client\n  // specified a count parameter greater than the maximum allowed, this value contains\n  // the maximum allowed amount.\n  \"Count\": \"int\",\n\n  // The number of results that are actually being returned in this response. This field\n  // is named \"ResultCount\" to avoid confusion with \"Count\".\n  \"ResultCount\": \"int\",\n\n  // A list of recent matches. Matches are listed in reverse chronological order with the\n  // most recently started match first.\n  \"Results\": [\n    {\n      // Internal use only. A set of related resource links.\n      \"Links\": \"links\",\n\n      \"Id\": {\n\n        // The ID for this match. More match details are available via the applicable\n        // Match Result Endpoint.\n        \"MatchId\": \"guid\",\n\n        // The game mode applicable to this match. Options are: \n        //   Error = 0, \n        //   Arena = 1, \n        //   Campaign = 2, \n        //   Custom = 3, \n        //   Warzone = 4,\n        //   CustomLocal = 6.\n        \"GameMode\": \"int\",\n\n      },\n\n      // The ID of the playlist (aka \"Hopper\") for the match. \n      // Hoppers are used in Arena and Warzone. In Arena, they function just as you would\n      // expect, similar to previous Halo titles. Warzone uses hoppers as well. There\n      // will be multiple Warzone hoppers which contain a rotating playlist of scenarios\n      // to play. \n      // Null for campaign & custom games. \n      // Playlists are available via the Metadata API.\n      \"HopperId\": \"guid\",\n\n      // The ID of the base map for this match. Maps are available via the Metadata API.\n      \"MapId\": \"guid\",\n\n      // The variant of the map for this match. There are two sources of map variants:\n      // official map variants available via the Metadata API and user-generated map\n      // variants which are not available via the APIs currently. This will be null for\n      // campaign games.\n      \"MapVariant\": {\n\n        // The resource type. 3 indicates map variant.\n        \"ResourceType\": 3,\n\n        // The ID of the map variant. Official map variants are available via the\n        // Metadata API.\n        \"ResourceId\": \"guid\",\n\n        // The source of the map variant. Options are:\n        //   Unknown = 0,\n        //   User-generated = 1,\n        //   Official = 3.\n        \"OwnerType\": \"int\",\n\n        // The gamertag of the user that created the map variant if this is a\n        // user-generated map variant, or null otherwise. \n        \"Owner\": \"string\"\n      }\n      // The ID of the game base variant for this match. Game base variants are available\n      // via the Metadata API.\n      \"GameBaseVariantId\": \"guid\",\n\n      // The variant of the game for this match. There are two sources of game variants:\n      // official game variants available via the Metadata API and user-generated game\n      // variants which are not available via the APIs currently. This will be null for\n      // campaign games.\n      \"GameVariant\": {\n\n        // The resource type. 2 indicates game variant.\n        \"ResourceType\": 2,\n\n        // The ID of the game variant. Official game variants are available via the\n        // Metadata API.\n        \"ResourceId\": \"guid\",        \n\n        // The source of the game variant. Options are:\n        //   Unknown = 0,\n        //   User-generated = 1,\n        //   Official = 3.\n        \"OwnerType\": \"int\",\n\n        // The gamertag of the user that created the game variant if this is a\n        // user-generated game variant, or null otherwise. \n        \"Owner\": \"string\"\n      },\n\n      // The length of the match. This is expressed as an ISO 8601 Duration.\n      \"MatchDuration\": \"string\",\n\n      // The date and time when match ended. Note that this is different than the\n      // processing date, once matches end they typically take a small amount of time to\n      // process. The processing date is not available through this API. The time\n      // component of this date is always set to \"00:00:00\". This is expressed as an ISO\n      // 8601 combined Date and Time.\n      \"MatchCompletedDate\": {\n\n        \"ISO8601Date\": \"string\"\n      },\n\n      // Provides team data. This list contains all team that Won or Tied. Losing teams\n      // are not included. This list is empty for campaign games. \n      \"Teams\": [\n        {\n          // The ID for the team. The team's ID dictates the team's color. Team colors\n          // are available via the Metadata API.\n          \"Id\": \"int\",\n\n          // The team's score at the end of the match. The way the score is determined is\n          // based off the game base variant being played: \n          //   Breakout = number of rounds won,\n          //   CTF = number of flag captures,\n          //   Slayer = number of kills,\n          //   Strongholds = number of points,\n          //   Warzone = number of points.\n          // Score can be a negative value. Unfortunately, this value is returned as an\n          // unsigned 32-bit integer. This means that if the score is -1, the score\n          // reported is 4,294,967,295.\n          \"Score\": \"uint32\",\n\n          // The team's rank at the end of the match.\n          \"Rank\": \"int\"\n        }\n      ],\n\n      // This field contains the player's data. This will only contain data for the\n      // player specified in the request.\n      \"Players\": [\n        {          \n          \"Player\": {\n\n            // The player's gamertag.\n            \"Gamertag\": \"string\",\n\n            // Internal use only. This will always be null.\n            \"Xuid\": null\n          },\n\n          // The ID of the team that the player was on when the match ended. Zero for\n          // campaign games.\n          \"TeamId\": \"int\",\n\n          // The player's team-agnostic ranking in this match.\n          \"Rank\": \"int\",\n\n          // Indicates what result the player received at the conclusion of the match.\n          // Options are:\n          //   Did Not Finish = 0, \n          //   Lost = 1, \n          //   Tied = 2, \n          //   Won = 3. \n          // Did Not Finish: The player was not present when the match ended.\n          // Lost: The player was on a team that was assigned a loss, typically this is\n          // when a team does not have rank = 1. \n          // Won: The player was on the team that was assigned the win, typically this is\n          // the team that has rank = 1. \n          // Tied: The player was on the team that was awarded a tie. Typically this is\n          // when the player is on the team with rank = 1, and there is at least one\n          // other team with rank = 1. Ties are only for rank = 1 teams. Consider the\n          // scenario when exactly one team is rank = 1, and two teams are rank = 2.\n          // Players on the rank=1 team will have \"Won\", players on the rank = 2 teams\n          // will have \"Lost\". For ties, this documentation states 'typically' because\n          // the game may have unique rules for multi-team and FFA scenarios, in which\n          // multiple teams are awarded a win.\n          \"Result\": \"int\",\n\n          // The number of enemy kills the player had during this match. This includes\n          // other Spartans and Enemy AI.\n          \"TotalKills\": \"int\",\n\n          // The number of times this player died during the match.\n          \"TotalDeaths\": \"int\",\n\n          // The number of assists credited to the player during the match. This includes\n          // other Spartans and Enemy AI.\n          \"TotalAssists\": \"int\",\n\n          // Internal use only. This will always be null.\n          \"PreMatchRatings\": null,\n\n          // Internal use only. This will always be null.\n          \"PostMatchRatings\": null\n        }\n      ],\n\n      // Whether this was a team-based game or not (e.g. free-for-all).\n      \"IsTeamGame\": \"boolean\",\n\n      // The ID of the season for this match if it was played in a seasonal playlist.\n      // Null if the match was played in a non-seasonal playlist. This will only be set\n      // for Arena matches and will be null for all other game modes.\n      \"SeasonId\": null,\n\n      // Internal use only. Do not use.\n      \"MatchCompletedDateFidelity\": \"int\"\n    }\n  ]\n}\n"
+              "application/json": {
+                "Count": "int",
+                "ResultCount": "int",
+                "Results": [
+                  {
+                    "GameBaseVariantId": "guid",
+                    "GameVariant": {
+                      "Owner": "string",
+                      "OwnerType": "int",
+                      "ResourceId": "guid",
+                      "ResourceType": 2
+                    },
+                    "HopperId": "guid",
+                    "Id": {
+                      "GameMode": "int",
+                      "MatchId": "guid"
+                    },
+                    "IsTeamGame": "boolean",
+                    "Links": "links",
+                    "MapId": "guid",
+                    "MapVariant": {
+                      "Owner": "string",
+                      "OwnerType": "int",
+                      "ResourceId": "guid",
+                      "ResourceType": 3
+                    },
+                    "MatchCompletedDate": {
+                      "ISO8601Date": "string"
+                    },
+                    "MatchCompletedDateFidelity": "int",
+                    "MatchDuration": "string",
+                    "Players": [
+                      {
+                        "Player": {
+                          "Gamertag": "string",
+                          "Xuid": null
+                        },
+                        "PostMatchRatings": null,
+                        "PreMatchRatings": null,
+                        "Rank": "int",
+                        "Result": "int",
+                        "TeamId": "int",
+                        "TotalAssists": "int",
+                        "TotalDeaths": "int",
+                        "TotalKills": "int"
+                      }
+                    ],
+                    "SeasonId": null,
+                    "Teams": [
+                      {
+                        "Id": "int",
+                        "Rank": "int",
+                        "Score": "uint32"
+                      }
+                    ]
+                  }
+                ],
+                "Start": "int"
+              }
             }
           },
           "400": {
@@ -1322,8 +1383,8 @@
     },
     "/h5/servicerecords/arena": {
       "get": {
-        "description": "<p>Retrieves Service Records for the Arena Game Mode for one or more players. A Service Record contains a player's lifetime statistics in the Game Mode.</p>\n<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>December 22, 2017:</strong></p>\n    <ul>\n        <li>Added Game Mode clarifications to the Endpoint description.</li>\n    </ul>\n</div>\n<div class=\"panel-body\">\n    <p><strong>February 21, 2017:</strong></p>\n    <ul>\n        <li>Renamed Endpoint from \"Service Record: Arena\" to \"Halo 5 - Player Service Records - Arena\".</li>\n        <li>Removed \"{title}\" Request Parameter.</li>\n    </ul>\n</div>\n<div class=\"panel-body\">\n    <p><strong>April 20, 2016:</strong></p>\n    <ul>\n        <li>Added documentation for the \"CsrPercentile\" field.</li>\n    </ul>\n</div>\n",
-        "operationId": "58acdf28e2f7f70db4854b3c",
+        "description": "<p>Retrieves Service Records for the Arena Game Mode for one or more players. A Service Record contains a player's lifetime statistics in the Game Mode.</p>\n<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>June 29, 2018:</strong></p>\n    <ul>\n        <li>Added support for Social (Unranked) Playlists.</li>\n    </ul>\n</div>\n<div class=\"panel-body\">\n    <p><strong>December 22, 2017:</strong></p>\n    <ul>\n        <li>Added Game Mode clarifications to the Endpoint description.</li>\n    </ul>\n</div>\n<div class=\"panel-body\">\n    <p><strong>February 21, 2017:</strong></p>\n    <ul>\n        <li>Renamed Endpoint from \"Service Record: Arena\" to \"Halo 5 - Player Service Records - Arena\".</li>\n        <li>Removed \"{title}\" Request Parameter.</li>\n    </ul>\n</div>\n<div class=\"panel-body\">\n    <p><strong>April 20, 2016:</strong></p>\n    <ul>\n        <li>Added documentation for the \"CsrPercentile\" field.</li>\n    </ul>\n</div>\n",
+        "operationId": "h5.servicerecords.arena.get",
         "parameters": [
           {
             "description": "A comma-separated list of Gamertags. Up to 32 Gamertags may be specified.",
@@ -1333,11 +1394,14 @@
             "type": "string"
           },
           {
-            "description": "When specified, this indicates the Season to request the Arena Playlist Stats for. If this is not specified, the default is the current Season. Seasons are available via the Metadata API.",
+            "description": "When specified, this indicates the Season to request the Arena Playlist Stats for. If this is not specified, the default is the current Season. Seasons are available via the Metadata API. Social (Unranked) Arena Playlist Stats can be retrieved by specifying \"NonSeasonal\".",
             "in": "query",
             "name": "seasonId",
             "type": "string"
           }
+        ],
+        "produces": [
+          "application/json"
         ],
         "responses": {
           "200": {
@@ -1362,7 +1426,7 @@
     "/h5/servicerecords/campaign": {
       "get": {
         "description": "<p>Retrieves Service Records for the Campaign Game Mode for one or more players. A Service Record contains a player's lifetime statistics in the Game Mode.</p>\n<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>December 22, 2017:</strong></p>\n    <ul>\n        <li>Added Game Mode clarifications to the Endpoint description.</li>\n    </ul>\n</div>\n<div class=\"panel-body\">\n    <p><strong>February 21, 2017:</strong></p>\n    <ul>\n        <li>Renamed Endpoint from \"Service Record: Campaign\" to \"Halo 5 - Player Service Records - Campaign\".</li>\n        <li>Removed \"{title}\" Request Parameter.</li>\n    </ul>\n</div>\n",
-        "operationId": "58acdf28e2f7f70db4854b3d",
+        "operationId": "h5.servicerecords.campaign.get",
         "parameters": [
           {
             "description": "A comma-separated list of Gamertags. Up to 32 Gamertags may be specified.",
@@ -1372,11 +1436,15 @@
             "type": "string"
           }
         ],
+        "produces": [
+          "application/json"
+        ],
         "responses": {
           "200": {
             "description": "The response body will contain the Service Records for the requested player(s).",
             "examples": {
               "application/json": {
+                "Links": null,
                 "Results": [
                   {
                     "Id": "string",
@@ -1617,7 +1685,8 @@
                         }
                       },
                       "PlayerId": {
-                        "GamerTag": "string"
+                        "GamerTag": "string",
+                        "Xuid": null
                       },
                       "SpartanRank": "int",
                       "Xp": "int"
@@ -1644,7 +1713,7 @@
     "/h5/servicerecords/custom": {
       "get": {
         "description": "<p>Retrieves Service Records for the Custom Game Mode for one or more players. A Service Record contains a player's lifetime statistics in the Game Mode. Games with the Custom Game Mode are played on Xbox Live Servers. For games played on Local Servers, use the \"Halo 5 - Player Service Records - Custom Local\" Endpoint.</p>\n<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>December 22, 2017:</strong></p>\n    <ul>\n        <li>Added Game Mode clarifications to the Endpoint description.</li>\n    </ul>\n</div>\n<div class=\"panel-body\">\n    <p><strong>February 21, 2017:</strong></p>\n    <ul>\n        <li>Renamed Endpoint from \"Service Record: Custom\" to \"Halo 5 - Player Service Records - Custom\".</li>\n        <li>Removed \"{title}\" Request Parameter.</li>\n    </ul>\n</div>\n",
-        "operationId": "58acdf28e2f7f70db4854b3e",
+        "operationId": "h5.servicerecords.custom.get",
         "parameters": [
           {
             "description": "A comma-separated list of Gamertags. Up to 32 Gamertags may be specified.",
@@ -1654,11 +1723,15 @@
             "type": "string"
           }
         ],
+        "produces": [
+          "application/json"
+        ],
         "responses": {
           "200": {
             "description": "The response body will contain the Service Records for the requested player(s).",
             "examples": {
               "application/json": {
+                "Links": null,
                 "Results": [
                   {
                     "Id": "string",
@@ -1885,7 +1958,8 @@
                         }
                       },
                       "PlayerId": {
-                        "GamerTag": "string"
+                        "GamerTag": "string",
+                        "Xuid": null
                       },
                       "SpartanRank": "int",
                       "Xp": "int"
@@ -1912,7 +1986,7 @@
     "/h5/servicerecords/customlocal": {
       "get": {
         "description": "<p>Retrieves Service Records for the Custom Local Game Mode for one or more players. A Service Record contains a player's lifetime statistics in the Game Mode. Games with the Custom Local Game Mode are played on Local Servers. For games played on Xbox Live Servers, use the \"Halo 5 - Player Service Records - Custom\" Endpoint. A player's Custom Local Service Record summarizes games played on or after December 22, 2017.</p>\n<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>December 22, 2017:</strong></p>\n    <ul>\n        <li>Added Endpoint.</li>\n    </ul>\n</div>\n",
-        "operationId": "5a3d9a2e51059d1090806fe9",
+        "operationId": "h5.servicerecords.customlocal.get",
         "parameters": [
           {
             "description": "A comma-separated list of Gamertags. Up to 32 Gamertags may be specified.",
@@ -1922,11 +1996,15 @@
             "type": "string"
           }
         ],
+        "produces": [
+          "application/json"
+        ],
         "responses": {
           "200": {
             "description": "The response body will contain the Service Records for the requested player(s).",
             "examples": {
               "application/json": {
+                "Links": null,
                 "Results": [
                   {
                     "Id": "string",
@@ -2153,7 +2231,8 @@
                         }
                       },
                       "PlayerId": {
-                        "GamerTag": "string"
+                        "GamerTag": "string",
+                        "Xuid": null
                       },
                       "SpartanRank": "int",
                       "Xp": "int"
@@ -2180,7 +2259,7 @@
     "/h5/servicerecords/warzone": {
       "get": {
         "description": "<p>Retrieves Service Records for the Warzone Game Mode for one or more players. A Service Record contains a player's lifetime statistics in the Game Mode.</p>\n<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>December 22, 2017:</strong></p>\n    <ul>\n        <li>Added Game Mode clarifications to the Endpoint description.</li>\n    </ul>\n</div>\n<div class=\"panel-body\">\n    <p><strong>February 21, 2017:</strong></p>\n    <ul>\n        <li>Renamed Endpoint from \"Service Record: Warzone\" to \"Halo 5 - Player Service Records - Warzone\".</li>\n        <li>Removed \"{title}\" Request Parameter.</li>\n    </ul>\n</div>\n",
-        "operationId": "58acdf28e2f7f70db4854b3f",
+        "operationId": "h5.servicerecords.warzone.get",
         "parameters": [
           {
             "description": "A comma-separated list of Gamertags. Up to 32 Gamertags may be specified.",
@@ -2190,17 +2269,22 @@
             "type": "string"
           }
         ],
+        "produces": [
+          "application/json"
+        ],
         "responses": {
           "200": {
             "description": "The response body will contain the Service Records for the requested player(s).",
             "examples": {
               "application/json": {
+                "Links": null,
                 "Results": [
                   {
                     "Id": "string",
                     "Result": {
                       "PlayerId": {
-                        "GamerTag": "string"
+                        "GamerTag": "string",
+                        "Xuid": null
                       },
                       "SpartanRank": "int",
                       "WarzoneStat": {
@@ -2440,7 +2524,7 @@
     "/h5/warzone/matches/{matchId}": {
       "get": {
         "description": "<p>Retrieves detailed statistics for a Match with the Warzone Game Mode.</p>\n<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>December 22, 2017:</strong></p>\n    <ul>\n        <li>Added Game Mode clarifications to the Endpoint description.</li>\n    </ul>\n</div>\n<div class=\"panel-body\">\n    <p><strong>February 21, 2017:</strong></p>\n    <ul>\n        <li>Renamed Endpoint from \"Post-Game Carnage Report: Warzone\" to \"Halo 5 - Match Result - Warzone\".</li>\n        <li>Removed \"{title}\" Request Parameter.</li>\n        <li>Updated the documentation for \"GameVariantResourceId\" and \"MapVariantResourceId\" to reference the UGC API.</li>\n    </ul>\n</div>\n<div class=\"panel-body\">\n    <p><strong>May 16, 2016:</strong></p>\n    <ul>\n        <li>Documented HTTP 503 Response Code.</li>\n        <li>Added documentation for the \"MatchSpeedWinAmount\", \"ObjectivesCompletedAmount\", and \"BoostData\" fields.</li>\n    </ul>\n</div>\n<div class=\"panel-body\">\n    <p><strong>April 20, 2016:</strong></p>\n    <ul>\n        <li>Added documentation for the \"GameVariantResourceId\", \"MapVariantResourceId\", and \"PlayerScore\" fields.</li>\n        <li>Updated the documentation for the \"MapVariantId\" and \"GameVariantId\" fields with the recommendation of using the \"MapVariantResourceId\" and \"GameVariantResourceId\" fields, respectively.</li>\n    </ul>\n</div>\n",
-        "operationId": "58acdf28e2f7f70db4854b3a",
+        "operationId": "h5.warzone.matches.matchId.get",
         "parameters": [
           {
             "description": "An ID that uniquely identifies a Match. Match IDs can be retrieved from the \"Halo 5 - Player Match History\" Endpoint.",
@@ -2449,6 +2533,9 @@
             "required": true,
             "type": "string"
           }
+        ],
+        "produces": [
+          "application/json"
         ],
         "responses": {
           "200": {
@@ -2584,8 +2671,12 @@
                       }
                     ],
                     "Player": {
-                      "Gamertag": "string"
+                      "Gamertag": "string",
+                      "Xuid": null
                     },
+                    "PlayerScore": null,
+                    "PostMatchRatings": null,
+                    "PreMatchRatings": null,
                     "ProgressiveCommendationDeltas": [
                       {
                         "Id": "guid",
@@ -2678,6 +2769,7 @@
                   }
                 ],
                 "PlaylistId": "guid",
+                "SeasonId": null,
                 "TeamStats": [
                   {
                     "Rank": "int",
@@ -2711,8 +2803,8 @@
     },
     "/h5pc/custom/matches/{matchId}": {
       "get": {
-        "description": "<p>Retrieves detailed statistics for a Match with the Custom Game Mode. Games with the Custom Game Mode are played on Xbox Live Servers. For games played on Local Servers, use the \"Halo 5 - Match Result - Custom Local\" Endpoint.</p>\n<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>December 22, 2017:</strong></p>\n    <ul>\n        <li>Added Game Mode clarifications to the Endpoint description.</li>\n        <li>Added documentation for \"PresentInMatch\".</li>\n    </ul>\n</div>\n<div class=\"panel-body\">\n    <p><strong>February 21, 2017:</strong></p>\n    <ul>\n        <li>Renamed Endpoint from \"Post-Game Carnage Report: Custom\" to \"Halo 5 - Match Result - Custom\".</li>\n        <li>Removed \"{title}\" Request Parameter.</li>\n        <li>Updated the documentation for \"GameVariantResourceId\" and \"MapVariantResourceId\" to reference the UGC API.</li>\n    </ul>\n</div>\n<div class=\"panel-body\">\n    <p><strong>May 16, 2016:</strong></p>\n    <ul>\n        <li>Documented HTTP 503 Response Code.</li>\n    </ul>\n</div>\n<div class=\"panel-body\">\n    <p><strong>April 20, 2016:</strong></p>\n    <ul>\n        <li>Added documentation for the \"GameVariantResourceId\", \"MapVariantResourceId\", and \"PlayerScore\" fields.</li>\n        <li>Updated the documentation for the \"MapVariantId\" and \"GameVariantId\" fields with the recommendation of using the \"MapVariantResourceId\" and \"GameVariantResourceId\" fields, respectively.</li>\n    </ul>\n</div>\n",
-        "operationId": "58acdf28e2f7f70db4854b40",
+        "description": "<p>Retrieves detailed statistics for a Match with the Custom Game Mode. Games with the Custom Game Mode are played on Xbox Live Servers. For games played on Local Servers, use the \"Halo 5 - Match Result - Custom Local\" Endpoint.</p>\n<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>December 12, 2018:</strong></p>\n    <ul>\n        <li>Updated the documentation for \"PlayerScore\".</li>\n    </ul>\n</div>\n<div class=\"panel-body\">\n    <p><strong>December 22, 2017:</strong></p>\n    <ul>\n        <li>Added Game Mode clarifications to the Endpoint description.</li>\n        <li>Added documentation for \"PresentInMatch\".</li>\n    </ul>\n</div>\n<div class=\"panel-body\">\n    <p><strong>February 21, 2017:</strong></p>\n    <ul>\n        <li>Renamed Endpoint from \"Post-Game Carnage Report: Custom\" to \"Halo 5 - Match Result - Custom\".</li>\n        <li>Removed \"{title}\" Request Parameter.</li>\n        <li>Updated the documentation for \"GameVariantResourceId\" and \"MapVariantResourceId\" to reference the UGC API.</li>\n    </ul>\n</div>\n<div class=\"panel-body\">\n    <p><strong>May 16, 2016:</strong></p>\n    <ul>\n        <li>Documented HTTP 503 Response Code.</li>\n    </ul>\n</div>\n<div class=\"panel-body\">\n    <p><strong>April 20, 2016:</strong></p>\n    <ul>\n        <li>Added documentation for the \"GameVariantResourceId\", \"MapVariantResourceId\", and \"PlayerScore\" fields.</li>\n        <li>Updated the documentation for the \"MapVariantId\" and \"GameVariantId\" fields with the recommendation of using the \"MapVariantResourceId\" and \"GameVariantResourceId\" fields, respectively.</li>\n    </ul>\n</div>\n",
+        "operationId": "h5pc.custom.matches.matchId.get",
         "parameters": [
           {
             "description": "An ID that uniquely identifies a Match. Match IDs can be retrieved from the \"Halo 5 PC - Player Match History\" Endpoint.",
@@ -2721,6 +2813,9 @@
             "required": true,
             "type": "string"
           }
+        ],
+        "produces": [
+          "application/json"
         ],
         "responses": {
           "200": {
@@ -2822,8 +2917,12 @@
                       }
                     ],
                     "Player": {
-                      "Gamertag": "string"
+                      "Gamertag": "string",
+                      "Xuid": null
                     },
+                    "PlayerScore": "int",
+                    "PostMatchRatings": null,
+                    "PreMatchRatings": null,
                     "PresentInMatch": "boolean",
                     "Rank": "int",
                     "TeamId": "int",
@@ -2886,6 +2985,7 @@
                   }
                 ],
                 "PlaylistId": "guid",
+                "SeasonId": null,
                 "TeamStats": [
                   {
                     "Rank": "int",
@@ -2919,8 +3019,8 @@
     },
     "/h5pc/players/{player}/matches": {
       "get": {
-        "description": "<p>Retrieves a list of Matches that the Player has participated in and which have completed processing. If the Player is currently in a match, it is not returned in this API.</p>\n<p>This endpoint will include games played on Local Servers with the Custom Local Game Mode for games that occurred or after December 22, 2017.</p>\n<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>December 22, 2017:</strong></p>\n    <ul>\n        <li>Added support for the Custom Local Game mode.</li>\n    </ul>\n</div>\n<div class=\"panel-body\">\n    <p><strong>February 21, 2017:</strong></p>\n    <ul>\n        <li>Renamed Endpoint from \"Matches for Player\" to \"Halo 5 - Player Match History\".</li>\n        <li>Removed \"{title}\" Request Parameter.</li>\n    </ul>\n</div>\n<div class=\"panel-body\">\n    <p><strong>April 20, 2016:</strong></p>\n    <ul>\n        <li>Clarified documentation for the \"MapVariant\" and \"GameVariant\" fields.</li>\n        <li>Corrected \"OwnerType\" values for the \"MapVariant\" and \"GameVariant\" fields.</li>\n    </ul>\n</div>\n",
-        "operationId": "58acdf28e2f7f70db4854b41",
+        "description": "<p>Retrieves a list of Matches that the Player has participated in and which have completed processing. If the Player is currently in a match, it is not returned in this API.</p>\n<p>This endpoint will include games played on Local Servers with the Custom Local Game Mode for games that occurred or after December 22, 2017.</p>\n<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>February 1, 2019:</strong></p>\n    <ul>\n        <li>Enabled support for viewing the time component of the \"MatchCompletedDate\" via the \"{include-times}\" Request Parameter.</li>\n    </ul>\n</div>\n<div class=\"panel-body\">\n    <p><strong>December 22, 2017:</strong></p>\n    <ul>\n        <li>Added support for the Custom Local Game mode.</li>\n    </ul>\n</div>\n<div class=\"panel-body\">\n    <p><strong>February 21, 2017:</strong></p>\n    <ul>\n        <li>Renamed Endpoint from \"Matches for Player\" to \"Halo 5 - Player Match History\".</li>\n        <li>Removed \"{title}\" Request Parameter.</li>\n    </ul>\n</div>\n<div class=\"panel-body\">\n    <p><strong>April 20, 2016:</strong></p>\n    <ul>\n        <li>Clarified documentation for the \"MapVariant\" and \"GameVariant\" fields.</li>\n        <li>Corrected \"OwnerType\" values for the \"MapVariant\" and \"GameVariant\" fields.</li>\n    </ul>\n</div>\n",
+        "operationId": "h5pc.players.player.matches.get",
         "parameters": [
           {
             "description": "The Player's Gamertag.",
@@ -2946,13 +3046,80 @@
             "in": "query",
             "name": "count",
             "type": "number"
+          },
+          {
+            "description": "When set to \"true\", this indicates that the time component of the \"MatchCompletedDate\" field should be populated.\n\nOtherwise, when set to \"false\" or when omitted, the time component will be set to \"00:00:00\".\n\nWhen the value contains a non-boolean, HTTP 400 (\"Bad Request\") is returned.",
+            "in": "query",
+            "name": "include-times",
+            "type": "boolean"
           }
+        ],
+        "produces": [
+          "application/json"
         ],
         "responses": {
           "200": {
             "description": "The response body will contain the Player's recent Matches. An empty list will be returned if the Player has not played any Matches in the specified Game Mode(s).",
             "examples": {
-              "application/json": "{\n  // The starting point that was used. When the \"start\" query string parameter is\n  // specified, this value is identical. When \"start\" is omitted, the default value is\n  // returned.\n  \"Start\": \"int\",  \n\n  // The number of results that the service attempted to retrieve to satisfy this\n  // request. Normally this value is equal to the \"count\" parameter. If the client\n  // specified a count parameter greater than the maximum allowed, this value contains\n  // the maximum allowed amount.\n  \"Count\": \"int\",\n\n  // The number of results that are actually being returned in this response. This field\n  // is named \"ResultCount\" to avoid confusion with \"Count\".\n  \"ResultCount\": \"int\",\n\n  // A list of recent matches. Matches are listed in reverse chronological order with the\n  // most recently started match first.\n  \"Results\": [\n    {\n      // Internal use only. A set of related resource links.\n      \"Links\": \"links\",\n\n      \"Id\": {\n\n        // The ID for this match. More match details are available via the applicable\n        // Match Result Endpoint.\n        \"MatchId\": \"guid\",\n\n        // The game mode applicable to this match. Options are: \n        //   Error = 0, \n        //   Arena = 1, \n        //   Campaign = 2, \n        //   Custom = 3, \n        //   Warzone = 4,\n        //   CustomLocal = 6.\n        \"GameMode\": \"int\",\n\n      },\n\n      // The ID of the playlist (aka \"Hopper\") for the match. \n      // Hoppers are used in Arena and Warzone. In Arena, they function just as you would\n      // expect, similar to previous Halo titles. Warzone uses hoppers as well. There\n      // will be multiple Warzone hoppers which contain a rotating playlist of scenarios\n      // to play. \n      // Null for campaign & custom games. \n      // Playlists are available via the Metadata API.\n      \"HopperId\": \"guid\",\n\n      // The ID of the base map for this match. Maps are available via the Metadata API.\n      \"MapId\": \"guid\",\n\n      // The variant of the map for this match. There are two sources of map variants:\n      // official map variants available via the Metadata API and user-generated map\n      // variants which are not available via the APIs currently. This will be null for\n      // campaign games.\n      \"MapVariant\": {\n\n        // The resource type. 3 indicates map variant.\n        \"ResourceType\": 3,\n\n        // The ID of the map variant. Official map variants are available via the\n        // Metadata API.\n        \"ResourceId\": \"guid\",\n\n        // The source of the map variant. Options are:\n        //   Unknown = 0,\n        //   User-generated = 1,\n        //   Official = 3.\n        \"OwnerType\": \"int\",\n\n        // The gamertag of the user that created the map variant if this is a\n        // user-generated map variant, or null otherwise. \n        \"Owner\": \"string\"\n      }\n      // The ID of the game base variant for this match. Game base variants are available\n      // via the Metadata API.\n      \"GameBaseVariantId\": \"guid\",\n\n      // The variant of the game for this match. There are two sources of game variants:\n      // official game variants available via the Metadata API and user-generated game\n      // variants which are not available via the APIs currently. This will be null for\n      // campaign games.\n      \"GameVariant\": {\n\n        // The resource type. 2 indicates game variant.\n        \"ResourceType\": 2,\n\n        // The ID of the game variant. Official game variants are available via the\n        // Metadata API.\n        \"ResourceId\": \"guid\",        \n\n        // The source of the game variant. Options are:\n        //   Unknown = 0,\n        //   User-generated = 1,\n        //   Official = 3.\n        \"OwnerType\": \"int\",\n\n        // The gamertag of the user that created the game variant if this is a\n        // user-generated game variant, or null otherwise. \n        \"Owner\": \"string\"\n      },\n\n      // The length of the match. This is expressed as an ISO 8601 Duration.\n      \"MatchDuration\": \"string\",\n\n      // The date and time when match ended. Note that this is different than the\n      // processing date, once matches end they typically take a small amount of time to\n      // process. The processing date is not available through this API. The time\n      // component of this date is always set to \"00:00:00\". This is expressed as an ISO\n      // 8601 combined Date and Time.\n      \"MatchCompletedDate\": {\n\n        \"ISO8601Date\": \"string\"\n      },\n\n      // Provides team data. This list contains all team that Won or Tied. Losing teams\n      // are not included. This list is empty for campaign games. \n      \"Teams\": [\n        {\n          // The ID for the team. The team's ID dictates the team's color. Team colors\n          // are available via the Metadata API.\n          \"Id\": \"int\",\n\n          // The team's score at the end of the match. The way the score is determined is\n          // based off the game base variant being played: \n          //   Breakout = number of rounds won,\n          //   CTF = number of flag captures,\n          //   Slayer = number of kills,\n          //   Strongholds = number of points,\n          //   Warzone = number of points.\n          // Score can be a negative value. Unfortunately, this value is returned as an\n          // unsigned 32-bit integer. This means that if the score is -1, the score\n          // reported is 4,294,967,295.\n          \"Score\": \"uint32\",\n\n          // The team's rank at the end of the match.\n          \"Rank\": \"int\"\n        }\n      ],\n\n      // This field contains the player's data. This will only contain data for the\n      // player specified in the request.\n      \"Players\": [\n        {          \n          \"Player\": {\n\n            // The player's gamertag.\n            \"Gamertag\": \"string\",\n\n            // Internal use only. This will always be null.\n            \"Xuid\": null\n          },\n\n          // The ID of the team that the player was on when the match ended. Zero for\n          // campaign games.\n          \"TeamId\": \"int\",\n\n          // The player's team-agnostic ranking in this match.\n          \"Rank\": \"int\",\n\n          // Indicates what result the player received at the conclusion of the match.\n          // Options are:\n          //   Did Not Finish = 0, \n          //   Lost = 1, \n          //   Tied = 2, \n          //   Won = 3. \n          // Did Not Finish: The player was not present when the match ended.\n          // Lost: The player was on a team that was assigned a loss, typically this is\n          // when a team does not have rank = 1. \n          // Won: The player was on the team that was assigned the win, typically this is\n          // the team that has rank = 1. \n          // Tied: The player was on the team that was awarded a tie. Typically this is\n          // when the player is on the team with rank = 1, and there is at least one\n          // other team with rank = 1. Ties are only for rank = 1 teams. Consider the\n          // scenario when exactly one team is rank = 1, and two teams are rank = 2.\n          // Players on the rank=1 team will have \"Won\", players on the rank = 2 teams\n          // will have \"Lost\". For ties, this documentation states 'typically' because\n          // the game may have unique rules for multi-team and FFA scenarios, in which\n          // multiple teams are awarded a win.\n          \"Result\": \"int\",\n\n          // The number of enemy kills the player had during this match. This includes\n          // other Spartans and Enemy AI.\n          \"TotalKills\": \"int\",\n\n          // The number of times this player died during the match.\n          \"TotalDeaths\": \"int\",\n\n          // The number of assists credited to the player during the match. This includes\n          // other Spartans and Enemy AI.\n          \"TotalAssists\": \"int\",\n\n          // Internal use only. This will always be null.\n          \"PreMatchRatings\": null,\n\n          // Internal use only. This will always be null.\n          \"PostMatchRatings\": null\n        }\n      ],\n\n      // Whether this was a team-based game or not (e.g. free-for-all).\n      \"IsTeamGame\": \"boolean\",\n\n      // The ID of the season for this match if it was played in a seasonal playlist.\n      // Null if the match was played in a non-seasonal playlist. This will only be set\n      // for Arena matches and will be null for all other game modes.\n      \"SeasonId\": null,\n\n      // Internal use only. Do not use.\n      \"MatchCompletedDateFidelity\": \"int\"\n    }\n  ]\n}\n"
+              "application/json": {
+                "Count": "int",
+                "ResultCount": "int",
+                "Results": [
+                  {
+                    "GameBaseVariantId": "guid",
+                    "GameVariant": {
+                      "Owner": "string",
+                      "OwnerType": "int",
+                      "ResourceId": "guid",
+                      "ResourceType": 2
+                    },
+                    "HopperId": "guid",
+                    "Id": {
+                      "GameMode": "int",
+                      "MatchId": "guid"
+                    },
+                    "IsTeamGame": "boolean",
+                    "Links": "links",
+                    "MapId": "guid",
+                    "MapVariant": {
+                      "Owner": "string",
+                      "OwnerType": "int",
+                      "ResourceId": "guid",
+                      "ResourceType": 3
+                    },
+                    "MatchCompletedDate": {
+                      "ISO8601Date": "string"
+                    },
+                    "MatchCompletedDateFidelity": "int",
+                    "MatchDuration": "string",
+                    "Players": [
+                      {
+                        "Player": {
+                          "Gamertag": "string",
+                          "Xuid": null
+                        },
+                        "PostMatchRatings": null,
+                        "PreMatchRatings": null,
+                        "Rank": "int",
+                        "Result": "int",
+                        "TeamId": "int",
+                        "TotalAssists": "int",
+                        "TotalDeaths": "int",
+                        "TotalKills": "int"
+                      }
+                    ],
+                    "SeasonId": null,
+                    "Teams": [
+                      {
+                        "Id": "int",
+                        "Rank": "int",
+                        "Score": "uint32"
+                      }
+                    ]
+                  }
+                ],
+                "Start": "int"
+              }
             }
           },
           "400": {
@@ -2974,7 +3141,7 @@
     "/h5pc/servicerecords/custom": {
       "get": {
         "description": "<p>Retrieves Service Records for the Custom Game Mode for one or more players. A Service Record contains a player's lifetime statistics in the Game Mode. Games with the Custom Game Mode are played on Xbox Live Servers. For games played on Local Servers, use the \"Halo 5 - Player Service Records - Custom Local\" Endpoint.</p>\n<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>December 22, 2017:</strong></p>\n    <ul>\n        <li>Added Game Mode clarifications to the Endpoint description.</li>\n    </ul>\n</div>\n<div class=\"panel-body\">\n    <p><strong>February 21, 2017:</strong></p>\n    <ul>\n        <li>Renamed Endpoint from \"Service Record: Custom\" to \"Halo 5 - Player Service Records - Custom\".</li>\n        <li>Removed \"{title}\" Request Parameter.</li>\n    </ul>\n</div>\n",
-        "operationId": "58acdf28e2f7f70db4854b42",
+        "operationId": "h5pc.servicerecords.custom.get",
         "parameters": [
           {
             "description": "A comma-separated list of Gamertags. Up to 32 Gamertags may be specified.",
@@ -2984,11 +3151,15 @@
             "type": "string"
           }
         ],
+        "produces": [
+          "application/json"
+        ],
         "responses": {
           "200": {
             "description": "The response body will contain the Service Records for the requested player(s).",
             "examples": {
               "application/json": {
+                "Links": null,
                 "Results": [
                   {
                     "Id": "string",
@@ -3215,7 +3386,8 @@
                         }
                       },
                       "PlayerId": {
-                        "GamerTag": "string"
+                        "GamerTag": "string",
+                        "Xuid": null
                       },
                       "SpartanRank": "int",
                       "Xp": "int"
@@ -3242,7 +3414,7 @@
     "/hw2/matches/{matchId}": {
       "get": {
         "description": "<p>Retrieves detailed statistics for a Match. Matches can be retrieved before they are completed; however, the data for in-progress Matches is only updated every few minutes.</p>\n<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>September 5, 2017:</strong></p>\n    <ul>\n        <li>Documented new game mode \"Terminus Firefight\".</li>\n    </ul>\n</div>\n<div class=\"panel-body\">\n    <p><strong>February 21, 2017:</strong></p>\n    <ul>\n        <li>Added Endpoint.</li>\n    </ul>\n</div>\n",
-        "operationId": "58acdf28e2f7f70db4854b44",
+        "operationId": "hw2.matches.matchId.get",
         "parameters": [
           {
             "description": "An ID that uniquely identifies a Match. Match IDs can be retrieved from the \"Halo Wars 2 - Player Match History\" Endpoint.",
@@ -3251,6 +3423,9 @@
             "required": true,
             "type": "string"
           }
+        ],
+        "produces": [
+          "application/json"
         ],
         "responses": {
           "200": {
@@ -3277,7 +3452,8 @@
                     "ComputerDifficulty": "int",
                     "ComputerPlayerId": "int",
                     "HumanPlayerId": {
-                      "Gamertag": "string"
+                      "Gamertag": "string",
+                      "Xuid": null
                     },
                     "IsHuman": "bool",
                     "LeaderId": "int",
@@ -3385,7 +3561,7 @@
     "/hw2/matches/{matchId}/events": {
       "get": {
         "description": "<p>Retrieves a set of Events related to the Match specified. Events are only available once the Match has completed. Events are not available for Matches played with the Custom Match Type.</p>\n<p>The set of Events may grow over time as data becomes available.</p>\n<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>September 5, 2017:</strong></p>\n    <ul>\n        <li>Documented new game mode \"Terminus Firefight\".</li>\n    </ul>\n</div>\n<div class=\"panel-body\">\n    <p><strong>February 21, 2017:</strong></p>\n    <ul>\n        <li>Added Endpoint.</li>\n    </ul>\n</div>\n",
-        "operationId": "58acdf28e2f7f70db4854b43",
+        "operationId": "hw2.matches.matchId.events.get",
         "parameters": [
           {
             "description": "An ID that uniquely identifies a Match. Match IDs can be retrieved from the \"Halo Wars 2 - Player Match History\" Endpoint.",
@@ -3395,16 +3571,14 @@
             "type": "string"
           }
         ],
+        "produces": [
+          "application/json"
+        ],
         "responses": {
           "200": {
             "description": "The response body will contain the Match Events.",
             "examples": {
-              "application/json": {
-                "GameEvents": [
-                  "GameEvent"
-                ],
-                "IsCompleteSetOfEvents": "bool"
-              }
+              "application/json": "//\n// Main Response\n//\n{\n  // Events that describe a match from start to completion. Events are reported in\n  // chronological order.\n  // Events can come in a variety of types indicated by the \"EventName\" field. Each event\n  // is documented in detail below the documentation for this return contract.\n  // Additional event types may be added in the future.\n  // When deserializing events, it is suggested to use a union of all of the fields\n  // across all of the different event types.\n  \"GameEvents\": [ \"GameEvent\" ],\n\n  // Whether this set of events accounts for the complete set of events from the match.\n  \"IsCompleteSetOfEvents\": \"bool\"\n}\n\n//\n// BuildingConstructionQueued Event\n//\n// This event is fired for the following reasons:\n//   - A player queues a building for construction.\n//   - A building is provided by the scenario (for instance, the buildings a player\n//     starts with at the beginning of the scenario). In this case, a subsequent\n//     BuildingConstructionCompleted event will not be fired.\n//   - A building is produced by a leader power.\n//   - A building is built in an \"upgraded\" state. In this case, a\n//     BuildingConstructionQueued event is fired for the the \"upgraded\" building rather\n//     than firing a BuildingConstructionQueued event for the \"non-upgraded\" building\n//     followed by a subsequent BuildingUpgraded event.\n//\n{\n  // Index of the player that will control building that was queued for construction.\n  \"PlayerIndex\": \"int\",\n\n  // ID that indicates the type of the building. Buildings are available via the Metadata\n  // API as Game Objects.\n  \"BuildingId\": \"string\",\n\n  // Instance ID that identifies the building. The building will be referred to by this\n  // ID in subsequent events.\n  \"InstanceId\": \"int\",\n\n  // Location that the building will be created at.\n  \"Location\": {\n\n    \"x\": \"double\",\n\n    \"y\": \"double\",\n\n    \"z\": \"double\"\n  },\n\n  // Supply cost paid to construct the building.\n  \"SupplyCost\": \"int\",\n\n  // Energy cost paid to construct the building.\n  \"EnergyCost\": \"int\",\n\n  // Length of the construction queue after enqueuing the building.\n  \"QueueLength\": \"int\",\n\n  // Whether the building was queued by the player or the scenario.\n  \"ProvidedByScenario\": \"bool\",\n\n  // Elapsed time, measured in milliseconds, since the point when the match started.\n  \"TimeSinceStartMilliseconds\": \"int\",\n\n  // Name of the event.\n  \"EventName\": \"EventName\"  \n}\n\n//\n// BuildingConstructionCompleted Event\n//\n// This event is fired when a building is successfully constructed.\n//\n{\n  // Index of the player that controls the building that was constructed.\n  \"PlayerIndex\": \"int\",\n\n  // Instance of the building that was constructed.\n  \"InstanceId\": \"int\",\n\n  // Elapsed time, measured in milliseconds, since the point when the match started.\n  \"TimeSinceStartMilliseconds\": \"int\",\n\n  // Name of the event.\n  \"EventName\": \"BuildingConstructionCompleted\"  \n}\n\n//\n// BuildingRecycled Event\n//\n// This event is fired when a building is recycled.\n//\n{\n  // Index of the player that controls the building that was recycled.\n  \"PlayerIndex\": \"int\",\n\n  // Instance of the building that was recycled.\n  \"InstanceId\": \"int\",\n\n  // Supply earned from recycling the building.\n  \"SupplyEarned\": \"int\",\n\n  // Energy earned from recycling the building.\n  \"EnergyEarned\": \"int\",\n\n  // Whether the building was recycled by the player or the scenario.\n  \"ProvidedByScenario\": \"bool\",\n\n  // Elapsed time, measured in milliseconds, since the point when the match started.\n  \"TimeSinceStartMilliseconds\": \"int\",\n\n  // Name of the event.\n  \"EventName\": \"BuildingRecycled\"  \n}\n\n//\n// BuildingUpgraded Event\n//\n// This event is fired when a building is upgraded.\n//\n{\n  // Index of the player that controls the building that was upgraded.\n  \"PlayerIndex\": \"int\",\n\n  // ID that indicates the new type of the building. Buildings are available via the\n  // Metadata API as Game Objects.\n  \"NewBuildingId\": \"string\",\n\n  // Instance ID of the building that was upgraded.\n  \"InstanceId\": \"int\",\n\n  // Supply cost paid to upgrade the building.\n  \"SupplyCost\": \"int\",\n\n  // Energy cost paid to upgrade the building.\n  \"EnergyCost\": \"int\",\n\n  // Elapsed time, measured in milliseconds, since the point when the match started.\n  \"TimeSinceStartMilliseconds\": \"int\",\n\n  // Name of the event.\n  \"EventName\": \"BuildingUpgraded\"  \n}\n\n//\n// CardCycled Event\n//\n// This event is fired when a card is cycled.\n//\n{\n  // Index of the player that cycled a card.\n  \"PlayerIndex\": \"int\",\n\n  // Mana cost paid to cycle the card.\n  \"ManaCost\": \"int\",\n\n  // Elapsed time, measured in milliseconds, since the point when the match started.\n  \"TimeSinceStartMilliseconds\": \"int\",\n\n  // Name of the event.\n  \"EventName\": \"CardCycled\"  \n}\n\n//\n// CardPlayed Event\n//\n// This event is fired when a card is played.\n//\n{\n  // Index of the player that played a card.\n  \"PlayerIndex\": \"int\",\n\n  // ID that indicates the type of the card. Cards are available via the Metadata API.\n  \"CardId\": \"guid\",\n\n  // Instance ID that identifies this cast of the card. This instance will be referred to\n  // by this ID in subsequent events.\n  \"InstanceId\": \"int\",\n\n  // Mana cost paid to play the card.\n  \"ManaCost\": \"int\",\n\n  // Location where the card was played.\n  \"TargetLocation\": {\n\n    \"x\": \"double\",\n\n    \"y\": \"double\",\n\n    \"z\": \"double\"\n  },\n\n  // Whether the card was played in the base.\n  \"SpawnAtBase\": \"bool\",\n\n  // Elapsed time, measured in milliseconds, since the point when the match started.\n  \"TimeSinceStartMilliseconds\": \"int\",\n\n  // Name of the event.\n  \"EventName\": \"CardPlayed\"  \n}\n\n//\n// Death Event\n//\n// This event is fired when a building or unit is destroyed.\n//\n{\n  // Index of the player that controlled the building or unit that was destroyed.\n  \"VictimPlayerIndex\": \"int\",\n\n  // ID that indicates the type of the building or unit that was destroyed. Game Objects\n  // are available via the Metadata API.\n  \"VictimObjectTypeId\": \"string\",\n\n  // Instance ID of the building or unit that was destroyed.\n  \"VictimInstanceId\": \"int\",\n\n  // Whether the death was considered a suicide.\n  \"IsSuicide\": \"bool\",\n\n  // Participants that contributed to the destruction of the building or unit.\n  // Participants are grouped by player, then object, then combat stats.\n  \"Participants\": {\n\n    // Index of the player that participated in the destruction.\n    \"int\": {\n\n      // Objects that participated in the destruction that were owned by the given\n      // player. Object participants are grouped by object then combat stats.\n      \"ObjectParticipants\": {\n\n        // ID that indicates the type of the building or unit that participated in the\n        // destruction. Game Objects are available via the Metadata API.\n        \"string\": {\n\n          // Number of objects of the given type owned by the given player that\n          // participated in the destruction.\n          \"Count\": \"int\",\n\n          // Information about the combat stats across all the objects of the given type\n          // owned by the given player that participated in the destruction. Combat stats\n          // are grouped by damage type.\n          \"CombatStats\": {\n\n            // Damage type dealt by the object of the given type. This field will contain\n            // one of the following values:\n            //   Basic = 0,\n            //   LeaderPower = 1,\n            //   LeaderPowerNonFlying = 2,\n            //   AntiInfantry = 3,\n            //   Fire = 4,\n            //   AntiBuildingFire = 5,\n            //   SmallArms = 6,\n            //   AASmallArms = 7,\n            //   SmallArmsScouts = 8,\n            //   MediumArms = 9,\n            //   ChainGun = 10,\n            //   ArmorPiercing = 11,\n            //   AntiVehicle = 12,\n            //   FuelRod = 13,\n            //   BansheeFuelRod = 14,\n            //   AntiAir = 15,\n            //   Explosive = 16,\n            //   TankExplosive = 17,\n            //   Artillery = 18,\n            //   Missile = 19,\n            //   Grenade = 20,\n            //   Demolition = 21,\n            //   Beam = 22,\n            //   WarthogRam = 23,\n            //   GaussCannon = 24,\n            //   BruteShot = 25,\n            //   Melee = 26,\n            //   SuicideGrunt = 27,\n            //   SuicideGruntAV = 28,\n            //   SuperSentinel = 29,\n            //   Hero = 30,\n            //   CampaignHero = 31,\n            //   ScarabBeam = 32,\n            //   Unknown = 255\n            // Additional damage types may be added in the future.\n            \"int\": {\n\n              // Number of attacks of the given damage type that were successfully landed\n              // on the victim building or unit.\n              \"AttacksLanded\": \"int\"\n            }\n          }\n        }\n      }\n    }\n  },\n\n  // Elapsed time, measured in milliseconds, since the point when the match started.\n  \"TimeSinceStartMilliseconds\": \"int\",\n\n  // Name of the event.\n  \"EventName\": \"Death\"  \n}\n\n//\n// FirefightWaveCompleted Event\n//\n// This event is fired when a team successfully clears a Firefight wave.\n//\n{\n  // Wave number that was completed.\n  \"WaveNumber\": \"int\",\n\n  // Elapsed time, measured in milliseconds, that the team took to clear the wave.\n  \"WaveDurationMilliseconds\": \"int\",\n\n  // Elapsed time, measured in milliseconds, since the point when the match started.\n  \"TimeSinceStartMilliseconds\": \"int\",\n\n  // Name of the event.\n  \"EventName\": \"FirefightWaveCompleted\"  \n}\n\n//\n// FirefightWaveSpawned Event\n//\n// This event is fired when a Firefight wave has been spawned.\n//\n{\n  // Wave number that was spawned.\n  \"WaveNumber\": \"int\",\n\n  // Instance IDs of the buildings and units that make up the wave.\n  \"InstancesSpawned\": [ \"int\" ],\n\n  // Elapsed time, measured in milliseconds, since the point when the match started.\n  \"TimeSinceStartMilliseconds\": \"int\",\n\n  // Name of the event.\n  \"EventName\": \"FirefightWaveSpawned\"  \n}\n\n//\n// FirefightWaveStarted Event\n//\n// This event is fired when a Firefight wave has started.\n//\n{\n  // Wave number that was started.\n  \"WaveNumber\": \"int\",\n\n  // Elapsed time, measured in milliseconds, since the point when the match started.\n  \"TimeSinceStartMilliseconds\": \"int\",\n\n  // Name of the event.\n  \"EventName\": \"FirefightWaveStarted\"  \n}\n\n//\n// LeaderPowerCast Event\n//\n// This event is fired when a leader power is cast.\n//\n{\n  // Index of the player that cast the leader power.\n  \"PlayerIndex\": \"int\",\n\n  // ID that indicates the type of the leader power. Leader Powers are available via the\n  // Metadata API.\n  \"PowerId\": \"string\",\n\n  // Instance ID that identifies this cast of the leader power. This instance will be\n  // referred to by this ID in subsequent events.\n  \"InstanceId\": \"int\",\n\n  // Location where the leader power was cast.\n  \"TargetLocation\": {\n\n    \"x\": \"double\",\n\n    \"y\": \"double\",\n\n    \"z\": \"double\"\n  },\n\n  // Supply cost paid to cast the leader power.\n  \"SupplyCost\": \"int\",\n\n  // Energy cost paid to cast the leader power.\n  \"EnergyCost\": \"int\",\n\n  // Elapsed time, measured in milliseconds, since the point when the match started.\n  \"TimeSinceStartMilliseconds\": \"int\",\n\n  // Name of the event.\n  \"EventName\": \"LeaderPowerCast\"  \n}\n\n//\n// LeaderPowerUnlocked Event\n//\n// This event is fired when a leader power is unlocked.\n//\n{\n  // Index of the player that unlocked the leader power.\n  \"PlayerIndex\": \"int\",\n\n  // ID that indicates the type of the leader power. Leader Powers are available via the\n  // Metadata API.\n  \"PowerId\": \"string\",\n\n  // Command point cost paid to unlock the leader power.\n  \"CommandPointCost\": \"int\",\n\n  // Whether the leader power was unlocked by the scenario.\n  \"ProvidedByScenario\": \"bool\",\n\n  // Elapsed time, measured in milliseconds, since the point when the match started.\n  \"TimeSinceStartMilliseconds\": \"int\",\n\n  // Name of the event.\n  \"EventName\": \"LeaderPowerUnlocked\"  \n}\n\n//\n// ManaOrbCollected Event\n//\n// This event is fired when a mana orb is collected.\n//\n{\n  // Index of the player that collected the mana orb.\n  \"PlayerIndex\": \"int\",\n\n  // Instance ID of the unit that collected the mana orb.\n  \"CollectorInstanceId\": \"int\",\n\n  // Increase to the player's mana generation rate.\n  \"ManaRateIncrease\": \"int\",\n\n  // Location of the mana orb that was collected.\n  \"Location\": {\n\n    \"x\": \"double\",\n\n    \"y\": \"double\",\n\n    \"z\": \"double\"\n  },\n\n  // Elapsed time, measured in milliseconds, since the point when the match started.\n  \"TimeSinceStartMilliseconds\": \"int\",\n\n  // Name of the event.\n  \"EventName\": \"ManaOrbCollected\"  \n}\n\n//\n// MatchEnd Event\n//\n// This event is fired when the match ends.\n//\n{\n  // Reason the match ended. This field will contain one of the following values:\n  //   Unknown = 0,\n  //   Completed = 1,\n  //   StartedNewMission = 2,\n  //   EveryoneDisconnected = 3,\n  //   InviteAccepted = 4\n  \"MatchEndReason\": \"int\",\n\n  // Reason the winning team achieved victory. This field will contain one of the\n  // following values:\n  //   EndedPrematurely = 0,\n  //   ObjectiveCompleted = 1,\n  //   OpponentsEliminated = 2,\n  //   Unknown = 255\n  \"VictoryCondition\": \"int\",\n\n  // Elapsed time, measured in milliseconds, spent playing the match.\n  \"ActivePlaytimeMilliseconds\": \"int\",\n\n  // Ending states for the teams in the match.\n  \"TeamState\": {\n\n    // Team ID.\n    \"int\": {\n\n      // Score for the team.\n      \"ObjectiveScore\": \"int\",\n\n      // Outcome for the team. This field will contain one of the following values:\n      //   Unknown = 0,\n      //   Win = 1,\n      //   Loss = 2,\n      //   Tie = 3\n      \"MatchOutcome\": \"int\"\n    }\n  },\n\n  // Ending states for the players in the match.\n  \"PlayerState\": {\n\n    // Player Index.\n    \"int\": {\n\n      // Score for the player.\n      \"PersonalScore\": \"int\"\n    }\n  },\n\n  // Elapsed time, measured in milliseconds, since the point when the match started.\n  \"TimeSinceStartMilliseconds\": \"int\",\n\n  // Name of the event.\n  \"EventName\": \"MatchEnd\"  \n}\n\n//\n// MatchStart Event\n//\n// This event is fired when the match starts.\n//\n{\n  // ID of the match.\n  \"MatchId\": \"guid\",\n\n  // Game mode. This field will contain one of the following values:\n  //   Unknown = 0,\n  //   CampaignSolo = 1,\n  //   CampaignCooperative = 2,\n  //   Deathmatch = 3,\n  //   Domination = 4,\n  //   Strongholds = 5,\n  //   Blitz = 6,\n  //   Firefight = 7,\n  //   NormalTutorial = 8,\n  //   BlitzTutorial = 9,\n  //   TerminusFirefight = 10\n  \"GameMode\": \"int\",\n\n  // Match type. This field will contain one of the following values:\n  //   Unknown = 0,\n  //   Campaign = 1,\n  //   Custom = 2,\n  //   Matchmaking = 3\n  \"MatchType\": \"int\",\n\n  // ID of the map. Maps are available via the Metadata API.\n  \"MapId\": \"string\",\n\n  // Playlist the match occurred in if the match occurred in a playlist; otherwise, empty\n  // Guid.\n  \"PlaylistId\": \"guid\",\n\n  // Max team size for the match.\n  \"TeamSize\": \"int\",\n\n  // whether the match is using the default rule set.\n  \"IsDefaultRuleSet\": \"int\",\n\n  // Elapsed time, measured in milliseconds, since the point when the match started.\n  \"TimeSinceStartMilliseconds\": \"int\",\n\n  // Name of the event.\n  \"EventName\": \"MatchStart\"  \n}\n\n//\n// PlayerEliminated Event\n//\n// This event is fired when a player is eliminated from the match.\n//\n{\n  // Index of the player that was eliminated.\n  \"PlayerIndex\": \"int\",\n\n  // Elapsed time, measured in milliseconds, since the point when the match started.\n  \"TimeSinceStartMilliseconds\": \"int\",\n\n  // Name of the event.\n  \"EventName\": \"PlayerEliminated\"  \n}\n\n//\n// PlayerJoinedMatch Event\n//\n// This event is fired at the start of the match for each player in the match. This event\n// is fired for the neutral players in addition to the Human and Computer players.\n//\n{\n  // Index of the player that joined the match. The player will be referred to by this\n  // index in subsequent events.\n  \"PlayerIndex\": \"int\",\n\n  // Type of the player that joined the match. This field will contain one of the\n  // following values:\n  //   Unknown = 0,\n  //   Human = 1,\n  //   Computer = 2,\n  //   NPC = 3\n  \"PlayerType\": \"int\",\n\n  // Identify of the player if this is a human player; otherwise, null.\n  \"HumanPlayerId\": {\n\n    // Gamertag of the player.\n    \"Gamertag\": \"string\",\n\n    // Internal use. This will always be null.\n    \"Xuid\": null\n  },\n\n  // ID of the computer player if this is a computer player; otherwise, null.\n  \"ComputerPlayerId\": \"int\",\n\n  // Difficulty of the computer player if this is a computer player; otherwise, null.\n  // Difficulties are available via the Metadata API.\n  \"ComputerDifficulty\": \"int\",\n\n  // Team the player is a member of.\n  \"TeamId\": \"int\",\n\n  // Leader the player is using. Leaders are available via the Metadata API.\n  \"LeaderId\": \"int\",\n\n  // Elapsed time, measured in milliseconds, since the point when the match started.\n  \"TimeSinceStartMilliseconds\": \"int\",\n\n  // Name of the event.\n  \"EventName\": \"PlayerJoinedMatch\"  \n}\n\n//\n// PlayerLeftMatch Event\n//\n// This event is fired when a player leaves the match early for any reason. This is not\n// to be confused with the PlayerEliminated event. If a player is eliminated, the\n// PlayerEliminated event will be fired. The player may continue to spectate the match\n// after being eliminated. If the player stops spectating the match, then this event will\n// be fired.\n//\n{\n  // Index of the player that left the match.\n  \"PlayerIndex\": \"int\",\n\n  // Elapsed time, measured in milliseconds, the player spent playing the match.\n  \"TimeInMatchMilliseconds\": \"int\",\n\n  // Elapsed time, measured in milliseconds, since the point when the match started.\n  \"TimeSinceStartMilliseconds\": \"int\",\n\n  // Name of the event.\n  \"EventName\": \"PlayerLeftMatch\"  \n}\n\n//\n// PointCaptured Event\n//\n// This event is fired when an objective is captured in all game modes besides Blitz.\n//\n{\n  // Index of the player that captured the objective.\n  \"PlayerIndex\": \"int\",\n\n  // Instance ID of the objective that was captured.\n  \"InstanceId\": \"int\",\n\n  // Instance ID of the unit that captured the objective.\n  \"CapturerInstanceId\": \"int\",\n\n  // Location of the unit that captured the objective.\n  \"CapturerLocation\": {\n\n    \"x\": \"double\",\n\n    \"y\": \"double\",\n\n    \"z\": \"double\"\n  },\n\n  // ID of the team that now owns the objective. If the objective is not owned by a team,\n  // this will be 0.\n  \"NewOwningTeamId\": \"int\",\n\n  // Elapsed time, measured in milliseconds, since the point when the match started.\n  \"TimeSinceStartMilliseconds\": \"int\",\n\n  // Name of the event.\n  \"EventName\": \"PointCaptured\"  \n}\n\n//\n// PointCreated Event\n//\n// This event is fired at the start of the match for each objective that can be captured\n// on the map.\n//\n{\n  // ID that indicates the type of the objective.\n  \"PointId\": \"string\",\n\n  // Instance ID that identifies the objective. The objective will be referred to by this\n  // ID in subsequent events.\n  \"InstanceId\": \"int\",\n\n  // Location of the objective.\n  \"Location\": {\n\n    \"x\": \"double\",\n\n    \"y\": \"double\",\n\n    \"z\": \"double\"\n  },\n\n  // Elapsed time, measured in milliseconds, since the point when the match started.\n  \"TimeSinceStartMilliseconds\": \"int\",\n\n  // Name of the event.\n  \"EventName\": \"PointCreated\"  \n}\n\n//\n// PointStatusChange Event\n//\n// This event is fired when an objective is captured in the Blitz game mode.\n//\n{\n  // Instance ID of the objective that was captured.\n  \"InstanceId\": \"int\",\n\n  // Updated status of the objective. This field will contain one of the following values:\n  //   Neutral = 0,\n  //   Contested = 1,\n  //   Captured = 2\n  \"Status\": \"int\",\n\n  // ID of the team that now owns the objective. If the objective is not owned by a team,\n  // this will be 255.\n  \"OwningTeamId\": \"int\",\n\n  // Elapsed time, measured in milliseconds, since the point when the match started.\n  \"TimeSinceStartMilliseconds\": \"int\",\n\n  // Name of the event.\n  \"EventName\": \"PointStatusChange\"  \n}\n\n//\n// ResourceHeartbeat Event\n//\n// This event is fired at the start of a match and then at regular 5 seconds thereafter.\n//\n{\n  // Current resources for each team.\n  \"TeamResources\": {\n\n    // Team ID.\n    \"int\": {\n\n      // Current objective score for the team.\n      \"ObjectiveScore\": \"int\"\n    }\n  },\n\n  // Current resources for each player.\n  \"PlayerResources\": {\n\n    // Player Index.\n    \"int\": {\n\n      // Current supply balance for the player.\n      \"Supply\": \"int\",\n\n      // Total supply generated by the player throughout the match.\n      \"TotalSupply\": \"int\",\n\n      // Current energy balance for the player.\n      \"Energy\": \"int\",\n\n      // Total energy generated by the player throughout the match.\n      \"TotalEnergy\": \"int\",\n\n      // Current population count for the player.\n      \"Population\": \"int\",\n\n      // Current maximum population for the player.\n      \"PopulationCap\": \"int\",\n\n      // Current tech level for the player.\n      \"TechLevel\": \"int\",\n\n      // Current command point balance for the player.\n      \"CommandPoints\": \"int\",\n\n      // Total command points generated by the player throughout the match.\n      \"TotalCommandPoints\": \"int\",\n\n      // Current mana balance for the player.\n      \"Mana\": \"int\",\n\n      // Total mana generated by the player throughout the match.\n      \"TotalMana\": \"int\",\n\n      // Unused.\n      \"ManaRate\": \"int\",\n\n      // Current command XP for the player.\n      \"CommandXP\": \"int\"\n    }\n  },\n\n  // Elapsed time, measured in milliseconds, since the point when the match started.\n  \"TimeSinceStartMilliseconds\": \"int\",\n\n  // Name of the event.\n  \"EventName\": \"EventName\"  \n}\n\n//\n// ResourceTransferred Event\n//\n// This event is fired when a player transfers resources to another player.\n//\n{\n  // Index of the player that sent the resources.\n  \"SendingPlayerIndex\": \"int\",\n\n  // Index of the player that received the resources.\n  \"ReceivingPlayerIndex\": \"int\",\n\n  // Supply cost paid by the sending player to send the resource.\n  \"SupplyCost\": \"int\",\n\n  // Energy cost paid by the sending player to send the resource.\n  \"EnergyCost\": \"int\",\n\n  // Supply earned by the receiving player.\n  \"SupplyEarned\": \"int\",\n\n  // Energy earned by the receiving player.\n  \"EnergyEarned\": \"int\",\n\n  // Elapsed time, measured in milliseconds, since the point when the match started.\n  \"TimeSinceStartMilliseconds\": \"int\",\n\n  // Name of the event.\n  \"EventName\": \"ResourceTransferred\"  \n}\n\n//\n// TechResearched Event\n//\n// This event is fired when a tech is researched.\n//\n{\n  // Index of the player that received the researched tech.\n  \"PlayerIndex\": \"int\",\n\n  // ID that indicates the type of the tech that was researched. Techs are available via\n  // the Metadata API.\n  \"TechId\": \"string\",\n\n  // ID of the instance that researched the tech.\n  \"ResearcherInstanceId\": \"int\",\n\n  // Supply cost paid to research the tech.\n  \"SupplyCost\": \"int\",\n\n  // Energy cost paid to research the tech.\n  \"EnergyCost\": \"int\",\n\n  // Whether the tech was researched by the player or the scenario.\n  \"ProvidedByScenario\": \"bool\",\n\n  // Elapsed time, measured in milliseconds, since the point when the match started.\n  \"TimeSinceStartMilliseconds\": \"int\",\n\n  // Name of the event.\n  \"EventName\": \"TechResearched\"  \n}\n\n//\n// UnitControlTransferred Event\n//\n// This event is fired when control of a unit is transferred from a player to another\n// player.\n//\n{\n  // Index of the player that lost control of the unit.\n  \"OldPlayerIndex\": \"int\",\n\n  // Index of the player that gained control of the unit.\n  \"NewPlayerIndex\": \"int\",\n\n  // ID that indicates the type of the unit that was transferred. Units are available via\n  // the Metadata API as Game Objects.\n  \"SquadId\": \"string\",\n\n  // ID of the instance that was transferred.\n  \"InstanceId\": \"int\",\n\n  // ID of the instance that caused the transfer of the unit, if appropriate; otherwise,\n  // 0.\n  \"CapturerInstanceId\": \"int\",\n\n  // Location of the unit when control was transferred.\n  \"Location\": {\n\n    \"x\": \"double\",\n\n    \"y\": \"double\",\n\n    \"z\": \"double\"\n  },\n\n  // Population consumed by the transferred unit.\n  \"PopulationCost\": \"int\",\n\n  // Elapsed time, measured in milliseconds, since the point when the match started.\n  \"TimeSinceStartMilliseconds\": \"int\",\n\n  // Name of the event.\n  \"EventName\": \"UnitControlTransferred\"  \n}\n\n//\n// UnitPromoted Event\n//\n// This event is fired when a unit is promoted.\n//\n{\n  // Index of the player that controls the unit that was promoted.\n  \"PlayerIndex\": \"int\",\n\n  // ID that indicates the type of the unit that was promoted. Units are available via\n  // the Metadata API as Game Objects.\n  \"SquadId\": \"string\",\n\n  // ID of the instance that was promoted.\n  \"InstanceId\": \"int\",\n\n  // Elapsed time, measured in milliseconds, since the point when the match started.\n  \"TimeSinceStartMilliseconds\": \"int\",\n\n  // Name of the event.\n  \"EventName\": \"UnitPromoted\"  \n}\n\n//\n// UnitTrained Event\n//\n// This event is fired for the following reasons:\n//   - A player trains a unit from a building.\n//   - A unit is produced by a leader power or card.\n//   - A unit is provided by the scenario (for instance, the units a player starts with\n//     at the beginning of the scenario).\n//\n{\n  // Index of the player that controls the unit that was trained.\n  \"PlayerIndex\": \"int\",\n\n  // ID that indicates the type of the unit that was trained. Units are available via the\n  // Metadata API as Game Objects.\n  \"SquadId\": \"string\",\n\n  // Instance ID that identifies the unit. The unit will be referred to by this ID in\n  // subsequent events.\n  \"InstanceId\": \"int\",\n\n  // ID of the instance that trained the unit, if appropriate; otherwise, 0.\n  \"CreatorInstanceId\": \"int\",\n\n  // Location of the unit when it spawned.\n  \"SpawnLocation\": {\n\n    \"x\": \"double\",\n\n    \"y\": \"double\",\n\n    \"z\": \"double\"\n  },\n\n  // Supply cost paid to train the unit.\n  \"SupplyCost\": \"int\",\n\n  // Energy cost paid to train the unit.\n  \"EnergyCost\": \"int\",\n\n  // Population cost paid to train the unit.\n  \"PopulationCost\": \"int\",\n\n  // Whether the unit that was trained was cloned by a leader power.\n  \"IsClone\": \"bool\",\n\n  // Whether the unit was trained by the player or the scenario.\n  \"ProvidedByScenario\": \"bool\",\n\n  // Elapsed time, measured in milliseconds, since the point when the match started.\n  \"TimeSinceStartMilliseconds\": \"int\",\n\n  // Name of the event.\n  \"EventName\": \"UnitTrained\"  \n}\n"
             }
           },
           "404": {
@@ -3423,7 +3597,7 @@
     "/hw2/player-leaderboards/csr/{seasonId}/{playlistId}": {
       "get": {
         "description": "<p>Retrieves the Leaderboard for Player CSRs. The Leaderboard consists of the top Players with a CSR of 1800 or above for a given Playlist in a Season.</p>\n<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>March 6, 2018:</strong></p>\n    <ul>\n        <li>Fixed documentation typos for the names of the \"Player\" and \"Gamertag\" properties.</li>\n    </ul>\n</div>\n<div class=\"panel-body\">\n    <p><strong>July 31, 2017:</strong></p>\n    <ul>\n        <li>Clarified documentation for which players are included in the leaderboard.</li>\n    </ul>\n</div>\n<div class=\"panel-body\">\n    <p><strong>July 14, 2017:</strong></p>\n    <ul>\n        <li>Added Endpoint.</li>\n    </ul>\n</div>\n",
-        "operationId": "596968ade2f7f7051870d2a2",
+        "operationId": "hw2.player_leaderboards.csr.seasonId.playlistId.get",
         "parameters": [
           {
             "description": "The ID for the Season.",
@@ -3446,6 +3620,9 @@
             "type": "number"
           }
         ],
+        "produces": [
+          "application/json"
+        ],
         "responses": {
           "200": {
             "description": "The response body will contain the Players in the Leaderboard. An empty list will be returned if no Players are in the Leaderboard.",
@@ -3457,7 +3634,8 @@
                 "Results": [
                   {
                     "Player": {
-                      "Gamertag": "string"
+                      "Gamertag": "string",
+                      "Xuid": null
                     },
                     "Rank": "int",
                     "Score": {
@@ -3489,7 +3667,7 @@
     "/hw2/players/{player}/campaign-progress": {
       "get": {
         "description": "<p>Retrieves the Campaign Progress state for a Player.</p>\n<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>February 21, 2017:</strong></p>\n    <ul>\n        <li>Added Endpoint.</li>\n    </ul>\n</div>\n",
-        "operationId": "58acdf28e2f7f70db4854b45",
+        "operationId": "hw2.players.player.campaign_progress.get",
         "parameters": [
           {
             "description": "The Player's Gamertag.",
@@ -3498,6 +3676,9 @@
             "required": true,
             "type": "string"
           }
+        ],
+        "produces": [
+          "application/json"
         ],
         "responses": {
           "200": {
@@ -3554,7 +3735,7 @@
     "/hw2/players/{player}/matches": {
       "get": {
         "description": "<p>Retrieves a list of Matches that the Player has participated in. If the Player is currently in a Match, it is not returned in this API.</p>\n<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>September 5, 2017:</strong></p>\n    <ul>\n        <li>Documented new game mode \"Terminus Firefight\".</li>\n    </ul>\n</div>\n<div class=\"panel-body\">\n    <p><strong>February 21, 2017:</strong></p>\n    <ul>\n        <li>Added Endpoint.</li>\n    </ul>\n</div>\n",
-        "operationId": "58acdf28e2f7f70db4854b46",
+        "operationId": "hw2.players.player.matches.get",
         "parameters": [
           {
             "description": "The Player's Gamertag.",
@@ -3581,6 +3762,9 @@
             "name": "count",
             "type": "number"
           }
+        ],
+        "produces": [
+          "application/json"
         ],
         "responses": {
           "200": {
@@ -3681,7 +3865,7 @@
     "/hw2/players/{player}/stats": {
       "get": {
         "description": "<p>Retrieves high-level aggregations across the lifetime of a Player.</p>\n<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>September 5, 2017:</strong></p>\n    <ul>\n        <li>Added additional fields: \"GameMode\" and \"HighestObjectiveScoreByTeamSize\".</li>\n        <li>Documented new game mode \"Terminus Firefight\".</li>\n    </ul>\n</div>\n<div class=\"panel-body\">\n    <p><strong>February 21, 2017:</strong></p>\n    <ul>\n        <li>Added Endpoint.</li>\n    </ul>\n</div>\n",
-        "operationId": "58acdf28e2f7f70db4854b49",
+        "operationId": "hw2.players.player.stats.get",
         "parameters": [
           {
             "description": "The Player's Gamertag.",
@@ -3691,42 +3875,14 @@
             "type": "string"
           }
         ],
+        "produces": [
+          "application/json"
+        ],
         "responses": {
           "200": {
             "description": "The response body will contain the Stats Summary for the Player.",
             "examples": {
-              "application/json": {
-                "CustomSummary": {
-                  "CustomModeStats": [
-                    "Summary"
-                  ],
-                  "CustomStats": "Summary",
-                  "SkirmishStats": {
-                    "MultiplayerModeStats": [
-                      "Summary"
-                    ],
-                    "MultiplayerStats": "Summary",
-                    "SinglePlayerModeStats": [
-                      "Summary"
-                    ],
-                    "SinglePlayerStats": "Summary"
-                  }
-                },
-                "MatchmakingSummary": {
-                  "RankedModeStats": [
-                    "Summary"
-                  ],
-                  "RankedPlaylistStats": [
-                    "Summary"
-                  ],
-                  "SocialModeStats": [
-                    "Summary"
-                  ],
-                  "SocialPlaylistStats": [
-                    "Summary"
-                  ]
-                }
-              }
+              "application/json": "//\n// Main Response\n//\n{\n  // Summary of activity across all Custom matches that the player has participated in.\n  \"CustomSummary\": {\n\n    // Summary of activity across all Skirmish matches (player(s) vs. AI(s)) that the\n    // player has participated in.\n    \"SkirmishStats\": {\n\n      // Summary of activity across all Skirmish matches that contained only the player.\n      // This will contain a single Summary. The Summary contract is documented in detail\n      // below the documentation for the Main Response.\n      \"SinglePlayerStats\": \"Summary\",\n\n      // Summary of activity across all Skirmish matches that contained two or more human\n      // players that the player has participated in. This will contain a single Summary.\n      // The Summary contract is documented in detail below the documentation for the\n      // Main Response.\n      \"MultiplayerStats\": \"Summary\",\n\n      // Summary of activity across all Skirmish matches that contained only the player,\n      // separated by game mode. This will contain multiple Summary entries, one for each\n      // game mode. The Summary contract is documented in detail below the documentation\n      // for the Main Response.\n      \"SinglePlayerModeStats\": [ \"Summary\" ],\n\n      // Summary of activity across all Skirmish matches that contained two or more human\n      // players that the player has participated in. This will contain multiple Summary\n      // entries, one for each game mode. The Summary contract is documented in detail\n      // below the documentation for the Main Response.\n      \"MultiplayerModeStats\": [ \"Summary\" ],\n\n    },\n\n    // Summary of activity across all non-Skirmish matches that the player has\n    // participated in. This will contain a single Summary. The Summary contract is\n    // documented in detail below the documentation for the Main Response.\n    \"CustomStats\": \"Summary\",\n\n    // Summary of activity across all non-Skirmish matches that the player has\n    // participated in, separated by game mode. This will contain multiple Summary\n    // entries, one for each game mode. The Summary contract is documented in detail\n    // below the documentation for the Main Response.\n    \"CustomModeStats\": [ \"Summary\" ]\n  },\n\n  // Summary across all matchmade matches that the player has participated in. This\n  // includes both social and ranked matches, matches from all seasons, and matches from\n  // all game modes.\n  \"MatchmakingSummary\": {\n\n    // Summary across all matches in social (unranked) playlists. This may include\n    // summary information from playlists that are no longer playable. Playlists that the\n    // player has never played in are omitted from this collection. Note that is possible\n    // for a playlist to go between social and ranked. Consumers of this endpoint should\n    // be careful about the possibility that a playlist appears in both collections. This\n    // will contain a Summary entry for each playlist. The Summary contract is documented\n    // in detail below the documentation for the Main Response.\n    \"SocialPlaylistStats\": [ \"Summary\" ],\n\n    // Summary across all matches in ranked playlists. This may include summary\n    // information from playlists that are no longer playable. Playlists that the player\n    // has never played in are omitted from this collection. Note that is possible for a\n    // playlist to go between social and ranked. Consumers of this endpoint should be\n    // careful about the possibility that a playlist appears in both collections. The\n    // Summary contract is documented in detail below the documentation for the Main\n    // Response.\n    \"RankedPlaylistStats\": [ \"Summary\" ],\n\n    // Summary across all matches in social (unranked) playlists, separated by game mode.\n    // This may include summary information from playlists that are no longer playable.\n    // Playlists that the player has never played in are omitted from this collection.\n    // Note that is possible for a playlist to go between social and ranked. Consumers of\n    // this endpoint should be careful about the possibility that a playlist appears in\n    // both collections. This will contain multiple Summary entries, one for each\n    // playlist and game mode combination. The Summary contract is documented in detail\n    // below the documentation for the Main Response.\n    \"SocialModeStats\": [ \"Summary\" ],\n\n    // Summary across all matches in ranked playlists, separated by game mode. This may\n    // include summary information from playlists that are no longer playable. Playlists\n    // that the player has never played in are omitted from this collection. Note that is\n    // possible for a playlist to go between social and ranked. Consumers of this\n    // endpoint should be careful about the possibility that a playlist appears in both\n    // collections. This will contain multiple Summary entries, one for each playlist and\n    // game mode combination. The Summary contract is documented in detail below the\n    // documentation for the Main Response.\n    \"RankedModeStats\": [ \"Summary\" ],\n\n  }\n}\n\n//\n// Summary\n//\n{\n  // Playlist ID that this entry summarizes. If this entry summarizes Custom matches,\n  // this will be null. Playlists are available via the Metadata API.\n  \"PlaylistId\": \"guid\",\n\n  // When summarizing a set of matches that took place in a common playlist, this field\n  // provides the current classification. This field will contain one of the following\n  // values:\n  //   General Stats = 0,\n  //   Blitz Stats = 1,\n  //   Firefight Stats = 2\n  // If this entry summarizes Custom matches, this will be null.\n  \"PlaylistClassification\": \"int\",\n\n  // Highest Competitive Skill Ranking (CSR) achieved by the player in the playlist. If\n  // the player has never finished the measurement matches on this playlist, this field\n  // will be null. If this entry does not summarize ranked matches, this will be null.\n  \"HighestCsr\": {\n\n    // CSR Tier. CSR Tiers are designation-specific. If the player is still in\n    // measurement matches, this field will be null. CSR Tiers are referenced by CSR\n    // Designations, which are available via the Metadata API.\n    \"Tier\": \"int\",\n\n    // CSR Designation. If the player is still in measurement matches, this field will be\n    // null. CSR Designations are available via the Metadata API.\n    \"Designation\": \"int\",\n\n    // Raw CSR value. If the player is still in measurement matches, this field will be\n    // null. If the player is not in a high enough designation, this will be zero.\n    \"Raw\": \"int\",\n\n    // Percentage of progress towards the next CSR tier. If the player is still in\n    // measurement matches, this field will be null.\n    \"PercentToNextTier\": \"int\",\n\n    // Number of measurement matches remaining until the player earns a CSR. If this\n    // field is greater than zero, the player does not have a CSR yet and the other\n    // components of the CSR will be null.\n    \"MeasurementMatchesRemaining\": \"int\",\n\n    // Player's ranking on the CSR leaderboard. If the player is still in measurement\n    // matches, this field will be null. If the player is not in a high enough\n    // designation, this will be zero.\n    \"Rank\": \"int\"\n  },\n\n  // Total amount of time the player spent in matches. This includes time spent observing\n  // the match after being eliminated. This is expressed as an ISO 8601 Duration.\n  \"TotalTimePlayed\": \"string\",\n\n  // Total number of matches that the player participated in.\n  \"TotalMatchesStarted\": \"int\",\n\n  // Total number of matches where the player was present until the match ended.\n  \"TotalMatchesCompleted\": \"int\",\n\n  // Total number of matches that the player won.\n  \"TotalMatchesWon\": \"int\",\n\n  // Total number of matches that the player lost.\n  \"TotalMatchesLost\": \"int\",\n\n  // Total number of times the player has captured a point.\n  \"TotalPointCaptures\": \"int\",\n\n  // Total number of units trained by the player.\n  \"TotalUnitsBuilt\": \"int\",\n\n  // Total number of units trained by the player that were later destroyed.\n  \"TotalUnitsLost\": \"int\",\n\n  // Total number of units that the player participated in destroying.\n  \"TotalUnitsDestroyed\": \"int\",\n\n  // Total number of times the player played a card, if applicable; otherwise, 0.\n  \"TotalCardPlays\": \"int\",\n\n  // Highest wave completed while the player was still present in a match, if applicable;\n  // otherwise, 0.\n  \"HighestWaveCompleted\": \"int\",\n\n  // Summary for all leaders used by the player.\n  \"LeaderStats\": {\n\n    // Leader ID. Leaders are available via the Metadata API.\n    \"string\": {\n\n      // Total amount of time the player spent in matches with this leader. This includes\n      // time spent observing the match after being eliminated. This is expressed as an\n      // ISO 8601 Duration.\n      \"TotalTimePlayed\": \"string\",\n\n      // Total number of matches that the player participated in with this leader.\n      \"TotalMatchesStarted\": \"int\",\n\n      // Total number of matches where the player was present until the match ended with\n      // this leader.\n      \"TotalMatchesCompleted\": \"int\",\n\n      // Total number of matches that the player won with this leader.\n      \"TotalMatchesWon\": \"int\",\n\n      // Total number of matches that the player lost with this leader.\n      \"TotalMatchesLost\": \"int\",\n\n      // Total number of times the player used this leader's active leader power.\n      \"TotalLeaderPowersCast\": \"int\"\n    }\n  },\n\n  // Game mode that this entry summarizes. If this entry is not summarizing a game mode\n  // pivot, this field will be null. Otherwise, this field will contain one of the\n  // following values:\n  //   Unknown = 0,\n  //   CampaignSolo = 1,\n  //   CampaignCooperative = 2,\n  //   Deathmatch = 3,\n  //   Domination = 4,\n  //   Strongholds = 5,\n  //   Blitz = 6,\n  //   Firefight = 7,\n  //   NormalTutorial = 8,\n  //   BlitzTutorial = 9,\n  //   TerminusFirefight = 10\n  \"GameMode\": \"int\",\n\n  // Highest objective score that the player has ever achieved in matches summarized by\n  // this entry. This field is a mapping from the team size to the highest objective\n  // score achieved.\n  \"HighestObjectiveScoreByTeamSize\": {\n\n    \"int\": \"int\",\n\n  }\n}\n"
             }
           },
           "404": {
@@ -3745,7 +3901,7 @@
     "/hw2/players/{player}/stats/seasons/{seasonId}": {
       "get": {
         "description": "<p>Retrieves high-level aggregations across a Season for a Player.</p>\n<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>September 5, 2017:</strong></p>\n    <ul>\n        <li>Added additional pivots of data: \"CustomModeStats\", \"SinglePlayerModeStats\", \"MultiplayerModeStats\", \"SocialModeStats\", and \"RankedModeStats\".</li>\n        <li>Added additional fields to the \"Summary\" contract: \"GameMode\" and \"HighestObjectiveScoreByTeamSize\".</li>\n        <li>Documented new game mode \"Terminus Firefight\".</li>\n    </ul>\n</div>\n<div class=\"panel-body\">\n    <p><strong>February 21, 2017:</strong></p>\n    <ul>\n        <li>Added Endpoint.</li>\n    </ul>\n</div>\n",
-        "operationId": "58acdf28e2f7f70db4854b48",
+        "operationId": "hw2.players.player.stats.seasons.seasonId.get",
         "parameters": [
           {
             "description": "The Player's Gamertag.",
@@ -3761,6 +3917,9 @@
             "required": true,
             "type": "string"
           }
+        ],
+        "produces": [
+          "application/json"
         ],
         "responses": {
           "200": {
@@ -3826,7 +3985,7 @@
     "/hw2/playlist/{playlistId}/rating": {
       "get": {
         "description": "<p>Retrieves Playlist Ratings in the current season for one or more Players.</p>\n<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>February 21, 2017:</strong></p>\n    <ul>\n        <li>Added Endpoint.</li>\n    </ul>\n</div>\n",
-        "operationId": "58acdf28e2f7f70db4854b47",
+        "operationId": "hw2.playlist.playlistId.rating.get",
         "parameters": [
           {
             "description": "The ID of the Playlist to get Ratings for.",
@@ -3842,6 +4001,9 @@
             "required": true,
             "type": "string"
           }
+        ],
+        "produces": [
+          "application/json"
         ],
         "responses": {
           "200": {
@@ -3888,7 +4050,7 @@
     "/hw2/xp": {
       "get": {
         "description": "<p>Retrieves XP and Rank information for one or more players.</p>\n<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>February 21, 2017:</strong></p>\n    <ul>\n        <li>Added Endpoint.</li>\n    </ul>\n</div>\n",
-        "operationId": "58acdf28e2f7f70db4854b4a",
+        "operationId": "hw2.xp.get",
         "parameters": [
           {
             "description": "A comma-separated list of Gamertags. Up to 6 Gamertags may be specified.",
@@ -3897,6 +4059,9 @@
             "required": true,
             "type": "string"
           }
+        ],
+        "produces": [
+          "application/json"
         ],
         "responses": {
           "200": {

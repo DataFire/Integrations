@@ -15,16 +15,14 @@ let azure_mysql = require('@datafire/azure_mysql').create({
   redirect_uri: ""
 });
 
-azure_mysql.Operations_List({
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
 
 ## Description
 
-The Microsoft Azure management API provides create, read, update, and delete functionality for Azure MySQL resources including servers, databases, firewall rules, log files and configurations with new business model.
+The Microsoft Azure management API provides create, read, update, and delete functionality for Azure MySQL resources including servers, databases, firewall rules, VNET rules, log files and configurations with new business model.
 
 ## Actions
 
@@ -222,6 +220,100 @@ azure_mysql.Servers_Create({
 
 #### Output
 * output [Server](#server)
+
+### ServerAdministrators_Delete
+Deletes AAD Administrator.
+
+
+```js
+azure_mysql.ServerAdministrators_Delete({
+  "api-version": "",
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "serverName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * api-version **required** `string`: The API version to use for the request.
+  * subscriptionId **required** `string`: The subscription ID that identifies an Azure subscription.
+  * resourceGroupName **required** `string`: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+  * serverName **required** `string`: The name of the server.
+
+#### Output
+* output [ServerAdministratorResource](#serveradministratorresource)
+
+### ServerAdministrators_Get
+Gets information about a AAD server administrator.
+
+
+```js
+azure_mysql.ServerAdministrators_Get({
+  "api-version": "",
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "serverName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * api-version **required** `string`: The API version to use for the request.
+  * subscriptionId **required** `string`: The subscription ID that identifies an Azure subscription.
+  * resourceGroupName **required** `string`: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+  * serverName **required** `string`: The name of the server.
+
+#### Output
+* output [ServerAdministratorResource](#serveradministratorresource)
+
+### ServerAdministrators_CreateOrUpdate
+Creates or update active directory administrator on an existing server. The update action will overwrite the existing administrator.
+
+
+```js
+azure_mysql.ServerAdministrators_CreateOrUpdate({
+  "api-version": "",
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "serverName": "",
+  "properties": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * api-version **required** `string`: The API version to use for the request.
+  * subscriptionId **required** `string`: The subscription ID that identifies an Azure subscription.
+  * resourceGroupName **required** `string`: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+  * serverName **required** `string`: The name of the server.
+  * properties **required** [ServerAdministratorResource](#serveradministratorresource)
+
+#### Output
+* output [ServerAdministratorResource](#serveradministratorresource)
+
+### ServerAdministrators_ListByServer
+Returns a list of server Administrators.
+
+
+```js
+azure_mysql.ServerAdministrators_ListByServer({
+  "api-version": "",
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "serverName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * api-version **required** `string`: The API version to use for the request.
+  * subscriptionId **required** `string`: The subscription ID that identifies an Azure subscription.
+  * resourceGroupName **required** `string`: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+  * serverName **required** `string`: The name of the server.
+
+#### Output
+* output [ServerAdministratorResourceListResult](#serveradministratorresourcelistresult)
 
 ### Configurations_ListByServer
 List all the configurations in a given server.
@@ -521,9 +613,219 @@ azure_mysql.LogFiles_ListByServer({
 #### Output
 * output [LogFileListResult](#logfilelistresult)
 
+### Replicas_ListByServer
+List all the replicas for a given server.
+
+
+```js
+azure_mysql.Replicas_ListByServer({
+  "api-version": "",
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "serverName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * api-version **required** `string`: The API version to use for the request.
+  * subscriptionId **required** `string`: The subscription ID that identifies an Azure subscription.
+  * resourceGroupName **required** `string`: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+  * serverName **required** `string`: The name of the server.
+
+#### Output
+* output [ServerListResult](#serverlistresult)
+
+### Servers_Restart
+Restarts a server.
+
+
+```js
+azure_mysql.Servers_Restart({
+  "api-version": "",
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "serverName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * api-version **required** `string`: The API version to use for the request.
+  * subscriptionId **required** `string`: The subscription ID that identifies an Azure subscription.
+  * resourceGroupName **required** `string`: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+  * serverName **required** `string`: The name of the server.
+
+#### Output
+*Output schema unknown*
+
+### ServerSecurityAlertPolicies_Get
+Get a server's security alert policy.
+
+
+```js
+azure_mysql.ServerSecurityAlertPolicies_Get({
+  "resourceGroupName": "",
+  "serverName": "",
+  "securityAlertPolicyName": "",
+  "subscriptionId": "",
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * resourceGroupName **required** `string`: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+  * serverName **required** `string`: The name of the server.
+  * securityAlertPolicyName **required** `string` (values: Default): The name of the security alert policy.
+  * subscriptionId **required** `string`: The subscription ID that identifies an Azure subscription.
+  * api-version **required** `string`: The API version to use for the request.
+
+#### Output
+* output [ServerSecurityAlertPolicy](#serversecurityalertpolicy)
+
+### ServerSecurityAlertPolicies_CreateOrUpdate
+Creates or updates a threat detection policy.
+
+
+```js
+azure_mysql.ServerSecurityAlertPolicies_CreateOrUpdate({
+  "resourceGroupName": "",
+  "serverName": "",
+  "securityAlertPolicyName": "",
+  "parameters": {},
+  "subscriptionId": "",
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * resourceGroupName **required** `string`: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+  * serverName **required** `string`: The name of the server.
+  * securityAlertPolicyName **required** `string` (values: Default): The name of the threat detection policy.
+  * parameters **required** [ServerSecurityAlertPolicy](#serversecurityalertpolicy)
+  * subscriptionId **required** `string`: The subscription ID that identifies an Azure subscription.
+  * api-version **required** `string`: The API version to use for the request.
+
+#### Output
+* output [ServerSecurityAlertPolicy](#serversecurityalertpolicy)
+
+### VirtualNetworkRules_ListByServer
+Gets a list of virtual network rules in a server.
+
+
+```js
+azure_mysql.VirtualNetworkRules_ListByServer({
+  "resourceGroupName": "",
+  "serverName": "",
+  "subscriptionId": "",
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * resourceGroupName **required** `string`: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+  * serverName **required** `string`: The name of the server.
+  * subscriptionId **required** `string`: The subscription ID that identifies an Azure subscription.
+  * api-version **required** `string`: The API version to use for the request.
+
+#### Output
+* output [VirtualNetworkRuleListResult](#virtualnetworkrulelistresult)
+
+### VirtualNetworkRules_Delete
+Deletes the virtual network rule with the given name.
+
+
+```js
+azure_mysql.VirtualNetworkRules_Delete({
+  "resourceGroupName": "",
+  "serverName": "",
+  "virtualNetworkRuleName": "",
+  "subscriptionId": "",
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * resourceGroupName **required** `string`: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+  * serverName **required** `string`: The name of the server.
+  * virtualNetworkRuleName **required** `string`: The name of the virtual network rule.
+  * subscriptionId **required** `string`: The subscription ID that identifies an Azure subscription.
+  * api-version **required** `string`: The API version to use for the request.
+
+#### Output
+*Output schema unknown*
+
+### VirtualNetworkRules_Get
+Gets a virtual network rule.
+
+
+```js
+azure_mysql.VirtualNetworkRules_Get({
+  "resourceGroupName": "",
+  "serverName": "",
+  "subscriptionId": "",
+  "api-version": "",
+  "virtualNetworkRuleName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * resourceGroupName **required** `string`: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+  * serverName **required** `string`: The name of the server.
+  * subscriptionId **required** `string`: The subscription ID that identifies an Azure subscription.
+  * api-version **required** `string`: The API version to use for the request.
+  * virtualNetworkRuleName **required** `string`: The name of the virtual network rule.
+
+#### Output
+* output [VirtualNetworkRule](#virtualnetworkrule)
+
+### VirtualNetworkRules_CreateOrUpdate
+Creates or updates an existing virtual network rule.
+
+
+```js
+azure_mysql.VirtualNetworkRules_CreateOrUpdate({
+  "resourceGroupName": "",
+  "serverName": "",
+  "subscriptionId": "",
+  "api-version": "",
+  "virtualNetworkRuleName": "",
+  "parameters": {}
+}, context)
+```
+
+#### Input
+* input `object`
+  * resourceGroupName **required** `string`: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+  * serverName **required** `string`: The name of the server.
+  * subscriptionId **required** `string`: The subscription ID that identifies an Azure subscription.
+  * api-version **required** `string`: The API version to use for the request.
+  * virtualNetworkRuleName **required** `string`: The name of the virtual network rule.
+  * parameters **required** [VirtualNetworkRule](#virtualnetworkrule)
+
+#### Output
+* output [VirtualNetworkRule](#virtualnetworkrule)
+
 
 
 ## Definitions
+
+### CloudError
+* CloudError `object`: An error response from the Batch service.
+  * error [CloudErrorBody](#clouderrorbody)
+
+### CloudErrorBody
+* CloudErrorBody `object`: An error response from the Batch service.
+  * code `string`: An identifier for the error. Codes are invariant and are intended to be consumed programmatically.
+  * details `array`: A list of additional details about the error.
+    * items [CloudErrorBody](#clouderrorbody)
+  * message `string`: A message describing the error, intended to be suitable for display in a user interface.
+  * target `string`: The target of the particular error. For example, the name of the property in error.
 
 ### Configuration
 * Configuration `object`: Represents a Configuration.
@@ -597,7 +899,6 @@ azure_mysql.LogFiles_ListByServer({
 * LogFileProperties `object`: The properties of a log file.
   * createdTime `string`: Creation timestamp of the log file.
   * lastModifiedTime `string`: Last modified timestamp of the log file.
-  * name `string`: Log file name.
   * sizeInKB `integer`: Size of the log file.
   * type `string`: Type of the log file.
   * url `string`: The url to download the log file from.
@@ -640,10 +941,6 @@ azure_mysql.LogFiles_ListByServer({
 ### PerformanceTierProperties
 * PerformanceTierProperties `object`: Performance tier properties
   * id `string`: ID of the performance tier.
-  * maxBackupRetentionDays `integer`: Maximum Backup retention in days for the performance tier edition
-  * maxStorageMB `integer`: Max storage allowed for a server.
-  * minBackupRetentionDays `integer`: Minimum Backup retention in days for the performance tier edition
-  * minStorageMB `integer`: Max storage allowed for a server.
   * serviceLevelObjectives `array`: Service level objectives associated with the performance tier
     * items [PerformanceTierServiceLevelObjectives](#performancetierservicelevelobjectives)
 
@@ -652,6 +949,10 @@ azure_mysql.LogFiles_ListByServer({
   * edition `string`: Edition of the performance tier.
   * hardwareGeneration `string`: Hardware generation associated with the service level objective
   * id `string`: ID for the service level objective.
+  * maxBackupRetentionDays `integer`: Maximum Backup retention in days for the performance tier edition
+  * maxStorageMB `integer`: Max storage allowed for a server.
+  * minBackupRetentionDays `integer`: Minimum Backup retention in days for the performance tier edition
+  * minStorageMB `integer`: Max storage allowed for a server.
   * vCore `integer`: vCore associated with the service level objective
 
 ### ProxyResource
@@ -660,8 +961,27 @@ azure_mysql.LogFiles_ListByServer({
   * name `string`: Resource name.
   * type `string`: Resource type.
 
+### ResourceIdentity
+* ResourceIdentity `object`: Azure Active Directory identity configuration for a resource.
+  * principalId `string`: The Azure Active Directory principal id.
+  * tenantId `string`: The Azure Active Directory tenant id.
+  * type `string` (values: SystemAssigned): The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
+
+### SecurityAlertPolicyProperties
+* SecurityAlertPolicyProperties `object`: Properties of a security alert policy.
+  * disabledAlerts `array`: Specifies an array of alerts that are disabled. Allowed values are: Sql_Injection, Sql_Injection_Vulnerability, Access_Anomaly
+    * items `string`
+  * emailAccountAdmins `boolean`: Specifies that the alert is sent to the account administrators.
+  * emailAddresses `array`: Specifies an array of e-mail addresses to which the alert is sent.
+    * items `string`
+  * retentionDays `integer`: Specifies the number of days to keep in the Threat Detection audit logs.
+  * state **required** `string` (values: Enabled, Disabled): Specifies the state of the policy, whether it is enabled or disabled.
+  * storageAccountAccessKey `string`: Specifies the identifier key of the Threat Detection audit storage account.
+  * storageEndpoint `string`: Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
+
 ### Server
 * Server `object`: Represents a server.
+  * identity [ResourceIdentity](#resourceidentity)
   * properties [ServerProperties](#serverproperties)
   * sku [Sku](#sku)
   * location **required** `string`: The location the resource resides in.
@@ -669,6 +989,25 @@ azure_mysql.LogFiles_ListByServer({
   * id `string`: Resource ID
   * name `string`: Resource name.
   * type `string`: Resource type.
+
+### ServerAdministratorProperties
+* ServerAdministratorProperties `object`: The properties of an server Administrator.
+  * administratorType **required** `string` (values: ActiveDirectory): The type of administrator.
+  * login **required** `string`: The server administrator login value.
+  * sid **required** `string`: The server administrator Sid (Secure ID).
+  * tenantId **required** `string`: The server Active Directory Administrator tenant id.
+
+### ServerAdministratorResource
+* ServerAdministratorResource `object`: Represents a and external administrator to be created.
+  * properties [ServerAdministratorProperties](#serveradministratorproperties)
+  * id `string`: Resource ID
+  * name `string`: Resource name.
+  * type `string`: Resource type.
+
+### ServerAdministratorResourceListResult
+* ServerAdministratorResourceListResult `object`: The response to a list Active Directory Administrators request.
+  * value `array`: The list of server Active Directory Administrators for the server.
+    * items [ServerAdministratorResource](#serveradministratorresource)
 
 ### ServerForCreate
 * ServerForCreate `object`: Represents a server to be created.
@@ -687,6 +1026,9 @@ azure_mysql.LogFiles_ListByServer({
   * administratorLogin `string`: The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
   * earliestRestoreDate `string`: Earliest restore point creation time (ISO8601 format)
   * fullyQualifiedDomainName `string`: The fully qualified domain name of a server.
+  * masterServerId `string`: The master server id of a replica server.
+  * replicaCapacity `integer`: The maximum number of replicas that a master server can have.
+  * replicationRole `string`: The replication role of the server.
   * sslEnforcement [SslEnforcement](#sslenforcement)
   * storageProfile [StorageProfile](#storageprofile)
   * userVisibleState `string` (values: Ready, Dropping, Disabled): A state of a server that is visible to user.
@@ -694,7 +1036,7 @@ azure_mysql.LogFiles_ListByServer({
 
 ### ServerPropertiesForCreate
 * ServerPropertiesForCreate `object`: The properties used to create a new server.
-  * createMode **required** `string` (values: Default, PointInTimeRestore): The mode to create a new server.
+  * createMode **required** `string` (values: Default, PointInTimeRestore, GeoRestore, Replica): The mode to create a new server.
   * sslEnforcement [SslEnforcement](#sslenforcement)
   * storageProfile [StorageProfile](#storageprofile)
   * version [ServerVersion](#serverversion)
@@ -703,24 +1045,48 @@ azure_mysql.LogFiles_ListByServer({
 * ServerPropertiesForDefaultCreate `object`: The properties used to create a new server.
   * administratorLogin **required** `string`: The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
   * administratorLoginPassword **required** `string`: The password of the administrator login.
-  * createMode **required** `string` (values: Default, PointInTimeRestore): The mode to create a new server.
+  * createMode **required** `string` (values: Default, PointInTimeRestore, GeoRestore, Replica): The mode to create a new server.
+  * sslEnforcement [SslEnforcement](#sslenforcement)
+  * storageProfile [StorageProfile](#storageprofile)
+  * version [ServerVersion](#serverversion)
+
+### ServerPropertiesForGeoRestore
+* ServerPropertiesForGeoRestore `object`: The properties used to create a new server by restoring to a different region from a geo replicated backup.
+  * sourceServerId **required** `string`: The source server id to restore from.
+  * createMode **required** `string` (values: Default, PointInTimeRestore, GeoRestore, Replica): The mode to create a new server.
+  * sslEnforcement [SslEnforcement](#sslenforcement)
+  * storageProfile [StorageProfile](#storageprofile)
+  * version [ServerVersion](#serverversion)
+
+### ServerPropertiesForReplica
+* ServerPropertiesForReplica `object`: The properties to create a new replica.
+  * sourceServerId **required** `string`: The master server id to create replica from.
+  * createMode **required** `string` (values: Default, PointInTimeRestore, GeoRestore, Replica): The mode to create a new server.
   * sslEnforcement [SslEnforcement](#sslenforcement)
   * storageProfile [StorageProfile](#storageprofile)
   * version [ServerVersion](#serverversion)
 
 ### ServerPropertiesForRestore
-* ServerPropertiesForRestore `object`: The properties to a new server by restoring from a backup.
+* ServerPropertiesForRestore `object`: The properties used to create a new server by restoring from a backup.
   * restorePointInTime **required** `string`: Restore point creation time (ISO8601 format), specifying the time to restore from.
   * sourceServerId **required** `string`: The source server id to restore from.
-  * createMode **required** `string` (values: Default, PointInTimeRestore): The mode to create a new server.
+  * createMode **required** `string` (values: Default, PointInTimeRestore, GeoRestore, Replica): The mode to create a new server.
   * sslEnforcement [SslEnforcement](#sslenforcement)
   * storageProfile [StorageProfile](#storageprofile)
   * version [ServerVersion](#serverversion)
 
+### ServerSecurityAlertPolicy
+* ServerSecurityAlertPolicy `object`: A server security alert policy.
+  * properties [SecurityAlertPolicyProperties](#securityalertpolicyproperties)
+  * id `string`: Resource ID
+  * name `string`: Resource name.
+  * type `string`: Resource type.
+
 ### ServerUpdateParameters
-* ServerUpdateParameters `object`: Parameters allowd to update for a server.
+* ServerUpdateParameters `object`: Parameters allowed to update for a server.
   * properties `object`: The properties that can be updated for a server.
     * administratorLoginPassword `string`: The password of the administrator login.
+    * replicationRole `string`: The replication role of the server.
     * sslEnforcement [SslEnforcement](#sslenforcement)
     * storageProfile [StorageProfile](#storageprofile)
     * version [ServerVersion](#serverversion)
@@ -728,7 +1094,7 @@ azure_mysql.LogFiles_ListByServer({
   * tags `object`: Application-specific metadata in the form of key-value pairs.
 
 ### ServerVersion
-* ServerVersion `string` (values: 5.6, 5.7): The version of a server.
+* ServerVersion `string` (values: 5.6, 5.7, 8.0): The version of a server.
 
 ### Sku
 * Sku `object`: Billing information related properties of a server.
@@ -745,6 +1111,7 @@ azure_mysql.LogFiles_ListByServer({
 * StorageProfile `object`: Storage Profile properties of a server
   * backupRetentionDays `integer`: Backup retention days for the server.
   * geoRedundantBackup `string` (values: Enabled, Disabled): Enable Geo-redundant or not for server backup.
+  * storageAutogrow `string` (values: Enabled, Disabled): Enable Storage Auto Grow.
   * storageMB `integer`: Max storage allowed for a server.
 
 ### TrackedResource
@@ -754,5 +1121,24 @@ azure_mysql.LogFiles_ListByServer({
   * id `string`: Resource ID
   * name `string`: Resource name.
   * type `string`: Resource type.
+
+### VirtualNetworkRule
+* VirtualNetworkRule `object`: A virtual network rule.
+  * properties [VirtualNetworkRuleProperties](#virtualnetworkruleproperties)
+  * id `string`: Resource ID
+  * name `string`: Resource name.
+  * type `string`: Resource type.
+
+### VirtualNetworkRuleListResult
+* VirtualNetworkRuleListResult `object`: A list of virtual network rules.
+  * nextLink `string`: Link to retrieve next page of results.
+  * value `array`: Array of results.
+    * items [VirtualNetworkRule](#virtualnetworkrule)
+
+### VirtualNetworkRuleProperties
+* VirtualNetworkRuleProperties `object`: Properties of a virtual network rule.
+  * ignoreMissingVnetServiceEndpoint `boolean`: Create firewall rule before the virtual network has vnet service endpoint enabled.
+  * state `string` (values: Initializing, InProgress, Ready, Deleting, Unknown): Virtual Network Rule State
+  * virtualNetworkSubnetId **required** `string`: The ARM resource id of the virtual network subnet.
 
 

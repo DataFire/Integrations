@@ -15,13 +15,7 @@ let azure_sql_replicationlinks = require('@datafire/azure_sql_replicationlinks')
   redirect_uri: ""
 });
 
-azure_sql_replicationlinks.ReplicationLinks_ListByDatabase({
-  "api-version": "",
-  "subscriptionId": "",
-  "resourceGroupName": "",
-  "serverName": "",
-  "databaseName": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

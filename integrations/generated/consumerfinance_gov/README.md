@@ -9,7 +9,7 @@ npm install --save @datafire/consumerfinance_gov
 ```js
 let consumerfinance_gov = require('@datafire/consumerfinance_gov').create();
 
-consumerfinance_gov.getDatasets(null).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

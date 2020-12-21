@@ -15,12 +15,7 @@ let azure_recoveryservicesbackup_backupmanagement = require('@datafire/azure_rec
   redirect_uri: ""
 });
 
-azure_recoveryservicesbackup_backupmanagement.BackupEngines_List({
-  "api-version": "",
-  "vaultName": "",
-  "resourceGroupName": "",
-  "subscriptionId": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

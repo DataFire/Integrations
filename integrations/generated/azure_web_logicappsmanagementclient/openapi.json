@@ -6,7 +6,7 @@
   "host": "management.azure.com",
   "info": {
     "title": "LogicAppsManagementClient",
-    "version": "2015-08-01-preview",
+    "version": "2016-06-01",
     "x-apisguru-categories": [
       "cloud"
     ],
@@ -16,7 +16,7 @@
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/web/resource-manager/Microsoft.Web/preview/2015-08-01-preview/logicAppsManagementClient.json",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/web/resource-manager/Microsoft.Web/stable/2016-06-01/logicAppsManagementClient.json",
         "version": "2.0"
       }
     ],
@@ -33,12 +33,10 @@
     }
   },
   "consumes": [
-    "application/json",
-    "text/json"
+    "application/json"
   ],
   "produces": [
-    "application/json",
-    "text/json"
+    "application/json"
   ],
   "securityDefinitions": {
     "azure_auth": {
@@ -46,7 +44,7 @@
       "description": "Azure Active Directory OAuth2 Flow",
       "flow": "implicit",
       "scopes": {
-        "user_impersonation": "impersonate your user account"
+        "user_impersonation": "impersonate a user account"
       },
       "type": "oauth2"
     }
@@ -59,34 +57,579 @@
     }
   ],
   "parameters": {
+    "apiConnectionParameter": {
+      "description": "The connection",
+      "in": "body",
+      "name": "connection",
+      "required": true,
+      "schema": {
+        "$ref": "#/definitions/ApiConnectionDefinition"
+      },
+      "x-ms-parameter-location": "method"
+    },
+    "apiNameParameter": {
+      "description": "API name",
+      "in": "path",
+      "name": "apiName",
+      "required": true,
+      "type": "string",
+      "x-ms-parameter-location": "method"
+    },
     "apiVersionParameter": {
       "description": "API Version",
       "in": "query",
       "name": "api-version",
       "required": true,
-      "type": "string"
+      "type": "string",
+      "x-ms-parameter-location": "method"
+    },
+    "confirmConsentCodeParameter": {
+      "description": "The consent code confirmation",
+      "in": "body",
+      "name": "confirmConsentCode",
+      "required": true,
+      "schema": {
+        "$ref": "#/definitions/ConfirmConsentCodeDefinition"
+      },
+      "x-ms-parameter-location": "method"
+    },
+    "connectionGatewayBodyParameter": {
+      "description": "The connection gateway",
+      "in": "body",
+      "name": "connectionGateway",
+      "required": true,
+      "schema": {
+        "$ref": "#/definitions/ConnectionGatewayDefinition"
+      },
+      "x-ms-parameter-location": "method"
+    },
+    "connectionGatewayNameParameter": {
+      "description": "The connection gateway name",
+      "in": "path",
+      "name": "connectionGatewayName",
+      "required": true,
+      "type": "string",
+      "x-ms-parameter-location": "method"
+    },
+    "connectionNameParameter": {
+      "description": "Connection name",
+      "in": "path",
+      "name": "connectionName",
+      "required": true,
+      "type": "string",
+      "x-ms-parameter-location": "method"
+    },
+    "customApiParameter": {
+      "description": "The custom API",
+      "in": "body",
+      "name": "customApi",
+      "required": true,
+      "schema": {
+        "$ref": "#/definitions/CustomApiDefinition"
+      },
+      "x-ms-parameter-location": "method"
+    },
+    "customApiReferenceParameter": {
+      "description": "The custom API reference",
+      "in": "body",
+      "name": "customApiReference",
+      "required": true,
+      "schema": {
+        "$ref": "#/definitions/CustomApiReference"
+      },
+      "x-ms-parameter-location": "method"
+    },
+    "filterParameter": {
+      "description": "The filter to apply on the operation",
+      "in": "query",
+      "name": "$filter",
+      "required": false,
+      "type": "string",
+      "x-ms-parameter-location": "method"
+    },
+    "gatewayIdParameter": {
+      "description": "Gateway ID",
+      "in": "path",
+      "name": "gatewayId",
+      "required": true,
+      "type": "string",
+      "x-ms-parameter-location": "method"
+    },
+    "listConnectionKeysParameter": {
+      "description": "The connection keys to list",
+      "in": "body",
+      "name": "listConnectionKeys",
+      "required": true,
+      "schema": {
+        "$ref": "#/definitions/ListConnectionKeysDefinition"
+      },
+      "x-ms-parameter-location": "method"
+    },
+    "listConsentLinkParameter": {
+      "description": "The consent links",
+      "in": "body",
+      "name": "listConsentLink",
+      "required": true,
+      "schema": {
+        "$ref": "#/definitions/ListConsentLinksDefinition"
+      },
+      "x-ms-parameter-location": "method"
+    },
+    "locationParameter": {
+      "description": "The location",
+      "in": "path",
+      "name": "location",
+      "required": true,
+      "type": "string",
+      "x-ms-parameter-location": "method"
+    },
+    "pageSizeParameter": {
+      "description": "The number of items to be included in the result",
+      "format": "int32",
+      "in": "query",
+      "name": "$top",
+      "required": false,
+      "type": "integer",
+      "x-ms-parameter-location": "method"
+    },
+    "resourceGroupNameParameter": {
+      "description": "The resource group",
+      "in": "path",
+      "name": "resourceGroupName",
+      "required": true,
+      "type": "string",
+      "x-ms-parameter-location": "method"
+    },
+    "skipTokenParameter": {
+      "description": "Skip Token",
+      "in": "query",
+      "name": "skiptoken",
+      "required": false,
+      "type": "string",
+      "x-ms-parameter-location": "method"
     },
     "subscriptionIdParameter": {
       "description": "Subscription Id",
       "in": "path",
       "name": "subscriptionId",
       "required": true,
-      "type": "string"
+      "type": "string",
+      "x-ms-parameter-location": "method"
+    },
+    "wsdlDefinitionParameter": {
+      "description": "WSDL definition",
+      "in": "body",
+      "name": "wsdlDefinition",
+      "required": true,
+      "schema": {
+        "$ref": "#/definitions/WsdlDefinition"
+      },
+      "x-ms-parameter-location": "method"
     }
   },
   "paths": {
+    "/subscriptions/{subscriptionId}/providers/Microsoft.Web/connectionGateways": {
+      "get": {
+        "description": "Gets a list of gateways under a subscription",
+        "operationId": "ConnectionGateways_List",
+        "parameters": [
+          {
+            "$ref": "#/parameters/subscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/apiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The gateway definitions",
+            "schema": {
+              "$ref": "#/definitions/ConnectionGatewayDefinitionCollection"
+            }
+          }
+        },
+        "summary": "Lists all of the connection gateways",
+        "tags": [
+          "Connection Gateways"
+        ],
+        "x-ms-examples": {
+          "List all connection gateways": {
+            "parameters": {
+              "api-version": "2016-06-01",
+              "subscriptionId": "34adfa4f-cedf-4dc0-ba29-b6d1a69ab345"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "value": [
+                    {
+                      "id": "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testResourceGroup/providers/Microsoft.Web/connectionGateways/test123",
+                      "location": "westus",
+                      "name": "test123",
+                      "properties": {
+                        "backendUri": "https://WABI-WEST-US-redirect.analysis.windows.net",
+                        "connectionGatewayInstallation": {
+                          "id": "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/providers/Microsoft.Web/locations/westus/connectionGatewayInstallations/865dccd1-5d5c-45fe-b5a0-249d4de4134c",
+                          "location": "westus",
+                          "name": "865dccd1-5d5c-45fe-b5a0-249d4de4134c",
+                          "type": "Microsoft.Web/locations/connectionGatewayInstallations"
+                        },
+                        "contactInformation": [
+                          "test123@microsoft.com"
+                        ],
+                        "displayName": "test123",
+                        "machineName": "TEST123",
+                        "status": "Installed"
+                      },
+                      "type": "Microsoft.Web/connectionGateways"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/providers/Microsoft.Web/customApis": {
+      "get": {
+        "description": "Gets a list of all custom APIs for a subscription id",
+        "operationId": "CustomApis_List",
+        "parameters": [
+          {
+            "$ref": "#/parameters/subscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/apiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/pageSizeParameter"
+          },
+          {
+            "$ref": "#/parameters/skipTokenParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of custom APIs",
+            "schema": {
+              "$ref": "#/definitions/CustomApiDefinitionCollection"
+            }
+          }
+        },
+        "summary": "List of custom APIs",
+        "tags": [
+          "Custom APIs"
+        ],
+        "x-ms-examples": {
+          "List all custom APIs": {
+            "parameters": {
+              "api-version": "2016-06-01",
+              "subscriptionId": "34adfa4f-cedf-4dc0-ba29-b6d1a69ab345"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "value": [
+                    {
+                      "id": "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testResourceGroup/providers/Microsoft.Web/customApis/testCustomApi",
+                      "location": "northcentralus",
+                      "name": "testCustomApi",
+                      "properties": {
+                        "apiDefinitions": {
+                          "modifiedSwaggerUrl": "https://tempuri.org/modified.json",
+                          "originalSwaggerUrl": "https://tempuri.org/swagger.json"
+                        },
+                        "apiType": "Rest",
+                        "capabilities": [],
+                        "description": "",
+                        "displayName": "testCustomApi",
+                        "iconUri": "/testIcon.svg",
+                        "runtimeUrls": [
+                          "https://tempuri.org",
+                          "http://tempuri.org"
+                        ],
+                        "wsdlDefinition": {}
+                      },
+                      "type": "Microsoft.Web/customApis"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/providers/Microsoft.Web/locations/{location}/connectionGatewayInstallations": {
+      "get": {
+        "description": "Gets a list of installed gateways that the user is an admin of, in a specific subscription and at a certain location",
+        "operationId": "ConnectionGatewayInstallations_List",
+        "parameters": [
+          {
+            "$ref": "#/parameters/subscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/locationParameter"
+          },
+          {
+            "$ref": "#/parameters/apiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The gateway installations",
+            "schema": {
+              "$ref": "#/definitions/ConnectionGatewayInstallationDefinitionCollection"
+            }
+          }
+        },
+        "summary": "Gets a list of installed gateways that the user is an admin of",
+        "tags": [
+          "Connection Gateways"
+        ],
+        "x-ms-examples": {
+          "List all installations in a region": {
+            "parameters": {
+              "api-version": "2016-06-01",
+              "location": "westus",
+              "subscriptionId": "34adfa4f-cedf-4dc0-ba29-b6d1a69ab345"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "value": [
+                    {
+                      "id": "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testResourceGroup/providers/Microsoft.Web/connectionGatewayInstallations/test123",
+                      "location": "westus",
+                      "name": "test123",
+                      "properties": {
+                        "backendUri": "https://WABI-WEST-US-redirect.analysis.windows.net",
+                        "connectionGateway": {
+                          "id": "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/providers/Microsoft.Web/locations/westus/connectionGateways/865dccd1-5d5c-45fe-b5a0-249d4de4134c",
+                          "location": "westus",
+                          "name": "865dccd1-5d5c-45fe-b5a0-249d4de4134c",
+                          "type": "Microsoft.Web/connectionGateways"
+                        },
+                        "contactInformation": [
+                          "test123@microsoft.com"
+                        ],
+                        "displayName": "test123",
+                        "machineName": "TEST123",
+                        "status": "Installed"
+                      },
+                      "type": "Microsoft.Web/locations/connectionGatewayInstallations"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/providers/Microsoft.Web/locations/{location}/connectionGatewayInstallations/{gatewayId}": {
+      "get": {
+        "description": "Get a specific installed gateway that the user is an admin of, in a specific subscription and at a certain location",
+        "operationId": "ConnectionGatewayInstallations_Get",
+        "parameters": [
+          {
+            "$ref": "#/parameters/subscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/locationParameter"
+          },
+          {
+            "$ref": "#/parameters/gatewayIdParameter"
+          },
+          {
+            "$ref": "#/parameters/apiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The gateway installation",
+            "schema": {
+              "$ref": "#/definitions/ConnectionGatewayInstallationDefinition"
+            }
+          }
+        },
+        "summary": "Gets an installed gateway that the user is an admin of",
+        "tags": [
+          "Connection Gateways"
+        ],
+        "x-ms-examples": {
+          "Get a specific gateway installation": {
+            "parameters": {
+              "api-version": "2016-06-01",
+              "gatewayId": "5de68756-ccff-49a4-8bd6-9f6059ece8ea",
+              "location": "westus",
+              "subscriptionId": "34adfa4f-cedf-4dc0-ba29-b6d1a69ab345"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "id": "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testResourceGroup/providers/Microsoft.Web/connectionGatewayInstallations/test123",
+                  "location": "westus",
+                  "name": "test123",
+                  "properties": {
+                    "backendUri": "https://WABI-WEST-US-redirect.analysis.windows.net",
+                    "connectionGateway": {
+                      "id": "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/providers/Microsoft.Web/locations/westus/connectionGateways/865dccd1-5d5c-45fe-b5a0-249d4de4134c",
+                      "location": "westus",
+                      "name": "865dccd1-5d5c-45fe-b5a0-249d4de4134c",
+                      "type": "Microsoft.Web/connectionGateways"
+                    },
+                    "contactInformation": [
+                      "test123@microsoft.com"
+                    ],
+                    "displayName": "test123",
+                    "machineName": "TEST123",
+                    "status": "Installed"
+                  },
+                  "type": "Microsoft.Web/locations/connectionGatewayInstallations"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/providers/Microsoft.Web/locations/{location}/extractApiDefinitionFromWsdl": {
+      "post": {
+        "description": "Parses the specified WSDL and extracts the API definition",
+        "operationId": "CustomApis_ExtractApiDefinitionFromWsdl",
+        "parameters": [
+          {
+            "$ref": "#/parameters/subscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/locationParameter"
+          },
+          {
+            "$ref": "#/parameters/wsdlDefinitionParameter"
+          },
+          {
+            "$ref": "#/parameters/apiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Swagger of the API extracted from the WSDL",
+            "schema": {}
+          }
+        },
+        "summary": "Returns API definition from WSDL",
+        "tags": [
+          "Custom APIs"
+        ],
+        "x-ms-examples": {
+          "Extract definition from WSDL": {
+            "parameters": {
+              "api-version": "2016-06-01",
+              "location": "westus",
+              "subscriptionId": "34adfa4f-cedf-4dc0-ba29-b6d1a69ab345",
+              "wsdlDefinition": {
+                "url": "https://tempuri.org/testWsdlDefinition"
+              }
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "info": {
+                    "title": "basic",
+                    "version": "1.0"
+                  },
+                  "paths": {
+                    "/sampleEndpoint": {
+                      "get": {
+                        "operationId": "http://tempuri.org/ITestService/sampleEndpoint",
+                        "parameters": [],
+                        "produces": [
+                          "application/json"
+                        ],
+                        "responses": {
+                          "200": {
+                            "description": "OK"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "swagger": "2.0"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/providers/Microsoft.Web/locations/{location}/listWsdlInterfaces": {
+      "post": {
+        "description": "This returns the list of interfaces in the WSDL",
+        "operationId": "CustomApis_ListWsdlInterfaces",
+        "parameters": [
+          {
+            "$ref": "#/parameters/subscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/locationParameter"
+          },
+          {
+            "$ref": "#/parameters/wsdlDefinitionParameter"
+          },
+          {
+            "$ref": "#/parameters/apiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of interfaces",
+            "schema": {
+              "$ref": "#/definitions/WsdlServiceCollection"
+            }
+          }
+        },
+        "summary": "Lists WSDL interfaces",
+        "tags": [
+          "Custom APIs"
+        ],
+        "x-ms-examples": {
+          "List the WSDL interfaces": {
+            "parameters": {
+              "api-version": "2016-06-01",
+              "location": "westus",
+              "subscriptionId": "34adfa4f-cedf-4dc0-ba29-b6d1a69ab345",
+              "wsdlDefinition": {
+                "url": "https://tempuri.org/testWsdlDefinition"
+              }
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "value": [
+                    {
+                      "endpointQualifiedNames": [
+                        "http://tempuri.org/ws",
+                        "http://tempuri.org/basic"
+                      ],
+                      "qualifiedName": "testWsdl"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/subscriptions/{subscriptionId}/providers/Microsoft.Web/locations/{location}/managedApis": {
       "get": {
-        "deprecated": false,
-        "description": "Gets a list of managed APIs.",
+        "description": "Gets a list of managed APIs",
         "operationId": "ManagedApis_List",
         "parameters": [
           {
-            "description": "The location.",
-            "in": "path",
-            "name": "location",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/locationParameter"
           },
           {
             "$ref": "#/parameters/subscriptionIdParameter"
@@ -97,49 +640,101 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
+            "description": "A list of managed APIs",
             "schema": {
-              "$ref": "#/definitions/ApisCollection"
+              "$ref": "#/definitions/ManagedApiDefinitionCollection"
             }
           }
         },
-        "summary": "List managed Apis",
+        "summary": "Lists managed APIs",
         "tags": [
-          "Managed Apis"
+          "Managed APIs"
         ],
-        "x-ms-pageable": {
-          "nextLinkName": "nextLink"
+        "x-ms-examples": {
+          "List all managed APIs": {
+            "parameters": {
+              "api-version": "2016-06-01",
+              "location": "northcentralus",
+              "subscriptionId": "34adfa4f-cedf-4dc0-ba29-b6d1a69ab345"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "value": [
+                    {
+                      "id": "/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/providers/Microsoft.Web/locations/northcentralus/managedApis/testManagedApi",
+                      "location": "northcentralus",
+                      "name": "testManagedApi",
+                      "properties": {
+                        "capabilities": [
+                          "actions"
+                        ],
+                        "connectionParameters": {
+                          "token": {
+                            "oAuthSettings": {
+                              "clientId": "testClientID",
+                              "customParameters": {
+                                "authorizationUrl": {
+                                  "value": "https://tempuri.org/authorize/"
+                                },
+                                "refreshUrl": {
+                                  "value": "https://tempuri.org/refresh/"
+                                },
+                                "tokenUrl": {
+                                  "value": "https://tempuri.org/token/"
+                                }
+                              },
+                              "identityProvider": "oauth2",
+                              "properties": {
+                                "IsFirstParty": "False"
+                              },
+                              "redirectUrl": "https://logic-apis-northcentralus.consent.azure-apim.net/redirect",
+                              "scopes": [
+                                "read",
+                                "write"
+                              ]
+                            },
+                            "type": "oauthSetting"
+                          }
+                        },
+                        "generalInformation": {
+                          "description": "",
+                          "displayName": "testManagedApi",
+                          "iconUrl": "testIcon.png",
+                          "releaseTag": "Preview"
+                        },
+                        "metadata": {
+                          "brandColor": "#C9C9C9",
+                          "source": "marketplace"
+                        },
+                        "name": "testManagedApi",
+                        "runtimeUrls": [
+                          "https://tempuri.org/testManagedApi"
+                        ]
+                      },
+                      "type": "Microsoft.Web/locations/managedApis"
+                    }
+                  ]
+                }
+              }
+            }
+          }
         }
       }
     },
     "/subscriptions/{subscriptionId}/providers/Microsoft.Web/locations/{location}/managedApis/{apiName}": {
       "get": {
-        "deprecated": false,
-        "description": "Gets a managed API.",
+        "description": "Gets a managed API",
         "operationId": "ManagedApis_Get",
         "parameters": [
           {
-            "description": "The location.",
-            "in": "path",
-            "name": "location",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The managed API name.",
-            "in": "path",
-            "name": "apiName",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "flag showing whether to export API definition in format specified by Accept header.",
-            "in": "query",
-            "name": "export",
-            "type": "boolean"
-          },
-          {
             "$ref": "#/parameters/subscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/locationParameter"
+          },
+          {
+            "$ref": "#/parameters/apiNameParameter"
           },
           {
             "$ref": "#/parameters/apiVersionParameter"
@@ -147,91 +742,554 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
+            "description": "A managed API definition",
             "schema": {
-              "$ref": "#/definitions/ApiEntity"
+              "$ref": "#/definitions/ManagedApiDefinition"
             }
           }
         },
-        "summary": "Get managed Api",
+        "summary": "Gets managed API",
         "tags": [
-          "Managed Apis"
-        ]
+          "Managed APIs"
+        ],
+        "x-ms-examples": {
+          "Get a managed API": {
+            "parameters": {
+              "api-version": "2016-06-01",
+              "apiName": "testManagedApi",
+              "location": "northcentralus",
+              "subscriptionId": "34adfa4f-cedf-4dc0-ba29-b6d1a69ab345"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "id": "/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/providers/Microsoft.Web/locations/northcentralus/managedApis/testManagedApi",
+                  "location": "northcentralus",
+                  "name": "testManagedApi",
+                  "properties": {
+                    "capabilities": [
+                      "actions"
+                    ],
+                    "connectionParameters": {
+                      "token": {
+                        "oAuthSettings": {
+                          "clientId": "testClientID",
+                          "customParameters": {
+                            "authorizationUrl": {
+                              "value": "https://tempuri.org/authorize/"
+                            },
+                            "refreshUrl": {
+                              "value": "https://tempuri.org/refresh/"
+                            },
+                            "tokenUrl": {
+                              "value": "https://tempuri.org/token/"
+                            }
+                          },
+                          "identityProvider": "oauth2",
+                          "properties": {
+                            "IsFirstParty": "False"
+                          },
+                          "redirectUrl": "https://logic-apis-northcentralus.consent.azure-apim.net/redirect",
+                          "scopes": [
+                            "read",
+                            "write"
+                          ]
+                        },
+                        "type": "oauthSetting"
+                      }
+                    },
+                    "generalInformation": {
+                      "description": "",
+                      "displayName": "testManagedApi",
+                      "iconUrl": "testIcon.png",
+                      "releaseTag": "Preview"
+                    },
+                    "metadata": {
+                      "brandColor": "#C9C9C9",
+                      "source": "marketplace"
+                    },
+                    "name": "testManagedApi",
+                    "runtimeUrls": [
+                      "https://tempuri.org/testManagedApi"
+                    ]
+                  },
+                  "type": "Microsoft.Web/locations/managedApis"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/connectionGateways": {
+      "get": {
+        "description": "Gets a list of gateways under a subscription and in a specific resource group",
+        "operationId": "ConnectionGateways_ListByResourceGroup",
+        "parameters": [
+          {
+            "$ref": "#/parameters/subscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/resourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/apiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The gateway definitions",
+            "schema": {
+              "$ref": "#/definitions/ConnectionGatewayDefinitionCollection"
+            }
+          }
+        },
+        "summary": "Lists all of the connection gateways",
+        "tags": [
+          "Connection Gateways"
+        ],
+        "x-ms-examples": {
+          "List all connection gateways": {
+            "parameters": {
+              "api-version": "2016-06-01",
+              "resourceGroupName": "testResourceGroup",
+              "subscriptionId": "34adfa4f-cedf-4dc0-ba29-b6d1a69ab345"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "value": [
+                    {
+                      "id": "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testResourceGroup/providers/Microsoft.Web/connectionGateways/test123",
+                      "location": "westus",
+                      "name": "test123",
+                      "properties": {
+                        "backendUri": "https://WABI-WEST-US-redirect.analysis.windows.net",
+                        "connectionGatewayInstallation": {
+                          "id": "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/providers/Microsoft.Web/locations/westus/connectionGatewayInstallations/865dccd1-5d5c-45fe-b5a0-249d4de4134c",
+                          "location": "westus",
+                          "name": "865dccd1-5d5c-45fe-b5a0-249d4de4134c",
+                          "type": "Microsoft.Web/locations/connectionGatewayInstallations"
+                        },
+                        "contactInformation": [
+                          "test123@microsoft.com"
+                        ],
+                        "displayName": "test123",
+                        "machineName": "TEST123",
+                        "status": "Installed"
+                      },
+                      "type": "Microsoft.Web/connectionGateways"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/connectionGateways/{connectionGatewayName}": {
+      "delete": {
+        "description": "Deletes a specific gateway for under a subscription and in a specific resource group",
+        "operationId": "ConnectionGateways_Delete",
+        "parameters": [
+          {
+            "$ref": "#/parameters/subscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/resourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/connectionGatewayNameParameter"
+          },
+          {
+            "$ref": "#/parameters/apiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully deleted the connection gateway"
+          },
+          "204": {
+            "description": "No connection gateway to delete"
+          }
+        },
+        "summary": "Deletes a specific gateway",
+        "tags": [
+          "Connection Gateways"
+        ],
+        "x-ms-examples": {
+          "Delete a connection gateway definition": {
+            "parameters": {
+              "api-version": "2016-06-01",
+              "connectionGatewayName": "test123",
+              "resourceGroupName": "testResourceGroup",
+              "subscriptionId": "34adfa4f-cedf-4dc0-ba29-b6d1a69ab345"
+            },
+            "responses": {
+              "200": {},
+              "204": {}
+            }
+          }
+        }
+      },
+      "get": {
+        "description": "Gets a specific gateway under a subscription and in a specific resource group",
+        "operationId": "ConnectionGateways_Get",
+        "parameters": [
+          {
+            "$ref": "#/parameters/subscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/resourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/connectionGatewayNameParameter"
+          },
+          {
+            "$ref": "#/parameters/apiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The gateway definition",
+            "schema": {
+              "$ref": "#/definitions/ConnectionGatewayDefinition"
+            }
+          }
+        },
+        "summary": "Gets a specific gateway",
+        "tags": [
+          "Connection Gateways"
+        ],
+        "x-ms-examples": {
+          "Get the connection gateway definition": {
+            "parameters": {
+              "api-version": "2016-06-01",
+              "connectionGatewayName": "test123",
+              "resourceGroupName": "testResourceGroup",
+              "subscriptionId": "34adfa4f-cedf-4dc0-ba29-b6d1a69ab345"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "id": "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testResourceGroup/providers/Microsoft.Web/connectionGateways/test123",
+                  "location": "westus",
+                  "name": "test123",
+                  "properties": {
+                    "backendUri": "https://WABI-WEST-US-redirect.analysis.windows.net",
+                    "connectionGatewayInstallation": {
+                      "id": "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/providers/Microsoft.Web/locations/westus/connectionGatewayInstallations/865dccd1-5d5c-45fe-b5a0-249d4de4134c",
+                      "location": "westus",
+                      "name": "865dccd1-5d5c-45fe-b5a0-249d4de4134c",
+                      "type": "Microsoft.Web/locations/connectionGatewayInstallations"
+                    },
+                    "contactInformation": [
+                      "test123@microsoft.com"
+                    ],
+                    "displayName": "test123",
+                    "machineName": "TEST123",
+                    "status": "Installed"
+                  },
+                  "type": "Microsoft.Web/connectionGateways"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "description": "Updates a connection gateway's tags",
+        "operationId": "ConnectionGateways_Update",
+        "parameters": [
+          {
+            "$ref": "#/parameters/subscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/resourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/connectionGatewayNameParameter"
+          },
+          {
+            "$ref": "#/parameters/connectionGatewayBodyParameter"
+          },
+          {
+            "$ref": "#/parameters/apiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The gateway definition",
+            "schema": {
+              "$ref": "#/definitions/ConnectionGatewayDefinition"
+            }
+          }
+        },
+        "summary": "Updates a specific gateway",
+        "tags": [
+          "Connection Gateways"
+        ],
+        "x-ms-examples": {
+          "Update a connection gateway's tags": {
+            "parameters": {
+              "api-version": "2016-06-01",
+              "connectionGateway": {
+                "tags": {
+                  "sampleTagKey": "sampleTagValue"
+                }
+              },
+              "connectionGatewayName": "test123",
+              "resourceGroupName": "testResourceGroup",
+              "subscriptionId": "34adfa4f-cedf-4dc0-ba29-b6d1a69ab345"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "id": "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testResourceGroup/providers/Microsoft.Web/connectionGateways/test123",
+                  "location": "westus",
+                  "name": "test123",
+                  "properties": {
+                    "backendUri": "https://WABI-WEST-US-redirect.analysis.windows.net",
+                    "connectionGatewayInstallation": {
+                      "id": "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/providers/Microsoft.Web/locations/westus/connectionGatewayInstallations/865dccd1-5d5c-45fe-b5a0-249d4de4134c",
+                      "location": "westus",
+                      "name": "865dccd1-5d5c-45fe-b5a0-249d4de4134c",
+                      "type": "Microsoft.Web/locations/connectionGatewayInstallations"
+                    },
+                    "contactInformation": [
+                      "test123@microsoft.com"
+                    ],
+                    "displayName": "test123",
+                    "machineName": "TEST123",
+                    "status": "Installed"
+                  },
+                  "tags": {
+                    "sampleTagKey": "sampleTagValue"
+                  },
+                  "type": "Microsoft.Web/connectionGateways"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "description": "Creates or updates a specific gateway for under a subscription and in a specific resource group",
+        "operationId": "ConnectionGateways_CreateOrUpdate",
+        "parameters": [
+          {
+            "$ref": "#/parameters/subscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/resourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/connectionGatewayNameParameter"
+          },
+          {
+            "$ref": "#/parameters/connectionGatewayBodyParameter"
+          },
+          {
+            "$ref": "#/parameters/apiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The updated gateway definition",
+            "schema": {
+              "$ref": "#/definitions/ConnectionGatewayDefinition"
+            }
+          },
+          "201": {
+            "description": "The newly created gateway definition",
+            "schema": {
+              "$ref": "#/definitions/ConnectionGatewayDefinition"
+            }
+          }
+        },
+        "summary": "Replaces a specific gateway",
+        "tags": [
+          "Connection Gateways"
+        ],
+        "x-ms-examples": {
+          "Replace a connection gateway definition": {
+            "parameters": {
+              "api-version": "2016-06-01",
+              "connectionGateway": {
+                "id": "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testResourceGroup/providers/Microsoft.Web/connectionGateways/test123",
+                "properties": {
+                  "backendUri": "https://WABI-WEST-US-redirect.analysis.windows.net",
+                  "connectionGatewayInstallation": {
+                    "id": "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/providers/Microsoft.Web/locations/westus/connectionGatewayInstallations/865dccd1-5d5c-45fe-b5a0-249d4de4134c"
+                  },
+                  "contactInformation": [
+                    "test123@microsoft.com"
+                  ],
+                  "displayName": "test123",
+                  "machineName": "TEST123",
+                  "status": "Installed"
+                }
+              },
+              "connectionGatewayName": "test123",
+              "resourceGroupName": "testResourceGroup",
+              "subscriptionId": "34adfa4f-cedf-4dc0-ba29-b6d1a69ab345"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "id": "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testResourceGroup/providers/Microsoft.Web/connectionGateways/test123",
+                  "location": "westus",
+                  "name": "test123",
+                  "properties": {
+                    "backendUri": "https://WABI-WEST-US-redirect.analysis.windows.net",
+                    "connectionGatewayInstallation": {
+                      "id": "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/providers/Microsoft.Web/locations/westus/connectionGatewayInstallations/865dccd1-5d5c-45fe-b5a0-249d4de4134c",
+                      "location": "westus",
+                      "name": "865dccd1-5d5c-45fe-b5a0-249d4de4134c",
+                      "type": "Microsoft.Web/locations/connectionGatewayInstallations"
+                    },
+                    "contactInformation": [
+                      "test123@microsoft.com"
+                    ],
+                    "displayName": "test123",
+                    "machineName": "TEST123",
+                    "status": "Installed"
+                  },
+                  "type": "Microsoft.Web/connectionGateways"
+                }
+              },
+              "201": {
+                "body": {
+                  "id": "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testResourceGroup/providers/Microsoft.Web/connectionGateways/test123",
+                  "location": "westus",
+                  "name": "test123",
+                  "properties": {
+                    "backendUri": "https://WABI-WEST-US-redirect.analysis.windows.net",
+                    "connectionGatewayInstallation": {
+                      "id": "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/providers/Microsoft.Web/locations/westus/connectionGatewayInstallations/865dccd1-5d5c-45fe-b5a0-249d4de4134c",
+                      "location": "westus",
+                      "name": "865dccd1-5d5c-45fe-b5a0-249d4de4134c",
+                      "type": "Microsoft.Web/locations/connectionGatewayInstallations"
+                    },
+                    "contactInformation": [
+                      "test123@microsoft.com"
+                    ],
+                    "displayName": "test123",
+                    "machineName": "TEST123",
+                    "status": "Installed"
+                  },
+                  "tags": {
+                    "sampleTagKey": "sampleTagValue"
+                  },
+                  "type": "Microsoft.Web/connectionGateways"
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/connections": {
       "get": {
-        "description": "Gets a list of connections.",
+        "description": "Gets a list of connections",
         "operationId": "Connections_List",
         "parameters": [
-          {
-            "description": "Resource Group Name",
-            "in": "path",
-            "name": "resourceGroupName",
-            "required": true,
-            "type": "string"
-          },
           {
             "$ref": "#/parameters/subscriptionIdParameter"
           },
           {
+            "$ref": "#/parameters/resourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/pageSizeParameter"
+          },
+          {
+            "$ref": "#/parameters/filterParameter"
+          },
+          {
             "$ref": "#/parameters/apiVersionParameter"
-          },
-          {
-            "description": "The number of items to be included in the result.",
-            "format": "int32",
-            "in": "query",
-            "name": "$top",
-            "required": false,
-            "type": "integer"
-          },
-          {
-            "description": "The filter to apply on the operation.",
-            "in": "query",
-            "name": "$filter",
-            "required": false,
-            "type": "string"
           }
         ],
         "responses": {
           "200": {
-            "description": "OK",
+            "description": "A list of API connection",
             "schema": {
-              "$ref": "#/definitions/ConnectionCollection"
+              "$ref": "#/definitions/ApiConnectionDefinitionCollection"
             }
           }
         },
-        "summary": "Get Connections",
+        "summary": "Get all connections",
         "tags": [
           "Connections"
         ],
-        "x-ms-odata": "#/definitions/Connection",
-        "x-ms-pageable": {
-          "nextLinkName": "nextLink"
+        "x-ms-examples": {
+          "List all connections": {
+            "parameters": {
+              "api-version": "2016-06-01",
+              "resourceGroupName": "testResourceGroup",
+              "subscriptionId": "34adfa4f-cedf-4dc0-ba29-b6d1a69ab345"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "value": [
+                    {
+                      "id": "/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Web/connections/testManagedApi-1",
+                      "location": "centralus",
+                      "name": "testManagedApi-1",
+                      "properties": {
+                        "api": {
+                          "brandColor": "#FFFFFF",
+                          "description": "",
+                          "displayName": "testManagedApi",
+                          "iconUri": "https://tempuri.org/icons.png",
+                          "id": "/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/providers/Microsoft.Web/locations/centralus/managedApis/testManagedApi",
+                          "name": "testManagedApi",
+                          "type": "Microsoft.Web/locations/managedApis"
+                        },
+                        "changedTime": "2017-06-22T01:32:27.50212Z",
+                        "createdTime": "2017-06-22T01:32:27.50212Z",
+                        "customParameterValues": {},
+                        "displayName": "testManagedApi",
+                        "nonSecretParameterValues": {
+                          "integrationAccountId": "/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationAccounts/testIntegrationAccount"
+                        },
+                        "statuses": [
+                          {
+                            "status": "Connected"
+                          }
+                        ],
+                        "testLinks": [
+                          {
+                            "method": "get",
+                            "requestUri": "https://tempuri.org/testconnection"
+                          }
+                        ]
+                      },
+                      "type": "Microsoft.Web/connections"
+                    }
+                  ]
+                }
+              }
+            }
+          }
         }
       }
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/connections/{connectionName}": {
       "delete": {
-        "description": "Deletes a connection.",
+        "description": "Deletes a connection",
         "operationId": "Connections_Delete",
         "parameters": [
           {
             "$ref": "#/parameters/subscriptionIdParameter"
           },
           {
-            "description": "The resource group name.",
-            "in": "path",
-            "name": "resourceGroupName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/resourceGroupNameParameter"
           },
           {
-            "description": "The connection name.",
-            "in": "path",
-            "name": "connectionName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/connectionNameParameter"
           },
           {
             "$ref": "#/parameters/apiVersionParameter"
@@ -239,36 +1297,43 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Successfully deleted the connection"
           },
           "204": {
-            "description": "No Content"
+            "description": "No connection to delete"
           }
         },
+        "summary": "Delete an existing connection",
         "tags": [
           "Connections"
-        ]
+        ],
+        "x-ms-examples": {
+          "Delete a connection": {
+            "parameters": {
+              "api-version": "2016-06-01",
+              "connectionName": "testManagedApi",
+              "resourceGroupName": "testResourceGroup",
+              "subscriptionId": "34adfa4f-cedf-4dc0-ba29-b6d1a69ab345"
+            },
+            "responses": {
+              "200": {},
+              "204": {}
+            }
+          }
+        }
       },
       "get": {
-        "description": "Gets a connection.",
+        "description": "Get a specific connection",
         "operationId": "Connections_Get",
         "parameters": [
           {
             "$ref": "#/parameters/subscriptionIdParameter"
           },
           {
-            "description": "The resource group name.",
-            "in": "path",
-            "name": "resourceGroupName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/resourceGroupNameParameter"
           },
           {
-            "description": "The connection name.",
-            "in": "path",
-            "name": "connectionName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/connectionNameParameter"
           },
           {
             "$ref": "#/parameters/apiVersionParameter"
@@ -276,299 +1341,947 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
+            "description": "An API connection",
             "schema": {
-              "$ref": "#/definitions/Connection"
+              "$ref": "#/definitions/ApiConnectionDefinition"
             }
           }
         },
+        "summary": "Get a connection",
         "tags": [
           "Connections"
-        ]
+        ],
+        "x-ms-examples": {
+          "Get a connection": {
+            "parameters": {
+              "api-version": "2016-06-01",
+              "connectionName": "testManagedApi",
+              "resourceGroupName": "testResourceGroup",
+              "subscriptionId": "34adfa4f-cedf-4dc0-ba29-b6d1a69ab345"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "id": "/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Web/connections/testManagedApi-1",
+                  "location": "centralus",
+                  "name": "testManagedApi-1",
+                  "properties": {
+                    "api": {
+                      "brandColor": "#FFFFFF",
+                      "description": "",
+                      "displayName": "testManagedApi",
+                      "iconUri": "https://tempuri.org/icons.png",
+                      "id": "/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/providers/Microsoft.Web/locations/centralus/managedApis/testManagedApi",
+                      "name": "testManagedApi",
+                      "type": "Microsoft.Web/locations/managedApis"
+                    },
+                    "changedTime": "2017-06-22T01:32:27.50212Z",
+                    "createdTime": "2017-06-22T01:32:27.50212Z",
+                    "customParameterValues": {},
+                    "displayName": "testManagedApi",
+                    "nonSecretParameterValues": {
+                      "integrationAccountId": "/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationAccounts/testIntegrationAccount"
+                    },
+                    "statuses": [
+                      {
+                        "status": "Connected"
+                      }
+                    ],
+                    "testLinks": [
+                      {
+                        "method": "get",
+                        "requestUri": "https://tempuri.org/testconnection"
+                      }
+                    ]
+                  },
+                  "type": "Microsoft.Web/connections"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "description": "Updates a connection's tags",
+        "operationId": "Connections_Update",
+        "parameters": [
+          {
+            "$ref": "#/parameters/subscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/resourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/connectionNameParameter"
+          },
+          {
+            "$ref": "#/parameters/apiConnectionParameter"
+          },
+          {
+            "$ref": "#/parameters/apiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "API connection updated",
+            "schema": {
+              "$ref": "#/definitions/ApiConnectionDefinition"
+            }
+          }
+        },
+        "summary": "Update an existing connection",
+        "tags": [
+          "Connections"
+        ],
+        "x-ms-examples": {
+          "Update a connection's tags": {
+            "parameters": {
+              "api-version": "2016-06-01",
+              "connection": {
+                "tags": {
+                  "sampleTag": "SampleValue"
+                }
+              },
+              "connectionName": "testManagedApi",
+              "resourceGroupName": "testResourceGroup",
+              "subscriptionId": "34adfa4f-cedf-4dc0-ba29-b6d1a69ab345"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "id": "/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Web/connections/testManagedApi-1",
+                  "location": "centralus",
+                  "name": "testManagedApi-1",
+                  "properties": {
+                    "api": {
+                      "brandColor": "#FFFFFF",
+                      "description": "",
+                      "displayName": "testManagedApi",
+                      "iconUri": "https://tempuri.org/icons.png",
+                      "id": "/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/providers/Microsoft.Web/locations/centralus/managedApis/testManagedApi",
+                      "name": "testManagedApi",
+                      "type": "Microsoft.Web/locations/managedApis"
+                    },
+                    "changedTime": "2017-06-22T01:32:27.50212Z",
+                    "createdTime": "2017-06-22T01:32:27.50212Z",
+                    "customParameterValues": {},
+                    "displayName": "testManagedApi",
+                    "nonSecretParameterValues": {
+                      "integrationAccountId": "/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationAccounts/testIntegrationAccount"
+                    },
+                    "statuses": [
+                      {
+                        "status": "Connected"
+                      }
+                    ],
+                    "testLinks": [
+                      {
+                        "method": "get",
+                        "requestUri": "https://tempuri.org/testconnection"
+                      }
+                    ]
+                  },
+                  "tags": {
+                    "sampleTag": "SampleValue"
+                  },
+                  "type": "Microsoft.Web/connections"
+                }
+              }
+            }
+          }
+        }
       },
       "put": {
-        "description": "Creates or updates a connection.",
+        "description": "Creates or updates a connection",
         "operationId": "Connections_CreateOrUpdate",
         "parameters": [
           {
             "$ref": "#/parameters/subscriptionIdParameter"
           },
           {
-            "description": "The resource group name.",
-            "in": "path",
-            "name": "resourceGroupName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/resourceGroupNameParameter"
           },
           {
-            "description": "The connection name.",
-            "in": "path",
-            "name": "connectionName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/connectionNameParameter"
+          },
+          {
+            "$ref": "#/parameters/apiConnectionParameter"
           },
           {
             "$ref": "#/parameters/apiVersionParameter"
-          },
-          {
-            "description": "The connection.",
-            "in": "body",
-            "name": "connection",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/Connection"
-            }
           }
         ],
         "responses": {
           "200": {
-            "description": "OK",
+            "description": "New API connection created",
             "schema": {
-              "$ref": "#/definitions/Connection"
+              "$ref": "#/definitions/ApiConnectionDefinition"
             }
           },
           "201": {
-            "description": "Created",
+            "description": "Already existing API connection updated",
             "schema": {
-              "$ref": "#/definitions/Connection"
+              "$ref": "#/definitions/ApiConnectionDefinition"
             }
           }
         },
+        "summary": "Replace an existing connection",
         "tags": [
           "Connections"
-        ]
+        ],
+        "x-ms-examples": {
+          "Replace a connection": {
+            "parameters": {
+              "api-version": "2016-06-01",
+              "connection": {
+                "id": "/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Web/connections/testManagedApi-1",
+                "properties": {
+                  "api": {
+                    "id": "/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/providers/Microsoft.Web/locations/centralus/managedApis/testManagedApi"
+                  },
+                  "customParameterValues": {},
+                  "displayName": "testManagedApi",
+                  "parameterValues": {}
+                }
+              },
+              "connectionName": "testManagedApi",
+              "resourceGroupName": "testResourceGroup",
+              "subscriptionId": "34adfa4f-cedf-4dc0-ba29-b6d1a69ab345"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "id": "/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Web/connections/testManagedApi-1",
+                  "location": "centralus",
+                  "name": "testManagedApi-1",
+                  "properties": {
+                    "api": {
+                      "brandColor": "#FFFFFF",
+                      "description": "",
+                      "displayName": "testManagedApi",
+                      "iconUri": "https://tempuri.org/icons.png",
+                      "id": "/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/providers/Microsoft.Web/locations/centralus/managedApis/testManagedApi",
+                      "name": "testManagedApi",
+                      "type": "Microsoft.Web/locations/managedApis"
+                    },
+                    "changedTime": "2017-06-22T01:32:27.50212Z",
+                    "createdTime": "2017-06-22T01:32:27.50212Z",
+                    "customParameterValues": {},
+                    "displayName": "testManagedApi",
+                    "nonSecretParameterValues": {
+                      "integrationAccountId": "/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationAccounts/testIntegrationAccount"
+                    },
+                    "statuses": [
+                      {
+                        "status": "Connected"
+                      }
+                    ],
+                    "testLinks": [
+                      {
+                        "method": "get",
+                        "requestUri": "https://tempuri.org/testconnection"
+                      }
+                    ]
+                  },
+                  "type": "Microsoft.Web/connections"
+                }
+              },
+              "201": {
+                "body": {
+                  "id": "/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Web/connections/testManagedApi-1",
+                  "location": "centralus",
+                  "name": "testManagedApi-1",
+                  "properties": {
+                    "api": {
+                      "brandColor": "#FFFFFF",
+                      "description": "",
+                      "displayName": "testManagedApi",
+                      "iconUri": "https://tempuri.org/icons.png",
+                      "id": "/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/providers/Microsoft.Web/locations/centralus/managedApis/testManagedApi",
+                      "name": "testManagedApi",
+                      "type": "Microsoft.Web/locations/managedApis"
+                    },
+                    "changedTime": "2017-06-22T01:32:27.50212Z",
+                    "createdTime": "2017-06-22T01:32:27.50212Z",
+                    "customParameterValues": {},
+                    "displayName": "testManagedApi",
+                    "nonSecretParameterValues": {
+                      "integrationAccountId": "/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationAccounts/testIntegrationAccount"
+                    },
+                    "statuses": [
+                      {
+                        "status": "Connected"
+                      }
+                    ],
+                    "testLinks": [
+                      {
+                        "method": "get",
+                        "requestUri": "https://tempuri.org/testconnection"
+                      }
+                    ]
+                  },
+                  "type": "Microsoft.Web/connections"
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/connections/{connectionName}/confirmConsentCode": {
       "post": {
-        "description": "Confirms consent code of a connection.",
+        "description": "Confirms consent code of a connection",
         "operationId": "Connections_ConfirmConsentCode",
         "parameters": [
           {
             "$ref": "#/parameters/subscriptionIdParameter"
           },
           {
-            "description": "The resource group name.",
-            "in": "path",
-            "name": "resourceGroupName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/resourceGroupNameParameter"
           },
           {
-            "description": "The connection name.",
-            "in": "path",
-            "name": "connectionName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/connectionNameParameter"
+          },
+          {
+            "$ref": "#/parameters/confirmConsentCodeParameter"
           },
           {
             "$ref": "#/parameters/apiVersionParameter"
-          },
-          {
-            "description": "The content.",
-            "in": "body",
-            "name": "content",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/ConfirmConsentCodeInput"
-            }
           }
         ],
         "responses": {
           "200": {
-            "description": "OK",
+            "description": "Confirmation of the consent code",
             "schema": {
-              "$ref": "#/definitions/Connection"
+              "$ref": "#/definitions/ConfirmConsentCodeDefinition"
             }
           }
         },
+        "summary": "Confirms the consent code for a connection",
         "tags": [
           "Connections"
-        ]
-      }
-    },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/connections/{connectionName}/listConnectionKeys": {
-      "post": {
-        "description": "Lists connection keys.",
-        "operationId": "Connections_ListConnectionKeys",
-        "parameters": [
-          {
-            "$ref": "#/parameters/subscriptionIdParameter"
-          },
-          {
-            "description": "The resource group name.",
-            "in": "path",
-            "name": "resourceGroupName",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The connection name.",
-            "in": "path",
-            "name": "connectionName",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "$ref": "#/parameters/apiVersionParameter"
-          },
-          {
-            "description": "The content.",
-            "in": "body",
-            "name": "content",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/ListConnectionKeysInput"
-            }
-          }
         ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/ConnectionSecrets"
+        "x-ms-examples": {
+          "Confirm consent code": {
+            "parameters": {
+              "api-version": "2016-06-01",
+              "confirmConsentCode": {
+                "code": "testCode",
+                "objectId": "objectId",
+                "tenantId": "tenantId"
+              },
+              "connectionName": "testManagedApi",
+              "resourceGroupName": "testResourceGroup",
+              "subscriptionId": "34adfa4f-cedf-4dc0-ba29-b6d1a69ab345"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "code": "testCode",
+                  "objectId": "objectId",
+                  "tenantId": "tenantId"
+                }
+              }
             }
           }
-        },
-        "tags": [
-          "Connections"
-        ]
+        }
       }
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/connections/{connectionName}/listConsentLinks": {
       "post": {
-        "description": "Lists consent links of a connection.",
+        "description": "Lists the consent links of a connection",
         "operationId": "Connections_ListConsentLinks",
         "parameters": [
           {
             "$ref": "#/parameters/subscriptionIdParameter"
           },
           {
-            "description": "The resource group name.",
-            "in": "path",
-            "name": "resourceGroupName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/resourceGroupNameParameter"
           },
           {
-            "description": "The connection name.",
-            "in": "path",
-            "name": "connectionName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/connectionNameParameter"
+          },
+          {
+            "$ref": "#/parameters/listConsentLinkParameter"
+          },
+          {
+            "$ref": "#/parameters/apiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of the consent links",
+            "schema": {
+              "$ref": "#/definitions/ConsentLinkCollection"
+            }
+          }
+        },
+        "summary": "Lists consent links for a connection",
+        "tags": [
+          "Connections"
+        ],
+        "x-ms-examples": {
+          "List consent links": {
+            "parameters": {
+              "api-version": "2016-06-01",
+              "connectionName": "testManagedApi",
+              "listConsentLink": {
+                "parameters": {
+                  "objectId": "objectId",
+                  "parameterName": "token",
+                  "redirectUrl": "https://my.redirect.url/login",
+                  "tenantId": "tenantId"
+                }
+              },
+              "resourceGroupName": "testResourceGroup",
+              "subscriptionId": "34adfa4f-cedf-4dc0-ba29-b6d1a69ab345"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "value": [
+                    {
+                      "link": "tempuri.org/testConsentLink"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/customApis": {
+      "get": {
+        "description": "Gets a list of all custom APIs in a subscription for a specific resource group",
+        "operationId": "CustomApis_ListByResourceGroup",
+        "parameters": [
+          {
+            "$ref": "#/parameters/subscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/resourceGroupNameParameter"
           },
           {
             "$ref": "#/parameters/apiVersionParameter"
           },
           {
-            "description": "The content.",
-            "in": "body",
-            "name": "content",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/ConsentLinkInput"
-            }
+            "$ref": "#/parameters/pageSizeParameter"
+          },
+          {
+            "$ref": "#/parameters/skipTokenParameter"
           }
         ],
         "responses": {
           "200": {
-            "description": "OK",
+            "description": "A list of custom APIs",
             "schema": {
-              "$ref": "#/definitions/ConsentLinkPayload"
+              "$ref": "#/definitions/CustomApiDefinitionCollection"
             }
           }
         },
+        "summary": "List of custom APIs",
         "tags": [
-          "Connections"
-        ]
+          "Custom APIs"
+        ],
+        "x-ms-examples": {
+          "List all custom APIs": {
+            "parameters": {
+              "api-version": "2016-06-01",
+              "resourceGroupName": "testResourceGroup",
+              "subscriptionId": "34adfa4f-cedf-4dc0-ba29-b6d1a69ab345"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "value": [
+                    {
+                      "id": "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testResourceGroup/providers/Microsoft.Web/customApis/testRestCustomApi",
+                      "location": "northcentralus",
+                      "name": "testCustomApi",
+                      "properties": {
+                        "apiDefinitions": {
+                          "modifiedSwaggerUrl": "https://tempuri.org/modified.json",
+                          "originalSwaggerUrl": "https://tempuri.org/swagger.json"
+                        },
+                        "apiType": "Rest",
+                        "capabilities": [],
+                        "description": "",
+                        "displayName": "testCustomApi",
+                        "iconUri": "/testIcon.svg",
+                        "runtimeUrls": [
+                          "https://tempuri.org",
+                          "http://tempuri.org"
+                        ]
+                      },
+                      "type": "Microsoft.Web/customApis"
+                    },
+                    {
+                      "id": "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testResourceGroup/providers/Microsoft.Web/customApis/testSoapCustomApi",
+                      "location": "northcentralus",
+                      "name": "testCustomApi",
+                      "properties": {
+                        "apiDefinitions": {
+                          "modifiedSwaggerUrl": "https://tempuri.org/modified.json",
+                          "originalSwaggerUrl": "https://tempuri.org/swagger.json"
+                        },
+                        "apiType": "Soap",
+                        "capabilities": [],
+                        "description": "",
+                        "displayName": "testCustomApi",
+                        "iconUri": "/testIcon.svg",
+                        "runtimeUrls": [
+                          "https://tempuri.org",
+                          "http://tempuri.org"
+                        ],
+                        "wsdlDefinition": {
+                          "importMethod": "SoapToRest",
+                          "service": {
+                            "endpointQualifiedNames": [
+                              "http://tempuri.org/basic",
+                              "http://tempuri.org/ws"
+                            ],
+                            "qualifiedName": "http://tempuri.org/testSoapCustomApi"
+                          }
+                        }
+                      },
+                      "type": "Microsoft.Web/customApis"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/customApis/{apiName}": {
+      "delete": {
+        "description": "Deletes a custom API from the resource group",
+        "operationId": "CustomApis_Delete",
+        "parameters": [
+          {
+            "$ref": "#/parameters/subscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/resourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/apiNameParameter"
+          },
+          {
+            "$ref": "#/parameters/apiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully deleted the custom API"
+          },
+          "204": {
+            "description": "No custom API to delete"
+          }
+        },
+        "summary": "Delete a custom API",
+        "tags": [
+          "Custom APIs"
+        ],
+        "x-ms-examples": {
+          "Delete a custom API": {
+            "parameters": {
+              "api-version": "2016-06-01",
+              "apiName": "testCustomApi",
+              "customApi": {
+                "tags": {
+                  "sampleTagKey": "sampleTagValue"
+                }
+              },
+              "resourceGroupName": "testResourceGroup",
+              "subscriptionId": "34adfa4f-cedf-4dc0-ba29-b6d1a69ab345"
+            },
+            "responses": {
+              "200": {},
+              "204": {}
+            }
+          }
+        }
+      },
+      "get": {
+        "description": "Gets a custom API by name for a specific subscription and resource group",
+        "operationId": "CustomApis_Get",
+        "parameters": [
+          {
+            "$ref": "#/parameters/subscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/resourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/apiNameParameter"
+          },
+          {
+            "$ref": "#/parameters/apiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A custom API",
+            "schema": {
+              "$ref": "#/definitions/CustomApiDefinition"
+            }
+          }
+        },
+        "summary": "Get a custom API",
+        "tags": [
+          "Custom APIs"
+        ],
+        "x-ms-examples": {
+          "Get a custom API": {
+            "parameters": {
+              "api-version": "2016-06-01",
+              "apiName": "testCustomApi",
+              "resourceGroupName": "testResourceGroup",
+              "subscriptionId": "34adfa4f-cedf-4dc0-ba29-b6d1a69ab345"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "id": "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testResourceGroup/providers/Microsoft.Web/customApis/testCustomApi",
+                  "location": "northcentralus",
+                  "name": "testCustomApi",
+                  "properties": {
+                    "apiDefinitions": {
+                      "modifiedSwaggerUrl": "https://tempuri.org/modified.json",
+                      "originalSwaggerUrl": "https://tempuri.org/swagger.json"
+                    },
+                    "apiType": "Rest",
+                    "capabilities": [
+                      "testCapability"
+                    ],
+                    "description": "",
+                    "displayName": "testCustomApi",
+                    "iconUri": "/testIcon.svg",
+                    "runtimeUrls": [
+                      "https://tempuri.org",
+                      "http://tempuri.org"
+                    ],
+                    "wsdlDefinition": {}
+                  },
+                  "type": "Microsoft.Web/customApis"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "description": "Updates an existing custom API's tags",
+        "operationId": "CustomApis_Update",
+        "parameters": [
+          {
+            "$ref": "#/parameters/subscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/resourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/apiNameParameter"
+          },
+          {
+            "$ref": "#/parameters/customApiParameter"
+          },
+          {
+            "$ref": "#/parameters/apiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The updated custom API",
+            "schema": {
+              "$ref": "#/definitions/CustomApiDefinition"
+            }
+          }
+        },
+        "summary": "Update an existing custom API",
+        "tags": [
+          "Custom APIs"
+        ],
+        "x-ms-examples": {
+          "Update a custom API's tags": {
+            "parameters": {
+              "api-version": "2016-06-01",
+              "apiName": "testCustomApi",
+              "customApi": {
+                "tags": {
+                  "sampleTagKey": "sampleTagValue"
+                }
+              },
+              "resourceGroupName": "testResourceGroup",
+              "subscriptionId": "34adfa4f-cedf-4dc0-ba29-b6d1a69ab345"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "id": "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testResourceGroup/providers/Microsoft.Web/customApis/testCustomApi",
+                  "location": "northcentralus",
+                  "name": "testCustomApi",
+                  "properties": {
+                    "apiDefinitions": {
+                      "modifiedSwaggerUrl": "https://tempuri.org/modified.json",
+                      "originalSwaggerUrl": "https://tempuri.org/swagger.json"
+                    },
+                    "apiType": "Rest",
+                    "capabilities": [],
+                    "description": "",
+                    "displayName": "testCustomApi",
+                    "iconUri": "/testIcon.svg",
+                    "runtimeUrls": [
+                      "https://tempuri.org",
+                      "http://tempuri.org"
+                    ],
+                    "wsdlDefinition": {}
+                  },
+                  "tags": {
+                    "sampleTagKey": "sampleTagValue"
+                  },
+                  "type": "Microsoft.Web/customApis"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "description": "Creates or updates an existing custom API",
+        "operationId": "CustomApis_CreateOrUpdate",
+        "parameters": [
+          {
+            "$ref": "#/parameters/subscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/resourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/apiNameParameter"
+          },
+          {
+            "$ref": "#/parameters/customApiParameter"
+          },
+          {
+            "$ref": "#/parameters/apiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The replacing custom API",
+            "schema": {
+              "$ref": "#/definitions/CustomApiDefinition"
+            }
+          }
+        },
+        "summary": "Replaces an existing custom API",
+        "tags": [
+          "Custom APIs"
+        ],
+        "x-ms-examples": {
+          "Replace a custom API": {
+            "parameters": {
+              "api-version": "2016-06-01",
+              "apiName": "testCustomApi",
+              "customApi": {
+                "id": "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testResourceGroup/providers/Microsoft.Web/customApis/testCustomApi",
+                "properties": {
+                  "apiDefinitions": {
+                    "originalSwaggerUrl": "https://tempuri.org/swagger.json",
+                    "swagger": {}
+                  },
+                  "apiType": "Rest",
+                  "capabilities": [],
+                  "description": "",
+                  "displayName": "testCustomApi",
+                  "iconUri": "/testIcon.svg"
+                }
+              },
+              "resourceGroupName": "testResourceGroup",
+              "subscriptionId": "34adfa4f-cedf-4dc0-ba29-b6d1a69ab345"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "id": "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testResourceGroup/providers/Microsoft.Web/customApis/testCustomApi",
+                  "location": "northcentralus",
+                  "name": "testCustomApi",
+                  "properties": {
+                    "apiDefinitions": {
+                      "modifiedSwaggerUrl": "https://tempuri.org/modified.json",
+                      "originalSwaggerUrl": "https://tempuri.org/swagger.json"
+                    },
+                    "apiType": "Rest",
+                    "capabilities": [],
+                    "description": "",
+                    "displayName": "testCustomApi",
+                    "iconUri": "/testIcon.svg",
+                    "runtimeUrls": [
+                      "https://tempuri.org",
+                      "http://tempuri.org"
+                    ],
+                    "wsdlDefinition": {}
+                  },
+                  "type": "Microsoft.Web/customApis"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/customApis/{apiName}/move": {
+      "post": {
+        "description": "Moves a specific custom API",
+        "operationId": "CustomApis_Move",
+        "parameters": [
+          {
+            "$ref": "#/parameters/subscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/resourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/apiNameParameter"
+          },
+          {
+            "$ref": "#/parameters/customApiReferenceParameter"
+          },
+          {
+            "$ref": "#/parameters/apiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "custom API successfully moved"
+          }
+        },
+        "summary": "Moves the custom API",
+        "tags": [
+          "Custom APIs"
+        ],
+        "x-ms-examples": {
+          "Move a custom API": {
+            "parameters": {
+              "api-version": "2016-06-01",
+              "apiName": "testCustomApi",
+              "customApiReference": {
+                "id": "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourcegroups/testResourceGroup/providers/Microsoft.Web/customApis/testCustomApi"
+              },
+              "resourceGroupName": "testResourceGroup",
+              "subscriptionId": "34adfa4f-cedf-4dc0-ba29-b6d1a69ab345"
+            },
+            "responses": {
+              "200": {}
+            }
+          }
+        }
       }
     }
   },
   "definitions": {
-    "ApiEntity": {
+    "ApiConnectionDefinition": {
+      "additionalProperties": false,
       "allOf": [
         {
-          "$ref": "#/definitions/Resource"
+          "$ref": "#/definitions/ResourceDefinition"
         }
       ],
-      "description": "API Management",
+      "description": "API connection",
       "properties": {
         "properties": {
           "properties": {
-            "apiDefinitionUrl": {
-              "description": "Api definition Url - url where the swagger can be downloaded from",
-              "type": "string"
-            },
-            "backendService": {
-              "$ref": "#/definitions/BackendServiceDefinition",
-              "description": "Backend service definition"
-            },
-            "capabilities": {
-              "description": "Capabilities",
-              "items": {
-                "type": "string"
-              },
-              "type": "array"
+            "api": {
+              "$ref": "#/definitions/ApiReference"
             },
             "changedTime": {
-              "description": "Timestamp of last connection change.",
+              "description": "Timestamp of last connection change",
               "format": "date-time",
               "type": "string"
-            },
-            "connectionParameters": {
-              "additionalProperties": {
-                "$ref": "#/definitions/ConnectionParameter"
-              },
-              "description": "Connection parameters",
-              "type": "object"
             },
             "createdTime": {
               "description": "Timestamp of the connection creation",
               "format": "date-time",
               "type": "string"
             },
-            "generalInformation": {
-              "$ref": "#/definitions/GeneralApiInformation",
-              "description": "the URL path of this API when exposed via APIM"
-            },
-            "metadata": {
-              "$ref": "#/definitions/Object",
-              "description": "Free form object for the data caller wants to store"
-            },
-            "name": {
-              "description": "Name of the API\r\n            the URL path of this API when exposed via APIM",
-              "type": "string"
-            },
-            "path": {
-              "description": "the URL path of this API when exposed via APIM",
-              "type": "string"
-            },
-            "policies": {
-              "$ref": "#/definitions/ApiPolicies",
-              "description": "Api polcies"
-            },
-            "protocols": {
-              "description": "Protocols supported by the front end - http/https",
-              "items": {
+            "customParameterValues": {
+              "additionalProperties": {
                 "type": "string"
+              },
+              "description": "Dictionary of custom parameter values",
+              "type": "object"
+            },
+            "displayName": {
+              "description": "Display name",
+              "type": "string"
+            },
+            "nonSecretParameterValues": {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "description": "Dictionary of nonsecret parameter values",
+              "type": "object"
+            },
+            "parameterValues": {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "description": "Dictionary of parameter values",
+              "type": "object"
+            },
+            "statuses": {
+              "description": "Status of the connection",
+              "items": {
+                "$ref": "#/definitions/ConnectionStatusDefinition"
               },
               "type": "array"
             },
-            "runtimeUrls": {
-              "description": "Read only property returning the runtime endpoints where the API can be called",
+            "testLinks": {
+              "description": "Links to test the API connection",
               "items": {
-                "type": "string"
+                "$ref": "#/definitions/ApiConnectionTestLink"
               },
               "type": "array"
             }
+          }
+        }
+      },
+      "type": "object"
+    },
+    "ApiConnectionDefinitionCollection": {
+      "description": "A list of API connection definitions",
+      "properties": {
+        "value": {
+          "description": "Collection of API connections",
+          "items": {
+            "$ref": "#/definitions/ApiConnectionDefinition"
           },
-          "x-ms-client-flatten": true
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "ApiConnectionTestLink": {
+      "additionalProperties": false,
+      "description": "API connection properties",
+      "properties": {
+        "method": {
+          "description": "HTTP Method",
+          "type": "string"
+        },
+        "requestUri": {
+          "description": "Test link request URI",
+          "type": "string"
         }
       },
       "type": "object"
     },
     "ApiOAuthSettings": {
-      "description": "OAuth settings for the conenction provider",
+      "description": "OAuth settings for the connection provider",
       "properties": {
         "clientId": {
           "description": "Resource provider client id",
@@ -590,8 +2303,8 @@
           "type": "string"
         },
         "properties": {
-          "$ref": "#/definitions/Object",
-          "description": "Read only properties for this oauth setting."
+          "description": "Read only properties for this oauth setting.",
+          "type": "object"
         },
         "redirectUrl": {
           "description": "Url",
@@ -608,253 +2321,242 @@
       "type": "object"
     },
     "ApiOAuthSettingsParameter": {
-      "description": "OAuth Settings Parameter",
+      "description": "OAuth settings for the API",
       "properties": {
         "options": {
-          "$ref": "#/definitions/Object",
-          "description": "Read only: Options available to this parameter"
+          "description": "Options available to this parameter",
+          "type": "object"
         },
         "uiDefinition": {
-          "$ref": "#/definitions/Object",
-          "description": "UI definitions per culture as caller can specify the culture"
+          "description": "UI definitions per culture as caller can specify the culture",
+          "type": "object"
         },
         "value": {
-          "description": "Value",
+          "description": "Value of the setting",
           "type": "string"
         }
       },
       "type": "object"
     },
-    "ApiPolicies": {
+    "ApiReference": {
+      "additionalProperties": false,
       "allOf": [
         {
-          "$ref": "#/definitions/Resource"
+          "$ref": "#/definitions/ResourceReference"
         }
       ],
-      "description": "Api policies",
       "properties": {
-        "properties": {
-          "properties": {
-            "content": {
-              "description": "Content of xml policy",
-              "type": "string"
-            }
-          },
-          "x-ms-client-flatten": true
-        }
-      },
-      "type": "object"
-    },
-    "ApisCollection": {
-      "description": "Collection of Apis",
-      "properties": {
-        "nextLink": {
-          "description": "Link to next page of resources",
+        "brandColor": {
+          "description": "Brand color",
           "type": "string"
         },
-        "value": {
-          "description": "Collection of resources",
-          "items": {
-            "$ref": "#/definitions/ApiEntity"
-          },
-          "type": "array"
-        }
-      },
-      "type": "object"
-    },
-    "ArmPlan": {
-      "description": "The plan object in an ARM, represents a marketplace plan",
-      "properties": {
+        "description": {
+          "description": "The custom API description",
+          "type": "string"
+        },
+        "displayName": {
+          "description": "The display name",
+          "type": "string"
+        },
+        "iconUri": {
+          "description": "The icon URI",
+          "type": "string"
+        },
         "name": {
-          "description": "The name",
+          "description": "The name of the API",
           "type": "string"
         },
-        "product": {
-          "description": "The product",
-          "type": "string"
-        },
-        "promotionCode": {
-          "description": "The promotion code",
-          "type": "string"
-        },
-        "publisher": {
-          "description": "The publisher",
-          "type": "string"
-        },
-        "version": {
-          "description": "Version of product",
+        "swagger": {
+          "description": "The JSON representation of the swagger",
+          "type": "object"
+        }
+      },
+      "type": "object",
+      "x-abstract": true
+    },
+    "ApiResourceBackendService": {
+      "additionalProperties": false,
+      "description": "The API backend service",
+      "properties": {
+        "serviceUrl": {
+          "description": "The service URL",
           "type": "string"
         }
       },
       "type": "object"
     },
-    "BackendServiceDefinition": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/Resource"
-        }
-      ],
-      "description": "API definitions with backend urls",
+    "ApiResourceDefinitions": {
+      "additionalProperties": false,
+      "description": "API Definitions",
       "properties": {
-        "properties": {
-          "properties": {
-            "hostingEnvironmentServiceUrls": {
-              "description": "Service Urls per Hosting environment",
-              "items": {
-                "$ref": "#/definitions/HostingEnvironmentServiceDescriptions"
-              },
-              "type": "array"
-            },
-            "serviceUrl": {
-              "description": "Url from which the swagger payload will be fetched",
-              "type": "string"
-            }
-          },
-          "x-ms-client-flatten": true
-        }
-      },
-      "type": "object"
-    },
-    "ConfirmConsentCodeInput": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/Resource"
-        }
-      ],
-      "description": "Confirm Consent Code Input payload",
-      "properties": {
-        "properties": {
-          "properties": {
-            "code": {
-              "description": "Code that was returned during consent flow",
-              "type": "string"
-            },
-            "objectId": {
-              "description": "AAD object ID. This is userId",
-              "type": "string"
-            },
-            "principalType": {
-              "description": "Principal type",
-              "enum": [
-                "ActiveDirectory",
-                "Connection",
-                "MicrosoftAccount"
-              ],
-              "type": "string",
-              "x-ms-enum": {
-                "modelAsString": false,
-                "name": "PrincipalType"
-              }
-            },
-            "tenantId": {
-              "description": "Tenant Id",
-              "type": "string"
-            }
-          },
-          "x-ms-client-flatten": true
-        }
-      },
-      "type": "object"
-    },
-    "Connection": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/Resource"
-        }
-      ],
-      "description": "Api Connection",
-      "properties": {
-        "properties": {
-          "properties": {
-            "api": {
-              "$ref": "#/definitions/ExpandedParent[ApiEntity]",
-              "description": "expanded connection provider name"
-            },
-            "changedTime": {
-              "description": "Timestamp of last connection change.",
-              "format": "date-time",
-              "type": "string"
-            },
-            "createdTime": {
-              "description": "Timestamp of the connection creation",
-              "format": "date-time",
-              "type": "string"
-            },
-            "customParameterValues": {
-              "additionalProperties": {
-                "$ref": "#/definitions/ParameterCustomLoginSettingValues"
-              },
-              "description": "Custom login setting values.",
-              "type": "object"
-            },
-            "displayName": {
-              "description": "display name",
-              "type": "string"
-            },
-            "firstExpirationTime": {
-              "description": "Time in UTC when the first expiration of OAuth tokens",
-              "format": "date-time",
-              "type": "string"
-            },
-            "keywords": {
-              "description": "List of Keywords that tag the acl",
-              "items": {
-                "type": "string"
-              },
-              "type": "array"
-            },
-            "metadata": {
-              "$ref": "#/definitions/Object",
-              "description": ""
-            },
-            "name": {
-              "description": "connection name",
-              "type": "string"
-            },
-            "nonSecretParameterValues": {
-              "additionalProperties": {
-                "$ref": "#/definitions/Object"
-              },
-              "description": "Tokens/Claim",
-              "type": "object"
-            },
-            "parameterValues": {
-              "additionalProperties": {
-                "$ref": "#/definitions/Object"
-              },
-              "description": "Tokens/Claim",
-              "type": "object"
-            },
-            "statuses": {
-              "description": "Status of the connection",
-              "items": {
-                "$ref": "#/definitions/ConnectionStatus"
-              },
-              "type": "array"
-            },
-            "tenantId": {
-              "description": "",
-              "type": "string"
-            }
-          },
-          "x-ms-client-flatten": true
-        }
-      },
-      "type": "object"
-    },
-    "ConnectionCollection": {
-      "description": "Collection of conenctions",
-      "properties": {
-        "nextLink": {
-          "description": "Link to next page of resources",
+        "modifiedSwaggerUrl": {
+          "description": "The modified swagger URL",
           "type": "string"
         },
-        "value": {
-          "description": "Collection of resources",
+        "originalSwaggerUrl": {
+          "description": "The original swagger URL",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "ApiResourceGeneralInformation": {
+      "additionalProperties": false,
+      "description": "General information about the API",
+      "properties": {
+        "description": {
+          "description": "The API description",
+          "type": "string"
+        },
+        "displayName": {
+          "description": "Display name",
+          "type": "string"
+        },
+        "iconUrl": {
+          "description": "The icon URL",
+          "type": "string"
+        },
+        "releaseTag": {
+          "description": "Release tag",
+          "type": "string"
+        },
+        "termsOfUseUrl": {
+          "description": "URL to the Terms of Use",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "ApiResourceMetadata": {
+      "additionalProperties": false,
+      "properties": {
+        "apiType": {
+          "$ref": "#/definitions/ApiType"
+        },
+        "brandColor": {
+          "description": "Brand color",
+          "type": "string"
+        },
+        "connectionType": {
+          "description": "The connection type",
+          "type": "string"
+        },
+        "hideKey": {
+          "description": "Hide key",
+          "type": "string"
+        },
+        "source": {
+          "description": "The source",
+          "type": "string"
+        },
+        "tags": {
+          "$ref": "#/definitions/TagsDictionary"
+        },
+        "wsdlImportMethod": {
+          "$ref": "#/definitions/WsdlImportMethod"
+        },
+        "wsdlService": {
+          "$ref": "#/definitions/WsdlService"
+        }
+      },
+      "type": "object"
+    },
+    "ApiResourcePolicies": {
+      "additionalProperties": false,
+      "description": "Describes the API policies either as embedded content or as a link to uploaded content",
+      "properties": {
+        "content": {
+          "description": "API level policies as XML",
+          "type": "string"
+        },
+        "contentLink": {
+          "description": "Link to the JSON of the policies",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "ApiResourceProperties": {
+      "additionalProperties": false,
+      "description": "API resource properties",
+      "properties": {
+        "apiDefinitionUrl": {
+          "description": "URL where the swagger can be downloaded from",
+          "type": "string"
+        },
+        "apiDefinitions": {
+          "$ref": "#/definitions/ApiResourceDefinitions"
+        },
+        "backendService": {
+          "$ref": "#/definitions/ApiResourceBackendService"
+        },
+        "capabilities": {
+          "description": "The managed API capabilities",
           "items": {
-            "$ref": "#/definitions/Connection"
+            "type": "string"
           },
           "type": "array"
+        },
+        "connectionParameters": {
+          "additionalProperties": {
+            "$ref": "#/definitions/ConnectionParameter"
+          },
+          "description": "Connection parameters",
+          "type": "object"
+        },
+        "generalInformation": {
+          "$ref": "#/definitions/ApiResourceGeneralInformation"
+        },
+        "metadata": {
+          "$ref": "#/definitions/ApiResourceMetadata"
+        },
+        "name": {
+          "type": "string"
+        },
+        "policies": {
+          "$ref": "#/definitions/ApiResourcePolicies"
+        },
+        "runtimeUrls": {
+          "description": "Runtime URLs",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "swagger": {
+          "description": "The JSON representation of the swagger",
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "ApiType": {
+      "description": "The API type",
+      "enum": [
+        "NotSpecified",
+        "Rest",
+        "Soap"
+      ],
+      "type": "string",
+      "x-ms-enum": {
+        "modelAsString": true,
+        "name": "ApiType"
+      }
+    },
+    "ConfirmConsentCodeDefinition": {
+      "description": "Confirm consent code request",
+      "properties": {
+        "code": {
+          "description": "Code that was returned during consent flow",
+          "type": "string"
+        },
+        "objectId": {
+          "description": "AAD object ID. This is userId",
+          "type": "string"
+        },
+        "tenantId": {
+          "description": "Tenant Id",
+          "type": "string"
         }
       },
       "type": "object"
@@ -862,7 +2564,7 @@
     "ConnectionError": {
       "allOf": [
         {
-          "$ref": "#/definitions/Resource"
+          "$ref": "#/definitions/ResourceDefinition"
         }
       ],
       "description": "Connection error",
@@ -870,7 +2572,7 @@
         "properties": {
           "properties": {
             "code": {
-              "description": "code of the status",
+              "description": "Code of the status",
               "type": "string"
             },
             "message": {
@@ -883,16 +2585,148 @@
       },
       "type": "object"
     },
-    "ConnectionParameter": {
-      "description": "connection provider parameters",
+    "ConnectionGatewayDefinition": {
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "$ref": "#/definitions/ResourceDefinition"
+        }
+      ],
+      "description": "The gateway definition",
       "properties": {
-        "defaultValue": {
-          "$ref": "#/definitions/Object",
-          "description": "Default parameter value"
+        "properties": {
+          "properties": {
+            "backendUri": {
+              "description": "The URI of the backend",
+              "type": "string"
+            },
+            "connectionGatewayInstallation": {
+              "$ref": "#/definitions/ConnectionGatewayReference"
+            },
+            "contactInformation": {
+              "description": "The gateway admin",
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "description": {
+              "description": "The gateway description",
+              "type": "string"
+            },
+            "displayName": {
+              "description": "The gateway display name",
+              "type": "string"
+            },
+            "machineName": {
+              "description": "The machine name of the gateway",
+              "type": "string"
+            },
+            "status": {
+              "description": "The gateway status",
+              "type": "object"
+            }
+          }
+        }
+      },
+      "type": "object"
+    },
+    "ConnectionGatewayDefinitionCollection": {
+      "description": "A list of connection gateway definitions",
+      "properties": {
+        "value": {
+          "description": "Collection of connection gateways",
+          "items": {
+            "$ref": "#/definitions/ConnectionGatewayDefinition"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "ConnectionGatewayInstallationDefinition": {
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "$ref": "#/definitions/ResourceDefinition"
+        }
+      ],
+      "description": "The gateway installation",
+      "properties": {
+        "properties": {
+          "properties": {
+            "backendUri": {
+              "description": "The URI of the backend",
+              "type": "string"
+            },
+            "connectionGateway": {
+              "$ref": "#/definitions/ConnectionGatewayReference"
+            },
+            "contactInformation": {
+              "description": "The gateway admin",
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "description": {
+              "description": "The gateway description",
+              "type": "string"
+            },
+            "displayName": {
+              "description": "The gateway display name",
+              "type": "string"
+            },
+            "machineName": {
+              "description": "The machine name of the gateway",
+              "type": "string"
+            },
+            "status": {
+              "description": "The gateway status",
+              "type": "object"
+            }
+          }
+        }
+      },
+      "type": "object"
+    },
+    "ConnectionGatewayInstallationDefinitionCollection": {
+      "description": "A list of connection gateway installation definitions",
+      "properties": {
+        "value": {
+          "description": "Collection of connection gateway installations",
+          "items": {
+            "$ref": "#/definitions/ConnectionGatewayInstallationDefinition"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "ConnectionGatewayReference": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/ResourceReference"
+        }
+      ],
+      "description": "The gateway installation reference",
+      "properties": {
+        "location": {
+          "description": "Resource reference location",
+          "type": "string"
         },
+        "name": {
+          "description": "Resource reference name",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "ConnectionParameter": {
+      "description": "Connection provider parameters",
+      "properties": {
         "oAuthSettings": {
-          "$ref": "#/definitions/ApiOAuthSettings",
-          "description": "Settings defining OAuth flow for the back end provider"
+          "$ref": "#/definitions/ApiOAuthSettings"
         },
         "type": {
           "description": "Type of the parameter",
@@ -912,72 +2746,53 @@
             "modelAsString": false,
             "name": "ConnectionParameterType"
           }
-        },
-        "uiDefinition": {
-          "$ref": "#/definitions/Object",
-          "description": "UI definitions"
         }
       },
       "type": "object"
     },
-    "ConnectionSecrets": {
-      "description": "",
-      "properties": {
-        "connectionKey": {
-          "description": "Connection Key",
-          "type": "string"
-        },
-        "parameterValues": {
-          "additionalProperties": {
-            "$ref": "#/definitions/Object"
-          },
-          "description": "Tokens/Claim",
-          "type": "object"
-        }
-      },
-      "type": "object"
-    },
-    "ConnectionStatus": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/Resource"
-        }
-      ],
+    "ConnectionStatusDefinition": {
       "description": "Connection status",
       "properties": {
-        "properties": {
-          "properties": {
-            "error": {
-              "$ref": "#/definitions/ConnectionError",
-              "description": "Error details"
-            },
-            "status": {
-              "description": "Status",
-              "type": "string"
-            },
-            "target": {
-              "description": "Target of the error",
-              "type": "string"
-            }
-          },
-          "x-ms-client-flatten": true
+        "error": {
+          "$ref": "#/definitions/ConnectionError"
+        },
+        "status": {
+          "description": "The gateway status",
+          "type": "string"
+        },
+        "target": {
+          "description": "Target of the error",
+          "type": "string"
         }
       },
       "type": "object"
     },
-    "ConsentLink": {
-      "description": "",
+    "ConsentLinkCollection": {
+      "description": "Collection of consent links",
+      "properties": {
+        "value": {
+          "description": "Collection of resources",
+          "items": {
+            "$ref": "#/definitions/ConsentLinkDefinition"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "ConsentLinkDefinition": {
+      "description": "A consent link",
       "properties": {
         "displayName": {
-          "description": "Display Name of the parameter in the connection provider's oauthSettings",
+          "description": "Display name of the parameter in the connection provider's OAuth settings",
           "type": "string"
         },
         "firstPartyLoginUri": {
-          "description": "Uri for first party login",
+          "description": "URI for first party login",
           "type": "string"
         },
         "link": {
-          "description": "Uri for the consent link",
+          "description": "URI for the consent link",
           "type": "string"
         },
         "status": {
@@ -989,202 +2804,150 @@
           ],
           "type": "string",
           "x-ms-enum": {
-            "modelAsString": false,
+            "modelAsString": true,
             "name": "LinkState"
           }
         }
       },
       "type": "object"
     },
-    "ConsentLinkInput": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/Resource"
-        }
-      ],
-      "description": "Connection Constent Link payload",
-      "properties": {
-        "properties": {
-          "properties": {
-            "parameters": {
-              "description": "Array of links",
-              "items": {
-                "$ref": "#/definitions/ConsentLinkInputParameter"
-              },
-              "type": "array"
-            }
-          },
-          "x-ms-client-flatten": true
-        }
-      },
-      "type": "object"
-    },
-    "ConsentLinkInputParameter": {
-      "description": "",
+    "ConsentLinkParameterDefinition": {
+      "description": "Consent link definition",
       "properties": {
         "objectId": {
-          "description": "AAD OID (user or group) if the principal type is ActiveDirectory.\r\n            MSA PUID if the principal type is MicrosoftAccount.",
+          "description": "AAD OID (user or group) if the principal type is ActiveDirectory. MSA PUID if the principal type is MicrosoftAccount",
           "type": "string"
         },
         "parameterName": {
-          "description": "Name of the parameter in the connection provider's oauthSettings",
+          "description": "Name of the parameter in the connection provider's OAuth settings",
           "type": "string"
         },
-        "principalType": {
-          "description": "Principal type",
-          "enum": [
-            "ActiveDirectory",
-            "Connection",
-            "MicrosoftAccount"
-          ],
-          "type": "string",
-          "x-ms-enum": {
-            "modelAsString": false,
-            "name": "PrincipalType"
-          }
-        },
         "redirectUrl": {
-          "description": "Name of the parameter in the connection provider's oauthSettings",
+          "description": "Name of the parameter in the connection provider's OAuth settings",
           "type": "string"
         },
         "tenantId": {
-          "description": "Tenant Id",
+          "description": "The tenant id",
           "type": "string"
         }
       },
       "type": "object"
     },
-    "ConsentLinkPayload": {
-      "description": "Collection of consent links",
+    "CustomApiDefinition": {
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "$ref": "#/definitions/ResourceDefinition"
+        }
+      ],
+      "description": "A custom API",
+      "properties": {
+        "properties": {
+          "$ref": "#/definitions/CustomApiPropertiesDefinition"
+        }
+      },
+      "type": "object"
+    },
+    "CustomApiDefinitionCollection": {
+      "description": "A list of custom API definitions",
       "properties": {
         "value": {
-          "description": "Collection of resources",
+          "description": "Collection of custom APIs",
           "items": {
-            "$ref": "#/definitions/ConsentLink"
+            "$ref": "#/definitions/CustomApiDefinition"
           },
           "type": "array"
         }
       },
       "type": "object"
     },
-    "CustomLoginSettingValue": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/Resource"
-        }
-      ],
-      "description": "Custom logging setting value",
+    "CustomApiPropertiesDefinition": {
+      "additionalProperties": false,
+      "description": "Custom API properties",
       "properties": {
-        "properties": {
-          "properties": {
-            "option": {
-              "description": "Option selected for this custom login setting value",
-              "type": "string"
-            }
-          },
-          "x-ms-client-flatten": true
-        }
-      },
-      "type": "object"
-    },
-    "ExpandedParent[ApiEntity]": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/Resource"
-        }
-      ],
-      "description": "expanded parent object for expansion",
-      "properties": {
-        "properties": {
-          "properties": {
-            "entity": {
-              "$ref": "#/definitions/ResponseMessageEnvelope[ApiEntity]",
-              "description": "Id of connection provider"
-            },
-            "id": {
-              "description": "Id of connection provider",
-              "type": "string"
-            }
-          },
-          "x-ms-client-flatten": true
-        }
-      },
-      "type": "object"
-    },
-    "GeneralApiInformation": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/Resource"
-        }
-      ],
-      "description": "General API information",
-      "properties": {
-        "properties": {
-          "properties": {
-            "connectionDisplayName": {
-              "description": "DefaultConnectionNameTemplate",
-              "type": "string"
-            },
-            "connectionPortalUrl": {
-              "$ref": "#/definitions/Object",
-              "description": "ConnectionPortalUrl"
-            },
-            "description": {
-              "description": "Description",
-              "type": "string"
-            },
-            "displayName": {
-              "description": "Display Name",
-              "type": "string"
-            },
-            "iconUrl": {
-              "description": "Icon Url",
-              "type": "string"
-            },
-            "termsOfUseUrl": {
-              "description": "a public accessible url of the Terms Of Use Url of this API",
-              "type": "string"
-            }
-          },
-          "x-ms-client-flatten": true
-        }
-      },
-      "type": "object"
-    },
-    "HostingEnvironmentServiceDescriptions": {
-      "description": "Back end service per ASE",
-      "properties": {
-        "hostId": {
-          "description": "Host Id",
+        "apiDefinitions": {
+          "$ref": "#/definitions/ApiResourceDefinitions"
+        },
+        "apiType": {
+          "$ref": "#/definitions/ApiType"
+        },
+        "backendService": {
+          "$ref": "#/definitions/ApiResourceBackendService"
+        },
+        "brandColor": {
+          "description": "Brand color",
           "type": "string"
         },
-        "hostingEnvironmentId": {
-          "description": "Hosting environment Id",
+        "capabilities": {
+          "description": "The custom API capabilities",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "connectionParameters": {
+          "additionalProperties": {
+            "$ref": "#/definitions/ConnectionParameter"
+          },
+          "description": "Connection parameters",
+          "type": "object"
+        },
+        "description": {
+          "description": "The custom API description",
           "type": "string"
         },
-        "serviceUrl": {
-          "description": "service url to use",
+        "displayName": {
+          "description": "The display name",
           "type": "string"
         },
-        "useInternalRouting": {
-          "description": "When the backend url is in same ASE, for performance reason this flag can be set to true\r\n            If WebApp.DisableHostNames is also set it improves the security by making the back end accesible only \r\n            via API calls\r\n            Note: calls will fail if this option is used but back end is not on the same ASE",
-          "type": "boolean"
+        "iconUri": {
+          "description": "The icon URI",
+          "type": "string"
+        },
+        "runtimeUrls": {
+          "description": "Runtime URLs",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "swagger": {
+          "description": "The JSON representation of the swagger",
+          "type": "object"
+        },
+        "wsdlDefinition": {
+          "$ref": "#/definitions/WsdlDefinition"
         }
       },
       "type": "object"
     },
-    "ListConnectionKeysInput": {
+    "CustomApiReference": {
+      "additionalProperties": false,
       "allOf": [
         {
-          "$ref": "#/definitions/Resource"
+          "$ref": "#/definitions/ApiReference"
         }
       ],
-      "description": "List Connection Keys Input payload",
+      "description": "The custom API reference",
+      "properties": {
+        "name": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "ListConnectionKeysDefinition": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/ResourceDefinition"
+        }
+      ],
+      "description": "List connection keys",
       "properties": {
         "properties": {
           "properties": {
             "validityTimeSpan": {
-              "description": "time span for how long the keys will be valid",
+              "description": "Time span for how long the keys will be valid",
               "type": "string"
             }
           },
@@ -1193,132 +2956,170 @@
       },
       "type": "object"
     },
-    "Object": {
-      "properties": {},
-      "type": "object"
-    },
-    "ParameterCustomLoginSettingValues": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/Resource"
-        }
-      ],
-      "description": "Custom logging setting values",
+    "ListConsentLinksDefinition": {
+      "description": "Request for a list of consent links",
       "properties": {
-        "properties": {
-          "properties": {
-            "customParameters": {
-              "additionalProperties": {
-                "$ref": "#/definitions/CustomLoginSettingValue"
-              },
-              "description": "Custom parameters.",
-              "type": "object"
-            }
+        "parameters": {
+          "description": "Collection of resources",
+          "items": {
+            "$ref": "#/definitions/ConsentLinkParameterDefinition"
           },
-          "x-ms-client-flatten": true
+          "type": "array"
         }
       },
       "type": "object"
     },
-    "Resource": {
+    "ManagedApiDefinition": {
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "$ref": "#/definitions/ResourceDefinition"
+        }
+      ],
+      "description": "A managed API definition",
       "properties": {
-        "id": {
-          "description": "Resource Id",
+        "properties": {
+          "$ref": "#/definitions/ApiResourceProperties"
+        }
+      },
+      "type": "object"
+    },
+    "ManagedApiDefinitionCollection": {
+      "description": "A list of managed API definitions",
+      "properties": {
+        "value": {
+          "description": "Collection of managed APIs",
+          "items": {
+            "$ref": "#/definitions/ManagedApiDefinition"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "ResourceDefinition": {
+      "additionalProperties": false,
+      "description": "A resource",
+      "properties": {
+        "etag": {
+          "description": "Resource ETag",
           "type": "string"
         },
-        "kind": {
-          "description": "Kind of resource",
+        "id": {
+          "description": "Resource id",
+          "readOnly": true,
           "type": "string"
         },
         "location": {
-          "description": "Resource Location",
+          "description": "Resource location",
           "type": "string"
         },
         "name": {
-          "description": "Resource Name",
+          "description": "Resource name",
+          "readOnly": true,
           "type": "string"
         },
         "tags": {
-          "additionalProperties": {
-            "type": "string"
-          },
-          "description": "Resource tags",
-          "type": "object"
+          "$ref": "#/definitions/TagsDictionary"
         },
         "type": {
           "description": "Resource type",
+          "readOnly": true,
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "x-ms-azure-resource": true
+    },
+    "ResourceReference": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "description": "Resource reference id",
+          "type": "string"
+        },
+        "type": {
+          "description": "Resource reference type",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "x-abstract": true
+    },
+    "TagsDictionary": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "description": "Resource tags",
+      "example": {
+        "SampleTagName": "SampleTagValue"
+      },
+      "type": "object"
+    },
+    "WsdlDefinition": {
+      "additionalProperties": false,
+      "description": "The WSDL definition",
+      "properties": {
+        "content": {
+          "description": "The WSDL content",
+          "type": "string"
+        },
+        "importMethod": {
+          "$ref": "#/definitions/WsdlImportMethod"
+        },
+        "service": {
+          "$ref": "#/definitions/WsdlService"
+        },
+        "url": {
+          "description": "The WSDL URL",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "WsdlImportMethod": {
+      "description": "The WSDL import method",
+      "enum": [
+        "NotSpecified",
+        "SoapToRest",
+        "SoapPassThrough"
+      ],
+      "type": "string",
+      "x-ms-enum": {
+        "modelAsString": true,
+        "name": "WsdlImportMethod"
+      }
+    },
+    "WsdlService": {
+      "additionalProperties": false,
+      "description": "The service with name and endpoint names",
+      "properties": {
+        "endpointQualifiedNames": {
+          "description": "List of the endpoints' qualified names",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "qualifiedName": {
+          "description": "The service's qualified name",
           "type": "string"
         }
       },
       "required": [
-        "location"
+        "qualifiedName"
       ],
-      "x-ms-azure-resource": true
-    },
-    "ResponseMessageEnvelope[ApiEntity]": {
-      "description": "Message envelope that contains the common Azure resource manager properties and the resource provider specific content",
-      "properties": {
-        "id": {
-          "description": "Resource Id. Typically id is populated only for responses to GET requests. Caller is responsible for passing in this\r\n            value for GET requests only.\r\n            For example: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupId}/providers/Microsoft.Web/sites/{sitename}",
-          "type": "string"
-        },
-        "location": {
-          "description": "Geo region resource belongs to e.g. SouthCentralUS, SouthEastAsia",
-          "type": "string"
-        },
-        "name": {
-          "description": "Name of resource",
-          "type": "string"
-        },
-        "plan": {
-          "$ref": "#/definitions/ArmPlan",
-          "description": "Azure resource manager plan"
-        },
-        "properties": {
-          "$ref": "#/definitions/ApiEntity",
-          "description": "Resource specific properties"
-        },
-        "sku": {
-          "$ref": "#/definitions/SkuDescription",
-          "description": "Sku description of the resource"
-        },
-        "tags": {
-          "additionalProperties": {
-            "type": "string"
-          },
-          "description": "Tags associated with resource",
-          "type": "object"
-        },
-        "type": {
-          "description": "Type of resource e.g Microsoft.Web/sites",
-          "type": "string"
-        }
-      },
       "type": "object"
     },
-    "SkuDescription": {
-      "description": "Describes a sku for a scalable resource",
+    "WsdlServiceCollection": {
+      "description": "A list of custom API WSDL interfaces",
       "properties": {
-        "capacity": {
-          "description": "Current number of instances assigned to the resource",
-          "format": "int32",
-          "type": "integer"
-        },
-        "family": {
-          "description": "Family code of the resource sku",
-          "type": "string"
-        },
-        "name": {
-          "description": "Name of the resource sku",
-          "type": "string"
-        },
-        "size": {
-          "description": "Size specifier of the resource sku",
-          "type": "string"
-        },
-        "tier": {
-          "description": "Service Tier of the resource sku",
-          "type": "string"
+        "value": {
+          "description": "Collection of WSDL interfaces",
+          "items": {
+            "$ref": "#/definitions/WsdlService"
+          },
+          "type": "array"
         }
       },
       "type": "object"

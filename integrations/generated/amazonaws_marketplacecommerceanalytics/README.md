@@ -13,13 +13,7 @@ let amazonaws_marketplacecommerceanalytics = require('@datafire/amazonaws_market
   region: ""
 });
 
-amazonaws_marketplacecommerceanalytics.GenerateDataSet({
-  "dataSetType": "",
-  "dataSetPublicationDate": "",
-  "roleNameArn": "",
-  "destinationS3BucketName": "",
-  "snsTopicArn": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -36,23 +30,23 @@ Provides AWS Marketplace business intelligence data on-demand.
 
 ```js
 amazonaws_marketplacecommerceanalytics.GenerateDataSet({
-  "dataSetType": "",
-  "dataSetPublicationDate": "",
-  "roleNameArn": "",
-  "destinationS3BucketName": "",
-  "snsTopicArn": ""
+  "dataSetType": null,
+  "dataSetPublicationDate": null,
+  "roleNameArn": null,
+  "destinationS3BucketName": null,
+  "snsTopicArn": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * customerDefinedValues [CustomerDefinedValues](#customerdefinedvalues)
-  * dataSetPublicationDate **required** [DataSetPublicationDate](#datasetpublicationdate)
-  * dataSetType **required** [DataSetType](#datasettype)
-  * destinationS3BucketName **required** [DestinationS3BucketName](#destinations3bucketname)
-  * destinationS3Prefix [DestinationS3Prefix](#destinations3prefix)
-  * roleNameArn **required** [RoleNameArn](#rolenamearn)
-  * snsTopicArn **required** [SnsTopicArn](#snstopicarn)
+  * customerDefinedValues
+  * dataSetPublicationDate **required**
+  * dataSetType **required**
+  * destinationS3BucketName **required**
+  * destinationS3Prefix
+  * roleNameArn **required**
+  * snsTopicArn **required**
 
 #### Output
 * output [GenerateDataSetResult](#generatedatasetresult)
@@ -63,23 +57,23 @@ amazonaws_marketplacecommerceanalytics.GenerateDataSet({
 
 ```js
 amazonaws_marketplacecommerceanalytics.StartSupportDataExport({
-  "dataSetType": "",
-  "fromDate": "",
-  "roleNameArn": "",
-  "destinationS3BucketName": "",
-  "snsTopicArn": ""
+  "dataSetType": null,
+  "fromDate": null,
+  "roleNameArn": null,
+  "destinationS3BucketName": null,
+  "snsTopicArn": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * customerDefinedValues [CustomerDefinedValues](#customerdefinedvalues)
-  * dataSetType **required** [SupportDataSetType](#supportdatasettype)
-  * destinationS3BucketName **required** [DestinationS3BucketName](#destinations3bucketname)
-  * destinationS3Prefix [DestinationS3Prefix](#destinations3prefix)
-  * fromDate **required** [FromDate](#fromdate)
-  * roleNameArn **required** [RoleNameArn](#rolenamearn)
-  * snsTopicArn **required** [SnsTopicArn](#snstopicarn)
+  * customerDefinedValues
+  * dataSetType **required**
+  * destinationS3BucketName **required**
+  * destinationS3Prefix
+  * fromDate **required**
+  * roleNameArn **required**
+  * snsTopicArn **required**
 
 #### Output
 * output [StartSupportDataExportResult](#startsupportdataexportresult)
@@ -89,10 +83,7 @@ amazonaws_marketplacecommerceanalytics.StartSupportDataExport({
 ## Definitions
 
 ### CustomerDefinedValues
-* CustomerDefinedValues `array`
-  * items `object`
-    * key [OptionalKey](#optionalkey)
-    * value [OptionalValue](#optionalvalue)
+* CustomerDefinedValues `object`
 
 ### DataSetPublicationDate
 * DataSetPublicationDate `string`
@@ -101,7 +92,7 @@ amazonaws_marketplacecommerceanalytics.StartSupportDataExport({
 * DataSetRequestId `string`
 
 ### DataSetType
-* DataSetType `string` (values: customer_subscriber_hourly_monthly_subscriptions, customer_subscriber_annual_subscriptions, daily_business_usage_by_instance_type, daily_business_fees, daily_business_free_trial_conversions, daily_business_new_instances, daily_business_new_product_subscribers, daily_business_canceled_product_subscribers, monthly_revenue_billing_and_revenue_data, monthly_revenue_annual_subscriptions, disbursed_amount_by_product, disbursed_amount_by_product_with_uncollected_funds, disbursed_amount_by_instance_hours, disbursed_amount_by_customer_geo, disbursed_amount_by_age_of_uncollected_funds, disbursed_amount_by_age_of_disbursed_funds, customer_profile_by_industry, customer_profile_by_revenue, customer_profile_by_geography, sales_compensation_billed_revenue, us_sales_and_use_tax_records)
+* DataSetType `string` (values: customer_subscriber_hourly_monthly_subscriptions, customer_subscriber_annual_subscriptions, daily_business_usage_by_instance_type, daily_business_fees, daily_business_free_trial_conversions, daily_business_new_instances, daily_business_new_product_subscribers, daily_business_canceled_product_subscribers, monthly_revenue_billing_and_revenue_data, monthly_revenue_annual_subscriptions, monthly_revenue_field_demonstration_usage, monthly_revenue_flexible_payment_schedule, disbursed_amount_by_product, disbursed_amount_by_product_with_uncollected_funds, disbursed_amount_by_instance_hours, disbursed_amount_by_customer_geo, disbursed_amount_by_age_of_uncollected_funds, disbursed_amount_by_age_of_disbursed_funds, disbursed_amount_by_age_of_past_due_funds, disbursed_amount_by_uncollected_funds_breakdown, customer_profile_by_industry, customer_profile_by_revenue, customer_profile_by_geography, sales_compensation_billed_revenue, us_sales_and_use_tax_records)
 
 ### DestinationS3BucketName
 * DestinationS3BucketName `string`
@@ -109,29 +100,25 @@ amazonaws_marketplacecommerceanalytics.StartSupportDataExport({
 ### DestinationS3Prefix
 * DestinationS3Prefix `string`
 
-### ExceptionMessage
-* ExceptionMessage `string`
-
 ### FromDate
 * FromDate `string`
 
 ### GenerateDataSetRequest
 * GenerateDataSetRequest `object`: Container for the parameters to the GenerateDataSet operation.
-  * customerDefinedValues [CustomerDefinedValues](#customerdefinedvalues)
-  * dataSetPublicationDate **required** [DataSetPublicationDate](#datasetpublicationdate)
-  * dataSetType **required** [DataSetType](#datasettype)
-  * destinationS3BucketName **required** [DestinationS3BucketName](#destinations3bucketname)
-  * destinationS3Prefix [DestinationS3Prefix](#destinations3prefix)
-  * roleNameArn **required** [RoleNameArn](#rolenamearn)
-  * snsTopicArn **required** [SnsTopicArn](#snstopicarn)
+  * customerDefinedValues
+  * dataSetPublicationDate **required**
+  * dataSetType **required**
+  * destinationS3BucketName **required**
+  * destinationS3Prefix
+  * roleNameArn **required**
+  * snsTopicArn **required**
 
 ### GenerateDataSetResult
 * GenerateDataSetResult `object`: Container for the result of the GenerateDataSet operation.
-  * dataSetRequestId [DataSetRequestId](#datasetrequestid)
+  * dataSetRequestId
 
 ### MarketplaceCommerceAnalyticsException
-* MarketplaceCommerceAnalyticsException `object`: This exception is thrown when an internal service error occurs.
-  * message [ExceptionMessage](#exceptionmessage)
+
 
 ### OptionalKey
 * OptionalKey `string`
@@ -147,17 +134,17 @@ amazonaws_marketplacecommerceanalytics.StartSupportDataExport({
 
 ### StartSupportDataExportRequest
 * StartSupportDataExportRequest `object`: Container for the parameters to the StartSupportDataExport operation.
-  * customerDefinedValues [CustomerDefinedValues](#customerdefinedvalues)
-  * dataSetType **required** [SupportDataSetType](#supportdatasettype)
-  * destinationS3BucketName **required** [DestinationS3BucketName](#destinations3bucketname)
-  * destinationS3Prefix [DestinationS3Prefix](#destinations3prefix)
-  * fromDate **required** [FromDate](#fromdate)
-  * roleNameArn **required** [RoleNameArn](#rolenamearn)
-  * snsTopicArn **required** [SnsTopicArn](#snstopicarn)
+  * customerDefinedValues
+  * dataSetType **required**
+  * destinationS3BucketName **required**
+  * destinationS3Prefix
+  * fromDate **required**
+  * roleNameArn **required**
+  * snsTopicArn **required**
 
 ### StartSupportDataExportResult
 * StartSupportDataExportResult `object`: Container for the result of the StartSupportDataExport operation.
-  * dataSetRequestId [DataSetRequestId](#datasetrequestid)
+  * dataSetRequestId
 
 ### SupportDataSetType
 * SupportDataSetType `string` (values: customer_support_contacts_data, test_customer_support_contacts_data)

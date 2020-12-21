@@ -11,7 +11,7 @@ let vatapi = require('@datafire/vatapi').create({
   apikey: ""
 });
 
-vatapi.vat_rates({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

@@ -1,0 +1,4793 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "contact": {
+      "email": "mike.ralphson@gmail.com",
+      "name": "Mike Ralphson",
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
+    },
+    "description": "<p/> <p>Amazon Managed Blockchain is a fully managed service for creating and managing blockchain networks using open source frameworks. Blockchain allows you to build applications where multiple parties can securely and transparently run transactions and share data without the need for a trusted, central authority. Currently, Managed Blockchain supports the Hyperledger Fabric open source framework. </p>",
+    "license": {
+      "name": "Apache 2.0 License",
+      "url": "http://www.apache.org/licenses/"
+    },
+    "termsOfService": "https://aws.amazon.com/service-terms/",
+    "title": "Amazon Managed Blockchain",
+    "version": "2018-09-24",
+    "x-apiClientRegistration": {
+      "url": "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"
+    },
+    "x-apisguru-categories": [
+      "cloud"
+    ],
+    "x-logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"
+    },
+    "x-origin": [
+      {
+        "contentType": "application/json",
+        "converter": {
+          "url": "https://github.com/mermade/aws2openapi",
+          "version": "1.0.0"
+        },
+        "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/managedblockchain-2018-09-24.normal.json",
+        "x-apisguru-driver": "external"
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "amazonaws.com",
+    "x-release": "v4",
+    "x-serviceName": "managedblockchain",
+    "x-datafire": {
+      "name": "amazonaws_managedblockchain",
+      "type": "openapi"
+    }
+  },
+  "host": "managedblockchain.us-east-1.amazonaws.com",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/invitations": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The maximum number of invitations to return.",
+            "in": "query",
+            "maximum": 100,
+            "minimum": 1,
+            "name": "maxResults",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "The pagination token that indicates the next set of results to retrieve.",
+            "in": "query",
+            "maxLength": 128,
+            "name": "nextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListInvitationsOutput"
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "484": {
+            "description": "ResourceLimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/ResourceLimitExceededException"
+            }
+          },
+          "485": {
+            "description": "InternalServiceErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServiceErrorException"
+            }
+          }
+        },
+        "description": "Returns a listing of all invitations for the current AWS account.",
+        "operationId": "ListInvitations"
+      }
+    },
+    "/invitations/{invitationId}": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "delete": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The unique identifier of the invitation to reject.",
+            "in": "path",
+            "maxLength": 32,
+            "minLength": 1,
+            "name": "invitationId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/RejectInvitationOutput"
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "IllegalActionException",
+            "schema": {
+              "$ref": "#/definitions/IllegalActionException"
+            }
+          },
+          "482": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "484": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "485": {
+            "description": "InternalServiceErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServiceErrorException"
+            }
+          }
+        },
+        "description": "Rejects an invitation to join a network. This action can be called by a principal in an AWS account that has received an invitation to create a member and join a network.",
+        "operationId": "RejectInvitation"
+      }
+    },
+    "/networks": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The name of the network.",
+            "in": "query",
+            "name": "name",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "An optional framework specifier. If provided, only networks of this framework type are listed.",
+            "enum": [
+              "HYPERLEDGER_FABRIC"
+            ],
+            "in": "query",
+            "name": "framework",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "An optional status specifier. If provided, only networks currently in this status are listed.",
+            "enum": [
+              "CREATING",
+              "AVAILABLE",
+              "CREATE_FAILED",
+              "DELETING",
+              "DELETED"
+            ],
+            "in": "query",
+            "name": "status",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "The maximum number of networks to list.",
+            "in": "query",
+            "maximum": 10,
+            "minimum": 1,
+            "name": "maxResults",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "The pagination token that indicates the next set of results to retrieve.",
+            "in": "query",
+            "maxLength": 128,
+            "name": "nextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListNetworksOutput"
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "482": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "483": {
+            "description": "InternalServiceErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServiceErrorException"
+            }
+          }
+        },
+        "description": "Returns information about the networks in which the current AWS account has members.",
+        "operationId": "ListNetworks"
+      },
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "ClientRequestToken": {
+                  "description": "A unique, case-sensitive identifier that you provide to ensure the idempotency of the operation. An idempotent operation completes no more than one time. This identifier is required only if you make a service request directly using an HTTP client. It is generated automatically if you use an AWS SDK or the AWS CLI.",
+                  "maxLength": 64,
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "Description": {
+                  "description": "An optional description for the network.",
+                  "maxLength": 128,
+                  "type": "string"
+                },
+                "Framework": {
+                  "description": "The blockchain framework that the network uses.",
+                  "enum": [
+                    "HYPERLEDGER_FABRIC"
+                  ],
+                  "type": "string"
+                },
+                "FrameworkConfiguration": {
+                  "description": " Configuration properties relevant to the network for the blockchain framework that the network uses. ",
+                  "properties": {
+                    "Fabric": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/NetworkFabricConfiguration"
+                        },
+                        {
+                          "description": " Hyperledger Fabric configuration properties for a Managed Blockchain network that uses Hyperledger Fabric. "
+                        }
+                      ]
+                    }
+                  },
+                  "type": "object"
+                },
+                "FrameworkVersion": {
+                  "description": "The version of the blockchain framework that the network uses.",
+                  "maxLength": 8,
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "MemberConfiguration": {
+                  "description": "Configuration properties of the member.",
+                  "properties": {
+                    "Description": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/DescriptionString"
+                        },
+                        {
+                          "description": "An optional description of the member."
+                        }
+                      ]
+                    },
+                    "FrameworkConfiguration": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/MemberFrameworkConfiguration"
+                        },
+                        {
+                          "description": "Configuration properties of the blockchain framework relevant to the member."
+                        }
+                      ]
+                    },
+                    "LogPublishingConfiguration": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/MemberLogPublishingConfiguration"
+                        },
+                        {
+                          "description": "Configuration properties for logging events associated with a member of a Managed Blockchain network."
+                        }
+                      ]
+                    },
+                    "Name": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/NetworkMemberNameString"
+                        },
+                        {
+                          "description": "The name of the member."
+                        }
+                      ]
+                    }
+                  },
+                  "type": "object"
+                },
+                "Name": {
+                  "description": "The name of the network.",
+                  "maxLength": 64,
+                  "minLength": 1,
+                  "pattern": ".*\\S.*",
+                  "type": "string"
+                },
+                "VotingPolicy": {
+                  "description": " The voting rules for the network to decide if a proposal is accepted ",
+                  "properties": {
+                    "ApprovalThresholdPolicy": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/ApprovalThresholdPolicy"
+                        },
+                        {
+                          "description": "Defines the rules for the network for voting on proposals, such as the percentage of <code>YES</code> votes required for the proposal to be approved and the duration of the proposal. The policy applies to all proposals and is specified when the network is created."
+                        }
+                      ]
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "required": [
+                "ClientRequestToken",
+                "Name",
+                "Framework",
+                "FrameworkVersion",
+                "VotingPolicy",
+                "MemberConfiguration"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateNetworkOutput"
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "482": {
+            "description": "ResourceAlreadyExistsException",
+            "schema": {
+              "$ref": "#/definitions/ResourceAlreadyExistsException"
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "484": {
+            "description": "ResourceLimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/ResourceLimitExceededException"
+            }
+          },
+          "485": {
+            "description": "InternalServiceErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServiceErrorException"
+            }
+          }
+        },
+        "description": "Creates a new blockchain network using Amazon Managed Blockchain.",
+        "operationId": "CreateNetwork"
+      }
+    },
+    "/networks/{networkId}": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The unique identifier of the network to get information about.",
+            "in": "path",
+            "maxLength": 32,
+            "minLength": 1,
+            "name": "networkId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetNetworkOutput"
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "484": {
+            "description": "InternalServiceErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServiceErrorException"
+            }
+          }
+        },
+        "description": "Returns detailed information about a network.",
+        "operationId": "GetNetwork"
+      }
+    },
+    "/networks/{networkId}/members": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The unique identifier of the network for which to list members.",
+            "in": "path",
+            "maxLength": 32,
+            "minLength": 1,
+            "name": "networkId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The optional name of the member to list.",
+            "in": "query",
+            "name": "name",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "An optional status specifier. If provided, only members currently in this status are listed.",
+            "enum": [
+              "CREATING",
+              "AVAILABLE",
+              "CREATE_FAILED",
+              "UPDATING",
+              "DELETING",
+              "DELETED"
+            ],
+            "in": "query",
+            "name": "status",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "An optional Boolean value. If provided, the request is limited either to members that the current AWS account owns (<code>true</code>) or that other AWS accounts own (<code>false</code>). If omitted, all members are listed.",
+            "in": "query",
+            "name": "isOwned",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "description": "The maximum number of members to return in the request.",
+            "in": "query",
+            "maximum": 20,
+            "minimum": 1,
+            "name": "maxResults",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "The pagination token that indicates the next set of results to retrieve.",
+            "in": "query",
+            "maxLength": 128,
+            "name": "nextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListMembersOutput"
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "482": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "483": {
+            "description": "InternalServiceErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServiceErrorException"
+            }
+          }
+        },
+        "description": "Returns a listing of the members in a network and properties of their configurations.",
+        "operationId": "ListMembers"
+      },
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The unique identifier of the network in which the member is created.",
+            "in": "path",
+            "maxLength": 32,
+            "minLength": 1,
+            "name": "networkId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "ClientRequestToken": {
+                  "description": "A unique, case-sensitive identifier that you provide to ensure the idempotency of the operation. An idempotent operation completes no more than one time. This identifier is required only if you make a service request directly using an HTTP client. It is generated automatically if you use an AWS SDK or the AWS CLI.",
+                  "maxLength": 64,
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "InvitationId": {
+                  "description": "The unique identifier of the invitation that is sent to the member to join the network.",
+                  "maxLength": 32,
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "MemberConfiguration": {
+                  "description": "Configuration properties of the member.",
+                  "properties": {
+                    "Description": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/DescriptionString"
+                        },
+                        {
+                          "description": "An optional description of the member."
+                        }
+                      ]
+                    },
+                    "FrameworkConfiguration": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/MemberFrameworkConfiguration"
+                        },
+                        {
+                          "description": "Configuration properties of the blockchain framework relevant to the member."
+                        }
+                      ]
+                    },
+                    "LogPublishingConfiguration": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/MemberLogPublishingConfiguration"
+                        },
+                        {
+                          "description": "Configuration properties for logging events associated with a member of a Managed Blockchain network."
+                        }
+                      ]
+                    },
+                    "Name": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/NetworkMemberNameString"
+                        },
+                        {
+                          "description": "The name of the member."
+                        }
+                      ]
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "required": [
+                "ClientRequestToken",
+                "InvitationId",
+                "MemberConfiguration"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateMemberOutput"
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "ResourceAlreadyExistsException",
+            "schema": {
+              "$ref": "#/definitions/ResourceAlreadyExistsException"
+            }
+          },
+          "484": {
+            "description": "ResourceNotReadyException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotReadyException"
+            }
+          },
+          "485": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "486": {
+            "description": "ResourceLimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/ResourceLimitExceededException"
+            }
+          },
+          "487": {
+            "description": "InternalServiceErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServiceErrorException"
+            }
+          }
+        },
+        "description": "Creates a member within a Managed Blockchain network.",
+        "operationId": "CreateMember"
+      }
+    },
+    "/networks/{networkId}/members/{memberId}": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "delete": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The unique identifier of the network from which the member is removed.",
+            "in": "path",
+            "maxLength": 32,
+            "minLength": 1,
+            "name": "networkId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The unique identifier of the member to remove.",
+            "in": "path",
+            "maxLength": 32,
+            "minLength": 1,
+            "name": "memberId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteMemberOutput"
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "ResourceNotReadyException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotReadyException"
+            }
+          },
+          "484": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "485": {
+            "description": "InternalServiceErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServiceErrorException"
+            }
+          }
+        },
+        "description": "Deletes a member. Deleting a member removes the member and all associated resources from the network. <code>DeleteMember</code> can only be called for a specified <code>MemberId</code> if the principal performing the action is associated with the AWS account that owns the member. In all other cases, the <code>DeleteMember</code> action is carried out as the result of an approved proposal to remove a member. If <code>MemberId</code> is the last member in a network specified by the last AWS account, the network is deleted also.",
+        "operationId": "DeleteMember"
+      },
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The unique identifier of the network to which the member belongs.",
+            "in": "path",
+            "maxLength": 32,
+            "minLength": 1,
+            "name": "networkId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The unique identifier of the member.",
+            "in": "path",
+            "maxLength": 32,
+            "minLength": 1,
+            "name": "memberId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetMemberOutput"
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "484": {
+            "description": "InternalServiceErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServiceErrorException"
+            }
+          }
+        },
+        "description": "Returns detailed information about a member.",
+        "operationId": "GetMember"
+      },
+      "patch": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The unique ID of the Managed Blockchain network to which the member belongs.",
+            "in": "path",
+            "maxLength": 32,
+            "minLength": 1,
+            "name": "networkId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The unique ID of the member.",
+            "in": "path",
+            "maxLength": 32,
+            "minLength": 1,
+            "name": "memberId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "LogPublishingConfiguration": {
+                  "description": "Configuration properties for logging events associated with a member of a Managed Blockchain network.",
+                  "properties": {
+                    "Fabric": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/MemberFabricLogPublishingConfiguration"
+                        },
+                        {
+                          "description": "Configuration properties for logging events associated with a member of a Managed Blockchain network using the Hyperledger Fabric framework."
+                        }
+                      ]
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UpdateMemberOutput"
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "484": {
+            "description": "InternalServiceErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServiceErrorException"
+            }
+          }
+        },
+        "description": "Updates a member configuration with new parameters.",
+        "operationId": "UpdateMember"
+      }
+    },
+    "/networks/{networkId}/members/{memberId}/nodes": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The unique identifier of the network for which to list nodes.",
+            "in": "path",
+            "maxLength": 32,
+            "minLength": 1,
+            "name": "networkId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The unique identifier of the member who owns the nodes to list.",
+            "in": "path",
+            "maxLength": 32,
+            "minLength": 1,
+            "name": "memberId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "An optional status specifier. If provided, only nodes currently in this status are listed.",
+            "enum": [
+              "CREATING",
+              "AVAILABLE",
+              "CREATE_FAILED",
+              "UPDATING",
+              "DELETING",
+              "DELETED",
+              "FAILED"
+            ],
+            "in": "query",
+            "name": "status",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "The maximum number of nodes to list.",
+            "in": "query",
+            "maximum": 20,
+            "minimum": 1,
+            "name": "maxResults",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "The pagination token that indicates the next set of results to retrieve.",
+            "in": "query",
+            "maxLength": 128,
+            "name": "nextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListNodesOutput"
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "482": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "483": {
+            "description": "InternalServiceErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServiceErrorException"
+            }
+          }
+        },
+        "description": "Returns information about the nodes within a network.",
+        "operationId": "ListNodes"
+      },
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The unique identifier of the network in which this node runs.",
+            "in": "path",
+            "maxLength": 32,
+            "minLength": 1,
+            "name": "networkId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The unique identifier of the member that owns this node.",
+            "in": "path",
+            "maxLength": 32,
+            "minLength": 1,
+            "name": "memberId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "ClientRequestToken": {
+                  "description": "A unique, case-sensitive identifier that you provide to ensure the idempotency of the operation. An idempotent operation completes no more than one time. This identifier is required only if you make a service request directly using an HTTP client. It is generated automatically if you use an AWS SDK or the AWS CLI.",
+                  "maxLength": 64,
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "NodeConfiguration": {
+                  "description": "Configuration properties of a peer node.",
+                  "properties": {
+                    "AvailabilityZone": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/AvailabilityZoneString"
+                        },
+                        {
+                          "description": "The Availability Zone in which the node exists."
+                        }
+                      ]
+                    },
+                    "InstanceType": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/InstanceTypeString"
+                        },
+                        {
+                          "description": "The Amazon Managed Blockchain instance type for the node."
+                        }
+                      ]
+                    },
+                    "LogPublishingConfiguration": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/NodeLogPublishingConfiguration"
+                        },
+                        {
+                          "description": "Configuration properties for logging events associated with a peer node owned by a member in a Managed Blockchain network. "
+                        }
+                      ]
+                    },
+                    "StateDB": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/StateDBType"
+                        },
+                        {
+                          "description": "The state database that the node uses. Values are <code>LevelDB</code> or <code>CouchDB</code>. When using an Amazon Managed Blockchain network with Hyperledger Fabric version 1.4 or later, the default is <code>CouchDB</code>."
+                        }
+                      ]
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "required": [
+                "ClientRequestToken",
+                "NodeConfiguration"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateNodeOutput"
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "ResourceAlreadyExistsException",
+            "schema": {
+              "$ref": "#/definitions/ResourceAlreadyExistsException"
+            }
+          },
+          "484": {
+            "description": "ResourceNotReadyException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotReadyException"
+            }
+          },
+          "485": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "486": {
+            "description": "ResourceLimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/ResourceLimitExceededException"
+            }
+          },
+          "487": {
+            "description": "InternalServiceErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServiceErrorException"
+            }
+          }
+        },
+        "description": "Creates a peer node in a member.",
+        "operationId": "CreateNode"
+      }
+    },
+    "/networks/{networkId}/members/{memberId}/nodes/{nodeId}": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "delete": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The unique identifier of the network that the node belongs to.",
+            "in": "path",
+            "maxLength": 32,
+            "minLength": 1,
+            "name": "networkId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The unique identifier of the member that owns this node.",
+            "in": "path",
+            "maxLength": 32,
+            "minLength": 1,
+            "name": "memberId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The unique identifier of the node.",
+            "in": "path",
+            "maxLength": 32,
+            "minLength": 1,
+            "name": "nodeId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteNodeOutput"
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "ResourceNotReadyException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotReadyException"
+            }
+          },
+          "484": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "485": {
+            "description": "InternalServiceErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServiceErrorException"
+            }
+          }
+        },
+        "description": "Deletes a peer node from a member that your AWS account owns. All data on the node is lost and cannot be recovered.",
+        "operationId": "DeleteNode"
+      },
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The unique identifier of the network to which the node belongs.",
+            "in": "path",
+            "maxLength": 32,
+            "minLength": 1,
+            "name": "networkId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The unique identifier of the member that owns the node.",
+            "in": "path",
+            "maxLength": 32,
+            "minLength": 1,
+            "name": "memberId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The unique identifier of the node.",
+            "in": "path",
+            "maxLength": 32,
+            "minLength": 1,
+            "name": "nodeId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetNodeOutput"
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "484": {
+            "description": "InternalServiceErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServiceErrorException"
+            }
+          }
+        },
+        "description": "Returns detailed information about a peer node.",
+        "operationId": "GetNode"
+      },
+      "patch": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The unique ID of the Managed Blockchain network to which the node belongs.",
+            "in": "path",
+            "maxLength": 32,
+            "minLength": 1,
+            "name": "networkId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The unique ID of the member that owns the node.",
+            "in": "path",
+            "maxLength": 32,
+            "minLength": 1,
+            "name": "memberId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The unique ID of the node.",
+            "in": "path",
+            "maxLength": 32,
+            "minLength": 1,
+            "name": "nodeId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "LogPublishingConfiguration": {
+                  "description": "Configuration properties for logging events associated with a peer node owned by a member in a Managed Blockchain network.",
+                  "properties": {
+                    "Fabric": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/NodeFabricLogPublishingConfiguration"
+                        },
+                        {
+                          "description": "Configuration properties for logging events associated with a node that is owned by a member of a Managed Blockchain network using the Hyperledger Fabric framework."
+                        }
+                      ]
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UpdateNodeOutput"
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "484": {
+            "description": "InternalServiceErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServiceErrorException"
+            }
+          }
+        },
+        "description": "Updates a node configuration with new parameters.",
+        "operationId": "UpdateNode"
+      }
+    },
+    "/networks/{networkId}/proposals": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": " The unique identifier of the network. ",
+            "in": "path",
+            "maxLength": 32,
+            "minLength": 1,
+            "name": "networkId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": " The maximum number of proposals to return. ",
+            "in": "query",
+            "maximum": 100,
+            "minimum": 1,
+            "name": "maxResults",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": " The pagination token that indicates the next set of results to retrieve. ",
+            "in": "query",
+            "maxLength": 128,
+            "name": "nextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListProposalsOutput"
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "484": {
+            "description": "InternalServiceErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServiceErrorException"
+            }
+          }
+        },
+        "description": "Returns a listing of proposals for the network.",
+        "operationId": "ListProposals"
+      },
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": " The unique identifier of the network for which the proposal is made.",
+            "in": "path",
+            "maxLength": 32,
+            "minLength": 1,
+            "name": "networkId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "Actions": {
+                  "description": " The actions to carry out if a proposal is <code>APPROVED</code>. ",
+                  "properties": {
+                    "Invitations": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/InviteActionList"
+                        },
+                        {
+                          "description": " The actions to perform for an <code>APPROVED</code> proposal to invite an AWS account to create a member and join the network. "
+                        }
+                      ]
+                    },
+                    "Removals": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/RemoveActionList"
+                        },
+                        {
+                          "description": " The actions to perform for an <code>APPROVED</code> proposal to remove a member from the network, which deletes the member and all associated member resources from the network. "
+                        }
+                      ]
+                    }
+                  },
+                  "type": "object"
+                },
+                "ClientRequestToken": {
+                  "description": "A unique, case-sensitive identifier that you provide to ensure the idempotency of the operation. An idempotent operation completes no more than one time. This identifier is required only if you make a service request directly using an HTTP client. It is generated automatically if you use an AWS SDK or the AWS CLI.",
+                  "maxLength": 64,
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "Description": {
+                  "description": "A description for the proposal that is visible to voting members, for example, \"Proposal to add Example Corp. as member.\"",
+                  "maxLength": 128,
+                  "type": "string"
+                },
+                "MemberId": {
+                  "description": "The unique identifier of the member that is creating the proposal. This identifier is especially useful for identifying the member making the proposal when multiple members exist in a single AWS account.",
+                  "maxLength": 32,
+                  "minLength": 1,
+                  "type": "string"
+                }
+              },
+              "required": [
+                "ClientRequestToken",
+                "MemberId",
+                "Actions"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateProposalOutput"
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "ResourceNotReadyException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotReadyException"
+            }
+          },
+          "484": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "485": {
+            "description": "InternalServiceErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServiceErrorException"
+            }
+          }
+        },
+        "description": "Creates a proposal for a change to the network that other members of the network can vote on, for example, a proposal to add a new member to the network. Any member can create a proposal.",
+        "operationId": "CreateProposal"
+      }
+    },
+    "/networks/{networkId}/proposals/{proposalId}": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The unique identifier of the network for which the proposal is made.",
+            "in": "path",
+            "maxLength": 32,
+            "minLength": 1,
+            "name": "networkId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The unique identifier of the proposal.",
+            "in": "path",
+            "maxLength": 32,
+            "minLength": 1,
+            "name": "proposalId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetProposalOutput"
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "484": {
+            "description": "InternalServiceErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServiceErrorException"
+            }
+          }
+        },
+        "description": "Returns detailed information about a proposal.",
+        "operationId": "GetProposal"
+      }
+    },
+    "/networks/{networkId}/proposals/{proposalId}/votes": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": " The unique identifier of the network. ",
+            "in": "path",
+            "maxLength": 32,
+            "minLength": 1,
+            "name": "networkId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": " The unique identifier of the proposal. ",
+            "in": "path",
+            "maxLength": 32,
+            "minLength": 1,
+            "name": "proposalId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": " The maximum number of votes to return. ",
+            "in": "query",
+            "maximum": 100,
+            "minimum": 1,
+            "name": "maxResults",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": " The pagination token that indicates the next set of results to retrieve. ",
+            "in": "query",
+            "maxLength": 128,
+            "name": "nextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListProposalVotesOutput"
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "482": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "483": {
+            "description": "InternalServiceErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServiceErrorException"
+            }
+          }
+        },
+        "description": "Returns the listing of votes for a specified proposal, including the value of each vote and the unique identifier of the member that cast the vote.",
+        "operationId": "ListProposalVotes"
+      },
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": " The unique identifier of the network. ",
+            "in": "path",
+            "maxLength": 32,
+            "minLength": 1,
+            "name": "networkId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": " The unique identifier of the proposal. ",
+            "in": "path",
+            "maxLength": 32,
+            "minLength": 1,
+            "name": "proposalId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "Vote": {
+                  "description": " The value of the vote. ",
+                  "enum": [
+                    "YES",
+                    "NO"
+                  ],
+                  "type": "string"
+                },
+                "VoterMemberId": {
+                  "description": "The unique identifier of the member casting the vote. ",
+                  "maxLength": 32,
+                  "minLength": 1,
+                  "type": "string"
+                }
+              },
+              "required": [
+                "VoterMemberId",
+                "Vote"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/VoteOnProposalOutput"
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "IllegalActionException",
+            "schema": {
+              "$ref": "#/definitions/IllegalActionException"
+            }
+          },
+          "482": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "484": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "485": {
+            "description": "InternalServiceErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServiceErrorException"
+            }
+          }
+        },
+        "description": "Casts a vote for a specified <code>ProposalId</code> on behalf of a member. The member to vote as, specified by <code>VoterMemberId</code>, must be in the same AWS account as the principal that calls the action.",
+        "operationId": "VoteOnProposal"
+      }
+    }
+  },
+  "definitions": {
+    "AccessDeniedException": {},
+    "ApprovalThresholdPolicy": {
+      "description": "A policy type that defines the voting rules for the network. The rules decide if a proposal is approved. Approval may be based on criteria such as the percentage of <code>YES</code> votes and the duration of the proposal. The policy applies to all proposals and is specified when the network is created.",
+      "properties": {
+        "ProposalDurationInHours": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ProposalDurationInt"
+            },
+            {
+              "description": "The duration from the time that a proposal is created until it expires. If members cast neither the required number of <code>YES</code> votes to approve the proposal nor the number of <code>NO</code> votes required to reject it before the duration expires, the proposal is <code>EXPIRED</code> and <code>ProposalActions</code> are not carried out."
+            }
+          ]
+        },
+        "ThresholdComparator": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ThresholdComparator"
+            },
+            {
+              "description": "Determines whether the vote percentage must be greater than the <code>ThresholdPercentage</code> or must be greater than or equal to the <code>ThreholdPercentage</code> to be approved."
+            }
+          ]
+        },
+        "ThresholdPercentage": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ThresholdPercentageInt"
+            },
+            {
+              "description": "The percentage of votes among all members that must be <code>YES</code> for a proposal to be approved. For example, a <code>ThresholdPercentage</code> value of <code>50</code> indicates 50%. The <code>ThresholdComparator</code> determines the precise comparison. If a <code>ThresholdPercentage</code> value of <code>50</code> is specified on a network with 10 members, along with a <code>ThresholdComparator</code> value of <code>GREATER_THAN</code>, this indicates that 6 <code>YES</code> votes are required for the proposal to be approved."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "AvailabilityZoneString": {
+      "type": "string"
+    },
+    "ClientRequestTokenString": {
+      "maxLength": 64,
+      "minLength": 1,
+      "type": "string"
+    },
+    "CreateMemberInput": {
+      "properties": {
+        "ClientRequestToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ClientRequestTokenString"
+            },
+            {
+              "description": "A unique, case-sensitive identifier that you provide to ensure the idempotency of the operation. An idempotent operation completes no more than one time. This identifier is required only if you make a service request directly using an HTTP client. It is generated automatically if you use an AWS SDK or the AWS CLI."
+            }
+          ]
+        },
+        "InvitationId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceIdString"
+            },
+            {
+              "description": "The unique identifier of the invitation that is sent to the member to join the network."
+            }
+          ]
+        },
+        "MemberConfiguration": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MemberConfiguration"
+            },
+            {
+              "description": "Member configuration parameters."
+            }
+          ]
+        }
+      },
+      "required": [
+        "ClientRequestToken",
+        "InvitationId",
+        "MemberConfiguration"
+      ],
+      "title": "CreateMemberInput",
+      "type": "object"
+    },
+    "CreateMemberOutput": {
+      "properties": {
+        "MemberId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceIdString"
+            },
+            {
+              "description": "The unique identifier of the member."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "CreateNetworkInput": {
+      "properties": {
+        "ClientRequestToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ClientRequestTokenString"
+            },
+            {
+              "description": "A unique, case-sensitive identifier that you provide to ensure the idempotency of the operation. An idempotent operation completes no more than one time. This identifier is required only if you make a service request directly using an HTTP client. It is generated automatically if you use an AWS SDK or the AWS CLI."
+            }
+          ]
+        },
+        "Description": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DescriptionString"
+            },
+            {
+              "description": "An optional description for the network."
+            }
+          ]
+        },
+        "Framework": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Framework"
+            },
+            {
+              "description": "The blockchain framework that the network uses."
+            }
+          ]
+        },
+        "FrameworkConfiguration": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NetworkFrameworkConfiguration"
+            },
+            {
+              "description": " Configuration properties of the blockchain framework relevant to the network configuration. "
+            }
+          ]
+        },
+        "FrameworkVersion": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/FrameworkVersionString"
+            },
+            {
+              "description": "The version of the blockchain framework that the network uses."
+            }
+          ]
+        },
+        "MemberConfiguration": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MemberConfiguration"
+            },
+            {
+              "description": "Configuration properties for the first member within the network."
+            }
+          ]
+        },
+        "Name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NameString"
+            },
+            {
+              "description": "The name of the network."
+            }
+          ]
+        },
+        "VotingPolicy": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/VotingPolicy"
+            },
+            {
+              "description": " The voting rules used by the network to determine if a proposal is approved. "
+            }
+          ]
+        }
+      },
+      "required": [
+        "ClientRequestToken",
+        "Name",
+        "Framework",
+        "FrameworkVersion",
+        "VotingPolicy",
+        "MemberConfiguration"
+      ],
+      "title": "CreateNetworkInput",
+      "type": "object"
+    },
+    "CreateNetworkOutput": {
+      "properties": {
+        "MemberId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceIdString"
+            },
+            {
+              "description": "The unique identifier for the first member within the network."
+            }
+          ]
+        },
+        "NetworkId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceIdString"
+            },
+            {
+              "description": "The unique identifier for the network."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "CreateNodeInput": {
+      "properties": {
+        "ClientRequestToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ClientRequestTokenString"
+            },
+            {
+              "description": "A unique, case-sensitive identifier that you provide to ensure the idempotency of the operation. An idempotent operation completes no more than one time. This identifier is required only if you make a service request directly using an HTTP client. It is generated automatically if you use an AWS SDK or the AWS CLI."
+            }
+          ]
+        },
+        "NodeConfiguration": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NodeConfiguration"
+            },
+            {
+              "description": "The properties of a node configuration."
+            }
+          ]
+        }
+      },
+      "required": [
+        "ClientRequestToken",
+        "NodeConfiguration"
+      ],
+      "title": "CreateNodeInput",
+      "type": "object"
+    },
+    "CreateNodeOutput": {
+      "properties": {
+        "NodeId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceIdString"
+            },
+            {
+              "description": "The unique identifier of the node."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "CreateProposalInput": {
+      "properties": {
+        "Actions": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ProposalActions"
+            },
+            {
+              "description": "The type of actions proposed, such as inviting a member or removing a member. The types of <code>Actions</code> in a proposal are mutually exclusive. For example, a proposal with <code>Invitations</code> actions cannot also contain <code>Removals</code> actions."
+            }
+          ]
+        },
+        "ClientRequestToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ClientRequestTokenString"
+            },
+            {
+              "description": "A unique, case-sensitive identifier that you provide to ensure the idempotency of the operation. An idempotent operation completes no more than one time. This identifier is required only if you make a service request directly using an HTTP client. It is generated automatically if you use an AWS SDK or the AWS CLI."
+            }
+          ]
+        },
+        "Description": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DescriptionString"
+            },
+            {
+              "description": "A description for the proposal that is visible to voting members, for example, \"Proposal to add Example Corp. as member.\""
+            }
+          ]
+        },
+        "MemberId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceIdString"
+            },
+            {
+              "description": "The unique identifier of the member that is creating the proposal. This identifier is especially useful for identifying the member making the proposal when multiple members exist in a single AWS account."
+            }
+          ]
+        }
+      },
+      "required": [
+        "ClientRequestToken",
+        "MemberId",
+        "Actions"
+      ],
+      "title": "CreateProposalInput",
+      "type": "object"
+    },
+    "CreateProposalOutput": {
+      "properties": {
+        "ProposalId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceIdString"
+            },
+            {
+              "description": "The unique identifier of the proposal."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DeleteMemberInput": {
+      "properties": {},
+      "title": "DeleteMemberInput",
+      "type": "object"
+    },
+    "DeleteMemberOutput": {
+      "properties": {},
+      "type": "object"
+    },
+    "DeleteNodeInput": {
+      "properties": {},
+      "title": "DeleteNodeInput",
+      "type": "object"
+    },
+    "DeleteNodeOutput": {
+      "properties": {},
+      "type": "object"
+    },
+    "DescriptionString": {
+      "maxLength": 128,
+      "type": "string"
+    },
+    "Edition": {
+      "enum": [
+        "STARTER",
+        "STANDARD"
+      ],
+      "type": "string"
+    },
+    "Enabled": {
+      "type": "boolean"
+    },
+    "Framework": {
+      "enum": [
+        "HYPERLEDGER_FABRIC"
+      ],
+      "type": "string"
+    },
+    "FrameworkVersionString": {
+      "maxLength": 8,
+      "minLength": 1,
+      "type": "string"
+    },
+    "GetMemberInput": {
+      "properties": {},
+      "title": "GetMemberInput",
+      "type": "object"
+    },
+    "GetMemberOutput": {
+      "properties": {
+        "Member": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Member"
+            },
+            {
+              "description": "The properties of a member."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "GetNetworkInput": {
+      "properties": {},
+      "title": "GetNetworkInput",
+      "type": "object"
+    },
+    "GetNetworkOutput": {
+      "properties": {
+        "Network": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Network"
+            },
+            {
+              "description": "An object containing network configuration parameters."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "GetNodeInput": {
+      "properties": {},
+      "title": "GetNodeInput",
+      "type": "object"
+    },
+    "GetNodeOutput": {
+      "properties": {
+        "Node": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Node"
+            },
+            {
+              "description": "Properties of the node configuration."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "GetProposalInput": {
+      "properties": {},
+      "title": "GetProposalInput",
+      "type": "object"
+    },
+    "GetProposalOutput": {
+      "properties": {
+        "Proposal": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Proposal"
+            },
+            {
+              "description": "Information about a proposal."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "IllegalActionException": {},
+    "InstanceTypeString": {
+      "type": "string"
+    },
+    "InternalServiceErrorException": {},
+    "InvalidRequestException": {},
+    "Invitation": {
+      "description": "An invitation to an AWS account to create a member and join the network.",
+      "properties": {
+        "CreationDate": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "The date and time that the invitation was created."
+            }
+          ]
+        },
+        "ExpirationDate": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "The date and time that the invitation expires. This is the <code>CreationDate</code> plus the <code>ProposalDurationInHours</code> that is specified in the <code>ProposalThresholdPolicy</code>. After this date and time, the invitee can no longer create a member and join the network using this <code>InvitationId</code>."
+            }
+          ]
+        },
+        "InvitationId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceIdString"
+            },
+            {
+              "description": "The unique identifier for the invitation."
+            }
+          ]
+        },
+        "NetworkSummary": {
+          "$ref": "#/definitions/NetworkSummary"
+        },
+        "Status": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InvitationStatus"
+            },
+            {
+              "description": "<p>The status of the invitation:</p> <ul> <li> <p> <code>PENDING</code> - The invitee has not created a member to join the network, and the invitation has not yet expired.</p> </li> <li> <p> <code>ACCEPTING</code> - The invitee has begun creating a member, and creation has not yet completed.</p> </li> <li> <p> <code>ACCEPTED</code> - The invitee created a member and joined the network using the <code>InvitationID</code>.</p> </li> <li> <p> <code>REJECTED</code> - The invitee rejected the invitation.</p> </li> <li> <p> <code>EXPIRED</code> - The invitee neither created a member nor rejected the invitation before the <code>ExpirationDate</code>.</p> </li> </ul>"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "InvitationList": {
+      "items": {
+        "$ref": "#/definitions/Invitation"
+      },
+      "type": "array"
+    },
+    "InvitationStatus": {
+      "enum": [
+        "PENDING",
+        "ACCEPTED",
+        "ACCEPTING",
+        "REJECTED",
+        "EXPIRED"
+      ],
+      "type": "string"
+    },
+    "InviteAction": {
+      "description": "An action to invite a specific AWS account to create a member and join the network. The <code>InviteAction</code> is carried out when a <code>Proposal</code> is <code>APPROVED</code>.",
+      "properties": {
+        "Principal": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PrincipalString"
+            },
+            {
+              "description": "The AWS account ID to invite."
+            }
+          ]
+        }
+      },
+      "required": [
+        "Principal"
+      ],
+      "type": "object"
+    },
+    "InviteActionList": {
+      "items": {
+        "$ref": "#/definitions/InviteAction"
+      },
+      "type": "array"
+    },
+    "IsOwned": {
+      "type": "boolean"
+    },
+    "ListInvitationsInput": {
+      "properties": {},
+      "title": "ListInvitationsInput",
+      "type": "object"
+    },
+    "ListInvitationsOutput": {
+      "properties": {
+        "Invitations": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InvitationList"
+            },
+            {
+              "description": "The invitations for the network."
+            }
+          ]
+        },
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PaginationToken"
+            },
+            {
+              "description": "The pagination token that indicates the next set of results to retrieve."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ListMembersInput": {
+      "properties": {},
+      "title": "ListMembersInput",
+      "type": "object"
+    },
+    "ListMembersOutput": {
+      "properties": {
+        "Members": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MemberSummaryList"
+            },
+            {
+              "description": "An array of <code>MemberSummary</code> objects. Each object contains details about a network member."
+            }
+          ]
+        },
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PaginationToken"
+            },
+            {
+              "description": "The pagination token that indicates the next set of results to retrieve."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ListNetworksInput": {
+      "properties": {},
+      "title": "ListNetworksInput",
+      "type": "object"
+    },
+    "ListNetworksOutput": {
+      "properties": {
+        "Networks": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NetworkSummaryList"
+            },
+            {
+              "description": "An array of <code>NetworkSummary</code> objects that contain configuration properties for each network."
+            }
+          ]
+        },
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PaginationToken"
+            },
+            {
+              "description": "The pagination token that indicates the next set of results to retrieve."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ListNodesInput": {
+      "properties": {},
+      "title": "ListNodesInput",
+      "type": "object"
+    },
+    "ListNodesOutput": {
+      "properties": {
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PaginationToken"
+            },
+            {
+              "description": "The pagination token that indicates the next set of results to retrieve."
+            }
+          ]
+        },
+        "Nodes": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NodeSummaryList"
+            },
+            {
+              "description": "An array of <code>NodeSummary</code> objects that contain configuration properties for each node."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ListProposalVotesInput": {
+      "properties": {},
+      "title": "ListProposalVotesInput",
+      "type": "object"
+    },
+    "ListProposalVotesOutput": {
+      "properties": {
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PaginationToken"
+            },
+            {
+              "description": " The pagination token that indicates the next set of results to retrieve. "
+            }
+          ]
+        },
+        "ProposalVotes": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ProposalVoteList"
+            },
+            {
+              "description": " The listing of votes. "
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ListProposalsInput": {
+      "properties": {},
+      "title": "ListProposalsInput",
+      "type": "object"
+    },
+    "ListProposalsOutput": {
+      "properties": {
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PaginationToken"
+            },
+            {
+              "description": "The pagination token that indicates the next set of results to retrieve."
+            }
+          ]
+        },
+        "Proposals": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ProposalSummaryList"
+            },
+            {
+              "description": "The summary of each proposal made on the network."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "LogConfiguration": {
+      "description": "A configuration for logging events.",
+      "properties": {
+        "Enabled": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Enabled"
+            },
+            {
+              "description": "Indicates whether logging is enabled."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "LogConfigurations": {
+      "description": "A collection of log configurations.",
+      "properties": {
+        "Cloudwatch": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/LogConfiguration"
+            },
+            {
+              "description": "Parameters for publishing logs to Amazon CloudWatch Logs."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "Member": {
+      "description": "Member configuration properties.",
+      "properties": {
+        "CreationDate": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "The date and time that the member was created."
+            }
+          ]
+        },
+        "Description": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DescriptionString"
+            },
+            {
+              "description": "An optional description for the member."
+            }
+          ]
+        },
+        "FrameworkAttributes": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MemberFrameworkAttributes"
+            },
+            {
+              "description": "Attributes relevant to a member for the blockchain framework that the Managed Blockchain network uses."
+            }
+          ]
+        },
+        "Id": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceIdString"
+            },
+            {
+              "description": "The unique identifier of the member."
+            }
+          ]
+        },
+        "LogPublishingConfiguration": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MemberLogPublishingConfiguration"
+            },
+            {
+              "description": "Configuration properties for logging events associated with a member."
+            }
+          ]
+        },
+        "Name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NetworkMemberNameString"
+            },
+            {
+              "description": "The name of the member."
+            }
+          ]
+        },
+        "NetworkId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceIdString"
+            },
+            {
+              "description": "The unique identifier of the network to which the member belongs."
+            }
+          ]
+        },
+        "Status": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MemberStatus"
+            },
+            {
+              "description": "<p>The status of a member.</p> <ul> <li> <p> <code>CREATING</code> - The AWS account is in the process of creating a member.</p> </li> <li> <p> <code>AVAILABLE</code> - The member has been created and can participate in the network.</p> </li> <li> <p> <code>CREATE_FAILED</code> - The AWS account attempted to create a member and creation failed.</p> </li> <li> <p> <code>DELETING</code> - The member and all associated resources are in the process of being deleted. Either the AWS account that owns the member deleted it, or the member is being deleted as the result of an <code>APPROVED</code> <code>PROPOSAL</code> to remove the member.</p> </li> <li> <p> <code>DELETED</code> - The member can no longer participate on the network and all associated resources are deleted. Either the AWS account that owns the member deleted it, or the member is being deleted as the result of an <code>APPROVED</code> <code>PROPOSAL</code> to remove the member.</p> </li> </ul>"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "MemberConfiguration": {
+      "description": "Configuration properties of the member.",
+      "properties": {
+        "Description": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DescriptionString"
+            },
+            {
+              "description": "An optional description of the member."
+            }
+          ]
+        },
+        "FrameworkConfiguration": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MemberFrameworkConfiguration"
+            },
+            {
+              "description": "Configuration properties of the blockchain framework relevant to the member."
+            }
+          ]
+        },
+        "LogPublishingConfiguration": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MemberLogPublishingConfiguration"
+            },
+            {
+              "description": "Configuration properties for logging events associated with a member of a Managed Blockchain network."
+            }
+          ]
+        },
+        "Name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NetworkMemberNameString"
+            },
+            {
+              "description": "The name of the member."
+            }
+          ]
+        }
+      },
+      "required": [
+        "Name",
+        "FrameworkConfiguration"
+      ],
+      "type": "object"
+    },
+    "MemberFabricAttributes": {
+      "description": "Attributes of Hyperledger Fabric for a member in a Managed Blockchain network using the Hyperledger Fabric framework.",
+      "properties": {
+        "AdminUsername": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/UsernameString"
+            },
+            {
+              "description": "The user name for the initial administrator user for the member."
+            }
+          ]
+        },
+        "CaEndpoint": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The endpoint used to access the member's certificate authority."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "MemberFabricConfiguration": {
+      "description": "Configuration properties for Hyperledger Fabric for a member in a Managed Blockchain network using the Hyperledger Fabric framework.",
+      "properties": {
+        "AdminPassword": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PasswordString"
+            },
+            {
+              "description": "The password for the member's initial administrative user. The <code>AdminPassword</code> must be at least eight characters long and no more than 32 characters. It must contain at least one uppercase letter, one lowercase letter, and one digit. It cannot have a single quote(‘), double quote(“), forward slash(/), backward slash(\\), @, or a space."
+            }
+          ]
+        },
+        "AdminUsername": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/UsernameString"
+            },
+            {
+              "description": "The user name for the member's initial administrative user."
+            }
+          ]
+        }
+      },
+      "required": [
+        "AdminUsername",
+        "AdminPassword"
+      ],
+      "type": "object"
+    },
+    "MemberFabricLogPublishingConfiguration": {
+      "description": "Configuration properties for logging events associated with a member of a Managed Blockchain network using the Hyperledger Fabric framework.",
+      "properties": {
+        "CaLogs": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/LogConfigurations"
+            },
+            {
+              "description": "Configuration properties for logging events associated with a member's Certificate Authority (CA). CA logs help you determine when a member in your account joins the network, or when new peers register with a member CA."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "MemberFrameworkAttributes": {
+      "description": "Attributes relevant to a member for the blockchain framework that the Managed Blockchain network uses.",
+      "properties": {
+        "Fabric": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MemberFabricAttributes"
+            },
+            {
+              "description": "Attributes of Hyperledger Fabric relevant to a member on a Managed Blockchain network that uses Hyperledger Fabric."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "MemberFrameworkConfiguration": {
+      "description": "Configuration properties relevant to a member for the blockchain framework that the Managed Blockchain network uses.",
+      "properties": {
+        "Fabric": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MemberFabricConfiguration"
+            },
+            {
+              "description": "Attributes of Hyperledger Fabric for a member on a Managed Blockchain network that uses Hyperledger Fabric."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "MemberListMaxResults": {
+      "maximum": 20,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "MemberLogPublishingConfiguration": {
+      "description": "Configuration properties for logging events associated with a member of a Managed Blockchain network.",
+      "properties": {
+        "Fabric": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MemberFabricLogPublishingConfiguration"
+            },
+            {
+              "description": "Configuration properties for logging events associated with a member of a Managed Blockchain network using the Hyperledger Fabric framework."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "MemberStatus": {
+      "enum": [
+        "CREATING",
+        "AVAILABLE",
+        "CREATE_FAILED",
+        "UPDATING",
+        "DELETING",
+        "DELETED"
+      ],
+      "type": "string"
+    },
+    "MemberSummary": {
+      "description": "A summary of configuration properties for a member.",
+      "properties": {
+        "CreationDate": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "The date and time that the member was created."
+            }
+          ]
+        },
+        "Description": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DescriptionString"
+            },
+            {
+              "description": "An optional description of the member."
+            }
+          ]
+        },
+        "Id": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceIdString"
+            },
+            {
+              "description": "The unique identifier of the member."
+            }
+          ]
+        },
+        "IsOwned": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/IsOwned"
+            },
+            {
+              "description": "An indicator of whether the member is owned by your AWS account or a different AWS account."
+            }
+          ]
+        },
+        "Name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NetworkMemberNameString"
+            },
+            {
+              "description": "The name of the member."
+            }
+          ]
+        },
+        "Status": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MemberStatus"
+            },
+            {
+              "description": "<p>The status of the member.</p> <ul> <li> <p> <code>CREATING</code> - The AWS account is in the process of creating a member.</p> </li> <li> <p> <code>AVAILABLE</code> - The member has been created and can participate in the network.</p> </li> <li> <p> <code>CREATE_FAILED</code> - The AWS account attempted to create a member and creation failed.</p> </li> <li> <p> <code>DELETING</code> - The member and all associated resources are in the process of being deleted. Either the AWS account that owns the member deleted it, or the member is being deleted as the result of an <code>APPROVED</code> <code>PROPOSAL</code> to remove the member.</p> </li> <li> <p> <code>DELETED</code> - The member can no longer participate on the network and all associated resources are deleted. Either the AWS account that owns the member deleted it, or the member is being deleted as the result of an <code>APPROVED</code> <code>PROPOSAL</code> to remove the member.</p> </li> </ul>"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "MemberSummaryList": {
+      "items": {
+        "$ref": "#/definitions/MemberSummary"
+      },
+      "type": "array"
+    },
+    "NameString": {
+      "maxLength": 64,
+      "minLength": 1,
+      "pattern": ".*\\S.*",
+      "type": "string"
+    },
+    "Network": {
+      "description": "Network configuration properties.",
+      "properties": {
+        "CreationDate": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "The date and time that the network was created."
+            }
+          ]
+        },
+        "Description": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DescriptionString"
+            },
+            {
+              "description": "Attributes of the blockchain framework for the network."
+            }
+          ]
+        },
+        "Framework": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Framework"
+            },
+            {
+              "description": "The blockchain framework that the network uses."
+            }
+          ]
+        },
+        "FrameworkAttributes": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NetworkFrameworkAttributes"
+            },
+            {
+              "description": "Attributes of the blockchain framework that the network uses."
+            }
+          ]
+        },
+        "FrameworkVersion": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/FrameworkVersionString"
+            },
+            {
+              "description": "The version of the blockchain framework that the network uses."
+            }
+          ]
+        },
+        "Id": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceIdString"
+            },
+            {
+              "description": "The unique identifier of the network."
+            }
+          ]
+        },
+        "Name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NameString"
+            },
+            {
+              "description": "The name of the network."
+            }
+          ]
+        },
+        "Status": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NetworkStatus"
+            },
+            {
+              "description": "The current status of the network."
+            }
+          ]
+        },
+        "VotingPolicy": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/VotingPolicy"
+            },
+            {
+              "description": "The voting rules for the network to decide if a proposal is accepted."
+            }
+          ]
+        },
+        "VpcEndpointServiceName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The VPC endpoint service name of the VPC endpoint service of the network. Members use the VPC endpoint service name to create a VPC endpoint to access network resources."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "NetworkFabricAttributes": {
+      "description": "Attributes of Hyperledger Fabric for a network.",
+      "properties": {
+        "Edition": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Edition"
+            },
+            {
+              "description": "The edition of Amazon Managed Blockchain that Hyperledger Fabric uses. For more information, see <a href=\"http://aws.amazon.com/managed-blockchain/pricing/\">Amazon Managed Blockchain Pricing</a>."
+            }
+          ]
+        },
+        "OrderingServiceEndpoint": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The endpoint of the ordering service for the network."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "NetworkFabricConfiguration": {
+      "description": "Hyperledger Fabric configuration properties for the network.",
+      "properties": {
+        "Edition": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Edition"
+            },
+            {
+              "description": "The edition of Amazon Managed Blockchain that the network uses. For more information, see <a href=\"http://aws.amazon.com/managed-blockchain/pricing/\">Amazon Managed Blockchain Pricing</a>."
+            }
+          ]
+        }
+      },
+      "required": [
+        "Edition"
+      ],
+      "type": "object"
+    },
+    "NetworkFrameworkAttributes": {
+      "description": "Attributes relevant to the network for the blockchain framework that the network uses.",
+      "properties": {
+        "Fabric": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NetworkFabricAttributes"
+            },
+            {
+              "description": "Attributes of Hyperledger Fabric for a Managed Blockchain network that uses Hyperledger Fabric."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "NetworkFrameworkConfiguration": {
+      "description": " Configuration properties relevant to the network for the blockchain framework that the network uses. ",
+      "properties": {
+        "Fabric": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NetworkFabricConfiguration"
+            },
+            {
+              "description": " Hyperledger Fabric configuration properties for a Managed Blockchain network that uses Hyperledger Fabric. "
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "NetworkListMaxResults": {
+      "maximum": 10,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "NetworkMemberNameString": {
+      "maxLength": 64,
+      "minLength": 1,
+      "pattern": "^(?!-)^[^0-9](?!.*--)[A-Za-z0-9-]+[^- ]$",
+      "type": "string"
+    },
+    "NetworkStatus": {
+      "enum": [
+        "CREATING",
+        "AVAILABLE",
+        "CREATE_FAILED",
+        "DELETING",
+        "DELETED"
+      ],
+      "type": "string"
+    },
+    "NetworkSummary": {
+      "description": "A summary of network configuration properties.",
+      "properties": {
+        "CreationDate": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "The date and time that the network was created."
+            }
+          ]
+        },
+        "Description": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DescriptionString"
+            },
+            {
+              "description": "An optional description of the network."
+            }
+          ]
+        },
+        "Framework": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Framework"
+            },
+            {
+              "description": "The blockchain framework that the network uses."
+            }
+          ]
+        },
+        "FrameworkVersion": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/FrameworkVersionString"
+            },
+            {
+              "description": "The version of the blockchain framework that the network uses."
+            }
+          ]
+        },
+        "Id": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceIdString"
+            },
+            {
+              "description": "The unique identifier of the network."
+            }
+          ]
+        },
+        "Name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NameString"
+            },
+            {
+              "description": "The name of the network."
+            }
+          ]
+        },
+        "Status": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NetworkStatus"
+            },
+            {
+              "description": "The current status of the network."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "NetworkSummaryList": {
+      "items": {
+        "$ref": "#/definitions/NetworkSummary"
+      },
+      "type": "array"
+    },
+    "Node": {
+      "description": "Configuration properties of a peer node.",
+      "properties": {
+        "AvailabilityZone": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AvailabilityZoneString"
+            },
+            {
+              "description": "The Availability Zone in which the node exists."
+            }
+          ]
+        },
+        "CreationDate": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "The date and time that the node was created."
+            }
+          ]
+        },
+        "FrameworkAttributes": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NodeFrameworkAttributes"
+            },
+            {
+              "description": "Attributes of the blockchain framework being used."
+            }
+          ]
+        },
+        "Id": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceIdString"
+            },
+            {
+              "description": "The unique identifier of the node."
+            }
+          ]
+        },
+        "InstanceType": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InstanceTypeString"
+            },
+            {
+              "description": "The instance type of the node."
+            }
+          ]
+        },
+        "LogPublishingConfiguration": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NodeLogPublishingConfiguration"
+            },
+            {
+              "description": "Configuration properties for logging events associated with a peer node owned by a member in a Managed Blockchain network."
+            }
+          ]
+        },
+        "MemberId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceIdString"
+            },
+            {
+              "description": "The unique identifier of the member to which the node belongs."
+            }
+          ]
+        },
+        "NetworkId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceIdString"
+            },
+            {
+              "description": "The unique identifier of the network that the node is in."
+            }
+          ]
+        },
+        "StateDB": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/StateDBType"
+            },
+            {
+              "description": "The state database that the node uses. Values are <code>LevelDB</code> or <code>CouchDB</code>."
+            }
+          ]
+        },
+        "Status": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NodeStatus"
+            },
+            {
+              "description": "The status of the node."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "NodeConfiguration": {
+      "description": "Configuration properties of a peer node.",
+      "properties": {
+        "AvailabilityZone": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AvailabilityZoneString"
+            },
+            {
+              "description": "The Availability Zone in which the node exists."
+            }
+          ]
+        },
+        "InstanceType": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InstanceTypeString"
+            },
+            {
+              "description": "The Amazon Managed Blockchain instance type for the node."
+            }
+          ]
+        },
+        "LogPublishingConfiguration": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NodeLogPublishingConfiguration"
+            },
+            {
+              "description": "Configuration properties for logging events associated with a peer node owned by a member in a Managed Blockchain network. "
+            }
+          ]
+        },
+        "StateDB": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/StateDBType"
+            },
+            {
+              "description": "The state database that the node uses. Values are <code>LevelDB</code> or <code>CouchDB</code>. When using an Amazon Managed Blockchain network with Hyperledger Fabric version 1.4 or later, the default is <code>CouchDB</code>."
+            }
+          ]
+        }
+      },
+      "required": [
+        "InstanceType",
+        "AvailabilityZone"
+      ],
+      "type": "object"
+    },
+    "NodeFabricAttributes": {
+      "description": "Attributes of Hyperledger Fabric for a peer node on a Managed Blockchain network that uses Hyperledger Fabric.",
+      "properties": {
+        "PeerEndpoint": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The endpoint that identifies the peer node for all services except peer channel-based event services."
+            }
+          ]
+        },
+        "PeerEventEndpoint": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The endpoint that identifies the peer node for peer channel-based event services."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "NodeFabricLogPublishingConfiguration": {
+      "description": "Configuration properties for logging events associated with a peer node owned by a member in a Managed Blockchain network.",
+      "properties": {
+        "ChaincodeLogs": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/LogConfigurations"
+            },
+            {
+              "description": "Configuration properties for logging events associated with chaincode execution on a peer node. Chaincode logs contain the results of instantiating, invoking, and querying the chaincode. A peer can run multiple instances of chaincode. When enabled, a log stream is created for all chaincodes, with an individual log stream for each chaincode."
+            }
+          ]
+        },
+        "PeerLogs": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/LogConfigurations"
+            },
+            {
+              "description": "Configuration properties for a peer node log. Peer node logs contain messages generated when your client submits transaction proposals to peer nodes, requests to join channels, enrolls an admin peer, and lists the chaincode instances on a peer node. "
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "NodeFrameworkAttributes": {
+      "description": "Attributes relevant to a peer node on a Managed Blockchain network for the blockchain framework that the network uses.",
+      "properties": {
+        "Fabric": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NodeFabricAttributes"
+            },
+            {
+              "description": "Attributes of Hyperledger Fabric for a peer node on a Managed Blockchain network that uses Hyperledger Fabric."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "NodeListMaxResults": {
+      "maximum": 20,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "NodeLogPublishingConfiguration": {
+      "description": "Configuration properties for logging events associated with a peer node owned by a member in a Managed Blockchain network.",
+      "properties": {
+        "Fabric": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NodeFabricLogPublishingConfiguration"
+            },
+            {
+              "description": "Configuration properties for logging events associated with a node that is owned by a member of a Managed Blockchain network using the Hyperledger Fabric framework."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "NodeStatus": {
+      "enum": [
+        "CREATING",
+        "AVAILABLE",
+        "CREATE_FAILED",
+        "UPDATING",
+        "DELETING",
+        "DELETED",
+        "FAILED"
+      ],
+      "type": "string"
+    },
+    "NodeSummary": {
+      "description": "A summary of configuration properties for a peer node.",
+      "properties": {
+        "AvailabilityZone": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AvailabilityZoneString"
+            },
+            {
+              "description": "The Availability Zone in which the node exists."
+            }
+          ]
+        },
+        "CreationDate": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "The date and time that the node was created."
+            }
+          ]
+        },
+        "Id": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceIdString"
+            },
+            {
+              "description": "The unique identifier of the node."
+            }
+          ]
+        },
+        "InstanceType": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InstanceTypeString"
+            },
+            {
+              "description": "The EC2 instance type for the node."
+            }
+          ]
+        },
+        "Status": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NodeStatus"
+            },
+            {
+              "description": "The status of the node."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "NodeSummaryList": {
+      "items": {
+        "$ref": "#/definitions/NodeSummary"
+      },
+      "type": "array"
+    },
+    "PaginationToken": {
+      "maxLength": 128,
+      "type": "string"
+    },
+    "PasswordString": {
+      "format": "password",
+      "maxLength": 32,
+      "minLength": 8,
+      "pattern": "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?!.*[@'\\\\\"/])[a-zA-Z0-9\\S]*$",
+      "type": "string"
+    },
+    "PrincipalString": {
+      "type": "string"
+    },
+    "Proposal": {
+      "description": "Properties of a proposal on a Managed Blockchain network.",
+      "properties": {
+        "Actions": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ProposalActions"
+            },
+            {
+              "description": "The actions to perform on the network if the proposal is <code>APPROVED</code>."
+            }
+          ]
+        },
+        "CreationDate": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": " The date and time that the proposal was created. "
+            }
+          ]
+        },
+        "Description": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DescriptionString"
+            },
+            {
+              "description": "The description of the proposal."
+            }
+          ]
+        },
+        "ExpirationDate": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": " The date and time that the proposal expires. This is the <code>CreationDate</code> plus the <code>ProposalDurationInHours</code> that is specified in the <code>ProposalThresholdPolicy</code>. After this date and time, if members have not cast enough votes to determine the outcome according to the voting policy, the proposal is <code>EXPIRED</code> and <code>Actions</code> are not carried out. "
+            }
+          ]
+        },
+        "NetworkId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceIdString"
+            },
+            {
+              "description": "The unique identifier of the network for which the proposal is made."
+            }
+          ]
+        },
+        "NoVoteCount": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/VoteCount"
+            },
+            {
+              "description": " The current total of <code>NO</code> votes cast on the proposal by members. "
+            }
+          ]
+        },
+        "OutstandingVoteCount": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/VoteCount"
+            },
+            {
+              "description": " The number of votes remaining to be cast on the proposal by members. In other words, the number of members minus the sum of <code>YES</code> votes and <code>NO</code> votes. "
+            }
+          ]
+        },
+        "ProposalId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceIdString"
+            },
+            {
+              "description": "The unique identifier of the proposal."
+            }
+          ]
+        },
+        "ProposedByMemberId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceIdString"
+            },
+            {
+              "description": "The unique identifier of the member that created the proposal."
+            }
+          ]
+        },
+        "ProposedByMemberName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NetworkMemberNameString"
+            },
+            {
+              "description": "The name of the member that created the proposal."
+            }
+          ]
+        },
+        "Status": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ProposalStatus"
+            },
+            {
+              "description": "<p>The status of the proposal. Values are as follows:</p> <ul> <li> <p> <code>IN_PROGRESS</code> - The proposal is active and open for member voting.</p> </li> <li> <p> <code>APPROVED</code> - The proposal was approved with sufficient <code>YES</code> votes among members according to the <code>VotingPolicy</code> specified for the <code>Network</code>. The specified proposal actions are carried out.</p> </li> <li> <p> <code>REJECTED</code> - The proposal was rejected with insufficient <code>YES</code> votes among members according to the <code>VotingPolicy</code> specified for the <code>Network</code>. The specified <code>ProposalActions</code> are not carried out.</p> </li> <li> <p> <code>EXPIRED</code> - Members did not cast the number of votes required to determine the proposal outcome before the proposal expired. The specified <code>ProposalActions</code> are not carried out.</p> </li> <li> <p> <code>ACTION_FAILED</code> - One or more of the specified <code>ProposalActions</code> in a proposal that was approved could not be completed because of an error. The <code>ACTION_FAILED</code> status occurs even if only one ProposalAction fails and other actions are successful.</p> </li> </ul>"
+            }
+          ]
+        },
+        "YesVoteCount": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/VoteCount"
+            },
+            {
+              "description": " The current total of <code>YES</code> votes cast on the proposal by members. "
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ProposalActions": {
+      "description": " The actions to carry out if a proposal is <code>APPROVED</code>. ",
+      "properties": {
+        "Invitations": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InviteActionList"
+            },
+            {
+              "description": " The actions to perform for an <code>APPROVED</code> proposal to invite an AWS account to create a member and join the network. "
+            }
+          ]
+        },
+        "Removals": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RemoveActionList"
+            },
+            {
+              "description": " The actions to perform for an <code>APPROVED</code> proposal to remove a member from the network, which deletes the member and all associated member resources from the network. "
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ProposalDurationInt": {
+      "maximum": 168,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "ProposalListMaxResults": {
+      "maximum": 100,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "ProposalStatus": {
+      "enum": [
+        "IN_PROGRESS",
+        "APPROVED",
+        "REJECTED",
+        "EXPIRED",
+        "ACTION_FAILED"
+      ],
+      "type": "string"
+    },
+    "ProposalSummary": {
+      "description": "Properties of a proposal.",
+      "properties": {
+        "CreationDate": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": " The date and time that the proposal was created. "
+            }
+          ]
+        },
+        "Description": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DescriptionString"
+            },
+            {
+              "description": " The description of the proposal. "
+            }
+          ]
+        },
+        "ExpirationDate": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": " The date and time that the proposal expires. This is the <code>CreationDate</code> plus the <code>ProposalDurationInHours</code> that is specified in the <code>ProposalThresholdPolicy</code>. After this date and time, if members have not cast enough votes to determine the outcome according to the voting policy, the proposal is <code>EXPIRED</code> and <code>Actions</code> are not carried out. "
+            }
+          ]
+        },
+        "ProposalId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceIdString"
+            },
+            {
+              "description": " The unique identifier of the proposal. "
+            }
+          ]
+        },
+        "ProposedByMemberId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceIdString"
+            },
+            {
+              "description": " The unique identifier of the member that created the proposal. "
+            }
+          ]
+        },
+        "ProposedByMemberName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NetworkMemberNameString"
+            },
+            {
+              "description": " The name of the member that created the proposal. "
+            }
+          ]
+        },
+        "Status": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ProposalStatus"
+            },
+            {
+              "description": "<p>The status of the proposal. Values are as follows:</p> <ul> <li> <p> <code>IN_PROGRESS</code> - The proposal is active and open for member voting.</p> </li> <li> <p> <code>APPROVED</code> - The proposal was approved with sufficient <code>YES</code> votes among members according to the <code>VotingPolicy</code> specified for the <code>Network</code>. The specified proposal actions are carried out.</p> </li> <li> <p> <code>REJECTED</code> - The proposal was rejected with insufficient <code>YES</code> votes among members according to the <code>VotingPolicy</code> specified for the <code>Network</code>. The specified <code>ProposalActions</code> are not carried out.</p> </li> <li> <p> <code>EXPIRED</code> - Members did not cast the number of votes required to determine the proposal outcome before the proposal expired. The specified <code>ProposalActions</code> are not carried out.</p> </li> <li> <p> <code>ACTION_FAILED</code> - One or more of the specified <code>ProposalActions</code> in a proposal that was approved could not be completed because of an error.</p> </li> </ul>"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ProposalSummaryList": {
+      "items": {
+        "$ref": "#/definitions/ProposalSummary"
+      },
+      "type": "array"
+    },
+    "ProposalVoteList": {
+      "items": {
+        "$ref": "#/definitions/VoteSummary"
+      },
+      "type": "array"
+    },
+    "RejectInvitationInput": {
+      "properties": {},
+      "title": "RejectInvitationInput",
+      "type": "object"
+    },
+    "RejectInvitationOutput": {
+      "properties": {},
+      "type": "object"
+    },
+    "RemoveAction": {
+      "description": "An action to remove a member from a Managed Blockchain network as the result of a removal proposal that is <code>APPROVED</code>. The member and all associated resources are deleted from the network.",
+      "properties": {
+        "MemberId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceIdString"
+            },
+            {
+              "description": "The unique identifier of the member to remove."
+            }
+          ]
+        }
+      },
+      "required": [
+        "MemberId"
+      ],
+      "type": "object"
+    },
+    "RemoveActionList": {
+      "items": {
+        "$ref": "#/definitions/RemoveAction"
+      },
+      "type": "array"
+    },
+    "ResourceAlreadyExistsException": {},
+    "ResourceIdString": {
+      "maxLength": 32,
+      "minLength": 1,
+      "type": "string"
+    },
+    "ResourceLimitExceededException": {},
+    "ResourceNotFoundException": {},
+    "ResourceNotReadyException": {},
+    "StateDBType": {
+      "enum": [
+        "LevelDB",
+        "CouchDB"
+      ],
+      "type": "string"
+    },
+    "String": {
+      "type": "string"
+    },
+    "ThresholdComparator": {
+      "enum": [
+        "GREATER_THAN",
+        "GREATER_THAN_OR_EQUAL_TO"
+      ],
+      "type": "string"
+    },
+    "ThresholdPercentageInt": {
+      "maximum": 100,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "ThrottlingException": {},
+    "Timestamp": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "UpdateMemberInput": {
+      "properties": {
+        "LogPublishingConfiguration": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MemberLogPublishingConfiguration"
+            },
+            {
+              "description": "Configuration properties for publishing to Amazon CloudWatch Logs."
+            }
+          ]
+        }
+      },
+      "title": "UpdateMemberInput",
+      "type": "object"
+    },
+    "UpdateMemberOutput": {
+      "properties": {},
+      "type": "object"
+    },
+    "UpdateNodeInput": {
+      "properties": {
+        "LogPublishingConfiguration": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NodeLogPublishingConfiguration"
+            },
+            {
+              "description": "Configuration properties for publishing to Amazon CloudWatch Logs."
+            }
+          ]
+        }
+      },
+      "title": "UpdateNodeInput",
+      "type": "object"
+    },
+    "UpdateNodeOutput": {
+      "properties": {},
+      "type": "object"
+    },
+    "UsernameString": {
+      "maxLength": 16,
+      "minLength": 1,
+      "pattern": "^[a-zA-Z][a-zA-Z0-9]*$",
+      "type": "string"
+    },
+    "VoteCount": {
+      "type": "integer"
+    },
+    "VoteOnProposalInput": {
+      "properties": {
+        "Vote": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/VoteValue"
+            },
+            {
+              "description": " The value of the vote. "
+            }
+          ]
+        },
+        "VoterMemberId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceIdString"
+            },
+            {
+              "description": "The unique identifier of the member casting the vote. "
+            }
+          ]
+        }
+      },
+      "required": [
+        "VoterMemberId",
+        "Vote"
+      ],
+      "title": "VoteOnProposalInput",
+      "type": "object"
+    },
+    "VoteOnProposalOutput": {
+      "properties": {},
+      "type": "object"
+    },
+    "VoteSummary": {
+      "description": " Properties of an individual vote that a member cast for a proposal. ",
+      "properties": {
+        "MemberId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceIdString"
+            },
+            {
+              "description": " The unique identifier of the member that cast the vote. "
+            }
+          ]
+        },
+        "MemberName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NetworkMemberNameString"
+            },
+            {
+              "description": " The name of the member that cast the vote. "
+            }
+          ]
+        },
+        "Vote": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/VoteValue"
+            },
+            {
+              "description": " The vote value, either <code>YES</code> or <code>NO</code>. "
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "VoteValue": {
+      "enum": [
+        "YES",
+        "NO"
+      ],
+      "type": "string"
+    },
+    "VotingPolicy": {
+      "description": " The voting rules for the network to decide if a proposal is accepted ",
+      "properties": {
+        "ApprovalThresholdPolicy": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ApprovalThresholdPolicy"
+            },
+            {
+              "description": "Defines the rules for the network for voting on proposals, such as the percentage of <code>YES</code> votes required for the proposal to be approved and the duration of the proposal. The policy applies to all proposals and is specified when the network is created."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    }
+  },
+  "securityDefinitions": {
+    "hmac": {
+      "description": "Amazon Signature authorization v4",
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey",
+      "x-amazon-apigateway-authtype": "awsSigv4"
+    }
+  },
+  "security": [
+    {
+      "hmac": []
+    }
+  ],
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://docs.aws.amazon.com/managedblockchain/"
+  },
+  "x-components": {
+    "parameters": {
+      "X-Amz-Algorithm": {
+        "in": "header",
+        "name": "X-Amz-Algorithm",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Content-Sha256": {
+        "in": "header",
+        "name": "X-Amz-Content-Sha256",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Credential": {
+        "in": "header",
+        "name": "X-Amz-Credential",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Date": {
+        "in": "header",
+        "name": "X-Amz-Date",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Security-Token": {
+        "in": "header",
+        "name": "X-Amz-Security-Token",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Signature": {
+        "in": "header",
+        "name": "X-Amz-Signature",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-SignedHeaders": {
+        "in": "header",
+        "name": "X-Amz-SignedHeaders",
+        "required": false,
+        "type": "string"
+      }
+    }
+  }
+}

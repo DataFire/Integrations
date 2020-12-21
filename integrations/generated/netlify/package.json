@@ -1,8 +1,8 @@
 {
   "name": "@datafire/netlify",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "main": "index.js",
-  "description": "DataFire integration for Netlify's API definition",
+  "description": "DataFire integration for Netlify's API documentation",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DataFire/integrations.git"
@@ -14,7 +14,7 @@
   },
   "homepage": "https://github.com/DataFire/integrations#readme",
   "datafire": {
-    "origin": "https://api.apis.guru/v2/specs/netlify.com/0.1.0/swagger.json",
+    "origin": "https://api.apis.guru/v2/specs/netlify.com/1.0.0/swagger.json",
     "type": "openapi"
   },
   "peerDependencies": {

@@ -74,6 +74,31 @@
     }
   },
   "paths": {
+    "/providers/Microsoft.Authorization/operations": {
+      "get": {
+        "description": "Lists all of the available Microsoft.Authorization REST API operations.",
+        "operationId": "AuthorizationOperations_List",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK. The request has succeeded.",
+            "schema": {
+              "$ref": "#/definitions/OperationListResult"
+            }
+          }
+        },
+        "tags": [
+          "Operations"
+        ],
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        }
+      }
+    },
     "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/locks": {
       "get": {
         "description": "Gets all the management locks for a subscription.",
@@ -709,6 +734,46 @@
         ]
       }
     },
+    "/{scope}/providers/Microsoft.Authorization/locks": {
+      "get": {
+        "description": "Gets all the management locks for a scope.",
+        "operationId": "ManagementLocks_ListByScope",
+        "parameters": [
+          {
+            "description": "The scope for the lock. When providing a scope for the assignment, use '/subscriptions/{subscriptionId}' for subscriptions, '/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}' for resource groups, and '/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{parentResourcePathIfPresent}/{resourceType}/{resourceName}' for resources.",
+            "in": "path",
+            "name": "scope",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The filter to apply on the operation.",
+            "in": "query",
+            "name": "$filter",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK - Returns an array of resource locks.",
+            "schema": {
+              "$ref": "#/definitions/ManagementLockListResult"
+            }
+          }
+        },
+        "tags": [
+          "ManagementLocks"
+        ],
+        "x-ms-odata": "#/definitions/ManagementLockObject",
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        }
+      }
+    },
     "/{scope}/providers/Microsoft.Authorization/locks/{lockName}": {
       "delete": {
         "description": "Delete a management lock by scope.",
@@ -856,6 +921,7 @@
         },
         "name": {
           "description": "The name of the lock.",
+          "readOnly": true,
           "type": "string"
         },
         "properties": {
@@ -914,6 +980,49 @@
       "required": [
         "level"
       ]
+    },
+    "Operation": {
+      "description": "Microsoft.Authorization operation",
+      "properties": {
+        "display": {
+          "description": "The object that represents the operation.",
+          "properties": {
+            "operation": {
+              "description": "Operation type: Read, write, delete, etc.",
+              "type": "string"
+            },
+            "provider": {
+              "description": "Service provider: Microsoft.Authorization",
+              "type": "string"
+            },
+            "resource": {
+              "description": "Resource on which the operation is performed: Profile, endpoint, etc.",
+              "type": "string"
+            }
+          }
+        },
+        "name": {
+          "description": "Operation name: {provider}/{resource}/{operation}",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "OperationListResult": {
+      "description": "Result of the request to list Microsoft.Authorization operations. It contains a list of operations and a URL link to get the next set of results.",
+      "properties": {
+        "nextLink": {
+          "description": "URL to get the next set of operation list results if there are any.",
+          "type": "string"
+        },
+        "value": {
+          "description": "List of Microsoft.Authorization operations.",
+          "items": {
+            "$ref": "#/definitions/Operation"
+          },
+          "type": "array"
+        }
+      }
     }
   }
 }

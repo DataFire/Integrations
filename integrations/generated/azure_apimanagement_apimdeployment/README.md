@@ -15,9 +15,7 @@ let azure_apimanagement_apimdeployment = require('@datafire/azure_apimanagement_
   redirect_uri: ""
 });
 
-azure_apimanagement_apimdeployment.ApiManagementOperations_List({
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -299,15 +297,14 @@ azure_apimanagement_apimdeployment.ApiManagementService_Restore({
 #### Output
 * output [ApiManagementServiceResource](#apimanagementserviceresource)
 
-### ApiManagementService_UpdateHostname
-Creates, updates, or deletes the custom hostnames for an API Management service. The custom hostname can be applied to the Proxy and Portal endpoint. This is a long running operation and could take several minutes to complete. This operation will be deprecated in the next version update.
+### ApiManagementServiceSkus_ListAvailableServiceSkus
+Gets all available SKU for a given API Management service
 
 
 ```js
-azure_apimanagement_apimdeployment.ApiManagementService_UpdateHostname({
+azure_apimanagement_apimdeployment.ApiManagementServiceSkus_ListAvailableServiceSkus({
   "resourceGroupName": "",
   "serviceName": "",
-  "parameters": null,
   "api-version": "",
   "subscriptionId": ""
 }, context)
@@ -317,37 +314,11 @@ azure_apimanagement_apimdeployment.ApiManagementService_UpdateHostname({
 * input `object`
   * resourceGroupName **required** `string`: The name of the resource group.
   * serviceName **required** `string`: The name of the API Management service.
-  * parameters **required** [ApiManagementServiceUpdateHostnameParameters](#apimanagementserviceupdatehostnameparameters)
   * api-version **required** `string`: Version of the API to be used with the client request.
   * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
 #### Output
-* output [ApiManagementServiceResource](#apimanagementserviceresource)
-
-### ApiManagementService_UploadCertificate
-Upload Custom Domain SSL certificate for an API Management service. This operation will be deprecated in future releases.
-
-
-```js
-azure_apimanagement_apimdeployment.ApiManagementService_UploadCertificate({
-  "resourceGroupName": "",
-  "serviceName": "",
-  "parameters": null,
-  "api-version": "",
-  "subscriptionId": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * resourceGroupName **required** `string`: The name of the resource group.
-  * serviceName **required** `string`: The name of the API Management service.
-  * parameters **required** [ApiManagementServiceUploadCertificateParameters](#apimanagementserviceuploadcertificateparameters)
-  * api-version **required** `string`: Version of the API to be used with the client request.
-  * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
-
-#### Output
-* output [CertificateInformation](#certificateinformation)
+* output [ResourceSkuResults](#resourceskuresults)
 
 
 
@@ -357,9 +328,11 @@ azure_apimanagement_apimdeployment.ApiManagementService_UploadCertificate({
 * AdditionalLocation `object`: Description of an additional API Management resource location.
   * gatewayRegionalUrl `string`: Gateway URL of the API Management service in the Region.
   * location **required** `string`: The location name of the additional region among Azure Data center regions.
-  * sku **required** [ApiManagementServiceSkuProperties](#apimanagementserviceskuproperties)
-  * staticIps `array`: Static IP addresses of the location's virtual machines.
+  * privateIPAddresses `array`: Private Static Load Balanced IP addresses of the API Management service which is deployed in an Internal Virtual Network in a particular additional location. Available only for Basic, Standard and Premium SKU.
     * items `string`
+  * publicIPAddresses `array`: Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
+    * items `string`
+  * sku **required** [ApiManagementServiceSkuProperties](#apimanagementserviceskuproperties)
   * virtualNetworkConfiguration [VirtualNetworkConfiguration](#virtualnetworkconfiguration)
 
 ### ApiManagementServiceApplyNetworkConfigurationParameters
@@ -380,7 +353,8 @@ azure_apimanagement_apimdeployment.ApiManagementService_UploadCertificate({
   * certificates `array`: List of Certificates that need to be installed in the API Management service. Max supported certificates that can be installed is 10.
     * items [CertificateConfiguration](#certificateconfiguration)
   * createdAtUtc `string`: Creation UTC date of the API Management service.The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
-  * customProperties `object`: Custom properties of the API Management service. Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TripleDes168` will disable the cipher TLS_RSA_WITH_3DES_EDE_CBC_SHA for all TLS(1.0, 1.1 and 1.2). Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls11` can be used to disable just TLS 1.1 and setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls10` can be used to disable TLS 1.0 on an API Management service.
+  * customProperties `object`: Custom properties of the API Management service.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TripleDes168` will disable the cipher TLS_RSA_WITH_3DES_EDE_CBC_SHA for all TLS(1.0, 1.1 and 1.2).</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls11` can be used to disable just TLS 1.1.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls10` can be used to disable TLS 1.0 on an API Management service.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls11` can be used to disable just TLS 1.1 for communications with backends.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls10` can be used to disable TLS 1.0 for communications with backends.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Protocols.Server.Http2` can be used to enable HTTP2 protocol on an API Management service.</br>Not specifying any of these properties on PATCH operation will reset omitted properties' values to their defaults. For all the settings except Http2 the default value is `True` if the service was created on or before April 1st 2018 and `False` otherwise. Http2 setting's default value is `False`.</br></br>You can disable any of next ciphers by using settings `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.[cipher_name]`: TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA, TLS_RSA_WITH_AES_128_GCM_SHA256, TLS_RSA_WITH_AES_256_CBC_SHA256, TLS_RSA_WITH_AES_128_CBC_SHA256, TLS_RSA_WITH_AES_256_CBC_SHA, TLS_RSA_WITH_AES_128_CBC_SHA. For example, `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_128_CBC_SHA256`:`false`. The default value is `true` for them.
+  * enableClientCertificate `boolean`: Property only meant to be used for Consumption SKU Service. This enforces a client certificate to be presented on each request to the gateway. This also enables the ability to authenticate the certificate in the policy on the gateway.
   * gatewayRegionalUrl `string`: Gateway URL of the API Management service in the Default Region.
   * gatewayUrl `string`: Gateway URL of the API Management service.
   * hostnameConfigurations `array`: Custom hostname configuration of the API Management service.
@@ -388,13 +362,15 @@ azure_apimanagement_apimdeployment.ApiManagementService_UploadCertificate({
   * managementApiUrl `string`: Management API endpoint URL of the API Management service.
   * notificationSenderEmail `string`: Email address from which the notification will be sent.
   * portalUrl `string`: Publisher portal endpoint Url of the API Management service.
-  * provisioningState `string`: The current provisioning state of the API Management service which can be one of the following: Created/Activating/Succeeded/Updating/Failed/Stopped/Terminating/TerminationFailed/Deleted.
-  * scmUrl `string`: SCM endpoint URL of the API Management service.
-  * staticIps `array`: Static IP addresses of the API Management service virtual machines. Available only for Standard and Premium SKU.
+  * privateIPAddresses `array`: Private Static Load Balanced IP addresses of the API Management service in Primary region which is deployed in an Internal Virtual Network. Available only for Basic, Standard and Premium SKU.
     * items `string`
+  * provisioningState `string`: The current provisioning state of the API Management service which can be one of the following: Created/Activating/Succeeded/Updating/Failed/Stopped/Terminating/TerminationFailed/Deleted.
+  * publicIPAddresses `array`: Public Static Load Balanced IP addresses of the API Management service in Primary region. Available only for Basic, Standard and Premium SKU.
+    * items `string`
+  * scmUrl `string`: SCM endpoint URL of the API Management service.
   * targetProvisioningState `string`: The provisioning state of the API Management service, which is targeted by the long running operation started on the service.
   * virtualNetworkConfiguration [VirtualNetworkConfiguration](#virtualnetworkconfiguration)
-  * virtualNetworkType `string` (values: None, External, Internal): The type of VPN in which API Managemet service needs to be configured in. None (Default Value) means the API Management service is not part of any Virtual Network, External means the API Management deployment is set up inside a Virtual Network having an Internet Facing Endpoint, and Internal means that API Management deployment is setup inside a Virtual Network having an Intranet Facing Endpoint only.
+  * virtualNetworkType `string` (values: None, External, Internal): The type of VPN in which API Management service needs to be configured in. None (Default Value) means the API Management service is not part of any Virtual Network, External means the API Management deployment is set up inside a Virtual Network having an Internet Facing Endpoint, and Internal means that API Management deployment is setup inside a Virtual Network having an Intranet Facing Endpoint only.
 
 ### ApiManagementServiceCheckNameAvailabilityParameters
 * ApiManagementServiceCheckNameAvailabilityParameters `object`: Parameters supplied to the CheckNameAvailability operation.
@@ -431,7 +407,8 @@ azure_apimanagement_apimdeployment.ApiManagementService_UploadCertificate({
   * certificates `array`: List of Certificates that need to be installed in the API Management service. Max supported certificates that can be installed is 10.
     * items [CertificateConfiguration](#certificateconfiguration)
   * createdAtUtc `string`: Creation UTC date of the API Management service.The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
-  * customProperties `object`: Custom properties of the API Management service. Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TripleDes168` will disable the cipher TLS_RSA_WITH_3DES_EDE_CBC_SHA for all TLS(1.0, 1.1 and 1.2). Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls11` can be used to disable just TLS 1.1 and setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls10` can be used to disable TLS 1.0 on an API Management service.
+  * customProperties `object`: Custom properties of the API Management service.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TripleDes168` will disable the cipher TLS_RSA_WITH_3DES_EDE_CBC_SHA for all TLS(1.0, 1.1 and 1.2).</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls11` can be used to disable just TLS 1.1.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls10` can be used to disable TLS 1.0 on an API Management service.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls11` can be used to disable just TLS 1.1 for communications with backends.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls10` can be used to disable TLS 1.0 for communications with backends.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Protocols.Server.Http2` can be used to enable HTTP2 protocol on an API Management service.</br>Not specifying any of these properties on PATCH operation will reset omitted properties' values to their defaults. For all the settings except Http2 the default value is `True` if the service was created on or before April 1st 2018 and `False` otherwise. Http2 setting's default value is `False`.</br></br>You can disable any of next ciphers by using settings `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.[cipher_name]`: TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA, TLS_RSA_WITH_AES_128_GCM_SHA256, TLS_RSA_WITH_AES_256_CBC_SHA256, TLS_RSA_WITH_AES_128_CBC_SHA256, TLS_RSA_WITH_AES_256_CBC_SHA, TLS_RSA_WITH_AES_128_CBC_SHA. For example, `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_128_CBC_SHA256`:`false`. The default value is `true` for them.
+  * enableClientCertificate `boolean`: Property only meant to be used for Consumption SKU Service. This enforces a client certificate to be presented on each request to the gateway. This also enables the ability to authenticate the certificate in the policy on the gateway.
   * gatewayRegionalUrl `string`: Gateway URL of the API Management service in the Default Region.
   * gatewayUrl `string`: Gateway URL of the API Management service.
   * hostnameConfigurations `array`: Custom hostname configuration of the API Management service.
@@ -439,13 +416,15 @@ azure_apimanagement_apimdeployment.ApiManagementService_UploadCertificate({
   * managementApiUrl `string`: Management API endpoint URL of the API Management service.
   * notificationSenderEmail `string`: Email address from which the notification will be sent.
   * portalUrl `string`: Publisher portal endpoint Url of the API Management service.
-  * provisioningState `string`: The current provisioning state of the API Management service which can be one of the following: Created/Activating/Succeeded/Updating/Failed/Stopped/Terminating/TerminationFailed/Deleted.
-  * scmUrl `string`: SCM endpoint URL of the API Management service.
-  * staticIps `array`: Static IP addresses of the API Management service virtual machines. Available only for Standard and Premium SKU.
+  * privateIPAddresses `array`: Private Static Load Balanced IP addresses of the API Management service in Primary region which is deployed in an Internal Virtual Network. Available only for Basic, Standard and Premium SKU.
     * items `string`
+  * provisioningState `string`: The current provisioning state of the API Management service which can be one of the following: Created/Activating/Succeeded/Updating/Failed/Stopped/Terminating/TerminationFailed/Deleted.
+  * publicIPAddresses `array`: Public Static Load Balanced IP addresses of the API Management service in Primary region. Available only for Basic, Standard and Premium SKU.
+    * items `string`
+  * scmUrl `string`: SCM endpoint URL of the API Management service.
   * targetProvisioningState `string`: The provisioning state of the API Management service, which is targeted by the long running operation started on the service.
   * virtualNetworkConfiguration [VirtualNetworkConfiguration](#virtualnetworkconfiguration)
-  * virtualNetworkType `string` (values: None, External, Internal): The type of VPN in which API Managemet service needs to be configured in. None (Default Value) means the API Management service is not part of any Virtual Network, External means the API Management deployment is set up inside a Virtual Network having an Internet Facing Endpoint, and Internal means that API Management deployment is setup inside a Virtual Network having an Intranet Facing Endpoint only.
+  * virtualNetworkType `string` (values: None, External, Internal): The type of VPN in which API Management service needs to be configured in. None (Default Value) means the API Management service is not part of any Virtual Network, External means the API Management deployment is set up inside a Virtual Network having an Internet Facing Endpoint, and Internal means that API Management deployment is setup inside a Virtual Network having an Intranet Facing Endpoint only.
 
 ### ApiManagementServiceResource
 * ApiManagementServiceResource `object`: A single API Management service resource in List or Get response.
@@ -461,15 +440,8 @@ azure_apimanagement_apimdeployment.ApiManagementService_UploadCertificate({
 
 ### ApiManagementServiceSkuProperties
 * ApiManagementServiceSkuProperties `object`: API Management service resource SKU properties.
-  * capacity `integer`: Capacity of the SKU (number of deployed units of the SKU). The default value is 1.
-  * name **required** `string` (values: Developer, Standard, Premium, Basic): Name of the Sku.
-
-### ApiManagementServiceUpdateHostnameParameters
-* ApiManagementServiceUpdateHostnameParameters `object`: Parameters supplied to the UpdateHostname operation.
-  * delete `array`: Hostnames types to delete.
-    * items `string` (values: Proxy, Portal, Management, Scm)
-  * update `array`: Hostnames to create or update.
-    * items [HostnameConfigurationOld](#hostnameconfigurationold)
+  * capacity `integer`: Capacity of the SKU (number of deployed units of the SKU).
+  * name **required** `string` (values: Developer, Standard, Premium, Basic, Consumption): Name of the Sku.
 
 ### ApiManagementServiceUpdateParameters
 * ApiManagementServiceUpdateParameters `object`: Parameter supplied to Update Api Management Service.
@@ -491,7 +463,8 @@ azure_apimanagement_apimdeployment.ApiManagementService_UploadCertificate({
   * certificates `array`: List of Certificates that need to be installed in the API Management service. Max supported certificates that can be installed is 10.
     * items [CertificateConfiguration](#certificateconfiguration)
   * createdAtUtc `string`: Creation UTC date of the API Management service.The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
-  * customProperties `object`: Custom properties of the API Management service. Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TripleDes168` will disable the cipher TLS_RSA_WITH_3DES_EDE_CBC_SHA for all TLS(1.0, 1.1 and 1.2). Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls11` can be used to disable just TLS 1.1 and setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls10` can be used to disable TLS 1.0 on an API Management service.
+  * customProperties `object`: Custom properties of the API Management service.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TripleDes168` will disable the cipher TLS_RSA_WITH_3DES_EDE_CBC_SHA for all TLS(1.0, 1.1 and 1.2).</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls11` can be used to disable just TLS 1.1.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls10` can be used to disable TLS 1.0 on an API Management service.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls11` can be used to disable just TLS 1.1 for communications with backends.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls10` can be used to disable TLS 1.0 for communications with backends.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Protocols.Server.Http2` can be used to enable HTTP2 protocol on an API Management service.</br>Not specifying any of these properties on PATCH operation will reset omitted properties' values to their defaults. For all the settings except Http2 the default value is `True` if the service was created on or before April 1st 2018 and `False` otherwise. Http2 setting's default value is `False`.</br></br>You can disable any of next ciphers by using settings `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.[cipher_name]`: TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA, TLS_RSA_WITH_AES_128_GCM_SHA256, TLS_RSA_WITH_AES_256_CBC_SHA256, TLS_RSA_WITH_AES_128_CBC_SHA256, TLS_RSA_WITH_AES_256_CBC_SHA, TLS_RSA_WITH_AES_128_CBC_SHA. For example, `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_128_CBC_SHA256`:`false`. The default value is `true` for them.
+  * enableClientCertificate `boolean`: Property only meant to be used for Consumption SKU Service. This enforces a client certificate to be presented on each request to the gateway. This also enables the ability to authenticate the certificate in the policy on the gateway.
   * gatewayRegionalUrl `string`: Gateway URL of the API Management service in the Default Region.
   * gatewayUrl `string`: Gateway URL of the API Management service.
   * hostnameConfigurations `array`: Custom hostname configuration of the API Management service.
@@ -499,19 +472,15 @@ azure_apimanagement_apimdeployment.ApiManagementService_UploadCertificate({
   * managementApiUrl `string`: Management API endpoint URL of the API Management service.
   * notificationSenderEmail `string`: Email address from which the notification will be sent.
   * portalUrl `string`: Publisher portal endpoint Url of the API Management service.
-  * provisioningState `string`: The current provisioning state of the API Management service which can be one of the following: Created/Activating/Succeeded/Updating/Failed/Stopped/Terminating/TerminationFailed/Deleted.
-  * scmUrl `string`: SCM endpoint URL of the API Management service.
-  * staticIps `array`: Static IP addresses of the API Management service virtual machines. Available only for Standard and Premium SKU.
+  * privateIPAddresses `array`: Private Static Load Balanced IP addresses of the API Management service in Primary region which is deployed in an Internal Virtual Network. Available only for Basic, Standard and Premium SKU.
     * items `string`
+  * provisioningState `string`: The current provisioning state of the API Management service which can be one of the following: Created/Activating/Succeeded/Updating/Failed/Stopped/Terminating/TerminationFailed/Deleted.
+  * publicIPAddresses `array`: Public Static Load Balanced IP addresses of the API Management service in Primary region. Available only for Basic, Standard and Premium SKU.
+    * items `string`
+  * scmUrl `string`: SCM endpoint URL of the API Management service.
   * targetProvisioningState `string`: The provisioning state of the API Management service, which is targeted by the long running operation started on the service.
   * virtualNetworkConfiguration [VirtualNetworkConfiguration](#virtualnetworkconfiguration)
-  * virtualNetworkType `string` (values: None, External, Internal): The type of VPN in which API Managemet service needs to be configured in. None (Default Value) means the API Management service is not part of any Virtual Network, External means the API Management deployment is set up inside a Virtual Network having an Internet Facing Endpoint, and Internal means that API Management deployment is setup inside a Virtual Network having an Intranet Facing Endpoint only.
-
-### ApiManagementServiceUploadCertificateParameters
-* ApiManagementServiceUploadCertificateParameters `object`: Parameters supplied to the Upload SSL certificate for an API Management service operation.
-  * certificate **required** `string`: Base64 Encoded certificate.
-  * certificate_password **required** `string`: Certificate password.
-  * type **required** `string` (values: Proxy, Portal, Management, Scm): Hostname type.
+  * virtualNetworkType `string` (values: None, External, Internal): The type of VPN in which API Management service needs to be configured in. None (Default Value) means the API Management service is not part of any Virtual Network, External means the API Management deployment is set up inside a Virtual Network having an Internet Facing Endpoint, and Internal means that API Management deployment is setup inside a Virtual Network having an Intranet Facing Endpoint only.
 
 ### ApimResource
 * ApimResource `object`: The Resource definition.
@@ -525,7 +494,7 @@ azure_apimanagement_apimdeployment.ApiManagementService_UploadCertificate({
   * certificate [CertificateInformation](#certificateinformation)
   * certificatePassword `string`: Certificate Password.
   * encodedCertificate `string`: Base64 Encoded certificate.
-  * storeName **required** `string` (values: CertificateAuthority, Root): The local certificate store location. Only Root and CertificateAuthority are valid locations.
+  * storeName **required** `string` (values: CertificateAuthority, Root): The System.Security.Cryptography.x509certificates.StoreName certificate store location. Only Root and CertificateAuthority are valid locations.
 
 ### CertificateInformation
 * CertificateInformation `object`: SSL certificate information.
@@ -542,13 +511,7 @@ azure_apimanagement_apimdeployment.ApiManagementService_UploadCertificate({
   * hostName **required** `string`: Hostname to configure on the Api Management service.
   * keyVaultId `string`: Url to the KeyVault Secret containing the Ssl Certificate. If absolute Url containing version is provided, auto-update of ssl certificate will not work. This requires Api Management service to be configured with MSI. The secret should be of type *application/x-pkcs12*
   * negotiateClientCertificate `boolean`: Specify true to always negotiate client certificate on the hostname. Default Value is false.
-  * type **required** `string` (values: Proxy, Portal, Management, Scm): Hostname type.
-
-### HostnameConfigurationOld
-* HostnameConfigurationOld `object`: Custom hostname configuration.
-  * certificate **required** [CertificateInformation](#certificateinformation)
-  * hostname **required** `string`: Hostname to configure.
-  * type **required** `string` (values: Proxy, Portal, Management, Scm): Hostname type.
+  * type **required** `string` (values: Proxy, Portal, Management, Scm, DeveloperPortal): Hostname type.
 
 ### Operation
 * Operation `object`: REST API operation
@@ -566,6 +529,29 @@ azure_apimanagement_apimdeployment.ApiManagementService_UploadCertificate({
   * nextLink `string`: URL to get the next set of operation list results if there are any.
   * value `array`: List of operations supported by the resource provider.
     * items [Operation](#operation)
+
+### ResourceSku
+* ResourceSku `object`: Describes an available API Management SKU.
+  * name `string` (values: Developer, Standard, Premium, Basic, Consumption): Name of the Sku.
+
+### ResourceSkuCapacity
+* ResourceSkuCapacity `object`: Describes scaling information of a SKU.
+  * default `integer`: The default capacity.
+  * maximum `integer`: The maximum capacity that can be set.
+  * minimum `integer`: The minimum capacity.
+  * scaleType `string` (values: automatic, manual, none): The scale type applicable to the sku.
+
+### ResourceSkuResult
+* ResourceSkuResult `object`: Describes an available API Management service SKU.
+  * capacity [ResourceSkuCapacity](#resourceskucapacity)
+  * resourceType `string`: The type of resource the SKU applies to.
+  * sku [ResourceSku](#resourcesku)
+
+### ResourceSkuResults
+* ResourceSkuResults `object`: The API Management service SKUs operation response.
+  * nextLink `string`: The uri to fetch the next page of API Management service Skus.
+  * value **required** `array`: The list of skus available for the service.
+    * items [ResourceSkuResult](#resourceskuresult)
 
 ### VirtualNetworkConfiguration
 * VirtualNetworkConfiguration `object`: Configuration of a virtual network to which API Management service is deployed.

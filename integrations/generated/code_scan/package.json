@@ -1,8 +1,8 @@
 {
   "name": "@datafire/code_scan",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "main": "index.js",
-  "description": "DataFire integration for CodeScan",
+  "description": "DataFire integration for CodeScan API",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DataFire/integrations.git"

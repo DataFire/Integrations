@@ -13,7 +13,7 @@ let opendatasoft = require('@datafire/opendatasoft').create({
   password: ""
 });
 
-opendatasoft.getRoot(null).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -29,7 +29,7 @@ API entry point
 
 Provides links for:
 * catalog, your domain's list of datasets
-* opendatasoft, all datasets on the OpenDataSoft network
+* opendatasoft, all datasets on the Opendatasoft network
 
 
 
@@ -127,6 +127,12 @@ opendatasoft.aggregateDatasets({
   * select `string`: A select expression can be used to add, remove or change fields to return.
   * group_by `string`: A group by expression defines a grouping function for an aggregation.
   * where `array`: An array of filters.
+  * facet `array`: A facet is a field used for simple filtering (through the parameters refine and exclude) or exploration (with the endpoint `/facets`).
+  * refine `array`: An array of facet filters. For example **city:Paris** or **modified:2019/12**.
+  * exclude `array`: An array of facet filters. For example **city:Paris** or **modified:2019/12**.
+  * order_by `array`: A list of field names or aggregation, followed by an order (asc | desc).
+  * offset `integer`: Index of the first item to return (starting at 0).
+  * limit `integer`: Number of items to return.
 
 #### Output
 * output `object`
@@ -157,8 +163,11 @@ opendatasoft.getDatasets({
   * source **required** `string` (values: catalog, opendatasoft, monitoring): Each source represents a different catalog of datasets you'll be able to query.
   * where `array`: An array of filters.
   * search `array`: An array of full text search.
-  * rows `integer`: Number of items to return.
-  * start `integer`: Index of the first item to return (starting at 0).
+  * facet `array`: A facet is a field used for simple filtering (through the parameters refine and exclude) or exploration (with the endpoint `/facets`).
+  * refine `array`: An array of facet filters. For example **city:Paris** or **modified:2019/12**.
+  * exclude `array`: An array of facet filters. For example **city:Paris** or **modified:2019/12**.
+  * limit `integer`: Number of items to return.
+  * offset `integer`: Index of the first item to return (starting at 0).
   * sort `array`: A list of field names, each possibly prefixed with a minus (-).
   * pretty `boolean`: Activate pretty print
   * timezone `string`: Set timezone for datetime fields
@@ -227,6 +236,12 @@ opendatasoft.aggregateRecords({
   * select `string`: A select expression can be used to add, remove or change fields to return.
   * group_by `string`: A group by expression defines a grouping function for an aggregation.
   * where `array`: An array of filters.
+  * facet `array`: A facet is a field used for simple filtering (through the parameters refine and exclude) or exploration (with the endpoint `/facets`).
+  * refine `array`: An array of facet filters. For example **city:Paris** or **modified:2019/12**.
+  * exclude `array`: An array of facet filters. For example **city:Paris** or **modified:2019/12**.
+  * order_by `array`: A list of field names or aggregation, followed by an order (asc | desc).
+  * limit `integer`: Number of items to return.
+  * offset `integer`: Index of the first item to return (starting at 0).
 
 #### Output
 * output `object`
@@ -298,9 +313,13 @@ opendatasoft.exportRecordsCSV({
   * source **required** `string` (values: catalog, opendatasoft, monitoring): Each source represents a different catalog of datasets you'll be able to query.
   * dataset_id **required** `string`: Dataset identifier.
   * where `array`: An array of filters.
+  * facet `array`: A facet is a field used for simple filtering (through the parameters refine and exclude) or exploration (with the endpoint `/facets`).
+  * refine `array`: An array of facet filters. For example **city:Paris** or **modified:2019/12**.
+  * exclude `array`: An array of facet filters. For example **city:Paris** or **modified:2019/12**.
+  * limit `integer`: Number of items to return in export.
+  * offset `integer`: Index of the first item to return (starting at 0).
+  * sort `array`: A list of field names, each possibly prefixed with a minus (-).
   * select `string`: A select expression can be used to add, remove or change fields to return.
-  * rows `integer`: Number of items to return in export.
-  * start `integer`: Index of the first item to return (starting at 0).
   * timezone `string`: Set timezone for datetime fields
   * delimiter `string` (values: ,, ;, |): Provide a different delimiter (default ',').
 
@@ -325,8 +344,13 @@ opendatasoft.exportRecordsGEOJSON({
   * dataset_id **required** `string`: Dataset identifier.
   * where `array`: An array of filters.
   * search `array`: An array of full text search.
-  * rows `integer`: Number of items to return in export.
-  * start `integer`: Index of the first item to return (starting at 0).
+  * facet `array`: A facet is a field used for simple filtering (through the parameters refine and exclude) or exploration (with the endpoint `/facets`).
+  * refine `array`: An array of facet filters. For example **city:Paris** or **modified:2019/12**.
+  * exclude `array`: An array of facet filters. For example **city:Paris** or **modified:2019/12**.
+  * limit `integer`: Number of items to return in export.
+  * offset `integer`: Index of the first item to return (starting at 0).
+  * sort `array`: A list of field names, each possibly prefixed with a minus (-).
+  * select `string`: A select expression can be used to add, remove or change fields to return.
   * timezone `string`: Set timezone for datetime fields
   * pretty `boolean`: Activate pretty print
 
@@ -351,8 +375,13 @@ opendatasoft.exportRecordsICAL({
   * dataset_id **required** `string`: Dataset identifier.
   * where `array`: An array of filters.
   * search `array`: An array of full text search.
-  * rows `integer`: Number of items to return in export.
-  * start `integer`: Index of the first item to return (starting at 0).
+  * facet `array`: A facet is a field used for simple filtering (through the parameters refine and exclude) or exploration (with the endpoint `/facets`).
+  * refine `array`: An array of facet filters. For example **city:Paris** or **modified:2019/12**.
+  * exclude `array`: An array of facet filters. For example **city:Paris** or **modified:2019/12**.
+  * limit `integer`: Number of items to return in export.
+  * offset `integer`: Index of the first item to return (starting at 0).
+  * sort `array`: A list of field names, each possibly prefixed with a minus (-).
+  * select `string`: A select expression can be used to add, remove or change fields to return.
   * timezone `string`: Set timezone for datetime fields
 
 #### Output
@@ -376,8 +405,13 @@ opendatasoft.exportRecordsJSON({
   * dataset_id **required** `string`: Dataset identifier.
   * where `array`: An array of filters.
   * search `array`: An array of full text search.
-  * rows `integer`: Number of items to return in export.
-  * start `integer`: Index of the first item to return (starting at 0).
+  * facet `array`: A facet is a field used for simple filtering (through the parameters refine and exclude) or exploration (with the endpoint `/facets`).
+  * refine `array`: An array of facet filters. For example **city:Paris** or **modified:2019/12**.
+  * exclude `array`: An array of facet filters. For example **city:Paris** or **modified:2019/12**.
+  * limit `integer`: Number of items to return in export.
+  * offset `integer`: Index of the first item to return (starting at 0).
+  * sort `array`: A list of field names, each possibly prefixed with a minus (-).
+  * select `string`: A select expression can be used to add, remove or change fields to return.
   * pretty `boolean`: Activate pretty print
   * timezone `string`: Set timezone for datetime fields
 
@@ -402,8 +436,13 @@ opendatasoft.exportRecordsOV2({
   * dataset_id **required** `string`: Dataset identifier.
   * where `array`: An array of filters.
   * search `array`: An array of full text search.
-  * rows `integer`: Number of items to return in export.
-  * start `integer`: Index of the first item to return (starting at 0).
+  * facet `array`: A facet is a field used for simple filtering (through the parameters refine and exclude) or exploration (with the endpoint `/facets`).
+  * refine `array`: An array of facet filters. For example **city:Paris** or **modified:2019/12**.
+  * exclude `array`: An array of facet filters. For example **city:Paris** or **modified:2019/12**.
+  * limit `integer`: Number of items to return in export.
+  * offset `integer`: Index of the first item to return (starting at 0).
+  * sort `array`: A list of field names, each possibly prefixed with a minus (-).
+  * select `string`: A select expression can be used to add, remove or change fields to return.
   * timezone `string`: Set timezone for datetime fields
 
 #### Output
@@ -427,8 +466,13 @@ opendatasoft.exportRecordsSHP({
   * dataset_id **required** `string`: Dataset identifier.
   * where `array`: An array of filters.
   * search `array`: An array of full text search.
-  * rows `integer`: Number of items to return in export.
-  * start `integer`: Index of the first item to return (starting at 0).
+  * facet `array`: A facet is a field used for simple filtering (through the parameters refine and exclude) or exploration (with the endpoint `/facets`).
+  * refine `array`: An array of facet filters. For example **city:Paris** or **modified:2019/12**.
+  * exclude `array`: An array of facet filters. For example **city:Paris** or **modified:2019/12**.
+  * limit `integer`: Number of items to return in export.
+  * offset `integer`: Index of the first item to return (starting at 0).
+  * sort `array`: A list of field names, each possibly prefixed with a minus (-).
+  * select `string`: A select expression can be used to add, remove or change fields to return.
   * timezone `string`: Set timezone for datetime fields
 
 #### Output
@@ -452,12 +496,48 @@ opendatasoft.exportRecordsXLS({
   * dataset_id **required** `string`: Dataset identifier.
   * where `array`: An array of filters.
   * search `array`: An array of full text search.
-  * rows `integer`: Number of items to return in export.
-  * start `integer`: Index of the first item to return (starting at 0).
+  * facet `array`: A facet is a field used for simple filtering (through the parameters refine and exclude) or exploration (with the endpoint `/facets`).
+  * refine `array`: An array of facet filters. For example **city:Paris** or **modified:2019/12**.
+  * exclude `array`: An array of facet filters. For example **city:Paris** or **modified:2019/12**.
+  * limit `integer`: Number of items to return in export.
+  * offset `integer`: Index of the first item to return (starting at 0).
+  * sort `array`: A list of field names, each possibly prefixed with a minus (-).
+  * select `string`: A select expression can be used to add, remove or change fields to return.
   * timezone `string`: Set timezone for datetime fields
 
 #### Output
 * output `file`
+
+### getRecordsFacets
+Enumerate facets values for records and return a list of values for each facet.
+Can be used to implement guided navigation in large result sets.
+
+Read [the facets documentation](https://help.opendatasoft.com/apis/ods-search-v2/#enumerating-facets-values) for more details.
+
+
+
+```js
+opendatasoft.getRecordsFacets({
+  "source": "",
+  "dataset_id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * source **required** `string` (values: catalog, opendatasoft, monitoring): Each source represents a different catalog of datasets you'll be able to query.
+  * dataset_id **required** `string`: Dataset identifier.
+  * facet `array`: A facet is a field used for simple filtering (through the parameters refine and exclude) or exploration (with the endpoint `/facets`).
+  * refine `array`: An array of facet filters. For example **city:Paris** or **modified:2019/12**.
+  * exclude `array`: An array of facet filters. For example **city:Paris** or **modified:2019/12**.
+  * where `array`: An array of filters.
+  * search `array`: An array of full text search.
+  * timezone `string`: Set timezone for datetime fields
+
+#### Output
+* output `object`
+  * facets `array`
+    * items [facet_enumeration](#facet_enumeration)
 
 ### sendDatasetFeedback
 Create new feedback entry.
@@ -526,8 +606,11 @@ opendatasoft.getRecords({
   * dataset_id **required** `string`: Dataset identifier.
   * where `array`: An array of filters.
   * search `array`: An array of full text search.
-  * rows `integer`: Number of items to return.
-  * start `integer`: Index of the first item to return (starting at 0).
+  * facet `array`: A facet is a field used for simple filtering (through the parameters refine and exclude) or exploration (with the endpoint `/facets`).
+  * refine `array`: An array of facet filters. For example **city:Paris** or **modified:2019/12**.
+  * exclude `array`: An array of facet filters. For example **city:Paris** or **modified:2019/12**.
+  * limit `integer`: Number of items to return.
+  * offset `integer`: Index of the first item to return (starting at 0).
   * sort `array`: A list of field names, each possibly prefixed with a minus (-).
   * select `string`: A select expression can be used to add, remove or change fields to return.
   * pretty `boolean`: Activate pretty print
@@ -588,8 +671,8 @@ opendatasoft.getDatasetReuses({
 * input `object`
   * source **required** `string` (values: catalog, opendatasoft, monitoring): Each source represents a different catalog of datasets you'll be able to query.
   * dataset_id **required** `string`: Dataset identifier.
-  * start `integer`: Index of the first item to return (starting at 0).
-  * rows `integer`: Number of items to return.
+  * offset `integer`: Index of the first item to return (starting at 0).
+  * limit `integer`: Number of items to return.
   * timezone `string`: Set timezone for datetime fields
 
 #### Output
@@ -689,8 +772,11 @@ opendatasoft.exportDatasetsCSV({
   * source **required** `string` (values: catalog, opendatasoft, monitoring): Each source represents a different catalog of datasets you'll be able to query.
   * where `array`: An array of filters.
   * search `array`: An array of full text search.
-  * rows `integer`: Number of items to return.
-  * start `integer`: Index of the first item to return (starting at 0).
+  * facet `array`: A facet is a field used for simple filtering (through the parameters refine and exclude) or exploration (with the endpoint `/facets`).
+  * refine `array`: An array of facet filters. For example **city:Paris** or **modified:2019/12**.
+  * exclude `array`: An array of facet filters. For example **city:Paris** or **modified:2019/12**.
+  * limit `integer`: Number of items to return.
+  * offset `integer`: Index of the first item to return (starting at 0).
   * timezone `string`: Set timezone for datetime fields
   * include_app_metas `boolean`: Explicitely request application metas for each datasets.
   * delimiter `string` (values: ,, ;, |): Provide a different delimiter (default ',').
@@ -714,8 +800,11 @@ opendatasoft.exportDatasetsJson({
   * source **required** `string` (values: catalog, opendatasoft, monitoring): Each source represents a different catalog of datasets you'll be able to query.
   * where `array`: An array of filters.
   * search `array`: An array of full text search.
-  * rows `integer`: Number of items to return.
-  * start `integer`: Index of the first item to return (starting at 0).
+  * facet `array`: A facet is a field used for simple filtering (through the parameters refine and exclude) or exploration (with the endpoint `/facets`).
+  * refine `array`: An array of facet filters. For example **city:Paris** or **modified:2019/12**.
+  * exclude `array`: An array of facet filters. For example **city:Paris** or **modified:2019/12**.
+  * limit `integer`: Number of items to return.
+  * offset `integer`: Index of the first item to return (starting at 0).
   * pretty `boolean`: Activate pretty print
   * timezone `string`: Set timezone for datetime fields
   * include_app_metas `boolean`: Explicitely request application metas for each datasets.
@@ -739,8 +828,11 @@ opendatasoft.exportDatasetsRDF({
   * source **required** `string` (values: catalog, opendatasoft, monitoring): Each source represents a different catalog of datasets you'll be able to query.
   * where `array`: An array of filters.
   * search `array`: An array of full text search.
-  * rows `integer`: Number of items to return.
-  * start `integer`: Index of the first item to return (starting at 0).
+  * facet `array`: A facet is a field used for simple filtering (through the parameters refine and exclude) or exploration (with the endpoint `/facets`).
+  * refine `array`: An array of facet filters. For example **city:Paris** or **modified:2019/12**.
+  * exclude `array`: An array of facet filters. For example **city:Paris** or **modified:2019/12**.
+  * limit `integer`: Number of items to return.
+  * offset `integer`: Index of the first item to return (starting at 0).
   * timezone `string`: Set timezone for datetime fields
   * include_app_metas `boolean`: Explicitely request application metas for each datasets.
 
@@ -763,8 +855,11 @@ opendatasoft.exportDatasetsRSS({
   * source **required** `string` (values: catalog, opendatasoft, monitoring): Each source represents a different catalog of datasets you'll be able to query.
   * where `array`: An array of filters.
   * search `array`: An array of full text search.
-  * rows `integer`: Number of items to return.
-  * start `integer`: Index of the first item to return (starting at 0).
+  * facet `array`: A facet is a field used for simple filtering (through the parameters refine and exclude) or exploration (with the endpoint `/facets`).
+  * refine `array`: An array of facet filters. For example **city:Paris** or **modified:2019/12**.
+  * exclude `array`: An array of facet filters. For example **city:Paris** or **modified:2019/12**.
+  * limit `integer`: Number of items to return.
+  * offset `integer`: Index of the first item to return (starting at 0).
   * timezone `string`: Set timezone for datetime fields
   * include_app_metas `boolean`: Explicitely request application metas for each datasets.
 
@@ -787,8 +882,11 @@ opendatasoft.exportDatasetsTTL({
   * source **required** `string` (values: catalog, opendatasoft, monitoring): Each source represents a different catalog of datasets you'll be able to query.
   * where `array`: An array of filters.
   * search `array`: An array of full text search.
-  * rows `integer`: Number of items to return.
-  * start `integer`: Index of the first item to return (starting at 0).
+  * facet `array`: A facet is a field used for simple filtering (through the parameters refine and exclude) or exploration (with the endpoint `/facets`).
+  * refine `array`: An array of facet filters. For example **city:Paris** or **modified:2019/12**.
+  * exclude `array`: An array of facet filters. For example **city:Paris** or **modified:2019/12**.
+  * limit `integer`: Number of items to return.
+  * offset `integer`: Index of the first item to return (starting at 0).
   * timezone `string`: Set timezone for datetime fields
   * include_app_metas `boolean`: Explicitely request application metas for each datasets.
 
@@ -811,13 +909,45 @@ opendatasoft.exportDatasetsXLS({
   * source **required** `string` (values: catalog, opendatasoft, monitoring): Each source represents a different catalog of datasets you'll be able to query.
   * where `array`: An array of filters.
   * search `array`: An array of full text search.
-  * rows `integer`: Number of items to return.
-  * start `integer`: Index of the first item to return (starting at 0).
+  * facet `array`: A facet is a field used for simple filtering (through the parameters refine and exclude) or exploration (with the endpoint `/facets`).
+  * refine `array`: An array of facet filters. For example **city:Paris** or **modified:2019/12**.
+  * exclude `array`: An array of facet filters. For example **city:Paris** or **modified:2019/12**.
+  * limit `integer`: Number of items to return.
+  * offset `integer`: Index of the first item to return (starting at 0).
   * timezone `string`: Set timezone for datetime fields
   * include_app_metas `boolean`: Explicitely request application metas for each datasets.
 
 #### Output
 * output `file`
+
+### getDatasetsFacets
+Enumerate facets values for datasets and return a list of values for each facet.
+Can be used to implement guided navigation in large result sets.
+
+Read [the facets documentation](https://help.opendatasoft.com/apis/ods-search-v2/#enumerating-facets-values) for more details.
+
+
+
+```js
+opendatasoft.getDatasetsFacets({
+  "source": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * source **required** `string` (values: catalog, opendatasoft, monitoring): Each source represents a different catalog of datasets you'll be able to query.
+  * facet `array`: A facet is a field used for simple filtering (through the parameters refine and exclude) or exploration (with the endpoint `/facets`).
+  * refine `array`: An array of facet filters. For example **city:Paris** or **modified:2019/12**.
+  * exclude `array`: An array of facet filters. For example **city:Paris** or **modified:2019/12**.
+  * where `array`: An array of filters.
+  * search `array`: An array of full text search.
+  * timezone `string`: Set timezone for datetime fields
+
+#### Output
+* output `object`
+  * facets `array`
+    * items [facet_enumeration](#facet_enumeration)
 
 ### getMetadataTemplatesTypes
 List of available metadata templates types, each with their endpoints.
@@ -924,6 +1054,20 @@ opendatasoft.getMetadataTemplate({
 ### datasets
 * datasets `array`
   * items [dataset](#dataset)
+
+### facet_enumeration
+* facet_enumeration `object`
+  * facets `array`
+    * items [facet_value_enumeration](#facet_value_enumeration)
+  * name `string`
+
+### facet_value_enumeration
+* facet_value_enumeration `object`
+  * count `integer`
+  * facets `array`
+    * items [facet_value_enumeration](#facet_value_enumeration)
+  * name `string`
+  * value `string`
 
 ### link
 * link `object`

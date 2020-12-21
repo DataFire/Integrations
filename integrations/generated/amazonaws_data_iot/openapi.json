@@ -1,12 +1,5 @@
 {
   "swagger": "2.0",
-  "schemes": [
-    "https",
-    "http"
-  ],
-  "host": "data.iot.amazonaws.com",
-  "basePath": "/",
-  "x-hasEquivalentPaths": true,
   "info": {
     "contact": {
       "email": "mike.ralphson@gmail.com",
@@ -14,7 +7,7 @@
       "url": "https://github.com/mermade/aws2openapi",
       "x-twitter": "PermittedSoc"
     },
-    "description": "<fullname>AWS IoT</fullname> <p>AWS IoT-Data enables secure, bi-directional communication between Internet-connected things (such as sensors, actuators, embedded devices, or smart appliances) and the AWS cloud. It implements a broker for applications and things to publish messages over HTTP (Publish) and retrieve, update, and delete thing shadows. A thing shadow is a persistent representation of your things and their state in the AWS cloud.</p>",
+    "description": "<fullname>AWS IoT</fullname> <p>AWS IoT-Data enables secure, bi-directional communication between Internet-connected things (such as sensors, actuators, embedded devices, or smart appliances) and the AWS cloud. It implements a broker for applications and things to publish messages over HTTP (Publish) and retrieve, update, and delete shadows. A shadow is a persistent representation of your things and their state in the AWS cloud.</p> <p>Find the endpoint address for actions in the AWS IoT data plane by running this CLI command:</p> <p> <code>aws iot describe-endpoint --endpoint-type iot:Data-ATS</code> </p> <p>The service name used by <a href=\"https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html\">AWS Signature Version 4</a> to sign requests is: <i>iotdevicegateway</i>.</p>",
     "license": {
       "name": "Apache 2.0 License",
       "url": "http://www.apache.org/licenses/"
@@ -30,7 +23,7 @@
     ],
     "x-logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.jpeg"
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"
     },
     "x-origin": [
       {
@@ -40,7 +33,7 @@
           "version": "1.0.0"
         },
         "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/iot-data-2015-05-28.normal.json",
-        "x-apisguru-direct": true
+        "x-apisguru-driver": "external"
       }
     ],
     "x-preferred": true,
@@ -52,104 +45,211 @@
       "type": "openapi"
     }
   },
-  "externalDocs": {
-    "description": "Amazon Web Services documentation",
-    "url": "https://aws.amazon.com/iot/"
-  },
-  "consumes": [
-    "application/json"
+  "host": "data.iot.us-east-1.amazonaws.com",
+  "basePath": "/",
+  "schemes": [
+    "http"
   ],
-  "produces": [
-    "application/json"
-  ],
-  "securityDefinitions": {
-    "hmac": {
-      "description": "Amazon Signature authorization v4",
-      "in": "header",
-      "name": "Authorization",
-      "type": "apiKey",
-      "x-amazon-apigateway-authtype": "awsSigv4"
-    }
-  },
-  "security": [
-    {
-      "hmac": []
-    }
-  ],
-  "parameters": {
-    "Action": {
-      "in": "header",
-      "name": "Action",
-      "required": true,
-      "type": "string"
-    },
-    "Version": {
-      "in": "header",
-      "name": "Version",
-      "required": true,
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "in": "header",
-      "name": "X-Amz-Algorithm",
-      "required": false,
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "in": "header",
-      "name": "X-Amz-Content-Sha256",
-      "required": false,
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "in": "header",
-      "name": "X-Amz-Credential",
-      "required": false,
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "in": "header",
-      "name": "X-Amz-Date",
-      "required": false,
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "in": "header",
-      "name": "X-Amz-Security-Token",
-      "required": false,
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "in": "header",
-      "name": "X-Amz-Signature",
-      "required": false,
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "in": "header",
-      "name": "X-Amz-SignedHeaders",
-      "required": false,
-      "type": "string"
-    }
-  },
   "paths": {
-    "/things/{thingName}/shadow": {
-      "delete": {
-        "description": "<p>Deletes the thing shadow for the specified thing.</p> <p>For more information, see <a href=\"http://docs.aws.amazon.com/iot/latest/developerguide/API_DeleteThingShadow.html\">DeleteThingShadow</a> in the <i>AWS IoT Developer Guide</i>.</p>",
-        "operationId": "DeleteThingShadow",
+    "/api/things/shadow/ListNamedShadowsForThing/{thingName}": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "in": "body",
-            "name": "body",
+            "description": "The name of the thing.",
+            "in": "path",
+            "maxLength": 128,
+            "minLength": 1,
+            "name": "thingName",
+            "pattern": "[a-zA-Z0-9:_-]+",
             "required": true,
-            "schema": {
-              "$ref": "#/definitions/DeleteThingShadowRequest"
-            }
+            "type": "string"
           },
           {
+            "description": "The token to retrieve the next set of results.",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "The result page size.",
+            "in": "query",
+            "maximum": 100,
+            "minimum": 1,
+            "name": "pageSize",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListNamedShadowsForThingResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "482": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "483": {
+            "description": "UnauthorizedException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedException"
+            }
+          },
+          "484": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "485": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          },
+          "486": {
+            "description": "MethodNotAllowedException",
+            "schema": {
+              "$ref": "#/definitions/MethodNotAllowedException"
+            }
+          }
+        },
+        "description": "Lists the shadows for the specified thing.",
+        "operationId": "ListNamedShadowsForThing"
+      }
+    },
+    "/things/{thingName}/shadow": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "delete": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The name of the thing.",
             "in": "path",
+            "maxLength": 128,
+            "minLength": 1,
             "name": "thingName",
+            "pattern": "[a-zA-Z0-9:_-]+",
             "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The name of the shadow.",
+            "in": "query",
+            "maxLength": 64,
+            "minLength": 1,
+            "name": "name",
+            "pattern": "[a-zA-Z0-9:_-]+",
+            "required": false,
             "type": "string"
           }
         ],
@@ -208,24 +308,33 @@
               "$ref": "#/definitions/UnsupportedDocumentEncodingException"
             }
           }
-        }
+        },
+        "description": "<p>Deletes the shadow for the specified thing.</p> <p>For more information, see <a href=\"http://docs.aws.amazon.com/iot/latest/developerguide/API_DeleteThingShadow.html\">DeleteThingShadow</a> in the AWS IoT Developer Guide.</p>",
+        "operationId": "DeleteThingShadow"
       },
       "get": {
-        "description": "<p>Gets the thing shadow for the specified thing.</p> <p>For more information, see <a href=\"http://docs.aws.amazon.com/iot/latest/developerguide/API_GetThingShadow.html\">GetThingShadow</a> in the <i>AWS IoT Developer Guide</i>.</p>",
-        "operationId": "GetThingShadow",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "in": "body",
-            "name": "body",
+            "description": "The name of the thing.",
+            "in": "path",
+            "maxLength": 128,
+            "minLength": 1,
+            "name": "thingName",
+            "pattern": "[a-zA-Z0-9:_-]+",
             "required": true,
-            "schema": {
-              "$ref": "#/definitions/GetThingShadowRequest"
-            }
+            "type": "string"
           },
           {
-            "in": "path",
-            "name": "thingName",
-            "required": true,
+            "description": "The name of the shadow.",
+            "in": "query",
+            "maxLength": 64,
+            "minLength": 1,
+            "name": "name",
+            "pattern": "[a-zA-Z0-9:_-]+",
+            "required": false,
             "type": "string"
           }
         ],
@@ -284,54 +393,54 @@
               "$ref": "#/definitions/UnsupportedDocumentEncodingException"
             }
           }
-        }
+        },
+        "description": "<p>Gets the shadow for the specified thing.</p> <p>For more information, see <a href=\"http://docs.aws.amazon.com/iot/latest/developerguide/API_GetThingShadow.html\">GetThingShadow</a> in the AWS IoT Developer Guide.</p>",
+        "operationId": "GetThingShadow"
       },
-      "parameters": [
-        {
-          "$ref": "#/parameters/Action"
-        },
-        {
-          "$ref": "#/parameters/Version"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Date"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Algorithm"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Credential"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
-        }
-      ],
       "post": {
-        "description": "<p>Updates the thing shadow for the specified thing.</p> <p>For more information, see <a href=\"http://docs.aws.amazon.com/iot/latest/developerguide/API_UpdateThingShadow.html\">UpdateThingShadow</a> in the <i>AWS IoT Developer Guide</i>.</p>",
-        "operationId": "UpdateThingShadow",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "description": "The name of the thing.",
+            "in": "path",
+            "maxLength": 128,
+            "minLength": 1,
+            "name": "thingName",
+            "pattern": "[a-zA-Z0-9:_-]+",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The name of the shadow.",
+            "in": "query",
+            "maxLength": 64,
+            "minLength": 1,
+            "name": "name",
+            "pattern": "[a-zA-Z0-9:_-]+",
+            "required": false,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/UpdateThingShadowRequest"
+              "properties": {
+                "payload": {
+                  "description": "The state information, in JSON format.",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "payload"
+              ],
+              "type": "object"
             }
-          },
-          {
-            "in": "path",
-            "name": "thingName",
-            "required": true,
-            "type": "string"
           }
         ],
         "responses": {
@@ -395,56 +504,93 @@
               "$ref": "#/definitions/UnsupportedDocumentEncodingException"
             }
           }
-        }
+        },
+        "description": "<p>Updates the shadow for the specified thing.</p> <p>For more information, see <a href=\"http://docs.aws.amazon.com/iot/latest/developerguide/API_UpdateThingShadow.html\">UpdateThingShadow</a> in the AWS IoT Developer Guide.</p>",
+        "operationId": "UpdateThingShadow"
       }
     },
     "/topics/{topic}": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "<p>Publishes state information.</p> <p>For more information, see <a href=\"http://docs.aws.amazon.com/iot/latest/developerguide/protocols.html#http\">HTTP Protocol</a> in the <i>AWS IoT Developer Guide</i>.</p>",
-        "operationId": "Publish",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "description": "The name of the MQTT topic.",
+            "in": "path",
+            "name": "topic",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The Quality of Service (QoS) level.",
+            "in": "query",
+            "maximum": 1,
+            "minimum": 0,
+            "name": "qos",
+            "required": false,
+            "type": "integer"
+          },
           {
             "in": "body",
             "name": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/PublishRequest"
+              "properties": {
+                "payload": {
+                  "description": "The state information, in JSON format.",
+                  "type": "string"
+                }
+              },
+              "type": "object"
             }
-          },
-          {
-            "in": "path",
-            "name": "topic",
-            "required": true,
-            "type": "string"
           }
         ],
         "responses": {
@@ -475,32 +621,32 @@
               "$ref": "#/definitions/MethodNotAllowedException"
             }
           }
-        }
+        },
+        "description": "<p>Publishes state information.</p> <p>For more information, see <a href=\"http://docs.aws.amazon.com/iot/latest/developerguide/protocols.html#http\">HTTP Protocol</a> in the AWS IoT Developer Guide.</p>",
+        "operationId": "Publish"
       }
     }
   },
   "definitions": {
-    "ConflictException": {
-      "description": "The specified version does not match the version of the document.",
-      "properties": {
-        "message": {
-          "$ref": "#/definitions/ErrorMessage",
-          "description": "The message for the exception."
-        }
-      },
-      "type": "object"
-    },
+    "ConflictException": {},
     "DeleteThingShadowRequest": {
       "description": "The input for the DeleteThingShadow operation.",
       "properties": {},
+      "title": "DeleteThingShadowRequest",
       "type": "object"
     },
     "DeleteThingShadowResponse": {
       "description": "The output from the DeleteThingShadow operation.",
       "properties": {
         "payload": {
-          "$ref": "#/definitions/JsonDocument",
-          "description": "The state information, in JSON format."
+          "allOf": [
+            {
+              "$ref": "#/definitions/JsonDocument"
+            },
+            {
+              "description": "The state information, in JSON format."
+            }
+          ]
         }
       },
       "required": [
@@ -508,56 +654,87 @@
       ],
       "type": "object"
     },
-    "ErrorMessage": {
-      "type": "string"
-    },
     "GetThingShadowRequest": {
       "description": "The input for the GetThingShadow operation.",
       "properties": {},
+      "title": "GetThingShadowRequest",
       "type": "object"
     },
     "GetThingShadowResponse": {
       "description": "The output from the GetThingShadow operation.",
       "properties": {
         "payload": {
-          "$ref": "#/definitions/JsonDocument",
-          "description": "The state information, in JSON format."
+          "allOf": [
+            {
+              "$ref": "#/definitions/JsonDocument"
+            },
+            {
+              "description": "The state information, in JSON format."
+            }
+          ]
         }
       },
       "type": "object"
     },
-    "InternalFailureException": {
-      "description": "An unexpected error has occurred.",
-      "properties": {
-        "message": {
-          "$ref": "#/definitions/errorMessage",
-          "description": "The message for the exception."
-        }
-      },
-      "type": "object"
-    },
-    "InvalidRequestException": {
-      "description": "The request is not valid.",
-      "properties": {
-        "message": {
-          "$ref": "#/definitions/errorMessage",
-          "description": "The message for the exception."
-        }
-      },
-      "type": "object"
-    },
+    "InternalFailureException": {},
+    "InvalidRequestException": {},
     "JsonDocument": {
       "type": "string"
     },
-    "MethodNotAllowedException": {
-      "description": "The specified combination of HTTP verb and URI is not supported.",
+    "ListNamedShadowsForThingRequest": {
+      "properties": {},
+      "title": "ListNamedShadowsForThingRequest",
+      "type": "object"
+    },
+    "ListNamedShadowsForThingResponse": {
       "properties": {
-        "message": {
-          "$ref": "#/definitions/ErrorMessage",
-          "description": "The message for the exception."
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NextToken"
+            },
+            {
+              "description": "The token for the next set of results, or null if there are no additional results."
+            }
+          ]
+        },
+        "results": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NamedShadowList"
+            },
+            {
+              "description": "The list of shadows for the specified thing."
+            }
+          ]
+        },
+        "timestamp": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "The Epoch date and time the response was generated by AWS IoT."
+            }
+          ]
         }
       },
       "type": "object"
+    },
+    "MethodNotAllowedException": {},
+    "NamedShadowList": {
+      "items": {
+        "$ref": "#/definitions/ShadowName"
+      },
+      "type": "array"
+    },
+    "NextToken": {
+      "type": "string"
+    },
+    "PageSize": {
+      "maximum": 100,
+      "minimum": 1,
+      "type": "integer"
     },
     "Payload": {
       "type": "string"
@@ -566,10 +743,17 @@
       "description": "The input for the Publish operation.",
       "properties": {
         "payload": {
-          "$ref": "#/definitions/Payload",
-          "description": "The state information, in JSON format."
+          "allOf": [
+            {
+              "$ref": "#/definitions/Payload"
+            },
+            {
+              "description": "The state information, in JSON format."
+            }
+          ]
         }
       },
+      "title": "PublishRequest",
       "type": "object"
     },
     "Qos": {
@@ -577,100 +761,129 @@
       "minimum": 0,
       "type": "integer"
     },
-    "RequestEntityTooLargeException": {
-      "description": "The payload exceeds the maximum size allowed.",
-      "properties": {
-        "message": {
-          "$ref": "#/definitions/ErrorMessage",
-          "description": "The message for the exception."
-        }
-      },
-      "type": "object"
-    },
-    "ResourceNotFoundException": {
-      "description": "The specified resource does not exist.",
-      "properties": {
-        "message": {
-          "$ref": "#/definitions/errorMessage",
-          "description": "The message for the exception."
-        }
-      },
-      "type": "object"
-    },
-    "ServiceUnavailableException": {
-      "description": "The service is temporarily unavailable.",
-      "properties": {
-        "message": {
-          "$ref": "#/definitions/errorMessage",
-          "description": "The message for the exception."
-        }
-      },
-      "type": "object"
+    "RequestEntityTooLargeException": {},
+    "ResourceNotFoundException": {},
+    "ServiceUnavailableException": {},
+    "ShadowName": {
+      "maxLength": 64,
+      "minLength": 1,
+      "pattern": "[a-zA-Z0-9:_-]+",
+      "type": "string"
     },
     "ThingName": {
       "maxLength": 128,
       "minLength": 1,
-      "pattern": "[a-zA-Z0-9_-]+",
+      "pattern": "[a-zA-Z0-9:_-]+",
       "type": "string"
     },
-    "ThrottlingException": {
-      "description": "The rate exceeds the limit.",
-      "properties": {
-        "message": {
-          "$ref": "#/definitions/errorMessage",
-          "description": "The message for the exception."
-        }
-      },
-      "type": "object"
+    "ThrottlingException": {},
+    "Timestamp": {
+      "type": "integer"
     },
     "Topic": {
       "type": "string"
     },
-    "UnauthorizedException": {
-      "description": "You are not authorized to perform this operation.",
-      "properties": {
-        "message": {
-          "$ref": "#/definitions/errorMessage",
-          "description": "The message for the exception."
-        }
-      },
-      "type": "object"
-    },
-    "UnsupportedDocumentEncodingException": {
-      "description": "The document encoding is not supported.",
-      "properties": {
-        "message": {
-          "$ref": "#/definitions/errorMessage",
-          "description": "The message for the exception."
-        }
-      },
-      "type": "object"
-    },
+    "UnauthorizedException": {},
+    "UnsupportedDocumentEncodingException": {},
     "UpdateThingShadowRequest": {
       "description": "The input for the UpdateThingShadow operation.",
       "properties": {
         "payload": {
-          "$ref": "#/definitions/JsonDocument",
-          "description": "The state information, in JSON format."
+          "allOf": [
+            {
+              "$ref": "#/definitions/JsonDocument"
+            },
+            {
+              "description": "The state information, in JSON format."
+            }
+          ]
         }
       },
       "required": [
         "payload"
       ],
+      "title": "UpdateThingShadowRequest",
       "type": "object"
     },
     "UpdateThingShadowResponse": {
       "description": "The output from the UpdateThingShadow operation.",
       "properties": {
         "payload": {
-          "$ref": "#/definitions/JsonDocument",
-          "description": "The state information, in JSON format."
+          "allOf": [
+            {
+              "$ref": "#/definitions/JsonDocument"
+            },
+            {
+              "description": "The state information, in JSON format."
+            }
+          ]
         }
       },
       "type": "object"
-    },
-    "errorMessage": {
-      "type": "string"
+    }
+  },
+  "securityDefinitions": {
+    "hmac": {
+      "description": "Amazon Signature authorization v4",
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey",
+      "x-amazon-apigateway-authtype": "awsSigv4"
+    }
+  },
+  "security": [
+    {
+      "hmac": []
+    }
+  ],
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://docs.aws.amazon.com/iot/"
+  },
+  "x-components": {
+    "parameters": {
+      "X-Amz-Algorithm": {
+        "in": "header",
+        "name": "X-Amz-Algorithm",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Content-Sha256": {
+        "in": "header",
+        "name": "X-Amz-Content-Sha256",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Credential": {
+        "in": "header",
+        "name": "X-Amz-Credential",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Date": {
+        "in": "header",
+        "name": "X-Amz-Date",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Security-Token": {
+        "in": "header",
+        "name": "X-Amz-Security-Token",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Signature": {
+        "in": "header",
+        "name": "X-Amz-Signature",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-SignedHeaders": {
+        "in": "header",
+        "name": "X-Amz-SignedHeaders",
+        "required": false,
+        "type": "string"
+      }
     }
   }
 }

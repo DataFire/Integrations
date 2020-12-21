@@ -15,7 +15,7 @@ let azure_migrate = require('@datafire/azure_migrate').create({
   redirect_uri: ""
 });
 
-azure_migrate.Operations_List(null).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -39,6 +39,71 @@ azure_migrate.Operations_List(null, context)
 
 #### Output
 * output [OperationResultList](#operationresultlist)
+
+### AssessmentOptions_Get
+Get the available options for the properties of an assessment.
+
+
+```js
+azure_migrate.AssessmentOptions_Get({
+  "subscriptionId": "",
+  "locationName": "",
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: Azure Subscription Id in which project was created.
+  * locationName **required** `string`: Azure region in which the project is created.
+  * api-version **required** `string` (values: 2018-02-02): Standard request header. Used by service to identify API version used by client.
+  * Accept-Language `string`: Standard request header. Used by service to respond to client in appropriate language.
+
+#### Output
+* output [AssessmentOptionsResultList](#assessmentoptionsresultlist)
+
+### Location_CheckNameAvailability
+Checks whether the project name is available in the specified region.
+
+
+```js
+azure_migrate.Location_CheckNameAvailability({
+  "locationName": "",
+  "api-version": "",
+  "subscriptionId": "",
+  "parameters": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * locationName **required** `string`: The desired region for the name check.
+  * api-version **required** `string` (values: 2018-02-02): Standard request header. Used by service to identify API version used by client.
+  * subscriptionId **required** `string`: Azure Subscription Id in which project was created.
+  * parameters **required** [CheckNameAvailabilityParameters](#checknameavailabilityparameters)
+
+#### Output
+* output [CheckNameAvailabilityResult](#checknameavailabilityresult)
+
+### Projects_ListBySubscription
+Get all the projects in the subscription.
+
+
+```js
+azure_migrate.Projects_ListBySubscription({
+  "subscriptionId": "",
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: Azure Subscription Id in which project was created.
+  * api-version **required** `string` (values: 2018-02-02): Standard request header. Used by service to identify API version used by client.
+  * Accept-Language `string`: Standard request header. Used by service to respond to client in appropriate language.
+
+#### Output
+* output [ProjectResultList](#projectresultlist)
 
 ### Assessments_ListByProject
 Get all assessments created in the project.
@@ -267,7 +332,7 @@ azure_migrate.Assessments_Get({
 * output [Assessment](#assessment)
 
 ### Assessments_Create
-Create a new assessment with the given name and the specified settings. Since name of an assessment in a project is a unique identiefier, if an assessment with the name provided already exists, then the existing assessment is updated.
+Create a new assessment with the given name and the specified settings. Since name of an assessment in a project is a unique identifier, if an assessment with the name provided already exists, then the existing assessment is updated.
 
 Any PUT operation, resulting in either create or update on an assessment, will cause the assessment to go in a "InProgress" state. This will be indicated by the field 'computationState' on the Assessment object. During this time no other PUT operation will be allowed on that assessment object, nor will a Delete operation. Once the computation for the assessment is complete, the field 'computationState' will be updated to 'Ready', and then other PUT or DELETE operations can happen on the assessment.
 
@@ -333,7 +398,7 @@ azure_migrate.AssessedMachines_ListByAssessment({
 * output [AssessedMachineResultList](#assessedmachineresultlist)
 
 ### AssessedMachines_Get
-Get an assessed machine with its size & cost estimnate that was evaluated in the specified assessment.
+Get an assessed machine with its size & cost estimate that was evaluated in the specified assessment.
 
 
 ```js
@@ -440,12 +505,12 @@ azure_migrate.Machines_Get({
 #### Output
 * output [Machine](#machine)
 
-### Projects_List
+### Projects_ListByResourceGroup
 Get all the projects in the resource group.
 
 
 ```js
-azure_migrate.Projects_List({
+azure_migrate.Projects_ListByResourceGroup({
   "subscriptionId": "",
   "resourceGroupName": "",
   "api-version": ""
@@ -683,6 +748,13 @@ azure_migrate.Projects_GetKeys({
   * properties **required** [AssessmentProperties](#assessmentproperties)
   * type `string`: Type of the object = [Microsoft.Migrate/projects/groups/assessments].
 
+### AssessmentOptionsResultList
+* AssessmentOptionsResultList `object`: List of assessment options.
+  * reservedInstanceVmFamilies `array`: List of supported VM Families.
+    * items `string`: Azure VM family name.
+  * vmFamilies `array`: Dictionary of VM families grouped by vm family name describing the targeted azure locations of VM family and the category of the family.
+    * items [VmFamily](#vmfamily)
+
 ### AssessmentProperties
 * AssessmentProperties `object`: Properties of an assessment.
   * azureHybridUseBenefit **required** `string` (values: Unknown, Yes, No): AHUB discount on windows virtual machines.
@@ -703,7 +775,7 @@ azure_migrate.Projects_GetKeys({
   * scalingFactor **required** `number`: Scaling factor used over utilization data to add a performance buffer for new machines to be created in Azure. Min Value = 1.0, Max value = 1.9, Default = 1.3.
   * sizingCriterion **required** `string` (values: PerformanceBased, AsOnPremises): Assessment sizing criterion.
   * stage **required** `string` (values: InProgress, UnderReview, Approved): User configurable setting that describes the status of the assessment.
-  * status `string` (values: Created, Updated, Running, Completed, Invalid): Wheter the assessment has been created and is valid.
+  * status `string` (values: Created, Updated, Running, Completed, Invalid): Whether the assessment has been created and is valid.
   * timeRange **required** `string` (values: Day, Week, Month): Time range of performance data used to recommend a size.
   * updatedTimestamp `string`: Time when this project was last updated. Date-Time represented in ISO-8601 format.
 
@@ -711,6 +783,29 @@ azure_migrate.Projects_GetKeys({
 * AssessmentResultList `object`: List of assessments.
   * value `array`: List of assessments.
     * items [Assessment](#assessment)
+
+### CheckNameAvailabilityParameters
+* CheckNameAvailabilityParameters `object`: Parameters for a check name availability request.
+  * name **required** `string`: The name to check for availability
+  * type **required** `string` (values: Microsoft.Migrate/projects): The resource type. Must be set to Microsoft.Migrate/projects
+
+### CheckNameAvailabilityResult
+* CheckNameAvailabilityResult `object`: The CheckNameAvailability operation response.
+  * message `string`: Gets an error message explaining the Reason value in more detail.
+  * nameAvailable `boolean`: Gets a boolean value that indicates whether the name is available for you to use. If true, the name is available. If false, the name has already been taken or invalid and cannot be used.
+  * reason `string` (values: Available, Invalid, AlreadyExists): Gets the reason that a project name could not be used. The Reason element is only returned if NameAvailable is false.
+
+### CloudError
+* CloudError `object`: An error response from the Azure Migrate service.
+  * error [CloudErrorBody](#clouderrorbody)
+
+### CloudErrorBody
+* CloudErrorBody `object`: An error response from the Azure Migrate service.
+  * code `string`: An identifier for the error. Codes are invariant and are intended to be consumed programmatically.
+  * details `array`: A list of additional details about the error.
+    * items [CloudErrorBody](#clouderrorbody)
+  * message `string`: A message describing the error, intended to be suitable for display in a user interface.
+  * target `string`: The target of the particular error. For example, the name of the property in error.
 
 ### Disk
 * Disk `object`: A disk discovered on a machine.
@@ -835,5 +930,13 @@ azure_migrate.Projects_GetKeys({
 * ProjectResultList `object`: List of projects.
   * value `array`: List of projects.
     * items [Project](#project)
+
+### VmFamily
+* VmFamily `object`: VM family name, the list of targeted azure locations and the category of the family.
+  * category `array`: Category of the VM family.
+    * items `string`: VM family Category.
+  * familyName `string`: Name of the VM family.
+  * targetLocations `array`: List of Azure regions.
+    * items `string`: Azure region name.
 
 

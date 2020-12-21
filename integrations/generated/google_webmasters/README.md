@@ -1,6 +1,6 @@
 # @datafire/google_webmasters
 
-Client library for Search Console
+Client library for Search Console API
 
 ## Installation and Usage
 ```bash
@@ -15,7 +15,7 @@ let google_webmasters = require('@datafire/google_webmasters').create({
   redirect_uri: ""
 });
 
-google_webmasters.sites.list({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -67,12 +67,12 @@ google_webmasters.oauthRefresh(null, context)
   * scope `string`
   * expiration `string`
 
-### sites.list
+### webmasters.sites.list
 Lists the user's Search Console sites.
 
 
 ```js
-google_webmasters.sites.list({}, context)
+google_webmasters.webmasters.sites.list({}, context)
 ```
 
 #### Input
@@ -88,12 +88,12 @@ google_webmasters.sites.list({}, context)
 #### Output
 * output [SitesListResponse](#siteslistresponse)
 
-### sites.delete
+### webmasters.sites.delete
 Removes a site from the set of the user's Search Console sites.
 
 
 ```js
-google_webmasters.sites.delete({
+google_webmasters.webmasters.sites.delete({
   "siteUrl": ""
 }, context)
 ```
@@ -112,12 +112,12 @@ google_webmasters.sites.delete({
 #### Output
 *Output schema unknown*
 
-### sites.get
+### webmasters.sites.get
 Retrieves information about specific site.
 
 
 ```js
-google_webmasters.sites.get({
+google_webmasters.webmasters.sites.get({
   "siteUrl": ""
 }, context)
 ```
@@ -136,12 +136,12 @@ google_webmasters.sites.get({
 #### Output
 * output [WmxSite](#wmxsite)
 
-### sites.add
+### webmasters.sites.add
 Adds a site to the set of the user's sites in Search Console.
 
 
 ```js
-google_webmasters.sites.add({
+google_webmasters.webmasters.sites.add({
   "siteUrl": ""
 }, context)
 ```
@@ -160,22 +160,22 @@ google_webmasters.sites.add({
 #### Output
 *Output schema unknown*
 
-### searchanalytics.query
+### webmasters.searchanalytics.query
 Query your data with filters and parameters that you define. Returns zero or more rows grouped by the row keys that you define. You must define a date range of one or more days.
 
 When date is one of the group by values, any days without data are omitted from the result list. If you need to know which days have data, issue a broad date range query grouped by date for any metric, and see which day rows are returned.
 
 
 ```js
-google_webmasters.searchanalytics.query({
+google_webmasters.webmasters.searchanalytics.query({
   "siteUrl": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * body [SearchAnalyticsQueryRequest](#searchanalyticsqueryrequest)
   * siteUrl **required** `string`: The site's URL, including protocol. For example: http://www.example.com/
+  * body [SearchAnalyticsQueryRequest](#searchanalyticsqueryrequest)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -187,12 +187,12 @@ google_webmasters.searchanalytics.query({
 #### Output
 * output [SearchAnalyticsQueryResponse](#searchanalyticsqueryresponse)
 
-### sitemaps.list
+### webmasters.sitemaps.list
 Lists the sitemaps-entries submitted for this site, or included in the sitemap index file (if sitemapIndex is specified in the request).
 
 
 ```js
-google_webmasters.sitemaps.list({
+google_webmasters.webmasters.sitemaps.list({
   "siteUrl": ""
 }, context)
 ```
@@ -212,21 +212,21 @@ google_webmasters.sitemaps.list({
 #### Output
 * output [SitemapsListResponse](#sitemapslistresponse)
 
-### sitemaps.delete
+### webmasters.sitemaps.delete
 Deletes a sitemap from this site.
 
 
 ```js
-google_webmasters.sitemaps.delete({
-  "feedpath": "",
-  "siteUrl": ""
+google_webmasters.webmasters.sitemaps.delete({
+  "siteUrl": "",
+  "feedpath": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * feedpath **required** `string`: The URL of the actual sitemap. For example: http://www.example.com/sitemap.xml
   * siteUrl **required** `string`: The site's URL, including protocol. For example: http://www.example.com/
+  * feedpath **required** `string`: The URL of the actual sitemap. For example: http://www.example.com/sitemap.xml
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -238,21 +238,21 @@ google_webmasters.sitemaps.delete({
 #### Output
 *Output schema unknown*
 
-### sitemaps.get
+### webmasters.sitemaps.get
 Retrieves information about a specific sitemap.
 
 
 ```js
-google_webmasters.sitemaps.get({
-  "feedpath": "",
-  "siteUrl": ""
+google_webmasters.webmasters.sitemaps.get({
+  "siteUrl": "",
+  "feedpath": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * feedpath **required** `string`: The URL of the actual sitemap. For example: http://www.example.com/sitemap.xml
   * siteUrl **required** `string`: The site's URL, including protocol. For example: http://www.example.com/
+  * feedpath **required** `string`: The URL of the actual sitemap. For example: http://www.example.com/sitemap.xml
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -264,21 +264,21 @@ google_webmasters.sitemaps.get({
 #### Output
 * output [WmxSitemap](#wmxsitemap)
 
-### sitemaps.submit
+### webmasters.sitemaps.submit
 Submits a sitemap for a site.
 
 
 ```js
-google_webmasters.sitemaps.submit({
-  "feedpath": "",
-  "siteUrl": ""
+google_webmasters.webmasters.sitemaps.submit({
+  "siteUrl": "",
+  "feedpath": ""
 }, context)
 ```
 
 #### Input
 * input `object`
+  * siteUrl **required** `string`: The site's URL, including protocol. For example: http://www.example.com/
   * feedpath **required** `string`: The URL of the sitemap to add. For example: http://www.example.com/sitemap.xml
-  * siteUrl **required** `string`: The site's URL, including protocol. For example: http://www.example.com/
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -289,121 +289,6 @@ google_webmasters.sitemaps.submit({
 
 #### Output
 *Output schema unknown*
-
-### urlcrawlerrorscounts.query
-Retrieves a time series of the number of URL crawl errors per error category and platform.
-
-
-```js
-google_webmasters.urlcrawlerrorscounts.query({
-  "siteUrl": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * category `string` (values: authPermissions, flashContent, manyToOneRedirect, notFollowed, notFound, other, roboted, serverError, soft404): The crawl error category. For example: serverError. If not specified, returns results for all categories.
-  * latestCountsOnly `boolean`: If true, returns only the latest crawl error counts.
-  * platform `string` (values: mobile, smartphoneOnly, web): The user agent type (platform) that made the request. For example: web. If not specified, returns results for all platforms.
-  * siteUrl **required** `string`: The site's URL, including protocol. For example: http://www.example.com/
-  * alt `string` (values: json): Data format for the response.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
-
-#### Output
-* output [UrlCrawlErrorsCountsQueryResponse](#urlcrawlerrorscountsqueryresponse)
-
-### urlcrawlerrorssamples.list
-Lists a site's sample URLs for the specified crawl error category and platform.
-
-
-```js
-google_webmasters.urlcrawlerrorssamples.list({
-  "category": "",
-  "platform": "",
-  "siteUrl": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * category **required** `string` (values: authPermissions, flashContent, manyToOneRedirect, notFollowed, notFound, other, roboted, serverError, soft404): The crawl error category. For example: authPermissions
-  * platform **required** `string` (values: mobile, smartphoneOnly, web): The user agent type (platform) that made the request. For example: web
-  * siteUrl **required** `string`: The site's URL, including protocol. For example: http://www.example.com/
-  * alt `string` (values: json): Data format for the response.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
-
-#### Output
-* output [UrlCrawlErrorsSamplesListResponse](#urlcrawlerrorssampleslistresponse)
-
-### urlcrawlerrorssamples.markAsFixed
-Marks the provided site's sample URL as fixed, and removes it from the samples list.
-
-
-```js
-google_webmasters.urlcrawlerrorssamples.markAsFixed({
-  "category": "",
-  "platform": "",
-  "siteUrl": "",
-  "url": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * category **required** `string` (values: authPermissions, flashContent, manyToOneRedirect, notFollowed, notFound, other, roboted, serverError, soft404): The crawl error category. For example: authPermissions
-  * platform **required** `string` (values: mobile, smartphoneOnly, web): The user agent type (platform) that made the request. For example: web
-  * siteUrl **required** `string`: The site's URL, including protocol. For example: http://www.example.com/
-  * url **required** `string`: The relative path (without the site) of the sample URL. It must be one of the URLs returned by list(). For example, for the URL https://www.example.com/pagename on the site https://www.example.com/, the url value is pagename
-  * alt `string` (values: json): Data format for the response.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
-
-#### Output
-*Output schema unknown*
-
-### urlcrawlerrorssamples.get
-Retrieves details about crawl errors for a site's sample URL.
-
-
-```js
-google_webmasters.urlcrawlerrorssamples.get({
-  "category": "",
-  "platform": "",
-  "siteUrl": "",
-  "url": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * category **required** `string` (values: authPermissions, flashContent, manyToOneRedirect, notFollowed, notFound, other, roboted, serverError, soft404): The crawl error category. For example: authPermissions
-  * platform **required** `string` (values: mobile, smartphoneOnly, web): The user agent type (platform) that made the request. For example: web
-  * siteUrl **required** `string`: The site's URL, including protocol. For example: http://www.example.com/
-  * url **required** `string`: The relative path (without the site) of the sample URL. It must be one of the URLs returned by list(). For example, for the URL https://www.example.com/pagename on the site https://www.example.com/, the url value is pagename
-  * alt `string` (values: json): Data format for the response.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
-
-#### Output
-* output [UrlCrawlErrorsSample](#urlcrawlerrorssample)
 
 
 
@@ -458,43 +343,6 @@ google_webmasters.urlcrawlerrorssamples.get({
 * SitesListResponse `object`: List of sites with access level information.
   * siteEntry `array`: Contains permission level information about a Search Console site. For more information, see Permissions in Search Console.
     * items [WmxSite](#wmxsite)
-
-### UrlCrawlErrorCount
-* UrlCrawlErrorCount `object`: An entry in a URL crawl errors time series.
-  * count `string`: The error count at the given timestamp.
-  * timestamp `string`: The date and time when the crawl attempt took place, in RFC 3339 format.
-
-### UrlCrawlErrorCountsPerType
-* UrlCrawlErrorCountsPerType `object`: Number of errors per day for a specific error type (defined by platform and category).
-  * category `string`: The crawl error type.
-  * entries `array`: The error count entries time series.
-    * items [UrlCrawlErrorCount](#urlcrawlerrorcount)
-  * platform `string`: The general type of Googlebot that made the request (see list of Googlebot user-agents for the user-agents used).
-
-### UrlCrawlErrorsCountsQueryResponse
-* UrlCrawlErrorsCountsQueryResponse `object`: A time series of the number of URL crawl errors per error category and platform.
-  * countPerTypes `array`: The time series of the number of URL crawl errors per error category and platform.
-    * items [UrlCrawlErrorCountsPerType](#urlcrawlerrorcountspertype)
-
-### UrlCrawlErrorsSample
-* UrlCrawlErrorsSample `object`: Contains information about specific crawl errors.
-  * first_detected `string`: The time the error was first detected, in RFC 3339 format.
-  * last_crawled `string`: The time when the URL was last crawled, in RFC 3339 format.
-  * pageUrl `string`: The URL of an error, relative to the site.
-  * responseCode `integer`: The HTTP response code, if any.
-  * urlDetails [UrlSampleDetails](#urlsampledetails)
-
-### UrlCrawlErrorsSamplesListResponse
-* UrlCrawlErrorsSamplesListResponse `object`: List of crawl error samples.
-  * urlCrawlErrorSample `array`: Information about the sample URL and its crawl error.
-    * items [UrlCrawlErrorsSample](#urlcrawlerrorssample)
-
-### UrlSampleDetails
-* UrlSampleDetails `object`: Additional details about the URL, set only when calling get().
-  * containingSitemaps `array`: List of sitemaps pointing at this URL.
-    * items `string`
-  * linkedFromUrls `array`: A sample set of URLs linking to this URL.
-    * items `string`
 
 ### WmxSite
 * WmxSite `object`: Contains permission level information about a Search Console site. For more information, see  Permissions in Search Console.

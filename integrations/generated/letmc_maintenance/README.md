@@ -1,6 +1,6 @@
 # @datafire/letmc_maintenance
 
-Client library for LetMC Api V3, maintenance
+Client library for AgentOS Api V3, maintenance
 
 ## Installation and Usage
 ```bash
@@ -13,11 +13,7 @@ let letmc_maintenance = require('@datafire/letmc_maintenance').create({
   password: ""
 });
 
-letmc_maintenance.MaintenanceController_CreateMaintenanceJob({
-  "shortName": "",
-  "branchID": "",
-  "issue": {}
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -54,12 +50,12 @@ letmc_maintenance.MaintenanceController_CreateMaintenanceJob({
 ## Definitions
 
 ### MaintenanceDocumentModel
-* MaintenanceDocumentModel `object`: Maintenance Document Model
+* MaintenanceDocumentModel `object`: Submission Model - Handles all the fields required to attach documents to an online maintenance job
   * MimeType `string`: The document Mime Type
   * URL `string`: The document URL (This has to be public)
 
 ### MaintenanceIssueModel
-* MaintenanceIssueModel `object`: Issue Model
+* MaintenanceIssueModel `object`: Submission Model - Handles all fields required to submit an online maintenance job
   * Documents `array`: Documents linked to a submitted maintenance job
     * items [MaintenanceDocumentModel](#maintenancedocumentmodel)
   * ExternalID `string`: ID used externally to manage jobs before sending to the system. This has a 10 character limit.

@@ -15,10 +15,7 @@ let azure_monitor_metricdefinitions_api = require('@datafire/azure_monitor_metri
   redirect_uri: ""
 });
 
-azure_monitor_metricdefinitions_api.MetricDefinitions_List({
-  "resourceUri": "",
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -44,6 +41,7 @@ azure_monitor_metricdefinitions_api.MetricDefinitions_List({
 * input `object`
   * resourceUri **required** `string`: The identifier of the resource.
   * api-version **required** `string`: Client Api Version.
+  * metricnamespace `string`: Metric namespace to query metric definitions for.
 
 #### Output
 * output [MetricDefinitionCollection](#metricdefinitioncollection)
@@ -51,6 +49,9 @@ azure_monitor_metricdefinitions_api.MetricDefinitions_List({
 
 
 ## Definitions
+
+### AggregationType
+* AggregationType `string` (values: None, Average, Count, Minimum, Maximum, Total): the aggregation type of the metric.
 
 ### ErrorResponse
 * ErrorResponse `object`: Describes the format of Error response.
@@ -76,8 +77,11 @@ azure_monitor_metricdefinitions_api.MetricDefinitions_List({
   * metricAvailabilities `array`: the collection of what aggregation intervals are available to be queried.
     * items [MetricAvailability](#metricavailability)
   * name [LocalizableString](#localizablestring)
-  * primaryAggregationType `string` (values: None, Average, Count, Minimum, Maximum, Total): the primary aggregation type value defining how to use the values for display.
+  * namespace `string`: the namespace the metric belongs to.
+  * primaryAggregationType [AggregationType](#aggregationtype)
   * resourceId `string`: the resource identifier of the resource that emitted the metric.
+  * supportedAggregationTypes `array`: the collection of what aggregation types are supported.
+    * items [AggregationType](#aggregationtype)
   * unit [Unit](#unit)
 
 ### MetricDefinitionCollection
@@ -86,6 +90,6 @@ azure_monitor_metricdefinitions_api.MetricDefinitions_List({
     * items [MetricDefinition](#metricdefinition)
 
 ### Unit
-* Unit `string` (values: Count, Bytes, Seconds, CountPerSecond, BytesPerSecond, Percent, MilliSeconds, ByteSeconds, Unspecified): the unit of the metric.
+* Unit `string` (values: Count, Bytes, Seconds, CountPerSecond, BytesPerSecond, Percent, MilliSeconds, ByteSeconds, Unspecified, Cores, MilliCores, NanoCores, BitsPerSecond): the unit of the metric.
 
 

@@ -1,6 +1,6 @@
 # @datafire/clever
 
-Client library for Data
+Client library for Data API
 
 ## Installation and Usage
 ```bash
@@ -15,7 +15,7 @@ let clever = require('@datafire/clever').create({
   redirect_uri: ""
 });
 
-clever.getTeachers({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

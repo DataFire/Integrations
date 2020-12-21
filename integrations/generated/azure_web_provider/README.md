@@ -15,9 +15,7 @@ let azure_web_provider = require('@datafire/azure_web_provider').create({
   redirect_uri: ""
 });
 
-azure_web_provider.Provider_GetAvailableStacks({
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -40,7 +38,7 @@ azure_web_provider.Provider_GetAvailableStacks({
 
 #### Input
 * input `object`
-  * osTypeSelected `string` (values: Windows, Linux)
+  * osTypeSelected `string` (values: Windows, Linux, WindowsFunctions, LinuxFunctions)
   * api-version **required** `string`: API Version
 
 #### Output
@@ -74,31 +72,8 @@ azure_web_provider.Provider_ListOperations({
       * origin `string`
       * properties `object`: Properties available for a Microsoft.Web resource provider operation.
         * serviceSpecification `object`: Resource metrics service provided by Microsoft.Insights resource provider.
+          * logSpecifications `array`
           * metricSpecifications `array`
-            * items `object`: Definition of a single resource metric.
-              * aggregationType `string`
-              * availabilities `array`
-                * items `object`: Retention policy of a resource metric.
-                  * blobDuration `string`
-                  * timeGrain `string`
-              * category `string`
-              * dimensions `array`
-                * items `object`: Dimension of a resource metric. For e.g. instance specific HTTP requests for a web app, 
-                  * displayName `string`
-                  * internalName `string`
-                  * name `string`
-                  * toBeExportedForShoebox `boolean`
-              * displayDescription `string`
-              * displayName `string`
-              * enableRegionalMdmAccount `boolean`
-              * fillGapWithZero `boolean`
-              * isInternal `boolean`
-              * metricFilterPattern `string`
-              * name `string`
-              * sourceMdmAccount `string`
-              * sourceMdmNamespace `string`
-              * supportsInstanceLevelAggregation `boolean`
-              * unit `string`
 
 ### Provider_GetAvailableStacksOnPrem
 Get available application frameworks and their versions
@@ -113,7 +88,7 @@ azure_web_provider.Provider_GetAvailableStacksOnPrem({
 
 #### Input
 * input `object`
-  * osTypeSelected `string` (values: Windows, Linux)
+  * osTypeSelected `string` (values: Windows, Linux, WindowsFunctions, LinuxFunctions)
   * subscriptionId **required** `string`: Your Azure subscription ID. This is a GUID-formatted string (e.g. 00000000-0000-0000-0000-000000000000).
   * api-version **required** `string`: API Version
 
@@ -142,6 +117,7 @@ azure_web_provider.Provider_GetAvailableStacksOnPrem({
 
 ### StackMajorVersion
 * StackMajorVersion `object`: Application stack major version.
+  * applicationInsights `boolean`: <code>true</code> if this supports Application Insights; otherwise, <code>false</code>.
   * displayVersion `string`: Application stack major version (display only).
   * isDefault `boolean`: <code>true</code> if this is the default major version; otherwise, <code>false</code>.
   * minorVersions `array`: Minor versions associated with the major version.
@@ -152,6 +128,7 @@ azure_web_provider.Provider_GetAvailableStacksOnPrem({
 * StackMinorVersion `object`: Application stack minor version.
   * displayVersion `string`: Application stack minor version (display only).
   * isDefault `boolean`: <code>true</code> if this is the default minor version; otherwise, <code>false</code>.
+  * isRemoteDebuggingEnabled `boolean`: <code>true</code> if this supports Remote Debugging, otherwise <code>false</code>.
   * runtimeVersion `string`: Application stack minor version (runtime only).
 
 

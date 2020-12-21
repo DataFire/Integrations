@@ -1,6 +1,6 @@
 # @datafire/google_appsactivity
 
-Client library for G Suite Activity
+Client library for Drive Activity API
 
 ## Installation and Usage
 ```bash
@@ -15,7 +15,7 @@ let google_appsactivity = require('@datafire/google_appsactivity').create({
   redirect_uri: ""
 });
 
-google_appsactivity.activities.list({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -67,12 +67,12 @@ google_appsactivity.oauthRefresh(null, context)
   * scope `string`
   * expiration `string`
 
-### activities.list
-Returns a list of activities visible to the current logged in user. Visible activities are determined by the visiblity settings of the object that was acted on, e.g. Drive files a user can see. An activity is a record of past events. Multiple events may be merged if they are similar. A request is scoped to activities from a given Google service using the source parameter.
+### appsactivity.activities.list
+Returns a list of activities visible to the current logged in user. Visible activities are determined by the visibility settings of the object that was acted on, e.g. Drive files a user can see. An activity is a record of past events. Multiple events may be merged if they are similar. A request is scoped to activities from a given Google service using the source parameter.
 
 
 ```js
-google_appsactivity.activities.list({}, context)
+google_appsactivity.appsactivity.activities.list({}, context)
 ```
 
 #### Input
@@ -83,7 +83,7 @@ google_appsactivity.activities.list({}, context)
   * pageSize `integer`: The maximum number of events to return on a page. The response includes a continuation token if there are more events.
   * pageToken `string`: A token to retrieve a specific page of results.
   * source `string`: The Google service from which to return activities. Possible values of source are: 
-  * userId `string`: Indicates the user to return activity for. Use the special value me to indicate the currently authenticated user.
+  * userId `string`: The ID used for ACL checks (does not filter the resulting event list by the assigned value). Use the special value me to indicate the currently authenticated user.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -142,7 +142,7 @@ google_appsactivity.activities.list({}, context)
 * Permission `object`: Contains information about the permissions and type of access allowed with regards to a Google Drive object. This is a subset of the fields contained in a corresponding Drive Permissions object.
   * name `string`: The name of the user or group the permission applies to.
   * permissionId `string`: The ID for this permission. Corresponds to the Drive API's permission ID returned as part of the Drive Permissions resource.
-  * role `string` (values: commenter, owner, publishedReader, reader, writer): Indicates the Google Drive permissions role. The role determines a user's ability to read, write, or comment on the file.
+  * role `string` (values: commenter, fileOrganizer, owner, publishedReader, reader, writer): Indicates the Google Drive permissions role. The role determines a user's ability to read, write, or comment on the file.
   * type `string` (values: anyone, domain, group, user): Indicates how widely permissions are granted.
   * user [User](#user)
   * withLink `boolean`: Whether the permission requires a link to the file.

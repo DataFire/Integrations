@@ -1,6 +1,6 @@
 # @datafire/aucklandmuseum
 
-Client library for Auckland Museum
+Client library for Auckland Museum API
 
 ## Installation and Usage
 ```bash
@@ -9,9 +9,7 @@ npm install --save @datafire/aucklandmuseum
 ```js
 let aucklandmuseum = require('@datafire/aucklandmuseum').create();
 
-aucklandmuseum.id.media.path.get({
-  "path": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

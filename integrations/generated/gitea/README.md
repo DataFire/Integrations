@@ -14,10 +14,11 @@ let gitea = require('@datafire/gitea').create({
   password: "",
   SudoHeader: "",
   SudoParam: "",
+  TOTPHeader: "",
   Token: ""
 });
 
-gitea.userSearch({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -27,6 +28,130 @@ gitea.userSearch({}).then(data => {
 This documentation describes the Gitea API.
 
 ## Actions
+
+### adminCronList
+List cron tasks
+
+
+```js
+gitea.adminCronList({}, context)
+```
+
+#### Input
+* input `object`
+  * page `integer`: page number of results to return (1-based)
+  * limit `integer`: page size of results
+
+#### Output
+* output `array`
+  * items [Cron](#cron)
+
+### adminCronRun
+Run cron task
+
+
+```js
+gitea.adminCronRun({
+  "task": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * task **required** `string`: task to run
+
+#### Output
+*Output schema unknown*
+
+### adminGetAllOrgs
+List all organizations
+
+
+```js
+gitea.adminGetAllOrgs({}, context)
+```
+
+#### Input
+* input `object`
+  * page `integer`: page number of results to return (1-based)
+  * limit `integer`: page size of results
+
+#### Output
+* output `array`
+  * items [Organization](#organization)
+
+### adminUnadoptedList
+List unadopted repositories
+
+
+```js
+gitea.adminUnadoptedList({}, context)
+```
+
+#### Input
+* input `object`
+  * page `integer`: page number of results to return (1-based)
+  * limit `integer`: page size of results
+  * pattern `string`: pattern of repositories to search for
+
+#### Output
+* output `array`
+  * items `string`
+
+### adminDeleteUnadoptedRepository
+Delete unadopted files
+
+
+```js
+gitea.adminDeleteUnadoptedRepository({
+  "owner": "",
+  "repo": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * owner **required** `string`: owner of the repo
+  * repo **required** `string`: name of the repo
+
+#### Output
+*Output schema unknown*
+
+### adminAdoptRepository
+Adopt unadopted files as a repository
+
+
+```js
+gitea.adminAdoptRepository({
+  "owner": "",
+  "repo": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * owner **required** `string`: owner of the repo
+  * repo **required** `string`: name of the repo
+
+#### Output
+*Output schema unknown*
+
+### adminGetAllUsers
+List all users
+
+
+```js
+gitea.adminGetAllUsers({}, context)
+```
+
+#### Input
+* input `object`
+  * page `integer`: page number of results to return (1-based)
+  * limit `integer`: page size of results
+
+#### Output
+* output `array`
+  * items [User](#user)
 
 ### adminCreateUser
 Create a user
@@ -137,7 +262,7 @@ gitea.adminCreateOrg({
 * output [Organization](#organization)
 
 ### adminCreateRepo
-Create a repository on behalf a user
+Create a repository on behalf of a user
 
 
 ```js
@@ -170,7 +295,7 @@ gitea.renderMarkdown({}, context)
   * body [MarkdownOption](#markdownoption)
 
 #### Output
-*Output schema unknown*
+* output `string`
 
 ### renderMarkdownRaw
 Render raw markdown as HTML
@@ -187,14 +312,102 @@ gitea.renderMarkdownRaw({
   * body **required** `string`
 
 #### Output
+* output `string`
+
+### notifyGetList
+List users's notification threads
+
+
+```js
+gitea.notifyGetList({}, context)
+```
+
+#### Input
+* input `object`
+  * all `string`: If true, show notifications marked as read. Default value is false
+  * status-types `array`: Show notifications with the provided status types. Options are: unread, read and/or pinned. Defaults to unread & pinned.
+  * since `string`: Only show notifications updated after the given time. This is a timestamp in RFC 3339 format
+  * before `string`: Only show notifications updated before the given time. This is a timestamp in RFC 3339 format
+  * page `integer`: page number of results to return (1-based)
+  * limit `integer`: page size of results
+
+#### Output
+* output `array`
+  * items [NotificationThread](#notificationthread)
+
+### notifyReadList
+Mark notification threads as read, pinned or unread
+
+
+```js
+gitea.notifyReadList({}, context)
+```
+
+#### Input
+* input `object`
+  * last_read_at `string`: Describes the last point that notifications were checked. Anything updated since this time will not be updated.
+  * all `string`: If true, mark all notifications on this repo. Default value is false
+  * status-types `array`: Mark notifications with the provided status types. Options are: unread, read and/or pinned. Defaults to unread.
+  * to-status `string`: Status to mark notifications as, Defaults to read.
+
+#### Output
 *Output schema unknown*
 
-### createOrgRepo
+### notifyNewAvailable
+Check if unread notifications exist
+
+
+```js
+gitea.notifyNewAvailable(null, context)
+```
+
+#### Input
+*This action has no parameters*
+
+#### Output
+* output [NotificationCount](#notificationcount)
+
+### notifyGetThread
+Get notification thread by ID
+
+
+```js
+gitea.notifyGetThread({
+  "id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * id **required** `string`: id of notification thread
+
+#### Output
+* output [NotificationThread](#notificationthread)
+
+### notifyReadThread
+Mark notification thread as read by ID
+
+
+```js
+gitea.notifyReadThread({
+  "id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * id **required** `string`: id of notification thread
+  * to-status `string`: Status to mark notifications as
+
+#### Output
+*Output schema unknown*
+
+### createOrgRepoDeprecated
 Create a repository in an organization
 
 
 ```js
-gitea.createOrgRepo({
+gitea.createOrgRepoDeprecated({
   "org": ""
 }, context)
 ```
@@ -206,6 +419,59 @@ gitea.createOrgRepo({
 
 #### Output
 * output [Repository](#repository)
+
+### orgGetAll
+Get list of organizations
+
+
+```js
+gitea.orgGetAll({}, context)
+```
+
+#### Input
+* input `object`
+  * page `integer`: page number of results to return (1-based)
+  * limit `integer`: page size of results
+
+#### Output
+* output `array`
+  * items [Organization](#organization)
+
+### orgCreate
+Create an organization
+
+
+```js
+gitea.orgCreate({
+  "organization": {
+    "username": ""
+  }
+}, context)
+```
+
+#### Input
+* input `object`
+  * organization **required** [CreateOrgOption](#createorgoption)
+
+#### Output
+* output [Organization](#organization)
+
+### orgDelete
+Delete an organization
+
+
+```js
+gitea.orgDelete({
+  "org": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * org **required** `string`: organization that is to be deleted
+
+#### Output
+*Output schema unknown*
 
 ### orgGet
 Get an organization
@@ -230,14 +496,15 @@ Edit an organization
 
 ```js
 gitea.orgEdit({
-  "org": ""
+  "org": "",
+  "body": {}
 }, context)
 ```
 
 #### Input
 * input `object`
   * org **required** `string`: name of the organization to edit
-  * body [EditOrgOption](#editorgoption)
+  * body **required** [EditOrgOption](#editorgoption)
 
 #### Output
 * output [Organization](#organization)
@@ -255,10 +522,12 @@ gitea.orgListHooks({
 #### Input
 * input `object`
   * org **required** `string`: name of the organization
+  * page `integer`: page number of results to return (1-based)
+  * limit `integer`: page size of results
 
 #### Output
 * output `array`
-  * items [Branch](#branch)
+  * items [Hook](#hook)
 
 ### orgCreateHook
 Create a hook
@@ -280,8 +549,7 @@ gitea.orgCreateHook({
   * body **required** [CreateHookOption](#createhookoption)
 
 #### Output
-* output `array`
-  * items [Branch](#branch)
+* output [Hook](#hook)
 
 ### orgDeleteHook
 Delete a hook
@@ -319,8 +587,7 @@ gitea.orgGetHook({
   * id **required** `integer`: id of the hook to get
 
 #### Output
-* output `array`
-  * items [Branch](#branch)
+* output [Hook](#hook)
 
 ### orgEditHook
 Update a hook
@@ -340,8 +607,103 @@ gitea.orgEditHook({
   * body [EditHookOption](#edithookoption)
 
 #### Output
+* output [Hook](#hook)
+
+### orgListLabels
+List an organization's labels
+
+
+```js
+gitea.orgListLabels({
+  "org": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * org **required** `string`: name of the organization
+  * page `integer`: page number of results to return (1-based)
+  * limit `integer`: page size of results
+
+#### Output
 * output `array`
-  * items [Branch](#branch)
+  * items [Label](#label)
+
+### orgCreateLabel
+Create a label for an organization
+
+
+```js
+gitea.orgCreateLabel({
+  "org": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * org **required** `string`: name of the organization
+  * body [CreateLabelOption](#createlabeloption)
+
+#### Output
+* output [Label](#label)
+
+### orgDeleteLabel
+Delete a label
+
+
+```js
+gitea.orgDeleteLabel({
+  "org": "",
+  "id": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * org **required** `string`: name of the organization
+  * id **required** `integer`: id of the label to delete
+
+#### Output
+*Output schema unknown*
+
+### orgGetLabel
+Get a single label
+
+
+```js
+gitea.orgGetLabel({
+  "org": "",
+  "id": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * org **required** `string`: name of the organization
+  * id **required** `integer`: id of the label to get
+
+#### Output
+* output [Label](#label)
+
+### orgEditLabel
+Update a label
+
+
+```js
+gitea.orgEditLabel({
+  "org": "",
+  "id": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * org **required** `string`: name of the organization
+  * id **required** `integer`: id of the label to edit
+  * body [EditLabelOption](#editlabeloption)
+
+#### Output
+* output [Label](#label)
 
 ### orgListMembers
 List an organization's members
@@ -356,6 +718,8 @@ gitea.orgListMembers({
 #### Input
 * input `object`
   * org **required** `string`: name of the organization
+  * page `integer`: page number of results to return (1-based)
+  * limit `integer`: page size of results
 
 #### Output
 * output `array`
@@ -412,6 +776,8 @@ gitea.orgListPublicMembers({
 #### Input
 * input `object`
   * org **required** `string`: name of the organization
+  * page `integer`: page number of results to return (1-based)
+  * limit `integer`: page size of results
 
 #### Output
 * output `array`
@@ -487,10 +853,30 @@ gitea.orgListRepos({
 #### Input
 * input `object`
   * org **required** `string`: name of the organization
+  * page `integer`: page number of results to return (1-based)
+  * limit `integer`: page size of results
 
 #### Output
 * output `array`
   * items [Repository](#repository)
+
+### createOrgRepo
+Create a repository in an organization
+
+
+```js
+gitea.createOrgRepo({
+  "org": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * org **required** `string`: name of organization
+  * body [CreateRepoOption](#createrepooption)
+
+#### Output
+* output [Repository](#repository)
 
 ### orgListTeams
 List an organization's teams
@@ -505,6 +891,8 @@ gitea.orgListTeams({
 #### Input
 * input `object`
   * org **required** `string`: name of the organization
+  * page `integer`: page number of results to return (1-based)
+  * limit `integer`: page size of results
 
 #### Output
 * output `array`
@@ -528,6 +916,57 @@ gitea.orgCreateTeam({
 #### Output
 * output [Team](#team)
 
+### teamSearch
+Search for teams within an organization
+
+
+```js
+gitea.teamSearch({
+  "org": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * org **required** `string`: name of the organization
+  * q `string`: keywords to search
+  * include_desc `boolean`: include search within team description (defaults to true)
+  * page `integer`: page number of results to return (1-based)
+  * limit `integer`: page size of results
+
+#### Output
+* output `object`
+  * data `array`
+    * items [Team](#team)
+  * ok `boolean`
+
+### issueSearchIssues
+Search for issues across the repositories that the user has access to
+
+
+```js
+gitea.issueSearchIssues({}, context)
+```
+
+#### Input
+* input `object`
+  * state `string`: whether issue is open or closed
+  * labels `string`: comma separated list of labels. Fetch only issues that have any of this labels. Non existent labels are discarded
+  * q `string`: search string
+  * priority_repo_id `integer`: repository to prioritize in the results
+  * type `string`: filter by type (issues / pulls) if set
+  * since `string`: Only show notifications updated after the given time. This is a timestamp in RFC 3339 format
+  * before `string`: Only show notifications updated before the given time. This is a timestamp in RFC 3339 format
+  * assigned `boolean`: filter (issues / pulls) assigned to you, default is false
+  * created `boolean`: filter (issues / pulls) created by you, default is false
+  * mentioned `boolean`: filter (issues / pulls) mentioning you, default is false
+  * page `integer`: page number of results to return (1-based)
+  * limit `integer`: page size of results
+
+#### Output
+* output `array`
+  * items [Issue](#issue)
+
 ### repoMigrate
 Migrate a remote git repository
 
@@ -538,7 +977,7 @@ gitea.repoMigrate({}, context)
 
 #### Input
 * input `object`
-  * body [MigrateRepoForm](#migraterepoform)
+  * body [MigrateRepoOptions](#migraterepooptions)
 
 #### Output
 * output [Repository](#repository)
@@ -554,13 +993,21 @@ gitea.repoSearch({}, context)
 #### Input
 * input `object`
   * q `string`: keyword
+  * topic `boolean`: Limit search to repositories with keyword as topic
+  * includeDesc `boolean`: include search of keyword within repository description
   * uid `integer`: search only for repos that the user with the given id owns or contributes to
-  * page `integer`: page number of results to return (1-based)
-  * limit `integer`: page size of results, maximum page size is 50
+  * priority_owner_id `integer`: repo owner to prioritize in the results
+  * starredBy `integer`: search only for repos that the user with the given id has starred
+  * private `boolean`: include private repositories this user has access to (defaults to true)
+  * is_private `boolean`: show only pubic, private or all repositories (defaults to all)
+  * template `boolean`: include template repositories this user has access to (defaults to true)
+  * archived `boolean`: show only archived, non-archived or all repositories (defaults to all)
   * mode `string`: type of repository to search for. Supported values are "fork", "source", "mirror" and "collaborative"
   * exclusive `boolean`: if `uid` is given, search only for repos that the user owns
   * sort `string`: sort repos by attribute. Supported values are "alpha", "created", "updated", "size", and "id". Default is "alpha"
   * order `string`: sort order, either "asc" (ascending) or "desc" (descending). Default is "asc", ignored if "sort" is not specified.
+  * page `integer`: page number of results to return (1-based)
+  * limit `integer`: page size of results
 
 #### Output
 * output [SearchResults](#searchresults)
@@ -603,6 +1050,26 @@ gitea.repoGet({
 #### Output
 * output [Repository](#repository)
 
+### repoEdit
+Edit a repository's properties. Only fields that are set will be changed.
+
+
+```js
+gitea.repoEdit({
+  "owner": "",
+  "repo": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * owner **required** `string`: owner of the repo to edit
+  * repo **required** `string`: name of the repo to edit
+  * body [EditRepoOption](#editrepooption)
+
+#### Output
+* output [Repository](#repository)
+
 ### repoGetArchive
 Get an archive of a repository
 
@@ -619,10 +1086,114 @@ gitea.repoGetArchive({
 * input `object`
   * owner **required** `string`: owner of the repo
   * repo **required** `string`: name of the repo
-  * archive **required** `string`: archive to download, consisting of a git reference and archive
+  * archive **required** `string`: the git reference for download with attached archive format (e.g. master.zip)
 
 #### Output
 *Output schema unknown*
+
+### repoListBranchProtection
+List branch protections for a repository
+
+
+```js
+gitea.repoListBranchProtection({
+  "owner": "",
+  "repo": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * owner **required** `string`: owner of the repo
+  * repo **required** `string`: name of the repo
+
+#### Output
+* output `array`
+  * items [BranchProtection](#branchprotection)
+
+### repoCreateBranchProtection
+Create a branch protections for a repository
+
+
+```js
+gitea.repoCreateBranchProtection({
+  "owner": "",
+  "repo": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * owner **required** `string`: owner of the repo
+  * repo **required** `string`: name of the repo
+  * body [CreateBranchProtectionOption](#createbranchprotectionoption)
+
+#### Output
+* output [BranchProtection](#branchprotection)
+
+### repoDeleteBranchProtection
+Delete a specific branch protection for the repository
+
+
+```js
+gitea.repoDeleteBranchProtection({
+  "owner": "",
+  "repo": "",
+  "name": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * owner **required** `string`: owner of the repo
+  * repo **required** `string`: name of the repo
+  * name **required** `string`: name of protected branch
+
+#### Output
+*Output schema unknown*
+
+### repoGetBranchProtection
+Get a specific branch protection for the repository
+
+
+```js
+gitea.repoGetBranchProtection({
+  "owner": "",
+  "repo": "",
+  "name": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * owner **required** `string`: owner of the repo
+  * repo **required** `string`: name of the repo
+  * name **required** `string`: name of protected branch
+
+#### Output
+* output [BranchProtection](#branchprotection)
+
+### repoEditBranchProtection
+Edit a branch protections for a repository. Only fields that are set will be changed
+
+
+```js
+gitea.repoEditBranchProtection({
+  "owner": "",
+  "repo": "",
+  "name": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * owner **required** `string`: owner of the repo
+  * repo **required** `string`: name of the repo
+  * name **required** `string`: name of protected branch
+  * body [EditBranchProtectionOption](#editbranchprotectionoption)
+
+#### Output
+* output [BranchProtection](#branchprotection)
 
 ### repoListBranches
 List a repository's branches
@@ -644,8 +1215,49 @@ gitea.repoListBranches({
 * output `array`
   * items [Branch](#branch)
 
+### repoCreateBranch
+Create a branch
+
+
+```js
+gitea.repoCreateBranch({
+  "owner": "",
+  "repo": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * owner **required** `string`: owner of the repo
+  * repo **required** `string`: name of the repo
+  * body [CreateBranchRepoOption](#createbranchrepooption)
+
+#### Output
+* output [Branch](#branch)
+
+### repoDeleteBranch
+Delete a specific branch from a repository
+
+
+```js
+gitea.repoDeleteBranch({
+  "owner": "",
+  "repo": "",
+  "branch": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * owner **required** `string`: owner of the repo
+  * repo **required** `string`: name of the repo
+  * branch **required** `string`: branch to delete
+
+#### Output
+*Output schema unknown*
+
 ### repoGetBranch
-Retrieve a specific branch from a repository
+Retrieve a specific branch from a repository, including its effective branch protection
 
 
 ```js
@@ -680,6 +1292,8 @@ gitea.repoListCollaborators({
 * input `object`
   * owner **required** `string`: owner of the repo
   * repo **required** `string`: name of the repo
+  * page `integer`: page number of results to return (1-based)
+  * limit `integer`: page size of results
 
 #### Output
 * output `array`
@@ -749,6 +1363,29 @@ gitea.repoAddCollaborator({
 #### Output
 *Output schema unknown*
 
+### repoGetAllCommits
+Get a list of all commits from a repository
+
+
+```js
+gitea.repoGetAllCommits({
+  "owner": "",
+  "repo": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * owner **required** `string`: owner of the repo
+  * repo **required** `string`: name of the repo
+  * sha `string`: SHA or branch to start listing commits from (usually 'master')
+  * page `integer`: page number of results to return (1-based)
+  * limit `integer`: page size of results
+
+#### Output
+* output `array`
+  * items [Commit](#commit)
+
 ### repoGetCombinedStatusByRef
 Get a commit's combined status, by branch/tag/commit reference
 
@@ -766,9 +1403,129 @@ gitea.repoGetCombinedStatusByRef({
   * owner **required** `string`: owner of the repo
   * repo **required** `string`: name of the repo
   * ref **required** `string`: name of branch/tag/commit
+  * page `integer`: page number of results
 
 #### Output
 * output [Status](#status)
+
+### repoGetContentsList
+Gets the metadata of all the entries of the root dir
+
+
+```js
+gitea.repoGetContentsList({
+  "owner": "",
+  "repo": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * owner **required** `string`: owner of the repo
+  * repo **required** `string`: name of the repo
+  * ref `string`: The name of the commit/branch/tag. Default the repository’s default branch (usually master)
+
+#### Output
+* output `array`
+  * items [ContentsResponse](#contentsresponse)
+
+### repoDeleteFile
+Delete a file in a repository
+
+
+```js
+gitea.repoDeleteFile({
+  "owner": "",
+  "repo": "",
+  "filepath": "",
+  "body": {
+    "sha": ""
+  }
+}, context)
+```
+
+#### Input
+* input `object`
+  * owner **required** `string`: owner of the repo
+  * repo **required** `string`: name of the repo
+  * filepath **required** `string`: path of the file to delete
+  * body **required** [DeleteFileOptions](#deletefileoptions)
+
+#### Output
+* output [FileDeleteResponse](#filedeleteresponse)
+
+### repoGetContents
+Gets the metadata and contents (if a file) of an entry in a repository, or a list of entries if a dir
+
+
+```js
+gitea.repoGetContents({
+  "owner": "",
+  "repo": "",
+  "filepath": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * owner **required** `string`: owner of the repo
+  * repo **required** `string`: name of the repo
+  * filepath **required** `string`: path of the dir, file, symlink or submodule in the repo
+  * ref `string`: The name of the commit/branch/tag. Default the repository’s default branch (usually master)
+
+#### Output
+* output [ContentsResponse](#contentsresponse)
+
+### repoCreateFile
+Create a file in a repository
+
+
+```js
+gitea.repoCreateFile({
+  "owner": "",
+  "repo": "",
+  "filepath": "",
+  "body": {
+    "content": ""
+  }
+}, context)
+```
+
+#### Input
+* input `object`
+  * owner **required** `string`: owner of the repo
+  * repo **required** `string`: name of the repo
+  * filepath **required** `string`: path of the file to create
+  * body **required** [CreateFileOptions](#createfileoptions)
+
+#### Output
+* output [FileResponse](#fileresponse)
+
+### repoUpdateFile
+Update a file in a repository
+
+
+```js
+gitea.repoUpdateFile({
+  "owner": "",
+  "repo": "",
+  "filepath": "",
+  "body": {
+    "sha": "",
+    "content": ""
+  }
+}, context)
+```
+
+#### Input
+* input `object`
+  * owner **required** `string`: owner of the repo
+  * repo **required** `string`: name of the repo
+  * filepath **required** `string`: path of the file to update
+  * body **required** [UpdateFileOptions](#updatefileoptions)
+
+#### Output
+* output [FileResponse](#fileresponse)
 
 ### repoGetEditorConfig
 Get the EditorConfig definitions of a file in a repository
@@ -806,6 +1563,8 @@ gitea.listForks({
 * input `object`
   * owner **required** `string`: owner of the repo
   * repo **required** `string`: name of the repo
+  * page `integer`: page number of results to return (1-based)
+  * limit `integer`: page size of results
 
 #### Output
 * output `array`
@@ -831,6 +1590,135 @@ gitea.createFork({
 #### Output
 * output [Repository](#repository)
 
+### GetBlob
+Gets the blob of a repository.
+
+
+```js
+gitea.GetBlob({
+  "owner": "",
+  "repo": "",
+  "sha": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * owner **required** `string`: owner of the repo
+  * repo **required** `string`: name of the repo
+  * sha **required** `string`: sha of the commit
+
+#### Output
+* output [GitBlobResponse](#gitblobresponse)
+
+### repoGetSingleCommit
+Get a single commit from a repository
+
+
+```js
+gitea.repoGetSingleCommit({
+  "owner": "",
+  "repo": "",
+  "sha": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * owner **required** `string`: owner of the repo
+  * repo **required** `string`: name of the repo
+  * sha **required** `string`: a git ref or commit sha
+
+#### Output
+* output [Commit](#commit)
+
+### repoListAllGitRefs
+Get specified ref or filtered repository's refs
+
+
+```js
+gitea.repoListAllGitRefs({
+  "owner": "",
+  "repo": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * owner **required** `string`: owner of the repo
+  * repo **required** `string`: name of the repo
+
+#### Output
+* output `array`
+  * items [Reference](#reference)
+
+### repoListGitRefs
+Get specified ref or filtered repository's refs
+
+
+```js
+gitea.repoListGitRefs({
+  "owner": "",
+  "repo": "",
+  "ref": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * owner **required** `string`: owner of the repo
+  * repo **required** `string`: name of the repo
+  * ref **required** `string`: part or full name of the ref
+
+#### Output
+* output `array`
+  * items [Reference](#reference)
+
+### GetTag
+Gets the tag object of an annotated tag (not lightweight tags)
+
+
+```js
+gitea.GetTag({
+  "owner": "",
+  "repo": "",
+  "sha": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * owner **required** `string`: owner of the repo
+  * repo **required** `string`: name of the repo
+  * sha **required** `string`: sha of the tag. The Git tags API only supports annotated tag objects, not lightweight tags.
+
+#### Output
+* output [AnnotatedTag](#annotatedtag)
+
+### GetTree
+Gets the tree of a repository.
+
+
+```js
+gitea.GetTree({
+  "owner": "",
+  "repo": "",
+  "sha": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * owner **required** `string`: owner of the repo
+  * repo **required** `string`: name of the repo
+  * sha **required** `string`: sha of the commit
+  * recursive `boolean`: show all directories and files
+  * page `integer`: page number; the 'truncated' field in the response will be true if there are still more items after this page, false if the last page
+  * per_page `integer`: number of items per page
+
+#### Output
+* output [GitTreeResponse](#gittreeresponse)
+
 ### repoListHooks
 List the hooks in a repository
 
@@ -846,10 +1734,12 @@ gitea.repoListHooks({
 * input `object`
   * owner **required** `string`: owner of the repo
   * repo **required** `string`: name of the repo
+  * page `integer`: page number of results to return (1-based)
+  * limit `integer`: page size of results
 
 #### Output
 * output `array`
-  * items [Branch](#branch)
+  * items [Hook](#hook)
 
 ### repoCreateHook
 Create a hook
@@ -869,8 +1759,91 @@ gitea.repoCreateHook({
   * body [CreateHookOption](#createhookoption)
 
 #### Output
+* output [Hook](#hook)
+
+### repoListGitHooks
+List the Git hooks in a repository
+
+
+```js
+gitea.repoListGitHooks({
+  "owner": "",
+  "repo": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * owner **required** `string`: owner of the repo
+  * repo **required** `string`: name of the repo
+
+#### Output
 * output `array`
-  * items [Branch](#branch)
+  * items [GitHook](#githook)
+
+### repoDeleteGitHook
+Delete a Git hook in a repository
+
+
+```js
+gitea.repoDeleteGitHook({
+  "owner": "",
+  "repo": "",
+  "id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * owner **required** `string`: owner of the repo
+  * repo **required** `string`: name of the repo
+  * id **required** `string`: id of the hook to get
+
+#### Output
+*Output schema unknown*
+
+### repoGetGitHook
+Get a Git hook
+
+
+```js
+gitea.repoGetGitHook({
+  "owner": "",
+  "repo": "",
+  "id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * owner **required** `string`: owner of the repo
+  * repo **required** `string`: name of the repo
+  * id **required** `string`: id of the hook to get
+
+#### Output
+* output [GitHook](#githook)
+
+### repoEditGitHook
+Edit a Git hook in a repository
+
+
+```js
+gitea.repoEditGitHook({
+  "owner": "",
+  "repo": "",
+  "id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * owner **required** `string`: owner of the repo
+  * repo **required** `string`: name of the repo
+  * id **required** `string`: id of the hook to get
+  * body [EditGitHookOption](#editgithookoption)
+
+#### Output
+* output [GitHook](#githook)
 
 ### repoDeleteHook
 Delete a hook in a repository
@@ -912,8 +1885,7 @@ gitea.repoGetHook({
   * id **required** `integer`: id of the hook to get
 
 #### Output
-* output `array`
-  * items [Branch](#branch)
+* output [Hook](#hook)
 
 ### repoEditHook
 Edit a hook in a repository
@@ -935,8 +1907,7 @@ gitea.repoEditHook({
   * body [EditHookOption](#edithookoption)
 
 #### Output
-* output `array`
-  * items [Branch](#branch)
+* output [Hook](#hook)
 
 ### repoTestHook
 Test a push webhook
@@ -959,6 +1930,26 @@ gitea.repoTestHook({
 #### Output
 *Output schema unknown*
 
+### repoGetIssueTemplates
+Get available issue templates for a repository
+
+
+```js
+gitea.repoGetIssueTemplates({
+  "owner": "",
+  "repo": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * owner **required** `string`: owner of the repo
+  * repo **required** `string`: name of the repo
+
+#### Output
+* output `array`
+  * items [IssueTemplate](#issuetemplate)
+
 ### issueListIssues
 List a repository's issues
 
@@ -974,16 +1965,20 @@ gitea.issueListIssues({
 * input `object`
   * owner **required** `string`: owner of the repo
   * repo **required** `string`: name of the repo
-  * state `string`: whether issue is open or closed
-  * page `integer`: page number of requested issues
+  * state `string` (values: closed, open, all): whether issue is open or closed
+  * labels `string`: comma separated list of labels. Fetch only issues that have any of this labels. Non existent labels are discarded
   * q `string`: search string
+  * type `string` (values: issues, pulls): filter by type (issues / pulls) if set
+  * milestones `string`: comma separated list of milestone names or ids. It uses names and fall back to ids. Fetch only issues that have any of this milestones. Non existent milestones are discarded
+  * page `integer`: page number of results to return (1-based)
+  * limit `integer`: page size of results
 
 #### Output
 * output `array`
   * items [Issue](#issue)
 
 ### issueCreateIssue
-Create an issue
+Create an issue. If using deadline only the date will be taken into account, and time of day ignored.
 
 
 ```js
@@ -1018,6 +2013,9 @@ gitea.issueGetRepoComments({
   * owner **required** `string`: owner of the repo
   * repo **required** `string`: name of the repo
   * since `string`: if provided, only comments updated since the provided time are returned.
+  * before `string`: if provided, only comments updated before the provided time are returned.
+  * page `integer`: page number of results to return (1-based)
+  * limit `integer`: page size of results
 
 #### Output
 * output `array`
@@ -1044,6 +2042,27 @@ gitea.issueDeleteComment({
 #### Output
 *Output schema unknown*
 
+### issueGetComment
+Get a comment
+
+
+```js
+gitea.issueGetComment({
+  "owner": "",
+  "repo": "",
+  "id": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * owner **required** `string`: owner of the repo
+  * repo **required** `string`: name of the repo
+  * id **required** `integer`: id of the comment
+
+#### Output
+* output [Comment](#comment)
+
 ### issueEditComment
 Edit a comment
 
@@ -1066,12 +2085,12 @@ gitea.issueEditComment({
 #### Output
 * output [Comment](#comment)
 
-### issueTrackedTimes
-List an issue's tracked times
+### issueDeleteCommentReaction
+Remove a reaction from a comment of an issue
 
 
 ```js
-gitea.issueTrackedTimes({
+gitea.issueDeleteCommentReaction({
   "owner": "",
   "repo": "",
   "id": 0
@@ -1082,18 +2101,40 @@ gitea.issueTrackedTimes({
 * input `object`
   * owner **required** `string`: owner of the repo
   * repo **required** `string`: name of the repo
-  * id **required** `integer`: index of the issue
+  * id **required** `integer`: id of the comment to edit
+  * content [EditReactionOption](#editreactionoption)
+
+#### Output
+*Output schema unknown*
+
+### issueGetCommentReactions
+Get a list of reactions from a comment of an issue
+
+
+```js
+gitea.issueGetCommentReactions({
+  "owner": "",
+  "repo": "",
+  "id": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * owner **required** `string`: owner of the repo
+  * repo **required** `string`: name of the repo
+  * id **required** `integer`: id of the comment to edit
 
 #### Output
 * output `array`
-  * items [TrackedTime](#trackedtime)
+  * items [Reaction](#reaction)
 
-### issueAddTime
-Add a tracked time to a issue
+### issuePostCommentReaction
+Add a reaction to a comment of an issue
 
 
 ```js
-gitea.issueAddTime({
+gitea.issuePostCommentReaction({
   "owner": "",
   "repo": "",
   "id": 0
@@ -1104,11 +2145,11 @@ gitea.issueAddTime({
 * input `object`
   * owner **required** `string`: owner of the repo
   * repo **required** `string`: name of the repo
-  * id **required** `integer`: index of the issue to add tracked time to
-  * body [AddTimeOption](#addtimeoption)
+  * id **required** `integer`: id of the comment to edit
+  * content [EditReactionOption](#editreactionoption)
 
 #### Output
-* output [TrackedTime](#trackedtime)
+* output [Reaction](#reaction)
 
 ### issueGetIssue
 Get an issue
@@ -1132,7 +2173,7 @@ gitea.issueGetIssue({
 * output [Issue](#issue)
 
 ### issueEditIssue
-Edit an issue
+Edit an issue. If using deadline only the date will be taken into account, and time of day ignored.
 
 
 ```js
@@ -1171,6 +2212,7 @@ gitea.issueGetComments({
   * repo **required** `string`: name of the repo
   * index **required** `integer`: index of the issue
   * since `string`: if provided, only comments updated since the specified time are returned.
+  * before `string`: if provided, only comments updated before the provided time are returned.
 
 #### Output
 * output `array`
@@ -1246,7 +2288,7 @@ gitea.issueEditCommentDeprecated({
 * output [Comment](#comment)
 
 ### issueEditIssueDeadline
-Set an issue deadline. If set to null, the deadline is deleted.
+Set an issue deadline. If set to null, the deadline is deleted. If using deadline only the date will be taken into account, and time of day ignored.
 
 
 ```js
@@ -1379,6 +2421,320 @@ gitea.issueRemoveLabel({
 #### Output
 *Output schema unknown*
 
+### issueDeleteIssueReaction
+Remove a reaction from an issue
+
+
+```js
+gitea.issueDeleteIssueReaction({
+  "owner": "",
+  "repo": "",
+  "index": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * owner **required** `string`: owner of the repo
+  * repo **required** `string`: name of the repo
+  * index **required** `integer`: index of the issue
+  * content [EditReactionOption](#editreactionoption)
+
+#### Output
+*Output schema unknown*
+
+### issueGetIssueReactions
+Get a list reactions of an issue
+
+
+```js
+gitea.issueGetIssueReactions({
+  "owner": "",
+  "repo": "",
+  "index": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * owner **required** `string`: owner of the repo
+  * repo **required** `string`: name of the repo
+  * index **required** `integer`: index of the issue
+  * page `integer`: page number of results to return (1-based)
+  * limit `integer`: page size of results
+
+#### Output
+* output `array`
+  * items [Reaction](#reaction)
+
+### issuePostIssueReaction
+Add a reaction to an issue
+
+
+```js
+gitea.issuePostIssueReaction({
+  "owner": "",
+  "repo": "",
+  "index": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * owner **required** `string`: owner of the repo
+  * repo **required** `string`: name of the repo
+  * index **required** `integer`: index of the issue
+  * content [EditReactionOption](#editreactionoption)
+
+#### Output
+* output [Reaction](#reaction)
+
+### issueDeleteStopWatch
+Delete an issue's existing stopwatch.
+
+
+```js
+gitea.issueDeleteStopWatch({
+  "owner": "",
+  "repo": "",
+  "index": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * owner **required** `string`: owner of the repo
+  * repo **required** `string`: name of the repo
+  * index **required** `integer`: index of the issue to stop the stopwatch on
+
+#### Output
+*Output schema unknown*
+
+### issueStartStopWatch
+Start stopwatch on an issue.
+
+
+```js
+gitea.issueStartStopWatch({
+  "owner": "",
+  "repo": "",
+  "index": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * owner **required** `string`: owner of the repo
+  * repo **required** `string`: name of the repo
+  * index **required** `integer`: index of the issue to create the stopwatch on
+
+#### Output
+*Output schema unknown*
+
+### issueStopStopWatch
+Stop an issue's existing stopwatch.
+
+
+```js
+gitea.issueStopStopWatch({
+  "owner": "",
+  "repo": "",
+  "index": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * owner **required** `string`: owner of the repo
+  * repo **required** `string`: name of the repo
+  * index **required** `integer`: index of the issue to stop the stopwatch on
+
+#### Output
+*Output schema unknown*
+
+### issueSubscriptions
+Get users who subscribed on an issue.
+
+
+```js
+gitea.issueSubscriptions({
+  "owner": "",
+  "repo": "",
+  "index": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * owner **required** `string`: owner of the repo
+  * repo **required** `string`: name of the repo
+  * index **required** `integer`: index of the issue
+  * page `integer`: page number of results to return (1-based)
+  * limit `integer`: page size of results
+
+#### Output
+* output `array`
+  * items [User](#user)
+
+### issueCheckSubscription
+Check if user is subscribed to an issue
+
+
+```js
+gitea.issueCheckSubscription({
+  "owner": "",
+  "repo": "",
+  "index": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * owner **required** `string`: owner of the repo
+  * repo **required** `string`: name of the repo
+  * index **required** `integer`: index of the issue
+
+#### Output
+* output [WatchInfo](#watchinfo)
+
+### issueDeleteSubscription
+Unsubscribe user from issue
+
+
+```js
+gitea.issueDeleteSubscription({
+  "owner": "",
+  "repo": "",
+  "index": 0,
+  "user": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * owner **required** `string`: owner of the repo
+  * repo **required** `string`: name of the repo
+  * index **required** `integer`: index of the issue
+  * user **required** `string`: user witch unsubscribe
+
+#### Output
+*Output schema unknown*
+
+### issueAddSubscription
+Subscribe user to issue
+
+
+```js
+gitea.issueAddSubscription({
+  "owner": "",
+  "repo": "",
+  "index": 0,
+  "user": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * owner **required** `string`: owner of the repo
+  * repo **required** `string`: name of the repo
+  * index **required** `integer`: index of the issue
+  * user **required** `string`: user to subscribe
+
+#### Output
+*Output schema unknown*
+
+### issueResetTime
+Reset a tracked time of an issue
+
+
+```js
+gitea.issueResetTime({
+  "owner": "",
+  "repo": "",
+  "index": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * owner **required** `string`: owner of the repo
+  * repo **required** `string`: name of the repo
+  * index **required** `integer`: index of the issue to add tracked time to
+
+#### Output
+*Output schema unknown*
+
+### issueTrackedTimes
+List an issue's tracked times
+
+
+```js
+gitea.issueTrackedTimes({
+  "owner": "",
+  "repo": "",
+  "index": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * owner **required** `string`: owner of the repo
+  * repo **required** `string`: name of the repo
+  * index **required** `integer`: index of the issue
+  * since `string`: Only show times updated after the given time. This is a timestamp in RFC 3339 format
+  * before `string`: Only show times updated before the given time. This is a timestamp in RFC 3339 format
+  * page `integer`: page number of results to return (1-based)
+  * limit `integer`: page size of results
+
+#### Output
+* output `array`
+  * items [TrackedTime](#trackedtime)
+
+### issueAddTime
+Add tracked time to a issue
+
+
+```js
+gitea.issueAddTime({
+  "owner": "",
+  "repo": "",
+  "index": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * owner **required** `string`: owner of the repo
+  * repo **required** `string`: name of the repo
+  * index **required** `integer`: index of the issue
+  * body [AddTimeOption](#addtimeoption)
+
+#### Output
+* output [TrackedTime](#trackedtime)
+
+### issueDeleteTime
+Delete specific tracked time
+
+
+```js
+gitea.issueDeleteTime({
+  "owner": "",
+  "repo": "",
+  "index": 0,
+  "id": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * owner **required** `string`: owner of the repo
+  * repo **required** `string`: name of the repo
+  * index **required** `integer`: index of the issue
+  * id **required** `integer`: id of time to delete
+
+#### Output
+*Output schema unknown*
+
 ### repoListKeys
 List a repository's keys
 
@@ -1394,6 +2750,10 @@ gitea.repoListKeys({
 * input `object`
   * owner **required** `string`: owner of the repo
   * repo **required** `string`: name of the repo
+  * key_id `integer`: the key_id to search for
+  * fingerprint `string`: fingerprint of the key
+  * page `integer`: page number of results to return (1-based)
+  * limit `integer`: page size of results
 
 #### Output
 * output `array`
@@ -1476,6 +2836,8 @@ gitea.issueListLabels({
 * input `object`
   * owner **required** `string`: owner of the repo
   * repo **required** `string`: name of the repo
+  * page `integer`: page number of results to return (1-based)
+  * limit `integer`: page size of results
 
 #### Output
 * output `array`
@@ -1565,8 +2927,27 @@ gitea.issueEditLabel({
 #### Output
 * output [Label](#label)
 
+### repoGetLanguages
+Get languages and number of bytes of code written
+
+
+```js
+gitea.repoGetLanguages({
+  "owner": "",
+  "repo": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * owner **required** `string`: owner of the repo
+  * repo **required** `string`: name of the repo
+
+#### Output
+* output `object`
+
 ### issueGetMilestonesList
-Get all of a repository's milestones
+Get all of a repository's opened milestones
 
 
 ```js
@@ -1580,6 +2961,10 @@ gitea.issueGetMilestonesList({
 * input `object`
   * owner **required** `string`: owner of the repo
   * repo **required** `string`: name of the repo
+  * state `string`: Milestone state, Recognised values are open, closed and all. Defaults to "open"
+  * name `string`: filter by milestone name
+  * page `integer`: page number of results to return (1-based)
+  * limit `integer`: page size of results
 
 #### Output
 * output `array`
@@ -1613,7 +2998,7 @@ Delete a milestone
 gitea.issueDeleteMilestone({
   "owner": "",
   "repo": "",
-  "id": 0
+  "id": ""
 }, context)
 ```
 
@@ -1621,7 +3006,7 @@ gitea.issueDeleteMilestone({
 * input `object`
   * owner **required** `string`: owner of the repo
   * repo **required** `string`: name of the repo
-  * id **required** `integer`: id of the milestone to delete
+  * id **required** `string`: the milestone to delete, identified by ID and if not available by name
 
 #### Output
 *Output schema unknown*
@@ -1634,7 +3019,7 @@ Get a milestone
 gitea.issueGetMilestone({
   "owner": "",
   "repo": "",
-  "id": 0
+  "id": ""
 }, context)
 ```
 
@@ -1642,7 +3027,7 @@ gitea.issueGetMilestone({
 * input `object`
   * owner **required** `string`: owner of the repo
   * repo **required** `string`: name of the repo
-  * id **required** `integer`: id of the milestone
+  * id **required** `string`: the milestone to get, identified by ID and if not available by name
 
 #### Output
 * output [Milestone](#milestone)
@@ -1655,7 +3040,7 @@ Update a milestone
 gitea.issueEditMilestone({
   "owner": "",
   "repo": "",
-  "id": 0
+  "id": ""
 }, context)
 ```
 
@@ -1663,7 +3048,7 @@ gitea.issueEditMilestone({
 * input `object`
   * owner **required** `string`: owner of the repo
   * repo **required** `string`: name of the repo
-  * id **required** `integer`: id of the milestone
+  * id **required** `string`: the milestone to edit, identified by ID and if not available by name
   * body [EditMilestoneOption](#editmilestoneoption)
 
 #### Output
@@ -1688,6 +3073,55 @@ gitea.repoMirrorSync({
 #### Output
 *Output schema unknown*
 
+### notifyGetRepoList
+List users's notification threads on a specific repo
+
+
+```js
+gitea.notifyGetRepoList({
+  "owner": "",
+  "repo": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * owner **required** `string`: owner of the repo
+  * repo **required** `string`: name of the repo
+  * all `string`: If true, show notifications marked as read. Default value is false
+  * status-types `array`: Show notifications with the provided status types. Options are: unread, read and/or pinned. Defaults to unread & pinned
+  * since `string`: Only show notifications updated after the given time. This is a timestamp in RFC 3339 format
+  * before `string`: Only show notifications updated before the given time. This is a timestamp in RFC 3339 format
+  * page `integer`: page number of results to return (1-based)
+  * limit `integer`: page size of results
+
+#### Output
+* output `array`
+  * items [NotificationThread](#notificationthread)
+
+### notifyReadRepoList
+Mark notification threads as read, pinned or unread on a specific repo
+
+
+```js
+gitea.notifyReadRepoList({
+  "owner": "",
+  "repo": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * owner **required** `string`: owner of the repo
+  * repo **required** `string`: name of the repo
+  * all `string`: If true, mark all notifications on this repo. Default value is false
+  * status-types `array`: Mark notifications with the provided status types. Options are: unread, read and/or pinned. Defaults to unread.
+  * to-status `string`: Status to mark notifications as. Defaults to read.
+  * last_read_at `string`: Describes the last point that notifications were checked. Anything updated since this time will not be updated.
+
+#### Output
+*Output schema unknown*
+
 ### repoListPullRequests
 List a repo's pull requests
 
@@ -1703,11 +3137,12 @@ gitea.repoListPullRequests({
 * input `object`
   * owner **required** `string`: owner of the repo
   * repo **required** `string`: name of the repo
-  * page `integer`: Page number
   * state `string` (values: closed, open, all): State of pull request: open or closed (optional)
   * sort `string` (values: oldest, recentupdate, leastupdate, mostcomment, leastcomment, priority): Type of sort
   * milestone `integer`: ID of the milestone
   * labels `array`: Label IDs
+  * page `integer`: page number of results to return (1-based)
+  * limit `integer`: page size of results
 
 #### Output
 * output `array`
@@ -1755,7 +3190,7 @@ gitea.repoGetPullRequest({
 * output [PullRequest](#pullrequest)
 
 ### repoEditPullRequest
-Update a pull request
+Update a pull request. If using deadline only the date will be taken into account, and time of day ignored.
 
 
 ```js
@@ -1775,6 +3210,48 @@ gitea.repoEditPullRequest({
 
 #### Output
 * output [PullRequest](#pullrequest)
+
+### repoDownloadPullDiff
+Get a pull request diff
+
+
+```js
+gitea.repoDownloadPullDiff({
+  "owner": "",
+  "repo": "",
+  "index": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * owner **required** `string`: owner of the repo
+  * repo **required** `string`: name of the repo
+  * index **required** `integer`: index of the pull request to get
+
+#### Output
+* output `string`
+
+### repoDownloadPullPatch
+Get a pull request patch file
+
+
+```js
+gitea.repoDownloadPullPatch({
+  "owner": "",
+  "repo": "",
+  "index": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * owner **required** `string`: owner of the repo
+  * repo **required** `string`: name of the repo
+  * index **required** `integer`: index of the pull request to get
+
+#### Output
+* output `string`
 
 ### repoPullRequestIsMerged
 Check if a pull request has been merged
@@ -1814,6 +3291,217 @@ gitea.repoMergePullRequest({
   * owner **required** `string`: owner of the repo
   * repo **required** `string`: name of the repo
   * index **required** `integer`: index of the pull request to merge
+  * body [MergePullRequestOption](#mergepullrequestoption)
+
+#### Output
+*Output schema unknown*
+
+### repoDeletePullReviewRequests
+cancel review requests for a pull request
+
+
+```js
+gitea.repoDeletePullReviewRequests({
+  "owner": "",
+  "repo": "",
+  "index": 0,
+  "body": {}
+}, context)
+```
+
+#### Input
+* input `object`
+  * owner **required** `string`: owner of the repo
+  * repo **required** `string`: name of the repo
+  * index **required** `integer`: index of the pull request
+  * body **required** [PullReviewRequestOptions](#pullreviewrequestoptions)
+
+#### Output
+*Output schema unknown*
+
+### repoCreatePullReviewRequests
+create review requests for a pull request
+
+
+```js
+gitea.repoCreatePullReviewRequests({
+  "owner": "",
+  "repo": "",
+  "index": 0,
+  "body": {}
+}, context)
+```
+
+#### Input
+* input `object`
+  * owner **required** `string`: owner of the repo
+  * repo **required** `string`: name of the repo
+  * index **required** `integer`: index of the pull request
+  * body **required** [PullReviewRequestOptions](#pullreviewrequestoptions)
+
+#### Output
+* output `array`
+  * items [PullReview](#pullreview)
+
+### repoListPullReviews
+List all reviews for a pull request
+
+
+```js
+gitea.repoListPullReviews({
+  "owner": "",
+  "repo": "",
+  "index": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * owner **required** `string`: owner of the repo
+  * repo **required** `string`: name of the repo
+  * index **required** `integer`: index of the pull request
+  * page `integer`: page number of results to return (1-based)
+  * limit `integer`: page size of results
+
+#### Output
+* output `array`
+  * items [PullReview](#pullreview)
+
+### repoCreatePullReview
+Create a review to an pull request
+
+
+```js
+gitea.repoCreatePullReview({
+  "owner": "",
+  "repo": "",
+  "index": 0,
+  "body": {}
+}, context)
+```
+
+#### Input
+* input `object`
+  * owner **required** `string`: owner of the repo
+  * repo **required** `string`: name of the repo
+  * index **required** `integer`: index of the pull request
+  * body **required** [CreatePullReviewOptions](#createpullreviewoptions)
+
+#### Output
+* output [PullReview](#pullreview)
+
+### repoDeletePullReview
+Delete a specific review from a pull request
+
+
+```js
+gitea.repoDeletePullReview({
+  "owner": "",
+  "repo": "",
+  "index": 0,
+  "id": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * owner **required** `string`: owner of the repo
+  * repo **required** `string`: name of the repo
+  * index **required** `integer`: index of the pull request
+  * id **required** `integer`: id of the review
+
+#### Output
+*Output schema unknown*
+
+### repoGetPullReview
+Get a specific review for a pull request
+
+
+```js
+gitea.repoGetPullReview({
+  "owner": "",
+  "repo": "",
+  "index": 0,
+  "id": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * owner **required** `string`: owner of the repo
+  * repo **required** `string`: name of the repo
+  * index **required** `integer`: index of the pull request
+  * id **required** `integer`: id of the review
+
+#### Output
+* output [PullReview](#pullreview)
+
+### repoSubmitPullReview
+Submit a pending review to an pull request
+
+
+```js
+gitea.repoSubmitPullReview({
+  "owner": "",
+  "repo": "",
+  "index": 0,
+  "id": 0,
+  "body": {}
+}, context)
+```
+
+#### Input
+* input `object`
+  * owner **required** `string`: owner of the repo
+  * repo **required** `string`: name of the repo
+  * index **required** `integer`: index of the pull request
+  * id **required** `integer`: id of the review
+  * body **required** [SubmitPullReviewOptions](#submitpullreviewoptions)
+
+#### Output
+* output [PullReview](#pullreview)
+
+### repoGetPullReviewComments
+Get a specific review for a pull request
+
+
+```js
+gitea.repoGetPullReviewComments({
+  "owner": "",
+  "repo": "",
+  "index": 0,
+  "id": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * owner **required** `string`: owner of the repo
+  * repo **required** `string`: name of the repo
+  * index **required** `integer`: index of the pull request
+  * id **required** `integer`: id of the review
+
+#### Output
+* output `array`
+  * items [PullReviewComment](#pullreviewcomment)
+
+### repoUpdatePullRequest
+Merge PR's baseBranch into headBranch
+
+
+```js
+gitea.repoUpdatePullRequest({
+  "owner": "",
+  "repo": "",
+  "index": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * owner **required** `string`: owner of the repo
+  * repo **required** `string`: name of the repo
+  * index **required** `integer`: index of the pull request to get
 
 #### Output
 *Output schema unknown*
@@ -1854,6 +3542,9 @@ gitea.repoListReleases({
 * input `object`
   * owner **required** `string`: owner of the repo
   * repo **required** `string`: name of the repo
+  * per_page `integer`: page size of results, deprecated - use limit
+  * page `integer`: page number of results to return (1-based)
+  * limit `integer`: page size of results
 
 #### Output
 * output `array`
@@ -1875,6 +3566,48 @@ gitea.repoCreateRelease({
   * owner **required** `string`: owner of the repo
   * repo **required** `string`: name of the repo
   * body [CreateReleaseOption](#createreleaseoption)
+
+#### Output
+* output [Release](#release)
+
+### repoDeleteReleaseTag
+Delete a release tag
+
+
+```js
+gitea.repoDeleteReleaseTag({
+  "owner": "",
+  "repo": "",
+  "tag": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * owner **required** `string`: owner of the repo
+  * repo **required** `string`: name of the repo
+  * tag **required** `string`: name of the tag to delete
+
+#### Output
+*Output schema unknown*
+
+### repoGetReleaseTag
+Get a release by tag name
+
+
+```js
+gitea.repoGetReleaseTag({
+  "owner": "",
+  "repo": "",
+  "tag": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * owner **required** `string`: owner of the repo
+  * repo **required** `string`: name of the repo
+  * tag **required** `string`: tagname of the release to get
 
 #### Output
 * output [Release](#release)
@@ -2063,6 +3796,25 @@ gitea.repoEditReleaseAttachment({
 #### Output
 * output [Attachment](#attachment)
 
+### repoSigningKey
+Get signing-key.gpg for given repository
+
+
+```js
+gitea.repoSigningKey({
+  "owner": "",
+  "repo": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * owner **required** `string`: owner of the repo
+  * repo **required** `string`: name of the repo
+
+#### Output
+* output `string`
+
 ### repoListStargazers
 List a repo's stargazers
 
@@ -2078,6 +3830,8 @@ gitea.repoListStargazers({
 * input `object`
   * owner **required** `string`: owner of the repo
   * repo **required** `string`: name of the repo
+  * page `integer`: page number of results to return (1-based)
+  * limit `integer`: page size of results
 
 #### Output
 * output `array`
@@ -2100,6 +3854,10 @@ gitea.repoListStatuses({
   * owner **required** `string`: owner of the repo
   * repo **required** `string`: name of the repo
   * sha **required** `string`: sha of the commit
+  * sort `string` (values: oldest, recentupdate, leastupdate, leastindex, highestindex): type of sort
+  * state `string` (values: pending, success, error, failure, warning): type of state
+  * page `integer`: page number of results to return (1-based)
+  * limit `integer`: page size of results
 
 #### Output
 * output `array`
@@ -2125,8 +3883,7 @@ gitea.repoCreateStatus({
   * body [CreateStatusOption](#createstatusoption)
 
 #### Output
-* output `array`
-  * items [Status](#status)
+* output [Status](#status)
 
 ### repoListSubscribers
 List a repo's watchers
@@ -2143,6 +3900,8 @@ gitea.repoListSubscribers({
 * input `object`
   * owner **required** `string`: owner of the repo
   * repo **required** `string`: name of the repo
+  * page `integer`: page number of results to return (1-based)
+  * limit `integer`: page size of results
 
 #### Output
 * output `array`
@@ -2205,6 +3964,28 @@ gitea.userCurrentPutSubscription({
 #### Output
 * output [WatchInfo](#watchinfo)
 
+### repoListTags
+List a repository's tags
+
+
+```js
+gitea.repoListTags({
+  "owner": "",
+  "repo": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * owner **required** `string`: owner of the repo
+  * repo **required** `string`: name of the repo
+  * page `integer`: page number of results to return (1-based)
+  * limit `integer`: page size of results, default maximum page size is 50
+
+#### Output
+* output `array`
+  * items [Tag](#tag)
+
 ### repoTrackedTimes
 List a repo's tracked times
 
@@ -2220,6 +4001,11 @@ gitea.repoTrackedTimes({
 * input `object`
   * owner **required** `string`: owner of the repo
   * repo **required** `string`: name of the repo
+  * user `string`: optional filter by user
+  * since `string`: Only show times updated after the given time. This is a timestamp in RFC 3339 format
+  * before `string`: Only show times updated before the given time. This is a timestamp in RFC 3339 format
+  * page `integer`: page number of results to return (1-based)
+  * limit `integer`: page size of results
 
 #### Output
 * output `array`
@@ -2247,6 +4033,112 @@ gitea.userTrackedTimes({
 * output `array`
   * items [TrackedTime](#trackedtime)
 
+### repoListTopics
+Get list of topics that a repository has
+
+
+```js
+gitea.repoListTopics({
+  "owner": "",
+  "repo": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * owner **required** `string`: owner of the repo
+  * repo **required** `string`: name of the repo
+  * page `integer`: page number of results to return (1-based)
+  * limit `integer`: page size of results
+
+#### Output
+* output [TopicName](#topicname)
+
+### repoUpdateTopics
+Replace list of topics for a repository
+
+
+```js
+gitea.repoUpdateTopics({
+  "owner": "",
+  "repo": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * owner **required** `string`: owner of the repo
+  * repo **required** `string`: name of the repo
+  * body [RepoTopicOptions](#repotopicoptions)
+
+#### Output
+*Output schema unknown*
+
+### repoDeleteTopic
+Delete a topic from a repository
+
+
+```js
+gitea.repoDeleteTopic({
+  "owner": "",
+  "repo": "",
+  "topic": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * owner **required** `string`: owner of the repo
+  * repo **required** `string`: name of the repo
+  * topic **required** `string`: name of the topic to delete
+
+#### Output
+*Output schema unknown*
+
+### repos.owner.repo.topics.topic.put
+Add a topic to a repository
+
+
+```js
+gitea.repos.owner.repo.topics.topic.put({
+  "owner": "",
+  "repo": "",
+  "topic": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * owner **required** `string`: owner of the repo
+  * repo **required** `string`: name of the repo
+  * topic **required** `string`: name of the topic to add
+
+#### Output
+*Output schema unknown*
+
+### repoTransfer
+Transfer a repo ownership
+
+
+```js
+gitea.repoTransfer({
+  "owner": "",
+  "repo": "",
+  "body": {
+    "new_owner": ""
+  }
+}, context)
+```
+
+#### Input
+* input `object`
+  * owner **required** `string`: owner of the repo to transfer
+  * repo **required** `string`: name of the repo to transfer
+  * body **required** [TransferRepoOption](#transferrepooption)
+
+#### Output
+* output [Repository](#repository)
+
 ### repoGetByID
 Get a repository by id
 
@@ -2263,6 +4155,76 @@ gitea.repoGetByID({
 
 #### Output
 * output [Repository](#repository)
+
+### getGeneralAPISettings
+Get instance's global settings for api
+
+
+```js
+gitea.getGeneralAPISettings(null, context)
+```
+
+#### Input
+*This action has no parameters*
+
+#### Output
+* output [GeneralAPISettings](#generalapisettings)
+
+### getGeneralAttachmentSettings
+Get instance's global settings for Attachment
+
+
+```js
+gitea.getGeneralAttachmentSettings(null, context)
+```
+
+#### Input
+*This action has no parameters*
+
+#### Output
+* output [GeneralAttachmentSettings](#generalattachmentsettings)
+
+### getGeneralRepositorySettings
+Get instance's global settings for repositories
+
+
+```js
+gitea.getGeneralRepositorySettings(null, context)
+```
+
+#### Input
+*This action has no parameters*
+
+#### Output
+* output [GeneralRepoSettings](#generalreposettings)
+
+### getGeneralUISettings
+Get instance's global settings for ui
+
+
+```js
+gitea.getGeneralUISettings(null, context)
+```
+
+#### Input
+*This action has no parameters*
+
+#### Output
+* output [GeneralUISettings](#generaluisettings)
+
+### getSigningKey
+Get default signing-key.gpg
+
+
+```js
+gitea.getSigningKey(null, context)
+```
+
+#### Input
+*This action has no parameters*
+
+#### Output
+* output `string`
 
 ### orgDeleteTeam
 Delete a team
@@ -2329,6 +4291,8 @@ gitea.orgListTeamMembers({
 #### Input
 * input `object`
   * id **required** `integer`: id of the team
+  * page `integer`: page number of results to return (1-based)
+  * limit `integer`: page size of results
 
 #### Output
 * output `array`
@@ -2352,6 +4316,25 @@ gitea.orgRemoveTeamMember({
 
 #### Output
 *Output schema unknown*
+
+### orgListTeamMember
+List a particular member of team
+
+
+```js
+gitea.orgListTeamMember({
+  "id": 0,
+  "username": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * id **required** `integer`: id of the team
+  * username **required** `string`: username of the member to list
+
+#### Output
+* output [User](#user)
 
 ### orgAddTeamMember
 Add a team member
@@ -2385,6 +4368,8 @@ gitea.orgListTeamRepos({
 #### Input
 * input `object`
   * id **required** `integer`: id of the team
+  * page `integer`: page number of results to return (1-based)
+  * limit `integer`: page size of results
 
 #### Output
 * output `array`
@@ -2445,9 +4430,12 @@ gitea.topicSearch({
 #### Input
 * input `object`
   * q **required** `string`: keywords to search
+  * page `integer`: page number of results to return (1-based)
+  * limit `integer`: page size of results
 
 #### Output
-* output [Repository](#repository)
+* output `array`
+  * items [TopicResponse](#topicresponse)
 
 ### userGetCurrent
 Get the authenticated user
@@ -2462,6 +4450,93 @@ gitea.userGetCurrent(null, context)
 
 #### Output
 * output [User](#user)
+
+### userGetOauth2Application
+List the authenticated user's oauth2 applications
+
+
+```js
+gitea.userGetOauth2Application({}, context)
+```
+
+#### Input
+* input `object`
+  * page `integer`: page number of results to return (1-based)
+  * limit `integer`: page size of results
+
+#### Output
+* output `array`
+  * items [OAuth2Application](#oauth2application)
+
+### userCreateOAuth2Application
+creates a new OAuth2 application
+
+
+```js
+gitea.userCreateOAuth2Application({
+  "body": {}
+}, context)
+```
+
+#### Input
+* input `object`
+  * body **required** [CreateOAuth2ApplicationOptions](#createoauth2applicationoptions)
+
+#### Output
+* output [OAuth2Application](#oauth2application)
+
+### userDeleteOAuth2Application
+delete an OAuth2 Application
+
+
+```js
+gitea.userDeleteOAuth2Application({
+  "id": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * id **required** `integer`: token to be deleted
+
+#### Output
+*Output schema unknown*
+
+### userGetOAuth2Application
+get an OAuth2 Application
+
+
+```js
+gitea.userGetOAuth2Application({
+  "id": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * id **required** `integer`: Application ID to be found
+
+#### Output
+* output [OAuth2Application](#oauth2application)
+
+### userUpdateOAuth2Application
+update an OAuth2 Application, this includes regenerating the client secret
+
+
+```js
+gitea.userUpdateOAuth2Application({
+  "id": 0,
+  "body": {}
+}, context)
+```
+
+#### Input
+* input `object`
+  * id **required** `integer`: application to be updated
+  * body **required** [CreateOAuth2ApplicationOptions](#createoauth2applicationoptions)
+
+#### Output
+* output [OAuth2Application](#oauth2application)
 
 ### userDeleteEmail
 Delete email addresses
@@ -2514,11 +4589,13 @@ List the authenticated user's followers
 
 
 ```js
-gitea.userCurrentListFollowers(null, context)
+gitea.userCurrentListFollowers({}, context)
 ```
 
 #### Input
-*This action has no parameters*
+* input `object`
+  * page `integer`: page number of results to return (1-based)
+  * limit `integer`: page size of results
 
 #### Output
 * output `array`
@@ -2529,11 +4606,13 @@ List the users that the authenticated user is following
 
 
 ```js
-gitea.userCurrentListFollowing(null, context)
+gitea.userCurrentListFollowing({}, context)
 ```
 
 #### Input
-*This action has no parameters*
+* input `object`
+  * page `integer`: page number of results to return (1-based)
+  * limit `integer`: page size of results
 
 #### Output
 * output `array`
@@ -2595,11 +4674,13 @@ List the authenticated user's GPG keys
 
 
 ```js
-gitea.userCurrentListGPGKeys(null, context)
+gitea.userCurrentListGPGKeys({}, context)
 ```
 
 #### Input
-*This action has no parameters*
+* input `object`
+  * page `integer`: page number of results to return (1-based)
+  * limit `integer`: page size of results
 
 #### Output
 * output `array`
@@ -2659,11 +4740,14 @@ List the authenticated user's public keys
 
 
 ```js
-gitea.userCurrentListKeys(null, context)
+gitea.userCurrentListKeys({}, context)
 ```
 
 #### Input
-*This action has no parameters*
+* input `object`
+  * fingerprint `string`: fingerprint of the key
+  * page `integer`: page number of results to return (1-based)
+  * limit `integer`: page size of results
 
 #### Output
 * output `array`
@@ -2723,11 +4807,13 @@ List the current user's organizations
 
 
 ```js
-gitea.orgListCurrentUserOrgs(null, context)
+gitea.orgListCurrentUserOrgs({}, context)
 ```
 
 #### Input
-*This action has no parameters*
+* input `object`
+  * page `integer`: page number of results to return (1-based)
+  * limit `integer`: page size of results
 
 #### Output
 * output `array`
@@ -2738,11 +4824,13 @@ List the repos that the authenticated user owns or has access to
 
 
 ```js
-gitea.userCurrentListRepos(null, context)
+gitea.userCurrentListRepos({}, context)
 ```
 
 #### Input
-*This action has no parameters*
+* input `object`
+  * page `integer`: page number of results to return (1-based)
+  * limit `integer`: page size of results
 
 #### Output
 * output `array`
@@ -2768,11 +4856,13 @@ The repos that the authenticated user has starred
 
 
 ```js
-gitea.userCurrentListStarred(null, context)
+gitea.userCurrentListStarred({}, context)
 ```
 
 #### Input
-*This action has no parameters*
+* input `object`
+  * page `integer`: page number of results to return (1-based)
+  * limit `integer`: page size of results
 
 #### Output
 * output `array`
@@ -2835,53 +4925,73 @@ gitea.userCurrentPutStar({
 #### Output
 *Output schema unknown*
 
+### userGetStopWatches
+Get list of all existing stopwatches
+
+
+```js
+gitea.userGetStopWatches({}, context)
+```
+
+#### Input
+* input `object`
+  * page `integer`: page number of results to return (1-based)
+  * limit `integer`: page size of results
+
+#### Output
+* output `array`
+  * items [StopWatch](#stopwatch)
+
 ### userCurrentListSubscriptions
 List repositories watched by the authenticated user
 
 
 ```js
-gitea.userCurrentListSubscriptions(null, context)
+gitea.userCurrentListSubscriptions({}, context)
 ```
 
 #### Input
-*This action has no parameters*
+* input `object`
+  * page `integer`: page number of results to return (1-based)
+  * limit `integer`: page size of results
 
 #### Output
 * output `array`
   * items [Repository](#repository)
+
+### userListTeams
+List all the teams a user belongs to
+
+
+```js
+gitea.userListTeams({}, context)
+```
+
+#### Input
+* input `object`
+  * page `integer`: page number of results to return (1-based)
+  * limit `integer`: page size of results
+
+#### Output
+* output `array`
+  * items [Team](#team)
 
 ### userCurrentTrackedTimes
 List the current user's tracked times
 
 
 ```js
-gitea.userCurrentTrackedTimes(null, context)
-```
-
-#### Input
-*This action has no parameters*
-
-#### Output
-* output `array`
-  * items [TrackedTime](#trackedtime)
-
-### orgListUserOrgs
-List a user's organizations
-
-
-```js
-gitea.orgListUserOrgs({
-  "username": ""
-}, context)
+gitea.userCurrentTrackedTimes({}, context)
 ```
 
 #### Input
 * input `object`
-  * username **required** `string`: username of user
+  * since `string`: Only show times updated after the given time. This is a timestamp in RFC 3339 format
+  * before `string`: Only show times updated before the given time. This is a timestamp in RFC 3339 format
 
 #### Output
 * output `array`
-  * items [Organization](#organization)
+  * items [TrackedTime](#trackedtime)
 
 ### userSearch
 Search for users
@@ -2895,7 +5005,8 @@ gitea.userSearch({}, context)
 * input `object`
   * q `string`: keyword
   * uid `integer`: ID of the user to search for
-  * limit `integer`: maximum number of users to return
+  * page `integer`: page number of results to return (1-based)
+  * limit `integer`: page size of results
 
 #### Output
 * output `object`
@@ -2952,6 +5063,8 @@ gitea.userListFollowers({
 #### Input
 * input `object`
   * username **required** `string`: username of user
+  * page `integer`: page number of results to return (1-based)
+  * limit `integer`: page size of results
 
 #### Output
 * output `array`
@@ -2970,6 +5083,8 @@ gitea.userListFollowing({
 #### Input
 * input `object`
   * username **required** `string`: username of user
+  * page `integer`: page number of results to return (1-based)
+  * limit `integer`: page size of results
 
 #### Output
 * output `array`
@@ -2988,10 +5103,30 @@ gitea.userListGPGKeys({
 #### Input
 * input `object`
   * username **required** `string`: username of user
+  * page `integer`: page number of results to return (1-based)
+  * limit `integer`: page size of results
 
 #### Output
 * output `array`
   * items [GPGKey](#gpgkey)
+
+### userGetHeatmapData
+Get a user's heatmap
+
+
+```js
+gitea.userGetHeatmapData({
+  "username": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * username **required** `string`: username of user to get
+
+#### Output
+* output `array`
+  * items [UserHeatmapData](#userheatmapdata)
 
 ### userListKeys
 List the given user's public keys
@@ -3006,10 +5141,33 @@ gitea.userListKeys({
 #### Input
 * input `object`
   * username **required** `string`: username of user
+  * fingerprint `string`: fingerprint of the key
+  * page `integer`: page number of results to return (1-based)
+  * limit `integer`: page size of results
 
 #### Output
 * output `array`
   * items [PublicKey](#publickey)
+
+### orgListUserOrgs
+List a user's organizations
+
+
+```js
+gitea.orgListUserOrgs({
+  "username": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * username **required** `string`: username of user
+  * page `integer`: page number of results to return (1-based)
+  * limit `integer`: page size of results
+
+#### Output
+* output `array`
+  * items [Organization](#organization)
 
 ### userListRepos
 List the repos owned by the given user
@@ -3024,6 +5182,8 @@ gitea.userListRepos({
 #### Input
 * input `object`
   * username **required** `string`: username of user
+  * page `integer`: page number of results to return (1-based)
+  * limit `integer`: page size of results
 
 #### Output
 * output `array`
@@ -3042,6 +5202,8 @@ gitea.userListStarred({
 #### Input
 * input `object`
   * username **required** `string`: username of user
+  * page `integer`: page number of results to return (1-based)
+  * limit `integer`: page size of results
 
 #### Output
 * output `array`
@@ -3060,6 +5222,8 @@ gitea.userListSubscriptions({
 #### Input
 * input `object`
   * username **required** `string`: username of the user
+  * page `integer`: page number of results to return (1-based)
+  * limit `integer`: page size of results
 
 #### Output
 * output `array`
@@ -3078,9 +5242,12 @@ gitea.userGetTokens({
 #### Input
 * input `object`
   * username **required** `string`: username of user
+  * page `integer`: page number of results to return (1-based)
+  * limit `integer`: page size of results
 
 #### Output
-*Output schema unknown*
+* output `array`
+  * items [AccessToken](#accesstoken)
 
 ### userCreateToken
 Create an access token
@@ -3108,14 +5275,14 @@ delete an access token
 ```js
 gitea.userDeleteAccessToken({
   "username": "",
-  "token": 0
+  "token": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * username **required** `string`: username of user
-  * token **required** `integer`: token to be deleted
+  * token **required** `string`: token to be deleted, identified by ID and if not available by name
 
 #### Output
 *Output schema unknown*
@@ -3138,13 +5305,43 @@ gitea.getVersion(null, context)
 
 ## Definitions
 
+### APIError
+* APIError `object`: APIError is an api error with a message
+  * message `string`
+  * url `string`
+
+### AccessToken
+* AccessToken represents an API access token. `object`
+  * id `integer`
+  * name `string`
+  * sha1 `string`
+  * token_last_eight `string`
+
 ### AddCollaboratorOption
 * AddCollaboratorOption `object`: AddCollaboratorOption options when adding a user as a collaborator of a repository
   * permission `string`
 
 ### AddTimeOption
 * AddTimeOption `object`: AddTimeOption options for adding time to an issue
+  * created `string`
   * time **required** `integer`: time in seconds
+  * user_name `string`: User who spent the time (optional)
+
+### AnnotatedTag
+* AnnotatedTag `object`: AnnotatedTag represents an annotated tag
+  * message `string`
+  * object [AnnotatedTagObject](#annotatedtagobject)
+  * sha `string`
+  * tag `string`
+  * tagger [CommitUser](#commituser)
+  * url `string`
+  * verification [PayloadCommitVerification](#payloadcommitverification)
+
+### AnnotatedTagObject
+* AnnotatedTagObject `object`: AnnotatedTagObject contains meta information of the tag object
+  * sha `string`
+  * type `string`
+  * url `string`
 
 ### Attachment
 * Attachment `object`: Attachment a generic attachment
@@ -3159,7 +5356,48 @@ gitea.getVersion(null, context)
 ### Branch
 * Branch `object`: Branch represents a repository branch
   * commit [PayloadCommit](#payloadcommit)
+  * effective_branch_protection_name `string`
+  * enable_status_check `boolean`
   * name `string`
+  * protected `boolean`
+  * required_approvals `integer`
+  * status_check_contexts `array`
+    * items `string`
+  * user_can_merge `boolean`
+  * user_can_push `boolean`
+
+### BranchProtection
+* BranchProtection `object`: BranchProtection represents a branch protection for a repository
+  * approvals_whitelist_teams `array`
+    * items `string`
+  * approvals_whitelist_username `array`
+    * items `string`
+  * block_on_official_review_requests `boolean`
+  * block_on_outdated_branch `boolean`
+  * block_on_rejected_reviews `boolean`
+  * branch_name `string`
+  * created_at `string`
+  * dismiss_stale_approvals `boolean`
+  * enable_approvals_whitelist `boolean`
+  * enable_merge_whitelist `boolean`
+  * enable_push `boolean`
+  * enable_push_whitelist `boolean`
+  * enable_status_check `boolean`
+  * merge_whitelist_teams `array`
+    * items `string`
+  * merge_whitelist_usernames `array`
+    * items `string`
+  * protected_file_patterns `string`
+  * push_whitelist_deploy_keys `boolean`
+  * push_whitelist_teams `array`
+    * items `string`
+  * push_whitelist_usernames `array`
+    * items `string`
+  * require_signed_commits `boolean`
+  * required_approvals `integer`
+  * status_check_contexts `array`
+    * items `string`
+  * updated_at `string`
 
 ### Comment
 * Comment `object`: Comment represents a comment on a commit or issue
@@ -3168,14 +5406,108 @@ gitea.getVersion(null, context)
   * html_url `string`
   * id `integer`
   * issue_url `string`
+  * original_author `string`
+  * original_author_id `integer`
   * pull_request_url `string`
   * updated_at `string`
   * user [User](#user)
+
+### Commit
+* Commit contains information generated from a Git commit. `object`
+  * author [User](#user)
+  * commit [RepoCommit](#repocommit)
+  * committer [User](#user)
+  * created `string`
+  * html_url `string`
+  * parents `array`
+    * items [CommitMeta](#commitmeta)
+  * sha `string`
+  * url `string`
+
+### CommitDateOptions
+* CommitDateOptions `object`: CommitDateOptions store dates for GIT_AUTHOR_DATE and GIT_COMMITTER_DATE
+  * author `string`
+  * committer `string`
+
+### CommitMeta
+* CommitMeta contains meta information of a commit in terms of API. `object`
+  * created `string`
+  * sha `string`
+  * url `string`
+
+### CommitUser
+* CommitUser contains information of a user in the context of a commit. `object`
+  * date `string`
+  * email `string`
+  * name `string`
+
+### ContentsResponse
+* ContentsResponse `object`: ContentsResponse contains information about a repo's entry's (dir, file, symlink, submodule) metadata and content
+  * _links [FileLinksResponse](#filelinksresponse)
+  * content `string`: `content` is populated when `type` is `file`, otherwise null
+  * download_url `string`
+  * encoding `string`: `encoding` is populated when `type` is `file`, otherwise null
+  * git_url `string`
+  * html_url `string`
+  * name `string`
+  * path `string`
+  * sha `string`
+  * size `integer`
+  * submodule_git_url `string`: `submodule_git_url` is populated when `type` is `submodule`, otherwise null
+  * target `string`: `target` is populated when `type` is `symlink`, otherwise null
+  * type `string`: `type` will be `file`, `dir`, `symlink`, or `submodule`
+  * url `string`
+
+### CreateBranchProtectionOption
+* CreateBranchProtectionOption `object`: CreateBranchProtectionOption options for creating a branch protection
+  * approvals_whitelist_teams `array`
+    * items `string`
+  * approvals_whitelist_username `array`
+    * items `string`
+  * block_on_official_review_requests `boolean`
+  * block_on_outdated_branch `boolean`
+  * block_on_rejected_reviews `boolean`
+  * branch_name `string`
+  * dismiss_stale_approvals `boolean`
+  * enable_approvals_whitelist `boolean`
+  * enable_merge_whitelist `boolean`
+  * enable_push `boolean`
+  * enable_push_whitelist `boolean`
+  * enable_status_check `boolean`
+  * merge_whitelist_teams `array`
+    * items `string`
+  * merge_whitelist_usernames `array`
+    * items `string`
+  * protected_file_patterns `string`
+  * push_whitelist_deploy_keys `boolean`
+  * push_whitelist_teams `array`
+    * items `string`
+  * push_whitelist_usernames `array`
+    * items `string`
+  * require_signed_commits `boolean`
+  * required_approvals `integer`
+  * status_check_contexts `array`
+    * items `string`
+
+### CreateBranchRepoOption
+* CreateBranchRepoOption `object`: CreateBranchRepoOption options when creating a branch in a repository
+  * new_branch_name **required** `string`: Name of the branch to create
+  * old_branch_name `string`: Name of the old branch to create from
 
 ### CreateEmailOption
 * CreateEmailOption `object`: CreateEmailOption options when creating email addresses
   * emails `array`: email addresses to add
     * items `string`
+
+### CreateFileOptions
+* CreateFileOptions `object`: CreateFileOptions options for creating files
+  * author [Identity](#identity)
+  * branch `string`: branch (optional) to base this file from. if not given, the default branch is used
+  * committer [Identity](#identity)
+  * content **required** `string`: content must be base64 encoded
+  * dates [CommitDateOptions](#commitdateoptions)
+  * message `string`: message (optional) for the commit of this file. if not supplied, a default message will be used
+  * new_branch `string`: new_branch (optional) will make a new branch from `branch` before creating the file
 
 ### CreateForkOption
 * CreateForkOption `object`: CreateForkOption options for creating a fork
@@ -3188,10 +5520,14 @@ gitea.getVersion(null, context)
 ### CreateHookOption
 * CreateHookOption `object`: CreateHookOption options when create a hook
   * active `boolean`
-  * config **required** `object`
+  * branch_filter `string`
+  * config **required** [CreateHookOptionConfig](#createhookoptionconfig)
   * events `array`
     * items `string`
-  * type **required** `string` (values: gitea, gogs, slack, discord)
+  * type **required** `string` (values: dingtalk, discord, gitea, gogs, msteams, slack, telegram, feishu)
+
+### CreateHookOptionConfig
+* CreateHookOptionConfig `object`: CreateHookOptionConfig has all config options in it
 
 ### CreateIssueCommentOption
 * CreateIssueCommentOption `object`: CreateIssueCommentOption options for creating a comment on an issue
@@ -3219,20 +5555,30 @@ gitea.getVersion(null, context)
 ### CreateLabelOption
 * CreateLabelOption `object`: CreateLabelOption options for creating a label
   * color **required** `string`
+  * description `string`
   * name **required** `string`
 
 ### CreateMilestoneOption
 * CreateMilestoneOption `object`: CreateMilestoneOption options for creating a milestone
   * description `string`
   * due_on `string`
+  * state `string` (values: open, closed)
   * title `string`
+
+### CreateOAuth2ApplicationOptions
+* CreateOAuth2ApplicationOptions `object`: CreateOAuth2ApplicationOptions holds options to create an oauth2 application
+  * name `string`
+  * redirect_uris `array`
+    * items `string`
 
 ### CreateOrgOption
 * CreateOrgOption `object`: CreateOrgOption options for creating an organization
   * description `string`
   * full_name `string`
   * location `string`
+  * repo_admin_change_team_access `boolean`
   * username **required** `string`
+  * visibility `string` (values: public, limited, private): possible values are `public` (default), `limited` or `private`
   * website `string`
 
 ### CreatePullRequestOption
@@ -3249,6 +5595,21 @@ gitea.getVersion(null, context)
   * milestone `integer`
   * title `string`
 
+### CreatePullReviewComment
+* CreatePullReviewComment `object`: CreatePullReviewComment represent a review comment for creation api
+  * body `string`
+  * new_position `integer`: if comment to new file line or 0
+  * old_position `integer`: if comment to old file line or 0
+  * path `string`: the tree path
+
+### CreatePullReviewOptions
+* CreatePullReviewOptions `object`: CreatePullReviewOptions are options to create a pull review
+  * body `string`
+  * comments `array`
+    * items [CreatePullReviewComment](#createpullreviewcomment)
+  * commit_id `string`
+  * event [ReviewStateType](#reviewstatetype)
+
 ### CreateReleaseOption
 * CreateReleaseOption `object`: CreateReleaseOption options when creating a release
   * body `string`
@@ -3261,12 +5622,16 @@ gitea.getVersion(null, context)
 ### CreateRepoOption
 * CreateRepoOption `object`: CreateRepoOption options when creating repository
   * auto_init `boolean`: Whether the repository should be auto-intialized?
+  * default_branch `string`: DefaultBranch of the repository (used when initializes and in template)
   * description `string`: Description of the repository to create
   * gitignores `string`: Gitignores to use
+  * issue_labels `string`: Issue Label set to use
   * license `string`: License to use
   * name **required** `string`: Name of the repository to create
   * private `boolean`: Whether the repository is private
   * readme `string`: Readme of the repository to create
+  * template `boolean`: Whether the repository is template
+  * trust_model `string` (values: default, collaborator, committer, collaboratorcommitter): TrustModel of the repository
 
 ### CreateStatusOption
 * CreateStatusOption `object`: CreateStatusOption holds the information needed to create a new Status for a Commit
@@ -3277,31 +5642,57 @@ gitea.getVersion(null, context)
 
 ### CreateTeamOption
 * CreateTeamOption `object`: CreateTeamOption options for creating a team
+  * can_create_org_repo `boolean`
   * description `string`
+  * includes_all_repositories `boolean`
   * name **required** `string`
   * permission `string` (values: read, write, admin)
+  * units `array`
+    * items `string`
 
 ### CreateUserOption
 * CreateUserOption `object`: CreateUserOption create user options
   * email **required** `string`
   * full_name `string`
   * login_name `string`
+  * must_change_password `boolean`
   * password **required** `string`
   * send_notify `boolean`
   * source_id `integer`
   * username **required** `string`
+
+### Cron
+* Cron `object`: Cron represents a Cron task
+  * exec_times `integer`
+  * name `string`
+  * next `string`
+  * prev `string`
+  * schedule `string`
 
 ### DeleteEmailOption
 * DeleteEmailOption `object`: DeleteEmailOption options when deleting email addresses
   * emails `array`: email addresses to delete
     * items `string`
 
+### DeleteFileOptions
+* DeleteFileOptions `object`: DeleteFileOptions options for deleting files (used for other File structs below)
+  * author [Identity](#identity)
+  * branch `string`: branch (optional) to base this file from. if not given, the default branch is used
+  * committer [Identity](#identity)
+  * dates [CommitDateOptions](#commitdateoptions)
+  * message `string`: message (optional) for the commit of this file. if not supplied, a default message will be used
+  * new_branch `string`: new_branch (optional) will make a new branch from `branch` before creating the file
+  * sha **required** `string`: sha is the SHA for the file that already exists
+
 ### DeployKey
 * DeployKey `object`: DeployKey a deploy key
   * created_at `string`
+  * fingerprint `string`
   * id `integer`
   * key `string`
+  * key_id `integer`
   * read_only `boolean`
+  * repository [Repository](#repository)
   * title `string`
   * url `string`
 
@@ -3309,13 +5700,48 @@ gitea.getVersion(null, context)
 * EditAttachmentOptions `object`: EditAttachmentOptions options for editing attachments
   * name `string`
 
+### EditBranchProtectionOption
+* EditBranchProtectionOption `object`: EditBranchProtectionOption options for editing a branch protection
+  * approvals_whitelist_teams `array`
+    * items `string`
+  * approvals_whitelist_username `array`
+    * items `string`
+  * block_on_official_review_requests `boolean`
+  * block_on_outdated_branch `boolean`
+  * block_on_rejected_reviews `boolean`
+  * dismiss_stale_approvals `boolean`
+  * enable_approvals_whitelist `boolean`
+  * enable_merge_whitelist `boolean`
+  * enable_push `boolean`
+  * enable_push_whitelist `boolean`
+  * enable_status_check `boolean`
+  * merge_whitelist_teams `array`
+    * items `string`
+  * merge_whitelist_usernames `array`
+    * items `string`
+  * protected_file_patterns `string`
+  * push_whitelist_deploy_keys `boolean`
+  * push_whitelist_teams `array`
+    * items `string`
+  * push_whitelist_usernames `array`
+    * items `string`
+  * require_signed_commits `boolean`
+  * required_approvals `integer`
+  * status_check_contexts `array`
+    * items `string`
+
 ### EditDeadlineOption
 * EditDeadlineOption `object`: EditDeadlineOption options for creating a deadline
   * due_date **required** `string`
 
+### EditGitHookOption
+* EditGitHookOption `object`: EditGitHookOption options when modifying one Git hook
+  * content `string`
+
 ### EditHookOption
 * EditHookOption `object`: EditHookOption options when modify one hook
   * active `boolean`
+  * branch_filter `string`
   * config `object`
   * events `array`
     * items `string`
@@ -3334,10 +5760,12 @@ gitea.getVersion(null, context)
   * milestone `integer`
   * state `string`
   * title `string`
+  * unset_due_date `boolean`
 
 ### EditLabelOption
 * EditLabelOption `object`: EditLabelOption options for editing a label
   * color `string`
+  * description `string`
   * name `string`
 
 ### EditMilestoneOption
@@ -3352,6 +5780,8 @@ gitea.getVersion(null, context)
   * description `string`
   * full_name `string`
   * location `string`
+  * repo_admin_change_team_access `boolean`
+  * visibility `string` (values: public, limited, private): possible values are `public`, `limited` or `private`
   * website `string`
 
 ### EditPullRequestOption
@@ -3359,6 +5789,7 @@ gitea.getVersion(null, context)
   * assignee `string`
   * assignees `array`
     * items `string`
+  * base `string`
   * body `string`
   * due_date `string`
   * labels `array`
@@ -3366,6 +5797,11 @@ gitea.getVersion(null, context)
   * milestone `integer`
   * state `string`
   * title `string`
+  * unset_due_date `boolean`
+
+### EditReactionOption
+* EditReactionOption `object`: EditReactionOption contain the reaction type
+  * content `string`
 
 ### EditReleaseOption
 * EditReleaseOption `object`: EditReleaseOption options when editing a release
@@ -3376,11 +5812,37 @@ gitea.getVersion(null, context)
   * tag_name `string`
   * target_commitish `string`
 
+### EditRepoOption
+* EditRepoOption `object`: EditRepoOption options when editing a repository's properties
+  * allow_merge_commits `boolean`: either `true` to allow merging pull requests with a merge commit, or `false` to prevent merging pull requests with merge commits. `has_pull_requests` must be `true`.
+  * allow_rebase `boolean`: either `true` to allow rebase-merging pull requests, or `false` to prevent rebase-merging. `has_pull_requests` must be `true`.
+  * allow_rebase_explicit `boolean`: either `true` to allow rebase with explicit merge commits (--no-ff), or `false` to prevent rebase with explicit merge commits. `has_pull_requests` must be `true`.
+  * allow_squash_merge `boolean`: either `true` to allow squash-merging pull requests, or `false` to prevent squash-merging. `has_pull_requests` must be `true`.
+  * archived `boolean`: set to `true` to archive this repository.
+  * default_branch `string`: sets the default branch for this repository.
+  * description `string`: a short description of the repository.
+  * external_tracker [ExternalTracker](#externaltracker)
+  * external_wiki [ExternalWiki](#externalwiki)
+  * has_issues `boolean`: either `true` to enable issues for this repository or `false` to disable them.
+  * has_projects `boolean`: either `true` to enable project unit, or `false` to disable them.
+  * has_pull_requests `boolean`: either `true` to allow pull requests, or `false` to prevent pull request.
+  * has_wiki `boolean`: either `true` to enable the wiki for this repository or `false` to disable it.
+  * ignore_whitespace_conflicts `boolean`: either `true` to ignore whitespace for conflicts, or `false` to not ignore whitespace. `has_pull_requests` must be `true`.
+  * internal_tracker [InternalTracker](#internaltracker)
+  * name `string`: name of the repository
+  * private `boolean`: either `true` to make the repository private or `false` to make it public.
+  * template `boolean`: either `true` to make this repository a template or `false` to make it a normal repository
+  * website `string`: a URL with more information about the repository.
+
 ### EditTeamOption
 * EditTeamOption `object`: EditTeamOption options for editing a team
+  * can_create_org_repo `boolean`
   * description `string`
+  * includes_all_repositories `boolean`
   * name **required** `string`
   * permission `string` (values: read, write, admin)
+  * units `array`
+    * items `string`
 
 ### EditUserOption
 * EditUserOption `object`: EditUserOption edit user options
@@ -3389,14 +5851,15 @@ gitea.getVersion(null, context)
   * allow_create_organization `boolean`
   * allow_git_hook `boolean`
   * allow_import_local `boolean`
-  * email **required** `string`
+  * email `string`
   * full_name `string`
   * location `string`
-  * login_name `string`
+  * login_name **required** `string`
   * max_repo_creation `integer`
+  * must_change_password `boolean`
   * password `string`
   * prohibit_login `boolean`
-  * source_id `integer`
+  * source_id **required** `integer`
   * website `string`
 
 ### Email
@@ -3404,6 +5867,47 @@ gitea.getVersion(null, context)
   * email `string`
   * primary `boolean`
   * verified `boolean`
+
+### ExternalTracker
+* ExternalTracker `object`: ExternalTracker represents settings for external tracker
+  * external_tracker_format `string`: External Issue Tracker URL Format. Use the placeholders {user}, {repo} and {index} for the username, repository name and issue index.
+  * external_tracker_style `string`: External Issue Tracker Number Format, either `numeric` or `alphanumeric`
+  * external_tracker_url `string`: URL of external issue tracker.
+
+### ExternalWiki
+* ExternalWiki `object`: ExternalWiki represents setting for external wiki
+  * external_wiki_url `string`: URL of external wiki.
+
+### FileCommitResponse
+* FileCommitResponse contains information generated from a Git commit for a repo's file. `object`
+  * author [CommitUser](#commituser)
+  * committer [CommitUser](#commituser)
+  * created `string`
+  * html_url `string`
+  * message `string`
+  * parents `array`
+    * items [CommitMeta](#commitmeta)
+  * sha `string`
+  * tree [CommitMeta](#commitmeta)
+  * url `string`
+
+### FileDeleteResponse
+* FileDeleteResponse `object`: FileDeleteResponse contains information about a repo's file that was deleted
+  * commit [FileCommitResponse](#filecommitresponse)
+  * content `object`
+  * verification [PayloadCommitVerification](#payloadcommitverification)
+
+### FileLinksResponse
+* FileLinksResponse `object`: FileLinksResponse contains the links for a repo's file
+  * git `string`
+  * html `string`
+  * self `string`
+
+### FileResponse
+* FileResponse `object`: FileResponse contains information about a repo's file
+  * commit [FileCommitResponse](#filecommitresponse)
+  * content [ContentsResponse](#contentsresponse)
+  * verification [PayloadCommitVerification](#payloadcommitverification)
 
 ### GPGKey
 * GPGKey `object`: GPGKey a user GPG key to sign commit and tag in repository
@@ -3427,6 +5931,95 @@ gitea.getVersion(null, context)
   * email `string`
   * verified `boolean`
 
+### GeneralAPISettings
+* GeneralAPISettings `object`: GeneralAPISettings contains global api settings exposed by it
+  * default_git_trees_per_page `integer`
+  * default_max_blob_size `integer`
+  * default_paging_num `integer`
+  * max_response_items `integer`
+
+### GeneralAttachmentSettings
+* GeneralAttachmentSettings `object`: GeneralAttachmentSettings contains global Attachment settings exposed by API
+  * allowed_types `string`
+  * enabled `boolean`
+  * max_files `integer`
+  * max_size `integer`
+
+### GeneralRepoSettings
+* GeneralRepoSettings `object`: GeneralRepoSettings contains global repository settings exposed by API
+  * http_git_disabled `boolean`
+  * mirrors_disabled `boolean`
+
+### GeneralUISettings
+* GeneralUISettings `object`: GeneralUISettings contains global ui settings exposed by API
+  * allowed_reactions `array`
+    * items `string`
+  * default_theme `string`
+
+### GitBlobResponse
+* GitBlobResponse `object`: GitBlobResponse represents a git blob
+  * content `string`
+  * encoding `string`
+  * sha `string`
+  * size `integer`
+  * url `string`
+
+### GitEntry
+* GitEntry `object`: GitEntry represents a git tree
+  * mode `string`
+  * path `string`
+  * sha `string`
+  * size `integer`
+  * type `string`
+  * url `string`
+
+### GitHook
+* GitHook `object`: GitHook represents a Git repository hook
+  * content `string`
+  * is_active `boolean`
+  * name `string`
+
+### GitObject
+* GitObject represents a Git object. `object`
+  * sha `string`
+  * type `string`
+  * url `string`
+
+### GitServiceType
+* GitServiceType `integer`: GitServiceType represents a git service
+
+### GitTreeResponse
+* GitTreeResponse `object`: GitTreeResponse returns a git tree
+  * page `integer`
+  * sha `string`
+  * total_count `integer`
+  * tree `array`
+    * items [GitEntry](#gitentry)
+  * truncated `boolean`
+  * url `string`
+
+### Hook
+* Hook `object`: Hook a hook is a web hook when one repository changed
+  * active `boolean`
+  * config `object`
+  * created_at `string`
+  * events `array`
+    * items `string`
+  * id `integer`
+  * type `string`
+  * updated_at `string`
+
+### Identity
+* Identity `object`: Identity for a person's identity like an author or committer
+  * email `string`
+  * name `string`
+
+### InternalTracker
+* InternalTracker `object`: InternalTracker represents settings for internal tracker
+  * allow_only_contributors_to_track_time `boolean`: Let only contributors track time (Built-in issue tracker)
+  * enable_issue_dependencies `boolean`: Enable dependencies for issues and pull requests (Built-in issue tracker)
+  * enable_time_tracker `boolean`: Enable time tracking (Built-in issue tracker)
+
 ### Issue
 * Issue `object`: Issue represents an issue in a repository
   * assignee [User](#user)
@@ -3437,12 +6030,18 @@ gitea.getVersion(null, context)
   * comments `integer`
   * created_at `string`
   * due_date `string`
+  * html_url `string`
   * id `integer`
+  * is_locked `boolean`
   * labels `array`
     * items [Label](#label)
   * milestone [Milestone](#milestone)
   * number `integer`
+  * original_author `string`
+  * original_author_id `integer`
   * pull_request [PullRequestMeta](#pullrequestmeta)
+  * ref `string`
+  * repository [RepositoryMeta](#repositorymeta)
   * state [StateType](#statetype)
   * title `string`
   * updated_at `string`
@@ -3458,9 +6057,20 @@ gitea.getVersion(null, context)
   * labels `array`: list of label IDs
     * items `integer`
 
+### IssueTemplate
+* IssueTemplate `object`: IssueTemplate represents an issue template for a repository
+  * about `string`
+  * content `string`
+  * file_name `string`
+  * labels `array`
+    * items `string`
+  * name `string`
+  * title `string`
+
 ### Label
 * Label `object`: Label a label to an issue or a pr
   * color `string`
+  * description `string`
   * id `integer`
   * name `string`
   * url `string`
@@ -3472,27 +6082,96 @@ gitea.getVersion(null, context)
   * Text `string`: Text markdown to render
   * Wiki `boolean`: Is it a wiki page ?
 
+### MergePullRequestOption
+* MergePullRequestOption `object`: MergePullRequestForm form for merging Pull Request
+  * Do **required** `string` (values: merge, rebase, rebase-merge, squash)
+  * MergeMessageField `string`
+  * MergeTitleField `string`
+  * force_merge `boolean`
+
 ### MigrateRepoForm
 * MigrateRepoForm `object`: MigrateRepoForm form for migrating repository
   * auth_password `string`
+  * auth_token `string`
   * auth_username `string`
   * clone_addr **required** `string`
   * description `string`
+  * issues `boolean`
+  * labels `boolean`
+  * milestones `boolean`
   * mirror `boolean`
   * private `boolean`
+  * pull_requests `boolean`
+  * releases `boolean`
   * repo_name **required** `string`
+  * service [GitServiceType](#gitservicetype)
   * uid **required** `integer`
+  * wiki `boolean`
+
+### MigrateRepoOptions
+* MigrateRepoOptions `object`: MigrateRepoOptions options for migrating repository's
+  * auth_password `string`
+  * auth_token `string`
+  * auth_username `string`
+  * clone_addr **required** `string`
+  * description `string`
+  * issues `boolean`
+  * labels `boolean`
+  * milestones `boolean`
+  * mirror `boolean`
+  * private `boolean`
+  * pull_requests `boolean`
+  * releases `boolean`
+  * repo_name **required** `string`
+  * repo_owner `string`: Name of User or Organisation who will own Repo after migration
+  * service `string` (values: git, github, gitea, gitlab)
+  * uid `integer`: deprecated (only for backwards compatibility)
+  * wiki `boolean`
 
 ### Milestone
 * Milestone `object`: Milestone milestone is a collection of issues on one repository
   * closed_at `string`
   * closed_issues `integer`
+  * created_at `string`
   * description `string`
   * due_on `string`
   * id `integer`
   * open_issues `integer`
   * state [StateType](#statetype)
   * title `string`
+  * updated_at `string`
+
+### NotificationCount
+* NotificationCount `object`: NotificationCount number of unread notifications
+  * new `integer`
+
+### NotificationSubject
+* NotificationSubject `object`: NotificationSubject contains the notification subject (Issue/Pull/Commit)
+  * latest_comment_url `string`
+  * state [StateType](#statetype)
+  * title `string`
+  * type `string`
+  * url `string`
+
+### NotificationThread
+* NotificationThread `object`: NotificationThread expose Notification on API
+  * id `integer`
+  * pinned `boolean`
+  * repository [Repository](#repository)
+  * subject [NotificationSubject](#notificationsubject)
+  * unread `boolean`
+  * updated_at `string`
+  * url `string`
+
+### OAuth2Application
+* OAuth2Application represents an OAuth2 application. `object`
+  * client_id `string`
+  * client_secret `string`
+  * created `string`
+  * id `integer`
+  * name `string`
+  * redirect_uris `array`
+    * items `string`
 
 ### Organization
 * Organization `object`: Organization represents an organization
@@ -3501,7 +6180,9 @@ gitea.getVersion(null, context)
   * full_name `string`
   * id `integer`
   * location `string`
+  * repo_admin_change_team_access `boolean`
   * username `string`
+  * visibility `string`
   * website `string`
 
 ### PRBranchInfo
@@ -3514,10 +6195,16 @@ gitea.getVersion(null, context)
 
 ### PayloadCommit
 * PayloadCommit `object`: PayloadCommit represents a commit
+  * added `array`
+    * items `string`
   * author [PayloadUser](#payloaduser)
   * committer [PayloadUser](#payloaduser)
   * id `string`: sha1 hash of the commit
   * message `string`
+  * modified `array`
+    * items `string`
+  * removed `array`
+    * items `string`
   * timestamp `string`
   * url `string`
   * verification [PayloadCommitVerification](#payloadcommitverification)
@@ -3527,6 +6214,7 @@ gitea.getVersion(null, context)
   * payload `string`
   * reason `string`
   * signature `string`
+  * signer [PayloadUser](#payloaduser)
   * verified `boolean`
 
 ### PayloadUser
@@ -3547,8 +6235,11 @@ gitea.getVersion(null, context)
   * fingerprint `string`
   * id `integer`
   * key `string`
+  * key_type `string`
+  * read_only `boolean`
   * title `string`
   * url `string`
+  * user [User](#user)
 
 ### PullRequest
 * PullRequest `object`: PullRequest represents a pull request
@@ -3565,6 +6256,7 @@ gitea.getVersion(null, context)
   * head [PRBranchInfo](#prbranchinfo)
   * html_url `string`
   * id `integer`
+  * is_locked `boolean`
   * labels `array`
     * items [Label](#label)
   * merge_base `string`
@@ -3587,6 +6279,57 @@ gitea.getVersion(null, context)
   * merged `boolean`
   * merged_at `string`
 
+### PullReview
+* PullReview `object`: PullReview represents a pull request review
+  * body `string`
+  * comments_count `integer`
+  * commit_id `string`
+  * html_url `string`
+  * id `integer`
+  * official `boolean`
+  * pull_request_url `string`
+  * stale `boolean`
+  * state [ReviewStateType](#reviewstatetype)
+  * submitted_at `string`
+  * team [Team](#team)
+  * user [User](#user)
+
+### PullReviewComment
+* PullReviewComment `object`: PullReviewComment represents a comment on a pull request review
+  * body `string`
+  * commit_id `string`
+  * created_at `string`
+  * diff_hunk `string`
+  * html_url `string`
+  * id `integer`
+  * original_commit_id `string`
+  * original_position `integer`
+  * path `string`
+  * position `integer`
+  * pull_request_review_id `integer`
+  * pull_request_url `string`
+  * updated_at `string`
+  * user [User](#user)
+
+### PullReviewRequestOptions
+* PullReviewRequestOptions `object`: PullReviewRequestOptions are options to add or remove pull review requests
+  * reviewers `array`
+    * items `string`
+  * team_reviewers `array`
+    * items `string`
+
+### Reaction
+* Reaction `object`: Reaction contain one reaction
+  * content `string`
+  * created_at `string`
+  * user [User](#user)
+
+### Reference
+* Reference represents a Git reference. `object`
+  * object [GitObject](#gitobject)
+  * ref `string`
+  * url `string`
+
 ### Release
 * Release `object`: Release represents a repository release
   * assets `array`
@@ -3595,6 +6338,7 @@ gitea.getVersion(null, context)
   * body `string`
   * created_at `string`
   * draft `boolean`
+  * html_url `string`
   * id `integer`
   * name `string`
   * prerelease `boolean`
@@ -3605,31 +6349,73 @@ gitea.getVersion(null, context)
   * url `string`
   * zipball_url `string`
 
+### RepoCommit
+* RepoCommit contains information of a commit in the context of a repository. `object`
+  * author [CommitUser](#commituser)
+  * committer [CommitUser](#commituser)
+  * message `string`
+  * tree [CommitMeta](#commitmeta)
+  * url `string`
+
+### RepoTopicOptions
+* RepoTopicOptions `object`: RepoTopicOptions a collection of repo topic names
+  * topics `array`: list of topic names
+    * items `string`
+
 ### Repository
 * Repository `object`: Repository represents a repository
+  * allow_merge_commits `boolean`
+  * allow_rebase `boolean`
+  * allow_rebase_explicit `boolean`
+  * allow_squash_merge `boolean`
+  * archived `boolean`
+  * avatar_url `string`
   * clone_url `string`
   * created_at `string`
   * default_branch `string`
   * description `string`
   * empty `boolean`
+  * external_tracker [ExternalTracker](#externaltracker)
+  * external_wiki [ExternalWiki](#externalwiki)
   * fork `boolean`
   * forks_count `integer`
   * full_name `string`
+  * has_issues `boolean`
+  * has_projects `boolean`
+  * has_pull_requests `boolean`
+  * has_wiki `boolean`
   * html_url `string`
   * id `integer`
+  * ignore_whitespace_conflicts `boolean`
+  * internal `boolean`
+  * internal_tracker [InternalTracker](#internaltracker)
   * mirror `boolean`
   * name `string`
   * open_issues_count `integer`
+  * open_pr_counter `integer`
+  * original_url `string`
   * owner [User](#user)
   * parent [Repository](#repository)
   * permissions [Permission](#permission)
   * private `boolean`
+  * release_counter `integer`
   * size `integer`
   * ssh_url `string`
   * stars_count `integer`
+  * template `boolean`
   * updated_at `string`
   * watchers_count `integer`
   * website `string`
+
+### RepositoryMeta
+* RepositoryMeta `object`: RepositoryMeta basic repository information
+  * full_name `string`
+  * id `integer`
+  * name `string`
+  * owner `string`
+
+### ReviewStateType
+* ReviewStateType `string`: ReviewStateType review state type
 
 ### SearchResults
 * SearchResults `object`: SearchResults results of a successful search
@@ -3659,29 +6445,99 @@ gitea.getVersion(null, context)
 ### StatusState
 * StatusState `string`: StatusState holds the state of a Status
 
+### StopWatch
+* StopWatch `object`: StopWatch represent a running stopwatch
+  * created `string`
+  * issue_index `integer`
+  * issue_title `string`
+  * repo_name `string`
+  * repo_owner_name `string`
+
+### SubmitPullReviewOptions
+* SubmitPullReviewOptions `object`: SubmitPullReviewOptions are options to submit a pending pull review
+  * body `string`
+  * event [ReviewStateType](#reviewstatetype)
+
+### Tag
+* Tag `object`: Tag represents a repository tag
+  * commit [CommitMeta](#commitmeta)
+  * id `string`
+  * name `string`
+  * tarball_url `string`
+  * zipball_url `string`
+
 ### Team
 * Team `object`: Team represents a team in an organization
+  * can_create_org_repo `boolean`
   * description `string`
   * id `integer`
+  * includes_all_repositories `boolean`
   * name `string`
+  * organization [Organization](#organization)
   * permission `string` (values: none, read, write, admin, owner)
+  * units `array`
+    * items `string`
+
+### TimeStamp
+* TimeStamp `integer`: TimeStamp defines a timestamp
+
+### TopicName
+* TopicName `object`: TopicName a list of repo topic names
+  * topics `array`
+    * items `string`
+
+### TopicResponse
+* TopicResponse `object`: TopicResponse for returning topics
+  * created `string`
+  * id `integer`
+  * repo_count `integer`
+  * topic_name `string`
+  * updated `string`
 
 ### TrackedTime
 * TrackedTime `object`: TrackedTime worked time for an issue / pr
   * created `string`
   * id `integer`
-  * issue_id `integer`
+  * issue [Issue](#issue)
+  * issue_id `integer`: deprecated (only for backwards compatibility)
   * time `integer`: Time in seconds
-  * user_id `integer`
+  * user_id `integer`: deprecated (only for backwards compatibility)
+  * user_name `string`
+
+### TransferRepoOption
+* TransferRepoOption `object`: TransferRepoOption options when transfer a repository's ownership
+  * new_owner **required** `string`
+  * team_ids `array`: ID of the team or teams to add to the repository. Teams can only be added to organization-owned repositories.
+    * items `integer`
+
+### UpdateFileOptions
+* UpdateFileOptions `object`: UpdateFileOptions options for updating files
+  * author [Identity](#identity)
+  * branch `string`: branch (optional) to base this file from. if not given, the default branch is used
+  * committer [Identity](#identity)
+  * content **required** `string`: content must be base64 encoded
+  * dates [CommitDateOptions](#commitdateoptions)
+  * from_path `string`: from_path (optional) is the path of the original file which will be moved/renamed to the path in the URL
+  * message `string`: message (optional) for the commit of this file. if not supplied, a default message will be used
+  * new_branch `string`: new_branch (optional) will make a new branch from `branch` before creating the file
+  * sha **required** `string`: sha is the SHA for the file that already exists
 
 ### User
 * User `object`: User represents a user
   * avatar_url `string`: URL to the user's avatar
+  * created `string`
   * email `string`
   * full_name `string`: the user's full name
   * id `integer`: the user's id
+  * is_admin `boolean`: Is the user an administrator
   * language `string`: User locale
+  * last_login `string`
   * login `string`: the user's username
+
+### UserHeatmapData
+* UserHeatmapData `object`: UserHeatmapData represents the data needed to create a heatmap
+  * contributions `integer`
+  * timestamp [TimeStamp](#timestamp)
 
 ### WatchInfo
 * WatchInfo `object`: WatchInfo represents an API watch status of one repository

@@ -1,6 +1,6 @@
 # @datafire/azure_cognitiveservices_textanalytics
 
-Client library for Text Analytics
+Client library for Text Analytics Client
 
 ## Installation and Usage
 ```bash
@@ -11,9 +11,7 @@ let azure_cognitiveservices_textanalytics = require('@datafire/azure_cognitivese
   apim_key: ""
 });
 
-azure_cognitiveservices_textanalytics.Entities({
-  "input": {}
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -25,7 +23,7 @@ The Text Analytics API is a suite of text analytics web services built with best
 ## Actions
 
 ### Entities
-To get even more information on each recognized entity we recommend using the Bing Entity Search API by querying for the recognized entities names. See the <a href="https://docs.microsoft.com/en-us/azure/cognitive-services/text-analytics/text-analytics-supported-languages">Supported languages in Text Analytics API</a> for the list of enabled languages.
+The API returns a list of recognized entities in a given document. To get even more information on each recognized entity we recommend using the Bing Entity Search API by querying for the recognized entities names. See the <a href="https://docs.microsoft.com/en-us/azure/cognitive-services/text-analytics/text-analytics-supported-languages">Supported languages in Text Analytics API</a> for the list of enabled languages.The API returns a list of known entities and general named entities ("Person", "Location", "Organization" etc) in a given document. Known entities are returned with Wikipedia Id and Wikipedia link, and also Bing Id which can be used in Bing Entity Search API. General named entities are returned with entity types. If a general named entity is also a known entity, then all information regarding it (Wikipedia Id, Bing Id, entity type etc) will be returned. See the <a href="https://docs.microsoft.com/en-us/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking#supported-types-for-named-entity-recognition">Supported Entity Types in Text Analytics API</a> for the list of supported Entity Types. See the <a href="https://docs.microsoft.com/en-us/azure/cognitive-services/text-analytics/text-analytics-supported-languages">Supported languages in Text Analytics API</a> for the list of enabled languages.
 
 
 ```js
@@ -39,14 +37,14 @@ azure_cognitiveservices_textanalytics.Entities({
   * input **required** [MultiLanguageBatchInput](#multilanguagebatchinput)
 
 #### Output
-* output [EntitiesBatchResult](#entitiesbatchresult)
+* output [EntitiesBatchResultV2dot1](#entitiesbatchresultv2dot1)
 
-### v2.0.keyPhrases.post
+### keyPhrases.post
 See the <a href="https://docs.microsoft.com/en-us/azure/cognitive-services/text-analytics/overview#supported-languages">Text Analytics Documentation</a> for details about the languages that are supported by key phrase extraction.
 
 
 ```js
-azure_cognitiveservices_textanalytics.v2.0.keyPhrases.post({
+azure_cognitiveservices_textanalytics.keyPhrases.post({
   "input": {}
 }, context)
 ```
@@ -58,12 +56,12 @@ azure_cognitiveservices_textanalytics.v2.0.keyPhrases.post({
 #### Output
 * output [KeyPhraseBatchResult](#keyphrasebatchresult)
 
-### v2.0.languages.post
+### languages.post
 Scores close to 1 indicate 100% certainty that the identified language is true. A total of 120 languages are supported.
 
 
 ```js
-azure_cognitiveservices_textanalytics.v2.0.languages.post({
+azure_cognitiveservices_textanalytics.languages.post({
   "input": {}
 }, context)
 ```
@@ -107,25 +105,27 @@ azure_cognitiveservices_textanalytics.Sentiment({
   * name `string`: Long name of a detected language (e.g. English, French).
   * score `number`: A confidence score between 0 and 1. Scores close to 1 indicate 100% certainty that the identified language is true.
 
-### EntitiesBatchResult
-* EntitiesBatchResult `object`
+### EntitiesBatchResultItemV2dot1
+* EntitiesBatchResultItemV2dot1 `object`
+  * entities `array`: Recognized entities in the document.
+    * items [EntityRecordV2dot1](#entityrecordv2dot1)
+  * id `string`: Unique document identifier.
+
+### EntitiesBatchResultV2dot1
+* EntitiesBatchResultV2dot1 `object`
   * documents `array`
-    * items [EntitiesBatchResultItem](#entitiesbatchresultitem)
+    * items [EntitiesBatchResultItemV2dot1](#entitiesbatchresultitemv2dot1)
   * errors `array`
     * items [ErrorRecord](#errorrecord)
 
-### EntitiesBatchResultItem
-* EntitiesBatchResultItem `object`
-  * entities `array`: Recognized entities in the document.
-    * items [EntityRecord](#entityrecord)
-  * id `string`: Unique document identifier.
-
-### EntityRecord
-* EntityRecord `object`
+### EntityRecordV2dot1
+* EntityRecordV2dot1 `object`
   * bingId `string`: Bing unique identifier of the recognized entity. Use in conjunction with the Bing Entity Search API to fetch additional relevant information.
   * matches `array`: List of instances this entity appears in the text.
-    * items [MatchRecord](#matchrecord)
+    * items [MatchRecordV2dot1](#matchrecordv2dot1)
   * name `string`: Entity formal name.
+  * subType `string`: Entity sub type from Named Entity Recognition model
+  * type `string`: Entity type from Named Entity Recognition model
   * wikipediaId `string`: Wikipedia unique identifier of the recognized entity.
   * wikipediaLanguage `string`: Wikipedia language for which the WikipediaId and WikipediaUrl refers to.
   * wikipediaUrl `string`: URL for the entity's English Wikipedia page.
@@ -179,8 +179,8 @@ azure_cognitiveservices_textanalytics.Sentiment({
     * items [DetectedLanguage](#detectedlanguage)
   * id `string`: Unique document identifier.
 
-### MatchRecord
-* MatchRecord `object`
+### MatchRecordV2dot1
+* MatchRecordV2dot1 `object`
   * length `integer`: Length (in Unicode characters) for the entity match text.
   * offset `integer`: Start position (in Unicode characters) for the entity match text.
   * text `string`: Entity text as appears in the request.

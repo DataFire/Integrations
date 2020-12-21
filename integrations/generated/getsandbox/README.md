@@ -1,6 +1,6 @@
 # @datafire/getsandbox
 
-Client library for Sandbox
+Client library for Sandbox API
 
 ## Installation and Usage
 ```bash
@@ -11,7 +11,7 @@ let getsandbox = require('@datafire/getsandbox').create({
   api_key: ""
 });
 
-getsandbox.getSandboxes({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -214,7 +214,7 @@ getsandbox.getSandboxState({
   * name `string`: Optional name to give the Sandbox, will be generated if omitted.
   * ownerOrganisationName `string`: Name of the team this Sandbox should be created under.
   * parentSandboxName `string`: Name of the Sandbox this should be created under, if exists will be a 'clone'.
-  * transportType `string` (values: HTTP, JMS)
+  * transportType `string` (values: HTTP)
 
 ### Error
 * Error `object`
@@ -244,7 +244,7 @@ getsandbox.getSandboxState({
   * receivedTimestamp `integer`: The epoch time in milliseconds when the request was received.
   * sandboxId `string`: The ID of the Sandbox that received the request.
   * sandboxName `string`: The name of the Sandbox that received the request.
-  * transport `string`: Which transport the request was for, 'HTTP' or 'JMS'.
+  * transport `string`: Which transport the request was for, 'HTTP'.
 
 ### RuntimeResponse
 * RuntimeResponse `object`
@@ -253,7 +253,8 @@ getsandbox.getSandboxState({
   * error [Error](#error)
   * headers `object`: Transport headers for the given response.
   * respondedTimestamp `integer`: The epoch time in milliseconds when the response was sent.
-  * transport `string`: Which transport the request was for, 'HTTP' or 'JMS'.
+  * responseDelay `integer`: Duration in milliseconds of the response delay.
+  * transport `string`: Which transport the request was for, 'HTTP'.
 
 ### RuntimeTransaction
 * RuntimeTransaction `object`
@@ -283,6 +284,6 @@ getsandbox.getSandboxState({
   * runtimeVersion `string` (values: VERSION_1, VERSION_2): The library version of this Sandbox.
   * sandboxUrl `string`: The request URL for this Sandbox.
   * stackType `string` (values: JavaScript)
-  * transportType `string` (values: HTTP, JMS): The listener transport.
+  * transportType `string` (values: HTTP): The listener transport.
 
 

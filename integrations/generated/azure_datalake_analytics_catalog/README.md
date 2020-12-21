@@ -9,9 +9,7 @@ npm install --save @datafire/azure_datalake_analytics_catalog
 ```js
 let azure_datalake_analytics_catalog = require('@datafire/azure_datalake_analytics_catalog').create();
 
-azure_datalake_analytics_catalog.Catalog_ListAcls({
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -1225,8 +1223,8 @@ azure_datalake_analytics_catalog.Catalog_ListViewsByDatabase({
 
 ### USqlAssemblyFileInfo
 * USqlAssemblyFileInfo `object`: A Data Lake Analytics catalog U-SQL assembly file information item.
-  * contentPath `string`: the the content path to the assembly file.
-  * originalPath `string`: the the original path to the assembly file.
+  * contentPath `string`: The content path to the assembly file.
+  * originalPath `string`: The original path to the assembly file.
   * type `string` (values: Assembly, Resource, Nodeploy): the assembly file type.
 
 ### USqlAssemblyList
@@ -1301,7 +1299,7 @@ azure_datalake_analytics_catalog.Catalog_ListViewsByDatabase({
   * isUnique `boolean`: the switch indicating if this index is a unique index.
   * name `string`: the name of the index in the table.
   * partitionFunction `string`: partition function ID for the index.
-  * partitionKeyList `array`: the list of partion keys in the index
+  * partitionKeyList `array`: the list of partition keys in the index
     * items `string`
   * streamNames `array`: the list of full paths to the streams that contain this index in the DataLake account.
     * items `string`
@@ -1388,6 +1386,7 @@ azure_datalake_analytics_catalog.Catalog_ListViewsByDatabase({
   * parentId `string`: the parent object Id of the table fragment. The parent could be a table or table partition.
   * rowCount `integer`: the number of rows in the table fragment.
   * size `integer`: the data size of the table fragment in bytes.
+  * streamPath `string`: the relative path for the table fragment location.
 
 ### USqlTableFragmentList
 * USqlTableFragmentList `object`: A Data Lake Analytics catalog U-SQL table fragment item list.
@@ -1463,11 +1462,11 @@ azure_datalake_analytics_catalog.Catalog_ListViewsByDatabase({
   * cSharpName `string`: the C# name for this type.
   * databaseName `string`: the name of the database.
   * fullCSharpName `string`: the fully qualified C# name for this type.
-  * isAssemblyType `boolean`: the the switch indicating if this type is an assembly type.
-  * isComplexType `boolean`: the the switch indicating if this type is a complex type.
-  * isNullable `boolean`: the the switch indicating if this type is nullable.
-  * isTableType `boolean`: the the switch indicating if this type is a table type.
-  * isUserDefined `boolean`: the the switch indicating if this type is user defined.
+  * isAssemblyType `boolean`: The switch indicating if this type is an assembly type.
+  * isComplexType `boolean`: The switch indicating if this type is a complex type.
+  * isNullable `boolean`: The switch indicating if this type is nullable.
+  * isTableType `boolean`: The switch indicating if this type is a table type.
+  * isUserDefined `boolean`: The switch indicating if this type is user defined.
   * principalId `integer`: the principal ID for this type.
   * schemaId `integer`: the schema ID for this type.
   * schemaName `string`: the name of the schema associated with this table and database.
@@ -1504,11 +1503,11 @@ azure_datalake_analytics_catalog.Catalog_ListViewsByDatabase({
   * cSharpName `string`: the C# name for this type.
   * databaseName `string`: the name of the database.
   * fullCSharpName `string`: the fully qualified C# name for this type.
-  * isAssemblyType `boolean`: the the switch indicating if this type is an assembly type.
-  * isComplexType `boolean`: the the switch indicating if this type is a complex type.
-  * isNullable `boolean`: the the switch indicating if this type is nullable.
-  * isTableType `boolean`: the the switch indicating if this type is a table type.
-  * isUserDefined `boolean`: the the switch indicating if this type is user defined.
+  * isAssemblyType `boolean`: The switch indicating if this type is an assembly type.
+  * isComplexType `boolean`: The switch indicating if this type is a complex type.
+  * isNullable `boolean`: The switch indicating if this type is nullable.
+  * isTableType `boolean`: The switch indicating if this type is a table type.
+  * isUserDefined `boolean`: The switch indicating if this type is user defined.
   * principalId `integer`: the principal ID for this type.
   * schemaId `integer`: the schema ID for this type.
   * schemaName `string`: the name of the schema associated with this table and database.

@@ -15,10 +15,7 @@ let azure_network_servicecommunity = require('@datafire/azure_network_servicecom
   redirect_uri: ""
 });
 
-azure_network_servicecommunity.BgpServiceCommunities_List({
-  "api-version": "",
-  "subscriptionId": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -79,7 +76,7 @@ azure_network_servicecommunity.BgpServiceCommunities_List({
 
 ### BgpServiceCommunityPropertiesFormat
 * BgpServiceCommunityPropertiesFormat `object`: Properties of Service Community.
-  * bgpCommunities `array`: Get a list of bgp communities.
+  * bgpCommunities `array`: A list of bgp communities.
     * items [BGPCommunity](#bgpcommunity)
   * serviceName `string`: The name of the bgp community. e.g. Skype.
 

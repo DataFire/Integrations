@@ -1,14 +1,11 @@
 {
   "swagger": "2.0",
-  "schemes": [
-    "https"
-  ],
   "host": "tyk.local",
   "info": {
     "contact": {
       "x-twitter": "tyk_io"
     },
-    "title": "Gateway",
+    "title": "Gateway REST API",
     "version": "1.9",
     "x-apisguru-categories": [
       "enterprise"

@@ -1,0 +1,6420 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "contact": {
+      "email": "mike.ralphson@gmail.com",
+      "name": "Mike Ralphson",
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
+    },
+    "license": {
+      "name": "Apache 2.0 License",
+      "url": "http://www.apache.org/licenses/"
+    },
+    "termsOfService": "https://aws.amazon.com/service-terms/",
+    "title": "AWS Single Sign-On Admin",
+    "version": "2020-07-20",
+    "x-apiClientRegistration": {
+      "url": "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"
+    },
+    "x-apisguru-categories": [
+      "cloud"
+    ],
+    "x-logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"
+    },
+    "x-origin": [
+      {
+        "contentType": "application/json",
+        "converter": {
+          "url": "https://github.com/mermade/aws2openapi",
+          "version": "1.0.0"
+        },
+        "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/sso-admin-2020-07-20.normal.json",
+        "x-apisguru-driver": "external"
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "amazonaws.com",
+    "x-release": "v4",
+    "x-serviceName": "sso-admin",
+    "x-datafire": {
+      "name": "amazonaws_sso_admin",
+      "type": "openapi"
+    }
+  },
+  "host": "sso.us-east-1.amazonaws.com",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/#X-Amz-Target=SWBExternalService.AttachManagedPolicyToPermissionSet": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "SWBExternalService.AttachManagedPolicyToPermissionSet"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AttachManagedPolicyToPermissionSetRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/AttachManagedPolicyToPermissionSetResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "ServiceQuotaExceededException",
+            "schema": {
+              "$ref": "#/definitions/ServiceQuotaExceededException"
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "484": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "485": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "486": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          }
+        },
+        "description": "<p>Attaches an IAM managed policy ARN to a permission set.</p> <note> <p>If the permission set is already referenced by one or more account assignments, you will need to call <code> <a>ProvisionPermissionSet</a> </code> after this action to apply the corresponding IAM policy updates to all assigned accounts.</p> </note>",
+        "operationId": "AttachManagedPolicyToPermissionSet"
+      }
+    },
+    "/#X-Amz-Target=SWBExternalService.CreateAccountAssignment": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "SWBExternalService.CreateAccountAssignment"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateAccountAssignmentRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateAccountAssignmentResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "ServiceQuotaExceededException",
+            "schema": {
+              "$ref": "#/definitions/ServiceQuotaExceededException"
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "484": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "485": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "486": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          }
+        },
+        "description": "<p>Assigns access to a principal for a specified AWS account using a specified permission set.</p> <note> <p>The term <i>principal</i> here refers to a user or group that is defined in AWS SSO.</p> </note> <note> <p>As part of a successful <code>CreateAccountAssignment</code> call, the specified permission set will automatically be provisioned to the account in the form of an IAM policy attached to the SSO-created IAM role. If the permission set is subsequently updated, the corresponding IAM policies attached to roles in your accounts will not be updated automatically. In this case, you will need to call <code> <a>ProvisionPermissionSet</a> </code> to make these updates.</p> </note>",
+        "operationId": "CreateAccountAssignment"
+      }
+    },
+    "/#X-Amz-Target=SWBExternalService.CreateInstanceAccessControlAttributeConfiguration": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "SWBExternalService.CreateInstanceAccessControlAttributeConfiguration"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateInstanceAccessControlAttributeConfigurationRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateInstanceAccessControlAttributeConfigurationResponse"
+            }
+          },
+          "480": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "481": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "482": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "483": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "484": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "485": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          }
+        },
+        "description": "Enables the attributes-based access control (ABAC) feature for the specified AWS SSO instance. You can also specify new attributes to add to your ABAC configuration during the enabling process. For more information about ABAC, see <a href=\"/singlesignon/latest/userguide/abac.html\">Attribute-Based Access Control</a> in the <i>AWS SSO User Guide</i>.",
+        "operationId": "CreateInstanceAccessControlAttributeConfiguration"
+      }
+    },
+    "/#X-Amz-Target=SWBExternalService.CreatePermissionSet": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "SWBExternalService.CreatePermissionSet"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreatePermissionSetRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreatePermissionSetResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "ServiceQuotaExceededException",
+            "schema": {
+              "$ref": "#/definitions/ServiceQuotaExceededException"
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "484": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "485": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "486": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          }
+        },
+        "description": "<p>Creates a permission set within a specified SSO instance.</p> <note> <p>To grant users and groups access to AWS account resources, use <code> <a>CreateAccountAssignment</a> </code>.</p> </note>",
+        "operationId": "CreatePermissionSet"
+      }
+    },
+    "/#X-Amz-Target=SWBExternalService.DeleteAccountAssignment": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "SWBExternalService.DeleteAccountAssignment"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteAccountAssignmentRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteAccountAssignmentResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "483": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "484": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "485": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          }
+        },
+        "description": "Deletes a principal's access from a specified AWS account using a specified permission set.",
+        "operationId": "DeleteAccountAssignment"
+      }
+    },
+    "/#X-Amz-Target=SWBExternalService.DeleteInlinePolicyFromPermissionSet": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "SWBExternalService.DeleteInlinePolicyFromPermissionSet"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteInlinePolicyFromPermissionSetRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteInlinePolicyFromPermissionSetResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "483": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "484": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "485": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          }
+        },
+        "description": "Deletes the inline policy from a specified permission set.",
+        "operationId": "DeleteInlinePolicyFromPermissionSet"
+      }
+    },
+    "/#X-Amz-Target=SWBExternalService.DeleteInstanceAccessControlAttributeConfiguration": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "SWBExternalService.DeleteInstanceAccessControlAttributeConfiguration"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteInstanceAccessControlAttributeConfigurationRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteInstanceAccessControlAttributeConfigurationResponse"
+            }
+          },
+          "480": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "481": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "482": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "483": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "484": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "485": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          }
+        },
+        "description": "Disables the attributes-based access control (ABAC) feature for the specified AWS SSO instance and deletes all of the attribute mappings that have been configured. Once deleted, any attributes that are received from an identity source and any custom attributes you have previously configured will not be passed. For more information about ABAC, see <a href=\"/singlesignon/latest/userguide/abac.html\">Attribute-Based Access Control</a> in the <i>AWS SSO User Guide</i>.",
+        "operationId": "DeleteInstanceAccessControlAttributeConfiguration"
+      }
+    },
+    "/#X-Amz-Target=SWBExternalService.DeletePermissionSet": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "SWBExternalService.DeletePermissionSet"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeletePermissionSetRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeletePermissionSetResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "483": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "484": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "485": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          }
+        },
+        "description": "Deletes the specified permission set.",
+        "operationId": "DeletePermissionSet"
+      }
+    },
+    "/#X-Amz-Target=SWBExternalService.DescribeAccountAssignmentCreationStatus": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "SWBExternalService.DescribeAccountAssignmentCreationStatus"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeAccountAssignmentCreationStatusRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeAccountAssignmentCreationStatusResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "483": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "484": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          }
+        },
+        "description": "Describes the status of the assignment creation request.",
+        "operationId": "DescribeAccountAssignmentCreationStatus"
+      }
+    },
+    "/#X-Amz-Target=SWBExternalService.DescribeAccountAssignmentDeletionStatus": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "SWBExternalService.DescribeAccountAssignmentDeletionStatus"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeAccountAssignmentDeletionStatusRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeAccountAssignmentDeletionStatusResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "483": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "484": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          }
+        },
+        "description": "Describes the status of the assignment deletion request.",
+        "operationId": "DescribeAccountAssignmentDeletionStatus"
+      }
+    },
+    "/#X-Amz-Target=SWBExternalService.DescribeInstanceAccessControlAttributeConfiguration": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "SWBExternalService.DescribeInstanceAccessControlAttributeConfiguration"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeInstanceAccessControlAttributeConfigurationRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeInstanceAccessControlAttributeConfigurationResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "484": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          }
+        },
+        "description": "Returns the list of AWS SSO identity store attributes that have been configured to work with attributes-based access control (ABAC) for the specified AWS SSO instance. This will not return attributes configured and sent by an external identity provider. For more information about ABAC, see <a href=\"/singlesignon/latest/userguide/abac.html\">Attribute-Based Access Control</a> in the <i>AWS SSO User Guide</i>.",
+        "operationId": "DescribeInstanceAccessControlAttributeConfiguration"
+      }
+    },
+    "/#X-Amz-Target=SWBExternalService.DescribePermissionSet": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "SWBExternalService.DescribePermissionSet"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribePermissionSetRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribePermissionSetResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "483": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "484": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          }
+        },
+        "description": "Gets the details of the permission set.",
+        "operationId": "DescribePermissionSet"
+      }
+    },
+    "/#X-Amz-Target=SWBExternalService.DescribePermissionSetProvisioningStatus": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "SWBExternalService.DescribePermissionSetProvisioningStatus"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribePermissionSetProvisioningStatusRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribePermissionSetProvisioningStatusResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "483": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "484": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          }
+        },
+        "description": "Describes the status for the given permission set provisioning request.",
+        "operationId": "DescribePermissionSetProvisioningStatus"
+      }
+    },
+    "/#X-Amz-Target=SWBExternalService.DetachManagedPolicyFromPermissionSet": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "SWBExternalService.DetachManagedPolicyFromPermissionSet"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DetachManagedPolicyFromPermissionSetRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DetachManagedPolicyFromPermissionSetResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "483": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "484": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "485": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          }
+        },
+        "description": "Detaches the attached IAM managed policy ARN from the specified permission set.",
+        "operationId": "DetachManagedPolicyFromPermissionSet"
+      }
+    },
+    "/#X-Amz-Target=SWBExternalService.GetInlinePolicyForPermissionSet": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "SWBExternalService.GetInlinePolicyForPermissionSet"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetInlinePolicyForPermissionSetRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetInlinePolicyForPermissionSetResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "483": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "484": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          }
+        },
+        "description": "Obtains the inline policy assigned to the permission set.",
+        "operationId": "GetInlinePolicyForPermissionSet"
+      }
+    },
+    "/#X-Amz-Target=SWBExternalService.ListAccountAssignmentCreationStatus": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "SWBExternalService.ListAccountAssignmentCreationStatus"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListAccountAssignmentCreationStatusRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListAccountAssignmentCreationStatusResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "483": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "484": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          }
+        },
+        "description": "Lists the status of the AWS account assignment creation requests for a specified SSO instance.",
+        "operationId": "ListAccountAssignmentCreationStatus"
+      }
+    },
+    "/#X-Amz-Target=SWBExternalService.ListAccountAssignmentDeletionStatus": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "SWBExternalService.ListAccountAssignmentDeletionStatus"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListAccountAssignmentDeletionStatusRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListAccountAssignmentDeletionStatusResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "483": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "484": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          }
+        },
+        "description": "Lists the status of the AWS account assignment deletion requests for a specified SSO instance.",
+        "operationId": "ListAccountAssignmentDeletionStatus"
+      }
+    },
+    "/#X-Amz-Target=SWBExternalService.ListAccountAssignments": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "SWBExternalService.ListAccountAssignments"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListAccountAssignmentsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListAccountAssignmentsResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "483": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "484": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          }
+        },
+        "description": "Lists the assignee of the specified AWS account with the specified permission set.",
+        "operationId": "ListAccountAssignments"
+      }
+    },
+    "/#X-Amz-Target=SWBExternalService.ListAccountsForProvisionedPermissionSet": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "SWBExternalService.ListAccountsForProvisionedPermissionSet"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListAccountsForProvisionedPermissionSetRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListAccountsForProvisionedPermissionSetResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "483": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "484": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          }
+        },
+        "description": "Lists all the AWS accounts where the specified permission set is provisioned.",
+        "operationId": "ListAccountsForProvisionedPermissionSet"
+      }
+    },
+    "/#X-Amz-Target=SWBExternalService.ListInstances": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "SWBExternalService.ListInstances"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListInstancesRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListInstancesResponse"
+            }
+          },
+          "480": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "481": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "482": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "483": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          }
+        },
+        "description": "Lists the SSO instances that the caller has access to.",
+        "operationId": "ListInstances"
+      }
+    },
+    "/#X-Amz-Target=SWBExternalService.ListManagedPoliciesInPermissionSet": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "SWBExternalService.ListManagedPoliciesInPermissionSet"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListManagedPoliciesInPermissionSetRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListManagedPoliciesInPermissionSetResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "483": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "484": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          }
+        },
+        "description": "Lists the IAM managed policy that is attached to a specified permission set.",
+        "operationId": "ListManagedPoliciesInPermissionSet"
+      }
+    },
+    "/#X-Amz-Target=SWBExternalService.ListPermissionSetProvisioningStatus": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "SWBExternalService.ListPermissionSetProvisioningStatus"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListPermissionSetProvisioningStatusRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListPermissionSetProvisioningStatusResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "483": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "484": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          }
+        },
+        "description": "Lists the status of the permission set provisioning requests for a specified SSO instance.",
+        "operationId": "ListPermissionSetProvisioningStatus"
+      }
+    },
+    "/#X-Amz-Target=SWBExternalService.ListPermissionSets": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "SWBExternalService.ListPermissionSets"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListPermissionSetsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListPermissionSetsResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "483": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "484": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          }
+        },
+        "description": "Lists the <a>PermissionSet</a>s in an SSO instance.",
+        "operationId": "ListPermissionSets"
+      }
+    },
+    "/#X-Amz-Target=SWBExternalService.ListPermissionSetsProvisionedToAccount": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "SWBExternalService.ListPermissionSetsProvisionedToAccount"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListPermissionSetsProvisionedToAccountRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListPermissionSetsProvisionedToAccountResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "483": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "484": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          }
+        },
+        "description": "Lists all the permission sets that are provisioned to a specified AWS account.",
+        "operationId": "ListPermissionSetsProvisionedToAccount"
+      }
+    },
+    "/#X-Amz-Target=SWBExternalService.ListTagsForResource": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "SWBExternalService.ListTagsForResource"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListTagsForResourceRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListTagsForResourceResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "483": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "484": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          }
+        },
+        "description": "Lists the tags that are attached to a specified resource.",
+        "operationId": "ListTagsForResource"
+      }
+    },
+    "/#X-Amz-Target=SWBExternalService.ProvisionPermissionSet": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "SWBExternalService.ProvisionPermissionSet"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ProvisionPermissionSetRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ProvisionPermissionSetResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "483": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "484": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "485": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          }
+        },
+        "description": "The process by which a specified permission set is provisioned to the specified target.",
+        "operationId": "ProvisionPermissionSet"
+      }
+    },
+    "/#X-Amz-Target=SWBExternalService.PutInlinePolicyToPermissionSet": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "SWBExternalService.PutInlinePolicyToPermissionSet"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PutInlinePolicyToPermissionSetRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/PutInlinePolicyToPermissionSetResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "ServiceQuotaExceededException",
+            "schema": {
+              "$ref": "#/definitions/ServiceQuotaExceededException"
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "484": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "485": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "486": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          }
+        },
+        "description": "<p>Attaches an IAM inline policy to a permission set.</p> <note> <p>If the permission set is already referenced by one or more account assignments, you will need to call <code> <a>ProvisionPermissionSet</a> </code> after this action to apply the corresponding IAM policy updates to all assigned accounts.</p> </note>",
+        "operationId": "PutInlinePolicyToPermissionSet"
+      }
+    },
+    "/#X-Amz-Target=SWBExternalService.TagResource": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "SWBExternalService.TagResource"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/TagResourceRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/TagResourceResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "ServiceQuotaExceededException",
+            "schema": {
+              "$ref": "#/definitions/ServiceQuotaExceededException"
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "484": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "485": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "486": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          }
+        },
+        "description": "Associates a set of tags with a specified resource.",
+        "operationId": "TagResource"
+      }
+    },
+    "/#X-Amz-Target=SWBExternalService.UntagResource": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "SWBExternalService.UntagResource"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UntagResourceRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UntagResourceResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "483": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "484": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "485": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          }
+        },
+        "description": "Disassociates a set of tags from a specified resource.",
+        "operationId": "UntagResource"
+      }
+    },
+    "/#X-Amz-Target=SWBExternalService.UpdateInstanceAccessControlAttributeConfiguration": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "SWBExternalService.UpdateInstanceAccessControlAttributeConfiguration"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateInstanceAccessControlAttributeConfigurationRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UpdateInstanceAccessControlAttributeConfigurationResponse"
+            }
+          },
+          "480": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "481": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "482": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "483": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "484": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "485": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          }
+        },
+        "description": "Updates the AWS SSO identity store attributes to use with the AWS SSO instance for attributes-based access control (ABAC). When using an external identity provider as an identity source, you can pass attributes through the SAML assertion as an alternative to configuring attributes from the AWS SSO identity store. If a SAML assertion passes any of these attributes, AWS SSO will replace the attribute value with the value from the AWS SSO identity store. For more information about ABAC, see <a href=\"/singlesignon/latest/userguide/abac.html\">Attribute-Based Access Control</a> in the <i>AWS SSO User Guide</i>.",
+        "operationId": "UpdateInstanceAccessControlAttributeConfiguration"
+      }
+    },
+    "/#X-Amz-Target=SWBExternalService.UpdatePermissionSet": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "SWBExternalService.UpdatePermissionSet"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdatePermissionSetRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UpdatePermissionSetResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "483": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "484": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "485": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          }
+        },
+        "description": "Updates an existing permission set.",
+        "operationId": "UpdatePermissionSet"
+      }
+    }
+  },
+  "definitions": {
+    "AccessControlAttribute": {
+      "description": "These are AWS SSO identity store attributes that you can configure for use in attributes-based access control (ABAC). You can create permission policies that determine who can access your AWS resources based upon the configured attribute value(s). When you enable ABAC and specify AccessControlAttributes, AWS SSO passes the attribute(s) value of the authenticated user into IAM for use in policy evaluation.",
+      "properties": {
+        "Key": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AccessControlAttributeKey"
+            },
+            {
+              "description": "The name of the attribute associated with your identities in your identity source. This is used to map a specified attribute in your identity source with an attribute in AWS SSO."
+            }
+          ]
+        },
+        "Value": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AccessControlAttributeValue"
+            },
+            {
+              "description": "The value used for mapping a specified attribute to an identity source."
+            }
+          ]
+        }
+      },
+      "required": [
+        "Key",
+        "Value"
+      ],
+      "type": "object"
+    },
+    "AccessControlAttributeKey": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "[\\p{L}\\p{Z}\\p{N}_.:\\/=+\\-@]+",
+      "type": "string"
+    },
+    "AccessControlAttributeList": {
+      "items": {
+        "$ref": "#/definitions/AccessControlAttribute"
+      },
+      "maxItems": 50,
+      "minItems": 0,
+      "type": "array"
+    },
+    "AccessControlAttributeValue": {
+      "description": "The value used for mapping a specified attribute to an identity source.",
+      "properties": {
+        "Source": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AccessControlAttributeValueSourceList"
+            },
+            {
+              "description": "The identity source to use when mapping a specified attribute to AWS SSO."
+            }
+          ]
+        }
+      },
+      "required": [
+        "Source"
+      ],
+      "type": "object"
+    },
+    "AccessControlAttributeValueSource": {
+      "maxLength": 256,
+      "minLength": 0,
+      "pattern": "[\\p{L}\\p{Z}\\p{N}_.:\\/=+\\-@\\[\\]\\{\\}\\$\\\\\"]*",
+      "type": "string"
+    },
+    "AccessControlAttributeValueSourceList": {
+      "items": {
+        "$ref": "#/definitions/AccessControlAttributeValueSource"
+      },
+      "maxItems": 1,
+      "minItems": 1,
+      "type": "array"
+    },
+    "AccessDeniedException": {},
+    "AccountAssignment": {
+      "description": "<p>The assignment that indicates a principal's limited access to a specified AWS account with a specified permission set.</p> <note> <p>The term <i>principal</i> here refers to a user or group that is defined in AWS SSO.</p> </note>",
+      "properties": {
+        "AccountId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AccountId"
+            },
+            {
+              "description": "The identifier of the AWS account."
+            }
+          ]
+        },
+        "PermissionSetArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PermissionSetArn"
+            },
+            {
+              "description": "The ARN of the permission set. For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>."
+            }
+          ]
+        },
+        "PrincipalId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PrincipalId"
+            },
+            {
+              "description": "An identifier for an object in AWS SSO, such as a user or group. PrincipalIds are GUIDs (For example, f81d4fae-7dec-11d0-a765-00a0c91e6bf6). For more information about PrincipalIds in AWS SSO, see the <a href=\"/singlesignon/latest/IdentityStoreAPIReference/welcome.html\">AWS SSO Identity Store API Reference</a>."
+            }
+          ]
+        },
+        "PrincipalType": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PrincipalType"
+            },
+            {
+              "description": "The entity type for which the assignment will be created."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "AccountAssignmentList": {
+      "items": {
+        "$ref": "#/definitions/AccountAssignment"
+      },
+      "type": "array"
+    },
+    "AccountAssignmentOperationStatus": {
+      "description": "The status of the creation or deletion operation of an assignment that a principal needs to access an account.",
+      "properties": {
+        "CreatedDate": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Date"
+            },
+            {
+              "description": "The date that the permission set was created."
+            }
+          ]
+        },
+        "FailureReason": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Reason"
+            },
+            {
+              "description": "The message that contains an error or exception in case of an operation failure."
+            }
+          ]
+        },
+        "PermissionSetArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PermissionSetArn"
+            },
+            {
+              "description": "The ARN of the permission set. For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>."
+            }
+          ]
+        },
+        "PrincipalId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PrincipalId"
+            },
+            {
+              "description": "An identifier for an object in AWS SSO, such as a user or group. PrincipalIds are GUIDs (For example, f81d4fae-7dec-11d0-a765-00a0c91e6bf6). For more information about PrincipalIds in AWS SSO, see the <a href=\"/singlesignon/latest/IdentityStoreAPIReference/welcome.html\">AWS SSO Identity Store API Reference</a>."
+            }
+          ]
+        },
+        "PrincipalType": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PrincipalType"
+            },
+            {
+              "description": "The entity type for which the assignment will be created."
+            }
+          ]
+        },
+        "RequestId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/UUId"
+            },
+            {
+              "description": "The identifier for tracking the request operation that is generated by the universally unique identifier (UUID) workflow."
+            }
+          ]
+        },
+        "Status": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/StatusValues"
+            },
+            {
+              "description": "The status of the permission set provisioning process."
+            }
+          ]
+        },
+        "TargetId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TargetId"
+            },
+            {
+              "description": "TargetID is an AWS account identifier, typically a 10-12 digit string (For example, 123456789012)."
+            }
+          ]
+        },
+        "TargetType": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TargetType"
+            },
+            {
+              "description": "The entity type for which the assignment will be created."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "AccountAssignmentOperationStatusList": {
+      "items": {
+        "$ref": "#/definitions/AccountAssignmentOperationStatusMetadata"
+      },
+      "type": "array"
+    },
+    "AccountAssignmentOperationStatusMetadata": {
+      "description": "Provides information about the <a>AccountAssignment</a> creation request.",
+      "properties": {
+        "CreatedDate": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Date"
+            },
+            {
+              "description": "The date that the permission set was created."
+            }
+          ]
+        },
+        "RequestId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/UUId"
+            },
+            {
+              "description": "The identifier for tracking the request operation that is generated by the universally unique identifier (UUID) workflow."
+            }
+          ]
+        },
+        "Status": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/StatusValues"
+            },
+            {
+              "description": "The status of the permission set provisioning process."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "AccountId": {
+      "pattern": "\\d{12}",
+      "type": "string"
+    },
+    "AccountList": {
+      "items": {
+        "$ref": "#/definitions/AccountId"
+      },
+      "type": "array"
+    },
+    "AttachManagedPolicyToPermissionSetRequest": {
+      "properties": {
+        "InstanceArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InstanceArn"
+            },
+            {
+              "description": "The ARN of the SSO instance under which the operation will be executed. For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>."
+            }
+          ]
+        },
+        "ManagedPolicyArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ManagedPolicyArn"
+            },
+            {
+              "description": "The IAM managed policy ARN to be attached to a permission set."
+            }
+          ]
+        },
+        "PermissionSetArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PermissionSetArn"
+            },
+            {
+              "description": "The ARN of the <a>PermissionSet</a> that the managed policy should be attached to."
+            }
+          ]
+        }
+      },
+      "required": [
+        "InstanceArn",
+        "PermissionSetArn",
+        "ManagedPolicyArn"
+      ],
+      "title": "AttachManagedPolicyToPermissionSetRequest",
+      "type": "object"
+    },
+    "AttachManagedPolicyToPermissionSetResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "AttachedManagedPolicy": {
+      "description": "A structure that stores the details of the IAM managed policy.",
+      "properties": {
+        "Arn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ManagedPolicyArn"
+            },
+            {
+              "description": "The ARN of the IAM managed policy. For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>."
+            }
+          ]
+        },
+        "Name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Name"
+            },
+            {
+              "description": "The name of the IAM managed policy."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "AttachedManagedPolicyList": {
+      "items": {
+        "$ref": "#/definitions/AttachedManagedPolicy"
+      },
+      "type": "array"
+    },
+    "ConflictException": {},
+    "CreateAccountAssignmentRequest": {
+      "properties": {
+        "InstanceArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InstanceArn"
+            },
+            {
+              "description": "The ARN of the SSO instance under which the operation will be executed. For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>."
+            }
+          ]
+        },
+        "PermissionSetArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PermissionSetArn"
+            },
+            {
+              "description": "The ARN of the permission set that the admin wants to grant the principal access to."
+            }
+          ]
+        },
+        "PrincipalId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PrincipalId"
+            },
+            {
+              "description": "An identifier for an object in AWS SSO, such as a user or group. PrincipalIds are GUIDs (For example, f81d4fae-7dec-11d0-a765-00a0c91e6bf6). For more information about PrincipalIds in AWS SSO, see the <a href=\"/singlesignon/latest/IdentityStoreAPIReference/welcome.html\">AWS SSO Identity Store API Reference</a>."
+            }
+          ]
+        },
+        "PrincipalType": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PrincipalType"
+            },
+            {
+              "description": "The entity type for which the assignment will be created."
+            }
+          ]
+        },
+        "TargetId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TargetId"
+            },
+            {
+              "description": "TargetID is an AWS account identifier, typically a 10-12 digit string (For example, 123456789012)."
+            }
+          ]
+        },
+        "TargetType": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TargetType"
+            },
+            {
+              "description": "The entity type for which the assignment will be created."
+            }
+          ]
+        }
+      },
+      "required": [
+        "InstanceArn",
+        "TargetId",
+        "TargetType",
+        "PermissionSetArn",
+        "PrincipalType",
+        "PrincipalId"
+      ],
+      "title": "CreateAccountAssignmentRequest",
+      "type": "object"
+    },
+    "CreateAccountAssignmentResponse": {
+      "properties": {
+        "AccountAssignmentCreationStatus": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AccountAssignmentOperationStatus"
+            },
+            {
+              "description": "The status object for the account assignment creation operation."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "CreateInstanceAccessControlAttributeConfigurationRequest": {
+      "properties": {
+        "InstanceAccessControlAttributeConfiguration": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InstanceAccessControlAttributeConfiguration"
+            },
+            {
+              "description": "Specifies the AWS SSO identity store attributes to add to your ABAC configuration. When using an external identity provider as an identity source, you can pass attributes through the SAML assertion as an alternative to configuring attributes from the AWS SSO identity store. If a SAML assertion passes any of these attributes, AWS SSO will replace the attribute value with the value from the AWS SSO identity store."
+            }
+          ]
+        },
+        "InstanceArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InstanceArn"
+            },
+            {
+              "description": "The ARN of the SSO instance under which the operation will be executed."
+            }
+          ]
+        }
+      },
+      "required": [
+        "InstanceArn",
+        "InstanceAccessControlAttributeConfiguration"
+      ],
+      "title": "CreateInstanceAccessControlAttributeConfigurationRequest",
+      "type": "object"
+    },
+    "CreateInstanceAccessControlAttributeConfigurationResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "CreatePermissionSetRequest": {
+      "properties": {
+        "Description": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PermissionSetDescription"
+            },
+            {
+              "description": "The description of the <a>PermissionSet</a>."
+            }
+          ]
+        },
+        "InstanceArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InstanceArn"
+            },
+            {
+              "description": "The ARN of the SSO instance under which the operation will be executed. For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>."
+            }
+          ]
+        },
+        "Name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PermissionSetName"
+            },
+            {
+              "description": "The name of the <a>PermissionSet</a>."
+            }
+          ]
+        },
+        "RelayState": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RelayState"
+            },
+            {
+              "description": "Used to redirect users within the application during the federation authentication process."
+            }
+          ]
+        },
+        "SessionDuration": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Duration"
+            },
+            {
+              "description": "The length of time that the application user sessions are valid in the ISO-8601 standard."
+            }
+          ]
+        },
+        "Tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagList"
+            },
+            {
+              "description": "The tags to attach to the new <a>PermissionSet</a>."
+            }
+          ]
+        }
+      },
+      "required": [
+        "Name",
+        "InstanceArn"
+      ],
+      "title": "CreatePermissionSetRequest",
+      "type": "object"
+    },
+    "CreatePermissionSetResponse": {
+      "properties": {
+        "PermissionSet": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PermissionSet"
+            },
+            {
+              "description": "Defines the level of access on an AWS account."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "Date": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "DeleteAccountAssignmentRequest": {
+      "properties": {
+        "InstanceArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InstanceArn"
+            },
+            {
+              "description": "The ARN of the SSO instance under which the operation will be executed. For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>."
+            }
+          ]
+        },
+        "PermissionSetArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PermissionSetArn"
+            },
+            {
+              "description": "The ARN of the permission set that will be used to remove access."
+            }
+          ]
+        },
+        "PrincipalId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PrincipalId"
+            },
+            {
+              "description": "An identifier for an object in AWS SSO, such as a user or group. PrincipalIds are GUIDs (For example, f81d4fae-7dec-11d0-a765-00a0c91e6bf6). For more information about PrincipalIds in AWS SSO, see the <a href=\"/singlesignon/latest/IdentityStoreAPIReference/welcome.html\">AWS SSO Identity Store API Reference</a>."
+            }
+          ]
+        },
+        "PrincipalType": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PrincipalType"
+            },
+            {
+              "description": "The entity type for which the assignment will be deleted."
+            }
+          ]
+        },
+        "TargetId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TargetId"
+            },
+            {
+              "description": "TargetID is an AWS account identifier, typically a 10-12 digit string (For example, 123456789012)."
+            }
+          ]
+        },
+        "TargetType": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TargetType"
+            },
+            {
+              "description": "The entity type for which the assignment will be deleted."
+            }
+          ]
+        }
+      },
+      "required": [
+        "InstanceArn",
+        "TargetId",
+        "TargetType",
+        "PermissionSetArn",
+        "PrincipalType",
+        "PrincipalId"
+      ],
+      "title": "DeleteAccountAssignmentRequest",
+      "type": "object"
+    },
+    "DeleteAccountAssignmentResponse": {
+      "properties": {
+        "AccountAssignmentDeletionStatus": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AccountAssignmentOperationStatus"
+            },
+            {
+              "description": "The status object for the account assignment deletion operation."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DeleteInlinePolicyFromPermissionSetRequest": {
+      "properties": {
+        "InstanceArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InstanceArn"
+            },
+            {
+              "description": "The ARN of the SSO instance under which the operation will be executed. For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>."
+            }
+          ]
+        },
+        "PermissionSetArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PermissionSetArn"
+            },
+            {
+              "description": "The ARN of the permission set that will be used to remove access."
+            }
+          ]
+        }
+      },
+      "required": [
+        "InstanceArn",
+        "PermissionSetArn"
+      ],
+      "title": "DeleteInlinePolicyFromPermissionSetRequest",
+      "type": "object"
+    },
+    "DeleteInlinePolicyFromPermissionSetResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "DeleteInstanceAccessControlAttributeConfigurationRequest": {
+      "properties": {
+        "InstanceArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InstanceArn"
+            },
+            {
+              "description": "The ARN of the SSO instance under which the operation will be executed."
+            }
+          ]
+        }
+      },
+      "required": [
+        "InstanceArn"
+      ],
+      "title": "DeleteInstanceAccessControlAttributeConfigurationRequest",
+      "type": "object"
+    },
+    "DeleteInstanceAccessControlAttributeConfigurationResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "DeletePermissionSetRequest": {
+      "properties": {
+        "InstanceArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InstanceArn"
+            },
+            {
+              "description": "The ARN of the SSO instance under which the operation will be executed. For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>."
+            }
+          ]
+        },
+        "PermissionSetArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PermissionSetArn"
+            },
+            {
+              "description": "The ARN of the permission set that should be deleted."
+            }
+          ]
+        }
+      },
+      "required": [
+        "InstanceArn",
+        "PermissionSetArn"
+      ],
+      "title": "DeletePermissionSetRequest",
+      "type": "object"
+    },
+    "DeletePermissionSetResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "DescribeAccountAssignmentCreationStatusRequest": {
+      "properties": {
+        "AccountAssignmentCreationRequestId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/UUId"
+            },
+            {
+              "description": "The identifier that is used to track the request operation progress."
+            }
+          ]
+        },
+        "InstanceArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InstanceArn"
+            },
+            {
+              "description": "The ARN of the SSO instance under which the operation will be executed. For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>."
+            }
+          ]
+        }
+      },
+      "required": [
+        "InstanceArn",
+        "AccountAssignmentCreationRequestId"
+      ],
+      "title": "DescribeAccountAssignmentCreationStatusRequest",
+      "type": "object"
+    },
+    "DescribeAccountAssignmentCreationStatusResponse": {
+      "properties": {
+        "AccountAssignmentCreationStatus": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AccountAssignmentOperationStatus"
+            },
+            {
+              "description": "The status object for the account assignment creation operation."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DescribeAccountAssignmentDeletionStatusRequest": {
+      "properties": {
+        "AccountAssignmentDeletionRequestId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/UUId"
+            },
+            {
+              "description": "The identifier that is used to track the request operation progress."
+            }
+          ]
+        },
+        "InstanceArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InstanceArn"
+            },
+            {
+              "description": "The ARN of the SSO instance under which the operation will be executed. For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>."
+            }
+          ]
+        }
+      },
+      "required": [
+        "InstanceArn",
+        "AccountAssignmentDeletionRequestId"
+      ],
+      "title": "DescribeAccountAssignmentDeletionStatusRequest",
+      "type": "object"
+    },
+    "DescribeAccountAssignmentDeletionStatusResponse": {
+      "properties": {
+        "AccountAssignmentDeletionStatus": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AccountAssignmentOperationStatus"
+            },
+            {
+              "description": "The status object for the account assignment deletion operation."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DescribeInstanceAccessControlAttributeConfigurationRequest": {
+      "properties": {
+        "InstanceArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InstanceArn"
+            },
+            {
+              "description": "The ARN of the SSO instance under which the operation will be executed."
+            }
+          ]
+        }
+      },
+      "required": [
+        "InstanceArn"
+      ],
+      "title": "DescribeInstanceAccessControlAttributeConfigurationRequest",
+      "type": "object"
+    },
+    "DescribeInstanceAccessControlAttributeConfigurationResponse": {
+      "properties": {
+        "InstanceAccessControlAttributeConfiguration": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InstanceAccessControlAttributeConfiguration"
+            },
+            {
+              "description": "Gets the list of AWS SSO identity store attributes added to your ABAC configuration."
+            }
+          ]
+        },
+        "Status": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InstanceAccessControlAttributeConfigurationStatus"
+            },
+            {
+              "description": "The status of the attribute configuration process."
+            }
+          ]
+        },
+        "StatusReason": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InstanceAccessControlAttributeConfigurationStatusReason"
+            },
+            {
+              "description": "Provides more details about the current status of the specified attribute."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DescribePermissionSetProvisioningStatusRequest": {
+      "properties": {
+        "InstanceArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InstanceArn"
+            },
+            {
+              "description": "The ARN of the SSO instance under which the operation will be executed. For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>."
+            }
+          ]
+        },
+        "ProvisionPermissionSetRequestId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/UUId"
+            },
+            {
+              "description": "The identifier that is provided by the <a>ProvisionPermissionSet</a> call to retrieve the current status of the provisioning workflow."
+            }
+          ]
+        }
+      },
+      "required": [
+        "InstanceArn",
+        "ProvisionPermissionSetRequestId"
+      ],
+      "title": "DescribePermissionSetProvisioningStatusRequest",
+      "type": "object"
+    },
+    "DescribePermissionSetProvisioningStatusResponse": {
+      "properties": {
+        "PermissionSetProvisioningStatus": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PermissionSetProvisioningStatus"
+            },
+            {
+              "description": "The status object for the permission set provisioning operation."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DescribePermissionSetRequest": {
+      "properties": {
+        "InstanceArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InstanceArn"
+            },
+            {
+              "description": "The ARN of the SSO instance under which the operation will be executed. For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>."
+            }
+          ]
+        },
+        "PermissionSetArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PermissionSetArn"
+            },
+            {
+              "description": "The ARN of the permission set."
+            }
+          ]
+        }
+      },
+      "required": [
+        "InstanceArn",
+        "PermissionSetArn"
+      ],
+      "title": "DescribePermissionSetRequest",
+      "type": "object"
+    },
+    "DescribePermissionSetResponse": {
+      "properties": {
+        "PermissionSet": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PermissionSet"
+            },
+            {
+              "description": "Describes the level of access on an AWS account."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DetachManagedPolicyFromPermissionSetRequest": {
+      "properties": {
+        "InstanceArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InstanceArn"
+            },
+            {
+              "description": "The ARN of the SSO instance under which the operation will be executed. For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>."
+            }
+          ]
+        },
+        "ManagedPolicyArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ManagedPolicyArn"
+            },
+            {
+              "description": "The IAM managed policy ARN to be attached to a permission set."
+            }
+          ]
+        },
+        "PermissionSetArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PermissionSetArn"
+            },
+            {
+              "description": "The ARN of the <a>PermissionSet</a> from which the policy should be detached."
+            }
+          ]
+        }
+      },
+      "required": [
+        "InstanceArn",
+        "PermissionSetArn",
+        "ManagedPolicyArn"
+      ],
+      "title": "DetachManagedPolicyFromPermissionSetRequest",
+      "type": "object"
+    },
+    "DetachManagedPolicyFromPermissionSetResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "Duration": {
+      "maxLength": 100,
+      "minLength": 1,
+      "pattern": "^(-?)P(?=\\d|T\\d)(?:(\\d+)Y)?(?:(\\d+)M)?(?:(\\d+)([DW]))?(?:T(?:(\\d+)H)?(?:(\\d+)M)?(?:(\\d+(?:\\.\\d+)?)S)?)?$",
+      "type": "string"
+    },
+    "GeneralArn": {
+      "maxLength": 2048,
+      "minLength": 10,
+      "pattern": "arn:aws:sso:([a-zA-Z0-9-]+)?:(\\d{12})?:[a-zA-Z0-9-]+/[a-zA-Z0-9-/.]+",
+      "type": "string"
+    },
+    "GetInlinePolicyForPermissionSetRequest": {
+      "properties": {
+        "InstanceArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InstanceArn"
+            },
+            {
+              "description": "The ARN of the SSO instance under which the operation will be executed. For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>."
+            }
+          ]
+        },
+        "PermissionSetArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PermissionSetArn"
+            },
+            {
+              "description": "The ARN of the permission set."
+            }
+          ]
+        }
+      },
+      "required": [
+        "InstanceArn",
+        "PermissionSetArn"
+      ],
+      "title": "GetInlinePolicyForPermissionSetRequest",
+      "type": "object"
+    },
+    "GetInlinePolicyForPermissionSetResponse": {
+      "properties": {
+        "InlinePolicy": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PermissionSetPolicyDocument"
+            },
+            {
+              "description": "The IAM inline policy that is attached to the permission set."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "Id": {
+      "maxLength": 64,
+      "minLength": 1,
+      "pattern": "^[a-zA-Z0-9-]*",
+      "type": "string"
+    },
+    "InstanceAccessControlAttributeConfiguration": {
+      "description": "Specifies the attributes to add to your attribute-based access control (ABAC) configuration.",
+      "properties": {
+        "AccessControlAttributes": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AccessControlAttributeList"
+            },
+            {
+              "description": "Lists the attributes that are configured for ABAC in the specified AWS SSO instance."
+            }
+          ]
+        }
+      },
+      "required": [
+        "AccessControlAttributes"
+      ],
+      "type": "object"
+    },
+    "InstanceAccessControlAttributeConfigurationStatus": {
+      "enum": [
+        "ENABLED",
+        "CREATION_IN_PROGRESS",
+        "CREATION_FAILED"
+      ],
+      "type": "string"
+    },
+    "InstanceAccessControlAttributeConfigurationStatusReason": {
+      "type": "string"
+    },
+    "InstanceArn": {
+      "maxLength": 1224,
+      "minLength": 10,
+      "pattern": "arn:aws:sso:::instance/(sso)?ins-[a-zA-Z0-9-.]{16}",
+      "type": "string"
+    },
+    "InstanceList": {
+      "items": {
+        "$ref": "#/definitions/InstanceMetadata"
+      },
+      "type": "array"
+    },
+    "InstanceMetadata": {
+      "description": "Provides information about the SSO instance.",
+      "properties": {
+        "IdentityStoreId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Id"
+            },
+            {
+              "description": "The identifier of the identity store that is connected to the SSO instance."
+            }
+          ]
+        },
+        "InstanceArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InstanceArn"
+            },
+            {
+              "description": "The ARN of the SSO instance under which the operation will be executed. For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "InternalServerException": {},
+    "ListAccountAssignmentCreationStatusRequest": {
+      "properties": {
+        "Filter": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/OperationStatusFilter"
+            },
+            {
+              "description": "Filters results based on the passed attribute value."
+            }
+          ]
+        },
+        "InstanceArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InstanceArn"
+            },
+            {
+              "description": "The ARN of the SSO instance under which the operation will be executed. For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>."
+            }
+          ]
+        },
+        "MaxResults": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MaxResults"
+            },
+            {
+              "description": "The maximum number of results to display for the assignment."
+            }
+          ]
+        },
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Token"
+            },
+            {
+              "description": "The pagination token for the list API. Initially the value is null. Use the output of previous API calls to make subsequent calls."
+            }
+          ]
+        }
+      },
+      "required": [
+        "InstanceArn"
+      ],
+      "title": "ListAccountAssignmentCreationStatusRequest",
+      "type": "object"
+    },
+    "ListAccountAssignmentCreationStatusResponse": {
+      "properties": {
+        "AccountAssignmentsCreationStatus": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AccountAssignmentOperationStatusList"
+            },
+            {
+              "description": "The status object for the account assignment creation operation."
+            }
+          ]
+        },
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Token"
+            },
+            {
+              "description": "The pagination token for the list API. Initially the value is null. Use the output of previous API calls to make subsequent calls."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ListAccountAssignmentDeletionStatusRequest": {
+      "properties": {
+        "Filter": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/OperationStatusFilter"
+            },
+            {
+              "description": "Filters results based on the passed attribute value."
+            }
+          ]
+        },
+        "InstanceArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InstanceArn"
+            },
+            {
+              "description": "The ARN of the SSO instance under which the operation will be executed. For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>."
+            }
+          ]
+        },
+        "MaxResults": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MaxResults"
+            },
+            {
+              "description": "The maximum number of results to display for the assignment."
+            }
+          ]
+        },
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Token"
+            },
+            {
+              "description": "The pagination token for the list API. Initially the value is null. Use the output of previous API calls to make subsequent calls."
+            }
+          ]
+        }
+      },
+      "required": [
+        "InstanceArn"
+      ],
+      "title": "ListAccountAssignmentDeletionStatusRequest",
+      "type": "object"
+    },
+    "ListAccountAssignmentDeletionStatusResponse": {
+      "properties": {
+        "AccountAssignmentsDeletionStatus": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AccountAssignmentOperationStatusList"
+            },
+            {
+              "description": "The status object for the account assignment deletion operation."
+            }
+          ]
+        },
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Token"
+            },
+            {
+              "description": "The pagination token for the list API. Initially the value is null. Use the output of previous API calls to make subsequent calls."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ListAccountAssignmentsRequest": {
+      "properties": {
+        "AccountId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TargetId"
+            },
+            {
+              "description": "The identifier of the AWS account from which to list the assignments."
+            }
+          ]
+        },
+        "InstanceArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InstanceArn"
+            },
+            {
+              "description": "The ARN of the SSO instance under which the operation will be executed. For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>."
+            }
+          ]
+        },
+        "MaxResults": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MaxResults"
+            },
+            {
+              "description": "The maximum number of results to display for the assignment."
+            }
+          ]
+        },
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Token"
+            },
+            {
+              "description": "The pagination token for the list API. Initially the value is null. Use the output of previous API calls to make subsequent calls."
+            }
+          ]
+        },
+        "PermissionSetArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PermissionSetArn"
+            },
+            {
+              "description": "The ARN of the permission set from which to list assignments."
+            }
+          ]
+        }
+      },
+      "required": [
+        "InstanceArn",
+        "AccountId",
+        "PermissionSetArn"
+      ],
+      "title": "ListAccountAssignmentsRequest",
+      "type": "object"
+    },
+    "ListAccountAssignmentsResponse": {
+      "properties": {
+        "AccountAssignments": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AccountAssignmentList"
+            },
+            {
+              "description": "The list of assignments that match the input AWS account and permission set."
+            }
+          ]
+        },
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Token"
+            },
+            {
+              "description": "The pagination token for the list API. Initially the value is null. Use the output of previous API calls to make subsequent calls."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ListAccountsForProvisionedPermissionSetRequest": {
+      "properties": {
+        "InstanceArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InstanceArn"
+            },
+            {
+              "description": "The ARN of the SSO instance under which the operation will be executed. For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>."
+            }
+          ]
+        },
+        "MaxResults": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MaxResults"
+            },
+            {
+              "description": "The maximum number of results to display for the <a>PermissionSet</a>."
+            }
+          ]
+        },
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Token"
+            },
+            {
+              "description": "The pagination token for the list API. Initially the value is null. Use the output of previous API calls to make subsequent calls."
+            }
+          ]
+        },
+        "PermissionSetArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PermissionSetArn"
+            },
+            {
+              "description": "The ARN of the <a>PermissionSet</a> from which the associated AWS accounts will be listed."
+            }
+          ]
+        },
+        "ProvisioningStatus": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ProvisioningStatus"
+            },
+            {
+              "description": "The permission set provisioning status for an AWS account."
+            }
+          ]
+        }
+      },
+      "required": [
+        "InstanceArn",
+        "PermissionSetArn"
+      ],
+      "title": "ListAccountsForProvisionedPermissionSetRequest",
+      "type": "object"
+    },
+    "ListAccountsForProvisionedPermissionSetResponse": {
+      "properties": {
+        "AccountIds": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AccountList"
+            },
+            {
+              "description": "The list of AWS <code>AccountIds</code>."
+            }
+          ]
+        },
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Token"
+            },
+            {
+              "description": "The pagination token for the list API. Initially the value is null. Use the output of previous API calls to make subsequent calls."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ListInstancesRequest": {
+      "properties": {
+        "MaxResults": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MaxResults"
+            },
+            {
+              "description": "The maximum number of results to display for the instance."
+            }
+          ]
+        },
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Token"
+            },
+            {
+              "description": "The pagination token for the list API. Initially the value is null. Use the output of previous API calls to make subsequent calls."
+            }
+          ]
+        }
+      },
+      "title": "ListInstancesRequest",
+      "type": "object"
+    },
+    "ListInstancesResponse": {
+      "properties": {
+        "Instances": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InstanceList"
+            },
+            {
+              "description": "Lists the SSO instances that the caller has access to."
+            }
+          ]
+        },
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Token"
+            },
+            {
+              "description": "The pagination token for the list API. Initially the value is null. Use the output of previous API calls to make subsequent calls."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ListManagedPoliciesInPermissionSetRequest": {
+      "properties": {
+        "InstanceArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InstanceArn"
+            },
+            {
+              "description": "The ARN of the SSO instance under which the operation will be executed. For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>."
+            }
+          ]
+        },
+        "MaxResults": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MaxResults"
+            },
+            {
+              "description": "The maximum number of results to display for the <a>PermissionSet</a>."
+            }
+          ]
+        },
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Token"
+            },
+            {
+              "description": "The pagination token for the list API. Initially the value is null. Use the output of previous API calls to make subsequent calls."
+            }
+          ]
+        },
+        "PermissionSetArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PermissionSetArn"
+            },
+            {
+              "description": "The ARN of the <a>PermissionSet</a> whose managed policies will be listed."
+            }
+          ]
+        }
+      },
+      "required": [
+        "InstanceArn",
+        "PermissionSetArn"
+      ],
+      "title": "ListManagedPoliciesInPermissionSetRequest",
+      "type": "object"
+    },
+    "ListManagedPoliciesInPermissionSetResponse": {
+      "properties": {
+        "AttachedManagedPolicies": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AttachedManagedPolicyList"
+            },
+            {
+              "description": "The array of the <a>AttachedManagedPolicy</a> data type object."
+            }
+          ]
+        },
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Token"
+            },
+            {
+              "description": "The pagination token for the list API. Initially the value is null. Use the output of previous API calls to make subsequent calls."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ListPermissionSetProvisioningStatusRequest": {
+      "properties": {
+        "Filter": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/OperationStatusFilter"
+            },
+            {
+              "description": "Filters results based on the passed attribute value."
+            }
+          ]
+        },
+        "InstanceArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InstanceArn"
+            },
+            {
+              "description": "The ARN of the SSO instance under which the operation will be executed. For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>."
+            }
+          ]
+        },
+        "MaxResults": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MaxResults"
+            },
+            {
+              "description": "The maximum number of results to display for the assignment."
+            }
+          ]
+        },
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Token"
+            },
+            {
+              "description": "The pagination token for the list API. Initially the value is null. Use the output of previous API calls to make subsequent calls."
+            }
+          ]
+        }
+      },
+      "required": [
+        "InstanceArn"
+      ],
+      "title": "ListPermissionSetProvisioningStatusRequest",
+      "type": "object"
+    },
+    "ListPermissionSetProvisioningStatusResponse": {
+      "properties": {
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Token"
+            },
+            {
+              "description": "The pagination token for the list API. Initially the value is null. Use the output of previous API calls to make subsequent calls."
+            }
+          ]
+        },
+        "PermissionSetsProvisioningStatus": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PermissionSetProvisioningStatusList"
+            },
+            {
+              "description": "The status object for the permission set provisioning operation."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ListPermissionSetsProvisionedToAccountRequest": {
+      "properties": {
+        "AccountId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AccountId"
+            },
+            {
+              "description": "The identifier of the AWS account from which to list the assignments."
+            }
+          ]
+        },
+        "InstanceArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InstanceArn"
+            },
+            {
+              "description": "The ARN of the SSO instance under which the operation will be executed. For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>."
+            }
+          ]
+        },
+        "MaxResults": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MaxResults"
+            },
+            {
+              "description": "The maximum number of results to display for the assignment."
+            }
+          ]
+        },
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Token"
+            },
+            {
+              "description": "The pagination token for the list API. Initially the value is null. Use the output of previous API calls to make subsequent calls."
+            }
+          ]
+        },
+        "ProvisioningStatus": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ProvisioningStatus"
+            },
+            {
+              "description": "The status object for the permission set provisioning operation."
+            }
+          ]
+        }
+      },
+      "required": [
+        "InstanceArn",
+        "AccountId"
+      ],
+      "title": "ListPermissionSetsProvisionedToAccountRequest",
+      "type": "object"
+    },
+    "ListPermissionSetsProvisionedToAccountResponse": {
+      "properties": {
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Token"
+            },
+            {
+              "description": "The pagination token for the list API. Initially the value is null. Use the output of previous API calls to make subsequent calls."
+            }
+          ]
+        },
+        "PermissionSets": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PermissionSetList"
+            },
+            {
+              "description": "Defines the level of access that an AWS account has."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ListPermissionSetsRequest": {
+      "properties": {
+        "InstanceArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InstanceArn"
+            },
+            {
+              "description": "The ARN of the SSO instance under which the operation will be executed. For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>."
+            }
+          ]
+        },
+        "MaxResults": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MaxResults"
+            },
+            {
+              "description": "The maximum number of results to display for the assignment."
+            }
+          ]
+        },
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Token"
+            },
+            {
+              "description": "The pagination token for the list API. Initially the value is null. Use the output of previous API calls to make subsequent calls."
+            }
+          ]
+        }
+      },
+      "required": [
+        "InstanceArn"
+      ],
+      "title": "ListPermissionSetsRequest",
+      "type": "object"
+    },
+    "ListPermissionSetsResponse": {
+      "properties": {
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Token"
+            },
+            {
+              "description": "The pagination token for the list API. Initially the value is null. Use the output of previous API calls to make subsequent calls."
+            }
+          ]
+        },
+        "PermissionSets": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PermissionSetList"
+            },
+            {
+              "description": "Defines the level of access on an AWS account."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ListTagsForResourceRequest": {
+      "properties": {
+        "InstanceArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InstanceArn"
+            },
+            {
+              "description": "The ARN of the SSO instance under which the operation will be executed. For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>."
+            }
+          ]
+        },
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Token"
+            },
+            {
+              "description": "The pagination token for the list API. Initially the value is null. Use the output of previous API calls to make subsequent calls."
+            }
+          ]
+        },
+        "ResourceArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/GeneralArn"
+            },
+            {
+              "description": "The ARN of the resource with the tags to be listed."
+            }
+          ]
+        }
+      },
+      "required": [
+        "InstanceArn",
+        "ResourceArn"
+      ],
+      "title": "ListTagsForResourceRequest",
+      "type": "object"
+    },
+    "ListTagsForResourceResponse": {
+      "properties": {
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Token"
+            },
+            {
+              "description": "The pagination token for the list API. Initially the value is null. Use the output of previous API calls to make subsequent calls."
+            }
+          ]
+        },
+        "Tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagList"
+            },
+            {
+              "description": "A set of key-value pairs that are used to manage the resource."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ManagedPolicyArn": {
+      "maxLength": 2048,
+      "minLength": 20,
+      "type": "string"
+    },
+    "MaxResults": {
+      "maximum": 100,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "Name": {
+      "maxLength": 100,
+      "minLength": 1,
+      "type": "string"
+    },
+    "OperationStatusFilter": {
+      "description": "Filters he operation status list based on the passed attribute value.",
+      "properties": {
+        "Status": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/StatusValues"
+            },
+            {
+              "description": "Filters the list operations result based on the status attribute."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "PermissionSet": {
+      "description": "An entity that contains IAM policies.",
+      "properties": {
+        "CreatedDate": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Date"
+            },
+            {
+              "description": "The date that the permission set was created."
+            }
+          ]
+        },
+        "Description": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PermissionSetDescription"
+            },
+            {
+              "description": "The description of the <a>PermissionSet</a>."
+            }
+          ]
+        },
+        "Name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PermissionSetName"
+            },
+            {
+              "description": "The name of the permission set."
+            }
+          ]
+        },
+        "PermissionSetArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PermissionSetArn"
+            },
+            {
+              "description": "The ARN of the permission set. For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>."
+            }
+          ]
+        },
+        "RelayState": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RelayState"
+            },
+            {
+              "description": "Used to redirect users within the application during the federation authentication process."
+            }
+          ]
+        },
+        "SessionDuration": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Duration"
+            },
+            {
+              "description": "The length of time that the application user sessions are valid for in the ISO-8601 standard."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "PermissionSetArn": {
+      "maxLength": 1224,
+      "minLength": 10,
+      "pattern": "arn:aws:sso:::permissionSet/(sso)?ins-[a-zA-Z0-9-.]{16}/ps-[a-zA-Z0-9-./]{16}",
+      "type": "string"
+    },
+    "PermissionSetDescription": {
+      "maxLength": 700,
+      "minLength": 1,
+      "pattern": "[\\p{L}\\p{M}\\p{Z}\\p{S}\\p{N}\\p{P}]*",
+      "type": "string"
+    },
+    "PermissionSetList": {
+      "items": {
+        "$ref": "#/definitions/PermissionSetArn"
+      },
+      "type": "array"
+    },
+    "PermissionSetName": {
+      "maxLength": 32,
+      "minLength": 1,
+      "pattern": "[\\w+=,.@-]+",
+      "type": "string"
+    },
+    "PermissionSetPolicyDocument": {
+      "format": "password",
+      "maxLength": 10240,
+      "minLength": 1,
+      "pattern": "[\\u0009\\u000A\\u000D\\u0020-\\u00FF]+",
+      "type": "string"
+    },
+    "PermissionSetProvisioningStatus": {
+      "description": "A structure that is used to provide the status of the provisioning operation for a specified permission set.",
+      "properties": {
+        "AccountId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AccountId"
+            },
+            {
+              "description": "The identifier of the AWS account from which to list the assignments."
+            }
+          ]
+        },
+        "CreatedDate": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Date"
+            },
+            {
+              "description": "The date that the permission set was created."
+            }
+          ]
+        },
+        "FailureReason": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Reason"
+            },
+            {
+              "description": "The message that contains an error or exception in case of an operation failure."
+            }
+          ]
+        },
+        "PermissionSetArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PermissionSetArn"
+            },
+            {
+              "description": "The ARN of the permission set that is being provisioned. For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>."
+            }
+          ]
+        },
+        "RequestId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/UUId"
+            },
+            {
+              "description": "The identifier for tracking the request operation that is generated by the universally unique identifier (UUID) workflow."
+            }
+          ]
+        },
+        "Status": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/StatusValues"
+            },
+            {
+              "description": "The status of the permission set provisioning process."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "PermissionSetProvisioningStatusList": {
+      "items": {
+        "$ref": "#/definitions/PermissionSetProvisioningStatusMetadata"
+      },
+      "type": "array"
+    },
+    "PermissionSetProvisioningStatusMetadata": {
+      "description": "Provides information about the permission set provisioning status.",
+      "properties": {
+        "CreatedDate": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Date"
+            },
+            {
+              "description": "The date that the permission set was created."
+            }
+          ]
+        },
+        "RequestId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/UUId"
+            },
+            {
+              "description": "The identifier for tracking the request operation that is generated by the universally unique identifier (UUID) workflow."
+            }
+          ]
+        },
+        "Status": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/StatusValues"
+            },
+            {
+              "description": "The status of the permission set provisioning process."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "PrincipalId": {
+      "maxLength": 47,
+      "minLength": 1,
+      "pattern": "^([0-9a-f]{10}-|)[A-Fa-f0-9]{8}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{12}$",
+      "type": "string"
+    },
+    "PrincipalType": {
+      "enum": [
+        "USER",
+        "GROUP"
+      ],
+      "type": "string"
+    },
+    "ProvisionPermissionSetRequest": {
+      "properties": {
+        "InstanceArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InstanceArn"
+            },
+            {
+              "description": "The ARN of the SSO instance under which the operation will be executed. For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>."
+            }
+          ]
+        },
+        "PermissionSetArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PermissionSetArn"
+            },
+            {
+              "description": "The ARN of the permission set."
+            }
+          ]
+        },
+        "TargetId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TargetId"
+            },
+            {
+              "description": "TargetID is an AWS account identifier, typically a 10-12 digit string (For example, 123456789012)."
+            }
+          ]
+        },
+        "TargetType": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ProvisionTargetType"
+            },
+            {
+              "description": "The entity type for which the assignment will be created."
+            }
+          ]
+        }
+      },
+      "required": [
+        "InstanceArn",
+        "PermissionSetArn",
+        "TargetType"
+      ],
+      "title": "ProvisionPermissionSetRequest",
+      "type": "object"
+    },
+    "ProvisionPermissionSetResponse": {
+      "properties": {
+        "PermissionSetProvisioningStatus": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PermissionSetProvisioningStatus"
+            },
+            {
+              "description": "The status object for the permission set provisioning operation."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ProvisionTargetType": {
+      "enum": [
+        "AWS_ACCOUNT",
+        "ALL_PROVISIONED_ACCOUNTS"
+      ],
+      "type": "string"
+    },
+    "ProvisioningStatus": {
+      "enum": [
+        "LATEST_PERMISSION_SET_PROVISIONED",
+        "LATEST_PERMISSION_SET_NOT_PROVISIONED"
+      ],
+      "type": "string"
+    },
+    "PutInlinePolicyToPermissionSetRequest": {
+      "properties": {
+        "InlinePolicy": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PermissionSetPolicyDocument"
+            },
+            {
+              "description": "The IAM inline policy to attach to a <a>PermissionSet</a>."
+            }
+          ]
+        },
+        "InstanceArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InstanceArn"
+            },
+            {
+              "description": "The ARN of the SSO instance under which the operation will be executed. For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>."
+            }
+          ]
+        },
+        "PermissionSetArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PermissionSetArn"
+            },
+            {
+              "description": "The ARN of the permission set."
+            }
+          ]
+        }
+      },
+      "required": [
+        "InstanceArn",
+        "PermissionSetArn",
+        "InlinePolicy"
+      ],
+      "title": "PutInlinePolicyToPermissionSetRequest",
+      "type": "object"
+    },
+    "PutInlinePolicyToPermissionSetResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "Reason": {
+      "pattern": "[\\p{L}\\p{M}\\p{Z}\\p{S}\\p{N}\\p{P}]*",
+      "type": "string"
+    },
+    "RelayState": {
+      "maxLength": 240,
+      "minLength": 1,
+      "pattern": "[a-zA-Z0-9&$@#\\\\\\/%?=~\\-_'\"|!:,.;*+\\[\\]\\ \\(\\)\\{\\}]+",
+      "type": "string"
+    },
+    "ResourceNotFoundException": {},
+    "ServiceQuotaExceededException": {},
+    "StatusValues": {
+      "enum": [
+        "IN_PROGRESS",
+        "FAILED",
+        "SUCCEEDED"
+      ],
+      "type": "string"
+    },
+    "Tag": {
+      "description": "A set of key-value pairs that are used to manage the resource. Tags can only be applied to permission sets and cannot be applied to corresponding roles that AWS SSO creates in AWS accounts.",
+      "properties": {
+        "Key": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagKey"
+            },
+            {
+              "description": "The key for the tag."
+            }
+          ]
+        },
+        "Value": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagValue"
+            },
+            {
+              "description": "The value of the tag."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "TagKey": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
+      "type": "string"
+    },
+    "TagKeyList": {
+      "items": {
+        "$ref": "#/definitions/TagKey"
+      },
+      "maxItems": 50,
+      "minItems": 1,
+      "type": "array"
+    },
+    "TagList": {
+      "items": {
+        "$ref": "#/definitions/Tag"
+      },
+      "maxItems": 50,
+      "minItems": 0,
+      "type": "array"
+    },
+    "TagResourceRequest": {
+      "properties": {
+        "InstanceArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InstanceArn"
+            },
+            {
+              "description": "The ARN of the SSO instance under which the operation will be executed. For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>."
+            }
+          ]
+        },
+        "ResourceArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/GeneralArn"
+            },
+            {
+              "description": "The ARN of the resource with the tags to be listed."
+            }
+          ]
+        },
+        "Tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagList"
+            },
+            {
+              "description": "A set of key-value pairs that are used to manage the resource."
+            }
+          ]
+        }
+      },
+      "required": [
+        "InstanceArn",
+        "ResourceArn",
+        "Tags"
+      ],
+      "title": "TagResourceRequest",
+      "type": "object"
+    },
+    "TagResourceResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "TagValue": {
+      "maxLength": 256,
+      "minLength": 0,
+      "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
+      "type": "string"
+    },
+    "TargetId": {
+      "pattern": "\\d{12}",
+      "type": "string"
+    },
+    "TargetType": {
+      "enum": [
+        "AWS_ACCOUNT"
+      ],
+      "type": "string"
+    },
+    "ThrottlingException": {},
+    "Token": {
+      "maxLength": 2048,
+      "pattern": "^[-a-zA-Z0-9+=/]*",
+      "type": "string"
+    },
+    "UUId": {
+      "pattern": "\\b[0-9a-f]{8}\\b-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-\\b[0-9a-f]{12}\\b",
+      "type": "string"
+    },
+    "UntagResourceRequest": {
+      "properties": {
+        "InstanceArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InstanceArn"
+            },
+            {
+              "description": "The ARN of the SSO instance under which the operation will be executed. For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>."
+            }
+          ]
+        },
+        "ResourceArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/GeneralArn"
+            },
+            {
+              "description": "The ARN of the resource with the tags to be listed."
+            }
+          ]
+        },
+        "TagKeys": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagKeyList"
+            },
+            {
+              "description": "The keys of tags that are attached to the resource."
+            }
+          ]
+        }
+      },
+      "required": [
+        "InstanceArn",
+        "ResourceArn",
+        "TagKeys"
+      ],
+      "title": "UntagResourceRequest",
+      "type": "object"
+    },
+    "UntagResourceResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "UpdateInstanceAccessControlAttributeConfigurationRequest": {
+      "properties": {
+        "InstanceAccessControlAttributeConfiguration": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InstanceAccessControlAttributeConfiguration"
+            },
+            {
+              "description": "Updates the attributes for your ABAC configuration."
+            }
+          ]
+        },
+        "InstanceArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InstanceArn"
+            },
+            {
+              "description": "The ARN of the SSO instance under which the operation will be executed."
+            }
+          ]
+        }
+      },
+      "required": [
+        "InstanceArn",
+        "InstanceAccessControlAttributeConfiguration"
+      ],
+      "title": "UpdateInstanceAccessControlAttributeConfigurationRequest",
+      "type": "object"
+    },
+    "UpdateInstanceAccessControlAttributeConfigurationResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "UpdatePermissionSetRequest": {
+      "properties": {
+        "Description": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PermissionSetDescription"
+            },
+            {
+              "description": "The description of the <a>PermissionSet</a>."
+            }
+          ]
+        },
+        "InstanceArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InstanceArn"
+            },
+            {
+              "description": "The ARN of the SSO instance under which the operation will be executed. For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>."
+            }
+          ]
+        },
+        "PermissionSetArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PermissionSetArn"
+            },
+            {
+              "description": "The ARN of the permission set."
+            }
+          ]
+        },
+        "RelayState": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RelayState"
+            },
+            {
+              "description": "Used to redirect users within the application during the federation authentication process."
+            }
+          ]
+        },
+        "SessionDuration": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Duration"
+            },
+            {
+              "description": "The length of time that the application user sessions are valid for in the ISO-8601 standard."
+            }
+          ]
+        }
+      },
+      "required": [
+        "InstanceArn",
+        "PermissionSetArn"
+      ],
+      "title": "UpdatePermissionSetRequest",
+      "type": "object"
+    },
+    "UpdatePermissionSetResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "ValidationException": {}
+  },
+  "securityDefinitions": {
+    "hmac": {
+      "description": "Amazon Signature authorization v4",
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey",
+      "x-amazon-apigateway-authtype": "awsSigv4"
+    }
+  },
+  "security": [
+    {
+      "hmac": []
+    }
+  ],
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://docs.aws.amazon.com/sso/"
+  },
+  "x-components": {
+    "parameters": {
+      "X-Amz-Algorithm": {
+        "in": "header",
+        "name": "X-Amz-Algorithm",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Content-Sha256": {
+        "in": "header",
+        "name": "X-Amz-Content-Sha256",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Credential": {
+        "in": "header",
+        "name": "X-Amz-Credential",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Date": {
+        "in": "header",
+        "name": "X-Amz-Date",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Security-Token": {
+        "in": "header",
+        "name": "X-Amz-Security-Token",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Signature": {
+        "in": "header",
+        "name": "X-Amz-Signature",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-SignedHeaders": {
+        "in": "header",
+        "name": "X-Amz-SignedHeaders",
+        "required": false,
+        "type": "string"
+      }
+    }
+  },
+  "x-hasEquivalentPaths": true
+}

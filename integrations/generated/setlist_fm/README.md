@@ -1,6 +1,6 @@
 # @datafire/setlist_fm
 
-Client library for setlist.fm
+Client library for setlist.fm API
 
 ## Installation and Usage
 ```bash
@@ -9,7 +9,7 @@ npm install --save @datafire/setlist_fm
 ```js
 let setlist_fm = require('@datafire/setlist_fm').create();
 
-setlist_fm.resource__1.0_search_venues_getVenues_GET({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

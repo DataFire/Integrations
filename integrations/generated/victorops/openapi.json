@@ -11,12 +11,12 @@
     },
     "description": "This API allows you to interact with the VictorOps platform in various ways. Your account may be limited\nto a total number of API calls per month. Also, some of these API calls have rate limits.\n\nNOTE: In this documentation when creating a sample curl request (clicking the TRY IT OUT! button), in some API\nviewing interfaces, the '@' in an email address may be encoded. Please note that the REST endpoints will not\nprocess the encoded version. Make sure that the encoded character '%40' is changed to its unencoded form before\nsubmitting the curl request.\n",
     "title": "VictorOps",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "x-apisguru-categories": [
       "developer_tools"
     ],
     "x-logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_VictorOps_profile_image.jpeg"
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_VictorOps_profile_image.png"
     },
     "x-origin": [
       {
@@ -36,6 +36,34 @@
     "application/json"
   ],
   "parameters": {
+    "StartMaintenanceModePayload": {
+      "description": "the definition of the maintenance mode you want to start",
+      "in": "body",
+      "name": "body",
+      "required": true,
+      "schema": {
+        "properties": {
+          "names": {
+            "description": "Routing keys that maintenance mode state covers. An empty list indicates global maintenance mode",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "purpose": {
+            "description": "the reason for the maintenance mode",
+            "type": "string"
+          },
+          "type": {
+            "enum": [
+              "RoutingKeys"
+            ],
+            "type": "string"
+          }
+        },
+        "type": "object"
+      }
+    },
     "ackResolveByUserPayload": {
       "description": "Ack/Resolve payload",
       "in": "body",
@@ -212,6 +240,13 @@
       "required": false,
       "type": "number"
     },
+    "maintenanceModeId": {
+      "description": "The id of the maintenance mode found in the active maintenance mode object",
+      "in": "path",
+      "name": "maintenancemodeid",
+      "required": true,
+      "type": "string"
+    },
     "offset": {
       "default": 0,
       "description": "The offset within the set of matching incidents",
@@ -259,6 +294,22 @@
         "$ref": "#/definitions/RerouteCollection"
       }
     },
+    "scheduledOverridePost": {
+      "in": "body",
+      "name": "body",
+      "required": true,
+      "schema": {
+        "$ref": "#/definitions/ScheduledOverridePayload"
+      }
+    },
+    "scheduledOverridePut": {
+      "in": "body",
+      "name": "body",
+      "required": true,
+      "schema": {
+        "$ref": "#/definitions/ScheduledOverridePayloadUpdate"
+      }
+    },
     "step": {
       "default": 0,
       "description": "Step of escalation policy (3 max)",
@@ -276,6 +327,15 @@
       "required": true,
       "schema": {
         "$ref": "#/definitions/TakeRequest"
+      }
+    },
+    "updateAssignmentPut": {
+      "description": "The policy and username we are assigning",
+      "in": "body",
+      "name": "body",
+      "required": true,
+      "schema": {
+        "$ref": "#/definitions/UpdateAssignment"
       }
     },
     "username": {
@@ -345,12 +405,15 @@
     },
     {
       "name": "Routing Keys"
+    },
+    {
+      "name": "Scheduled Overrides"
     }
   ],
   "paths": {
     "/api-public/v1/alerts/{uuid}": {
       "get": {
-        "description": "Retrieve the details of an alert that was sent VictorOps by you.\n\nThis API may be called a maximum of 6 times per minute.\n",
+        "description": "Retrieve the details of an alert that was sent VictorOps by you.\n\nThis API may be called a maximum of 60 times per minute.\n",
         "parameters": [
           {
             "$ref": "#/parameters/apiId"
@@ -398,7 +461,7 @@
     },
     "/api-public/v1/incidents": {
       "get": {
-        "description": "Get a list of the currently open, acknowledged and recently resolved incidents.\nThis API may be called a maximum of 6 times per minute.\n",
+        "description": "Get a list of the currently open, acknowledged and recently resolved incidents.\n\nThis API may be called a maximum of 60 times per minute.\n",
         "parameters": [
           {
             "$ref": "#/parameters/apiId"
@@ -437,7 +500,7 @@
         "operationId": "api_public.v1.incidents.get"
       },
       "post": {
-        "description": "Create a new incident.\n\nThis call replicates the function of our\n<a href=\"https://help.victorops.com/knowledge-base/manual-incident-creation/\">manual incident creation process</a>.\nMonitoring tools and custom integrations\nshould be configured using our\n<a href=\"https://help.victorops.com/knowledge-base/victorops-restendpoint-integration/\">REST Endpoint</a>.\n\nThis API may be called a maximum of 6 times per minute.\n",
+        "description": "Create a new incident.\n\nThis call replicates the function of our\n<a href=\"https://help.victorops.com/knowledge-base/manual-incident-creation/\">manual incident creation process</a>.\nMonitoring tools and custom integrations\nshould be configured using our\n<a href=\"https://help.victorops.com/knowledge-base/victorops-restendpoint-integration/\">REST Endpoint</a>.\n\nThis API may be called a maximum of 60 times per minute.\n",
         "parameters": [
           {
             "$ref": "#/parameters/apiId"
@@ -481,7 +544,7 @@
     },
     "/api-public/v1/incidents/ack": {
       "patch": {
-        "description": "The incident(s) must be currently open.  The user supplied must be a valid VictorOps user and a member of your organization.\n\nThis API may be called a maximum of 6 times per minute.\n",
+        "description": "The incident(s) must be currently open.  The user supplied must be a valid VictorOps user and a member of your organization.\n\nThis API may be called a maximum of 60 times per minute.\n",
         "parameters": [
           {
             "$ref": "#/parameters/apiId"
@@ -525,7 +588,7 @@
     },
     "/api-public/v1/incidents/byUser/ack": {
       "patch": {
-        "description": "The incident(s) must be currently open.  The user supplied must be a valid VictorOps user and a member of your organization.\n\nThis API may be called a maximum of 6 times per minute.\n",
+        "description": "The incident(s) must be currently open.  The user supplied must be a valid VictorOps user and a member of your organization.\n\nThis API may be called a maximum of 60 times per minute.\n",
         "parameters": [
           {
             "$ref": "#/parameters/apiId"
@@ -569,7 +632,7 @@
     },
     "/api-public/v1/incidents/byUser/resolve": {
       "patch": {
-        "description": "The incident(s) must be currently open.  The user supplied must be a valid VictorOps user and a member of your organization.\n\nThis API may be called a maximum of 6 times per minute.\n",
+        "description": "The incident(s) must be currently open.  The user supplied must be a valid VictorOps user and a member of your organization.\n\nThis API may be called a maximum of 60 times per minute.\n",
         "parameters": [
           {
             "$ref": "#/parameters/apiId"
@@ -613,7 +676,7 @@
     },
     "/api-public/v1/incidents/reroute": {
       "post": {
-        "description": "Reroute one or more incidents to one or more users and/or escalation policies\n",
+        "description": "Reroute one or more incidents to one or more users and/or escalation policies\n\nThis API may be called a maximum of 60 times per minute.\n",
         "parameters": [
           {
             "$ref": "#/parameters/apiId"
@@ -642,7 +705,7 @@
     },
     "/api-public/v1/incidents/resolve": {
       "patch": {
-        "description": "The incident(s) must be currently open.  The user supplied must be a valid VictorOps user and a member of your organization.\n\nThis API may be called a maximum of 6 times per minute.\n",
+        "description": "The incident(s) must be currently open.  The user supplied must be a valid VictorOps user and a member of your organization.\n\nThis API may be called a maximum of 60 times per minute.\n",
         "parameters": [
           {
             "$ref": "#/parameters/apiId"
@@ -684,9 +747,114 @@
         "operationId": "api_public.v1.incidents.resolve.patch"
       }
     },
+    "/api-public/v1/maintenancemode": {
+      "get": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/apiId"
+          },
+          {
+            "$ref": "#/parameters/apiKey"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "maintenance mode state",
+            "schema": {
+              "$ref": "#/definitions/MaintenanceModeState"
+            }
+          },
+          "403": {
+            "$ref": "#/responses/403"
+          },
+          "500": {
+            "$ref": "#/responses/500"
+          }
+        },
+        "summary": "Get an organization's current maintenance mode state",
+        "tags": [
+          "Maintenance Mode"
+        ],
+        "operationId": "api_public.v1.maintenancemode.get"
+      }
+    },
+    "/api-public/v1/maintenancemode/start": {
+      "post": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/apiId"
+          },
+          {
+            "$ref": "#/parameters/apiKey"
+          },
+          {
+            "$ref": "#/parameters/StartMaintenanceModePayload"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "maintenance mode state",
+            "schema": {
+              "$ref": "#/definitions/MaintenanceModeState"
+            }
+          },
+          "403": {
+            "$ref": "#/responses/403"
+          },
+          "409": {
+            "description": "You have an active global maintanance mode and are attempting to start a second. You may only have a single Global maintenance mode at a time"
+          },
+          "420": {
+            "description": "You have reached the limit of allowed active maintenance modes"
+          },
+          "500": {
+            "$ref": "#/responses/500"
+          }
+        },
+        "summary": "Start maintenance mode for routing keys",
+        "tags": [
+          "Maintenance Mode"
+        ],
+        "operationId": "api_public.v1.maintenancemode.start.post"
+      }
+    },
+    "/api-public/v1/maintenancemode/{maintenancemodeid}/end": {
+      "put": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/apiId"
+          },
+          {
+            "$ref": "#/parameters/apiKey"
+          },
+          {
+            "$ref": "#/parameters/maintenanceModeId"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "maintenance mode state",
+            "schema": {
+              "$ref": "#/definitions/MaintenanceModeState"
+            }
+          },
+          "403": {
+            "$ref": "#/responses/403"
+          },
+          "500": {
+            "$ref": "#/responses/500"
+          }
+        },
+        "summary": "End maintenance mode for routing keys",
+        "tags": [
+          "Maintenance Mode"
+        ],
+        "operationId": "api_public.v1.maintenancemode.maintenancemodeid.end.put"
+      }
+    },
     "/api-public/v1/oncall/current": {
       "get": {
-        "description": "Get all on-call uesrs/teams for your organization.\n\nThis API may be called a maximum of 1 times per minute.\n",
+        "description": "Get all on-call users/teams for your organization.\n\nThis API may be called a maximum of 60 times per minute.\n",
         "parameters": [
           {
             "$ref": "#/parameters/apiId"
@@ -732,7 +900,7 @@
     },
     "/api-public/v1/org/routing-keys": {
       "get": {
-        "description": "Retrieves a list of routing keys and associated teams.\nThis API may be called a maximum of once a minute.",
+        "description": "Retrieves a list of routing keys and associated teams.\nThis API may be called a maximum of 60 times per minute.",
         "parameters": [
           {
             "$ref": "#/parameters/apiId"
@@ -771,9 +939,449 @@
         "operationId": "api_public.v1.org.routing_keys.get"
       }
     },
+    "/api-public/v1/overrides": {
+      "get": {
+        "description": "List all the scheduled overrides on the organization\n\nThis API may be called a maximum of 60 times per minute.\n",
+        "parameters": [
+          {
+            "$ref": "#/parameters/apiId"
+          },
+          {
+            "$ref": "#/parameters/apiKey"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of scheduled overrides for your organization",
+            "schema": {
+              "properties": {
+                "_selfUrl": {
+                  "type": "string"
+                },
+                "overrides": {
+                  "items": {
+                    "$ref": "#/definitions/ScheduledOverride"
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "400": {
+            "$ref": "#/responses/400"
+          },
+          "401": {
+            "$ref": "#/responses/401"
+          },
+          "403": {
+            "$ref": "#/responses/403"
+          },
+          "404": {
+            "$ref": "#/responses/404"
+          },
+          "422": {
+            "description": "You have reached your user limit.\n"
+          },
+          "500": {
+            "$ref": "#/responses/500"
+          }
+        },
+        "summary": "List the scheduled overrides",
+        "tags": [
+          "Scheduled Overrides"
+        ],
+        "operationId": "api_public.v1.overrides.get"
+      },
+      "post": {
+        "description": "Creates a new scheduled override. Start and end dates are in ISO8601 format. E.g. `2018-09-28'T'05:00:00Z`\n\nThis API may be called a maximum of 60 times per minute.\n",
+        "parameters": [
+          {
+            "$ref": "#/parameters/apiId"
+          },
+          {
+            "$ref": "#/parameters/apiKey"
+          },
+          {
+            "$ref": "#/parameters/scheduledOverridePost"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The created scheduled override",
+            "schema": {
+              "properties": {
+                "_selfUrl": {
+                  "type": "string"
+                },
+                "schedule": {
+                  "$ref": "#/definitions/ScheduledOverride"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "400": {
+            "$ref": "#/responses/400"
+          },
+          "401": {
+            "$ref": "#/responses/401"
+          },
+          "403": {
+            "$ref": "#/responses/403"
+          },
+          "404": {
+            "$ref": "#/responses/404"
+          },
+          "422": {
+            "description": "You have reached your user limit.\n"
+          },
+          "500": {
+            "$ref": "#/responses/500"
+          }
+        },
+        "summary": "Creates a new scheduled override",
+        "tags": [
+          "Scheduled Overrides"
+        ],
+        "operationId": "api_public.v1.overrides.post"
+      }
+    },
+    "/api-public/v1/overrides/{publicId}": {
+      "delete": {
+        "description": "Deletes a scheduled override\n\nThis API may be called a maximum of 60 times per minute.\n",
+        "parameters": [
+          {
+            "$ref": "#/parameters/apiId"
+          },
+          {
+            "$ref": "#/parameters/apiKey"
+          },
+          {
+            "description": "The publicId of the scheduled override",
+            "in": "path",
+            "name": "publicId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Whether or not the delete was successful"
+          },
+          "400": {
+            "$ref": "#/responses/400"
+          },
+          "401": {
+            "$ref": "#/responses/401"
+          },
+          "403": {
+            "$ref": "#/responses/403"
+          },
+          "404": {
+            "$ref": "#/responses/404"
+          },
+          "422": {
+            "description": "You have reached your user limit.\n"
+          },
+          "500": {
+            "$ref": "#/responses/500"
+          }
+        },
+        "summary": "Deletes a scheduled override",
+        "tags": [
+          "Scheduled Overrides"
+        ],
+        "operationId": "api_public.v1.overrides.publicId.delete"
+      },
+      "get": {
+        "description": "Get the specified scheduled override\n\nThis API may be called a maximum of 60 times per minute.\n",
+        "parameters": [
+          {
+            "$ref": "#/parameters/apiId"
+          },
+          {
+            "$ref": "#/parameters/apiKey"
+          },
+          {
+            "description": "The publicId of the scheduled override",
+            "in": "path",
+            "name": "publicId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The scheduled override",
+            "schema": {
+              "properties": {
+                "_selfUrl": {
+                  "type": "string"
+                },
+                "override": {
+                  "$ref": "#/definitions/ScheduledOverride"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "400": {
+            "$ref": "#/responses/400"
+          },
+          "401": {
+            "$ref": "#/responses/401"
+          },
+          "403": {
+            "$ref": "#/responses/403"
+          },
+          "404": {
+            "$ref": "#/responses/404"
+          },
+          "422": {
+            "description": "You have reached your user limit.\n"
+          },
+          "500": {
+            "$ref": "#/responses/500"
+          }
+        },
+        "summary": "Get the specified scheduled override",
+        "tags": [
+          "Scheduled Overrides"
+        ],
+        "operationId": "api_public.v1.overrides.publicId.get"
+      }
+    },
+    "/api-public/v1/overrides/{publicId}/assignments": {
+      "get": {
+        "description": "Get the specified scheduled override assignments\n\nThis API may be called a maximum of 60 times per minute.\n",
+        "parameters": [
+          {
+            "$ref": "#/parameters/apiId"
+          },
+          {
+            "$ref": "#/parameters/apiKey"
+          },
+          {
+            "description": "The publicId of the scheduled override",
+            "in": "path",
+            "name": "publicId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The assignments for a given scheduled override",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/Assignment"
+              },
+              "type": "array"
+            }
+          },
+          "400": {
+            "$ref": "#/responses/400"
+          },
+          "401": {
+            "$ref": "#/responses/401"
+          },
+          "403": {
+            "$ref": "#/responses/403"
+          },
+          "404": {
+            "$ref": "#/responses/404"
+          },
+          "422": {
+            "description": "You have reached your user limit.\n"
+          },
+          "500": {
+            "$ref": "#/responses/500"
+          }
+        },
+        "summary": "Get the specified scheduled override",
+        "tags": [
+          "Scheduled Overrides"
+        ],
+        "operationId": "api_public.v1.overrides.publicId.assignments.get"
+      }
+    },
+    "/api-public/v1/overrides/{publicId}/assignments/{policySlug}": {
+      "delete": {
+        "description": "Delete the scheduled override assignment\n\nThis API may be called a maximum of 60 times per minute.\n",
+        "parameters": [
+          {
+            "$ref": "#/parameters/apiId"
+          },
+          {
+            "$ref": "#/parameters/apiKey"
+          },
+          {
+            "description": "The publicId of the scheduled override",
+            "in": "path",
+            "name": "publicId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The policySlug of the assignment",
+            "in": "path",
+            "name": "policySlug",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The assignment that was deleted for the given scheduled override and policySlug",
+            "schema": {
+              "$ref": "#/definitions/Assignment"
+            }
+          },
+          "400": {
+            "$ref": "#/responses/400"
+          },
+          "401": {
+            "$ref": "#/responses/401"
+          },
+          "403": {
+            "$ref": "#/responses/403"
+          },
+          "404": {
+            "$ref": "#/responses/404"
+          },
+          "422": {
+            "description": "You have reached your user limit.\n"
+          },
+          "500": {
+            "$ref": "#/responses/500"
+          }
+        },
+        "summary": "Delete the scheduled override assignment",
+        "tags": [
+          "Scheduled Overrides"
+        ],
+        "operationId": "api_public.v1.overrides.publicId.assignments.policySlug.delete"
+      },
+      "get": {
+        "description": "Get the specified scheduled override assignments\n\nThis API may be called a maximum of 60 times per minute.\n",
+        "parameters": [
+          {
+            "$ref": "#/parameters/apiId"
+          },
+          {
+            "$ref": "#/parameters/apiKey"
+          },
+          {
+            "description": "The publicId of the scheduled override",
+            "in": "path",
+            "name": "publicId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The policySlug of the assignment",
+            "in": "path",
+            "name": "policySlug",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The assignment for the given publicId",
+            "schema": {
+              "$ref": "#/definitions/Assignment"
+            }
+          },
+          "400": {
+            "$ref": "#/responses/400"
+          },
+          "401": {
+            "$ref": "#/responses/401"
+          },
+          "403": {
+            "$ref": "#/responses/403"
+          },
+          "404": {
+            "$ref": "#/responses/404"
+          },
+          "422": {
+            "description": "You have reached your user limit.\n"
+          },
+          "500": {
+            "$ref": "#/responses/500"
+          }
+        },
+        "summary": "Get the specified scheduled override assignment",
+        "tags": [
+          "Scheduled Overrides"
+        ],
+        "operationId": "api_public.v1.overrides.publicId.assignments.policySlug.get"
+      },
+      "put": {
+        "description": "Update the scheduled override assignment\n\nThis API may be called a maximum of 60 times per minute.\n",
+        "parameters": [
+          {
+            "$ref": "#/parameters/apiId"
+          },
+          {
+            "$ref": "#/parameters/apiKey"
+          },
+          {
+            "description": "The publicId of the scheduled override",
+            "in": "path",
+            "name": "publicId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The policySlug of the assignment",
+            "in": "path",
+            "name": "policySlug",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "$ref": "#/parameters/updateAssignmentPut"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The assignment for the given policySlug",
+            "schema": {
+              "$ref": "#/definitions/Assignment"
+            }
+          },
+          "400": {
+            "$ref": "#/responses/400"
+          },
+          "401": {
+            "$ref": "#/responses/401"
+          },
+          "403": {
+            "$ref": "#/responses/403"
+          },
+          "404": {
+            "$ref": "#/responses/404"
+          },
+          "422": {
+            "description": "You have reached your user limit.\n"
+          },
+          "500": {
+            "$ref": "#/responses/500"
+          }
+        },
+        "summary": "Update the scheduled override assignment",
+        "tags": [
+          "Scheduled Overrides"
+        ],
+        "operationId": "api_public.v1.overrides.publicId.assignments.policySlug.put"
+      }
+    },
     "/api-public/v1/policies": {
       "get": {
-        "description": "Retrieves a list of escalation policy information.\nThis API may be called a maximum of once a minute",
+        "description": "Retrieves a list of escalation policy information.\nThis API may be called a maximum of once a minute.",
         "parameters": [
           {
             "$ref": "#/parameters/apiId"
@@ -814,7 +1422,7 @@
     },
     "/api-public/v1/policies/types/contacts": {
       "get": {
-        "description": "Get the available contact types\n\ndescription: \"Email Address\", type: \"email\"\ndescription: \"Phone Number\", type: \"phone\"\n\nThis API may be called a maximum of 15 times per minute.\n",
+        "description": "Get the available contact types\n\ndescription: \"Email Address\", type: \"email\"\ndescription: \"Phone Number\", type: \"phone\"\n\nThis API may be called a maximum of 60 times per minute.\n",
         "parameters": [
           {
             "$ref": "#/parameters/apiId"
@@ -863,7 +1471,7 @@
     },
     "/api-public/v1/policies/types/notifications": {
       "get": {
-        "description": "Get the available notification types\n\ndescription: \"Send a push notification to all my devices\", type: \"push\"\ndescription: \"Send an email to an email address\", type: \"email\"\ndescription: \"Send an SMS to a phone number\", type: \"sms\"\ndescription: \"Make a phone call to a phone number\", type: \"phone\"\n\nThis API may be called a maximum of 15 times per minute.\n",
+        "description": "Get the available notification types\n\ndescription: \"Send a push notification to all my devices\", type: \"push\"\ndescription: \"Send an email to an email address\", type: \"email\"\ndescription: \"Send an SMS to a phone number\", type: \"sms\"\ndescription: \"Make a phone call to a phone number\", type: \"phone\"\n\nThis API may be called a maximum of 60 times per minute.\n",
         "parameters": [
           {
             "$ref": "#/parameters/apiId"
@@ -912,7 +1520,7 @@
     },
     "/api-public/v1/policies/types/timeouts": {
       "get": {
-        "description": "Get the available timeout values\n\ndescription: \"If still unacked after 1 minute\", type: 1\ndescription: \"If still unacked after 5 minutes\", type: 5\ndescription: \"If still unacked after 10 minutes\", type: 10\ndescription: \"If still unacked after 15 minutes\", type: 15\ndescription: \"If still unacked after 20 minutes\", type: 20\ndescription: \"If still unacked after 25 minutes\", type: 25\ndescription: \"If still unacked after 30 minutes\", type: 30\ndescription: \"If still unacked after 45 minutes\", type: 45\ndescription: \"If still unacked after 60 minutes\", type: 60\n\nThis API may be called a maximum of 15 times per minute.\n",
+        "description": "Get the available timeout values\n\ndescription: \"If still unacked after 1 minute\", type: 1\ndescription: \"If still unacked after 5 minutes\", type: 5\ndescription: \"If still unacked after 10 minutes\", type: 10\ndescription: \"If still unacked after 15 minutes\", type: 15\ndescription: \"If still unacked after 20 minutes\", type: 20\ndescription: \"If still unacked after 25 minutes\", type: 25\ndescription: \"If still unacked after 30 minutes\", type: 30\ndescription: \"If still unacked after 45 minutes\", type: 45\ndescription: \"If still unacked after 60 minutes\", type: 60\n\nThis API may be called a maximum of 60 times per minute.\n",
         "parameters": [
           {
             "$ref": "#/parameters/apiId"
@@ -961,7 +1569,7 @@
     },
     "/api-public/v1/policies/{policy}/oncall/user": {
       "patch": {
-        "description": "Replaces a currently on-call user in the escalation policy with another.  In many cases, the policy slug\nwill match the slug of the team that contains it.\n\nThis API may be called a maximum of 6 times per minute.\n",
+        "description": "Replaces a currently on-call user in the escalation policy with another.  In many cases, the policy slug\nwill match the slug of the team that contains it.\n\nThis API may be called a maximum of 60 times per minute.\n",
         "parameters": [
           {
             "$ref": "#/parameters/apiId"
@@ -1012,7 +1620,7 @@
     },
     "/api-public/v1/profile/{username}/policies": {
       "get": {
-        "description": "Get all the paging policy steps for the user on the org associated with the API key\n\nThis API may be called a maximum of 15 times per minute.\n",
+        "description": "Get all the paging policy steps for the user on the org associated with the API key\n\nThis API may be called a maximum of 60 times per minute.\n",
         "parameters": [
           {
             "$ref": "#/parameters/username"
@@ -1059,7 +1667,7 @@
         "operationId": "api_public.v1.profile.username.policies.get"
       },
       "post": {
-        "description": "Create a paging policy step\n\nThis API may be called a maximum of 15 times per minute.\n",
+        "description": "Create a paging policy step\n\nThis API may be called a maximum of 60 times per minute.\n",
         "parameters": [
           {
             "$ref": "#/parameters/username"
@@ -1111,7 +1719,7 @@
     },
     "/api-public/v1/profile/{username}/policies/{step}": {
       "get": {
-        "description": "Get a paging policy step\n\nThis API may be called a maximum of 15 times per minute.\n",
+        "description": "Get a paging policy step\n\nThis API may be called a maximum of 60 times per minute.\n",
         "parameters": [
           {
             "$ref": "#/parameters/username"
@@ -1161,7 +1769,7 @@
         "operationId": "api_public.v1.profile.username.policies.step.get"
       },
       "post": {
-        "description": "Create a rule for a paging policy step\n\nThis API may be called a maximum of 15 times per minute.\n",
+        "description": "Create a rule for a paging policy step\n\nThis API may be called a maximum of 60 times per minute.\n",
         "parameters": [
           {
             "$ref": "#/parameters/username"
@@ -1214,7 +1822,7 @@
         "operationId": "api_public.v1.profile.username.policies.step.post"
       },
       "put": {
-        "description": "Update a paging policy step\n\nThis API may be called a maximum of 15 times per minute.\n",
+        "description": "Update a paging policy step\n\nThis API may be called a maximum of 60 times per minute.\n",
         "parameters": [
           {
             "$ref": "#/parameters/username"
@@ -1269,7 +1877,7 @@
     },
     "/api-public/v1/profile/{username}/policies/{step}/{rule}": {
       "delete": {
-        "description": "Delete a rule from a paging policy step\n\nThis API may be called a maximum of 15 times per minute.\n",
+        "description": "Delete a rule from a paging policy step\n\nThis API may be called a maximum of 60 times per minute.\n",
         "parameters": [
           {
             "$ref": "#/parameters/username"
@@ -1322,7 +1930,7 @@
         "operationId": "api_public.v1.profile.username.policies.step.rule.delete"
       },
       "get": {
-        "description": "Get a rule from a paging policy step\n\nThis API may be called a maximum of 15 times per minute.\n",
+        "description": "Get a rule from a paging policy step\n\nThis API may be called a maximum of 60 times per minute.\n",
         "parameters": [
           {
             "$ref": "#/parameters/username"
@@ -1375,7 +1983,7 @@
         "operationId": "api_public.v1.profile.username.policies.step.rule.get"
       },
       "put": {
-        "description": "Update a rule for a paging policy step\n\nThis API may be called a maximum of 15 times per minute.\n",
+        "description": "Update a rule for a paging policy step\n\nThis API may be called a maximum of 60 times per minute.\n",
         "parameters": [
           {
             "$ref": "#/parameters/username"
@@ -1433,7 +2041,7 @@
     },
     "/api-public/v1/team": {
       "get": {
-        "description": "Get a list of teams for your organization.\n\nThis API may be called a maximum of 15 times per minute.\n",
+        "description": "Get a list of teams for your organization.\n\nThis API may be called a maximum of 60 times per minute.\n",
         "parameters": [
           {
             "$ref": "#/parameters/apiId"
@@ -1475,7 +2083,7 @@
         "operationId": "api_public.v1.team.get"
       },
       "post": {
-        "description": "Add a team to your organization.\n\nThis API may be called a maximum of 15 times per minute.\n",
+        "description": "Add a team to your organization.\n\nThis API may be called a maximum of 60 times per minute.\n",
         "parameters": [
           {
             "$ref": "#/parameters/apiId"
@@ -1522,7 +2130,7 @@
     },
     "/api-public/v1/team/{team}": {
       "delete": {
-        "description": "Remove a team from your organization.\n\nThis API may be called a maximum of 15 times per minute.\n",
+        "description": "Remove a team from your organization.\n\nThis API may be called a maximum of 60 times per minute.\n",
         "parameters": [
           {
             "$ref": "#/parameters/apiId"
@@ -1568,7 +2176,7 @@
         "operationId": "api_public.v1.team.team.delete"
       },
       "get": {
-        "description": "Get the information for the specified team.\n\nThis API may be called a maximum of 15 times per minute.\n",
+        "description": "Get the information for the specified team.\n\nThis API may be called a maximum of 60 times per minute.\n",
         "parameters": [
           {
             "$ref": "#/parameters/apiId"
@@ -1617,7 +2225,7 @@
         "operationId": "api_public.v1.team.team.get"
       },
       "put": {
-        "description": "Update the designated team\n\nThis API may be called a maximum of 15 times per minute.\n",
+        "description": "Update the designated team\n\nThis API may be called a maximum of 60 times per minute.\n",
         "parameters": [
           {
             "$ref": "#/parameters/apiId"
@@ -1669,9 +2277,57 @@
         "operationId": "api_public.v1.team.team.put"
       }
     },
+    "/api-public/v1/team/{team}/admins": {
+      "get": {
+        "description": "Get the team admins for the specified team.\n\nThis API may be called a maximum of 60 times per minute.\n",
+        "parameters": [
+          {
+            "$ref": "#/parameters/apiId"
+          },
+          {
+            "$ref": "#/parameters/apiKey"
+          },
+          {
+            "description": "The VictorOps team",
+            "in": "path",
+            "name": "team",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Some details about the team that was added",
+            "schema": {
+              "$ref": "#/definitions/TeamAdminsResponse"
+            }
+          },
+          "400": {
+            "$ref": "#/responses/400"
+          },
+          "401": {
+            "$ref": "#/responses/401"
+          },
+          "403": {
+            "$ref": "#/responses/403"
+          },
+          "404": {
+            "$ref": "#/responses/team-not-found"
+          },
+          "500": {
+            "$ref": "#/responses/500"
+          }
+        },
+        "summary": "Retrieve a list of team admins for a team",
+        "tags": [
+          "Teams"
+        ],
+        "operationId": "api_public.v1.team.team.admins.get"
+      }
+    },
     "/api-public/v1/team/{team}/members": {
       "get": {
-        "description": "Get the members for the specified team.\n\nThis API may be called a maximum of 15 times per minute.\n",
+        "description": "Get the members for the specified team.\n\nThis API may be called a maximum of 60 times per minute.\n",
         "parameters": [
           {
             "$ref": "#/parameters/apiId"
@@ -1720,7 +2376,7 @@
         "operationId": "api_public.v1.team.team.members.get"
       },
       "post": {
-        "description": "Add a team member to your team.\n\nThis API may be called a maximum of 15 times per minute.\n",
+        "description": "Add a team member to your team.\n\nThis API may be called a maximum of 60 times per minute.\n",
         "parameters": [
           {
             "$ref": "#/parameters/apiId"
@@ -1774,7 +2430,7 @@
     },
     "/api-public/v1/team/{team}/members/{user}": {
       "delete": {
-        "description": "Remove a team from your organization.\n\nThis API may be called a maximum of 15 times per minute.\n",
+        "description": "Remove a team from your organization.\n\nThis API may be called a maximum of 60 times per minute.\n",
         "parameters": [
           {
             "$ref": "#/parameters/apiId"
@@ -1833,7 +2489,7 @@
     "/api-public/v1/team/{team}/oncall/schedule": {
       "get": {
         "deprecated": true,
-        "description": "__NOTE: This call is deprecated. Please use `GET /api-public/v2/team/{team}/oncall/schedule`.__\n\nGet the on-call schedule for a team, including on-call overrides.\n\nThis API may be called a maximum of 15 times per minute.\n",
+        "description": "__NOTE: This call is deprecated. Please use `GET /api-public/v2/team/{team}/oncall/schedule`.__\n\nGet the on-call schedule for a team, including on-call overrides.\n\nThis API may be called a maximum of 60 times per minute.\n",
         "parameters": [
           {
             "$ref": "#/parameters/apiId"
@@ -1891,7 +2547,7 @@
     "/api-public/v1/team/{team}/oncall/user": {
       "patch": {
         "deprecated": true,
-        "description": "__NOTE: This API call is deprecated. Please use `PATCH /api-public/v2/policies/{policy}/oncall/user`__\n\nReplaces a currently on-call user on the team with another.\n\nThis API may be called a maximum of 6 times per minute.\n",
+        "description": "__NOTE: This API call is deprecated. Please use `PATCH /api-public/v2/policies/{policy}/oncall/user`__\n\nReplaces a currently on-call user on the team with another.\n\nThis API may be called a maximum of 60 times per minute.\n",
         "parameters": [
           {
             "$ref": "#/parameters/apiId"
@@ -1942,7 +2598,7 @@
     },
     "/api-public/v1/team/{team}/policies": {
       "get": {
-        "description": "Get the escalation policies for the specified team.\n\nThis API may be called a maximum of 15 times per minute.\n",
+        "description": "Get the escalation policies for the specified team.\n\nThis API may be called a maximum of 60 times per minute.\n",
         "parameters": [
           {
             "$ref": "#/parameters/apiId"
@@ -1994,7 +2650,7 @@
     },
     "/api-public/v1/user": {
       "get": {
-        "description": "Get a list of users for your organization\n\nThis API may be called a maximum of 15 times per minute.\n",
+        "description": "Get a list of users for your organization\n\nThis API may be called a maximum of 60 times per minute.\n",
         "parameters": [
           {
             "$ref": "#/parameters/apiId"
@@ -2036,7 +2692,7 @@
         "operationId": "api_public.v1.user.get"
       },
       "post": {
-        "description": "Add a user to your organization\n\nThis API may be called a maximum of 15 times per minute.\n",
+        "description": "Add a user to your organization\n\nThis API may be called a maximum of 60 times per minute.\n",
         "parameters": [
           {
             "$ref": "#/parameters/apiId"
@@ -2083,7 +2739,7 @@
     },
     "/api-public/v1/user/{user}": {
       "delete": {
-        "description": "Remove a user from your organization\n\nThis API may be called a maximum of 15 times per minute.\n",
+        "description": "Remove a user from your organization. If no replacement is specified, an empty JSON payload (\"{}\") is still required.\n\nThis API may be called a maximum of 60 times per minute.\n",
         "parameters": [
           {
             "$ref": "#/parameters/apiId"
@@ -2119,7 +2775,7 @@
             "$ref": "#/responses/user-not-found"
           },
           "422": {
-            "description": "There was a problem with the delete such as the replacement user was not found.\n"
+            "description": "There was a problem with the delete such as a replacement is required or the replacement user was not found.\n"
           },
           "500": {
             "$ref": "#/responses/500"
@@ -2132,7 +2788,7 @@
         "operationId": "api_public.v1.user.user.delete"
       },
       "get": {
-        "description": "Get the information for the specified user\n\nThis API may be called a maximum of 15 times per minute.\n",
+        "description": "Get the information for the specified user\n\nThis API may be called a maximum of 60 times per minute.\n",
         "parameters": [
           {
             "$ref": "#/parameters/apiId"
@@ -2181,7 +2837,7 @@
         "operationId": "api_public.v1.user.user.get"
       },
       "put": {
-        "description": "Update the designated user\n\nThis API may be called a maximum of 15 times per minute.\n",
+        "description": "Update the designated user\n\nThis API may be called a maximum of 60 times per minute.\n",
         "parameters": [
           {
             "$ref": "#/parameters/apiId"
@@ -2235,7 +2891,7 @@
     },
     "/api-public/v1/user/{user}/contact-methods": {
       "get": {
-        "description": "Get the contact methods for a user\n\nThis API may be called a maximum of 15 times per minute.\n",
+        "description": "Get the contact methods for a user\n\nThis API may be called a maximum of 60 times per minute.\n",
         "parameters": [
           {
             "$ref": "#/parameters/apiId"
@@ -2303,7 +2959,7 @@
     },
     "/api-public/v1/user/{user}/contact-methods/devices": {
       "get": {
-        "description": "Get the contact methods for a user\n\nThis API may be called a maximum of 15 times per minute.\n",
+        "description": "Get the contact methods for a user\n\nThis API may be called a maximum of 60 times per minute.\n",
         "parameters": [
           {
             "$ref": "#/parameters/apiId"
@@ -2351,7 +3007,7 @@
     },
     "/api-public/v1/user/{user}/contact-methods/devices/{contactId}": {
       "delete": {
-        "description": "Delete a contact device for a user\n\nThis API may be called a maximum of 15 times per minute.\n",
+        "description": "Delete a contact device for a user\n\nThis API may be called a maximum of 60 times per minute.\n",
         "parameters": [
           {
             "$ref": "#/parameters/apiId"
@@ -2404,7 +3060,7 @@
         "operationId": "api_public.v1.user.user.contact_methods.devices.contactId.delete"
       },
       "get": {
-        "description": "Get the indicated contact device for a user\n\nThis API may be called a maximum of 15 times per minute.\n",
+        "description": "Get the indicated contact device for a user\n\nThis API may be called a maximum of 60 times per minute.\n",
         "parameters": [
           {
             "$ref": "#/parameters/apiId"
@@ -2457,7 +3113,7 @@
         "operationId": "api_public.v1.user.user.contact_methods.devices.contactId.get"
       },
       "put": {
-        "description": "Update a contact device for a user\n\nThis API may be called a maximum of 15 times per minute.\n",
+        "description": "Update a contact device for a user\n\nThis API may be called a maximum of 60 times per minute.\n",
         "parameters": [
           {
             "$ref": "#/parameters/apiId"
@@ -2515,7 +3171,7 @@
     },
     "/api-public/v1/user/{user}/contact-methods/emails": {
       "get": {
-        "description": "Get the contact emails for a user\n\nThis API may be called a maximum of 15 times per minute.\n",
+        "description": "Get the contact emails for a user\n\nThis API may be called a maximum of 60 times per minute.\n",
         "parameters": [
           {
             "$ref": "#/parameters/apiId"
@@ -2561,7 +3217,7 @@
         "operationId": "api_public.v1.user.user.contact_methods.emails.get"
       },
       "post": {
-        "description": "Create a contact email for a user\n\nThis API may be called a maximum of 15 times per minute.\n",
+        "description": "Create a contact email for a user\n\nThis API may be called a maximum of 60 times per minute.\n",
         "parameters": [
           {
             "$ref": "#/parameters/apiId"
@@ -2612,7 +3268,7 @@
     },
     "/api-public/v1/user/{user}/contact-methods/emails/{contactId}": {
       "delete": {
-        "description": "Delete the indicated contact email for the user\n\nThis API may be called a maximum of 15 times per minute.\n",
+        "description": "Delete the indicated contact email for the user\n\nThis API may be called a maximum of 60 times per minute.\n",
         "parameters": [
           {
             "$ref": "#/parameters/apiId"
@@ -2665,7 +3321,7 @@
         "operationId": "api_public.v1.user.user.contact_methods.emails.contactId.delete"
       },
       "get": {
-        "description": "Get the indicated contact email for a user\n\nThis API may be called a maximum of 15 times per minute.\n",
+        "description": "Get the indicated contact email for a user\n\nThis API may be called a maximum of 60 times per minute.\n",
         "parameters": [
           {
             "$ref": "#/parameters/apiId"
@@ -2711,7 +3367,7 @@
             "$ref": "#/responses/500"
           }
         },
-        "summary": "Get the indicate contact email for a user",
+        "summary": "Get the indicated contact email for a user",
         "tags": [
           "User Contact Methods"
         ],
@@ -2720,7 +3376,7 @@
     },
     "/api-public/v1/user/{user}/contact-methods/phones": {
       "get": {
-        "description": "Get the contact phones for a user\n\nThis API may be called a maximum of 15 times per minute.\n",
+        "description": "Get the contact phones for a user\n\nThis API may be called a maximum of 60 times per minute.\n",
         "parameters": [
           {
             "$ref": "#/parameters/apiId"
@@ -2766,7 +3422,7 @@
         "operationId": "api_public.v1.user.user.contact_methods.phones.get"
       },
       "post": {
-        "description": "Create a contact phone for a user\n\nThis API may be called a maximum of 15 times per minute.\n",
+        "description": "Create a contact phone for a user\n\nThis API may be called a maximum of 60 times per minute.\n",
         "parameters": [
           {
             "$ref": "#/parameters/apiId"
@@ -2817,7 +3473,7 @@
     },
     "/api-public/v1/user/{user}/contact-methods/phones/{contactId}": {
       "delete": {
-        "description": "Delete the indicated contact phone for the user\n\nThis API may be called a maximum of 15 times per minute.\n",
+        "description": "Delete the indicated contact phone for the user\n\nThis API may be called a maximum of 60 times per minute.\n",
         "parameters": [
           {
             "$ref": "#/parameters/apiId"
@@ -2870,7 +3526,7 @@
         "operationId": "api_public.v1.user.user.contact_methods.phones.contactId.delete"
       },
       "get": {
-        "description": "Get the indicated contact phone for a user\n\nThis API may be called a maximum of 15 times per minute.\n",
+        "description": "Get the indicated contact phone for a user\n\nThis API may be called a maximum of 60 times per minute.\n",
         "parameters": [
           {
             "$ref": "#/parameters/apiId"
@@ -2916,7 +3572,7 @@
             "$ref": "#/responses/500"
           }
         },
-        "summary": "Get the indicate contact phone for a user",
+        "summary": "Get the indicated contact phone for a user",
         "tags": [
           "User Contact Methods"
         ],
@@ -2926,7 +3582,7 @@
     "/api-public/v1/user/{user}/oncall/schedule": {
       "get": {
         "deprecated": true,
-        "description": "__NOTE: This call is deprecated. Please use `GET /api-public/v2/user/{user}/oncall/schedule`.__\n\nGet the on-call schedule for a user for all teams, including on-call overrides.\n\nThis API may be called a maximum of 15 times per minute.\n",
+        "description": "__NOTE: This call is deprecated. Please use `GET /api-public/v2/user/{user}/oncall/schedule`.__\n\nGet the on-call schedule for a user for all teams, including on-call overrides.\n\nThis API may be called a maximum of 60 times per minute.\n",
         "parameters": [
           {
             "$ref": "#/parameters/apiId"
@@ -2986,7 +3642,7 @@
     },
     "/api-public/v1/user/{user}/policies": {
       "get": {
-        "description": "Get paging policies for a user\n\nThis API may be called a maximum of 15 times per minute.\n",
+        "description": "Get paging policies for a user\n\nThis API may be called a maximum of 60 times per minute.\n",
         "parameters": [
           {
             "$ref": "#/parameters/apiId"
@@ -3032,9 +3688,54 @@
         "operationId": "api_public.v1.user.user.policies.get"
       }
     },
+    "/api-public/v1/user/{user}/teams": {
+      "get": {
+        "description": "This API may be called a maximum of 60 times per minute.\n",
+        "parameters": [
+          {
+            "$ref": "#/parameters/apiId"
+          },
+          {
+            "$ref": "#/parameters/apiKey"
+          },
+          {
+            "description": "The VictorOps user",
+            "in": "path",
+            "name": "user",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Team details",
+            "schema": {
+              "$ref": "#/definitions/UserTeamsResponse"
+            }
+          },
+          "401": {
+            "$ref": "#/responses/401"
+          },
+          "403": {
+            "$ref": "#/responses/403"
+          },
+          "404": {
+            "$ref": "#/responses/user-not-found"
+          },
+          "500": {
+            "$ref": "#/responses/500"
+          }
+        },
+        "summary": "Retrieve the user's team membership",
+        "tags": [
+          "Users"
+        ],
+        "operationId": "api_public.v1.user.user.teams.get"
+      }
+    },
     "/api-public/v2/team/{team}/oncall/schedule": {
       "get": {
-        "description": "Get the on-call schedule for a team, including on-call overrides.\n\nThis API may be called a maximum of 15 times per minute.\n",
+        "description": "Get the on-call schedule for a team, including on-call overrides.\n\nThis API may be called a maximum of 60 times per minute.\n",
         "parameters": [
           {
             "$ref": "#/parameters/apiId"
@@ -3091,7 +3792,7 @@
     },
     "/api-public/v2/user/{user}/oncall/schedule": {
       "get": {
-        "description": "Get the on-call schedule for a user for all teams the user is on, including on-call overrides.\n\nThis API may be called a maximum of 15 times per minute.\n",
+        "description": "Get the on-call schedule for a user for all teams the user is on, including on-call overrides.\n\nThis API may be called a maximum of 60 times per minute.\n",
         "parameters": [
           {
             "$ref": "#/parameters/apiId"
@@ -3248,7 +3949,7 @@
     },
     "/api-reporting/v1/team/{team}/oncall/log": {
       "get": {
-        "description": "Returns a log of user shift changes for the specified team. This is historical\ndata, and may be up to 15 minutes behind real-time log data.\n\nThis API may be called a maximum of 6 times per minute.\n",
+        "description": "Returns a log of user shift changes for the specified team. This is historical\ndata, and may be up to 15 minutes behind real-time log data.\n\nThis API may be called a maximum of 60 times per minute.\n",
         "parameters": [
           {
             "$ref": "#/parameters/apiId"
@@ -3585,6 +4286,33 @@
       },
       "type": "object"
     },
+    "ActiveMaintenanceMode": {
+      "properties": {
+        "instanceId": {
+          "description": "external friendly unique id for maintenance mode",
+          "type": "string"
+        },
+        "isGlobal": {
+          "description": "whether this instance is a global maintenance mode or for specific routing keys",
+          "type": "boolean"
+        },
+        "startedAt": {
+          "description": "millis from epoch marking the start time",
+          "type": "number"
+        },
+        "startedBy": {
+          "description": "username of the user that started maintenance mode",
+          "type": "string"
+        },
+        "targets": {
+          "items": {
+            "$ref": "#/definitions/MaintenanceModeTarget"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
     "AddGroupPayload": {
       "properties": {
         "rules": {
@@ -3673,39 +4401,24 @@
     "AddUserResponse": {
       "$ref": "#/definitions/V1User"
     },
-    "AlertBatchResponse": {
-      "description": "A collection of requested alerts",
+    "Assignment": {
       "properties": {
-        "alerts": {
-          "items": {
-            "$ref": "#/definitions/GetAlertResponse"
-          },
-          "type": "array"
-        },
-        "requestId": {
+        "_selfUrl": {
           "type": "string"
         },
-        "requestSize": {
-          "type": "integer"
+        "assigned": {
+          "type": "boolean"
         },
-        "responseSize": {
-          "type": "integer"
-        }
-      },
-      "type": "object"
-    },
-    "AlertId": {
-      "type": "string"
-    },
-    "AlertRequest": {
-      "properties": {
-        "alertId": {
+        "policy": {
+          "type": "string"
+        },
+        "team": {
+          "type": "string"
+        },
+        "user": {
           "type": "string"
         }
       },
-      "required": [
-        "alertId"
-      ],
       "type": "object"
     },
     "Contact": {
@@ -3818,18 +4531,6 @@
       ],
       "type": "string"
     },
-    "CreateBatchAlertRequestPayload": {
-      "description": "A collection of IDs (uuid) for the alerts to be returned",
-      "properties": {
-        "alertIds": {
-          "items": {
-            "$ref": "#/definitions/AlertId"
-          },
-          "type": "array"
-        }
-      },
-      "type": "object"
-    },
     "CreateIncidentRequest": {
       "properties": {
         "details": {
@@ -3877,9 +4578,6 @@
           "type": "string"
         }
       },
-      "required": [
-        "replacement"
-      ],
       "type": "object"
     },
     "EscalationPolicy": {
@@ -4177,6 +4875,38 @@
             "$ref": "#/definitions/V1User"
           },
           "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "MaintenanceModeState": {
+      "properties": {
+        "activeInstances": {
+          "items": {
+            "$ref": "#/definitions/ActiveMaintenanceMode"
+          },
+          "type": "array"
+        },
+        "companyId": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "MaintenanceModeTarget": {
+      "properties": {
+        "names": {
+          "description": "Routing keys that maintenance mode state covers. An empty list indicates global maintenance mode",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "type": {
+          "enum": [
+            "RoutingKeys"
+          ],
+          "type": "string"
         }
       },
       "type": "object"
@@ -4530,17 +5260,6 @@
       },
       "type": "object"
     },
-    "RelLink": {
-      "properties": {
-        "href": {
-          "type": "string"
-        },
-        "rel": {
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
     "RemoveTeamMemberPayload": {
       "description": "The user information",
       "properties": {
@@ -4677,6 +5396,110 @@
       },
       "type": "object"
     },
+    "ScheduledOverride": {
+      "properties": {
+        "assignments": {
+          "items": {
+            "$ref": "#/definitions/Assignment"
+          },
+          "type": "array"
+        },
+        "end": {
+          "description": "The override end time (ISO 8601)",
+          "type": "string"
+        },
+        "publicId": {
+          "type": "string"
+        },
+        "start": {
+          "description": "The override start time (ISO 8601).",
+          "type": "string"
+        },
+        "timezone": {
+          "type": "string"
+        },
+        "user": {
+          "$ref": "#/definitions/ScheduledUser"
+        }
+      },
+      "type": "object"
+    },
+    "ScheduledOverridePayload": {
+      "properties": {
+        "end": {
+          "description": "The override end time (ISO 8601)",
+          "type": "string"
+        },
+        "start": {
+          "description": "The override start time (ISO 8601)",
+          "type": "string"
+        },
+        "timezone": {
+          "type": "string"
+        },
+        "username": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "ScheduledOverridePayloadUpdate": {
+      "properties": {
+        "end": {
+          "description": "The override end time (ISO 8601)",
+          "type": "string"
+        },
+        "policySlug": {
+          "type": "string"
+        },
+        "start": {
+          "description": "The override start time (ISO 8601)",
+          "type": "string"
+        },
+        "username": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "ScheduledUser": {
+      "properties": {
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "username": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "SimpleTeamDetail": {
+      "description": "Some info about the team",
+      "properties": {
+        "_adminsUrl": {
+          "type": "string"
+        },
+        "_membersUrl": {
+          "type": "string"
+        },
+        "_policiesUrl": {
+          "type": "string"
+        },
+        "_selfUrl": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "slug": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "TakeRequest": {
       "properties": {
         "fromUser": {
@@ -4711,16 +5534,32 @@
       },
       "type": "object"
     },
-    "TeamAndPolicies": {
+    "TeamAdmin": {
+      "description": "Some info about the user",
       "properties": {
-        "policies": {
+        "_selfUrl": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "username": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "TeamAdminsResponse": {
+      "description": "A list of team admins for the team",
+      "properties": {
+        "teamAdmins": {
           "items": {
-            "$ref": "#/definitions/EscalationPolicy"
+            "$ref": "#/definitions/TeamAdmin"
           },
           "type": "array"
-        },
-        "team": {
-          "$ref": "#/definitions/Team"
         }
       },
       "type": "object"
@@ -4728,6 +5567,9 @@
     "TeamDetail": {
       "description": "Some info about the team",
       "properties": {
+        "_adminsUrl": {
+          "type": "string"
+        },
         "_membersUrl": {
           "type": "string"
         },
@@ -4911,6 +5753,22 @@
       ],
       "type": "integer"
     },
+    "UpdateAssignment": {
+      "properties": {
+        "policy": {
+          "description": "The policy slug",
+          "type": "string"
+        },
+        "username": {
+          "description": "The username being assinged",
+          "type": "string"
+        }
+      },
+      "required": [
+        "policy"
+      ],
+      "type": "object"
+    },
     "User": {
       "properties": {
         "username": {
@@ -4983,6 +5841,18 @@
         "teamSchedules": {
           "items": {
             "$ref": "#/definitions/TeamSchedule"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "UserTeamsResponse": {
+      "description": "A list of teams to which the user belongs",
+      "properties": {
+        "teams": {
+          "items": {
+            "$ref": "#/definitions/SimpleTeamDetail"
           },
           "type": "array"
         }

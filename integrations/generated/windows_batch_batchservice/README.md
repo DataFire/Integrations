@@ -9,9 +9,7 @@ npm install --save @datafire/windows_batch_batchservice
 ```js
 let windows_batch_batchservice = require('@datafire/windows_batch_batchservice').create();
 
-windows_batch_batchservice.Application_List({
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -324,7 +322,7 @@ windows_batch_batchservice.Job_Patch({
 *Output schema unknown*
 
 ### Job_Update
-This fully replaces all the updateable properties of the job. For example, if the job has constraints associated with it and if constraints is not specified with this request, then the Batch service will remove the existing constraints.
+This fully replaces all the updatable properties of the job. For example, if the job has constraints associated with it and if constraints is not specified with this request, then the Batch service will remove the existing constraints.
 
 
 ```js
@@ -460,7 +458,7 @@ windows_batch_batchservice.Job_ListPreparationAndReleaseTaskStatus({
 * output [CloudJobListPreparationAndReleaseTaskStatusResult](#cloudjoblistpreparationandreleasetaskstatusresult)
 
 ### Job_GetTaskCounts
-Task counts provide a count of the tasks by active, running or completed task state, and a count of tasks which succeeded or failed. Tasks in the preparing state are counted as running. If the validationStatus is unvalidated, then the Batch service has not been able to check state counts against the task states as reported in the List Tasks API. The validationStatus may be unvalidated if the job contains more than 200,000 tasks.
+Task counts provide a count of the tasks by active, running or completed task state, and a count of tasks which succeeded or failed. Tasks in the preparing state are counted as running.
 
 
 ```js
@@ -709,7 +707,7 @@ windows_batch_batchservice.File_GetFromTask({
   * api-version **required** `string`: Client API Version.
 
 #### Output
-* output `file`
+* output `object`
 
 ### File_GetPropertiesFromTask
 Gets the properties of the specified task file.
@@ -825,7 +823,7 @@ windows_batch_batchservice.Task_Terminate({
 *Output schema unknown*
 
 ### Job_Terminate
-When a Terminate Job request is received, the Batch service sets the job to the terminating state. The Batch service then terminates any active or running tasks associated with the job, and runs any required Job Release tasks. The job then moves into the completed state.
+When a Terminate Job request is received, the Batch service sets the job to the terminating state. The Batch service then terminates any running tasks associated with the job and runs any required job release tasks. Then the job moves into the completed state. If there are any tasks in the job in the active state, they will remain in the active state. Once a job is terminated, new tasks cannot be added and any remaining active tasks will not be scheduled.
 
 
 ```js
@@ -1013,7 +1011,7 @@ windows_batch_batchservice.JobSchedule_Patch({
 *Output schema unknown*
 
 ### JobSchedule_Update
-This fully replaces all the updateable properties of the job schedule. For example, if the schedule property is not specified with this request, then the Batch service will remove the existing schedule. Changes to a job schedule only impact jobs created by the schedule after the update has taken place; currently running jobs are unaffected.
+This fully replaces all the updatable properties of the job schedule. For example, if the schedule property is not specified with this request, then the Batch service will remove the existing schedule. Changes to a job schedule only impact jobs created by the schedule after the update has taken place; currently running jobs are unaffected.
 
 
 ```js
@@ -1150,7 +1148,7 @@ windows_batch_batchservice.JobSchedule_Terminate({
 *Output schema unknown*
 
 ### Job_GetAllLifetimeStatistics
-Statistics are aggregated across all jobs that have ever existed in the account, from account creation to the last update time of the statistics.
+Statistics are aggregated across all jobs that have ever existed in the account, from account creation to the last update time of the statistics. The statistics may not be immediately available. The Batch service performs periodic roll-up of statistics. The typical delay is about 30 minutes.
 
 
 ```js
@@ -1171,7 +1169,7 @@ windows_batch_batchservice.Job_GetAllLifetimeStatistics({
 * output [JobStatistics](#jobstatistics)
 
 ### Pool_GetAllLifetimeStatistics
-Statistics are aggregated across all pools that have ever existed in the account, from account creation to the last update time of the statistics.
+Statistics are aggregated across all pools that have ever existed in the account, from account creation to the last update time of the statistics. The statistics may not be immediately available. The Batch service performs periodic roll-up of statistics. The typical delay is about 30 minutes.
 
 
 ```js
@@ -1213,6 +1211,29 @@ windows_batch_batchservice.Account_ListNodeAgentSkus({
 
 #### Output
 * output [AccountListNodeAgentSkusResult](#accountlistnodeagentskusresult)
+
+### Account_ListPoolNodeCounts
+Gets the number of nodes in each state, grouped by pool.
+
+
+```js
+windows_batch_batchservice.Account_ListPoolNodeCounts({
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * $filter `string`: An OData $filter clause. For more information on constructing this filter, see https://docs.microsoft.com/en-us/rest/api/batchservice/odata-filters-in-batch.
+  * maxresults `integer`: The maximum number of items to return in the response.
+  * timeout `integer`: The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds.
+  * client-request-id `string`: The caller-generated request identity, in the form of a GUID with no decoration such as curly braces, e.g. 9C4D50EE-2D56-4CD3-8152-34347DC9F2B0.
+  * return-client-request-id `boolean`: Whether the server should return the client-request-id in the response.
+  * ocp-date `string`: The time the request was issued. Client libraries typically set this to the current system clock time; set it explicitly if you are calling the REST API directly.
+  * api-version **required** `string`: Client API Version.
+
+#### Output
+* output [PoolNodeCountsListResult](#poolnodecountslistresult)
 
 ### Pool_List
 Lists all of the pools in the specified account.
@@ -1638,7 +1659,7 @@ windows_batch_batchservice.File_GetFromComputeNode({
   * api-version **required** `string`: Client API Version.
 
 #### Output
-* output `file`
+* output `object`
 
 ### File_GetPropertiesFromComputeNode
 Gets the properties of the specified compute node file.
@@ -1692,7 +1713,7 @@ windows_batch_batchservice.ComputeNode_GetRemoteDesktop({
   * api-version **required** `string`: Client API Version.
 
 #### Output
-* output `file`
+* output `object`
 
 ### ComputeNode_Reboot
 You can restart a node only if it is in an idle or running state.
@@ -1771,6 +1792,33 @@ windows_batch_batchservice.ComputeNode_GetRemoteLoginSettings({
 #### Output
 * output [ComputeNodeGetRemoteLoginSettingsResult](#computenodegetremoteloginsettingsresult)
 
+### ComputeNode_UploadBatchServiceLogs
+This is for gathering Azure Batch service log files in an automated fashion from nodes if you are experiencing an error and wish to escalate to Azure support. The Azure Batch service log files should be shared with Azure support to aid in debugging issues with the Batch service.
+
+
+```js
+windows_batch_batchservice.ComputeNode_UploadBatchServiceLogs({
+  "poolId": "",
+  "nodeId": "",
+  "uploadBatchServiceLogsConfiguration": null,
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * poolId **required** `string`: The ID of the pool that contains the compute node.
+  * nodeId **required** `string`: The ID of the compute node from which you want to upload the Azure Batch service log files.
+  * timeout `integer`: The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds.
+  * client-request-id `string`: The caller-generated request identity, in the form of a GUID with no decoration such as curly braces, e.g. 9C4D50EE-2D56-4CD3-8152-34347DC9F2B0.
+  * return-client-request-id `boolean`: Whether the server should return the client-request-id in the response.
+  * ocp-date `string`: The time the request was issued. Client libraries typically set this to the current system clock time; set it explicitly if you are calling the REST API directly.
+  * uploadBatchServiceLogsConfiguration **required** [UploadBatchServiceLogsConfiguration](#uploadbatchservicelogsconfiguration)
+  * api-version **required** `string`: Client API Version.
+
+#### Output
+* output [UploadBatchServiceLogsResult](#uploadbatchservicelogsresult)
+
 ### ComputeNode_AddUser
 You can add a user account to a node only when it is in the idle or running state.
 
@@ -1826,7 +1874,7 @@ windows_batch_batchservice.ComputeNode_DeleteUser({
 *Output schema unknown*
 
 ### ComputeNode_UpdateUser
-This operation replaces of all the updateable properties of the account. For example, if the expiryTime element is not specified, the current value is replaced with the default value, not left unmodified. You can update a user account on a node only when it is in the idle or running state.
+This operation replaces of all the updatable properties of the account. For example, if the expiryTime element is not specified, the current value is replaced with the default value, not left unmodified. You can update a user account on a node only when it is in the idle or running state.
 
 
 ```js
@@ -1940,7 +1988,7 @@ windows_batch_batchservice.Pool_StopResize({
 *Output schema unknown*
 
 ### Pool_UpdateProperties
-This fully replaces all the updateable properties of the pool. For example, if the pool has a start task associated with it and if start task is not specified with this request, then the Batch service will remove the existing start task.
+This fully replaces all the updatable properties of the pool. For example, if the pool has a start task associated with it and if start task is not specified with this request, then the Batch service will remove the existing start task.
 
 
 ```js
@@ -2239,7 +2287,7 @@ windows_batch_batchservice.Pool_ListUsageMetrics({
   * userAccounts `array`
     * items [UserAccount](#useraccount)
   * virtualMachineConfiguration [VirtualMachineConfiguration](#virtualmachineconfiguration)
-  * vmSize `string`: For information about available sizes of virtual machines for Cloud Services pools (pools created with cloudServiceConfiguration), see Sizes for Cloud Services (http://azure.microsoft.com/documentation/articles/cloud-services-sizes-specs/). Batch supports all Cloud Services VM sizes except ExtraSmall, A1V2 and A2V2. For information about available VM sizes for pools using images from the Virtual Machines Marketplace (pools created with virtualMachineConfiguration) see Sizes for Virtual Machines (Linux) (https://azure.microsoft.com/documentation/articles/virtual-machines-linux-sizes/) or Sizes for Virtual Machines (Windows) (https://azure.microsoft.com/documentation/articles/virtual-machines-windows-sizes/). Batch supports all Azure VM sizes except STANDARD_A0 and those with premium storage (STANDARD_GS, STANDARD_DS, and STANDARD_DSV2 series).
+  * vmSize `string`: For information about available sizes of virtual machines in pools, see Choose a VM size for compute nodes in an Azure Batch pool (https://docs.microsoft.com/azure/batch/batch-pool-vm-sizes).
 
 ### CloudPoolListResult
 * The result of listing the pools in an account. `object`
@@ -2250,16 +2298,16 @@ windows_batch_batchservice.Pool_ListUsageMetrics({
 ### CloudServiceConfiguration
 * The configuration for nodes in a pool based on the Azure Cloud Services platform. `object`
   * currentOSVersion `string`: This may differ from targetOSVersion if the pool state is Upgrading. In this case some virtual machines may be on the targetOSVersion and some may be on the currentOSVersion during the upgrade process. Once all virtual machines have upgraded, currentOSVersion is updated to be the same as targetOSVersion.
-  * osFamily **required** `string`: Possible values are: 2 - OS Family 2, equivalent to Windows Server 2008 R2 SP1. 3 - OS Family 3, equivalent to Windows Server 2012. 4 - OS Family 4, equivalent to Windows Server 2012 R2. 5 - OS Family 5, equivalent to Windows Server 2016. For more information, see Azure Guest OS Releases (https://azure.microsoft.com/documentation/articles/cloud-services-guestos-update-matrix/#releases).
+  * osFamily **required** `string`: Possible values are:
   * targetOSVersion `string`: The default value is * which specifies the latest operating system version for the specified OS family.
 
 ### CloudTask
-* An Azure Batch task. `object`
+* An Azure Batch task. `object`: Batch will retry tasks when a recovery operation is triggered on a compute node. Examples of recovery operations include (but are not limited to) when an unhealthy compute node is rebooted or a compute node disappeared due to host failure. Retries due to recovery operations are independent of and are not counted against the maxTaskRetryCount. Even if the maxTaskRetryCount is 0, an internal retry due to a recovery operation may occur. Because of this, all tasks should be idempotent. This means tasks need to tolerate being interrupted and restarted without causing any corruption or duplicate data. The best practice for long running tasks is to use some form of checkpointing.
   * affinityInfo [AffinityInformation](#affinityinformation)
   * applicationPackageReferences `array`: Application packages are downloaded and deployed to a shared directory, not the task working directory. Therefore, if a referenced package is already on the compute node, and is up to date, then it is not re-downloaded; the existing copy on the compute node is used. If a referenced application package cannot be installed, for example because the package has been deleted or because download failed, the task fails.
     * items [ApplicationPackageReference](#applicationpackagereference)
   * authenticationTokenSettings [AuthenticationTokenSettings](#authenticationtokensettings)
-  * commandLine `string`: For multi-instance tasks, the command line is executed as the primary task, after the primary task and all subtasks have finished executing the coordination command line. The command line does not run under a shell, and therefore cannot take advantage of shell features such as environment variable expansion. If you want to take advantage of such features, you should invoke the shell in the command line, for example using "cmd /c MyCommand" in Windows or "/bin/sh -c MyCommand" in Linux.
+  * commandLine `string`: For multi-instance tasks, the command line is executed as the primary task, after the primary task and all subtasks have finished executing the coordination command line. The command line does not run under a shell, and therefore cannot take advantage of shell features such as environment variable expansion. If you want to take advantage of such features, you should invoke the shell in the command line, for example using "cmd /c MyCommand" in Windows or "/bin/sh -c MyCommand" in Linux. If the command line refers to file paths, it should use a relative path (relative to the task working directory), or use the Batch provided environment variable (https://docs.microsoft.com/en-us/azure/batch/batch-compute-node-environment-variables).
   * constraints [TaskConstraints](#taskconstraints)
   * containerSettings [TaskContainerSettings](#taskcontainersettings)
   * creationTime `string`
@@ -2278,7 +2326,7 @@ windows_batch_batchservice.Pool_ListUsageMetrics({
     * items [OutputFile](#outputfile)
   * previousState [TaskState](#taskstate)
   * previousStateTransitionTime `string`: This property is not set if the task is in its initial Active state.
-  * resourceFiles `array`: For multi-instance tasks, the resource files will only be downloaded to the compute node on which the primary task is executed.
+  * resourceFiles `array`: For multi-instance tasks, the resource files will only be downloaded to the compute node on which the primary task is executed. There is a maximum size for the list of resource files.  When the max size is exceeded, the request will fail and the response error code will be RequestEntityTooLarge. If this occurs, the collection of ResourceFiles must be reduced in size. This can be achieved using .zip files, Application Packages, or Docker Containers.
     * items [ResourceFile](#resourcefile)
   * state [TaskState](#taskstate)
   * stateTransitionTime `string`
@@ -2310,18 +2358,19 @@ windows_batch_batchservice.Pool_ListUsageMetrics({
   * ipAddress `string`: Every node that is added to a pool is assigned a unique IP address. Whenever a node is removed from a pool, all of its local files are deleted, and the IP address is reclaimed and could be reused for new nodes.
   * isDedicated `boolean`
   * lastBootTime `string`: This property may not be present if the node state is unusable.
+  * nodeAgentInfo [NodeAgentInformation](#nodeagentinformation)
   * recentTasks `array`: This property is present only if at least one task has run on this node since it was assigned to the pool.
     * items [TaskInformation](#taskinformation)
   * runningTasksCount `integer`
   * schedulingState `string` (values: enabled, disabled)
   * startTask [StartTask](#starttask)
   * startTaskInfo [StartTaskInformation](#starttaskinformation)
-  * state `string` (values: idle, rebooting, reimaging, running, unusable, creating, starting, waitingforstarttask, starttaskfailed, unknown, leavingpool, offline, preempted): The low-priority node has been preempted. Tasks which were running on the node when it was pre-empted will be rescheduled when another node becomes available.
+  * state `string` (values: idle, rebooting, reimaging, running, unusable, creating, starting, waitingforstarttask, starttaskfailed, unknown, leavingpool, offline, preempted): The low-priority node has been preempted. Tasks which were running on the node when it was preempted will be rescheduled when another node becomes available.
   * stateTransitionTime `string`
   * totalTasksRun `integer`
   * totalTasksSucceeded `integer`
   * url `string`
-  * vmSize `string`: For information about available sizes of virtual machines for Cloud Services pools (pools created with cloudServiceConfiguration), see Sizes for Cloud Services (http://azure.microsoft.com/documentation/articles/cloud-services-sizes-specs/). Batch supports all Cloud Services VM sizes except ExtraSmall, A1V2 and A2V2. For information about available VM sizes for pools using images from the Virtual Machines Marketplace (pools created with virtualMachineConfiguration) see Sizes for Virtual Machines (Linux) (https://azure.microsoft.com/documentation/articles/virtual-machines-linux-sizes/) or Sizes for Virtual Machines (Windows) (https://azure.microsoft.com/documentation/articles/virtual-machines-windows-sizes/). Batch supports all Azure VM sizes except STANDARD_A0 and those with premium storage (STANDARD_GS, STANDARD_DS, and STANDARD_DSV2 series).
+  * vmSize `string`: For information about available sizes of virtual machines in pools, see Choose a VM size for compute nodes in an Azure Batch pool (https://docs.microsoft.com/azure/batch/batch-pool-vm-sizes).
 
 ### ComputeNodeDeallocationOption
 * Determines what to do with a node and its running task(s) after it has been selected for deallocation. `string` (values: requeue, terminate, taskcompletion, retaineddata): The default value is requeue.
@@ -2372,7 +2421,7 @@ windows_batch_batchservice.Pool_ListUsageMetrics({
     * items `string`
   * containerRegistries `array`: If any images must be downloaded from a private registry which requires credentials, then those credentials must be provided here.
     * items [ContainerRegistry](#containerregistry)
-  * type **required** `string` (values: docker)
+  * type **required** `string` (values: dockerCompatible)
 
 ### ContainerRegistry
 * A private container registry. `object`
@@ -2434,7 +2483,7 @@ windows_batch_batchservice.Pool_ListUsageMetrics({
 ### ExitOptions
 * Specifies how the Batch service responds to a particular exit condition. `object`
   * dependencyAction `string` (values: satisfy, block): The default is 'satisfy' for exit code 0, and 'block' for all other exit conditions. If the job's usesTaskDependencies property is set to false, then specifying the dependencyAction property returns an error and the add task request fails with an invalid property value error; if you are calling the REST API directly, the HTTP status code is 400  (Bad Request).
-  * jobAction `string` (values: none, disable, terminate): The default is none for exit code 0 and terminate for all other exit conditions. If the job's onTaskFailed property is noaction, then specifying this property returns an error and the add task request fails with an invalid property value error; if you are calling the REST API directly, the HTTP status code is 400 (Bad Request).
+  * jobAction `string` (values: none, disable, terminate): The default is none for exit code 0 and terminate for all other exit conditions. If the job's onTaskFailed property is noAction, then specifying this property returns an error and the add task request fails with an invalid property value error; if you are calling the REST API directly, the HTTP status code is 400 (Bad Request).
 
 ### FileProperties
 * The properties of a file on a compute node. `object`
@@ -2510,12 +2559,12 @@ windows_batch_batchservice.Pool_ListUsageMetrics({
   * terminateReason `string`: This property is set only if the job is in the completed state. If the Batch service terminates the job, it sets the reason as follows: JMComplete - the Job Manager task completed, and killJobOnCompletion was set to true. MaxWallClockTimeExpiry - the job reached its maxWallClockTime constraint. TerminateJobSchedule - the job ran as part of a schedule, and the schedule terminated. AllTasksComplete - the job's onAllTasksComplete attribute is set to terminatejob, and all tasks in the job are complete. TaskFailed - the job's onTaskFailure attribute is set to performExitOptionsJobAction, and a task in the job failed with an exit condition that specified a jobAction of terminatejob. Any other string is a user-defined reason specified in a call to the 'Terminate a job' operation.
 
 ### JobManagerTask
-* Specifies details of a Job Manager task. `object`: The Job Manager task is automatically started when the job is created. The Batch service tries to schedule the Job Manager task before any other tasks in the job. When shrinking a pool, the Batch service tries to preserve compute nodes where Job Manager tasks are running for as long as possible (that is, nodes running 'normal' tasks are removed before nodes running Job Manager tasks). When a Job Manager task fails and needs to be restarted, the system tries to schedule it at the highest priority. If there are no idle nodes available, the system may terminate one of the running tasks in the pool and return it to the queue in order to make room for the Job Manager task to restart. Note that a Job Manager task in one job does not have priority over tasks in other jobs. Across jobs, only job level priorities are observed. For example, if a Job Manager in a priority 0 job needs to be restarted, it will not displace tasks of a priority 1 job.
-  * allowLowPriorityNode `boolean`: The default value is false.
+* Specifies details of a Job Manager task. `object`: The Job Manager task is automatically started when the job is created. The Batch service tries to schedule the Job Manager task before any other tasks in the job. When shrinking a pool, the Batch service tries to preserve compute nodes where Job Manager tasks are running for as long as possible (that is, nodes running 'normal' tasks are removed before nodes running Job Manager tasks). When a Job Manager task fails and needs to be restarted, the system tries to schedule it at the highest priority. If there are no idle nodes available, the system may terminate one of the running tasks in the pool and return it to the queue in order to make room for the Job Manager task to restart. Note that a Job Manager task in one job does not have priority over tasks in other jobs. Across jobs, only job level priorities are observed. For example, if a Job Manager in a priority 0 job needs to be restarted, it will not displace tasks of a priority 1 job. Batch will retry tasks when a recovery operation is triggered on a compute node. Examples of recovery operations include (but are not limited to) when an unhealthy compute node is rebooted or a compute node disappeared due to host failure. Retries due to recovery operations are independent of and are not counted against the maxTaskRetryCount. Even if the maxTaskRetryCount is 0, an internal retry due to a recovery operation may occur. Because of this, all tasks should be idempotent. This means tasks need to tolerate being interrupted and restarted without causing any corruption or duplicate data. The best practice for long running tasks is to use some form of checkpointing.
+  * allowLowPriorityNode `boolean`: The default value is true.
   * applicationPackageReferences `array`: Application packages are downloaded and deployed to a shared directory, not the task working directory. Therefore, if a referenced package is already on the compute node, and is up to date, then it is not re-downloaded; the existing copy on the compute node is used. If a referenced application package cannot be installed, for example because the package has been deleted or because download failed, the task fails.
     * items [ApplicationPackageReference](#applicationpackagereference)
   * authenticationTokenSettings [AuthenticationTokenSettings](#authenticationtokensettings)
-  * commandLine **required** `string`: The command line does not run under a shell, and therefore cannot take advantage of shell features such as environment variable expansion. If you want to take advantage of such features, you should invoke the shell in the command line, for example using "cmd /c MyCommand" in Windows or "/bin/sh -c MyCommand" in Linux.
+  * commandLine **required** `string`: The command line does not run under a shell, and therefore cannot take advantage of shell features such as environment variable expansion. If you want to take advantage of such features, you should invoke the shell in the command line, for example using "cmd /c MyCommand" in Windows or "/bin/sh -c MyCommand" in Linux. If the command line refers to file paths, it should use a relative path (relative to the task working directory), or use the Batch provided environment variable (https://docs.microsoft.com/en-us/azure/batch/batch-compute-node-environment-variables).
   * constraints [TaskConstraints](#taskconstraints)
   * containerSettings [TaskContainerSettings](#taskcontainersettings)
   * displayName `string`: It need not be unique and can contain any Unicode characters up to a maximum length of 1024.
@@ -2525,7 +2574,7 @@ windows_batch_batchservice.Pool_ListUsageMetrics({
   * killJobOnCompletion `boolean`: If true, when the Job Manager task completes, the Batch service marks the job as complete. If any tasks are still running at this time (other than Job Release), those tasks are terminated. If false, the completion of the Job Manager task does not affect the job status. In this case, you should either use the onAllTasksComplete attribute to terminate the job, or have a client or user terminate the job explicitly. An example of this is if the Job Manager creates a set of tasks but then takes no further role in their execution. The default value is true. If you are using the onAllTasksComplete and onTaskFailure attributes to control job lifetime, and using the Job Manager task only to create the tasks for the job (not to monitor progress), then it is important to set killJobOnCompletion to false.
   * outputFiles `array`: For multi-instance tasks, the files will only be uploaded from the compute node on which the primary task is executed.
     * items [OutputFile](#outputfile)
-  * resourceFiles `array`: Files listed under this element are located in the task's working directory.
+  * resourceFiles `array`: Files listed under this element are located in the task's working directory. There is a maximum size for the list of resource files.  When the max size is exceeded, the request will fail and the response error code will be RequestEntityTooLarge. If this occurs, the collection of ResourceFiles must be reduced in size. This can be achieved using .zip files, Application Packages, or Docker Containers.
     * items [ResourceFile](#resourcefile)
   * runExclusive `boolean`: If true, no other tasks will run on the same compute node for as long as the Job Manager is running. If false, other tasks can run simultaneously with the Job Manager on a compute node. The Job Manager task counts normally against the node's concurrent task limit, so this is only relevant if the node allows multiple concurrent tasks. The default value is true.
   * userIdentity [UserIdentity](#useridentity)
@@ -2548,15 +2597,15 @@ windows_batch_batchservice.Pool_ListUsageMetrics({
   * poolId `string`
 
 ### JobPreparationTask
-* A Job Preparation task to run before any tasks of the job on any given compute node. `object`: You can use Job Preparation to prepare a compute node to run tasks for the job. Activities commonly performed in Job Preparation include: Downloading common resource files used by all the tasks in the job. The Job Preparation task can download these common resource files to the shared location on the compute node. (AZ_BATCH_NODE_ROOT_DIR\shared), or starting a local service on the compute node so that all tasks of that job can communicate with it. If the Job Preparation task fails (that is, exhausts its retry count before exiting with exit code 0), Batch will not run tasks of this job on the compute node. The node remains ineligible to run tasks of this job until it is reimaged. The node remains active and can be used for other jobs. The Job Preparation task can run multiple times on the same compute node. Therefore, you should write the Job Preparation task to handle re-execution. If the compute node is rebooted, the Job Preparation task is run again on the node before scheduling any other task of the job, if rerunOnNodeRebootAfterSuccess is true or if the Job Preparation task did not previously complete. If the compute node is reimaged, the Job Preparation task is run again before scheduling any task of the job.
-  * commandLine **required** `string`: The command line does not run under a shell, and therefore cannot take advantage of shell features such as environment variable expansion. If you want to take advantage of such features, you should invoke the shell in the command line, for example using "cmd /c MyCommand" in Windows or "/bin/sh -c MyCommand" in Linux.
+* A Job Preparation task to run before any tasks of the job on any given compute node. `object`: You can use Job Preparation to prepare a compute node to run tasks for the job. Activities commonly performed in Job Preparation include: Downloading common resource files used by all the tasks in the job. The Job Preparation task can download these common resource files to the shared location on the compute node. (AZ_BATCH_NODE_ROOT_DIR\shared), or starting a local service on the compute node so that all tasks of that job can communicate with it. If the Job Preparation task fails (that is, exhausts its retry count before exiting with exit code 0), Batch will not run tasks of this job on the compute node. The node remains ineligible to run tasks of this job until it is reimaged. The node remains active and can be used for other jobs. The Job Preparation task can run multiple times on the same compute node. Therefore, you should write the Job Preparation task to handle re-execution. If the compute node is rebooted, the Job Preparation task is run again on the node before scheduling any other task of the job, if rerunOnNodeRebootAfterSuccess is true or if the Job Preparation task did not previously complete. If the compute node is reimaged, the Job Preparation task is run again before scheduling any task of the job. Batch will retry tasks when a recovery operation is triggered on a compute node. Examples of recovery operations include (but are not limited to) when an unhealthy compute node is rebooted or a compute node disappeared due to host failure. Retries due to recovery operations are independent of and are not counted against the maxTaskRetryCount. Even if the maxTaskRetryCount is 0, an internal retry due to a recovery operation may occur. Because of this, all tasks should be idempotent. This means tasks need to tolerate being interrupted and restarted without causing any corruption or duplicate data. The best practice for long running tasks is to use some form of checkpointing.
+  * commandLine **required** `string`: The command line does not run under a shell, and therefore cannot take advantage of shell features such as environment variable expansion. If you want to take advantage of such features, you should invoke the shell in the command line, for example using "cmd /c MyCommand" in Windows or "/bin/sh -c MyCommand" in Linux. If the command line refers to file paths, it should use a relative path (relative to the task working directory), or use the Batch provided environment variable (https://docs.microsoft.com/en-us/azure/batch/batch-compute-node-environment-variables).
   * constraints [TaskConstraints](#taskconstraints)
   * containerSettings [TaskContainerSettings](#taskcontainersettings)
   * environmentSettings `array`
     * items [EnvironmentSetting](#environmentsetting)
   * id `string`: The ID can contain any combination of alphanumeric characters including hyphens and underscores and cannot contain more than 64 characters. If you do not specify this property, the Batch service assigns a default value of 'jobpreparation'. No other task in the job can have the same ID as the Job Preparation task. If you try to submit a task with the same id, the Batch service rejects the request with error code TaskIdSameAsJobPreparationTask; if you are calling the REST API directly, the HTTP status code is 409 (Conflict).
   * rerunOnNodeRebootAfterSuccess `boolean`: The Job Preparation task is always rerun if a compute node is reimaged, or if the Job Preparation task did not complete (e.g. because the reboot occurred while the task was running). Therefore, you should always write a Job Preparation task to be idempotent and to behave correctly if run multiple times. The default value is true.
-  * resourceFiles `array`: Files listed under this element are located in the task's working directory.
+  * resourceFiles `array`: Files listed under this element are located in the task's working directory.  There is a maximum size for the list of resource files.  When the max size is exceeded, the request will fail and the response error code will be RequestEntityTooLarge. If this occurs, the collection of ResourceFiles must be reduced in size. This can be achieved using .zip files, Application Packages, or Docker Containers.
     * items [ResourceFile](#resourcefile)
   * userIdentity [UserIdentity](#useridentity)
   * waitForSuccess `boolean`: If true and the Job Preparation task fails on a compute node, the Batch service retries the Job Preparation task up to its maximum retry count (as specified in the constraints element). If the task has still not completed successfully after all retries, then the Batch service will not schedule tasks of the job to the compute node. The compute node remains active and eligible to run tasks of other jobs. If false, the Batch service will not wait for the Job Preparation task to complete. In this case, other tasks of the job can start executing on the compute node while the Job Preparation task is still running; and even if the Job Preparation task fails, new tasks will continue to be scheduled on the node. The default value is true.
@@ -2577,7 +2626,7 @@ windows_batch_batchservice.Pool_ListUsageMetrics({
 
 ### JobReleaseTask
 * A Job Release task to run on job completion on any compute node where the job has run. `object`: The Job Release task runs when the job ends, because of one of the following: The user calls the Terminate Job API, or the Delete Job API while the job is still active, the job's maximum wall clock time constraint is reached, and the job is still active, or the job's Job Manager task completed, and the job is configured to terminate when the Job Manager completes. The Job Release task runs on each compute node where tasks of the job have run and the Job Preparation task ran and completed. If you reimage a compute node after it has run the Job Preparation task, and the job ends without any further tasks of the job running on that compute node (and hence the Job Preparation task does not re-run), then the Job Release task does not run on that node. If a compute node reboots while the Job Release task is still running, the Job Release task runs again when the compute node starts up. The job is not marked as complete until all Job Release tasks have completed. The Job Release task runs in the background. It does not occupy a scheduling slot; that is, it does not count towards the maxTasksPerNode limit specified on the pool.
-  * commandLine **required** `string`: The command line does not run under a shell, and therefore cannot take advantage of shell features such as environment variable expansion. If you want to take advantage of such features, you should invoke the shell in the command line, for example using "cmd /c MyCommand" in Windows or "/bin/sh -c MyCommand" in Linux.
+  * commandLine **required** `string`: The command line does not run under a shell, and therefore cannot take advantage of shell features such as environment variable expansion. If you want to take advantage of such features, you should invoke the shell in the command line, for example using "cmd /c MyCommand" in Windows or "/bin/sh -c MyCommand" in Linux. If the command line refers to file paths, it should use a relative path (relative to the task working directory), or use the Batch provided environment variable (https://docs.microsoft.com/en-us/azure/batch/batch-compute-node-environment-variables).
   * containerSettings [TaskContainerSettings](#taskcontainersettings)
   * environmentSettings `array`
     * items [EnvironmentSetting](#environmentsetting)
@@ -2720,7 +2769,7 @@ windows_batch_batchservice.Pool_ListUsageMetrics({
 
 ### MultiInstanceSettings
 * Settings which specify how to run a multi-instance task. `object`: Multi-instance tasks are commonly used to support MPI tasks.
-  * commonResourceFiles `array`: The difference between common resource files and task resource files is that common resource files are downloaded for all subtasks including the primary, whereas task resource files are downloaded only for the primary. Also note that these resource files are not downloaded to the task working directory, but instead are downloaded to the task root directory (one directory above the working directory).
+  * commonResourceFiles `array`: The difference between common resource files and task resource files is that common resource files are downloaded for all subtasks including the primary, whereas task resource files are downloaded only for the primary. Also note that these resource files are not downloaded to the task working directory, but instead are downloaded to the task root directory (one directory above the working directory).  There is a maximum size for the list of resource files.  When the max size is exceeded, the request will fail and the response error code will be RequestEntityTooLarge. If this occurs, the collection of ResourceFiles must be reduced in size. This can be achieved using .zip files, Application Packages, or Docker Containers.
     * items [ResourceFile](#resourcefile)
   * coordinationCommandLine **required** `string`: A typical coordination command line launches a background service and verifies that the service is ready to process inter-node messages.
   * numberOfInstances `integer`: If omitted, the default is 1.
@@ -2741,12 +2790,34 @@ windows_batch_batchservice.Pool_ListUsageMetrics({
   * priority **required** `integer`: Priorities within a pool must be unique and are evaluated in order of priority. The lower the number the higher the priority. For example, rules could be specified with order numbers of 150, 250, and 350. The rule with the order number of 150 takes precedence over the rule that has an order of 250. Allowed priorities are 150 to 3500. If any reserved or duplicate values are provided the request fails with HTTP status code 400.
   * sourceAddressPrefix **required** `string`: Valid values are a single IP address (i.e. 10.10.10.10), IP subnet (i.e. 192.168.1.0/24), default tag, or * (for all addresses).  If any other values are provided the request fails with HTTP status code 400.
 
+### NodeAgentInformation
+* Information about the node agent. `object`: The Batch node agent is a program that runs on each node in the pool and provides Batch capability on the compute node.
+  * lastUpdateTime **required** `string`: This is the most recent time that the node agent was updated to a new version.
+  * version **required** `string`: This version number can be checked against the node agent release notes located at https://github.com/Azure/Batch/blob/master/changelogs/nodeagent/CHANGELOG.md.
+
 ### NodeAgentSku
 * A node agent SKU supported by the Batch service. `object`: The Batch node agent is a program that runs on each node in the pool, and provides the command-and-control interface between the node and the Batch service. There are different implementations of the node agent, known as SKUs, for different operating systems.
   * id `string`
   * osType `string` (values: linux, windows)
   * verifiedImageReferences `array`: This collection is not exhaustive (the node agent may be compatible with other images).
     * items [ImageReference](#imagereference)
+
+### NodeCounts
+* The number of nodes in each node state. `object`
+  * creating **required** `integer`
+  * idle **required** `integer`
+  * leavingPool **required** `integer`
+  * offline **required** `integer`
+  * preempted **required** `integer`
+  * rebooting **required** `integer`
+  * reimaging **required** `integer`
+  * running **required** `integer`
+  * startTaskFailed **required** `integer`
+  * starting **required** `integer`
+  * total **required** `integer`
+  * unknown **required** `integer`
+  * unusable **required** `integer`
+  * waitingForStartTask **required** `integer`
 
 ### NodeDisableSchedulingParameter
 * Options for disabling scheduling on a compute node. `object`
@@ -2845,7 +2916,7 @@ windows_batch_batchservice.Pool_ListUsageMetrics({
   * userAccounts `array`
     * items [UserAccount](#useraccount)
   * virtualMachineConfiguration [VirtualMachineConfiguration](#virtualmachineconfiguration)
-  * vmSize **required** `string`: For information about available sizes of virtual machines for Cloud Services pools (pools created with cloudServiceConfiguration), see Sizes for Cloud Services (http://azure.microsoft.com/documentation/articles/cloud-services-sizes-specs/). Batch supports all Cloud Services VM sizes except ExtraSmall, A1V2 and A2V2. For information about available VM sizes for pools using images from the Virtual Machines Marketplace (pools created with virtualMachineConfiguration) see Sizes for Virtual Machines (Linux) (https://azure.microsoft.com/documentation/articles/virtual-machines-linux-sizes/) or Sizes for Virtual Machines (Windows) (https://azure.microsoft.com/documentation/articles/virtual-machines-windows-sizes/). Batch supports all Azure VM sizes except STANDARD_A0 and those with premium storage (STANDARD_GS, STANDARD_DS, and STANDARD_DSV2 series).
+  * vmSize **required** `string`: For information about available sizes of virtual machines for Cloud Services pools (pools created with cloudServiceConfiguration), see Sizes for Cloud Services (https://azure.microsoft.com/documentation/articles/cloud-services-sizes-specs/). Batch supports all Cloud Services VM sizes except ExtraSmall, A1V2 and A2V2. For information about available VM sizes for pools using images from the Virtual Machines Marketplace (pools created with virtualMachineConfiguration) see Sizes for Virtual Machines (Linux) (https://azure.microsoft.com/documentation/articles/virtual-machines-linux-sizes/) or Sizes for Virtual Machines (Windows) (https://azure.microsoft.com/documentation/articles/virtual-machines-windows-sizes/). Batch supports all Azure VM sizes except STANDARD_A0 and those with premium storage (STANDARD_GS, STANDARD_DS, and STANDARD_DSV2 series).
 
 ### PoolEnableAutoScaleParameter
 * Options for enabling automatic scaling on a pool. `object`
@@ -2872,6 +2943,18 @@ windows_batch_batchservice.Pool_ListUsageMetrics({
   * value `array`
     * items [PoolUsageMetrics](#poolusagemetrics)
 
+### PoolNodeCounts
+* The number of nodes in each state for a pool. `object`
+  * dedicated [NodeCounts](#nodecounts)
+  * lowPriority [NodeCounts](#nodecounts)
+  * poolId **required** `string`
+
+### PoolNodeCountsListResult
+* The result of listing the node counts in the account. `object`
+  * odata.nextLink `string`
+  * value `array`: A list of node counts by pool.
+    * items [PoolNodeCounts](#poolnodecounts)
+
 ### PoolPatchParameter
 * The set of changes to be made to a pool. `object`
   * applicationPackageReferences `array`: Changes to application package references affect all new compute nodes joining the pool, but do not affect compute nodes that are already in the pool until they are rebooted or reimaged. If this element is present, it replaces any existing application package references. If you specify an empty collection, then all application package references are removed from the pool. If omitted, any existing application package references are left unchanged.
@@ -2891,7 +2974,7 @@ windows_batch_batchservice.Pool_ListUsageMetrics({
 
 ### PoolSpecification
 * Specification for creating a new pool. `object`
-  * applicationLicenses `array`: The list of application licenses must be a subset of available Batch service application licenses. If a license is requested which is not supported, pool creation will fail.
+  * applicationLicenses `array`: The list of application licenses must be a subset of available Batch service application licenses. If a license is requested which is not supported, pool creation will fail. The permitted licenses available on the pool are 'maya', 'vray', '3dsmax', 'arnold'. An additional charge applies for each application license added to the pool.
     * items `string`
   * applicationPackageReferences `array`
     * items [ApplicationPackageReference](#applicationpackagereference)
@@ -2915,7 +2998,7 @@ windows_batch_batchservice.Pool_ListUsageMetrics({
   * userAccounts `array`
     * items [UserAccount](#useraccount)
   * virtualMachineConfiguration [VirtualMachineConfiguration](#virtualmachineconfiguration)
-  * vmSize **required** `string`: For information about available sizes of virtual machines for Cloud Services pools (pools created with cloudServiceConfiguration), see Sizes for Cloud Services (http://azure.microsoft.com/documentation/articles/cloud-services-sizes-specs/). Batch supports all Cloud Services VM sizes except ExtraSmall, A1V2 and A2V2. For information about available VM sizes for pools using images from the Virtual Machines Marketplace (pools created with virtualMachineConfiguration) see Sizes for Virtual Machines (Linux) (https://azure.microsoft.com/documentation/articles/virtual-machines-linux-sizes/) or Sizes for Virtual Machines (Windows) (https://azure.microsoft.com/documentation/articles/virtual-machines-windows-sizes/). Batch supports all Azure VM sizes except STANDARD_A0 and those with premium storage (STANDARD_GS, STANDARD_DS, and STANDARD_DSV2 series).
+  * vmSize **required** `string`: For information about available sizes of virtual machines in pools, see Choose a VM size for compute nodes in an Azure Batch pool (https://docs.microsoft.com/azure/batch/batch-pool-vm-sizes).
 
 ### PoolStatistics
 * Contains utilization and resource usage statistics for the lifetime of a pool. `object`
@@ -2947,7 +3030,7 @@ windows_batch_batchservice.Pool_ListUsageMetrics({
   * poolId **required** `string`
   * startTime **required** `string`
   * totalCoreHours **required** `number`
-  * vmSize **required** `string`: For information about available sizes of virtual machines for Cloud Services pools (pools created with cloudServiceConfiguration), see Sizes for Cloud Services (http://azure.microsoft.com/documentation/articles/cloud-services-sizes-specs/). Batch supports all Cloud Services VM sizes except ExtraSmall, STANDARD_A1_V2 and STANDARD_A2_V2. For information about available VM sizes for pools using images from the Virtual Machines Marketplace (pools created with virtualMachineConfiguration) see Sizes for Virtual Machines (Linux) (https://azure.microsoft.com/documentation/articles/virtual-machines-linux-sizes/) or Sizes for Virtual Machines (Windows) (https://azure.microsoft.com/documentation/articles/virtual-machines-windows-sizes/). Batch supports all Azure VM sizes except STANDARD_A0 and those with premium storage (STANDARD_GS, STANDARD_DS, and STANDARD_DSV2 series).
+  * vmSize **required** `string`: For information about available sizes of virtual machines in pools, see Choose a VM size for compute nodes in an Azure Batch pool (https://docs.microsoft.com/azure/batch/batch-pool-vm-sizes).
 
 ### RecentJob
 * Information about the most recent job to run under the job schedule. `object`
@@ -2991,8 +3074,8 @@ windows_batch_batchservice.Pool_ListUsageMetrics({
   * startWindow `string`: If a job is not created within the startWindow interval, then the 'opportunity' is lost; no job will be created until the next recurrence of the schedule. If the schedule is recurring, and the startWindow is longer than the recurrence interval, then this is equivalent to an infinite startWindow, because the job that is 'due' in one recurrenceInterval is not carried forward into the next recurrence interval. The default is infinite. The minimum value is 1 minute. If you specify a lower value, the Batch service rejects the schedule with an error; if you are calling the REST API directly, the HTTP status code is 400 (Bad Request).
 
 ### StartTask
-* A task which is run when a compute node joins a pool in the Azure Batch service, or when the compute node is rebooted or reimaged. `object`
-  * commandLine **required** `string`: The command line does not run under a shell, and therefore cannot take advantage of shell features such as environment variable expansion. If you want to take advantage of such features, you should invoke the shell in the command line, for example using "cmd /c MyCommand" in Windows or "/bin/sh -c MyCommand" in Linux.
+* A task which is run when a compute node joins a pool in the Azure Batch service, or when the compute node is rebooted or reimaged. `object`: Batch will retry tasks when a recovery operation is triggered on a compute node. Examples of recovery operations include (but are not limited to) when an unhealthy compute node is rebooted or a compute node disappeared due to host failure. Retries due to recovery operations are independent of and are not counted against the maxTaskRetryCount. Even if the maxTaskRetryCount is 0, an internal retry due to a recovery operation may occur. Because of this, all tasks should be idempotent. This means tasks need to tolerate being interrupted and restarted without causing any corruption or duplicate data. The best practice for long running tasks is to use some form of checkpointing.
+  * commandLine **required** `string`: The command line does not run under a shell, and therefore cannot take advantage of shell features such as environment variable expansion. If you want to take advantage of such features, you should invoke the shell in the command line, for example using "cmd /c MyCommand" in Windows or "/bin/sh -c MyCommand" in Linux. If the command line refers to file paths, it should use a relative path (relative to the task working directory), or use the Batch provided environment variable (https://docs.microsoft.com/en-us/azure/batch/batch-compute-node-environment-variables).
   * containerSettings [TaskContainerSettings](#taskcontainersettings)
   * environmentSettings `array`
     * items [EnvironmentSetting](#environmentsetting)
@@ -3037,7 +3120,7 @@ windows_batch_batchservice.Pool_ListUsageMetrics({
 
 ### TaskAddCollectionParameter
 * A collection of Azure Batch tasks to add. `object`
-  * value **required** `array`: The total serialized size of this collection must be less than 4MB. If it is greater than 4MB (for example if each task has 100's of resource files or environment variables), the request will fail with code 'RequestBodyTooLarge' and should be retried again with fewer tasks.
+  * value **required** `array`: The total serialized size of this collection must be less than 1MB. If it is greater than 1MB (for example if each task has 100's of resource files or environment variables), the request will fail with code 'RequestBodyTooLarge' and should be retried again with fewer tasks.
     * items [TaskAddParameter](#taskaddparameter)
 
 ### TaskAddCollectionResult
@@ -3046,12 +3129,12 @@ windows_batch_batchservice.Pool_ListUsageMetrics({
     * items [TaskAddResult](#taskaddresult)
 
 ### TaskAddParameter
-* An Azure Batch task to add. `object`
+* An Azure Batch task to add. `object`: Batch will retry tasks when a recovery operation is triggered on a compute node. Examples of recovery operations include (but are not limited to) when an unhealthy compute node is rebooted or a compute node disappeared due to host failure. Retries due to recovery operations are independent of and are not counted against the maxTaskRetryCount. Even if the maxTaskRetryCount is 0, an internal retry due to a recovery operation may occur. Because of this, all tasks should be idempotent. This means tasks need to tolerate being interrupted and restarted without causing any corruption or duplicate data. The best practice for long running tasks is to use some form of checkpointing.
   * affinityInfo [AffinityInformation](#affinityinformation)
   * applicationPackageReferences `array`: Application packages are downloaded and deployed to a shared directory, not the task working directory. Therefore, if a referenced package is already on the compute node, and is up to date, then it is not re-downloaded; the existing copy on the compute node is used. If a referenced application package cannot be installed, for example because the package has been deleted or because download failed, the task fails.
     * items [ApplicationPackageReference](#applicationpackagereference)
   * authenticationTokenSettings [AuthenticationTokenSettings](#authenticationtokensettings)
-  * commandLine **required** `string`: For multi-instance tasks, the command line is executed as the primary task, after the primary task and all subtasks have finished executing the coordination command line. The command line does not run under a shell, and therefore cannot take advantage of shell features such as environment variable expansion. If you want to take advantage of such features, you should invoke the shell in the command line, for example using "cmd /c MyCommand" in Windows or "/bin/sh -c MyCommand" in Linux.
+  * commandLine **required** `string`: For multi-instance tasks, the command line is executed as the primary task, after the primary task and all subtasks have finished executing the coordination command line. The command line does not run under a shell, and therefore cannot take advantage of shell features such as environment variable expansion. If you want to take advantage of such features, you should invoke the shell in the command line, for example using "cmd /c MyCommand" in Windows or "/bin/sh -c MyCommand" in Linux. If the command line refers to file paths, it should use a relative path (relative to the task working directory), or use the Batch provided environment variable (https://docs.microsoft.com/en-us/azure/batch/batch-compute-node-environment-variables).
   * constraints [TaskConstraints](#taskconstraints)
   * containerSettings [TaskContainerSettings](#taskcontainersettings)
   * dependsOn [TaskDependencies](#taskdependencies)
@@ -3063,7 +3146,7 @@ windows_batch_batchservice.Pool_ListUsageMetrics({
   * multiInstanceSettings [MultiInstanceSettings](#multiinstancesettings)
   * outputFiles `array`: For multi-instance tasks, the files will only be uploaded from the compute node on which the primary task is executed.
     * items [OutputFile](#outputfile)
-  * resourceFiles `array`: For multi-instance tasks, the resource files will only be downloaded to the compute node on which the primary task is executed.
+  * resourceFiles `array`: For multi-instance tasks, the resource files will only be downloaded to the compute node on which the primary task is executed. There is a maximum size for the list of resource files.  When the max size is exceeded, the request will fail and the response error code will be RequestEntityTooLarge. If this occurs, the collection of ResourceFiles must be reduced in size. This can be achieved using .zip files, Application Packages, or Docker Containers.
     * items [ResourceFile](#resourcefile)
   * userIdentity [UserIdentity](#useridentity)
 
@@ -3078,7 +3161,7 @@ windows_batch_batchservice.Pool_ListUsageMetrics({
 
 ### TaskConstraints
 * Execution constraints to apply to a task. `object`
-  * maxTaskRetryCount `integer`: Note that this value specifically controls the number of retries. The Batch service will try the task once, and may then retry up to this limit. For example, if the maximum retry count is 3, Batch tries the task up to 4 times (one initial try and 3 retries). If the maximum retry count is 0, the Batch service does not retry the task. If the maximum retry count is -1, the Batch service retries the task without limit.
+  * maxTaskRetryCount `integer`: Note that this value specifically controls the number of retries for the task executable due to a nonzero exit code. The Batch service will try the task once, and may then retry up to this limit. For example, if the maximum retry count is 3, Batch tries the task up to 4 times (one initial try and 3 retries). If the maximum retry count is 0, the Batch service does not retry the task after the first attempt. If the maximum retry count is -1, the Batch service retries the task without limit. Resource files and application packages are only downloaded again if the task is retried on a new compute node.
   * maxWallClockTime `string`: If this is not specified, there is no time limit on how long the task may run.
   * retentionTime `string`: The default is infinite, i.e. the task directory will be retained until the compute node is removed or reimaged.
 
@@ -3101,7 +3184,6 @@ windows_batch_batchservice.Pool_ListUsageMetrics({
   * failed **required** `integer`
   * running **required** `integer`
   * succeeded **required** `integer`
-  * validationStatus **required** `string` (values: validated, unvalidated)
 
 ### TaskDependencies
 * Specifies any dependencies of a task. Any task that is explicitly specified or within a dependency range must complete before the dependant task will be scheduled. `object`
@@ -3173,6 +3255,17 @@ windows_batch_batchservice.Pool_ListUsageMetrics({
 * The set of changes to be made to a task. `object`
   * constraints [TaskConstraints](#taskconstraints)
 
+### UploadBatchServiceLogsConfiguration
+* The Azure Batch service log files upload configuration for a compute node. `object`
+  * containerUrl **required** `string`: The URL must include a Shared Access Signature (SAS) granting write permissions to the container. The SAS duration must allow enough time for the upload to finish. The start time for SAS is optional and recommended to not be specified.
+  * endTime `string`: Any log file containing a log message in the time range will be uploaded. This means that the operation might retrieve more logs than have been requested since the entire log file is always uploaded, but the operation should not retrieve fewer logs than have been requested. If omitted, the default is to upload all logs available after the startTime.
+  * startTime **required** `string`: Any log file containing a log message in the time range will be uploaded. This means that the operation might retrieve more logs than have been requested since the entire log file is always uploaded, but the operation should not retrieve fewer logs than have been requested.
+
+### UploadBatchServiceLogsResult
+* The result of uploading Batch service log files from a specific compute node. `object`
+  * numberOfFilesUploaded **required** `integer`
+  * virtualDirectoryName **required** `string`: The virtual directory name is part of the blob name for each log file uploaded, and it is built based poolId, nodeId and a unique identifier.
+
 ### UsageStatistics
 * Statistics related to pool usage information. `object`
   * dedicatedCoreTime **required** `string`
@@ -3187,7 +3280,7 @@ windows_batch_batchservice.Pool_ListUsageMetrics({
   * password **required** `string`
 
 ### UserIdentity
-* The definition of the user identity under which the task is run. `object`: Specify either the userName or autoUser property, but not both.
+* The definition of the user identity under which the task is run. `object`: Specify either the userName or autoUser property, but not both. On CloudServiceConfiguration pools, this user is logged in with the INTERACTIVE flag. On Windows VirtualMachineConfiguration pools, this user is logged in with the BATCH flag.
   * autoUser [AutoUserSpecification](#autouserspecification)
   * username `string`: The userName and autoUser properties are mutually exclusive; you must specify one but not both.
 

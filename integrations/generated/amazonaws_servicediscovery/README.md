@@ -1,6 +1,6 @@
 # @datafire/amazonaws_servicediscovery
 
-Client library for Amazon Route 53 Auto Naming
+Client library for AWS Cloud Map
 
 ## Installation and Usage
 ```bash
@@ -13,19 +13,37 @@ let amazonaws_servicediscovery = require('@datafire/amazonaws_servicediscovery')
   region: ""
 });
 
-amazonaws_servicediscovery.CreatePrivateDnsNamespace({
-  "Name": "",
-  "Vpc": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
 
 ## Description
 
-Amazon Route 53 auto naming lets you configure public or private namespaces that your microservice applications run in. When instances of the service become available, you can call the auto naming API to register the instance, and Route 53 automatically creates up to five DNS records and an optional health check. Clients that submit DNS queries for the service receive an answer that contains up to eight healthy records.
+AWS Cloud Map lets you configure public DNS, private DNS, or HTTP namespaces that your microservice applications run in. When an instance of the service becomes available, you can call the AWS Cloud Map API to register the instance with AWS Cloud Map. For public or private DNS namespaces, AWS Cloud Map automatically creates DNS records and an optional health check. Clients that submit public or private DNS queries, or HTTP requests, for the service receive an answer that contains up to eight healthy records. 
 
 ## Actions
+
+### CreateHttpNamespace
+
+
+
+```js
+amazonaws_servicediscovery.CreateHttpNamespace({
+  "Name": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * CreatorRequestId
+  * Description
+  * Name **required**
+  * Tags
+    * items [Tag](#tag)
+
+#### Output
+* output [CreateHttpNamespaceResponse](#createhttpnamespaceresponse)
 
 ### CreatePrivateDnsNamespace
 
@@ -33,17 +51,19 @@ Amazon Route 53 auto naming lets you configure public or private namespaces that
 
 ```js
 amazonaws_servicediscovery.CreatePrivateDnsNamespace({
-  "Name": "",
-  "Vpc": ""
+  "Name": null,
+  "Vpc": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * CreatorRequestId [ResourceId](#resourceid)
-  * Description [ResourceDescription](#resourcedescription)
-  * Name **required** [NamespaceName](#namespacename)
-  * Vpc **required** [ResourceId](#resourceid)
+  * CreatorRequestId
+  * Description
+  * Name **required**
+  * Tags
+    * items [Tag](#tag)
+  * Vpc **required**
 
 #### Output
 * output [CreatePrivateDnsNamespaceResponse](#createprivatednsnamespaceresponse)
@@ -54,15 +74,17 @@ amazonaws_servicediscovery.CreatePrivateDnsNamespace({
 
 ```js
 amazonaws_servicediscovery.CreatePublicDnsNamespace({
-  "Name": ""
+  "Name": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * CreatorRequestId [ResourceId](#resourceid)
-  * Description [ResourceDescription](#resourcedescription)
-  * Name **required** [NamespaceName](#namespacename)
+  * CreatorRequestId
+  * Description
+  * Name **required**
+  * Tags
+    * items [Tag](#tag)
 
 #### Output
 * output [CreatePublicDnsNamespaceResponse](#createpublicdnsnamespaceresponse)
@@ -73,22 +95,29 @@ amazonaws_servicediscovery.CreatePublicDnsNamespace({
 
 ```js
 amazonaws_servicediscovery.CreateService({
-  "Name": "",
-  "DnsConfig": {
-    "NamespaceId": "",
-    "DnsRecords": []
-  }
+  "Name": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * CreatorRequestId [ResourceId](#resourceid)
-  * Description [ResourceDescription](#resourcedescription)
-  * DnsConfig **required** [DnsConfig](#dnsconfig)
-  * HealthCheckConfig [HealthCheckConfig](#healthcheckconfig)
-  * HealthCheckCustomConfig [HealthCheckCustomConfig](#healthcheckcustomconfig)
-  * Name **required** [ServiceName](#servicename)
+  * CreatorRequestId
+  * Description
+  * DnsConfig
+    * DnsRecords **required**
+      * items [DnsRecord](#dnsrecord)
+    * NamespaceId
+    * RoutingPolicy
+  * HealthCheckConfig
+    * FailureThreshold
+    * ResourcePath
+    * Type **required**
+  * HealthCheckCustomConfig
+    * FailureThreshold
+  * Name **required**
+  * NamespaceId
+  * Tags
+    * items [Tag](#tag)
 
 #### Output
 * output [CreateServiceResponse](#createserviceresponse)
@@ -99,13 +128,13 @@ amazonaws_servicediscovery.CreateService({
 
 ```js
 amazonaws_servicediscovery.DeleteNamespace({
-  "Id": ""
+  "Id": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Id **required** [ResourceId](#resourceid)
+  * Id **required**
 
 #### Output
 * output [DeleteNamespaceResponse](#deletenamespaceresponse)
@@ -116,13 +145,13 @@ amazonaws_servicediscovery.DeleteNamespace({
 
 ```js
 amazonaws_servicediscovery.DeleteService({
-  "Id": ""
+  "Id": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Id **required** [ResourceId](#resourceid)
+  * Id **required**
 
 #### Output
 * output [DeleteServiceResponse](#deleteserviceresponse)
@@ -133,18 +162,41 @@ amazonaws_servicediscovery.DeleteService({
 
 ```js
 amazonaws_servicediscovery.DeregisterInstance({
-  "ServiceId": "",
-  "InstanceId": ""
+  "ServiceId": null,
+  "InstanceId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * InstanceId **required** [ResourceId](#resourceid)
-  * ServiceId **required** [ResourceId](#resourceid)
+  * InstanceId **required**
+  * ServiceId **required**
 
 #### Output
 * output [DeregisterInstanceResponse](#deregisterinstanceresponse)
+
+### DiscoverInstances
+
+
+
+```js
+amazonaws_servicediscovery.DiscoverInstances({
+  "NamespaceName": null,
+  "ServiceName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * HealthStatus
+  * MaxResults
+  * NamespaceName **required**
+  * OptionalParameters
+  * QueryParameters
+  * ServiceName **required**
+
+#### Output
+* output [DiscoverInstancesResponse](#discoverinstancesresponse)
 
 ### GetInstance
 
@@ -152,15 +204,15 @@ amazonaws_servicediscovery.DeregisterInstance({
 
 ```js
 amazonaws_servicediscovery.GetInstance({
-  "ServiceId": "",
-  "InstanceId": ""
+  "ServiceId": null,
+  "InstanceId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * InstanceId **required** [ResourceId](#resourceid)
-  * ServiceId **required** [ResourceId](#resourceid)
+  * InstanceId **required**
+  * ServiceId **required**
 
 #### Output
 * output [GetInstanceResponse](#getinstanceresponse)
@@ -171,7 +223,7 @@ amazonaws_servicediscovery.GetInstance({
 
 ```js
 amazonaws_servicediscovery.GetInstancesHealthStatus({
-  "ServiceId": ""
+  "ServiceId": null
 }, context)
 ```
 
@@ -179,10 +231,11 @@ amazonaws_servicediscovery.GetInstancesHealthStatus({
 * input `object`
   * MaxResults `string`
   * NextToken `string`
-  * Instances [InstanceIdList](#instanceidlist)
-  * MaxResults [MaxResults](#maxresults)
-  * NextToken [NextToken](#nexttoken)
-  * ServiceId **required** [ResourceId](#resourceid)
+  * Instances
+    * items [ResourceId](#resourceid)
+  * MaxResults
+  * NextToken
+  * ServiceId **required**
 
 #### Output
 * output [GetInstancesHealthStatusResponse](#getinstanceshealthstatusresponse)
@@ -193,13 +246,13 @@ amazonaws_servicediscovery.GetInstancesHealthStatus({
 
 ```js
 amazonaws_servicediscovery.GetNamespace({
-  "Id": ""
+  "Id": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Id **required** [ResourceId](#resourceid)
+  * Id **required**
 
 #### Output
 * output [GetNamespaceResponse](#getnamespaceresponse)
@@ -210,13 +263,13 @@ amazonaws_servicediscovery.GetNamespace({
 
 ```js
 amazonaws_servicediscovery.GetOperation({
-  "OperationId": ""
+  "OperationId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * OperationId **required** [ResourceId](#resourceid)
+  * OperationId **required**
 
 #### Output
 * output [GetOperationResponse](#getoperationresponse)
@@ -227,13 +280,13 @@ amazonaws_servicediscovery.GetOperation({
 
 ```js
 amazonaws_servicediscovery.GetService({
-  "Id": ""
+  "Id": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Id **required** [ResourceId](#resourceid)
+  * Id **required**
 
 #### Output
 * output [GetServiceResponse](#getserviceresponse)
@@ -244,7 +297,7 @@ amazonaws_servicediscovery.GetService({
 
 ```js
 amazonaws_servicediscovery.ListInstances({
-  "ServiceId": ""
+  "ServiceId": null
 }, context)
 ```
 
@@ -252,9 +305,9 @@ amazonaws_servicediscovery.ListInstances({
 * input `object`
   * MaxResults `string`
   * NextToken `string`
-  * MaxResults [MaxResults](#maxresults)
-  * NextToken [NextToken](#nexttoken)
-  * ServiceId **required** [ResourceId](#resourceid)
+  * MaxResults
+  * NextToken
+  * ServiceId **required**
 
 #### Output
 * output [ListInstancesResponse](#listinstancesresponse)
@@ -271,9 +324,10 @@ amazonaws_servicediscovery.ListNamespaces({}, context)
 * input `object`
   * MaxResults `string`
   * NextToken `string`
-  * Filters [NamespaceFilters](#namespacefilters)
-  * MaxResults [MaxResults](#maxresults)
-  * NextToken [NextToken](#nexttoken)
+  * Filters
+    * items [NamespaceFilter](#namespacefilter)
+  * MaxResults
+  * NextToken
 
 #### Output
 * output [ListNamespacesResponse](#listnamespacesresponse)
@@ -290,9 +344,10 @@ amazonaws_servicediscovery.ListOperations({}, context)
 * input `object`
   * MaxResults `string`
   * NextToken `string`
-  * Filters [OperationFilters](#operationfilters)
-  * MaxResults [MaxResults](#maxresults)
-  * NextToken [NextToken](#nexttoken)
+  * Filters
+    * items [OperationFilter](#operationfilter)
+  * MaxResults
+  * NextToken
 
 #### Output
 * output [ListOperationsResponse](#listoperationsresponse)
@@ -309,12 +364,30 @@ amazonaws_servicediscovery.ListServices({}, context)
 * input `object`
   * MaxResults `string`
   * NextToken `string`
-  * Filters [ServiceFilters](#servicefilters)
-  * MaxResults [MaxResults](#maxresults)
-  * NextToken [NextToken](#nexttoken)
+  * Filters
+    * items [ServiceFilter](#servicefilter)
+  * MaxResults
+  * NextToken
 
 #### Output
 * output [ListServicesResponse](#listservicesresponse)
+
+### ListTagsForResource
+
+
+
+```js
+amazonaws_servicediscovery.ListTagsForResource({
+  "ResourceARN": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * ResourceARN **required**
+
+#### Output
+* output [ListTagsForResourceResponse](#listtagsforresourceresponse)
 
 ### RegisterInstance
 
@@ -322,21 +395,61 @@ amazonaws_servicediscovery.ListServices({}, context)
 
 ```js
 amazonaws_servicediscovery.RegisterInstance({
-  "ServiceId": "",
-  "InstanceId": "",
-  "Attributes": []
+  "ServiceId": null,
+  "InstanceId": null,
+  "Attributes": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Attributes **required** [Attributes](#attributes)
-  * CreatorRequestId [ResourceId](#resourceid)
-  * InstanceId **required** [ResourceId](#resourceid)
-  * ServiceId **required** [ResourceId](#resourceid)
+  * Attributes **required**
+  * CreatorRequestId
+  * InstanceId **required**
+  * ServiceId **required**
 
 #### Output
 * output [RegisterInstanceResponse](#registerinstanceresponse)
+
+### TagResource
+
+
+
+```js
+amazonaws_servicediscovery.TagResource({
+  "ResourceARN": null,
+  "Tags": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * ResourceARN **required**
+  * Tags **required**
+    * items [Tag](#tag)
+
+#### Output
+* output [TagResourceResponse](#tagresourceresponse)
+
+### UntagResource
+
+
+
+```js
+amazonaws_servicediscovery.UntagResource({
+  "ResourceARN": null,
+  "TagKeys": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * ResourceARN **required**
+  * TagKeys **required**
+    * items [TagKey](#tagkey)
+
+#### Output
+* output [UntagResourceResponse](#untagresourceresponse)
 
 ### UpdateInstanceCustomHealthStatus
 
@@ -344,17 +457,17 @@ amazonaws_servicediscovery.RegisterInstance({
 
 ```js
 amazonaws_servicediscovery.UpdateInstanceCustomHealthStatus({
-  "ServiceId": "",
-  "InstanceId": "",
-  "Status": ""
+  "ServiceId": null,
+  "InstanceId": null,
+  "Status": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * InstanceId **required** [ResourceId](#resourceid)
-  * ServiceId **required** [ResourceId](#resourceid)
-  * Status **required** [CustomHealthStatus](#customhealthstatus)
+  * InstanceId **required**
+  * ServiceId **required**
+  * Status **required**
 
 #### Output
 *Output schema unknown*
@@ -365,19 +478,20 @@ amazonaws_servicediscovery.UpdateInstanceCustomHealthStatus({
 
 ```js
 amazonaws_servicediscovery.UpdateService({
-  "Id": "",
-  "Service": {
-    "DnsConfig": {
-      "DnsRecords": []
-    }
-  }
+  "Id": null,
+  "Service": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Id **required** [ResourceId](#resourceid)
-  * Service **required** [ServiceChange](#servicechange)
+  * Id **required**
+  * Service **required**
+    * Description
+    * DnsConfig
+      * DnsRecords **required**
+        * items [DnsRecord](#dnsrecord)
+    * HealthCheckConfig [HealthCheckConfig](#healthcheckconfig)
 
 #### Output
 * output [UpdateServiceResponse](#updateserviceresponse)
@@ -385,6 +499,9 @@ amazonaws_servicediscovery.UpdateService({
 
 
 ## Definitions
+
+### AmazonResourceName
+* AmazonResourceName `string`
 
 ### Arn
 * Arn `string`
@@ -396,108 +513,165 @@ amazonaws_servicediscovery.UpdateService({
 * AttrValue `string`
 
 ### Attributes
-* Attributes `array`
-  * items `object`
-    * key [AttrKey](#attrkey)
-    * value [AttrValue](#attrvalue)
+* Attributes `object`
 
 ### Code
 * Code `string`
 
+### CreateHttpNamespaceRequest
+* CreateHttpNamespaceRequest `object`
+  * CreatorRequestId
+  * Description
+  * Name **required**
+  * Tags
+    * items [Tag](#tag)
+
+### CreateHttpNamespaceResponse
+* CreateHttpNamespaceResponse `object`
+  * OperationId
+
 ### CreatePrivateDnsNamespaceRequest
 * CreatePrivateDnsNamespaceRequest `object`
-  * CreatorRequestId [ResourceId](#resourceid)
-  * Description [ResourceDescription](#resourcedescription)
-  * Name **required** [NamespaceName](#namespacename)
-  * Vpc **required** [ResourceId](#resourceid)
+  * CreatorRequestId
+  * Description
+  * Name **required**
+  * Tags
+    * items [Tag](#tag)
+  * Vpc **required**
 
 ### CreatePrivateDnsNamespaceResponse
 * CreatePrivateDnsNamespaceResponse `object`
-  * OperationId [OperationId](#operationid)
+  * OperationId
 
 ### CreatePublicDnsNamespaceRequest
 * CreatePublicDnsNamespaceRequest `object`
-  * CreatorRequestId [ResourceId](#resourceid)
-  * Description [ResourceDescription](#resourcedescription)
-  * Name **required** [NamespaceName](#namespacename)
+  * CreatorRequestId
+  * Description
+  * Name **required**
+  * Tags
+    * items [Tag](#tag)
 
 ### CreatePublicDnsNamespaceResponse
 * CreatePublicDnsNamespaceResponse `object`
-  * OperationId [OperationId](#operationid)
+  * OperationId
 
 ### CreateServiceRequest
 * CreateServiceRequest `object`
-  * CreatorRequestId [ResourceId](#resourceid)
-  * Description [ResourceDescription](#resourcedescription)
-  * DnsConfig **required** [DnsConfig](#dnsconfig)
-  * HealthCheckConfig [HealthCheckConfig](#healthcheckconfig)
-  * HealthCheckCustomConfig [HealthCheckCustomConfig](#healthcheckcustomconfig)
-  * Name **required** [ServiceName](#servicename)
+  * CreatorRequestId
+  * Description
+  * DnsConfig
+    * DnsRecords **required**
+      * items [DnsRecord](#dnsrecord)
+    * NamespaceId
+    * RoutingPolicy
+  * HealthCheckConfig
+    * FailureThreshold
+    * ResourcePath
+    * Type **required**
+  * HealthCheckCustomConfig
+    * FailureThreshold
+  * Name **required**
+  * NamespaceId
+  * Tags
+    * items [Tag](#tag)
 
 ### CreateServiceResponse
 * CreateServiceResponse `object`
-  * Service [Service](#service)
+  * Service
+    * Arn
+    * CreateDate
+    * CreatorRequestId
+    * Description
+    * DnsConfig
+      * DnsRecords **required**
+        * items [DnsRecord](#dnsrecord)
+      * NamespaceId
+      * RoutingPolicy
+    * HealthCheckConfig
+      * FailureThreshold
+      * ResourcePath
+      * Type **required**
+    * HealthCheckCustomConfig
+      * FailureThreshold
+    * Id
+    * InstanceCount
+    * Name
+    * NamespaceId
 
 ### CustomHealthNotFound
-* CustomHealthNotFound `object`
-  * Message [ErrorMessage](#errormessage)
+
 
 ### CustomHealthStatus
 * CustomHealthStatus `string` (values: HEALTHY, UNHEALTHY)
 
 ### DeleteNamespaceRequest
 * DeleteNamespaceRequest `object`
-  * Id **required** [ResourceId](#resourceid)
+  * Id **required**
 
 ### DeleteNamespaceResponse
 * DeleteNamespaceResponse `object`
-  * OperationId [OperationId](#operationid)
+  * OperationId
 
 ### DeleteServiceRequest
 * DeleteServiceRequest `object`
-  * Id **required** [ResourceId](#resourceid)
+  * Id **required**
 
 ### DeleteServiceResponse
 * DeleteServiceResponse `object`
 
 ### DeregisterInstanceRequest
 * DeregisterInstanceRequest `object`
-  * InstanceId **required** [ResourceId](#resourceid)
-  * ServiceId **required** [ResourceId](#resourceid)
+  * InstanceId **required**
+  * ServiceId **required**
 
 ### DeregisterInstanceResponse
 * DeregisterInstanceResponse `object`
-  * OperationId [OperationId](#operationid)
+  * OperationId
+
+### DiscoverInstancesRequest
+* DiscoverInstancesRequest `object`
+  * HealthStatus
+  * MaxResults
+  * NamespaceName **required**
+  * OptionalParameters
+  * QueryParameters
+  * ServiceName **required**
+
+### DiscoverInstancesResponse
+* DiscoverInstancesResponse `object`
+  * Instances
+    * items [HttpInstanceSummary](#httpinstancesummary)
+
+### DiscoverMaxResults
+* DiscoverMaxResults `integer`
 
 ### DnsConfig
-* DnsConfig `object`: A complex type that contains information about the records that you want Amazon Route 53 to create when you register an instance.
-  * DnsRecords **required** [DnsRecordList](#dnsrecordlist)
-  * NamespaceId **required** [ResourceId](#resourceid)
-  * RoutingPolicy [RoutingPolicy](#routingpolicy)
+* DnsConfig `object`: A complex type that contains information about the Amazon Route 53 DNS records that you want AWS Cloud Map to create when you register an instance.
+  * DnsRecords **required**
+    * items [DnsRecord](#dnsrecord)
+  * NamespaceId
+  * RoutingPolicy
 
 ### DnsConfigChange
-* DnsConfigChange `object`: A complex type that contains information about changes to the records that Route 53 creates when you register an instance.
-  * DnsRecords **required** [DnsRecordList](#dnsrecordlist)
+* DnsConfigChange `object`: A complex type that contains information about changes to the Route 53 DNS records that AWS Cloud Map creates when you register an instance.
+  * DnsRecords **required**
+    * items [DnsRecord](#dnsrecord)
 
 ### DnsProperties
-* DnsProperties `object`: A complex type that contains the ID for the hosted zone that Route 53 creates when you create a namespace.
-  * HostedZoneId [ResourceId](#resourceid)
+* DnsProperties `object`: A complex type that contains the ID for the Route 53 hosted zone that AWS Cloud Map creates when you create a namespace.
+  * HostedZoneId
 
 ### DnsRecord
-* DnsRecord `object`: A complex type that contains information about the records that you want Route 53 to create when you register an instance.
-  * TTL **required** [RecordTTL](#recordttl)
-  * Type **required** [RecordType](#recordtype)
+* DnsRecord `object`: A complex type that contains information about the Route 53 DNS records that you want AWS Cloud Map to create when you register an instance.
+  * TTL **required**
+  * Type **required**
 
 ### DnsRecordList
 * DnsRecordList `array`
   * items [DnsRecord](#dnsrecord)
 
 ### DuplicateRequest
-* DuplicateRequest `object`: The operation is already in progress.
-  * Message [ErrorMessage](#errormessage)
 
-### ErrorMessage
-* ErrorMessage `string`
 
 ### FailureThreshold
 * FailureThreshold `integer`
@@ -514,58 +688,102 @@ amazonaws_servicediscovery.UpdateService({
 
 ### GetInstanceRequest
 * GetInstanceRequest `object`
-  * InstanceId **required** [ResourceId](#resourceid)
-  * ServiceId **required** [ResourceId](#resourceid)
+  * InstanceId **required**
+  * ServiceId **required**
 
 ### GetInstanceResponse
 * GetInstanceResponse `object`
-  * Instance [Instance](#instance)
+  * Instance
+    * Attributes
+    * CreatorRequestId
+    * Id **required**
 
 ### GetInstancesHealthStatusRequest
 * GetInstancesHealthStatusRequest `object`
-  * Instances [InstanceIdList](#instanceidlist)
-  * MaxResults [MaxResults](#maxresults)
-  * NextToken [NextToken](#nexttoken)
-  * ServiceId **required** [ResourceId](#resourceid)
+  * Instances
+    * items [ResourceId](#resourceid)
+  * MaxResults
+  * NextToken
+  * ServiceId **required**
 
 ### GetInstancesHealthStatusResponse
 * GetInstancesHealthStatusResponse `object`
-  * NextToken [NextToken](#nexttoken)
-  * Status [InstanceHealthStatusMap](#instancehealthstatusmap)
+  * NextToken
+  * Status
 
 ### GetNamespaceRequest
 * GetNamespaceRequest `object`
-  * Id **required** [ResourceId](#resourceid)
+  * Id **required**
 
 ### GetNamespaceResponse
 * GetNamespaceResponse `object`
-  * Namespace [Namespace](#namespace)
+  * Namespace
+    * Arn
+    * CreateDate
+    * CreatorRequestId
+    * Description
+    * Id
+    * Name
+    * Properties
+      * DnsProperties
+        * HostedZoneId
+      * HttpProperties
+        * HttpName
+    * ServiceCount
+    * Type
 
 ### GetOperationRequest
 * GetOperationRequest `object`
-  * OperationId **required** [ResourceId](#resourceid)
+  * OperationId **required**
 
 ### GetOperationResponse
 * GetOperationResponse `object`
-  * Operation [Operation](#operation)
+  * Operation
+    * CreateDate
+    * ErrorCode
+    * ErrorMessage
+    * Id
+    * Status
+    * Targets
+    * Type
+    * UpdateDate
 
 ### GetServiceRequest
 * GetServiceRequest `object`
-  * Id **required** [ResourceId](#resourceid)
+  * Id **required**
 
 ### GetServiceResponse
 * GetServiceResponse `object`
-  * Service [Service](#service)
+  * Service
+    * Arn
+    * CreateDate
+    * CreatorRequestId
+    * Description
+    * DnsConfig
+      * DnsRecords **required**
+        * items [DnsRecord](#dnsrecord)
+      * NamespaceId
+      * RoutingPolicy
+    * HealthCheckConfig
+      * FailureThreshold
+      * ResourcePath
+      * Type **required**
+    * HealthCheckCustomConfig
+      * FailureThreshold
+    * Id
+    * InstanceCount
+    * Name
+    * NamespaceId
 
 ### HealthCheckConfig
-* HealthCheckConfig `object`: <p> <i>Public DNS namespaces only.</i> A complex type that contains settings for an optional health check. If you specify settings for a health check, Amazon Route 53 associates the health check with all the records that you specify in <code>DnsConfig</code>.</p> <p> <b>A and AAAA records</b> </p> <p>If <code>DnsConfig</code> includes configurations for both A and AAAA records, Route 53 creates a health check that uses the IPv4 address to check the health of the resource. If the endpoint that is specified by the IPv4 address is unhealthy, Route 53 considers both the A and AAAA records to be unhealthy. </p> <p> <b>CNAME records</b> </p> <p>You can't specify settings for <code>HealthCheckConfig</code> when the <code>DNSConfig</code> includes <code>CNAME</code> for the value of <code>Type</code>. If you do, the <code>CreateService</code> request will fail with an <code>InvalidInput</code> error.</p> <p> <b>Request interval</b> </p> <p>The health check uses 30 seconds as the request interval. This is the number of seconds between the time that each Route 53 health checker gets a response from your endpoint and the time that it sends the next health check request. A health checker in each data center around the world sends your endpoint a health check request every 30 seconds. On average, your endpoint receives a health check request about every two seconds. Health checkers in different data centers don't coordinate with one another, so you'll sometimes see several requests per second followed by a few seconds with no health checks at all.</p> <p> <b>Health checking regions</b> </p> <p>Health checkers perform checks from all Route 53 health-checking regions. For a list of the current regions, see <a href="http://docs.aws.amazon.com/Route53/latest/APIReference/API_HealthCheckConfig.html#Route53-Type-HealthCheckConfig-Regions">Regions</a>.</p> <p> <b>Alias records</b> </p> <p>When you register an instance, if you include the <code>AWS_ALIAS_DNS_NAME</code> attribute, Route 53 creates an alias record. Note the following:</p> <ul> <li> <p>Route 53 automatically sets <code>EvaluateTargetHealth</code> to true for alias records. When <code>EvaluateTargetHealth</code> is true, the alias record inherits the health of the referenced AWS resource. such as an ELB load balancer. For more information, see <a href="http://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html#Route53-Type-AliasTarget-EvaluateTargetHealth">EvaluateTargetHealth</a>.</p> </li> <li> <p>If you include <code>HealthCheckConfig</code> and then use the service to register an instance that creates an alias record, Route 53 doesn't create the health check.</p> </li> </ul> <p>For information about the charges for health checks, see <a href="http://aws.amazon.com/route53/pricing">Route 53 Pricing</a>.</p>
-  * FailureThreshold [FailureThreshold](#failurethreshold)
-  * ResourcePath [ResourcePath](#resourcepath)
-  * Type [HealthCheckType](#healthchecktype)
+* HealthCheckConfig `object`: <p> <i>Public DNS and HTTP namespaces only.</i> A complex type that contains settings for an optional health check. If you specify settings for a health check, AWS Cloud Map associates the health check with the records that you specify in <code>DnsConfig</code>.</p> <important> <p>If you specify a health check configuration, you can specify either <code>HealthCheckCustomConfig</code> or <code>HealthCheckConfig</code> but not both.</p> </important> <p>Health checks are basic Route 53 health checks that monitor an AWS endpoint. For information about pricing for health checks, see <a href="http://aws.amazon.com/route53/pricing/">Amazon Route 53 Pricing</a>.</p> <p>Note the following about configuring health checks.</p> <p> <b> <code>A</code> and <code>AAAA</code> records</b> </p> <p>If <code>DnsConfig</code> includes configurations for both <code>A</code> and <code>AAAA</code> records, AWS Cloud Map creates a health check that uses the IPv4 address to check the health of the resource. If the endpoint that is specified by the IPv4 address is unhealthy, Route 53 considers both the <code>A</code> and <code>AAAA</code> records to be unhealthy. </p> <p> <b> <code>CNAME</code> records</b> </p> <p>You can't specify settings for <code>HealthCheckConfig</code> when the <code>DNSConfig</code> includes <code>CNAME</code> for the value of <code>Type</code>. If you do, the <code>CreateService</code> request will fail with an <code>InvalidInput</code> error.</p> <p> <b>Request interval</b> </p> <p>A Route 53 health checker in each health-checking region sends a health check request to an endpoint every 30 seconds. On average, your endpoint receives a health check request about every two seconds. However, health checkers don't coordinate with one another, so you'll sometimes see several requests per second followed by a few seconds with no health checks at all.</p> <p> <b>Health checking regions</b> </p> <p>Health checkers perform checks from all Route 53 health-checking regions. For a list of the current regions, see <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_HealthCheckConfig.html#Route53-Type-HealthCheckConfig-Regions">Regions</a>.</p> <p> <b>Alias records</b> </p> <p>When you register an instance, if you include the <code>AWS_ALIAS_DNS_NAME</code> attribute, AWS Cloud Map creates a Route 53 alias record. Note the following:</p> <ul> <li> <p>Route 53 automatically sets <code>EvaluateTargetHealth</code> to true for alias records. When <code>EvaluateTargetHealth</code> is true, the alias record inherits the health of the referenced AWS resource. such as an ELB load balancer. For more information, see <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html#Route53-Type-AliasTarget-EvaluateTargetHealth">EvaluateTargetHealth</a>.</p> </li> <li> <p>If you include <code>HealthCheckConfig</code> and then use the service to register an instance that creates an alias record, Route 53 doesn't create the health check.</p> </li> </ul> <p> <b>Charges for health checks</b> </p> <p>Health checks are basic Route 53 health checks that monitor an AWS endpoint. For information about pricing for health checks, see <a href="http://aws.amazon.com/route53/pricing/">Amazon Route 53 Pricing</a>.</p>
+  * FailureThreshold
+  * ResourcePath
+  * Type **required**
 
 ### HealthCheckCustomConfig
-* HealthCheckCustomConfig `object`
-  * FailureThreshold [FailureThreshold](#failurethreshold)
+* HealthCheckCustomConfig `object`: <p>A complex type that contains information about an optional custom health check. A custom health check, which requires that you use a third-party health checker to evaluate the health of your resources, is useful in the following circumstances:</p> <ul> <li> <p>You can't use a health check that is defined by <code>HealthCheckConfig</code> because the resource isn't available over the internet. For example, you can use a custom health check when the instance is in an Amazon VPC. (To check the health of resources in a VPC, the health checker must also be in the VPC.)</p> </li> <li> <p>You want to use a third-party health checker regardless of where your resources are.</p> </li> </ul> <important> <p>If you specify a health check configuration, you can specify either <code>HealthCheckCustomConfig</code> or <code>HealthCheckConfig</code> but not both.</p> </important> <p>To change the status of a custom health check, submit an <code>UpdateInstanceCustomHealthStatus</code> request. AWS Cloud Map doesn't monitor the status of the resource, it just keeps a record of the status specified in the most recent <code>UpdateInstanceCustomHealthStatus</code> request.</p> <p>Here's how custom health checks work:</p> <ol> <li> <p>You create a service and specify a value for <code>FailureThreshold</code>. </p> <p>The failure threshold indicates the number of 30-second intervals you want AWS Cloud Map to wait between the time that your application sends an <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_UpdateInstanceCustomHealthStatus.html">UpdateInstanceCustomHealthStatus</a> request and the time that AWS Cloud Map stops routing internet traffic to the corresponding resource.</p> </li> <li> <p>You register an instance.</p> </li> <li> <p>You configure a third-party health checker to monitor the resource that is associated with the new instance. </p> <note> <p>AWS Cloud Map doesn't check the health of the resource directly. </p> </note> </li> <li> <p>The third-party health-checker determines that the resource is unhealthy and notifies your application.</p> </li> <li> <p>Your application submits an <code>UpdateInstanceCustomHealthStatus</code> request.</p> </li> <li> <p>AWS Cloud Map waits for (<code>FailureThreshold</code> x 30) seconds.</p> </li> <li> <p>If another <code>UpdateInstanceCustomHealthStatus</code> request doesn't arrive during that time to change the status back to healthy, AWS Cloud Map stops routing traffic to the resource.</p> </li> </ol>
+  * FailureThreshold
 
 ### HealthCheckType
 * HealthCheckType `string` (values: HTTP, HTTPS, TCP)
@@ -573,82 +791,112 @@ amazonaws_servicediscovery.UpdateService({
 ### HealthStatus
 * HealthStatus `string` (values: HEALTHY, UNHEALTHY, UNKNOWN)
 
+### HealthStatusFilter
+* HealthStatusFilter `string` (values: HEALTHY, UNHEALTHY, ALL)
+
+### HttpInstanceSummary
+* HttpInstanceSummary `object`: In a response to a <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_DiscoverInstances.html">DiscoverInstances</a> request, <code>HttpInstanceSummary</code> contains information about one instance that matches the values that you specified in the request.
+  * Attributes
+  * HealthStatus
+  * InstanceId
+  * NamespaceName
+  * ServiceName
+
+### HttpInstanceSummaryList
+* HttpInstanceSummaryList `array`
+  * items [HttpInstanceSummary](#httpinstancesummary)
+
+### HttpProperties
+* HttpProperties `object`: A complex type that contains the name of an HTTP namespace.
+  * HttpName
+
 ### Instance
-* Instance `object`: A complex type that contains information about an instance that Amazon Route 53 creates when you submit a <code>RegisterInstance</code> request.
-  * Attributes [Attributes](#attributes)
-  * CreatorRequestId [ResourceId](#resourceid)
-  * Id **required** [ResourceId](#resourceid)
+* Instance `object`: A complex type that contains information about an instance that AWS Cloud Map creates when you submit a <code>RegisterInstance</code> request.
+  * Attributes
+  * CreatorRequestId
+  * Id **required**
 
 ### InstanceHealthStatusMap
-* InstanceHealthStatusMap `array`
-  * items `object`
-    * key [ResourceId](#resourceid)
-    * value [HealthStatus](#healthstatus)
+* InstanceHealthStatusMap `object`
 
 ### InstanceIdList
 * InstanceIdList `array`
   * items [ResourceId](#resourceid)
 
 ### InstanceNotFound
-* InstanceNotFound `object`: No instance exists with the specified ID, or the instance was recently registered, and information about the instance hasn't propagated yet.
-  * Message [ErrorMessage](#errormessage)
+
 
 ### InstanceSummary
 * InstanceSummary `object`: A complex type that contains information about the instances that you registered by using a specified service.
-  * Attributes [Attributes](#attributes)
-  * Id [ResourceId](#resourceid)
+  * Attributes
+  * Id
 
 ### InstanceSummaryList
 * InstanceSummaryList `array`
   * items [InstanceSummary](#instancesummary)
 
 ### InvalidInput
-* InvalidInput `object`: One or more specified values aren't valid. For example, when you're creating a namespace, the value of <code>Name</code> might not be a valid DNS name.
-  * Message [ErrorMessage](#errormessage)
+
 
 ### ListInstancesRequest
 * ListInstancesRequest `object`
-  * MaxResults [MaxResults](#maxresults)
-  * NextToken [NextToken](#nexttoken)
-  * ServiceId **required** [ResourceId](#resourceid)
+  * MaxResults
+  * NextToken
+  * ServiceId **required**
 
 ### ListInstancesResponse
 * ListInstancesResponse `object`
-  * Instances [InstanceSummaryList](#instancesummarylist)
-  * NextToken [NextToken](#nexttoken)
+  * Instances
+    * items [InstanceSummary](#instancesummary)
+  * NextToken
 
 ### ListNamespacesRequest
 * ListNamespacesRequest `object`
-  * Filters [NamespaceFilters](#namespacefilters)
-  * MaxResults [MaxResults](#maxresults)
-  * NextToken [NextToken](#nexttoken)
+  * Filters
+    * items [NamespaceFilter](#namespacefilter)
+  * MaxResults
+  * NextToken
 
 ### ListNamespacesResponse
 * ListNamespacesResponse `object`
-  * Namespaces [NamespaceSummariesList](#namespacesummarieslist)
-  * NextToken [NextToken](#nexttoken)
+  * Namespaces
+    * items [NamespaceSummary](#namespacesummary)
+  * NextToken
 
 ### ListOperationsRequest
 * ListOperationsRequest `object`
-  * Filters [OperationFilters](#operationfilters)
-  * MaxResults [MaxResults](#maxresults)
-  * NextToken [NextToken](#nexttoken)
+  * Filters
+    * items [OperationFilter](#operationfilter)
+  * MaxResults
+  * NextToken
 
 ### ListOperationsResponse
 * ListOperationsResponse `object`
-  * NextToken [NextToken](#nexttoken)
-  * Operations [OperationSummaryList](#operationsummarylist)
+  * NextToken
+  * Operations
+    * items [OperationSummary](#operationsummary)
 
 ### ListServicesRequest
 * ListServicesRequest `object`
-  * Filters [ServiceFilters](#servicefilters)
-  * MaxResults [MaxResults](#maxresults)
-  * NextToken [NextToken](#nexttoken)
+  * Filters
+    * items [ServiceFilter](#servicefilter)
+  * MaxResults
+  * NextToken
 
 ### ListServicesResponse
 * ListServicesResponse `object`
-  * NextToken [NextToken](#nexttoken)
-  * Services [ServiceSummariesList](#servicesummarieslist)
+  * NextToken
+  * Services
+    * items [ServiceSummary](#servicesummary)
+
+### ListTagsForResourceRequest
+* ListTagsForResourceRequest `object`
+  * ResourceARN **required**
+
+### ListTagsForResourceResponse
+* ListTagsForResourceResponse `object`
+  * Tags
+    * items [Tag](#tag)
 
 ### MaxResults
 * MaxResults `integer`
@@ -658,27 +906,29 @@ amazonaws_servicediscovery.UpdateService({
 
 ### Namespace
 * Namespace `object`: A complex type that contains information about a specified namespace.
-  * Arn [Arn](#arn)
-  * CreateDate [Timestamp](#timestamp)
-  * CreatorRequestId [ResourceId](#resourceid)
-  * Description [ResourceDescription](#resourcedescription)
-  * Id [ResourceId](#resourceid)
-  * Name [NamespaceName](#namespacename)
-  * Properties [NamespaceProperties](#namespaceproperties)
-  * ServiceCount [ResourceCount](#resourcecount)
-  * Type [NamespaceType](#namespacetype)
+  * Arn
+  * CreateDate
+  * CreatorRequestId
+  * Description
+  * Id
+  * Name
+  * Properties
+    * DnsProperties
+      * HostedZoneId
+    * HttpProperties
+      * HttpName
+  * ServiceCount
+  * Type
 
 ### NamespaceAlreadyExists
-* NamespaceAlreadyExists `object`: The namespace that you're trying to create already exists.
-  * CreatorRequestId [ResourceId](#resourceid)
-  * Message [ErrorMessage](#errormessage)
-  * NamespaceId [ResourceId](#resourceid)
+
 
 ### NamespaceFilter
 * NamespaceFilter `object`: A complex type that identifies the namespaces that you want to list. You can choose to list public or private namespaces.
-  * Condition [FilterCondition](#filtercondition)
-  * Name **required** [NamespaceFilterName](#namespacefiltername)
-  * Values **required** [FilterValues](#filtervalues)
+  * Condition
+  * Name **required**
+  * Values **required**
+    * items [FilterValue](#filtervalue)
 
 ### NamespaceFilterName
 * NamespaceFilterName `string` (values: TYPE)
@@ -691,12 +941,14 @@ amazonaws_servicediscovery.UpdateService({
 * NamespaceName `string`
 
 ### NamespaceNotFound
-* NamespaceNotFound `object`: No namespace exists with the specified ID.
-  * Message [ErrorMessage](#errormessage)
+
 
 ### NamespaceProperties
 * NamespaceProperties `object`: A complex type that contains information that is specific to the namespace type.
-  * DnsProperties [DnsProperties](#dnsproperties)
+  * DnsProperties
+    * HostedZoneId
+  * HttpProperties
+    * HttpName
 
 ### NamespaceSummariesList
 * NamespaceSummariesList `array`
@@ -704,33 +956,38 @@ amazonaws_servicediscovery.UpdateService({
 
 ### NamespaceSummary
 * NamespaceSummary `object`: A complex type that contains information about a namespace.
-  * Arn [Arn](#arn)
-  * Id [ResourceId](#resourceid)
-  * Name [NamespaceName](#namespacename)
-  * Type [NamespaceType](#namespacetype)
+  * Arn
+  * CreateDate
+  * Description
+  * Id
+  * Name
+  * Properties [NamespaceProperties](#namespaceproperties)
+  * ServiceCount
+  * Type
 
 ### NamespaceType
-* NamespaceType `string` (values: DNS_PUBLIC, DNS_PRIVATE)
+* NamespaceType `string` (values: DNS_PUBLIC, DNS_PRIVATE, HTTP)
 
 ### NextToken
 * NextToken `string`
 
 ### Operation
 * Operation `object`: A complex type that contains information about a specified operation.
-  * CreateDate [Timestamp](#timestamp)
-  * ErrorCode [Code](#code)
-  * ErrorMessage [Message](#message)
-  * Id [OperationId](#operationid)
-  * Status [OperationStatus](#operationstatus)
-  * Targets [OperationTargetsMap](#operationtargetsmap)
-  * Type [OperationType](#operationtype)
-  * UpdateDate [Timestamp](#timestamp)
+  * CreateDate
+  * ErrorCode
+  * ErrorMessage
+  * Id
+  * Status
+  * Targets
+  * Type
+  * UpdateDate
 
 ### OperationFilter
 * OperationFilter `object`: A complex type that lets you select the operations that you want to list.
-  * Condition [FilterCondition](#filtercondition)
-  * Name **required** [OperationFilterName](#operationfiltername)
-  * Values **required** [FilterValues](#filtervalues)
+  * Condition
+  * Name **required**
+  * Values **required**
+    * items [FilterValue](#filtervalue)
 
 ### OperationFilterName
 * OperationFilterName `string` (values: NAMESPACE_ID, SERVICE_ID, STATUS, TYPE, UPDATE_DATE)
@@ -743,16 +1000,15 @@ amazonaws_servicediscovery.UpdateService({
 * OperationId `string`
 
 ### OperationNotFound
-* OperationNotFound `object`: No operation exists with the specified ID.
-  * Message [ErrorMessage](#errormessage)
+
 
 ### OperationStatus
 * OperationStatus `string` (values: SUBMITTED, PENDING, SUCCESS, FAIL)
 
 ### OperationSummary
-* OperationSummary `object`: A complex type that contains information about an operation that matches the criteria that you specified in a <a>ListOperations</a> request.
-  * Id [OperationId](#operationid)
-  * Status [OperationStatus](#operationstatus)
+* OperationSummary `object`: A complex type that contains information about an operation that matches the criteria that you specified in a <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_ListOperations.html">ListOperations</a> request.
+  * Id
+  * Status
 
 ### OperationSummaryList
 * OperationSummaryList `array`
@@ -762,10 +1018,7 @@ amazonaws_servicediscovery.UpdateService({
 * OperationTargetType `string` (values: NAMESPACE, SERVICE, INSTANCE)
 
 ### OperationTargetsMap
-* OperationTargetsMap `array`
-  * items `object`
-    * key [OperationTargetType](#operationtargettype)
-    * value [ResourceId](#resourceid)
+* OperationTargetsMap `object`
 
 ### OperationType
 * OperationType `string` (values: CREATE_NAMESPACE, DELETE_NAMESPACE, UPDATE_SERVICE, REGISTER_INSTANCE, DEREGISTER_INSTANCE)
@@ -778,14 +1031,17 @@ amazonaws_servicediscovery.UpdateService({
 
 ### RegisterInstanceRequest
 * RegisterInstanceRequest `object`
-  * Attributes **required** [Attributes](#attributes)
-  * CreatorRequestId [ResourceId](#resourceid)
-  * InstanceId **required** [ResourceId](#resourceid)
-  * ServiceId **required** [ResourceId](#resourceid)
+  * Attributes **required**
+  * CreatorRequestId
+  * InstanceId **required**
+  * ServiceId **required**
 
 ### RegisterInstanceResponse
 * RegisterInstanceResponse `object`
-  * OperationId [OperationId](#operationid)
+  * OperationId
+
+### RequestLimitExceeded
+
 
 ### ResourceCount
 * ResourceCount `integer`
@@ -797,12 +1053,13 @@ amazonaws_servicediscovery.UpdateService({
 * ResourceId `string`
 
 ### ResourceInUse
-* ResourceInUse `object`: The specified resource can't be deleted because it contains other resources. For example, you can't delete a service that contains any instances.
-  * Message [ErrorMessage](#errormessage)
+
 
 ### ResourceLimitExceeded
-* ResourceLimitExceeded `object`: The resource can't be created because you've reached the limit on the number of resources.
-  * Message [ErrorMessage](#errormessage)
+
+
+### ResourceNotFoundException
+
 
 ### ResourcePath
 * ResourcePath `string`
@@ -812,34 +1069,43 @@ amazonaws_servicediscovery.UpdateService({
 
 ### Service
 * Service `object`: A complex type that contains information about the specified service.
-  * Arn [Arn](#arn)
-  * CreateDate [Timestamp](#timestamp)
-  * CreatorRequestId [ResourceId](#resourceid)
-  * Description [ResourceDescription](#resourcedescription)
-  * DnsConfig [DnsConfig](#dnsconfig)
-  * HealthCheckConfig [HealthCheckConfig](#healthcheckconfig)
-  * HealthCheckCustomConfig [HealthCheckCustomConfig](#healthcheckcustomconfig)
-  * Id [ResourceId](#resourceid)
-  * InstanceCount [ResourceCount](#resourcecount)
-  * Name [ServiceName](#servicename)
+  * Arn
+  * CreateDate
+  * CreatorRequestId
+  * Description
+  * DnsConfig
+    * DnsRecords **required**
+      * items [DnsRecord](#dnsrecord)
+    * NamespaceId
+    * RoutingPolicy
+  * HealthCheckConfig
+    * FailureThreshold
+    * ResourcePath
+    * Type **required**
+  * HealthCheckCustomConfig
+    * FailureThreshold
+  * Id
+  * InstanceCount
+  * Name
+  * NamespaceId
 
 ### ServiceAlreadyExists
-* ServiceAlreadyExists `object`: The service can't be created because a service with the same name already exists.
-  * CreatorRequestId [ResourceId](#resourceid)
-  * Message [ErrorMessage](#errormessage)
-  * ServiceId [ResourceId](#resourceid)
+
 
 ### ServiceChange
 * ServiceChange `object`: A complex type that contains changes to an existing service.
-  * Description [ResourceDescription](#resourcedescription)
-  * DnsConfig **required** [DnsConfigChange](#dnsconfigchange)
+  * Description
+  * DnsConfig
+    * DnsRecords **required**
+      * items [DnsRecord](#dnsrecord)
   * HealthCheckConfig [HealthCheckConfig](#healthcheckconfig)
 
 ### ServiceFilter
 * ServiceFilter `object`: A complex type that lets you specify the namespaces that you want to list services for.
-  * Condition [FilterCondition](#filtercondition)
-  * Name **required** [ServiceFilterName](#servicefiltername)
-  * Values **required** [FilterValues](#filtervalues)
+  * Condition
+  * Name **required**
+  * Values **required**
+    * items [FilterValue](#filtervalue)
 
 ### ServiceFilterName
 * ServiceFilterName `string` (values: NAMESPACE_ID)
@@ -852,8 +1118,7 @@ amazonaws_servicediscovery.UpdateService({
 * ServiceName `string`
 
 ### ServiceNotFound
-* ServiceNotFound `object`: No service exists with the specified ID.
-  * Message [ErrorMessage](#errormessage)
+
 
 ### ServiceSummariesList
 * ServiceSummariesList `array`
@@ -861,28 +1126,77 @@ amazonaws_servicediscovery.UpdateService({
 
 ### ServiceSummary
 * ServiceSummary `object`: A complex type that contains information about a specified service.
-  * Arn [Arn](#arn)
-  * Description [ResourceDescription](#resourcedescription)
-  * Id [ResourceId](#resourceid)
-  * InstanceCount [ResourceCount](#resourcecount)
-  * Name [ServiceName](#servicename)
+  * Arn
+  * CreateDate
+  * Description
+  * DnsConfig [DnsConfig](#dnsconfig)
+  * HealthCheckConfig [HealthCheckConfig](#healthcheckconfig)
+  * HealthCheckCustomConfig [HealthCheckCustomConfig](#healthcheckcustomconfig)
+  * Id
+  * InstanceCount
+  * Name
+
+### Tag
+* Tag `object`: A custom key-value pair associated with a resource.
+  * Key **required**
+  * Value **required**
+
+### TagKey
+* TagKey `string`
+
+### TagKeyList
+* TagKeyList `array`
+  * items [TagKey](#tagkey)
+
+### TagList
+* TagList `array`
+  * items [Tag](#tag)
+
+### TagResourceRequest
+* TagResourceRequest `object`
+  * ResourceARN **required**
+  * Tags **required**
+    * items [Tag](#tag)
+
+### TagResourceResponse
+* TagResourceResponse `object`
+
+### TagValue
+* TagValue `string`
 
 ### Timestamp
 * Timestamp `string`
 
+### TooManyTagsException
+
+
+### UntagResourceRequest
+* UntagResourceRequest `object`
+  * ResourceARN **required**
+  * TagKeys **required**
+    * items [TagKey](#tagkey)
+
+### UntagResourceResponse
+* UntagResourceResponse `object`
+
 ### UpdateInstanceCustomHealthStatusRequest
 * UpdateInstanceCustomHealthStatusRequest `object`
-  * InstanceId **required** [ResourceId](#resourceid)
-  * ServiceId **required** [ResourceId](#resourceid)
-  * Status **required** [CustomHealthStatus](#customhealthstatus)
+  * InstanceId **required**
+  * ServiceId **required**
+  * Status **required**
 
 ### UpdateServiceRequest
 * UpdateServiceRequest `object`
-  * Id **required** [ResourceId](#resourceid)
-  * Service **required** [ServiceChange](#servicechange)
+  * Id **required**
+  * Service **required**
+    * Description
+    * DnsConfig
+      * DnsRecords **required**
+        * items [DnsRecord](#dnsrecord)
+    * HealthCheckConfig [HealthCheckConfig](#healthcheckconfig)
 
 ### UpdateServiceResponse
 * UpdateServiceResponse `object`
-  * OperationId [OperationId](#operationid)
+  * OperationId
 
 

@@ -13,9 +13,7 @@ let amazonaws_entitlement_marketplace = require('@datafire/amazonaws_entitlement
   region: ""
 });
 
-amazonaws_entitlement_marketplace.GetEntitlements({
-  "ProductCode": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -32,16 +30,16 @@ amazonaws_entitlement_marketplace.GetEntitlements({
 
 ```js
 amazonaws_entitlement_marketplace.GetEntitlements({
-  "ProductCode": ""
+  "ProductCode": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Filter [GetEntitlementFilters](#getentitlementfilters)
-  * MaxResults [Integer](#integer)
-  * NextToken [NonEmptyString](#nonemptystring)
-  * ProductCode **required** [ProductCode](#productcode)
+  * Filter
+  * MaxResults
+  * NextToken
+  * ProductCode **required**
 
 #### Output
 * output [GetEntitlementsResult](#getentitlementsresult)
@@ -58,11 +56,15 @@ amazonaws_entitlement_marketplace.GetEntitlements({
 
 ### Entitlement
 * Entitlement `object`: An entitlement represents capacity in a product owned by the customer. For example, a customer might own some number of users or seats in an SaaS application or some amount of data capacity in a multi-tenant database.
-  * CustomerIdentifier [NonEmptyString](#nonemptystring)
-  * Dimension [NonEmptyString](#nonemptystring)
-  * ExpirationDate [Timestamp](#timestamp)
-  * ProductCode [ProductCode](#productcode)
-  * Value [EntitlementValue](#entitlementvalue)
+  * CustomerIdentifier
+  * Dimension
+  * ExpirationDate
+  * ProductCode
+  * Value
+    * BooleanValue
+    * DoubleValue
+    * IntegerValue
+    * StringValue
 
 ### EntitlementList
 * EntitlementList `array`
@@ -70,10 +72,10 @@ amazonaws_entitlement_marketplace.GetEntitlements({
 
 ### EntitlementValue
 * EntitlementValue `object`: The EntitlementValue represents the amount of capacity that the customer is entitled to for the product.
-  * BooleanValue [Boolean](#boolean)
-  * DoubleValue [Double](#double)
-  * IntegerValue [Integer](#integer)
-  * StringValue [String](#string)
+  * BooleanValue
+  * DoubleValue
+  * IntegerValue
+  * StringValue
 
 ### ErrorMessage
 * ErrorMessage `string`
@@ -89,22 +91,20 @@ amazonaws_entitlement_marketplace.GetEntitlements({
 * GetEntitlementFilterName `string` (values: CUSTOMER_IDENTIFIER, DIMENSION)
 
 ### GetEntitlementFilters
-* GetEntitlementFilters `array`
-  * items `object`
-    * key [GetEntitlementFilterName](#getentitlementfiltername)
-    * value [FilterValueList](#filtervaluelist)
+* GetEntitlementFilters `object`
 
 ### GetEntitlementsRequest
 * GetEntitlementsRequest `object`: The GetEntitlementsRequest contains parameters for the GetEntitlements operation.
-  * Filter [GetEntitlementFilters](#getentitlementfilters)
-  * MaxResults [Integer](#integer)
-  * NextToken [NonEmptyString](#nonemptystring)
-  * ProductCode **required** [ProductCode](#productcode)
+  * Filter
+  * MaxResults
+  * NextToken
+  * ProductCode **required**
 
 ### GetEntitlementsResult
 * GetEntitlementsResult `object`: The GetEntitlementsRequest contains results from the GetEntitlements operation.
-  * Entitlements [EntitlementList](#entitlementlist)
-  * NextToken [NonEmptyString](#nonemptystring)
+  * Entitlements
+    * items [Entitlement](#entitlement)
+  * NextToken
 
 ### Integer
 * Integer `integer`

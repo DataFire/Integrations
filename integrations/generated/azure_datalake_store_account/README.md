@@ -15,9 +15,7 @@ let azure_datalake_store_account = require('@datafire/azure_datalake_store_accou
   redirect_uri: ""
 });
 
-azure_datalake_store_account.Operations_List({
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -113,6 +111,27 @@ azure_datalake_store_account.Accounts_CheckNameAvailability({
 
 #### Output
 * output [NameAvailabilityInformation](#nameavailabilityinformation)
+
+### Locations_GetUsage
+Gets the current usage count and the limit for the resources of the location under the subscription.
+
+
+```js
+azure_datalake_store_account.Locations_GetUsage({
+  "api-version": "",
+  "subscriptionId": "",
+  "location": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * api-version **required** `string`: Client Api Version.
+  * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+  * location **required** `string`: The resource location without whitespace.
+
+#### Output
+* output [UsageListResult](#usagelistresult)
 
 ### Accounts_ListByResourceGroup
 Lists the Data Lake Store accounts within a specific resource group. The response includes a link to the next page of results, if any.
@@ -934,6 +953,24 @@ azure_datalake_store_account.VirtualNetworkRules_CreateOrUpdate({
 * UpdateVirtualNetworkRuleWithAccountParameters `object`: The parameters used to update a virtual network rule while updating a Data Lake Store account.
   * name **required** `string`: The unique name of the virtual network rule to update.
   * properties [UpdateVirtualNetworkRuleProperties](#updatevirtualnetworkruleproperties)
+
+### Usage
+* Usage `object`: Describes the Resource Usage.
+  * currentValue `integer`: Gets the current count of the allocated resources in the subscription.
+  * id `string`: Resource identifier.
+  * limit `integer`: Gets the maximum count of the resources that can be allocated in the subscription.
+  * name [UsageName](#usagename)
+  * unit `string` (values: Count, Bytes, Seconds, Percent, CountsPerSecond, BytesPerSecond): Gets the unit of measurement.
+
+### UsageListResult
+* UsageListResult `object`: The response from the List Usages operation.
+  * value `array`: Gets or sets the list of Storage Resource Usages.
+    * items [Usage](#usage)
+
+### UsageName
+* UsageName `object`: The usage names that can be used.
+  * localizedValue `string`: Gets a localized string describing the resource name.
+  * value `string`: Gets a string describing the resource name.
 
 ### VirtualNetworkRule
 * VirtualNetworkRule `object`: Data Lake Store virtual network rule information.

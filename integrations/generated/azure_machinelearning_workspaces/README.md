@@ -15,9 +15,7 @@ let azure_machinelearning_workspaces = require('@datafire/azure_machinelearning_
   redirect_uri: ""
 });
 
-azure_machinelearning_workspaces.Operations_List({
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -255,8 +253,14 @@ azure_machinelearning_workspaces.Workspaces_ResyncStorageKeys({
   * id `string`: The resource ID.
   * location **required** `string`: The location of the resource. This cannot be changed after the resource is created.
   * name `string`: The name of the resource.
+  * sku [Sku](#sku)
   * tags `object`: The tags of the resource.
   * type `string`: The type of the resource.
+
+### Sku
+* Sku `object`: Sku of the resource
+  * name `string`: Name of the sku
+  * tier `string`: Tier of the sku like Basic or Enterprise
 
 ### Workspace
 * Workspace `object`: An object that represents a machine learning workspace.
@@ -264,6 +268,7 @@ azure_machinelearning_workspaces.Workspaces_ResyncStorageKeys({
   * id `string`: The resource ID.
   * location **required** `string`: The location of the resource. This cannot be changed after the resource is created.
   * name `string`: The name of the resource.
+  * sku [Sku](#sku)
   * tags `object`: The tags of the resource.
   * type `string`: The type of the resource.
 
@@ -282,7 +287,7 @@ azure_machinelearning_workspaces.Workspaces_ResyncStorageKeys({
 * WorkspaceProperties `object`: The properties of a machine learning workspace.
   * creationTime `string`: The creation time for this workspace resource.
   * keyVaultIdentifierId `string`: The key vault identifier used for encrypted workspaces.
-  * ownerEmail `string`: The email id of the owner for this workspace.
+  * ownerEmail **required** `string`: The email id of the owner for this workspace.
   * studioEndpoint `string`: The regional endpoint for the machine learning studio service which hosts this workspace.
   * userStorageAccountId **required** `string`: The fully qualified arm id of the storage account associated with this workspace.
   * workspaceId `string`: The immutable id associated with this workspace.
@@ -292,6 +297,7 @@ azure_machinelearning_workspaces.Workspaces_ResyncStorageKeys({
 ### WorkspacePropertiesUpdateParameters
 * WorkspacePropertiesUpdateParameters `object`: The parameters for updating the properties of a machine learning workspace.
   * keyVaultIdentifierId `string`: The key vault identifier used for encrypted workspaces.
+  * sku [Sku](#sku)
   * workspaceState `string` (values: Deleted, Enabled, Disabled, Migrated, Updated, Registered, Unregistered): The current state of workspace resource.
 
 ### WorkspaceUpdateParameters

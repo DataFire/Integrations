@@ -1,12 +1,5 @@
 {
   "swagger": "2.0",
-  "schemes": [
-    "https",
-    "http"
-  ],
-  "host": "sdb.amazonaws.com",
-  "basePath": "/",
-  "x-hasEquivalentPaths": true,
   "info": {
     "contact": {
       "email": "mike.ralphson@gmail.com",
@@ -30,7 +23,7 @@
     ],
     "x-logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.jpeg"
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"
     },
     "x-origin": [
       {
@@ -40,7 +33,7 @@
           "version": "1.0.0"
         },
         "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/sdb-2009-04-15.normal.json",
-        "x-apisguru-direct": true
+        "x-apisguru-driver": "external"
       }
     ],
     "x-preferred": true,
@@ -52,103 +45,140 @@
       "type": "openapi"
     }
   },
-  "externalDocs": {
-    "description": "Amazon Web Services documentation",
-    "url": "https://aws.amazon.com/sdb/"
-  },
-  "consumes": [],
-  "produces": [],
-  "securityDefinitions": {
-    "hmac": {
-      "description": "Amazon Signature authorization v2",
-      "in": "header",
-      "name": "Authorization",
-      "type": "apiKey",
-      "x-amazon-apigateway-authtype": "awsSigv2"
-    }
-  },
-  "security": [
-    {
-      "hmac": []
-    }
+  "host": "sdb.amazonaws.com",
+  "basePath": "/",
+  "schemes": [
+    "http"
   ],
-  "parameters": {
-    "AWSAccessKeyId": {
-      "in": "query",
-      "name": "AWSAccessKeyId",
-      "required": true,
-      "type": "string"
-    },
-    "Action": {
-      "in": "query",
-      "name": "Action",
-      "required": true,
-      "type": "string"
-    },
-    "Signature": {
-      "in": "query",
-      "name": "Signature",
-      "required": true,
-      "type": "string"
-    },
-    "SignatureMethod": {
-      "in": "query",
-      "name": "SignatureMethod",
-      "required": true,
-      "type": "string"
-    },
-    "SignatureVersion": {
-      "in": "query",
-      "name": "SignatureVersion",
-      "required": true,
-      "type": "string"
-    },
-    "Timestamp": {
-      "in": "query",
-      "name": "Timestamp",
-      "required": true,
-      "type": "string"
-    },
-    "Version": {
-      "in": "query",
-      "name": "Version",
-      "required": true,
-      "type": "string"
-    }
-  },
   "paths": {
-    "/": {
+    "/#Action=BatchDeleteAttributes": {
       "parameters": [
         {
-          "$ref": "#/parameters/AWSAccessKeyId"
+          "in": "query",
+          "name": "AWSAccessKeyId",
+          "required": true,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Action"
+          "in": "query",
+          "name": "Action",
+          "required": true,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/SignatureMethod"
+          "in": "query",
+          "name": "SignatureMethod",
+          "required": true,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/SignatureVersion"
+          "in": "query",
+          "name": "SignatureVersion",
+          "required": true,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Timestamp"
+          "in": "query",
+          "name": "Timestamp",
+          "required": true,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "query",
+          "name": "Version",
+          "required": true,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Signature"
+          "in": "query",
+          "name": "Signature",
+          "required": true,
+          "type": "string"
         }
       ],
-      "post": {
-        "description": "<p> Performs multiple DeleteAttributes operations in a single call, which reduces round trips and latencies. This enables Amazon SimpleDB to optimize requests, which generally yields better throughput. </p> <note> <p> If you specify BatchDeleteAttributes without attributes or values, all the attributes for the item are deleted. </p> <p> BatchDeleteAttributes is an idempotent operation; running it multiple times on the same item or attribute doesn't result in an error. </p> <p> The BatchDeleteAttributes operation succeeds or fails in its entirety. There are no partial deletes. You can execute multiple BatchDeleteAttributes operations and other operations in parallel. However, large numbers of concurrent BatchDeleteAttributes calls can result in Service Unavailable (503) responses. </p> <p> This operation is vulnerable to exceeding the maximum URL size when making a REST request using the HTTP GET method. </p> <p> This operation does not support conditions using Expected.X.Name, Expected.X.Value, or Expected.X.Exists. </p> </note> <p> The following limitations are enforced for this operation: <ul> <li>1 MB request size</li> <li>25 item limit per BatchDeleteAttributes operation</li> </ul> </p>",
-        "operationId": "BatchDeleteAttributes",
+      "get": {
         "parameters": [
+          {
+            "description": "The name of the domain in which the attributes are being deleted.",
+            "in": "query",
+            "name": "DomainName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "collectionFormat": "multi",
+            "description": "A list of items on which to perform the operation.",
+            "in": "query",
+            "items": {
+              "allOf": [
+                {
+                  "$ref": "#/definitions/DeletableItem"
+                },
+                {
+                  "xml": {
+                    "name": "Item"
+                  }
+                }
+              ]
+            },
+            "name": "Items",
+            "required": true,
+            "type": "array"
+          },
+          {
+            "enum": [
+              "BatchDeleteAttributes"
+            ],
+            "in": "query",
+            "name": "Action",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "2009-04-15"
+            ],
+            "in": "query",
+            "name": "Version",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "description": "<p> Performs multiple DeleteAttributes operations in a single call, which reduces round trips and latencies. This enables Amazon SimpleDB to optimize requests, which generally yields better throughput. </p> <note> <p> If you specify BatchDeleteAttributes without attributes or values, all the attributes for the item are deleted. </p> <p> BatchDeleteAttributes is an idempotent operation; running it multiple times on the same item or attribute doesn't result in an error. </p> <p> The BatchDeleteAttributes operation succeeds or fails in its entirety. There are no partial deletes. You can execute multiple BatchDeleteAttributes operations and other operations in parallel. However, large numbers of concurrent BatchDeleteAttributes calls can result in Service Unavailable (503) responses. </p> <p> This operation is vulnerable to exceeding the maximum URL size when making a REST request using the HTTP GET method. </p> <p> This operation does not support conditions using Expected.X.Name, Expected.X.Value, or Expected.X.Exists. </p> </note> <p> The following limitations are enforced for this operation: <ul> <li>1 MB request size</li> <li>25 item limit per BatchDeleteAttributes operation</li> </ul> </p>",
+        "operationId": "GET_BatchDeleteAttributes",
+        "x-aws-operation-name": "BatchDeleteAttributes"
+      },
+      "post": {
+        "consumes": [
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "BatchDeleteAttributes"
+            ],
+            "in": "query",
+            "name": "Action",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "2009-04-15"
+            ],
+            "in": "query",
+            "name": "Version",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
-            "required": true,
             "schema": {
               "$ref": "#/definitions/BatchDeleteAttributesRequest"
             }
@@ -158,41 +188,160 @@
           "200": {
             "description": "Success"
           }
-        }
+        },
+        "description": "<p> Performs multiple DeleteAttributes operations in a single call, which reduces round trips and latencies. This enables Amazon SimpleDB to optimize requests, which generally yields better throughput. </p> <note> <p> If you specify BatchDeleteAttributes without attributes or values, all the attributes for the item are deleted. </p> <p> BatchDeleteAttributes is an idempotent operation; running it multiple times on the same item or attribute doesn't result in an error. </p> <p> The BatchDeleteAttributes operation succeeds or fails in its entirety. There are no partial deletes. You can execute multiple BatchDeleteAttributes operations and other operations in parallel. However, large numbers of concurrent BatchDeleteAttributes calls can result in Service Unavailable (503) responses. </p> <p> This operation is vulnerable to exceeding the maximum URL size when making a REST request using the HTTP GET method. </p> <p> This operation does not support conditions using Expected.X.Name, Expected.X.Value, or Expected.X.Exists. </p> </note> <p> The following limitations are enforced for this operation: <ul> <li>1 MB request size</li> <li>25 item limit per BatchDeleteAttributes operation</li> </ul> </p>",
+        "operationId": "POST_BatchDeleteAttributes",
+        "x-aws-operation-name": "BatchDeleteAttributes"
       }
     },
-    "/#BatchPutAttributes": {
+    "/#Action=BatchPutAttributes": {
       "parameters": [
         {
-          "$ref": "#/parameters/AWSAccessKeyId"
+          "in": "query",
+          "name": "AWSAccessKeyId",
+          "required": true,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Action"
+          "in": "query",
+          "name": "Action",
+          "required": true,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/SignatureMethod"
+          "in": "query",
+          "name": "SignatureMethod",
+          "required": true,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/SignatureVersion"
+          "in": "query",
+          "name": "SignatureVersion",
+          "required": true,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Timestamp"
+          "in": "query",
+          "name": "Timestamp",
+          "required": true,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "query",
+          "name": "Version",
+          "required": true,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Signature"
+          "in": "query",
+          "name": "Signature",
+          "required": true,
+          "type": "string"
         }
       ],
-      "post": {
-        "description": "<p> The <code>BatchPutAttributes</code> operation creates or replaces attributes within one or more items. By using this operation, the client can perform multiple <a>PutAttribute</a> operation with a single call. This helps yield savings in round trips and latencies, enabling Amazon SimpleDB to optimize requests and generally produce better throughput. </p> <p> The client may specify the item name with the <code>Item.X.ItemName</code> parameter. The client may specify new attributes using a combination of the <code>Item.X.Attribute.Y.Name</code> and <code>Item.X.Attribute.Y.Value</code> parameters. The client may specify the first attribute for the first item using the parameters <code>Item.0.Attribute.0.Name</code> and <code>Item.0.Attribute.0.Value</code>, and for the second attribute for the first item by the parameters <code>Item.0.Attribute.1.Name</code> and <code>Item.0.Attribute.1.Value</code>, and so on. </p> <p> Attributes are uniquely identified within an item by their name/value combination. For example, a single item can have the attributes <code>{ \"first_name\", \"first_value\" }</code> and <code>{ \"first_name\", \"second_value\" }</code>. However, it cannot have two attribute instances where both the <code>Item.X.Attribute.Y.Name</code> and <code>Item.X.Attribute.Y.Value</code> are the same. </p> <p> Optionally, the requester can supply the <code>Replace</code> parameter for each individual value. Setting this value to <code>true</code> will cause the new attribute values to replace the existing attribute values. For example, if an item <code>I</code> has the attributes <code>{ 'a', '1' }, { 'b', '2'}</code> and <code>{ 'b', '3' }</code> and the requester does a BatchPutAttributes of <code>{'I', 'b', '4' }</code> with the Replace parameter set to true, the final attributes of the item will be <code>{ 'a', '1' }</code> and <code>{ 'b', '4' }</code>, replacing the previous values of the 'b' attribute with the new value. </p> <note> You cannot specify an empty string as an item or as an attribute name. The <code>BatchPutAttributes</code> operation succeeds or fails in its entirety. There are no partial puts. </note> <important> This operation is vulnerable to exceeding the maximum URL size when making a REST request using the HTTP GET method. This operation does not support conditions using <code>Expected.X.Name</code>, <code>Expected.X.Value</code>, or <code>Expected.X.Exists</code>. </important> <p> You can execute multiple <code>BatchPutAttributes</code> operations and other operations in parallel. However, large numbers of concurrent <code>BatchPutAttributes</code> calls can result in Service Unavailable (503) responses. </p> <p> The following limitations are enforced for this operation: <ul> <li>256 attribute name-value pairs per item</li> <li>1 MB request size</li> <li>1 billion attributes per domain</li> <li>10 GB of total user data storage per domain</li> <li>25 item limit per <code>BatchPutAttributes</code> operation</li> </ul> </p>",
-        "operationId": "BatchPutAttributes",
+      "get": {
+        "produces": [
+          "text/xml"
+        ],
         "parameters": [
+          {
+            "description": "The name of the domain in which the attributes are being stored.",
+            "in": "query",
+            "name": "DomainName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "collectionFormat": "multi",
+            "description": "A list of items on which to perform the operation.",
+            "in": "query",
+            "items": {
+              "allOf": [
+                {
+                  "$ref": "#/definitions/ReplaceableItem"
+                },
+                {
+                  "xml": {
+                    "name": "Item"
+                  }
+                }
+              ]
+            },
+            "name": "Items",
+            "required": true,
+            "type": "array"
+          },
+          {
+            "enum": [
+              "BatchPutAttributes"
+            ],
+            "in": "query",
+            "name": "Action",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "2009-04-15"
+            ],
+            "in": "query",
+            "name": "Version",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "NoSuchDomain",
+            "schema": {
+              "$ref": "#/definitions/NoSuchDomain"
+            },
+            "x-aws-exception": true
+          },
+          "409": {
+            "description": "NumberSubmittedAttributesExceeded",
+            "schema": {
+              "$ref": "#/definitions/NumberSubmittedAttributesExceeded"
+            },
+            "x-aws-exception": true
+          }
+        },
+        "description": "<p> The <code>BatchPutAttributes</code> operation creates or replaces attributes within one or more items. By using this operation, the client can perform multiple <a>PutAttribute</a> operation with a single call. This helps yield savings in round trips and latencies, enabling Amazon SimpleDB to optimize requests and generally produce better throughput. </p> <p> The client may specify the item name with the <code>Item.X.ItemName</code> parameter. The client may specify new attributes using a combination of the <code>Item.X.Attribute.Y.Name</code> and <code>Item.X.Attribute.Y.Value</code> parameters. The client may specify the first attribute for the first item using the parameters <code>Item.0.Attribute.0.Name</code> and <code>Item.0.Attribute.0.Value</code>, and for the second attribute for the first item by the parameters <code>Item.0.Attribute.1.Name</code> and <code>Item.0.Attribute.1.Value</code>, and so on. </p> <p> Attributes are uniquely identified within an item by their name/value combination. For example, a single item can have the attributes <code>{ \"first_name\", \"first_value\" }</code> and <code>{ \"first_name\", \"second_value\" }</code>. However, it cannot have two attribute instances where both the <code>Item.X.Attribute.Y.Name</code> and <code>Item.X.Attribute.Y.Value</code> are the same. </p> <p> Optionally, the requester can supply the <code>Replace</code> parameter for each individual value. Setting this value to <code>true</code> will cause the new attribute values to replace the existing attribute values. For example, if an item <code>I</code> has the attributes <code>{ 'a', '1' }, { 'b', '2'}</code> and <code>{ 'b', '3' }</code> and the requester does a BatchPutAttributes of <code>{'I', 'b', '4' }</code> with the Replace parameter set to true, the final attributes of the item will be <code>{ 'a', '1' }</code> and <code>{ 'b', '4' }</code>, replacing the previous values of the 'b' attribute with the new value. </p> <note> You cannot specify an empty string as an item or as an attribute name. The <code>BatchPutAttributes</code> operation succeeds or fails in its entirety. There are no partial puts. </note> <important> This operation is vulnerable to exceeding the maximum URL size when making a REST request using the HTTP GET method. This operation does not support conditions using <code>Expected.X.Name</code>, <code>Expected.X.Value</code>, or <code>Expected.X.Exists</code>. </important> <p> You can execute multiple <code>BatchPutAttributes</code> operations and other operations in parallel. However, large numbers of concurrent <code>BatchPutAttributes</code> calls can result in Service Unavailable (503) responses. </p> <p> The following limitations are enforced for this operation: <ul> <li>256 attribute name-value pairs per item</li> <li>1 MB request size</li> <li>1 billion attributes per domain</li> <li>10 GB of total user data storage per domain</li> <li>25 item limit per <code>BatchPutAttributes</code> operation</li> </ul> </p>",
+        "operationId": "GET_BatchPutAttributes",
+        "x-aws-operation-name": "BatchPutAttributes"
+      },
+      "post": {
+        "consumes": [
+          "text/xml"
+        ],
+        "produces": [
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "BatchPutAttributes"
+            ],
+            "in": "query",
+            "name": "Action",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "2009-04-15"
+            ],
+            "in": "query",
+            "name": "Version",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
-            "required": true,
             "schema": {
               "$ref": "#/definitions/BatchPutAttributesRequest"
             }
@@ -216,41 +365,140 @@
             },
             "x-aws-exception": true
           }
-        }
+        },
+        "description": "<p> The <code>BatchPutAttributes</code> operation creates or replaces attributes within one or more items. By using this operation, the client can perform multiple <a>PutAttribute</a> operation with a single call. This helps yield savings in round trips and latencies, enabling Amazon SimpleDB to optimize requests and generally produce better throughput. </p> <p> The client may specify the item name with the <code>Item.X.ItemName</code> parameter. The client may specify new attributes using a combination of the <code>Item.X.Attribute.Y.Name</code> and <code>Item.X.Attribute.Y.Value</code> parameters. The client may specify the first attribute for the first item using the parameters <code>Item.0.Attribute.0.Name</code> and <code>Item.0.Attribute.0.Value</code>, and for the second attribute for the first item by the parameters <code>Item.0.Attribute.1.Name</code> and <code>Item.0.Attribute.1.Value</code>, and so on. </p> <p> Attributes are uniquely identified within an item by their name/value combination. For example, a single item can have the attributes <code>{ \"first_name\", \"first_value\" }</code> and <code>{ \"first_name\", \"second_value\" }</code>. However, it cannot have two attribute instances where both the <code>Item.X.Attribute.Y.Name</code> and <code>Item.X.Attribute.Y.Value</code> are the same. </p> <p> Optionally, the requester can supply the <code>Replace</code> parameter for each individual value. Setting this value to <code>true</code> will cause the new attribute values to replace the existing attribute values. For example, if an item <code>I</code> has the attributes <code>{ 'a', '1' }, { 'b', '2'}</code> and <code>{ 'b', '3' }</code> and the requester does a BatchPutAttributes of <code>{'I', 'b', '4' }</code> with the Replace parameter set to true, the final attributes of the item will be <code>{ 'a', '1' }</code> and <code>{ 'b', '4' }</code>, replacing the previous values of the 'b' attribute with the new value. </p> <note> You cannot specify an empty string as an item or as an attribute name. The <code>BatchPutAttributes</code> operation succeeds or fails in its entirety. There are no partial puts. </note> <important> This operation is vulnerable to exceeding the maximum URL size when making a REST request using the HTTP GET method. This operation does not support conditions using <code>Expected.X.Name</code>, <code>Expected.X.Value</code>, or <code>Expected.X.Exists</code>. </important> <p> You can execute multiple <code>BatchPutAttributes</code> operations and other operations in parallel. However, large numbers of concurrent <code>BatchPutAttributes</code> calls can result in Service Unavailable (503) responses. </p> <p> The following limitations are enforced for this operation: <ul> <li>256 attribute name-value pairs per item</li> <li>1 MB request size</li> <li>1 billion attributes per domain</li> <li>10 GB of total user data storage per domain</li> <li>25 item limit per <code>BatchPutAttributes</code> operation</li> </ul> </p>",
+        "operationId": "POST_BatchPutAttributes",
+        "x-aws-operation-name": "BatchPutAttributes"
       }
     },
-    "/#CreateDomain": {
+    "/#Action=CreateDomain": {
       "parameters": [
         {
-          "$ref": "#/parameters/AWSAccessKeyId"
+          "in": "query",
+          "name": "AWSAccessKeyId",
+          "required": true,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Action"
+          "in": "query",
+          "name": "Action",
+          "required": true,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/SignatureMethod"
+          "in": "query",
+          "name": "SignatureMethod",
+          "required": true,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/SignatureVersion"
+          "in": "query",
+          "name": "SignatureVersion",
+          "required": true,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Timestamp"
+          "in": "query",
+          "name": "Timestamp",
+          "required": true,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "query",
+          "name": "Version",
+          "required": true,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Signature"
+          "in": "query",
+          "name": "Signature",
+          "required": true,
+          "type": "string"
         }
       ],
-      "post": {
-        "description": "<p> The <code>CreateDomain</code> operation creates a new domain. The domain name should be unique among the domains associated with the Access Key ID provided in the request. The <code>CreateDomain</code> operation may take 10 or more seconds to complete. </p> <note> CreateDomain is an idempotent operation; running it multiple times using the same domain name will not result in an error response. </note> <p> The client can create up to 100 domains per account. </p> <p> If the client requires additional domains, go to <a href=\"http://aws.amazon.com/contact-us/simpledb-limit-request/\"> http://aws.amazon.com/contact-us/simpledb-limit-request/</a>. </p>",
-        "operationId": "CreateDomain",
+      "get": {
+        "produces": [
+          "text/xml"
+        ],
         "parameters": [
+          {
+            "description": "The name of the domain to create. The name can range between 3 and 255 characters and can contain the following characters: a-z, A-Z, 0-9, '_', '-', and '.'.",
+            "in": "query",
+            "name": "DomainName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "CreateDomain"
+            ],
+            "in": "query",
+            "name": "Action",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "2009-04-15"
+            ],
+            "in": "query",
+            "name": "Version",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "MissingParameter",
+            "schema": {
+              "$ref": "#/definitions/MissingParameter"
+            },
+            "x-aws-exception": true
+          },
+          "409": {
+            "description": "NumberDomainsExceeded",
+            "schema": {
+              "$ref": "#/definitions/NumberDomainsExceeded"
+            },
+            "x-aws-exception": true
+          }
+        },
+        "description": "<p> The <code>CreateDomain</code> operation creates a new domain. The domain name should be unique among the domains associated with the Access Key ID provided in the request. The <code>CreateDomain</code> operation may take 10 or more seconds to complete. </p> <note> CreateDomain is an idempotent operation; running it multiple times using the same domain name will not result in an error response. </note> <p> The client can create up to 100 domains per account. </p> <p> If the client requires additional domains, go to <a href=\"http://aws.amazon.com/contact-us/simpledb-limit-request/\"> http://aws.amazon.com/contact-us/simpledb-limit-request/</a>. </p>",
+        "operationId": "GET_CreateDomain",
+        "x-aws-operation-name": "CreateDomain"
+      },
+      "post": {
+        "consumes": [
+          "text/xml"
+        ],
+        "produces": [
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "CreateDomain"
+            ],
+            "in": "query",
+            "name": "Action",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "2009-04-15"
+            ],
+            "in": "query",
+            "name": "Version",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
-            "required": true,
             "schema": {
               "$ref": "#/definitions/CreateDomainRequest"
             }
@@ -274,41 +522,174 @@
             },
             "x-aws-exception": true
           }
-        }
+        },
+        "description": "<p> The <code>CreateDomain</code> operation creates a new domain. The domain name should be unique among the domains associated with the Access Key ID provided in the request. The <code>CreateDomain</code> operation may take 10 or more seconds to complete. </p> <note> CreateDomain is an idempotent operation; running it multiple times using the same domain name will not result in an error response. </note> <p> The client can create up to 100 domains per account. </p> <p> If the client requires additional domains, go to <a href=\"http://aws.amazon.com/contact-us/simpledb-limit-request/\"> http://aws.amazon.com/contact-us/simpledb-limit-request/</a>. </p>",
+        "operationId": "POST_CreateDomain",
+        "x-aws-operation-name": "CreateDomain"
       }
     },
-    "/#DeleteAttributes": {
+    "/#Action=DeleteAttributes": {
       "parameters": [
         {
-          "$ref": "#/parameters/AWSAccessKeyId"
+          "in": "query",
+          "name": "AWSAccessKeyId",
+          "required": true,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Action"
+          "in": "query",
+          "name": "Action",
+          "required": true,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/SignatureMethod"
+          "in": "query",
+          "name": "SignatureMethod",
+          "required": true,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/SignatureVersion"
+          "in": "query",
+          "name": "SignatureVersion",
+          "required": true,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Timestamp"
+          "in": "query",
+          "name": "Timestamp",
+          "required": true,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "query",
+          "name": "Version",
+          "required": true,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Signature"
+          "in": "query",
+          "name": "Signature",
+          "required": true,
+          "type": "string"
         }
       ],
-      "post": {
-        "description": "<p> Deletes one or more attributes associated with an item. If all attributes of the item are deleted, the item is deleted. </p> <note> If <code>DeleteAttributes</code> is called without being passed any attributes or values specified, all the attributes for the item are deleted. </note> <p> <code>DeleteAttributes</code> is an idempotent operation; running it multiple times on the same item or attribute does not result in an error response. </p> <p> Because Amazon SimpleDB makes multiple copies of item data and uses an eventual consistency update model, performing a <a>GetAttributes</a> or <a>Select</a> operation (read) immediately after a <code>DeleteAttributes</code> or <a>PutAttributes</a> operation (write) might not return updated item data. </p>",
-        "operationId": "DeleteAttributes",
+      "get": {
+        "produces": [
+          "text/xml"
+        ],
         "parameters": [
+          {
+            "description": "The name of the domain in which to perform the operation.",
+            "in": "query",
+            "name": "DomainName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The name of the item. Similar to rows on a spreadsheet, items represent individual objects that contain one or more value-attribute pairs.",
+            "in": "query",
+            "name": "ItemName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "collectionFormat": "multi",
+            "description": "A list of Attributes. Similar to columns on a spreadsheet, attributes represent categories of data that can be assigned to items.",
+            "in": "query",
+            "items": {
+              "allOf": [
+                {
+                  "$ref": "#/definitions/DeletableAttribute"
+                },
+                {
+                  "xml": {
+                    "name": "Attribute"
+                  }
+                }
+              ]
+            },
+            "name": "Attributes",
+            "required": false,
+            "type": "array"
+          },
+          {
+            "description": "The update condition which, if specified, determines whether the specified attributes will be deleted or not. The update condition must be satisfied in order for this request to be processed and the attributes to be deleted.",
+            "in": "query",
+            "name": "Expected",
+            "required": false,
+            "type": "object"
+          },
+          {
+            "enum": [
+              "DeleteAttributes"
+            ],
+            "in": "query",
+            "name": "Action",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "2009-04-15"
+            ],
+            "in": "query",
+            "name": "Version",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "NoSuchDomain",
+            "schema": {
+              "$ref": "#/definitions/NoSuchDomain"
+            },
+            "x-aws-exception": true
+          },
+          "404": {
+            "description": "AttributeDoesNotExist",
+            "schema": {
+              "$ref": "#/definitions/AttributeDoesNotExist"
+            },
+            "x-aws-exception": true
+          }
+        },
+        "description": "<p> Deletes one or more attributes associated with an item. If all attributes of the item are deleted, the item is deleted. </p> <note> If <code>DeleteAttributes</code> is called without being passed any attributes or values specified, all the attributes for the item are deleted. </note> <p> <code>DeleteAttributes</code> is an idempotent operation; running it multiple times on the same item or attribute does not result in an error response. </p> <p> Because Amazon SimpleDB makes multiple copies of item data and uses an eventual consistency update model, performing a <a>GetAttributes</a> or <a>Select</a> operation (read) immediately after a <code>DeleteAttributes</code> or <a>PutAttributes</a> operation (write) might not return updated item data. </p>",
+        "operationId": "GET_DeleteAttributes",
+        "x-aws-operation-name": "DeleteAttributes"
+      },
+      "post": {
+        "consumes": [
+          "text/xml"
+        ],
+        "produces": [
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "DeleteAttributes"
+            ],
+            "in": "query",
+            "name": "Action",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "2009-04-15"
+            ],
+            "in": "query",
+            "name": "Version",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
-            "required": true,
             "schema": {
               "$ref": "#/definitions/DeleteAttributesRequest"
             }
@@ -332,41 +713,133 @@
             },
             "x-aws-exception": true
           }
-        }
+        },
+        "description": "<p> Deletes one or more attributes associated with an item. If all attributes of the item are deleted, the item is deleted. </p> <note> If <code>DeleteAttributes</code> is called without being passed any attributes or values specified, all the attributes for the item are deleted. </note> <p> <code>DeleteAttributes</code> is an idempotent operation; running it multiple times on the same item or attribute does not result in an error response. </p> <p> Because Amazon SimpleDB makes multiple copies of item data and uses an eventual consistency update model, performing a <a>GetAttributes</a> or <a>Select</a> operation (read) immediately after a <code>DeleteAttributes</code> or <a>PutAttributes</a> operation (write) might not return updated item data. </p>",
+        "operationId": "POST_DeleteAttributes",
+        "x-aws-operation-name": "DeleteAttributes"
       }
     },
-    "/#DeleteDomain": {
+    "/#Action=DeleteDomain": {
       "parameters": [
         {
-          "$ref": "#/parameters/AWSAccessKeyId"
+          "in": "query",
+          "name": "AWSAccessKeyId",
+          "required": true,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Action"
+          "in": "query",
+          "name": "Action",
+          "required": true,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/SignatureMethod"
+          "in": "query",
+          "name": "SignatureMethod",
+          "required": true,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/SignatureVersion"
+          "in": "query",
+          "name": "SignatureVersion",
+          "required": true,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Timestamp"
+          "in": "query",
+          "name": "Timestamp",
+          "required": true,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "query",
+          "name": "Version",
+          "required": true,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Signature"
+          "in": "query",
+          "name": "Signature",
+          "required": true,
+          "type": "string"
         }
       ],
-      "post": {
-        "description": "<p> The <code>DeleteDomain</code> operation deletes a domain. Any items (and their attributes) in the domain are deleted as well. The <code>DeleteDomain</code> operation might take 10 or more seconds to complete. </p> <note> Running <code>DeleteDomain</code> on a domain that does not exist or running the function multiple times using the same domain name will not result in an error response. </note>",
-        "operationId": "DeleteDomain",
+      "get": {
+        "produces": [
+          "text/xml"
+        ],
         "parameters": [
+          {
+            "description": "The name of the domain to delete.",
+            "in": "query",
+            "name": "DomainName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "DeleteDomain"
+            ],
+            "in": "query",
+            "name": "Action",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "2009-04-15"
+            ],
+            "in": "query",
+            "name": "Version",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "MissingParameter",
+            "schema": {
+              "$ref": "#/definitions/MissingParameter"
+            },
+            "x-aws-exception": true
+          }
+        },
+        "description": "<p> The <code>DeleteDomain</code> operation deletes a domain. Any items (and their attributes) in the domain are deleted as well. The <code>DeleteDomain</code> operation might take 10 or more seconds to complete. </p> <note> Running <code>DeleteDomain</code> on a domain that does not exist or running the function multiple times using the same domain name will not result in an error response. </note>",
+        "operationId": "GET_DeleteDomain",
+        "x-aws-operation-name": "DeleteDomain"
+      },
+      "post": {
+        "consumes": [
+          "text/xml"
+        ],
+        "produces": [
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "DeleteDomain"
+            ],
+            "in": "query",
+            "name": "Action",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "2009-04-15"
+            ],
+            "in": "query",
+            "name": "Version",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
-            "required": true,
             "schema": {
               "$ref": "#/definitions/DeleteDomainRequest"
             }
@@ -383,41 +856,136 @@
             },
             "x-aws-exception": true
           }
-        }
+        },
+        "description": "<p> The <code>DeleteDomain</code> operation deletes a domain. Any items (and their attributes) in the domain are deleted as well. The <code>DeleteDomain</code> operation might take 10 or more seconds to complete. </p> <note> Running <code>DeleteDomain</code> on a domain that does not exist or running the function multiple times using the same domain name will not result in an error response. </note>",
+        "operationId": "POST_DeleteDomain",
+        "x-aws-operation-name": "DeleteDomain"
       }
     },
-    "/#DomainMetadata": {
+    "/#Action=DomainMetadata": {
       "parameters": [
         {
-          "$ref": "#/parameters/AWSAccessKeyId"
+          "in": "query",
+          "name": "AWSAccessKeyId",
+          "required": true,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Action"
+          "in": "query",
+          "name": "Action",
+          "required": true,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/SignatureMethod"
+          "in": "query",
+          "name": "SignatureMethod",
+          "required": true,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/SignatureVersion"
+          "in": "query",
+          "name": "SignatureVersion",
+          "required": true,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Timestamp"
+          "in": "query",
+          "name": "Timestamp",
+          "required": true,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "query",
+          "name": "Version",
+          "required": true,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Signature"
+          "in": "query",
+          "name": "Signature",
+          "required": true,
+          "type": "string"
         }
       ],
-      "post": {
-        "description": " Returns information about the domain, including when the domain was created, the number of items and attributes in the domain, and the size of the attribute names and values. ",
-        "operationId": "DomainMetadata",
+      "get": {
+        "produces": [
+          "text/xml"
+        ],
         "parameters": [
+          {
+            "description": "The name of the domain for which to display the metadata of.",
+            "in": "query",
+            "name": "DomainName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "DomainMetadata"
+            ],
+            "in": "query",
+            "name": "Action",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "2009-04-15"
+            ],
+            "in": "query",
+            "name": "Version",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DomainMetadataResult"
+            }
+          },
+          "400": {
+            "description": "NoSuchDomain",
+            "schema": {
+              "$ref": "#/definitions/NoSuchDomain"
+            },
+            "x-aws-exception": true
+          }
+        },
+        "description": " Returns information about the domain, including when the domain was created, the number of items and attributes in the domain, and the size of the attribute names and values. ",
+        "operationId": "GET_DomainMetadata",
+        "x-aws-operation-name": "DomainMetadata"
+      },
+      "post": {
+        "consumes": [
+          "text/xml"
+        ],
+        "produces": [
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "DomainMetadata"
+            ],
+            "in": "query",
+            "name": "Action",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "2009-04-15"
+            ],
+            "in": "query",
+            "name": "Version",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
-            "required": true,
             "schema": {
               "$ref": "#/definitions/DomainMetadataRequest"
             }
@@ -437,41 +1005,170 @@
             },
             "x-aws-exception": true
           }
-        }
+        },
+        "description": " Returns information about the domain, including when the domain was created, the number of items and attributes in the domain, and the size of the attribute names and values. ",
+        "operationId": "POST_DomainMetadata",
+        "x-aws-operation-name": "DomainMetadata"
       }
     },
-    "/#GetAttributes": {
+    "/#Action=GetAttributes": {
       "parameters": [
         {
-          "$ref": "#/parameters/AWSAccessKeyId"
+          "in": "query",
+          "name": "AWSAccessKeyId",
+          "required": true,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Action"
+          "in": "query",
+          "name": "Action",
+          "required": true,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/SignatureMethod"
+          "in": "query",
+          "name": "SignatureMethod",
+          "required": true,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/SignatureVersion"
+          "in": "query",
+          "name": "SignatureVersion",
+          "required": true,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Timestamp"
+          "in": "query",
+          "name": "Timestamp",
+          "required": true,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "query",
+          "name": "Version",
+          "required": true,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Signature"
+          "in": "query",
+          "name": "Signature",
+          "required": true,
+          "type": "string"
         }
       ],
-      "post": {
-        "description": "<p> Returns all of the attributes associated with the specified item. Optionally, the attributes returned can be limited to one or more attributes by specifying an attribute name parameter. </p> <p> If the item does not exist on the replica that was accessed for this operation, an empty set is returned. The system does not return an error as it cannot guarantee the item does not exist on other replicas. </p> <note> If GetAttributes is called without being passed any attribute names, all the attributes for the item are returned. </note>",
-        "operationId": "GetAttributes",
+      "get": {
+        "produces": [
+          "text/xml"
+        ],
         "parameters": [
+          {
+            "description": "The name of the domain in which to perform the operation.",
+            "in": "query",
+            "name": "DomainName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The name of the item.",
+            "in": "query",
+            "name": "ItemName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "collectionFormat": "multi",
+            "description": "The names of the attributes.",
+            "in": "query",
+            "items": {
+              "allOf": [
+                {
+                  "$ref": "#/definitions/String"
+                },
+                {
+                  "xml": {
+                    "name": "AttributeName"
+                  }
+                }
+              ]
+            },
+            "name": "AttributeNames",
+            "required": false,
+            "type": "array"
+          },
+          {
+            "description": "Determines whether or not strong consistency should be enforced when data is read from SimpleDB. If <code>true</code>, any data previously written to SimpleDB will be returned. Otherwise, results will be consistent eventually, and the client may not see data that was written immediately before your read.",
+            "in": "query",
+            "name": "ConsistentRead",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "enum": [
+              "GetAttributes"
+            ],
+            "in": "query",
+            "name": "Action",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "2009-04-15"
+            ],
+            "in": "query",
+            "name": "Version",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetAttributesResult"
+            }
+          },
+          "400": {
+            "description": "NoSuchDomain",
+            "schema": {
+              "$ref": "#/definitions/NoSuchDomain"
+            },
+            "x-aws-exception": true
+          }
+        },
+        "description": "<p> Returns all of the attributes associated with the specified item. Optionally, the attributes returned can be limited to one or more attributes by specifying an attribute name parameter. </p> <p> If the item does not exist on the replica that was accessed for this operation, an empty set is returned. The system does not return an error as it cannot guarantee the item does not exist on other replicas. </p> <note> If GetAttributes is called without being passed any attribute names, all the attributes for the item are returned. </note>",
+        "operationId": "GET_GetAttributes",
+        "x-aws-operation-name": "GetAttributes"
+      },
+      "post": {
+        "consumes": [
+          "text/xml"
+        ],
+        "produces": [
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "GetAttributes"
+            ],
+            "in": "query",
+            "name": "Action",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "2009-04-15"
+            ],
+            "in": "query",
+            "name": "Version",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
-            "required": true,
             "schema": {
               "$ref": "#/definitions/GetAttributesRequest"
             }
@@ -491,57 +1188,92 @@
             },
             "x-aws-exception": true
           }
-        }
+        },
+        "description": "<p> Returns all of the attributes associated with the specified item. Optionally, the attributes returned can be limited to one or more attributes by specifying an attribute name parameter. </p> <p> If the item does not exist on the replica that was accessed for this operation, an empty set is returned. The system does not return an error as it cannot guarantee the item does not exist on other replicas. </p> <note> If GetAttributes is called without being passed any attribute names, all the attributes for the item are returned. </note>",
+        "operationId": "POST_GetAttributes",
+        "x-aws-operation-name": "GetAttributes"
       }
     },
-    "/#ListDomains": {
+    "/#Action=ListDomains": {
       "parameters": [
         {
-          "$ref": "#/parameters/AWSAccessKeyId"
+          "in": "query",
+          "name": "AWSAccessKeyId",
+          "required": true,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Action"
+          "in": "query",
+          "name": "Action",
+          "required": true,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/SignatureMethod"
+          "in": "query",
+          "name": "SignatureMethod",
+          "required": true,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/SignatureVersion"
+          "in": "query",
+          "name": "SignatureVersion",
+          "required": true,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Timestamp"
+          "in": "query",
+          "name": "Timestamp",
+          "required": true,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "query",
+          "name": "Version",
+          "required": true,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Signature"
+          "in": "query",
+          "name": "Signature",
+          "required": true,
+          "type": "string"
         }
       ],
-      "post": {
-        "description": " The <code>ListDomains</code> operation lists all domains associated with the Access Key ID. It returns domain names up to the limit set by <a href=\"#MaxNumberOfDomains\">MaxNumberOfDomains</a>. A <a href=\"#NextToken\">NextToken</a> is returned if there are more than <code>MaxNumberOfDomains</code> domains. Calling <code>ListDomains</code> successive times with the <code>NextToken</code> provided by the operation returns up to <code>MaxNumberOfDomains</code> more domain names with each successive operation call. ",
-        "operationId": "ListDomains",
+      "get": {
+        "produces": [
+          "text/xml"
+        ],
         "parameters": [
           {
-            "in": "body",
-            "name": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/ListDomainsRequest"
-            }
-          },
-          {
-            "description": "Pagination limit",
+            "description": "The maximum number of domain names you want returned. The range is 1 to 100. The default setting is 100.",
             "in": "query",
             "name": "MaxNumberOfDomains",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "A string informing Amazon SimpleDB where to start the next list of domain names.",
+            "in": "query",
+            "name": "NextToken",
             "required": false,
             "type": "string"
           },
           {
-            "description": "Pagination token",
+            "enum": [
+              "ListDomains"
+            ],
             "in": "query",
-            "name": "NextToken",
-            "required": false,
+            "name": "Action",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "2009-04-15"
+            ],
+            "in": "query",
+            "name": "Version",
+            "required": true,
             "type": "string"
           }
         ],
@@ -559,41 +1291,248 @@
             },
             "x-aws-exception": true
           }
-        }
-      }
-    },
-    "/#PutAttributes": {
-      "parameters": [
-        {
-          "$ref": "#/parameters/AWSAccessKeyId"
         },
-        {
-          "$ref": "#/parameters/Action"
-        },
-        {
-          "$ref": "#/parameters/SignatureMethod"
-        },
-        {
-          "$ref": "#/parameters/SignatureVersion"
-        },
-        {
-          "$ref": "#/parameters/Timestamp"
-        },
-        {
-          "$ref": "#/parameters/Version"
-        },
-        {
-          "$ref": "#/parameters/Signature"
-        }
-      ],
+        "description": " The <code>ListDomains</code> operation lists all domains associated with the Access Key ID. It returns domain names up to the limit set by <a href=\"#MaxNumberOfDomains\">MaxNumberOfDomains</a>. A <a href=\"#NextToken\">NextToken</a> is returned if there are more than <code>MaxNumberOfDomains</code> domains. Calling <code>ListDomains</code> successive times with the <code>NextToken</code> provided by the operation returns up to <code>MaxNumberOfDomains</code> more domain names with each successive operation call. ",
+        "operationId": "GET_ListDomains",
+        "x-aws-operation-name": "ListDomains"
+      },
       "post": {
-        "description": "<p> The PutAttributes operation creates or replaces attributes in an item. The client may specify new attributes using a combination of the <code>Attribute.X.Name</code> and <code>Attribute.X.Value</code> parameters. The client specifies the first attribute by the parameters <code>Attribute.0.Name</code> and <code>Attribute.0.Value</code>, the second attribute by the parameters <code>Attribute.1.Name</code> and <code>Attribute.1.Value</code>, and so on. </p> <p> Attributes are uniquely identified in an item by their name/value combination. For example, a single item can have the attributes <code>{ \"first_name\", \"first_value\" }</code> and <code>{ \"first_name\", second_value\" }</code>. However, it cannot have two attribute instances where both the <code>Attribute.X.Name</code> and <code>Attribute.X.Value</code> are the same. </p> <p> Optionally, the requestor can supply the <code>Replace</code> parameter for each individual attribute. Setting this value to <code>true</code> causes the new attribute value to replace the existing attribute value(s). For example, if an item has the attributes <code>{ 'a', '1' }</code>, <code>{ 'b', '2'}</code> and <code>{ 'b', '3' }</code> and the requestor calls <code>PutAttributes</code> using the attributes <code>{ 'b', '4' }</code> with the <code>Replace</code> parameter set to true, the final attributes of the item are changed to <code>{ 'a', '1' }</code> and <code>{ 'b', '4' }</code>, which replaces the previous values of the 'b' attribute with the new value. </p> <note> Using <code>PutAttributes</code> to replace attribute values that do not exist will not result in an error response. </note> <p> You cannot specify an empty string as an attribute name. </p> <p> Because Amazon SimpleDB makes multiple copies of client data and uses an eventual consistency update model, an immediate <a>GetAttributes</a> or <a>Select</a> operation (read) immediately after a <a>PutAttributes</a> or <a>DeleteAttributes</a> operation (write) might not return the updated data. </p> <p> The following limitations are enforced for this operation: <ul> <li>256 total attribute name-value pairs per item</li> <li>One billion attributes per domain</li> <li>10 GB of total user data storage per domain</li> </ul> </p>",
-        "operationId": "PutAttributes",
+        "consumes": [
+          "text/xml"
+        ],
+        "produces": [
+          "text/xml"
+        ],
         "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxNumberOfDomains",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "ListDomains"
+            ],
+            "in": "query",
+            "name": "Action",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "2009-04-15"
+            ],
+            "in": "query",
+            "name": "Version",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
+            "schema": {
+              "$ref": "#/definitions/ListDomainsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListDomainsResult"
+            }
+          },
+          "400": {
+            "description": "InvalidNextToken",
+            "schema": {
+              "$ref": "#/definitions/InvalidNextToken"
+            },
+            "x-aws-exception": true
+          }
+        },
+        "description": " The <code>ListDomains</code> operation lists all domains associated with the Access Key ID. It returns domain names up to the limit set by <a href=\"#MaxNumberOfDomains\">MaxNumberOfDomains</a>. A <a href=\"#NextToken\">NextToken</a> is returned if there are more than <code>MaxNumberOfDomains</code> domains. Calling <code>ListDomains</code> successive times with the <code>NextToken</code> provided by the operation returns up to <code>MaxNumberOfDomains</code> more domain names with each successive operation call. ",
+        "operationId": "POST_ListDomains",
+        "x-aws-operation-name": "ListDomains"
+      }
+    },
+    "/#Action=PutAttributes": {
+      "parameters": [
+        {
+          "in": "query",
+          "name": "AWSAccessKeyId",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "in": "query",
+          "name": "Action",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "in": "query",
+          "name": "SignatureMethod",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "in": "query",
+          "name": "SignatureVersion",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "in": "query",
+          "name": "Timestamp",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "in": "query",
+          "name": "Version",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "in": "query",
+          "name": "Signature",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "description": "The name of the domain in which to perform the operation.",
+            "in": "query",
+            "name": "DomainName",
             "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The name of the item.",
+            "in": "query",
+            "name": "ItemName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "collectionFormat": "multi",
+            "description": "The list of attributes.",
+            "in": "query",
+            "items": {
+              "allOf": [
+                {
+                  "$ref": "#/definitions/ReplaceableAttribute"
+                },
+                {
+                  "xml": {
+                    "name": "Attribute"
+                  }
+                }
+              ]
+            },
+            "name": "Attributes",
+            "required": true,
+            "type": "array"
+          },
+          {
+            "description": "The update condition which, if specified, determines whether the specified attributes will be updated or not. The update condition must be satisfied in order for this request to be processed and the attributes to be updated.",
+            "in": "query",
+            "name": "Expected",
+            "required": false,
+            "type": "object"
+          },
+          {
+            "enum": [
+              "PutAttributes"
+            ],
+            "in": "query",
+            "name": "Action",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "2009-04-15"
+            ],
+            "in": "query",
+            "name": "Version",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "NoSuchDomain",
+            "schema": {
+              "$ref": "#/definitions/NoSuchDomain"
+            },
+            "x-aws-exception": true
+          },
+          "404": {
+            "description": "AttributeDoesNotExist",
+            "schema": {
+              "$ref": "#/definitions/AttributeDoesNotExist"
+            },
+            "x-aws-exception": true
+          },
+          "409": {
+            "description": "NumberItemAttributesExceeded",
+            "schema": {
+              "$ref": "#/definitions/NumberItemAttributesExceeded"
+            },
+            "x-aws-exception": true
+          }
+        },
+        "description": "<p> The PutAttributes operation creates or replaces attributes in an item. The client may specify new attributes using a combination of the <code>Attribute.X.Name</code> and <code>Attribute.X.Value</code> parameters. The client specifies the first attribute by the parameters <code>Attribute.0.Name</code> and <code>Attribute.0.Value</code>, the second attribute by the parameters <code>Attribute.1.Name</code> and <code>Attribute.1.Value</code>, and so on. </p> <p> Attributes are uniquely identified in an item by their name/value combination. For example, a single item can have the attributes <code>{ \"first_name\", \"first_value\" }</code> and <code>{ \"first_name\", second_value\" }</code>. However, it cannot have two attribute instances where both the <code>Attribute.X.Name</code> and <code>Attribute.X.Value</code> are the same. </p> <p> Optionally, the requestor can supply the <code>Replace</code> parameter for each individual attribute. Setting this value to <code>true</code> causes the new attribute value to replace the existing attribute value(s). For example, if an item has the attributes <code>{ 'a', '1' }</code>, <code>{ 'b', '2'}</code> and <code>{ 'b', '3' }</code> and the requestor calls <code>PutAttributes</code> using the attributes <code>{ 'b', '4' }</code> with the <code>Replace</code> parameter set to true, the final attributes of the item are changed to <code>{ 'a', '1' }</code> and <code>{ 'b', '4' }</code>, which replaces the previous values of the 'b' attribute with the new value. </p> <note> Using <code>PutAttributes</code> to replace attribute values that do not exist will not result in an error response. </note> <p> You cannot specify an empty string as an attribute name. </p> <p> Because Amazon SimpleDB makes multiple copies of client data and uses an eventual consistency update model, an immediate <a>GetAttributes</a> or <a>Select</a> operation (read) immediately after a <a>PutAttributes</a> or <a>DeleteAttributes</a> operation (write) might not return the updated data. </p> <p> The following limitations are enforced for this operation: <ul> <li>256 total attribute name-value pairs per item</li> <li>One billion attributes per domain</li> <li>10 GB of total user data storage per domain</li> </ul> </p>",
+        "operationId": "GET_PutAttributes",
+        "x-aws-operation-name": "PutAttributes"
+      },
+      "post": {
+        "consumes": [
+          "text/xml"
+        ],
+        "produces": [
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "PutAttributes"
+            ],
+            "in": "query",
+            "name": "Action",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "2009-04-15"
+            ],
+            "in": "query",
+            "name": "Version",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
             "schema": {
               "$ref": "#/definitions/PutAttributesRequest"
             }
@@ -624,50 +1563,99 @@
             },
             "x-aws-exception": true
           }
-        }
+        },
+        "description": "<p> The PutAttributes operation creates or replaces attributes in an item. The client may specify new attributes using a combination of the <code>Attribute.X.Name</code> and <code>Attribute.X.Value</code> parameters. The client specifies the first attribute by the parameters <code>Attribute.0.Name</code> and <code>Attribute.0.Value</code>, the second attribute by the parameters <code>Attribute.1.Name</code> and <code>Attribute.1.Value</code>, and so on. </p> <p> Attributes are uniquely identified in an item by their name/value combination. For example, a single item can have the attributes <code>{ \"first_name\", \"first_value\" }</code> and <code>{ \"first_name\", second_value\" }</code>. However, it cannot have two attribute instances where both the <code>Attribute.X.Name</code> and <code>Attribute.X.Value</code> are the same. </p> <p> Optionally, the requestor can supply the <code>Replace</code> parameter for each individual attribute. Setting this value to <code>true</code> causes the new attribute value to replace the existing attribute value(s). For example, if an item has the attributes <code>{ 'a', '1' }</code>, <code>{ 'b', '2'}</code> and <code>{ 'b', '3' }</code> and the requestor calls <code>PutAttributes</code> using the attributes <code>{ 'b', '4' }</code> with the <code>Replace</code> parameter set to true, the final attributes of the item are changed to <code>{ 'a', '1' }</code> and <code>{ 'b', '4' }</code>, which replaces the previous values of the 'b' attribute with the new value. </p> <note> Using <code>PutAttributes</code> to replace attribute values that do not exist will not result in an error response. </note> <p> You cannot specify an empty string as an attribute name. </p> <p> Because Amazon SimpleDB makes multiple copies of client data and uses an eventual consistency update model, an immediate <a>GetAttributes</a> or <a>Select</a> operation (read) immediately after a <a>PutAttributes</a> or <a>DeleteAttributes</a> operation (write) might not return the updated data. </p> <p> The following limitations are enforced for this operation: <ul> <li>256 total attribute name-value pairs per item</li> <li>One billion attributes per domain</li> <li>10 GB of total user data storage per domain</li> </ul> </p>",
+        "operationId": "POST_PutAttributes",
+        "x-aws-operation-name": "PutAttributes"
       }
     },
-    "/#Select": {
+    "/#Action=Select": {
       "parameters": [
         {
-          "$ref": "#/parameters/AWSAccessKeyId"
+          "in": "query",
+          "name": "AWSAccessKeyId",
+          "required": true,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Action"
+          "in": "query",
+          "name": "Action",
+          "required": true,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/SignatureMethod"
+          "in": "query",
+          "name": "SignatureMethod",
+          "required": true,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/SignatureVersion"
+          "in": "query",
+          "name": "SignatureVersion",
+          "required": true,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Timestamp"
+          "in": "query",
+          "name": "Timestamp",
+          "required": true,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "query",
+          "name": "Version",
+          "required": true,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Signature"
+          "in": "query",
+          "name": "Signature",
+          "required": true,
+          "type": "string"
         }
       ],
-      "post": {
-        "description": "<p> The <code>Select</code> operation returns a set of attributes for <code>ItemNames</code> that match the select expression. <code>Select</code> is similar to the standard SQL SELECT statement. </p> <p> The total size of the response cannot exceed 1 MB in total size. Amazon SimpleDB automatically adjusts the number of items returned per page to enforce this limit. For example, if the client asks to retrieve 2500 items, but each individual item is 10 kB in size, the system returns 100 items and an appropriate <code>NextToken</code> so the client can access the next page of results. </p> <p> For information on how to construct select expressions, see Using Select to Create Amazon SimpleDB Queries in the Developer Guide. </p>",
-        "operationId": "Select",
+      "get": {
+        "produces": [
+          "text/xml"
+        ],
         "parameters": [
           {
-            "in": "body",
-            "name": "body",
+            "description": "The expression used to query the domain.",
+            "in": "query",
+            "name": "SelectExpression",
             "required": true,
-            "schema": {
-              "$ref": "#/definitions/SelectRequest"
-            }
+            "type": "string"
           },
           {
-            "description": "Pagination token",
+            "description": "A string informing Amazon SimpleDB where to start the next list of <code>ItemNames</code>.",
             "in": "query",
             "name": "NextToken",
             "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Determines whether or not strong consistency should be enforced when data is read from SimpleDB. If <code>true</code>, any data previously written to SimpleDB will be returned. Otherwise, results will be consistent eventually, and the client may not see data that was written immediately before your read.",
+            "in": "query",
+            "name": "ConsistentRead",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "enum": [
+              "Select"
+            ],
+            "in": "query",
+            "name": "Action",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "2009-04-15"
+            ],
+            "in": "query",
+            "name": "Version",
+            "required": true,
             "type": "string"
           }
         ],
@@ -692,7 +1680,77 @@
             },
             "x-aws-exception": true
           }
-        }
+        },
+        "description": "<p> The <code>Select</code> operation returns a set of attributes for <code>ItemNames</code> that match the select expression. <code>Select</code> is similar to the standard SQL SELECT statement. </p> <p> The total size of the response cannot exceed 1 MB in total size. Amazon SimpleDB automatically adjusts the number of items returned per page to enforce this limit. For example, if the client asks to retrieve 2500 items, but each individual item is 10 kB in size, the system returns 100 items and an appropriate <code>NextToken</code> so the client can access the next page of results. </p> <p> For information on how to construct select expressions, see Using Select to Create Amazon SimpleDB Queries in the Developer Guide. </p>",
+        "operationId": "GET_Select",
+        "x-aws-operation-name": "Select"
+      },
+      "post": {
+        "consumes": [
+          "text/xml"
+        ],
+        "produces": [
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "Select"
+            ],
+            "in": "query",
+            "name": "Action",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "2009-04-15"
+            ],
+            "in": "query",
+            "name": "Version",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/SelectRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/SelectResult"
+            }
+          },
+          "400": {
+            "description": "TooManyRequestedAttributes",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestedAttributes"
+            },
+            "x-aws-exception": true
+          },
+          "408": {
+            "description": "RequestTimeout",
+            "schema": {
+              "$ref": "#/definitions/RequestTimeout"
+            },
+            "x-aws-exception": true
+          }
+        },
+        "description": "<p> The <code>Select</code> operation returns a set of attributes for <code>ItemNames</code> that match the select expression. <code>Select</code> is similar to the standard SQL SELECT statement. </p> <p> The total size of the response cannot exceed 1 MB in total size. Amazon SimpleDB automatically adjusts the number of items returned per page to enforce this limit. For example, if the client asks to retrieve 2500 items, but each individual item is 10 kB in size, the system returns 100 items and an appropriate <code>NextToken</code> so the client can access the next page of results. </p> <p> For information on how to construct select expressions, see Using Select to Create Amazon SimpleDB Queries in the Developer Guide. </p>",
+        "operationId": "POST_Select",
+        "x-aws-operation-name": "Select"
       }
     }
   },
@@ -701,20 +1759,44 @@
       "description": "",
       "properties": {
         "AlternateNameEncoding": {
-          "$ref": "#/definitions/String",
-          "description": ""
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": ""
+            }
+          ]
         },
         "AlternateValueEncoding": {
-          "$ref": "#/definitions/String",
-          "description": ""
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": ""
+            }
+          ]
         },
         "Name": {
-          "$ref": "#/definitions/String",
-          "description": "The name of the attribute."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The name of the attribute."
+            }
+          ]
         },
         "Value": {
-          "$ref": "#/definitions/String",
-          "description": "The value of the attribute."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The value of the attribute."
+            }
+          ]
         }
       },
       "required": [
@@ -734,7 +1816,16 @@
     },
     "AttributeList": {
       "items": {
-        "$ref": "#/definitions/Attribute"
+        "allOf": [
+          {
+            "$ref": "#/definitions/Attribute"
+          },
+          {
+            "xml": {
+              "name": "Attribute"
+            }
+          }
+        ]
       },
       "type": "array",
       "xml": {
@@ -743,7 +1834,16 @@
     },
     "AttributeNameList": {
       "items": {
-        "$ref": "#/definitions/String"
+        "allOf": [
+          {
+            "$ref": "#/definitions/String"
+          },
+          {
+            "xml": {
+              "name": "AttributeName"
+            }
+          }
+        ]
       },
       "type": "array",
       "xml": {
@@ -753,35 +1853,61 @@
     "BatchDeleteAttributesRequest": {
       "properties": {
         "DomainName": {
-          "$ref": "#/definitions/String",
-          "description": "The name of the domain in which the attributes are being deleted."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The name of the domain in which the attributes are being deleted."
+            }
+          ]
         },
         "Items": {
-          "$ref": "#/definitions/DeletableItemList",
-          "description": "A list of items on which to perform the operation."
+          "allOf": [
+            {
+              "$ref": "#/definitions/DeletableItemList"
+            },
+            {
+              "description": "A list of items on which to perform the operation."
+            }
+          ]
         }
       },
       "required": [
         "DomainName",
         "Items"
       ],
+      "title": "BatchDeleteAttributesRequest",
       "type": "object"
     },
     "BatchPutAttributesRequest": {
       "properties": {
         "DomainName": {
-          "$ref": "#/definitions/String",
-          "description": "The name of the domain in which the attributes are being stored."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The name of the domain in which the attributes are being stored."
+            }
+          ]
         },
         "Items": {
-          "$ref": "#/definitions/ReplaceableItemList",
-          "description": "A list of items on which to perform the operation."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ReplaceableItemList"
+            },
+            {
+              "description": "A list of items on which to perform the operation."
+            }
+          ]
         }
       },
       "required": [
         "DomainName",
         "Items"
       ],
+      "title": "BatchPutAttributesRequest",
       "type": "object"
     },
     "Boolean": {
@@ -790,25 +1916,44 @@
     "CreateDomainRequest": {
       "properties": {
         "DomainName": {
-          "$ref": "#/definitions/String",
-          "description": "The name of the domain to create. The name can range between 3 and 255 characters and can contain the following characters: a-z, A-Z, 0-9, '_', '-', and '.'."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The name of the domain to create. The name can range between 3 and 255 characters and can contain the following characters: a-z, A-Z, 0-9, '_', '-', and '.'."
+            }
+          ]
         }
       },
       "required": [
         "DomainName"
       ],
+      "title": "CreateDomainRequest",
       "type": "object"
     },
     "DeletableAttribute": {
       "description": "",
       "properties": {
         "Name": {
-          "$ref": "#/definitions/String",
-          "description": "The name of the attribute."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The name of the attribute."
+            }
+          ]
         },
         "Value": {
-          "$ref": "#/definitions/String",
-          "description": "The value of the attribute."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The value of the attribute."
+            }
+          ]
         }
       },
       "required": [
@@ -818,7 +1963,16 @@
     },
     "DeletableAttributeList": {
       "items": {
-        "$ref": "#/definitions/DeletableAttribute"
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeletableAttribute"
+          },
+          {
+            "xml": {
+              "name": "Attribute"
+            }
+          }
+        ]
       },
       "type": "array",
       "xml": {
@@ -831,7 +1985,16 @@
           "$ref": "#/definitions/DeletableAttributeList"
         },
         "Name": {
-          "$ref": "#/definitions/String"
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "xml": {
+                "name": "ItemName"
+              }
+            }
+          ]
         }
       },
       "required": [
@@ -841,7 +2004,16 @@
     },
     "DeletableItemList": {
       "items": {
-        "$ref": "#/definitions/DeletableItem"
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeletableItem"
+          },
+          {
+            "xml": {
+              "name": "Item"
+            }
+          }
+        ]
       },
       "type": "array",
       "xml": {
@@ -851,88 +2023,178 @@
     "DeleteAttributesRequest": {
       "properties": {
         "Attributes": {
-          "$ref": "#/definitions/DeletableAttributeList",
-          "description": "A list of Attributes. Similar to columns on a spreadsheet, attributes represent categories of data that can be assigned to items."
+          "allOf": [
+            {
+              "$ref": "#/definitions/DeletableAttributeList"
+            },
+            {
+              "description": "A list of Attributes. Similar to columns on a spreadsheet, attributes represent categories of data that can be assigned to items."
+            }
+          ]
         },
         "DomainName": {
-          "$ref": "#/definitions/String",
-          "description": "The name of the domain in which to perform the operation."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The name of the domain in which to perform the operation."
+            }
+          ]
         },
         "Expected": {
-          "$ref": "#/definitions/UpdateCondition",
-          "description": "The update condition which, if specified, determines whether the specified attributes will be deleted or not. The update condition must be satisfied in order for this request to be processed and the attributes to be deleted."
+          "allOf": [
+            {
+              "$ref": "#/definitions/UpdateCondition"
+            },
+            {
+              "description": "The update condition which, if specified, determines whether the specified attributes will be deleted or not. The update condition must be satisfied in order for this request to be processed and the attributes to be deleted."
+            }
+          ]
         },
         "ItemName": {
-          "$ref": "#/definitions/String",
-          "description": "The name of the item. Similar to rows on a spreadsheet, items represent individual objects that contain one or more value-attribute pairs."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The name of the item. Similar to rows on a spreadsheet, items represent individual objects that contain one or more value-attribute pairs."
+            }
+          ]
         }
       },
       "required": [
         "DomainName",
         "ItemName"
       ],
+      "title": "DeleteAttributesRequest",
       "type": "object"
     },
     "DeleteDomainRequest": {
       "properties": {
         "DomainName": {
-          "$ref": "#/definitions/String",
-          "description": "The name of the domain to delete."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The name of the domain to delete."
+            }
+          ]
         }
       },
       "required": [
         "DomainName"
       ],
+      "title": "DeleteDomainRequest",
       "type": "object"
     },
     "DomainMetadataRequest": {
       "properties": {
         "DomainName": {
-          "$ref": "#/definitions/String",
-          "description": "The name of the domain for which to display the metadata of."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The name of the domain for which to display the metadata of."
+            }
+          ]
         }
       },
       "required": [
         "DomainName"
       ],
+      "title": "DomainMetadataRequest",
       "type": "object"
     },
     "DomainMetadataResult": {
       "properties": {
         "AttributeNameCount": {
-          "$ref": "#/definitions/Integer",
-          "description": "The number of unique attribute names in the domain."
+          "allOf": [
+            {
+              "$ref": "#/definitions/Integer"
+            },
+            {
+              "description": "The number of unique attribute names in the domain."
+            }
+          ]
         },
         "AttributeNamesSizeBytes": {
-          "$ref": "#/definitions/Long",
-          "description": "The total size of all unique attribute names in the domain, in bytes."
+          "allOf": [
+            {
+              "$ref": "#/definitions/Long"
+            },
+            {
+              "description": "The total size of all unique attribute names in the domain, in bytes."
+            }
+          ]
         },
         "AttributeValueCount": {
-          "$ref": "#/definitions/Integer",
-          "description": "The number of all attribute name/value pairs in the domain."
+          "allOf": [
+            {
+              "$ref": "#/definitions/Integer"
+            },
+            {
+              "description": "The number of all attribute name/value pairs in the domain."
+            }
+          ]
         },
         "AttributeValuesSizeBytes": {
-          "$ref": "#/definitions/Long",
-          "description": "The total size of all attribute values in the domain, in bytes."
+          "allOf": [
+            {
+              "$ref": "#/definitions/Long"
+            },
+            {
+              "description": "The total size of all attribute values in the domain, in bytes."
+            }
+          ]
         },
         "ItemCount": {
-          "$ref": "#/definitions/Integer",
-          "description": "The number of all items in the domain."
+          "allOf": [
+            {
+              "$ref": "#/definitions/Integer"
+            },
+            {
+              "description": "The number of all items in the domain."
+            }
+          ]
         },
         "ItemNamesSizeBytes": {
-          "$ref": "#/definitions/Long",
-          "description": "The total size of all item names in the domain, in bytes."
+          "allOf": [
+            {
+              "$ref": "#/definitions/Long"
+            },
+            {
+              "description": "The total size of all item names in the domain, in bytes."
+            }
+          ]
         },
         "Timestamp": {
-          "$ref": "#/definitions/Integer",
-          "description": "The data and time when metadata was calculated, in Epoch (UNIX) seconds."
+          "allOf": [
+            {
+              "$ref": "#/definitions/Integer"
+            },
+            {
+              "description": "The data and time when metadata was calculated, in Epoch (UNIX) seconds."
+            }
+          ]
         }
       },
       "type": "object"
     },
     "DomainNameList": {
       "items": {
-        "$ref": "#/definitions/String"
+        "allOf": [
+          {
+            "$ref": "#/definitions/String"
+          },
+          {
+            "xml": {
+              "name": "DomainName"
+            }
+          }
+        ]
       },
       "type": "array",
       "xml": {
@@ -955,33 +2217,64 @@
     "GetAttributesRequest": {
       "properties": {
         "AttributeNames": {
-          "$ref": "#/definitions/AttributeNameList",
-          "description": "The names of the attributes."
+          "allOf": [
+            {
+              "$ref": "#/definitions/AttributeNameList"
+            },
+            {
+              "description": "The names of the attributes."
+            }
+          ]
         },
         "ConsistentRead": {
-          "$ref": "#/definitions/Boolean",
-          "description": "Determines whether or not strong consistency should be enforced when data is read from SimpleDB. If <code>true</code>, any data previously written to SimpleDB will be returned. Otherwise, results will be consistent eventually, and the client may not see data that was written immediately before your read."
+          "allOf": [
+            {
+              "$ref": "#/definitions/Boolean"
+            },
+            {
+              "description": "Determines whether or not strong consistency should be enforced when data is read from SimpleDB. If <code>true</code>, any data previously written to SimpleDB will be returned. Otherwise, results will be consistent eventually, and the client may not see data that was written immediately before your read."
+            }
+          ]
         },
         "DomainName": {
-          "$ref": "#/definitions/String",
-          "description": "The name of the domain in which to perform the operation."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The name of the domain in which to perform the operation."
+            }
+          ]
         },
         "ItemName": {
-          "$ref": "#/definitions/String",
-          "description": "The name of the item."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The name of the item."
+            }
+          ]
         }
       },
       "required": [
         "DomainName",
         "ItemName"
       ],
+      "title": "GetAttributesRequest",
       "type": "object"
     },
     "GetAttributesResult": {
       "properties": {
         "Attributes": {
-          "$ref": "#/definitions/AttributeList",
-          "description": "The list of attributes returned by the operation."
+          "allOf": [
+            {
+              "$ref": "#/definitions/AttributeList"
+            },
+            {
+              "description": "The list of attributes returned by the operation."
+            }
+          ]
         }
       },
       "type": "object"
@@ -1038,16 +2331,34 @@
       "description": "",
       "properties": {
         "AlternateNameEncoding": {
-          "$ref": "#/definitions/String",
-          "description": ""
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": ""
+            }
+          ]
         },
         "Attributes": {
-          "$ref": "#/definitions/AttributeList",
-          "description": "A list of attributes."
+          "allOf": [
+            {
+              "$ref": "#/definitions/AttributeList"
+            },
+            {
+              "description": "A list of attributes."
+            }
+          ]
         },
         "Name": {
-          "$ref": "#/definitions/String",
-          "description": "The name of the item."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The name of the item."
+            }
+          ]
         }
       },
       "required": [
@@ -1058,7 +2369,16 @@
     },
     "ItemList": {
       "items": {
-        "$ref": "#/definitions/Item"
+        "allOf": [
+          {
+            "$ref": "#/definitions/Item"
+          },
+          {
+            "xml": {
+              "name": "Item"
+            }
+          }
+        ]
       },
       "type": "array",
       "xml": {
@@ -1068,25 +2388,50 @@
     "ListDomainsRequest": {
       "properties": {
         "MaxNumberOfDomains": {
-          "$ref": "#/definitions/Integer",
-          "description": "The maximum number of domain names you want returned. The range is 1 to 100. The default setting is 100."
+          "allOf": [
+            {
+              "$ref": "#/definitions/Integer"
+            },
+            {
+              "description": "The maximum number of domain names you want returned. The range is 1 to 100. The default setting is 100."
+            }
+          ]
         },
         "NextToken": {
-          "$ref": "#/definitions/String",
-          "description": "A string informing Amazon SimpleDB where to start the next list of domain names."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "A string informing Amazon SimpleDB where to start the next list of domain names."
+            }
+          ]
         }
       },
+      "title": "ListDomainsRequest",
       "type": "object"
     },
     "ListDomainsResult": {
       "properties": {
         "DomainNames": {
-          "$ref": "#/definitions/DomainNameList",
-          "description": "A list of domain names that match the expression."
+          "allOf": [
+            {
+              "$ref": "#/definitions/DomainNameList"
+            },
+            {
+              "description": "A list of domain names that match the expression."
+            }
+          ]
         },
         "NextToken": {
-          "$ref": "#/definitions/String",
-          "description": "An opaque token indicating that there are more domains than the specified <code>MaxNumberOfDomains</code> still available."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "An opaque token indicating that there are more domains than the specified <code>MaxNumberOfDomains</code> still available."
+            }
+          ]
         }
       },
       "type": "object"
@@ -1169,20 +2514,44 @@
     "PutAttributesRequest": {
       "properties": {
         "Attributes": {
-          "$ref": "#/definitions/ReplaceableAttributeList",
-          "description": "The list of attributes."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ReplaceableAttributeList"
+            },
+            {
+              "description": "The list of attributes."
+            }
+          ]
         },
         "DomainName": {
-          "$ref": "#/definitions/String",
-          "description": "The name of the domain in which to perform the operation."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The name of the domain in which to perform the operation."
+            }
+          ]
         },
         "Expected": {
-          "$ref": "#/definitions/UpdateCondition",
-          "description": "The update condition which, if specified, determines whether the specified attributes will be updated or not. The update condition must be satisfied in order for this request to be processed and the attributes to be updated."
+          "allOf": [
+            {
+              "$ref": "#/definitions/UpdateCondition"
+            },
+            {
+              "description": "The update condition which, if specified, determines whether the specified attributes will be updated or not. The update condition must be satisfied in order for this request to be processed and the attributes to be updated."
+            }
+          ]
         },
         "ItemName": {
-          "$ref": "#/definitions/String",
-          "description": "The name of the item."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The name of the item."
+            }
+          ]
         }
       },
       "required": [
@@ -1190,22 +2559,41 @@
         "ItemName",
         "Attributes"
       ],
+      "title": "PutAttributesRequest",
       "type": "object"
     },
     "ReplaceableAttribute": {
       "description": "",
       "properties": {
         "Name": {
-          "$ref": "#/definitions/String",
-          "description": "The name of the replaceable attribute."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The name of the replaceable attribute."
+            }
+          ]
         },
         "Replace": {
-          "$ref": "#/definitions/Boolean",
-          "description": "A flag specifying whether or not to replace the attribute/value pair or to add a new attribute/value pair. The default setting is <code>false</code>."
+          "allOf": [
+            {
+              "$ref": "#/definitions/Boolean"
+            },
+            {
+              "description": "A flag specifying whether or not to replace the attribute/value pair or to add a new attribute/value pair. The default setting is <code>false</code>."
+            }
+          ]
         },
         "Value": {
-          "$ref": "#/definitions/String",
-          "description": "The value of the replaceable attribute."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The value of the replaceable attribute."
+            }
+          ]
         }
       },
       "required": [
@@ -1216,7 +2604,16 @@
     },
     "ReplaceableAttributeList": {
       "items": {
-        "$ref": "#/definitions/ReplaceableAttribute"
+        "allOf": [
+          {
+            "$ref": "#/definitions/ReplaceableAttribute"
+          },
+          {
+            "xml": {
+              "name": "Attribute"
+            }
+          }
+        ]
       },
       "type": "array",
       "xml": {
@@ -1227,12 +2624,27 @@
       "description": "",
       "properties": {
         "Attributes": {
-          "$ref": "#/definitions/ReplaceableAttributeList",
-          "description": "The list of attributes for a replaceable item."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ReplaceableAttributeList"
+            },
+            {
+              "description": "The list of attributes for a replaceable item."
+            }
+          ]
         },
         "Name": {
-          "$ref": "#/definitions/String",
-          "description": "The name of the replaceable item."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The name of the replaceable item.",
+              "xml": {
+                "name": "ItemName"
+              }
+            }
+          ]
         }
       },
       "required": [
@@ -1243,7 +2655,16 @@
     },
     "ReplaceableItemList": {
       "items": {
-        "$ref": "#/definitions/ReplaceableItem"
+        "allOf": [
+          {
+            "$ref": "#/definitions/ReplaceableItem"
+          },
+          {
+            "xml": {
+              "name": "Item"
+            }
+          }
+        ]
       },
       "type": "array",
       "xml": {
@@ -1262,32 +2683,63 @@
     "SelectRequest": {
       "properties": {
         "ConsistentRead": {
-          "$ref": "#/definitions/Boolean",
-          "description": "Determines whether or not strong consistency should be enforced when data is read from SimpleDB. If <code>true</code>, any data previously written to SimpleDB will be returned. Otherwise, results will be consistent eventually, and the client may not see data that was written immediately before your read."
+          "allOf": [
+            {
+              "$ref": "#/definitions/Boolean"
+            },
+            {
+              "description": "Determines whether or not strong consistency should be enforced when data is read from SimpleDB. If <code>true</code>, any data previously written to SimpleDB will be returned. Otherwise, results will be consistent eventually, and the client may not see data that was written immediately before your read."
+            }
+          ]
         },
         "NextToken": {
-          "$ref": "#/definitions/String",
-          "description": "A string informing Amazon SimpleDB where to start the next list of <code>ItemNames</code>."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "A string informing Amazon SimpleDB where to start the next list of <code>ItemNames</code>."
+            }
+          ]
         },
         "SelectExpression": {
-          "$ref": "#/definitions/String",
-          "description": "The expression used to query the domain."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The expression used to query the domain."
+            }
+          ]
         }
       },
       "required": [
         "SelectExpression"
       ],
+      "title": "SelectRequest",
       "type": "object"
     },
     "SelectResult": {
       "properties": {
         "Items": {
-          "$ref": "#/definitions/ItemList",
-          "description": "A list of items that match the select expression."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ItemList"
+            },
+            {
+              "description": "A list of items that match the select expression."
+            }
+          ]
         },
         "NextToken": {
-          "$ref": "#/definitions/String",
-          "description": "An opaque token indicating that more items than <code>MaxNumberOfItems</code> were matched, the response size exceeded 1 megabyte, or the execution time exceeded 5 seconds."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "An opaque token indicating that more items than <code>MaxNumberOfItems</code> were matched, the response size exceeded 1 megabyte, or the execution time exceeded 5 seconds."
+            }
+          ]
         }
       },
       "type": "object"
@@ -1308,19 +2760,102 @@
       "description": " Specifies the conditions under which data should be updated. If an update condition is specified for a request, the data will only be updated if the condition is satisfied. For example, if an attribute with a specific name and value exists, or if a specific attribute doesn't exist. ",
       "properties": {
         "Exists": {
-          "$ref": "#/definitions/Boolean",
-          "description": "A value specifying whether or not the specified attribute must exist with the specified value in order for the update condition to be satisfied. Specify <code>true</code> if the attribute must exist for the update condition to be satisfied. Specify <code>false</code> if the attribute should not exist in order for the update condition to be satisfied."
+          "allOf": [
+            {
+              "$ref": "#/definitions/Boolean"
+            },
+            {
+              "description": "A value specifying whether or not the specified attribute must exist with the specified value in order for the update condition to be satisfied. Specify <code>true</code> if the attribute must exist for the update condition to be satisfied. Specify <code>false</code> if the attribute should not exist in order for the update condition to be satisfied."
+            }
+          ]
         },
         "Name": {
-          "$ref": "#/definitions/String",
-          "description": "The name of the attribute involved in the condition."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The name of the attribute involved in the condition."
+            }
+          ]
         },
         "Value": {
-          "$ref": "#/definitions/String",
-          "description": "The value of an attribute. This value can only be specified when the <code>Exists</code> parameter is equal to <code>true</code>."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The value of an attribute. This value can only be specified when the <code>Exists</code> parameter is equal to <code>true</code>."
+            }
+          ]
         }
       },
       "type": "object"
     }
-  }
+  },
+  "securityDefinitions": {
+    "hmac": {
+      "description": "Amazon Signature authorization v2",
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey",
+      "x-amazon-apigateway-authtype": "awsSigv2"
+    }
+  },
+  "security": [
+    {
+      "hmac": []
+    }
+  ],
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://docs.aws.amazon.com/sdb/"
+  },
+  "x-components": {
+    "parameters": {
+      "AWSAccessKeyId": {
+        "in": "query",
+        "name": "AWSAccessKeyId",
+        "required": true,
+        "type": "string"
+      },
+      "Action": {
+        "in": "query",
+        "name": "Action",
+        "required": true,
+        "type": "string"
+      },
+      "Signature": {
+        "in": "query",
+        "name": "Signature",
+        "required": true,
+        "type": "string"
+      },
+      "SignatureMethod": {
+        "in": "query",
+        "name": "SignatureMethod",
+        "required": true,
+        "type": "string"
+      },
+      "SignatureVersion": {
+        "in": "query",
+        "name": "SignatureVersion",
+        "required": true,
+        "type": "string"
+      },
+      "Timestamp": {
+        "in": "query",
+        "name": "Timestamp",
+        "required": true,
+        "type": "string"
+      },
+      "Version": {
+        "in": "query",
+        "name": "Version",
+        "required": true,
+        "type": "string"
+      }
+    }
+  },
+  "x-hasEquivalentPaths": true
 }

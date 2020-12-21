@@ -1,6 +1,6 @@
 {
   "name": "@datafire/personio_de_authentication",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "main": "index.js",
   "description": "DataFire integration for Authentication",
   "repository": {
@@ -14,8 +14,8 @@
   },
   "homepage": "https://github.com/DataFire/integrations#readme",
   "datafire": {
-    "origin": "https://api.apis.guru/v2/specs/personio.de/authentication/1.0/swagger.json",
-    "type": "openapi"
+    "origin": "https://api.apis.guru/v2/specs/personio.de/authentication/1.0/openapi.json",
+    "type": "openapi_3"
   },
   "peerDependencies": {
     "datafire": "^2.0.0"

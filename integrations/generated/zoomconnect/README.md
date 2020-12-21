@@ -1,6 +1,6 @@
 # @datafire/zoomconnect
 
-Client library for Zoom Connect
+Client library for www.zoomconnect.com
 
 ## Installation and Usage
 ```bash
@@ -12,7 +12,7 @@ let zoomconnect = require('@datafire/zoomconnect').create({
   token: ""
 });
 
-zoomconnect.voice.single_text.post({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -36,6 +36,26 @@ zoomconnect.getBalance(null, context)
 
 #### Output
 * output [WebServiceAccount](#webserviceaccount)
+
+### getStatistics
+Returns data from the statistics report. Note that by default the statistics shown are based on the number of messages, use the calculateCreditValue should you wish to calculate the statistics based on credit value.
+
+
+```js
+zoomconnect.getStatistics({}, context)
+```
+
+#### Input
+* input `object`
+  * from `string`: date format: dd-MM-yyyy
+  * to `string`: date format: dd-MM-yyyy
+  * userEmailAddress `string`: optional email address of user to return statistics for a single user, default is to return statistics for all users if administrator, or statistics for your own account if not an administrator
+  * campaign `string`: optional campaign name
+  * includeRefundedAndOptout `boolean`: optionally include refunded and optout counts, default is false
+  * calculateCreditValue `boolean`: optionally calculate using credit value rather than message count, default is false
+
+#### Output
+* output [WebServiceAccountStatistics](#webserviceaccountstatistics)
 
 ### transfer
 Transfers credits between two users in the same team. The <i>account email address</i> fields as well as the <i>number of credits to transfer</i> are required. 
@@ -276,36 +296,6 @@ zoomconnect.contacts.contactId.addToGroup.groupId.post({
 #### Output
 *Output schema unknown*
 
-### context.lookup.get
-Returns context information for a single provided
-
-
-```js
-zoomconnect.context.lookup.get({}, context)
-```
-
-#### Input
-* input `object`
-  * body `string`
-
-#### Output
-* output [WebServiceNumberContextLookupResponse](#webservicenumbercontextlookupresponse)
-
-### context.lookup.post
-Returns context information for a single provided
-
-
-```js
-zoomconnect.context.lookup.post({}, context)
-```
-
-#### Input
-* input `object`
-  * body `string`
-
-#### Output
-* output [WebServiceNumberContextLookupResponse](#webservicenumbercontextlookupresponse)
-
 ### groups.all.get
 Returns all groups
 
@@ -492,6 +482,96 @@ zoomconnect.messages.all.get({}, context)
 
 #### Output
 * output [WebServiceMessages](#webservicemessages)
+
+### messages.analyse.full.post
+Returns full analysis of message
+
+
+```js
+zoomconnect.messages.analyse.full.post({}, context)
+```
+
+#### Input
+* input `object`
+  * body [WebServiceAnalyseMessageRequestMessageAndRecipientNumber](#webserviceanalysemessagerequestmessageandrecipientnumber)
+
+#### Output
+* output [WebServiceAnalyseMessageResponse](#webserviceanalysemessageresponse)
+
+### messages.analyse.message_credit_cost.post
+Returns the number of credit which would be required to send the request message to the requested recipient number
+
+
+```js
+zoomconnect.messages.analyse.message_credit_cost.post({}, context)
+```
+
+#### Input
+* input `object`
+  * body [WebServiceAnalyseMessageRequestMessageAndRecipientNumber](#webserviceanalysemessagerequestmessageandrecipientnumber)
+
+#### Output
+* output `number`
+
+### messages.analyse.message_encoding.post
+Returns the message encoding that would be required to send the requested message
+
+
+```js
+zoomconnect.messages.analyse.message_encoding.post({}, context)
+```
+
+#### Input
+* input `object`
+  * body [WebServiceAnalyseMessageRequestMessageOnly](#webserviceanalysemessagerequestmessageonly)
+
+#### Output
+* output `string`
+
+### messages.analyse.message_length.post
+Returns the number of characters the requested message consists of
+
+
+```js
+zoomconnect.messages.analyse.message_length.post({}, context)
+```
+
+#### Input
+* input `object`
+  * body [WebServiceAnalyseMessageRequestMessageOnly](#webserviceanalysemessagerequestmessageonly)
+
+#### Output
+* output `integer`
+
+### messages.analyse.message_length_within_max_allowed.post
+Returns details for a single message
+
+
+```js
+zoomconnect.messages.analyse.message_length_within_max_allowed.post({}, context)
+```
+
+#### Input
+* input `object`
+  * body [WebServiceAnalyseMessageRequestMessageOnly](#webserviceanalysemessagerequestmessageonly)
+
+#### Output
+* output `boolean`
+
+### messages.analyse.number_of_messages.post
+Returns the number of SMS parts which would be sent when sending the requested message
+
+
+```js
+zoomconnect.messages.analyse.number_of_messages.post({}, context)
+```
+
+#### Input
+* input `object`
+  * body [WebServiceAnalyseMessageRequestMessageOnly](#webserviceanalysemessagerequestmessageonly)
+
+#### Output
+* output `integer`
 
 ### messages.messageId.delete
 Deletes a  message
@@ -921,6 +1001,40 @@ zoomconnect.voice.messageId.get({
   * links `array`
     * items [Link](#link)
 
+### WebServiceAccountStatistics
+* WebServiceAccountStatistics `object`: WebServiceAccountStatistics
+  * from `string`
+  * grandTotal [WebServiceStatistics](#webservicestatistics)
+  * showingCreditValue `boolean`
+  * to `string`
+  * users `array`
+    * items [WebServiceUserStatistics](#webserviceuserstatistics)
+
+### WebServiceAnalyseMessageRequestMessageAndRecipientNumber
+* WebServiceAnalyseMessageRequestMessageAndRecipientNumber `object`: WebServiceAnalyseMessageRequest
+  * message `string`
+  * recipientNumber `string`
+
+### WebServiceAnalyseMessageRequestMessageOnly
+* WebServiceAnalyseMessageRequestMessageOnly `object`: WebServiceAnalyseMessageRequest
+  * message `string`
+  * recipientNumber `string`
+
+### WebServiceAnalyseMessageResponse
+* WebServiceAnalyseMessageResponse `object`: WebServiceAnalyseMessageResponse
+  * characterAnalysis `array`
+    * items `array`
+  * messageCreditCost `number`
+  * messageEncoding `string`
+  * messageLength `integer`
+  * messageLengthWithinMaximumAllowed `boolean`
+  * numberOfMessages `integer`
+
+### WebServiceCampaignStatistics
+* WebServiceCampaignStatistics `object`: WebServiceCampaignStatistics
+  * campaign `string`
+  * statistics [WebServiceStatistics](#webservicestatistics)
+
 ### WebServiceContact
 * WebServiceContact `object`: WebServiceContact
   * contactId `string`
@@ -998,20 +1112,6 @@ zoomconnect.voice.messageId.get({
   * webServiceMessages `array`
     * items [WebServiceMessage](#webservicemessage)
 
-### WebServiceNumberContextLookupRequest
-* WebServiceNumberContextLookupRequest `object`: WebServiceNumberContextLookupRequest
-  * links `array`
-    * items [Link](#link)
-  * numbers `array`
-    * items `string`
-
-### WebServiceNumberContextLookupResponse
-* WebServiceNumberContextLookupResponse `object`: WebServiceNumberContextLookupResponse
-  * links `array`
-    * items [Link](#link)
-  * number `string`
-  * numberValid `boolean`
-
 ### WebServiceSendSmsRequest
 * WebServiceSendSmsRequest `object`: WebServiceSendSmsRequest
   * campaign `string`
@@ -1041,6 +1141,15 @@ zoomconnect.voice.messageId.get({
 * WebServiceSendVoiceMessageResponse `object`: WebServiceSendVoiceMessageResponse
   * error `string`
   * voiceMessageId `string`
+
+### WebServiceStatistics
+* WebServiceStatistics `object`: WebServiceStatistics
+  * delivered `number`
+  * failed `number`
+  * failedOptout `number`
+  * failedRefunded `number`
+  * sent `number`
+  * total `number`
 
 ### WebServiceTemplate
 * WebServiceTemplate `object`: WebServiceTemplate
@@ -1073,6 +1182,13 @@ zoomconnect.voice.messageId.get({
   * lastName `string`
   * password `string`
   * userId `integer`
+
+### WebServiceUserStatistics
+* WebServiceUserStatistics `object`: WebServiceUserStatistics
+  * campaigns `array`
+    * items [WebServiceCampaignStatistics](#webservicecampaignstatistics)
+  * total [WebServiceStatistics](#webservicestatistics)
+  * user [WebServiceUser](#webserviceuser)
 
 ### WebServiceUsers
 * WebServiceUsers `object`: WebServiceUsers

@@ -1,6 +1,6 @@
 # @datafire/spinitron
 
-Client library for Spinitron v2
+Client library for Spinitron v2 API
 
 ## Installation and Usage
 ```bash
@@ -8,17 +8,44 @@ npm install --save @datafire/spinitron
 ```
 ```js
 let spinitron = require('@datafire/spinitron').create({
-  Bearer: ""
+  accessToken: "",
+  httpBearer: ""
 });
 
-spinitron.spins.get({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
 
 ## Description
 
-Maximum limit is 200. Default limit is 20.
+## Notes
+
+**Tutorial demo** using this API is at [https://spinitron.com/v2-api-demo/](https://spinitron.com/v2-api-demo/). For web integration using iframes and/or JavaScript instead of an API, see [https://spinitron.github.io/v2-web-integration/](https://spinitron.github.io/v2-web-integration/).
+
+**Your API key** is found in the Spinitron web app. Log in to Spinitron and go to *Automation & API* in the *Admin* menu.
+
+**Authenticate** by presenting your API key using either HTTP Bearer Authorization
+(preferred)
+
+    curl -H 'Authorization: Bearer YOURAPIKEY' 'https://spinitron.com/api/spins'
+
+or in the query parameter `access-token` (less secure owing to webserver
+log files)
+
+    curl 'https://spinitron.com/api/spins?access-token=YOURAPIKEY'
+
+**Limit** per page of results is 20 by default and miximally 200.
+
+**Try it out** below works to
+generate example cURL requests but not to get responses from Spinitron. We
+do not accept queries sent from web browsers. Copy-paste the cURL commands
+and run them from your computer.
+
+**Cache** the data you get from the API if you are using it in web or mobile integration. It's not ok to query the API on *every* page request you serve. The [demo](https://spinitron.com/v2-api-demo/) shows how easy it can be to implement a file cache.
+
+An extension to this API with access to all stations for partner applications is available. Contact us.
+
 
 ## Actions
 
@@ -82,6 +109,7 @@ spinitron.playlists.get({}, context)
   * start `string`: The datetime starting from items must be returned. Maximum 1 hour in future.
   * end `string`: The ending datetime. Maximum 1 hour in future.
   * show_id `integer`: Filter by show
+  * persona_id `integer`: Filter by persona
   * count `integer`: Amount of items to return
   * page `integer`: Offset, used together with count
   * fields `array`: Allows to select only needed fields
@@ -233,16 +261,16 @@ spinitron.spins.post({
 
 #### Input
 * input `object`
-  * live `boolean`: Only when automation params are configured with the "Pass through" mode.
-  * start `string`
-  * duration `integer`
   * artist **required** `string`
-  * release `string`
-  * label `string`
-  * genre `string`
-  * song **required** `string`
   * composer `string`
+  * duration `integer`
+  * genre `string`
   * isrc `string`
+  * label `string`
+  * live `boolean`: Only when automation params are configured with the "Pass through" mode.
+  * release `string`
+  * song **required** `string`
+  * start `string`
 
 #### Output
 * output [Spin](#spin)
@@ -296,18 +324,18 @@ spinitron.spins.id.get({
   * totalCount `integer`
 
 ### Persona
-* Persona `object`
+* Persona `object`: The `Persona` object describes a radio DJ/host. One person can have multiple personas
   * _links `object`
     * self [Link](#link)
     * shows `array`
       * items [Link](#link)
-  * bio `string`
-  * email `string`
+  * bio `string`: HTML-formatted biography
+  * email `string`: DJ/host's email address
   * id `integer`
   * image `string`
-  * name `string`
-  * since `string`: Year
-  * website `string`
+  * name `string`: On-air DJ/host name
+  * since `integer`: Since what year has the DJ/host been at the station?
+  * website `string`: URL to web site for the DJ/host
 
 ### Playlist
 * Playlist `object`
@@ -316,44 +344,44 @@ spinitron.spins.id.get({
     * self [Link](#link)
     * show [Link](#link)
     * spins [Link](#link)
-  * automation `boolean`
-  * category `string`
-  * description `string`
+  * automation `boolean`: Was the playlist created playlists created by a radio station automation system?
+  * category `string`: Program/show category
+  * description `string`: HTML-formatted description of the playlist or program/show
   * duration `integer`: Duration in seconds
-  * end `string`: UTC datetime, ISO-8601.
-  * episode_description `string`
-  * episode_name `string`
-  * hide_dj `boolean`
+  * end `string`: UTC datetime ISO-8601
+  * episode_description `string`: HTML-formatted description of the episode
+  * episode_name `string`: Title of this episode of the program/show
+  * hide_dj `boolean`: Should the client application hide information about the playlist's DJ/host?
   * id `integer`
   * image `string`
   * persona_id `integer`
   * show_id `integer`
-  * since `string`
-  * start `string`: UTC datetime, ISO-8601.
-  * timezone `string`
-  * title `string`
-  * url `string`
+  * since `integer`: Since what year has the program/show existed?
+  * start `string`: UTC datetime ISO-8601
+  * timezone `string`: Station's time zone
+  * title `string`: Program/show title
+  * url `string`: URL to web site for the playlist or program/show
 
 ### Show
-* Show `object`
+* Show `object`: A `Show` object describes one occurrence of a radio program. A result set may contain multiple occurrences of the same show with difference `start` and `end` values.
   * _links `object`
     * personas `array`
       * items [Link](#link)
     * playlists [Link](#link)
     * self [Link](#link)
-  * category `string`
-  * description `string`
+  * category `string`: Program/show category
+  * description `string`: HTML-formatted description of the playlist or program/show
   * duration `integer`: Duration in seconds
-  * end `string`: UTC datetime, ISO-8601.
-  * hide_dj `boolean`
+  * end `string`: UTC datetime ISO-8601
+  * hide_dj `boolean`: Should the client application hide information about the show's DJs/hosts?
   * id `integer`
   * image `string`
-  * one_off `boolean`
-  * since `string`: Year
-  * start `string`: UTC datetime, ISO-8601.
-  * timezone `string`
-  * title `string`
-  * url `string`
+  * one_off `boolean`: Is the show a one-off in the schedule instead of repeating?
+  * since `integer`: Since what year has the program/show existed?
+  * start `string`: UTC datetime ISO-8601
+  * timezone `string`: Station's time zone
+  * title `string`: Program/show title
+  * url `string`: URL to web site for the program/show
 
 ### Spin
 * Spin `object`
@@ -361,19 +389,37 @@ spinitron.spins.id.get({
     * playlist [Link](#link)
     * self [Link](#link)
   * artist `string`
+  * artist-custom `string`: Station-specific custom field relating to the song's artist
+  * catalog-number `string`: Reference number in the record label's catalog
+  * classical `boolean`: Is the track's metadata schema "classical" rather than "popular"?
   * composer `string`
+  * conductor `string`: For classical music, conducor of the ensemble
   * duration `integer`: Duration in seconds
-  * end `string`: UTC datetime, ISO-8601.
+  * end `string`: UTC datetime ISO-8601
+  * ensemble `string`: For classical music, orchestra, performing ensemble, choir, etc.
   * genre `string`
   * id `integer`
+  * image `string`: Cover art
   * isrc `string`
-  * label `string`
-  * note `string`
+  * iswc `string`
+  * label `string`: Record label, i.e. publisher of the sound recording
+  * label-custom `string`: Station-specific custom field relating to the record label
+  * local `boolean`: Is the artist local to the station?
+  * medium `string`: Media format in which the sound recording was reased
+  * new `boolean`: Is this a recent release?
+  * note `string`: HTML-formatted DJ annotation of the spin, can include images etc.
+  * performers `string`: For classical music, featured performing artists, e.g. soloists
   * playlist_id `integer`
   * release `string`
-  * song `string`
-  * start `string`: UTC datetime, ISO-8601.
-  * timezone `string`
+  * release-custom `string`: Station-specific custom field relating to the release
+  * released `integer`: Year of initial release
+  * request `boolean`: Was the spin requested by a listener?
+  * song `string`: Title of the song or track
+  * start `string`: UTC datetime ISO-8601
+  * timezone `string`: Station's time zone
+  * upc `string`: Universal Product Code of the release
+  * va `boolean`: Is it a "Various Artists" release?
+  * work `string`: For classical music, the main compositional work the track (see `song` field) belongs to
 
 ### ValidationError
 * ValidationError `object`

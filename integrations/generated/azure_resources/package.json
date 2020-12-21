@@ -1,6 +1,6 @@
 {
   "name": "@datafire/azure_resources",
-  "version": "4.0.0",
+  "version": "5.0.0",
   "main": "index.js",
   "description": "DataFire integration for ResourceManagementClient",
   "repository": {
@@ -14,7 +14,7 @@
   },
   "homepage": "https://github.com/DataFire/integrations#readme",
   "datafire": {
-    "origin": "https://api.apis.guru/v2/specs/azure.com/resources/2018-02-01/swagger.json",
+    "origin": "https://api.apis.guru/v2/specs/azure.com/resources/2019-08-01/swagger.json",
     "type": "openapi"
   },
   "peerDependencies": {

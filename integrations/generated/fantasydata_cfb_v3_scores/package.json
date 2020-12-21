@@ -1,6 +1,6 @@
 {
   "name": "@datafire/fantasydata_cfb_v3_scores",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "main": "index.js",
   "description": "DataFire integration for CFB v3 Scores",
   "repository": {

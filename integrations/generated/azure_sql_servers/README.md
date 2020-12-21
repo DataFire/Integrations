@@ -15,10 +15,7 @@ let azure_sql_servers = require('@datafire/azure_sql_servers').create({
   redirect_uri: ""
 });
 
-azure_sql_servers.Servers_List({
-  "subscriptionId": "",
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

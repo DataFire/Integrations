@@ -1,0 +1,314 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "contact": {},
+    "description": "Welcome to the official API of the brainbi platform. Using this API you can freely integrate our analytics platform with any other solution. \nPlease refer to the following documentation and in case of any issues, please contact us at service@brainbi.net.\n\nPlease note: for this API you will use your email and password from the brainbi.net platform to gather a Bearer Token for any API calls (use Login and get token). Once you are finished with your calls, please do a logout to remove your token and keep your account safe (use logout).",
+    "title": "brainbi",
+    "version": "1.0.0",
+    "x-apisguru-categories": [
+      "ecommerce"
+    ],
+    "x-origin": [
+      {
+        "format": "postman",
+        "url": "https://www.postman.com/collections/1148203-6a9d2dc5-3f7e-47f5-ae7d-782740625908-SzKZtGPb",
+        "version": "2.x"
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "brainbi.net",
+    "x-datafire": {
+      "name": "brainbi",
+      "type": "openapi"
+    }
+  },
+  "basePath": ",",
+  "paths": {
+    "/api/customers": {
+      "get": {
+        "parameters": [
+          {
+            "in": "query",
+            "name": "",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Customers"
+        ],
+        "description": "This resource lists all cusomters that are currently saved in your account.",
+        "operationId": "customers",
+        "summary": "Customers"
+      }
+    },
+    "/api/login": {
+      "post": {
+        "parameters": [
+          {
+            "description": "The same email you use for our platform.",
+            "in": "query",
+            "name": "email",
+            "type": "string"
+          },
+          {
+            "description": "The password email you use for our platform.",
+            "in": "query",
+            "name": "password",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "description": "Use this endpoint to make the initial call with your email and password (same as on brainbi.net) and get your bearer token in response.",
+        "operationId": "loginAndGetBearerToken",
+        "summary": "Login and get bearer token"
+      }
+    },
+    "/api/logout": {
+      "post": {
+        "parameters": [
+          {
+            "description": "The same email you use for our platform.",
+            "in": "query",
+            "name": "email",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "description": "Once you are done, call this endpoint to lock your account!",
+        "operationId": "logout",
+        "summary": "Logout"
+      }
+    },
+    "/api/orders": {
+      "get": {
+        "parameters": [
+          {
+            "in": "query",
+            "name": "",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Orders"
+        ],
+        "description": "This resource lists all orders that are currently saved in your account.",
+        "operationId": "orders",
+        "summary": "Orders"
+      }
+    },
+    "/api/orders/1137": {
+      "delete": {
+        "consumes": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "",
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "format": "binary",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Orders"
+        ],
+        "description": "Orders",
+        "operationId": "orders1",
+        "summary": "Orders"
+      }
+    },
+    "/api/products": {
+      "get": {
+        "parameters": [
+          {
+            "in": "query",
+            "name": "",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Products"
+        ],
+        "description": "This resource lists all products that are currently saved in you account.",
+        "operationId": "products",
+        "summary": "Products"
+      }
+    },
+    "/api/products/1137": {
+      "delete": {
+        "consumes": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "",
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "format": "binary",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Products"
+        ],
+        "description": "Products",
+        "operationId": "products1",
+        "summary": "Products"
+      }
+    },
+    "/api/rule": {
+      "get": {
+        "parameters": [
+          {
+            "in": "query",
+            "name": "",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Pricing Rules"
+        ],
+        "description": "This resource lists all pricing rules that are currently saved in you account.",
+        "operationId": "rules",
+        "summary": "Rules"
+      }
+    },
+    "/api/rule/ruleData/1": {
+      "get": {
+        "parameters": [
+          {
+            "in": "query",
+            "name": "",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Pricing Rules"
+        ],
+        "description": "This resource lists all data that wa saved for pricing rules.",
+        "operationId": "ruleData",
+        "summary": "Rule Data"
+      }
+    },
+    "/api/rule/ruleData/1/latest": {
+      "get": {
+        "parameters": [
+          {
+            "in": "query",
+            "name": "",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Pricing Rules"
+        ],
+        "description": "This resource lists only the latest data point that wa saved for a pricing rule.",
+        "operationId": "ruleDataLatest",
+        "summary": "Rule Data Latest"
+      }
+    },
+    "/api/seo/ranking/latest": {
+      "get": {
+        "parameters": [
+          {
+            "in": "query",
+            "name": "",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "SEO"
+        ],
+        "description": "This resource lists all pricing rules that are currently saved in you account.",
+        "operationId": "seoLatestRankings",
+        "summary": "SEO Latest Rankings"
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Pricing Rules"
+    },
+    {
+      "name": "Products"
+    },
+    {
+      "name": "Customers"
+    },
+    {
+      "name": "Orders"
+    },
+    {
+      "name": "OrderLines"
+    },
+    {
+      "name": "SEO"
+    }
+  ]
+}

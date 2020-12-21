@@ -1,6 +1,6 @@
 {
   "name": "@datafire/azure_network_servicecommunity",
-  "version": "4.0.0",
+  "version": "5.0.0",
   "main": "index.js",
   "description": "DataFire integration for NetworkManagementClient",
   "repository": {
@@ -14,7 +14,7 @@
   },
   "homepage": "https://github.com/DataFire/integrations#readme",
   "datafire": {
-    "origin": "https://api.apis.guru/v2/specs/azure.com/network-serviceCommunity/2017-10-01/swagger.json",
+    "origin": "https://api.apis.guru/v2/specs/azure.com/network-serviceCommunity/2019-07-01/swagger.json",
     "type": "openapi"
   },
   "peerDependencies": {

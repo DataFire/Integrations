@@ -1,15 +1,9 @@
 {
   "swagger": "2.0",
-  "schemes": [
-    "http",
-    "https"
-  ],
-  "host": "api.nytimes.com",
-  "basePath": "/svc/news/v3",
   "info": {
     "description": "With the Times Newswire API, you can get links and metadata for Times articles and blog posts as soon as they are published on NYTimes.com. The Times Newswire API provides an up-to-the-minute stream of published items.",
     "termsOfService": "http://developer.nytimes.com/tou",
-    "title": "Times Newswire",
+    "title": "Times Newswire API",
     "version": "3.0.0",
     "x-apiClientRegistration": {
       "url": "http://developer.nytimes.com/signup"
@@ -23,9 +17,9 @@
     },
     "x-origin": [
       {
-        "format": "swagger",
-        "url": "https://raw.githubusercontent.com/NYTimes/public_api_specs/master/timeswire/timeswire_v3.json",
-        "version": "2.0"
+        "format": "openapi",
+        "url": "https://raw.githubusercontent.com/nytimes/public_api_specs/master/timeswire/timeswire_v3.json",
+        "version": "3.0"
       }
     ],
     "x-preferred": true,
@@ -36,27 +30,17 @@
       "type": "openapi"
     }
   },
-  "externalDocs": {
-    "url": "http://developer.nytimes.com/"
-  },
-  "produces": [
-    "application/json"
-  ],
-  "securityDefinitions": {
-    "apikey": {
-      "in": "query",
-      "name": "api-key",
-      "type": "apiKey"
-    }
-  },
-  "security": [
-    {
-      "apikey": []
-    }
+  "host": "api.nytimes.com",
+  "basePath": "/svc/news/v3",
+  "schemes": [
+    "http"
   ],
   "paths": {
     "/content.json": {
       "get": {
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "The complete URL of a specific news item, URL-encoded or backslash-escaped",
@@ -90,12 +74,14 @@
               "type": "object"
             }
           }
-        },
-        "operationId": "content.json.get"
+        }
       }
     },
     "/content/{source}/{section}.json": {
       "get": {
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Limits the set of items by originating source\n\nall = items from both The New York Times and The International New York Times\nnyt = New York Times items only\niht = International New York Times items only\n",
@@ -159,12 +145,14 @@
               "type": "object"
             }
           }
-        },
-        "operationId": "content.source.section.json.get"
+        }
       }
     },
     "/content/{source}/{section}/{time-period}.json": {
       "get": {
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Limits the set of items by originating source\n\nall = items from both The New York Times and The International New York Times\nnyt = New York Times items only\niht = International New York Times items only\n",
@@ -233,8 +221,7 @@
               "type": "object"
             }
           }
-        },
-        "operationId": "content.source.section.time_period.json.get"
+        }
       }
     }
   },
@@ -362,5 +349,21 @@
       },
       "type": "object"
     }
-  }
+  },
+  "securityDefinitions": {
+    "apikey": {
+      "in": "query",
+      "name": "api-key",
+      "type": "apiKey"
+    }
+  },
+  "security": [
+    {
+      "apikey": []
+    }
+  ],
+  "externalDocs": {
+    "url": "http://developer.nytimes.com/"
+  },
+  "x-components": {}
 }

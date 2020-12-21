@@ -1,0 +1,822 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "contact": {
+      "email": "mike.ralphson@gmail.com",
+      "name": "Mike Ralphson",
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
+    },
+    "description": "<p>AWS Single Sign-On Portal is a web service that makes it easy for you to assign user access to AWS SSO resources such as the user portal. Users can get AWS account applications and roles assigned to them and get federated into the application.</p> <p>For general information about AWS SSO, see <a href=\"https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html\">What is AWS Single Sign-On?</a> in the <i>AWS SSO User Guide</i>.</p> <p>This API reference guide describes the AWS SSO Portal operations that you can call programatically and includes detailed information on data types and errors.</p> <note> <p>AWS provides SDKs that consist of libraries and sample code for various programming languages and platforms, such as Java, Ruby, .Net, iOS, or Android. The SDKs provide a convenient way to create programmatic access to AWS SSO and other AWS services. For more information about the AWS SDKs, including how to download and install them, see <a href=\"http://aws.amazon.com/tools/\">Tools for Amazon Web Services</a>.</p> </note>",
+    "license": {
+      "name": "Apache 2.0 License",
+      "url": "http://www.apache.org/licenses/"
+    },
+    "termsOfService": "https://aws.amazon.com/service-terms/",
+    "title": "AWS Single Sign-On",
+    "version": "2019-06-10",
+    "x-apiClientRegistration": {
+      "url": "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"
+    },
+    "x-apisguru-categories": [
+      "cloud"
+    ],
+    "x-logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"
+    },
+    "x-origin": [
+      {
+        "contentType": "application/json",
+        "converter": {
+          "url": "https://github.com/mermade/aws2openapi",
+          "version": "1.0.0"
+        },
+        "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/sso-2019-06-10.normal.json",
+        "x-apisguru-driver": "external"
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "amazonaws.com",
+    "x-release": "v4",
+    "x-serviceName": "sso",
+    "x-datafire": {
+      "name": "amazonaws_sso",
+      "type": "openapi"
+    }
+  },
+  "host": "portal.sso.us-east-1.amazonaws.com",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/assignment/accounts#x-amz-sso_bearer_token": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "(Optional) When requesting subsequent pages, this is the page token from the previous response output.",
+            "in": "query",
+            "name": "next_token",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "This is the number of items clients can request per page.",
+            "in": "query",
+            "maximum": 100,
+            "minimum": 1,
+            "name": "max_result",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "The token issued by the <code>CreateToken</code> API call. For more information, see <a href=\"https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/API_CreateToken.html\">CreateToken</a> in the <i>AWS SSO OIDC API Reference Guide</i>.",
+            "format": "password",
+            "in": "header",
+            "name": "x-amz-sso_bearer_token",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "maxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListAccountsResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "UnauthorizedException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedException"
+            }
+          },
+          "482": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        },
+        "description": "Lists all AWS accounts assigned to the user. These AWS accounts are assigned by the administrator of the account. For more information, see <a href=\"https://docs.aws.amazon.com/singlesignon/latest/userguide/useraccess.html#assignusers\">Assign User Access</a> in the <i>AWS SSO User Guide</i>. This operation returns a paginated response.",
+        "operationId": "ListAccounts"
+      }
+    },
+    "/assignment/roles#x-amz-sso_bearer_token&account_id": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The page token from the previous response output when you request subsequent pages.",
+            "in": "query",
+            "name": "next_token",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "The number of items that clients can request per page.",
+            "in": "query",
+            "maximum": 100,
+            "minimum": 1,
+            "name": "max_result",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "The token issued by the <code>CreateToken</code> API call. For more information, see <a href=\"https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/API_CreateToken.html\">CreateToken</a> in the <i>AWS SSO OIDC API Reference Guide</i>.",
+            "format": "password",
+            "in": "header",
+            "name": "x-amz-sso_bearer_token",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The identifier for the AWS account that is assigned to the user.",
+            "in": "query",
+            "name": "account_id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "maxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListAccountRolesResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "UnauthorizedException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedException"
+            }
+          },
+          "482": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        },
+        "description": "Lists all roles that are assigned to the user for a given AWS account.",
+        "operationId": "ListAccountRoles"
+      }
+    },
+    "/federation/credentials#role_name&account_id&x-amz-sso_bearer_token": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The friendly name of the role that is assigned to the user.",
+            "in": "query",
+            "name": "role_name",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The identifier for the AWS account that is assigned to the user.",
+            "in": "query",
+            "name": "account_id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The token issued by the <code>CreateToken</code> API call. For more information, see <a href=\"https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/API_CreateToken.html\">CreateToken</a> in the <i>AWS SSO OIDC API Reference Guide</i>.",
+            "format": "password",
+            "in": "header",
+            "name": "x-amz-sso_bearer_token",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetRoleCredentialsResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "UnauthorizedException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedException"
+            }
+          },
+          "482": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        },
+        "description": "Returns the STS short-term credentials for a given role name that is assigned to the user.",
+        "operationId": "GetRoleCredentials"
+      }
+    },
+    "/logout#x-amz-sso_bearer_token": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The token issued by the <code>CreateToken</code> API call. For more information, see <a href=\"https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/API_CreateToken.html\">CreateToken</a> in the <i>AWS SSO OIDC API Reference Guide</i>.",
+            "format": "password",
+            "in": "header",
+            "name": "x-amz-sso_bearer_token",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "UnauthorizedException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedException"
+            }
+          },
+          "482": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          }
+        },
+        "description": "Removes the client- and server-side session that is associated with the user.",
+        "operationId": "Logout"
+      }
+    }
+  },
+  "definitions": {
+    "AccessKeyType": {
+      "type": "string"
+    },
+    "AccessTokenType": {
+      "format": "password",
+      "type": "string"
+    },
+    "AccountIdType": {
+      "type": "string"
+    },
+    "AccountInfo": {
+      "description": "Provides information about your AWS account.",
+      "properties": {
+        "accountId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AccountIdType"
+            },
+            {
+              "description": "The identifier of the AWS account that is assigned to the user."
+            }
+          ]
+        },
+        "accountName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AccountNameType"
+            },
+            {
+              "description": "The display name of the AWS account that is assigned to the user."
+            }
+          ]
+        },
+        "emailAddress": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/EmailAddressType"
+            },
+            {
+              "description": "The email address of the AWS account that is assigned to the user."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "AccountListType": {
+      "items": {
+        "$ref": "#/definitions/AccountInfo"
+      },
+      "type": "array"
+    },
+    "AccountNameType": {
+      "type": "string"
+    },
+    "EmailAddressType": {
+      "maxLength": 254,
+      "minLength": 1,
+      "type": "string"
+    },
+    "ExpirationTimestampType": {
+      "type": "integer"
+    },
+    "GetRoleCredentialsRequest": {
+      "properties": {},
+      "title": "GetRoleCredentialsRequest",
+      "type": "object"
+    },
+    "GetRoleCredentialsResponse": {
+      "properties": {
+        "roleCredentials": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RoleCredentials"
+            },
+            {
+              "description": "The credentials for the role that is assigned to the user."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "InvalidRequestException": {},
+    "ListAccountRolesRequest": {
+      "properties": {},
+      "title": "ListAccountRolesRequest",
+      "type": "object"
+    },
+    "ListAccountRolesResponse": {
+      "properties": {
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NextTokenType"
+            },
+            {
+              "description": "The page token client that is used to retrieve the list of accounts."
+            }
+          ]
+        },
+        "roleList": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RoleListType"
+            },
+            {
+              "description": "A paginated response with the list of roles and the next token if more results are available."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ListAccountsRequest": {
+      "properties": {},
+      "title": "ListAccountsRequest",
+      "type": "object"
+    },
+    "ListAccountsResponse": {
+      "properties": {
+        "accountList": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AccountListType"
+            },
+            {
+              "description": "A paginated response with the list of account information and the next token if more results are available."
+            }
+          ]
+        },
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NextTokenType"
+            },
+            {
+              "description": "The page token client that is used to retrieve the list of accounts."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "LogoutRequest": {
+      "properties": {},
+      "title": "LogoutRequest",
+      "type": "object"
+    },
+    "MaxResultType": {
+      "maximum": 100,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "NextTokenType": {
+      "type": "string"
+    },
+    "ResourceNotFoundException": {},
+    "RoleCredentials": {
+      "description": "Provides information about the role credentials that are assigned to the user.",
+      "properties": {
+        "accessKeyId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AccessKeyType"
+            },
+            {
+              "description": "The identifier used for the temporary security credentials. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_use-resources.html\">Using Temporary Security Credentials to Request Access to AWS Resources</a> in the <i>AWS IAM User Guide</i>."
+            }
+          ]
+        },
+        "expiration": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ExpirationTimestampType"
+            },
+            {
+              "description": "The date on which temporary security credentials expire."
+            }
+          ]
+        },
+        "secretAccessKey": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SecretAccessKeyType"
+            },
+            {
+              "description": "The key that is used to sign the request. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_use-resources.html\">Using Temporary Security Credentials to Request Access to AWS Resources</a> in the <i>AWS IAM User Guide</i>."
+            }
+          ]
+        },
+        "sessionToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SessionTokenType"
+            },
+            {
+              "description": "The token used for temporary credentials. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_use-resources.html\">Using Temporary Security Credentials to Request Access to AWS Resources</a> in the <i>AWS IAM User Guide</i>."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "RoleInfo": {
+      "description": "Provides information about the role that is assigned to the user.",
+      "properties": {
+        "accountId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AccountIdType"
+            },
+            {
+              "description": "The identifier of the AWS account assigned to the user."
+            }
+          ]
+        },
+        "roleName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RoleNameType"
+            },
+            {
+              "description": "The friendly name of the role that is assigned to the user."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "RoleListType": {
+      "items": {
+        "$ref": "#/definitions/RoleInfo"
+      },
+      "type": "array"
+    },
+    "RoleNameType": {
+      "type": "string"
+    },
+    "SecretAccessKeyType": {
+      "format": "password",
+      "type": "string"
+    },
+    "SessionTokenType": {
+      "format": "password",
+      "type": "string"
+    },
+    "TooManyRequestsException": {},
+    "UnauthorizedException": {}
+  },
+  "securityDefinitions": {
+    "hmac": {
+      "description": "Amazon Signature authorization v4",
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey",
+      "x-amazon-apigateway-authtype": "awsSigv4"
+    }
+  },
+  "security": [
+    {
+      "hmac": []
+    }
+  ],
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://docs.aws.amazon.com/sso/"
+  },
+  "x-components": {
+    "parameters": {
+      "X-Amz-Algorithm": {
+        "in": "header",
+        "name": "X-Amz-Algorithm",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Content-Sha256": {
+        "in": "header",
+        "name": "X-Amz-Content-Sha256",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Credential": {
+        "in": "header",
+        "name": "X-Amz-Credential",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Date": {
+        "in": "header",
+        "name": "X-Amz-Date",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Security-Token": {
+        "in": "header",
+        "name": "X-Amz-Security-Token",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Signature": {
+        "in": "header",
+        "name": "X-Amz-Signature",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-SignedHeaders": {
+        "in": "header",
+        "name": "X-Amz-SignedHeaders",
+        "required": false,
+        "type": "string"
+      }
+    }
+  }
+}

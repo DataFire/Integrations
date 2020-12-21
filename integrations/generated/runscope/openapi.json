@@ -7,7 +7,7 @@
   "basePath": "/",
   "info": {
     "description": "Manage Runscope programmatically.",
-    "title": "Runscope",
+    "title": "Runscope API",
     "version": "1.0.0",
     "x-apisguru-categories": [
       "developer_tools"

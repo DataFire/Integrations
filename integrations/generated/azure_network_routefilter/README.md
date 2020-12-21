@@ -15,10 +15,7 @@ let azure_network_routefilter = require('@datafire/azure_network_routefilter').c
   redirect_uri: ""
 });
 
-azure_network_routefilter.RouteFilters_List({
-  "api-version": "",
-  "subscriptionId": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -307,7 +304,7 @@ azure_network_routefilter.RouteFilterRules_CreateOrUpdate({
   * id `string`: Resource ID.
 
 ### PatchRouteFilterRule
-* PatchRouteFilterRule `object`: Route Filter Rule Resource
+* PatchRouteFilterRule `object`: Route Filter Rule Resource.
   * etag `string`: A unique read-only string that changes whenever the resource is updated.
   * name `string`: The name of the resource that is unique within a resource group. This name can be used to access the resource.
   * properties [RouteFilterRulePropertiesFormat](#routefilterrulepropertiesformat)
@@ -315,7 +312,7 @@ azure_network_routefilter.RouteFilterRules_CreateOrUpdate({
 
 ### RouteFilter
 * RouteFilter `object`: Route Filter Resource.
-  * etag `string`: Gets a unique read-only string that changes whenever the resource is updated.
+  * etag `string`: A unique read-only string that changes whenever the resource is updated.
   * properties [RouteFilterPropertiesFormat](#routefilterpropertiesformat)
   * id `string`: Resource ID.
   * location `string`: Resource location.
@@ -326,52 +323,127 @@ azure_network_routefilter.RouteFilterRules_CreateOrUpdate({
 ### RouteFilterListResult
 * RouteFilterListResult `object`: Response for the ListRouteFilters API service call.
   * nextLink `string`: The URL to get the next set of results.
-  * value `array`: Gets a list of route filters in a resource group.
+  * value `array`: A list of route filters in a resource group.
     * items [RouteFilter](#routefilter)
 
 ### RouteFilterPropertiesFormat
-* RouteFilterPropertiesFormat `object`: Route Filter Resource
-  * peerings `array`: A collection of references to express route circuit peerings.
-    * items [./expressRouteCircuit.jsonExpressRouteCircuitPeering](#./expressroutecircuit.jsonexpressroutecircuitpeering)
-  * provisioningState `string`: The provisioning state of the resource. Possible values are: 'Updating', 'Deleting', 'Succeeded' and 'Failed'.
-  * rules `array`: Collection of RouteFilterRules contained within a route filter.
-    * items `object`: Route Filter Rule Resource
+* RouteFilterPropertiesFormat `object`: Route Filter Resource.
+  * ipv6Peerings `array`: A collection of references to express route circuit ipv6 peerings.
+    * items `object`: Peering in an ExpressRouteCircuit resource.
       * etag `string`: A unique read-only string that changes whenever the resource is updated.
-      * location `string`: Resource location.
       * name `string`: The name of the resource that is unique within a resource group. This name can be used to access the resource.
-      * properties `object`: Route Filter Rule Resource
-        * access **required** `string` (values: Allow, Deny): The access type of the rule. Valid values are: 'Allow', 'Deny'
-        * communities **required** `array`: The collection for bgp community values to filter on. e.g. ['12076:5010','12076:5020']
-          * items `string`
-        * provisioningState `string`: The provisioning state of the resource. Possible values are: 'Updating', 'Deleting', 'Succeeded' and 'Failed'.
-        * routeFilterRuleType **required** `string` (values: Community): The rule type of the rule. Valid value is: 'Community'
+      * properties `object`: Properties of the express route circuit peering.
+        * azureASN `integer`: The Azure ASN.
+        * connections `array`: The list of circuit connections associated with Azure Private Peering for this circuit.
+          * items `object`: Express Route Circuit Connection in an ExpressRouteCircuitPeering resource.
+        * expressRouteConnection `object`: The ID of the ExpressRouteConnection.
+          * id `string`: The ID of the ExpressRouteConnection.
+        * gatewayManagerEtag `string`: The GatewayManager Etag.
+        * ipv6PeeringConfig `object`: Contains IPv6 peering config.
+          * microsoftPeeringConfig `object`: Specifies the peering configuration.
+          * primaryPeerAddressPrefix `string`: The primary address prefix.
+          * routeFilter `object`: Reference to another subresource.
+          * secondaryPeerAddressPrefix `string`: The secondary address prefix.
+          * state `string` (values: Disabled, Enabled): The state of peering.
+        * lastModifiedBy `string`: Who was the last to modify the peering.
+        * microsoftPeeringConfig `object`: Specifies the peering configuration.
+          * advertisedCommunities `array`: The communities of bgp peering. Specified for microsoft peering.
+          * advertisedPublicPrefixes `array`: The reference of AdvertisedPublicPrefixes.
+          * advertisedPublicPrefixesState `string` (values: NotConfigured, Configuring, Configured, ValidationNeeded): The advertised public prefix state of the Peering resource.
+          * customerASN `integer`: The CustomerASN of the peering.
+          * legacyMode `integer`: The legacy mode of the peering.
+          * routingRegistryName `string`: The RoutingRegistryName of the configuration.
+        * peerASN `integer`: The peer ASN.
+        * peeredConnections `array`: The list of peered circuit connections associated with Azure Private Peering for this circuit.
+          * items `object`: Peer Express Route Circuit Connection in an ExpressRouteCircuitPeering resource.
+        * peeringType `string` (values: AzurePublicPeering, AzurePrivatePeering, MicrosoftPeering): The peering type.
+        * primaryAzurePort `string`: The primary port.
+        * primaryPeerAddressPrefix `string`: The primary address prefix.
+        * provisioningState `string` (values: Succeeded, Updating, Deleting, Failed): The current provisioning state.
+        * routeFilter `object`: Reference to another subresource.
+          * id `string`: Resource ID.
+        * secondaryAzurePort `string`: The secondary port.
+        * secondaryPeerAddressPrefix `string`: The secondary address prefix.
+        * sharedKey `string`: The shared key.
+        * state `string` (values: Disabled, Enabled): The state of peering.
+        * stats `object`: Contains stats associated with the peering.
+          * primarybytesIn `integer`: The Primary BytesIn of the peering.
+          * primarybytesOut `integer`: The primary BytesOut of the peering.
+          * secondarybytesIn `integer`: The secondary BytesIn of the peering.
+          * secondarybytesOut `integer`: The secondary BytesOut of the peering.
+        * vlanId `integer`: The VLAN ID.
+      * type `string`: Type of the resource.
       * id `string`: Resource ID.
+  * peerings `array`: A collection of references to express route circuit peerings.
+    * items `object`: Peering in an ExpressRouteCircuit resource.
+      * etag `string`: A unique read-only string that changes whenever the resource is updated.
+      * name `string`: The name of the resource that is unique within a resource group. This name can be used to access the resource.
+      * properties `object`: Properties of the express route circuit peering.
+        * azureASN `integer`: The Azure ASN.
+        * connections `array`: The list of circuit connections associated with Azure Private Peering for this circuit.
+          * items `object`: Express Route Circuit Connection in an ExpressRouteCircuitPeering resource.
+        * expressRouteConnection `object`: The ID of the ExpressRouteConnection.
+          * id `string`: The ID of the ExpressRouteConnection.
+        * gatewayManagerEtag `string`: The GatewayManager Etag.
+        * ipv6PeeringConfig `object`: Contains IPv6 peering config.
+          * microsoftPeeringConfig `object`: Specifies the peering configuration.
+          * primaryPeerAddressPrefix `string`: The primary address prefix.
+          * routeFilter `object`: Reference to another subresource.
+          * secondaryPeerAddressPrefix `string`: The secondary address prefix.
+          * state `string` (values: Disabled, Enabled): The state of peering.
+        * lastModifiedBy `string`: Who was the last to modify the peering.
+        * microsoftPeeringConfig `object`: Specifies the peering configuration.
+          * advertisedCommunities `array`: The communities of bgp peering. Specified for microsoft peering.
+          * advertisedPublicPrefixes `array`: The reference of AdvertisedPublicPrefixes.
+          * advertisedPublicPrefixesState `string` (values: NotConfigured, Configuring, Configured, ValidationNeeded): The advertised public prefix state of the Peering resource.
+          * customerASN `integer`: The CustomerASN of the peering.
+          * legacyMode `integer`: The legacy mode of the peering.
+          * routingRegistryName `string`: The RoutingRegistryName of the configuration.
+        * peerASN `integer`: The peer ASN.
+        * peeredConnections `array`: The list of peered circuit connections associated with Azure Private Peering for this circuit.
+          * items `object`: Peer Express Route Circuit Connection in an ExpressRouteCircuitPeering resource.
+        * peeringType `string` (values: AzurePublicPeering, AzurePrivatePeering, MicrosoftPeering): The peering type.
+        * primaryAzurePort `string`: The primary port.
+        * primaryPeerAddressPrefix `string`: The primary address prefix.
+        * provisioningState `string` (values: Succeeded, Updating, Deleting, Failed): The current provisioning state.
+        * routeFilter `object`: Reference to another subresource.
+          * id `string`: Resource ID.
+        * secondaryAzurePort `string`: The secondary port.
+        * secondaryPeerAddressPrefix `string`: The secondary address prefix.
+        * sharedKey `string`: The shared key.
+        * state `string` (values: Disabled, Enabled): The state of peering.
+        * stats `object`: Contains stats associated with the peering.
+          * primarybytesIn `integer`: The Primary BytesIn of the peering.
+          * primarybytesOut `integer`: The primary BytesOut of the peering.
+          * secondarybytesIn `integer`: The secondary BytesIn of the peering.
+          * secondarybytesOut `integer`: The secondary BytesOut of the peering.
+        * vlanId `integer`: The VLAN ID.
+      * type `string`: Type of the resource.
+      * id `string`: Resource ID.
+  * provisioningState `string` (values: Succeeded, Updating, Deleting, Failed): The current provisioning state.
+  * rules `array`: Collection of RouteFilterRules contained within a route filter.
+    * items [RouteFilterRule](#routefilterrule)
 
 ### RouteFilterRule
-* RouteFilterRule `object`: Route Filter Rule Resource
+* RouteFilterRule `object`: Route Filter Rule Resource.
   * etag `string`: A unique read-only string that changes whenever the resource is updated.
   * location `string`: Resource location.
   * name `string`: The name of the resource that is unique within a resource group. This name can be used to access the resource.
-  * properties `object`: Route Filter Rule Resource
-    * access **required** `string` (values: Allow, Deny): The access type of the rule. Valid values are: 'Allow', 'Deny'
-    * communities **required** `array`: The collection for bgp community values to filter on. e.g. ['12076:5010','12076:5020']
-      * items `string`
-    * provisioningState `string`: The provisioning state of the resource. Possible values are: 'Updating', 'Deleting', 'Succeeded' and 'Failed'.
-    * routeFilterRuleType **required** `string` (values: Community): The rule type of the rule. Valid value is: 'Community'
+  * properties [RouteFilterRulePropertiesFormat](#routefilterrulepropertiesformat)
   * id `string`: Resource ID.
 
 ### RouteFilterRuleListResult
-* RouteFilterRuleListResult `object`: Response for the ListRouteFilterRules API service call
+* RouteFilterRuleListResult `object`: Response for the ListRouteFilterRules API service call.
   * nextLink `string`: The URL to get the next set of results.
-  * value `array`: Gets a list of RouteFilterRules in a resource group.
+  * value `array`: A list of RouteFilterRules in a resource group.
     * items [RouteFilterRule](#routefilterrule)
 
 ### RouteFilterRulePropertiesFormat
-* RouteFilterRulePropertiesFormat `object`: Route Filter Rule Resource
-  * access **required** `string` (values: Allow, Deny): The access type of the rule. Valid values are: 'Allow', 'Deny'
-  * communities **required** `array`: The collection for bgp community values to filter on. e.g. ['12076:5010','12076:5020']
+* RouteFilterRulePropertiesFormat `object`: Route Filter Rule Resource.
+  * access **required** `string` (values: Allow, Deny): Access to be allowed or denied.
+  * communities **required** `array`: The collection for bgp community values to filter on. e.g. ['12076:5010','12076:5020'].
     * items `string`
-  * provisioningState `string`: The provisioning state of the resource. Possible values are: 'Updating', 'Deleting', 'Succeeded' and 'Failed'.
-  * routeFilterRuleType **required** `string` (values: Community): The rule type of the rule. Valid value is: 'Community'
+  * provisioningState `string` (values: Succeeded, Updating, Deleting, Failed): The current provisioning state.
+  * routeFilterRuleType **required** `string` (values: Community): The rule type of the rule.
 
 

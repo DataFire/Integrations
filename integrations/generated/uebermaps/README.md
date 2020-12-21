@@ -9,7 +9,7 @@ npm install --save @datafire/uebermaps
 ```js
 let uebermaps = require('@datafire/uebermaps').create();
 
-uebermaps.users.search.get({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

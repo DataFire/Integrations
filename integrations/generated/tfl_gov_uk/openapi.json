@@ -13,7 +13,7 @@
       "open_data"
     ],
     "x-logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_773531056670646272_dsuVeVSg.jpg"
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_TfL_profile_image.jpeg"
     },
     "x-origin": [
       {
@@ -1764,11 +1764,19 @@
     "/Place": {
       "get": {
         "deprecated": false,
-        "operationId": "Place_GetByGeoBox",
+        "operationId": "Place_GetByGeo",
         "parameters": [
           {
+            "description": "The radius of the bounding circle in metres when only lat/lon are specified.",
+            "format": "double",
+            "in": "query",
+            "name": "radius",
+            "required": false,
+            "type": "number"
+          },
+          {
             "collectionFormat": "multi",
-            "description": "an optional list of comma separated property categories to return in the Place's property bag. If null or empty, all categories of property are returned. Pass the keyword \"none\" to return no properties (a valid list of categories can be obtained from the /Place/Meta/categories endpoint)",
+            "description": "An optional list of comma separated property categories to return in the Place's property bag. If null or empty, all categories of property are returned. Pass the keyword \"none\" to return no properties (a valid list of categories can be obtained from the /Place/Meta/categories endpoint)",
             "in": "query",
             "items": {
               "type": "string"
@@ -1786,7 +1794,7 @@
           },
           {
             "collectionFormat": "multi",
-            "description": "place types to filter on, or null to return all types",
+            "description": "Place types to filter on, or null to return all types",
             "in": "query",
             "items": {
               "type": "string"
@@ -1803,31 +1811,53 @@
             "type": "boolean"
           },
           {
+            "description": "If specified, limits the number of returned places equal to the given value",
+            "format": "int32",
+            "in": "query",
+            "name": "numberOfPlacesToReturn",
+            "required": false,
+            "type": "integer"
+          },
+          {
             "format": "double",
             "in": "query",
-            "name": "bbBoxpoints.swLat",
-            "required": true,
+            "name": "placeGeo.swLat",
+            "required": false,
             "type": "number"
           },
           {
             "format": "double",
             "in": "query",
-            "name": "bbBoxpoints.swLon",
-            "required": true,
+            "name": "placeGeo.swLon",
+            "required": false,
             "type": "number"
           },
           {
             "format": "double",
             "in": "query",
-            "name": "bbBoxpoints.neLat",
-            "required": true,
+            "name": "placeGeo.neLat",
+            "required": false,
             "type": "number"
           },
           {
             "format": "double",
             "in": "query",
-            "name": "bbBoxpoints.neLon",
-            "required": true,
+            "name": "placeGeo.neLon",
+            "required": false,
+            "type": "number"
+          },
+          {
+            "format": "double",
+            "in": "query",
+            "name": "placeGeo.lat",
+            "required": false,
+            "type": "number"
+          },
+          {
+            "format": "double",
+            "in": "query",
+            "name": "placeGeo.lon",
+            "required": false,
             "type": "number"
           }
         ],
@@ -1848,7 +1878,7 @@
             }
           }
         },
-        "summary": "Gets the places that lie within the bounding box defined by the lat/lon of its north-west and south-east corners. Optionally filters\r\n            on type and can strip properties for a smaller payload.",
+        "summary": "Gets the places that lie within a geographic region. The geographic region of interest can either be specified\r\n            by using a lat/lon geo-point and a radius in metres to return places within the locus defined by the lat/lon of\r\n            its centre or alternatively, by the use of a bounding box defined by the lat/lon of its north-west and south-east corners.\r\n            Optionally filters on type and can strip properties for a smaller payload.",
         "tags": [
           "Place"
         ]
@@ -3467,6 +3497,53 @@
         ]
       }
     },
+    "/StopPoint/{id}/ArrivalDepartures": {
+      "get": {
+        "deprecated": false,
+        "operationId": "StopPoint_ArrivalDepartures",
+        "parameters": [
+          {
+            "description": "A StopPoint id (station naptan code e.g. 940GZZLUASL, you can use /StopPoint/Search/{query} endpoint to find a stop point id from a station name)",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "collectionFormat": "multi",
+            "description": "A comma-separated list of line ids e.g. tfl-rail, london-overground",
+            "in": "query",
+            "items": {
+              "type": "string"
+            },
+            "name": "lineIds",
+            "required": true,
+            "type": "array"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/Tfl.Api.Presentation.Entities.ArrivalDeparture"
+              },
+              "type": "array"
+            }
+          }
+        },
+        "summary": "Gets the list of arrival and departure predictions for the given stop point id (overground and tfl rail only)",
+        "tags": [
+          "StopPoint"
+        ]
+      }
+    },
     "/StopPoint/{id}/Arrivals": {
       "get": {
         "deprecated": false,
@@ -4290,33 +4367,6 @@
       ],
       "type": "object"
     },
-    "Tfl.Api.Common.GeoPointBBox": {
-      "properties": {
-        "neLat": {
-          "format": "double",
-          "type": "number"
-        },
-        "neLon": {
-          "format": "double",
-          "type": "number"
-        },
-        "swLat": {
-          "format": "double",
-          "type": "number"
-        },
-        "swLon": {
-          "format": "double",
-          "type": "number"
-        }
-      },
-      "required": [
-        "swLat",
-        "swLon",
-        "neLat",
-        "neLon"
-      ],
-      "type": "object"
-    },
     "Tfl.Api.Common.JourneyPlanner.JpElevation": {
       "properties": {
         "distance": {
@@ -4344,6 +4394,35 @@
           "type": "number"
         },
         "startLon": {
+          "format": "double",
+          "type": "number"
+        }
+      },
+      "type": "object"
+    },
+    "Tfl.Api.Common.PlaceGeo": {
+      "properties": {
+        "lat": {
+          "format": "double",
+          "type": "number"
+        },
+        "lon": {
+          "format": "double",
+          "type": "number"
+        },
+        "neLat": {
+          "format": "double",
+          "type": "number"
+        },
+        "neLon": {
+          "format": "double",
+          "type": "number"
+        },
+        "swLat": {
+          "format": "double",
+          "type": "number"
+        },
+        "swLon": {
           "format": "double",
           "type": "number"
         }
@@ -4474,6 +4553,78 @@
         },
         "value": {
           "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Tfl.Api.Presentation.Entities.ArrivalDeparture": {
+      "description": "DTO to capture the prediction details",
+      "properties": {
+        "cause": {
+          "description": "Reason for cancellation or delay",
+          "type": "string"
+        },
+        "departureStatus": {
+          "description": "Status of departure",
+          "enum": [
+            "OnTime",
+            "Delayed",
+            "Cancelled",
+            "NotStoppingAtStation"
+          ],
+          "type": "string"
+        },
+        "destinationName": {
+          "description": "Name of the destination",
+          "type": "string"
+        },
+        "destinationNaptanId": {
+          "description": "Naptan Identifier for the prediction's destination",
+          "type": "string"
+        },
+        "estimatedTimeOfArrival": {
+          "description": "Estimated time of arrival",
+          "format": "date-time",
+          "type": "string"
+        },
+        "estimatedTimeOfDeparture": {
+          "description": "Estimated time of arrival",
+          "format": "date-time",
+          "type": "string"
+        },
+        "minutesAndSecondsToArrival": {
+          "description": "Estimated time of arrival",
+          "type": "string"
+        },
+        "minutesAndSecondsToDeparture": {
+          "description": "Estimated time of arrival",
+          "type": "string"
+        },
+        "naptanId": {
+          "description": "Identifier for the prediction",
+          "type": "string"
+        },
+        "platformName": {
+          "description": "Platform name (for bus, this is the stop letter)",
+          "type": "string"
+        },
+        "scheduledTimeOfArrival": {
+          "description": "Estimated time of arrival",
+          "format": "date-time",
+          "type": "string"
+        },
+        "scheduledTimeOfDeparture": {
+          "description": "Estimated time of arrival",
+          "format": "date-time",
+          "type": "string"
+        },
+        "stationName": {
+          "description": "Station name",
+          "type": "string"
+        },
+        "timing": {
+          "$ref": "#/definitions/Tfl.Api.Presentation.Entities.PredictionTiming",
+          "description": "Keep the original timestamp from MongoDb fo debugging purposes"
         }
       },
       "type": "object"
@@ -4615,6 +4766,7 @@
       "type": "object"
     },
     "Tfl.Api.Presentation.Entities.CycleSuperhighway": {
+      "description": "",
       "properties": {
         "geography": {
           "$ref": "#/definitions/System.Data.Spatial.DbGeography",
@@ -4637,9 +4789,35 @@
           "format": "date-time",
           "type": "string"
         },
+        "routeType": {
+          "description": "Type of cycle route e.g CycleSuperhighways, Quietways, MiniHollands etc",
+          "enum": [
+            "Unknown",
+            "All",
+            "Cycle Superhighways",
+            "Quietways",
+            "Cycleways",
+            "Mini-Hollands",
+            "Central London Grid"
+          ],
+          "type": "string"
+        },
         "segmented": {
           "description": "True if the route is split into segments",
           "type": "boolean"
+        },
+        "status": {
+          "description": "Cycle route status i.e Proposed, Existing etc",
+          "enum": [
+            "Unknown",
+            "All",
+            "Open",
+            "In Progress",
+            "Planned",
+            "Planned - Subject to feasibility and consultation.",
+            "Not Open"
+          ],
+          "type": "string"
         }
       },
       "type": "object"
@@ -4845,6 +5023,9 @@
           "format": "int32",
           "type": "integer"
         },
+        "contactlessPAYGOnlyFare": {
+          "type": "boolean"
+        },
         "displayName": {
           "type": "string"
         },
@@ -4917,6 +5098,27 @@
       },
       "type": "object"
     },
+    "Tfl.Api.Presentation.Entities.Fares.FareStation": {
+      "properties": {
+        "atcoCode": {
+          "type": "string"
+        },
+        "commonName": {
+          "type": "string"
+        },
+        "fareCategory": {
+          "enum": [
+            "Cash",
+            "Oyster",
+            "Contactless",
+            "ContactlessOnly",
+            "All"
+          ],
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "Tfl.Api.Presentation.Entities.Fares.FaresMode": {
       "properties": {
         "description": {
@@ -4965,6 +5167,9 @@
           "format": "int32",
           "type": "integer"
         },
+        "journey": {
+          "$ref": "#/definitions/Tfl.Api.Presentation.Entities.Fares.Journey"
+        },
         "messages": {
           "items": {
             "$ref": "#/definitions/Tfl.Api.Presentation.Entities.Message"
@@ -4976,6 +5181,17 @@
             "$ref": "#/definitions/Tfl.Api.Presentation.Entities.Fares.FareDetails"
           },
           "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "Tfl.Api.Presentation.Entities.Fares.Journey": {
+      "properties": {
+        "fromStation": {
+          "$ref": "#/definitions/Tfl.Api.Presentation.Entities.Fares.FareStation"
+        },
+        "toStation": {
+          "$ref": "#/definitions/Tfl.Api.Presentation.Entities.Fares.FareStation"
         }
       },
       "type": "object"
@@ -5181,6 +5397,30 @@
           "type": "string"
         },
         "name": {
+          "type": "string"
+        },
+        "routeType": {
+          "enum": [
+            "Unknown",
+            "All",
+            "Cycle Superhighways",
+            "Quietways",
+            "Cycleways",
+            "Mini-Hollands",
+            "Central London Grid"
+          ],
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "Unknown",
+            "All",
+            "Open",
+            "In Progress",
+            "Planned",
+            "Planned - Subject to feasibility and consultation.",
+            "Not Open"
+          ],
           "type": "string"
         },
         "type": {

@@ -155,7 +155,9 @@
             }
           }
         },
-        "x-ms-pageable": {}
+        "x-ms-pageable": {
+          "nextLinkName": null
+        }
       }
     }
   },

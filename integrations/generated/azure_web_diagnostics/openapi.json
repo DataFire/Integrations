@@ -6,7 +6,7 @@
   "host": "management.azure.com",
   "info": {
     "title": "Diagnostics API Client",
-    "version": "2016-03-01",
+    "version": "2018-02-01",
     "x-apisguru-categories": [
       "cloud"
     ],
@@ -16,7 +16,7 @@
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/web/resource-manager/Microsoft.Web/stable/2016-03-01/Diagnostics.json",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/web/resource-manager/Microsoft.Web/stable/2018-02-01/Diagnostics.json",
         "version": "2.0"
       }
     ],
@@ -112,6 +112,66 @@
             "schema": {
               "$ref": "#/definitions/DetectorResponseCollection"
             }
+          },
+          "default": {
+            "description": "App Service error response.",
+            "schema": {
+              "description": "App Service error response.",
+              "properties": {
+                "error": {
+                  "description": "Error model.",
+                  "properties": {
+                    "code": {
+                      "description": "Standardized string to programmatically identify the error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "details": {
+                      "items": {
+                        "description": "Detailed errors.",
+                        "properties": {
+                          "code": {
+                            "description": "Standardized string to programmatically identify the error.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "message": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "target": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          }
+                        },
+                        "readOnly": true
+                      },
+                      "type": "array"
+                    },
+                    "innererror": {
+                      "description": "More information to debug error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "message": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "target": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    }
+                  },
+                  "readOnly": true,
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
           }
         },
         "summary": "List Hosting Environment Detector Responses",
@@ -119,7 +179,7 @@
           "Diagnostics"
         ],
         "x-ms-examples": {
-          "List App Service Environment Detector Responses": {
+          "Get App Service Environment Detector Responses": {
             "parameters": {
               "api-version": "2016-03-01",
               "name": "SampleAppServiceEnvironment",
@@ -210,6 +270,66 @@
             "schema": {
               "$ref": "#/definitions/DetectorResponse"
             }
+          },
+          "default": {
+            "description": "App Service error response.",
+            "schema": {
+              "description": "App Service error response.",
+              "properties": {
+                "error": {
+                  "description": "Error model.",
+                  "properties": {
+                    "code": {
+                      "description": "Standardized string to programmatically identify the error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "details": {
+                      "items": {
+                        "description": "Detailed errors.",
+                        "properties": {
+                          "code": {
+                            "description": "Standardized string to programmatically identify the error.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "message": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "target": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          }
+                        },
+                        "readOnly": true
+                      },
+                      "type": "array"
+                    },
+                    "innererror": {
+                      "description": "More information to debug error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "message": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "target": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    }
+                  },
+                  "readOnly": true,
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
           }
         },
         "summary": "Get Hosting Environment Detector Response",
@@ -217,7 +337,7 @@
           "Diagnostics"
         ],
         "x-ms-examples": {
-          "Get App Service Environment Detector Response": {
+          "Get App Service Environment Detector Responses": {
             "parameters": {
               "api-version": "2016-03-01",
               "detectorName": "runtimeavailability",
@@ -384,6 +504,66 @@
             "schema": {
               "$ref": "#/definitions/DetectorResponseCollection"
             }
+          },
+          "default": {
+            "description": "App Service error response.",
+            "schema": {
+              "description": "App Service error response.",
+              "properties": {
+                "error": {
+                  "description": "Error model.",
+                  "properties": {
+                    "code": {
+                      "description": "Standardized string to programmatically identify the error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "details": {
+                      "items": {
+                        "description": "Detailed errors.",
+                        "properties": {
+                          "code": {
+                            "description": "Standardized string to programmatically identify the error.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "message": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "target": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          }
+                        },
+                        "readOnly": true
+                      },
+                      "type": "array"
+                    },
+                    "innererror": {
+                      "description": "More information to debug error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "message": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "target": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    }
+                  },
+                  "readOnly": true,
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
           }
         },
         "summary": "List Site Detector Responses",
@@ -391,7 +571,7 @@
           "Diagnostics"
         ],
         "x-ms-examples": {
-          "List App Detector Responses": {
+          "Get App Detector Responses": {
             "parameters": {
               "api-version": "2016-03-01",
               "resourceGroupName": "Sample-WestUSResourceGroup",
@@ -404,6 +584,36 @@
                   "value": [
                     {
                       "id": "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/Sample-WestUSResourceGroup/providers/Microsoft.Web/sites/SampleApp/detectors/runtimeavailability",
+                      "name": "runtimeavailability",
+                      "properties": {
+                        "dataset": [],
+                        "metadata": {
+                          "category": "Availability and Performance",
+                          "description": "This detector analyzes the requests to your application.",
+                          "subCategory": "App Availability",
+                          "supportTopicId": ""
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "Get App Slot Detector Responses": {
+            "parameters": {
+              "api-version": "2016-03-01",
+              "resourceGroupName": "Sample-WestUSResourceGroup",
+              "siteName": "SampleApp",
+              "slot": "staging",
+              "subscriptionId": "34adfa4f-cedf-4dc0-ba29-b6d1a69ab345"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "value": [
+                    {
+                      "id": "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/Sample-WestUSResourceGroup/providers/Microsoft.Web/sites/SampleApp/slots/staging/detectors/runtimeavailability",
                       "name": "runtimeavailability",
                       "properties": {
                         "dataset": [],
@@ -482,6 +692,66 @@
             "schema": {
               "$ref": "#/definitions/DetectorResponse"
             }
+          },
+          "default": {
+            "description": "App Service error response.",
+            "schema": {
+              "description": "App Service error response.",
+              "properties": {
+                "error": {
+                  "description": "Error model.",
+                  "properties": {
+                    "code": {
+                      "description": "Standardized string to programmatically identify the error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "details": {
+                      "items": {
+                        "description": "Detailed errors.",
+                        "properties": {
+                          "code": {
+                            "description": "Standardized string to programmatically identify the error.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "message": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "target": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          }
+                        },
+                        "readOnly": true
+                      },
+                      "type": "array"
+                    },
+                    "innererror": {
+                      "description": "More information to debug error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "message": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "target": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    }
+                  },
+                  "readOnly": true,
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
           }
         },
         "summary": "Get site detector response",
@@ -501,6 +771,143 @@
               "200": {
                 "body": {
                   "id": "/subscriptions/ef90e930-9d7f-4a60-8a99-748e0eea69de/resourceGroups/Build2015DemoRG/providers/Microsoft.Web/sites/BuggyBakery/detectors/runtimeavailability",
+                  "name": "runtimeavailability",
+                  "properties": {
+                    "dataset": [
+                      {
+                        "renderingProperties": {
+                          "description": "This detector breaks down the number of requests that your app received for each status code.",
+                          "renderingType": "TimeSeries",
+                          "title": "Requests by Status Code"
+                        },
+                        "table": {
+                          "columns": [
+                            {
+                              "columnName": "PreciseTimeStamp",
+                              "columnType": "datetime",
+                              "dataType": "DateTime"
+                            },
+                            {
+                              "columnName": "count_Http2xx",
+                              "columnType": "long",
+                              "dataType": "Int64"
+                            },
+                            {
+                              "columnName": "count_Http3xx",
+                              "columnType": "long",
+                              "dataType": "Int64"
+                            },
+                            {
+                              "columnName": "count_Http4xx",
+                              "columnType": "long",
+                              "dataType": "Int64"
+                            },
+                            {
+                              "columnName": "count_Http5xx",
+                              "columnType": "long",
+                              "dataType": "Int64"
+                            }
+                          ],
+                          "rows": [
+                            [
+                              "2018-03-27T00:25:00Z",
+                              "772705",
+                              "0",
+                              "0",
+                              "0"
+                            ],
+                            [
+                              "2018-03-27T00:30:00Z",
+                              "787069",
+                              "0",
+                              "0",
+                              "0"
+                            ],
+                            [
+                              "2018-03-27T00:35:00Z",
+                              "781627",
+                              "0",
+                              "1",
+                              "0"
+                            ],
+                            [
+                              "2018-03-27T00:40:00Z",
+                              "785017",
+                              "0",
+                              "0",
+                              "0"
+                            ],
+                            [
+                              "2018-03-27T00:45:00Z",
+                              "783518",
+                              "0",
+                              "0",
+                              "0"
+                            ],
+                            [
+                              "2018-03-27T00:50:00Z",
+                              "785783",
+                              "0",
+                              "0",
+                              "0"
+                            ],
+                            [
+                              "2018-03-27T00:55:00Z",
+                              "772874",
+                              "0",
+                              "0",
+                              "0"
+                            ],
+                            [
+                              "2018-03-27T01:00:00Z",
+                              "787162",
+                              "0",
+                              "0",
+                              "0"
+                            ],
+                            [
+                              "2018-03-27T01:05:00Z",
+                              "782036",
+                              "0",
+                              "0",
+                              "0"
+                            ],
+                            [
+                              "2018-03-27T01:10:00Z",
+                              "784642",
+                              "0",
+                              "0",
+                              "0"
+                            ]
+                          ],
+                          "tableName": "Table_0"
+                        }
+                      }
+                    ],
+                    "metadata": {
+                      "category": "Availability and Performance",
+                      "description": "This detector analyzes the requests to your application.",
+                      "subCategory": "Web App Down",
+                      "supportTopicId": ""
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "Get App Slot Detector Response": {
+            "parameters": {
+              "api-version": "2016-03-01",
+              "detectorName": "runtimeavailability",
+              "resourceGroupName": "Sample-WestUSResourceGroup",
+              "siteName": "SampleApp",
+              "slot": "staging",
+              "subscriptionId": "34adfa4f-cedf-4dc0-ba29-b6d1a69ab345"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "id": "/subscriptions/ef90e930-9d7f-4a60-8a99-748e0eea69de/resourceGroups/Build2015DemoRG/providers/Microsoft.Web/sites/BuggyBakery/slots/staging/detectors/runtimeavailability",
                   "name": "runtimeavailability",
                   "properties": {
                     "dataset": [
@@ -656,6 +1063,66 @@
             "schema": {
               "$ref": "#/definitions/DiagnosticCategoryCollection"
             }
+          },
+          "default": {
+            "description": "App Service error response.",
+            "schema": {
+              "description": "App Service error response.",
+              "properties": {
+                "error": {
+                  "description": "Error model.",
+                  "properties": {
+                    "code": {
+                      "description": "Standardized string to programmatically identify the error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "details": {
+                      "items": {
+                        "description": "Detailed errors.",
+                        "properties": {
+                          "code": {
+                            "description": "Standardized string to programmatically identify the error.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "message": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "target": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          }
+                        },
+                        "readOnly": true
+                      },
+                      "type": "array"
+                    },
+                    "innererror": {
+                      "description": "More information to debug error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "message": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "target": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    }
+                  },
+                  "readOnly": true,
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
           }
         },
         "summary": "Get Diagnostics Categories",
@@ -702,6 +1169,66 @@
             "schema": {
               "$ref": "#/definitions/DiagnosticCategory"
             }
+          },
+          "default": {
+            "description": "App Service error response.",
+            "schema": {
+              "description": "App Service error response.",
+              "properties": {
+                "error": {
+                  "description": "Error model.",
+                  "properties": {
+                    "code": {
+                      "description": "Standardized string to programmatically identify the error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "details": {
+                      "items": {
+                        "description": "Detailed errors.",
+                        "properties": {
+                          "code": {
+                            "description": "Standardized string to programmatically identify the error.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "message": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "target": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          }
+                        },
+                        "readOnly": true
+                      },
+                      "type": "array"
+                    },
+                    "innererror": {
+                      "description": "More information to debug error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "message": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "target": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    }
+                  },
+                  "readOnly": true,
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
           }
         },
         "summary": "Get Diagnostics Category",
@@ -744,6 +1271,66 @@
             "description": "OK",
             "schema": {
               "$ref": "#/definitions/DiagnosticAnalysisCollection"
+            }
+          },
+          "default": {
+            "description": "App Service error response.",
+            "schema": {
+              "description": "App Service error response.",
+              "properties": {
+                "error": {
+                  "description": "Error model.",
+                  "properties": {
+                    "code": {
+                      "description": "Standardized string to programmatically identify the error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "details": {
+                      "items": {
+                        "description": "Detailed errors.",
+                        "properties": {
+                          "code": {
+                            "description": "Standardized string to programmatically identify the error.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "message": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "target": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          }
+                        },
+                        "readOnly": true
+                      },
+                      "type": "array"
+                    },
+                    "innererror": {
+                      "description": "More information to debug error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "message": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "target": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    }
+                  },
+                  "readOnly": true,
+                  "type": "object"
+                }
+              },
+              "type": "object"
             }
           }
         },
@@ -797,6 +1384,66 @@
             "description": "OK",
             "schema": {
               "$ref": "#/definitions/DiagnosticAnalysis"
+            }
+          },
+          "default": {
+            "description": "App Service error response.",
+            "schema": {
+              "description": "App Service error response.",
+              "properties": {
+                "error": {
+                  "description": "Error model.",
+                  "properties": {
+                    "code": {
+                      "description": "Standardized string to programmatically identify the error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "details": {
+                      "items": {
+                        "description": "Detailed errors.",
+                        "properties": {
+                          "code": {
+                            "description": "Standardized string to programmatically identify the error.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "message": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "target": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          }
+                        },
+                        "readOnly": true
+                      },
+                      "type": "array"
+                    },
+                    "innererror": {
+                      "description": "More information to debug error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "message": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "target": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    }
+                  },
+                  "readOnly": true,
+                  "type": "object"
+                }
+              },
+              "type": "object"
             }
           }
         },
@@ -869,6 +1516,66 @@
             "schema": {
               "$ref": "#/definitions/DiagnosticAnalysis"
             }
+          },
+          "default": {
+            "description": "App Service error response.",
+            "schema": {
+              "description": "App Service error response.",
+              "properties": {
+                "error": {
+                  "description": "Error model.",
+                  "properties": {
+                    "code": {
+                      "description": "Standardized string to programmatically identify the error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "details": {
+                      "items": {
+                        "description": "Detailed errors.",
+                        "properties": {
+                          "code": {
+                            "description": "Standardized string to programmatically identify the error.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "message": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "target": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          }
+                        },
+                        "readOnly": true
+                      },
+                      "type": "array"
+                    },
+                    "innererror": {
+                      "description": "More information to debug error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "message": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "target": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    }
+                  },
+                  "readOnly": true,
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
           }
         },
         "summary": "Execute Analysis",
@@ -911,6 +1618,66 @@
             "description": "OK",
             "schema": {
               "$ref": "#/definitions/DiagnosticDetectorCollection"
+            }
+          },
+          "default": {
+            "description": "App Service error response.",
+            "schema": {
+              "description": "App Service error response.",
+              "properties": {
+                "error": {
+                  "description": "Error model.",
+                  "properties": {
+                    "code": {
+                      "description": "Standardized string to programmatically identify the error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "details": {
+                      "items": {
+                        "description": "Detailed errors.",
+                        "properties": {
+                          "code": {
+                            "description": "Standardized string to programmatically identify the error.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "message": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "target": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          }
+                        },
+                        "readOnly": true
+                      },
+                      "type": "array"
+                    },
+                    "innererror": {
+                      "description": "More information to debug error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "message": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "target": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    }
+                  },
+                  "readOnly": true,
+                  "type": "object"
+                }
+              },
+              "type": "object"
             }
           }
         },
@@ -964,6 +1731,66 @@
             "description": "OK",
             "schema": {
               "$ref": "#/definitions/DiagnosticDetectorCollection"
+            }
+          },
+          "default": {
+            "description": "App Service error response.",
+            "schema": {
+              "description": "App Service error response.",
+              "properties": {
+                "error": {
+                  "description": "Error model.",
+                  "properties": {
+                    "code": {
+                      "description": "Standardized string to programmatically identify the error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "details": {
+                      "items": {
+                        "description": "Detailed errors.",
+                        "properties": {
+                          "code": {
+                            "description": "Standardized string to programmatically identify the error.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "message": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "target": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          }
+                        },
+                        "readOnly": true
+                      },
+                      "type": "array"
+                    },
+                    "innererror": {
+                      "description": "More information to debug error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "message": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "target": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    }
+                  },
+                  "readOnly": true,
+                  "type": "object"
+                }
+              },
+              "type": "object"
             }
           }
         },
@@ -1039,6 +1866,66 @@
             "schema": {
               "$ref": "#/definitions/DiagnosticDetectorResponse"
             }
+          },
+          "default": {
+            "description": "App Service error response.",
+            "schema": {
+              "description": "App Service error response.",
+              "properties": {
+                "error": {
+                  "description": "Error model.",
+                  "properties": {
+                    "code": {
+                      "description": "Standardized string to programmatically identify the error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "details": {
+                      "items": {
+                        "description": "Detailed errors.",
+                        "properties": {
+                          "code": {
+                            "description": "Standardized string to programmatically identify the error.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "message": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "target": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          }
+                        },
+                        "readOnly": true
+                      },
+                      "type": "array"
+                    },
+                    "innererror": {
+                      "description": "More information to debug error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "message": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "target": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    }
+                  },
+                  "readOnly": true,
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
           }
         },
         "summary": "Execute Detector",
@@ -1082,6 +1969,66 @@
             "schema": {
               "$ref": "#/definitions/DetectorResponseCollection"
             }
+          },
+          "default": {
+            "description": "App Service error response.",
+            "schema": {
+              "description": "App Service error response.",
+              "properties": {
+                "error": {
+                  "description": "Error model.",
+                  "properties": {
+                    "code": {
+                      "description": "Standardized string to programmatically identify the error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "details": {
+                      "items": {
+                        "description": "Detailed errors.",
+                        "properties": {
+                          "code": {
+                            "description": "Standardized string to programmatically identify the error.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "message": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "target": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          }
+                        },
+                        "readOnly": true
+                      },
+                      "type": "array"
+                    },
+                    "innererror": {
+                      "description": "More information to debug error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "message": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "target": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    }
+                  },
+                  "readOnly": true,
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
           }
         },
         "summary": "List Site Detector Responses",
@@ -1089,7 +2036,36 @@
           "Diagnostics"
         ],
         "x-ms-examples": {
-          "List App Slot Detector Responses": {
+          "Get App Detector Responses": {
+            "parameters": {
+              "api-version": "2016-03-01",
+              "resourceGroupName": "Sample-WestUSResourceGroup",
+              "siteName": "SampleApp",
+              "subscriptionId": "34adfa4f-cedf-4dc0-ba29-b6d1a69ab345"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "value": [
+                    {
+                      "id": "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/Sample-WestUSResourceGroup/providers/Microsoft.Web/sites/SampleApp/detectors/runtimeavailability",
+                      "name": "runtimeavailability",
+                      "properties": {
+                        "dataset": [],
+                        "metadata": {
+                          "category": "Availability and Performance",
+                          "description": "This detector analyzes the requests to your application.",
+                          "subCategory": "App Availability",
+                          "supportTopicId": ""
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "Get App Slot Detector Responses": {
             "parameters": {
               "api-version": "2016-03-01",
               "resourceGroupName": "Sample-WestUSResourceGroup",
@@ -1188,6 +2164,66 @@
             "schema": {
               "$ref": "#/definitions/DetectorResponse"
             }
+          },
+          "default": {
+            "description": "App Service error response.",
+            "schema": {
+              "description": "App Service error response.",
+              "properties": {
+                "error": {
+                  "description": "Error model.",
+                  "properties": {
+                    "code": {
+                      "description": "Standardized string to programmatically identify the error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "details": {
+                      "items": {
+                        "description": "Detailed errors.",
+                        "properties": {
+                          "code": {
+                            "description": "Standardized string to programmatically identify the error.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "message": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "target": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          }
+                        },
+                        "readOnly": true
+                      },
+                      "type": "array"
+                    },
+                    "innererror": {
+                      "description": "More information to debug error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "message": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "target": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    }
+                  },
+                  "readOnly": true,
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
           }
         },
         "summary": "Get site detector response",
@@ -1195,6 +2231,142 @@
           "Diagnostics"
         ],
         "x-ms-examples": {
+          "Get App Detector Response": {
+            "parameters": {
+              "api-version": "2016-03-01",
+              "detectorName": "runtimeavailability",
+              "resourceGroupName": "Sample-WestUSResourceGroup",
+              "siteName": "SampleApp",
+              "subscriptionId": "34adfa4f-cedf-4dc0-ba29-b6d1a69ab345"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "id": "/subscriptions/ef90e930-9d7f-4a60-8a99-748e0eea69de/resourceGroups/Build2015DemoRG/providers/Microsoft.Web/sites/BuggyBakery/detectors/runtimeavailability",
+                  "name": "runtimeavailability",
+                  "properties": {
+                    "dataset": [
+                      {
+                        "renderingProperties": {
+                          "description": "This detector breaks down the number of requests that your app received for each status code.",
+                          "renderingType": "TimeSeries",
+                          "title": "Requests by Status Code"
+                        },
+                        "table": {
+                          "columns": [
+                            {
+                              "columnName": "PreciseTimeStamp",
+                              "columnType": "datetime",
+                              "dataType": "DateTime"
+                            },
+                            {
+                              "columnName": "count_Http2xx",
+                              "columnType": "long",
+                              "dataType": "Int64"
+                            },
+                            {
+                              "columnName": "count_Http3xx",
+                              "columnType": "long",
+                              "dataType": "Int64"
+                            },
+                            {
+                              "columnName": "count_Http4xx",
+                              "columnType": "long",
+                              "dataType": "Int64"
+                            },
+                            {
+                              "columnName": "count_Http5xx",
+                              "columnType": "long",
+                              "dataType": "Int64"
+                            }
+                          ],
+                          "rows": [
+                            [
+                              "2018-03-27T00:25:00Z",
+                              "772705",
+                              "0",
+                              "0",
+                              "0"
+                            ],
+                            [
+                              "2018-03-27T00:30:00Z",
+                              "787069",
+                              "0",
+                              "0",
+                              "0"
+                            ],
+                            [
+                              "2018-03-27T00:35:00Z",
+                              "781627",
+                              "0",
+                              "1",
+                              "0"
+                            ],
+                            [
+                              "2018-03-27T00:40:00Z",
+                              "785017",
+                              "0",
+                              "0",
+                              "0"
+                            ],
+                            [
+                              "2018-03-27T00:45:00Z",
+                              "783518",
+                              "0",
+                              "0",
+                              "0"
+                            ],
+                            [
+                              "2018-03-27T00:50:00Z",
+                              "785783",
+                              "0",
+                              "0",
+                              "0"
+                            ],
+                            [
+                              "2018-03-27T00:55:00Z",
+                              "772874",
+                              "0",
+                              "0",
+                              "0"
+                            ],
+                            [
+                              "2018-03-27T01:00:00Z",
+                              "787162",
+                              "0",
+                              "0",
+                              "0"
+                            ],
+                            [
+                              "2018-03-27T01:05:00Z",
+                              "782036",
+                              "0",
+                              "0",
+                              "0"
+                            ],
+                            [
+                              "2018-03-27T01:10:00Z",
+                              "784642",
+                              "0",
+                              "0",
+                              "0"
+                            ]
+                          ],
+                          "tableName": "Table_0"
+                        }
+                      }
+                    ],
+                    "metadata": {
+                      "category": "Availability and Performance",
+                      "description": "This detector analyzes the requests to your application.",
+                      "subCategory": "Web App Down",
+                      "supportTopicId": ""
+                    }
+                  }
+                }
+              }
+            }
+          },
           "Get App Slot Detector Response": {
             "parameters": {
               "api-version": "2016-03-01",
@@ -1370,6 +2542,66 @@
             "schema": {
               "$ref": "#/definitions/DiagnosticCategoryCollection"
             }
+          },
+          "default": {
+            "description": "App Service error response.",
+            "schema": {
+              "description": "App Service error response.",
+              "properties": {
+                "error": {
+                  "description": "Error model.",
+                  "properties": {
+                    "code": {
+                      "description": "Standardized string to programmatically identify the error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "details": {
+                      "items": {
+                        "description": "Detailed errors.",
+                        "properties": {
+                          "code": {
+                            "description": "Standardized string to programmatically identify the error.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "message": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "target": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          }
+                        },
+                        "readOnly": true
+                      },
+                      "type": "array"
+                    },
+                    "innererror": {
+                      "description": "More information to debug error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "message": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "target": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    }
+                  },
+                  "readOnly": true,
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
           }
         },
         "summary": "Get Diagnostics Categories",
@@ -1423,6 +2655,66 @@
             "schema": {
               "$ref": "#/definitions/DiagnosticCategory"
             }
+          },
+          "default": {
+            "description": "App Service error response.",
+            "schema": {
+              "description": "App Service error response.",
+              "properties": {
+                "error": {
+                  "description": "Error model.",
+                  "properties": {
+                    "code": {
+                      "description": "Standardized string to programmatically identify the error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "details": {
+                      "items": {
+                        "description": "Detailed errors.",
+                        "properties": {
+                          "code": {
+                            "description": "Standardized string to programmatically identify the error.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "message": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "target": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          }
+                        },
+                        "readOnly": true
+                      },
+                      "type": "array"
+                    },
+                    "innererror": {
+                      "description": "More information to debug error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "message": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "target": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    }
+                  },
+                  "readOnly": true,
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
           }
         },
         "summary": "Get Diagnostics Category",
@@ -1472,6 +2764,66 @@
             "description": "OK",
             "schema": {
               "$ref": "#/definitions/DiagnosticAnalysisCollection"
+            }
+          },
+          "default": {
+            "description": "App Service error response.",
+            "schema": {
+              "description": "App Service error response.",
+              "properties": {
+                "error": {
+                  "description": "Error model.",
+                  "properties": {
+                    "code": {
+                      "description": "Standardized string to programmatically identify the error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "details": {
+                      "items": {
+                        "description": "Detailed errors.",
+                        "properties": {
+                          "code": {
+                            "description": "Standardized string to programmatically identify the error.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "message": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "target": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          }
+                        },
+                        "readOnly": true
+                      },
+                      "type": "array"
+                    },
+                    "innererror": {
+                      "description": "More information to debug error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "message": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "target": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    }
+                  },
+                  "readOnly": true,
+                  "type": "object"
+                }
+              },
+              "type": "object"
             }
           }
         },
@@ -1532,6 +2884,66 @@
             "description": "OK",
             "schema": {
               "$ref": "#/definitions/DiagnosticAnalysis"
+            }
+          },
+          "default": {
+            "description": "App Service error response.",
+            "schema": {
+              "description": "App Service error response.",
+              "properties": {
+                "error": {
+                  "description": "Error model.",
+                  "properties": {
+                    "code": {
+                      "description": "Standardized string to programmatically identify the error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "details": {
+                      "items": {
+                        "description": "Detailed errors.",
+                        "properties": {
+                          "code": {
+                            "description": "Standardized string to programmatically identify the error.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "message": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "target": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          }
+                        },
+                        "readOnly": true
+                      },
+                      "type": "array"
+                    },
+                    "innererror": {
+                      "description": "More information to debug error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "message": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "target": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    }
+                  },
+                  "readOnly": true,
+                  "type": "object"
+                }
+              },
+              "type": "object"
             }
           }
         },
@@ -1611,6 +3023,66 @@
             "schema": {
               "$ref": "#/definitions/DiagnosticAnalysis"
             }
+          },
+          "default": {
+            "description": "App Service error response.",
+            "schema": {
+              "description": "App Service error response.",
+              "properties": {
+                "error": {
+                  "description": "Error model.",
+                  "properties": {
+                    "code": {
+                      "description": "Standardized string to programmatically identify the error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "details": {
+                      "items": {
+                        "description": "Detailed errors.",
+                        "properties": {
+                          "code": {
+                            "description": "Standardized string to programmatically identify the error.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "message": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "target": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          }
+                        },
+                        "readOnly": true
+                      },
+                      "type": "array"
+                    },
+                    "innererror": {
+                      "description": "More information to debug error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "message": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "target": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    }
+                  },
+                  "readOnly": true,
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
           }
         },
         "summary": "Execute Analysis",
@@ -1660,6 +3132,66 @@
             "description": "OK",
             "schema": {
               "$ref": "#/definitions/DiagnosticDetectorCollection"
+            }
+          },
+          "default": {
+            "description": "App Service error response.",
+            "schema": {
+              "description": "App Service error response.",
+              "properties": {
+                "error": {
+                  "description": "Error model.",
+                  "properties": {
+                    "code": {
+                      "description": "Standardized string to programmatically identify the error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "details": {
+                      "items": {
+                        "description": "Detailed errors.",
+                        "properties": {
+                          "code": {
+                            "description": "Standardized string to programmatically identify the error.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "message": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "target": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          }
+                        },
+                        "readOnly": true
+                      },
+                      "type": "array"
+                    },
+                    "innererror": {
+                      "description": "More information to debug error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "message": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "target": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    }
+                  },
+                  "readOnly": true,
+                  "type": "object"
+                }
+              },
+              "type": "object"
             }
           }
         },
@@ -1720,6 +3252,66 @@
             "description": "OK",
             "schema": {
               "$ref": "#/definitions/DiagnosticDetectorCollection"
+            }
+          },
+          "default": {
+            "description": "App Service error response.",
+            "schema": {
+              "description": "App Service error response.",
+              "properties": {
+                "error": {
+                  "description": "Error model.",
+                  "properties": {
+                    "code": {
+                      "description": "Standardized string to programmatically identify the error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "details": {
+                      "items": {
+                        "description": "Detailed errors.",
+                        "properties": {
+                          "code": {
+                            "description": "Standardized string to programmatically identify the error.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "message": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "target": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          }
+                        },
+                        "readOnly": true
+                      },
+                      "type": "array"
+                    },
+                    "innererror": {
+                      "description": "More information to debug error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "message": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "target": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    }
+                  },
+                  "readOnly": true,
+                  "type": "object"
+                }
+              },
+              "type": "object"
             }
           }
         },
@@ -1801,6 +3393,66 @@
             "description": "OK",
             "schema": {
               "$ref": "#/definitions/DiagnosticDetectorResponse"
+            }
+          },
+          "default": {
+            "description": "App Service error response.",
+            "schema": {
+              "description": "App Service error response.",
+              "properties": {
+                "error": {
+                  "description": "Error model.",
+                  "properties": {
+                    "code": {
+                      "description": "Standardized string to programmatically identify the error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "details": {
+                      "items": {
+                        "description": "Detailed errors.",
+                        "properties": {
+                          "code": {
+                            "description": "Standardized string to programmatically identify the error.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "message": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "target": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          }
+                        },
+                        "readOnly": true
+                      },
+                      "type": "array"
+                    },
+                    "innererror": {
+                      "description": "More information to debug error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "message": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "target": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    }
+                  },
+                  "readOnly": true,
+                  "type": "object"
+                }
+              },
+              "type": "object"
             }
           }
         },
@@ -1954,7 +3606,7 @@
           "type": "array"
         },
         "instructions": {
-          "description": "Instrunctions if any for the data source",
+          "description": "Instructions if any for the data source",
           "items": {
             "type": "string"
           },
@@ -2012,7 +3664,7 @@
       "description": "Class representing Abnormal Time Period detected.",
       "properties": {
         "endTime": {
-          "description": "End time of the corelated event",
+          "description": "End time of the correlated event",
           "format": "date-time",
           "type": "string"
         },
@@ -2058,7 +3710,7 @@
           "type": "string"
         },
         "startTime": {
-          "description": "Start time of the corelated event",
+          "description": "Start time of the correlated event",
           "format": "date-time",
           "type": "string"
         },
@@ -2459,7 +4111,7 @@
           "x-ms-azure-resource": true
         }
       ],
-      "description": "Class representing Reponse from Diagnostic Detectors",
+      "description": "Class representing Response from Diagnostic Detectors",
       "properties": {
         "properties": {
           "description": "DiagnosticDetectorResponse resource specific properties",
@@ -2603,7 +4255,11 @@
           "description": "Description of the data that will help it be interpreted",
           "type": "string"
         },
-        "renderingType": {
+        "title": {
+          "description": "Title of data",
+          "type": "string"
+        },
+        "type": {
           "description": "Rendering Type",
           "enum": [
             "NoGraph",
@@ -2616,10 +4272,6 @@
             "modelAsString": false,
             "name": "RenderingType"
           }
-        },
-        "title": {
-          "description": "Title of data",
-          "type": "string"
         }
       },
       "type": "object"

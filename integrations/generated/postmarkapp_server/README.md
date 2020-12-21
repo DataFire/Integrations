@@ -1,6 +1,6 @@
 # @datafire/postmarkapp_server
 
-Client library for Postmark
+Client library for Postmark API
 
 ## Installation and Usage
 ```bash
@@ -9,11 +9,7 @@ npm install --save @datafire/postmarkapp_server
 ```js
 let postmarkapp_server = require('@datafire/postmarkapp_server').create();
 
-postmarkapp_server.getBounces({
-  "X-Postmark-Server-Token": "",
-  "count": 0,
-  "offset": 0
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -733,26 +729,6 @@ postmarkapp_server.getOutboundOpenCountsByPlatform({
   * Unknown `integer`
   * WebMail `integer`
 
-### getOutboundOpenCountsByReadingTime
-Get email read times
-
-
-```js
-postmarkapp_server.getOutboundOpenCountsByReadingTime({
-  "X-Postmark-Server-Token": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * X-Postmark-Server-Token **required** `string`: The token associated with the Server on which this request will operate.
-  * tag `string`: Filter by tag
-  * fromdate `string`: Filter stats starting from the date specified. e.g. `2014-01-01`
-  * todate `string`: Filter stats up to the date specified. e.g. `2014-02-01`
-
-#### Output
-* output [DynamicResponse](#dynamicresponse)
-
 ### getSentCounts
 Get sent counts
 
@@ -1005,119 +981,6 @@ postmarkapp_server.deleteInboundRule({
 #### Output
 * output [StandardPostmarkResponse](#standardpostmarkresponse)
 
-### searcgTagTriggers
-Search triggers
-
-
-```js
-postmarkapp_server.searcgTagTriggers({
-  "X-Postmark-Server-Token": "",
-  "count": 0,
-  "offset": 0
-}, context)
-```
-
-#### Input
-* input `object`
-  * X-Postmark-Server-Token **required** `string`: The token associated with the Server on which this request will operate.
-  * count **required** `integer`: Number of records to return per request.
-  * offset **required** `integer`: Number of records to skip.
-  * match_name `string`: Filter by delivery tag
-
-#### Output
-* output `object`
-  * Tags `array`
-    * items `object`
-      * ID `integer`
-      * MatchName `string`
-      * TrackOpens `boolean`
-  * TotalCount `integer`
-
-### createTagTrigger
-Create a trigger for a tag
-
-
-```js
-postmarkapp_server.createTagTrigger({
-  "X-Postmark-Server-Token": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * X-Postmark-Server-Token **required** `string`: The token associated with the Server on which this request will operate.
-  * body [EditTagTriggerRequest](#edittagtriggerrequest)
-
-#### Output
-* output `object`
-  * ID `integer`
-  * MatchName `string`
-  * TrackOpens `boolean`
-
-### deleteTagTrigger
-Delete a single trigger
-
-
-```js
-postmarkapp_server.deleteTagTrigger({
-  "X-Postmark-Server-Token": "",
-  "triggerid": 0
-}, context)
-```
-
-#### Input
-* input `object`
-  * X-Postmark-Server-Token **required** `string`: The token associated with the Server on which this request will operate.
-  * triggerid **required** `integer`: The ID for the Tag Trigger that should be deleted.
-
-#### Output
-* output [StandardPostmarkResponse](#standardpostmarkresponse)
-
-### getSingleTagTrigger
-Get a single trigger
-
-
-```js
-postmarkapp_server.getSingleTagTrigger({
-  "X-Postmark-Server-Token": "",
-  "triggerid": 0
-}, context)
-```
-
-#### Input
-* input `object`
-  * X-Postmark-Server-Token **required** `string`: The token associated with the Server on which this request will operate.
-  * triggerid **required** `integer`: The ID for the Tag Trigger for which data should be retrieved.
-
-#### Output
-* output `object`
-  * ID `integer`
-  * MatchName `string`
-  * TrackOpens `boolean`
-
-### editTagTrigger
-Edit a single trigger
-
-
-```js
-postmarkapp_server.editTagTrigger({
-  "X-Postmark-Server-Token": "",
-  "triggerid": 0
-}, context)
-```
-
-#### Input
-* input `object`
-  * X-Postmark-Server-Token **required** `string`: The token associated with the Server on which this request will operate.
-  * triggerid **required** `integer`: The ID of the Tag Trigger that should be modified by this request.
-  * body [EditTagTriggerRequest](#edittagtriggerrequest)
-
-#### Output
-* output `object`
-  * ID `integer`
-  * MatchName `string`
-  * TrackOpens `boolean`
-
 
 
 ## Definitions
@@ -1210,11 +1073,6 @@ postmarkapp_server.editTagTrigger({
   * TrackLinks `string` (values: None, HtmlAndText, HtmlOnly, TextOnly)
   * TrackOpens `boolean`
 
-### EditTagTriggerRequest
-* EditTagTriggerRequest `object`
-  * MatchName `string`
-  * TrackOpens `boolean`
-
 ### EditTemplateRequest
 * EditTemplateRequest `object`: The contents required for creating a new template.
   * Alias `string`: The optional string identifier for referring to this Template (numbers, letters, and '.', '-', '_' characters, starts with a letter).
@@ -1295,7 +1153,6 @@ postmarkapp_server.editTagTrigger({
     * Family `string`
     * Name `string`
   * Platform `string`
-  * ReadSeconds `string`
   * ReceivedAt `string`
   * Recipient `string`
   * Tag `string`
@@ -1457,7 +1314,6 @@ postmarkapp_server.editTagTrigger({
   * WithLinkTracking `integer`
   * WithOpenTracking `integer`
   * WithPlatformRecorded `integer`
-  * WithReadTimeRecorded `integer`
 
 ### OutboundSearchResponse
 * OutboundSearchResponse `object`
@@ -1573,8 +1429,8 @@ postmarkapp_server.editTagTrigger({
   * HtmlBody `string`: The html body content to validate. Must be specified if Subject or
   * InlineCssForHtmlTestRender `boolean`: When HtmlBody is specified, the test render will have style blocks
   * Subject `string`: The subject content to validate. Must be specified if HtmlBody or
+  * TestRenderModel `object`: The model to be used when rendering test content.
   * TextBody `string`: The text body content to validate. Must be specified if HtmlBody or
-  * TextRenderModel `object`: The model to be used when rendering test content.
 
 ### TemplateValidationResponse
 * TemplateValidationResponse `object`

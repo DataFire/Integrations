@@ -15,13 +15,7 @@ let azure_sql_connectionpolicies = require('@datafire/azure_sql_connectionpolici
   redirect_uri: ""
 });
 
-azure_sql_connectionpolicies.ServerConnectionPolicies_Get({
-  "api-version": "",
-  "subscriptionId": "",
-  "resourceGroupName": "",
-  "serverName": "",
-  "connectionPolicyName": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

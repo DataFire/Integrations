@@ -13,19 +13,14 @@ let amazonaws_sqs = require('@datafire/amazonaws_sqs').create({
   region: ""
 });
 
-amazonaws_sqs.AddPermission({
-  "QueueUrl": "",
-  "Label": "",
-  "AWSAccountIds": [],
-  "Actions": []
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
 
 ## Description
 
-<p>Welcome to the <i>Amazon Simple Queue Service API Reference</i>.</p> <p>Amazon Simple Queue Service (Amazon SQS) is a reliable, highly-scalable hosted queue for storing messages as they travel between applications or microservices. Amazon SQS moves data between distributed application components and helps you decouple these components.</p> <note> <p> <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/standard-queues.html">Standard queues</a> are available in all regions. <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html">FIFO queues</a> are available in the US East (N. Virginia), US East (Ohio), US West (Oregon), and EU (Ireland) regions.</p> </note> <p>You can use <a href="http://aws.amazon.com/tools/#sdk">AWS SDKs</a> to access Amazon SQS using your favorite programming language. The SDKs perform tasks such as the following automatically:</p> <ul> <li> <p>Cryptographically sign your service requests</p> </li> <li> <p>Retry requests</p> </li> <li> <p>Handle error responses</p> </li> </ul> <p> <b>Additional Information</b> </p> <ul> <li> <p> <a href="http://aws.amazon.com/sqs/">Amazon SQS Product Page</a> </p> </li> <li> <p> <i>Amazon Simple Queue Service Developer Guide</i> </p> <ul> <li> <p> <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/MakingRequestsArticle.html">Making API Requests</a> </p> </li> <li> <p> <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-attributes.html">Using Amazon SQS Message Attributes</a> </p> </li> <li> <p> <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html">Using Amazon SQS Dead-Letter Queues</a> </p> </li> </ul> </li> <li> <p> <i>Amazon Web Services General Reference</i> </p> <ul> <li> <p> <a href="http://docs.aws.amazon.com/general/latest/gr/rande.html#sqs_region">Regions and Endpoints</a> </p> </li> </ul> </li> </ul>
+<p>Welcome to the <i>Amazon Simple Queue Service API Reference</i>.</p> <p>Amazon Simple Queue Service (Amazon SQS) is a reliable, highly-scalable hosted queue for storing messages as they travel between applications or microservices. Amazon SQS moves data between distributed application components and helps you decouple these components.</p> <p>For information on the permissions you need to use this API, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-authentication-and-access-control.html">Identity and access management</a> in the <i>Amazon Simple Queue Service Developer Guide.</i> </p> <p>You can use <a href="http://aws.amazon.com/tools/#sdk">AWS SDKs</a> to access Amazon SQS using your favorite programming language. The SDKs perform tasks such as the following automatically:</p> <ul> <li> <p>Cryptographically sign your service requests</p> </li> <li> <p>Retry requests</p> </li> <li> <p>Handle error responses</p> </li> </ul> <p> <b>Additional Information</b> </p> <ul> <li> <p> <a href="http://aws.amazon.com/sqs/">Amazon SQS Product Page</a> </p> </li> <li> <p> <i>Amazon Simple Queue Service Developer Guide</i> </p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-making-api-requests.html">Making API Requests</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-metadata.html#sqs-message-attributes">Amazon SQS Message Attributes</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html">Amazon SQS Dead-Letter Queues</a> </p> </li> </ul> </li> <li> <p> <a href="http://docs.aws.amazon.com/cli/latest/reference/sqs/index.html">Amazon SQS in the <i>AWS CLI Command Reference</i> </a> </p> </li> <li> <p> <i>Amazon Web Services General Reference</i> </p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#sqs_region">Regions and Endpoints</a> </p> </li> </ul> </li> </ul>
 
 ## Actions
 
@@ -35,19 +30,21 @@ amazonaws_sqs.AddPermission({
 
 ```js
 amazonaws_sqs.AddPermission({
-  "QueueUrl": "",
-  "Label": "",
-  "AWSAccountIds": [],
-  "Actions": []
+  "QueueUrl": null,
+  "Label": null,
+  "AWSAccountIds": null,
+  "Actions": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * AWSAccountIds **required** [AWSAccountIdList](#awsaccountidlist)
-  * Actions **required** [ActionNameList](#actionnamelist)
-  * Label **required** [String](#string)
-  * QueueUrl **required** [String](#string)
+  * AWSAccountIds **required**
+    * items
+  * Actions **required**
+    * items
+  * Label **required**
+  * QueueUrl **required**
 
 #### Output
 *Output schema unknown*
@@ -58,17 +55,17 @@ amazonaws_sqs.AddPermission({
 
 ```js
 amazonaws_sqs.ChangeMessageVisibility({
-  "QueueUrl": "",
-  "ReceiptHandle": "",
-  "VisibilityTimeout": 0
+  "QueueUrl": null,
+  "ReceiptHandle": null,
+  "VisibilityTimeout": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * QueueUrl **required** [String](#string)
-  * ReceiptHandle **required** [String](#string)
-  * VisibilityTimeout **required** [Integer](#integer)
+  * QueueUrl **required**
+  * ReceiptHandle **required**
+  * VisibilityTimeout **required**
 
 #### Output
 *Output schema unknown*
@@ -79,15 +76,19 @@ amazonaws_sqs.ChangeMessageVisibility({
 
 ```js
 amazonaws_sqs.ChangeMessageVisibilityBatch({
-  "QueueUrl": "",
-  "Entries": []
+  "QueueUrl": null,
+  "Entries": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Entries **required** [ChangeMessageVisibilityBatchRequestEntryList](#changemessagevisibilitybatchrequestentrylist)
-  * QueueUrl **required** [String](#string)
+  * Entries **required**
+    * items
+      * Id **required**
+      * ReceiptHandle **required**
+      * VisibilityTimeout
+  * QueueUrl **required**
 
 #### Output
 * output [ChangeMessageVisibilityBatchResult](#changemessagevisibilitybatchresult)
@@ -104,8 +105,28 @@ amazonaws_sqs.CreateQueue({
 
 #### Input
 * input `object`
-  * Attributes [QueueAttributeMap](#queueattributemap)
-  * QueueName **required** [String](#string)
+  * QueueName **required** `string`
+  * Attribute `object`
+  * Tag `object`
+
+#### Output
+* output [CreateQueueResult](#createqueueresult)
+
+### CreateQueue
+
+
+
+```js
+amazonaws_sqs.CreateQueue({
+  "QueueName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * tags
+  * Attributes
+  * QueueName **required**
 
 #### Output
 * output [CreateQueueResult](#createqueueresult)
@@ -116,15 +137,15 @@ amazonaws_sqs.CreateQueue({
 
 ```js
 amazonaws_sqs.DeleteMessage({
-  "QueueUrl": "",
-  "ReceiptHandle": ""
+  "QueueUrl": null,
+  "ReceiptHandle": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * QueueUrl **required** [String](#string)
-  * ReceiptHandle **required** [String](#string)
+  * QueueUrl **required**
+  * ReceiptHandle **required**
 
 #### Output
 *Output schema unknown*
@@ -135,15 +156,18 @@ amazonaws_sqs.DeleteMessage({
 
 ```js
 amazonaws_sqs.DeleteMessageBatch({
-  "QueueUrl": "",
-  "Entries": []
+  "QueueUrl": null,
+  "Entries": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Entries **required** [DeleteMessageBatchRequestEntryList](#deletemessagebatchrequestentrylist)
-  * QueueUrl **required** [String](#string)
+  * Entries **required**
+    * items
+      * Id **required**
+      * ReceiptHandle **required**
+  * QueueUrl **required**
 
 #### Output
 * output [DeleteMessageBatchResult](#deletemessagebatchresult)
@@ -154,13 +178,13 @@ amazonaws_sqs.DeleteMessageBatch({
 
 ```js
 amazonaws_sqs.DeleteQueue({
-  "QueueUrl": ""
+  "QueueUrl": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * QueueUrl **required** [String](#string)
+  * QueueUrl **required**
 
 #### Output
 *Output schema unknown*
@@ -171,14 +195,15 @@ amazonaws_sqs.DeleteQueue({
 
 ```js
 amazonaws_sqs.GetQueueAttributes({
-  "QueueUrl": ""
+  "QueueUrl": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * AttributeNames [AttributeNameList](#attributenamelist)
-  * QueueUrl **required** [String](#string)
+  * AttributeNames
+    * items
+  * QueueUrl **required**
 
 #### Output
 * output [GetQueueAttributesResult](#getqueueattributesresult)
@@ -195,8 +220,26 @@ amazonaws_sqs.GetQueueUrl({
 
 #### Input
 * input `object`
-  * QueueName **required** [String](#string)
-  * QueueOwnerAWSAccountId [String](#string)
+  * QueueName **required** `string`
+  * QueueOwnerAWSAccountId `string`
+
+#### Output
+* output [GetQueueUrlResult](#getqueueurlresult)
+
+### GetQueueUrl
+
+
+
+```js
+amazonaws_sqs.GetQueueUrl({
+  "QueueName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * QueueName **required**
+  * QueueOwnerAWSAccountId
 
 #### Output
 * output [GetQueueUrlResult](#getqueueurlresult)
@@ -207,13 +250,17 @@ amazonaws_sqs.GetQueueUrl({
 
 ```js
 amazonaws_sqs.ListDeadLetterSourceQueues({
-  "QueueUrl": ""
+  "QueueUrl": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * QueueUrl **required** [String](#string)
+  * MaxResults `string`
+  * NextToken `string`
+  * MaxResults
+  * NextToken
+  * QueueUrl **required**
 
 #### Output
 * output [ListDeadLetterSourceQueuesResult](#listdeadlettersourcequeuesresult)
@@ -224,13 +271,13 @@ amazonaws_sqs.ListDeadLetterSourceQueues({
 
 ```js
 amazonaws_sqs.ListQueueTags({
-  "QueueUrl": ""
+  "QueueUrl": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * QueueUrl **required** [String](#string)
+  * QueueUrl **required**
 
 #### Output
 * output [ListQueueTagsResult](#listqueuetagsresult)
@@ -245,7 +292,28 @@ amazonaws_sqs.ListQueues({}, context)
 
 #### Input
 * input `object`
-  * QueueNamePrefix [String](#string)
+  * QueueNamePrefix `string`
+  * NextToken `string`
+  * MaxResults `integer`
+
+#### Output
+* output [ListQueuesResult](#listqueuesresult)
+
+### ListQueues
+
+
+
+```js
+amazonaws_sqs.ListQueues({}, context)
+```
+
+#### Input
+* input `object`
+  * MaxResults `string`
+  * NextToken `string`
+  * MaxResults
+  * NextToken
+  * QueueNamePrefix
 
 #### Output
 * output [ListQueuesResult](#listqueuesresult)
@@ -256,13 +324,13 @@ amazonaws_sqs.ListQueues({}, context)
 
 ```js
 amazonaws_sqs.PurgeQueue({
-  "QueueUrl": ""
+  "QueueUrl": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * QueueUrl **required** [String](#string)
+  * QueueUrl **required**
 
 #### Output
 *Output schema unknown*
@@ -273,19 +341,21 @@ amazonaws_sqs.PurgeQueue({
 
 ```js
 amazonaws_sqs.ReceiveMessage({
-  "QueueUrl": ""
+  "QueueUrl": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * AttributeNames [AttributeNameList](#attributenamelist)
-  * MaxNumberOfMessages [Integer](#integer)
-  * MessageAttributeNames [MessageAttributeNameList](#messageattributenamelist)
-  * QueueUrl **required** [String](#string)
-  * ReceiveRequestAttemptId [String](#string)
-  * VisibilityTimeout [Integer](#integer)
-  * WaitTimeSeconds [Integer](#integer)
+  * AttributeNames
+    * items
+  * MaxNumberOfMessages
+  * MessageAttributeNames
+    * items
+  * QueueUrl **required**
+  * ReceiveRequestAttemptId
+  * VisibilityTimeout
+  * WaitTimeSeconds
 
 #### Output
 * output [ReceiveMessageResult](#receivemessageresult)
@@ -296,15 +366,15 @@ amazonaws_sqs.ReceiveMessage({
 
 ```js
 amazonaws_sqs.RemovePermission({
-  "QueueUrl": "",
-  "Label": ""
+  "QueueUrl": null,
+  "Label": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Label **required** [String](#string)
-  * QueueUrl **required** [String](#string)
+  * Label **required**
+  * QueueUrl **required**
 
 #### Output
 *Output schema unknown*
@@ -315,19 +385,20 @@ amazonaws_sqs.RemovePermission({
 
 ```js
 amazonaws_sqs.SendMessage({
-  "QueueUrl": "",
-  "MessageBody": ""
+  "QueueUrl": null,
+  "MessageBody": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * DelaySeconds [Integer](#integer)
-  * MessageAttributes [MessageBodyAttributeMap](#messagebodyattributemap)
-  * MessageBody **required** [String](#string)
-  * MessageDeduplicationId [String](#string)
-  * MessageGroupId [String](#string)
-  * QueueUrl **required** [String](#string)
+  * DelaySeconds
+  * MessageAttributes
+  * MessageBody **required**
+  * MessageDeduplicationId
+  * MessageGroupId
+  * MessageSystemAttributes
+  * QueueUrl **required**
 
 #### Output
 * output [SendMessageResult](#sendmessageresult)
@@ -338,15 +409,23 @@ amazonaws_sqs.SendMessage({
 
 ```js
 amazonaws_sqs.SendMessageBatch({
-  "QueueUrl": "",
-  "Entries": []
+  "QueueUrl": null,
+  "Entries": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Entries **required** [SendMessageBatchRequestEntryList](#sendmessagebatchrequestentrylist)
-  * QueueUrl **required** [String](#string)
+  * Entries **required**
+    * items
+      * DelaySeconds
+      * Id **required**
+      * MessageAttributes
+      * MessageBody **required**
+      * MessageDeduplicationId
+      * MessageGroupId
+      * MessageSystemAttributes
+  * QueueUrl **required**
 
 #### Output
 * output [SendMessageBatchResult](#sendmessagebatchresult)
@@ -357,15 +436,15 @@ amazonaws_sqs.SendMessageBatch({
 
 ```js
 amazonaws_sqs.SetQueueAttributes({
-  "QueueUrl": "",
-  "Attributes": []
+  "QueueUrl": null,
+  "Attributes": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Attributes **required** [QueueAttributeMap](#queueattributemap)
-  * QueueUrl **required** [String](#string)
+  * Attributes **required**
+  * QueueUrl **required**
 
 #### Output
 *Output schema unknown*
@@ -376,15 +455,15 @@ amazonaws_sqs.SetQueueAttributes({
 
 ```js
 amazonaws_sqs.TagQueue({
-  "QueueUrl": "",
-  "Tags": []
+  "QueueUrl": null,
+  "Tags": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * QueueUrl **required** [String](#string)
-  * Tags **required** [TagMap](#tagmap)
+  * QueueUrl **required**
+  * Tags **required**
 
 #### Output
 *Output schema unknown*
@@ -395,15 +474,381 @@ amazonaws_sqs.TagQueue({
 
 ```js
 amazonaws_sqs.UntagQueue({
-  "QueueUrl": "",
-  "TagKeys": []
+  "QueueUrl": null,
+  "TagKeys": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * QueueUrl **required** [String](#string)
-  * TagKeys **required** [TagKeyList](#tagkeylist)
+  * QueueUrl **required**
+  * TagKeys **required**
+    * items
+
+#### Output
+*Output schema unknown*
+
+### AddPermission
+
+
+
+```js
+amazonaws_sqs.AddPermission({
+  "Label": "",
+  "AWSAccountIds": [],
+  "Actions": [],
+  "AccountNumber": 0,
+  "QueueName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * Label **required** `string`
+  * AWSAccountIds **required** `array`
+  * Actions **required** `array`
+  * AccountNumber **required** `integer`
+  * QueueName **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### ChangeMessageVisibility
+
+
+
+```js
+amazonaws_sqs.ChangeMessageVisibility({
+  "ReceiptHandle": "",
+  "VisibilityTimeout": 0,
+  "AccountNumber": 0,
+  "QueueName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * ReceiptHandle **required** `string`
+  * VisibilityTimeout **required** `integer`
+  * AccountNumber **required** `integer`
+  * QueueName **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### ChangeMessageVisibilityBatch
+
+
+
+```js
+amazonaws_sqs.ChangeMessageVisibilityBatch({
+  "Entries": [],
+  "AccountNumber": 0,
+  "QueueName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * Entries **required** `array`
+  * AccountNumber **required** `integer`
+  * QueueName **required** `string`
+
+#### Output
+* output [ChangeMessageVisibilityBatchResult](#changemessagevisibilitybatchresult)
+
+### DeleteMessage
+
+
+
+```js
+amazonaws_sqs.DeleteMessage({
+  "ReceiptHandle": "",
+  "AccountNumber": 0,
+  "QueueName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * ReceiptHandle **required** `string`
+  * AccountNumber **required** `integer`
+  * QueueName **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### DeleteMessageBatch
+
+
+
+```js
+amazonaws_sqs.DeleteMessageBatch({
+  "Entries": [],
+  "AccountNumber": 0,
+  "QueueName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * Entries **required** `array`
+  * AccountNumber **required** `integer`
+  * QueueName **required** `string`
+
+#### Output
+* output [DeleteMessageBatchResult](#deletemessagebatchresult)
+
+### DeleteQueue
+
+
+
+```js
+amazonaws_sqs.DeleteQueue({
+  "AccountNumber": 0,
+  "QueueName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * AccountNumber **required** `integer`
+  * QueueName **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### GetQueueAttributes
+
+
+
+```js
+amazonaws_sqs.GetQueueAttributes({
+  "AccountNumber": 0,
+  "QueueName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * AttributeNames `array`
+  * AccountNumber **required** `integer`
+  * QueueName **required** `string`
+
+#### Output
+* output [GetQueueAttributesResult](#getqueueattributesresult)
+
+### ListDeadLetterSourceQueues
+
+
+
+```js
+amazonaws_sqs.ListDeadLetterSourceQueues({
+  "AccountNumber": 0,
+  "QueueName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * NextToken `string`
+  * MaxResults `integer`
+  * AccountNumber **required** `integer`
+  * QueueName **required** `string`
+
+#### Output
+* output [ListDeadLetterSourceQueuesResult](#listdeadlettersourcequeuesresult)
+
+### ListQueueTags
+
+
+
+```js
+amazonaws_sqs.ListQueueTags({
+  "AccountNumber": 0,
+  "QueueName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * AccountNumber **required** `integer`
+  * QueueName **required** `string`
+
+#### Output
+* output [ListQueueTagsResult](#listqueuetagsresult)
+
+### PurgeQueue
+
+
+
+```js
+amazonaws_sqs.PurgeQueue({
+  "AccountNumber": 0,
+  "QueueName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * AccountNumber **required** `integer`
+  * QueueName **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### ReceiveMessage
+
+
+
+```js
+amazonaws_sqs.ReceiveMessage({
+  "AccountNumber": 0,
+  "QueueName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * AttributeNames `array`
+  * MessageAttributeNames `array`
+  * MaxNumberOfMessages `integer`
+  * VisibilityTimeout `integer`
+  * WaitTimeSeconds `integer`
+  * ReceiveRequestAttemptId `string`
+  * AccountNumber **required** `integer`
+  * QueueName **required** `string`
+
+#### Output
+* output [ReceiveMessageResult](#receivemessageresult)
+
+### RemovePermission
+
+
+
+```js
+amazonaws_sqs.RemovePermission({
+  "Label": "",
+  "AccountNumber": 0,
+  "QueueName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * Label **required** `string`
+  * AccountNumber **required** `integer`
+  * QueueName **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### SendMessage
+
+
+
+```js
+amazonaws_sqs.SendMessage({
+  "MessageBody": "",
+  "AccountNumber": 0,
+  "QueueName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * MessageBody **required** `string`
+  * DelaySeconds `integer`
+  * MessageAttribute `object`
+  * MessageSystemAttribute `object`
+  * MessageDeduplicationId `string`
+  * MessageGroupId `string`
+  * AccountNumber **required** `integer`
+  * QueueName **required** `string`
+
+#### Output
+* output [SendMessageResult](#sendmessageresult)
+
+### SendMessageBatch
+
+
+
+```js
+amazonaws_sqs.SendMessageBatch({
+  "Entries": [],
+  "AccountNumber": 0,
+  "QueueName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * Entries **required** `array`
+  * AccountNumber **required** `integer`
+  * QueueName **required** `string`
+
+#### Output
+* output [SendMessageBatchResult](#sendmessagebatchresult)
+
+### SetQueueAttributes
+
+
+
+```js
+amazonaws_sqs.SetQueueAttributes({
+  "Attribute": {},
+  "AccountNumber": 0,
+  "QueueName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * Attribute **required** `object`
+  * AccountNumber **required** `integer`
+  * QueueName **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### TagQueue
+
+
+
+```js
+amazonaws_sqs.TagQueue({
+  "Tags": {},
+  "AccountNumber": 0,
+  "QueueName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * Tags **required** `object`
+  * AccountNumber **required** `integer`
+  * QueueName **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### UntagQueue
+
+
+
+```js
+amazonaws_sqs.UntagQueue({
+  "TagKeys": [],
+  "AccountNumber": 0,
+  "QueueName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * TagKeys **required** `array`
+  * AccountNumber **required** `integer`
+  * QueueName **required** `string`
 
 #### Output
 *Output schema unknown*
@@ -414,383 +859,494 @@ amazonaws_sqs.UntagQueue({
 
 ### AWSAccountIdList
 * AWSAccountIdList `array`
-  * items [String](#string)
+  * items
 
 ### ActionNameList
 * ActionNameList `array`
-  * items [String](#string)
+  * items
 
 ### AddPermissionRequest
 * AddPermissionRequest `object`: <p/>
-  * AWSAccountIds **required** [AWSAccountIdList](#awsaccountidlist)
-  * Actions **required** [ActionNameList](#actionnamelist)
-  * Label **required** [String](#string)
-  * QueueUrl **required** [String](#string)
+  * AWSAccountIds **required**
+    * items
+  * Actions **required**
+    * items
+  * Label **required**
+  * QueueUrl **required**
 
 ### AttributeNameList
 * AttributeNameList `array`
-  * items [QueueAttributeName](#queueattributename)
+  * items
 
 ### BatchEntryIdsNotDistinct
-* BatchEntryIdsNotDistinct `object`: Two or more batch entries in the request have the same <code>Id</code>.
+
 
 ### BatchRequestTooLong
-* BatchRequestTooLong `object`: The length of all the messages put together is more than the limit.
+
 
 ### BatchResultErrorEntry
-* BatchResultErrorEntry `object`: This is used in the responses of batch API to give a detailed description of the result of an action on each entry in the request.
-  * Code **required** [String](#string)
-  * Id **required** [String](#string)
-  * Message [String](#string)
-  * SenderFault **required** [Boolean](#boolean)
+* BatchResultErrorEntry `object`: Gives a detailed description of the result of an action on each entry in the request.
+  * Code **required**
+  * Id **required**
+  * Message
+  * SenderFault **required**
 
 ### BatchResultErrorEntryList
 * BatchResultErrorEntryList `array`
-  * items [BatchResultErrorEntry](#batchresulterrorentry)
+  * items
+    * Code **required**
+    * Id **required**
+    * Message
+    * SenderFault **required**
 
 ### Binary
 * Binary `string`
 
 ### BinaryList
 * BinaryList `array`
-  * items [Binary](#binary)
+  * items
 
 ### Boolean
 * Boolean `boolean`
 
+### BoxedInteger
+* BoxedInteger `integer`
+
 ### ChangeMessageVisibilityBatchRequest
 * ChangeMessageVisibilityBatchRequest `object`: <p/>
-  * Entries **required** [ChangeMessageVisibilityBatchRequestEntryList](#changemessagevisibilitybatchrequestentrylist)
-  * QueueUrl **required** [String](#string)
+  * Entries **required**
+    * items
+      * Id **required**
+      * ReceiptHandle **required**
+      * VisibilityTimeout
+  * QueueUrl **required**
 
 ### ChangeMessageVisibilityBatchRequestEntry
-* ChangeMessageVisibilityBatchRequestEntry `object`: <p>Encloses a receipt handle and an entry id for each message in <code> <a>ChangeMessageVisibilityBatch</a>.</code> </p> <important> <p>All of the following list parameters must be prefixed with <code>ChangeMessageVisibilityBatchRequestEntry.n</code>, where <code>n</code> is an integer value starting with <code>1</code>. For example, a parameter list for this action might look like this:</p> </important> <p> <code>&amp;amp;ChangeMessageVisibilityBatchRequestEntry.1.Id=change_visibility_msg_2</code> </p> <p> <code>&amp;amp;ChangeMessageVisibilityBatchRequestEntry.1.ReceiptHandle=&lt;replaceable&gt;Your_Receipt_Handle&lt;/replaceable&gt;</code> </p> <p> <code>&amp;amp;ChangeMessageVisibilityBatchRequestEntry.1.VisibilityTimeout=45</code> </p>
-  * Id **required** [String](#string)
-  * ReceiptHandle **required** [String](#string)
-  * VisibilityTimeout [Integer](#integer)
+* ChangeMessageVisibilityBatchRequestEntry `object`: <p>Encloses a receipt handle and an entry id for each message in <code> <a>ChangeMessageVisibilityBatch</a>.</code> </p> <important> <p>All of the following list parameters must be prefixed with <code>ChangeMessageVisibilityBatchRequestEntry.n</code>, where <code>n</code> is an integer value starting with <code>1</code>. For example, a parameter list for this action might look like this:</p> </important> <p> <code>&amp;ChangeMessageVisibilityBatchRequestEntry.1.Id=change_visibility_msg_2</code> </p> <p> <code>&amp;ChangeMessageVisibilityBatchRequestEntry.1.ReceiptHandle=your_receipt_handle</code> </p> <p> <code>&amp;ChangeMessageVisibilityBatchRequestEntry.1.VisibilityTimeout=45</code> </p>
+  * Id **required**
+  * ReceiptHandle **required**
+  * VisibilityTimeout
 
 ### ChangeMessageVisibilityBatchRequestEntryList
 * ChangeMessageVisibilityBatchRequestEntryList `array`
-  * items [ChangeMessageVisibilityBatchRequestEntry](#changemessagevisibilitybatchrequestentry)
+  * items
+    * Id **required**
+    * ReceiptHandle **required**
+    * VisibilityTimeout
 
 ### ChangeMessageVisibilityBatchResult
 * ChangeMessageVisibilityBatchResult `object`: For each message in the batch, the response contains a <code> <a>ChangeMessageVisibilityBatchResultEntry</a> </code> tag if the message succeeds or a <code> <a>BatchResultErrorEntry</a> </code> tag if the message fails.
-  * Failed **required** [BatchResultErrorEntryList](#batchresulterrorentrylist)
-  * Successful **required** [ChangeMessageVisibilityBatchResultEntryList](#changemessagevisibilitybatchresultentrylist)
+  * Failed **required**
+    * items
+      * Code **required**
+      * Id **required**
+      * Message
+      * SenderFault **required**
+  * Successful **required**
+    * items
+      * Id **required**
 
 ### ChangeMessageVisibilityBatchResultEntry
 * ChangeMessageVisibilityBatchResultEntry `object`: Encloses the <code>Id</code> of an entry in <code> <a>ChangeMessageVisibilityBatch</a>.</code> 
-  * Id **required** [String](#string)
+  * Id **required**
 
 ### ChangeMessageVisibilityBatchResultEntryList
 * ChangeMessageVisibilityBatchResultEntryList `array`
-  * items [ChangeMessageVisibilityBatchResultEntry](#changemessagevisibilitybatchresultentry)
+  * items
+    * Id **required**
 
 ### ChangeMessageVisibilityRequest
 * ChangeMessageVisibilityRequest `object`
-  * QueueUrl **required** [String](#string)
-  * ReceiptHandle **required** [String](#string)
-  * VisibilityTimeout **required** [Integer](#integer)
+  * QueueUrl **required**
+  * ReceiptHandle **required**
+  * VisibilityTimeout **required**
 
 ### CreateQueueRequest
 * CreateQueueRequest `object`: <p/>
-  * Attributes [QueueAttributeMap](#queueattributemap)
-  * QueueName **required** [String](#string)
+  * tags
+  * Attributes
+  * QueueName **required**
 
 ### CreateQueueResult
 * CreateQueueResult `object`: Returns the <code>QueueUrl</code> attribute of the created queue.
-  * QueueUrl [String](#string)
+  * QueueUrl
 
 ### DeleteMessageBatchRequest
 * DeleteMessageBatchRequest `object`: <p/>
-  * Entries **required** [DeleteMessageBatchRequestEntryList](#deletemessagebatchrequestentrylist)
-  * QueueUrl **required** [String](#string)
+  * Entries **required**
+    * items
+      * Id **required**
+      * ReceiptHandle **required**
+  * QueueUrl **required**
 
 ### DeleteMessageBatchRequestEntry
 * DeleteMessageBatchRequestEntry `object`: Encloses a receipt handle and an identifier for it.
-  * Id **required** [String](#string)
-  * ReceiptHandle **required** [String](#string)
+  * Id **required**
+  * ReceiptHandle **required**
 
 ### DeleteMessageBatchRequestEntryList
 * DeleteMessageBatchRequestEntryList `array`
-  * items [DeleteMessageBatchRequestEntry](#deletemessagebatchrequestentry)
+  * items
+    * Id **required**
+    * ReceiptHandle **required**
 
 ### DeleteMessageBatchResult
 * DeleteMessageBatchResult `object`: For each message in the batch, the response contains a <code> <a>DeleteMessageBatchResultEntry</a> </code> tag if the message is deleted or a <code> <a>BatchResultErrorEntry</a> </code> tag if the message can't be deleted.
-  * Failed **required** [BatchResultErrorEntryList](#batchresulterrorentrylist)
-  * Successful **required** [DeleteMessageBatchResultEntryList](#deletemessagebatchresultentrylist)
+  * Failed **required**
+    * items
+      * Code **required**
+      * Id **required**
+      * Message
+      * SenderFault **required**
+  * Successful **required**
+    * items
+      * Id **required**
 
 ### DeleteMessageBatchResultEntry
 * DeleteMessageBatchResultEntry `object`: Encloses the <code>Id</code> of an entry in <code> <a>DeleteMessageBatch</a>.</code> 
-  * Id **required** [String](#string)
+  * Id **required**
 
 ### DeleteMessageBatchResultEntryList
 * DeleteMessageBatchResultEntryList `array`
-  * items [DeleteMessageBatchResultEntry](#deletemessagebatchresultentry)
+  * items
+    * Id **required**
 
 ### DeleteMessageRequest
 * DeleteMessageRequest `object`: <p/>
-  * QueueUrl **required** [String](#string)
-  * ReceiptHandle **required** [String](#string)
+  * QueueUrl **required**
+  * ReceiptHandle **required**
 
 ### DeleteQueueRequest
 * DeleteQueueRequest `object`: <p/>
-  * QueueUrl **required** [String](#string)
+  * QueueUrl **required**
 
 ### EmptyBatchRequest
-* EmptyBatchRequest `object`: The batch request doesn't contain any entries.
+
 
 ### GetQueueAttributesRequest
 * GetQueueAttributesRequest `object`: <p/>
-  * AttributeNames [AttributeNameList](#attributenamelist)
-  * QueueUrl **required** [String](#string)
+  * AttributeNames
+    * items
+  * QueueUrl **required**
 
 ### GetQueueAttributesResult
 * GetQueueAttributesResult `object`: A list of returned queue attributes.
-  * Attributes [QueueAttributeMap](#queueattributemap)
+  * Attributes
 
 ### GetQueueUrlRequest
 * GetQueueUrlRequest `object`: <p/>
-  * QueueName **required** [String](#string)
-  * QueueOwnerAWSAccountId [String](#string)
+  * QueueName **required**
+  * QueueOwnerAWSAccountId
 
 ### GetQueueUrlResult
-* GetQueueUrlResult `object`: For more information, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/UnderstandingResponses.html">Responses</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.
-  * QueueUrl [String](#string)
+* GetQueueUrlResult `object`: For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-api-responses.html">Interpreting Responses</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.
+  * QueueUrl
 
 ### Integer
 * Integer `integer`
 
 ### InvalidAttributeName
-* InvalidAttributeName `object`: The attribute referred to doesn't exist.
+
 
 ### InvalidBatchEntryId
-* InvalidBatchEntryId `object`: The <code>Id</code> of a batch entry in a batch request doesn't abide by the specification.
+
 
 ### InvalidIdFormat
-* InvalidIdFormat `object`: The receipt handle isn't valid for the current version.
+
 
 ### InvalidMessageContents
-* InvalidMessageContents `object`: The message contains characters outside the allowed set.
+
 
 ### ListDeadLetterSourceQueuesRequest
 * ListDeadLetterSourceQueuesRequest `object`: <p/>
-  * QueueUrl **required** [String](#string)
+  * MaxResults
+  * NextToken
+  * QueueUrl **required**
 
 ### ListDeadLetterSourceQueuesResult
 * ListDeadLetterSourceQueuesResult `object`: A list of your dead letter source queues.
-  * queueUrls **required** [QueueUrlList](#queueurllist)
+  * NextToken
+  * queueUrls **required**
+    * items
 
 ### ListQueueTagsRequest
 * ListQueueTagsRequest `object`
-  * QueueUrl **required** [String](#string)
+  * QueueUrl **required**
 
 ### ListQueueTagsResult
 * ListQueueTagsResult `object`
-  * Tags [TagMap](#tagmap)
+  * Tags
 
 ### ListQueuesRequest
 * ListQueuesRequest `object`: <p/>
-  * QueueNamePrefix [String](#string)
+  * MaxResults
+  * NextToken
+  * QueueNamePrefix
 
 ### ListQueuesResult
 * ListQueuesResult `object`: A list of your queues.
-  * QueueUrls [QueueUrlList](#queueurllist)
+  * NextToken
+  * QueueUrls
+    * items
 
 ### Message
 * Message `object`: An Amazon SQS message.
-  * Attributes [MessageSystemAttributeMap](#messagesystemattributemap)
-  * Body [String](#string)
-  * MD5OfBody [String](#string)
-  * MD5OfMessageAttributes [String](#string)
-  * MessageAttributes [MessageBodyAttributeMap](#messagebodyattributemap)
-  * MessageId [String](#string)
-  * ReceiptHandle [String](#string)
+  * Attributes
+  * Body
+  * MD5OfBody
+  * MD5OfMessageAttributes
+  * MessageAttributes
+  * MessageId
+  * ReceiptHandle
 
 ### MessageAttributeName
 * MessageAttributeName `string`
 
 ### MessageAttributeNameList
 * MessageAttributeNameList `array`
-  * items [MessageAttributeName](#messageattributename)
+  * items
 
 ### MessageAttributeValue
 * MessageAttributeValue `object`: <p>The user-specified message attribute value. For string data types, the <code>Value</code> attribute has the same restrictions on the content as the message body. For more information, see <code> <a>SendMessage</a>.</code> </p> <p> <code>Name</code>, <code>type</code>, <code>value</code> and the message body must not be empty or null. All parts of the message attribute, including <code>Name</code>, <code>Type</code>, and <code>Value</code>, are part of the message size restriction (256 KB or 262,144 bytes).</p>
-  * BinaryListValues [BinaryList](#binarylist)
-  * BinaryValue [Binary](#binary)
-  * DataType **required** [String](#string)
-  * StringListValues [StringList](#stringlist)
-  * StringValue [String](#string)
+  * BinaryListValues
+    * items
+  * BinaryValue
+  * DataType **required**
+  * StringListValues
+    * items
+  * StringValue
 
 ### MessageBodyAttributeMap
-* MessageBodyAttributeMap `array`
-  * items `object`
-    * key [String](#string)
-    * value [MessageAttributeValue](#messageattributevalue)
+* MessageBodyAttributeMap `object`
+
+### MessageBodySystemAttributeMap
+* MessageBodySystemAttributeMap `object`
 
 ### MessageList
 * MessageList `array`
-  * items [Message](#message)
+  * items
+    * Attributes
+    * Body
+    * MD5OfBody
+    * MD5OfMessageAttributes
+    * MessageAttributes
+    * MessageId
+    * ReceiptHandle
 
 ### MessageNotInflight
-* MessageNotInflight `object`: The message referred to isn't in flight.
+
 
 ### MessageSystemAttributeMap
-* MessageSystemAttributeMap `array`
-  * items `object`
-    * key [MessageSystemAttributeName](#messagesystemattributename)
-    * value [String](#string)
+* MessageSystemAttributeMap `object`
 
 ### MessageSystemAttributeName
-* MessageSystemAttributeName `string` (values: SenderId, SentTimestamp, ApproximateReceiveCount, ApproximateFirstReceiveTimestamp, SequenceNumber, MessageDeduplicationId, MessageGroupId)
+* MessageSystemAttributeName `string` (values: SenderId, SentTimestamp, ApproximateReceiveCount, ApproximateFirstReceiveTimestamp, SequenceNumber, MessageDeduplicationId, MessageGroupId, AWSTraceHeader)
+
+### MessageSystemAttributeNameForSends
+* MessageSystemAttributeNameForSends `string` (values: AWSTraceHeader)
+
+### MessageSystemAttributeValue
+* MessageSystemAttributeValue `object`: <p>The user-specified message system attribute value. For string data types, the <code>Value</code> attribute has the same restrictions on the content as the message body. For more information, see <code> <a>SendMessage</a>.</code> </p> <p> <code>Name</code>, <code>type</code>, <code>value</code> and the message body must not be empty or null.</p>
+  * BinaryListValues
+    * items
+  * BinaryValue
+  * DataType **required**
+  * StringListValues
+    * items
+  * StringValue
 
 ### OverLimit
-* OverLimit `object`: The action that you requested would violate a limit. For example, <code>ReceiveMessage</code> returns this error if the maximum number of inflight messages is reached. <code> <a>AddPermission</a> </code> returns this error if the maximum number of permissions for the queue is reached.
+
 
 ### PurgeQueueInProgress
-* PurgeQueueInProgress `object`: Indicates that the specified queue previously received a <code>PurgeQueue</code> request within the last 60 seconds (the time it can take to delete the messages in the queue).
+
 
 ### PurgeQueueRequest
 * PurgeQueueRequest `object`: <p/>
-  * QueueUrl **required** [String](#string)
+  * QueueUrl **required**
 
 ### QueueAttributeMap
-* QueueAttributeMap `array`
-  * items `object`
-    * key [QueueAttributeName](#queueattributename)
-    * value [String](#string)
+* QueueAttributeMap `object`
 
 ### QueueAttributeName
-* QueueAttributeName `string` (values: All, Policy, VisibilityTimeout, MaximumMessageSize, MessageRetentionPeriod, ApproximateNumberOfMessages, ApproximateNumberOfMessagesNotVisible, CreatedTimestamp, LastModifiedTimestamp, QueueArn, ApproximateNumberOfMessagesDelayed, DelaySeconds, ReceiveMessageWaitTimeSeconds, RedrivePolicy, FifoQueue, ContentBasedDeduplication, KmsMasterKeyId, KmsDataKeyReusePeriodSeconds)
+* QueueAttributeName `string` (values: All, Policy, VisibilityTimeout, MaximumMessageSize, MessageRetentionPeriod, ApproximateNumberOfMessages, ApproximateNumberOfMessagesNotVisible, CreatedTimestamp, LastModifiedTimestamp, QueueArn, ApproximateNumberOfMessagesDelayed, DelaySeconds, ReceiveMessageWaitTimeSeconds, RedrivePolicy, FifoQueue, ContentBasedDeduplication, KmsMasterKeyId, KmsDataKeyReusePeriodSeconds, DeduplicationScope, FifoThroughputLimit)
 
 ### QueueDeletedRecently
-* QueueDeletedRecently `object`: You must wait 60 seconds after deleting a queue before you can create another one with the same name.
+
 
 ### QueueDoesNotExist
-* QueueDoesNotExist `object`: The queue referred to doesn't exist.
+
 
 ### QueueNameExists
-* QueueNameExists `object`: A queue already exists with this name. Amazon SQS returns this error only if the request includes attributes whose values differ from those of the existing queue.
+
 
 ### QueueUrlList
 * QueueUrlList `array`
-  * items [String](#string)
+  * items
 
 ### ReceiptHandleIsInvalid
-* ReceiptHandleIsInvalid `object`: The receipt handle provided isn't valid.
+
 
 ### ReceiveMessageRequest
 * ReceiveMessageRequest `object`: <p/>
-  * AttributeNames [AttributeNameList](#attributenamelist)
-  * MaxNumberOfMessages [Integer](#integer)
-  * MessageAttributeNames [MessageAttributeNameList](#messageattributenamelist)
-  * QueueUrl **required** [String](#string)
-  * ReceiveRequestAttemptId [String](#string)
-  * VisibilityTimeout [Integer](#integer)
-  * WaitTimeSeconds [Integer](#integer)
+  * AttributeNames
+    * items
+  * MaxNumberOfMessages
+  * MessageAttributeNames
+    * items
+  * QueueUrl **required**
+  * ReceiveRequestAttemptId
+  * VisibilityTimeout
+  * WaitTimeSeconds
 
 ### ReceiveMessageResult
 * ReceiveMessageResult `object`: A list of received messages.
-  * Messages [MessageList](#messagelist)
+  * Messages
+    * items
+      * Attributes
+      * Body
+      * MD5OfBody
+      * MD5OfMessageAttributes
+      * MessageAttributes
+      * MessageId
+      * ReceiptHandle
 
 ### RemovePermissionRequest
 * RemovePermissionRequest `object`: <p/>
-  * Label **required** [String](#string)
-  * QueueUrl **required** [String](#string)
+  * Label **required**
+  * QueueUrl **required**
 
 ### SendMessageBatchRequest
 * SendMessageBatchRequest `object`: <p/>
-  * Entries **required** [SendMessageBatchRequestEntryList](#sendmessagebatchrequestentrylist)
-  * QueueUrl **required** [String](#string)
+  * Entries **required**
+    * items
+      * DelaySeconds
+      * Id **required**
+      * MessageAttributes
+      * MessageBody **required**
+      * MessageDeduplicationId
+      * MessageGroupId
+      * MessageSystemAttributes
+  * QueueUrl **required**
 
 ### SendMessageBatchRequestEntry
 * SendMessageBatchRequestEntry `object`: Contains the details of a single Amazon SQS message along with an <code>Id</code>.
-  * DelaySeconds [Integer](#integer)
-  * Id **required** [String](#string)
-  * MessageAttributes [MessageBodyAttributeMap](#messagebodyattributemap)
-  * MessageBody **required** [String](#string)
-  * MessageDeduplicationId [String](#string)
-  * MessageGroupId [String](#string)
+  * DelaySeconds
+  * Id **required**
+  * MessageAttributes
+  * MessageBody **required**
+  * MessageDeduplicationId
+  * MessageGroupId
+  * MessageSystemAttributes
 
 ### SendMessageBatchRequestEntryList
 * SendMessageBatchRequestEntryList `array`
-  * items [SendMessageBatchRequestEntry](#sendmessagebatchrequestentry)
+  * items
+    * DelaySeconds
+    * Id **required**
+    * MessageAttributes
+    * MessageBody **required**
+    * MessageDeduplicationId
+    * MessageGroupId
+    * MessageSystemAttributes
 
 ### SendMessageBatchResult
 * SendMessageBatchResult `object`: For each message in the batch, the response contains a <code> <a>SendMessageBatchResultEntry</a> </code> tag if the message succeeds or a <code> <a>BatchResultErrorEntry</a> </code> tag if the message fails.
-  * Failed **required** [BatchResultErrorEntryList](#batchresulterrorentrylist)
-  * Successful **required** [SendMessageBatchResultEntryList](#sendmessagebatchresultentrylist)
+  * Failed **required**
+    * items
+      * Code **required**
+      * Id **required**
+      * Message
+      * SenderFault **required**
+  * Successful **required**
+    * items
+      * Id **required**
+      * MD5OfMessageAttributes
+      * MD5OfMessageBody **required**
+      * MD5OfMessageSystemAttributes
+      * MessageId **required**
+      * SequenceNumber
 
 ### SendMessageBatchResultEntry
 * SendMessageBatchResultEntry `object`: Encloses a <code>MessageId</code> for a successfully-enqueued message in a <code> <a>SendMessageBatch</a>.</code> 
-  * Id **required** [String](#string)
-  * MD5OfMessageAttributes [String](#string)
-  * MD5OfMessageBody **required** [String](#string)
-  * MessageId **required** [String](#string)
-  * SequenceNumber [String](#string)
+  * Id **required**
+  * MD5OfMessageAttributes
+  * MD5OfMessageBody **required**
+  * MD5OfMessageSystemAttributes
+  * MessageId **required**
+  * SequenceNumber
 
 ### SendMessageBatchResultEntryList
 * SendMessageBatchResultEntryList `array`
-  * items [SendMessageBatchResultEntry](#sendmessagebatchresultentry)
+  * items
+    * Id **required**
+    * MD5OfMessageAttributes
+    * MD5OfMessageBody **required**
+    * MD5OfMessageSystemAttributes
+    * MessageId **required**
+    * SequenceNumber
 
 ### SendMessageRequest
 * SendMessageRequest `object`: <p/>
-  * DelaySeconds [Integer](#integer)
-  * MessageAttributes [MessageBodyAttributeMap](#messagebodyattributemap)
-  * MessageBody **required** [String](#string)
-  * MessageDeduplicationId [String](#string)
-  * MessageGroupId [String](#string)
-  * QueueUrl **required** [String](#string)
+  * DelaySeconds
+  * MessageAttributes
+  * MessageBody **required**
+  * MessageDeduplicationId
+  * MessageGroupId
+  * MessageSystemAttributes
+  * QueueUrl **required**
 
 ### SendMessageResult
 * SendMessageResult `object`: The <code>MD5OfMessageBody</code> and <code>MessageId</code> elements.
-  * MD5OfMessageAttributes [String](#string)
-  * MD5OfMessageBody [String](#string)
-  * MessageId [String](#string)
-  * SequenceNumber [String](#string)
+  * MD5OfMessageAttributes
+  * MD5OfMessageBody
+  * MD5OfMessageSystemAttributes
+  * MessageId
+  * SequenceNumber
 
 ### SetQueueAttributesRequest
 * SetQueueAttributesRequest `object`: <p/>
-  * Attributes **required** [QueueAttributeMap](#queueattributemap)
-  * QueueUrl **required** [String](#string)
+  * Attributes **required**
+  * QueueUrl **required**
 
 ### String
 * String `string`
 
 ### StringList
 * StringList `array`
-  * items [String](#string)
+  * items
 
 ### TagKey
 * TagKey `string`
 
 ### TagKeyList
 * TagKeyList `array`
-  * items [TagKey](#tagkey)
+  * items
 
 ### TagMap
-* TagMap `array`
-  * items `object`
-    * key [TagKey](#tagkey)
-    * value [TagValue](#tagvalue)
+* TagMap `object`
 
 ### TagQueueRequest
 * TagQueueRequest `object`
-  * QueueUrl **required** [String](#string)
-  * Tags **required** [TagMap](#tagmap)
+  * QueueUrl **required**
+  * Tags **required**
 
 ### TagValue
 * TagValue `string`
 
+### Token
+* Token `string`
+
 ### TooManyEntriesInBatchRequest
-* TooManyEntriesInBatchRequest `object`: The batch request contains more entries than permissible.
+
 
 ### UnsupportedOperation
-* UnsupportedOperation `object`: Error code 400. Unsupported operation.
+
 
 ### UntagQueueRequest
 * UntagQueueRequest `object`
-  * QueueUrl **required** [String](#string)
-  * TagKeys **required** [TagKeyList](#tagkeylist)
+  * QueueUrl **required**
+  * TagKeys **required**
+    * items
 
 

@@ -6,7 +6,7 @@
   "host": "api.nativeads.com",
   "info": {
     "description": "This is a Native Ads Publisher API it provides same functionality as Native Ads Publisher Account GUI.\n",
-    "title": "Native Ads Publisher",
+    "title": "Native Ads Publisher API",
     "version": "1.0.0",
     "x-apisguru-categories": [
       "marketing"
@@ -50,6 +50,9 @@
             "required": true,
             "type": "string"
           }
+        ],
+        "produces": [
+          "application/json"
         ],
         "responses": {
           "200": {
@@ -117,6 +120,9 @@
             "type": "integer"
           }
         ],
+        "produces": [
+          "application/json"
+        ],
         "responses": {
           "200": {
             "description": "report response",
@@ -183,6 +189,9 @@
             "type": "integer"
           }
         ],
+        "produces": [
+          "application/json"
+        ],
         "responses": {
           "200": {
             "description": "report response",
@@ -248,6 +257,9 @@
             "required": true,
             "type": "integer"
           }
+        ],
+        "produces": [
+          "application/json"
         ],
         "responses": {
           "200": {

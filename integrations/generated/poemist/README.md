@@ -1,6 +1,6 @@
 # @datafire/poemist
 
-Client library for Poemist
+Client library for Poemist API
 
 ## Installation and Usage
 ```bash
@@ -9,7 +9,7 @@ npm install --save @datafire/poemist
 ```js
 let poemist = require('@datafire/poemist').create();
 
-poemist.randompoems(null).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

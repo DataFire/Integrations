@@ -1,6 +1,6 @@
 {
   "name": "@datafire/etmdb",
-  "version": "5.0.0",
+  "version": "6.0.0",
   "main": "index.js",
   "description": "DataFire integration for EtMDB REST API v1",
   "repository": {
@@ -14,8 +14,8 @@
   },
   "homepage": "https://github.com/DataFire/integrations#readme",
   "datafire": {
-    "origin": "https://api.apis.guru/v2/specs/etmdb.com/1.0.0/swagger.json",
-    "type": "openapi"
+    "origin": "https://api.apis.guru/v2/specs/etmdb.com/1.0.0/openapi.json",
+    "type": "openapi_3"
   },
   "peerDependencies": {
     "datafire": "^2.0.0"

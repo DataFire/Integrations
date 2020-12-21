@@ -1,6 +1,6 @@
 # @datafire/nytimes_semantic_api
 
-Client library for Semantic
+Client library for Semantic API
 
 ## Installation and Usage
 ```bash
@@ -11,11 +11,7 @@ let nytimes_semantic_api = require('@datafire/nytimes_semantic_api').create({
   apikey: ""
 });
 
-nytimes_semantic_api.name.concept_type.specific_concept.json.get({
-  "concept-type": "",
-  "specific-concept": "",
-  "query": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -95,11 +91,8 @@ nytimes_semantic_api.search.json.get({
         * byline `string`
         * concepts `object`
           * nytd_des `array`
-            * items `string`
           * nytd_org `array`
-            * items `string`
           * nytd_per `array`
-            * items `string`
         * date `string`
         * document_type `string`
         * title `string`

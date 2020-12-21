@@ -15,10 +15,7 @@ let azure_trafficmanager_trafficmanageranalytics = require('@datafire/azure_traf
   redirect_uri: ""
 });
 
-azure_trafficmanager_trafficmanageranalytics.TrafficManagerUserMetricsKeys_Delete({
-  "api-version": "",
-  "subscriptionId": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -143,7 +140,7 @@ azure_trafficmanager_trafficmanageranalytics.HeatMap_Get({
   * properties [HeatMapProperties](#heatmapproperties)
   * id `string`: Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{resourceName}
   * name `string`: The name of the resource
-  * type `string`: The type of the resource. Ex- Microsoft.Network/trafficmanagerProfiles.
+  * type `string`: The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
 
 ### HeatMapProperties
 * HeatMapProperties `object`: Class representing a Traffic Manager HeatMap properties.
@@ -158,7 +155,7 @@ azure_trafficmanager_trafficmanageranalytics.HeatMap_Get({
 * ProxyResource: The resource model definition for a ARM proxy resource. It will have everything other than required location and tags
   * id `string`: Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{resourceName}
   * name `string`: The name of the resource
-  * type `string`: The type of the resource. Ex- Microsoft.Network/trafficmanagerProfiles.
+  * type `string`: The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
 
 ### QueryExperience
 * QueryExperience `object`: Class representing a Traffic Manager HeatMap query experience properties.
@@ -170,7 +167,7 @@ azure_trafficmanager_trafficmanageranalytics.HeatMap_Get({
 * Resource `object`: The core properties of ARM resources
   * id `string`: Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{resourceName}
   * name `string`: The name of the resource
-  * type `string`: The type of the resource. Ex- Microsoft.Network/trafficmanagerProfiles.
+  * type `string`: The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
 
 ### TrackedResource
 * TrackedResource `object`: The resource model definition for a ARM tracked top level resource
@@ -178,7 +175,7 @@ azure_trafficmanager_trafficmanageranalytics.HeatMap_Get({
   * tags `object`: Resource tags.
   * id `string`: Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{resourceName}
   * name `string`: The name of the resource
-  * type `string`: The type of the resource. Ex- Microsoft.Network/trafficmanagerProfiles.
+  * type `string`: The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
 
 ### TrafficFlow
 * TrafficFlow `object`: Class representing a Traffic Manager HeatMap traffic flow properties.
@@ -196,6 +193,6 @@ azure_trafficmanager_trafficmanageranalytics.HeatMap_Get({
   * type `string`: The type of the resource. Ex- Microsoft.Network/trafficManagerUserMetricsKeys.
   * id `string`: Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{resourceName}
   * name `string`: The name of the resource
-  * type `string`: The type of the resource. Ex- Microsoft.Network/trafficmanagerProfiles.
+  * type `string`: The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
 
 

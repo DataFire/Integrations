@@ -1,6 +1,6 @@
 {
   "name": "@datafire/cenit",
-  "version": "5.0.0",
+  "version": "6.0.0",
   "main": "index.js",
   "description": "DataFire integration for Cenit IO - REST API Specification",
   "repository": {

@@ -1,0 +1,712 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "contact": {
+      "email": "mike.ralphson@gmail.com",
+      "name": "Mike Ralphson",
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
+    },
+    "description": "<p>Contact Lens for Amazon Connect enables you to analyze conversations between customer and agents, by using speech transcription, natural language processing, and intelligent search capabilities. It performs sentiment analysis, detects issues, and enables you to automatically categorize contacts.</p> <p>Contact Lens for Amazon Connect provides both real-time and post-call analytics of customer-agent conversations. For more information, see <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/analyze-conversations.html\">Analyze conversations using Contact Lens</a> in the <i>Amazon Connect Administrator Guide</i>. </p>",
+    "license": {
+      "name": "Apache 2.0 License",
+      "url": "http://www.apache.org/licenses/"
+    },
+    "termsOfService": "https://aws.amazon.com/service-terms/",
+    "title": "Amazon Connect Contact Lens",
+    "version": "2020-08-21",
+    "x-apiClientRegistration": {
+      "url": "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"
+    },
+    "x-apisguru-categories": [
+      "cloud"
+    ],
+    "x-logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"
+    },
+    "x-origin": [
+      {
+        "contentType": "application/json",
+        "converter": {
+          "url": "https://github.com/mermade/aws2openapi",
+          "version": "1.0.0"
+        },
+        "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/connect-contact-lens-2020-08-21.normal.json",
+        "x-apisguru-driver": "external"
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "amazonaws.com",
+    "x-release": "v4",
+    "x-serviceName": "connect-contact-lens",
+    "x-datafire": {
+      "name": "amazonaws_connect_contact_lens",
+      "type": "openapi"
+    }
+  },
+  "host": "contact-lens.us-east-1.amazonaws.com",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/realtime-contact-analysis/analysis-segments": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "ContactId": {
+                  "description": "The identifier of the contact.",
+                  "maxLength": 256,
+                  "minLength": 1,
+                  "pattern": ".*\\S.*",
+                  "type": "string"
+                },
+                "InstanceId": {
+                  "description": "The identifier of the Amazon Connect instance.",
+                  "maxLength": 256,
+                  "minLength": 1,
+                  "pattern": ".*\\S.*",
+                  "type": "string"
+                },
+                "MaxResults": {
+                  "description": "The maximimum number of results to return per page.",
+                  "maximum": 100,
+                  "minimum": 1,
+                  "type": "integer"
+                },
+                "NextToken": {
+                  "description": "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.",
+                  "maxLength": 131070,
+                  "minLength": 1,
+                  "pattern": ".*\\S.*",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "InstanceId",
+                "ContactId"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListRealtimeContactAnalysisSegmentsResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "InternalServiceException",
+            "schema": {
+              "$ref": "#/definitions/InternalServiceException"
+            }
+          },
+          "484": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          }
+        },
+        "description": "Provides a list of analysis segments for a real-time analysis session.",
+        "operationId": "ListRealtimeContactAnalysisSegments"
+      }
+    }
+  },
+  "definitions": {
+    "AccessDeniedException": {},
+    "Categories": {
+      "description": "Provides the category rules that are used to automatically categorize contacts based on uttered keywords and phrases.",
+      "properties": {
+        "MatchedCategories": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MatchedCategories"
+            },
+            {
+              "description": "The category rules that have been matched in the analyzed segment."
+            }
+          ]
+        },
+        "MatchedDetails": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MatchedDetails"
+            },
+            {
+              "description": "The category rule that was matched and when it occurred in the transcript."
+            }
+          ]
+        }
+      },
+      "required": [
+        "MatchedCategories",
+        "MatchedDetails"
+      ],
+      "type": "object"
+    },
+    "CategoryDetails": {
+      "description": "Provides information about the category rule that was matched.",
+      "properties": {
+        "PointsOfInterest": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PointsOfInterest"
+            },
+            {
+              "description": "The section of audio where the category rule was detected."
+            }
+          ]
+        }
+      },
+      "required": [
+        "PointsOfInterest"
+      ],
+      "type": "object"
+    },
+    "CategoryName": {
+      "maxLength": 256,
+      "minLength": 1,
+      "pattern": ".*\\S.*",
+      "type": "string"
+    },
+    "CharacterOffset": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "CharacterOffsets": {
+      "description": "For characters that were detected as issues, where they occur in the transcript.",
+      "properties": {
+        "BeginOffsetChar": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CharacterOffset"
+            },
+            {
+              "description": "The beginning of the issue."
+            }
+          ]
+        },
+        "EndOffsetChar": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CharacterOffset"
+            },
+            {
+              "description": "The end of the issue."
+            }
+          ]
+        }
+      },
+      "required": [
+        "BeginOffsetChar",
+        "EndOffsetChar"
+      ],
+      "type": "object"
+    },
+    "ContactId": {
+      "maxLength": 256,
+      "minLength": 1,
+      "pattern": ".*\\S.*",
+      "type": "string"
+    },
+    "InstanceId": {
+      "maxLength": 256,
+      "minLength": 1,
+      "pattern": ".*\\S.*",
+      "type": "string"
+    },
+    "InternalServiceException": {},
+    "InvalidRequestException": {},
+    "IssueDetected": {
+      "description": "Potential issues that are detected based on an artificial intelligence analysis of each turn in the conversation.",
+      "properties": {
+        "CharacterOffsets": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CharacterOffsets"
+            },
+            {
+              "description": "The offset for when the issue was detected in the segment."
+            }
+          ]
+        }
+      },
+      "required": [
+        "CharacterOffsets"
+      ],
+      "type": "object"
+    },
+    "IssuesDetected": {
+      "items": {
+        "$ref": "#/definitions/IssueDetected"
+      },
+      "maxItems": 20,
+      "minItems": 0,
+      "type": "array"
+    },
+    "ListRealtimeContactAnalysisSegmentsRequest": {
+      "properties": {
+        "ContactId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ContactId"
+            },
+            {
+              "description": "The identifier of the contact."
+            }
+          ]
+        },
+        "InstanceId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InstanceId"
+            },
+            {
+              "description": "The identifier of the Amazon Connect instance."
+            }
+          ]
+        },
+        "MaxResults": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MaxResults"
+            },
+            {
+              "description": "The maximimum number of results to return per page."
+            }
+          ]
+        },
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NextToken"
+            },
+            {
+              "description": "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results."
+            }
+          ]
+        }
+      },
+      "required": [
+        "InstanceId",
+        "ContactId"
+      ],
+      "title": "ListRealtimeContactAnalysisSegmentsRequest",
+      "type": "object"
+    },
+    "ListRealtimeContactAnalysisSegmentsResponse": {
+      "properties": {
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NextToken"
+            },
+            {
+              "description": "<p>If there are additional results, this is the token for the next set of results. If response includes <code>nextToken</code> there are two possible scenarios:</p> <ul> <li> <p>There are more segments so another call is required to get them.</p> </li> <li> <p>There are no more segments at this time, but more may be available later (real-time analysis is in progress) so the client should call the operation again to get new segments.</p> </li> </ul> <p>If response does not include <code>nextToken</code>, the analysis is completed (successfully or failed) and there are no more segments to retrieve.</p>"
+            }
+          ]
+        },
+        "Segments": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RealtimeContactAnalysisSegments"
+            },
+            {
+              "description": "An analyzed transcript or category."
+            }
+          ]
+        }
+      },
+      "required": [
+        "Segments"
+      ],
+      "type": "object"
+    },
+    "MatchedCategories": {
+      "items": {
+        "$ref": "#/definitions/CategoryName"
+      },
+      "maxItems": 150,
+      "minItems": 0,
+      "type": "array"
+    },
+    "MatchedDetails": {
+      "additionalProperties": {
+        "$ref": "#/definitions/CategoryDetails"
+      },
+      "maxProperties": 150,
+      "minProperties": 0,
+      "type": "object"
+    },
+    "MaxResults": {
+      "maximum": 100,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "NextToken": {
+      "maxLength": 131070,
+      "minLength": 1,
+      "pattern": ".*\\S.*",
+      "type": "string"
+    },
+    "OffsetMillis": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "ParticipantId": {
+      "maxLength": 256,
+      "minLength": 1,
+      "pattern": ".*\\S.*",
+      "type": "string"
+    },
+    "ParticipantRole": {
+      "maxLength": 256,
+      "minLength": 1,
+      "pattern": ".*\\S.*",
+      "type": "string"
+    },
+    "PointOfInterest": {
+      "description": "The section of the contact audio where that category rule was detected.",
+      "properties": {
+        "BeginOffsetMillis": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/OffsetMillis"
+            },
+            {
+              "description": "The beginning offset in milliseconds where the category rule was detected."
+            }
+          ]
+        },
+        "EndOffsetMillis": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/OffsetMillis"
+            },
+            {
+              "description": "The ending offset in milliseconds where the category rule was detected."
+            }
+          ]
+        }
+      },
+      "required": [
+        "BeginOffsetMillis",
+        "EndOffsetMillis"
+      ],
+      "type": "object"
+    },
+    "PointsOfInterest": {
+      "items": {
+        "$ref": "#/definitions/PointOfInterest"
+      },
+      "maxItems": 20,
+      "minItems": 0,
+      "type": "array"
+    },
+    "RealtimeContactAnalysisSegment": {
+      "description": "An analyzed segment for a real-time analysis session.",
+      "properties": {
+        "Categories": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Categories"
+            },
+            {
+              "description": "The matched category rules."
+            }
+          ]
+        },
+        "Transcript": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Transcript"
+            },
+            {
+              "description": "The analyzed transcript."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "RealtimeContactAnalysisSegments": {
+      "items": {
+        "$ref": "#/definitions/RealtimeContactAnalysisSegment"
+      },
+      "maxItems": 100,
+      "minItems": 0,
+      "type": "array"
+    },
+    "ResourceNotFoundException": {},
+    "SentimentValue": {
+      "enum": [
+        "POSITIVE",
+        "NEUTRAL",
+        "NEGATIVE"
+      ],
+      "type": "string"
+    },
+    "ThrottlingException": {},
+    "Transcript": {
+      "description": "A list of messages in the session.",
+      "properties": {
+        "BeginOffsetMillis": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/OffsetMillis"
+            },
+            {
+              "description": "The beginning offset in the contact for this transcript."
+            }
+          ]
+        },
+        "Content": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TranscriptContent"
+            },
+            {
+              "description": "The content of the transcript."
+            }
+          ]
+        },
+        "EndOffsetMillis": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/OffsetMillis"
+            },
+            {
+              "description": "The end offset in the contact for this transcript."
+            }
+          ]
+        },
+        "Id": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TranscriptId"
+            },
+            {
+              "description": "The identifier of the transcript."
+            }
+          ]
+        },
+        "IssuesDetected": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/IssuesDetected"
+            },
+            {
+              "description": "List of positions where issues were detected on the transcript."
+            }
+          ]
+        },
+        "ParticipantId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ParticipantId"
+            },
+            {
+              "description": "The identifier of the participant."
+            }
+          ]
+        },
+        "ParticipantRole": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ParticipantRole"
+            },
+            {
+              "description": "The role of participant. For example, is it a customer, agent, or system."
+            }
+          ]
+        },
+        "Sentiment": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SentimentValue"
+            },
+            {
+              "description": "The sentiment of the detected for this piece of transcript."
+            }
+          ]
+        }
+      },
+      "required": [
+        "Id",
+        "ParticipantId",
+        "ParticipantRole",
+        "Content",
+        "BeginOffsetMillis",
+        "EndOffsetMillis",
+        "Sentiment"
+      ],
+      "type": "object"
+    },
+    "TranscriptContent": {
+      "minLength": 1,
+      "pattern": ".*\\S.*",
+      "type": "string"
+    },
+    "TranscriptId": {
+      "maxLength": 256,
+      "minLength": 1,
+      "pattern": ".*\\S.*",
+      "type": "string"
+    }
+  },
+  "securityDefinitions": {
+    "hmac": {
+      "description": "Amazon Signature authorization v4",
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey",
+      "x-amazon-apigateway-authtype": "awsSigv4"
+    }
+  },
+  "security": [
+    {
+      "hmac": []
+    }
+  ],
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://docs.aws.amazon.com/contact-lens/"
+  },
+  "x-components": {
+    "parameters": {
+      "X-Amz-Algorithm": {
+        "in": "header",
+        "name": "X-Amz-Algorithm",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Content-Sha256": {
+        "in": "header",
+        "name": "X-Amz-Content-Sha256",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Credential": {
+        "in": "header",
+        "name": "X-Amz-Credential",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Date": {
+        "in": "header",
+        "name": "X-Amz-Date",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Security-Token": {
+        "in": "header",
+        "name": "X-Amz-Security-Token",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Signature": {
+        "in": "header",
+        "name": "X-Amz-Signature",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-SignedHeaders": {
+        "in": "header",
+        "name": "X-Amz-SignedHeaders",
+        "required": false,
+        "type": "string"
+      }
+    }
+  }
+}

@@ -9,7 +9,7 @@ npm install --save @datafire/peel_ci
 ```js
 let peel_ci = require('@datafire/peel_ci').create();
 
-peel_ci.getTuneinLinks({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

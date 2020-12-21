@@ -15,9 +15,7 @@ let etmdb = require('@datafire/etmdb').create({
   redirect_uri: ""
 });
 
-etmdb.api.v1.cinema_detail.search.cinema_name.get({
-  "cinema_name": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

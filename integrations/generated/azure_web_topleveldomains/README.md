@@ -15,10 +15,7 @@ let azure_web_topleveldomains = require('@datafire/azure_web_topleveldomains').c
   redirect_uri: ""
 });
 
-azure_web_topleveldomains.TopLevelDomains_List({
-  "subscriptionId": "",
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -112,7 +109,6 @@ azure_web_topleveldomains.TopLevelDomains_ListAgreements({
 ### TopLevelDomain
 * TopLevelDomain `object`: A top level domain object.
   * properties `object`: TopLevelDomain resource specific properties
-    * name `string`: Name of the top level domain.
     * privacy `boolean`: If <code>true</code>, then the top level domain supports domain privacy; otherwise, <code>false</code>.
   * id `string`: Resource Id.
   * kind `string`: Kind of resource.

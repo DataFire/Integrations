@@ -15,12 +15,7 @@ let azure_automation_softwareupdateconfigurationmachinerun = require('@datafire/
   redirect_uri: ""
 });
 
-azure_automation_softwareupdateconfigurationmachinerun.SoftwareUpdateConfigurationMachineRuns_List({
-  "subscriptionId": "",
-  "resourceGroupName": "",
-  "automationAccountName": "",
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -56,30 +51,7 @@ azure_automation_softwareupdateconfigurationmachinerun.SoftwareUpdateConfigurati
   * $top `string`: Maximum number of entries returned in the results collection
 
 #### Output
-* output `object`: result of listing all software update configuration machine runs
-  * nextLink `string`: link to next page of results.
-  * value `array`: outer object returned when listing all software update configuration machine runs
-    * items `object`: Software update configuration machine run model.
-      * id `string`: Resource Id of the software update configuration machine run
-      * name `string`: Name of the software update configuration machine run
-      * properties `object`: Software update configuration machine run properties.
-        * configuredDuration `string`: configured duration for the software update configuration run.
-        * correlationId `string`: correlation id of the software update configuration machine run
-        * createdBy `string`: createdBy property, which only appears in the response.
-        * creationTime `string`: Creation time of theresource, which only appears in the response.
-        * endTime `string`: End time of the software update configuration machine run.
-        * job `object`: Software update configuration machine run job navigation properties.
-          * id `string`: Id of the job associated with the software update configuration run
-        * lastModifiedBy `string`: lastModifiedBy property, which only appears in the response.
-        * lastModifiedTime `string`: Last time resource was modified, which only appears in the response.
-        * osType `string`: Operating system target of the software update configuration triggered this run
-        * softwareUpdateConfiguration `object`: Software update configuration Run Navigation model.
-          * name `string`: Name of the software update configuration triggered the software update configuration run
-        * sourceComputerId `string`: source computer id of the software update configuration machine run
-        * startTime `string`: Start time of the software update configuration machine run.
-        * status `string`: Status of the software update configuration machine run.
-        * targetComputer `string`: name of the updated computer
-        * targetComputerType `string`: type of the updated computer.
+* output [softwareUpdateConfigurationMachineRunListResult](#softwareupdateconfigurationmachinerunlistresult)
 
 ### SoftwareUpdateConfigurationMachineRuns_GetById
 Get a single software update configuration machine run by Id.
@@ -105,30 +77,51 @@ azure_automation_softwareupdateconfigurationmachinerun.SoftwareUpdateConfigurati
   * clientRequestId `string`: Identifies this specific client request.
 
 #### Output
-* output `object`: Software update configuration machine run model.
-  * id `string`: Resource Id of the software update configuration machine run
-  * name `string`: Name of the software update configuration machine run
-  * properties `object`: Software update configuration machine run properties.
-    * configuredDuration `string`: configured duration for the software update configuration run.
-    * correlationId `string`: correlation id of the software update configuration machine run
-    * createdBy `string`: createdBy property, which only appears in the response.
-    * creationTime `string`: Creation time of theresource, which only appears in the response.
-    * endTime `string`: End time of the software update configuration machine run.
-    * job `object`: Software update configuration machine run job navigation properties.
-      * id `string`: Id of the job associated with the software update configuration run
-    * lastModifiedBy `string`: lastModifiedBy property, which only appears in the response.
-    * lastModifiedTime `string`: Last time resource was modified, which only appears in the response.
-    * osType `string`: Operating system target of the software update configuration triggered this run
-    * softwareUpdateConfiguration `object`: Software update configuration Run Navigation model.
-      * name `string`: Name of the software update configuration triggered the software update configuration run
-    * sourceComputerId `string`: source computer id of the software update configuration machine run
-    * startTime `string`: Start time of the software update configuration machine run.
-    * status `string`: Status of the software update configuration machine run.
-    * targetComputer `string`: name of the updated computer
-    * targetComputerType `string`: type of the updated computer.
+* output [softwareUpdateConfigurationMachineRun](#softwareupdateconfigurationmachinerun)
 
 
 
 ## Definitions
 
-*This integration has no definitions*
+### jobNavigation
+* jobNavigation `object`: Software update configuration machine run job navigation properties.
+  * id `string`: Id of the job associated with the software update configuration run
+
+### softwareUpdateConfigurationMachineRun
+* softwareUpdateConfigurationMachineRun `object`: Software update configuration machine run model.
+  * id `string`: Resource Id of the software update configuration machine run
+  * name `string`: Name of the software update configuration machine run
+  * properties [updateConfigurationMachineRunProperties](#updateconfigurationmachinerunproperties)
+
+### softwareUpdateConfigurationMachineRunListResult
+* softwareUpdateConfigurationMachineRunListResult `object`: result of listing all software update configuration machine runs
+  * nextLink `string`: link to next page of results.
+  * value `array`: outer object returned when listing all software update configuration machine runs
+    * items [softwareUpdateConfigurationMachineRun](#softwareupdateconfigurationmachinerun)
+
+### updateConfigurationMachineRunProperties
+* updateConfigurationMachineRunProperties `object`: Software update configuration machine run properties.
+  * configuredDuration `string`: configured duration for the software update configuration run.
+  * correlationId `string`: correlation id of the software update configuration machine run
+  * createdBy `string`: createdBy property, which only appears in the response.
+  * creationTime `string`: Creation time of the resource, which only appears in the response.
+  * endTime `string`: End time of the software update configuration machine run.
+  * error `object`: Error response of an operation failure
+    * code `string`: Error code
+    * message `string`: Error message indicating why the operation failed.
+  * job [jobNavigation](#jobnavigation)
+  * lastModifiedBy `string`: lastModifiedBy property, which only appears in the response.
+  * lastModifiedTime `string`: Last time resource was modified, which only appears in the response.
+  * osType `string`: Operating system target of the software update configuration triggered this run
+  * softwareUpdateConfiguration [updateConfigurationNavigation](#updateconfigurationnavigation)
+  * sourceComputerId `string`: source computer id of the software update configuration machine run
+  * startTime `string`: Start time of the software update configuration machine run.
+  * status `string`: Status of the software update configuration machine run.
+  * targetComputer `string`: name of the updated computer
+  * targetComputerType `string`: type of the updated computer.
+
+### updateConfigurationNavigation
+* updateConfigurationNavigation `object`: Software update configuration Run Navigation model.
+  * name `string`: Name of the software update configuration triggered the software update configuration run
+
+

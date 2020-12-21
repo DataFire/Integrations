@@ -15,11 +15,7 @@ let azure_web_logicappsmanagementclient = require('@datafire/azure_web_logicapps
   redirect_uri: ""
 });
 
-azure_web_logicappsmanagementclient.ManagedApis_List({
-  "location": "",
-  "subscriptionId": "",
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -30,8 +26,138 @@ azure_web_logicappsmanagementclient.ManagedApis_List({
 
 ## Actions
 
+### ConnectionGateways_List
+Gets a list of gateways under a subscription
+
+
+```js
+azure_web_logicappsmanagementclient.ConnectionGateways_List({
+  "subscriptionId": "",
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: Subscription Id
+  * api-version **required** `string`: API Version
+
+#### Output
+* output [ConnectionGatewayDefinitionCollection](#connectiongatewaydefinitioncollection)
+
+### CustomApis_List
+Gets a list of all custom APIs for a subscription id
+
+
+```js
+azure_web_logicappsmanagementclient.CustomApis_List({
+  "subscriptionId": "",
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: Subscription Id
+  * api-version **required** `string`: API Version
+  * $top `integer`: The number of items to be included in the result
+  * skiptoken `string`: Skip Token
+
+#### Output
+* output [CustomApiDefinitionCollection](#customapidefinitioncollection)
+
+### ConnectionGatewayInstallations_List
+Gets a list of installed gateways that the user is an admin of, in a specific subscription and at a certain location
+
+
+```js
+azure_web_logicappsmanagementclient.ConnectionGatewayInstallations_List({
+  "subscriptionId": "",
+  "location": "",
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: Subscription Id
+  * location **required** `string`: The location
+  * api-version **required** `string`: API Version
+
+#### Output
+* output [ConnectionGatewayInstallationDefinitionCollection](#connectiongatewayinstallationdefinitioncollection)
+
+### ConnectionGatewayInstallations_Get
+Get a specific installed gateway that the user is an admin of, in a specific subscription and at a certain location
+
+
+```js
+azure_web_logicappsmanagementclient.ConnectionGatewayInstallations_Get({
+  "subscriptionId": "",
+  "location": "",
+  "gatewayId": "",
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: Subscription Id
+  * location **required** `string`: The location
+  * gatewayId **required** `string`: Gateway ID
+  * api-version **required** `string`: API Version
+
+#### Output
+* output [ConnectionGatewayInstallationDefinition](#connectiongatewayinstallationdefinition)
+
+### CustomApis_ExtractApiDefinitionFromWsdl
+Parses the specified WSDL and extracts the API definition
+
+
+```js
+azure_web_logicappsmanagementclient.CustomApis_ExtractApiDefinitionFromWsdl({
+  "subscriptionId": "",
+  "location": "",
+  "wsdlDefinition": {},
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: Subscription Id
+  * location **required** `string`: The location
+  * wsdlDefinition **required** [WsdlDefinition](#wsdldefinition)
+  * api-version **required** `string`: API Version
+
+#### Output
+*Output schema unknown*
+
+### CustomApis_ListWsdlInterfaces
+This returns the list of interfaces in the WSDL
+
+
+```js
+azure_web_logicappsmanagementclient.CustomApis_ListWsdlInterfaces({
+  "subscriptionId": "",
+  "location": "",
+  "wsdlDefinition": {},
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: Subscription Id
+  * location **required** `string`: The location
+  * wsdlDefinition **required** [WsdlDefinition](#wsdldefinition)
+  * api-version **required** `string`: API Version
+
+#### Output
+* output [WsdlServiceCollection](#wsdlservicecollection)
+
 ### ManagedApis_List
-Gets a list of managed APIs.
+Gets a list of managed APIs
 
 
 ```js
@@ -44,62 +170,178 @@ azure_web_logicappsmanagementclient.ManagedApis_List({
 
 #### Input
 * input `object`
-  * location **required** `string`: The location.
+  * location **required** `string`: The location
   * subscriptionId **required** `string`: Subscription Id
   * api-version **required** `string`: API Version
 
 #### Output
-* output [ApisCollection](#apiscollection)
+* output [ManagedApiDefinitionCollection](#managedapidefinitioncollection)
 
 ### ManagedApis_Get
-Gets a managed API.
+Gets a managed API
 
 
 ```js
 azure_web_logicappsmanagementclient.ManagedApis_Get({
+  "subscriptionId": "",
   "location": "",
   "apiName": "",
-  "subscriptionId": "",
   "api-version": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * location **required** `string`: The location.
-  * apiName **required** `string`: The managed API name.
-  * export `boolean`: flag showing whether to export API definition in format specified by Accept header.
   * subscriptionId **required** `string`: Subscription Id
+  * location **required** `string`: The location
+  * apiName **required** `string`: API name
   * api-version **required** `string`: API Version
 
 #### Output
-* output [ApiEntity](#apientity)
+* output [ManagedApiDefinition](#managedapidefinition)
+
+### ConnectionGateways_ListByResourceGroup
+Gets a list of gateways under a subscription and in a specific resource group
+
+
+```js
+azure_web_logicappsmanagementclient.ConnectionGateways_ListByResourceGroup({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: Subscription Id
+  * resourceGroupName **required** `string`: The resource group
+  * api-version **required** `string`: API Version
+
+#### Output
+* output [ConnectionGatewayDefinitionCollection](#connectiongatewaydefinitioncollection)
+
+### ConnectionGateways_Delete
+Deletes a specific gateway for under a subscription and in a specific resource group
+
+
+```js
+azure_web_logicappsmanagementclient.ConnectionGateways_Delete({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "connectionGatewayName": "",
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: Subscription Id
+  * resourceGroupName **required** `string`: The resource group
+  * connectionGatewayName **required** `string`: The connection gateway name
+  * api-version **required** `string`: API Version
+
+#### Output
+*Output schema unknown*
+
+### ConnectionGateways_Get
+Gets a specific gateway under a subscription and in a specific resource group
+
+
+```js
+azure_web_logicappsmanagementclient.ConnectionGateways_Get({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "connectionGatewayName": "",
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: Subscription Id
+  * resourceGroupName **required** `string`: The resource group
+  * connectionGatewayName **required** `string`: The connection gateway name
+  * api-version **required** `string`: API Version
+
+#### Output
+* output [ConnectionGatewayDefinition](#connectiongatewaydefinition)
+
+### ConnectionGateways_Update
+Updates a connection gateway's tags
+
+
+```js
+azure_web_logicappsmanagementclient.ConnectionGateways_Update({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "connectionGatewayName": "",
+  "connectionGateway": {},
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: Subscription Id
+  * resourceGroupName **required** `string`: The resource group
+  * connectionGatewayName **required** `string`: The connection gateway name
+  * connectionGateway **required** [ConnectionGatewayDefinition](#connectiongatewaydefinition)
+  * api-version **required** `string`: API Version
+
+#### Output
+* output [ConnectionGatewayDefinition](#connectiongatewaydefinition)
+
+### ConnectionGateways_CreateOrUpdate
+Creates or updates a specific gateway for under a subscription and in a specific resource group
+
+
+```js
+azure_web_logicappsmanagementclient.ConnectionGateways_CreateOrUpdate({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "connectionGatewayName": "",
+  "connectionGateway": {},
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: Subscription Id
+  * resourceGroupName **required** `string`: The resource group
+  * connectionGatewayName **required** `string`: The connection gateway name
+  * connectionGateway **required** [ConnectionGatewayDefinition](#connectiongatewaydefinition)
+  * api-version **required** `string`: API Version
+
+#### Output
+* output [ConnectionGatewayDefinition](#connectiongatewaydefinition)
 
 ### Connections_List
-Gets a list of connections.
+Gets a list of connections
 
 
 ```js
 azure_web_logicappsmanagementclient.Connections_List({
-  "resourceGroupName": "",
   "subscriptionId": "",
+  "resourceGroupName": "",
   "api-version": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * resourceGroupName **required** `string`: Resource Group Name
   * subscriptionId **required** `string`: Subscription Id
+  * resourceGroupName **required** `string`: The resource group
+  * $top `integer`: The number of items to be included in the result
+  * $filter `string`: The filter to apply on the operation
   * api-version **required** `string`: API Version
-  * $top `integer`: The number of items to be included in the result.
-  * $filter `string`: The filter to apply on the operation.
 
 #### Output
-* output [ConnectionCollection](#connectioncollection)
+* output [ApiConnectionDefinitionCollection](#apiconnectiondefinitioncollection)
 
 ### Connections_Delete
-Deletes a connection.
+Deletes a connection
 
 
 ```js
@@ -114,15 +356,15 @@ azure_web_logicappsmanagementclient.Connections_Delete({
 #### Input
 * input `object`
   * subscriptionId **required** `string`: Subscription Id
-  * resourceGroupName **required** `string`: The resource group name.
-  * connectionName **required** `string`: The connection name.
+  * resourceGroupName **required** `string`: The resource group
+  * connectionName **required** `string`: Connection name
   * api-version **required** `string`: API Version
 
 #### Output
 *Output schema unknown*
 
 ### Connections_Get
-Gets a connection.
+Get a specific connection
 
 
 ```js
@@ -137,15 +379,40 @@ azure_web_logicappsmanagementclient.Connections_Get({
 #### Input
 * input `object`
   * subscriptionId **required** `string`: Subscription Id
-  * resourceGroupName **required** `string`: The resource group name.
-  * connectionName **required** `string`: The connection name.
+  * resourceGroupName **required** `string`: The resource group
+  * connectionName **required** `string`: Connection name
   * api-version **required** `string`: API Version
 
 #### Output
-* output [Connection](#connection)
+* output [ApiConnectionDefinition](#apiconnectiondefinition)
+
+### Connections_Update
+Updates a connection's tags
+
+
+```js
+azure_web_logicappsmanagementclient.Connections_Update({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "connectionName": "",
+  "connection": {},
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: Subscription Id
+  * resourceGroupName **required** `string`: The resource group
+  * connectionName **required** `string`: Connection name
+  * connection **required** [ApiConnectionDefinition](#apiconnectiondefinition)
+  * api-version **required** `string`: API Version
+
+#### Output
+* output [ApiConnectionDefinition](#apiconnectiondefinition)
 
 ### Connections_CreateOrUpdate
-Creates or updates a connection.
+Creates or updates a connection
 
 
 ```js
@@ -153,24 +420,24 @@ azure_web_logicappsmanagementclient.Connections_CreateOrUpdate({
   "subscriptionId": "",
   "resourceGroupName": "",
   "connectionName": "",
-  "api-version": "",
-  "connection": {}
+  "connection": {},
+  "api-version": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * subscriptionId **required** `string`: Subscription Id
-  * resourceGroupName **required** `string`: The resource group name.
-  * connectionName **required** `string`: The connection name.
+  * resourceGroupName **required** `string`: The resource group
+  * connectionName **required** `string`: Connection name
+  * connection **required** [ApiConnectionDefinition](#apiconnectiondefinition)
   * api-version **required** `string`: API Version
-  * connection **required** [Connection](#connection)
 
 #### Output
-* output [Connection](#connection)
+* output [ApiConnectionDefinition](#apiconnectiondefinition)
 
 ### Connections_ConfirmConsentCode
-Confirms consent code of a connection.
+Confirms consent code of a connection
 
 
 ```js
@@ -178,49 +445,24 @@ azure_web_logicappsmanagementclient.Connections_ConfirmConsentCode({
   "subscriptionId": "",
   "resourceGroupName": "",
   "connectionName": "",
-  "api-version": "",
-  "content": {}
+  "confirmConsentCode": {},
+  "api-version": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * subscriptionId **required** `string`: Subscription Id
-  * resourceGroupName **required** `string`: The resource group name.
-  * connectionName **required** `string`: The connection name.
+  * resourceGroupName **required** `string`: The resource group
+  * connectionName **required** `string`: Connection name
+  * confirmConsentCode **required** [ConfirmConsentCodeDefinition](#confirmconsentcodedefinition)
   * api-version **required** `string`: API Version
-  * content **required** [ConfirmConsentCodeInput](#confirmconsentcodeinput)
 
 #### Output
-* output [Connection](#connection)
-
-### Connections_ListConnectionKeys
-Lists connection keys.
-
-
-```js
-azure_web_logicappsmanagementclient.Connections_ListConnectionKeys({
-  "subscriptionId": "",
-  "resourceGroupName": "",
-  "connectionName": "",
-  "api-version": "",
-  "content": {}
-}, context)
-```
-
-#### Input
-* input `object`
-  * subscriptionId **required** `string`: Subscription Id
-  * resourceGroupName **required** `string`: The resource group name.
-  * connectionName **required** `string`: The connection name.
-  * api-version **required** `string`: API Version
-  * content **required** [ListConnectionKeysInput](#listconnectionkeysinput)
-
-#### Output
-* output [ConnectionSecrets](#connectionsecrets)
+* output [ConfirmConsentCodeDefinition](#confirmconsentcodedefinition)
 
 ### Connections_ListConsentLinks
-Lists consent links of a connection.
+Lists the consent links of a connection
 
 
 ```js
@@ -228,318 +470,493 @@ azure_web_logicappsmanagementclient.Connections_ListConsentLinks({
   "subscriptionId": "",
   "resourceGroupName": "",
   "connectionName": "",
-  "api-version": "",
-  "content": {}
+  "listConsentLink": {},
+  "api-version": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * subscriptionId **required** `string`: Subscription Id
-  * resourceGroupName **required** `string`: The resource group name.
-  * connectionName **required** `string`: The connection name.
+  * resourceGroupName **required** `string`: The resource group
+  * connectionName **required** `string`: Connection name
+  * listConsentLink **required** [ListConsentLinksDefinition](#listconsentlinksdefinition)
   * api-version **required** `string`: API Version
-  * content **required** [ConsentLinkInput](#consentlinkinput)
 
 #### Output
-* output [ConsentLinkPayload](#consentlinkpayload)
+* output [ConsentLinkCollection](#consentlinkcollection)
+
+### CustomApis_ListByResourceGroup
+Gets a list of all custom APIs in a subscription for a specific resource group
+
+
+```js
+azure_web_logicappsmanagementclient.CustomApis_ListByResourceGroup({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: Subscription Id
+  * resourceGroupName **required** `string`: The resource group
+  * api-version **required** `string`: API Version
+  * $top `integer`: The number of items to be included in the result
+  * skiptoken `string`: Skip Token
+
+#### Output
+* output [CustomApiDefinitionCollection](#customapidefinitioncollection)
+
+### CustomApis_Delete
+Deletes a custom API from the resource group
+
+
+```js
+azure_web_logicappsmanagementclient.CustomApis_Delete({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "apiName": "",
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: Subscription Id
+  * resourceGroupName **required** `string`: The resource group
+  * apiName **required** `string`: API name
+  * api-version **required** `string`: API Version
+
+#### Output
+*Output schema unknown*
+
+### CustomApis_Get
+Gets a custom API by name for a specific subscription and resource group
+
+
+```js
+azure_web_logicappsmanagementclient.CustomApis_Get({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "apiName": "",
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: Subscription Id
+  * resourceGroupName **required** `string`: The resource group
+  * apiName **required** `string`: API name
+  * api-version **required** `string`: API Version
+
+#### Output
+* output [CustomApiDefinition](#customapidefinition)
+
+### CustomApis_Update
+Updates an existing custom API's tags
+
+
+```js
+azure_web_logicappsmanagementclient.CustomApis_Update({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "apiName": "",
+  "customApi": {},
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: Subscription Id
+  * resourceGroupName **required** `string`: The resource group
+  * apiName **required** `string`: API name
+  * customApi **required** [CustomApiDefinition](#customapidefinition)
+  * api-version **required** `string`: API Version
+
+#### Output
+* output [CustomApiDefinition](#customapidefinition)
+
+### CustomApis_CreateOrUpdate
+Creates or updates an existing custom API
+
+
+```js
+azure_web_logicappsmanagementclient.CustomApis_CreateOrUpdate({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "apiName": "",
+  "customApi": {},
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: Subscription Id
+  * resourceGroupName **required** `string`: The resource group
+  * apiName **required** `string`: API name
+  * customApi **required** [CustomApiDefinition](#customapidefinition)
+  * api-version **required** `string`: API Version
+
+#### Output
+* output [CustomApiDefinition](#customapidefinition)
+
+### CustomApis_Move
+Moves a specific custom API
+
+
+```js
+azure_web_logicappsmanagementclient.CustomApis_Move({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "apiName": "",
+  "customApiReference": {},
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: Subscription Id
+  * resourceGroupName **required** `string`: The resource group
+  * apiName **required** `string`: API name
+  * customApiReference **required** [CustomApiReference](#customapireference)
+  * api-version **required** `string`: API Version
+
+#### Output
+*Output schema unknown*
 
 
 
 ## Definitions
 
-### ApiEntity
-* ApiEntity `object`: API Management
+### ApiConnectionDefinition
+* ApiConnectionDefinition `object`: API connection
   * properties `object`
-    * apiDefinitionUrl `string`: Api definition Url - url where the swagger can be downloaded from
-    * backendService [BackendServiceDefinition](#backendservicedefinition)
-    * capabilities `array`: Capabilities
-      * items `string`
-    * changedTime `string`: Timestamp of last connection change.
-    * connectionParameters `object`: Connection parameters
+    * api [ApiReference](#apireference)
+    * changedTime `string`: Timestamp of last connection change
     * createdTime `string`: Timestamp of the connection creation
-    * generalInformation [GeneralApiInformation](#generalapiinformation)
-    * metadata [Object](#object)
-    * name `string`: Name of the API
-    * path `string`: the URL path of this API when exposed via APIM
-    * policies [ApiPolicies](#apipolicies)
-    * protocols `array`: Protocols supported by the front end - http/https
-      * items `string`
-    * runtimeUrls `array`: Read only property returning the runtime endpoints where the API can be called
-      * items `string`
-  * id `string`: Resource Id
-  * kind `string`: Kind of resource
-  * location **required** `string`: Resource Location
-  * name `string`: Resource Name
-  * tags `object`: Resource tags
+    * customParameterValues `object`: Dictionary of custom parameter values
+    * displayName `string`: Display name
+    * nonSecretParameterValues `object`: Dictionary of nonsecret parameter values
+    * parameterValues `object`: Dictionary of parameter values
+    * statuses `array`: Status of the connection
+      * items [ConnectionStatusDefinition](#connectionstatusdefinition)
+    * testLinks `array`: Links to test the API connection
+      * items [ApiConnectionTestLink](#apiconnectiontestlink)
+  * etag `string`: Resource ETag
+  * id `string`: Resource id
+  * location `string`: Resource location
+  * name `string`: Resource name
+  * tags [TagsDictionary](#tagsdictionary)
   * type `string`: Resource type
 
+### ApiConnectionDefinitionCollection
+* ApiConnectionDefinitionCollection `object`: A list of API connection definitions
+  * value `array`: Collection of API connections
+    * items [ApiConnectionDefinition](#apiconnectiondefinition)
+
+### ApiConnectionTestLink
+* ApiConnectionTestLink `object`: API connection properties
+  * method `string`: HTTP Method
+  * requestUri `string`: Test link request URI
+
 ### ApiOAuthSettings
-* ApiOAuthSettings `object`: OAuth settings for the conenction provider
+* ApiOAuthSettings `object`: OAuth settings for the connection provider
   * clientId `string`: Resource provider client id
   * clientSecret `string`: Client Secret needed for OAuth
   * customParameters `object`: OAuth parameters key is the name of parameter
   * identityProvider `string`: Identity provider
-  * properties [Object](#object)
+  * properties `object`: Read only properties for this oauth setting.
   * redirectUrl `string`: Url
   * scopes `array`: OAuth scopes
     * items `string`
 
 ### ApiOAuthSettingsParameter
-* ApiOAuthSettingsParameter `object`: OAuth Settings Parameter
-  * options [Object](#object)
-  * uiDefinition [Object](#object)
-  * value `string`: Value
+* ApiOAuthSettingsParameter `object`: OAuth settings for the API
+  * options `object`: Options available to this parameter
+  * uiDefinition `object`: UI definitions per culture as caller can specify the culture
+  * value `string`: Value of the setting
 
-### ApiPolicies
-* ApiPolicies `object`: Api policies
-  * properties `object`
-    * content `string`: Content of xml policy
-  * id `string`: Resource Id
-  * kind `string`: Kind of resource
-  * location **required** `string`: Resource Location
-  * name `string`: Resource Name
-  * tags `object`: Resource tags
-  * type `string`: Resource type
+### ApiReference
+* ApiReference `object`
+  * brandColor `string`: Brand color
+  * description `string`: The custom API description
+  * displayName `string`: The display name
+  * iconUri `string`: The icon URI
+  * name `string`: The name of the API
+  * swagger `object`: The JSON representation of the swagger
+  * id `string`: Resource reference id
+  * type `string`: Resource reference type
 
-### ApisCollection
-* ApisCollection `object`: Collection of Apis
-  * nextLink `string`: Link to next page of resources
-  * value `array`: Collection of resources
-    * items [ApiEntity](#apientity)
+### ApiResourceBackendService
+* ApiResourceBackendService `object`: The API backend service
+  * serviceUrl `string`: The service URL
 
-### ArmPlan
-* ArmPlan `object`: The plan object in an ARM, represents a marketplace plan
-  * name `string`: The name
-  * product `string`: The product
-  * promotionCode `string`: The promotion code
-  * publisher `string`: The publisher
-  * version `string`: Version of product
+### ApiResourceDefinitions
+* ApiResourceDefinitions `object`: API Definitions
+  * modifiedSwaggerUrl `string`: The modified swagger URL
+  * originalSwaggerUrl `string`: The original swagger URL
 
-### BackendServiceDefinition
-* BackendServiceDefinition `object`: API definitions with backend urls
-  * properties `object`
-    * hostingEnvironmentServiceUrls `array`: Service Urls per Hosting environment
-      * items [HostingEnvironmentServiceDescriptions](#hostingenvironmentservicedescriptions)
-    * serviceUrl `string`: Url from which the swagger payload will be fetched
-  * id `string`: Resource Id
-  * kind `string`: Kind of resource
-  * location **required** `string`: Resource Location
-  * name `string`: Resource Name
-  * tags `object`: Resource tags
-  * type `string`: Resource type
+### ApiResourceGeneralInformation
+* ApiResourceGeneralInformation `object`: General information about the API
+  * description `string`: The API description
+  * displayName `string`: Display name
+  * iconUrl `string`: The icon URL
+  * releaseTag `string`: Release tag
+  * termsOfUseUrl `string`: URL to the Terms of Use
 
-### ConfirmConsentCodeInput
-* ConfirmConsentCodeInput `object`: Confirm Consent Code Input payload
-  * properties `object`
-    * code `string`: Code that was returned during consent flow
-    * objectId `string`: AAD object ID. This is userId
-    * principalType `string` (values: ActiveDirectory, Connection, MicrosoftAccount): Principal type
-    * tenantId `string`: Tenant Id
-  * id `string`: Resource Id
-  * kind `string`: Kind of resource
-  * location **required** `string`: Resource Location
-  * name `string`: Resource Name
-  * tags `object`: Resource tags
-  * type `string`: Resource type
+### ApiResourceMetadata
+* ApiResourceMetadata `object`
+  * apiType [ApiType](#apitype)
+  * brandColor `string`: Brand color
+  * connectionType `string`: The connection type
+  * hideKey `string`: Hide key
+  * source `string`: The source
+  * tags [TagsDictionary](#tagsdictionary)
+  * wsdlImportMethod [WsdlImportMethod](#wsdlimportmethod)
+  * wsdlService [WsdlService](#wsdlservice)
 
-### Connection
-* Connection `object`: Api Connection
-  * properties `object`
-    * api [ExpandedParent[ApiEntity]](#expandedparent[apientity])
-    * changedTime `string`: Timestamp of last connection change.
-    * createdTime `string`: Timestamp of the connection creation
-    * customParameterValues `object`: Custom login setting values.
-    * displayName `string`: display name
-    * firstExpirationTime `string`: Time in UTC when the first expiration of OAuth tokens
-    * keywords `array`: List of Keywords that tag the acl
-      * items `string`
-    * metadata [Object](#object)
-    * name `string`: connection name
-    * nonSecretParameterValues `object`: Tokens/Claim
-    * parameterValues `object`: Tokens/Claim
-    * statuses `array`: Status of the connection
-      * items [ConnectionStatus](#connectionstatus)
-    * tenantId `string`
-  * id `string`: Resource Id
-  * kind `string`: Kind of resource
-  * location **required** `string`: Resource Location
-  * name `string`: Resource Name
-  * tags `object`: Resource tags
-  * type `string`: Resource type
+### ApiResourcePolicies
+* ApiResourcePolicies `object`: Describes the API policies either as embedded content or as a link to uploaded content
+  * content `string`: API level policies as XML
+  * contentLink `string`: Link to the JSON of the policies
 
-### ConnectionCollection
-* ConnectionCollection `object`: Collection of conenctions
-  * nextLink `string`: Link to next page of resources
-  * value `array`: Collection of resources
-    * items [Connection](#connection)
+### ApiResourceProperties
+* ApiResourceProperties `object`: API resource properties
+  * apiDefinitionUrl `string`: URL where the swagger can be downloaded from
+  * apiDefinitions [ApiResourceDefinitions](#apiresourcedefinitions)
+  * backendService [ApiResourceBackendService](#apiresourcebackendservice)
+  * capabilities `array`: The managed API capabilities
+    * items `string`
+  * connectionParameters `object`: Connection parameters
+  * generalInformation [ApiResourceGeneralInformation](#apiresourcegeneralinformation)
+  * metadata [ApiResourceMetadata](#apiresourcemetadata)
+  * name `string`
+  * policies [ApiResourcePolicies](#apiresourcepolicies)
+  * runtimeUrls `array`: Runtime URLs
+    * items `string`
+  * swagger `object`: The JSON representation of the swagger
+
+### ApiType
+* ApiType `string` (values: NotSpecified, Rest, Soap): The API type
+
+### ConfirmConsentCodeDefinition
+* ConfirmConsentCodeDefinition `object`: Confirm consent code request
+  * code `string`: Code that was returned during consent flow
+  * objectId `string`: AAD object ID. This is userId
+  * tenantId `string`: Tenant Id
 
 ### ConnectionError
 * ConnectionError `object`: Connection error
   * properties `object`
-    * code `string`: code of the status
+    * code `string`: Code of the status
     * message `string`: Description of the status
-  * id `string`: Resource Id
-  * kind `string`: Kind of resource
-  * location **required** `string`: Resource Location
-  * name `string`: Resource Name
-  * tags `object`: Resource tags
+  * etag `string`: Resource ETag
+  * id `string`: Resource id
+  * location `string`: Resource location
+  * name `string`: Resource name
+  * tags [TagsDictionary](#tagsdictionary)
   * type `string`: Resource type
+
+### ConnectionGatewayDefinition
+* ConnectionGatewayDefinition `object`: The gateway definition
+  * properties `object`
+    * backendUri `string`: The URI of the backend
+    * connectionGatewayInstallation [ConnectionGatewayReference](#connectiongatewayreference)
+    * contactInformation `array`: The gateway admin
+      * items `string`
+    * description `string`: The gateway description
+    * displayName `string`: The gateway display name
+    * machineName `string`: The machine name of the gateway
+    * status `object`: The gateway status
+  * etag `string`: Resource ETag
+  * id `string`: Resource id
+  * location `string`: Resource location
+  * name `string`: Resource name
+  * tags [TagsDictionary](#tagsdictionary)
+  * type `string`: Resource type
+
+### ConnectionGatewayDefinitionCollection
+* ConnectionGatewayDefinitionCollection `object`: A list of connection gateway definitions
+  * value `array`: Collection of connection gateways
+    * items [ConnectionGatewayDefinition](#connectiongatewaydefinition)
+
+### ConnectionGatewayInstallationDefinition
+* ConnectionGatewayInstallationDefinition `object`: The gateway installation
+  * properties `object`
+    * backendUri `string`: The URI of the backend
+    * connectionGateway [ConnectionGatewayReference](#connectiongatewayreference)
+    * contactInformation `array`: The gateway admin
+      * items `string`
+    * description `string`: The gateway description
+    * displayName `string`: The gateway display name
+    * machineName `string`: The machine name of the gateway
+    * status `object`: The gateway status
+  * etag `string`: Resource ETag
+  * id `string`: Resource id
+  * location `string`: Resource location
+  * name `string`: Resource name
+  * tags [TagsDictionary](#tagsdictionary)
+  * type `string`: Resource type
+
+### ConnectionGatewayInstallationDefinitionCollection
+* ConnectionGatewayInstallationDefinitionCollection `object`: A list of connection gateway installation definitions
+  * value `array`: Collection of connection gateway installations
+    * items [ConnectionGatewayInstallationDefinition](#connectiongatewayinstallationdefinition)
+
+### ConnectionGatewayReference
+* ConnectionGatewayReference `object`: The gateway installation reference
+  * location `string`: Resource reference location
+  * name `string`: Resource reference name
+  * id `string`: Resource reference id
+  * type `string`: Resource reference type
 
 ### ConnectionParameter
-* ConnectionParameter `object`: connection provider parameters
-  * defaultValue [Object](#object)
+* ConnectionParameter `object`: Connection provider parameters
   * oAuthSettings [ApiOAuthSettings](#apioauthsettings)
   * type `string` (values: string, securestring, secureobject, int, bool, object, array, oauthSetting, connection): Type of the parameter
-  * uiDefinition [Object](#object)
 
-### ConnectionSecrets
-* ConnectionSecrets `object`
-  * connectionKey `string`: Connection Key
-  * parameterValues `object`: Tokens/Claim
+### ConnectionStatusDefinition
+* ConnectionStatusDefinition `object`: Connection status
+  * error [ConnectionError](#connectionerror)
+  * status `string`: The gateway status
+  * target `string`: Target of the error
 
-### ConnectionStatus
-* ConnectionStatus `object`: Connection status
-  * properties `object`
-    * error [ConnectionError](#connectionerror)
-    * status `string`: Status
-    * target `string`: Target of the error
-  * id `string`: Resource Id
-  * kind `string`: Kind of resource
-  * location **required** `string`: Resource Location
-  * name `string`: Resource Name
-  * tags `object`: Resource tags
-  * type `string`: Resource type
+### ConsentLinkCollection
+* ConsentLinkCollection `object`: Collection of consent links
+  * value `array`: Collection of resources
+    * items [ConsentLinkDefinition](#consentlinkdefinition)
 
-### ConsentLink
-* ConsentLink `object`
-  * displayName `string`: Display Name of the parameter in the connection provider's oauthSettings
-  * firstPartyLoginUri `string`: Uri for first party login
-  * link `string`: Uri for the consent link
+### ConsentLinkDefinition
+* ConsentLinkDefinition `object`: A consent link
+  * displayName `string`: Display name of the parameter in the connection provider's OAuth settings
+  * firstPartyLoginUri `string`: URI for first party login
+  * link `string`: URI for the consent link
   * status `string` (values: Unauthenticated, Authenticated, Error): Status of the link
 
-### ConsentLinkInput
-* ConsentLinkInput `object`: Connection Constent Link payload
+### ConsentLinkParameterDefinition
+* ConsentLinkParameterDefinition `object`: Consent link definition
+  * objectId `string`: AAD OID (user or group) if the principal type is ActiveDirectory. MSA PUID if the principal type is MicrosoftAccount
+  * parameterName `string`: Name of the parameter in the connection provider's OAuth settings
+  * redirectUrl `string`: Name of the parameter in the connection provider's OAuth settings
+  * tenantId `string`: The tenant id
+
+### CustomApiDefinition
+* CustomApiDefinition `object`: A custom API
+  * properties [CustomApiPropertiesDefinition](#customapipropertiesdefinition)
+  * etag `string`: Resource ETag
+  * id `string`: Resource id
+  * location `string`: Resource location
+  * name `string`: Resource name
+  * tags [TagsDictionary](#tagsdictionary)
+  * type `string`: Resource type
+
+### CustomApiDefinitionCollection
+* CustomApiDefinitionCollection `object`: A list of custom API definitions
+  * value `array`: Collection of custom APIs
+    * items [CustomApiDefinition](#customapidefinition)
+
+### CustomApiPropertiesDefinition
+* CustomApiPropertiesDefinition `object`: Custom API properties
+  * apiDefinitions [ApiResourceDefinitions](#apiresourcedefinitions)
+  * apiType [ApiType](#apitype)
+  * backendService [ApiResourceBackendService](#apiresourcebackendservice)
+  * brandColor `string`: Brand color
+  * capabilities `array`: The custom API capabilities
+    * items `string`
+  * connectionParameters `object`: Connection parameters
+  * description `string`: The custom API description
+  * displayName `string`: The display name
+  * iconUri `string`: The icon URI
+  * runtimeUrls `array`: Runtime URLs
+    * items `string`
+  * swagger `object`: The JSON representation of the swagger
+  * wsdlDefinition [WsdlDefinition](#wsdldefinition)
+
+### CustomApiReference
+* CustomApiReference `object`: The custom API reference
+  * name `string`
+  * brandColor `string`: Brand color
+  * description `string`: The custom API description
+  * displayName `string`: The display name
+  * iconUri `string`: The icon URI
+  * name `string`: The name of the API
+  * swagger `object`: The JSON representation of the swagger
+  * id `string`: Resource reference id
+  * type `string`: Resource reference type
+
+### ListConnectionKeysDefinition
+* ListConnectionKeysDefinition `object`: List connection keys
   * properties `object`
-    * parameters `array`: Array of links
-      * items [ConsentLinkInputParameter](#consentlinkinputparameter)
-  * id `string`: Resource Id
-  * kind `string`: Kind of resource
-  * location **required** `string`: Resource Location
-  * name `string`: Resource Name
-  * tags `object`: Resource tags
+    * validityTimeSpan `string`: Time span for how long the keys will be valid
+  * etag `string`: Resource ETag
+  * id `string`: Resource id
+  * location `string`: Resource location
+  * name `string`: Resource name
+  * tags [TagsDictionary](#tagsdictionary)
   * type `string`: Resource type
 
-### ConsentLinkInputParameter
-* ConsentLinkInputParameter `object`
-  * objectId `string`: AAD OID (user or group) if the principal type is ActiveDirectory.
-  * parameterName `string`: Name of the parameter in the connection provider's oauthSettings
-  * principalType `string` (values: ActiveDirectory, Connection, MicrosoftAccount): Principal type
-  * redirectUrl `string`: Name of the parameter in the connection provider's oauthSettings
-  * tenantId `string`: Tenant Id
+### ListConsentLinksDefinition
+* ListConsentLinksDefinition `object`: Request for a list of consent links
+  * parameters `array`: Collection of resources
+    * items [ConsentLinkParameterDefinition](#consentlinkparameterdefinition)
 
-### ConsentLinkPayload
-* ConsentLinkPayload `object`: Collection of consent links
-  * value `array`: Collection of resources
-    * items [ConsentLink](#consentlink)
-
-### CustomLoginSettingValue
-* CustomLoginSettingValue `object`: Custom logging setting value
-  * properties `object`
-    * option `string`: Option selected for this custom login setting value
-  * id `string`: Resource Id
-  * kind `string`: Kind of resource
-  * location **required** `string`: Resource Location
-  * name `string`: Resource Name
-  * tags `object`: Resource tags
+### ManagedApiDefinition
+* ManagedApiDefinition `object`: A managed API definition
+  * properties [ApiResourceProperties](#apiresourceproperties)
+  * etag `string`: Resource ETag
+  * id `string`: Resource id
+  * location `string`: Resource location
+  * name `string`: Resource name
+  * tags [TagsDictionary](#tagsdictionary)
   * type `string`: Resource type
 
-### ExpandedParent[ApiEntity]
-* ExpandedParent[ApiEntity] `object`: expanded parent object for expansion
-  * properties `object`
-    * entity [ResponseMessageEnvelope[ApiEntity]](#responsemessageenvelope[apientity])
-    * id `string`: Id of connection provider
-  * id `string`: Resource Id
-  * kind `string`: Kind of resource
-  * location **required** `string`: Resource Location
-  * name `string`: Resource Name
-  * tags `object`: Resource tags
+### ManagedApiDefinitionCollection
+* ManagedApiDefinitionCollection `object`: A list of managed API definitions
+  * value `array`: Collection of managed APIs
+    * items [ManagedApiDefinition](#managedapidefinition)
+
+### ResourceDefinition
+* ResourceDefinition `object`: A resource
+  * etag `string`: Resource ETag
+  * id `string`: Resource id
+  * location `string`: Resource location
+  * name `string`: Resource name
+  * tags [TagsDictionary](#tagsdictionary)
   * type `string`: Resource type
 
-### GeneralApiInformation
-* GeneralApiInformation `object`: General API information
-  * properties `object`
-    * connectionDisplayName `string`: DefaultConnectionNameTemplate
-    * connectionPortalUrl [Object](#object)
-    * description `string`: Description
-    * displayName `string`: Display Name
-    * iconUrl `string`: Icon Url
-    * termsOfUseUrl `string`: a public accessible url of the Terms Of Use Url of this API
-  * id `string`: Resource Id
-  * kind `string`: Kind of resource
-  * location **required** `string`: Resource Location
-  * name `string`: Resource Name
-  * tags `object`: Resource tags
-  * type `string`: Resource type
+### ResourceReference
+* ResourceReference `object`
+  * id `string`: Resource reference id
+  * type `string`: Resource reference type
 
-### HostingEnvironmentServiceDescriptions
-* HostingEnvironmentServiceDescriptions `object`: Back end service per ASE
-  * hostId `string`: Host Id
-  * hostingEnvironmentId `string`: Hosting environment Id
-  * serviceUrl `string`: service url to use
-  * useInternalRouting `boolean`: When the backend url is in same ASE, for performance reason this flag can be set to true
+### TagsDictionary
+* TagsDictionary `object`: Resource tags
 
-### ListConnectionKeysInput
-* ListConnectionKeysInput `object`: List Connection Keys Input payload
-  * properties `object`
-    * validityTimeSpan `string`: time span for how long the keys will be valid
-  * id `string`: Resource Id
-  * kind `string`: Kind of resource
-  * location **required** `string`: Resource Location
-  * name `string`: Resource Name
-  * tags `object`: Resource tags
-  * type `string`: Resource type
+### WsdlDefinition
+* WsdlDefinition `object`: The WSDL definition
+  * content `string`: The WSDL content
+  * importMethod [WsdlImportMethod](#wsdlimportmethod)
+  * service [WsdlService](#wsdlservice)
+  * url `string`: The WSDL URL
 
-### Object
-* Object `object`
+### WsdlImportMethod
+* WsdlImportMethod `string` (values: NotSpecified, SoapToRest, SoapPassThrough): The WSDL import method
 
-### ParameterCustomLoginSettingValues
-* ParameterCustomLoginSettingValues `object`: Custom logging setting values
-  * properties `object`
-    * customParameters `object`: Custom parameters.
-  * id `string`: Resource Id
-  * kind `string`: Kind of resource
-  * location **required** `string`: Resource Location
-  * name `string`: Resource Name
-  * tags `object`: Resource tags
-  * type `string`: Resource type
+### WsdlService
+* WsdlService `object`: The service with name and endpoint names
+  * endpointQualifiedNames `array`: List of the endpoints' qualified names
+    * items `string`
+  * qualifiedName **required** `string`: The service's qualified name
 
-### Resource
-* Resource `object`
-  * id `string`: Resource Id
-  * kind `string`: Kind of resource
-  * location **required** `string`: Resource Location
-  * name `string`: Resource Name
-  * tags `object`: Resource tags
-  * type `string`: Resource type
-
-### ResponseMessageEnvelope[ApiEntity]
-* ResponseMessageEnvelope[ApiEntity] `object`: Message envelope that contains the common Azure resource manager properties and the resource provider specific content
-  * id `string`: Resource Id. Typically id is populated only for responses to GET requests. Caller is responsible for passing in this
-  * location `string`: Geo region resource belongs to e.g. SouthCentralUS, SouthEastAsia
-  * name `string`: Name of resource
-  * plan [ArmPlan](#armplan)
-  * properties [ApiEntity](#apientity)
-  * sku [SkuDescription](#skudescription)
-  * tags `object`: Tags associated with resource
-  * type `string`: Type of resource e.g Microsoft.Web/sites
-
-### SkuDescription
-* SkuDescription `object`: Describes a sku for a scalable resource
-  * capacity `integer`: Current number of instances assigned to the resource
-  * family `string`: Family code of the resource sku
-  * name `string`: Name of the resource sku
-  * size `string`: Size specifier of the resource sku
-  * tier `string`: Service Tier of the resource sku
+### WsdlServiceCollection
+* WsdlServiceCollection `object`: A list of custom API WSDL interfaces
+  * value `array`: Collection of WSDL interfaces
+    * items [WsdlService](#wsdlservice)
 
 

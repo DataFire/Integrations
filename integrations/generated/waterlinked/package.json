@@ -1,8 +1,8 @@
 {
   "name": "@datafire/waterlinked",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "main": "index.js",
-  "description": "DataFire integration for The Water Linked Underwater GPS",
+  "description": "DataFire integration for The Water Linked Underwater GPS API",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DataFire/integrations.git"

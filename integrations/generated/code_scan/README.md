@@ -1,6 +1,6 @@
 # @datafire/code_scan
 
-Client library for CodeScan
+Client library for CodeScan API
 
 ## Installation and Usage
 ```bash
@@ -12,9 +12,7 @@ let code_scan = require('@datafire/code_scan').create({
   password: ""
 });
 
-code_scan.job.get({
-  "jobId": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

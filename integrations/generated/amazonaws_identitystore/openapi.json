@@ -1,0 +1,1035 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "contact": {
+      "email": "mike.ralphson@gmail.com",
+      "name": "Mike Ralphson",
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
+    },
+    "license": {
+      "name": "Apache 2.0 License",
+      "url": "http://www.apache.org/licenses/"
+    },
+    "termsOfService": "https://aws.amazon.com/service-terms/",
+    "title": "AWS SSO Identity Store",
+    "version": "2020-06-15",
+    "x-apiClientRegistration": {
+      "url": "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"
+    },
+    "x-apisguru-categories": [
+      "cloud"
+    ],
+    "x-logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"
+    },
+    "x-origin": [
+      {
+        "contentType": "application/json",
+        "converter": {
+          "url": "https://github.com/mermade/aws2openapi",
+          "version": "1.0.0"
+        },
+        "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/identitystore-2020-06-15.normal.json",
+        "x-apisguru-driver": "external"
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "amazonaws.com",
+    "x-release": "v4",
+    "x-serviceName": "identitystore",
+    "x-datafire": {
+      "name": "amazonaws_identitystore",
+      "type": "openapi"
+    }
+  },
+  "host": "identitystore.us-east-1.amazonaws.com",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/#X-Amz-Target=AWSIdentityStore.DescribeGroup": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "AWSIdentityStore.DescribeGroup"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeGroupRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeGroupResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "482": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "484": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Retrieves the group metadata and attributes from <code>GroupId</code> in an identity store.",
+        "operationId": "DescribeGroup"
+      }
+    },
+    "/#X-Amz-Target=AWSIdentityStore.DescribeUser": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "AWSIdentityStore.DescribeUser"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeUserRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeUserResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "482": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "484": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Retrieves the user metadata and attributes from <code>UserId</code> in an identity store.",
+        "operationId": "DescribeUser"
+      }
+    },
+    "/#X-Amz-Target=AWSIdentityStore.ListGroups": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "AWSIdentityStore.ListGroups"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListGroupsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListGroupsResponse"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "484": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Lists the attribute name and value of the group that you specified in the search. We only support <code>DisplayName</code> as a valid filter attribute path currently, and filter is required. This API returns minimum attributes, including <code>GroupId</code> and group <code>DisplayName</code> in the response.",
+        "operationId": "ListGroups"
+      }
+    },
+    "/#X-Amz-Target=AWSIdentityStore.ListUsers": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "AWSIdentityStore.ListUsers"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListUsersRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListUsersResponse"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "484": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Lists the attribute name and value of the user that you specified in the search. We only support <code>UserName</code> as a valid filter attribute path currently, and filter is required. This API returns minimum attributes, including <code>UserId</code> and <code>UserName</code> in the response.",
+        "operationId": "ListUsers"
+      }
+    }
+  },
+  "definitions": {
+    "AccessDeniedException": {},
+    "AttributePath": {
+      "maxLength": 255,
+      "minLength": 1,
+      "pattern": "[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}  ]+",
+      "type": "string"
+    },
+    "DescribeGroupRequest": {
+      "properties": {
+        "GroupId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceId"
+            },
+            {
+              "description": "The identifier for a group in the identity store."
+            }
+          ]
+        },
+        "IdentityStoreId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/IdentityStoreId"
+            },
+            {
+              "description": "The globally unique identifier for the identity store, such as d-1234567890. In this example, d- is a fixed prefix, and 1234567890 is a randomly generated string which contains number and lower case letters. This value is generated at the time that a new identity store is created."
+            }
+          ]
+        }
+      },
+      "required": [
+        "IdentityStoreId",
+        "GroupId"
+      ],
+      "title": "DescribeGroupRequest",
+      "type": "object"
+    },
+    "DescribeGroupResponse": {
+      "properties": {
+        "DisplayName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/GroupDisplayName"
+            },
+            {
+              "description": "Contains the group’s display name value. The length limit is 1024 characters. This value can consist of letters, accented characters, symbols, numbers, punctuation, tab, new line, carriage return, space and non breaking space in this attribute. The characters “&lt;&gt;;:%” are excluded. This value is specified at the time the group is created and stored as an attribute of the group object in the identity store."
+            }
+          ]
+        },
+        "GroupId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceId"
+            },
+            {
+              "description": "The identifier for a group in the identity store."
+            }
+          ]
+        }
+      },
+      "required": [
+        "GroupId",
+        "DisplayName"
+      ],
+      "type": "object"
+    },
+    "DescribeUserRequest": {
+      "properties": {
+        "IdentityStoreId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/IdentityStoreId"
+            },
+            {
+              "description": "The globally unique identifier for the identity store, such as d-1234567890. In this example, d- is a fixed prefix, and 1234567890 is a randomly generated string which contains number and lower case letters. This value is generated at the time that a new identity store is created."
+            }
+          ]
+        },
+        "UserId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceId"
+            },
+            {
+              "description": "The identifier for a user in the identity store."
+            }
+          ]
+        }
+      },
+      "required": [
+        "IdentityStoreId",
+        "UserId"
+      ],
+      "title": "DescribeUserRequest",
+      "type": "object"
+    },
+    "DescribeUserResponse": {
+      "properties": {
+        "UserId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceId"
+            },
+            {
+              "description": "The identifier for a user in the identity store."
+            }
+          ]
+        },
+        "UserName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/UserName"
+            },
+            {
+              "description": "Contains the user’s username value. The length limit is 128 characters. This value can consist of letters, accented characters, symbols, numbers and punctuation. The characters “&lt;&gt;;:%” are excluded. This value is specified at the time the user is created and stored as an attribute of the user object in the identity store."
+            }
+          ]
+        }
+      },
+      "required": [
+        "UserName",
+        "UserId"
+      ],
+      "type": "object"
+    },
+    "Filter": {
+      "description": "A query filter used by <code>ListUsers</code> and <code>ListGroup</code>. This filter object provides the attribute name and attribute value to search users or groups.",
+      "properties": {
+        "AttributePath": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AttributePath"
+            },
+            {
+              "description": "The attribute path used to specify which attribute name to search. Length limit is 255 characters. For example, <code>UserName</code> is a valid attribute path for the <code>ListUsers</code> API, and <code>DisplayName</code> is a valid attribute path for the <code>ListGroups</code> API."
+            }
+          ]
+        },
+        "AttributeValue": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SensitiveStringType"
+            },
+            {
+              "description": "Represents the data for an attribute. Each attribute value is described as a name-value pair. "
+            }
+          ]
+        }
+      },
+      "required": [
+        "AttributePath",
+        "AttributeValue"
+      ],
+      "type": "object"
+    },
+    "Filters": {
+      "items": {
+        "$ref": "#/definitions/Filter"
+      },
+      "type": "array"
+    },
+    "Group": {
+      "description": "A group object, which contains a specified group’s metadata and attributes.",
+      "properties": {
+        "DisplayName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/GroupDisplayName"
+            },
+            {
+              "description": "Contains the group’s display name value. The length limit is 1024 characters. This value can consist of letters, accented characters, symbols, numbers, punctuation, tab, new line, carriage return, space and non breaking space in this attribute. The characters “&lt;&gt;;:%” are excluded. This value is specified at the time the group is created and stored as an attribute of the group object in the identity store."
+            }
+          ]
+        },
+        "GroupId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceId"
+            },
+            {
+              "description": "The identifier for a group in the identity store."
+            }
+          ]
+        }
+      },
+      "required": [
+        "GroupId",
+        "DisplayName"
+      ],
+      "type": "object"
+    },
+    "GroupDisplayName": {
+      "maxLength": 1024,
+      "minLength": 1,
+      "pattern": "[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}\\t\\n\\r  ]+",
+      "type": "string"
+    },
+    "Groups": {
+      "items": {
+        "$ref": "#/definitions/Group"
+      },
+      "type": "array"
+    },
+    "IdentityStoreId": {
+      "maxLength": 12,
+      "minLength": 1,
+      "pattern": "^d-[0-9a-f]{10}$",
+      "type": "string"
+    },
+    "InternalServerException": {},
+    "ListGroupsRequest": {
+      "properties": {
+        "Filters": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Filters"
+            },
+            {
+              "description": "A list of <code>Filter</code> objects, which is used in the <code>ListUsers</code> and <code>ListGroups</code> request. "
+            }
+          ]
+        },
+        "IdentityStoreId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/IdentityStoreId"
+            },
+            {
+              "description": "The globally unique identifier for the identity store, such as d-1234567890. In this example, d- is a fixed prefix, and 1234567890 is a randomly generated string which contains number and lower case letters. This value is generated at the time that a new identity store is created."
+            }
+          ]
+        },
+        "MaxResults": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MaxResults"
+            },
+            {
+              "description": "The maximum number of results to be returned per request, which is used in the <code>ListUsers</code> and <code>ListGroups</code> request to specify how many results to return in one page. The length limit is 50 characters."
+            }
+          ]
+        },
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NextToken"
+            },
+            {
+              "description": "The pagination token used for the <code>ListUsers</code> and <code>ListGroups</code> APIs. This value is generated by the identity store service and is returned in the API response if the total results are more than the size of one page, and when this token is used in the API request to search for the next page."
+            }
+          ]
+        }
+      },
+      "required": [
+        "IdentityStoreId"
+      ],
+      "title": "ListGroupsRequest",
+      "type": "object"
+    },
+    "ListGroupsResponse": {
+      "properties": {
+        "Groups": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Groups"
+            },
+            {
+              "description": "A list of <code>Group</code> objects in the identity store."
+            }
+          ]
+        },
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NextToken"
+            },
+            {
+              "description": "The pagination token used for the <code>ListUsers</code> and <code>ListGroups</code> APIs. This value is generated by the identity store service and is returned in the API response if the total results are more than the size of one page, and when this token is used in the API request to search for the next page."
+            }
+          ]
+        }
+      },
+      "required": [
+        "Groups"
+      ],
+      "type": "object"
+    },
+    "ListUsersRequest": {
+      "properties": {
+        "Filters": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Filters"
+            },
+            {
+              "description": "A list of <code>Filter</code> objects, which is used in the <code>ListUsers</code> and <code>ListGroups</code> request. "
+            }
+          ]
+        },
+        "IdentityStoreId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/IdentityStoreId"
+            },
+            {
+              "description": "The globally unique identifier for the identity store, such as d-1234567890. In this example, d- is a fixed prefix, and 1234567890 is a randomly generated string which contains number and lower case letters. This value is generated at the time that a new identity store is created."
+            }
+          ]
+        },
+        "MaxResults": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MaxResults"
+            },
+            {
+              "description": "The maximum number of results to be returned per request, which is used in the <code>ListUsers</code> and <code>ListGroups</code> request to specify how many results to return in one page. The length limit is 50 characters."
+            }
+          ]
+        },
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NextToken"
+            },
+            {
+              "description": "The pagination token used for the <code>ListUsers</code> and <code>ListGroups</code> APIs. This value is generated by the identity store service and is returned in the API response if the total results are more than the size of one page, and when this token is used in the API request to search for the next page."
+            }
+          ]
+        }
+      },
+      "required": [
+        "IdentityStoreId"
+      ],
+      "title": "ListUsersRequest",
+      "type": "object"
+    },
+    "ListUsersResponse": {
+      "properties": {
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NextToken"
+            },
+            {
+              "description": "The pagination token used for the <code>ListUsers</code> and <code>ListGroups</code> APIs. This value is generated by the identity store service and is returned in the API response if the total results are more than the size of one page, and when this token is used in the API request to search for the next page."
+            }
+          ]
+        },
+        "Users": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Users"
+            },
+            {
+              "description": "A list of <code>User</code> objects in the identity store."
+            }
+          ]
+        }
+      },
+      "required": [
+        "Users"
+      ],
+      "type": "object"
+    },
+    "MaxResults": {
+      "maximum": 50,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "NextToken": {
+      "maxLength": 65535,
+      "minLength": 1,
+      "pattern": "^[-a-zA-Z0-9+=/:]*",
+      "type": "string"
+    },
+    "ResourceId": {
+      "maxLength": 47,
+      "minLength": 1,
+      "pattern": "^([0-9a-f]{10}-|)[A-Fa-f0-9]{8}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{12}$",
+      "type": "string"
+    },
+    "ResourceNotFoundException": {},
+    "SensitiveStringType": {
+      "format": "password",
+      "maxLength": 1024,
+      "minLength": 1,
+      "pattern": "[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}\\t\\n\\r  ]+",
+      "type": "string"
+    },
+    "ThrottlingException": {},
+    "User": {
+      "description": "A user object, which contains a specified user’s metadata and attributes.",
+      "properties": {
+        "UserId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceId"
+            },
+            {
+              "description": "The identifier for a user in the identity store."
+            }
+          ]
+        },
+        "UserName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/UserName"
+            },
+            {
+              "description": "Contains the user’s username value. The length limit is 128 characters. This value can consist of letters, accented characters, symbols, numbers and punctuation. The characters “&lt;&gt;;:%” are excluded. This value is specified at the time the user is created and stored as an attribute of the user object in the identity store."
+            }
+          ]
+        }
+      },
+      "required": [
+        "UserName",
+        "UserId"
+      ],
+      "type": "object"
+    },
+    "UserName": {
+      "format": "password",
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}]+",
+      "type": "string"
+    },
+    "Users": {
+      "items": {
+        "$ref": "#/definitions/User"
+      },
+      "type": "array"
+    },
+    "ValidationException": {}
+  },
+  "securityDefinitions": {
+    "hmac": {
+      "description": "Amazon Signature authorization v4",
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey",
+      "x-amazon-apigateway-authtype": "awsSigv4"
+    }
+  },
+  "security": [
+    {
+      "hmac": []
+    }
+  ],
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://docs.aws.amazon.com/identitystore/"
+  },
+  "x-components": {
+    "parameters": {
+      "X-Amz-Algorithm": {
+        "in": "header",
+        "name": "X-Amz-Algorithm",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Content-Sha256": {
+        "in": "header",
+        "name": "X-Amz-Content-Sha256",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Credential": {
+        "in": "header",
+        "name": "X-Amz-Credential",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Date": {
+        "in": "header",
+        "name": "X-Amz-Date",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Security-Token": {
+        "in": "header",
+        "name": "X-Amz-Security-Token",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Signature": {
+        "in": "header",
+        "name": "X-Amz-Signature",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-SignedHeaders": {
+        "in": "header",
+        "name": "X-Amz-SignedHeaders",
+        "required": false,
+        "type": "string"
+      }
+    }
+  },
+  "x-hasEquivalentPaths": true
+}

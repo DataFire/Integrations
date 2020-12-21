@@ -15,12 +15,7 @@ let azure_hdinsight_applications = require('@datafire/azure_hdinsight_applicatio
   redirect_uri: ""
 });
 
-azure_hdinsight_applications.Applications_List({
-  "resourceGroupName": "",
-  "clusterName": "",
-  "api-version": "",
-  "subscriptionId": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -31,25 +26,25 @@ The HDInsight Management Client.
 
 ## Actions
 
-### Applications_List
-Lists all of the applications HDInsight cluster.
+### Applications_ListByCluster
+Lists all of the applications for the HDInsight cluster.
 
 
 ```js
-azure_hdinsight_applications.Applications_List({
+azure_hdinsight_applications.Applications_ListByCluster({
+  "subscriptionId": "",
   "resourceGroupName": "",
   "clusterName": "",
-  "api-version": "",
-  "subscriptionId": ""
+  "api-version": ""
 }, context)
 ```
 
 #### Input
 * input `object`
+  * subscriptionId **required** `string`: The subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
   * resourceGroupName **required** `string`: The name of the resource group.
   * clusterName **required** `string`: The name of the cluster.
   * api-version **required** `string`: The HDInsight client API Version.
-  * subscriptionId **required** `string`: The subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
 #### Output
 * output [ApplicationListResult](#applicationlistresult)
@@ -60,46 +55,46 @@ Deletes the specified application on the HDInsight cluster.
 
 ```js
 azure_hdinsight_applications.Applications_Delete({
+  "subscriptionId": "",
   "resourceGroupName": "",
   "clusterName": "",
   "applicationName": "",
-  "api-version": "",
-  "subscriptionId": ""
+  "api-version": ""
 }, context)
 ```
 
 #### Input
 * input `object`
+  * subscriptionId **required** `string`: The subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
   * resourceGroupName **required** `string`: The name of the resource group.
   * clusterName **required** `string`: The name of the cluster.
-  * applicationName **required** `string` (values: hue): The constant value for the application name.
+  * applicationName **required** `string`: The constant value for the application name.
   * api-version **required** `string`: The HDInsight client API Version.
-  * subscriptionId **required** `string`: The subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
 #### Output
 *Output schema unknown*
 
 ### Applications_Get
-Lists properties of the specified application.
+Gets properties of the specified application.
 
 
 ```js
 azure_hdinsight_applications.Applications_Get({
+  "subscriptionId": "",
   "resourceGroupName": "",
   "clusterName": "",
-  "api-version": "",
-  "subscriptionId": "",
-  "applicationName": ""
+  "applicationName": "",
+  "api-version": ""
 }, context)
 ```
 
 #### Input
 * input `object`
+  * subscriptionId **required** `string`: The subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
   * resourceGroupName **required** `string`: The name of the resource group.
   * clusterName **required** `string`: The name of the cluster.
-  * api-version **required** `string`: The HDInsight client API Version.
-  * subscriptionId **required** `string`: The subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
   * applicationName **required** `string`: The constant value for the application name.
+  * api-version **required** `string`: The HDInsight client API Version.
 
 #### Output
 * output [Application](#application)
@@ -110,23 +105,23 @@ Creates applications for the HDInsight cluster.
 
 ```js
 azure_hdinsight_applications.Applications_Create({
+  "subscriptionId": "",
   "resourceGroupName": "",
   "clusterName": "",
   "applicationName": "",
-  "parameters": {},
   "api-version": "",
-  "subscriptionId": ""
+  "parameters": {}
 }, context)
 ```
 
 #### Input
 * input `object`
+  * subscriptionId **required** `string`: The subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
   * resourceGroupName **required** `string`: The name of the resource group.
   * clusterName **required** `string`: The name of the cluster.
-  * applicationName **required** `string` (values: hue): The constant value for the application name.
-  * parameters **required** [ApplicationGetProperties](#applicationgetproperties)
+  * applicationName **required** `string`: The constant value for the application name.
   * api-version **required** `string`: The HDInsight client API Version.
-  * subscriptionId **required** `string`: The subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+  * parameters **required** [Application](#application)
 
 #### Output
 * output [Application](#application)
@@ -138,7 +133,7 @@ azure_hdinsight_applications.Applications_Create({
 ### Application
 * Application `object`: The HDInsight cluster application
   * etag `string`: The ETag for the application
-  * properties [ApplicationGetProperties](#applicationgetproperties)
+  * properties [ApplicationProperties](#applicationproperties)
   * tags `object`: The tags for the application.
   * id `string`: Fully qualified resource Id for the resource.
   * name `string`: The name of the resource
@@ -155,39 +150,37 @@ azure_hdinsight_applications.Applications_Create({
   * accessModes `array`: The list of access modes for the application.
     * items `string`
   * destinationPort `integer`: The destination port to connect to.
+  * disableGatewayAuth `boolean`: The value indicates whether to disable GatewayAuth.
   * location `string`: The location of the endpoint.
   * publicPort `integer`: The public port to connect to.
+  * subDomainSuffix `string`: The subdomain suffix of the application.
 
-### ApplicationGetProperties
-* ApplicationGetProperties `object`: The HDInsight cluster application GET response.
-  * additionalProperties `string`: The additional properties for application.
+### ApplicationListResult
+* ApplicationListResult `object`: Result of the request to list cluster Applications. It contains a list of operations and a URL link to get the next set of results.
+  * nextLink `string`: The URL to get the next set of operation list results if there are any.
+  * value `array`: The list of HDInsight applications installed on HDInsight cluster.
+    * items [Application](#application)
+
+### ApplicationProperties
+* ApplicationProperties `object`: The HDInsight cluster application GET response.
   * applicationState `string`: The application state.
   * applicationType `string`: The application type.
   * computeProfile `object`: Describes the compute profile.
     * roles `array`: The list of roles in the cluster.
       * items `object`: Describes a role on the cluster.
+        * autoscale `object`: The autoscale request parameters
+          * capacity `object`: The load-based autoscale request parameters
+          * recurrence `object`: Schedule-based autoscale request parameters
         * dataDisksGroups `array`: The data disks groups for the role.
           * items `object`: The data disks groups for the role.
-            * diskSizeGB `integer`: ReadOnly. The DiskSize in GB. Do not set this value.
-            * disksPerNode `integer`: The number of disks per node.
-            * storageAccountType `string`: ReadOnly. The storage account type. Do not set this value.
         * hardwareProfile `object`: The hardware profile.
           * vmSize `string`: The size of the VM
         * minInstanceCount `integer`: The minimum instance count of the cluster.
         * name `string`: The name of the role.
         * osProfile `object`: The Linux operation systems profile.
           * linuxOperatingSystemProfile `object`: The ssh username, password, and ssh public key.
-            * password `string`: The password.
-            * sshProfile `object`: The list of SSH public keys.
-              * publicKeys `array`: The list of SSH public keys.
-                * items `object`: The SSH public key for the cluster nodes.
-                  * certificateData `string`: The certificate for SSH.
-            * username `string`: The username.
         * scriptActions `array`: The list of script actions on the role.
           * items `object`: Describes a script action on role on the cluster.
-            * name **required** `string`: The name of the script action.
-            * parameters **required** `string`: The parameters for the script provided.
-            * uri **required** `string`: The URI to the script.
         * targetInstanceCount `integer`: The instance count of the cluster.
         * virtualNetworkProfile `object`: The virtual network properties.
           * id `string`: The ID of the virtual network.
@@ -219,11 +212,5 @@ azure_hdinsight_applications.Applications_Create({
       * roles **required** `array`: The list of roles where script will be executed.
         * items `string`
       * uri **required** `string`: The URI to the script.
-
-### ApplicationListResult
-* ApplicationListResult `object`: Result of the request to list cluster Applications. It contains a list of operations and a URL link to get the next set of results.
-  * nextLink `string`: The URL to get the next set of operation list results if there are any.
-  * value `array`: The list of HDInsight applications installed on HDInsight cluster.
-    * items [Application](#application)
 
 

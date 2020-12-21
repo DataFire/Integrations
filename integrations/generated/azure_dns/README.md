@@ -15,10 +15,7 @@ let azure_dns = require('@datafire/azure_dns').create({
   redirect_uri: ""
 });
 
-azure_dns.Zones_List({
-  "api-version": "",
-  "subscriptionId": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -48,6 +45,27 @@ azure_dns.Zones_List({
 
 #### Output
 * output [ZoneListResult](#zonelistresult)
+
+### DnsResourceReference_GetByTargetResources
+Returns the DNS records specified by the referencing targetResourceIds.
+
+
+```js
+azure_dns.DnsResourceReference_GetByTargetResources({
+  "api-version": "",
+  "subscriptionId": "",
+  "parameters": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * api-version **required** `string`: Specifies the API version.
+  * subscriptionId **required** `string`: Specifies the Azure subscription ID, which uniquely identifies the Microsoft Azure subscription.
+  * parameters **required** [DnsResourceReferenceRequest](#dnsresourcereferencerequest)
+
+#### Output
+* output [DnsResourceReferenceResult](#dnsresourcereferenceresult)
 
 ### Zones_ListByResourceGroup
 Lists the DNS zones within a resource group.
@@ -118,6 +136,32 @@ azure_dns.Zones_Get({
 #### Output
 * output [Zone](#zone)
 
+### Zones_Update
+Updates a DNS zone. Does not modify DNS records within the zone.
+
+
+```js
+azure_dns.Zones_Update({
+  "resourceGroupName": "",
+  "zoneName": "",
+  "parameters": null,
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * resourceGroupName **required** `string`: The name of the resource group.
+  * zoneName **required** `string`: The name of the DNS zone (without a terminating dot).
+  * parameters **required** [ZoneUpdate](#zoneupdate)
+  * If-Match `string`: The etag of the DNS zone. Omit this value to always overwrite the current zone. Specify the last-seen etag value to prevent accidentally overwriting any concurrent changes.
+  * api-version **required** `string`: Specifies the API version.
+  * subscriptionId **required** `string`: Specifies the Azure subscription ID, which uniquely identifies the Microsoft Azure subscription.
+
+#### Output
+* output [Zone](#zone)
+
 ### Zones_CreateOrUpdate
 Creates or updates a DNS zone. Does not modify DNS records within the zone.
 
@@ -137,13 +181,38 @@ azure_dns.Zones_CreateOrUpdate({
   * resourceGroupName **required** `string`: The name of the resource group.
   * zoneName **required** `string`: The name of the DNS zone (without a terminating dot).
   * parameters **required** [Zone](#zone)
-  * If-Match `string`: The etag of the DNS zone. Omit this value to always overwrite the current zone. Specify the last-seen etag value to prevent accidentally overwritting any concurrent changes.
+  * If-Match `string`: The etag of the DNS zone. Omit this value to always overwrite the current zone. Specify the last-seen etag value to prevent accidentally overwriting any concurrent changes.
   * If-None-Match `string`: Set to '*' to allow a new DNS zone to be created, but to prevent updating an existing zone. Other values will be ignored.
   * api-version **required** `string`: Specifies the API version.
   * subscriptionId **required** `string`: Specifies the Azure subscription ID, which uniquely identifies the Microsoft Azure subscription.
 
 #### Output
 * output [Zone](#zone)
+
+### RecordSets_ListAllByDnsZone
+Lists all record sets in a DNS zone.
+
+
+```js
+azure_dns.RecordSets_ListAllByDnsZone({
+  "resourceGroupName": "",
+  "zoneName": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * resourceGroupName **required** `string`: The name of the resource group.
+  * zoneName **required** `string`: The name of the DNS zone (without a terminating dot).
+  * $top `integer`: The maximum number of record sets to return. If not specified, returns up to 100 record sets.
+  * $recordsetnamesuffix `string`: The suffix label of the record set name that has to be used to filter the record set enumerations. If this parameter is specified, Enumeration will return only records that end with .<recordSetNameSuffix>
+  * api-version **required** `string`: Specifies the API version.
+  * subscriptionId **required** `string`: Specifies the Azure subscription ID, which uniquely identifies the Microsoft Azure subscription.
+
+#### Output
+* output [RecordSetListResult](#recordsetlistresult)
 
 ### RecordSets_ListByDnsZone
 Lists all record sets in a DNS zone.
@@ -275,7 +344,7 @@ azure_dns.RecordSets_Update({
   * relativeRecordSetName **required** `string`: The name of the record set, relative to the name of the zone.
   * recordType **required** `string` (values: A, AAAA, CAA, CNAME, MX, NS, PTR, SOA, SRV, TXT): The type of DNS record in this record set.
   * parameters **required** [RecordSet](#recordset)
-  * If-Match `string`: The etag of the record set. Omit this value to always overwrite the current record set. Specify the last-seen etag value to prevent accidentally overwritting concurrent changes.
+  * If-Match `string`: The etag of the record set. Omit this value to always overwrite the current record set. Specify the last-seen etag value to prevent accidentally overwriting concurrent changes.
   * api-version **required** `string`: Specifies the API version.
   * subscriptionId **required** `string`: Specifies the Azure subscription ID, which uniquely identifies the Microsoft Azure subscription.
 
@@ -305,7 +374,7 @@ azure_dns.RecordSets_CreateOrUpdate({
   * relativeRecordSetName **required** `string`: The name of the record set, relative to the name of the zone.
   * recordType **required** `string` (values: A, AAAA, CAA, CNAME, MX, NS, PTR, SOA, SRV, TXT): The type of DNS record in this record set. Record sets of type SOA can be updated but not created (they are created when the DNS zone is created).
   * parameters **required** [RecordSet](#recordset)
-  * If-Match `string`: The etag of the record set. Omit this value to always overwrite the current record set. Specify the last-seen etag value to prevent accidentally overwritting any concurrent changes.
+  * If-Match `string`: The etag of the record set. Omit this value to always overwrite the current record set. Specify the last-seen etag value to prevent accidentally overwriting any concurrent changes.
   * If-None-Match `string`: Set to '*' to allow a new record set to be created, but to prevent updating an existing record set. Other values will be ignored.
   * api-version **required** `string`: Specifies the API version.
   * subscriptionId **required** `string`: Specifies the Azure subscription ID, which uniquely identifies the Microsoft Azure subscription.
@@ -346,6 +415,30 @@ azure_dns.RecordSets_CreateOrUpdate({
 ### CnameRecord
 * CnameRecord `object`: A CNAME record.
   * cname `string`: The canonical name for this CNAME record.
+
+### DnsResourceReference
+* DnsResourceReference `object`: Represents a single Azure resource and its referencing DNS records.
+  * dnsResources `array`: A list of dns Records 
+    * items [SubResource](#subresource)
+  * targetResource [SubResource](#subresource)
+
+### DnsResourceReferenceRequest
+* DnsResourceReferenceRequest `object`: Represents the properties of the Dns Resource Reference Request.
+  * properties [DnsResourceReferenceRequestProperties](#dnsresourcereferencerequestproperties)
+
+### DnsResourceReferenceRequestProperties
+* DnsResourceReferenceRequestProperties `object`: Represents the properties of the Dns Resource Reference Request.
+  * targetResources `array`: A list of references to azure resources for which referencing dns records need to be queried.
+    * items [SubResource](#subresource)
+
+### DnsResourceReferenceResult
+* DnsResourceReferenceResult `object`: Represents the properties of the Dns Resource Reference Result.
+  * properties [DnsResourceReferenceResultProperties](#dnsresourcereferenceresultproperties)
+
+### DnsResourceReferenceResultProperties
+* DnsResourceReferenceResultProperties `object`: The result of dns resource reference request. Returns a list of dns resource references for each of the azure resource in the request.
+  * dnsResourceReferences `array`: The result of dns resource reference request. A list of dns resource references for each of the azure resource in the request
+    * items [DnsResourceReference](#dnsresourcereference)
 
 ### MxRecord
 * MxRecord `object`: An MX record.
@@ -397,6 +490,8 @@ azure_dns.RecordSets_CreateOrUpdate({
     * items [CaaRecord](#caarecord)
   * fqdn `string`: Fully qualified domain name of the record set.
   * metadata `object`: The metadata attached to the record set.
+  * provisioningState `string`: provisioning State of the record set.
+  * targetResource [SubResource](#subresource)
 
 ### RecordSetUpdateParameters
 * RecordSetUpdateParameters `object`: Parameters supplied to update a record set.
@@ -458,5 +553,14 @@ azure_dns.RecordSets_CreateOrUpdate({
   * nameServers `array`: The name servers for this DNS zone. This is a read-only property and any attempt to set this value will be ignored.
     * items `string`
   * numberOfRecordSets `integer`: The current number of record sets in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
+  * registrationVirtualNetworks `array`: A list of references to virtual networks that register hostnames in this DNS zone. This is a only when ZoneType is Private.
+    * items [SubResource](#subresource)
+  * resolutionVirtualNetworks `array`: A list of references to virtual networks that resolve records in this DNS zone. This is a only when ZoneType is Private.
+    * items [SubResource](#subresource)
+  * zoneType `string` (values: Public, Private): The type of this DNS zone (Public or Private).
+
+### ZoneUpdate
+* ZoneUpdate `object`: Describes a request to update a DNS zone.
+  * tags `object`: Resource tags.
 
 

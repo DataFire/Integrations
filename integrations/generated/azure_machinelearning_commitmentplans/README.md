@@ -15,10 +15,7 @@ let azure_machinelearning_commitmentplans = require('@datafire/azure_machinelear
   redirect_uri: ""
 });
 
-azure_machinelearning_commitmentplans.CommitmentPlans_List({
-  "subscriptionId": "",
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -28,6 +25,23 @@ azure_machinelearning_commitmentplans.CommitmentPlans_List({
 These APIs allow end users to operate on Azure Machine Learning Commitment Plans resources and their child Commitment Association resources. They support CRUD operations for commitment plans, get and list operations for commitment associations, moving commitment associations between commitment plans, and retrieving commitment plan usage history.
 
 ## Actions
+
+### Operations_List
+Lists all of the available Azure Machine Learning Studio Commitment Plan RP REST API operations.
+
+
+```js
+azure_machinelearning_commitmentplans.Operations_List({
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * api-version **required** `string`: The version of the Microsoft.MachineLearning resource provider API to use.
+
+#### Output
+* output [OperationEntityListResult](#operationentitylistresult)
 
 ### CommitmentPlans_List
 Retrieve all Azure ML commitment plans in a subscription.
@@ -366,6 +380,23 @@ azure_machinelearning_commitmentplans.UsageHistory_List({
 * MoveCommitmentAssociationRequest `object`: Specifies the destination Azure ML commitment plan for a move operation.
   * destinationPlanId `string`: The ARM ID of the commitment plan to re-parent the commitment association to.
 
+### OperationDisplayInfo
+* OperationDisplayInfo `object`: The API operation info.
+  * description `string`: The description of the operation.
+  * operation `string`: The action that users can perform, based on their permission level.
+  * provider `string`: The service provider.
+  * resource `string`: The resource on which the operation is performed.
+
+### OperationEntity
+* OperationEntity `object`: An API operation.
+  * display [OperationDisplayInfo](#operationdisplayinfo)
+  * name `string`: Operation name: {provider}/{resource}/{operation}.
+
+### OperationEntityListResult
+* OperationEntityListResult `object`: The list of REST API operations.
+  * value `array`: The list of operations.
+    * items [OperationEntity](#operationentity)
+
 ### PlanQuantity
 * PlanQuantity `object`: Represents the quantity a commitment plan provides of a metered resource.
   * allowance `number`: The quantity added to the commitment plan at an interval specified by its allowance frequency.
@@ -404,7 +435,7 @@ azure_machinelearning_commitmentplans.UsageHistory_List({
   * tier `string`: The SKU tier. Along with name, uniquely identifies the SKU.
 
 ### SkuCapability
-* SkuCapability `object`: Describes The SKU capabilites object.
+* SkuCapability `object`: Describes The SKU capabilities object.
   * name `string`: The capability name.
   * value `string`: The capability value.
 

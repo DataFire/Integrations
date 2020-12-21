@@ -15,7 +15,7 @@ let asana = require('@datafire/asana').create({
   redirect_uri: ""
 });
 
-asana.tasks.task_gid.addDependencies.post({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -104,7 +104,6 @@ asana.workspaces.workspace_gid.tags.get({}, context)
 * output `object`
   * data **required** `array`
 
-
 ### projects.project_gid.project_memberships.get
 Returns the compact project membership records for the project.
 
@@ -121,7 +120,6 @@ asana.projects.project_gid.project_memberships.get({}, context)
 #### Output
 * output `object`
   * data **required** `array`
-
 
 ### tasks.task_gid.dependents.get
 Returns the compact representations of all of the dependents of a task.
@@ -387,7 +385,6 @@ asana.workspaces.workspace_gid.tasks.search.get({}, context)
 #### Output
 * output `object`
   * data **required** `array`
-
 
 ### tasks.task_gid.projects.get
 Returns a compact representation of all of the projects the task is in.
@@ -674,7 +671,6 @@ asana.workspaces.workspace_gid.custom_fields.get({}, context)
 * output `object`
   * data **required** `array`
 
-
 ### teams.team_gid.users.get
 Returns the compact records for all users that are members of the team.
 
@@ -804,7 +800,6 @@ asana.projects.project_gid.custom_field_settings.get({}, context)
 #### Output
 * output `object`
   * data **required** `array`
-
 
 ### teams.team_gid.get
 Returns the full record for a single team.
@@ -1112,7 +1107,6 @@ asana.webhooks.get({}, context)
 * output `object`
   * data **required** `array`
 
-
 ### workspaces.workspace_gid.typeahead.get
 Retrieves objects in the workspace based on an auto-completion/typeahead search algorithm. This feature is meant to provide results quickly, so do not rely on this API to provide extremely accurate search results. The result set is limited to a single page of results with a maximum size, so you won’t be able to fetch large numbers of results.
 
@@ -1248,7 +1242,6 @@ asana.projects.project_gid.tasks.get({}, context)
 * output `object`
   * data **required** `array`
 
-
 ### tasks.task_gid.removeDependents.post
 Unlinks a set of dependents from this task.
 
@@ -1333,7 +1326,6 @@ asana.tags.tag_gid.tasks.get({}, context)
 #### Output
 * output `object`
   * data **required** `array`
-
 
 ### organization_exports.post
 This method creates a request to export an Organization. Asana will complete the export at some point after you create the request.
@@ -1498,7 +1490,6 @@ asana.users.get({}, context)
 * output `object`
   * data **required** `object`
     * workspaces **required** `array`
-
     * name **required** `string`
     * id **required** `integer`
     * gid **required** `string`
@@ -1825,7 +1816,6 @@ asana.tasks.task_gid.attachments.get({}, context)
 * output `object`
   * data **required** `array`
 
-
 ### tasks.task_gid.addProject.post
 Adds the task to the specified project, in the optional location specified. If no location arguments are given, the task will be added to the end of the project.
 
@@ -1996,7 +1986,6 @@ asana.projects.project_gid.sections.get({}, context)
 * output `object`
   * data **required** `array`
 
-
 ### tags.post
 Creates a new tag in a workspace or organization.
 
@@ -2091,7 +2080,6 @@ asana.projects.project_gid.project_statuses.get({}, context)
 * output `object`
   * data **required** `array`
 
-
 ### users.user_gid.get
 Returns the full user record for the single user with the provided ID.
 
@@ -2108,7 +2096,6 @@ asana.users.user_gid.get({}, context)
 * output `object`
   * data **required** `object`
     * workspaces **required** `array`
-
     * name **required** `string`
     * id **required** `integer`
     * gid **required** `string`
@@ -2534,7 +2521,6 @@ asana.workspaces.workspace_gid.projects.get({}, context)
 #### Output
 * output `object`
   * data **required** `array`
-
 
 ### tasks.task_gid.tags.get
 Returns a compact representation of all of the tags the task has.

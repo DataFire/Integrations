@@ -1,6 +1,6 @@
 # @datafire/azure_sql_elasticpools
 
-Client library for Azure SQL Database
+Client library for SqlManagementClient
 
 ## Installation and Usage
 ```bash
@@ -15,66 +15,62 @@ let azure_sql_elasticpools = require('@datafire/azure_sql_elasticpools').create(
   redirect_uri: ""
 });
 
-azure_sql_elasticpools.ElasticPools_ListByServer({
-  "api-version": "",
-  "subscriptionId": "",
-  "resourceGroupName": "",
-  "serverName": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
 
 ## Description
 
-Provides create, read, update and delete functionality for Azure SQL Database elastic pools.
+The Azure SQL Database management API provides a RESTful set of web APIs that interact with Azure SQL Database services to manage your databases. The API enables users to create, retrieve, update, and delete databases, servers, and other entities.
 
 ## Actions
 
 ### ElasticPools_ListByServer
-Returns a list of elastic pools in a server.
+Gets all elastic pools in a server.
 
 
 ```js
 azure_sql_elasticpools.ElasticPools_ListByServer({
-  "api-version": "",
-  "subscriptionId": "",
   "resourceGroupName": "",
-  "serverName": ""
+  "serverName": "",
+  "subscriptionId": "",
+  "api-version": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * api-version **required** `string`: The API version to use for the request.
-  * subscriptionId **required** `string`: The subscription ID that identifies an Azure subscription.
   * resourceGroupName **required** `string`: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
   * serverName **required** `string`: The name of the server.
+  * $skip `integer`: The number of elements in the collection to skip.
+  * subscriptionId **required** `string`: The subscription ID that identifies an Azure subscription.
+  * api-version **required** `string`: The API version to use for the request.
 
 #### Output
 * output [ElasticPoolListResult](#elasticpoollistresult)
 
 ### ElasticPools_Delete
-Deletes the elastic pool.
+Deletes an elastic pool.
 
 
 ```js
 azure_sql_elasticpools.ElasticPools_Delete({
-  "api-version": "",
-  "subscriptionId": "",
   "resourceGroupName": "",
   "serverName": "",
-  "elasticPoolName": ""
+  "elasticPoolName": "",
+  "subscriptionId": "",
+  "api-version": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * api-version **required** `string`: The API version to use for the request.
-  * subscriptionId **required** `string`: The subscription ID that identifies an Azure subscription.
   * resourceGroupName **required** `string`: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
   * serverName **required** `string`: The name of the server.
-  * elasticPoolName **required** `string`: The name of the elastic pool to be deleted.
+  * elasticPoolName **required** `string`: The name of the elastic pool.
+  * subscriptionId **required** `string`: The subscription ID that identifies an Azure subscription.
+  * api-version **required** `string`: The API version to use for the request.
 
 #### Output
 *Output schema unknown*
@@ -85,75 +81,77 @@ Gets an elastic pool.
 
 ```js
 azure_sql_elasticpools.ElasticPools_Get({
-  "api-version": "",
-  "subscriptionId": "",
   "resourceGroupName": "",
   "serverName": "",
-  "elasticPoolName": ""
+  "elasticPoolName": "",
+  "subscriptionId": "",
+  "api-version": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * api-version **required** `string`: The API version to use for the request.
-  * subscriptionId **required** `string`: The subscription ID that identifies an Azure subscription.
   * resourceGroupName **required** `string`: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
   * serverName **required** `string`: The name of the server.
-  * elasticPoolName **required** `string`: The name of the elastic pool to be retrieved.
+  * elasticPoolName **required** `string`: The name of the elastic pool.
+  * subscriptionId **required** `string`: The subscription ID that identifies an Azure subscription.
+  * api-version **required** `string`: The API version to use for the request.
 
 #### Output
 * output [ElasticPool](#elasticpool)
 
 ### ElasticPools_Update
-Updates an existing elastic pool.
+Updates an elastic pool.
 
 
 ```js
 azure_sql_elasticpools.ElasticPools_Update({
-  "api-version": "",
-  "subscriptionId": "",
   "resourceGroupName": "",
   "serverName": "",
   "elasticPoolName": "",
-  "parameters": null
+  "parameters": {},
+  "subscriptionId": "",
+  "api-version": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * api-version **required** `string`: The API version to use for the request.
-  * subscriptionId **required** `string`: The subscription ID that identifies an Azure subscription.
   * resourceGroupName **required** `string`: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
   * serverName **required** `string`: The name of the server.
-  * elasticPoolName **required** `string`: The name of the elastic pool to be updated.
+  * elasticPoolName **required** `string`: The name of the elastic pool.
   * parameters **required** [ElasticPoolUpdate](#elasticpoolupdate)
+  * subscriptionId **required** `string`: The subscription ID that identifies an Azure subscription.
+  * api-version **required** `string`: The API version to use for the request.
 
 #### Output
 * output [ElasticPool](#elasticpool)
 
 ### ElasticPools_CreateOrUpdate
-Creates a new elastic pool or updates an existing elastic pool.
+Creates or updates an elastic pool.
 
 
 ```js
 azure_sql_elasticpools.ElasticPools_CreateOrUpdate({
-  "api-version": "",
-  "subscriptionId": "",
   "resourceGroupName": "",
   "serverName": "",
   "elasticPoolName": "",
-  "parameters": null
+  "parameters": {
+    "location": ""
+  },
+  "subscriptionId": "",
+  "api-version": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * api-version **required** `string`: The API version to use for the request.
-  * subscriptionId **required** `string`: The subscription ID that identifies an Azure subscription.
   * resourceGroupName **required** `string`: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
   * serverName **required** `string`: The name of the server.
-  * elasticPoolName **required** `string`: The name of the elastic pool to be operated on (updated or created).
+  * elasticPoolName **required** `string`: The name of the elastic pool.
   * parameters **required** [ElasticPool](#elasticpool)
+  * subscriptionId **required** `string`: The subscription ID that identifies an Azure subscription.
+  * api-version **required** `string`: The API version to use for the request.
 
 #### Output
 * output [ElasticPool](#elasticpool)
@@ -163,9 +161,15 @@ azure_sql_elasticpools.ElasticPools_CreateOrUpdate({
 ## Definitions
 
 ### ElasticPool
-* ElasticPool `object`: Represents a database elastic pool.
-  * kind `string`: Kind of elastic pool.  This is metadata used for the Azure portal experience.
+* ElasticPool `object`: An elastic pool.
+  * kind `string`: Kind of elastic pool. This is metadata used for the Azure portal experience.
   * properties [ElasticPoolProperties](#elasticpoolproperties)
+  * sku `object`: An ARM Resource SKU.
+    * capacity `integer`: Capacity of the particular SKU.
+    * family `string`: If the service has different generations of hardware, for the same SKU, then that can be captured here.
+    * name **required** `string`: The name of the SKU, typically, a letter + Number code, e.g. P3.
+    * size `string`: Size of the particular SKU
+    * tier `string`: The tier or edition of the particular SKU, e.g. Basic, Premium.
   * location **required** `string`: Resource location.
   * tags `object`: Resource tags.
   * id `string`: Resource ID.
@@ -173,27 +177,41 @@ azure_sql_elasticpools.ElasticPools_CreateOrUpdate({
   * type `string`: Resource type.
 
 ### ElasticPoolListResult
-* ElasticPoolListResult `object`: Represents the response to a list elastic pool request.
-  * value **required** `array`: The list of elastic pools hosted in the server.
+* ElasticPoolListResult `object`: The result of an elastic pool list request.
+  * nextLink `string`: Link to retrieve next page of results.
+  * value `array`: Array of results.
     * items [ElasticPool](#elasticpool)
 
+### ElasticPoolPerDatabaseSettings
+* ElasticPoolPerDatabaseSettings `object`: Per database settings of an elastic pool.
+  * maxCapacity `number`: The maximum capacity any one database can consume.
+  * minCapacity `number`: The minimum capacity all databases are guaranteed.
+
 ### ElasticPoolProperties
-* ElasticPoolProperties `object`: Represents the properties of an elastic pool.
+* ElasticPoolProperties `object`: Properties of an elastic pool
   * creationDate `string`: The creation date of the elastic pool (ISO8601 format).
-  * databaseDtuMax `integer`: The maximum DTU any one database can consume.
-  * databaseDtuMin `integer`: The minimum DTU all databases are guaranteed.
-  * dtu `integer`: The total shared DTU for the database elastic pool.
-  * edition `string` (values: Basic, Standard, Premium): The edition of the elastic pool.
+  * licenseType `string` (values: LicenseIncluded, BasePrice): The license type to apply for this elastic pool.
+  * maxSizeBytes `integer`: The storage limit for the database elastic pool in bytes.
+  * perDatabaseSettings [ElasticPoolPerDatabaseSettings](#elasticpoolperdatabasesettings)
   * state `string` (values: Creating, Ready, Disabled): The state of the elastic pool.
-  * storageMB `integer`: Gets storage limit for the database elastic pool in MB.
-  * zoneRedundant `boolean`: Whether or not this database elastic pool is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
+  * zoneRedundant `boolean`: Whether or not this elastic pool is zone redundant, which means the replicas of this elastic pool will be spread across multiple availability zones.
 
 ### ElasticPoolUpdate
-* ElasticPoolUpdate `object`: Represents an elastic pool update.
-  * properties [ElasticPoolProperties](#elasticpoolproperties)
+* ElasticPoolUpdate `object`: An elastic pool update.
+  * properties [ElasticPoolUpdateProperties](#elasticpoolupdateproperties)
+  * sku `object`: An ARM Resource SKU.
+    * capacity `integer`: Capacity of the particular SKU.
+    * family `string`: If the service has different generations of hardware, for the same SKU, then that can be captured here.
+    * name **required** `string`: The name of the SKU, typically, a letter + Number code, e.g. P3.
+    * size `string`: Size of the particular SKU
+    * tier `string`: The tier or edition of the particular SKU, e.g. Basic, Premium.
   * tags `object`: Resource tags.
-  * id `string`: Resource ID.
-  * name `string`: Resource name.
-  * type `string`: Resource type.
+
+### ElasticPoolUpdateProperties
+* ElasticPoolUpdateProperties `object`: Properties of an elastic pool
+  * licenseType `string` (values: LicenseIncluded, BasePrice): The license type to apply for this elastic pool.
+  * maxSizeBytes `integer`: The storage limit for the database elastic pool in bytes.
+  * perDatabaseSettings [ElasticPoolPerDatabaseSettings](#elasticpoolperdatabasesettings)
+  * zoneRedundant `boolean`: Whether or not this elastic pool is zone redundant, which means the replicas of this elastic pool will be spread across multiple availability zones.
 
 

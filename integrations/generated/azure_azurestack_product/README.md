@@ -15,12 +15,7 @@ let azure_azurestack_product = require('@datafire/azure_azurestack_product').cre
   redirect_uri: ""
 });
 
-azure_azurestack_product.Products_List({
-  "subscriptionId": "",
-  "resourceGroup": "",
-  "registrationName": "",
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -54,6 +49,30 @@ azure_azurestack_product.Products_List({
 #### Output
 * output [ProductList](#productlist)
 
+### Products_GetProducts
+Returns a list of products.
+
+
+```js
+azure_azurestack_product.Products_GetProducts({
+  "subscriptionId": "",
+  "resourceGroup": "",
+  "registrationName": "",
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: Subscription credentials that uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+  * resourceGroup **required** `string`: Name of the resource group.
+  * registrationName **required** `string`: Name of the Azure Stack registration.
+  * deviceConfiguration [DeviceConfiguration](#deviceconfiguration)
+  * api-version **required** `string`: Client API Version.
+
+#### Output
+* output [ProductList](#productlist)
+
 ### Products_Get
 Returns the specified product.
 
@@ -75,6 +94,32 @@ azure_azurestack_product.Products_Get({
   * registrationName **required** `string`: Name of the Azure Stack registration.
   * productName **required** `string`: Name of the product.
   * api-version **required** `string`: Client API Version.
+
+#### Output
+* output [Product](#product)
+
+### Products_GetProduct
+Returns the specified product.
+
+
+```js
+azure_azurestack_product.Products_GetProduct({
+  "subscriptionId": "",
+  "resourceGroup": "",
+  "registrationName": "",
+  "productName": "",
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: Subscription credentials that uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+  * resourceGroup **required** `string`: Name of the resource group.
+  * registrationName **required** `string`: Name of the Azure Stack registration.
+  * productName **required** `string`: Name of the product.
+  * api-version **required** `string`: Client API Version.
+  * deviceConfiguration [DeviceConfiguration](#deviceconfiguration)
 
 #### Output
 * output [Product](#product)
@@ -104,9 +149,46 @@ azure_azurestack_product.Products_ListDetails({
 #### Output
 * output [ExtendedProduct](#extendedproduct)
 
+### Products_UploadLog
+Returns the specified product.
+
+
+```js
+azure_azurestack_product.Products_UploadLog({
+  "subscriptionId": "",
+  "resourceGroup": "",
+  "registrationName": "",
+  "productName": "",
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: Subscription credentials that uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+  * resourceGroup **required** `string`: Name of the resource group.
+  * registrationName **required** `string`: Name of the Azure Stack registration.
+  * productName **required** `string`: Name of the product.
+  * api-version **required** `string`: Client API Version.
+  * marketplaceProductLogUpdate [MarketplaceProductLogUpdate](#marketplaceproductlogupdate)
+
+#### Output
+* output [ProductLog](#productlog)
+
 
 
 ## Definitions
+
+### Compatibility
+* Compatibility `object`: Product compatibility
+  * description `string`: Full error message if any compatibility issues are found
+  * isCompatible `boolean`: Tells if product is compatible with current device
+  * issues `array`: List of all issues found
+    * items [CompatibilityIssue](#compatibilityissue)
+  * message `string`: Short error message if any compatibility issues are found
+
+### CompatibilityIssue
+* CompatibilityIssue `string` (values: HigherDeviceVersionRequired, LowerDeviceVersionRequired, CapacityBillingModelRequired, PayAsYouGoBillingModelRequired, DevelopmentBillingModelRequired, AzureADIdentitySystemRequired, ADFSIdentitySystemRequired, ConnectionToInternetRequired, ConnectionToAzureRequired, DisconnectedEnvironmentRequired): Compatibility issue
 
 ### ComputeRole
 * ComputeRole `string` (values: None, IaaS, PaaS): Compute role type (IaaS or PaaS).
@@ -115,6 +197,11 @@ azure_azurestack_product.Products_ListDetails({
 * DataDiskImage `object`: Data disk image.
   * lun `integer`: The LUN.
   * sourceBlobSasUri `string`: SAS key for source blob.
+
+### DeviceConfiguration
+* DeviceConfiguration `object`: Device Configuration.
+  * deviceVersion `string`: Version of the device.
+  * identitySystem `string` (values: AzureAD, ADFS): Identity system of the device.
 
 ### ExtendedProduct
 * ExtendedProduct `object`: Extended description about the product required for installing it into Azure Stack.
@@ -144,6 +231,13 @@ azure_azurestack_product.Products_ListDetails({
   * small `string`: URI to small icon.
   * wide `string`: URI to wide icon.
 
+### MarketplaceProductLogUpdate
+* MarketplaceProductLogUpdate `object`: Update details for product log.
+  * details `string`: Error details related to operation.
+  * error `string`: Error related to the operation.
+  * operation `string`: Operation to log.
+  * status `string`: Operation status to log.
+
 ### OperatingSystem
 * OperatingSystem `string` (values: None, Windows, Linux): Operating system type (Windows or Linux).
 
@@ -155,11 +249,9 @@ azure_azurestack_product.Products_ListDetails({
 ### Product
 * Product `object`: Product information.
   * properties [ProductNestedProperties](#productnestedproperties)
-  * etag `string`: The entity tag used for optimistic concurency when modifying the resource.
+  * etag `string`: The entity tag used for optimistic concurrency when modifying the resource.
   * id `string`: ID of the resource.
-  * location **required** `string` (values: global): Location of the resource.
   * name `string`: Name of the resource.
-  * tags `object`: Custom tags for the resource.
   * type `string`: Type of Resource.
 
 ### ProductLink
@@ -173,9 +265,24 @@ azure_azurestack_product.Products_ListDetails({
   * value `array`: List of products.
     * items [Product](#product)
 
+### ProductLog
+* ProductLog `object`: Product action log.
+  * details `string`: Operation error details.
+  * endDate `string`: Operation end datetime.
+  * error `string`: Operation error data.
+  * id `string`: Log ID.
+  * operation `string`: Logged operation.
+  * productId `string`: Logged product ID.
+  * registrationName `string`: Logged registration name.
+  * resourceGroupName `string`: Logged resource group name.
+  * startDate `string`: Operation start datetime.
+  * status `string`: Operation status.
+  * subscriptionId `string`: Logged subscription ID.
+
 ### ProductNestedProperties
 * ProductNestedProperties `object`: Properties portion of the product resource.
   * billingPartNumber `string`: The part number used for billing purposes.
+  * compatibility [Compatibility](#compatibility)
   * description `string`: The description of the product.
   * displayName `string`: The display name of the product.
   * galleryItemIdentity `string`: The identifier of the gallery item corresponding to the product.

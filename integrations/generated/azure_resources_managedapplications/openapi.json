@@ -4,11 +4,10 @@
     "https"
   ],
   "host": "management.azure.com",
-  "x-hasEquivalentPaths": true,
   "info": {
     "description": "ARM applications",
     "title": "ApplicationClient",
-    "version": "2017-09-01",
+    "version": "2018-06-01",
     "x-apisguru-categories": [
       "cloud"
     ],
@@ -18,7 +17,7 @@
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/resources/resource-manager/Microsoft.Solutions/stable/2017-09-01/managedapplications.json",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/resources/resource-manager/Microsoft.Solutions/stable/2018-06-01/managedapplications.json",
         "version": "2.0"
       }
     ],
@@ -151,7 +150,7 @@
         "x-ms-examples": {
           "List managed application definitions": {
             "parameters": {
-              "api-version": "2017-09-01",
+              "api-version": "2018-06-01",
               "resourceGroupName": "rg",
               "subscriptionId": "subid"
             },
@@ -161,7 +160,9 @@
                   "value": [
                     {
                       "id": "/subscriptions/subid/resourceGroups/rg/providers/Microsoft.Solutions/applicationDefinitions/myManagedApplicationDef",
+                      "identity": null,
                       "location": "East US 2",
+                      "managedBy": null,
                       "name": "myManagedApplicationDef",
                       "properties": {
                         "artifacts": [
@@ -184,14 +185,19 @@
                         ],
                         "description": "myManagedApplicationDef description",
                         "displayName": "myManagedApplicationDef",
+                        "lockLevel": null,
                         "packageFileUri": "https://path/to/packagezipfile"
                       },
                       "resourceGroup": "rg",
+                      "sku": null,
+                      "tags": null,
                       "type": "Microsoft.Solutions/applicationDefinitions"
                     },
                     {
                       "id": "/subscriptions/subid/resourceGroups/rg/providers/Microsoft.Solutions/applicationDefinitions/myManagedApplicationDef2",
+                      "identity": null,
                       "location": "West US",
+                      "managedBy": null,
                       "name": "myManagedApplicationDef2",
                       "properties": {
                         "artifacts": [
@@ -214,9 +220,12 @@
                         ],
                         "description": "myManagedApplicationDef2 description",
                         "displayName": "myManagedApplicationDef2",
+                        "lockLevel": null,
                         "packageFileUri": "https://path/to/packagezipfile"
                       },
                       "resourceGroup": "rg",
+                      "sku": null,
+                      "tags": null,
                       "type": "Microsoft.Solutions/applicationDefinitions"
                     }
                   ]
@@ -337,7 +346,7 @@
         "x-ms-examples": {
           "Get managed application definition": {
             "parameters": {
-              "api-version": "2017-09-01",
+              "api-version": "2018-06-01",
               "managedApplicationName": "myManagedApplicationDef",
               "resourceGroupName": "rg",
               "subscriptionId": "subid"
@@ -346,7 +355,9 @@
               "200": {
                 "body": {
                   "id": "/subscriptions/subid/resourceGroups/rg/providers/Microsoft.Solutions/applicationDefinitions/myManagedApplicationDef",
+                  "identity": null,
                   "location": "East US 2",
+                  "managedBy": null,
                   "name": "myManagedApplicationDef",
                   "properties": {
                     "artifacts": [
@@ -369,9 +380,12 @@
                     ],
                     "description": "myManagedApplicationDef description",
                     "displayName": "myManagedApplicationDef",
+                    "lockLevel": null,
                     "packageFileUri": "https://path/to/packagezipfile"
                   },
                   "resourceGroup": "rg",
+                  "sku": null,
+                  "tags": null,
                   "type": "Microsoft.Solutions/applicationDefinitions"
                 },
                 "headers": {}
@@ -445,7 +459,7 @@
         "x-ms-examples": {
           "Create or update managed application definition": {
             "parameters": {
-              "api-version": "2017-09-01",
+              "api-version": "2018-06-01",
               "managedApplicationDefinitionName": "myManagedApplicationDef",
               "parameters": {
                 "location": "East US 2",
@@ -469,7 +483,9 @@
               "201": {
                 "body": {
                   "id": "/subscriptions/subid/resourceGroups/rg/providers/Microsoft.Solutions/applicationDefinitions/myManagedApplicationDef",
+                  "identity": null,
                   "location": "East US 2",
+                  "managedBy": null,
                   "name": "myManagedApplicationDef",
                   "properties": {
                     "artifacts": [
@@ -492,9 +508,12 @@
                     ],
                     "description": "myManagedApplicationDef description",
                     "displayName": "myManagedApplicationDef",
+                    "lockLevel": null,
                     "packageFileUri": "https://path/to/packagezipfile"
                   },
                   "resourceGroup": "rg",
+                  "sku": null,
+                  "tags": null,
                   "type": "Microsoft.Solutions/applicationDefinitions"
                 },
                 "headers": {}
@@ -547,7 +566,7 @@
         "x-ms-examples": {
           "Lists applications": {
             "parameters": {
-              "api-version": "2017-09-01",
+              "api-version": "2018-06-01",
               "resourceGroupName": "rg",
               "subscriptionId": "subid"
             },
@@ -557,30 +576,42 @@
                   "value": [
                     {
                       "id": "/subscriptions/subid/resourceGroups/rg/providers/Microsoft.Solutions/applications/myManagedApplication",
+                      "identity": null,
                       "kind": "ServiceCatalog",
                       "location": "East US 2",
+                      "managedBy": null,
                       "name": "myManagedApplication",
+                      "plan": null,
                       "properties": {
                         "managedApplicationDefinitionId": "/subscriptions/subid/resourceGroups/rg/providers/Microsoft.Solutions/managedApplicationDefinitions/myAppDef",
                         "managedResourceGroupId": "/subscriptions/subid/resourceGroups/myManagedRG",
-                        "provisioningState": "Created",
-                        "uiDefinitionUri": "https://path/to/managedApplicationCreateUiDefinition.json"
+                        "outputs": null,
+                        "parameters": null,
+                        "provisioningState": "Created"
                       },
                       "resourceGroup": "rg",
+                      "sku": null,
+                      "tags": null,
                       "type": "Microsoft.Solutions/applications"
                     },
                     {
                       "id": "/subscriptions/subid/resourceGroups/rg/providers/Microsoft.Solutions/applications/myManagedApplication2",
+                      "identity": null,
                       "kind": "ServiceCatalog",
                       "location": "West US",
+                      "managedBy": null,
                       "name": "myManagedApplication2",
+                      "plan": null,
                       "properties": {
                         "managedApplicationDefinitionId": "/subscriptions/subid/resourceGroups/rg/providers/Microsoft.Solutions/managedApplicationDefinitions/myAppDef2",
                         "managedResourceGroupId": "/subscriptions/subid/resourceGroups/myManagedRG",
-                        "provisioningState": "Created",
-                        "uiDefinitionUri": "https://path/to/managedApplicationCreateUiDefinition.json"
+                        "outputs": null,
+                        "parameters": null,
+                        "provisioningState": "Created"
                       },
                       "resourceGroup": "rg",
+                      "sku": null,
+                      "tags": null,
                       "type": "Microsoft.Solutions/applications"
                     }
                   ]
@@ -698,7 +729,7 @@
         "x-ms-examples": {
           "Get a managed application": {
             "parameters": {
-              "api-version": "2017-09-01",
+              "api-version": "2018-06-01",
               "managedApplicationName": "myManagedApplication",
               "resourceGroupName": "rg",
               "subscriptionId": "subid"
@@ -707,16 +738,22 @@
               "200": {
                 "body": {
                   "id": "/subscriptions/subid/resourceGroups/rg/providers/Microsoft.Solutions/applications/myManagedApplication",
+                  "identity": null,
                   "kind": "ServiceCatalog",
                   "location": "East US 2",
+                  "managedBy": null,
                   "name": "myManagedApplication",
+                  "plan": null,
                   "properties": {
                     "managedApplicationDefinitionId": "/subscriptions/subid/resourceGroups/rg/providers/Microsoft.Solutions/managedApplicationDefinitions/myAppDef",
                     "managedResourceGroupId": "/subscriptions/subid/resourceGroups/myManagedRG",
-                    "provisioningState": "Created",
-                    "uiDefinitionUri": "https://path/to/managedApplicationCreateUiDefinition.json"
+                    "outputs": null,
+                    "parameters": null,
+                    "provisioningState": "Created"
                   },
                   "resourceGroup": "rg",
+                  "sku": null,
+                  "tags": null,
                   "type": "Microsoft.Solutions/applications"
                 },
                 "headers": {}
@@ -846,7 +883,7 @@
         "x-ms-examples": {
           "Create or update managed application": {
             "parameters": {
-              "api-version": "2017-09-01",
+              "api-version": "2018-06-01",
               "managedApplicationName": "myManagedApplication",
               "parameters": {
                 "kind": "ServiceCatalog",
@@ -864,16 +901,22 @@
               "201": {
                 "body": {
                   "id": "/subscriptions/subid/resourceGroups/rg/providers/Microsoft.Solutions/applications/myManagedApplication",
+                  "identity": null,
                   "kind": "ServiceCatalog",
                   "location": "East US 2",
+                  "managedBy": null,
                   "name": "myManagedApplication",
+                  "plan": null,
                   "properties": {
                     "managedApplicationDefinitionId": "/subscriptions/subid/resourceGroups/rg/providers/Microsoft.Solutions/applicationDefinitions/myAppDef",
                     "managedResourceGroupId": "/subscriptions/subid/resourceGroups/myManagedRG",
-                    "provisioningState": "Created",
-                    "uiDefinitionUri": "https://path/to/managedApplicationCreateUiDefinition.json"
+                    "outputs": null,
+                    "parameters": null,
+                    "provisioningState": "Created"
                   },
                   "resourceGroup": "rg",
+                  "sku": null,
+                  "tags": null,
                   "type": "Microsoft.Solutions/applications"
                 },
                 "headers": {}
@@ -881,133 +924,6 @@
             }
           }
         },
-        "x-ms-long-running-operation": true
-      }
-    },
-    "/{applicationDefinitionId}": {
-      "delete": {
-        "description": "Deletes the managed application definition.",
-        "operationId": "ApplicationDefinitions_DeleteById",
-        "parameters": [
-          {
-            "description": "The fully qualified ID of the managed application definition, including the managed application name and the managed application definition resource type. Use the format, /subscriptions/{guid}/resourceGroups/{resource-group-name}/Microsoft.Solutions/applicationDefinitions/{applicationDefinition-name}",
-            "in": "path",
-            "name": "applicationDefinitionId",
-            "required": true,
-            "type": "string",
-            "x-ms-skip-url-encoding": true
-          },
-          {
-            "$ref": "#/parameters/ApiVersionParameter"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "202": {
-            "description": "Accepted - Returns this status until the asynchronous operation has completed."
-          },
-          "204": {
-            "description": "NoContent"
-          },
-          "default": {
-            "description": "Error response describing why the operation failed.",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          }
-        },
-        "tags": [
-          "ApplicationDefinitions"
-        ],
-        "x-ms-long-running-operation": true
-      },
-      "get": {
-        "description": "Gets the managed application definition.",
-        "operationId": "ApplicationDefinitions_GetById",
-        "parameters": [
-          {
-            "description": "The fully qualified ID of the managed application definition, including the managed application name and the managed application definition resource type. Use the format, /subscriptions/{guid}/resourceGroups/{resource-group-name}/Microsoft.Solutions/applicationDefinitions/{applicationDefinition-name}",
-            "in": "path",
-            "name": "applicationDefinitionId",
-            "required": true,
-            "type": "string",
-            "x-ms-skip-url-encoding": true
-          },
-          {
-            "$ref": "#/parameters/ApiVersionParameter"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK - Returns the managed application definition.",
-            "schema": {
-              "$ref": "#/definitions/ApplicationDefinition"
-            }
-          },
-          "404": {
-            "description": "Not Found"
-          },
-          "default": {
-            "description": "Error response describing why the operation failed.",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          }
-        },
-        "tags": [
-          "ApplicationDefinitions"
-        ]
-      },
-      "put": {
-        "description": "Creates a new managed application definition.",
-        "operationId": "ApplicationDefinitions_CreateOrUpdateById",
-        "parameters": [
-          {
-            "description": "The fully qualified ID of the managed application definition, including the managed application name and the managed application definition resource type. Use the format, /subscriptions/{guid}/resourceGroups/{resource-group-name}/Microsoft.Solutions/applicationDefinitions/{applicationDefinition-name}",
-            "in": "path",
-            "name": "applicationDefinitionId",
-            "required": true,
-            "type": "string",
-            "x-ms-skip-url-encoding": true
-          },
-          {
-            "description": "Parameters supplied to the create or update a managed application definition.",
-            "in": "body",
-            "name": "parameters",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/ApplicationDefinition"
-            }
-          },
-          {
-            "$ref": "#/parameters/ApiVersionParameter"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK - Returns information about the managed application definition, including provisioning status.",
-            "schema": {
-              "$ref": "#/definitions/ApplicationDefinition"
-            }
-          },
-          "201": {
-            "description": "Created - Returns information about the managed application definition, including provisioning status.",
-            "schema": {
-              "$ref": "#/definitions/ApplicationDefinition"
-            }
-          },
-          "default": {
-            "description": "Error response describing why the operation failed.",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          }
-        },
-        "tags": [
-          "ApplicationDefinitions"
-        ],
         "x-ms-long-running-operation": true
       }
     },
@@ -1398,10 +1314,6 @@
           "$ref": "#/definitions/ProvisioningState",
           "description": "The managed application provisioning state.",
           "readOnly": true
-        },
-        "uiDefinitionUri": {
-          "description": "The blob URI where the UI definition file is located.",
-          "type": "string"
         }
       },
       "required": [
@@ -1432,10 +1344,6 @@
           "$ref": "#/definitions/ProvisioningState",
           "description": "The managed application provisioning state.",
           "readOnly": true
-        },
-        "uiDefinitionUri": {
-          "description": "The blob URI where the UI definition file is located.",
-          "type": "string"
         }
       }
     },
@@ -1457,7 +1365,7 @@
       ]
     },
     "ErrorResponse": {
-      "description": "Error reponse indicates managed application is not able to process the incoming request. The reason is provided in the error message.",
+      "description": "Error response indicates managed application is not able to process the incoming request. The reason is provided in the error message.",
       "properties": {
         "errorCode": {
           "description": "Error code.",
@@ -1664,6 +1572,135 @@
       "required": [
         "name"
       ]
+    }
+  },
+  "x-ms-paths": {
+    "/{applicationDefinitionId}?disambiguation_dummy": {
+      "delete": {
+        "description": "Deletes the managed application definition.",
+        "operationId": "ApplicationDefinitions_DeleteById",
+        "parameters": [
+          {
+            "description": "The fully qualified ID of the managed application definition, including the managed application name and the managed application definition resource type. Use the format, /subscriptions/{guid}/resourceGroups/{resource-group-name}/Microsoft.Solutions/applicationDefinitions/{applicationDefinition-name}",
+            "in": "path",
+            "name": "applicationDefinitionId",
+            "required": true,
+            "type": "string",
+            "x-ms-skip-url-encoding": true
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "202": {
+            "description": "Accepted - Returns this status until the asynchronous operation has completed."
+          },
+          "204": {
+            "description": "NoContent"
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "tags": [
+          "ApplicationDefinitions"
+        ],
+        "x-ms-long-running-operation": true
+      },
+      "get": {
+        "description": "Gets the managed application definition.",
+        "operationId": "ApplicationDefinitions_GetById",
+        "parameters": [
+          {
+            "description": "The fully qualified ID of the managed application definition, including the managed application name and the managed application definition resource type. Use the format, /subscriptions/{guid}/resourceGroups/{resource-group-name}/Microsoft.Solutions/applicationDefinitions/{applicationDefinition-name}",
+            "in": "path",
+            "name": "applicationDefinitionId",
+            "required": true,
+            "type": "string",
+            "x-ms-skip-url-encoding": true
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK - Returns the managed application definition.",
+            "schema": {
+              "$ref": "#/definitions/ApplicationDefinition"
+            }
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "tags": [
+          "ApplicationDefinitions"
+        ]
+      },
+      "put": {
+        "description": "Creates a new managed application definition.",
+        "operationId": "ApplicationDefinitions_CreateOrUpdateById",
+        "parameters": [
+          {
+            "description": "The fully qualified ID of the managed application definition, including the managed application name and the managed application definition resource type. Use the format, /subscriptions/{guid}/resourceGroups/{resource-group-name}/Microsoft.Solutions/applicationDefinitions/{applicationDefinition-name}",
+            "in": "path",
+            "name": "applicationDefinitionId",
+            "required": true,
+            "type": "string",
+            "x-ms-skip-url-encoding": true
+          },
+          {
+            "description": "Parameters supplied to the create or update a managed application definition.",
+            "in": "body",
+            "name": "parameters",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ApplicationDefinition"
+            }
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK - Returns information about the managed application definition, including provisioning status.",
+            "schema": {
+              "$ref": "#/definitions/ApplicationDefinition"
+            }
+          },
+          "201": {
+            "description": "Created - Returns information about the managed application definition, including provisioning status.",
+            "schema": {
+              "$ref": "#/definitions/ApplicationDefinition"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "tags": [
+          "ApplicationDefinitions"
+        ],
+        "x-ms-long-running-operation": true
+      }
     }
   }
 }

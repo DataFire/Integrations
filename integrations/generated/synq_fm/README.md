@@ -9,9 +9,7 @@ npm install --save @datafire/synq_fm
 ```js
 let synq_fm = require('@datafire/synq_fm').create();
 
-synq_fm.create({
-  "api_key": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

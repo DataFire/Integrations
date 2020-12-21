@@ -1,6 +1,6 @@
 # @datafire/paylocity
 
-Client library for Paylocity
+Client library for Paylocity API
 
 ## Installation and Usage
 ```bash
@@ -15,22 +15,18 @@ let paylocity = require('@datafire/paylocity').create({
   redirect_uri: ""
 });
 
-paylocity.v2.companies.companyId.customfields.category.get({
-  "Authorization": "",
-  "companyId": "",
-  "category": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
 
 ## Description
 
-For general questions and support of the API, contact: vendorrelations@paylocity.com
+For general questions and support of the API, contact: webservices@paylocity.com
 # Overview
 
 Paylocity Web Services API is an externally facing RESTful Internet protocol. The Paylocity API uses HTTP verbs and a RESTful endpoint structure. OAuth 2.0 is used as the API Authorization framework. Request and response payloads are formatted as JSON.
-Paylocity supports v1 and v2 versions of its API endpoints. v1, while supported, won't be enhanced with additional functionality. For direct link to v1 documentation, please click [here](https://docs.paylocity.com/weblink/guides/Paylocity_Web_Services_API/v1/Paylocity_Web_Services_API.htm). For additional resources regarding v1/v2 differences and conversion path, please contact vendorrelations@paylocity.com.
+Paylocity supports v1 and v2 versions of its API endpoints. v1, while supported, won't be enhanced with additional functionality. For direct link to v1 documentation, please click [here](https://docs.paylocity.com/weblink/guides/Paylocity_Web_Services_API/v1/Paylocity_Web_Services_API.htm). For additional resources regarding v1/v2 differences and conversion path, please contact webservices@paylocity.com.
 
 ##### Setup
 
@@ -59,6 +55,8 @@ auth-server for production: https://api.paylocity.com/IdentityServer/connect/tok
 
 
 auth-server for testing: https://apisandbox.paylocity.com/IdentityServer/connect/token
+
+Paylocity reserves the right to impose rate limits on the number of calls made to our APIs. Changes to API features/functionality may be made at anytime with or without prior notice.
 
 ##### Authorization Header
 
@@ -89,7 +87,7 @@ Success will return HTTP 200 OK with JSON content:
 
 Paylocity uses a combination of RSA and AES cryptography. As part of the setup, each client is issued a public RSA key.
 
-Paylocity recommends the encryption of the incoming requests as additional protection of the sensitive data. Clients can opt-out of the encryption during the initial setup process. Opt-out will allow Paylocity to process un-encrypted requests.
+Paylocity recommends the encryption of the incoming requests as additional protection of the sensitive data. Clients can opt-out of the encryption during the initial setup process. Opt-out will allow Paylocity to process unencrypted requests.
 
 The Paylocity Public Key has the following properties:
 
@@ -116,6 +114,22 @@ We suggest using the following for the AES:
 * 128 bit block size
 
 * 256 bit key size
+
+##### Encryption Flow
+
+* Generate the unencrypted JSON payload to POST/PUT
+* Encrypt this JSON payload using your _own key and IV_ (NOT with the Paylocity public key)
+* RSA encrypt the _key_ you used in step 2 with the Paylocity Public Key, then, base64 encode the result
+* Base64 encode the IV used to encrypt the JSON payload in step 2
+* Put together a "securecontent" JSON object:
+ 
+{
+  'secureContent' : {
+    'key' : -- RSA-encrypted & base64 encoded key from step 3,
+    'iv' : -- base64 encoded iv from step 4
+    'content' -- content encrypted with your own key from step 2, base64 encoded
+  }
+}
 
 ##### Sample Example
 
@@ -202,7 +216,7 @@ We suggest using the following for the AES:
 
 ## Support
 
-Questions about using the Paylocity API? Please contact vendorrelations@paylocity.com.
+Questions about using the Paylocity API? Please contact webservices@paylocity.com.
 
 # Deductions (v1)
 
@@ -255,13 +269,32 @@ paylocity.oauthRefresh(null, context)
   * scope `string`
   * expiration `string`
 
+### v2.companies.companyId.codes.codeResource.get
+Get All Company Codes for the selected company and resource
+
+
+```js
+paylocity.v2.companies.companyId.codes.codeResource.get({
+  "companyId": "",
+  "codeResource": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * companyId **required** `string`: Company Id
+  * codeResource **required** `string`: Type of Company Code. Common values costcenter1, costcenter2, costcenter3, deductions, earnings, taxes, paygrade, positions.
+
+#### Output
+* output `array`
+  * items [companyCodes](#companycodes)
+
 ### v2.companies.companyId.customfields.category.get
 Get All Custom Fields for the selected company
 
 
 ```js
 paylocity.v2.companies.companyId.customfields.category.get({
-  "Authorization": "",
   "companyId": "",
   "category": ""
 }, context)
@@ -269,7 +302,6 @@ paylocity.v2.companies.companyId.customfields.category.get({
 
 #### Input
 * input `object`
-  * Authorization **required** `string`: Bearer + JWT
   * companyId **required** `string`: Company Id
   * category **required** `string`: Custom Fields Category
 
@@ -283,21 +315,40 @@ New Employee API sends new employee data directly to Web Pay. Companies who use 
 
 ```js
 paylocity.v2.companies.companyId.employees.post({
-  "Authorization": "",
-  "json": {},
+  "companyId": "",
+  "body": {}
+}, context)
+```
+
+#### Input
+* input `object`
+  * companyId **required** `string`: Company Id
+  * body **required** [employee](#employee)
+
+#### Output
+* output `array`
+  * items [employeeIdResponse](#employeeidresponse)
+
+### v2.companies.companyId.employees.get
+Get All Employees API will return employee data currently available in Web Pay.
+
+
+```js
+paylocity.v2.companies.companyId.employees.get({
   "companyId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Authorization **required** `string`: Bearer + JWT
-  * json **required** [employee](#employee)
   * companyId **required** `string`: Company Id
+  * pagesize `integer`: Number of records per page. Default value is 25.
+  * pagenumber `integer`: Page number to retrieve; page numbers are 0-based (so to get the first page of results, pass pagenumber=0). Default value is 0.
+  * includetotalcount `boolean`: Whether to include the total record count in the header's X-Pcty-Total-Count property. Default value is true.
 
 #### Output
 * output `array`
-  * items [employeeIdResponse](#employeeidresponse)
+  * items [employeeInfo](#employeeinfo)
 
 ### v2.companies.companyId.employees.employeeId.get
 Get Employee API will return employee data currently available in Web Pay.
@@ -305,7 +356,6 @@ Get Employee API will return employee data currently available in Web Pay.
 
 ```js
 paylocity.v2.companies.companyId.employees.employeeId.get({
-  "Authorization": "",
   "companyId": "",
   "employeeId": ""
 }, context)
@@ -313,7 +363,6 @@ paylocity.v2.companies.companyId.employees.employeeId.get({
 
 #### Input
 * input `object`
-  * Authorization **required** `string`: Bearer + JWT
   * companyId **required** `string`: Company Id
   * employeeId **required** `string`: Employee Id
 
@@ -327,19 +376,38 @@ Update Employee API will update existing employee data in WebPay.
 
 ```js
 paylocity.v2.companies.companyId.employees.employeeId.patch({
-  "Authorization": "",
-  "json": {},
   "companyId": "",
-  "employeeId": ""
+  "employeeId": "",
+  "body": {}
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Authorization **required** `string`: Bearer + JWT
-  * json **required** [employee](#employee)
   * companyId **required** `string`: Company Id
   * employeeId **required** `string`: Employee Id
+  * body **required** [employee](#employee)
+
+#### Output
+*Output schema unknown*
+
+### v2.companies.companyId.employees.employeeId.additionalRates.put
+Sends new or updated employee additional rates information directly to Web Pay.
+
+
+```js
+paylocity.v2.companies.companyId.employees.employeeId.additionalRates.put({
+  "companyId": "",
+  "employeeId": "",
+  "body": {}
+}, context)
+```
+
+#### Input
+* input `object`
+  * companyId **required** `string`: Company Id
+  * employeeId **required** `string`: Employee Id
+  * body **required** [additionalRate](#additionalrate)
 
 #### Output
 *Output schema unknown*
@@ -350,19 +418,17 @@ Sends new or updated employee benefit setup information directly to Web Pay.
 
 ```js
 paylocity.v2.companies.companyId.employees.employeeId.benefitSetup.put({
-  "Authorization": "",
-  "json": {},
   "companyId": "",
-  "employeeId": ""
+  "employeeId": "",
+  "body": {}
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Authorization **required** `string`: Bearer + JWT
-  * json **required** [benefitSetup](#benefitsetup)
   * companyId **required** `string`: Company Id
   * employeeId **required** `string`: Employee Id
+  * body **required** [benefitSetup](#benefitsetup)
 
 #### Output
 *Output schema unknown*
@@ -373,7 +439,6 @@ Get All Earnings returns all earnings for the selected employee.
 
 ```js
 paylocity.v2.companies.companyId.employees.employeeId.earnings.get({
-  "Authorization": "",
   "companyId": "",
   "employeeId": ""
 }, context)
@@ -381,7 +446,6 @@ paylocity.v2.companies.companyId.employees.employeeId.earnings.get({
 
 #### Input
 * input `object`
-  * Authorization **required** `string`: Bearer + JWT
   * companyId **required** `string`: Company Id
   * employeeId **required** `string`: Employee Id
 
@@ -395,22 +459,20 @@ Add/Update Earning API sends new or updated employee earnings information direct
 
 ```js
 paylocity.v2.companies.companyId.employees.employeeId.earnings.put({
-  "Authorization": "",
-  "json": {
+  "companyId": "",
+  "employeeId": "",
+  "body": {
     "earningCode": "",
     "startDate": ""
-  },
-  "companyId": "",
-  "employeeId": ""
+  }
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Authorization **required** `string`: Bearer + JWT
-  * json **required** [earning](#earning)
   * companyId **required** `string`: Company Id
   * employeeId **required** `string`: Employee Id
+  * body **required** [earning](#earning)
 
 #### Output
 *Output schema unknown*
@@ -421,7 +483,6 @@ Get Earnings returns all earnings with the provided earning code for the selecte
 
 ```js
 paylocity.v2.companies.companyId.employees.employeeId.earnings.earningCode.get({
-  "Authorization": "",
   "companyId": "",
   "employeeId": "",
   "earningCode": ""
@@ -430,7 +491,6 @@ paylocity.v2.companies.companyId.employees.employeeId.earnings.earningCode.get({
 
 #### Input
 * input `object`
-  * Authorization **required** `string`: Bearer + JWT
   * companyId **required** `string`: Company Id
   * employeeId **required** `string`: Employee Id
   * earningCode **required** `string`: Earning Code
@@ -445,7 +505,6 @@ Delete Earning by Earning Code and Start Date
 
 ```js
 paylocity.v2.companies.companyId.employees.employeeId.earnings.earningCode.startDate.delete({
-  "Authorization": "",
   "companyId": "",
   "employeeId": "",
   "earningCode": "",
@@ -455,7 +514,6 @@ paylocity.v2.companies.companyId.employees.employeeId.earnings.earningCode.start
 
 #### Input
 * input `object`
-  * Authorization **required** `string`: Bearer + JWT
   * companyId **required** `string`: Company Id
   * employeeId **required** `string`: Employee Id
   * earningCode **required** `string`: Earning Code
@@ -470,7 +528,6 @@ Get Earnings returns the single earning with the provided earning code and start
 
 ```js
 paylocity.v2.companies.companyId.employees.employeeId.earnings.earningCode.startDate.get({
-  "Authorization": "",
   "companyId": "",
   "employeeId": "",
   "earningCode": "",
@@ -480,7 +537,6 @@ paylocity.v2.companies.companyId.employees.employeeId.earnings.earningCode.start
 
 #### Input
 * input `object`
-  * Authorization **required** `string`: Bearer + JWT
   * companyId **required** `string`: Company Id
   * employeeId **required** `string`: Employee Id
   * earningCode **required** `string`: Earning Code
@@ -489,13 +545,36 @@ paylocity.v2.companies.companyId.employees.employeeId.earnings.earningCode.start
 #### Output
 * output [earning](#earning)
 
+### v2.companies.companyId.employees.employeeId.emergencyContacts.put
+Sends new or updated employee emergency contacts directly to Web Pay.
+
+
+```js
+paylocity.v2.companies.companyId.employees.employeeId.emergencyContacts.put({
+  "companyId": "",
+  "employeeId": "",
+  "body": {
+    "firstName": "",
+    "lastName": ""
+  }
+}, context)
+```
+
+#### Input
+* input `object`
+  * companyId **required** `string`: Company Id
+  * employeeId **required** `string`: Employee Id
+  * body **required** [emergencyContact](#emergencycontact)
+
+#### Output
+*Output schema unknown*
+
 ### v2.companies.companyId.employees.employeeId.localTaxes.get
 Returns all local taxes for the selected employee.
 
 
 ```js
 paylocity.v2.companies.companyId.employees.employeeId.localTaxes.get({
-  "Authorization": "",
   "companyId": "",
   "employeeId": ""
 }, context)
@@ -503,7 +582,6 @@ paylocity.v2.companies.companyId.employees.employeeId.localTaxes.get({
 
 #### Input
 * input `object`
-  * Authorization **required** `string`: Bearer + JWT
   * companyId **required** `string`: Company Id
   * employeeId **required** `string`: Employee Id
 
@@ -517,19 +595,17 @@ Sends new employee local tax information directly to Web Pay.
 
 ```js
 paylocity.v2.companies.companyId.employees.employeeId.localTaxes.post({
-  "Authorization": "",
-  "json": {},
   "companyId": "",
-  "employeeId": ""
+  "employeeId": "",
+  "body": {}
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Authorization **required** `string`: Bearer + JWT
-  * json **required** [localTax](#localtax)
   * companyId **required** `string`: Company Id
   * employeeId **required** `string`: Employee Id
+  * body **required** [localTax](#localtax)
 
 #### Output
 *Output schema unknown*
@@ -540,7 +616,6 @@ Delete local tax by tax code
 
 ```js
 paylocity.v2.companies.companyId.employees.employeeId.localTaxes.taxCode.delete({
-  "Authorization": "",
   "companyId": "",
   "employeeId": "",
   "taxCode": ""
@@ -549,7 +624,6 @@ paylocity.v2.companies.companyId.employees.employeeId.localTaxes.taxCode.delete(
 
 #### Input
 * input `object`
-  * Authorization **required** `string`: Bearer + JWT
   * companyId **required** `string`: Company Id
   * employeeId **required** `string`: Employee Id
   * taxCode **required** `string`: Tax Code
@@ -563,7 +637,6 @@ Returns all local taxes with the provided tax code for the selected employee.
 
 ```js
 paylocity.v2.companies.companyId.employees.employeeId.localTaxes.taxCode.get({
-  "Authorization": "",
   "companyId": "",
   "employeeId": "",
   "taxCode": ""
@@ -572,7 +645,6 @@ paylocity.v2.companies.companyId.employees.employeeId.localTaxes.taxCode.get({
 
 #### Input
 * input `object`
-  * Authorization **required** `string`: Bearer + JWT
   * companyId **required** `string`: Company Id
   * employeeId **required** `string`: Employee Id
   * taxCode **required** `string`: Tax Code
@@ -587,22 +659,124 @@ Sends new or updated employee non-primary state tax information directly to Web 
 
 ```js
 paylocity.v2.companies.companyId.employees.employeeId.nonprimaryStateTax.put({
-  "Authorization": "",
-  "json": {},
   "companyId": "",
-  "employeeId": ""
+  "employeeId": "",
+  "body": {}
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Authorization **required** `string`: Bearer + JWT
-  * json **required** [nonPrimaryStateTax](#nonprimarystatetax)
   * companyId **required** `string`: Company Id
   * employeeId **required** `string`: Employee Id
+  * body **required** [nonPrimaryStateTax](#nonprimarystatetax)
 
 #### Output
 *Output schema unknown*
+
+### v2.companies.companyId.employees.employeeId.paystatement.details.year.get
+Get pay statement details API will return employee pay statement details data currently available in Web Pay for the specified year.
+
+
+```js
+paylocity.v2.companies.companyId.employees.employeeId.paystatement.details.year.get({
+  "companyId": "",
+  "employeeId": "",
+  "year": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * companyId **required** `string`: Company Id
+  * employeeId **required** `string`: Employee Id
+  * year **required** `string`: The year for which to retrieve pay statement data
+  * pagesize `integer`: Number of records per page. Default value is 25.
+  * pagenumber `integer`: Page number to retrieve; page numbers are 0-based (so to get the first page of results, pass pagenumber=0). Default value is 0.
+  * includetotalcount `boolean`: Whether to include the total record count in the header's X-Pcty-Total-Count property. Default value is true.
+
+#### Output
+* output `array`
+  * items [payStatementDetails](#paystatementdetails)
+
+### v2.companies.companyId.employees.employeeId.paystatement.details.year.checkDate.get
+Get pay statement details API will return employee pay statement detail data currently available in Web Pay for the specified year and check date.
+
+
+```js
+paylocity.v2.companies.companyId.employees.employeeId.paystatement.details.year.checkDate.get({
+  "companyId": "",
+  "employeeId": "",
+  "year": "",
+  "checkDate": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * companyId **required** `string`: Company Id
+  * employeeId **required** `string`: Employee Id
+  * year **required** `string`: The year for which to retrieve pay statement data
+  * checkDate **required** `string`: The check date for which to retrieve pay statement data
+  * pagesize `integer`: Number of records per page. Default value is 25.
+  * pagenumber `integer`: Page number to retrieve; page numbers are 0-based (so to get the first page of results, pass pagenumber=0). Default value is 0.
+  * includetotalcount `boolean`: Whether to include the total record count in the header's X-Pcty-Total-Count property. Default value is true.
+
+#### Output
+* output `array`
+  * items [payStatementDetails](#paystatementdetails)
+
+### v2.companies.companyId.employees.employeeId.paystatement.summary.year.get
+Get pay statement summary API will return employee pay statement summary data currently available in Web Pay for the specified year.
+
+
+```js
+paylocity.v2.companies.companyId.employees.employeeId.paystatement.summary.year.get({
+  "companyId": "",
+  "employeeId": "",
+  "year": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * companyId **required** `string`: Company Id
+  * employeeId **required** `string`: Employee Id
+  * year **required** `string`: The year for which to retrieve pay statement data
+  * pagesize `integer`: Number of records per page. Default value is 25.
+  * pagenumber `integer`: Page number to retrieve; page numbers are 0-based (so to get the first page of results, pass pagenumber=0). Default value is 0.
+  * includetotalcount `boolean`: Whether to include the total record count in the header's X-Pcty-Total-Count property. Default value is true.
+
+#### Output
+* output `array`
+  * items [payStatementSummary](#paystatementsummary)
+
+### v2.companies.companyId.employees.employeeId.paystatement.summary.year.checkDate.get
+Get pay statement summary API will return employee pay statement summary data currently available in Web Pay for the specified year and check date.
+
+
+```js
+paylocity.v2.companies.companyId.employees.employeeId.paystatement.summary.year.checkDate.get({
+  "companyId": "",
+  "employeeId": "",
+  "year": "",
+  "checkDate": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * companyId **required** `string`: Company Id
+  * employeeId **required** `string`: Employee Id
+  * year **required** `string`: The year for which to retrieve pay statement data
+  * checkDate **required** `string`: The check date for which to retrieve pay statement data
+  * pagesize `integer`: Number of records per page. Default value is 25.
+  * pagenumber `integer`: Page number to retrieve; page numbers are 0-based (so to get the first page of results, pass pagenumber=0). Default value is 0.
+  * includetotalcount `boolean`: Whether to include the total record count in the header's X-Pcty-Total-Count property. Default value is true.
+
+#### Output
+* output `array`
+  * items [payStatementSummary](#paystatementsummary)
 
 ### v2.companies.companyId.employees.employeeId.primaryStateTax.put
 Sends new or updated employee primary state tax information directly to Web Pay.
@@ -610,19 +784,17 @@ Sends new or updated employee primary state tax information directly to Web Pay.
 
 ```js
 paylocity.v2.companies.companyId.employees.employeeId.primaryStateTax.put({
-  "Authorization": "",
-  "json": {},
   "companyId": "",
-  "employeeId": ""
+  "employeeId": "",
+  "body": {}
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Authorization **required** `string`: Bearer + JWT
-  * json **required** [stateTax](#statetax)
   * companyId **required** `string`: Company Id
   * employeeId **required** `string`: Employee Id
+  * body **required** [stateTax](#statetax)
 
 #### Output
 *Output schema unknown*
@@ -652,8 +824,7 @@ Obtain new client secret for Paylocity-issued client id. See Setup section for d
 
 ```js
 paylocity.v2.credentials.secrets.post({
-  "Authorization": "",
-  "json": {
+  "body": {
     "code": ""
   }
 }, context)
@@ -661,8 +832,7 @@ paylocity.v2.credentials.secrets.post({
 
 #### Input
 * input `object`
-  * Authorization **required** `string`: Bearer + JWT
-  * json **required** [addClientSecret](#addclientsecret)
+  * body **required** [addClientSecret](#addclientsecret)
 
 #### Output
 *Output schema unknown*
@@ -673,17 +843,15 @@ Add new employee to Web Link will send partially completed or potentially errone
 
 ```js
 paylocity.v2.weblinkstaging.companies.companyId.employees.newemployees.post({
-  "Authorization": "",
-  "json": {},
-  "companyId": ""
+  "companyId": "",
+  "body": {}
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Authorization **required** `string`: Bearer + JWT
-  * json **required** [stagedEmployee](#stagedemployee)
   * companyId **required** `string`: Company Id
+  * body **required** [stagedEmployee](#stagedemployee)
 
 #### Output
 * output `array`
@@ -697,6 +865,21 @@ paylocity.v2.weblinkstaging.companies.companyId.employees.newemployees.post({
 * addClientSecret `object`: The Add Client Secret Request Model
   * code **required** `string`: A value sent with the 'ACTION NEEDED: Web Link API Credentials Expiring Soon.' email notification.
 
+### additionalRate
+* additionalRate `object`: The additional pay rate model
+  * changeReason `string`: Not required. If populated, must match one of the system coded values available in the Additional Rates Change Reason drop down.<br />
+  * costCenter1 `string`: Not required. Valid values must match one of the system coded cost centers available in the Additional Rates Cost Center level 1 drop down. This cell must be in a text format.<br />
+  * costCenter2 `string`: Not required. Valid values must match one of the system coded cost centers available in the Additional Rates Cost Center level 2 drop down. This cell must be in a text format.<br />
+  * costCenter3 `string`: Not required. Valid values must match one of the system coded cost centers available in the Additional Rates Cost Center level 3 drop down. This cell must be in a text format.<br />
+  * effectiveDate `string`: Required. Common formats include *MM-DD-CCYY*, *CCYY-MM-DD*.<br />
+  * endCheckDate `string`: Not required. Must match one of the system coded check dates available in the Additional Rates End Check Date drop down. Common formats include *MM-DD-CCYY*, *CCYY-MM-DD*.<br />
+  * job `string`: Not required. If populated, must match one of the system coded values available in the Additional Rates Job drop down.<br />
+  * rate `number`: Required. Enter dollar amount that corresponds to the Per selection.<br />
+  * rateCode `string`: Required. If populated, must match one of the system coded values available in the Additional Rates Rate Code drop down.<br />
+  * rateNotes `string`: Not required.<br  />Max length: 4000<br />
+  * ratePer `string`: Required. Valid values are HOUR or WEEK.<br />
+  * shift `string`: Not required. If populated, must match one of the system coded values available in the Additional Rates Shift drop down.<br />
+
 ### benefitSetup
 * benefitSetup `object`: The benefit setup model
   * benefitClass `string`: Benefit Class code. Values are configured in Web Pay Company > Setup > Benefits > Classes.<br  />Max length: 30
@@ -705,6 +888,11 @@ paylocity.v2.weblinkstaging.companies.companyId.employees.newemployees.post({
   * benefitSalaryEffectiveDate `string`: Date when Benefit Salary takes effect. Common formats include *MM-DD-CCYY*, *CCYY-MM-DD*.
   * doNotApplyAdministrativePeriod `boolean`: Applicable only for HR Enhanced clients and Benefit Classes with ACA Employment Type of Full Time.
   * isMeasureAcaEligibility `boolean`: Only valid for HR Enhanced clients and Benefit Classes that are ACA Employment Type of Full Time.
+
+### companyCodes
+* companyCodes `object`: The Company Codes model
+  * code `string`: Code.<br  /> Max length: 40
+  * description `string`: Description. <br  /> Max length: 150
 
 ### customFieldDefinition
 * customFieldDefinition `object`
@@ -743,19 +931,56 @@ paylocity.v2.weblinkstaging.companies.companyId.employees.newemployees.post({
   * rateCode `string`: Rate Code applies to additional pay rates entered for an employee. Must match Company setup. <br  /> Max length: 10
   * startDate **required** `string`: Start date of an earning based on payroll calendar. Common formats are MM-DD-CCYY, CCYY-MM-DD.
 
+### emergencyContact
+* emergencyContact `object`: The emergency contact model
+  * address1 `string`: 1st address line.
+  * address2 `string`: 2nd address line.
+  * city `string`: City.
+  * country `string`: County.
+  * county `string`: Country.  Must be a valid 3 character country code.  Common values are *USA* (United States), *CAN* (Canada).
+  * email `string`: Contact email.  Must be valid email address format.
+  * firstName **required** `string`: Required. Contact first name. <br  />Max length: 40
+  * homePhone `string`: Contact Home Phone.  Valid phone format  *(###) #######* or *######-####* or *### ### ####* or *##########* or, if international, starts with *+#*, only spaces and digits allowed.
+  * lastName **required** `string`: Required. Contact last name. <br  />Max length: 40
+  * mobilePhone `string`: Contact Mobile Phone.  Valid phone format  *(###) #######* or *######-####* or *### ### ####* or *##########* or, if international, starts with *+#*, only spaces and digits allowed.
+  * notes `string`: Notes. <br  />Max length: 1000
+  * pager `string`: Contact Pager.  Valid phone format  *(###) #######* or *######-####* or *### ### ####* or *##########* or, if international, starts with *+#*, only spaces and digits allowed.
+  * primaryPhone `string`: Required. Contact primary phone type.  Must match Company setup.  Valid  values are H (Home), M (Mobile), P (Pager), W (Work)
+  * priority `string`: Required. Contact priority. Valid values are *P* (Primary) or *S* (Secondary).
+  * relationship `string`: Required. Contact relationship.  Must match Company setup.  Common values are Spouse, Mother, Father.
+  * state `string`: State or Province.  If U.S. address, must be valid 2 character state code.  Common values are *IL* (Illinois), *CA* (California).
+  * syncEmployeeInfo `boolean`: Valid values are *true* or *false*.
+  * workExtension `string`: Work Extension.
+  * workPhone `string`: Contact Work Phone.  Valid phone format  *(###) #######* or *######-####* or *### ### ####* or *##########* or, if international, starts with *+#*, only spaces and digits allowed.
+  * zip `string`: Postal code.  If U.S. address, must be a valid zip code.
+
 ### employee
 * employee `object`: The employee model
-  * additionalDirectDeposit `array`: Add up to 19 direct deposit accounts in addition to the main direct deposit account. If an employee already has at least one direct deposit account, users cannot add or update direct deposit information. Direct deposit is only available when inserting the employee's initial direct deposit information. GET API will not return direct deposit data.
+  * additionalDirectDeposit `array`: Add up to 19 direct deposit accounts in addition to the main direct deposit account. IMPORTANT: A direct deposit update will remove ALL existing main and additional direct deposit information in WebPay and replace with information provided on the request. GET API will not return direct deposit data.
     * items `object`: The additional direct deposit model
       * accountNumber `string`: Account number, entered without special characters and spaces. <br  />Max length: 17<br />
       * accountType `string`: Account type. Valid values are *C* (Checking), *S* (Saving), *P* (Pay Card). <br   />Max length: 1<br />
       * amount `number`: Amount value to be deposited to the account.<br  />Decimal (12,2)<br />
       * amountType `string`: Amount type to indicate the context of the amount. Common values are *F* (FLAT), *F-* (Net Minus), *P* (Percent). <br  /> Max length: 5<br />
-      * blockSpecial `boolean`: Indicates if direct deposit should be blocked when special check types such as Bonus are processed.<br /><small>new with Web Link 16.6 release</small>
+      * blockSpecial `boolean`: Indicates if direct deposit should be blocked when special check types such as Bonus are processed.<br />
       * isSkipPreNote `boolean`: Indicates if account will not pre-note.<br />
-      * nameOnAccount `string`: Name on the bank account. Defaults to employee's name. <br  />Max length: 30<br /><small>new with Web Link 16.6 release</small>
+      * nameOnAccount `string`: Name on the bank account. Defaults to employee's name. <br  />Max length: 30<br />
       * preNoteDate `string`: Date to end the pre-note of the account. Common formats include *MM-DD-CCYY*, *CCYY-MM-DD*.<br />
       * routingNumber `string`: ABA Transit Routing Number, entered without dashes or spaces. <br  />Max length: 9<br />
+  * additionalRate `array`: Add Additional Rates.
+    * items `object`: The additional pay rate model
+      * changeReason `string`: Not required. If populated, must match one of the system coded values available in the Additional Rates Change Reason drop down.<br />
+      * costCenter1 `string`: Not required. Valid values must match one of the system coded cost centers available in the Additional Rates Cost Center level 1 drop down. This cell must be in a text format.<br />
+      * costCenter2 `string`: Not required. Valid values must match one of the system coded cost centers available in the Additional Rates Cost Center level 2 drop down. This cell must be in a text format.<br />
+      * costCenter3 `string`: Not required. Valid values must match one of the system coded cost centers available in the Additional Rates Cost Center level 3 drop down. This cell must be in a text format.<br />
+      * effectiveDate `string`: Required. Common formats include *MM-DD-CCYY*, *CCYY-MM-DD*.<br />
+      * endCheckDate `string`: Not required. Must match one of the system coded check dates available in the Additional Rates End Check Date drop down. Common formats include *MM-DD-CCYY*, *CCYY-MM-DD*.<br />
+      * job `string`: Not required. If populated, must match one of the system coded values available in the Additional Rates Job drop down.<br />
+      * rate `number`: Required. Enter dollar amount that corresponds to the Per selection.<br />
+      * rateCode `string`: Required. If populated, must match one of the system coded values available in the Additional Rates Rate Code drop down.<br />
+      * rateNotes `string`: Not required.<br  />Max length: 4000<br />
+      * ratePer `string`: Required. Valid values are HOUR or WEEK.<br />
+      * shift `string`: Not required. If populated, must match one of the system coded values available in the Additional Rates Shift drop down.<br />
   * benefitSetup `object`:  Add or update setup values used for employee benefits integration, insurance plan settings, and ACA reporting.
     * benefitClass `string`: Benefit Class code. Values are configured in Web Pay Company > Setup > Benefits > Classes.<br  />Max length: 30
     * benefitClassEffectiveDate `string`: Date when Benefit Class takes effect. Common formats include *MM-DD-CCYY*, *CCYY-MM-DD*.
@@ -764,7 +989,9 @@ paylocity.v2.weblinkstaging.companies.companyId.employees.newemployees.post({
     * doNotApplyAdministrativePeriod `boolean`: Applicable only for HR Enhanced clients and Benefit Classes with ACA Employment Type of Full Time.
     * isMeasureAcaEligibility `boolean`: Only valid for HR Enhanced clients and Benefit Classes that are ACA Employment Type of Full Time.
   * birthDate `string`: Employee birthdate. Common formats include *MM-DD-CCYY*, *CCYY-MM-DD*.
+  * companyFEIN `string`: Company FEIN as defined in Web Pay, applicable with GET requests only.<br  /> Max length: 20
   * companyName `string`: Company name as defined in Web Pay, applicable with GET requests only.<br  /> Max length: 50
+  * currency `string`: Employee is paid in this currency. <br  />Max length: 30
   * customBooleanFields `array`: Up to 8 custom fields of boolean (checkbox) type value.
     * items `object`
       * category **required** `string` (values: PayrollAndHR): The custom field category.  Acceptable value is 'PayrollAndHR'.
@@ -818,14 +1045,41 @@ paylocity.v2.weblinkstaging.companies.companyId.employees.newemployees.post({
     * unionPosition `string`: Employee union position. Must match Company setup. <br  />Max length: 30
     * workersCompensation `string`: Employee worker compensation code. Must match Company setup.<br  /> Max length: 10
   * disabilityDescription `string`: Indicates if employee has disability status.
-  * employeeId `string`: Leave blank to have Web Pay automatically assign the next available employee ID.<br  /> Max length: 10
+  * emergencyContacts `array`: Add or update Emergency Contacts.
+    * items `object`: The emergency contact model
+      * address1 `string`: 1st address line.
+      * address2 `string`: 2nd address line.
+      * city `string`: City.
+      * country `string`: County.
+      * county `string`: Country.  Must be a valid 3 character country code.  Common values are *USA* (United States), *CAN* (Canada).
+      * email `string`: Contact email.  Must be valid email address format.
+      * firstName **required** `string`: Required. Contact first name. <br  />Max length: 40
+      * homePhone `string`: Contact Home Phone.  Valid phone format  *(###) #######* or *######-####* or *### ### ####* or *##########* or, if international, starts with *+#*, only spaces and digits allowed.
+      * lastName **required** `string`: Required. Contact last name. <br  />Max length: 40
+      * mobilePhone `string`: Contact Mobile Phone.  Valid phone format  *(###) #######* or *######-####* or *### ### ####* or *##########* or, if international, starts with *+#*, only spaces and digits allowed.
+      * notes `string`: Notes. <br  />Max length: 1000
+      * pager `string`: Contact Pager.  Valid phone format  *(###) #######* or *######-####* or *### ### ####* or *##########* or, if international, starts with *+#*, only spaces and digits allowed.
+      * primaryPhone `string`: Required. Contact primary phone type.  Must match Company setup.  Valid  values are H (Home), M (Mobile), P (Pager), W (Work)
+      * priority `string`: Required. Contact priority. Valid values are *P* (Primary) or *S* (Secondary).
+      * relationship `string`: Required. Contact relationship.  Must match Company setup.  Common values are Spouse, Mother, Father.
+      * state `string`: State or Province.  If U.S. address, must be valid 2 character state code.  Common values are *IL* (Illinois), *CA* (California).
+      * syncEmployeeInfo `boolean`: Valid values are *true* or *false*.
+      * workExtension `string`: Work Extension.
+      * workPhone `string`: Contact Work Phone.  Valid phone format  *(###) #######* or *######-####* or *### ### ####* or *##########* or, if international, starts with *+#*, only spaces and digits allowed.
+      * zip `string`: Postal code.  If U.S. address, must be a valid zip code.
+  * employeeId `string`: Leave blank to have Web Pay automatically assign the next available employee ID.<br  />Max length: 10
   * ethnicity `string`: Employee ethnicity.<br  /> Max length: 10
   * federalTax `object`: Add or update federal tax amount type (taxCalculationCode), amount or percentage, filing status, and exemptions.
     * amount `number`: Tax amount. <br  />Decimal (12,2)
+    * deductionsAmount `number`: Box 4(b) on form W4 (year 2020 or later): Deductions amount. <br  />Decimal (12,2)
+    * dependentsAmount `number`: Box 3 on form W4 (year 2020 or later): Total dependents amount. <br  />Decimal (12,2)
     * exemptions `number`: Federal tax exemptions value. <br  />Decimal (12,2)
     * filingStatus `string`: Employee federal filing status. Common values are *S* (Single), *M* (Married).<br  />Max length: 50
+    * higherRate `boolean`: Box 2(c) on form W4 (year 2020 or later): Multiple Jobs or Spouse Works. <br  />Boolean
+    * otherIncomeAmount `number`: Box 4(a) on form W4 (year 2020 or later): Other income amount. <br  />Decimal (12,2)
     * percentage `number`: Tax percentage. <br  />Decimal (12,2)
     * taxCalculationCode `string`: Tax calculation code. Common values are *F* (Flat), *P* (Percentage), *FDFP* (Flat Dollar Amount plus Fixed Percentage). <br  />Max length: 10
+    * w4FormYear `integer`: The federal W4 form year <br  />Integer
   * firstName `string`: Employee first name. <br  />Max length: 40
   * gender `string`: Employee gender. Common values *M* (Male), *F* (Female). <br  />Max length: 1
   * homeAddress `object`: Add or update employee's home address, personal phone numbers, and personal email.
@@ -850,26 +1104,31 @@ paylocity.v2.weblinkstaging.companies.companyId.employees.newemployees.post({
       * residentPSD `string`: Resident PSD (political subdivision code) applicable in PA. Must match Company setup.<br  /> Max length: 9
       * taxCode `string`: Local tax code.<br  />Max length: 50
       * workPSD `string`: Work location PSD. Must match Company setup. <br  /> Max length: 9
-  * mainDirectDeposit `object`: Add the main direct deposit account. After deposits are made to any additional direct deposit accounts, the remaining net check is deposited in the main direct deposit account. If an employee already has at least one direct deposit account, users cannot add or update direct deposit information. Direct deposit is only available when inserting the employee's initial direct deposit information. GET API will not return direct deposit data.
+  * mainDirectDeposit `object`: Add the main direct deposit account. After deposits are made to any additional direct deposit accounts, the remaining net check is deposited in the main direct deposit account. IMPORTANT: A direct deposit update will remove ALL existing main and additional direct deposit information in WebPay and replace with what is provided on the request. GET API will not return direct deposit data.
     * accountNumber `string`: Account number, entered without special characters and spaces. <br  />Max length: 17
     * accountType `string`: Account type. Valid values are *C* (Checking), *S* (Saving), *P* (Pay Card). <br   />Max length: 1
-    * blockSpecial `boolean`: Indicates if direct deposit should be blocked when special check types such as Bonus are processed.<br /><small>new with Web Link 16.6 release</small>
+    * blockSpecial `boolean`: Indicates if direct deposit should be blocked when special check types such as Bonus are processed.<br />
     * isSkipPreNote `boolean`: Indicates if account will not pre-note.
-    * nameOnAccount `string`: Name on the bank account. Defaults to employee's name. <br  />Max length: 30<br /><small>new with Web Link 16.6 release</small>
+    * nameOnAccount `string`: Name on the bank account. Defaults to employee's name. <br  />Max length: 30<br />
     * preNoteDate `string`: Date to end the pre-note of the account. Common formats include *MM-DD-CCYY*, *CCYY-MM-DD*.
     * routingNumber `string`: ABA Transit Routing Number, entered without dashes or spaces. <br  />Max length: 9
   * maritalStatus `string`: Employee marital status. Common values *D (Divorced), M (Married), S (Single), W (Widowed)*. <br  />Max length: 10
   * middleName `string`: Employee middle name.<br  /> Max length: 20
   * nonPrimaryStateTax `object`: Add or update non-primary state tax code, amount type (taxCalculationCode), amount or percentage, filing status, exemptions, supplemental check (specialCheckCalc), and reciprocity code information.
     * amount `number`: State tax code.<br  /> Max length: 50
+    * deductionsAmount `number`: Box 4(b) on form W4 (year 2020 or later): Deductions amount. <br  />Decimal (12,2)
+    * dependentsAmount `number`: Box 3 on form W4 (year 2020 or later): Total dependents amount. <br  />Decimal (12,2)
     * exemptions `number`: State tax exemptions value.<br  />Decimal (12,2)
     * exemptions2 `number`: State tax exemptions 2 value.<br  />Decimal (12,2)
     * filingStatus `string`: Employee state tax filing status. Common values are *S* (Single), *M* (Married).<br  />Max length: 50
+    * higherRate `boolean`: Box 2(c) on form W4 (year 2020 or later): Multiple Jobs or Spouse Works. <br  />Boolean
+    * otherIncomeAmount `number`: Box 4(a) on form W4 (year 2020 or later): Other income amount. <br  />Decimal (12,2)
     * percentage `number`: State Tax percentage. <br  />Decimal (12,2)
     * reciprocityCode `string`: Non-primary state tax reciprocity code.<br  /> Max length: 50
     * specialCheckCalc `string`: Supplemental check calculation code. Common values are *Blocked* (Taxes blocked on Supplemental checks), *Supp* (Use supplemental Tax Rate-Code). <br  />Max length: 10
     * taxCalculationCode `string`: Tax calculation code. Common values are *F* (Flat), *P* (Percentage), *FDFP* (Flat Dollar Amount plus Fixed Percentage). <br  />Max length: 10
     * taxCode `string`: State tax code.<br  /> Max length: 50
+    * w4FormYear `integer`: The state W4 form year <br  />Integer
   * ownerPercent `number`: Percentage of employee's ownership in the company, entered as a whole number. <br  /> Decimal (12,2)
   * preferredName `string`: Employee preferred display name.<br  /> Max length: 20
   * primaryPayRate `object`: Add or update hourly or salary pay rate, effective date, and pay frequency.
@@ -888,13 +1147,18 @@ paylocity.v2.weblinkstaging.companies.companyId.employees.newemployees.post({
     * salary `number`: Employee gross salary per pay period used with payType Salary.<br  />Decimal (12,2)
   * primaryStateTax `object`: Add or update primary state tax code, amount type (taxCalculationCode), amount or percentage, filing status, exemptions, and supplemental check (specialCheckCalc) information. Only one primary state is allowed. Sending an updated primary state will replace the current primary state.
     * amount `number`: State tax code.<br  /> Max length: 50
+    * deductionsAmount `number`: Box 4(b) on form W4 (year 2020 or later): Deductions amount. <br  />Decimal (12,2)
+    * dependentsAmount `number`: Box 3 on form W4 (year 2020 or later): Total dependents amount. <br  />Decimal (12,2)
     * exemptions `number`: State tax exemptions value.<br  />Decimal (12,2)
     * exemptions2 `number`: State tax exemptions 2 value.<br  />Decimal (12,2)
     * filingStatus `string`: Employee state tax filing status. Common values are *S* (Single), *M* (Married).<br  />Max length: 50
+    * higherRate `boolean`: Box 2(c) on form W4 (year 2020 or later): Multiple Jobs or Spouse Works. <br  />Boolean
+    * otherIncomeAmount `number`: Box 4(a) on form W4 (year 2020 or later): Other income amount. <br  />Decimal (12,2)
     * percentage `number`: State Tax percentage. <br  />Decimal (12,2)
     * specialCheckCalc `string`: Supplemental check calculation code. Common values are *Blocked* (Taxes blocked on Supplemental checks), *Supp* (Use supplemental Tax Rate-Code). <br  />Max length: 10
     * taxCalculationCode `string`: Tax calculation code. Common values are *F* (Flat), *P* (Percentage), *FDFP* (Flat Dollar Amount plus Fixed Percentage). <br  />Max length: 10
     * taxCode `string`: State tax code.<br  /> Max length: 50
+    * w4FormYear `integer`: The state W4 form year <br  />Integer
   * priorLastName `string`: Prior last name if applicable.<br  />Max length: 40
   * salutation `string`: Employee preferred salutation. <br  />Max length: 10
   * ssn `string`: Employee social security number. Leave it blank if valid social security number not available. <br  />Max length: 11
@@ -938,6 +1202,7 @@ paylocity.v2.weblinkstaging.companies.companyId.employees.newemployees.post({
     * country `string`: Country.<br  /> Max length: 30
     * county `string`: County.<br  /> Max length: 30
     * emailAddress `string`: Email. <br  />Max length: 50
+    * location `string`: Work Location name. <br />Max length: 50
     * mailStop `string`: Employee mail stop.<br  /> Max length: 10
     * mobilePhone `string`: Mobile phone number.<br  /> Max length: 12
     * pager `string`: Employee pager number.<br  /> Max length: 20
@@ -965,6 +1230,12 @@ paylocity.v2.weblinkstaging.companies.companyId.employees.newemployees.post({
 * employeeIdResponse `object`: The EmployeeId Response Model
   * employeeId `string`: The EmployeeId
 
+### employeeInfo
+* employeeInfo `object`: The employee info model
+  * employeeId `string`: Employee Id.<br  /> Max length: 10
+  * statusCode `string`: Employee current work status. Common values are *A* (Active), *L* (Leave of Absence), *T* (Terminated). <br  />Max length: 20
+  * statusTypeCode `string`: Employee current work status type. <br  />Max length: 10
+
 ### error
 * error `object`: The error model
   * field `string`: The name of the field, or property in the request message that contains an error.
@@ -987,18 +1258,57 @@ paylocity.v2.weblinkstaging.companies.companyId.employees.newemployees.post({
 ### nonPrimaryStateTax
 * nonPrimaryStateTax `object`: The Non-Primary State Tax model
   * amount `number`: State tax code.<br  /> Max length: 50
+  * deductionsAmount `number`: Box 4(b) on form W4 (year 2020 or later): Deductions amount. <br  />Decimal (12,2)
+  * dependentsAmount `number`: Box 3 on form W4 (year 2020 or later): Total dependents amount. <br  />Decimal (12,2)
   * exemptions `number`: State tax exemptions value.<br  />Decimal (12,2)
   * exemptions2 `number`: State tax exemptions 2 value.<br  />Decimal (12,2)
   * filingStatus `string`: Employee state tax filing status. Common values are *S* (Single), *M* (Married).<br  />Max length: 50
+  * higherRate `boolean`: Box 2(c) on form W4 (year 2020 or later): Multiple Jobs or Spouse Works. <br  />Boolean
+  * otherIncomeAmount `number`: Box 4(a) on form W4 (year 2020 or later): Other income amount. <br  />Decimal (12,2)
   * percentage `number`: State Tax percentage. <br  />Decimal (12,2)
   * reciprocityCode `string`: Non-primary state tax reciprocity code.<br  /> Max length: 50
   * specialCheckCalc `string`: Supplemental check calculation code. Common values are *Blocked* (Taxes blocked on Supplemental checks), *Supp* (Use supplemental Tax Rate-Code). <br  />Max length: 10
   * taxCalculationCode `string`: Tax calculation code. Common values are *F* (Flat), *P* (Percentage), *FDFP* (Flat Dollar Amount plus Fixed Percentage). <br  />Max length: 10
   * taxCode `string`: State tax code.<br  /> Max length: 50
+  * w4FormYear `integer`: The state W4 form year <br  />Integer
+
+### payStatementDetails
+* payStatementDetails `object`: The pay statement details model
+  * amount `number`: .<br />
+  * checkDate `string`: .<br />
+  * det `string`: .<br />
+  * detCode `string`: .<br />
+  * hours `number`: .<br />
+  * rate `number`: .<br />
+  * transactionNumber `integer`: <br />
+  * transactionType `string`: .<br />
+  * year `integer`: .<br />
+
+### payStatementSummary
+* payStatementSummary `object`: The pay statement summary model
+  * autoPay `boolean`: .<br />
+  * beginDate `string`: .<br />
+  * checkDate `string`: .<br />
+  * checkNumber `integer`: .<br />
+  * directDepositAmount `number`: .<br />
+  * endDate `string`: .<br />
+  * grossPay `number`: .<br />
+  * hours `number`: .<br />
+  * netCheck `number`: .<br />
+  * netPay `number`: .<br />
+  * overtimeDollars `number`: .<br />
+  * overtimeHours `number`: .<br />
+  * process `integer`: .<br />
+  * regularDollars `number`: .<br />
+  * regularHours `number`: .<br />
+  * transactionNumber `integer`: <br />
+  * voucherNumber `integer`: .<br />
+  * workersCompCode `string`: .<br />
+  * year `integer`: .<br />
 
 ### stagedEmployee
 * stagedEmployee `object`: The staged employee model
-  * additionalDirectDeposit `array`: Add up to 4 direct deposit accounts in addition to the main direct deposit account. Direct deposit is only available when inserting the employee's initial direct deposit information.
+  * additionalDirectDeposit `array`: Add up to 19 direct deposit accounts in addition to the main direct deposit account. IMPORTANT: A direct deposit update will remove ALL existing main and additional direct deposit information in WebPay and replace with information provided on the request. GET API will not return direct deposit data.
     * items `object`: The additional direct deposit model
       * accountNumber `string`: Account number, entered without special characters and spaces. <br  />Max length: 17<br />
       * accountType `string`: Account type. Valid values are *C* (Checking), *S* (Saving), *P* (Pay Card). <br   />Max length: 1<br />
@@ -1073,10 +1383,15 @@ paylocity.v2.weblinkstaging.companies.companyId.employees.newemployees.post({
   * federalTax `array`: Add federal tax amount type (taxCalculationCode), amount or percentage, filing status, and exemptions.
     * items `object`: The Federal Tax model
       * amount `number`: Tax amount. <br  />Decimal (12,2)
+      * deductionsAmount `number`: Box 4(b) on form W4 (year 2020 or later): Deductions amount. <br  />Decimal (12,2)
+      * dependentsAmount `number`: Box 3 on form W4 (year 2020 or later): Total dependents amount. <br  />Decimal (12,2)
       * exemptions `number`: Federal tax exemptions value. <br  />Decimal (12,2)
       * filingStatus `string`: Employee federal filing status. Common values are *S* (Single), *M* (Married).<br  />Max length: 50
+      * higherRate `boolean`: Box 2(c) on form W4 (year 2020 or later): Multiple Jobs or Spouse Works. <br  />Boolean
+      * otherIncomeAmount `number`: Box 4(a) on form W4 (year 2020 or later): Other income amount. <br  />Decimal (12,2)
       * percentage `number`: Tax percentage. <br  />Decimal (12,2)
       * taxCalculationCode `string`: Tax calculation code. Common values are *F* (Flat), *P* (Percentage), *FDFP* (Flat Dollar Amount plus Fixed Percentage). <br  />Max length: 10
+      * w4FormYear `integer`: The federal W4 form year <br  />Integer
   * firstName `string`: Employee first name. <br  />Max length: 40
   * fitwExemptReason `string`: Reason code for FITW exemption. Common values are *SE* (Statutory employee), *CR* (clergy/Religious). <br  /> Max length: 30
   * futaExemptReason `string`: Reason code for FUTA exemption. Common values are *501* (5019c)(3) Organization), *IC* (Independent Contractor).<br  /> Max length: 30
@@ -1104,7 +1419,7 @@ paylocity.v2.weblinkstaging.companies.companyId.employees.newemployees.post({
       * residentPSD `string`: Resident PSD (political subdivision code) applicable in PA. Must match Company setup.<br  /> Max length: 9
       * taxCode `string`: Local tax code.<br  />Max length: 50
       * workPSD `string`: Work location PSD. Must match Company setup. <br  /> Max length: 9
-  * mainDirectDeposit `array`: Add the main direct deposit account. After deposits are made to any additional direct deposit accounts, the remaining net check is deposited in the main direct deposit account. Direct deposit is only available when inserting the employee's initial direct deposit information.
+  * mainDirectDeposit `array`: Add the main direct deposit account. After deposits are made to any additional direct deposit accounts, the remaining net check is deposited in the main direct deposit account. IMPORTANT: A direct deposit update will remove ALL existing main and additional direct deposit information in WebPay and replace with what is provided on the request. GET API will not return direct deposit data.
     * items `object`: The Main Direct Deposit model
       * accountNumber `string`: Account number, entered without special characters and spaces. <br  />Max length: 17
       * accountType `string`: Account type. Valid values are *C* (Checking), *S* (Saving), *P* (Pay Card). <br   />Max length: 1
@@ -1117,14 +1432,19 @@ paylocity.v2.weblinkstaging.companies.companyId.employees.newemployees.post({
   * nonPrimaryStateTax `array`: Add non-primary state tax code, amount type (taxCalculationCode), amount or percentage, filing status, exemptions, supplemental check (specialCheckCalc), and reciprocity code information.
     * items `object`: The Non-Primary State Tax model
       * amount `number`: State tax code.<br  /> Max length: 50
+      * deductionsAmount `number`: Box 4(b) on form W4 (year 2020 or later): Deductions amount. <br  />Decimal (12,2)
+      * dependentsAmount `number`: Box 3 on form W4 (year 2020 or later): Total dependents amount. <br  />Decimal (12,2)
       * exemptions `number`: State tax exemptions value.<br  />Decimal (12,2)
       * exemptions2 `number`: State tax exemptions 2 value.<br  />Decimal (12,2)
       * filingStatus `string`: Employee state tax filing status. Common values are *S* (Single), *M* (Married).<br  />Max length: 50
+      * higherRate `boolean`: Box 2(c) on form W4 (year 2020 or later): Multiple Jobs or Spouse Works. <br  />Boolean
+      * otherIncomeAmount `number`: Box 4(a) on form W4 (year 2020 or later): Other income amount. <br  />Decimal (12,2)
       * percentage `number`: State Tax percentage. <br  />Decimal (12,2)
       * reciprocityCode `string`: Non-primary state tax reciprocity code.<br  /> Max length: 50
       * specialCheckCalc `string`: Supplemental check calculation code. Common values are *Blocked* (Taxes blocked on Supplemental checks), *Supp* (Use supplemental Tax Rate-Code). <br  />Max length: 10
       * taxCalculationCode `string`: Tax calculation code. Common values are *F* (Flat), *P* (Percentage), *FDFP* (Flat Dollar Amount plus Fixed Percentage). <br  />Max length: 10
       * taxCode `string`: State tax code.<br  /> Max length: 50
+      * w4FormYear `integer`: The state W4 form year <br  />Integer
   * preferredName `string`: Employee preferred display name.<br  /> Max length: 20
   * primaryPayRate `array`: Add hourly or salary pay rate, effective date, and pay frequency.
     * items `object`: The Primary Pay Rate model
@@ -1141,13 +1461,18 @@ paylocity.v2.weblinkstaging.companies.companyId.employees.newemployees.post({
   * primaryStateTax `array`: Add primary state tax code, amount type (taxCalculationCode), amount or percentage, filing status, exemptions, and supplemental check (specialCheckCalc) information. Only one primary state is allowed.
     * items `object`: The State Tax model
       * amount `number`: State tax code.<br  /> Max length: 50
+      * deductionsAmount `number`: Box 4(b) on form W4 (year 2020 or later): Deductions amount. <br  />Decimal (12,2)
+      * dependentsAmount `number`: Box 3 on form W4 (year 2020 or later): Total dependents amount. <br  />Decimal (12,2)
       * exemptions `number`: State tax exemptions value.<br  />Decimal (12,2)
       * exemptions2 `number`: State tax exemptions 2 value.<br  />Decimal (12,2)
       * filingStatus `string`: Employee state tax filing status. Common values are *S* (Single), *M* (Married).<br  />Max length: 50
+      * higherRate `boolean`: Box 2(c) on form W4 (year 2020 or later): Multiple Jobs or Spouse Works. <br  />Boolean
+      * otherIncomeAmount `number`: Box 4(a) on form W4 (year 2020 or later): Other income amount. <br  />Decimal (12,2)
       * percentage `number`: State Tax percentage. <br  />Decimal (12,2)
       * specialCheckCalc `string`: Supplemental check calculation code. Common values are *Blocked* (Taxes blocked on Supplemental checks), *Supp* (Use supplemental Tax Rate-Code). <br  />Max length: 10
       * taxCalculationCode `string`: Tax calculation code. Common values are *F* (Flat), *P* (Percentage), *FDFP* (Flat Dollar Amount plus Fixed Percentage). <br  />Max length: 10
       * taxCode `string`: State tax code.<br  /> Max length: 50
+      * w4FormYear `integer`: The state W4 form year <br  />Integer
   * priorLastName `string`: Prior last name if applicable.<br  />Max length: 40
   * salutation `string`: Employee preferred salutation. <br  />Max length: 10
   * sitwExemptReason `string`: Reason code for SITW exemption. Common values are *SE* (Statutory employee), *CR* (clergy/Religious). <br  /> Max length: 30
@@ -1205,13 +1530,18 @@ paylocity.v2.weblinkstaging.companies.companyId.employees.newemployees.post({
 ### stateTax
 * stateTax `object`: The State Tax model
   * amount `number`: State tax code.<br  /> Max length: 50
+  * deductionsAmount `number`: Box 4(b) on form W4 (year 2020 or later): Deductions amount. <br  />Decimal (12,2)
+  * dependentsAmount `number`: Box 3 on form W4 (year 2020 or later): Total dependents amount. <br  />Decimal (12,2)
   * exemptions `number`: State tax exemptions value.<br  />Decimal (12,2)
   * exemptions2 `number`: State tax exemptions 2 value.<br  />Decimal (12,2)
   * filingStatus `string`: Employee state tax filing status. Common values are *S* (Single), *M* (Married).<br  />Max length: 50
+  * higherRate `boolean`: Box 2(c) on form W4 (year 2020 or later): Multiple Jobs or Spouse Works. <br  />Boolean
+  * otherIncomeAmount `number`: Box 4(a) on form W4 (year 2020 or later): Other income amount. <br  />Decimal (12,2)
   * percentage `number`: State Tax percentage. <br  />Decimal (12,2)
   * specialCheckCalc `string`: Supplemental check calculation code. Common values are *Blocked* (Taxes blocked on Supplemental checks), *Supp* (Use supplemental Tax Rate-Code). <br  />Max length: 10
   * taxCalculationCode `string`: Tax calculation code. Common values are *F* (Flat), *P* (Percentage), *FDFP* (Flat Dollar Amount plus Fixed Percentage). <br  />Max length: 10
   * taxCode `string`: State tax code.<br  /> Max length: 50
+  * w4FormYear `integer`: The state W4 form year <br  />Integer
 
 ### trackingNumberResponse
 * trackingNumberResponse `object`: The Tracking Number Response model

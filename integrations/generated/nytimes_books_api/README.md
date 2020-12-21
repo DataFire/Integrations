@@ -1,6 +1,6 @@
 # @datafire/nytimes_books_api
 
-Client library for Books
+Client library for Books API
 
 ## Installation and Usage
 ```bash
@@ -11,7 +11,7 @@ let nytimes_books_api = require('@datafire/nytimes_books_api').create({
   "api-key": ""
 });
 
-nytimes_books_api.lists.best_sellers.history.json.get({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -133,7 +133,6 @@ nytimes_books_api.lists.best_sellers.history.json.get({}, context)
           * primary_isbn13 `string`
           * published_date `string`
           * rank `integer`
-          * ranks_last_week `null`
           * weeks_on_list `integer`
       * reviews `array`
         * items `object`
@@ -199,19 +198,6 @@ nytimes_books_api.lists.overview.format.get({
       * items `object`
         * books `array`
           * items `object`
-            * age_group `string`
-            * author `string`
-            * contributor `string`
-            * contributor_note `string`
-            * created_date `string`
-            * description `string`
-            * price `integer`
-            * primary_isbn10 `string`
-            * primary_isbn13 `string`
-            * publisher `string`
-            * rank `integer`
-            * title `string`
-            * updated_date `string`
         * display_name `string`
         * list_id `integer`
         * list_image `string`
@@ -268,8 +254,6 @@ nytimes_books_api.lists.date.list.json.get({
         * first_chapter_link `string`
         * isbns `array`
           * items `object`
-            * isbn10 `string`
-            * isbn13 `string`
         * price `integer`
         * primary_isbn10 `string`
         * primary_isbn13 `string`

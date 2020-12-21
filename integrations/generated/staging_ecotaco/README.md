@@ -9,7 +9,7 @@ npm install --save @datafire/staging_ecotaco
 ```js
 let staging_ecotaco = require('@datafire/staging_ecotaco').create();
 
-staging_ecotaco..get(null).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -84,11 +84,13 @@ Get current user
 
 
 ```js
-staging_ecotaco.accounts.get(null, context)
+staging_ecotaco.accounts.get({}, context)
 ```
 
 #### Input
-*This action has no parameters*
+* input `object`
+  * Accept `string`: e.g. application/json
+  * Accept-Language `string`: e.g. en
 
 #### Output
 *Output schema unknown*
@@ -98,11 +100,13 @@ Create a new account with an application key
 
 
 ```js
-staging_ecotaco.accounts.post(null, context)
+staging_ecotaco.accounts.post({}, context)
 ```
 
 #### Input
-*This action has no parameters*
+* input `object`
+  * Accept `string`: e.g. application/json
+  * Accept-Language `string`: e.g. en
 
 #### Output
 *Output schema unknown*
@@ -112,11 +116,13 @@ Update User
 
 
 ```js
-staging_ecotaco.accounts.put(null, context)
+staging_ecotaco.accounts.put({}, context)
 ```
 
 #### Input
-*This action has no parameters*
+* input `object`
+  * Accept `string`: e.g. application/json
+  * Accept-Language `string`: e.g. en
 
 #### Output
 *Output schema unknown*
@@ -126,11 +132,13 @@ Forget password with email
 
 
 ```js
-staging_ecotaco.accounts.password.post(null, context)
+staging_ecotaco.accounts.password.post({}, context)
 ```
 
 #### Input
-*This action has no parameters*
+* input `object`
+  * Accept `string`: e.g. application/json
+  * Accept-Language `string`: e.g. en
 
 #### Output
 *Output schema unknown*
@@ -140,11 +148,13 @@ Payment Methods
 
 
 ```js
-staging_ecotaco.accounts.payment_methods.get(null, context)
+staging_ecotaco.accounts.payment_methods.get({}, context)
 ```
 
 #### Input
-*This action has no parameters*
+* input `object`
+  * Accept `string`: e.g. application/json
+  * Accept-Language `string`: e.g. en
 
 #### Output
 *Output schema unknown*
@@ -154,11 +164,13 @@ Settings
 
 
 ```js
-staging_ecotaco.accounts.settings.post(null, context)
+staging_ecotaco.accounts.settings.post({}, context)
 ```
 
 #### Input
-*This action has no parameters*
+* input `object`
+  * Accept `string`: e.g. application/json
+  * Accept-Language `string`: e.g. en
 
 #### Output
 *Output schema unknown*
@@ -168,11 +180,13 @@ Login with email, password and application key
 
 
 ```js
-staging_ecotaco.accounts.sign_in.post(null, context)
+staging_ecotaco.accounts.sign_in.post({}, context)
 ```
 
 #### Input
-*This action has no parameters*
+* input `object`
+  * Accept `string`: e.g. application/json
+  * Accept-Language `string`: e.g. en
 
 #### Output
 *Output schema unknown*
@@ -182,11 +196,13 @@ Update Password
 
 
 ```js
-staging_ecotaco.accounts.update_password.put(null, context)
+staging_ecotaco.accounts.update_password.put({}, context)
 ```
 
 #### Input
-*This action has no parameters*
+* input `object`
+  * Accept `string`: e.g. application/json
+  * Accept-Language `string`: e.g. en
 
 #### Output
 *Output schema unknown*
@@ -202,11 +218,13 @@ For searching places just send the following attributes :
 
 
 ```js
-staging_ecotaco.addresses.places_autocomplete.post(null, context)
+staging_ecotaco.addresses.places_autocomplete.post({}, context)
 ```
 
 #### Input
-*This action has no parameters*
+* input `object`
+  * Accept `string`: e.g. application/json
+  * Accept-Language `string`: e.g. en
 
 #### Output
 *Output schema unknown*
@@ -216,11 +234,13 @@ Get autocomplete places details
 
 
 ```js
-staging_ecotaco.addresses.places_details.post(null, context)
+staging_ecotaco.addresses.places_details.post({}, context)
 ```
 
 #### Input
-*This action has no parameters*
+* input `object`
+  * Accept `string`: e.g. application/json
+  * Accept-Language `string`: e.g. en
 
 #### Output
 *Output schema unknown*
@@ -230,11 +250,13 @@ List all catchement areas
 
 
 ```js
-staging_ecotaco.catchement_areas.get(null, context)
+staging_ecotaco.catchement_areas.get({}, context)
 ```
 
 #### Input
-*This action has no parameters*
+* input `object`
+  * Accept `string`: e.g. application/json
+  * Accept-Language `string`: e.g. en
 
 #### Output
 *Output schema unknown*
@@ -252,6 +274,8 @@ staging_ecotaco.catchement_areas.id.get({
 #### Input
 * input `object`
   * id **required** `number`: Numeric `id` of the Catchement Area
+  * Accept `string`: e.g. application/json
+  * Accept-Language `string`: e.g. en
 
 #### Output
 *Output schema unknown*
@@ -261,11 +285,13 @@ List all CreditCards for the current User
 
 
 ```js
-staging_ecotaco.credit_cards.get(null, context)
+staging_ecotaco.credit_cards.get({}, context)
 ```
 
 #### Input
-*This action has no parameters*
+* input `object`
+  * Accept `string`: e.g. application/json
+  * Accept-Language `string`: e.g. en
 
 #### Output
 *Output schema unknown*
@@ -292,11 +318,13 @@ List all products
 
 
 ```js
-staging_ecotaco.products.get(null, context)
+staging_ecotaco.products.get({}, context)
 ```
 
 #### Input
-*This action has no parameters*
+* input `object`
+  * Accept `string`: e.g. application/json
+  * Accept-Language `string`: e.g. en
 
 #### Output
 *Output schema unknown*
@@ -314,6 +342,8 @@ staging_ecotaco.products.id.get({
 #### Input
 * input `object`
   * id **required** `number`: Numeric `id` of the Product
+  * Accept `string`: e.g. application/json
+  * Accept-Language `string`: e.g. en
 
 #### Output
 *Output schema unknown*
@@ -323,11 +353,13 @@ Get all promotional codes for user
 
 
 ```js
-staging_ecotaco.promotional_codes.get(null, context)
+staging_ecotaco.promotional_codes.get({}, context)
 ```
 
 #### Input
-*This action has no parameters*
+* input `object`
+  * Accept `string`: e.g. application/json
+  * Accept-Language `string`: e.g. en
 
 #### Output
 *Output schema unknown*
@@ -337,11 +369,12 @@ Add a promotional code
 
 
 ```js
-staging_ecotaco.promotional_codes.post(null, context)
+staging_ecotaco.promotional_codes.post({}, context)
 ```
 
 #### Input
-*This action has no parameters*
+* input `object`
+  * Accept `string`: e.g. application/json
 
 #### Output
 *Output schema unknown*
@@ -359,6 +392,8 @@ staging_ecotaco.rides.id.get({
 #### Input
 * input `object`
   * id **required** `number`: Numeric `id` of Ride
+  * Accept `string`: e.g. application/json
+  * Accept-Language `string`: e.g. en
 
 #### Output
 *Output schema unknown*
@@ -376,6 +411,8 @@ staging_ecotaco.rides.id.cancel.get({
 #### Input
 * input `object`
   * id **required** `number`: Numeric `id` of Ride
+  * Accept `string`: e.g. application/json
+  * Accept-Language `string`: e.g. en
 
 #### Output
 *Output schema unknown*
@@ -393,6 +430,8 @@ staging_ecotaco.rides.id.cancel_fees.get({
 #### Input
 * input `object`
   * id **required** `number`: Numeric `id` of Ride
+  * Accept `string`: e.g. application/json
+  * Accept-Language `string`: e.g. en
 
 #### Output
 *Output schema unknown*
@@ -410,6 +449,8 @@ staging_ecotaco.rides.id.estimate.get({
 #### Input
 * input `object`
   * id **required** `number`: Numeric `id` of Ride
+  * Accept `string`: e.g. application/json
+  * Accept-Language `string`: e.g. en
 
 #### Output
 *Output schema unknown*
@@ -429,6 +470,8 @@ staging_ecotaco.rides.id.reserve.post({
 #### Input
 * input `object`
   * id **required** `number`: Numeric `id` of Ride
+  * Accept `string`: e.g. application/json
+  * Accept-Language `string`: e.g. en
 
 #### Output
 *Output schema unknown*
@@ -448,6 +491,8 @@ staging_ecotaco.rides_page_page_per_page_per_page.get({
 * input `object`
   * page **required** `number`: Number of the page to load
   * per_page **required** `number`: Number of items per page to load
+  * Accept `string`: e.g. application/json
+  * Accept-Language `string`: e.g. en
 
 #### Output
 *Output schema unknown*
@@ -465,6 +510,8 @@ staging_ecotaco.rides_page_page_per_page_per_page.post({
 
 #### Input
 * input `object`
+  * Accept `string`: e.g. application/json
+  * Accept-Language `string`: e.g. en
   * page **required** `string`
   * per_page **required** `string`
 

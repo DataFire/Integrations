@@ -1,8 +1,8 @@
 {
   "name": "@datafire/zoom_us",
-  "version": "4.0.0",
+  "version": "5.0.0",
   "main": "index.js",
-  "description": "DataFire integration for Zoom",
+  "description": "DataFire integration for Zoom API",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DataFire/integrations.git"

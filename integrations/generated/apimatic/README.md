@@ -13,9 +13,7 @@ let apimatic = require('@datafire/apimatic').create({
   password: ""
 });
 
-apimatic.ConvertAPI({
-  "format": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

@@ -12,9 +12,7 @@ let smart_me = require('@datafire/smart_me').create({
   password: ""
 });
 
-smart_me.AccessToken_Put({
-  "accessTokenToPut": {}
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -41,6 +39,34 @@ smart_me.AccessToken_Put({
 
 #### Output
 * output `string`
+
+### api.Account.login.get
+
+
+
+```js
+smart_me.api.Account.login.get(null, context)
+```
+
+#### Input
+*This action has no parameters*
+
+#### Output
+* output [Object](#object)
+
+### api.Account.login.post
+
+
+
+```js
+smart_me.api.Account.login.post(null, context)
+```
+
+#### Input
+*This action has no parameters*
+
+#### Output
+* output [Object](#object)
 
 ### Actions_Post
 Set an action for the specified device.
@@ -76,6 +102,23 @@ smart_me.Actions_Get({
 #### Output
 * output `array`
   * items [ActionInformation](#actioninformation)
+
+### AdditionalDeviceInformation_Get
+Gets the additional information (e.g. Firmware Version) about a device.
+
+
+```js
+smart_me.AdditionalDeviceInformation_Get({
+  "id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * id **required** `string`: The ID of the device
+
+#### Output
+* output [AdditionalDeviceInformation](#additionaldeviceinformation)
 
 ### api.CustomDevice.get
 Gets all Devices
@@ -231,7 +274,7 @@ smart_me.DevicesByEnergy_Get({
 
 #### Input
 * input `object`
-  * meterEnergyType **required** `string` (values: MeterTypeUnknown, MeterTypeElectricity, MeterTypeWater, MeterTypeGas, MeterTypeHeat, MeterTypeHCA, MeterTypeAllMeters, MeterTypeTemperature, MeterTypeMBusGateway, MeterTypeRS485Gateway, MeterTypeCustomDevice, MeterTypeCompressedAir, MeterTypeSolarLog, MeterTypeVirtualMeter)
+  * meterEnergyType **required** `string` (values: MeterTypeUnknown, MeterTypeElectricity, MeterTypeWater, MeterTypeGas, MeterTypeHeat, MeterTypeHCA, MeterTypeAllMeters, MeterTypeTemperature, MeterTypeMBusGateway, MeterTypeRS485Gateway, MeterTypeCustomDevice, MeterTypeCompressedAir, MeterTypeSolarLog, MeterTypeVirtualMeter, MeterTypeWMBusGateway)
 
 #### Output
 * output `array`
@@ -249,7 +292,7 @@ smart_me.DevicesBySubType_Get({
 
 #### Input
 * input `object`
-  * meterSubType **required** `string` (values: MeterSubTypeUnknown, MeterSubTypeCold, MeterSubTypeHeat, MeterSubTypeChargingStation, MeterSubTypeElectricity, MeterSubTypeWater, MeterSubTypeGas, MeterSubTypeElectricityHeat, MeterSubTypeTemperature)
+  * meterSubType **required** `string` (values: MeterSubTypeUnknown, MeterSubTypeCold, MeterSubTypeHeat, MeterSubTypeChargingStation, MeterSubTypeElectricity, MeterSubTypeWater, MeterSubTypeGas, MeterSubTypeElectricityHeat, MeterSubTypeTemperature, MeterSubTypeVirtualBattery)
 
 #### Output
 * output `array`
@@ -271,6 +314,37 @@ smart_me.Folder_Get({
 
 #### Output
 * output [FolderData](#folderdata)
+
+### FolderMenu_Get
+Gets the folder menu items (each item might contain child items)
+
+
+```js
+smart_me.FolderMenu_Get(null, context)
+```
+
+#### Input
+*This action has no parameters*
+
+#### Output
+* output [FolderMenuConfiguration](#foldermenuconfiguration)
+
+### FolderMenu_Post
+Creates and updates the folder menu items
+
+
+```js
+smart_me.FolderMenu_Post({
+  "folderMenuConfiguration": {}
+}, context)
+```
+
+#### Input
+* input `object`
+  * folderMenuConfiguration **required** [FolderMenuConfiguration](#foldermenuconfiguration)
+
+#### Output
+*Output schema unknown*
 
 ### MBus_Post
 M-BUS API: Adds data of a M-BUS Meter to the smart-me Cloud.
@@ -343,23 +417,88 @@ smart_me.MeterValues_Get({
 #### Output
 * output [DeviceInPast](#deviceinpast)
 
-### SignUp_Post
-Sign up a new User.
-            The sign up is done on the smart-me Cloud.
+### RegisterForRealtimeApi_Get
+Gets all registrations for the Realtime API.
 
 
 ```js
-smart_me.SignUp_Post({
-  "signUpData": {}
+smart_me.RegisterForRealtimeApi_Get(null, context)
+```
+
+#### Input
+*This action has no parameters*
+
+#### Output
+* output `array`
+  * items [RegisterRealtimeApiData](#registerrealtimeapidata)
+
+### RegisterForRealtimeApi_Post
+Creates a new registration for the realtime API. The Realtime API sends you the data of the registred devices as soon as we have them on the cloud. More Information about the realtime API: https://www.smart-me.com/Description/api/realtimeapi.aspx
+
+
+```js
+smart_me.RegisterForRealtimeApi_Post({
+  "registration": {}
 }, context)
 ```
 
 #### Input
 * input `object`
-  * signUpData **required** [SignUpData](#signupdata)
+  * registration **required** [RegisterRealtimeApiData](#registerrealtimeapidata)
 
 #### Output
-* output [User](#user)
+*Output schema unknown*
+
+### RegisterForRealtimeApi_Delete
+Deletes a realtime API registration.
+
+
+```js
+smart_me.RegisterForRealtimeApi_Delete({
+  "id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * id **required** `string`: The ID of the realtime API registration
+
+#### Output
+*Output schema unknown*
+
+### SmartMeDeviceConfiguration_Post
+Sets the configuration of a smart-me device. The device needs to be online.
+
+
+```js
+smart_me.SmartMeDeviceConfiguration_Post({
+  "configuration": {}
+}, context)
+```
+
+#### Input
+* input `object`
+  * configuration **required** [SmartMeDeviceConfigurationContainer](#smartmedeviceconfigurationcontainer)
+
+#### Output
+*Output schema unknown*
+
+### SmartMeDeviceConfiguration_Get
+Gets the configuration of a smart-me device.
+
+
+```js
+smart_me.SmartMeDeviceConfiguration_Get({
+  "id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * id **required** `string`
+
+#### Output
+* output [SmartMeDeviceConfigurationContainer](#smartmedeviceconfigurationcontainer)
 
 ### User_Get
 Gets the informations for the user.
@@ -579,6 +718,52 @@ smart_me.VirtualTariffConsumption_Get({
 * output `array`
   * items [VirtualTariffConsumptionData](#virtualtariffconsumptiondata)
 
+### api.oauth.authorize.get
+
+
+
+```js
+smart_me.api.oauth.authorize.get({
+  "client_id": "",
+  "redirect_uri": "",
+  "state": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * client_id **required** `string`
+  * redirect_uri **required** `string`
+  * state **required** `string`
+  * scope `string`
+  * client_secret `string`
+
+#### Output
+* output [Object](#object)
+
+### api.oauth.authorize.post
+
+
+
+```js
+smart_me.api.oauth.authorize.post({
+  "client_id": "",
+  "redirect_uri": "",
+  "state": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * client_id **required** `string`
+  * redirect_uri **required** `string`
+  * state **required** `string`
+  * scope `string`
+  * client_secret `string`
+
+#### Output
+* output [Object](#object)
+
 
 
 ## Definitions
@@ -607,6 +792,20 @@ smart_me.VirtualTariffConsumption_Get({
   * ObisCode `string`: The ObisCode (ID) of the Action
   * Value `number`: The Value to Post
 
+### AdditionalDeviceInformation
+* AdditionalDeviceInformation `object`: Additional Information For a device
+  * AdditionalMeterSerialNumber `string`: An additional Meter serial number. e.g. the number of a meter a smart-me device is connected to.
+  * FirmwareVersion `integer`: The Firmware Version of a Meter
+  * HardwareVersion `integer`: The Hardware Version of a Meter.
+  * ID `string`: The ID of the device
+
+### AutoExportSettings
+* AutoExportSettings `object`: Settings for the auto export functionality of a meter
+  * ExportFormat `string`: The export format
+  * ExportInterval `string` (values: NoExport, Hourly, Daily, Weekly, Monthly, QuaterYearly, HalfYearly, Yearly): The export interval of the auto export
+  * MeterPointId `string`: The meter point id set by the user
+  * UploadType `string`: The upload type
+
 ### CustomDeviceToPost
 * CustomDeviceToPost `object`: Container Class for the Web API
   * Id `string`: The ID of the device
@@ -629,6 +828,7 @@ smart_me.VirtualTariffConsumption_Get({
   * ActivePowerL3 `number`: The Actvie Power Phase L3
   * ActivePowerUnit `string`: The Unit of the Active Power Value
   * ActiveTariff `integer`: The Number of the Active Tariff
+  * AdditionalMeterSerialNumber `string`: An additional Meter serial number. e.g. the number of a meter a smart-me device is connected to.
   * AnalogOutput1 `integer`: The analog output number 1 (PWM signal) (0 - 32183)
   * AnalogOutput2 `integer`: The analog output number 2 (PWM signal) (0 - 32183)
   * CounterReading `number`: The Meter Counter Reading (Total Energy used)
@@ -643,13 +843,15 @@ smart_me.VirtualTariffConsumption_Get({
   * CurrentL1 `number`: The Current Phase L1 (in A)
   * CurrentL2 `number`: The Current Phase L2 (in A)
   * CurrentL3 `number`: The Current Phase L3 (in A)
-  * DeviceEnergyType `string` (values: MeterTypeUnknown, MeterTypeElectricity, MeterTypeWater, MeterTypeGas, MeterTypeHeat, MeterTypeHCA, MeterTypeAllMeters, MeterTypeTemperature, MeterTypeMBusGateway, MeterTypeRS485Gateway, MeterTypeCustomDevice, MeterTypeCompressedAir, MeterTypeSolarLog, MeterTypeVirtualMeter): The Energy Type of this device
+  * DeviceEnergyType `string` (values: MeterTypeUnknown, MeterTypeElectricity, MeterTypeWater, MeterTypeGas, MeterTypeHeat, MeterTypeHCA, MeterTypeAllMeters, MeterTypeTemperature, MeterTypeMBusGateway, MeterTypeRS485Gateway, MeterTypeCustomDevice, MeterTypeCompressedAir, MeterTypeSolarLog, MeterTypeVirtualMeter, MeterTypeWMBusGateway): The Energy Type of this device
   * DigitalInput1 `boolean`: The digital input number 1
   * DigitalInput2 `boolean`: The digital input number 2
   * DigitalOutput1 `boolean`: The digital output number 1
   * DigitalOutput2 `boolean`: The digital output number 2
-  * FamilyType `string` (values: MeterFamilyTypeUnknown, MeterFamilyTypeSmartMeConnectV1, MeterFamiliyTypeSmartMeMeter, MeterFamiliyTypeSmartMeMeterWithSwitch, MeterFamilyTypeMBusGatewayV1, MeterFamilyTypeRS485GatewayV1, MeterFamilyTypeKamstrupModule, MeterFamilyTypeSmartMe3PhaseMeter80A, MeterFamilyTypeSmartMe3PhaseMeter32A, MeterFamilyTypeSmartMe3PhaseMeterTransformer, MeterFamilyTypeLandisGyrModule, MeterFamilyTypeRestApiMeter, MeterFamilyTypeVirtualBillingMeter): The Family Type of the device.
+  * FamilyType `string` (values: MeterFamilyTypeUnknown, MeterFamilyTypeSmartMeConnectV1, MeterFamiliyTypeSmartMeMeter, MeterFamiliyTypeSmartMeMeterWithSwitch, MeterFamilyTypeMBusGatewayV1, MeterFamilyTypeRS485GatewayV1, MeterFamilyTypeKamstrupModule, MeterFamilyTypeSmartMe3PhaseMeter80A, MeterFamilyTypeSmartMe3PhaseMeter32A, MeterFamilyTypeSmartMe3PhaseMeterTransformer, MeterFamilyTypeLandisGyrModule, MeterFamilyTypeFnnOpticalModule, MeterFamilyTypeSmartMe3PhaseMeter80AV2WiFi, MeterFamilyTypeSmartMe3PhaseMeter80AGprs, MeterFamilyTypeSmartMe1PhaseMeter80AV2WiFi, MeterFamilyTypeSmartMe1PhaseMeter32AV2WiFi, MeterFamilyTypeSmartMe1PhaseMeter80AGprs, MeterFamilyTypeSmartMe1PhaseMeter32AGprs, MeterFamilyTypeWMBusGatewayV1, MeterFamilyTypeRestApiMeter, MeterFamilyTypeVirtualBillingMeter): The Family Type of the device.
+  * FlowRate `number`: The current flow rate (e.g. m3/h)
   * Id `string`: The ID of the device
+  * MeterSubType `string` (values: MeterSubTypeUnknown, MeterSubTypeCold, MeterSubTypeHeat, MeterSubTypeChargingStation, MeterSubTypeElectricity, MeterSubTypeWater, MeterSubTypeGas, MeterSubTypeElectricityHeat, MeterSubTypeTemperature, MeterSubTypeVirtualBattery): The sub meter type (e.g. warmwater or coldwater)
   * Name `string`: The Name of the Device
   * PowerFactor `number`: The Power Factor (cos phi). Range: 0 - 1
   * PowerFactorL1 `number`: The Power Factor (cos phi) Phase L1. Range: 0 - 1
@@ -693,15 +895,31 @@ smart_me.VirtualTariffConsumption_Get({
 * DeviceToPost `object`: Container Class for the Web API
   * ActivePower `number`: The Active Power or current flow rate. In kW or m3/h
   * CounterReading `number`: The Meter Counter Reading (Total Energy used) in kWh or m3.
+  * CounterReadingExport `number`: The Meter Counter Reading only export
+  * CounterReadingExportT1 `number`: The Meter Counter Reading only export (Tariff 1)
+  * CounterReadingExportT2 `number`: The Meter Counter Reading only export (Tariff 2)
   * CounterReadingT1 `number`: The Meter Counter Reading Tariff 1 in kWh or m3.
   * CounterReadingT2 `number`: The Meter Counter Reading Tariff 2 in kWh or m3.
-  * DeviceEnergyType `string` (values: MeterTypeUnknown, MeterTypeElectricity, MeterTypeWater, MeterTypeGas, MeterTypeHeat, MeterTypeHCA, MeterTypeAllMeters, MeterTypeTemperature, MeterTypeMBusGateway, MeterTypeRS485Gateway, MeterTypeCustomDevice, MeterTypeCompressedAir, MeterTypeSolarLog, MeterTypeVirtualMeter): The Energy Type of this device
+  * Current `number`: The Current (in A)
+  * CurrentL1 `number`: The Current Phase L1 (in A)
+  * CurrentL2 `number`: The Current Phase L2 (in A)
+  * CurrentL3 `number`: The Current Phase L3 (in A)
+  * DeviceEnergyType `string` (values: MeterTypeUnknown, MeterTypeElectricity, MeterTypeWater, MeterTypeGas, MeterTypeHeat, MeterTypeHCA, MeterTypeAllMeters, MeterTypeTemperature, MeterTypeMBusGateway, MeterTypeRS485Gateway, MeterTypeCustomDevice, MeterTypeCompressedAir, MeterTypeSolarLog, MeterTypeVirtualMeter, MeterTypeWMBusGateway): The Energy Type of this device
+  * DigitalInput1 `boolean`: The digital input number 1
   * Id `string`: The ID of the device
-  * MeterSubType `string` (values: MeterSubTypeUnknown, MeterSubTypeCold, MeterSubTypeHeat, MeterSubTypeChargingStation, MeterSubTypeElectricity, MeterSubTypeWater, MeterSubTypeGas, MeterSubTypeElectricityHeat, MeterSubTypeTemperature): The Sub Type of this Meter.
+  * MeterSubType `string` (values: MeterSubTypeUnknown, MeterSubTypeCold, MeterSubTypeHeat, MeterSubTypeChargingStation, MeterSubTypeElectricity, MeterSubTypeWater, MeterSubTypeGas, MeterSubTypeElectricityHeat, MeterSubTypeTemperature, MeterSubTypeVirtualBattery): The Sub Type of this Meter.
   * Name `string`: The Name of the Device
+  * PowerFactor `number`: The Power Factor (cos phi). Range: 0 - 1
+  * PowerFactorL1 `number`: The Power Factor (cos phi) Phase L1. Range: 0 - 1
+  * PowerFactorL2 `number`: The Power Factor (cos phi) Phase L2. Range: 0 - 1
+  * PowerFactorL3 `number`: The Power Factor (cos phi) Phase L3. Range: 0 - 1
   * Serial `integer`: The Serial number
   * Temperature `number`: The Temperature (in degree celsius)
   * ValueDate `string`: The Date of the Value (in UTC). If this is null the Server Time is used.
+  * Voltage `number`: The Voltage (in V)
+  * VoltageL1 `number`: The Voltage Phase L1 (in V)
+  * VoltageL2 `number`: The Voltage Phase L2 (in V)
+  * VoltageL3 `number`: The Voltage Phase L3 (in V)
 
 ### FolderData
 * FolderData `object`: Container class for the folder API
@@ -713,6 +931,30 @@ smart_me.VirtualTariffConsumption_Get({
   * HeatPower `number`: The Power for Heat (kW)
   * WaterCounterValue `number`: The Counter values for Water (m3)
   * WaterFlowRate `number`: The Flow Rate for Water (m3/h)
+
+### FolderMenuConfiguration
+* FolderMenuConfiguration `object`: Container Class for the Web API representing a folder menu and it's items
+  * Items `array`
+    * items [FolderMenuItem](#foldermenuitem)
+  * TimeZoneName `string`: The time zone name (usually taken from the browser)
+
+### FolderMenuItem
+* FolderMenuItem `object`: A folder menu item
+  * AutoExportSettings [AutoExportSettings](#autoexportsettings)
+  * Children `array`: Children folder menu items (sub folder menu items)
+    * items [FolderMenuItem](#foldermenuitem)
+  * FolderType `string` (values: Folder, Location, Factory, House, Office, Machine, VirtualMeter, ElecticityFolder, WaterFolder, HeatFolder, GasFolder, TemperatureFolder, Sun, Light, Ice, Sofa, Food, Coffee, Car, ChargingStation, Meter, User, Trash, GridPhotovoltaicPowerSystem): The folder type of the item
+  * Id `string`: The id of the folder menu item
+  * MeterSerialNumber `string`: The serial number if the folder menu item is a meter. 
+  * Name `string`: The Name of the item
+
+### InputConfigurationContainer
+* InputConfigurationContainer `object`: Configuration for the input of a meter (digital inputs)
+  * Name `string`: The Name of the Input
+  * Number `integer`: The number of the Input. (1 for Input 1)
+  * OffText `string`: The visualization text for an OFF action
+  * OnText `string`: The visualization text for an ON action
+  * Type `string` (values: TariffInput, DigitalInput): The Type of the output
 
 ### InputInformation
 * InputInformation `object`: Informations about the Inputs of a Meter or Folder
@@ -743,6 +985,14 @@ smart_me.VirtualTariffConsumption_Get({
 ### Object
 * Object `object`
 
+### OutputConfigurationContainer
+* OutputConfigurationContainer `object`: Configuration for the outputs of a meter (analog/digital outputs)
+  * DigitalOutputNoConnectionAction `string` (values: Nothing, TurnOff, TurnOn, SetPwmValue): The Action when the device has lost the connection
+  * Name `string`: The Name of the Output
+  * Number `integer`: The number of the Output. (1 for Output 1, 2 for Output 2)
+  * S0PulseValue `string` (values: PulseValue1000Kwh, PulseValue10000Kwh): The S0 Pulse Value
+  * Type `string` (values: ImpulseOutputActiveEnergy, ImpulseOutputActiveEnergyImport, ImpulseOutputActiveEnergyExport, ImpulseOutputReactiveEnergy, DigitalOutput, AnalogPwmSignalOutput, Disabled): The Type of the output
+
 ### OutputInformation
 * OutputInformation `object`: Informations about the Outputs of a Meter or Folder
   * ActionType `string` (values: OnOffAction, AnalogAction): The type of the Output
@@ -750,10 +1000,35 @@ smart_me.VirtualTariffConsumption_Get({
   * Number `integer`: The Number of this Output. Use this as ID to switch it on or off.
   * ObisCode `string`: The Obis Code for this Output
 
-### SignUpData
-* SignUpData `object`: Container for the Sign UP API
-  * Email `string`: The Email Address to register
-  * Password `string`: The Password to register
+### RegisterRealtimeApiData
+* RegisterRealtimeApiData `object`: Container class for the register realtime API API
+  * ApiUrl `string`: The URL of your endpoint. To this endpoint all the values are send to.
+  * BasicAuthPassword `string`: The Password (basic auth) of your endpoint. Leave empty of none.
+  * BasicAuthUsername `string`: The Username (basic auth) of your endpoint. Leave empty of none.
+  * Id `string`: The ID of the registration
+  * MeterId `string`: The ID of the Meter. Just used if the RegistrationType is "SingleMeterRegistration".
+  * RegistrationType `string` (values: Disabled, SingleMeterRegistration, UserRegistration): The Type of this registration (per meter, per user, ...)
+
+### SmartMeDeviceConfigurationContainer
+* SmartMeDeviceConfigurationContainer `object`: API Container class for the meter configuration
+  * DeviceEncryptionKey `string`: The encryption key used to decrypt messages received from an external meter (used only for the smart-me modules)
+  * DevicePinCode `string`: PIN code to enter on a external meter (e.g. for the FNN meters)
+  * DnsUpdateState `string` (values: NoUpdate, DnsUpdatePublicIp, DnsUpdateInternalIp): Configuration of the dynamic DNS service. More information: http://wiki.smart-me.com/index.php/Dynamisches_DNS
+  * EnableModbusTcp `boolean`: Enables or disables Modbus TCP (if the meter supports it).
+  * Id `string`: The ID of the device
+  * InputConfiguration `array`: The configuration for the intput outputs
+    * items [InputConfigurationContainer](#inputconfigurationcontainer)
+  * OutputConfiguration `array`: The configuration for the external outputs
+    * items [OutputConfigurationContainer](#outputconfigurationcontainer)
+  * ShowReactiveEnergy `boolean`: Shows the reactive energy values (if the meter supports it).
+  * SwitchConfiguration `array`: The configuration for the phase switches
+    * items [SwitchConfigurationContainer](#switchconfigurationcontainer)
+  * UploadInterval `string` (values: UploadInterval_1s, UploadInterval_5s, UploadInterval_10s, UploadInterval_30s, UploadInterval_60s, UploadInterval_5min, UploadInterval_15min, UploadInterval_30min, UploadInterval_60min, UploadInterval_6h, UploadInterval_12h, UploadInterval_24h): Number of seconds the device will upload the data. For smaller values maybe a professional license is needed.
+
+### SwitchConfigurationContainer
+* SwitchConfigurationContainer `object`: The configuration for a phase switch
+  * CanSwitchOff `boolean`: Flag if the switch can be turned off or is always on.
+  * Number `integer`: The number of the phase. (e.g. 1 for Phase L1)
 
 ### User
 * User `object`: Container Class for the Web API
@@ -761,7 +1036,10 @@ smart_me.VirtualTariffConsumption_Get({
     * items [User](#user)
   * Email `string`: The EMail Address of the User
   * Id `integer`: The ID of the User
+  * IdAsString `string`: The ID of the user as string
   * IsAdmin `boolean`: Flag if this User is an Admin User
+  * Permissions `array`: Additional Permissions
+    * items `string`
   * Username `string`: The Username of the User
 
 ### VMeterToActivate

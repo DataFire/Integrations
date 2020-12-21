@@ -11,9 +11,7 @@ let import_data = require('@datafire/import_data').create({
   api_key: ""
 });
 
-import_data.extractor.extractorId.csv.latest.get({
-  "extractorId": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

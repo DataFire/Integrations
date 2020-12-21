@@ -15,11 +15,7 @@ let azure_sql_syncgroups = require('@datafire/azure_sql_syncgroups').create({
   redirect_uri: ""
 });
 
-azure_sql_syncgroups.SyncGroups_ListSyncDatabaseIds({
-  "locationName": "",
-  "subscriptionId": "",
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

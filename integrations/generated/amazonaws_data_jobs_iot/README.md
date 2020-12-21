@@ -13,9 +13,7 @@ let amazonaws_data_jobs_iot = require('@datafire/amazonaws_data_jobs_iot').creat
   region: ""
 });
 
-amazonaws_data_jobs_iot.GetPendingJobExecutions({
-  "thingName": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -56,7 +54,8 @@ amazonaws_data_jobs_iot.StartNextPendingJobExecution({
 #### Input
 * input `object`
   * thingName **required** `string`
-  * statusDetails [DetailsMap](#detailsmap)
+  * statusDetails `object`: A collection of name/value pairs that describe the status of the job execution. If not specified, the statusDetails are unchanged.
+  * stepTimeoutInMinutes `integer`: Specifies the amount of time this device has to finish execution of this job. If the job execution status is not set to a terminal state before this timer expires, or before the timer is reset (by calling <code>UpdateJobExecution</code>, setting the status to <code>IN_PROGRESS</code> and specifying a new timeout value in field <code>stepTimeoutInMinutes</code>) the job execution status will be automatically set to <code>TIMED_OUT</code>. Note that setting this timeout has no effect on that job execution timeout which may have been specified when the job was created (<code>CreateJob</code> using field <code>timeoutConfig</code>).
 
 #### Output
 * output [StartNextPendingJobExecutionResponse](#startnextpendingjobexecutionresponse)
@@ -76,6 +75,8 @@ amazonaws_data_jobs_iot.DescribeJobExecution({
 * input `object`
   * jobId **required** `string`
   * thingName **required** `string`
+  * includeJobDocument `boolean`
+  * executionNumber `integer`
 
 #### Output
 * output [DescribeJobExecutionResponse](#describejobexecutionresponse)
@@ -96,12 +97,13 @@ amazonaws_data_jobs_iot.UpdateJobExecution({
 * input `object`
   * jobId **required** `string`
   * thingName **required** `string`
-  * executionNumber [ExecutionNumber](#executionnumber)
-  * expectedVersion [ExpectedVersion](#expectedversion)
-  * includeJobDocument [IncludeJobDocument](#includejobdocument)
-  * includeJobExecutionState [IncludeExecutionState](#includeexecutionstate)
-  * status **required** [JobExecutionStatus](#jobexecutionstatus)
-  * statusDetails [DetailsMap](#detailsmap)
+  * executionNumber `integer`: Optional. A number that identifies a particular job execution on a particular device.
+  * expectedVersion `integer`: Optional. The expected current version of the job execution. Each time you update the job execution, its version is incremented. If the version of the job execution stored in Jobs does not match, the update is rejected with a VersionMismatch error, and an ErrorResponse that contains the current job execution status data is returned. (This makes it unnecessary to perform a separate DescribeJobExecution request in order to obtain the job execution status data.)
+  * includeJobDocument `boolean`: Optional. When set to true, the response contains the job document. The default is false.
+  * includeJobExecutionState `boolean`: Optional. When included and set to true, the response contains the JobExecutionState data. The default is false.
+  * status **required** `string` (values: QUEUED, IN_PROGRESS, SUCCEEDED, FAILED, TIMED_OUT, REJECTED, REMOVED, CANCELED): The new status for the job execution (IN_PROGRESS, FAILED, SUCCESS, or REJECTED). This must be specified on every update.
+  * statusDetails `object`:  Optional. A collection of name/value pairs that describe the status of the job execution. If not specified, the statusDetails are unchanged.
+  * stepTimeoutInMinutes `integer`: Specifies the amount of time this device has to finish execution of this job. If the job execution status is not set to a terminal state before this timer expires, or before the timer is reset (by again calling <code>UpdateJobExecution</code>, setting the status to <code>IN_PROGRESS</code> and specifying a new timeout value in this field) the job execution status will be automatically set to <code>TIMED_OUT</code>. Note that setting or resetting this timeout has no effect on that job execution timeout which may have been specified when the job was created (<code>CreateJob</code> using field <code>timeoutConfig</code>).
 
 #### Output
 * output [UpdateJobExecutionResponse](#updatejobexecutionresponse)
@@ -110,9 +112,11 @@ amazonaws_data_jobs_iot.UpdateJobExecution({
 
 ## Definitions
 
+### ApproximateSecondsBeforeTimedOut
+* ApproximateSecondsBeforeTimedOut `integer`
+
 ### CertificateValidationException
-* CertificateValidationException `object`: The certificate is invalid.
-  * message [errorMessage](#errormessage)
+
 
 ### DescribeJobExecutionJobId
 * DescribeJobExecutionJobId `string`
@@ -122,16 +126,24 @@ amazonaws_data_jobs_iot.UpdateJobExecution({
 
 ### DescribeJobExecutionResponse
 * DescribeJobExecutionResponse `object`
-  * execution [JobExecution](#jobexecution)
+  * execution
+    * approximateSecondsBeforeTimedOut
+    * executionNumber
+    * jobDocument
+    * jobId
+    * lastUpdatedAt
+    * queuedAt
+    * startedAt
+    * status
+    * statusDetails
+    * thingName
+    * versionNumber
 
 ### DetailsKey
 * DetailsKey `string`
 
 ### DetailsMap
-* DetailsMap `array`
-  * items `object`
-    * key [DetailsKey](#detailskey)
-    * value [DetailsValue](#detailsvalue)
+* DetailsMap `object`
 
 ### DetailsValue
 * DetailsValue `string`
@@ -147,8 +159,10 @@ amazonaws_data_jobs_iot.UpdateJobExecution({
 
 ### GetPendingJobExecutionsResponse
 * GetPendingJobExecutionsResponse `object`
-  * inProgressJobs [JobExecutionSummaryList](#jobexecutionsummarylist)
-  * queuedJobs [JobExecutionSummaryList](#jobexecutionsummarylist)
+  * inProgressJobs
+    * items [JobExecutionSummary](#jobexecutionsummary)
+  * queuedJobs
+    * items [JobExecutionSummary](#jobexecutionsummary)
 
 ### IncludeExecutionState
 * IncludeExecutionState `boolean`
@@ -157,46 +171,45 @@ amazonaws_data_jobs_iot.UpdateJobExecution({
 * IncludeJobDocument `boolean`
 
 ### InvalidRequestException
-* InvalidRequestException `object`: The contents of the request were invalid. For example, this code is returned when an UpdateJobExecution request contains invalid status details. The message contains details about the error.
-  * message [errorMessage](#errormessage)
+
 
 ### InvalidStateTransitionException
-* InvalidStateTransitionException `object`: An update attempted to change the job execution to a state that is invalid because of the job execution's current state (for example, an attempt to change a request in state SUCCESS to state IN_PROGRESS). In this case, the body of the error message also contains the executionState field.
-  * message [errorMessage](#errormessage)
+
 
 ### JobDocument
 * JobDocument `string`
 
 ### JobExecution
 * JobExecution `object`: Contains data about a job execution.
-  * executionNumber [ExecutionNumber](#executionnumber)
-  * jobDocument [JobDocument](#jobdocument)
-  * jobId [JobId](#jobid)
-  * lastUpdatedAt [LastUpdatedAt](#lastupdatedat)
-  * queuedAt [QueuedAt](#queuedat)
-  * startedAt [StartedAt](#startedat)
-  * status [JobExecutionStatus](#jobexecutionstatus)
-  * statusDetails [DetailsMap](#detailsmap)
-  * thingName [ThingName](#thingname)
-  * versionNumber [VersionNumber](#versionnumber)
+  * approximateSecondsBeforeTimedOut
+  * executionNumber
+  * jobDocument
+  * jobId
+  * lastUpdatedAt
+  * queuedAt
+  * startedAt
+  * status
+  * statusDetails
+  * thingName
+  * versionNumber
 
 ### JobExecutionState
 * JobExecutionState `object`: Contains data about the state of a job execution.
-  * status [JobExecutionStatus](#jobexecutionstatus)
-  * statusDetails [DetailsMap](#detailsmap)
-  * versionNumber [VersionNumber](#versionnumber)
+  * status
+  * statusDetails
+  * versionNumber
 
 ### JobExecutionStatus
-* JobExecutionStatus `string` (values: QUEUED, IN_PROGRESS, SUCCEEDED, FAILED, REJECTED, REMOVED, CANCELED)
+* JobExecutionStatus `string` (values: QUEUED, IN_PROGRESS, SUCCEEDED, FAILED, TIMED_OUT, REJECTED, REMOVED, CANCELED)
 
 ### JobExecutionSummary
 * JobExecutionSummary `object`: Contains a subset of information about a job execution.
-  * executionNumber [ExecutionNumber](#executionnumber)
-  * jobId [JobId](#jobid)
-  * lastUpdatedAt [LastUpdatedAt](#lastupdatedat)
-  * queuedAt [QueuedAt](#queuedat)
-  * startedAt [StartedAt](#startedat)
-  * versionNumber [VersionNumber](#versionnumber)
+  * executionNumber
+  * jobId
+  * lastUpdatedAt
+  * queuedAt
+  * startedAt
+  * versionNumber
 
 ### JobExecutionSummaryList
 * JobExecutionSummaryList `array`
@@ -212,53 +225,65 @@ amazonaws_data_jobs_iot.UpdateJobExecution({
 * QueuedAt `integer`
 
 ### ResourceNotFoundException
-* ResourceNotFoundException `object`: The specified resource does not exist.
-  * message [errorMessage](#errormessage)
+
 
 ### ServiceUnavailableException
-* ServiceUnavailableException `object`: The service is temporarily unavailable.
-  * message [errorMessage](#errormessage)
+
 
 ### StartNextPendingJobExecutionRequest
 * StartNextPendingJobExecutionRequest `object`
-  * statusDetails [DetailsMap](#detailsmap)
+  * statusDetails
+  * stepTimeoutInMinutes
 
 ### StartNextPendingJobExecutionResponse
 * StartNextPendingJobExecutionResponse `object`
-  * execution [JobExecution](#jobexecution)
+  * execution
+    * approximateSecondsBeforeTimedOut
+    * executionNumber
+    * jobDocument
+    * jobId
+    * lastUpdatedAt
+    * queuedAt
+    * startedAt
+    * status
+    * statusDetails
+    * thingName
+    * versionNumber
 
 ### StartedAt
 * StartedAt `integer`
 
+### StepTimeoutInMinutes
+* StepTimeoutInMinutes `integer`
+
 ### TerminalStateException
-* TerminalStateException `object`: The job is in a terminal state.
-  * message [errorMessage](#errormessage)
+
 
 ### ThingName
 * ThingName `string`
 
 ### ThrottlingException
-* ThrottlingException `object`: The rate exceeds the limit.
-  * message [errorMessage](#errormessage)
+
 
 ### UpdateJobExecutionRequest
 * UpdateJobExecutionRequest `object`
-  * executionNumber [ExecutionNumber](#executionnumber)
-  * expectedVersion [ExpectedVersion](#expectedversion)
-  * includeJobDocument [IncludeJobDocument](#includejobdocument)
-  * includeJobExecutionState [IncludeExecutionState](#includeexecutionstate)
-  * status **required** [JobExecutionStatus](#jobexecutionstatus)
-  * statusDetails [DetailsMap](#detailsmap)
+  * executionNumber
+  * expectedVersion
+  * includeJobDocument
+  * includeJobExecutionState
+  * status **required**
+  * statusDetails
+  * stepTimeoutInMinutes
 
 ### UpdateJobExecutionResponse
 * UpdateJobExecutionResponse `object`
-  * executionState [JobExecutionState](#jobexecutionstate)
-  * jobDocument [JobDocument](#jobdocument)
+  * executionState
+    * status
+    * statusDetails
+    * versionNumber
+  * jobDocument
 
 ### VersionNumber
 * VersionNumber `integer`
-
-### errorMessage
-* errorMessage `string`
 
 

@@ -56,6 +56,35 @@
     }
   ],
   "paths": {
+    "/feed/availability": {
+      "get": {
+        "description": "Gets availability of featured feed content for the apps by wiki domain.\n\nStability: [experimental](https://www.mediawiki.org/wiki/API_versioning#Experimental)\n",
+        "produces": [
+          "application/json; charset=utf-8; profile=\"https://www.mediawiki.org/wiki/Specs/Availability/1.0.1\"",
+          "application/problem+json"
+        ],
+        "responses": {
+          "200": {
+            "description": "JSON containing lists of wiki domains for which feed content is available.",
+            "schema": {
+              "$ref": "#/definitions/availability"
+            }
+          },
+          "default": {
+            "description": "Error",
+            "schema": {
+              "$ref": "#/definitions/problem"
+            }
+          }
+        },
+        "summary": "Gets availability of featured feed content for the apps by wiki domain.",
+        "tags": [
+          "Feed content availability"
+        ],
+        "x-monitor": false,
+        "operationId": "feed.availability.get"
+      }
+    },
     "/media/math/check/{type}": {
       "post": {
         "description": "Checks the supplied TeX formula for correctness and returns the\nnormalised formula representation as well as information about\nidentifiers. Available types are tex and inline-tex. The response\ncontains the `x-resource-location` header which can be used to retrieve\nthe render of the checked formula in one of the supported rendering\nformats. Just append the value of the header to `/media/math/{format}/`\nand perform a GET request against that URL.\n\nStability: [stable](https://www.mediawiki.org/wiki/API_versioning#Stable).\n",
@@ -81,7 +110,8 @@
           }
         ],
         "produces": [
-          "application/json"
+          "application/json",
+          "application/problem+json"
         ],
         "responses": {
           "200": {
@@ -148,7 +178,8 @@
           }
         ],
         "produces": [
-          "application/json"
+          "application/json",
+          "application/problem+json"
         ],
         "responses": {
           "200": {
@@ -203,7 +234,8 @@
         "produces": [
           "image/svg+xml",
           "application/mathml+xml",
-          "image/png"
+          "image/png",
+          "application/problem+json"
         ],
         "responses": {
           "200": {
@@ -294,7 +326,8 @@
           }
         ],
         "produces": [
-          "application/json"
+          "application/json",
+          "application/problem+json"
         ],
         "responses": {
           "200": {
@@ -316,6 +349,90 @@
         ],
         "x-monitor": false,
         "operationId": "metrics.bytes_difference.absolute.aggregate.project.editor_type.page_type.granularity.start.end.get"
+      }
+    },
+    "/metrics/bytes-difference/absolute/per-page/{project}/{page-title}/{editor-type}/{granularity}/{start}/{end}": {
+      "get": {
+        "description": "Given a Mediawiki project, a page-title prefixed with canonical namespace (for\ninstance 'User:Jimbo_Wales') and a date range, returns a timeseries of bytes\ndifference absolute sums. You can filter by editors-type (all-editor-types, anonymous,\ngroup-bot, name-bot, user). You can choose between daily and monthly granularity as well.\n\n- Stability: [experimental](https://www.mediawiki.org/wiki/API_versioning#Experimental)\n- Rate limit: 25 req/s\n- License: Data accessible via this endpoint is available under the\n  [CC0 1.0 license](https://creativecommons.org/publicdomain/zero/1.0/).\n",
+        "parameters": [
+          {
+            "description": "The name of any Wikimedia project formatted like {language code}.{project name},\nfor example en.wikipedia. You may pass en.wikipedia.org and the .org will be stripped\noff. For projects like commons without language codes, use commons.wikimedia. For\nprojects like www.mediawiki.org, you can use that full string, or just use mediawiki\nor mediawiki.org.\n",
+            "in": "path",
+            "name": "project",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The page-title to request absolute bytes-difference for. Should be prefixed with the\npage canonical namespace.\n",
+            "in": "path",
+            "name": "page-title",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "If you want to filter by editor-type, use one of anonymous, group-bot (registered\naccounts belonging to the bot group), name-bot (registered accounts not belonging to\nthe bot group but having bot-like names) or user (registered account not in bot group\nnor having bot-like name). If you are interested in edits regardless of their\neditor-type, use all-editor-types.\n",
+            "enum": [
+              "all-editor-types",
+              "anonymous",
+              "group-bot",
+              "name-bot",
+              "user"
+            ],
+            "in": "path",
+            "name": "editor-type",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Time unit for the response data. As of today, supported values are daily and monthly\n",
+            "enum": [
+              "daily",
+              "monthly"
+            ],
+            "in": "path",
+            "name": "granularity",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The date of the first day to include, in YYYYMMDD format",
+            "in": "path",
+            "name": "start",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The date of the last day to include, in YYYYMMDD format",
+            "in": "path",
+            "name": "end",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "application/problem+json"
+        ],
+        "responses": {
+          "200": {
+            "description": "The list of values",
+            "schema": {
+              "$ref": "#/definitions/absolute-bytes-difference-per-page"
+            }
+          },
+          "default": {
+            "description": "Error",
+            "schema": {
+              "$ref": "#/definitions/problem"
+            }
+          }
+        },
+        "summary": "Get the sum of absolute text bytes difference per page.",
+        "tags": [
+          "Bytes difference data"
+        ],
+        "x-monitor": false,
+        "operationId": "metrics.bytes_difference.absolute.per_page.project.page_title.editor_type.granularity.start.end.get"
       }
     },
     "/metrics/bytes-difference/net/aggregate/{project}/{editor-type}/{page-type}/{granularity}/{start}/{end}": {
@@ -382,7 +499,8 @@
           }
         ],
         "produces": [
-          "application/json"
+          "application/json",
+          "application/problem+json"
         ],
         "responses": {
           "200": {
@@ -404,6 +522,90 @@
         ],
         "x-monitor": false,
         "operationId": "metrics.bytes_difference.net.aggregate.project.editor_type.page_type.granularity.start.end.get"
+      }
+    },
+    "/metrics/bytes-difference/net/per-page/{project}/{page-title}/{editor-type}/{granularity}/{start}/{end}": {
+      "get": {
+        "description": "Given a Mediawiki project, a page-title prefixed with canonical namespace (for\ninstance 'User:Jimbo_Wales') and a date range, returns a timeseries of bytes\ndifference net sums. You can filter by editors-type (all-editor-types, anonymous,\ngroup-bot, name-bot, user). You can choose between daily and monthly granularity as well.\n\n- Stability: [experimental](https://www.mediawiki.org/wiki/API_versioning#Experimental)\n- Rate limit: 25 req/s\n- License: Data accessible via this endpoint is available under the\n  [CC0 1.0 license](https://creativecommons.org/publicdomain/zero/1.0/).\n",
+        "parameters": [
+          {
+            "description": "The name of any Wikimedia project formatted like {language code}.{project name},\nfor example en.wikipedia. You may pass en.wikipedia.org and the .org will be stripped\noff. For projects like commons without language codes, use commons.wikimedia. For\nprojects like www.mediawiki.org, you can use that full string, or just use mediawiki\nor mediawiki.org.\n",
+            "in": "path",
+            "name": "project",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The page-title to request net bytes-difference for. Should be prefixed with the\npage canonical namespace.\n",
+            "in": "path",
+            "name": "page-title",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "If you want to filter by editor-type, use one of anonymous, group-bot (registered\naccounts belonging to the bot group), name-bot (registered accounts not belonging to\nthe bot group but having bot-like names) or user (registered account not in bot group\nnor having bot-like name). If you are interested in edits regardless of their\neditor-type, use all-editor-types.\n",
+            "enum": [
+              "all-editor-types",
+              "anonymous",
+              "group-bot",
+              "name-bot",
+              "user"
+            ],
+            "in": "path",
+            "name": "editor-type",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Time unit for the response data. As of today, supported values are daily and monthly\n",
+            "enum": [
+              "daily",
+              "monthly"
+            ],
+            "in": "path",
+            "name": "granularity",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The date of the first day to include, in YYYYMMDD format",
+            "in": "path",
+            "name": "start",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The date of the last day to include, in YYYYMMDD format",
+            "in": "path",
+            "name": "end",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "application/problem+json"
+        ],
+        "responses": {
+          "200": {
+            "description": "The list of values",
+            "schema": {
+              "$ref": "#/definitions/net-bytes-difference-per-page"
+            }
+          },
+          "default": {
+            "description": "Error",
+            "schema": {
+              "$ref": "#/definitions/problem"
+            }
+          }
+        },
+        "summary": "Get the sum of net text bytes difference per page.",
+        "tags": [
+          "Bytes difference data"
+        ],
+        "x-monitor": false,
+        "operationId": "metrics.bytes_difference.net.per_page.project.page_title.editor_type.granularity.start.end.get"
       }
     },
     "/metrics/edited-pages/aggregate/{project}/{editor-type}/{page-type}/{activity-level}/{granularity}/{start}/{end}": {
@@ -484,7 +686,8 @@
           }
         ],
         "produces": [
-          "application/json"
+          "application/json",
+          "application/problem+json"
         ],
         "responses": {
           "200": {
@@ -510,7 +713,7 @@
     },
     "/metrics/edited-pages/new/{project}/{editor-type}/{page-type}/{granularity}/{start}/{end}": {
       "get": {
-        "description": "Given a Mediawiki project and a date range, returns a timeseries of its new pages counts.\nYou can filter by editor type (all-editor-types, anonymous, group-bot, name-bot, user)\nor page-type (all-page-types, content or non-content). You can choose between daily and\nmonthly granularity as well.\nThe new pages value is computed as follow:\n  [number of created pages] - [number of deleted pages] + [number of restored pages]\nfor the chosen filters.\n\n- Stability: [experimental](https://www.mediawiki.org/wiki/API_versioning#Experimental)\n- Rate limit: 25 req/s\n- License: Data accessible via this endpoint is available under the\n  [CC0 1.0 license](https://creativecommons.org/publicdomain/zero/1.0/).\n",
+        "description": "Given a Mediawiki project and a date range, returns a timeseries of its new pages counts.\nYou can filter by editor type (all-editor-types, anonymous, group-bot, name-bot, user)\nor page-type (all-page-types, content or non-content). You can choose between daily and\nmonthly granularity as well.\n\n- Stability: [experimental](https://www.mediawiki.org/wiki/API_versioning#Experimental)\n- Rate limit: 25 req/s\n- License: Data accessible via this endpoint is available under the\n  [CC0 1.0 license](https://creativecommons.org/publicdomain/zero/1.0/).\n",
         "parameters": [
           {
             "description": "The name of any Wikimedia project formatted like {language code}.{project name},\nfor example en.wikipedia. You may pass en.wikipedia.org and the .org will be stripped\noff.  For projects like commons without language codes, use commons.wikimedia.\nFor projects like www.mediawiki.org, you can use that full string, or just use\nmediawiki or mediawiki.org. If you're interested in the aggregation of all\nprojects, use all-projects.\n",
@@ -572,7 +775,8 @@
           }
         ],
         "produces": [
-          "application/json"
+          "application/json",
+          "application/problem+json"
         ],
         "responses": {
           "200": {
@@ -596,9 +800,9 @@
         "operationId": "metrics.edited_pages.new.project.editor_type.page_type.granularity.start.end.get"
       }
     },
-    "/metrics/edited-pages/top-by-absolute-bytes-difference/{project}/{editor-type}/{page-type}/{granularity}/{start}/{end}": {
+    "/metrics/edited-pages/top-by-absolute-bytes-difference/{project}/{editor-type}/{page-type}/{year}/{month}/{day}": {
       "get": {
-        "description": "Given a Mediawiki project and a date range, returns a timeseries of the top 100 edited-pages\nby absolute bytes-difference. You can filter by editor-type (all-editor-types, anonymous,\ngroup-bot, name-bot, user) or page-type (all-page-types, content or non-content). You can\nchoose between daily and monthly granularity as well.\n\n- Stability: [experimental](https://www.mediawiki.org/wiki/API_versioning#Experimental)\n- Rate limit: 25 req/s\n- License: Data accessible via this endpoint is available under the\n  [CC0 1.0 license](https://creativecommons.org/publicdomain/zero/1.0/).\n",
+        "description": "Given a Mediawiki project and a date (day or month), returns a timeseries of the top 100\nedited-pages by absolute bytes-difference. You can filter by editor-type (all-editor-types,\nanonymous, group-bot, name-bot, user) or page-type (all-page-types, content or non-content).\n\n- Stability: [experimental](https://www.mediawiki.org/wiki/API_versioning#Experimental)\n- Rate limit: 25 req/s\n- License: Data accessible via this endpoint is available under the\n  [CC0 1.0 license](https://creativecommons.org/publicdomain/zero/1.0/).\n",
         "parameters": [
           {
             "description": "The name of any Wikimedia project formatted like {language code}.{project name},\nfor example en.wikipedia. You may pass en.wikipedia.org and the .org will be stripped\noff. For projects like commons without language codes, use commons.wikimedia. For\nprojects like www.mediawiki.org, you can use that full string, or just use mediawiki\nor mediawiki.org.\n",
@@ -634,33 +838,30 @@
             "type": "string"
           },
           {
-            "description": "Time unit for the response data. As of today, supported values are daily and monthly\n",
-            "enum": [
-              "daily",
-              "monthly"
-            ],
+            "description": "The year of the date for which to retrieve top edited-pages, in YYYY format.",
             "in": "path",
-            "name": "granularity",
+            "name": "year",
             "required": true,
             "type": "string"
           },
           {
-            "description": "The date of the first day to include, in YYYYMMDD format",
+            "description": "The month of the date for which to retrieve top edited-pages, in MM format. If you want to get the top edited-pages of a whole month, the day parameter should be all-days.",
             "in": "path",
-            "name": "start",
+            "name": "month",
             "required": true,
             "type": "string"
           },
           {
-            "description": "The date of the last day to include, in YYYYMMDD format",
+            "description": "The day of the date for which to retrieve top edited-pages, in DD format, or all-days for a monthly value.",
             "in": "path",
-            "name": "end",
+            "name": "day",
             "required": true,
             "type": "string"
           }
         ],
         "produces": [
-          "application/json"
+          "application/json",
+          "application/problem+json"
         ],
         "responses": {
           "200": {
@@ -681,12 +882,12 @@
           "Edited pages data"
         ],
         "x-monitor": false,
-        "operationId": "metrics.edited_pages.top_by_absolute_bytes_difference.project.editor_type.page_type.granularity.start.end.get"
+        "operationId": "metrics.edited_pages.top_by_absolute_bytes_difference.project.editor_type.page_type.year.month.day.get"
       }
     },
-    "/metrics/edited-pages/top-by-edits/{project}/{editor-type}/{page-type}/{granularity}/{start}/{end}": {
+    "/metrics/edited-pages/top-by-edits/{project}/{editor-type}/{page-type}/{year}/{month}/{day}": {
       "get": {
-        "description": "Given a Mediawiki project and a date range, returns a timeseries of the top 100 edited-pages\nby edits count. You can filter by editor-type (all-editor-types, anonymous, group-bot,\nname-bot, user) or page-type (all-page-types, content or non-content). You can choose\nbetween daily and monthly granularity as well.\n\n- Stability: [experimental](https://www.mediawiki.org/wiki/API_versioning#Experimental)\n- Rate limit: 25 req/s\n- License: Data accessible via this endpoint is available under the\n  [CC0 1.0 license](https://creativecommons.org/publicdomain/zero/1.0/).\n",
+        "description": "Given a Mediawiki project and a date (day or month), returns a timeseries of the top\n100 edited-pages by edits count. You can filter by editor-type (all-editor-types,\nanonymous, group-bot, name-bot, user) or page-type (all-page-types, content or\nnon-content).\n\n- Stability: [experimental](https://www.mediawiki.org/wiki/API_versioning#Experimental)\n- Rate limit: 25 req/s\n- License: Data accessible via this endpoint is available under the\n  [CC0 1.0 license](https://creativecommons.org/publicdomain/zero/1.0/).\n",
         "parameters": [
           {
             "description": "The name of any Wikimedia project formatted like {language code}.{project name},\nfor example en.wikipedia. You may pass en.wikipedia.org and the .org will be stripped\noff. For projects like commons without language codes, use commons.wikimedia. For\nprojects like www.mediawiki.org, you can use that full string, or just use mediawiki\nor mediawiki.org.\n",
@@ -722,33 +923,30 @@
             "type": "string"
           },
           {
-            "description": "Time unit for the response data. As of today, supported values are daily and monthly\n",
-            "enum": [
-              "daily",
-              "monthly"
-            ],
+            "description": "The year of the date for which to retrieve top edited-pages, in YYYY format.",
             "in": "path",
-            "name": "granularity",
+            "name": "year",
             "required": true,
             "type": "string"
           },
           {
-            "description": "The date of the first day to include, in YYYYMMDD format",
+            "description": "The month of the date for which to retrieve top edited-pages, in MM format. If you want to get the top edited-pages of a whole month, the day parameter should be all-days.",
             "in": "path",
-            "name": "start",
+            "name": "month",
             "required": true,
             "type": "string"
           },
           {
-            "description": "The date of the last day to include, in YYYYMMDD format",
+            "description": "The day of the date for which to retrieve top edited-pages, in DD format, or all-days for a monthly value.",
             "in": "path",
-            "name": "end",
+            "name": "day",
             "required": true,
             "type": "string"
           }
         ],
         "produces": [
-          "application/json"
+          "application/json",
+          "application/problem+json"
         ],
         "responses": {
           "200": {
@@ -769,12 +967,12 @@
           "Edited pages data"
         ],
         "x-monitor": false,
-        "operationId": "metrics.edited_pages.top_by_edits.project.editor_type.page_type.granularity.start.end.get"
+        "operationId": "metrics.edited_pages.top_by_edits.project.editor_type.page_type.year.month.day.get"
       }
     },
-    "/metrics/edited-pages/top-by-net-bytes-difference/{project}/{editor-type}/{page-type}/{granularity}/{start}/{end}": {
+    "/metrics/edited-pages/top-by-net-bytes-difference/{project}/{editor-type}/{page-type}/{year}/{month}/{day}": {
       "get": {
-        "description": "Given a Mediawiki project and a date range, returns a timeseries of the top 100 edited-pages\nby net bytes-difference. You can filter by editor-type (all-editor-types, anonymous,\ngroup-bot, name-bot, user) or page-type (all-page-types, content or non-content). You can\nchoose between daily and monthly granularity as well.\n\n- Stability: [experimental](https://www.mediawiki.org/wiki/API_versioning#Experimental)\n- Rate limit: 25 req/s\n- License: Data accessible via this endpoint is available under the\n  [CC0 1.0 license](https://creativecommons.org/publicdomain/zero/1.0/).\n",
+        "description": "Given a Mediawiki project and a date (day or month), returns a timeseries of the top 100\nedited-pages by net bytes-difference. You can filter by editor-type (all-editor-types,\nanonymous, group-bot, name-bot, user) or page-type (all-page-types, content or non-content).\n\n- Stability: [experimental](https://www.mediawiki.org/wiki/API_versioning#Experimental)\n- Rate limit: 25 req/s\n- License: Data accessible via this endpoint is available under the\n  [CC0 1.0 license](https://creativecommons.org/publicdomain/zero/1.0/).\n",
         "parameters": [
           {
             "description": "The name of any Wikimedia project formatted like {language code}.{project name},\nfor example en.wikipedia. You may pass en.wikipedia.org and the .org will be stripped\noff. For projects like commons without language codes, use commons.wikimedia. For\nprojects like www.mediawiki.org, you can use that full string, or just use mediawiki\nor mediawiki.org.\n",
@@ -810,33 +1008,30 @@
             "type": "string"
           },
           {
-            "description": "Time unit for the response data. As of today, supported values are daily and monthly\n",
-            "enum": [
-              "daily",
-              "monthly"
-            ],
+            "description": "The year of the date for which to retrieve top edited-pages, in YYYY format.",
             "in": "path",
-            "name": "granularity",
+            "name": "year",
             "required": true,
             "type": "string"
           },
           {
-            "description": "The date of the first day to include, in YYYYMMDD format",
+            "description": "The month of the date for which to retrieve top edited-pages, in MM format. If you want to get the top edited-pages of a whole month, the day parameter should be all-days.",
             "in": "path",
-            "name": "start",
+            "name": "month",
             "required": true,
             "type": "string"
           },
           {
-            "description": "The date of the last day to include, in YYYYMMDD format",
+            "description": "The day of the date for which to retrieve top edited-pages, in DD format, or all-days for a monthly value.",
             "in": "path",
-            "name": "end",
+            "name": "day",
             "required": true,
             "type": "string"
           }
         ],
         "produces": [
-          "application/json"
+          "application/json",
+          "application/problem+json"
         ],
         "responses": {
           "200": {
@@ -857,7 +1052,7 @@
           "Edited pages data"
         ],
         "x-monitor": false,
-        "operationId": "metrics.edited_pages.top_by_net_bytes_difference.project.editor_type.page_type.granularity.start.end.get"
+        "operationId": "metrics.edited_pages.top_by_net_bytes_difference.project.editor_type.page_type.year.month.day.get"
       }
     },
     "/metrics/editors/aggregate/{project}/{editor-type}/{page-type}/{activity-level}/{granularity}/{start}/{end}": {
@@ -938,7 +1133,8 @@
           }
         ],
         "produces": [
-          "application/json"
+          "application/json",
+          "application/problem+json"
         ],
         "responses": {
           "200": {
@@ -962,9 +1158,9 @@
         "operationId": "metrics.editors.aggregate.project.editor_type.page_type.activity_level.granularity.start.end.get"
       }
     },
-    "/metrics/editors/top-by-absolute-bytes-difference/{project}/{editor-type}/{page-type}/{granularity}/{start}/{end}": {
+    "/metrics/editors/top-by-absolute-bytes-difference/{project}/{editor-type}/{page-type}/{year}/{month}/{day}": {
       "get": {
-        "description": "Given a Mediawiki project and a date range, returns a timeseries of the top 100 editors by\nabsolute bytes-difference. You can filter by editor-type (all-editor-types, anonymous,\ngroup-bot, name-bot, user) or page-type (all-page-types, content or non-content). You can\nchoose between daily and monthly granularity as well. The user_id returned is either the\nmediawiki user_id if user is registered, or his/her IP if the user is anonymous.\n\n- Stability: [experimental](https://www.mediawiki.org/wiki/API_versioning#Experimental)\n- Rate limit: 25 req/s\n- License: Data accessible via this endpoint is available under the\n  [CC0 1.0 license](https://creativecommons.org/publicdomain/zero/1.0/).\n",
+        "description": "Given a Mediawiki project and a date (day or month), returns a timeseries of the top 100\neditors by absolute bytes-difference. You can filter by editor-type (all-editor-types,\nanonymous, group-bot, name-bot, user) or page-type (all-page-types, content or non-content).\nThe user_text returned is either the mediawiki user_text if the user is registered, or\nnull if user is anonymous.\n\n- Stability: [experimental](https://www.mediawiki.org/wiki/API_versioning#Experimental)\n- Rate limit: 25 req/s\n- License: Data accessible via this endpoint is available under the\n  [CC0 1.0 license](https://creativecommons.org/publicdomain/zero/1.0/).\n",
         "parameters": [
           {
             "description": "The name of any Wikimedia project formatted like {language code}.{project name},\nfor example en.wikipedia. You may pass en.wikipedia.org and the .org will be stripped\noff. For projects like commons without language codes, use commons.wikimedia. For\nprojects like www.mediawiki.org, you can use that full string, or just use mediawiki\nor mediawiki.org.\n",
@@ -1000,33 +1196,30 @@
             "type": "string"
           },
           {
-            "description": "Time unit for the response data. As of today, supported values are daily and monthly\n",
-            "enum": [
-              "daily",
-              "monthly"
-            ],
+            "description": "The year of the date for which to retrieve top editors, in YYYY format.",
             "in": "path",
-            "name": "granularity",
+            "name": "year",
             "required": true,
             "type": "string"
           },
           {
-            "description": "The date of the first day to include, in YYYYMMDD format",
+            "description": "The month of the date for which to retrieve top editors, in MM format. If you want to get the top editors of a whole month, the day parameter should be all-days.",
             "in": "path",
-            "name": "start",
+            "name": "month",
             "required": true,
             "type": "string"
           },
           {
-            "description": "The date of the last day to include, in YYYYMMDD format",
+            "description": "The day of the date for which to retrieve top editors, in DD format, or all-days for a monthly value.",
             "in": "path",
-            "name": "end",
+            "name": "day",
             "required": true,
             "type": "string"
           }
         ],
         "produces": [
-          "application/json"
+          "application/json",
+          "application/problem+json"
         ],
         "responses": {
           "200": {
@@ -1047,12 +1240,12 @@
           "Editors data"
         ],
         "x-monitor": false,
-        "operationId": "metrics.editors.top_by_absolute_bytes_difference.project.editor_type.page_type.granularity.start.end.get"
+        "operationId": "metrics.editors.top_by_absolute_bytes_difference.project.editor_type.page_type.year.month.day.get"
       }
     },
-    "/metrics/editors/top-by-edits/{project}/{editor-type}/{page-type}/{granularity}/{start}/{end}": {
+    "/metrics/editors/top-by-edits/{project}/{editor-type}/{page-type}/{year}/{month}/{day}": {
       "get": {
-        "description": "Given a Mediawiki project and a date range, returns a timeseries of the top 100 editors by\nedits count. You can filter by editor-type (all-editor-types, anonymous, group-bot,\nname-bot, user) or page-type (all-page-types, content or non-content). You can choose\nbetween daily and monthly granularity as well. The user_id returned is either the\nmediawiki user_id if user is registered, or his/her IP if the user is anonymous.\n\n- Stability: [experimental](https://www.mediawiki.org/wiki/API_versioning#Experimental)\n- Rate limit: 25 req/s\n- License: Data accessible via this endpoint is available under the\n  [CC0 1.0 license](https://creativecommons.org/publicdomain/zero/1.0/).\n",
+        "description": "Given a Mediawiki project and a date (day or month), returns a timeseries of the top\n100 editors by edits count. You can filter by editor-type (all-editor-types,\nanonymous, group-bot, name-bot, user) or page-type (all-page-types, content or\nnon-content). The user_text returned is either the mediawiki user_text if the user is\nregistered, or null if user is anonymous.\n\n- Stability: [experimental](https://www.mediawiki.org/wiki/API_versioning#Experimental)\n- Rate limit: 25 req/s\n- License: Data accessible via this endpoint is available under the\n  [CC0 1.0 license](https://creativecommons.org/publicdomain/zero/1.0/).\n",
         "parameters": [
           {
             "description": "The name of any Wikimedia project formatted like {language code}.{project name},\nfor example en.wikipedia. You may pass en.wikipedia.org and the .org will be stripped\noff. For projects like commons without language codes, use commons.wikimedia. For\nprojects like www.mediawiki.org, you can use that full string, or just use mediawiki\nor mediawiki.org.\n",
@@ -1088,33 +1281,30 @@
             "type": "string"
           },
           {
-            "description": "Time unit for the response data. As of today, supported values are daily and monthly\n",
-            "enum": [
-              "daily",
-              "monthly"
-            ],
+            "description": "The year of the date for which to retrieve top editors, in YYYY format.",
             "in": "path",
-            "name": "granularity",
+            "name": "year",
             "required": true,
             "type": "string"
           },
           {
-            "description": "The date of the first day to include, in YYYYMMDD format",
+            "description": "The month of the date for which to retrieve top editors, in MM format. If you want to get the top editors of a whole month, the day parameter should be all-days.",
             "in": "path",
-            "name": "start",
+            "name": "month",
             "required": true,
             "type": "string"
           },
           {
-            "description": "The date of the last day to include, in YYYYMMDD format",
+            "description": "The day of the date for which to retrieve top editors, in DD format, or all-days for a monthly value.",
             "in": "path",
-            "name": "end",
+            "name": "day",
             "required": true,
             "type": "string"
           }
         ],
         "produces": [
-          "application/json"
+          "application/json",
+          "application/problem+json"
         ],
         "responses": {
           "200": {
@@ -1135,12 +1325,12 @@
           "Editors data"
         ],
         "x-monitor": false,
-        "operationId": "metrics.editors.top_by_edits.project.editor_type.page_type.granularity.start.end.get"
+        "operationId": "metrics.editors.top_by_edits.project.editor_type.page_type.year.month.day.get"
       }
     },
-    "/metrics/editors/top-by-net-bytes-difference/{project}/{editor-type}/{page-type}/{granularity}/{start}/{end}": {
+    "/metrics/editors/top-by-net-bytes-difference/{project}/{editor-type}/{page-type}/{year}/{month}/{day}": {
       "get": {
-        "description": "Given a Mediawiki project and a date range, returns a timeseries of the top 100 editors by\nnet bytes-difference. You can filter by editor-type (all-editor-types, anonymous, group-bot,\nname-bot, user) or page-type (all-page-types, content or non-content). You can choose\nbetween daily and monthly granularity as well. The user_id returned is either the mediawiki\nuser_id if user is registered, or his/her IP if the user is anonymous.\n\n- Stability: [experimental](https://www.mediawiki.org/wiki/API_versioning#Experimental)\n- Rate limit: 25 req/s\n- License: Data accessible via this endpoint is available under the\n  [CC0 1.0 license](https://creativecommons.org/publicdomain/zero/1.0/).\n",
+        "description": "Given a Mediawiki project and a date (day or month), returns a timeseries of the top 100\neditors by net bytes-difference. You can filter by editor-type (all-editor-types, anonymous,\ngroup-bot, name-bot, user) or page-type (all-page-types, content or non-content). The\nuser_text returned is either the mediawiki user_text if the user is registered, or\n\"Anonymous Editor\" if user is anonymous.\n\n- Stability: [experimental](https://www.mediawiki.org/wiki/API_versioning#Experimental)\n- Rate limit: 25 req/s\n- License: Data accessible via this endpoint is available under the\n  [CC0 1.0 license](https://creativecommons.org/publicdomain/zero/1.0/).\n",
         "parameters": [
           {
             "description": "The name of any Wikimedia project formatted like {language code}.{project name},\nfor example en.wikipedia. You may pass en.wikipedia.org and the .org will be stripped\noff. For projects like commons without language codes, use commons.wikimedia. For\nprojects like www.mediawiki.org, you can use that full string, or just use mediawiki\nor mediawiki.org.\n",
@@ -1176,33 +1366,30 @@
             "type": "string"
           },
           {
-            "description": "Time unit for the response data. As of today, supported values are daily and monthly\n",
-            "enum": [
-              "daily",
-              "monthly"
-            ],
+            "description": "The year of the date for which to retrieve top editors, in YYYY format.",
             "in": "path",
-            "name": "granularity",
+            "name": "year",
             "required": true,
             "type": "string"
           },
           {
-            "description": "The date of the first day to include, in YYYYMMDD format",
+            "description": "The month of the date for which to retrieve top editors, in MM format. If you want to get the top editors of a whole month, the day parameter should be all-days.",
             "in": "path",
-            "name": "start",
+            "name": "month",
             "required": true,
             "type": "string"
           },
           {
-            "description": "The date of the last day to include, in YYYYMMDD format",
+            "description": "The day of the date for which to retrieve top editors, in DD format, or all-days for a monthly value.",
             "in": "path",
-            "name": "end",
+            "name": "day",
             "required": true,
             "type": "string"
           }
         ],
         "produces": [
-          "application/json"
+          "application/json",
+          "application/problem+json"
         ],
         "responses": {
           "200": {
@@ -1223,7 +1410,7 @@
           "Editors data"
         ],
         "x-monitor": false,
-        "operationId": "metrics.editors.top_by_net_bytes_difference.project.editor_type.page_type.granularity.start.end.get"
+        "operationId": "metrics.editors.top_by_net_bytes_difference.project.editor_type.page_type.year.month.day.get"
       }
     },
     "/metrics/edits/aggregate/{project}/{editor-type}/{page-type}/{granularity}/{start}/{end}": {
@@ -1290,7 +1477,8 @@
           }
         ],
         "produces": [
-          "application/json"
+          "application/json",
+          "application/problem+json"
         ],
         "responses": {
           "200": {
@@ -1312,6 +1500,90 @@
         ],
         "x-monitor": false,
         "operationId": "metrics.edits.aggregate.project.editor_type.page_type.granularity.start.end.get"
+      }
+    },
+    "/metrics/edits/per-page/{project}/{page-title}/{editor-type}/{granularity}/{start}/{end}": {
+      "get": {
+        "description": "Given a Mediawiki project, a page-title prefixed with its canonical namespace (for\ninstance 'User:Jimbo_Wales') and a date range, returns a timeseries of edit counts.\nYou can filter by editors-type (all-editor-types, anonymous, group-bot, name-bot, user).\nYou can choose between daily and monthly granularity as well.\n\n- Stability: [experimental](https://www.mediawiki.org/wiki/API_versioning#Experimental)\n- Rate limit: 25 req/s\n- License: Data accessible via this endpoint is available under the\n  [CC0 1.0 license](https://creativecommons.org/publicdomain/zero/1.0/).\n",
+        "parameters": [
+          {
+            "description": "The name of any Wikimedia project formatted like {language code}.{project name},\nfor example en.wikipedia. You may pass en.wikipedia.org and the .org will be stripped\noff. For projects like commons without language codes, use commons.wikimedia. For\nprojects like www.mediawiki.org, you can use that full string, or just use mediawiki\nor mediawiki.org.\n",
+            "in": "path",
+            "name": "project",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The page-title to request edits for. It should be prefixed with canonical namespace.\nSpaces will be converted to underscores.\n",
+            "in": "path",
+            "name": "page-title",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "If you want to filter by editor-type, use one of anonymous, group-bot (registered\naccounts belonging to the bot group), name-bot (registered accounts not belonging to\nthe bot group but having bot-like names) or user (registered account not in bot group\nnor having bot-like name). If you are interested in edits regardless of their\neditor-type, use all-editor-types.\n",
+            "enum": [
+              "all-editor-types",
+              "anonymous",
+              "group-bot",
+              "name-bot",
+              "user"
+            ],
+            "in": "path",
+            "name": "editor-type",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Time unit for the response data. As of today, supported values are daily and monthly\n",
+            "enum": [
+              "daily",
+              "monthly"
+            ],
+            "in": "path",
+            "name": "granularity",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The date of the first day to include, in YYYYMMDD format",
+            "in": "path",
+            "name": "start",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The date of the last day to include, in YYYYMMDD format",
+            "in": "path",
+            "name": "end",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "application/problem+json"
+        ],
+        "responses": {
+          "200": {
+            "description": "The list of values",
+            "schema": {
+              "$ref": "#/definitions/edits-per-page"
+            }
+          },
+          "default": {
+            "description": "Error",
+            "schema": {
+              "$ref": "#/definitions/problem"
+            }
+          }
+        },
+        "summary": "Get edit counts for a page in a project.",
+        "tags": [
+          "Edits data"
+        ],
+        "x-monitor": false,
+        "operationId": "metrics.edits.per_page.project.page_title.editor_type.granularity.start.end.get"
       }
     },
     "/metrics/legacy/pagecounts/aggregate/{project}/{access-site}/{granularity}/{start}/{end}": {
@@ -1365,7 +1637,8 @@
           }
         ],
         "produces": [
-          "application/json"
+          "application/json",
+          "application/problem+json"
         ],
         "responses": {
           "200": {
@@ -1452,7 +1725,8 @@
           }
         ],
         "produces": [
-          "application/json"
+          "application/json",
+          "application/problem+json"
         ],
         "responses": {
           "200": {
@@ -1581,7 +1855,8 @@
           }
         ],
         "produces": [
-          "application/json"
+          "application/json",
+          "application/problem+json"
         ],
         "responses": {
           "200": {
@@ -1645,7 +1920,8 @@
           }
         ],
         "produces": [
-          "application/json"
+          "application/json",
+          "application/problem+json"
         ],
         "responses": {
           "200": {
@@ -1716,7 +1992,8 @@
           }
         ],
         "produces": [
-          "application/json"
+          "application/json",
+          "application/problem+json"
         ],
         "responses": {
           "200": {
@@ -1778,7 +2055,8 @@
           }
         ],
         "produces": [
-          "application/json"
+          "application/json",
+          "application/problem+json"
         ],
         "responses": {
           "200": {
@@ -1852,7 +2130,8 @@
           }
         ],
         "produces": [
-          "application/json"
+          "application/json",
+          "application/problem+json"
         ],
         "responses": {
           "200": {
@@ -1908,7 +2187,8 @@
           }
         ],
         "produces": [
-          "application/json"
+          "application/json",
+          "application/problem+json"
         ],
         "responses": {
           "200": {
@@ -1976,7 +2256,8 @@
           }
         ],
         "produces": [
-          "application/json"
+          "application/json",
+          "application/problem+json"
         ],
         "responses": {
           "200": {
@@ -2042,7 +2323,8 @@
           }
         ],
         "produces": [
-          "application/json"
+          "application/json",
+          "application/problem+json"
         ],
         "responses": {
           "200": {
@@ -2083,7 +2365,8 @@
           }
         ],
         "produces": [
-          "application/json"
+          "application/json",
+          "application/problem+json"
         ],
         "responses": {
           "200": {
@@ -2132,7 +2415,8 @@
           }
         ],
         "produces": [
-          "application/json"
+          "application/json",
+          "application/problem+json"
         ],
         "responses": {
           "200": {
@@ -2188,7 +2472,8 @@
           }
         ],
         "produces": [
-          "application/json"
+          "application/json",
+          "application/problem+json"
         ],
         "responses": {
           "200": {
@@ -2240,7 +2525,8 @@
           }
         ],
         "produces": [
-          "application/json"
+          "application/json",
+          "application/problem+json"
         ],
         "responses": {
           "200": {
@@ -2303,7 +2589,8 @@
           }
         ],
         "produces": [
-          "application/json"
+          "application/json",
+          "application/problem+json"
         ],
         "responses": {
           "200": {
@@ -2366,6 +2653,128 @@
           "type": "array"
         }
       }
+    },
+    "absolute-bytes-difference-per-editor": {
+      "properties": {
+        "items": {
+          "items": {
+            "properties": {
+              "granularity": {
+                "type": "string"
+              },
+              "page-type": {
+                "type": "string"
+              },
+              "project": {
+                "type": "string"
+              },
+              "results": {
+                "items": {
+                  "properties": {
+                    "abs_bytes_diff": {
+                      "format": "int64",
+                      "type": "integer"
+                    },
+                    "timestamp": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "type": "array"
+              },
+              "user-text": {
+                "type": "string"
+              }
+            }
+          },
+          "type": "array"
+        }
+      }
+    },
+    "absolute-bytes-difference-per-page": {
+      "properties": {
+        "items": {
+          "items": {
+            "properties": {
+              "editor-type": {
+                "type": "string"
+              },
+              "granularity": {
+                "type": "string"
+              },
+              "page-title": {
+                "type": "string"
+              },
+              "project": {
+                "type": "string"
+              },
+              "results": {
+                "items": {
+                  "properties": {
+                    "abs_bytes_diff": {
+                      "format": "int64",
+                      "type": "integer"
+                    },
+                    "timestamp": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "type": "array"
+              }
+            }
+          },
+          "type": "array"
+        }
+      }
+    },
+    "availability": {
+      "additionalProperties": false,
+      "properties": {
+        "in_the_news": {
+          "description": "domains for wikis with this feature enabled, or [ '*.<project>.org' ] for all wikis in a project",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "most_read": {
+          "description": "domains for wikis with this feature enabled, or [ '*.<project>.org' ] for all wikis in a project",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "on_this_day": {
+          "description": "domains for wikis with this feature enabled, or [ '*.<project>.org' ] for all wikis in a project",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "picture_of_the_day": {
+          "description": "domains for wikis with this feature enabled, or [ '*.<project>.org' ] for all wikis in a project",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "todays_featured_article": {
+          "description": "domains for wikis with this feature enabled, or [ '*.<project>.org' ] for all wikis in a project",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "todays_featured_article",
+        "most_read",
+        "picture_of_the_day",
+        "in_the_news",
+        "on_this_day"
+      ],
+      "type": "object"
     },
     "by-country": {
       "properties": {
@@ -2601,6 +3010,80 @@
         }
       }
     },
+    "edits-per-editor": {
+      "properties": {
+        "items": {
+          "items": {
+            "properties": {
+              "granularity": {
+                "type": "string"
+              },
+              "page-type": {
+                "type": "string"
+              },
+              "project": {
+                "type": "string"
+              },
+              "results": {
+                "items": {
+                  "properties": {
+                    "edits": {
+                      "format": "int64",
+                      "type": "integer"
+                    },
+                    "timestamp": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "type": "array"
+              },
+              "user-text": {
+                "type": "string"
+              }
+            }
+          },
+          "type": "array"
+        }
+      }
+    },
+    "edits-per-page": {
+      "properties": {
+        "items": {
+          "items": {
+            "properties": {
+              "editor-type": {
+                "type": "string"
+              },
+              "granularity": {
+                "type": "string"
+              },
+              "page-title": {
+                "type": "string"
+              },
+              "project": {
+                "type": "string"
+              },
+              "results": {
+                "items": {
+                  "properties": {
+                    "edits": {
+                      "format": "int64",
+                      "type": "integer"
+                    },
+                    "timestamp": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "type": "array"
+              }
+            }
+          },
+          "type": "array"
+        }
+      }
+    },
     "listing": {
       "description": "The result format for listings",
       "properties": {
@@ -2627,6 +3110,80 @@
                 "type": "string"
               },
               "page-type": {
+                "type": "string"
+              },
+              "project": {
+                "type": "string"
+              },
+              "results": {
+                "items": {
+                  "properties": {
+                    "net_bytes_diff": {
+                      "format": "int64",
+                      "type": "integer"
+                    },
+                    "timestamp": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "type": "array"
+              }
+            }
+          },
+          "type": "array"
+        }
+      }
+    },
+    "net-bytes-difference-per-editor": {
+      "properties": {
+        "items": {
+          "items": {
+            "properties": {
+              "granularity": {
+                "type": "string"
+              },
+              "page-type": {
+                "type": "string"
+              },
+              "project": {
+                "type": "string"
+              },
+              "results": {
+                "items": {
+                  "properties": {
+                    "net_bytes_diff": {
+                      "format": "int64",
+                      "type": "integer"
+                    },
+                    "timestamp": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "type": "array"
+              },
+              "user-text": {
+                "type": "string"
+              }
+            }
+          },
+          "type": "array"
+        }
+      }
+    },
+    "net-bytes-difference-per-page": {
+      "properties": {
+        "items": {
+          "items": {
+            "properties": {
+              "editor-type": {
+                "type": "string"
+              },
+              "granularity": {
+                "type": "string"
+              },
+              "page-title": {
                 "type": "string"
               },
               "project": {
@@ -2881,13 +3438,19 @@
         "detail": {
           "type": "string"
         },
-        "instance": {
+        "method": {
           "type": "string"
+        },
+        "status": {
+          "type": "integer"
         },
         "title": {
           "type": "string"
         },
         "type": {
+          "type": "string"
+        },
+        "uri": {
           "type": "string"
         }
       },
@@ -3022,8 +3585,12 @@
                             "format": "int64",
                             "type": "integer"
                           },
-                          "page_id": {
+                          "page_title": {
                             "type": "string"
+                          },
+                          "rank": {
+                            "format": "int32",
+                            "type": "integer"
                           }
                         }
                       },
@@ -3069,8 +3636,12 @@
                             "format": "int64",
                             "type": "integer"
                           },
-                          "page_id": {
+                          "page_title": {
                             "type": "string"
+                          },
+                          "rank": {
+                            "format": "int32",
+                            "type": "integer"
                           }
                         }
                       },
@@ -3116,8 +3687,12 @@
                             "format": "int64",
                             "type": "integer"
                           },
-                          "page_id": {
+                          "page_title": {
                             "type": "string"
+                          },
+                          "rank": {
+                            "format": "int32",
+                            "type": "integer"
                           }
                         }
                       },
@@ -3163,7 +3738,11 @@
                             "format": "int64",
                             "type": "integer"
                           },
-                          "user_id": {
+                          "rank": {
+                            "format": "int32",
+                            "type": "integer"
+                          },
+                          "user_text": {
                             "type": "string"
                           }
                         }
@@ -3210,7 +3789,11 @@
                             "format": "int64",
                             "type": "integer"
                           },
-                          "user_id": {
+                          "rank": {
+                            "format": "int32",
+                            "type": "integer"
+                          },
+                          "user_text": {
                             "type": "string"
                           }
                         }
@@ -3257,7 +3840,11 @@
                             "format": "int64",
                             "type": "integer"
                           },
-                          "user_id": {
+                          "rank": {
+                            "format": "int32",
+                            "type": "integer"
+                          },
+                          "user_text": {
                             "type": "string"
                           }
                         }

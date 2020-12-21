@@ -15,14 +15,7 @@ let azure_applicationinsights_componentannotations_api = require('@datafire/azur
   redirect_uri: ""
 });
 
-azure_applicationinsights_componentannotations_api.Annotations_List({
-  "resourceGroupName": "",
-  "api-version": "",
-  "subscriptionId": "",
-  "resourceName": "",
-  "start": "",
-  "end": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -50,16 +43,15 @@ azure_applicationinsights_componentannotations_api.Annotations_List({
 
 #### Input
 * input `object`
-  * resourceGroupName **required** `string`: The name of the resource group.
-  * api-version **required** `string`: Client Api Version.
-  * subscriptionId **required** `string`: The Azure subscription ID.
+  * resourceGroupName **required** `string`: The name of the resource group. The name is case insensitive.
+  * api-version **required** `string`: The API version to use for this operation.
+  * subscriptionId **required** `string`: The ID of the target subscription.
   * resourceName **required** `string`: The name of the Application Insights component resource.
   * start **required** `string`: The start time to query from for annotations, cannot be older than 90 days from current date.
   * end **required** `string`: The end time to query for annotations.
 
 #### Output
-* output `array`
-  * items [Annotation](#annotation)
+* output [AnnotationsListResult](#annotationslistresult)
 
 ### Annotations_Create
 Create an Annotation of an Application Insights component.
@@ -77,9 +69,9 @@ azure_applicationinsights_componentannotations_api.Annotations_Create({
 
 #### Input
 * input `object`
-  * resourceGroupName **required** `string`: The name of the resource group.
-  * api-version **required** `string`: Client Api Version.
-  * subscriptionId **required** `string`: The Azure subscription ID.
+  * resourceGroupName **required** `string`: The name of the resource group. The name is case insensitive.
+  * api-version **required** `string`: The API version to use for this operation.
+  * subscriptionId **required** `string`: The ID of the target subscription.
   * resourceName **required** `string`: The name of the Application Insights component resource.
   * AnnotationProperties **required** [Annotation](#annotation)
 
@@ -103,9 +95,9 @@ azure_applicationinsights_componentannotations_api.Annotations_Delete({
 
 #### Input
 * input `object`
-  * resourceGroupName **required** `string`: The name of the resource group.
-  * api-version **required** `string`: Client Api Version.
-  * subscriptionId **required** `string`: The Azure subscription ID.
+  * resourceGroupName **required** `string`: The name of the resource group. The name is case insensitive.
+  * api-version **required** `string`: The API version to use for this operation.
+  * subscriptionId **required** `string`: The ID of the target subscription.
   * resourceName **required** `string`: The name of the Application Insights component resource.
   * annotationId **required** `string`: The unique annotation ID. This is unique within a Application Insights component.
 
@@ -128,9 +120,9 @@ azure_applicationinsights_componentannotations_api.Annotations_Get({
 
 #### Input
 * input `object`
-  * resourceGroupName **required** `string`: The name of the resource group.
-  * api-version **required** `string`: Client Api Version.
-  * subscriptionId **required** `string`: The Azure subscription ID.
+  * resourceGroupName **required** `string`: The name of the resource group. The name is case insensitive.
+  * api-version **required** `string`: The API version to use for this operation.
+  * subscriptionId **required** `string`: The ID of the target subscription.
   * resourceName **required** `string`: The name of the Application Insights component resource.
   * annotationId **required** `string`: The unique annotation ID. This is unique within a Application Insights component.
 
@@ -156,6 +148,11 @@ azure_applicationinsights_componentannotations_api.Annotations_Get({
   * code `string`: Error detail code and explanation
   * innererror [InnerError](#innererror)
   * message `string`: Error message
+
+### AnnotationsListResult
+* AnnotationsListResult `object`: Annotations list result.
+  * value `array`: An array of annotations.
+    * items [Annotation](#annotation)
 
 ### InnerError
 * InnerError `object`: Inner error

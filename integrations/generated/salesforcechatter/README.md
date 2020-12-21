@@ -9,7 +9,7 @@ npm install --save @datafire/salesforcechatter
 ```js
 let salesforcechatter = require('@datafire/salesforcechatter').create();
 
-salesforcechatter.chatter.users.me.groups.get({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

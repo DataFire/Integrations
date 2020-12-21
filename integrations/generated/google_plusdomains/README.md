@@ -15,9 +15,7 @@ let google_plusdomains = require('@datafire/google_plusdomains').create({
   redirect_uri: ""
 });
 
-google_plusdomains.activities.get({
-  "activityId": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -654,16 +652,8 @@ google_plusdomains.people.list({
         * objectType `string`: The type of media object. Possible values include, but are not limited to, the following values:  
         * previewThumbnails `array`: When previewing, these are the optional thumbnails for the post. When posting an article, choose one by setting the attachment.image.url property. If you don't choose one, one will be chosen for you.
           * items `object`
-            * url `string`: URL of the thumbnail image.
         * thumbnails `array`: If the attachment is an album, this property is a list of potential additional thumbnails from the album.
           * items `object`
-            * description `string`: Potential name of the thumbnail.
-            * image `object`: Image resource.
-              * height `integer`: The height, in pixels, of the linked resource.
-              * type `string`: Media type of the link.
-              * url `string`: Image url.
-              * width `integer`: The width, in pixels, of the linked resource.
-            * url `string`: URL of the webpage containing the image.
         * url `string`: The link to the attachment, which should be of type text/html.
     * content `string`: The HTML-formatted content, which is suitable for display.
     * id `string`: The ID of the object. When resharing an activity, this is the ID of the activity that is being reshared.

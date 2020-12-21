@@ -15,13 +15,7 @@ let azure_sql_cancelpooloperations = require('@datafire/azure_sql_cancelpooloper
   redirect_uri: ""
 });
 
-azure_sql_cancelpooloperations.ElasticPoolOperations_ListByElasticPool({
-  "resourceGroupName": "",
-  "serverName": "",
-  "elasticPoolName": "",
-  "subscriptionId": "",
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

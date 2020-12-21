@@ -15,9 +15,7 @@ let azure_streamanalytics_streamingjobs = require('@datafire/azure_streamanalyti
   redirect_uri: ""
 });
 
-azure_streamanalytics_streamingjobs.Operations_List({
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -151,7 +149,7 @@ azure_streamanalytics_streamingjobs.StreamingJobs_Update({
 #### Input
 * input `object`
   * streamingJob **required** [StreamingJob](#streamingjob)
-  * If-Match `string`: The ETag of the streaming job. Omit this value to always overwrite the current record set. Specify the last-seen ETag value to prevent accidentally overwritting concurrent changes.
+  * If-Match `string`: The ETag of the streaming job. Omit this value to always overwrite the current record set. Specify the last-seen ETag value to prevent accidentally overwriting concurrent changes.
   * api-version **required** `string`: Client Api Version.
   * subscriptionId **required** `string`: GUID which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
   * resourceGroupName **required** `string`: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -177,7 +175,7 @@ azure_streamanalytics_streamingjobs.StreamingJobs_CreateOrReplace({
 #### Input
 * input `object`
   * streamingJob **required** [StreamingJob](#streamingjob)
-  * If-Match `string`: The ETag of the streaming job. Omit this value to always overwrite the current record set. Specify the last-seen ETag value to prevent accidentally overwritting concurrent changes.
+  * If-Match `string`: The ETag of the streaming job. Omit this value to always overwrite the current record set. Specify the last-seen ETag value to prevent accidentally overwriting concurrent changes.
   * If-None-Match `string`: Set to '*' to allow a new streaming job to be created, but to prevent updating an existing record set. Other values will result in a 412 Pre-condition Failed response.
   * api-version **required** `string`: Client Api Version.
   * subscriptionId **required** `string`: GUID which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
@@ -283,7 +281,7 @@ azure_streamanalytics_streamingjobs.StreamingJobs_Stop({
   * outputStartTime `string`: Value is either an ISO-8601 formatted time stamp that indicates the starting point of the output event stream, or null to indicate that the output event stream will start whenever the streaming job is started. This property must have a value if outputStartMode is set to CustomTime.
 
 ### StreamingJob
-* StreamingJob `object`: A streamng job object, containing all information associated with the named streaming job.
+* StreamingJob `object`: A streaming job object, containing all information associated with the named streaming job.
   * properties [StreamingJobProperties](#streamingjobproperties)
   * id `string`: Resource Id
   * location `string`: Resource location. Required on PUT (CreateOrReplace) requests.
@@ -319,10 +317,6 @@ azure_streamanalytics_streamingjobs.StreamingJobs_Stop({
       * properties `object`: The properties that are associated with an input.
         * diagnostics `object`: Describes conditions applicable to the Input, Output, or the job overall, that warrant customer attention.
           * conditions `array`: A collection of zero or more conditions applicable to the resource, or to the job overall, that warrant customer attention.
-            * items `object`: Condition applicable to the resource, or to the job overall, that warrant customer attention.
-              * code `string`: The opaque diagnostic code.
-              * message `string`: The human-readable message describing the condition in detail. Localized in the Accept-Language of the client request.
-              * since `string`: The UTC timestamp of when the condition started. Customers should be able to find a corresponding event in the ops log around this time.
         * etag `string`: The current entity tag for the input. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
         * serialization `object`: Describes how data from an input is serialized or how data is serialized when written to an output.
           * type `string`: Indicates the type of serialization that the input or output uses. Required on PUT (CreateOrReplace) requests.
@@ -343,10 +337,6 @@ azure_streamanalytics_streamingjobs.StreamingJobs_Stop({
           * type `string`: Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
         * diagnostics `object`: Describes conditions applicable to the Input, Output, or the job overall, that warrant customer attention.
           * conditions `array`: A collection of zero or more conditions applicable to the resource, or to the job overall, that warrant customer attention.
-            * items `object`: Condition applicable to the resource, or to the job overall, that warrant customer attention.
-              * code `string`: The opaque diagnostic code.
-              * message `string`: The human-readable message describing the condition in detail. Localized in the Accept-Language of the client request.
-              * since `string`: The UTC timestamp of when the condition started. Customers should be able to find a corresponding event in the ops log around this time.
         * etag `string`: The current entity tag for the output. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
         * serialization `object`: Describes how data from an input is serialized or how data is serialized when written to an output.
           * type `string`: Indicates the type of serialization that the input or output uses. Required on PUT (CreateOrReplace) requests.

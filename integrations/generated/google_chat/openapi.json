@@ -1,21 +1,26 @@
 {
   "swagger": "2.0",
-  "schemes": [
-    "https"
-  ],
-  "host": "chat.googleapis.com",
-  "basePath": "/",
   "info": {
     "contact": {
       "name": "Google",
-      "url": "https://google.com"
+      "url": "https://google.com",
+      "x-twitter": "youtube"
     },
-    "description": "Enables bots to fetch information and perform actions in the new Hangouts Chat.",
-    "title": "Hangouts Chat",
+    "description": "Enables bots to fetch information and perform actions in Hangouts Chat.",
+    "license": {
+      "name": "Creative Commons Attribution 3.0",
+      "url": "http://creativecommons.org/licenses/by/3.0/"
+    },
+    "termsOfService": "https://developers.google.com/terms/",
+    "title": "Hangouts Chat API",
     "version": "v1",
     "x-apiClientRegistration": {
       "url": "https://console.developers.google.com"
     },
+    "x-apisguru-categories": [
+      "analytics",
+      "media"
+    ],
     "x-logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
     },
@@ -23,7 +28,7 @@
       {
         "converter": {
           "url": "https://github.com/lucybot/api-spec-converter",
-          "version": "2.6.2"
+          "version": "2.7.31"
         },
         "format": "google",
         "url": "https://chat.googleapis.com/$discovery/rest?version=v1",
@@ -38,114 +43,203 @@
       "type": "openapi"
     }
   },
-  "externalDocs": {
-    "url": "https://developers.google.com/hangouts/chat"
-  },
-  "parameters": {
-    "$.xgafv": {
-      "description": "V1 error format.",
-      "enum": [
-        "1",
-        "2"
-      ],
-      "in": "query",
-      "name": "$.xgafv",
-      "type": "string"
-    },
-    "access_token": {
-      "description": "OAuth access token.",
-      "in": "query",
-      "name": "access_token",
-      "type": "string"
-    },
-    "alt": {
-      "default": "json",
-      "description": "Data format for response.",
-      "enum": [
-        "json",
-        "media",
-        "proto"
-      ],
-      "in": "query",
-      "name": "alt",
-      "type": "string"
-    },
-    "bearer_token": {
-      "description": "OAuth bearer token.",
-      "in": "query",
-      "name": "bearer_token",
-      "type": "string"
-    },
-    "callback": {
-      "description": "JSONP",
-      "in": "query",
-      "name": "callback",
-      "type": "string"
-    },
-    "fields": {
-      "description": "Selector specifying which fields to include in a partial response.",
-      "in": "query",
-      "name": "fields",
-      "type": "string"
-    },
-    "key": {
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
-      "in": "query",
-      "name": "key",
-      "type": "string"
-    },
-    "oauth_token": {
-      "description": "OAuth 2.0 token for the current user.",
-      "in": "query",
-      "name": "oauth_token",
-      "type": "string"
-    },
-    "pp": {
-      "default": true,
-      "description": "Pretty-print response.",
-      "in": "query",
-      "name": "pp",
-      "type": "boolean"
-    },
-    "prettyPrint": {
-      "default": true,
-      "description": "Returns response with indentations and line breaks.",
-      "in": "query",
-      "name": "prettyPrint",
-      "type": "boolean"
-    },
-    "quotaUser": {
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
-      "in": "query",
-      "name": "quotaUser",
-      "type": "string"
-    },
-    "uploadType": {
-      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
-      "in": "query",
-      "name": "uploadType",
-      "type": "string"
-    },
-    "upload_protocol": {
-      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
-      "in": "query",
-      "name": "upload_protocol",
-      "type": "string"
-    }
-  },
-  "tags": [
-    {
-      "name": "spaces"
-    }
+  "host": "chat.googleapis.com",
+  "basePath": "/",
+  "schemes": [
+    "https"
   ],
   "paths": {
-    "/v1/spaces": {
+    "/v1/media/{resourceName}": {
+      "parameters": [
+        {
+          "description": "V1 error format.",
+          "enum": [
+            "1",
+            "2"
+          ],
+          "in": "query",
+          "name": "$.xgafv",
+          "type": "string"
+        },
+        {
+          "description": "OAuth access token.",
+          "in": "query",
+          "name": "access_token",
+          "type": "string"
+        },
+        {
+          "description": "Data format for response.",
+          "enum": [
+            "json",
+            "media",
+            "proto"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
+        },
+        {
+          "description": "JSONP",
+          "in": "query",
+          "name": "callback",
+          "type": "string"
+        },
+        {
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
+        },
+        {
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
+        },
+        {
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
+        },
+        {
+          "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
+        },
+        {
+          "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+          "in": "query",
+          "name": "upload_protocol",
+          "type": "string"
+        },
+        {
+          "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+          "in": "query",
+          "name": "uploadType",
+          "type": "string"
+        }
+      ],
       "get": {
-        "description": "Lists spaces the caller is a member of.",
-        "operationId": "spaces.list",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "description": "Requested page size. The value is capped at 1000.\nServer may return fewer results than requested.\nIf unspecified, server will default to 100.",
+            "description": "Name of the media that is being downloaded. See ReadRequest.resource_name.",
+            "in": "path",
+            "name": "resourceName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/Media"
+            }
+          }
+        },
+        "tags": [
+          "media"
+        ],
+        "description": "Downloads media. Download is supported on the URI `/v1/media/{+name}?alt=media`.",
+        "operationId": "chat.media.download"
+      }
+    },
+    "/v1/spaces": {
+      "parameters": [
+        {
+          "description": "V1 error format.",
+          "enum": [
+            "1",
+            "2"
+          ],
+          "in": "query",
+          "name": "$.xgafv",
+          "type": "string"
+        },
+        {
+          "description": "OAuth access token.",
+          "in": "query",
+          "name": "access_token",
+          "type": "string"
+        },
+        {
+          "description": "Data format for response.",
+          "enum": [
+            "json",
+            "media",
+            "proto"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
+        },
+        {
+          "description": "JSONP",
+          "in": "query",
+          "name": "callback",
+          "type": "string"
+        },
+        {
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
+        },
+        {
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
+        },
+        {
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
+        },
+        {
+          "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
+        },
+        {
+          "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+          "in": "query",
+          "name": "upload_protocol",
+          "type": "string"
+        },
+        {
+          "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+          "in": "query",
+          "name": "uploadType",
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Requested page size. The value is capped at 1000. Server may return fewer results than requested. If unspecified, server will default to 100.",
             "in": "query",
             "name": "pageSize",
             "type": "integer"
@@ -167,62 +261,100 @@
         },
         "tags": [
           "spaces"
-        ]
-      },
-      "parameters": [
-        {
-          "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/access_token"
-        },
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/bearer_token"
-        },
-        {
-          "$ref": "#/parameters/callback"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
-          "$ref": "#/parameters/upload_protocol"
-        }
-      ]
+        ],
+        "description": "Lists spaces the caller is a member of.",
+        "operationId": "chat.spaces.list"
+      }
     },
     "/v1/{name}": {
+      "parameters": [
+        {
+          "description": "V1 error format.",
+          "enum": [
+            "1",
+            "2"
+          ],
+          "in": "query",
+          "name": "$.xgafv",
+          "type": "string"
+        },
+        {
+          "description": "OAuth access token.",
+          "in": "query",
+          "name": "access_token",
+          "type": "string"
+        },
+        {
+          "description": "Data format for response.",
+          "enum": [
+            "json",
+            "media",
+            "proto"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
+        },
+        {
+          "description": "JSONP",
+          "in": "query",
+          "name": "callback",
+          "type": "string"
+        },
+        {
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
+        },
+        {
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
+        },
+        {
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
+        },
+        {
+          "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
+        },
+        {
+          "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+          "in": "query",
+          "name": "upload_protocol",
+          "type": "string"
+        },
+        {
+          "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+          "in": "query",
+          "name": "uploadType",
+          "type": "string"
+        }
+      ],
       "delete": {
-        "description": "Deletes a message.",
-        "operationId": "spaces.messages.delete",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "description": "Required. Resource name of the message to be deleted, in the form\n\"spaces/*/messages/*\"\n\nExample: spaces/AAAAMpdlehY/messages/UMxbHmzDlr4.UMxbHmzDlr4",
+            "description": "Required. Resource name of the message to be deleted, in the form \"spaces/*/messages/*\" Example: spaces/AAAAMpdlehY/messages/UMxbHmzDlr4.UMxbHmzDlr4",
             "in": "path",
             "name": "name",
             "required": true,
-            "type": "string",
-            "x-reservedExpansion": true
+            "type": "string"
           }
         ],
         "responses": {
@@ -235,97 +367,20 @@
         },
         "tags": [
           "spaces"
-        ]
+        ],
+        "description": "Deletes a message.",
+        "operationId": "chat.spaces.messages.delete"
       },
       "get": {
-        "description": "Returns a message.",
-        "operationId": "spaces.messages.get",
-        "parameters": [
-          {
-            "description": "Required. Resource name of the message to be retrieved, in the form\n\"spaces/*/messages/*\".\n\nExample: spaces/AAAAMpdlehY/messages/UMxbHmzDlr4.UMxbHmzDlr4",
-            "in": "path",
-            "name": "name",
-            "required": true,
-            "type": "string",
-            "x-reservedExpansion": true
-          }
+        "produces": [
+          "application/json"
         ],
-        "responses": {
-          "200": {
-            "description": "Successful response",
-            "schema": {
-              "$ref": "#/definitions/Message"
-            }
-          }
-        },
-        "tags": [
-          "spaces"
-        ]
-      },
-      "parameters": [
-        {
-          "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/access_token"
-        },
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/bearer_token"
-        },
-        {
-          "$ref": "#/parameters/callback"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
-          "$ref": "#/parameters/upload_protocol"
-        }
-      ],
-      "put": {
-        "description": "Updates a message.",
-        "operationId": "spaces.messages.update",
         "parameters": [
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Message"
-            }
-          },
-          {
-            "description": "Resource name, in the form \"spaces/*/messages/*\".\n\nExample: spaces/AAAAMpdlehY/messages/UMxbHmzDlr4.UMxbHmzDlr4",
+            "description": "Resource name of the attachment, in the form \"spaces/*/messages/*/attachments/*\".",
             "in": "path",
             "name": "name",
             "required": true,
-            "type": "string",
-            "x-reservedExpansion": true
-          },
-          {
-            "description": "Required. The field paths to be updated.\n\nCurrently supported field paths: \"text\", \"cards\".",
-            "in": "query",
-            "name": "updateMask",
             "type": "string"
           }
         ],
@@ -333,22 +388,152 @@
           "200": {
             "description": "Successful response",
             "schema": {
+              "$ref": "#/definitions/Attachment"
+            }
+          }
+        },
+        "tags": [
+          "spaces"
+        ],
+        "description": "Gets the metadata of a message attachment. The attachment data is fetched using the media API.",
+        "operationId": "chat.spaces.messages.attachments.get"
+      },
+      "put": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Resource name, in the form \"spaces/*/messages/*\". Example: spaces/AAAAMpdlehY/messages/UMxbHmzDlr4.UMxbHmzDlr4",
+            "in": "path",
+            "name": "name",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Required. The field paths to be updated, comma separated if there are multiple. Currently supported field paths: * text * cards",
+            "in": "query",
+            "name": "updateMask",
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Message"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
               "$ref": "#/definitions/Message"
             }
           }
         },
         "tags": [
           "spaces"
-        ]
+        ],
+        "description": "Updates a message.",
+        "operationId": "chat.spaces.messages.update"
       }
     },
     "/v1/{parent}/members": {
+      "parameters": [
+        {
+          "description": "V1 error format.",
+          "enum": [
+            "1",
+            "2"
+          ],
+          "in": "query",
+          "name": "$.xgafv",
+          "type": "string"
+        },
+        {
+          "description": "OAuth access token.",
+          "in": "query",
+          "name": "access_token",
+          "type": "string"
+        },
+        {
+          "description": "Data format for response.",
+          "enum": [
+            "json",
+            "media",
+            "proto"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
+        },
+        {
+          "description": "JSONP",
+          "in": "query",
+          "name": "callback",
+          "type": "string"
+        },
+        {
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
+        },
+        {
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
+        },
+        {
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
+        },
+        {
+          "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
+        },
+        {
+          "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+          "in": "query",
+          "name": "upload_protocol",
+          "type": "string"
+        },
+        {
+          "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+          "in": "query",
+          "name": "uploadType",
+          "type": "string"
+        }
+      ],
       "get": {
-        "description": "Lists human memberships in a space.",
-        "operationId": "spaces.members.list",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "description": "Requested page size. The value is capped at 1000.\nServer may return fewer results than requested.\nIf unspecified, server will default to 100.",
+            "description": "Required. The resource name of the space for which membership list is to be fetched, in the form \"spaces/*\". Example: spaces/AAAAMpdlehY",
+            "in": "path",
+            "name": "parent",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Requested page size. The value is capped at 1000. Server may return fewer results than requested. If unspecified, server will default to 100.",
             "in": "query",
             "name": "pageSize",
             "type": "integer"
@@ -358,14 +543,6 @@
             "in": "query",
             "name": "pageToken",
             "type": "string"
-          },
-          {
-            "description": "Required. The resource name of the space for which membership list is to be\nfetched, in the form \"spaces/*\".\n\nExample: spaces/AAAAMpdlehY",
-            "in": "path",
-            "name": "parent",
-            "required": true,
-            "type": "string",
-            "x-reservedExpansion": true
           }
         ],
         "responses": {
@@ -378,116 +555,116 @@
         },
         "tags": [
           "spaces"
-        ]
-      },
-      "parameters": [
-        {
-          "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/access_token"
-        },
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/bearer_token"
-        },
-        {
-          "$ref": "#/parameters/callback"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
-          "$ref": "#/parameters/upload_protocol"
-        }
-      ]
+        ],
+        "description": "Lists human memberships in a space.",
+        "operationId": "chat.spaces.members.list"
+      }
     },
     "/v1/{parent}/messages": {
       "parameters": [
         {
-          "$ref": "#/parameters/$.xgafv"
+          "description": "V1 error format.",
+          "enum": [
+            "1",
+            "2"
+          ],
+          "in": "query",
+          "name": "$.xgafv",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/access_token"
+          "description": "OAuth access token.",
+          "in": "query",
+          "name": "access_token",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/alt"
+          "description": "Data format for response.",
+          "enum": [
+            "json",
+            "media",
+            "proto"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/bearer_token"
+          "description": "JSONP",
+          "in": "query",
+          "name": "callback",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/callback"
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/fields"
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/key"
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/oauth_token"
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
         },
         {
-          "$ref": "#/parameters/pp"
+          "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/prettyPrint"
+          "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+          "in": "query",
+          "name": "upload_protocol",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
-          "$ref": "#/parameters/upload_protocol"
+          "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+          "in": "query",
+          "name": "uploadType",
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Creates a message.",
-        "operationId": "spaces.messages.create",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "description": "Required. Space resource name, in the form \"spaces/*\". Example: spaces/AAAAMpdlehY",
+            "in": "path",
+            "name": "parent",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Opaque thread identifier string that can be specified to group messages into a single thread. If this is the first message with a given thread identifier, a new thread is created. Subsequent messages with the same thread identifier will be posted into the same thread. This relieves bots and webhooks from having to store the Hangouts Chat thread ID of a thread (created earlier by them) to post further updates to it. Has no effect if thread field, corresponding to an existing thread, is set in message.",
+            "in": "query",
+            "name": "threadKey",
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
             "schema": {
               "$ref": "#/definitions/Message"
             }
-          },
-          {
-            "description": "Required. Space resource name, in the form \"spaces/*\".\nExample: spaces/AAAAMpdlehY",
-            "in": "path",
-            "name": "parent",
-            "required": true,
-            "type": "string",
-            "x-reservedExpansion": true
-          },
-          {
-            "description": "Opaque thread identifier string that can be specified to group messages\ninto a single thread. If this is the first message with a given thread\nidentifier, a new thread is created. Subsequent messages with the same\nthread identifier will be posted into the same thread. This relieves bots\nand webhooks from having to store the Hangouts Chat thread ID of a thread (created earlier by them) to post\nfurther updates to it.\n\nHas no effect if thread field,\ncorresponding to an existing thread, is set in message.",
-            "in": "query",
-            "name": "threadKey",
-            "type": "string"
           }
         ],
         "responses": {
@@ -500,13 +677,15 @@
         },
         "tags": [
           "spaces"
-        ]
+        ],
+        "description": "Creates a message.",
+        "operationId": "chat.spaces.messages.create"
       }
     }
   },
   "definitions": {
     "ActionParameter": {
-      "description": "List of string parameters to supply when the action method is invoked.\nFor example, consider three snooze buttons: snooze now, snooze 1 day,\nsnooze next week. You might use action method = snooze(), passing the\nsnooze type and snooze time in the list of string parameters.",
+      "description": "List of string parameters to supply when the action method is invoked. For example, consider three snooze buttons: snooze now, snooze 1 day, snooze next week. You might use action method = snooze(), passing the snooze type and snooze time in the list of string parameters.",
       "properties": {
         "key": {
           "description": "The name of the parameter for the action script.",
@@ -540,15 +719,19 @@
       "type": "object"
     },
     "Annotation": {
-      "description": "Annotations associated with the plain-text body of the message.\n\nExample plain-text message body:\n```\nHello @FooBot how are you!\"\n```\n\nThe corresponding annotations metadata:\n```\n\"annotations\":[{\n  \"type\":\"USER_MENTION\",\n  \"startIndex\":6,\n  \"length\":7,\n  \"userMention\": {\n    \"user\": {\n      \"name\":\"users/107946847022116401880\",\n      \"displayName\":\"FooBot\",\n      \"avatarUrl\":\"https://goo.gl/aeDtrS\",\n      \"type\":\"BOT\"\n    },\n    \"type\":\"MENTION\"\n   }\n}]\n```",
+      "description": "Annotations associated with the plain-text body of the message. Example plain-text message body: ``` Hello @FooBot how are you!\" ``` The corresponding annotations metadata: ``` \"annotations\":[{ \"type\":\"USER_MENTION\", \"startIndex\":6, \"length\":7, \"userMention\": { \"user\": { \"name\":\"users/107946847022116401880\", \"displayName\":\"FooBot\", \"avatarUrl\":\"https://goo.gl/aeDtrS\", \"type\":\"BOT\" }, \"type\":\"MENTION\" } }] ```",
       "properties": {
         "length": {
-          "description": "Length of the substring in the plain-text message body this annotation\ncorresponds to.",
+          "description": "Length of the substring in the plain-text message body this annotation corresponds to.",
           "format": "int32",
           "type": "integer"
         },
+        "slashCommand": {
+          "$ref": "#/definitions/SlashCommandMetadata",
+          "description": "The metadata for a slash command."
+        },
         "startIndex": {
-          "description": "Start index (0-based, inclusive) in the plain-text message body this\nannotation corresponds to.",
+          "description": "Start index (0-based, inclusive) in the plain-text message body this annotation corresponds to.",
           "format": "int32",
           "type": "integer"
         },
@@ -556,13 +739,67 @@
           "description": "The type of this annotation.",
           "enum": [
             "ANNOTATION_TYPE_UNSPECIFIED",
-            "USER_MENTION"
+            "USER_MENTION",
+            "SLASH_COMMAND"
           ],
           "type": "string"
         },
         "userMention": {
           "$ref": "#/definitions/UserMentionMetadata",
           "description": "The metadata of user mention."
+        }
+      },
+      "type": "object"
+    },
+    "Attachment": {
+      "description": "An attachment in Hangouts Chat.",
+      "properties": {
+        "attachmentDataRef": {
+          "$ref": "#/definitions/AttachmentDataRef",
+          "description": "A reference to the attachment data. This is used with the media API to download the attachment data."
+        },
+        "contentName": {
+          "description": "The original file name for the content, not the full path.",
+          "type": "string"
+        },
+        "contentType": {
+          "description": "The content type (MIME type) of the file.",
+          "type": "string"
+        },
+        "downloadUri": {
+          "description": "Output only. The download URL which should be used to allow a human user to download the attachment. Bots should not use this URL to download attachment content.",
+          "type": "string"
+        },
+        "driveDataRef": {
+          "$ref": "#/definitions/DriveDataRef",
+          "description": "A reference to the drive attachment. This is used with the Drive API."
+        },
+        "name": {
+          "description": "Resource name of the attachment, in the form \"spaces/*/messages/*/attachments/*\".",
+          "type": "string"
+        },
+        "source": {
+          "description": "The source of the attachment.",
+          "enum": [
+            "SOURCE_UNSPECIFIED",
+            "DRIVE_FILE",
+            "UPLOADED_CONTENT"
+          ],
+          "type": "string"
+        },
+        "thumbnailUri": {
+          "description": "Output only. The thumbnail URL which should be used to preview the attachment to a human user. Bots should not use this URL to download attachment content.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "AttachmentDataRef": {
+      "description": "A reference to the data of an attachment.",
+      "properties": {
+        "resourceName": {
+          "description": "The resource name of the attachment data. This is used with the media API to download the attachment data.",
+          "type": "string"
         }
       },
       "type": "object"
@@ -610,7 +847,7 @@
       "type": "object"
     },
     "CardAction": {
-      "description": "A card action is\nthe action associated with the card. For an invoice card, a\ntypical action would be: delete invoice, email invoice or open the\ninvoice in browser.",
+      "description": "A card action is the action associated with the card. For an invoice card, a typical action would be: delete invoice, email invoice or open the invoice in browser.",
       "properties": {
         "actionLabel": {
           "description": "The label used to be displayed in the action menu item.",
@@ -643,30 +880,90 @@
           "type": "string"
         },
         "title": {
-          "description": "The title must be specified. The header has a fixed height: if both a\ntitle and subtitle is specified, each will take up 1 line. If only the\ntitle is specified, it will take up both lines.",
+          "description": "The title must be specified. The header has a fixed height: if both a title and subtitle is specified, each will take up 1 line. If only the title is specified, it will take up both lines.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "DeprecatedEvent": {
+      "description": "Google Chat events.",
+      "properties": {
+        "action": {
+          "$ref": "#/definitions/FormAction",
+          "description": "The form action data associated with an interactive card that was clicked. Only populated for CARD_CLICKED events. See the [Interactive Cards guide](/hangouts/chat/how-tos/cards-onclick) for more information."
+        },
+        "configCompleteRedirectUrl": {
+          "description": "The URL the bot should redirect the user to after they have completed an authorization or configuration flow outside of Google Chat. See the [Authorizing access to 3p services guide](/hangouts/chat/how-tos/auth-3p) for more information.",
+          "type": "string"
+        },
+        "eventTime": {
+          "description": "The timestamp indicating when the event was dispatched.",
+          "format": "google-datetime",
+          "type": "string"
+        },
+        "message": {
+          "$ref": "#/definitions/Message",
+          "description": "The message that triggered the event, if applicable."
+        },
+        "space": {
+          "$ref": "#/definitions/Space",
+          "description": "The room or DM in which the event occurred."
+        },
+        "threadKey": {
+          "description": "The bot-defined key for the thread related to the event. See the thread_key field of the `spaces.message.create` request for more information.",
+          "type": "string"
+        },
+        "token": {
+          "description": "A secret value that bots can use to verify if a request is from Google. The token is randomly generated by Google, remains static, and can be obtained from the Google Chat API configuration page in the Cloud Console. Developers can revoke/regenerate it if needed from the same page.",
+          "type": "string"
+        },
+        "type": {
+          "description": "The type of the event.",
+          "enum": [
+            "UNSPECIFIED",
+            "MESSAGE",
+            "ADDED_TO_SPACE",
+            "REMOVED_FROM_SPACE",
+            "CARD_CLICKED"
+          ],
+          "type": "string"
+        },
+        "user": {
+          "$ref": "#/definitions/User",
+          "description": "The user that triggered the event."
+        }
+      },
+      "type": "object"
+    },
+    "DriveDataRef": {
+      "description": "A reference to the data of a drive attachment.",
+      "properties": {
+        "driveFileId": {
+          "description": "The id for the drive file, for use with the Drive API.",
           "type": "string"
         }
       },
       "type": "object"
     },
     "Empty": {
-      "description": "A generic empty message that you can re-use to avoid defining duplicated\nempty messages in your APIs. A typical example is to use it as the request\nor the response type of an API method. For instance:\n\n    service Foo {\n      rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);\n    }\n\nThe JSON representation for `Empty` is empty JSON object `{}`.",
+      "description": "A generic empty message that you can re-use to avoid defining duplicated empty messages in your APIs. A typical example is to use it as the request or the response type of an API method. For instance: service Foo { rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON representation for `Empty` is empty JSON object `{}`.",
       "properties": {},
       "type": "object"
     },
     "FormAction": {
-      "description": "A form action describes the behavior when the form is submitted.\nFor example, an Apps Script can be invoked to handle the form.",
+      "description": "A form action describes the behavior when the form is submitted. For example, an Apps Script can be invoked to handle the form.",
       "properties": {
-        "actionMethodName": {
-          "description": "Apps Script function to invoke when the containing element is\nclicked/activated.",
-          "type": "string"
-        },
         "parameters": {
           "description": "List of action parameters.",
           "items": {
             "$ref": "#/definitions/ActionParameter"
           },
           "type": "array"
+        },
+        "actionMethodName": {
+          "description": "The method name is used to identify which part of the form triggered the form submission. This information is echoed back to the bot as part of the card click event. The same method name can be used for several elements that trigger a common behavior if desired.",
+          "type": "string"
         }
       },
       "type": "object"
@@ -675,7 +972,7 @@
       "description": "An image that is specified by a URL and can have an onclick action.",
       "properties": {
         "aspectRatio": {
-          "description": "The aspect ratio of this image (width/height).",
+          "description": "The aspect ratio of this image (width/height). This field allows clients to reserve the right height for the image while waiting for it to load. It's not meant to override the native aspect ratio of the image. If unset, the server fills it by prefetching the image.",
           "format": "double",
           "type": "number"
         },
@@ -694,7 +991,7 @@
       "description": "An image button with an onclick action.",
       "properties": {
         "icon": {
-          "description": "The icon specified by an enum that indices to an icon provided by Chat\nAPI.",
+          "description": "The icon specified by an enum that indices to an icon provided by Chat API.",
           "enum": [
             "ICON_UNSPECIFIED",
             "AIRPLANE",
@@ -735,7 +1032,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of this image_button which will be used for accessibility.\nDefault value will be provided if developers don't specify.",
+          "description": "The name of this image_button which will be used for accessibility. Default value will be provided if developers don't specify.",
           "type": "string"
         },
         "onClick": {
@@ -746,7 +1043,7 @@
       "type": "object"
     },
     "KeyValue": {
-      "description": "A UI element contains a key (label) and a value (content). And this\nelement may also contain some actions such as onclick button.",
+      "description": "A UI element contains a key (label) and a value (content). And this element may also contain some actions such as onclick button.",
       "properties": {
         "bottomLabel": {
           "description": "The text of the bottom label. Formatted text supported.",
@@ -765,7 +1062,7 @@
           "type": "boolean"
         },
         "icon": {
-          "description": "An enum value that will be replaced by the Chat API with the\ncorresponding icon image.",
+          "description": "An enum value that will be replaced by the Chat API with the corresponding icon image.",
           "enum": [
             "ICON_UNSPECIFIED",
             "AIRPLANE",
@@ -807,7 +1104,7 @@
         },
         "onClick": {
           "$ref": "#/definitions/OnClick",
-          "description": "The onclick action. Only the top label, bottom label and content region\nare clickable."
+          "description": "The onclick action. Only the top label, bottom label and content region are clickable."
         },
         "topLabel": {
           "description": "The text of the top label. Formatted text supported.",
@@ -826,7 +1123,7 @@
           "type": "array"
         },
         "nextPageToken": {
-          "description": "Continuation token to retrieve the next page of results. It will be empty\nfor the last page of results.",
+          "description": "Continuation token to retrieve the next page of results. It will be empty for the last page of results.",
           "type": "string"
         }
       },
@@ -835,7 +1132,7 @@
     "ListSpacesResponse": {
       "properties": {
         "nextPageToken": {
-          "description": "Continuation token to retrieve the next page of results. It will be empty\nfor the last page of results. Tokens expire in an hour. An error is thrown\nif an expired token is passed.",
+          "description": "Continuation token to retrieve the next page of results. It will be empty for the last page of results. Tokens expire in an hour. An error is thrown if an expired token is passed.",
           "type": "string"
         },
         "spaces": {
@@ -848,20 +1145,29 @@
       },
       "type": "object"
     },
+    "Media": {
+      "description": "Media resource.",
+      "properties": {
+        "resourceName": {
+          "description": "Name of the media resource.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "Membership": {
       "description": "Represents a membership relation in Hangouts Chat.",
       "properties": {
         "createTime": {
-          "description": "The creation time of the membership a.k.a the time at which the member\njoined the space, if applicable.",
+          "description": "The creation time of the membership a.k.a the time at which the member joined the space, if applicable.",
           "format": "google-datetime",
           "type": "string"
         },
         "member": {
           "$ref": "#/definitions/User",
-          "description": "Member details."
+          "description": "A User in Hangout Chat"
         },
         "name": {
-          "description": "Resource name of the membership, in the form \"spaces/*/members/*\".\n\nExample: spaces/AAAAMpdlehY/members/105115627578887013105",
           "type": "string"
         },
         "state": {
@@ -882,7 +1188,7 @@
       "properties": {
         "actionResponse": {
           "$ref": "#/definitions/ActionResponse",
-          "description": "Input only. Parameters that a bot can use to configure how its response is\nposted."
+          "description": "Input only. Parameters that a bot can use to configure how its response is posted."
         },
         "annotations": {
           "description": "Output only. Annotations associated with the text in this message.",
@@ -895,33 +1201,44 @@
           "description": "Plain-text body of the message with all bot mentions stripped out.",
           "type": "string"
         },
+        "attachment": {
+          "description": "User uploaded attachment.",
+          "items": {
+            "$ref": "#/definitions/Attachment"
+          },
+          "type": "array"
+        },
         "cards": {
-          "description": "Rich, formatted and interactive cards that can be used to display UI\nelements such as: formatted texts, buttons, clickable images. Cards are\nnormally displayed below the plain-text body of the message.",
+          "description": "Rich, formatted and interactive cards that can be used to display UI elements such as: formatted texts, buttons, clickable images. Cards are normally displayed below the plain-text body of the message.",
           "items": {
             "$ref": "#/definitions/Card"
           },
           "type": "array"
         },
         "createTime": {
-          "description": "Output only. The time at which the message was created in Hangouts Chat\nserver.",
+          "description": "Output only. The time at which the message was created in Hangouts Chat server.",
           "format": "google-datetime",
           "type": "string"
         },
         "fallbackText": {
-          "description": "A plain-text description of the message's cards, used when the actual cards\ncannot be displayed (e.g. mobile notifications).",
+          "description": "A plain-text description of the message's cards, used when the actual cards cannot be displayed (e.g. mobile notifications).",
           "type": "string"
         },
         "name": {
-          "description": "Resource name, in the form \"spaces/*/messages/*\".\n\nExample: spaces/AAAAMpdlehY/messages/UMxbHmzDlr4.UMxbHmzDlr4",
+          "description": "Resource name, in the form \"spaces/*/messages/*\". Example: spaces/AAAAMpdlehY/messages/UMxbHmzDlr4.UMxbHmzDlr4",
           "type": "string"
         },
         "previewText": {
-          "description": "Text for generating preview chips. This text will not be displayed to the\nuser, but any links to images, web pages, videos, etc. included here will\ngenerate preview chips.",
+          "description": "Text for generating preview chips. This text will not be displayed to the user, but any links to images, web pages, videos, etc. included here will generate preview chips.",
           "type": "string"
         },
         "sender": {
           "$ref": "#/definitions/User",
           "description": "The user who created the message."
+        },
+        "slashCommand": {
+          "$ref": "#/definitions/SlashCommand",
+          "description": "Slash command information, if applicable."
         },
         "space": {
           "$ref": "#/definitions/Space",
@@ -943,7 +1260,7 @@
       "properties": {
         "action": {
           "$ref": "#/definitions/FormAction",
-          "description": "A form action will be trigger by this onclick if specified."
+          "description": "A form action will be triggered by this onclick if specified."
         },
         "openLink": {
           "$ref": "#/definitions/OpenLink",
@@ -963,7 +1280,7 @@
       "type": "object"
     },
     "Section": {
-      "description": "A section contains a collection of widgets that are rendered\n(vertically) in the order that they are specified. Across all platforms,\ncards have a narrow fixed width, so\nthere is currently no need for layout properties (e.g. float).",
+      "description": "A section contains a collection of widgets that are rendered (vertically) in the order that they are specified. Across all platforms, cards have a narrow fixed width, so there is currently no need for layout properties (e.g. float).",
       "properties": {
         "header": {
           "description": "The header of the section, text formatted supported.",
@@ -979,19 +1296,70 @@
       },
       "type": "object"
     },
+    "SlashCommand": {
+      "description": "A Slash Command in Hangouts Chat.",
+      "properties": {
+        "commandId": {
+          "description": "The id of the slash command invoked.",
+          "format": "int64",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "SlashCommandMetadata": {
+      "description": "Annotation metadata for slash commands (/).",
+      "properties": {
+        "bot": {
+          "$ref": "#/definitions/User",
+          "description": "The bot whose command was invoked."
+        },
+        "commandId": {
+          "description": "The command id of the invoked slash command.",
+          "format": "int64",
+          "type": "string"
+        },
+        "commandName": {
+          "description": "The name of the invoked slash command.",
+          "type": "string"
+        },
+        "triggersDialog": {
+          "description": "Indicating whether the slash command is for a dialog.",
+          "type": "boolean"
+        },
+        "type": {
+          "description": "The type of slash command.",
+          "enum": [
+            "TYPE_UNSPECIFIED",
+            "ADD",
+            "INVOKE"
+          ],
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "Space": {
       "description": "A room or DM in Hangouts Chat.",
       "properties": {
         "displayName": {
-          "description": "Output only. The display name (only if the space is a room).",
+          "description": "Output only. The display name (only if the space is a room). Please note that this field might not be populated in direct messages between humans.",
           "type": "string"
         },
         "name": {
-          "description": "Resource name of the space, in the form \"spaces/*\".\n\nExample: spaces/AAAAMpdlehYs",
+          "description": "Resource name of the space, in the form \"spaces/*\". Example: spaces/AAAAMpdlehYs",
           "type": "string"
         },
+        "singleUserBotDm": {
+          "description": "Whether the space is a DM between a bot and a single human.",
+          "type": "boolean"
+        },
+        "threaded": {
+          "description": "Whether the messages are threaded in this space.",
+          "type": "boolean"
+        },
         "type": {
-          "description": "Output only. The type of a space.",
+          "description": "Output only. The type of a space. This is deprecated. Use `single_user_bot_dm` instead.",
           "enum": [
             "TYPE_UNSPECIFIED",
             "ROOM",
@@ -1029,7 +1397,7 @@
       "description": "A thread in Hangouts Chat.",
       "properties": {
         "name": {
-          "description": "Resource name, in the form \"spaces/*/threads/*\".\n\nExample: spaces/AAAAMpdlehY/threads/UMxbHmzDlr4",
+          "description": "Resource name, in the form \"spaces/*/threads/*\". Example: spaces/AAAAMpdlehY/threads/UMxbHmzDlr4",
           "type": "string"
         }
       },
@@ -1041,6 +1409,14 @@
         "displayName": {
           "description": "The user's display name.",
           "type": "string"
+        },
+        "domainId": {
+          "description": "Obfuscated domain information.",
+          "type": "string"
+        },
+        "isAnonymous": {
+          "description": "True when the user is deleted or the user's proifle is not visible.",
+          "type": "boolean"
         },
         "name": {
           "description": "Resource name, in the format \"users/*\".",
@@ -1081,7 +1457,7 @@
       "description": "A widget is a UI element that presents texts, images, etc.",
       "properties": {
         "buttons": {
-          "description": "A list of buttons. Buttons is also oneof data and only one of these\nfields should be set.",
+          "description": "A list of buttons. Buttons is also oneof data and only one of these fields should be set.",
           "items": {
             "$ref": "#/definitions/Button"
           },
@@ -1101,6 +1477,102 @@
         }
       },
       "type": "object"
+    }
+  },
+  "tags": [
+    {
+      "name": "dms"
+    },
+    {
+      "name": "media"
+    },
+    {
+      "name": "rooms"
+    },
+    {
+      "name": "spaces"
+    }
+  ],
+  "externalDocs": {
+    "url": "https://developers.google.com/hangouts/chat"
+  },
+  "x-components": {
+    "parameters": {
+      "_.xgafv": {
+        "description": "V1 error format.",
+        "enum": [
+          "1",
+          "2"
+        ],
+        "in": "query",
+        "name": "$.xgafv",
+        "type": "string"
+      },
+      "access_token": {
+        "description": "OAuth access token.",
+        "in": "query",
+        "name": "access_token",
+        "type": "string"
+      },
+      "alt": {
+        "description": "Data format for response.",
+        "enum": [
+          "json",
+          "media",
+          "proto"
+        ],
+        "in": "query",
+        "name": "alt",
+        "type": "string"
+      },
+      "callback": {
+        "description": "JSONP",
+        "in": "query",
+        "name": "callback",
+        "type": "string"
+      },
+      "fields": {
+        "description": "Selector specifying which fields to include in a partial response.",
+        "in": "query",
+        "name": "fields",
+        "type": "string"
+      },
+      "key": {
+        "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+        "in": "query",
+        "name": "key",
+        "type": "string"
+      },
+      "oauth_token": {
+        "description": "OAuth 2.0 token for the current user.",
+        "in": "query",
+        "name": "oauth_token",
+        "type": "string"
+      },
+      "prettyPrint": {
+        "description": "Returns response with indentations and line breaks.",
+        "in": "query",
+        "name": "prettyPrint",
+        "type": "boolean"
+      },
+      "quotaUser": {
+        "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+        "in": "query",
+        "name": "quotaUser",
+        "type": "string"
+      },
+      "uploadType": {
+        "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+        "in": "query",
+        "name": "uploadType",
+        "type": "string"
+      },
+      "upload_protocol": {
+        "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+        "in": "query",
+        "name": "upload_protocol",
+        "type": "string"
+      }
     }
   }
 }

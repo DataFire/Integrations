@@ -17,7 +17,7 @@
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/applicationinsights/resource-manager/microsoft.insights/stable/2015-05-01/componentApiKeys_API.json",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/applicationinsights/resource-manager/Microsoft.Insights/stable/2015-05-01/componentApiKeys_API.json",
         "version": "2.0"
       }
     ],
@@ -58,25 +58,10 @@
     }
   ],
   "parameters": {
-    "ApiVersionParameter": {
-      "description": "Client Api Version.",
-      "in": "query",
-      "name": "api-version",
-      "required": true,
-      "type": "string"
-    },
     "KeyId": {
       "description": "The API Key ID. This is unique within a Application Insights component.",
       "in": "path",
       "name": "keyId",
-      "required": true,
-      "type": "string",
-      "x-ms-parameter-location": "method"
-    },
-    "ResourceGroupNameParameter": {
-      "description": "The name of the resource group.",
-      "in": "path",
-      "name": "resourceGroupName",
       "required": true,
       "type": "string",
       "x-ms-parameter-location": "method"
@@ -88,29 +73,40 @@
       "required": true,
       "type": "string",
       "x-ms-parameter-location": "method"
-    },
-    "SubscriptionIdParameter": {
-      "description": "The Azure subscription ID.",
-      "in": "path",
-      "name": "subscriptionId",
-      "required": true,
-      "type": "string"
     }
   },
   "paths": {
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.insights/components/{resourceName}/APIKeys/{keyId}": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/components/{resourceName}/APIKeys/{keyId}": {
       "delete": {
         "description": "Delete an API Key of an Application Insights component.",
         "operationId": "APIKeys_Delete",
         "parameters": [
           {
-            "$ref": "#/parameters/ResourceGroupNameParameter"
+            "description": "The name of the resource group. The name is case insensitive.",
+            "in": "path",
+            "maxLength": 90,
+            "minLength": 1,
+            "name": "resourceGroupName",
+            "pattern": "^[-\\w\\._\\(\\)]+$",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
-            "$ref": "#/parameters/ApiVersionParameter"
+            "description": "The API version to use for this operation.",
+            "in": "query",
+            "minLength": 1,
+            "name": "api-version",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/SubscriptionIdParameter"
+            "description": "The ID of the target subscription.",
+            "in": "path",
+            "minLength": 1,
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string"
           },
           {
             "$ref": "#/parameters/ResourceNameParameter"
@@ -140,14 +136,14 @@
               "200": {
                 "body": {
                   "createdDate": "Thu, 28 Sep 2017 16:59:18 GMT",
-                  "id": "/subscriptions/subid/resourcegroups/my-resource-group/providers/microsoft.insights/components/my-component/apikeys/bb820f1b-3110-4a8b-ba2c-8c1129d7eb6a",
+                  "id": "/subscriptions/subid/resourcegroups/my-resource-group/providers/Microsoft.Insights/components/my-component/apikeys/bb820f1b-3110-4a8b-ba2c-8c1129d7eb6a",
                   "linkedReadProperties": [
-                    "/subscriptions/subid/resourceGroups/my-resource-group/providers/microsoft.insights/components/my-component/api",
-                    "/subscriptions/subid/resourceGroups/my-resource-group/providers/microsoft.insights/components/my-component/draft",
-                    "/subscriptions/subid/resourceGroups/my-resource-group/providers/microsoft.insights/components/my-component/extendqueries",
-                    "/subscriptions/subid/resourceGroups/my-resource-group/providers/microsoft.insights/components/my-component/search",
-                    "/subscriptions/subid/resourceGroups/my-resource-group/providers/microsoft.insights/components/my-component/aggregate",
-                    "/subscriptions/subid/resourceGroups/my-resource-group/providers/microsoft.insights/components/my-component/agentconfig"
+                    "/subscriptions/subid/resourceGroups/my-resource-group/providers/Microsoft.Insights/components/my-component/api",
+                    "/subscriptions/subid/resourceGroups/my-resource-group/providers/Microsoft.Insights/components/my-component/draft",
+                    "/subscriptions/subid/resourceGroups/my-resource-group/providers/Microsoft.Insights/components/my-component/extendqueries",
+                    "/subscriptions/subid/resourceGroups/my-resource-group/providers/Microsoft.Insights/components/my-component/search",
+                    "/subscriptions/subid/resourceGroups/my-resource-group/providers/Microsoft.Insights/components/my-component/aggregate",
+                    "/subscriptions/subid/resourceGroups/my-resource-group/providers/Microsoft.Insights/components/my-component/agentconfig"
                   ],
                   "linkedWriteProperties": [],
                   "name": "test2"
@@ -162,13 +158,31 @@
         "operationId": "APIKeys_Get",
         "parameters": [
           {
-            "$ref": "#/parameters/ResourceGroupNameParameter"
+            "description": "The name of the resource group. The name is case insensitive.",
+            "in": "path",
+            "maxLength": 90,
+            "minLength": 1,
+            "name": "resourceGroupName",
+            "pattern": "^[-\\w\\._\\(\\)]+$",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
-            "$ref": "#/parameters/ApiVersionParameter"
+            "description": "The API version to use for this operation.",
+            "in": "query",
+            "minLength": 1,
+            "name": "api-version",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/SubscriptionIdParameter"
+            "description": "The ID of the target subscription.",
+            "in": "path",
+            "minLength": 1,
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string"
           },
           {
             "$ref": "#/parameters/ResourceNameParameter"
@@ -198,14 +212,14 @@
               "200": {
                 "body": {
                   "createdDate": "Thu, 28 Sep 2017 16:59:18 GMT",
-                  "id": "/subscriptions/subid/resourcegroups/my-resource-group/providers/microsoft.insights/components/my-component/apikeys/bb820f1b-3110-4a8b-ba2c-8c1129d7eb6a",
+                  "id": "/subscriptions/subid/resourcegroups/my-resource-group/providers/Microsoft.Insights/components/my-component/apikeys/bb820f1b-3110-4a8b-ba2c-8c1129d7eb6a",
                   "linkedReadProperties": [
-                    "/subscriptions/subid/resourceGroups/my-resource-group/providers/microsoft.insights/components/my-component/api",
-                    "/subscriptions/subid/resourceGroups/my-resource-group/providers/microsoft.insights/components/my-component/draft",
-                    "/subscriptions/subid/resourceGroups/my-resource-group/providers/microsoft.insights/components/my-component/extendqueries",
-                    "/subscriptions/subid/resourceGroups/my-resource-group/providers/microsoft.insights/components/my-component/search",
-                    "/subscriptions/subid/resourceGroups/my-resource-group/providers/microsoft.insights/components/my-component/aggregate",
-                    "/subscriptions/subid/resourceGroups/my-resource-group/providers/microsoft.insights/components/my-component/agentconfig"
+                    "/subscriptions/subid/resourceGroups/my-resource-group/providers/Microsoft.Insights/components/my-component/api",
+                    "/subscriptions/subid/resourceGroups/my-resource-group/providers/Microsoft.Insights/components/my-component/draft",
+                    "/subscriptions/subid/resourceGroups/my-resource-group/providers/Microsoft.Insights/components/my-component/extendqueries",
+                    "/subscriptions/subid/resourceGroups/my-resource-group/providers/Microsoft.Insights/components/my-component/search",
+                    "/subscriptions/subid/resourceGroups/my-resource-group/providers/Microsoft.Insights/components/my-component/aggregate",
+                    "/subscriptions/subid/resourceGroups/my-resource-group/providers/Microsoft.Insights/components/my-component/agentconfig"
                   ],
                   "linkedWriteProperties": [],
                   "name": "test2"
@@ -216,19 +230,37 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.insights/components/{resourceName}/ApiKeys": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/components/{resourceName}/ApiKeys": {
       "get": {
         "description": "Gets a list of API keys of an Application Insights component.",
         "operationId": "APIKeys_List",
         "parameters": [
           {
-            "$ref": "#/parameters/ResourceGroupNameParameter"
+            "description": "The name of the resource group. The name is case insensitive.",
+            "in": "path",
+            "maxLength": 90,
+            "minLength": 1,
+            "name": "resourceGroupName",
+            "pattern": "^[-\\w\\._\\(\\)]+$",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
-            "$ref": "#/parameters/ApiVersionParameter"
+            "description": "The API version to use for this operation.",
+            "in": "query",
+            "minLength": 1,
+            "name": "api-version",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/SubscriptionIdParameter"
+            "description": "The ID of the target subscription.",
+            "in": "path",
+            "minLength": 1,
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string"
           },
           {
             "$ref": "#/parameters/ResourceNameParameter"
@@ -256,30 +288,30 @@
                   "value": [
                     {
                       "createdDate": "Thu, 28 Sep 2017 16:58:52 GMT",
-                      "id": "/subscriptions/subid/resourcegroups/my-resource-group/providers/microsoft.insights/components/my-component/apikeys/fe2e0138-47c1-46c5-8726-872f54c1ca08",
+                      "id": "/subscriptions/subid/resourcegroups/my-resource-group/providers/Microsoft.Insights/components/my-component/apikeys/fe2e0138-47c1-46c5-8726-872f54c1ca08",
                       "linkedReadProperties": [
-                        "/subscriptions/subid/resourceGroups/my-resource-group/providers/microsoft.insights/components/my-component/api",
-                        "/subscriptions/subid/resourceGroups/my-resource-group/providers/microsoft.insights/components/my-component/draft",
-                        "/subscriptions/subid/resourceGroups/my-resource-group/providers/microsoft.insights/components/my-component/extendqueries",
-                        "/subscriptions/subid/resourceGroups/my-resource-group/providers/microsoft.insights/components/my-component/search",
-                        "/subscriptions/subid/resourceGroups/my-resource-group/providers/microsoft.insights/components/my-component/aggregate",
-                        "/subscriptions/subid/resourceGroups/my-resource-group/providers/microsoft.insights/components/my-component/agentconfig"
+                        "/subscriptions/subid/resourceGroups/my-resource-group/providers/Microsoft.Insights/components/my-component/api",
+                        "/subscriptions/subid/resourceGroups/my-resource-group/providers/Microsoft.Insights/components/my-component/draft",
+                        "/subscriptions/subid/resourceGroups/my-resource-group/providers/Microsoft.Insights/components/my-component/extendqueries",
+                        "/subscriptions/subid/resourceGroups/my-resource-group/providers/Microsoft.Insights/components/my-component/search",
+                        "/subscriptions/subid/resourceGroups/my-resource-group/providers/Microsoft.Insights/components/my-component/aggregate",
+                        "/subscriptions/subid/resourceGroups/my-resource-group/providers/Microsoft.Insights/components/my-component/agentconfig"
                       ],
                       "linkedWriteProperties": [
-                        "/subscriptions/subid/resourceGroups/my-resource-group/providers/microsoft.insights/components/my-component/annotations"
+                        "/subscriptions/subid/resourceGroups/my-resource-group/providers/Microsoft.Insights/components/my-component/annotations"
                       ],
                       "name": "test"
                     },
                     {
                       "createdDate": "Thu, 28 Sep 2017 16:59:18 GMT",
-                      "id": "/subscriptions/subid/resourcegroups/my-resource-group/providers/microsoft.insights/components/my-component/apikeys/bb820f1b-3110-4a8b-ba2c-8c1129d7eb6a",
+                      "id": "/subscriptions/subid/resourcegroups/my-resource-group/providers/Microsoft.Insights/components/my-component/apikeys/bb820f1b-3110-4a8b-ba2c-8c1129d7eb6a",
                       "linkedReadProperties": [
-                        "/subscriptions/subid/resourceGroups/my-resource-group/providers/microsoft.insights/components/my-component/api",
-                        "/subscriptions/subid/resourceGroups/my-resource-group/providers/microsoft.insights/components/my-component/draft",
-                        "/subscriptions/subid/resourceGroups/my-resource-group/providers/microsoft.insights/components/my-component/extendqueries",
-                        "/subscriptions/subid/resourceGroups/my-resource-group/providers/microsoft.insights/components/my-component/search",
-                        "/subscriptions/subid/resourceGroups/my-resource-group/providers/microsoft.insights/components/my-component/aggregate",
-                        "/subscriptions/subid/resourceGroups/my-resource-group/providers/microsoft.insights/components/my-component/agentconfig"
+                        "/subscriptions/subid/resourceGroups/my-resource-group/providers/Microsoft.Insights/components/my-component/api",
+                        "/subscriptions/subid/resourceGroups/my-resource-group/providers/Microsoft.Insights/components/my-component/draft",
+                        "/subscriptions/subid/resourceGroups/my-resource-group/providers/Microsoft.Insights/components/my-component/extendqueries",
+                        "/subscriptions/subid/resourceGroups/my-resource-group/providers/Microsoft.Insights/components/my-component/search",
+                        "/subscriptions/subid/resourceGroups/my-resource-group/providers/Microsoft.Insights/components/my-component/aggregate",
+                        "/subscriptions/subid/resourceGroups/my-resource-group/providers/Microsoft.Insights/components/my-component/agentconfig"
                       ],
                       "linkedWriteProperties": [],
                       "name": "test2"
@@ -290,20 +322,40 @@
             }
           }
         },
-        "x-ms-pageable": {}
+        "x-ms-pageable": {
+          "nextLinkName": null
+        }
       },
       "post": {
         "description": "Create an API Key of an Application Insights component.",
         "operationId": "APIKeys_Create",
         "parameters": [
           {
-            "$ref": "#/parameters/ResourceGroupNameParameter"
+            "description": "The name of the resource group. The name is case insensitive.",
+            "in": "path",
+            "maxLength": 90,
+            "minLength": 1,
+            "name": "resourceGroupName",
+            "pattern": "^[-\\w\\._\\(\\)]+$",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
-            "$ref": "#/parameters/ApiVersionParameter"
+            "description": "The API version to use for this operation.",
+            "in": "query",
+            "minLength": 1,
+            "name": "api-version",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/SubscriptionIdParameter"
+            "description": "The ID of the target subscription.",
+            "in": "path",
+            "minLength": 1,
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string"
           },
           {
             "$ref": "#/parameters/ResourceNameParameter"
@@ -331,11 +383,11 @@
             "parameters": {
               "APIKeyProperties": {
                 "linkedReadProperties": [
-                  "/subscriptions/subid/resourceGroups/my-resource-group/providers/microsoft.insights/components/my-component/api",
-                  "/subscriptions/subid/resourceGroups/my-resource-group/providers/microsoft.insights/components/my-component/agentconfig"
+                  "/subscriptions/subid/resourceGroups/my-resource-group/providers/Microsoft.Insights/components/my-component/api",
+                  "/subscriptions/subid/resourceGroups/my-resource-group/providers/Microsoft.Insights/components/my-component/agentconfig"
                 ],
                 "linkedWriteProperties": [
-                  "/subscriptions/subid/resourceGroups/my-resource-group/providers/microsoft.insights/components/my-component/annotations"
+                  "/subscriptions/subid/resourceGroups/my-resource-group/providers/Microsoft.Insights/components/my-component/annotations"
                 ],
                 "name": "test2"
               },
@@ -349,13 +401,13 @@
                 "body": {
                   "apiKey": "eip8wlzuzlf4wzczhnzao54zcswew25azs4kadhb",
                   "createdDate": "Thu, 28 Sep 2017 16:58:52 GMT",
-                  "id": "/subscriptions/subid/resourcegroups/my-resource-group/providers/microsoft.insights/components/my-component/apikeys/fe2e0138-47c1-46c5-8726-872f54c1ca08",
+                  "id": "/subscriptions/subid/resourcegroups/my-resource-group/providers/Microsoft.Insights/components/my-component/apikeys/fe2e0138-47c1-46c5-8726-872f54c1ca08",
                   "linkedReadProperties": [
-                    "/subscriptions/subid/resourceGroups/my-resource-group/providers/microsoft.insights/components/my-component/api",
-                    "/subscriptions/subid/resourceGroups/my-resource-group/providers/microsoft.insights/components/my-component/agentconfig"
+                    "/subscriptions/subid/resourceGroups/my-resource-group/providers/Microsoft.Insights/components/my-component/api",
+                    "/subscriptions/subid/resourceGroups/my-resource-group/providers/Microsoft.Insights/components/my-component/agentconfig"
                   ],
                   "linkedWriteProperties": [
-                    "/subscriptions/subid/resourceGroups/my-resource-group/providers/microsoft.insights/components/my-component/annotations"
+                    "/subscriptions/subid/resourceGroups/my-resource-group/providers/Microsoft.Insights/components/my-component/annotations"
                   ],
                   "name": "test"
                 }
@@ -368,7 +420,7 @@
   },
   "definitions": {
     "APIKeyRequest": {
-      "description": "An Application Insights component API Key createion request definition.",
+      "description": "An Application Insights component API Key creation request definition.",
       "properties": {
         "linkedReadProperties": {
           "description": "The read access rights of this API Key.",
@@ -404,7 +456,7 @@
           "type": "string"
         },
         "id": {
-          "description": "The unique ID of the API key inside an Applciation Insights component. It is auto generated when the API key is created.",
+          "description": "The unique ID of the API key inside an Application Insights component. It is auto generated when the API key is created.",
           "readOnly": true,
           "type": "string"
         },

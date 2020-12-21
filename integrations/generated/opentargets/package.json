@@ -1,6 +1,6 @@
 {
   "name": "@datafire/opentargets",
-  "version": "4.0.0",
+  "version": "5.0.0",
   "main": "index.js",
   "description": "DataFire integration for Open Targets Platform",
   "repository": {
@@ -14,7 +14,7 @@
   },
   "homepage": "https://github.com/DataFire/integrations#readme",
   "datafire": {
-    "origin": "https://api.apis.guru/v2/specs/opentargets.io/3.0.1/swagger.json",
+    "origin": "https://api.apis.guru/v2/specs/opentargets.io/19.02.1/swagger.json",
     "type": "openapi"
   },
   "peerDependencies": {

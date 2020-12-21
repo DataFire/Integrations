@@ -6,7 +6,7 @@
   "host": "management.azure.com",
   "info": {
     "title": "TrafficManagerManagementClient",
-    "version": "2017-05-01",
+    "version": "2018-04-01",
     "x-apisguru-categories": [
       "cloud"
     ],
@@ -16,7 +16,7 @@
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/trafficmanager/resource-manager/Microsoft.Network/stable/2017-05-01/trafficmanager.json",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/trafficmanager/resource-manager/Microsoft.Network/stable/2018-04-01/trafficmanager.json",
         "version": "2.0"
       }
     ],
@@ -111,7 +111,7 @@
         "x-ms-examples": {
           "NameAvailabilityTest_NameAvailablePOST21": {
             "parameters": {
-              "api-version": "2017-05-01",
+              "api-version": "2018-04-01",
               "parameters": {
                 "name": "azsmnet5403",
                 "type": "microsoft.network/trafficmanagerprofiles"
@@ -129,7 +129,7 @@
           },
           "NameAvailabilityTest_NameNotAvailablePOST23": {
             "parameters": {
-              "api-version": "2017-05-01",
+              "api-version": "2018-04-01",
               "parameters": {
                 "name": "azsmnet4696",
                 "type": "microsoft.network/trafficmanagerprofiles"
@@ -179,7 +179,7 @@
         "x-ms-examples": {
           "GeographicHierarchy-GET-default": {
             "parameters": {
-              "api-version": "2017-05-01"
+              "api-version": "2018-04-01"
             },
             "responses": {
               "200": {
@@ -240,6 +240,148 @@
         }
       }
     },
+    "/subscriptions/{subscriptionId}/providers/Microsoft.Network/trafficManagerUserMetricsKeys/default": {
+      "delete": {
+        "description": "Delete a subscription-level key used for Real User Metrics collection.",
+        "operationId": "TrafficManagerUserMetricsKeys_Delete",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The Traffic Manager Real User Metrics key was deleted successfully.",
+            "schema": {
+              "$ref": "#/definitions/DeleteOperationResult"
+            }
+          },
+          "default": {
+            "description": "Default response. It will be deserialized as per the Error definition.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
+          }
+        },
+        "tags": [
+          "RealUserMetrics"
+        ],
+        "x-ms-examples": {
+          "TrafficManagerUserMetricsKeys-DELETE": {
+            "parameters": {
+              "api-version": "2018-04-01",
+              "subscriptionId": "{subscription-id}"
+            },
+            "responses": {
+              "200": {
+                "body": ""
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "description": "Get the subscription-level key used for Real User Metrics collection.",
+        "operationId": "TrafficManagerUserMetricsKeys_Get",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The subscription-level Traffic Manager Real User Metrics key.",
+            "schema": {
+              "$ref": "#/definitions/UserMetricsModel"
+            }
+          },
+          "default": {
+            "description": "Default response. It will be deserialized as per the Error definition.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
+          }
+        },
+        "tags": [
+          "RealUserMetrics"
+        ],
+        "x-ms-examples": {
+          "TrafficManagerUserMetricsKeys-GET": {
+            "parameters": {
+              "api-version": "2018-04-01",
+              "subscriptionId": "{subscription-id}"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "id": "/providers/Microsoft.Network/trafficManagerUserMetricsKeys/default",
+                  "name": "default",
+                  "properties": {
+                    "key": "9ea056eb38f145a0891b5d5dc15e9aa2"
+                  },
+                  "type": "Microsoft.Network/trafficManagerUserMetricsKeys"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "description": "Create or update a subscription-level key used for Real User Metrics collection.",
+        "operationId": "TrafficManagerUserMetricsKeys_CreateOrUpdate",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "A new subscription-level key has been created for Real User Metrics collection.",
+            "schema": {
+              "$ref": "#/definitions/UserMetricsModel"
+            }
+          },
+          "default": {
+            "description": "Default response. It will be deserialized as per the Error definition.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
+          }
+        },
+        "tags": [
+          "RealUserMetrics"
+        ],
+        "x-ms-examples": {
+          "TrafficManagerUserMetricsKeys-PUT": {
+            "parameters": {
+              "api-version": "2018-04-01",
+              "subscriptionId": "{subscription-id}"
+            },
+            "responses": {
+              "201": {
+                "body": {
+                  "id": "/providers/Microsoft.Network/trafficManagerUserMetricsKeys/default",
+                  "name": "default",
+                  "properties": {
+                    "key": "9ea056eb38f145a0891b5d5dc15e9aa2"
+                  },
+                  "type": "Microsoft.Network/trafficManagerUserMetricsKeys"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/subscriptions/{subscriptionId}/providers/Microsoft.Network/trafficmanagerprofiles": {
       "get": {
         "description": "Lists all Traffic Manager profiles within a subscription.",
@@ -272,15 +414,15 @@
         "x-ms-examples": {
           "ListBySubscription": {
             "parameters": {
-              "api-version": "2017-05-01",
-              "subscriptionId": "e68d4145-c9ae-4667-925d-c51c8d88ad73"
+              "api-version": "2018-04-01",
+              "subscriptionId": "{subscription-id}"
             },
             "responses": {
               "200": {
                 "body": {
                   "value": [
                     {
-                      "id": "/subscriptions/e68d4145-c9ae-4667-925d-c51c8d88ad73/resourceGroups/azsmnet1719/providers/Microsoft.Network/trafficManagerProfiles/azsmnet5183",
+                      "id": "/subscriptions/{subscription-id}/resourceGroups/azsmnet1719/providers/Microsoft.Network/trafficManagerProfiles/azsmnet5183",
                       "location": "global",
                       "name": "azsmnet5183",
                       "properties": {
@@ -306,7 +448,7 @@
                       "type": "Microsoft.Network/trafficManagerProfiles"
                     },
                     {
-                      "id": "/subscriptions/e68d4145-c9ae-4667-925d-c51c8d88ad73/resourceGroups/azuresdkfornetautoresttrafficmanager5168/providers/Microsoft.Network/trafficManagerProfiles/azuresdkfornetautoresttrafficmanager3440",
+                      "id": "/subscriptions/{subscription-id}/resourceGroups/azuresdkfornetautoresttrafficmanager5168/providers/Microsoft.Network/trafficManagerProfiles/azuresdkfornetautoresttrafficmanager3440",
                       "location": "global",
                       "name": "azuresdkfornetautoresttrafficmanager3440",
                       "properties": {
@@ -317,7 +459,7 @@
                         },
                         "endpoints": [
                           {
-                            "id": "/subscriptions/e68d4145-c9ae-4667-925d-c51c8d88ad73/resourceGroups/azuresdkfornetautoresttrafficmanager5168/providers/Microsoft.Network/trafficManagerProfiles/azuresdkfornetautoresttrafficmanager3440/externalEndpoints/My external endpoint",
+                            "id": "/subscriptions/{subscription-id}/resourceGroups/azuresdkfornetautoresttrafficmanager5168/providers/Microsoft.Network/trafficManagerProfiles/azuresdkfornetautoresttrafficmanager3440/externalEndpoints/My external endpoint",
                             "name": "My external endpoint",
                             "properties": {
                               "endpointLocation": "North Europe",
@@ -346,7 +488,7 @@
                       "type": "Microsoft.Network/trafficManagerProfiles"
                     },
                     {
-                      "id": "/subscriptions/e68d4145-c9ae-4667-925d-c51c8d88ad73/resourceGroups/onesdk9785/providers/Microsoft.Network/trafficManagerProfiles/onesdk8819",
+                      "id": "/subscriptions/{subscription-id}/resourceGroups/onesdk9785/providers/Microsoft.Network/trafficManagerProfiles/onesdk8819",
                       "location": "global",
                       "name": "onesdk8819",
                       "properties": {
@@ -357,7 +499,7 @@
                         },
                         "endpoints": [
                           {
-                            "id": "/subscriptions/e68d4145-c9ae-4667-925d-c51c8d88ad73/resourceGroups/onesdk9785/providers/Microsoft.Network/trafficManagerProfiles/onesdk8819/nestedEndpoints/MyNestedEndpoint",
+                            "id": "/subscriptions/{subscription-id}/resourceGroups/onesdk9785/providers/Microsoft.Network/trafficManagerProfiles/onesdk8819/nestedEndpoints/MyNestedEndpoint",
                             "name": "MyNestedEndpoint",
                             "properties": {
                               "endpointLocation": "West Europe",
@@ -366,7 +508,7 @@
                               "minChildEndpoints": 1,
                               "priority": 1,
                               "target": "onesdk4285.tmpreview.watmtest.azure-test.net",
-                              "targetResourceId": "/subscriptions/e68d4145-c9ae-4667-925d-c51c8d88ad73/resourceGroups/onesdk9785/providers/Microsoft.Network/trafficManagerProfiles/onesdk1792",
+                              "targetResourceId": "/subscriptions/{subscription-id}/resourceGroups/onesdk9785/providers/Microsoft.Network/trafficManagerProfiles/onesdk1792",
                               "weight": 1
                             },
                             "type": "Microsoft.Network/trafficManagerProfiles/nestedEndpoints"
@@ -393,7 +535,9 @@
             }
           }
         },
-        "x-ms-pageable": {}
+        "x-ms-pageable": {
+          "nextLinkName": null
+        }
       }
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficmanagerprofiles": {
@@ -435,16 +579,16 @@
         "x-ms-examples": {
           "ListProfilesByResourceGroup": {
             "parameters": {
-              "api-version": "2017-05-01",
+              "api-version": "2018-04-01",
               "resourceGroupName": "azuresdkfornetautoresttrafficmanager3640",
-              "subscriptionId": "e68d4145-c9ae-4667-925d-c51c8d88ad73"
+              "subscriptionId": "{subscription-id}"
             },
             "responses": {
               "200": {
                 "body": {
                   "value": [
                     {
-                      "id": "/subscriptions/e68d4145-c9ae-4667-925d-c51c8d88ad73/resourceGroups/azuresdkfornetautoresttrafficmanager3640/providers/Microsoft.Network/trafficManagerProfiles/azuresdkfornetautoresttrafficmanager1005",
+                      "id": "/subscriptions/{subscription-id}/resourceGroups/azuresdkfornetautoresttrafficmanager3640/providers/Microsoft.Network/trafficManagerProfiles/azuresdkfornetautoresttrafficmanager1005",
                       "location": "global",
                       "name": "azuresdkfornetautoresttrafficmanager1005",
                       "properties": {
@@ -455,7 +599,7 @@
                         },
                         "endpoints": [
                           {
-                            "id": "/subscriptions/e68d4145-c9ae-4667-925d-c51c8d88ad73/resourceGroups/azuresdkfornetautoresttrafficmanager3640/providers/Microsoft.Network/trafficManagerProfiles/azuresdkfornetautoresttrafficmanager1005/externalEndpoints/My external endpoint",
+                            "id": "/subscriptions/{subscription-id}/resourceGroups/azuresdkfornetautoresttrafficmanager3640/providers/Microsoft.Network/trafficManagerProfiles/azuresdkfornetautoresttrafficmanager1005/externalEndpoints/My external endpoint",
                             "name": "My external endpoint",
                             "properties": {
                               "endpointLocation": "North Europe",
@@ -484,7 +628,7 @@
                       "type": "Microsoft.Network/trafficManagerProfiles"
                     },
                     {
-                      "id": "/subscriptions/e68d4145-c9ae-4667-925d-c51c8d88ad73/resourceGroups/azuresdkfornetautoresttrafficmanager3640/providers/Microsoft.Network/trafficManagerProfiles/azuresdkfornetautoresttrafficmanager959",
+                      "id": "/subscriptions/{subscription-id}/resourceGroups/azuresdkfornetautoresttrafficmanager3640/providers/Microsoft.Network/trafficManagerProfiles/azuresdkfornetautoresttrafficmanager959",
                       "location": "global",
                       "name": "azuresdkfornetautoresttrafficmanager959",
                       "properties": {
@@ -495,7 +639,7 @@
                         },
                         "endpoints": [
                           {
-                            "id": "/subscriptions/e68d4145-c9ae-4667-925d-c51c8d88ad73/resourceGroups/azuresdkfornetautoresttrafficmanager3640/providers/Microsoft.Network/trafficManagerProfiles/azuresdkfornetautoresttrafficmanager959/externalEndpoints/My external endpoint",
+                            "id": "/subscriptions/{subscription-id}/resourceGroups/azuresdkfornetautoresttrafficmanager3640/providers/Microsoft.Network/trafficManagerProfiles/azuresdkfornetautoresttrafficmanager959/externalEndpoints/My external endpoint",
                             "name": "My external endpoint",
                             "properties": {
                               "endpointLocation": "North Europe",
@@ -529,7 +673,9 @@
             }
           }
         },
-        "x-ms-pageable": {}
+        "x-ms-pageable": {
+          "nextLinkName": null
+        }
       }
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficmanagerprofiles/{profileName}": {
@@ -581,10 +727,10 @@
         "x-ms-examples": {
           "Profile-DELETE": {
             "parameters": {
-              "api-version": "2017-05-01",
+              "api-version": "2018-04-01",
               "profileName": "azuresdkfornetautoresttrafficmanager3880",
               "resourceGroupName": "azuresdkfornetautoresttrafficmanager1323",
-              "subscriptionId": "e68d4145-c9ae-4667-925d-c51c8d88ad73"
+              "subscriptionId": "{subscription-id}"
             },
             "responses": {
               "200": {
@@ -642,15 +788,15 @@
         "x-ms-examples": {
           "Profile-GET-WithEndpoints": {
             "parameters": {
-              "api-version": "2017-05-01",
+              "api-version": "2018-04-01",
               "profileName": "azuresdkfornetautoresttrafficmanager3880",
               "resourceGroupName": "azuresdkfornetautoresttrafficmanager1323",
-              "subscriptionId": "e68d4145-c9ae-4667-925d-c51c8d88ad73"
+              "subscriptionId": "{subscription-id}"
             },
             "responses": {
               "200": {
                 "body": {
-                  "id": "/subscriptions/e68d4145-c9ae-4667-925d-c51c8d88ad73/resourceGroups/azuresdkfornetautoresttrafficmanager1323/providers/Microsoft.Network/trafficManagerProfiles/azuresdkfornetautoresttrafficmanager3880",
+                  "id": "/subscriptions/{subscription-id}/resourceGroups/azuresdkfornetautoresttrafficmanager1323/providers/Microsoft.Network/trafficManagerProfiles/azuresdkfornetautoresttrafficmanager3880",
                   "location": "global",
                   "name": "azuresdkfornetautoresttrafficmanager3880",
                   "properties": {
@@ -661,7 +807,7 @@
                     },
                     "endpoints": [
                       {
-                        "id": "/subscriptions/e68d4145-c9ae-4667-925d-c51c8d88ad73/resourceGroups/azuresdkfornetautoresttrafficmanager1323/providers/Microsoft.Network/trafficManagerProfiles/azuresdkfornetautoresttrafficmanager3880/externalEndpoints/My external endpoint",
+                        "id": "/subscriptions/{subscription-id}/resourceGroups/azuresdkfornetautoresttrafficmanager1323/providers/Microsoft.Network/trafficManagerProfiles/azuresdkfornetautoresttrafficmanager3880/externalEndpoints/My external endpoint",
                         "name": "My external endpoint",
                         "properties": {
                           "endpointLocation": "North Europe",
@@ -748,10 +894,20 @@
         "x-ms-examples": {
           "Profile-PATCH-MonitorConfig": {
             "parameters": {
-              "api-version": "2017-05-01",
+              "api-version": "2018-04-01",
               "parameters": {
                 "properties": {
                   "monitorConfig": {
+                    "customHeaders": [
+                      {
+                        "name": "header-1",
+                        "value": "value-1"
+                      },
+                      {
+                        "name": "header-2",
+                        "value": "value-2"
+                      }
+                    ],
                     "intervalInSeconds": 30,
                     "path": "/testpath.aspx",
                     "port": 80,
@@ -763,12 +919,12 @@
               },
               "profileName": "azuresdkfornetautoresttrafficmanager6192",
               "resourceGroupName": "azuresdkfornetautoresttrafficmanager2583",
-              "subscriptionId": "e68d4145-c9ae-4667-925d-c51c8d88ad73"
+              "subscriptionId": "{subscription-id}"
             },
             "responses": {
               "200": {
                 "body": {
-                  "id": "/subscriptions/e68d4145-c9ae-4667-925d-c51c8d88ad73/resourceGroups/azuresdkfornetautoresttrafficmanager2583/providers/Microsoft.Network/trafficManagerProfiles/azuresdkfornetautoresttrafficmanager6192",
+                  "id": "/subscriptions/{subscription-id}/resourceGroups/azuresdkfornetautoresttrafficmanager2583/providers/Microsoft.Network/trafficManagerProfiles/azuresdkfornetautoresttrafficmanager6192",
                   "location": "global",
                   "name": "azuresdkfornetautoresttrafficmanager6192",
                   "properties": {
@@ -779,7 +935,7 @@
                     },
                     "endpoints": [
                       {
-                        "id": "/subscriptions/e68d4145-c9ae-4667-925d-c51c8d88ad73/resourceGroups/azuresdkfornetautoresttrafficmanager2583/providers/Microsoft.Network/trafficManagerProfiles/azuresdkfornetautoresttrafficmanager6192/externalEndpoints/My external endpoint",
+                        "id": "/subscriptions/{subscription-id}/resourceGroups/azuresdkfornetautoresttrafficmanager2583/providers/Microsoft.Network/trafficManagerProfiles/azuresdkfornetautoresttrafficmanager6192/externalEndpoints/My external endpoint",
                         "name": "My external endpoint",
                         "properties": {
                           "endpointLocation": "North Europe",
@@ -793,6 +949,16 @@
                       }
                     ],
                     "monitorConfig": {
+                      "customHeaders": [
+                        {
+                          "name": "header-1",
+                          "value": "value-1"
+                        },
+                        {
+                          "name": "header-2",
+                          "value": "value-2"
+                        }
+                      ],
                       "intervalInSeconds": 30,
                       "path": "/testpath.aspx",
                       "port": 80,
@@ -872,7 +1038,7 @@
         "x-ms-examples": {
           "Profile-PUT-NoEndpoints": {
             "parameters": {
-              "api-version": "2017-05-01",
+              "api-version": "2018-04-01",
               "parameters": {
                 "location": "global",
                 "properties": {
@@ -891,12 +1057,12 @@
               },
               "profileName": "azsmnet6386",
               "resourceGroupName": "azuresdkfornetautoresttrafficmanager1421",
-              "subscriptionId": "e68d4145-c9ae-4667-925d-c51c8d88ad73"
+              "subscriptionId": "{subscription-id}"
             },
             "responses": {
               "200": {
                 "body": {
-                  "id": "/subscriptions/e68d4145-c9ae-4667-925d-c51c8d88ad73/resourceGroups/azuresdkfornetautoresttrafficmanager1421/providers/Microsoft.Network/trafficManagerProfiles/azsmnet6386",
+                  "id": "/subscriptions/{subscription-id}/resourceGroups/azuresdkfornetautoresttrafficmanager1421/providers/Microsoft.Network/trafficManagerProfiles/azsmnet6386",
                   "location": "global",
                   "name": "azsmnet6386",
                   "properties": {
@@ -923,7 +1089,7 @@
               },
               "201": {
                 "body": {
-                  "id": "/subscriptions/e68d4145-c9ae-4667-925d-c51c8d88ad73/resourceGroups/azuresdkfornetautoresttrafficmanager1421/providers/Microsoft.Network/trafficManagerProfiles/azsmnet6386",
+                  "id": "/subscriptions/{subscription-id}/resourceGroups/azuresdkfornetautoresttrafficmanager1421/providers/Microsoft.Network/trafficManagerProfiles/azsmnet6386",
                   "location": "global",
                   "name": "azsmnet6386",
                   "properties": {
@@ -950,9 +1116,192 @@
               }
             }
           },
+          "Profile-PUT-WithCustomHeaders": {
+            "parameters": {
+              "api-version": "2018-04-01",
+              "parameters": {
+                "location": "global",
+                "properties": {
+                  "dnsConfig": {
+                    "relativeName": "azuresdkfornetautoresttrafficmanager6192",
+                    "ttl": 35
+                  },
+                  "endpoints": [
+                    {
+                      "name": "My external endpoint",
+                      "properties": {
+                        "customHeaders": [
+                          {
+                            "name": "header-2",
+                            "value": "value-2-overridden"
+                          }
+                        ],
+                        "endpointLocation": "North Europe",
+                        "endpointStatus": "Enabled",
+                        "target": "foobar.contoso.com"
+                      },
+                      "type": "Microsoft.network/TrafficManagerProfiles/ExternalEndpoints"
+                    }
+                  ],
+                  "monitorConfig": {
+                    "customHeaders": [
+                      {
+                        "name": "header-1",
+                        "value": "value-1"
+                      },
+                      {
+                        "name": "header-2",
+                        "value": "value-2"
+                      }
+                    ],
+                    "expectedStatusCodeRanges": [
+                      {
+                        "max": 205,
+                        "min": 200
+                      },
+                      {
+                        "max": 410,
+                        "min": 400
+                      }
+                    ],
+                    "intervalInSeconds": 10,
+                    "path": "/testpath.aspx",
+                    "port": 80,
+                    "protocol": "HTTP",
+                    "timeoutInSeconds": 5,
+                    "toleratedNumberOfFailures": 2
+                  },
+                  "profileStatus": "Enabled",
+                  "trafficRoutingMethod": "Performance",
+                  "trafficViewEnrollmentStatus": "Disabled"
+                }
+              },
+              "profileName": "azuresdkfornetautoresttrafficmanager6192",
+              "resourceGroupName": "azuresdkfornetautoresttrafficmanager2583",
+              "subscriptionId": "{subscription-id}"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "id": "/subscriptions/{subscription-id}/resourceGroups/azuresdkfornetautoresttrafficmanager2583/providers/Microsoft.Network/trafficManagerProfiles/azuresdkfornetautoresttrafficmanager6192",
+                  "location": "global",
+                  "name": "azuresdkfornetautoresttrafficmanager6192",
+                  "properties": {
+                    "dnsConfig": {
+                      "fqdn": "azuresdkfornetautoresttrafficmanager6192.tmpreview.watmtest.azure-test.net",
+                      "relativeName": "azuresdkfornetautoresttrafficmanager6192",
+                      "ttl": 35
+                    },
+                    "endpoints": [
+                      {
+                        "id": "/subscriptions/{subscription-id}/resourceGroups/azuresdkfornetautoresttrafficmanager2583/providers/Microsoft.Network/trafficManagerProfiles/azuresdkfornetautoresttrafficmanager6192/externalEndpoints/My external endpoint",
+                        "name": "My external endpoint",
+                        "properties": {
+                          "customHeaders": [
+                            {
+                              "name": "header-2",
+                              "value": "value-2-overridden"
+                            }
+                          ],
+                          "endpointLocation": "North Europe",
+                          "endpointMonitorStatus": "CheckingEndpoint",
+                          "endpointStatus": "Enabled",
+                          "priority": 1,
+                          "target": "foobar.contoso.com",
+                          "weight": 1
+                        },
+                        "type": "Microsoft.Network/trafficManagerProfiles/externalEndpoints"
+                      }
+                    ],
+                    "monitorConfig": {
+                      "customHeaders": [
+                        {
+                          "name": "header-1",
+                          "value": "value-1"
+                        },
+                        {
+                          "name": "header-2",
+                          "value": "value-2"
+                        }
+                      ],
+                      "intervalInSeconds": 10,
+                      "path": "/testpath.aspx",
+                      "port": 80,
+                      "profileMonitorStatus": "CheckingEndpoints",
+                      "protocol": "HTTP",
+                      "timeoutInSeconds": 5,
+                      "toleratedNumberOfFailures": 2
+                    },
+                    "profileStatus": "Enabled",
+                    "trafficRoutingMethod": "Performance",
+                    "trafficViewEnrollmentStatus": "Disabled"
+                  },
+                  "type": "Microsoft.Network/trafficManagerProfiles"
+                }
+              },
+              "201": {
+                "body": {
+                  "id": "/subscriptions/{subscription-id}/resourceGroups/azuresdkfornetautoresttrafficmanager2583/providers/Microsoft.Network/trafficManagerProfiles/azuresdkfornetautoresttrafficmanager6192",
+                  "location": "global",
+                  "name": "azuresdkfornetautoresttrafficmanager6192",
+                  "properties": {
+                    "dnsConfig": {
+                      "fqdn": "azuresdkfornetautoresttrafficmanager6192.tmpreview.watmtest.azure-test.net",
+                      "relativeName": "azuresdkfornetautoresttrafficmanager6192",
+                      "ttl": 35
+                    },
+                    "endpoints": [
+                      {
+                        "id": "/subscriptions/{subscription-id}/resourceGroups/azuresdkfornetautoresttrafficmanager2583/providers/Microsoft.Network/trafficManagerProfiles/azuresdkfornetautoresttrafficmanager6192/externalEndpoints/My external endpoint",
+                        "name": "My external endpoint",
+                        "properties": {
+                          "customHeaders": [
+                            {
+                              "name": "header-2",
+                              "value": "value-2-overridden"
+                            }
+                          ],
+                          "endpointLocation": "North Europe",
+                          "endpointMonitorStatus": "CheckingEndpoint",
+                          "endpointStatus": "Enabled",
+                          "priority": 1,
+                          "target": "foobar.contoso.com",
+                          "weight": 1
+                        },
+                        "type": "Microsoft.Network/trafficManagerProfiles/externalEndpoints"
+                      }
+                    ],
+                    "monitorConfig": {
+                      "customHeaders": [
+                        {
+                          "name": "header-1",
+                          "value": "value-1"
+                        },
+                        {
+                          "name": "header-2",
+                          "value": "value-2"
+                        }
+                      ],
+                      "intervalInSeconds": 10,
+                      "path": "/testpath.aspx",
+                      "port": 80,
+                      "profileMonitorStatus": "CheckingEndpoints",
+                      "protocol": "HTTP",
+                      "timeoutInSeconds": 5,
+                      "toleratedNumberOfFailures": 2
+                    },
+                    "profileStatus": "Enabled",
+                    "trafficRoutingMethod": "Performance",
+                    "trafficViewEnrollmentStatus": "Disabled"
+                  },
+                  "type": "Microsoft.Network/trafficManagerProfiles"
+                }
+              }
+            }
+          },
           "Profile-PUT-WithEndpoints": {
             "parameters": {
-              "api-version": "2017-05-01",
+              "api-version": "2018-04-01",
               "parameters": {
                 "location": "global",
                 "properties": {
@@ -985,12 +1334,12 @@
               },
               "profileName": "azuresdkfornetautoresttrafficmanager6192",
               "resourceGroupName": "azuresdkfornetautoresttrafficmanager2583",
-              "subscriptionId": "e68d4145-c9ae-4667-925d-c51c8d88ad73"
+              "subscriptionId": "{subscription-id}"
             },
             "responses": {
               "200": {
                 "body": {
-                  "id": "/subscriptions/e68d4145-c9ae-4667-925d-c51c8d88ad73/resourceGroups/azuresdkfornetautoresttrafficmanager2583/providers/Microsoft.Network/trafficManagerProfiles/azuresdkfornetautoresttrafficmanager6192",
+                  "id": "/subscriptions/{subscription-id}/resourceGroups/azuresdkfornetautoresttrafficmanager2583/providers/Microsoft.Network/trafficManagerProfiles/azuresdkfornetautoresttrafficmanager6192",
                   "location": "global",
                   "name": "azuresdkfornetautoresttrafficmanager6192",
                   "properties": {
@@ -1001,7 +1350,7 @@
                     },
                     "endpoints": [
                       {
-                        "id": "/subscriptions/e68d4145-c9ae-4667-925d-c51c8d88ad73/resourceGroups/azuresdkfornetautoresttrafficmanager2583/providers/Microsoft.Network/trafficManagerProfiles/azuresdkfornetautoresttrafficmanager6192/externalEndpoints/My external endpoint",
+                        "id": "/subscriptions/{subscription-id}/resourceGroups/azuresdkfornetautoresttrafficmanager2583/providers/Microsoft.Network/trafficManagerProfiles/azuresdkfornetautoresttrafficmanager6192/externalEndpoints/My external endpoint",
                         "name": "My external endpoint",
                         "properties": {
                           "endpointLocation": "North Europe",
@@ -1031,7 +1380,7 @@
               },
               "201": {
                 "body": {
-                  "id": "/subscriptions/e68d4145-c9ae-4667-925d-c51c8d88ad73/resourceGroups/azuresdkfornetautoresttrafficmanager2583/providers/Microsoft.Network/trafficManagerProfiles/azuresdkfornetautoresttrafficmanager6192",
+                  "id": "/subscriptions/{subscription-id}/resourceGroups/azuresdkfornetautoresttrafficmanager2583/providers/Microsoft.Network/trafficManagerProfiles/azuresdkfornetautoresttrafficmanager6192",
                   "location": "global",
                   "name": "azuresdkfornetautoresttrafficmanager6192",
                   "properties": {
@@ -1042,7 +1391,7 @@
                     },
                     "endpoints": [
                       {
-                        "id": "/subscriptions/e68d4145-c9ae-4667-925d-c51c8d88ad73/resourceGroups/azuresdkfornetautoresttrafficmanager2583/providers/Microsoft.Network/trafficManagerProfiles/azuresdkfornetautoresttrafficmanager6192/externalEndpoints/My external endpoint",
+                        "id": "/subscriptions/{subscription-id}/resourceGroups/azuresdkfornetautoresttrafficmanager2583/providers/Microsoft.Network/trafficManagerProfiles/azuresdkfornetautoresttrafficmanager6192/externalEndpoints/My external endpoint",
                         "name": "My external endpoint",
                         "properties": {
                           "endpointLocation": "North Europe",
@@ -1068,6 +1417,304 @@
                     "trafficRoutingMethod": "Performance"
                   },
                   "type": "Microsoft.Network/trafficManagerProfiles"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficmanagerprofiles/{profileName}/heatMaps/{heatMapType}": {
+      "get": {
+        "description": "Gets latest heatmap for Traffic Manager profile.",
+        "operationId": "HeatMap_Get",
+        "parameters": [
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "description": "The name of the resource group containing the Traffic Manager endpoint.",
+            "in": "path",
+            "name": "resourceGroupName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The name of the Traffic Manager profile.",
+            "in": "path",
+            "name": "profileName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The type of HeatMap for the Traffic Manager profile.",
+            "enum": [
+              "default"
+            ],
+            "in": "path",
+            "name": "heatMapType",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "allowEmptyValue": true,
+            "collectionFormat": "csv",
+            "description": "The top left latitude,longitude pair of the rectangular viewport to query for.",
+            "in": "query",
+            "items": {
+              "format": "double",
+              "type": "number"
+            },
+            "maxItems": 2,
+            "minItems": 2,
+            "name": "topLeft",
+            "required": false,
+            "type": "array"
+          },
+          {
+            "allowEmptyValue": true,
+            "collectionFormat": "csv",
+            "description": "The bottom right latitude,longitude pair of the rectangular viewport to query for.",
+            "in": "query",
+            "items": {
+              "format": "double",
+              "type": "number"
+            },
+            "maxItems": 2,
+            "minItems": 2,
+            "name": "botRight",
+            "required": false,
+            "type": "array"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The Traffic Manager heatmap.",
+            "schema": {
+              "$ref": "#/definitions/HeatMapModel"
+            }
+          },
+          "default": {
+            "description": "Default response. It will be deserialized as per the Error definition.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
+          }
+        },
+        "tags": [
+          "HeatMaps"
+        ],
+        "x-ms-examples": {
+          "HeatMap-GET": {
+            "parameters": {
+              "api-version": "2018-04-01",
+              "heatMapType": "default",
+              "profileName": "azuresdkfornetautoresttrafficmanager3880",
+              "resourceGroupName": "azuresdkfornetautoresttrafficmanager1323",
+              "subscriptionId": "{subscription-id}"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "id": "/subscriptions/{subscription-id}/resourceGroups/azuresdkfornetautoresttrafficmanager1323/providers/Microsoft.Network/trafficManagerProfiles/azuresdkfornetautoresttrafficmanager3880/heatMaps/latencyVolumeByLocation",
+                  "name": "default",
+                  "properties": {
+                    "endTime": "2017-08-22T12:50:00Z",
+                    "endpoints": [
+                      {
+                        "endpointId": 1,
+                        "resourceId": "/subscriptions/{subscription-id}/resourceGroups/azuresdkfornetautoresttrafficmanager1323/providers/Microsoft.Network/trafficManagerProfiles/azuresdkfornetautoresttrafficmanager3880/externalEndpoints/azuresdkfornetautoresttrafficmanager3880"
+                      },
+                      {
+                        "endpointId": 2,
+                        "resourceId": "/subscriptions/562d4115-c01e-4m67-9bbd-c11c2d58ad73/resourceGroups/azuresdkfornetautoresttrafficmanager1300/providers/Microsoft.Network/trafficManagerProfiles/azuresdkfornetautoresttrafficmanager3885/externalEndpoints/azuresdkfornetautoresttrafficmanager3881"
+                      }
+                    ],
+                    "startTime": "2017-08-15T12:00:00Z",
+                    "trafficFlows": [
+                      {
+                        "latitude": 99.99,
+                        "longitude": 0,
+                        "queryExperiences": [
+                          {
+                            "endpointId": 1,
+                            "latency": 99.222,
+                            "queryCount": 1000000
+                          },
+                          {
+                            "endpointId": 2,
+                            "latency": 1.222,
+                            "queryCount": 1
+                          }
+                        ],
+                        "sourceIp": "1.1.1.1"
+                      },
+                      {
+                        "latitude": -99.99,
+                        "longitude": 1,
+                        "queryExperiences": [
+                          {
+                            "endpointId": 1,
+                            "latency": 96.222,
+                            "queryCount": 100
+                          },
+                          {
+                            "endpointId": 2,
+                            "latency": 4.222,
+                            "queryCount": 500
+                          }
+                        ],
+                        "sourceIp": "2.255.1.1"
+                      }
+                    ]
+                  },
+                  "type": "Microsoft.Network/trafficManagerProfiles/heatMaps/latencyVolumeByLocation"
+                }
+              }
+            }
+          },
+          "HeatMap-GET-With-Null-Values": {
+            "parameters": {
+              "api-version": "2018-04-01",
+              "heatMapType": "default",
+              "profileName": "azuresdkfornetautoresttrafficmanager3880",
+              "resourceGroupName": "azuresdkfornetautoresttrafficmanager1323",
+              "subscriptionId": "{subscription-id}"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "id": "/subscriptions/{subscription-id}/resourceGroups/azuresdkfornetautoresttrafficmanager1323/providers/Microsoft.Network/trafficManagerProfiles/azuresdkfornetautoresttrafficmanager3880/heatMaps/default",
+                  "name": "default",
+                  "properties": {
+                    "endTime": "2017-08-22T12:50:00Z",
+                    "endpoints": [
+                      {
+                        "endpointId": 0,
+                        "resourceId": "/subscriptions/{subscription-id}/resourceGroups/azuresdkfornetautoresttrafficmanager1323/providers/Microsoft.Network/trafficManagerProfiles/azuresdkfornetautoresttrafficmanager3880/externalEndpoints/azuresdkfornetautoresttrafficmanager3880"
+                      },
+                      {
+                        "endpointId": 1,
+                        "resourceId": "/subscriptions/562d4115-c01e-4m67-9bbd-c11c2d58ad73/resourceGroups/azuresdkfornetautoresttrafficmanager1300/providers/Microsoft.Network/trafficManagerProfiles/azuresdkfornetautoresttrafficmanager3885/externalEndpoints/azuresdkfornetautoresttrafficmanager3881"
+                      }
+                    ],
+                    "startTime": "2017-08-15T12:00:00Z",
+                    "trafficFlows": [
+                      {
+                        "latitude": 99.99,
+                        "longitude": 0,
+                        "queryExperiences": [
+                          {
+                            "endpointId": 0,
+                            "latency": 99,
+                            "queryCount": 1000000
+                          },
+                          {
+                            "endpointId": 1,
+                            "latency": 1,
+                            "queryCount": 1
+                          }
+                        ],
+                        "sourceIp": "1.1.1.1"
+                      },
+                      {
+                        "latitude": 1.11,
+                        "longitude": -2.35,
+                        "queryExperiences": [
+                          {
+                            "endpointId": 0,
+                            "queryCount": 100
+                          },
+                          {
+                            "endpointId": 1,
+                            "latency": 4.222,
+                            "queryCount": 500
+                          }
+                        ],
+                        "sourceIp": "2.255.1.1"
+                      }
+                    ]
+                  },
+                  "type": "Microsoft.Network/trafficManagerProfiles/heatMaps/default"
+                }
+              }
+            }
+          },
+          "HeatMap-GET-With-TopLeft-BotRight": {
+            "parameters": {
+              "api-version": "2018-04-01",
+              "botRight": [
+                -50.001,
+                80
+              ],
+              "heatMapType": "default",
+              "profileName": "azuresdkfornetautoresttrafficmanager3880",
+              "resourceGroupName": "azuresdkfornetautoresttrafficmanager1323",
+              "subscriptionId": "{subscription-id}",
+              "topLeft": [
+                10,
+                50.001
+              ]
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "id": "/subscriptions/{subscription-id}/resourceGroups/azuresdkfornetautoresttrafficmanager1323/providers/Microsoft.Network/trafficManagerProfiles/azuresdkfornetautoresttrafficmanager3880/heatMaps/latencyVolumeByLocation",
+                  "name": "default",
+                  "properties": {
+                    "endTime": "2017-08-22T12:50:00Z",
+                    "endpoints": [
+                      {
+                        "endpointId": 1,
+                        "resourceId": "/subscriptions/{subscription-id}/resourceGroups/azuresdkfornetautoresttrafficmanager1323/providers/Microsoft.Network/trafficManagerProfiles/azuresdkfornetautoresttrafficmanager3880/externalEndpoints/azuresdkfornetautoresttrafficmanager3880"
+                      },
+                      {
+                        "endpointId": 2,
+                        "resourceId": "/subscriptions/562d4115-c01e-4m67-9bbd-c11c2d58ad73/resourceGroups/azuresdkfornetautoresttrafficmanager1300/providers/Microsoft.Network/trafficManagerProfiles/azuresdkfornetautoresttrafficmanager3885/externalEndpoints/azuresdkfornetautoresttrafficmanager3881"
+                      }
+                    ],
+                    "startTime": "2017-08-15T12:00:00Z",
+                    "trafficFlows": [
+                      {
+                        "latitude": 9.99,
+                        "longitude": 75.01,
+                        "queryExperiences": [
+                          {
+                            "endpointId": 1,
+                            "latency": 99.222,
+                            "queryCount": 1000000
+                          },
+                          {
+                            "endpointId": 2,
+                            "latency": 1.222,
+                            "queryCount": 1
+                          }
+                        ],
+                        "sourceIp": "1.1.1.1"
+                      },
+                      {
+                        "latitude": -49.99,
+                        "longitude": 51,
+                        "queryExperiences": [
+                          {
+                            "endpointId": 1,
+                            "latency": 96.222,
+                            "queryCount": 100
+                          },
+                          {
+                            "endpointId": 2,
+                            "latency": 4.222,
+                            "queryCount": 500
+                          }
+                        ],
+                        "sourceIp": "2.255.1.1"
+                      }
+                    ]
+                  },
+                  "type": "Microsoft.Network/trafficManagerProfiles/heatMaps/latencyVolumeByLocation"
                 }
               }
             }
@@ -1138,12 +1785,12 @@
         "x-ms-examples": {
           "Endpoint-DELETE-External": {
             "parameters": {
-              "api-version": "2017-05-01",
+              "api-version": "2018-04-01",
               "endpointName": "azsmnet7187",
               "endpointType": "ExternalEndpoints",
               "profileName": "azsmnet6386",
               "resourceGroupName": "azuresdkfornetautoresttrafficmanager1421",
-              "subscriptionId": "e68d4145-c9ae-4667-925d-c51c8d88ad73"
+              "subscriptionId": "{subscription-id}"
             },
             "responses": {
               "200": {
@@ -1215,17 +1862,17 @@
         "x-ms-examples": {
           "Endpoint-GET-External-WithGeoMapping": {
             "parameters": {
-              "api-version": "2017-05-01",
+              "api-version": "2018-04-01",
               "endpointName": "My%20external%20endpoint",
               "endpointType": "ExternalEndpoints",
               "profileName": "azuresdkfornetautoresttrafficmanager8224",
               "resourceGroupName": "azuresdkfornetautoresttrafficmanager2191",
-              "subscriptionId": "e68d4145-c9ae-4667-925d-c51c8d88ad73"
+              "subscriptionId": "{subscription-id}"
             },
             "responses": {
               "200": {
                 "body": {
-                  "id": "/subscriptions/e68d4145-c9ae-4667-925d-c51c8d88ad73/resourceGroups/azuresdkfornetautoresttrafficmanager2191/providers/Microsoft.Network/trafficManagerProfiles/azuresdkfornetautoresttrafficmanager8224/externalEndpoints/My external endpoint",
+                  "id": "/subscriptions/{subscription-id}/resourceGroups/azuresdkfornetautoresttrafficmanager2191/providers/Microsoft.Network/trafficManagerProfiles/azuresdkfornetautoresttrafficmanager8224/externalEndpoints/My external endpoint",
                   "name": "My external endpoint",
                   "properties": {
                     "endpointMonitorStatus": "CheckingEndpoint",
@@ -1245,23 +1892,59 @@
           },
           "Endpoint-GET-External-WithLocation": {
             "parameters": {
-              "api-version": "2017-05-01",
+              "api-version": "2018-04-01",
               "endpointName": "azsmnet7187",
               "endpointType": "ExternalEndpoints",
               "profileName": "azsmnet6386",
               "resourceGroupName": "azuresdkfornetautoresttrafficmanager1421",
-              "subscriptionId": "e68d4145-c9ae-4667-925d-c51c8d88ad73"
+              "subscriptionId": "{subscription-id}"
             },
             "responses": {
               "200": {
                 "body": {
-                  "id": "/subscriptions/e68d4145-c9ae-4667-925d-c51c8d88ad73/resourceGroups/azuresdkfornetautoresttrafficmanager1421/providers/Microsoft.Network/trafficManagerProfiles/azsmnet6386/externalEndpoints/azsmnet7187",
+                  "id": "/subscriptions/{subscription-id}/resourceGroups/azuresdkfornetautoresttrafficmanager1421/providers/Microsoft.Network/trafficManagerProfiles/azsmnet6386/externalEndpoints/azsmnet7187",
                   "name": "azsmnet7187",
                   "properties": {
                     "endpointLocation": "North Europe",
                     "endpointMonitorStatus": "CheckingEndpoint",
                     "endpointStatus": "Enabled",
                     "priority": 1,
+                    "target": "foobar.contoso.com",
+                    "weight": 1
+                  },
+                  "type": "Microsoft.Network/trafficManagerProfiles/externalEndpoints"
+                }
+              }
+            }
+          },
+          "Endpoint-GET-External-WithSubnetMapping": {
+            "parameters": {
+              "api-version": "2018-04-01",
+              "endpointName": "My%20external%20endpoint",
+              "endpointType": "ExternalEndpoints",
+              "profileName": "azuresdkfornetautoresttrafficmanager8224",
+              "resourceGroupName": "azuresdkfornetautoresttrafficmanager2191",
+              "subscriptionId": "{subscription-id}"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "id": "/subscriptions/{subscription-id}/resourceGroups/azuresdkfornetautoresttrafficmanager2191/providers/Microsoft.Network/trafficManagerProfiles/azuresdkfornetautoresttrafficmanager8224/externalEndpoints/My external endpoint",
+                  "name": "My external endpoint",
+                  "properties": {
+                    "endpointMonitorStatus": "CheckingEndpoint",
+                    "endpointStatus": "Enabled",
+                    "priority": 1,
+                    "subnets": [
+                      {
+                        "first": "1.2.3.0",
+                        "scope": 24
+                      },
+                      {
+                        "first": "25.26.27.28",
+                        "last": "29.30.31.32"
+                      }
+                    ],
                     "target": "foobar.contoso.com",
                     "weight": 1
                   },
@@ -1340,11 +2023,11 @@
         "x-ms-examples": {
           "Endpoint-PATCH-External-Target": {
             "parameters": {
-              "api-version": "2017-05-01",
+              "api-version": "2018-04-01",
               "endpointName": "azsmnet7187",
               "endpointType": "ExternalEndpoints",
               "parameters": {
-                "id": "/subscriptions/e68d4145-c9ae-4667-925d-c51c8d88ad73/resourceGroups/azuresdkfornetautoresttrafficmanager1421/providers/Microsoft.Network/trafficManagerProfiles/azsmnet6386/externalEndpoints/azsmnet7187",
+                "id": "/subscriptions/{subscription-id}/resourceGroups/azuresdkfornetautoresttrafficmanager1421/providers/Microsoft.Network/trafficManagerProfiles/azsmnet6386/externalEndpoints/azsmnet7187",
                 "name": "azsmnet7187",
                 "properties": {
                   "target": "another.foobar.contoso.com"
@@ -1353,12 +2036,12 @@
               },
               "profileName": "azsmnet6386",
               "resourceGroupName": "azuresdkfornetautoresttrafficmanager1421",
-              "subscriptionId": "e68d4145-c9ae-4667-925d-c51c8d88ad73"
+              "subscriptionId": "{subscription-id}"
             },
             "responses": {
               "200": {
                 "body": {
-                  "id": "/subscriptions/e68d4145-c9ae-4667-925d-c51c8d88ad73/resourceGroups/azuresdkfornetautoresttrafficmanager1421/providers/Microsoft.Network/trafficManagerProfiles/azsmnet6386/externalEndpoints/azsmnet7187",
+                  "id": "/subscriptions/{subscription-id}/resourceGroups/azuresdkfornetautoresttrafficmanager1421/providers/Microsoft.Network/trafficManagerProfiles/azsmnet6386/externalEndpoints/azsmnet7187",
                   "name": "azsmnet7187",
                   "properties": {
                     "endpointLocation": "North Europe",
@@ -1447,9 +2130,90 @@
           "Endpoints"
         ],
         "x-ms-examples": {
+          "Endpoint-PUT-External-WithCustomHeaders": {
+            "parameters": {
+              "api-version": "2018-04-01",
+              "endpointName": "azsmnet7187",
+              "endpointType": "ExternalEndpoints",
+              "parameters": {
+                "name": "azsmnet7187",
+                "properties": {
+                  "customHeaders": [
+                    {
+                      "name": "header-1",
+                      "value": "value-1"
+                    },
+                    {
+                      "name": "header-2",
+                      "value": "value-2"
+                    }
+                  ],
+                  "endpointLocation": "North Europe",
+                  "endpointStatus": "Enabled",
+                  "target": "foobar.contoso.com"
+                },
+                "type": "Microsoft.network/TrafficManagerProfiles/ExternalEndpoints"
+              },
+              "profileName": "azsmnet6386",
+              "resourceGroupName": "azuresdkfornetautoresttrafficmanager1421",
+              "subscriptionId": "{subscription-id}"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "id": "/subscriptions/{subscription-id}/resourceGroups/azuresdkfornetautoresttrafficmanager1421/providers/Microsoft.Network/trafficManagerProfiles/azsmnet6386/externalEndpoints/azsmnet7187",
+                  "name": "azsmnet7187",
+                  "properties": {
+                    "customHeaders": [
+                      {
+                        "name": "header-1",
+                        "value": "value-1"
+                      },
+                      {
+                        "name": "header-2",
+                        "value": "value-2"
+                      }
+                    ],
+                    "endpointLocation": "North Europe",
+                    "endpointMonitorStatus": "CheckingEndpoint",
+                    "endpointStatus": "Enabled",
+                    "priority": 1,
+                    "target": "foobar.contoso.com",
+                    "weight": 1
+                  },
+                  "type": "Microsoft.Network/trafficManagerProfiles/externalEndpoints"
+                }
+              },
+              "201": {
+                "body": {
+                  "id": "/subscriptions/{subscription-id}/resourceGroups/azuresdkfornetautoresttrafficmanager1421/providers/Microsoft.Network/trafficManagerProfiles/azsmnet6386/externalEndpoints/azsmnet7187",
+                  "name": "azsmnet7187",
+                  "properties": {
+                    "customHeaders": [
+                      {
+                        "name": "header-1",
+                        "value": "value-1"
+                      },
+                      {
+                        "name": "header-2",
+                        "value": "value-2"
+                      }
+                    ],
+                    "endpointLocation": "North Europe",
+                    "endpointMonitorStatus": "CheckingEndpoint",
+                    "endpointStatus": "Enabled",
+                    "priority": 1,
+                    "target": "foobar.contoso.com",
+                    "weight": 1
+                  },
+                  "type": "Microsoft.Network/trafficManagerProfiles/externalEndpoints"
+                }
+              }
+            }
+          },
           "Endpoint-PUT-External-WithGeoMapping": {
             "parameters": {
-              "api-version": "2017-05-01",
+              "api-version": "2018-04-01",
               "endpointName": "My%20external%20endpoint",
               "endpointType": "ExternalEndpoints",
               "parameters": {
@@ -1466,12 +2230,12 @@
               },
               "profileName": "azuresdkfornetautoresttrafficmanager8224",
               "resourceGroupName": "azuresdkfornetautoresttrafficmanager2191",
-              "subscriptionId": "e68d4145-c9ae-4667-925d-c51c8d88ad73"
+              "subscriptionId": "{subscription-id}"
             },
             "responses": {
               "200": {
                 "body": {
-                  "id": "/subscriptions/e68d4145-c9ae-4667-925d-c51c8d88ad73/resourceGroups/azuresdkfornetautoresttrafficmanager2191/providers/Microsoft.Network/trafficManagerProfiles/azuresdkfornetautoresttrafficmanager8224/externalEndpoints/My external endpoint",
+                  "id": "/subscriptions/{subscription-id}/resourceGroups/azuresdkfornetautoresttrafficmanager2191/providers/Microsoft.Network/trafficManagerProfiles/azuresdkfornetautoresttrafficmanager8224/externalEndpoints/My external endpoint",
                   "name": "My external endpoint",
                   "properties": {
                     "endpointMonitorStatus": "CheckingEndpoint",
@@ -1489,7 +2253,7 @@
               },
               "201": {
                 "body": {
-                  "id": "/subscriptions/e68d4145-c9ae-4667-925d-c51c8d88ad73/resourceGroups/azuresdkfornetautoresttrafficmanager2191/providers/Microsoft.Network/trafficManagerProfiles/azuresdkfornetautoresttrafficmanager8224/externalEndpoints/My external endpoint",
+                  "id": "/subscriptions/{subscription-id}/resourceGroups/azuresdkfornetautoresttrafficmanager2191/providers/Microsoft.Network/trafficManagerProfiles/azuresdkfornetautoresttrafficmanager8224/externalEndpoints/My external endpoint",
                   "name": "My external endpoint",
                   "properties": {
                     "endpointMonitorStatus": "CheckingEndpoint",
@@ -1509,7 +2273,7 @@
           },
           "Endpoint-PUT-External-WithLocation": {
             "parameters": {
-              "api-version": "2017-05-01",
+              "api-version": "2018-04-01",
               "endpointName": "azsmnet7187",
               "endpointType": "ExternalEndpoints",
               "parameters": {
@@ -1523,12 +2287,12 @@
               },
               "profileName": "azsmnet6386",
               "resourceGroupName": "azuresdkfornetautoresttrafficmanager1421",
-              "subscriptionId": "e68d4145-c9ae-4667-925d-c51c8d88ad73"
+              "subscriptionId": "{subscription-id}"
             },
             "responses": {
               "200": {
                 "body": {
-                  "id": "/subscriptions/e68d4145-c9ae-4667-925d-c51c8d88ad73/resourceGroups/azuresdkfornetautoresttrafficmanager1421/providers/Microsoft.Network/trafficManagerProfiles/azsmnet6386/externalEndpoints/azsmnet7187",
+                  "id": "/subscriptions/{subscription-id}/resourceGroups/azuresdkfornetautoresttrafficmanager1421/providers/Microsoft.Network/trafficManagerProfiles/azsmnet6386/externalEndpoints/azsmnet7187",
                   "name": "azsmnet7187",
                   "properties": {
                     "endpointLocation": "North Europe",
@@ -1543,13 +2307,91 @@
               },
               "201": {
                 "body": {
-                  "id": "/subscriptions/e68d4145-c9ae-4667-925d-c51c8d88ad73/resourceGroups/azuresdkfornetautoresttrafficmanager1421/providers/Microsoft.Network/trafficManagerProfiles/azsmnet6386/externalEndpoints/azsmnet7187",
+                  "id": "/subscriptions/{subscription-id}/resourceGroups/azuresdkfornetautoresttrafficmanager1421/providers/Microsoft.Network/trafficManagerProfiles/azsmnet6386/externalEndpoints/azsmnet7187",
                   "name": "azsmnet7187",
                   "properties": {
                     "endpointLocation": "North Europe",
                     "endpointMonitorStatus": "CheckingEndpoint",
                     "endpointStatus": "Enabled",
                     "priority": 1,
+                    "target": "foobar.contoso.com",
+                    "weight": 1
+                  },
+                  "type": "Microsoft.Network/trafficManagerProfiles/externalEndpoints"
+                }
+              }
+            }
+          },
+          "Endpoint-PUT-External-WithSubnetMapping": {
+            "parameters": {
+              "api-version": "2018-04-01",
+              "endpointName": "My%20external%20endpoint",
+              "endpointType": "ExternalEndpoints",
+              "parameters": {
+                "name": "My external endpoint",
+                "properties": {
+                  "endpointStatus": "Enabled",
+                  "subnets": [
+                    {
+                      "first": "1.2.3.0",
+                      "scope": 24
+                    },
+                    {
+                      "first": "25.26.27.28",
+                      "last": "29.30.31.32"
+                    }
+                  ],
+                  "target": "foobar.contoso.com"
+                },
+                "type": "Microsoft.network/TrafficManagerProfiles/ExternalEndpoints"
+              },
+              "profileName": "azuresdkfornetautoresttrafficmanager8224",
+              "resourceGroupName": "azuresdkfornetautoresttrafficmanager2191",
+              "subscriptionId": "{subscription-id}"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "id": "/subscriptions/{subscription-id}/resourceGroups/azuresdkfornetautoresttrafficmanager2191/providers/Microsoft.Network/trafficManagerProfiles/azuresdkfornetautoresttrafficmanager8224/externalEndpoints/My external endpoint",
+                  "name": "My external endpoint",
+                  "properties": {
+                    "endpointMonitorStatus": "CheckingEndpoint",
+                    "endpointStatus": "Enabled",
+                    "priority": 1,
+                    "subnets": [
+                      {
+                        "first": "1.2.3.0",
+                        "scope": 24
+                      },
+                      {
+                        "first": "25.26.27.28",
+                        "last": "29.30.31.32"
+                      }
+                    ],
+                    "target": "foobar.contoso.com",
+                    "weight": 1
+                  },
+                  "type": "Microsoft.Network/trafficManagerProfiles/externalEndpoints"
+                }
+              },
+              "201": {
+                "body": {
+                  "id": "/subscriptions/{subscription-id}/resourceGroups/azuresdkfornetautoresttrafficmanager2191/providers/Microsoft.Network/trafficManagerProfiles/azuresdkfornetautoresttrafficmanager8224/externalEndpoints/My external endpoint",
+                  "name": "My external endpoint",
+                  "properties": {
+                    "endpointMonitorStatus": "CheckingEndpoint",
+                    "endpointStatus": "Enabled",
+                    "priority": 1,
+                    "subnets": [
+                      {
+                        "first": "1.2.3.0",
+                        "scope": 24
+                      },
+                      {
+                        "first": "25.26.27.28",
+                        "last": "29.30.31.32"
+                      }
+                    ],
                     "target": "foobar.contoso.com",
                     "weight": 1
                   },
@@ -1661,8 +2503,26 @@
     "EndpointProperties": {
       "description": "Class representing a Traffic Manager endpoint properties.",
       "properties": {
+        "customHeaders": {
+          "description": "List of custom headers.",
+          "items": {
+            "description": "Custom header name and value.",
+            "properties": {
+              "name": {
+                "description": "Header name.",
+                "type": "string"
+              },
+              "value": {
+                "description": "Header value.",
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
         "endpointLocation": {
-          "description": "Specifies the location of the external or nested endpoints when using the ‘Performance’ traffic routing method.",
+          "description": "Specifies the location of the external or nested endpoints when using the 'Performance' traffic routing method.",
           "type": "string"
         },
         "endpointMonitorStatus": {
@@ -1694,7 +2554,7 @@
           }
         },
         "geoMapping": {
-          "description": "The list of countries/regions mapped to this endpoint when using the ‘Geographic’ traffic routing method. Please consult Traffic Manager Geographic documentation for a full list of accepted values.",
+          "description": "The list of countries/regions mapped to this endpoint when using the 'Geographic' traffic routing method. Please consult Traffic Manager Geographic documentation for a full list of accepted values.",
           "items": {
             "type": "string"
           },
@@ -1706,12 +2566,34 @@
           "type": "integer"
         },
         "priority": {
-          "description": "The priority of this endpoint when using the ‘Priority’ traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.",
+          "description": "The priority of this endpoint when using the 'Priority' traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.",
           "format": "int64",
           "type": "integer"
         },
+        "subnets": {
+          "description": "The list of subnets, IP addresses, and/or address ranges mapped to this endpoint when using the 'Subnet' traffic routing method. An empty list will match all ranges not covered by other endpoints.",
+          "items": {
+            "description": "Subnet first address, scope, and/or last address.",
+            "properties": {
+              "first": {
+                "description": "First address in the subnet.",
+                "type": "string"
+              },
+              "last": {
+                "description": "Last address in the subnet.",
+                "type": "string"
+              },
+              "scope": {
+                "description": "Block size (number of leading bits in the subnet mask).",
+                "type": "integer"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
         "target": {
-          "description": "The fully-qualified DNS name of the endpoint. Traffic Manager returns this value in DNS responses to direct traffic to this endpoint.",
+          "description": "The fully-qualified DNS name or IP address of the endpoint. Traffic Manager returns this value in DNS responses to direct traffic to this endpoint.",
           "type": "string"
         },
         "targetResourceId": {
@@ -1734,9 +2616,102 @@
         }
       }
     },
+    "HeatMapEndpoint": {
+      "description": "Class which is a sparse representation of a Traffic Manager endpoint.",
+      "properties": {
+        "endpointId": {
+          "description": "A number uniquely identifying this endpoint in query experiences.",
+          "type": "integer"
+        },
+        "resourceId": {
+          "description": "The ARM Resource ID of this Traffic Manager endpoint.",
+          "type": "string"
+        }
+      }
+    },
+    "HeatMapModel": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/ProxyResource"
+        }
+      ],
+      "description": "Class representing a Traffic Manager HeatMap.",
+      "properties": {
+        "properties": {
+          "$ref": "#/definitions/HeatMapProperties",
+          "description": "The properties of the Traffic Manager HeatMap.",
+          "x-ms-client-flatten": true
+        }
+      }
+    },
+    "HeatMapProperties": {
+      "description": "Class representing a Traffic Manager HeatMap properties.",
+      "properties": {
+        "endTime": {
+          "description": "The ending of the time window for this HeatMap, exclusive.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "endpoints": {
+          "description": "The endpoints used in this HeatMap calculation.",
+          "items": {
+            "$ref": "#/definitions/HeatMapEndpoint"
+          },
+          "type": "array"
+        },
+        "startTime": {
+          "description": "The beginning of the time window for this HeatMap, inclusive.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "trafficFlows": {
+          "description": "The traffic flows produced in this HeatMap calculation.",
+          "items": {
+            "$ref": "#/definitions/TrafficFlow"
+          },
+          "type": "array"
+        }
+      }
+    },
     "MonitorConfig": {
       "description": "Class containing endpoint monitoring settings in a Traffic Manager profile.",
       "properties": {
+        "customHeaders": {
+          "description": "List of custom headers.",
+          "items": {
+            "description": "Custom header name and value.",
+            "properties": {
+              "name": {
+                "description": "Header name.",
+                "type": "string"
+              },
+              "value": {
+                "description": "Header value.",
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "expectedStatusCodeRanges": {
+          "description": "List of expected status code ranges.",
+          "items": {
+            "description": "Min and max value of a status code range.",
+            "properties": {
+              "max": {
+                "description": "Max status code.",
+                "type": "integer"
+              },
+              "min": {
+                "description": "Min status code.",
+                "type": "integer"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
         "intervalInSeconds": {
           "description": "The monitor interval for endpoints in this profile. This is the interval at which Traffic Manager will check the health of each endpoint in this profile.",
           "format": "int64",
@@ -1832,6 +2807,11 @@
           },
           "type": "array"
         },
+        "maxReturn": {
+          "description": "Maximum number of endpoints to be returned for MultiValue routing type.",
+          "format": "int64",
+          "type": "integer"
+        },
         "monitorConfig": {
           "$ref": "#/definitions/MonitorConfig",
           "description": "The endpoint monitoring settings of the Traffic Manager profile."
@@ -1854,12 +2834,26 @@
             "Performance",
             "Priority",
             "Weighted",
-            "Geographic"
+            "Geographic",
+            "MultiValue",
+            "Subnet"
           ],
           "type": "string",
           "x-ms-enum": {
             "modelAsString": true,
             "name": "TrafficRoutingMethod"
+          }
+        },
+        "trafficViewEnrollmentStatus": {
+          "description": "Indicates whether Traffic View is 'Enabled' or 'Disabled' for the Traffic Manager profile. Null, indicates 'Disabled'. Enabling this feature will increase the cost of the Traffic Manage profile.",
+          "enum": [
+            "Enabled",
+            "Disabled"
+          ],
+          "type": "string",
+          "x-ms-enum": {
+            "modelAsString": true,
+            "name": "TrafficViewEnrollmentStatus"
           }
         }
       }
@@ -1871,6 +2865,28 @@
         }
       ],
       "description": "The resource model definition for a ARM proxy resource. It will have everything other than required location and tags"
+    },
+    "QueryExperience": {
+      "description": "Class representing a Traffic Manager HeatMap query experience properties.",
+      "properties": {
+        "endpointId": {
+          "description": "The id of the endpoint from the 'endpoints' array which these queries were routed to.",
+          "type": "integer"
+        },
+        "latency": {
+          "description": "The latency experienced by queries originating from this location.",
+          "format": "double",
+          "type": "number"
+        },
+        "queryCount": {
+          "description": "The number of queries originating from this location.",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "endpointId",
+        "queryCount"
+      ]
     },
     "Region": {
       "description": "Class representing a region in the Geographic hierarchy used with the Geographic traffic routing method.",
@@ -1897,17 +2913,14 @@
       "properties": {
         "id": {
           "description": "Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{resourceName}",
-          "readOnly": true,
           "type": "string"
         },
         "name": {
           "description": "The name of the resource",
-          "readOnly": true,
           "type": "string"
         },
         "type": {
-          "description": "The type of the resource. Ex- Microsoft.Network/trafficmanagerProfiles.",
-          "readOnly": true,
+          "description": "The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.",
           "type": "string"
         }
       },
@@ -1940,6 +2953,32 @@
             "create",
             "update"
           ]
+        }
+      }
+    },
+    "TrafficFlow": {
+      "description": "Class representing a Traffic Manager HeatMap traffic flow properties.",
+      "properties": {
+        "latitude": {
+          "description": "The approximate latitude that these queries originated from.",
+          "format": "double",
+          "type": "number"
+        },
+        "longitude": {
+          "description": "The approximate longitude that these queries originated from.",
+          "format": "double",
+          "type": "number"
+        },
+        "queryExperiences": {
+          "description": "The query experiences produced in this HeatMap calculation.",
+          "items": {
+            "$ref": "#/definitions/QueryExperience"
+          },
+          "type": "array"
+        },
+        "sourceIp": {
+          "description": "The IP address that this query experience originated from.",
+          "type": "string"
         }
       }
     },
@@ -1979,6 +3018,30 @@
         },
         "type": {
           "description": "Traffic Manager profile resource type.",
+          "type": "string"
+        }
+      }
+    },
+    "UserMetricsModel": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/ProxyResource"
+        }
+      ],
+      "description": "Class representing Traffic Manager User Metrics.",
+      "properties": {
+        "properties": {
+          "$ref": "#/definitions/UserMetricsProperties",
+          "description": "The properties of the Traffic Manager User Metrics.",
+          "x-ms-client-flatten": true
+        }
+      }
+    },
+    "UserMetricsProperties": {
+      "description": "Class representing a Traffic Manager Real User Metrics key response.",
+      "properties": {
+        "key": {
+          "description": "The key returned by the User Metrics operation.",
           "type": "string"
         }
       }

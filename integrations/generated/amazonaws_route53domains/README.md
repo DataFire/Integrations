@@ -13,9 +13,7 @@ let amazonaws_route53domains = require('@datafire/amazonaws_route53domains').cre
   region: ""
 });
 
-amazonaws_route53domains.CheckDomainAvailability({
-  "DomainName": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -26,20 +24,56 @@ Amazon Route 53 API actions let you register domain names and perform related op
 
 ## Actions
 
+### AcceptDomainTransferFromAnotherAwsAccount
+
+
+
+```js
+amazonaws_route53domains.AcceptDomainTransferFromAnotherAwsAccount({
+  "DomainName": null,
+  "Password": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * DomainName **required**
+  * Password **required**
+
+#### Output
+* output [AcceptDomainTransferFromAnotherAwsAccountResponse](#acceptdomaintransferfromanotherawsaccountresponse)
+
+### CancelDomainTransferToAnotherAwsAccount
+
+
+
+```js
+amazonaws_route53domains.CancelDomainTransferToAnotherAwsAccount({
+  "DomainName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * DomainName **required**
+
+#### Output
+* output [CancelDomainTransferToAnotherAwsAccountResponse](#canceldomaintransfertoanotherawsaccountresponse)
+
 ### CheckDomainAvailability
 
 
 
 ```js
 amazonaws_route53domains.CheckDomainAvailability({
-  "DomainName": ""
+  "DomainName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * DomainName **required** [DomainName](#domainname)
-  * IdnLangCode [LangCode](#langcode)
+  * DomainName **required**
+  * IdnLangCode
 
 #### Output
 * output [CheckDomainAvailabilityResponse](#checkdomainavailabilityresponse)
@@ -50,14 +84,14 @@ amazonaws_route53domains.CheckDomainAvailability({
 
 ```js
 amazonaws_route53domains.CheckDomainTransferability({
-  "DomainName": ""
+  "DomainName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * AuthCode [DomainAuthCode](#domainauthcode)
-  * DomainName **required** [DomainName](#domainname)
+  * AuthCode
+  * DomainName **required**
 
 #### Output
 * output [CheckDomainTransferabilityResponse](#checkdomaintransferabilityresponse)
@@ -68,15 +102,16 @@ amazonaws_route53domains.CheckDomainTransferability({
 
 ```js
 amazonaws_route53domains.DeleteTagsForDomain({
-  "DomainName": "",
-  "TagsToDelete": []
+  "DomainName": null,
+  "TagsToDelete": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * DomainName **required** [DomainName](#domainname)
-  * TagsToDelete **required** [TagKeyList](#tagkeylist)
+  * DomainName **required**
+  * TagsToDelete **required**
+    * items [TagKey](#tagkey)
 
 #### Output
 * output [DeleteTagsForDomainResponse](#deletetagsfordomainresponse)
@@ -87,13 +122,13 @@ amazonaws_route53domains.DeleteTagsForDomain({
 
 ```js
 amazonaws_route53domains.DisableDomainAutoRenew({
-  "DomainName": ""
+  "DomainName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * DomainName **required** [DomainName](#domainname)
+  * DomainName **required**
 
 #### Output
 * output [DisableDomainAutoRenewResponse](#disabledomainautorenewresponse)
@@ -104,13 +139,13 @@ amazonaws_route53domains.DisableDomainAutoRenew({
 
 ```js
 amazonaws_route53domains.DisableDomainTransferLock({
-  "DomainName": ""
+  "DomainName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * DomainName **required** [DomainName](#domainname)
+  * DomainName **required**
 
 #### Output
 * output [DisableDomainTransferLockResponse](#disabledomaintransferlockresponse)
@@ -121,13 +156,13 @@ amazonaws_route53domains.DisableDomainTransferLock({
 
 ```js
 amazonaws_route53domains.EnableDomainAutoRenew({
-  "DomainName": ""
+  "DomainName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * DomainName **required** [DomainName](#domainname)
+  * DomainName **required**
 
 #### Output
 * output [EnableDomainAutoRenewResponse](#enabledomainautorenewresponse)
@@ -138,13 +173,13 @@ amazonaws_route53domains.EnableDomainAutoRenew({
 
 ```js
 amazonaws_route53domains.EnableDomainTransferLock({
-  "DomainName": ""
+  "DomainName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * DomainName **required** [DomainName](#domainname)
+  * DomainName **required**
 
 #### Output
 * output [EnableDomainTransferLockResponse](#enabledomaintransferlockresponse)
@@ -159,7 +194,7 @@ amazonaws_route53domains.GetContactReachabilityStatus({}, context)
 
 #### Input
 * input `object`
-  * domainName [DomainName](#domainname)
+  * domainName
 
 #### Output
 * output [GetContactReachabilityStatusResponse](#getcontactreachabilitystatusresponse)
@@ -170,13 +205,13 @@ amazonaws_route53domains.GetContactReachabilityStatus({}, context)
 
 ```js
 amazonaws_route53domains.GetDomainDetail({
-  "DomainName": ""
+  "DomainName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * DomainName **required** [DomainName](#domainname)
+  * DomainName **required**
 
 #### Output
 * output [GetDomainDetailResponse](#getdomaindetailresponse)
@@ -187,17 +222,17 @@ amazonaws_route53domains.GetDomainDetail({
 
 ```js
 amazonaws_route53domains.GetDomainSuggestions({
-  "DomainName": "",
-  "SuggestionCount": 0,
-  "OnlyAvailable": true
+  "DomainName": null,
+  "SuggestionCount": null,
+  "OnlyAvailable": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * DomainName **required** [DomainName](#domainname)
-  * OnlyAvailable **required** [Boolean](#boolean)
-  * SuggestionCount **required** [Integer](#integer)
+  * DomainName **required**
+  * OnlyAvailable **required**
+  * SuggestionCount **required**
 
 #### Output
 * output [GetDomainSuggestionsResponse](#getdomainsuggestionsresponse)
@@ -208,13 +243,13 @@ amazonaws_route53domains.GetDomainSuggestions({
 
 ```js
 amazonaws_route53domains.GetOperationDetail({
-  "OperationId": ""
+  "OperationId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * OperationId **required** [OperationId](#operationid)
+  * OperationId **required**
 
 #### Output
 * output [GetOperationDetailResponse](#getoperationdetailresponse)
@@ -231,8 +266,8 @@ amazonaws_route53domains.ListDomains({}, context)
 * input `object`
   * MaxItems `string`
   * Marker `string`
-  * Marker [PageMarker](#pagemarker)
-  * MaxItems [PageMaxItems](#pagemaxitems)
+  * Marker
+  * MaxItems
 
 #### Output
 * output [ListDomainsResponse](#listdomainsresponse)
@@ -249,9 +284,9 @@ amazonaws_route53domains.ListOperations({}, context)
 * input `object`
   * MaxItems `string`
   * Marker `string`
-  * Marker [PageMarker](#pagemarker)
-  * MaxItems [PageMaxItems](#pagemaxitems)
-  * SubmittedSince [Timestamp](#timestamp)
+  * Marker
+  * MaxItems
+  * SubmittedSince
 
 #### Output
 * output [ListOperationsResponse](#listoperationsresponse)
@@ -262,13 +297,13 @@ amazonaws_route53domains.ListOperations({}, context)
 
 ```js
 amazonaws_route53domains.ListTagsForDomain({
-  "DomainName": ""
+  "DomainName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * DomainName **required** [DomainName](#domainname)
+  * DomainName **required**
 
 #### Output
 * output [ListTagsForDomainResponse](#listtagsfordomainresponse)
@@ -279,29 +314,91 @@ amazonaws_route53domains.ListTagsForDomain({
 
 ```js
 amazonaws_route53domains.RegisterDomain({
-  "DomainName": "",
-  "DurationInYears": 0,
-  "AdminContact": {},
-  "RegistrantContact": {},
-  "TechContact": {}
+  "DomainName": null,
+  "DurationInYears": null,
+  "AdminContact": null,
+  "RegistrantContact": null,
+  "TechContact": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * AdminContact **required** [ContactDetail](#contactdetail)
-  * AutoRenew [Boolean](#boolean)
-  * DomainName **required** [DomainName](#domainname)
-  * DurationInYears **required** [DurationInYears](#durationinyears)
-  * IdnLangCode [LangCode](#langcode)
-  * PrivacyProtectAdminContact [Boolean](#boolean)
-  * PrivacyProtectRegistrantContact [Boolean](#boolean)
-  * PrivacyProtectTechContact [Boolean](#boolean)
-  * RegistrantContact **required** [ContactDetail](#contactdetail)
-  * TechContact **required** [ContactDetail](#contactdetail)
+  * AdminContact **required**
+    * AddressLine1
+    * AddressLine2
+    * City
+    * ContactType
+    * CountryCode
+    * Email
+    * ExtraParams
+      * items [ExtraParam](#extraparam)
+    * Fax
+    * FirstName
+    * LastName
+    * OrganizationName
+    * PhoneNumber
+    * State
+    * ZipCode
+  * AutoRenew
+  * DomainName **required**
+  * DurationInYears **required**
+  * IdnLangCode
+  * PrivacyProtectAdminContact
+  * PrivacyProtectRegistrantContact
+  * PrivacyProtectTechContact
+  * RegistrantContact **required**
+    * AddressLine1
+    * AddressLine2
+    * City
+    * ContactType
+    * CountryCode
+    * Email
+    * ExtraParams
+      * items [ExtraParam](#extraparam)
+    * Fax
+    * FirstName
+    * LastName
+    * OrganizationName
+    * PhoneNumber
+    * State
+    * ZipCode
+  * TechContact **required**
+    * AddressLine1
+    * AddressLine2
+    * City
+    * ContactType
+    * CountryCode
+    * Email
+    * ExtraParams
+      * items [ExtraParam](#extraparam)
+    * Fax
+    * FirstName
+    * LastName
+    * OrganizationName
+    * PhoneNumber
+    * State
+    * ZipCode
 
 #### Output
 * output [RegisterDomainResponse](#registerdomainresponse)
+
+### RejectDomainTransferFromAnotherAwsAccount
+
+
+
+```js
+amazonaws_route53domains.RejectDomainTransferFromAnotherAwsAccount({
+  "DomainName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * DomainName **required**
+
+#### Output
+* output [RejectDomainTransferFromAnotherAwsAccountResponse](#rejectdomaintransferfromanotherawsaccountresponse)
 
 ### RenewDomain
 
@@ -309,16 +406,16 @@ amazonaws_route53domains.RegisterDomain({
 
 ```js
 amazonaws_route53domains.RenewDomain({
-  "DomainName": "",
-  "CurrentExpiryYear": 0
+  "DomainName": null,
+  "CurrentExpiryYear": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * CurrentExpiryYear **required** [CurrentExpiryYear](#currentexpiryyear)
-  * DomainName **required** [DomainName](#domainname)
-  * DurationInYears [DurationInYears](#durationinyears)
+  * CurrentExpiryYear **required**
+  * DomainName **required**
+  * DurationInYears
 
 #### Output
 * output [RenewDomainResponse](#renewdomainresponse)
@@ -333,7 +430,7 @@ amazonaws_route53domains.ResendContactReachabilityEmail({}, context)
 
 #### Input
 * input `object`
-  * domainName [DomainName](#domainname)
+  * domainName
 
 #### Output
 * output [ResendContactReachabilityEmailResponse](#resendcontactreachabilityemailresponse)
@@ -344,13 +441,13 @@ amazonaws_route53domains.ResendContactReachabilityEmail({}, context)
 
 ```js
 amazonaws_route53domains.RetrieveDomainAuthCode({
-  "DomainName": ""
+  "DomainName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * DomainName **required** [DomainName](#domainname)
+  * DomainName **required**
 
 #### Output
 * output [RetrieveDomainAuthCodeResponse](#retrievedomainauthcoderesponse)
@@ -361,31 +458,96 @@ amazonaws_route53domains.RetrieveDomainAuthCode({
 
 ```js
 amazonaws_route53domains.TransferDomain({
-  "DomainName": "",
-  "DurationInYears": 0,
-  "AdminContact": {},
-  "RegistrantContact": {},
-  "TechContact": {}
+  "DomainName": null,
+  "DurationInYears": null,
+  "AdminContact": null,
+  "RegistrantContact": null,
+  "TechContact": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * AdminContact **required** [ContactDetail](#contactdetail)
-  * AuthCode [DomainAuthCode](#domainauthcode)
-  * AutoRenew [Boolean](#boolean)
-  * DomainName **required** [DomainName](#domainname)
-  * DurationInYears **required** [DurationInYears](#durationinyears)
-  * IdnLangCode [LangCode](#langcode)
-  * Nameservers [NameserverList](#nameserverlist)
-  * PrivacyProtectAdminContact [Boolean](#boolean)
-  * PrivacyProtectRegistrantContact [Boolean](#boolean)
-  * PrivacyProtectTechContact [Boolean](#boolean)
-  * RegistrantContact **required** [ContactDetail](#contactdetail)
-  * TechContact **required** [ContactDetail](#contactdetail)
+  * AdminContact **required**
+    * AddressLine1
+    * AddressLine2
+    * City
+    * ContactType
+    * CountryCode
+    * Email
+    * ExtraParams
+      * items [ExtraParam](#extraparam)
+    * Fax
+    * FirstName
+    * LastName
+    * OrganizationName
+    * PhoneNumber
+    * State
+    * ZipCode
+  * AuthCode
+  * AutoRenew
+  * DomainName **required**
+  * DurationInYears **required**
+  * IdnLangCode
+  * Nameservers
+    * items [Nameserver](#nameserver)
+  * PrivacyProtectAdminContact
+  * PrivacyProtectRegistrantContact
+  * PrivacyProtectTechContact
+  * RegistrantContact **required**
+    * AddressLine1
+    * AddressLine2
+    * City
+    * ContactType
+    * CountryCode
+    * Email
+    * ExtraParams
+      * items [ExtraParam](#extraparam)
+    * Fax
+    * FirstName
+    * LastName
+    * OrganizationName
+    * PhoneNumber
+    * State
+    * ZipCode
+  * TechContact **required**
+    * AddressLine1
+    * AddressLine2
+    * City
+    * ContactType
+    * CountryCode
+    * Email
+    * ExtraParams
+      * items [ExtraParam](#extraparam)
+    * Fax
+    * FirstName
+    * LastName
+    * OrganizationName
+    * PhoneNumber
+    * State
+    * ZipCode
 
 #### Output
 * output [TransferDomainResponse](#transferdomainresponse)
+
+### TransferDomainToAnotherAwsAccount
+
+
+
+```js
+amazonaws_route53domains.TransferDomainToAnotherAwsAccount({
+  "DomainName": null,
+  "AccountId": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * AccountId **required**
+  * DomainName **required**
+
+#### Output
+* output [TransferDomainToAnotherAwsAccountResponse](#transferdomaintoanotherawsaccountresponse)
 
 ### UpdateDomainContact
 
@@ -393,16 +555,61 @@ amazonaws_route53domains.TransferDomain({
 
 ```js
 amazonaws_route53domains.UpdateDomainContact({
-  "DomainName": ""
+  "DomainName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * AdminContact [ContactDetail](#contactdetail)
-  * DomainName **required** [DomainName](#domainname)
-  * RegistrantContact [ContactDetail](#contactdetail)
-  * TechContact [ContactDetail](#contactdetail)
+  * AdminContact
+    * AddressLine1
+    * AddressLine2
+    * City
+    * ContactType
+    * CountryCode
+    * Email
+    * ExtraParams
+      * items [ExtraParam](#extraparam)
+    * Fax
+    * FirstName
+    * LastName
+    * OrganizationName
+    * PhoneNumber
+    * State
+    * ZipCode
+  * DomainName **required**
+  * RegistrantContact
+    * AddressLine1
+    * AddressLine2
+    * City
+    * ContactType
+    * CountryCode
+    * Email
+    * ExtraParams
+      * items [ExtraParam](#extraparam)
+    * Fax
+    * FirstName
+    * LastName
+    * OrganizationName
+    * PhoneNumber
+    * State
+    * ZipCode
+  * TechContact
+    * AddressLine1
+    * AddressLine2
+    * City
+    * ContactType
+    * CountryCode
+    * Email
+    * ExtraParams
+      * items [ExtraParam](#extraparam)
+    * Fax
+    * FirstName
+    * LastName
+    * OrganizationName
+    * PhoneNumber
+    * State
+    * ZipCode
 
 #### Output
 * output [UpdateDomainContactResponse](#updatedomaincontactresponse)
@@ -413,16 +620,16 @@ amazonaws_route53domains.UpdateDomainContact({
 
 ```js
 amazonaws_route53domains.UpdateDomainContactPrivacy({
-  "DomainName": ""
+  "DomainName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * AdminPrivacy [Boolean](#boolean)
-  * DomainName **required** [DomainName](#domainname)
-  * RegistrantPrivacy [Boolean](#boolean)
-  * TechPrivacy [Boolean](#boolean)
+  * AdminPrivacy
+  * DomainName **required**
+  * RegistrantPrivacy
+  * TechPrivacy
 
 #### Output
 * output [UpdateDomainContactPrivacyResponse](#updatedomaincontactprivacyresponse)
@@ -433,16 +640,17 @@ amazonaws_route53domains.UpdateDomainContactPrivacy({
 
 ```js
 amazonaws_route53domains.UpdateDomainNameservers({
-  "DomainName": "",
-  "Nameservers": []
+  "DomainName": null,
+  "Nameservers": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * DomainName **required** [DomainName](#domainname)
-  * FIAuthKey [FIAuthKey](#fiauthkey)
-  * Nameservers **required** [NameserverList](#nameserverlist)
+  * DomainName **required**
+  * FIAuthKey
+  * Nameservers **required**
+    * items [Nameserver](#nameserver)
 
 #### Output
 * output [UpdateDomainNameserversResponse](#updatedomainnameserversresponse)
@@ -453,14 +661,15 @@ amazonaws_route53domains.UpdateDomainNameservers({
 
 ```js
 amazonaws_route53domains.UpdateTagsForDomain({
-  "DomainName": ""
+  "DomainName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * DomainName **required** [DomainName](#domainname)
-  * TagsToUpdate [TagList](#taglist)
+  * DomainName **required**
+  * TagsToUpdate
+    * items [Tag](#tag)
 
 #### Output
 * output [UpdateTagsForDomainResponse](#updatetagsfordomainresponse)
@@ -475,10 +684,10 @@ amazonaws_route53domains.ViewBilling({}, context)
 
 #### Input
 * input `object`
-  * End [Timestamp](#timestamp)
-  * Marker [PageMarker](#pagemarker)
-  * MaxItems [PageMaxItems](#pagemaxitems)
-  * Start [Timestamp](#timestamp)
+  * End
+  * Marker
+  * MaxItems
+  * Start
 
 #### Output
 * output [ViewBillingResponse](#viewbillingresponse)
@@ -487,16 +696,28 @@ amazonaws_route53domains.ViewBilling({}, context)
 
 ## Definitions
 
+### AcceptDomainTransferFromAnotherAwsAccountRequest
+* AcceptDomainTransferFromAnotherAwsAccountRequest `object`: The AcceptDomainTransferFromAnotherAwsAccount request includes the following elements.
+  * DomainName **required**
+  * Password **required**
+
+### AcceptDomainTransferFromAnotherAwsAccountResponse
+* AcceptDomainTransferFromAnotherAwsAccountResponse `object`: The AcceptDomainTransferFromAnotherAwsAccount response includes the following element.
+  * OperationId
+
+### AccountId
+* AccountId `string`
+
 ### AddressLine
 * AddressLine `string`
 
 ### BillingRecord
 * BillingRecord `object`: Information for one billing record.
-  * BillDate [Timestamp](#timestamp)
-  * DomainName [DomainName](#domainname)
-  * InvoiceId [InvoiceId](#invoiceid)
-  * Operation [OperationType](#operationtype)
-  * Price [Price](#price)
+  * BillDate
+  * DomainName
+  * InvoiceId
+  * Operation
+  * Price
 
 ### BillingRecords
 * BillingRecords `array`
@@ -505,43 +726,53 @@ amazonaws_route53domains.ViewBilling({}, context)
 ### Boolean
 * Boolean `boolean`
 
+### CancelDomainTransferToAnotherAwsAccountRequest
+* CancelDomainTransferToAnotherAwsAccountRequest `object`: The CancelDomainTransferToAnotherAwsAccount request includes the following element.
+  * DomainName **required**
+
+### CancelDomainTransferToAnotherAwsAccountResponse
+* CancelDomainTransferToAnotherAwsAccountResponse `object`: The <code>CancelDomainTransferToAnotherAwsAccount</code> response includes the following element.
+  * OperationId
+
 ### CheckDomainAvailabilityRequest
 * CheckDomainAvailabilityRequest `object`: The CheckDomainAvailability request contains the following elements.
-  * DomainName **required** [DomainName](#domainname)
-  * IdnLangCode [LangCode](#langcode)
+  * DomainName **required**
+  * IdnLangCode
 
 ### CheckDomainAvailabilityResponse
 * CheckDomainAvailabilityResponse `object`: The CheckDomainAvailability response includes the following elements.
-  * Availability **required** [DomainAvailability](#domainavailability)
+  * Availability **required**
 
 ### CheckDomainTransferabilityRequest
 * CheckDomainTransferabilityRequest `object`: The CheckDomainTransferability request contains the following elements.
-  * AuthCode [DomainAuthCode](#domainauthcode)
-  * DomainName **required** [DomainName](#domainname)
+  * AuthCode
+  * DomainName **required**
 
 ### CheckDomainTransferabilityResponse
 * CheckDomainTransferabilityResponse `object`: The CheckDomainTransferability response includes the following elements.
-  * Transferability **required** [DomainTransferability](#domaintransferability)
+  * Transferability **required**
+    * Transferable [Transferable](#transferable)
 
 ### City
 * City `string`
 
 ### ContactDetail
 * ContactDetail `object`: ContactDetail includes the following elements.
-  * AddressLine1 [AddressLine](#addressline)
-  * AddressLine2 [AddressLine](#addressline)
-  * City [City](#city)
-  * ContactType [ContactType](#contacttype)
-  * CountryCode [CountryCode](#countrycode)
-  * Email [Email](#email)
-  * ExtraParams [ExtraParamList](#extraparamlist)
-  * Fax [ContactNumber](#contactnumber)
-  * FirstName [ContactName](#contactname)
-  * LastName [ContactName](#contactname)
-  * OrganizationName [ContactName](#contactname)
-  * PhoneNumber [ContactNumber](#contactnumber)
-  * State [State](#state)
-  * ZipCode [ZipCode](#zipcode)
+  * AddressLine1
+  * AddressLine2
+  * City
+  * ContactType
+  * CountryCode
+  * Email
+  * ExtraParams
+    * items [ExtraParam](#extraparam)
+  * Fax
+  * FirstName
+  * LastName
+  * OrganizationName
+  * PhoneNumber
+  * State
+  * ZipCode
 
 ### ContactName
 * ContactName `string`
@@ -563,26 +794,27 @@ amazonaws_route53domains.ViewBilling({}, context)
 
 ### DeleteTagsForDomainRequest
 * DeleteTagsForDomainRequest `object`: The DeleteTagsForDomainRequest includes the following elements.
-  * DomainName **required** [DomainName](#domainname)
-  * TagsToDelete **required** [TagKeyList](#tagkeylist)
+  * DomainName **required**
+  * TagsToDelete **required**
+    * items [TagKey](#tagkey)
 
 ### DeleteTagsForDomainResponse
 * DeleteTagsForDomainResponse `object`
 
 ### DisableDomainAutoRenewRequest
 * DisableDomainAutoRenewRequest `object`
-  * DomainName **required** [DomainName](#domainname)
+  * DomainName **required**
 
 ### DisableDomainAutoRenewResponse
 * DisableDomainAutoRenewResponse `object`
 
 ### DisableDomainTransferLockRequest
 * DisableDomainTransferLockRequest `object`: The DisableDomainTransferLock request includes the following element.
-  * DomainName **required** [DomainName](#domainname)
+  * DomainName **required**
 
 ### DisableDomainTransferLockResponse
 * DisableDomainTransferLockResponse `object`: The DisableDomainTransferLock response includes the following element.
-  * OperationId **required** [OperationId](#operationid)
+  * OperationId **required**
 
 ### DomainAuthCode
 * DomainAuthCode `string`
@@ -591,8 +823,7 @@ amazonaws_route53domains.ViewBilling({}, context)
 * DomainAvailability `string` (values: AVAILABLE, AVAILABLE_RESERVED, AVAILABLE_PREORDER, UNAVAILABLE, UNAVAILABLE_PREMIUM, UNAVAILABLE_RESTRICTED, RESERVED, DONT_KNOW)
 
 ### DomainLimitExceeded
-* DomainLimitExceeded `object`: The number of domains has exceeded the allowed threshold for the account.
-  * message [ErrorMessage](#errormessage)
+
 
 ### DomainName
 * DomainName `string`
@@ -606,8 +837,8 @@ amazonaws_route53domains.ViewBilling({}, context)
 
 ### DomainSuggestion
 * DomainSuggestion `object`: Information about one suggested domain name.
-  * Availability [String](#string)
-  * DomainName [DomainName](#domainname)
+  * Availability
+  * DomainName
 
 ### DomainSuggestionsList
 * DomainSuggestionsList `array`
@@ -615,22 +846,21 @@ amazonaws_route53domains.ViewBilling({}, context)
 
 ### DomainSummary
 * DomainSummary `object`: Summary information about one domain.
-  * AutoRenew [Boolean](#boolean)
-  * DomainName **required** [DomainName](#domainname)
-  * Expiry [Timestamp](#timestamp)
-  * TransferLock [Boolean](#boolean)
+  * AutoRenew
+  * DomainName **required**
+  * Expiry
+  * TransferLock
 
 ### DomainSummaryList
 * DomainSummaryList `array`
   * items [DomainSummary](#domainsummary)
 
 ### DomainTransferability
-* DomainTransferability `object`: A complex type that contains information about whether the specified domain can be transferred to Amazon Route 53.
+* DomainTransferability `object`: A complex type that contains information about whether the specified domain can be transferred to Route 53.
   * Transferable [Transferable](#transferable)
 
 ### DuplicateRequest
-* DuplicateRequest `object`: The request is already in progress for the domain.
-  * message [ErrorMessage](#errormessage)
+
 
 ### DurationInYears
 * DurationInYears `integer`
@@ -640,33 +870,33 @@ amazonaws_route53domains.ViewBilling({}, context)
 
 ### EnableDomainAutoRenewRequest
 * EnableDomainAutoRenewRequest `object`
-  * DomainName **required** [DomainName](#domainname)
+  * DomainName **required**
 
 ### EnableDomainAutoRenewResponse
 * EnableDomainAutoRenewResponse `object`
 
 ### EnableDomainTransferLockRequest
 * EnableDomainTransferLockRequest `object`: A request to set the transfer lock for the specified domain.
-  * DomainName **required** [DomainName](#domainname)
+  * DomainName **required**
 
 ### EnableDomainTransferLockResponse
 * EnableDomainTransferLockResponse `object`: The EnableDomainTransferLock response includes the following elements.
-  * OperationId **required** [OperationId](#operationid)
+  * OperationId **required**
 
 ### ErrorMessage
 * ErrorMessage `string`
 
 ### ExtraParam
 * ExtraParam `object`: ExtraParam includes the following elements.
-  * Name **required** [ExtraParamName](#extraparamname)
-  * Value **required** [ExtraParamValue](#extraparamvalue)
+  * Name **required**
+  * Value **required**
 
 ### ExtraParamList
 * ExtraParamList `array`
   * items [ExtraParam](#extraparam)
 
 ### ExtraParamName
-* ExtraParamName `string` (values: DUNS_NUMBER, BRAND_NUMBER, BIRTH_DEPARTMENT, BIRTH_DATE_IN_YYYY_MM_DD, BIRTH_COUNTRY, BIRTH_CITY, DOCUMENT_NUMBER, AU_ID_NUMBER, AU_ID_TYPE, CA_LEGAL_TYPE, CA_BUSINESS_ENTITY_TYPE, ES_IDENTIFICATION, ES_IDENTIFICATION_TYPE, ES_LEGAL_FORM, FI_BUSINESS_NUMBER, FI_ID_NUMBER, FI_NATIONALITY, FI_ORGANIZATION_TYPE, IT_PIN, IT_REGISTRANT_ENTITY_TYPE, RU_PASSPORT_DATA, SE_ID_NUMBER, SG_ID_NUMBER, VAT_NUMBER, UK_CONTACT_TYPE, UK_COMPANY_NUMBER)
+* ExtraParamName `string` (values: DUNS_NUMBER, BRAND_NUMBER, BIRTH_DEPARTMENT, BIRTH_DATE_IN_YYYY_MM_DD, BIRTH_COUNTRY, BIRTH_CITY, DOCUMENT_NUMBER, AU_ID_NUMBER, AU_ID_TYPE, CA_LEGAL_TYPE, CA_BUSINESS_ENTITY_TYPE, CA_LEGAL_REPRESENTATIVE, CA_LEGAL_REPRESENTATIVE_CAPACITY, ES_IDENTIFICATION, ES_IDENTIFICATION_TYPE, ES_LEGAL_FORM, FI_BUSINESS_NUMBER, FI_ID_NUMBER, FI_NATIONALITY, FI_ORGANIZATION_TYPE, IT_NATIONALITY, IT_PIN, IT_REGISTRANT_ENTITY_TYPE, RU_PASSPORT_DATA, SE_ID_NUMBER, SG_ID_NUMBER, VAT_NUMBER, UK_CONTACT_TYPE, UK_COMPANY_NUMBER)
 
 ### ExtraParamValue
 * ExtraParamValue `string`
@@ -676,63 +906,111 @@ amazonaws_route53domains.ViewBilling({}, context)
 
 ### GetContactReachabilityStatusRequest
 * GetContactReachabilityStatusRequest `object`
-  * domainName [DomainName](#domainname)
+  * domainName
 
 ### GetContactReachabilityStatusResponse
 * GetContactReachabilityStatusResponse `object`
-  * domainName [DomainName](#domainname)
-  * status [ReachabilityStatus](#reachabilitystatus)
+  * domainName
+  * status
 
 ### GetDomainDetailRequest
 * GetDomainDetailRequest `object`: The GetDomainDetail request includes the following element.
-  * DomainName **required** [DomainName](#domainname)
+  * DomainName **required**
 
 ### GetDomainDetailResponse
 * GetDomainDetailResponse `object`: The GetDomainDetail response includes the following elements.
-  * AbuseContactEmail [Email](#email)
-  * AbuseContactPhone [ContactNumber](#contactnumber)
-  * AdminContact **required** [ContactDetail](#contactdetail)
-  * AdminPrivacy [Boolean](#boolean)
-  * AutoRenew [Boolean](#boolean)
-  * CreationDate [Timestamp](#timestamp)
-  * DnsSec [DNSSec](#dnssec)
-  * DomainName **required** [DomainName](#domainname)
-  * ExpirationDate [Timestamp](#timestamp)
-  * Nameservers **required** [NameserverList](#nameserverlist)
-  * RegistrantContact **required** [ContactDetail](#contactdetail)
-  * RegistrantPrivacy [Boolean](#boolean)
-  * RegistrarName [RegistrarName](#registrarname)
-  * RegistrarUrl [RegistrarUrl](#registrarurl)
-  * RegistryDomainId [RegistryDomainId](#registrydomainid)
-  * Reseller [Reseller](#reseller)
-  * StatusList [DomainStatusList](#domainstatuslist)
-  * TechContact **required** [ContactDetail](#contactdetail)
-  * TechPrivacy [Boolean](#boolean)
-  * UpdatedDate [Timestamp](#timestamp)
-  * WhoIsServer [RegistrarWhoIsServer](#registrarwhoisserver)
+  * AbuseContactEmail
+  * AbuseContactPhone
+  * AdminContact **required**
+    * AddressLine1
+    * AddressLine2
+    * City
+    * ContactType
+    * CountryCode
+    * Email
+    * ExtraParams
+      * items [ExtraParam](#extraparam)
+    * Fax
+    * FirstName
+    * LastName
+    * OrganizationName
+    * PhoneNumber
+    * State
+    * ZipCode
+  * AdminPrivacy
+  * AutoRenew
+  * CreationDate
+  * DnsSec
+  * DomainName **required**
+  * ExpirationDate
+  * Nameservers **required**
+    * items [Nameserver](#nameserver)
+  * RegistrantContact **required**
+    * AddressLine1
+    * AddressLine2
+    * City
+    * ContactType
+    * CountryCode
+    * Email
+    * ExtraParams
+      * items [ExtraParam](#extraparam)
+    * Fax
+    * FirstName
+    * LastName
+    * OrganizationName
+    * PhoneNumber
+    * State
+    * ZipCode
+  * RegistrantPrivacy
+  * RegistrarName
+  * RegistrarUrl
+  * RegistryDomainId
+  * Reseller
+  * StatusList
+    * items [DomainStatus](#domainstatus)
+  * TechContact **required**
+    * AddressLine1
+    * AddressLine2
+    * City
+    * ContactType
+    * CountryCode
+    * Email
+    * ExtraParams
+      * items [ExtraParam](#extraparam)
+    * Fax
+    * FirstName
+    * LastName
+    * OrganizationName
+    * PhoneNumber
+    * State
+    * ZipCode
+  * TechPrivacy
+  * UpdatedDate
+  * WhoIsServer
 
 ### GetDomainSuggestionsRequest
 * GetDomainSuggestionsRequest `object`
-  * DomainName **required** [DomainName](#domainname)
-  * OnlyAvailable **required** [Boolean](#boolean)
-  * SuggestionCount **required** [Integer](#integer)
+  * DomainName **required**
+  * OnlyAvailable **required**
+  * SuggestionCount **required**
 
 ### GetDomainSuggestionsResponse
 * GetDomainSuggestionsResponse `object`
-  * SuggestionsList [DomainSuggestionsList](#domainsuggestionslist)
+  * SuggestionsList
+    * items [DomainSuggestion](#domainsuggestion)
 
 ### GetOperationDetailRequest
-* GetOperationDetailRequest `object`: The <a>GetOperationDetail</a> request includes the following element.
-  * OperationId **required** [OperationId](#operationid)
+* GetOperationDetailRequest `object`: The <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html">GetOperationDetail</a> request includes the following element.
+  * OperationId **required**
 
 ### GetOperationDetailResponse
 * GetOperationDetailResponse `object`: The GetOperationDetail response includes the following elements.
-  * DomainName [DomainName](#domainname)
-  * Message [ErrorMessage](#errormessage)
-  * OperationId [OperationId](#operationid)
-  * Status [OperationStatus](#operationstatus)
-  * SubmittedDate [Timestamp](#timestamp)
-  * Type [OperationType](#operationtype)
+  * DomainName
+  * Message
+  * OperationId
+  * Status
+  * SubmittedDate
+  * Type
 
 ### GlueIp
 * GlueIp `string`
@@ -748,8 +1026,7 @@ amazonaws_route53domains.ViewBilling({}, context)
 * Integer `integer`
 
 ### InvalidInput
-* InvalidInput `object`: The requested item is not acceptable. For example, for an OperationId it might refer to the ID of an operation that is already completed. For a domain name, it might not be a valid domain name or belong to the requester account.
-  * message [ErrorMessage](#errormessage)
+
 
 ### InvoiceId
 * InvoiceId `string`
@@ -759,37 +1036,41 @@ amazonaws_route53domains.ViewBilling({}, context)
 
 ### ListDomainsRequest
 * ListDomainsRequest `object`: The ListDomains request includes the following elements.
-  * Marker [PageMarker](#pagemarker)
-  * MaxItems [PageMaxItems](#pagemaxitems)
+  * Marker
+  * MaxItems
 
 ### ListDomainsResponse
 * ListDomainsResponse `object`: The ListDomains response includes the following elements.
-  * Domains **required** [DomainSummaryList](#domainsummarylist)
-  * NextPageMarker [PageMarker](#pagemarker)
+  * Domains **required**
+    * items [DomainSummary](#domainsummary)
+  * NextPageMarker
 
 ### ListOperationsRequest
 * ListOperationsRequest `object`: The ListOperations request includes the following elements.
-  * Marker [PageMarker](#pagemarker)
-  * MaxItems [PageMaxItems](#pagemaxitems)
-  * SubmittedSince [Timestamp](#timestamp)
+  * Marker
+  * MaxItems
+  * SubmittedSince
 
 ### ListOperationsResponse
 * ListOperationsResponse `object`: The ListOperations response includes the following elements.
-  * NextPageMarker [PageMarker](#pagemarker)
-  * Operations **required** [OperationSummaryList](#operationsummarylist)
+  * NextPageMarker
+  * Operations **required**
+    * items [OperationSummary](#operationsummary)
 
 ### ListTagsForDomainRequest
 * ListTagsForDomainRequest `object`: The ListTagsForDomainRequest includes the following elements.
-  * DomainName **required** [DomainName](#domainname)
+  * DomainName **required**
 
 ### ListTagsForDomainResponse
 * ListTagsForDomainResponse `object`: The ListTagsForDomain response includes the following elements.
-  * TagList **required** [TagList](#taglist)
+  * TagList **required**
+    * items [Tag](#tag)
 
 ### Nameserver
 * Nameserver `object`: Nameserver includes the following elements.
-  * GlueIps [GlueIpList](#glueiplist)
-  * Name **required** [HostName](#hostname)
+  * GlueIps
+    * items [GlueIp](#glueip)
+  * Name **required**
 
 ### NameserverList
 * NameserverList `array`
@@ -799,25 +1080,24 @@ amazonaws_route53domains.ViewBilling({}, context)
 * OperationId `string`
 
 ### OperationLimitExceeded
-* OperationLimitExceeded `object`: The number of operations or jobs running exceeded the allowed threshold for the account.
-  * message [ErrorMessage](#errormessage)
+
 
 ### OperationStatus
 * OperationStatus `string` (values: SUBMITTED, IN_PROGRESS, ERROR, SUCCESSFUL, FAILED)
 
 ### OperationSummary
 * OperationSummary `object`: OperationSummary includes the following elements.
-  * OperationId **required** [OperationId](#operationid)
-  * Status **required** [OperationStatus](#operationstatus)
-  * SubmittedDate **required** [Timestamp](#timestamp)
-  * Type **required** [OperationType](#operationtype)
+  * OperationId **required**
+  * Status **required**
+  * SubmittedDate **required**
+  * Type **required**
 
 ### OperationSummaryList
 * OperationSummaryList `array`
   * items [OperationSummary](#operationsummary)
 
 ### OperationType
-* OperationType `string` (values: REGISTER_DOMAIN, DELETE_DOMAIN, TRANSFER_IN_DOMAIN, UPDATE_DOMAIN_CONTACT, UPDATE_NAMESERVER, CHANGE_PRIVACY_PROTECTION, DOMAIN_LOCK, ENABLE_AUTORENEW, DISABLE_AUTORENEW, ADD_DNSSEC, REMOVE_DNSSEC, EXPIRE_DOMAIN, TRANSFER_OUT_DOMAIN, CHANGE_DOMAIN_OWNER, RENEW_DOMAIN, PUSH_DOMAIN)
+* OperationType `string` (values: REGISTER_DOMAIN, DELETE_DOMAIN, TRANSFER_IN_DOMAIN, UPDATE_DOMAIN_CONTACT, UPDATE_NAMESERVER, CHANGE_PRIVACY_PROTECTION, DOMAIN_LOCK, ENABLE_AUTORENEW, DISABLE_AUTORENEW, ADD_DNSSEC, REMOVE_DNSSEC, EXPIRE_DOMAIN, TRANSFER_OUT_DOMAIN, CHANGE_DOMAIN_OWNER, RENEW_DOMAIN, PUSH_DOMAIN, INTERNAL_TRANSFER_OUT_DOMAIN, INTERNAL_TRANSFER_IN_DOMAIN)
 
 ### PageMarker
 * PageMarker `string`
@@ -833,20 +1113,65 @@ amazonaws_route53domains.ViewBilling({}, context)
 
 ### RegisterDomainRequest
 * RegisterDomainRequest `object`: The RegisterDomain request includes the following elements.
-  * AdminContact **required** [ContactDetail](#contactdetail)
-  * AutoRenew [Boolean](#boolean)
-  * DomainName **required** [DomainName](#domainname)
-  * DurationInYears **required** [DurationInYears](#durationinyears)
-  * IdnLangCode [LangCode](#langcode)
-  * PrivacyProtectAdminContact [Boolean](#boolean)
-  * PrivacyProtectRegistrantContact [Boolean](#boolean)
-  * PrivacyProtectTechContact [Boolean](#boolean)
-  * RegistrantContact **required** [ContactDetail](#contactdetail)
-  * TechContact **required** [ContactDetail](#contactdetail)
+  * AdminContact **required**
+    * AddressLine1
+    * AddressLine2
+    * City
+    * ContactType
+    * CountryCode
+    * Email
+    * ExtraParams
+      * items [ExtraParam](#extraparam)
+    * Fax
+    * FirstName
+    * LastName
+    * OrganizationName
+    * PhoneNumber
+    * State
+    * ZipCode
+  * AutoRenew
+  * DomainName **required**
+  * DurationInYears **required**
+  * IdnLangCode
+  * PrivacyProtectAdminContact
+  * PrivacyProtectRegistrantContact
+  * PrivacyProtectTechContact
+  * RegistrantContact **required**
+    * AddressLine1
+    * AddressLine2
+    * City
+    * ContactType
+    * CountryCode
+    * Email
+    * ExtraParams
+      * items [ExtraParam](#extraparam)
+    * Fax
+    * FirstName
+    * LastName
+    * OrganizationName
+    * PhoneNumber
+    * State
+    * ZipCode
+  * TechContact **required**
+    * AddressLine1
+    * AddressLine2
+    * City
+    * ContactType
+    * CountryCode
+    * Email
+    * ExtraParams
+      * items [ExtraParam](#extraparam)
+    * Fax
+    * FirstName
+    * LastName
+    * OrganizationName
+    * PhoneNumber
+    * State
+    * ZipCode
 
 ### RegisterDomainResponse
 * RegisterDomainResponse `object`: The RegisterDomain response includes the following element.
-  * OperationId **required** [OperationId](#operationid)
+  * OperationId **required**
 
 ### RegistrarName
 * RegistrarName `string`
@@ -860,36 +1185,44 @@ amazonaws_route53domains.ViewBilling({}, context)
 ### RegistryDomainId
 * RegistryDomainId `string`
 
+### RejectDomainTransferFromAnotherAwsAccountRequest
+* RejectDomainTransferFromAnotherAwsAccountRequest `object`: The RejectDomainTransferFromAnotherAwsAccount request includes the following element.
+  * DomainName **required**
+
+### RejectDomainTransferFromAnotherAwsAccountResponse
+* RejectDomainTransferFromAnotherAwsAccountResponse `object`: The RejectDomainTransferFromAnotherAwsAccount response includes the following element.
+  * OperationId
+
 ### RenewDomainRequest
 * RenewDomainRequest `object`: A <code>RenewDomain</code> request includes the number of years that you want to renew for and the current expiration year.
-  * CurrentExpiryYear **required** [CurrentExpiryYear](#currentexpiryyear)
-  * DomainName **required** [DomainName](#domainname)
-  * DurationInYears [DurationInYears](#durationinyears)
+  * CurrentExpiryYear **required**
+  * DomainName **required**
+  * DurationInYears
 
 ### RenewDomainResponse
 * RenewDomainResponse `object`
-  * OperationId **required** [OperationId](#operationid)
+  * OperationId **required**
 
 ### Reseller
 * Reseller `string`
 
 ### ResendContactReachabilityEmailRequest
 * ResendContactReachabilityEmailRequest `object`
-  * domainName [DomainName](#domainname)
+  * domainName
 
 ### ResendContactReachabilityEmailResponse
 * ResendContactReachabilityEmailResponse `object`
-  * domainName [DomainName](#domainname)
-  * emailAddress [Email](#email)
-  * isAlreadyVerified [Boolean](#boolean)
+  * domainName
+  * emailAddress
+  * isAlreadyVerified
 
 ### RetrieveDomainAuthCodeRequest
 * RetrieveDomainAuthCodeRequest `object`: A request for the authorization code for the specified domain. To transfer a domain to another registrar, you provide this value to the new registrar.
-  * DomainName **required** [DomainName](#domainname)
+  * DomainName **required**
 
 ### RetrieveDomainAuthCodeResponse
 * RetrieveDomainAuthCodeResponse `object`: The RetrieveDomainAuthCode response includes the following element.
-  * AuthCode **required** [DomainAuthCode](#domainauthcode)
+  * AuthCode **required**
 
 ### State
 * State `string`
@@ -898,13 +1231,12 @@ amazonaws_route53domains.ViewBilling({}, context)
 * String `string`
 
 ### TLDRulesViolation
-* TLDRulesViolation `object`: The top-level domain does not support this operation.
-  * message [ErrorMessage](#errormessage)
+
 
 ### Tag
 * Tag `object`: Each tag includes the following elements.
-  * Key [TagKey](#tagkey)
-  * Value [TagValue](#tagvalue)
+  * Key
+  * Value
 
 ### TagKey
 * TagKey `string`
@@ -925,81 +1257,184 @@ amazonaws_route53domains.ViewBilling({}, context)
 
 ### TransferDomainRequest
 * TransferDomainRequest `object`: The TransferDomain request includes the following elements.
-  * AdminContact **required** [ContactDetail](#contactdetail)
-  * AuthCode [DomainAuthCode](#domainauthcode)
-  * AutoRenew [Boolean](#boolean)
-  * DomainName **required** [DomainName](#domainname)
-  * DurationInYears **required** [DurationInYears](#durationinyears)
-  * IdnLangCode [LangCode](#langcode)
-  * Nameservers [NameserverList](#nameserverlist)
-  * PrivacyProtectAdminContact [Boolean](#boolean)
-  * PrivacyProtectRegistrantContact [Boolean](#boolean)
-  * PrivacyProtectTechContact [Boolean](#boolean)
-  * RegistrantContact **required** [ContactDetail](#contactdetail)
-  * TechContact **required** [ContactDetail](#contactdetail)
+  * AdminContact **required**
+    * AddressLine1
+    * AddressLine2
+    * City
+    * ContactType
+    * CountryCode
+    * Email
+    * ExtraParams
+      * items [ExtraParam](#extraparam)
+    * Fax
+    * FirstName
+    * LastName
+    * OrganizationName
+    * PhoneNumber
+    * State
+    * ZipCode
+  * AuthCode
+  * AutoRenew
+  * DomainName **required**
+  * DurationInYears **required**
+  * IdnLangCode
+  * Nameservers
+    * items [Nameserver](#nameserver)
+  * PrivacyProtectAdminContact
+  * PrivacyProtectRegistrantContact
+  * PrivacyProtectTechContact
+  * RegistrantContact **required**
+    * AddressLine1
+    * AddressLine2
+    * City
+    * ContactType
+    * CountryCode
+    * Email
+    * ExtraParams
+      * items [ExtraParam](#extraparam)
+    * Fax
+    * FirstName
+    * LastName
+    * OrganizationName
+    * PhoneNumber
+    * State
+    * ZipCode
+  * TechContact **required**
+    * AddressLine1
+    * AddressLine2
+    * City
+    * ContactType
+    * CountryCode
+    * Email
+    * ExtraParams
+      * items [ExtraParam](#extraparam)
+    * Fax
+    * FirstName
+    * LastName
+    * OrganizationName
+    * PhoneNumber
+    * State
+    * ZipCode
 
 ### TransferDomainResponse
-* TransferDomainResponse `object`: The TranserDomain response includes the following element.
-  * OperationId **required** [OperationId](#operationid)
+* TransferDomainResponse `object`: The TransferDomain response includes the following element.
+  * OperationId **required**
+
+### TransferDomainToAnotherAwsAccountRequest
+* TransferDomainToAnotherAwsAccountRequest `object`: The TransferDomainToAnotherAwsAccount request includes the following elements.
+  * AccountId **required**
+  * DomainName **required**
+
+### TransferDomainToAnotherAwsAccountResponse
+* TransferDomainToAnotherAwsAccountResponse `object`: The <code>TransferDomainToAnotherAwsAccount</code> response includes the following elements.
+  * OperationId
+  * Password
 
 ### Transferable
-* Transferable `string` (values: TRANSFERABLE, UNTRANSFERABLE, DONT_KNOW): <p>Whether the domain name can be transferred to Amazon Route 53.</p> <note> <p>You can transfer only domains that have a value of <code>TRANSFERABLE</code> for <code>Transferable</code>.</p> </note> <p>Valid values:</p> <dl> <dt>TRANSFERABLE</dt> <dd> <p>The domain name can be transferred to Amazon Route 53.</p> </dd> <dt>UNTRANSFERRABLE</dt> <dd> <p>The domain name can't be transferred to Amazon Route 53.</p> </dd> <dt>DONT_KNOW</dt> <dd> <p>Reserved for future use.</p> </dd> </dl>
+* Transferable `string` (values: TRANSFERABLE, UNTRANSFERABLE, DONT_KNOW): <p>Whether the domain name can be transferred to Route 53.</p> <note> <p>You can transfer only domains that have a value of <code>TRANSFERABLE</code> for <code>Transferable</code>.</p> </note> <p>Valid values:</p> <dl> <dt>TRANSFERABLE</dt> <dd> <p>The domain name can be transferred to Route 53.</p> </dd> <dt>UNTRANSFERRABLE</dt> <dd> <p>The domain name can't be transferred to Route 53.</p> </dd> <dt>DONT_KNOW</dt> <dd> <p>Reserved for future use.</p> </dd> </dl>
 
 ### UnsupportedTLD
-* UnsupportedTLD `object`: Amazon Route 53 does not support this top-level domain (TLD).
-  * message [ErrorMessage](#errormessage)
+
 
 ### UpdateDomainContactPrivacyRequest
 * UpdateDomainContactPrivacyRequest `object`: The UpdateDomainContactPrivacy request includes the following elements.
-  * AdminPrivacy [Boolean](#boolean)
-  * DomainName **required** [DomainName](#domainname)
-  * RegistrantPrivacy [Boolean](#boolean)
-  * TechPrivacy [Boolean](#boolean)
+  * AdminPrivacy
+  * DomainName **required**
+  * RegistrantPrivacy
+  * TechPrivacy
 
 ### UpdateDomainContactPrivacyResponse
 * UpdateDomainContactPrivacyResponse `object`: The UpdateDomainContactPrivacy response includes the following element.
-  * OperationId **required** [OperationId](#operationid)
+  * OperationId **required**
 
 ### UpdateDomainContactRequest
 * UpdateDomainContactRequest `object`: The UpdateDomainContact request includes the following elements.
-  * AdminContact [ContactDetail](#contactdetail)
-  * DomainName **required** [DomainName](#domainname)
-  * RegistrantContact [ContactDetail](#contactdetail)
-  * TechContact [ContactDetail](#contactdetail)
+  * AdminContact
+    * AddressLine1
+    * AddressLine2
+    * City
+    * ContactType
+    * CountryCode
+    * Email
+    * ExtraParams
+      * items [ExtraParam](#extraparam)
+    * Fax
+    * FirstName
+    * LastName
+    * OrganizationName
+    * PhoneNumber
+    * State
+    * ZipCode
+  * DomainName **required**
+  * RegistrantContact
+    * AddressLine1
+    * AddressLine2
+    * City
+    * ContactType
+    * CountryCode
+    * Email
+    * ExtraParams
+      * items [ExtraParam](#extraparam)
+    * Fax
+    * FirstName
+    * LastName
+    * OrganizationName
+    * PhoneNumber
+    * State
+    * ZipCode
+  * TechContact
+    * AddressLine1
+    * AddressLine2
+    * City
+    * ContactType
+    * CountryCode
+    * Email
+    * ExtraParams
+      * items [ExtraParam](#extraparam)
+    * Fax
+    * FirstName
+    * LastName
+    * OrganizationName
+    * PhoneNumber
+    * State
+    * ZipCode
 
 ### UpdateDomainContactResponse
 * UpdateDomainContactResponse `object`: The UpdateDomainContact response includes the following element.
-  * OperationId **required** [OperationId](#operationid)
+  * OperationId **required**
 
 ### UpdateDomainNameserversRequest
 * UpdateDomainNameserversRequest `object`: <p>Replaces the current set of name servers for the domain with the specified set of name servers. If you use Amazon Route 53 as your DNS service, specify the four name servers in the delegation set for the hosted zone for the domain.</p> <p>If successful, this operation returns an operation ID that you can use to track the progress and completion of the action. If the request is not completed successfully, the domain registrant will be notified by email. </p>
-  * DomainName **required** [DomainName](#domainname)
-  * FIAuthKey [FIAuthKey](#fiauthkey)
-  * Nameservers **required** [NameserverList](#nameserverlist)
+  * DomainName **required**
+  * FIAuthKey
+  * Nameservers **required**
+    * items [Nameserver](#nameserver)
 
 ### UpdateDomainNameserversResponse
 * UpdateDomainNameserversResponse `object`: The UpdateDomainNameservers response includes the following element.
-  * OperationId **required** [OperationId](#operationid)
+  * OperationId **required**
 
 ### UpdateTagsForDomainRequest
 * UpdateTagsForDomainRequest `object`: The UpdateTagsForDomainRequest includes the following elements.
-  * DomainName **required** [DomainName](#domainname)
-  * TagsToUpdate [TagList](#taglist)
+  * DomainName **required**
+  * TagsToUpdate
+    * items [Tag](#tag)
 
 ### UpdateTagsForDomainResponse
 * UpdateTagsForDomainResponse `object`
 
 ### ViewBillingRequest
 * ViewBillingRequest `object`: The ViewBilling request includes the following elements.
-  * End [Timestamp](#timestamp)
-  * Marker [PageMarker](#pagemarker)
-  * MaxItems [PageMaxItems](#pagemaxitems)
-  * Start [Timestamp](#timestamp)
+  * End
+  * Marker
+  * MaxItems
+  * Start
 
 ### ViewBillingResponse
 * ViewBillingResponse `object`: The ViewBilling response includes the following elements.
-  * BillingRecords [BillingRecords](#billingrecords)
-  * NextPageMarker [PageMarker](#pagemarker)
+  * BillingRecords
+    * items [BillingRecord](#billingrecord)
+  * NextPageMarker
 
 ### ZipCode
 * ZipCode `string`

@@ -1,11 +1,5 @@
 {
   "swagger": "2.0",
-  "schemes": [
-    "https",
-    "http"
-  ],
-  "host": "apirest.isendpro.com",
-  "basePath": "/cgi-bin",
   "info": {
     "contact": {
       "email": "support@isendpro.com",
@@ -13,8 +7,7 @@
       "url": "https://www.isendpro.com/",
       "x-twitter": "isendpro"
     },
-    "description": "[1] Liste des fonctionnalités :\n- envoi de SMS à un ou plusieurs destinataires,\n- lookup HLR,\n- récupération des récapitulatifs de campagne,\n- gestion des répertoires,\n- ajout en liste noire.\n- comptage du nombre de caractères des SMS\n\n[2] Pour utiliser cette API vous devez:\n- Créer un compte iSendPro sur https://isendpro.com/\n- Créditer votre compte\n    - Remarque: obtention d'un crédit de test possible sous conditions\n- Noter votre clé de compte (keyid)\n  - Elle vous sera indispensable à l'utilisation de l'API\n  - Vous pouvez la trouver dans le rubrique mon \"compte\", sous-rubrique \"mon API\"\n- Configurer le contrôle IP\n  - Le contrôle IP est configurable dans le rubrique mon \"compte\", sous-rubrique \"mon API\"\n  - Il s'agit d'un système de liste blanche, vous devez entrer les IP utilisées pour appeler l'API\n  - Vous pouvez également désactiver totalement le contrôle IP\n",
-    "termsOfService": "cf CGV iSendPro.com",
+    "description": "[1] Liste des fonctionnalités :\n- envoi de SMS à un ou plusieurs destinataires,\n- lookup HLR,\n- récupération des récapitulatifs de campagne,\n- gestion des répertoires,\n- ajout en liste noire.\n- comptage du nombre de caractères des SMS\n\n[2] Pour utiliser cette API vous devez:\n- Créer un compte iSendPro sur https://isendpro.com/\n- Créditer votre compte \n    - Remarque: obtention d'un crédit de test possible sous conditions\n- Noter votre clé de compte (keyid)\n  - Elle vous sera indispensable à l'utilisation de l'API\n  - Vous pouvez la trouver dans le rubrique mon \"compte\", sous-rubrique \"mon API\"\n- Configurer le contrôle IP\n  - Le contrôle IP est configurable dans le rubrique mon \"compte\", sous-rubrique \"mon API\"\n  - Il s'agit d'un système de liste blanche, vous devez entrer les IP utilisées pour appeler l'API\n  - Vous pouvez également désactiver totalement le contrôle IP\n",
     "title": "API iSendPro",
     "version": "1.1.1",
     "x-apisguru-categories": [
@@ -25,9 +18,9 @@
     },
     "x-origin": [
       {
-        "format": "swagger",
+        "format": "openapi",
         "url": "https://apirest.isendpro.com/isendpro.json",
-        "version": "2.0"
+        "version": "3.0"
       }
     ],
     "x-preferred": true,
@@ -37,14 +30,18 @@
       "type": "openapi"
     }
   },
+  "host": "apirest.isendpro.com",
+  "basePath": "/cgi-bin",
+  "schemes": [
+    "https"
+  ],
   "paths": {
     "/campagne": {
       "get": {
-        "consumes": [
-          "application/x-www-form-urlencoded"
+        "produces": [
+          "application/json",
+          "file"
         ],
-        "description": "Retourne les SMS envoyés sur une période donnée en fonction d'une date de début et d'une date de fin.\n\nLes dates sont au format YYYY-MM-DD hh:mm.\n\nLe fichier rapport de campagne est sous la forme d'un fichier zip + contenant un fichier csv contenant le détail des envois.\n",
-        "operationId": "getCampagne",
         "parameters": [
           {
             "description": "Clé API",
@@ -78,15 +75,12 @@
             "type": "string"
           }
         ],
-        "produces": [
-          "application/json",
-          "file"
-        ],
         "responses": {
           "200": {
             "description": "Successful response",
             "schema": {
-              "type": "file"
+              "format": "binary",
+              "type": "string"
             }
           },
           "400": {
@@ -96,10 +90,12 @@
             }
           }
         },
-        "summary": "Retourne les SMS envoyés sur une période donnée",
         "tags": [
           "campagne"
-        ]
+        ],
+        "description": "Retourne les SMS envoyés sur une période donnée en fonction d'une date de début et d'une date de fin. \n\nLes dates sont au format YYYY-MM-DD hh:mm. \n\nLe fichier rapport de campagne est sous la forme d'un fichier zip + contenant un fichier csv contenant le détail des envois.\n",
+        "operationId": "getCampagne",
+        "summary": "Retourne les SMS envoyés sur une période donnée"
       }
     },
     "/comptage": {
@@ -107,34 +103,24 @@
         "consumes": [
           "application/json"
         ],
-        "description": "Compte le nombre de SMS necessaire à un envoi",
-        "operationId": "comptage",
+        "produces": [
+          "application/json",
+          "etat"
+        ],
         "parameters": [
           {
             "description": "sms request",
             "in": "body",
-            "name": "comptagerequest",
+            "name": "body",
             "required": true,
             "schema": {
               "$ref": "#/definitions/ComptageRequest"
             }
           }
         ],
-        "produces": [
-          "application/json"
-        ],
         "responses": {
           "200": {
             "description": "Reponse OK",
-            "examples": {
-              "etat": {
-                "etat": {
-                  "nb_caractere": "222",
-                  "nb_sms": "2",
-                  "tel": "0680010203"
-                }
-              }
-            },
             "schema": {
               "$ref": "#/definitions/ComptageReponse"
             }
@@ -146,19 +132,19 @@
             }
           }
         },
-        "summary": "Compter le nombre de caractère ",
         "tags": [
           "comptage"
-        ]
+        ],
+        "description": "Compte le nombre de SMS necessaire à un envoi",
+        "operationId": "comptage",
+        "summary": "Compter le nombre de caractère "
       }
     },
     "/credit": {
       "get": {
-        "consumes": [
-          "application/x-www-form-urlencoded"
+        "produces": [
+          "application/json"
         ],
-        "description": "Retourne le credit existant associe au compte.\n",
-        "operationId": "getCredit",
         "parameters": [
           {
             "description": "Clé API",
@@ -180,19 +166,9 @@
             "type": "string"
           }
         ],
-        "produces": [
-          "application/json"
-        ],
         "responses": {
           "200": {
             "description": "Successful response",
-            "examples": {
-              "application/json": {
-                "etat": {
-                  "credit": "10.0"
-                }
-              }
-            },
             "schema": {
               "$ref": "#/definitions/CreditResponse"
             }
@@ -204,19 +180,19 @@
             }
           }
         },
-        "summary": "Interrogation credit",
         "tags": [
           "credit"
-        ]
+        ],
+        "description": "Retourne le credit existant associe au compte.\n",
+        "operationId": "getCredit",
+        "summary": "Interrogation credit"
       }
     },
     "/dellistenoire": {
       "post": {
-        "consumes": [
-          "application/x-www-form-urlencoded"
+        "produces": [
+          "application/json"
         ],
-        "description": "Supprime un numero en liste noire",
-        "operationId": "delListeNoire",
         "parameters": [
           {
             "description": "Clé API",
@@ -245,9 +221,6 @@
             "type": "string"
           }
         ],
-        "produces": [
-          "application/json"
-        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -262,19 +235,19 @@
             }
           }
         },
-        "summary": "Ajoute un numero en liste noire",
         "tags": [
           "delListeNoire"
-        ]
+        ],
+        "description": "Supprime un numero en liste noire",
+        "operationId": "delListeNoire",
+        "summary": "Ajoute un numero en liste noire"
       }
     },
     "/getlistenoire": {
       "post": {
-        "consumes": [
-          "application/x-www-form-urlencoded"
+        "produces": [
+          "application/json"
         ],
-        "description": "Retourne un fichier csv zippé contenant la liste noire",
-        "operationId": "getListeNoire",
         "parameters": [
           {
             "description": "Clé API",
@@ -295,14 +268,12 @@
             "type": "string"
           }
         ],
-        "produces": [
-          "application/json"
-        ],
         "responses": {
           "200": {
             "description": "Successful response",
             "schema": {
-              "type": "file"
+              "format": "binary",
+              "type": "string"
             }
           },
           "400": {
@@ -312,10 +283,12 @@
             }
           }
         },
-        "summary": "Retourne le liste noire",
         "tags": [
           "getListeNoire"
-        ]
+        ],
+        "description": "Retourne un fichier csv zippé contenant la liste noire",
+        "operationId": "getListeNoire",
+        "summary": "Retourne le liste noire"
       }
     },
     "/hlr": {
@@ -323,35 +296,22 @@
         "consumes": [
           "application/json"
         ],
-        "description": "Réalise un lookup HLR sur les numéros\n",
-        "operationId": "getHlr",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "description": "",
             "in": "body",
-            "name": "hlrrequest",
+            "name": "body",
             "required": true,
             "schema": {
               "$ref": "#/definitions/HLRrequest"
             }
           }
         ],
-        "produces": [
-          "application/json"
-        ],
         "responses": {
           "200": {
             "description": "Reponse OK",
-            "examples": {
-              "application/json": {
-                "etat": {
-                  "etat": {
-                    "operateur": "ORAN",
-                    "tel": "0680010203"
-                  }
-                }
-              }
-            },
             "schema": {
               "$ref": "#/definitions/HLRReponse"
             }
@@ -363,10 +323,12 @@
             }
           }
         },
-        "summary": "Vérifier la validité d'un numéro",
         "tags": [
           "hlr"
-        ]
+        ],
+        "description": "Réalise un lookup HLR sur les numéros \n",
+        "operationId": "getHlr",
+        "summary": "Vérifier la validité d'un numéro"
       }
     },
     "/repertoire": {
@@ -374,21 +336,19 @@
         "consumes": [
           "application/json"
         ],
-        "description": "Cree un nouveau répertoire et retourne son identifiant. Cet identifiant pourra être utilisé pour ajouter ou supprimer des numéros via l'API.",
-        "operationId": "repertoireCrea",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Creation repertoire",
             "in": "body",
-            "name": "repertoirecreaterequest",
+            "name": "body",
             "required": true,
             "schema": {
               "$ref": "#/definitions/REPERTOIREcreaterequest"
             }
           }
-        ],
-        "produces": [
-          "application/json"
         ],
         "responses": {
           "200": {
@@ -404,30 +364,30 @@
             }
           }
         },
-        "summary": "Gestion repertoire (creation)",
         "tags": [
           "repertoire"
-        ]
+        ],
+        "description": "Cree un nouveau répertoire et retourne son identifiant. Cet identifiant pourra être utilisé pour ajouter ou supprimer des numéros via l'API.",
+        "operationId": "repertoireCrea",
+        "summary": "Gestion repertoire (creation)"
       },
       "put": {
         "consumes": [
           "application/json"
         ],
-        "description": "Ajoute ou supprime une liste de numéros à un répertoire existant.",
-        "operationId": "repertoire",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Requête de creation repertoire",
             "in": "body",
-            "name": "repertoiremodifrequest",
+            "name": "body",
             "required": true,
             "schema": {
               "$ref": "#/definitions/REPERTOIREmodifrequest"
             }
           }
-        ],
-        "produces": [
-          "application/json"
         ],
         "responses": {
           "200": {
@@ -443,19 +403,19 @@
             }
           }
         },
-        "summary": "Gestion repertoire (modification)",
         "tags": [
           "repertoire"
-        ]
+        ],
+        "description": "Ajoute ou supprime une liste de numéros à un répertoire existant.",
+        "operationId": "repertoire",
+        "summary": "Gestion repertoire (modification)"
       }
     },
     "/setlistenoire": {
       "post": {
-        "consumes": [
-          "application/x-www-form-urlencoded"
+        "produces": [
+          "application/json"
         ],
-        "description": "Ajoute un numero en liste noire. Une fois ajouté, les requêtes d'envoi de SMS marketing vers ce numéro seront refusées.",
-        "operationId": "setListeNoire",
         "parameters": [
           {
             "description": "Clé API",
@@ -484,9 +444,6 @@
             "type": "string"
           }
         ],
-        "produces": [
-          "application/json"
-        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -501,10 +458,12 @@
             }
           }
         },
-        "summary": "Ajoute un numero en liste noire",
         "tags": [
           "setListeNoire"
-        ]
+        ],
+        "description": "Ajoute un numero en liste noire. Une fois ajouté, les requêtes d'envoi de SMS marketing vers ce numéro seront refusées.",
+        "operationId": "setListeNoire",
+        "summary": "Ajoute un numero en liste noire"
       }
     },
     "/shortlink": {
@@ -512,36 +471,24 @@
         "consumes": [
           "application/json"
         ],
-        "description": "add a shortlink",
-        "operationId": "addShortlink",
+        "produces": [
+          "application/json",
+          "exemple1"
+        ],
         "parameters": [
           {
             "description": "add sub account request",
             "in": "body",
-            "name": "addshortlinkrequest",
+            "name": "body",
             "required": true,
             "schema": {
               "$ref": "#/definitions/ShortlinkRequest"
             }
           }
         ],
-        "produces": [
-          "application/json"
-        ],
         "responses": {
           "200": {
             "description": "Reponse OK",
-            "examples": {
-              "exemple1": {
-                "etat": {
-                  "etat": {
-                    "code": 250,
-                    "message": "Le lien court a ete genere",
-                    "shortlink": "ww.sms.ht/aOHi"
-                  }
-                }
-              }
-            },
             "schema": {
               "$ref": "#/definitions/ShortlinkResponse"
             }
@@ -553,10 +500,12 @@
             }
           }
         },
-        "summary": "add a shortlink",
         "tags": [
           "add shortlink"
-        ]
+        ],
+        "description": "add a shortlink",
+        "operationId": "addShortlink",
+        "summary": "add a shortlink"
       }
     },
     "/sms": {
@@ -564,34 +513,24 @@
         "consumes": [
           "application/json"
         ],
-        "description": "Envoi un sms vers un unique destinataire",
-        "operationId": "sendSms",
+        "produces": [
+          "application/json",
+          "etat"
+        ],
         "parameters": [
           {
             "description": "sms request",
             "in": "body",
-            "name": "smsrequest",
+            "name": "body",
             "required": true,
             "schema": {
               "$ref": "#/definitions/SmsUniqueRequest"
             }
           }
         ],
-        "produces": [
-          "application/json"
-        ],
         "responses": {
           "200": {
             "description": "Reponse OK",
-            "examples": {
-              "etat": {
-                "etat": {
-                  "code": "0",
-                  "message": "hello world!",
-                  "tel": "0680010203"
-                }
-              }
-            },
             "schema": {
               "$ref": "#/definitions/SMSReponse"
             }
@@ -603,10 +542,12 @@
             }
           }
         },
-        "summary": "Envoyer un sms",
         "tags": [
           "sms"
-        ]
+        ],
+        "description": "Envoi un sms vers un unique destinataire",
+        "operationId": "sendSms",
+        "summary": "Envoyer un sms"
       }
     },
     "/smsmulti": {
@@ -614,34 +555,24 @@
         "consumes": [
           "application/json"
         ],
-        "description": "Envoi de SMS vers 1 ou plusieurs destinataires\n",
-        "operationId": "sendSmsMulti",
+        "produces": [
+          "application/json",
+          "etat"
+        ],
         "parameters": [
           {
             "description": "sms request",
             "in": "body",
-            "name": "smsrequest",
+            "name": "body",
             "required": true,
             "schema": {
               "$ref": "#/definitions/SMSRequest"
             }
           }
         ],
-        "produces": [
-          "application/json"
-        ],
         "responses": {
           "200": {
             "description": "Reponse OK",
-            "examples": {
-              "etat": {
-                "etat": {
-                  "code": "0",
-                  "message": "hello world!",
-                  "tel": "0680010203"
-                }
-              }
-            },
             "schema": {
               "$ref": "#/definitions/SMSReponse"
             }
@@ -653,10 +584,12 @@
             }
           }
         },
-        "summary": "Envoyer des SMS",
         "tags": [
           "sms"
-        ]
+        ],
+        "description": "Envoi de SMS vers 1 ou plusieurs destinataires\n",
+        "operationId": "sendSmsMulti",
+        "summary": "Envoyer des SMS"
       }
     },
     "/subaccount": {
@@ -664,38 +597,24 @@
         "consumes": [
           "application/json"
         ],
-        "description": "Ajoute un sous compte",
-        "operationId": "subaccountAdd",
+        "produces": [
+          "application/json",
+          "exemple1"
+        ],
         "parameters": [
           {
             "description": "add sub account request",
             "in": "body",
-            "name": "addsubaccountrequest",
+            "name": "body",
             "required": true,
             "schema": {
               "$ref": "#/definitions/SubaccountAddRequest"
             }
           }
         ],
-        "produces": [
-          "application/json"
-        ],
         "responses": {
           "200": {
             "description": "Reponse OK",
-            "examples": {
-              "exemple1": {
-                "etat": {
-                  "etat": {
-                    "code": 230,
-                    "subAccountId": 20150,
-                    "subAccountKeyId": "a9bc68fe78",
-                    "subAccountLogin": "marion.peltier.agence06",
-                    "tel": "Le sous compte a ete ajoute"
-                  }
-                }
-              }
-            },
             "schema": {
               "$ref": "#/definitions/SubaccountAddResponse"
             }
@@ -707,30 +626,30 @@
             }
           }
         },
-        "summary": "Ajoute un sous compte",
         "tags": [
           "add subaccount"
-        ]
+        ],
+        "description": "Ajoute un sous compte",
+        "operationId": "subaccountAdd",
+        "summary": "Ajoute un sous compte"
       },
       "put": {
         "consumes": [
           "application/json"
         ],
-        "description": "Edit a subaccount",
-        "operationId": "subaccountEdit",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "edit sub account request",
             "in": "body",
-            "name": "editsubaccountrequest",
+            "name": "body",
             "required": true,
             "schema": {
               "$ref": "#/definitions/SubaccountRequest"
             }
           }
-        ],
-        "produces": [
-          "application/json"
         ],
         "responses": {
           "200": {
@@ -746,10 +665,12 @@
             }
           }
         },
-        "summary": "Edit a subaccount",
         "tags": [
           "edit subaccount"
-        ]
+        ],
+        "description": "Edit a subaccount",
+        "operationId": "subaccountEdit",
+        "summary": "Edit a subaccount"
       }
     }
   },
@@ -2035,5 +1956,6 @@
       },
       "type": "object"
     }
-  }
+  },
+  "x-components": {}
 }

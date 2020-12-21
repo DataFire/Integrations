@@ -1,0 +1,76 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "API for converting HTML to PDF.",
+    "title": "EasyPDFServer",
+    "version": "1",
+    "x-apisguru-categories": [
+      "text"
+    ],
+    "x-origin": [
+      {
+        "format": "openapi",
+        "url": "https://www.easypdfserver.com/openapi.yaml",
+        "version": "3.0"
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "easypdfserver.com",
+    "x-datafire": {
+      "name": "easypdfserver",
+      "type": "openapi"
+    }
+  },
+  "host": "api.easypdfserver.com",
+  "basePath": "/",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/make-pdf": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/pdf"
+        ],
+        "parameters": [
+          {
+            "description": "Pass the API key from easypdfserver.com and either HTML or URL to generate your PDF.",
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "html": {
+                  "type": "string"
+                },
+                "key": {
+                  "type": "string"
+                },
+                "url": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "key"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Your PDF file",
+            "schema": {
+              "format": "binary",
+              "type": "string"
+            }
+          }
+        },
+        "summary": "Generate a PDF from HTML or URL."
+      }
+    }
+  }
+}

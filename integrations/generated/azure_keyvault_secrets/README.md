@@ -15,12 +15,7 @@ let azure_keyvault_secrets = require('@datafire/azure_keyvault_secrets').create(
   redirect_uri: ""
 });
 
-azure_keyvault_secrets.Secrets_List({
-  "resourceGroupName": "",
-  "vaultName": "",
-  "api-version": "",
-  "subscriptionId": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -140,11 +135,11 @@ azure_keyvault_secrets.Secrets_CreateOrUpdate({
 
 ### Attributes
 * Attributes `object`: The object attributes managed by the KeyVault service.
-  * created `integer`: Creation time in UTC.
+  * created `integer`: Creation time in seconds since 1970-01-01T00:00:00Z.
   * enabled `boolean`: Determines whether the object is enabled.
-  * exp `integer`: Expiry date in UTC.
-  * nbf `integer`: Not before date in UTC.
-  * updated `integer`: Last updated time in UTC.
+  * exp `integer`: Expiry date in seconds since 1970-01-01T00:00:00Z.
+  * nbf `integer`: Not before date in seconds since 1970-01-01T00:00:00Z.
+  * updated `integer`: Last updated time in seconds since 1970-01-01T00:00:00Z.
 
 ### Secret
 * Secret `object`: Resource information with extended details.
@@ -157,11 +152,11 @@ azure_keyvault_secrets.Secrets_CreateOrUpdate({
 
 ### SecretAttributes
 * SecretAttributes: The secret management attributes.
-  * created `integer`: Creation time in UTC.
+  * created `integer`: Creation time in seconds since 1970-01-01T00:00:00Z.
   * enabled `boolean`: Determines whether the object is enabled.
-  * exp `integer`: Expiry date in UTC.
-  * nbf `integer`: Not before date in UTC.
-  * updated `integer`: Last updated time in UTC.
+  * exp `integer`: Expiry date in seconds since 1970-01-01T00:00:00Z.
+  * nbf `integer`: Not before date in seconds since 1970-01-01T00:00:00Z.
+  * updated `integer`: Last updated time in seconds since 1970-01-01T00:00:00Z.
 
 ### SecretCreateOrUpdateParameters
 * SecretCreateOrUpdateParameters `object`: Parameters for creating or updating a secret

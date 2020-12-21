@@ -1,15 +1,9 @@
 {
   "swagger": "2.0",
-  "schemes": [
-    "http",
-    "https"
-  ],
-  "host": "api.nytimes.com",
-  "basePath": "/svc/suggest/v1",
   "info": {
     "description": "With the TimesTags API, you can mine the riches of the New York Times tag set. The TimesTags service matches your query to the controlled vocabularies that fuel NYTimes.com metadata. You supply a string of characters, and the service returns a ranked list of suggested terms.",
     "termsOfService": "http://developer.nytimes.com/tou",
-    "title": "TimesTags",
+    "title": "TimesTags API",
     "version": "1.0.0",
     "x-apiClientRegistration": {
       "url": "http://developer.nytimes.com/signup"
@@ -23,9 +17,9 @@
     },
     "x-origin": [
       {
-        "format": "swagger",
-        "url": "https://raw.githubusercontent.com/NYTimes/public_api_specs/master/times_tags/times_tags_v3.json",
-        "version": "2.0"
+        "format": "openapi",
+        "url": "https://raw.githubusercontent.com/nytimes/public_api_specs/master/times_tags/times_tags_v3.json",
+        "version": "3.0"
       }
     ],
     "x-preferred": true,
@@ -36,27 +30,17 @@
       "type": "openapi"
     }
   },
-  "externalDocs": {
-    "url": "http://developer.nytimes.com/"
-  },
-  "produces": [
-    "application/json"
-  ],
-  "securityDefinitions": {
-    "apikey": {
-      "in": "query",
-      "name": "api-key",
-      "type": "apiKey"
-    }
-  },
-  "security": [
-    {
-      "apikey": []
-    }
+  "host": "api.nytimes.com",
+  "basePath": "/svc/suggest/v1",
+  "schemes": [
+    "http"
   ],
   "paths": {
     "/timestags": {
       "get": {
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Your search query",
@@ -100,9 +84,24 @@
               "type": "array"
             }
           }
-        },
-        "operationId": "timestags.get"
+        }
       }
     }
-  }
+  },
+  "securityDefinitions": {
+    "apikey": {
+      "in": "query",
+      "name": "api-key",
+      "type": "apiKey"
+    }
+  },
+  "security": [
+    {
+      "apikey": []
+    }
+  ],
+  "externalDocs": {
+    "url": "http://developer.nytimes.com/"
+  },
+  "x-components": {}
 }

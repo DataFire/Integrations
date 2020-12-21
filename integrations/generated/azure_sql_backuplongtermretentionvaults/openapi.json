@@ -51,21 +51,6 @@
     }
   },
   "parameters": {
-    "ApiVersionParameter": {
-      "description": "The API version to use for the request.",
-      "in": "query",
-      "name": "api-version",
-      "required": true,
-      "type": "string"
-    },
-    "ResourceGroupParameter": {
-      "description": "The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.",
-      "in": "path",
-      "name": "resourceGroupName",
-      "required": true,
-      "type": "string",
-      "x-ms-parameter-location": "method"
-    },
     "ServerNameParameter": {
       "description": "The name of the server.",
       "in": "path",
@@ -73,13 +58,6 @@
       "required": true,
       "type": "string",
       "x-ms-parameter-location": "method"
-    },
-    "SubscriptionIdParameter": {
-      "description": "The subscription ID that identifies an Azure subscription.",
-      "in": "path",
-      "name": "subscriptionId",
-      "required": true,
-      "type": "string"
     }
   },
   "paths": {
@@ -89,13 +67,28 @@
         "operationId": "BackupLongTermRetentionVaults_ListByServer",
         "parameters": [
           {
-            "$ref": "#/parameters/ApiVersionParameter"
+            "description": "The API version to use for the request.",
+            "in": "query",
+            "name": "api-version",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "client"
           },
           {
-            "$ref": "#/parameters/SubscriptionIdParameter"
+            "description": "The subscription ID that identifies an Azure subscription.",
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "client"
           },
           {
-            "$ref": "#/parameters/ResourceGroupParameter"
+            "description": "The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.",
+            "in": "path",
+            "name": "resourceGroupName",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "$ref": "#/parameters/ServerNameParameter"
@@ -139,7 +132,9 @@
             }
           }
         },
-        "x-ms-pageable": {}
+        "x-ms-pageable": {
+          "nextLinkName": null
+        }
       }
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/backupLongTermRetentionVaults/{backupLongTermRetentionVaultName}": {
@@ -148,13 +143,28 @@
         "operationId": "BackupLongTermRetentionVaults_Get",
         "parameters": [
           {
-            "$ref": "#/parameters/ApiVersionParameter"
+            "description": "The API version to use for the request.",
+            "in": "query",
+            "name": "api-version",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "client"
           },
           {
-            "$ref": "#/parameters/SubscriptionIdParameter"
+            "description": "The subscription ID that identifies an Azure subscription.",
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "client"
           },
           {
-            "$ref": "#/parameters/ResourceGroupParameter"
+            "description": "The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.",
+            "in": "path",
+            "name": "resourceGroupName",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "$ref": "#/parameters/ServerNameParameter"
@@ -215,13 +225,28 @@
         "operationId": "BackupLongTermRetentionVaults_CreateOrUpdate",
         "parameters": [
           {
-            "$ref": "#/parameters/ApiVersionParameter"
+            "description": "The API version to use for the request.",
+            "in": "query",
+            "name": "api-version",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "client"
           },
           {
-            "$ref": "#/parameters/SubscriptionIdParameter"
+            "description": "The subscription ID that identifies an Azure subscription.",
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "client"
           },
           {
-            "$ref": "#/parameters/ResourceGroupParameter"
+            "description": "The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.",
+            "in": "path",
+            "name": "resourceGroupName",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "$ref": "#/parameters/ServerNameParameter"

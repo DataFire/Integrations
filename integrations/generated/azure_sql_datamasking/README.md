@@ -15,14 +15,7 @@ let azure_sql_datamasking = require('@datafire/azure_sql_datamasking').create({
   redirect_uri: ""
 });
 
-azure_sql_datamasking.DataMaskingPolicies_Get({
-  "api-version": "",
-  "subscriptionId": "",
-  "resourceGroupName": "",
-  "serverName": "",
-  "databaseName": "",
-  "dataMaskingPolicyName": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

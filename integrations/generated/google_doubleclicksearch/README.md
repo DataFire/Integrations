@@ -1,6 +1,6 @@
 # @datafire/google_doubleclicksearch
 
-Client library for DoubleClick Search
+Client library for Search Ads 360 API
 
 ## Installation and Usage
 ```bash
@@ -15,14 +15,14 @@ let google_doubleclicksearch = require('@datafire/google_doubleclicksearch').cre
   redirect_uri: ""
 });
 
-google_doubleclicksearch.reports.generate({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
 
 ## Description
 
-Reports and modifies your advertising data in DoubleClick Search (for example, campaigns, ad groups, keywords, and conversions).
+The Search Ads 360 API allows developers to automate uploading conversions and downloading reports from Search Ads 360.
 
 ## Actions
 
@@ -67,16 +67,16 @@ google_doubleclicksearch.oauthRefresh(null, context)
   * scope `string`
   * expiration `string`
 
-### conversion.get
+### doubleclicksearch.conversion.get
 Retrieves a list of conversions from a DoubleClick Search engine account.
 
 
 ```js
-google_doubleclicksearch.conversion.get({
-  "advertiserId": "",
+google_doubleclicksearch.doubleclicksearch.conversion.get({
   "agencyId": "",
-  "endDate": 0,
+  "advertiserId": "",
   "engineAccountId": "",
+  "endDate": 0,
   "rowCount": 0,
   "startDate": 0,
   "startRow": 0
@@ -85,207 +85,198 @@ google_doubleclicksearch.conversion.get({
 
 #### Input
 * input `object`
-  * adGroupId `string`: Numeric ID of the ad group.
-  * adId `string`: Numeric ID of the ad.
-  * advertiserId **required** `string`: Numeric ID of the advertiser.
   * agencyId **required** `string`: Numeric ID of the agency.
-  * campaignId `string`: Numeric ID of the campaign.
-  * criterionId `string`: Numeric ID of the criterion.
-  * endDate **required** `integer`: Last date (inclusive) on which to retrieve conversions. Format is yyyymmdd.
+  * advertiserId **required** `string`: Numeric ID of the advertiser.
   * engineAccountId **required** `string`: Numeric ID of the engine account.
+  * endDate **required** `integer`: Last date (inclusive) on which to retrieve conversions. Format is yyyymmdd.
   * rowCount **required** `integer`: The number of conversions to return per call.
   * startDate **required** `integer`: First date (inclusive) on which to retrieve conversions. Format is yyyymmdd.
   * startRow **required** `integer`: The 0-based starting index for retrieving conversions results.
-  * alt `string` (values: json): Data format for the response.
+  * adGroupId `string`: Numeric ID of the ad group.
+  * adId `string`: Numeric ID of the ad.
+  * campaignId `string`: Numeric ID of the campaign.
+  * criterionId `string`: Numeric ID of the criterion.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [ConversionList](#conversionlist)
 
-### savedColumns.list
+### doubleclicksearch.savedColumns.list
 Retrieve the list of saved columns for a specified advertiser.
 
 
 ```js
-google_doubleclicksearch.savedColumns.list({
-  "advertiserId": "",
-  "agencyId": ""
+google_doubleclicksearch.doubleclicksearch.savedColumns.list({
+  "agencyId": "",
+  "advertiserId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * advertiserId **required** `string`: DS ID of the advertiser.
   * agencyId **required** `string`: DS ID of the agency.
-  * alt `string` (values: json): Data format for the response.
+  * advertiserId **required** `string`: DS ID of the advertiser.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [SavedColumnList](#savedcolumnlist)
 
-### conversion.patch
-Updates a batch of conversions in DoubleClick Search. This method supports patch semantics.
-
-
-```js
-google_doubleclicksearch.conversion.patch({
-  "advertiserId": "",
-  "agencyId": "",
-  "endDate": 0,
-  "engineAccountId": "",
-  "rowCount": 0,
-  "startDate": 0,
-  "startRow": 0
-}, context)
-```
-
-#### Input
-* input `object`
-  * advertiserId **required** `string`: Numeric ID of the advertiser.
-  * agencyId **required** `string`: Numeric ID of the agency.
-  * body [ConversionList](#conversionlist)
-  * endDate **required** `integer`: Last date (inclusive) on which to retrieve conversions. Format is yyyymmdd.
-  * engineAccountId **required** `string`: Numeric ID of the engine account.
-  * rowCount **required** `integer`: The number of conversions to return per call.
-  * startDate **required** `integer`: First date (inclusive) on which to retrieve conversions. Format is yyyymmdd.
-  * startRow **required** `integer`: The 0-based starting index for retrieving conversions results.
-  * alt `string` (values: json): Data format for the response.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
-
-#### Output
-* output [ConversionList](#conversionlist)
-
-### conversion.insert
+### doubleclicksearch.conversion.insert
 Inserts a batch of new conversions into DoubleClick Search.
 
 
 ```js
-google_doubleclicksearch.conversion.insert({}, context)
+google_doubleclicksearch.doubleclicksearch.conversion.insert({}, context)
 ```
 
 #### Input
 * input `object`
   * body [ConversionList](#conversionlist)
-  * alt `string` (values: json): Data format for the response.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [ConversionList](#conversionlist)
 
-### conversion.update
+### doubleclicksearch.conversion.update
 Updates a batch of conversions in DoubleClick Search.
 
 
 ```js
-google_doubleclicksearch.conversion.update({}, context)
+google_doubleclicksearch.doubleclicksearch.conversion.update({}, context)
 ```
 
 #### Input
 * input `object`
   * body [ConversionList](#conversionlist)
-  * alt `string` (values: json): Data format for the response.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [ConversionList](#conversionlist)
 
-### conversion.updateAvailability
+### doubleclicksearch.conversion.updateAvailability
 Updates the availabilities of a batch of floodlight activities in DoubleClick Search.
 
 
 ```js
-google_doubleclicksearch.conversion.updateAvailability({}, context)
+google_doubleclicksearch.doubleclicksearch.conversion.updateAvailability({}, context)
 ```
 
 #### Input
 * input `object`
-  * empty [UpdateAvailabilityRequest](#updateavailabilityrequest)
-  * alt `string` (values: json): Data format for the response.
+  * body [UpdateAvailabilityRequest](#updateavailabilityrequest)
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [UpdateAvailabilityResponse](#updateavailabilityresponse)
 
-### reports.request
+### doubleclicksearch.reports.request
 Inserts a report request into the reporting system.
 
 
 ```js
-google_doubleclicksearch.reports.request({}, context)
+google_doubleclicksearch.doubleclicksearch.reports.request({}, context)
 ```
 
 #### Input
 * input `object`
-  * reportRequest [ReportRequest](#reportrequest)
-  * alt `string` (values: json): Data format for the response.
+  * body [ReportRequest](#reportrequest)
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [Report](#report)
 
-### reports.generate
+### doubleclicksearch.reports.generate
 Generates and returns a report immediately.
 
 
 ```js
-google_doubleclicksearch.reports.generate({}, context)
+google_doubleclicksearch.doubleclicksearch.reports.generate({}, context)
 ```
 
 #### Input
 * input `object`
-  * reportRequest [ReportRequest](#reportrequest)
-  * alt `string` (values: json): Data format for the response.
+  * body [ReportRequest](#reportrequest)
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [Report](#report)
 
-### reports.get
+### doubleclicksearch.reports.get
 Polls for the status of a report request.
 
 
 ```js
-google_doubleclicksearch.reports.get({
+google_doubleclicksearch.doubleclicksearch.reports.get({
   "reportId": ""
 }, context)
 ```
@@ -293,39 +284,47 @@ google_doubleclicksearch.reports.get({
 #### Input
 * input `object`
   * reportId **required** `string`: ID of the report request being polled.
-  * alt `string` (values: json): Data format for the response.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [Report](#report)
 
-### reports.getFile
+### doubleclicksearch.reports.getFile
 Downloads a report file encoded in UTF-8.
 
 
 ```js
-google_doubleclicksearch.reports.getFile({
-  "reportFragment": 0,
-  "reportId": ""
+google_doubleclicksearch.doubleclicksearch.reports.getFile({
+  "reportId": "",
+  "reportFragment": 0
 }, context)
 ```
 
 #### Input
 * input `object`
-  * reportFragment **required** `integer`: The index of the report fragment to download.
   * reportId **required** `string`: ID of the report.
-  * alt `string` (values: json): Data format for the response.
+  * reportFragment **required** `integer`: The index of the report fragment to download.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 *Output schema unknown*
@@ -341,7 +340,7 @@ google_doubleclicksearch.reports.getFile({
   * availabilityTimestamp `string`: The time by which all conversions have been uploaded, in epoch millis UTC.
   * segmentationId `string`: The numeric segmentation identifier (for example, DoubleClick Search Floodlight activity ID).
   * segmentationName `string`: The friendly segmentation identifier (for example, DoubleClick Search Floodlight activity name).
-  * segmentationType `string`: The segmentation type that this availability is for (its default value is FLOODLIGHT).
+  * segmentationType `string`: The segmentation type that this availability is for (its default value is `FLOODLIGHT`).
 
 ### Conversion
 * Conversion `object`: A conversion containing data relevant to DoubleClick Search.
@@ -351,9 +350,9 @@ google_doubleclicksearch.reports.getFile({
   * agencyId `string`: DS agency ID.
   * attributionModel `string`: Available to advertisers only after contacting DoubleClick Search customer support.
   * campaignId `string`: DS campaign ID.
-  * channel `string`: Sales channel for the product. Acceptable values are:  
+  * channel `string`: Sales channel for the product. Acceptable values are: - "`local`": a physical store - "`online`": an online store 
   * clickId `string`: DS click ID for the conversion.
-  * conversionId `string`: For offline conversions, advertisers provide this ID. Advertisers can specify any ID that is meaningful to them. Each conversion in a request must specify a unique ID, and the combination of ID and timestamp must be unique amongst all conversions within the advertiser.
+  * conversionId `string`: For offline conversions, advertisers provide this ID. Advertisers can specify any ID that is meaningful to them. Each conversion in a request must specify a unique ID, and the combination of ID and timestamp must be unique amongst all conversions within the advertiser. For online conversions, DS copies the `dsConversionId` or `floodlightOrderId` into this property depending on the advertiser's Floodlight instructions.
   * conversionModifiedTimestamp `string`: The time at which the conversion was last modified, in epoch millis UTC.
   * conversionTimestamp `string`: The time at which the conversion took place, in epoch millis UTC.
   * countMillis `string`: Available to advertisers only after contacting DoubleClick Search customer support.
@@ -373,13 +372,13 @@ google_doubleclicksearch.reports.getFile({
   * productId `string`: The product ID (SKU).
   * productLanguage `string`: The language registered for the Merchant Center feed that contains the product. Use an ISO 639 code to specify a language.
   * quantityMillis `string`: The quantity of this conversion, in millis.
-  * revenueMicros `string`: The revenue amount of this TRANSACTION conversion, in micros (value multiplied by 1000000, no decimal). For example, to specify a revenue value of "10" enter "10000000" (10 million) in your request.
+  * revenueMicros `string`: The revenue amount of this `TRANSACTION` conversion, in micros (value multiplied by 1000000, no decimal). For example, to specify a revenue value of "10" enter "10000000" (10 million) in your request.
   * segmentationId `string`: The numeric segmentation identifier (for example, DoubleClick Search Floodlight activity ID).
   * segmentationName `string`: The friendly segmentation identifier (for example, DoubleClick Search Floodlight activity name).
-  * segmentationType `string`: The segmentation type of this conversion (for example, FLOODLIGHT).
-  * state `string`: The state of the conversion, that is, either ACTIVE or REMOVED. Note: state DELETED is deprecated.
-  * storeId `string`: The ID of the local store for which the product was advertised. Applicable only when the channel is "local".
-  * type `string`: The type of the conversion, that is, either ACTION or TRANSACTION. An ACTION conversion is an action by the user that has no monetarily quantifiable value, while a TRANSACTION conversion is an action that does have a monetarily quantifiable value. Examples are email list signups (ACTION) versus ecommerce purchases (TRANSACTION).
+  * segmentationType `string`: The segmentation type of this conversion (for example, `FLOODLIGHT`).
+  * state `string`: The state of the conversion, that is, either `ACTIVE` or `REMOVED`. Note: state DELETED is deprecated.
+  * storeId `string`: The ID of the local store for which the product was advertised. Applicable only when the channel is "`local`".
+  * type `string`: The type of the conversion, that is, either `ACTION` or `TRANSACTION`. An `ACTION` conversion is an action by the user that has no monetarily quantifiable value, while a `TRANSACTION` conversion is an action that does have a monetarily quantifiable value. Examples are email list signups (`ACTION`) versus ecommerce purchases (`TRANSACTION`).
 
 ### ConversionList
 * ConversionList `object`: A list of conversions.
@@ -388,62 +387,61 @@ google_doubleclicksearch.reports.getFile({
   * kind `string`: Identifies this as a ConversionList resource. Value: the fixed string doubleclicksearch#conversionList.
 
 ### CustomDimension
-* CustomDimension `object`: A message containing the custome dimension.
+* CustomDimension `object`: A message containing the custom dimension.
   * name `string`: Custom dimension name.
   * value `string`: Custom dimension value.
 
 ### CustomMetric
-* CustomMetric `object`: A message containing the custome metric.
+* CustomMetric `object`: A message containing the custom metric.
   * name `string`: Custom metric name.
   * value `number`: Custom metric numeric value.
 
 ### Report
 * Report `object`: A DoubleClick Search report. This object contains the report request, some report metadata such as currency code, and the generated report rows or report files.
-  * files `array`: Asynchronous report only. Contains a list of generated report files once the report has succesfully completed.
+  * files `array`: Asynchronous report only. Contains a list of generated report files once the report has successfully completed.
     * items `object`
       * byteCount `string`: The size of this report file in bytes.
       * url `string`: Use this url to download the report file.
   * id `string`: Asynchronous report only. Id of the report.
   * isReportReady `boolean`: Asynchronous report only. True if and only if the report has completed successfully and the report files are ready to be downloaded.
-  * kind `string`: Identifies this as a Report resource. Value: the fixed string doubleclicksearch#report.
+  * kind `string`: Identifies this as a Report resource. Value: the fixed string `doubleclicksearch#report`.
   * request [ReportRequest](#reportrequest)
   * rowCount `integer`: The number of report rows generated by the report, not including headers.
   * rows `array`: Synchronous report only. Generated report rows.
     * items [ReportRow](#reportrow)
-  * statisticsCurrencyCode `string`: The currency code of all monetary values produced in the report, including values that are set by users (e.g., keyword bid settings) and metrics (e.g., cost and revenue). The currency code of a report is determined by the statisticsCurrency field of the report request.
+  * statisticsCurrencyCode `string`: The currency code of all monetary values produced in the report, including values that are set by users (e.g., keyword bid settings) and metrics (e.g., cost and revenue). The currency code of a report is determined by the `statisticsCurrency` field of the report request.
   * statisticsTimeZone `string`: If all statistics of the report are sourced from the same time zone, this would be it. Otherwise the field is unset.
 
 ### ReportApiColumnSpec
 * ReportApiColumnSpec `object`: A request object used to create a DoubleClick Search report.
   * columnName `string`: Name of a DoubleClick Search column to include in the report.
-  * customDimensionName `string`: Segments a report by a custom dimension. The report must be scoped to an advertiser or lower, and the custom dimension must already be set up in DoubleClick Search. The custom dimension name, which appears in DoubleClick Search, is case sensitive.
+  * customDimensionName `string`: Segments a report by a custom dimension. The report must be scoped to an advertiser or lower, and the custom dimension must already be set up in DoubleClick Search. The custom dimension name, which appears in DoubleClick Search, is case sensitive.\ If used in a conversion report, returns the value of the specified custom dimension for the given conversion, if set. This column does not segment the conversion report.
   * customMetricName `string`: Name of a custom metric to include in the report. The report must be scoped to an advertiser or lower, and the custom metric must already be set up in DoubleClick Search. The custom metric name, which appears in DoubleClick Search, is case sensitive.
-  * endDate `string`: Inclusive day in YYYY-MM-DD format. When provided, this overrides the overall time range of the report for this column only. Must be provided together with startDate.
-  * groupByColumn `boolean`: Synchronous report only. Set to true to group by this column. Defaults to false.
-  * headerText `string`: Text used to identify this column in the report output; defaults to columnName or savedColumnName when not specified. This can be used to prevent collisions between DoubleClick Search columns and saved columns with the same name.
+  * endDate `string`: Inclusive day in YYYY-MM-DD format. When provided, this overrides the overall time range of the report for this column only. Must be provided together with `startDate`.
+  * groupByColumn `boolean`: Synchronous report only. Set to `true` to group by this column. Defaults to `false`.
+  * headerText `string`: Text used to identify this column in the report output; defaults to `columnName` or `savedColumnName` when not specified. This can be used to prevent collisions between DoubleClick Search columns and saved columns with the same name.
   * platformSource `string`: The platform that is used to provide data for the custom dimension. Acceptable values are "floodlight".
-  * productReportPerspective `string`: Returns metrics only for a specific type of product activity. Accepted values are:  
+  * productReportPerspective `string`: Returns metrics only for a specific type of product activity. Accepted values are: - "`sold`": returns metrics only for products that were sold - "`advertised`": returns metrics only for products that were advertised in a Shopping campaign, and that might or might not have been sold 
   * savedColumnName `string`: Name of a saved column to include in the report. The report must be scoped at advertiser or lower, and this saved column must already be created in the DoubleClick Search UI.
-  * startDate `string`: Inclusive date in YYYY-MM-DD format. When provided, this overrides the overall time range of the report for this column only. Must be provided together with endDate.
+  * startDate `string`: Inclusive date in YYYY-MM-DD format. When provided, this overrides the overall time range of the report for this column only. Must be provided together with `endDate`.
 
 ### ReportRequest
 * ReportRequest `object`: A request object used to create a DoubleClick Search report.
-  * columns `array`: The columns to include in the report. This includes both DoubleClick Search columns and saved columns. For DoubleClick Search columns, only the columnName parameter is required. For saved columns only the savedColumnName parameter is required. Both columnName and savedColumnName cannot be set in the same stanza.
+  * columns `array`: The columns to include in the report. This includes both DoubleClick Search columns and saved columns. For DoubleClick Search columns, only the `columnName` parameter is required. For saved columns only the `savedColumnName` parameter is required. Both `columnName` and `savedColumnName` cannot be set in the same stanza.\ The maximum number of columns per request is 300.
     * items [ReportApiColumnSpec](#reportapicolumnspec)
-  * downloadFormat `string`: Format that the report should be returned in. Currently csv or tsv is supported.
-  * filters `array`: A list of filters to be applied to the report.
+  * downloadFormat `string`: Format that the report should be returned in. Currently `csv` or `tsv` is supported.
+  * filters `array`: A list of filters to be applied to the report.\ The maximum number of filters per request is 300.
     * items `object`
       * column [ReportApiColumnSpec](#reportapicolumnspec)
       * operator `string`: Operator to use in the filter. See the filter reference for a list of available operators.
-      * values `array`: A list of values to filter the column value against.
-
-  * includeDeletedEntities `boolean`: Determines if removed entities should be included in the report. Defaults to false. Deprecated, please use includeRemovedEntities instead.
-  * includeRemovedEntities `boolean`: Determines if removed entities should be included in the report. Defaults to false.
-  * maxRowsPerFile `integer`: Asynchronous report only. The maximum number of rows per report file. A large report is split into many files based on this field. Acceptable values are 1000000 to 100000000, inclusive.
-  * orderBy `array`: Synchronous report only. A list of columns and directions defining sorting to be performed on the report rows.
+      * values `array`: A list of values to filter the column value against.\ The maximum number of filter values per request is 300.
+  * includeDeletedEntities `boolean`: Determines if removed entities should be included in the report. Defaults to `false`. Deprecated, please use `includeRemovedEntities` instead.
+  * includeRemovedEntities `boolean`: Determines if removed entities should be included in the report. Defaults to `false`.
+  * maxRowsPerFile `integer`: Asynchronous report only. The maximum number of rows per report file. A large report is split into many files based on this field. Acceptable values are `1000000` to `100000000`, inclusive.
+  * orderBy `array`: Synchronous report only. A list of columns and directions defining sorting to be performed on the report rows.\ The maximum number of orderings per request is 300.
     * items `object`
       * column [ReportApiColumnSpec](#reportapicolumnspec)
-      * sortOrder `string`: The sort direction, which is either ascending or descending.
+      * sortOrder `string`: The sort direction, which is either `ascending` or `descending`.
   * reportScope `object`: The reportScope is a set of IDs that are used to determine which subset of entities will be returned in the report. The full lineage of IDs from the lowest scoped level desired up through agency is required.
     * adGroupId `string`: DS ad group ID.
     * adId `string`: DS ad ID.
@@ -452,16 +450,16 @@ google_doubleclicksearch.reports.getFile({
     * campaignId `string`: DS campaign ID.
     * engineAccountId `string`: DS engine account ID.
     * keywordId `string`: DS keyword ID.
-  * reportType `string`: Determines the type of rows that are returned in the report. For example, if you specify reportType: keyword, each row in the report will contain data about a keyword. See the Types of Reports reference for the columns that are available for each type.
-  * rowCount `integer`: Synchronous report only. The maxinum number of rows to return; additional rows are dropped. Acceptable values are 0 to 10000, inclusive. Defaults to 10000.
-  * startRow `integer`: Synchronous report only. Zero-based index of the first row to return. Acceptable values are 0 to 50000, inclusive. Defaults to 0.
-  * statisticsCurrency `string`: Specifies the currency in which monetary will be returned. Possible values are: usd, agency (valid if the report is scoped to agency or lower), advertiser (valid if the report is scoped to * advertiser or lower), or account (valid if the report is scoped to engine account or lower).
+  * reportType `string`: Determines the type of rows that are returned in the report. For example, if you specify `reportType: keyword`, each row in the report will contain data about a keyword. See the [Types of Reports](/search-ads/v2/report-types/) reference for the columns that are available for each type.
+  * rowCount `integer`: Synchronous report only. The maximum number of rows to return; additional rows are dropped. Acceptable values are `0` to `10000`, inclusive. Defaults to `10000`.
+  * startRow `integer`: Synchronous report only. Zero-based index of the first row to return. Acceptable values are `0` to `50000`, inclusive. Defaults to `0`.
+  * statisticsCurrency `string`: Specifies the currency in which monetary will be returned. Possible values are: `usd`, `agency` (valid if the report is scoped to agency or lower), `advertiser` (valid if the report is scoped to * advertiser or lower), or `account` (valid if the report is scoped to engine account or lower).
   * timeRange `object`: If metrics are requested in a report, this argument will be used to restrict the metrics to a specific time range.
-    * changedAttributesSinceTimestamp `string`: Inclusive UTC timestamp in RFC format, e.g., 2013-07-16T10:16:23.555Z. See additional references on how changed attribute reports work.
-    * changedMetricsSinceTimestamp `string`: Inclusive UTC timestamp in RFC format, e.g., 2013-07-16T10:16:23.555Z. See additional references on how changed metrics reports work.
+    * changedAttributesSinceTimestamp `string`: Inclusive UTC timestamp in RFC format, e.g., `2013-07-16T10:16:23.555Z`. See additional references on how changed attribute reports work.
+    * changedMetricsSinceTimestamp `string`: Inclusive UTC timestamp in RFC format, e.g., `2013-07-16T10:16:23.555Z`. See additional references on how changed metrics reports work.
     * endDate `string`: Inclusive date in YYYY-MM-DD format.
     * startDate `string`: Inclusive date in YYYY-MM-DD format.
-  * verifySingleTimeZone `boolean`: If true, the report would only be created if all the requested stat data are sourced from a single timezone. Defaults to false.
+  * verifySingleTimeZone `boolean`: If `true`, the report would only be created if all the requested stat data are sourced from a single timezone. Defaults to `false`.
 
 ### ReportRow
 * ReportRow `object`: A row in a DoubleClick Search report.

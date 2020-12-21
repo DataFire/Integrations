@@ -17,14 +17,14 @@ let zenoti = require('@datafire/zenoti').create({
   redirect_uri: ""
 });
 
-zenoti.v2.Organizations.Customfields.get({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
 
 ## Description
 
-Zenoti Open APIs now help you manage the powerful capabilities offered through a suite of Open APIs. 
+Zenoti Open APIs now help you manage the powerful capabilities offered through a suite of Open APIs.
 
 
 
@@ -71,19 +71,21 @@ zenoti.oauthRefresh(null, context)
   * scope `string`
   * expiration `string`
 
-### packages.package_id.get
+### packages.packageId.get
 Returns details of a package
 
 
 ```js
-zenoti.packages.package_id.get({
-  "package_id": ""
+zenoti.packages.packageId.get({
+  "centerId": "",
+  "packageId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * package_id **required** `string`
+  * centerId **required** `string`: DataType: UniqueIdentifier(GUID)
+  * packageId **required** `string`: DataType: UniqueIdentifier(GUID)
 
 #### Output
 * output `object`
@@ -477,13 +479,13 @@ Gets the Credit Cards on File for guest
 
 Transaction Form
 
-| Enum | Value | 
-| -------- | -------- | 
+| Enum | Value |
+| -------- | -------- |
 | Web     | 1     |
 | WebStore     | 2     |
 | CheckWeb     | 4     |
 | Mobile     | 8     |
-| MobilePOS     | 16     | 
+| MobilePOS     | 16     |
 
 
 ```js
@@ -673,7 +675,7 @@ The request contains the following:
 
 Fields marked with `*` are mandatory.
 
-Exapmle request : 
+Exapmle request :
 
 ```
 {
@@ -754,7 +756,7 @@ zenoti.v1.Catalog.Guests.Register.post({
 ### v1.Catalog.Guests.SendOtp.post
 Create OTP for a guest account verification
 
-Example Request : 
+Example Request :
 
 ```
 {
@@ -826,7 +828,7 @@ zenoti.v1.Catalog.Guests.Update.post({
 ### v1.Catalog.Guests.VerifyOtp.post
 Verify a guest account based on the generated OTP
 
-Example Request : 
+Example Request :
 
 ```
 {
@@ -1049,37 +1051,37 @@ Below is the description of the enums used.
 
 TransactionType - enum
 
-| enum | value | 
-| -------- | -------- | 
-| All     | 0     | 
-| Authorize     | 1     | 
-| Refund     | 2     | 
-| Reversal     | 3     | 
-| Sale     | 4     | 
+| enum | value |
+| -------- | -------- |
+| All     | 0     |
+| Authorize     | 1     |
+| Refund     | 2     |
+| Reversal     | 3     |
+| Sale     | 4     |
 | Voided |  5  |
 
 TransactionStatus - enum
 
-| feild | value | 
+| feild | value |
 | -------- | -------- |
-| All     | 0     | 
-| CCCompleteNotYetSubmitted     | 1     | 
-| Error     | 2     | 
-| Failed     | 3     | 
-| Originated     | 4     | 
-| Pending     | 5     | 
-| Queued     | 6     | 
-| Returned     | 7     | 
-| Settled     | 8     | 
-| Success     | 9     | 
-| Voided     | 10     | 
+| All     | 0     |
+| CCCompleteNotYetSubmitted     | 1     |
+| Error     | 2     |
+| Failed     | 3     |
+| Originated     | 4     |
+| Pending     | 5     |
+| Queued     | 6     |
+| Returned     | 7     |
+| Settled     | 8     |
+| Success     | 9     |
+| Voided     | 10     |
 
 View - enum
 
-| feild | value | 
+| feild | value |
 | -------- | -------- |
-| Default     | 1     | 
-| Deposit     | 2     | 
+| Default     | 1     |
+| Deposit     | 2     |
 
 
 
@@ -1256,12 +1258,12 @@ zenoti.v1.Invoices.InvoiceId.get({
 
 | ItemType | value |
 | -------- | -------- |
-| Service     | 0     | 
-| Product     | 2     | 
-| Membership     | 3     | 
-| Package     | 4     | 
-| Day Package     | 5     | 
-| Pre-Paid/GiftCard     | 6     | 
+| Service     | 0     |
+| Product     | 2     |
+| Membership     | 3     |
+| Package     | 4     |
+| Day Package     | 5     |
+| Pre-Paid/GiftCard     | 6     |
 
 
 ```js
@@ -1308,7 +1310,7 @@ zenoti.v1.appointments.get({
   * items [appointment](#appointment)
 
 ### AppointmentsApi_ConfirmReservation
-API is used to create a confirmed appointment. It is expected that following information is sent as the request body. 
+API is used to create a confirmed appointment. It is expected that following information is sent as the request body.
 
 ```
 {"CenterId":"adb0c9cd-5357-440d-8ee4-4557c6241271","ReservationId":"ab2549c1-aea3-476e-b16b-d856f4363b03"}
@@ -1448,7 +1450,7 @@ zenoti.v1.appointments.Admin.Sessions.post({
 *Output schema unknown*
 
 ### v1.appointments.ConfirmReservation.post
-Example Request : 
+Example Request :
 ```
 {
   "CenterId": "string",
@@ -1755,7 +1757,7 @@ zenoti.v1.appointments.Month.Year.Month.get({
 * output `object`
 
 ### v1.appointments.add.post
-This API can be called to add an appointment. 
+This API can be called to add an appointment.
 
 Parameters
 
@@ -1765,7 +1767,7 @@ Parameters
 | AppointmentGroupId    | GUID     | Unique identifier for the appointment    ||
 | Comments    | String     | Comments for No Show    |
 
-Security:  Permissions required to call this API. 
+Security:  Permissions required to call this API.
 
 
 
@@ -1810,7 +1812,7 @@ zenoti.v1.appointments.alternatives.put({
 * output [appointment](#appointment)
 
 ### AppointmentsApi_GetAvailableSlotsV2
-The API returns a list of available appointments. API expects that following information be passed in the Request body. 
+The API returns a list of available appointments. API expects that following information be passed in the Request body.
 
 ```
 {"CenterId":"adb0c9cd-5357-440d-8ee4-4557c6241271","CenterDate":"2017-05-08","SlotBookings":[{"Services":[{"Service":{"Id":"8b15f00d-0594-4975-8d27-c88a3c64bfab"}}]}]}
@@ -1972,7 +1974,7 @@ zenoti.v1.appointments.bulkbookingreserveslots.post({
 * output `object`
 
 ### v1.appointments.cancel.post
-This API can be  called to cancel an existing appointment. 
+This API can be  called to cancel an existing appointment.
 
 Parameters
 
@@ -1983,7 +1985,7 @@ Parameters
 | ReasonId    | INT     |  Reason for cancellation of appointment    |
 | Comments    | String     | Comments for cancellation    |
 
-Security:  Permissions required to call this API. 
+Security:  Permissions required to call this API.
 
 
 
@@ -2009,7 +2011,7 @@ zenoti.v1.appointments.cancel.post({
 *Output schema unknown*
 
 ### v1.appointments.noshow.post
-This API can be  called to Mark No Show for an existing appointment. 
+This API can be  called to Mark No Show for an existing appointment.
 
 Parameters
 
@@ -2019,7 +2021,7 @@ Parameters
 | AppointmentGroupId    | GUID     | Unique identifier for the appointment    ||
 | Comments    | String     | Comments for No Show    |
 
-Security:  Permissions required to call this API. 
+Security:  Permissions required to call this API.
 
 
 
@@ -2045,7 +2047,7 @@ zenoti.v1.appointments.noshow.post({
 * output `object`
 
 ### v1.appointments.reebook.post
-This API can be  called to cancel an existing appointment. 
+This API can be  called to cancel an existing appointment.
 
 Parameters
 
@@ -2056,7 +2058,7 @@ Parameters
 | ReasonId    | INT     |  Reason for cancellation of appointment    |
 | Comments    | String     | Comments for cancellation    |
 
-Security:  Permissions required to call this API. 
+Security:  Permissions required to call this API.
 
 
 
@@ -2111,12 +2113,12 @@ zenoti.v1.appointments.reserveslots.post({
 ### v1.appointments.setstatus.post
 Below are the respective statuses for the value of the status tag in the input.
 
-| status  | value  | 
-| -------- | -------- | 
+| status  | value  |
+| -------- | -------- |
 | New | 0 |
-| Checkin     | 1     |
-| Undo Checkin     | 2     |
-| Confirm     | 3     |
+| Checkin     | 2     |
+| Undo Checkin     | 0     |
+| Confirm     | 4     |
 
 
 
@@ -2137,7 +2139,7 @@ zenoti.v1.appointments.setstatus.post({
 * output `object`
 
 ### AppointmentsApi_ReserveSlots
-The API is used to reserve a temporary Appointment slot. API expects following information be sent in the Request body. 
+The API is used to reserve a temporary Appointment slot. API expects following information be sent in the Request body.
 
 ```
 {"CenterId":"adb0c9cd-5357-440d-8ee4-4557c6241271","CenterTime":"2017-05-05 12:00:00","SlotBookings":[{"GuestId":"2e24d650-d7b4-473e-9bf3-b835c882cf35","Services":[{"Service":{"Id":"8b15f00d-0594-4975-8d27-c88a3c64bfab"}}],"StartTime":"2017-05-05 12:00:00"}]}
@@ -2163,7 +2165,7 @@ zenoti.AppointmentsApi_ReserveSlots({
 * output [ReserveSlotsResponse](#reserveslotsresponse)
 
 ### v1.appointments.update.post
-This API can be  called to cancel an existing appointment. 
+This API can be  called to cancel an existing appointment.
 
 Parameters
 
@@ -2174,7 +2176,7 @@ Parameters
 | ReasonId    | INT     |  Reason for cancellation of appointment    |
 | Comments    | String     | Comments for cancellation    |
 
-Security:  Permissions required to call this API. 
+Security:  Permissions required to call this API.
 
 
 
@@ -2321,7 +2323,7 @@ zenoti.v1.appointments.AppointmentFieldValue.UploadCustomDataImage.post({
 ### v1.appointments.AppointmentGroupId.setprogress.post
 Below are the respective statuses for the value of the status tag in the input.
 
-| status  | value  | 
+| status  | value  |
 | New | 0 |
 | Checkin     | 1     |
 | Undo Checkin     | 2     |
@@ -2499,7 +2501,7 @@ zenoti.v1.appointments.appointmentgroupid.invoice.get({
 * output `object`
 
 ### CentersApi_GetCenters
-API returns a list of Centers that the user is authorized to view. 
+API returns a list of Centers that the user is authorized to view.
 
 Security:
 `API requires a security token for a user with read permission on Centers.`
@@ -2519,7 +2521,7 @@ zenoti.CentersApi_GetCenters({}, context)
 * output [GetCentersResponse](#getcentersresponse)
 
 ### CentersApi_GetCenterDetails
-API returns the details of a specific center. 
+API returns the details of a specific center.
 
 Security:
 `API requires a security token for a user with read permission on Centers.`
@@ -2626,11 +2628,11 @@ zenoti.v1.employees.employee_id.payroll.get({
 *Output schema unknown*
 
 ### v1.giftcards.giftcard_id.get
-Get details of a giftcard. API accepts a giftcard_id to return the response. Giftcard_id refers to the unique identifier stored in Zenoti and is not the same as the giftcard number. 
+Get details of a giftcard. API accepts a giftcard_id to return the response. Giftcard_id refers to the unique identifier stored in Zenoti and is not the same as the giftcard number.
 
 `Security:  A user who has read access to giftcards object can call this API to get giftcard details. User role must also have API Access permission.`
 
-Note:  It is not secure to create a GET API that fetches giftcard details by passing giftcard number as either a path parameter or a query parameter, because this information may reside in browser history, and can be misused.  If we need an API that returns giftcard details by passing a giftcard number,  we will need to create a POST api that accepts giftcard number in the request body.  
+Note:  It is not secure to create a GET API that fetches giftcard details by passing giftcard number as either a path parameter or a query parameter, because this information may reside in browser history, and can be misused.  If we need an API that returns giftcard details by passing a giftcard number,  we will need to create a POST api that accepts giftcard number in the request body.
 
 
 ```js
@@ -2701,7 +2703,7 @@ zenoti.GuestsApi_SearchGuests({}, context)
 * output [SearchGuestsResponse](#searchguestsresponse)
 
 ### GuestsApi_AddGuest
-First name and Last name are always mandatory. Depending on the settings on your system, more fields will be mandatory - check the Add Guest page on your site (Loyalty→Manage Guests). One or more of the following may be set as mandatory: 
+First name and Last name are always mandatory. Depending on the settings on your system, more fields will be mandatory - check the Add Guest page on your site (Loyalty→Manage Guests). One or more of the following may be set as mandatory:
 ```
 a. Mobile number
 b. Email
@@ -2713,14 +2715,14 @@ g. Country
 h. Nationality
 i. Referral Source
 j. Gender
-``` 
- Please note that the API user has to send one of the following values for Gender: 
+```
+ Please note that the API user has to send one of the following values for Gender:
 
- -1 - NotSpecified 
+ -1 - NotSpecified
 
- 0 - Female 
+ 0 - Female
 
- 1 - Male 
+ 1 - Male
 
   Validate = true should be passed at all time so that input can be validated.
 
@@ -2744,7 +2746,7 @@ zenoti.GuestsApi_AddGuest({
 * output [AddGuestResponse](#addguestresponse)
 
 ### GuestsApi_GetGuest
-API can be used to obtain details of a particular Guest user by passing a GuestId. 
+API can be used to obtain details of a particular Guest user by passing a GuestId.
 
 Security:
 `API requires security  token of an admin with read permission on Guest, or that of a user who has permission to read information for a particular Guest.`
@@ -2767,7 +2769,7 @@ zenoti.GuestsApi_GetGuest({
 * output [GetGuestResponse](#getguestresponse)
 
 ### v1.guests.guest_id.put
-API is used to perform update on the details of a guest. One or more values from below list can be updated. 
+API is used to perform update on the details of a guest. One or more values from below list can be updated.
 
 | Parameter  | Data Type | Description |
 | -------- | -------- | -------- |
@@ -2883,12 +2885,12 @@ NoteType - enum
 
 
 | enum | value |
-| -------- | -------- | 
-| Generic     | 2     | 
+| -------- | -------- |
+| Generic     | 2     |
 |Checkin | 3   |
-| Booking     | 4     | 
-| Payment     |8    | 
-| Profile     | 10     | 
+| Booking     | 4     |
+| Payment     |8    |
+| Profile     | 10     |
 
 Security: `Requires read permission on guest and notes. Guest can view only her information.`
 
@@ -2908,18 +2910,18 @@ zenoti.v1.guests.guest_id.notes.get({
   * items [guest_notes](#guest_notes)
 
 ### v1.guests.guest_id.notes.post
-Create a note associated with the guest. 
+Create a note associated with the guest.
 
 NoteType - enum
 
 
 | enum | value |
-| -------- | -------- | 
-| Generic     | 2     | 
+| -------- | -------- |
+| Generic     | 2     |
 |Checkin | 3   |
-| Booking     | 4     | 
-| Payment     |8    | 
-| Profile     | 10     | 
+| Booking     | 4     |
+| Payment     |8    |
+| Profile     | 10     |
 
 
 
@@ -2944,7 +2946,7 @@ zenoti.v1.guests.guest_id.notes.post({
   * Note [guest_notes](#guest_notes)
 
 ### v1.guests.guest_id.notes.note_id.delete
-Delete a note associated with the guest. 
+Delete a note associated with the guest.
 
 Security:`Write permission on notes object.`
 
@@ -2965,7 +2967,7 @@ zenoti.v1.guests.guest_id.notes.note_id.delete({
 *Output schema unknown*
 
 ### v1.guests.guest_id.packages.get
-Returns packages bought by a guest. 
+Returns packages bought by a guest.
 
 Security:  `Required read permission on the guest and packages object. Guest user can only view her information.`
 
@@ -2990,7 +2992,7 @@ zenoti.v1.guests.guest_id.packages.get({
   * items [guest_packages](#guest_packages)
 
 ### v1.otp.post
-API is used to create an OTP associated with a provided email address or phone number.  Below are the samples. The user has to pass either email or phone number (but not both) in the  request body. 
+API is used to create an OTP associated with a provided email address or phone number.  Below are the samples. The user has to pass either email or phone number (but not both) in the  request body.
 
 Case 1:  Generate OTP and send to email
 ```
@@ -3000,7 +3002,7 @@ Case 1:  Generate OTP and send to email
 }
 ```
 
-Case 2: Genetate OTP and send to phone number. 
+Case 2: Genetate OTP and send to phone number.
 ```
 {
    "CenterId": "3ECC3E05-8AAF-4792-BA0A-EC3D822FA6C5",
@@ -3035,9 +3037,9 @@ zenoti.v1.otp.post({
 * output `object`
 
 ### v1.otp.put
-API can be used to check if the provided OTP matches with the issued OTP to a given email address or phone number.  
+API can be used to check if the provided OTP matches with the issued OTP to a given email address or phone number.
 
-PUT method has been used for security reasons. Following request has to be sent in the body. 
+PUT method has been used for security reasons. Following request has to be sent in the body.
 
 ```
 {
@@ -3064,12 +3066,12 @@ zenoti.v1.otp.put({
 * output `object`
 
 ### ServicesApi_GetServices
-API returns a list of services. Following filter options are supported. 
+API returns a list of services. Following filter options are supported.
 
 ```
-a. centerId - To return services in a particular center. 
-b. categoryId - To return services in a specified category only. 
-c. isCatalogEnabled - To return services that can be displayed in a webstore. 
+a. centerId - To return services in a particular center.
+b. categoryId - To return services in a specified category only.
+c. isCatalogEnabled - To return services that can be displayed in a webstore.
 d. tag - To return services which are tagged by
 ```
 
@@ -3096,10 +3098,10 @@ zenoti.ServicesApi_GetServices({}, context)
 * output [GetServicesResponse](#getservicesresponse)
 
 ### ServicesApi_GetServiceCategories
-API returns a list of main categories for the services. The API exposes following two filters. 
+API returns a list of main categories for the services. The API exposes following two filters.
 
 ```
-a. centerId - To view the categories only for a particular center. 
+a. centerId - To view the categories only for a particular center.
 b. parentCategoryId - To view child categories of a particular main category.
 ```
 
@@ -3144,14 +3146,14 @@ zenoti.ServicesApi_GetServiceDetail({
 * output [GetServiceDetailResponse](#getservicedetailresponse)
 
 ### v1.tokens.post
-This API is used to create a token for a valid user. The token can subsequenty be used as a Authorization token for other API calls. 
-The request body should be a string in the below format. (grant_type should be passed as "password"). 
+This API is used to create a token for a valid user. The token can subsequenty be used as a Authorization token for other API calls.
+The request body should be a string in the below format. (grant_type should be passed as "password").
 
 ```
 username={{username}}&password={{password}}&clientid={{clientid}}&grant_type={{grant_type}}
 ```
 
-Note:  OAuth2 token is not required to be passed in the header. Only API key is required. 
+Note:  OAuth2 token is not required to be passed in the header. Only API key is required.
 
 
 ```js
@@ -3215,16 +3217,16 @@ zenoti.v2.Organizations.Customfields.get({}, context)
 Status - Enum
 
 | Enum | Value |
-| -------- | -------- | 
-| NoShow     | -2     | 
-| Cancelled     | -1     | 
-| New     | 0     | 
+| -------- | -------- |
+| NoShow     | -2     |
+| Cancelled     | -1     |
+| New     | 0     |
 | Closed     | 1    |
-| Checkin     | 2     | 
-| Confirm     | 4     | 
-| Break     | 10    | 
-| NotSpecified     | 11     | 
-| Available     | 20     | 
+| Checkin     | 2     |
+| Confirm     | 4     |
+| Break     | 10    |
+| NotSpecified     | 11     |
+| Available     | 20     |
 
 
 ```js
@@ -3248,7 +3250,7 @@ zenoti.v2.appointments.get({
 * output `object`
 
 ### v2.guests.guestId.memberships.get
-Returns membership information of a guest. 
+Returns membership information of a guest.
 
 Security: `Read permission on guest and memberships.  Guest can only view her information.`
 
@@ -3268,7 +3270,7 @@ zenoti.v2.guests.guestId.memberships.get({
   * items [guest_memberships](#guest_memberships)
 
 ### v2.guests.guest_id.customdata.get
-Returns custom data of a guest. 
+Returns custom data of a guest.
 
 Security:`Write permission on the custom data.`
 
@@ -3588,7 +3590,7 @@ zenoti.v2.sales.salesreport.get({
   * start_date **required** `string`
   * end_date **required** `string`
   * status `integer`: 0 - open , 1 - closed , 2 - all
-  * itemtype `integer`: 0 - Service,
+  * item_type `integer`: 0 - Service,
   * Authorization **required** `string`: access token
   * Content-Type `string`: application/json
 
@@ -8793,7 +8795,7 @@ zenoti.v5.guests.get({
   * phone [phone](#phone)
 
 ### appointment_progress
-* appointment_progress `integer` (values: 0, 1, 2): | Name | Value | 
+* appointment_progress `integer` (values: 0, 1, 2): | Name | Value |
 
 ### appointment_room
 * appointment_room `object`

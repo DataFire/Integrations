@@ -9,10 +9,7 @@ npm install --save @datafire/personio_de_authentication
 ```js
 let personio_de_authentication = require('@datafire/personio_de_authentication').create();
 
-personio_de_authentication.auth.post({
-  "client_id": "",
-  "client_secret": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

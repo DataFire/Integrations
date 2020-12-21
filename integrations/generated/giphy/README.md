@@ -1,6 +1,6 @@
 # @datafire/giphy
 
-Client library for Giphy
+Client library for Giphy API
 
 ## Installation and Usage
 ```bash
@@ -11,7 +11,7 @@ let giphy = require('@datafire/giphy').create({
   api_key: ""
 });
 
-giphy.trendingStickers({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -242,6 +242,8 @@ giphy.trendingStickers({}, context)
 
 ### Gif
 * Gif `object`
+  * tags `array`: An array of tags for this GIF (Note: Not available when using the Public Beta Key)
+    * items `string`: Tag name
   * bitly_url `string`: The unique bit.ly URL for this GIF
   * content_url `string`: Currently unused
   * create_datetime `string`: The date this GIF was added to the GIPHY database.
@@ -456,8 +458,6 @@ giphy.trendingStickers({}, context)
   * source `string`: The page on which this GIF was found
   * source_post_url `string`: The URL of the webpage on which this GIF was found.
   * source_tld `string`: The top level domain of the source URL.
-  * tags `array`: An array of tags for this GIF (Note: Not available when using the Public Beta Key)
-    * items `string`: Tag name
   * trending_datetime `string`: The date on which this gif was marked trending, if applicable.
   * type `string` (values: gif): Type of the gif. By default, this is almost always gif
   * update_datetime `string`: The date on which this GIF was last updated.

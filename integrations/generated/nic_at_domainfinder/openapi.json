@@ -1,0 +1,65 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "nic.at Domainfinder API Documentation",
+    "version": "1.0.0",
+    "x-apisguru-categories": [
+      "developer_tools"
+    ],
+    "x-origin": [
+      {
+        "format": "openapi",
+        "url": "https://domainfinder.nic.at/openapi/",
+        "version": "3.0"
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "nic.at",
+    "x-serviceName": "domainfinder",
+    "x-datafire": {
+      "name": "nic_at_domainfinder",
+      "type": "openapi"
+    }
+  },
+  "paths": {
+    "/api/v1/suggest": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Domainname/term to obtain suggestions for",
+            "in": "query",
+            "name": "term",
+            "required": true,
+            "type": "string",
+            "x-example": "mydomain"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of domain suggestions",
+            "schema": {
+              "example": [
+                "mynewdomain.at",
+                "newdomain.at"
+              ],
+              "properties": {
+                "": {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            }
+          }
+        },
+        "description": "Provides a list of available .at domain names related to the given input term or domain",
+        "summary": "Get .at domain name suggestions"
+      }
+    }
+  }
+}

@@ -15,12 +15,7 @@ let azure_sql_backups = require('@datafire/azure_sql_backups').create({
   redirect_uri: ""
 });
 
-azure_sql_backups.RecoverableDatabases_ListByServer({
-  "api-version": "",
-  "subscriptionId": "",
-  "resourceGroupName": "",
-  "serverName": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

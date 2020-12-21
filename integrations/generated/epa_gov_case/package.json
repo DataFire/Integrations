@@ -1,6 +1,6 @@
 {
   "name": "@datafire/epa_gov_case",
-  "version": "5.0.0",
+  "version": "6.0.0",
   "main": "index.js",
   "description": "DataFire integration for U.S. EPA Enforcement and Compliance History Online (ECHO) - Enforcement Case Search",
   "repository": {

@@ -9,7 +9,7 @@ npm install --save @datafire/hackathonwatch
 ```js
 let hackathonwatch = require('@datafire/hackathonwatch').create();
 
-hackathonwatch.hackathons.coming.json.get({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

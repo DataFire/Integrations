@@ -1,0 +1,409 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "contact": {
+      "email": "mike.ralphson@gmail.com",
+      "name": "Mike Ralphson",
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
+    },
+    "description": "Provides APIs for creating and managing Amazon Forecast resources.",
+    "license": {
+      "name": "Apache 2.0 License",
+      "url": "http://www.apache.org/licenses/"
+    },
+    "termsOfService": "https://aws.amazon.com/service-terms/",
+    "title": "Amazon Forecast Query Service",
+    "version": "2018-06-26",
+    "x-apiClientRegistration": {
+      "url": "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"
+    },
+    "x-apisguru-categories": [
+      "cloud"
+    ],
+    "x-logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"
+    },
+    "x-origin": [
+      {
+        "contentType": "application/json",
+        "converter": {
+          "url": "https://github.com/mermade/aws2openapi",
+          "version": "1.0.0"
+        },
+        "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/forecastquery-2018-06-26.normal.json",
+        "x-apisguru-driver": "external"
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "amazonaws.com",
+    "x-release": "v4",
+    "x-serviceName": "forecastquery",
+    "x-datafire": {
+      "name": "amazonaws_forecastquery",
+      "type": "openapi"
+    }
+  },
+  "host": "forecastquery.us-east-1.amazonaws.com",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/#X-Amz-Target=AmazonForecastRuntime.QueryForecast": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "AmazonForecastRuntime.QueryForecast"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/QueryForecastRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/QueryForecastResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "ResourceInUseException",
+            "schema": {
+              "$ref": "#/definitions/ResourceInUseException"
+            }
+          },
+          "482": {
+            "description": "InvalidInputException",
+            "schema": {
+              "$ref": "#/definitions/InvalidInputException"
+            }
+          },
+          "483": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          },
+          "484": {
+            "description": "InvalidNextTokenException",
+            "schema": {
+              "$ref": "#/definitions/InvalidNextTokenException"
+            }
+          }
+        },
+        "description": "<p>Retrieves a forecast for a single item, filtered by the supplied criteria.</p> <p>The criteria is a key-value pair. The key is either <code>item_id</code> (or the equivalent non-timestamp, non-target field) from the <code>TARGET_TIME_SERIES</code> dataset, or one of the forecast dimensions specified as part of the <code>FeaturizationConfig</code> object.</p> <p>By default, <code>QueryForecast</code> returns the complete date range for the filtered forecast. You can request a specific date range.</p> <p>To get the full forecast, use the <a href=\"https://docs.aws.amazon.com/en_us/forecast/latest/dg/API_CreateForecastExportJob.html\">CreateForecastExportJob</a> operation.</p> <note> <p>The forecasts generated by Amazon Forecast are in the same timezone as the dataset that was used to create the predictor.</p> </note>",
+        "operationId": "QueryForecast"
+      }
+    }
+  },
+  "definitions": {
+    "Arn": {
+      "maxLength": 256,
+      "pattern": "arn:([a-z\\d-]+):forecast:.*:.*:.+",
+      "type": "string"
+    },
+    "AttributeName": {
+      "maxLength": 256,
+      "pattern": "^[a-zA-Z0-9\\_\\-]+$",
+      "type": "string"
+    },
+    "AttributeValue": {
+      "maxLength": 256,
+      "type": "string"
+    },
+    "DataPoint": {
+      "description": "The forecast value for a specific date. Part of the <a>Forecast</a> object.",
+      "properties": {
+        "Timestamp": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "The timestamp of the specific forecast."
+            }
+          ]
+        },
+        "Value": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Double"
+            },
+            {
+              "description": "The forecast value."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DateTime": {
+      "type": "string"
+    },
+    "Double": {
+      "format": "double",
+      "type": "number"
+    },
+    "Filters": {
+      "additionalProperties": {
+        "$ref": "#/definitions/AttributeValue"
+      },
+      "maxProperties": 50,
+      "minProperties": 1,
+      "type": "object"
+    },
+    "Forecast": {
+      "description": "Provides information about a forecast. Returned as part of the <a>QueryForecast</a> response.",
+      "properties": {
+        "Predictions": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Predictions"
+            },
+            {
+              "description": "<p>The forecast.</p> <p>The <i>string</i> of the string-to-array map is one of the following values:</p> <ul> <li> <p>p10</p> </li> <li> <p>p50</p> </li> <li> <p>p90</p> </li> </ul>"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "InvalidInputException": {},
+    "InvalidNextTokenException": {},
+    "LimitExceededException": {},
+    "NextToken": {
+      "maxLength": 3000,
+      "minLength": 1,
+      "type": "string"
+    },
+    "Predictions": {
+      "additionalProperties": {
+        "$ref": "#/definitions/TimeSeries"
+      },
+      "type": "object"
+    },
+    "QueryForecastRequest": {
+      "properties": {
+        "EndDate": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DateTime"
+            },
+            {
+              "description": "The end date for the forecast. Specify the date using this format: yyyy-MM-dd'T'HH:mm:ss (ISO 8601 format). For example, 2015-01-01T20:00:00. "
+            }
+          ]
+        },
+        "Filters": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Filters"
+            },
+            {
+              "description": "<p>The filtering criteria to apply when retrieving the forecast. For example, to get the forecast for <code>client_21</code> in the electricity usage dataset, specify the following:</p> <p> <code>{\"item_id\" : \"client_21\"}</code> </p> <p>To get the full forecast, use the <a href=\"https://docs.aws.amazon.com/en_us/forecast/latest/dg/API_CreateForecastExportJob.html\">CreateForecastExportJob</a> operation.</p>"
+            }
+          ]
+        },
+        "ForecastArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Arn"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the forecast to query."
+            }
+          ]
+        },
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NextToken"
+            },
+            {
+              "description": "If the result of the previous request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of results, use the token in the next request. Tokens expire after 24 hours."
+            }
+          ]
+        },
+        "StartDate": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DateTime"
+            },
+            {
+              "description": "The start date for the forecast. Specify the date using this format: yyyy-MM-dd'T'HH:mm:ss (ISO 8601 format). For example, 2015-01-01T08:00:00."
+            }
+          ]
+        }
+      },
+      "required": [
+        "ForecastArn",
+        "Filters"
+      ],
+      "title": "QueryForecastRequest",
+      "type": "object"
+    },
+    "QueryForecastResponse": {
+      "properties": {
+        "Forecast": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Forecast"
+            },
+            {
+              "description": "The forecast."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ResourceInUseException": {},
+    "ResourceNotFoundException": {},
+    "Statistic": {
+      "maxLength": 4,
+      "type": "string"
+    },
+    "TimeSeries": {
+      "items": {
+        "$ref": "#/definitions/DataPoint"
+      },
+      "type": "array"
+    },
+    "Timestamp": {
+      "type": "string"
+    }
+  },
+  "securityDefinitions": {
+    "hmac": {
+      "description": "Amazon Signature authorization v4",
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey",
+      "x-amazon-apigateway-authtype": "awsSigv4"
+    }
+  },
+  "security": [
+    {
+      "hmac": []
+    }
+  ],
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://docs.aws.amazon.com/forecastquery/"
+  },
+  "x-components": {
+    "parameters": {
+      "X-Amz-Algorithm": {
+        "in": "header",
+        "name": "X-Amz-Algorithm",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Content-Sha256": {
+        "in": "header",
+        "name": "X-Amz-Content-Sha256",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Credential": {
+        "in": "header",
+        "name": "X-Amz-Credential",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Date": {
+        "in": "header",
+        "name": "X-Amz-Date",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Security-Token": {
+        "in": "header",
+        "name": "X-Amz-Security-Token",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Signature": {
+        "in": "header",
+        "name": "X-Amz-Signature",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-SignedHeaders": {
+        "in": "header",
+        "name": "X-Amz-SignedHeaders",
+        "required": false,
+        "type": "string"
+      }
+    }
+  }
+}

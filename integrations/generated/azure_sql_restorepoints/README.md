@@ -15,13 +15,7 @@ let azure_sql_restorepoints = require('@datafire/azure_sql_restorepoints').creat
   redirect_uri: ""
 });
 
-azure_sql_restorepoints.RestorePoints_ListByDatabase({
-  "resourceGroupName": "",
-  "serverName": "",
-  "databaseName": "",
-  "subscriptionId": "",
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -157,7 +151,7 @@ azure_sql_restorepoints.RestorePoints_Get({
   * type `string`: Resource type.
 
 ### RestorePointListResult
-* RestorePointListResult `object`: A list of long term retention bacukps.
+* RestorePointListResult `object`: A list of long term retention backups.
   * nextLink `string`: Link to retrieve next page of results.
   * value `array`: Array of results.
     * items [RestorePoint](#restorepoint)

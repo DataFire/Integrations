@@ -11,7 +11,7 @@
       "name": "Crown Copyright",
       "url": "https://www2.gov.bc.ca/gov/content?id=1AAACC9C65754E4D89A118B875E0FBDA"
     },
-    "title": "BC Geographical Names Web Service -",
+    "title": "BC Geographical Names Web Service - REST API",
     "version": "3.x.x",
     "x-apisguru-categories": [
       "open_data"
@@ -23,7 +23,7 @@
       {
         "converter": {
           "url": "https://github.com/lucybot/api-spec-converter",
-          "version": "2.6.2"
+          "version": "2.7.31"
         },
         "format": "openapi",
         "url": "https://raw.githubusercontent.com/bcgov/api-specs/master/bcgnws/bcgnws.json",
@@ -54,11 +54,11 @@
               "json",
               "xml"
             ],
-            "example": "json",
             "in": "query",
             "name": "outputFormat",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-example": "json"
           }
         ],
         "responses": {
@@ -83,11 +83,11 @@
               "json",
               "xml"
             ],
-            "example": "json",
             "in": "query",
             "name": "outputFormat",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-example": "json"
           }
         ],
         "responses": {
@@ -112,11 +112,11 @@
               "json",
               "xml"
             ],
-            "example": "json",
             "in": "query",
             "name": "outputFormat",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-example": "json"
           }
         ],
         "responses": {
@@ -136,11 +136,11 @@
         "parameters": [
           {
             "description": "The unique identifier for a feature",
-            "example": 8879,
             "in": "path",
             "name": "featureId",
             "required": true,
-            "type": "integer"
+            "type": "integer",
+            "x-example": 8879
           }
         ],
         "responses": {
@@ -168,11 +168,11 @@
               "json",
               "xml"
             ],
-            "example": "json",
             "in": "query",
             "name": "outputFormat",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-example": "json"
           }
         ],
         "responses": {
@@ -199,27 +199,27 @@
               "kml",
               "csv"
             ],
-            "example": "json",
             "in": "query",
             "name": "outputFormat",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-example": "json"
           },
           {
             "description": "Defines the earliest date (YYYY-MM-DD format) of the change time window for the search",
-            "example": "2017-01-01",
             "in": "query",
             "name": "fromDate",
             "required": true,
-            "type": "integer"
+            "type": "integer",
+            "x-example": "2017-01-01"
           },
           {
             "description": "Defines the latest date (YYYY-MM-DD format) of the change time window for the search",
-            "example": "2017-06-30",
             "in": "query",
             "name": "toDate",
             "required": true,
-            "type": "integer"
+            "type": "integer",
+            "x-example": "2017-06-30"
           },
           {
             "default": "*",
@@ -345,20 +345,20 @@
               "kml",
               "csv"
             ],
-            "example": "json",
             "in": "query",
             "name": "outputFormat",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-example": "json"
           },
           {
             "default": 30,
             "description": "The number of days used to define the time window of naming decisions to search.  The number is interpreted as searching for 'names affected by decisions within the last X days'.",
-            "example": "30",
             "in": "query",
             "name": "days",
             "required": true,
-            "type": "integer"
+            "type": "integer",
+            "x-example": "30"
           },
           {
             "default": "*",
@@ -484,19 +484,19 @@
               "kml",
               "csv"
             ],
-            "example": "json",
             "in": "query",
             "name": "outputFormat",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-example": "json"
           },
           {
             "description": "The year in which to search for names affected by naming decisions'.",
-            "example": "2007",
             "in": "query",
             "name": "year",
             "required": true,
-            "type": "integer"
+            "type": "integer",
+            "x-example": "2007"
           },
           {
             "default": "*",
@@ -622,19 +622,19 @@
               "kml",
               "csv"
             ],
-            "example": "json",
             "in": "query",
             "name": "outputFormat",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-example": "json"
           },
           {
             "description": "A geographic bounding box defining the search area.  Must be specified as a string of the form 'minLongitude,minLatitude,maxLongitude,maxLatitude' (WGS84). e.g. -119,49,-118,50",
-            "example": "-119,49,-118,50",
             "in": "query",
             "name": "bbox",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-example": "-119,49,-118,50"
           },
           {
             "default": "*",
@@ -760,19 +760,19 @@
               "kml",
               "csv"
             ],
-            "example": "-119,49,-118,50",
             "in": "query",
             "name": "outputFormat",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-example": "-119,49,-118,50"
           },
           {
             "description": "A geographic coordinate specifying the centre point of the search area.  Must be specified as a string of the form 'longitude,latitude' (WGS84).  e.g. -120,51",
-            "example": "-120,51",
             "in": "query",
             "name": "featurePoint",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-example": "-120,51"
           },
           {
             "description": "A radius (in kilometres) around the centre point.",
@@ -905,21 +905,22 @@
               "kml",
               "csv"
             ],
-            "example": "json",
             "in": "query",
             "name": "outputFormat",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-example": "json"
           },
           {
             "description": "A filter to search based on the the text of the name itself.  Use the asterisk (*) as a wildcard character.  For example 'vancouv*'",
-            "example": "Victoria",
             "in": "query",
             "name": "name",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-example": "Victoria"
           },
           {
+            "default": 0,
             "description": "If the 'name' parameter is specified, 'exactSpelling' specifies whether to include only names that exactly match the search text (exactSpelling=1), or whether to also include names with similar spellings (exactSpelling=0)",
             "enum": [
               0,
@@ -1055,21 +1056,22 @@
               "kml",
               "csv"
             ],
-            "example": "json",
             "in": "query",
             "name": "outputFormat",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-example": "json"
           },
           {
             "description": "A filter to search based on the the text of the name itself.  Use the asterisk (*) as a wildcard character.  For example 'vancouv*'",
-            "example": "Victoria",
             "in": "query",
             "name": "name",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-example": "Victoria"
           },
           {
+            "default": 0,
             "description": "If the 'name' parameter is specified, 'exactSpelling' specifies whether to include only names that exactly match the search text (exactSpelling=1), or whether to also include names with similar spellings (exactSpelling=0)",
             "enum": [
               0,
@@ -1205,21 +1207,22 @@
               "kml",
               "csv"
             ],
-            "example": "json",
             "in": "query",
             "name": "outputFormat",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-example": "json"
           },
           {
             "description": "A filter to search based on the the text of the name itself.  Use the asterisk (*) as a wildcard character.  For example 'vancouv*'",
-            "example": "Victoria",
             "in": "query",
             "name": "name",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-example": "Victoria"
           },
           {
+            "default": 0,
             "description": "If the 'name' parameter is specified, 'exactSpelling' specifies whether to include only names that exactly match the search text (exactSpelling=1), or whether to also include names with similar spellings (exactSpelling=0)",
             "enum": [
               0,
@@ -1348,11 +1351,11 @@
         "parameters": [
           {
             "description": "The unique identifier for a name",
-            "example": 22474,
             "in": "path",
             "name": "nameId",
             "required": true,
-            "type": "integer"
+            "type": "integer",
+            "x-example": 22474
           },
           {
             "default": "json",
@@ -1364,11 +1367,11 @@
               "csv",
               "html"
             ],
-            "example": "json",
             "in": "path",
             "name": "outputFormat",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-example": "json"
           }
         ],
         "responses": {

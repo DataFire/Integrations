@@ -12,8 +12,8 @@
       "url": "https://www.authentiq.com/"
     },
     "description": "Authentiq Connect OAuth 2.0 and OpenID Connect API reference.\nLearn about [Authentiq ID](https://www.authentiq.com/) or check out the [Authentiq Connect](https://developers.authentiq.com) developer documentation.\n",
-    "termsOfService": "https://www.authentiq.com/tos/",
-    "title": "Authentiq Connect",
+    "termsOfService": "https://www.authentiq.com/terms",
+    "title": "Authentiq Connect API",
     "version": "1.0",
     "x-apisguru-categories": [
       "security"
@@ -154,9 +154,9 @@
   "paths": {
     "/authorize": {
       "get": {
-        "description": "Start a session with Authentiq Connect and authenticate a user.\n\nExample:\n\n```\nGET https://connect.authentiq.io/authorize?client_id=<your-client-id>&response_type=code+id_token&scope=openid+email&redirect_uri=<your-redirect-uri>&state=0123456789\n```\n\nThis endpoint is compatible with OpenID Connect and also supports the POST method, in which case the parameters are passed as a form post.\n\nSee also:\n  - [OAuth 2.0 Authorization Endpoint](http://tools.ietf.org/html/rfc6749#section-3.1)\n  - [OIDC Authentication request](http://openid.net/specs/openid-connect-core-1_0.html#AuthRequest)\n  - [OIDC Successful Authentication response](http://openid.net/specs/openid-connect-core-1_0.html#AuthResponse)\n  - [OIDC Error Authentication response](http://openid.net/specs/openid-connect-core-1_0.html#AuthError)\n",
+        "description": "Start a session with Authentiq Connect to authenticate a user.\n\n```\nGET https://connect.authentiq.io/authorize?client_id=<your-client-id>&response_type=code+id_token&scope=openid+email&redirect_uri=<your-redirect-uri>&state=0123456789\n```\n\nThis endpoint also supports the POST method.\n",
         "externalDocs": {
-          "description": "OpenID Authorization Endpoint",
+          "description": "OIDC Authorization Endpoint",
           "url": "http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint"
         },
         "operationId": "authorize",
@@ -301,7 +301,11 @@
           "application/json",
           "multipart/form-data"
         ],
-        "description": "Register a new client with this Authentiq Connect provider.\n\nThis endpoint is compatible with [OIDC's Client Registration](http://openid.net/specs/openid-connect-registration-1_0.html) extension.\n\nSee also:\n- [OIDC Client Registration Endpoint](http://openid.net/specs/openid-connect-registration-1_0.html#ClientRegistration)\n",
+        "description": "Register a new client with this Authentiq Connect provider.\n\nThis endpoint is compatible with [OIDC's Client Registration](http://openid.net/specs/openid-connect-registration-1_0.html) extension.\n",
+        "externalDocs": {
+          "description": "OIDC Client Registration Endpoint",
+          "url": "http://openid.net/specs/openid-connect-registration-1_0.html#ClientRegistration"
+        },
         "operationId": "createClient",
         "parameters": [
           {
@@ -342,6 +346,10 @@
     "/client/{client_id}": {
       "delete": {
         "description": "Delete a previously registered client.\n",
+        "externalDocs": {
+          "description": "OIDC Client Configuration Endpoint",
+          "url": "http://openid.net/specs/openid-connect-registration-1_0.html#ClientConfigurationEndpoint"
+        },
         "operationId": "clientClient_id",
         "parameters": [
           {
@@ -373,7 +381,11 @@
         ]
       },
       "get": {
-        "description": "Retrieve the configuration of a previously registered client.\n\nSee also:\n- [OIDC Client Configuration Endpoint](http://openid.net/specs/openid-connect-registration-1_0.html#ClientConfigurationEndpoint)\n",
+        "description": "Retrieve the configuration of a previously registered client.\n",
+        "externalDocs": {
+          "description": "OIDC Client Configuration Endpoint",
+          "url": "http://openid.net/specs/openid-connect-registration-1_0.html#ClientConfigurationEndpoint"
+        },
         "operationId": "getClient",
         "parameters": [
           {
@@ -415,7 +427,11 @@
           "application/json",
           "multipart/form-data"
         ],
-        "description": "Update the configuration of a previously registered client.\n\nSee also:\n- [OIDC Client Configuration Endpoint](http://openid.net/specs/openid-connect-registration-1_0.html#ClientConfigurationEndpoint)\n",
+        "description": "Update the configuration of a previously registered client.\n",
+        "externalDocs": {
+          "description": "OIDC Client Configuration Endpoint",
+          "url": "http://openid.net/specs/openid-connect-registration-1_0.html#ClientConfigurationEndpoint"
+        },
         "operationId": "updateClient",
         "parameters": [
           {
@@ -461,9 +477,9 @@
         "consumes": [
           "application/x-www-form-urlencoded"
         ],
-        "description": "Exchange en authorization code for an ID Token or Access Token.\n\nThis endpoint supports both `client_secret_post` and `client_secret_basic` authenticatino methods, as specified by the client's `token_endpoint_auth_method`.\n\nSee also:\n  - [OIDC Token Endpoint](http://openid.net/specs/openid-connect-core-1_0.html#TokenRequest)\n  - [OIDC Successful Token response](http://openid.net/specs/openid-connect-core-1_0.html#TokenResponse)\n  - [OIDC Token Error response](http://openid.net/specs/openid-connect-core-1_0.html#TokenError)\n",
+        "description": "Exchange en authorization code for an ID Token or Access Token.\n\nThis endpoint supports both `client_secret_basic` (default) and `client_secret_basic` authentication methods, as specified by the client's `token_endpoint_auth_method`.\n",
         "externalDocs": {
-          "description": "OpenID Token Endpoint",
+          "description": "OIDC Token Endpoint",
           "url": "http://openid.net/specs/openid-connect-core-1_0.html#TokenEndpoint"
         },
         "operationId": "token",
@@ -534,7 +550,11 @@
     },
     "/userinfo": {
       "get": {
-        "description": "Use this endpoint to retrieve a user's profile in case you've not already obtained enough details from the ID Token via the Token Endpoint.\n See also:\n - [OIDC UserInfo endpoint](http://openid.net/specs/openid-connect-core-1_0.html#UserInfo)\n",
+        "description": "Use this endpoint to retrieve a user's profile in case you are unable to parse an ID Token or you've not already obtained enough details from the ID Token via the Token Endpoint.\n",
+        "externalDocs": {
+          "description": "OIDC UserInfo Endpoint",
+          "url": "http://openid.net/specs/openid-connect-core-1_0.html#UserInfo"
+        },
         "operationId": "userInfo",
         "produces": [
           "application/json"
@@ -574,7 +594,7 @@
             ]
           }
         ],
-        "summary": "Retrieve their user profile",
+        "summary": "Retrieve a user profile",
         "tags": [
           "Authentication"
         ]
@@ -582,7 +602,11 @@
     },
     "/{client_id}/iframe": {
       "get": {
-        "description": "An OpenID Connect Session Management iframe to facilitate e.g. single sign-on or remote logouts.\n\nThe iframe implements the OIDC postMessage-based [change notification protocol](http://openid.net/specs/openid-connect-session-1_0.html#ChangeNotification) via which a client can receive notifications about session state changes.\n\nSee also:\n- [OIDC OP iframe](http://openid.net/specs/openid-connect-session-1_0.html#OPiframe)\n",
+        "description": "An OpenID Connect Session Management iframe to facilitate e.g. single sign-on or remote logouts.\n\nThe iframe implements the OIDC postMessage-based [change notification protocol](http://openid.net/specs/openid-connect-session-1_0.html#ChangeNotification) via which a client can receive notifications about session state changes.\n",
+        "externalDocs": {
+          "description": "OIDC OP Session Management Iframe",
+          "url": "http://openid.net/specs/openid-connect-session-1_0.html#OPiframe"
+        },
         "operationId": "authorizeIframe",
         "parameters": [
           {

@@ -15,10 +15,7 @@ let azure_resources_features = require('@datafire/azure_resources_features').cre
   redirect_uri: ""
 });
 
-azure_resources_features.Features_ListAll({
-  "api-version": "",
-  "subscriptionId": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -28,6 +25,23 @@ azure_resources_features.Features_ListAll({
 Azure Feature Exposure Control (AFEC) provides a mechanism for the resource providers to control feature exposure to users. Resource providers typically use this mechanism to provide public/private preview for new features prior to making them generally available. Users need to explicitly register for AFEC features to get access to such functionality.
 
 ## Actions
+
+### ListOperations
+Lists all of the available Microsoft.Features REST API operations.
+
+
+```js
+azure_resources_features.ListOperations({
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * api-version **required** `string`: The API version to use for this operation.
+
+#### Output
+* output [OperationListResult](#operationlistresult)
 
 ### Features_ListAll
 Gets all the preview features that are available through AFEC for the subscription.
@@ -135,5 +149,19 @@ azure_resources_features.Features_Register({
   * name `string`: The name of the feature.
   * properties [FeatureProperties](#featureproperties)
   * type `string`: The resource type of the feature.
+
+### Operation
+* Operation `object`: Microsoft.Features operation
+  * display `object`: The object that represents the operation.
+    * operation `string`: Operation type: Read, write, delete, etc.
+    * provider `string`: Service provider: Microsoft.Features
+    * resource `string`: Resource on which the operation is performed: Profile, endpoint, etc.
+  * name `string`: Operation name: {provider}/{resource}/{operation}
+
+### OperationListResult
+* OperationListResult `object`: Result of the request to list Microsoft.Features operations. It contains a list of operations and a URL link to get the next set of results.
+  * nextLink `string`: URL to get the next set of operation list results if there are any.
+  * value `array`: List of Microsoft.Features operations.
+    * items [Operation](#operation)
 
 

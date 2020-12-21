@@ -9,7 +9,7 @@ npm install --save @datafire/moonmoonmoonmoon
 ```js
 let moonmoonmoonmoon = require('@datafire/moonmoonmoonmoon').create();
 
-moonmoonmoonmoon.api.marks.get({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

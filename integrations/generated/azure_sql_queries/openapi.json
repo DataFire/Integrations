@@ -51,25 +51,10 @@
     }
   },
   "parameters": {
-    "ApiVersionParameter": {
-      "description": "The API version to use for the request.",
-      "in": "query",
-      "name": "api-version",
-      "required": true,
-      "type": "string"
-    },
     "DatabaseNameParameter": {
       "description": "The name of the database.",
       "in": "path",
       "name": "databaseName",
-      "required": true,
-      "type": "string",
-      "x-ms-parameter-location": "method"
-    },
-    "ResourceGroupParameter": {
-      "description": "The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.",
-      "in": "path",
-      "name": "resourceGroupName",
       "required": true,
       "type": "string",
       "x-ms-parameter-location": "method"
@@ -81,13 +66,6 @@
       "required": true,
       "type": "string",
       "x-ms-parameter-location": "method"
-    },
-    "SubscriptionIdParameter": {
-      "description": "The subscription ID that identifies an Azure subscription.",
-      "in": "path",
-      "name": "subscriptionId",
-      "required": true,
-      "type": "string"
     }
   },
   "paths": {
@@ -97,13 +75,28 @@
         "operationId": "Queries_ListByDatabase",
         "parameters": [
           {
-            "$ref": "#/parameters/ApiVersionParameter"
+            "description": "The API version to use for the request.",
+            "in": "query",
+            "name": "api-version",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "client"
           },
           {
-            "$ref": "#/parameters/SubscriptionIdParameter"
+            "description": "The subscription ID that identifies an Azure subscription.",
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "client"
           },
           {
-            "$ref": "#/parameters/ResourceGroupParameter"
+            "description": "The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.",
+            "in": "path",
+            "name": "resourceGroupName",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "$ref": "#/parameters/ServerNameParameter"
@@ -134,66 +127,70 @@
             },
             "responses": {
               "200": {
-                "value": [
-                  {
-                    "aggregationFunction": "sum",
-                    "executionType": "any",
-                    "intervalType": "PT1H",
-                    "numberOfTopQueries": 1,
-                    "observationEndTime": "2017-07-12T16:21:54.0916567Z",
-                    "observationStartTime": "2017-07-11T16:21:54.0916567Z",
-                    "observedMetric": "cpu",
-                    "queries": [
-                      {
-                        "intervals": [
-                          {
-                            "executionCount": 12,
-                            "intervalStartTime": "2017-07-11T16:00:00",
-                            "metrics": [
-                              {
-                                "displayName": "Cpu",
-                                "name": "cpu",
-                                "unit": "percentage",
-                                "value": 0.000763888888888889
-                              },
-                              {
-                                "displayName": "Physical Io Reads",
-                                "name": "io",
-                                "unit": "percentage",
-                                "value": 0
-                              },
-                              {
-                                "displayName": "Log Writes",
-                                "name": "logIo",
-                                "unit": "percentage",
-                                "value": 0
-                              },
-                              {
-                                "displayName": "Memory consumption",
-                                "name": "memory",
-                                "unit": "KB",
-                                "value": 0
-                              },
-                              {
-                                "displayName": "Query duration",
-                                "name": "duration",
-                                "unit": "microseconds",
-                                "value": 3308
-                              }
-                            ]
-                          }
-                        ],
-                        "queryId": "19"
-                      }
-                    ],
-                    "type": "Microsoft.Sql/servers/databases/topQueries"
-                  }
-                ]
+                "body": {
+                  "value": [
+                    {
+                      "aggregationFunction": "sum",
+                      "executionType": "any",
+                      "intervalType": "PT1H",
+                      "numberOfTopQueries": 1,
+                      "observationEndTime": "2017-07-12T16:21:54.0916567Z",
+                      "observationStartTime": "2017-07-11T16:21:54.0916567Z",
+                      "observedMetric": "cpu",
+                      "queries": [
+                        {
+                          "intervals": [
+                            {
+                              "executionCount": 12,
+                              "intervalStartTime": "2017-07-11T16:00:00",
+                              "metrics": [
+                                {
+                                  "displayName": "Cpu",
+                                  "name": "cpu",
+                                  "unit": "percentage",
+                                  "value": 0.000763888888888889
+                                },
+                                {
+                                  "displayName": "Physical Io Reads",
+                                  "name": "io",
+                                  "unit": "percentage",
+                                  "value": 0
+                                },
+                                {
+                                  "displayName": "Log Writes",
+                                  "name": "logIo",
+                                  "unit": "percentage",
+                                  "value": 0
+                                },
+                                {
+                                  "displayName": "Memory consumption",
+                                  "name": "memory",
+                                  "unit": "KB",
+                                  "value": 0
+                                },
+                                {
+                                  "displayName": "Query duration",
+                                  "name": "duration",
+                                  "unit": "microseconds",
+                                  "value": 3308
+                                }
+                              ]
+                            }
+                          ],
+                          "queryId": "19"
+                        }
+                      ],
+                      "type": "Microsoft.Sql/servers/databases/topQueries"
+                    }
+                  ]
+                }
               }
             }
           }
         },
-        "x-ms-pageable": {}
+        "x-ms-pageable": {
+          "nextLinkName": null
+        }
       }
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/databases/{databaseName}/topQueries/{queryId}/queryText": {
@@ -202,13 +199,28 @@
         "operationId": "QueryTexts_ListByQuery",
         "parameters": [
           {
-            "$ref": "#/parameters/ApiVersionParameter"
+            "description": "The API version to use for the request.",
+            "in": "query",
+            "name": "api-version",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "client"
           },
           {
-            "$ref": "#/parameters/SubscriptionIdParameter"
+            "description": "The subscription ID that identifies an Azure subscription.",
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "client"
           },
           {
-            "$ref": "#/parameters/ResourceGroupParameter"
+            "description": "The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.",
+            "in": "path",
+            "name": "resourceGroupName",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "$ref": "#/parameters/ServerNameParameter"
@@ -247,18 +259,22 @@
             },
             "responses": {
               "200": {
-                "value": [
-                  {
-                    "name": "current",
-                    "queryText": "select 1",
-                    "type": "Microsoft.Sql/servers/databases/topQueries/queryText"
-                  }
-                ]
+                "body": {
+                  "value": [
+                    {
+                      "name": "current",
+                      "queryText": "select 1",
+                      "type": "Microsoft.Sql/servers/databases/topQueries/queryText"
+                    }
+                  ]
+                }
               }
             }
           }
         },
-        "x-ms-pageable": {}
+        "x-ms-pageable": {
+          "nextLinkName": null
+        }
       }
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/databases/{databaseName}/topQueries/{queryId}/statistics": {
@@ -267,13 +283,28 @@
         "operationId": "QueryStatistics_ListByQuery",
         "parameters": [
           {
-            "$ref": "#/parameters/ApiVersionParameter"
+            "description": "The API version to use for the request.",
+            "in": "query",
+            "name": "api-version",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "client"
           },
           {
-            "$ref": "#/parameters/SubscriptionIdParameter"
+            "description": "The subscription ID that identifies an Azure subscription.",
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "client"
           },
           {
-            "$ref": "#/parameters/ResourceGroupParameter"
+            "description": "The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.",
+            "in": "path",
+            "name": "resourceGroupName",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "$ref": "#/parameters/ServerNameParameter"
@@ -312,54 +343,58 @@
             },
             "responses": {
               "200": {
-                "value": [
-                  {
-                    "intervals": [
-                      {
-                        "executionCount": 12,
-                        "intervalStartTime": "2017-07-11T16:00:00",
-                        "metrics": [
-                          {
-                            "displayName": "Cpu",
-                            "name": "cpu",
-                            "unit": "percentage",
-                            "value": 0.000763888888888889
-                          },
-                          {
-                            "displayName": "Physical Io Reads",
-                            "name": "io",
-                            "unit": "percentage",
-                            "value": 0
-                          },
-                          {
-                            "displayName": "Log Writes",
-                            "name": "logIo",
-                            "unit": "percentage",
-                            "value": 0
-                          },
-                          {
-                            "displayName": "Memory consumption",
-                            "name": "memory",
-                            "unit": "KB",
-                            "value": 0
-                          },
-                          {
-                            "displayName": "Query duration",
-                            "name": "duration",
-                            "unit": "microseconds",
-                            "value": 3308
-                          }
-                        ]
-                      }
-                    ],
-                    "queryId": "19"
-                  }
-                ]
+                "body": {
+                  "value": [
+                    {
+                      "intervals": [
+                        {
+                          "executionCount": 12,
+                          "intervalStartTime": "2017-07-11T16:00:00",
+                          "metrics": [
+                            {
+                              "displayName": "Cpu",
+                              "name": "cpu",
+                              "unit": "percentage",
+                              "value": 0.000763888888888889
+                            },
+                            {
+                              "displayName": "Physical Io Reads",
+                              "name": "io",
+                              "unit": "percentage",
+                              "value": 0
+                            },
+                            {
+                              "displayName": "Log Writes",
+                              "name": "logIo",
+                              "unit": "percentage",
+                              "value": 0
+                            },
+                            {
+                              "displayName": "Memory consumption",
+                              "name": "memory",
+                              "unit": "KB",
+                              "value": 0
+                            },
+                            {
+                              "displayName": "Query duration",
+                              "name": "duration",
+                              "unit": "microseconds",
+                              "value": 3308
+                            }
+                          ]
+                        }
+                      ],
+                      "queryId": "19"
+                    }
+                  ]
+                }
               }
             }
           }
         },
-        "x-ms-pageable": {}
+        "x-ms-pageable": {
+          "nextLinkName": null
+        }
       }
     }
   },

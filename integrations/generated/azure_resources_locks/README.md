@@ -15,10 +15,7 @@ let azure_resources_locks = require('@datafire/azure_resources_locks').create({
   redirect_uri: ""
 });
 
-azure_resources_locks.ManagementLocks_ListAtSubscriptionLevel({
-  "api-version": "",
-  "subscriptionId": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -28,6 +25,23 @@ azure_resources_locks.ManagementLocks_ListAtSubscriptionLevel({
 Azure resources can be locked to prevent other users in your organization from deleting or modifying resources.
 
 ## Actions
+
+### AuthorizationOperations_List
+Lists all of the available Microsoft.Authorization REST API operations.
+
+
+```js
+azure_resources_locks.AuthorizationOperations_List({
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * api-version **required** `string`: The API version to use for the operation.
+
+#### Output
+* output [OperationListResult](#operationlistresult)
 
 ### ManagementLocks_ListAtSubscriptionLevel
 Gets all the management locks for a subscription.
@@ -332,6 +346,26 @@ azure_resources_locks.ManagementLocks_CreateOrUpdateAtResourceLevel({
 #### Output
 * output [ManagementLockObject](#managementlockobject)
 
+### ManagementLocks_ListByScope
+Gets all the management locks for a scope.
+
+
+```js
+azure_resources_locks.ManagementLocks_ListByScope({
+  "scope": "",
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * scope **required** `string`: The scope for the lock. When providing a scope for the assignment, use '/subscriptions/{subscriptionId}' for subscriptions, '/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}' for resource groups, and '/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{parentResourcePathIfPresent}/{resourceType}/{resourceName}' for resources.
+  * $filter `string`: The filter to apply on the operation.
+  * api-version **required** `string`: The API version to use for the operation.
+
+#### Output
+* output [ManagementLockListResult](#managementlocklistresult)
+
 ### ManagementLocks_DeleteByScope
 Delete a management lock by scope.
 
@@ -424,5 +458,19 @@ azure_resources_locks.ManagementLocks_CreateOrUpdateByScope({
   * notes `string`: Notes about the lock. Maximum of 512 characters.
   * owners `array`: The owners of the lock.
     * items [ManagementLockOwner](#managementlockowner)
+
+### Operation
+* Operation `object`: Microsoft.Authorization operation
+  * display `object`: The object that represents the operation.
+    * operation `string`: Operation type: Read, write, delete, etc.
+    * provider `string`: Service provider: Microsoft.Authorization
+    * resource `string`: Resource on which the operation is performed: Profile, endpoint, etc.
+  * name `string`: Operation name: {provider}/{resource}/{operation}
+
+### OperationListResult
+* OperationListResult `object`: Result of the request to list Microsoft.Authorization operations. It contains a list of operations and a URL link to get the next set of results.
+  * nextLink `string`: URL to get the next set of operation list results if there are any.
+  * value `array`: List of Microsoft.Authorization operations.
+    * items [Operation](#operation)
 
 

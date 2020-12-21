@@ -12,7 +12,7 @@
       "x-twitter": "WilliamHill"
     },
     "description": "The William Hill SportsData REST API is a collection of GET methods to provide William Hill product data such as sport, competition, event, market and selection data (including prices).",
-    "title": "SportsData",
+    "title": "SportsData API",
     "version": "2",
     "x-apisguru-categories": [
       "entertainment"
@@ -261,7 +261,7 @@
       "x-eg": "20"
     },
     "param_locale": {
-      "description": "Code used to select a set of top bets settings, default is \"whapi\" which allows events set in far future to be included, setting the value to \"en-GB\" will activate english sportsbook settings, mirroring top bets on the website, which restricts events returned to those taking place in next 36 hours.  Acceptable values (not all heve their own settings - if none currently available for that locale - en-GB will be used) are  de-DE|whapi|en-GB|es-ES|fr-FR|nn-NO|fi-FI|ru-RU|pt-PT|hu-HU|sl-SL|ga-IE|en-CA|sr-Latn|sv-SE|el=GR|zh-CHS|it-IT|zh-CHT|cs-CZ|de-AT|ja-JP|pl-PL|da-DK|ro-RO|nl-NL|tr-TR",
+      "description": "Code used to select a set of top bets settings, default is \"whapi\" which allows events set in far future to be included, setting the value to \"en-GB\" will activate english sportsbook settings, mirroring top bets on the website, which restricts events returned to those taking place in next 36 hours. Acceptable values (not all heve their own settings - if none currently available for that locale - en-GB will be used) are de-DE|whapi|en-GB|es-ES|fr-FR|nn-NO|fi-FI|ru-RU|pt-PT|hu-HU|sl-SL|ga-IE|en-CA|sr-Latn|sv-SE|el=GR|zh-CHS|it-IT|zh-CHT|cs-CZ|de-AT|ja-JP|pl-PL|da-DK|ro-RO|nl-NL|tr-TR",
       "in": "query",
       "name": "Locale",
       "required": false,
@@ -315,6 +315,14 @@
       "type": "string",
       "x-eg": "OB_MG123"
     },
+    "param_marketGroupId2": {
+      "description": "Filter by marketGroupId (e.g. OB_MG1276585).",
+      "in": "query",
+      "name": "marketGroupId",
+      "required": true,
+      "type": "string",
+      "x-eg": "OB_MG123"
+    },
     "param_marketId": {
       "description": "The market id to retrieve information for",
       "in": "path",
@@ -348,10 +356,18 @@
       "x-eg": "yes"
     },
     "param_marketSort": {
-      "description": "Filter by market sort  (e.g. MR (match result) -- (Outright)).",
+      "description": "Filter by market sort (e.g. MR (match result) -- (Outright)).",
       "in": "query",
       "name": "marketSort",
       "required": false,
+      "type": "string",
+      "x-eg": "MR"
+    },
+    "param_marketSort2": {
+      "description": "Filter by market sort (e.g. MR (match result) -- (Outright)).",
+      "in": "query",
+      "name": "marketSort",
+      "required": true,
       "type": "string",
       "x-eg": "MR"
     },
@@ -519,7 +535,7 @@
           "200": {
             "description": "Success",
             "examples": {
-              "application/json": "{\n  \"competitions\": [\n    {\n      \"id\": \"OB_TY1733\",\n      \"name\": \"Manchester Senior Cup\",\n      \"status\": \"A\"\n    }\n  ]\n}\n"
+              "application/json": "{\n \"competitions\": [\n {\n \"id\": \"OB_TY1733\",\n \"name\": \"Manchester Senior Cup\",\n \"status\": \"A\"\n }\n ]\n}\n"
             },
             "schema": {
               "$ref": "#/definitions/competitionsWrapper"
@@ -528,7 +544,7 @@
           "400": {
             "description": "Incorrect or Missing Parameter",
             "examples": {
-              "application/json": "{\n  \"errors\" : [\n              {\n                \"code\":\"10070\",\n                \"message\":\"Missing Parameter\",\n                \"field\":\"apiKey\"\n              }\n            ]\n}\n"
+              "application/json": "{\n \"errors\" : [\n {\n \"code\":\"10070\",\n \"message\":\"Missing Parameter\",\n \"field\":\"apiKey\"\n }\n ]\n}\n"
             },
             "schema": {
               "$ref": "#/definitions/errorsWrapper"
@@ -537,7 +553,7 @@
           "404": {
             "description": "No data found for request",
             "examples": {
-              "application/json": "{\n  \"errors\" : [\n              {\n                \"code\":\"10003\",\n                \"message\":\"Resource Not Found\"\n              }\n            ]\n}\n"
+              "application/json": "{\n \"errors\" : [\n {\n \"code\":\"10003\",\n \"message\":\"Resource Not Found\"\n }\n ]\n}\n"
             },
             "schema": {
               "$ref": "#/definitions/errorsWrapper"
@@ -659,7 +675,7 @@
           "200": {
             "description": "Success",
             "examples": {
-              "application/json": "{\n\"events\": [\n {\n  \"id\": \"OB_EV2828\",\n  \"name\": \"Forest Green Vs Liverpool\",\n  \"status\": \"A\",\n  \"startDateTime\": \"2016-01-29T20:00:00\"\n },\n {\n  \"id\": \"OB_EV2829\",\n  \"name\": \"XXXMan Utd Vs Man City\",\n  \"status\": \"A\",\n  \"startDateTime\": \"2016-01-07T11:00:00\"\n },\n {\n  \"id\": \"OB_EV2849\",\n  \"name\": \"Manchester Senior Cup - Winners 2015-16\",\n  \"status\": \"A\",\n  \"startDateTime\": \"2016-01-01T00:00:00\"\n }\n]\n}\n"
+              "application/json": "{\n\"events\": [\n {\n \"id\": \"OB_EV2828\",\n \"name\": \"Forest Green Vs Liverpool\",\n \"status\": \"A\",\n \"startDateTime\": \"2016-01-29T20:00:00\"\n },\n {\n \"id\": \"OB_EV2829\",\n \"name\": \"XXXMan Utd Vs Man City\",\n \"status\": \"A\",\n \"startDateTime\": \"2016-01-07T11:00:00\"\n },\n {\n \"id\": \"OB_EV2849\",\n \"name\": \"Manchester Senior Cup - Winners 2015-16\",\n \"status\": \"A\",\n \"startDateTime\": \"2016-01-01T00:00:00\"\n }\n]\n}\n"
             },
             "schema": {
               "$ref": "#/definitions/eventsWrapper"
@@ -668,7 +684,7 @@
           "400": {
             "description": "Incorrect or Missing Parameter",
             "examples": {
-              "application/json": "{\n \"errors\" : [\n                {\n                  \"code\":\"10070\",\n                  \"message\":\"Missing Parameter\",\n                  \"field\":\"apiKey\"\n                }\n              ]\n}\n"
+              "application/json": "{\n \"errors\" : [\n {\n \"code\":\"10070\",\n \"message\":\"Missing Parameter\",\n \"field\":\"apiKey\"\n }\n ]\n}\n"
             },
             "schema": {
               "$ref": "#/definitions/errorsWrapper"
@@ -677,7 +693,7 @@
           "404": {
             "description": "No data found for request",
             "examples": {
-              "application/json": "{\n  \"errors\" : [\n              {\n                \"code\":\"10003\",\n                \"message\":\"Resource Not Found\"\n              }\n            ]\n}\n"
+              "application/json": "{\n \"errors\" : [\n {\n \"code\":\"10003\",\n \"message\":\"Resource Not Found\"\n }\n ]\n}\n"
             },
             "schema": {
               "$ref": "#/definitions/errorsWrapper"
@@ -721,7 +737,7 @@
           "200": {
             "description": "Success",
             "examples": {
-              "application/json": "{\n  \"id\": \"OB_TY1733\",\n  \"name\": \"Manchester Senior Cup\",\n  \"status\": \"A\"\n}\n"
+              "application/json": "{\n \"id\": \"OB_TY1733\",\n \"name\": \"Manchester Senior Cup\",\n \"status\": \"A\"\n}\n"
             },
             "schema": {
               "$ref": "#/definitions/competition"
@@ -730,7 +746,7 @@
           "400": {
             "description": "Incorrect or Missing Parameter",
             "examples": {
-              "application/json": "{\n  \"errors\" : [\n              {\n                \"code\":\"10070\",\n                \"message\":\"Missing Parameter\",\n                \"field\":\"apiKey\"\n              }\n            ]\n}\n"
+              "application/json": "{\n \"errors\" : [\n {\n \"code\":\"10070\",\n \"message\":\"Missing Parameter\",\n \"field\":\"apiKey\"\n }\n ]\n}\n"
             },
             "schema": {
               "$ref": "#/definitions/errorsWrapper"
@@ -739,7 +755,7 @@
           "404": {
             "description": "No data found for request",
             "examples": {
-              "application/json": "{\n  \"errors\" : [\n              {\n                \"code\":\"10003\",\n                \"message\":\"Resource Not Found\"\n              }\n            ]\n}\n"
+              "application/json": "{\n \"errors\" : [\n {\n \"code\":\"10003\",\n \"message\":\"Resource Not Found\"\n }\n ]\n}\n"
             },
             "schema": {
               "$ref": "#/definitions/errorsWrapper"
@@ -864,7 +880,7 @@
           "200": {
             "description": "Success",
             "examples": {
-              "application/json": "{\n\"events\": [\n {\n  \"id\": \"OB_EV2828\",\n  \"name\": \"Forest Green Vs Liverpool\",\n  \"status\": \"A\",\n  \"startDateTime\": \"2016-01-29T20:00:00\"\n },\n {\n  \"id\": \"OB_EV2829\",\n  \"name\": \"XXXMan Utd Vs Man City\",\n  \"status\": \"A\",\n  \"startDateTime\": \"2016-01-07T11:00:00\"\n },\n {\n  \"id\": \"OB_EV2849\",\n  \"name\": \"Manchester Senior Cup - Winners 2015-16\",\n  \"status\": \"A\",\n  \"startDateTime\": \"2016-01-01T00:00:00\"\n }\n]\n}\n"
+              "application/json": "{\n\"events\": [\n {\n \"id\": \"OB_EV2828\",\n \"name\": \"Forest Green Vs Liverpool\",\n \"status\": \"A\",\n \"startDateTime\": \"2016-01-29T20:00:00\"\n },\n {\n \"id\": \"OB_EV2829\",\n \"name\": \"XXXMan Utd Vs Man City\",\n \"status\": \"A\",\n \"startDateTime\": \"2016-01-07T11:00:00\"\n },\n {\n \"id\": \"OB_EV2849\",\n \"name\": \"Manchester Senior Cup - Winners 2015-16\",\n \"status\": \"A\",\n \"startDateTime\": \"2016-01-01T00:00:00\"\n }\n]\n}\n"
             },
             "schema": {
               "$ref": "#/definitions/eventsWrapper"
@@ -873,7 +889,7 @@
           "400": {
             "description": "Incorrect or Missing Parameter",
             "examples": {
-              "application/json": "{\n \"errors\" : [\n                {\n                  \"code\":\"10070\",\n                  \"message\":\"Missing Parameter\",\n                  \"field\":\"apiKey\"\n                }\n              ]\n}\n"
+              "application/json": "{\n \"errors\" : [\n {\n \"code\":\"10070\",\n \"message\":\"Missing Parameter\",\n \"field\":\"apiKey\"\n }\n ]\n}\n"
             },
             "schema": {
               "$ref": "#/definitions/errorsWrapper"
@@ -882,7 +898,7 @@
           "404": {
             "description": "No data found for request",
             "examples": {
-              "application/json": "{\n  \"errors\" : [\n              {\n                \"code\":\"10003\",\n                \"message\":\"Resource Not Found\"\n              }\n            ]\n}\n"
+              "application/json": "{\n \"errors\" : [\n {\n \"code\":\"10003\",\n \"message\":\"Resource Not Found\"\n }\n ]\n}\n"
             },
             "schema": {
               "$ref": "#/definitions/errorsWrapper"
@@ -943,7 +959,7 @@
           "200": {
             "description": "Success",
             "examples": {
-              "application/json": "{\n  \"marketgroups\": [\n    {\n      \"id\": \"OB_MG36963\",\n      \"name\": \"90 Minutes\"\n    },\n    {\n      \"id\": \"OB_MG36964\",\n      \"name\": \"Correct Score\"\n    },\n    {\n      \"id\": \"OB_MG36966\",\n      \"name\": \"First Goalscorer\"\n    },\n    {\n      \"id\": \"OB_MG37004\",\n      \"name\": \"Match Betting Live\"\n    },\n    {\n      \"id\": \"OB_MG37043\",\n      \"name\": \"Outright\"\n    }\n  ]\n}\n"
+              "application/json": "{\n \"marketgroups\": [\n {\n \"id\": \"OB_MG36963\",\n \"name\": \"90 Minutes\"\n },\n {\n \"id\": \"OB_MG36964\",\n \"name\": \"Correct Score\"\n },\n {\n \"id\": \"OB_MG36966\",\n \"name\": \"First Goalscorer\"\n },\n {\n \"id\": \"OB_MG37004\",\n \"name\": \"Match Betting Live\"\n },\n {\n \"id\": \"OB_MG37043\",\n \"name\": \"Outright\"\n }\n ]\n}\n"
             },
             "schema": {
               "$ref": "#/definitions/marketGroupsWrapper"
@@ -952,7 +968,7 @@
           "400": {
             "description": "Incorrect or Missing Parameter",
             "examples": {
-              "application/json": "{\n  \"errors\" : [\n                {\n                  \"code\":\"10070\",\n                  \"message\":\"Missing Parameter\",\n                  \"field\":\"apiKey\"\n                }\n              ]\n}\n"
+              "application/json": "{\n \"errors\" : [\n {\n \"code\":\"10070\",\n \"message\":\"Missing Parameter\",\n \"field\":\"apiKey\"\n }\n ]\n}\n"
             },
             "schema": {
               "$ref": "#/definitions/errorsWrapper"
@@ -961,7 +977,7 @@
           "404": {
             "description": "No data found for request",
             "examples": {
-              "application/json": "{\n  \"errors\" : [\n              {\n                \"code\":\"10003\",\n                \"message\":\"Resource Not Found\"\n              }\n            ]\n}\n"
+              "application/json": "{\n \"errors\" : [\n {\n \"code\":\"10003\",\n \"message\":\"Resource Not Found\"\n }\n ]\n}\n"
             },
             "schema": {
               "$ref": "#/definitions/errorsWrapper"
@@ -969,6 +985,71 @@
           }
         },
         "summary": "Retrieves a list of market groups for a given competition id",
+        "tags": [
+          "sportsdata"
+        ],
+        "x-canReturnErrors": [
+          0
+        ]
+      }
+    },
+    "/competitions/{competitionId}/marketsByGroupid": {
+      "get": {
+        "description": "Retrieves a list of events/markets/selections where markets within said event match selected sort/groupId",
+        "operationId": "getMarketsByGroupId",
+        "parameters": [
+          {
+            "$ref": "#/parameters/param_apiKey"
+          },
+          {
+            "$ref": "#/parameters/param_competitionId"
+          },
+          {
+            "$ref": "#/parameters/param_fields"
+          },
+          {
+            "$ref": "#/parameters/param_include"
+          },
+          {
+            "$ref": "#/parameters/param_exclude"
+          },
+          {
+            "$ref": "#/parameters/param_marketSort2"
+          },
+          {
+            "$ref": "#/parameters/param_marketGroupId2"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "examples": {
+              "application/json": "{\n \"events\": [\n\n {\n \"id\": \"OB_EV123\",\n \"name\": \"ManU v City\",\n \"markets\": {\n \"id\": \"OB_MA1234\",\n \"name\": \"90 Minutes\"\n \"selections\": {\n \"id\": \"OB_OU12345\",\n \"fractionalOdds\": \"2/1\"\n \n }\n }\n }\n ]\n}\n"
+            },
+            "schema": {
+              "$ref": "#/definitions/marketGroupsWrapper"
+            }
+          },
+          "400": {
+            "description": "Incorrect or Missing Parameter",
+            "examples": {
+              "application/json": "{\n \"errors\" : [\n {\n \"code\":\"10070\",\n \"message\":\"Missing Parameter\",\n \"field\":\"apiKey\"\n }\n ]\n}\n"
+            },
+            "schema": {
+              "$ref": "#/definitions/errorsWrapper"
+            }
+          },
+          "404": {
+            "description": "No data found for request",
+            "examples": {
+              "application/json": "{\n \"errors\" : [\n {\n \"code\":\"10003\",\n \"message\":\"Resource Not Found\"\n }\n ]\n}\n"
+            },
+            "schema": {
+              "$ref": "#/definitions/errorsWrapper"
+            }
+          }
+        },
+        "summary": "Retrieves a list of events/markets/selections where markets within said event match selected sort/groupId",
         "tags": [
           "sportsdata"
         ],
@@ -1065,7 +1146,7 @@
           "200": {
             "description": "Success",
             "examples": {
-              "application/json": "{\n  \"events\": [\n    {\n      \"id\": \"OB_EV2828\",\n      \"name\": \"Forest Green Vs Liverpool\",\n      \"status\": \"A\",\n      \"startDateTime\": \"2016-01-29T20:00:00\",\n      \"markets\": [\n        {\n          \"id\": \"OB_MA2559\",\n          \"name\": \"Correct Score\",\n          \"status\": \"A\",\n          \"selections\": [\n            {\n              \"id\": \"OB_OU3863\",\n              \"currentPriceNum\": 14,\n              \"currentPriceDen\": 1,\n              \"name\": \"Liverpool 2-1\",\n              \"status\": \"A\"\n            }\n          ]\n        }\n      ]\n    }\n   ]\n}\n"
+              "application/json": "{\n \"events\": [\n {\n \"id\": \"OB_EV2828\",\n \"name\": \"Forest Green Vs Liverpool\",\n \"status\": \"A\",\n \"startDateTime\": \"2016-01-29T20:00:00\",\n \"markets\": [\n {\n \"id\": \"OB_MA2559\",\n \"name\": \"Correct Score\",\n \"status\": \"A\",\n \"selections\": [\n {\n \"id\": \"OB_OU3863\",\n \"currentPriceNum\": 14,\n \"currentPriceDen\": 1,\n \"name\": \"Liverpool 2-1\",\n \"status\": \"A\"\n }\n ]\n }\n ]\n }\n ]\n}\n"
             },
             "schema": {
               "$ref": "#/definitions/eventsWrapper"
@@ -1074,7 +1155,7 @@
           "400": {
             "description": "Incorrect or Missing Parameter",
             "examples": {
-              "application/json": "{\n  \"errors\" : [\n              {\n                \"code\":\"10070\",\n                \"message\":\"Missing Parameter\",\n                \"field\":\"apiKey\"\n              }\n            ]\n}\n"
+              "application/json": "{\n \"errors\" : [\n {\n \"code\":\"10070\",\n \"message\":\"Missing Parameter\",\n \"field\":\"apiKey\"\n }\n ]\n}\n"
             },
             "schema": {
               "$ref": "#/definitions/errorsWrapper"
@@ -1083,7 +1164,7 @@
           "404": {
             "description": "No data found for request",
             "examples": {
-              "application/json": "{\n  \"errors\" : [\n              {\n                \"code\":\"10003\",\n                \"message\":\"Resource Not Found\"\n              }\n            ]\n}\n"
+              "application/json": "{\n \"errors\" : [\n {\n \"code\":\"10003\",\n \"message\":\"Resource Not Found\"\n }\n ]\n}\n"
             },
             "schema": {
               "$ref": "#/definitions/errorsWrapper"
@@ -1169,7 +1250,7 @@
           "200": {
             "description": "Success",
             "examples": {
-              "application/json": "{\n  \"events\": [\n    {\n      \"id\": \"OB_EV2828\",\n      \"name\": \"Forest Green Vs Liverpool\",\n      \"status\": \"A\",\n      \"startDateTime\": \"2016-01-29T20:00:00\",\n      \"markets\": [\n        {\n          \"id\": \"OB_MA2559\",\n          \"name\": \"Correct Score\",\n          \"status\": \"A\",\n          \"selections\": [\n            {\n              \"id\": \"OB_OU3863\",\n              \"currentPriceNum\": 14,\n              \"currentPriceDen\": 1,\n              \"name\": \"Liverpool 2-1\",\n              \"status\": \"A\"\n            }\n          ]\n        }\n      ]\n    }\n   ]\n}\n"
+              "application/json": "{\n \"events\": [\n {\n \"id\": \"OB_EV2828\",\n \"name\": \"Forest Green Vs Liverpool\",\n \"status\": \"A\",\n \"startDateTime\": \"2016-01-29T20:00:00\",\n \"markets\": [\n {\n \"id\": \"OB_MA2559\",\n \"name\": \"Correct Score\",\n \"status\": \"A\",\n \"selections\": [\n {\n \"id\": \"OB_OU3863\",\n \"currentPriceNum\": 14,\n \"currentPriceDen\": 1,\n \"name\": \"Liverpool 2-1\",\n \"status\": \"A\"\n }\n ]\n }\n ]\n }\n ]\n}\n"
             },
             "schema": {
               "$ref": "#/definitions/eventsWrapper"
@@ -1178,7 +1259,7 @@
           "400": {
             "description": "Incorrect or Missing Parameter",
             "examples": {
-              "application/json": "{\n      \"errors\" : [\n                  {\n                    \"code\":\"10070\",\n                    \"message\":\"Missing Parameter\",\n                    \"field\":\"apiKey\"\n                  }\n                ]\n}\n"
+              "application/json": "{\n \"errors\" : [\n {\n \"code\":\"10070\",\n \"message\":\"Missing Parameter\",\n \"field\":\"apiKey\"\n }\n ]\n}\n"
             },
             "schema": {
               "$ref": "#/definitions/errorsWrapper"
@@ -1187,7 +1268,7 @@
           "404": {
             "description": "No data found for request",
             "examples": {
-              "application/json": "{\n  \"errors\" : [\n              {\n                \"code\":\"10003\",\n                \"message\":\"Resource Not Found\"\n              }\n            ]\n}\n"
+              "application/json": "{\n \"errors\" : [\n {\n \"code\":\"10003\",\n \"message\":\"Resource Not Found\"\n }\n ]\n}\n"
             },
             "schema": {
               "$ref": "#/definitions/errorsWrapper"
@@ -1197,6 +1278,65 @@
         "summary": "Retrieves a single event by ID.",
         "tags": [
           "sportsdata"
+        ],
+        "x-canReturnErrors": [
+          0
+        ]
+      }
+    },
+    "/events/{eventId}/competitors": {
+      "get": {
+        "description": "Retrieves competitors for a single event by ID.",
+        "operationId": "getEventCompetitors",
+        "parameters": [
+          {
+            "$ref": "#/parameters/param_apiKey"
+          },
+          {
+            "$ref": "#/parameters/param_eventId"
+          },
+          {
+            "$ref": "#/parameters/param_fields"
+          },
+          {
+            "$ref": "#/parameters/param_include"
+          },
+          {
+            "$ref": "#/parameters/param_exclude"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "examples": {
+              "application/json": "{\n \"competitors\": \n [\n {\n \"id\": \"1\",\n \"name\": \"Springer Dinger\",\n \"age\": \"3\",\n \"drawNumber\": \"4\",\n \"jockeyName\": \"Atzeni, A\",\n \"weightPounds\": \"134\",\n \"silkImageUrl\": \"http://whdn.williamhill.com/content/sportsbook/silks/55336.gif\",\n \"trainerName\": \"Varian, R\",\n \"ownerName\": \"Sheikh Mohammed Obaid Al Maktoum\"\n \"colour\": \"grey\",\n \"sex\": \"Male\",\n \"formGuide\": \"4-2711\",\n \"rating\": \"27\",\n \"overview\":\n {\n \"runner\":\"Good pedigree; took him five times to click but won his Lingfield novice nicely in the end and duly confirmed himself progressive by following up at Newmarket, again over 7f (good ground); pace was true there so form looks okay and rates a danger to all off 6lb higher.\"\n \"sire\":\"top-class 2yo over 6-7f inc Phoenix S. Lagardere; sire of Group winners; good record with fillies\",\n }\n ]\n}\n"
+            },
+            "schema": {
+              "$ref": "#/definitions/eventCompetitorsWrapper"
+            }
+          },
+          "400": {
+            "description": "Incorrect or Missing Parameter",
+            "examples": {
+              "application/json": "{\n \"errors\" : [\n {\n \"code\":\"10070\",\n \"message\":\"Missing Parameter\",\n \"field\":\"apiKey\"\n }\n ]\n}\n"
+            },
+            "schema": {
+              "$ref": "#/definitions/errorsWrapper"
+            }
+          },
+          "404": {
+            "description": "No data found for request",
+            "examples": {
+              "application/json": "{\n \"errors\" : [\n {\n \"code\":\"10003\",\n \"message\":\"Resource Not Found\"\n }\n ]\n}\n"
+            },
+            "schema": {
+              "$ref": "#/definitions/errorsWrapper"
+            }
+          }
+        },
+        "summary": "Retrieves competitors for a single event by ID.",
+        "tags": [
+          "competitors"
         ],
         "x-canReturnErrors": [
           0
@@ -1267,7 +1407,7 @@
           "200": {
             "description": "Success",
             "examples": {
-              "application/json": "{\n  \"markets\": [\n    {\n      \"id\": \"OB_MA2493\",\n      \"name\": \"90 Minutes\",\n      \"status\": \"A\"\n    },\n    {\n      \"id\": \"OB_MA2559\",\n      \"name\": \"Correct Score\",\n      \"status\": \"A\"\n    }\n  ]\n}\n"
+              "application/json": "{\n \"markets\": [\n {\n \"id\": \"OB_MA2493\",\n \"name\": \"90 Minutes\",\n \"status\": \"A\"\n },\n {\n \"id\": \"OB_MA2559\",\n \"name\": \"Correct Score\",\n \"status\": \"A\"\n }\n ]\n}\n"
             },
             "schema": {
               "$ref": "#/definitions/marketsWrapper"
@@ -1276,7 +1416,7 @@
           "400": {
             "description": "Incorrect or Missing Parameter",
             "examples": {
-              "application/json": "{\n  \"errors\" : [\n               {\n                 \"code\":\"10070\",\n                 \"message\":\"Missing Parameter\",\n                 \"field\":\"apiKey\"\n               }\n             ]\n}\n"
+              "application/json": "{\n \"errors\" : [\n {\n \"code\":\"10070\",\n \"message\":\"Missing Parameter\",\n \"field\":\"apiKey\"\n }\n ]\n}\n"
             },
             "schema": {
               "$ref": "#/definitions/errorsWrapper"
@@ -1285,7 +1425,7 @@
           "404": {
             "description": "No data found for request",
             "examples": {
-              "application/json": "{\n  \"errors\" : [\n              {\n                \"code\":\"10003\",\n                \"message\":\"Resource Not Found\"\n              }\n            ]\n}\n"
+              "application/json": "{\n \"errors\" : [\n {\n \"code\":\"10003\",\n \"message\":\"Resource Not Found\"\n }\n ]\n}\n"
             },
             "schema": {
               "$ref": "#/definitions/errorsWrapper"
@@ -1344,7 +1484,7 @@
           "200": {
             "description": "Success",
             "examples": {
-              "application/json": "{\n  \"selections\": [\n        {\n          \"id\": \"OB_OU3863\",\n          \"currentPriceNum\": 14,\n          \"currentPriceDen\": 1,\n          \"name\": \"Liverpool 2-1\",\n          \"status\": \"A\"\n        },\n        {\n          \"id\": \"OB_OU3846\",\n          \"currentPriceNum\": 11,\n          \"currentPriceDen\": 2,\n          \"name\": \"Forest Green 1-0\",\n          \"status\": \"A\"\n        }\n}\n"
+              "application/json": "{\n \"selections\": [\n {\n \"id\": \"OB_OU3863\",\n \"currentPriceNum\": 14,\n \"currentPriceDen\": 1,\n \"name\": \"Liverpool 2-1\",\n \"status\": \"A\"\n },\n {\n \"id\": \"OB_OU3846\",\n \"currentPriceNum\": 11,\n \"currentPriceDen\": 2,\n \"name\": \"Forest Green 1-0\",\n \"status\": \"A\"\n }\n}\n"
             },
             "schema": {
               "$ref": "#/definitions/selectionsWrapper"
@@ -1353,7 +1493,7 @@
           "400": {
             "description": "Incorrect or Missing Parameter",
             "examples": {
-              "application/json": "{\n   \"errors\" : [\n               {\n                 \"code\":\"10070\",\n                 \"message\":\"Missing Parameter\",\n                 \"field\":\"apiKey\"\n               }\n             ]\n}\n"
+              "application/json": "{\n \"errors\" : [\n {\n \"code\":\"10070\",\n \"message\":\"Missing Parameter\",\n \"field\":\"apiKey\"\n }\n ]\n}\n"
             },
             "schema": {
               "$ref": "#/definitions/errorsWrapper"
@@ -1362,7 +1502,7 @@
           "404": {
             "description": "No data found for request",
             "examples": {
-              "application/json": "{\n  \"errors\" : [\n              {\n                \"code\":\"10003\",\n                \"message\":\"Resource Not Found\"\n              }\n            ]\n}\n"
+              "application/json": "{\n \"errors\" : [\n {\n \"code\":\"10003\",\n \"message\":\"Resource Not Found\"\n }\n ]\n}\n"
             },
             "schema": {
               "$ref": "#/definitions/errorsWrapper"
@@ -1415,7 +1555,7 @@
           "200": {
             "description": "Success",
             "examples": {
-              "application/json": "{\n  \"sports\": [\n    {\n      \"id\": \"OB_SP43\",\n      \"name\": \"Horse Racing\"\n    },\n    {\n      \"id\": \"OB_SP9\",\n      \"name\": \"Football\"\n    }\n  ]\n}\n"
+              "application/json": "{\n \"sports\": [\n {\n \"id\": \"OB_SP43\",\n \"name\": \"Horse Racing\"\n },\n {\n \"id\": \"OB_SP9\",\n \"name\": \"Football\"\n }\n ]\n}\n"
             },
             "schema": {
               "$ref": "#/definitions/sportsWrapper"
@@ -1424,7 +1564,7 @@
           "400": {
             "description": "Incorrect or Missing Parameter",
             "examples": {
-              "application/json": "{\n  \"errors\" : [\n              {\n                \"code\":\"000000\",\n                \"message\":\"Error Message Text\",\n                \"field\":\"aparam\"\n              }\n            ]\n}\n"
+              "application/json": "{\n \"errors\" : [\n {\n \"code\":\"000000\",\n \"message\":\"Error Message Text\",\n \"field\":\"aparam\"\n }\n ]\n}\n"
             },
             "schema": {
               "$ref": "#/definitions/errorsWrapper"
@@ -1433,7 +1573,7 @@
           "404": {
             "description": "No data found for request",
             "examples": {
-              "application/json": "{\n  \"errors\" : [\n              {\n                \"code\":\"10003\",\n                \"message\":\"Resource Not Found\"\n              }\n            ]\n}\n"
+              "application/json": "{\n \"errors\" : [\n {\n \"code\":\"10003\",\n \"message\":\"Resource Not Found\"\n }\n ]\n}\n"
             },
             "schema": {
               "$ref": "#/definitions/errorsWrapper"
@@ -1498,7 +1638,7 @@
           "200": {
             "description": "Success",
             "examples": {
-              "application/json": "{\n  \"classes\": [\n    {\n      \"id\": \"OB_CL1\",\n      \"name\": \"UK Football\",\n      \"status\": \"A\"\n    }\n  ]\n}\n"
+              "application/json": "{\n \"classes\": [\n {\n \"id\": \"OB_CL1\",\n \"name\": \"UK Football\",\n \"status\": \"A\"\n }\n ]\n}\n"
             },
             "schema": {
               "$ref": "#/definitions/classesWrapper"
@@ -1507,7 +1647,7 @@
           "400": {
             "description": "Incorrect or Missing Parameter",
             "examples": {
-              "application/json": "{\n  \"errors\" : [\n              {\n                \"code\":\"10070\",\n                \"message\":\"Missing Parameter\",\n                \"field\":\"apiKey\"\n              }\n            ]\n}\n"
+              "application/json": "{\n \"errors\" : [\n {\n \"code\":\"10070\",\n \"message\":\"Missing Parameter\",\n \"field\":\"apiKey\"\n }\n ]\n}\n"
             },
             "schema": {
               "$ref": "#/definitions/errorsWrapper"
@@ -1516,7 +1656,7 @@
           "404": {
             "description": "No data found for request",
             "examples": {
-              "application/json": "{\n  \"errors\" : [\n              {\n                \"code\":\"10003\",\n                \"message\":\"Resource Not Found\"\n              }\n            ]\n}\n"
+              "application/json": "{\n \"errors\" : [\n {\n \"code\":\"10003\",\n \"message\":\"Resource Not Found\"\n }\n ]\n}\n"
             },
             "schema": {
               "$ref": "#/definitions/errorsWrapper"
@@ -1581,7 +1721,7 @@
           "200": {
             "description": "Success",
             "examples": {
-              "application/json": "{\n  \"competitions\": [\n    {\n      \"id\": \"OB_TY1733\",\n      \"name\": \"Manchester Senior Cup\",\n      \"status\": \"A\"\n    }\n  ]\n}\n"
+              "application/json": "{\n \"competitions\": [\n {\n \"id\": \"OB_TY1733\",\n \"name\": \"Manchester Senior Cup\",\n \"status\": \"A\"\n }\n ]\n}\n"
             },
             "schema": {
               "$ref": "#/definitions/competitionsWrapper"
@@ -1590,7 +1730,7 @@
           "400": {
             "description": "Incorrect or Missing Parameter",
             "examples": {
-              "application/json": "{\n  \"errors\" : [\n              {\n                \"code\":\"10070\",\n                \"message\":\"Missing Parameter\",\n                \"field\":\"apiKey\"\n              }\n            ]\n}\n"
+              "application/json": "{\n \"errors\" : [\n {\n \"code\":\"10070\",\n \"message\":\"Missing Parameter\",\n \"field\":\"apiKey\"\n }\n ]\n}\n"
             },
             "schema": {
               "$ref": "#/definitions/errorsWrapper"
@@ -1599,7 +1739,7 @@
           "404": {
             "description": "No data found for request",
             "examples": {
-              "application/json": "{\n  \"errors\" : [\n              {\n                \"code\":\"10003\",\n                \"message\":\"Resource Not Found\"\n              }\n            ]\n}\n"
+              "application/json": "{\n \"errors\" : [\n {\n \"code\":\"10003\",\n \"message\":\"Resource Not Found\"\n }\n ]\n}\n"
             },
             "schema": {
               "$ref": "#/definitions/errorsWrapper"
@@ -1658,7 +1798,7 @@
           "200": {
             "description": "Success",
             "examples": {
-              "application/json": "{\n  bets:\n  {\n  weight: \"\",\n  sports:\n      {\n          isPublished:true,\n          id:  \"\",\n          name: \"\"\n      },\n    competitions:\n    {\n        isPublished: true,\n        parentIds: [\"\",\"\"],\n        betInRunningDelay:9\n        description:\"The description of the competition\"\n        cashinAvailable:true,\n        channels:[\"\",\"\"],\n        displayed:true,\n        flags:[\"\",\"\"],\n        id:\"\",\n        name:\"\",\n        order: 1,\n        status:\"A\"\n    },\n    events:\n    {\n      isPublished: true,\n      parentIds:[\"\",\"\"],\n      bettingStatus:\"\",\n      betInRunningDelay:5,\n      description:\"The description of the event\",\n      cashinAvailable: true,\n      channels:[\"\",\"\"],\n      country: \"\",\n      displayed: true,                    \n      flags: [\"\",\"\"],                    \n      hasInPlayMarkets:true,\n      hasLivePrices:true,\n      id: \"\",\n      isInPlay:true,\n      marketCountActiveInPlay:2,                    \n      marketCountActivePreMatch: 3,\n      marketCountActiveTotal:9,\n      marketCountInPlay:6,\n      marketCountPreMatch:2,\n      name:\"6:10 Windsor\",\n      order:4,                    \n      raceNum:\"\",                    \n      settled: true,\n      eventSort:\"\",\n      startDateTime:\"\",\n      status:\"A\",\n      markets:\n      [   \n          {\n              isPublished:true,\n              parentIds:[\"\",\"\"],\n              antepostMarket:true,\n              betInRunningDelay:4,\n              description:\"Additional market information\",\n              channels:\"\",\n              displayed:true,\n              eachWay: true,\n              eachWayFactorDen:5,                        \n              eachWayFactorNum:1,\n              eachWayPlaces:3,\n              earlyPriceAvailable:true,\n              firstFourAvailable:true,\n              firstPriceAvailable:true,\n              flags:\"\",\n              bestOddsGuaranteed:true,\n              isInPlayMarket: true,\n              hcapMakeup:5,\n              hcapValue: 5,\n              id:\"OB_MA1\",\n              livePriceAvailable:true,\n              marketGroupCollectionId:\"\",\n              marketGroupId:\"\",\n              marketGroupName:\"\",\n              name:\"\",\n              order:\"5\",\n              quinellaAvailable:true,\n              settled:true,\n              marketSort:\"\",\n              startingPriceAvailable:true,\n              status:\"A\",\n              selections:\n              [\n                  {\n                      parentIds:[\"\",\"\"],\n                      isPublished:true,\n                      description:\"\",\n                      cashinPriceNum:5,\n                      cashinPriceDen:4,\n                      channels:[\"\",\"\"],\n                      csAway:5,\n                      csHome:5,\n                      currentPriceNum:5,\n                      currentPriceDen:5,\n                      displayed:true,\n                      resultType:\"\",\n                      id:\"\",\n                      name:\"\",\n                      order:5,\n                      result:\"\",\n                      runnerNum:5,\n                      settled:true,\n                      status:\"A\",\n                      oddsDecimal:1.1,\n                      resultType:\"\",\n                      priceFormatted:\n                      {\n                        fractional:\"EVS\",\n                        decimal:2,\n                        american:\"+100\"\n                      } \n                  }\n              ]\n          }\n      ],\n      markets:\n      {\n          isPublished:true,\n          parentIds:[\"\",\"\"],\n          antepostMarket:true,\n          betInRunningDelay:4,\n          description:\"Additional market information\",\n          channels:\"\",\n          displayed:true,\n          eachWay: true,\n          eachWayFactorDen:5,                        \n          eachWayFactorNum:1,\n          eachWayPlaces:3,\n          earlyPriceAvailable:true,\n          firstFourAvailable:true,\n          firstPriceAvailable:true,\n          flags:\"\",\n          bestOddsGuaranteed:true,\n          isInPlayMarket: true,\n          hcapMakeup:5,\n          hcapValue: 5,\n          id:\"OB_MA1\",\n          livePriceAvailable:true,\n          marketGroupCollectionId:\"\",\n          marketGroupId:\"\",\n          marketGroupName:\"\",\n          name:\"\",\n          order:\"5\",\n          quinellaAvailable:true,\n          settled:true,\n          marketSort:\"\",\n          startingPriceAvailable:true,\n          status:\"A\",\n          selections:\n          [\n              {\n                  parentIds:[\"\",\"\"],\n                  isPublished:true,\n                  description:\"\",\n                  cashinPriceNum:5,\n                  cashinPriceDen:4,\n                  channels:[\"\",\"\"],\n                  csAway:5,\n                  csHome:5,\n                  currentPriceNum:5,\n                  currentPriceDen:5,\n                  displayed:true,\n                  resultType:\"\",\n                  id:\"\",\n                  name:\"\",\n                  order:5,\n                  result:\"\",\n                  runnerNum:5,\n                  settled:true,\n                  status:\"A\",\n                  oddsDecimal:1.1,\n                  priceFormatted:\n                  {\n                    fractional:\"EVS\",\n                    decimal:2,\n                    american:\"+100\"\n                  } \n              }\n          ]\n      },\n      selections:\n      {\n          parentIds:[\"\",\"\"],\n          isPublished:true,\n          description:\"\",\n          cashinPriceNum:5,\n          cashinPriceDen:4,\n          channels:[\"\",\"\"],\n          csAway:5,\n          csHome:5,\n          currentPriceNum:5,\n          currentPriceDen:5,\n          displayed:true,\n          resultType:\"\",\n          id:\"\",\n          name:\"\",\n          order:5,\n          result:\"\",\n          runnerNum:5,\n          settled:true,\n          status:\"A\",\n          oddsDecimal:1.1,\n          resultType:\"\",\n          priceFormatted:\n          {\n            fractional:\"EVS\",\n            decimal:2,\n            american:\"+100\"\n          } \n      }\n   }\n}\n"
+              "application/json": "{\n bets:\n {\n weight: \"\",\n sports:\n {\n isPublished:true,\n id: \"\",\n name: \"\"\n },\n competitions:\n {\n isPublished: true,\n parentIds: [\"\",\"\"],\n betInRunningDelay:9\n description:\"The description of the competition\"\n cashinAvailable:true,\n channels:[\"\",\"\"],\n displayed:true,\n flags:[\"\",\"\"],\n id:\"\",\n name:\"\",\n order: 1,\n status:\"A\"\n },\n events:\n {\n isPublished: true,\n parentIds:[\"\",\"\"],\n bettingStatus:\"\",\n betInRunningDelay:5,\n description:\"The description of the event\",\n cashinAvailable: true,\n channels:[\"\",\"\"],\n country: \"\",\n displayed: true, \n flags: [\"\",\"\"], \n hasInPlayMarkets:true,\n hasLivePrices:true,\n id: \"\",\n isInPlay:true,\n marketCountActiveInPlay:2, \n marketCountActivePreMatch: 3,\n marketCountActiveTotal:9,\n marketCountInPlay:6,\n marketCountPreMatch:2,\n name:\"6:10 Windsor\",\n order:4, \n raceNum:\"\", \n settled: true,\n eventSort:\"\",\n startDateTime:\"\",\n status:\"A\",\n markets:\n [ \n {\n isPublished:true,\n parentIds:[\"\",\"\"],\n antepostMarket:true,\n betInRunningDelay:4,\n description:\"Additional market information\",\n channels:\"\",\n displayed:true,\n eachWay: true,\n eachWayFactorDen:5, \n eachWayFactorNum:1,\n eachWayPlaces:3,\n earlyPriceAvailable:true,\n firstFourAvailable:true,\n firstPriceAvailable:true,\n flags:\"\",\n bestOddsGuaranteed:true,\n isInPlayMarket: true,\n hcapMakeup:5,\n hcapValue: 5,\n id:\"OB_MA1\",\n livePriceAvailable:true,\n marketGroupCollectionId:\"\",\n marketGroupId:\"\",\n marketGroupName:\"\",\n name:\"\",\n order:\"5\",\n quinellaAvailable:true,\n settled:true,\n marketSort:\"\",\n startingPriceAvailable:true,\n status:\"A\",\n selections:\n [\n {\n parentIds:[\"\",\"\"],\n isPublished:true,\n description:\"\",\n cashinPriceNum:5,\n cashinPriceDen:4,\n channels:[\"\",\"\"],\n csAway:5,\n csHome:5,\n currentPriceNum:5,\n currentPriceDen:5,\n displayed:true,\n resultType:\"\",\n id:\"\",\n name:\"\",\n order:5,\n result:\"\",\n runnerNum:5,\n settled:true,\n status:\"A\",\n oddsDecimal:1.1,\n resultType:\"\",\n priceFormatted:\n {\n fractional:\"EVS\",\n decimal:2,\n american:\"+100\"\n } \n }\n ]\n }\n ],\n markets:\n {\n isPublished:true,\n parentIds:[\"\",\"\"],\n antepostMarket:true,\n betInRunningDelay:4,\n description:\"Additional market information\",\n channels:\"\",\n displayed:true,\n eachWay: true,\n eachWayFactorDen:5, \n eachWayFactorNum:1,\n eachWayPlaces:3,\n earlyPriceAvailable:true,\n firstFourAvailable:true,\n firstPriceAvailable:true,\n flags:\"\",\n bestOddsGuaranteed:true,\n isInPlayMarket: true,\n hcapMakeup:5,\n hcapValue: 5,\n id:\"OB_MA1\",\n livePriceAvailable:true,\n marketGroupCollectionId:\"\",\n marketGroupId:\"\",\n marketGroupName:\"\",\n name:\"\",\n order:\"5\",\n quinellaAvailable:true,\n settled:true,\n marketSort:\"\",\n startingPriceAvailable:true,\n status:\"A\",\n selections:\n [\n {\n parentIds:[\"\",\"\"],\n isPublished:true,\n description:\"\",\n cashinPriceNum:5,\n cashinPriceDen:4,\n channels:[\"\",\"\"],\n csAway:5,\n csHome:5,\n currentPriceNum:5,\n currentPriceDen:5,\n displayed:true,\n resultType:\"\",\n id:\"\",\n name:\"\",\n order:5,\n result:\"\",\n runnerNum:5,\n settled:true,\n status:\"A\",\n oddsDecimal:1.1,\n priceFormatted:\n {\n fractional:\"EVS\",\n decimal:2,\n american:\"+100\"\n } \n }\n ]\n },\n selections:\n {\n parentIds:[\"\",\"\"],\n isPublished:true,\n description:\"\",\n cashinPriceNum:5,\n cashinPriceDen:4,\n channels:[\"\",\"\"],\n csAway:5,\n csHome:5,\n currentPriceNum:5,\n currentPriceDen:5,\n displayed:true,\n resultType:\"\",\n id:\"\",\n name:\"\",\n order:5,\n result:\"\",\n runnerNum:5,\n settled:true,\n status:\"A\",\n oddsDecimal:1.1,\n resultType:\"\",\n priceFormatted:\n {\n fractional:\"EVS\",\n decimal:2,\n american:\"+100\"\n } \n }\n }\n}\n"
             },
             "schema": {
               "$ref": "#/definitions/topBetsWrapper"
@@ -1667,7 +1807,7 @@
           "500": {
             "description": "Server Error: Something went wrong",
             "examples": {
-              "application/json": "{\n   \"errors\" : \n   [\n     {\n       \"code\":\"10000\",\n       \"message\":\"Server Error\",                               \n     }\n   ]\n}\n"
+              "application/json": "{\n \"errors\" : \n [\n {\n \"code\":\"10000\",\n \"message\":\"Server Error\", \n }\n ]\n}\n"
             },
             "schema": {
               "$ref": "#/definitions/errorsWrapper"
@@ -1798,6 +1938,84 @@
         }
       },
       "type": "object"
+    },
+    "competitor": {
+      "properties": {
+        "age": {
+          "description": "The age of the horse",
+          "type": "number",
+          "x-eg": "3"
+        },
+        "colour": {
+          "description": "The colour of the horse (There are 5 colours. b = Bay. bl = Black. br = Brown. ch = Chestnut. gr = Grey)",
+          "type": "string",
+          "x-eg": "bl"
+        },
+        "drawNumber": {
+          "description": "The stall number that the horse is allocated and will start from",
+          "type": "number",
+          "x-eg": "4"
+        },
+        "formGuide": {
+          "description": "The form of a horse is a record of significant events, mainly its performance in previous races. For example: The value 874-1 means that the horse finished 8th, then 7th in the next race, then 4th, hyphen here means he did not finish in the race, and was 1st in the last race he was running in.",
+          "type": "string",
+          "x-eg": "4-2711"
+        },
+        "id": {
+          "description": "Unique identifier of the competitor in the event",
+          "type": "number",
+          "x-eg": "1"
+        },
+        "jockeyName": {
+          "description": "The name of the Jockey who's riding the horse",
+          "type": "string",
+          "x-eg": "Atzeni, A"
+        },
+        "name": {
+          "description": "The name of competitor that the information is being given for",
+          "type": "string",
+          "x-eg": "Springer Dinger"
+        },
+        "overview": {
+          "description": "Additional information about the horse's performance",
+          "type": "string",
+          "x-eg": "Good pedigree; took him five times to click but won his Lingfield novice nicely in the end and duly confirmed himself progressive by following up at Newmarket, again over 7f (good ground); pace was true there so form looks okay and rates a danger to all off 6lb higher."
+        },
+        "ownerName": {
+          "description": "The name of the horses owner(s)",
+          "type": "string",
+          "x-eg": "Sheikh Mohammed Obaid Al Maktoum"
+        },
+        "rating": {
+          "description": "The rating of the horse which is defined by a rating provider. It represents the horse's performance (the higher the rating, the better the horse is)",
+          "type": "string",
+          "x-eg": "98"
+        },
+        "sex": {
+          "description": "The sex of the horse (F|M)",
+          "type": "string",
+          "x-eg": "M"
+        },
+        "silkImageUrl": {
+          "description": "The URL for the image that represents the 'silk' (Coathing pattern) worn by the jockey.",
+          "type": "string",
+          "x-eg": "http://whdn.williamhill.com/content/sportsbook/silks/55336.gif"
+        },
+        "trainerName": {
+          "description": "The name of the horses trainer",
+          "type": "string",
+          "x-eg": "Varian, R"
+        },
+        "weightPounds": {
+          "description": "The rider weight (in pounds)",
+          "type": "string",
+          "x-eg": "134"
+        }
+      },
+      "required": [
+        "id",
+        "silkImageUrl"
+      ]
     },
     "error": {
       "properties": {
@@ -1963,6 +2181,17 @@
         "status"
       ]
     },
+    "eventCompetitorsWrapper": {
+      "properties": {
+        "competitors": {
+          "items": {
+            "$ref": "#/definitions/competitor"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
     "eventsWrapper": {
       "properties": {
         "events": {
@@ -2021,6 +2250,10 @@
         },
         "earlyPriceAvailable": {
           "description": "Early Pricing Active",
+          "type": "boolean"
+        },
+        "fcAvailable": {
+          "description": "Is tricast betting available",
           "type": "boolean"
         },
         "firstFourAvailable": {
@@ -2115,6 +2348,10 @@
         "status": {
           "description": "Indicates the status of the Market (A = Active/S = Suspended)",
           "type": "string"
+        },
+        "tcAvailable": {
+          "description": "Is forecast betting available",
+          "type": "boolean"
         }
       },
       "required": [
@@ -2146,6 +2383,10 @@
         },
         "id": {
           "description": "The Id of the Market Group",
+          "type": "string"
+        },
+        "marketSort": {
+          "description": "The market sort of this group",
           "type": "string"
         },
         "name": {

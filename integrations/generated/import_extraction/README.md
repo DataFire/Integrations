@@ -11,10 +11,7 @@ let import_extraction = require('@datafire/import_extraction').create({
   api_key: ""
 });
 
-import_extraction.extractor.extractorId.get({
-  "extractorId": "",
-  "url": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

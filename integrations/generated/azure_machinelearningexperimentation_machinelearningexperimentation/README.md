@@ -15,9 +15,7 @@ let azure_machinelearningexperimentation_machinelearningexperimentation = requir
   redirect_uri: ""
 });
 
-azure_machinelearningexperimentation_machinelearningexperimentation.Operations_List({
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

@@ -19,7 +19,7 @@
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/monitor/resource-manager/microsoft.insights/stable/2017-04-01/activityLogAlerts_API.json",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/monitor/resource-manager/Microsoft.Insights/stable/2017-04-01/activityLogAlerts_API.json",
         "version": "2.0"
       }
     ],
@@ -201,7 +201,9 @@
             }
           }
         },
-        "x-ms-pageable": {}
+        "x-ms-pageable": {
+          "nextLinkName": null
+        }
       }
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.insights/activityLogAlerts": {
@@ -316,7 +318,9 @@
             }
           }
         },
-        "x-ms-pageable": {}
+        "x-ms-pageable": {
+          "nextLinkName": null
+        }
       }
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.insights/activityLogAlerts/{activityLogAlertName}": {
@@ -360,12 +364,8 @@
               "subscriptionId": "187f412d-1758-44d9-b052-169e2564721d"
             },
             "responses": {
-              "200": {
-                "headers": {}
-              },
-              "204": {
-                "headers": {}
-              }
+              "200": {},
+              "204": {}
             }
           }
         }

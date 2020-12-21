@@ -17,7 +17,7 @@
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/azsadmin/resource-manager/fabric/Microsoft.Fabric.Admin/stable/2016-05-01/FabricLocation.json",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/azsadmin/resource-manager/fabric/Microsoft.Fabric.Admin/preview/2016-05-01/FabricLocation.json",
         "version": "2.0"
       }
     ],
@@ -42,7 +42,7 @@
   "securityDefinitions": {
     "azure_auth": {
       "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
-      "description": "Azure Active Directory OAuth2 Flow",
+      "description": "Authorization uses an Azure Active Directory OAuth2 flow.",
       "flow": "implicit",
       "scopes": {
         "user_impersonation": "impersonate your user account"
@@ -59,7 +59,7 @@
   ],
   "parameters": {
     "FabricLocationParameter": {
-      "description": "Fabric Location.",
+      "description": "Fabric location.",
       "in": "path",
       "name": "fabricLocation",
       "required": true,
@@ -68,29 +68,29 @@
     }
   },
   "paths": {
-    "/subscriptions/{subscriptionId}/resourceGroups/System.{location}/providers/Microsoft.Fabric.Admin/fabricLocations": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Fabric.Admin/fabricLocations": {
       "get": {
-        "description": "Get a list of all fabric locations.",
+        "description": "Returns a list of all fabric locations.",
         "operationId": "FabricLocations_List",
         "parameters": [
           {
-            "description": "Subscription credentials which uniquely identify Microsoft Azure subscription.The subscription ID forms part of the URI for every service call.",
+            "description": "Subscription credentials that uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
             "in": "path",
             "name": "subscriptionId",
             "required": true,
             "type": "string"
           },
           {
-            "description": "Location of the resource.",
+            "description": "Name of the resource group.",
             "in": "path",
-            "name": "location",
+            "name": "resourceGroupName",
             "required": true,
             "type": "string",
             "x-ms-parameter-location": "method"
           },
           {
             "default": "2016-05-01",
-            "description": "Client Api Version.",
+            "description": "Client API Version.",
             "in": "query",
             "name": "api-version",
             "required": true,
@@ -116,10 +116,10 @@
           "FabricLocations"
         ],
         "x-ms-examples": {
-          "List all fabric locations": {
+          "Returns a list of all fabric locations.": {
             "parameters": {
               "api-version": "2016-05-01",
-              "location": "local",
+              "resourceGroupName": "System.local",
               "subscriptionId": "20ff7fc3-e762-44dd-bd96-b71116dcdc23"
             },
             "responses": {
@@ -127,9 +127,10 @@
                 "body": {
                   "value": [
                     {
-                      "id": "/subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/System.local/providers/Microsoft.Fabric.Admin/fabricLocations/local",
+                      "id": "/subscriptions/23a94a7f-64b3-42d8-807c-733284339015/resourceGroups/System.local/providers/Microsoft.Fabric.Admin/fabricLocations/local",
                       "location": "local",
                       "name": "local",
+                      "properties": {},
                       "tags": {},
                       "type": "Microsoft.Fabric.Admin/fabricLocations"
                     }
@@ -145,22 +146,22 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/System.{location}/providers/Microsoft.Fabric.Admin/fabricLocations/{fabricLocation}": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Fabric.Admin/fabricLocations/{fabricLocation}": {
       "get": {
-        "description": "Get a fabric location.",
+        "description": "Returns the requested fabric location.",
         "operationId": "FabricLocations_Get",
         "parameters": [
           {
-            "description": "Subscription credentials which uniquely identify Microsoft Azure subscription.The subscription ID forms part of the URI for every service call.",
+            "description": "Subscription credentials that uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
             "in": "path",
             "name": "subscriptionId",
             "required": true,
             "type": "string"
           },
           {
-            "description": "Location of the resource.",
+            "description": "Name of the resource group.",
             "in": "path",
-            "name": "location",
+            "name": "resourceGroupName",
             "required": true,
             "type": "string",
             "x-ms-parameter-location": "method"
@@ -170,7 +171,7 @@
           },
           {
             "default": "2016-05-01",
-            "description": "Client Api Version.",
+            "description": "Client API Version.",
             "in": "query",
             "name": "api-version",
             "required": true,
@@ -183,29 +184,34 @@
             "schema": {
               "$ref": "#/definitions/FabricLocation"
             }
+          },
+          "404": {
+            "description": "NOT FOUND"
           }
         },
         "tags": [
           "FabricLocations"
         ],
         "x-ms-examples": {
-          "Get a fabric location": {
+          "Returns the requested fabric location.": {
             "parameters": {
               "api-version": "2016-05-01",
               "fabricLocation": "local",
-              "location": "local",
+              "resourceGroupName": "System.local",
               "subscriptionId": "20ff7fc3-e762-44dd-bd96-b71116dcdc23"
             },
             "responses": {
               "200": {
                 "body": {
-                  "id": "/subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/System.local/providers/Microsoft.Fabric.Admin/fabricLocations/local",
+                  "id": "/subscriptions/23a94a7f-64b3-42d8-807c-733284339015/resourceGroups/System.local/providers/Microsoft.Fabric.Admin/fabricLocations/local",
                   "location": "local",
                   "name": "local",
+                  "properties": {},
                   "tags": {},
                   "type": "Microsoft.Fabric.Admin/fabricLocations"
                 }
-              }
+              },
+              "404": {}
             }
           }
         }
@@ -216,7 +222,7 @@
     "FabricLocation": {
       "allOf": [
         {
-          "description": "Base Resource Object",
+          "description": "Base resource object.",
           "properties": {
             "id": {
               "description": "URI of the resource.",
@@ -224,7 +230,7 @@
               "type": "string"
             },
             "location": {
-              "description": "Region Location of resource.",
+              "description": "The region where the resource is located.",
               "type": "string"
             },
             "name": {
@@ -236,7 +242,7 @@
               "additionalProperties": {
                 "type": "string"
               },
-              "description": "List of key value pairs.",
+              "description": "List of key-value pairs.",
               "type": "object"
             },
             "type": {
@@ -249,8 +255,14 @@
           "x-ms-azure-resource": true
         }
       ],
-      "description": "Place holder for fabric location.",
-      "properties": {},
+      "description": "Fabric Location resource.",
+      "properties": {
+        "properties": {
+          "$ref": "#/definitions/FabricLocationModel",
+          "description": "Properties of a FabricLocation.",
+          "x-ms-client-flatten": true
+        }
+      },
       "type": "object"
     },
     "FabricLocationList": {
@@ -261,11 +273,68 @@
           "type": "string"
         },
         "value": {
-          "description": "List of fabric locations for this page.",
+          "description": "List of fabric locations.",
           "items": {
             "$ref": "#/definitions/FabricLocation"
           },
           "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "FabricLocationModel": {
+      "description": "All properties of a fabric location resource.",
+      "properties": {
+        "exclusiveAdminOperationName": {
+          "description": "Name of the running exclusive admin operation.",
+          "type": "string"
+        },
+        "exclusiveAdminOperationRunning": {
+          "description": "Value for whether an exclusive admin operation is running.",
+          "type": "boolean"
+        },
+        "externalDNSIPAddress01": {
+          "description": "First external IP address of the DNS server.",
+          "type": "string"
+        },
+        "externalDNSIPAddress02": {
+          "description": "Second external IP Address of the DNS server.",
+          "type": "string"
+        },
+        "pepIpAddresses": {
+          "description": "The IP addresses of the privileged endpoints.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "shutDownActionPlanEndTime": {
+          "description": "Last known stamp stop time for the shut down action plan.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "shutDownActionPlanStartTime": {
+          "description": "Last known stamp start time for the shut down action plan",
+          "format": "date-time",
+          "type": "string"
+        },
+        "stampInformationId": {
+          "description": "The deployment id of the stamp.",
+          "type": "string"
+        },
+        "startUpActionPlanEndTime": {
+          "description": "Last known stamp stop time for the start up action plan.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "startUpActionPlanStartTime": {
+          "description": "Last known stamp start time for the start up action plan.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "timeServer": {
+          "description": "The IP address of the time server.",
+          "type": "string"
         }
       },
       "type": "object"

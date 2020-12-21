@@ -12,7 +12,7 @@ let simplyrets = require('@datafire/simplyrets').create({
   password: ""
 });
 
-simplyrets.properties.get({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

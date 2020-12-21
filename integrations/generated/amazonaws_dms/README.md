@@ -13,17 +13,14 @@ let amazonaws_dms = require('@datafire/amazonaws_dms').create({
   region: ""
 });
 
-amazonaws_dms.AddTagsToResource({
-  "ResourceArn": "",
-  "Tags": []
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
 
 ## Description
 
-<fullname>AWS Database Migration Service</fullname> <p>AWS Database Migration Service (AWS DMS) can migrate your data to and from the most widely used commercial and open-source databases such as Oracle, PostgreSQL, Microsoft SQL Server, Amazon Redshift, MariaDB, Amazon Aurora, MySQL, and SAP Adaptive Server Enterprise (ASE). The service supports homogeneous migrations such as Oracle to Oracle, as well as heterogeneous migrations between different database platforms, such as Oracle to MySQL or SQL Server to PostgreSQL.</p> <p>For more information about AWS DMS, see the AWS DMS user guide at <a href="http://docs.aws.amazon.com/dms/latest/userguide/Welcome.html"> What Is AWS Database Migration Service? </a> </p>
+<fullname>AWS Database Migration Service</fullname> <p>AWS Database Migration Service (AWS DMS) can migrate your data to and from the most widely used commercial and open-source databases such as Oracle, PostgreSQL, Microsoft SQL Server, Amazon Redshift, MariaDB, Amazon Aurora, MySQL, and SAP Adaptive Server Enterprise (ASE). The service supports homogeneous migrations such as Oracle to Oracle, as well as heterogeneous migrations between different database platforms, such as Oracle to MySQL or SQL Server to PostgreSQL.</p> <p>For more information about AWS DMS, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/Welcome.html">What Is AWS Database Migration Service?</a> in the <i>AWS Database Migration User Guide.</i> </p>
 
 ## Actions
 
@@ -33,18 +30,57 @@ amazonaws_dms.AddTagsToResource({
 
 ```js
 amazonaws_dms.AddTagsToResource({
-  "ResourceArn": "",
-  "Tags": []
+  "ResourceArn": null,
+  "Tags": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ResourceArn **required** [String](#string)
-  * Tags **required** [TagList](#taglist)
+  * ResourceArn **required**
+  * Tags **required**
+    * items [Tag](#tag)
 
 #### Output
 * output [AddTagsToResourceResponse](#addtagstoresourceresponse)
+
+### ApplyPendingMaintenanceAction
+
+
+
+```js
+amazonaws_dms.ApplyPendingMaintenanceAction({
+  "ReplicationInstanceArn": null,
+  "ApplyAction": null,
+  "OptInType": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * ApplyAction **required**
+  * OptInType **required**
+  * ReplicationInstanceArn **required**
+
+#### Output
+* output [ApplyPendingMaintenanceActionResponse](#applypendingmaintenanceactionresponse)
+
+### CancelReplicationTaskAssessmentRun
+
+
+
+```js
+amazonaws_dms.CancelReplicationTaskAssessmentRun({
+  "ReplicationTaskAssessmentRunArn": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * ReplicationTaskAssessmentRunArn **required**
+
+#### Output
+* output [CancelReplicationTaskAssessmentRunResponse](#cancelreplicationtaskassessmentrunresponse)
 
 ### CreateEndpoint
 
@@ -52,32 +88,196 @@ amazonaws_dms.AddTagsToResource({
 
 ```js
 amazonaws_dms.CreateEndpoint({
-  "EndpointIdentifier": "",
-  "EndpointType": "",
-  "EngineName": ""
+  "EndpointIdentifier": null,
+  "EndpointType": null,
+  "EngineName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * CertificateArn [String](#string)
-  * DatabaseName [String](#string)
-  * DynamoDbSettings [DynamoDbSettings](#dynamodbsettings)
-  * EndpointIdentifier **required** [String](#string)
-  * EndpointType **required** [ReplicationEndpointTypeValue](#replicationendpointtypevalue)
-  * EngineName **required** [String](#string)
-  * ExternalTableDefinition [String](#string)
-  * ExtraConnectionAttributes [String](#string)
-  * KmsKeyId [String](#string)
-  * MongoDbSettings [MongoDbSettings](#mongodbsettings)
-  * Password [SecretString](#secretstring)
-  * Port [IntegerOptional](#integeroptional)
-  * S3Settings [S3Settings](#s3settings)
-  * ServerName [String](#string)
-  * ServiceAccessRoleArn [String](#string)
-  * SslMode [DmsSslModeValue](#dmssslmodevalue)
-  * Tags [TagList](#taglist)
-  * Username [String](#string)
+  * CertificateArn
+  * DatabaseName
+  * DmsTransferSettings
+    * BucketName
+    * ServiceAccessRoleArn
+  * DocDbSettings [DocDbSettings](#docdbsettings)
+  * DynamoDbSettings
+    * ServiceAccessRoleArn **required**
+  * ElasticsearchSettings
+    * EndpointUri **required**
+    * ErrorRetryDuration
+    * FullLoadErrorPercentage
+    * ServiceAccessRoleArn **required**
+  * EndpointIdentifier **required**
+  * EndpointType **required**
+  * EngineName **required**
+  * ExternalTableDefinition
+  * ExtraConnectionAttributes
+  * IBMDb2Settings
+    * CurrentLsn
+    * DatabaseName
+    * MaxKBytesPerRead
+    * Password
+    * Port
+    * ServerName
+    * SetDataCaptureChanges
+    * Username
+  * KafkaSettings
+    * Broker
+    * IncludeControlDetails
+    * IncludeNullAndEmpty
+    * IncludePartitionValue
+    * IncludeTableAlterOperations
+    * IncludeTransactionDetails
+    * MessageFormat
+    * MessageMaxBytes
+    * PartitionIncludeSchemaTable
+    * Topic
+  * KinesisSettings
+    * IncludeControlDetails
+    * IncludeNullAndEmpty
+    * IncludePartitionValue
+    * IncludeTableAlterOperations
+    * IncludeTransactionDetails
+    * MessageFormat
+    * PartitionIncludeSchemaTable
+    * ServiceAccessRoleArn
+    * StreamArn
+  * KmsKeyId
+  * MicrosoftSQLServerSettings
+    * BcpPacketSize
+    * ControlTablesFileGroup
+    * DatabaseName
+    * Password
+    * Port
+    * ReadBackupOnly
+    * SafeguardPolicy
+    * ServerName
+    * UseBcpFullLoad
+    * Username
+  * MongoDbSettings
+    * AuthMechanism
+    * AuthSource
+    * AuthType
+    * DatabaseName
+    * DocsToInvestigate
+    * ExtractDocId
+    * KmsKeyId
+    * NestingLevel
+    * Password
+    * Port
+    * ServerName
+    * Username
+  * MySQLSettings
+    * AfterConnectScript
+    * DatabaseName
+    * EventsPollInterval
+    * MaxFileSize
+    * ParallelLoadThreads
+    * Password
+    * Port
+    * ServerName
+    * ServerTimezone
+    * TargetDbType
+    * Username
+  * NeptuneSettings
+    * ErrorRetryDuration
+    * IamAuthEnabled
+    * MaxFileSize
+    * MaxRetryCount
+    * S3BucketFolder **required**
+    * S3BucketName **required**
+    * ServiceAccessRoleArn
+  * OracleSettings
+    * AccessAlternateDirectly
+    * AddSupplementalLogging
+    * AdditionalArchivedLogDestId
+    * AllowSelectNestedTables
+    * ArchivedLogDestId
+    * ArchivedLogsOnly
+    * AsmPassword
+    * AsmServer
+    * AsmUser
+    * CharLengthSemantics
+    * DatabaseName
+    * DirectPathNoLog
+    * DirectPathParallelLoad
+    * EnableHomogenousTablespace
+    * FailTasksOnLobTruncation
+    * NumberDatatypeScale
+    * OraclePathPrefix
+    * ParallelAsmReadThreads
+    * Password
+    * Port
+    * ReadAheadBlocks
+    * ReadTableSpaceName
+    * ReplacePathPrefix
+    * RetryInterval
+    * SecurityDbEncryption
+    * SecurityDbEncryptionName
+    * ServerName
+    * UseAlternateFolderForOnline
+    * UsePathPrefix
+    * Username
+  * Password
+  * Port
+  * PostgreSQLSettings
+    * AfterConnectScript
+    * CaptureDdls
+    * DatabaseName
+    * DdlArtifactsSchema
+    * ExecuteTimeout
+    * FailTasksOnLobTruncation
+    * MaxFileSize
+    * Password
+    * Port
+    * ServerName
+    * SlotName
+    * Username
+  * RedshiftSettings [RedshiftSettings](#redshiftsettings)
+  * ResourceIdentifier
+  * S3Settings
+    * BucketFolder
+    * BucketName
+    * CdcInsertsAndUpdates
+    * CdcInsertsOnly
+    * CdcPath
+    * CompressionType
+    * CsvDelimiter
+    * CsvNoSupValue
+    * CsvRowDelimiter
+    * DataFormat
+    * DataPageSize
+    * DatePartitionDelimiter
+    * DatePartitionEnabled
+    * DatePartitionSequence
+    * DictPageSizeLimit
+    * EnableStatistics
+    * EncodingType
+    * EncryptionMode
+    * ExternalTableDefinition
+    * IncludeOpForFullLoad
+    * ParquetTimestampInMillisecond
+    * ParquetVersion
+    * PreserveTransactions
+    * RowGroupLength
+    * ServerSideEncryptionKmsKeyId
+    * ServiceAccessRoleArn
+    * TimestampColumnName
+    * UseCsvNoSupValue
+  * ServerName
+  * ServiceAccessRoleArn
+  * SslMode
+  * SybaseSettings
+    * DatabaseName
+    * Password
+    * Port
+    * ServerName
+    * Username
+  * Tags
+    * items [Tag](#tag)
+  * Username
 
 #### Output
 * output [CreateEndpointResponse](#createendpointresponse)
@@ -88,20 +288,23 @@ amazonaws_dms.CreateEndpoint({
 
 ```js
 amazonaws_dms.CreateEventSubscription({
-  "SubscriptionName": "",
-  "SnsTopicArn": ""
+  "SubscriptionName": null,
+  "SnsTopicArn": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Enabled [BooleanOptional](#booleanoptional)
-  * EventCategories [EventCategoriesList](#eventcategorieslist)
-  * SnsTopicArn **required** [String](#string)
-  * SourceIds [SourceIdsList](#sourceidslist)
-  * SourceType [String](#string)
-  * SubscriptionName **required** [String](#string)
-  * Tags [TagList](#taglist)
+  * Enabled
+  * EventCategories
+    * items [String](#string)
+  * SnsTopicArn **required**
+  * SourceIds
+    * items [String](#string)
+  * SourceType
+  * SubscriptionName **required**
+  * Tags
+    * items [Tag](#tag)
 
 #### Output
 * output [CreateEventSubscriptionResponse](#createeventsubscriptionresponse)
@@ -112,26 +315,30 @@ amazonaws_dms.CreateEventSubscription({
 
 ```js
 amazonaws_dms.CreateReplicationInstance({
-  "ReplicationInstanceIdentifier": "",
-  "ReplicationInstanceClass": ""
+  "ReplicationInstanceIdentifier": null,
+  "ReplicationInstanceClass": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * AllocatedStorage [IntegerOptional](#integeroptional)
-  * AutoMinorVersionUpgrade [BooleanOptional](#booleanoptional)
-  * AvailabilityZone [String](#string)
-  * EngineVersion [String](#string)
-  * KmsKeyId [String](#string)
-  * MultiAZ [BooleanOptional](#booleanoptional)
-  * PreferredMaintenanceWindow [String](#string)
-  * PubliclyAccessible [BooleanOptional](#booleanoptional)
-  * ReplicationInstanceClass **required** [String](#string)
-  * ReplicationInstanceIdentifier **required** [String](#string)
-  * ReplicationSubnetGroupIdentifier [String](#string)
-  * Tags [TagList](#taglist)
-  * VpcSecurityGroupIds [VpcSecurityGroupIdList](#vpcsecuritygroupidlist)
+  * AllocatedStorage
+  * AutoMinorVersionUpgrade
+  * AvailabilityZone
+  * DnsNameServers
+  * EngineVersion
+  * KmsKeyId
+  * MultiAZ
+  * PreferredMaintenanceWindow
+  * PubliclyAccessible
+  * ReplicationInstanceClass **required**
+  * ReplicationInstanceIdentifier **required**
+  * ReplicationSubnetGroupIdentifier
+  * ResourceIdentifier
+  * Tags
+    * items [Tag](#tag)
+  * VpcSecurityGroupIds
+    * items [String](#string)
 
 #### Output
 * output [CreateReplicationInstanceResponse](#createreplicationinstanceresponse)
@@ -142,18 +349,20 @@ amazonaws_dms.CreateReplicationInstance({
 
 ```js
 amazonaws_dms.CreateReplicationSubnetGroup({
-  "ReplicationSubnetGroupIdentifier": "",
-  "ReplicationSubnetGroupDescription": "",
-  "SubnetIds": []
+  "ReplicationSubnetGroupIdentifier": null,
+  "ReplicationSubnetGroupDescription": null,
+  "SubnetIds": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ReplicationSubnetGroupDescription **required** [String](#string)
-  * ReplicationSubnetGroupIdentifier **required** [String](#string)
-  * SubnetIds **required** [SubnetIdentifierList](#subnetidentifierlist)
-  * Tags [TagList](#taglist)
+  * ReplicationSubnetGroupDescription **required**
+  * ReplicationSubnetGroupIdentifier **required**
+  * SubnetIds **required**
+    * items [String](#string)
+  * Tags
+    * items [Tag](#tag)
 
 #### Output
 * output [CreateReplicationSubnetGroupResponse](#createreplicationsubnetgroupresponse)
@@ -164,28 +373,31 @@ amazonaws_dms.CreateReplicationSubnetGroup({
 
 ```js
 amazonaws_dms.CreateReplicationTask({
-  "ReplicationTaskIdentifier": "",
-  "SourceEndpointArn": "",
-  "TargetEndpointArn": "",
-  "ReplicationInstanceArn": "",
-  "MigrationType": "",
-  "TableMappings": ""
+  "ReplicationTaskIdentifier": null,
+  "SourceEndpointArn": null,
+  "TargetEndpointArn": null,
+  "ReplicationInstanceArn": null,
+  "MigrationType": null,
+  "TableMappings": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * CdcStartPosition [String](#string)
-  * CdcStartTime [TStamp](#tstamp)
-  * CdcStopPosition [String](#string)
-  * MigrationType **required** [MigrationTypeValue](#migrationtypevalue)
-  * ReplicationInstanceArn **required** [String](#string)
-  * ReplicationTaskIdentifier **required** [String](#string)
-  * ReplicationTaskSettings [String](#string)
-  * SourceEndpointArn **required** [String](#string)
-  * TableMappings **required** [String](#string)
-  * Tags [TagList](#taglist)
-  * TargetEndpointArn **required** [String](#string)
+  * CdcStartPosition
+  * CdcStartTime
+  * CdcStopPosition
+  * MigrationType **required**
+  * ReplicationInstanceArn **required**
+  * ReplicationTaskIdentifier **required**
+  * ReplicationTaskSettings
+  * ResourceIdentifier
+  * SourceEndpointArn **required**
+  * TableMappings **required**
+  * Tags
+    * items [Tag](#tag)
+  * TargetEndpointArn **required**
+  * TaskData
 
 #### Output
 * output [CreateReplicationTaskResponse](#createreplicationtaskresponse)
@@ -196,16 +408,35 @@ amazonaws_dms.CreateReplicationTask({
 
 ```js
 amazonaws_dms.DeleteCertificate({
-  "CertificateArn": ""
+  "CertificateArn": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * CertificateArn **required** [String](#string)
+  * CertificateArn **required**
 
 #### Output
 * output [DeleteCertificateResponse](#deletecertificateresponse)
+
+### DeleteConnection
+
+
+
+```js
+amazonaws_dms.DeleteConnection({
+  "EndpointArn": null,
+  "ReplicationInstanceArn": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * EndpointArn **required**
+  * ReplicationInstanceArn **required**
+
+#### Output
+* output [DeleteConnectionResponse](#deleteconnectionresponse)
 
 ### DeleteEndpoint
 
@@ -213,13 +444,13 @@ amazonaws_dms.DeleteCertificate({
 
 ```js
 amazonaws_dms.DeleteEndpoint({
-  "EndpointArn": ""
+  "EndpointArn": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * EndpointArn **required** [String](#string)
+  * EndpointArn **required**
 
 #### Output
 * output [DeleteEndpointResponse](#deleteendpointresponse)
@@ -230,13 +461,13 @@ amazonaws_dms.DeleteEndpoint({
 
 ```js
 amazonaws_dms.DeleteEventSubscription({
-  "SubscriptionName": ""
+  "SubscriptionName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * SubscriptionName **required** [String](#string)
+  * SubscriptionName **required**
 
 #### Output
 * output [DeleteEventSubscriptionResponse](#deleteeventsubscriptionresponse)
@@ -247,13 +478,13 @@ amazonaws_dms.DeleteEventSubscription({
 
 ```js
 amazonaws_dms.DeleteReplicationInstance({
-  "ReplicationInstanceArn": ""
+  "ReplicationInstanceArn": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ReplicationInstanceArn **required** [String](#string)
+  * ReplicationInstanceArn **required**
 
 #### Output
 * output [DeleteReplicationInstanceResponse](#deletereplicationinstanceresponse)
@@ -264,13 +495,13 @@ amazonaws_dms.DeleteReplicationInstance({
 
 ```js
 amazonaws_dms.DeleteReplicationSubnetGroup({
-  "ReplicationSubnetGroupIdentifier": ""
+  "ReplicationSubnetGroupIdentifier": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ReplicationSubnetGroupIdentifier **required** [String](#string)
+  * ReplicationSubnetGroupIdentifier **required**
 
 #### Output
 * output [DeleteReplicationSubnetGroupResponse](#deletereplicationsubnetgroupresponse)
@@ -281,16 +512,33 @@ amazonaws_dms.DeleteReplicationSubnetGroup({
 
 ```js
 amazonaws_dms.DeleteReplicationTask({
-  "ReplicationTaskArn": ""
+  "ReplicationTaskArn": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ReplicationTaskArn **required** [String](#string)
+  * ReplicationTaskArn **required**
 
 #### Output
 * output [DeleteReplicationTaskResponse](#deletereplicationtaskresponse)
+
+### DeleteReplicationTaskAssessmentRun
+
+
+
+```js
+amazonaws_dms.DeleteReplicationTaskAssessmentRun({
+  "ReplicationTaskAssessmentRunArn": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * ReplicationTaskAssessmentRunArn **required**
+
+#### Output
+* output [DeleteReplicationTaskAssessmentRunResponse](#deletereplicationtaskassessmentrunresponse)
 
 ### DescribeAccountAttributes
 
@@ -306,6 +554,29 @@ amazonaws_dms.DescribeAccountAttributes({}, context)
 #### Output
 * output [DescribeAccountAttributesResponse](#describeaccountattributesresponse)
 
+### DescribeApplicableIndividualAssessments
+
+
+
+```js
+amazonaws_dms.DescribeApplicableIndividualAssessments({}, context)
+```
+
+#### Input
+* input `object`
+  * MaxRecords `string`
+  * Marker `string`
+  * Marker
+  * MaxRecords
+  * MigrationType
+  * ReplicationInstanceArn
+  * ReplicationTaskArn
+  * SourceEngineName
+  * TargetEngineName
+
+#### Output
+* output [DescribeApplicableIndividualAssessmentsResponse](#describeapplicableindividualassessmentsresponse)
+
 ### DescribeCertificates
 
 
@@ -318,9 +589,10 @@ amazonaws_dms.DescribeCertificates({}, context)
 * input `object`
   * MaxRecords `string`
   * Marker `string`
-  * Filters [FilterList](#filterlist)
-  * Marker [String](#string)
-  * MaxRecords [IntegerOptional](#integeroptional)
+  * Filters
+    * items [Filter](#filter)
+  * Marker
+  * MaxRecords
 
 #### Output
 * output [DescribeCertificatesResponse](#describecertificatesresponse)
@@ -337,9 +609,10 @@ amazonaws_dms.DescribeConnections({}, context)
 * input `object`
   * MaxRecords `string`
   * Marker `string`
-  * Filters [FilterList](#filterlist)
-  * Marker [String](#string)
-  * MaxRecords [IntegerOptional](#integeroptional)
+  * Filters
+    * items [Filter](#filter)
+  * Marker
+  * MaxRecords
 
 #### Output
 * output [DescribeConnectionsResponse](#describeconnectionsresponse)
@@ -356,9 +629,10 @@ amazonaws_dms.DescribeEndpointTypes({}, context)
 * input `object`
   * MaxRecords `string`
   * Marker `string`
-  * Filters [FilterList](#filterlist)
-  * Marker [String](#string)
-  * MaxRecords [IntegerOptional](#integeroptional)
+  * Filters
+    * items [Filter](#filter)
+  * Marker
+  * MaxRecords
 
 #### Output
 * output [DescribeEndpointTypesResponse](#describeendpointtypesresponse)
@@ -375,9 +649,10 @@ amazonaws_dms.DescribeEndpoints({}, context)
 * input `object`
   * MaxRecords `string`
   * Marker `string`
-  * Filters [FilterList](#filterlist)
-  * Marker [String](#string)
-  * MaxRecords [IntegerOptional](#integeroptional)
+  * Filters
+    * items [Filter](#filter)
+  * Marker
+  * MaxRecords
 
 #### Output
 * output [DescribeEndpointsResponse](#describeendpointsresponse)
@@ -392,8 +667,9 @@ amazonaws_dms.DescribeEventCategories({}, context)
 
 #### Input
 * input `object`
-  * Filters [FilterList](#filterlist)
-  * SourceType [String](#string)
+  * Filters
+    * items [Filter](#filter)
+  * SourceType
 
 #### Output
 * output [DescribeEventCategoriesResponse](#describeeventcategoriesresponse)
@@ -410,10 +686,11 @@ amazonaws_dms.DescribeEventSubscriptions({}, context)
 * input `object`
   * MaxRecords `string`
   * Marker `string`
-  * Filters [FilterList](#filterlist)
-  * Marker [String](#string)
-  * MaxRecords [IntegerOptional](#integeroptional)
-  * SubscriptionName [String](#string)
+  * Filters
+    * items [Filter](#filter)
+  * Marker
+  * MaxRecords
+  * SubscriptionName
 
 #### Output
 * output [DescribeEventSubscriptionsResponse](#describeeventsubscriptionsresponse)
@@ -430,15 +707,17 @@ amazonaws_dms.DescribeEvents({}, context)
 * input `object`
   * MaxRecords `string`
   * Marker `string`
-  * Duration [IntegerOptional](#integeroptional)
-  * EndTime [TStamp](#tstamp)
-  * EventCategories [EventCategoriesList](#eventcategorieslist)
-  * Filters [FilterList](#filterlist)
-  * Marker [String](#string)
-  * MaxRecords [IntegerOptional](#integeroptional)
-  * SourceIdentifier [String](#string)
-  * SourceType [SourceType](#sourcetype)
-  * StartTime [TStamp](#tstamp)
+  * Duration
+  * EndTime
+  * EventCategories
+    * items [String](#string)
+  * Filters
+    * items [Filter](#filter)
+  * Marker
+  * MaxRecords
+  * SourceIdentifier
+  * SourceType
+  * StartTime
 
 #### Output
 * output [DescribeEventsResponse](#describeeventsresponse)
@@ -455,11 +734,32 @@ amazonaws_dms.DescribeOrderableReplicationInstances({}, context)
 * input `object`
   * MaxRecords `string`
   * Marker `string`
-  * Marker [String](#string)
-  * MaxRecords [IntegerOptional](#integeroptional)
+  * Marker
+  * MaxRecords
 
 #### Output
 * output [DescribeOrderableReplicationInstancesResponse](#describeorderablereplicationinstancesresponse)
+
+### DescribePendingMaintenanceActions
+
+
+
+```js
+amazonaws_dms.DescribePendingMaintenanceActions({}, context)
+```
+
+#### Input
+* input `object`
+  * MaxRecords `string`
+  * Marker `string`
+  * Filters
+    * items [Filter](#filter)
+  * Marker
+  * MaxRecords
+  * ReplicationInstanceArn
+
+#### Output
+* output [DescribePendingMaintenanceActionsResponse](#describependingmaintenanceactionsresponse)
 
 ### DescribeRefreshSchemasStatus
 
@@ -467,13 +767,13 @@ amazonaws_dms.DescribeOrderableReplicationInstances({}, context)
 
 ```js
 amazonaws_dms.DescribeRefreshSchemasStatus({
-  "EndpointArn": ""
+  "EndpointArn": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * EndpointArn **required** [String](#string)
+  * EndpointArn **required**
 
 #### Output
 * output [DescribeRefreshSchemasStatusResponse](#describerefreshschemasstatusresponse)
@@ -484,7 +784,7 @@ amazonaws_dms.DescribeRefreshSchemasStatus({
 
 ```js
 amazonaws_dms.DescribeReplicationInstanceTaskLogs({
-  "ReplicationInstanceArn": ""
+  "ReplicationInstanceArn": null
 }, context)
 ```
 
@@ -492,9 +792,9 @@ amazonaws_dms.DescribeReplicationInstanceTaskLogs({
 * input `object`
   * MaxRecords `string`
   * Marker `string`
-  * Marker [String](#string)
-  * MaxRecords [IntegerOptional](#integeroptional)
-  * ReplicationInstanceArn **required** [String](#string)
+  * Marker
+  * MaxRecords
+  * ReplicationInstanceArn **required**
 
 #### Output
 * output [DescribeReplicationInstanceTaskLogsResponse](#describereplicationinstancetasklogsresponse)
@@ -511,9 +811,10 @@ amazonaws_dms.DescribeReplicationInstances({}, context)
 * input `object`
   * MaxRecords `string`
   * Marker `string`
-  * Filters [FilterList](#filterlist)
-  * Marker [String](#string)
-  * MaxRecords [IntegerOptional](#integeroptional)
+  * Filters
+    * items [Filter](#filter)
+  * Marker
+  * MaxRecords
 
 #### Output
 * output [DescribeReplicationInstancesResponse](#describereplicationinstancesresponse)
@@ -530,9 +831,10 @@ amazonaws_dms.DescribeReplicationSubnetGroups({}, context)
 * input `object`
   * MaxRecords `string`
   * Marker `string`
-  * Filters [FilterList](#filterlist)
-  * Marker [String](#string)
-  * MaxRecords [IntegerOptional](#integeroptional)
+  * Filters
+    * items [Filter](#filter)
+  * Marker
+  * MaxRecords
 
 #### Output
 * output [DescribeReplicationSubnetGroupsResponse](#describereplicationsubnetgroupsresponse)
@@ -549,12 +851,52 @@ amazonaws_dms.DescribeReplicationTaskAssessmentResults({}, context)
 * input `object`
   * MaxRecords `string`
   * Marker `string`
-  * Marker [String](#string)
-  * MaxRecords [IntegerOptional](#integeroptional)
-  * ReplicationTaskArn [String](#string)
+  * Marker
+  * MaxRecords
+  * ReplicationTaskArn
 
 #### Output
 * output [DescribeReplicationTaskAssessmentResultsResponse](#describereplicationtaskassessmentresultsresponse)
+
+### DescribeReplicationTaskAssessmentRuns
+
+
+
+```js
+amazonaws_dms.DescribeReplicationTaskAssessmentRuns({}, context)
+```
+
+#### Input
+* input `object`
+  * MaxRecords `string`
+  * Marker `string`
+  * Filters
+    * items [Filter](#filter)
+  * Marker
+  * MaxRecords
+
+#### Output
+* output [DescribeReplicationTaskAssessmentRunsResponse](#describereplicationtaskassessmentrunsresponse)
+
+### DescribeReplicationTaskIndividualAssessments
+
+
+
+```js
+amazonaws_dms.DescribeReplicationTaskIndividualAssessments({}, context)
+```
+
+#### Input
+* input `object`
+  * MaxRecords `string`
+  * Marker `string`
+  * Filters
+    * items [Filter](#filter)
+  * Marker
+  * MaxRecords
+
+#### Output
+* output [DescribeReplicationTaskIndividualAssessmentsResponse](#describereplicationtaskindividualassessmentsresponse)
 
 ### DescribeReplicationTasks
 
@@ -568,9 +910,11 @@ amazonaws_dms.DescribeReplicationTasks({}, context)
 * input `object`
   * MaxRecords `string`
   * Marker `string`
-  * Filters [FilterList](#filterlist)
-  * Marker [String](#string)
-  * MaxRecords [IntegerOptional](#integeroptional)
+  * Filters
+    * items [Filter](#filter)
+  * Marker
+  * MaxRecords
+  * WithoutSettings
 
 #### Output
 * output [DescribeReplicationTasksResponse](#describereplicationtasksresponse)
@@ -581,7 +925,7 @@ amazonaws_dms.DescribeReplicationTasks({}, context)
 
 ```js
 amazonaws_dms.DescribeSchemas({
-  "EndpointArn": ""
+  "EndpointArn": null
 }, context)
 ```
 
@@ -589,9 +933,9 @@ amazonaws_dms.DescribeSchemas({
 * input `object`
   * MaxRecords `string`
   * Marker `string`
-  * EndpointArn **required** [String](#string)
-  * Marker [String](#string)
-  * MaxRecords [IntegerOptional](#integeroptional)
+  * EndpointArn **required**
+  * Marker
+  * MaxRecords
 
 #### Output
 * output [DescribeSchemasResponse](#describeschemasresponse)
@@ -602,7 +946,7 @@ amazonaws_dms.DescribeSchemas({
 
 ```js
 amazonaws_dms.DescribeTableStatistics({
-  "ReplicationTaskArn": ""
+  "ReplicationTaskArn": null
 }, context)
 ```
 
@@ -610,10 +954,11 @@ amazonaws_dms.DescribeTableStatistics({
 * input `object`
   * MaxRecords `string`
   * Marker `string`
-  * Filters [FilterList](#filterlist)
-  * Marker [String](#string)
-  * MaxRecords [IntegerOptional](#integeroptional)
-  * ReplicationTaskArn **required** [String](#string)
+  * Filters
+    * items [Filter](#filter)
+  * Marker
+  * MaxRecords
+  * ReplicationTaskArn **required**
 
 #### Output
 * output [DescribeTableStatisticsResponse](#describetablestatisticsresponse)
@@ -624,16 +969,17 @@ amazonaws_dms.DescribeTableStatistics({
 
 ```js
 amazonaws_dms.ImportCertificate({
-  "CertificateIdentifier": ""
+  "CertificateIdentifier": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * CertificateIdentifier **required** [String](#string)
-  * CertificatePem [String](#string)
-  * CertificateWallet [CertificateWallet](#certificatewallet)
-  * Tags [TagList](#taglist)
+  * CertificateIdentifier **required**
+  * CertificatePem
+  * CertificateWallet
+  * Tags
+    * items [Tag](#tag)
 
 #### Output
 * output [ImportCertificateResponse](#importcertificateresponse)
@@ -644,13 +990,13 @@ amazonaws_dms.ImportCertificate({
 
 ```js
 amazonaws_dms.ListTagsForResource({
-  "ResourceArn": ""
+  "ResourceArn": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ResourceArn **required** [String](#string)
+  * ResourceArn **required**
 
 #### Output
 * output [ListTagsForResourceResponse](#listtagsforresourceresponse)
@@ -661,29 +1007,200 @@ amazonaws_dms.ListTagsForResource({
 
 ```js
 amazonaws_dms.ModifyEndpoint({
-  "EndpointArn": ""
+  "EndpointArn": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * CertificateArn [String](#string)
-  * DatabaseName [String](#string)
-  * DynamoDbSettings [DynamoDbSettings](#dynamodbsettings)
-  * EndpointArn **required** [String](#string)
-  * EndpointIdentifier [String](#string)
-  * EndpointType [ReplicationEndpointTypeValue](#replicationendpointtypevalue)
-  * EngineName [String](#string)
-  * ExternalTableDefinition [String](#string)
-  * ExtraConnectionAttributes [String](#string)
-  * MongoDbSettings [MongoDbSettings](#mongodbsettings)
-  * Password [SecretString](#secretstring)
-  * Port [IntegerOptional](#integeroptional)
-  * S3Settings [S3Settings](#s3settings)
-  * ServerName [String](#string)
-  * ServiceAccessRoleArn [String](#string)
-  * SslMode [DmsSslModeValue](#dmssslmodevalue)
-  * Username [String](#string)
+  * CertificateArn
+  * DatabaseName
+  * DmsTransferSettings
+    * BucketName
+    * ServiceAccessRoleArn
+  * DocDbSettings
+    * DatabaseName
+    * DocsToInvestigate
+    * ExtractDocId
+    * KmsKeyId
+    * NestingLevel
+    * Password
+    * Port
+    * ServerName
+    * Username
+  * DynamoDbSettings
+    * ServiceAccessRoleArn **required**
+  * ElasticsearchSettings
+    * EndpointUri **required**
+    * ErrorRetryDuration
+    * FullLoadErrorPercentage
+    * ServiceAccessRoleArn **required**
+  * EndpointArn **required**
+  * EndpointIdentifier
+  * EndpointType
+  * EngineName
+  * ExternalTableDefinition
+  * ExtraConnectionAttributes
+  * IBMDb2Settings
+    * CurrentLsn
+    * DatabaseName
+    * MaxKBytesPerRead
+    * Password
+    * Port
+    * ServerName
+    * SetDataCaptureChanges
+    * Username
+  * KafkaSettings
+    * Broker
+    * IncludeControlDetails
+    * IncludeNullAndEmpty
+    * IncludePartitionValue
+    * IncludeTableAlterOperations
+    * IncludeTransactionDetails
+    * MessageFormat
+    * MessageMaxBytes
+    * PartitionIncludeSchemaTable
+    * Topic
+  * KinesisSettings
+    * IncludeControlDetails
+    * IncludeNullAndEmpty
+    * IncludePartitionValue
+    * IncludeTableAlterOperations
+    * IncludeTransactionDetails
+    * MessageFormat
+    * PartitionIncludeSchemaTable
+    * ServiceAccessRoleArn
+    * StreamArn
+  * MicrosoftSQLServerSettings
+    * BcpPacketSize
+    * ControlTablesFileGroup
+    * DatabaseName
+    * Password
+    * Port
+    * ReadBackupOnly
+    * SafeguardPolicy
+    * ServerName
+    * UseBcpFullLoad
+    * Username
+  * MongoDbSettings
+    * AuthMechanism
+    * AuthSource
+    * AuthType
+    * DatabaseName
+    * DocsToInvestigate
+    * ExtractDocId
+    * KmsKeyId
+    * NestingLevel
+    * Password
+    * Port
+    * ServerName
+    * Username
+  * MySQLSettings
+    * AfterConnectScript
+    * DatabaseName
+    * EventsPollInterval
+    * MaxFileSize
+    * ParallelLoadThreads
+    * Password
+    * Port
+    * ServerName
+    * ServerTimezone
+    * TargetDbType
+    * Username
+  * NeptuneSettings
+    * ErrorRetryDuration
+    * IamAuthEnabled
+    * MaxFileSize
+    * MaxRetryCount
+    * S3BucketFolder **required**
+    * S3BucketName **required**
+    * ServiceAccessRoleArn
+  * OracleSettings
+    * AccessAlternateDirectly
+    * AddSupplementalLogging
+    * AdditionalArchivedLogDestId
+    * AllowSelectNestedTables
+    * ArchivedLogDestId
+    * ArchivedLogsOnly
+    * AsmPassword
+    * AsmServer
+    * AsmUser
+    * CharLengthSemantics
+    * DatabaseName
+    * DirectPathNoLog
+    * DirectPathParallelLoad
+    * EnableHomogenousTablespace
+    * FailTasksOnLobTruncation
+    * NumberDatatypeScale
+    * OraclePathPrefix
+    * ParallelAsmReadThreads
+    * Password
+    * Port
+    * ReadAheadBlocks
+    * ReadTableSpaceName
+    * ReplacePathPrefix
+    * RetryInterval
+    * SecurityDbEncryption
+    * SecurityDbEncryptionName
+    * ServerName
+    * UseAlternateFolderForOnline
+    * UsePathPrefix
+    * Username
+  * Password
+  * Port
+  * PostgreSQLSettings
+    * AfterConnectScript
+    * CaptureDdls
+    * DatabaseName
+    * DdlArtifactsSchema
+    * ExecuteTimeout
+    * FailTasksOnLobTruncation
+    * MaxFileSize
+    * Password
+    * Port
+    * ServerName
+    * SlotName
+    * Username
+  * RedshiftSettings [RedshiftSettings](#redshiftsettings)
+  * S3Settings
+    * BucketFolder
+    * BucketName
+    * CdcInsertsAndUpdates
+    * CdcInsertsOnly
+    * CdcPath
+    * CompressionType
+    * CsvDelimiter
+    * CsvNoSupValue
+    * CsvRowDelimiter
+    * DataFormat
+    * DataPageSize
+    * DatePartitionDelimiter
+    * DatePartitionEnabled
+    * DatePartitionSequence
+    * DictPageSizeLimit
+    * EnableStatistics
+    * EncodingType
+    * EncryptionMode
+    * ExternalTableDefinition
+    * IncludeOpForFullLoad
+    * ParquetTimestampInMillisecond
+    * ParquetVersion
+    * PreserveTransactions
+    * RowGroupLength
+    * ServerSideEncryptionKmsKeyId
+    * ServiceAccessRoleArn
+    * TimestampColumnName
+    * UseCsvNoSupValue
+  * ServerName
+  * ServiceAccessRoleArn
+  * SslMode
+  * SybaseSettings
+    * DatabaseName
+    * Password
+    * Port
+    * ServerName
+    * Username
+  * Username
 
 #### Output
 * output [ModifyEndpointResponse](#modifyendpointresponse)
@@ -694,17 +1211,18 @@ amazonaws_dms.ModifyEndpoint({
 
 ```js
 amazonaws_dms.ModifyEventSubscription({
-  "SubscriptionName": ""
+  "SubscriptionName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Enabled [BooleanOptional](#booleanoptional)
-  * EventCategories [EventCategoriesList](#eventcategorieslist)
-  * SnsTopicArn [String](#string)
-  * SourceType [String](#string)
-  * SubscriptionName **required** [String](#string)
+  * Enabled
+  * EventCategories
+    * items [String](#string)
+  * SnsTopicArn
+  * SourceType
+  * SubscriptionName **required**
 
 #### Output
 * output [ModifyEventSubscriptionResponse](#modifyeventsubscriptionresponse)
@@ -715,23 +1233,24 @@ amazonaws_dms.ModifyEventSubscription({
 
 ```js
 amazonaws_dms.ModifyReplicationInstance({
-  "ReplicationInstanceArn": ""
+  "ReplicationInstanceArn": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * AllocatedStorage [IntegerOptional](#integeroptional)
-  * AllowMajorVersionUpgrade [Boolean](#boolean)
-  * ApplyImmediately [Boolean](#boolean)
-  * AutoMinorVersionUpgrade [BooleanOptional](#booleanoptional)
-  * EngineVersion [String](#string)
-  * MultiAZ [BooleanOptional](#booleanoptional)
-  * PreferredMaintenanceWindow [String](#string)
-  * ReplicationInstanceArn **required** [String](#string)
-  * ReplicationInstanceClass [String](#string)
-  * ReplicationInstanceIdentifier [String](#string)
-  * VpcSecurityGroupIds [VpcSecurityGroupIdList](#vpcsecuritygroupidlist)
+  * AllocatedStorage
+  * AllowMajorVersionUpgrade
+  * ApplyImmediately
+  * AutoMinorVersionUpgrade
+  * EngineVersion
+  * MultiAZ
+  * PreferredMaintenanceWindow
+  * ReplicationInstanceArn **required**
+  * ReplicationInstanceClass
+  * ReplicationInstanceIdentifier
+  * VpcSecurityGroupIds
+    * items [String](#string)
 
 #### Output
 * output [ModifyReplicationInstanceResponse](#modifyreplicationinstanceresponse)
@@ -742,16 +1261,17 @@ amazonaws_dms.ModifyReplicationInstance({
 
 ```js
 amazonaws_dms.ModifyReplicationSubnetGroup({
-  "ReplicationSubnetGroupIdentifier": "",
-  "SubnetIds": []
+  "ReplicationSubnetGroupIdentifier": null,
+  "SubnetIds": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ReplicationSubnetGroupDescription [String](#string)
-  * ReplicationSubnetGroupIdentifier **required** [String](#string)
-  * SubnetIds **required** [SubnetIdentifierList](#subnetidentifierlist)
+  * ReplicationSubnetGroupDescription
+  * ReplicationSubnetGroupIdentifier **required**
+  * SubnetIds **required**
+    * items [String](#string)
 
 #### Output
 * output [ModifyReplicationSubnetGroupResponse](#modifyreplicationsubnetgroupresponse)
@@ -762,23 +1282,43 @@ amazonaws_dms.ModifyReplicationSubnetGroup({
 
 ```js
 amazonaws_dms.ModifyReplicationTask({
-  "ReplicationTaskArn": ""
+  "ReplicationTaskArn": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * CdcStartPosition [String](#string)
-  * CdcStartTime [TStamp](#tstamp)
-  * CdcStopPosition [String](#string)
-  * MigrationType [MigrationTypeValue](#migrationtypevalue)
-  * ReplicationTaskArn **required** [String](#string)
-  * ReplicationTaskIdentifier [String](#string)
-  * ReplicationTaskSettings [String](#string)
-  * TableMappings [String](#string)
+  * CdcStartPosition
+  * CdcStartTime
+  * CdcStopPosition
+  * MigrationType
+  * ReplicationTaskArn **required**
+  * ReplicationTaskIdentifier
+  * ReplicationTaskSettings
+  * TableMappings
+  * TaskData
 
 #### Output
 * output [ModifyReplicationTaskResponse](#modifyreplicationtaskresponse)
+
+### MoveReplicationTask
+
+
+
+```js
+amazonaws_dms.MoveReplicationTask({
+  "ReplicationTaskArn": null,
+  "TargetReplicationInstanceArn": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * ReplicationTaskArn **required**
+  * TargetReplicationInstanceArn **required**
+
+#### Output
+* output [MoveReplicationTaskResponse](#movereplicationtaskresponse)
 
 ### RebootReplicationInstance
 
@@ -786,14 +1326,14 @@ amazonaws_dms.ModifyReplicationTask({
 
 ```js
 amazonaws_dms.RebootReplicationInstance({
-  "ReplicationInstanceArn": ""
+  "ReplicationInstanceArn": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ForceFailover [BooleanOptional](#booleanoptional)
-  * ReplicationInstanceArn **required** [String](#string)
+  * ForceFailover
+  * ReplicationInstanceArn **required**
 
 #### Output
 * output [RebootReplicationInstanceResponse](#rebootreplicationinstanceresponse)
@@ -804,15 +1344,15 @@ amazonaws_dms.RebootReplicationInstance({
 
 ```js
 amazonaws_dms.RefreshSchemas({
-  "EndpointArn": "",
-  "ReplicationInstanceArn": ""
+  "EndpointArn": null,
+  "ReplicationInstanceArn": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * EndpointArn **required** [String](#string)
-  * ReplicationInstanceArn **required** [String](#string)
+  * EndpointArn **required**
+  * ReplicationInstanceArn **required**
 
 #### Output
 * output [RefreshSchemasResponse](#refreshschemasresponse)
@@ -823,15 +1363,17 @@ amazonaws_dms.RefreshSchemas({
 
 ```js
 amazonaws_dms.ReloadTables({
-  "ReplicationTaskArn": "",
-  "TablesToReload": []
+  "ReplicationTaskArn": null,
+  "TablesToReload": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ReplicationTaskArn **required** [String](#string)
-  * TablesToReload **required** [TableListToReload](#tablelisttoreload)
+  * ReloadOption
+  * ReplicationTaskArn **required**
+  * TablesToReload **required**
+    * items [TableToReload](#tabletoreload)
 
 #### Output
 * output [ReloadTablesResponse](#reloadtablesresponse)
@@ -842,15 +1384,16 @@ amazonaws_dms.ReloadTables({
 
 ```js
 amazonaws_dms.RemoveTagsFromResource({
-  "ResourceArn": "",
-  "TagKeys": []
+  "ResourceArn": null,
+  "TagKeys": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ResourceArn **required** [String](#string)
-  * TagKeys **required** [KeyList](#keylist)
+  * ResourceArn **required**
+  * TagKeys **required**
+    * items [String](#string)
 
 #### Output
 * output [RemoveTagsFromResourceResponse](#removetagsfromresourceresponse)
@@ -861,18 +1404,18 @@ amazonaws_dms.RemoveTagsFromResource({
 
 ```js
 amazonaws_dms.StartReplicationTask({
-  "ReplicationTaskArn": "",
-  "StartReplicationTaskType": ""
+  "ReplicationTaskArn": null,
+  "StartReplicationTaskType": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * CdcStartPosition [String](#string)
-  * CdcStartTime [TStamp](#tstamp)
-  * CdcStopPosition [String](#string)
-  * ReplicationTaskArn **required** [String](#string)
-  * StartReplicationTaskType **required** [StartReplicationTaskTypeValue](#startreplicationtasktypevalue)
+  * CdcStartPosition
+  * CdcStartTime
+  * CdcStopPosition
+  * ReplicationTaskArn **required**
+  * StartReplicationTaskType **required**
 
 #### Output
 * output [StartReplicationTaskResponse](#startreplicationtaskresponse)
@@ -883,16 +1426,46 @@ amazonaws_dms.StartReplicationTask({
 
 ```js
 amazonaws_dms.StartReplicationTaskAssessment({
-  "ReplicationTaskArn": ""
+  "ReplicationTaskArn": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ReplicationTaskArn **required** [String](#string)
+  * ReplicationTaskArn **required**
 
 #### Output
 * output [StartReplicationTaskAssessmentResponse](#startreplicationtaskassessmentresponse)
+
+### StartReplicationTaskAssessmentRun
+
+
+
+```js
+amazonaws_dms.StartReplicationTaskAssessmentRun({
+  "ReplicationTaskArn": null,
+  "ServiceAccessRoleArn": null,
+  "ResultLocationBucket": null,
+  "AssessmentRunName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * AssessmentRunName **required**
+  * Exclude
+    * items [String](#string)
+  * IncludeOnly
+    * items [String](#string)
+  * ReplicationTaskArn **required**
+  * ResultEncryptionMode
+  * ResultKmsKeyArn
+  * ResultLocationBucket **required**
+  * ResultLocationFolder
+  * ServiceAccessRoleArn **required**
+
+#### Output
+* output [StartReplicationTaskAssessmentRunResponse](#startreplicationtaskassessmentrunresponse)
 
 ### StopReplicationTask
 
@@ -900,13 +1473,13 @@ amazonaws_dms.StartReplicationTaskAssessment({
 
 ```js
 amazonaws_dms.StopReplicationTask({
-  "ReplicationTaskArn": ""
+  "ReplicationTaskArn": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ReplicationTaskArn **required** [String](#string)
+  * ReplicationTaskArn **required**
 
 #### Output
 * output [StopReplicationTaskResponse](#stopreplicationtaskresponse)
@@ -917,15 +1490,15 @@ amazonaws_dms.StopReplicationTask({
 
 ```js
 amazonaws_dms.TestConnection({
-  "ReplicationInstanceArn": "",
-  "EndpointArn": ""
+  "ReplicationInstanceArn": null,
+  "EndpointArn": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * EndpointArn **required** [String](#string)
-  * ReplicationInstanceArn **required** [String](#string)
+  * EndpointArn **required**
+  * ReplicationInstanceArn **required**
 
 #### Output
 * output [TestConnectionResponse](#testconnectionresponse)
@@ -935,26 +1508,39 @@ amazonaws_dms.TestConnection({
 ## Definitions
 
 ### AccessDeniedFault
-* AccessDeniedFault `object`: AWS DMS was denied access to the endpoint.
-  * message [ExceptionMessage](#exceptionmessage)
+
 
 ### AccountQuota
 * AccountQuota `object`: Describes a quota for an AWS account, for example, the number of replication instances allowed.
-  * AccountQuotaName [String](#string)
-  * Max [Long](#long)
-  * Used [Long](#long)
+  * AccountQuotaName
+  * Max
+  * Used
 
 ### AccountQuotaList
 * AccountQuotaList `array`
   * items [AccountQuota](#accountquota)
 
 ### AddTagsToResourceMessage
-* AddTagsToResourceMessage `object`: <p/>
-  * ResourceArn **required** [String](#string)
-  * Tags **required** [TagList](#taglist)
+* AddTagsToResourceMessage `object`: Associates a set of tags with an AWS DMS resource.
+  * ResourceArn **required**
+  * Tags **required**
+    * items [Tag](#tag)
 
 ### AddTagsToResourceResponse
 * AddTagsToResourceResponse `object`: <p/>
+
+### ApplyPendingMaintenanceActionMessage
+* ApplyPendingMaintenanceActionMessage `object`: <p/>
+  * ApplyAction **required**
+  * OptInType **required**
+  * ReplicationInstanceArn **required**
+
+### ApplyPendingMaintenanceActionResponse
+* ApplyPendingMaintenanceActionResponse `object`: <p/>
+  * ResourcePendingMaintenanceActions
+    * PendingMaintenanceActionDetails
+      * items [PendingMaintenanceAction](#pendingmaintenanceaction)
+    * ResourceIdentifier
 
 ### AuthMechanismValue
 * AuthMechanismValue `string` (values: default, mongodb_cr, scram_sha_1)
@@ -963,8 +1549,12 @@ amazonaws_dms.TestConnection({
 * AuthTypeValue `string` (values: no, password)
 
 ### AvailabilityZone
-* AvailabilityZone `object`: <p/>
-  * Name [String](#string)
+* AvailabilityZone `object`: The name of an Availability Zone for use during database migration. <code>AvailabilityZone</code> is an optional parameter to the <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_CreateReplicationInstance.html"> <code>CreateReplicationInstance</code> </a> operation, and it’s value relates to the AWS Region of an endpoint. For example, the availability zone of an endpoint in the us-east-1 region might be us-east-1a, us-east-1b, us-east-1c, or us-east-1d.
+  * Name
+
+### AvailabilityZonesList
+* AvailabilityZonesList `array`
+  * items [String](#string)
 
 ### Boolean
 * Boolean `boolean`
@@ -972,18 +1562,40 @@ amazonaws_dms.TestConnection({
 ### BooleanOptional
 * BooleanOptional `boolean`
 
+### CancelReplicationTaskAssessmentRunMessage
+* CancelReplicationTaskAssessmentRunMessage `object`: <p/>
+  * ReplicationTaskAssessmentRunArn **required**
+
+### CancelReplicationTaskAssessmentRunResponse
+* CancelReplicationTaskAssessmentRunResponse `object`: <p/>
+  * ReplicationTaskAssessmentRun
+    * AssessmentProgress
+      * IndividualAssessmentCompletedCount
+      * IndividualAssessmentCount
+    * AssessmentRunName
+    * LastFailureMessage
+    * ReplicationTaskArn
+    * ReplicationTaskAssessmentRunArn
+    * ReplicationTaskAssessmentRunCreationDate
+    * ResultEncryptionMode
+    * ResultKmsKeyArn
+    * ResultLocationBucket
+    * ResultLocationFolder
+    * ServiceAccessRoleArn
+    * Status
+
 ### Certificate
 * Certificate `object`: The SSL certificate that can be used to encrypt connections between the endpoints and the replication instance.
-  * CertificateArn [String](#string)
-  * CertificateCreationDate [TStamp](#tstamp)
-  * CertificateIdentifier [String](#string)
-  * CertificateOwner [String](#string)
-  * CertificatePem [String](#string)
-  * CertificateWallet [CertificateWallet](#certificatewallet)
-  * KeyLength [IntegerOptional](#integeroptional)
-  * SigningAlgorithm [String](#string)
-  * ValidFromDate [TStamp](#tstamp)
-  * ValidToDate [TStamp](#tstamp)
+  * CertificateArn
+  * CertificateCreationDate
+  * CertificateIdentifier
+  * CertificateOwner
+  * CertificatePem
+  * CertificateWallet
+  * KeyLength
+  * SigningAlgorithm
+  * ValidFromDate
+  * ValidToDate
 
 ### CertificateList
 * CertificateList `array`
@@ -992,17 +1604,20 @@ amazonaws_dms.TestConnection({
 ### CertificateWallet
 * CertificateWallet `string`
 
+### CharLengthSemantics
+* CharLengthSemantics `string` (values: default, char, byte)
+
 ### CompressionTypeValue
 * CompressionTypeValue `string` (values: none, gzip)
 
 ### Connection
-* Connection `object`: <p/>
-  * EndpointArn [String](#string)
-  * EndpointIdentifier [String](#string)
-  * LastFailureMessage [String](#string)
-  * ReplicationInstanceArn [String](#string)
-  * ReplicationInstanceIdentifier [String](#string)
-  * Status [String](#string)
+* Connection `object`: Status of the connection between an endpoint and a replication instance, including Amazon Resource Names (ARNs) and the last error message issued.
+  * EndpointArn
+  * EndpointIdentifier
+  * LastFailureMessage
+  * ReplicationInstanceArn
+  * ReplicationInstanceIdentifier
+  * Status
 
 ### ConnectionList
 * ConnectionList `array`
@@ -1010,377 +1625,1502 @@ amazonaws_dms.TestConnection({
 
 ### CreateEndpointMessage
 * CreateEndpointMessage `object`: <p/>
-  * CertificateArn [String](#string)
-  * DatabaseName [String](#string)
-  * DynamoDbSettings [DynamoDbSettings](#dynamodbsettings)
-  * EndpointIdentifier **required** [String](#string)
-  * EndpointType **required** [ReplicationEndpointTypeValue](#replicationendpointtypevalue)
-  * EngineName **required** [String](#string)
-  * ExternalTableDefinition [String](#string)
-  * ExtraConnectionAttributes [String](#string)
-  * KmsKeyId [String](#string)
-  * MongoDbSettings [MongoDbSettings](#mongodbsettings)
-  * Password [SecretString](#secretstring)
-  * Port [IntegerOptional](#integeroptional)
-  * S3Settings [S3Settings](#s3settings)
-  * ServerName [String](#string)
-  * ServiceAccessRoleArn [String](#string)
-  * SslMode [DmsSslModeValue](#dmssslmodevalue)
-  * Tags [TagList](#taglist)
-  * Username [String](#string)
+  * CertificateArn
+  * DatabaseName
+  * DmsTransferSettings
+    * BucketName
+    * ServiceAccessRoleArn
+  * DocDbSettings [DocDbSettings](#docdbsettings)
+  * DynamoDbSettings
+    * ServiceAccessRoleArn **required**
+  * ElasticsearchSettings
+    * EndpointUri **required**
+    * ErrorRetryDuration
+    * FullLoadErrorPercentage
+    * ServiceAccessRoleArn **required**
+  * EndpointIdentifier **required**
+  * EndpointType **required**
+  * EngineName **required**
+  * ExternalTableDefinition
+  * ExtraConnectionAttributes
+  * IBMDb2Settings
+    * CurrentLsn
+    * DatabaseName
+    * MaxKBytesPerRead
+    * Password
+    * Port
+    * ServerName
+    * SetDataCaptureChanges
+    * Username
+  * KafkaSettings
+    * Broker
+    * IncludeControlDetails
+    * IncludeNullAndEmpty
+    * IncludePartitionValue
+    * IncludeTableAlterOperations
+    * IncludeTransactionDetails
+    * MessageFormat
+    * MessageMaxBytes
+    * PartitionIncludeSchemaTable
+    * Topic
+  * KinesisSettings
+    * IncludeControlDetails
+    * IncludeNullAndEmpty
+    * IncludePartitionValue
+    * IncludeTableAlterOperations
+    * IncludeTransactionDetails
+    * MessageFormat
+    * PartitionIncludeSchemaTable
+    * ServiceAccessRoleArn
+    * StreamArn
+  * KmsKeyId
+  * MicrosoftSQLServerSettings
+    * BcpPacketSize
+    * ControlTablesFileGroup
+    * DatabaseName
+    * Password
+    * Port
+    * ReadBackupOnly
+    * SafeguardPolicy
+    * ServerName
+    * UseBcpFullLoad
+    * Username
+  * MongoDbSettings
+    * AuthMechanism
+    * AuthSource
+    * AuthType
+    * DatabaseName
+    * DocsToInvestigate
+    * ExtractDocId
+    * KmsKeyId
+    * NestingLevel
+    * Password
+    * Port
+    * ServerName
+    * Username
+  * MySQLSettings
+    * AfterConnectScript
+    * DatabaseName
+    * EventsPollInterval
+    * MaxFileSize
+    * ParallelLoadThreads
+    * Password
+    * Port
+    * ServerName
+    * ServerTimezone
+    * TargetDbType
+    * Username
+  * NeptuneSettings
+    * ErrorRetryDuration
+    * IamAuthEnabled
+    * MaxFileSize
+    * MaxRetryCount
+    * S3BucketFolder **required**
+    * S3BucketName **required**
+    * ServiceAccessRoleArn
+  * OracleSettings
+    * AccessAlternateDirectly
+    * AddSupplementalLogging
+    * AdditionalArchivedLogDestId
+    * AllowSelectNestedTables
+    * ArchivedLogDestId
+    * ArchivedLogsOnly
+    * AsmPassword
+    * AsmServer
+    * AsmUser
+    * CharLengthSemantics
+    * DatabaseName
+    * DirectPathNoLog
+    * DirectPathParallelLoad
+    * EnableHomogenousTablespace
+    * FailTasksOnLobTruncation
+    * NumberDatatypeScale
+    * OraclePathPrefix
+    * ParallelAsmReadThreads
+    * Password
+    * Port
+    * ReadAheadBlocks
+    * ReadTableSpaceName
+    * ReplacePathPrefix
+    * RetryInterval
+    * SecurityDbEncryption
+    * SecurityDbEncryptionName
+    * ServerName
+    * UseAlternateFolderForOnline
+    * UsePathPrefix
+    * Username
+  * Password
+  * Port
+  * PostgreSQLSettings
+    * AfterConnectScript
+    * CaptureDdls
+    * DatabaseName
+    * DdlArtifactsSchema
+    * ExecuteTimeout
+    * FailTasksOnLobTruncation
+    * MaxFileSize
+    * Password
+    * Port
+    * ServerName
+    * SlotName
+    * Username
+  * RedshiftSettings [RedshiftSettings](#redshiftsettings)
+  * ResourceIdentifier
+  * S3Settings
+    * BucketFolder
+    * BucketName
+    * CdcInsertsAndUpdates
+    * CdcInsertsOnly
+    * CdcPath
+    * CompressionType
+    * CsvDelimiter
+    * CsvNoSupValue
+    * CsvRowDelimiter
+    * DataFormat
+    * DataPageSize
+    * DatePartitionDelimiter
+    * DatePartitionEnabled
+    * DatePartitionSequence
+    * DictPageSizeLimit
+    * EnableStatistics
+    * EncodingType
+    * EncryptionMode
+    * ExternalTableDefinition
+    * IncludeOpForFullLoad
+    * ParquetTimestampInMillisecond
+    * ParquetVersion
+    * PreserveTransactions
+    * RowGroupLength
+    * ServerSideEncryptionKmsKeyId
+    * ServiceAccessRoleArn
+    * TimestampColumnName
+    * UseCsvNoSupValue
+  * ServerName
+  * ServiceAccessRoleArn
+  * SslMode
+  * SybaseSettings
+    * DatabaseName
+    * Password
+    * Port
+    * ServerName
+    * Username
+  * Tags
+    * items [Tag](#tag)
+  * Username
 
 ### CreateEndpointResponse
 * CreateEndpointResponse `object`: <p/>
-  * Endpoint [Endpoint](#endpoint)
+  * Endpoint
+    * CertificateArn
+    * DatabaseName
+    * DmsTransferSettings
+      * BucketName
+      * ServiceAccessRoleArn
+    * DocDbSettings [DocDbSettings](#docdbsettings)
+    * DynamoDbSettings
+      * ServiceAccessRoleArn **required**
+    * ElasticsearchSettings
+      * EndpointUri **required**
+      * ErrorRetryDuration
+      * FullLoadErrorPercentage
+      * ServiceAccessRoleArn **required**
+    * EndpointArn
+    * EndpointIdentifier
+    * EndpointType
+    * EngineDisplayName
+    * EngineName
+    * ExternalId
+    * ExternalTableDefinition
+    * ExtraConnectionAttributes
+    * IBMDb2Settings
+      * CurrentLsn
+      * DatabaseName
+      * MaxKBytesPerRead
+      * Password
+      * Port
+      * ServerName
+      * SetDataCaptureChanges
+      * Username
+    * KafkaSettings
+      * Broker
+      * IncludeControlDetails
+      * IncludeNullAndEmpty
+      * IncludePartitionValue
+      * IncludeTableAlterOperations
+      * IncludeTransactionDetails
+      * MessageFormat
+      * MessageMaxBytes
+      * PartitionIncludeSchemaTable
+      * Topic
+    * KinesisSettings
+      * IncludeControlDetails
+      * IncludeNullAndEmpty
+      * IncludePartitionValue
+      * IncludeTableAlterOperations
+      * IncludeTransactionDetails
+      * MessageFormat
+      * PartitionIncludeSchemaTable
+      * ServiceAccessRoleArn
+      * StreamArn
+    * KmsKeyId
+    * MicrosoftSQLServerSettings
+      * BcpPacketSize
+      * ControlTablesFileGroup
+      * DatabaseName
+      * Password
+      * Port
+      * ReadBackupOnly
+      * SafeguardPolicy
+      * ServerName
+      * UseBcpFullLoad
+      * Username
+    * MongoDbSettings
+      * AuthMechanism
+      * AuthSource
+      * AuthType
+      * DatabaseName
+      * DocsToInvestigate
+      * ExtractDocId
+      * KmsKeyId
+      * NestingLevel
+      * Password
+      * Port
+      * ServerName
+      * Username
+    * MySQLSettings
+      * AfterConnectScript
+      * DatabaseName
+      * EventsPollInterval
+      * MaxFileSize
+      * ParallelLoadThreads
+      * Password
+      * Port
+      * ServerName
+      * ServerTimezone
+      * TargetDbType
+      * Username
+    * NeptuneSettings
+      * ErrorRetryDuration
+      * IamAuthEnabled
+      * MaxFileSize
+      * MaxRetryCount
+      * S3BucketFolder **required**
+      * S3BucketName **required**
+      * ServiceAccessRoleArn
+    * OracleSettings
+      * AccessAlternateDirectly
+      * AddSupplementalLogging
+      * AdditionalArchivedLogDestId
+      * AllowSelectNestedTables
+      * ArchivedLogDestId
+      * ArchivedLogsOnly
+      * AsmPassword
+      * AsmServer
+      * AsmUser
+      * CharLengthSemantics
+      * DatabaseName
+      * DirectPathNoLog
+      * DirectPathParallelLoad
+      * EnableHomogenousTablespace
+      * FailTasksOnLobTruncation
+      * NumberDatatypeScale
+      * OraclePathPrefix
+      * ParallelAsmReadThreads
+      * Password
+      * Port
+      * ReadAheadBlocks
+      * ReadTableSpaceName
+      * ReplacePathPrefix
+      * RetryInterval
+      * SecurityDbEncryption
+      * SecurityDbEncryptionName
+      * ServerName
+      * UseAlternateFolderForOnline
+      * UsePathPrefix
+      * Username
+    * Port
+    * PostgreSQLSettings
+      * AfterConnectScript
+      * CaptureDdls
+      * DatabaseName
+      * DdlArtifactsSchema
+      * ExecuteTimeout
+      * FailTasksOnLobTruncation
+      * MaxFileSize
+      * Password
+      * Port
+      * ServerName
+      * SlotName
+      * Username
+    * RedshiftSettings
+      * AcceptAnyDate
+      * AfterConnectScript
+      * BucketFolder
+      * BucketName
+      * CaseSensitiveNames
+      * CompUpdate
+      * ConnectionTimeout
+      * DatabaseName
+      * DateFormat
+      * EmptyAsNull
+      * EncryptionMode
+      * ExplicitIds
+      * FileTransferUploadStreams
+      * LoadTimeout
+      * MaxFileSize
+      * Password
+      * Port
+      * RemoveQuotes
+      * ReplaceChars
+      * ReplaceInvalidChars
+      * ServerName
+      * ServerSideEncryptionKmsKeyId
+      * ServiceAccessRoleArn
+      * TimeFormat
+      * TrimBlanks
+      * TruncateColumns
+      * Username
+      * WriteBufferSize
+    * S3Settings
+      * BucketFolder
+      * BucketName
+      * CdcInsertsAndUpdates
+      * CdcInsertsOnly
+      * CdcPath
+      * CompressionType
+      * CsvDelimiter
+      * CsvNoSupValue
+      * CsvRowDelimiter
+      * DataFormat
+      * DataPageSize
+      * DatePartitionDelimiter
+      * DatePartitionEnabled
+      * DatePartitionSequence
+      * DictPageSizeLimit
+      * EnableStatistics
+      * EncodingType
+      * EncryptionMode
+      * ExternalTableDefinition
+      * IncludeOpForFullLoad
+      * ParquetTimestampInMillisecond
+      * ParquetVersion
+      * PreserveTransactions
+      * RowGroupLength
+      * ServerSideEncryptionKmsKeyId
+      * ServiceAccessRoleArn
+      * TimestampColumnName
+      * UseCsvNoSupValue
+    * ServerName
+    * ServiceAccessRoleArn
+    * SslMode
+    * Status
+    * SybaseSettings
+      * DatabaseName
+      * Password
+      * Port
+      * ServerName
+      * Username
+    * Username
 
 ### CreateEventSubscriptionMessage
 * CreateEventSubscriptionMessage `object`: <p/>
-  * Enabled [BooleanOptional](#booleanoptional)
-  * EventCategories [EventCategoriesList](#eventcategorieslist)
-  * SnsTopicArn **required** [String](#string)
-  * SourceIds [SourceIdsList](#sourceidslist)
-  * SourceType [String](#string)
-  * SubscriptionName **required** [String](#string)
-  * Tags [TagList](#taglist)
+  * Enabled
+  * EventCategories
+    * items [String](#string)
+  * SnsTopicArn **required**
+  * SourceIds
+    * items [String](#string)
+  * SourceType
+  * SubscriptionName **required**
+  * Tags
+    * items [Tag](#tag)
 
 ### CreateEventSubscriptionResponse
 * CreateEventSubscriptionResponse `object`: <p/>
-  * EventSubscription [EventSubscription](#eventsubscription)
+  * EventSubscription
+    * CustSubscriptionId
+    * CustomerAwsId
+    * Enabled
+    * EventCategoriesList
+      * items [String](#string)
+    * SnsTopicArn
+    * SourceIdsList
+      * items [String](#string)
+    * SourceType
+    * Status
+    * SubscriptionCreationTime
 
 ### CreateReplicationInstanceMessage
 * CreateReplicationInstanceMessage `object`: <p/>
-  * AllocatedStorage [IntegerOptional](#integeroptional)
-  * AutoMinorVersionUpgrade [BooleanOptional](#booleanoptional)
-  * AvailabilityZone [String](#string)
-  * EngineVersion [String](#string)
-  * KmsKeyId [String](#string)
-  * MultiAZ [BooleanOptional](#booleanoptional)
-  * PreferredMaintenanceWindow [String](#string)
-  * PubliclyAccessible [BooleanOptional](#booleanoptional)
-  * ReplicationInstanceClass **required** [String](#string)
-  * ReplicationInstanceIdentifier **required** [String](#string)
-  * ReplicationSubnetGroupIdentifier [String](#string)
-  * Tags [TagList](#taglist)
-  * VpcSecurityGroupIds [VpcSecurityGroupIdList](#vpcsecuritygroupidlist)
+  * AllocatedStorage
+  * AutoMinorVersionUpgrade
+  * AvailabilityZone
+  * DnsNameServers
+  * EngineVersion
+  * KmsKeyId
+  * MultiAZ
+  * PreferredMaintenanceWindow
+  * PubliclyAccessible
+  * ReplicationInstanceClass **required**
+  * ReplicationInstanceIdentifier **required**
+  * ReplicationSubnetGroupIdentifier
+  * ResourceIdentifier
+  * Tags
+    * items [Tag](#tag)
+  * VpcSecurityGroupIds
+    * items [String](#string)
 
 ### CreateReplicationInstanceResponse
 * CreateReplicationInstanceResponse `object`: <p/>
-  * ReplicationInstance [ReplicationInstance](#replicationinstance)
+  * ReplicationInstance
+    * AllocatedStorage
+    * AutoMinorVersionUpgrade
+    * AvailabilityZone
+    * DnsNameServers
+    * EngineVersion
+    * FreeUntil
+    * InstanceCreateTime
+    * KmsKeyId
+    * MultiAZ
+    * PendingModifiedValues
+      * AllocatedStorage
+      * EngineVersion
+      * MultiAZ
+      * ReplicationInstanceClass
+    * PreferredMaintenanceWindow
+    * PubliclyAccessible
+    * ReplicationInstanceArn
+    * ReplicationInstanceClass
+    * ReplicationInstanceIdentifier
+    * ReplicationInstancePrivateIpAddress
+    * ReplicationInstancePrivateIpAddresses
+      * items [String](#string)
+    * ReplicationInstancePublicIpAddress
+    * ReplicationInstancePublicIpAddresses
+      * items [String](#string)
+    * ReplicationInstanceStatus
+    * ReplicationSubnetGroup
+      * ReplicationSubnetGroupDescription
+      * ReplicationSubnetGroupIdentifier
+      * SubnetGroupStatus
+      * Subnets
+        * items [Subnet](#subnet)
+      * VpcId
+    * SecondaryAvailabilityZone
+    * VpcSecurityGroups
+      * items [VpcSecurityGroupMembership](#vpcsecuritygroupmembership)
 
 ### CreateReplicationSubnetGroupMessage
 * CreateReplicationSubnetGroupMessage `object`: <p/>
-  * ReplicationSubnetGroupDescription **required** [String](#string)
-  * ReplicationSubnetGroupIdentifier **required** [String](#string)
-  * SubnetIds **required** [SubnetIdentifierList](#subnetidentifierlist)
-  * Tags [TagList](#taglist)
+  * ReplicationSubnetGroupDescription **required**
+  * ReplicationSubnetGroupIdentifier **required**
+  * SubnetIds **required**
+    * items [String](#string)
+  * Tags
+    * items [Tag](#tag)
 
 ### CreateReplicationSubnetGroupResponse
 * CreateReplicationSubnetGroupResponse `object`: <p/>
-  * ReplicationSubnetGroup [ReplicationSubnetGroup](#replicationsubnetgroup)
+  * ReplicationSubnetGroup
+    * ReplicationSubnetGroupDescription
+    * ReplicationSubnetGroupIdentifier
+    * SubnetGroupStatus
+    * Subnets
+      * items [Subnet](#subnet)
+    * VpcId
 
 ### CreateReplicationTaskMessage
 * CreateReplicationTaskMessage `object`: <p/>
-  * CdcStartPosition [String](#string)
-  * CdcStartTime [TStamp](#tstamp)
-  * CdcStopPosition [String](#string)
-  * MigrationType **required** [MigrationTypeValue](#migrationtypevalue)
-  * ReplicationInstanceArn **required** [String](#string)
-  * ReplicationTaskIdentifier **required** [String](#string)
-  * ReplicationTaskSettings [String](#string)
-  * SourceEndpointArn **required** [String](#string)
-  * TableMappings **required** [String](#string)
-  * Tags [TagList](#taglist)
-  * TargetEndpointArn **required** [String](#string)
+  * CdcStartPosition
+  * CdcStartTime
+  * CdcStopPosition
+  * MigrationType **required**
+  * ReplicationInstanceArn **required**
+  * ReplicationTaskIdentifier **required**
+  * ReplicationTaskSettings
+  * ResourceIdentifier
+  * SourceEndpointArn **required**
+  * TableMappings **required**
+  * Tags
+    * items [Tag](#tag)
+  * TargetEndpointArn **required**
+  * TaskData
 
 ### CreateReplicationTaskResponse
 * CreateReplicationTaskResponse `object`: <p/>
-  * ReplicationTask [ReplicationTask](#replicationtask)
+  * ReplicationTask
+    * CdcStartPosition
+    * CdcStopPosition
+    * LastFailureMessage
+    * MigrationType
+    * RecoveryCheckpoint
+    * ReplicationInstanceArn
+    * ReplicationTaskArn
+    * ReplicationTaskCreationDate
+    * ReplicationTaskIdentifier
+    * ReplicationTaskSettings
+    * ReplicationTaskStartDate
+    * ReplicationTaskStats
+      * ElapsedTimeMillis
+      * FreshStartDate
+      * FullLoadFinishDate
+      * FullLoadProgressPercent
+      * FullLoadStartDate
+      * StartDate
+      * StopDate
+      * TablesErrored
+      * TablesLoaded
+      * TablesLoading
+      * TablesQueued
+    * SourceEndpointArn
+    * Status
+    * StopReason
+    * TableMappings
+    * TargetEndpointArn
+    * TargetReplicationInstanceArn
+    * TaskData
+
+### DataFormatValue
+* DataFormatValue `string` (values: csv, parquet)
+
+### DatePartitionDelimiterValue
+* DatePartitionDelimiterValue `string` (values: SLASH, UNDERSCORE, DASH, NONE)
+
+### DatePartitionSequenceValue
+* DatePartitionSequenceValue `string` (values: YYYYMMDD, YYYYMMDDHH, YYYYMM, MMYYYYDD, DDMMYYYY)
 
 ### DeleteCertificateMessage
 * DeleteCertificateMessage `object`
-  * CertificateArn **required** [String](#string)
+  * CertificateArn **required**
 
 ### DeleteCertificateResponse
 * DeleteCertificateResponse `object`
-  * Certificate [Certificate](#certificate)
+  * Certificate
+    * CertificateArn
+    * CertificateCreationDate
+    * CertificateIdentifier
+    * CertificateOwner
+    * CertificatePem
+    * CertificateWallet
+    * KeyLength
+    * SigningAlgorithm
+    * ValidFromDate
+    * ValidToDate
+
+### DeleteConnectionMessage
+* DeleteConnectionMessage `object`: <p/>
+  * EndpointArn **required**
+  * ReplicationInstanceArn **required**
+
+### DeleteConnectionResponse
+* DeleteConnectionResponse `object`: <p/>
+  * Connection
+    * EndpointArn
+    * EndpointIdentifier
+    * LastFailureMessage
+    * ReplicationInstanceArn
+    * ReplicationInstanceIdentifier
+    * Status
 
 ### DeleteEndpointMessage
 * DeleteEndpointMessage `object`: <p/>
-  * EndpointArn **required** [String](#string)
+  * EndpointArn **required**
 
 ### DeleteEndpointResponse
 * DeleteEndpointResponse `object`: <p/>
-  * Endpoint [Endpoint](#endpoint)
+  * Endpoint
+    * CertificateArn
+    * DatabaseName
+    * DmsTransferSettings
+      * BucketName
+      * ServiceAccessRoleArn
+    * DocDbSettings [DocDbSettings](#docdbsettings)
+    * DynamoDbSettings
+      * ServiceAccessRoleArn **required**
+    * ElasticsearchSettings
+      * EndpointUri **required**
+      * ErrorRetryDuration
+      * FullLoadErrorPercentage
+      * ServiceAccessRoleArn **required**
+    * EndpointArn
+    * EndpointIdentifier
+    * EndpointType
+    * EngineDisplayName
+    * EngineName
+    * ExternalId
+    * ExternalTableDefinition
+    * ExtraConnectionAttributes
+    * IBMDb2Settings
+      * CurrentLsn
+      * DatabaseName
+      * MaxKBytesPerRead
+      * Password
+      * Port
+      * ServerName
+      * SetDataCaptureChanges
+      * Username
+    * KafkaSettings
+      * Broker
+      * IncludeControlDetails
+      * IncludeNullAndEmpty
+      * IncludePartitionValue
+      * IncludeTableAlterOperations
+      * IncludeTransactionDetails
+      * MessageFormat
+      * MessageMaxBytes
+      * PartitionIncludeSchemaTable
+      * Topic
+    * KinesisSettings
+      * IncludeControlDetails
+      * IncludeNullAndEmpty
+      * IncludePartitionValue
+      * IncludeTableAlterOperations
+      * IncludeTransactionDetails
+      * MessageFormat
+      * PartitionIncludeSchemaTable
+      * ServiceAccessRoleArn
+      * StreamArn
+    * KmsKeyId
+    * MicrosoftSQLServerSettings
+      * BcpPacketSize
+      * ControlTablesFileGroup
+      * DatabaseName
+      * Password
+      * Port
+      * ReadBackupOnly
+      * SafeguardPolicy
+      * ServerName
+      * UseBcpFullLoad
+      * Username
+    * MongoDbSettings
+      * AuthMechanism
+      * AuthSource
+      * AuthType
+      * DatabaseName
+      * DocsToInvestigate
+      * ExtractDocId
+      * KmsKeyId
+      * NestingLevel
+      * Password
+      * Port
+      * ServerName
+      * Username
+    * MySQLSettings
+      * AfterConnectScript
+      * DatabaseName
+      * EventsPollInterval
+      * MaxFileSize
+      * ParallelLoadThreads
+      * Password
+      * Port
+      * ServerName
+      * ServerTimezone
+      * TargetDbType
+      * Username
+    * NeptuneSettings
+      * ErrorRetryDuration
+      * IamAuthEnabled
+      * MaxFileSize
+      * MaxRetryCount
+      * S3BucketFolder **required**
+      * S3BucketName **required**
+      * ServiceAccessRoleArn
+    * OracleSettings
+      * AccessAlternateDirectly
+      * AddSupplementalLogging
+      * AdditionalArchivedLogDestId
+      * AllowSelectNestedTables
+      * ArchivedLogDestId
+      * ArchivedLogsOnly
+      * AsmPassword
+      * AsmServer
+      * AsmUser
+      * CharLengthSemantics
+      * DatabaseName
+      * DirectPathNoLog
+      * DirectPathParallelLoad
+      * EnableHomogenousTablespace
+      * FailTasksOnLobTruncation
+      * NumberDatatypeScale
+      * OraclePathPrefix
+      * ParallelAsmReadThreads
+      * Password
+      * Port
+      * ReadAheadBlocks
+      * ReadTableSpaceName
+      * ReplacePathPrefix
+      * RetryInterval
+      * SecurityDbEncryption
+      * SecurityDbEncryptionName
+      * ServerName
+      * UseAlternateFolderForOnline
+      * UsePathPrefix
+      * Username
+    * Port
+    * PostgreSQLSettings
+      * AfterConnectScript
+      * CaptureDdls
+      * DatabaseName
+      * DdlArtifactsSchema
+      * ExecuteTimeout
+      * FailTasksOnLobTruncation
+      * MaxFileSize
+      * Password
+      * Port
+      * ServerName
+      * SlotName
+      * Username
+    * RedshiftSettings
+      * AcceptAnyDate
+      * AfterConnectScript
+      * BucketFolder
+      * BucketName
+      * CaseSensitiveNames
+      * CompUpdate
+      * ConnectionTimeout
+      * DatabaseName
+      * DateFormat
+      * EmptyAsNull
+      * EncryptionMode
+      * ExplicitIds
+      * FileTransferUploadStreams
+      * LoadTimeout
+      * MaxFileSize
+      * Password
+      * Port
+      * RemoveQuotes
+      * ReplaceChars
+      * ReplaceInvalidChars
+      * ServerName
+      * ServerSideEncryptionKmsKeyId
+      * ServiceAccessRoleArn
+      * TimeFormat
+      * TrimBlanks
+      * TruncateColumns
+      * Username
+      * WriteBufferSize
+    * S3Settings
+      * BucketFolder
+      * BucketName
+      * CdcInsertsAndUpdates
+      * CdcInsertsOnly
+      * CdcPath
+      * CompressionType
+      * CsvDelimiter
+      * CsvNoSupValue
+      * CsvRowDelimiter
+      * DataFormat
+      * DataPageSize
+      * DatePartitionDelimiter
+      * DatePartitionEnabled
+      * DatePartitionSequence
+      * DictPageSizeLimit
+      * EnableStatistics
+      * EncodingType
+      * EncryptionMode
+      * ExternalTableDefinition
+      * IncludeOpForFullLoad
+      * ParquetTimestampInMillisecond
+      * ParquetVersion
+      * PreserveTransactions
+      * RowGroupLength
+      * ServerSideEncryptionKmsKeyId
+      * ServiceAccessRoleArn
+      * TimestampColumnName
+      * UseCsvNoSupValue
+    * ServerName
+    * ServiceAccessRoleArn
+    * SslMode
+    * Status
+    * SybaseSettings
+      * DatabaseName
+      * Password
+      * Port
+      * ServerName
+      * Username
+    * Username
 
 ### DeleteEventSubscriptionMessage
 * DeleteEventSubscriptionMessage `object`: <p/>
-  * SubscriptionName **required** [String](#string)
+  * SubscriptionName **required**
 
 ### DeleteEventSubscriptionResponse
 * DeleteEventSubscriptionResponse `object`: <p/>
-  * EventSubscription [EventSubscription](#eventsubscription)
+  * EventSubscription
+    * CustSubscriptionId
+    * CustomerAwsId
+    * Enabled
+    * EventCategoriesList
+      * items [String](#string)
+    * SnsTopicArn
+    * SourceIdsList
+      * items [String](#string)
+    * SourceType
+    * Status
+    * SubscriptionCreationTime
 
 ### DeleteReplicationInstanceMessage
 * DeleteReplicationInstanceMessage `object`: <p/>
-  * ReplicationInstanceArn **required** [String](#string)
+  * ReplicationInstanceArn **required**
 
 ### DeleteReplicationInstanceResponse
 * DeleteReplicationInstanceResponse `object`: <p/>
-  * ReplicationInstance [ReplicationInstance](#replicationinstance)
+  * ReplicationInstance
+    * AllocatedStorage
+    * AutoMinorVersionUpgrade
+    * AvailabilityZone
+    * DnsNameServers
+    * EngineVersion
+    * FreeUntil
+    * InstanceCreateTime
+    * KmsKeyId
+    * MultiAZ
+    * PendingModifiedValues
+      * AllocatedStorage
+      * EngineVersion
+      * MultiAZ
+      * ReplicationInstanceClass
+    * PreferredMaintenanceWindow
+    * PubliclyAccessible
+    * ReplicationInstanceArn
+    * ReplicationInstanceClass
+    * ReplicationInstanceIdentifier
+    * ReplicationInstancePrivateIpAddress
+    * ReplicationInstancePrivateIpAddresses
+      * items [String](#string)
+    * ReplicationInstancePublicIpAddress
+    * ReplicationInstancePublicIpAddresses
+      * items [String](#string)
+    * ReplicationInstanceStatus
+    * ReplicationSubnetGroup
+      * ReplicationSubnetGroupDescription
+      * ReplicationSubnetGroupIdentifier
+      * SubnetGroupStatus
+      * Subnets
+        * items [Subnet](#subnet)
+      * VpcId
+    * SecondaryAvailabilityZone
+    * VpcSecurityGroups
+      * items [VpcSecurityGroupMembership](#vpcsecuritygroupmembership)
 
 ### DeleteReplicationSubnetGroupMessage
 * DeleteReplicationSubnetGroupMessage `object`: <p/>
-  * ReplicationSubnetGroupIdentifier **required** [String](#string)
+  * ReplicationSubnetGroupIdentifier **required**
 
 ### DeleteReplicationSubnetGroupResponse
 * DeleteReplicationSubnetGroupResponse `object`: <p/>
 
+### DeleteReplicationTaskAssessmentRunMessage
+* DeleteReplicationTaskAssessmentRunMessage `object`: <p/>
+  * ReplicationTaskAssessmentRunArn **required**
+
+### DeleteReplicationTaskAssessmentRunResponse
+* DeleteReplicationTaskAssessmentRunResponse `object`: <p/>
+  * ReplicationTaskAssessmentRun
+    * AssessmentProgress
+      * IndividualAssessmentCompletedCount
+      * IndividualAssessmentCount
+    * AssessmentRunName
+    * LastFailureMessage
+    * ReplicationTaskArn
+    * ReplicationTaskAssessmentRunArn
+    * ReplicationTaskAssessmentRunCreationDate
+    * ResultEncryptionMode
+    * ResultKmsKeyArn
+    * ResultLocationBucket
+    * ResultLocationFolder
+    * ServiceAccessRoleArn
+    * Status
+
 ### DeleteReplicationTaskMessage
 * DeleteReplicationTaskMessage `object`: <p/>
-  * ReplicationTaskArn **required** [String](#string)
+  * ReplicationTaskArn **required**
 
 ### DeleteReplicationTaskResponse
 * DeleteReplicationTaskResponse `object`: <p/>
-  * ReplicationTask [ReplicationTask](#replicationtask)
+  * ReplicationTask
+    * CdcStartPosition
+    * CdcStopPosition
+    * LastFailureMessage
+    * MigrationType
+    * RecoveryCheckpoint
+    * ReplicationInstanceArn
+    * ReplicationTaskArn
+    * ReplicationTaskCreationDate
+    * ReplicationTaskIdentifier
+    * ReplicationTaskSettings
+    * ReplicationTaskStartDate
+    * ReplicationTaskStats
+      * ElapsedTimeMillis
+      * FreshStartDate
+      * FullLoadFinishDate
+      * FullLoadProgressPercent
+      * FullLoadStartDate
+      * StartDate
+      * StopDate
+      * TablesErrored
+      * TablesLoaded
+      * TablesLoading
+      * TablesQueued
+    * SourceEndpointArn
+    * Status
+    * StopReason
+    * TableMappings
+    * TargetEndpointArn
+    * TargetReplicationInstanceArn
+    * TaskData
 
 ### DescribeAccountAttributesMessage
 * DescribeAccountAttributesMessage `object`: <p/>
 
 ### DescribeAccountAttributesResponse
 * DescribeAccountAttributesResponse `object`: <p/>
-  * AccountQuotas [AccountQuotaList](#accountquotalist)
+  * AccountQuotas
+    * items [AccountQuota](#accountquota)
+  * UniqueAccountIdentifier
+
+### DescribeApplicableIndividualAssessmentsMessage
+* DescribeApplicableIndividualAssessmentsMessage `object`: <p/>
+  * Marker
+  * MaxRecords
+  * MigrationType
+  * ReplicationInstanceArn
+  * ReplicationTaskArn
+  * SourceEngineName
+  * TargetEngineName
+
+### DescribeApplicableIndividualAssessmentsResponse
+* DescribeApplicableIndividualAssessmentsResponse `object`: <p/>
+  * IndividualAssessmentNames
+    * items [String](#string)
+  * Marker
 
 ### DescribeCertificatesMessage
 * DescribeCertificatesMessage `object`
-  * Filters [FilterList](#filterlist)
-  * Marker [String](#string)
-  * MaxRecords [IntegerOptional](#integeroptional)
+  * Filters
+    * items [Filter](#filter)
+  * Marker
+  * MaxRecords
 
 ### DescribeCertificatesResponse
 * DescribeCertificatesResponse `object`
-  * Certificates [CertificateList](#certificatelist)
-  * Marker [String](#string)
+  * Certificates
+    * items [Certificate](#certificate)
+  * Marker
 
 ### DescribeConnectionsMessage
 * DescribeConnectionsMessage `object`: <p/>
-  * Filters [FilterList](#filterlist)
-  * Marker [String](#string)
-  * MaxRecords [IntegerOptional](#integeroptional)
+  * Filters
+    * items [Filter](#filter)
+  * Marker
+  * MaxRecords
 
 ### DescribeConnectionsResponse
 * DescribeConnectionsResponse `object`: <p/>
-  * Connections [ConnectionList](#connectionlist)
-  * Marker [String](#string)
+  * Connections
+    * items [Connection](#connection)
+  * Marker
 
 ### DescribeEndpointTypesMessage
 * DescribeEndpointTypesMessage `object`: <p/>
-  * Filters [FilterList](#filterlist)
-  * Marker [String](#string)
-  * MaxRecords [IntegerOptional](#integeroptional)
+  * Filters
+    * items [Filter](#filter)
+  * Marker
+  * MaxRecords
 
 ### DescribeEndpointTypesResponse
 * DescribeEndpointTypesResponse `object`: <p/>
-  * Marker [String](#string)
-  * SupportedEndpointTypes [SupportedEndpointTypeList](#supportedendpointtypelist)
+  * Marker
+  * SupportedEndpointTypes
+    * items [SupportedEndpointType](#supportedendpointtype)
 
 ### DescribeEndpointsMessage
 * DescribeEndpointsMessage `object`: <p/>
-  * Filters [FilterList](#filterlist)
-  * Marker [String](#string)
-  * MaxRecords [IntegerOptional](#integeroptional)
+  * Filters
+    * items [Filter](#filter)
+  * Marker
+  * MaxRecords
 
 ### DescribeEndpointsResponse
 * DescribeEndpointsResponse `object`: <p/>
-  * Endpoints [EndpointList](#endpointlist)
-  * Marker [String](#string)
+  * Endpoints
+    * items [Endpoint](#endpoint)
+  * Marker
 
 ### DescribeEventCategoriesMessage
 * DescribeEventCategoriesMessage `object`: <p/>
-  * Filters [FilterList](#filterlist)
-  * SourceType [String](#string)
+  * Filters
+    * items [Filter](#filter)
+  * SourceType
 
 ### DescribeEventCategoriesResponse
 * DescribeEventCategoriesResponse `object`: <p/>
-  * EventCategoryGroupList [EventCategoryGroupList](#eventcategorygrouplist)
+  * EventCategoryGroupList
+    * items [EventCategoryGroup](#eventcategorygroup)
 
 ### DescribeEventSubscriptionsMessage
 * DescribeEventSubscriptionsMessage `object`: <p/>
-  * Filters [FilterList](#filterlist)
-  * Marker [String](#string)
-  * MaxRecords [IntegerOptional](#integeroptional)
-  * SubscriptionName [String](#string)
+  * Filters
+    * items [Filter](#filter)
+  * Marker
+  * MaxRecords
+  * SubscriptionName
 
 ### DescribeEventSubscriptionsResponse
 * DescribeEventSubscriptionsResponse `object`: <p/>
-  * EventSubscriptionsList [EventSubscriptionsList](#eventsubscriptionslist)
-  * Marker [String](#string)
+  * EventSubscriptionsList
+    * items [EventSubscription](#eventsubscription)
+  * Marker
 
 ### DescribeEventsMessage
 * DescribeEventsMessage `object`: <p/>
-  * Duration [IntegerOptional](#integeroptional)
-  * EndTime [TStamp](#tstamp)
-  * EventCategories [EventCategoriesList](#eventcategorieslist)
-  * Filters [FilterList](#filterlist)
-  * Marker [String](#string)
-  * MaxRecords [IntegerOptional](#integeroptional)
-  * SourceIdentifier [String](#string)
-  * SourceType [SourceType](#sourcetype)
-  * StartTime [TStamp](#tstamp)
+  * Duration
+  * EndTime
+  * EventCategories
+    * items [String](#string)
+  * Filters
+    * items [Filter](#filter)
+  * Marker
+  * MaxRecords
+  * SourceIdentifier
+  * SourceType
+  * StartTime
 
 ### DescribeEventsResponse
 * DescribeEventsResponse `object`: <p/>
-  * Events [EventList](#eventlist)
-  * Marker [String](#string)
+  * Events
+    * items [Event](#event)
+  * Marker
 
 ### DescribeOrderableReplicationInstancesMessage
 * DescribeOrderableReplicationInstancesMessage `object`: <p/>
-  * Marker [String](#string)
-  * MaxRecords [IntegerOptional](#integeroptional)
+  * Marker
+  * MaxRecords
 
 ### DescribeOrderableReplicationInstancesResponse
 * DescribeOrderableReplicationInstancesResponse `object`: <p/>
-  * Marker [String](#string)
-  * OrderableReplicationInstances [OrderableReplicationInstanceList](#orderablereplicationinstancelist)
+  * Marker
+  * OrderableReplicationInstances
+    * items [OrderableReplicationInstance](#orderablereplicationinstance)
+
+### DescribePendingMaintenanceActionsMessage
+* DescribePendingMaintenanceActionsMessage `object`: <p/>
+  * Filters
+    * items [Filter](#filter)
+  * Marker
+  * MaxRecords
+  * ReplicationInstanceArn
+
+### DescribePendingMaintenanceActionsResponse
+* DescribePendingMaintenanceActionsResponse `object`: <p/>
+  * Marker
+  * PendingMaintenanceActions
+    * items [ResourcePendingMaintenanceActions](#resourcependingmaintenanceactions)
 
 ### DescribeRefreshSchemasStatusMessage
 * DescribeRefreshSchemasStatusMessage `object`: <p/>
-  * EndpointArn **required** [String](#string)
+  * EndpointArn **required**
 
 ### DescribeRefreshSchemasStatusResponse
 * DescribeRefreshSchemasStatusResponse `object`: <p/>
-  * RefreshSchemasStatus [RefreshSchemasStatus](#refreshschemasstatus)
+  * RefreshSchemasStatus
+    * EndpointArn
+    * LastFailureMessage
+    * LastRefreshDate
+    * ReplicationInstanceArn
+    * Status
 
 ### DescribeReplicationInstanceTaskLogsMessage
 * DescribeReplicationInstanceTaskLogsMessage `object`
-  * Marker [String](#string)
-  * MaxRecords [IntegerOptional](#integeroptional)
-  * ReplicationInstanceArn **required** [String](#string)
+  * Marker
+  * MaxRecords
+  * ReplicationInstanceArn **required**
 
 ### DescribeReplicationInstanceTaskLogsResponse
 * DescribeReplicationInstanceTaskLogsResponse `object`
-  * Marker [String](#string)
-  * ReplicationInstanceArn [String](#string)
-  * ReplicationInstanceTaskLogs [ReplicationInstanceTaskLogsList](#replicationinstancetasklogslist)
+  * Marker
+  * ReplicationInstanceArn
+  * ReplicationInstanceTaskLogs
+    * items [ReplicationInstanceTaskLog](#replicationinstancetasklog)
 
 ### DescribeReplicationInstancesMessage
 * DescribeReplicationInstancesMessage `object`: <p/>
-  * Filters [FilterList](#filterlist)
-  * Marker [String](#string)
-  * MaxRecords [IntegerOptional](#integeroptional)
+  * Filters
+    * items [Filter](#filter)
+  * Marker
+  * MaxRecords
 
 ### DescribeReplicationInstancesResponse
 * DescribeReplicationInstancesResponse `object`: <p/>
-  * Marker [String](#string)
-  * ReplicationInstances [ReplicationInstanceList](#replicationinstancelist)
+  * Marker
+  * ReplicationInstances
+    * items [ReplicationInstance](#replicationinstance)
 
 ### DescribeReplicationSubnetGroupsMessage
 * DescribeReplicationSubnetGroupsMessage `object`: <p/>
-  * Filters [FilterList](#filterlist)
-  * Marker [String](#string)
-  * MaxRecords [IntegerOptional](#integeroptional)
+  * Filters
+    * items [Filter](#filter)
+  * Marker
+  * MaxRecords
 
 ### DescribeReplicationSubnetGroupsResponse
 * DescribeReplicationSubnetGroupsResponse `object`: <p/>
-  * Marker [String](#string)
-  * ReplicationSubnetGroups [ReplicationSubnetGroups](#replicationsubnetgroups)
+  * Marker
+  * ReplicationSubnetGroups
+    * items [ReplicationSubnetGroup](#replicationsubnetgroup)
 
 ### DescribeReplicationTaskAssessmentResultsMessage
 * DescribeReplicationTaskAssessmentResultsMessage `object`: <p/>
-  * Marker [String](#string)
-  * MaxRecords [IntegerOptional](#integeroptional)
-  * ReplicationTaskArn [String](#string)
+  * Marker
+  * MaxRecords
+  * ReplicationTaskArn
 
 ### DescribeReplicationTaskAssessmentResultsResponse
 * DescribeReplicationTaskAssessmentResultsResponse `object`: <p/>
-  * BucketName [String](#string)
-  * Marker [String](#string)
-  * ReplicationTaskAssessmentResults [ReplicationTaskAssessmentResultList](#replicationtaskassessmentresultlist)
+  * BucketName
+  * Marker
+  * ReplicationTaskAssessmentResults
+    * items [ReplicationTaskAssessmentResult](#replicationtaskassessmentresult)
+
+### DescribeReplicationTaskAssessmentRunsMessage
+* DescribeReplicationTaskAssessmentRunsMessage `object`: <p/>
+  * Filters
+    * items [Filter](#filter)
+  * Marker
+  * MaxRecords
+
+### DescribeReplicationTaskAssessmentRunsResponse
+* DescribeReplicationTaskAssessmentRunsResponse `object`: <p/>
+  * Marker
+  * ReplicationTaskAssessmentRuns
+    * items [ReplicationTaskAssessmentRun](#replicationtaskassessmentrun)
+
+### DescribeReplicationTaskIndividualAssessmentsMessage
+* DescribeReplicationTaskIndividualAssessmentsMessage `object`: <p/>
+  * Filters
+    * items [Filter](#filter)
+  * Marker
+  * MaxRecords
+
+### DescribeReplicationTaskIndividualAssessmentsResponse
+* DescribeReplicationTaskIndividualAssessmentsResponse `object`: <p/>
+  * Marker
+  * ReplicationTaskIndividualAssessments
+    * items [ReplicationTaskIndividualAssessment](#replicationtaskindividualassessment)
 
 ### DescribeReplicationTasksMessage
 * DescribeReplicationTasksMessage `object`: <p/>
-  * Filters [FilterList](#filterlist)
-  * Marker [String](#string)
-  * MaxRecords [IntegerOptional](#integeroptional)
+  * Filters
+    * items [Filter](#filter)
+  * Marker
+  * MaxRecords
+  * WithoutSettings
 
 ### DescribeReplicationTasksResponse
 * DescribeReplicationTasksResponse `object`: <p/>
-  * Marker [String](#string)
-  * ReplicationTasks [ReplicationTaskList](#replicationtasklist)
+  * Marker
+  * ReplicationTasks
+    * items [ReplicationTask](#replicationtask)
 
 ### DescribeSchemasMessage
 * DescribeSchemasMessage `object`: <p/>
-  * EndpointArn **required** [String](#string)
-  * Marker [String](#string)
-  * MaxRecords [IntegerOptional](#integeroptional)
+  * EndpointArn **required**
+  * Marker
+  * MaxRecords
 
 ### DescribeSchemasResponse
 * DescribeSchemasResponse `object`: <p/>
-  * Marker [String](#string)
-  * Schemas [SchemaList](#schemalist)
+  * Marker
+  * Schemas
+    * items [String](#string)
 
 ### DescribeTableStatisticsMessage
 * DescribeTableStatisticsMessage `object`: <p/>
-  * Filters [FilterList](#filterlist)
-  * Marker [String](#string)
-  * MaxRecords [IntegerOptional](#integeroptional)
-  * ReplicationTaskArn **required** [String](#string)
+  * Filters
+    * items [Filter](#filter)
+  * Marker
+  * MaxRecords
+  * ReplicationTaskArn **required**
 
 ### DescribeTableStatisticsResponse
 * DescribeTableStatisticsResponse `object`: <p/>
-  * Marker [String](#string)
-  * ReplicationTaskArn [String](#string)
-  * TableStatistics [TableStatisticsList](#tablestatisticslist)
+  * Marker
+  * ReplicationTaskArn
+  * TableStatistics
+    * items [TableStatistics](#tablestatistics)
 
 ### DmsSslModeValue
 * DmsSslModeValue `string` (values: none, require, verify-ca, verify-full)
 
+### DmsTransferSettings
+* DmsTransferSettings `object`:  The settings in JSON format for the DMS Transfer type source endpoint. 
+  * BucketName
+  * ServiceAccessRoleArn
+
+### DocDbSettings
+* DocDbSettings `object`: Provides information that defines a DocumentDB endpoint.
+  * DatabaseName
+  * DocsToInvestigate
+  * ExtractDocId
+  * KmsKeyId
+  * NestingLevel
+  * Password
+  * Port
+  * ServerName
+  * Username
+
 ### DynamoDbSettings
-* DynamoDbSettings `object`: <p/>
-  * ServiceAccessRoleArn **required** [String](#string)
+* DynamoDbSettings `object`: Provides the Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role used to define an Amazon DynamoDB target endpoint.
+  * ServiceAccessRoleArn **required**
+
+### ElasticsearchSettings
+* ElasticsearchSettings `object`: Provides information that defines an Elasticsearch endpoint.
+  * EndpointUri **required**
+  * ErrorRetryDuration
+  * FullLoadErrorPercentage
+  * ServiceAccessRoleArn **required**
+
+### EncodingTypeValue
+* EncodingTypeValue `string` (values: plain, plain-dictionary, rle-dictionary)
+
+### EncryptionModeValue
+* EncryptionModeValue `string` (values: sse-s3, sse-kms)
 
 ### Endpoint
-* Endpoint `object`: <p/>
-  * CertificateArn [String](#string)
-  * DatabaseName [String](#string)
-  * DynamoDbSettings [DynamoDbSettings](#dynamodbsettings)
-  * EndpointArn [String](#string)
-  * EndpointIdentifier [String](#string)
-  * EndpointType [ReplicationEndpointTypeValue](#replicationendpointtypevalue)
-  * EngineDisplayName [String](#string)
-  * EngineName [String](#string)
-  * ExternalId [String](#string)
-  * ExternalTableDefinition [String](#string)
-  * ExtraConnectionAttributes [String](#string)
-  * KmsKeyId [String](#string)
-  * MongoDbSettings [MongoDbSettings](#mongodbsettings)
-  * Port [IntegerOptional](#integeroptional)
-  * S3Settings [S3Settings](#s3settings)
-  * ServerName [String](#string)
-  * ServiceAccessRoleArn [String](#string)
-  * SslMode [DmsSslModeValue](#dmssslmodevalue)
-  * Status [String](#string)
-  * Username [String](#string)
+* Endpoint `object`: <p>Describes an endpoint of a database instance in response to operations such as the following:</p> <ul> <li> <p> <code>CreateEndpoint</code> </p> </li> <li> <p> <code>DescribeEndpoint</code> </p> </li> <li> <p> <code>DescribeEndpointTypes</code> </p> </li> <li> <p> <code>ModifyEndpoint</code> </p> </li> </ul>
+  * CertificateArn
+  * DatabaseName
+  * DmsTransferSettings
+    * BucketName
+    * ServiceAccessRoleArn
+  * DocDbSettings [DocDbSettings](#docdbsettings)
+  * DynamoDbSettings
+    * ServiceAccessRoleArn **required**
+  * ElasticsearchSettings
+    * EndpointUri **required**
+    * ErrorRetryDuration
+    * FullLoadErrorPercentage
+    * ServiceAccessRoleArn **required**
+  * EndpointArn
+  * EndpointIdentifier
+  * EndpointType
+  * EngineDisplayName
+  * EngineName
+  * ExternalId
+  * ExternalTableDefinition
+  * ExtraConnectionAttributes
+  * IBMDb2Settings
+    * CurrentLsn
+    * DatabaseName
+    * MaxKBytesPerRead
+    * Password
+    * Port
+    * ServerName
+    * SetDataCaptureChanges
+    * Username
+  * KafkaSettings
+    * Broker
+    * IncludeControlDetails
+    * IncludeNullAndEmpty
+    * IncludePartitionValue
+    * IncludeTableAlterOperations
+    * IncludeTransactionDetails
+    * MessageFormat
+    * MessageMaxBytes
+    * PartitionIncludeSchemaTable
+    * Topic
+  * KinesisSettings
+    * IncludeControlDetails
+    * IncludeNullAndEmpty
+    * IncludePartitionValue
+    * IncludeTableAlterOperations
+    * IncludeTransactionDetails
+    * MessageFormat
+    * PartitionIncludeSchemaTable
+    * ServiceAccessRoleArn
+    * StreamArn
+  * KmsKeyId
+  * MicrosoftSQLServerSettings
+    * BcpPacketSize
+    * ControlTablesFileGroup
+    * DatabaseName
+    * Password
+    * Port
+    * ReadBackupOnly
+    * SafeguardPolicy
+    * ServerName
+    * UseBcpFullLoad
+    * Username
+  * MongoDbSettings
+    * AuthMechanism
+    * AuthSource
+    * AuthType
+    * DatabaseName
+    * DocsToInvestigate
+    * ExtractDocId
+    * KmsKeyId
+    * NestingLevel
+    * Password
+    * Port
+    * ServerName
+    * Username
+  * MySQLSettings
+    * AfterConnectScript
+    * DatabaseName
+    * EventsPollInterval
+    * MaxFileSize
+    * ParallelLoadThreads
+    * Password
+    * Port
+    * ServerName
+    * ServerTimezone
+    * TargetDbType
+    * Username
+  * NeptuneSettings
+    * ErrorRetryDuration
+    * IamAuthEnabled
+    * MaxFileSize
+    * MaxRetryCount
+    * S3BucketFolder **required**
+    * S3BucketName **required**
+    * ServiceAccessRoleArn
+  * OracleSettings
+    * AccessAlternateDirectly
+    * AddSupplementalLogging
+    * AdditionalArchivedLogDestId
+    * AllowSelectNestedTables
+    * ArchivedLogDestId
+    * ArchivedLogsOnly
+    * AsmPassword
+    * AsmServer
+    * AsmUser
+    * CharLengthSemantics
+    * DatabaseName
+    * DirectPathNoLog
+    * DirectPathParallelLoad
+    * EnableHomogenousTablespace
+    * FailTasksOnLobTruncation
+    * NumberDatatypeScale
+    * OraclePathPrefix
+    * ParallelAsmReadThreads
+    * Password
+    * Port
+    * ReadAheadBlocks
+    * ReadTableSpaceName
+    * ReplacePathPrefix
+    * RetryInterval
+    * SecurityDbEncryption
+    * SecurityDbEncryptionName
+    * ServerName
+    * UseAlternateFolderForOnline
+    * UsePathPrefix
+    * Username
+  * Port
+  * PostgreSQLSettings
+    * AfterConnectScript
+    * CaptureDdls
+    * DatabaseName
+    * DdlArtifactsSchema
+    * ExecuteTimeout
+    * FailTasksOnLobTruncation
+    * MaxFileSize
+    * Password
+    * Port
+    * ServerName
+    * SlotName
+    * Username
+  * RedshiftSettings
+    * AcceptAnyDate
+    * AfterConnectScript
+    * BucketFolder
+    * BucketName
+    * CaseSensitiveNames
+    * CompUpdate
+    * ConnectionTimeout
+    * DatabaseName
+    * DateFormat
+    * EmptyAsNull
+    * EncryptionMode
+    * ExplicitIds
+    * FileTransferUploadStreams
+    * LoadTimeout
+    * MaxFileSize
+    * Password
+    * Port
+    * RemoveQuotes
+    * ReplaceChars
+    * ReplaceInvalidChars
+    * ServerName
+    * ServerSideEncryptionKmsKeyId
+    * ServiceAccessRoleArn
+    * TimeFormat
+    * TrimBlanks
+    * TruncateColumns
+    * Username
+    * WriteBufferSize
+  * S3Settings
+    * BucketFolder
+    * BucketName
+    * CdcInsertsAndUpdates
+    * CdcInsertsOnly
+    * CdcPath
+    * CompressionType
+    * CsvDelimiter
+    * CsvNoSupValue
+    * CsvRowDelimiter
+    * DataFormat
+    * DataPageSize
+    * DatePartitionDelimiter
+    * DatePartitionEnabled
+    * DatePartitionSequence
+    * DictPageSizeLimit
+    * EnableStatistics
+    * EncodingType
+    * EncryptionMode
+    * ExternalTableDefinition
+    * IncludeOpForFullLoad
+    * ParquetTimestampInMillisecond
+    * ParquetVersion
+    * PreserveTransactions
+    * RowGroupLength
+    * ServerSideEncryptionKmsKeyId
+    * ServiceAccessRoleArn
+    * TimestampColumnName
+    * UseCsvNoSupValue
+  * ServerName
+  * ServiceAccessRoleArn
+  * SslMode
+  * Status
+  * SybaseSettings
+    * DatabaseName
+    * Password
+    * Port
+    * ServerName
+    * Username
+  * Username
 
 ### EndpointList
 * EndpointList `array`
   * items [Endpoint](#endpoint)
 
 ### Event
-* Event `object`: <p/>
-  * Date [TStamp](#tstamp)
-  * EventCategories [EventCategoriesList](#eventcategorieslist)
-  * Message [String](#string)
-  * SourceIdentifier [String](#string)
-  * SourceType [SourceType](#sourcetype)
+* Event `object`: Describes an identifiable significant activity that affects a replication instance or task. This object can provide the message, the available event categories, the date and source of the event, and the AWS DMS resource type.
+  * Date
+  * EventCategories
+    * items [String](#string)
+  * Message
+  * SourceIdentifier
+  * SourceType
 
 ### EventCategoriesList
 * EventCategoriesList `array`
   * items [String](#string)
 
 ### EventCategoryGroup
-* EventCategoryGroup `object`: <p/>
-  * EventCategories [EventCategoriesList](#eventcategorieslist)
-  * SourceType [String](#string)
+* EventCategoryGroup `object`: Lists categories of events subscribed to, and generated by, the applicable AWS DMS resource type. This data type appears in response to the <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_EventCategoryGroup.html"> <code>DescribeEventCategories</code> </a> action.
+  * EventCategories
+    * items [String](#string)
+  * SourceType
 
 ### EventCategoryGroupList
 * EventCategoryGroupList `array`
@@ -1391,28 +3131,32 @@ amazonaws_dms.TestConnection({
   * items [Event](#event)
 
 ### EventSubscription
-* EventSubscription `object`: <p/>
-  * CustSubscriptionId [String](#string)
-  * CustomerAwsId [String](#string)
-  * Enabled [Boolean](#boolean)
-  * EventCategoriesList [EventCategoriesList](#eventcategorieslist)
-  * SnsTopicArn [String](#string)
-  * SourceIdsList [SourceIdsList](#sourceidslist)
-  * SourceType [String](#string)
-  * Status [String](#string)
-  * SubscriptionCreationTime [String](#string)
+* EventSubscription `object`: Describes an event notification subscription created by the <code>CreateEventSubscription</code> operation.
+  * CustSubscriptionId
+  * CustomerAwsId
+  * Enabled
+  * EventCategoriesList
+    * items [String](#string)
+  * SnsTopicArn
+  * SourceIdsList
+    * items [String](#string)
+  * SourceType
+  * Status
+  * SubscriptionCreationTime
 
 ### EventSubscriptionsList
 * EventSubscriptionsList `array`
   * items [EventSubscription](#eventsubscription)
 
-### ExceptionMessage
-* ExceptionMessage `string`
+### ExcludeTestList
+* ExcludeTestList `array`
+  * items [String](#string)
 
 ### Filter
-* Filter `object`: <p/>
-  * Name **required** [String](#string)
-  * Values **required** [FilterValueList](#filtervaluelist)
+* Filter `object`: Identifies the name and value of a filter object. This filter is used to limit the number and type of AWS DMS objects that are returned for a particular <code>Describe*</code> call or similar operation. Filters are used as an optional parameter to the following APIs. 
+  * Name **required**
+  * Values **required**
+    * items [String](#string)
 
 ### FilterList
 * FilterList `array`
@@ -1422,20 +3166,49 @@ amazonaws_dms.TestConnection({
 * FilterValueList `array`
   * items [String](#string)
 
+### IBMDb2Settings
+* IBMDb2Settings `object`: Provides information that defines an IBM Db2 LUW endpoint.
+  * CurrentLsn
+  * DatabaseName
+  * MaxKBytesPerRead
+  * Password
+  * Port
+  * ServerName
+  * SetDataCaptureChanges
+  * Username
+
 ### ImportCertificateMessage
 * ImportCertificateMessage `object`
-  * CertificateIdentifier **required** [String](#string)
-  * CertificatePem [String](#string)
-  * CertificateWallet [CertificateWallet](#certificatewallet)
-  * Tags [TagList](#taglist)
+  * CertificateIdentifier **required**
+  * CertificatePem
+  * CertificateWallet
+  * Tags
+    * items [Tag](#tag)
 
 ### ImportCertificateResponse
 * ImportCertificateResponse `object`
-  * Certificate [Certificate](#certificate)
+  * Certificate
+    * CertificateArn
+    * CertificateCreationDate
+    * CertificateIdentifier
+    * CertificateOwner
+    * CertificatePem
+    * CertificateWallet
+    * KeyLength
+    * SigningAlgorithm
+    * ValidFromDate
+    * ValidToDate
+
+### IncludeTestList
+* IncludeTestList `array`
+  * items [String](#string)
+
+### IndividualAssessmentNameList
+* IndividualAssessmentNameList `array`
+  * items [String](#string)
 
 ### InsufficientResourceCapacityFault
-* InsufficientResourceCapacityFault `object`: There are not enough resources allocated to the database migration.
-  * message [ExceptionMessage](#exceptionmessage)
+
 
 ### Integer
 * Integer `integer`
@@ -1444,192 +3217,931 @@ amazonaws_dms.TestConnection({
 * IntegerOptional `integer`
 
 ### InvalidCertificateFault
-* InvalidCertificateFault `object`: The certificate was not valid.
-  * message [ExceptionMessage](#exceptionmessage)
+
 
 ### InvalidResourceStateFault
-* InvalidResourceStateFault `object`: The resource is in a state that prevents it from being used for database migration.
-  * message [ExceptionMessage](#exceptionmessage)
+
 
 ### InvalidSubnet
-* InvalidSubnet `object`: The subnet provided is invalid.
-  * message [ExceptionMessage](#exceptionmessage)
+
+
+### KMSAccessDeniedFault
+
+
+### KMSDisabledFault
+
+
+### KMSFault
+
+
+### KMSInvalidStateFault
+
 
 ### KMSKeyNotAccessibleFault
-* KMSKeyNotAccessibleFault `object`: AWS DMS cannot access the KMS key.
-  * message [ExceptionMessage](#exceptionmessage)
+
+
+### KMSNotFoundFault
+
+
+### KMSThrottlingFault
+
+
+### KafkaSettings
+* KafkaSettings `object`: Provides information that describes an Apache Kafka endpoint. This information includes the output format of records applied to the endpoint and details of transaction and control table data information.
+  * Broker
+  * IncludeControlDetails
+  * IncludeNullAndEmpty
+  * IncludePartitionValue
+  * IncludeTableAlterOperations
+  * IncludeTransactionDetails
+  * MessageFormat
+  * MessageMaxBytes
+  * PartitionIncludeSchemaTable
+  * Topic
 
 ### KeyList
 * KeyList `array`
   * items [String](#string)
 
+### KinesisSettings
+* KinesisSettings `object`: Provides information that describes an Amazon Kinesis Data Stream endpoint. This information includes the output format of records applied to the endpoint and details of transaction and control table data information.
+  * IncludeControlDetails
+  * IncludeNullAndEmpty
+  * IncludePartitionValue
+  * IncludeTableAlterOperations
+  * IncludeTransactionDetails
+  * MessageFormat
+  * PartitionIncludeSchemaTable
+  * ServiceAccessRoleArn
+  * StreamArn
+
 ### ListTagsForResourceMessage
 * ListTagsForResourceMessage `object`: <p/>
-  * ResourceArn **required** [String](#string)
+  * ResourceArn **required**
 
 ### ListTagsForResourceResponse
 * ListTagsForResourceResponse `object`: <p/>
-  * TagList [TagList](#taglist)
+  * TagList
+    * items [Tag](#tag)
 
 ### Long
 * Long `integer`
+
+### MessageFormatValue
+* MessageFormatValue `string` (values: json, json-unformatted)
+
+### MicrosoftSQLServerSettings
+* MicrosoftSQLServerSettings `object`: Provides information that defines a Microsoft SQL Server endpoint.
+  * BcpPacketSize
+  * ControlTablesFileGroup
+  * DatabaseName
+  * Password
+  * Port
+  * ReadBackupOnly
+  * SafeguardPolicy
+  * ServerName
+  * UseBcpFullLoad
+  * Username
 
 ### MigrationTypeValue
 * MigrationTypeValue `string` (values: full-load, cdc, full-load-and-cdc)
 
 ### ModifyEndpointMessage
 * ModifyEndpointMessage `object`: <p/>
-  * CertificateArn [String](#string)
-  * DatabaseName [String](#string)
-  * DynamoDbSettings [DynamoDbSettings](#dynamodbsettings)
-  * EndpointArn **required** [String](#string)
-  * EndpointIdentifier [String](#string)
-  * EndpointType [ReplicationEndpointTypeValue](#replicationendpointtypevalue)
-  * EngineName [String](#string)
-  * ExternalTableDefinition [String](#string)
-  * ExtraConnectionAttributes [String](#string)
-  * MongoDbSettings [MongoDbSettings](#mongodbsettings)
-  * Password [SecretString](#secretstring)
-  * Port [IntegerOptional](#integeroptional)
-  * S3Settings [S3Settings](#s3settings)
-  * ServerName [String](#string)
-  * ServiceAccessRoleArn [String](#string)
-  * SslMode [DmsSslModeValue](#dmssslmodevalue)
-  * Username [String](#string)
+  * CertificateArn
+  * DatabaseName
+  * DmsTransferSettings
+    * BucketName
+    * ServiceAccessRoleArn
+  * DocDbSettings
+    * DatabaseName
+    * DocsToInvestigate
+    * ExtractDocId
+    * KmsKeyId
+    * NestingLevel
+    * Password
+    * Port
+    * ServerName
+    * Username
+  * DynamoDbSettings
+    * ServiceAccessRoleArn **required**
+  * ElasticsearchSettings
+    * EndpointUri **required**
+    * ErrorRetryDuration
+    * FullLoadErrorPercentage
+    * ServiceAccessRoleArn **required**
+  * EndpointArn **required**
+  * EndpointIdentifier
+  * EndpointType
+  * EngineName
+  * ExternalTableDefinition
+  * ExtraConnectionAttributes
+  * IBMDb2Settings
+    * CurrentLsn
+    * DatabaseName
+    * MaxKBytesPerRead
+    * Password
+    * Port
+    * ServerName
+    * SetDataCaptureChanges
+    * Username
+  * KafkaSettings
+    * Broker
+    * IncludeControlDetails
+    * IncludeNullAndEmpty
+    * IncludePartitionValue
+    * IncludeTableAlterOperations
+    * IncludeTransactionDetails
+    * MessageFormat
+    * MessageMaxBytes
+    * PartitionIncludeSchemaTable
+    * Topic
+  * KinesisSettings
+    * IncludeControlDetails
+    * IncludeNullAndEmpty
+    * IncludePartitionValue
+    * IncludeTableAlterOperations
+    * IncludeTransactionDetails
+    * MessageFormat
+    * PartitionIncludeSchemaTable
+    * ServiceAccessRoleArn
+    * StreamArn
+  * MicrosoftSQLServerSettings
+    * BcpPacketSize
+    * ControlTablesFileGroup
+    * DatabaseName
+    * Password
+    * Port
+    * ReadBackupOnly
+    * SafeguardPolicy
+    * ServerName
+    * UseBcpFullLoad
+    * Username
+  * MongoDbSettings
+    * AuthMechanism
+    * AuthSource
+    * AuthType
+    * DatabaseName
+    * DocsToInvestigate
+    * ExtractDocId
+    * KmsKeyId
+    * NestingLevel
+    * Password
+    * Port
+    * ServerName
+    * Username
+  * MySQLSettings
+    * AfterConnectScript
+    * DatabaseName
+    * EventsPollInterval
+    * MaxFileSize
+    * ParallelLoadThreads
+    * Password
+    * Port
+    * ServerName
+    * ServerTimezone
+    * TargetDbType
+    * Username
+  * NeptuneSettings
+    * ErrorRetryDuration
+    * IamAuthEnabled
+    * MaxFileSize
+    * MaxRetryCount
+    * S3BucketFolder **required**
+    * S3BucketName **required**
+    * ServiceAccessRoleArn
+  * OracleSettings
+    * AccessAlternateDirectly
+    * AddSupplementalLogging
+    * AdditionalArchivedLogDestId
+    * AllowSelectNestedTables
+    * ArchivedLogDestId
+    * ArchivedLogsOnly
+    * AsmPassword
+    * AsmServer
+    * AsmUser
+    * CharLengthSemantics
+    * DatabaseName
+    * DirectPathNoLog
+    * DirectPathParallelLoad
+    * EnableHomogenousTablespace
+    * FailTasksOnLobTruncation
+    * NumberDatatypeScale
+    * OraclePathPrefix
+    * ParallelAsmReadThreads
+    * Password
+    * Port
+    * ReadAheadBlocks
+    * ReadTableSpaceName
+    * ReplacePathPrefix
+    * RetryInterval
+    * SecurityDbEncryption
+    * SecurityDbEncryptionName
+    * ServerName
+    * UseAlternateFolderForOnline
+    * UsePathPrefix
+    * Username
+  * Password
+  * Port
+  * PostgreSQLSettings
+    * AfterConnectScript
+    * CaptureDdls
+    * DatabaseName
+    * DdlArtifactsSchema
+    * ExecuteTimeout
+    * FailTasksOnLobTruncation
+    * MaxFileSize
+    * Password
+    * Port
+    * ServerName
+    * SlotName
+    * Username
+  * RedshiftSettings [RedshiftSettings](#redshiftsettings)
+  * S3Settings
+    * BucketFolder
+    * BucketName
+    * CdcInsertsAndUpdates
+    * CdcInsertsOnly
+    * CdcPath
+    * CompressionType
+    * CsvDelimiter
+    * CsvNoSupValue
+    * CsvRowDelimiter
+    * DataFormat
+    * DataPageSize
+    * DatePartitionDelimiter
+    * DatePartitionEnabled
+    * DatePartitionSequence
+    * DictPageSizeLimit
+    * EnableStatistics
+    * EncodingType
+    * EncryptionMode
+    * ExternalTableDefinition
+    * IncludeOpForFullLoad
+    * ParquetTimestampInMillisecond
+    * ParquetVersion
+    * PreserveTransactions
+    * RowGroupLength
+    * ServerSideEncryptionKmsKeyId
+    * ServiceAccessRoleArn
+    * TimestampColumnName
+    * UseCsvNoSupValue
+  * ServerName
+  * ServiceAccessRoleArn
+  * SslMode
+  * SybaseSettings
+    * DatabaseName
+    * Password
+    * Port
+    * ServerName
+    * Username
+  * Username
 
 ### ModifyEndpointResponse
 * ModifyEndpointResponse `object`: <p/>
-  * Endpoint [Endpoint](#endpoint)
+  * Endpoint
+    * CertificateArn
+    * DatabaseName
+    * DmsTransferSettings
+      * BucketName
+      * ServiceAccessRoleArn
+    * DocDbSettings [DocDbSettings](#docdbsettings)
+    * DynamoDbSettings
+      * ServiceAccessRoleArn **required**
+    * ElasticsearchSettings
+      * EndpointUri **required**
+      * ErrorRetryDuration
+      * FullLoadErrorPercentage
+      * ServiceAccessRoleArn **required**
+    * EndpointArn
+    * EndpointIdentifier
+    * EndpointType
+    * EngineDisplayName
+    * EngineName
+    * ExternalId
+    * ExternalTableDefinition
+    * ExtraConnectionAttributes
+    * IBMDb2Settings
+      * CurrentLsn
+      * DatabaseName
+      * MaxKBytesPerRead
+      * Password
+      * Port
+      * ServerName
+      * SetDataCaptureChanges
+      * Username
+    * KafkaSettings
+      * Broker
+      * IncludeControlDetails
+      * IncludeNullAndEmpty
+      * IncludePartitionValue
+      * IncludeTableAlterOperations
+      * IncludeTransactionDetails
+      * MessageFormat
+      * MessageMaxBytes
+      * PartitionIncludeSchemaTable
+      * Topic
+    * KinesisSettings
+      * IncludeControlDetails
+      * IncludeNullAndEmpty
+      * IncludePartitionValue
+      * IncludeTableAlterOperations
+      * IncludeTransactionDetails
+      * MessageFormat
+      * PartitionIncludeSchemaTable
+      * ServiceAccessRoleArn
+      * StreamArn
+    * KmsKeyId
+    * MicrosoftSQLServerSettings
+      * BcpPacketSize
+      * ControlTablesFileGroup
+      * DatabaseName
+      * Password
+      * Port
+      * ReadBackupOnly
+      * SafeguardPolicy
+      * ServerName
+      * UseBcpFullLoad
+      * Username
+    * MongoDbSettings
+      * AuthMechanism
+      * AuthSource
+      * AuthType
+      * DatabaseName
+      * DocsToInvestigate
+      * ExtractDocId
+      * KmsKeyId
+      * NestingLevel
+      * Password
+      * Port
+      * ServerName
+      * Username
+    * MySQLSettings
+      * AfterConnectScript
+      * DatabaseName
+      * EventsPollInterval
+      * MaxFileSize
+      * ParallelLoadThreads
+      * Password
+      * Port
+      * ServerName
+      * ServerTimezone
+      * TargetDbType
+      * Username
+    * NeptuneSettings
+      * ErrorRetryDuration
+      * IamAuthEnabled
+      * MaxFileSize
+      * MaxRetryCount
+      * S3BucketFolder **required**
+      * S3BucketName **required**
+      * ServiceAccessRoleArn
+    * OracleSettings
+      * AccessAlternateDirectly
+      * AddSupplementalLogging
+      * AdditionalArchivedLogDestId
+      * AllowSelectNestedTables
+      * ArchivedLogDestId
+      * ArchivedLogsOnly
+      * AsmPassword
+      * AsmServer
+      * AsmUser
+      * CharLengthSemantics
+      * DatabaseName
+      * DirectPathNoLog
+      * DirectPathParallelLoad
+      * EnableHomogenousTablespace
+      * FailTasksOnLobTruncation
+      * NumberDatatypeScale
+      * OraclePathPrefix
+      * ParallelAsmReadThreads
+      * Password
+      * Port
+      * ReadAheadBlocks
+      * ReadTableSpaceName
+      * ReplacePathPrefix
+      * RetryInterval
+      * SecurityDbEncryption
+      * SecurityDbEncryptionName
+      * ServerName
+      * UseAlternateFolderForOnline
+      * UsePathPrefix
+      * Username
+    * Port
+    * PostgreSQLSettings
+      * AfterConnectScript
+      * CaptureDdls
+      * DatabaseName
+      * DdlArtifactsSchema
+      * ExecuteTimeout
+      * FailTasksOnLobTruncation
+      * MaxFileSize
+      * Password
+      * Port
+      * ServerName
+      * SlotName
+      * Username
+    * RedshiftSettings
+      * AcceptAnyDate
+      * AfterConnectScript
+      * BucketFolder
+      * BucketName
+      * CaseSensitiveNames
+      * CompUpdate
+      * ConnectionTimeout
+      * DatabaseName
+      * DateFormat
+      * EmptyAsNull
+      * EncryptionMode
+      * ExplicitIds
+      * FileTransferUploadStreams
+      * LoadTimeout
+      * MaxFileSize
+      * Password
+      * Port
+      * RemoveQuotes
+      * ReplaceChars
+      * ReplaceInvalidChars
+      * ServerName
+      * ServerSideEncryptionKmsKeyId
+      * ServiceAccessRoleArn
+      * TimeFormat
+      * TrimBlanks
+      * TruncateColumns
+      * Username
+      * WriteBufferSize
+    * S3Settings
+      * BucketFolder
+      * BucketName
+      * CdcInsertsAndUpdates
+      * CdcInsertsOnly
+      * CdcPath
+      * CompressionType
+      * CsvDelimiter
+      * CsvNoSupValue
+      * CsvRowDelimiter
+      * DataFormat
+      * DataPageSize
+      * DatePartitionDelimiter
+      * DatePartitionEnabled
+      * DatePartitionSequence
+      * DictPageSizeLimit
+      * EnableStatistics
+      * EncodingType
+      * EncryptionMode
+      * ExternalTableDefinition
+      * IncludeOpForFullLoad
+      * ParquetTimestampInMillisecond
+      * ParquetVersion
+      * PreserveTransactions
+      * RowGroupLength
+      * ServerSideEncryptionKmsKeyId
+      * ServiceAccessRoleArn
+      * TimestampColumnName
+      * UseCsvNoSupValue
+    * ServerName
+    * ServiceAccessRoleArn
+    * SslMode
+    * Status
+    * SybaseSettings
+      * DatabaseName
+      * Password
+      * Port
+      * ServerName
+      * Username
+    * Username
 
 ### ModifyEventSubscriptionMessage
 * ModifyEventSubscriptionMessage `object`: <p/>
-  * Enabled [BooleanOptional](#booleanoptional)
-  * EventCategories [EventCategoriesList](#eventcategorieslist)
-  * SnsTopicArn [String](#string)
-  * SourceType [String](#string)
-  * SubscriptionName **required** [String](#string)
+  * Enabled
+  * EventCategories
+    * items [String](#string)
+  * SnsTopicArn
+  * SourceType
+  * SubscriptionName **required**
 
 ### ModifyEventSubscriptionResponse
 * ModifyEventSubscriptionResponse `object`: <p/>
-  * EventSubscription [EventSubscription](#eventsubscription)
+  * EventSubscription
+    * CustSubscriptionId
+    * CustomerAwsId
+    * Enabled
+    * EventCategoriesList
+      * items [String](#string)
+    * SnsTopicArn
+    * SourceIdsList
+      * items [String](#string)
+    * SourceType
+    * Status
+    * SubscriptionCreationTime
 
 ### ModifyReplicationInstanceMessage
 * ModifyReplicationInstanceMessage `object`: <p/>
-  * AllocatedStorage [IntegerOptional](#integeroptional)
-  * AllowMajorVersionUpgrade [Boolean](#boolean)
-  * ApplyImmediately [Boolean](#boolean)
-  * AutoMinorVersionUpgrade [BooleanOptional](#booleanoptional)
-  * EngineVersion [String](#string)
-  * MultiAZ [BooleanOptional](#booleanoptional)
-  * PreferredMaintenanceWindow [String](#string)
-  * ReplicationInstanceArn **required** [String](#string)
-  * ReplicationInstanceClass [String](#string)
-  * ReplicationInstanceIdentifier [String](#string)
-  * VpcSecurityGroupIds [VpcSecurityGroupIdList](#vpcsecuritygroupidlist)
+  * AllocatedStorage
+  * AllowMajorVersionUpgrade
+  * ApplyImmediately
+  * AutoMinorVersionUpgrade
+  * EngineVersion
+  * MultiAZ
+  * PreferredMaintenanceWindow
+  * ReplicationInstanceArn **required**
+  * ReplicationInstanceClass
+  * ReplicationInstanceIdentifier
+  * VpcSecurityGroupIds
+    * items [String](#string)
 
 ### ModifyReplicationInstanceResponse
 * ModifyReplicationInstanceResponse `object`: <p/>
-  * ReplicationInstance [ReplicationInstance](#replicationinstance)
+  * ReplicationInstance
+    * AllocatedStorage
+    * AutoMinorVersionUpgrade
+    * AvailabilityZone
+    * DnsNameServers
+    * EngineVersion
+    * FreeUntil
+    * InstanceCreateTime
+    * KmsKeyId
+    * MultiAZ
+    * PendingModifiedValues
+      * AllocatedStorage
+      * EngineVersion
+      * MultiAZ
+      * ReplicationInstanceClass
+    * PreferredMaintenanceWindow
+    * PubliclyAccessible
+    * ReplicationInstanceArn
+    * ReplicationInstanceClass
+    * ReplicationInstanceIdentifier
+    * ReplicationInstancePrivateIpAddress
+    * ReplicationInstancePrivateIpAddresses
+      * items [String](#string)
+    * ReplicationInstancePublicIpAddress
+    * ReplicationInstancePublicIpAddresses
+      * items [String](#string)
+    * ReplicationInstanceStatus
+    * ReplicationSubnetGroup
+      * ReplicationSubnetGroupDescription
+      * ReplicationSubnetGroupIdentifier
+      * SubnetGroupStatus
+      * Subnets
+        * items [Subnet](#subnet)
+      * VpcId
+    * SecondaryAvailabilityZone
+    * VpcSecurityGroups
+      * items [VpcSecurityGroupMembership](#vpcsecuritygroupmembership)
 
 ### ModifyReplicationSubnetGroupMessage
 * ModifyReplicationSubnetGroupMessage `object`: <p/>
-  * ReplicationSubnetGroupDescription [String](#string)
-  * ReplicationSubnetGroupIdentifier **required** [String](#string)
-  * SubnetIds **required** [SubnetIdentifierList](#subnetidentifierlist)
+  * ReplicationSubnetGroupDescription
+  * ReplicationSubnetGroupIdentifier **required**
+  * SubnetIds **required**
+    * items [String](#string)
 
 ### ModifyReplicationSubnetGroupResponse
 * ModifyReplicationSubnetGroupResponse `object`: <p/>
-  * ReplicationSubnetGroup [ReplicationSubnetGroup](#replicationsubnetgroup)
+  * ReplicationSubnetGroup
+    * ReplicationSubnetGroupDescription
+    * ReplicationSubnetGroupIdentifier
+    * SubnetGroupStatus
+    * Subnets
+      * items [Subnet](#subnet)
+    * VpcId
 
 ### ModifyReplicationTaskMessage
 * ModifyReplicationTaskMessage `object`: <p/>
-  * CdcStartPosition [String](#string)
-  * CdcStartTime [TStamp](#tstamp)
-  * CdcStopPosition [String](#string)
-  * MigrationType [MigrationTypeValue](#migrationtypevalue)
-  * ReplicationTaskArn **required** [String](#string)
-  * ReplicationTaskIdentifier [String](#string)
-  * ReplicationTaskSettings [String](#string)
-  * TableMappings [String](#string)
+  * CdcStartPosition
+  * CdcStartTime
+  * CdcStopPosition
+  * MigrationType
+  * ReplicationTaskArn **required**
+  * ReplicationTaskIdentifier
+  * ReplicationTaskSettings
+  * TableMappings
+  * TaskData
 
 ### ModifyReplicationTaskResponse
 * ModifyReplicationTaskResponse `object`: <p/>
-  * ReplicationTask [ReplicationTask](#replicationtask)
+  * ReplicationTask
+    * CdcStartPosition
+    * CdcStopPosition
+    * LastFailureMessage
+    * MigrationType
+    * RecoveryCheckpoint
+    * ReplicationInstanceArn
+    * ReplicationTaskArn
+    * ReplicationTaskCreationDate
+    * ReplicationTaskIdentifier
+    * ReplicationTaskSettings
+    * ReplicationTaskStartDate
+    * ReplicationTaskStats
+      * ElapsedTimeMillis
+      * FreshStartDate
+      * FullLoadFinishDate
+      * FullLoadProgressPercent
+      * FullLoadStartDate
+      * StartDate
+      * StopDate
+      * TablesErrored
+      * TablesLoaded
+      * TablesLoading
+      * TablesQueued
+    * SourceEndpointArn
+    * Status
+    * StopReason
+    * TableMappings
+    * TargetEndpointArn
+    * TargetReplicationInstanceArn
+    * TaskData
 
 ### MongoDbSettings
-* MongoDbSettings `object`: <p/>
-  * AuthMechanism [AuthMechanismValue](#authmechanismvalue)
-  * AuthSource [String](#string)
-  * AuthType [AuthTypeValue](#authtypevalue)
-  * DatabaseName [String](#string)
-  * DocsToInvestigate [String](#string)
-  * ExtractDocId [String](#string)
-  * KmsKeyId [String](#string)
-  * NestingLevel [NestingLevelValue](#nestinglevelvalue)
-  * Password [SecretString](#secretstring)
-  * Port [IntegerOptional](#integeroptional)
-  * ServerName [String](#string)
-  * Username [String](#string)
+* MongoDbSettings `object`: Provides information that defines a MongoDB endpoint.
+  * AuthMechanism
+  * AuthSource
+  * AuthType
+  * DatabaseName
+  * DocsToInvestigate
+  * ExtractDocId
+  * KmsKeyId
+  * NestingLevel
+  * Password
+  * Port
+  * ServerName
+  * Username
+
+### MoveReplicationTaskMessage
+* MoveReplicationTaskMessage `object`: <p/>
+  * ReplicationTaskArn **required**
+  * TargetReplicationInstanceArn **required**
+
+### MoveReplicationTaskResponse
+* MoveReplicationTaskResponse `object`: <p/>
+  * ReplicationTask
+    * CdcStartPosition
+    * CdcStopPosition
+    * LastFailureMessage
+    * MigrationType
+    * RecoveryCheckpoint
+    * ReplicationInstanceArn
+    * ReplicationTaskArn
+    * ReplicationTaskCreationDate
+    * ReplicationTaskIdentifier
+    * ReplicationTaskSettings
+    * ReplicationTaskStartDate
+    * ReplicationTaskStats
+      * ElapsedTimeMillis
+      * FreshStartDate
+      * FullLoadFinishDate
+      * FullLoadProgressPercent
+      * FullLoadStartDate
+      * StartDate
+      * StopDate
+      * TablesErrored
+      * TablesLoaded
+      * TablesLoading
+      * TablesQueued
+    * SourceEndpointArn
+    * Status
+    * StopReason
+    * TableMappings
+    * TargetEndpointArn
+    * TargetReplicationInstanceArn
+    * TaskData
+
+### MySQLSettings
+* MySQLSettings `object`: Provides information that defines a MySQL endpoint.
+  * AfterConnectScript
+  * DatabaseName
+  * EventsPollInterval
+  * MaxFileSize
+  * ParallelLoadThreads
+  * Password
+  * Port
+  * ServerName
+  * ServerTimezone
+  * TargetDbType
+  * Username
+
+### NeptuneSettings
+* NeptuneSettings `object`: Provides information that defines an Amazon Neptune endpoint.
+  * ErrorRetryDuration
+  * IamAuthEnabled
+  * MaxFileSize
+  * MaxRetryCount
+  * S3BucketFolder **required**
+  * S3BucketName **required**
+  * ServiceAccessRoleArn
 
 ### NestingLevelValue
 * NestingLevelValue `string` (values: none, one)
 
+### OracleSettings
+* OracleSettings `object`: Provides information that defines an Oracle endpoint.
+  * AccessAlternateDirectly
+  * AddSupplementalLogging
+  * AdditionalArchivedLogDestId
+  * AllowSelectNestedTables
+  * ArchivedLogDestId
+  * ArchivedLogsOnly
+  * AsmPassword
+  * AsmServer
+  * AsmUser
+  * CharLengthSemantics
+  * DatabaseName
+  * DirectPathNoLog
+  * DirectPathParallelLoad
+  * EnableHomogenousTablespace
+  * FailTasksOnLobTruncation
+  * NumberDatatypeScale
+  * OraclePathPrefix
+  * ParallelAsmReadThreads
+  * Password
+  * Port
+  * ReadAheadBlocks
+  * ReadTableSpaceName
+  * ReplacePathPrefix
+  * RetryInterval
+  * SecurityDbEncryption
+  * SecurityDbEncryptionName
+  * ServerName
+  * UseAlternateFolderForOnline
+  * UsePathPrefix
+  * Username
+
 ### OrderableReplicationInstance
-* OrderableReplicationInstance `object`: <p/>
-  * DefaultAllocatedStorage [Integer](#integer)
-  * EngineVersion [String](#string)
-  * IncludedAllocatedStorage [Integer](#integer)
-  * MaxAllocatedStorage [Integer](#integer)
-  * MinAllocatedStorage [Integer](#integer)
-  * ReplicationInstanceClass [String](#string)
-  * StorageType [String](#string)
+* OrderableReplicationInstance `object`: In response to the <code>DescribeOrderableReplicationInstances</code> operation, this object describes an available replication instance. This description includes the replication instance's type, engine version, and allocated storage.
+  * AvailabilityZones
+    * items [String](#string)
+  * DefaultAllocatedStorage
+  * EngineVersion
+  * IncludedAllocatedStorage
+  * MaxAllocatedStorage
+  * MinAllocatedStorage
+  * ReleaseStatus
+  * ReplicationInstanceClass
+  * StorageType
 
 ### OrderableReplicationInstanceList
 * OrderableReplicationInstanceList `array`
   * items [OrderableReplicationInstance](#orderablereplicationinstance)
 
+### ParquetVersionValue
+* ParquetVersionValue `string` (values: parquet-1-0, parquet-2-0)
+
+### PendingMaintenanceAction
+* PendingMaintenanceAction `object`: Describes a maintenance action pending for an AWS DMS resource, including when and how it will be applied. This data type is a response element to the <code>DescribePendingMaintenanceActions</code> operation.
+  * Action
+  * AutoAppliedAfterDate
+  * CurrentApplyDate
+  * Description
+  * ForcedApplyDate
+  * OptInStatus
+
+### PendingMaintenanceActionDetails
+* PendingMaintenanceActionDetails `array`
+  * items [PendingMaintenanceAction](#pendingmaintenanceaction)
+
+### PendingMaintenanceActions
+* PendingMaintenanceActions `array`
+  * items [ResourcePendingMaintenanceActions](#resourcependingmaintenanceactions)
+
+### PostgreSQLSettings
+* PostgreSQLSettings `object`: Provides information that defines a PostgreSQL endpoint.
+  * AfterConnectScript
+  * CaptureDdls
+  * DatabaseName
+  * DdlArtifactsSchema
+  * ExecuteTimeout
+  * FailTasksOnLobTruncation
+  * MaxFileSize
+  * Password
+  * Port
+  * ServerName
+  * SlotName
+  * Username
+
 ### RebootReplicationInstanceMessage
 * RebootReplicationInstanceMessage `object`
-  * ForceFailover [BooleanOptional](#booleanoptional)
-  * ReplicationInstanceArn **required** [String](#string)
+  * ForceFailover
+  * ReplicationInstanceArn **required**
 
 ### RebootReplicationInstanceResponse
 * RebootReplicationInstanceResponse `object`
-  * ReplicationInstance [ReplicationInstance](#replicationinstance)
+  * ReplicationInstance
+    * AllocatedStorage
+    * AutoMinorVersionUpgrade
+    * AvailabilityZone
+    * DnsNameServers
+    * EngineVersion
+    * FreeUntil
+    * InstanceCreateTime
+    * KmsKeyId
+    * MultiAZ
+    * PendingModifiedValues
+      * AllocatedStorage
+      * EngineVersion
+      * MultiAZ
+      * ReplicationInstanceClass
+    * PreferredMaintenanceWindow
+    * PubliclyAccessible
+    * ReplicationInstanceArn
+    * ReplicationInstanceClass
+    * ReplicationInstanceIdentifier
+    * ReplicationInstancePrivateIpAddress
+    * ReplicationInstancePrivateIpAddresses
+      * items [String](#string)
+    * ReplicationInstancePublicIpAddress
+    * ReplicationInstancePublicIpAddresses
+      * items [String](#string)
+    * ReplicationInstanceStatus
+    * ReplicationSubnetGroup
+      * ReplicationSubnetGroupDescription
+      * ReplicationSubnetGroupIdentifier
+      * SubnetGroupStatus
+      * Subnets
+        * items [Subnet](#subnet)
+      * VpcId
+    * SecondaryAvailabilityZone
+    * VpcSecurityGroups
+      * items [VpcSecurityGroupMembership](#vpcsecuritygroupmembership)
+
+### RedshiftSettings
+* RedshiftSettings `object`: Provides information that defines an Amazon Redshift endpoint.
+  * AcceptAnyDate
+  * AfterConnectScript
+  * BucketFolder
+  * BucketName
+  * CaseSensitiveNames
+  * CompUpdate
+  * ConnectionTimeout
+  * DatabaseName
+  * DateFormat
+  * EmptyAsNull
+  * EncryptionMode
+  * ExplicitIds
+  * FileTransferUploadStreams
+  * LoadTimeout
+  * MaxFileSize
+  * Password
+  * Port
+  * RemoveQuotes
+  * ReplaceChars
+  * ReplaceInvalidChars
+  * ServerName
+  * ServerSideEncryptionKmsKeyId
+  * ServiceAccessRoleArn
+  * TimeFormat
+  * TrimBlanks
+  * TruncateColumns
+  * Username
+  * WriteBufferSize
 
 ### RefreshSchemasMessage
 * RefreshSchemasMessage `object`: <p/>
-  * EndpointArn **required** [String](#string)
-  * ReplicationInstanceArn **required** [String](#string)
+  * EndpointArn **required**
+  * ReplicationInstanceArn **required**
 
 ### RefreshSchemasResponse
 * RefreshSchemasResponse `object`: <p/>
-  * RefreshSchemasStatus [RefreshSchemasStatus](#refreshschemasstatus)
+  * RefreshSchemasStatus
+    * EndpointArn
+    * LastFailureMessage
+    * LastRefreshDate
+    * ReplicationInstanceArn
+    * Status
 
 ### RefreshSchemasStatus
-* RefreshSchemasStatus `object`: <p/>
-  * EndpointArn [String](#string)
-  * LastFailureMessage [String](#string)
-  * LastRefreshDate [TStamp](#tstamp)
-  * ReplicationInstanceArn [String](#string)
-  * Status [RefreshSchemasStatusTypeValue](#refreshschemasstatustypevalue)
+* RefreshSchemasStatus `object`: Provides information that describes status of a schema at an endpoint specified by the <code>DescribeRefreshSchemaStatus</code> operation.
+  * EndpointArn
+  * LastFailureMessage
+  * LastRefreshDate
+  * ReplicationInstanceArn
+  * Status
 
 ### RefreshSchemasStatusTypeValue
 * RefreshSchemasStatusTypeValue `string` (values: successful, failed, refreshing)
 
+### ReleaseStatusValues
+* ReleaseStatusValues `string` (values: beta)
+
+### ReloadOptionValue
+* ReloadOptionValue `string` (values: data-reload, validate-only)
+
 ### ReloadTablesMessage
 * ReloadTablesMessage `object`
-  * ReplicationTaskArn **required** [String](#string)
-  * TablesToReload **required** [TableListToReload](#tablelisttoreload)
+  * ReloadOption
+  * ReplicationTaskArn **required**
+  * TablesToReload **required**
+    * items [TableToReload](#tabletoreload)
 
 ### ReloadTablesResponse
 * ReloadTablesResponse `object`
-  * ReplicationTaskArn [String](#string)
+  * ReplicationTaskArn
 
 ### RemoveTagsFromResourceMessage
-* RemoveTagsFromResourceMessage `object`: <p/>
-  * ResourceArn **required** [String](#string)
-  * TagKeys **required** [KeyList](#keylist)
+* RemoveTagsFromResourceMessage `object`: Removes one or more tags from an AWS DMS resource.
+  * ResourceArn **required**
+  * TagKeys **required**
+    * items [String](#string)
 
 ### RemoveTagsFromResourceResponse
 * RemoveTagsFromResourceResponse `object`: <p/>
@@ -1638,29 +4150,43 @@ amazonaws_dms.TestConnection({
 * ReplicationEndpointTypeValue `string` (values: source, target)
 
 ### ReplicationInstance
-* ReplicationInstance `object`: <p/>
-  * AllocatedStorage [Integer](#integer)
-  * AutoMinorVersionUpgrade [Boolean](#boolean)
-  * AvailabilityZone [String](#string)
-  * EngineVersion [String](#string)
-  * FreeUntil [TStamp](#tstamp)
-  * InstanceCreateTime [TStamp](#tstamp)
-  * KmsKeyId [String](#string)
-  * MultiAZ [Boolean](#boolean)
-  * PendingModifiedValues [ReplicationPendingModifiedValues](#replicationpendingmodifiedvalues)
-  * PreferredMaintenanceWindow [String](#string)
-  * PubliclyAccessible [Boolean](#boolean)
-  * ReplicationInstanceArn [String](#string)
-  * ReplicationInstanceClass [String](#string)
-  * ReplicationInstanceIdentifier [String](#string)
-  * ReplicationInstancePrivateIpAddress [String](#string)
-  * ReplicationInstancePrivateIpAddresses [ReplicationInstancePrivateIpAddressList](#replicationinstanceprivateipaddresslist)
-  * ReplicationInstancePublicIpAddress [String](#string)
-  * ReplicationInstancePublicIpAddresses [ReplicationInstancePublicIpAddressList](#replicationinstancepublicipaddresslist)
-  * ReplicationInstanceStatus [String](#string)
-  * ReplicationSubnetGroup [ReplicationSubnetGroup](#replicationsubnetgroup)
-  * SecondaryAvailabilityZone [String](#string)
-  * VpcSecurityGroups [VpcSecurityGroupMembershipList](#vpcsecuritygroupmembershiplist)
+* ReplicationInstance `object`: Provides information that defines a replication instance.
+  * AllocatedStorage
+  * AutoMinorVersionUpgrade
+  * AvailabilityZone
+  * DnsNameServers
+  * EngineVersion
+  * FreeUntil
+  * InstanceCreateTime
+  * KmsKeyId
+  * MultiAZ
+  * PendingModifiedValues
+    * AllocatedStorage
+    * EngineVersion
+    * MultiAZ
+    * ReplicationInstanceClass
+  * PreferredMaintenanceWindow
+  * PubliclyAccessible
+  * ReplicationInstanceArn
+  * ReplicationInstanceClass
+  * ReplicationInstanceIdentifier
+  * ReplicationInstancePrivateIpAddress
+  * ReplicationInstancePrivateIpAddresses
+    * items [String](#string)
+  * ReplicationInstancePublicIpAddress
+  * ReplicationInstancePublicIpAddresses
+    * items [String](#string)
+  * ReplicationInstanceStatus
+  * ReplicationSubnetGroup
+    * ReplicationSubnetGroupDescription
+    * ReplicationSubnetGroupIdentifier
+    * SubnetGroupStatus
+    * Subnets
+      * items [Subnet](#subnet)
+    * VpcId
+  * SecondaryAvailabilityZone
+  * VpcSecurityGroups
+    * items [VpcSecurityGroupMembership](#vpcsecuritygroupmembership)
 
 ### ReplicationInstanceList
 * ReplicationInstanceList `array`
@@ -1676,113 +4202,200 @@ amazonaws_dms.TestConnection({
 
 ### ReplicationInstanceTaskLog
 * ReplicationInstanceTaskLog `object`: Contains metadata for a replication instance task log.
-  * ReplicationInstanceTaskLogSize [Long](#long)
-  * ReplicationTaskArn [String](#string)
-  * ReplicationTaskName [String](#string)
+  * ReplicationInstanceTaskLogSize
+  * ReplicationTaskArn
+  * ReplicationTaskName
 
 ### ReplicationInstanceTaskLogsList
 * ReplicationInstanceTaskLogsList `array`
   * items [ReplicationInstanceTaskLog](#replicationinstancetasklog)
 
 ### ReplicationPendingModifiedValues
-* ReplicationPendingModifiedValues `object`: <p/>
-  * AllocatedStorage [IntegerOptional](#integeroptional)
-  * EngineVersion [String](#string)
-  * MultiAZ [BooleanOptional](#booleanoptional)
-  * ReplicationInstanceClass [String](#string)
+* ReplicationPendingModifiedValues `object`: Provides information about the values of pending modifications to a replication instance. This data type is an object of the <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_ReplicationInstance.html"> <code>ReplicationInstance</code> </a> user-defined data type. 
+  * AllocatedStorage
+  * EngineVersion
+  * MultiAZ
+  * ReplicationInstanceClass
 
 ### ReplicationSubnetGroup
-* ReplicationSubnetGroup `object`: <p/>
-  * ReplicationSubnetGroupDescription [String](#string)
-  * ReplicationSubnetGroupIdentifier [String](#string)
-  * SubnetGroupStatus [String](#string)
-  * Subnets [SubnetList](#subnetlist)
-  * VpcId [String](#string)
+* ReplicationSubnetGroup `object`: Describes a subnet group in response to a request by the <code>DescribeReplicationSubnetGroups</code> operation.
+  * ReplicationSubnetGroupDescription
+  * ReplicationSubnetGroupIdentifier
+  * SubnetGroupStatus
+  * Subnets
+    * items [Subnet](#subnet)
+  * VpcId
 
 ### ReplicationSubnetGroupDoesNotCoverEnoughAZs
-* ReplicationSubnetGroupDoesNotCoverEnoughAZs `object`: The replication subnet group does not cover enough Availability Zones (AZs). Edit the replication subnet group and add more AZs.
-  * message [ExceptionMessage](#exceptionmessage)
+
 
 ### ReplicationSubnetGroups
 * ReplicationSubnetGroups `array`
   * items [ReplicationSubnetGroup](#replicationsubnetgroup)
 
 ### ReplicationTask
-* ReplicationTask `object`: <p/>
-  * CdcStartPosition [String](#string)
-  * CdcStopPosition [String](#string)
-  * LastFailureMessage [String](#string)
-  * MigrationType [MigrationTypeValue](#migrationtypevalue)
-  * RecoveryCheckpoint [String](#string)
-  * ReplicationInstanceArn [String](#string)
-  * ReplicationTaskArn [String](#string)
-  * ReplicationTaskCreationDate [TStamp](#tstamp)
-  * ReplicationTaskIdentifier [String](#string)
-  * ReplicationTaskSettings [String](#string)
-  * ReplicationTaskStartDate [TStamp](#tstamp)
-  * ReplicationTaskStats [ReplicationTaskStats](#replicationtaskstats)
-  * SourceEndpointArn [String](#string)
-  * Status [String](#string)
-  * StopReason [String](#string)
-  * TableMappings [String](#string)
-  * TargetEndpointArn [String](#string)
+* ReplicationTask `object`: Provides information that describes a replication task created by the <code>CreateReplicationTask</code> operation.
+  * CdcStartPosition
+  * CdcStopPosition
+  * LastFailureMessage
+  * MigrationType
+  * RecoveryCheckpoint
+  * ReplicationInstanceArn
+  * ReplicationTaskArn
+  * ReplicationTaskCreationDate
+  * ReplicationTaskIdentifier
+  * ReplicationTaskSettings
+  * ReplicationTaskStartDate
+  * ReplicationTaskStats
+    * ElapsedTimeMillis
+    * FreshStartDate
+    * FullLoadFinishDate
+    * FullLoadProgressPercent
+    * FullLoadStartDate
+    * StartDate
+    * StopDate
+    * TablesErrored
+    * TablesLoaded
+    * TablesLoading
+    * TablesQueued
+  * SourceEndpointArn
+  * Status
+  * StopReason
+  * TableMappings
+  * TargetEndpointArn
+  * TargetReplicationInstanceArn
+  * TaskData
 
 ### ReplicationTaskAssessmentResult
 * ReplicationTaskAssessmentResult `object`:  The task assessment report in JSON format. 
-  * AssessmentResults [String](#string)
-  * AssessmentResultsFile [String](#string)
-  * AssessmentStatus [String](#string)
-  * ReplicationTaskArn [String](#string)
-  * ReplicationTaskIdentifier [String](#string)
-  * ReplicationTaskLastAssessmentDate [TStamp](#tstamp)
-  * S3ObjectUrl [String](#string)
+  * AssessmentResults
+  * AssessmentResultsFile
+  * AssessmentStatus
+  * ReplicationTaskArn
+  * ReplicationTaskIdentifier
+  * ReplicationTaskLastAssessmentDate
+  * S3ObjectUrl
 
 ### ReplicationTaskAssessmentResultList
 * ReplicationTaskAssessmentResultList `array`
   * items [ReplicationTaskAssessmentResult](#replicationtaskassessmentresult)
+
+### ReplicationTaskAssessmentRun
+* ReplicationTaskAssessmentRun `object`: <p>Provides information that describes a premigration assessment run that you have started using the <code>StartReplicationTaskAssessmentRun</code> operation.</p> <p>Some of the information appears based on other operations that can return the <code>ReplicationTaskAssessmentRun</code> object.</p>
+  * AssessmentProgress
+    * IndividualAssessmentCompletedCount
+    * IndividualAssessmentCount
+  * AssessmentRunName
+  * LastFailureMessage
+  * ReplicationTaskArn
+  * ReplicationTaskAssessmentRunArn
+  * ReplicationTaskAssessmentRunCreationDate
+  * ResultEncryptionMode
+  * ResultKmsKeyArn
+  * ResultLocationBucket
+  * ResultLocationFolder
+  * ServiceAccessRoleArn
+  * Status
+
+### ReplicationTaskAssessmentRunList
+* ReplicationTaskAssessmentRunList `array`
+  * items [ReplicationTaskAssessmentRun](#replicationtaskassessmentrun)
+
+### ReplicationTaskAssessmentRunProgress
+* ReplicationTaskAssessmentRunProgress `object`: The progress values reported by the <code>AssessmentProgress</code> response element.
+  * IndividualAssessmentCompletedCount
+  * IndividualAssessmentCount
+
+### ReplicationTaskIndividualAssessment
+* ReplicationTaskIndividualAssessment `object`: Provides information that describes an individual assessment from a premigration assessment run.
+  * IndividualAssessmentName
+  * ReplicationTaskAssessmentRunArn
+  * ReplicationTaskIndividualAssessmentArn
+  * ReplicationTaskIndividualAssessmentStartDate
+  * Status
+
+### ReplicationTaskIndividualAssessmentList
+* ReplicationTaskIndividualAssessmentList `array`
+  * items [ReplicationTaskIndividualAssessment](#replicationtaskindividualassessment)
 
 ### ReplicationTaskList
 * ReplicationTaskList `array`
   * items [ReplicationTask](#replicationtask)
 
 ### ReplicationTaskStats
-* ReplicationTaskStats `object`: <p/>
-  * ElapsedTimeMillis [Long](#long)
-  * FullLoadProgressPercent [Integer](#integer)
-  * TablesErrored [Integer](#integer)
-  * TablesLoaded [Integer](#integer)
-  * TablesLoading [Integer](#integer)
-  * TablesQueued [Integer](#integer)
+* ReplicationTaskStats `object`: In response to a request by the <code>DescribeReplicationTasks</code> operation, this object provides a collection of statistics about a replication task.
+  * ElapsedTimeMillis
+  * FreshStartDate
+  * FullLoadFinishDate
+  * FullLoadProgressPercent
+  * FullLoadStartDate
+  * StartDate
+  * StopDate
+  * TablesErrored
+  * TablesLoaded
+  * TablesLoading
+  * TablesQueued
 
 ### ResourceAlreadyExistsFault
-* ResourceAlreadyExistsFault `object`: The resource you are attempting to create already exists.
-  * message [ExceptionMessage](#exceptionmessage)
+
 
 ### ResourceNotFoundFault
-* ResourceNotFoundFault `object`: The resource could not be found.
-  * message [ExceptionMessage](#exceptionmessage)
+
+
+### ResourcePendingMaintenanceActions
+* ResourcePendingMaintenanceActions `object`: Identifies an AWS DMS resource and any pending actions for it.
+  * PendingMaintenanceActionDetails
+    * items [PendingMaintenanceAction](#pendingmaintenanceaction)
+  * ResourceIdentifier
 
 ### ResourceQuotaExceededFault
-* ResourceQuotaExceededFault `object`: The quota for this resource quota has been exceeded.
-  * message [ExceptionMessage](#exceptionmessage)
+
+
+### S3AccessDeniedFault
+
+
+### S3ResourceNotFoundFault
+
 
 ### S3Settings
-* S3Settings `object`: <p/>
-  * BucketFolder [String](#string)
-  * BucketName [String](#string)
-  * CompressionType [CompressionTypeValue](#compressiontypevalue)
-  * CsvDelimiter [String](#string)
-  * CsvRowDelimiter [String](#string)
-  * ExternalTableDefinition [String](#string)
-  * ServiceAccessRoleArn [String](#string)
+* S3Settings `object`: Settings for exporting data to Amazon S3. 
+  * BucketFolder
+  * BucketName
+  * CdcInsertsAndUpdates
+  * CdcInsertsOnly
+  * CdcPath
+  * CompressionType
+  * CsvDelimiter
+  * CsvNoSupValue
+  * CsvRowDelimiter
+  * DataFormat
+  * DataPageSize
+  * DatePartitionDelimiter
+  * DatePartitionEnabled
+  * DatePartitionSequence
+  * DictPageSizeLimit
+  * EnableStatistics
+  * EncodingType
+  * EncryptionMode
+  * ExternalTableDefinition
+  * IncludeOpForFullLoad
+  * ParquetTimestampInMillisecond
+  * ParquetVersion
+  * PreserveTransactions
+  * RowGroupLength
+  * ServerSideEncryptionKmsKeyId
+  * ServiceAccessRoleArn
+  * TimestampColumnName
+  * UseCsvNoSupValue
 
 ### SNSInvalidTopicFault
-* SNSInvalidTopicFault `object`: The SNS topic is invalid.
-  * message [ExceptionMessage](#exceptionmessage)
+
 
 ### SNSNoAuthorizationFault
-* SNSNoAuthorizationFault `object`: You are not authorized for the SNS subscription.
-  * message [ExceptionMessage](#exceptionmessage)
+
+
+### SafeguardPolicy
+* SafeguardPolicy `string` (values: rely-on-sql-server-replication-agent, exclusive-automatic-truncation, shared-automatic-truncation)
 
 ### SchemaList
 * SchemaList `array`
@@ -1800,51 +4413,172 @@ amazonaws_dms.TestConnection({
 
 ### StartReplicationTaskAssessmentMessage
 * StartReplicationTaskAssessmentMessage `object`: <p/>
-  * ReplicationTaskArn **required** [String](#string)
+  * ReplicationTaskArn **required**
 
 ### StartReplicationTaskAssessmentResponse
 * StartReplicationTaskAssessmentResponse `object`: <p/>
-  * ReplicationTask [ReplicationTask](#replicationtask)
+  * ReplicationTask
+    * CdcStartPosition
+    * CdcStopPosition
+    * LastFailureMessage
+    * MigrationType
+    * RecoveryCheckpoint
+    * ReplicationInstanceArn
+    * ReplicationTaskArn
+    * ReplicationTaskCreationDate
+    * ReplicationTaskIdentifier
+    * ReplicationTaskSettings
+    * ReplicationTaskStartDate
+    * ReplicationTaskStats
+      * ElapsedTimeMillis
+      * FreshStartDate
+      * FullLoadFinishDate
+      * FullLoadProgressPercent
+      * FullLoadStartDate
+      * StartDate
+      * StopDate
+      * TablesErrored
+      * TablesLoaded
+      * TablesLoading
+      * TablesQueued
+    * SourceEndpointArn
+    * Status
+    * StopReason
+    * TableMappings
+    * TargetEndpointArn
+    * TargetReplicationInstanceArn
+    * TaskData
+
+### StartReplicationTaskAssessmentRunMessage
+* StartReplicationTaskAssessmentRunMessage `object`: <p/>
+  * AssessmentRunName **required**
+  * Exclude
+    * items [String](#string)
+  * IncludeOnly
+    * items [String](#string)
+  * ReplicationTaskArn **required**
+  * ResultEncryptionMode
+  * ResultKmsKeyArn
+  * ResultLocationBucket **required**
+  * ResultLocationFolder
+  * ServiceAccessRoleArn **required**
+
+### StartReplicationTaskAssessmentRunResponse
+* StartReplicationTaskAssessmentRunResponse `object`: <p/>
+  * ReplicationTaskAssessmentRun
+    * AssessmentProgress
+      * IndividualAssessmentCompletedCount
+      * IndividualAssessmentCount
+    * AssessmentRunName
+    * LastFailureMessage
+    * ReplicationTaskArn
+    * ReplicationTaskAssessmentRunArn
+    * ReplicationTaskAssessmentRunCreationDate
+    * ResultEncryptionMode
+    * ResultKmsKeyArn
+    * ResultLocationBucket
+    * ResultLocationFolder
+    * ServiceAccessRoleArn
+    * Status
 
 ### StartReplicationTaskMessage
 * StartReplicationTaskMessage `object`: <p/>
-  * CdcStartPosition [String](#string)
-  * CdcStartTime [TStamp](#tstamp)
-  * CdcStopPosition [String](#string)
-  * ReplicationTaskArn **required** [String](#string)
-  * StartReplicationTaskType **required** [StartReplicationTaskTypeValue](#startreplicationtasktypevalue)
+  * CdcStartPosition
+  * CdcStartTime
+  * CdcStopPosition
+  * ReplicationTaskArn **required**
+  * StartReplicationTaskType **required**
 
 ### StartReplicationTaskResponse
 * StartReplicationTaskResponse `object`: <p/>
-  * ReplicationTask [ReplicationTask](#replicationtask)
+  * ReplicationTask
+    * CdcStartPosition
+    * CdcStopPosition
+    * LastFailureMessage
+    * MigrationType
+    * RecoveryCheckpoint
+    * ReplicationInstanceArn
+    * ReplicationTaskArn
+    * ReplicationTaskCreationDate
+    * ReplicationTaskIdentifier
+    * ReplicationTaskSettings
+    * ReplicationTaskStartDate
+    * ReplicationTaskStats
+      * ElapsedTimeMillis
+      * FreshStartDate
+      * FullLoadFinishDate
+      * FullLoadProgressPercent
+      * FullLoadStartDate
+      * StartDate
+      * StopDate
+      * TablesErrored
+      * TablesLoaded
+      * TablesLoading
+      * TablesQueued
+    * SourceEndpointArn
+    * Status
+    * StopReason
+    * TableMappings
+    * TargetEndpointArn
+    * TargetReplicationInstanceArn
+    * TaskData
 
 ### StartReplicationTaskTypeValue
 * StartReplicationTaskTypeValue `string` (values: start-replication, resume-processing, reload-target)
 
 ### StopReplicationTaskMessage
 * StopReplicationTaskMessage `object`: <p/>
-  * ReplicationTaskArn **required** [String](#string)
+  * ReplicationTaskArn **required**
 
 ### StopReplicationTaskResponse
 * StopReplicationTaskResponse `object`: <p/>
-  * ReplicationTask [ReplicationTask](#replicationtask)
+  * ReplicationTask
+    * CdcStartPosition
+    * CdcStopPosition
+    * LastFailureMessage
+    * MigrationType
+    * RecoveryCheckpoint
+    * ReplicationInstanceArn
+    * ReplicationTaskArn
+    * ReplicationTaskCreationDate
+    * ReplicationTaskIdentifier
+    * ReplicationTaskSettings
+    * ReplicationTaskStartDate
+    * ReplicationTaskStats
+      * ElapsedTimeMillis
+      * FreshStartDate
+      * FullLoadFinishDate
+      * FullLoadProgressPercent
+      * FullLoadStartDate
+      * StartDate
+      * StopDate
+      * TablesErrored
+      * TablesLoaded
+      * TablesLoading
+      * TablesQueued
+    * SourceEndpointArn
+    * Status
+    * StopReason
+    * TableMappings
+    * TargetEndpointArn
+    * TargetReplicationInstanceArn
+    * TaskData
 
 ### StorageQuotaExceededFault
-* StorageQuotaExceededFault `object`: The storage quota has been exceeded.
-  * message [ExceptionMessage](#exceptionmessage)
+
 
 ### String
 * String `string`
 
 ### Subnet
-* Subnet `object`: <p/>
-  * SubnetAvailabilityZone [AvailabilityZone](#availabilityzone)
-  * SubnetIdentifier [String](#string)
-  * SubnetStatus [String](#string)
+* Subnet `object`: In response to a request by the <code>DescribeReplicationSubnetGroups</code> operation, this object identifies a subnet by its given Availability Zone, subnet identifier, and status.
+  * SubnetAvailabilityZone
+    * Name
+  * SubnetIdentifier
+  * SubnetStatus
 
 ### SubnetAlreadyInUse
-* SubnetAlreadyInUse `object`: The specified subnet is already in use.
-  * message [ExceptionMessage](#exceptionmessage)
+
 
 ### SubnetIdentifierList
 * SubnetIdentifierList `array`
@@ -1855,15 +4589,24 @@ amazonaws_dms.TestConnection({
   * items [Subnet](#subnet)
 
 ### SupportedEndpointType
-* SupportedEndpointType `object`: <p/>
-  * EndpointType [ReplicationEndpointTypeValue](#replicationendpointtypevalue)
-  * EngineDisplayName [String](#string)
-  * EngineName [String](#string)
-  * SupportsCDC [Boolean](#boolean)
+* SupportedEndpointType `object`: Provides information about types of supported endpoints in response to a request by the <code>DescribeEndpointTypes</code> operation. This information includes the type of endpoint, the database engine name, and whether change data capture (CDC) is supported.
+  * EndpointType
+  * EngineDisplayName
+  * EngineName
+  * ReplicationInstanceEngineMinimumVersion
+  * SupportsCDC
 
 ### SupportedEndpointTypeList
 * SupportedEndpointTypeList `array`
   * items [SupportedEndpointType](#supportedendpointtype)
+
+### SybaseSettings
+* SybaseSettings `object`: Provides information that defines a SAP ASE endpoint.
+  * DatabaseName
+  * Password
+  * Port
+  * ServerName
+  * Username
 
 ### TStamp
 * TStamp `string`
@@ -1873,62 +4616,74 @@ amazonaws_dms.TestConnection({
   * items [TableToReload](#tabletoreload)
 
 ### TableStatistics
-* TableStatistics `object`: <p/>
-  * Ddls [Long](#long)
-  * Deletes [Long](#long)
-  * FullLoadCondtnlChkFailedRows [Long](#long)
-  * FullLoadErrorRows [Long](#long)
-  * FullLoadRows [Long](#long)
-  * Inserts [Long](#long)
-  * LastUpdateTime [TStamp](#tstamp)
-  * SchemaName [String](#string)
-  * TableName [String](#string)
-  * TableState [String](#string)
-  * Updates [Long](#long)
-  * ValidationFailedRecords [Long](#long)
-  * ValidationPendingRecords [Long](#long)
-  * ValidationState [String](#string)
-  * ValidationSuspendedRecords [Long](#long)
+* TableStatistics `object`: Provides a collection of table statistics in response to a request by the <code>DescribeTableStatistics</code> operation.
+  * Ddls
+  * Deletes
+  * FullLoadCondtnlChkFailedRows
+  * FullLoadEndTime
+  * FullLoadErrorRows
+  * FullLoadReloaded
+  * FullLoadRows
+  * FullLoadStartTime
+  * Inserts
+  * LastUpdateTime
+  * SchemaName
+  * TableName
+  * TableState
+  * Updates
+  * ValidationFailedRecords
+  * ValidationPendingRecords
+  * ValidationState
+  * ValidationStateDetails
+  * ValidationSuspendedRecords
 
 ### TableStatisticsList
 * TableStatisticsList `array`
   * items [TableStatistics](#tablestatistics)
 
 ### TableToReload
-* TableToReload `object`: <p/>
-  * SchemaName [String](#string)
-  * TableName [String](#string)
+* TableToReload `object`: Provides the name of the schema and table to be reloaded.
+  * SchemaName **required**
+  * TableName **required**
 
 ### Tag
-* Tag `object`: <p/>
-  * Key [String](#string)
-  * Value [String](#string)
+* Tag `object`: <p>A user-defined key-value pair that describes metadata added to an AWS DMS resource and that is used by operations such as the following:</p> <ul> <li> <p> <code>AddTagsToResource</code> </p> </li> <li> <p> <code>ListTagsForResource</code> </p> </li> <li> <p> <code>RemoveTagsFromResource</code> </p> </li> </ul>
+  * Key
+  * Value
 
 ### TagList
 * TagList `array`
   * items [Tag](#tag)
 
+### TargetDbType
+* TargetDbType `string` (values: specific-database, multiple-databases)
+
 ### TestConnectionMessage
 * TestConnectionMessage `object`: <p/>
-  * EndpointArn **required** [String](#string)
-  * ReplicationInstanceArn **required** [String](#string)
+  * EndpointArn **required**
+  * ReplicationInstanceArn **required**
 
 ### TestConnectionResponse
 * TestConnectionResponse `object`: <p/>
-  * Connection [Connection](#connection)
+  * Connection
+    * EndpointArn
+    * EndpointIdentifier
+    * LastFailureMessage
+    * ReplicationInstanceArn
+    * ReplicationInstanceIdentifier
+    * Status
 
 ### UpgradeDependencyFailureFault
-* UpgradeDependencyFailureFault `object`: An upgrade dependency is preventing the database migration.
-  * message [ExceptionMessage](#exceptionmessage)
+
 
 ### VpcSecurityGroupIdList
 * VpcSecurityGroupIdList `array`
   * items [String](#string)
 
 ### VpcSecurityGroupMembership
-* VpcSecurityGroupMembership `object`: <p/>
-  * Status [String](#string)
-  * VpcSecurityGroupId [String](#string)
+* VpcSecurityGroupMembership `object`: Describes the status of a security group associated with the virtual private cloud (VPC) hosting your replication and DB instances.
+  * Status
+  * VpcSecurityGroupId
 
 ### VpcSecurityGroupMembershipList
 * VpcSecurityGroupMembershipList `array`

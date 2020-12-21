@@ -15,9 +15,7 @@ let azure_advisor = require('@datafire/azure_advisor').create({
   redirect_uri: ""
 });
 
-azure_advisor.Operations_List({
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -27,6 +25,42 @@ azure_advisor.Operations_List({
 REST APIs for Azure Advisor
 
 ## Actions
+
+### RecommendationMetadata_List
+Gets the list of metadata entities.
+
+
+```js
+azure_advisor.RecommendationMetadata_List({
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * api-version **required** `string`: The version of the API to be used with the client request.
+
+#### Output
+* output [MetadataEntityListResult](#metadataentitylistresult)
+
+### RecommendationMetadata_Get
+Gets the metadata entity.
+
+
+```js
+azure_advisor.RecommendationMetadata_Get({
+  "name": "",
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * name **required** `string`: Name of metadata entity.
+  * api-version **required** `string`: The version of the API to be used with the client request.
+
+#### Output
+* output [MetadataEntity](#metadataentity)
 
 ### Operations_List
 Lists all the available Advisor REST API operations.
@@ -328,6 +362,34 @@ azure_advisor.Suppressions_Create({
   * value `array`: The list of configurations.
     * items [ConfigData](#configdata)
 
+### MetadataEntity
+* MetadataEntity `object`: The metadata entity contract.
+  * id `string`: The resource Id of the metadata entity.
+  * name `string`: The name of the metadata entity.
+  * properties [MetadataEntityProperties](#metadataentityproperties)
+  * type `string`: The type of the metadata entity.
+
+### MetadataEntityListResult
+* MetadataEntityListResult `object`: The list of metadata entities
+  * nextLink `string`: The link used to get the next page of metadata.
+  * value `array`: The list of metadata entities.
+    * items [MetadataEntity](#metadataentity)
+
+### MetadataEntityProperties
+* MetadataEntityProperties `object`: The metadata entity properties
+  * applicableScenarios `array`: The list of scenarios applicable to this metadata entity.
+    * items `string` (values: Alerts)
+  * dependsOn `array`: The list of keys on which this entity depends on.
+    * items `string`
+  * displayName `string`: The display name.
+  * supportedValues `array`: The list of supported values.
+    * items [MetadataSupportedValueDetail](#metadatasupportedvaluedetail)
+
+### MetadataSupportedValueDetail
+* MetadataSupportedValueDetail `object`: The metadata supported value detail.
+  * displayName `string`: The display name.
+  * id `string`: The id.
+
 ### OperationDisplayInfo
 * OperationDisplayInfo `object`: The operation supported by Advisor.
   * description `string`: The description of the operation.
@@ -348,7 +410,8 @@ azure_advisor.Suppressions_Create({
 
 ### RecommendationProperties
 * RecommendationProperties `object`: The properties of the recommendation.
-  * category `string` (values: HighAvailability, Security, Performance, Cost): The category of the recommendation.
+  * category `string` (values: HighAvailability, Security, Performance, Cost, OperationalExcellence): The category of the recommendation.
+  * extendedProperties `object`: Extended properties
   * impact `string` (values: High, Medium, Low): The business impact of the recommendation.
   * impactedField `string`: The resource type identified by Advisor.
   * impactedValue `string`: The resource identified by Advisor.

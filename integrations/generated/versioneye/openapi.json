@@ -74,7 +74,7 @@
   "paths": {
     "/github": {
       "get": {
-        "description": "\nThis endpoint shows all imported repositories from your Github account.\n\nThis enpoint expects that you have a GitHub account connected and the token\nis still valid. If that is not the case please visit **https://www.versioneye.com/settings/connect**.\nto update your GitHub credentials.\n\nIf it shows no or old data, then you can use the `github/sync` endpoint\nto update your account with the current meta data from GitHub.\n        ",
+        "description": "\nThis endpoint shows all imported repositories from your Github account.\n\nThis enpoint expects that you have a GitHub account connected and the token\nis still valid. If that is not the case please visit **https://www.versioneye.com/settings/connect**.\nto update your GitHub credentials.\n\nIf it shows no or old data, then you can use the `github/sync` endpoint\nto update your account with the current meta data from GitHub.",
         "operationId": "getGithub",
         "parameters": [
           {
@@ -161,7 +161,7 @@
     },
     "/github/sync": {
       "get": {
-        "description": "\nReimports ALL GitHub Repositories. This Endpoint fetches meta information to all\nrepositories in your GitHub account. Meta information such as repo name, branches and\nsupported project files.\n\nThis endpoint works asynchronously and returns a status code. The status code is either\n**running** or **done**.\n        ",
+        "description": "\nReimports ALL GitHub Repositories. This Endpoint fetches meta information to all\nrepositories in your GitHub account. Meta information such as repo name, branches and\nsupported project files.\n\nThis endpoint works asynchronously and returns a status code. The status code is either\n**running** or **done**.",
         "operationId": "getGithubSync",
         "responses": {
           "200": {
@@ -176,7 +176,7 @@
     },
     "/github/{repo_key}": {
       "delete": {
-        "description": "\nThis Endpoint deletes a project on VersionEye!\n\nDue the limits of our current API framework, the repo key has to be\nencoded as url-safe string. That means all '/' has to be replaced with\ncolons ':' and '.' has to be replaced with '~'.\n\nFor example,  repository with fullname `versioneye/veye` has to transformed\nto `versioneye:veye`.\n        ",
+        "description": "\nThis Endpoint deletes a project on VersionEye!\n\nDue the limits of our current API framework, the repo key has to be\nencoded as url-safe string. That means all '/' has to be replaced with\ncolons ':' and '.' has to be replaced with '~'.\n\nFor example,  repository with fullname `versioneye/veye` has to transformed\nto `versioneye:veye`.",
         "operationId": "deleteGithubRepoKey",
         "parameters": [
           {
@@ -206,7 +206,7 @@
         ]
       },
       "get": {
-        "description": "\nThis Endpoint returns detailed information about a GitHub repository.\n\nDue the limits of our current API framework, the repo key has to be\nencoded as url-safe string. That means all '/' has to be replaced with\ncolons ':' and '.' has to be replaced with '~'.\n\nFor example,  repository with fullname `versioneye/veye` has to transformed\nto `versioneye:veye`.\n        ",
+        "description": "\nThis Endpoint returns detailed information about a GitHub repository.\n\nDue the limits of our current API framework, the repo key has to be\nencoded as url-safe string. That means all '/' has to be replaced with\ncolons ':' and '.' has to be replaced with '~'.\n\nFor example,  repository with fullname `versioneye/veye` has to transformed\nto `versioneye:veye`.",
         "operationId": "getGithubRepoKey",
         "parameters": [
           {
@@ -231,7 +231,7 @@
         "consumes": [
           "application/json"
         ],
-        "description": "\nUse this Endpoint to import a project file from GitHub. This will create a new project on VersionEye.\n\nDue the limits of our current API framework, the repo key has to be\nencoded as url-safe string. That means all '/' has to be replaced with\ncolons ':' and '.' has to be replaced with '~'.\n\nFor example,  repository with fullname `versioneye/veye` has to transformed\nto `versioneye:veye`.\n        ",
+        "description": "\nUse this Endpoint to import a project file from GitHub. This will create a new project on VersionEye.\n\nDue the limits of our current API framework, the repo key has to be\nencoded as url-safe string. That means all '/' has to be replaced with\ncolons ':' and '.' has to be replaced with '~'.\n\nFor example,  repository with fullname `versioneye/veye` has to transformed\nto `versioneye:veye`.",
         "operationId": "postGithubRepoKey",
         "parameters": [
           {
@@ -336,7 +336,7 @@
     },
     "/me/notifications": {
       "get": {
-        "description": "\nThis Endpoint returns the 30 latest notifications.\n\nIf there are new versions out there for software packages you follow directly on VersionEye, then\neach new version is a new **notification** for your account.\n        ",
+        "description": "\nThis Endpoint returns the 30 latest notifications.\n\nIf there are new versions out there for software packages you follow directly on VersionEye, then\neach new version is a new **notification** for your account.",
         "operationId": "getMeNotifications",
         "parameters": [
           {
@@ -361,7 +361,7 @@
     },
     "/organisations": {
       "get": {
-        "description": "\nThis endpoint requires the API key from a user. The result is a set of organisations and their API keys.\n              ",
+        "description": "\nThis endpoint requires the API key from a user. The result is a set of organisations and their API keys.",
         "operationId": "getOrganisations",
         "responses": {
           "200": {
@@ -376,7 +376,7 @@
     },
     "/organisations/{orga_name}/inventory": {
       "get": {
-        "description": "\nFind a detailed description here: https://github.com/versioneye/versioneye-api/blob/master/docs/api/v2/organisation.md\n              ",
+        "description": "\nFind a detailed description here: https://github.com/versioneye/versioneye-api/blob/master/docs/api/v2/organisation.md",
         "operationId": "getOrganisationsOrgaNameInventory",
         "parameters": [
           {
@@ -459,7 +459,7 @@
         "consumes": [
           "application/json"
         ],
-        "description": "\nThis Endpoint takes 2 inventory filters and calculates the difference between them.\nThe diff object contains wich items have been removed and/or added compared to the inventory1 filter.\nThe response of this Endpoint is the ID of the diff object, which is calculated async in the background.\n              ",
+        "description": "\nThis Endpoint takes 2 inventory filters and calculates the difference between them.\nThe diff object contains wich items have been removed and/or added compared to the inventory1 filter.\nThe response of this Endpoint is the ID of the diff object, which is calculated async in the background.",
         "operationId": "postOrganisationsOrgaNameInventoryDiff",
         "parameters": [
           {
@@ -587,7 +587,7 @@
     },
     "/products/search/{q}": {
       "get": {
-        "description": "\nThis resource returns same results as our web application. But you get it as JSON objects -\nthe result is an JSON array of product objects.\n\nWhen there's no match for the query, the result array will be empty.\n              ",
+        "description": "\nThis resource returns same results as our web application. But you get it as JSON objects -\nthe result is an JSON array of product objects.\n\nWhen there's no match for the query, the result array will be empty.",
         "operationId": "getProductsSearchQ",
         "parameters": [
           {
@@ -598,7 +598,7 @@
             "type": "string"
           },
           {
-            "description": "Filter results by programming languages;\n                                  For filtering multiple languages submit a comma separated list of language strings.\n                                ",
+            "description": "Filter results by programming languages;\n                                  For filtering multiple languages submit a comma separated list of language strings.",
             "in": "query",
             "name": "lang",
             "required": false,
@@ -633,7 +633,7 @@
     },
     "/products/sha/{sha}": {
       "get": {
-        "description": "\nThis Endpoint expects a SHA value and returns the corresponding product to it, if available.\n              ",
+        "description": "\nThis Endpoint expects a SHA value and returns the corresponding product to it, if available.",
         "operationId": "getProductsShaSha",
         "parameters": [
           {
@@ -657,7 +657,7 @@
     },
     "/products/{lang}/{prod_key}": {
       "get": {
-        "description": "\nPlease replace all slashes `/` through colons `:` and all dots `.` through `~`!\n\nExample: The clojure package `yummy.json/json` has to be transformed to  `yummy~json:json`.\n\n#### Notes about status codes\n\n  * API returns 404, when the product with given product key doesnt exists.\n\n  * Response 302 means that you didnt encode prod_key correctly.* (Replace all dots & slashes ) *\n              ",
+        "description": "\nPlease replace all slashes `/` through colons `:` and all dots `.` through `~`!\n\nExample: The clojure package `yummy.json/json` has to be transformed to  `yummy~json:json`.\n\n#### Notes about status codes\n\n  * API returns 404, when the product with given product key doesnt exists.\n\n  * Response 302 means that you didnt encode prod_key correctly.* (Replace all dots & slashes ) *",
         "operationId": "getProductsLangProdKey",
         "parameters": [
           {
@@ -695,7 +695,7 @@
     },
     "/products/{lang}/{prod_key}/follow": {
       "delete": {
-        "description": "\nPlease replace all slashes `/` through colons `:` and all dots `.` through `~`!\n\nExample: The clojure package `yummy.json/json` has to be transformed to  `yummy~json:json`.\n\n#### Response codes\n\n  * 400 - bad request; you used wrong product key;\n  * 401 - unauthorized - please append api_key\n  * 403 - forbidden; you are not authorized; or just missed api_key;\n        ",
+        "description": "\nPlease replace all slashes `/` through colons `:` and all dots `.` through `~`!\n\nExample: The clojure package `yummy.json/json` has to be transformed to  `yummy~json:json`.\n\n#### Response codes\n\n  * 400 - bad request; you used wrong product key;\n  * 401 - unauthorized - please append api_key\n  * 403 - forbidden; you are not authorized; or just missed api_key;",
         "operationId": "deleteProductsLangProdKeyFollow",
         "parameters": [
           {
@@ -724,7 +724,7 @@
         ]
       },
       "get": {
-        "description": "\nPlease replace all slashes `/` through colons `:` and all dots `.` through `~`!\n\nExample: The clojure package `yummy.json/json` has to be transformed to  `yummy~json:json`.\n\n#### Notes about status codes\n\nThis resource will returns the status code 404 if there is no product\nfor the given prod_key.\n              ",
+        "description": "\nPlease replace all slashes `/` through colons `:` and all dots `.` through `~`!\n\nExample: The clojure package `yummy.json/json` has to be transformed to  `yummy~json:json`.\n\n#### Notes about status codes\n\nThis resource will returns the status code 404 if there is no product\nfor the given prod_key.",
         "operationId": "getProductsLangProdKeyFollow",
         "parameters": [
           {
@@ -756,7 +756,7 @@
         "consumes": [
           "application/json"
         ],
-        "description": "\nPlease replace all slashes `/` through colons `:` and all dots `.` through `~`!\n\nExample: The clojure package `yummy.json/json` has to be transformed to  `yummy~json:json`.\n\n#### Notes about status codes\n\nIt will respond 404, when you are using wrong product key or encode it uncorrectly.\n              ",
+        "description": "\nPlease replace all slashes `/` through colons `:` and all dots `.` through `~`!\n\nExample: The clojure package `yummy.json/json` has to be transformed to  `yummy~json:json`.\n\n#### Notes about status codes\n\nIt will respond 404, when you are using wrong product key or encode it uncorrectly.",
         "operationId": "postProductsLangProdKeyFollow",
         "parameters": [
           {
@@ -787,7 +787,7 @@
     },
     "/products/{lang}/{prod_key}/references": {
       "get": {
-        "description": "\nIt returns the references of a package.\n\nPlease replace all slashes `/` through colons `:` and all dots `.` through `~`!\n\nExample: The clojure package `yummy.json/json` has to be transformed to  `yummy~json:json`.\n\n#### Notes about status codes\n\nThis resource will return the status code 404 if there is no product for\nthe given prod_key or the product has 0 references.\n              ",
+        "description": "\nIt returns the references of a package.\n\nPlease replace all slashes `/` through colons `:` and all dots `.` through `~`!\n\nExample: The clojure package `yummy.json/json` has to be transformed to  `yummy~json:json`.\n\n#### Notes about status codes\n\nThis resource will return the status code 404 if there is no product for\nthe given prod_key or the product has 0 references.",
         "operationId": "getProductsLangProdKeyReferences",
         "parameters": [
           {
@@ -826,7 +826,7 @@
     },
     "/products/{lang}/{prod_key}/versions": {
       "get": {
-        "description": "\nPlease replace all slashes `/` through colons `:` and all dots `.` through `~`!\n\nExample: The clojure package `yummy.json/json` has to be transformed to  `yummy~json:json`.\n\n#### Notes about status codes\n\n  * API returns 404, when the product with given product key doesnt exists.\n\n  * Response 302 means that you didnt encode prod_key correctly.* (Replace all dots & slashes ) *\n              ",
+        "description": "\nPlease replace all slashes `/` through colons `:` and all dots `.` through `~`!\n\nExample: The clojure package `yummy.json/json` has to be transformed to  `yummy~json:json`.\n\n#### Notes about status codes\n\n  * API returns 404, when the product with given product key doesnt exists.\n\n  * Response 302 means that you didnt encode prod_key correctly.* (Replace all dots & slashes ) *",
         "operationId": "getProductsLangProdKeyVersions",
         "parameters": [
           {
@@ -922,7 +922,7 @@
         "consumes": [
           "application/json"
         ],
-        "description": "\nThis resource can parse a changelog.xml from the maven-changelog-plugin, assign\nit to a specific artifact and display the changelog infos on the product page.\n\nPlease replace all slashes `/` through colons `:` and all dots `.` through `~`!\n\nExample: The clojure package `yummy.json/json` has to be transformed to  `yummy~json:json`.\n\n#### Notes about status codes\n\nIt will respond 404, when you are using wrong product key or encode it uncorrectly.\n              ",
+        "description": "\nThis resource can parse a changelog.xml from the maven-changelog-plugin, assign\nit to a specific artifact and display the changelog infos on the product page.\n\nPlease replace all slashes `/` through colons `:` and all dots `.` through `~`!\n\nExample: The clojure package `yummy.json/json` has to be transformed to  `yummy~json:json`.\n\n#### Notes about status codes\n\nIt will respond 404, when you are using wrong product key or encode it uncorrectly.",
         "operationId": "postProductsLangProdKeyProdVersionScmChanges",
         "parameters": [
           {
@@ -960,7 +960,7 @@
     },
     "/projects": {
       "get": {
-        "description": "\nTo use this resource you need either an active session or you have to append\nyour API Key to the URL as parameter. For example: \"?api_key=666_your_api_key_666\"\n            ",
+        "description": "\nTo use this resource you need either an active session or you have to append\nyour API Key to the URL as parameter. For example: \"?api_key=666_your_api_key_666\"",
         "operationId": "getProjects",
         "parameters": [
           {
@@ -992,7 +992,7 @@
         "consumes": [
           "application/json"
         ],
-        "description": "\nTo use this resource you need either an active session or you have to append\nyour API Key to the URL as parameter. For example: \"?api_key=666_your_api_key_666\"\n            ",
+        "description": "\nTo use this resource you need either an active session or you have to append\nyour API Key to the URL as parameter. For example: \"?api_key=666_your_api_key_666\"",
         "operationId": "postProjects",
         "parameters": [
           {
@@ -1051,7 +1051,7 @@
     },
     "/projects/{group_id}/{artifact_id}/merge_ga/{child_id}": {
       "get": {
-        "description": "\nThis endpoint merges a project (child_id) into another project (group_id/artifact_id).\nThis endpoint is specially for Maven based projects!\nTo use this resource you need either an active session or you have to append\nyour API Key to the URL as parameter. For example: \"?api_key=666_your_api_key_666\"\n            ",
+        "description": "\nThis endpoint merges a project (child_id) into another project (group_id/artifact_id).\nThis endpoint is specially for Maven based projects!\nTo use this resource you need either an active session or you have to append\nyour API Key to the URL as parameter. For example: \"?api_key=666_your_api_key_666\"",
         "operationId": "getProjectsGroupIdArtifactIdMergeGaChildId",
         "parameters": [
           {
@@ -1089,7 +1089,7 @@
     },
     "/projects/{parent_id}/merge/{child_id}": {
       "get": {
-        "description": "\nThis endpoint merges a project (child_id) into another project (parent_id).\nTo use this resource you need either an active session or you have to append\nyour API Key to the URL as parameter. For example: \"?api_key=666_your_api_key_666\"\n            ",
+        "description": "\nThis endpoint merges a project (child_id) into another project (parent_id).\nTo use this resource you need either an active session or you have to append\nyour API Key to the URL as parameter. For example: \"?api_key=666_your_api_key_666\"",
         "operationId": "getProjectsParentIdMergeChildId",
         "parameters": [
           {
@@ -1120,7 +1120,7 @@
     },
     "/projects/{parent_id}/unmerge/{child_id}": {
       "get": {
-        "description": "\nThis endpoint unmerges a project (child_id) from another project (parent_id). It makes the\nchilld again a separate project!\nTo use this resource you need either an active session or you have to append\nyour API Key to the URL as parameter. For example: \"?api_key=666_your_api_key_666\"\n            ",
+        "description": "\nThis endpoint unmerges a project (child_id) from another project (parent_id). It makes the\nchilld again a separate project!\nTo use this resource you need either an active session or you have to append\nyour API Key to the URL as parameter. For example: \"?api_key=666_your_api_key_666\"",
         "operationId": "getProjectsParentIdUnmergeChildId",
         "parameters": [
           {
@@ -1151,7 +1151,7 @@
     },
     "/projects/{project_key}": {
       "delete": {
-        "description": "\nTo use this resource you need either an active session or you have to append\nyour API Key to the URL as parameter. For example: \"?api_key=666_your_api_key_666\"\n            ",
+        "description": "\nTo use this resource you need either an active session or you have to append\nyour API Key to the URL as parameter. For example: \"?api_key=666_your_api_key_666\"",
         "operationId": "deleteProjectsProjectKey",
         "parameters": [
           {
@@ -1198,7 +1198,7 @@
         "consumes": [
           "application/json"
         ],
-        "description": "\nTo use this resource you need either an active session or you have to append\nyour API Key to the URL as parameter. For example: \"?api_key=666_your_api_key_666\"\n            ",
+        "description": "\nTo use this resource you need either an active session or you have to append\nyour API Key to the URL as parameter. For example: \"?api_key=666_your_api_key_666\"",
         "operationId": "postProjectsProjectKey",
         "parameters": [
           {
@@ -1230,7 +1230,7 @@
         "consumes": [
           "application/json"
         ],
-        "description": "\nTo use this resource you need either an active session or you have to append\nyour API Key to the URL as parameter. For example: \"?api_key=666_your_api_key_666\"\n\nWith this Endpoint an existing project can be updated. This are the fields which \ncan be updated: \n\n```\n{\n  public: false,\n  name: \"toto\",\n  description: \"beschreibung\",\n  license: \"Lizenz\",\n  version: \"Versionio\"\n}\n```\n            ",
+        "description": "\nTo use this resource you need either an active session or you have to append\nyour API Key to the URL as parameter. For example: \"?api_key=666_your_api_key_666\"\n\nWith this Endpoint an existing project can be updated. This are the fields which \ncan be updated: \n\n```\n{\n  public: false,\n  name: \"toto\",\n  description: \"beschreibung\",\n  license: \"Lizenz\",\n  version: \"Versionio\"\n}\n```",
         "operationId": "putProjectsProjectKey",
         "parameters": [
           {
@@ -1254,7 +1254,7 @@
     },
     "/projects/{project_key}/dependencies": {
       "get": {
-        "description": "\nThis Endpoint returns a list of ALL dependencies of the project. This list includes\ndependencies of child projects as well.\n\nTo use this resource you need either an active session or you have to append\nyour API Key to the URL as parameter. For example: \"?api_key=666_your_api_key_666\"\n            ",
+        "description": "\nThis Endpoint returns a list of ALL dependencies of the project. This list includes\ndependencies of child projects as well.\n\nTo use this resource you need either an active session or you have to append\nyour API Key to the URL as parameter. For example: \"?api_key=666_your_api_key_666\"",
         "operationId": "getProjectsProjectKeyDependencies",
         "parameters": [
           {
@@ -1278,7 +1278,7 @@
     },
     "/projects/{project_key}/licenses": {
       "get": {
-        "description": "\nTo use this resource you need either an active session or you have to append\nyour API Key to the URL as parameter. For example: \"?api_key=666_your_api_key_666\"\n            ",
+        "description": "\nTo use this resource you need either an active session or you have to append\nyour API Key to the URL as parameter. For example: \"?api_key=666_your_api_key_666\"",
         "operationId": "getProjectsProjectKeyLicenses",
         "parameters": [
           {
@@ -1383,7 +1383,7 @@
         ]
       },
       "get": {
-        "description": "\nIf current user has active session, then this\nmethod will return 200 with short user profile.\nFor othercase, it will return error message with status code 401.\n              ",
+        "description": "\nIf current user has active session, then this\nmethod will return 200 with short user profile.\nFor othercase, it will return error message with status code 401.",
         "operationId": "getSessions",
         "responses": {
           "200": {

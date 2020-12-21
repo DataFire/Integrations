@@ -15,9 +15,7 @@ let azure_storsimple8000series_storsimple = require('@datafire/azure_storsimple8
   redirect_uri: ""
 });
 
-azure_storsimple8000series_storsimple.Operations_List({
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -29,7 +27,7 @@ azure_storsimple8000series_storsimple.Operations_List({
 ## Actions
 
 ### Operations_List
-Lists all of the available REST API operations of the Microsoft.Storsimple provider
+Lists all of the available REST API operations of the Microsoft.StorSimple provider
 
 
 ```js
@@ -2523,7 +2521,7 @@ azure_storsimple8000series_storsimple.StorageAccountCredentials_CreateOrUpdate({
 * AlertErrorDetails `object`: The details of the error for which the alert was raised
   * errorCode `string`: The error code
   * errorMessage `string`: The error message
-  * occurences `integer`: The number of occurences
+  * occurences `integer`: The number of occurrences
 
 ### AlertFilter
 * AlertFilter `object`: The OData filters to be used for Alert
@@ -2655,7 +2653,7 @@ azure_storsimple8000series_storsimple.StorageAccountCredentials_CreateOrUpdate({
   * backupPolicyCreationType `string` (values: BySaaS, BySSM): The backup policy creation type. Indicates whether this was created through SaaS or through StorSimple Snapshot Manager.
   * lastBackupTime `string`: The time of the last backup for the backup policy.
   * nextBackupTime `string`: The time of the next backup for the backup policy.
-  * scheduledBackupStatus `string` (values: Disabled, Enabled): Indicates whether atleast one of the schedules in the backup policy is active or not.
+  * scheduledBackupStatus `string` (values: Disabled, Enabled): Indicates whether at least one of the schedules in the backup policy is active or not.
   * schedulesCount `integer`: The count of schedules the backup policy contains.
   * ssmHostName `string`: If the backup policy was created by StorSimple Snapshot Manager, then this field indicates the hostname of the StorSimple Snapshot Manager.
   * volumeIds **required** `array`: The path IDs of the volumes which are part of the backup policy.
@@ -2948,7 +2946,7 @@ azure_storsimple8000series_storsimple.StorageAccountCredentials_CreateOrUpdate({
 * FailoverTarget `object`: Represents the eligibility of a device as a failover target device.
   * availableLocalStorageInBytes `integer`: The amount of free local storage available on the device in bytes.
   * availableTieredStorageInBytes `integer`: The amount of free tiered storage available for the device in bytes.
-  * dataContainersCount `integer`: The count of datacontainers on the device.
+  * dataContainersCount `integer`: The count of data containers on the device.
   * deviceId `string`: The path ID of the device.
   * deviceLocation `string`: The geo location (applicable only for cloud appliances) of the device.
   * deviceSoftwareVersion `string`: The software version of the device.
@@ -3102,12 +3100,12 @@ azure_storsimple8000series_storsimple.StorageAccountCredentials_CreateOrUpdate({
   * version `string`: The version of the extended info being persisted.
 
 ### ManagerIntrinsicSettings
-* ManagerIntrinsicSettings `object`: Intrinsic settings which refers to the type of the Storsimple Manager.
+* ManagerIntrinsicSettings `object`: Intrinsic settings which refers to the type of the StorSimple Manager.
   * type **required** `string` (values: GardaV1, HelsinkiV1): The type of StorSimple Manager.
 
 ### ManagerList
 * ManagerList `object`: The list of StorSimple Managers.
-  * value **required** `array`: The list of storsimple managers.
+  * value **required** `array`: The list of StorSimple managers.
     * items [Manager](#manager)
 
 ### ManagerPatch

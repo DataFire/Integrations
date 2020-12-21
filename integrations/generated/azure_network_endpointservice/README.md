@@ -15,11 +15,7 @@ let azure_network_endpointservice = require('@datafire/azure_network_endpointser
   redirect_uri: ""
 });
 
-azure_network_endpointservice.AvailableEndpointServices_List({
-  "location": "",
-  "api-version": "",
-  "subscriptionId": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

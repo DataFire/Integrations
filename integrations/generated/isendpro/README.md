@@ -9,12 +9,7 @@ npm install --save @datafire/isendpro
 ```js
 let isendpro = require('@datafire/isendpro').create();
 
-isendpro.getCampagne({
-  "keyid": "",
-  "rapportCampagne": "",
-  "date_deb": "",
-  "date_fin": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -31,7 +26,7 @@ isendpro.getCampagne({
 
 [2] Pour utiliser cette API vous devez:
 - Créer un compte iSendPro sur https://isendpro.com/
-- Créditer votre compte
+- Créditer votre compte 
     - Remarque: obtention d'un crédit de test possible sous conditions
 - Noter votre clé de compte (keyid)
   - Elle vous sera indispensable à l'utilisation de l'API
@@ -45,9 +40,9 @@ isendpro.getCampagne({
 ## Actions
 
 ### getCampagne
-Retourne les SMS envoyés sur une période donnée en fonction d'une date de début et d'une date de fin.
+Retourne les SMS envoyés sur une période donnée en fonction d'une date de début et d'une date de fin. 
 
-Les dates sont au format YYYY-MM-DD hh:mm.
+Les dates sont au format YYYY-MM-DD hh:mm. 
 
 Le fichier rapport de campagne est sous la forme d'un fichier zip + contenant un fichier csv contenant le détail des envois.
 
@@ -70,7 +65,7 @@ isendpro.getCampagne({
   * date_fin **required** `string`: date de fin au format YYYY-MM-DD hh:mm
 
 #### Output
-* output `file`
+* output `string`
 
 ### comptage
 Compte le nombre de SMS necessaire à un envoi
@@ -78,7 +73,7 @@ Compte le nombre de SMS necessaire à un envoi
 
 ```js
 isendpro.comptage({
-  "comptagerequest": {
+  "body": {
     "comptage": "",
     "keyid": "",
     "num": "",
@@ -89,7 +84,7 @@ isendpro.comptage({
 
 #### Input
 * input `object`
-  * comptagerequest **required** [ComptageRequest](#comptagerequest)
+  * body **required** [ComptageRequest](#comptagerequest)
 
 #### Output
 * output [ComptageReponse](#comptagereponse)
@@ -152,16 +147,16 @@ isendpro.getListeNoire({
   * getListeNoire **required** `string` (values: 1): Doit valoir "1"
 
 #### Output
-* output `file`
+* output `string`
 
 ### getHlr
-Réalise un lookup HLR sur les numéros
+Réalise un lookup HLR sur les numéros 
 
 
 
 ```js
 isendpro.getHlr({
-  "hlrrequest": {
+  "body": {
     "getHLR": "",
     "keyid": "",
     "num": []
@@ -171,7 +166,7 @@ isendpro.getHlr({
 
 #### Input
 * input `object`
-  * hlrrequest **required** [HLRrequest](#hlrrequest)
+  * body **required** [HLRrequest](#hlrrequest)
 
 #### Output
 * output [HLRReponse](#hlrreponse)
@@ -182,7 +177,7 @@ Cree un nouveau répertoire et retourne son identifiant. Cet identifiant pourra 
 
 ```js
 isendpro.repertoireCrea({
-  "repertoirecreaterequest": {
+  "body": {
     "keyid": "",
     "repertoireEdit": "",
     "repertoireNom": ""
@@ -192,7 +187,7 @@ isendpro.repertoireCrea({
 
 #### Input
 * input `object`
-  * repertoirecreaterequest **required** [REPERTOIREcreaterequest](#repertoirecreaterequest)
+  * body **required** [REPERTOIREcreaterequest](#repertoirecreaterequest)
 
 #### Output
 * output [REPERTOIREcreatereponse](#repertoirecreatereponse)
@@ -203,7 +198,7 @@ Ajoute ou supprime une liste de numéros à un répertoire existant.
 
 ```js
 isendpro.repertoire({
-  "repertoiremodifrequest": {
+  "body": {
     "keyid": "",
     "num": [],
     "repertoireEdit": "",
@@ -214,7 +209,7 @@ isendpro.repertoire({
 
 #### Input
 * input `object`
-  * repertoiremodifrequest **required** [REPERTOIREmodifrequest](#repertoiremodifrequest)
+  * body **required** [REPERTOIREmodifrequest](#repertoiremodifrequest)
 
 #### Output
 * output [REPERTOIREmodifreponse](#repertoiremodifreponse)
@@ -246,7 +241,7 @@ add a shortlink
 
 ```js
 isendpro.addShortlink({
-  "addshortlinkrequest": {
+  "body": {
     "keyid": "",
     "shortlink": ""
   }
@@ -255,7 +250,7 @@ isendpro.addShortlink({
 
 #### Input
 * input `object`
-  * addshortlinkrequest **required** [ShortlinkRequest](#shortlinkrequest)
+  * body **required** [ShortlinkRequest](#shortlinkrequest)
 
 #### Output
 * output [ShortlinkResponse](#shortlinkresponse)
@@ -266,7 +261,7 @@ Envoi un sms vers un unique destinataire
 
 ```js
 isendpro.sendSms({
-  "smsrequest": {
+  "body": {
     "keyid": "",
     "num": "",
     "sms": ""
@@ -276,7 +271,7 @@ isendpro.sendSms({
 
 #### Input
 * input `object`
-  * smsrequest **required** [SmsUniqueRequest](#smsuniquerequest)
+  * body **required** [SmsUniqueRequest](#smsuniquerequest)
 
 #### Output
 * output [SMSReponse](#smsreponse)
@@ -288,7 +283,7 @@ Envoi de SMS vers 1 ou plusieurs destinataires
 
 ```js
 isendpro.sendSmsMulti({
-  "smsrequest": {
+  "body": {
     "keyid": "",
     "num": [],
     "sms": []
@@ -298,7 +293,7 @@ isendpro.sendSmsMulti({
 
 #### Input
 * input `object`
-  * smsrequest **required** [SMSRequest](#smsrequest)
+  * body **required** [SMSRequest](#smsrequest)
 
 #### Output
 * output [SMSReponse](#smsreponse)
@@ -309,7 +304,7 @@ Ajoute un sous compte
 
 ```js
 isendpro.subaccountAdd({
-  "addsubaccountrequest": {
+  "body": {
     "keyid": "",
     "subAccountEdit": "",
     "subAccountLogin": "",
@@ -320,7 +315,7 @@ isendpro.subaccountAdd({
 
 #### Input
 * input `object`
-  * addsubaccountrequest **required** [SubaccountAddRequest](#subaccountaddrequest)
+  * body **required** [SubaccountAddRequest](#subaccountaddrequest)
 
 #### Output
 * output [SubaccountAddResponse](#subaccountaddresponse)
@@ -331,7 +326,7 @@ Edit a subaccount
 
 ```js
 isendpro.subaccountEdit({
-  "editsubaccountrequest": {
+  "body": {
     "keyid": "",
     "subAccountEdit": ""
   }
@@ -340,7 +335,7 @@ isendpro.subaccountEdit({
 
 #### Input
 * input `object`
-  * editsubaccountrequest **required** [SubaccountRequest](#subaccountrequest)
+  * body **required** [SubaccountRequest](#subaccountrequest)
 
 #### Output
 * output [SubaccountResponse](#subaccountresponse)

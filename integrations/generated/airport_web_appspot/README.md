@@ -15,9 +15,7 @@ let airport_web_appspot = require('@datafire/airport_web_appspot').create({
   redirect_uri: ""
 });
 
-airport_web_appspot.AirportApi_getAirport({
-  "icao_code": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

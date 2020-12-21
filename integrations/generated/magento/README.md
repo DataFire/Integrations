@@ -11,7 +11,7 @@ let magento = require('@datafire/magento').create({
   Bearer: ""
 });
 
-magento.salesTransactionRepositoryV1GetListGet({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

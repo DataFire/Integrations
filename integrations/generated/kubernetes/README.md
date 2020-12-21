@@ -11,7 +11,7 @@ let kubernetes = require('@datafire/kubernetes').create({
   BearerToken: ""
 });
 
-kubernetes.watchStorageV1beta1VolumeAttachmentList({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -6266,44 +6266,6 @@ kubernetes.replaceApiextensionsV1beta1CustomResourceDefinition({
 #### Output
 * output [io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinition](#io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.customresourcedefinition)
 
-### readApiextensionsV1beta1CustomResourceDefinitionStatus
-read status of the specified CustomResourceDefinition
-
-
-```js
-kubernetes.readApiextensionsV1beta1CustomResourceDefinitionStatus({
-  "name": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * name **required** `string`: name of the CustomResourceDefinition
-  * pretty `string`: If 'true', then the output is pretty printed.
-
-#### Output
-* output [io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinition](#io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.customresourcedefinition)
-
-### patchApiextensionsV1beta1CustomResourceDefinitionStatus
-partially update status of the specified CustomResourceDefinition
-
-
-```js
-kubernetes.patchApiextensionsV1beta1CustomResourceDefinitionStatus({
-  "body": null,
-  "name": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * body **required** [io.k8s.apimachinery.pkg.apis.meta.v1.Patch](#io.k8s.apimachinery.pkg.apis.meta.v1.patch)
-  * name **required** `string`: name of the CustomResourceDefinition
-  * pretty `string`: If 'true', then the output is pretty printed.
-
-#### Output
-* output [io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinition](#io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.customresourcedefinition)
-
 ### replaceApiextensionsV1beta1CustomResourceDefinitionStatus
 replace status of the specified CustomResourceDefinition
 
@@ -6548,44 +6510,6 @@ kubernetes.replaceApiregistrationV1APIService({
 #### Output
 * output [io.k8s.kube-aggregator.pkg.apis.apiregistration.v1.APIService](#io.k8s.kube-aggregator.pkg.apis.apiregistration.v1.apiservice)
 
-### readApiregistrationV1APIServiceStatus
-read status of the specified APIService
-
-
-```js
-kubernetes.readApiregistrationV1APIServiceStatus({
-  "name": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * name **required** `string`: name of the APIService
-  * pretty `string`: If 'true', then the output is pretty printed.
-
-#### Output
-* output [io.k8s.kube-aggregator.pkg.apis.apiregistration.v1.APIService](#io.k8s.kube-aggregator.pkg.apis.apiregistration.v1.apiservice)
-
-### patchApiregistrationV1APIServiceStatus
-partially update status of the specified APIService
-
-
-```js
-kubernetes.patchApiregistrationV1APIServiceStatus({
-  "body": null,
-  "name": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * body **required** [io.k8s.apimachinery.pkg.apis.meta.v1.Patch](#io.k8s.apimachinery.pkg.apis.meta.v1.patch)
-  * name **required** `string`: name of the APIService
-  * pretty `string`: If 'true', then the output is pretty printed.
-
-#### Output
-* output [io.k8s.kube-aggregator.pkg.apis.apiregistration.v1.APIService](#io.k8s.kube-aggregator.pkg.apis.apiregistration.v1.apiservice)
-
 ### replaceApiregistrationV1APIServiceStatus
 replace status of the specified APIService
 
@@ -6810,44 +6734,6 @@ kubernetes.replaceApiregistrationV1beta1APIService({
 #### Input
 * input `object`
   * body **required** [io.k8s.kube-aggregator.pkg.apis.apiregistration.v1beta1.APIService](#io.k8s.kube-aggregator.pkg.apis.apiregistration.v1beta1.apiservice)
-  * name **required** `string`: name of the APIService
-  * pretty `string`: If 'true', then the output is pretty printed.
-
-#### Output
-* output [io.k8s.kube-aggregator.pkg.apis.apiregistration.v1beta1.APIService](#io.k8s.kube-aggregator.pkg.apis.apiregistration.v1beta1.apiservice)
-
-### readApiregistrationV1beta1APIServiceStatus
-read status of the specified APIService
-
-
-```js
-kubernetes.readApiregistrationV1beta1APIServiceStatus({
-  "name": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * name **required** `string`: name of the APIService
-  * pretty `string`: If 'true', then the output is pretty printed.
-
-#### Output
-* output [io.k8s.kube-aggregator.pkg.apis.apiregistration.v1beta1.APIService](#io.k8s.kube-aggregator.pkg.apis.apiregistration.v1beta1.apiservice)
-
-### patchApiregistrationV1beta1APIServiceStatus
-partially update status of the specified APIService
-
-
-```js
-kubernetes.patchApiregistrationV1beta1APIServiceStatus({
-  "body": null,
-  "name": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * body **required** [io.k8s.apimachinery.pkg.apis.meta.v1.Patch](#io.k8s.apimachinery.pkg.apis.meta.v1.patch)
   * name **required** `string`: name of the APIService
   * pretty `string`: If 'true', then the output is pretty printed.
 
@@ -13768,44 +13654,6 @@ kubernetes.replaceCertificatesV1beta1CertificateSigningRequestApproval({
 #### Output
 * output [io.k8s.api.certificates.v1beta1.CertificateSigningRequest](#io.k8s.api.certificates.v1beta1.certificatesigningrequest)
 
-### readCertificatesV1beta1CertificateSigningRequestStatus
-read status of the specified CertificateSigningRequest
-
-
-```js
-kubernetes.readCertificatesV1beta1CertificateSigningRequestStatus({
-  "name": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * name **required** `string`: name of the CertificateSigningRequest
-  * pretty `string`: If 'true', then the output is pretty printed.
-
-#### Output
-* output [io.k8s.api.certificates.v1beta1.CertificateSigningRequest](#io.k8s.api.certificates.v1beta1.certificatesigningrequest)
-
-### patchCertificatesV1beta1CertificateSigningRequestStatus
-partially update status of the specified CertificateSigningRequest
-
-
-```js
-kubernetes.patchCertificatesV1beta1CertificateSigningRequestStatus({
-  "body": null,
-  "name": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * body **required** [io.k8s.apimachinery.pkg.apis.meta.v1.Patch](#io.k8s.apimachinery.pkg.apis.meta.v1.patch)
-  * name **required** `string`: name of the CertificateSigningRequest
-  * pretty `string`: If 'true', then the output is pretty printed.
-
-#### Output
-* output [io.k8s.api.certificates.v1beta1.CertificateSigningRequest](#io.k8s.api.certificates.v1beta1.certificatesigningrequest)
-
 ### replaceCertificatesV1beta1CertificateSigningRequestStatus
 replace status of the specified CertificateSigningRequest
 
@@ -20027,216 +19875,6 @@ kubernetes.watchSchedulingV1alpha1PriorityClass({
 #### Output
 * output [io.k8s.apimachinery.pkg.apis.meta.v1.WatchEvent](#io.k8s.apimachinery.pkg.apis.meta.v1.watchevent)
 
-### getSchedulingV1beta1APIResources
-get available resources
-
-
-```js
-kubernetes.getSchedulingV1beta1APIResources(null, context)
-```
-
-#### Input
-*This action has no parameters*
-
-#### Output
-* output [io.k8s.apimachinery.pkg.apis.meta.v1.APIResourceList](#io.k8s.apimachinery.pkg.apis.meta.v1.apiresourcelist)
-
-### deleteSchedulingV1beta1CollectionPriorityClass
-delete collection of PriorityClass
-
-
-```js
-kubernetes.deleteSchedulingV1beta1CollectionPriorityClass({}, context)
-```
-
-#### Input
-* input `object`
-  * continue `string`: The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server the server will respond with a 410 ResourceExpired error indicating the client must restart their list without the continue field. This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications.
-  * fieldSelector `string`: A selector to restrict the list of returned objects by their fields. Defaults to everything.
-  * includeUninitialized `boolean`: If true, partially initialized resources are included in the response.
-  * labelSelector `string`: A selector to restrict the list of returned objects by their labels. Defaults to everything.
-  * limit `integer`: limit is a maximum number of responses to return for a list call. If more items exist, the server will set the `continue` field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.
-  * resourceVersion `string`: When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-  * timeoutSeconds `integer`: Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity.
-  * watch `boolean`: Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
-  * pretty `string`: If 'true', then the output is pretty printed.
-
-#### Output
-* output [io.k8s.apimachinery.pkg.apis.meta.v1.Status](#io.k8s.apimachinery.pkg.apis.meta.v1.status)
-
-### listSchedulingV1beta1PriorityClass
-list or watch objects of kind PriorityClass
-
-
-```js
-kubernetes.listSchedulingV1beta1PriorityClass({}, context)
-```
-
-#### Input
-* input `object`
-  * continue `string`: The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server the server will respond with a 410 ResourceExpired error indicating the client must restart their list without the continue field. This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications.
-  * fieldSelector `string`: A selector to restrict the list of returned objects by their fields. Defaults to everything.
-  * includeUninitialized `boolean`: If true, partially initialized resources are included in the response.
-  * labelSelector `string`: A selector to restrict the list of returned objects by their labels. Defaults to everything.
-  * limit `integer`: limit is a maximum number of responses to return for a list call. If more items exist, the server will set the `continue` field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.
-  * resourceVersion `string`: When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-  * timeoutSeconds `integer`: Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity.
-  * watch `boolean`: Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
-  * pretty `string`: If 'true', then the output is pretty printed.
-
-#### Output
-* output [io.k8s.api.scheduling.v1beta1.PriorityClassList](#io.k8s.api.scheduling.v1beta1.priorityclasslist)
-
-### createSchedulingV1beta1PriorityClass
-create a PriorityClass
-
-
-```js
-kubernetes.createSchedulingV1beta1PriorityClass({
-  "body": null
-}, context)
-```
-
-#### Input
-* input `object`
-  * body **required** [io.k8s.api.scheduling.v1beta1.PriorityClass](#io.k8s.api.scheduling.v1beta1.priorityclass)
-  * pretty `string`: If 'true', then the output is pretty printed.
-
-#### Output
-* output [io.k8s.api.scheduling.v1beta1.PriorityClass](#io.k8s.api.scheduling.v1beta1.priorityclass)
-
-### deleteSchedulingV1beta1PriorityClass
-delete a PriorityClass
-
-
-```js
-kubernetes.deleteSchedulingV1beta1PriorityClass({
-  "body": null,
-  "name": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * body **required** [io.k8s.apimachinery.pkg.apis.meta.v1.DeleteOptions](#io.k8s.apimachinery.pkg.apis.meta.v1.deleteoptions)
-  * gracePeriodSeconds `integer`: The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately.
-  * orphanDependents `boolean`: Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the "orphan" finalizer will be added to/removed from the object's finalizers list. Either this field or PropagationPolicy may be set, but not both.
-  * propagationPolicy `string`: Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: 'Orphan' - orphan the dependents; 'Background' - allow the garbage collector to delete the dependents in the background; 'Foreground' - a cascading policy that deletes all dependents in the foreground.
-  * name **required** `string`: name of the PriorityClass
-  * pretty `string`: If 'true', then the output is pretty printed.
-
-#### Output
-* output [io.k8s.apimachinery.pkg.apis.meta.v1.Status](#io.k8s.apimachinery.pkg.apis.meta.v1.status)
-
-### readSchedulingV1beta1PriorityClass
-read the specified PriorityClass
-
-
-```js
-kubernetes.readSchedulingV1beta1PriorityClass({
-  "name": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * exact `boolean`: Should the export be exact.  Exact export maintains cluster-specific fields like 'Namespace'.
-  * export `boolean`: Should this value be exported.  Export strips fields that a user can not specify.
-  * name **required** `string`: name of the PriorityClass
-  * pretty `string`: If 'true', then the output is pretty printed.
-
-#### Output
-* output [io.k8s.api.scheduling.v1beta1.PriorityClass](#io.k8s.api.scheduling.v1beta1.priorityclass)
-
-### patchSchedulingV1beta1PriorityClass
-partially update the specified PriorityClass
-
-
-```js
-kubernetes.patchSchedulingV1beta1PriorityClass({
-  "body": null,
-  "name": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * body **required** [io.k8s.apimachinery.pkg.apis.meta.v1.Patch](#io.k8s.apimachinery.pkg.apis.meta.v1.patch)
-  * name **required** `string`: name of the PriorityClass
-  * pretty `string`: If 'true', then the output is pretty printed.
-
-#### Output
-* output [io.k8s.api.scheduling.v1beta1.PriorityClass](#io.k8s.api.scheduling.v1beta1.priorityclass)
-
-### replaceSchedulingV1beta1PriorityClass
-replace the specified PriorityClass
-
-
-```js
-kubernetes.replaceSchedulingV1beta1PriorityClass({
-  "body": null,
-  "name": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * body **required** [io.k8s.api.scheduling.v1beta1.PriorityClass](#io.k8s.api.scheduling.v1beta1.priorityclass)
-  * name **required** `string`: name of the PriorityClass
-  * pretty `string`: If 'true', then the output is pretty printed.
-
-#### Output
-* output [io.k8s.api.scheduling.v1beta1.PriorityClass](#io.k8s.api.scheduling.v1beta1.priorityclass)
-
-### watchSchedulingV1beta1PriorityClassList
-watch individual changes to a list of PriorityClass
-
-
-```js
-kubernetes.watchSchedulingV1beta1PriorityClassList({}, context)
-```
-
-#### Input
-* input `object`
-  * continue `string`: The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server the server will respond with a 410 ResourceExpired error indicating the client must restart their list without the continue field. This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications.
-  * fieldSelector `string`: A selector to restrict the list of returned objects by their fields. Defaults to everything.
-  * includeUninitialized `boolean`: If true, partially initialized resources are included in the response.
-  * labelSelector `string`: A selector to restrict the list of returned objects by their labels. Defaults to everything.
-  * limit `integer`: limit is a maximum number of responses to return for a list call. If more items exist, the server will set the `continue` field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.
-  * pretty `string`: If 'true', then the output is pretty printed.
-  * resourceVersion `string`: When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-  * timeoutSeconds `integer`: Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity.
-  * watch `boolean`: Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
-
-#### Output
-* output [io.k8s.apimachinery.pkg.apis.meta.v1.WatchEvent](#io.k8s.apimachinery.pkg.apis.meta.v1.watchevent)
-
-### watchSchedulingV1beta1PriorityClass
-watch changes to an object of kind PriorityClass
-
-
-```js
-kubernetes.watchSchedulingV1beta1PriorityClass({
-  "name": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * continue `string`: The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server the server will respond with a 410 ResourceExpired error indicating the client must restart their list without the continue field. This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications.
-  * fieldSelector `string`: A selector to restrict the list of returned objects by their fields. Defaults to everything.
-  * includeUninitialized `boolean`: If true, partially initialized resources are included in the response.
-  * labelSelector `string`: A selector to restrict the list of returned objects by their labels. Defaults to everything.
-  * limit `integer`: limit is a maximum number of responses to return for a list call. If more items exist, the server will set the `continue` field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.
-  * name **required** `string`: name of the PriorityClass
-  * pretty `string`: If 'true', then the output is pretty printed.
-  * resourceVersion `string`: When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-  * timeoutSeconds `integer`: Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity.
-  * watch `boolean`: Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
-
-#### Output
-* output [io.k8s.apimachinery.pkg.apis.meta.v1.WatchEvent](#io.k8s.apimachinery.pkg.apis.meta.v1.watchevent)
-
 ### getSettingsAPIGroup
 get information of a group
 
@@ -22872,14 +22510,6 @@ kubernetes.getCodeVersion(null, context)
   * kind `string`: Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds
   * metadata [io.k8s.apimachinery.pkg.apis.meta.v1.ListMeta](#io.k8s.apimachinery.pkg.apis.meta.v1.listmeta)
 
-### io.k8s.api.core.v1.ConfigMapNodeConfigSource
-* io.k8s.api.core.v1.ConfigMapNodeConfigSource `object`: ConfigMapNodeConfigSource contains the information to reference a ConfigMap as a config source for the Node.
-  * kubeletConfigKey **required** `string`: KubeletConfigKey declares which key of the referenced ConfigMap corresponds to the KubeletConfiguration structure This field is required in all cases.
-  * name **required** `string`: Name is the metadata.name of the referenced ConfigMap. This field is required in all cases.
-  * namespace **required** `string`: Namespace is the metadata.namespace of the referenced ConfigMap. This field is required in all cases.
-  * resourceVersion `string`: ResourceVersion is the metadata.ResourceVersion of the referenced ConfigMap. This field is forbidden in Node.Spec, and required in Node.Status.
-  * uid `string`: UID is the metadata.UID of the referenced ConfigMap. This field is forbidden in Node.Spec, and required in Node.Status.
-
 ### io.k8s.api.core.v1.ConfigMapProjection
 * io.k8s.api.core.v1.ConfigMapProjection `object`: Adapts a ConfigMap into a projected volume.
   * items `array`: If unspecified, each key-value pair in the Data field of the referenced ConfigMap will be projected into the volume as a file whose name is the key and content is the value. If specified, the listed keys will be projected into the specified paths, and unlisted keys will not be present. If a key is specified which is not present in the ConfigMap, the volume setup will error unless it is marked optional. Paths must be relative and may not contain the '..' path or start with '..'.
@@ -23270,8 +22900,8 @@ kubernetes.getCodeVersion(null, context)
   * name `string`: Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
 
 ### io.k8s.api.core.v1.LocalVolumeSource
-* io.k8s.api.core.v1.LocalVolumeSource `object`: Local represents directly-attached storage with node affinity (Beta feature)
-  * path **required** `string`: The full path to the volume on the node. It can be either a directory or block device (disk, partition, ...). Directories can be represented only by PersistentVolume with VolumeMode=Filesystem. Block devices can be represented only by VolumeMode=Block, which also requires the BlockVolume alpha feature gate to be enabled.
+* io.k8s.api.core.v1.LocalVolumeSource `object`: Local represents directly-attached storage with node affinity
+  * path **required** `string`: The full path to the volume on the node For alpha, this path must be a directory Once block as a source is supported, then this path can point to a block device
 
 ### io.k8s.api.core.v1.NFSVolumeSource
 * io.k8s.api.core.v1.NFSVolumeSource `object`: Represents an NFS mount that lasts the lifetime of a pod. NFS volumes do not support ownership management or SELinux relabeling.
@@ -23334,14 +22964,9 @@ kubernetes.getCodeVersion(null, context)
 
 ### io.k8s.api.core.v1.NodeConfigSource
 * io.k8s.api.core.v1.NodeConfigSource `object`: NodeConfigSource specifies a source of node configuration. Exactly one subfield (excluding metadata) must be non-nil.
-  * configMap [io.k8s.api.core.v1.ConfigMapNodeConfigSource](#io.k8s.api.core.v1.configmapnodeconfigsource)
-
-### io.k8s.api.core.v1.NodeConfigStatus
-* io.k8s.api.core.v1.NodeConfigStatus `object`: NodeConfigStatus describes the status of the config assigned by Node.Spec.ConfigSource.
-  * active [io.k8s.api.core.v1.NodeConfigSource](#io.k8s.api.core.v1.nodeconfigsource)
-  * assigned [io.k8s.api.core.v1.NodeConfigSource](#io.k8s.api.core.v1.nodeconfigsource)
-  * error `string`: Error describes any problems reconciling the Spec.ConfigSource to the Active config. Errors may occur, for example, attempting to checkpoint Spec.ConfigSource to the local Assigned record, attempting to checkpoint the payload associated with Spec.ConfigSource, attempting to load or validate the Assigned config, etc. Errors may occur at different points while syncing config. Earlier errors (e.g. download or checkpointing errors) will not result in a rollback to LastKnownGood, and may resolve across Kubelet retries. Later errors (e.g. loading or validating a checkpointed config) will result in a rollback to LastKnownGood. In the latter case, it is usually possible to resolve the error by fixing the config assigned in Spec.ConfigSource. You can find additional information for debugging by searching the error message in the Kubelet log. Error is a human-readable description of the error state; machines can check whether or not Error is empty, but should not rely on the stability of the Error text across Kubelet versions.
-  * lastKnownGood [io.k8s.api.core.v1.NodeConfigSource](#io.k8s.api.core.v1.nodeconfigsource)
+  * apiVersion `string`: APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#resources
+  * configMapRef [io.k8s.api.core.v1.ObjectReference](#io.k8s.api.core.v1.objectreference)
+  * kind `string`: Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds
 
 ### io.k8s.api.core.v1.NodeDaemonEndpoints
 * io.k8s.api.core.v1.NodeDaemonEndpoints `object`: NodeDaemonEndpoints lists ports opened by daemons running on the Node.
@@ -23368,16 +22993,14 @@ kubernetes.getCodeVersion(null, context)
     * items `string`
 
 ### io.k8s.api.core.v1.NodeSelectorTerm
-* io.k8s.api.core.v1.NodeSelectorTerm `object`: A null or empty node selector term matches no objects. The requirements of them are ANDed.
-  * matchExpressions `array`: A list of node selector requirements by node's labels.
-    * items [io.k8s.api.core.v1.NodeSelectorRequirement](#io.k8s.api.core.v1.nodeselectorrequirement)
-  * matchFields `array`: A list of node selector requirements by node's fields.
+* io.k8s.api.core.v1.NodeSelectorTerm `object`: A null or empty node selector term matches no objects.
+  * matchExpressions **required** `array`: Required. A list of node selector requirements. The requirements are ANDed.
     * items [io.k8s.api.core.v1.NodeSelectorRequirement](#io.k8s.api.core.v1.nodeselectorrequirement)
 
 ### io.k8s.api.core.v1.NodeSpec
 * io.k8s.api.core.v1.NodeSpec `object`: NodeSpec describes the attributes that a node is created with.
   * configSource [io.k8s.api.core.v1.NodeConfigSource](#io.k8s.api.core.v1.nodeconfigsource)
-  * externalID `string`: Deprecated. Not all kubelets will set this field. Remove field after 1.13. see: https://issues.k8s.io/61966
+  * externalID `string`: External ID of the node assigned by some machine database (e.g. a cloud provider). Deprecated.
   * podCIDR `string`: PodCIDR represents the pod IP range assigned to the node.
   * providerID `string`: ID of the node assigned by the cloud provider in the format: <ProviderName>://<ProviderSpecificNodeID>
   * taints `array`: If specified, the node's taints.
@@ -23392,7 +23015,6 @@ kubernetes.getCodeVersion(null, context)
   * capacity `object`: Capacity represents the total resources of a node. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#capacity
   * conditions `array`: Conditions is an array of current observed node conditions. More info: https://kubernetes.io/docs/concepts/nodes/node/#condition
     * items [io.k8s.api.core.v1.NodeCondition](#io.k8s.api.core.v1.nodecondition)
-  * config [io.k8s.api.core.v1.NodeConfigStatus](#io.k8s.api.core.v1.nodeconfigstatus)
   * daemonEndpoints [io.k8s.api.core.v1.NodeDaemonEndpoints](#io.k8s.api.core.v1.nodedaemonendpoints)
   * images `array`: List of container images on this node
     * items [io.k8s.api.core.v1.ContainerImage](#io.k8s.api.core.v1.containerimage)
@@ -23972,7 +23594,7 @@ kubernetes.getCodeVersion(null, context)
     * items `string`
   * ports `array`: The list of ports that are exposed by this service. More info: https://kubernetes.io/docs/concepts/services-networking/service/#virtual-ips-and-service-proxies
     * items [io.k8s.api.core.v1.ServicePort](#io.k8s.api.core.v1.serviceport)
-  * publishNotReadyAddresses `boolean`: publishNotReadyAddresses, when set to true, indicates that DNS implementations must publish the notReadyAddresses of subsets for the Endpoints associated with the Service. The default value is false. The primary use case for setting this field is to use a StatefulSet's Headless Service to propagate SRV records for its Pods without respect to their readiness for purpose of peer discovery.
+  * publishNotReadyAddresses `boolean`: publishNotReadyAddresses, when set to true, indicates that DNS implementations must publish the notReadyAddresses of subsets for the Endpoints associated with the Service. The default value is false. The primary use case for setting this field is to use a StatefulSet's Headless Service to propagate SRV records for its Pods without respect to their readiness for purpose of peer discovery. This field will replace the service.alpha.kubernetes.io/tolerate-unready-endpoints when that annotation is deprecated and all clients have been converted to use this field.
   * selector `object`: Route service traffic to pods with label keys and values matching this selector. If empty or not present, the service is assumed to have an external process managing its endpoints, which Kubernetes will not modify. Only applies to types ClusterIP, NodePort, and LoadBalancer. Ignored if type is ExternalName. More info: https://kubernetes.io/docs/concepts/services-networking/service/
   * sessionAffinity `string`: Supports "ClientIP" and "None". Used to maintain session affinity. Enable client IP based session affinity. Must be ClientIP or None. Defaults to None. More info: https://kubernetes.io/docs/concepts/services-networking/service/#virtual-ips-and-service-proxies
   * sessionAffinityConfig [io.k8s.api.core.v1.SessionAffinityConfig](#io.k8s.api.core.v1.sessionaffinityconfig)
@@ -24123,12 +23745,12 @@ kubernetes.getCodeVersion(null, context)
   * state **required** `string`: Information whether this series is ongoing or finished.
 
 ### io.k8s.api.extensions.v1beta1.AllowedFlexVolume
-* io.k8s.api.extensions.v1beta1.AllowedFlexVolume `object`: AllowedFlexVolume represents a single Flexvolume that is allowed to be used. Deprecated: use AllowedFlexVolume from policy API Group instead.
-  * driver **required** `string`: driver is the name of the Flexvolume driver.
+* io.k8s.api.extensions.v1beta1.AllowedFlexVolume `object`: AllowedFlexVolume represents a single Flexvolume that is allowed to be used.
+  * driver **required** `string`: Driver is the name of the Flexvolume driver.
 
 ### io.k8s.api.extensions.v1beta1.AllowedHostPath
-* io.k8s.api.extensions.v1beta1.AllowedHostPath `object`: AllowedHostPath defines the host volume conditions that will be enabled by a policy for pods to use. It requires the path prefix to be defined. Deprecated: use AllowedHostPath from policy API Group instead.
-  * pathPrefix `string`: pathPrefix is the path prefix that the host volume must match. It does not support `*`. Trailing slashes are trimmed when validating the path prefix with a host path.
+* io.k8s.api.extensions.v1beta1.AllowedHostPath `object`: defines the host volume conditions that will be enabled by a policy for pods to use. It requires the path prefix to be defined.
+  * pathPrefix `string`: is the path prefix that the host volume must match. It does not support `*`. Trailing slashes are trimmed when validating the path prefix with a host path.
 
 ### io.k8s.api.extensions.v1beta1.DaemonSet
 * io.k8s.api.extensions.v1beta1.DaemonSet `object`: DEPRECATED - This group version of DaemonSet is deprecated by apps/v1beta2/DaemonSet. See the release notes for more information. DaemonSet represents the configuration of a daemon set.
@@ -24245,10 +23867,10 @@ kubernetes.getCodeVersion(null, context)
   * type `string`: Type of deployment. Can be "Recreate" or "RollingUpdate". Default is RollingUpdate.
 
 ### io.k8s.api.extensions.v1beta1.FSGroupStrategyOptions
-* io.k8s.api.extensions.v1beta1.FSGroupStrategyOptions `object`: FSGroupStrategyOptions defines the strategy type and options used to create the strategy. Deprecated: use FSGroupStrategyOptions from policy API Group instead.
-  * ranges `array`: ranges are the allowed ranges of fs groups.  If you would like to force a single fs group then supply a single range with the same start and end. Required for MustRunAs.
+* io.k8s.api.extensions.v1beta1.FSGroupStrategyOptions `object`: FSGroupStrategyOptions defines the strategy type and options used to create the strategy.
+  * ranges `array`: Ranges are the allowed ranges of fs groups.  If you would like to force a single fs group then supply a single range with the same start and end.
     * items [io.k8s.api.extensions.v1beta1.IDRange](#io.k8s.api.extensions.v1beta1.idrange)
-  * rule `string`: rule is the strategy that will dictate what FSGroup is used in the SecurityContext.
+  * rule `string`: Rule is the strategy that will dictate what FSGroup is used in the SecurityContext.
 
 ### io.k8s.api.extensions.v1beta1.HTTPIngressPath
 * io.k8s.api.extensions.v1beta1.HTTPIngressPath `object`: HTTPIngressPath associates a path regex with a backend. Incoming urls matching the path are forwarded to the backend.
@@ -24261,14 +23883,14 @@ kubernetes.getCodeVersion(null, context)
     * items [io.k8s.api.extensions.v1beta1.HTTPIngressPath](#io.k8s.api.extensions.v1beta1.httpingresspath)
 
 ### io.k8s.api.extensions.v1beta1.HostPortRange
-* io.k8s.api.extensions.v1beta1.HostPortRange `object`: HostPortRange defines a range of host ports that will be enabled by a policy for pods to use.  It requires both the start and end to be defined. Deprecated: use HostPortRange from policy API Group instead.
+* io.k8s.api.extensions.v1beta1.HostPortRange `object`: Host Port Range defines a range of host ports that will be enabled by a policy for pods to use.  It requires both the start and end to be defined.
   * max **required** `integer`: max is the end of the range, inclusive.
   * min **required** `integer`: min is the start of the range, inclusive.
 
 ### io.k8s.api.extensions.v1beta1.IDRange
-* io.k8s.api.extensions.v1beta1.IDRange `object`: IDRange provides a min/max of an allowed range of IDs. Deprecated: use IDRange from policy API Group instead.
-  * max **required** `integer`: max is the end of the range, inclusive.
-  * min **required** `integer`: min is the start of the range, inclusive.
+* io.k8s.api.extensions.v1beta1.IDRange `object`: ID Range provides a min/max of an allowed range of IDs.
+  * max **required** `integer`: Max is the end of the range, inclusive.
+  * min **required** `integer`: Min is the start of the range, inclusive.
 
 ### io.k8s.api.extensions.v1beta1.IPBlock
 * io.k8s.api.extensions.v1beta1.IPBlock `object`: DEPRECATED 1.9 - This group version of IPBlock is deprecated by networking/v1/IPBlock. IPBlock describes a particular CIDR (Ex. "192.168.1.1/24") that is allowed to the pods matched by a NetworkPolicySpec's podSelector. The except entry describes CIDRs that should not be included within this rule.
@@ -24371,32 +23993,32 @@ kubernetes.getCodeVersion(null, context)
     * items `string`
 
 ### io.k8s.api.extensions.v1beta1.PodSecurityPolicy
-* io.k8s.api.extensions.v1beta1.PodSecurityPolicy `object`: PodSecurityPolicy governs the ability to make requests that affect the Security Context that will be applied to a pod and container. Deprecated: use PodSecurityPolicy from policy API Group instead.
+* io.k8s.api.extensions.v1beta1.PodSecurityPolicy `object`: Pod Security Policy governs the ability to make requests that affect the Security Context that will be applied to a pod and container.
   * apiVersion `string`: APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#resources
   * kind `string`: Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds
   * metadata [io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta](#io.k8s.apimachinery.pkg.apis.meta.v1.objectmeta)
   * spec [io.k8s.api.extensions.v1beta1.PodSecurityPolicySpec](#io.k8s.api.extensions.v1beta1.podsecuritypolicyspec)
 
 ### io.k8s.api.extensions.v1beta1.PodSecurityPolicyList
-* io.k8s.api.extensions.v1beta1.PodSecurityPolicyList `object`: PodSecurityPolicyList is a list of PodSecurityPolicy objects. Deprecated: use PodSecurityPolicyList from policy API Group instead.
+* io.k8s.api.extensions.v1beta1.PodSecurityPolicyList `object`: Pod Security Policy List is a list of PodSecurityPolicy objects.
   * apiVersion `string`: APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#resources
-  * items **required** `array`: items is a list of schema objects.
+  * items **required** `array`: Items is a list of schema objects.
     * items [io.k8s.api.extensions.v1beta1.PodSecurityPolicy](#io.k8s.api.extensions.v1beta1.podsecuritypolicy)
   * kind `string`: Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds
   * metadata [io.k8s.apimachinery.pkg.apis.meta.v1.ListMeta](#io.k8s.apimachinery.pkg.apis.meta.v1.listmeta)
 
 ### io.k8s.api.extensions.v1beta1.PodSecurityPolicySpec
-* io.k8s.api.extensions.v1beta1.PodSecurityPolicySpec `object`: PodSecurityPolicySpec defines the policy enforced. Deprecated: use PodSecurityPolicySpec from policy API Group instead.
-  * allowPrivilegeEscalation `boolean`: allowPrivilegeEscalation determines if a pod can request to allow privilege escalation. If unspecified, defaults to true.
-  * allowedCapabilities `array`: allowedCapabilities is a list of capabilities that can be requested to add to the container. Capabilities in this field may be added at the pod author's discretion. You must not list a capability in both allowedCapabilities and requiredDropCapabilities.
+* io.k8s.api.extensions.v1beta1.PodSecurityPolicySpec `object`: Pod Security Policy Spec defines the policy enforced.
+  * allowPrivilegeEscalation `boolean`: AllowPrivilegeEscalation determines if a pod can request to allow privilege escalation. If unspecified, defaults to true.
+  * allowedCapabilities `array`: AllowedCapabilities is a list of capabilities that can be requested to add to the container. Capabilities in this field may be added at the pod author's discretion. You must not list a capability in both AllowedCapabilities and RequiredDropCapabilities.
     * items `string`
-  * allowedFlexVolumes `array`: allowedFlexVolumes is a whitelist of allowed Flexvolumes.  Empty or nil indicates that all Flexvolumes may be used.  This parameter is effective only when the usage of the Flexvolumes is allowed in the "volumes" field.
+  * allowedFlexVolumes `array`: AllowedFlexVolumes is a whitelist of allowed Flexvolumes.  Empty or nil indicates that all Flexvolumes may be used.  This parameter is effective only when the usage of the Flexvolumes is allowed in the "Volumes" field.
     * items [io.k8s.api.extensions.v1beta1.AllowedFlexVolume](#io.k8s.api.extensions.v1beta1.allowedflexvolume)
-  * allowedHostPaths `array`: allowedHostPaths is a white list of allowed host paths. Empty indicates that all host paths may be used.
+  * allowedHostPaths `array`: is a white list of allowed host paths. Empty indicates that all host paths may be used.
     * items [io.k8s.api.extensions.v1beta1.AllowedHostPath](#io.k8s.api.extensions.v1beta1.allowedhostpath)
-  * defaultAddCapabilities `array`: defaultAddCapabilities is the default set of capabilities that will be added to the container unless the pod spec specifically drops the capability.  You may not list a capability in both defaultAddCapabilities and requiredDropCapabilities. Capabilities added here are implicitly allowed, and need not be included in the allowedCapabilities list.
+  * defaultAddCapabilities `array`: DefaultAddCapabilities is the default set of capabilities that will be added to the container unless the pod spec specifically drops the capability.  You may not list a capability in both DefaultAddCapabilities and RequiredDropCapabilities. Capabilities added here are implicitly allowed, and need not be included in the AllowedCapabilities list.
     * items `string`
-  * defaultAllowPrivilegeEscalation `boolean`: defaultAllowPrivilegeEscalation controls the default setting for whether a process can gain more privileges than its parent process.
+  * defaultAllowPrivilegeEscalation `boolean`: DefaultAllowPrivilegeEscalation controls the default setting for whether a process can gain more privileges than its parent process.
   * fsGroup **required** [io.k8s.api.extensions.v1beta1.FSGroupStrategyOptions](#io.k8s.api.extensions.v1beta1.fsgroupstrategyoptions)
   * hostIPC `boolean`: hostIPC determines if the policy allows the use of HostIPC in the pod spec.
   * hostNetwork `boolean`: hostNetwork determines if the policy allows the use of HostNetwork in the pod spec.
@@ -24404,13 +24026,13 @@ kubernetes.getCodeVersion(null, context)
   * hostPorts `array`: hostPorts determines which host port ranges are allowed to be exposed.
     * items [io.k8s.api.extensions.v1beta1.HostPortRange](#io.k8s.api.extensions.v1beta1.hostportrange)
   * privileged `boolean`: privileged determines if a pod can request to be run as privileged.
-  * readOnlyRootFilesystem `boolean`: readOnlyRootFilesystem when set to true will force containers to run with a read only root file system.  If the container specifically requests to run with a non-read only root file system the PSP should deny the pod. If set to false the container may run with a read only root file system if it wishes but it will not be forced to.
-  * requiredDropCapabilities `array`: requiredDropCapabilities are the capabilities that will be dropped from the container.  These are required to be dropped and cannot be added.
+  * readOnlyRootFilesystem `boolean`: ReadOnlyRootFilesystem when set to true will force containers to run with a read only root file system.  If the container specifically requests to run with a non-read only root file system the PSP should deny the pod. If set to false the container may run with a read only root file system if it wishes but it will not be forced to.
+  * requiredDropCapabilities `array`: RequiredDropCapabilities are the capabilities that will be dropped from the container.  These are required to be dropped and cannot be added.
     * items `string`
   * runAsUser **required** [io.k8s.api.extensions.v1beta1.RunAsUserStrategyOptions](#io.k8s.api.extensions.v1beta1.runasuserstrategyoptions)
   * seLinux **required** [io.k8s.api.extensions.v1beta1.SELinuxStrategyOptions](#io.k8s.api.extensions.v1beta1.selinuxstrategyoptions)
   * supplementalGroups **required** [io.k8s.api.extensions.v1beta1.SupplementalGroupsStrategyOptions](#io.k8s.api.extensions.v1beta1.supplementalgroupsstrategyoptions)
-  * volumes `array`: volumes is a white list of allowed volume plugins. Empty indicates that no volumes may be used. To allow all volumes you may use '*'.
+  * volumes `array`: volumes is a white list of allowed volume plugins.  Empty indicates that all plugins may be used.
     * items `string`
 
 ### io.k8s.api.extensions.v1beta1.ReplicaSet
@@ -24468,14 +24090,14 @@ kubernetes.getCodeVersion(null, context)
   * maxUnavailable [io.k8s.apimachinery.pkg.util.intstr.IntOrString](#io.k8s.apimachinery.pkg.util.intstr.intorstring)
 
 ### io.k8s.api.extensions.v1beta1.RunAsUserStrategyOptions
-* io.k8s.api.extensions.v1beta1.RunAsUserStrategyOptions `object`: RunAsUserStrategyOptions defines the strategy type and any options used to create the strategy. Deprecated: use RunAsUserStrategyOptions from policy API Group instead.
-  * ranges `array`: ranges are the allowed ranges of uids that may be used. If you would like to force a single uid then supply a single range with the same start and end. Required for MustRunAs.
+* io.k8s.api.extensions.v1beta1.RunAsUserStrategyOptions `object`: Run A sUser Strategy Options defines the strategy type and any options used to create the strategy.
+  * ranges `array`: Ranges are the allowed ranges of uids that may be used.
     * items [io.k8s.api.extensions.v1beta1.IDRange](#io.k8s.api.extensions.v1beta1.idrange)
-  * rule **required** `string`: rule is the strategy that will dictate the allowable RunAsUser values that may be set.
+  * rule **required** `string`: Rule is the strategy that will dictate the allowable RunAsUser values that may be set.
 
 ### io.k8s.api.extensions.v1beta1.SELinuxStrategyOptions
-* io.k8s.api.extensions.v1beta1.SELinuxStrategyOptions `object`: SELinuxStrategyOptions defines the strategy type and any options used to create the strategy. Deprecated: use SELinuxStrategyOptions from policy API Group instead.
-  * rule **required** `string`: rule is the strategy that will dictate the allowable labels that may be set.
+* io.k8s.api.extensions.v1beta1.SELinuxStrategyOptions `object`: SELinux  Strategy Options defines the strategy type and any options used to create the strategy.
+  * rule **required** `string`: type is the strategy that will dictate the allowable labels that may be set.
   * seLinuxOptions [io.k8s.api.core.v1.SELinuxOptions](#io.k8s.api.core.v1.selinuxoptions)
 
 ### io.k8s.api.extensions.v1beta1.Scale
@@ -24497,10 +24119,10 @@ kubernetes.getCodeVersion(null, context)
   * targetSelector `string`: label selector for pods that should match the replicas count. This is a serializated version of both map-based and more expressive set-based selectors. This is done to avoid introspection in the clients. The string will be in the same format as the query-param syntax. If the target type only supports map-based selectors, both this field and map-based selector field are populated. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors
 
 ### io.k8s.api.extensions.v1beta1.SupplementalGroupsStrategyOptions
-* io.k8s.api.extensions.v1beta1.SupplementalGroupsStrategyOptions `object`: SupplementalGroupsStrategyOptions defines the strategy type and options used to create the strategy. Deprecated: use SupplementalGroupsStrategyOptions from policy API Group instead.
-  * ranges `array`: ranges are the allowed ranges of supplemental groups.  If you would like to force a single supplemental group then supply a single range with the same start and end. Required for MustRunAs.
+* io.k8s.api.extensions.v1beta1.SupplementalGroupsStrategyOptions `object`: SupplementalGroupsStrategyOptions defines the strategy type and options used to create the strategy.
+  * ranges `array`: Ranges are the allowed ranges of supplemental groups.  If you would like to force a single supplemental group then supply a single range with the same start and end.
     * items [io.k8s.api.extensions.v1beta1.IDRange](#io.k8s.api.extensions.v1beta1.idrange)
-  * rule `string`: rule is the strategy that will dictate what supplemental groups is used in the SecurityContext.
+  * rule `string`: Rule is the strategy that will dictate what supplemental groups is used in the SecurityContext.
 
 ### io.k8s.api.networking.v1.IPBlock
 * io.k8s.api.networking.v1.IPBlock `object`: IPBlock describes a particular CIDR (Ex. "192.168.1.1/24") that is allowed to the pods matched by a NetworkPolicySpec's podSelector. The except entry describes CIDRs that should not be included within this rule.
@@ -24538,7 +24160,7 @@ kubernetes.getCodeVersion(null, context)
   * metadata [io.k8s.apimachinery.pkg.apis.meta.v1.ListMeta](#io.k8s.apimachinery.pkg.apis.meta.v1.listmeta)
 
 ### io.k8s.api.networking.v1.NetworkPolicyPeer
-* io.k8s.api.networking.v1.NetworkPolicyPeer `object`: NetworkPolicyPeer describes a peer to allow traffic from. Only certain combinations of fields are allowed
+* io.k8s.api.networking.v1.NetworkPolicyPeer `object`: NetworkPolicyPeer describes a peer to allow traffic from. Exactly one of its fields must be specified.
   * ipBlock [io.k8s.api.networking.v1.IPBlock](#io.k8s.api.networking.v1.ipblock)
   * namespaceSelector [io.k8s.apimachinery.pkg.apis.meta.v1.LabelSelector](#io.k8s.apimachinery.pkg.apis.meta.v1.labelselector)
   * podSelector [io.k8s.apimachinery.pkg.apis.meta.v1.LabelSelector](#io.k8s.apimachinery.pkg.apis.meta.v1.labelselector)
@@ -24560,11 +24182,11 @@ kubernetes.getCodeVersion(null, context)
 
 ### io.k8s.api.policy.v1beta1.AllowedFlexVolume
 * io.k8s.api.policy.v1beta1.AllowedFlexVolume `object`: AllowedFlexVolume represents a single Flexvolume that is allowed to be used.
-  * driver **required** `string`: driver is the name of the Flexvolume driver.
+  * driver **required** `string`: Driver is the name of the Flexvolume driver.
 
 ### io.k8s.api.policy.v1beta1.AllowedHostPath
-* io.k8s.api.policy.v1beta1.AllowedHostPath `object`: AllowedHostPath defines the host volume conditions that will be enabled by a policy for pods to use. It requires the path prefix to be defined.
-  * pathPrefix `string`: pathPrefix is the path prefix that the host volume must match. It does not support `*`. Trailing slashes are trimmed when validating the path prefix with a host path.
+* io.k8s.api.policy.v1beta1.AllowedHostPath `object`: defines the host volume conditions that will be enabled by a policy for pods to use. It requires the path prefix to be defined.
+  * pathPrefix `string`: is the path prefix that the host volume must match. It does not support `*`. Trailing slashes are trimmed when validating the path prefix with a host path.
 
 ### io.k8s.api.policy.v1beta1.Eviction
 * io.k8s.api.policy.v1beta1.Eviction `object`: Eviction evicts a pod from its node subject to certain policies and safety constraints. This is a subresource of Pod.  A request to cause such an eviction is created by POSTing to .../pods/<pod name>/evictions.
@@ -24575,19 +24197,19 @@ kubernetes.getCodeVersion(null, context)
 
 ### io.k8s.api.policy.v1beta1.FSGroupStrategyOptions
 * io.k8s.api.policy.v1beta1.FSGroupStrategyOptions `object`: FSGroupStrategyOptions defines the strategy type and options used to create the strategy.
-  * ranges `array`: ranges are the allowed ranges of fs groups.  If you would like to force a single fs group then supply a single range with the same start and end. Required for MustRunAs.
+  * ranges `array`: Ranges are the allowed ranges of fs groups.  If you would like to force a single fs group then supply a single range with the same start and end.
     * items [io.k8s.api.policy.v1beta1.IDRange](#io.k8s.api.policy.v1beta1.idrange)
-  * rule `string`: rule is the strategy that will dictate what FSGroup is used in the SecurityContext.
+  * rule `string`: Rule is the strategy that will dictate what FSGroup is used in the SecurityContext.
 
 ### io.k8s.api.policy.v1beta1.HostPortRange
-* io.k8s.api.policy.v1beta1.HostPortRange `object`: HostPortRange defines a range of host ports that will be enabled by a policy for pods to use.  It requires both the start and end to be defined.
+* io.k8s.api.policy.v1beta1.HostPortRange `object`: Host Port Range defines a range of host ports that will be enabled by a policy for pods to use.  It requires both the start and end to be defined.
   * max **required** `integer`: max is the end of the range, inclusive.
   * min **required** `integer`: min is the start of the range, inclusive.
 
 ### io.k8s.api.policy.v1beta1.IDRange
-* io.k8s.api.policy.v1beta1.IDRange `object`: IDRange provides a min/max of an allowed range of IDs.
-  * max **required** `integer`: max is the end of the range, inclusive.
-  * min **required** `integer`: min is the start of the range, inclusive.
+* io.k8s.api.policy.v1beta1.IDRange `object`: ID Range provides a min/max of an allowed range of IDs.
+  * max **required** `integer`: Max is the end of the range, inclusive.
+  * min **required** `integer`: Min is the start of the range, inclusive.
 
 ### io.k8s.api.policy.v1beta1.PodDisruptionBudget
 * io.k8s.api.policy.v1beta1.PodDisruptionBudget `object`: PodDisruptionBudget is an object to define the max disruption that can be caused to a collection of pods
@@ -24621,32 +24243,32 @@ kubernetes.getCodeVersion(null, context)
   * observedGeneration `integer`: Most recent generation observed when updating this PDB status. PodDisruptionsAllowed and other status informatio is valid only if observedGeneration equals to PDB's object generation.
 
 ### io.k8s.api.policy.v1beta1.PodSecurityPolicy
-* io.k8s.api.policy.v1beta1.PodSecurityPolicy `object`: PodSecurityPolicy governs the ability to make requests that affect the Security Context that will be applied to a pod and container.
+* io.k8s.api.policy.v1beta1.PodSecurityPolicy `object`: Pod Security Policy governs the ability to make requests that affect the Security Context that will be applied to a pod and container.
   * apiVersion `string`: APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#resources
   * kind `string`: Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds
   * metadata [io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta](#io.k8s.apimachinery.pkg.apis.meta.v1.objectmeta)
   * spec [io.k8s.api.policy.v1beta1.PodSecurityPolicySpec](#io.k8s.api.policy.v1beta1.podsecuritypolicyspec)
 
 ### io.k8s.api.policy.v1beta1.PodSecurityPolicyList
-* io.k8s.api.policy.v1beta1.PodSecurityPolicyList `object`: PodSecurityPolicyList is a list of PodSecurityPolicy objects.
+* io.k8s.api.policy.v1beta1.PodSecurityPolicyList `object`: Pod Security Policy List is a list of PodSecurityPolicy objects.
   * apiVersion `string`: APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#resources
-  * items **required** `array`: items is a list of schema objects.
+  * items **required** `array`: Items is a list of schema objects.
     * items [io.k8s.api.policy.v1beta1.PodSecurityPolicy](#io.k8s.api.policy.v1beta1.podsecuritypolicy)
   * kind `string`: Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds
   * metadata [io.k8s.apimachinery.pkg.apis.meta.v1.ListMeta](#io.k8s.apimachinery.pkg.apis.meta.v1.listmeta)
 
 ### io.k8s.api.policy.v1beta1.PodSecurityPolicySpec
-* io.k8s.api.policy.v1beta1.PodSecurityPolicySpec `object`: PodSecurityPolicySpec defines the policy enforced.
-  * allowPrivilegeEscalation `boolean`: allowPrivilegeEscalation determines if a pod can request to allow privilege escalation. If unspecified, defaults to true.
-  * allowedCapabilities `array`: allowedCapabilities is a list of capabilities that can be requested to add to the container. Capabilities in this field may be added at the pod author's discretion. You must not list a capability in both allowedCapabilities and requiredDropCapabilities.
+* io.k8s.api.policy.v1beta1.PodSecurityPolicySpec `object`: Pod Security Policy Spec defines the policy enforced.
+  * allowPrivilegeEscalation `boolean`: AllowPrivilegeEscalation determines if a pod can request to allow privilege escalation. If unspecified, defaults to true.
+  * allowedCapabilities `array`: AllowedCapabilities is a list of capabilities that can be requested to add to the container. Capabilities in this field may be added at the pod author's discretion. You must not list a capability in both AllowedCapabilities and RequiredDropCapabilities.
     * items `string`
-  * allowedFlexVolumes `array`: allowedFlexVolumes is a whitelist of allowed Flexvolumes.  Empty or nil indicates that all Flexvolumes may be used.  This parameter is effective only when the usage of the Flexvolumes is allowed in the "volumes" field.
+  * allowedFlexVolumes `array`: AllowedFlexVolumes is a whitelist of allowed Flexvolumes.  Empty or nil indicates that all Flexvolumes may be used.  This parameter is effective only when the usage of the Flexvolumes is allowed in the "Volumes" field.
     * items [io.k8s.api.policy.v1beta1.AllowedFlexVolume](#io.k8s.api.policy.v1beta1.allowedflexvolume)
-  * allowedHostPaths `array`: allowedHostPaths is a white list of allowed host paths. Empty indicates that all host paths may be used.
+  * allowedHostPaths `array`: is a white list of allowed host paths. Empty indicates that all host paths may be used.
     * items [io.k8s.api.policy.v1beta1.AllowedHostPath](#io.k8s.api.policy.v1beta1.allowedhostpath)
-  * defaultAddCapabilities `array`: defaultAddCapabilities is the default set of capabilities that will be added to the container unless the pod spec specifically drops the capability.  You may not list a capability in both defaultAddCapabilities and requiredDropCapabilities. Capabilities added here are implicitly allowed, and need not be included in the allowedCapabilities list.
+  * defaultAddCapabilities `array`: DefaultAddCapabilities is the default set of capabilities that will be added to the container unless the pod spec specifically drops the capability.  You may not list a capability in both DefaultAddCapabilities and RequiredDropCapabilities. Capabilities added here are implicitly allowed, and need not be included in the AllowedCapabilities list.
     * items `string`
-  * defaultAllowPrivilegeEscalation `boolean`: defaultAllowPrivilegeEscalation controls the default setting for whether a process can gain more privileges than its parent process.
+  * defaultAllowPrivilegeEscalation `boolean`: DefaultAllowPrivilegeEscalation controls the default setting for whether a process can gain more privileges than its parent process.
   * fsGroup **required** [io.k8s.api.policy.v1beta1.FSGroupStrategyOptions](#io.k8s.api.policy.v1beta1.fsgroupstrategyoptions)
   * hostIPC `boolean`: hostIPC determines if the policy allows the use of HostIPC in the pod spec.
   * hostNetwork `boolean`: hostNetwork determines if the policy allows the use of HostNetwork in the pod spec.
@@ -24654,31 +24276,31 @@ kubernetes.getCodeVersion(null, context)
   * hostPorts `array`: hostPorts determines which host port ranges are allowed to be exposed.
     * items [io.k8s.api.policy.v1beta1.HostPortRange](#io.k8s.api.policy.v1beta1.hostportrange)
   * privileged `boolean`: privileged determines if a pod can request to be run as privileged.
-  * readOnlyRootFilesystem `boolean`: readOnlyRootFilesystem when set to true will force containers to run with a read only root file system.  If the container specifically requests to run with a non-read only root file system the PSP should deny the pod. If set to false the container may run with a read only root file system if it wishes but it will not be forced to.
-  * requiredDropCapabilities `array`: requiredDropCapabilities are the capabilities that will be dropped from the container.  These are required to be dropped and cannot be added.
+  * readOnlyRootFilesystem `boolean`: ReadOnlyRootFilesystem when set to true will force containers to run with a read only root file system.  If the container specifically requests to run with a non-read only root file system the PSP should deny the pod. If set to false the container may run with a read only root file system if it wishes but it will not be forced to.
+  * requiredDropCapabilities `array`: RequiredDropCapabilities are the capabilities that will be dropped from the container.  These are required to be dropped and cannot be added.
     * items `string`
   * runAsUser **required** [io.k8s.api.policy.v1beta1.RunAsUserStrategyOptions](#io.k8s.api.policy.v1beta1.runasuserstrategyoptions)
   * seLinux **required** [io.k8s.api.policy.v1beta1.SELinuxStrategyOptions](#io.k8s.api.policy.v1beta1.selinuxstrategyoptions)
   * supplementalGroups **required** [io.k8s.api.policy.v1beta1.SupplementalGroupsStrategyOptions](#io.k8s.api.policy.v1beta1.supplementalgroupsstrategyoptions)
-  * volumes `array`: volumes is a white list of allowed volume plugins. Empty indicates that no volumes may be used. To allow all volumes you may use '*'.
+  * volumes `array`: volumes is a white list of allowed volume plugins.  Empty indicates that all plugins may be used.
     * items `string`
 
 ### io.k8s.api.policy.v1beta1.RunAsUserStrategyOptions
-* io.k8s.api.policy.v1beta1.RunAsUserStrategyOptions `object`: RunAsUserStrategyOptions defines the strategy type and any options used to create the strategy.
-  * ranges `array`: ranges are the allowed ranges of uids that may be used. If you would like to force a single uid then supply a single range with the same start and end. Required for MustRunAs.
+* io.k8s.api.policy.v1beta1.RunAsUserStrategyOptions `object`: Run A sUser Strategy Options defines the strategy type and any options used to create the strategy.
+  * ranges `array`: Ranges are the allowed ranges of uids that may be used.
     * items [io.k8s.api.policy.v1beta1.IDRange](#io.k8s.api.policy.v1beta1.idrange)
-  * rule **required** `string`: rule is the strategy that will dictate the allowable RunAsUser values that may be set.
+  * rule **required** `string`: Rule is the strategy that will dictate the allowable RunAsUser values that may be set.
 
 ### io.k8s.api.policy.v1beta1.SELinuxStrategyOptions
-* io.k8s.api.policy.v1beta1.SELinuxStrategyOptions `object`: SELinuxStrategyOptions defines the strategy type and any options used to create the strategy.
-  * rule **required** `string`: rule is the strategy that will dictate the allowable labels that may be set.
+* io.k8s.api.policy.v1beta1.SELinuxStrategyOptions `object`: SELinux  Strategy Options defines the strategy type and any options used to create the strategy.
+  * rule **required** `string`: type is the strategy that will dictate the allowable labels that may be set.
   * seLinuxOptions [io.k8s.api.core.v1.SELinuxOptions](#io.k8s.api.core.v1.selinuxoptions)
 
 ### io.k8s.api.policy.v1beta1.SupplementalGroupsStrategyOptions
 * io.k8s.api.policy.v1beta1.SupplementalGroupsStrategyOptions `object`: SupplementalGroupsStrategyOptions defines the strategy type and options used to create the strategy.
-  * ranges `array`: ranges are the allowed ranges of supplemental groups.  If you would like to force a single supplemental group then supply a single range with the same start and end. Required for MustRunAs.
+  * ranges `array`: Ranges are the allowed ranges of supplemental groups.  If you would like to force a single supplemental group then supply a single range with the same start and end.
     * items [io.k8s.api.policy.v1beta1.IDRange](#io.k8s.api.policy.v1beta1.idrange)
-  * rule `string`: rule is the strategy that will dictate what supplemental groups is used in the SecurityContext.
+  * rule `string`: Rule is the strategy that will dictate what supplemental groups is used in the SecurityContext.
 
 ### io.k8s.api.rbac.v1.AggregationRule
 * io.k8s.api.rbac.v1.AggregationRule `object`: AggregationRule describes how to locate ClusterRoles to aggregate into the ClusterRole
@@ -24700,7 +24322,7 @@ kubernetes.getCodeVersion(null, context)
   * kind `string`: Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds
   * metadata [io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta](#io.k8s.apimachinery.pkg.apis.meta.v1.objectmeta)
   * roleRef **required** [io.k8s.api.rbac.v1.RoleRef](#io.k8s.api.rbac.v1.roleref)
-  * subjects `array`: Subjects holds references to the objects the role applies to.
+  * subjects **required** `array`: Subjects holds references to the objects the role applies to.
     * items [io.k8s.api.rbac.v1.Subject](#io.k8s.api.rbac.v1.subject)
 
 ### io.k8s.api.rbac.v1.ClusterRoleBindingList
@@ -24746,7 +24368,7 @@ kubernetes.getCodeVersion(null, context)
   * kind `string`: Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds
   * metadata [io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta](#io.k8s.apimachinery.pkg.apis.meta.v1.objectmeta)
   * roleRef **required** [io.k8s.api.rbac.v1.RoleRef](#io.k8s.api.rbac.v1.roleref)
-  * subjects `array`: Subjects holds references to the objects the role applies to.
+  * subjects **required** `array`: Subjects holds references to the objects the role applies to.
     * items [io.k8s.api.rbac.v1.Subject](#io.k8s.api.rbac.v1.subject)
 
 ### io.k8s.api.rbac.v1.RoleBindingList
@@ -24798,7 +24420,7 @@ kubernetes.getCodeVersion(null, context)
   * kind `string`: Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds
   * metadata [io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta](#io.k8s.apimachinery.pkg.apis.meta.v1.objectmeta)
   * roleRef **required** [io.k8s.api.rbac.v1alpha1.RoleRef](#io.k8s.api.rbac.v1alpha1.roleref)
-  * subjects `array`: Subjects holds references to the objects the role applies to.
+  * subjects **required** `array`: Subjects holds references to the objects the role applies to.
     * items [io.k8s.api.rbac.v1alpha1.Subject](#io.k8s.api.rbac.v1alpha1.subject)
 
 ### io.k8s.api.rbac.v1alpha1.ClusterRoleBindingList
@@ -24844,7 +24466,7 @@ kubernetes.getCodeVersion(null, context)
   * kind `string`: Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds
   * metadata [io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta](#io.k8s.apimachinery.pkg.apis.meta.v1.objectmeta)
   * roleRef **required** [io.k8s.api.rbac.v1alpha1.RoleRef](#io.k8s.api.rbac.v1alpha1.roleref)
-  * subjects `array`: Subjects holds references to the objects the role applies to.
+  * subjects **required** `array`: Subjects holds references to the objects the role applies to.
     * items [io.k8s.api.rbac.v1alpha1.Subject](#io.k8s.api.rbac.v1alpha1.subject)
 
 ### io.k8s.api.rbac.v1alpha1.RoleBindingList
@@ -24896,7 +24518,7 @@ kubernetes.getCodeVersion(null, context)
   * kind `string`: Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds
   * metadata [io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta](#io.k8s.apimachinery.pkg.apis.meta.v1.objectmeta)
   * roleRef **required** [io.k8s.api.rbac.v1beta1.RoleRef](#io.k8s.api.rbac.v1beta1.roleref)
-  * subjects `array`: Subjects holds references to the objects the role applies to.
+  * subjects **required** `array`: Subjects holds references to the objects the role applies to.
     * items [io.k8s.api.rbac.v1beta1.Subject](#io.k8s.api.rbac.v1beta1.subject)
 
 ### io.k8s.api.rbac.v1beta1.ClusterRoleBindingList
@@ -24942,7 +24564,7 @@ kubernetes.getCodeVersion(null, context)
   * kind `string`: Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds
   * metadata [io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta](#io.k8s.apimachinery.pkg.apis.meta.v1.objectmeta)
   * roleRef **required** [io.k8s.api.rbac.v1beta1.RoleRef](#io.k8s.api.rbac.v1beta1.roleref)
-  * subjects `array`: Subjects holds references to the objects the role applies to.
+  * subjects **required** `array`: Subjects holds references to the objects the role applies to.
     * items [io.k8s.api.rbac.v1beta1.Subject](#io.k8s.api.rbac.v1beta1.subject)
 
 ### io.k8s.api.rbac.v1beta1.RoleBindingList
@@ -24988,23 +24610,6 @@ kubernetes.getCodeVersion(null, context)
   * apiVersion `string`: APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#resources
   * items **required** `array`: items is the list of PriorityClasses
     * items [io.k8s.api.scheduling.v1alpha1.PriorityClass](#io.k8s.api.scheduling.v1alpha1.priorityclass)
-  * kind `string`: Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds
-  * metadata [io.k8s.apimachinery.pkg.apis.meta.v1.ListMeta](#io.k8s.apimachinery.pkg.apis.meta.v1.listmeta)
-
-### io.k8s.api.scheduling.v1beta1.PriorityClass
-* io.k8s.api.scheduling.v1beta1.PriorityClass `object`: PriorityClass defines mapping from a priority class name to the priority integer value. The value can be any valid integer.
-  * apiVersion `string`: APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#resources
-  * description `string`: description is an arbitrary string that usually provides guidelines on when this priority class should be used.
-  * globalDefault `boolean`: globalDefault specifies whether this PriorityClass should be considered as the default priority for pods that do not have any priority class. Only one PriorityClass can be marked as `globalDefault`. However, if more than one PriorityClasses exists with their `globalDefault` field set to true, the smallest value of such global default PriorityClasses will be used as the default priority.
-  * kind `string`: Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds
-  * metadata [io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta](#io.k8s.apimachinery.pkg.apis.meta.v1.objectmeta)
-  * value **required** `integer`: The value of this priority class. This is the actual priority that pods receive when they have the name of this class in their pod spec.
-
-### io.k8s.api.scheduling.v1beta1.PriorityClassList
-* io.k8s.api.scheduling.v1beta1.PriorityClassList `object`: PriorityClassList is a collection of priority classes.
-  * apiVersion `string`: APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#resources
-  * items **required** `array`: items is the list of PriorityClasses
-    * items [io.k8s.api.scheduling.v1beta1.PriorityClass](#io.k8s.api.scheduling.v1beta1.priorityclass)
   * kind `string`: Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds
   * metadata [io.k8s.apimachinery.pkg.apis.meta.v1.ListMeta](#io.k8s.apimachinery.pkg.apis.meta.v1.listmeta)
 
@@ -25153,15 +24758,6 @@ kubernetes.getCodeVersion(null, context)
   * message `string`: String detailing the error encountered during Attach or Detach operation. This string maybe logged, so it should not contain sensitive information.
   * time [io.k8s.apimachinery.pkg.apis.meta.v1.Time](#io.k8s.apimachinery.pkg.apis.meta.v1.time)
 
-### io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceColumnDefinition
-* io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceColumnDefinition `object`: CustomResourceColumnDefinition specifies a column for server side printing.
-  * JSONPath **required** `string`: JSONPath is a simple JSON path, i.e. with array notation.
-  * description `string`: description is a human readable description of this column.
-  * format `string`: format is an optional OpenAPI type definition for this column. The 'name' format is applied to the primary identifier column to assist in clients identifying column is the resource name. See https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#data-types for more.
-  * name **required** `string`: name is a human readable name for the column.
-  * priority `integer`: priority is an integer defining the relative importance of this column compared to others. Lower numbers are considered higher priority. Columns that may be omitted in limited space scenarios should be given a higher priority.
-  * type **required** `string`: type is an OpenAPI type definition for this column. See https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#data-types for more.
-
 ### io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinition
 * io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinition `object`: CustomResourceDefinition represents a resource that should be exposed on the API server.  Its name MUST be in the format <.spec.name>.<.spec.group>.
   * apiVersion `string`: APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#resources
@@ -25199,30 +24795,18 @@ kubernetes.getCodeVersion(null, context)
 
 ### io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionSpec
 * io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionSpec `object`: CustomResourceDefinitionSpec describes how a user wants their resource to appear
-  * additionalPrinterColumns `array`: AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
-    * items [io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceColumnDefinition](#io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.customresourcecolumndefinition)
   * group **required** `string`: Group is the group this resource belongs in
   * names **required** [io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionNames](#io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.customresourcedefinitionnames)
   * scope **required** `string`: Scope indicates whether this resource is cluster or namespace scoped.  Default is namespaced
   * subresources [io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceSubresources](#io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.customresourcesubresources)
   * validation [io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceValidation](#io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.customresourcevalidation)
-  * version `string`: Version is the version this resource belongs in Should be always first item in Versions field if provided. Optional, but at least one of Version or Versions must be set. Deprecated: Please use `Versions`.
-  * versions `array`: Versions is the list of all supported versions for this resource. If Version field is provided, this field is optional. Validation: All versions must use the same validation schema for now. i.e., top level Validation field is applied to all of these versions. Order: The version name will be used to compute the order. If the version string is "kube-like", it will sort above non "kube-like" version strings, which are ordered lexicographically. "Kube-like" versions start with a "v", then are followed by a number (the major version), then optionally the string "alpha" or "beta" and another number (the minor version). These are sorted first by GA > beta > alpha (where GA is a version with no suffix such as beta or alpha), and then by comparing major version, then minor version. An example sorted list of versions: v10, v2, v1, v11beta2, v10beta3, v3beta1, v12alpha1, v11alpha2, foo1, foo10.
-    * items [io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionVersion](#io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.customresourcedefinitionversion)
+  * version **required** `string`: Version is the version this resource belongs in
 
 ### io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionStatus
 * io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionStatus `object`: CustomResourceDefinitionStatus indicates the state of the CustomResourceDefinition
   * acceptedNames **required** [io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionNames](#io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.customresourcedefinitionnames)
   * conditions **required** `array`: Conditions indicate state for particular aspects of a CustomResourceDefinition
     * items [io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionCondition](#io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.customresourcedefinitioncondition)
-  * storedVersions **required** `array`: StoredVersions are all versions of CustomResources that were ever persisted. Tracking these versions allows a migration path for stored versions in etcd. The field is mutable so the migration controller can first finish a migration to another version (i.e. that no old objects are left in the storage), and then remove the rest of the versions from this list. None of the versions in this list can be removed from the spec.Versions field.
-    * items `string`
-
-### io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionVersion
-* io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionVersion `object`
-  * name **required** `string`: Name is the version name, e.g. “v1”, “v2beta1”, etc.
-  * served **required** `boolean`: Served is a flag enabling/disabling this version from being served via REST APIs
-  * storage **required** `boolean`: Storage flags the version as storage version. There must be exactly one flagged as storage version.
 
 ### io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceSubresourceScale
 * io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceSubresourceScale `object`: CustomResourceSubresourceScale defines how to serve the scale subresource for CustomResources.
@@ -25321,7 +24905,7 @@ kubernetes.getCodeVersion(null, context)
   * kind `string`: Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds
   * name **required** `string`: name is the name of the group.
   * preferredVersion [io.k8s.apimachinery.pkg.apis.meta.v1.GroupVersionForDiscovery](#io.k8s.apimachinery.pkg.apis.meta.v1.groupversionfordiscovery)
-  * serverAddressByClientCIDRs `array`: a map of client CIDR to server address that is serving this group. This is to help clients reach servers in the most network-efficient way possible. Clients can use the appropriate server address as per the CIDR that they match. In case of multiple matches, clients should use the longest matching CIDR. The server returns only those CIDRs that it thinks that the client can match. For example: the master will return an internal IP CIDR only, if the client reaches the server using an internal IP. Server looks at X-Forwarded-For header or X-Real-Ip header or request.RemoteAddr (in that order) to get the client IP.
+  * serverAddressByClientCIDRs **required** `array`: a map of client CIDR to server address that is serving this group. This is to help clients reach servers in the most network-efficient way possible. Clients can use the appropriate server address as per the CIDR that they match. In case of multiple matches, clients should use the longest matching CIDR. The server returns only those CIDRs that it thinks that the client can match. For example: the master will return an internal IP CIDR only, if the client reaches the server using an internal IP. Server looks at X-Forwarded-For header or X-Real-Ip header or request.RemoteAddr (in that order) to get the client IP.
     * items [io.k8s.apimachinery.pkg.apis.meta.v1.ServerAddressByClientCIDR](#io.k8s.apimachinery.pkg.apis.meta.v1.serveraddressbyclientcidr)
   * versions **required** `array`: versions are the versions supported in this group.
     * items [io.k8s.apimachinery.pkg.apis.meta.v1.GroupVersionForDiscovery](#io.k8s.apimachinery.pkg.apis.meta.v1.groupversionfordiscovery)
@@ -25533,13 +25117,13 @@ kubernetes.getCodeVersion(null, context)
 
 ### io.k8s.kube-aggregator.pkg.apis.apiregistration.v1.APIServiceSpec
 * io.k8s.kube-aggregator.pkg.apis.apiregistration.v1.APIServiceSpec `object`: APIServiceSpec contains information for locating and communicating with a server. Only https is supported, though you are able to disable certificate verification.
-  * caBundle `string`: CABundle is a PEM encoded CA bundle which will be used to validate an API server's serving certificate.
+  * caBundle **required** `string`: CABundle is a PEM encoded CA bundle which will be used to validate an API server's serving certificate.
   * group `string`: Group is the API group name this server hosts
   * groupPriorityMinimum **required** `integer`: GroupPriorityMininum is the priority this group should have at least. Higher priority means that the group is preferred by clients over lower priority ones. Note that other versions of this group might specify even higher GroupPriorityMininum values such that the whole group gets a higher priority. The primary sort is based on GroupPriorityMinimum, ordered highest number to lowest (20 before 10). The secondary sort is based on the alphabetical comparison of the name of the object.  (v1.bar before v1.foo) We'd recommend something like: *.k8s.io (except extensions) at 18000 and PaaSes (OpenShift, Deis) are recommended to be in the 2000s
   * insecureSkipTLSVerify `boolean`: InsecureSkipTLSVerify disables TLS certificate verification when communicating with this server. This is strongly discouraged.  You should use the CABundle instead.
   * service **required** [io.k8s.kube-aggregator.pkg.apis.apiregistration.v1.ServiceReference](#io.k8s.kube-aggregator.pkg.apis.apiregistration.v1.servicereference)
   * version `string`: Version is the API version this server hosts.  For example, "v1"
-  * versionPriority **required** `integer`: VersionPriority controls the ordering of this API version inside of its group.  Must be greater than zero. The primary sort is based on VersionPriority, ordered highest to lowest (20 before 10). Since it's inside of a group, the number can be small, probably in the 10s. In case of equal version priorities, the version string will be used to compute the order inside a group. If the version string is "kube-like", it will sort above non "kube-like" version strings, which are ordered lexicographically. "Kube-like" versions start with a "v", then are followed by a number (the major version), then optionally the string "alpha" or "beta" and another number (the minor version). These are sorted first by GA > beta > alpha (where GA is a version with no suffix such as beta or alpha), and then by comparing major version, then minor version. An example sorted list of versions: v10, v2, v1, v11beta2, v10beta3, v3beta1, v12alpha1, v11alpha2, foo1, foo10.
+  * versionPriority **required** `integer`: VersionPriority controls the ordering of this API version inside of its group.  Must be greater than zero. The primary sort is based on VersionPriority, ordered highest to lowest (20 before 10). The secondary sort is based on the alphabetical comparison of the name of the object.  (v1.bar before v1.foo) Since it's inside of a group, the number can be small, probably in the 10s.
 
 ### io.k8s.kube-aggregator.pkg.apis.apiregistration.v1.APIServiceStatus
 * io.k8s.kube-aggregator.pkg.apis.apiregistration.v1.APIServiceStatus `object`: APIServiceStatus contains derived information about an API server
@@ -25577,13 +25161,13 @@ kubernetes.getCodeVersion(null, context)
 
 ### io.k8s.kube-aggregator.pkg.apis.apiregistration.v1beta1.APIServiceSpec
 * io.k8s.kube-aggregator.pkg.apis.apiregistration.v1beta1.APIServiceSpec `object`: APIServiceSpec contains information for locating and communicating with a server. Only https is supported, though you are able to disable certificate verification.
-  * caBundle `string`: CABundle is a PEM encoded CA bundle which will be used to validate an API server's serving certificate.
+  * caBundle **required** `string`: CABundle is a PEM encoded CA bundle which will be used to validate an API server's serving certificate.
   * group `string`: Group is the API group name this server hosts
   * groupPriorityMinimum **required** `integer`: GroupPriorityMininum is the priority this group should have at least. Higher priority means that the group is preferred by clients over lower priority ones. Note that other versions of this group might specify even higher GroupPriorityMininum values such that the whole group gets a higher priority. The primary sort is based on GroupPriorityMinimum, ordered highest number to lowest (20 before 10). The secondary sort is based on the alphabetical comparison of the name of the object.  (v1.bar before v1.foo) We'd recommend something like: *.k8s.io (except extensions) at 18000 and PaaSes (OpenShift, Deis) are recommended to be in the 2000s
   * insecureSkipTLSVerify `boolean`: InsecureSkipTLSVerify disables TLS certificate verification when communicating with this server. This is strongly discouraged.  You should use the CABundle instead.
   * service **required** [io.k8s.kube-aggregator.pkg.apis.apiregistration.v1beta1.ServiceReference](#io.k8s.kube-aggregator.pkg.apis.apiregistration.v1beta1.servicereference)
   * version `string`: Version is the API version this server hosts.  For example, "v1"
-  * versionPriority **required** `integer`: VersionPriority controls the ordering of this API version inside of its group.  Must be greater than zero. The primary sort is based on VersionPriority, ordered highest to lowest (20 before 10). Since it's inside of a group, the number can be small, probably in the 10s. In case of equal version priorities, the version string will be used to compute the order inside a group. If the version string is "kube-like", it will sort above non "kube-like" version strings, which are ordered lexicographically. "Kube-like" versions start with a "v", then are followed by a number (the major version), then optionally the string "alpha" or "beta" and another number (the minor version). These are sorted first by GA > beta > alpha (where GA is a version with no suffix such as beta or alpha), and then by comparing major version, then minor version. An example sorted list of versions: v10, v2, v1, v11beta2, v10beta3, v3beta1, v12alpha1, v11alpha2, foo1, foo10.
+  * versionPriority **required** `integer`: VersionPriority controls the ordering of this API version inside of its group.  Must be greater than zero. The primary sort is based on VersionPriority, ordered highest to lowest (20 before 10). The secondary sort is based on the alphabetical comparison of the name of the object.  (v1.bar before v1.foo) Since it's inside of a group, the number can be small, probably in the 10s.
 
 ### io.k8s.kube-aggregator.pkg.apis.apiregistration.v1beta1.APIServiceStatus
 * io.k8s.kube-aggregator.pkg.apis.apiregistration.v1beta1.APIServiceStatus `object`: APIServiceStatus contains derived information about an API server

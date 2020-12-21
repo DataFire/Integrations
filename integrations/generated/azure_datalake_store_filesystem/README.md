@@ -9,13 +9,7 @@ npm install --save @datafire/azure_datalake_store_filesystem
 ```js
 let azure_datalake_store_filesystem = require('@datafire/azure_datalake_store_filesystem').create();
 
-azure_datalake_store_filesystem.FileSystem_ConcurrentAppend({
-  "path": "",
-  "streamContents": {},
-  "op": "",
-  "Transfer-Encoding": "",
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

@@ -9,9 +9,7 @@ npm install --save @datafire/moderatecontent
 ```js
 let moderatecontent = require('@datafire/moderatecontent').create();
 
-moderatecontent.v2.get({
-  "url": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -22,12 +20,12 @@ Our FREE API blocks images with nudity. Build from the ground up, accurate model
 
 ## Actions
 
-### v2.get
+### .get
 Blocks images with nudity
 
 
 ```js
-moderatecontent.v2.get({
+moderatecontent..get({
   "url": ""
 }, context)
 ```

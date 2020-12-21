@@ -1,11 +1,5 @@
 {
   "swagger": "2.0",
-  "schemes": [
-    "https",
-    "http"
-  ],
-  "host": "mobile.amazonaws.com",
-  "basePath": "/",
   "info": {
     "contact": {
       "email": "mike.ralphson@gmail.com",
@@ -29,7 +23,7 @@
     ],
     "x-logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.jpeg"
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"
     },
     "x-origin": [
       {
@@ -39,7 +33,7 @@
           "version": "1.0.0"
         },
         "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/mobile-2017-07-01.normal.json",
-        "x-apisguru-direct": true
+        "x-apisguru-driver": "external"
       }
     ],
     "x-preferred": true,
@@ -51,109 +45,71 @@
       "type": "openapi"
     }
   },
-  "externalDocs": {
-    "description": "Amazon Web Services documentation",
-    "url": "https://aws.amazon.com/mobile/"
-  },
-  "consumes": [
-    "application/json"
+  "host": "mobile.us-east-1.amazonaws.com",
+  "basePath": "/",
+  "schemes": [
+    "http"
   ],
-  "produces": [
-    "application/json"
-  ],
-  "securityDefinitions": {
-    "hmac": {
-      "description": "Amazon Signature authorization v4",
-      "in": "header",
-      "name": "Authorization",
-      "type": "apiKey",
-      "x-amazon-apigateway-authtype": "awsSigv4"
-    }
-  },
-  "security": [
-    {
-      "hmac": []
-    }
-  ],
-  "parameters": {
-    "Action": {
-      "in": "header",
-      "name": "Action",
-      "required": true,
-      "type": "string"
-    },
-    "Version": {
-      "in": "header",
-      "name": "Version",
-      "required": true,
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "in": "header",
-      "name": "X-Amz-Algorithm",
-      "required": false,
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "in": "header",
-      "name": "X-Amz-Content-Sha256",
-      "required": false,
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "in": "header",
-      "name": "X-Amz-Credential",
-      "required": false,
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "in": "header",
-      "name": "X-Amz-Date",
-      "required": false,
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "in": "header",
-      "name": "X-Amz-Security-Token",
-      "required": false,
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "in": "header",
-      "name": "X-Amz-Signature",
-      "required": false,
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "in": "header",
-      "name": "X-Amz-SignedHeaders",
-      "required": false,
-      "type": "string"
-    }
-  },
   "paths": {
     "/bundles": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
       "get": {
-        "description": " List all available bundles. ",
-        "operationId": "ListBundles",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "in": "body",
-            "name": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/ListBundlesRequest"
-            }
-          },
-          {
-            "description": "Pagination limit",
+            "description": " Maximum number of records to list in a single response. ",
             "in": "query",
             "name": "maxResults",
             "required": false,
-            "type": "string"
+            "type": "integer"
           },
           {
-            "description": "Pagination token",
+            "description": " Pagination token. Set to null to start listing bundles from start. If non-null pagination token is returned in a result, then pass its value in here in another request to list more bundles. ",
             "in": "query",
             "name": "nextToken",
             "required": false,
@@ -197,52 +153,63 @@
               "$ref": "#/definitions/BadRequestException"
             }
           }
-        }
-      },
-      "parameters": [
-        {
-          "$ref": "#/parameters/Action"
         },
-        {
-          "$ref": "#/parameters/Version"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Date"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Algorithm"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Credential"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
-        }
-      ]
+        "description": " List all available bundles. ",
+        "operationId": "ListBundles"
+      }
     },
     "/bundles/{bundleId}": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
       "get": {
-        "description": " Get the bundle details for the requested bundle id. ",
-        "operationId": "DescribeBundle",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "in": "body",
-            "name": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/DescribeBundleRequest"
-            }
-          },
-          {
+            "description": " Unique bundle identifier. ",
             "in": "path",
             "name": "bundleId",
             "required": true,
@@ -292,53 +259,43 @@
               "$ref": "#/definitions/NotFoundException"
             }
           }
-        }
+        },
+        "description": " Get the bundle details for the requested bundle id. ",
+        "operationId": "DescribeBundle"
       },
-      "parameters": [
-        {
-          "$ref": "#/parameters/Action"
-        },
-        {
-          "$ref": "#/parameters/Version"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Date"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Algorithm"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Credential"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
-        }
-      ],
       "post": {
-        "description": " Generates customized software development kit (SDK) and or tool packages used to integrate mobile web or mobile app clients with backend AWS resources. ",
-        "operationId": "ExportBundle",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "in": "body",
-            "name": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/ExportBundleRequest"
-            }
-          },
-          {
+            "description": " Unique bundle identifier. ",
             "in": "path",
             "name": "bundleId",
             "required": true,
+            "type": "string"
+          },
+          {
+            "description": " Unique project identifier. ",
+            "in": "query",
+            "name": "projectId",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": " Developer desktop or target application platform. ",
+            "enum": [
+              "OSX",
+              "WINDOWS",
+              "LINUX",
+              "OBJC",
+              "SWIFT",
+              "ANDROID",
+              "JAVASCRIPT"
+            ],
+            "in": "query",
+            "name": "platform",
+            "required": false,
             "type": "string"
           }
         ],
@@ -385,59 +342,64 @@
               "$ref": "#/definitions/NotFoundException"
             }
           }
-        }
+        },
+        "description": " Generates customized software development kit (SDK) and or tool packages used to integrate mobile web or mobile app clients with backend AWS resources. ",
+        "operationId": "ExportBundle"
       }
     },
     "/exports/{projectId}": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": " Exports project configuration to a snapshot which can be downloaded and shared. Note that mobile app push credentials are encrypted in exported projects, so they can only be shared successfully within the same AWS account. ",
-        "operationId": "ExportProject",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "in": "body",
-            "name": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/ExportProjectRequest"
-            }
-          },
-          {
+            "description": " Unique project identifier. ",
             "in": "path",
-            "name": "projectId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "in": "query",
             "name": "projectId",
             "required": true,
             "type": "string"
@@ -486,21 +448,74 @@
               "$ref": "#/definitions/NotFoundException"
             }
           }
-        }
+        },
+        "description": " Exports project configuration to a snapshot which can be downloaded and shared. Note that mobile app push credentials are encrypted in exported projects, so they can only be shared successfully within the same AWS account. ",
+        "operationId": "ExportProject"
       }
     },
-    "/project": {
+    "/project#projectId": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
       "get": {
-        "description": " Gets details about a project in AWS Mobile Hub. ",
-        "operationId": "DescribeProject",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "in": "body",
-            "name": "body",
+            "description": " Unique project identifier. ",
+            "in": "query",
+            "name": "projectId",
             "required": true,
-            "schema": {
-              "$ref": "#/definitions/DescribeProjectRequest"
-            }
+            "type": "string"
+          },
+          {
+            "description": " If set to true, causes AWS Mobile Hub to synchronize information from other services, e.g., update state of AWS CloudFormation stacks in the AWS Mobile Hub project. ",
+            "in": "query",
+            "name": "syncFromResources",
+            "required": false,
+            "type": "boolean"
           }
         ],
         "responses": {
@@ -546,60 +561,70 @@
               "$ref": "#/definitions/NotFoundException"
             }
           }
-        }
-      },
-      "parameters": [
-        {
-          "$ref": "#/parameters/Action"
         },
-        {
-          "$ref": "#/parameters/Version"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Date"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Algorithm"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Credential"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
-        }
-      ]
+        "description": " Gets details about a project in AWS Mobile Hub. ",
+        "operationId": "DescribeProject"
+      }
     },
     "/projects": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
       "get": {
-        "description": " Lists projects in AWS Mobile Hub. ",
-        "operationId": "ListProjects",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "in": "body",
-            "name": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/ListProjectsRequest"
-            }
-          },
-          {
-            "description": "Pagination limit",
+            "description": " Maximum number of records to list in a single response. ",
             "in": "query",
             "name": "maxResults",
             "required": false,
-            "type": "string"
+            "type": "integer"
           },
           {
-            "description": "Pagination token",
+            "description": " Pagination token. Set to null to start listing projects from start. If non-null pagination token is returned in a result, then pass its value in here in another request to list more projects. ",
             "in": "query",
             "name": "nextToken",
             "required": false,
@@ -643,47 +668,51 @@
               "$ref": "#/definitions/BadRequestException"
             }
           }
-        }
+        },
+        "description": " Lists projects in AWS Mobile Hub. ",
+        "operationId": "ListProjects"
       },
-      "parameters": [
-        {
-          "$ref": "#/parameters/Action"
-        },
-        {
-          "$ref": "#/parameters/Version"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Date"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Algorithm"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Credential"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
-        }
-      ],
       "post": {
-        "description": " Creates an AWS Mobile Hub project. ",
-        "operationId": "CreateProject",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "description": " Name of the project. ",
+            "in": "query",
+            "name": "name",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": " Default region where project resources should be created. ",
+            "in": "query",
+            "name": "region",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": " Unique identifier for an exported snapshot of project configuration. This snapshot identifier is included in the share URL when a project is exported. ",
+            "in": "query",
+            "name": "snapshotId",
+            "required": false,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/CreateProjectRequest"
+              "properties": {
+                "contents": {
+                  "description": " Binary file data. ",
+                  "type": "string"
+                }
+              },
+              "type": "object"
             }
           }
         ],
@@ -736,30 +765,64 @@
               "$ref": "#/definitions/LimitExceededException"
             }
           }
-        }
+        },
+        "description": " Creates an AWS Mobile Hub project. ",
+        "operationId": "CreateProject"
       }
     },
     "/projects/{projectId}": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
       "delete": {
-        "description": " Delets a project in AWS Mobile Hub. ",
-        "operationId": "DeleteProject",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "in": "body",
-            "name": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/DeleteProjectRequest"
-            }
-          },
-          {
+            "description": " Unique project identifier. ",
             "in": "path",
-            "name": "projectId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "in": "query",
             "name": "projectId",
             "required": true,
             "type": "string"
@@ -802,78 +865,83 @@
               "$ref": "#/definitions/NotFoundException"
             }
           }
-        }
-      },
-      "parameters": [
-        {
-          "$ref": "#/parameters/Action"
         },
-        {
-          "$ref": "#/parameters/Version"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Date"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Algorithm"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Credential"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
-        }
-      ]
+        "description": " Delets a project in AWS Mobile Hub. ",
+        "operationId": "DeleteProject"
+      }
     },
-    "/update": {
+    "/update#projectId": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": " Update an existing project. ",
-        "operationId": "UpdateProject",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "description": " Unique project identifier. ",
+            "in": "query",
+            "name": "projectId",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/UpdateProjectRequest"
+              "properties": {
+                "contents": {
+                  "description": " Binary file data. ",
+                  "type": "string"
+                }
+              },
+              "type": "object"
             }
           }
         ],
@@ -932,7 +1000,9 @@
               "$ref": "#/definitions/LimitExceededException"
             }
           }
-        }
+        },
+        "description": " Update an existing project. ",
+        "operationId": "UpdateProject"
       }
     }
   },
@@ -955,19 +1025,11 @@
       "type": "string"
     },
     "Attributes": {
-      "description": " Key-value attribute pairs. ",
-      "items": {
-        "properties": {
-          "key": {
-            "$ref": "#/definitions/AttributeKey"
-          },
-          "value": {
-            "$ref": "#/definitions/AttributeValue"
-          }
-        },
-        "type": "object"
+      "additionalProperties": {
+        "$ref": "#/definitions/AttributeValue"
       },
-      "type": "array"
+      "description": " Key-value attribute pairs. ",
+      "type": "object"
     },
     "BadRequestException": {
       "description": " The request cannot be processed because some parameter is not valid or the project state prevents the operation from being performed. ",
@@ -1039,18 +1101,31 @@
       "description": " Request structure used to request a project be created. ",
       "properties": {
         "contents": {
-          "$ref": "#/definitions/Contents",
-          "description": " ZIP or YAML file which contains configuration settings to be used when creating the project. This may be the contents of the file downloaded from the URL provided in an export project operation. "
+          "allOf": [
+            {
+              "$ref": "#/definitions/Contents"
+            },
+            {
+              "description": " ZIP or YAML file which contains configuration settings to be used when creating the project. This may be the contents of the file downloaded from the URL provided in an export project operation. "
+            }
+          ]
         }
       },
+      "title": "CreateProjectRequest",
       "type": "object"
     },
     "CreateProjectResult": {
       "description": " Result structure used in response to a request to create a project. ",
       "properties": {
         "details": {
-          "$ref": "#/definitions/ProjectDetails",
-          "description": " Detailed information about the created AWS Mobile Hub project. "
+          "allOf": [
+            {
+              "$ref": "#/definitions/ProjectDetails"
+            },
+            {
+              "description": " Detailed information about the created AWS Mobile Hub project. "
+            }
+          ]
         }
       },
       "type": "object"
@@ -1062,18 +1137,31 @@
     "DeleteProjectRequest": {
       "description": " Request structure used to request a project be deleted. ",
       "properties": {},
+      "title": "DeleteProjectRequest",
       "type": "object"
     },
     "DeleteProjectResult": {
       "description": " Result structure used in response to request to delete a project. ",
       "properties": {
         "deletedResources": {
-          "$ref": "#/definitions/Resources",
-          "description": " Resources which were deleted. "
+          "allOf": [
+            {
+              "$ref": "#/definitions/Resources"
+            },
+            {
+              "description": " Resources which were deleted. "
+            }
+          ]
         },
         "orphanedResources": {
-          "$ref": "#/definitions/Resources",
-          "description": " Resources which were not deleted, due to a risk of losing potentially important data or files. "
+          "allOf": [
+            {
+              "$ref": "#/definitions/Resources"
+            },
+            {
+              "description": " Resources which were not deleted, due to a risk of losing potentially important data or files. "
+            }
+          ]
         }
       },
       "type": "object"
@@ -1081,14 +1169,21 @@
     "DescribeBundleRequest": {
       "description": " Request structure to request the details of a specific bundle. ",
       "properties": {},
+      "title": "DescribeBundleRequest",
       "type": "object"
     },
     "DescribeBundleResult": {
       "description": " Result structure contains the details of the bundle. ",
       "properties": {
         "details": {
-          "$ref": "#/definitions/BundleDetails",
-          "description": " The details of the bundle. "
+          "allOf": [
+            {
+              "$ref": "#/definitions/BundleDetails"
+            },
+            {
+              "description": " The details of the bundle. "
+            }
+          ]
         }
       },
       "type": "object"
@@ -1096,6 +1191,7 @@
     "DescribeProjectRequest": {
       "description": " Request structure used to request details about a project. ",
       "properties": {},
+      "title": "DescribeProjectRequest",
       "type": "object"
     },
     "DescribeProjectResult": {
@@ -1118,14 +1214,21 @@
     "ExportBundleRequest": {
       "description": " Request structure used to request generation of custom SDK and tool packages required to integrate mobile web or app clients with backed AWS resources. ",
       "properties": {},
+      "title": "ExportBundleRequest",
       "type": "object"
     },
     "ExportBundleResult": {
       "description": " Result structure which contains link to download custom-generated SDK and tool packages used to integrate mobile web or app clients with backed AWS resources. ",
       "properties": {
         "downloadUrl": {
-          "$ref": "#/definitions/DownloadUrl",
-          "description": " URL which contains the custom-generated SDK and tool packages used to integrate the client mobile app or web app with the AWS resources created by the AWS Mobile Hub project. "
+          "allOf": [
+            {
+              "$ref": "#/definitions/DownloadUrl"
+            },
+            {
+              "description": " URL which contains the custom-generated SDK and tool packages used to integrate the client mobile app or web app with the AWS resources created by the AWS Mobile Hub project. "
+            }
+          ]
         }
       },
       "type": "object"
@@ -1133,22 +1236,41 @@
     "ExportProjectRequest": {
       "description": " Request structure used in requests to export project configuration details. ",
       "properties": {},
+      "title": "ExportProjectRequest",
       "type": "object"
     },
     "ExportProjectResult": {
       "description": " Result structure used for requests to export project configuration details. ",
       "properties": {
         "downloadUrl": {
-          "$ref": "#/definitions/DownloadUrl",
-          "description": " URL which can be used to download the exported project configuation file(s). "
+          "allOf": [
+            {
+              "$ref": "#/definitions/DownloadUrl"
+            },
+            {
+              "description": " URL which can be used to download the exported project configuation file(s). "
+            }
+          ]
         },
         "shareUrl": {
-          "$ref": "#/definitions/ShareUrl",
-          "description": " URL which can be shared to allow other AWS users to create their own project in AWS Mobile Hub with the same configuration as the specified project. This URL pertains to a snapshot in time of the project configuration that is created when this API is called. If you want to share additional changes to your project configuration, then you will need to create and share a new snapshot by calling this method again. "
+          "allOf": [
+            {
+              "$ref": "#/definitions/ShareUrl"
+            },
+            {
+              "description": " URL which can be shared to allow other AWS users to create their own project in AWS Mobile Hub with the same configuration as the specified project. This URL pertains to a snapshot in time of the project configuration that is created when this API is called. If you want to share additional changes to your project configuration, then you will need to create and share a new snapshot by calling this method again. "
+            }
+          ]
         },
         "snapshotId": {
-          "$ref": "#/definitions/SnapshotId",
-          "description": " Unique identifier for the exported snapshot of the project configuration. This snapshot identifier is included in the share URL. "
+          "allOf": [
+            {
+              "$ref": "#/definitions/SnapshotId"
+            },
+            {
+              "description": " Unique identifier for the exported snapshot of the project configuration. This snapshot identifier is included in the share URL. "
+            }
+          ]
         }
       },
       "type": "object"
@@ -1182,18 +1304,31 @@
     "ListBundlesRequest": {
       "description": " Request structure to request all available bundles. ",
       "properties": {},
+      "title": "ListBundlesRequest",
       "type": "object"
     },
     "ListBundlesResult": {
       "description": " Result structure contains a list of all available bundles with details. ",
       "properties": {
         "bundleList": {
-          "$ref": "#/definitions/BundleList",
-          "description": " A list of bundles. "
+          "allOf": [
+            {
+              "$ref": "#/definitions/BundleList"
+            },
+            {
+              "description": " A list of bundles. "
+            }
+          ]
         },
         "nextToken": {
-          "$ref": "#/definitions/NextToken",
-          "description": " Pagination token. If non-null pagination token is returned in a result, then pass its value in another request to fetch more entries. "
+          "allOf": [
+            {
+              "$ref": "#/definitions/NextToken"
+            },
+            {
+              "description": " Pagination token. If non-null pagination token is returned in a result, then pass its value in another request to fetch more entries. "
+            }
+          ]
         }
       },
       "type": "object"
@@ -1201,6 +1336,7 @@
     "ListProjectsRequest": {
       "description": " Request structure used to request projects list in AWS Mobile Hub. ",
       "properties": {},
+      "title": "ListProjectsRequest",
       "type": "object"
     },
     "ListProjectsResult": {
@@ -1256,16 +1392,34 @@
       "description": " Detailed information about an AWS Mobile Hub project. ",
       "properties": {
         "consoleUrl": {
-          "$ref": "#/definitions/ConsoleUrl",
-          "description": " Website URL for this project in the AWS Mobile Hub console. "
+          "allOf": [
+            {
+              "$ref": "#/definitions/ConsoleUrl"
+            },
+            {
+              "description": " Website URL for this project in the AWS Mobile Hub console. "
+            }
+          ]
         },
         "createdDate": {
-          "$ref": "#/definitions/Date",
-          "description": " Date the project was created. "
+          "allOf": [
+            {
+              "$ref": "#/definitions/Date"
+            },
+            {
+              "description": " Date the project was created. "
+            }
+          ]
         },
         "lastUpdatedDate": {
-          "$ref": "#/definitions/Date",
-          "description": " Date of the last modification of the project. "
+          "allOf": [
+            {
+              "$ref": "#/definitions/Date"
+            },
+            {
+              "description": " Date of the last modification of the project. "
+            }
+          ]
         },
         "name": {
           "$ref": "#/definitions/ProjectName"
@@ -1317,12 +1471,24 @@
       "description": " Summary information about an AWS Mobile Hub project. ",
       "properties": {
         "name": {
-          "$ref": "#/definitions/ProjectName",
-          "description": " Name of the project. "
+          "allOf": [
+            {
+              "$ref": "#/definitions/ProjectName"
+            },
+            {
+              "description": " Name of the project. "
+            }
+          ]
         },
         "projectId": {
-          "$ref": "#/definitions/ProjectId",
-          "description": " Unique project identifier. "
+          "allOf": [
+            {
+              "$ref": "#/definitions/ProjectId"
+            },
+            {
+              "description": " Unique project identifier. "
+            }
+          ]
         }
       },
       "type": "object"
@@ -1406,21 +1572,98 @@
       "description": " Request structure used for requests to update project configuration. ",
       "properties": {
         "contents": {
-          "$ref": "#/definitions/Contents",
-          "description": " ZIP or YAML file which contains project configuration to be updated. This should be the contents of the file downloaded from the URL provided in an export project operation. "
+          "allOf": [
+            {
+              "$ref": "#/definitions/Contents"
+            },
+            {
+              "description": " ZIP or YAML file which contains project configuration to be updated. This should be the contents of the file downloaded from the URL provided in an export project operation. "
+            }
+          ]
         }
       },
+      "title": "UpdateProjectRequest",
       "type": "object"
     },
     "UpdateProjectResult": {
       "description": " Result structure used for requests to updated project configuration. ",
       "properties": {
         "details": {
-          "$ref": "#/definitions/ProjectDetails",
-          "description": " Detailed information about the updated AWS Mobile Hub project. "
+          "allOf": [
+            {
+              "$ref": "#/definitions/ProjectDetails"
+            },
+            {
+              "description": " Detailed information about the updated AWS Mobile Hub project. "
+            }
+          ]
         }
       },
       "type": "object"
+    }
+  },
+  "securityDefinitions": {
+    "hmac": {
+      "description": "Amazon Signature authorization v4",
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey",
+      "x-amazon-apigateway-authtype": "awsSigv4"
+    }
+  },
+  "security": [
+    {
+      "hmac": []
+    }
+  ],
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://docs.aws.amazon.com/mobile/"
+  },
+  "x-components": {
+    "parameters": {
+      "X-Amz-Algorithm": {
+        "in": "header",
+        "name": "X-Amz-Algorithm",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Content-Sha256": {
+        "in": "header",
+        "name": "X-Amz-Content-Sha256",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Credential": {
+        "in": "header",
+        "name": "X-Amz-Credential",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Date": {
+        "in": "header",
+        "name": "X-Amz-Date",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Security-Token": {
+        "in": "header",
+        "name": "X-Amz-Security-Token",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Signature": {
+        "in": "header",
+        "name": "X-Amz-Signature",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-SignedHeaders": {
+        "in": "header",
+        "name": "X-Amz-SignedHeaders",
+        "required": false,
+        "type": "string"
+      }
     }
   }
 }

@@ -15,9 +15,7 @@ let azure_resources_management = require('@datafire/azure_resources_management')
   redirect_uri: ""
 });
 
-azure_resources_management.ManagementGroups_List({
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

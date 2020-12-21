@@ -13,16 +13,14 @@ let amazonaws_route53 = require('@datafire/amazonaws_route53').create({
   region: ""
 });
 
-amazonaws_route53.GetAccountLimit({
-  "Type": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
 
 ## Description
 
-
+Amazon Route 53 is a highly available and scalable Domain Name System (DNS) web service.
 
 ## Actions
 
@@ -84,6 +82,8 @@ amazonaws_route53.ListReusableDelegationSets({}, context)
 
 #### Input
 * input `object`
+  * marker `string`
+  * maxitems `string`
 
 #### Output
 * output [ListReusableDelegationSetsResponse](#listreusabledelegationsetsresponse)
@@ -100,8 +100,8 @@ amazonaws_route53.CreateReusableDelegationSet({
 
 #### Input
 * input `object`
-  * CallerReference **required** [Nonce](#nonce)
-  * HostedZoneId [ResourceId](#resourceid)
+  * CallerReference **required** `string`: A unique string that identifies the request, and that allows you to retry failed <code>CreateReusableDelegationSet</code> requests without the risk of executing the operation twice. You must use a unique <code>CallerReference</code> string every time you submit a <code>CreateReusableDelegationSet</code> request. <code>CallerReference</code> can be any unique string, for example a date/time stamp.
+  * HostedZoneId `string`: If you want to mark the delegation set for an existing hosted zone as reusable, the ID for that hosted zone.
 
 #### Output
 *Output schema unknown*
@@ -150,6 +150,9 @@ amazonaws_route53.GetGeoLocation({}, context)
 
 #### Input
 * input `object`
+  * continentcode `string`
+  * countrycode `string`
+  * subdivisioncode `string`
 
 #### Output
 * output [GetGeoLocationResponse](#getgeolocationresponse)
@@ -164,6 +167,10 @@ amazonaws_route53.ListGeoLocations({}, context)
 
 #### Input
 * input `object`
+  * startcontinentcode `string`
+  * startcountrycode `string`
+  * startsubdivisioncode `string`
+  * maxitems `string`
 
 #### Output
 * output [ListGeoLocationsResponse](#listgeolocationsresponse)
@@ -178,6 +185,8 @@ amazonaws_route53.ListHealthChecks({}, context)
 
 #### Input
 * input `object`
+  * marker `string`
+  * maxitems `string`
   * MaxItems `string`
   * Marker `string`
 
@@ -191,16 +200,35 @@ amazonaws_route53.ListHealthChecks({}, context)
 ```js
 amazonaws_route53.CreateHealthCheck({
   "CallerReference": "",
-  "HealthCheckConfig": {
-    "Type": ""
-  }
+  "HealthCheckConfig": {}
 }, context)
 ```
 
 #### Input
 * input `object`
-  * CallerReference **required** [HealthCheckNonce](#healthchecknonce)
-  * HealthCheckConfig **required** [HealthCheckConfig](#healthcheckconfig)
+  * CallerReference **required** `string`: <p>A unique string that identifies the request and that allows you to retry a failed <code>CreateHealthCheck</code> request without the risk of creating two identical health checks:</p> <ul> <li> <p>If you send a <code>CreateHealthCheck</code> request with the same <code>CallerReference</code> and settings as a previous request, and if the health check doesn't exist, Amazon Route 53 creates the health check. If the health check does exist, Route 53 returns the settings for the existing health check.</p> </li> <li> <p>If you send a <code>CreateHealthCheck</code> request with the same <code>CallerReference</code> as a deleted health check, regardless of the settings, Route 53 returns a <code>HealthCheckAlreadyExists</code> error.</p> </li> <li> <p>If you send a <code>CreateHealthCheck</code> request with the same <code>CallerReference</code> as an existing health check but with different settings, Route 53 returns a <code>HealthCheckAlreadyExists</code> error.</p> </li> <li> <p>If you send a <code>CreateHealthCheck</code> request with a unique <code>CallerReference</code> but settings identical to an existing health check, Route 53 creates the health check.</p> </li> </ul>
+  * HealthCheckConfig **required** `object`: A complex type that contains information about the health check.
+    * AlarmIdentifier
+      * Name **required**
+      * Region **required**
+    * ChildHealthChecks
+      * items
+    * Disabled
+    * EnableSNI
+    * FailureThreshold
+    * FullyQualifiedDomainName
+    * HealthThreshold
+    * IPAddress
+    * InsufficientDataHealthStatus
+    * Inverted
+    * MeasureLatency
+    * Port
+    * Regions
+      * items
+    * RequestInterval
+    * ResourcePath
+    * SearchString
+    * Type
 
 #### Output
 *Output schema unknown*
@@ -252,21 +280,27 @@ amazonaws_route53.UpdateHealthCheck({
 #### Input
 * input `object`
   * HealthCheckId **required** `string`
-  * AlarmIdentifier [AlarmIdentifier](#alarmidentifier)
-  * ChildHealthChecks [ChildHealthCheckList](#childhealthchecklist)
-  * EnableSNI [EnableSNI](#enablesni)
-  * FailureThreshold [FailureThreshold](#failurethreshold)
-  * FullyQualifiedDomainName [FullyQualifiedDomainName](#fullyqualifieddomainname)
-  * HealthCheckVersion [HealthCheckVersion](#healthcheckversion)
-  * HealthThreshold [HealthThreshold](#healththreshold)
-  * IPAddress [IPAddress](#ipaddress)
-  * InsufficientDataHealthStatus [InsufficientDataHealthStatus](#insufficientdatahealthstatus)
-  * Inverted [Inverted](#inverted)
-  * Port [Port](#port)
-  * Regions [HealthCheckRegionList](#healthcheckregionlist)
-  * ResetElements [ResettableElementNameList](#resettableelementnamelist)
-  * ResourcePath [ResourcePath](#resourcepath)
-  * SearchString [SearchString](#searchstring)
+  * AlarmIdentifier `object`: A complex type that identifies the CloudWatch alarm that you want Amazon Route 53 health checkers to use to determine whether the specified health check is healthy.
+    * Name
+    * Region
+  * ChildHealthChecks `array`: A complex type that contains one <code>ChildHealthCheck</code> element for each health check that you want to associate with a <code>CALCULATED</code> health check.
+    * items
+  * Disabled `boolean`: <p>Stops Route 53 from performing health checks. When you disable a health check, here's what happens:</p> <ul> <li> <p> <b>Health checks that check the health of endpoints:</b> Route 53 stops submitting requests to your application, server, or other resource.</p> </li> <li> <p> <b>Calculated health checks:</b> Route 53 stops aggregating the status of the referenced health checks.</p> </li> <li> <p> <b>Health checks that monitor CloudWatch alarms:</b> Route 53 stops monitoring the corresponding CloudWatch metrics.</p> </li> </ul> <p>After you disable a health check, Route 53 considers the status of the health check to always be healthy. If you configured DNS failover, Route 53 continues to route traffic to the corresponding resources. If you want to stop routing traffic to a resource, change the value of <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_UpdateHealthCheck.html#Route53-UpdateHealthCheck-request-Inverted">Inverted</a>. </p> <p>Charges for a health check still apply when the health check is disabled. For more information, see <a href="http://aws.amazon.com/route53/pricing/">Amazon Route 53 Pricing</a>.</p>
+  * EnableSNI `boolean`: <p>Specify whether you want Amazon Route 53 to send the value of <code>FullyQualifiedDomainName</code> to the endpoint in the <code>client_hello</code> message during <code>TLS</code> negotiation. This allows the endpoint to respond to <code>HTTPS</code> health check requests with the applicable SSL/TLS certificate.</p> <p>Some endpoints require that HTTPS requests include the host name in the <code>client_hello</code> message. If you don't enable SNI, the status of the health check will be SSL alert <code>handshake_failure</code>. A health check can also have that status for other reasons. If SNI is enabled and you're still getting the error, check the SSL/TLS configuration on your endpoint and confirm that your certificate is valid.</p> <p>The SSL/TLS certificate on your endpoint includes a domain name in the <code>Common Name</code> field and possibly several more in the <code>Subject Alternative Names</code> field. One of the domain names in the certificate should match the value that you specify for <code>FullyQualifiedDomainName</code>. If the endpoint responds to the <code>client_hello</code> message with a certificate that does not include the domain name that you specified in <code>FullyQualifiedDomainName</code>, a health checker will retry the handshake. In the second attempt, the health checker will omit <code>FullyQualifiedDomainName</code> from the <code>client_hello</code> message.</p>
+  * FailureThreshold `integer`: <p>The number of consecutive health checks that an endpoint must pass or fail for Amazon Route 53 to change the current status of the endpoint from unhealthy to healthy or vice versa. For more information, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html">How Amazon Route 53 Determines Whether an Endpoint Is Healthy</a> in the <i>Amazon Route 53 Developer Guide</i>.</p> <p>If you don't specify a value for <code>FailureThreshold</code>, the default value is three health checks.</p>
+  * FullyQualifiedDomainName `string`: <p>Amazon Route 53 behavior depends on whether you specify a value for <code>IPAddress</code>.</p> <note> <p>If a health check already has a value for <code>IPAddress</code>, you can change the value. However, you can't update an existing health check to add or remove the value of <code>IPAddress</code>. </p> </note> <p> <b>If you specify a value for</b> <code>IPAddress</code>:</p> <p>Route 53 sends health check requests to the specified IPv4 or IPv6 address and passes the value of <code>FullyQualifiedDomainName</code> in the <code>Host</code> header for all health checks except TCP health checks. This is typically the fully qualified DNS name of the endpoint on which you want Route 53 to perform health checks.</p> <p>When Route 53 checks the health of an endpoint, here is how it constructs the <code>Host</code> header:</p> <ul> <li> <p>If you specify a value of <code>80</code> for <code>Port</code> and <code>HTTP</code> or <code>HTTP_STR_MATCH</code> for <code>Type</code>, Route 53 passes the value of <code>FullyQualifiedDomainName</code> to the endpoint in the <code>Host</code> header.</p> </li> <li> <p>If you specify a value of <code>443</code> for <code>Port</code> and <code>HTTPS</code> or <code>HTTPS_STR_MATCH</code> for <code>Type</code>, Route 53 passes the value of <code>FullyQualifiedDomainName</code> to the endpoint in the <code>Host</code> header.</p> </li> <li> <p>If you specify another value for <code>Port</code> and any value except <code>TCP</code> for <code>Type</code>, Route 53 passes <i> <code>FullyQualifiedDomainName</code>:<code>Port</code> </i> to the endpoint in the <code>Host</code> header.</p> </li> </ul> <p>If you don't specify a value for <code>FullyQualifiedDomainName</code>, Route 53 substitutes the value of <code>IPAddress</code> in the <code>Host</code> header in each of the above cases.</p> <p> <b>If you don't specify a value for</b> <code>IPAddress</code>:</p> <p>If you don't specify a value for <code>IPAddress</code>, Route 53 sends a DNS request to the domain that you specify in <code>FullyQualifiedDomainName</code> at the interval you specify in <code>RequestInterval</code>. Using an IPv4 address that is returned by DNS, Route 53 then checks the health of the endpoint.</p> <note> <p>If you don't specify a value for <code>IPAddress</code>, Route 53 uses only IPv4 to send health checks to the endpoint. If there's no resource record set with a type of A for the name that you specify for <code>FullyQualifiedDomainName</code>, the health check fails with a "DNS resolution failed" error.</p> </note> <p>If you want to check the health of weighted, latency, or failover resource record sets and you choose to specify the endpoint only by <code>FullyQualifiedDomainName</code>, we recommend that you create a separate health check for each endpoint. For example, create a health check for each HTTP server that is serving content for www.example.com. For the value of <code>FullyQualifiedDomainName</code>, specify the domain name of the server (such as <code>us-east-2-www.example.com</code>), not the name of the resource record sets (www.example.com).</p> <important> <p>In this configuration, if the value of <code>FullyQualifiedDomainName</code> matches the name of the resource record sets and you then associate the health check with those resource record sets, health check results will be unpredictable.</p> </important> <p>In addition, if the value of <code>Type</code> is <code>HTTP</code>, <code>HTTPS</code>, <code>HTTP_STR_MATCH</code>, or <code>HTTPS_STR_MATCH</code>, Route 53 passes the value of <code>FullyQualifiedDomainName</code> in the <code>Host</code> header, as it does when you specify a value for <code>IPAddress</code>. If the value of <code>Type</code> is <code>TCP</code>, Route 53 doesn't pass a <code>Host</code> header.</p>
+  * HealthCheckVersion `integer`: <p>A sequential counter that Amazon Route 53 sets to <code>1</code> when you create a health check and increments by 1 each time you update settings for the health check.</p> <p>We recommend that you use <code>GetHealthCheck</code> or <code>ListHealthChecks</code> to get the current value of <code>HealthCheckVersion</code> for the health check that you want to update, and that you include that value in your <code>UpdateHealthCheck</code> request. This prevents Route 53 from overwriting an intervening update:</p> <ul> <li> <p>If the value in the <code>UpdateHealthCheck</code> request matches the value of <code>HealthCheckVersion</code> in the health check, Route 53 updates the health check with the new settings.</p> </li> <li> <p>If the value of <code>HealthCheckVersion</code> in the health check is greater, the health check was changed after you got the version number. Route 53 does not update the health check, and it returns a <code>HealthCheckVersionMismatch</code> error.</p> </li> </ul>
+  * HealthThreshold `integer`: <p>The number of child health checks that are associated with a <code>CALCULATED</code> health that Amazon Route 53 must consider healthy for the <code>CALCULATED</code> health check to be considered healthy. To specify the child health checks that you want to associate with a <code>CALCULATED</code> health check, use the <code>ChildHealthChecks</code> and <code>ChildHealthCheck</code> elements.</p> <p>Note the following:</p> <ul> <li> <p>If you specify a number greater than the number of child health checks, Route 53 always considers this health check to be unhealthy.</p> </li> <li> <p>If you specify <code>0</code>, Route 53 always considers this health check to be healthy.</p> </li> </ul>
+  * IPAddress `string`: <p>The IPv4 or IPv6 IP address for the endpoint that you want Amazon Route 53 to perform health checks on. If you don't specify a value for <code>IPAddress</code>, Route 53 sends a DNS request to resolve the domain name that you specify in <code>FullyQualifiedDomainName</code> at the interval that you specify in <code>RequestInterval</code>. Using an IP address that is returned by DNS, Route 53 then checks the health of the endpoint.</p> <p>Use one of the following formats for the value of <code>IPAddress</code>: </p> <ul> <li> <p> <b>IPv4 address</b>: four values between 0 and 255, separated by periods (.), for example, <code>192.0.2.44</code>.</p> </li> <li> <p> <b>IPv6 address</b>: eight groups of four hexadecimal values, separated by colons (:), for example, <code>2001:0db8:85a3:0000:0000:abcd:0001:2345</code>. You can also shorten IPv6 addresses as described in RFC 5952, for example, <code>2001:db8:85a3::abcd:1:2345</code>.</p> </li> </ul> <p>If the endpoint is an EC2 instance, we recommend that you create an Elastic IP address, associate it with your EC2 instance, and specify the Elastic IP address for <code>IPAddress</code>. This ensures that the IP address of your instance never changes. For more information, see the applicable documentation:</p> <ul> <li> <p>Linux: <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html">Elastic IP Addresses (EIP)</a> in the <i>Amazon EC2 User Guide for Linux Instances</i> </p> </li> <li> <p>Windows: <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-ip-addresses-eip.html">Elastic IP Addresses (EIP)</a> in the <i>Amazon EC2 User Guide for Windows Instances</i> </p> </li> </ul> <note> <p>If a health check already has a value for <code>IPAddress</code>, you can change the value. However, you can't update an existing health check to add or remove the value of <code>IPAddress</code>. </p> </note> <p>For more information, see <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_UpdateHealthCheck.html#Route53-UpdateHealthCheck-request-FullyQualifiedDomainName">FullyQualifiedDomainName</a>. </p> <p>Constraints: Route 53 can't check the health of endpoints for which the IP address is in local, private, non-routable, or multicast ranges. For more information about IP addresses for which you can't create health checks, see the following documents:</p> <ul> <li> <p> <a href="https://tools.ietf.org/html/rfc5735">RFC 5735, Special Use IPv4 Addresses</a> </p> </li> <li> <p> <a href="https://tools.ietf.org/html/rfc6598">RFC 6598, IANA-Reserved IPv4 Prefix for Shared Address Space</a> </p> </li> <li> <p> <a href="https://tools.ietf.org/html/rfc5156">RFC 5156, Special-Use IPv6 Addresses</a> </p> </li> </ul>
+  * InsufficientDataHealthStatus `string` (values: Healthy, Unhealthy, LastKnownStatus): <p>When CloudWatch has insufficient data about the metric to determine the alarm state, the status that you want Amazon Route 53 to assign to the health check:</p> <ul> <li> <p> <code>Healthy</code>: Route 53 considers the health check to be healthy.</p> </li> <li> <p> <code>Unhealthy</code>: Route 53 considers the health check to be unhealthy.</p> </li> <li> <p> <code>LastKnownStatus</code>: Route 53 uses the status of the health check from the last time CloudWatch had sufficient data to determine the alarm state. For new health checks that have no last known status, the default status for the health check is healthy.</p> </li> </ul>
+  * Inverted `boolean`: Specify whether you want Amazon Route 53 to invert the status of a health check, for example, to consider a health check unhealthy when it otherwise would be considered healthy.
+  * Port `integer`: <p>The port on the endpoint that you want Amazon Route 53 to perform health checks on.</p> <note> <p>Don't specify a value for <code>Port</code> when you specify a value for <code>Type</code> of <code>CLOUDWATCH_METRIC</code> or <code>CALCULATED</code>.</p> </note>
+  * Regions `array`: A complex type that contains one <code>Region</code> element for each region that you want Amazon Route 53 health checkers to check the specified endpoint from.
+    * items
+  * ResetElements `array`: <p>A complex type that contains one <code>ResettableElementName</code> element for each element that you want to reset to the default value. Valid values for <code>ResettableElementName</code> include the following:</p> <ul> <li> <p> <code>ChildHealthChecks</code>: Amazon Route 53 resets <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_HealthCheckConfig.html#Route53-Type-HealthCheckConfig-ChildHealthChecks">ChildHealthChecks</a> to null.</p> </li> <li> <p> <code>FullyQualifiedDomainName</code>: Route 53 resets <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_UpdateHealthCheck.html#Route53-UpdateHealthCheck-request-FullyQualifiedDomainName">FullyQualifiedDomainName</a>. to null.</p> </li> <li> <p> <code>Regions</code>: Route 53 resets the <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_HealthCheckConfig.html#Route53-Type-HealthCheckConfig-Regions">Regions</a> list to the default set of regions. </p> </li> <li> <p> <code>ResourcePath</code>: Route 53 resets <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_HealthCheckConfig.html#Route53-Type-HealthCheckConfig-ResourcePath">ResourcePath</a> to null.</p> </li> </ul>
+    * items
+  * ResourcePath `string`: <p>The path that you want Amazon Route 53 to request when performing health checks. The path can be any value for which your endpoint will return an HTTP status code of 2xx or 3xx when the endpoint is healthy, for example the file /docs/route53-health-check.html. You can also include query string parameters, for example, <code>/welcome.html?language=jp&amp;login=y</code>. </p> <p>Specify this value only if you want to change it.</p>
+  * SearchString `string`: If the value of <code>Type</code> is <code>HTTP_STR_MATCH</code> or <code>HTTPS_STR_MATCH</code>, the string that you want Amazon Route 53 to search for in the response body from the specified resource. If the string appears in the response body, Route 53 considers the resource healthy. (You can't change the value of <code>Type</code> when you update a health check.)
 
 #### Output
 * output [UpdateHealthCheckResponse](#updatehealthcheckresponse)
@@ -329,6 +363,9 @@ amazonaws_route53.ListHostedZones({}, context)
 
 #### Input
 * input `object`
+  * marker `string`
+  * maxitems `string`
+  * delegationsetid `string`
   * MaxItems `string`
   * Marker `string`
 
@@ -348,11 +385,15 @@ amazonaws_route53.CreateHostedZone({
 
 #### Input
 * input `object`
-  * CallerReference **required** [Nonce](#nonce)
-  * DelegationSetId [ResourceId](#resourceid)
-  * HostedZoneConfig [HostedZoneConfig](#hostedzoneconfig)
-  * Name **required** [DNSName](#dnsname)
-  * VPC [VPC](#vpc)
+  * CallerReference **required** `string`: A unique string that identifies the request and that allows failed <code>CreateHostedZone</code> requests to be retried without the risk of executing the operation twice. You must use a unique <code>CallerReference</code> string every time you submit a <code>CreateHostedZone</code> request. <code>CallerReference</code> can be any unique string, for example, a date/time stamp.
+  * DelegationSetId `string`: If you want to associate a reusable delegation set with this hosted zone, the ID that Amazon Route 53 assigned to the reusable delegation set when you created it. For more information about reusable delegation sets, see <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateReusableDelegationSet.html">CreateReusableDelegationSet</a>.
+  * HostedZoneConfig `object`: A complex type that contains an optional comment about your hosted zone. If you don't want to specify a comment, omit both the <code>HostedZoneConfig</code> and <code>Comment</code> elements.
+    * Comment
+    * PrivateZone
+  * Name **required** `string`: <p>The name of the domain. Specify a fully qualified domain name, for example, <i>www.example.com</i>. The trailing dot is optional; Amazon Route 53 assumes that the domain name is fully qualified. This means that Route 53 treats <i>www.example.com</i> (without a trailing dot) and <i>www.example.com.</i> (with a trailing dot) as identical.</p> <p>If you're creating a public hosted zone, this is the name you have registered with your DNS registrar. If your domain name is registered with a registrar other than Route 53, change the name servers for your domain to the set of <code>NameServers</code> that <code>CreateHostedZone</code> returns in <code>DelegationSet</code>.</p>
+  * VPC `object`: (Private hosted zones only) A complex type that contains information about an Amazon VPC.
+    * VPCId [VPCId](#vpcid)
+    * VPCRegion
 
 #### Output
 *Output schema unknown*
@@ -404,7 +445,7 @@ amazonaws_route53.UpdateHostedZoneComment({
 #### Input
 * input `object`
   * Id **required** `string`
-  * Comment [ResourceDescription](#resourcedescription)
+  * Comment `string`: The new comment for the hosted zone. If you don't specify a value for <code>Comment</code>, Amazon Route 53 deletes the existing value of the <code>Comment</code> element, if any.
 
 #### Output
 * output [UpdateHostedZoneCommentResponse](#updatehostedzonecommentresponse)
@@ -423,8 +464,10 @@ amazonaws_route53.AssociateVPCWithHostedZone({
 #### Input
 * input `object`
   * Id **required** `string`
-  * Comment [AssociateVPCComment](#associatevpccomment)
-  * VPC **required** [VPC](#vpc)
+  * Comment `string`:  <i>Optional:</i> A comment about the association request.
+  * VPC **required** `object`: (Private hosted zones only) A complex type that contains information about an Amazon VPC.
+    * VPCId [VPCId](#vpcid)
+    * VPCRegion
 
 #### Output
 * output [AssociateVPCWithHostedZoneResponse](#associatevpcwithhostedzoneresponse)
@@ -442,6 +485,8 @@ amazonaws_route53.ListVPCAssociationAuthorizations({
 #### Input
 * input `object`
   * Id **required** `string`
+  * nexttoken `string`
+  * maxresults `string`
 
 #### Output
 * output [ListVPCAssociationAuthorizationsResponse](#listvpcassociationauthorizationsresponse)
@@ -460,7 +505,9 @@ amazonaws_route53.CreateVPCAssociationAuthorization({
 #### Input
 * input `object`
   * Id **required** `string`
-  * VPC **required** [VPC](#vpc)
+  * VPC **required** `object`: (Private hosted zones only) A complex type that contains information about an Amazon VPC.
+    * VPCId [VPCId](#vpcid)
+    * VPCRegion
 
 #### Output
 * output [CreateVPCAssociationAuthorizationResponse](#createvpcassociationauthorizationresponse)
@@ -479,10 +526,29 @@ amazonaws_route53.DeleteVPCAssociationAuthorization({
 #### Input
 * input `object`
   * Id **required** `string`
-  * VPC **required** [VPC](#vpc)
+  * VPC **required** `object`: (Private hosted zones only) A complex type that contains information about an Amazon VPC.
+    * VPCId [VPCId](#vpcid)
+    * VPCRegion
 
 #### Output
 * output [DeleteVPCAssociationAuthorizationResponse](#deletevpcassociationauthorizationresponse)
+
+### DisableHostedZoneDNSSEC
+
+
+
+```js
+amazonaws_route53.DisableHostedZoneDNSSEC({
+  "Id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * Id **required** `string`
+
+#### Output
+* output [DisableHostedZoneDNSSECResponse](#disablehostedzonednssecresponse)
 
 ### DisassociateVPCFromHostedZone
 
@@ -498,11 +564,47 @@ amazonaws_route53.DisassociateVPCFromHostedZone({
 #### Input
 * input `object`
   * Id **required** `string`
-  * Comment [DisassociateVPCComment](#disassociatevpccomment)
-  * VPC **required** [VPC](#vpc)
+  * Comment `string`:  <i>Optional:</i> A comment about the disassociation request.
+  * VPC **required** `object`: (Private hosted zones only) A complex type that contains information about an Amazon VPC.
+    * VPCId [VPCId](#vpcid)
+    * VPCRegion
 
 #### Output
 * output [DisassociateVPCFromHostedZoneResponse](#disassociatevpcfromhostedzoneresponse)
+
+### GetDNSSEC
+
+
+
+```js
+amazonaws_route53.GetDNSSEC({
+  "Id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * Id **required** `string`
+
+#### Output
+* output [GetDNSSECResponse](#getdnssecresponse)
+
+### EnableHostedZoneDNSSEC
+
+
+
+```js
+amazonaws_route53.EnableHostedZoneDNSSEC({
+  "Id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * Id **required** `string`
+
+#### Output
+* output [EnableHostedZoneDNSSECResponse](#enablehostedzonednssecresponse)
 
 ### ListResourceRecordSets
 
@@ -516,11 +618,15 @@ amazonaws_route53.ListResourceRecordSets({
 
 #### Input
 * input `object`
+  * Id **required** `string`
+  * name `string`
+  * type `string`
+  * identifier `string`
+  * maxitems `string`
   * MaxItems `string`
   * StartRecordName `string`
   * StartRecordType `string`
   * StartRecordIdentifier `string`
-  * Id **required** `string`
 
 #### Output
 * output [ListResourceRecordSetsResponse](#listresourcerecordsetsresponse)
@@ -532,16 +638,32 @@ amazonaws_route53.ListResourceRecordSets({
 ```js
 amazonaws_route53.ChangeResourceRecordSets({
   "Id": "",
-  "ChangeBatch": {
-    "Changes": []
-  }
+  "ChangeBatch": {}
 }, context)
 ```
 
 #### Input
 * input `object`
   * Id **required** `string`
-  * ChangeBatch **required** [ChangeBatch](#changebatch)
+  * ChangeBatch **required** `object`: The information for a change request.
+    * Changes
+      * items
+        * Action **required**
+        * ResourceRecordSet **required**
+          * AliasTarget
+          * Failover
+          * GeoLocation
+          * HealthCheckId
+          * MultiValueAnswer
+          * Name **required**
+          * Region
+          * ResourceRecords
+          * SetIdentifier
+          * TTL
+          * TrafficPolicyInstanceId
+          * Type **required**
+          * Weight
+    * Comment
 
 #### Output
 * output [ChangeResourceRecordSetsResponse](#changeresourcerecordsetsresponse)
@@ -566,15 +688,15 @@ amazonaws_route53.GetHostedZoneCount({}, context)
 
 ```js
 amazonaws_route53.GetHostedZoneLimit({
-  "Id": "",
-  "Type": ""
+  "Type": "",
+  "Id": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Id **required** `string`
   * Type **required** `string`
+  * Id **required** `string`
 
 #### Output
 * output [GetHostedZoneLimitResponse](#gethostedzonelimitresponse)
@@ -589,9 +711,115 @@ amazonaws_route53.ListHostedZonesByName({}, context)
 
 #### Input
 * input `object`
+  * dnsname `string`
+  * hostedzoneid `string`
+  * maxitems `string`
 
 #### Output
 * output [ListHostedZonesByNameResponse](#listhostedzonesbynameresponse)
+
+### ListHostedZonesByVPC
+
+
+
+```js
+amazonaws_route53.ListHostedZonesByVPC({
+  "vpcid": "",
+  "vpcregion": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * vpcid **required** `string`
+  * vpcregion **required** `string`
+  * maxitems `string`
+  * nexttoken `string`
+
+#### Output
+* output [ListHostedZonesByVPCResponse](#listhostedzonesbyvpcresponse)
+
+### CreateKeySigningKey
+
+
+
+```js
+amazonaws_route53.CreateKeySigningKey({
+  "CallerReference": "",
+  "HostedZoneId": "",
+  "KeyManagementServiceArn": "",
+  "Name": "",
+  "Status": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * CallerReference **required** `string`: A unique string that identifies the request.
+  * HostedZoneId **required** `string`: The unique string (ID) used to identify a hosted zone.
+  * KeyManagementServiceArn **required** `string`: <p>The Amazon resource name (ARN) for a customer managed key (CMK) in AWS Key Management Service (KMS). The <code>KeyManagementServiceArn</code> must be unique for each key signing key (KSK) in a single hosted zone. To see an example of <code>KeyManagementServiceArn</code> that grants the correct permissions for DNSSEC, scroll down to <b>Example</b>. </p> <p>You must configure the CMK as follows:</p> <dl> <dt>Status</dt> <dd> <p>Enabled</p> </dd> <dt>Key spec</dt> <dd> <p>ECC_NIST_P256</p> </dd> <dt>Key usage</dt> <dd> <p>Sign and verify</p> </dd> <dt>Key policy</dt> <dd> <p>The key policy must give permission for the following actions:</p> <ul> <li> <p>DescribeKey</p> </li> <li> <p>GetPublicKey</p> </li> <li> <p>Sign</p> </li> </ul> <p>The key policy must also include the Amazon Route 53 service in the principal for your account. Specify the following:</p> <ul> <li> <p> <code>"Service": "api-service.dnssec.route53.aws.internal"</code> </p> </li> </ul> </dd> </dl> <p>For more information about working with CMK in KMS, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html">AWS Key Management Service concepts</a>.</p>
+  * Name **required** `string`: An alphanumeric string used to identify a key signing key (KSK). <code>Name</code> must be unique for each key signing key in the same hosted zone.
+  * Status **required** `string`: A string specifying the initial status of the key signing key (KSK). You can set the value to <code>ACTIVE</code> or <code>INACTIVE</code>.
+
+#### Output
+*Output schema unknown*
+
+### DeleteKeySigningKey
+
+
+
+```js
+amazonaws_route53.DeleteKeySigningKey({
+  "HostedZoneId": "",
+  "Name": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * HostedZoneId **required** `string`
+  * Name **required** `string`
+
+#### Output
+* output [DeleteKeySigningKeyResponse](#deletekeysigningkeyresponse)
+
+### ActivateKeySigningKey
+
+
+
+```js
+amazonaws_route53.ActivateKeySigningKey({
+  "HostedZoneId": "",
+  "Name": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * HostedZoneId **required** `string`
+  * Name **required** `string`
+
+#### Output
+* output [ActivateKeySigningKeyResponse](#activatekeysigningkeyresponse)
+
+### DeactivateKeySigningKey
+
+
+
+```js
+amazonaws_route53.DeactivateKeySigningKey({
+  "HostedZoneId": "",
+  "Name": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * HostedZoneId **required** `string`
+  * Name **required** `string`
+
+#### Output
+* output [DeactivateKeySigningKeyResponse](#deactivatekeysigningkeyresponse)
 
 ### ListQueryLoggingConfigs
 
@@ -603,6 +831,11 @@ amazonaws_route53.ListQueryLoggingConfigs({}, context)
 
 #### Input
 * input `object`
+  * hostedzoneid `string`
+  * nexttoken `string`
+  * maxresults `string`
+  * MaxResults `string`
+  * NextToken `string`
 
 #### Output
 * output [ListQueryLoggingConfigsResponse](#listqueryloggingconfigsresponse)
@@ -620,8 +853,8 @@ amazonaws_route53.CreateQueryLoggingConfig({
 
 #### Input
 * input `object`
-  * CloudWatchLogsLogGroupArn **required** [CloudWatchLogsLogGroupArn](#cloudwatchlogsloggrouparn)
-  * HostedZoneId **required** [ResourceId](#resourceid)
+  * CloudWatchLogsLogGroupArn **required** `string`: <p>The Amazon Resource Name (ARN) for the log group that you want to Amazon Route 53 to send query logs to. This is the format of the ARN:</p> <p>arn:aws:logs:<i>region</i>:<i>account-id</i>:log-group:<i>log_group_name</i> </p> <p>To get the ARN for a log group, you can use the CloudWatch console, the <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeLogGroups.html">DescribeLogGroups</a> API action, the <a href="https://docs.aws.amazon.com/cli/latest/reference/logs/describe-log-groups.html">describe-log-groups</a> command, or the applicable command in one of the AWS SDKs.</p>
+  * HostedZoneId **required** `string`: The ID of the hosted zone that you want to log queries for. You can log queries only for public hosted zones.
 
 #### Output
 *Output schema unknown*
@@ -666,15 +899,15 @@ amazonaws_route53.GetQueryLoggingConfig({
 
 ```js
 amazonaws_route53.GetReusableDelegationSetLimit({
-  "Id": "",
-  "Type": ""
+  "Type": "",
+  "Id": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Id **required** `string`
   * Type **required** `string`
+  * Id **required** `string`
 
 #### Output
 * output [GetReusableDelegationSetLimitResponse](#getreusabledelegationsetlimitresponse)
@@ -693,7 +926,8 @@ amazonaws_route53.ListTagsForResources({
 #### Input
 * input `object`
   * ResourceType **required** `string`
-  * ResourceIds **required** [TagResourceIdList](#tagresourceidlist)
+  * ResourceIds **required** `array`: A complex type that contains the ResourceId element for each resource for which you want to get a list of tags.
+    * items
 
 #### Output
 * output [ListTagsForResourcesResponse](#listtagsforresourcesresponse)
@@ -732,8 +966,12 @@ amazonaws_route53.ChangeTagsForResource({
 * input `object`
   * ResourceType **required** `string`
   * ResourceId **required** `string`
-  * AddTags [TagList](#taglist)
-  * RemoveTagKeys [TagKeyList](#tagkeylist)
+  * AddTags `array`: <p>A complex type that contains a list of the tags that you want to add to the specified health check or hosted zone and/or the tags that you want to edit <code>Value</code> for.</p> <p>You can add a maximum of 10 tags to a health check or a hosted zone.</p>
+    * items
+      * Key
+      * Value
+  * RemoveTagKeys `array`: A complex type that contains a list of the tags that you want to delete from the specified health check or hosted zone. You can specify up to 10 keys.
+    * items
 
 #### Output
 * output [ChangeTagsForResourceResponse](#changetagsforresourceresponse)
@@ -743,11 +981,21 @@ amazonaws_route53.ChangeTagsForResource({
 
 
 ```js
-amazonaws_route53.TestDNSAnswer({}, context)
+amazonaws_route53.TestDNSAnswer({
+  "hostedzoneid": "",
+  "recordname": "",
+  "recordtype": ""
+}, context)
 ```
 
 #### Input
 * input `object`
+  * hostedzoneid **required** `string`
+  * recordname **required** `string`
+  * recordtype **required** `string`
+  * resolverip `string`
+  * edns0clientsubnetip `string`
+  * edns0clientsubnetmask `string`
 
 #### Output
 * output [TestDNSAnswerResponse](#testdnsanswerresponse)
@@ -762,6 +1010,8 @@ amazonaws_route53.ListTrafficPolicies({}, context)
 
 #### Input
 * input `object`
+  * trafficpolicyid `string`
+  * maxitems `string`
 
 #### Output
 * output [ListTrafficPoliciesResponse](#listtrafficpoliciesresponse)
@@ -779,6 +1029,8 @@ amazonaws_route53.ListTrafficPolicyVersions({
 #### Input
 * input `object`
   * Id **required** `string`
+  * trafficpolicyversion `string`
+  * maxitems `string`
 
 #### Output
 * output [ListTrafficPolicyVersionsResponse](#listtrafficpolicyversionsresponse)
@@ -796,9 +1048,9 @@ amazonaws_route53.CreateTrafficPolicy({
 
 #### Input
 * input `object`
-  * Comment [TrafficPolicyComment](#trafficpolicycomment)
-  * Document **required** [TrafficPolicyDocument](#trafficpolicydocument)
-  * Name **required** [TrafficPolicyName](#trafficpolicyname)
+  * Comment `string`: (Optional) Any comments that you want to include about the traffic policy.
+  * Document **required** `string`: The definition of this traffic policy in JSON format. For more information, see <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/api-policies-traffic-policy-document-format.html">Traffic Policy Document Format</a>.
+  * Name **required** `string`: The name of the traffic policy.
 
 #### Output
 *Output schema unknown*
@@ -817,8 +1069,8 @@ amazonaws_route53.CreateTrafficPolicyVersion({
 #### Input
 * input `object`
   * Id **required** `string`
-  * Comment [TrafficPolicyComment](#trafficpolicycomment)
-  * Document **required** [TrafficPolicyDocument](#trafficpolicydocument)
+  * Comment `string`: The comment that you specified in the <code>CreateTrafficPolicyVersion</code> request, if any.
+  * Document **required** `string`: The definition of this version of the traffic policy, in JSON format. You specified the JSON in the <code>CreateTrafficPolicyVersion</code> request. For more information about the JSON format, see <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateTrafficPolicy.html">CreateTrafficPolicy</a>.
 
 #### Output
 *Output schema unknown*
@@ -871,7 +1123,7 @@ amazonaws_route53.UpdateTrafficPolicyComment({
 #### Input
 * input `object`
   * Id **required** `string`
-  * Comment **required** [TrafficPolicyComment](#trafficpolicycomment)
+  * Comment **required** `string`: The new comment for the specified traffic policy and version.
 
 #### Output
 * output [UpdateTrafficPolicyCommentResponse](#updatetrafficpolicycommentresponse)
@@ -892,11 +1144,11 @@ amazonaws_route53.CreateTrafficPolicyInstance({
 
 #### Input
 * input `object`
-  * HostedZoneId **required** [ResourceId](#resourceid)
-  * Name **required** [DNSName](#dnsname)
-  * TTL **required** [TTL](#ttl)
-  * TrafficPolicyId **required** [TrafficPolicyId](#trafficpolicyid)
-  * TrafficPolicyVersion **required** [TrafficPolicyVersion](#trafficpolicyversion)
+  * HostedZoneId **required** `string`: The ID of the hosted zone that you want Amazon Route 53 to create resource record sets in by using the configuration in a traffic policy.
+  * Name **required** `string`: The domain name (such as example.com) or subdomain name (such as www.example.com) for which Amazon Route 53 responds to DNS queries by using the resource record sets that Route 53 creates for this traffic policy instance.
+  * TTL **required** `integer`: (Optional) The TTL that you want Amazon Route 53 to assign to all of the resource record sets that it creates in the specified hosted zone.
+  * TrafficPolicyId **required** `string`: The ID of the traffic policy that you want to use to create resource record sets in the specified hosted zone.
+  * TrafficPolicyVersion **required** `integer`: The version of the traffic policy that you want to use to create resource record sets in the specified hosted zone.
 
 #### Output
 *Output schema unknown*
@@ -951,9 +1203,9 @@ amazonaws_route53.UpdateTrafficPolicyInstance({
 #### Input
 * input `object`
   * Id **required** `string`
-  * TTL **required** [TTL](#ttl)
-  * TrafficPolicyId **required** [TrafficPolicyId](#trafficpolicyid)
-  * TrafficPolicyVersion **required** [TrafficPolicyVersion](#trafficpolicyversion)
+  * TTL **required** `integer`: The TTL that you want Amazon Route 53 to assign to all of the updated resource record sets.
+  * TrafficPolicyId **required** `string`: The ID of the traffic policy that you want Amazon Route 53 to use to update resource record sets for the specified traffic policy instance.
+  * TrafficPolicyVersion **required** `integer`: The version of the traffic policy that you want Amazon Route 53 to use to update resource record sets for the specified traffic policy instance.
 
 #### Output
 * output [UpdateTrafficPolicyInstanceResponse](#updatetrafficpolicyinstanceresponse)
@@ -982,6 +1234,10 @@ amazonaws_route53.ListTrafficPolicyInstances({}, context)
 
 #### Input
 * input `object`
+  * hostedzoneid `string`
+  * trafficpolicyinstancename `string`
+  * trafficpolicyinstancetype `string`
+  * maxitems `string`
 
 #### Output
 * output [ListTrafficPolicyInstancesResponse](#listtrafficpolicyinstancesresponse)
@@ -991,11 +1247,17 @@ amazonaws_route53.ListTrafficPolicyInstances({}, context)
 
 
 ```js
-amazonaws_route53.ListTrafficPolicyInstancesByHostedZone({}, context)
+amazonaws_route53.ListTrafficPolicyInstancesByHostedZone({
+  "id": ""
+}, context)
 ```
 
 #### Input
 * input `object`
+  * id **required** `string`
+  * trafficpolicyinstancename `string`
+  * trafficpolicyinstancetype `string`
+  * maxitems `string`
 
 #### Output
 * output [ListTrafficPolicyInstancesByHostedZoneResponse](#listtrafficpolicyinstancesbyhostedzoneresponse)
@@ -1005,11 +1267,20 @@ amazonaws_route53.ListTrafficPolicyInstancesByHostedZone({}, context)
 
 
 ```js
-amazonaws_route53.ListTrafficPolicyInstancesByPolicy({}, context)
+amazonaws_route53.ListTrafficPolicyInstancesByPolicy({
+  "id": "",
+  "version": 0
+}, context)
 ```
 
 #### Input
 * input `object`
+  * id **required** `string`
+  * version **required** `integer`
+  * hostedzoneid `string`
+  * trafficpolicyinstancename `string`
+  * trafficpolicyinstancetype `string`
+  * maxitems `string`
 
 #### Output
 * output [ListTrafficPolicyInstancesByPolicyResponse](#listtrafficpolicyinstancesbypolicyresponse)
@@ -1018,18 +1289,28 @@ amazonaws_route53.ListTrafficPolicyInstancesByPolicy({}, context)
 
 ## Definitions
 
+### AWSAccountID
+* AWSAccountID `string`
+
 ### AccountLimit
 * AccountLimit `object`: A complex type that contains the type of limit that you specified in the request and the current value for that limit.
-  * Type **required** [AccountLimitType](#accountlimittype)
-  * Value **required** [LimitValue](#limitvalue)
+  * Type **required**
+  * Value **required**
 
 ### AccountLimitType
 * AccountLimitType `string` (values: MAX_HEALTH_CHECKS_BY_OWNER, MAX_HOSTED_ZONES_BY_OWNER, MAX_TRAFFIC_POLICY_INSTANCES_BY_OWNER, MAX_REUSABLE_DELEGATION_SETS_BY_OWNER, MAX_TRAFFIC_POLICIES_BY_OWNER)
 
+### ActivateKeySigningKeyRequest
+* ActivateKeySigningKeyRequest `object`
+
+### ActivateKeySigningKeyResponse
+* ActivateKeySigningKeyResponse `object`
+  * ChangeInfo **required** [ChangeInfo](#changeinfo)
+
 ### AlarmIdentifier
-* AlarmIdentifier `object`: A complex type that identifies the CloudWatch alarm that you want Amazon Route 53 health checkers to use to determine whether this health check is healthy.
-  * Name **required** [AlarmName](#alarmname)
-  * Region **required** [CloudWatchRegion](#cloudwatchregion)
+* AlarmIdentifier `object`: A complex type that identifies the CloudWatch alarm that you want Amazon Route 53 health checkers to use to determine whether the specified health check is healthy.
+  * Name **required**
+  * Region **required**
 
 ### AlarmName
 * AlarmName `string`
@@ -1038,65 +1319,164 @@ amazonaws_route53.ListTrafficPolicyInstancesByPolicy({}, context)
 * AliasHealthEnabled `boolean`
 
 ### AliasTarget
-* AliasTarget `object`: <p> <i>Alias resource record sets only:</i> Information about the CloudFront distribution, Elastic Beanstalk environment, ELB load balancer, Amazon S3 bucket, or Amazon Route 53 resource record set that you're redirecting queries to. An Elastic Beanstalk environment must have a regionalized subdomain.</p> <p>When creating resource record sets for a private hosted zone, note the following:</p> <ul> <li> <p>Resource record sets can't be created for CloudFront distributions in a private hosted zone.</p> </li> <li> <p>Creating geolocation alias resource record sets or latency alias resource record sets in a private hosted zone is unsupported.</p> </li> <li> <p>For information about creating failover resource record sets in a private hosted zone, see <a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-private-hosted-zones.html">Configuring Failover in a Private Hosted Zone</a>.</p> </li> </ul>
-  * DNSName **required** [DNSName](#dnsname)
-  * EvaluateTargetHealth **required** [AliasHealthEnabled](#aliashealthenabled)
-  * HostedZoneId **required** [ResourceId](#resourceid)
+* AliasTarget `object`: <p> <i>Alias resource record sets only:</i> Information about the AWS resource, such as a CloudFront distribution or an Amazon S3 bucket, that you want to route traffic to.</p> <p>When creating resource record sets for a private hosted zone, note the following:</p> <ul> <li> <p>Creating geolocation alias resource record sets or latency alias resource record sets in a private hosted zone is unsupported.</p> </li> <li> <p>For information about creating failover resource record sets in a private hosted zone, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-private-hosted-zones.html">Configuring Failover in a Private Hosted Zone</a>.</p> </li> </ul>
+  * DNSName **required**
+  * EvaluateTargetHealth **required**
+  * HostedZoneId **required**
 
 ### AssociateVPCComment
 * AssociateVPCComment `string`
 
 ### AssociateVPCWithHostedZoneRequest
 * AssociateVPCWithHostedZoneRequest `object`: A complex type that contains information about the request to associate a VPC with a private hosted zone.
-  * Comment [AssociateVPCComment](#associatevpccomment)
-  * VPC **required** [VPC](#vpc)
+  * Comment
+  * VPC **required**
+    * VPCId [VPCId](#vpcid)
+    * VPCRegion
 
 ### AssociateVPCWithHostedZoneResponse
 * AssociateVPCWithHostedZoneResponse `object`: A complex type that contains the response information for the <code>AssociateVPCWithHostedZone</code> request.
-  * ChangeInfo **required** [ChangeInfo](#changeinfo)
+  * ChangeInfo **required**
+    * Comment
+    * Id **required**
+    * Status **required**
+    * SubmittedAt **required**
 
 ### Change
 * Change `object`: The information for each resource record set that you want to change.
-  * Action **required** [ChangeAction](#changeaction)
-  * ResourceRecordSet **required** [ResourceRecordSet](#resourcerecordset)
+  * Action **required**
+  * ResourceRecordSet **required**
+    * AliasTarget
+      * DNSName **required**
+      * EvaluateTargetHealth **required**
+      * HostedZoneId **required**
+    * Failover
+    * GeoLocation
+      * ContinentCode
+      * CountryCode
+      * SubdivisionCode
+    * HealthCheckId
+    * MultiValueAnswer
+    * Name **required**
+    * Region
+    * ResourceRecords
+      * items
+        * Value **required**
+    * SetIdentifier
+    * TTL
+    * TrafficPolicyInstanceId
+    * Type **required**
+    * Weight
 
 ### ChangeAction
 * ChangeAction `string` (values: CREATE, DELETE, UPSERT)
 
 ### ChangeBatch
 * ChangeBatch `object`: The information for a change request.
-  * Changes **required** [Changes](#changes)
-  * Comment [ResourceDescription](#resourcedescription)
+  * Changes **required**
+    * items
+      * Action **required**
+      * ResourceRecordSet **required**
+        * AliasTarget
+          * DNSName **required**
+          * EvaluateTargetHealth **required**
+          * HostedZoneId **required**
+        * Failover
+        * GeoLocation
+          * ContinentCode
+          * CountryCode
+          * SubdivisionCode
+        * HealthCheckId
+        * MultiValueAnswer
+        * Name **required**
+        * Region
+        * ResourceRecords
+          * items
+        * SetIdentifier
+        * TTL
+        * TrafficPolicyInstanceId
+        * Type **required**
+        * Weight
+  * Comment
 
 ### ChangeInfo
 * ChangeInfo `object`: A complex type that describes change information about changes made to your hosted zone.
-  * Comment [ResourceDescription](#resourcedescription)
-  * Id **required** [ResourceId](#resourceid)
-  * Status **required** [ChangeStatus](#changestatus)
-  * SubmittedAt **required** [TimeStamp](#timestamp)
+  * Comment
+  * Id **required**
+  * Status **required**
+  * SubmittedAt **required**
 
 ### ChangeResourceRecordSetsRequest
 * ChangeResourceRecordSetsRequest `object`: A complex type that contains change information for the resource record set.
-  * ChangeBatch **required** [ChangeBatch](#changebatch)
+  * ChangeBatch **required**
+    * Changes **required**
+      * items
+        * Action **required**
+        * ResourceRecordSet **required**
+          * AliasTarget
+          * Failover
+          * GeoLocation
+          * HealthCheckId
+          * MultiValueAnswer
+          * Name **required**
+          * Region
+          * ResourceRecords
+          * SetIdentifier
+          * TTL
+          * TrafficPolicyInstanceId
+          * Type **required**
+          * Weight
+    * Comment
 
 ### ChangeResourceRecordSetsResponse
 * ChangeResourceRecordSetsResponse `object`: A complex type containing the response for the request.
-  * ChangeInfo **required** [ChangeInfo](#changeinfo)
+  * ChangeInfo **required**
+    * Comment
+    * Id **required**
+    * Status **required**
+    * SubmittedAt **required**
 
 ### ChangeStatus
 * ChangeStatus `string` (values: PENDING, INSYNC)
 
 ### ChangeTagsForResourceRequest
 * ChangeTagsForResourceRequest `object`: A complex type that contains information about the tags that you want to add, edit, or delete.
-  * AddTags [TagList](#taglist)
-  * RemoveTagKeys [TagKeyList](#tagkeylist)
+  * AddTags
+    * items
+      * Key
+      * Value
+  * RemoveTagKeys
+    * items
 
 ### ChangeTagsForResourceResponse
 * ChangeTagsForResourceResponse `object`: Empty response for the request.
 
 ### Changes
 * Changes `array`
-  * items [Change](#change)
+  * items
+    * Action **required**
+    * ResourceRecordSet **required**
+      * AliasTarget
+        * DNSName **required**
+        * EvaluateTargetHealth **required**
+        * HostedZoneId **required**
+      * Failover
+      * GeoLocation
+        * ContinentCode
+        * CountryCode
+        * SubdivisionCode
+      * HealthCheckId
+      * MultiValueAnswer
+      * Name **required**
+      * Region
+      * ResourceRecords
+        * items
+          * Value **required**
+      * SetIdentifier
+      * TTL
+      * TrafficPolicyInstanceId
+      * Type **required**
+      * Weight
 
 ### CheckerIpRanges
 * CheckerIpRanges `array`
@@ -1104,121 +1484,267 @@ amazonaws_route53.ListTrafficPolicyInstancesByPolicy({}, context)
 
 ### ChildHealthCheckList
 * ChildHealthCheckList `array`
-  * items [HealthCheckId](#healthcheckid)
+  * items
 
 ### CloudWatchAlarmConfiguration
 * CloudWatchAlarmConfiguration `object`: A complex type that contains information about the CloudWatch alarm that Amazon Route 53 is monitoring for this health check.
-  * ComparisonOperator **required** [ComparisonOperator](#comparisonoperator)
-  * Dimensions [DimensionList](#dimensionlist)
-  * EvaluationPeriods **required** [EvaluationPeriods](#evaluationperiods)
-  * MetricName **required** [MetricName](#metricname)
-  * Namespace **required** [Namespace](#namespace)
-  * Period **required** [Period](#period)
-  * Statistic **required** [Statistic](#statistic)
-  * Threshold **required** [Threshold](#threshold)
+  * ComparisonOperator **required**
+  * Dimensions
+    * items
+      * Name **required**
+      * Value **required**
+  * EvaluationPeriods **required**
+  * MetricName **required**
+  * Namespace **required**
+  * Period **required**
+  * Statistic **required**
+  * Threshold **required**
 
 ### CloudWatchLogsLogGroupArn
 * CloudWatchLogsLogGroupArn `string`
 
 ### CloudWatchRegion
-* CloudWatchRegion `string` (values: us-east-1, us-east-2, us-west-1, us-west-2, ca-central-1, eu-central-1, eu-west-1, eu-west-2, eu-west-3, ap-south-1, ap-southeast-1, ap-southeast-2, ap-northeast-1, ap-northeast-2, ap-northeast-3, sa-east-1)
+* CloudWatchRegion `string` (values: us-east-1, us-east-2, us-west-1, us-west-2, ca-central-1, eu-central-1, eu-west-1, eu-west-2, eu-west-3, ap-east-1, me-south-1, ap-south-1, ap-southeast-1, ap-southeast-2, ap-northeast-1, ap-northeast-2, ap-northeast-3, eu-north-1, sa-east-1, cn-northwest-1, cn-north-1, af-south-1, eu-south-1, us-gov-west-1, us-gov-east-1, us-iso-east-1, us-isob-east-1)
 
 ### ComparisonOperator
 * ComparisonOperator `string` (values: GreaterThanOrEqualToThreshold, GreaterThanThreshold, LessThanThreshold, LessThanOrEqualToThreshold)
 
 ### ConcurrentModification
-* ConcurrentModification `object`: Another user submitted a request to create, update, or delete the object at the same time that you did. Retry the request. 
-  * message [ErrorMessage](#errormessage)
+
 
 ### ConflictingDomainExists
-* ConflictingDomainExists `object`: <p>The cause of this error depends on whether you're trying to create a public or a private hosted zone:</p> <ul> <li> <p> <b>Public hosted zone:</b> Two hosted zones that have the same name or that have a parent/child relationship (example.com and test.example.com) can't have any common name servers. You tried to create a hosted zone that has the same name as an existing hosted zone or that's the parent or child of an existing hosted zone, and you specified a delegation set that shares one or more name servers with the existing hosted zone. For more information, see <a>CreateReusableDelegationSet</a>.</p> </li> <li> <p> <b>Private hosted zone:</b> You specified an Amazon VPC that you're already using for another hosted zone, and the domain that you specified for one of the hosted zones is a subdomain of the domain that you specified for the other hosted zone. For example, you can't use the same Amazon VPC for the hosted zones for example.com and test.example.com.</p> </li> </ul>
-  * message [ErrorMessage](#errormessage)
+
 
 ### ConflictingTypes
-* ConflictingTypes `object`: You tried to update a traffic policy instance by using a traffic policy version that has a different DNS type than the current type for the instance. You specified the type in the JSON document in the <code>CreateTrafficPolicy</code> or <code>CreateTrafficPolicyVersion</code>request. 
-  * message [ErrorMessage](#errormessage)
+
 
 ### CreateHealthCheckRequest
 * CreateHealthCheckRequest `object`: A complex type that contains the health check request information.
-  * CallerReference **required** [HealthCheckNonce](#healthchecknonce)
-  * HealthCheckConfig **required** [HealthCheckConfig](#healthcheckconfig)
+  * CallerReference **required**
+  * HealthCheckConfig **required**
+    * AlarmIdentifier
+      * Name **required**
+      * Region **required**
+    * ChildHealthChecks
+      * items
+    * Disabled
+    * EnableSNI
+    * FailureThreshold
+    * FullyQualifiedDomainName
+    * HealthThreshold
+    * IPAddress
+    * InsufficientDataHealthStatus
+    * Inverted
+    * MeasureLatency
+    * Port
+    * Regions
+      * items
+    * RequestInterval
+    * ResourcePath
+    * SearchString
+    * Type **required**
 
 ### CreateHealthCheckResponse
 * CreateHealthCheckResponse `object`: A complex type containing the response information for the new health check.
-  * HealthCheck **required** [HealthCheck](#healthcheck)
+  * HealthCheck **required**
+    * CallerReference **required**
+    * CloudWatchAlarmConfiguration
+      * ComparisonOperator **required**
+      * Dimensions
+        * items
+          * Name **required**
+          * Value **required**
+      * EvaluationPeriods **required**
+      * MetricName **required**
+      * Namespace **required**
+      * Period **required**
+      * Statistic **required**
+      * Threshold **required**
+    * HealthCheckConfig **required**
+      * AlarmIdentifier
+        * Name **required**
+        * Region **required**
+      * ChildHealthChecks
+        * items
+      * Disabled
+      * EnableSNI
+      * FailureThreshold
+      * FullyQualifiedDomainName
+      * HealthThreshold
+      * IPAddress
+      * InsufficientDataHealthStatus
+      * Inverted
+      * MeasureLatency
+      * Port
+      * Regions
+        * items
+      * RequestInterval
+      * ResourcePath
+      * SearchString
+      * Type **required**
+    * HealthCheckVersion **required**
+    * Id **required**
+    * LinkedService
+      * Description
+      * ServicePrincipal
 
 ### CreateHostedZoneRequest
-* CreateHostedZoneRequest `object`: A complex type that contains information about the request to create a hosted zone.
-  * CallerReference **required** [Nonce](#nonce)
-  * DelegationSetId [ResourceId](#resourceid)
-  * HostedZoneConfig [HostedZoneConfig](#hostedzoneconfig)
-  * Name **required** [DNSName](#dnsname)
-  * VPC [VPC](#vpc)
+* CreateHostedZoneRequest `object`: A complex type that contains information about the request to create a public or private hosted zone.
+  * CallerReference **required**
+  * DelegationSetId
+  * HostedZoneConfig
+    * Comment
+    * PrivateZone
+  * Name **required**
+  * VPC
+    * VPCId [VPCId](#vpcid)
+    * VPCRegion
 
 ### CreateHostedZoneResponse
 * CreateHostedZoneResponse `object`: A complex type containing the response information for the hosted zone.
+  * ChangeInfo **required**
+    * Comment
+    * Id **required**
+    * Status **required**
+    * SubmittedAt **required**
+  * DelegationSet **required**
+    * CallerReference
+    * Id
+    * NameServers **required**
+      * items
+  * HostedZone **required**
+    * CallerReference **required**
+    * Config
+      * Comment
+      * PrivateZone
+    * Id **required**
+    * LinkedService
+      * Description
+      * ServicePrincipal
+    * Name **required**
+    * ResourceRecordSetCount
+  * VPC
+    * VPCId [VPCId](#vpcid)
+    * VPCRegion
+
+### CreateKeySigningKeyRequest
+* CreateKeySigningKeyRequest `object`
+  * CallerReference **required**
+  * HostedZoneId **required**
+  * KeyManagementServiceArn **required**
+  * Name **required**
+  * Status **required**
+
+### CreateKeySigningKeyResponse
+* CreateKeySigningKeyResponse `object`
   * ChangeInfo **required** [ChangeInfo](#changeinfo)
-  * DelegationSet **required** [DelegationSet](#delegationset)
-  * HostedZone **required** [HostedZone](#hostedzone)
-  * VPC [VPC](#vpc)
+  * KeySigningKey **required**
+    * CreatedDate
+    * DNSKEYRecord
+    * DSRecord
+    * DigestAlgorithmMnemonic
+    * DigestAlgorithmType
+    * DigestValue
+    * Flag
+    * KeyTag
+    * KmsArn
+    * LastModifiedDate
+    * Name
+    * PublicKey
+    * SigningAlgorithmMnemonic
+    * SigningAlgorithmType
+    * Status
+    * StatusMessage
 
 ### CreateQueryLoggingConfigRequest
 * CreateQueryLoggingConfigRequest `object`
-  * CloudWatchLogsLogGroupArn **required** [CloudWatchLogsLogGroupArn](#cloudwatchlogsloggrouparn)
-  * HostedZoneId **required** [ResourceId](#resourceid)
+  * CloudWatchLogsLogGroupArn **required**
+  * HostedZoneId **required**
 
 ### CreateQueryLoggingConfigResponse
 * CreateQueryLoggingConfigResponse `object`
-  * QueryLoggingConfig **required** [QueryLoggingConfig](#queryloggingconfig)
+  * QueryLoggingConfig **required**
+    * CloudWatchLogsLogGroupArn **required**
+    * HostedZoneId **required**
+    * Id **required**
 
 ### CreateReusableDelegationSetRequest
 * CreateReusableDelegationSetRequest `object`
-  * CallerReference **required** [Nonce](#nonce)
-  * HostedZoneId [ResourceId](#resourceid)
+  * CallerReference **required**
+  * HostedZoneId
 
 ### CreateReusableDelegationSetResponse
 * CreateReusableDelegationSetResponse `object`
-  * DelegationSet **required** [DelegationSet](#delegationset)
+  * DelegationSet **required**
+    * CallerReference
+    * Id
+    * NameServers **required**
+      * items
 
 ### CreateTrafficPolicyInstanceRequest
 * CreateTrafficPolicyInstanceRequest `object`: A complex type that contains information about the resource record sets that you want to create based on a specified traffic policy.
-  * HostedZoneId **required** [ResourceId](#resourceid)
-  * Name **required** [DNSName](#dnsname)
-  * TTL **required** [TTL](#ttl)
-  * TrafficPolicyId **required** [TrafficPolicyId](#trafficpolicyid)
-  * TrafficPolicyVersion **required** [TrafficPolicyVersion](#trafficpolicyversion)
+  * HostedZoneId **required**
+  * Name **required**
+  * TTL **required**
+  * TrafficPolicyId **required**
+  * TrafficPolicyVersion **required**
 
 ### CreateTrafficPolicyInstanceResponse
 * CreateTrafficPolicyInstanceResponse `object`: A complex type that contains the response information for the <code>CreateTrafficPolicyInstance</code> request.
-  * TrafficPolicyInstance **required** [TrafficPolicyInstance](#trafficpolicyinstance)
+  * TrafficPolicyInstance **required**
+    * HostedZoneId **required**
+    * Id **required**
+    * Message **required**
+    * Name **required**
+    * State **required**
+    * TTL **required**
+    * TrafficPolicyId **required**
+    * TrafficPolicyType **required**
+    * TrafficPolicyVersion **required**
 
 ### CreateTrafficPolicyRequest
 * CreateTrafficPolicyRequest `object`: A complex type that contains information about the traffic policy that you want to create.
-  * Comment [TrafficPolicyComment](#trafficpolicycomment)
-  * Document **required** [TrafficPolicyDocument](#trafficpolicydocument)
-  * Name **required** [TrafficPolicyName](#trafficpolicyname)
+  * Comment
+  * Document **required**
+  * Name **required**
 
 ### CreateTrafficPolicyResponse
 * CreateTrafficPolicyResponse `object`: A complex type that contains the response information for the <code>CreateTrafficPolicy</code> request.
-  * TrafficPolicy **required** [TrafficPolicy](#trafficpolicy)
+  * TrafficPolicy **required**
+    * Comment
+    * Document **required**
+    * Id **required**
+    * Name **required**
+    * Type **required**
+    * Version **required**
 
 ### CreateTrafficPolicyVersionRequest
 * CreateTrafficPolicyVersionRequest `object`: A complex type that contains information about the traffic policy that you want to create a new version for.
-  * Comment [TrafficPolicyComment](#trafficpolicycomment)
-  * Document **required** [TrafficPolicyDocument](#trafficpolicydocument)
+  * Comment
+  * Document **required**
 
 ### CreateTrafficPolicyVersionResponse
 * CreateTrafficPolicyVersionResponse `object`: A complex type that contains the response information for the <code>CreateTrafficPolicyVersion</code> request.
-  * TrafficPolicy **required** [TrafficPolicy](#trafficpolicy)
+  * TrafficPolicy **required**
+    * Comment
+    * Document **required**
+    * Id **required**
+    * Name **required**
+    * Type **required**
+    * Version **required**
 
 ### CreateVPCAssociationAuthorizationRequest
 * CreateVPCAssociationAuthorizationRequest `object`: A complex type that contains information about the request to authorize associating a VPC with your private hosted zone. Authorization is only required when a private hosted zone and a VPC were created by using different accounts.
-  * VPC **required** [VPC](#vpc)
+  * VPC **required**
+    * VPCId [VPCId](#vpcid)
+    * VPCRegion
 
 ### CreateVPCAssociationAuthorizationResponse
 * CreateVPCAssociationAuthorizationResponse `object`: A complex type that contains the response information from a <code>CreateVPCAssociationAuthorization</code> request.
-  * HostedZoneId **required** [ResourceId](#resourceid)
-  * VPC **required** [VPC](#vpc)
+  * HostedZoneId **required**
+  * VPC **required**
+    * VPCId [VPCId](#vpcid)
+    * VPCRegion
 
 ### DNSName
 * DNSName `string`
@@ -1226,39 +1752,54 @@ amazonaws_route53.ListTrafficPolicyInstancesByPolicy({}, context)
 ### DNSRCode
 * DNSRCode `string`
 
+### DNSSECNotFound
+
+
+### DNSSECStatus
+* DNSSECStatus `object`: A string repesenting the status of DNSSEC signing.
+  * ServeSignature
+  * StatusMessage
+
+### DeactivateKeySigningKeyRequest
+* DeactivateKeySigningKeyRequest `object`
+
+### DeactivateKeySigningKeyResponse
+* DeactivateKeySigningKeyResponse `object`
+  * ChangeInfo **required** [ChangeInfo](#changeinfo)
+
 ### DelegationSet
 * DelegationSet `object`: A complex type that lists the name servers in a delegation set, as well as the <code>CallerReference</code> and the <code>ID</code> for the delegation set.
-  * CallerReference [Nonce](#nonce)
-  * Id [ResourceId](#resourceid)
-  * NameServers **required** [DelegationSetNameServers](#delegationsetnameservers)
+  * CallerReference
+  * Id
+  * NameServers **required**
+    * items
 
 ### DelegationSetAlreadyCreated
-* DelegationSetAlreadyCreated `object`: A delegation set with the same owner and caller reference combination has already been created.
-  * message [ErrorMessage](#errormessage)
+
 
 ### DelegationSetAlreadyReusable
-* DelegationSetAlreadyReusable `object`: The specified delegation set has already been marked as reusable.
-  * message [ErrorMessage](#errormessage)
+
 
 ### DelegationSetInUse
-* DelegationSetInUse `object`: The specified delegation contains associated hosted zones which must be deleted before the reusable delegation set can be deleted.
-  * message [ErrorMessage](#errormessage)
+
 
 ### DelegationSetNameServers
 * DelegationSetNameServers `array`
-  * items [DNSName](#dnsname)
+  * items
 
 ### DelegationSetNotAvailable
-* DelegationSetNotAvailable `object`: You can create a hosted zone that has the same name as an existing hosted zone (example.com is common), but there is a limit to the number of hosted zones that have the same name. If you get this error, Amazon Route 53 has reached that limit. If you own the domain name and Amazon Route 53 generates this error, contact Customer Support.
-  * message [ErrorMessage](#errormessage)
+
 
 ### DelegationSetNotReusable
-* DelegationSetNotReusable `object`: A reusable delegation set with the specified ID does not exist.
-  * message [ErrorMessage](#errormessage)
+
 
 ### DelegationSets
 * DelegationSets `array`
-  * items [DelegationSet](#delegationset)
+  * items
+    * CallerReference
+    * Id
+    * NameServers **required**
+      * items
 
 ### DeleteHealthCheckRequest
 * DeleteHealthCheckRequest `object`: This action deletes a health check.
@@ -1271,6 +1812,17 @@ amazonaws_route53.ListTrafficPolicyInstancesByPolicy({}, context)
 
 ### DeleteHostedZoneResponse
 * DeleteHostedZoneResponse `object`: A complex type that contains the response to a <code>DeleteHostedZone</code> request.
+  * ChangeInfo **required**
+    * Comment
+    * Id **required**
+    * Status **required**
+    * SubmittedAt **required**
+
+### DeleteKeySigningKeyRequest
+* DeleteKeySigningKeyRequest `object`
+
+### DeleteKeySigningKeyResponse
+* DeleteKeySigningKeyResponse `object`
   * ChangeInfo **required** [ChangeInfo](#changeinfo)
 
 ### DeleteQueryLoggingConfigRequest
@@ -1299,44 +1851,64 @@ amazonaws_route53.ListTrafficPolicyInstancesByPolicy({}, context)
 
 ### DeleteVPCAssociationAuthorizationRequest
 * DeleteVPCAssociationAuthorizationRequest `object`: A complex type that contains information about the request to remove authorization to associate a VPC that was created by one AWS account with a hosted zone that was created with a different AWS account. 
-  * VPC **required** [VPC](#vpc)
+  * VPC **required**
+    * VPCId [VPCId](#vpcid)
+    * VPCRegion
 
 ### DeleteVPCAssociationAuthorizationResponse
 * DeleteVPCAssociationAuthorizationResponse `object`: Empty response for the request.
 
 ### Dimension
 * Dimension `object`: For the metric that the CloudWatch alarm is associated with, a complex type that contains information about one dimension.
-  * Name **required** [DimensionField](#dimensionfield)
-  * Value **required** [DimensionField](#dimensionfield)
+  * Name **required**
+  * Value **required**
 
 ### DimensionField
 * DimensionField `string`
 
 ### DimensionList
 * DimensionList `array`
-  * items [Dimension](#dimension)
+  * items
+    * Name **required**
+    * Value **required**
+
+### DisableHostedZoneDNSSECRequest
+* DisableHostedZoneDNSSECRequest `object`
+
+### DisableHostedZoneDNSSECResponse
+* DisableHostedZoneDNSSECResponse `object`
+  * ChangeInfo **required** [ChangeInfo](#changeinfo)
+
+### Disabled
+* Disabled `boolean`
 
 ### DisassociateVPCComment
 * DisassociateVPCComment `string`
 
 ### DisassociateVPCFromHostedZoneRequest
 * DisassociateVPCFromHostedZoneRequest `object`: A complex type that contains information about the VPC that you want to disassociate from a specified private hosted zone.
-  * Comment [DisassociateVPCComment](#disassociatevpccomment)
-  * VPC **required** [VPC](#vpc)
+  * Comment
+  * VPC **required**
+    * VPCId [VPCId](#vpcid)
+    * VPCRegion
 
 ### DisassociateVPCFromHostedZoneResponse
 * DisassociateVPCFromHostedZoneResponse `object`: A complex type that contains the response information for the disassociate request.
+  * ChangeInfo **required**
+    * Comment
+    * Id **required**
+    * Status **required**
+    * SubmittedAt **required**
+
+### EnableHostedZoneDNSSECRequest
+* EnableHostedZoneDNSSECRequest `object`
+
+### EnableHostedZoneDNSSECResponse
+* EnableHostedZoneDNSSECResponse `object`
   * ChangeInfo **required** [ChangeInfo](#changeinfo)
 
 ### EnableSNI
 * EnableSNI `boolean`
-
-### ErrorMessage
-* ErrorMessage `string`
-
-### ErrorMessages
-* ErrorMessages `array`
-  * items [ErrorMessage](#errormessage)
 
 ### EvaluationPeriods
 * EvaluationPeriods `integer`
@@ -1348,10 +1920,10 @@ amazonaws_route53.ListTrafficPolicyInstancesByPolicy({}, context)
 * FullyQualifiedDomainName `string`
 
 ### GeoLocation
-* GeoLocation `object`: A complex type that contains information about a geo location.
-  * ContinentCode [GeoLocationContinentCode](#geolocationcontinentcode)
-  * CountryCode [GeoLocationCountryCode](#geolocationcountrycode)
-  * SubdivisionCode [GeoLocationSubdivisionCode](#geolocationsubdivisioncode)
+* GeoLocation `object`: A complex type that contains information about a geographic location.
+  * ContinentCode
+  * CountryCode
+  * SubdivisionCode
 
 ### GeoLocationContinentCode
 * GeoLocationContinentCode `string`
@@ -1367,16 +1939,22 @@ amazonaws_route53.ListTrafficPolicyInstancesByPolicy({}, context)
 
 ### GeoLocationDetails
 * GeoLocationDetails `object`: A complex type that contains the codes and full continent, country, and subdivision names for the specified <code>geolocation</code> code.
-  * ContinentCode [GeoLocationContinentCode](#geolocationcontinentcode)
-  * ContinentName [GeoLocationContinentName](#geolocationcontinentname)
-  * CountryCode [GeoLocationCountryCode](#geolocationcountrycode)
-  * CountryName [GeoLocationCountryName](#geolocationcountryname)
-  * SubdivisionCode [GeoLocationSubdivisionCode](#geolocationsubdivisioncode)
-  * SubdivisionName [GeoLocationSubdivisionName](#geolocationsubdivisionname)
+  * ContinentCode
+  * ContinentName
+  * CountryCode
+  * CountryName
+  * SubdivisionCode
+  * SubdivisionName
 
 ### GeoLocationDetailsList
 * GeoLocationDetailsList `array`
-  * items [GeoLocationDetails](#geolocationdetails)
+  * items
+    * ContinentCode
+    * ContinentName
+    * CountryCode
+    * CountryName
+    * SubdivisionCode
+    * SubdivisionName
 
 ### GeoLocationSubdivisionCode
 * GeoLocationSubdivisionCode `string`
@@ -1389,156 +1967,313 @@ amazonaws_route53.ListTrafficPolicyInstancesByPolicy({}, context)
 
 ### GetAccountLimitResponse
 * GetAccountLimitResponse `object`: A complex type that contains the requested limit. 
-  * Count **required** [UsageCount](#usagecount)
-  * Limit **required** [AccountLimit](#accountlimit)
+  * Count **required**
+  * Limit **required**
+    * Type **required**
+    * Value **required**
 
 ### GetChangeRequest
 * GetChangeRequest `object`: The input for a GetChange request.
 
 ### GetChangeResponse
 * GetChangeResponse `object`: A complex type that contains the <code>ChangeInfo</code> element.
-  * ChangeInfo **required** [ChangeInfo](#changeinfo)
+  * ChangeInfo **required**
+    * Comment
+    * Id **required**
+    * Status **required**
+    * SubmittedAt **required**
 
 ### GetCheckerIpRangesRequest
-* GetCheckerIpRangesRequest `object`
+* GetCheckerIpRangesRequest `object`: Empty request.
 
 ### GetCheckerIpRangesResponse
-* GetCheckerIpRangesResponse `object`
-  * CheckerIpRanges **required** [CheckerIpRanges](#checkeripranges)
+* GetCheckerIpRangesResponse `object`: A complex type that contains the <code>CheckerIpRanges</code> element.
+  * CheckerIpRanges **required**
+    * items [IPAddressCidr](#ipaddresscidr)
+
+### GetDNSSECRequest
+* GetDNSSECRequest `object`
+
+### GetDNSSECResponse
+* GetDNSSECResponse `object`
+  * KeySigningKeys **required**
+    * items [KeySigningKey](#keysigningkey)
+  * Status **required**
+    * ServeSignature
+    * StatusMessage
 
 ### GetGeoLocationRequest
 * GetGeoLocationRequest `object`: A request for information about whether a specified geographic location is supported for Amazon Route 53 geolocation resource record sets.
 
 ### GetGeoLocationResponse
 * GetGeoLocationResponse `object`: A complex type that contains the response information for the specified geolocation code.
-  * GeoLocationDetails **required** [GeoLocationDetails](#geolocationdetails)
+  * GeoLocationDetails **required**
+    * ContinentCode
+    * ContinentName
+    * CountryCode
+    * CountryName
+    * SubdivisionCode
+    * SubdivisionName
 
 ### GetHealthCheckCountRequest
 * GetHealthCheckCountRequest `object`: A request for the number of health checks that are associated with the current AWS account.
 
 ### GetHealthCheckCountResponse
 * GetHealthCheckCountResponse `object`: A complex type that contains the response to a <code>GetHealthCheckCount</code> request.
-  * HealthCheckCount **required** [HealthCheckCount](#healthcheckcount)
+  * HealthCheckCount **required**
 
 ### GetHealthCheckLastFailureReasonRequest
 * GetHealthCheckLastFailureReasonRequest `object`: A request for the reason that a health check failed most recently.
 
 ### GetHealthCheckLastFailureReasonResponse
 * GetHealthCheckLastFailureReasonResponse `object`: A complex type that contains the response to a <code>GetHealthCheckLastFailureReason</code> request.
-  * HealthCheckObservations **required** [HealthCheckObservations](#healthcheckobservations)
+  * HealthCheckObservations **required**
+    * items
+      * IPAddress
+      * Region
+      * StatusReport
+        * CheckedTime
+        * Status
 
 ### GetHealthCheckRequest
 * GetHealthCheckRequest `object`: A request to get information about a specified health check. 
 
 ### GetHealthCheckResponse
 * GetHealthCheckResponse `object`: A complex type that contains the response to a <code>GetHealthCheck</code> request.
-  * HealthCheck **required** [HealthCheck](#healthcheck)
+  * HealthCheck **required**
+    * CallerReference **required**
+    * CloudWatchAlarmConfiguration
+      * ComparisonOperator **required**
+      * Dimensions
+        * items
+          * Name **required**
+          * Value **required**
+      * EvaluationPeriods **required**
+      * MetricName **required**
+      * Namespace **required**
+      * Period **required**
+      * Statistic **required**
+      * Threshold **required**
+    * HealthCheckConfig **required**
+      * AlarmIdentifier
+        * Name **required**
+        * Region **required**
+      * ChildHealthChecks
+        * items
+      * Disabled
+      * EnableSNI
+      * FailureThreshold
+      * FullyQualifiedDomainName
+      * HealthThreshold
+      * IPAddress
+      * InsufficientDataHealthStatus
+      * Inverted
+      * MeasureLatency
+      * Port
+      * Regions
+        * items
+      * RequestInterval
+      * ResourcePath
+      * SearchString
+      * Type **required**
+    * HealthCheckVersion **required**
+    * Id **required**
+    * LinkedService
+      * Description
+      * ServicePrincipal
 
 ### GetHealthCheckStatusRequest
 * GetHealthCheckStatusRequest `object`: A request to get the status for a health check.
 
 ### GetHealthCheckStatusResponse
 * GetHealthCheckStatusResponse `object`: A complex type that contains the response to a <code>GetHealthCheck</code> request.
-  * HealthCheckObservations **required** [HealthCheckObservations](#healthcheckobservations)
+  * HealthCheckObservations **required**
+    * items
+      * IPAddress
+      * Region
+      * StatusReport
+        * CheckedTime
+        * Status
 
 ### GetHostedZoneCountRequest
 * GetHostedZoneCountRequest `object`: A request to retrieve a count of all the hosted zones that are associated with the current AWS account.
 
 ### GetHostedZoneCountResponse
 * GetHostedZoneCountResponse `object`: A complex type that contains the response to a <code>GetHostedZoneCount</code> request.
-  * HostedZoneCount **required** [HostedZoneCount](#hostedzonecount)
+  * HostedZoneCount **required**
 
 ### GetHostedZoneLimitRequest
 * GetHostedZoneLimitRequest `object`: A complex type that contains information about the request to create a hosted zone.
 
 ### GetHostedZoneLimitResponse
 * GetHostedZoneLimitResponse `object`: A complex type that contains the requested limit. 
-  * Count **required** [UsageCount](#usagecount)
-  * Limit **required** [HostedZoneLimit](#hostedzonelimit)
+  * Count **required**
+  * Limit **required**
+    * Type **required**
+    * Value **required**
 
 ### GetHostedZoneRequest
 * GetHostedZoneRequest `object`: A request to get information about a specified hosted zone. 
 
 ### GetHostedZoneResponse
 * GetHostedZoneResponse `object`: A complex type that contain the response to a <code>GetHostedZone</code> request.
-  * DelegationSet [DelegationSet](#delegationset)
-  * HostedZone **required** [HostedZone](#hostedzone)
-  * VPCs [VPCs](#vpcs)
+  * DelegationSet
+    * CallerReference
+    * Id
+    * NameServers **required**
+      * items
+  * HostedZone **required**
+    * CallerReference **required**
+    * Config
+      * Comment
+      * PrivateZone
+    * Id **required**
+    * LinkedService
+      * Description
+      * ServicePrincipal
+    * Name **required**
+    * ResourceRecordSetCount
+  * VPCs
+    * items
+      * VPCId [VPCId](#vpcid)
+      * VPCRegion
 
 ### GetQueryLoggingConfigRequest
 * GetQueryLoggingConfigRequest `object`
 
 ### GetQueryLoggingConfigResponse
 * GetQueryLoggingConfigResponse `object`
-  * QueryLoggingConfig **required** [QueryLoggingConfig](#queryloggingconfig)
+  * QueryLoggingConfig **required**
+    * CloudWatchLogsLogGroupArn **required**
+    * HostedZoneId **required**
+    * Id **required**
 
 ### GetReusableDelegationSetLimitRequest
 * GetReusableDelegationSetLimitRequest `object`: A complex type that contains information about the request to create a hosted zone.
 
 ### GetReusableDelegationSetLimitResponse
 * GetReusableDelegationSetLimitResponse `object`: A complex type that contains the requested limit. 
-  * Count **required** [UsageCount](#usagecount)
-  * Limit **required** [ReusableDelegationSetLimit](#reusabledelegationsetlimit)
+  * Count **required**
+  * Limit **required**
+    * Type **required**
+    * Value **required**
 
 ### GetReusableDelegationSetRequest
 * GetReusableDelegationSetRequest `object`: A request to get information about a specified reusable delegation set.
 
 ### GetReusableDelegationSetResponse
 * GetReusableDelegationSetResponse `object`: A complex type that contains the response to the <code>GetReusableDelegationSet</code> request.
-  * DelegationSet **required** [DelegationSet](#delegationset)
+  * DelegationSet **required**
+    * CallerReference
+    * Id
+    * NameServers **required**
+      * items
 
 ### GetTrafficPolicyInstanceCountRequest
 * GetTrafficPolicyInstanceCountRequest `object`: Request to get the number of traffic policy instances that are associated with the current AWS account.
 
 ### GetTrafficPolicyInstanceCountResponse
 * GetTrafficPolicyInstanceCountResponse `object`: A complex type that contains information about the resource record sets that Amazon Route 53 created based on a specified traffic policy.
-  * TrafficPolicyInstanceCount **required** [TrafficPolicyInstanceCount](#trafficpolicyinstancecount)
+  * TrafficPolicyInstanceCount **required**
 
 ### GetTrafficPolicyInstanceRequest
 * GetTrafficPolicyInstanceRequest `object`: Gets information about a specified traffic policy instance.
 
 ### GetTrafficPolicyInstanceResponse
 * GetTrafficPolicyInstanceResponse `object`: A complex type that contains information about the resource record sets that Amazon Route 53 created based on a specified traffic policy.
-  * TrafficPolicyInstance **required** [TrafficPolicyInstance](#trafficpolicyinstance)
+  * TrafficPolicyInstance **required**
+    * HostedZoneId **required**
+    * Id **required**
+    * Message **required**
+    * Name **required**
+    * State **required**
+    * TTL **required**
+    * TrafficPolicyId **required**
+    * TrafficPolicyType **required**
+    * TrafficPolicyVersion **required**
 
 ### GetTrafficPolicyRequest
 * GetTrafficPolicyRequest `object`: Gets information about a specific traffic policy version.
 
 ### GetTrafficPolicyResponse
 * GetTrafficPolicyResponse `object`: A complex type that contains the response information for the request.
-  * TrafficPolicy **required** [TrafficPolicy](#trafficpolicy)
+  * TrafficPolicy **required**
+    * Comment
+    * Document **required**
+    * Id **required**
+    * Name **required**
+    * Type **required**
+    * Version **required**
 
 ### HealthCheck
 * HealthCheck `object`: A complex type that contains information about one health check that is associated with the current AWS account.
-  * CallerReference **required** [HealthCheckNonce](#healthchecknonce)
-  * CloudWatchAlarmConfiguration [CloudWatchAlarmConfiguration](#cloudwatchalarmconfiguration)
-  * HealthCheckConfig **required** [HealthCheckConfig](#healthcheckconfig)
-  * HealthCheckVersion **required** [HealthCheckVersion](#healthcheckversion)
-  * Id **required** [HealthCheckId](#healthcheckid)
-  * LinkedService [LinkedService](#linkedservice)
+  * CallerReference **required**
+  * CloudWatchAlarmConfiguration
+    * ComparisonOperator **required**
+    * Dimensions
+      * items
+        * Name **required**
+        * Value **required**
+    * EvaluationPeriods **required**
+    * MetricName **required**
+    * Namespace **required**
+    * Period **required**
+    * Statistic **required**
+    * Threshold **required**
+  * HealthCheckConfig **required**
+    * AlarmIdentifier
+      * Name **required**
+      * Region **required**
+    * ChildHealthChecks
+      * items
+    * Disabled
+    * EnableSNI
+    * FailureThreshold
+    * FullyQualifiedDomainName
+    * HealthThreshold
+    * IPAddress
+    * InsufficientDataHealthStatus
+    * Inverted
+    * MeasureLatency
+    * Port
+    * Regions
+      * items
+    * RequestInterval
+    * ResourcePath
+    * SearchString
+    * Type **required**
+  * HealthCheckVersion **required**
+  * Id **required**
+  * LinkedService
+    * Description
+    * ServicePrincipal
 
 ### HealthCheckAlreadyExists
-* HealthCheckAlreadyExists `object`: <p> The health check you're attempting to create already exists. Amazon Route 53 returns this error when you submit a request that has the following values:</p> <ul> <li> <p>The same value for <code>CallerReference</code> as an existing health check, and one or more values that differ from the existing health check that has the same caller reference.</p> </li> <li> <p>The same value for <code>CallerReference</code> as a health check that you created and later deleted, regardless of the other settings in the request.</p> </li> </ul>
-  * message [ErrorMessage](#errormessage)
+
 
 ### HealthCheckConfig
 * HealthCheckConfig `object`: A complex type that contains information about the health check.
-  * AlarmIdentifier [AlarmIdentifier](#alarmidentifier)
-  * ChildHealthChecks [ChildHealthCheckList](#childhealthchecklist)
-  * EnableSNI [EnableSNI](#enablesni)
-  * FailureThreshold [FailureThreshold](#failurethreshold)
-  * FullyQualifiedDomainName [FullyQualifiedDomainName](#fullyqualifieddomainname)
-  * HealthThreshold [HealthThreshold](#healththreshold)
-  * IPAddress [IPAddress](#ipaddress)
-  * InsufficientDataHealthStatus [InsufficientDataHealthStatus](#insufficientdatahealthstatus)
-  * Inverted [Inverted](#inverted)
-  * MeasureLatency [MeasureLatency](#measurelatency)
-  * Port [Port](#port)
-  * Regions [HealthCheckRegionList](#healthcheckregionlist)
-  * RequestInterval [RequestInterval](#requestinterval)
-  * ResourcePath [ResourcePath](#resourcepath)
-  * SearchString [SearchString](#searchstring)
-  * Type **required** [HealthCheckType](#healthchecktype)
+  * AlarmIdentifier
+    * Name **required**
+    * Region **required**
+  * ChildHealthChecks
+    * items
+  * Disabled
+  * EnableSNI
+  * FailureThreshold
+  * FullyQualifiedDomainName
+  * HealthThreshold
+  * IPAddress
+  * InsufficientDataHealthStatus
+  * Inverted
+  * MeasureLatency
+  * Port
+  * Regions
+    * items
+  * RequestInterval
+  * ResourcePath
+  * SearchString
+  * Type **required**
 
 ### HealthCheckCount
 * HealthCheckCount `integer`
@@ -1547,28 +2282,34 @@ amazonaws_route53.ListTrafficPolicyInstancesByPolicy({}, context)
 * HealthCheckId `string`
 
 ### HealthCheckInUse
-* HealthCheckInUse `object`: This error code is not in use.
-  * message [ErrorMessage](#errormessage)
+
 
 ### HealthCheckNonce
 * HealthCheckNonce `string`
 
 ### HealthCheckObservation
 * HealthCheckObservation `object`: A complex type that contains the last failure reason as reported by one Amazon Route 53 health checker.
-  * IPAddress [IPAddress](#ipaddress)
-  * Region [HealthCheckRegion](#healthcheckregion)
-  * StatusReport [StatusReport](#statusreport)
+  * IPAddress
+  * Region
+  * StatusReport
+    * CheckedTime
+    * Status
 
 ### HealthCheckObservations
 * HealthCheckObservations `array`
-  * items [HealthCheckObservation](#healthcheckobservation)
+  * items
+    * IPAddress
+    * Region
+    * StatusReport
+      * CheckedTime
+      * Status
 
 ### HealthCheckRegion
 * HealthCheckRegion `string` (values: us-east-1, us-west-1, us-west-2, eu-west-1, ap-southeast-1, ap-southeast-2, ap-northeast-1, sa-east-1)
 
 ### HealthCheckRegionList
 * HealthCheckRegionList `array`
-  * items [HealthCheckRegion](#healthcheckregion)
+  * items
 
 ### HealthCheckType
 * HealthCheckType `string` (values: HTTP, HTTPS, HTTP_STR_MATCH, HTTPS_STR_MATCH, TCP, CALCULATED, CLOUDWATCH_METRIC)
@@ -1577,63 +2318,140 @@ amazonaws_route53.ListTrafficPolicyInstancesByPolicy({}, context)
 * HealthCheckVersion `integer`
 
 ### HealthCheckVersionMismatch
-* HealthCheckVersionMismatch `object`: The value of <code>HealthCheckVersion</code> in the request doesn't match the value of <code>HealthCheckVersion</code> in the health check.
-  * message [ErrorMessage](#errormessage)
+
 
 ### HealthChecks
 * HealthChecks `array`
-  * items [HealthCheck](#healthcheck)
+  * items
+    * CallerReference **required**
+    * CloudWatchAlarmConfiguration
+      * ComparisonOperator **required**
+      * Dimensions
+        * items
+          * Name **required**
+          * Value **required**
+      * EvaluationPeriods **required**
+      * MetricName **required**
+      * Namespace **required**
+      * Period **required**
+      * Statistic **required**
+      * Threshold **required**
+    * HealthCheckConfig **required**
+      * AlarmIdentifier
+        * Name **required**
+        * Region **required**
+      * ChildHealthChecks
+        * items
+      * Disabled
+      * EnableSNI
+      * FailureThreshold
+      * FullyQualifiedDomainName
+      * HealthThreshold
+      * IPAddress
+      * InsufficientDataHealthStatus
+      * Inverted
+      * MeasureLatency
+      * Port
+      * Regions
+        * items
+      * RequestInterval
+      * ResourcePath
+      * SearchString
+      * Type **required**
+    * HealthCheckVersion **required**
+    * Id **required**
+    * LinkedService
+      * Description
+      * ServicePrincipal
 
 ### HealthThreshold
 * HealthThreshold `integer`
 
 ### HostedZone
 * HostedZone `object`: A complex type that contains general information about the hosted zone.
-  * CallerReference **required** [Nonce](#nonce)
-  * Config [HostedZoneConfig](#hostedzoneconfig)
-  * Id **required** [ResourceId](#resourceid)
-  * LinkedService [LinkedService](#linkedservice)
-  * Name **required** [DNSName](#dnsname)
-  * ResourceRecordSetCount [HostedZoneRRSetCount](#hostedzonerrsetcount)
+  * CallerReference **required**
+  * Config
+    * Comment
+    * PrivateZone
+  * Id **required**
+  * LinkedService
+    * Description
+    * ServicePrincipal
+  * Name **required**
+  * ResourceRecordSetCount
 
 ### HostedZoneAlreadyExists
-* HostedZoneAlreadyExists `object`: The hosted zone you're trying to create already exists. Amazon Route 53 returns this error when a hosted zone has already been created with the specified <code>CallerReference</code>.
-  * message [ErrorMessage](#errormessage)
+
 
 ### HostedZoneConfig
 * HostedZoneConfig `object`: A complex type that contains an optional comment about your hosted zone. If you don't want to specify a comment, omit both the <code>HostedZoneConfig</code> and <code>Comment</code> elements.
-  * Comment [ResourceDescription](#resourcedescription)
-  * PrivateZone [IsPrivateZone](#isprivatezone)
+  * Comment
+  * PrivateZone
 
 ### HostedZoneCount
 * HostedZoneCount `integer`
 
 ### HostedZoneLimit
 * HostedZoneLimit `object`: A complex type that contains the type of limit that you specified in the request and the current value for that limit.
-  * Type **required** [HostedZoneLimitType](#hostedzonelimittype)
-  * Value **required** [LimitValue](#limitvalue)
+  * Type **required**
+  * Value **required**
 
 ### HostedZoneLimitType
 * HostedZoneLimitType `string` (values: MAX_RRSETS_BY_ZONE, MAX_VPCS_ASSOCIATED_BY_ZONE)
 
 ### HostedZoneNotEmpty
-* HostedZoneNotEmpty `object`: The hosted zone contains resource records that are not SOA or NS records.
-  * message [ErrorMessage](#errormessage)
+
 
 ### HostedZoneNotFound
-* HostedZoneNotFound `object`: The specified HostedZone can't be found.
-  * message [ErrorMessage](#errormessage)
+
 
 ### HostedZoneNotPrivate
-* HostedZoneNotPrivate `object`: The specified hosted zone is a public hosted zone, not a private hosted zone.
-  * message [ErrorMessage](#errormessage)
+
+
+### HostedZoneOwner
+* HostedZoneOwner `object`: A complex type that identifies a hosted zone that a specified Amazon VPC is associated with and the owner of the hosted zone. If there is a value for <code>OwningAccount</code>, there is no value for <code>OwningService</code>, and vice versa. 
+  * OwningAccount
+  * OwningService
+
+### HostedZoneOwningService
+* HostedZoneOwningService `string`
+
+### HostedZonePartiallyDelegated
+
 
 ### HostedZoneRRSetCount
 * HostedZoneRRSetCount `integer`
 
+### HostedZoneSummaries
+* HostedZoneSummaries `array`
+  * items
+    * HostedZoneId **required**
+    * Name **required**
+    * Owner **required**
+      * OwningAccount
+      * OwningService
+
+### HostedZoneSummary
+* HostedZoneSummary `object`: In the response to a <code>ListHostedZonesByVPC</code> request, the <code>HostedZoneSummaries</code> element contains one <code>HostedZoneSummary</code> element for each hosted zone that the specified Amazon VPC is associated with. Each <code>HostedZoneSummary</code> element contains the hosted zone name and ID, and information about who owns the hosted zone.
+  * HostedZoneId **required**
+  * Name **required**
+  * Owner **required**
+    * OwningAccount
+    * OwningService
+
 ### HostedZones
 * HostedZones `array`
-  * items [HostedZone](#hostedzone)
+  * items
+    * CallerReference **required**
+    * Config
+      * Comment
+      * PrivateZone
+    * Id **required**
+    * LinkedService
+      * Description
+      * ServicePrincipal
+    * Name **required**
+    * ResourceRecordSetCount
 
 ### IPAddress
 * IPAddress `string`
@@ -1642,44 +2460,46 @@ amazonaws_route53.ListTrafficPolicyInstancesByPolicy({}, context)
 * IPAddressCidr `string`
 
 ### IncompatibleVersion
-* IncompatibleVersion `object`: The resource you're trying to access is unsupported on this Amazon Route 53 endpoint.
-  * message [ErrorMessage](#errormessage)
+
 
 ### InsufficientCloudWatchLogsResourcePolicy
-* InsufficientCloudWatchLogsResourcePolicy `object`: <p>Amazon Route 53 doesn't have the permissions required to create log streams and send query logs to log streams. Possible causes include the following:</p> <ul> <li> <p>There is no resource policy that specifies the log group ARN in the value for <code>Resource</code>.</p> </li> <li> <p>The resource policy that includes the log group ARN in the value for <code>Resource</code> doesn't have the necessary permissions.</p> </li> <li> <p>The resource policy hasn't finished propagating yet.</p> </li> </ul>
-  * message [ErrorMessage](#errormessage)
+
 
 ### InsufficientDataHealthStatus
 * InsufficientDataHealthStatus `string` (values: Healthy, Unhealthy, LastKnownStatus)
 
 ### InvalidArgument
-* InvalidArgument `object`: Parameter name is invalid.
-  * message [ErrorMessage](#errormessage)
+
 
 ### InvalidChangeBatch
-* InvalidChangeBatch `object`: This exception contains a list of messages that might contain one or more error messages. Each error message indicates one error in the change batch.
-  * message [ErrorMessage](#errormessage)
-  * messages [ErrorMessages](#errormessages)
+
 
 ### InvalidDomainName
-* InvalidDomainName `object`: The specified domain name is not valid.
-  * message [ErrorMessage](#errormessage)
+
 
 ### InvalidInput
-* InvalidInput `object`: The input is not valid.
-  * message [ErrorMessage](#errormessage)
+
+
+### InvalidKMSArn
+
+
+### InvalidKeySigningKeyName
+
+
+### InvalidKeySigningKeyStatus
+
 
 ### InvalidPaginationToken
-* InvalidPaginationToken `object`: The value that you specified to get the second or subsequent page of results is invalid.
-  * message [ErrorMessage](#errormessage)
+
+
+### InvalidSigningStatus
+
 
 ### InvalidTrafficPolicyDocument
-* InvalidTrafficPolicyDocument `object`: The format of the traffic policy document that you specified in the <code>Document</code> element is invalid.
-  * message [ErrorMessage](#errormessage)
+
 
 ### InvalidVPCId
-* InvalidVPCId `object`: The VPC ID that you specified either isn't a valid ID or the current account is not authorized to access this VPC.
-  * message [ErrorMessage](#errormessage)
+
 
 ### Inverted
 * Inverted `boolean`
@@ -1687,178 +2507,385 @@ amazonaws_route53.ListTrafficPolicyInstancesByPolicy({}, context)
 ### IsPrivateZone
 * IsPrivateZone `boolean`
 
+### KeySigningKey
+* KeySigningKey `object`: A key signing key (KSK) is a complex type that represents a public/private key pair. The private key is used to generate a digital signature for the zone signing key (ZSK). The public key is stored in the DNS and is used to authenticate the ZSK. A KSK is always associated with a hosted zone; it cannot exist by itself.
+  * CreatedDate
+  * DNSKEYRecord
+  * DSRecord
+  * DigestAlgorithmMnemonic
+  * DigestAlgorithmType
+  * DigestValue
+  * Flag
+  * KeyTag
+  * KmsArn
+  * LastModifiedDate
+  * Name
+  * PublicKey
+  * SigningAlgorithmMnemonic
+  * SigningAlgorithmType
+  * Status
+  * StatusMessage
+
+### KeySigningKeyAlreadyExists
+
+
+### KeySigningKeyInParentDSRecord
+
+
+### KeySigningKeyInUse
+
+
+### KeySigningKeyWithActiveStatusNotFound
+
+
+### KeySigningKeys
+* KeySigningKeys `array`
+  * items [KeySigningKey](#keysigningkey)
+
 ### LastVPCAssociation
-* LastVPCAssociation `object`: The VPC that you're trying to disassociate from the private hosted zone is the last VPC that is associated with the hosted zone. Amazon Route 53 doesn't support disassociating the last VPC from a hosted zone.
-  * message [ErrorMessage](#errormessage)
+
 
 ### LimitValue
 * LimitValue `integer`
 
 ### LimitsExceeded
-* LimitsExceeded `object`: This operation can't be completed either because the current account has reached the limit on reusable delegation sets that it can create or because you've reached the limit on the number of Amazon VPCs that you can associate with a private hosted zone. To get the current limit on the number of reusable delegation sets, see <a>GetAccountLimit</a>. To get the current limit on the number of Amazon VPCs that you can associate with a private hosted zone, see <a>GetHostedZoneLimit</a>. To request a higher limit, <a href="http://aws.amazon.com/route53-request">create a case</a> with the AWS Support Center.
-  * message [ErrorMessage](#errormessage)
+
 
 ### LinkedService
 * LinkedService `object`: If a health check or hosted zone was created by another service, <code>LinkedService</code> is a complex type that describes the service that created the resource. When a resource is created by another service, you can't edit or delete it using Amazon Route 53. 
-  * Description [ResourceDescription](#resourcedescription)
-  * ServicePrincipal [ServicePrincipal](#serviceprincipal)
+  * Description
+  * ServicePrincipal
 
 ### ListGeoLocationsRequest
 * ListGeoLocationsRequest `object`: A request to get a list of geographic locations that Amazon Route 53 supports for geolocation resource record sets. 
 
 ### ListGeoLocationsResponse
 * ListGeoLocationsResponse `object`: A complex type containing the response information for the request.
-  * GeoLocationDetailsList **required** [GeoLocationDetailsList](#geolocationdetailslist)
-  * IsTruncated **required** [PageTruncated](#pagetruncated)
-  * MaxItems **required** [PageMaxItems](#pagemaxitems)
-  * NextContinentCode [GeoLocationContinentCode](#geolocationcontinentcode)
-  * NextCountryCode [GeoLocationCountryCode](#geolocationcountrycode)
-  * NextSubdivisionCode [GeoLocationSubdivisionCode](#geolocationsubdivisioncode)
+  * GeoLocationDetailsList **required**
+    * items
+      * ContinentCode
+      * ContinentName
+      * CountryCode
+      * CountryName
+      * SubdivisionCode
+      * SubdivisionName
+  * IsTruncated **required**
+  * MaxItems **required**
+  * NextContinentCode
+  * NextCountryCode
+  * NextSubdivisionCode
 
 ### ListHealthChecksRequest
 * ListHealthChecksRequest `object`: A request to retrieve a list of the health checks that are associated with the current AWS account.
 
 ### ListHealthChecksResponse
 * ListHealthChecksResponse `object`: A complex type that contains the response to a <code>ListHealthChecks</code> request.
-  * HealthChecks **required** [HealthChecks](#healthchecks)
-  * IsTruncated **required** [PageTruncated](#pagetruncated)
-  * Marker **required** [PageMarker](#pagemarker)
-  * MaxItems **required** [PageMaxItems](#pagemaxitems)
-  * NextMarker [PageMarker](#pagemarker)
+  * HealthChecks **required**
+    * items
+      * CallerReference **required**
+      * CloudWatchAlarmConfiguration
+        * ComparisonOperator **required**
+        * Dimensions
+          * items
+        * EvaluationPeriods **required**
+        * MetricName **required**
+        * Namespace **required**
+        * Period **required**
+        * Statistic **required**
+        * Threshold **required**
+      * HealthCheckConfig **required**
+        * AlarmIdentifier
+          * Name **required**
+          * Region **required**
+        * ChildHealthChecks
+          * items
+        * Disabled
+        * EnableSNI
+        * FailureThreshold
+        * FullyQualifiedDomainName
+        * HealthThreshold
+        * IPAddress
+        * InsufficientDataHealthStatus
+        * Inverted
+        * MeasureLatency
+        * Port
+        * Regions
+          * items
+        * RequestInterval
+        * ResourcePath
+        * SearchString
+        * Type **required**
+      * HealthCheckVersion **required**
+      * Id **required**
+      * LinkedService
+        * Description
+        * ServicePrincipal
+  * IsTruncated **required**
+  * Marker **required**
+  * MaxItems **required**
+  * NextMarker
 
 ### ListHostedZonesByNameRequest
 * ListHostedZonesByNameRequest `object`: Retrieves a list of the public and private hosted zones that are associated with the current AWS account in ASCII order by domain name. 
 
 ### ListHostedZonesByNameResponse
 * ListHostedZonesByNameResponse `object`: A complex type that contains the response information for the request.
-  * DNSName [DNSName](#dnsname)
-  * HostedZoneId [ResourceId](#resourceid)
-  * HostedZones **required** [HostedZones](#hostedzones)
-  * IsTruncated **required** [PageTruncated](#pagetruncated)
-  * MaxItems **required** [PageMaxItems](#pagemaxitems)
-  * NextDNSName [DNSName](#dnsname)
-  * NextHostedZoneId [ResourceId](#resourceid)
+  * DNSName
+  * HostedZoneId
+  * HostedZones **required**
+    * items
+      * CallerReference **required**
+      * Config
+        * Comment
+        * PrivateZone
+      * Id **required**
+      * LinkedService
+        * Description
+        * ServicePrincipal
+      * Name **required**
+      * ResourceRecordSetCount
+  * IsTruncated **required**
+  * MaxItems **required**
+  * NextDNSName
+  * NextHostedZoneId
+
+### ListHostedZonesByVPCRequest
+* ListHostedZonesByVPCRequest `object`: Lists all the private hosted zones that a specified VPC is associated with, regardless of which AWS account created the hosted zones.
+
+### ListHostedZonesByVPCResponse
+* ListHostedZonesByVPCResponse `object`
+  * HostedZoneSummaries **required**
+    * items
+      * HostedZoneId **required**
+      * Name **required**
+      * Owner **required**
+        * OwningAccount
+        * OwningService
+  * MaxItems **required**
+  * NextToken
 
 ### ListHostedZonesRequest
 * ListHostedZonesRequest `object`: A request to retrieve a list of the public and private hosted zones that are associated with the current AWS account.
 
 ### ListHostedZonesResponse
 * ListHostedZonesResponse `object`
-  * HostedZones **required** [HostedZones](#hostedzones)
-  * IsTruncated **required** [PageTruncated](#pagetruncated)
-  * Marker **required** [PageMarker](#pagemarker)
-  * MaxItems **required** [PageMaxItems](#pagemaxitems)
-  * NextMarker [PageMarker](#pagemarker)
+  * HostedZones **required**
+    * items
+      * CallerReference **required**
+      * Config
+        * Comment
+        * PrivateZone
+      * Id **required**
+      * LinkedService
+        * Description
+        * ServicePrincipal
+      * Name **required**
+      * ResourceRecordSetCount
+  * IsTruncated **required**
+  * Marker **required**
+  * MaxItems **required**
+  * NextMarker
 
 ### ListQueryLoggingConfigsRequest
 * ListQueryLoggingConfigsRequest `object`
 
 ### ListQueryLoggingConfigsResponse
 * ListQueryLoggingConfigsResponse `object`
-  * NextToken [PaginationToken](#paginationtoken)
-  * QueryLoggingConfigs **required** [QueryLoggingConfigs](#queryloggingconfigs)
+  * NextToken
+  * QueryLoggingConfigs **required**
+    * items
+      * CloudWatchLogsLogGroupArn **required**
+      * HostedZoneId **required**
+      * Id **required**
 
 ### ListResourceRecordSetsRequest
 * ListResourceRecordSetsRequest `object`: A request for the resource record sets that are associated with a specified hosted zone.
 
 ### ListResourceRecordSetsResponse
 * ListResourceRecordSetsResponse `object`: A complex type that contains list information for the resource record set.
-  * IsTruncated **required** [PageTruncated](#pagetruncated)
-  * MaxItems **required** [PageMaxItems](#pagemaxitems)
-  * NextRecordIdentifier [ResourceRecordSetIdentifier](#resourcerecordsetidentifier)
-  * NextRecordName [DNSName](#dnsname)
-  * NextRecordType [RRType](#rrtype)
-  * ResourceRecordSets **required** [ResourceRecordSets](#resourcerecordsets)
+  * IsTruncated **required**
+  * MaxItems **required**
+  * NextRecordIdentifier
+  * NextRecordName
+  * NextRecordType
+  * ResourceRecordSets **required**
+    * items
+      * AliasTarget
+        * DNSName **required**
+        * EvaluateTargetHealth **required**
+        * HostedZoneId **required**
+      * Failover
+      * GeoLocation
+        * ContinentCode
+        * CountryCode
+        * SubdivisionCode
+      * HealthCheckId
+      * MultiValueAnswer
+      * Name **required**
+      * Region
+      * ResourceRecords
+        * items
+          * Value **required**
+      * SetIdentifier
+      * TTL
+      * TrafficPolicyInstanceId
+      * Type **required**
+      * Weight
 
 ### ListReusableDelegationSetsRequest
 * ListReusableDelegationSetsRequest `object`: A request to get a list of the reusable delegation sets that are associated with the current AWS account.
 
 ### ListReusableDelegationSetsResponse
 * ListReusableDelegationSetsResponse `object`: A complex type that contains information about the reusable delegation sets that are associated with the current AWS account.
-  * DelegationSets **required** [DelegationSets](#delegationsets)
-  * IsTruncated **required** [PageTruncated](#pagetruncated)
-  * Marker **required** [PageMarker](#pagemarker)
-  * MaxItems **required** [PageMaxItems](#pagemaxitems)
-  * NextMarker [PageMarker](#pagemarker)
+  * DelegationSets **required**
+    * items
+      * CallerReference
+      * Id
+      * NameServers **required**
+        * items
+  * IsTruncated **required**
+  * Marker **required**
+  * MaxItems **required**
+  * NextMarker
 
 ### ListTagsForResourceRequest
 * ListTagsForResourceRequest `object`: A complex type containing information about a request for a list of the tags that are associated with an individual resource.
 
 ### ListTagsForResourceResponse
 * ListTagsForResourceResponse `object`: A complex type that contains information about the health checks or hosted zones for which you want to list tags.
-  * ResourceTagSet **required** [ResourceTagSet](#resourcetagset)
+  * ResourceTagSet **required**
+    * ResourceId
+    * ResourceType
+    * Tags
+      * items
+        * Key
+        * Value
 
 ### ListTagsForResourcesRequest
 * ListTagsForResourcesRequest `object`: A complex type that contains information about the health checks or hosted zones for which you want to list tags.
-  * ResourceIds **required** [TagResourceIdList](#tagresourceidlist)
+  * ResourceIds **required**
+    * items
 
 ### ListTagsForResourcesResponse
 * ListTagsForResourcesResponse `object`: A complex type containing tags for the specified resources.
-  * ResourceTagSets **required** [ResourceTagSetList](#resourcetagsetlist)
+  * ResourceTagSets **required**
+    * items
+      * ResourceId
+      * ResourceType
+      * Tags
+        * items
+          * Key
+          * Value
 
 ### ListTrafficPoliciesRequest
 * ListTrafficPoliciesRequest `object`: A complex type that contains the information about the request to list the traffic policies that are associated with the current AWS account.
 
 ### ListTrafficPoliciesResponse
 * ListTrafficPoliciesResponse `object`: A complex type that contains the response information for the request.
-  * IsTruncated **required** [PageTruncated](#pagetruncated)
-  * MaxItems **required** [PageMaxItems](#pagemaxitems)
-  * TrafficPolicyIdMarker **required** [TrafficPolicyId](#trafficpolicyid)
-  * TrafficPolicySummaries **required** [TrafficPolicySummaries](#trafficpolicysummaries)
+  * IsTruncated **required**
+  * MaxItems **required**
+  * TrafficPolicyIdMarker **required**
+  * TrafficPolicySummaries **required**
+    * items
+      * Id **required**
+      * LatestVersion **required**
+      * Name **required**
+      * TrafficPolicyCount **required**
+      * Type **required**
 
 ### ListTrafficPolicyInstancesByHostedZoneRequest
 * ListTrafficPolicyInstancesByHostedZoneRequest `object`: A request for the traffic policy instances that you created in a specified hosted zone.
 
 ### ListTrafficPolicyInstancesByHostedZoneResponse
 * ListTrafficPolicyInstancesByHostedZoneResponse `object`: A complex type that contains the response information for the request.
-  * IsTruncated **required** [PageTruncated](#pagetruncated)
-  * MaxItems **required** [PageMaxItems](#pagemaxitems)
-  * TrafficPolicyInstanceNameMarker [DNSName](#dnsname)
-  * TrafficPolicyInstanceTypeMarker [RRType](#rrtype)
-  * TrafficPolicyInstances **required** [TrafficPolicyInstances](#trafficpolicyinstances)
+  * IsTruncated **required**
+  * MaxItems **required**
+  * TrafficPolicyInstanceNameMarker
+  * TrafficPolicyInstanceTypeMarker
+  * TrafficPolicyInstances **required**
+    * items
+      * HostedZoneId **required**
+      * Id **required**
+      * Message **required**
+      * Name **required**
+      * State **required**
+      * TTL **required**
+      * TrafficPolicyId **required**
+      * TrafficPolicyType **required**
+      * TrafficPolicyVersion **required**
 
 ### ListTrafficPolicyInstancesByPolicyRequest
 * ListTrafficPolicyInstancesByPolicyRequest `object`: A complex type that contains the information about the request to list your traffic policy instances.
 
 ### ListTrafficPolicyInstancesByPolicyResponse
 * ListTrafficPolicyInstancesByPolicyResponse `object`: A complex type that contains the response information for the request.
-  * HostedZoneIdMarker [ResourceId](#resourceid)
-  * IsTruncated **required** [PageTruncated](#pagetruncated)
-  * MaxItems **required** [PageMaxItems](#pagemaxitems)
-  * TrafficPolicyInstanceNameMarker [DNSName](#dnsname)
-  * TrafficPolicyInstanceTypeMarker [RRType](#rrtype)
-  * TrafficPolicyInstances **required** [TrafficPolicyInstances](#trafficpolicyinstances)
+  * HostedZoneIdMarker
+  * IsTruncated **required**
+  * MaxItems **required**
+  * TrafficPolicyInstanceNameMarker
+  * TrafficPolicyInstanceTypeMarker
+  * TrafficPolicyInstances **required**
+    * items
+      * HostedZoneId **required**
+      * Id **required**
+      * Message **required**
+      * Name **required**
+      * State **required**
+      * TTL **required**
+      * TrafficPolicyId **required**
+      * TrafficPolicyType **required**
+      * TrafficPolicyVersion **required**
 
 ### ListTrafficPolicyInstancesRequest
 * ListTrafficPolicyInstancesRequest `object`: A request to get information about the traffic policy instances that you created by using the current AWS account.
 
 ### ListTrafficPolicyInstancesResponse
 * ListTrafficPolicyInstancesResponse `object`: A complex type that contains the response information for the request.
-  * HostedZoneIdMarker [ResourceId](#resourceid)
-  * IsTruncated **required** [PageTruncated](#pagetruncated)
-  * MaxItems **required** [PageMaxItems](#pagemaxitems)
-  * TrafficPolicyInstanceNameMarker [DNSName](#dnsname)
-  * TrafficPolicyInstanceTypeMarker [RRType](#rrtype)
-  * TrafficPolicyInstances **required** [TrafficPolicyInstances](#trafficpolicyinstances)
+  * HostedZoneIdMarker
+  * IsTruncated **required**
+  * MaxItems **required**
+  * TrafficPolicyInstanceNameMarker
+  * TrafficPolicyInstanceTypeMarker
+  * TrafficPolicyInstances **required**
+    * items
+      * HostedZoneId **required**
+      * Id **required**
+      * Message **required**
+      * Name **required**
+      * State **required**
+      * TTL **required**
+      * TrafficPolicyId **required**
+      * TrafficPolicyType **required**
+      * TrafficPolicyVersion **required**
 
 ### ListTrafficPolicyVersionsRequest
 * ListTrafficPolicyVersionsRequest `object`: A complex type that contains the information about the request to list your traffic policies.
 
 ### ListTrafficPolicyVersionsResponse
 * ListTrafficPolicyVersionsResponse `object`: A complex type that contains the response information for the request.
-  * IsTruncated **required** [PageTruncated](#pagetruncated)
-  * MaxItems **required** [PageMaxItems](#pagemaxitems)
-  * TrafficPolicies **required** [TrafficPolicies](#trafficpolicies)
-  * TrafficPolicyVersionMarker **required** [TrafficPolicyVersionMarker](#trafficpolicyversionmarker)
+  * IsTruncated **required**
+  * MaxItems **required**
+  * TrafficPolicies **required**
+    * items
+      * Comment
+      * Document **required**
+      * Id **required**
+      * Name **required**
+      * Type **required**
+      * Version **required**
+  * TrafficPolicyVersionMarker **required**
 
 ### ListVPCAssociationAuthorizationsRequest
 * ListVPCAssociationAuthorizationsRequest `object`: A complex type that contains information about that can be associated with your hosted zone.
 
 ### ListVPCAssociationAuthorizationsResponse
 * ListVPCAssociationAuthorizationsResponse `object`: A complex type that contains the response information for the request.
-  * HostedZoneId **required** [ResourceId](#resourceid)
-  * NextToken [PaginationToken](#paginationtoken)
-  * VPCs **required** [VPCs](#vpcs)
+  * HostedZoneId **required**
+  * NextToken
+  * VPCs **required**
+    * items
+      * VPCId [VPCId](#vpcid)
+      * VPCRegion
 
 ### MaxResults
 * MaxResults `string`
@@ -1879,47 +2906,40 @@ amazonaws_route53.ListTrafficPolicyInstancesByPolicy({}, context)
 * Namespace `string`
 
 ### NoSuchChange
-* NoSuchChange `object`: A change with the specified change ID does not exist.
-  * message [ErrorMessage](#errormessage)
+
 
 ### NoSuchCloudWatchLogsLogGroup
-* NoSuchCloudWatchLogsLogGroup `object`: There is no CloudWatch Logs log group with the specified ARN.
-  * message [ErrorMessage](#errormessage)
+
 
 ### NoSuchDelegationSet
-* NoSuchDelegationSet `object`: A reusable delegation set with the specified ID does not exist.
-  * message [ErrorMessage](#errormessage)
+
 
 ### NoSuchGeoLocation
-* NoSuchGeoLocation `object`: Amazon Route 53 doesn't support the specified geolocation.
-  * message [ErrorMessage](#errormessage)
+
 
 ### NoSuchHealthCheck
-* NoSuchHealthCheck `object`: No health check exists with the ID that you specified in the <code>DeleteHealthCheck</code> request.
-  * message [ErrorMessage](#errormessage)
+
 
 ### NoSuchHostedZone
-* NoSuchHostedZone `object`: No hosted zone exists with the ID that you specified.
-  * message [ErrorMessage](#errormessage)
+
+
+### NoSuchKeySigningKey
+
 
 ### NoSuchQueryLoggingConfig
-* NoSuchQueryLoggingConfig `object`: There is no DNS query logging configuration with the specified ID.
-  * message [ErrorMessage](#errormessage)
+
 
 ### NoSuchTrafficPolicy
-* NoSuchTrafficPolicy `object`: No traffic policy exists with the specified ID.
-  * message [ErrorMessage](#errormessage)
+
 
 ### NoSuchTrafficPolicyInstance
-* NoSuchTrafficPolicyInstance `object`: No traffic policy instance exists with the specified ID.
-  * message [ErrorMessage](#errormessage)
+
 
 ### Nonce
 * Nonce `string`
 
 ### NotAuthorizedException
-* NotAuthorizedException `object`: Associating the specified VPC with the specified hosted zone has not been authorized.
-  * message [ErrorMessage](#errormessage)
+
 
 ### PageMarker
 * PageMarker `string`
@@ -1940,39 +2960,39 @@ amazonaws_route53.ListTrafficPolicyInstancesByPolicy({}, context)
 * Port `integer`
 
 ### PriorRequestNotComplete
-* PriorRequestNotComplete `object`: If Amazon Route 53 can't process a request before the next request arrives, it will reject subsequent requests for the same hosted zone and return an <code>HTTP 400 error</code> (<code>Bad request</code>). If Amazon Route 53 returns this error repeatedly for the same request, we recommend that you wait, in intervals of increasing duration, before you try the request again.
-  * message [ErrorMessage](#errormessage)
+
 
 ### PublicZoneVPCAssociation
-* PublicZoneVPCAssociation `object`: You're trying to associate a VPC with a public hosted zone. Amazon Route 53 doesn't support associating a VPC with a public hosted zone.
-  * message [ErrorMessage](#errormessage)
+
 
 ### QueryLoggingConfig
 * QueryLoggingConfig `object`: A complex type that contains information about a configuration for DNS query logging.
-  * CloudWatchLogsLogGroupArn **required** [CloudWatchLogsLogGroupArn](#cloudwatchlogsloggrouparn)
-  * HostedZoneId **required** [ResourceId](#resourceid)
-  * Id **required** [QueryLoggingConfigId](#queryloggingconfigid)
+  * CloudWatchLogsLogGroupArn **required**
+  * HostedZoneId **required**
+  * Id **required**
 
 ### QueryLoggingConfigAlreadyExists
-* QueryLoggingConfigAlreadyExists `object`: You can create only one query logging configuration for a hosted zone, and a query logging configuration already exists for this hosted zone.
-  * message [ErrorMessage](#errormessage)
+
 
 ### QueryLoggingConfigId
 * QueryLoggingConfigId `string`
 
 ### QueryLoggingConfigs
 * QueryLoggingConfigs `array`
-  * items [QueryLoggingConfig](#queryloggingconfig)
+  * items
+    * CloudWatchLogsLogGroupArn **required**
+    * HostedZoneId **required**
+    * Id **required**
 
 ### RData
 * RData `string`
 
 ### RRType
-* RRType `string` (values: SOA, A, TXT, NS, CNAME, MX, NAPTR, PTR, SRV, SPF, AAAA, CAA)
+* RRType `string` (values: SOA, A, TXT, NS, CNAME, MX, NAPTR, PTR, SRV, SPF, AAAA, CAA, DS)
 
 ### RecordData
 * RecordData `array`
-  * items [RecordDataEntry](#recorddataentry)
+  * items
 
 ### RecordDataEntry
 * RecordDataEntry `string`: <p>A value that Amazon Route 53 returned for this resource record set. A <code>RecordDataEntry</code> element is one of the following:</p> <ul> <li> <p>For non-alias resource record sets, a <code>RecordDataEntry</code> element contains one value in the resource record set. If the resource record set contains multiple values, the response includes one <code>RecordDataEntry</code> element for each value.</p> </li> <li> <p>For multiple resource record sets that have the same name and type, which includes weighted, latency, geolocation, and failover, a <code>RecordDataEntry</code> element contains the value from the appropriate resource record set based on the request.</p> </li> <li> <p>For alias resource record sets that refer to AWS resources other than another resource record set, the <code>RecordDataEntry</code> element contains an IP address or a domain name for the AWS resource, depending on the type of resource.</p> </li> <li> <p>For alias resource record sets that refer to other resource record sets, a <code>RecordDataEntry</code> element contains one value from the referenced resource record set. If the referenced resource record set contains multiple values, the response includes one <code>RecordDataEntry</code> element for each value.</p> </li> </ul>
@@ -1985,7 +3005,7 @@ amazonaws_route53.ListTrafficPolicyInstancesByPolicy({}, context)
 
 ### ResettableElementNameList
 * ResettableElementNameList `array`
-  * items [ResettableElementName](#resettableelementname)
+  * items
 
 ### ResourceDescription
 * ResourceDescription `string`
@@ -1998,23 +3018,31 @@ amazonaws_route53.ListTrafficPolicyInstancesByPolicy({}, context)
 
 ### ResourceRecord
 * ResourceRecord `object`: <p>Information specific to the resource record.</p> <note> <p>If you're creating an alias resource record set, omit <code>ResourceRecord</code>.</p> </note>
-  * Value **required** [RData](#rdata)
+  * Value **required**
 
 ### ResourceRecordSet
 * ResourceRecordSet `object`: Information about the resource record set to create or delete.
-  * AliasTarget [AliasTarget](#aliastarget)
-  * Failover [ResourceRecordSetFailover](#resourcerecordsetfailover)
-  * GeoLocation [GeoLocation](#geolocation)
-  * HealthCheckId [HealthCheckId](#healthcheckid)
-  * MultiValueAnswer [ResourceRecordSetMultiValueAnswer](#resourcerecordsetmultivalueanswer)
-  * Name **required** [DNSName](#dnsname)
-  * Region [ResourceRecordSetRegion](#resourcerecordsetregion)
-  * ResourceRecords [ResourceRecords](#resourcerecords)
-  * SetIdentifier [ResourceRecordSetIdentifier](#resourcerecordsetidentifier)
-  * TTL [TTL](#ttl)
-  * TrafficPolicyInstanceId [TrafficPolicyInstanceId](#trafficpolicyinstanceid)
-  * Type **required** [RRType](#rrtype)
-  * Weight [ResourceRecordSetWeight](#resourcerecordsetweight)
+  * AliasTarget
+    * DNSName **required**
+    * EvaluateTargetHealth **required**
+    * HostedZoneId **required**
+  * Failover
+  * GeoLocation
+    * ContinentCode
+    * CountryCode
+    * SubdivisionCode
+  * HealthCheckId
+  * MultiValueAnswer
+  * Name **required**
+  * Region
+  * ResourceRecords
+    * items
+      * Value **required**
+  * SetIdentifier
+  * TTL
+  * TrafficPolicyInstanceId
+  * Type **required**
+  * Weight
 
 ### ResourceRecordSetFailover
 * ResourceRecordSetFailover `string` (values: PRIMARY, SECONDARY)
@@ -2026,36 +3054,67 @@ amazonaws_route53.ListTrafficPolicyInstancesByPolicy({}, context)
 * ResourceRecordSetMultiValueAnswer `boolean`
 
 ### ResourceRecordSetRegion
-* ResourceRecordSetRegion `string` (values: us-east-1, us-east-2, us-west-1, us-west-2, ca-central-1, eu-west-1, eu-west-2, eu-west-3, eu-central-1, ap-southeast-1, ap-southeast-2, ap-northeast-1, ap-northeast-2, ap-northeast-3, sa-east-1, cn-north-1, cn-northwest-1, ap-south-1)
+* ResourceRecordSetRegion `string` (values: us-east-1, us-east-2, us-west-1, us-west-2, ca-central-1, eu-west-1, eu-west-2, eu-west-3, eu-central-1, ap-southeast-1, ap-southeast-2, ap-northeast-1, ap-northeast-2, ap-northeast-3, eu-north-1, sa-east-1, cn-north-1, cn-northwest-1, ap-east-1, me-south-1, ap-south-1, af-south-1, eu-south-1)
 
 ### ResourceRecordSetWeight
 * ResourceRecordSetWeight `integer`
 
 ### ResourceRecordSets
 * ResourceRecordSets `array`
-  * items [ResourceRecordSet](#resourcerecordset)
+  * items
+    * AliasTarget
+      * DNSName **required**
+      * EvaluateTargetHealth **required**
+      * HostedZoneId **required**
+    * Failover
+    * GeoLocation
+      * ContinentCode
+      * CountryCode
+      * SubdivisionCode
+    * HealthCheckId
+    * MultiValueAnswer
+    * Name **required**
+    * Region
+    * ResourceRecords
+      * items
+        * Value **required**
+    * SetIdentifier
+    * TTL
+    * TrafficPolicyInstanceId
+    * Type **required**
+    * Weight
 
 ### ResourceRecords
 * ResourceRecords `array`
-  * items [ResourceRecord](#resourcerecord)
+  * items
+    * Value **required**
 
 ### ResourceTagSet
 * ResourceTagSet `object`: A complex type containing a resource and its associated tags.
-  * ResourceId [TagResourceId](#tagresourceid)
-  * ResourceType [TagResourceType](#tagresourcetype)
-  * Tags [TagList](#taglist)
+  * ResourceId
+  * ResourceType
+  * Tags
+    * items
+      * Key
+      * Value
 
 ### ResourceTagSetList
 * ResourceTagSetList `array`
-  * items [ResourceTagSet](#resourcetagset)
+  * items
+    * ResourceId
+    * ResourceType
+    * Tags
+      * items
+        * Key
+        * Value
 
 ### ResourceURI
 * ResourceURI `string`
 
 ### ReusableDelegationSetLimit
 * ReusableDelegationSetLimit `object`: A complex type that contains the type of limit that you specified in the request and the current value for that limit.
-  * Type **required** [ReusableDelegationSetLimitType](#reusabledelegationsetlimittype)
-  * Value **required** [LimitValue](#limitvalue)
+  * Type **required**
+  * Value **required**
 
 ### ReusableDelegationSetLimitType
 * ReusableDelegationSetLimitType `string` (values: MAX_ZONES_BY_REUSABLE_DELEGATION_SET)
@@ -2063,8 +3122,29 @@ amazonaws_route53.ListTrafficPolicyInstancesByPolicy({}, context)
 ### SearchString
 * SearchString `string`
 
+### ServeSignature
+* ServeSignature `string`
+
 ### ServicePrincipal
 * ServicePrincipal `string`
+
+### SigningKeyInteger
+* SigningKeyInteger `integer`
+
+### SigningKeyName
+* SigningKeyName `string`
+
+### SigningKeyStatus
+* SigningKeyStatus `string`
+
+### SigningKeyStatusMessage
+* SigningKeyStatusMessage `string`
+
+### SigningKeyString
+* SigningKeyString `string`
+
+### SigningKeyTag
+* SigningKeyTag `integer`
 
 ### Statistic
 * Statistic `string` (values: Average, Sum, SampleCount, Maximum, Minimum)
@@ -2074,8 +3154,8 @@ amazonaws_route53.ListTrafficPolicyInstancesByPolicy({}, context)
 
 ### StatusReport
 * StatusReport `object`: A complex type that contains the status that one Amazon Route 53 health checker reports and the time of the health check.
-  * CheckedTime [TimeStamp](#timestamp)
-  * Status [Status](#status)
+  * CheckedTime
+  * Status
 
 ### SubnetMask
 * SubnetMask `string`
@@ -2085,26 +3165,28 @@ amazonaws_route53.ListTrafficPolicyInstancesByPolicy({}, context)
 
 ### Tag
 * Tag `object`: A complex type that contains information about a tag that you want to add or edit for the specified health check or hosted zone.
-  * Key [TagKey](#tagkey)
-  * Value [TagValue](#tagvalue)
+  * Key
+  * Value
 
 ### TagKey
 * TagKey `string`
 
 ### TagKeyList
 * TagKeyList `array`
-  * items [TagKey](#tagkey)
+  * items
 
 ### TagList
 * TagList `array`
-  * items [Tag](#tag)
+  * items
+    * Key
+    * Value
 
 ### TagResourceId
 * TagResourceId `string`
 
 ### TagResourceIdList
 * TagResourceIdList `array`
-  * items [TagResourceId](#tagresourceid)
+  * items
 
 ### TagResourceType
 * TagResourceType `string` (values: healthcheck, hostedzone)
@@ -2117,63 +3199,65 @@ amazonaws_route53.ListTrafficPolicyInstancesByPolicy({}, context)
 
 ### TestDNSAnswerResponse
 * TestDNSAnswerResponse `object`: A complex type that contains the response to a <code>TestDNSAnswer</code> request. 
-  * Nameserver **required** [Nameserver](#nameserver)
-  * Protocol **required** [TransportProtocol](#transportprotocol)
-  * RecordData **required** [RecordData](#recorddata)
-  * RecordName **required** [DNSName](#dnsname)
-  * RecordType **required** [RRType](#rrtype)
-  * ResponseCode **required** [DNSRCode](#dnsrcode)
+  * Nameserver **required**
+  * Protocol **required**
+  * RecordData **required**
+    * items
+  * RecordName **required**
+  * RecordType **required**
+  * ResponseCode **required**
 
 ### Threshold
 * Threshold `number`
 
 ### ThrottlingException
-* ThrottlingException `object`: The limit on the number of requests per second was exceeded.
-  * message [ErrorMessage](#errormessage)
+
 
 ### TimeStamp
 * TimeStamp `string`
 
 ### TooManyHealthChecks
-* TooManyHealthChecks `object`: <p>This health check can't be created because the current account has reached the limit on the number of active health checks.</p> <p>For information about default limits, see <a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html">Limits</a> in the <i>Amazon Route 53 Developer Guide</i>.</p> <p>For information about how to get the current limit for an account, see <a>GetAccountLimit</a>. To request a higher limit, <a href="http://aws.amazon.com/route53-request">create a case</a> with the AWS Support Center.</p> <p>You have reached the maximum number of active health checks for an AWS account. To request a higher limit, <a href="http://aws.amazon.com/route53-request">create a case</a> with the AWS Support Center.</p>
-  * message [ErrorMessage](#errormessage)
+
 
 ### TooManyHostedZones
-* TooManyHostedZones `object`: <p>This operation can't be completed either because the current account has reached the limit on the number of hosted zones or because you've reached the limit on the number of hosted zones that can be associated with a reusable delegation set.</p> <p>For information about default limits, see <a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html">Limits</a> in the <i>Amazon Route 53 Developer Guide</i>.</p> <p>To get the current limit on hosted zones that can be created by an account, see <a>GetAccountLimit</a>.</p> <p>To get the current limit on hosted zones that can be associated with a reusable delegation set, see <a>GetReusableDelegationSetLimit</a>.</p> <p>To request a higher limit, <a href="http://aws.amazon.com/route53-request">create a case</a> with the AWS Support Center.</p>
-  * message [ErrorMessage](#errormessage)
+
+
+### TooManyKeySigningKeys
+
 
 ### TooManyTrafficPolicies
-* TooManyTrafficPolicies `object`: <p>This traffic policy can't be created because the current account has reached the limit on the number of traffic policies.</p> <p>For information about default limits, see <a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html">Limits</a> in the <i>Amazon Route 53 Developer Guide</i>.</p> <p>To get the current limit for an account, see <a>GetAccountLimit</a>. </p> <p>To request a higher limit, <a href="http://aws.amazon.com/route53-request">create a case</a> with the AWS Support Center.</p>
-  * message [ErrorMessage](#errormessage)
+
 
 ### TooManyTrafficPolicyInstances
-* TooManyTrafficPolicyInstances `object`: <p>This traffic policy instance can't be created because the current account has reached the limit on the number of traffic policy instances.</p> <p>For information about default limits, see <a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html">Limits</a> in the <i>Amazon Route 53 Developer Guide</i>.</p> <p>For information about how to get the current limit for an account, see <a>GetAccountLimit</a>.</p> <p>To request a higher limit, <a href="http://aws.amazon.com/route53-request">create a case</a> with the AWS Support Center.</p>
-  * message [ErrorMessage](#errormessage)
+
 
 ### TooManyTrafficPolicyVersionsForCurrentPolicy
-* TooManyTrafficPolicyVersionsForCurrentPolicy `object`: <p>This traffic policy version can't be created because you've reached the limit of 1000 on the number of versions that you can create for the current traffic policy.</p> <p>To create more traffic policy versions, you can use <a>GetTrafficPolicy</a> to get the traffic policy document for a specified traffic policy version, and then use <a>CreateTrafficPolicy</a> to create a new traffic policy using the traffic policy document.</p>
-  * message [ErrorMessage](#errormessage)
+
 
 ### TooManyVPCAssociationAuthorizations
-* TooManyVPCAssociationAuthorizations `object`: You've created the maximum number of authorizations that can be created for the specified hosted zone. To authorize another VPC to be associated with the hosted zone, submit a <code>DeleteVPCAssociationAuthorization</code> request to remove an existing authorization. To get a list of existing authorizations, submit a <code>ListVPCAssociationAuthorizations</code> request.
-  * message [ErrorMessage](#errormessage)
+
 
 ### TrafficPolicies
 * TrafficPolicies `array`
-  * items [TrafficPolicy](#trafficpolicy)
+  * items
+    * Comment
+    * Document **required**
+    * Id **required**
+    * Name **required**
+    * Type **required**
+    * Version **required**
 
 ### TrafficPolicy
 * TrafficPolicy `object`: A complex type that contains settings for a traffic policy.
-  * Comment [TrafficPolicyComment](#trafficpolicycomment)
-  * Document **required** [TrafficPolicyDocument](#trafficpolicydocument)
-  * Id **required** [TrafficPolicyId](#trafficpolicyid)
-  * Name **required** [TrafficPolicyName](#trafficpolicyname)
-  * Type **required** [RRType](#rrtype)
-  * Version **required** [TrafficPolicyVersion](#trafficpolicyversion)
+  * Comment
+  * Document **required**
+  * Id **required**
+  * Name **required**
+  * Type **required**
+  * Version **required**
 
 ### TrafficPolicyAlreadyExists
-* TrafficPolicyAlreadyExists `object`: A traffic policy that has the same value for <code>Name</code> already exists.
-  * message [ErrorMessage](#errormessage)
+
 
 ### TrafficPolicyComment
 * TrafficPolicyComment `string`
@@ -2185,24 +3269,22 @@ amazonaws_route53.ListTrafficPolicyInstancesByPolicy({}, context)
 * TrafficPolicyId `string`
 
 ### TrafficPolicyInUse
-* TrafficPolicyInUse `object`: One or more traffic policy instances were created by using the specified traffic policy.
-  * message [ErrorMessage](#errormessage)
+
 
 ### TrafficPolicyInstance
 * TrafficPolicyInstance `object`: A complex type that contains settings for the new traffic policy instance.
-  * HostedZoneId **required** [ResourceId](#resourceid)
-  * Id **required** [TrafficPolicyInstanceId](#trafficpolicyinstanceid)
-  * Message **required** [Message](#message)
-  * Name **required** [DNSName](#dnsname)
-  * State **required** [TrafficPolicyInstanceState](#trafficpolicyinstancestate)
-  * TTL **required** [TTL](#ttl)
-  * TrafficPolicyId **required** [TrafficPolicyId](#trafficpolicyid)
-  * TrafficPolicyType **required** [RRType](#rrtype)
-  * TrafficPolicyVersion **required** [TrafficPolicyVersion](#trafficpolicyversion)
+  * HostedZoneId **required**
+  * Id **required**
+  * Message **required**
+  * Name **required**
+  * State **required**
+  * TTL **required**
+  * TrafficPolicyId **required**
+  * TrafficPolicyType **required**
+  * TrafficPolicyVersion **required**
 
 ### TrafficPolicyInstanceAlreadyExists
-* TrafficPolicyInstanceAlreadyExists `object`: There is already a traffic policy instance with the specified ID.
-  * message [ErrorMessage](#errormessage)
+
 
 ### TrafficPolicyInstanceCount
 * TrafficPolicyInstanceCount `integer`
@@ -2215,22 +3297,36 @@ amazonaws_route53.ListTrafficPolicyInstancesByPolicy({}, context)
 
 ### TrafficPolicyInstances
 * TrafficPolicyInstances `array`
-  * items [TrafficPolicyInstance](#trafficpolicyinstance)
+  * items
+    * HostedZoneId **required**
+    * Id **required**
+    * Message **required**
+    * Name **required**
+    * State **required**
+    * TTL **required**
+    * TrafficPolicyId **required**
+    * TrafficPolicyType **required**
+    * TrafficPolicyVersion **required**
 
 ### TrafficPolicyName
 * TrafficPolicyName `string`
 
 ### TrafficPolicySummaries
 * TrafficPolicySummaries `array`
-  * items [TrafficPolicySummary](#trafficpolicysummary)
+  * items
+    * Id **required**
+    * LatestVersion **required**
+    * Name **required**
+    * TrafficPolicyCount **required**
+    * Type **required**
 
 ### TrafficPolicySummary
 * TrafficPolicySummary `object`: A complex type that contains information about the latest version of one traffic policy that is associated with the current AWS account.
-  * Id **required** [TrafficPolicyId](#trafficpolicyid)
-  * LatestVersion **required** [TrafficPolicyVersion](#trafficpolicyversion)
-  * Name **required** [TrafficPolicyName](#trafficpolicyname)
-  * TrafficPolicyCount **required** [TrafficPolicyVersion](#trafficpolicyversion)
-  * Type **required** [RRType](#rrtype)
+  * Id **required**
+  * LatestVersion **required**
+  * Name **required**
+  * TrafficPolicyCount **required**
+  * Type **required**
 
 ### TrafficPolicyVersion
 * TrafficPolicyVersion `integer`
@@ -2243,51 +3339,122 @@ amazonaws_route53.ListTrafficPolicyInstancesByPolicy({}, context)
 
 ### UpdateHealthCheckRequest
 * UpdateHealthCheckRequest `object`: A complex type that contains information about a request to update a health check.
-  * AlarmIdentifier [AlarmIdentifier](#alarmidentifier)
-  * ChildHealthChecks [ChildHealthCheckList](#childhealthchecklist)
-  * EnableSNI [EnableSNI](#enablesni)
-  * FailureThreshold [FailureThreshold](#failurethreshold)
-  * FullyQualifiedDomainName [FullyQualifiedDomainName](#fullyqualifieddomainname)
-  * HealthCheckVersion [HealthCheckVersion](#healthcheckversion)
-  * HealthThreshold [HealthThreshold](#healththreshold)
-  * IPAddress [IPAddress](#ipaddress)
-  * InsufficientDataHealthStatus [InsufficientDataHealthStatus](#insufficientdatahealthstatus)
-  * Inverted [Inverted](#inverted)
-  * Port [Port](#port)
-  * Regions [HealthCheckRegionList](#healthcheckregionlist)
-  * ResetElements [ResettableElementNameList](#resettableelementnamelist)
-  * ResourcePath [ResourcePath](#resourcepath)
-  * SearchString [SearchString](#searchstring)
+  * AlarmIdentifier
+    * Name **required**
+    * Region **required**
+  * ChildHealthChecks
+    * items
+  * Disabled
+  * EnableSNI
+  * FailureThreshold
+  * FullyQualifiedDomainName
+  * HealthCheckVersion
+  * HealthThreshold
+  * IPAddress
+  * InsufficientDataHealthStatus
+  * Inverted
+  * Port
+  * Regions
+    * items
+  * ResetElements
+    * items
+  * ResourcePath
+  * SearchString
 
 ### UpdateHealthCheckResponse
-* UpdateHealthCheckResponse `object`
-  * HealthCheck **required** [HealthCheck](#healthcheck)
+* UpdateHealthCheckResponse `object`: A complex type that contains the response to the <code>UpdateHealthCheck</code> request.
+  * HealthCheck **required**
+    * CallerReference **required**
+    * CloudWatchAlarmConfiguration
+      * ComparisonOperator **required**
+      * Dimensions
+        * items
+          * Name **required**
+          * Value **required**
+      * EvaluationPeriods **required**
+      * MetricName **required**
+      * Namespace **required**
+      * Period **required**
+      * Statistic **required**
+      * Threshold **required**
+    * HealthCheckConfig **required**
+      * AlarmIdentifier
+        * Name **required**
+        * Region **required**
+      * ChildHealthChecks
+        * items
+      * Disabled
+      * EnableSNI
+      * FailureThreshold
+      * FullyQualifiedDomainName
+      * HealthThreshold
+      * IPAddress
+      * InsufficientDataHealthStatus
+      * Inverted
+      * MeasureLatency
+      * Port
+      * Regions
+        * items
+      * RequestInterval
+      * ResourcePath
+      * SearchString
+      * Type **required**
+    * HealthCheckVersion **required**
+    * Id **required**
+    * LinkedService
+      * Description
+      * ServicePrincipal
 
 ### UpdateHostedZoneCommentRequest
 * UpdateHostedZoneCommentRequest `object`: A request to update the comment for a hosted zone.
-  * Comment [ResourceDescription](#resourcedescription)
+  * Comment
 
 ### UpdateHostedZoneCommentResponse
 * UpdateHostedZoneCommentResponse `object`: A complex type that contains the response to the <code>UpdateHostedZoneComment</code> request.
-  * HostedZone **required** [HostedZone](#hostedzone)
+  * HostedZone **required**
+    * CallerReference **required**
+    * Config
+      * Comment
+      * PrivateZone
+    * Id **required**
+    * LinkedService
+      * Description
+      * ServicePrincipal
+    * Name **required**
+    * ResourceRecordSetCount
 
 ### UpdateTrafficPolicyCommentRequest
 * UpdateTrafficPolicyCommentRequest `object`: A complex type that contains information about the traffic policy that you want to update the comment for.
-  * Comment **required** [TrafficPolicyComment](#trafficpolicycomment)
+  * Comment **required**
 
 ### UpdateTrafficPolicyCommentResponse
 * UpdateTrafficPolicyCommentResponse `object`: A complex type that contains the response information for the traffic policy.
-  * TrafficPolicy **required** [TrafficPolicy](#trafficpolicy)
+  * TrafficPolicy **required**
+    * Comment
+    * Document **required**
+    * Id **required**
+    * Name **required**
+    * Type **required**
+    * Version **required**
 
 ### UpdateTrafficPolicyInstanceRequest
 * UpdateTrafficPolicyInstanceRequest `object`: A complex type that contains information about the resource record sets that you want to update based on a specified traffic policy instance.
-  * TTL **required** [TTL](#ttl)
-  * TrafficPolicyId **required** [TrafficPolicyId](#trafficpolicyid)
-  * TrafficPolicyVersion **required** [TrafficPolicyVersion](#trafficpolicyversion)
+  * TTL **required**
+  * TrafficPolicyId **required**
+  * TrafficPolicyVersion **required**
 
 ### UpdateTrafficPolicyInstanceResponse
 * UpdateTrafficPolicyInstanceResponse `object`: A complex type that contains information about the resource record sets that Amazon Route 53 created based on a specified traffic policy.
-  * TrafficPolicyInstance **required** [TrafficPolicyInstance](#trafficpolicyinstance)
+  * TrafficPolicyInstance **required**
+    * HostedZoneId **required**
+    * Id **required**
+    * Message **required**
+    * Name **required**
+    * State **required**
+    * TTL **required**
+    * TrafficPolicyId **required**
+    * TrafficPolicyType **required**
+    * TrafficPolicyVersion **required**
 
 ### UsageCount
 * UsageCount `integer`
@@ -2295,24 +3462,24 @@ amazonaws_route53.ListTrafficPolicyInstancesByPolicy({}, context)
 ### VPC
 * VPC `object`: (Private hosted zones only) A complex type that contains information about an Amazon VPC.
   * VPCId [VPCId](#vpcid)
-  * VPCRegion [VPCRegion](#vpcregion)
+  * VPCRegion
 
 ### VPCAssociationAuthorizationNotFound
-* VPCAssociationAuthorizationNotFound `object`: The VPC that you specified is not authorized to be associated with the hosted zone.
-  * message [ErrorMessage](#errormessage)
+
 
 ### VPCAssociationNotFound
-* VPCAssociationNotFound `object`: The specified VPC and hosted zone are not currently associated.
-  * message [ErrorMessage](#errormessage)
+
 
 ### VPCId
 * VPCId `string`: (Private hosted zones only) The ID of an Amazon VPC. 
 
 ### VPCRegion
-* VPCRegion `string` (values: us-east-1, us-east-2, us-west-1, us-west-2, eu-west-1, eu-west-2, eu-west-3, eu-central-1, ap-southeast-1, ap-southeast-2, ap-south-1, ap-northeast-1, ap-northeast-2, ap-northeast-3, sa-east-1, ca-central-1, cn-north-1)
+* VPCRegion `string` (values: us-east-1, us-east-2, us-west-1, us-west-2, eu-west-1, eu-west-2, eu-west-3, eu-central-1, ap-east-1, me-south-1, us-gov-west-1, us-gov-east-1, us-iso-east-1, us-isob-east-1, ap-southeast-1, ap-southeast-2, ap-south-1, ap-northeast-1, ap-northeast-2, ap-northeast-3, eu-north-1, sa-east-1, ca-central-1, cn-north-1, af-south-1, eu-south-1)
 
 ### VPCs
 * VPCs `array`: (Private hosted zones only) A list of <code>VPC</code> elements.
-  * items [VPC](#vpc)
+  * items
+    * VPCId [VPCId](#vpcid)
+    * VPCRegion
 
 

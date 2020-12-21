@@ -1,8 +1,8 @@
 {
   "name": "@datafire/microsoft_cognitiveservices_newssearch",
-  "version": "4.0.0",
+  "version": "5.0.0",
   "main": "index.js",
-  "description": "DataFire integration for News Search",
+  "description": "DataFire integration for News Search Client",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DataFire/integrations.git"

@@ -11,7 +11,7 @@ let wordnik = require('@datafire/wordnik').create({
   api_key: ""
 });
 
-wordnik.getWordOfTheDay({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

@@ -15,7 +15,7 @@ let spotify = require('@datafire/spotify').create({
   redirect_uri: ""
 });
 
-spotify.me.tracks.get({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -770,7 +770,6 @@ spotify.users.user_id.playlists.playlist_id.tracks.delete({
   * body **required** `object`
     * tracks **required** `array`
 
-
 #### Output
 * output [playlist-snapshot](#playlist-snapshot)
 
@@ -845,7 +844,6 @@ spotify.users.user_id.playlists.playlist_id.tracks.put({
   * Accept `string`: It is used to set specified media type.
   * body **required** `object`
     * uris **required** `array`
-
 
 #### Output
 * output [playlist-snapshot](#playlist-snapshot)

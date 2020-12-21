@@ -1,0 +1,332 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "contact": {
+      "email": "contact@mercure.rocks",
+      "name": "Kévin Dunglas",
+      "url": "https://mercure.rocks"
+    },
+    "description": "[Mercure](https://mercure.rocks) is a protocol allowing to push data updates to web browsers and other HTTP clients in a convenient, fast, reliable and battery-efficient way.",
+    "license": {
+      "name": "GNU Affero General Public License v3.0 or later",
+      "url": "https://github.com/dunglas/mercure/blob/master/LICENSE",
+      "x-spdx": "AGPL-3.0-or-later"
+    },
+    "title": "The Mercure protocol",
+    "version": "0.3.2",
+    "x-apisguru-categories": [
+      "messaging"
+    ],
+    "x-logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_raw.githubusercontent.com_dunglas_mercure_master_public_mercure.svg"
+    },
+    "x-origin": [
+      {
+        "format": "openapi",
+        "url": "https://raw.githubusercontent.com/dunglas/mercure/main/spec/openapi.yaml",
+        "version": "3.0"
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "mercure.local",
+    "x-datafire": {
+      "name": "mercure_local",
+      "type": "openapi"
+    }
+  },
+  "host": "mercure.local",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/.well-known/mercure": {
+      "get": {
+        "produces": [
+          "text/event-stream"
+        ],
+        "parameters": [
+          {
+            "collectionFormat": "multi",
+            "description": "The topic to get updates from, can be a URI template (RFC6570).",
+            "in": "query",
+            "items": {
+              "type": "string"
+            },
+            "name": "topic",
+            "required": true,
+            "type": "array"
+          },
+          {
+            "description": "The last received event id, to retrieve missed events.",
+            "in": "query",
+            "name": "Last-Event-ID",
+            "type": "string"
+          },
+          {
+            "description": "The last received event id, to retrieve missed events, takes precedence over the query parameter.",
+            "in": "header",
+            "name": "Last-Event-ID",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Event stream opened."
+          },
+          "400": {
+            "description": "Missing topic parameter or invalid URI template."
+          },
+          "401": {
+            "description": "Not authorized (missing or invalid JWT)."
+          }
+        },
+        "externalDocs": {
+          "description": "Subscription specification",
+          "url": "https://mercure.rocks/spec#subscription"
+        },
+        "summary": "Subscribe to updates"
+      },
+      "post": {
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "text/plain"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "body"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The id of this update"
+          },
+          "400": {
+            "description": "Invalid request"
+          },
+          "401": {
+            "description": "Not authorized (missing or invalid JWT)."
+          }
+        },
+        "externalDocs": {
+          "description": "Publishing specification",
+          "url": "https://mercure.rocks/spec#publication"
+        },
+        "summary": "Publish an update"
+      }
+    },
+    "/.well-known/mercure/subscriptions": {
+      "get": {
+        "produces": [
+          "application/ld+json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "The list of active subscriptions",
+            "schema": {
+              "$ref": "#/definitions/Subscriptions"
+            }
+          },
+          "401": {
+            "description": "Not authorized (missing or invalid JWT)."
+          }
+        },
+        "externalDocs": {
+          "description": "Subscription API",
+          "url": "https://mercure.rocks/spec#subscription-api"
+        },
+        "summary": "Active subscriptions"
+      }
+    },
+    "/.well-known/mercure/subscriptions/{topic}": {
+      "get": {
+        "produces": [
+          "application/ld+json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "topic",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The list of active subscriptions",
+            "schema": {
+              "$ref": "#/definitions/Subscriptions"
+            }
+          },
+          "401": {
+            "description": "Not authorized (missing or invalid JWT)."
+          }
+        },
+        "externalDocs": {
+          "description": "Subscription API",
+          "url": "https://mercure.rocks/spec#subscription-api"
+        },
+        "summary": "Active subscriptions for the given topic"
+      }
+    },
+    "/.well-known/mercure/subscriptions/{topic}/{subscriber}": {
+      "get": {
+        "produces": [
+          "application/ld+json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "topic",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "subscriber",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The list of active subscriptions",
+            "schema": {
+              "$ref": "#/definitions/Subscriptions"
+            }
+          },
+          "401": {
+            "description": "Not authorized (missing or invalid JWT)."
+          }
+        },
+        "externalDocs": {
+          "description": "Subscription API",
+          "url": "https://mercure.rocks/spec#active-subscriptions"
+        },
+        "summary": "Active subscription for the given topic and subscriber"
+      }
+    }
+  },
+  "definitions": {
+    "Subscription": {
+      "properties": {
+        "@context": {
+          "example": "https://mercure.rocks/",
+          "format": "iri",
+          "type": "string"
+        },
+        "active": {
+          "type": "boolean"
+        },
+        "id": {
+          "example": "/.well-known/mercure/subscriptions",
+          "format": "iri-reference",
+          "type": "string"
+        },
+        "lastEventID": {
+          "example": "urn:uuid:5e94c686-2c0b-4f9b-958c-92ccc3bbb4eb",
+          "type": "string"
+        },
+        "payload": {
+          "type": "object"
+        },
+        "subscriber": {
+          "example": "urn:uuid:bb3de268-05b0-4c65-b44e-8f9acefc29d6",
+          "type": "string"
+        },
+        "topic": {
+          "example": "https://example.com/{selector}",
+          "type": "string"
+        },
+        "type": {
+          "example": "Subscription",
+          "format": "iri-reference",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "type",
+        "topic",
+        "subscriber",
+        "active"
+      ],
+      "type": "object"
+    },
+    "Subscriptions": {
+      "properties": {
+        "@context": {
+          "example": "https://mercure.rocks/",
+          "format": "iri",
+          "type": "string"
+        },
+        "id": {
+          "example": "/.well-known/mercure/subscriptions",
+          "format": "iri-reference",
+          "type": "string"
+        },
+        "lastEventID": {
+          "example": "urn:uuid:5e94c686-2c0b-4f9b-958c-92ccc3bbb4eb",
+          "type": "string"
+        },
+        "subscriptions": {
+          "items": {
+            "$ref": "#/definitions/Subscription"
+          },
+          "type": "array"
+        },
+        "type": {
+          "example": "Subscriptions",
+          "format": "iri-reference",
+          "type": "string"
+        }
+      },
+      "required": [
+        "@context",
+        "id",
+        "type",
+        "lastEventID",
+        "subscriptions"
+      ],
+      "type": "object"
+    }
+  },
+  "securityDefinitions": {
+    "Bearer": {
+      "description": "Preferred for server to server",
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey"
+    },
+    "Cookie": {
+      "description": "Preferred for web browsers",
+      "in": "cookie",
+      "name": "mercureAuthorization",
+      "type": "apiKey"
+    }
+  },
+  "security": [
+    {
+      "Bearer": []
+    },
+    {
+      "Cookie": []
+    }
+  ],
+  "externalDocs": {
+    "description": "The Mercure protocol specification",
+    "url": "https://mercure.rocks/spec"
+  },
+  "x-components": {
+    "responses": {
+      "401": {
+        "description": "Not authorized (missing or invalid JWT)."
+      }
+    }
+  }
+}

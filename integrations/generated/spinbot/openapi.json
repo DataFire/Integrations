@@ -13,8 +13,11 @@
     },
     "description": "Spinbot.net propose a new solution based on high technologies for faster article spinner and extractor that you will love to use it. ",
     "termsOfService": "http://spinbot.net/terms-and-conditions",
-    "title": "Article Rewriter and Article Extractor",
+    "title": "Article Rewriter and Article Extractor API",
     "version": "1.0",
+    "x-logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_logo-core.clearbit.com_spinbot.net"
+    },
     "x-origin": [
       {
         "format": "swagger",

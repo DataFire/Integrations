@@ -15,12 +15,7 @@ let azure_sql_servercommunicationlinks = require('@datafire/azure_sql_servercomm
   redirect_uri: ""
 });
 
-azure_sql_servercommunicationlinks.ServerCommunicationLinks_ListByServer({
-  "api-version": "",
-  "subscriptionId": "",
-  "resourceGroupName": "",
-  "serverName": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

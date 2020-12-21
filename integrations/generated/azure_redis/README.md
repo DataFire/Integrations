@@ -15,9 +15,7 @@ let azure_redis = require('@datafire/azure_redis').create({
   redirect_uri: ""
 });
 
-azure_redis.Operations_List({
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -655,7 +653,7 @@ azure_redis.Redis_RegenerateKey({
 ## Definitions
 
 ### CheckNameAvailabilityParameters
-* CheckNameAvailabilityParameters `object`: Parameters body to pass for name availability check.
+* CheckNameAvailabilityParameters `object`: Parameters body to pass for resource name availability check.
   * name **required** `string`: Resource name.
   * type **required** `string`: Resource type. The only legal value of this property for checking redis cache name availability is 'Microsoft.Cache/redis'.
 
@@ -706,6 +704,7 @@ azure_redis.Redis_RegenerateKey({
 ### RedisCommonProperties
 * RedisCommonProperties `object`: Create/Update/Get common properties of the redis cache.
   * enableNonSslPort `boolean`: Specifies whether the non-ssl Redis server port (6379) is enabled.
+  * minimumTlsVersion `string` (values: 1.0, 1.1, 1.2): Optional: requires clients to use a specified TLS version (or higher) to connect (e,g, '1.0', '1.1', '1.2')
   * redisConfiguration `object`: All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
   * shardCount `integer`: The number of shards to be created on a Premium Cluster Cache.
   * tenantSettings `object`: A dictionary of tenant settings
@@ -722,8 +721,9 @@ azure_redis.Redis_RegenerateKey({
 * RedisCreateProperties `object`: Properties supplied to Create Redis operation.
   * sku **required** [Sku](#sku)
   * staticIP `string`: Static IP address. Required when deploying a Redis cache inside an existing Azure Virtual Network.
-  * subnetId `string`: The full resource ID of a subnet in a virtual network to deploy the Redis cache in. Example format: /subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.{Network|ClassicNetwork}/VirtualNetworks/vnet1/subnets/subnet1
+  * subnetId `string`: The full resource ID of a subnet in a virtual network to deploy the Redis cache in. Example format: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/Microsoft.{Network|ClassicNetwork}/VirtualNetworks/vnet1/subnets/subnet1
   * enableNonSslPort `boolean`: Specifies whether the non-ssl Redis server port (6379) is enabled.
+  * minimumTlsVersion `string` (values: 1.0, 1.1, 1.2): Optional: requires clients to use a specified TLS version (or higher) to connect (e,g, '1.0', '1.1', '1.2')
   * redisConfiguration `object`: All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
   * shardCount `integer`: The number of shards to be created on a Premium Cluster Cache.
   * tenantSettings `object`: A dictionary of tenant settings
@@ -741,7 +741,7 @@ azure_redis.Redis_RegenerateKey({
 
 ### RedisFirewallRuleListResult
 * RedisFirewallRuleListResult `object`: The response of list firewall rules Redis operation.
-  * nextLink `string`: Link for next set of locations.
+  * nextLink `string`: Link for next page of results.
   * value `array`: Results of the list firewall rules operation.
     * items [RedisFirewallRule](#redisfirewallrule)
 
@@ -783,14 +783,14 @@ azure_redis.Redis_RegenerateKey({
   * type `string`: Resource type.
 
 ### RedisLinkedServerWithPropertiesList
-* RedisLinkedServerWithPropertiesList `object`: List of linked servers (with properites) of a Redis cache.
+* RedisLinkedServerWithPropertiesList `object`: List of linked servers (with properties) of a Redis cache.
   * nextLink `string`: Link for next set.
-  * value `array`: List of linked servers (with properites) of a Redis cache.
+  * value `array`: List of linked servers (with properties) of a Redis cache.
     * items [RedisLinkedServerWithProperties](#redislinkedserverwithproperties)
 
 ### RedisListResult
 * RedisListResult `object`: The response of list Redis operation.
-  * nextLink `string`: Link for next set of locations.
+  * nextLink `string`: Link for next page of results.
   * value `array`: List of Redis cache instances.
     * items [RedisResource](#redisresource)
 
@@ -814,13 +814,14 @@ azure_redis.Redis_RegenerateKey({
   * linkedServers `array`: List of the linked servers associated with the cache
     * items [RedisLinkedServer](#redislinkedserver)
   * port `integer`: Redis non-SSL port.
-  * provisioningState `string`: Redis instance provisioning status.
+  * provisioningState `string` (values: Creating, Deleting, Disabled, Failed, Linking, Provisioning, RecoveringScaleFailure, Scaling, Succeeded, Unlinking, Unprovisioning, Updating): Redis instance provisioning status.
   * redisVersion `string`: Redis version.
   * sslPort `integer`: Redis SSL port.
   * sku **required** [Sku](#sku)
   * staticIP `string`: Static IP address. Required when deploying a Redis cache inside an existing Azure Virtual Network.
-  * subnetId `string`: The full resource ID of a subnet in a virtual network to deploy the Redis cache in. Example format: /subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.{Network|ClassicNetwork}/VirtualNetworks/vnet1/subnets/subnet1
+  * subnetId `string`: The full resource ID of a subnet in a virtual network to deploy the Redis cache in. Example format: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/Microsoft.{Network|ClassicNetwork}/VirtualNetworks/vnet1/subnets/subnet1
   * enableNonSslPort `boolean`: Specifies whether the non-ssl Redis server port (6379) is enabled.
+  * minimumTlsVersion `string` (values: 1.0, 1.1, 1.2): Optional: requires clients to use a specified TLS version (or higher) to connect (e,g, '1.0', '1.1', '1.2')
   * redisConfiguration `object`: All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
   * shardCount `integer`: The number of shards to be created on a Premium Cluster Cache.
   * tenantSettings `object`: A dictionary of tenant settings
@@ -854,6 +855,7 @@ azure_redis.Redis_RegenerateKey({
 * RedisUpdateProperties `object`: Patchable properties of the redis cache.
   * sku [Sku](#sku)
   * enableNonSslPort `boolean`: Specifies whether the non-ssl Redis server port (6379) is enabled.
+  * minimumTlsVersion `string` (values: 1.0, 1.1, 1.2): Optional: requires clients to use a specified TLS version (or higher) to connect (e,g, '1.0', '1.1', '1.2')
   * redisConfiguration `object`: All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
   * shardCount `integer`: The number of shards to be created on a Premium Cluster Cache.
   * tenantSettings `object`: A dictionary of tenant settings
@@ -892,7 +894,7 @@ azure_redis.Redis_RegenerateKey({
 ### UpgradeNotification
 * UpgradeNotification `object`: Properties of upgrade notification.
   * name `string`: Name of upgrade notification.
-  * timestamp `string`: Timestamp when upgrade notification occured.
+  * timestamp `string`: Timestamp when upgrade notification occurred.
   * upsellNotification `object`: Details about this upgrade notification
 
 

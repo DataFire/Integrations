@@ -1,10 +1,5 @@
 {
   "swagger": "2.0",
-  "schemes": [
-    "http"
-  ],
-  "host": "stream-api.betfair.com:443",
-  "basePath": "/api",
   "info": {
     "contact": {
       "email": "bdp@betfair.com",
@@ -16,8 +11,7 @@
     "license": {
       "name": "See BDP site"
     },
-    "termsOfService": "http://www.betfair.com/aboutUs/Terms.and.Conditions",
-    "title": "Betfair: Exchange Streaming",
+    "title": "Betfair: Exchange Streaming API",
     "version": "1.0.1423",
     "x-apisguru-categories": [
       "entertainment"
@@ -27,9 +21,9 @@
     },
     "x-origin": [
       {
-        "format": "swagger",
+        "format": "openapi",
         "url": "https://raw.githubusercontent.com/betfair/stream-api-sample-code/master/ESASwaggerSchema.json",
-        "version": "2.0"
+        "version": "3.0"
       }
     ],
     "x-preferred": true,
@@ -39,21 +33,25 @@
       "type": "openapi"
     }
   },
-  "consumes": [
-    "application/json"
-  ],
-  "produces": [
-    "application/json"
+  "host": "stream-api.betfair.com:443",
+  "basePath": "/api",
+  "schemes": [
+    "http"
   ],
   "paths": {
     "/request": {
       "post": {
-        "description": "This is a socket protocol delimited by CRLF (not http)",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Requests are sent to socket",
             "in": "body",
-            "name": "RequestMessage",
+            "name": "body",
             "required": true,
             "schema": {
               "$ref": "#/definitions/AllRequestTypesExample"
@@ -68,7 +66,7 @@
             }
           }
         },
-        "operationId": "request.post"
+        "description": "This is a socket protocol delimited by CRLF (not http)"
       }
     }
   },
@@ -76,16 +74,13 @@
     "AllRequestTypesExample": {
       "properties": {
         "authentication": {
-          "$ref": "#/definitions/AuthenticationMessage",
-          "type": "object"
+          "$ref": "#/definitions/AuthenticationMessage"
         },
         "heartbeat": {
-          "$ref": "#/definitions/HeartbeatMessage",
-          "type": "object"
+          "$ref": "#/definitions/HeartbeatMessage"
         },
         "marketSubscription": {
-          "$ref": "#/definitions/MarketSubscriptionMessage",
-          "type": "object"
+          "$ref": "#/definitions/MarketSubscriptionMessage"
         },
         "opTypes": {
           "enum": [
@@ -97,20 +92,17 @@
           "type": "string"
         },
         "orderSubscriptionMessage": {
-          "$ref": "#/definitions/OrderSubscriptionMessage",
-          "type": "object"
+          "$ref": "#/definitions/OrderSubscriptionMessage"
         }
       }
     },
     "AllResponseTypesExample": {
       "properties": {
         "connection": {
-          "$ref": "#/definitions/ConnectionMessage",
-          "type": "object"
+          "$ref": "#/definitions/ConnectionMessage"
         },
         "marketChangeMessage": {
-          "$ref": "#/definitions/MarketChangeMessage",
-          "type": "object"
+          "$ref": "#/definitions/MarketChangeMessage"
         },
         "opTypes": {
           "enum": [
@@ -122,20 +114,17 @@
           "type": "string"
         },
         "orderChangeMessage": {
-          "$ref": "#/definitions/OrderChangeMessage",
-          "type": "object"
+          "$ref": "#/definitions/OrderChangeMessage"
         },
         "status": {
-          "$ref": "#/definitions/StatusMessage",
-          "type": "object"
+          "$ref": "#/definitions/StatusMessage"
         }
       }
     },
     "AuthenticationMessage": {
       "allOf": [
         {
-          "$ref": "#/definitions/RequestMessage",
-          "type": "object"
+          "$ref": "#/definitions/RequestMessage"
         },
         {
           "properties": {
@@ -153,8 +142,7 @@
     "ConnectionMessage": {
       "allOf": [
         {
-          "$ref": "#/definitions/ResponseMessage",
-          "type": "object"
+          "$ref": "#/definitions/ResponseMessage"
         },
         {
           "properties": {
@@ -170,8 +158,7 @@
     "HeartbeatMessage": {
       "allOf": [
         {
-          "$ref": "#/definitions/RequestMessage",
-          "type": "object"
+          "$ref": "#/definitions/RequestMessage"
         },
         {
           "type": "object"
@@ -215,9 +202,7 @@
           "type": "boolean"
         },
         "marketDefinition": {
-          "$ref": "#/definitions/MarketDefinition",
-          "description": "Market Definition - the definition of the market (or null if un-changed)",
-          "type": "object"
+          "$ref": "#/definitions/MarketDefinition"
         },
         "rc": {
           "description": "Runner Changes - a list of changes to runners (or null if un-changed)",
@@ -236,8 +221,7 @@
     "MarketChangeMessage": {
       "allOf": [
         {
-          "$ref": "#/definitions/ResponseMessage",
-          "type": "object"
+          "$ref": "#/definitions/ResponseMessage"
         },
         {
           "properties": {
@@ -373,9 +357,7 @@
           "type": "boolean"
         },
         "keyLineDefinition": {
-          "$ref": "#/definitions/KeyLineDefinition",
-          "description": "Definition of a markets key line selection (for valid markets), comprising the selectionId and handicap of the team it is applied to.",
-          "type": "object"
+          "$ref": "#/definitions/KeyLineDefinition"
         },
         "lineInterval": {
           "description": "For Handicap and Line markets, the lines available on this market will be between the range of lineMinUnit and lineMaxUnit, in increments of the lineInterval value. e.g. If unit is runs, lineMinUnit=10, lineMaxUnit=20 and lineInterval=0.5, then valid lines include 10, 10.5, 11, 11.5 up to 20 runs.",
@@ -419,9 +401,7 @@
           "type": "boolean"
         },
         "priceLadderDefinition": {
-          "$ref": "#/definitions/PriceLadderDefinition",
-          "description": "Definition of the price ladder type and any related data.",
-          "type": "object"
+          "$ref": "#/definitions/PriceLadderDefinition"
         },
         "raceType": {
           "type": "string"
@@ -542,8 +522,7 @@
     "MarketSubscriptionMessage": {
       "allOf": [
         {
-          "$ref": "#/definitions/RequestMessage",
-          "type": "object"
+          "$ref": "#/definitions/RequestMessage"
         },
         {
           "properties": {
@@ -566,12 +545,10 @@
               "type": "string"
             },
             "marketDataFilter": {
-              "$ref": "#/definitions/MarketDataFilter",
-              "type": "object"
+              "$ref": "#/definitions/MarketDataFilter"
             },
             "marketFilter": {
-              "$ref": "#/definitions/MarketFilter",
-              "type": "object"
+              "$ref": "#/definitions/MarketFilter"
             },
             "segmentationEnabled": {
               "description": "Segmentation Enabled - allow the server to send large sets of data in segments, instead of a single block",
@@ -594,6 +571,11 @@
           "format": "double",
           "type": "number"
         },
+        "cd": {
+          "description": "Cancelled Date - the date the order was cancelled (null if the order is not cancelled)",
+          "format": "int64",
+          "type": "integer"
+        },
         "id": {
           "description": "Bet Id - the id of the order",
           "type": "string"
@@ -602,6 +584,10 @@
           "description": "Lapsed Date - the date the order was lapsed (null if the order is not lapsed)",
           "format": "int64",
           "type": "integer"
+        },
+        "lsrc": {
+          "description": "Lapse Status Reason Code - the reason that some or all of this order has been lapsed (null if no portion of the order is lapsed",
+          "type": "string"
         },
         "md": {
           "description": "Matched Date - the date the order was matched (null if the order is not matched)",
@@ -703,8 +689,7 @@
     "OrderChangeMessage": {
       "allOf": [
         {
-          "$ref": "#/definitions/ResponseMessage",
-          "type": "object"
+          "$ref": "#/definitions/ResponseMessage"
         },
         {
           "properties": {
@@ -802,6 +787,9 @@
         "closed": {
           "type": "boolean"
         },
+        "fullImage": {
+          "type": "boolean"
+        },
         "id": {
           "description": "Market Id - the id of the market the order is on",
           "type": "string"
@@ -871,8 +859,7 @@
     "OrderSubscriptionMessage": {
       "allOf": [
         {
-          "$ref": "#/definitions/RequestMessage",
-          "type": "object"
+          "$ref": "#/definitions/RequestMessage"
         },
         {
           "properties": {
@@ -895,9 +882,7 @@
               "type": "string"
             },
             "orderFilter": {
-              "$ref": "#/definitions/OrderFilter",
-              "description": "Optional filter applied to order subscription",
-              "type": "object"
+              "$ref": "#/definitions/OrderFilter"
             },
             "segmentationEnabled": {
               "description": "Segmentation Enabled - allow the server to send large sets of data in segments, instead of a single block",
@@ -1126,8 +1111,7 @@
     "StatusMessage": {
       "allOf": [
         {
-          "$ref": "#/definitions/ResponseMessage",
-          "type": "object"
+          "$ref": "#/definitions/ResponseMessage"
         },
         {
           "properties": {
@@ -1138,6 +1122,11 @@
             "connectionId": {
               "description": "The connection id",
               "type": "string"
+            },
+            "connectionsAvailable": {
+              "description": "The number of connections available for this account at this moment in time. Present on responses to Authentication messages only.",
+              "format": "int32",
+              "type": "integer"
             },
             "errorCode": {
               "description": "The type of error in case of a failure",
@@ -1154,7 +1143,8 @@
                 "SUBSCRIPTION_LIMIT_EXCEEDED",
                 "INVALID_REQUEST",
                 "CONNECTION_FAILED",
-                "MAX_CONNECTION_LIMIT_EXCEEDED"
+                "MAX_CONNECTION_LIMIT_EXCEEDED",
+                "TOO_MANY_REQUESTS"
               ],
               "type": "string"
             },
@@ -1202,16 +1192,5 @@
       }
     }
   },
-  "securityDefinitions": {
-    "ApplicationKey": {
-      "name": "X-Application",
-      "in": "header",
-      "type": "apiKey"
-    },
-    "Session": {
-      "name": "X-Authentication",
-      "in": "header",
-      "type": "apiKey"
-    }
-  }
+  "x-components": {}
 }

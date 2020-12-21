@@ -1,11 +1,5 @@
 {
   "swagger": "2.0",
-  "schemes": [
-    "https",
-    "http"
-  ],
-  "host": "importexport.amazonaws.com",
-  "basePath": "/",
   "info": {
     "contact": {
       "email": "mike.ralphson@gmail.com",
@@ -29,7 +23,7 @@
     ],
     "x-logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.jpeg"
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"
     },
     "x-origin": [
       {
@@ -39,7 +33,7 @@
           "version": "1.0.0"
         },
         "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/importexport-2010-06-01.normal.json",
-        "x-apisguru-direct": true
+        "x-apisguru-driver": "external"
       }
     ],
     "x-preferred": true,
@@ -51,103 +45,196 @@
       "type": "openapi"
     }
   },
-  "externalDocs": {
-    "description": "Amazon Web Services documentation",
-    "url": "https://aws.amazon.com/importexport/"
-  },
-  "consumes": [],
-  "produces": [],
-  "securityDefinitions": {
-    "hmac": {
-      "description": "Amazon Signature authorization v2",
-      "in": "header",
-      "name": "Authorization",
-      "type": "apiKey",
-      "x-amazon-apigateway-authtype": "awsSigv2"
-    }
-  },
-  "security": [
-    {
-      "hmac": []
-    }
+  "host": "importexport.amazonaws.com",
+  "basePath": "/",
+  "schemes": [
+    "http"
   ],
-  "parameters": {
-    "AWSAccessKeyId": {
-      "in": "query",
-      "name": "AWSAccessKeyId",
-      "required": true,
-      "type": "string"
-    },
-    "Action": {
-      "in": "query",
-      "name": "Action",
-      "required": true,
-      "type": "string"
-    },
-    "Signature": {
-      "in": "query",
-      "name": "Signature",
-      "required": true,
-      "type": "string"
-    },
-    "SignatureMethod": {
-      "in": "query",
-      "name": "SignatureMethod",
-      "required": true,
-      "type": "string"
-    },
-    "SignatureVersion": {
-      "in": "query",
-      "name": "SignatureVersion",
-      "required": true,
-      "type": "string"
-    },
-    "Timestamp": {
-      "in": "query",
-      "name": "Timestamp",
-      "required": true,
-      "type": "string"
-    },
-    "Version": {
-      "in": "query",
-      "name": "Version",
-      "required": true,
-      "type": "string"
-    }
-  },
   "paths": {
-    "/?Operation=CancelJob": {
+    "/#Operation=CancelJob&Action=CancelJob": {
       "parameters": [
         {
-          "$ref": "#/parameters/AWSAccessKeyId"
+          "in": "query",
+          "name": "AWSAccessKeyId",
+          "required": true,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Action"
+          "in": "query",
+          "name": "Action",
+          "required": true,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/SignatureMethod"
+          "in": "query",
+          "name": "SignatureMethod",
+          "required": true,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/SignatureVersion"
+          "in": "query",
+          "name": "SignatureVersion",
+          "required": true,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Timestamp"
+          "in": "query",
+          "name": "Timestamp",
+          "required": true,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "query",
+          "name": "Version",
+          "required": true,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Signature"
+          "in": "query",
+          "name": "Signature",
+          "required": true,
+          "type": "string"
         }
       ],
-      "post": {
-        "description": "This operation cancels a specified job. Only the job owner can cancel it. The operation fails if the job has already started or is complete.",
-        "operationId": "CancelJob",
+      "get": {
+        "produces": [
+          "text/xml"
+        ],
         "parameters": [
+          {
+            "description": "A unique identifier which refers to a particular job.",
+            "in": "query",
+            "name": "JobId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Specifies the version of the client tool.",
+            "in": "query",
+            "name": "APIVersion",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "CancelJob"
+            ],
+            "in": "query",
+            "name": "Operation",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "CancelJob"
+            ],
+            "in": "query",
+            "name": "Action",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "2010-06-01"
+            ],
+            "in": "query",
+            "name": "Version",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CancelJobOutput"
+            }
+          },
+          "480": {
+            "description": "InvalidJobIdException",
+            "schema": {
+              "$ref": "#/definitions/InvalidJobIdException"
+            },
+            "x-aws-exception": true
+          },
+          "481": {
+            "description": "ExpiredJobIdException",
+            "schema": {
+              "$ref": "#/definitions/ExpiredJobIdException"
+            },
+            "x-aws-exception": true
+          },
+          "482": {
+            "description": "CanceledJobIdException",
+            "schema": {
+              "$ref": "#/definitions/CanceledJobIdException"
+            },
+            "x-aws-exception": true
+          },
+          "483": {
+            "description": "UnableToCancelJobIdException",
+            "schema": {
+              "$ref": "#/definitions/UnableToCancelJobIdException"
+            },
+            "x-aws-exception": true
+          },
+          "484": {
+            "description": "InvalidAccessKeyIdException",
+            "schema": {
+              "$ref": "#/definitions/InvalidAccessKeyIdException"
+            },
+            "x-aws-exception": true
+          },
+          "485": {
+            "description": "InvalidVersionException",
+            "schema": {
+              "$ref": "#/definitions/InvalidVersionException"
+            },
+            "x-aws-exception": true
+          }
+        },
+        "description": "This operation cancels a specified job. Only the job owner can cancel it. The operation fails if the job has already started or is complete.",
+        "operationId": "GET_CancelJob",
+        "x-aws-operation-name": "CancelJob"
+      },
+      "post": {
+        "consumes": [
+          "text/xml"
+        ],
+        "produces": [
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "CancelJob"
+            ],
+            "in": "query",
+            "name": "Operation",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "CancelJob"
+            ],
+            "in": "query",
+            "name": "Action",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "2010-06-01"
+            ],
+            "in": "query",
+            "name": "Version",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
-            "required": true,
             "schema": {
               "$ref": "#/definitions/CancelJobInput"
             }
@@ -202,41 +289,291 @@
             },
             "x-aws-exception": true
           }
-        }
+        },
+        "description": "This operation cancels a specified job. Only the job owner can cancel it. The operation fails if the job has already started or is complete.",
+        "operationId": "POST_CancelJob",
+        "x-aws-operation-name": "CancelJob"
       }
     },
-    "/?Operation=CreateJob": {
+    "/#Operation=CreateJob&Action=CreateJob": {
       "parameters": [
         {
-          "$ref": "#/parameters/AWSAccessKeyId"
+          "in": "query",
+          "name": "AWSAccessKeyId",
+          "required": true,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Action"
+          "in": "query",
+          "name": "Action",
+          "required": true,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/SignatureMethod"
+          "in": "query",
+          "name": "SignatureMethod",
+          "required": true,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/SignatureVersion"
+          "in": "query",
+          "name": "SignatureVersion",
+          "required": true,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Timestamp"
+          "in": "query",
+          "name": "Timestamp",
+          "required": true,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "query",
+          "name": "Version",
+          "required": true,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Signature"
+          "in": "query",
+          "name": "Signature",
+          "required": true,
+          "type": "string"
         }
       ],
-      "post": {
-        "description": "This operation initiates the process of scheduling an upload or download of your data. You include in the request a manifest that describes the data transfer specifics. The response to the request includes a job ID, which you can use in other operations, a signature that you use to identify your storage device, and the address where you should ship your storage device.",
-        "operationId": "CreateJob",
+      "get": {
+        "produces": [
+          "text/xml"
+        ],
         "parameters": [
+          {
+            "description": "Specifies whether the job to initiate is an import or export job.",
+            "enum": [
+              "Import",
+              "Export"
+            ],
+            "in": "query",
+            "name": "JobType",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The UTF-8 encoded text of the manifest file.",
+            "in": "query",
+            "name": "Manifest",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "For internal use only.",
+            "in": "query",
+            "name": "ManifestAddendum",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Validate the manifest and parameter values in the request but do not actually create a job.",
+            "in": "query",
+            "name": "ValidateOnly",
+            "required": true,
+            "type": "boolean"
+          },
+          {
+            "description": "Specifies the version of the client tool.",
+            "in": "query",
+            "name": "APIVersion",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "CreateJob"
+            ],
+            "in": "query",
+            "name": "Operation",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "CreateJob"
+            ],
+            "in": "query",
+            "name": "Action",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "2010-06-01"
+            ],
+            "in": "query",
+            "name": "Version",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateJobOutput"
+            }
+          },
+          "480": {
+            "description": "MissingParameterException",
+            "schema": {
+              "$ref": "#/definitions/MissingParameterException"
+            },
+            "x-aws-exception": true
+          },
+          "481": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            },
+            "x-aws-exception": true
+          },
+          "482": {
+            "description": "InvalidAccessKeyIdException",
+            "schema": {
+              "$ref": "#/definitions/InvalidAccessKeyIdException"
+            },
+            "x-aws-exception": true
+          },
+          "483": {
+            "description": "InvalidAddressException",
+            "schema": {
+              "$ref": "#/definitions/InvalidAddressException"
+            },
+            "x-aws-exception": true
+          },
+          "484": {
+            "description": "InvalidManifestFieldException",
+            "schema": {
+              "$ref": "#/definitions/InvalidManifestFieldException"
+            },
+            "x-aws-exception": true
+          },
+          "485": {
+            "description": "MissingManifestFieldException",
+            "schema": {
+              "$ref": "#/definitions/MissingManifestFieldException"
+            },
+            "x-aws-exception": true
+          },
+          "486": {
+            "description": "NoSuchBucketException",
+            "schema": {
+              "$ref": "#/definitions/NoSuchBucketException"
+            },
+            "x-aws-exception": true
+          },
+          "487": {
+            "description": "MissingCustomsException",
+            "schema": {
+              "$ref": "#/definitions/MissingCustomsException"
+            },
+            "x-aws-exception": true
+          },
+          "488": {
+            "description": "InvalidCustomsException",
+            "schema": {
+              "$ref": "#/definitions/InvalidCustomsException"
+            },
+            "x-aws-exception": true
+          },
+          "489": {
+            "description": "InvalidFileSystemException",
+            "schema": {
+              "$ref": "#/definitions/InvalidFileSystemException"
+            },
+            "x-aws-exception": true
+          },
+          "490": {
+            "description": "MultipleRegionsException",
+            "schema": {
+              "$ref": "#/definitions/MultipleRegionsException"
+            },
+            "x-aws-exception": true
+          },
+          "491": {
+            "description": "BucketPermissionException",
+            "schema": {
+              "$ref": "#/definitions/BucketPermissionException"
+            },
+            "x-aws-exception": true
+          },
+          "492": {
+            "description": "MalformedManifestException",
+            "schema": {
+              "$ref": "#/definitions/MalformedManifestException"
+            },
+            "x-aws-exception": true
+          },
+          "493": {
+            "description": "CreateJobQuotaExceededException",
+            "schema": {
+              "$ref": "#/definitions/CreateJobQuotaExceededException"
+            },
+            "x-aws-exception": true
+          },
+          "494": {
+            "description": "InvalidJobIdException",
+            "schema": {
+              "$ref": "#/definitions/InvalidJobIdException"
+            },
+            "x-aws-exception": true
+          },
+          "495": {
+            "description": "InvalidVersionException",
+            "schema": {
+              "$ref": "#/definitions/InvalidVersionException"
+            },
+            "x-aws-exception": true
+          }
+        },
+        "description": "This operation initiates the process of scheduling an upload or download of your data. You include in the request a manifest that describes the data transfer specifics. The response to the request includes a job ID, which you can use in other operations, a signature that you use to identify your storage device, and the address where you should ship your storage device.",
+        "operationId": "GET_CreateJob",
+        "x-aws-operation-name": "CreateJob"
+      },
+      "post": {
+        "consumes": [
+          "text/xml"
+        ],
+        "produces": [
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "CreateJob"
+            ],
+            "in": "query",
+            "name": "Operation",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "CreateJob"
+            ],
+            "in": "query",
+            "name": "Action",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "2010-06-01"
+            ],
+            "in": "query",
+            "name": "Version",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
-            "required": true,
             "schema": {
               "$ref": "#/definitions/CreateJobInput"
             }
@@ -361,41 +698,277 @@
             },
             "x-aws-exception": true
           }
-        }
+        },
+        "description": "This operation initiates the process of scheduling an upload or download of your data. You include in the request a manifest that describes the data transfer specifics. The response to the request includes a job ID, which you can use in other operations, a signature that you use to identify your storage device, and the address where you should ship your storage device.",
+        "operationId": "POST_CreateJob",
+        "x-aws-operation-name": "CreateJob"
       }
     },
-    "/?Operation=GetShippingLabel": {
+    "/#Operation=GetShippingLabel&Action=GetShippingLabel": {
       "parameters": [
         {
-          "$ref": "#/parameters/AWSAccessKeyId"
+          "in": "query",
+          "name": "AWSAccessKeyId",
+          "required": true,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Action"
+          "in": "query",
+          "name": "Action",
+          "required": true,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/SignatureMethod"
+          "in": "query",
+          "name": "SignatureMethod",
+          "required": true,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/SignatureVersion"
+          "in": "query",
+          "name": "SignatureVersion",
+          "required": true,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Timestamp"
+          "in": "query",
+          "name": "Timestamp",
+          "required": true,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "query",
+          "name": "Version",
+          "required": true,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Signature"
+          "in": "query",
+          "name": "Signature",
+          "required": true,
+          "type": "string"
         }
       ],
-      "post": {
-        "description": "This operation generates a pre-paid UPS shipping label that you will use to ship your device to AWS for processing.",
-        "operationId": "GetShippingLabel",
+      "get": {
+        "produces": [
+          "text/xml"
+        ],
         "parameters": [
+          {
+            "collectionFormat": "multi",
+            "description": "",
+            "in": "query",
+            "items": {
+              "$ref": "#/definitions/GenericString"
+            },
+            "name": "jobIds",
+            "required": true,
+            "type": "array"
+          },
+          {
+            "description": "Specifies the name of the person responsible for shipping this package.",
+            "in": "query",
+            "name": "name",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Specifies the name of the company that will ship this package.",
+            "in": "query",
+            "name": "company",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Specifies the phone number of the person responsible for shipping this package.",
+            "in": "query",
+            "name": "phoneNumber",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Specifies the name of your country for the return address.",
+            "in": "query",
+            "name": "country",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Specifies the name of your state or your province for the return address.",
+            "in": "query",
+            "name": "stateOrProvince",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Specifies the name of your city for the return address.",
+            "in": "query",
+            "name": "city",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Specifies the postal code for the return address.",
+            "in": "query",
+            "name": "postalCode",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Specifies the first part of the street address for the return address, for example 1234 Main Street.",
+            "in": "query",
+            "name": "street1",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Specifies the optional second part of the street address for the return address, for example Suite 100.",
+            "in": "query",
+            "name": "street2",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Specifies the optional third part of the street address for the return address, for example c/o Jane Doe.",
+            "in": "query",
+            "name": "street3",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Specifies the version of the client tool.",
+            "in": "query",
+            "name": "APIVersion",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "GetShippingLabel"
+            ],
+            "in": "query",
+            "name": "Operation",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "GetShippingLabel"
+            ],
+            "in": "query",
+            "name": "Action",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "2010-06-01"
+            ],
+            "in": "query",
+            "name": "Version",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetShippingLabelOutput"
+            }
+          },
+          "480": {
+            "description": "InvalidJobIdException",
+            "schema": {
+              "$ref": "#/definitions/InvalidJobIdException"
+            },
+            "x-aws-exception": true
+          },
+          "481": {
+            "description": "ExpiredJobIdException",
+            "schema": {
+              "$ref": "#/definitions/ExpiredJobIdException"
+            },
+            "x-aws-exception": true
+          },
+          "482": {
+            "description": "CanceledJobIdException",
+            "schema": {
+              "$ref": "#/definitions/CanceledJobIdException"
+            },
+            "x-aws-exception": true
+          },
+          "483": {
+            "description": "InvalidAccessKeyIdException",
+            "schema": {
+              "$ref": "#/definitions/InvalidAccessKeyIdException"
+            },
+            "x-aws-exception": true
+          },
+          "484": {
+            "description": "InvalidAddressException",
+            "schema": {
+              "$ref": "#/definitions/InvalidAddressException"
+            },
+            "x-aws-exception": true
+          },
+          "485": {
+            "description": "InvalidVersionException",
+            "schema": {
+              "$ref": "#/definitions/InvalidVersionException"
+            },
+            "x-aws-exception": true
+          },
+          "486": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            },
+            "x-aws-exception": true
+          }
+        },
+        "description": "This operation generates a pre-paid UPS shipping label that you will use to ship your device to AWS for processing.",
+        "operationId": "GET_GetShippingLabel",
+        "x-aws-operation-name": "GetShippingLabel"
+      },
+      "post": {
+        "consumes": [
+          "text/xml"
+        ],
+        "produces": [
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "GetShippingLabel"
+            ],
+            "in": "query",
+            "name": "Operation",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "GetShippingLabel"
+            ],
+            "in": "query",
+            "name": "Action",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "2010-06-01"
+            ],
+            "in": "query",
+            "name": "Version",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
-            "required": true,
             "schema": {
               "$ref": "#/definitions/GetShippingLabelInput"
             }
@@ -457,41 +1030,189 @@
             },
             "x-aws-exception": true
           }
-        }
+        },
+        "description": "This operation generates a pre-paid UPS shipping label that you will use to ship your device to AWS for processing.",
+        "operationId": "POST_GetShippingLabel",
+        "x-aws-operation-name": "GetShippingLabel"
       }
     },
-    "/?Operation=GetStatus": {
+    "/#Operation=GetStatus&Action=GetStatus": {
       "parameters": [
         {
-          "$ref": "#/parameters/AWSAccessKeyId"
+          "in": "query",
+          "name": "AWSAccessKeyId",
+          "required": true,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Action"
+          "in": "query",
+          "name": "Action",
+          "required": true,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/SignatureMethod"
+          "in": "query",
+          "name": "SignatureMethod",
+          "required": true,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/SignatureVersion"
+          "in": "query",
+          "name": "SignatureVersion",
+          "required": true,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Timestamp"
+          "in": "query",
+          "name": "Timestamp",
+          "required": true,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "query",
+          "name": "Version",
+          "required": true,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Signature"
+          "in": "query",
+          "name": "Signature",
+          "required": true,
+          "type": "string"
         }
       ],
-      "post": {
-        "description": "This operation returns information about a job, including where the job is in the processing pipeline, the status of the results, and the signature value associated with the job. You can only return information about jobs you own.",
-        "operationId": "GetStatus",
+      "get": {
+        "produces": [
+          "text/xml"
+        ],
         "parameters": [
+          {
+            "description": "A unique identifier which refers to a particular job.",
+            "in": "query",
+            "name": "JobId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Specifies the version of the client tool.",
+            "in": "query",
+            "name": "APIVersion",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "GetStatus"
+            ],
+            "in": "query",
+            "name": "Operation",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "GetStatus"
+            ],
+            "in": "query",
+            "name": "Action",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "2010-06-01"
+            ],
+            "in": "query",
+            "name": "Version",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetStatusOutput"
+            }
+          },
+          "480": {
+            "description": "InvalidJobIdException",
+            "schema": {
+              "$ref": "#/definitions/InvalidJobIdException"
+            },
+            "x-aws-exception": true
+          },
+          "481": {
+            "description": "ExpiredJobIdException",
+            "schema": {
+              "$ref": "#/definitions/ExpiredJobIdException"
+            },
+            "x-aws-exception": true
+          },
+          "482": {
+            "description": "CanceledJobIdException",
+            "schema": {
+              "$ref": "#/definitions/CanceledJobIdException"
+            },
+            "x-aws-exception": true
+          },
+          "483": {
+            "description": "InvalidAccessKeyIdException",
+            "schema": {
+              "$ref": "#/definitions/InvalidAccessKeyIdException"
+            },
+            "x-aws-exception": true
+          },
+          "484": {
+            "description": "InvalidVersionException",
+            "schema": {
+              "$ref": "#/definitions/InvalidVersionException"
+            },
+            "x-aws-exception": true
+          }
+        },
+        "description": "This operation returns information about a job, including where the job is in the processing pipeline, the status of the results, and the signature value associated with the job. You can only return information about jobs you own.",
+        "operationId": "GET_GetStatus",
+        "x-aws-operation-name": "GetStatus"
+      },
+      "post": {
+        "consumes": [
+          "text/xml"
+        ],
+        "produces": [
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "GetStatus"
+            ],
+            "in": "query",
+            "name": "Operation",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "GetStatus"
+            ],
+            "in": "query",
+            "name": "Action",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "2010-06-01"
+            ],
+            "in": "query",
+            "name": "Version",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
-            "required": true,
             "schema": {
               "$ref": "#/definitions/GetStatusInput"
             }
@@ -539,57 +1260,108 @@
             },
             "x-aws-exception": true
           }
-        }
+        },
+        "description": "This operation returns information about a job, including where the job is in the processing pipeline, the status of the results, and the signature value associated with the job. You can only return information about jobs you own.",
+        "operationId": "POST_GetStatus",
+        "x-aws-operation-name": "GetStatus"
       }
     },
-    "/?Operation=ListJobs": {
+    "/#Operation=ListJobs&Action=ListJobs": {
       "parameters": [
         {
-          "$ref": "#/parameters/AWSAccessKeyId"
+          "in": "query",
+          "name": "AWSAccessKeyId",
+          "required": true,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Action"
+          "in": "query",
+          "name": "Action",
+          "required": true,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/SignatureMethod"
+          "in": "query",
+          "name": "SignatureMethod",
+          "required": true,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/SignatureVersion"
+          "in": "query",
+          "name": "SignatureVersion",
+          "required": true,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Timestamp"
+          "in": "query",
+          "name": "Timestamp",
+          "required": true,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "query",
+          "name": "Version",
+          "required": true,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Signature"
+          "in": "query",
+          "name": "Signature",
+          "required": true,
+          "type": "string"
         }
       ],
-      "post": {
-        "description": "This operation returns the jobs associated with the requester. AWS Import/Export lists the jobs in reverse chronological order based on the date of creation. For example if Job Test1 was created 2009Dec30 and Test2 was created 2010Feb05, the ListJobs operation would return Test2 followed by Test1.",
-        "operationId": "ListJobs",
+      "get": {
+        "produces": [
+          "text/xml"
+        ],
         "parameters": [
           {
-            "in": "body",
-            "name": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/ListJobsInput"
-            }
-          },
-          {
-            "description": "Pagination limit",
+            "description": "Sets the maximum number of jobs returned in the response. If there are additional jobs that were not returned because MaxJobs was exceeded, the response contains &lt;IsTruncated&gt;true&lt;/IsTruncated&gt;. To return the additional jobs, see Marker.",
             "in": "query",
             "name": "MaxJobs",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Specifies the JOBID to start after when listing the jobs created with your account. AWS Import/Export lists your jobs in reverse chronological order. See MaxJobs.",
+            "in": "query",
+            "name": "Marker",
             "required": false,
             "type": "string"
           },
           {
-            "description": "Pagination token",
+            "description": "Specifies the version of the client tool.",
             "in": "query",
-            "name": "Marker",
+            "name": "APIVersion",
             "required": false,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "ListJobs"
+            ],
+            "in": "query",
+            "name": "Operation",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "ListJobs"
+            ],
+            "in": "query",
+            "name": "Action",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "2010-06-01"
+            ],
+            "in": "query",
+            "name": "Version",
+            "required": true,
             "type": "string"
           }
         ],
@@ -621,41 +1393,395 @@
             },
             "x-aws-exception": true
           }
-        }
-      }
-    },
-    "/?Operation=UpdateJob": {
-      "parameters": [
-        {
-          "$ref": "#/parameters/AWSAccessKeyId"
         },
-        {
-          "$ref": "#/parameters/Action"
-        },
-        {
-          "$ref": "#/parameters/SignatureMethod"
-        },
-        {
-          "$ref": "#/parameters/SignatureVersion"
-        },
-        {
-          "$ref": "#/parameters/Timestamp"
-        },
-        {
-          "$ref": "#/parameters/Version"
-        },
-        {
-          "$ref": "#/parameters/Signature"
-        }
-      ],
+        "description": "This operation returns the jobs associated with the requester. AWS Import/Export lists the jobs in reverse chronological order based on the date of creation. For example if Job Test1 was created 2009Dec30 and Test2 was created 2010Feb05, the ListJobs operation would return Test2 followed by Test1.",
+        "operationId": "GET_ListJobs",
+        "x-aws-operation-name": "ListJobs"
+      },
       "post": {
-        "description": "You use this operation to change the parameters specified in the original manifest file by supplying a new manifest file. The manifest file attached to this request replaces the original manifest file. You can only use the operation after a CreateJob request but before the data transfer starts and you can only use it on jobs you own.",
-        "operationId": "UpdateJob",
+        "consumes": [
+          "text/xml"
+        ],
+        "produces": [
+          "text/xml"
+        ],
         "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxJobs",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "Marker",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "ListJobs"
+            ],
+            "in": "query",
+            "name": "Operation",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "ListJobs"
+            ],
+            "in": "query",
+            "name": "Action",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "2010-06-01"
+            ],
+            "in": "query",
+            "name": "Version",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
+            "schema": {
+              "$ref": "#/definitions/ListJobsInput"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListJobsOutput"
+            }
+          },
+          "480": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            },
+            "x-aws-exception": true
+          },
+          "481": {
+            "description": "InvalidAccessKeyIdException",
+            "schema": {
+              "$ref": "#/definitions/InvalidAccessKeyIdException"
+            },
+            "x-aws-exception": true
+          },
+          "482": {
+            "description": "InvalidVersionException",
+            "schema": {
+              "$ref": "#/definitions/InvalidVersionException"
+            },
+            "x-aws-exception": true
+          }
+        },
+        "description": "This operation returns the jobs associated with the requester. AWS Import/Export lists the jobs in reverse chronological order based on the date of creation. For example if Job Test1 was created 2009Dec30 and Test2 was created 2010Feb05, the ListJobs operation would return Test2 followed by Test1.",
+        "operationId": "POST_ListJobs",
+        "x-aws-operation-name": "ListJobs"
+      }
+    },
+    "/#Operation=UpdateJob&Action=UpdateJob": {
+      "parameters": [
+        {
+          "in": "query",
+          "name": "AWSAccessKeyId",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "in": "query",
+          "name": "Action",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "in": "query",
+          "name": "SignatureMethod",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "in": "query",
+          "name": "SignatureVersion",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "in": "query",
+          "name": "Timestamp",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "in": "query",
+          "name": "Version",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "in": "query",
+          "name": "Signature",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "description": "A unique identifier which refers to a particular job.",
+            "in": "query",
+            "name": "JobId",
             "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The UTF-8 encoded text of the manifest file.",
+            "in": "query",
+            "name": "Manifest",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Specifies whether the job to initiate is an import or export job.",
+            "enum": [
+              "Import",
+              "Export"
+            ],
+            "in": "query",
+            "name": "JobType",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Validate the manifest and parameter values in the request but do not actually create a job.",
+            "in": "query",
+            "name": "ValidateOnly",
+            "required": true,
+            "type": "boolean"
+          },
+          {
+            "description": "Specifies the version of the client tool.",
+            "in": "query",
+            "name": "APIVersion",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "UpdateJob"
+            ],
+            "in": "query",
+            "name": "Operation",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "UpdateJob"
+            ],
+            "in": "query",
+            "name": "Action",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "2010-06-01"
+            ],
+            "in": "query",
+            "name": "Version",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UpdateJobOutput"
+            }
+          },
+          "480": {
+            "description": "MissingParameterException",
+            "schema": {
+              "$ref": "#/definitions/MissingParameterException"
+            },
+            "x-aws-exception": true
+          },
+          "481": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            },
+            "x-aws-exception": true
+          },
+          "482": {
+            "description": "InvalidAccessKeyIdException",
+            "schema": {
+              "$ref": "#/definitions/InvalidAccessKeyIdException"
+            },
+            "x-aws-exception": true
+          },
+          "483": {
+            "description": "InvalidAddressException",
+            "schema": {
+              "$ref": "#/definitions/InvalidAddressException"
+            },
+            "x-aws-exception": true
+          },
+          "484": {
+            "description": "InvalidManifestFieldException",
+            "schema": {
+              "$ref": "#/definitions/InvalidManifestFieldException"
+            },
+            "x-aws-exception": true
+          },
+          "485": {
+            "description": "InvalidJobIdException",
+            "schema": {
+              "$ref": "#/definitions/InvalidJobIdException"
+            },
+            "x-aws-exception": true
+          },
+          "486": {
+            "description": "MissingManifestFieldException",
+            "schema": {
+              "$ref": "#/definitions/MissingManifestFieldException"
+            },
+            "x-aws-exception": true
+          },
+          "487": {
+            "description": "NoSuchBucketException",
+            "schema": {
+              "$ref": "#/definitions/NoSuchBucketException"
+            },
+            "x-aws-exception": true
+          },
+          "488": {
+            "description": "ExpiredJobIdException",
+            "schema": {
+              "$ref": "#/definitions/ExpiredJobIdException"
+            },
+            "x-aws-exception": true
+          },
+          "489": {
+            "description": "CanceledJobIdException",
+            "schema": {
+              "$ref": "#/definitions/CanceledJobIdException"
+            },
+            "x-aws-exception": true
+          },
+          "490": {
+            "description": "MissingCustomsException",
+            "schema": {
+              "$ref": "#/definitions/MissingCustomsException"
+            },
+            "x-aws-exception": true
+          },
+          "491": {
+            "description": "InvalidCustomsException",
+            "schema": {
+              "$ref": "#/definitions/InvalidCustomsException"
+            },
+            "x-aws-exception": true
+          },
+          "492": {
+            "description": "InvalidFileSystemException",
+            "schema": {
+              "$ref": "#/definitions/InvalidFileSystemException"
+            },
+            "x-aws-exception": true
+          },
+          "493": {
+            "description": "MultipleRegionsException",
+            "schema": {
+              "$ref": "#/definitions/MultipleRegionsException"
+            },
+            "x-aws-exception": true
+          },
+          "494": {
+            "description": "BucketPermissionException",
+            "schema": {
+              "$ref": "#/definitions/BucketPermissionException"
+            },
+            "x-aws-exception": true
+          },
+          "495": {
+            "description": "MalformedManifestException",
+            "schema": {
+              "$ref": "#/definitions/MalformedManifestException"
+            },
+            "x-aws-exception": true
+          },
+          "496": {
+            "description": "UnableToUpdateJobIdException",
+            "schema": {
+              "$ref": "#/definitions/UnableToUpdateJobIdException"
+            },
+            "x-aws-exception": true
+          },
+          "497": {
+            "description": "InvalidVersionException",
+            "schema": {
+              "$ref": "#/definitions/InvalidVersionException"
+            },
+            "x-aws-exception": true
+          }
+        },
+        "description": "You use this operation to change the parameters specified in the original manifest file by supplying a new manifest file. The manifest file attached to this request replaces the original manifest file. You can only use the operation after a CreateJob request but before the data transfer starts and you can only use it on jobs you own.",
+        "operationId": "GET_UpdateJob",
+        "x-aws-operation-name": "UpdateJob"
+      },
+      "post": {
+        "consumes": [
+          "text/xml"
+        ],
+        "produces": [
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "UpdateJob"
+            ],
+            "in": "query",
+            "name": "Operation",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "UpdateJob"
+            ],
+            "in": "query",
+            "name": "Action",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "2010-06-01"
+            ],
+            "in": "query",
+            "name": "Version",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
             "schema": {
               "$ref": "#/definitions/UpdateJobInput"
             }
@@ -794,7 +1920,10 @@
             },
             "x-aws-exception": true
           }
-        }
+        },
+        "description": "You use this operation to change the parameters specified in the original manifest file by supplying a new manifest file. The manifest file attached to this request replaces the original manifest file. You can only use the operation after a CreateJob request but before the data transfer starts and you can only use it on jobs you own.",
+        "operationId": "POST_UpdateJob",
+        "x-aws-operation-name": "UpdateJob"
       }
     }
   },
@@ -844,6 +1973,7 @@
       "required": [
         "JobId"
       ],
+      "title": "CancelJobInput",
       "type": "object"
     },
     "CancelJobOutput": {
@@ -892,6 +2022,7 @@
         "Manifest",
         "ValidateOnly"
       ],
+      "title": "CreateJobInput",
       "type": "object"
     },
     "CreateJobOutput": {
@@ -1002,6 +2133,7 @@
       "required": [
         "jobIds"
       ],
+      "title": "GetShippingLabelInput",
       "type": "object"
     },
     "GetShippingLabelOutput": {
@@ -1028,6 +2160,7 @@
       "required": [
         "JobId"
       ],
+      "title": "GetStatusInput",
       "type": "object"
     },
     "GetStatusOutput": {
@@ -1220,6 +2353,7 @@
           "$ref": "#/definitions/MaxJobs"
         }
       },
+      "title": "ListJobsInput",
       "type": "object"
     },
     "ListJobsOutput": {
@@ -1391,6 +2525,7 @@
         "JobType",
         "ValidateOnly"
       ],
+      "title": "UpdateJobInput",
       "type": "object"
     },
     "UpdateJobOutput": {
@@ -1456,5 +2591,70 @@
       "description": "Specifies the optional third part of the street address for the return address, for example c/o Jane Doe.",
       "type": "string"
     }
-  }
+  },
+  "securityDefinitions": {
+    "hmac": {
+      "description": "Amazon Signature authorization v2",
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey",
+      "x-amazon-apigateway-authtype": "awsSigv2"
+    }
+  },
+  "security": [
+    {
+      "hmac": []
+    }
+  ],
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://docs.aws.amazon.com/importexport/"
+  },
+  "x-components": {
+    "parameters": {
+      "AWSAccessKeyId": {
+        "in": "query",
+        "name": "AWSAccessKeyId",
+        "required": true,
+        "type": "string"
+      },
+      "Action": {
+        "in": "query",
+        "name": "Action",
+        "required": true,
+        "type": "string"
+      },
+      "Signature": {
+        "in": "query",
+        "name": "Signature",
+        "required": true,
+        "type": "string"
+      },
+      "SignatureMethod": {
+        "in": "query",
+        "name": "SignatureMethod",
+        "required": true,
+        "type": "string"
+      },
+      "SignatureVersion": {
+        "in": "query",
+        "name": "SignatureVersion",
+        "required": true,
+        "type": "string"
+      },
+      "Timestamp": {
+        "in": "query",
+        "name": "Timestamp",
+        "required": true,
+        "type": "string"
+      },
+      "Version": {
+        "in": "query",
+        "name": "Version",
+        "required": true,
+        "type": "string"
+      }
+    }
+  },
+  "x-hasEquivalentPaths": true
 }

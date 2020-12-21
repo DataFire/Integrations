@@ -1,6 +1,6 @@
 # @datafire/turbinelabs
 
-Client library for Turbine Labs
+Client library for Turbine Labs API
 
 ## Installation and Usage
 ```bash
@@ -11,14 +11,23 @@ let turbinelabs = require('@datafire/turbinelabs').create({
   api_key: ""
 });
 
-turbinelabs.zone.get({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
 
 ## Description
 
-Turbine Labs Public REST API
+The Turbine Labs API provides CRUD operations for core object types, and is
+mostly RESTy. The easiest way to interact with the API is with
+[tbnctl](https://docs.turbinelabs.io/advanced/tbnctl.html).
+If you want to make direct HTTP calls, however, you can obtain an access
+token using tbnctl, and then pass it in the Authorization header,
+prefixed by `Token `:
+```console
+curl -H "Authorization: Token <access token>" https://api.turbinelabs.io/v1.0/cluster
+```
+
 
 ## Actions
 
@@ -299,12 +308,7 @@ Modify an existing cluster
 ```js
 turbinelabs.cluster.clusterKey.put({
   "clusterKey": "",
-  "cluster": {
-    "cluster_key": "",
-    "zone_key": "",
-    "name": "",
-    "checksum": ""
-  }
+  "cluster": null
 }, context)
 ```
 
@@ -428,6 +432,97 @@ turbinelabs.domain.domainKey.get({
 #### Output
 * output [DomainResult](#domainresult)
 
+### listener.get
+Get a list of listeners
+
+
+```js
+turbinelabs.listener.get({}, context)
+```
+
+#### Input
+* input `object`
+  * filters `string`: A JSON encoded array of ListenerFilter objects. The filter is taken
+
+#### Output
+* output [MultiListenerResult](#multilistenerresult)
+
+### listener.post
+Create a new listener
+
+
+```js
+turbinelabs.listener.post({
+  "listener": {
+    "name": "",
+    "port": 0,
+    "protocol": ""
+  }
+}, context)
+```
+
+#### Input
+* input `object`
+  * listener **required** [ListenerCreate](#listenercreate)
+
+#### Output
+* output [ListenerResult](#listenerresult)
+
+### listener.listenerKey.delete
+Delete existing listener
+
+
+```js
+turbinelabs.listener.listenerKey.delete({
+  "listenerKey": "",
+  "checksum": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * listenerKey **required** `string`: the listener key
+  * checksum **required** `string`: the current checksum of the listener to be deleted
+
+#### Output
+* output [Listener](#listener)
+
+### listener.listenerKey.get
+Get details for a single listener
+
+
+```js
+turbinelabs.listener.listenerKey.get({
+  "listenerKey": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * listenerKey **required** `string`: the listener key
+
+#### Output
+* output [ListenerResult](#listenerresult)
+
+### listener.listenerKey.put
+Modify an existing listener
+
+
+```js
+turbinelabs.listener.listenerKey.put({
+  "listenerKey": "",
+  "listener": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * listenerKey **required** `string`: the listener key
+  * listener **required** [Listener](#listener)
+
+#### Output
+* output [ListenerResult](#listenerresult)
+
 ### proxy.get
 Get a list of proxies
 
@@ -521,9 +616,10 @@ Create a new route
 ```js
 turbinelabs.route.post({
   "route": {
+    "domain_key": "",
     "zone_key": "",
-    "name": "",
-    "domain_keys": []
+    "path": "",
+    "shared_rules_key": ""
   }
 }, context)
 ```
@@ -578,14 +674,7 @@ Modify an existing route
 ```js
 turbinelabs.route.routeKey.put({
   "routeKey": "",
-  "route": {
-    "route_key": "",
-    "domain_key": "",
-    "zone_key": "",
-    "path": "",
-    "checksum": "",
-    "shared_rules_key": ""
-  }
+  "route": null
 }, context)
 ```
 
@@ -619,7 +708,6 @@ Create a new shared_rules object
 ```js
 turbinelabs.shared_rules.post({
   "shared_rules": {
-    "name": "",
     "zone_key": "",
     "default": {
       "light": []
@@ -678,10 +766,7 @@ Modify an existing shared_rules object
 ```js
 turbinelabs.shared_rules.sharedRulesKey.put({
   "sharedRulesKey": "",
-  "shared_rules": {
-    "zone_key": "",
-    "checksum": ""
-  }
+  "shared_rules": null
 }, context)
 ```
 
@@ -834,15 +919,16 @@ turbinelabs.zone.zoneKey.get({
   * max_retries `integer`: Maximum number of retries that can be outstanding to all instances in
 
 ### Cluster
-* Cluster `object`
-  * checksum **required** `string`
+* Cluster
   * circuit_breakers [CircuitBreakers](#circuitbreakers)
-  * cluster_key **required** `string`
+  * health_checks [HealthChecks](#healthchecks)
   * instances [Instances](#instances)
   * name **required** `string`
   * outlier_detection [OutlierDetection](#outlierdetection)
-  * require_tls `boolean`: Experimental:
+  * require_tls `boolean`: If set, requests to this collection of hosts will be made via HTTPS.
   * zone_key **required** `string`
+  * checksum **required** `string`
+  * cluster_key **required** `string`
 
 ### ClusterConstraint
 * ClusterConstraint `object`
@@ -850,7 +936,11 @@ turbinelabs.zone.zoneKey.get({
   * constraint_key `string`
   * metadata [Metadata](#metadata)
   * properties [Metadata](#metadata)
-  * response_data [ResponseData](#responsedata)
+  * response_data: When a request is served by a cluster selected by this constraint annotate
+    * cookies `array`
+      * items [CookieDatum](#cookiedatum)
+    * headers `array`
+      * items [HeaderDatum](#headerdatum)
   * weight `integer`
 
 ### ClusterConstraints
@@ -859,8 +949,12 @@ turbinelabs.zone.zoneKey.get({
 
 ### ClusterCreate
 * ClusterCreate `object`
+  * circuit_breakers [CircuitBreakers](#circuitbreakers)
+  * health_checks [HealthChecks](#healthchecks)
   * instances [Instances](#instances)
   * name **required** `string`
+  * outlier_detection [OutlierDetection](#outlierdetection)
+  * require_tls `boolean`: If set, requests to this collection of hosts will be made via HTTPS.
   * zone_key **required** `string`
 
 ### ClusterFilter
@@ -881,7 +975,6 @@ turbinelabs.zone.zoneKey.get({
 
 ### CookieDatum
 * CookieDatum `object`: This describes a cookie that should be set in response to a HTTP request.
-  * always_send `boolean`: If false or not set then this cookie will only be sent on HTTP response codes
   * domain `string`: Specifies the hosts to hich a cookie will be sent. Maps directly to a
   * expires_in_sec `integer`: This indicates how long a cookie will be valid, in seconds. If not set the
   * http_only `boolean`: If set the cookie value will not be accessible via Document.cookie. Maps
@@ -893,12 +986,13 @@ turbinelabs.zone.zoneKey.get({
   * value_is_literal `boolean`: If true then the value attribute is treated as a literal and no attempt
 
 ### Domain
-* Domain `object`
+* Domain
   * aliases `array`: A set of alternate names that this Domain may be referenced by. May
     * items `string`
-  * checksum **required** `string`
+  * checksum `string`
   * cors_config [CORSConfig](#corsconfig)
-  * domain_key **required** `string`
+  * domain_key `string`
+  * force_https `boolean`: If set to true, requests must use TLS. If a request is not using TLS, (as determined by
   * gzip_enabled `boolean`: Experimental: if set to true will enable gzip compression on data that passes trough this domain
   * name **required** `string`
   * port **required** `integer`
@@ -906,11 +1000,23 @@ turbinelabs.zone.zoneKey.get({
     * items [Redirect](#redirect)
   * ssl_config [SSLConfig](#sslconfig)
   * zone_key **required** `string`
+  * checksum **required** `string`
+  * domain_key **required** `string`
 
 ### DomainCreate
 * DomainCreate `object`
+  * aliases `array`: A set of alternate names that this Domain may be referenced by. May
+    * items `string`
+  * checksum `string`
+  * cors_config [CORSConfig](#corsconfig)
+  * domain_key `string`
+  * force_https `boolean`: If set to true, requests must use TLS. If a request is not using TLS, (as determined by
+  * gzip_enabled `boolean`: Experimental: if set to true will enable gzip compression on data that passes trough this domain
   * name **required** `string`
   * port **required** `integer`
+  * redirects `array`
+    * items [Redirect](#redirect)
+  * ssl_config [SSLConfig](#sslconfig)
   * zone_key **required** `string`
 
 ### DomainFilter
@@ -960,6 +1066,14 @@ turbinelabs.zone.zoneKey.get({
   * or `array`: An array of changelog filters that will be joined via logical OR.
     * items [FilterProducts](#filterproducts)
 
+### HTTPHealthCheck
+* HTTPHealthCheck `object`
+  * host `string`: The value of the host header in the HTTP health check request.
+  * path `string`: Specifies the HTTP path that will be requested during health
+  * request_headers_to_add: Specifies a list of HTTP headers that should be added to each request
+    * items [Metadatum](#metadatum)
+  * service_name `string`: An optional service name parameter which is used to validate
+
 ### HeaderConstraint
 * HeaderConstraint `object`: Indicates that a request's headers should meet some requirement before being
   * case_sensitive `boolean`: If set, the header value check will be case sensitive.
@@ -969,10 +1083,29 @@ turbinelabs.zone.zoneKey.get({
 
 ### HeaderDatum
 * HeaderDatum `object`: This describes a HTTP header that should be attached to requests.
-  * always_send `boolean`: If false or not set then this header will only be sent on HTTP response codes
   * name `string`: The name of the header that will be attached to the response sent.
   * value `string`: A literal value to send as the header value or a reference to
   * value_is_literal `boolean`: If true then the value attribute is treated as a literal and no attempt
+
+### HealthCheck
+* HealthCheck `object`: Configures active health checking for every instance in a cluster.
+  * health_checker **required** `object`: Defines the type of health checker to use. Only a single health
+    * http_health_check [HTTPHealthCheck](#httphealthcheck)
+    * tcp_health_check [TCPHealthCheck](#tcphealthcheck)
+  * healthy_edge_interval_msec `integer`: Interval used for the first health check right after a host is marked
+  * healthy_threshold **required** `integer`: The number of healthy health checks required before a host is marked
+  * interval_jitter_msec `integer`: An optional jitter amount that is added to each interval value
+  * interval_msec **required** `integer`: The interval between health checks. The first round of health checks
+  * no_traffic_interval_msec `integer`: Interval used when a cluster has never had traffic routed to it. It
+  * reuse_connection `boolean`: Whether or not to reuse health check connections between health checks.
+  * timeout_msec **required** `integer`: The time to wait for a health check response. If the timeout is
+  * unhealthy_edge_interval_msec `integer`: Interval used for the first health check right after a host is marked
+  * unhealthy_interval_msec `integer`: Interval used for hosts that are marked as unhealthy. As soon as the
+  * unhealthy_threshold **required** `integer`: The number of unhealthy health checks required before a host is
+
+### HealthChecks
+* HealthChecks `array`
+  * items [HealthCheck](#healthcheck)
 
 ### Instance
 * Instance `object`
@@ -988,11 +1121,44 @@ turbinelabs.zone.zoneKey.get({
 * Instances `array`
   * items [Instance](#instance)
 
+### Listener
+* Listener
+  * domain_keys `array`
+    * items `string`
+  * ip `string`: the interface this listener should bind to.
+  * name **required** `string`
+  * port **required** `integer`: the port this listener should bind to.
+  * protocol **required** `string` (values: http, http2, http_auto, tcp): the protocol this listener will handle. http and http2 configure the listener to only
+  * tracing_config [TracingConfig](#tracingconfig)
+  * zone_key `string`
+  * checksum **required** `string`
+  * listener_key **required** `string`
+
+### ListenerCreate
+* ListenerCreate `object`
+  * domain_keys `array`
+    * items `string`
+  * ip `string`: the interface this listener should bind to.
+  * name **required** `string`
+  * port **required** `integer`: the port this listener should bind to.
+  * protocol **required** `string` (values: http, http2, http_auto, tcp): the protocol this listener will handle. http and http2 configure the listener to only
+  * tracing_config [TracingConfig](#tracingconfig)
+  * zone_key `string`
+
+### ListenerResult
+* ListenerResult `object`
+  * result [Listener](#listener)
+
 ### Match
-* Match `object`
-  * from [Metadatum](#metadatum)
-  * kind `string`
-  * to [Metadatum](#metadatum)
+* Match `object`: Represents a mapping of request attributes to constraints on a cluster
+  * behavior `string`: Defines how a request attribute should be matched. If not specified,
+  * from: The request attribute key and value to match. `key` must always be
+    * key `string`
+    * value `string`
+  * kind `string`: Defines the attribute by which a request should be matched on. Valid
+  * to: The constraints on a cluster that a matched request should map to. If
+    * key `string`
+    * value `string`
 
 ### Matches
 * Matches `array`
@@ -1021,6 +1187,11 @@ turbinelabs.zone.zoneKey.get({
 * MultiDomainResult `object`
   * result `array`
     * items [Domain](#domain)
+
+### MultiListenerResult
+* MultiListenerResult `object`
+  * result `array`
+    * items [Listener](#listener)
 
 ### MultiProxyResult
 * MultiProxyResult `object`
@@ -1074,17 +1245,21 @@ turbinelabs.zone.zoneKey.get({
   * pagination [PageDetails](#pagedetails)
 
 ### Proxy
-* Proxy `object`
-  * checksum `string`
+* Proxy
   * domain_keys `array`
     * items `string`
-  * name `string`
-  * proxy_key `string`
-  * zone_key `string`
+  * listener_keys `array`
+    * items `string`
+  * name **required** `string`
+  * zone_key **required** `string`
+  * checksum **required** `string`
+  * proxy_key **required** `string`
 
 ### ProxyCreate
 * ProxyCreate `object`
   * domain_keys `array`
+    * items `string`
+  * listener_keys `array`
     * items `string`
   * name **required** `string`
   * zone_key **required** `string`
@@ -1124,26 +1299,41 @@ turbinelabs.zone.zoneKey.get({
   * timeout_msec `integer`: Total time limit in milliseconds for all attempts (including the initial attempt)
 
 ### Route
-* Route `object`
-  * checksum **required** `string`
+* Route
+  * checksum `string`
   * cohort_seed [CohortSeed](#cohortseed)
   * domain_key **required** `string`
   * path **required** `string`
-  * response_data [ResponseData](#responsedata)
+  * response_data: When a request is served by this Route annotate the response with the
+    * cookies `array`
+      * items [CookieDatum](#cookiedatum)
+    * headers `array`
+      * items [HeaderDatum](#headerdatum)
   * retry_policy [RetryPolicy](#retrypolicy)
-  * route_key **required** `string`
+  * route_key `string`
   * rules `array`
     * items [Rule](#rule)
   * shared_rules_key **required** `string`
   * zone_key **required** `string`
+  * checksum **required** `string`
+  * route_key **required** `string`
 
 ### RouteCreate
 * RouteCreate `object`
-  * domain_keys **required** `array`
-    * items `string`
-  * name **required** `string`
+  * checksum `string`
+  * cohort_seed [CohortSeed](#cohortseed)
+  * domain_key **required** `string`
+  * path **required** `string`
+  * response_data: When a request is served by this Route annotate the response with the
+    * cookies `array`
+      * items [CookieDatum](#cookiedatum)
+    * headers `array`
+      * items [HeaderDatum](#headerdatum)
+  * retry_policy [RetryPolicy](#retrypolicy)
+  * route_key `string`
   * rules `array`
     * items [Rule](#rule)
+  * shared_rules_key **required** `string`
   * zone_key **required** `string`
 
 ### RouteFilter
@@ -1177,22 +1367,36 @@ turbinelabs.zone.zoneKey.get({
     * items `string`
 
 ### SharedRules
-* SharedRules `object`
-  * checksum **required** `string`
+* SharedRules
+  * checksum `string`
   * cohort_seed [CohortSeed](#cohortseed)
-  * default [AllConstraints](#allconstraints)
+  * default **required** [AllConstraints](#allconstraints)
   * properties [Metadata](#metadata)
-  * response_data [ResponseData](#responsedata)
+  * response_data: When a request is served by a Route that is part of this SharedRules
+    * cookies `array`
+      * items [CookieDatum](#cookiedatum)
+    * headers `array`
+      * items [HeaderDatum](#headerdatum)
   * retry_policy [RetryPolicy](#retrypolicy)
   * rules `array`
     * items [Rule](#rule)
   * shared_rules_key `string`
   * zone_key **required** `string`
+  * checksum **required** `string`
+  * shared_rules_key **required** `string`
 
 ### SharedRulesCreate
 * SharedRulesCreate `object`
+  * checksum `string`
+  * cohort_seed [CohortSeed](#cohortseed)
   * default **required** [AllConstraints](#allconstraints)
-  * name **required** `string`
+  * properties [Metadata](#metadata)
+  * response_data: When a request is served by a Route that is part of this SharedRules
+    * cookies `array`
+      * items [CookieDatum](#cookiedatum)
+    * headers `array`
+      * items [HeaderDatum](#headerdatum)
+  * retry_policy [RetryPolicy](#retrypolicy)
   * rules `array`
     * items [Rule](#rule)
   * shared_rules_key `string`
@@ -1208,10 +1412,22 @@ turbinelabs.zone.zoneKey.get({
 * SharedRulesResult `object`
   * result [SharedRules](#sharedrules)
 
+### TCPHealthCheck
+* TCPHealthCheck `object`
+  * receive `array`: An array of base64 encoded strings, each representing array of
+    * items `string`
+  * send `string`: Base64 encoded string representing an array of bytes to be
+
 ### TimeRange
 * TimeRange `object`
   * end `integer`: The end of the window we want to see changes for; measured in
   * start `integer`: The beginning of the window we want to see changes for; measured in microseconds since Unix Epoch.
+
+### TracingConfig
+* TracingConfig `object`: Configures tracing operations to be performed on the given listener
+  * ingress `boolean`: Determines whether spans sent from this listener should be treated as ingress
+  * request_headers_for_tags `array`: the headers specified here will be added to the generated spans as annotations
+    * items `string`
 
 ### User
 * User `object`

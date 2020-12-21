@@ -1,0 +1,2008 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "contact": {
+      "email": "devrel@vonage.com",
+      "name": "Vonage DevRel",
+      "url": "https://developer.nexmo.com/"
+    },
+    "description": "The Conversation API enables you to build conversation features where communication can take place across multiple mediums including IP Messaging, PSTN Voice, SMS and WebRTC Audio and Video. The context of the conversations is maintained though each communication event taking place within a conversation, no matter the medium.",
+    "title": "Conversation API",
+    "version": "2.0.1",
+    "x-label": "Beta",
+    "x-origin": [
+      {
+        "format": "openapi",
+        "url": "https://raw.githubusercontent.com/nexmo/api-specification/master/definitions/conversation.yml",
+        "version": "3.0"
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "nexmo.com",
+    "x-serviceName": "conversation",
+    "x-datafire": {
+      "name": "nexmo_conversation",
+      "type": "openapi"
+    }
+  },
+  "host": "api.nexmo.com",
+  "basePath": "/v0.1",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/conversations": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Return the records that occurred after this point in time.",
+            "format": "dateTime",
+            "in": "query",
+            "name": "date_start",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Return the records that occurred before this point in time.",
+            "format": "dateTime",
+            "in": "query",
+            "name": "date_end",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "default": 10,
+            "description": "Return this amount of records in the response",
+            "in": "query",
+            "maximum": 100,
+            "minimum": 1,
+            "name": "page_size",
+            "required": false,
+            "type": "number"
+          },
+          {
+            "default": 0,
+            "description": "Return calls from this index in the response",
+            "in": "query",
+            "minimum": 0,
+            "name": "record_index",
+            "required": false,
+            "type": "number"
+          },
+          {
+            "default": "asc",
+            "description": "Return the records in ascending or descending order.",
+            "enum": [
+              "asc",
+              "desc",
+              "ASC",
+              "DESC"
+            ],
+            "in": "query",
+            "name": "order",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List Conversations Response Payload Object.",
+            "schema": {
+              "properties": {
+                "_embedded": {
+                  "description": "A list of conversation objects. See the [get details of a specific conversation](#retrieveConversation) response fields for a description of the nested objects",
+                  "properties": {
+                    "conversations": {
+                      "items": {
+                        "properties": {
+                          "_links": {
+                            "properties": {
+                              "self": {
+                                "properties": {
+                                  "href": {
+                                    "$ref": "#/definitions/href_conversation"
+                                  }
+                                },
+                                "type": "object"
+                              }
+                            },
+                            "type": "object"
+                          },
+                          "name": {
+                            "$ref": "#/definitions/name_conversation"
+                          },
+                          "uuid": {
+                            "$ref": "#/definitions/conversation_id"
+                          }
+                        },
+                        "required": [
+                          "uuid",
+                          "name",
+                          "href"
+                        ],
+                        "type": "object"
+                      },
+                      "type": "array"
+                    }
+                  },
+                  "required": [
+                    "conversations"
+                  ],
+                  "type": "object"
+                },
+                "_links": {
+                  "$ref": "#/definitions/_links_conversations_list"
+                },
+                "count": {
+                  "description": "The total number of records returned by your request.",
+                  "example": "100",
+                  "type": "number"
+                },
+                "page_size": {
+                  "$ref": "#/definitions/page_size"
+                },
+                "record_index": {
+                  "$ref": "#/definitions/record_index"
+                }
+              },
+              "required": [
+                "count",
+                "page_size",
+                "record_index",
+                "_links",
+                "_embedded"
+              ],
+              "type": "object"
+            }
+          }
+        },
+        "tags": [
+          "conversation"
+        ],
+        "deprecated": true,
+        "description": "<div class=\"Vlt-callout Vlt-callout--warning\"> <i></i> <div class=\"Vlt-callout__content\"> <p><strong>This API endpoint is deprecated. Please use <a href=\"/api/conversation.v2#get-conversations\">/v0.2/conversations</a></strong>.<br />This endpoint will return a maximum of 100 items.</p> </div> </div>\nList all conversations associated with your application.  This endpoint required an admin JWT. To find all conversations for the currently logged in user, see [GET /users/:id/conversations](#getuserConversations)\n",
+        "operationId": "listConversations",
+        "summary": "List conversations"
+      },
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Conversation Request Payload Object",
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "properties": {
+                "display_name": {
+                  "$ref": "#/definitions/display_name"
+                },
+                "image_url": {
+                  "$ref": "#/definitions/image_url"
+                },
+                "name": {
+                  "$ref": "#/definitions/name_conversation"
+                },
+                "properties": {
+                  "$ref": "#/definitions/conversation_properties"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Create / Update Conversation Response Payload Object",
+            "schema": {
+              "properties": {
+                "href": {
+                  "$ref": "#/definitions/href_conversation"
+                },
+                "id": {
+                  "$ref": "#/definitions/conversation_id"
+                }
+              },
+              "required": [
+                "id",
+                "href"
+              ],
+              "type": "object"
+            }
+          }
+        },
+        "tags": [
+          "conversation"
+        ],
+        "operationId": "createConversation",
+        "summary": "Create a conversation"
+      }
+    },
+    "/conversations/{conversation_id}": {
+      "parameters": [
+        {
+          "description": "Conversation ID",
+          "in": "path",
+          "name": "conversation_id",
+          "required": true,
+          "type": "string",
+          "x-example": "CON-f972836a-550f-45fa-956c-12a2ab5b7d22"
+        }
+      ],
+      "delete": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success response with empty JSON",
+            "schema": {
+              "description": "Empty JSON payload",
+              "example": {},
+              "type": "object"
+            }
+          }
+        },
+        "tags": [
+          "conversation"
+        ],
+        "operationId": "deleteConversation",
+        "summary": "Delete a conversation"
+      },
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Retrieve a conversation",
+            "schema": {
+              "description": "Conversation Object",
+              "properties": {
+                "_links": {
+                  "$ref": "#/definitions/_links_conversation"
+                },
+                "api_key": {
+                  "description": "The API key for your account",
+                  "type": "string"
+                },
+                "display_name": {
+                  "$ref": "#/definitions/display_name"
+                },
+                "members": {
+                  "description": "Users associated to this conversation as members",
+                  "items": {
+                    "properties": {
+                      "channel": {
+                        "$ref": "#/definitions/channel"
+                      },
+                      "initiator": {
+                        "$ref": "#/definitions/initiator"
+                      },
+                      "member_id": {
+                        "$ref": "#/definitions/member_id"
+                      },
+                      "name": {
+                        "$ref": "#/definitions/name_user"
+                      },
+                      "state": {
+                        "$ref": "#/definitions/member_state"
+                      },
+                      "timestamp": {
+                        "$ref": "#/definitions/timestamp_res_member"
+                      },
+                      "user_id": {
+                        "$ref": "#/definitions/user_id"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "name": {
+                  "$ref": "#/definitions/name_conversation"
+                },
+                "numbers": {
+                  "properties": {},
+                  "type": "object"
+                },
+                "properties": {
+                  "properties": {
+                    "video": {
+                      "example": false,
+                      "type": "boolean"
+                    }
+                  },
+                  "type": "object"
+                },
+                "sequence_number": {
+                  "description": "The last Event ID in this conversation. This ID can be used to [retrieve a specific event](#getEvent)",
+                  "example": "1",
+                  "type": "string"
+                },
+                "timestamp": {
+                  "$ref": "#/definitions/timestamp_res_conversation"
+                },
+                "uuid": {
+                  "$ref": "#/definitions/conversation_id"
+                }
+              },
+              "required": [
+                "uuid"
+              ],
+              "type": "object"
+            }
+          }
+        },
+        "tags": [
+          "conversation"
+        ],
+        "operationId": "retrieveConversation",
+        "summary": "Retrieve a conversation"
+      },
+      "put": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Conversation Request Payload Object",
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "properties": {
+                "display_name": {
+                  "$ref": "#/definitions/display_name"
+                },
+                "image_url": {
+                  "$ref": "#/definitions/image_url"
+                },
+                "name": {
+                  "$ref": "#/definitions/name_conversation"
+                },
+                "properties": {
+                  "$ref": "#/definitions/conversation_properties"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Create / Update Conversation Response Payload Object",
+            "schema": {
+              "properties": {
+                "href": {
+                  "$ref": "#/definitions/href_conversation"
+                },
+                "id": {
+                  "$ref": "#/definitions/conversation_id"
+                }
+              },
+              "required": [
+                "id",
+                "href"
+              ],
+              "type": "object"
+            }
+          }
+        },
+        "tags": [
+          "conversation"
+        ],
+        "operationId": "replaceConversation",
+        "summary": "Update a conversation"
+      }
+    },
+    "/conversations/{conversation_id}/events": {
+      "parameters": [
+        {
+          "description": "Conversation ID",
+          "in": "path",
+          "name": "conversation_id",
+          "required": true,
+          "type": "string",
+          "x-example": "CON-f972836a-550f-45fa-956c-12a2ab5b7d22"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Retrieve Events Response Payload Object",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/event_retrieved"
+              },
+              "type": "array"
+            }
+          }
+        },
+        "tags": [
+          "event"
+        ],
+        "deprecated": true,
+        "description": "<div class=\"Vlt-callout Vlt-callout--warning\"> <i></i> <div class=\"Vlt-callout__content\"> <p><strong>This API endpoint is deprecated. Please use <a href=\"/api/conversation.v2#get-events\">/v0.2/events</a></strong><br />This endpoint will return a maximum of 100 items.</p> </div> </div>\n",
+        "operationId": "getEvents",
+        "summary": "List events"
+      },
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "description": "Create New Event Request Payload Object",
+              "properties": {
+                "body": {
+                  "$ref": "#/definitions/event_body"
+                },
+                "from": {
+                  "$ref": "#/definitions/member_id"
+                },
+                "to": {
+                  "$ref": "#/definitions/member_id"
+                },
+                "type": {
+                  "$ref": "#/definitions/event_type"
+                }
+              },
+              "required": [
+                "type",
+                "from"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Create New Event Response Payload Object",
+            "schema": {
+              "description": "Create New Event Response Payload Object",
+              "properties": {
+                "href": {
+                  "$ref": "#/definitions/href_event"
+                },
+                "id": {
+                  "$ref": "#/definitions/event_id"
+                },
+                "timestamp": {
+                  "$ref": "#/definitions/timestamp_res_event"
+                }
+              },
+              "type": "object"
+            }
+          }
+        },
+        "tags": [
+          "event"
+        ],
+        "operationId": "createEvent",
+        "summary": "Create an event"
+      }
+    },
+    "/conversations/{conversation_id}/events/{event_id}": {
+      "parameters": [
+        {
+          "description": "Conversation ID",
+          "in": "path",
+          "name": "conversation_id",
+          "required": true,
+          "type": "string",
+          "x-example": "CON-f972836a-550f-45fa-956c-12a2ab5b7d22"
+        },
+        {
+          "description": "Event ID",
+          "in": "path",
+          "name": "event_id",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "delete": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success response with empty JSON",
+            "schema": {
+              "description": "Empty JSON payload",
+              "example": {},
+              "type": "object"
+            }
+          }
+        },
+        "tags": [
+          "event"
+        ],
+        "operationId": "deleteEvent",
+        "summary": "Delete an event"
+      },
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Retrieve an event Content Payload",
+            "schema": {
+              "$ref": "#/definitions/event_retrieved"
+            }
+          }
+        },
+        "tags": [
+          "event"
+        ],
+        "operationId": "getEvent",
+        "summary": "Retrieve an event"
+      }
+    },
+    "/conversations/{conversation_id}/members": {
+      "parameters": [
+        {
+          "description": "Conversation ID",
+          "in": "path",
+          "name": "conversation_id",
+          "required": true,
+          "type": "string",
+          "x-example": "CON-f972836a-550f-45fa-956c-12a2ab5b7d22"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Members List Object",
+            "schema": {
+              "items": {
+                "properties": {
+                  "name": {
+                    "$ref": "#/definitions/name_user"
+                  },
+                  "state": {
+                    "$ref": "#/definitions/member_state"
+                  },
+                  "user_id": {
+                    "$ref": "#/definitions/user_id"
+                  },
+                  "user_name": {
+                    "$ref": "#/definitions/name_user"
+                  }
+                },
+                "required": [
+                  "user_id",
+                  "name",
+                  "user_name",
+                  "state"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            }
+          }
+        },
+        "tags": [
+          "member"
+        ],
+        "deprecated": true,
+        "description": "<div class=\"Vlt-callout Vlt-callout--warning\"> <i></i> <div class=\"Vlt-callout__content\"> <p><strong>This API endpoint is deprecated. Please use <a href=\"/api/conversation.v2#get-members\">/v0.2/members</a></strong><br />This endpoint will return a maximum of 100 items.</p> </div> </div>\n",
+        "operationId": "getMembers",
+        "summary": "List members"
+      },
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "description": "Create a Member in invite state ",
+              "properties": {
+                "action": {
+                  "$ref": "#/definitions/member_action"
+                },
+                "channel": {
+                  "$ref": "#/definitions/channel"
+                },
+                "knocking_id": {
+                  "$ref": "#/definitions/knocker_id"
+                },
+                "media": {
+                  "$ref": "#/definitions/media"
+                },
+                "member_id": {
+                  "$ref": "#/definitions/member_id"
+                },
+                "member_id_inviting": {
+                  "$ref": "#/definitions/member_id_inviting"
+                },
+                "user_id": {
+                  "$ref": "#/definitions/user_id"
+                }
+              },
+              "required": [
+                "user_id",
+                "channel"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Create or invite Member in invite state ",
+            "schema": {
+              "properties": {
+                "channel": {
+                  "$ref": "#/definitions/channel"
+                },
+                "href": {
+                  "$ref": "#/definitions/href_member"
+                },
+                "id": {
+                  "$ref": "#/definitions/member_id"
+                },
+                "initiator": {
+                  "$ref": "#/definitions/initiator"
+                },
+                "state": {
+                  "$ref": "#/definitions/member_state"
+                },
+                "timestamp": {
+                  "$ref": "#/definitions/timestamp_res_member"
+                },
+                "user_id": {
+                  "$ref": "#/definitions/user_id"
+                }
+              },
+              "type": "object"
+            }
+          }
+        },
+        "tags": [
+          "member"
+        ],
+        "operationId": "createMember",
+        "summary": "Create a member"
+      }
+    },
+    "/conversations/{conversation_id}/members/{member_id}": {
+      "parameters": [
+        {
+          "description": "Conversation ID",
+          "in": "path",
+          "name": "conversation_id",
+          "required": true,
+          "type": "string",
+          "x-example": "CON-f972836a-550f-45fa-956c-12a2ab5b7d22"
+        },
+        {
+          "description": "Member ID",
+          "in": "path",
+          "name": "member_id",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "delete": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success response with empty JSON",
+            "schema": {
+              "description": "Empty JSON payload",
+              "example": {},
+              "type": "object"
+            }
+          }
+        },
+        "tags": [
+          "member"
+        ],
+        "operationId": "deleteMember",
+        "summary": "Delete a member"
+      },
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Retrieve member payload",
+            "schema": {
+              "properties": {
+                "href": {
+                  "$ref": "#/definitions/href_member"
+                },
+                "id": {
+                  "$ref": "#/definitions/member_id"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "member"
+        ],
+        "operationId": "getMember",
+        "summary": "Retrieve a member"
+      },
+      "put": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "properties": {
+                "action": {
+                  "$ref": "#/definitions/member_action"
+                },
+                "channel": {
+                  "$ref": "#/definitions/channel"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Member retrieved",
+            "schema": {
+              "properties": {
+                "href": {
+                  "$ref": "#/definitions/href_member"
+                },
+                "id": {
+                  "$ref": "#/definitions/member_id"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "member"
+        ],
+        "operationId": "updateMember",
+        "summary": "Update a member"
+      }
+    },
+    "/conversations/{conversation_id}/record": {
+      "servers": [
+        {
+          "description": "Override base path for the PUT /conversations/{conversation_id}/record operation",
+          "url": "https://api.nexmo.com/v1"
+        }
+      ],
+      "parameters": [
+        {
+          "description": "Conversation ID",
+          "in": "path",
+          "name": "conversation_id",
+          "required": true,
+          "type": "string",
+          "x-example": "CON-f972836a-550f-45fa-956c-12a2ab5b7d22"
+        }
+      ],
+      "put": {
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Record Conversation Request Payload Object",
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "properties": {
+                "action": {
+                  "$ref": "#/definitions/action"
+                },
+                "event_method": {
+                  "$ref": "#/definitions/event_method"
+                },
+                "event_url": {
+                  "$ref": "#/definitions/event_url"
+                },
+                "format": {
+                  "$ref": "#/definitions/format"
+                },
+                "split": {
+                  "$ref": "#/definitions/split"
+                }
+              },
+              "required": [
+                "action"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "tags": [
+          "conversation"
+        ],
+        "operationId": "recordConversation",
+        "summary": "Record a conversation"
+      }
+    },
+    "/legs": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "List Legs Successfully",
+            "schema": {
+              "description": "List Legs Response Payload Object",
+              "example": {
+                "_embedded": {
+                  "legs": [
+                    {
+                      "_links": {
+                        "self": {
+                          "href": "https://api.nexmo.com/v0.1/legs/2a71f8a1-b6f1-42b3-9eef-c69729e17513"
+                        }
+                      },
+                      "conversation_uuid": "CON-511d076b-9d39-498c-baa7-b7a4bfbd6e32",
+                      "end_time": "",
+                      "from": {
+                        "type": "app"
+                      },
+                      "rtc": {
+                        "session_id": "SES-84ebef0d-321a-47e6-8446-f4fcc5ca74b9",
+                        "state": "terminated"
+                      },
+                      "start_time": "",
+                      "status": "completed",
+                      "to": {
+                        "type": "app"
+                      },
+                      "type": "app",
+                      "uuid": "2a71f8a1-b6f1-42b3-9eef-c69729e17513"
+                    }
+                  ]
+                },
+                "_links": {
+                  "self": {
+                    "href": "https://api.nexmo.com/v0.1/legs"
+                  }
+                },
+                "count": 1,
+                "page_size": 10,
+                "record_index": 0
+              },
+              "properties": {
+                "_embedded": {
+                  "description": "A list of conversation objects. See the [get details of a specific conversation](#retrieveConversation) response fields for a description of the nested objects",
+                  "properties": {
+                    "legs": {
+                      "items": {
+                        "properties": {
+                          "_embedded": {
+                            "type": "object"
+                          },
+                          "_links": {
+                            "type": "object"
+                          },
+                          "conversation_uuid": {
+                            "$ref": "#/definitions/conversation_id"
+                          },
+                          "from": {
+                            "type": "object"
+                          },
+                          "start_end": {
+                            "$ref": "#/definitions/timestamp_leg_end_time"
+                          },
+                          "start_time": {
+                            "$ref": "#/definitions/timestamp_leg_start_time"
+                          },
+                          "state": {
+                            "$ref": "#/definitions/leg_state"
+                          },
+                          "to": {
+                            "type": "object"
+                          },
+                          "type": {
+                            "$ref": "#/definitions/channel_type"
+                          },
+                          "uuid": {
+                            "$ref": "#/definitions/leg_id"
+                          }
+                        },
+                        "required": [
+                          "uuid",
+                          "name",
+                          "href"
+                        ],
+                        "type": "object"
+                      },
+                      "type": "array"
+                    }
+                  },
+                  "required": [
+                    "legs"
+                  ],
+                  "type": "object"
+                },
+                "_links": {
+                  "properties": {
+                    "self": {
+                      "properties": {
+                        "href": {
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    }
+                  },
+                  "required": [
+                    "self"
+                  ],
+                  "type": "object"
+                },
+                "count": {
+                  "description": "The total number of records returned by your request.",
+                  "example": "100",
+                  "type": "number"
+                },
+                "page_size": {
+                  "$ref": "#/definitions/page_size"
+                },
+                "record_index": {
+                  "$ref": "#/definitions/record_index"
+                }
+              },
+              "required": [
+                "count",
+                "page_size",
+                "record_index",
+                "_links",
+                "_embedded"
+              ],
+              "type": "object"
+            }
+          }
+        },
+        "tags": [
+          "leg"
+        ],
+        "operationId": "listLegs",
+        "summary": "List legs"
+      }
+    },
+    "/legs/{leg_id}": {
+      "parameters": [
+        {
+          "description": "Leg ID",
+          "in": "path",
+          "name": "leg_id",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "delete": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success response with empty JSON",
+            "schema": {
+              "description": "Empty JSON payload",
+              "example": {},
+              "type": "object"
+            }
+          }
+        },
+        "tags": [
+          "leg"
+        ],
+        "operationId": "deleteLeg",
+        "summary": "Delete a leg"
+      }
+    },
+    "/users": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "List of users",
+            "schema": {
+              "items": {
+                "properties": {
+                  "href": {
+                    "$ref": "#/definitions/href_user"
+                  },
+                  "id": {
+                    "$ref": "#/definitions/user_id"
+                  },
+                  "name": {
+                    "$ref": "#/definitions/name_user"
+                  }
+                },
+                "type": "object"
+              },
+              "type": "array"
+            }
+          }
+        },
+        "tags": [
+          "user"
+        ],
+        "deprecated": true,
+        "description": "<div class=\"Vlt-callout Vlt-callout--warning\"> <i></i> <div class=\"Vlt-callout__content\"> <strong>This API endpoint is deprecated. Please use <a href=\"/api/conversation.v2#get-users\">/v0.2/users</a><br />This endpoint will return a maximum of 100 items.</strong> </div> </div>\n",
+        "operationId": "getUsers",
+        "summary": "List users"
+      },
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "description": "Create a Member in invite state ",
+              "properties": {
+                "display_name": {
+                  "$ref": "#/definitions/display_name_user"
+                },
+                "image_url": {
+                  "$ref": "#/definitions/image_url"
+                },
+                "name": {
+                  "$ref": "#/definitions/name_user"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Create a user response",
+            "schema": {
+              "properties": {
+                "href": {
+                  "$ref": "#/definitions/href_user"
+                },
+                "id": {
+                  "$ref": "#/definitions/user_id"
+                }
+              },
+              "type": "object"
+            }
+          }
+        },
+        "tags": [
+          "user"
+        ],
+        "description": "Note: Users must be created with an admin JWT.",
+        "operationId": "createUser",
+        "summary": "Create a user"
+      }
+    },
+    "/users/{user_id}": {
+      "parameters": [
+        {
+          "description": "User ID",
+          "in": "path",
+          "name": "user_id",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "delete": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success response with empty JSON",
+            "schema": {
+              "description": "Empty JSON payload",
+              "example": {},
+              "type": "object"
+            }
+          }
+        },
+        "tags": [
+          "user"
+        ],
+        "operationId": "deleteUser",
+        "summary": "Delete a user"
+      },
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Retrieve a user",
+            "schema": {
+              "properties": {
+                "href": {
+                  "example": "https://api.nexmo.com/v0.1/users/USR-63f61863-4a51-4f6b-86e1-46edebio0391",
+                  "type": "string"
+                },
+                "id": {
+                  "$ref": "#/definitions/user_id"
+                },
+                "name": {
+                  "$ref": "#/definitions/name_user"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "user"
+        ],
+        "operationId": "getUser",
+        "summary": "Retrieve a user"
+      },
+      "put": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "properties": {
+                "channels": {
+                  "$ref": "#/definitions/channel"
+                },
+                "display_name": {
+                  "$ref": "#/definitions/display_name_user"
+                },
+                "image_url": {
+                  "$ref": "#/definitions/image_url"
+                },
+                "name": {
+                  "$ref": "#/definitions/name_user"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retrieve a user",
+            "schema": {
+              "properties": {
+                "href": {
+                  "$ref": "#/definitions/href_user"
+                },
+                "id": {
+                  "$ref": "#/definitions/user_id"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "user"
+        ],
+        "operationId": "updateUser",
+        "summary": "Update a user"
+      }
+    },
+    "/users/{user_id}/conversations": {
+      "parameters": [
+        {
+          "description": "User ID",
+          "in": "path",
+          "name": "user_id",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "List user conversations",
+            "schema": {
+              "items": {
+                "properties": {
+                  "display_name": {
+                    "$ref": "#/definitions/display_name"
+                  },
+                  "href": {
+                    "$ref": "#/definitions/href"
+                  },
+                  "id": {
+                    "$ref": "#/definitions/conversation_id"
+                  },
+                  "image_url": {
+                    "$ref": "#/definitions/image_url"
+                  },
+                  "member_id": {
+                    "$ref": "#/definitions/member_id"
+                  },
+                  "name": {
+                    "$ref": "#/definitions/name_conversation"
+                  },
+                  "sequence_number": {
+                    "description": "the id of the last event of the conversation (event's id is an incremental number",
+                    "example": "123",
+                    "format": "url",
+                    "type": "integer"
+                  },
+                  "state": {
+                    "$ref": "#/definitions/member_state"
+                  },
+                  "timestamp": {
+                    "properties": {
+                      "created": {
+                        "$ref": "#/definitions/timestamp"
+                      }
+                    },
+                    "type": "object"
+                  }
+                },
+                "type": "object"
+              },
+              "type": "array"
+            }
+          }
+        },
+        "tags": [
+          "user"
+        ],
+        "operationId": "getuserConversations",
+        "summary": "List user conversations"
+      }
+    }
+  },
+  "definitions": {
+    "_links_conversation": {
+      "properties": {
+        "self": {
+          "properties": {
+            "href": {
+              "$ref": "#/definitions/href_conversation"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "_links_conversations_list": {
+      "description": "A series of links between resources in this API in the http://stateless.co/hal_specification.html.",
+      "properties": {
+        "self": {
+          "properties": {
+            "href": {
+              "$ref": "#/definitions/href_conversations_list"
+            }
+          },
+          "required": [
+            "href"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "self"
+      ],
+      "type": "object"
+    },
+    "action": {
+      "description": "Recording Action",
+      "enum": [
+        "start",
+        "stop"
+      ],
+      "example": "start",
+      "type": "string"
+    },
+    "channel": {
+      "description": "A user who joins a conversation as a member can have one channel per membership type. Channels can be `app`, `phone`, `sip`, `websocket`, or `vbc`",
+      "properties": {
+        "from": {},
+        "leg_id": {
+          "$ref": "#/definitions/leg_id"
+        },
+        "leg_ids": {
+          "description": "Leg ids associated with this Channel. The first item in the array represents the main active Leg. The second item, if exists, represents a screen-share Leg.",
+          "items": {
+            "properties": {
+              "leg_id": {
+                "$ref": "#/definitions/leg_id"
+              }
+            }
+          },
+          "type": "array"
+        },
+        "to": {},
+        "type": {
+          "$ref": "#/definitions/channel_type"
+        }
+      },
+      "type": "object"
+    },
+    "channel_number": {
+      "description": "this can be a phone number or a random string",
+      "example": "a447700900585",
+      "type": "string"
+    },
+    "channel_type": {
+      "description": "Channel type",
+      "enum": [
+        "app",
+        "phone",
+        "sip",
+        "websocket",
+        "vbc"
+      ],
+      "example": "phone",
+      "type": "string"
+    },
+    "conversation_id": {
+      "description": "The unique identifier for this conversation",
+      "example": "CON-63f61863-4a51-4f6b-86e1-46edebio0391",
+      "type": "string"
+    },
+    "conversation_properties": {
+      "description": "Conversation properties",
+      "properties": {
+        "ttl": {
+          "description": "Time to leave. After how many seconds an empty conversation is deleted.",
+          "example": 60,
+          "type": "number"
+        }
+      },
+      "type": "object"
+    },
+    "display_name": {
+      "description": "The display name for the conversation. It does not have to be unique",
+      "example": "Customer Chat",
+      "type": "string"
+    },
+    "display_name_user": {
+      "description": "A string to be displayed as user name. It does not need to be unique",
+      "example": "My User Name",
+      "type": "string"
+    },
+    "event_body": {
+      "description": "Event Body",
+      "example": {
+        "text": "My Text"
+      },
+      "type": "object"
+    },
+    "event_id": {
+      "description": "Event id. This is a progressive integer",
+      "example": "5",
+      "type": "string"
+    },
+    "event_method": {
+      "default": "POST",
+      "description": "The HTTP method used to send event information to event_url.",
+      "example": "POST",
+      "type": "string"
+    },
+    "event_retrieved": {
+      "description": "Retrieve Events Response Payload Object Item",
+      "properties": {
+        "body": {
+          "$ref": "#/definitions/event_body"
+        },
+        "from": {
+          "$ref": "#/definitions/member_id"
+        },
+        "href": {
+          "$ref": "#/definitions/href_event"
+        },
+        "id": {
+          "$ref": "#/definitions/event_id"
+        },
+        "state": {
+          "$ref": "#/definitions/member_state"
+        },
+        "timestamp": {
+          "$ref": "#/definitions/timestamp_created"
+        },
+        "to": {
+          "$ref": "#/definitions/member_id"
+        },
+        "type": {
+          "$ref": "#/definitions/event_type"
+        }
+      },
+      "required": [
+        "id",
+        "type",
+        "body",
+        "timestamp",
+        "href"
+      ],
+      "type": "object"
+    },
+    "event_type": {
+      "description": "Event type",
+      "example": "text",
+      "type": "string"
+    },
+    "event_url": {
+      "description": "The webhook endpoint where recording progress events are sent to.",
+      "example": [
+        "https://example.com/event"
+      ],
+      "items": {
+        "format": "url",
+        "type": "string"
+      },
+      "type": "array",
+      "x-nexmo-developer-collection-description-shown": true
+    },
+    "format": {
+      "default": "mp3",
+      "description": "Record the Conversation in a specific format.",
+      "enum": [
+        "mp3",
+        "wav"
+      ],
+      "example": "mp3",
+      "type": "string"
+    },
+    "href": {
+      "description": "A link towards a resources included in Conversation API",
+      "example": "https://api.nexmo.com/v0.1/conversations/CON-63f61863-4a51-4f6b-86e1-46edebio0391",
+      "format": "url",
+      "type": "string"
+    },
+    "href_conversation": {
+      "description": "A link towards a conversation included in Conversation API",
+      "example": "https://api.nexmo.com/v0.1/conversations/CON-63f61863-4a51-4f6b-86e1-46edebio0391",
+      "format": "url",
+      "type": "string"
+    },
+    "href_conversations_list": {
+      "description": "A link towards a conversations list included in Conversation API",
+      "example": "https://api.nexmo.com/v0.1/conversations?page_size=2&record_index=10&",
+      "format": "url",
+      "type": "string"
+    },
+    "href_event": {
+      "description": "A link towards a conversation event included in Conversation API",
+      "example": "https://api.nexmo.com/v0.1/conversations/CON-63f61863-4a51-4f6b-86e1-46edebio0391/events/1",
+      "format": "url",
+      "type": "string"
+    },
+    "href_member": {
+      "description": "A link towards a member included in Conversation API",
+      "example": "https://api.nexmo.com/v0.1/conversations/CON-63f61863-4a51-4f6b-86e1-46edebio0391/members/MEM-63f61863-4a51-4f6b-86e1-46edebio0391",
+      "format": "url",
+      "type": "string"
+    },
+    "href_rtc": {
+      "description": "A link towards a rtc (leg) included in Conversation API",
+      "example": "https://api.nexmo.com/v0.1/conversations/CON-63f61863-4a51-4f6b-86e1-46edebio0391/rtc/7777777777777",
+      "format": "url",
+      "type": "string"
+    },
+    "href_user": {
+      "description": "A link towards a user included in Conversation API",
+      "example": "https://api.nexmo.com/v0.1/users/USR-63f61863-4a51-4f6b-86e1-46edebio0391",
+      "format": "url",
+      "type": "string"
+    },
+    "image_url": {
+      "description": "A link to an image for conversations' and users' avatars",
+      "example": "https://example.com/image.png",
+      "format": "url",
+      "type": "string"
+    },
+    "initiator": {
+      "properties": {
+        "joined": {
+          "properties": {
+            "isSystem": {
+              "description": "`true` if the user was invited by an admin JWT. `user_id` and `member_id` will not exist if `true`",
+              "type": "boolean"
+            },
+            "member_id": {
+              "$ref": "#/definitions/member_id"
+            },
+            "user_id": {
+              "$ref": "#/definitions/user_id"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "knocker_id": {
+      "description": "Knocker ID. A knocker is a pre-member of a conversation who does not exist yet",
+      "example": "a972836a-450f-35fa-156c-52a2ab5b7d25",
+      "type": "string"
+    },
+    "leg_id": {
+      "description": "The id of the leg. rtc_id and call_id are leg id",
+      "example": "a595959595959595995",
+      "type": "string"
+    },
+    "leg_state": {
+      "description": "Leg Status",
+      "enum": [
+        "terminated"
+      ],
+      "example": "terminated",
+      "type": "string"
+    },
+    "media": {
+      "description": "Media Object",
+      "example": {
+        "audio_settings": {
+          "earmuffed": false,
+          "enabled": false,
+          "muted": false
+        }
+      },
+      "properties": {},
+      "type": "object"
+    },
+    "member_action": {
+      "description": "Invite or join a member to a conversation",
+      "enum": [
+        "invite",
+        "join"
+      ],
+      "example": "join",
+      "type": "string"
+    },
+    "member_id": {
+      "description": "Member ID",
+      "example": "MEM-63f61863-4a51-4f6b-86e1-46edebio0391",
+      "type": "string"
+    },
+    "member_id_inviting": {
+      "description": "Member ID of the member that sends the invitation",
+      "example": "MEM-63f61863-4a51-4f6b-86e1-46edebio0391",
+      "type": "string"
+    },
+    "member_state": {
+      "description": "The state that the member is in. Possible values are `invited`, `joined`, `left`, or `unknown`",
+      "enum": [
+        "invited",
+        "joined",
+        "left",
+        "unknown"
+      ],
+      "example": "invited",
+      "type": "string"
+    },
+    "name": {
+      "description": "Unique name",
+      "example": "my_unique_name",
+      "type": "string"
+    },
+    "name_conversation": {
+      "description": "Unique name for a conversation",
+      "example": "customer_chat",
+      "type": "string"
+    },
+    "name_user": {
+      "description": "Unique name for a user",
+      "example": "my_user_name",
+      "type": "string"
+    },
+    "page_size": {
+      "default": 10,
+      "description": "The amount of records returned in this response",
+      "example": 50,
+      "maximum": 100,
+      "minimum": 1,
+      "type": "number"
+    },
+    "record_index": {
+      "default": 0,
+      "description": "Return `page_size` amount of conversations from this index in the response. That is, if your request returns 300 conversations, set `record_index` to 5 in order to return conversations 50 to 59. The default value is 0. That is, the first `page_size` calls.",
+      "example": 0,
+      "minimum": 0,
+      "type": "number"
+    },
+    "split": {
+      "default": "conversation",
+      "description": "Record the sent and received audio in separate channels of a stereo recording",
+      "example": "conversation",
+      "type": "string"
+    },
+    "timestamp": {
+      "description": "Timestamp",
+      "example": "2020-01-01T14:00:00.00Z",
+      "type": "string"
+    },
+    "timestamp_created": {
+      "description": "Time of creation",
+      "example": "2020-01-01T14:00:00.00Z",
+      "type": "string"
+    },
+    "timestamp_destroyed": {
+      "description": "Time of last update",
+      "example": "2020-01-01T14:20:00.00Z",
+      "type": "string"
+    },
+    "timestamp_leg_end_time": {
+      "description": "Time of leg end",
+      "example": "2020-01-01T14:00:00.00Z",
+      "type": "string"
+    },
+    "timestamp_leg_start_time": {
+      "description": "Time of leg start",
+      "example": "2020-01-01T14:00:00.00Z",
+      "type": "string"
+    },
+    "timestamp_obj_leg": {
+      "properties": {
+        "end": {
+          "$ref": "#/definitions/timestamp"
+        },
+        "request": {
+          "$ref": "#/definitions/timestamp"
+        },
+        "start": {
+          "$ref": "#/definitions/timestamp_created"
+        }
+      },
+      "type": "object"
+    },
+    "timestamp_res_conversation": {
+      "properties": {
+        "created": {
+          "$ref": "#/definitions/timestamp_created"
+        },
+        "destroyed": {
+          "$ref": "#/definitions/timestamp_destroyed"
+        },
+        "updated": {
+          "$ref": "#/definitions/timestamp_updated"
+        }
+      },
+      "type": "object"
+    },
+    "timestamp_res_event": {
+      "description": "Time of event creation",
+      "example": "2020-01-01T14:00:00.00Z",
+      "type": "string"
+    },
+    "timestamp_res_member": {
+      "properties": {
+        "invited": {
+          "$ref": "#/definitions/timestamp"
+        },
+        "joined": {
+          "$ref": "#/definitions/timestamp"
+        },
+        "left": {
+          "$ref": "#/definitions/timestamp"
+        }
+      },
+      "type": "object"
+    },
+    "timestamp_updated": {
+      "description": "Time of last update",
+      "example": "2020-01-01T14:05:00.00Z",
+      "type": "string"
+    },
+    "user_id": {
+      "description": "User ID",
+      "example": "USR-63f61863-4a51-4f6b-86e1-46edebio0391",
+      "type": "string"
+    },
+    "user_id_or_user_name": {
+      "description": "user name or user id of the inviter",
+      "example": "someone_else_user_name",
+      "type": "string"
+    }
+  },
+  "securityDefinitions": {
+    "bearerAuth": {
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey"
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
+  "tags": [
+    {
+      "description": "A conversation is a shared core component that Vonage APIs rely on. Conversations happen over multiple mediums and and can have associated Users through Memberships.",
+      "name": "conversation"
+    },
+    {
+      "description": "The concept of a user exists in Vonage APIs, you can associate one with a user in your own application if you choose. A user can have multiple memberships to conversations and can communicate with other users through various different mediums.",
+      "name": "user"
+    },
+    {
+      "description": "Memberships connect users with conversations. Each membership has one conversation and one user however a user can have many memberships to conversations just as conversations can have many members.",
+      "name": "member"
+    },
+    {
+      "description": "Events are actions that occur within a conversation. Examples of this includes: Text events from members, or invite events from users",
+      "name": "event"
+    },
+    {
+      "description": "A leg can be a video call, IP call, or PSTN call that users participate in using multiple platforms. With this endpoint you can retrieve the details about all of the legs that took place in your application.",
+      "name": "leg"
+    },
+    {
+      "description": "Rtc actions. Any rtc action related (like starting a new rtc connection).",
+      "name": "rtc"
+    }
+  ],
+  "x-components": {
+    "parameters": {
+      "conversation_id": {
+        "description": "Conversation ID",
+        "in": "path",
+        "name": "conversation_id",
+        "required": true,
+        "type": "string",
+        "x-example": "CON-f972836a-550f-45fa-956c-12a2ab5b7d22"
+      },
+      "date_end": {
+        "description": "Return the records that occurred before this point in time.",
+        "format": "dateTime",
+        "in": "query",
+        "name": "date_end",
+        "required": false,
+        "type": "string"
+      },
+      "date_start": {
+        "description": "Return the records that occurred after this point in time.",
+        "format": "dateTime",
+        "in": "query",
+        "name": "date_start",
+        "required": false,
+        "type": "string"
+      },
+      "event_id": {
+        "description": "Event ID",
+        "in": "path",
+        "name": "event_id",
+        "required": true,
+        "type": "string"
+      },
+      "leg_id": {
+        "description": "Leg ID",
+        "in": "path",
+        "name": "leg_id",
+        "required": true,
+        "type": "string"
+      },
+      "member_id": {
+        "description": "Member ID",
+        "in": "path",
+        "name": "member_id",
+        "required": true,
+        "type": "string"
+      },
+      "order": {
+        "default": "asc",
+        "description": "Return the records in ascending or descending order.",
+        "enum": [
+          "asc",
+          "desc",
+          "ASC",
+          "DESC"
+        ],
+        "in": "query",
+        "name": "order",
+        "required": false,
+        "type": "string"
+      },
+      "page_size": {
+        "default": 10,
+        "description": "Return this amount of records in the response",
+        "in": "query",
+        "maximum": 100,
+        "minimum": 1,
+        "name": "page_size",
+        "required": false,
+        "type": "number"
+      },
+      "record_index": {
+        "default": 0,
+        "description": "Return calls from this index in the response",
+        "in": "query",
+        "minimum": 0,
+        "name": "record_index",
+        "required": false,
+        "type": "number"
+      },
+      "user_id": {
+        "description": "User ID",
+        "in": "path",
+        "name": "user_id",
+        "required": true,
+        "type": "string"
+      }
+    },
+    "responses": {
+      "ConversationLite": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "properties": {
+                "href": {
+                  "$ref": "#/definitions/href_conversation"
+                },
+                "id": {
+                  "$ref": "#/definitions/conversation_id"
+                }
+              },
+              "required": [
+                "id",
+                "href"
+              ],
+              "type": "object"
+            }
+          }
+        },
+        "description": "Create / Update Conversation Response Payload Object"
+      },
+      "SuccessEmptyJSON": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "description": "Empty JSON payload",
+              "example": {},
+              "type": "object"
+            }
+          }
+        },
+        "description": "Success response with empty JSON"
+      }
+    },
+    "requestBodies": {
+      "Conversation": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "properties": {
+                "display_name": {
+                  "$ref": "#/definitions/display_name"
+                },
+                "image_url": {
+                  "$ref": "#/definitions/image_url"
+                },
+                "name": {
+                  "$ref": "#/definitions/name_conversation"
+                },
+                "properties": {
+                  "$ref": "#/definitions/conversation_properties"
+                }
+              },
+              "type": "object"
+            }
+          }
+        },
+        "description": "Conversation Request Payload Object"
+      },
+      "EmptyBody": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "example": {},
+              "type": "object"
+            }
+          }
+        },
+        "description": "Conversation Request Payload Object",
+        "required": true
+      },
+      "RecordConversation": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "properties": {
+                "action": {
+                  "$ref": "#/definitions/action"
+                },
+                "event_method": {
+                  "$ref": "#/definitions/event_method"
+                },
+                "event_url": {
+                  "$ref": "#/definitions/event_url"
+                },
+                "format": {
+                  "$ref": "#/definitions/format"
+                },
+                "split": {
+                  "$ref": "#/definitions/split"
+                }
+              },
+              "required": [
+                "action"
+              ],
+              "type": "object"
+            }
+          }
+        },
+        "description": "Record Conversation Request Payload Object"
+      }
+    }
+  }
+}

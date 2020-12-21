@@ -11,7 +11,7 @@
       "x-twitter": "Walmart"
     },
     "description": "Please make sure you use the correct version of the APIs for your use case. To find out the appropriate version, go to the API Docs  drop down on the menu.",
-    "title": "Item",
+    "title": "Item API",
     "version": "3.0.1",
     "x-apisguru-categories": [
       "ecommerce"
@@ -34,15 +34,12 @@
       "type": "openapi"
     }
   },
-  "produces": [
-    "application/xml"
-  ],
   "tags": [
     {
-      "name": "Version 3"
+      "name": "Version 2"
     },
     {
-      "name": "Version 2"
+      "name": "Version 3"
     }
   ],
   "paths": {
@@ -52,6 +49,7 @@
           "application/xml"
         ],
         "description": "You can display the status of an item within a feed. Use the feed ID returned from the upload an item API.",
+        "operationId": "v2getFeedItemStatus",
         "parameters": [
           {
             "description": "The feed ID.",
@@ -135,6 +133,9 @@
             "type": "string"
           }
         ],
+        "produces": [
+          "application/xml"
+        ],
         "responses": {
           "default": {
             "description": "successful operation"
@@ -143,14 +144,14 @@
         "summary": "Get status of an item feed",
         "tags": [
           "Version 2"
-        ],
-        "operationId": "v2.feeds.get"
+        ]
       },
       "post": {
         "consumes": [
           "multipart/form-data"
         ],
         "description": "You can upload an item feed. If the feed successfully processed, it returns a feed ID. Use the returned feed ID to retrieve a feed status. You need your Consumer ID and the Private Key to upload an item.",
+        "operationId": "v2doPostMultiPart",
         "parameters": [
           {
             "default": "item",
@@ -221,6 +222,9 @@
             "type": "string"
           }
         ],
+        "produces": [
+          "application/xml"
+        ],
         "responses": {
           "default": {
             "description": "successful operation"
@@ -229,8 +233,7 @@
         "summary": "Upload an item feed",
         "tags": [
           "Version 2"
-        ],
-        "operationId": "v2.feeds.post"
+        ]
       }
     },
     "/v2/feeds/{feedId}": {
@@ -239,6 +242,7 @@
           "application/xml"
         ],
         "description": "You can display the status of all items within a feed. Use the feed ID returned from the upload an item API.",
+        "operationId": "v2getAllItemsStatus",
         "parameters": [
           {
             "description": "The feed ID",
@@ -322,6 +326,9 @@
             "type": "string"
           }
         ],
+        "produces": [
+          "application/xml"
+        ],
         "responses": {
           "default": {
             "description": "successful operation"
@@ -330,8 +337,7 @@
         "summary": "Get status of an item within a feed",
         "tags": [
           "Version 2"
-        ],
-        "operationId": "v2.feeds.feedId.get"
+        ]
       }
     },
     "/v3/feeds": {
@@ -340,6 +346,7 @@
           "application/xml"
         ],
         "description": "You can display the status of an item within a feed. Use the feed ID returned from the upload an item API.",
+        "operationId": "v3getFeedItemStatus",
         "parameters": [
           {
             "description": "The feed ID.",
@@ -423,6 +430,9 @@
             "type": "string"
           }
         ],
+        "produces": [
+          "application/xml"
+        ],
         "responses": {
           "default": {
             "description": "successful operation"
@@ -431,14 +441,14 @@
         "summary": "Get status of an item feed",
         "tags": [
           "Version 3"
-        ],
-        "operationId": "v3.feeds.get"
+        ]
       },
       "post": {
         "consumes": [
           "multipart/form-data"
         ],
         "description": "You can upload an item feed. If the feed successfully processed, it returns a feed ID. Use the returned feed ID to retrieve a feed status. You need your Consumer ID and the Private Key to upload an item.",
+        "operationId": "v3doPostMultiPart",
         "parameters": [
           {
             "default": "item",
@@ -511,6 +521,9 @@
             "type": "string"
           }
         ],
+        "produces": [
+          "application/xml"
+        ],
         "responses": {
           "default": {
             "description": "successful operation"
@@ -519,8 +532,7 @@
         "summary": "Upload an item feed",
         "tags": [
           "Version 3"
-        ],
-        "operationId": "v3.feeds.post"
+        ]
       }
     },
     "/v3/feeds/{feedId}": {
@@ -529,6 +541,7 @@
           "application/xml"
         ],
         "description": "You can display the status of all items within a feed. Use the feed ID returned from the upload an item API.",
+        "operationId": "v3getAllItemsStatus",
         "parameters": [
           {
             "description": "The feed ID",
@@ -612,6 +625,9 @@
             "type": "string"
           }
         ],
+        "produces": [
+          "application/xml"
+        ],
         "responses": {
           "default": {
             "description": "successful operation"
@@ -620,8 +636,7 @@
         "summary": "Get status of an item within a feed",
         "tags": [
           "Version 3"
-        ],
-        "operationId": "v3.feeds.feedId.get"
+        ]
       }
     }
   }

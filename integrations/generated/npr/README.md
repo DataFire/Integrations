@@ -15,13 +15,7 @@ let npr = require('@datafire/npr').create({
   redirect_uri: ""
 });
 
-npr.getAuthorizationPage({
-  "client_id": "",
-  "redirect_uri": "",
-  "response_type": "",
-  "scope": "",
-  "state": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

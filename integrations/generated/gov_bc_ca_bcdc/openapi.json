@@ -12,7 +12,7 @@
       "url": "https://www2.gov.bc.ca/gov/content?id=A519A56BC2BF44E4A008B33FCF527F61"
     },
     "termsOfService": "https://www2.gov.bc.ca/gov/content?id=D1EE0A405E584363B205CD4353E02C88",
-    "title": "BC Data Catalogue",
+    "title": "BC Data Catalogue API",
     "version": "3.0.1",
     "x-apisguru-categories": [
       "open_data"
@@ -24,7 +24,7 @@
       {
         "converter": {
           "url": "https://github.com/lucybot/api-spec-converter",
-          "version": "2.6.2"
+          "version": "2.7.31"
         },
         "format": "openapi",
         "url": "https://raw.githubusercontent.com/bcgov/api-specs/master/bcdc/bcdc.json",
@@ -171,6 +171,7 @@
       "get": {
         "parameters": [
           {
+            "default": 0,
             "description": "The offset (index) of the first organizations to return",
             "in": "query",
             "name": "offset",
@@ -283,6 +284,7 @@
             "type": "string"
           },
           {
+            "default": 0,
             "description": "Where to start getting activity items from",
             "in": "query",
             "name": "offset",
@@ -319,6 +321,7 @@
             "type": "string"
           },
           {
+            "default": 0,
             "description": "Where to start getting activity items from",
             "in": "query",
             "name": "offset",
@@ -378,6 +381,7 @@
       "get": {
         "parameters": [
           {
+            "default": 0,
             "description": "The offset (index) of the first package to return",
             "in": "query",
             "name": "offset",
@@ -577,12 +581,14 @@
             "type": "string"
           },
           {
+            "default": 0,
             "description": "Apply an offset to the query",
             "in": "query",
             "name": "offset",
             "type": "integer"
           },
           {
+            "default": 0,
             "description": "Apply a limit to the query",
             "in": "query",
             "name": "limit",
@@ -612,6 +618,7 @@
             "type": "string"
           },
           {
+            "default": false,
             "description": "Add tracking information to dataset",
             "in": "query",
             "name": "include_tracking",
@@ -649,6 +656,7 @@
       "get": {
         "parameters": [
           {
+            "default": 0,
             "description": "The offset (index) of the first tag to return",
             "in": "query",
             "name": "offset",

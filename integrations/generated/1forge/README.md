@@ -9,7 +9,7 @@ npm install --save @datafire/1forge
 ```js
 let forge = require('@datafire/1forge').create();
 
-forge.quotes.get(null).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

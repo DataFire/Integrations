@@ -15,9 +15,7 @@ let azure_network_operation = require('@datafire/azure_network_operation').creat
   redirect_uri: ""
 });
 
-azure_network_operation.Operations_List({
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -93,7 +91,7 @@ azure_network_operation.Operations_List({
     * operation `string`: Type of the operation: get, read, delete, etc.
     * provider `string`: Service provider: Microsoft Network.
     * resource `string`: Resource on which the operation is performed.
-  * name `string`: Operation name: {provider}/{resource}/{operation}
+  * name `string`: Operation name: {provider}/{resource}/{operation}.
   * origin `string`: Origin of the operation.
   * properties [OperationPropertiesFormat](#operationpropertiesformat)
 

@@ -1,6 +1,6 @@
 # @datafire/letmc_diary
 
-Client library for LetMC Api V3, diary
+Client library for AgentOS Api V3, diary
 
 ## Installation and Usage
 ```bash
@@ -13,12 +13,7 @@ let letmc_diary = require('@datafire/letmc_diary').create({
   password: ""
 });
 
-letmc_diary.DiaryController_GetAllocations({
-  "shortName": "",
-  "preferredDate": "",
-  "propertyIdentifier": "",
-  "appointmentType": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -52,7 +47,7 @@ letmc_diary.DiaryController_GetAllocations({
 
 #### Output
 * output `array`
-  * items [ViewingBookingModel](#viewingbookingmodel)
+  * items [DiaryBookingModel](#diarybookingmodel)
 
 ### DiaryController_DeleteAppointment
 Update an existing appointment using its unique identifier
@@ -73,6 +68,25 @@ letmc_diary.DiaryController_DeleteAppointment({
 #### Output
 * output `string`
 
+### DiaryController_GetAppointment
+Get an appointment by ID
+
+
+```js
+letmc_diary.DiaryController_GetAppointment({
+  "shortName": "",
+  "appointmentID": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * shortName **required** `string`: Company short name
+  * appointmentID **required** `string`: Appointment ID
+
+#### Output
+* output [DiaryAppointmentModel](#diaryappointmentmodel)
+
 ### DiaryController_PostAppointment
 Post an appointment into a valid diary allocation
 
@@ -80,7 +94,7 @@ Post an appointment into a valid diary allocation
 ```js
 letmc_diary.DiaryController_PostAppointment({
   "shortName": "",
-  "propertyIdentifier": "",
+  "propertyIdentifier": [],
   "appointmentDetails": {}
 }, context)
 ```
@@ -88,8 +102,8 @@ letmc_diary.DiaryController_PostAppointment({
 #### Input
 * input `object`
   * shortName **required** `string`: The unique client short-name
-  * propertyIdentifier **required** `string`: The unique property identifier (Sales or Lettings)
-  * appointmentDetails **required** [AppointmentDetails](#appointmentdetails)
+  * propertyIdentifier **required** `array`: The unique property identifier (Sales or Lettings)
+  * appointmentDetails **required** [DiaryAppointmentDetails](#diaryappointmentdetails)
   * lettings `boolean`: Sales or Lettings property?
 
 #### Output
@@ -111,7 +125,7 @@ letmc_diary.DiaryController_PutAppointment({
 * input `object`
   * shortName **required** `string`: The unique client short-name
   * appointmentID **required** `string`: The unique appointment id
-  * appointmentDetails **required** [AppointmentDetails](#appointmentdetails)
+  * appointmentDetails **required** [DiaryAppointmentDetails](#diaryappointmentdetails)
   * lettings `boolean`: Sales or Lettings property?
 
 #### Output
@@ -167,17 +181,42 @@ letmc_diary.DiaryController_GetAppointmentTypes({
 #### Output
 * output [DiaryAppointmentTypeModelResults](#diaryappointmenttypemodelresults)
 
+### DiaryController_GetRecurringAppointments
+Retrieves all recurring appointments:-
+
+
+```js
+letmc_diary.DiaryController_GetRecurringAppointments({
+  "shortName": "",
+  "branchID": "",
+  "appointmentTypesToSearch": [],
+  "offset": 0,
+  "count": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * shortName **required** `string`: The unique client short-name
+  * branchID **required** `string`: The unique ID of the Branch
+  * appointmentTypesToSearch **required** `array`: The appointment IDs to search for
+  * offset **required** `integer`: The index of the first item to return
+  * count **required** `integer`: The maximum number of items to return (up to 1000 per request)
+
+#### Output
+* output [DiaryAppointmentModelResults](#diaryappointmentmodelresults)
+
 
 
 ## Definitions
 
-### AppointmentDetails
-* AppointmentDetails `object`: Helper Model - Structure to submit the appointment details
-  * AllocationDetails [ViewingBookingModel](#viewingbookingmodel)
+### DiaryAppointmentDetails
+* DiaryAppointmentDetails `object`: Submission Model - Structure to submit the appointment details
+  * AllocationDetails [DiaryBookingModel](#diarybookingmodel)
   * AppointmentType `string`: The Appointment Type ID
   * ExtraComments `string`: Additional appointment comments
   * Guests `array`: A collection of guests linked to the appointment. If none leave empty
-    * items [GuestDetails](#guestdetails)
+    * items [DiaryGuestDetails](#diaryguestdetails)
   * Subject `string`: The subject of the appointment
 
 ### DiaryAppointmentModel
@@ -191,7 +230,10 @@ letmc_diary.DiaryController_GetAppointmentTypes({
   * End `string`: The end date/time of this appointment.
   * LinkedProperties `array`: A collection of properties linked to the appointment:-
     * items [LinkedPropertiesModel](#linkedpropertiesmodel)
+  * NextRecurringDate `string`: Date appointment next repeats:-
   * OID `string`: The unique Object ID (OID).
+  * Recurrence `integer`: The reccurrence interval for the appointment:-
+  * RecurrenceType `string`: The type of recurrence:-
   * RemindAt `string`: The date/time to remind the staff member of this appointment.
   * RemindBefore `string` (values: Min, Min2, Min5, Min10, Min15, Min30, Min45, Hour, Hour2, Hour3, Hour6, Hour12, Day, Day2, Day3, Week, NoReminder): The number of minutes before the appointment start date/time to remind the staff member. -1 means don't remind.
   * Staff `string`: The staff member holding this appointment.
@@ -217,8 +259,15 @@ letmc_diary.DiaryController_GetAppointmentTypes({
   * Data `array`: The resulting data returned from the paged query range
     * items [DiaryAppointmentTypeModel](#diaryappointmenttypemodel)
 
-### GuestDetails
-* GuestDetails `object`: Helper Model – Structure to submit appointment guest details
+### DiaryBookingModel
+* DiaryBookingModel `object`: Represents a viewing booking slot
+  * End `string`: The end time of the booking
+  * StaffID `string`: The unique ID of the staff member this booking is with
+  * StaffName `string`: The name of the staff member this booking is with
+  * Start `string`: The start time of the booking
+
+### DiaryGuestDetails
+* DiaryGuestDetails `object`: Submission Model - Structure to submit appointment guest details
   * EmailAddress `string`: Email address
   * Forename `string`: Forename
   * MobilePhone `string`: Mobile phone
@@ -232,6 +281,8 @@ letmc_diary.DiaryController_GetAppointmentTypes({
   * FixedDate `string`: The fixed date of the Tenancy
   * GlobalReference `string`: The unique global reference of the Tenancy
   * IsTenancyEnded `boolean`: Has the Tenancy ended?
+  * IsTenancyProposed `boolean`: Is the tenancy Proposed?
+  * IsTenancySigned `boolean`: Is the tenancy signed?
   * LinkedTenants `array`: A collection of tenants linked to the tenancy:-
     * items [LinkedTenantModel](#linkedtenantmodel)
   * OID `string`: OID
@@ -240,8 +291,10 @@ letmc_diary.DiaryController_GetAppointmentTypes({
 ### LinkedLandlordModel
 * LinkedLandlordModel `object`: Holds information on landlords
   * ETag `string`: ETag
+  * Email `string`: Landlord's email address
   * Forename `string`: Forename
   * OID `string`: OID
+  * PhoneNumber `string`: Landlord's phone number
   * Surname `string`: Surname
   * Title `string`: Title
 
@@ -262,16 +315,11 @@ letmc_diary.DiaryController_GetAppointmentTypes({
 ### LinkedTenantModel
 * LinkedTenantModel `object`: Holds information on tenants
   * ETag `string`: ETag
+  * Email `string`: Tenant's email address
   * Forename `string`: Forename
   * OID `string`: OID
+  * PhoneNumber `string`: Tenant's phone number
   * Surname `string`: Surname
   * Title `string`: Title
-
-### ViewingBookingModel
-* ViewingBookingModel `object`: Represents a viewing booking slot
-  * End `string`: The end time of the booking
-  * StaffID `string`: The unique ID of the staff member this booking is with
-  * StaffName `string`: The name of the staff member this booking is with
-  * Start `string`: The start time of the booking
 
 

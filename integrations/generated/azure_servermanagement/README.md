@@ -15,10 +15,7 @@ let azure_servermanagement = require('@datafire/azure_servermanagement').create(
   redirect_uri: ""
 });
 
-azure_servermanagement.Gateway_List({
-  "subscriptionId": "",
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

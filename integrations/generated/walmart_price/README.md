@@ -1,6 +1,6 @@
 # @datafire/walmart_price
 
-Client library for Price
+Client library for Price API
 
 ## Installation and Usage
 ```bash
@@ -9,16 +9,7 @@ npm install --save @datafire/walmart_price
 ```js
 let walmart_price = require('@datafire/walmart_price').create();
 
-walmart_price.updatePrice({
-  "feedType": "",
-  "file": "",
-  "WM_CONSUMER.CHANNEL.TYPE": "",
-  "WM_CONSUMER.ID": "",
-  "WM_SEC.TIMESTAMP": "",
-  "WM_SEC.AUTH_SIGNATURE": "",
-  "WM_SVC.NAME": "",
-  "WM_QOS.CORRELATION_ID": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

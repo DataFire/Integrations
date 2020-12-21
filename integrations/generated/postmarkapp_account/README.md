@@ -1,6 +1,6 @@
 # @datafire/postmarkapp_account
 
-Client library for Postmark Account-level
+Client library for Postmark Account-level API
 
 ## Installation and Usage
 ```bash
@@ -9,20 +9,16 @@ npm install --save @datafire/postmarkapp_account
 ```js
 let postmarkapp_account = require('@datafire/postmarkapp_account').create();
 
-postmarkapp_account.listDomains({
-  "X-Postmark-Account-Token": "",
-  "count": 0,
-  "offset": 0
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
 
 ## Description
 
-Postmark makes sending and receiving email 
+Postmark makes sending and receiving email
 incredibly easy. The Account-level API allows users to
-configure all Servers, Domains, and Sender Signatures associated 
+configure all Servers, Domains, and Sender Signatures associated
 with an Account.
 
 
@@ -126,10 +122,10 @@ postmarkapp_account.editDomain({
 * output [DomainExtendedInformation](#domainextendedinformation)
 
 ### rotateDKIMKeyForDomain
-Creates a new DKIM key to replace your current key. Until the DNS entries are confirmed, 
-the new values will be in the `DKIMPendingHost` and `DKIMPendingTextValue` fields. 
-After the new DKIM value is verified in DNS, the pending values will migrate to 
-`DKIMTextValue` and `DKIMPendingTextValue` and Postmark will begin to sign emails 
+Creates a new DKIM key to replace your current key. Until the DNS entries are confirmed,
+the new values will be in the `DKIMPendingHost` and `DKIMPendingTextValue` fields.
+After the new DKIM value is verified in DNS, the pending values will migrate to
+`DKIMTextValue` and `DKIMPendingTextValue` and Postmark will begin to sign emails
 with the new DKIM key.
 
 
@@ -304,10 +300,10 @@ postmarkapp_account.editSenderSignature({
 * output [SenderSignatureExtendedInformation](#sendersignatureextendedinformation)
 
 ### requestNewDKIMKeyForSenderSignature
-Requests a new DKIM key to be created. Until the DNS entries are confirmed, 
-the new values will be in the `DKIMPendingHost` and `DKIMPendingTextValue` fields. 
-After the new DKIM value is verified in DNS, the pending values will migrate to 
-`DKIMTextValue` and `DKIMPendingTextValue` and Postmark will begin to sign emails 
+Requests a new DKIM key to be created. Until the DNS entries are confirmed,
+the new values will be in the `DKIMPendingHost` and `DKIMPendingTextValue` fields.
+After the new DKIM value is verified in DNS, the pending values will migrate to
+`DKIMTextValue` and `DKIMPendingTextValue` and Postmark will begin to sign emails
 with the new DKIM key.
 
 
@@ -462,6 +458,25 @@ postmarkapp_account.editServerInformation({
 
 #### Output
 * output [ExtendedServerInfo](#extendedserverinfo)
+
+### pushTemplates
+Push templates from one server to another
+
+
+```js
+postmarkapp_account.pushTemplates({
+  "X-Postmark-Account-Token": "",
+  "body": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * X-Postmark-Account-Token **required** `string`: The token associated with the Account on which this request will operate.
+  * body **required** [TemplatesPushModel](#templatespushmodel)
+
+#### Output
+* output [TemplatesPushResponse](#templatespushresponse)
 
 
 
@@ -653,5 +668,21 @@ postmarkapp_account.editServerInformation({
 * StandardPostmarkResponse `object`: A Postmark API error.
   * ErrorCode `integer`
   * Message `string`
+
+### TemplatesPushModel
+* TemplatesPushModel `object`
+  * DestinationServerId `integer`
+  * PerformChanges `boolean`
+  * SourceServerId `integer`
+
+### TemplatesPushResponse
+* TemplatesPushResponse `object`
+  * Templates `array`
+    * items `object`
+      * Action `string`
+      * Alias `string`
+      * Name `string`
+      * TemplateId `integer`
+  * TotalCount `integer`
 
 

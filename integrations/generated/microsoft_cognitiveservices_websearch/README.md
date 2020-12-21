@@ -1,6 +1,6 @@
 # @datafire/microsoft_cognitiveservices_websearch
 
-Client library for Web Search
+Client library for Web Search Client
 
 ## Installation and Usage
 ```bash
@@ -11,10 +11,7 @@ let microsoft_cognitiveservices_websearch = require('@datafire/microsoft_cogniti
   apiKeyHeader: ""
 });
 
-microsoft_cognitiveservices_websearch.Web_Search({
-  "X-BingApis-SDK": "",
-  "q": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

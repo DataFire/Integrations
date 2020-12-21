@@ -9,7 +9,7 @@ npm install --save @datafire/posty
 ```js
 let posty = require('@datafire/posty').create();
 
-posty.api.v1.domains.json.get(null).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

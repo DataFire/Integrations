@@ -7,7 +7,7 @@
   "info": {
     "description": "API for using the Azure IoT Hub Device Provisioning Service features.",
     "title": "iotDpsClient",
-    "version": "2017-11-15",
+    "version": "2018-01-22",
     "x-apisguru-categories": [
       "cloud"
     ],
@@ -20,7 +20,7 @@
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/deviceprovisioningservices/resource-manager/Microsoft.Devices/stable/2017-11-15/iotdps.json",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/deviceprovisioningservices/resource-manager/Microsoft.Devices/stable/2018-01-22/iotdps.json",
         "version": "2.0"
       }
     ],
@@ -106,7 +106,7 @@
         "x-ms-examples": {
           "DPSOperations": {
             "parameters": {
-              "api-version": "2017-11-15"
+              "api-version": "2018-01-22"
             },
             "responses": {
               "200": {
@@ -114,7 +114,6 @@
                   "value": [
                     {
                       "display": {
-                        "description": "Register the subscription for the IotHub resource provider and enables the creation of IotHub resources",
                         "operation": "Register Resource Provider",
                         "provider": "Microsoft Devices",
                         "resource": "IotHubs"
@@ -123,7 +122,6 @@
                     },
                     {
                       "display": {
-                        "description": "Gets the diagnostic setting for the resource",
                         "operation": "Get Diagnostic Setting",
                         "provider": "Microsoft Devices",
                         "resource": "IotHubs"
@@ -132,7 +130,6 @@
                     },
                     {
                       "display": {
-                        "description": "Creates or updates the diagnostic setting for the resource",
                         "operation": "Set Diagnostic Setting",
                         "provider": "Microsoft Devices",
                         "resource": "IotHubs"
@@ -141,7 +138,6 @@
                     },
                     {
                       "display": {
-                        "description": "Gets the available metrics for the IotHub service",
                         "operation": "Read IotHub service metric definitions",
                         "provider": "Microsoft Devices",
                         "resource": "IotHubs"
@@ -150,7 +146,6 @@
                     },
                     {
                       "display": {
-                        "description": "Gets the available log definitions for the IotHub Service",
                         "operation": "Read IotHub service log definitions",
                         "provider": "Microsoft Devices",
                         "resource": "IotHubs"
@@ -159,7 +154,6 @@
                     },
                     {
                       "display": {
-                        "description": "Get All ResourceProvider Operations",
                         "operation": "Get All ResourceProvider Operations",
                         "provider": "Microsoft Devices",
                         "resource": "IotHubs"
@@ -168,7 +162,6 @@
                     },
                     {
                       "display": {
-                        "description": "Check If IotHub name is available",
                         "operation": "Check If IotHub name is available",
                         "provider": "Microsoft Devices",
                         "resource": "IotHubs"
@@ -177,7 +170,6 @@
                     },
                     {
                       "display": {
-                        "description": "Get subscription usage details for this provider.",
                         "operation": "Get Subscription Usages",
                         "provider": "Microsoft Devices",
                         "resource": "IotHubs"
@@ -186,7 +178,6 @@
                     },
                     {
                       "display": {
-                        "description": "Gets the IotHub resource(s)",
                         "operation": "Get IotHub(s)",
                         "provider": "Microsoft Devices",
                         "resource": "IotHubs"
@@ -195,7 +186,6 @@
                     },
                     {
                       "display": {
-                        "description": "Create or update IotHub Resource",
                         "operation": "Create or update IotHub Resource",
                         "provider": "Microsoft Devices",
                         "resource": "IotHubs"
@@ -204,7 +194,6 @@
                     },
                     {
                       "display": {
-                        "description": "Delete IotHub Resource",
                         "operation": "Delete IotHub Resource",
                         "provider": "Microsoft Devices",
                         "resource": "IotHubs"
@@ -213,7 +202,6 @@
                     },
                     {
                       "display": {
-                        "description": "Get IotHub Statistics",
                         "operation": "Get IotHub Statistics",
                         "provider": "Microsoft Devices",
                         "resource": "IotHubs"
@@ -222,7 +210,6 @@
                     },
                     {
                       "display": {
-                        "description": "Get valid IotHub Skus",
                         "operation": "Get valid IotHub Skus",
                         "provider": "Microsoft Devices",
                         "resource": "IotHubs"
@@ -231,7 +218,6 @@
                     },
                     {
                       "display": {
-                        "description": "Get all IotHub Keys",
                         "operation": "Get all IotHub Keys",
                         "provider": "Microsoft Devices",
                         "resource": "IotHubs"
@@ -240,7 +226,6 @@
                     },
                     {
                       "display": {
-                        "description": "Get IotHub Key for the given name",
                         "operation": "Get IotHub Key for the given name",
                         "provider": "Microsoft Devices",
                         "resource": "IotHubs"
@@ -249,7 +234,6 @@
                     },
                     {
                       "display": {
-                        "description": "Create EventHub Consumer Group",
                         "operation": "Create EventHub Consumer Group",
                         "provider": "Microsoft Devices",
                         "resource": "IotHubs"
@@ -258,7 +242,6 @@
                     },
                     {
                       "display": {
-                        "description": "Get EventHub Consumer Group(s)",
                         "operation": "Get EventHub Consumer Group(s)",
                         "provider": "Microsoft Devices",
                         "resource": "IotHubs"
@@ -267,7 +250,6 @@
                     },
                     {
                       "display": {
-                        "description": "Delete EventHub Consumer Group",
                         "operation": "Delete EventHub Consumer Group",
                         "provider": "Microsoft Devices",
                         "resource": "IotHubs"
@@ -276,7 +258,6 @@
                     },
                     {
                       "display": {
-                        "description": "Export Devices",
                         "operation": "Export Devices",
                         "provider": "Microsoft Devices",
                         "resource": "IotHubs"
@@ -285,7 +266,6 @@
                     },
                     {
                       "display": {
-                        "description": "Import Devices",
                         "operation": "Import Devices",
                         "provider": "Microsoft Devices",
                         "resource": "IotHubs"
@@ -294,7 +274,6 @@
                     },
                     {
                       "display": {
-                        "description": "Get Job(s) details submitted on given IotHub",
                         "operation": "Get the Job(s) on IotHub",
                         "provider": "Microsoft Devices",
                         "resource": "IotHubs"
@@ -303,7 +282,6 @@
                     },
                     {
                       "display": {
-                        "description": "Get Quota Metrics",
                         "operation": "Get Quota Metrics",
                         "provider": "Microsoft Devices",
                         "resource": "IotHubs"
@@ -312,7 +290,6 @@
                     },
                     {
                       "display": {
-                        "description": "Test a message against all existing Routes",
                         "operation": "Routing Rule Test All",
                         "provider": "Microsoft Devices",
                         "resource": "IotHubs"
@@ -321,7 +298,6 @@
                     },
                     {
                       "display": {
-                        "description": "Test a message against a provided test Route",
                         "operation": "Routing Rule Test Route",
                         "provider": "Microsoft Devices",
                         "resource": "IotHubs"
@@ -330,7 +306,6 @@
                     },
                     {
                       "display": {
-                        "description": "Gets the health of all routing Endpoints for an IotHub",
                         "operation": "Get Endpoint Health",
                         "provider": "Microsoft Devices",
                         "resource": "IotHubs"
@@ -339,7 +314,6 @@
                     },
                     {
                       "display": {
-                        "description": "Gets the diagnostic setting for the resource",
                         "operation": "Get Diagnostic Setting",
                         "provider": "Microsoft Devices",
                         "resource": "IotHubs"
@@ -348,7 +322,6 @@
                     },
                     {
                       "display": {
-                        "description": "Creates or updates the diagnostic setting for the resource",
                         "operation": "Set Diagnostic Setting",
                         "provider": "Microsoft Devices",
                         "resource": "IotHubs"
@@ -357,7 +330,6 @@
                     },
                     {
                       "display": {
-                        "description": "Gets the available metrics for the DPS service",
                         "operation": "Read DPS service metric definitions",
                         "provider": "Microsoft Devices",
                         "resource": "IotHubs"
@@ -366,7 +338,6 @@
                     },
                     {
                       "display": {
-                        "description": "Gets the available log definitions for the DPS Service",
                         "operation": "Read DPS service log definitions",
                         "provider": "Microsoft Devices",
                         "resource": "IotHubs"
@@ -375,7 +346,6 @@
                     },
                     {
                       "display": {
-                        "description": "Check If Provisioning Service name is available",
                         "operation": "Check If Provisioning Service name is available",
                         "provider": "Microsoft Devices",
                         "resource": "ProvisioningServives"
@@ -384,7 +354,6 @@
                     },
                     {
                       "display": {
-                        "description": "Get Provisioning Service resource",
                         "operation": "Get Provisioning Service resource",
                         "provider": "Microsoft Devices",
                         "resource": "ProvisioningServices"
@@ -393,7 +362,6 @@
                     },
                     {
                       "display": {
-                        "description": "Create Provisioning Service resource",
                         "operation": "Create Provisioning Service resource",
                         "provider": "Microsoft Devices",
                         "resource": "ProvisioningServices"
@@ -402,7 +370,6 @@
                     },
                     {
                       "display": {
-                        "description": "Delete Provisioning Service resource",
                         "operation": "Delete Provisioning Service resource",
                         "provider": "Microsoft Devices",
                         "resource": "ProvisioningServices"
@@ -411,7 +378,6 @@
                     },
                     {
                       "display": {
-                        "description": "Delete Provisioning Service resource",
                         "operation": "Delete Provisioning Service resource",
                         "provider": "Microsoft Devices",
                         "resource": "ProvisioningServices"
@@ -420,7 +386,6 @@
                     },
                     {
                       "display": {
-                        "description": "get security related metadata",
                         "operation": "get security related metadata",
                         "provider": "Microsoft Devices",
                         "resource": "ProvisioningServices"
@@ -480,7 +445,7 @@
         "x-ms-examples": {
           "DPSCheckName": {
             "parameters": {
-              "api-version": "2017-11-15",
+              "api-version": "2018-01-22",
               "arguments": {
                 "name": "test213123"
               },
@@ -532,7 +497,7 @@
         "x-ms-examples": {
           "DPSListBySubscription": {
             "parameters": {
-              "api-version": "2017-11-15",
+              "api-version": "2018-01-22",
               "subscriptionId": "91d12660-3dec-467a-be2a-213b5544ddc0"
             },
             "responses": {
@@ -630,7 +595,7 @@
         "x-ms-examples": {
           "DPSListByResourceGroup": {
             "parameters": {
-              "api-version": "2017-11-15",
+              "api-version": "2018-01-22",
               "resourceGroupName": "myResourceGroup",
               "subscriptionId": "91d12660-3dec-467a-be2a-213b5544ddc0"
             },
@@ -743,7 +708,7 @@
         "x-ms-examples": {
           "DPSDelete": {
             "parameters": {
-              "api-version": "2017-11-15",
+              "api-version": "2018-01-22",
               "provisioningServiceName": "myFirstProvisioningService",
               "resourceGroupName": "myResourceGroup",
               "subscriptionId": "91d12660-3dec-467a-be2a-213b5544ddc0"
@@ -804,7 +769,7 @@
         "x-ms-examples": {
           "DPSGet": {
             "parameters": {
-              "api-version": "2017-11-15",
+              "api-version": "2018-01-22",
               "provisioningServiceName": "myFirstProvisioningService",
               "resourceGroupName": "myResourceGroup",
               "subscriptionId": "91d12660-3dec-467a-be2a-213b5544ddc0"
@@ -891,7 +856,7 @@
                   "foo": "bar"
                 }
               },
-              "api-version": "2017-11-15",
+              "api-version": "2018-01-22",
               "location": "East US",
               "provisioningServiceName": "myFirstProvisioningService",
               "resourceGroupName": "myResourceGroup",
@@ -989,7 +954,7 @@
         "x-ms-examples": {
           "DPSCreate": {
             "parameters": {
-              "api-version": "2017-11-15",
+              "api-version": "2018-01-22",
               "iotDpsDescription": {
                 "location": "East US",
                 "properties": {},
@@ -1105,7 +1070,7 @@
         "x-ms-examples": {
           "DPSGetCertificates": {
             "parameters": {
-              "api-version": "2017-11-15",
+              "api-version": "2018-01-22",
               "provisioningServiceName": "myFirstProvisioningService",
               "resourceGroupName": "myResourceGroup",
               "subscriptionId": "91d12660-3dec-467a-be2a-213b5544ddc0"
@@ -1139,7 +1104,7 @@
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Devices/provisioningServices/{provisioningServiceName}/certificates/{certificateName}": {
       "delete": {
         "consumes": [],
-        "description": "Deletes the specified certificate assosciated with the Provisioning Service",
+        "description": "Deletes the specified certificate associated with the Provisioning Service",
         "operationId": "DpsCertificate_Delete",
         "parameters": [
           {
@@ -1266,7 +1231,7 @@
           "DPSDeleteCertificate": {
             "parameters": {
               "If-Match": "AAAAAAAADGk=",
-              "api-version": "2017-11-15",
+              "api-version": "2018-01-22",
               "certificateName": "cert",
               "provisioningServiceName": "myFirstProvisioningService",
               "resourceGroupName": "myResourceGroup",
@@ -1339,7 +1304,7 @@
         "x-ms-examples": {
           "DPSGetCertificate": {
             "parameters": {
-              "api-version": "2017-11-15",
+              "api-version": "2018-01-22",
               "certificateName": "cert",
               "provisioningServiceName": "myFirstProvisioningService",
               "resourceGroupName": "myResourceGroup",
@@ -1437,7 +1402,7 @@
         "x-ms-examples": {
           "DPSCreateOrUpdateCertificate": {
             "parameters": {
-              "api-version": "2017-11-15",
+              "api-version": "2018-01-22",
               "certificateDescription": {
                 "certificate": "############################################"
               },
@@ -1596,7 +1561,7 @@
           "DPSGenerateVerificationCode": {
             "parameters": {
               "If-Match": "AAAAAAAADGk=",
-              "api-version": "2017-11-15",
+              "api-version": "2018-01-22",
               "certificateName": "cert",
               "provisioningServiceName": "myFirstProvisioningService",
               "resourceGroupName": "myResourceGroup",
@@ -1760,7 +1725,7 @@
           "DPSVerifyCertificate": {
             "parameters": {
               "If-Match": "AAAAAAAADGk=",
-              "api-version": "2017-11-15",
+              "api-version": "2018-01-22",
               "certificateName": "cert",
               "provisioningServiceName": "myFirstProvisioningService",
               "request": {
@@ -1845,7 +1810,7 @@
         "x-ms-examples": {
           "DPSGetKey": {
             "parameters": {
-              "api-version": "2017-11-15",
+              "api-version": "2018-01-22",
               "keyName": "testKey",
               "provisioningServiceName": "myFirstProvisioningService",
               "resourceGroupName": "myResourceGroup",
@@ -1912,7 +1877,7 @@
         "x-ms-examples": {
           "DPSListKeys": {
             "parameters": {
-              "api-version": "2017-11-15",
+              "api-version": "2018-01-22",
               "provisioningServiceName": "myFirstProvisioningService",
               "resourceGroupName": "myResourceGroup",
               "subscriptionId": "91d12660-3dec-467a-be2a-213b5544ddc0"
@@ -2006,7 +1971,7 @@
         "x-ms-examples": {
           "DPSGetOperationResult": {
             "parameters": {
-              "api-version": "2017-11-15",
+              "api-version": "2018-01-22",
               "asyncinfo": "1508265712453",
               "operationId": "MTY5OTNmZDctODI5Yy00N2E2LTkxNDQtMDU1NGIyYzY1ZjRl",
               "provisioningServiceName": "myFirstProvisioningService",
@@ -2071,7 +2036,7 @@
         "x-ms-examples": {
           "DPSGetValidSku": {
             "parameters": {
-              "api-version": "2017-11-15",
+              "api-version": "2018-01-22",
               "provisioningServiceName": "myFirstProvisioningService",
               "resourceGroupName": "myResourceGroup",
               "subscriptionId": "91d12660-3dec-467a-be2a-213b5544ddc0"
@@ -2206,22 +2171,22 @@
     "ErrorDetails": {
       "description": "Error details.",
       "properties": {
-        "Code": {
+        "code": {
           "description": "The error code.",
           "readOnly": true,
           "type": "string"
         },
-        "Details": {
+        "details": {
           "description": "The error details.",
           "readOnly": true,
           "type": "string"
         },
-        "HttpStatusCode": {
+        "httpStatusCode": {
           "description": "The HTTP status code.",
           "readOnly": true,
           "type": "string"
         },
-        "Message": {
+        "message": {
           "description": "The error message.",
           "readOnly": true,
           "type": "string"
@@ -2248,7 +2213,7 @@
       "type": "object"
     },
     "IotDpsPropertiesDescription": {
-      "description": "the service specific properties of a provisoning service, including keys, linked iot hubs, current state, and system generated properties such as hostname and idScope",
+      "description": "the service specific properties of a provisioning service, including keys, linked iot hubs, current state, and system generated properties such as hostname and idScope",
       "properties": {
         "allocationPolicy": {
           "description": "Allocation policy to be used by this provisioning service.",
@@ -2281,7 +2246,7 @@
           "type": "string"
         },
         "iotHubs": {
-          "description": "List of IoT hubs assosciated with this provisioning service.",
+          "description": "List of IoT hubs associated with this provisioning service.",
           "items": {
             "$ref": "#/definitions/IotHubDefinitionDescription"
           },
@@ -2322,10 +2287,10 @@
       "type": "object"
     },
     "IotDpsSkuDefinition": {
-      "description": "Available SKU's of tier and units.",
+      "description": "Available SKUs of tier and units.",
       "properties": {
         "name": {
-          "description": "SKU name.",
+          "description": "Sku name.",
           "enum": [
             "S1"
           ],
@@ -2347,7 +2312,7 @@
           "type": "string"
         },
         "value": {
-          "description": "The list of SKU's",
+          "description": "The list of SKUs",
           "items": {
             "$ref": "#/definitions/IotDpsSkuDefinition"
           },
@@ -2357,7 +2322,7 @@
       "type": "object"
     },
     "IotDpsSkuInfo": {
-      "description": "List of possible provisoning service SKUs.",
+      "description": "List of possible provisioning service SKUs.",
       "properties": {
         "capacity": {
           "description": "The number of units to provision",
@@ -2387,16 +2352,16 @@
       "description": "Description of the IoT hub.",
       "properties": {
         "allocationWeight": {
-          "description": "Weight to apply for a given IoT hub.",
+          "description": "weight to apply for a given iot h.",
           "format": "int32",
           "type": "integer"
         },
         "applyAllocationPolicy": {
-          "description": "Flag for applying allocationPolicy or not for a given IoT hub.",
+          "description": "flag for applying allocationPolicy or not for a given iot hub.",
           "type": "boolean"
         },
         "connectionString": {
-          "description": "Connection string of the IoT hub.",
+          "description": "Connection string og the IoT hub.",
           "type": "string"
         },
         "location": {
@@ -2419,7 +2384,7 @@
       "description": "Description of name availability.",
       "properties": {
         "message": {
-          "description": "message containing a etailed reason name is unavailable",
+          "description": "message containing a detailed reason name is unavailable",
           "type": "string"
         },
         "nameAvailable": {
@@ -2521,7 +2486,7 @@
         },
         "sku": {
           "$ref": "#/definitions/IotDpsSkuInfo",
-          "description": "SKU info for a provisioning service."
+          "description": "Sku info for a provisioning Service."
         }
       },
       "required": [

@@ -1,8 +1,8 @@
 {
   "name": "@datafire/ornl_gov_daymet",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "main": "index.js",
-  "description": "DataFire integration for Daymet Single Pixel Tool",
+  "description": "DataFire integration for Daymet Single Pixel Extraction Tool API",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DataFire/integrations.git"
@@ -14,7 +14,7 @@
   },
   "homepage": "https://github.com/DataFire/integrations#readme",
   "datafire": {
-    "origin": "https://api.apis.guru/v2/specs/ornl.gov/daymet/1.0.0/swagger.json",
+    "origin": "https://api.apis.guru/v2/specs/ornl.gov/daymet/1.0.2/swagger.json",
     "type": "openapi"
   },
   "peerDependencies": {

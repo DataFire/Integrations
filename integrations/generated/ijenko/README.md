@@ -12,7 +12,7 @@ let ijenko = require('@datafire/ijenko').create({
   "Token in query": ""
 });
 
-ijenko.Me.places({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

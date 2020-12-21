@@ -1,23 +1,25 @@
 {
   "swagger": "2.0",
-  "schemes": [
-    "https"
-  ],
-  "host": "www.googleapis.com",
-  "basePath": "/webmasters/v3",
   "info": {
     "contact": {
       "name": "Google",
-      "url": "https://google.com"
+      "url": "https://google.com",
+      "x-twitter": "youtube"
     },
     "description": "View Google Search Console data for your verified sites.",
-    "title": "Search Console",
+    "license": {
+      "name": "Creative Commons Attribution 3.0",
+      "url": "http://creativecommons.org/licenses/by/3.0/"
+    },
+    "termsOfService": "https://developers.google.com/terms/",
+    "title": "Search Console API",
     "version": "v3",
     "x-apiClientRegistration": {
       "url": "https://console.developers.google.com"
     },
     "x-apisguru-categories": [
-      "search"
+      "analytics",
+      "media"
     ],
     "x-logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
@@ -26,7 +28,7 @@
       {
         "converter": {
           "url": "https://github.com/lucybot/api-spec-converter",
-          "version": "2.6.2"
+          "version": "2.7.31"
         },
         "format": "google",
         "url": "https://www.googleapis.com/discovery/v1/apis/webmasters/v3/rest",
@@ -41,103 +43,65 @@
       "type": "openapi"
     }
   },
-  "externalDocs": {
-    "url": "https://developers.google.com/webmaster-tools/"
-  },
-  "securityDefinitions": {
-    "Oauth2": {
-      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 authentication",
-      "flow": "implicit",
-      "scopes": {
-        "https://www.googleapis.com/auth/webmasters": "View and manage Search Console data for your verified sites",
-        "https://www.googleapis.com/auth/webmasters.readonly": "View Search Console data for your verified sites"
-      },
-      "type": "oauth2"
-    },
-    "offline": {
-      "type": "oauth2",
-      "flow": "accessCode",
-      "scopes": {
-        "https://www.googleapis.com/auth/webmasters": "View and manage Search Console data for your verified sites",
-        "https://www.googleapis.com/auth/webmasters.readonly": "View Search Console data for your verified sites"
-      },
-      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "tokenUrl": "https://www.googleapis.com/oauth2/v4/token",
-      "description": "Allows offline access using a refresh_token"
-    }
-  },
-  "parameters": {
-    "alt": {
-      "default": "json",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ],
-      "in": "query",
-      "name": "alt",
-      "type": "string"
-    },
-    "fields": {
-      "description": "Selector specifying which fields to include in a partial response.",
-      "in": "query",
-      "name": "fields",
-      "type": "string"
-    },
-    "key": {
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
-      "in": "query",
-      "name": "key",
-      "type": "string"
-    },
-    "oauth_token": {
-      "description": "OAuth 2.0 token for the current user.",
-      "in": "query",
-      "name": "oauth_token",
-      "type": "string"
-    },
-    "prettyPrint": {
-      "default": true,
-      "description": "Returns response with indentations and line breaks.",
-      "in": "query",
-      "name": "prettyPrint",
-      "type": "boolean"
-    },
-    "quotaUser": {
-      "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
-      "in": "query",
-      "name": "quotaUser",
-      "type": "string"
-    },
-    "userIp": {
-      "description": "Deprecated. Please use quotaUser instead.",
-      "in": "query",
-      "name": "userIp",
-      "type": "string"
-    }
-  },
-  "tags": [
-    {
-      "name": "searchanalytics"
-    },
-    {
-      "name": "sitemaps"
-    },
-    {
-      "name": "sites"
-    },
-    {
-      "name": "urlcrawlerrorscounts"
-    },
-    {
-      "name": "urlcrawlerrorssamples"
-    }
+  "host": "www.googleapis.com",
+  "basePath": "/webmasters/v3",
+  "schemes": [
+    "https"
   ],
   "paths": {
     "/sites": {
+      "parameters": [
+        {
+          "description": "Data format for the response.",
+          "enum": [
+            "json"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
+        },
+        {
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
+        },
+        {
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
+        },
+        {
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
+        },
+        {
+          "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
+        },
+        {
+          "description": "Deprecated. Please use quotaUser instead.",
+          "in": "query",
+          "name": "userIp",
+          "type": "string"
+        }
+      ],
       "get": {
-        "description": "Lists the user's Search Console sites.",
-        "operationId": "sites.list",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -150,46 +114,76 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/webmasters"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/webmasters"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/webmasters.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/webmasters.readonly"
             ]
           }
         ],
         "tags": [
           "sites"
-        ]
-      },
-      "parameters": [
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/userIp"
-        }
-      ]
+        ],
+        "description": "Lists the user's Search Console sites.",
+        "operationId": "webmasters.sites.list"
+      }
     },
     "/sites/{siteUrl}": {
+      "parameters": [
+        {
+          "description": "Data format for the response.",
+          "enum": [
+            "json"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
+        },
+        {
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
+        },
+        {
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
+        },
+        {
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
+        },
+        {
+          "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
+        },
+        {
+          "description": "Deprecated. Please use quotaUser instead.",
+          "in": "query",
+          "name": "userIp",
+          "type": "string"
+        }
+      ],
       "delete": {
-        "description": "Removes a site from the set of the user's Search Console sites.",
-        "operationId": "sites.delete",
         "parameters": [
           {
             "description": "The URI of the property as defined in Search Console. Examples: http://www.example.com/ or android-app://com.example/ Note: for property-sets, use the URI that starts with sc-set: which is used in Search Console URLs.",
@@ -208,16 +202,22 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/webmasters"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/webmasters"
             ]
           }
         ],
         "tags": [
           "sites"
-        ]
+        ],
+        "description": "Removes a site from the set of the user's Search Console sites.",
+        "operationId": "webmasters.sites.delete"
       },
       "get": {
-        "description": "Retrieves information about specific site.",
-        "operationId": "sites.get",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "The URI of the property as defined in Search Console. Examples: http://www.example.com/ or android-app://com.example/ Note: for property-sets, use the URI that starts with sc-set: which is used in Search Console URLs.",
@@ -239,44 +239,27 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/webmasters"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/webmasters"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/webmasters.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/webmasters.readonly"
             ]
           }
         ],
         "tags": [
           "sites"
-        ]
+        ],
+        "description": "Retrieves information about specific site.",
+        "operationId": "webmasters.sites.get"
       },
-      "parameters": [
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/userIp"
-        }
-      ],
       "put": {
-        "description": "Adds a site to the set of the user's sites in Search Console.",
-        "operationId": "sites.add",
         "parameters": [
           {
             "description": "The URL of the site to add.",
@@ -295,55 +278,88 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/webmasters"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/webmasters"
             ]
           }
         ],
         "tags": [
           "sites"
-        ]
+        ],
+        "description": "Adds a site to the set of the user's sites in Search Console.",
+        "operationId": "webmasters.sites.add"
       }
     },
     "/sites/{siteUrl}/searchAnalytics/query": {
       "parameters": [
         {
-          "$ref": "#/parameters/alt"
+          "description": "Data format for the response.",
+          "enum": [
+            "json"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/fields"
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/key"
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/oauth_token"
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/prettyPrint"
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
         },
         {
-          "$ref": "#/parameters/quotaUser"
+          "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/userIp"
+          "description": "Deprecated. Please use quotaUser instead.",
+          "in": "query",
+          "name": "userIp",
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Query your data with filters and parameters that you define. Returns zero or more rows grouped by the row keys that you define. You must define a date range of one or more days.\n\nWhen date is one of the group by values, any days without data are omitted from the result list. If you need to know which days have data, issue a broad date range query grouped by date for any metric, and see which day rows are returned.",
-        "operationId": "searchanalytics.query",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/SearchAnalyticsQueryRequest"
-            }
-          },
           {
             "description": "The site's URL, including protocol. For example: http://www.example.com/",
             "in": "path",
             "name": "siteUrl",
             "required": true,
             "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/SearchAnalyticsQueryRequest"
+            }
           }
         ],
         "responses": {
@@ -358,23 +374,79 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/webmasters"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/webmasters"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/webmasters.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/webmasters.readonly"
             ]
           }
         ],
         "tags": [
           "searchanalytics"
-        ]
+        ],
+        "description": "Query your data with filters and parameters that you define. Returns zero or more rows grouped by the row keys that you define. You must define a date range of one or more days.\n\nWhen date is one of the group by values, any days without data are omitted from the result list. If you need to know which days have data, issue a broad date range query grouped by date for any metric, and see which day rows are returned.",
+        "operationId": "webmasters.searchanalytics.query"
       }
     },
     "/sites/{siteUrl}/sitemaps": {
+      "parameters": [
+        {
+          "description": "Data format for the response.",
+          "enum": [
+            "json"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
+        },
+        {
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
+        },
+        {
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
+        },
+        {
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
+        },
+        {
+          "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
+        },
+        {
+          "description": "Deprecated. Please use quotaUser instead.",
+          "in": "query",
+          "name": "userIp",
+          "type": "string"
+        }
+      ],
       "get": {
-        "description": "Lists the sitemaps-entries submitted for this site, or included in the sitemap index file (if sitemapIndex is specified in the request).",
-        "operationId": "sitemaps.list",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "The site's URL, including protocol. For example: http://www.example.com/",
@@ -402,58 +474,88 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/webmasters"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/webmasters"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/webmasters.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/webmasters.readonly"
             ]
           }
         ],
         "tags": [
           "sitemaps"
-        ]
-      },
-      "parameters": [
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/userIp"
-        }
-      ]
+        ],
+        "description": "Lists the sitemaps-entries submitted for this site, or included in the sitemap index file (if sitemapIndex is specified in the request).",
+        "operationId": "webmasters.sitemaps.list"
+      }
     },
     "/sites/{siteUrl}/sitemaps/{feedpath}": {
+      "parameters": [
+        {
+          "description": "Data format for the response.",
+          "enum": [
+            "json"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
+        },
+        {
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
+        },
+        {
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
+        },
+        {
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
+        },
+        {
+          "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
+        },
+        {
+          "description": "Deprecated. Please use quotaUser instead.",
+          "in": "query",
+          "name": "userIp",
+          "type": "string"
+        }
+      ],
       "delete": {
-        "description": "Deletes a sitemap from this site.",
-        "operationId": "sitemaps.delete",
         "parameters": [
-          {
-            "description": "The URL of the actual sitemap. For example: http://www.example.com/sitemap.xml",
-            "in": "path",
-            "name": "feedpath",
-            "required": true,
-            "type": "string"
-          },
           {
             "description": "The site's URL, including protocol. For example: http://www.example.com/",
             "in": "path",
             "name": "siteUrl",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The URL of the actual sitemap. For example: http://www.example.com/sitemap.xml",
+            "in": "path",
+            "name": "feedpath",
             "required": true,
             "type": "string"
           }
@@ -467,28 +569,34 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/webmasters"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/webmasters"
             ]
           }
         ],
         "tags": [
           "sitemaps"
-        ]
+        ],
+        "description": "Deletes a sitemap from this site.",
+        "operationId": "webmasters.sitemaps.delete"
       },
       "get": {
-        "description": "Retrieves information about a specific sitemap.",
-        "operationId": "sitemaps.get",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
-          {
-            "description": "The URL of the actual sitemap. For example: http://www.example.com/sitemap.xml",
-            "in": "path",
-            "name": "feedpath",
-            "required": true,
-            "type": "string"
-          },
           {
             "description": "The site's URL, including protocol. For example: http://www.example.com/",
             "in": "path",
             "name": "siteUrl",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The URL of the actual sitemap. For example: http://www.example.com/sitemap.xml",
+            "in": "path",
+            "name": "feedpath",
             "required": true,
             "type": "string"
           }
@@ -505,58 +613,41 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/webmasters"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/webmasters"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/webmasters.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/webmasters.readonly"
             ]
           }
         ],
         "tags": [
           "sitemaps"
-        ]
+        ],
+        "description": "Retrieves information about a specific sitemap.",
+        "operationId": "webmasters.sitemaps.get"
       },
-      "parameters": [
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/userIp"
-        }
-      ],
       "put": {
-        "description": "Submits a sitemap for a site.",
-        "operationId": "sitemaps.submit",
         "parameters": [
+          {
+            "description": "The site's URL, including protocol. For example: http://www.example.com/",
+            "in": "path",
+            "name": "siteUrl",
+            "required": true,
+            "type": "string"
+          },
           {
             "description": "The URL of the sitemap to add. For example: http://www.example.com/sitemap.xml",
             "in": "path",
             "name": "feedpath",
             "required": true,
             "type": "string"
-          },
-          {
-            "description": "The site's URL, including protocol. For example: http://www.example.com/",
-            "in": "path",
-            "name": "siteUrl",
-            "required": true,
-            "type": "string"
           }
         ],
         "responses": {
@@ -567,364 +658,19 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/webmasters"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/webmasters"
             ]
           }
         ],
         "tags": [
           "sitemaps"
-        ]
+        ],
+        "description": "Submits a sitemap for a site.",
+        "operationId": "webmasters.sitemaps.submit"
       }
-    },
-    "/sites/{siteUrl}/urlCrawlErrorsCounts/query": {
-      "get": {
-        "description": "Retrieves a time series of the number of URL crawl errors per error category and platform.",
-        "operationId": "urlcrawlerrorscounts.query",
-        "parameters": [
-          {
-            "description": "The crawl error category. For example: serverError. If not specified, returns results for all categories.",
-            "enum": [
-              "authPermissions",
-              "flashContent",
-              "manyToOneRedirect",
-              "notFollowed",
-              "notFound",
-              "other",
-              "roboted",
-              "serverError",
-              "soft404"
-            ],
-            "in": "query",
-            "name": "category",
-            "type": "string"
-          },
-          {
-            "default": true,
-            "description": "If true, returns only the latest crawl error counts.",
-            "in": "query",
-            "name": "latestCountsOnly",
-            "type": "boolean"
-          },
-          {
-            "description": "The user agent type (platform) that made the request. For example: web. If not specified, returns results for all platforms.",
-            "enum": [
-              "mobile",
-              "smartphoneOnly",
-              "web"
-            ],
-            "in": "query",
-            "name": "platform",
-            "type": "string"
-          },
-          {
-            "description": "The site's URL, including protocol. For example: http://www.example.com/",
-            "in": "path",
-            "name": "siteUrl",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful response",
-            "schema": {
-              "$ref": "#/definitions/UrlCrawlErrorsCountsQueryResponse"
-            }
-          }
-        },
-        "security": [
-          {
-            "Oauth2": [
-              "https://www.googleapis.com/auth/webmasters"
-            ]
-          },
-          {
-            "Oauth2": [
-              "https://www.googleapis.com/auth/webmasters.readonly"
-            ]
-          }
-        ],
-        "tags": [
-          "urlcrawlerrorscounts"
-        ]
-      },
-      "parameters": [
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/userIp"
-        }
-      ]
-    },
-    "/sites/{siteUrl}/urlCrawlErrorsSamples": {
-      "get": {
-        "description": "Lists a site's sample URLs for the specified crawl error category and platform.",
-        "operationId": "urlcrawlerrorssamples.list",
-        "parameters": [
-          {
-            "description": "The crawl error category. For example: authPermissions",
-            "enum": [
-              "authPermissions",
-              "flashContent",
-              "manyToOneRedirect",
-              "notFollowed",
-              "notFound",
-              "other",
-              "roboted",
-              "serverError",
-              "soft404"
-            ],
-            "in": "query",
-            "name": "category",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The user agent type (platform) that made the request. For example: web",
-            "enum": [
-              "mobile",
-              "smartphoneOnly",
-              "web"
-            ],
-            "in": "query",
-            "name": "platform",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The site's URL, including protocol. For example: http://www.example.com/",
-            "in": "path",
-            "name": "siteUrl",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful response",
-            "schema": {
-              "$ref": "#/definitions/UrlCrawlErrorsSamplesListResponse"
-            }
-          }
-        },
-        "security": [
-          {
-            "Oauth2": [
-              "https://www.googleapis.com/auth/webmasters"
-            ]
-          },
-          {
-            "Oauth2": [
-              "https://www.googleapis.com/auth/webmasters.readonly"
-            ]
-          }
-        ],
-        "tags": [
-          "urlcrawlerrorssamples"
-        ]
-      },
-      "parameters": [
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/userIp"
-        }
-      ]
-    },
-    "/sites/{siteUrl}/urlCrawlErrorsSamples/{url}": {
-      "delete": {
-        "description": "Marks the provided site's sample URL as fixed, and removes it from the samples list.",
-        "operationId": "urlcrawlerrorssamples.markAsFixed",
-        "parameters": [
-          {
-            "description": "The crawl error category. For example: authPermissions",
-            "enum": [
-              "authPermissions",
-              "flashContent",
-              "manyToOneRedirect",
-              "notFollowed",
-              "notFound",
-              "other",
-              "roboted",
-              "serverError",
-              "soft404"
-            ],
-            "in": "query",
-            "name": "category",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The user agent type (platform) that made the request. For example: web",
-            "enum": [
-              "mobile",
-              "smartphoneOnly",
-              "web"
-            ],
-            "in": "query",
-            "name": "platform",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The site's URL, including protocol. For example: http://www.example.com/",
-            "in": "path",
-            "name": "siteUrl",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The relative path (without the site) of the sample URL. It must be one of the URLs returned by list(). For example, for the URL https://www.example.com/pagename on the site https://www.example.com/, the url value is pagename",
-            "in": "path",
-            "name": "url",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful response"
-          }
-        },
-        "security": [
-          {
-            "Oauth2": [
-              "https://www.googleapis.com/auth/webmasters"
-            ]
-          }
-        ],
-        "tags": [
-          "urlcrawlerrorssamples"
-        ]
-      },
-      "get": {
-        "description": "Retrieves details about crawl errors for a site's sample URL.",
-        "operationId": "urlcrawlerrorssamples.get",
-        "parameters": [
-          {
-            "description": "The crawl error category. For example: authPermissions",
-            "enum": [
-              "authPermissions",
-              "flashContent",
-              "manyToOneRedirect",
-              "notFollowed",
-              "notFound",
-              "other",
-              "roboted",
-              "serverError",
-              "soft404"
-            ],
-            "in": "query",
-            "name": "category",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The user agent type (platform) that made the request. For example: web",
-            "enum": [
-              "mobile",
-              "smartphoneOnly",
-              "web"
-            ],
-            "in": "query",
-            "name": "platform",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The site's URL, including protocol. For example: http://www.example.com/",
-            "in": "path",
-            "name": "siteUrl",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The relative path (without the site) of the sample URL. It must be one of the URLs returned by list(). For example, for the URL https://www.example.com/pagename on the site https://www.example.com/, the url value is pagename",
-            "in": "path",
-            "name": "url",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful response",
-            "schema": {
-              "$ref": "#/definitions/UrlCrawlErrorsSample"
-            }
-          }
-        },
-        "security": [
-          {
-            "Oauth2": [
-              "https://www.googleapis.com/auth/webmasters"
-            ]
-          },
-          {
-            "Oauth2": [
-              "https://www.googleapis.com/auth/webmasters.readonly"
-            ]
-          }
-        ],
-        "tags": [
-          "urlcrawlerrorssamples"
-        ]
-      },
-      "parameters": [
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/userIp"
-        }
-      ]
     }
   },
   "definitions": {
@@ -1071,118 +817,6 @@
       },
       "type": "object"
     },
-    "UrlCrawlErrorCount": {
-      "description": "An entry in a URL crawl errors time series.",
-      "properties": {
-        "count": {
-          "description": "The error count at the given timestamp.",
-          "format": "int64",
-          "type": "string"
-        },
-        "timestamp": {
-          "description": "The date and time when the crawl attempt took place, in RFC 3339 format.",
-          "format": "date-time",
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
-    "UrlCrawlErrorCountsPerType": {
-      "description": "Number of errors per day for a specific error type (defined by platform and category).",
-      "properties": {
-        "category": {
-          "description": "The crawl error type.",
-          "type": "string"
-        },
-        "entries": {
-          "description": "The error count entries time series.",
-          "items": {
-            "$ref": "#/definitions/UrlCrawlErrorCount"
-          },
-          "type": "array"
-        },
-        "platform": {
-          "description": "The general type of Googlebot that made the request (see list of Googlebot user-agents for the user-agents used).",
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
-    "UrlCrawlErrorsCountsQueryResponse": {
-      "description": "A time series of the number of URL crawl errors per error category and platform.",
-      "properties": {
-        "countPerTypes": {
-          "description": "The time series of the number of URL crawl errors per error category and platform.",
-          "items": {
-            "$ref": "#/definitions/UrlCrawlErrorCountsPerType"
-          },
-          "type": "array"
-        }
-      },
-      "type": "object"
-    },
-    "UrlCrawlErrorsSample": {
-      "description": "Contains information about specific crawl errors.",
-      "properties": {
-        "first_detected": {
-          "description": "The time the error was first detected, in RFC 3339 format.",
-          "format": "date-time",
-          "type": "string"
-        },
-        "last_crawled": {
-          "description": "The time when the URL was last crawled, in RFC 3339 format.",
-          "format": "date-time",
-          "type": "string"
-        },
-        "pageUrl": {
-          "description": "The URL of an error, relative to the site.",
-          "type": "string"
-        },
-        "responseCode": {
-          "description": "The HTTP response code, if any.",
-          "format": "int32",
-          "type": "integer"
-        },
-        "urlDetails": {
-          "$ref": "#/definitions/UrlSampleDetails",
-          "description": "Additional details about the URL, set only when calling get()."
-        }
-      },
-      "type": "object"
-    },
-    "UrlCrawlErrorsSamplesListResponse": {
-      "description": "List of crawl error samples.",
-      "properties": {
-        "urlCrawlErrorSample": {
-          "description": "Information about the sample URL and its crawl error.",
-          "items": {
-            "$ref": "#/definitions/UrlCrawlErrorsSample"
-          },
-          "type": "array"
-        }
-      },
-      "type": "object"
-    },
-    "UrlSampleDetails": {
-      "description": "Additional details about the URL, set only when calling get().",
-      "properties": {
-        "containingSitemaps": {
-          "description": "List of sitemaps pointing at this URL.",
-          "items": {
-            "type": "string"
-          },
-          "type": "array"
-        },
-        "linkedFromUrls": {
-          "description": "A sample set of URLs linking to this URL.",
-          "items": {
-            "type": "string"
-          },
-          "type": "array"
-        }
-      },
-      "type": "object"
-    },
     "WmxSite": {
       "description": "Contains permission level information about a Search Console site. For more information, see  Permissions in Search Console.",
       "properties": {
@@ -1265,6 +899,92 @@
         }
       },
       "type": "object"
+    }
+  },
+  "securityDefinitions": {
+    "Oauth2": {
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+      "description": "Oauth 2.0 implicit authentication",
+      "flow": "implicit",
+      "scopes": {
+        "https://www.googleapis.com/auth/webmasters": "View and manage Search Console data for your verified sites",
+        "https://www.googleapis.com/auth/webmasters.readonly": "View Search Console data for your verified sites"
+      },
+      "type": "oauth2"
+    },
+    "Oauth2c": {
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+      "description": "Oauth 2.0 authorizationCode authentication",
+      "flow": "accessCode",
+      "scopes": {
+        "https://www.googleapis.com/auth/webmasters": "View and manage Search Console data for your verified sites",
+        "https://www.googleapis.com/auth/webmasters.readonly": "View Search Console data for your verified sites"
+      },
+      "tokenUrl": "https://accounts.google.com/o/oauth2/token",
+      "type": "oauth2"
+    }
+  },
+  "tags": [
+    {
+      "name": "searchanalytics"
+    },
+    {
+      "name": "sitemaps"
+    },
+    {
+      "name": "sites"
+    }
+  ],
+  "externalDocs": {
+    "url": "https://developers.google.com/webmaster-tools/"
+  },
+  "x-components": {
+    "parameters": {
+      "alt": {
+        "description": "Data format for the response.",
+        "enum": [
+          "json"
+        ],
+        "in": "query",
+        "name": "alt",
+        "type": "string"
+      },
+      "fields": {
+        "description": "Selector specifying which fields to include in a partial response.",
+        "in": "query",
+        "name": "fields",
+        "type": "string"
+      },
+      "key": {
+        "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+        "in": "query",
+        "name": "key",
+        "type": "string"
+      },
+      "oauth_token": {
+        "description": "OAuth 2.0 token for the current user.",
+        "in": "query",
+        "name": "oauth_token",
+        "type": "string"
+      },
+      "prettyPrint": {
+        "description": "Returns response with indentations and line breaks.",
+        "in": "query",
+        "name": "prettyPrint",
+        "type": "boolean"
+      },
+      "quotaUser": {
+        "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
+        "in": "query",
+        "name": "quotaUser",
+        "type": "string"
+      },
+      "userIp": {
+        "description": "Deprecated. Please use quotaUser instead.",
+        "in": "query",
+        "name": "userIp",
+        "type": "string"
+      }
     }
   }
 }

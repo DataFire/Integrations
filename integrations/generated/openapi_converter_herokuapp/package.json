@@ -1,6 +1,6 @@
 {
   "name": "@datafire/openapi_converter_herokuapp",
-  "version": "5.0.0",
+  "version": "6.0.0",
   "main": "index.js",
   "description": "DataFire integration for Swagger2OpenAPI Converter",
   "repository": {

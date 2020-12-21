@@ -1,0 +1,555 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "contact": {
+      "name": "Fun Generators",
+      "url": "http://fungenerators.com/"
+    },
+    "description": "A full featured Facts API. REST access with json/xml/jsonp result support. On this day birth and death support, random fact, keyword search support etc. Below is the documentation for the Random Facts API calls. You can try them out right here. [Click here to subscribe](http://fungenerators.com/api/facts/)\n",
+    "termsOfService": "https://fungenerators.com/terms",
+    "title": "Facts API",
+    "version": "1.5",
+    "x-apisguru-categories": [
+      "text"
+    ],
+    "x-origin": [
+      {
+        "format": "swagger",
+        "url": "https://fungenerators.com/yaml/facts.yaml",
+        "version": "2.0"
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "fungenerators.com",
+    "x-serviceName": "random-facts",
+    "x-datafire": {
+      "name": "fungenerators_random_facts",
+      "type": "openapi"
+    }
+  },
+  "host": "api.fungenerators.com",
+  "basePath": "/",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/fact": {
+      "delete": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Fact ID",
+            "format": "string",
+            "in": "query",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200  response"
+          },
+          "401": {
+            "description": "401  response"
+          }
+        },
+        "security": [
+          {
+            "X-Fungenerators-Api-Secret": []
+          }
+        ],
+        "tags": [
+          "Private Facts"
+        ],
+        "description": "Delete a Fact entry identified by the id."
+      },
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "ID of the fact to fetch",
+            "format": "string",
+            "in": "query",
+            "name": "id",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200  response"
+          },
+          "401": {
+            "description": "401  response"
+          }
+        },
+        "security": [
+          {
+            "X-Fungenerators-Api-Secret": []
+          }
+        ],
+        "tags": [
+          "Random Facts",
+          "Private Facts"
+        ],
+        "description": "Get a Fact belonging to the id."
+      },
+      "put": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Fact Text",
+            "format": "string",
+            "in": "query",
+            "name": "fact",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Category of the fact",
+            "format": "string",
+            "in": "query",
+            "name": "category",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Sub Category of the fact",
+            "format": "string",
+            "in": "query",
+            "name": "subcategory",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Tags",
+            "format": "string",
+            "in": "query",
+            "name": "tags",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200  response"
+          },
+          "401": {
+            "description": "401  response"
+          }
+        },
+        "security": [
+          {
+            "X-Fungenerators-Api-Secret": []
+          }
+        ],
+        "tags": [
+          "Private Facts"
+        ],
+        "description": "Add a Fact entry to the database (private collection)."
+      }
+    },
+    "/fact/categories": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "start",
+            "format": "integer",
+            "in": "query",
+            "name": "start",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200  response"
+          },
+          "401": {
+            "description": "401  response"
+          }
+        },
+        "security": [
+          {
+            "X-Fungenerators-Api-Secret": []
+          }
+        ],
+        "tags": [
+          "Random Facts"
+        ],
+        "description": "Get a random Fact."
+      }
+    },
+    "/fact/fod": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Category to get the fact of the day from. Must be one from the list returned from /fact/fod/categories",
+            "format": "string",
+            "in": "query",
+            "name": "category",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200  response"
+          },
+          "401": {
+            "description": "401  response"
+          }
+        },
+        "security": [
+          {
+            "X-Fungenerators-Api-Secret": []
+          }
+        ],
+        "tags": [
+          "Fact of the day"
+        ],
+        "description": "Get fact of the day for the given category."
+      }
+    },
+    "/fact/fod/categories": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "200  response"
+          },
+          "401": {
+            "description": "401  response"
+          }
+        },
+        "security": [
+          {
+            "X-Fungenerators-Api-Secret": []
+          }
+        ],
+        "tags": [
+          "Fact of the day"
+        ],
+        "description": "Get the list of supported fact of the day categories."
+      }
+    },
+    "/fact/numbers": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Number value",
+            "format": "integer",
+            "in": "query",
+            "name": "number",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 Success response"
+          },
+          "401": {
+            "description": "401 Unauthorized response"
+          }
+        },
+        "security": [
+          {
+            "X-Fungenerators-Api-Secret": []
+          }
+        ],
+        "tags": [
+          "Number Facts"
+        ],
+        "description": "Get a random fact about a number"
+      }
+    },
+    "/fact/onthisday/born": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Optional month (1-12). Defaults to current month",
+            "format": "string",
+            "in": "query",
+            "name": "month",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Optional day of the month (1- 28/30/31 based on the month). Defaults to current day of the month.",
+            "format": "string",
+            "in": "query",
+            "name": "day",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200  response"
+          },
+          "401": {
+            "description": "401  response"
+          }
+        },
+        "security": [
+          {
+            "X-Fungenerators-Api-Secret": []
+          }
+        ],
+        "tags": [
+          "On this day"
+        ],
+        "description": "Returns a random ( famous/ relatively famous ) person born on a given day and month"
+      }
+    },
+    "/fact/onthisday/died": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Optional month (1-12). Defaults to current month",
+            "format": "string",
+            "in": "query",
+            "name": "month",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Optional day of the month (1- 28/30/31 based on the month). Defaults to current day of the month.",
+            "format": "string",
+            "in": "query",
+            "name": "day",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200  response"
+          },
+          "401": {
+            "description": "401  response"
+          }
+        },
+        "security": [
+          {
+            "X-Fungenerators-Api-Secret": []
+          }
+        ],
+        "tags": [
+          "On this day"
+        ],
+        "description": "Returns a random ( famous/ relatively famous ) person died on a given day and month"
+      }
+    },
+    "/fact/onthisday/event": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Optional month (1-12). Defaults to current month",
+            "format": "string",
+            "in": "query",
+            "name": "month",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Optional day of the month (1- 28/30/31 based on the month). Defaults to current day of the month.",
+            "format": "string",
+            "in": "query",
+            "name": "day",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200  response"
+          },
+          "401": {
+            "description": "401  response"
+          }
+        },
+        "security": [
+          {
+            "X-Fungenerators-Api-Secret": []
+          }
+        ],
+        "tags": [
+          "On this day"
+        ],
+        "description": "Returns a random ( famous/ relatively famous ) historic event on a given day and month"
+      }
+    },
+    "/fact/random": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Category to get the fact from",
+            "format": "string",
+            "in": "query",
+            "name": "category",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Sub Category to get the fact from",
+            "format": "string",
+            "in": "query",
+            "name": "subcategory",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200  response"
+          },
+          "401": {
+            "description": "401  response"
+          }
+        },
+        "security": [
+          {
+            "X-Fungenerators-Api-Secret": []
+          }
+        ],
+        "tags": [
+          "Random Facts"
+        ],
+        "description": "Get a random Fact for a given category(optional) and subcategory(optional)."
+      }
+    },
+    "/fact/search": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Text to search for in the facts",
+            "format": "string",
+            "in": "query",
+            "name": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Category to get the fact from",
+            "format": "string",
+            "in": "query",
+            "name": "category",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Sub Category to get the fact from",
+            "format": "string",
+            "in": "query",
+            "name": "subcategory",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200  response"
+          },
+          "401": {
+            "description": "401  response"
+          }
+        },
+        "security": [
+          {
+            "X-Fungenerators-Api-Secret": []
+          }
+        ],
+        "tags": [
+          "Random Facts"
+        ],
+        "description": "Search for random Fact which has the text in the query, for a given category(optional) and subcategory(optional)."
+      }
+    }
+  },
+  "securityDefinitions": {
+    "X-Fungenerators-Api-Secret": {
+      "in": "header",
+      "name": "X-Fungenerators-Api-Secret",
+      "type": "apiKey"
+    }
+  },
+  "tags": [
+    {
+      "externalDocs": {
+        "description": "Find out more",
+        "url": "http://fungenerators.com/api/facts#fact-of-the-day"
+      },
+      "description": "Get fact of the day on various categories. This is refreshed daily.",
+      "name": "Fact of the day"
+    },
+    {
+      "externalDocs": {
+        "description": "Find out more",
+        "url": "http://fungenerators.com/api/facts#number"
+      },
+      "description": "Get a random interesting fact about a number.",
+      "name": "Number Facts"
+    },
+    {
+      "externalDocs": {
+        "description": "Find out more",
+        "url": "http://fungenerators.com/api/facts#number"
+      },
+      "description": "Get random facts based on category and other criteria.",
+      "name": "Random Facts"
+    },
+    {
+      "externalDocs": {
+        "description": "Find out more",
+        "url": "http://fungenerators.com/api/facts#number"
+      },
+      "description": "On this day historical events for birth, death and other events.",
+      "name": "On this day"
+    },
+    {
+      "externalDocs": {
+        "description": "Find out more",
+        "url": "http://fungenerators.com/api/facts#private"
+      },
+      "description": "Store and manage your own Facts online",
+      "name": "Private Facts"
+    }
+  ],
+  "x-components": {}
+}

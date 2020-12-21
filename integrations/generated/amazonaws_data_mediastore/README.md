@@ -13,7 +13,7 @@ let amazonaws_data_mediastore = require('@datafire/amazonaws_data_mediastore').c
   region: ""
 });
 
-amazonaws_data_mediastore.ListItems({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -34,6 +34,9 @@ amazonaws_data_mediastore.ListItems({}, context)
 
 #### Input
 * input `object`
+  * Path `string`
+  * MaxResults `integer`
+  * NextToken `string`
 
 #### Output
 * output [ListItemsResponse](#listitemsresponse)
@@ -68,6 +71,7 @@ amazonaws_data_mediastore.GetObject({
 #### Input
 * input `object`
   * Path **required** `string`
+  * Range `string`
 
 #### Output
 * output [GetObjectResponse](#getobjectresponse)
@@ -103,7 +107,11 @@ amazonaws_data_mediastore.PutObject({
 #### Input
 * input `object`
   * Path **required** `string`
-  * Body **required** [PayloadBlob](#payloadblob)
+  * Content-Type `string`
+  * Cache-Control `string`
+  * x-amz-storage-class `string`
+  * x-amz-upload-availability `string`
+  * Body **required** `string`: The bytes to be stored. 
 
 #### Output
 * output [PutObjectResponse](#putobjectresponse)
@@ -113,8 +121,7 @@ amazonaws_data_mediastore.PutObject({
 ## Definitions
 
 ### ContainerNotFoundException
-* ContainerNotFoundException `object`: The specified container was not found for the specified account.
-  * Message [ErrorMessage](#errormessage)
+
 
 ### ContentRangePattern
 * ContentRangePattern `string`
@@ -137,28 +144,25 @@ amazonaws_data_mediastore.PutObject({
 ### ETag
 * ETag `string`
 
-### ErrorMessage
-* ErrorMessage `string`
-
 ### GetObjectRequest
 * GetObjectRequest `object`
 
 ### GetObjectResponse
 * GetObjectResponse `object`
-  * Body [PayloadBlob](#payloadblob)
+  * Body
+  * StatusCode
 
 ### InternalServerError
-* InternalServerError `object`: The service is temporarily unavailable.
-  * Message [ErrorMessage](#errormessage)
+
 
 ### Item
 * Item `object`: A metadata entry for a folder or object.
-  * ContentLength [NonNegativeLong](#nonnegativelong)
-  * ContentType [ContentType](#contenttype)
-  * ETag [ETag](#etag)
-  * LastModified [TimeStamp](#timestamp)
-  * Name [ItemName](#itemname)
-  * Type [ItemType](#itemtype)
+  * ContentLength
+  * ContentType
+  * ETag
+  * LastModified
+  * Name
+  * Type
 
 ### ItemList
 * ItemList `array`
@@ -175,8 +179,9 @@ amazonaws_data_mediastore.PutObject({
 
 ### ListItemsResponse
 * ListItemsResponse `object`
-  * Items [ItemList](#itemlist)
-  * NextToken [PaginationToken](#paginationtoken)
+  * Items
+    * items [Item](#item)
+  * NextToken
 
 ### ListLimit
 * ListLimit `integer`
@@ -188,8 +193,7 @@ amazonaws_data_mediastore.PutObject({
 * NonNegativeLong `integer`
 
 ### ObjectNotFoundException
-* ObjectNotFoundException `object`: Could not perform an operation on an object that does not exist.
-  * Message [ErrorMessage](#errormessage)
+
 
 ### PaginationToken
 * PaginationToken `string`
@@ -202,20 +206,19 @@ amazonaws_data_mediastore.PutObject({
 
 ### PutObjectRequest
 * PutObjectRequest `object`
-  * Body **required** [PayloadBlob](#payloadblob)
+  * Body **required**
 
 ### PutObjectResponse
 * PutObjectResponse `object`
-  * ContentSHA256 [SHA256Hash](#sha256hash)
-  * ETag [ETag](#etag)
-  * StorageClass [StorageClass](#storageclass)
+  * ContentSHA256
+  * ETag
+  * StorageClass
 
 ### RangePattern
 * RangePattern `string`
 
 ### RequestedRangeNotSatisfiableException
-* RequestedRangeNotSatisfiableException `object`: The requested content range is not valid.
-  * Message [ErrorMessage](#errormessage)
+
 
 ### SHA256Hash
 * SHA256Hash `string`
@@ -228,6 +231,9 @@ amazonaws_data_mediastore.PutObject({
 
 ### TimeStamp
 * TimeStamp `string`
+
+### UploadAvailability
+* UploadAvailability `string` (values: STANDARD, STREAMING)
 
 ### statusCode
 * statusCode `integer`

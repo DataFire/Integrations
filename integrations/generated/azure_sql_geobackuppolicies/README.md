@@ -15,13 +15,7 @@ let azure_sql_geobackuppolicies = require('@datafire/azure_sql_geobackuppolicies
   redirect_uri: ""
 });
 
-azure_sql_geobackuppolicies.GeoBackupPolicies_ListByDatabase({
-  "api-version": "",
-  "subscriptionId": "",
-  "resourceGroupName": "",
-  "serverName": "",
-  "databaseName": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

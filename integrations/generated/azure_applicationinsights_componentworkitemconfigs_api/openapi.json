@@ -17,7 +17,7 @@
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/applicationinsights/resource-manager/microsoft.insights/stable/2015-05-01/componentWorkItemConfigs_API.json",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/applicationinsights/resource-manager/Microsoft.Insights/stable/2015-05-01/componentWorkItemConfigs_API.json",
         "version": "2.0"
       }
     ],
@@ -58,21 +58,6 @@
     }
   ],
   "parameters": {
-    "ApiVersionParameter": {
-      "description": "Client Api Version.",
-      "in": "query",
-      "name": "api-version",
-      "required": true,
-      "type": "string"
-    },
-    "ResourceGroupNameParameter": {
-      "description": "The name of the resource group.",
-      "in": "path",
-      "name": "resourceGroupName",
-      "required": true,
-      "type": "string",
-      "x-ms-parameter-location": "method"
-    },
     "ResourceNameParameter": {
       "description": "The name of the Application Insights component resource.",
       "in": "path",
@@ -80,13 +65,6 @@
       "required": true,
       "type": "string",
       "x-ms-parameter-location": "method"
-    },
-    "SubscriptionIdParameter": {
-      "description": "The Azure subscription ID.",
-      "in": "path",
-      "name": "subscriptionId",
-      "required": true,
-      "type": "string"
     },
     "WorkItemConfigIdParameter": {
       "description": "The unique work item configuration Id. This can be either friendly name of connector as defined in connector configuration",
@@ -98,19 +76,37 @@
     }
   },
   "paths": {
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.insights/components/{resourceName}/DefaultWorkItemConfig": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/components/{resourceName}/DefaultWorkItemConfig": {
       "get": {
         "description": "Gets default work item configurations that exist for the application",
         "operationId": "WorkItemConfigurations_GetDefault",
         "parameters": [
           {
-            "$ref": "#/parameters/ResourceGroupNameParameter"
+            "description": "The name of the resource group. The name is case insensitive.",
+            "in": "path",
+            "maxLength": 90,
+            "minLength": 1,
+            "name": "resourceGroupName",
+            "pattern": "^[-\\w\\._\\(\\)]+$",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
-            "$ref": "#/parameters/ApiVersionParameter"
+            "description": "The API version to use for this operation.",
+            "in": "query",
+            "minLength": 1,
+            "name": "api-version",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/SubscriptionIdParameter"
+            "description": "The ID of the target subscription.",
+            "in": "path",
+            "minLength": 1,
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string"
           },
           {
             "$ref": "#/parameters/ResourceNameParameter"
@@ -144,23 +140,40 @@
               }
             }
           }
-        },
-        "x-ms-pageable": {}
+        }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.insights/components/{resourceName}/WorkItemConfigs": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/components/{resourceName}/WorkItemConfigs": {
       "get": {
         "description": "Gets the list work item configurations that exist for the application",
         "operationId": "WorkItemConfigurations_List",
         "parameters": [
           {
-            "$ref": "#/parameters/ResourceGroupNameParameter"
+            "description": "The name of the resource group. The name is case insensitive.",
+            "in": "path",
+            "maxLength": 90,
+            "minLength": 1,
+            "name": "resourceGroupName",
+            "pattern": "^[-\\w\\._\\(\\)]+$",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
-            "$ref": "#/parameters/ApiVersionParameter"
+            "description": "The API version to use for this operation.",
+            "in": "query",
+            "minLength": 1,
+            "name": "api-version",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/SubscriptionIdParameter"
+            "description": "The ID of the target subscription.",
+            "in": "path",
+            "minLength": 1,
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string"
           },
           {
             "$ref": "#/parameters/ResourceNameParameter"
@@ -170,10 +183,7 @@
           "200": {
             "description": "successful operation",
             "schema": {
-              "items": {
-                "$ref": "#/definitions/WorkItemConfiguration"
-              },
-              "type": "array"
+              "$ref": "#/definitions/WorkItemConfigurationsListResult"
             }
           },
           "default": {
@@ -213,20 +223,40 @@
             }
           }
         },
-        "x-ms-pageable": {}
+        "x-ms-pageable": {
+          "nextLinkName": null
+        }
       },
       "post": {
         "description": "Create a work item configuration for an Application Insights component.",
         "operationId": "WorkItemConfigurations_Create",
         "parameters": [
           {
-            "$ref": "#/parameters/ResourceGroupNameParameter"
+            "description": "The name of the resource group. The name is case insensitive.",
+            "in": "path",
+            "maxLength": 90,
+            "minLength": 1,
+            "name": "resourceGroupName",
+            "pattern": "^[-\\w\\._\\(\\)]+$",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
-            "$ref": "#/parameters/ApiVersionParameter"
+            "description": "The API version to use for this operation.",
+            "in": "query",
+            "minLength": 1,
+            "name": "api-version",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/SubscriptionIdParameter"
+            "description": "The ID of the target subscription.",
+            "in": "path",
+            "minLength": 1,
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string"
           },
           {
             "$ref": "#/parameters/ResourceNameParameter"
@@ -253,15 +283,9 @@
           "WorkItemConfigurationsCreate": {
             "parameters": {
               "WorkItemConfigurationProperties": {
-                "ConnectorDataConfiguration": {
-                  "Custom": "{\"/fields/System.WorkItemType\":\"Bug\",\"/fields/System.AreaPath\":\"todeletefirst\",\"/fields/System.AssignedTo\":\"\"}",
-                  "Project": "todeletefirst",
-                  "ProjectCollection": "DefaultCollection",
-                  "ResourceId": "d0662b05-439a-4a1b-840b-33a7f8b42ebf",
-                  "VSOAccountBaseUrl": "https://testtodelete.visualstudio.com"
-                },
+                "ConnectorDataConfiguration": "{\"VSOAccountBaseUrl\":\"https://testtodelete.visualstudio.com\",\"ProjectCollection\":\"DefaultCollection\",\"Project\":\"todeletefirst\",\"ResourceId\":\"d0662b05-439a-4a1b-840b-33a7f8b42ebf\",\"Custom\":\"{\\\"/fields/System.WorkItemType\\\":\\\"Bug\\\",\\\"/fields/System.AreaPath\\\":\\\"todeletefirst\\\",\\\"/fields/System.AssignedTo\\\":\\\"\\\"}\"}",
                 "ConnectorId": "d334e2a4-6733-488e-8645-a9fdc1694f41",
-                "ValidateOnly": "true",
+                "ValidateOnly": true,
                 "WorkItemProperties": [
                   {
                     "name": "Title",
@@ -287,19 +311,37 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.insights/components/{resourceName}/WorkItemConfigs/{workItemConfigId}": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/components/{resourceName}/WorkItemConfigs/{workItemConfigId}": {
       "delete": {
-        "description": "Delete an workitem configuration of an Application Insights component.",
+        "description": "Delete a work item configuration of an Application Insights component.",
         "operationId": "WorkItemConfigurations_Delete",
         "parameters": [
           {
-            "$ref": "#/parameters/ResourceGroupNameParameter"
+            "description": "The name of the resource group. The name is case insensitive.",
+            "in": "path",
+            "maxLength": 90,
+            "minLength": 1,
+            "name": "resourceGroupName",
+            "pattern": "^[-\\w\\._\\(\\)]+$",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
-            "$ref": "#/parameters/ApiVersionParameter"
+            "description": "The API version to use for this operation.",
+            "in": "query",
+            "minLength": 1,
+            "name": "api-version",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/SubscriptionIdParameter"
+            "description": "The ID of the target subscription.",
+            "in": "path",
+            "minLength": 1,
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string"
           },
           {
             "$ref": "#/parameters/ResourceNameParameter"
@@ -310,8 +352,7 @@
         ],
         "responses": {
           "200": {
-            "description": "The work item configuration that was successfully deleted.",
-            "schema": {}
+            "description": "The work item configuration that was successfully deleted."
           }
         },
         "x-ms-examples": {
@@ -324,8 +365,168 @@
               "workItemConfigId": "Visual Studio Team Services"
             },
             "responses": {
+              "200": {}
+            }
+          }
+        }
+      },
+      "get": {
+        "description": "Gets specified work item configuration for an Application Insights component.",
+        "operationId": "WorkItemConfigurations_GetItem",
+        "parameters": [
+          {
+            "description": "The name of the resource group. The name is case insensitive.",
+            "in": "path",
+            "maxLength": 90,
+            "minLength": 1,
+            "name": "resourceGroupName",
+            "pattern": "^[-\\w\\._\\(\\)]+$",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
+          },
+          {
+            "description": "The API version to use for this operation.",
+            "in": "query",
+            "minLength": 1,
+            "name": "api-version",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The ID of the target subscription.",
+            "in": "path",
+            "minLength": 1,
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "$ref": "#/parameters/ResourceNameParameter"
+          },
+          {
+            "$ref": "#/parameters/WorkItemConfigIdParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/WorkItemConfiguration"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "WorkItemConfigurationsGetDefault": {
+            "parameters": {
+              "api-version": "2015-05-01",
+              "resourceGroupName": "my-resource-group",
+              "resourceName": "my-component",
+              "subscriptionId": "subid",
+              "workItemConfigId": "Visual Studio Team Services"
+            },
+            "responses": {
               "200": {
-                "body": {}
+                "body": {
+                  "ConfigDisplayName": "Visual Studio Team Services",
+                  "ConfigProperties": "{\"VSOAccountBaseUrl\":\"https://testtodelete.visualstudio.com\",\"ProjectCollection\":\"DefaultCollection\",\"Project\":\"todeletefirst\",\"ResourceId\":\"d0662b05-439a-4a1b-840b-33a7f8b42ebf\",\"ConfigurationType\":\"Standard\",\"WorkItemType\":\"Bug\",\"AreaPath\":\"todeletefirst\",\"AssignedTo\":\"\"}",
+                  "ConnectorId": "d334e2a4-6733-488e-8645-a9fdc1694f41",
+                  "Id": "Visual Studio Team Services",
+                  "IsDefault": true
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "description": "Update a work item configuration for an Application Insights component.",
+        "operationId": "WorkItemConfigurations_UpdateItem",
+        "parameters": [
+          {
+            "description": "The name of the resource group. The name is case insensitive.",
+            "in": "path",
+            "maxLength": 90,
+            "minLength": 1,
+            "name": "resourceGroupName",
+            "pattern": "^[-\\w\\._\\(\\)]+$",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
+          },
+          {
+            "description": "The API version to use for this operation.",
+            "in": "query",
+            "minLength": 1,
+            "name": "api-version",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The ID of the target subscription.",
+            "in": "path",
+            "minLength": 1,
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "$ref": "#/parameters/ResourceNameParameter"
+          },
+          {
+            "$ref": "#/parameters/WorkItemConfigIdParameter"
+          },
+          {
+            "description": "Properties that need to be specified to update a work item configuration for this Application Insights component.",
+            "in": "body",
+            "name": "WorkItemConfigurationProperties",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/WorkItemCreateConfiguration"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation indicating the config updated by this PATCH call.",
+            "schema": {
+              "$ref": "#/definitions/WorkItemConfiguration"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "WorkItemConfigurationsCreate": {
+            "parameters": {
+              "WorkItemConfigurationProperties": {
+                "ConnectorDataConfiguration": "{\"VSOAccountBaseUrl\":\"https://testtodelete.visualstudio.com\",\"ProjectCollection\":\"DefaultCollection\",\"Project\":\"todeletefirst\",\"ResourceId\":\"d0662b05-439a-4a1b-840b-33a7f8b42ebf\",\"Custom\":\"{\\\"/fields/System.WorkItemType\\\":\\\"Bug\\\",\\\"/fields/System.AreaPath\\\":\\\"todeletefirst\\\",\\\"/fields/System.AssignedTo\\\":\\\"\\\"}\"}",
+                "ConnectorId": "d334e2a4-6733-488e-8645-a9fdc1694f41",
+                "ValidateOnly": true,
+                "WorkItemProperties": [
+                  {
+                    "name": "Title",
+                    "value": "Validate Only Title"
+                  },
+                  {
+                    "name": "Description",
+                    "value": "Validate Only Description"
+                  }
+                ]
+              },
+              "api-version": "2015-05-01",
+              "resourceGroupName": "my-resource-group",
+              "resourceName": "my-component",
+              "subscriptionId": "subid",
+              "workItemConfigId": "Visual Studio Team Services"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "ConfigDisplayName": "Visual Studio Team Services",
+                  "ConfigProperties": "{\"VSOAccountBaseUrl\":\"https://testtodelete.visualstudio.com\",\"ProjectCollection\":\"DefaultCollection\",\"Project\":\"todeletefirst\",\"ResourceId\":\"d0662b05-439a-4a1b-840b-33a7f8b42ebf\",\"ConfigurationType\":\"Standard\",\"WorkItemType\":\"Bug\",\"AreaPath\":\"todeletefirst\",\"AssignedTo\":\"\"}",
+                  "ConnectorId": "d334e2a4-6733-488e-8645-a9fdc1694f41",
+                  "Id": "Visual Studio Team Services",
+                  "IsDefault": true
+                }
               }
             }
           }
@@ -392,11 +593,24 @@
       },
       "type": "object"
     },
+    "WorkItemConfigurationsListResult": {
+      "description": "Work item configuration list result.",
+      "properties": {
+        "value": {
+          "description": "An array of work item configurations.",
+          "items": {
+            "$ref": "#/definitions/WorkItemConfiguration"
+          },
+          "readOnly": true,
+          "type": "array"
+        }
+      }
+    },
     "WorkItemCreateConfiguration": {
       "description": "Work item configuration creation payload",
       "properties": {
         "ConnectorDataConfiguration": {
-          "description": "Serialized JSON object for detaile d properties",
+          "description": "Serialized JSON object for detailed properties",
           "type": "string"
         },
         "ConnectorId": {
@@ -408,8 +622,11 @@
           "type": "boolean"
         },
         "WorkItemProperties": {
+          "additionalProperties": {
+            "type": "string"
+          },
           "description": "Custom work item properties",
-          "type": "string"
+          "type": "object"
         }
       },
       "type": "object"

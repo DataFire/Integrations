@@ -15,10 +15,7 @@ let azure_network_publicipaddress = require('@datafire/azure_network_publicipadd
   redirect_uri: ""
 });
 
-azure_network_publicipaddress.PublicIPAddresses_ListAll({
-  "api-version": "",
-  "subscriptionId": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -171,16 +168,22 @@ azure_network_publicipaddress.PublicIPAddresses_CreateOrUpdate({
 
 ## Definitions
 
+### DdosSettings
+* DdosSettings `object`: Contains the DDoS protection settings of the public IP.
+  * ddosCustomPolicy `object`: Reference to another subresource.
+    * id `string`: Resource ID.
+  * protectionCoverage `string` (values: Basic, Standard): The DDoS protection policy customizability of the public IP. Only standard coverage will have the ability to be customized.
+
 ### IpTag
-* IpTag `object`: Contains the IpTag associated with the public IP address
-  * ipTagType `string`: Gets or sets the ipTag type: Example FirstPartyUsage.
-  * tag `string`: Gets or sets value of the IpTag associated with the public IP. Example SQL, Storage etc
+* IpTag `object`: Contains the IpTag associated with the object.
+  * ipTagType `string`: The IP tag type. Example: FirstPartyUsage.
+  * tag `string`: The value of the IP tag associated with the public IP. Example: SQL.
 
 ### PublicIPAddress
 * PublicIPAddress `object`: Public IP address resource.
   * etag `string`: A unique read-only string that changes whenever the resource is updated.
   * properties [PublicIPAddressPropertiesFormat](#publicipaddresspropertiesformat)
-  * sku `object`: SKU of a public IP address
+  * sku `object`: SKU of a public IP address.
     * name `string` (values: Basic, Standard): Name of a public IP address SKU.
   * zones `array`: A list of availability zones denoting the IP allocated for the resource needs to come from.
     * items `string`
@@ -191,10 +194,10 @@ azure_network_publicipaddress.PublicIPAddresses_CreateOrUpdate({
   * type `string`: Resource type.
 
 ### PublicIPAddressDnsSettings
-* PublicIPAddressDnsSettings `object`: Contains FQDN of the DNS record associated with the public IP address
-  * domainNameLabel `string`: Gets or sets the Domain name label.The concatenation of the domain name label and the regionalized DNS zone make up the fully qualified domain name associated with the public IP address. If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
-  * fqdn `string`: Gets the FQDN, Fully qualified domain name of the A DNS record associated with the public IP. This is the concatenation of the domainNameLabel and the regionalized DNS zone.
-  * reverseFqdn `string`: Gets or Sets the Reverse FQDN. A user-visible, fully qualified domain name that resolves to this public IP address. If the reverseFqdn is specified, then a PTR DNS record is created pointing from the IP address in the in-addr.arpa domain to the reverse FQDN. 
+* PublicIPAddressDnsSettings `object`: Contains FQDN of the DNS record associated with the public IP address.
+  * domainNameLabel `string`: The domain name label. The concatenation of the domain name label and the regionalized DNS zone make up the fully qualified domain name associated with the public IP address. If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
+  * fqdn `string`: The Fully Qualified Domain Name of the A DNS record associated with the public IP. This is the concatenation of the domainNameLabel and the regionalized DNS zone.
+  * reverseFqdn `string`: The reverse FQDN. A user-visible, fully qualified domain name that resolves to this public IP address. If the reverseFqdn is specified, then a PTR DNS record is created pointing from the IP address in the in-addr.arpa domain to the reverse FQDN.
 
 ### PublicIPAddressListResult
 * PublicIPAddressListResult `object`: Response for ListPublicIpAddresses API service call.
@@ -204,24 +207,30 @@ azure_network_publicipaddress.PublicIPAddresses_CreateOrUpdate({
 
 ### PublicIPAddressPropertiesFormat
 * PublicIPAddressPropertiesFormat `object`: Public IP address properties.
-  * dnsSettings `object`: Contains FQDN of the DNS record associated with the public IP address
-    * domainNameLabel `string`: Gets or sets the Domain name label.The concatenation of the domain name label and the regionalized DNS zone make up the fully qualified domain name associated with the public IP address. If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
-    * fqdn `string`: Gets the FQDN, Fully qualified domain name of the A DNS record associated with the public IP. This is the concatenation of the domainNameLabel and the regionalized DNS zone.
-    * reverseFqdn `string`: Gets or Sets the Reverse FQDN. A user-visible, fully qualified domain name that resolves to this public IP address. If the reverseFqdn is specified, then a PTR DNS record is created pointing from the IP address in the in-addr.arpa domain to the reverse FQDN. 
+  * ddosSettings `object`: Contains the DDoS protection settings of the public IP.
+    * ddosCustomPolicy `object`: Reference to another subresource.
+      * id `string`: Resource ID.
+    * protectionCoverage `string` (values: Basic, Standard): The DDoS protection policy customizability of the public IP. Only standard coverage will have the ability to be customized.
+  * dnsSettings `object`: Contains FQDN of the DNS record associated with the public IP address.
+    * domainNameLabel `string`: The domain name label. The concatenation of the domain name label and the regionalized DNS zone make up the fully qualified domain name associated with the public IP address. If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
+    * fqdn `string`: The Fully Qualified Domain Name of the A DNS record associated with the public IP. This is the concatenation of the domainNameLabel and the regionalized DNS zone.
+    * reverseFqdn `string`: The reverse FQDN. A user-visible, fully qualified domain name that resolves to this public IP address. If the reverseFqdn is specified, then a PTR DNS record is created pointing from the IP address in the in-addr.arpa domain to the reverse FQDN.
   * idleTimeoutInMinutes `integer`: The idle timeout of the public IP address.
   * ipAddress `string`: The IP address associated with the public IP address resource.
   * ipConfiguration [./networkInterface.jsonIPConfiguration](#./networkinterface.jsonipconfiguration)
   * ipTags `array`: The list of tags associated with the public IP address.
-    * items `object`: Contains the IpTag associated with the public IP address
-      * ipTagType `string`: Gets or sets the ipTag type: Example FirstPartyUsage.
-      * tag `string`: Gets or sets value of the IpTag associated with the public IP. Example SQL, Storage etc
-  * provisioningState `string`: The provisioning state of the PublicIP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-  * publicIPAddressVersion `string` (values: IPv4, IPv6): The public IP address version. Possible values are: 'IPv4' and 'IPv6'.
-  * publicIPAllocationMethod `string` (values: Static, Dynamic): The public IP allocation method. Possible values are: 'Static' and 'Dynamic'.
-  * resourceGuid `string`: The resource GUID property of the public IP resource.
+    * items `object`: Contains the IpTag associated with the object.
+      * ipTagType `string`: The IP tag type. Example: FirstPartyUsage.
+      * tag `string`: The value of the IP tag associated with the public IP. Example: SQL.
+  * provisioningState `string` (values: Succeeded, Updating, Deleting, Failed): The current provisioning state.
+  * publicIPAddressVersion `string` (values: IPv4, IPv6): IP address version.
+  * publicIPAllocationMethod `string` (values: Static, Dynamic): IP address allocation method.
+  * publicIPPrefix `object`: Reference to another subresource.
+    * id `string`: Resource ID.
+  * resourceGuid `string`: The resource GUID property of the public IP address resource.
 
 ### PublicIPAddressSku
-* PublicIPAddressSku `object`: SKU of a public IP address
+* PublicIPAddressSku `object`: SKU of a public IP address.
   * name `string` (values: Basic, Standard): Name of a public IP address SKU.
 
 

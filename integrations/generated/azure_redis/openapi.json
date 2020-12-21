@@ -7,7 +7,7 @@
   "info": {
     "description": "REST API for Azure Redis Cache Service.",
     "title": "RedisManagementClient",
-    "version": "2017-10-01",
+    "version": "2018-03-01",
     "x-apisguru-categories": [
       "cloud"
     ],
@@ -17,7 +17,7 @@
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/redis/resource-manager/Microsoft.Cache/stable/2017-10-01/redis.json",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/redis/resource-manager/Microsoft.Cache/stable/2018-03-01/redis.json",
         "version": "2.0"
       }
     ],
@@ -131,7 +131,7 @@
         "x-ms-examples": {
           "RedisCacheList": {
             "parameters": {
-              "api-version": "2017-10-01",
+              "api-version": "2018-03-01",
               "parameters": {
                 "name": "cacheName",
                 "type": "Microsoft.Cache/Redis"
@@ -171,7 +171,7 @@
         "x-ms-examples": {
           "RedisCacheList": {
             "parameters": {
-              "api-version": "2017-10-01",
+              "api-version": "2018-03-01",
               "subscriptionId": "subid"
             },
             "responses": {
@@ -243,7 +243,7 @@
         "x-ms-examples": {
           "RedisCacheListByResourceGroup": {
             "parameters": {
-              "api-version": "2017-10-01",
+              "api-version": "2018-03-01",
               "resourceGroupName": "rg1",
               "subscriptionId": "subid"
             },
@@ -324,7 +324,7 @@
         "x-ms-examples": {
           "RedisCacheFirewallRulesList": {
             "parameters": {
-              "api-version": "2017-02-01",
+              "api-version": "2018-03-01",
               "cacheName": "cache1",
               "resourceGroupName": "rg1",
               "subscriptionId": "subid"
@@ -410,7 +410,7 @@
         "x-ms-examples": {
           "RedisCacheFirewallRuleDelete": {
             "parameters": {
-              "api-version": "2017-02-01",
+              "api-version": "2018-03-01",
               "cacheName": "cache1",
               "resourceGroupName": "rg1",
               "ruleName": "rule1",
@@ -470,7 +470,7 @@
         "x-ms-examples": {
           "RedisCacheFirewallRuleGet": {
             "parameters": {
-              "api-version": "2017-02-01",
+              "api-version": "2018-03-01",
               "cacheName": "cache1",
               "resourceGroupName": "rg1",
               "ruleName": "rule1",
@@ -554,7 +554,7 @@
         "x-ms-examples": {
           "RedisCacheFirewallRuleCreate": {
             "parameters": {
-              "api-version": "2017-02-01",
+              "api-version": "2018-03-01",
               "cacheName": "cache1",
               "parameters": {
                 "properties": {
@@ -635,7 +635,7 @@
         "x-ms-examples": {
           "RedisCachePatchSchedulesList": {
             "parameters": {
-              "api-version": "2017-10-01",
+              "api-version": "2018-03-01",
               "cacheName": "cache1",
               "resourceGroupName": "rg1",
               "subscriptionId": "subid"
@@ -701,10 +701,13 @@
         ],
         "responses": {
           "200": {
-            "description": ""
+            "description": "The redis cache was successfully deleted."
+          },
+          "202": {
+            "description": "The redis cache 'delete' operation was successfully enqueued; follow the Location header to poll for final outcome."
           },
           "204": {
-            "description": ""
+            "description": "The redis cache was successfully deleted."
           }
         },
         "tags": [
@@ -713,13 +716,18 @@
         "x-ms-examples": {
           "RedisCacheDelete": {
             "parameters": {
-              "api-version": "2017-10-01",
+              "api-version": "2018-03-01",
               "name": "cache1",
               "resourceGroupName": "rg1",
               "subscriptionId": "subid"
             },
             "responses": {
               "200": {},
+              "202": {
+                "headers": {
+                  "location": "https://management.azure.com/subscriptions/subid/providers/Microsoft.Cache/...pathToOperationResult..."
+                }
+              },
               "204": {}
             }
           }
@@ -753,7 +761,7 @@
         ],
         "responses": {
           "200": {
-            "description": "",
+            "description": "The redis cache was successfully found.",
             "schema": {
               "$ref": "#/definitions/RedisResource"
             }
@@ -765,7 +773,7 @@
         "x-ms-examples": {
           "RedisCacheGet": {
             "parameters": {
-              "api-version": "2017-10-01",
+              "api-version": "2018-03-01",
               "name": "cache1",
               "resourceGroupName": "rg1",
               "subscriptionId": "subid"
@@ -839,7 +847,7 @@
         ],
         "responses": {
           "200": {
-            "description": "The existing redis cache was successfully updated. Check provisioningStatus to see detailed status.",
+            "description": "The existing redis cache was successfully updated. Check provisioningState to see detailed status.",
             "schema": {
               "$ref": "#/definitions/RedisResource"
             }
@@ -851,7 +859,7 @@
         "x-ms-examples": {
           "RedisCacheUpdate": {
             "parameters": {
-              "api-version": "2017-10-01",
+              "api-version": "2018-03-01",
               "name": "cache1",
               "parameters": {
                 "properties": {
@@ -933,13 +941,13 @@
         ],
         "responses": {
           "200": {
-            "description": "The existing redis cache was successfully updated. Check provisioningStatus to see detailed status.",
+            "description": "The existing redis cache was successfully updated. Check provisioningState to see detailed status.",
             "schema": {
               "$ref": "#/definitions/RedisResource"
             }
           },
           "201": {
-            "description": "The new redis cache was successfully created. Check provisioningStatus to see detailed status.",
+            "description": "The new redis cache was successfully created. Check provisioningState to see detailed status.",
             "schema": {
               "$ref": "#/definitions/RedisResource"
             }
@@ -951,12 +959,13 @@
         "x-ms-examples": {
           "RedisCacheCreate": {
             "parameters": {
-              "api-version": "2017-10-01",
+              "api-version": "2018-03-01",
               "name": "cache1",
               "parameters": {
                 "location": "West US",
                 "properties": {
                   "enableNonSslPort": true,
+                  "minimumTlsVersion": "1.2",
                   "redisConfiguration": {
                     "maxmemory-policy": "allkeys-lru"
                   },
@@ -989,6 +998,7 @@
                     },
                     "enableNonSslPort": false,
                     "hostName": "cache1.redis.cache.windows.net",
+                    "minimumTlsVersion": "1.2",
                     "port": 6379,
                     "provisioningState": "Succeeded",
                     "redisConfiguration": {
@@ -1023,6 +1033,7 @@
                     },
                     "enableNonSslPort": false,
                     "hostName": "cache1.redis.cache.windows.net",
+                    "minimumTlsVersion": "1.2",
                     "port": 6379,
                     "provisioningState": "Succeeded",
                     "redisConfiguration": {
@@ -1101,7 +1112,7 @@
         "x-ms-examples": {
           "RedisCacheExport": {
             "parameters": {
-              "api-version": "2017-10-01",
+              "api-version": "2018-03-01",
               "name": "cache1",
               "parameters": {
                 "container": "https://contosostorage.blob.core.window.net/urltoBlobContainer?sasKeyParameters",
@@ -1174,7 +1185,7 @@
         "x-ms-examples": {
           "RedisCacheForceReboot": {
             "parameters": {
-              "api-version": "2017-10-01",
+              "api-version": "2018-03-01",
               "name": "cache1",
               "parameters": {
                 "rebootType": "AllNodes",
@@ -1246,7 +1257,7 @@
         "x-ms-examples": {
           "RedisCacheImport": {
             "parameters": {
-              "api-version": "2017-10-01",
+              "api-version": "2018-03-01",
               "name": "cache1",
               "parameters": {
                 "files": [
@@ -1311,7 +1322,7 @@
         "x-ms-examples": {
           "LinkedServer_List": {
             "parameters": {
-              "api-version": "2017-10-01",
+              "api-version": "2018-03-01",
               "name": "cache1",
               "resourceGroupName": "rg1",
               "subscriptionId": "subid"
@@ -1395,7 +1406,7 @@
         "x-ms-examples": {
           "LinkedServerDelete": {
             "parameters": {
-              "api-version": "2017-10-01",
+              "api-version": "2018-03-01",
               "linkedServerName": "cache2",
               "name": "cache1",
               "resourceGroupName": "rg1",
@@ -1453,7 +1464,7 @@
         "x-ms-examples": {
           "LinkedServer_Get": {
             "parameters": {
-              "api-version": "2017-10-01",
+              "api-version": "2018-03-01",
               "linkedServerName": "cache2",
               "name": "cache1",
               "resourceGroupName": "rg1",
@@ -1538,7 +1549,7 @@
         "x-ms-examples": {
           "LinkedServer_Create": {
             "parameters": {
-              "api-version": "2017-10-01",
+              "api-version": "2018-03-01",
               "linkedServerName": "cache2",
               "name": "cache1",
               "parameters": {
@@ -1624,7 +1635,7 @@
         "x-ms-examples": {
           "RedisCacheListKeys": {
             "parameters": {
-              "api-version": "2017-10-01",
+              "api-version": "2018-03-01",
               "name": "cache1",
               "resourceGroupName": "rg1",
               "subscriptionId": "subid"
@@ -1689,7 +1700,7 @@
         "x-ms-examples": {
           "RedisCacheGet": {
             "parameters": {
-              "api-version": "2017-10-01",
+              "api-version": "2018-03-01",
               "history": "5000",
               "name": "cache1",
               "resourceGroupName": "rg1",
@@ -1767,7 +1778,7 @@
         "x-ms-examples": {
           "RedisCachePatchSchedulesDelete": {
             "parameters": {
-              "api-version": "2017-10-01",
+              "api-version": "2018-03-01",
               "default": "default",
               "name": "cache1",
               "resourceGroupName": "rg1",
@@ -1834,7 +1845,7 @@
         "x-ms-examples": {
           "RedisCachePatchSchedulesGet": {
             "parameters": {
-              "api-version": "2017-10-01",
+              "api-version": "2018-03-01",
               "default": "default",
               "name": "cache1",
               "resourceGroupName": "rg1",
@@ -1934,7 +1945,7 @@
         "x-ms-examples": {
           "RedisCachePatchSchedulesCreateOrUpdate": {
             "parameters": {
-              "api-version": "2017-10-01",
+              "api-version": "2018-03-01",
               "default": "default",
               "name": "cache1",
               "parameters": {
@@ -2050,7 +2061,7 @@
         "x-ms-examples": {
           "RedisCacheRegenerateKey": {
             "parameters": {
-              "api-version": "2017-10-01",
+              "api-version": "2018-03-01",
               "name": "cache1",
               "parameters": {
                 "keyType": "Primary"
@@ -2073,7 +2084,7 @@
   },
   "definitions": {
     "CheckNameAvailabilityParameters": {
-      "description": "Parameters body to pass for name availability check.",
+      "description": "Parameters body to pass for resource name availability check.",
       "properties": {
         "name": {
           "description": "Resource name.",
@@ -2224,6 +2235,19 @@
           "description": "Specifies whether the non-ssl Redis server port (6379) is enabled.",
           "type": "boolean"
         },
+        "minimumTlsVersion": {
+          "description": "Optional: requires clients to use a specified TLS version (or higher) to connect (e,g, '1.0', '1.1', '1.2')",
+          "enum": [
+            "1.0",
+            "1.1",
+            "1.2"
+          ],
+          "type": "string",
+          "x-ms-enum": {
+            "modelAsString": true,
+            "name": "TlsVersion"
+          }
+        },
         "redisConfiguration": {
           "additionalProperties": {
             "type": "string"
@@ -2300,7 +2324,7 @@
           "type": "string"
         },
         "subnetId": {
-          "description": "The full resource ID of a subnet in a virtual network to deploy the Redis cache in. Example format: /subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.{Network|ClassicNetwork}/VirtualNetworks/vnet1/subnets/subnet1",
+          "description": "The full resource ID of a subnet in a virtual network to deploy the Redis cache in. Example format: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/Microsoft.{Network|ClassicNetwork}/VirtualNetworks/vnet1/subnets/subnet1",
           "pattern": "^/subscriptions/[^/]*/resourceGroups/[^/]*/providers/Microsoft.(ClassicNetwork|Network)/virtualNetworks/[^/]*/subnets/[^/]*$",
           "type": "string"
         }
@@ -2345,7 +2369,7 @@
       "description": "The response of list firewall rules Redis operation.",
       "properties": {
         "nextLink": {
-          "description": "Link for next set of locations.",
+          "description": "Link for next page of results.",
           "readOnly": true,
           "type": "string"
         },
@@ -2469,7 +2493,7 @@
       }
     },
     "RedisLinkedServerWithPropertiesList": {
-      "description": "List of linked servers (with properites) of a Redis cache.",
+      "description": "List of linked servers (with properties) of a Redis cache.",
       "properties": {
         "nextLink": {
           "description": "Link for next set.",
@@ -2477,7 +2501,7 @@
           "type": "string"
         },
         "value": {
-          "description": "List of linked servers (with properites) of a Redis cache.",
+          "description": "List of linked servers (with properties) of a Redis cache.",
           "items": {
             "$ref": "#/definitions/RedisLinkedServerWithProperties"
           },
@@ -2489,7 +2513,7 @@
       "description": "The response of list Redis operation.",
       "properties": {
         "nextLink": {
-          "description": "Link for next set of locations.",
+          "description": "Link for next page of results.",
           "readOnly": true,
           "type": "string"
         },
@@ -2571,8 +2595,26 @@
         },
         "provisioningState": {
           "description": "Redis instance provisioning status.",
+          "enum": [
+            "Creating",
+            "Deleting",
+            "Disabled",
+            "Failed",
+            "Linking",
+            "Provisioning",
+            "RecoveringScaleFailure",
+            "Scaling",
+            "Succeeded",
+            "Unlinking",
+            "Unprovisioning",
+            "Updating"
+          ],
           "readOnly": true,
-          "type": "string"
+          "type": "string",
+          "x-ms-enum": {
+            "modelAsString": true,
+            "name": "ProvisioningState"
+          }
         },
         "redisVersion": {
           "description": "Redis version.",
@@ -2848,7 +2890,7 @@
           "type": "string"
         },
         "timestamp": {
-          "description": "Timestamp when upgrade notification occured.",
+          "description": "Timestamp when upgrade notification occurred.",
           "format": "date-time",
           "readOnly": true,
           "type": "string"

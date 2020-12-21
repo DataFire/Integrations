@@ -250,7 +250,9 @@
             }
           }
         },
-        "x-ms-pageable": {}
+        "x-ms-pageable": {
+          "nextLinkName": null
+        }
       },
       "post": {
         "description": "Creates a restore point for a data warehouse.",
@@ -330,7 +332,8 @@
                   },
                   "type": "Microsoft.Sql/servers/databases/restorePoints"
                 }
-              }
+              },
+              "202": {}
             }
           }
         },
@@ -552,7 +555,7 @@
       "type": "object"
     },
     "RestorePointListResult": {
-      "description": "A list of long term retention bacukps.",
+      "description": "A list of long term retention backups.",
       "properties": {
         "nextLink": {
           "description": "Link to retrieve next page of results.",

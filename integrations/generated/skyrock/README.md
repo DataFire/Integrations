@@ -9,9 +9,7 @@ npm install --save @datafire/skyrock
 ```js
 let skyrock = require('@datafire/skyrock').create();
 
-skyrock.message.reply_thread.format.post({
-  "format": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

@@ -15,10 +15,7 @@ let azure_web_certificates = require('@datafire/azure_web_certificates').create(
   redirect_uri: ""
 });
 
-azure_web_certificates.Certificates_List({
-  "subscriptionId": "",
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -173,9 +170,8 @@ azure_web_certificates.Certificates_CreateOrUpdate({
 * Certificate `object`: SSL certificate for an app.
   * properties `object`: Certificate resource specific properties
     * cerBlob `string`: Raw bytes of .cer file
-    * expirationDate `string`: Certificate expriration date.
+    * expirationDate `string`: Certificate expiration date.
     * friendlyName `string`: Friendly name of the certificate.
-    * geoRegion `string`: Region of the certificate.
     * hostNames `array`: Host names the certificate applies to.
       * items `string`
     * hostingEnvironmentProfile `object`: Specification for an App Service Environment to use for this resource.
@@ -213,9 +209,8 @@ azure_web_certificates.Certificates_CreateOrUpdate({
 * CertificatePatchResource `object`: ARM resource for a certificate.
   * properties `object`: CertificatePatchResource resource specific properties
     * cerBlob `string`: Raw bytes of .cer file
-    * expirationDate `string`: Certificate expriration date.
+    * expirationDate `string`: Certificate expiration date.
     * friendlyName `string`: Friendly name of the certificate.
-    * geoRegion `string`: Region of the certificate.
     * hostNames `array`: Host names the certificate applies to.
       * items `string`
     * hostingEnvironmentProfile `object`: Specification for an App Service Environment to use for this resource.

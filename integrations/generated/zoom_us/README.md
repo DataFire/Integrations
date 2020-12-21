@@ -1,6 +1,6 @@
 # @datafire/zoom_us
 
-Client library for Zoom
+Client library for Zoom API
 
 ## Installation and Usage
 ```bash
@@ -11,7 +11,7 @@ let zoom_us = require('@datafire/zoom_us').create({
   global: ""
 });
 
-zoom_us.users({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -23,7 +23,7 @@ API Description
 ## Actions
 
 ### accounts
-List all the sub accounts under the master account.
+List all the sub accounts under the master account
 
 
 ```js
@@ -32,14 +32,14 @@ zoom_us.accounts({}, context)
 
 #### Input
 * input `object`
-  * page_size `integer`: The amount of records returns within a single API call. 
-  * page_number `integer`: Current page number of returned records.
+  * page_size `integer`: The number of records returned within a single API call
+  * page_number `integer`: Current page number of returned records
 
 #### Output
 * output [AccountList](#accountlist)
 
 ### accountCreate
-Create a sub account under the master account <aside>Your account must be a master account and have this privilege to create sub account. Zoom only assign this privilege to trusted partner. The created user will not receive the confirmation email.</aside>
+Create a sub account under the master account. <aside>Your account must be a master account and have this privilege to create sub account. Zoom only assigns this privilege to trusted partners. The created user will not receive a confirmation email.</aside>.
 
 
 ```js
@@ -65,7 +65,7 @@ zoom_us.accountCreate({
   * owner_id `string`: Account Owner ID
 
 ### accountDisassociate
-Disassociate a sub account from the master account
+Disassociate a sub account from the master account. This will leave the account intact but the sub account will not longer be associated with the master account.
 
 
 ```js
@@ -82,7 +82,7 @@ zoom_us.accountDisassociate({
 *Output schema unknown*
 
 ### account
-Retrieve a sub account under the master account <aside>Your account must be a master account and have this privilege to get sub account. Zoom only assign this privilege to trusted partner</aside>
+Retrieve a sub account under the master account. <aside>Your account must be a master account and have this privilege to read sub accounts. Zoom only assigns this privilege to trusted partners</aside>.
 
 
 ```js
@@ -102,6 +102,7 @@ zoom_us.account({
   * options [AccountOptions](#accountoptions)
   * owner_email `string`: Account Owner email
   * owner_id `string`: Account Owner ID
+  * vanity_url `string`: Account Vanity URL
 
 ### accountBilling
 Retrieve billing information for a sub account under the master account
@@ -138,6 +139,23 @@ zoom_us.accountBillingUpdate({
 
 #### Output
 *Output schema unknown*
+
+### accountManagedDomain
+Retrieve a sub account's managed domains under the master account
+
+
+```js
+zoom_us.accountManagedDomain({
+  "accountId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * accountId **required** `string`: The account ID
+
+#### Output
+* output [DomainsList](#domainslist)
 
 ### accountOptionsUpdate
 Update a sub account's options under the master account
@@ -191,12 +209,12 @@ zoom_us.accountPlanCreate({
   * accountId **required** `string`: The account ID
   * body **required**
     * contact [BillingContactRequired](#billingcontactrequired)
-    * plan_audio `object`: Additional Audio Conferencing Plan type
+    * plan_audio `object`: Additional Audio Conferencing <a href="#plans">plan type</a>
       * callout_countries `string`: Call-out countries, multiple value separated by comma
       * ddi_numbers `integer`: Dedicated Dial-In Numbers
       * premium_countries `string`: Premium countries, multiple value separated by comma
       * tollfree_countries `string`: Toll-free countries, multiple value separated by comma
-      * type `string`: Additional Audio Conferencing Plan type
+      * type `string`: Additional Audio Conferencing <a href="#plans">plan type</a>
     * plan_base [AccountPlanBaseRequired](#accountplanbaserequired)
     * plan_large_meeting `array`: Additional Large Meeting Plans
       * items [AccountPlan](#accountplan)
@@ -338,7 +356,7 @@ zoom_us.groupCreate({
 #### Input
 * input `object`
   * body **required** `object`
-    * name `string`: Group name.
+    * name `string`: Group name
 
 #### Output
 * output `object`
@@ -381,7 +399,7 @@ zoom_us.group({
 * output
   * id `string`: Group ID
   * name `string`: Group name
-  * total_members `integer`: Total number of members in this group.
+  * total_members `integer`: Total number of members in this group
 
 ### groupUpdate
 Update a group under your account
@@ -416,8 +434,8 @@ zoom_us.groupMembers({
 #### Input
 * input `object`
   * groupId **required** `string`: The group ID
-  * page_size `integer`: The amount of records returns within a single API call. 
-  * page_number `integer`: Current page number of returned records.
+  * page_size `integer`: The number of records returned within a single API call
+  * page_number `integer`: Current page number of returned records
 
 #### Output
 * output [GroupMemberList](#groupmemberlist)
@@ -440,7 +458,7 @@ zoom_us.groupMembersCreate({
     * members `array`: List of Group members
       * items `object`
         * email `string`: User email. If ID given, email is ignored.
-        * id `string`: User ID.
+        * id `string`: User ID
 
 #### Output
 * output `object`
@@ -465,6 +483,154 @@ zoom_us.groupMembersDelete({
 
 #### Output
 *Output schema unknown*
+
+### deviceList
+List H.323/SIP Devices on your Zoom account.
+
+
+```js
+zoom_us.deviceList(null, context)
+```
+
+#### Input
+*This action has no parameters*
+
+#### Output
+* output [DeviceList](#devicelist)
+
+### deviceCreate
+Create a H.323/SIP Device on your Zoom account
+
+
+```js
+zoom_us.deviceCreate({
+  "body": {
+    "name": "",
+    "protocol": "",
+    "ip": "",
+    "encryption": ""
+  }
+}, context)
+```
+
+#### Input
+* input `object`
+  * body **required** [Device](#device)
+
+#### Output
+* output
+  * id `string`: Device ID
+  * encryption **required** `string` (values: auto, yes, no): Device encryption
+  * ip **required** `string`: Device Ip
+  * name **required** `string`: Device name
+  * protocol **required** `string` (values: H.323, SIP): Device protocol
+
+### deviceDelete
+Delete a H.323/SIP Device on your Zoom account
+
+
+```js
+zoom_us.deviceDelete({
+  "deviceId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * deviceId **required** `string`: The device ID
+
+#### Output
+*Output schema unknown*
+
+### deviceUpdate
+Update a H.323/SIP Device on your Zoom account
+
+
+```js
+zoom_us.deviceUpdate({
+  "deviceId": "",
+  "body": {
+    "name": "",
+    "protocol": "",
+    "ip": "",
+    "encryption": ""
+  }
+}, context)
+```
+
+#### Input
+* input `object`
+  * deviceId **required** `string`: The device ID
+  * body **required** [Device](#device)
+
+#### Output
+*Output schema unknown*
+
+### imChatSessions
+Retrieve IM Chat sessions for a specified period <aside>This API only supports oauth2.</aside>
+
+
+```js
+zoom_us.imChatSessions({
+  "from": "",
+  "to": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * from **required** `string`: Start Date
+  * to **required** `string`: End Date
+  * page_size `integer`: The number of records returned within a single API call
+  * next_page_token `string`: Next page token is used to paginate through large result sets. A next page token will be returned whenever the set of available results exceed the current page size. The expiration period for this token is 15 minutes.
+
+#### Output
+* output
+  * from `string`: Start date
+  * to `string`: End date
+  * next_page_token `string`: Next page token, used to paginate through large result sets. A next page token will be returned whenever the set of available result list exceeds page size. The expiration period is 15 minutes.
+  * page_size `integer`: The amount of records returns within a single API call. 
+  * sessions `array`: Array of session objects
+    * items `object`
+      * last_message_sent_time `string`: Last message sent time
+      * name `string`: Meeting topic
+      * session_id `string`: IM Chat session ID
+      * type `string`: IM Chat session type
+
+### imChatMessages
+Retrieve IM Chat messages for a specified period <aside>This API only supports oauth2.</aside>
+
+
+```js
+zoom_us.imChatMessages({
+  "sessionId": "",
+  "from": "",
+  "to": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * sessionId **required** `string`: IM Chat Session ID
+  * from **required** `string`: Start Date
+  * to **required** `string`: End Date
+  * page_size `integer`: The number of records returned within a single API call
+  * next_page_token `string`: Next page token is used to paginate through large result sets. A next page token will be returned whenever the set of available results exceed the current page size. The expiration period for this token is 15 minutes.
+
+#### Output
+* output
+  * from `string`: Start date
+  * session_id `string`: IM Chat session ID
+  * to `string`: End date
+  * next_page_token `string`: Next page token, used to paginate through large result sets. A next page token will be returned whenever the set of available result list exceeds page size. The expiration period is 15 minutes.
+  * page_size `integer`: The amount of records returns within a single API call. 
+  * messages `array`: Array of session objects
+    * items `object`
+      * action `string`: IM Chat message action
+      * action_time `string`: Action time
+      * date_time `string`: IM Chat message sent time
+      * message `string`: IM Chat message content
+      * sender `string`: IM Chat message sender
 
 ### imGroups
 List IM groups under your account
@@ -503,9 +669,9 @@ zoom_us.imGroupCreate({
 * output `object`
   * id `string`: Group ID
   * name `string`: Group name
-  * search_by_account `boolean`: Members can search others under same account.
-  * search_by_domain `boolean`: Members can search others in the same email domain.
-  * search_by_ma_account `boolean`: Members can search others under same master account, including all sub accounts.
+  * search_by_account `boolean`: Members can search others under same account
+  * search_by_domain `boolean`: Members can search others in the same email domain
+  * search_by_ma_account `boolean`: Members can search others under same master account, including all sub accounts
   * total_members `integer`: Group member count
 
 ### imGroupDelete
@@ -543,7 +709,7 @@ zoom_us.imGroup({
 * output
   * id `string`: Group ID
   * name `string`: Group name
-  * total_members `integer`: Total number of members in this group.
+  * total_members `integer`: Total number of members in this group
   * search_by_account `boolean`: Members can search others under same account
   * search_by_domain `boolean`: Members can search others in the same email domain
   * search_by_ma_account `boolean`: Members can search others under same master account, including all sub accounts
@@ -586,8 +752,8 @@ zoom_us.imGroupMembers({
 #### Input
 * input `object`
   * groupId **required** `string`: The group ID
-  * page_size `integer`: The amount of records returns within a single API call. 
-  * page_number `integer`: Current page number of returned records.
+  * page_size `integer`: The number of records returned within a single API call
+  * page_number `integer`: Current page number of returned records
 
 #### Output
 * output [GroupMemberList](#groupmemberlist)
@@ -610,7 +776,7 @@ zoom_us.imGroupMembersCreate({
     * members `array`: List of IM Group members
       * items `object`
         * email `string`: User email. If ID given, email is ignored.
-        * id `string`: User ID.
+        * id `string`: User ID
 
 #### Output
 * output `object`
@@ -685,6 +851,10 @@ zoom_us.meeting({
   * start_url `string`: Start url
   * timezone `string`: Timezone to format start_time
   * topic `string`: Meeting topic
+  * tracking_fields `array`: Tracking fields
+    * items `object`
+      * field `string`: Tracking fields type
+      * value `string`: Tracking fields value
   * type `integer` (values: 1, 2, 3, 8): Meeting Type
 
 ### meetingUpdate
@@ -694,6 +864,96 @@ Update a meeting's details
 ```js
 zoom_us.meetingUpdate({
   "meetingId": 0,
+  "body": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * meetingId **required** `integer`: The meeting ID
+  * body **required**
+    * schedule_for `string`: Email or userId if you want to schedule meeting for another user.
+    * agenda `string`: Meeting description
+    * duration `integer`: Meeting duration (minutes). Used for scheduled meetings only
+    * password `string`: Password to join the meeting. Password may only contain the following characters: [a-z A-Z 0-9 @ - _ *]. Max of 10 characters.
+    * recurrence [Recurrence](#recurrence)
+    * settings
+      * alternative_hosts `string`: Alternative hosts emails or IDs. Multiple value separated by comma.
+      * approval_type `integer` (values: 0, 1, 2)
+      * audio `string` (values: both, telephony, voip): Determine how participants can join the audio portion of the meeting
+      * auto_recording `string` (values: local, cloud, none)
+      * close_registration `boolean`: Close registration after event date
+      * cn_meeting `boolean`: Host meeting in China
+      * enforce_login `boolean`: Only signed-in users can join this meeting
+      * enforce_login_domains `string`: Only signed-in users with specified domains can join meetings
+      * host_video `boolean`: Start video when host joins meeting
+      * in_meeting `boolean`: Host meeting in India
+      * join_before_host `boolean`: Allow participants to join the meeting before the host starts the meeting. Only used for scheduled or recurring meetings.
+      * mute_upon_entry `boolean`: Mute participants upon entry
+      * participant_video `boolean`: Start video when participants join meeting
+      * registration_type `integer` (values: 1, 2, 3): Registration type. Used for recurring meeting with fixed time only.
+      * use_pmi `boolean`: Use Personal Meeting ID. Only used for scheduled meetings and recurring meetings with no fixed time.
+      * waiting_room `boolean`: Enable waiting room
+      * watermark `boolean`: Add watermark when viewing shared screen
+      * registrants_confirmation_email `boolean`: Send confirmation Email to Registrants
+    * start_time `string`: Meeting start time. When using a format like "yyyy-MM-dd'T'HH:mm:ss'Z'", always use GMT time. When using a format like "yyyy-MM-dd'T'HH:mm:ss", you should use local time and you will need to specify the time zone. Only used for scheduled meetings and recurring meetings with fixed time.
+    * timezone `string`: Timezone to format start_time. For example, "America/Los_Angeles". For scheduled meetings only. Please reference our [timezone](#timezones) list for supported timezones and their formats.
+    * topic `string`: Meeting topic
+    * tracking_fields `array`: Tracking fields
+      * items `object`
+        * field `string`: Tracking fields type
+        * value `string`: Tracking fields value
+    * type `integer` (values: 1, 2, 3, 8): Meeting Type
+
+#### Output
+*Output schema unknown*
+
+### meetingInvitation
+Retrieve a meeting invitation
+
+
+```js
+zoom_us.meetingInvitation({
+  "meetingId": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * meetingId **required** `integer`: The meeting ID
+
+#### Output
+* output [MeetingInvitation](#meetinginvitation)
+
+### meetingLiveStreamUpdate
+Update a meeting's live stream
+
+
+```js
+zoom_us.meetingLiveStreamUpdate({
+  "meetingId": 0,
+  "body": {
+    "stream_url": "",
+    "stream_key": ""
+  }
+}, context)
+```
+
+#### Input
+* input `object`
+  * meetingId **required** `integer`: The meeting ID
+  * body **required** [MeetingLiveStream](#meetinglivestream)
+
+#### Output
+*Output schema unknown*
+
+### meetingLiveStreamStatusUpdate
+Update a meeting's live stream status
+
+
+```js
+zoom_us.meetingLiveStreamStatusUpdate({
+  "meetingId": 0,
   "body": {}
 }, context)
 ```
@@ -701,7 +961,134 @@ zoom_us.meetingUpdate({
 #### Input
 * input `object`
   * meetingId **required** `integer`: The meeting ID
-  * body **required** [MeetingUpdate](#meetingupdate)
+  * body **required** [MeetingLiveStreamStatus](#meetinglivestreamstatus)
+
+#### Output
+*Output schema unknown*
+
+### meetingPolls
+List polls of a meeting
+
+
+```js
+zoom_us.meetingPolls({
+  "meetingId": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * meetingId **required** `integer`: The meeting ID
+
+#### Output
+* output [PollList](#polllist)
+
+### meetingPollCreate
+Create a poll for a meeting
+
+
+```js
+zoom_us.meetingPollCreate({
+  "meetingId": 0,
+  "body": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * meetingId **required** `integer`: The meeting ID
+  * body **required**
+    * questions `array`: Array of Polls
+      * items `object`
+        * answers `array`: Question answers
+          * items `string`
+        * name `string`: Question name
+        * type `string` (values: single, multiple): Question type
+    * title `string`: Poll Title
+
+#### Output
+* output
+  * id `string`: Meeting Poll ID
+  * status `string` (values: notstart, started, ended, sharing): Status of the Meeting Poll
+  * questions `array`: Array of Polls
+    * items `object`
+      * answers `array`: Question answers
+        * items `string`
+      * name `string`: Question name
+      * type `string` (values: single, multiple): Question type
+  * title `string`: Poll Title
+
+### meetingPollDelete
+Delete a meeting's Poll
+
+
+```js
+zoom_us.meetingPollDelete({
+  "meetingId": 0,
+  "pollId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * meetingId **required** `integer`: The meeting ID
+  * pollId **required** `string`: The poll ID
+
+#### Output
+*Output schema unknown*
+
+### meetingPollGet
+Retrieve a meeting's poll
+
+
+```js
+zoom_us.meetingPollGet({
+  "meetingId": 0,
+  "pollId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * meetingId **required** `integer`: The meeting ID
+  * pollId **required** `string`: The poll ID
+
+#### Output
+* output
+  * id `string`: Meeting Poll ID
+  * status `string` (values: notstart, started, ended, sharing): Status of the Meeting Poll
+  * questions `array`: Array of Polls
+    * items `object`
+      * answers `array`: Question answers
+        * items `string`
+      * name `string`: Question name
+      * type `string` (values: single, multiple): Question type
+  * title `string`: Poll Title
+
+### meetingPollUpdate
+Update a meeting's poll
+
+
+```js
+zoom_us.meetingPollUpdate({
+  "meetingId": 0,
+  "pollId": "",
+  "body": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * meetingId **required** `integer`: The meeting ID
+  * pollId **required** `string`: The poll ID
+  * body **required**
+    * questions `array`: Array of Polls
+      * items `object`
+        * answers `array`: Question answers
+          * items `string`
+        * name `string`: Question name
+        * type `string` (values: single, multiple): Question type
+    * title `string`: Poll Title
 
 #### Output
 *Output schema unknown*
@@ -712,13 +1099,13 @@ Delete a meeting's recordings
 
 ```js
 zoom_us.recordingDelete({
-  "meetingId": 0
+  "meetingId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * meetingId **required** `integer`: The meeting ID or meeting UUID. If given meeting ID, will take the last meeting instance.
+  * meetingId **required** `string`: The meeting ID or meeting UUID. If given meeting ID, will take the last meeting instance.
   * action `string` (values: trash, delete): The recording delete action
 
 #### Output
@@ -730,13 +1117,13 @@ Retrieve a meeting’s all recordings
 
 ```js
 zoom_us.recordingGet({
-  "meetingId": 0
+  "meetingId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * meetingId **required** `integer`: The meeting ID or meeting UUID. If given meeting ID, will take the last meeting instance.
+  * meetingId **required** `string`: The meeting ID or meeting UUID. If given meeting ID, will take the last meeting instance.
 
 #### Output
 * output
@@ -751,16 +1138,53 @@ zoom_us.recordingGet({
   * uuid `string`: Meeting unique ID
   * recording_files `array`: List of Recording file
     * items
-      * deleted_time `string`: The recording delete time.Response in trash query
-      * download_url `string`: The recording download url.Response in general query
+      * deleted_time `string`: The recording delete time. Response in trash query.
+      * download_url `string`: The recording download url. Response in general query.
       * file_size `number`: The recording file size.
       * file_type `string`: The recording file type.
-      * id `string`: The recording file ID.Response in general query
+      * id `string`: The recording file ID.Response in general query.
       * meeting_id `string`: The meeting ID. 
-      * play_url `string`: The recording file play url.Response in general query
-      * recording_end `string`: The recording end time.Response in general query
+      * play_url `string`: The recording file play url. Response in general query.
+      * recording_end `string`: The recording end time. Response in general query.
       * recording_start `string`: The recording start time.
-      * status `string`: The recording status.Response in general query
+      * recording_type `string`: The recording file type.
+      * status `string`: The recording status. Response in general query.
+
+### recordingSettingUpdate
+Retrieve a meeting recording's settings
+
+
+```js
+zoom_us.recordingSettingUpdate({
+  "meetingId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * meetingId **required** `string`: The meeting ID or meeting UUID. If given meeting ID, will take the last meeting instance.
+
+#### Output
+* output [RecordingSettings](#recordingsettings)
+
+### recordingSettingsUpdate
+Update a meeting recording's settings
+
+
+```js
+zoom_us.recordingSettingsUpdate({
+  "meetingId": "",
+  "body": {}
+}, context)
+```
+
+#### Input
+* input `object`
+  * meetingId **required** `string`: The meeting ID or meeting UUID. If given meeting ID, will take the last meeting instance.
+  * body **required** [RecordingSettings](#recordingsettings)
+
+#### Output
+*Output schema unknown*
 
 ### recordingStatusUpdate
 Recover a meeting's recordings
@@ -768,14 +1192,14 @@ Recover a meeting's recordings
 
 ```js
 zoom_us.recordingStatusUpdate({
-  "meetingId": 0,
+  "meetingId": "",
   "body": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * meetingId **required** `integer`: The meeting ID or meeting UUID. If given meeting ID, will take the last meeting instance.
+  * meetingId **required** `string`: The meeting ID or meeting UUID. If given meeting ID, will take the last meeting instance.
   * body **required** `object`
     * action `string` (values: recover)
 
@@ -788,14 +1212,14 @@ Delete one meeting recording file
 
 ```js
 zoom_us.recordingDeleteOne({
-  "meetingId": 0,
+  "meetingId": "",
   "recordingId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * meetingId **required** `integer`: The meeting ID or meeting UUID. If given meeting ID, will take the last meeting instance.
+  * meetingId **required** `string`: The meeting ID or meeting UUID. If given meeting ID, will take the last meeting instance.
   * recordingId **required** `string`: The recording ID
   * action `string` (values: trash, delete): The recording delete action
 
@@ -803,12 +1227,12 @@ zoom_us.recordingDeleteOne({
 *Output schema unknown*
 
 ### recordingStatusUpdateOne
-Recover a meeting one recording
+Recover a single recording
 
 
 ```js
 zoom_us.recordingStatusUpdateOne({
-  "meetingId": 0,
+  "meetingId": "",
   "recordingId": "",
   "body": null
 }, context)
@@ -816,7 +1240,7 @@ zoom_us.recordingStatusUpdateOne({
 
 #### Input
 * input `object`
-  * meetingId **required** `integer`: The meeting ID or meeting UUID. If given meeting ID, will take the last meeting instance.
+  * meetingId **required** `string`: The meeting ID or meeting UUID. If given meeting ID, will take the last meeting instance.
   * recordingId **required** `string`: The recording ID
   * body **required** `object`
     * action `string` (values: recover)
@@ -839,8 +1263,8 @@ zoom_us.meetingRegistrants({
   * meetingId **required** `integer`: The meeting ID
   * occurrence_id `string`: The meeting occurrence ID
   * status `string` (values: pending, approved, denied): The registrant status
-  * page_size `integer`: The amount of records returns within a single API call. 
-  * page_number `integer`: Current page number of returned records.
+  * page_size `integer`: The number of records returned within a single API call
+  * page_number `integer`: Current page number of returned records
 
 #### Output
 * output [MeetingRegistrantList](#meetingregistrantlist)
@@ -863,7 +1287,7 @@ zoom_us.meetingRegistrantCreate({
 #### Input
 * input `object`
   * meetingId **required** `integer`: The meeting ID
-  * occurrence_ids `string`: Occurrence IDs, could get this value from Meeting Get API. Multiple value separated by comma.
+  * occurrence_ids `string`: Occurrence IDs. You can find these with the meeting get API. Multiple values separated by comma.
   * body **required** [MeetingRegistrant](#meetingregistrant)
 
 #### Output
@@ -917,7 +1341,7 @@ zoom_us.meetingStatus({
 *Output schema unknown*
 
 ### dashboardCRC
-Get CRC Port usage hour by hour for a specified time period <aside class='notice'>We will report a maximum of one month. For example, if "from" is set to "2017-08-05" and "to" is "2017-10-10" we will adjust "from" to "2017-09-10"</aside>
+Get CRC Port usage hour by hour for a specified time period <aside class='notice'>We will report a maximum of one month. For example, if "from" is set to "2017-08-05" and "to" is "2017-10-10" we will adjust "from" to "2017-09-10"</aside>.
 
 
 ```js
@@ -960,17 +1384,17 @@ zoom_us.dashboardIM({
 * input `object`
   * from **required** `string`: Start Date
   * to **required** `string`: End Date
-  * page_size `integer`: The amount of records returns within a single API call. 
-  * next_page_token `string`: Next page token, used to paginate through large result sets. A next page token will be returned whenever the set of available result list exceeds page size. The expiration period is 15 minutes.
+  * page_size `integer`: The number of records returned within a single API call
+  * next_page_token `string`: Next page token is used to paginate through large result sets. A next page token will be returned whenever the set of available results exceed the current page size. The expiration period for this token is 15 minutes.
 
 #### Output
 * output
   * from `string`: Start date for this report
   * to `string`: End date for this report
-  * next_page_token `string`: Next page token, used to paginate through large result sets. A next page token will be returned whenever the set of available result list exceeds page size. The expiration period is 15 minutes.
-  * page_count `integer`: The number of items returned on this page.
-  * page_size `integer`: The amount of records returns within a single API call. 
-  * total_records `integer`: The number of all records available across pages.
+  * next_page_token `string`: Next page token is used to paginate through large result sets. A next page token will be returned whenever the set of available results exceed the current page size. The expiration period for this token is 15 minutes.
+  * page_count `integer`: The number of items returned on this page
+  * page_size `integer`: The number of records returned within a single API call.
+  * total_records `integer`: The number of all records available across pages
   * users `array`
     * items `object`
       * calls_receive `integer`
@@ -1009,17 +1433,17 @@ zoom_us.dashboardMeetings({
   * type `string` (values: past, pastOne, live): The meeting type
   * from **required** `string`: Start Date
   * to **required** `string`: End Date
-  * page_size `integer`: The amount of records returns within a single API call. 
-  * next_page_token `string`: Next page token, used to paginate through large result sets. A next page token will be returned whenever the set of available result list exceeds page size. The expiration period is 15 minutes.
+  * page_size `integer`: The number of records returned within a single API call
+  * next_page_token `string`: Next page token is used to paginate through large result sets. A next page token will be returned whenever the set of available results exceed the current page size. The expiration period for this token is 15 minutes.
 
 #### Output
 * output
   * from `string`: Start date for this report
   * to `string`: End date for this report
-  * next_page_token `string`: Next page token, used to paginate through large result sets. A next page token will be returned whenever the set of available result list exceeds page size. The expiration period is 15 minutes.
-  * page_count `integer`: The number of items returned on this page.
-  * page_size `integer`: The amount of records returns within a single API call. 
-  * total_records `integer`: The number of all records available across pages.
+  * next_page_token `string`: Next page token is used to paginate through large result sets. A next page token will be returned whenever the set of available results exceed the current page size. The expiration period for this token is 15 minutes.
+  * page_count `integer`: The number of items returned on this page
+  * page_size `integer`: The number of records returned within a single API call.
+  * total_records `integer`: The number of all records available across pages
   * meetings `array`: Array of meeting objects
     * items [MeetingMetric](#meetingmetric)
 
@@ -1029,13 +1453,13 @@ Retrieve live or past meetings detail
 
 ```js
 zoom_us.dashboardMeetingDetail({
-  "meetingId": 0
+  "meetingId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * meetingId **required** `integer`: The meeting ID or meeting UUID. If given meeting ID, will take the last meeting instance.
+  * meetingId **required** `string`: The meeting ID or meeting UUID. If given meeting ID, will take the last meeting instance.
   * type `string` (values: past, pastOne, live): The meeting type
 
 #### Output
@@ -1047,25 +1471,27 @@ Retrieve live or past meetings participants
 
 ```js
 zoom_us.dashboardMeetingParticipants({
-  "meetingId": 0
+  "meetingId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * meetingId **required** `integer`: The meeting ID or meeting UUID. If given meeting ID, will take the last meeting instance.
+  * meetingId **required** `string`: The meeting ID or meeting UUID. If given meeting ID, will take the last meeting instance.
   * type `string` (values: past, pastOne, live): The meeting type
-  * page_size `integer`: The amount of records returns within a single API call. 
-  * next_page_token `string`: Next page token, used to paginate through large result sets. A next page token will be returned whenever the set of available result list exceeds page size. The expiration period is 15 minutes.
+  * page_size `integer`: The number of records returned within a single API call
+  * next_page_token `string`: Next page token is used to paginate through large result sets. A next page token will be returned whenever the set of available results exceed the current page size. The expiration period for this token is 15 minutes.
 
 #### Output
 * output
-  * next_page_token `string`: Next page token, used to paginate through large result sets. A next page token will be returned whenever the set of available result list exceeds page size. The expiration period is 15 minutes.
-  * page_count `integer`: The number of items returned on this page.
-  * page_size `integer`: The amount of records returns within a single API call. 
-  * total_records `integer`: The number of all records available across pages.
+  * next_page_token `string`: Next page token is used to paginate through large result sets. A next page token will be returned whenever the set of available results exceed the current page size. The expiration period for this token is 15 minutes.
+  * page_count `integer`: The number of items returned on this page
+  * page_size `integer`: The number of records returned within a single API call.
+  * total_records `integer`: The number of all records available across pages
   * participants `array`: Array of user objects
     * items `object`
+      * connection_type `string`: Participant connection type
+      * data_center `string`: Participant data center
       * device `string`: Participant device
       * domain `string`: Participant domain
       * harddisk_id `string`: Participant hard disk id
@@ -1075,12 +1501,14 @@ zoom_us.dashboardMeetingParticipants({
       * leave_time `string`: Participant leave time
       * location `string`: Participant location
       * mac_addr `string`: Participant MAC Address
+      * microphone `string`: Participant microphone
       * network_type `string`: Participant network type
       * pc_name `string`: Participant PC name
       * recording `boolean`: Participant record
       * share_application `boolean`: Did participant share application
       * share_desktop `boolean`: Did participant share desktop
       * share_whiteboard `boolean`: Did participant share whiteboard
+      * speaker `string`: Participant speaker
       * user_id `string`: Participant ID
       * user_name `string`: Participant display name
       * version `string`: Participant version
@@ -1091,16 +1519,16 @@ Retrieve list of live or past meetings participants quality of service
 
 ```js
 zoom_us.dashboardMeetingParticipantsQOS({
-  "meetingId": 0
+  "meetingId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * meetingId **required** `integer`: The meeting ID or meeting UUID. If given meeting ID, will take the last meeting instance.
+  * meetingId **required** `string`: The meeting ID or meeting UUID. If given meeting ID, will take the last meeting instance.
   * type `string` (values: past, live): The meeting type
   * page_size `integer`: Number of items returned per page
-  * next_page_token `string`: Next page token, used to paginate through large result sets. A next page token will be returned whenever the set of available result list exceeds page size. The expiration period is 15 minutes.
+  * next_page_token `string`: Next page token is used to paginate through large result sets. A next page token will be returned whenever the set of available results exceed the current page size. The expiration period for this token is 15 minutes.
 
 #### Output
 * output [QOSParticipantList](#qosparticipantlist)
@@ -1111,23 +1539,23 @@ Retrieve sharing/recording details of live or past meetings participant
 
 ```js
 zoom_us.dashboardMeetingParticipantShare({
-  "meetingId": 0
+  "meetingId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * meetingId **required** `integer`: The meeting ID or meeting UUID. If given meeting ID, will take the last meeting instance.
+  * meetingId **required** `string`: The meeting ID or meeting UUID. If given meeting ID, will take the last meeting instance.
   * type `string` (values: past, live): The meeting type
-  * page_size `integer`: The amount of records returns within a single API call. 
-  * next_page_token `string`: Next page token, used to paginate through large result sets. A next page token will be returned whenever the set of available result list exceeds page size. The expiration period is 15 minutes.
+  * page_size `integer`: The number of records returned within a single API call
+  * next_page_token `string`: Next page token is used to paginate through large result sets. A next page token will be returned whenever the set of available results exceed the current page size. The expiration period for this token is 15 minutes.
 
 #### Output
 * output
-  * next_page_token `string`: Next page token, used to paginate through large result sets. A next page token will be returned whenever the set of available result list exceeds page size. The expiration period is 15 minutes.
-  * page_count `integer`: The number of items returned on this page.
-  * page_size `integer`: The amount of records returns within a single API call. 
-  * total_records `integer`: The number of all records available across pages.
+  * next_page_token `string`: Next page token is used to paginate through large result sets. A next page token will be returned whenever the set of available results exceed the current page size. The expiration period for this token is 15 minutes.
+  * page_count `integer`: The number of items returned on this page
+  * page_size `integer`: The number of records returned within a single API call.
+  * total_records `integer`: The number of all records available across pages
   * participants `array`: Array of participants
     * items `object`
       * details `array`: Array of sharing and recording details
@@ -1145,15 +1573,15 @@ Retrieve live or past meetings participant quality of service
 
 ```js
 zoom_us.dashboardMeetingParticipantQOS({
-  "meetingId": 0,
+  "meetingId": "",
   "participantId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * meetingId **required** `integer`: The meeting ID or meeting UUID. If given meeting ID, will take the last meeting instance.
-  * participantId **required** `string`: The participant ID, such as 16778240
+  * meetingId **required** `string`: The meeting ID or meeting UUID. If given meeting ID, will take the last meeting instance.
+  * participantId **required** `string`: Participant ID
   * type `string` (values: past, live): The meeting type
 
 #### Output
@@ -1172,20 +1600,20 @@ zoom_us.dashboardWebinars({
 
 #### Input
 * input `object`
-  * type `string` (values: past, live): The webinar type
+  * type `string` (values: past, pastOne, live): The webinar type
   * from **required** `string`: Start Date
   * to **required** `string`: End Date
-  * page_size `integer`: The amount of records returns within a single API call. 
-  * next_page_token `string`: Next page token, used to paginate through large result sets. A next page token will be returned whenever the set of available result list exceeds page size. The expiration period is 15 minutes.
+  * page_size `integer`: The number of records returned within a single API call
+  * next_page_token `string`: Next page token is used to paginate through large result sets. A next page token will be returned whenever the set of available results exceed the current page size. The expiration period for this token is 15 minutes.
 
 #### Output
 * output
   * from `string`: Start date for this report
   * to `string`: End date for this report
-  * next_page_token `string`: Next page token, used to paginate through large result sets. A next page token will be returned whenever the set of available result list exceeds page size. The expiration period is 15 minutes.
-  * page_count `integer`: The number of items returned on this page.
-  * page_size `integer`: The amount of records returns within a single API call. 
-  * total_records `integer`: The number of all records available across pages.
+  * next_page_token `string`: Next page token is used to paginate through large result sets. A next page token will be returned whenever the set of available results exceed the current page size. The expiration period for this token is 15 minutes.
+  * page_count `integer`: The number of items returned on this page
+  * page_size `integer`: The number of records returned within a single API call.
+  * total_records `integer`: The number of all records available across pages
   * webinars `array`: Array of webinar objects
     * items [WebinarMetric](#webinarmetric)
 
@@ -1195,13 +1623,13 @@ Retrieve live  or past webinars detail
 
 ```js
 zoom_us.dashboardWebinarDetail({
-  "webinarId": 0
+  "webinarId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * webinarId **required** `integer`: The webinar ID or webinar UUID. If given webinar ID, will take the last webinar instance.
+  * webinarId **required** `string`: The webinar ID or webinar UUID. If given webinar ID, will take the last webinar instance.
   * type `string` (values: past, live): The webinar type
 
 #### Output
@@ -1213,25 +1641,27 @@ Retrieve live or past webinar participants
 
 ```js
 zoom_us.dashboardWebinarParticipants({
-  "webinarId": 0
+  "webinarId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * webinarId **required** `integer`: The webinar ID or webinar UUID. If given webinar ID, will take the last webinar instance.
+  * webinarId **required** `string`: The webinar ID or webinar UUID. If given webinar ID, will take the last webinar instance.
   * type `string` (values: past, live): The webinar type
-  * page_size `integer`: The amount of records returns within a single API call. 
-  * next_page_token `string`: Next page token, used to paginate through large result sets. A next page token will be returned whenever the set of available result list exceeds page size. The expiration period is 15 minutes.
+  * page_size `integer`: The number of records returned within a single API call
+  * next_page_token `string`: Next page token is used to paginate through large result sets. A next page token will be returned whenever the set of available results exceed the current page size. The expiration period for this token is 15 minutes.
 
 #### Output
 * output
-  * next_page_token `string`: Next page token, used to paginate through large result sets. A next page token will be returned whenever the set of available result list exceeds page size. The expiration period is 15 minutes.
-  * page_count `integer`: The number of items returned on this page.
-  * page_size `integer`: The amount of records returns within a single API call. 
-  * total_records `integer`: The number of all records available across pages.
+  * next_page_token `string`: Next page token is used to paginate through large result sets. A next page token will be returned whenever the set of available results exceed the current page size. The expiration period for this token is 15 minutes.
+  * page_count `integer`: The number of items returned on this page
+  * page_size `integer`: The number of records returned within a single API call.
+  * total_records `integer`: The number of all records available across pages
   * participants `array`: Array of user objects
     * items `object`
+      * connection_type `string`: Participant connection type
+      * data_center `string`: Participant data center
       * device `string`: Participant device
       * domain `string`: Participant domain
       * harddisk_id `string`: Participant hard disk id
@@ -1241,12 +1671,14 @@ zoom_us.dashboardWebinarParticipants({
       * leave_time `string`: Participant leave time
       * location `string`: Participant location
       * mac_addr `string`: Participant MAC Address
+      * microphone `string`: Participant microphone
       * network_type `string`: Participant network type
       * pc_name `string`: Participant PC name
       * recording `boolean`: Participant record
       * share_application `boolean`: Did participant share application
       * share_desktop `boolean`: Did participant share desktop
       * share_whiteboard `boolean`: Did participant share whiteboard
+      * speaker `string`: Participant speaker
       * user_id `string`: Participant ID
       * user_name `string`: Participant display name
       * version `string`: Participant version
@@ -1257,16 +1689,16 @@ Retrieve list of live or past webinar participants quality of service
 
 ```js
 zoom_us.dashboardWebinarParticipantsQOS({
-  "webinarId": 0
+  "webinarId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * webinarId **required** `integer`: The webinar ID or webinar UUID. If given webinar ID, will take the last webinar instance.
+  * webinarId **required** `string`: The webinar ID or webinar UUID. If given webinar ID, will take the last webinar instance.
   * type `string` (values: past, live): The webinar type
   * page_size `integer`: Number of items returned per page
-  * next_page_token `string`: Next page token, used to paginate through large result sets. A next page token will be returned whenever the set of available result list exceeds page size. The expiration period is 15 minutes.
+  * next_page_token `string`: Next page token is used to paginate through large result sets. A next page token will be returned whenever the set of available results exceed the current page size. The expiration period for this token is 15 minutes.
 
 #### Output
 * output [QOSParticipantList](#qosparticipantlist)
@@ -1277,23 +1709,23 @@ Retrieve sharing/recording details of live or past webinar participant
 
 ```js
 zoom_us.dashboardWebinarParticipantShare({
-  "webinarId": 0
+  "webinarId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * webinarId **required** `integer`: The webinar ID or webinar UUID. If given webinar ID, will take the last webinar instance.
+  * webinarId **required** `string`: The webinar ID or webinar UUID. If given webinar ID, will take the last webinar instance.
   * type `string` (values: past, live): The webinar type
-  * page_size `integer`: The amount of records returns within a single API call. 
-  * next_page_token `string`: Next page token, used to paginate through large result sets. A next page token will be returned whenever the set of available result list exceeds page size. The expiration period is 15 minutes.
+  * page_size `integer`: The number of records returned within a single API call
+  * next_page_token `string`: Next page token is used to paginate through large result sets. A next page token will be returned whenever the set of available results exceed the current page size. The expiration period for this token is 15 minutes.
 
 #### Output
 * output
-  * next_page_token `string`: Next page token, used to paginate through large result sets. A next page token will be returned whenever the set of available result list exceeds page size. The expiration period is 15 minutes.
-  * page_count `integer`: The number of items returned on this page.
-  * page_size `integer`: The amount of records returns within a single API call. 
-  * total_records `integer`: The number of all records available across pages.
+  * next_page_token `string`: Next page token is used to paginate through large result sets. A next page token will be returned whenever the set of available results exceed the current page size. The expiration period for this token is 15 minutes.
+  * page_count `integer`: The number of items returned on this page
+  * page_size `integer`: The number of records returned within a single API call.
+  * total_records `integer`: The number of all records available across pages
   * participants `array`: Array of participants
     * items `object`
       * details `array`: Array of sharing and recording details
@@ -1311,15 +1743,15 @@ Retrieve live or past webinar participant quality of service
 
 ```js
 zoom_us.dashboardWebinarParticipantQOS({
-  "webinarId": 0,
+  "webinarId": "",
   "participantId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * webinarId **required** `integer`: The webinar ID or webinar UUID. If given webinar ID, will take the last webinar instance.
-  * participantId **required** `string`: The participant ID, such as 16778240
+  * webinarId **required** `string`: The webinar ID or webinar UUID. If given webinar ID, will take the last webinar instance.
+  * participantId **required** `string`: Participant ID
   * type `string` (values: past, live): The webinar type
 
 #### Output
@@ -1335,8 +1767,8 @@ zoom_us.dashboardZoomRooms({}, context)
 
 #### Input
 * input `object`
-  * page_size `integer`: The amount of records returns within a single API call. 
-  * page_number `integer`: Current page number of returned records.
+  * page_size `integer`: The number of records returned within a single API call
+  * page_number `integer`: Current page number of returned records
 
 #### Output
 * output [ZoomRoomList](#zoomroomlist)
@@ -1347,7 +1779,7 @@ Retrieve zoom room on account
 
 ```js
 zoom_us.dashboardZoomRoom({
-  "zoomroomId": 0,
+  "zoomroomId": "",
   "from": "",
   "to": ""
 }, context)
@@ -1355,15 +1787,16 @@ zoom_us.dashboardZoomRoom({
 
 #### Input
 * input `object`
-  * zoomroomId **required** `integer`: The Zoom Room ID
+  * zoomroomId **required** `string`: The Zoom Room ID
   * from **required** `string`: Start Date
   * to **required** `string`: End Date
-  * page_size `integer`: The amount of records returns within a single API call. 
-  * page_number `integer`: Current page number of returned records.
+  * page_size `integer`: The number of records returned within a single API call
+  * page_number `integer`: Current page number of returned records
 
 #### Output
 * output
   * account_type `string`: Zoom Room email type
+  * calender_name `string`: Zoom Calendar name
   * camera `string`: Zoom Room camera
   * device_ip `string`: Zoom Room device IP
   * email `string`: Zoom Room email
@@ -1377,15 +1810,132 @@ zoom_us.dashboardZoomRoom({
   * past_meetings `object`
     * from `string`: Start date for this report
     * to `string`: End date for this report
-    * next_page_token `string`: Next page token, used to paginate through large result sets. A next page token will be returned whenever the set of available result list exceeds page size. The expiration period is 15 minutes.
-    * page_count `integer`: The number of items returned on this page.
-    * page_size `integer`: The amount of records returns within a single API call. 
-    * total_records `integer`: The number of all records available across pages.
+    * next_page_token `string`: Next page token is used to paginate through large result sets. A next page token will be returned whenever the set of available results exceed the current page size. The expiration period for this token is 15 minutes.
+    * page_count `integer`: The number of items returned on this page
+    * page_size `integer`: The number of records returned within a single API call.
+    * total_records `integer`: The number of all records available across pages
     * meetings `array`: Array of meeting objects
       * items [MeetingMetric](#meetingmetric)
 
+### pastMeetings
+List of ended meeting instances
+
+
+```js
+zoom_us.pastMeetings({
+  "meetingId": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * meetingId **required** `integer`: The meeting ID
+
+#### Output
+* output [MeetingInstances](#meetinginstances)
+
+### pastMeetingDetails
+Retrieve ended meeting details
+
+
+```js
+zoom_us.pastMeetingDetails({
+  "meetingUUID": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * meetingUUID **required** `string`: The meeting UUID.
+
+#### Output
+* output `object`
+  * duration `integer`: Meeting duration
+  * end_time `string`: Meeting end time
+  * host_id `integer`: Host ID
+  * id `integer`: Meeting ID
+  * participants_count `integer`: Number of meeting participants
+  * start_time `string`: Meeting start time
+  * topic `string`: Meeting topic
+  * total_minutes `integer`: Number of meeting minutes
+  * type `integer`: Meeting type
+  * user_email `string`: User email
+  * user_name `string`: User display name
+  * uuid `string`: Meeting UUID
+
+### pastMeetingParticipants
+Retrieve ended meeting participants
+
+
+```js
+zoom_us.pastMeetingParticipants({
+  "meetingUUID": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * meetingUUID **required** `string`: The meeting UUID.
+  * page_size `integer`: The number of records returned within a single API call
+  * next_page_token `string`: Next page token is used to paginate through large result sets. A next page token will be returned whenever the set of available results exceed the current page size. The expiration period for this token is 15 minutes.
+
+#### Output
+* output
+  * next_page_token `string`: Next page token is used to paginate through large result sets. A next page token will be returned whenever the set of available results exceed the current page size. The expiration period for this token is 15 minutes.
+  * page_count `integer`: The number of items returned on this page
+  * page_size `integer`: The number of records returned within a single API call.
+  * total_records `integer`: The number of all records available across pages
+  * participants `array`: Array of meeting participant objects
+    * items `object`
+      * id `string`: Participant UUID
+      * name `string`: Participant display name
+
+### pastWebinars
+List of ended webinar instances
+
+
+```js
+zoom_us.pastWebinars({
+  "webinarId": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * webinarId **required** `integer`: The webinar ID
+
+#### Output
+* output [WebinarInstances](#webinarinstances)
+
+### reportCloudRecording
+Retrieve cloud recording usage report for a specified period. You can only get cloud recording reports for the most recent period of 6 months. The date gap between from and to dates should be smaller or equal to 30 days.
+
+
+```js
+zoom_us.reportCloudRecording({
+  "from": "",
+  "to": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * from **required** `string`: Start Date
+  * to **required** `string`: End Date
+
+#### Output
+* output
+  * from `string`: Start date for this report
+  * to `string`: End date for this report
+  * cloud_recording_storage `array`: Array of cloud usage objects
+    * items `object`
+      * date `string`
+      * free_usage `string`
+      * plan_usage `string`
+      * usage `string`
+
 ### reportDaily
-Retrieve daily report for one month, can only get daily report for recent 6 months.
+Retrieve daily report for one month, can only get daily report for recent 6 months
 
 
 ```js
@@ -1415,13 +1965,13 @@ Retrieve ended meeting details report
 
 ```js
 zoom_us.reportMeetingDetails({
-  "meetingId": 0
+  "meetingId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * meetingId **required** `integer`: The meeting ID or meeting UUID. If given meeting ID, will take the last meeting instance.
+  * meetingId **required** `string`: The meeting ID or meeting UUID. If given meeting ID, will take the last meeting instance.
 
 #### Output
 * output `object`
@@ -1432,6 +1982,10 @@ zoom_us.reportMeetingDetails({
   * start_time `string`: Meeting start time
   * topic `string`: Meeting topic
   * total_minutes `integer`: Number of meeting minutes
+  * tracking_fields `array`: Tracking fields
+    * items `object`
+      * field `string`: Tracking fields type
+      * value `string`: Tracking fields value
   * type `integer`: Meeting type
   * user_email `string`: User email
   * user_name `string`: User display name
@@ -1443,33 +1997,63 @@ Retrieve ended meeting participants report
 
 ```js
 zoom_us.reportMeetingParticipants({
-  "meetingId": 0
+  "meetingId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * meetingId **required** `integer`: The meeting ID or meeting UUID. If given meeting ID, will take the last meeting instance.
-  * page_size `integer`: The amount of records returns within a single API call. 
-  * next_page_token `string`: Next page token, used to paginate through large result sets. A next page token will be returned whenever the set of available result list exceeds page size. The expiration period is 15 minutes.
+  * meetingId **required** `string`: The meeting ID or meeting UUID. If given meeting ID, will take the last meeting instance.
+  * page_size `integer`: The number of records returned within a single API call
+  * next_page_token `string`: Next page token is used to paginate through large result sets. A next page token will be returned whenever the set of available results exceed the current page size. The expiration period for this token is 15 minutes.
 
 #### Output
 * output
-  * next_page_token `string`: Next page token, used to paginate through large result sets. A next page token will be returned whenever the set of available result list exceeds page size. The expiration period is 15 minutes.
-  * page_count `integer`: The number of items returned on this page.
-  * page_size `integer`: The amount of records returns within a single API call. 
-  * total_records `integer`: The number of all records available across pages.
+  * next_page_token `string`: Next page token is used to paginate through large result sets. A next page token will be returned whenever the set of available results exceed the current page size. The expiration period for this token is 15 minutes.
+  * page_count `integer`: The number of items returned on this page
+  * page_size `integer`: The number of records returned within a single API call.
+  * total_records `integer`: The number of all records available across pages
   * participants `array`: Array of meeting participant objects
     * items `object`
       * attentiveness_score `integer`: Participant attentiveness score
       * duration `integer`: Participant duration
+      * id `string`: Participant UUID
       * join_time `string`: Participant join time
       * leave_time `string`: Participant leave time
       * name `string`: Participant display name
       * user_email `string`: Participant email
+      * user_id `string`: Participant ID
+
+### reportMeetingPolls
+Retrieve ended meeting polls report
+
+
+```js
+zoom_us.reportMeetingPolls({
+  "meetingId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * meetingId **required** `string`: The meeting ID or meeting UUID. If given meeting ID, will take the last meeting instance.
+
+#### Output
+* output `object`
+  * id `integer`: Meeting ID
+  * questions `array`: Array of Meeting question objects
+    * items `object`
+      * email `string`: Participant email
+      * name `string`: Participant display name
+      * question_details `array`: Array of questions from user
+        * items `object`
+          * answer `string`: Given answer
+          * question `string`: Asked question
+  * start_time `string`: Meeting start time
+  * uuid `string`: Meeting UUID
 
 ### reportTelephone
-Retrieve telephone report for a specified period <aside>Toll Report API is provided for enabled 'Toll Report' option.</aside>
+Retrieve telephone report for a specified period <aside>Toll Report option would be removed.</aside>.
 
 
 ```js
@@ -1481,28 +2065,31 @@ zoom_us.reportTelephone({
 
 #### Input
 * input `object`
-  * type `string` (values: 1, 2): Audio type
+  * type `string` (values: 1): Audio type
   * from **required** `string`: Start Date
   * to **required** `string`: End Date
-  * page_size `integer`: The amount of records returns within a single API call. 
-  * page_number `integer`: Current page number of returned records.
+  * page_size `integer`: The number of records returned within a single API call
+  * page_number `integer`: Current page number of returned records
 
 #### Output
 * output
   * from `string`: Start date for this report
   * to `string`: End date for this report
-  * page_count `integer`: The number of items returned on this page.
-  * page_number `integer`: The page number of current results.
-  * page_size `integer`: The amount of records returns within a single API call.
-  * total_records `integer`: The number of all records available across pages.
+  * page_count `integer`: The number of items returned on this page
+  * page_number `integer`: The page number of current results
+  * page_size `integer`: The number of records returned within a single API call
+  * total_records `integer`: The number of all records available across pages
   * telephony_usage `array`: Array of telephony objects
     * items `object`
+      * call_in_number `string`: Call in number
+      * country_name `string`: Country Name
       * dept `string`: User department
       * duration `integer`: Meeting duration
       * end_time `string`: Meeting end time
       * host_email `string`: User email
       * host_name `string`: User display name
       * meeting_id `integer`: Meeting ID
+      * meeting_type `string`: Meeting Type
       * phone_number `string`: Telephone Number
       * start_time `string`: Meeting start time
       * total `number`: Total
@@ -1523,17 +2110,17 @@ zoom_us.reportUsers({
   * type `string` (values: active, inactive): Active hosts or inactive hosts
   * from **required** `string`: Start Date
   * to **required** `string`: End Date
-  * page_size `integer`: The amount of records returns within a single API call. 
-  * page_number `integer`: Current page number of returned records.
+  * page_size `integer`: The number of records returned within a single API call
+  * page_number `integer`: Current page number of returned records
 
 #### Output
 * output
   * from `string`: Start date for this report
   * to `string`: End date for this report
-  * page_count `integer`: The number of items returned on this page.
-  * page_number `integer`: The page number of current results.
-  * page_size `integer`: The amount of records returns within a single API call.
-  * total_records `integer`: The number of all records available across pages.
+  * page_count `integer`: The number of items returned on this page
+  * page_number `integer`: The page number of current results
+  * page_size `integer`: The number of records returned within a single API call
+  * total_records `integer`: The number of all records available across pages
   * total_meeting_minutes `integer`: Number of meeting minutes for this range
   * total_meetings `integer`: Number of meetings for this range
   * total_participants `integer`: Number of participants for this range
@@ -1565,17 +2152,17 @@ zoom_us.reportMeetings({
   * userId **required** `string`: The user ID or email address
   * from **required** `string`: Start Date
   * to **required** `string`: End Date
-  * page_size `integer`: The amount of records returns within a single API call. 
-  * next_page_token `string`: Next page token, used to paginate through large result sets. A next page token will be returned whenever the set of available result list exceeds page size. The expiration period is 15 minutes.
+  * page_size `integer`: The number of records returned within a single API call
+  * next_page_token `string`: Next page token is used to paginate through large result sets. A next page token will be returned whenever the set of available results exceed the current page size. The expiration period for this token is 15 minutes.
 
 #### Output
 * output
   * from `string`: Start date for this report
   * to `string`: End date for this report
-  * next_page_token `string`: Next page token, used to paginate through large result sets. A next page token will be returned whenever the set of available result list exceeds page size. The expiration period is 15 minutes.
-  * page_count `integer`: The number of items returned on this page.
-  * page_size `integer`: The amount of records returns within a single API call. 
-  * total_records `integer`: The number of all records available across pages.
+  * next_page_token `string`: Next page token is used to paginate through large result sets. A next page token will be returned whenever the set of available results exceed the current page size. The expiration period for this token is 15 minutes.
+  * page_count `integer`: The number of items returned on this page
+  * page_size `integer`: The number of records returned within a single API call.
+  * total_records `integer`: The number of all records available across pages
   * meetings `array`: Array of meeting objects
     * items `object`
       * duration `integer`: Meeting duration
@@ -1596,13 +2183,13 @@ Retrieve ended webinar details report
 
 ```js
 zoom_us.reportWebinarDetails({
-  "webinarId": 0
+  "webinarId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * webinarId **required** `integer`: The webinar ID or webinar UUID. If given webinar ID, will take the last webinar instance.
+  * webinarId **required** `string`: The webinar ID or webinar UUID. If given webinar ID, will take the last webinar instance.
 
 #### Output
 * output `object`
@@ -1613,6 +2200,10 @@ zoom_us.reportWebinarDetails({
   * start_time `string`: Meeting start time
   * topic `string`: Meeting topic
   * total_minutes `integer`: Number of meeting minutes
+  * tracking_fields `array`: Tracking fields
+    * items `object`
+      * field `string`: Tracking fields type
+      * value `string`: Tracking fields value
   * type `integer`: Meeting type
   * user_email `string`: User email
   * user_name `string`: User display name
@@ -1624,30 +2215,32 @@ Retrieve ended webinar participants report
 
 ```js
 zoom_us.reportWebinarParticipants({
-  "webinarId": 0
+  "webinarId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * webinarId **required** `integer`: The webinar ID or webinar UUID. If given webinar ID, will take the last webinar instance.
-  * page_size `integer`: The amount of records returns within a single API call. 
-  * next_page_token `string`: Next page token, used to paginate through large result sets. A next page token will be returned whenever the set of available result list exceeds page size. The expiration period is 15 minutes.
+  * webinarId **required** `string`: The webinar ID or webinar UUID. If given webinar ID, will take the last webinar instance.
+  * page_size `integer`: The number of records returned within a single API call
+  * next_page_token `string`: Next page token is used to paginate through large result sets. A next page token will be returned whenever the set of available results exceed the current page size. The expiration period for this token is 15 minutes.
 
 #### Output
 * output
-  * next_page_token `string`: Next page token, used to paginate through large result sets. A next page token will be returned whenever the set of available result list exceeds page size. The expiration period is 15 minutes.
-  * page_count `integer`: The number of items returned on this page.
-  * page_size `integer`: The amount of records returns within a single API call. 
-  * total_records `integer`: The number of all records available across pages.
+  * next_page_token `string`: Next page token is used to paginate through large result sets. A next page token will be returned whenever the set of available results exceed the current page size. The expiration period for this token is 15 minutes.
+  * page_count `integer`: The number of items returned on this page
+  * page_size `integer`: The number of records returned within a single API call.
+  * total_records `integer`: The number of all records available across pages
   * participants `array`: Array of webinar participant objects
     * items `object`
       * attentiveness_score `string`: Participant attentiveness score
       * duration `integer`: Participant duration
+      * id `string`: Participant UUID
       * join_time `string`: Participant join time
       * leave_time `string`: Participant leave time
       * name `string`: Participant display name
       * user_email `string`: Participant email
+      * user_id `string`: Participant ID
 
 ### reportWebinarPolls
 Retrieve ended webinar polls report
@@ -1655,13 +2248,13 @@ Retrieve ended webinar polls report
 
 ```js
 zoom_us.reportWebinarPolls({
-  "webinarId": 0
+  "webinarId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * webinarId **required** `integer`: The webinar ID or webinar UUID. If given webinar ID, will take the last webinar instance.
+  * webinarId **required** `string`: The webinar ID or webinar UUID. If given webinar ID, will take the last webinar instance.
 
 #### Output
 * output `object`
@@ -1683,13 +2276,13 @@ Retrieve ended webinar Q&A report
 
 ```js
 zoom_us.reportWebinarQA({
-  "webinarId": 0
+  "webinarId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * webinarId **required** `integer`: The webinar ID or webinar UUID. If given webinar ID, will take the last webinar instance.
+  * webinarId **required** `string`: The webinar ID or webinar UUID. If given webinar ID, will take the last webinar instance.
 
 #### Output
 * output `object`
@@ -1706,7 +2299,7 @@ zoom_us.reportWebinarQA({
   * uuid `string`: Webinar UUID
 
 ### tsp
-List TSP dial-in numbers under account
+Retrieve TSP information on account level
 
 
 ```js
@@ -1721,9 +2314,29 @@ zoom_us.tsp(null, context)
   * dial_in_numbers `array`
     * items `object`
       * code `string`: Country Code
-      * number `string`: Dial-in number, length is less than 16.
+      * number `string`: Dial-in number, length is less than 16
       * type `string`
-  * tsp_provider `string`
+  * enable `boolean`: Enable 3rd party audio conferencing for account users
+  * tsp_provider `string`: 3rd party audio conferencing provider
+
+### tspUpdate
+Update TSP information on account level
+
+
+```js
+zoom_us.tspUpdate({
+  "body": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * body **required** `object`
+    * enable `boolean`: Enable 3rd party audio conferencing for account users
+    * tsp_provider `string`: 3rd party audio conferencing provider
+
+#### Output
+*Output schema unknown*
 
 ### users
 List users on your account
@@ -1736,8 +2349,8 @@ zoom_us.users({}, context)
 #### Input
 * input `object`
   * status `string` (values: active, inactive, pending): User status
-  * page_size `integer`: The amount of records returns within a single API call. 
-  * page_number `integer`: Current page number of returned records.
+  * page_size `integer`: The number of records returned within a single API call
+  * page_number `integer`: Current page number of returned records
 
 #### Output
 * output [UserList](#userlist)
@@ -1757,9 +2370,9 @@ zoom_us.userCreate({
 #### Input
 * input `object`
   * body **required** `object`
-    * action **required** `string` (values: create, autoCreate, custCreate, ssoCreate): Action to take for user creation
+    * action **required** `string` (values: create, autoCreate, custCreate, ssoCreate): Specify how to create the new user
     * user_info `object`
-      * email **required** `string`: User's email address.
+      * email **required** `string`: User's email address
       * first_name `string`: User's first name. Cannot contain more than 5 Chinese words.
       * last_name `string`: User's last name. Cannot contain more than 5 Chinese words.
       * password `string`: User’s password. Only for "autoCreate" action.
@@ -1767,14 +2380,14 @@ zoom_us.userCreate({
 
 #### Output
 * output `object`
-  * email `string`: User's email address.
-  * first_name `string`: User's first name.
+  * email `string`: User's email address
+  * first_name `string`: User's first name
   * id `string`: User ID
-  * last_name `string`: User's last name.
+  * last_name `string`: User's last name
   * type `integer` (values: 1, 2, 3): User's type
 
 ### userEmail
-Check if the user email exists.
+Check if the user email exists
 
 
 ```js
@@ -1785,11 +2398,29 @@ zoom_us.userEmail({
 
 #### Input
 * input `object`
-  * email **required** `string`: User email
+  * email **required** `string`: Zoom work email
 
 #### Output
 * output `object`
   * existed_email `boolean`
+
+### userVanityName
+Check if the user's personal meeting room name exists
+
+
+```js
+zoom_us.userVanityName({
+  "vanity_name": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * vanity_name **required** `string`: Personal meeting room name
+
+#### Output
+* output `object`
+  * existed `boolean`
 
 ### userZPK
 Check if the zpk is expired. The zpk is used to authenticate a user.
@@ -1823,6 +2454,10 @@ zoom_us.userDelete({
 * input `object`
   * userId **required** `string`: The user ID or email address
   * action `string` (values: disassociate, delete): Delete action type
+  * transfer_email `string`: Transfer email
+  * transfer_meeting `boolean`: Transfer meeting
+  * transfer_webinar `boolean`: Transfer webinar
+  * transfer_recording `boolean`: Transfer recording
 
 #### Output
 *Output schema unknown*
@@ -1847,15 +2482,25 @@ zoom_us.user({
   * id `string`: User ID
   * created_at `string`: User create time
   * dept `string`: Department
-  * email **required** `string`: User's email address.
-  * first_name `string`: User's first name.
+  * email **required** `string`: User's email address
+  * first_name `string`: User's first name
   * last_client_version `string`: User last login client version
   * last_login_time `string`: User last login time
-  * last_name `string`: User's last name.
+  * last_name `string`: User's last name
   * pmi `string`: Personal Meeting ID
   * timezone `string`: Time Zone
   * type **required** `integer` (values: 1, 2, 3): User's type
+  * account_id `string`
+  * cms_user_id `string`
+  * group_ids `array`
+    * items `string`
+  * host_key `string`
+  * im_group_ids `array`
+    * items `string`
+  * language `string`
+  * personal_meeting_url `string`
   * pic_url `string`
+  * use_pmi `boolean`
   * vanity_url `string`
   * verified `integer`
 
@@ -1952,6 +2597,28 @@ zoom_us.userAssistantDelete({
 #### Output
 *Output schema unknown*
 
+### userEmailUpdate
+Update a user's email
+
+
+```js
+zoom_us.userEmailUpdate({
+  "userId": "",
+  "body": {
+    "email": ""
+  }
+}, context)
+```
+
+#### Input
+* input `object`
+  * userId **required** `string`: The user ID or email address
+  * body **required** `object`
+    * email **required** `string`: User’s email. Character length is less than 128.
+
+#### Output
+*Output schema unknown*
+
 ### meetings
 List meetings for a user
 
@@ -1965,28 +2632,42 @@ zoom_us.meetings({
 #### Input
 * input `object`
   * userId **required** `string`: The user ID or email address
-  * type `string` (values: scheduled, live): The meeting type
-  * page_size `integer`: The amount of records returns within a single API call. 
-  * page_number `integer`: Current page number of returned records.
+  * type `string` (values: scheduled, live, upcoming): The meeting type
+  * page_size `integer`: The number of records returned within a single API call
+  * page_number `integer`: Current page number of returned records
 
 #### Output
 * output [MeetingList](#meetinglist)
 
 ### meetingCreate
-Create a meeting for a user
+Create a meeting for a user <aside>The expiration time of start_url is two hours. But for API users, the expiration time is 90 days.</aside>
 
 
 ```js
 zoom_us.meetingCreate({
   "userId": "",
-  "body": {}
+  "body": null
 }, context)
 ```
 
 #### Input
 * input `object`
   * userId **required** `string`: The user ID or email address
-  * body **required** [Meeting](#meeting)
+  * body **required**
+    * schedule_for `string`: Email or userId if you want to schedule meeting for another user.
+    * agenda `string`: Meeting description
+    * duration `integer`: Meeting duration (minutes). Used for scheduled meetings only
+    * password `string`: Password to join the meeting. Password may only contain the following characters: [a-z A-Z 0-9 @ - _ *]. Max of 10 characters.
+    * recurrence [Recurrence](#recurrence)
+    * settings [MeetingSettings](#meetingsettings)
+    * start_time `string`: Meeting start time. When using a format like "yyyy-MM-dd'T'HH:mm:ss'Z'", always use GMT time. When using a format like "yyyy-MM-dd'T'HH:mm:ss", you should use local time and you will need to specify the time zone. Only used for scheduled meetings and recurring meetings with fixed time.
+    * timezone `string`: Timezone to format start_time. For example, "America/Los_Angeles". For scheduled meetings only. Please reference our [timezone](#timezones) list for supported timezones and their formats.
+    * topic `string`: Meeting topic
+    * tracking_fields `array`: Tracking fields
+      * items `object`
+        * field `string`: Tracking fields type
+        * value `string`: Tracking fields value
+    * type `integer` (values: 1, 2, 3, 8): Meeting Type
 
 #### Output
 * output
@@ -2005,7 +2686,30 @@ zoom_us.meetingCreate({
   * start_url `string`: Start url
   * timezone `string`: Timezone to format start_time
   * topic `string`: Meeting topic
+  * tracking_fields `array`: Tracking fields
+    * items `object`
+      * field `string`: Tracking fields type
+      * value `string`: Tracking fields value
   * type `integer` (values: 1, 2, 3, 8): Meeting Type
+
+### userPACs
+List user's PAC accounts
+
+
+```js
+zoom_us.userPACs({
+  "userId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * userId **required** `string`: The user ID or email address
+
+#### Output
+* output `object`
+  * tsp_accounts `array`
+    * items [PAC](#pac)
 
 ### userPassword
 Update a user's password
@@ -2024,10 +2728,27 @@ zoom_us.userPassword({
 * input `object`
   * userId **required** `string`: The user ID or email address
   * body **required** `object`
-    * password **required** `string`: User’s password. Character length is less than 32.
+    * password **required** `string`: User’s password. Character length is less than 32,
 
 #### Output
 *Output schema unknown*
+
+### userPermission
+Retrieve a user's permissions
+
+
+```js
+zoom_us.userPermission({
+  "userId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * userId **required** `string`: The user ID or email address
+
+#### Output
+* output [UserPermissions](#userpermissions)
 
 ### userPicture
 Upload a user's profile picture
@@ -2069,13 +2790,66 @@ zoom_us.recordingsList({
   * userId **required** `string`: The user ID or email address
   * from **required** `string`: Start Date
   * to **required** `string`: End Date
-  * page_size `integer`: The amount of records returns within a single API call. 
-  * next_page_token `string`: Next page token, used to paginate through large result sets. A next page token will be returned whenever the set of available result list exceeds page size. The expiration period is 15 minutes.
+  * page_size `integer`: The number of records returned within a single API call
+  * next_page_token `string`: Next page token is used to paginate through large result sets. A next page token will be returned whenever the set of available results exceed the current page size. The expiration period for this token is 15 minutes.
   * mc `string`: Query mc 
   * trash `boolean`: Query trash 
 
 #### Output
-* output [RecordingList](#recordinglist)
+* output [RecordingMeetingList](#recordingmeetinglist)
+
+### userSchedulersDelete
+Delete all of a user'schedulers
+
+
+```js
+zoom_us.userSchedulersDelete({
+  "userId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * userId **required** `string`: The user ID or email address
+
+#### Output
+*Output schema unknown*
+
+### userSchedulers
+List a user's schedulers
+
+
+```js
+zoom_us.userSchedulers({
+  "userId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * userId **required** `string`: The user ID or email address
+
+#### Output
+* output [UserSchedulersList](#userschedulerslist)
+
+### userSchedulerDelete
+Delete one of a user's schedulers
+
+
+```js
+zoom_us.userSchedulerDelete({
+  "userId": "",
+  "schedulerId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * userId **required** `string`: The user ID or email address
+  * schedulerId **required** `string`: Scheduler's ID
+
+#### Output
+*Output schema unknown*
 
 ### userSettings
 Retrieve a user's settings
@@ -2109,7 +2883,7 @@ zoom_us.userSettingsUpdate({
 #### Input
 * input `object`
   * userId **required** `string`: The user ID or email address
-  * body **required** [UserSettings](#usersettings)
+  * body **required** [UserSettingsUpdate](#usersettingsupdate)
 
 #### Output
 *Output schema unknown*
@@ -2166,7 +2940,7 @@ zoom_us.userToken({
 #### Input
 * input `object`
   * userId **required** `string`: The user ID or email address
-  * type `string` (values: token, zpk): User token type
+  * type `string` (values: token, zpk, zak): User token type
 
 #### Output
 * output `object`
@@ -2288,14 +3062,14 @@ zoom_us.webinars({
 #### Input
 * input `object`
   * userId **required** `string`: The user ID or email address
-  * page_size `integer`: The amount of records returns within a single API call. 
-  * page_number `integer`: Current page number of returned records.
+  * page_size `integer`: The number of records returned within a single API call
+  * page_number `integer`: Current page number of returned records
 
 #### Output
 * output [WebinarList](#webinarlist)
 
 ### webinarCreate
-Create a webinar for a user
+Create a webinar for a user <aside>The expiration time of start_url is two hours. But for API users, the expiration time is 90 days.</aside>
 
 
 ```js
@@ -2325,7 +3099,107 @@ zoom_us.webinarCreate({
   * start_url `string`: Start url
   * timezone `string`: Timezone to format start_time
   * topic `string`: Webinar topic
+  * tracking_fields `array`: Tracking fields
+    * items `object`
+      * field `string`: Tracking fields type
+      * value `string`: Tracking fields value
   * type `integer` (values: 5, 6, 9): Webinar Type
+
+### trackingfieldList
+List Tracking Fields on your Zoom account.
+
+
+```js
+zoom_us.trackingfieldList(null, context)
+```
+
+#### Input
+*This action has no parameters*
+
+#### Output
+* output [TrackingFieldList](#trackingfieldlist)
+
+### trackingfieldCreate
+Create a Tracking Field on your Zoom account
+
+
+```js
+zoom_us.trackingfieldCreate({
+  "body": {}
+}, context)
+```
+
+#### Input
+* input `object`
+  * body **required** [TrackingField](#trackingfield)
+
+#### Output
+* output
+  * id `string`: Tracking Field ID
+  * field `string`: Tracking Field Name
+  * recommended_values `array`: Array of recommended values
+    * items `string`
+  * required `boolean`: Tracking Field Required
+  * visible `boolean`: Tracking Field Visible
+
+### trackingfieldDelete
+Delete a Tracking Field on your Zoom account
+
+
+```js
+zoom_us.trackingfieldDelete({
+  "fieldId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * fieldId **required** `string`: The Tracking Field ID
+
+#### Output
+*Output schema unknown*
+
+### trackingfieldGet
+Retrieve a tracking field
+
+
+```js
+zoom_us.trackingfieldGet({
+  "fieldId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * fieldId **required** `string`: The Tracking Field ID
+
+#### Output
+* output
+  * id `string`: Tracking Field ID
+  * field `string`: Tracking Field Name
+  * recommended_values `array`: Array of recommended values
+    * items `string`
+  * required `boolean`: Tracking Field Required
+  * visible `boolean`: Tracking Field Visible
+
+### trackingfieldUpdate
+Update a Tracking Field on your Zoom account
+
+
+```js
+zoom_us.trackingfieldUpdate({
+  "fieldId": "",
+  "body": {}
+}, context)
+```
+
+#### Input
+* input `object`
+  * fieldId **required** `string`: The Tracking Field ID
+  * body **required** [TrackingField](#trackingfield)
+
+#### Output
+*Output schema unknown*
 
 ### webhooks
 List webhooks for a account
@@ -2362,10 +3236,10 @@ zoom_us.webhookCreate({
 
 #### Output
 * output
-  * webhook_id `string`: Webhook Id.
-  * auth_password **required** `string`: Webhook auth password.
-  * auth_user **required** `string`: Webhook auth user name.
-  * events **required** `array` (values: meeting_started, meeting_ended, meeting_jbh, meeting_join, recording_completed, participant_joined, participant_left): List of events objects.
+  * webhook_id `string`: Webhook Id
+  * auth_password **required** `string`: Webhook auth password
+  * auth_user **required** `string`: Webhook auth user name
+  * events **required** `array` (values: meeting_started, meeting_ended, meeting_jbh, meeting_join, recording_completed, participant_joined, participant_left, meeting_registered, recording_transcript_completed): List of events objects.
     * items `string`
   * url **required** `string`: Webhook endpoint
   * created_at `string`: Webhook create time
@@ -2421,10 +3295,10 @@ zoom_us.webhook({
 
 #### Output
 * output
-  * webhook_id `string`: Webhook Id.
-  * auth_password **required** `string`: Webhook auth password.
-  * auth_user **required** `string`: Webhook auth user name.
-  * events **required** `array` (values: meeting_started, meeting_ended, meeting_jbh, meeting_join, recording_completed, participant_joined, participant_left): List of events objects.
+  * webhook_id `string`: Webhook Id
+  * auth_password **required** `string`: Webhook auth password
+  * auth_user **required** `string`: Webhook auth user name
+  * events **required** `array` (values: meeting_started, meeting_ended, meeting_jbh, meeting_join, recording_completed, participant_joined, participant_left, meeting_registered, recording_transcript_completed): List of events objects.
     * items `string`
   * url **required** `string`: Webhook endpoint
   * created_at `string`: Webhook create time
@@ -2495,6 +3369,10 @@ zoom_us.webinar({
   * start_url `string`: Start url
   * timezone `string`: Timezone to format start_time
   * topic `string`: Webinar topic
+  * tracking_fields `array`: Tracking fields
+    * items `object`
+      * field `string`: Tracking fields type
+      * value `string`: Tracking fields value
   * type `integer` (values: 5, 6, 9): Webinar Type
 
 ### webinarUpdate
@@ -2590,6 +3468,133 @@ zoom_us.webinarPanelistDelete({
 #### Output
 *Output schema unknown*
 
+### webinarPolls
+List polls of a webinar
+
+
+```js
+zoom_us.webinarPolls({
+  "webinarId": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * webinarId **required** `integer`: The webinar ID
+
+#### Output
+* output [PollList](#polllist)
+
+### webinarPollCreate
+Create a poll for a webinar
+
+
+```js
+zoom_us.webinarPollCreate({
+  "webinarId": 0,
+  "body": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * webinarId **required** `integer`: The webinar ID
+  * body **required**
+    * questions `array`: Array of Polls
+      * items `object`
+        * answers `array`: Question answers
+          * items `string`
+        * name `string`: Question name
+        * type `string` (values: single, multiple): Question type
+    * title `string`: Poll Title
+
+#### Output
+* output
+  * id `string`: Webinar Poll ID
+  * status `string` (values: notstart, started, ended, sharing): Status of the Webinar Poll
+  * questions `array`: Array of Polls
+    * items `object`
+      * answers `array`: Question answers
+        * items `string`
+      * name `string`: Question name
+      * type `string` (values: single, multiple): Question type
+  * title `string`: Poll Title
+
+### webinarPollDelete
+Delete a webinar's Poll
+
+
+```js
+zoom_us.webinarPollDelete({
+  "webinarId": 0,
+  "pollId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * webinarId **required** `integer`: The webinar ID
+  * pollId **required** `string`: The poll ID
+
+#### Output
+*Output schema unknown*
+
+### webinarPollGet
+Retrieve a webinar's poll
+
+
+```js
+zoom_us.webinarPollGet({
+  "webinarId": 0,
+  "pollId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * webinarId **required** `integer`: The webinar ID
+  * pollId **required** `string`: The poll ID
+
+#### Output
+* output
+  * id `string`: Webinar Poll ID
+  * status `string` (values: notstart, started, ended, sharing): Status of the Webinar Poll
+  * questions `array`: Array of Polls
+    * items `object`
+      * answers `array`: Question answers
+        * items `string`
+      * name `string`: Question name
+      * type `string` (values: single, multiple): Question type
+  * title `string`: Poll Title
+
+### webinarPollUpdate
+Update a webinar's poll
+
+
+```js
+zoom_us.webinarPollUpdate({
+  "webinarId": 0,
+  "pollId": "",
+  "body": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * webinarId **required** `integer`: The webinar ID
+  * pollId **required** `string`: The poll ID
+  * body **required**
+    * questions `array`: Array of Polls
+      * items `object`
+        * answers `array`: Question answers
+          * items `string`
+        * name `string`: Question name
+        * type `string` (values: single, multiple): Question type
+    * title `string`: Poll Title
+
+#### Output
+*Output schema unknown*
+
 ### webinarRegistrants
 List registrants for a webinar
 
@@ -2605,8 +3610,8 @@ zoom_us.webinarRegistrants({
   * webinarId **required** `integer`: The webinar ID
   * occurrence_id `string`: The meeting occurrence ID
   * status `string` (values: pending, approved, denied): The registrant status
-  * page_size `integer`: The amount of records returns within a single API call. 
-  * page_number `integer`: Current page number of returned records.
+  * page_size `integer`: The number of records returned within a single API call
+  * page_number `integer`: Current page number of returned records
 
 #### Output
 * output [WebinarRegistrantList](#webinarregistrantlist)
@@ -2680,7 +3685,7 @@ zoom_us.webinarStatus({
 * input `object`
   * webinarId **required** `integer`: The webinar ID
   * body **required** `object`
-    * status `string` (values: end)
+    * action `string` (values: end)
 
 #### Output
 *Output schema unknown*
@@ -2690,20 +3695,20 @@ zoom_us.webinarStatus({
 ## Definitions
 
 ### Account
-* Account `object`: The account object represents an account on zoom. The person who created the account, or who the account was created for, is referred to as the Account owner. You can read more about the Zoom account structure <a href='https://developer.zoom.us/blog/a-brief-look-at-zoom-account-structures/' target='_blank'>here</a>.
-  * email **required** `string`: User's email address.
-  * first_name **required** `string`: User's first name.
-  * last_name **required** `string`: User's last name.
+* Account `object`: The account object represents an account on zoom. The person who created the account, or who the account was created for, is referred to as the account owner. You can read more about the Zoom account structure <a href='https://developer.zoom.us/blog/a-brief-look-at-zoom-account-structures/' target='_blank'>here</a>.
+  * email **required** `string`: User's email address
+  * first_name **required** `string`: User's first name
+  * last_name **required** `string`: User's last name
   * options [AccountOptions](#accountoptions)
-  * password **required** `string`: User's password.
+  * password **required** `string`: User's password
 
 ### AccountList
 * Account List `object`: List of Accounts
-  * page_count `integer`: The number of items returned on this page.
-  * page_number `integer`: The page number of current results.
-  * page_size `integer`: The amount of records returns within a single API call.
-  * total_records `integer`: The number of all records available across pages.
-  * accounts `array`: List of Account objects.
+  * page_count `integer`: The number of items returned on this page
+  * page_number `integer`: The page number of current results
+  * page_size `integer`: The number of records returned within a single API call
+  * total_records `integer`: The number of all records available across pages
+  * accounts `array`: List of Account objects
     * items `object`
       * account_name `string`: Account name
       * account_type `string`: Account type
@@ -2716,7 +3721,7 @@ zoom_us.webinarStatus({
 
 ### AccountListItem
 * AccountListItem `object`: Account object in account list
-  * accounts `array`: List of Account objects.
+  * accounts `array`: List of Account objects
     * items `object`
       * account_name `string`: Account name
       * account_type `string`: Account type
@@ -2729,35 +3734,35 @@ zoom_us.webinarStatus({
 
 ### AccountOptions
 * AccountOptions `object`: Account options object
-  * meeting_connectors `string`: Meeting Connector, multiple value separated by comma.
+  * meeting_connectors `string`: Meeting Connector, multiple values separated by comma
   * pay_mode `string` (values: master, sub): Payee
-  * room_connectors `string`: Virtual Room Connector, multiple value separated by comma.
-  * share_mc `boolean`: Enable Share Meeting Connector.
-  * share_rc `boolean`: Enable Share Virtual Room Connector.
+  * room_connectors `string`: Virtual Room Connector, multiple value separated by comma
+  * share_mc `boolean`: Enable Share Meeting Connector
+  * share_rc `boolean`: Enable Share Virtual Room Connector
 
 ### AccountPlan
 * AccountPlan `object`: Account plan object
   * hosts `integer`: Account plan number of hosts
-  * type `string`: Account plan type
+  * type `string`: Account <a href="#plans">plan type</a>
 
 ### AccountPlanBaseRequired
 * AccountPlanBaseRequired `object`: Account base plan object
   * hosts **required** `integer`: Account base plan number of hosts. For a Pro Plan, please select a value between 1 and 9. For a Business Plan, please select a value between 10 and 49. For a Education Plan, please select a value between 20 and 149. For a Free Trial Plan, please select a value between 1 and 9999.
-  * type **required** `string`: Account base plan type
+  * type **required** `string`: Account base <a href="#plans">plan type</a>
 
 ### AccountPlanRequired
 * AccountPlanRequired `object`: Account plan object
-  * hosts **required** `integer`: Account plan number of hosts.
+  * hosts **required** `integer`: Account plan number of hosts
   * type **required** `string`: Account <a href="#plans">plan type</a>
 
 ### AccountPlans
 * AccountPlans `object`: Account Plans object
-  * plan_audio `object`: Additional Audio Conferencing Plan type
+  * plan_audio `object`: Additional Audio Conferencing <a href="#plans">plan type</a>
     * callout_countries `string`: Call-out countries, multiple value separated by comma
     * ddi_numbers `integer`: Dedicated Dial-In Numbers
     * premium_countries `string`: Premium countries, multiple value separated by comma
     * tollfree_countries `string`: Toll-free countries, multiple value separated by comma
-    * type `string`: Additional Audio Conferencing Plan type
+    * type `string`: Additional Audio Conferencing <a href="#plans">plan type</a>
   * plan_base [AccountPlanBaseRequired](#accountplanbaserequired)
   * plan_large_meeting `array`: Additional Large Meeting Plans
     * items [AccountPlan](#accountplan)
@@ -2781,93 +3786,97 @@ zoom_us.webinarStatus({
 
 ### AccountSettingsEmailNotification
 * AccountSettingsEmailNotification `object`: Account Settings: Notification
-  * alternative_host_reminder `boolean`: When an alternative host is set or removed from a meeting
-  * cancel_meeting_reminder `boolean`: When a meeting is cancelled
-  * cloud_recording_avaliable_reminder `boolean`: Allow keep recording from being automatically deleted
-  * jbh_reminder `boolean`: When attendees join meeting before host
-  * low_host_count_reminder `boolean`: When host licenses are running low
+  * alternative_host_reminder `boolean`: Notify when an alternative host is set or removed from a meeting
+  * cancel_meeting_reminder `boolean`: Notify host and participants when the meeting is cancelled
+  * cloud_recording_avaliable_reminder `boolean`: Notify host when cloud recording is available
+  * jbh_reminder `boolean`: Notify host when participants join the meeting before them
+  * low_host_count_reminder `boolean`: Notify when host licenses are running low
 
 ### AccountSettingsFeature
 * AccountSettingsFeature `object`: Account Settings: Feature
-  * meeting_capacity `integer`: Meeting capacity
+  * meeting_capacity `integer`: Set the maximum number of participants this user can have in a single meeting
 
 ### AccountSettingsInMeeting
 * AccountSettingsInMeeting `object`: Account Settings: In Meeting
   * alert_guest_join `boolean`: Identify guest participants in the meeting/webinar
-  * allow_show_zoom_windows `boolean`: Allow to share Zoom windows in desktop sharing
-  * annotation `boolean`: Annotation
+  * allow_live_streaming `boolean`: Allow live streaming
+  * allow_show_zoom_windows `boolean`: Show Zoom Desktop application when sharing screen
+  * annotation `boolean`: Allow participants to use annotation tools to add information to shared screens
   * anonymous_question_answer `boolean`: Allow Anonymous Q&A in Webinar
-  * attendee_on_hold `boolean`: Allow host to put attendee on hold
-  * attention_tracking `boolean`: Attention tracking
-  * auto_answer `boolean`: Enable Auto Answer Group
-  * auto_saving_chat `boolean`: Auto Saving Chats
-  * breakout_room `boolean`: Breakout room
-  * chat `boolean`: Chat
-  * closed_caption `boolean`: Closed caption
-  * co_host `boolean`: Co-Host
+  * attendee_on_hold `boolean`: Allow hosts to temporarily remove an attendee from the meeting
+  * attention_tracking `boolean`: Lets the host see an indicator in the participant panel if a meeting/webinar attendee does not have Zoom in focus during screen sharing
+  * auto_answer `boolean`: Enable users to see and add contacts to 'auto-answer group' in the contact list on chat. Any call from members of this group will be automatically answered.
+  * auto_saving_chat `boolean`: Automatically save all in-meeting chats so that hosts do not need to manually save the text of the chat after the meeting starts
+  * breakout_room `boolean`: Allow host to split meeting participants into separate, smaller rooms
+  * chat `boolean`: Allow meeting participants to send a message visible to all participants
+  * closed_caption `boolean`: Allow host to type closed captions or assign a participant/third party device to add closed captions
+  * co_host `boolean`: Allow the host to add co-hosts
+  * custom_live_streaming `boolean`: Custom live streaming
+  * custom_service_instructions `string`: Custom service instructions
   * dscp_audio `integer`: DSCP Audio
   * dscp_marking `boolean`: DSCP marking
   * dscp_video `integer`: DSCP Video
-  * e2e_encryption `boolean`: End-to-End Encryption
-  * far_end_camera_control `boolean`: Far end camera control
-  * feedback `boolean`: Feedback to Zoom
-  * file_transfer `boolean`: File transfer
-  * group_hd `boolean`: Group HD video
+  * e2e_encryption `boolean`: Require that all meetings are encrypted using AES
+  * far_end_camera_control `boolean`: Allow another user to take control of your camera during a meeting
+  * feedback `boolean`: Add a Feedback tab to the Windows Settings or Mac Preferences dialog, and also enable users to provide feedback to Zoom at the end of the meeting
+  * file_transfer `boolean`: Hosts and participants can send files through the in-meeting chat
+  * group_hd `boolean`: Activate higher quality video for host and participants. (This will use more bandwidth.)
   * original_audio `boolean`: Allow users to select original sound in their client settings
-  * p2p_connetion `boolean`: Peer to Peer connection while only 2 people in a meeting
-  * p2p_ports `boolean`: Listening ports range
-  * polling `boolean`: Polling
-  * ports_range `string`: Listening ports range, separated by comma (ex 55,56). The ports range is between 1 to 65535
-  * post_meeting_feedback `boolean`: Display end-of-meeting experience feedback survey
-  * private_chat `boolean`: Private Chat
-  * remote_control `boolean`: Remote control
-  * screen_sharing `boolean`: Screen sharing
+  * p2p_connetion `boolean`: Peer to Peer connection while only 2 people are in a meeting
+  * p2p_ports `boolean`: P2P listening ports range
+  * polling `boolean`: Add 'Polls' to the meeting controls.
+  * ports_range `string`: Listening ports range, separated by comma (ex 55,56). The ports range must be between 1 to 65535.
+  * post_meeting_feedback `boolean`: Display a thumbs up/down survey at the end of each meeting
+  * private_chat `boolean`: Allow meeting participants to send a private 1:1 message to another participants
+  * remote_control `boolean`: Allow users to request remote control
+  * screen_sharing `boolean`: Allow screen sharing
   * sending_default_email_invites `boolean`: Only show default email when sending email invites
   * show_meeting_control_toolbar `boolean`: Always show meeting control toolbar
   * stereo_audio `boolean`: Allow users to select stereo audio in their client settings
   * use_html_format_email `boolean`: Use HTML format email for Outlook plugin
-  * virtual_background `boolean`: Virtual background
+  * virtual_background `boolean`: Allow users to replace their background with any selected image. Choose or upload an image in the Zoom Desktop application settings.
   * watermark `boolean`: Add watermark when viewing shared screen
   * webinar_question_answer `boolean`: Q&A in webinar
-  * whiteboard `boolean`: Whiteboard
+  * whiteboard `boolean`: Allow participants to share a whiteboard that includes annotation tools
+  * workplace_by_facebook `boolean`: Workplace by facebook
 
 ### AccountSettingsIntegration
 * AccountSettingsIntegration `object`: Account Settings: Integration
-  * box `boolean`: Box
-  * dropbox `boolean`: Dropbox
-  * google_calendar `boolean`: Google Calendar
-  * google_drive `boolean`: Google Drive
-  * kubi `boolean`: Kubi
-  * microsoft_one_drive `boolean`: Microsoft OneDrive
+  * box `boolean`: Enables users who join a meeting from their mobile device to share content from their Box account
+  * dropbox `boolean`: Enables users who join a meeting from their mobile device to share content from their Dropbox account
+  * google_calendar `boolean`: Enables meetings to be scheduled using Google Calendars
+  * google_drive `boolean`: Enables users who join a meeting from their mobile device to share content from their Google Drive
+  * kubi `boolean`: Enables users to control a connected Kubi device from within a Zoom meeting
+  * microsoft_one_drive `boolean`: Enables users who join a meeting from their mobile device to share content from their Microsoft OneDrive account
 
 ### AccountSettingsRecording
 * AccountSettingsRecording `object`: Account Settings: Recording
-  * account_user_access_recording `boolean`: Only users on my account can access cloud recordings
-  * auto_delete_cmr `boolean`: Auto delete cloud recordings after days
-  * auto_delete_cmr_days `integer`: A specified number of days of auto delete cloud recordings
-  * auto_recording `string` (values: local, cloud, none): Automatic recording
-  * cloud_recording `boolean`: Cloud recording
+  * account_user_access_recording `boolean`: Cloud recordings are only accessible to account members. People outside of your organization cannot open links that provide access to cloud recordings.
+  * auto_delete_cmr `boolean`: Allow Zoom to automatically delete recordings permanently after a specified number of days
+  * auto_delete_cmr_days `integer`: When `auto_delete_cmr` is 'true' this value will set the number of days before auto deletion of cloud recordings
+  * auto_recording `string` (values: local, cloud, none): Record meetings automatically as they start
+  * cloud_recording `boolean`: Allow hosts to record and save the meeting in the cloud
   * cloud_recording_download `boolean`: Cloud Recording Downloads
   * cloud_recording_download_host `boolean`: Only the host can download cloud recordings
-  * local_recording `boolean`: Local recording
+  * local_recording `boolean`: Allow hosts and participants to record the meeting to a local file
   * record_audio_file `boolean`: Record an audio only file
-  * record_gallery_view `boolean`: Record the gallery view
-  * record_speaker_view `boolean`: Record the active speaker view
-  * recording_audio_transcript `boolean`: Audio transcript
+  * record_gallery_view `boolean`: Record gallery view with shared screen
+  * record_speaker_view `boolean`: Record active speaker with shared screen
+  * recording_audio_transcript `boolean`: Automatically transcribe the audio of the meeting or webinar to the cloud
   * save_chat_text `boolean`: Save chat text from the meeting
-  * show_timestamp `boolean`: Show timestamp on video
+  * show_timestamp `boolean`: Add a timestamp to the recording
 
 ### AccountSettingsScheduleMeeting
 * AccountSettingsScheduleMeeting `object`: Account Settings: Schedule Meeting
-  * audio_type `string` (values: both, telephony, voip, thirdParty): Audio Type
-  * enforce_login `boolean`: Only signed-in users can join meetings
+  * audio_type `string` (values: both, telephony, voip, thirdParty): Determine how participants can join the audio portion of the meeting
+  * enforce_login `boolean`: Only signed-in (Zoom users) users can join meetings
   * enforce_login_domains `string`: Only signed-in users with a specified domains
-  * enforce_login_with_domains `boolean`: Only signed-in users with a specified domains can join meetings
+  * enforce_login_with_domains `boolean`: Only signed-in users with a specific domain can join meetings
   * force_pmi_jbh_password `boolean`: Require a password for Personal Meetings if attendees can join before host
-  * host_video `boolean`: Host Video
-  * join_before_host `boolean`: Join Before Host
+  * host_video `boolean`: Start meetings with host video on
+  * join_before_host `boolean`: Allow participants to join the meeting before the host arrives
   * not_store_meeting_topic `boolean`: Always display "Zoom Meeting" as the meeting topic
-  * participant_video `boolean`: Participants Video
+  * participant_video `boolean`: Start meetings with participant video on. Participants can change this during the meeting.
 
 ### AccountSettingsSecurity
 * AccountSettingsSecurity `object`: Account Settings: Security
@@ -2878,11 +3887,11 @@ zoom_us.webinarStatus({
 ### AccountSettingsTelephony
 * AccountSettingsTelephony `object`: Account Settings: Telephony
   * audio_conference_info `string`: 3rd party audio conference info
-  * third_party_audio `boolean`: 3rd party audio conference
+  * third_party_audio `boolean`: Users can join the meeting using the existing 3rd party audio configuration
 
 ### AccountSettingsZoomRooms
 * AccountSettingsZoomRooms `object`: Account Settings: Zoom Rooms
-  * auto_start_stop_scheduled_meetings `boolean`: Automatic start/stop scheduled meetings
+  * auto_start_stop_scheduled_meetings `boolean`: Automatic start/stop for scheduled meetings
   * cmr_for_instant_meeting `boolean`: Cloud recording for instant meetings
   * force_private_meeting `boolean`: Transform all meetings to private
   * hide_host_information `boolean`: Hide host and meeting ID from private meetings
@@ -2895,29 +3904,29 @@ zoom_us.webinarStatus({
 
 ### BillingContact
 * BillingContact `object`: Billing Contact object
-  * address `string`: Billing Contact's address.
-  * apt `string`: Billing Contact's apartment/suite.
-  * city `string`: Billing Contact's city.
-  * country `string`: Billing Contact's country.
-  * email `string`: Billing Contact's email address.
-  * first_name `string`: Billing Contact's first name.
-  * last_name `string`: Billing Contact's last name.
-  * phone_number `string`: Billing Contact's phone number.
-  * state `string`: Billing Contact's state.
-  * zip `string`: Billing Contact's zip/postal code.
+  * address `string`: Billing Contact's address
+  * apt `string`: Billing Contact's apartment/suite
+  * city `string`: Billing Contact's city
+  * country `string`: Billing Contact's country
+  * email `string`: Billing Contact's email address
+  * first_name `string`: Billing Contact's first name
+  * last_name `string`: Billing Contact's last name
+  * phone_number `string`: Billing Contact's phone number
+  * state `string`: Billing Contact's state
+  * zip `string`: Billing Contact's zip/postal code
 
 ### BillingContactRequired
 * BillingContactRequired `object`: Billing Contact object
-  * address **required** `string`: Billing Contact's address.
-  * apt `string`: Billing Contact's apartment/suite.
-  * city **required** `string`: Billing Contact's city.
-  * country **required** `string`: Billing Contact's country.
-  * email **required** `string`: Billing Contact's email address.
-  * first_name **required** `string`: Billing Contact's first name.
-  * last_name **required** `string`: Billing Contact's last name.
-  * phone_number **required** `string`: Billing Contact's phone number.
-  * state **required** `string`: Billing Contact's state.
-  * zip **required** `string`: Billing Contact's zip/postal code.
+  * address **required** `string`: Billing Contact's address
+  * apt `string`: Billing Contact's apartment/suite
+  * city **required** `string`: Billing Contact's city
+  * country **required** `string`: Billing Contact's country
+  * email **required** `string`: Billing Contact's email address
+  * first_name **required** `string`: Billing Contact's first name
+  * last_name **required** `string`: Billing Contact's last name
+  * phone_number **required** `string`: Billing Contact's phone number
+  * state **required** `string`: Billing Contact's state
+  * zip **required** `string`: Billing Contact's zip/postal code
 
 ### CustomQuestion
 * CustomQuestion `object`: Custom Question
@@ -2929,18 +3938,47 @@ zoom_us.webinarStatus({
   * from `string`: Start Date,
   * to `string`: End Date
 
+### Device
+* The H.323/SIP device object. `object`: The H.323/SIP device object.
+  * encryption **required** `string` (values: auto, yes, no): Device encryption
+  * ip **required** `string`: Device Ip
+  * name **required** `string`: Device name
+  * protocol **required** `string` (values: H.323, SIP): Device protocol
+
+### DeviceList
+* H.323/SIP Device List `object`: List of H.323/SIP Devices
+  * page_count `integer`: The number of items returned on this page
+  * page_number `integer`: The page number of current results
+  * page_size `integer`: The number of records returned within a single API call
+  * total_records `integer`: The number of all records available across pages
+  * devices `array`: List of H.323/SIP Device objects
+    * items
+      * id `string`: Device ID
+      * encryption **required** `string` (values: auto, yes, no): Device encryption
+      * ip **required** `string`: Device Ip
+      * name **required** `string`: Device name
+      * protocol **required** `string` (values: H.323, SIP): Device protocol
+
+### DomainsList
+* DomainsList `object`: List of Managed Domains
+  * domains `array`: List of Managed Domains objects
+    * items
+      * domain `string`: Domain Name
+      * status `string`: Domain Status
+  * total_records `integer`: Total records
+
 ### Group
 * Group `object`: Group object
   * name `string`: Group name
-  * total_members `integer`: Total number of members in this group.
+  * total_members `integer`: Total number of members in this group
 
 ### GroupList
 * GroupList `object`: List of Groups
-  * groups `array`: List of Group objects.
+  * groups `array`: List of Group objects
     * items
       * id `string`: Group ID
       * name `string`: Group name
-      * total_members `integer`: Total number of members in this group.
+      * total_members `integer`: Total number of members in this group
   * total_records `integer`: Total records
 
 ### GroupMember
@@ -2953,17 +3991,17 @@ zoom_us.webinarStatus({
 
 ### GroupMemberList
 * Group Member List `object`: List of Group Members
-  * page_count `integer`: The number of items returned on this page.
-  * page_number `integer`: The page number of current results.
-  * page_size `integer`: The amount of records returns within a single API call.
-  * total_records `integer`: The number of all records available across pages.
-  * members `array`: List of Group member objects.
+  * page_count `integer`: The number of items returned on this page
+  * page_number `integer`: The page number of current results
+  * page_size `integer`: The number of records returned within a single API call
+  * total_records `integer`: The number of all records available across pages
+  * members `array`: List of Group member objects
     * items [GroupMember](#groupmember)
 
 ### IMGroup
 * IMGroup `object`: IM Group object
   * name `string`: Group name
-  * total_members `integer`: Total number of members in this group.
+  * total_members `integer`: Total number of members in this group
   * search_by_account `boolean`: Members can search others under same account
   * search_by_domain `boolean`: Members can search others in the same email domain
   * search_by_ma_account `boolean`: Members can search others under same master account, including all sub accounts
@@ -2971,15 +4009,15 @@ zoom_us.webinarStatus({
 
 ### IMGroupList
 * IM Group List `object`: List of IM Groups
-  * page_count `integer`: The number of items returned on this page.
-  * page_number `integer`: The page number of current results.
-  * page_size `integer`: The amount of records returns within a single API call.
-  * total_records `integer`: The number of all records available across pages.
-  * groups `array`: List of Group objects.
+  * page_count `integer`: The number of items returned on this page
+  * page_number `integer`: The page number of current results
+  * page_size `integer`: The number of records returned within a single API call
+  * total_records `integer`: The number of all records available across pages
+  * groups `array`: List of Group objects
     * items
       * id `string`: IM Group ID
       * name `string`: Group name
-      * total_members `integer`: Total number of members in this group.
+      * total_members `integer`: Total number of members in this group
       * search_by_account `boolean`: Members can search others under same account
       * search_by_domain `boolean`: Members can search others in the same email domain
       * search_by_ma_account `boolean`: Members can search others under same master account, including all sub accounts
@@ -2988,13 +4026,17 @@ zoom_us.webinarStatus({
 ### Meeting
 * Meeting `object`: Meeting object
   * agenda `string`: Meeting description
-  * duration `integer`: Meeting duration (minutes). Used for scheduled meeting only.
+  * duration `integer`: Meeting duration (minutes). Used for scheduled meetings only
   * password `string`: Password to join the meeting. Password may only contain the following characters: [a-z A-Z 0-9 @ - _ *]. Max of 10 characters.
   * recurrence [Recurrence](#recurrence)
   * settings [MeetingSettings](#meetingsettings)
-  * start_time `string`: Meeting start time, in the format "yyyy-MM-dd'T'HH:mm:ss'Z'", should be GMT time. In the format "yyyy-MM-dd'T'HH:mm:ss", should be local time, need to specify the time zone. Only used for scheduled meeting and recurring meeting with fixed time.
-  * timezone `string`: Timezone to format start_time, like "America/Los_Angeles". For scheduled meeting only. For this parameter value please refer to the id value in [timezone](#timezones) list.
+  * start_time `string`: Meeting start time. When using a format like "yyyy-MM-dd'T'HH:mm:ss'Z'", always use GMT time. When using a format like "yyyy-MM-dd'T'HH:mm:ss", you should use local time and you will need to specify the time zone. Only used for scheduled meetings and recurring meetings with fixed time.
+  * timezone `string`: Timezone to format start_time. For example, "America/Los_Angeles". For scheduled meetings only. Please reference our [timezone](#timezones) list for supported timezones and their formats.
   * topic `string`: Meeting topic
+  * tracking_fields `array`: Tracking fields
+    * items `object`
+      * field `string`: Tracking fields type
+      * value `string`: Tracking fields value
   * type `integer` (values: 1, 2, 3, 8): Meeting Type
 
 ### MeetingInfo
@@ -3011,15 +4053,30 @@ zoom_us.webinarStatus({
   * start_url `string`: Start url
   * timezone `string`: Timezone to format start_time
   * topic `string`: Meeting topic
+  * tracking_fields `array`: Tracking fields
+    * items `object`
+      * field `string`: Tracking fields type
+      * value `string`: Tracking fields value
   * type `integer` (values: 1, 2, 3, 8): Meeting Type
+
+### MeetingInstances
+* Meeting instances `object`: List of Meetings
+  * meetings `array`: List of ended meeting instances.
+    * items
+      * start_time `string`: Start time
+      * uuid `string`: MeetingUUID
+
+### MeetingInvitation
+* Meeting Invitation `object`: Meeting invitation details
+  * invitation `string`: Meeting invitation
 
 ### MeetingList
 * Group List `object`: List of Meetings
-  * page_count `integer`: The number of items returned on this page.
-  * page_number `integer`: The page number of current results.
-  * page_size `integer`: The amount of records returns within a single API call.
-  * total_records `integer`: The number of all records available across pages.
-  * meetings `array`: List of Meeting objects.
+  * page_count `integer`: The number of items returned on this page
+  * page_number `integer`: The page number of current results
+  * page_size `integer`: The number of records returned within a single API call
+  * total_records `integer`: The number of all records available across pages
+  * meetings `array`: List of Meeting objects
     * items
       * created_at `string`: Create time
       * duration `integer`: Meeting duration
@@ -3031,6 +4088,19 @@ zoom_us.webinarStatus({
       * topic `string`: Meeting topic
       * type `integer` (values: 1, 2, 3, 8): Meeting Type
       * uuid `string`: Meeting unique ID
+
+### MeetingLiveStream
+* MeetingLiveStream `object`: Meeting Live Stream
+  * page_url `string`: View URL.
+  * stream_key **required** `string`: Stream name/key.
+  * stream_url **required** `string`: Server URL.
+
+### MeetingLiveStreamStatus
+* MeetingLiveStreamStatus `object`: Meeting Live Stream Status
+  * action `string` (values: start, stop): Action
+  * settings `object`
+    * active_speaker_name `boolean`: Live stream active speaker name.
+    * display_name `string`: Live stream display name.
 
 ### MeetingMetric
 * Meeting Metrics `object`: Meeting metric details
@@ -3051,6 +4121,34 @@ zoom_us.webinarStatus({
   * topic `string`: Meeting topic
   * user_type `string`: User type
   * uuid `string`: Meeting UUID
+
+### MeetingRecordingRegistrantList
+* Registration List `object`: List of meeting recording registrant
+  * page_count `integer`: The number of items returned on this page
+  * page_number `integer`: The page number of current results
+  * page_size `integer`: The number of records returned within a single API call
+  * total_records `integer`: The number of all records available across pages
+  * registrants `array`: List of Registrant objects
+    * items
+      * id `string`
+      * address `string`: Address
+      * city `string`: City
+      * comments `string`: Questions & Comments
+      * country `string`: Country
+      * custom_questions `array`: Custom Questions
+        * items [CustomQuestion](#customquestion)
+      * email **required** `string`: A valid email address
+      * first_name **required** `string`: User’s first name
+      * industry `string`: Industry
+      * job_title `string`: Job Title
+      * last_name **required** `string`: User’s last name
+      * no_of_employees `string` (values: 1-20, 21-50, 51-100, 101-500, 500-1,000, 1,001-5,000, 5,001-10,000, More than 10,000): Number of Employees
+      * org `string`: Organization
+      * phone `string`: Phone
+      * purchasing_time_frame `string` (values: Within a month, 1-3 months, 4-6 months, More than 6 months, No timeframe): Purchasing Time Frame
+      * role_in_purchase_process `string` (values: Decision Maker, Evaluator/Recommender, Influencer, Not involved): Role in Purchase Process
+      * state `string`: State/Province
+      * zip `string`: Zip/Postal Code
 
 ### MeetingRegistrant
 * MeetingRegistrant `object`: Meeting registrant
@@ -3075,11 +4173,11 @@ zoom_us.webinarStatus({
 
 ### MeetingRegistrantList
 * Registration List `object`: List of Users
-  * next_page_token `string`: Next page token, used to paginate through large result sets. A next page token will be returned whenever the set of available result list exceeds page size. The expiration period is 15 minutes.
-  * page_count `integer`: The number of items returned on this page.
-  * page_size `integer`: The amount of records returns within a single API call. 
-  * total_records `integer`: The number of all records available across pages.
-  * registrants `array`: List of Registrant objects.
+  * page_count `integer`: The number of items returned on this page
+  * page_number `integer`: The page number of current results
+  * page_size `integer`: The number of records returned within a single API call
+  * total_records `integer`: The number of all records available across pages
+  * registrants `array`: List of Registrant objects
     * items
       * id `string`
       * address `string`: Address
@@ -3101,52 +4199,61 @@ zoom_us.webinarStatus({
       * state `string`: State/Province
       * zip `string`: Zip/Postal Code
       * create_time `string`
+      * join_url `string`
       * status `string`
 
 ### MeetingSettings
 * MeetingSettings `object`: Meeting Settings
   * alternative_hosts `string`: Alternative hosts emails or IDs. Multiple value separated by comma.
   * approval_type `integer` (values: 0, 1, 2)
-  * audio `string` (values: both, telephony, voip): Meeting audio options
+  * audio `string` (values: both, telephony, voip): Determine how participants can join the audio portion of the meeting
   * auto_recording `string` (values: local, cloud, none)
+  * close_registration `boolean`: Close registration after event date
   * cn_meeting `boolean`: Host meeting in China
   * enforce_login `boolean`: Only signed-in users can join this meeting
   * enforce_login_domains `string`: Only signed-in users with specified domains can join meetings
-  * host_video `boolean`: Start video when host join meeting
+  * host_video `boolean`: Start video when host joins meeting
   * in_meeting `boolean`: Host meeting in India
-  * join_before_host `boolean`: Join meeting before host start the meeting. Only used for scheduled or recurring meetings
+  * join_before_host `boolean`: Allow participants to join the meeting before the host starts the meeting. Only used for scheduled or recurring meetings.
   * mute_upon_entry `boolean`: Mute participants upon entry
   * participant_video `boolean`: Start video when participants join meeting
   * registration_type `integer` (values: 1, 2, 3): Registration type. Used for recurring meeting with fixed time only.
-  * use_pmi `boolean`: Use Personal Meeting ID. Only used for scheduled meetings and recurring meetings with no fixed time
-  * watermark `boolean`: Enable watermark when viewing the shared screen
+  * use_pmi `boolean`: Use Personal Meeting ID. Only used for scheduled meetings and recurring meetings with no fixed time.
+  * waiting_room `boolean`: Enable waiting room
+  * watermark `boolean`: Add watermark when viewing shared screen
 
 ### MeetingUpdate
 * MeetingUpdate `object`: Meeting object
   * agenda `string`: Meeting description
-  * duration `integer`: Meeting duration (minutes). Used for scheduled meeting only.
+  * duration `integer`: Meeting duration (minutes). Used for scheduled meetings only
   * password `string`: Password to join the meeting. Password may only contain the following characters: [a-z A-Z 0-9 @ - _ *]. Max of 10 characters.
   * recurrence [Recurrence](#recurrence)
   * settings
     * alternative_hosts `string`: Alternative hosts emails or IDs. Multiple value separated by comma.
     * approval_type `integer` (values: 0, 1, 2)
-    * audio `string` (values: both, telephony, voip): Meeting audio options
+    * audio `string` (values: both, telephony, voip): Determine how participants can join the audio portion of the meeting
     * auto_recording `string` (values: local, cloud, none)
+    * close_registration `boolean`: Close registration after event date
     * cn_meeting `boolean`: Host meeting in China
     * enforce_login `boolean`: Only signed-in users can join this meeting
     * enforce_login_domains `string`: Only signed-in users with specified domains can join meetings
-    * host_video `boolean`: Start video when host join meeting
+    * host_video `boolean`: Start video when host joins meeting
     * in_meeting `boolean`: Host meeting in India
-    * join_before_host `boolean`: Join meeting before host start the meeting. Only used for scheduled or recurring meetings
+    * join_before_host `boolean`: Allow participants to join the meeting before the host starts the meeting. Only used for scheduled or recurring meetings.
     * mute_upon_entry `boolean`: Mute participants upon entry
     * participant_video `boolean`: Start video when participants join meeting
     * registration_type `integer` (values: 1, 2, 3): Registration type. Used for recurring meeting with fixed time only.
-    * use_pmi `boolean`: Use Personal Meeting ID. Only used for scheduled meetings and recurring meetings with no fixed time
-    * watermark `boolean`: Enable watermark when viewing the shared screen
+    * use_pmi `boolean`: Use Personal Meeting ID. Only used for scheduled meetings and recurring meetings with no fixed time.
+    * waiting_room `boolean`: Enable waiting room
+    * watermark `boolean`: Add watermark when viewing shared screen
     * registrants_confirmation_email `boolean`: Send confirmation Email to Registrants
-  * start_time `string`: Meeting start time, in the format "yyyy-MM-dd'T'HH:mm:ss'Z'", should be GMT time. In the format "yyyy-MM-dd'T'HH:mm:ss", should be local time, need to specify the time zone. Only used for scheduled meeting and recurring meeting with fixed time.
-  * timezone `string`: Timezone to format start_time, like "America/Los_Angeles". For scheduled meeting only. For this parameter value please refer to the id value in [timezone](#timezones) list.
+  * start_time `string`: Meeting start time. When using a format like "yyyy-MM-dd'T'HH:mm:ss'Z'", always use GMT time. When using a format like "yyyy-MM-dd'T'HH:mm:ss", you should use local time and you will need to specify the time zone. Only used for scheduled meetings and recurring meetings with fixed time.
+  * timezone `string`: Timezone to format start_time. For example, "America/Los_Angeles". For scheduled meetings only. Please reference our [timezone](#timezones) list for supported timezones and their formats.
   * topic `string`: Meeting topic
+  * tracking_fields `array`: Tracking fields
+    * items `object`
+      * field `string`: Tracking fields type
+      * value `string`: Tracking fields value
   * type `integer` (values: 1, 2, 3, 8): Meeting Type
 
 ### Occurrence
@@ -3160,26 +4267,45 @@ zoom_us.webinarStatus({
 * Occurrences `array`: Array of occurrence objects
   * items [Occurrence](#occurrence)
 
+### PAC
+* PAC Accounts List `object`: List of PAC Accounts
+  * conference_id `integer`: Conference ID
+  * dedicated_dial_in_number `array`: List of Dedicated Dial In Numbers
+    * items `object`
+      * country `string`: Country Code
+      * number `string`: Dial-in number, length is less than 16
+  * global_dial_in_numbers `array`: List of Global Dial In Numbers
+    * items `object`
+      * country `string`: Country Code
+      * number `string`: Dial-in number, length is less than 16
+  * listen_only_password `string`: Listen-Only Password, numeric value, length is less than 6
+  * participant_password `string`: Participant Password, numeric value, length is less than 6
+
 ### Pagination
 * Pagination `object`: Pagination Object
-  * page_count `integer`: The number of items returned on this page.
-  * page_number `integer`: The page number of current results.
-  * page_size `integer`: The amount of records returns within a single API call.
-  * total_records `integer`: The number of all records available across pages.
+  * page_count `integer`: The number of items returned on this page
+  * page_number `integer`: The page number of current results
+  * page_size `integer`: The number of records returned within a single API call
+  * total_records `integer`: The number of all records available across pages
 
 ### PaginationToken
 * PaginationToken `object`: Pagination Object
+  * next_page_token `string`: Next page token is used to paginate through large result sets. A next page token will be returned whenever the set of available results exceed the current page size. The expiration period for this token is 15 minutes.
+  * page_count `integer`: The number of items returned on this page
+  * page_size `integer`: The number of records returned within a single API call.
+  * total_records `integer`: The number of all records available across pages
+
+### PaginationToken4IMChat
+* PaginationToken4IMChat `object`: Pagination Object
   * next_page_token `string`: Next page token, used to paginate through large result sets. A next page token will be returned whenever the set of available result list exceeds page size. The expiration period is 15 minutes.
-  * page_count `integer`: The number of items returned on this page.
   * page_size `integer`: The amount of records returns within a single API call. 
-  * total_records `integer`: The number of all records available across pages.
 
 ### PaginationToken4Qos
 * PaginationToken4Qos `object`: Pagination Object
-  * next_page_token `string`: Next page token, used to paginate through large result sets. A next page token will be returned whenever the set of available result list exceeds page size. The expiration period is 15 minutes.
-  * page_count `integer`: The number of items returned on this page.
-  * page_size `integer`: The number of items per page.
-  * total_records `integer`: The number of all records available across pages.
+  * next_page_token `string`: Next page token is used to paginate through large result sets. A next page token will be returned whenever the set of available results exceed the current page size. The expiration period for this token is 15 minutes.
+  * page_count `integer`: The number of items returned on this page
+  * page_size `integer`: The number of items per page
+  * total_records `integer`: The number of all records available across pages
 
 ### Panelist
 * Panelist `object`: Panelist base object
@@ -3188,13 +4314,37 @@ zoom_us.webinarStatus({
 
 ### PanelistList
 * Panelist List `object`: List of Panelist
-  * panelists `array`: List of Panelist objects.
+  * panelists `array`: List of Panelist objects
     * items
       * id `string`: Panelist's ID
       * email `string`: Panelist's email
       * name `string`: Panelist's full name
       * join_url `string`: Join url
-  * total_records `integer`: Total records.
+  * total_records `integer`: Total records
+
+### Poll
+* Poll `object`: Poll
+  * questions `array`: Array of Polls
+    * items `object`
+      * answers `array`: Question answers
+        * items `string`
+      * name `string`: Question name
+      * type `string` (values: single, multiple): Question type
+  * title `string`: Poll Title
+
+### PollList
+* Poll List `object`: Poll List
+  * polls `array`: Array of Polls
+    * items
+      * id `string`: ID of Poll
+      * status `string` (values: notstart, started, ended, sharing): Status of Poll
+      * questions `array`: Array of Polls
+        * items `object`
+          * answers `array`: Question answers
+          * name `string`: Question name
+          * type `string` (values: single, multiple): Question type
+      * title `string`: Poll Title
+  * total_records `integer`: The number of all records available across pages
 
 ### QOSAudio
 * QOS Object `object`: Quality of Service object
@@ -3234,10 +4384,10 @@ zoom_us.webinarStatus({
 
 ### QOSParticipantList
 * Participant QOS List `object`: Participant QOS List
-  * next_page_token `string`: Next page token, used to paginate through large result sets. A next page token will be returned whenever the set of available result list exceeds page size. The expiration period is 15 minutes.
-  * page_count `integer`: The number of items returned on this page.
-  * page_size `integer`: The number of items per page.
-  * total_records `integer`: The number of all records available across pages.
+  * next_page_token `string`: Next page token is used to paginate through large result sets. A next page token will be returned whenever the set of available results exceed the current page size. The expiration period for this token is 15 minutes.
+  * page_count `integer`: The number of items returned on this page
+  * page_size `integer`: The number of items per page
+  * total_records `integer`: The number of all records available across pages
   * participants `array`: Array of user objects
     * items [QOSParticipant](#qosparticipant)
 
@@ -3252,7 +4402,37 @@ zoom_us.webinarStatus({
   * resolution `string`: Resolution
 
 ### Recording
-* Recording `object`: The recording meeting object
+* Recording `object`: Recording file Object
+  * deleted_time `string`: The recording delete time. Response in trash query.
+  * download_url `string`: The recording download url. Response in general query.
+  * file_size `number`: The recording file size.
+  * file_type `string`: The recording file type.
+  * id `string`: The recording file ID.Response in general query.
+  * meeting_id `string`: The meeting ID. 
+  * play_url `string`: The recording file play url. Response in general query.
+  * recording_end `string`: The recording end time. Response in general query.
+  * recording_start `string`: The recording start time.
+  * recording_type `string`: The recording file type.
+  * status `string`: The recording status. Response in general query.
+
+### RecordingList
+* Recording file List `object`: List of Recording file
+  * recording_files `array`: List of Recording file
+    * items
+      * deleted_time `string`: The recording delete time. Response in trash query.
+      * download_url `string`: The recording download url. Response in general query.
+      * file_size `number`: The recording file size.
+      * file_type `string`: The recording file type.
+      * id `string`: The recording file ID.Response in general query.
+      * meeting_id `string`: The meeting ID. 
+      * play_url `string`: The recording file play url. Response in general query.
+      * recording_end `string`: The recording end time. Response in general query.
+      * recording_start `string`: The recording start time.
+      * recording_type `string`: The recording file type.
+      * status `string`: The recording status. Response in general query.
+
+### RecordingMeeting
+* RecordingMeeting `object`: The recording meeting object
   * account_id `string`: ID of the user account
   * duration `integer`: Meeting duration
   * host_id `string`: ID of the user set as host of meeting
@@ -3264,53 +4444,26 @@ zoom_us.webinarStatus({
   * uuid `string`: Meeting unique ID
   * recording_files `array`: List of Recording file
     * items
-      * deleted_time `string`: The recording delete time.Response in trash query
-      * download_url `string`: The recording download url.Response in general query
+      * deleted_time `string`: The recording delete time. Response in trash query.
+      * download_url `string`: The recording download url. Response in general query.
       * file_size `number`: The recording file size.
       * file_type `string`: The recording file type.
-      * id `string`: The recording file ID.Response in general query
+      * id `string`: The recording file ID.Response in general query.
       * meeting_id `string`: The meeting ID. 
-      * play_url `string`: The recording file play url.Response in general query
-      * recording_end `string`: The recording end time.Response in general query
+      * play_url `string`: The recording file play url. Response in general query.
+      * recording_end `string`: The recording end time. Response in general query.
       * recording_start `string`: The recording start time.
-      * status `string`: The recording status.Response in general query
+      * recording_type `string`: The recording file type.
+      * status `string`: The recording status. Response in general query.
 
-### RecordingFile
-* RecordingFile `object`: RecordingFile Object
-  * deleted_time `string`: The recording delete time.Response in trash query
-  * download_url `string`: The recording download url.Response in general query
-  * file_size `number`: The recording file size.
-  * file_type `string`: The recording file type.
-  * id `string`: The recording file ID.Response in general query
-  * meeting_id `string`: The meeting ID. 
-  * play_url `string`: The recording file play url.Response in general query
-  * recording_end `string`: The recording end time.Response in general query
-  * recording_start `string`: The recording start time.
-  * status `string`: The recording status.Response in general query
-
-### RecordingFileList
-* Recording file List `object`: List of Recording file
-  * recording_files `array`: List of Recording file
-    * items
-      * deleted_time `string`: The recording delete time.Response in trash query
-      * download_url `string`: The recording download url.Response in general query
-      * file_size `number`: The recording file size.
-      * file_type `string`: The recording file type.
-      * id `string`: The recording file ID.Response in general query
-      * meeting_id `string`: The meeting ID. 
-      * play_url `string`: The recording file play url.Response in general query
-      * recording_end `string`: The recording end time.Response in general query
-      * recording_start `string`: The recording start time.
-      * status `string`: The recording status.Response in general query
-
-### RecordingList
+### RecordingMeetingList
 * Recording List `object`: List of Recording
   * from `string`: Start Date,
   * to `string`: End Date
-  * next_page_token `string`: Next page token, used to paginate through large result sets. A next page token will be returned whenever the set of available result list exceeds page size. The expiration period is 15 minutes.
-  * page_count `integer`: The number of items returned on this page.
-  * page_size `integer`: The amount of records returns within a single API call. 
-  * total_records `integer`: The number of all records available across pages.
+  * next_page_token `string`: Next page token is used to paginate through large result sets. A next page token will be returned whenever the set of available results exceed the current page size. The expiration period for this token is 15 minutes.
+  * page_count `integer`: The number of items returned on this page
+  * page_size `integer`: The number of records returned within a single API call.
+  * total_records `integer`: The number of all records available across pages
   * meetings `array`: List of Recording
     * items
       * account_id `string`: ID of the user account
@@ -3324,27 +4477,73 @@ zoom_us.webinarStatus({
       * uuid `string`: Meeting unique ID
       * recording_files `array`: List of Recording file
         * items
-          * deleted_time `string`: The recording delete time.Response in trash query
-          * download_url `string`: The recording download url.Response in general query
+          * deleted_time `string`: The recording delete time. Response in trash query.
+          * download_url `string`: The recording download url. Response in general query.
           * file_size `number`: The recording file size.
           * file_type `string`: The recording file type.
-          * id `string`: The recording file ID.Response in general query
+          * id `string`: The recording file ID.Response in general query.
           * meeting_id `string`: The meeting ID. 
-          * play_url `string`: The recording file play url.Response in general query
-          * recording_end `string`: The recording end time.Response in general query
+          * play_url `string`: The recording file play url. Response in general query.
+          * recording_end `string`: The recording end time. Response in general query.
           * recording_start `string`: The recording start time.
-          * status `string`: The recording status.Response in general query
+          * recording_type `string`: The recording file type.
+          * status `string`: The recording status. Response in general query.
+
+### RecordingRegistrantList
+* Recording Registration List `object`: List of Recording Registration
+  * page_count `integer`: The number of items returned on this page
+  * page_number `integer`: The page number of current results
+  * page_size `integer`: The number of records returned within a single API call
+  * total_records `integer`: The number of all records available across pages
+  * registrants `array`: List of Registrant objects
+    * items
+      * id `string`
+      * address `string`: Address
+      * city `string`: City
+      * comments `string`: Questions & Comments
+      * country `string`: Country
+      * custom_questions `array`: Custom Questions
+        * items [CustomQuestion](#customquestion)
+      * email **required** `string`: A valid email address
+      * first_name **required** `string`: User’s first name
+      * industry `string`: Industry
+      * job_title `string`: Job Title
+      * last_name **required** `string`: User’s last name
+      * no_of_employees `string` (values: 1-20, 21-50, 51-100, 101-500, 500-1,000, 1,001-5,000, 5,001-10,000, More than 10,000): Number of Employees
+      * org `string`: Organization
+      * phone `string`: Phone
+      * purchasing_time_frame `string` (values: Within a month, 1-3 months, 4-6 months, More than 6 months, No timeframe): Purchasing Time Frame
+      * role_in_purchase_process `string` (values: Decision Maker, Evaluator/Recommender, Influencer, Not involved): Role in Purchase Process
+      * state `string`: State/Province
+      * zip `string`: Zip/Postal Code
+
+### RecordingRegistrantStatus
+* RecordingRegistrantStatus `object`: Registrant Status
+  * action **required** `string` (values: approve, deny)
+  * registrants `array`: List of registrants
+    * items `object`
+      * id `string`
+
+### RecordingSettings
+* Recording settings `object`
+  * approval_type `integer` (values: 0, 1, 2): Approval type
+  * on_demand `boolean`: Registration required
+  * password `string`: Password protect
+  * send_email_to_host `boolean`: Send an email to host when someone registers
+  * share_recording `string` (values: publicly, internally, none): Determine if the meeting recording is shared
+  * show_social_share_buttons `boolean`: Show social share buttons on registration page
+  * viewer_download `boolean`: Host video
 
 ### Recurrence
 * Recurrence `object`: Recurrence object
-  * end_date_time `string`: Recurrence Meeting End Date. Should be UTC time, such as 2017-11-25T12:00:00Z.
-  * end_times `integer`: Recurrence Meeting End occurrences times
-  * monthly_day `integer`: Recurrence Meeting Occurs on a month day. The value range is from 1 to 31
-  * monthly_week `integer` (values: -1, 1, 2, 3, 4): Recurrence Meeting Occurs on the week of a month.
-  * monthly_week_day `integer` (values: 1, 2, 3, 4, 5, 6, 7): Recurrence Meeting Occurs on the week day of a month
-  * repeat_interval `integer`: Recurrence meeting repeat interval. For a Daily Meeting, max of 90. For a Weekly Meeting, max of 12. For a Monthly Meeting, max of 3.
+  * end_date_time `string`: Select a date the meeting will occur before it is canceled.. Should be UTC time, such as 2017-11-25T12:00:00Z. (Cannot be used with "end_times".)
+  * end_times `integer`: Select how many times the meeting will occur before it is canceled. (Cannot be used with "end_date_time".)
+  * monthly_day `integer`: Day of the month for the meeting to be scheduled. The value range is from 1 to 31.
+  * monthly_week `integer` (values: -1, 1, 2, 3, 4): Week for which the meeting should recur each month,
+  * monthly_week_day `integer` (values: 1, 2, 3, 4, 5, 6, 7): Day for which the meeting should recur each month
+  * repeat_interval `integer`: At which interval should the meeting repeat? For a daily meeting, max of 90 days. For a weekly meeting, max of 12 weeks. For a monthly meeting, max of 3 months.
   * type `integer` (values: 1, 2, 3): Recurrence meeting type
-  * weekly_days `integer` (values: 1, 2, 3, 4, 5, 6, 7): Recurrence Meeting Occurs on week days, multiple value separated by comma
+  * weekly_days `integer` (values: 1, 2, 3, 4, 5, 6, 7): Days of the week the meeting should repeat, multiple values separated by comma
 
 ### Registrant
 * Registrant `object`: Registrant base object
@@ -3369,11 +4568,11 @@ zoom_us.webinarStatus({
 
 ### RegistrantList
 * Registration List `object`: List of Users
-  * next_page_token `string`: Next page token, used to paginate through large result sets. A next page token will be returned whenever the set of available result list exceeds page size. The expiration period is 15 minutes.
-  * page_count `integer`: The number of items returned on this page.
-  * page_size `integer`: The amount of records returns within a single API call. 
-  * total_records `integer`: The number of all records available across pages.
-  * registrants `array`: List of Registrant objects.
+  * page_count `integer`: The number of items returned on this page
+  * page_number `integer`: The page number of current results
+  * page_size `integer`: The number of records returned within a single API call
+  * total_records `integer`: The number of all records available across pages
+  * registrants `array`: List of Registrant objects
     * items
       * id `string`
       * address `string`: Address
@@ -3395,6 +4594,7 @@ zoom_us.webinarStatus({
       * state `string`: State/Province
       * zip `string`: Zip/Postal Code
       * create_time `string`
+      * join_url `string`
       * status `string`
 
 ### RegistrantStatus
@@ -3408,129 +4608,187 @@ zoom_us.webinarStatus({
 ### Session
 * Session `object`: Base object for sessions
   * agenda `string`: Meeting description
-  * duration `integer`: Meeting duration (minutes). Used for scheduled meeting only.
+  * duration `integer`: Meeting duration (minutes). Used for scheduled meetings only
   * password `string`: Password to join the meeting. Password may only contain the following characters: [a-z A-Z 0-9 @ - _ *]. Max of 10 characters.
   * recurrence [Recurrence](#recurrence)
   * settings [MeetingSettings](#meetingsettings)
-  * start_time `string`: Meeting start time, in the format "yyyy-MM-dd'T'HH:mm:ss'Z'", should be GMT time. In the format "yyyy-MM-dd'T'HH:mm:ss", should be local time, need to specify the time zone. Only used for scheduled meeting and recurring meeting with fixed time.
-  * timezone `string`: Timezone to format start_time, like "America/Los_Angeles". For scheduled meeting only. For this parameter value please refer to the id value in [timezone](#timezones) list.
+  * start_time `string`: Meeting start time. When using a format like "yyyy-MM-dd'T'HH:mm:ss'Z'", always use GMT time. When using a format like "yyyy-MM-dd'T'HH:mm:ss", you should use local time and you will need to specify the time zone. Only used for scheduled meetings and recurring meetings with fixed time.
+  * timezone `string`: Timezone to format start_time. For example, "America/Los_Angeles". For scheduled meetings only. Please reference our [timezone](#timezones) list for supported timezones and their formats.
   * topic `string`: Meeting topic
+  * tracking_fields `array`: Tracking fields
+    * items `object`
+      * field `string`: Tracking fields type
+      * value `string`: Tracking fields value
   * type `integer` (values: 1, 2, 3, 8): Meeting Type
 
 ### SessionUpdate
 * SessionUpdate `object`: Base object for sessions
   * agenda `string`: Meeting description
-  * duration `integer`: Meeting duration (minutes). Used for scheduled meeting only.
+  * duration `integer`: Meeting duration (minutes). Used for scheduled meetings only
   * password `string`: Password to join the meeting. Password may only contain the following characters: [a-z A-Z 0-9 @ - _ *]. Max of 10 characters.
   * recurrence [Recurrence](#recurrence)
   * settings
     * alternative_hosts `string`: Alternative hosts emails or IDs. Multiple value separated by comma.
     * approval_type `integer` (values: 0, 1, 2)
-    * audio `string` (values: both, telephony, voip): Meeting audio options
+    * audio `string` (values: both, telephony, voip): Determine how participants can join the audio portion of the meeting
     * auto_recording `string` (values: local, cloud, none)
+    * close_registration `boolean`: Close registration after event date
     * cn_meeting `boolean`: Host meeting in China
     * enforce_login `boolean`: Only signed-in users can join this meeting
     * enforce_login_domains `string`: Only signed-in users with specified domains can join meetings
-    * host_video `boolean`: Start video when host join meeting
+    * host_video `boolean`: Start video when host joins meeting
     * in_meeting `boolean`: Host meeting in India
-    * join_before_host `boolean`: Join meeting before host start the meeting. Only used for scheduled or recurring meetings
+    * join_before_host `boolean`: Allow participants to join the meeting before the host starts the meeting. Only used for scheduled or recurring meetings.
     * mute_upon_entry `boolean`: Mute participants upon entry
     * participant_video `boolean`: Start video when participants join meeting
     * registration_type `integer` (values: 1, 2, 3): Registration type. Used for recurring meeting with fixed time only.
-    * use_pmi `boolean`: Use Personal Meeting ID. Only used for scheduled meetings and recurring meetings with no fixed time
-    * watermark `boolean`: Enable watermark when viewing the shared screen
+    * use_pmi `boolean`: Use Personal Meeting ID. Only used for scheduled meetings and recurring meetings with no fixed time.
+    * waiting_room `boolean`: Enable waiting room
+    * watermark `boolean`: Add watermark when viewing shared screen
     * registrants_confirmation_email `boolean`: Send confirmation Email to Registrants
-  * start_time `string`: Meeting start time, in the format "yyyy-MM-dd'T'HH:mm:ss'Z'", should be GMT time. In the format "yyyy-MM-dd'T'HH:mm:ss", should be local time, need to specify the time zone. Only used for scheduled meeting and recurring meeting with fixed time.
-  * timezone `string`: Timezone to format start_time, like "America/Los_Angeles". For scheduled meeting only. For this parameter value please refer to the id value in [timezone](#timezones) list.
+  * start_time `string`: Meeting start time. When using a format like "yyyy-MM-dd'T'HH:mm:ss'Z'", always use GMT time. When using a format like "yyyy-MM-dd'T'HH:mm:ss", you should use local time and you will need to specify the time zone. Only used for scheduled meetings and recurring meetings with fixed time.
+  * timezone `string`: Timezone to format start_time. For example, "America/Los_Angeles". For scheduled meetings only. Please reference our [timezone](#timezones) list for supported timezones and their formats.
   * topic `string`: Meeting topic
+  * tracking_fields `array`: Tracking fields
+    * items `object`
+      * field `string`: Tracking fields type
+      * value `string`: Tracking fields value
   * type `integer` (values: 1, 2, 3, 8): Meeting Type
 
 ### SessionWebinar
 * SessionWebinar `object`: Base webinar object for sessions
   * agenda `string`: Webinar description
-  * duration `integer`: Webinar duration (minutes). Used for scheduled webinar only.
+  * duration `integer`: Webinar duration (minutes). Used for scheduled webinar only
   * password `string`: Webinar password. Password may only contain the following characters: [a-z A-Z 0-9 @ - _ *]. Max of 10 characters.
   * recurrence [Recurrence](#recurrence)
   * settings [WebinarSettings](#webinarsettings)
   * start_time `string`: Webinar start time, in the format "yyyy-MM-dd'T'HH:mm:ss'Z'", should be GMT time. In the format "yyyy-MM-dd'T'HH:mm:ss", should be local time, need to specify the time zone. Only used for scheduled webinar and recurring webinar with fixed time.
-  * timezone `string`: Timezone to format start_time, like "America/Los_Angeles". For scheduled webinar only. For this parameter value please refer to the id value in [timezone](#timezones) list.
+  * timezone `string`: Timezone to format start_time. For example, "America/Los_Angeles". For scheduled meetings only. Please reference our [timezone](#timezones) list for supported timezones and their formats.
   * topic `string`: Webinar topic
+  * tracking_fields `array`: Tracking fields
+    * items `object`
+      * field `string`: Tracking fields type
+      * value `string`: Tracking fields value
   * type `integer` (values: 5, 6, 9): Webinar Type
 
 ### SessionWebinarUpdate
 * SessionWebinarUpdate `object`: Base webinar object for sessions
   * agenda `string`: Webinar description
-  * duration `integer`: Webinar duration (minutes). Used for scheduled webinar only.
+  * duration `integer`: Webinar duration (minutes). Used for scheduled webinar only
   * password `string`: Webinar password. Password may only contain the following characters: [a-z A-Z 0-9 @ - _ *]. Max of 10 characters.
   * recurrence [Recurrence](#recurrence)
   * settings
-    * allow_multiple_devices `boolean`: Allow attendees to join from multiple devices.
-    * alternative_hosts `string`: Alternative hosts emails or IDs. Multiple value separated by comma.
+    * allow_multiple_devices `boolean`: Allow attendees to join from multiple devices
+    * alternative_hosts `string`: Alternative hosts emails or IDs. Multiple values separated by comma.
     * approval_type `integer` (values: 0, 1, 2)
-    * audio `string` (values: both, telephony, voip): Meeting audio options
+    * audio `string` (values: both, telephony, voip): Determine how participants can join the audio portion of the meeting
     * auto_recording `string` (values: local, cloud, none)
-    * close_registration `boolean`: Close registration after event date.
+    * close_registration `boolean`: Close registration after event date
     * enforce_login `boolean`: Only signed-in users can join this meeting
     * enforce_login_domains `string`: Only signed-in users with specified domains can join meetings
     * hd_video `boolean`: Default to HD Video
-    * host_video `boolean`: Start video when host join webinar
+    * host_video `boolean`: Start video when host joins webinar
+    * on_demand `boolean`: Make the webinar on-demand
     * panelists_video `boolean`: Start video when panelists join webinar
     * practice_session `boolean`: Enable Practice Session
     * registration_type `integer` (values: 1, 2, 3): Registration type. Used for recurring webinar with fixed time only.
-    * show_share_button `boolean`: Show social share buttons on registration page.
+    * show_share_button `boolean`: Show social share buttons on registration page
     * registrants_confirmation_email `boolean`: Send confirmation Email to Registrants
   * start_time `string`: Webinar start time, in the format "yyyy-MM-dd'T'HH:mm:ss'Z'", should be GMT time. In the format "yyyy-MM-dd'T'HH:mm:ss", should be local time, need to specify the time zone. Only used for scheduled webinar and recurring webinar with fixed time.
-  * timezone `string`: Timezone to format start_time, like "America/Los_Angeles". For scheduled webinar only. For this parameter value please refer to the id value in [timezone](#timezones) list.
+  * timezone `string`: Timezone to format start_time. For example, "America/Los_Angeles". For scheduled meetings only. Please reference our [timezone](#timezones) list for supported timezones and their formats.
   * topic `string`: Webinar topic
+  * tracking_fields `array`: Tracking fields
+    * items `object`
+      * field `string`: Tracking fields type
+      * value `string`: Tracking fields value
   * type `integer` (values: 5, 6, 9): Webinar Type
 
 ### TSP
-* TSP `object`: TSP Account object
+* TSP Accounts List `object`: List of TSP Accounts
   * conference_code **required** `string`: Conference code, numeric value, length is less than 16.
-  * dial_in_numbers `object`: Dial In Numbers object
-    * code **required** `string`: Country Code
-    * number **required** `string`: Dial-in number, length is less than 16.
+  * dial_in_numbers `array`: List of Dial In Numbers
+    * items `object`
+      * code `string`: Country Code
+      * country_label `string`: Country Label, if passed, will display in place of code.
+      * number `string`: Dial-in number, length is less than 16.
+      * type `string` (values: toll, tollfree, media_link): Dial-in number type.
   * leader_pin **required** `string`: Leader PIN, numeric value, length is less than 16.
 
+### TrackingField
+* Tracking Field `object`: Tracking Field
+  * field `string`: Tracking Field Name
+  * recommended_values `array`: Array of recommended values
+    * items `string`
+  * required `boolean`: Tracking Field Required
+  * visible `boolean`: Tracking Field Visible
+
+### TrackingFieldList
+* Tracking Field List `object`: Tracking Field List
+  * total_records `integer`: The number of all records available across pages
+  * tracking_fields `array`: Array of Tracking Fields
+    * items
+      * id `string`: ID of Tracking Field
+      * field `string`: Tracking Field Name
+      * recommended_values `array`: Array of recommended values
+        * items `string`
+      * required `boolean`: Tracking Field Required
+      * visible `boolean`: Tracking Field Visible
+
 ### User
-* User `object`: The user object represents a User on Zoom.
+* User `object`: The user object represents a User on Zoom
   * created_at `string`: User create time
   * dept `string`: Department
-  * email **required** `string`: User's email address.
-  * first_name `string`: User's first name.
+  * email **required** `string`: User's email address
+  * first_name `string`: User's first name
   * last_client_version `string`: User last login client version
   * last_login_time `string`: User last login time
-  * last_name `string`: User's last name.
+  * last_name `string`: User's last name
   * pmi `string`: Personal Meeting ID
   * timezone `string`: Time Zone
   * type **required** `integer` (values: 1, 2, 3): User's type
 
 ### UserAssistantsList
 * User assistants List `object`: List of User's assistants
-  * assistants `array`: List of User's assistants.
+  * assistants `array`: List of User's assistants
     * items `object`
       * email `string`: User email address. Must have id or email, if given id, the email is ignored.
       * id `string`: User ID
 
 ### UserList
 * User List `object`: List of Users
-  * page_count `integer`: The number of items returned on this page.
-  * page_number `integer`: The page number of current results.
-  * page_size `integer`: The amount of records returns within a single API call.
-  * total_records `integer`: The number of all records available across pages.
-  * users `array`: List of User objects.
+  * page_count `integer`: The number of items returned on this page
+  * page_number `integer`: The page number of current results
+  * page_size `integer`: The number of records returned within a single API call
+  * total_records `integer`: The number of all records available across pages
+  * users `array`: List of User objects
     * items
       * id `string`: User ID
       * created_at `string`: User create time
       * dept `string`: Department
-      * email **required** `string`: User's email address.
-      * first_name `string`: User's first name.
+      * email **required** `string`: User's email address
+      * first_name `string`: User's first name
       * last_client_version `string`: User last login client version
       * last_login_time `string`: User last login time
-      * last_name `string`: User's last name.
+      * last_name `string`: User's last name
       * pmi `string`: Personal Meeting ID
       * timezone `string`: Time Zone
       * type **required** `integer` (values: 1, 2, 3): User's type
+      * group_ids `array`
+        * items `string`
+      * im_group_ids `array`
+        * items `string`
+
+### UserPermissions
+* UserPermissions `object`
+  * permissions `array`: List of user permissions
+    * items `string`
+
+### UserSchedulersList
+* User schedulers List `object`: List of User's schedulers
+  * assistants `array`: List of User's schedulers.
+    * items `object`
+      * email `string`: User email address.
+      * id `string`: User ID
 
 ### UserSettings
 * User settings `object`
@@ -3538,7 +4796,7 @@ zoom_us.webinarStatus({
   * feature [UserSettingsFeature](#usersettingsfeature)
   * in_meeting [UserSettingsInMeeting](#usersettingsinmeeting)
   * recording [UserSettingsRecording](#usersettingsrecording)
-  * scheduled_meeting [UserSettingsScheduledMeeting](#usersettingsscheduledmeeting)
+  * schedule_meeting [UserSettingsScheduleMeeting](#usersettingsschedulemeeting)
   * telephony [UserSettingsTelephony](#usersettingstelephony)
 
 ### UserSettingsEmailNotification
@@ -3549,14 +4807,25 @@ zoom_us.webinarStatus({
 
 ### UserSettingsFeature
 * User settings: Feature settings `object`
+  * cn_meeting `boolean`: CN meeting feature
+  * in_meeting `boolean`: IN meeting feature
   * large_meeting `boolean`: Large meting feature
-  * large_meeting_capacity `integer`: Large meeting capacity, can be 100, 200, 300 or 500, depends on if having related large meeting capacity plan subscription or not.
-  * meeting_capacity `integer`: User’s meeting capacity.
+  * large_meeting_capacity `integer`: Large meeting capacity, can be 100, 200, 300 or 500, depends on if having related large meeting capacity plan subscription or not
+  * meeting_capacity `integer`: User’s meeting capacity
   * webinar `boolean`: Webinar feature
-  * webinar_capacity `integer`: Webinar capacity, can be 100, 500, 1000, 3000, 5000 or 10000, depends on if having related webinar capacity plan subscription or not.
+  * webinar_capacity `integer`: Webinar capacity, can be 100, 500, 1000, 3000, 5000 or 10000, depends on if having related webinar capacity plan subscription or not
+
+### UserSettingsFeatureUpdate
+* User settings: Feature settings `object`
+  * large_meeting `boolean`: Large meting feature
+  * large_meeting_capacity `integer`: Large meeting capacity, can be 100, 200, 300 or 500, depends on if having related large meeting capacity plan subscription or not
+  * meeting_capacity `integer`: User’s meeting capacity
+  * webinar `boolean`: Webinar feature
+  * webinar_capacity `integer`: Webinar capacity, can be 100, 500, 1000, 3000, 5000 or 10000, depends on if having related webinar capacity plan subscription or not
 
 ### UserSettingsInMeeting
 * User settings: Meeting settings `object`
+  * allow_live_streaming `boolean`: Allow live streaming
   * annotation `boolean`: Annotation
   * attendee_on_hold `boolean`: Allow host to put attendee on hold
   * attention_tracking `boolean`: Attention tracking
@@ -3565,6 +4834,8 @@ zoom_us.webinarStatus({
   * chat `boolean`: Chat
   * closed_caption `boolean`: Closed caption
   * co_host `boolean`: Co-host
+  * custom_live_streaming `boolean`: Custom live streaming
+  * custom_service_instructions `string`: Custom service instructions
   * e2e_encryption `boolean`: End-to-end encryption
   * entry_exit_chime `string` (values: host, all, none): Play sound on join/leave
   * far_end_camera_control `boolean`: Far end camera control
@@ -3577,9 +4848,10 @@ zoom_us.webinarStatus({
   * record_play_voice `boolean`: Record and play their own voice
   * remote_control `boolean`: Remote control
   * remote_support `boolean`: Remote support
-  * share_dual_camera `boolean`: Share dual camera
+  * share_dual_camera `boolean`: Share dual camera (Deprecated)
   * virtual_background `boolean`: Virtual background
   * waiting_room `boolean`: Waiting room
+  * workplace_by_facebook `boolean`: Workplace by facebook
 
 ### UserSettingsRecording
 * User settings: Recording settings `object`
@@ -3595,9 +4867,9 @@ zoom_us.webinarStatus({
   * save_chat_text `boolean`: Save chat text from the meeting
   * show_timestamp `boolean`: Show timestamp on video
 
-### UserSettingsScheduledMeeting
+### UserSettingsScheduleMeeting
 * User settings: Meeting settings `object`
-  * audio_type `string` (values: both, telephony, voip, thirdParty): Meeting audio
+  * audio_type `string` (values: both, telephony, voip, thirdParty): Determine how participants can join the audio portion of the meeting
   * force_pmi_jbh_password `boolean`: Require a password for Personal Meetings if attendees can join before host
   * host_video `boolean`: Host video
   * join_before_host `boolean`: Join before host
@@ -3610,56 +4882,72 @@ zoom_us.webinarStatus({
   * show_international_numbers_link `boolean`: Show international numbers link on the invitation email
   * third_party_audio `boolean`: 3rd party audio conference
 
+### UserSettingsUpdate
+* User settings `object`
+  * email_notification [UserSettingsEmailNotification](#usersettingsemailnotification)
+  * feature [UserSettingsFeatureUpdate](#usersettingsfeatureupdate)
+  * in_meeting [UserSettingsInMeeting](#usersettingsinmeeting)
+  * recording [UserSettingsRecording](#usersettingsrecording)
+  * schedule_meeting [UserSettingsScheduleMeeting](#usersettingsschedulemeeting)
+  * telephony [UserSettingsTelephony](#usersettingstelephony)
+
 ### UserUpdate
-* UserUpdate `object`: The user update object represents a User on Zoom.
-  * cms_user_id `string`: Kaltura User Id.
-  * dept `string`: Department for user profile, use for report.
+* UserUpdate `object`: The user update object represents a User on Zoom
+  * cms_user_id `string`: Kaltura User Id
+  * dept `string`: Department for user profile, use for report
   * first_name `string`: User's first name. Cannot contain more than 5 Chinese words.
-  * host_key `string`: Host Key, should be 6-digit number.
+  * host_key `string`: Host Key, should be 6-digit number
+  * language `string`: language
   * last_name `string`: User's last name. Cannot contain more than 5 Chinese words.
-  * pmi `string`: Personal Meeting ID,length must be 10.
+  * pmi `string`: Personal Meeting ID,length must be 10
   * timezone `string`: The time zone id for user profile. For this parameter value please refer to the id value in [timezone](#timezones) list.
   * type `integer` (values: 1, 2, 3): User's type
-  * vanity_name `string`: Personal meeting room name.
+  * use_pmi `boolean`: Use Personal Meeting ID for instant meetings.
+  * vanity_name `string`: Personal meeting room name
 
 ### Webhook
 * Webhook `object`: Webhook base object, only available for version 2 webhook
-  * auth_password **required** `string`: Webhook auth password.
-  * auth_user **required** `string`: Webhook auth user name.
-  * events **required** `array` (values: meeting_started, meeting_ended, meeting_jbh, meeting_join, recording_completed, participant_joined, participant_left): List of events objects.
+  * auth_password **required** `string`: Webhook auth password
+  * auth_user **required** `string`: Webhook auth user name
+  * events **required** `array` (values: meeting_started, meeting_ended, meeting_jbh, meeting_join, recording_completed, participant_joined, participant_left, meeting_registered, recording_transcript_completed): List of events objects.
     * items `string`
   * url **required** `string`: Webhook endpoint
 
 ### WebhookList
 * Webhook List `object`: List of Webhooks
-  * total_records `integer`: The number of all records available across pages.
-  * webhooks `array`: List of Webhook objects.
+  * total_records `integer`: The number of all records available across pages
+  * webhooks `array`: List of Webhook objects
     * items
-      * webhook_id `string`: Webhook Id.
-      * auth_password **required** `string`: Webhook auth password.
-      * auth_user **required** `string`: Webhook auth user name.
-      * events **required** `array` (values: meeting_started, meeting_ended, meeting_jbh, meeting_join, recording_completed, participant_joined, participant_left): List of events objects.
+      * webhook_id `string`: Webhook Id
+      * auth_password **required** `string`: Webhook auth password
+      * auth_user **required** `string`: Webhook auth user name
+      * events **required** `array` (values: meeting_started, meeting_ended, meeting_jbh, meeting_join, recording_completed, participant_joined, participant_left, meeting_registered, recording_transcript_completed): List of events objects.
         * items `string`
       * url **required** `string`: Webhook endpoint
+      * created_at `string`: Webhook create time
 
 ### WebhookUpdate
 * WebhookUpdate `object`: Webhook base object
-  * auth_password `string`: Webhook auth password.
-  * auth_user `string`: Webhook auth user name.
-  * events `array` (values: meeting_started, meeting_ended, meeting_jbh, meeting_join, recording_completed, participant_joined, participant_left): List of events objects.
+  * auth_password `string`: Webhook auth password
+  * auth_user `string`: Webhook auth user name
+  * events `array` (values: meeting_started, meeting_ended, meeting_jbh, meeting_join, recording_completed, participant_joined, participant_left, meeting_registered, recording_transcript_completed): List of events objects
     * items `string`
-  * url `string`: Webhook endpoint.
+  * url `string`: Webhook endpoint
 
 ### Webinar
 * Webinar `object`: Webinar object
   * agenda `string`: Webinar description
-  * duration `integer`: Webinar duration (minutes). Used for scheduled webinar only.
+  * duration `integer`: Webinar duration (minutes). Used for scheduled webinar only
   * password `string`: Webinar password. Password may only contain the following characters: [a-z A-Z 0-9 @ - _ *]. Max of 10 characters.
   * recurrence [Recurrence](#recurrence)
   * settings [WebinarSettings](#webinarsettings)
   * start_time `string`: Webinar start time, in the format "yyyy-MM-dd'T'HH:mm:ss'Z'", should be GMT time. In the format "yyyy-MM-dd'T'HH:mm:ss", should be local time, need to specify the time zone. Only used for scheduled webinar and recurring webinar with fixed time.
-  * timezone `string`: Timezone to format start_time, like "America/Los_Angeles". For scheduled webinar only. For this parameter value please refer to the id value in [timezone](#timezones) list.
+  * timezone `string`: Timezone to format start_time. For example, "America/Los_Angeles". For scheduled meetings only. Please reference our [timezone](#timezones) list for supported timezones and their formats.
   * topic `string`: Webinar topic
+  * tracking_fields `array`: Tracking fields
+    * items `object`
+      * field `string`: Tracking fields type
+      * value `string`: Tracking fields value
   * type `integer` (values: 5, 6, 9): Webinar Type
 
 ### WebinarInfo
@@ -3674,15 +4962,26 @@ zoom_us.webinarStatus({
   * start_url `string`: Start url
   * timezone `string`: Timezone to format start_time
   * topic `string`: Webinar topic
+  * tracking_fields `array`: Tracking fields
+    * items `object`
+      * field `string`: Tracking fields type
+      * value `string`: Tracking fields value
   * type `integer` (values: 5, 6, 9): Webinar Type
+
+### WebinarInstances
+* Webinar instances `object`: List of Webinars
+  * webinars `array`: List of ended webinar instances.
+    * items
+      * start_time `string`: Start time
+      * uuid `string`: WebinarUUID
 
 ### WebinarList
 * User List `object`: List of Webinars
-  * page_count `integer`: The number of items returned on this page.
-  * page_number `integer`: The page number of current results.
-  * page_size `integer`: The amount of records returns within a single API call.
-  * total_records `integer`: The number of all records available across pages.
-  * webinars `array`: List of Webinar objects.
+  * page_count `integer`: The number of items returned on this page
+  * page_number `integer`: The page number of current results
+  * page_size `integer`: The number of records returned within a single API call
+  * total_records `integer`: The number of all records available across pages
+  * webinars `array`: List of Webinar objects
     * items
       * created_at `string`: Create time
       * duration `integer`: Meeting duration
@@ -3716,20 +5015,20 @@ zoom_us.webinarStatus({
 
 ### WebinarPanelist
 * WebinarPanelist `object`: Webinar panelist
-  * panelists `array`: List of Panelist objects.
+  * panelists `array`: List of Panelist objects
     * items
       * email `string`: Panelist's email
       * name `string`: Panelist's full name
 
 ### WebinarPanelistList
 * WebinarPanelistList `object`: Webinar panelist
-  * panelists `array`: List of Panelist objects.
+  * panelists `array`: List of Panelist objects
     * items
       * id `string`: Panelist's ID
       * email `string`: Panelist's email
       * name `string`: Panelist's full name
       * join_url `string`: Join url
-  * total_records `integer`: Total records.
+  * total_records `integer`: Total records
 
 ### WebinarRegistrant
 * WebinarRegistrant `object`: Webianr registrant
@@ -3754,11 +5053,11 @@ zoom_us.webinarStatus({
 
 ### WebinarRegistrantList
 * Registration List `object`: List of Users
-  * next_page_token `string`: Next page token, used to paginate through large result sets. A next page token will be returned whenever the set of available result list exceeds page size. The expiration period is 15 minutes.
-  * page_count `integer`: The number of items returned on this page.
-  * page_size `integer`: The amount of records returns within a single API call. 
-  * total_records `integer`: The number of all records available across pages.
-  * registrants `array`: List of Registrant objects.
+  * page_count `integer`: The number of items returned on this page
+  * page_number `integer`: The page number of current results
+  * page_size `integer`: The number of records returned within a single API call
+  * total_records `integer`: The number of all records available across pages
+  * registrants `array`: List of Registrant objects
     * items
       * id `string`
       * address `string`: Address
@@ -3780,55 +5079,63 @@ zoom_us.webinarStatus({
       * state `string`: State/Province
       * zip `string`: Zip/Postal Code
       * create_time `string`
+      * join_url `string`
       * status `string`
 
 ### WebinarSettings
 * WebinarSettings `object`: Webinar Settings
-  * allow_multiple_devices `boolean`: Allow attendees to join from multiple devices.
-  * alternative_hosts `string`: Alternative hosts emails or IDs. Multiple value separated by comma.
+  * allow_multiple_devices `boolean`: Allow attendees to join from multiple devices
+  * alternative_hosts `string`: Alternative hosts emails or IDs. Multiple values separated by comma.
   * approval_type `integer` (values: 0, 1, 2)
-  * audio `string` (values: both, telephony, voip): Meeting audio options
+  * audio `string` (values: both, telephony, voip): Determine how participants can join the audio portion of the meeting
   * auto_recording `string` (values: local, cloud, none)
-  * close_registration `boolean`: Close registration after event date.
+  * close_registration `boolean`: Close registration after event date
   * enforce_login `boolean`: Only signed-in users can join this meeting
   * enforce_login_domains `string`: Only signed-in users with specified domains can join meetings
   * hd_video `boolean`: Default to HD Video
-  * host_video `boolean`: Start video when host join webinar
+  * host_video `boolean`: Start video when host joins webinar
+  * on_demand `boolean`: Make the webinar on-demand
   * panelists_video `boolean`: Start video when panelists join webinar
   * practice_session `boolean`: Enable Practice Session
   * registration_type `integer` (values: 1, 2, 3): Registration type. Used for recurring webinar with fixed time only.
-  * show_share_button `boolean`: Show social share buttons on registration page.
+  * show_share_button `boolean`: Show social share buttons on registration page
 
 ### WebinarUpdate
 * WebinarUpdate `object`: Webinar object
   * agenda `string`: Webinar description
-  * duration `integer`: Webinar duration (minutes). Used for scheduled webinar only.
+  * duration `integer`: Webinar duration (minutes). Used for scheduled webinar only
   * password `string`: Webinar password. Password may only contain the following characters: [a-z A-Z 0-9 @ - _ *]. Max of 10 characters.
   * recurrence [Recurrence](#recurrence)
   * settings
-    * allow_multiple_devices `boolean`: Allow attendees to join from multiple devices.
-    * alternative_hosts `string`: Alternative hosts emails or IDs. Multiple value separated by comma.
+    * allow_multiple_devices `boolean`: Allow attendees to join from multiple devices
+    * alternative_hosts `string`: Alternative hosts emails or IDs. Multiple values separated by comma.
     * approval_type `integer` (values: 0, 1, 2)
-    * audio `string` (values: both, telephony, voip): Meeting audio options
+    * audio `string` (values: both, telephony, voip): Determine how participants can join the audio portion of the meeting
     * auto_recording `string` (values: local, cloud, none)
-    * close_registration `boolean`: Close registration after event date.
+    * close_registration `boolean`: Close registration after event date
     * enforce_login `boolean`: Only signed-in users can join this meeting
     * enforce_login_domains `string`: Only signed-in users with specified domains can join meetings
     * hd_video `boolean`: Default to HD Video
-    * host_video `boolean`: Start video when host join webinar
+    * host_video `boolean`: Start video when host joins webinar
+    * on_demand `boolean`: Make the webinar on-demand
     * panelists_video `boolean`: Start video when panelists join webinar
     * practice_session `boolean`: Enable Practice Session
     * registration_type `integer` (values: 1, 2, 3): Registration type. Used for recurring webinar with fixed time only.
-    * show_share_button `boolean`: Show social share buttons on registration page.
+    * show_share_button `boolean`: Show social share buttons on registration page
     * registrants_confirmation_email `boolean`: Send confirmation Email to Registrants
   * start_time `string`: Webinar start time, in the format "yyyy-MM-dd'T'HH:mm:ss'Z'", should be GMT time. In the format "yyyy-MM-dd'T'HH:mm:ss", should be local time, need to specify the time zone. Only used for scheduled webinar and recurring webinar with fixed time.
-  * timezone `string`: Timezone to format start_time, like "America/Los_Angeles". For scheduled webinar only. For this parameter value please refer to the id value in [timezone](#timezones) list.
+  * timezone `string`: Timezone to format start_time. For example, "America/Los_Angeles". For scheduled meetings only. Please reference our [timezone](#timezones) list for supported timezones and their formats.
   * topic `string`: Webinar topic
+  * tracking_fields `array`: Tracking fields
+    * items `object`
+      * field `string`: Tracking fields type
+      * value `string`: Tracking fields value
   * type `integer` (values: 5, 6, 9): Webinar Type
 
 ### ZoomRoom
 * Zoom Room `object`: Zoom Room
   * account_type `string`: Zoom Room email type
+  * calender_name `string`: Zoom Calendar name
   * camera `string`: Zoom Room camera
   * device_ip `string`: Zoom Room device IP
   * email `string`: Zoom Room email
@@ -3841,10 +5148,10 @@ zoom_us.webinarStatus({
 
 ### ZoomRoomList
 * Zoom Room List `object`: Zoom Room List
-  * page_count `integer`: The number of items returned on this page.
-  * page_number `integer`: The page number of current results.
-  * page_size `integer`: The amount of records returns within a single API call.
-  * total_records `integer`: The number of all records available across pages.
+  * page_count `integer`: The number of items returned on this page
+  * page_number `integer`: The page number of current results
+  * page_size `integer`: The number of records returned within a single API call
+  * total_records `integer`: The number of all records available across pages
   * zoom_rooms `array`: Array of Zoom Rooms
     * items [ZoomRoom](#zoomroom)
 

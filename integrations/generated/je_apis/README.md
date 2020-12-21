@@ -9,10 +9,7 @@ npm install --save @datafire/je_apis
 ```js
 let je_apis = require('@datafire/je_apis').create();
 
-je_apis.GetOnlineStatus({
-  "Accept-Tenant": "",
-  "Authorization": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

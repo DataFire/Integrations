@@ -223,9 +223,7 @@
               "vaultName": "BCDRIbzVault"
             },
             "responses": {
-              "204": {
-                "body": ""
-              }
+              "204": {}
             }
           }
         }
@@ -357,7 +355,7 @@
       "discriminator": "authType",
       "properties": {
         "authType": {
-          "description": "This property will be used as the discriminator for deciding the specific types in the polymorhpic chain of types.",
+          "description": "This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.",
           "type": "string"
         },
         "certificate": {
@@ -366,7 +364,7 @@
           "type": "string"
         },
         "friendlyName": {
-          "description": "Certificate friendlyname.",
+          "description": "Certificate friendly name.",
           "type": "string"
         },
         "issuer": {

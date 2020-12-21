@@ -15,7 +15,7 @@ let google_mirror = require('@datafire/google_mirror').create({
   redirect_uri: ""
 });
 
-google_mirror.timeline.insert({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -67,24 +67,24 @@ google_mirror.oauthRefresh(null, context)
   * scope `string`
   * expiration `string`
 
-### accounts.insert
+### mirror.accounts.insert
 Inserts a new account for a user
 
 
 ```js
-google_mirror.accounts.insert({
-  "accountName": "",
+google_mirror.mirror.accounts.insert({
+  "userToken": "",
   "accountType": "",
-  "userToken": ""
+  "accountName": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * accountName **required** `string`: The name of the account to be passed to the Android Account Manager.
-  * accountType **required** `string`: Account type to be passed to Android Account Manager.
-  * body [Account](#account)
   * userToken **required** `string`: The ID for the user.
+  * accountType **required** `string`: Account type to be passed to Android Account Manager.
+  * accountName **required** `string`: The name of the account to be passed to the Android Account Manager.
+  * body [Account](#account)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -96,12 +96,12 @@ google_mirror.accounts.insert({
 #### Output
 * output [Account](#account)
 
-### contacts.list
+### mirror.contacts.list
 Retrieves a list of contacts for the authenticated user.
 
 
 ```js
-google_mirror.contacts.list({}, context)
+google_mirror.mirror.contacts.list({}, context)
 ```
 
 #### Input
@@ -117,12 +117,12 @@ google_mirror.contacts.list({}, context)
 #### Output
 * output [ContactsListResponse](#contactslistresponse)
 
-### contacts.insert
+### mirror.contacts.insert
 Inserts a new contact.
 
 
 ```js
-google_mirror.contacts.insert({}, context)
+google_mirror.mirror.contacts.insert({}, context)
 ```
 
 #### Input
@@ -139,12 +139,12 @@ google_mirror.contacts.insert({}, context)
 #### Output
 * output [Contact](#contact)
 
-### contacts.delete
+### mirror.contacts.delete
 Deletes a contact.
 
 
 ```js
-google_mirror.contacts.delete({
+google_mirror.mirror.contacts.delete({
   "id": ""
 }, context)
 ```
@@ -163,12 +163,12 @@ google_mirror.contacts.delete({
 #### Output
 *Output schema unknown*
 
-### contacts.get
+### mirror.contacts.get
 Gets a single contact by ID.
 
 
 ```js
-google_mirror.contacts.get({
+google_mirror.mirror.contacts.get({
   "id": ""
 }, context)
 ```
@@ -187,20 +187,20 @@ google_mirror.contacts.get({
 #### Output
 * output [Contact](#contact)
 
-### contacts.patch
+### mirror.contacts.patch
 Updates a contact in place. This method supports patch semantics.
 
 
 ```js
-google_mirror.contacts.patch({
+google_mirror.mirror.contacts.patch({
   "id": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * body [Contact](#contact)
   * id **required** `string`: The ID of the contact.
+  * body [Contact](#contact)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -212,20 +212,20 @@ google_mirror.contacts.patch({
 #### Output
 * output [Contact](#contact)
 
-### contacts.update
+### mirror.contacts.update
 Updates a contact in place.
 
 
 ```js
-google_mirror.contacts.update({
+google_mirror.mirror.contacts.update({
   "id": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * body [Contact](#contact)
   * id **required** `string`: The ID of the contact.
+  * body [Contact](#contact)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -237,12 +237,12 @@ google_mirror.contacts.update({
 #### Output
 * output [Contact](#contact)
 
-### locations.list
+### mirror.locations.list
 Retrieves a list of locations for the user.
 
 
 ```js
-google_mirror.locations.list({}, context)
+google_mirror.mirror.locations.list({}, context)
 ```
 
 #### Input
@@ -258,12 +258,12 @@ google_mirror.locations.list({}, context)
 #### Output
 * output [LocationsListResponse](#locationslistresponse)
 
-### locations.get
+### mirror.locations.get
 Gets a single location by ID.
 
 
 ```js
-google_mirror.locations.get({
+google_mirror.mirror.locations.get({
   "id": ""
 }, context)
 ```
@@ -282,12 +282,12 @@ google_mirror.locations.get({
 #### Output
 * output [Location](#location)
 
-### settings.get
+### mirror.settings.get
 Gets a single setting by ID.
 
 
 ```js
-google_mirror.settings.get({
+google_mirror.mirror.settings.get({
   "id": ""
 }, context)
 ```
@@ -306,12 +306,12 @@ google_mirror.settings.get({
 #### Output
 * output [Setting](#setting)
 
-### subscriptions.list
+### mirror.subscriptions.list
 Retrieves a list of subscriptions for the authenticated user and service.
 
 
 ```js
-google_mirror.subscriptions.list({}, context)
+google_mirror.mirror.subscriptions.list({}, context)
 ```
 
 #### Input
@@ -327,12 +327,12 @@ google_mirror.subscriptions.list({}, context)
 #### Output
 * output [SubscriptionsListResponse](#subscriptionslistresponse)
 
-### subscriptions.insert
+### mirror.subscriptions.insert
 Creates a new subscription.
 
 
 ```js
-google_mirror.subscriptions.insert({}, context)
+google_mirror.mirror.subscriptions.insert({}, context)
 ```
 
 #### Input
@@ -349,12 +349,12 @@ google_mirror.subscriptions.insert({}, context)
 #### Output
 * output [Subscription](#subscription)
 
-### subscriptions.delete
+### mirror.subscriptions.delete
 Deletes a subscription.
 
 
 ```js
-google_mirror.subscriptions.delete({
+google_mirror.mirror.subscriptions.delete({
   "id": ""
 }, context)
 ```
@@ -373,20 +373,20 @@ google_mirror.subscriptions.delete({
 #### Output
 *Output schema unknown*
 
-### subscriptions.update
+### mirror.subscriptions.update
 Updates an existing subscription in place.
 
 
 ```js
-google_mirror.subscriptions.update({
+google_mirror.mirror.subscriptions.update({
   "id": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * body [Subscription](#subscription)
   * id **required** `string`: The ID of the subscription.
+  * body [Subscription](#subscription)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -398,12 +398,12 @@ google_mirror.subscriptions.update({
 #### Output
 * output [Subscription](#subscription)
 
-### timeline.list
+### mirror.timeline.list
 Retrieves a list of timeline items for the authenticated user.
 
 
 ```js
-google_mirror.timeline.list({}, context)
+google_mirror.mirror.timeline.list({}, context)
 ```
 
 #### Input
@@ -426,12 +426,12 @@ google_mirror.timeline.list({}, context)
 #### Output
 * output [TimelineListResponse](#timelinelistresponse)
 
-### timeline.insert
+### mirror.timeline.insert
 Inserts a new item into the timeline.
 
 
 ```js
-google_mirror.timeline.insert({}, context)
+google_mirror.mirror.timeline.insert({}, context)
 ```
 
 #### Input
@@ -448,12 +448,12 @@ google_mirror.timeline.insert({}, context)
 #### Output
 * output [TimelineItem](#timelineitem)
 
-### timeline.delete
+### mirror.timeline.delete
 Deletes a timeline item.
 
 
 ```js
-google_mirror.timeline.delete({
+google_mirror.mirror.timeline.delete({
   "id": ""
 }, context)
 ```
@@ -472,12 +472,12 @@ google_mirror.timeline.delete({
 #### Output
 *Output schema unknown*
 
-### timeline.get
+### mirror.timeline.get
 Gets a single timeline item by ID.
 
 
 ```js
-google_mirror.timeline.get({
+google_mirror.mirror.timeline.get({
   "id": ""
 }, context)
 ```
@@ -496,20 +496,20 @@ google_mirror.timeline.get({
 #### Output
 * output [TimelineItem](#timelineitem)
 
-### timeline.patch
+### mirror.timeline.patch
 Updates a timeline item in place. This method supports patch semantics.
 
 
 ```js
-google_mirror.timeline.patch({
+google_mirror.mirror.timeline.patch({
   "id": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * body [TimelineItem](#timelineitem)
   * id **required** `string`: The ID of the timeline item.
+  * body [TimelineItem](#timelineitem)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -521,20 +521,20 @@ google_mirror.timeline.patch({
 #### Output
 * output [TimelineItem](#timelineitem)
 
-### timeline.update
+### mirror.timeline.update
 Updates a timeline item in place.
 
 
 ```js
-google_mirror.timeline.update({
+google_mirror.mirror.timeline.update({
   "id": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * body [TimelineItem](#timelineitem)
   * id **required** `string`: The ID of the timeline item.
+  * body [TimelineItem](#timelineitem)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -546,12 +546,12 @@ google_mirror.timeline.update({
 #### Output
 * output [TimelineItem](#timelineitem)
 
-### timeline.attachments.list
+### mirror.timeline.attachments.list
 Returns a list of attachments for a timeline item.
 
 
 ```js
-google_mirror.timeline.attachments.list({
+google_mirror.mirror.timeline.attachments.list({
   "itemId": ""
 }, context)
 ```
@@ -570,12 +570,12 @@ google_mirror.timeline.attachments.list({
 #### Output
 * output [AttachmentsListResponse](#attachmentslistresponse)
 
-### timeline.attachments.insert
+### mirror.timeline.attachments.insert
 Adds a new attachment to a timeline item.
 
 
 ```js
-google_mirror.timeline.attachments.insert({
+google_mirror.mirror.timeline.attachments.insert({
   "itemId": ""
 }, context)
 ```
@@ -594,21 +594,21 @@ google_mirror.timeline.attachments.insert({
 #### Output
 * output [Attachment](#attachment)
 
-### timeline.attachments.delete
+### mirror.timeline.attachments.delete
 Deletes an attachment from a timeline item.
 
 
 ```js
-google_mirror.timeline.attachments.delete({
-  "attachmentId": "",
-  "itemId": ""
+google_mirror.mirror.timeline.attachments.delete({
+  "itemId": "",
+  "attachmentId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * attachmentId **required** `string`: The ID of the attachment.
   * itemId **required** `string`: The ID of the timeline item the attachment belongs to.
+  * attachmentId **required** `string`: The ID of the attachment.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -620,21 +620,21 @@ google_mirror.timeline.attachments.delete({
 #### Output
 *Output schema unknown*
 
-### timeline.attachments.get
+### mirror.timeline.attachments.get
 Retrieves an attachment on a timeline item by item ID and attachment ID.
 
 
 ```js
-google_mirror.timeline.attachments.get({
-  "attachmentId": "",
-  "itemId": ""
+google_mirror.mirror.timeline.attachments.get({
+  "itemId": "",
+  "attachmentId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * attachmentId **required** `string`: The ID of the attachment.
   * itemId **required** `string`: The ID of the timeline item the attachment belongs to.
+  * attachmentId **required** `string`: The ID of the attachment.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.

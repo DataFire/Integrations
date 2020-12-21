@@ -1,0 +1,1088 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "LambdaTest Screenshots API Documentation",
+    "version": "1.0.1",
+    "x-apisguru-categories": [
+      "developer_tools"
+    ],
+    "x-origin": [
+      {
+        "format": "openapi",
+        "url": "https://screenshot-public-api.s3.amazonaws.com/openapi.yaml",
+        "version": "3.0"
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "lambdatest.com",
+    "x-datafire": {
+      "name": "lambdatest",
+      "type": "openapi"
+    }
+  },
+  "host": "api.lambdatest.com",
+  "basePath": "/screenshots/v1",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "start screenshot test payload.",
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/screenshot-payload"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/start-screenshot-success"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/start-screenshot-bad-request"
+            }
+          },
+          "401": {
+            "description": "Access denied. Auth error.",
+            "schema": {
+              "$ref": "#/definitions/AccessDenied"
+            }
+          },
+          "403": {
+            "description": "Access denied. Auth error.",
+            "schema": {
+              "$ref": "#/definitions/Forbidden"
+            }
+          }
+        },
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ],
+        "tags": [
+          "Start Screenshot Test"
+        ],
+        "description": "Start Screenshot Test",
+        "operationId": "Start Screenshot Test",
+        "summary": "Start Screenshot Test"
+      }
+    },
+    "/devices": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Fetch details for a particular OS",
+            "in": "query",
+            "name": "os",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/os-devices"
+            }
+          },
+          "401": {
+            "description": "Access denied. Auth error.",
+            "schema": {
+              "$ref": "#/definitions/AccessDenied"
+            }
+          }
+        },
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ],
+        "tags": [
+          "Get Devices"
+        ],
+        "description": "Fetch all os devices combinations available on lambdatest platform.",
+        "operationId": "devices",
+        "summary": "Fetch all available device combinations."
+      }
+    },
+    "/os-browsers": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Fetch details for a particular OS",
+            "in": "query",
+            "name": "os",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/os-browsers"
+            }
+          },
+          "401": {
+            "description": "Access denied. Auth error.",
+            "schema": {
+              "$ref": "#/definitions/AccessDenied"
+            }
+          }
+        },
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ],
+        "tags": [
+          "Get OS-Browsers"
+        ],
+        "description": "Fetch all os browsers combinations available on lambdatest platform.",
+        "operationId": "os-browsers",
+        "summary": "Fetch all available os-browser combinations."
+      }
+    },
+    "/profiles": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/profiles"
+            }
+          },
+          "401": {
+            "description": "Access denied. Auth error.",
+            "schema": {
+              "$ref": "#/definitions/AccessDenied"
+            }
+          }
+        },
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ],
+        "tags": [
+          "Get Profiles"
+        ],
+        "description": "Fetch login profiles",
+        "operationId": "Profiles",
+        "summary": "Fetch login profiles"
+      }
+    },
+    "/resolutions": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/resolutions"
+            }
+          },
+          "401": {
+            "description": "Access denied. Auth error.",
+            "schema": {
+              "$ref": "#/definitions/AccessDenied"
+            }
+          }
+        },
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ],
+        "tags": [
+          "Get Resolutions"
+        ],
+        "description": "Fetch all available resolution on different OS",
+        "operationId": "Resolutions",
+        "summary": "Fetch all available resolution on different OS"
+      }
+    },
+    "/stop/{test_id}": {
+      "put": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Test ID that details you want to stop",
+            "in": "path",
+            "name": "test_id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/stop-screenshot-success"
+            }
+          },
+          "401": {
+            "description": "Access denied. Auth error.",
+            "schema": {
+              "$ref": "#/definitions/AccessDenied"
+            }
+          },
+          "403": {
+            "description": "Access denied. Auth error.",
+            "schema": {
+              "$ref": "#/definitions/Forbidden"
+            }
+          },
+          "404": {
+            "description": "Resource not found",
+            "schema": {
+              "$ref": "#/definitions/stop-screenshot-not-found"
+            }
+          }
+        },
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ],
+        "tags": [
+          "Stop Screenshot Test"
+        ],
+        "description": "Stop specified screenshot test",
+        "operationId": "stop screenshots test",
+        "summary": "Stop specified screenshot test"
+      }
+    },
+    "/{test_id}": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Test ID that details you want to fetch",
+            "in": "path",
+            "name": "test_id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/screenshot-details"
+            }
+          },
+          "401": {
+            "description": "Access denied. Auth error.",
+            "schema": {
+              "$ref": "#/definitions/AccessDenied"
+            }
+          },
+          "403": {
+            "description": "Access denied. Auth error.",
+            "schema": {
+              "$ref": "#/definitions/Forbidden"
+            }
+          },
+          "404": {
+            "description": "Resource not found",
+            "schema": {
+              "$ref": "#/definitions/screenshot-not-found"
+            }
+          }
+        },
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ],
+        "tags": [
+          "Get Screenshots"
+        ],
+        "description": "To fetch specified screenshot details",
+        "operationId": "screenshots",
+        "summary": "Fetch specified screenshot details"
+      }
+    },
+    "/{test_id}/zip": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Test ID that Zipped Screenshots you want to fetch",
+            "in": "path",
+            "name": "test_id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/zipped-screenshots-success"
+            }
+          },
+          "401": {
+            "description": "Access denied. Auth error.",
+            "schema": {
+              "$ref": "#/definitions/AccessDenied"
+            }
+          },
+          "403": {
+            "description": "Access denied. Auth error.",
+            "schema": {
+              "$ref": "#/definitions/Forbidden"
+            }
+          },
+          "404": {
+            "description": "Resource not found",
+            "schema": {
+              "$ref": "#/definitions/screenshot-not-found"
+            }
+          }
+        },
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ],
+        "tags": [
+          "Get Zipped Screenshots"
+        ],
+        "description": "Fetch Zipped Screenshots",
+        "operationId": "ZippedScreenshots",
+        "summary": "Fetch Zipped Screenshots"
+      }
+    }
+  },
+  "definitions": {
+    "AccessDenied": {
+      "properties": {
+        "message": {
+          "example": "Unauthorized",
+          "type": "string"
+        }
+      }
+    },
+    "Forbidden": {
+      "properties": {
+        "message": {
+          "example": "Screenshot API is supported only in our premium plans. Please upgrade.",
+          "type": "string"
+        }
+      }
+    },
+    "android-7.0": {
+      "properties": {
+        "devices": {
+          "example": [
+            "galaxy j7 max",
+            "galaxy s8",
+            "galaxy s8+",
+            "galaxy tab s3 9.3",
+            "huawei honor 6x",
+            "nexus 5x",
+            "nexus 6p",
+            "oppo r9"
+          ],
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "android-9.0": {
+      "properties": {
+        "devices": {
+          "example": [
+            "galaxy s9 plus"
+          ],
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "browsers": {
+      "properties": {
+        "chrome": {
+          "example": [
+            "76",
+            "75"
+          ],
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "firefox": {
+          "example": [
+            "67",
+            "66"
+          ],
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "opera": {
+          "example": [
+            "55",
+            "54"
+          ],
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "ios-12.0": {
+      "properties": {
+        "devices": {
+          "example": [
+            "iphone xr",
+            "iphone xs",
+            "iphone xs max"
+          ],
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "os-browsers": {
+      "properties": {
+        "macos mojave": {
+          "$ref": "#/definitions/browsers"
+        },
+        "windows 10": {
+          "$ref": "#/definitions/browsers"
+        }
+      }
+    },
+    "os-devices": {
+      "properties": {
+        "android 7.0": {
+          "$ref": "#/definitions/android-7.0"
+        },
+        "ios 12.0": {
+          "$ref": "#/definitions/ios-12.0"
+        }
+      }
+    },
+    "profiles": {
+      "properties": {
+        "profiles": {
+          "items": {
+            "properties": {
+              "name": {
+                "example": "lambda-login",
+                "type": "string"
+              },
+              "profile_config": {
+                "properties": {
+                  "credentials": {
+                    "properties": {
+                      "password": {
+                        "example": "password",
+                        "type": "string"
+                      },
+                      "username": {
+                        "example": "name",
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "locators": {
+                    "properties": {
+                      "password": {
+                        "properties": {
+                          "type": {
+                            "example": "name",
+                            "type": "string"
+                          },
+                          "value": {
+                            "example": "password",
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "submit": {
+                        "properties": {
+                          "type": {
+                            "example": "css",
+                            "type": "string"
+                          },
+                          "value": {
+                            "example": "button.btn-lg",
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "username": {
+                        "properties": {
+                          "type": {
+                            "example": "name",
+                            "type": "string"
+                          },
+                          "value": {
+                            "example": "email",
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "login_url": {
+                    "example": "https://accounts.lambdatest.com/login",
+                    "type": "string"
+                  },
+                  "profile_name": {
+                    "example": "lambda-login",
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "res_list": {
+      "example": [
+        "1024x768",
+        "1280x1024"
+      ],
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "resolutions": {
+      "properties": {
+        "mac_res": {
+          "$ref": "#/definitions/res_list"
+        },
+        "win_res": {
+          "$ref": "#/definitions/res_list"
+        }
+      }
+    },
+    "screenshot-details": {
+      "$ref": "#/definitions/screenshot-test-response"
+    },
+    "screenshot-not-found": {
+      "properties": {
+        "message": {
+          "example": "No data found",
+          "type": "string"
+        },
+        "reason": {
+          "example": "test_id is invalid",
+          "type": "string"
+        }
+      }
+    },
+    "screenshot-payload": {
+      "properties": {
+        "callback_url": {
+          "example": "https://www.example.com",
+          "type": "string"
+        },
+        "configs": {
+          "properties": {
+            "macos mojave": {
+              "$ref": "#/definitions/browsers"
+            },
+            "windows 10": {
+              "$ref": "#/definitions/browsers"
+            }
+          },
+          "type": "object"
+        },
+        "defer_time": {
+          "example": 5,
+          "type": "number"
+        },
+        "email": {
+          "example": true,
+          "type": "boolean"
+        },
+        "mac_res": {
+          "example": "1024x768",
+          "type": "string"
+        },
+        "password": {
+          "example": "password",
+          "type": "string"
+        },
+        "tunnel": {
+          "example": true,
+          "type": "boolean"
+        },
+        "tunnel_identifier": {
+          "example": "tunnel",
+          "type": "string"
+        },
+        "url": {
+          "example": "https://www.lambdatest.com",
+          "type": "string"
+        },
+        "username": {
+          "example": "admin",
+          "type": "string"
+        },
+        "win_res": {
+          "example": "1366X768",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "screenshot-test-response": {
+      "properties": {
+        "callback_url": {
+          "example": "https://www.example.com",
+          "type": "string"
+        },
+        "defer_time": {
+          "example": 5,
+          "type": "number"
+        },
+        "screenshots": {
+          "items": {
+            "$ref": "#/definitions/screenshot-type"
+          },
+          "type": "array"
+        },
+        "test_id": {
+          "example": "TES100968331562237283314836",
+          "type": "string"
+        },
+        "test_status": {
+          "example": "completed",
+          "type": "string"
+        },
+        "url": {
+          "example": "https://www.lambdatest.com",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "screenshot-type": {
+      "properties": {
+        "activity_id": {
+          "example": "ACT100968331562237283340194",
+          "type": "string"
+        },
+        "browser": {
+          "example": "chrome",
+          "type": "string"
+        },
+        "browser_version": {
+          "example": "76",
+          "type": "string"
+        },
+        "os": {
+          "example": "windows 10",
+          "type": "string"
+        },
+        "resolution": {
+          "example": "1024x768",
+          "type": "string"
+        },
+        "screenshot_url": {
+          "example": "https://s3.amazonaws.com/s3-screenshots/prod/ACT100968331562237283340194/screenshot/win-cr-76.0.png",
+          "type": "string"
+        },
+        "status": {
+          "example": "completed",
+          "type": "string"
+        },
+        "thumbnail_url": {
+          "example": "https://s3.amazonaws.com/s3-screenshots/prod/ACT100968331562237283340194/screenshot/win-cr-76.0.png",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "start-screenshot-bad-request": {
+      "properties": {
+        "message": {
+          "example": "The os, browser, browser_version combination is either unsupported or doesn't exist. Please try again with a different combination.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "start-screenshot-success": {
+      "properties": {
+        "test_id": {
+          "example": "TES100968331562243938913767",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "stop-screenshot-not-found": {
+      "properties": {
+        "message": {
+          "example": "No active Screenshot test found for this test_id",
+          "type": "string"
+        }
+      }
+    },
+    "stop-screenshot-success": {
+      "properties": {
+        "message": {
+          "example": "Test stopped successfully",
+          "type": "string"
+        }
+      }
+    },
+    "zipped-screenshots-success": {
+      "properties": {
+        "url": {
+          "example": "https://s3-screenshots.s3.amazonaws.com/screenshots/TES1009632231568637527345629.zip",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "securityDefinitions": {
+    "basicAuth": {
+      "type": "basic"
+    }
+  },
+  "x-components": {
+    "examples": {
+      "objectExample": {
+        "summary": "Screenshot Test",
+        "value": {
+          "configs": {
+            "android 9.0": {
+              "devices": [
+                "galaxy s9 plus"
+              ]
+            },
+            "ios 12.0": {
+              "devices": [
+                "iphone xr",
+                "iphone xs",
+                "iphone xs max"
+              ]
+            },
+            "macos mojave": {
+              "chrome": [
+                "76",
+                "75"
+              ],
+              "firefox": [
+                "67",
+                "66"
+              ],
+              "opera": [
+                "58",
+                "57"
+              ],
+              "safari": [
+                "12"
+              ]
+            },
+            "windows 10": {
+              "chrome": [
+                "76",
+                "75"
+              ],
+              "firefox": [
+                "67",
+                "66"
+              ],
+              "ie": [
+                "11"
+              ],
+              "opera": [
+                "58",
+                "57"
+              ]
+            }
+          },
+          "defer_time": 5,
+          "email": true,
+          "layout": "portrait",
+          "mac_res": "1024x768",
+          "smart_scroll": true,
+          "url": "https://www.lambdatest.com",
+          "win_res": "1366X768"
+        }
+      },
+      "objectExample2": {
+        "summary": "Screenshot Test with Tunnel",
+        "value": {
+          "configs": {
+            "android 9.0": {
+              "devices": [
+                "galaxy s9 plus"
+              ]
+            },
+            "ios 12.0": {
+              "devices": [
+                "iphone xr",
+                "iphone xs",
+                "iphone xs max"
+              ]
+            },
+            "macos mojave": {
+              "chrome": [
+                "76",
+                "75"
+              ],
+              "firefox": [
+                "67",
+                "66"
+              ],
+              "opera": [
+                "58",
+                "57"
+              ],
+              "safari": [
+                "12"
+              ]
+            },
+            "windows 10": {
+              "chrome": [
+                "76",
+                "75"
+              ],
+              "firefox": [
+                "67",
+                "66"
+              ],
+              "ie": [
+                "11"
+              ],
+              "opera": [
+                "58",
+                "57"
+              ]
+            }
+          },
+          "defer_time": 5,
+          "email": true,
+          "layout": "portrait",
+          "mac_res": "1024x768",
+          "smart_scroll": true,
+          "tunnel": true,
+          "url": "https://www.lambdatest.com",
+          "win_res": "1366X768"
+        }
+      },
+      "objectExample3": {
+        "summary": "Screenshot Test with Basic Authentication",
+        "value": {
+          "configs": {
+            "android 9.0": {
+              "devices": [
+                "galaxy s9 plus"
+              ]
+            },
+            "ios 12.0": {
+              "devices": [
+                "iphone xr",
+                "iphone xs",
+                "iphone xs max"
+              ]
+            },
+            "macos mojave": {
+              "chrome": [
+                "76",
+                "75"
+              ],
+              "firefox": [
+                "67",
+                "66"
+              ],
+              "opera": [
+                "58",
+                "57"
+              ]
+            },
+            "windows 10": {
+              "chrome": [
+                "76",
+                "75"
+              ],
+              "firefox": [
+                "67",
+                "66"
+              ],
+              "ie": [
+                "11"
+              ],
+              "opera": [
+                "58",
+                "57"
+              ]
+            }
+          },
+          "defer_time": 5,
+          "email": true,
+          "layout": "portrait",
+          "mac_res": "1024x768",
+          "password": "password",
+          "smart_scroll": true,
+          "url": "https://httpbin.org/basic-auth/username/password",
+          "username": "username",
+          "win_res": "1366X768"
+        }
+      },
+      "objectExample4": {
+        "summary": "Screenshot Test with Callback Url",
+        "value": {
+          "callbackurl": "https://www.example.com",
+          "configs": {
+            "android 9.0": {
+              "devices": [
+                "galaxy s9 plus"
+              ]
+            },
+            "ios 12.0": {
+              "devices": [
+                "iphone xr",
+                "iphone xs",
+                "iphone xs max"
+              ]
+            },
+            "macos mojave": {
+              "chrome": [
+                "76",
+                "75"
+              ],
+              "firefox": [
+                "67",
+                "66"
+              ],
+              "opera": null
+            },
+            "windows 10": {
+              "chrome": [
+                "76",
+                "75"
+              ],
+              "firefox": [
+                "67",
+                "66"
+              ],
+              "ie": [
+                "11"
+              ],
+              "opera": [
+                "58",
+                "57"
+              ]
+            }
+          },
+          "defer_time": 5,
+          "email": true,
+          "mac_res": "1024x768",
+          "url": "https://www.lambdatest.com",
+          "win_res": "1366X768"
+        }
+      },
+      "objectExample5": {
+        "summary": "Screenshot Test with Login",
+        "value": {
+          "configs": {
+            "macos mojave": {
+              "chrome": [
+                "76",
+                "75"
+              ],
+              "firefox": [
+                "67",
+                "66"
+              ]
+            },
+            "windows 10": {
+              "chrome": [
+                "76",
+                "75"
+              ],
+              "firefox": [
+                "67",
+                "66"
+              ],
+              "ie": [
+                "11"
+              ],
+              "opera": [
+                "58",
+                "57"
+              ]
+            }
+          },
+          "defer_time": 5,
+          "email": true,
+          "mac_res": "1024x768",
+          "profile_id": "lambda-login",
+          "url": "https://www.lambdatest.com",
+          "win_res": "1366X768"
+        }
+      }
+    }
+  }
+}

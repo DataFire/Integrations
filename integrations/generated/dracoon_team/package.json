@@ -1,8 +1,8 @@
 {
   "name": "@datafire/dracoon_team",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "main": "index.js",
-  "description": "DataFire integration for DRACOON",
+  "description": "DataFire integration for DRACOON API",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DataFire/integrations.git"
@@ -14,8 +14,8 @@
   },
   "homepage": "https://github.com/DataFire/integrations#readme",
   "datafire": {
-    "origin": "https://api.apis.guru/v2/specs/dracoon.team/4.5.0/swagger.json",
-    "type": "openapi"
+    "origin": "https://api.apis.guru/v2/specs/dracoon.team/4.23.4/openapi.json",
+    "type": "openapi_3"
   },
   "peerDependencies": {
     "datafire": "^2.0.0"

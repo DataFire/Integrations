@@ -9,7 +9,7 @@
     "contact": {
       "name": "US EPA, OECA Integration, Targeting and Access Branch"
     },
-    "description": "Enforcement and Compliance History Online (ECHO) is a tool developed and maintained by EPA's Office of Enforcement and Compliance Assurance for public use. ECHO provides integrated compliance and enforcement information for about 800,000 regulated facilities nationwide.\n<BR><BR>CASE Rest Services provide multiple service endpoints, each with specific capabilities, to search and retrieve data on civil cases entered into the \nIntegrated Compliance Information System (ICIS) and criminal cases entered into the Summary of Criminal Prosecutions database.  \nSee Enforcement Case Search Help (https://echo.epa.gov/help/enforcement-case-search-help) for additional information on searching civil and criminal cases. \n<BR><BR>\nThe get_cases, get_map, get_qid, and get_download end points are meant to be used together.<br>  \nThe recommended use scenario for get_cases, get_qid, get_map, and get_downoad is:\n<br>\n<br><b>1)</b>  Use get_cases to validate passed query parameters, obtain summary statistics and to obtain a query_id (QID).  QIDs are time sensitive and will be valid for approximately 30 minutes.\n<br><b>2)</b>  Use get_qid, with the returned QID, to paginate through arrays of case results.\n<br><b>3)</b>  Use get_map, with the returned QID, to zoom in/out and pan on the clustered and individual facility coordinates, related to the returned cases, that meet the QID query criteria.\n<br><b>4)</b>  Use get_download, with the returned QID, to generate a Comma Separated Value (CSV) file of facility information that meets the QID query criteria.\n<br><br>\nIn addition to the service endpoints listed above there are two detailed case report services, one for civil cases (get_case_report) and one for criminal cases (get_crcase_report). \nSee the Civil Enforcement Case Report Help (https://echo.epa.gov/help/reports/enforcement-case-report-help) and the Criminal Case Report Help (https://echo.epa.gov/help/reports/criminal-case-report-help) for additional information \non then data returned from these two services.   \n<br>\nAdditional ECHO Resources:   <a href=\"https://echo.epa.gov/tools/web-services\">Web Services</a>, <a href=\"https://echo.epa.gov/resources/echo-data/about-the-data\">About ECHO's Data</a>, <a href=\"https://echo.epa.gov/tools/data-downloads\">Data Downloads</a>\n<br>\n",
+    "description": "Enforcement and Compliance History Online (ECHO) is a tool developed and maintained by EPA's Office of Enforcement and Compliance Assurance for public use. ECHO provides integrated compliance and enforcement information for over 1 million regulated facilities nationwide.\n CASE Rest Services provide multiple service endpoints, each with specific capabilities, to search and retrieve data on civil cases entered into the \nIntegrated Compliance Information System (ICIS) and criminal cases entered into the Summary of Criminal Prosecutions database.  \nSee Enforcement Case Search Help (https://echo.epa.gov/help/enforcement-case-search-help) for additional information on searching civil and criminal cases. \n\\\nThe get_cases, get_map, get_qid, and get_download end points are meant to be used together, while the enhanced get_case_info end point is self contained..   \nThe recommended use scenario for get_cases, get_qid, get_map, and get_downoad is:\n\\\n <b>1)</b>  Use get_cases to validate passed query parameters, obtain summary statistics and to obtain a query_id (QID).  QIDs are time sensitive and will be valid for approximately 30 minutes.\n <b>2)</b>  Use get_qid, with the returned QID, to paginate through arrays of case results.\n <b>3)</b>  Use get_map, with the returned QID, to zoom in/out and pan on the clustered and individual facility coordinates, related to the returned cases, that meet the QID query criteria.\n <b>4)</b>  Use get_download, with the returned QID, to generate a Comma Separated Value (CSV) file of facility information that meets the QID query criteria.\n\\\nIn addition to the service endpoints listed above there are two detailed case report services, one for civil cases (get_case_report) and one for criminal cases (get_crcase_report). \nSee the Civil Enforcement Case Report Help (https://echo.epa.gov/help/reports/enforcement-case-report-help) and the Criminal Case Report Help (https://echo.epa.gov/help/reports/criminal-case-report-help) for additional information \non then data returned from these two services.   \n\\\nAdditional ECHO Resources:   <a href=\"https://echo.epa.gov/tools/web-services\">Web Services</a>, <a href=\"https://echo.epa.gov/resources/echo-data/about-the-data\">About ECHO's Data</a>, <a href=\"https://echo.epa.gov/tools/data-downloads\">Data Downloads</a>\n ",
     "license": {
       "name": "This page was built with the Swagger API.",
       "url": "https://swagger.io"
@@ -39,50 +39,791 @@
     }
   },
   "consumes": [
-    "application/json",
-    "application/xml"
+    "application/x-www-form-urlencoded"
   ],
   "produces": [
     "application/json",
     "application/xml"
   ],
   "parameters": {
-    "c1_lat": {
+    "f.c1_lat": {
+      "description": "Latitude of 1st corner of box that bounds the resulting facilities. The latitude and longitude of both corners of the bounding box must be provided.",
+      "in": "formData",
+      "name": "c1_lat",
+      "required": false,
+      "type": "number"
+    },
+    "f.c1_long": {
+      "description": "Longitude of 1st corner of box that bounds the resulting facilities. The latitude and longitude of both corners of the bounding box must be provided.",
+      "in": "formData",
+      "name": "c1_long",
+      "required": false,
+      "type": "number"
+    },
+    "f.c2_lat": {
+      "description": "Latitude of 2nd corner of box that bounds the resulting facilities. The latitude and longitude of both corners of the bounding box must be provided.",
+      "in": "formData",
+      "name": "c2_lat",
+      "required": false,
+      "type": "number"
+    },
+    "f.c2_long": {
+      "description": "Longitude of 2nd corner of box that bounds the resulting facilities. The latitude and longitude of both corners of the bounding box must be provided.",
+      "in": "formData",
+      "name": "c2_long",
+      "required": false,
+      "type": "number"
+    },
+    "f.callback": {
+      "description": "JSONP Callback.  For use with JSONP and GEOJSONP output only.  Enter a name of the function in which to wrap the JSON response.",
+      "in": "formData",
+      "name": "callback",
+      "required": false,
+      "type": "string"
+    },
+    "f.descending": {
+      "description": "Output Sort Column Descending Flag.  Enter Y to column identified in the newsort parameter descending.  Enter N to use ascending sort order. Used only when newsort parameter is populated.",
+      "enum": [
+        "Y",
+        "N"
+      ],
+      "in": "formData",
+      "name": "descending",
+      "required": false,
+      "type": "string"
+    },
+    "f.maplist": {
+      "description": "Map List Flag.  Provide a Y to return mappable coordinates representing the full geographic extent of the queryset (all facilities that met the selection criteria).",
+      "enum": [
+        "Y",
+        "N"
+      ],
+      "in": "formData",
+      "name": "maplist",
+      "required": false,
+      "type": "string"
+    },
+    "f.mapset": {
+      "default": "1400",
+      "description": "Identifies the maxium number of case facilities to return from the case_rest_services.get_case_info query.",
+      "in": "formData",
+      "name": "mapset",
+      "required": false,
+      "type": "string"
+    },
+    "f.newsort": {
+      "description": "Output Sort Column.  Enter the number of the column on which the data will be sorted. If unpopulated results will sort on the first column.",
+      "in": "formData",
+      "name": "newsort",
+      "required": false,
+      "type": "number"
+    },
+    "f.p_activity_contact": {
+      "description": "Activity Contact Last Name Filter.  Enter a single last name or partial last name to filter results.  Use \"%\" as a wild-card for advanced searching.",
+      "in": "formData",
+      "name": "p_activity_contact",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_activity_number": {
+      "description": "Case Activity Number Filter.  Enter a single case activity number to filter results.",
+      "in": "formData",
+      "name": "p_activity_number",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_c1lat": {
+      "description": "In decimal degrees.  Latitude of 1st corner of box that bounds the resulting facilities. The latitude and longitude of both corners of the bounding box must be provided.",
+      "in": "formData",
+      "name": "p_c1lat",
+      "required": false,
+      "type": "number"
+    },
+    "f.p_c1lon": {
+      "description": "In decimal degrees.  Longitude of 1st corner of box that bounds the resulting facilities. The latitude and longitude of both corners of the bounding box must be provided.",
+      "in": "formData",
+      "name": "p_c1lon",
+      "required": false,
+      "type": "number"
+    },
+    "f.p_c2lat": {
+      "description": "In decimal degrees.  Latitude of 2nd corner of box that bounds the resulting facilities. The latitude and longitude of both corners of the bounding box must be provided.",
+      "in": "formData",
+      "name": "p_c2lat",
+      "required": false,
+      "type": "number"
+    },
+    "f.p_c2lon": {
+      "description": "In decimal degrees.  Longitude of 2nd corner of box that bounds the resulting facilities. The latitude and longitude of both corners of the bounding box must be provided.",
+      "in": "formData",
+      "name": "p_c2lon",
+      "required": false,
+      "type": "number"
+    },
+    "f.p_case_category": {
+      "description": "Case Category Filter.  Enter one or more case category codes to filter results.   Provide multiple values as a comma-delimited list.\n- AFR = Administrative - Formal\n- AIF = Administrative - Informal\n- JDC = Judicial",
+      "in": "formData",
+      "name": "p_case_category",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_case_lead": {
+      "description": "Case Lead Limiter.  Enter E or S to limit results.\n- E = EPA is the case lead.\n- S = The state is the case lead.",
+      "enum": [
+        "E",
+        "S"
+      ],
+      "in": "formData",
+      "name": "p_case_lead",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_case_number": {
+      "description": "Case Number Filter.  Enter one or more case numbers to restrict results.  Provide multiple values as a comma-delimited list.",
+      "in": "formData",
+      "name": "p_case_number",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_case_sens_flg": {
+      "description": "Case Sensitive Data Flag.  Enter a Y or N to include or exclude cases with sensitive data.",
+      "in": "formData",
+      "name": "p_case_sens_flg",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_case_status": {
+      "description": "Case Status Code Filter.  Enter one or more case status codes to limit results.  Provide multiple values as a comma-delimited list.",
+      "in": "formData",
+      "name": "p_case_status",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_case_summary": {
+      "description": "Case Summary Search Limiter.  Enter a single case summary to limit results.  This parameter accepts partial codes and allows for advanced search modifiers.",
+      "in": "formData",
+      "name": "p_case_summary",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_case_summary_type": {
+      "description": "Identifies how the the search terms enterened in p_case_summary are searched.  Valid values are ALL (Default), WITHIN, and CONTAINS.  Must be used with p_case_summary.",
+      "enum": [
+        "ALL",
+        "CONTAINS",
+        "WITHIN"
+      ],
+      "in": "formData",
+      "name": "p_case_summary_type",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_civil_criminal_indicator": {
+      "description": "Civil/Criminal Case Limiter.  Provide a keyword to limit results.\n- ANY = return both civil and criminal cases.\n- CI = return only civil cases.\n- CR = return only criminal cases.",
+      "enum": [
+        "CI",
+        "CR",
+        "ALL"
+      ],
+      "in": "formData",
+      "name": "p_civil_criminal_indicator",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_comp_act_val": {
+      "description": "Compliance Action Cost Limiter. Enter a keyword value to limit results to cases with given compliance cost amounts.\n- ANY = Cases with any compliance cost amount greater than zero.\n- LEXX = Replacing XX with a dollar value, return cases with compliance cost amount less than or equal to the given amount.\n- GTXX = Replacing XX with a dollar value, return cases with compliance cost amount greater than the given amount.",
+      "enum": [
+        "ANY",
+        "LE5000",
+        "GT5000",
+        "GT100000",
+        "GT1000000",
+        "GT50000000"
+      ],
+      "in": "formData",
+      "name": "p_comp_act_val",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_complying_actions": {
+      "description": "Complying Actions Type Code Limiter.  Enter one or more complying action codes to restrict results.  Provide multiple values as a comma-delimited list.",
+      "in": "formData",
+      "name": "p_complying_actions",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_cost_recovery": {
+      "description": "Cost Recovery Awarded Amount Limiter.  Enter a keyword value to limit results to cases with given cost recovery amounts.\n- ANY = Cases with any cost recovery amount greater than zero.\n- LEXX = Replacing XX with a dollar value, return cases with cost recovery amount less than or equal to the given amount.\n- GTXX = Replacing XX with a dollar value, return cases with cost recovery amount greater than the given amount.",
+      "in": "formData",
+      "name": "p_cost_recovery",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_court_docket_number": {
+      "in": "formData",
+      "name": "p_court_docket_number",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_cp_citation": {
+      "description": "Law Section Code Filter Alternative. Enter a single law section code to limit results.  This parameter accepts partial codes and allows for advanced search modifiers.",
+      "in": "formData",
+      "name": "p_cp_citation",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_district": {
+      "description": "Case Location Court District Limiter.  Enter a single state court district code to limit results.",
+      "in": "formData",
+      "name": "p_district",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_docket_number": {
+      "description": "DOJ Docket Number Filter.  Enter a single docket number or partial docket number to restrict results.  Use \"%\" as a wildcard for more complex filtering.",
+      "in": "formData",
+      "name": "p_docket_number",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_enf_program": {
+      "description": "Enforcement Program Code Limiter.  Enter one or more enforcement program codes to limit results.  Provide multiple values as a comma-delimited list.  ",
+      "in": "formData",
+      "name": "p_enf_program",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_enf_type": {
+      "description": "Case Enforcement Type Filter. Enter one or more case enforcement type codes to limit results.  Provide multiple values as a comma-delimited list.",
+      "in": "formData",
+      "name": "p_enf_type",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_entered_date": {
+      "description": "Settlement Entered Date Limiter.  Enter a single settlement entered date in MM/DD/YYYY format to limit results.",
+      "in": "formData",
+      "name": "p_entered_date",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_fac_city": {
+      "description": "Case Facility City Limiter.  Enter a single complete city name to filter cases by facility location city.",
+      "in": "formData",
+      "name": "p_fac_city",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_fac_county": {
+      "description": "Case Facility County Limiter.  Enter a single complete county name to filter cases by facility location county name.",
+      "in": "formData",
+      "name": "p_fac_county",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_fac_zip": {
+      "description": "Case Facility ZIP Code Limiter.  Enter a single 5-digit zip code to filter cases by facility location zip code.",
+      "in": "formData",
+      "name": "p_fac_zip",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_facility_id": {
+      "description": "Case Facility Registration Identifier Limiter.  Enter a single complete facility identifier to limit results.",
+      "in": "formData",
+      "name": "p_facility_id",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_fed_case": {
+      "description": "Federal Facility Involvement Flag.  Enter a Y or N to include or exclude cases involving federal facilities.",
+      "enum": [
+        "Y",
+        "N"
+      ],
+      "in": "formData",
+      "name": "p_fed_case",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_fed_indicator": {
+      "description": "Federal Facility/Cross Media Flag.  Enter Y or N to limit results to cases with federal facility cross media.",
+      "in": "formData",
+      "name": "p_fed_indicator",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_fed_penalty": {
+      "description": "Federal Penalty Assessed Amount Filter.  Provide one of the following keywords to restrict results.\n- ANY = cases with any penalty amount.\n- LE5000 = cases with penalty amount less than or equal to $5,000.\n- GT5000 = cases with penalty amount more than $5,000.\n- GT50000 = cases with penalty amount more than $50,000.\n- GT100000 = cases with penalty amount more than $100,000.\n- GT500000 = cases with penalty amount more than $500,000.\n- GT1000000 = cases with penalty amount more than $1,000,000.\n- GT2500000 = cases with penalty amount more than $2,500,000.",
+      "enum": [
+        "ANY",
+        "LE5000",
+        "GT5000",
+        "GT50000",
+        "GT100000",
+        "GT500000",
+        "GT1000000",
+        "GT2500000"
+      ],
+      "in": "formData",
+      "name": "p_fed_penalty",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_fntype": {
+      "description": "Controls type of text search performed on facility name with parameter p_fn.\n- EXACT = Find facilities having the exact provided name(s).\n- BEGINS = Find facilities with names starting with the provided term(s).\n- ALL = Find facilities using Oracle text search terms.\n- CONTAINS = ",
+      "enum": [
+        "ALL",
+        "CONTAINS",
+        "EXACT",
+        "BEGINS"
+      ],
+      "in": "formData",
+      "name": "p_fntype",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_from_date": {
+      "description": "Administrative or Judicial Milestone Date Range Start Limiter.  Enter a date value in MM/DD/YYYY format to limit milestone results.  Parameter p_to_date must also be populated when using this parameter option.",
+      "in": "formData",
+      "name": "p_from_date",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_has_map": {
+      "in": "formData",
+      "name": "p_has_map",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_law": {
+      "description": "Law Statute Code Filter.  Enter a single statute code to limit results.",
+      "in": "formData",
+      "name": "p_law",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_lodged_date": {
+      "description": "Settlement Lodged Date Limiter.  Enter a single settlement lodged date in MM/DD/YYYY format to limit results.",
+      "in": "formData",
+      "name": "p_lodged_date",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_milestone": {
+      "description": "Administrative or Judicial Milestone Filter.  Enter one or milestone values to restrict results.  Provide multiple values as a comma-delimited list.",
+      "in": "formData",
+      "name": "p_milestone",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_milestone_fy": {
+      "description": "Administrative or Judicial Milestone Fiscal Year Limiter.  Enter a single fiscal year value to limit milestone searches to a given fiscal year.",
+      "in": "formData",
+      "name": "p_milestone_fy",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_multimedia": {
+      "description": "Enforcement Multimedia Case Flag.  Enter Y or N to include or exclude multimedia cases.",
+      "enum": [
+        "Y",
+        "N"
+      ],
+      "in": "formData",
+      "name": "p_multimedia",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_naics": {
+      "description": "North American Industry Classification System Filter. Enter two to six digits to filter results to facilities having matching NAICS codes.  Digits less than six will match to all codes beginning with the provided values.",
+      "in": "formData",
+      "name": "p_naics",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_naics_frs_flg": {
+      "description": "Case Location Extended FRS NAICS Search Flag.  Enter Y to expand NAICS search to include Federal Registry Service datasets.",
+      "enum": [
+        "Y",
+        "N"
+      ],
+      "in": "formData",
+      "name": "p_naics_frs_flg",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_naics_primary_flg": {
+      "description": "Case Location Primary NAICS Flag.  Enter Y to limit NAICS search results to primary NAICS codes only.",
+      "enum": [
+        "Y",
+        "N"
+      ],
+      "in": "formData",
+      "name": "p_naics_primary_flg",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_name": {
+      "description": "Case Name Filter.  Enter one or more case names to restrict results.  Provide multiple values as a comma-delimited list.  When using this parameter the p_name_type parameter is required.",
+      "in": "formData",
+      "name": "p_name",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_name_type": {
+      "description": "Case Name Filter Modifier.",
+      "in": "formData",
+      "name": "p_name_type",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_ocmap_fy": {
+      "description": "Fiscal Year to select cases that are displayed in the Office of Complicance Fiscal Year Map Services",
+      "in": "formData",
+      "name": "p_ocmap_fy",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_oeca_core": {
+      "description": "OECA Core Program Flag.  Enter Y or N to include or exclude core program cases.",
+      "enum": [
+        "Y",
+        "N"
+      ],
+      "in": "formData",
+      "name": "p_oeca_core",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_pretty_print": {
+      "description": "Optional flag to request GeoJSON formatted results to be pretty printed.  Only provide a numeric value when the output needs to be human readable as pretty printing has a performance cost.",
+      "in": "formData",
+      "name": "p_pretty_print",
+      "required": false,
+      "type": "number"
+    },
+    "f.p_priority_area": {
+      "description": "Case Priority Area Filter.  Enter one or more case priority areas to limit results.  Provide multiple values as a comma-delimited list.",
+      "in": "formData",
+      "name": "p_priority_area",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_priority_area_desc": {
+      "description": "Case Priority Area Description Filter.  Enter a single case priority area description or partial case priority area description to limit results.  Use \"%\" as a wild-card match for more complex searches.",
+      "in": "formData",
+      "name": "p_priority_area_desc",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_qs": {
+      "description": "Quick Search. Allows entry for city, state, and/or zip code.",
+      "in": "formData",
+      "name": "p_qs",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_rank_order": {
+      "description": "Law Status Rank Order Limiter.  Enter a single integer rank order to limit results.",
+      "enum": [
+        "1",
+        "0"
+      ],
+      "in": "formData",
+      "name": "p_rank_order",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_region": {
+      "description": "EPA Region Filter. Provide a single value of 01 thru 10 to restrict results to a single EPA region.",
+      "enum": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05",
+        "06",
+        "07",
+        "08",
+        "09",
+        "10"
+      ],
+      "in": "formData",
+      "name": "p_region",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_role": {
+      "description": "Activity Contact Role Code Filter.  Enter a single role code to restrict results.",
+      "in": "formData",
+      "name": "p_role",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_section": {
+      "description": "Law Section Code Filter. Enter one or more law section codes to limit results.  Provide multiple values as a comma-delimited list.",
+      "in": "formData",
+      "name": "p_section",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_sep_cats": {
+      "description": "Supplemental Environmental Projects Activity Category Code Limiter.  Provide one or more SEP activity category codes to limit results.  Provide multiple values as a comma-delimited list.",
+      "in": "formData",
+      "name": "p_sep_cats",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_sep_val": {
+      "description": "Supplemental Environmental Projects Activity Value Limiter.  Provide a keyword to limit results.\n- ANY = return cases with any SEP activity amount.\n- LE10000 = return cases with SEP activity amount less than or equal to $10,000.\n- GT10000 = return cases with SEP activity amount greater than $10,000.\n- GT50000 = return cases with SEP activity amount greater than $50,000.\n- GT100000 = return cases with SEP activity amount greater than $100,000.\n- GT500000 = return cases with SEP activity amount greater than $500,000.\n- GT1000000 = return cases with SEP activity amount greater than $1,000,000.",
+      "enum": [
+        "ANY",
+        "LE10000",
+        "GT10000",
+        "GT50000",
+        "GT100000",
+        "GT500000",
+        "GT1000000"
+      ],
+      "in": "formData",
+      "name": "p_sep_val",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_sic": {
+      "description": "Standard Industrial Classification (SIC) Code Filter.  Enter a single 4-digit SIC Code to filter results.",
+      "in": "formData",
+      "name": "p_sic",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_sic_ao_naics": {
+      "description": "Case Location SIC/NAICS And/Or Modifier.  Enter either AND or OR to govern the search logic of SIC and NAICS codes.\n- AND = Search will return results having both the provided SIC code(s) and provided NAICS code(s).\n- OR = Search will return results having either the provided SIC code(s) or the provided NAICS code(s).",
+      "enum": [
+        "AND",
+        "OR"
+      ],
+      "in": "formData",
+      "name": "p_sic_ao_naics",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_sic_frs_flg": {
+      "description": "Case Location Extended FRS SIC Search Flag.  Enter Y to expand SIC search to include Federal Registry Service datasets.",
+      "enum": [
+        "Y",
+        "N"
+      ],
+      "in": "formData",
+      "name": "p_sic_frs_flg",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_sic_primary_flg": {
+      "description": "Case Location Primary SIC Flag.  Enter Y to limit SIC search results to primary SIC codes only.",
+      "enum": [
+        "Y",
+        "N"
+      ],
+      "in": "formData",
+      "name": "p_sic_primary_flg",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_state": {
+      "description": "Case Location State Filter.  Enter one or more state USPS postal codes to filter results.  Provide multiple values as a comma-delimited list.",
+      "in": "formData",
+      "name": "p_state",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_to_date": {
+      "description": "Administrative or Judicial Milestone Date Range End Limiter.  Enter a date value in MM/DD/YYYY format to limit milestone results.  Parameter p_from_date must also be populated when using this parameter option.",
+      "in": "formData",
+      "name": "p_to_date",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_total_comp_act_val": {
+      "description": "Total Compliance Action Amount Limiter.  Enter a keyword value to limit results to cases with given total compliance action amounts.\n- ANY = Cases with any total compliance action amount greater than zero.\n- LEXX = Replacing XX with a dollar value, return cases with total compliance action amount less than or equal to the given amount.\n- GTXX = Replacing XX with a dollar value, return cases with total compliance action amount greater than the given amount.",
+      "in": "formData",
+      "name": "p_total_comp_act_val",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_total_cost_recovery": {
+      "description": "Total Cost Recovery Amount Limiter.  Enter a keyword value to limit results to cases with given cost recovery amounts.\n- ANY = Cases with any cost recovery amount greater than zero.\n- LEXX = Replacing XX with a dollar value, return cases with cost recovery amount less than or equal to the given amount.\n- GTXX = Replacing XX with a dollar value, return cases with cost recovery amount greater than the given amount.",
+      "in": "formData",
+      "name": "p_total_cost_recovery",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_total_fed_penalty": {
+      "description": "Total Federal Penalty Limiter.  Enter a keyword value to limit results to cases with given total federal penalties.\n- ANY = Cases with any federal penalty greater than zero.\n- LEXX = Replacing XX with a dollar value, return cases with federal penalty less than or equal to the given amount.\n- GTXX = Replacing XX with a dollar value, return cases with federal penalty greater than the given amount.",
+      "in": "formData",
+      "name": "p_total_fed_penalty",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_total_sep_val": {
+      "description": "Supplemental Environmental Projects Total Value Limiter.  Provide a keyword to limit results.\n- ANY = return cases with any SEP total amount.\n- LE10000 = return cases with SEP total amount less than or equal to $10,000.\n- GT10000 = return cases with SEP total amount greater than $10,000.\n- GT50000 = return cases with SEP total amount greater than $50,000.\n- GT100000 = return cases with SEP total amount greater than $100,000.\n- GT500000 = return cases with SEP total amount greater than $500,000.\n- GT1000000 = return cases with SEP total amount greater than $1,000,000.",
+      "in": "formData",
+      "name": "p_total_sep_val",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_tribal": {
+      "description": "Case Location Tribal Land Flag.  Enter Y or N to include or disallow cases on tribal land.",
+      "enum": [
+        "Y",
+        "N"
+      ],
+      "in": "formData",
+      "name": "p_tribal",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_usmex": {
+      "description": "US-Mexico Border Flag.  Enter Y/N to restrict searches to facilities located within 100KM of the border.",
+      "enum": [
+        "Y",
+        "N"
+      ],
+      "in": "formData",
+      "name": "p_usmex",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_violation": {
+      "description": "Violation Type Code Filter.  Enter one or more violation type codes to limit results.  Provide multiple values as a comma-delimited list.",
+      "in": "formData",
+      "name": "p_violation",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_voluntary": {
+      "description": "Voluntary Self Disclosure Flag.  Enter Y or N to include or exclude cases results having voluntary disclosure.",
+      "in": "formData",
+      "name": "p_voluntary",
+      "required": false,
+      "type": "string"
+    },
+    "f.pageno": {
+      "default": 1,
+      "description": "Indicates the number of the page to display. It is used only when the results are paginated.",
+      "in": "formData",
+      "name": "pageno",
+      "required": false,
+      "type": "number"
+    },
+    "f.qcolumns": {
+      "description": "Used to customize service output.  A list of comma-separated column IDs of output objects that will be returned in the service query object or download.  Use the metadata service endpoint for a complete list of Ids and definitions.",
+      "in": "formData",
+      "name": "qcolumns",
+      "required": false,
+      "type": "string"
+    },
+    "f.qid": {
+      "description": "Query ID Selector.  Enter the QueryID number from a previously run query.",
+      "in": "formData",
+      "name": "qid",
+      "required": true,
+      "type": "string"
+    },
+    "f.queryset": {
+      "description": "Query Limiter.  Enter a value to limit the number of records returned for each query. Value cannot exceed 70,000.",
+      "in": "formData",
+      "name": "queryset",
+      "required": false,
+      "type": "number"
+    },
+    "f.responseset": {
+      "description": "Response Set Limiter. Enter a value to limit the number of records per page. Value cannot exceed 1,000.",
+      "in": "formData",
+      "name": "responseset",
+      "required": false,
+      "type": "number"
+    },
+    "f.search_code": {
+      "description": "Enter a partial or complete code value.",
+      "in": "formData",
+      "name": "search_code",
+      "required": false,
+      "type": "string"
+    },
+    "f.search_term": {
+      "description": "Enter a partial or complete search phrase or word.",
+      "in": "formData",
+      "name": "search_term",
+      "required": false,
+      "type": "string"
+    },
+    "f.sort_order": {
+      "in": "formData",
+      "name": "sort_order",
+      "required": false,
+      "type": "number"
+    },
+    "f.status_flag": {
+      "in": "formData",
+      "name": "status_flag",
+      "required": false,
+      "type": "string"
+    },
+    "f.statute_code": {
+      "in": "formData",
+      "name": "statute_code",
+      "required": false,
+      "type": "string"
+    },
+    "f.tablelist": {
+      "description": "Table List Flag. Enter a Y to display the first page of facility results.",
+      "enum": [
+        "Y",
+        "N"
+      ],
+      "in": "formData",
+      "name": "tablelist",
+      "required": false,
+      "type": "string"
+    },
+    "q.c1_lat": {
       "description": "Latitude of 1st corner of box that bounds the resulting facilities. The latitude and longitude of both corners of the bounding box must be provided.",
       "in": "query",
       "name": "c1_lat",
       "required": false,
       "type": "number"
     },
-    "c1_long": {
+    "q.c1_long": {
       "description": "Longitude of 1st corner of box that bounds the resulting facilities. The latitude and longitude of both corners of the bounding box must be provided.",
       "in": "query",
       "name": "c1_long",
       "required": false,
       "type": "number"
     },
-    "c2_lat": {
+    "q.c2_lat": {
       "description": "Latitude of 2nd corner of box that bounds the resulting facilities. The latitude and longitude of both corners of the bounding box must be provided.",
       "in": "query",
       "name": "c2_lat",
       "required": false,
       "type": "number"
     },
-    "c2_long": {
+    "q.c2_long": {
       "description": "Longitude of 2nd corner of box that bounds the resulting facilities. The latitude and longitude of both corners of the bounding box must be provided.",
       "in": "query",
       "name": "c2_long",
       "required": false,
       "type": "number"
     },
-    "callback": {
+    "q.callback": {
       "description": "JSONP Callback.  For use with JSONP and GEOJSONP output only.  Enter a name of the function in which to wrap the JSON response.",
       "in": "query",
       "name": "callback",
       "required": false,
       "type": "string"
     },
-    "descending": {
+    "q.descending": {
       "description": "Output Sort Column Descending Flag.  Enter Y to column identified in the newsort parameter descending.  Enter N to use ascending sort order. Used only when newsort parameter is populated.",
       "enum": [
         "Y",
@@ -93,7 +834,7 @@
       "required": false,
       "type": "string"
     },
-    "maplist": {
+    "q.maplist": {
       "description": "Map List Flag.  Provide a Y to return mappable coordinates representing the full geographic extent of the queryset (all facilities that met the selection criteria).",
       "enum": [
         "Y",
@@ -104,63 +845,71 @@
       "required": false,
       "type": "string"
     },
-    "newsort": {
+    "q.mapset": {
+      "default": "1400",
+      "description": "Identifies the maxium number of case facilities to return from the case_rest_services.get_case_info query.",
+      "in": "query",
+      "name": "mapset",
+      "required": false,
+      "type": "string"
+    },
+    "q.newsort": {
       "description": "Output Sort Column.  Enter the number of the column on which the data will be sorted. If unpopulated results will sort on the first column.",
       "in": "query",
       "name": "newsort",
       "required": false,
       "type": "number"
     },
-    "p_activity_contact": {
+    "q.p_activity_contact": {
       "description": "Activity Contact Last Name Filter.  Enter a single last name or partial last name to filter results.  Use \"%\" as a wild-card for advanced searching.",
       "in": "query",
       "name": "p_activity_contact",
       "required": false,
       "type": "string"
     },
-    "p_activity_number": {
+    "q.p_activity_number": {
       "description": "Case Activity Number Filter.  Enter a single case activity number to filter results.",
       "in": "query",
       "name": "p_activity_number",
       "required": false,
       "type": "string"
     },
-    "p_c1lat": {
+    "q.p_c1lat": {
       "description": "In decimal degrees.  Latitude of 1st corner of box that bounds the resulting facilities. The latitude and longitude of both corners of the bounding box must be provided.",
       "in": "query",
       "name": "p_c1lat",
       "required": false,
       "type": "number"
     },
-    "p_c1lon": {
+    "q.p_c1lon": {
       "description": "In decimal degrees.  Longitude of 1st corner of box that bounds the resulting facilities. The latitude and longitude of both corners of the bounding box must be provided.",
       "in": "query",
       "name": "p_c1lon",
       "required": false,
       "type": "number"
     },
-    "p_c2lat": {
+    "q.p_c2lat": {
       "description": "In decimal degrees.  Latitude of 2nd corner of box that bounds the resulting facilities. The latitude and longitude of both corners of the bounding box must be provided.",
       "in": "query",
       "name": "p_c2lat",
       "required": false,
       "type": "number"
     },
-    "p_c2lon": {
+    "q.p_c2lon": {
       "description": "In decimal degrees.  Longitude of 2nd corner of box that bounds the resulting facilities. The latitude and longitude of both corners of the bounding box must be provided.",
       "in": "query",
       "name": "p_c2lon",
       "required": false,
       "type": "number"
     },
-    "p_case_category": {
+    "q.p_case_category": {
       "description": "Case Category Filter.  Enter one or more case category codes to filter results.   Provide multiple values as a comma-delimited list.\n- AFR = Administrative - Formal\n- AIF = Administrative - Informal\n- JDC = Judicial",
       "in": "query",
       "name": "p_case_category",
       "required": false,
       "type": "string"
     },
-    "p_case_lead": {
+    "q.p_case_lead": {
       "description": "Case Lead Limiter.  Enter E or S to limit results.\n- E = EPA is the case lead.\n- S = The state is the case lead.",
       "enum": [
         "E",
@@ -171,35 +920,47 @@
       "required": false,
       "type": "string"
     },
-    "p_case_number": {
+    "q.p_case_number": {
       "description": "Case Number Filter.  Enter one or more case numbers to restrict results.  Provide multiple values as a comma-delimited list.",
       "in": "query",
       "name": "p_case_number",
       "required": false,
       "type": "string"
     },
-    "p_case_sens_flg": {
+    "q.p_case_sens_flg": {
       "description": "Case Sensitive Data Flag.  Enter a Y or N to include or exclude cases with sensitive data.",
       "in": "query",
       "name": "p_case_sens_flg",
       "required": false,
       "type": "string"
     },
-    "p_case_status": {
+    "q.p_case_status": {
       "description": "Case Status Code Filter.  Enter one or more case status codes to limit results.  Provide multiple values as a comma-delimited list.",
       "in": "query",
       "name": "p_case_status",
       "required": false,
       "type": "string"
     },
-    "p_case_summary": {
+    "q.p_case_summary": {
       "description": "Case Summary Search Limiter.  Enter a single case summary to limit results.  This parameter accepts partial codes and allows for advanced search modifiers.",
       "in": "query",
       "name": "p_case_summary",
       "required": false,
       "type": "string"
     },
-    "p_civil_criminal_indicator": {
+    "q.p_case_summary_type": {
+      "description": "Identifies how the the search terms enterened in p_case_summary are searched.  Valid values are ALL (Default), WITHIN, and CONTAINS.  Must be used with p_case_summary.",
+      "enum": [
+        "ALL",
+        "CONTAINS",
+        "WITHIN"
+      ],
+      "in": "query",
+      "name": "p_case_summary_type",
+      "required": false,
+      "type": "string"
+    },
+    "q.p_civil_criminal_indicator": {
       "description": "Civil/Criminal Case Limiter.  Provide a keyword to limit results.\n- ANY = return both civil and criminal cases.\n- CI = return only civil cases.\n- CR = return only criminal cases.",
       "enum": [
         "CI",
@@ -211,7 +972,7 @@
       "required": false,
       "type": "string"
     },
-    "p_comp_act_val": {
+    "q.p_comp_act_val": {
       "description": "Compliance Action Cost Limiter. Enter a keyword value to limit results to cases with given compliance cost amounts.\n- ANY = Cases with any compliance cost amount greater than zero.\n- LEXX = Replacing XX with a dollar value, return cases with compliance cost amount less than or equal to the given amount.\n- GTXX = Replacing XX with a dollar value, return cases with compliance cost amount greater than the given amount.",
       "enum": [
         "ANY",
@@ -226,91 +987,97 @@
       "required": false,
       "type": "string"
     },
-    "p_complying_actions": {
+    "q.p_complying_actions": {
       "description": "Complying Actions Type Code Limiter.  Enter one or more complying action codes to restrict results.  Provide multiple values as a comma-delimited list.",
       "in": "query",
       "name": "p_complying_actions",
       "required": false,
       "type": "string"
     },
-    "p_cost_recovery": {
+    "q.p_cost_recovery": {
       "description": "Cost Recovery Awarded Amount Limiter.  Enter a keyword value to limit results to cases with given cost recovery amounts.\n- ANY = Cases with any cost recovery amount greater than zero.\n- LEXX = Replacing XX with a dollar value, return cases with cost recovery amount less than or equal to the given amount.\n- GTXX = Replacing XX with a dollar value, return cases with cost recovery amount greater than the given amount.",
       "in": "query",
       "name": "p_cost_recovery",
       "required": false,
       "type": "string"
     },
-    "p_cp_citation": {
+    "q.p_court_docket_number": {
+      "in": "query",
+      "name": "p_court_docket_number",
+      "required": false,
+      "type": "string"
+    },
+    "q.p_cp_citation": {
       "description": "Law Section Code Filter Alternative. Enter a single law section code to limit results.  This parameter accepts partial codes and allows for advanced search modifiers.",
       "in": "query",
       "name": "p_cp_citation",
       "required": false,
       "type": "string"
     },
-    "p_district": {
+    "q.p_district": {
       "description": "Case Location Court District Limiter.  Enter a single state court district code to limit results.",
       "in": "query",
       "name": "p_district",
       "required": false,
       "type": "string"
     },
-    "p_docket_number": {
+    "q.p_docket_number": {
       "description": "DOJ Docket Number Filter.  Enter a single docket number or partial docket number to restrict results.  Use \"%\" as a wildcard for more complex filtering.",
       "in": "query",
       "name": "p_docket_number",
       "required": false,
       "type": "string"
     },
-    "p_enf_program": {
+    "q.p_enf_program": {
       "description": "Enforcement Program Code Limiter.  Enter one or more enforcement program codes to limit results.  Provide multiple values as a comma-delimited list.  ",
       "in": "query",
       "name": "p_enf_program",
       "required": false,
       "type": "string"
     },
-    "p_enf_type": {
+    "q.p_enf_type": {
       "description": "Case Enforcement Type Filter. Enter one or more case enforcement type codes to limit results.  Provide multiple values as a comma-delimited list.",
       "in": "query",
       "name": "p_enf_type",
       "required": false,
       "type": "string"
     },
-    "p_entered_date": {
+    "q.p_entered_date": {
       "description": "Settlement Entered Date Limiter.  Enter a single settlement entered date in MM/DD/YYYY format to limit results.",
       "in": "query",
       "name": "p_entered_date",
       "required": false,
       "type": "string"
     },
-    "p_fac_city": {
+    "q.p_fac_city": {
       "description": "Case Facility City Limiter.  Enter a single complete city name to filter cases by facility location city.",
       "in": "query",
       "name": "p_fac_city",
       "required": false,
       "type": "string"
     },
-    "p_fac_county": {
+    "q.p_fac_county": {
       "description": "Case Facility County Limiter.  Enter a single complete county name to filter cases by facility location county name.",
       "in": "query",
       "name": "p_fac_county",
       "required": false,
       "type": "string"
     },
-    "p_fac_zip": {
+    "q.p_fac_zip": {
       "description": "Case Facility ZIP Code Limiter.  Enter a single 5-digit zip code to filter cases by facility location zip code.",
       "in": "query",
       "name": "p_fac_zip",
       "required": false,
       "type": "string"
     },
-    "p_facility_id": {
+    "q.p_facility_id": {
       "description": "Case Facility Registration Identifier Limiter.  Enter a single complete facility identifier to limit results.",
       "in": "query",
       "name": "p_facility_id",
       "required": false,
       "type": "string"
     },
-    "p_fed_case": {
+    "q.p_fed_case": {
       "description": "Federal Facility Involvement Flag.  Enter a Y or N to include or exclude cases involving federal facilities.",
       "enum": [
         "Y",
@@ -321,14 +1088,14 @@
       "required": false,
       "type": "string"
     },
-    "p_fed_indicator": {
+    "q.p_fed_indicator": {
       "description": "Federal Facility/Cross Media Flag.  Enter Y or N to limit results to cases with federal facility cross media.",
       "in": "query",
       "name": "p_fed_indicator",
       "required": false,
       "type": "string"
     },
-    "p_fed_penalty": {
+    "q.p_fed_penalty": {
       "description": "Federal Penalty Assessed Amount Filter.  Provide one of the following keywords to restrict results.\n- ANY = cases with any penalty amount.\n- LE5000 = cases with penalty amount less than or equal to $5,000.\n- GT5000 = cases with penalty amount more than $5,000.\n- GT50000 = cases with penalty amount more than $50,000.\n- GT100000 = cases with penalty amount more than $100,000.\n- GT500000 = cases with penalty amount more than $500,000.\n- GT1000000 = cases with penalty amount more than $1,000,000.\n- GT2500000 = cases with penalty amount more than $2,500,000.",
       "enum": [
         "ANY",
@@ -345,8 +1112,8 @@
       "required": false,
       "type": "string"
     },
-    "p_fntype": {
-      "description": "Controls type of text search performed on facility name with parameter p_fn.\n- EXACT = Find facilities having the exact provided name(s).\n- BEGINS = Find facilities with names starting with the provided term(s).\n- ALL = Find facilities using Oracle text search terms.\n- CONTAINS = \n",
+    "q.p_fntype": {
+      "description": "Controls type of text search performed on facility name with parameter p_fn.\n- EXACT = Find facilities having the exact provided name(s).\n- BEGINS = Find facilities with names starting with the provided term(s).\n- ALL = Find facilities using Oracle text search terms.\n- CONTAINS = ",
       "enum": [
         "ALL",
         "CONTAINS",
@@ -358,42 +1125,48 @@
       "required": false,
       "type": "string"
     },
-    "p_from_date": {
+    "q.p_from_date": {
       "description": "Administrative or Judicial Milestone Date Range Start Limiter.  Enter a date value in MM/DD/YYYY format to limit milestone results.  Parameter p_to_date must also be populated when using this parameter option.",
       "in": "query",
       "name": "p_from_date",
       "required": false,
       "type": "string"
     },
-    "p_law": {
+    "q.p_has_map": {
+      "in": "query",
+      "name": "p_has_map",
+      "required": false,
+      "type": "string"
+    },
+    "q.p_law": {
       "description": "Law Statute Code Filter.  Enter a single statute code to limit results.",
       "in": "query",
       "name": "p_law",
       "required": false,
       "type": "string"
     },
-    "p_lodged_date": {
+    "q.p_lodged_date": {
       "description": "Settlement Lodged Date Limiter.  Enter a single settlement lodged date in MM/DD/YYYY format to limit results.",
       "in": "query",
       "name": "p_lodged_date",
       "required": false,
       "type": "string"
     },
-    "p_milestone": {
+    "q.p_milestone": {
       "description": "Administrative or Judicial Milestone Filter.  Enter one or milestone values to restrict results.  Provide multiple values as a comma-delimited list.",
       "in": "query",
       "name": "p_milestone",
       "required": false,
       "type": "string"
     },
-    "p_milestone_fy": {
+    "q.p_milestone_fy": {
       "description": "Administrative or Judicial Milestone Fiscal Year Limiter.  Enter a single fiscal year value to limit milestone searches to a given fiscal year.",
       "in": "query",
       "name": "p_milestone_fy",
       "required": false,
       "type": "string"
     },
-    "p_multimedia": {
+    "q.p_multimedia": {
       "description": "Enforcement Multimedia Case Flag.  Enter Y or N to include or exclude multimedia cases.",
       "enum": [
         "Y",
@@ -404,14 +1177,14 @@
       "required": false,
       "type": "string"
     },
-    "p_naics": {
+    "q.p_naics": {
       "description": "North American Industry Classification System Filter. Enter two to six digits to filter results to facilities having matching NAICS codes.  Digits less than six will match to all codes beginning with the provided values.",
       "in": "query",
       "name": "p_naics",
       "required": false,
       "type": "string"
     },
-    "p_naics_frs_flg": {
+    "q.p_naics_frs_flg": {
       "description": "Case Location Extended FRS NAICS Search Flag.  Enter Y to expand NAICS search to include Federal Registry Service datasets.",
       "enum": [
         "Y",
@@ -422,7 +1195,7 @@
       "required": false,
       "type": "string"
     },
-    "p_naics_primary_flg": {
+    "q.p_naics_primary_flg": {
       "description": "Case Location Primary NAICS Flag.  Enter Y to limit NAICS search results to primary NAICS codes only.",
       "enum": [
         "Y",
@@ -433,21 +1206,28 @@
       "required": false,
       "type": "string"
     },
-    "p_name": {
+    "q.p_name": {
       "description": "Case Name Filter.  Enter one or more case names to restrict results.  Provide multiple values as a comma-delimited list.  When using this parameter the p_name_type parameter is required.",
       "in": "query",
       "name": "p_name",
       "required": false,
       "type": "string"
     },
-    "p_name_type": {
+    "q.p_name_type": {
       "description": "Case Name Filter Modifier.",
       "in": "query",
       "name": "p_name_type",
       "required": false,
       "type": "string"
     },
-    "p_oeca_core": {
+    "q.p_ocmap_fy": {
+      "description": "Fiscal Year to select cases that are displayed in the Office of Complicance Fiscal Year Map Services",
+      "in": "query",
+      "name": "p_ocmap_fy",
+      "required": false,
+      "type": "string"
+    },
+    "q.p_oeca_core": {
       "description": "OECA Core Program Flag.  Enter Y or N to include or exclude core program cases.",
       "enum": [
         "Y",
@@ -458,21 +1238,35 @@
       "required": false,
       "type": "string"
     },
-    "p_priority_area": {
+    "q.p_pretty_print": {
+      "description": "Optional flag to request GeoJSON formatted results to be pretty printed.  Only provide a numeric value when the output needs to be human readable as pretty printing has a performance cost.",
+      "in": "query",
+      "name": "p_pretty_print",
+      "required": false,
+      "type": "number"
+    },
+    "q.p_priority_area": {
       "description": "Case Priority Area Filter.  Enter one or more case priority areas to limit results.  Provide multiple values as a comma-delimited list.",
       "in": "query",
       "name": "p_priority_area",
       "required": false,
       "type": "string"
     },
-    "p_priority_area_desc": {
+    "q.p_priority_area_desc": {
       "description": "Case Priority Area Description Filter.  Enter a single case priority area description or partial case priority area description to limit results.  Use \"%\" as a wild-card match for more complex searches.",
       "in": "query",
       "name": "p_priority_area_desc",
       "required": false,
       "type": "string"
     },
-    "p_rank_order": {
+    "q.p_qs": {
+      "description": "Quick Search. Allows entry for city, state, and/or zip code.",
+      "in": "query",
+      "name": "p_qs",
+      "required": false,
+      "type": "string"
+    },
+    "q.p_rank_order": {
       "description": "Law Status Rank Order Limiter.  Enter a single integer rank order to limit results.",
       "enum": [
         "1",
@@ -483,7 +1277,7 @@
       "required": false,
       "type": "string"
     },
-    "p_region": {
+    "q.p_region": {
       "description": "EPA Region Filter. Provide a single value of 01 thru 10 to restrict results to a single EPA region.",
       "enum": [
         "01",
@@ -502,28 +1296,28 @@
       "required": false,
       "type": "string"
     },
-    "p_role": {
+    "q.p_role": {
       "description": "Activity Contact Role Code Filter.  Enter a single role code to restrict results.",
       "in": "query",
       "name": "p_role",
       "required": false,
       "type": "string"
     },
-    "p_section": {
+    "q.p_section": {
       "description": "Law Section Code Filter. Enter one or more law section codes to limit results.  Provide multiple values as a comma-delimited list.",
       "in": "query",
       "name": "p_section",
       "required": false,
       "type": "string"
     },
-    "p_sep_cats": {
+    "q.p_sep_cats": {
       "description": "Supplemental Environmental Projects Activity Category Code Limiter.  Provide one or more SEP activity category codes to limit results.  Provide multiple values as a comma-delimited list.",
       "in": "query",
       "name": "p_sep_cats",
       "required": false,
       "type": "string"
     },
-    "p_sep_val": {
+    "q.p_sep_val": {
       "description": "Supplemental Environmental Projects Activity Value Limiter.  Provide a keyword to limit results.\n- ANY = return cases with any SEP activity amount.\n- LE10000 = return cases with SEP activity amount less than or equal to $10,000.\n- GT10000 = return cases with SEP activity amount greater than $10,000.\n- GT50000 = return cases with SEP activity amount greater than $50,000.\n- GT100000 = return cases with SEP activity amount greater than $100,000.\n- GT500000 = return cases with SEP activity amount greater than $500,000.\n- GT1000000 = return cases with SEP activity amount greater than $1,000,000.",
       "enum": [
         "ANY",
@@ -539,14 +1333,14 @@
       "required": false,
       "type": "string"
     },
-    "p_sic": {
+    "q.p_sic": {
       "description": "Standard Industrial Classification (SIC) Code Filter.  Enter a single 4-digit SIC Code to filter results.",
       "in": "query",
       "name": "p_sic",
       "required": false,
       "type": "string"
     },
-    "p_sic_ao_naics": {
+    "q.p_sic_ao_naics": {
       "description": "Case Location SIC/NAICS And/Or Modifier.  Enter either AND or OR to govern the search logic of SIC and NAICS codes.\n- AND = Search will return results having both the provided SIC code(s) and provided NAICS code(s).\n- OR = Search will return results having either the provided SIC code(s) or the provided NAICS code(s).",
       "enum": [
         "AND",
@@ -557,7 +1351,7 @@
       "required": false,
       "type": "string"
     },
-    "p_sic_frs_flg": {
+    "q.p_sic_frs_flg": {
       "description": "Case Location Extended FRS SIC Search Flag.  Enter Y to expand SIC search to include Federal Registry Service datasets.",
       "enum": [
         "Y",
@@ -568,7 +1362,7 @@
       "required": false,
       "type": "string"
     },
-    "p_sic_primary_flg": {
+    "q.p_sic_primary_flg": {
       "description": "Case Location Primary SIC Flag.  Enter Y to limit SIC search results to primary SIC codes only.",
       "enum": [
         "Y",
@@ -579,49 +1373,49 @@
       "required": false,
       "type": "string"
     },
-    "p_state": {
+    "q.p_state": {
       "description": "Case Location State Filter.  Enter one or more state USPS postal codes to filter results.  Provide multiple values as a comma-delimited list.",
       "in": "query",
       "name": "p_state",
       "required": false,
       "type": "string"
     },
-    "p_to_date": {
+    "q.p_to_date": {
       "description": "Administrative or Judicial Milestone Date Range End Limiter.  Enter a date value in MM/DD/YYYY format to limit milestone results.  Parameter p_from_date must also be populated when using this parameter option.",
       "in": "query",
       "name": "p_to_date",
       "required": false,
       "type": "string"
     },
-    "p_total_comp_act_val": {
+    "q.p_total_comp_act_val": {
       "description": "Total Compliance Action Amount Limiter.  Enter a keyword value to limit results to cases with given total compliance action amounts.\n- ANY = Cases with any total compliance action amount greater than zero.\n- LEXX = Replacing XX with a dollar value, return cases with total compliance action amount less than or equal to the given amount.\n- GTXX = Replacing XX with a dollar value, return cases with total compliance action amount greater than the given amount.",
       "in": "query",
       "name": "p_total_comp_act_val",
       "required": false,
       "type": "string"
     },
-    "p_total_cost_recovery": {
+    "q.p_total_cost_recovery": {
       "description": "Total Cost Recovery Amount Limiter.  Enter a keyword value to limit results to cases with given cost recovery amounts.\n- ANY = Cases with any cost recovery amount greater than zero.\n- LEXX = Replacing XX with a dollar value, return cases with cost recovery amount less than or equal to the given amount.\n- GTXX = Replacing XX with a dollar value, return cases with cost recovery amount greater than the given amount.",
       "in": "query",
       "name": "p_total_cost_recovery",
       "required": false,
       "type": "string"
     },
-    "p_total_fed_penalty": {
+    "q.p_total_fed_penalty": {
       "description": "Total Federal Penalty Limiter.  Enter a keyword value to limit results to cases with given total federal penalties.\n- ANY = Cases with any federal penalty greater than zero.\n- LEXX = Replacing XX with a dollar value, return cases with federal penalty less than or equal to the given amount.\n- GTXX = Replacing XX with a dollar value, return cases with federal penalty greater than the given amount.",
       "in": "query",
       "name": "p_total_fed_penalty",
       "required": false,
       "type": "string"
     },
-    "p_total_sep_val": {
+    "q.p_total_sep_val": {
       "description": "Supplemental Environmental Projects Total Value Limiter.  Provide a keyword to limit results.\n- ANY = return cases with any SEP total amount.\n- LE10000 = return cases with SEP total amount less than or equal to $10,000.\n- GT10000 = return cases with SEP total amount greater than $10,000.\n- GT50000 = return cases with SEP total amount greater than $50,000.\n- GT100000 = return cases with SEP total amount greater than $100,000.\n- GT500000 = return cases with SEP total amount greater than $500,000.\n- GT1000000 = return cases with SEP total amount greater than $1,000,000.",
       "in": "query",
       "name": "p_total_sep_val",
       "required": false,
       "type": "string"
     },
-    "p_tribal": {
+    "q.p_tribal": {
       "description": "Case Location Tribal Land Flag.  Enter Y or N to include or disallow cases on tribal land.",
       "enum": [
         "Y",
@@ -632,7 +1426,7 @@
       "required": false,
       "type": "string"
     },
-    "p_usmex": {
+    "q.p_usmex": {
       "description": "US-Mexico Border Flag.  Enter Y/N to restrict searches to facilities located within 100KM of the border.",
       "enum": [
         "Y",
@@ -643,21 +1437,21 @@
       "required": false,
       "type": "string"
     },
-    "p_violation": {
+    "q.p_violation": {
       "description": "Violation Type Code Filter.  Enter one or more violation type codes to limit results.  Provide multiple values as a comma-delimited list.",
       "in": "query",
       "name": "p_violation",
       "required": false,
       "type": "string"
     },
-    "p_voluntary": {
+    "q.p_voluntary": {
       "description": "Voluntary Self Disclosure Flag.  Enter Y or N to include or exclude cases results having voluntary disclosure.",
       "in": "query",
       "name": "p_voluntary",
       "required": false,
       "type": "string"
     },
-    "pageno": {
+    "q.pageno": {
       "default": 1,
       "description": "Indicates the number of the page to display. It is used only when the results are paginated.",
       "in": "query",
@@ -665,67 +1459,67 @@
       "required": false,
       "type": "number"
     },
-    "qcolumns": {
-      "description": "Used to cutomize service output.  A list of comma-separated column IDs of output objects that will be returned in the service query object or download.  Use the metadata service endpoint for a complete list of Ids and definitions.",
+    "q.qcolumns": {
+      "description": "Used to customize service output.  A list of comma-separated column IDs of output objects that will be returned in the service query object or download.  Use the metadata service endpoint for a complete list of Ids and definitions.",
       "in": "query",
       "name": "qcolumns",
       "required": false,
       "type": "string"
     },
-    "qid": {
+    "q.qid": {
       "description": "Query ID Selector.  Enter the QueryID number from a previously run query.",
       "in": "query",
       "name": "qid",
       "required": true,
       "type": "string"
     },
-    "queryset": {
+    "q.queryset": {
       "description": "Query Limiter.  Enter a value to limit the number of records returned for each query. Value cannot exceed 70,000.",
       "in": "query",
       "name": "queryset",
       "required": false,
       "type": "number"
     },
-    "responseset": {
+    "q.responseset": {
       "description": "Response Set Limiter. Enter a value to limit the number of records per page. Value cannot exceed 1,000.",
       "in": "query",
       "name": "responseset",
       "required": false,
       "type": "number"
     },
-    "search_code": {
+    "q.search_code": {
       "description": "Enter a partial or complete code value.",
       "in": "query",
       "name": "search_code",
       "required": false,
       "type": "string"
     },
-    "search_term": {
+    "q.search_term": {
       "description": "Enter a partial or complete search phrase or word.",
       "in": "query",
       "name": "search_term",
       "required": false,
       "type": "string"
     },
-    "sort_order": {
+    "q.sort_order": {
       "in": "query",
       "name": "sort_order",
       "required": false,
       "type": "number"
     },
-    "status_flag": {
+    "q.status_flag": {
       "in": "query",
       "name": "status_flag",
       "required": false,
       "type": "string"
     },
-    "statute_code": {
+    "q.statute_code": {
       "in": "query",
       "name": "statute_code",
       "required": false,
       "type": "string"
     },
-    "tablelist": {
+    "q.tablelist": {
       "description": "Table List Flag. Enter a Y to display the first page of facility results.",
       "enum": [
         "Y",
@@ -738,6 +1532,542 @@
     }
   },
   "paths": {
+    "/case_rest_services.get_case_info": {
+      "get": {
+        "description": "The get_case_info service end point searches for civil enforcement and criminal cases based on the provided selection criteria and returns either individual cases or clusters of case facility locations.",
+        "parameters": [
+          {
+            "description": "Output Format Flag.  Enter one of the following keywords:\n- JSON = Data model formatted as Javascript Object Notation (default).\n- JSONP = Data model formatted as Javascript Object Notation with Padding.  \n- XML = Data model formatted as Extensible Markup Language.",
+            "enum": [
+              "JSONP",
+              "JSON",
+              "XML"
+            ],
+            "in": "query",
+            "name": "output",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "$ref": "#/parameters/q.p_case_category"
+          },
+          {
+            "$ref": "#/parameters/q.p_case_status"
+          },
+          {
+            "$ref": "#/parameters/q.p_milestone"
+          },
+          {
+            "$ref": "#/parameters/q.p_from_date"
+          },
+          {
+            "$ref": "#/parameters/q.p_to_date"
+          },
+          {
+            "$ref": "#/parameters/q.p_milestone_fy"
+          },
+          {
+            "$ref": "#/parameters/q.p_name"
+          },
+          {
+            "$ref": "#/parameters/q.p_name_type"
+          },
+          {
+            "$ref": "#/parameters/q.p_case_number"
+          },
+          {
+            "$ref": "#/parameters/q.p_docket_number"
+          },
+          {
+            "$ref": "#/parameters/q.p_court_docket_number"
+          },
+          {
+            "$ref": "#/parameters/q.p_activity_number"
+          },
+          {
+            "$ref": "#/parameters/q.p_case_lead"
+          },
+          {
+            "$ref": "#/parameters/q.p_case_sens_flg"
+          },
+          {
+            "$ref": "#/parameters/q.p_region"
+          },
+          {
+            "$ref": "#/parameters/q.p_state"
+          },
+          {
+            "$ref": "#/parameters/q.p_district"
+          },
+          {
+            "$ref": "#/parameters/q.p_sic"
+          },
+          {
+            "$ref": "#/parameters/q.p_sic_ao_naics"
+          },
+          {
+            "$ref": "#/parameters/q.p_sic_primary_flg"
+          },
+          {
+            "$ref": "#/parameters/q.p_sic_frs_flg"
+          },
+          {
+            "$ref": "#/parameters/q.p_naics"
+          },
+          {
+            "$ref": "#/parameters/q.p_naics_primary_flg"
+          },
+          {
+            "$ref": "#/parameters/q.p_naics_frs_flg"
+          },
+          {
+            "$ref": "#/parameters/q.p_enf_type"
+          },
+          {
+            "$ref": "#/parameters/q.p_law"
+          },
+          {
+            "$ref": "#/parameters/q.p_section"
+          },
+          {
+            "$ref": "#/parameters/q.p_cp_citation"
+          },
+          {
+            "$ref": "#/parameters/q.p_rank_order"
+          },
+          {
+            "$ref": "#/parameters/q.p_enf_program"
+          },
+          {
+            "$ref": "#/parameters/q.p_violation"
+          },
+          {
+            "$ref": "#/parameters/q.p_priority_area"
+          },
+          {
+            "$ref": "#/parameters/q.p_priority_area_desc"
+          },
+          {
+            "$ref": "#/parameters/q.p_tribal"
+          },
+          {
+            "$ref": "#/parameters/q.p_oeca_core"
+          },
+          {
+            "$ref": "#/parameters/q.p_multimedia"
+          },
+          {
+            "$ref": "#/parameters/q.p_fed_case"
+          },
+          {
+            "$ref": "#/parameters/q.p_activity_contact"
+          },
+          {
+            "$ref": "#/parameters/q.p_role"
+          },
+          {
+            "$ref": "#/parameters/q.p_fed_penalty"
+          },
+          {
+            "$ref": "#/parameters/q.p_total_fed_penalty"
+          },
+          {
+            "$ref": "#/parameters/q.p_cost_recovery"
+          },
+          {
+            "$ref": "#/parameters/q.p_total_cost_recovery"
+          },
+          {
+            "$ref": "#/parameters/q.p_complying_actions"
+          },
+          {
+            "$ref": "#/parameters/q.p_comp_act_val"
+          },
+          {
+            "$ref": "#/parameters/q.p_total_comp_act_val"
+          },
+          {
+            "$ref": "#/parameters/q.p_sep_cats"
+          },
+          {
+            "$ref": "#/parameters/q.p_sep_val"
+          },
+          {
+            "$ref": "#/parameters/q.p_total_sep_val"
+          },
+          {
+            "$ref": "#/parameters/q.p_lodged_date"
+          },
+          {
+            "$ref": "#/parameters/q.p_entered_date"
+          },
+          {
+            "$ref": "#/parameters/q.p_facility_id"
+          },
+          {
+            "$ref": "#/parameters/q.p_fac_city"
+          },
+          {
+            "$ref": "#/parameters/q.p_fac_zip"
+          },
+          {
+            "$ref": "#/parameters/q.p_fac_county"
+          },
+          {
+            "$ref": "#/parameters/q.p_case_summary"
+          },
+          {
+            "$ref": "#/parameters/q.p_case_summary_type"
+          },
+          {
+            "$ref": "#/parameters/q.p_usmex"
+          },
+          {
+            "$ref": "#/parameters/q.p_c1lat"
+          },
+          {
+            "$ref": "#/parameters/q.p_c1lon"
+          },
+          {
+            "$ref": "#/parameters/q.p_c2lat"
+          },
+          {
+            "$ref": "#/parameters/q.p_c2lon"
+          },
+          {
+            "$ref": "#/parameters/q.p_voluntary"
+          },
+          {
+            "$ref": "#/parameters/q.p_fed_indicator"
+          },
+          {
+            "$ref": "#/parameters/q.p_fntype"
+          },
+          {
+            "$ref": "#/parameters/q.p_civil_criminal_indicator"
+          },
+          {
+            "$ref": "#/parameters/q.queryset"
+          },
+          {
+            "$ref": "#/parameters/q.responseset"
+          },
+          {
+            "$ref": "#/parameters/q.mapset"
+          },
+          {
+            "$ref": "#/parameters/q.callback"
+          },
+          {
+            "$ref": "#/parameters/q.qcolumns"
+          },
+          {
+            "$ref": "#/parameters/q.p_pretty_print"
+          },
+          {
+            "$ref": "#/parameters/q.p_ocmap_fy"
+          },
+          {
+            "$ref": "#/parameters/q.p_qs"
+          },
+          {
+            "$ref": "#/parameters/q.p_has_map"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns an array of cases that meet the selection criteria.",
+            "schema": {
+              "description": "Root Object",
+              "properties": {
+                "Results": {
+                  "$ref": "#/definitions/crs0_get_case_info.Results"
+                }
+              },
+              "required": [
+                "Results"
+              ],
+              "type": "object",
+              "xml": {
+                "name": "Case"
+              }
+            }
+          }
+        },
+        "summary": "Enforcement Case Search (new version)",
+        "tags": [
+          "Case Enforcement"
+        ],
+        "operationId": "case_rest_services.get_case_info.get"
+      },
+      "post": {
+        "description": "The get_case_info service end point searches for civil enforcement and criminal cases based on the provided selection criteria and returns either individual cases or clusters of case facility locations.",
+        "parameters": [
+          {
+            "description": "Output Format Flag.  Enter one of the following keywords:\n- JSON = Data model formatted as Javascript Object Notation (default).\n- JSONP = Data model formatted as Javascript Object Notation with Padding.  \n- XML = Data model formatted as Extensible Markup Language.",
+            "enum": [
+              "JSONP",
+              "JSON",
+              "XML"
+            ],
+            "in": "formData",
+            "name": "output",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "$ref": "#/parameters/f.p_case_category"
+          },
+          {
+            "$ref": "#/parameters/f.p_case_status"
+          },
+          {
+            "$ref": "#/parameters/f.p_milestone"
+          },
+          {
+            "$ref": "#/parameters/f.p_from_date"
+          },
+          {
+            "$ref": "#/parameters/f.p_to_date"
+          },
+          {
+            "$ref": "#/parameters/f.p_milestone_fy"
+          },
+          {
+            "$ref": "#/parameters/f.p_name"
+          },
+          {
+            "$ref": "#/parameters/f.p_name_type"
+          },
+          {
+            "$ref": "#/parameters/f.p_case_number"
+          },
+          {
+            "$ref": "#/parameters/f.p_docket_number"
+          },
+          {
+            "$ref": "#/parameters/f.p_court_docket_number"
+          },
+          {
+            "$ref": "#/parameters/f.p_activity_number"
+          },
+          {
+            "$ref": "#/parameters/f.p_case_lead"
+          },
+          {
+            "$ref": "#/parameters/f.p_case_sens_flg"
+          },
+          {
+            "$ref": "#/parameters/f.p_region"
+          },
+          {
+            "$ref": "#/parameters/f.p_state"
+          },
+          {
+            "$ref": "#/parameters/f.p_district"
+          },
+          {
+            "$ref": "#/parameters/f.p_sic"
+          },
+          {
+            "$ref": "#/parameters/f.p_sic_ao_naics"
+          },
+          {
+            "$ref": "#/parameters/f.p_sic_primary_flg"
+          },
+          {
+            "$ref": "#/parameters/f.p_sic_frs_flg"
+          },
+          {
+            "$ref": "#/parameters/f.p_naics"
+          },
+          {
+            "$ref": "#/parameters/f.p_naics_primary_flg"
+          },
+          {
+            "$ref": "#/parameters/f.p_naics_frs_flg"
+          },
+          {
+            "$ref": "#/parameters/f.p_enf_type"
+          },
+          {
+            "$ref": "#/parameters/f.p_law"
+          },
+          {
+            "$ref": "#/parameters/f.p_section"
+          },
+          {
+            "$ref": "#/parameters/f.p_cp_citation"
+          },
+          {
+            "$ref": "#/parameters/f.p_rank_order"
+          },
+          {
+            "$ref": "#/parameters/f.p_enf_program"
+          },
+          {
+            "$ref": "#/parameters/f.p_violation"
+          },
+          {
+            "$ref": "#/parameters/f.p_priority_area"
+          },
+          {
+            "$ref": "#/parameters/f.p_priority_area_desc"
+          },
+          {
+            "$ref": "#/parameters/f.p_tribal"
+          },
+          {
+            "$ref": "#/parameters/f.p_oeca_core"
+          },
+          {
+            "$ref": "#/parameters/f.p_multimedia"
+          },
+          {
+            "$ref": "#/parameters/f.p_fed_case"
+          },
+          {
+            "$ref": "#/parameters/f.p_activity_contact"
+          },
+          {
+            "$ref": "#/parameters/f.p_role"
+          },
+          {
+            "$ref": "#/parameters/f.p_fed_penalty"
+          },
+          {
+            "$ref": "#/parameters/f.p_total_fed_penalty"
+          },
+          {
+            "$ref": "#/parameters/f.p_cost_recovery"
+          },
+          {
+            "$ref": "#/parameters/f.p_total_cost_recovery"
+          },
+          {
+            "$ref": "#/parameters/f.p_complying_actions"
+          },
+          {
+            "$ref": "#/parameters/f.p_comp_act_val"
+          },
+          {
+            "$ref": "#/parameters/f.p_total_comp_act_val"
+          },
+          {
+            "$ref": "#/parameters/f.p_sep_cats"
+          },
+          {
+            "$ref": "#/parameters/f.p_sep_val"
+          },
+          {
+            "$ref": "#/parameters/f.p_total_sep_val"
+          },
+          {
+            "$ref": "#/parameters/f.p_lodged_date"
+          },
+          {
+            "$ref": "#/parameters/f.p_entered_date"
+          },
+          {
+            "$ref": "#/parameters/f.p_facility_id"
+          },
+          {
+            "$ref": "#/parameters/f.p_fac_city"
+          },
+          {
+            "$ref": "#/parameters/f.p_fac_zip"
+          },
+          {
+            "$ref": "#/parameters/f.p_fac_county"
+          },
+          {
+            "$ref": "#/parameters/f.p_case_summary"
+          },
+          {
+            "$ref": "#/parameters/f.p_case_summary_type"
+          },
+          {
+            "$ref": "#/parameters/f.p_usmex"
+          },
+          {
+            "$ref": "#/parameters/f.p_c1lat"
+          },
+          {
+            "$ref": "#/parameters/f.p_c1lon"
+          },
+          {
+            "$ref": "#/parameters/f.p_c2lat"
+          },
+          {
+            "$ref": "#/parameters/f.p_c2lon"
+          },
+          {
+            "$ref": "#/parameters/f.p_voluntary"
+          },
+          {
+            "$ref": "#/parameters/f.p_fed_indicator"
+          },
+          {
+            "$ref": "#/parameters/f.p_fntype"
+          },
+          {
+            "$ref": "#/parameters/f.p_civil_criminal_indicator"
+          },
+          {
+            "$ref": "#/parameters/f.queryset"
+          },
+          {
+            "$ref": "#/parameters/f.responseset"
+          },
+          {
+            "$ref": "#/parameters/f.mapset"
+          },
+          {
+            "$ref": "#/parameters/f.callback"
+          },
+          {
+            "$ref": "#/parameters/f.qcolumns"
+          },
+          {
+            "$ref": "#/parameters/f.p_pretty_print"
+          },
+          {
+            "$ref": "#/parameters/f.p_ocmap_fy"
+          },
+          {
+            "$ref": "#/parameters/f.p_qs"
+          },
+          {
+            "$ref": "#/parameters/f.p_has_map"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns an array of cases that meet the selection criteria.",
+            "schema": {
+              "description": "Root Object",
+              "properties": {
+                "Results": {
+                  "$ref": "#/definitions/crs0_get_case_info.Results"
+                }
+              },
+              "required": [
+                "Results"
+              ],
+              "type": "object",
+              "xml": {
+                "name": "Case"
+              }
+            }
+          }
+        },
+        "summary": "Enforcement Case Search (new version)",
+        "tags": [
+          "Case Enforcement"
+        ],
+        "operationId": "case_rest_services.get_case_info.post"
+      }
+    },
     "/case_rest_services.get_case_report": {
       "get": {
         "description": "The get_case_report service endpoint returns a complex object of civil enforcement case details based on the provided case id.",
@@ -762,7 +2092,7 @@
             "type": "string"
           },
           {
-            "$ref": "#/parameters/callback"
+            "$ref": "#/parameters/q.callback"
           }
         ],
         "responses": {
@@ -778,7 +2108,10 @@
               "required": [
                 "Results"
               ],
-              "type": "object"
+              "type": "object",
+              "xml": {
+                "name": "Root"
+              }
             }
           }
         },
@@ -793,7 +2126,7 @@
         "parameters": [
           {
             "description": "Case Number. Enter the case number identifier to retrieve the case report.",
-            "in": "query",
+            "in": "formData",
             "name": "p_id",
             "required": false,
             "type": "string"
@@ -805,13 +2138,13 @@
               "JSON",
               "XML"
             ],
-            "in": "query",
+            "in": "formData",
             "name": "output",
             "required": false,
             "type": "string"
           },
           {
-            "$ref": "#/parameters/callback"
+            "$ref": "#/parameters/f.callback"
           }
         ],
         "responses": {
@@ -827,7 +2160,10 @@
               "required": [
                 "Results"
               ],
-              "type": "object"
+              "type": "object",
+              "xml": {
+                "name": "Root"
+              }
             }
           }
         },
@@ -855,214 +2191,229 @@
             "type": "string"
           },
           {
-            "$ref": "#/parameters/p_case_category"
+            "$ref": "#/parameters/q.p_case_category"
           },
           {
-            "$ref": "#/parameters/p_case_status"
+            "$ref": "#/parameters/q.p_case_status"
           },
           {
-            "$ref": "#/parameters/p_milestone"
+            "$ref": "#/parameters/q.p_violation"
           },
           {
-            "$ref": "#/parameters/p_from_date"
+            "$ref": "#/parameters/q.p_milestone"
           },
           {
-            "$ref": "#/parameters/p_to_date"
+            "$ref": "#/parameters/q.p_from_date"
           },
           {
-            "$ref": "#/parameters/p_milestone_fy"
+            "$ref": "#/parameters/q.p_to_date"
           },
           {
-            "$ref": "#/parameters/p_name"
+            "$ref": "#/parameters/q.p_milestone_fy"
           },
           {
-            "$ref": "#/parameters/p_name_type"
+            "$ref": "#/parameters/q.p_name"
           },
           {
-            "$ref": "#/parameters/p_case_number"
+            "$ref": "#/parameters/q.p_name_type"
           },
           {
-            "$ref": "#/parameters/p_docket_number"
+            "$ref": "#/parameters/q.p_case_number"
           },
           {
-            "$ref": "#/parameters/p_activity_number"
+            "$ref": "#/parameters/q.p_docket_number"
           },
           {
-            "$ref": "#/parameters/p_case_lead"
+            "$ref": "#/parameters/q.p_court_docket_number"
           },
           {
-            "$ref": "#/parameters/p_case_sens_flg"
+            "$ref": "#/parameters/q.p_activity_number"
           },
           {
-            "$ref": "#/parameters/p_region"
+            "$ref": "#/parameters/q.p_case_lead"
           },
           {
-            "$ref": "#/parameters/p_state"
+            "$ref": "#/parameters/q.p_case_sens_flg"
           },
           {
-            "$ref": "#/parameters/p_district"
+            "$ref": "#/parameters/q.p_region"
           },
           {
-            "$ref": "#/parameters/p_sic"
+            "$ref": "#/parameters/q.p_state"
           },
           {
-            "$ref": "#/parameters/p_sic_ao_naics"
+            "$ref": "#/parameters/q.p_district"
           },
           {
-            "$ref": "#/parameters/p_sic_primary_flg"
+            "$ref": "#/parameters/q.p_sic"
           },
           {
-            "$ref": "#/parameters/p_sic_frs_flg"
+            "$ref": "#/parameters/q.p_sic_ao_naics"
           },
           {
-            "$ref": "#/parameters/p_naics"
+            "$ref": "#/parameters/q.p_sic_primary_flg"
           },
           {
-            "$ref": "#/parameters/p_naics_primary_flg"
+            "$ref": "#/parameters/q.p_sic_frs_flg"
           },
           {
-            "$ref": "#/parameters/p_naics_frs_flg"
+            "$ref": "#/parameters/q.p_naics"
           },
           {
-            "$ref": "#/parameters/p_enf_type"
+            "$ref": "#/parameters/q.p_naics_primary_flg"
           },
           {
-            "$ref": "#/parameters/p_law"
+            "$ref": "#/parameters/q.p_naics_frs_flg"
           },
           {
-            "$ref": "#/parameters/p_section"
+            "$ref": "#/parameters/q.p_enf_type"
           },
           {
-            "$ref": "#/parameters/p_cp_citation"
+            "$ref": "#/parameters/q.p_law"
           },
           {
-            "$ref": "#/parameters/p_rank_order"
+            "$ref": "#/parameters/q.p_section"
           },
           {
-            "$ref": "#/parameters/p_enf_program"
+            "$ref": "#/parameters/q.p_cp_citation"
           },
           {
-            "$ref": "#/parameters/p_violation"
+            "$ref": "#/parameters/q.p_rank_order"
           },
           {
-            "$ref": "#/parameters/p_priority_area"
+            "$ref": "#/parameters/q.p_enf_program"
           },
           {
-            "$ref": "#/parameters/p_priority_area_desc"
+            "$ref": "#/parameters/q.p_priority_area"
           },
           {
-            "$ref": "#/parameters/p_tribal"
+            "$ref": "#/parameters/q.p_priority_area_desc"
           },
           {
-            "$ref": "#/parameters/p_oeca_core"
+            "$ref": "#/parameters/q.p_tribal"
           },
           {
-            "$ref": "#/parameters/p_multimedia"
+            "$ref": "#/parameters/q.p_oeca_core"
           },
           {
-            "$ref": "#/parameters/p_fed_case"
+            "$ref": "#/parameters/q.p_multimedia"
           },
           {
-            "$ref": "#/parameters/p_activity_contact"
+            "$ref": "#/parameters/q.p_fed_case"
           },
           {
-            "$ref": "#/parameters/p_role"
+            "$ref": "#/parameters/q.p_activity_contact"
           },
           {
-            "$ref": "#/parameters/p_fed_penalty"
+            "$ref": "#/parameters/q.p_role"
           },
           {
-            "$ref": "#/parameters/p_total_fed_penalty"
+            "$ref": "#/parameters/q.p_fed_penalty"
           },
           {
-            "$ref": "#/parameters/p_cost_recovery"
+            "$ref": "#/parameters/q.p_total_fed_penalty"
           },
           {
-            "$ref": "#/parameters/p_total_cost_recovery"
+            "$ref": "#/parameters/q.p_cost_recovery"
           },
           {
-            "$ref": "#/parameters/p_complying_actions"
+            "$ref": "#/parameters/q.p_total_cost_recovery"
           },
           {
-            "$ref": "#/parameters/p_comp_act_val"
+            "$ref": "#/parameters/q.p_complying_actions"
           },
           {
-            "$ref": "#/parameters/p_total_comp_act_val"
+            "$ref": "#/parameters/q.p_comp_act_val"
           },
           {
-            "$ref": "#/parameters/p_sep_cats"
+            "$ref": "#/parameters/q.p_total_comp_act_val"
           },
           {
-            "$ref": "#/parameters/p_sep_val"
+            "$ref": "#/parameters/q.p_sep_cats"
           },
           {
-            "$ref": "#/parameters/p_total_sep_val"
+            "$ref": "#/parameters/q.p_sep_val"
           },
           {
-            "$ref": "#/parameters/p_lodged_date"
+            "$ref": "#/parameters/q.p_total_sep_val"
           },
           {
-            "$ref": "#/parameters/p_entered_date"
+            "$ref": "#/parameters/q.p_lodged_date"
           },
           {
-            "$ref": "#/parameters/p_facility_id"
+            "$ref": "#/parameters/q.p_entered_date"
           },
           {
-            "$ref": "#/parameters/p_fac_city"
+            "$ref": "#/parameters/q.p_facility_id"
           },
           {
-            "$ref": "#/parameters/p_fac_zip"
+            "$ref": "#/parameters/q.p_fac_city"
           },
           {
-            "$ref": "#/parameters/p_fac_county"
+            "$ref": "#/parameters/q.p_fac_zip"
           },
           {
-            "$ref": "#/parameters/p_case_summary"
+            "$ref": "#/parameters/q.p_fac_county"
           },
           {
-            "$ref": "#/parameters/p_usmex"
+            "$ref": "#/parameters/q.p_case_summary"
           },
           {
-            "$ref": "#/parameters/p_c1lat"
+            "$ref": "#/parameters/q.p_case_summary_type"
           },
           {
-            "$ref": "#/parameters/p_c1lon"
+            "$ref": "#/parameters/q.p_usmex"
           },
           {
-            "$ref": "#/parameters/p_c2lat"
+            "$ref": "#/parameters/q.p_c1lat"
           },
           {
-            "$ref": "#/parameters/p_c2lon"
+            "$ref": "#/parameters/q.p_c1lon"
           },
           {
-            "$ref": "#/parameters/p_voluntary"
+            "$ref": "#/parameters/q.p_c2lat"
           },
           {
-            "$ref": "#/parameters/p_fed_indicator"
+            "$ref": "#/parameters/q.p_c2lon"
           },
           {
-            "$ref": "#/parameters/p_fntype"
+            "$ref": "#/parameters/q.p_voluntary"
           },
           {
-            "$ref": "#/parameters/p_civil_criminal_indicator"
+            "$ref": "#/parameters/q.p_fed_indicator"
           },
           {
-            "$ref": "#/parameters/queryset"
+            "$ref": "#/parameters/q.p_fntype"
           },
           {
-            "$ref": "#/parameters/responseset"
+            "$ref": "#/parameters/q.p_civil_criminal_indicator"
           },
           {
-            "$ref": "#/parameters/maplist"
+            "$ref": "#/parameters/q.queryset"
           },
           {
-            "$ref": "#/parameters/tablelist"
+            "$ref": "#/parameters/q.responseset"
           },
           {
-            "$ref": "#/parameters/callback"
+            "$ref": "#/parameters/q.maplist"
           },
           {
-            "$ref": "#/parameters/qcolumns"
+            "$ref": "#/parameters/q.tablelist"
+          },
+          {
+            "$ref": "#/parameters/q.callback"
+          },
+          {
+            "$ref": "#/parameters/q.qcolumns"
+          },
+          {
+            "$ref": "#/parameters/q.p_ocmap_fy"
+          },
+          {
+            "$ref": "#/parameters/q.p_qs"
+          },
+          {
+            "$ref": "#/parameters/q.p_has_map"
           }
         ],
         "responses": {
@@ -1078,7 +2429,10 @@
               "required": [
                 "Results"
               ],
-              "type": "object"
+              "type": "object",
+              "xml": {
+                "name": "Root"
+              }
             }
           }
         },
@@ -1098,220 +2452,235 @@
               "JSON",
               "XML"
             ],
-            "in": "query",
+            "in": "formData",
             "name": "output",
             "required": false,
             "type": "string"
           },
           {
-            "$ref": "#/parameters/p_case_category"
+            "$ref": "#/parameters/f.p_case_category"
           },
           {
-            "$ref": "#/parameters/p_case_status"
+            "$ref": "#/parameters/f.p_case_status"
           },
           {
-            "$ref": "#/parameters/p_milestone"
+            "$ref": "#/parameters/f.p_milestone"
           },
           {
-            "$ref": "#/parameters/p_from_date"
+            "$ref": "#/parameters/f.p_from_date"
           },
           {
-            "$ref": "#/parameters/p_to_date"
+            "$ref": "#/parameters/f.p_to_date"
           },
           {
-            "$ref": "#/parameters/p_milestone_fy"
+            "$ref": "#/parameters/f.p_milestone_fy"
           },
           {
-            "$ref": "#/parameters/p_name"
+            "$ref": "#/parameters/f.p_name"
           },
           {
-            "$ref": "#/parameters/p_name_type"
+            "$ref": "#/parameters/f.p_name_type"
           },
           {
-            "$ref": "#/parameters/p_case_number"
+            "$ref": "#/parameters/f.p_case_number"
           },
           {
-            "$ref": "#/parameters/p_docket_number"
+            "$ref": "#/parameters/f.p_docket_number"
           },
           {
-            "$ref": "#/parameters/p_activity_number"
+            "$ref": "#/parameters/f.p_court_docket_number"
           },
           {
-            "$ref": "#/parameters/p_case_lead"
+            "$ref": "#/parameters/f.p_activity_number"
           },
           {
-            "$ref": "#/parameters/p_case_sens_flg"
+            "$ref": "#/parameters/f.p_case_lead"
           },
           {
-            "$ref": "#/parameters/p_region"
+            "$ref": "#/parameters/f.p_case_sens_flg"
           },
           {
-            "$ref": "#/parameters/p_state"
+            "$ref": "#/parameters/f.p_region"
           },
           {
-            "$ref": "#/parameters/p_district"
+            "$ref": "#/parameters/f.p_state"
           },
           {
-            "$ref": "#/parameters/p_sic"
+            "$ref": "#/parameters/f.p_district"
           },
           {
-            "$ref": "#/parameters/p_sic_ao_naics"
+            "$ref": "#/parameters/f.p_sic"
           },
           {
-            "$ref": "#/parameters/p_sic_primary_flg"
+            "$ref": "#/parameters/f.p_sic_ao_naics"
           },
           {
-            "$ref": "#/parameters/p_sic_frs_flg"
+            "$ref": "#/parameters/f.p_sic_primary_flg"
           },
           {
-            "$ref": "#/parameters/p_naics"
+            "$ref": "#/parameters/f.p_sic_frs_flg"
           },
           {
-            "$ref": "#/parameters/p_naics_primary_flg"
+            "$ref": "#/parameters/f.p_naics"
           },
           {
-            "$ref": "#/parameters/p_naics_frs_flg"
+            "$ref": "#/parameters/f.p_naics_primary_flg"
           },
           {
-            "$ref": "#/parameters/p_enf_type"
+            "$ref": "#/parameters/f.p_naics_frs_flg"
           },
           {
-            "$ref": "#/parameters/p_law"
+            "$ref": "#/parameters/f.p_enf_type"
           },
           {
-            "$ref": "#/parameters/p_section"
+            "$ref": "#/parameters/f.p_law"
           },
           {
-            "$ref": "#/parameters/p_cp_citation"
+            "$ref": "#/parameters/f.p_section"
           },
           {
-            "$ref": "#/parameters/p_rank_order"
+            "$ref": "#/parameters/f.p_cp_citation"
           },
           {
-            "$ref": "#/parameters/p_enf_program"
+            "$ref": "#/parameters/f.p_rank_order"
           },
           {
-            "$ref": "#/parameters/p_violation"
+            "$ref": "#/parameters/f.p_enf_program"
           },
           {
-            "$ref": "#/parameters/p_priority_area"
+            "$ref": "#/parameters/f.p_violation"
           },
           {
-            "$ref": "#/parameters/p_priority_area_desc"
+            "$ref": "#/parameters/f.p_priority_area"
           },
           {
-            "$ref": "#/parameters/p_tribal"
+            "$ref": "#/parameters/f.p_priority_area_desc"
           },
           {
-            "$ref": "#/parameters/p_oeca_core"
+            "$ref": "#/parameters/f.p_tribal"
           },
           {
-            "$ref": "#/parameters/p_multimedia"
+            "$ref": "#/parameters/f.p_oeca_core"
           },
           {
-            "$ref": "#/parameters/p_fed_case"
+            "$ref": "#/parameters/f.p_multimedia"
           },
           {
-            "$ref": "#/parameters/p_activity_contact"
+            "$ref": "#/parameters/f.p_fed_case"
           },
           {
-            "$ref": "#/parameters/p_role"
+            "$ref": "#/parameters/f.p_activity_contact"
           },
           {
-            "$ref": "#/parameters/p_fed_penalty"
+            "$ref": "#/parameters/f.p_role"
           },
           {
-            "$ref": "#/parameters/p_total_fed_penalty"
+            "$ref": "#/parameters/f.p_fed_penalty"
           },
           {
-            "$ref": "#/parameters/p_cost_recovery"
+            "$ref": "#/parameters/f.p_total_fed_penalty"
           },
           {
-            "$ref": "#/parameters/p_total_cost_recovery"
+            "$ref": "#/parameters/f.p_cost_recovery"
           },
           {
-            "$ref": "#/parameters/p_complying_actions"
+            "$ref": "#/parameters/f.p_total_cost_recovery"
           },
           {
-            "$ref": "#/parameters/p_comp_act_val"
+            "$ref": "#/parameters/f.p_complying_actions"
           },
           {
-            "$ref": "#/parameters/p_total_comp_act_val"
+            "$ref": "#/parameters/f.p_comp_act_val"
           },
           {
-            "$ref": "#/parameters/p_sep_cats"
+            "$ref": "#/parameters/f.p_total_comp_act_val"
           },
           {
-            "$ref": "#/parameters/p_sep_val"
+            "$ref": "#/parameters/f.p_sep_cats"
           },
           {
-            "$ref": "#/parameters/p_total_sep_val"
+            "$ref": "#/parameters/f.p_sep_val"
           },
           {
-            "$ref": "#/parameters/p_lodged_date"
+            "$ref": "#/parameters/f.p_total_sep_val"
           },
           {
-            "$ref": "#/parameters/p_entered_date"
+            "$ref": "#/parameters/f.p_lodged_date"
           },
           {
-            "$ref": "#/parameters/p_facility_id"
+            "$ref": "#/parameters/f.p_entered_date"
           },
           {
-            "$ref": "#/parameters/p_fac_city"
+            "$ref": "#/parameters/f.p_facility_id"
           },
           {
-            "$ref": "#/parameters/p_fac_zip"
+            "$ref": "#/parameters/f.p_fac_city"
           },
           {
-            "$ref": "#/parameters/p_fac_county"
+            "$ref": "#/parameters/f.p_fac_zip"
           },
           {
-            "$ref": "#/parameters/p_case_summary"
+            "$ref": "#/parameters/f.p_fac_county"
           },
           {
-            "$ref": "#/parameters/p_usmex"
+            "$ref": "#/parameters/f.p_case_summary"
           },
           {
-            "$ref": "#/parameters/p_c1lat"
+            "$ref": "#/parameters/f.p_case_summary_type"
           },
           {
-            "$ref": "#/parameters/p_c1lon"
+            "$ref": "#/parameters/f.p_usmex"
           },
           {
-            "$ref": "#/parameters/p_c2lat"
+            "$ref": "#/parameters/f.p_c1lat"
           },
           {
-            "$ref": "#/parameters/p_c2lon"
+            "$ref": "#/parameters/f.p_c1lon"
           },
           {
-            "$ref": "#/parameters/p_voluntary"
+            "$ref": "#/parameters/f.p_c2lat"
           },
           {
-            "$ref": "#/parameters/p_fed_indicator"
+            "$ref": "#/parameters/f.p_c2lon"
           },
           {
-            "$ref": "#/parameters/p_fntype"
+            "$ref": "#/parameters/f.p_voluntary"
           },
           {
-            "$ref": "#/parameters/p_civil_criminal_indicator"
+            "$ref": "#/parameters/f.p_fed_indicator"
           },
           {
-            "$ref": "#/parameters/queryset"
+            "$ref": "#/parameters/f.p_fntype"
           },
           {
-            "$ref": "#/parameters/responseset"
+            "$ref": "#/parameters/f.p_civil_criminal_indicator"
           },
           {
-            "$ref": "#/parameters/maplist"
+            "$ref": "#/parameters/f.queryset"
           },
           {
-            "$ref": "#/parameters/tablelist"
+            "$ref": "#/parameters/f.responseset"
           },
           {
-            "$ref": "#/parameters/callback"
+            "$ref": "#/parameters/f.maplist"
           },
           {
-            "$ref": "#/parameters/qcolumns"
+            "$ref": "#/parameters/f.tablelist"
+          },
+          {
+            "$ref": "#/parameters/f.callback"
+          },
+          {
+            "$ref": "#/parameters/f.qcolumns"
+          },
+          {
+            "$ref": "#/parameters/f.p_ocmap_fy"
+          },
+          {
+            "$ref": "#/parameters/f.p_qs"
+          },
+          {
+            "$ref": "#/parameters/f.p_has_map"
           }
         ],
         "responses": {
@@ -1327,7 +2696,10 @@
               "required": [
                 "Results"
               ],
-              "type": "object"
+              "type": "object",
+              "xml": {
+                "name": "Root"
+              }
             }
           }
         },
@@ -1336,6 +2708,110 @@
           "Case Enforcement"
         ],
         "operationId": "case_rest_services.get_cases.post"
+      }
+    },
+    "/case_rest_services.get_cases_from_facility": {
+      "get": {
+        "parameters": [
+          {
+            "description": "Identifier for the service.",
+            "in": "query",
+            "name": "p_id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Output Format Flag.  Enter one of the following keywords:\n- JSON = Data model formatted as Javascript Object Notation (default).\n- JSONP = Data model formatted as Javascript Object Notation with Padding.  \n- XML = Data model formatted as Extensible Markup Language.",
+            "enum": [
+              "JSONP",
+              "JSON",
+              "XML"
+            ],
+            "in": "query",
+            "name": "output",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "$ref": "#/parameters/q.callback"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Results",
+            "schema": {
+              "description": "Root Object",
+              "properties": {
+                "Results": {
+                  "$ref": "#/definitions/crs0_get_cases_from_facility.Results"
+                }
+              },
+              "required": [
+                "Results"
+              ],
+              "type": "object",
+              "xml": {
+                "name": "Root"
+              }
+            }
+          }
+        },
+        "summary": "Placeholder",
+        "tags": [
+          "Case Enforcement"
+        ],
+        "operationId": "case_rest_services.get_cases_from_facility.get"
+      },
+      "post": {
+        "parameters": [
+          {
+            "description": "Identifier for the service.",
+            "in": "query",
+            "name": "p_id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Output Format Flag.  Enter one of the following keywords:\n- JSON = Data model formatted as Javascript Object Notation (default).\n- JSONP = Data model formatted as Javascript Object Notation with Padding.  \n- XML = Data model formatted as Extensible Markup Language.",
+            "enum": [
+              "JSONP",
+              "JSON",
+              "XML"
+            ],
+            "in": "query",
+            "name": "output",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "$ref": "#/parameters/q.callback"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Results",
+            "schema": {
+              "description": "Root Object",
+              "properties": {
+                "Results": {
+                  "$ref": "#/definitions/crs0_get_cases_from_facility.Results"
+                }
+              },
+              "required": [
+                "Results"
+              ],
+              "type": "object",
+              "xml": {
+                "name": "Root"
+              }
+            }
+          }
+        },
+        "summary": "Placeholder",
+        "tags": [
+          "Case Enforcement"
+        ],
+        "operationId": "case_rest_services.get_cases_from_facility.post"
       }
     },
     "/case_rest_services.get_crcase_report": {
@@ -1362,7 +2838,10 @@
             "type": "string"
           },
           {
-            "$ref": "#/parameters/callback"
+            "$ref": "#/parameters/q.callback"
+          },
+          {
+            "$ref": "#/parameters/q.mapset"
           }
         ],
         "responses": {
@@ -1378,7 +2857,10 @@
               "required": [
                 "Results"
               ],
-              "type": "object"
+              "type": "object",
+              "xml": {
+                "name": "Root"
+              }
             }
           }
         },
@@ -1393,7 +2875,7 @@
         "parameters": [
           {
             "description": "Prosecution Summary Identifier. Enter the numeric prosecution summary identifier to retrieve the criminal case report.",
-            "in": "query",
+            "in": "formData",
             "name": "p_id",
             "required": false,
             "type": "string"
@@ -1405,13 +2887,13 @@
               "JSON",
               "XML"
             ],
-            "in": "query",
+            "in": "formData",
             "name": "output",
             "required": false,
             "type": "string"
           },
           {
-            "$ref": "#/parameters/callback"
+            "$ref": "#/parameters/f.callback"
           }
         ],
         "responses": {
@@ -1427,7 +2909,10 @@
               "required": [
                 "Results"
               ],
-              "type": "object"
+              "type": "object",
+              "xml": {
+                "name": "Root"
+              }
             }
           }
         },
@@ -1450,10 +2935,10 @@
             "type": "string"
           },
           {
-            "$ref": "#/parameters/qid"
+            "$ref": "#/parameters/q.qid"
           },
           {
-            "$ref": "#/parameters/qcolumns"
+            "$ref": "#/parameters/q.qcolumns"
           }
         ],
         "responses": {
@@ -1475,16 +2960,16 @@
         "parameters": [
           {
             "description": "Output Format Flag.  Enter one of the following keywords:\n- CSV = Facility results formatted as comma delimited file download (default).",
-            "in": "query",
+            "in": "formData",
             "name": "output",
             "required": false,
             "type": "string"
           },
           {
-            "$ref": "#/parameters/qid"
+            "$ref": "#/parameters/f.qid"
           },
           {
-            "$ref": "#/parameters/qcolumns"
+            "$ref": "#/parameters/f.qcolumns"
           }
         ],
         "responses": {
@@ -1500,6 +2985,110 @@
           "Case Enforcement"
         ],
         "operationId": "case_rest_services.get_download.post"
+      }
+    },
+    "/case_rest_services.get_facilities_from_case": {
+      "get": {
+        "parameters": [
+          {
+            "description": "Identifier for the service.",
+            "in": "query",
+            "name": "p_id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Output Format Flag.  Enter one of the following keywords:\n- JSON = Data model formatted as Javascript Object Notation (default).\n- JSONP = Data model formatted as Javascript Object Notation with Padding.  \n- XML = Data model formatted as Extensible Markup Language.",
+            "enum": [
+              "JSONP",
+              "JSON",
+              "XML"
+            ],
+            "in": "query",
+            "name": "output",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "$ref": "#/parameters/q.callback"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Results",
+            "schema": {
+              "description": "Root Object",
+              "properties": {
+                "Results": {
+                  "$ref": "#/definitions/crs0_get_facilities_from_case.Results"
+                }
+              },
+              "required": [
+                "Results"
+              ],
+              "type": "object",
+              "xml": {
+                "name": "Root"
+              }
+            }
+          }
+        },
+        "summary": "Placeholder",
+        "tags": [
+          "Case Enforcement"
+        ],
+        "operationId": "case_rest_services.get_facilities_from_case.get"
+      },
+      "post": {
+        "parameters": [
+          {
+            "description": "Identifier for the service.",
+            "in": "query",
+            "name": "p_id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Output Format Flag.  Enter one of the following keywords:\n- JSON = Data model formatted as Javascript Object Notation (default).\n- JSONP = Data model formatted as Javascript Object Notation with Padding.  \n- XML = Data model formatted as Extensible Markup Language.",
+            "enum": [
+              "JSONP",
+              "JSON",
+              "XML"
+            ],
+            "in": "query",
+            "name": "output",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "$ref": "#/parameters/q.callback"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Results",
+            "schema": {
+              "description": "Root Object",
+              "properties": {
+                "Results": {
+                  "$ref": "#/definitions/crs0_get_facilities_from_case.Results"
+                }
+              },
+              "required": [
+                "Results"
+              ],
+              "type": "object",
+              "xml": {
+                "name": "Root"
+              }
+            }
+          }
+        },
+        "summary": "Placeholder",
+        "tags": [
+          "Case Enforcement"
+        ],
+        "operationId": "case_rest_services.get_facilities_from_case.post"
       }
     },
     "/case_rest_services.get_map": {
@@ -1519,25 +3108,25 @@
             "type": "string"
           },
           {
-            "$ref": "#/parameters/qid"
+            "$ref": "#/parameters/q.qid"
           },
           {
-            "$ref": "#/parameters/callback"
+            "$ref": "#/parameters/q.callback"
           },
           {
-            "$ref": "#/parameters/tablelist"
+            "$ref": "#/parameters/q.tablelist"
           },
           {
-            "$ref": "#/parameters/c1_lat"
+            "$ref": "#/parameters/q.c1_lat"
           },
           {
-            "$ref": "#/parameters/c1_long"
+            "$ref": "#/parameters/q.c1_long"
           },
           {
-            "$ref": "#/parameters/c2_lat"
+            "$ref": "#/parameters/q.c2_lat"
           },
           {
-            "$ref": "#/parameters/c2_long"
+            "$ref": "#/parameters/q.c2_long"
           }
         ],
         "responses": {
@@ -1553,7 +3142,10 @@
               "required": [
                 "MapOutput"
               ],
-              "type": "object"
+              "type": "object",
+              "xml": {
+                "name": "Root"
+              }
             }
           }
         },
@@ -1573,31 +3165,34 @@
               "JSON",
               "XML"
             ],
-            "in": "query",
+            "in": "formData",
             "name": "output",
             "required": false,
             "type": "string"
           },
           {
-            "$ref": "#/parameters/qid"
+            "$ref": "#/parameters/f.qid"
           },
           {
-            "$ref": "#/parameters/callback"
+            "$ref": "#/parameters/f.callback"
           },
           {
-            "$ref": "#/parameters/tablelist"
+            "$ref": "#/parameters/f.tablelist"
           },
           {
-            "$ref": "#/parameters/c1_lat"
+            "$ref": "#/parameters/f.c1_lat"
           },
           {
-            "$ref": "#/parameters/c1_long"
+            "$ref": "#/parameters/f.c1_long"
           },
           {
-            "$ref": "#/parameters/c2_lat"
+            "$ref": "#/parameters/f.c2_lat"
           },
           {
-            "$ref": "#/parameters/c2_long"
+            "$ref": "#/parameters/f.c2_long"
+          },
+          {
+            "$ref": "#/parameters/f.mapset"
           }
         ],
         "responses": {
@@ -1613,7 +3208,10 @@
               "required": [
                 "MapOutput"
               ],
-              "type": "object"
+              "type": "object",
+              "xml": {
+                "name": "Root"
+              }
             }
           }
         },
@@ -1641,22 +3239,22 @@
             "type": "string"
           },
           {
-            "$ref": "#/parameters/qid"
+            "$ref": "#/parameters/q.qid"
           },
           {
-            "$ref": "#/parameters/pageno"
+            "$ref": "#/parameters/q.pageno"
           },
           {
-            "$ref": "#/parameters/callback"
+            "$ref": "#/parameters/q.callback"
           },
           {
-            "$ref": "#/parameters/newsort"
+            "$ref": "#/parameters/q.newsort"
           },
           {
-            "$ref": "#/parameters/descending"
+            "$ref": "#/parameters/q.descending"
           },
           {
-            "$ref": "#/parameters/qcolumns"
+            "$ref": "#/parameters/q.qcolumns"
           }
         ],
         "responses": {
@@ -1672,7 +3270,10 @@
               "required": [
                 "Results"
               ],
-              "type": "object"
+              "type": "object",
+              "xml": {
+                "name": "Root"
+              }
             }
           }
         },
@@ -1692,28 +3293,28 @@
               "JSON",
               "XML"
             ],
-            "in": "query",
+            "in": "formData",
             "name": "output",
             "required": false,
             "type": "string"
           },
           {
-            "$ref": "#/parameters/qid"
+            "$ref": "#/parameters/f.qid"
           },
           {
-            "$ref": "#/parameters/pageno"
+            "$ref": "#/parameters/f.pageno"
           },
           {
-            "$ref": "#/parameters/callback"
+            "$ref": "#/parameters/f.callback"
           },
           {
-            "$ref": "#/parameters/newsort"
+            "$ref": "#/parameters/f.newsort"
           },
           {
-            "$ref": "#/parameters/descending"
+            "$ref": "#/parameters/f.descending"
           },
           {
-            "$ref": "#/parameters/qcolumns"
+            "$ref": "#/parameters/f.qcolumns"
           }
         ],
         "responses": {
@@ -1729,7 +3330,10 @@
               "required": [
                 "Results"
               ],
-              "type": "object"
+              "type": "object",
+              "xml": {
+                "name": "Root"
+              }
             }
           }
         },
@@ -1757,7 +3361,7 @@
             "type": "string"
           },
           {
-            "$ref": "#/parameters/callback"
+            "$ref": "#/parameters/q.callback"
           }
         ],
         "responses": {
@@ -1767,13 +3371,16 @@
               "description": "Root Object",
               "properties": {
                 "Results": {
-                  "$ref": "#/definitions/met_Results"
+                  "$ref": "#/definitions/met1"
                 }
               },
               "required": [
                 "Results"
               ],
-              "type": "object"
+              "type": "object",
+              "xml": {
+                "name": "Root"
+              }
             }
           }
         },
@@ -1793,13 +3400,13 @@
               "JSON",
               "XML"
             ],
-            "in": "query",
+            "in": "formData",
             "name": "output",
             "required": false,
             "type": "string"
           },
           {
-            "$ref": "#/parameters/callback"
+            "$ref": "#/parameters/f.callback"
           }
         ],
         "responses": {
@@ -1809,13 +3416,16 @@
               "description": "Root Object",
               "properties": {
                 "Results": {
-                  "$ref": "#/definitions/met_Results"
+                  "$ref": "#/definitions/met1"
                 }
               },
               "required": [
                 "Results"
               ],
-              "type": "object"
+              "type": "object",
+              "xml": {
+                "name": "Root"
+              }
             }
           }
         },
@@ -1843,22 +3453,22 @@
             "type": "string"
           },
           {
-            "$ref": "#/parameters/callback"
+            "$ref": "#/parameters/q.callback"
           },
           {
-            "$ref": "#/parameters/statute_code"
+            "$ref": "#/parameters/q.statute_code"
           },
           {
-            "$ref": "#/parameters/status_flag"
+            "$ref": "#/parameters/q.status_flag"
           },
           {
-            "$ref": "#/parameters/search_term"
+            "$ref": "#/parameters/q.search_term"
           },
           {
-            "$ref": "#/parameters/search_code"
+            "$ref": "#/parameters/q.search_code"
           },
           {
-            "$ref": "#/parameters/sort_order"
+            "$ref": "#/parameters/q.sort_order"
           }
         ],
         "responses": {
@@ -1874,7 +3484,10 @@
               "required": [
                 "Results"
               ],
-              "type": "object"
+              "type": "object",
+              "xml": {
+                "name": "Root"
+              }
             }
           }
         },
@@ -1894,28 +3507,28 @@
               "JSON",
               "XML"
             ],
-            "in": "query",
+            "in": "formData",
             "name": "output",
             "required": false,
             "type": "string"
           },
           {
-            "$ref": "#/parameters/callback"
+            "$ref": "#/parameters/f.callback"
           },
           {
-            "$ref": "#/parameters/statute_code"
+            "$ref": "#/parameters/f.statute_code"
           },
           {
-            "$ref": "#/parameters/status_flag"
+            "$ref": "#/parameters/f.status_flag"
           },
           {
-            "$ref": "#/parameters/search_term"
+            "$ref": "#/parameters/f.search_term"
           },
           {
-            "$ref": "#/parameters/search_code"
+            "$ref": "#/parameters/f.search_code"
           },
           {
-            "$ref": "#/parameters/sort_order"
+            "$ref": "#/parameters/f.sort_order"
           }
         ],
         "responses": {
@@ -1931,7 +3544,10 @@
               "required": [
                 "Results"
               ],
-              "type": "object"
+              "type": "object",
+              "xml": {
+                "name": "Root"
+              }
             }
           }
         },
@@ -1951,6 +3567,12 @@
           "description": "The unique, system-generated identifier for an activity performed at or related to a particular site or Facility.",
           "example": "???",
           "title": "Activity ID",
+          "type": "string"
+        },
+        "CaaFlag": {
+          "description": "A flag indicating that the Primary Law cited for the case was the Clean Air Act.",
+          "example": "1",
+          "title": "CAA Flag",
           "type": "string"
         },
         "CaseCategoryCode": {
@@ -1989,6 +3611,12 @@
           "title": "Case Status Description",
           "type": "string"
         },
+        "CerclaFlag": {
+          "description": "A flag indicating that the Primary Law cited for the case was the Comprehensive Environmental Response, Compensation, and Liability Act.",
+          "example": "1",
+          "title": "CERCLA Flag",
+          "type": "string"
+        },
         "CivilCriminalIndicator": {
           "description": "Civil vs. Criminal Indicator.",
           "example": "CI",
@@ -1999,6 +3627,15 @@
           "description": "For civil enforcement actions, cost recovery awarded is the amount of cost recovery ordered or agreed to be repaid by the responsible party of parties.",
           "example": "0",
           "title": "Cost Recovery Amount",
+          "type": "string"
+        },
+        "CourtDocketNumber": {
+          "type": "string"
+        },
+        "CwaFlag": {
+          "description": "A flag indicating that the Primary Law cited for the case was the Clean Water Act.",
+          "example": "1",
+          "title": "CWA Flag",
           "type": "string"
         },
         "DOJDocketNmbr": {
@@ -2031,10 +3668,28 @@
           "title": "Enforcement Outcome",
           "type": "string"
         },
+        "EpcraFlag": {
+          "description": "A flag indicating that the Primary Law cited for the case was the Emergency Planning and Community Right to Know Act.",
+          "example": "1",
+          "title": "EPCRA Flag",
+          "type": "string"
+        },
         "FedPenalty": {
           "description": "For civil judicial Enforcement Actions, this amount is the Federal penalty assessed against the defendant(s) as specified in the final entered Consent Decree or Court Order.  For administrative Enforcement Actions, it is the penalty assessed in the Consent/Final Order.  It does not include the amount of the penalty mitigated due to a SEP or the amount shared with the state or local entities.  Interest payments associated with a penalty paid over time are not to be included in this amount.  It is the total Federal amount for each Final Order.",
           "example": "$3,000.00",
           "title": "Federal Penalty",
+          "type": "string"
+        },
+        "FederalFlag": {
+          "description": "A flag indicating that the  case is related to a Federally Owned facility.",
+          "example": "1",
+          "title": "Federal Flag",
+          "type": "string"
+        },
+        "FifraFlag": {
+          "description": "A flag indicating that the Primary Law cited for the case was the Federal Insecticide, Fungicide, and Rodenticide Act.",
+          "example": "1",
+          "title": "FIFRA Flag",
           "type": "string"
         },
         "Lead": {
@@ -2044,7 +3699,7 @@
           "type": "string"
         },
         "MaxScore": {
-          "description": "[Col. 121]",
+          "description": "A sorting score for internal use.",
           "example": "1",
           "title": "Max Score",
           "type": "string"
@@ -2078,6 +3733,12 @@
           "title": "Prosecution Summary ID",
           "type": "string"
         },
+        "RcraFlag": {
+          "description": "A flag indicating that the Primary Law cited for the case was the Resource Conservation and Recovery Act.",
+          "example": "1",
+          "title": "RCRA Flag",
+          "type": "string"
+        },
         "SEPCategories": {
           "description": "For civil enforcement actions, as part of a settlement, a defendant may voluntarily agree to undertake an environmentally beneficial project (Supplement Environmental Project) related to the violation in exchange for mitigation of the penalty to be paid.  It may not include activities a defendant must take to return to compliance with the law. The EPA has set out eight categories that can be acceptable SEPs:\n- Public Health\n- Pollution Prevention\n- Pollution Reduction\n- Environmental Restoration and Protection\n- Emergency Planning and Preparedness\n- Assessments and Audits\n- Environmental Compliance Promotion\n- Other Types of Projects\nDescriptions of each SEP category can be found on the EPA Supplemental Environmental Projects page.",
           "example": "0",
@@ -2096,6 +3757,12 @@
           "title": "Supplemental Environmental Projects Texts",
           "type": "string"
         },
+        "SdwaFlag": {
+          "description": "A flag indicating that the Primary Law cited for the case was the Safe Drinking Water Act.",
+          "example": "1",
+          "title": "SDWA Flag",
+          "type": "string"
+        },
         "SettlementCnt": {
           "description": "For civil enforcement actions, the number of settlements associated with the case. Most enforcement actions tend to follow a one-case, one-settlement scenario. However, and in particular with judicial actions involving multiple defendants, more than one settlement may result.",
           "example": "1",
@@ -2109,6 +3776,7 @@
           "type": "string"
         },
         "StateLocPenaltyAmt": {
+          "description": "The total State or Local Penalty amount collected pursuant to a Final Order.",
           "title": "State Local Penalty Amount",
           "type": "string"
         },
@@ -2122,6 +3790,11 @@
           "description": "Flag indicating if the case is located on tribal land.",
           "title": "Tribal Land Flag",
           "type": "string"
+        },
+        "TscaFlag": {
+          "description": "Flag indicating whether or not a facility has a TSCA ID",
+          "title": "Toxic Substances Control Act Flag",
+          "type": "string"
         }
       },
       "required": [
@@ -2132,6 +3805,7 @@
         "CaseStatusCode",
         "CaseStatusDesc",
         "DOJDocketNmbr",
+        "CourtDocketNumber",
         "PrimaryLaw",
         "PrimarySection",
         "DateFiled",
@@ -2154,12 +3828,192 @@
         "StateLocPenaltyAmt",
         "SEPCategories",
         "SEPTexts",
+        "RcraFlag",
+        "CwaFlag",
+        "CaaFlag",
+        "EpcraFlag",
+        "SdwaFlag",
+        "FifraFlag",
+        "CerclaFlag",
+        "TscaFlag",
+        "FederalFlag",
         "MaxScore"
       ],
       "type": "object",
       "xml": {
         "name": "Case"
       }
+    },
+    "crs0_ClusterData": {
+      "description": "Cluster Data Complex Object",
+      "properties": {
+        "AFRRows": {
+          "description": "Displays the number of Administrative Formal cases within the search results.",
+          "example": "5",
+          "title": "Administrative Formal Actions Row Count",
+          "type": "string"
+        },
+        "CAARows": {
+          "description": "The number of facilities or cases within the result set that have Clean Air Act (CAA) permits.",
+          "example": "50",
+          "title": "Clean Air Act Count",
+          "type": "string"
+        },
+        "CERCLARows": {
+          "description": "The number of cases within the results set that relate to the Comprehensive Environmental Response, Compensation, and Liability Act (CERCLA).",
+          "example": "50",
+          "title": "Comprehensive Environmental Response, Compensation, and Liability Act Count",
+          "type": "string"
+        },
+        "CWARows": {
+          "description": "The number of facilities or cases within the results set that have Clean Water Act (CWA) permits.",
+          "example": "50",
+          "title": "Clean Water Act Count",
+          "type": "string"
+        },
+        "ClusterCount": {
+          "description": "The number of facilities or cases in the cluster.",
+          "title": "Cluster Count",
+          "type": "string"
+        },
+        "ClusterIcon": {
+          "description": "The icon file used to reprsent the cluster.",
+          "title": "Cluster Icon",
+          "type": "string"
+        },
+        "ClusterLatitude": {
+          "description": "The latitude in decimal degrees expressed using the NAD83 horizontal datum.",
+          "example": "38.904149",
+          "title": "Cluster Latitude",
+          "type": "string"
+        },
+        "ClusterLongitude": {
+          "description": "The longitude in decimal degrees expressed using the NAD83 horizontal datum.",
+          "example": "-77.017094",
+          "title": "Cluster Longitude",
+          "type": "string"
+        },
+        "ClusterName": {
+          "description": "THe name or the identifier of the geographic area used for clustering.  Examples:  Alaska, Fairfax County, 22314",
+          "title": "Cluster Name",
+          "type": "string"
+        },
+        "ClusterType": {
+          "description": "The representative geographic area used for clustering.  Examples:  State, County, Zip Code",
+          "title": "Cluster Type",
+          "type": "string"
+        },
+        "ClusterValue": {
+          "description": "The value, internal to the database report object, that represents this cluster, like a state abbreviation, zip code, or county FIPS code.  Examples: AK, 22314, 50011",
+          "title": "Cluster Value",
+          "type": "string"
+        },
+        "CriminalRows": {
+          "description": "Displays the number of criminal enforcement cases within the search results.",
+          "example": "0",
+          "title": "Count of Criminal Cases",
+          "type": "string"
+        },
+        "EPCRARows": {
+          "description": "The number of cases within the results set that relate to the Emergency Planning and Community Right to Know Act (EPCRA).",
+          "example": "50",
+          "title": "Emergency Planning and Community Right to Know Act Count",
+          "type": "string"
+        },
+        "FIFRARows": {
+          "description": "The number of cases within the result set that relate to the Federal Insecticide, Fungicide, and Rodenticide Act (FIFRA).",
+          "example": "50",
+          "title": "Federal Insecticide, Fungicide, and Rodenticide Act Count",
+          "type": "string"
+        },
+        "FedPenRows": {
+          "description": "Displays the number of cases with federal penalty assessed greater than $0.",
+          "example": "3",
+          "title": "Federal Penalty Rows",
+          "type": "string"
+        },
+        "FederalRows": {
+          "description": "The number of facilities or cases within the result set that have a relationship to a Federal facility.",
+          "example": "50",
+          "title": "Federal Related Facility Count",
+          "type": "string"
+        },
+        "JDCRows": {
+          "description": "Displays the number of Judicial cases within the search results.",
+          "example": "2",
+          "title": "Judicial Cases Row Count",
+          "type": "string"
+        },
+        "ObjectId": {
+          "description": "Sequential number assigned to each facility or cluster returned.",
+          "example": "1",
+          "title": "Object Identifier",
+          "type": "string"
+        },
+        "RCRARows": {
+          "description": "The number of facilities or cases within the results set that have Resource Conservation and Recovery Action (RCRA) permits.",
+          "example": "50",
+          "title": "Resource Conservation & Recovery Act Count",
+          "type": "string"
+        },
+        "SDWARows": {
+          "description": "The number of facilities or cases within the results set that have Safe Drinking Water Act (SDWA) permits.",
+          "example": "50",
+          "title": "Safe Drinking Water Act Count",
+          "type": "string"
+        },
+        "SEPRows": {
+          "description": "Displays the number of cases with SEP amount greater than $0.",
+          "example": "0",
+          "title": "Number of Cases found with SEP data",
+          "type": "string"
+        },
+        "TSCARows": {
+          "description": "The number of cases within the result set that relate to the Toxic Substances Control Act (TSCA).",
+          "example": "50",
+          "title": "Toxic Substances Control Act Count",
+          "type": "string"
+        }
+      },
+      "required": [
+        "ObjectId",
+        "ClusterLatitude",
+        "ClusterLongitude",
+        "ClusterIcon",
+        "ClusterType",
+        "ClusterName",
+        "ClusterValue",
+        "ClusterCount",
+        "JDCRows",
+        "AFRRows",
+        "FedPenRows",
+        "SEPRows",
+        "CriminalRows",
+        "RCRARows",
+        "CWARows",
+        "CAARows",
+        "SDWARows",
+        "EPCRARows",
+        "CERCLARows",
+        "FIFRARows",
+        "TSCARows",
+        "FederalRows"
+      ],
+      "type": "object"
+    },
+    "crs0_ClusterOutput": {
+      "description": "Cluster Ouput Complex Object Array",
+      "properties": {
+        "ClusterData": {
+          "description": "An array of state, county, or zip code cluster information",
+          "items": {
+            "$ref": "#/definitions/crs0_ClusterData"
+          },
+          "title": "Cluster Data",
+          "type": "array"
+        }
+      },
+      "type": "object"
     },
     "crs0_MapData": {
       "description": "Data container providing locational information for each case.",
@@ -2199,6 +4053,9 @@
           "example": "Facility",
           "title": "Type",
           "type": "string"
+        },
+        "VALUE": {
+          "type": "string"
         }
       },
       "required": [
@@ -2207,9 +4064,13 @@
         "ICON",
         "TYPE",
         "NAME",
+        "VALUE",
         "PUV"
       ],
-      "type": "object"
+      "type": "object",
+      "xml": {
+        "name": "Object"
+      }
     },
     "crs0_MapOutput": {
       "description": "Data container for visualizing case information.",
@@ -2221,11 +4082,16 @@
           "type": "string"
         },
         "MapData": {
+          "description": "An array of facility geospatial information.",
           "items": {
             "$ref": "#/definitions/crs0_MapData"
           },
           "title": "Map Data",
-          "type": "array"
+          "type": "array",
+          "xml": {
+            "name": "MapData",
+            "wrapped": true
+          }
         },
         "PopUpBaseURL": {
           "description": "Combine this URL with the PUC to get popup info",
@@ -2248,13 +4114,296 @@
       ],
       "type": "object"
     },
-    "crs1_CAEDDocuments": {
+    "crs0_get_case_info.Results": {
+      "description": "Results Object",
       "properties": {
-        "Dummy": {
+        "AFRRows": {
+          "description": "Displays the number of Administrative Formal cases within the search results.",
+          "example": "5",
+          "title": "Administrative Formal Actions Row Count",
+          "type": "string"
+        },
+        "CERCLARows": {
+          "description": "The number of cases within the results set that relate to the Comprehensive Environmental Response, Compensation, and Liability Act (CERCLA).",
+          "example": "50",
+          "title": "Comprehensive Environmental Response, Compensation, and Liability Act Count",
+          "type": "string"
+        },
+        "CWARows": {
+          "description": "The number of facilities or cases within the results set that have Clean Water Act (CWA) permits.",
+          "example": "50",
+          "title": "Clean Water Act Count",
+          "type": "string"
+        },
+        "Cases": {
+          "description": "A summary of the violation(s), environmental problem(s), and a description of the cause of action.",
+          "items": {
+            "$ref": "#/definitions/crs0_Cases"
+          },
+          "title": "Cases",
+          "type": "array",
+          "xml": {
+            "name": "Cases",
+            "wrapped": true
+          }
+        },
+        "ClusterOutput": {
+          "$ref": "#/definitions/crs0_ClusterOutput"
+        },
+        "ClusterRecords": {
+          "description": "Number of clusters returned.",
+          "example": "199",
+          "title": "Cluster Records",
+          "type": "string"
+        },
+        "CriminalRows": {
+          "description": "Displays the number of criminal enforcement cases within the search results.",
+          "example": "0",
+          "title": "Count of Criminal Cases",
+          "type": "string"
+        },
+        "EPCRARows": {
+          "description": "The number of cases within the results set that relate to the Emergency Planning and Community Right to Know Act (EPCRA).",
+          "example": "50",
+          "title": "Emergency Planning and Community Right to Know Act Count",
+          "type": "string"
+        },
+        "FIFRARows": {
+          "description": "The number of cases within the result set that relate to the Federal Insecticide, Fungicide, and Rodenticide Act (FIFRA).",
+          "example": "50",
+          "title": "Federal Insecticide, Fungicide, and Rodenticide Act Count",
+          "type": "string"
+        },
+        "FedPenRows": {
+          "description": "Displays the number of cases with federal penalty assessed greater than $0.",
+          "example": "3",
+          "title": "Federal Penalty Rows",
+          "type": "string"
+        },
+        "FederalRows": {
+          "description": "The number of facilities or cases within the result set that have a relationship to a Federal facility.",
+          "example": "50",
+          "title": "Federal Related Facility Count",
+          "type": "string"
+        },
+        "JDCRows": {
+          "description": "Displays the number of Judicial cases within the search results.",
+          "example": "2",
+          "title": "Judicial Cases Row Count",
+          "type": "string"
+        },
+        "MapLocations": {
+          "description": "Number of Faciliy Locations related to the Case Search Results",
+          "example": "200",
+          "title": "Map Locations",
+          "type": "string"
+        },
+        "Message": {
+          "description": "Field to record messages (typically performance-related) about packet processing",
+          "example": "Success",
+          "title": "Message",
+          "type": "string"
+        },
+        "QueryParameters": {
+          "description": "A list of submitted query parameters and their values.",
+          "items": {
+            "$ref": "#/definitions/qp0"
+          },
+          "title": "Query Parameters",
+          "type": "array",
+          "xml": {
+            "name": "QueryParameters",
+            "wrapped": true
+          }
+        },
+        "QueryRows": {
+          "description": "Number of query results returned",
+          "example": "5",
+          "title": "Query Row Count",
+          "type": "string"
+        },
+        "RCRARows": {
+          "description": "The number of facilities or cases within the results set that have Resource Conservation and Recovery Action (RCRA) permits.",
+          "example": "50",
+          "title": "Resource Conservation & Recovery Act Count",
+          "type": "string"
+        },
+        "SDWARows": {
+          "description": "The number of facilities or cases within the results set that have Safe Drinking Water Act (SDWA) permits.",
+          "example": "50",
+          "title": "Safe Drinking Water Act Count",
+          "type": "string"
+        },
+        "SEPRows": {
+          "description": "Displays the number of cases with SEP amount greater than $0.",
+          "example": "0",
+          "title": "Number of Cases found with SEP data",
+          "type": "string"
+        },
+        "TSCARows": {
+          "description": "The number of cases within the result set that relate to the Toxic Substances Control Act (TSCA).",
+          "example": "50",
+          "title": "Toxic Substances Control Act Count",
           "type": "string"
         }
       },
+      "required": [
+        "Message",
+        "QueryRows",
+        "MapLocations",
+        "JDCRows",
+        "AFRRows",
+        "FedPenRows",
+        "SEPRows",
+        "CriminalRows",
+        "RCRARows",
+        "CWARows",
+        "SDWARows",
+        "EPCRARows",
+        "CERCLARows",
+        "FIFRARows",
+        "TSCARows",
+        "FederalRows",
+        "QueryParameters"
+      ],
       "type": "object"
+    },
+    "crs0_get_cases_from_facility.CaseNumber": {
+      "description": "Case Number",
+      "properties": {
+        "CaseNumber": {
+          "description": "A unique number identifying the enforcement action. For EPA civil cases, these numbers begin with either the two digit EPA Region Code, \"HQ\" (headquarters initiated cases), and \"EF\" or \"WF\" (Eastern or Western Field Office CAA Mobile Source Program cases); followed by the fiscal year in which the action was initiated. After the fiscal year there is a sequence number. State NPDES civil cases start with the two character post abbreviation, followed by a sequence number.",
+          "example": "05-200021274",
+          "title": "Case Number",
+          "type": "string"
+        }
+      },
+      "required": [
+        "CaseNumber"
+      ],
+      "type": "object"
+    },
+    "crs0_get_cases_from_facility.CaseNumbers": {
+      "description": "Case Numbers",
+      "properties": {
+        "CaseNumbers": {
+          "items": {
+            "$ref": "#/definitions/crs0_get_cases_from_facility.CaseNumber"
+          },
+          "title": "CAED Documents",
+          "type": "array",
+          "xml": {
+            "name": "CAEDDocuments",
+            "wrapped": true
+          }
+        }
+      },
+      "required": [
+        "CaseNumbers"
+      ],
+      "type": "object"
+    },
+    "crs0_get_cases_from_facility.Results": {
+      "description": "Results",
+      "properties": {
+        "Results": {
+          "$ref": "#/definitions/crs0_get_cases_from_facility.CaseNumbers"
+        }
+      },
+      "required": [
+        "Results"
+      ],
+      "type": "object"
+    },
+    "crs0_get_facilities_from_case.RegistryID": {
+      "description": "Registry ID",
+      "properties": {
+        "RegistryID": {
+          "description": "An internal 12-digit Facility Registry Service (FRS) tracking number used to tie all facility data together in EPA regulatory program databases.",
+          "example": "110020837601",
+          "title": "FRS ID",
+          "type": "string"
+        }
+      },
+      "required": [
+        "RegistryID"
+      ],
+      "type": "object"
+    },
+    "crs0_get_facilities_from_case.RegistryIDs": {
+      "description": "Registry IDs",
+      "properties": {
+        "RegistryIDs": {
+          "items": {
+            "$ref": "#/definitions/crs0_get_facilities_from_case.RegistryID"
+          },
+          "title": "CAED Documents",
+          "type": "array",
+          "xml": {
+            "name": "CAEDDocuments",
+            "wrapped": true
+          }
+        }
+      },
+      "required": [
+        "RegistryIDs"
+      ],
+      "type": "object"
+    },
+    "crs0_get_facilities_from_case.Results": {
+      "description": "Results",
+      "properties": {
+        "Results": {
+          "$ref": "#/definitions/crs0_get_facilities_from_case.RegistryIDs"
+        }
+      },
+      "required": [
+        "Results"
+      ],
+      "type": "object"
+    },
+    "crs1_CAEDDocuments": {
+      "description": "Case Related Uploaded Documents",
+      "properties": {
+        "CaseNumber": {
+          "description": "A unique number identifying the enforcement action. For EPA civil cases, these numbers begin with either the two digit EPA Region Code, \"HQ\" (headquarters initiated cases), and \"EF\" or \"WF\" (Eastern or Western Field Office CAA Mobile Source Program cases); followed by the fiscal year in which the action was initiated. After the fiscal year there is a sequence number. State NPDES civil cases start with the two character post abbreviation, followed by a sequence number.",
+          "example": "05-200021274",
+          "title": "Case Number",
+          "type": "string"
+        },
+        "DocumentLink": {
+          "description": "URLS for documents that EPA has colleted that are related to this Case.",
+          "title": "Dcoument Links",
+          "type": "string"
+        },
+        "EPAProgram": {
+          "description": "The EPA Program associated with the Document URL",
+          "title": "EPA Program",
+          "type": "string"
+        },
+        "FacilityName": {
+          "description": "The name of the facility.",
+          "example": "3M COMPANY",
+          "title": "Facility Name",
+          "type": "string"
+        },
+        "PublishDate": {
+          "description": "The date the document was published.",
+          "title": "Document Published Date",
+          "type": "string"
+        }
+      },
+      "required": [
+        "CaseNumber",
+        "FacilityName",
+        "PublishDate",
+        "EPAProgram",
+        "DocumentLink"
+      ],
+      "type": "object",
+      "xml": {
+        "name": "CAEDDocument"
+      }
     },
     "crs1_CaseInformation": {
       "description": "The basic information section contains information that identifies the action and some key descriptive variables, such as case status and case type.",
@@ -2364,13 +4513,14 @@
           "type": "string"
         },
         "TotalFederalPenalty": {
-          "description": "For civil judicial enforcement actions, this amount is the federal penalty assessed against the defendant(s)  as specified in the final entered Consent Decree or Court Order. For administrative enforcement actions, it is the penalty assessed in the Consent/Final Order. It does not include the amount of the penalty mitigated due to a SEP or the amount shared with the state or local entities. Interest payments associated with a penalty paid over time are not included in this amount.",
+          "description": "For civil judicial enforcement actions, this amount is the federal penalty assessed against the defendant(s)� as specified in the final entered Consent Decree or Court Order. For administrative enforcement actions, it is the penalty assessed in the Consent/Final Order. It does not include the amount of the penalty mitigated due to a SEP or the amount shared with the state or local entities. Interest payments associated with a penalty paid over time are not included in this amount.",
           "example": "$13,210",
           "title": "Total Federal Penalty",
           "type": "string"
         },
         "TotalSEPCost": {
           "description": "The total value of all SEPs for all settlements at the enforcement case.",
+          "example": "$4,100.00",
           "title": "Total Supplemental Environmental Projects Cost",
           "type": "string"
         },
@@ -2380,7 +4530,7 @@
           "type": "string"
         },
         "Violations": {
-          "description": "???",
+          "description": "A compilation of all Case Violation Descriptions related to the case.",
           "example": "General Facility Requirements",
           "title": "Violations",
           "type": "string"
@@ -2410,10 +4560,7 @@
         "CaseSummary",
         "Violations"
       ],
-      "type": "object",
-      "xml": {
-        "name": "CaseInformation"
-      }
+      "type": "object"
     },
     "crs1_CaseMilestones": {
       "description": "The major milestone events tracked for the enforcement action.",
@@ -2421,6 +4568,7 @@
         "ActualDate": {
           "description": "The actual date on which the event was completed/achieved.",
           "example": "08/12/1988",
+          "title": "Actual Date",
           "type": "string"
         },
         "Event": {
@@ -2449,7 +4597,7 @@
           "type": "string"
         },
         "Sections": {
-          "description": "???",
+          "description": "A compilation of all Case Law Sections applicable for the Case.",
           "example": "106",
           "title": "Sections",
           "type": "string"
@@ -2479,8 +4627,10 @@
           "example": "08/12/1988",
           "type": "string"
         },
-        "EventAmount.ComplianceSchedules": {
+        "EventAmount": {
           "description": "The dollar amount of a scheduled payment initiated through a penalty action or a cost recovery pursuant to a Final Order.",
+          "example": "$100.00",
+          "title": "Event Amount",
           "type": "string"
         },
         "FacilityFRSID": {
@@ -2516,7 +4666,7 @@
         "ScheduleEventDescription",
         "ScheduleDate",
         "ActualDate",
-        "EventAmount.ComplianceSchedules"
+        "EventAmount"
       ],
       "type": "object",
       "xml": {
@@ -2599,6 +4749,8 @@
       "properties": {
         "ActualTerminationDate": {
           "description": "The date on which the Final Order was terminated.",
+          "example": "07/09/2011",
+          "title": "Actual Termination Date",
           "type": "string"
         },
         "ComplianceActionCost": {
@@ -2612,14 +4764,22 @@
             "$ref": "#/definitions/crs1_ComplianceSchedules"
           },
           "title": "Compliance Schedules",
-          "type": "array"
+          "type": "array",
+          "xml": {
+            "name": "ComplianceSchedules",
+            "wrapped": true
+          }
         },
         "ComplyingActions": {
           "items": {
             "$ref": "#/definitions/crs1_ComplyingActions"
           },
           "title": "Complying Actions",
-          "type": "array"
+          "type": "array",
+          "xml": {
+            "name": "ComplyingActions",
+            "wrapped": true
+          }
         },
         "CostRecovery": {
           "description": "For civil enforcement actions, cost recovery awarded is the amount of cost recovery ordered or agreed to be repaid by the responsible party of parties.",
@@ -2667,15 +4827,23 @@
           "items": {
             "$ref": "#/definitions/crs1_FinalOrderStatuses"
           },
-          "title": "Final Order Statuses\n",
-          "type": "array"
+          "title": "Final Order Statuses",
+          "type": "array",
+          "xml": {
+            "name": "FinalOrderStatuses",
+            "wrapped": true
+          }
         },
         "PollutantReductions": {
           "items": {
             "$ref": "#/definitions/crs1_PollutantReductions"
           },
           "title": "Pollutant Reductions",
-          "type": "array"
+          "type": "array",
+          "xml": {
+            "name": "PollutantReductions",
+            "wrapped": true
+          }
         },
         "SEPCost": {
           "description": "The total value of all SEPs for all settlements at the enforcement case.",
@@ -2705,7 +4873,11 @@
             "$ref": "#/definitions/crs1_SupplementalEnvironmentalProjects"
           },
           "title": "Supplemental Environmental Projects",
-          "type": "array"
+          "type": "array",
+          "xml": {
+            "name": "SupplementalEnvironmentalProjects",
+            "wrapped": true
+          }
         }
       },
       "required": [
@@ -2737,7 +4909,7 @@
       "description": "This section provides detailed facility and address information on all of the facilities associated with the civil enforcement case.",
       "properties": {
         "FRSNumber": {
-          "description": "The identification number assigned to a facility in the Facility Registry Service (FRS) to uniquely identify a facility site.",
+          "description": "The identification number assigned to a facility in the�Facility Registry Service (FRS)�to uniquely identify a facility site.",
           "example": "110007875353",
           "title": "FRS Number",
           "type": "string"
@@ -2773,7 +4945,7 @@
           "type": "string"
         },
         "NAICSCodes": {
-          "description": "A 6-digit code to classify industrial establishments. For detailed information about NAICS, please refer to the U.S. Census Bureau NAICS webpage.",
+          "description": "A 6-digit code to classify industrial establishments. For detailed information about NAICS, please refer to the U.S. Census Bureau�NAICS�webpage.",
           "title": "NAICS Codes",
           "type": "string"
         },
@@ -2857,7 +5029,7 @@
           "type": "string"
         },
         "Sections": {
-          "description": "???",
+          "description": "A compilation of all Case Law Sections applicable for the Case.",
           "example": "106",
           "title": "Sections",
           "type": "string"
@@ -2907,12 +5079,14 @@
         },
         "SEPId": {
           "description": "The system-generated unique identifier of the SEP record affiliated with the Environmental Impact.",
+          "example": "12345",
           "title": "Supplemental Environmental Projects ID",
           "type": "string"
         },
         "SEPorComp": {
           "description": "A flag that indicates whether the quantitative environmental impact pertains to a SEP or Complying Action.",
           "example": "C",
+          "title": "SEP or Complying Action Flag",
           "type": "string"
         },
         "Units": {
@@ -2965,7 +5139,7 @@
       "description": "Crosswalk between programs and facilities (identified by FRS ID).",
       "properties": {
         "FRSNumber": {
-          "description": "The identification number assigned to a facility in the Facility Registry Service (FRS) to uniquely identify a facility site.",
+          "description": "The identification number assigned to a facility in the�Facility Registry Service (FRS)�to uniquely identify a facility site.",
           "example": "110007875353",
           "title": "FRS Number",
           "type": "string"
@@ -2999,6 +5173,7 @@
         "ActualDate": {
           "description": "The actual date on which the event was completed/achieved.",
           "example": "08/12/1988",
+          "title": "Actual Date",
           "type": "string"
         },
         "Description": {
@@ -3023,7 +5198,12 @@
           "items": {
             "$ref": "#/definitions/crs1_CAEDDocuments"
           },
-          "type": "array"
+          "title": "CAED Documents",
+          "type": "array",
+          "xml": {
+            "name": "CAEDDocuments",
+            "wrapped": true
+          }
         },
         "CaseInformation": {
           "$ref": "#/definitions/crs1_CaseInformation"
@@ -3033,42 +5213,67 @@
             "$ref": "#/definitions/crs1_CaseMilestones"
           },
           "title": "Case Milestones",
-          "type": "array"
+          "type": "array",
+          "xml": {
+            "name": "CaseMilestones",
+            "wrapped": true
+          }
         },
         "Citations": {
           "items": {
             "$ref": "#/definitions/crs1_Citations"
           },
           "title": "Citations",
-          "type": "array"
+          "type": "array",
+          "xml": {
+            "name": "Citations",
+            "wrapped": true
+          }
         },
         "Defendants": {
           "items": {
             "$ref": "#/definitions/crs1_Defendants"
           },
           "title": "Defendants",
-          "type": "array"
+          "type": "array",
+          "xml": {
+            "name": "Defendants",
+            "wrapped": true
+          }
         },
         "EnforcementConclusions": {
           "items": {
             "$ref": "#/definitions/crs1_EnforcementConclusions"
           },
           "title": "Enforcement Conclusions",
-          "type": "array"
+          "type": "array",
+          "xml": {
+            "name": "EnforcementConclusions",
+            "wrapped": true
+          }
         },
         "Facilities": {
+          "description": "A complex array of facility information.",
           "items": {
             "$ref": "#/definitions/crs1_Facilities"
           },
           "title": "Facilities",
-          "type": "array"
+          "type": "array",
+          "xml": {
+            "name": "Facilities",
+            "wrapped": true
+          }
         },
         "LawsAndSections": {
           "items": {
             "$ref": "#/definitions/crs1_LawsAndSections"
           },
           "title": "Laws And Sections",
-          "type": "array"
+          "type": "array",
+          "xml": {
+            "name": "LawsAndSections",
+            "wrapped": true
+          }
         },
         "Message": {
           "description": "Field to record messages (typically performance-related) about packet processing",
@@ -3081,14 +5286,22 @@
             "$ref": "#/definitions/crs1_Pollutants"
           },
           "title": "Pollutants",
-          "type": "array"
+          "type": "array",
+          "xml": {
+            "name": "Pollutants",
+            "wrapped": true
+          }
         },
         "ProgramLinks": {
           "items": {
             "$ref": "#/definitions/crs1_ProgramLinks"
           },
           "title": "Program Links",
-          "type": "array"
+          "type": "array",
+          "xml": {
+            "name": "ProgramLinks",
+            "wrapped": true
+          }
         },
         "RelatedActivities": {
           "description": "This section provides an Activity Type description and date for other ICIS activities (e.g., inspections, or compliance assistance) that are linked to the enforcement action.",
@@ -3096,7 +5309,11 @@
             "$ref": "#/definitions/crs1_RelatedActivities"
           },
           "title": "Related Activities",
-          "type": "array"
+          "type": "array",
+          "xml": {
+            "name": "RelatedActivities",
+            "wrapped": true
+          }
         }
       },
       "required": [
@@ -3130,17 +5347,19 @@
         },
         "SEPAmount": {
           "description": "The cost applied to the type(s) of environmentally beneficial projects which a defendant/respondent agree to undertake in settlement of an enforcement action, but which the defendant/respondent is not otherwise legally required to perform.",
+          "example": "$4,100.00",
           "title": "Supplemental Environmental Projects Amount",
           "type": "string"
         },
         "SEPId": {
           "description": "The system-generated unique identifier of the SEP record affiliated with the Environmental Impact.",
+          "example": "12345",
           "title": "Supplemental Environmental Projects ID",
           "type": "string"
         },
         "SEPText": {
           "description": "The free-form textual description used to further describe the SEP.",
-          "title": "Supplemental Environmental Projects Text'",
+          "title": "Supplemental Environmental Projects Text",
           "type": "string"
         }
       },
@@ -3162,6 +5381,25 @@
         "AFRRows": {
           "description": "Displays the number of Administrative Formal cases within the search results.",
           "example": "5",
+          "title": "Administrative Formal Actions Row Count",
+          "type": "string"
+        },
+        "CAARows": {
+          "description": "The number of facilities or cases within the result set that have Clean Air Act (CAA) permits.",
+          "example": "50",
+          "title": "Clean Air Act Count",
+          "type": "string"
+        },
+        "CERCLARows": {
+          "description": "The number of cases within the results set that relate to the Comprehensive Environmental Response, Compensation, and Liability Act (CERCLA).",
+          "example": "50",
+          "title": "Comprehensive Environmental Response, Compensation, and Liability Act Count",
+          "type": "string"
+        },
+        "CWARows": {
+          "description": "The number of facilities or cases within the results set that have Clean Water Act (CWA) permits.",
+          "example": "50",
+          "title": "Clean Water Act Count",
           "type": "string"
         },
         "Cases": {
@@ -3170,7 +5408,11 @@
             "$ref": "#/definitions/crs0_Cases"
           },
           "title": "Cases",
-          "type": "array"
+          "type": "array",
+          "xml": {
+            "name": "Cases",
+            "wrapped": true
+          }
         },
         "CriminalRows": {
           "description": "Displays the number of criminal enforcement cases within the search results.",
@@ -3178,9 +5420,28 @@
           "title": "Count of Criminal Cases",
           "type": "string"
         },
+        "EPCRARows": {
+          "description": "The number of cases within the results set that relate to the Emergency Planning and Community Right to Know Act (EPCRA).",
+          "example": "50",
+          "title": "Emergency Planning and Community Right to Know Act Count",
+          "type": "string"
+        },
+        "FIFRARows": {
+          "description": "The number of cases within the result set that relate to the Federal Insecticide, Fungicide, and Rodenticide Act (FIFRA).",
+          "example": "50",
+          "title": "Federal Insecticide, Fungicide, and Rodenticide Act Count",
+          "type": "string"
+        },
         "FedPenRows": {
           "description": "Displays the number of cases with federal penalty assessed greater than $0.",
           "example": "3",
+          "title": "Federal Penalty Rows",
+          "type": "string"
+        },
+        "FederalRows": {
+          "description": "The number of facilities or cases within the result set that have a relationship to a Federal facility.",
+          "example": "50",
+          "title": "Federal Related Facility Count",
           "type": "string"
         },
         "JDCRows": {
@@ -3216,9 +5477,28 @@
           "title": "Query Row Count",
           "type": "string"
         },
+        "RCRARows": {
+          "description": "The number of facilities or cases within the results set that have Resource Conservation and Recovery Action (RCRA) permits.",
+          "example": "50",
+          "title": "Resource Conservation & Recovery Act Count",
+          "type": "string"
+        },
+        "SDWARows": {
+          "description": "The number of facilities or cases within the results set that have Safe Drinking Water Act (SDWA) permits.",
+          "example": "50",
+          "title": "Safe Drinking Water Act Count",
+          "type": "string"
+        },
         "SEPRows": {
           "description": "Displays the number of cases with SEP amount greater than $0.",
           "example": "0",
+          "title": "Number of Cases found with SEP data",
+          "type": "string"
+        },
+        "TSCARows": {
+          "description": "The number of cases within the result set that relate to the Toxic Substances Control Act (TSCA).",
+          "example": "50",
+          "title": "Toxic Substances Control Act Count",
           "type": "string"
         }
       },
@@ -3230,6 +5510,15 @@
         "FedPenRows",
         "SEPRows",
         "CriminalRows",
+        "RCRARows",
+        "CWARows",
+        "CAARows",
+        "SDWARows",
+        "EPCRARows",
+        "CERCLARows",
+        "FIFRARows",
+        "TSCARows",
+        "FederalRows",
         "QueryID",
         "PageNo"
       ],
@@ -3337,7 +5626,7 @@
           "type": "string"
         },
         "Statutes": {
-          "description": "???",
+          "description": "A compilation of all Case Law Statutes applicable to the Case.",
           "example": "Title 18 U.S. Criminal Code",
           "title": "Statuetes",
           "type": "string"
@@ -3426,21 +5715,33 @@
             "$ref": "#/definitions/crs3_CRDefendants"
           },
           "title": "Criminal Enforcement Case Defendants",
-          "type": "array"
+          "type": "array",
+          "xml": {
+            "name": "CRDefendants",
+            "wrapped": true
+          }
         },
         "CRDetails": {
           "items": {
             "$ref": "#/definitions/crs3_CRDetails"
           },
           "title": "Criminal Case Details",
-          "type": "array"
+          "type": "array",
+          "xml": {
+            "name": "CRDetails",
+            "wrapped": true
+          }
         },
         "Locations": {
           "items": {
             "$ref": "#/definitions/crs3_Locations"
           },
           "title": "Locations",
-          "type": "array"
+          "type": "array",
+          "xml": {
+            "name": "Locations",
+            "wrapped": true
+          }
         },
         "Message": {
           "description": "Field to record messages (typically performance-related) about packet processing",
@@ -3467,7 +5768,11 @@
             "$ref": "#/definitions/crs0_Cases"
           },
           "title": "Cases",
-          "type": "array"
+          "type": "array",
+          "xml": {
+            "name": "Cases",
+            "wrapped": true
+          }
         },
         "Message": {
           "description": "Field to record messages (typically performance-related) about packet processing",
@@ -3503,7 +5808,7 @@
       ],
       "type": "object"
     },
-    "met_Results": {
+    "met1": {
       "description": "Results Object",
       "properties": {
         "Message": {
@@ -3514,10 +5819,14 @@
         },
         "ResultColumns": {
           "items": {
-            "$ref": "#/definitions/met_ResultsColumns"
+            "$ref": "#/definitions/met2"
           },
           "title": "Result Columns",
-          "type": "array"
+          "type": "array",
+          "xml": {
+            "name": "ResultColumns",
+            "wrapped": true
+          }
         }
       },
       "required": [
@@ -3525,7 +5834,7 @@
       ],
       "type": "object"
     },
-    "met_ResultsColumns": {
+    "met2": {
       "description": "Results Column Object",
       "properties": {
         "ColumnID": {
@@ -3554,6 +5863,8 @@
           "type": "string"
         },
         "ObjectName": {
+          "description": "The JSON name used for the database column.",
+          "example": "CaseName",
           "title": "Object Name",
           "type": "string"
         }
@@ -3566,7 +5877,35 @@
         "ObjectName",
         "Description"
       ],
-      "type": "object"
+      "type": "object",
+      "xml": {
+        "name": "ResultColumn"
+      }
+    },
+    "qp0": {
+      "description": "Query Parameters Object",
+      "properties": {
+        "QP": {
+          "description": "Query parameter",
+          "example": "output",
+          "title": "Query Parameter",
+          "type": "string"
+        },
+        "QV": {
+          "description": "Query value",
+          "example": "JSON",
+          "title": "Query Value",
+          "type": "string"
+        }
+      },
+      "required": [
+        "QP",
+        "QV"
+      ],
+      "type": "object",
+      "xml": {
+        "name": "Parameter"
+      }
     },
     "rlk00_LuValues": {
       "description": "Lookup Values",
@@ -3586,7 +5925,10 @@
         "ValueCode",
         "ValueDescription"
       ],
-      "type": "object"
+      "type": "object",
+      "xml": {
+        "name": "LuValue"
+      }
     },
     "rlk51_Results": {
       "description": "Results Object",
@@ -3595,7 +5937,11 @@
           "items": {
             "$ref": "#/definitions/rlk00_LuValues"
           },
-          "type": "array"
+          "type": "array",
+          "xml": {
+            "name": "LuValues",
+            "wrapped": true
+          }
         },
         "Message": {
           "description": "Field to record messages (typically performance-related) about packet processing",

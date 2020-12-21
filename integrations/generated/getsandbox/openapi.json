@@ -13,7 +13,7 @@
     },
     "description": "Sandbox API",
     "termsOfService": "https://getsandbox.com/policy/customer-agreement",
-    "title": "Sandbox",
+    "title": "Sandbox API",
     "version": "v1",
     "x-apisguru-categories": [
       "developer_tools"
@@ -47,12 +47,6 @@
   "externalDocs": {
     "url": "https://getsandbox.com/docs/api/overview"
   },
-  "consumes": [
-    "application/json"
-  ],
-  "produces": [
-    "application/json"
-  ],
   "securityDefinitions": {
     "api_key": {
       "in": "header",
@@ -71,6 +65,9 @@
   "paths": {
     "/1/activity/search": {
       "get": {
+        "consumes": [
+          "application/json"
+        ],
         "description": "",
         "operationId": "getSandboxesActivity",
         "parameters": [
@@ -112,6 +109,9 @@
             "type": "integer"
           }
         ],
+        "produces": [
+          "application/json"
+        ],
         "responses": {
           "200": {
             "description": "successful operation",
@@ -134,6 +134,9 @@
     },
     "/1/sandboxes": {
       "get": {
+        "consumes": [
+          "application/json"
+        ],
         "description": "",
         "operationId": "getSandboxes",
         "parameters": [
@@ -143,6 +146,9 @@
             "required": false,
             "type": "string"
           }
+        ],
+        "produces": [
+          "application/json"
         ],
         "responses": {
           "200": {
@@ -164,6 +170,9 @@
         ]
       },
       "post": {
+        "consumes": [
+          "application/json"
+        ],
         "description": "",
         "operationId": "createSandbox",
         "parameters": [
@@ -176,6 +185,9 @@
               "$ref": "#/definitions/CreateSandbox"
             }
           }
+        ],
+        "produces": [
+          "application/json"
         ],
         "responses": {
           "200": {
@@ -196,6 +208,9 @@
     },
     "/1/sandboxes/{sandboxName}": {
       "delete": {
+        "consumes": [
+          "application/json"
+        ],
         "description": "",
         "operationId": "deleteSandbox",
         "parameters": [
@@ -206,6 +221,9 @@
             "required": true,
             "type": "string"
           }
+        ],
+        "produces": [
+          "application/json"
         ],
         "responses": {
           "default": {
@@ -218,6 +236,9 @@
         ]
       },
       "get": {
+        "consumes": [
+          "application/json"
+        ],
         "description": "",
         "operationId": "getSandbox",
         "parameters": [
@@ -228,6 +249,9 @@
             "required": true,
             "type": "string"
           }
+        ],
+        "produces": [
+          "application/json"
         ],
         "responses": {
           "200": {
@@ -246,6 +270,9 @@
         ]
       },
       "put": {
+        "consumes": [
+          "application/json"
+        ],
         "description": "",
         "operationId": "updateSandbox",
         "parameters": [
@@ -266,6 +293,9 @@
             }
           }
         ],
+        "produces": [
+          "application/json"
+        ],
         "responses": {
           "200": {
             "description": "successful operation",
@@ -285,6 +315,9 @@
     },
     "/1/sandboxes/{sandboxName}/fork": {
       "get": {
+        "consumes": [
+          "application/json"
+        ],
         "description": "",
         "operationId": "forkSandbox",
         "parameters": [
@@ -295,6 +328,9 @@
             "required": true,
             "type": "string"
           }
+        ],
+        "produces": [
+          "application/json"
         ],
         "responses": {
           "200": {
@@ -315,6 +351,9 @@
     },
     "/1/sandboxes/{sandboxName}/state": {
       "delete": {
+        "consumes": [
+          "application/json"
+        ],
         "description": "",
         "operationId": "deleteSandboxState",
         "parameters": [
@@ -325,6 +364,9 @@
             "required": true,
             "type": "string"
           }
+        ],
+        "produces": [
+          "application/json"
         ],
         "responses": {
           "default": {
@@ -337,6 +379,9 @@
         ]
       },
       "get": {
+        "consumes": [
+          "application/json"
+        ],
         "description": "",
         "operationId": "getSandboxState",
         "parameters": [
@@ -347,6 +392,9 @@
             "required": true,
             "type": "string"
           }
+        ],
+        "produces": [
+          "application/json"
         ],
         "responses": {
           "default": {
@@ -393,12 +441,10 @@
     "ConfiguredRouteDetails": {
       "properties": {
         "activeErrorOverride": {
-          "default": false,
           "description": "Whether error overrides are enabled or not.",
           "type": "boolean"
         },
         "activeLatency": {
-          "default": false,
           "description": "Whether latency delays are enabled or not.",
           "type": "boolean"
         },
@@ -459,7 +505,6 @@
     "CreateSandbox": {
       "properties": {
         "commitBaseTemplate": {
-          "default": false,
           "description": "Whether to commit the example Sandbox definition upon creation.",
           "type": "boolean"
         },
@@ -489,8 +534,7 @@
         },
         "transportType": {
           "enum": [
-            "HTTP",
-            "JMS"
+            "HTTP"
           ],
           "type": "string"
         }
@@ -601,7 +645,7 @@
           "type": "string"
         },
         "transport": {
-          "description": "Which transport the request was for, 'HTTP' or 'JMS'.",
+          "description": "Which transport the request was for, 'HTTP'.",
           "type": "string"
         }
       },
@@ -634,8 +678,13 @@
           "format": "int64",
           "type": "integer"
         },
+        "responseDelay": {
+          "description": "Duration in milliseconds of the response delay.",
+          "format": "int32",
+          "type": "integer"
+        },
         "transport": {
-          "description": "Which transport the request was for, 'HTTP' or 'JMS'.",
+          "description": "Which transport the request was for, 'HTTP'.",
           "type": "string"
         }
       },
@@ -702,7 +751,6 @@
           "type": "string"
         },
         "hasRepository": {
-          "default": false,
           "description": "Whether this Sandbox has a git repository or not.",
           "type": "boolean"
         },
@@ -761,8 +809,7 @@
         "transportType": {
           "description": "The listener transport.",
           "enum": [
-            "HTTP",
-            "JMS"
+            "HTTP"
           ],
           "type": "string"
         }

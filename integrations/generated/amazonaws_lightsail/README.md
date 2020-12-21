@@ -13,16 +13,14 @@ let amazonaws_lightsail = require('@datafire/amazonaws_lightsail').create({
   region: ""
 });
 
-amazonaws_lightsail.AllocateStaticIp({
-  "staticIpName": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
 
 ## Description
 
-<p>Amazon Lightsail is the easiest way to get started with AWS for developers who just need virtual private servers. Lightsail includes everything you need to launch your project quickly - a virtual machine, SSD-based storage, data transfer, DNS management, and a static IP - for a low, predictable price. You manage those Lightsail servers through the Lightsail console or by using the API or command-line interface (CLI).</p> <p>For more information about Lightsail concepts and tasks, see the <a href="https://lightsail.aws.amazon.com/ls/docs/all">Lightsail Dev Guide</a>.</p> <p>To use the Lightsail API or the CLI, you will need to use AWS Identity and Access Management (IAM) to generate access keys. For details about how to set this up, see the <a href="http://lightsail.aws.amazon.com/ls/docs/how-to/article/lightsail-how-to-set-up-access-keys-to-use-sdk-api-cli">Lightsail Dev Guide</a>.</p>
+<p>Amazon Lightsail is the easiest way to get started with Amazon Web Services (AWS) for developers who need to build websites or web applications. It includes everything you need to launch your project quickly - instances (virtual private servers), container services, managed databases, SSD-based block storage, static IP addresses, load balancers, content delivery network (CDN) distributions, DNS management of registered domains, and resource snapshots (backups) - for a low, predictable monthly price.</p> <p>You can manage your Lightsail resources using the Lightsail console, Lightsail API, AWS Command Line Interface (AWS CLI), or SDKs. For more information about Lightsail concepts and tasks, see the <a href="http://lightsail.aws.amazon.com/ls/docs/how-to/article/lightsail-how-to-set-up-access-keys-to-use-sdk-api-cli">Lightsail Dev Guide</a>.</p> <p>This API Reference provides detailed information about the actions, data types, parameters, and errors of the Lightsail service. For more information about the supported AWS Regions, endpoints, and service quotas of the Lightsail service, see <a href="https://docs.aws.amazon.com/general/latest/gr/lightsail.html">Amazon Lightsail Endpoints and Quotas</a> in the <i>AWS General Reference</i>.</p>
 
 ## Actions
 
@@ -32,16 +30,35 @@ amazonaws_lightsail.AllocateStaticIp({
 
 ```js
 amazonaws_lightsail.AllocateStaticIp({
-  "staticIpName": ""
+  "staticIpName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * staticIpName **required** [ResourceName](#resourcename)
+  * staticIpName **required**
 
 #### Output
 * output [AllocateStaticIpResult](#allocatestaticipresult)
+
+### AttachCertificateToDistribution
+
+
+
+```js
+amazonaws_lightsail.AttachCertificateToDistribution({
+  "distributionName": null,
+  "certificateName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * certificateName **required**
+  * distributionName **required**
+
+#### Output
+* output [AttachCertificateToDistributionResult](#attachcertificatetodistributionresult)
 
 ### AttachDisk
 
@@ -49,17 +66,17 @@ amazonaws_lightsail.AllocateStaticIp({
 
 ```js
 amazonaws_lightsail.AttachDisk({
-  "diskName": "",
-  "instanceName": "",
-  "diskPath": ""
+  "diskName": null,
+  "instanceName": null,
+  "diskPath": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * diskName **required** [ResourceName](#resourcename)
-  * diskPath **required** [NonEmptyString](#nonemptystring)
-  * instanceName **required** [ResourceName](#resourcename)
+  * diskName **required**
+  * diskPath **required**
+  * instanceName **required**
 
 #### Output
 * output [AttachDiskResult](#attachdiskresult)
@@ -70,15 +87,16 @@ amazonaws_lightsail.AttachDisk({
 
 ```js
 amazonaws_lightsail.AttachInstancesToLoadBalancer({
-  "loadBalancerName": "",
-  "instanceNames": []
+  "loadBalancerName": null,
+  "instanceNames": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * instanceNames **required** [ResourceNameList](#resourcenamelist)
-  * loadBalancerName **required** [ResourceName](#resourcename)
+  * instanceNames **required**
+    * items [ResourceName](#resourcename)
+  * loadBalancerName **required**
 
 #### Output
 * output [AttachInstancesToLoadBalancerResult](#attachinstancestoloadbalancerresult)
@@ -89,15 +107,15 @@ amazonaws_lightsail.AttachInstancesToLoadBalancer({
 
 ```js
 amazonaws_lightsail.AttachLoadBalancerTlsCertificate({
-  "loadBalancerName": "",
-  "certificateName": ""
+  "loadBalancerName": null,
+  "certificateName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * certificateName **required** [ResourceName](#resourcename)
-  * loadBalancerName **required** [ResourceName](#resourcename)
+  * certificateName **required**
+  * loadBalancerName **required**
 
 #### Output
 * output [AttachLoadBalancerTlsCertificateResult](#attachloadbalancertlscertificateresult)
@@ -108,15 +126,15 @@ amazonaws_lightsail.AttachLoadBalancerTlsCertificate({
 
 ```js
 amazonaws_lightsail.AttachStaticIp({
-  "staticIpName": "",
-  "instanceName": ""
+  "staticIpName": null,
+  "instanceName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * instanceName **required** [ResourceName](#resourcename)
-  * staticIpName **required** [ResourceName](#resourcename)
+  * instanceName **required**
+  * staticIpName **required**
 
 #### Output
 * output [AttachStaticIpResult](#attachstaticipresult)
@@ -127,18 +145,186 @@ amazonaws_lightsail.AttachStaticIp({
 
 ```js
 amazonaws_lightsail.CloseInstancePublicPorts({
-  "portInfo": {},
-  "instanceName": ""
+  "portInfo": null,
+  "instanceName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * instanceName **required** [ResourceName](#resourcename)
-  * portInfo **required** [PortInfo](#portinfo)
+  * instanceName **required**
+  * portInfo **required**
+    * cidrListAliases
+      * items [string](#string)
+    * cidrs
+      * items [string](#string)
+    * fromPort
+    * protocol
+    * toPort
 
 #### Output
 * output [CloseInstancePublicPortsResult](#closeinstancepublicportsresult)
+
+### CopySnapshot
+
+
+
+```js
+amazonaws_lightsail.CopySnapshot({
+  "targetSnapshotName": null,
+  "sourceRegion": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * restoreDate
+  * sourceRegion **required**
+  * sourceResourceName
+  * sourceSnapshotName
+  * targetSnapshotName **required**
+  * useLatestRestorableAutoSnapshot
+
+#### Output
+* output [CopySnapshotResult](#copysnapshotresult)
+
+### CreateCertificate
+
+
+
+```js
+amazonaws_lightsail.CreateCertificate({
+  "certificateName": null,
+  "domainName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * tags
+    * items [Tag](#tag)
+  * certificateName **required**
+  * domainName **required**
+  * subjectAlternativeNames
+    * items [DomainName](#domainname)
+
+#### Output
+* output [CreateCertificateResult](#createcertificateresult)
+
+### CreateCloudFormationStack
+
+
+
+```js
+amazonaws_lightsail.CreateCloudFormationStack({
+  "instances": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * instances **required**
+    * items [InstanceEntry](#instanceentry)
+
+#### Output
+* output [CreateCloudFormationStackResult](#createcloudformationstackresult)
+
+### CreateContactMethod
+
+
+
+```js
+amazonaws_lightsail.CreateContactMethod({
+  "protocol": null,
+  "contactEndpoint": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * contactEndpoint **required**
+  * protocol **required**
+
+#### Output
+* output [CreateContactMethodResult](#createcontactmethodresult)
+
+### CreateContainerService
+
+
+
+```js
+amazonaws_lightsail.CreateContainerService({
+  "serviceName": null,
+  "power": null,
+  "scale": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * tags
+    * items [Tag](#tag)
+  * deployment
+    * containers
+    * publicEndpoint
+      * containerName **required**
+      * containerPort **required**
+      * healthCheck
+        * healthyThreshold
+        * intervalSeconds
+        * path
+        * successCodes
+        * timeoutSeconds
+        * unhealthyThreshold
+  * power **required**
+  * publicDomainNames
+  * scale **required**
+  * serviceName **required**
+
+#### Output
+* output [CreateContainerServiceResult](#createcontainerserviceresult)
+
+### CreateContainerServiceDeployment
+
+
+
+```js
+amazonaws_lightsail.CreateContainerServiceDeployment({
+  "serviceName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * containers
+  * publicEndpoint
+    * containerName **required**
+    * containerPort **required**
+    * healthCheck
+      * healthyThreshold
+      * intervalSeconds
+      * path
+      * successCodes
+      * timeoutSeconds
+      * unhealthyThreshold
+  * serviceName **required**
+
+#### Output
+* output [CreateContainerServiceDeploymentResult](#createcontainerservicedeploymentresult)
+
+### CreateContainerServiceRegistryLogin
+
+
+
+```js
+amazonaws_lightsail.CreateContainerServiceRegistryLogin({}, context)
+```
+
+#### Input
+* input `object`
+
+#### Output
+* output [CreateContainerServiceRegistryLoginResult](#createcontainerserviceregistryloginresult)
 
 ### CreateDisk
 
@@ -146,17 +332,21 @@ amazonaws_lightsail.CloseInstancePublicPorts({
 
 ```js
 amazonaws_lightsail.CreateDisk({
-  "diskName": "",
-  "availabilityZone": "",
-  "sizeInGb": 0
+  "diskName": null,
+  "availabilityZone": null,
+  "sizeInGb": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * availabilityZone **required** [NonEmptyString](#nonemptystring)
-  * diskName **required** [ResourceName](#resourcename)
-  * sizeInGb **required** [integer](#integer)
+  * tags
+    * items [Tag](#tag)
+  * addOns
+    * items [AddOnRequest](#addonrequest)
+  * availabilityZone **required**
+  * diskName **required**
+  * sizeInGb **required**
 
 #### Output
 * output [CreateDiskResult](#creatediskresult)
@@ -167,19 +357,25 @@ amazonaws_lightsail.CreateDisk({
 
 ```js
 amazonaws_lightsail.CreateDiskFromSnapshot({
-  "diskName": "",
-  "diskSnapshotName": "",
-  "availabilityZone": "",
-  "sizeInGb": 0
+  "diskName": null,
+  "availabilityZone": null,
+  "sizeInGb": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * availabilityZone **required** [NonEmptyString](#nonemptystring)
-  * diskName **required** [ResourceName](#resourcename)
-  * diskSnapshotName **required** [ResourceName](#resourcename)
-  * sizeInGb **required** [integer](#integer)
+  * tags
+    * items [Tag](#tag)
+  * addOns
+    * items [AddOnRequest](#addonrequest)
+  * availabilityZone **required**
+  * diskName **required**
+  * diskSnapshotName
+  * restoreDate
+  * sizeInGb **required**
+  * sourceDiskName
+  * useLatestRestorableAutoSnapshot
 
 #### Output
 * output [CreateDiskFromSnapshotResult](#creatediskfromsnapshotresult)
@@ -190,18 +386,69 @@ amazonaws_lightsail.CreateDiskFromSnapshot({
 
 ```js
 amazonaws_lightsail.CreateDiskSnapshot({
-  "diskName": "",
-  "diskSnapshotName": ""
+  "diskSnapshotName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * diskName **required** [ResourceName](#resourcename)
-  * diskSnapshotName **required** [ResourceName](#resourcename)
+  * tags
+    * items [Tag](#tag)
+  * diskName
+  * diskSnapshotName **required**
+  * instanceName
 
 #### Output
 * output [CreateDiskSnapshotResult](#createdisksnapshotresult)
+
+### CreateDistribution
+
+
+
+```js
+amazonaws_lightsail.CreateDistribution({
+  "distributionName": null,
+  "origin": null,
+  "defaultCacheBehavior": null,
+  "bundleId": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * tags
+    * items [Tag](#tag)
+  * bundleId **required**
+  * cacheBehaviorSettings
+    * allowedHTTPMethods
+    * cachedHTTPMethods
+    * defaultTTL
+    * forwardedCookies
+      * cookiesAllowList
+        * items [string](#string)
+      * option
+    * forwardedHeaders
+      * headersAllowList
+        * items [HeaderEnum](#headerenum)
+      * option
+    * forwardedQueryStrings
+      * option
+      * queryStringsAllowList
+        * items [string](#string)
+    * maximumTTL
+    * minimumTTL
+  * cacheBehaviors
+    * items [CacheBehaviorPerPath](#cachebehaviorperpath)
+  * defaultCacheBehavior **required**
+    * behavior
+  * distributionName **required**
+  * origin **required**
+    * name
+    * protocolPolicy
+    * regionName
+
+#### Output
+* output [CreateDistributionResult](#createdistributionresult)
 
 ### CreateDomain
 
@@ -209,13 +456,15 @@ amazonaws_lightsail.CreateDiskSnapshot({
 
 ```js
 amazonaws_lightsail.CreateDomain({
-  "domainName": ""
+  "domainName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * domainName **required** [DomainName](#domainname)
+  * tags
+    * items [Tag](#tag)
+  * domainName **required**
 
 #### Output
 * output [CreateDomainResult](#createdomainresult)
@@ -226,15 +475,21 @@ amazonaws_lightsail.CreateDomain({
 
 ```js
 amazonaws_lightsail.CreateDomainEntry({
-  "domainName": "",
-  "domainEntry": {}
+  "domainName": null,
+  "domainEntry": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * domainEntry **required** [DomainEntry](#domainentry)
-  * domainName **required** [DomainName](#domainname)
+  * domainEntry **required**
+    * id
+    * isAlias
+    * name
+    * options
+    * target
+    * type
+  * domainName **required**
 
 #### Output
 * output [CreateDomainEntryResult](#createdomainentryresult)
@@ -245,15 +500,17 @@ amazonaws_lightsail.CreateDomainEntry({
 
 ```js
 amazonaws_lightsail.CreateInstanceSnapshot({
-  "instanceSnapshotName": "",
-  "instanceName": ""
+  "instanceSnapshotName": null,
+  "instanceName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * instanceName **required** [ResourceName](#resourcename)
-  * instanceSnapshotName **required** [ResourceName](#resourcename)
+  * tags
+    * items [Tag](#tag)
+  * instanceName **required**
+  * instanceSnapshotName **required**
 
 #### Output
 * output [CreateInstanceSnapshotResult](#createinstancesnapshotresult)
@@ -264,22 +521,27 @@ amazonaws_lightsail.CreateInstanceSnapshot({
 
 ```js
 amazonaws_lightsail.CreateInstances({
-  "instanceNames": [],
-  "availabilityZone": "",
-  "blueprintId": "",
-  "bundleId": ""
+  "instanceNames": null,
+  "availabilityZone": null,
+  "blueprintId": null,
+  "bundleId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * availabilityZone **required** [string](#string)
-  * blueprintId **required** [NonEmptyString](#nonemptystring)
-  * bundleId **required** [NonEmptyString](#nonemptystring)
-  * customImageName [ResourceName](#resourcename)
-  * instanceNames **required** [StringList](#stringlist)
-  * keyPairName [ResourceName](#resourcename)
-  * userData [string](#string)
+  * tags
+    * items [Tag](#tag)
+  * addOns
+    * items [AddOnRequest](#addonrequest)
+  * availabilityZone **required**
+  * blueprintId **required**
+  * bundleId **required**
+  * customImageName
+  * instanceNames **required**
+    * items [string](#string)
+  * keyPairName
+  * userData
 
 #### Output
 * output [CreateInstancesResult](#createinstancesresult)
@@ -290,22 +552,29 @@ amazonaws_lightsail.CreateInstances({
 
 ```js
 amazonaws_lightsail.CreateInstancesFromSnapshot({
-  "instanceNames": [],
-  "availabilityZone": "",
-  "instanceSnapshotName": "",
-  "bundleId": ""
+  "instanceNames": null,
+  "availabilityZone": null,
+  "bundleId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * attachedDiskMapping [AttachedDiskMap](#attacheddiskmap)
-  * availabilityZone **required** [string](#string)
-  * bundleId **required** [NonEmptyString](#nonemptystring)
-  * instanceNames **required** [StringList](#stringlist)
-  * instanceSnapshotName **required** [ResourceName](#resourcename)
-  * keyPairName [ResourceName](#resourcename)
-  * userData [string](#string)
+  * tags
+    * items [Tag](#tag)
+  * addOns
+    * items [AddOnRequest](#addonrequest)
+  * attachedDiskMapping
+  * availabilityZone **required**
+  * bundleId **required**
+  * instanceNames **required**
+    * items [string](#string)
+  * instanceSnapshotName
+  * keyPairName
+  * restoreDate
+  * sourceInstanceName
+  * useLatestRestorableAutoSnapshot
+  * userData
 
 #### Output
 * output [CreateInstancesFromSnapshotResult](#createinstancesfromsnapshotresult)
@@ -316,13 +585,15 @@ amazonaws_lightsail.CreateInstancesFromSnapshot({
 
 ```js
 amazonaws_lightsail.CreateKeyPair({
-  "keyPairName": ""
+  "keyPairName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * keyPairName **required** [ResourceName](#resourcename)
+  * tags
+    * items [Tag](#tag)
+  * keyPairName **required**
 
 #### Output
 * output [CreateKeyPairResult](#createkeypairresult)
@@ -333,19 +604,22 @@ amazonaws_lightsail.CreateKeyPair({
 
 ```js
 amazonaws_lightsail.CreateLoadBalancer({
-  "loadBalancerName": "",
-  "instancePort": 0
+  "loadBalancerName": null,
+  "instancePort": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * certificateAlternativeNames [DomainNameList](#domainnamelist)
-  * certificateDomainName [DomainName](#domainname)
-  * certificateName [ResourceName](#resourcename)
-  * healthCheckPath [string](#string)
-  * instancePort **required** [Port](#port)
-  * loadBalancerName **required** [ResourceName](#resourcename)
+  * tags
+    * items [Tag](#tag)
+  * certificateAlternativeNames
+    * items [DomainName](#domainname)
+  * certificateDomainName
+  * certificateName
+  * healthCheckPath
+  * instancePort **required**
+  * loadBalancerName **required**
 
 #### Output
 * output [CreateLoadBalancerResult](#createloadbalancerresult)
@@ -356,21 +630,209 @@ amazonaws_lightsail.CreateLoadBalancer({
 
 ```js
 amazonaws_lightsail.CreateLoadBalancerTlsCertificate({
-  "loadBalancerName": "",
-  "certificateName": "",
-  "certificateDomainName": ""
+  "loadBalancerName": null,
+  "certificateName": null,
+  "certificateDomainName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * certificateAlternativeNames [DomainNameList](#domainnamelist)
-  * certificateDomainName **required** [DomainName](#domainname)
-  * certificateName **required** [ResourceName](#resourcename)
-  * loadBalancerName **required** [ResourceName](#resourcename)
+  * tags
+    * items [Tag](#tag)
+  * certificateAlternativeNames
+    * items [DomainName](#domainname)
+  * certificateDomainName **required**
+  * certificateName **required**
+  * loadBalancerName **required**
 
 #### Output
 * output [CreateLoadBalancerTlsCertificateResult](#createloadbalancertlscertificateresult)
+
+### CreateRelationalDatabase
+
+
+
+```js
+amazonaws_lightsail.CreateRelationalDatabase({
+  "relationalDatabaseName": null,
+  "relationalDatabaseBlueprintId": null,
+  "relationalDatabaseBundleId": null,
+  "masterDatabaseName": null,
+  "masterUsername": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * tags
+    * items [Tag](#tag)
+  * availabilityZone
+  * masterDatabaseName **required**
+  * masterUserPassword
+  * masterUsername **required**
+  * preferredBackupWindow
+  * preferredMaintenanceWindow
+  * publiclyAccessible
+  * relationalDatabaseBlueprintId **required**
+  * relationalDatabaseBundleId **required**
+  * relationalDatabaseName **required**
+
+#### Output
+* output [CreateRelationalDatabaseResult](#createrelationaldatabaseresult)
+
+### CreateRelationalDatabaseFromSnapshot
+
+
+
+```js
+amazonaws_lightsail.CreateRelationalDatabaseFromSnapshot({
+  "relationalDatabaseName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * tags
+    * items [Tag](#tag)
+  * availabilityZone
+  * publiclyAccessible
+  * relationalDatabaseBundleId
+  * relationalDatabaseName **required**
+  * relationalDatabaseSnapshotName
+  * restoreTime
+  * sourceRelationalDatabaseName
+  * useLatestRestorableTime
+
+#### Output
+* output [CreateRelationalDatabaseFromSnapshotResult](#createrelationaldatabasefromsnapshotresult)
+
+### CreateRelationalDatabaseSnapshot
+
+
+
+```js
+amazonaws_lightsail.CreateRelationalDatabaseSnapshot({
+  "relationalDatabaseName": null,
+  "relationalDatabaseSnapshotName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * tags
+    * items [Tag](#tag)
+  * relationalDatabaseName **required**
+  * relationalDatabaseSnapshotName **required**
+
+#### Output
+* output [CreateRelationalDatabaseSnapshotResult](#createrelationaldatabasesnapshotresult)
+
+### DeleteAlarm
+
+
+
+```js
+amazonaws_lightsail.DeleteAlarm({
+  "alarmName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * alarmName **required**
+
+#### Output
+* output [DeleteAlarmResult](#deletealarmresult)
+
+### DeleteAutoSnapshot
+
+
+
+```js
+amazonaws_lightsail.DeleteAutoSnapshot({
+  "resourceName": null,
+  "date": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * date **required**
+  * resourceName **required**
+
+#### Output
+* output [DeleteAutoSnapshotResult](#deleteautosnapshotresult)
+
+### DeleteCertificate
+
+
+
+```js
+amazonaws_lightsail.DeleteCertificate({
+  "certificateName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * certificateName **required**
+
+#### Output
+* output [DeleteCertificateResult](#deletecertificateresult)
+
+### DeleteContactMethod
+
+
+
+```js
+amazonaws_lightsail.DeleteContactMethod({
+  "protocol": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * protocol **required**
+
+#### Output
+* output [DeleteContactMethodResult](#deletecontactmethodresult)
+
+### DeleteContainerImage
+
+
+
+```js
+amazonaws_lightsail.DeleteContainerImage({
+  "serviceName": null,
+  "image": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * image **required**
+  * serviceName **required**
+
+#### Output
+* output [DeleteContainerImageResult](#deletecontainerimageresult)
+
+### DeleteContainerService
+
+
+
+```js
+amazonaws_lightsail.DeleteContainerService({
+  "serviceName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * serviceName **required**
+
+#### Output
+* output [DeleteContainerServiceResult](#deletecontainerserviceresult)
 
 ### DeleteDisk
 
@@ -378,13 +840,14 @@ amazonaws_lightsail.CreateLoadBalancerTlsCertificate({
 
 ```js
 amazonaws_lightsail.DeleteDisk({
-  "diskName": ""
+  "diskName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * diskName **required** [ResourceName](#resourcename)
+  * diskName **required**
+  * forceDeleteAddOns
 
 #### Output
 * output [DeleteDiskResult](#deletediskresult)
@@ -395,16 +858,31 @@ amazonaws_lightsail.DeleteDisk({
 
 ```js
 amazonaws_lightsail.DeleteDiskSnapshot({
-  "diskSnapshotName": ""
+  "diskSnapshotName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * diskSnapshotName **required** [ResourceName](#resourcename)
+  * diskSnapshotName **required**
 
 #### Output
 * output [DeleteDiskSnapshotResult](#deletedisksnapshotresult)
+
+### DeleteDistribution
+
+
+
+```js
+amazonaws_lightsail.DeleteDistribution({}, context)
+```
+
+#### Input
+* input `object`
+  * distributionName
+
+#### Output
+* output [DeleteDistributionResult](#deletedistributionresult)
 
 ### DeleteDomain
 
@@ -412,13 +890,13 @@ amazonaws_lightsail.DeleteDiskSnapshot({
 
 ```js
 amazonaws_lightsail.DeleteDomain({
-  "domainName": ""
+  "domainName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * domainName **required** [DomainName](#domainname)
+  * domainName **required**
 
 #### Output
 * output [DeleteDomainResult](#deletedomainresult)
@@ -429,15 +907,21 @@ amazonaws_lightsail.DeleteDomain({
 
 ```js
 amazonaws_lightsail.DeleteDomainEntry({
-  "domainName": "",
-  "domainEntry": {}
+  "domainName": null,
+  "domainEntry": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * domainEntry **required** [DomainEntry](#domainentry)
-  * domainName **required** [DomainName](#domainname)
+  * domainEntry **required**
+    * id
+    * isAlias
+    * name
+    * options
+    * target
+    * type
+  * domainName **required**
 
 #### Output
 * output [DeleteDomainEntryResult](#deletedomainentryresult)
@@ -448,13 +932,14 @@ amazonaws_lightsail.DeleteDomainEntry({
 
 ```js
 amazonaws_lightsail.DeleteInstance({
-  "instanceName": ""
+  "instanceName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * instanceName **required** [ResourceName](#resourcename)
+  * forceDeleteAddOns
+  * instanceName **required**
 
 #### Output
 * output [DeleteInstanceResult](#deleteinstanceresult)
@@ -465,13 +950,13 @@ amazonaws_lightsail.DeleteInstance({
 
 ```js
 amazonaws_lightsail.DeleteInstanceSnapshot({
-  "instanceSnapshotName": ""
+  "instanceSnapshotName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * instanceSnapshotName **required** [ResourceName](#resourcename)
+  * instanceSnapshotName **required**
 
 #### Output
 * output [DeleteInstanceSnapshotResult](#deleteinstancesnapshotresult)
@@ -482,16 +967,33 @@ amazonaws_lightsail.DeleteInstanceSnapshot({
 
 ```js
 amazonaws_lightsail.DeleteKeyPair({
-  "keyPairName": ""
+  "keyPairName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * keyPairName **required** [ResourceName](#resourcename)
+  * keyPairName **required**
 
 #### Output
 * output [DeleteKeyPairResult](#deletekeypairresult)
+
+### DeleteKnownHostKeys
+
+
+
+```js
+amazonaws_lightsail.DeleteKnownHostKeys({
+  "instanceName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * instanceName **required**
+
+#### Output
+* output [DeleteKnownHostKeysResult](#deleteknownhostkeysresult)
 
 ### DeleteLoadBalancer
 
@@ -499,13 +1001,13 @@ amazonaws_lightsail.DeleteKeyPair({
 
 ```js
 amazonaws_lightsail.DeleteLoadBalancer({
-  "loadBalancerName": ""
+  "loadBalancerName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * loadBalancerName **required** [ResourceName](#resourcename)
+  * loadBalancerName **required**
 
 #### Output
 * output [DeleteLoadBalancerResult](#deleteloadbalancerresult)
@@ -516,19 +1018,72 @@ amazonaws_lightsail.DeleteLoadBalancer({
 
 ```js
 amazonaws_lightsail.DeleteLoadBalancerTlsCertificate({
-  "loadBalancerName": "",
-  "certificateName": ""
+  "loadBalancerName": null,
+  "certificateName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * certificateName **required** [ResourceName](#resourcename)
-  * force [boolean](#boolean)
-  * loadBalancerName **required** [ResourceName](#resourcename)
+  * certificateName **required**
+  * force
+  * loadBalancerName **required**
 
 #### Output
 * output [DeleteLoadBalancerTlsCertificateResult](#deleteloadbalancertlscertificateresult)
+
+### DeleteRelationalDatabase
+
+
+
+```js
+amazonaws_lightsail.DeleteRelationalDatabase({
+  "relationalDatabaseName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * finalRelationalDatabaseSnapshotName
+  * relationalDatabaseName **required**
+  * skipFinalSnapshot
+
+#### Output
+* output [DeleteRelationalDatabaseResult](#deleterelationaldatabaseresult)
+
+### DeleteRelationalDatabaseSnapshot
+
+
+
+```js
+amazonaws_lightsail.DeleteRelationalDatabaseSnapshot({
+  "relationalDatabaseSnapshotName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * relationalDatabaseSnapshotName **required**
+
+#### Output
+* output [DeleteRelationalDatabaseSnapshotResult](#deleterelationaldatabasesnapshotresult)
+
+### DetachCertificateFromDistribution
+
+
+
+```js
+amazonaws_lightsail.DetachCertificateFromDistribution({
+  "distributionName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * distributionName **required**
+
+#### Output
+* output [DetachCertificateFromDistributionResult](#detachcertificatefromdistributionresult)
 
 ### DetachDisk
 
@@ -536,13 +1091,13 @@ amazonaws_lightsail.DeleteLoadBalancerTlsCertificate({
 
 ```js
 amazonaws_lightsail.DetachDisk({
-  "diskName": ""
+  "diskName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * diskName **required** [ResourceName](#resourcename)
+  * diskName **required**
 
 #### Output
 * output [DetachDiskResult](#detachdiskresult)
@@ -553,15 +1108,16 @@ amazonaws_lightsail.DetachDisk({
 
 ```js
 amazonaws_lightsail.DetachInstancesFromLoadBalancer({
-  "loadBalancerName": "",
-  "instanceNames": []
+  "loadBalancerName": null,
+  "instanceNames": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * instanceNames **required** [ResourceNameList](#resourcenamelist)
-  * loadBalancerName **required** [ResourceName](#resourcename)
+  * instanceNames **required**
+    * items [ResourceName](#resourcename)
+  * loadBalancerName **required**
 
 #### Output
 * output [DetachInstancesFromLoadBalancerResult](#detachinstancesfromloadbalancerresult)
@@ -572,16 +1128,35 @@ amazonaws_lightsail.DetachInstancesFromLoadBalancer({
 
 ```js
 amazonaws_lightsail.DetachStaticIp({
-  "staticIpName": ""
+  "staticIpName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * staticIpName **required** [ResourceName](#resourcename)
+  * staticIpName **required**
 
 #### Output
 * output [DetachStaticIpResult](#detachstaticipresult)
+
+### DisableAddOn
+
+
+
+```js
+amazonaws_lightsail.DisableAddOn({
+  "addOnType": null,
+  "resourceName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * addOnType **required**
+  * resourceName **required**
+
+#### Output
+* output [DisableAddOnResult](#disableaddonresult)
 
 ### DownloadDefaultKeyPair
 
@@ -597,6 +1172,45 @@ amazonaws_lightsail.DownloadDefaultKeyPair({}, context)
 #### Output
 * output [DownloadDefaultKeyPairResult](#downloaddefaultkeypairresult)
 
+### EnableAddOn
+
+
+
+```js
+amazonaws_lightsail.EnableAddOn({
+  "resourceName": null,
+  "addOnRequest": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * addOnRequest **required**
+    * addOnType **required**
+    * autoSnapshotAddOnRequest
+      * snapshotTimeOfDay
+  * resourceName **required**
+
+#### Output
+* output [EnableAddOnResult](#enableaddonresult)
+
+### ExportSnapshot
+
+
+
+```js
+amazonaws_lightsail.ExportSnapshot({
+  "sourceSnapshotName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * sourceSnapshotName **required**
+
+#### Output
+* output [ExportSnapshotResult](#exportsnapshotresult)
+
 ### GetActiveNames
 
 
@@ -607,10 +1221,44 @@ amazonaws_lightsail.GetActiveNames({}, context)
 
 #### Input
 * input `object`
-  * pageToken [string](#string)
+  * pageToken
 
 #### Output
 * output [GetActiveNamesResult](#getactivenamesresult)
+
+### GetAlarms
+
+
+
+```js
+amazonaws_lightsail.GetAlarms({}, context)
+```
+
+#### Input
+* input `object`
+  * alarmName
+  * monitoredResourceName
+  * pageToken
+
+#### Output
+* output [GetAlarmsResult](#getalarmsresult)
+
+### GetAutoSnapshots
+
+
+
+```js
+amazonaws_lightsail.GetAutoSnapshots({
+  "resourceName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * resourceName **required**
+
+#### Output
+* output [GetAutoSnapshotsResult](#getautosnapshotsresult)
 
 ### GetBlueprints
 
@@ -622,8 +1270,8 @@ amazonaws_lightsail.GetBlueprints({}, context)
 
 #### Input
 * input `object`
-  * includeInactive [boolean](#boolean)
-  * pageToken [string](#string)
+  * includeInactive
+  * pageToken
 
 #### Output
 * output [GetBlueprintsResult](#getblueprintsresult)
@@ -638,11 +1286,188 @@ amazonaws_lightsail.GetBundles({}, context)
 
 #### Input
 * input `object`
-  * includeInactive [boolean](#boolean)
-  * pageToken [string](#string)
+  * includeInactive
+  * pageToken
 
 #### Output
 * output [GetBundlesResult](#getbundlesresult)
+
+### GetCertificates
+
+
+
+```js
+amazonaws_lightsail.GetCertificates({}, context)
+```
+
+#### Input
+* input `object`
+  * certificateName
+  * certificateStatuses
+    * items [CertificateStatus](#certificatestatus)
+  * includeCertificateDetails
+
+#### Output
+* output [GetCertificatesResult](#getcertificatesresult)
+
+### GetCloudFormationStackRecords
+
+
+
+```js
+amazonaws_lightsail.GetCloudFormationStackRecords({}, context)
+```
+
+#### Input
+* input `object`
+  * pageToken
+
+#### Output
+* output [GetCloudFormationStackRecordsResult](#getcloudformationstackrecordsresult)
+
+### GetContactMethods
+
+
+
+```js
+amazonaws_lightsail.GetContactMethods({}, context)
+```
+
+#### Input
+* input `object`
+  * protocols
+    * items [ContactProtocol](#contactprotocol)
+
+#### Output
+* output [GetContactMethodsResult](#getcontactmethodsresult)
+
+### GetContainerAPIMetadata
+
+
+
+```js
+amazonaws_lightsail.GetContainerAPIMetadata({}, context)
+```
+
+#### Input
+* input `object`
+
+#### Output
+* output [GetContainerAPIMetadataResult](#getcontainerapimetadataresult)
+
+### GetContainerImages
+
+
+
+```js
+amazonaws_lightsail.GetContainerImages({
+  "serviceName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * serviceName **required**
+
+#### Output
+* output [GetContainerImagesResult](#getcontainerimagesresult)
+
+### GetContainerLog
+
+
+
+```js
+amazonaws_lightsail.GetContainerLog({
+  "serviceName": null,
+  "containerName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * containerName **required**
+  * endTime
+  * filterPattern
+  * pageToken
+  * serviceName **required**
+  * startTime
+
+#### Output
+* output [GetContainerLogResult](#getcontainerlogresult)
+
+### GetContainerServiceDeployments
+
+
+
+```js
+amazonaws_lightsail.GetContainerServiceDeployments({
+  "serviceName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * serviceName **required**
+
+#### Output
+* output [GetContainerServiceDeploymentsResult](#getcontainerservicedeploymentsresult)
+
+### GetContainerServiceMetricData
+
+
+
+```js
+amazonaws_lightsail.GetContainerServiceMetricData({
+  "serviceName": null,
+  "metricName": null,
+  "startTime": null,
+  "endTime": null,
+  "period": null,
+  "statistics": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * endTime **required**
+  * metricName **required**
+  * period **required**
+  * serviceName **required**
+  * startTime **required**
+  * statistics **required**
+    * items [MetricStatistic](#metricstatistic)
+
+#### Output
+* output [GetContainerServiceMetricDataResult](#getcontainerservicemetricdataresult)
+
+### GetContainerServicePowers
+
+
+
+```js
+amazonaws_lightsail.GetContainerServicePowers({}, context)
+```
+
+#### Input
+* input `object`
+
+#### Output
+* output [GetContainerServicePowersResult](#getcontainerservicepowersresult)
+
+### GetContainerServices
+
+
+
+```js
+amazonaws_lightsail.GetContainerServices({}, context)
+```
+
+#### Input
+* input `object`
+  * serviceName
+
+#### Output
+* output [ContainerServicesListResult](#containerserviceslistresult)
 
 ### GetDisk
 
@@ -650,13 +1475,13 @@ amazonaws_lightsail.GetBundles({}, context)
 
 ```js
 amazonaws_lightsail.GetDisk({
-  "diskName": ""
+  "diskName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * diskName **required** [ResourceName](#resourcename)
+  * diskName **required**
 
 #### Output
 * output [GetDiskResult](#getdiskresult)
@@ -667,13 +1492,13 @@ amazonaws_lightsail.GetDisk({
 
 ```js
 amazonaws_lightsail.GetDiskSnapshot({
-  "diskSnapshotName": ""
+  "diskSnapshotName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * diskSnapshotName **required** [ResourceName](#resourcename)
+  * diskSnapshotName **required**
 
 #### Output
 * output [GetDiskSnapshotResult](#getdisksnapshotresult)
@@ -688,7 +1513,7 @@ amazonaws_lightsail.GetDiskSnapshots({}, context)
 
 #### Input
 * input `object`
-  * pageToken [string](#string)
+  * pageToken
 
 #### Output
 * output [GetDiskSnapshotsResult](#getdisksnapshotsresult)
@@ -703,10 +1528,85 @@ amazonaws_lightsail.GetDisks({}, context)
 
 #### Input
 * input `object`
-  * pageToken [string](#string)
+  * pageToken
 
 #### Output
 * output [GetDisksResult](#getdisksresult)
+
+### GetDistributionBundles
+
+
+
+```js
+amazonaws_lightsail.GetDistributionBundles({}, context)
+```
+
+#### Input
+* input `object`
+
+#### Output
+* output [GetDistributionBundlesResult](#getdistributionbundlesresult)
+
+### GetDistributionLatestCacheReset
+
+
+
+```js
+amazonaws_lightsail.GetDistributionLatestCacheReset({}, context)
+```
+
+#### Input
+* input `object`
+  * distributionName
+
+#### Output
+* output [GetDistributionLatestCacheResetResult](#getdistributionlatestcacheresetresult)
+
+### GetDistributionMetricData
+
+
+
+```js
+amazonaws_lightsail.GetDistributionMetricData({
+  "distributionName": null,
+  "metricName": null,
+  "startTime": null,
+  "endTime": null,
+  "period": null,
+  "unit": null,
+  "statistics": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * distributionName **required**
+  * endTime **required**
+  * metricName **required**
+  * period **required**
+  * startTime **required**
+  * statistics **required**
+    * items [MetricStatistic](#metricstatistic)
+  * unit **required**
+
+#### Output
+* output [GetDistributionMetricDataResult](#getdistributionmetricdataresult)
+
+### GetDistributions
+
+
+
+```js
+amazonaws_lightsail.GetDistributions({}, context)
+```
+
+#### Input
+* input `object`
+  * distributionName
+  * pageToken
+
+#### Output
+* output [GetDistributionsResult](#getdistributionsresult)
 
 ### GetDomain
 
@@ -714,13 +1614,13 @@ amazonaws_lightsail.GetDisks({}, context)
 
 ```js
 amazonaws_lightsail.GetDomain({
-  "domainName": ""
+  "domainName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * domainName **required** [DomainName](#domainname)
+  * domainName **required**
 
 #### Output
 * output [GetDomainResult](#getdomainresult)
@@ -735,10 +1635,25 @@ amazonaws_lightsail.GetDomains({}, context)
 
 #### Input
 * input `object`
-  * pageToken [string](#string)
+  * pageToken
 
 #### Output
 * output [GetDomainsResult](#getdomainsresult)
+
+### GetExportSnapshotRecords
+
+
+
+```js
+amazonaws_lightsail.GetExportSnapshotRecords({}, context)
+```
+
+#### Input
+* input `object`
+  * pageToken
+
+#### Output
+* output [GetExportSnapshotRecordsResult](#getexportsnapshotrecordsresult)
 
 ### GetInstance
 
@@ -746,13 +1661,13 @@ amazonaws_lightsail.GetDomains({}, context)
 
 ```js
 amazonaws_lightsail.GetInstance({
-  "instanceName": ""
+  "instanceName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * instanceName **required** [ResourceName](#resourcename)
+  * instanceName **required**
 
 #### Output
 * output [GetInstanceResult](#getinstanceresult)
@@ -763,14 +1678,14 @@ amazonaws_lightsail.GetInstance({
 
 ```js
 amazonaws_lightsail.GetInstanceAccessDetails({
-  "instanceName": ""
+  "instanceName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * instanceName **required** [ResourceName](#resourcename)
-  * protocol [InstanceAccessProtocol](#instanceaccessprotocol)
+  * instanceName **required**
+  * protocol
 
 #### Output
 * output [GetInstanceAccessDetailsResult](#getinstanceaccessdetailsresult)
@@ -781,25 +1696,26 @@ amazonaws_lightsail.GetInstanceAccessDetails({
 
 ```js
 amazonaws_lightsail.GetInstanceMetricData({
-  "instanceName": "",
-  "metricName": "",
-  "period": 0,
-  "startTime": "",
-  "endTime": "",
-  "unit": "",
-  "statistics": []
+  "instanceName": null,
+  "metricName": null,
+  "period": null,
+  "startTime": null,
+  "endTime": null,
+  "unit": null,
+  "statistics": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * endTime **required** [timestamp](#timestamp)
-  * instanceName **required** [ResourceName](#resourcename)
-  * metricName **required** [InstanceMetricName](#instancemetricname)
-  * period **required** [MetricPeriod](#metricperiod)
-  * startTime **required** [timestamp](#timestamp)
-  * statistics **required** [MetricStatisticList](#metricstatisticlist)
-  * unit **required** [MetricUnit](#metricunit)
+  * endTime **required**
+  * instanceName **required**
+  * metricName **required**
+  * period **required**
+  * startTime **required**
+  * statistics **required**
+    * items [MetricStatistic](#metricstatistic)
+  * unit **required**
 
 #### Output
 * output [GetInstanceMetricDataResult](#getinstancemetricdataresult)
@@ -810,13 +1726,13 @@ amazonaws_lightsail.GetInstanceMetricData({
 
 ```js
 amazonaws_lightsail.GetInstancePortStates({
-  "instanceName": ""
+  "instanceName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * instanceName **required** [ResourceName](#resourcename)
+  * instanceName **required**
 
 #### Output
 * output [GetInstancePortStatesResult](#getinstanceportstatesresult)
@@ -827,13 +1743,13 @@ amazonaws_lightsail.GetInstancePortStates({
 
 ```js
 amazonaws_lightsail.GetInstanceSnapshot({
-  "instanceSnapshotName": ""
+  "instanceSnapshotName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * instanceSnapshotName **required** [ResourceName](#resourcename)
+  * instanceSnapshotName **required**
 
 #### Output
 * output [GetInstanceSnapshotResult](#getinstancesnapshotresult)
@@ -848,7 +1764,7 @@ amazonaws_lightsail.GetInstanceSnapshots({}, context)
 
 #### Input
 * input `object`
-  * pageToken [string](#string)
+  * pageToken
 
 #### Output
 * output [GetInstanceSnapshotsResult](#getinstancesnapshotsresult)
@@ -859,13 +1775,13 @@ amazonaws_lightsail.GetInstanceSnapshots({}, context)
 
 ```js
 amazonaws_lightsail.GetInstanceState({
-  "instanceName": ""
+  "instanceName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * instanceName **required** [ResourceName](#resourcename)
+  * instanceName **required**
 
 #### Output
 * output [GetInstanceStateResult](#getinstancestateresult)
@@ -880,7 +1796,7 @@ amazonaws_lightsail.GetInstances({}, context)
 
 #### Input
 * input `object`
-  * pageToken [string](#string)
+  * pageToken
 
 #### Output
 * output [GetInstancesResult](#getinstancesresult)
@@ -891,13 +1807,13 @@ amazonaws_lightsail.GetInstances({}, context)
 
 ```js
 amazonaws_lightsail.GetKeyPair({
-  "keyPairName": ""
+  "keyPairName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * keyPairName **required** [ResourceName](#resourcename)
+  * keyPairName **required**
 
 #### Output
 * output [GetKeyPairResult](#getkeypairresult)
@@ -912,7 +1828,7 @@ amazonaws_lightsail.GetKeyPairs({}, context)
 
 #### Input
 * input `object`
-  * pageToken [string](#string)
+  * pageToken
 
 #### Output
 * output [GetKeyPairsResult](#getkeypairsresult)
@@ -923,13 +1839,13 @@ amazonaws_lightsail.GetKeyPairs({}, context)
 
 ```js
 amazonaws_lightsail.GetLoadBalancer({
-  "loadBalancerName": ""
+  "loadBalancerName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * loadBalancerName **required** [ResourceName](#resourcename)
+  * loadBalancerName **required**
 
 #### Output
 * output [GetLoadBalancerResult](#getloadbalancerresult)
@@ -940,25 +1856,26 @@ amazonaws_lightsail.GetLoadBalancer({
 
 ```js
 amazonaws_lightsail.GetLoadBalancerMetricData({
-  "loadBalancerName": "",
-  "metricName": "",
-  "period": 0,
-  "startTime": "",
-  "endTime": "",
-  "unit": "",
-  "statistics": []
+  "loadBalancerName": null,
+  "metricName": null,
+  "period": null,
+  "startTime": null,
+  "endTime": null,
+  "unit": null,
+  "statistics": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * endTime **required** [timestamp](#timestamp)
-  * loadBalancerName **required** [ResourceName](#resourcename)
-  * metricName **required** [LoadBalancerMetricName](#loadbalancermetricname)
-  * period **required** [MetricPeriod](#metricperiod)
-  * startTime **required** [timestamp](#timestamp)
-  * statistics **required** [MetricStatisticList](#metricstatisticlist)
-  * unit **required** [MetricUnit](#metricunit)
+  * endTime **required**
+  * loadBalancerName **required**
+  * metricName **required**
+  * period **required**
+  * startTime **required**
+  * statistics **required**
+    * items [MetricStatistic](#metricstatistic)
+  * unit **required**
 
 #### Output
 * output [GetLoadBalancerMetricDataResult](#getloadbalancermetricdataresult)
@@ -969,13 +1886,13 @@ amazonaws_lightsail.GetLoadBalancerMetricData({
 
 ```js
 amazonaws_lightsail.GetLoadBalancerTlsCertificates({
-  "loadBalancerName": ""
+  "loadBalancerName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * loadBalancerName **required** [ResourceName](#resourcename)
+  * loadBalancerName **required**
 
 #### Output
 * output [GetLoadBalancerTlsCertificatesResult](#getloadbalancertlscertificatesresult)
@@ -990,7 +1907,7 @@ amazonaws_lightsail.GetLoadBalancers({}, context)
 
 #### Input
 * input `object`
-  * pageToken [string](#string)
+  * pageToken
 
 #### Output
 * output [GetLoadBalancersResult](#getloadbalancersresult)
@@ -1001,13 +1918,13 @@ amazonaws_lightsail.GetLoadBalancers({}, context)
 
 ```js
 amazonaws_lightsail.GetOperation({
-  "operationId": ""
+  "operationId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * operationId **required** [NonEmptyString](#nonemptystring)
+  * operationId **required**
 
 #### Output
 * output [GetOperationResult](#getoperationresult)
@@ -1022,7 +1939,7 @@ amazonaws_lightsail.GetOperations({}, context)
 
 #### Input
 * input `object`
-  * pageToken [string](#string)
+  * pageToken
 
 #### Output
 * output [GetOperationsResult](#getoperationsresult)
@@ -1033,14 +1950,14 @@ amazonaws_lightsail.GetOperations({}, context)
 
 ```js
 amazonaws_lightsail.GetOperationsForResource({
-  "resourceName": ""
+  "resourceName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * pageToken [string](#string)
-  * resourceName **required** [ResourceName](#resourcename)
+  * pageToken
+  * resourceName **required**
 
 #### Output
 * output [GetOperationsForResourceResult](#getoperationsforresourceresult)
@@ -1055,10 +1972,230 @@ amazonaws_lightsail.GetRegions({}, context)
 
 #### Input
 * input `object`
-  * includeAvailabilityZones [boolean](#boolean)
+  * includeAvailabilityZones
+  * includeRelationalDatabaseAvailabilityZones
 
 #### Output
 * output [GetRegionsResult](#getregionsresult)
+
+### GetRelationalDatabase
+
+
+
+```js
+amazonaws_lightsail.GetRelationalDatabase({
+  "relationalDatabaseName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * relationalDatabaseName **required**
+
+#### Output
+* output [GetRelationalDatabaseResult](#getrelationaldatabaseresult)
+
+### GetRelationalDatabaseBlueprints
+
+
+
+```js
+amazonaws_lightsail.GetRelationalDatabaseBlueprints({}, context)
+```
+
+#### Input
+* input `object`
+  * pageToken
+
+#### Output
+* output [GetRelationalDatabaseBlueprintsResult](#getrelationaldatabaseblueprintsresult)
+
+### GetRelationalDatabaseBundles
+
+
+
+```js
+amazonaws_lightsail.GetRelationalDatabaseBundles({}, context)
+```
+
+#### Input
+* input `object`
+  * pageToken
+
+#### Output
+* output [GetRelationalDatabaseBundlesResult](#getrelationaldatabasebundlesresult)
+
+### GetRelationalDatabaseEvents
+
+
+
+```js
+amazonaws_lightsail.GetRelationalDatabaseEvents({
+  "relationalDatabaseName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * durationInMinutes
+  * pageToken
+  * relationalDatabaseName **required**
+
+#### Output
+* output [GetRelationalDatabaseEventsResult](#getrelationaldatabaseeventsresult)
+
+### GetRelationalDatabaseLogEvents
+
+
+
+```js
+amazonaws_lightsail.GetRelationalDatabaseLogEvents({
+  "relationalDatabaseName": null,
+  "logStreamName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * endTime
+  * logStreamName **required**
+  * pageToken
+  * relationalDatabaseName **required**
+  * startFromHead
+  * startTime
+
+#### Output
+* output [GetRelationalDatabaseLogEventsResult](#getrelationaldatabaselogeventsresult)
+
+### GetRelationalDatabaseLogStreams
+
+
+
+```js
+amazonaws_lightsail.GetRelationalDatabaseLogStreams({
+  "relationalDatabaseName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * relationalDatabaseName **required**
+
+#### Output
+* output [GetRelationalDatabaseLogStreamsResult](#getrelationaldatabaselogstreamsresult)
+
+### GetRelationalDatabaseMasterUserPassword
+
+
+
+```js
+amazonaws_lightsail.GetRelationalDatabaseMasterUserPassword({
+  "relationalDatabaseName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * passwordVersion
+  * relationalDatabaseName **required**
+
+#### Output
+* output [GetRelationalDatabaseMasterUserPasswordResult](#getrelationaldatabasemasteruserpasswordresult)
+
+### GetRelationalDatabaseMetricData
+
+
+
+```js
+amazonaws_lightsail.GetRelationalDatabaseMetricData({
+  "relationalDatabaseName": null,
+  "metricName": null,
+  "period": null,
+  "startTime": null,
+  "endTime": null,
+  "unit": null,
+  "statistics": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * endTime **required**
+  * metricName **required**
+  * period **required**
+  * relationalDatabaseName **required**
+  * startTime **required**
+  * statistics **required**
+    * items [MetricStatistic](#metricstatistic)
+  * unit **required**
+
+#### Output
+* output [GetRelationalDatabaseMetricDataResult](#getrelationaldatabasemetricdataresult)
+
+### GetRelationalDatabaseParameters
+
+
+
+```js
+amazonaws_lightsail.GetRelationalDatabaseParameters({
+  "relationalDatabaseName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * pageToken
+  * relationalDatabaseName **required**
+
+#### Output
+* output [GetRelationalDatabaseParametersResult](#getrelationaldatabaseparametersresult)
+
+### GetRelationalDatabaseSnapshot
+
+
+
+```js
+amazonaws_lightsail.GetRelationalDatabaseSnapshot({
+  "relationalDatabaseSnapshotName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * relationalDatabaseSnapshotName **required**
+
+#### Output
+* output [GetRelationalDatabaseSnapshotResult](#getrelationaldatabasesnapshotresult)
+
+### GetRelationalDatabaseSnapshots
+
+
+
+```js
+amazonaws_lightsail.GetRelationalDatabaseSnapshots({}, context)
+```
+
+#### Input
+* input `object`
+  * pageToken
+
+#### Output
+* output [GetRelationalDatabaseSnapshotsResult](#getrelationaldatabasesnapshotsresult)
+
+### GetRelationalDatabases
+
+
+
+```js
+amazonaws_lightsail.GetRelationalDatabases({}, context)
+```
+
+#### Input
+* input `object`
+  * pageToken
+
+#### Output
+* output [GetRelationalDatabasesResult](#getrelationaldatabasesresult)
 
 ### GetStaticIp
 
@@ -1066,13 +2203,13 @@ amazonaws_lightsail.GetRegions({}, context)
 
 ```js
 amazonaws_lightsail.GetStaticIp({
-  "staticIpName": ""
+  "staticIpName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * staticIpName **required** [ResourceName](#resourcename)
+  * staticIpName **required**
 
 #### Output
 * output [GetStaticIpResult](#getstaticipresult)
@@ -1087,7 +2224,7 @@ amazonaws_lightsail.GetStaticIps({}, context)
 
 #### Input
 * input `object`
-  * pageToken [string](#string)
+  * pageToken
 
 #### Output
 * output [GetStaticIpsResult](#getstaticipsresult)
@@ -1098,15 +2235,15 @@ amazonaws_lightsail.GetStaticIps({}, context)
 
 ```js
 amazonaws_lightsail.ImportKeyPair({
-  "keyPairName": "",
-  "publicKeyBase64": ""
+  "keyPairName": null,
+  "publicKeyBase64": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * keyPairName **required** [ResourceName](#resourcename)
-  * publicKeyBase64 **required** [Base64](#base64)
+  * keyPairName **required**
+  * publicKeyBase64 **required**
 
 #### Output
 * output [ImportKeyPairResult](#importkeypairresult)
@@ -1131,15 +2268,22 @@ amazonaws_lightsail.IsVpcPeered({}, context)
 
 ```js
 amazonaws_lightsail.OpenInstancePublicPorts({
-  "portInfo": {},
-  "instanceName": ""
+  "portInfo": null,
+  "instanceName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * instanceName **required** [ResourceName](#resourcename)
-  * portInfo **required** [PortInfo](#portinfo)
+  * instanceName **required**
+  * portInfo **required**
+    * cidrListAliases
+      * items [string](#string)
+    * cidrs
+      * items [string](#string)
+    * fromPort
+    * protocol
+    * toPort
 
 #### Output
 * output [OpenInstancePublicPortsResult](#openinstancepublicportsresult)
@@ -1158,21 +2302,56 @@ amazonaws_lightsail.PeerVpc({}, context)
 #### Output
 * output [PeerVpcResult](#peervpcresult)
 
+### PutAlarm
+
+
+
+```js
+amazonaws_lightsail.PutAlarm({
+  "alarmName": null,
+  "metricName": null,
+  "monitoredResourceName": null,
+  "comparisonOperator": null,
+  "threshold": null,
+  "evaluationPeriods": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * alarmName **required**
+  * comparisonOperator **required**
+  * contactProtocols
+    * items [ContactProtocol](#contactprotocol)
+  * datapointsToAlarm
+  * evaluationPeriods **required**
+  * metricName **required**
+  * monitoredResourceName **required**
+  * notificationEnabled
+  * notificationTriggers
+    * items [AlarmState](#alarmstate)
+  * threshold **required**
+  * treatMissingData
+
+#### Output
+* output [PutAlarmResult](#putalarmresult)
+
 ### PutInstancePublicPorts
 
 
 
 ```js
 amazonaws_lightsail.PutInstancePublicPorts({
-  "portInfos": [],
-  "instanceName": ""
+  "portInfos": null,
+  "instanceName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * instanceName **required** [ResourceName](#resourcename)
-  * portInfos **required** [PortInfoList](#portinfolist)
+  * instanceName **required**
+  * portInfos **required**
+    * items [PortInfo](#portinfo)
 
 #### Output
 * output [PutInstancePublicPortsResult](#putinstancepublicportsresult)
@@ -1183,16 +2362,54 @@ amazonaws_lightsail.PutInstancePublicPorts({
 
 ```js
 amazonaws_lightsail.RebootInstance({
-  "instanceName": ""
+  "instanceName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * instanceName **required** [ResourceName](#resourcename)
+  * instanceName **required**
 
 #### Output
 * output [RebootInstanceResult](#rebootinstanceresult)
+
+### RebootRelationalDatabase
+
+
+
+```js
+amazonaws_lightsail.RebootRelationalDatabase({
+  "relationalDatabaseName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * relationalDatabaseName **required**
+
+#### Output
+* output [RebootRelationalDatabaseResult](#rebootrelationaldatabaseresult)
+
+### RegisterContainerImage
+
+
+
+```js
+amazonaws_lightsail.RegisterContainerImage({
+  "serviceName": null,
+  "label": null,
+  "digest": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * digest **required**
+  * label **required**
+  * serviceName **required**
+
+#### Output
+* output [RegisterContainerImageResult](#registercontainerimageresult)
 
 ### ReleaseStaticIp
 
@@ -1200,16 +2417,48 @@ amazonaws_lightsail.RebootInstance({
 
 ```js
 amazonaws_lightsail.ReleaseStaticIp({
-  "staticIpName": ""
+  "staticIpName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * staticIpName **required** [ResourceName](#resourcename)
+  * staticIpName **required**
 
 #### Output
 * output [ReleaseStaticIpResult](#releasestaticipresult)
+
+### ResetDistributionCache
+
+
+
+```js
+amazonaws_lightsail.ResetDistributionCache({}, context)
+```
+
+#### Input
+* input `object`
+  * distributionName
+
+#### Output
+* output [ResetDistributionCacheResult](#resetdistributioncacheresult)
+
+### SendContactMethodVerification
+
+
+
+```js
+amazonaws_lightsail.SendContactMethodVerification({
+  "protocol": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * protocol **required**
+
+#### Output
+* output [SendContactMethodVerificationResult](#sendcontactmethodverificationresult)
 
 ### StartInstance
 
@@ -1217,16 +2466,33 @@ amazonaws_lightsail.ReleaseStaticIp({
 
 ```js
 amazonaws_lightsail.StartInstance({
-  "instanceName": ""
+  "instanceName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * instanceName **required** [ResourceName](#resourcename)
+  * instanceName **required**
 
 #### Output
 * output [StartInstanceResult](#startinstanceresult)
+
+### StartRelationalDatabase
+
+
+
+```js
+amazonaws_lightsail.StartRelationalDatabase({
+  "relationalDatabaseName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * relationalDatabaseName **required**
+
+#### Output
+* output [StartRelationalDatabaseResult](#startrelationaldatabaseresult)
 
 ### StopInstance
 
@@ -1234,17 +2500,75 @@ amazonaws_lightsail.StartInstance({
 
 ```js
 amazonaws_lightsail.StopInstance({
-  "instanceName": ""
+  "instanceName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * force [boolean](#boolean)
-  * instanceName **required** [ResourceName](#resourcename)
+  * force
+  * instanceName **required**
 
 #### Output
 * output [StopInstanceResult](#stopinstanceresult)
+
+### StopRelationalDatabase
+
+
+
+```js
+amazonaws_lightsail.StopRelationalDatabase({
+  "relationalDatabaseName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * relationalDatabaseName **required**
+  * relationalDatabaseSnapshotName
+
+#### Output
+* output [StopRelationalDatabaseResult](#stoprelationaldatabaseresult)
+
+### TagResource
+
+
+
+```js
+amazonaws_lightsail.TagResource({
+  "resourceName": null,
+  "tags": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * tags **required**
+    * items [Tag](#tag)
+  * resourceArn
+  * resourceName **required**
+
+#### Output
+* output [TagResourceResult](#tagresourceresult)
+
+### TestAlarm
+
+
+
+```js
+amazonaws_lightsail.TestAlarm({
+  "alarmName": null,
+  "state": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * alarmName **required**
+  * state **required**
+
+#### Output
+* output [TestAlarmResult](#testalarmresult)
 
 ### UnpeerVpc
 
@@ -1260,21 +2584,129 @@ amazonaws_lightsail.UnpeerVpc({}, context)
 #### Output
 * output [UnpeerVpcResult](#unpeervpcresult)
 
+### UntagResource
+
+
+
+```js
+amazonaws_lightsail.UntagResource({
+  "resourceName": null,
+  "tagKeys": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * resourceArn
+  * resourceName **required**
+  * tagKeys **required**
+    * items [TagKey](#tagkey)
+
+#### Output
+* output [UntagResourceResult](#untagresourceresult)
+
+### UpdateContainerService
+
+
+
+```js
+amazonaws_lightsail.UpdateContainerService({
+  "serviceName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * isDisabled
+  * power
+  * publicDomainNames
+  * scale
+  * serviceName **required**
+
+#### Output
+* output [UpdateContainerServiceResult](#updatecontainerserviceresult)
+
+### UpdateDistribution
+
+
+
+```js
+amazonaws_lightsail.UpdateDistribution({
+  "distributionName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * cacheBehaviorSettings
+    * allowedHTTPMethods
+    * cachedHTTPMethods
+    * defaultTTL
+    * forwardedCookies
+      * cookiesAllowList
+        * items [string](#string)
+      * option
+    * forwardedHeaders
+      * headersAllowList
+        * items [HeaderEnum](#headerenum)
+      * option
+    * forwardedQueryStrings
+      * option
+      * queryStringsAllowList
+        * items [string](#string)
+    * maximumTTL
+    * minimumTTL
+  * cacheBehaviors
+    * items [CacheBehaviorPerPath](#cachebehaviorperpath)
+  * defaultCacheBehavior
+    * behavior
+  * distributionName **required**
+  * isEnabled
+  * origin
+    * name
+    * protocolPolicy
+    * regionName
+
+#### Output
+* output [UpdateDistributionResult](#updatedistributionresult)
+
+### UpdateDistributionBundle
+
+
+
+```js
+amazonaws_lightsail.UpdateDistributionBundle({}, context)
+```
+
+#### Input
+* input `object`
+  * bundleId
+  * distributionName
+
+#### Output
+* output [UpdateDistributionBundleResult](#updatedistributionbundleresult)
+
 ### UpdateDomainEntry
 
 
 
 ```js
 amazonaws_lightsail.UpdateDomainEntry({
-  "domainName": "",
-  "domainEntry": {}
+  "domainName": null,
+  "domainEntry": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * domainEntry **required** [DomainEntry](#domainentry)
-  * domainName **required** [DomainName](#domainname)
+  * domainEntry **required**
+    * id
+    * isAlias
+    * name
+    * options
+    * target
+    * type
+  * domainName **required**
 
 #### Output
 * output [UpdateDomainEntryResult](#updatedomainentryresult)
@@ -1285,97 +2717,253 @@ amazonaws_lightsail.UpdateDomainEntry({
 
 ```js
 amazonaws_lightsail.UpdateLoadBalancerAttribute({
-  "loadBalancerName": "",
-  "attributeName": "",
-  "attributeValue": ""
+  "loadBalancerName": null,
+  "attributeName": null,
+  "attributeValue": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * attributeName **required** [LoadBalancerAttributeName](#loadbalancerattributename)
-  * attributeValue **required** [StringMax256](#stringmax256)
-  * loadBalancerName **required** [ResourceName](#resourcename)
+  * attributeName **required**
+  * attributeValue **required**
+  * loadBalancerName **required**
 
 #### Output
 * output [UpdateLoadBalancerAttributeResult](#updateloadbalancerattributeresult)
+
+### UpdateRelationalDatabase
+
+
+
+```js
+amazonaws_lightsail.UpdateRelationalDatabase({
+  "relationalDatabaseName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * applyImmediately
+  * caCertificateIdentifier
+  * disableBackupRetention
+  * enableBackupRetention
+  * masterUserPassword
+  * preferredBackupWindow
+  * preferredMaintenanceWindow
+  * publiclyAccessible
+  * relationalDatabaseName **required**
+  * rotateMasterUserPassword
+
+#### Output
+* output [UpdateRelationalDatabaseResult](#updaterelationaldatabaseresult)
+
+### UpdateRelationalDatabaseParameters
+
+
+
+```js
+amazonaws_lightsail.UpdateRelationalDatabaseParameters({
+  "relationalDatabaseName": null,
+  "parameters": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * parameters **required**
+    * items [RelationalDatabaseParameter](#relationaldatabaseparameter)
+  * relationalDatabaseName **required**
+
+#### Output
+* output [UpdateRelationalDatabaseParametersResult](#updaterelationaldatabaseparametersresult)
 
 
 
 ## Definitions
 
 ### AccessDeniedException
-* AccessDeniedException `object`: Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.
-  * code [string](#string)
-  * docs [string](#string)
-  * message [string](#string)
-  * tip [string](#string)
+
 
 ### AccessDirection
 * AccessDirection `string` (values: inbound, outbound)
 
 ### AccountSetupInProgressException
-* AccountSetupInProgressException `object`: Lightsail throws this exception when an account is still in the setup in progress state.
-  * code [string](#string)
-  * docs [string](#string)
-  * message [string](#string)
-  * tip [string](#string)
+
+
+### AddOn
+* AddOn `object`: Describes an add-on that is enabled for an Amazon Lightsail resource.
+  * name
+  * nextSnapshotTimeOfDay
+  * snapshotTimeOfDay
+  * status
+
+### AddOnList
+* AddOnList `array`
+  * items [AddOn](#addon)
+
+### AddOnRequest
+* AddOnRequest `object`: <p>Describes a request to enable, modify, or disable an add-on for an Amazon Lightsail resource.</p> <note> <p>An additional cost may be associated with enabling add-ons. For more information, see the <a href="https://aws.amazon.com/lightsail/pricing/">Lightsail pricing page</a>.</p> </note>
+  * addOnType **required**
+  * autoSnapshotAddOnRequest
+    * snapshotTimeOfDay
+
+### AddOnRequestList
+* AddOnRequestList `array`
+  * items [AddOnRequest](#addonrequest)
+
+### AddOnType
+* AddOnType `string` (values: AutoSnapshot)
+
+### Alarm
+* Alarm `object`: <p>Describes an alarm.</p> <p>An alarm is a way to monitor your Amazon Lightsail resource metrics. For more information, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-alarms">Alarms in Amazon Lightsail</a>.</p>
+  * arn
+  * comparisonOperator
+  * contactProtocols
+    * items [ContactProtocol](#contactprotocol)
+  * createdAt
+  * datapointsToAlarm
+  * evaluationPeriods
+  * location
+    * availabilityZone
+    * regionName
+  * metricName
+  * monitoredResourceInfo
+    * arn
+    * name
+    * resourceType
+  * name
+  * notificationEnabled
+  * notificationTriggers
+    * items [AlarmState](#alarmstate)
+  * period
+  * resourceType
+  * state
+  * statistic
+  * supportCode
+  * threshold
+  * treatMissingData
+  * unit
+
+### AlarmState
+* AlarmState `string` (values: OK, ALARM, INSUFFICIENT_DATA)
+
+### AlarmsList
+* AlarmsList `array`
+  * items [Alarm](#alarm)
 
 ### AllocateStaticIpRequest
 * AllocateStaticIpRequest `object`
-  * staticIpName **required** [ResourceName](#resourcename)
+  * staticIpName **required**
 
 ### AllocateStaticIpResult
 * AllocateStaticIpResult `object`
-  * operations [OperationList](#operationlist)
+  * operations
+    * items [Operation](#operation)
+
+### AttachCertificateToDistributionRequest
+* AttachCertificateToDistributionRequest `object`
+  * certificateName **required**
+  * distributionName **required**
+
+### AttachCertificateToDistributionResult
+* AttachCertificateToDistributionResult `object`
+  * operation
+    * createdAt
+    * errorCode
+    * errorDetails
+    * id
+    * isTerminal
+    * location
+      * availabilityZone
+      * regionName
+    * operationDetails
+    * operationType
+    * resourceName
+    * resourceType
+    * status
+    * statusChangedAt
 
 ### AttachDiskRequest
 * AttachDiskRequest `object`
-  * diskName **required** [ResourceName](#resourcename)
-  * diskPath **required** [NonEmptyString](#nonemptystring)
-  * instanceName **required** [ResourceName](#resourcename)
+  * diskName **required**
+  * diskPath **required**
+  * instanceName **required**
 
 ### AttachDiskResult
 * AttachDiskResult `object`
-  * operations [OperationList](#operationlist)
+  * operations
+    * items [Operation](#operation)
 
 ### AttachInstancesToLoadBalancerRequest
 * AttachInstancesToLoadBalancerRequest `object`
-  * instanceNames **required** [ResourceNameList](#resourcenamelist)
-  * loadBalancerName **required** [ResourceName](#resourcename)
+  * instanceNames **required**
+    * items [ResourceName](#resourcename)
+  * loadBalancerName **required**
 
 ### AttachInstancesToLoadBalancerResult
 * AttachInstancesToLoadBalancerResult `object`
-  * operations [OperationList](#operationlist)
+  * operations
+    * items [Operation](#operation)
 
 ### AttachLoadBalancerTlsCertificateRequest
 * AttachLoadBalancerTlsCertificateRequest `object`
-  * certificateName **required** [ResourceName](#resourcename)
-  * loadBalancerName **required** [ResourceName](#resourcename)
+  * certificateName **required**
+  * loadBalancerName **required**
 
 ### AttachLoadBalancerTlsCertificateResult
 * AttachLoadBalancerTlsCertificateResult `object`
-  * operations [OperationList](#operationlist)
+  * operations
+    * items [Operation](#operation)
 
 ### AttachStaticIpRequest
 * AttachStaticIpRequest `object`
-  * instanceName **required** [ResourceName](#resourcename)
-  * staticIpName **required** [ResourceName](#resourcename)
+  * instanceName **required**
+  * staticIpName **required**
 
 ### AttachStaticIpResult
 * AttachStaticIpResult `object`
-  * operations [OperationList](#operationlist)
+  * operations
+    * items [Operation](#operation)
+
+### AttachedDisk
+* AttachedDisk `object`: Describes a block storage disk that is attached to an instance, and is included in an automatic snapshot.
+  * path
+  * sizeInGb
+
+### AttachedDiskList
+* AttachedDiskList `array`
+  * items [AttachedDisk](#attacheddisk)
 
 ### AttachedDiskMap
-* AttachedDiskMap `array`
-  * items `object`
-    * key [ResourceName](#resourcename)
-    * value [DiskMapList](#diskmaplist)
+* AttachedDiskMap `object`
+
+### AutoSnapshotAddOnRequest
+* AutoSnapshotAddOnRequest `object`: <p>Describes a request to enable or modify the automatic snapshot add-on for an Amazon Lightsail instance or disk.</p> <p>When you modify the automatic snapshot time for a resource, it is typically effective immediately except under the following conditions:</p> <ul> <li> <p>If an automatic snapshot has been created for the current day, and you change the snapshot time to a later time of day, then the new snapshot time will be effective the following day. This ensures that two snapshots are not created for the current day.</p> </li> <li> <p>If an automatic snapshot has not yet been created for the current day, and you change the snapshot time to an earlier time of day, then the new snapshot time will be effective the following day and a snapshot is automatically created at the previously set time for the current day. This ensures that a snapshot is created for the current day.</p> </li> <li> <p>If an automatic snapshot has not yet been created for the current day, and you change the snapshot time to a time that is within 30 minutes from your current time, then the new snapshot time will be effective the following day and a snapshot is automatically created at the previously set time for the current day. This ensures that a snapshot is created for the current day, because 30 minutes is required between your current time and the new snapshot time that you specify.</p> </li> <li> <p>If an automatic snapshot is scheduled to be created within 30 minutes from your current time and you change the snapshot time, then the new snapshot time will be effective the following day and a snapshot is automatically created at the previously set time for the current day. This ensures that a snapshot is created for the current day, because 30 minutes is required between your current time and the new snapshot time that you specify.</p> </li> </ul>
+  * snapshotTimeOfDay
+
+### AutoSnapshotDate
+* AutoSnapshotDate `string`
+
+### AutoSnapshotDetails
+* AutoSnapshotDetails `object`: Describes an automatic snapshot.
+  * createdAt
+  * date
+  * fromAttachedDisks
+    * items [AttachedDisk](#attacheddisk)
+  * status
+
+### AutoSnapshotDetailsList
+* AutoSnapshotDetailsList `array`
+  * items [AutoSnapshotDetails](#autosnapshotdetails)
+
+### AutoSnapshotStatus
+* AutoSnapshotStatus `string` (values: Success, Failed, InProgress, NotFound)
 
 ### AvailabilityZone
 * AvailabilityZone `object`: Describes an Availability Zone.
-  * state [NonEmptyString](#nonemptystring)
-  * zoneName [NonEmptyString](#nonemptystring)
+  * state
+  * zoneName
 
 ### AvailabilityZoneList
 * AvailabilityZoneList `array`
@@ -1384,20 +2972,23 @@ amazonaws_lightsail.UpdateLoadBalancerAttribute({
 ### Base64
 * Base64 `string`
 
+### BehaviorEnum
+* BehaviorEnum `string` (values: dont-cache, cache)
+
 ### Blueprint
 * Blueprint `object`: Describes a blueprint (a virtual private server image).
-  * blueprintId [NonEmptyString](#nonemptystring)
-  * description [string](#string)
-  * group [NonEmptyString](#nonemptystring)
-  * isActive [boolean](#boolean)
-  * licenseUrl [string](#string)
-  * minPower [integer](#integer)
-  * name [ResourceName](#resourcename)
-  * platform [InstancePlatform](#instanceplatform)
-  * productUrl [string](#string)
-  * type [BlueprintType](#blueprinttype)
-  * version [string](#string)
-  * versionCode [string](#string)
+  * blueprintId
+  * description
+  * group
+  * isActive
+  * licenseUrl
+  * minPower
+  * name
+  * platform
+  * productUrl
+  * type
+  * version
+  * versionCode
 
 ### BlueprintList
 * BlueprintList `array`
@@ -1408,267 +2999,1390 @@ amazonaws_lightsail.UpdateLoadBalancerAttribute({
 
 ### Bundle
 * Bundle `object`: Describes a bundle, which is a set of specs describing your virtual private server (or <i>instance</i>).
-  * bundleId [NonEmptyString](#nonemptystring)
-  * cpuCount [integer](#integer)
-  * diskSizeInGb [integer](#integer)
-  * instanceType [string](#string)
-  * isActive [boolean](#boolean)
-  * name [string](#string)
-  * power [integer](#integer)
-  * price [float](#float)
-  * ramSizeInGb [float](#float)
-  * supportedPlatforms [InstancePlatformList](#instanceplatformlist)
-  * transferPerMonthInGb [integer](#integer)
+  * bundleId
+  * cpuCount
+  * diskSizeInGb
+  * instanceType
+  * isActive
+  * name
+  * power
+  * price
+  * ramSizeInGb
+  * supportedPlatforms
+    * items [InstancePlatform](#instanceplatform)
+  * transferPerMonthInGb
 
 ### BundleList
 * BundleList `array`
   * items [Bundle](#bundle)
 
+### CacheBehavior
+* CacheBehavior `object`: Describes the default cache behavior of an Amazon Lightsail content delivery network (CDN) distribution.
+  * behavior
+
+### CacheBehaviorList
+* CacheBehaviorList `array`
+  * items [CacheBehaviorPerPath](#cachebehaviorperpath)
+
+### CacheBehaviorPerPath
+* CacheBehaviorPerPath `object`: <p>Describes the per-path cache behavior of an Amazon Lightsail content delivery network (CDN) distribution.</p> <p>A per-path cache behavior is used to override, or add an exception to, the default cache behavior of a distribution. For example, if the <code>cacheBehavior</code> is set to <code>cache</code>, then a per-path cache behavior can be used to specify a directory, file, or file type that your distribution will cache. Alternately, if the distribution's <code>cacheBehavior</code> is <code>dont-cache</code>, then a per-path cache behavior can be used to specify a directory, file, or file type that your distribution will not cache.</p> <p>if the cacheBehavior's behavior is set to 'cache', then</p>
+  * behavior
+  * path
+
+### CacheSettings
+* CacheSettings `object`: <p>Describes the cache settings of an Amazon Lightsail content delivery network (CDN) distribution.</p> <p>These settings apply only to your distribution's <code>cacheBehaviors</code> (including the <code>defaultCacheBehavior</code>) that have a <code>behavior</code> of <code>cache</code>.</p>
+  * allowedHTTPMethods
+  * cachedHTTPMethods
+  * defaultTTL
+  * forwardedCookies
+    * cookiesAllowList
+      * items [string](#string)
+    * option
+  * forwardedHeaders
+    * headersAllowList
+      * items [HeaderEnum](#headerenum)
+    * option
+  * forwardedQueryStrings
+    * option
+    * queryStringsAllowList
+      * items [string](#string)
+  * maximumTTL
+  * minimumTTL
+
+### Certificate
+* Certificate `object`: <p>Describes the full details of an Amazon Lightsail SSL/TLS certificate.</p> <note> <p>To get a summary of a certificate, use the <code>GetCertificates</code> action and ommit <code>includeCertificateDetails</code> from your request. The response will include only the certificate Amazon Resource Name (ARN), certificate name, domain name, and tags.</p> </note>
+  * tags
+    * items [Tag](#tag)
+  * arn
+  * createdAt
+  * domainName
+  * domainValidationRecords
+    * items [DomainValidationRecord](#domainvalidationrecord)
+  * eligibleToRenew
+  * inUseResourceCount
+  * issuedAt
+  * issuerCA
+  * keyAlgorithm
+  * name
+  * notAfter
+  * notBefore
+  * renewalSummary
+    * domainValidationRecords
+      * items [DomainValidationRecord](#domainvalidationrecord)
+    * renewalStatus
+    * renewalStatusReason
+    * updatedAt
+  * requestFailureReason
+  * revocationReason
+  * revokedAt
+  * serialNumber
+  * status
+  * subjectAlternativeNames
+    * items [DomainName](#domainname)
+  * supportCode
+
+### CertificateName
+* CertificateName `string`
+
+### CertificateStatus
+* CertificateStatus `string` (values: PENDING_VALIDATION, ISSUED, INACTIVE, EXPIRED, VALIDATION_TIMED_OUT, REVOKED, FAILED)
+
+### CertificateStatusList
+* CertificateStatusList `array`
+  * items [CertificateStatus](#certificatestatus)
+
+### CertificateSummary
+* CertificateSummary `object`: Describes an Amazon Lightsail SSL/TLS certificate.
+  * tags
+    * items [Tag](#tag)
+  * certificateArn
+  * certificateDetail
+    * tags
+      * items [Tag](#tag)
+    * arn
+    * createdAt
+    * domainName
+    * domainValidationRecords
+      * items [DomainValidationRecord](#domainvalidationrecord)
+    * eligibleToRenew
+    * inUseResourceCount
+    * issuedAt
+    * issuerCA
+    * keyAlgorithm
+    * name
+    * notAfter
+    * notBefore
+    * renewalSummary
+      * domainValidationRecords
+        * items [DomainValidationRecord](#domainvalidationrecord)
+      * renewalStatus
+      * renewalStatusReason
+      * updatedAt
+    * requestFailureReason
+    * revocationReason
+    * revokedAt
+    * serialNumber
+    * status
+    * subjectAlternativeNames
+      * items [DomainName](#domainname)
+    * supportCode
+  * certificateName
+  * domainName
+
+### CertificateSummaryList
+* CertificateSummaryList `array`
+  * items [CertificateSummary](#certificatesummary)
+
 ### CloseInstancePublicPortsRequest
 * CloseInstancePublicPortsRequest `object`
-  * instanceName **required** [ResourceName](#resourcename)
-  * portInfo **required** [PortInfo](#portinfo)
+  * instanceName **required**
+  * portInfo **required**
+    * cidrListAliases
+      * items [string](#string)
+    * cidrs
+      * items [string](#string)
+    * fromPort
+    * protocol
+    * toPort
 
 ### CloseInstancePublicPortsResult
 * CloseInstancePublicPortsResult `object`
-  * operation [Operation](#operation)
+  * operation
+    * createdAt
+    * errorCode
+    * errorDetails
+    * id
+    * isTerminal
+    * location
+      * availabilityZone
+      * regionName
+    * operationDetails
+    * operationType
+    * resourceName
+    * resourceType
+    * status
+    * statusChangedAt
+
+### CloudFormationStackRecord
+* CloudFormationStackRecord `object`: <p>Describes a CloudFormation stack record created as a result of the <code>create cloud formation stack</code> operation.</p> <p>A CloudFormation stack record provides information about the AWS CloudFormation stack used to create a new Amazon Elastic Compute Cloud instance from an exported Lightsail instance snapshot.</p>
+  * arn
+  * createdAt
+  * destinationInfo
+    * id
+    * service
+  * location
+    * availabilityZone
+    * regionName
+  * name
+  * resourceType
+  * sourceInfo
+    * items [CloudFormationStackRecordSourceInfo](#cloudformationstackrecordsourceinfo)
+  * state
+
+### CloudFormationStackRecordList
+* CloudFormationStackRecordList `array`
+  * items [CloudFormationStackRecord](#cloudformationstackrecord)
+
+### CloudFormationStackRecordSourceInfo
+* CloudFormationStackRecordSourceInfo `object`: Describes the source of a CloudFormation stack record (i.e., the export snapshot record).
+  * arn
+  * name
+  * resourceType
+
+### CloudFormationStackRecordSourceInfoList
+* CloudFormationStackRecordSourceInfoList `array`
+  * items [CloudFormationStackRecordSourceInfo](#cloudformationstackrecordsourceinfo)
+
+### CloudFormationStackRecordSourceType
+* CloudFormationStackRecordSourceType `string` (values: ExportSnapshotRecord)
+
+### ComparisonOperator
+* ComparisonOperator `string` (values: GreaterThanOrEqualToThreshold, GreaterThanThreshold, LessThanThreshold, LessThanOrEqualToThreshold)
+
+### ContactMethod
+* ContactMethod `object`: <p>Describes a contact method.</p> <p>A contact method is a way to send you notifications. For more information, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-notifications">Notifications in Amazon Lightsail</a>.</p>
+  * arn
+  * contactEndpoint
+  * createdAt
+  * location [ResourceLocation](#resourcelocation)
+  * name
+  * protocol
+  * resourceType
+  * status
+  * supportCode
+
+### ContactMethodStatus
+* ContactMethodStatus `string` (values: PendingVerification, Valid, Invalid)
+
+### ContactMethodVerificationProtocol
+* ContactMethodVerificationProtocol `string` (values: Email)
+
+### ContactMethodsList
+* ContactMethodsList `array`
+  * items [ContactMethod](#contactmethod)
+
+### ContactProtocol
+* ContactProtocol `string` (values: Email, SMS)
+
+### ContactProtocolsList
+* ContactProtocolsList `array`
+  * items [ContactProtocol](#contactprotocol)
+
+### Container
+* Container `object`: Describes the settings of a container that will be launched, or that is launched, to an Amazon Lightsail container service.
+  * command
+    * items [string](#string)
+  * environment
+  * image
+  * ports
+
+### ContainerImage
+* ContainerImage `object`: Describes a container image that is registered to an Amazon Lightsail container service.
+  * createdAt
+  * digest
+  * image
+
+### ContainerImageList
+* ContainerImageList `array`
+  * items [ContainerImage](#containerimage)
+
+### ContainerLabel
+* ContainerLabel `string`
+
+### ContainerMap
+* ContainerMap `object`
+
+### ContainerName
+* ContainerName `string`
+
+### ContainerService
+* ContainerService `object`: Describes an Amazon Lightsail container service.
+  * tags
+    * items [Tag](#tag)
+  * arn
+  * containerServiceName
+  * createdAt
+  * currentDeployment
+    * containers
+    * createdAt
+    * publicEndpoint
+      * containerName
+      * containerPort
+      * healthCheck
+        * healthyThreshold
+        * intervalSeconds
+        * path
+        * successCodes
+        * timeoutSeconds
+        * unhealthyThreshold
+    * state
+    * version
+  * isDisabled
+  * location
+    * availabilityZone
+    * regionName
+  * nextDeployment
+    * containers
+    * createdAt
+    * publicEndpoint
+      * containerName
+      * containerPort
+      * healthCheck
+        * healthyThreshold
+        * intervalSeconds
+        * path
+        * successCodes
+        * timeoutSeconds
+        * unhealthyThreshold
+    * state
+    * version
+  * power
+  * powerId
+  * principalArn
+  * privateDomainName
+  * publicDomainNames
+  * resourceType
+  * scale
+  * state
+  * url
+
+### ContainerServiceDeployment
+* ContainerServiceDeployment `object`: <p>Describes a container deployment configuration of an Amazon Lightsail container service.</p> <p>A deployment specifies the settings, such as the ports and launch command, of containers that are deployed to your container service.</p>
+  * containers
+  * createdAt
+  * publicEndpoint
+    * containerName
+    * containerPort
+    * healthCheck
+      * healthyThreshold
+      * intervalSeconds
+      * path
+      * successCodes
+      * timeoutSeconds
+      * unhealthyThreshold
+  * state
+  * version
+
+### ContainerServiceDeploymentList
+* ContainerServiceDeploymentList `array`
+  * items [ContainerServiceDeployment](#containerservicedeployment)
+
+### ContainerServiceDeploymentRequest
+* ContainerServiceDeploymentRequest `object`: <p>Describes a container deployment configuration of an Amazon Lightsail container service.</p> <p>A deployment specifies the settings, such as the ports and launch command, of containers that are deployed to your container service.</p>
+  * containers
+  * publicEndpoint
+    * containerName **required**
+    * containerPort **required**
+    * healthCheck
+      * healthyThreshold
+      * intervalSeconds
+      * path
+      * successCodes
+      * timeoutSeconds
+      * unhealthyThreshold
+
+### ContainerServiceDeploymentState
+* ContainerServiceDeploymentState `string` (values: ACTIVATING, ACTIVE, INACTIVE, FAILED)
+
+### ContainerServiceEndpoint
+* ContainerServiceEndpoint `object`: Describes the public endpoint configuration of a deployment of an Amazon Lightsail container service.
+  * containerName
+  * containerPort
+  * healthCheck
+    * healthyThreshold
+    * intervalSeconds
+    * path
+    * successCodes
+    * timeoutSeconds
+    * unhealthyThreshold
+
+### ContainerServiceHealthCheckConfig
+* ContainerServiceHealthCheckConfig `object`: Describes the health check configuration of an Amazon Lightsail container service.
+  * healthyThreshold
+  * intervalSeconds
+  * path
+  * successCodes
+  * timeoutSeconds
+  * unhealthyThreshold
+
+### ContainerServiceList
+* ContainerServiceList `array`
+  * items [ContainerService](#containerservice)
+
+### ContainerServiceLogEvent
+* ContainerServiceLogEvent `object`: Describes the log events of a container of an Amazon Lightsail container service.
+  * createdAt
+  * message
+
+### ContainerServiceLogEventList
+* ContainerServiceLogEventList `array`
+  * items [ContainerServiceLogEvent](#containerservicelogevent)
+
+### ContainerServiceMetadataEntry
+* ContainerServiceMetadataEntry `object`
+
+### ContainerServiceMetadataEntryList
+* ContainerServiceMetadataEntryList `array`
+  * items [ContainerServiceMetadataEntry](#containerservicemetadataentry)
+
+### ContainerServiceMetricName
+* ContainerServiceMetricName `string` (values: CPUUtilization, MemoryUtilization)
+
+### ContainerServiceName
+* ContainerServiceName `string`
+
+### ContainerServicePower
+* ContainerServicePower `object`: <p>Describes the powers that can be specified for an Amazon Lightsail container service.</p> <p>The power specifies the amount of RAM, the number of vCPUs, and the base price of the container service.</p>
+  * cpuCount
+  * isActive
+  * name
+  * powerId
+  * price
+  * ramSizeInGb
+
+### ContainerServicePowerList
+* ContainerServicePowerList `array`
+  * items [ContainerServicePower](#containerservicepower)
+
+### ContainerServicePowerName
+* ContainerServicePowerName `string` (values: nano, micro, small, medium, large, xlarge)
+
+### ContainerServiceProtocol
+* ContainerServiceProtocol `string` (values: HTTP, HTTPS, TCP, UDP)
+
+### ContainerServicePublicDomains
+* ContainerServicePublicDomains `object`
+
+### ContainerServicePublicDomainsList
+* ContainerServicePublicDomainsList `array`
+  * items [string](#string)
+
+### ContainerServiceRegistryLogin
+* ContainerServiceRegistryLogin `object`: Describes the login information for the container image registry of an Amazon Lightsail account.
+  * expiresAt
+  * password
+  * registry
+  * username
+
+### ContainerServiceScale
+* ContainerServiceScale `integer`
+
+### ContainerServiceState
+* ContainerServiceState `string` (values: PENDING, READY, RUNNING, UPDATING, DELETING, DISABLED)
+
+### ContainerServicesListResult
+* ContainerServicesListResult `object`
+  * containerServices
+    * items [ContainerService](#containerservice)
+
+### CookieObject
+* CookieObject `object`: <p>Describes whether an Amazon Lightsail content delivery network (CDN) distribution forwards cookies to the origin and, if so, which ones.</p> <p>For the cookies that you specify, your distribution caches separate versions of the specified content based on the cookie values in viewer requests.</p>
+  * cookiesAllowList
+    * items [string](#string)
+  * option
+
+### CopySnapshotRequest
+* CopySnapshotRequest `object`
+  * restoreDate
+  * sourceRegion **required**
+  * sourceResourceName
+  * sourceSnapshotName
+  * targetSnapshotName **required**
+  * useLatestRestorableAutoSnapshot
+
+### CopySnapshotResult
+* CopySnapshotResult `object`
+  * operations
+    * items [Operation](#operation)
+
+### CreateCertificateRequest
+* CreateCertificateRequest `object`
+  * tags
+    * items [Tag](#tag)
+  * certificateName **required**
+  * domainName **required**
+  * subjectAlternativeNames
+    * items [DomainName](#domainname)
+
+### CreateCertificateResult
+* CreateCertificateResult `object`
+  * certificate
+    * tags
+      * items [Tag](#tag)
+    * certificateArn
+    * certificateDetail
+      * tags
+        * items [Tag](#tag)
+      * arn
+      * createdAt
+      * domainName
+      * domainValidationRecords
+        * items [DomainValidationRecord](#domainvalidationrecord)
+      * eligibleToRenew
+      * inUseResourceCount
+      * issuedAt
+      * issuerCA
+      * keyAlgorithm
+      * name
+      * notAfter
+      * notBefore
+      * renewalSummary
+        * domainValidationRecords
+          * items [DomainValidationRecord](#domainvalidationrecord)
+        * renewalStatus
+        * renewalStatusReason
+        * updatedAt
+      * requestFailureReason
+      * revocationReason
+      * revokedAt
+      * serialNumber
+      * status
+      * subjectAlternativeNames
+        * items [DomainName](#domainname)
+      * supportCode
+    * certificateName
+    * domainName
+  * operations
+    * items [Operation](#operation)
+
+### CreateCloudFormationStackRequest
+* CreateCloudFormationStackRequest `object`
+  * instances **required**
+    * items [InstanceEntry](#instanceentry)
+
+### CreateCloudFormationStackResult
+* CreateCloudFormationStackResult `object`
+  * operations
+    * items [Operation](#operation)
+
+### CreateContactMethodRequest
+* CreateContactMethodRequest `object`
+  * contactEndpoint **required**
+  * protocol **required**
+
+### CreateContactMethodResult
+* CreateContactMethodResult `object`
+  * operations
+    * items [Operation](#operation)
+
+### CreateContainerServiceDeploymentRequest
+* CreateContainerServiceDeploymentRequest `object`
+  * containers
+  * publicEndpoint
+    * containerName **required**
+    * containerPort **required**
+    * healthCheck
+      * healthyThreshold
+      * intervalSeconds
+      * path
+      * successCodes
+      * timeoutSeconds
+      * unhealthyThreshold
+  * serviceName **required**
+
+### CreateContainerServiceDeploymentResult
+* CreateContainerServiceDeploymentResult `object`
+  * containerService
+    * tags
+      * items [Tag](#tag)
+    * arn
+    * containerServiceName
+    * createdAt
+    * currentDeployment
+      * containers
+      * createdAt
+      * publicEndpoint
+        * containerName
+        * containerPort
+        * healthCheck
+          * healthyThreshold
+          * intervalSeconds
+          * path
+          * successCodes
+          * timeoutSeconds
+          * unhealthyThreshold
+      * state
+      * version
+    * isDisabled
+    * location
+      * availabilityZone
+      * regionName
+    * nextDeployment
+      * containers
+      * createdAt
+      * publicEndpoint
+        * containerName
+        * containerPort
+        * healthCheck
+          * healthyThreshold
+          * intervalSeconds
+          * path
+          * successCodes
+          * timeoutSeconds
+          * unhealthyThreshold
+      * state
+      * version
+    * power
+    * powerId
+    * principalArn
+    * privateDomainName
+    * publicDomainNames
+    * resourceType
+    * scale
+    * state
+    * url
+
+### CreateContainerServiceRegistryLoginRequest
+* CreateContainerServiceRegistryLoginRequest `object`
+
+### CreateContainerServiceRegistryLoginResult
+* CreateContainerServiceRegistryLoginResult `object`
+  * registryLogin
+    * expiresAt
+    * password
+    * registry
+    * username
+
+### CreateContainerServiceRequest
+* CreateContainerServiceRequest `object`
+  * tags
+    * items [Tag](#tag)
+  * deployment
+    * containers
+    * publicEndpoint
+      * containerName **required**
+      * containerPort **required**
+      * healthCheck
+        * healthyThreshold
+        * intervalSeconds
+        * path
+        * successCodes
+        * timeoutSeconds
+        * unhealthyThreshold
+  * power **required**
+  * publicDomainNames
+  * scale **required**
+  * serviceName **required**
+
+### CreateContainerServiceResult
+* CreateContainerServiceResult `object`
+  * containerService
+    * tags
+      * items [Tag](#tag)
+    * arn
+    * containerServiceName
+    * createdAt
+    * currentDeployment
+      * containers
+      * createdAt
+      * publicEndpoint
+        * containerName
+        * containerPort
+        * healthCheck
+          * healthyThreshold
+          * intervalSeconds
+          * path
+          * successCodes
+          * timeoutSeconds
+          * unhealthyThreshold
+      * state
+      * version
+    * isDisabled
+    * location
+      * availabilityZone
+      * regionName
+    * nextDeployment
+      * containers
+      * createdAt
+      * publicEndpoint
+        * containerName
+        * containerPort
+        * healthCheck
+          * healthyThreshold
+          * intervalSeconds
+          * path
+          * successCodes
+          * timeoutSeconds
+          * unhealthyThreshold
+      * state
+      * version
+    * power
+    * powerId
+    * principalArn
+    * privateDomainName
+    * publicDomainNames
+    * resourceType
+    * scale
+    * state
+    * url
 
 ### CreateDiskFromSnapshotRequest
 * CreateDiskFromSnapshotRequest `object`
-  * availabilityZone **required** [NonEmptyString](#nonemptystring)
-  * diskName **required** [ResourceName](#resourcename)
-  * diskSnapshotName **required** [ResourceName](#resourcename)
-  * sizeInGb **required** [integer](#integer)
+  * tags
+    * items [Tag](#tag)
+  * addOns
+    * items [AddOnRequest](#addonrequest)
+  * availabilityZone **required**
+  * diskName **required**
+  * diskSnapshotName
+  * restoreDate
+  * sizeInGb **required**
+  * sourceDiskName
+  * useLatestRestorableAutoSnapshot
 
 ### CreateDiskFromSnapshotResult
 * CreateDiskFromSnapshotResult `object`
-  * operations [OperationList](#operationlist)
+  * operations
+    * items [Operation](#operation)
 
 ### CreateDiskRequest
 * CreateDiskRequest `object`
-  * availabilityZone **required** [NonEmptyString](#nonemptystring)
-  * diskName **required** [ResourceName](#resourcename)
-  * sizeInGb **required** [integer](#integer)
+  * tags
+    * items [Tag](#tag)
+  * addOns
+    * items [AddOnRequest](#addonrequest)
+  * availabilityZone **required**
+  * diskName **required**
+  * sizeInGb **required**
 
 ### CreateDiskResult
 * CreateDiskResult `object`
-  * operations [OperationList](#operationlist)
+  * operations
+    * items [Operation](#operation)
 
 ### CreateDiskSnapshotRequest
 * CreateDiskSnapshotRequest `object`
-  * diskName **required** [ResourceName](#resourcename)
-  * diskSnapshotName **required** [ResourceName](#resourcename)
+  * tags
+    * items [Tag](#tag)
+  * diskName
+  * diskSnapshotName **required**
+  * instanceName
 
 ### CreateDiskSnapshotResult
 * CreateDiskSnapshotResult `object`
-  * operations [OperationList](#operationlist)
+  * operations
+    * items [Operation](#operation)
+
+### CreateDistributionRequest
+* CreateDistributionRequest `object`
+  * tags
+    * items [Tag](#tag)
+  * bundleId **required**
+  * cacheBehaviorSettings
+    * allowedHTTPMethods
+    * cachedHTTPMethods
+    * defaultTTL
+    * forwardedCookies
+      * cookiesAllowList
+        * items [string](#string)
+      * option
+    * forwardedHeaders
+      * headersAllowList
+        * items [HeaderEnum](#headerenum)
+      * option
+    * forwardedQueryStrings
+      * option
+      * queryStringsAllowList
+        * items [string](#string)
+    * maximumTTL
+    * minimumTTL
+  * cacheBehaviors
+    * items [CacheBehaviorPerPath](#cachebehaviorperpath)
+  * defaultCacheBehavior **required**
+    * behavior
+  * distributionName **required**
+  * origin **required**
+    * name
+    * protocolPolicy
+    * regionName
+
+### CreateDistributionResult
+* CreateDistributionResult `object`
+  * distribution
+    * tags
+      * items [Tag](#tag)
+    * ableToUpdateBundle
+    * alternativeDomainNames
+      * items [string](#string)
+    * arn
+    * bundleId
+    * cacheBehaviorSettings
+      * allowedHTTPMethods
+      * cachedHTTPMethods
+      * defaultTTL
+      * forwardedCookies
+        * cookiesAllowList
+          * items [string](#string)
+        * option
+      * forwardedHeaders
+        * headersAllowList
+          * items [HeaderEnum](#headerenum)
+        * option
+      * forwardedQueryStrings
+        * option
+        * queryStringsAllowList
+          * items [string](#string)
+      * maximumTTL
+      * minimumTTL
+    * cacheBehaviors
+      * items [CacheBehaviorPerPath](#cachebehaviorperpath)
+    * certificateName
+    * createdAt
+    * defaultCacheBehavior
+      * behavior
+    * domainName
+    * isEnabled
+    * location
+      * availabilityZone
+      * regionName
+    * name
+    * origin
+      * name
+      * protocolPolicy
+      * regionName
+      * resourceType
+    * originPublicDNS
+    * resourceType
+    * status
+    * supportCode
+  * operation
+    * createdAt
+    * errorCode
+    * errorDetails
+    * id
+    * isTerminal
+    * location
+      * availabilityZone
+      * regionName
+    * operationDetails
+    * operationType
+    * resourceName
+    * resourceType
+    * status
+    * statusChangedAt
 
 ### CreateDomainEntryRequest
 * CreateDomainEntryRequest `object`
-  * domainEntry **required** [DomainEntry](#domainentry)
-  * domainName **required** [DomainName](#domainname)
+  * domainEntry **required**
+    * id
+    * isAlias
+    * name
+    * options
+    * target
+    * type
+  * domainName **required**
 
 ### CreateDomainEntryResult
 * CreateDomainEntryResult `object`
-  * operation [Operation](#operation)
+  * operation
+    * createdAt
+    * errorCode
+    * errorDetails
+    * id
+    * isTerminal
+    * location
+      * availabilityZone
+      * regionName
+    * operationDetails
+    * operationType
+    * resourceName
+    * resourceType
+    * status
+    * statusChangedAt
 
 ### CreateDomainRequest
 * CreateDomainRequest `object`
-  * domainName **required** [DomainName](#domainname)
+  * tags
+    * items [Tag](#tag)
+  * domainName **required**
 
 ### CreateDomainResult
 * CreateDomainResult `object`
-  * operation [Operation](#operation)
+  * operation
+    * createdAt
+    * errorCode
+    * errorDetails
+    * id
+    * isTerminal
+    * location
+      * availabilityZone
+      * regionName
+    * operationDetails
+    * operationType
+    * resourceName
+    * resourceType
+    * status
+    * statusChangedAt
 
 ### CreateInstanceSnapshotRequest
 * CreateInstanceSnapshotRequest `object`
-  * instanceName **required** [ResourceName](#resourcename)
-  * instanceSnapshotName **required** [ResourceName](#resourcename)
+  * tags
+    * items [Tag](#tag)
+  * instanceName **required**
+  * instanceSnapshotName **required**
 
 ### CreateInstanceSnapshotResult
 * CreateInstanceSnapshotResult `object`
-  * operations [OperationList](#operationlist)
+  * operations
+    * items [Operation](#operation)
 
 ### CreateInstancesFromSnapshotRequest
 * CreateInstancesFromSnapshotRequest `object`
-  * attachedDiskMapping [AttachedDiskMap](#attacheddiskmap)
-  * availabilityZone **required** [string](#string)
-  * bundleId **required** [NonEmptyString](#nonemptystring)
-  * instanceNames **required** [StringList](#stringlist)
-  * instanceSnapshotName **required** [ResourceName](#resourcename)
-  * keyPairName [ResourceName](#resourcename)
-  * userData [string](#string)
+  * tags
+    * items [Tag](#tag)
+  * addOns
+    * items [AddOnRequest](#addonrequest)
+  * attachedDiskMapping
+  * availabilityZone **required**
+  * bundleId **required**
+  * instanceNames **required**
+    * items [string](#string)
+  * instanceSnapshotName
+  * keyPairName
+  * restoreDate
+  * sourceInstanceName
+  * useLatestRestorableAutoSnapshot
+  * userData
 
 ### CreateInstancesFromSnapshotResult
 * CreateInstancesFromSnapshotResult `object`
-  * operations [OperationList](#operationlist)
+  * operations
+    * items [Operation](#operation)
 
 ### CreateInstancesRequest
 * CreateInstancesRequest `object`
-  * availabilityZone **required** [string](#string)
-  * blueprintId **required** [NonEmptyString](#nonemptystring)
-  * bundleId **required** [NonEmptyString](#nonemptystring)
-  * customImageName [ResourceName](#resourcename)
-  * instanceNames **required** [StringList](#stringlist)
-  * keyPairName [ResourceName](#resourcename)
-  * userData [string](#string)
+  * tags
+    * items [Tag](#tag)
+  * addOns
+    * items [AddOnRequest](#addonrequest)
+  * availabilityZone **required**
+  * blueprintId **required**
+  * bundleId **required**
+  * customImageName
+  * instanceNames **required**
+    * items [string](#string)
+  * keyPairName
+  * userData
 
 ### CreateInstancesResult
 * CreateInstancesResult `object`
-  * operations [OperationList](#operationlist)
+  * operations
+    * items [Operation](#operation)
 
 ### CreateKeyPairRequest
 * CreateKeyPairRequest `object`
-  * keyPairName **required** [ResourceName](#resourcename)
+  * tags
+    * items [Tag](#tag)
+  * keyPairName **required**
 
 ### CreateKeyPairResult
 * CreateKeyPairResult `object`
-  * keyPair [KeyPair](#keypair)
-  * operation [Operation](#operation)
-  * privateKeyBase64 [Base64](#base64)
-  * publicKeyBase64 [Base64](#base64)
+  * keyPair
+    * tags
+      * items [Tag](#tag)
+    * arn
+    * createdAt
+    * fingerprint
+    * location
+      * availabilityZone
+      * regionName
+    * name
+    * resourceType
+    * supportCode
+  * operation
+    * createdAt
+    * errorCode
+    * errorDetails
+    * id
+    * isTerminal
+    * location
+      * availabilityZone
+      * regionName
+    * operationDetails
+    * operationType
+    * resourceName
+    * resourceType
+    * status
+    * statusChangedAt
+  * privateKeyBase64
+  * publicKeyBase64
 
 ### CreateLoadBalancerRequest
 * CreateLoadBalancerRequest `object`
-  * certificateAlternativeNames [DomainNameList](#domainnamelist)
-  * certificateDomainName [DomainName](#domainname)
-  * certificateName [ResourceName](#resourcename)
-  * healthCheckPath [string](#string)
-  * instancePort **required** [Port](#port)
-  * loadBalancerName **required** [ResourceName](#resourcename)
+  * tags
+    * items [Tag](#tag)
+  * certificateAlternativeNames
+    * items [DomainName](#domainname)
+  * certificateDomainName
+  * certificateName
+  * healthCheckPath
+  * instancePort **required**
+  * loadBalancerName **required**
 
 ### CreateLoadBalancerResult
 * CreateLoadBalancerResult `object`
-  * operations [OperationList](#operationlist)
+  * operations
+    * items [Operation](#operation)
 
 ### CreateLoadBalancerTlsCertificateRequest
 * CreateLoadBalancerTlsCertificateRequest `object`
-  * certificateAlternativeNames [DomainNameList](#domainnamelist)
-  * certificateDomainName **required** [DomainName](#domainname)
-  * certificateName **required** [ResourceName](#resourcename)
-  * loadBalancerName **required** [ResourceName](#resourcename)
+  * tags
+    * items [Tag](#tag)
+  * certificateAlternativeNames
+    * items [DomainName](#domainname)
+  * certificateDomainName **required**
+  * certificateName **required**
+  * loadBalancerName **required**
 
 ### CreateLoadBalancerTlsCertificateResult
 * CreateLoadBalancerTlsCertificateResult `object`
-  * operations [OperationList](#operationlist)
+  * operations
+    * items [Operation](#operation)
+
+### CreateRelationalDatabaseFromSnapshotRequest
+* CreateRelationalDatabaseFromSnapshotRequest `object`
+  * tags
+    * items [Tag](#tag)
+  * availabilityZone
+  * publiclyAccessible
+  * relationalDatabaseBundleId
+  * relationalDatabaseName **required**
+  * relationalDatabaseSnapshotName
+  * restoreTime
+  * sourceRelationalDatabaseName
+  * useLatestRestorableTime
+
+### CreateRelationalDatabaseFromSnapshotResult
+* CreateRelationalDatabaseFromSnapshotResult `object`
+  * operations
+    * items [Operation](#operation)
+
+### CreateRelationalDatabaseRequest
+* CreateRelationalDatabaseRequest `object`
+  * tags
+    * items [Tag](#tag)
+  * availabilityZone
+  * masterDatabaseName **required**
+  * masterUserPassword
+  * masterUsername **required**
+  * preferredBackupWindow
+  * preferredMaintenanceWindow
+  * publiclyAccessible
+  * relationalDatabaseBlueprintId **required**
+  * relationalDatabaseBundleId **required**
+  * relationalDatabaseName **required**
+
+### CreateRelationalDatabaseResult
+* CreateRelationalDatabaseResult `object`
+  * operations
+    * items [Operation](#operation)
+
+### CreateRelationalDatabaseSnapshotRequest
+* CreateRelationalDatabaseSnapshotRequest `object`
+  * tags
+    * items [Tag](#tag)
+  * relationalDatabaseName **required**
+  * relationalDatabaseSnapshotName **required**
+
+### CreateRelationalDatabaseSnapshotResult
+* CreateRelationalDatabaseSnapshotResult `object`
+  * operations
+    * items [Operation](#operation)
+
+### DeleteAlarmRequest
+* DeleteAlarmRequest `object`
+  * alarmName **required**
+
+### DeleteAlarmResult
+* DeleteAlarmResult `object`
+  * operations
+    * items [Operation](#operation)
+
+### DeleteAutoSnapshotRequest
+* DeleteAutoSnapshotRequest `object`
+  * date **required**
+  * resourceName **required**
+
+### DeleteAutoSnapshotResult
+* DeleteAutoSnapshotResult `object`
+  * operations
+    * items [Operation](#operation)
+
+### DeleteCertificateRequest
+* DeleteCertificateRequest `object`
+  * certificateName **required**
+
+### DeleteCertificateResult
+* DeleteCertificateResult `object`
+  * operations
+    * items [Operation](#operation)
+
+### DeleteContactMethodRequest
+* DeleteContactMethodRequest `object`
+  * protocol **required**
+
+### DeleteContactMethodResult
+* DeleteContactMethodResult `object`
+  * operations
+    * items [Operation](#operation)
+
+### DeleteContainerImageRequest
+* DeleteContainerImageRequest `object`
+  * image **required**
+  * serviceName **required**
+
+### DeleteContainerImageResult
+* DeleteContainerImageResult `object`
+
+### DeleteContainerServiceRequest
+* DeleteContainerServiceRequest `object`
+  * serviceName **required**
+
+### DeleteContainerServiceResult
+* DeleteContainerServiceResult `object`
 
 ### DeleteDiskRequest
 * DeleteDiskRequest `object`
-  * diskName **required** [ResourceName](#resourcename)
+  * diskName **required**
+  * forceDeleteAddOns
 
 ### DeleteDiskResult
 * DeleteDiskResult `object`
-  * operations [OperationList](#operationlist)
+  * operations
+    * items [Operation](#operation)
 
 ### DeleteDiskSnapshotRequest
 * DeleteDiskSnapshotRequest `object`
-  * diskSnapshotName **required** [ResourceName](#resourcename)
+  * diskSnapshotName **required**
 
 ### DeleteDiskSnapshotResult
 * DeleteDiskSnapshotResult `object`
-  * operations [OperationList](#operationlist)
+  * operations
+    * items [Operation](#operation)
+
+### DeleteDistributionRequest
+* DeleteDistributionRequest `object`
+  * distributionName
+
+### DeleteDistributionResult
+* DeleteDistributionResult `object`
+  * operation
+    * createdAt
+    * errorCode
+    * errorDetails
+    * id
+    * isTerminal
+    * location
+      * availabilityZone
+      * regionName
+    * operationDetails
+    * operationType
+    * resourceName
+    * resourceType
+    * status
+    * statusChangedAt
 
 ### DeleteDomainEntryRequest
 * DeleteDomainEntryRequest `object`
-  * domainEntry **required** [DomainEntry](#domainentry)
-  * domainName **required** [DomainName](#domainname)
+  * domainEntry **required**
+    * id
+    * isAlias
+    * name
+    * options
+    * target
+    * type
+  * domainName **required**
 
 ### DeleteDomainEntryResult
 * DeleteDomainEntryResult `object`
-  * operation [Operation](#operation)
+  * operation
+    * createdAt
+    * errorCode
+    * errorDetails
+    * id
+    * isTerminal
+    * location
+      * availabilityZone
+      * regionName
+    * operationDetails
+    * operationType
+    * resourceName
+    * resourceType
+    * status
+    * statusChangedAt
 
 ### DeleteDomainRequest
 * DeleteDomainRequest `object`
-  * domainName **required** [DomainName](#domainname)
+  * domainName **required**
 
 ### DeleteDomainResult
 * DeleteDomainResult `object`
-  * operation [Operation](#operation)
+  * operation
+    * createdAt
+    * errorCode
+    * errorDetails
+    * id
+    * isTerminal
+    * location
+      * availabilityZone
+      * regionName
+    * operationDetails
+    * operationType
+    * resourceName
+    * resourceType
+    * status
+    * statusChangedAt
 
 ### DeleteInstanceRequest
 * DeleteInstanceRequest `object`
-  * instanceName **required** [ResourceName](#resourcename)
+  * forceDeleteAddOns
+  * instanceName **required**
 
 ### DeleteInstanceResult
 * DeleteInstanceResult `object`
-  * operations [OperationList](#operationlist)
+  * operations
+    * items [Operation](#operation)
 
 ### DeleteInstanceSnapshotRequest
 * DeleteInstanceSnapshotRequest `object`
-  * instanceSnapshotName **required** [ResourceName](#resourcename)
+  * instanceSnapshotName **required**
 
 ### DeleteInstanceSnapshotResult
 * DeleteInstanceSnapshotResult `object`
-  * operations [OperationList](#operationlist)
+  * operations
+    * items [Operation](#operation)
 
 ### DeleteKeyPairRequest
 * DeleteKeyPairRequest `object`
-  * keyPairName **required** [ResourceName](#resourcename)
+  * keyPairName **required**
 
 ### DeleteKeyPairResult
 * DeleteKeyPairResult `object`
-  * operation [Operation](#operation)
+  * operation
+    * createdAt
+    * errorCode
+    * errorDetails
+    * id
+    * isTerminal
+    * location
+      * availabilityZone
+      * regionName
+    * operationDetails
+    * operationType
+    * resourceName
+    * resourceType
+    * status
+    * statusChangedAt
+
+### DeleteKnownHostKeysRequest
+* DeleteKnownHostKeysRequest `object`
+  * instanceName **required**
+
+### DeleteKnownHostKeysResult
+* DeleteKnownHostKeysResult `object`
+  * operations
+    * items [Operation](#operation)
 
 ### DeleteLoadBalancerRequest
 * DeleteLoadBalancerRequest `object`
-  * loadBalancerName **required** [ResourceName](#resourcename)
+  * loadBalancerName **required**
 
 ### DeleteLoadBalancerResult
 * DeleteLoadBalancerResult `object`
-  * operations [OperationList](#operationlist)
+  * operations
+    * items [Operation](#operation)
 
 ### DeleteLoadBalancerTlsCertificateRequest
 * DeleteLoadBalancerTlsCertificateRequest `object`
-  * certificateName **required** [ResourceName](#resourcename)
-  * force [boolean](#boolean)
-  * loadBalancerName **required** [ResourceName](#resourcename)
+  * certificateName **required**
+  * force
+  * loadBalancerName **required**
 
 ### DeleteLoadBalancerTlsCertificateResult
 * DeleteLoadBalancerTlsCertificateResult `object`
-  * operations [OperationList](#operationlist)
+  * operations
+    * items [Operation](#operation)
+
+### DeleteRelationalDatabaseRequest
+* DeleteRelationalDatabaseRequest `object`
+  * finalRelationalDatabaseSnapshotName
+  * relationalDatabaseName **required**
+  * skipFinalSnapshot
+
+### DeleteRelationalDatabaseResult
+* DeleteRelationalDatabaseResult `object`
+  * operations
+    * items [Operation](#operation)
+
+### DeleteRelationalDatabaseSnapshotRequest
+* DeleteRelationalDatabaseSnapshotRequest `object`
+  * relationalDatabaseSnapshotName **required**
+
+### DeleteRelationalDatabaseSnapshotResult
+* DeleteRelationalDatabaseSnapshotResult `object`
+  * operations
+    * items [Operation](#operation)
+
+### DestinationInfo
+* DestinationInfo `object`: Describes the destination of a record.
+  * id
+  * service
+
+### DetachCertificateFromDistributionRequest
+* DetachCertificateFromDistributionRequest `object`
+  * distributionName **required**
+
+### DetachCertificateFromDistributionResult
+* DetachCertificateFromDistributionResult `object`
+  * operation
+    * createdAt
+    * errorCode
+    * errorDetails
+    * id
+    * isTerminal
+    * location
+      * availabilityZone
+      * regionName
+    * operationDetails
+    * operationType
+    * resourceName
+    * resourceType
+    * status
+    * statusChangedAt
 
 ### DetachDiskRequest
 * DetachDiskRequest `object`
-  * diskName **required** [ResourceName](#resourcename)
+  * diskName **required**
 
 ### DetachDiskResult
 * DetachDiskResult `object`
-  * operations [OperationList](#operationlist)
+  * operations
+    * items [Operation](#operation)
 
 ### DetachInstancesFromLoadBalancerRequest
 * DetachInstancesFromLoadBalancerRequest `object`
-  * instanceNames **required** [ResourceNameList](#resourcenamelist)
-  * loadBalancerName **required** [ResourceName](#resourcename)
+  * instanceNames **required**
+    * items [ResourceName](#resourcename)
+  * loadBalancerName **required**
 
 ### DetachInstancesFromLoadBalancerResult
 * DetachInstancesFromLoadBalancerResult `object`
-  * operations [OperationList](#operationlist)
+  * operations
+    * items [Operation](#operation)
 
 ### DetachStaticIpRequest
 * DetachStaticIpRequest `object`
-  * staticIpName **required** [ResourceName](#resourcename)
+  * staticIpName **required**
 
 ### DetachStaticIpResult
 * DetachStaticIpResult `object`
-  * operations [OperationList](#operationlist)
+  * operations
+    * items [Operation](#operation)
+
+### DisableAddOnRequest
+* DisableAddOnRequest `object`
+  * addOnType **required**
+  * resourceName **required**
+
+### DisableAddOnResult
+* DisableAddOnResult `object`
+  * operations
+    * items [Operation](#operation)
 
 ### Disk
-* Disk `object`: Describes a system disk or an block storage disk.
-  * arn [NonEmptyString](#nonemptystring)
-  * attachedTo [ResourceName](#resourcename)
-  * attachmentState [string](#string)
-  * createdAt [IsoDate](#isodate)
-  * gbInUse [integer](#integer)
-  * iops [integer](#integer)
-  * isAttached [boolean](#boolean)
-  * isSystemDisk [boolean](#boolean)
-  * location [ResourceLocation](#resourcelocation)
-  * name [ResourceName](#resourcename)
-  * path [string](#string)
-  * resourceType [ResourceType](#resourcetype)
-  * sizeInGb [integer](#integer)
-  * state [DiskState](#diskstate)
-  * supportCode [string](#string)
+* Disk `object`: Describes a system disk or a block storage disk.
+  * tags
+    * items [Tag](#tag)
+  * addOns
+    * items [AddOn](#addon)
+  * arn
+  * attachedTo
+  * attachmentState
+  * createdAt
+  * gbInUse
+  * iops
+  * isAttached
+  * isSystemDisk
+  * location
+    * availabilityZone
+    * regionName
+  * name
+  * path
+  * resourceType
+  * sizeInGb
+  * state
+  * supportCode
+
+### DiskInfo
+* DiskInfo `object`: Describes a disk.
+  * isSystemDisk
+  * name
+  * path
+  * sizeInGb
+
+### DiskInfoList
+* DiskInfoList `array`
+  * items [DiskInfo](#diskinfo)
 
 ### DiskList
 * DiskList `array`
@@ -1676,8 +4390,8 @@ amazonaws_lightsail.UpdateLoadBalancerAttribute({
 
 ### DiskMap
 * DiskMap `object`: Describes a block storage disk mapping.
-  * newDiskName [ResourceName](#resourcename)
-  * originalDiskPath [NonEmptyString](#nonemptystring)
+  * newDiskName
+  * originalDiskPath
 
 ### DiskMapList
 * DiskMapList `array`
@@ -1685,17 +4399,28 @@ amazonaws_lightsail.UpdateLoadBalancerAttribute({
 
 ### DiskSnapshot
 * DiskSnapshot `object`: Describes a block storage disk snapshot.
-  * arn [NonEmptyString](#nonemptystring)
-  * createdAt [IsoDate](#isodate)
-  * fromDiskArn [NonEmptyString](#nonemptystring)
-  * fromDiskName [ResourceName](#resourcename)
-  * location [ResourceLocation](#resourcelocation)
-  * name [ResourceName](#resourcename)
-  * progress [string](#string)
-  * resourceType [ResourceType](#resourcetype)
-  * sizeInGb [integer](#integer)
-  * state [DiskSnapshotState](#disksnapshotstate)
-  * supportCode [string](#string)
+  * tags
+    * items [Tag](#tag)
+  * arn
+  * createdAt
+  * fromDiskArn
+  * fromDiskName
+  * fromInstanceArn
+  * fromInstanceName
+  * isFromAutoSnapshot
+  * location
+    * availabilityZone
+    * regionName
+  * name
+  * progress
+  * resourceType
+  * sizeInGb
+  * state
+  * supportCode
+
+### DiskSnapshotInfo
+* DiskSnapshotInfo `object`: Describes a disk snapshot.
+  * sizeInGb
 
 ### DiskSnapshotList
 * DiskSnapshotList `array`
@@ -1707,34 +4432,55 @@ amazonaws_lightsail.UpdateLoadBalancerAttribute({
 ### DiskState
 * DiskState `string` (values: pending, error, available, in-use, unknown)
 
+### DistributionBundle
+* DistributionBundle `object`: Describes the specifications of a distribution bundle.
+  * bundleId
+  * isActive
+  * name
+  * price
+  * transferPerMonthInGb
+
+### DistributionBundleList
+* DistributionBundleList `array`
+  * items [DistributionBundle](#distributionbundle)
+
+### DistributionList
+* DistributionList `array`
+  * items [LightsailDistribution](#lightsaildistribution)
+
+### DistributionMetricName
+* DistributionMetricName `string` (values: Requests, BytesDownloaded, BytesUploaded, TotalErrorRate, Http4xxErrorRate, Http5xxErrorRate)
+
 ### Domain
 * Domain `object`: Describes a domain where you are storing recordsets in Lightsail.
-  * arn [NonEmptyString](#nonemptystring)
-  * createdAt [IsoDate](#isodate)
-  * domainEntries [DomainEntryList](#domainentrylist)
-  * location [ResourceLocation](#resourcelocation)
-  * name [ResourceName](#resourcename)
-  * resourceType [ResourceType](#resourcetype)
-  * supportCode [string](#string)
+  * tags
+    * items [Tag](#tag)
+  * arn
+  * createdAt
+  * domainEntries
+    * items [DomainEntry](#domainentry)
+  * location
+    * availabilityZone
+    * regionName
+  * name
+  * resourceType
+  * supportCode
 
 ### DomainEntry
 * DomainEntry `object`: Describes a domain recordset entry.
-  * id [NonEmptyString](#nonemptystring)
-  * isAlias [boolean](#boolean)
-  * name [DomainName](#domainname)
-  * options [DomainEntryOptions](#domainentryoptions)
-  * target [string](#string)
-  * type [DomainEntryType](#domainentrytype)
+  * id
+  * isAlias
+  * name
+  * options
+  * target
+  * type
 
 ### DomainEntryList
 * DomainEntryList `array`
   * items [DomainEntry](#domainentry)
 
 ### DomainEntryOptions
-* DomainEntryOptions `array`
-  * items `object`
-    * key [DomainEntryOptionsKeys](#domainentryoptionskeys)
-    * value [string](#string)
+* DomainEntryOptions `object`
 
 ### DomainEntryOptionsKeys
 * DomainEntryOptionsKeys `string`
@@ -1753,328 +4499,1085 @@ amazonaws_lightsail.UpdateLoadBalancerAttribute({
 * DomainNameList `array`
   * items [DomainName](#domainname)
 
+### DomainValidationRecord
+* DomainValidationRecord `object`: Describes the domain validation records of an Amazon Lightsail SSL/TLS certificate.
+  * domainName
+  * resourceRecord
+    * name
+    * type
+    * value
+
+### DomainValidationRecordList
+* DomainValidationRecordList `array`
+  * items [DomainValidationRecord](#domainvalidationrecord)
+
 ### DownloadDefaultKeyPairRequest
 * DownloadDefaultKeyPairRequest `object`
 
 ### DownloadDefaultKeyPairResult
 * DownloadDefaultKeyPairResult `object`
-  * privateKeyBase64 [Base64](#base64)
-  * publicKeyBase64 [Base64](#base64)
+  * privateKeyBase64
+  * publicKeyBase64
+
+### EligibleToRenew
+* EligibleToRenew `string`
+
+### EnableAddOnRequest
+* EnableAddOnRequest `object`
+  * addOnRequest **required**
+    * addOnType **required**
+    * autoSnapshotAddOnRequest
+      * snapshotTimeOfDay
+  * resourceName **required**
+
+### EnableAddOnResult
+* EnableAddOnResult `object`
+  * operations
+    * items [Operation](#operation)
+
+### EndpointRequest
+* EndpointRequest `object`: Describes the settings of a public endpoint for an Amazon Lightsail container service.
+  * containerName **required**
+  * containerPort **required**
+  * healthCheck
+    * healthyThreshold
+    * intervalSeconds
+    * path
+    * successCodes
+    * timeoutSeconds
+    * unhealthyThreshold
+
+### Environment
+* Environment `object`
+
+### ExportSnapshotRecord
+* ExportSnapshotRecord `object`: Describes an export snapshot record.
+  * arn
+  * createdAt
+  * destinationInfo
+    * id
+    * service
+  * location
+    * availabilityZone
+    * regionName
+  * name
+  * resourceType
+  * sourceInfo
+    * arn
+    * createdAt
+    * diskSnapshotInfo
+      * sizeInGb
+    * fromResourceArn
+    * fromResourceName
+    * instanceSnapshotInfo
+      * fromBlueprintId
+      * fromBundleId
+      * fromDiskInfo
+        * items [DiskInfo](#diskinfo)
+    * name
+    * resourceType
+  * state
+
+### ExportSnapshotRecordList
+* ExportSnapshotRecordList `array`
+  * items [ExportSnapshotRecord](#exportsnapshotrecord)
+
+### ExportSnapshotRecordSourceInfo
+* ExportSnapshotRecordSourceInfo `object`: Describes the source of an export snapshot record.
+  * arn
+  * createdAt
+  * diskSnapshotInfo
+    * sizeInGb
+  * fromResourceArn
+  * fromResourceName
+  * instanceSnapshotInfo
+    * fromBlueprintId
+    * fromBundleId
+    * fromDiskInfo
+      * items [DiskInfo](#diskinfo)
+  * name
+  * resourceType
+
+### ExportSnapshotRecordSourceType
+* ExportSnapshotRecordSourceType `string` (values: InstanceSnapshot, DiskSnapshot)
+
+### ExportSnapshotRequest
+* ExportSnapshotRequest `object`
+  * sourceSnapshotName **required**
+
+### ExportSnapshotResult
+* ExportSnapshotResult `object`
+  * operations
+    * items [Operation](#operation)
+
+### ForwardValues
+* ForwardValues `string` (values: none, allow-list, all)
 
 ### GetActiveNamesRequest
 * GetActiveNamesRequest `object`
-  * pageToken [string](#string)
+  * pageToken
 
 ### GetActiveNamesResult
 * GetActiveNamesResult `object`
-  * activeNames [StringList](#stringlist)
-  * nextPageToken [string](#string)
+  * activeNames
+    * items [string](#string)
+  * nextPageToken
+
+### GetAlarmsRequest
+* GetAlarmsRequest `object`
+  * alarmName
+  * monitoredResourceName
+  * pageToken
+
+### GetAlarmsResult
+* GetAlarmsResult `object`
+  * alarms
+    * items [Alarm](#alarm)
+  * nextPageToken
+
+### GetAutoSnapshotsRequest
+* GetAutoSnapshotsRequest `object`
+  * resourceName **required**
+
+### GetAutoSnapshotsResult
+* GetAutoSnapshotsResult `object`
+  * autoSnapshots
+    * items [AutoSnapshotDetails](#autosnapshotdetails)
+  * resourceName
+  * resourceType
 
 ### GetBlueprintsRequest
 * GetBlueprintsRequest `object`
-  * includeInactive [boolean](#boolean)
-  * pageToken [string](#string)
+  * includeInactive
+  * pageToken
 
 ### GetBlueprintsResult
 * GetBlueprintsResult `object`
-  * blueprints [BlueprintList](#blueprintlist)
-  * nextPageToken [string](#string)
+  * blueprints
+    * items [Blueprint](#blueprint)
+  * nextPageToken
 
 ### GetBundlesRequest
 * GetBundlesRequest `object`
-  * includeInactive [boolean](#boolean)
-  * pageToken [string](#string)
+  * includeInactive
+  * pageToken
 
 ### GetBundlesResult
 * GetBundlesResult `object`
-  * bundles [BundleList](#bundlelist)
-  * nextPageToken [string](#string)
+  * bundles
+    * items [Bundle](#bundle)
+  * nextPageToken
+
+### GetCertificatesRequest
+* GetCertificatesRequest `object`
+  * certificateName
+  * certificateStatuses
+    * items [CertificateStatus](#certificatestatus)
+  * includeCertificateDetails
+
+### GetCertificatesResult
+* GetCertificatesResult `object`
+  * certificates
+    * items [CertificateSummary](#certificatesummary)
+
+### GetCloudFormationStackRecordsRequest
+* GetCloudFormationStackRecordsRequest `object`
+  * pageToken
+
+### GetCloudFormationStackRecordsResult
+* GetCloudFormationStackRecordsResult `object`
+  * cloudFormationStackRecords
+    * items [CloudFormationStackRecord](#cloudformationstackrecord)
+  * nextPageToken
+
+### GetContactMethodsRequest
+* GetContactMethodsRequest `object`
+  * protocols
+    * items [ContactProtocol](#contactprotocol)
+
+### GetContactMethodsResult
+* GetContactMethodsResult `object`
+  * contactMethods
+    * items [ContactMethod](#contactmethod)
+
+### GetContainerAPIMetadataRequest
+* GetContainerAPIMetadataRequest `object`
+
+### GetContainerAPIMetadataResult
+* GetContainerAPIMetadataResult `object`
+  * metadata
+    * items [ContainerServiceMetadataEntry](#containerservicemetadataentry)
+
+### GetContainerImagesRequest
+* GetContainerImagesRequest `object`
+  * serviceName **required**
+
+### GetContainerImagesResult
+* GetContainerImagesResult `object`
+  * containerImages
+    * items [ContainerImage](#containerimage)
+
+### GetContainerLogRequest
+* GetContainerLogRequest `object`
+  * containerName **required**
+  * endTime
+  * filterPattern
+  * pageToken
+  * serviceName **required**
+  * startTime
+
+### GetContainerLogResult
+* GetContainerLogResult `object`
+  * logEvents
+    * items [ContainerServiceLogEvent](#containerservicelogevent)
+  * nextPageToken
+
+### GetContainerServiceDeploymentsRequest
+* GetContainerServiceDeploymentsRequest `object`
+  * serviceName **required**
+
+### GetContainerServiceDeploymentsResult
+* GetContainerServiceDeploymentsResult `object`
+  * deployments
+    * items [ContainerServiceDeployment](#containerservicedeployment)
+
+### GetContainerServiceMetricDataRequest
+* GetContainerServiceMetricDataRequest `object`
+  * endTime **required**
+  * metricName **required**
+  * period **required**
+  * serviceName **required**
+  * startTime **required**
+  * statistics **required**
+    * items [MetricStatistic](#metricstatistic)
+
+### GetContainerServiceMetricDataResult
+* GetContainerServiceMetricDataResult `object`
+  * metricData
+    * items [MetricDatapoint](#metricdatapoint)
+  * metricName
+
+### GetContainerServicePowersRequest
+* GetContainerServicePowersRequest `object`
+
+### GetContainerServicePowersResult
+* GetContainerServicePowersResult `object`
+  * powers
+    * items [ContainerServicePower](#containerservicepower)
+
+### GetContainerServicesRequest
+* GetContainerServicesRequest `object`
+  * serviceName
 
 ### GetDiskRequest
 * GetDiskRequest `object`
-  * diskName **required** [ResourceName](#resourcename)
+  * diskName **required**
 
 ### GetDiskResult
 * GetDiskResult `object`
-  * disk [Disk](#disk)
+  * disk
+    * tags
+      * items [Tag](#tag)
+    * addOns
+      * items [AddOn](#addon)
+    * arn
+    * attachedTo
+    * attachmentState
+    * createdAt
+    * gbInUse
+    * iops
+    * isAttached
+    * isSystemDisk
+    * location
+      * availabilityZone
+      * regionName
+    * name
+    * path
+    * resourceType
+    * sizeInGb
+    * state
+    * supportCode
 
 ### GetDiskSnapshotRequest
 * GetDiskSnapshotRequest `object`
-  * diskSnapshotName **required** [ResourceName](#resourcename)
+  * diskSnapshotName **required**
 
 ### GetDiskSnapshotResult
 * GetDiskSnapshotResult `object`
-  * diskSnapshot [DiskSnapshot](#disksnapshot)
+  * diskSnapshot
+    * tags
+      * items [Tag](#tag)
+    * arn
+    * createdAt
+    * fromDiskArn
+    * fromDiskName
+    * fromInstanceArn
+    * fromInstanceName
+    * isFromAutoSnapshot
+    * location
+      * availabilityZone
+      * regionName
+    * name
+    * progress
+    * resourceType
+    * sizeInGb
+    * state
+    * supportCode
 
 ### GetDiskSnapshotsRequest
 * GetDiskSnapshotsRequest `object`
-  * pageToken [string](#string)
+  * pageToken
 
 ### GetDiskSnapshotsResult
 * GetDiskSnapshotsResult `object`
-  * diskSnapshots [DiskSnapshotList](#disksnapshotlist)
-  * nextPageToken [string](#string)
+  * diskSnapshots
+    * items [DiskSnapshot](#disksnapshot)
+  * nextPageToken
 
 ### GetDisksRequest
 * GetDisksRequest `object`
-  * pageToken [string](#string)
+  * pageToken
 
 ### GetDisksResult
 * GetDisksResult `object`
-  * disks [DiskList](#disklist)
-  * nextPageToken [string](#string)
+  * disks
+    * items [Disk](#disk)
+  * nextPageToken
+
+### GetDistributionBundlesRequest
+* GetDistributionBundlesRequest `object`
+
+### GetDistributionBundlesResult
+* GetDistributionBundlesResult `object`
+  * bundles
+    * items [DistributionBundle](#distributionbundle)
+
+### GetDistributionLatestCacheResetRequest
+* GetDistributionLatestCacheResetRequest `object`
+  * distributionName
+
+### GetDistributionLatestCacheResetResult
+* GetDistributionLatestCacheResetResult `object`
+  * createTime
+  * status
+
+### GetDistributionMetricDataRequest
+* GetDistributionMetricDataRequest `object`
+  * distributionName **required**
+  * endTime **required**
+  * metricName **required**
+  * period **required**
+  * startTime **required**
+  * statistics **required**
+    * items [MetricStatistic](#metricstatistic)
+  * unit **required**
+
+### GetDistributionMetricDataResult
+* GetDistributionMetricDataResult `object`
+  * metricData
+    * items [MetricDatapoint](#metricdatapoint)
+  * metricName
+
+### GetDistributionsRequest
+* GetDistributionsRequest `object`
+  * distributionName
+  * pageToken
+
+### GetDistributionsResult
+* GetDistributionsResult `object`
+  * distributions
+    * items [LightsailDistribution](#lightsaildistribution)
+  * nextPageToken
 
 ### GetDomainRequest
 * GetDomainRequest `object`
-  * domainName **required** [DomainName](#domainname)
+  * domainName **required**
 
 ### GetDomainResult
 * GetDomainResult `object`
-  * domain [Domain](#domain)
+  * domain
+    * tags
+      * items [Tag](#tag)
+    * arn
+    * createdAt
+    * domainEntries
+      * items [DomainEntry](#domainentry)
+    * location
+      * availabilityZone
+      * regionName
+    * name
+    * resourceType
+    * supportCode
 
 ### GetDomainsRequest
 * GetDomainsRequest `object`
-  * pageToken [string](#string)
+  * pageToken
 
 ### GetDomainsResult
 * GetDomainsResult `object`
-  * domains [DomainList](#domainlist)
-  * nextPageToken [string](#string)
+  * domains
+    * items [Domain](#domain)
+  * nextPageToken
+
+### GetExportSnapshotRecordsRequest
+* GetExportSnapshotRecordsRequest `object`
+  * pageToken
+
+### GetExportSnapshotRecordsResult
+* GetExportSnapshotRecordsResult `object`
+  * exportSnapshotRecords
+    * items [ExportSnapshotRecord](#exportsnapshotrecord)
+  * nextPageToken
 
 ### GetInstanceAccessDetailsRequest
 * GetInstanceAccessDetailsRequest `object`
-  * instanceName **required** [ResourceName](#resourcename)
-  * protocol [InstanceAccessProtocol](#instanceaccessprotocol)
+  * instanceName **required**
+  * protocol
 
 ### GetInstanceAccessDetailsResult
 * GetInstanceAccessDetailsResult `object`
-  * accessDetails [InstanceAccessDetails](#instanceaccessdetails)
+  * accessDetails
+    * certKey
+    * expiresAt
+    * hostKeys
+      * items [HostKeyAttributes](#hostkeyattributes)
+    * instanceName
+    * ipAddress
+    * password
+    * passwordData
+      * ciphertext
+      * keyPairName
+    * privateKey
+    * protocol
+    * username
 
 ### GetInstanceMetricDataRequest
 * GetInstanceMetricDataRequest `object`
-  * endTime **required** [timestamp](#timestamp)
-  * instanceName **required** [ResourceName](#resourcename)
-  * metricName **required** [InstanceMetricName](#instancemetricname)
-  * period **required** [MetricPeriod](#metricperiod)
-  * startTime **required** [timestamp](#timestamp)
-  * statistics **required** [MetricStatisticList](#metricstatisticlist)
-  * unit **required** [MetricUnit](#metricunit)
+  * endTime **required**
+  * instanceName **required**
+  * metricName **required**
+  * period **required**
+  * startTime **required**
+  * statistics **required**
+    * items [MetricStatistic](#metricstatistic)
+  * unit **required**
 
 ### GetInstanceMetricDataResult
 * GetInstanceMetricDataResult `object`
-  * metricData [MetricDatapointList](#metricdatapointlist)
-  * metricName [InstanceMetricName](#instancemetricname)
+  * metricData
+    * items [MetricDatapoint](#metricdatapoint)
+  * metricName
 
 ### GetInstancePortStatesRequest
 * GetInstancePortStatesRequest `object`
-  * instanceName **required** [ResourceName](#resourcename)
+  * instanceName **required**
 
 ### GetInstancePortStatesResult
 * GetInstancePortStatesResult `object`
-  * portStates [InstancePortStateList](#instanceportstatelist)
+  * portStates
+    * items [InstancePortState](#instanceportstate)
 
 ### GetInstanceRequest
 * GetInstanceRequest `object`
-  * instanceName **required** [ResourceName](#resourcename)
+  * instanceName **required**
 
 ### GetInstanceResult
 * GetInstanceResult `object`
-  * instance [Instance](#instance)
+  * instance
+    * tags
+      * items [Tag](#tag)
+    * addOns
+      * items [AddOn](#addon)
+    * arn
+    * blueprintId
+    * blueprintName
+    * bundleId
+    * createdAt
+    * hardware
+      * cpuCount
+      * disks
+        * items [Disk](#disk)
+      * ramSizeInGb
+    * ipv6Address
+    * isStaticIp
+    * location
+      * availabilityZone
+      * regionName
+    * name
+    * networking
+      * monthlyTransfer
+        * gbPerMonthAllocated
+      * ports
+        * items [InstancePortInfo](#instanceportinfo)
+    * privateIpAddress
+    * publicIpAddress
+    * resourceType
+    * sshKeyName
+    * state
+      * code
+      * name
+    * supportCode
+    * username
 
 ### GetInstanceSnapshotRequest
 * GetInstanceSnapshotRequest `object`
-  * instanceSnapshotName **required** [ResourceName](#resourcename)
+  * instanceSnapshotName **required**
 
 ### GetInstanceSnapshotResult
 * GetInstanceSnapshotResult `object`
-  * instanceSnapshot [InstanceSnapshot](#instancesnapshot)
+  * instanceSnapshot
+    * tags
+      * items [Tag](#tag)
+    * arn
+    * createdAt
+    * fromAttachedDisks
+      * items [Disk](#disk)
+    * fromBlueprintId
+    * fromBundleId
+    * fromInstanceArn
+    * fromInstanceName
+    * isFromAutoSnapshot
+    * location
+      * availabilityZone
+      * regionName
+    * name
+    * progress
+    * resourceType
+    * sizeInGb
+    * state
+    * supportCode
 
 ### GetInstanceSnapshotsRequest
 * GetInstanceSnapshotsRequest `object`
-  * pageToken [string](#string)
+  * pageToken
 
 ### GetInstanceSnapshotsResult
 * GetInstanceSnapshotsResult `object`
-  * instanceSnapshots [InstanceSnapshotList](#instancesnapshotlist)
-  * nextPageToken [string](#string)
+  * instanceSnapshots
+    * items [InstanceSnapshot](#instancesnapshot)
+  * nextPageToken
 
 ### GetInstanceStateRequest
 * GetInstanceStateRequest `object`
-  * instanceName **required** [ResourceName](#resourcename)
+  * instanceName **required**
 
 ### GetInstanceStateResult
 * GetInstanceStateResult `object`
-  * state [InstanceState](#instancestate)
+  * state
+    * code
+    * name
 
 ### GetInstancesRequest
 * GetInstancesRequest `object`
-  * pageToken [string](#string)
+  * pageToken
 
 ### GetInstancesResult
 * GetInstancesResult `object`
-  * instances [InstanceList](#instancelist)
-  * nextPageToken [string](#string)
+  * instances
+    * items [Instance](#instance)
+  * nextPageToken
 
 ### GetKeyPairRequest
 * GetKeyPairRequest `object`
-  * keyPairName **required** [ResourceName](#resourcename)
+  * keyPairName **required**
 
 ### GetKeyPairResult
 * GetKeyPairResult `object`
-  * keyPair [KeyPair](#keypair)
+  * keyPair
+    * tags
+      * items [Tag](#tag)
+    * arn
+    * createdAt
+    * fingerprint
+    * location
+      * availabilityZone
+      * regionName
+    * name
+    * resourceType
+    * supportCode
 
 ### GetKeyPairsRequest
 * GetKeyPairsRequest `object`
-  * pageToken [string](#string)
+  * pageToken
 
 ### GetKeyPairsResult
 * GetKeyPairsResult `object`
-  * keyPairs [KeyPairList](#keypairlist)
-  * nextPageToken [string](#string)
+  * keyPairs
+    * items [KeyPair](#keypair)
+  * nextPageToken
 
 ### GetLoadBalancerMetricDataRequest
 * GetLoadBalancerMetricDataRequest `object`
-  * endTime **required** [timestamp](#timestamp)
-  * loadBalancerName **required** [ResourceName](#resourcename)
-  * metricName **required** [LoadBalancerMetricName](#loadbalancermetricname)
-  * period **required** [MetricPeriod](#metricperiod)
-  * startTime **required** [timestamp](#timestamp)
-  * statistics **required** [MetricStatisticList](#metricstatisticlist)
-  * unit **required** [MetricUnit](#metricunit)
+  * endTime **required**
+  * loadBalancerName **required**
+  * metricName **required**
+  * period **required**
+  * startTime **required**
+  * statistics **required**
+    * items [MetricStatistic](#metricstatistic)
+  * unit **required**
 
 ### GetLoadBalancerMetricDataResult
 * GetLoadBalancerMetricDataResult `object`
-  * metricData [MetricDatapointList](#metricdatapointlist)
-  * metricName [LoadBalancerMetricName](#loadbalancermetricname)
+  * metricData
+    * items [MetricDatapoint](#metricdatapoint)
+  * metricName
 
 ### GetLoadBalancerRequest
 * GetLoadBalancerRequest `object`
-  * loadBalancerName **required** [ResourceName](#resourcename)
+  * loadBalancerName **required**
 
 ### GetLoadBalancerResult
 * GetLoadBalancerResult `object`
-  * loadBalancer [LoadBalancer](#loadbalancer)
+  * loadBalancer
+    * tags
+      * items [Tag](#tag)
+    * arn
+    * configurationOptions
+    * createdAt
+    * dnsName
+    * healthCheckPath
+    * instanceHealthSummary
+      * items [InstanceHealthSummary](#instancehealthsummary)
+    * instancePort
+    * location
+      * availabilityZone
+      * regionName
+    * name
+    * protocol
+    * publicPorts
+      * items [Port](#port)
+    * resourceType
+    * state
+    * supportCode
+    * tlsCertificateSummaries
+      * items [LoadBalancerTlsCertificateSummary](#loadbalancertlscertificatesummary)
 
 ### GetLoadBalancerTlsCertificatesRequest
 * GetLoadBalancerTlsCertificatesRequest `object`
-  * loadBalancerName **required** [ResourceName](#resourcename)
+  * loadBalancerName **required**
 
 ### GetLoadBalancerTlsCertificatesResult
 * GetLoadBalancerTlsCertificatesResult `object`
-  * tlsCertificates [LoadBalancerTlsCertificateList](#loadbalancertlscertificatelist)
+  * tlsCertificates
+    * items [LoadBalancerTlsCertificate](#loadbalancertlscertificate)
 
 ### GetLoadBalancersRequest
 * GetLoadBalancersRequest `object`
-  * pageToken [string](#string)
+  * pageToken
 
 ### GetLoadBalancersResult
 * GetLoadBalancersResult `object`
-  * loadBalancers [LoadBalancerList](#loadbalancerlist)
-  * nextPageToken [string](#string)
+  * loadBalancers
+    * items [LoadBalancer](#loadbalancer)
+  * nextPageToken
 
 ### GetOperationRequest
 * GetOperationRequest `object`
-  * operationId **required** [NonEmptyString](#nonemptystring)
+  * operationId **required**
 
 ### GetOperationResult
 * GetOperationResult `object`
-  * operation [Operation](#operation)
+  * operation
+    * createdAt
+    * errorCode
+    * errorDetails
+    * id
+    * isTerminal
+    * location
+      * availabilityZone
+      * regionName
+    * operationDetails
+    * operationType
+    * resourceName
+    * resourceType
+    * status
+    * statusChangedAt
 
 ### GetOperationsForResourceRequest
 * GetOperationsForResourceRequest `object`
-  * pageToken [string](#string)
-  * resourceName **required** [ResourceName](#resourcename)
+  * pageToken
+  * resourceName **required**
 
 ### GetOperationsForResourceResult
 * GetOperationsForResourceResult `object`
-  * nextPageCount [string](#string)
-  * nextPageToken [string](#string)
-  * operations [OperationList](#operationlist)
+  * nextPageCount
+  * nextPageToken
+  * operations
+    * items [Operation](#operation)
 
 ### GetOperationsRequest
 * GetOperationsRequest `object`
-  * pageToken [string](#string)
+  * pageToken
 
 ### GetOperationsResult
 * GetOperationsResult `object`
-  * nextPageToken [string](#string)
-  * operations [OperationList](#operationlist)
+  * nextPageToken
+  * operations
+    * items [Operation](#operation)
 
 ### GetRegionsRequest
 * GetRegionsRequest `object`
-  * includeAvailabilityZones [boolean](#boolean)
+  * includeAvailabilityZones
+  * includeRelationalDatabaseAvailabilityZones
 
 ### GetRegionsResult
 * GetRegionsResult `object`
-  * regions [RegionList](#regionlist)
+  * regions
+    * items [Region](#region)
+
+### GetRelationalDatabaseBlueprintsRequest
+* GetRelationalDatabaseBlueprintsRequest `object`
+  * pageToken
+
+### GetRelationalDatabaseBlueprintsResult
+* GetRelationalDatabaseBlueprintsResult `object`
+  * blueprints
+    * items [RelationalDatabaseBlueprint](#relationaldatabaseblueprint)
+  * nextPageToken
+
+### GetRelationalDatabaseBundlesRequest
+* GetRelationalDatabaseBundlesRequest `object`
+  * pageToken
+
+### GetRelationalDatabaseBundlesResult
+* GetRelationalDatabaseBundlesResult `object`
+  * bundles
+    * items [RelationalDatabaseBundle](#relationaldatabasebundle)
+  * nextPageToken
+
+### GetRelationalDatabaseEventsRequest
+* GetRelationalDatabaseEventsRequest `object`
+  * durationInMinutes
+  * pageToken
+  * relationalDatabaseName **required**
+
+### GetRelationalDatabaseEventsResult
+* GetRelationalDatabaseEventsResult `object`
+  * nextPageToken
+  * relationalDatabaseEvents
+    * items [RelationalDatabaseEvent](#relationaldatabaseevent)
+
+### GetRelationalDatabaseLogEventsRequest
+* GetRelationalDatabaseLogEventsRequest `object`
+  * endTime
+  * logStreamName **required**
+  * pageToken
+  * relationalDatabaseName **required**
+  * startFromHead
+  * startTime
+
+### GetRelationalDatabaseLogEventsResult
+* GetRelationalDatabaseLogEventsResult `object`
+  * nextBackwardToken
+  * nextForwardToken
+  * resourceLogEvents
+    * items [LogEvent](#logevent)
+
+### GetRelationalDatabaseLogStreamsRequest
+* GetRelationalDatabaseLogStreamsRequest `object`
+  * relationalDatabaseName **required**
+
+### GetRelationalDatabaseLogStreamsResult
+* GetRelationalDatabaseLogStreamsResult `object`
+  * logStreams
+    * items [string](#string)
+
+### GetRelationalDatabaseMasterUserPasswordRequest
+* GetRelationalDatabaseMasterUserPasswordRequest `object`
+  * passwordVersion
+  * relationalDatabaseName **required**
+
+### GetRelationalDatabaseMasterUserPasswordResult
+* GetRelationalDatabaseMasterUserPasswordResult `object`
+  * createdAt
+  * masterUserPassword
+
+### GetRelationalDatabaseMetricDataRequest
+* GetRelationalDatabaseMetricDataRequest `object`
+  * endTime **required**
+  * metricName **required**
+  * period **required**
+  * relationalDatabaseName **required**
+  * startTime **required**
+  * statistics **required**
+    * items [MetricStatistic](#metricstatistic)
+  * unit **required**
+
+### GetRelationalDatabaseMetricDataResult
+* GetRelationalDatabaseMetricDataResult `object`
+  * metricData
+    * items [MetricDatapoint](#metricdatapoint)
+  * metricName
+
+### GetRelationalDatabaseParametersRequest
+* GetRelationalDatabaseParametersRequest `object`
+  * pageToken
+  * relationalDatabaseName **required**
+
+### GetRelationalDatabaseParametersResult
+* GetRelationalDatabaseParametersResult `object`
+  * parameters
+    * items [RelationalDatabaseParameter](#relationaldatabaseparameter)
+  * nextPageToken
+
+### GetRelationalDatabaseRequest
+* GetRelationalDatabaseRequest `object`
+  * relationalDatabaseName **required**
+
+### GetRelationalDatabaseResult
+* GetRelationalDatabaseResult `object`
+  * relationalDatabase
+    * tags
+      * items [Tag](#tag)
+    * arn
+    * backupRetentionEnabled
+    * caCertificateIdentifier
+    * createdAt
+    * engine
+    * engineVersion
+    * hardware
+      * cpuCount
+      * diskSizeInGb
+      * ramSizeInGb
+    * latestRestorableTime
+    * location
+      * availabilityZone
+      * regionName
+    * masterDatabaseName
+    * masterEndpoint
+      * address
+      * port
+    * masterUsername
+    * name
+    * parameterApplyStatus
+    * pendingMaintenanceActions
+      * items [PendingMaintenanceAction](#pendingmaintenanceaction)
+    * pendingModifiedValues
+      * backupRetentionEnabled
+      * engineVersion
+      * masterUserPassword
+    * preferredBackupWindow
+    * preferredMaintenanceWindow
+    * publiclyAccessible
+    * relationalDatabaseBlueprintId
+    * relationalDatabaseBundleId
+    * resourceType
+    * secondaryAvailabilityZone
+    * state
+    * supportCode
+
+### GetRelationalDatabaseSnapshotRequest
+* GetRelationalDatabaseSnapshotRequest `object`
+  * relationalDatabaseSnapshotName **required**
+
+### GetRelationalDatabaseSnapshotResult
+* GetRelationalDatabaseSnapshotResult `object`
+  * relationalDatabaseSnapshot
+    * tags
+      * items [Tag](#tag)
+    * arn
+    * createdAt
+    * engine
+    * engineVersion
+    * fromRelationalDatabaseArn
+    * fromRelationalDatabaseBlueprintId
+    * fromRelationalDatabaseBundleId
+    * fromRelationalDatabaseName
+    * location
+      * availabilityZone
+      * regionName
+    * name
+    * resourceType
+    * sizeInGb
+    * state
+    * supportCode
+
+### GetRelationalDatabaseSnapshotsRequest
+* GetRelationalDatabaseSnapshotsRequest `object`
+  * pageToken
+
+### GetRelationalDatabaseSnapshotsResult
+* GetRelationalDatabaseSnapshotsResult `object`
+  * nextPageToken
+  * relationalDatabaseSnapshots
+    * items [RelationalDatabaseSnapshot](#relationaldatabasesnapshot)
+
+### GetRelationalDatabasesRequest
+* GetRelationalDatabasesRequest `object`
+  * pageToken
+
+### GetRelationalDatabasesResult
+* GetRelationalDatabasesResult `object`
+  * nextPageToken
+  * relationalDatabases
+    * items [RelationalDatabase](#relationaldatabase)
 
 ### GetStaticIpRequest
 * GetStaticIpRequest `object`
-  * staticIpName **required** [ResourceName](#resourcename)
+  * staticIpName **required**
 
 ### GetStaticIpResult
 * GetStaticIpResult `object`
-  * staticIp [StaticIp](#staticip)
+  * staticIp
+    * arn
+    * attachedTo
+    * createdAt
+    * ipAddress
+    * isAttached
+    * location
+      * availabilityZone
+      * regionName
+    * name
+    * resourceType
+    * supportCode
 
 ### GetStaticIpsRequest
 * GetStaticIpsRequest `object`
-  * pageToken [string](#string)
+  * pageToken
 
 ### GetStaticIpsResult
 * GetStaticIpsResult `object`
-  * nextPageToken [string](#string)
-  * staticIps [StaticIpList](#staticiplist)
+  * nextPageToken
+  * staticIps
+    * items [StaticIp](#staticip)
+
+### HeaderEnum
+* HeaderEnum `string` (values: Accept, Accept-Charset, Accept-Datetime, Accept-Encoding, Accept-Language, Authorization, CloudFront-Forwarded-Proto, CloudFront-Is-Desktop-Viewer, CloudFront-Is-Mobile-Viewer, CloudFront-Is-SmartTV-Viewer, CloudFront-Is-Tablet-Viewer, CloudFront-Viewer-Country, Host, Origin, Referer)
+
+### HeaderForwardList
+* HeaderForwardList `array`
+  * items [HeaderEnum](#headerenum)
+
+### HeaderObject
+* HeaderObject `object`: <p>Describes the request headers that a Lightsail distribution bases caching on.</p> <p>For the headers that you specify, your distribution caches separate versions of the specified content based on the header values in viewer requests. For example, suppose viewer requests for <code>logo.jpg</code> contain a custom <code>product</code> header that has a value of either <code>acme</code> or <code>apex</code>, and you configure your distribution to cache your content based on values in the <code>product</code> header. Your distribution forwards the <code>product</code> header to the origin and caches the response from the origin once for each header value. </p>
+  * headersAllowList
+    * items [HeaderEnum](#headerenum)
+  * option
+
+### HostKeyAttributes
+* HostKeyAttributes `object`: Describes the public SSH host keys or the RDP certificate.
+  * algorithm
+  * fingerprintSHA1
+  * fingerprintSHA256
+  * notValidAfter
+  * notValidBefore
+  * publicKey
+  * witnessedAt
+
+### HostKeysList
+* HostKeysList `array`
+  * items [HostKeyAttributes](#hostkeyattributes)
 
 ### ImportKeyPairRequest
 * ImportKeyPairRequest `object`
-  * keyPairName **required** [ResourceName](#resourcename)
-  * publicKeyBase64 **required** [Base64](#base64)
+  * keyPairName **required**
+  * publicKeyBase64 **required**
 
 ### ImportKeyPairResult
 * ImportKeyPairResult `object`
-  * operation [Operation](#operation)
+  * operation
+    * createdAt
+    * errorCode
+    * errorDetails
+    * id
+    * isTerminal
+    * location
+      * availabilityZone
+      * regionName
+    * operationDetails
+    * operationType
+    * resourceName
+    * resourceType
+    * status
+    * statusChangedAt
+
+### InUseResourceCount
+* InUseResourceCount `integer`
+
+### IncludeCertificateDetails
+* IncludeCertificateDetails `boolean`
+
+### InputOrigin
+* InputOrigin `object`: <p>Describes the origin resource of an Amazon Lightsail content delivery network (CDN) distribution.</p> <p>An origin can be a Lightsail instance or load balancer. A distribution pulls content from an origin, caches it, and serves it to viewers via a worldwide network of edge servers.</p>
+  * name
+  * protocolPolicy
+  * regionName
 
 ### Instance
 * Instance `object`: Describes an instance (a virtual private server).
-  * arn [NonEmptyString](#nonemptystring)
-  * blueprintId [NonEmptyString](#nonemptystring)
-  * blueprintName [NonEmptyString](#nonemptystring)
-  * bundleId [NonEmptyString](#nonemptystring)
-  * createdAt [IsoDate](#isodate)
-  * hardware [InstanceHardware](#instancehardware)
-  * ipv6Address [IpV6Address](#ipv6address)
-  * isStaticIp [boolean](#boolean)
-  * location [ResourceLocation](#resourcelocation)
-  * name [ResourceName](#resourcename)
-  * networking [InstanceNetworking](#instancenetworking)
-  * privateIpAddress [IpAddress](#ipaddress)
-  * publicIpAddress [IpAddress](#ipaddress)
-  * resourceType [ResourceType](#resourcetype)
-  * sshKeyName [ResourceName](#resourcename)
-  * state [InstanceState](#instancestate)
-  * supportCode [string](#string)
-  * username [NonEmptyString](#nonemptystring)
+  * tags
+    * items [Tag](#tag)
+  * addOns
+    * items [AddOn](#addon)
+  * arn
+  * blueprintId
+  * blueprintName
+  * bundleId
+  * createdAt
+  * hardware
+    * cpuCount
+    * disks
+      * items [Disk](#disk)
+    * ramSizeInGb
+  * ipv6Address
+  * isStaticIp
+  * location
+    * availabilityZone
+    * regionName
+  * name
+  * networking
+    * monthlyTransfer
+      * gbPerMonthAllocated
+    * ports
+      * items [InstancePortInfo](#instanceportinfo)
+  * privateIpAddress
+  * publicIpAddress
+  * resourceType
+  * sshKeyName
+  * state
+    * code
+    * name
+  * supportCode
+  * username
 
 ### InstanceAccessDetails
 * InstanceAccessDetails `object`: The parameters for gaining temporary access to one of your Amazon Lightsail instances.
-  * certKey [string](#string)
-  * expiresAt [IsoDate](#isodate)
-  * instanceName [ResourceName](#resourcename)
-  * ipAddress [IpAddress](#ipaddress)
-  * password [string](#string)
-  * passwordData [PasswordData](#passworddata)
-  * privateKey [string](#string)
-  * protocol [InstanceAccessProtocol](#instanceaccessprotocol)
-  * username [string](#string)
+  * certKey
+  * expiresAt
+  * hostKeys
+    * items [HostKeyAttributes](#hostkeyattributes)
+  * instanceName
+  * ipAddress
+  * password
+  * passwordData
+    * ciphertext
+    * keyPairName
+  * privateKey
+  * protocol
+  * username
 
 ### InstanceAccessProtocol
 * InstanceAccessProtocol `string` (values: ssh, rdp)
 
+### InstanceEntry
+* InstanceEntry `object`: Describes the Amazon Elastic Compute Cloud instance and related resources to be created using the <code>create cloud formation stack</code> operation.
+  * availabilityZone **required**
+  * instanceType **required**
+  * portInfoSource **required**
+  * sourceName **required**
+  * userData
+
+### InstanceEntryList
+* InstanceEntryList `array`
+  * items [InstanceEntry](#instanceentry)
+
 ### InstanceHardware
 * InstanceHardware `object`: Describes the hardware for the instance.
-  * cpuCount [integer](#integer)
-  * disks [DiskList](#disklist)
-  * ramSizeInGb [float](#float)
+  * cpuCount
+  * disks
+    * items [Disk](#disk)
+  * ramSizeInGb
 
 ### InstanceHealthReason
 * InstanceHealthReason `string` (values: Lb.RegistrationInProgress, Lb.InitialHealthChecking, Lb.InternalError, Instance.ResponseCodeMismatch, Instance.Timeout, Instance.FailedHealthChecks, Instance.NotRegistered, Instance.NotInUse, Instance.DeregistrationInProgress, Instance.InvalidState, Instance.IpUnusable)
@@ -2084,9 +5587,9 @@ amazonaws_lightsail.UpdateLoadBalancerAttribute({
 
 ### InstanceHealthSummary
 * InstanceHealthSummary `object`: Describes information about the health of the instance.
-  * instanceHealth [InstanceHealthState](#instancehealthstate)
-  * instanceHealthReason [InstanceHealthReason](#instancehealthreason)
-  * instanceName [ResourceName](#resourcename)
+  * instanceHealth
+  * instanceHealthReason
+  * instanceName
 
 ### InstanceHealthSummaryList
 * InstanceHealthSummaryList `array`
@@ -2097,12 +5600,14 @@ amazonaws_lightsail.UpdateLoadBalancerAttribute({
   * items [Instance](#instance)
 
 ### InstanceMetricName
-* InstanceMetricName `string` (values: CPUUtilization, NetworkIn, NetworkOut, StatusCheckFailed, StatusCheckFailed_Instance, StatusCheckFailed_System)
+* InstanceMetricName `string` (values: CPUUtilization, NetworkIn, NetworkOut, StatusCheckFailed, StatusCheckFailed_Instance, StatusCheckFailed_System, BurstCapacityTime, BurstCapacityPercentage)
 
 ### InstanceNetworking
 * InstanceNetworking `object`: Describes monthly data transfer rates and port information for an instance.
-  * monthlyTransfer [MonthlyTransfer](#monthlytransfer)
-  * ports [InstancePortInfoList](#instanceportinfolist)
+  * monthlyTransfer
+    * gbPerMonthAllocated
+  * ports
+    * items [InstancePortInfo](#instanceportinfo)
 
 ### InstancePlatform
 * InstancePlatform `string` (values: LINUX_UNIX, WINDOWS)
@@ -2112,46 +5617,67 @@ amazonaws_lightsail.UpdateLoadBalancerAttribute({
   * items [InstancePlatform](#instanceplatform)
 
 ### InstancePortInfo
-* InstancePortInfo `object`: Describes information about the instance ports.
-  * accessDirection [AccessDirection](#accessdirection)
-  * accessFrom [string](#string)
-  * accessType [PortAccessType](#portaccesstype)
-  * commonName [string](#string)
-  * fromPort [Port](#port)
-  * protocol [NetworkProtocol](#networkprotocol)
-  * toPort [Port](#port)
+* InstancePortInfo `object`: Describes information about ports for an Amazon Lightsail instance.
+  * accessDirection
+  * accessFrom
+  * accessType
+  * cidrListAliases
+    * items [string](#string)
+  * cidrs
+    * items [string](#string)
+  * commonName
+  * fromPort
+  * protocol
+  * toPort
 
 ### InstancePortInfoList
 * InstancePortInfoList `array`
   * items [InstancePortInfo](#instanceportinfo)
 
 ### InstancePortState
-* InstancePortState `object`: Describes the port state.
-  * fromPort [Port](#port)
-  * protocol [NetworkProtocol](#networkprotocol)
-  * state [PortState](#portstate)
-  * toPort [Port](#port)
+* InstancePortState `object`: Describes open ports on an instance, the IP addresses allowed to connect to the instance through the ports, and the protocol.
+  * cidrListAliases
+    * items [string](#string)
+  * cidrs
+    * items [string](#string)
+  * fromPort
+  * protocol
+  * state
+  * toPort
 
 ### InstancePortStateList
 * InstancePortStateList `array`
   * items [InstancePortState](#instanceportstate)
 
 ### InstanceSnapshot
-* InstanceSnapshot `object`: Describes the snapshot of the virtual private server, or <i>instance</i>.
-  * arn [NonEmptyString](#nonemptystring)
-  * createdAt [IsoDate](#isodate)
-  * fromAttachedDisks [DiskList](#disklist)
-  * fromBlueprintId [string](#string)
-  * fromBundleId [string](#string)
-  * fromInstanceArn [NonEmptyString](#nonemptystring)
-  * fromInstanceName [ResourceName](#resourcename)
-  * location [ResourceLocation](#resourcelocation)
-  * name [ResourceName](#resourcename)
-  * progress [string](#string)
-  * resourceType [ResourceType](#resourcetype)
-  * sizeInGb [integer](#integer)
-  * state [InstanceSnapshotState](#instancesnapshotstate)
-  * supportCode [string](#string)
+* InstanceSnapshot `object`: Describes an instance snapshot.
+  * tags
+    * items [Tag](#tag)
+  * arn
+  * createdAt
+  * fromAttachedDisks
+    * items [Disk](#disk)
+  * fromBlueprintId
+  * fromBundleId
+  * fromInstanceArn
+  * fromInstanceName
+  * isFromAutoSnapshot
+  * location
+    * availabilityZone
+    * regionName
+  * name
+  * progress
+  * resourceType
+  * sizeInGb
+  * state
+  * supportCode
+
+### InstanceSnapshotInfo
+* InstanceSnapshotInfo `object`: Describes an instance snapshot.
+  * fromBlueprintId
+  * fromBundleId
+  * fromDiskInfo
+    * items [DiskInfo](#diskinfo)
 
 ### InstanceSnapshotList
 * InstanceSnapshotList `array`
@@ -2162,15 +5688,11 @@ amazonaws_lightsail.UpdateLoadBalancerAttribute({
 
 ### InstanceState
 * InstanceState `object`: Describes the virtual private server (or <i>instance</i>) status.
-  * code [integer](#integer)
-  * name [string](#string)
+  * code
+  * name
 
 ### InvalidInputException
-* InvalidInputException `object`: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain-related APIs are only available in the N. Virginia (us-east-1) Region. Please set your AWS Region configuration to us-east-1 to create, view, or edit these resources.</p> </note>
-  * code [string](#string)
-  * docs [string](#string)
-  * message [string](#string)
-  * tip [string](#string)
+
 
 ### IpAddress
 * IpAddress `string`
@@ -2183,51 +5705,114 @@ amazonaws_lightsail.UpdateLoadBalancerAttribute({
 
 ### IsVpcPeeredResult
 * IsVpcPeeredResult `object`
-  * isPeered [boolean](#boolean)
+  * isPeered
 
 ### IsoDate
 * IsoDate `string`
 
+### IssuerCA
+* IssuerCA `string`
+
+### KeyAlgorithm
+* KeyAlgorithm `string`
+
 ### KeyPair
 * KeyPair `object`: Describes the SSH key pair.
-  * arn [NonEmptyString](#nonemptystring)
-  * createdAt [IsoDate](#isodate)
-  * fingerprint [Base64](#base64)
-  * location [ResourceLocation](#resourcelocation)
-  * name [ResourceName](#resourcename)
-  * resourceType [ResourceType](#resourcetype)
-  * supportCode [string](#string)
+  * tags
+    * items [Tag](#tag)
+  * arn
+  * createdAt
+  * fingerprint
+  * location
+    * availabilityZone
+    * regionName
+  * name
+  * resourceType
+  * supportCode
 
 ### KeyPairList
 * KeyPairList `array`
   * items [KeyPair](#keypair)
 
+### LightsailDistribution
+* LightsailDistribution `object`: Describes an Amazon Lightsail content delivery network (CDN) distribution.
+  * tags
+    * items [Tag](#tag)
+  * ableToUpdateBundle
+  * alternativeDomainNames
+    * items [string](#string)
+  * arn
+  * bundleId
+  * cacheBehaviorSettings
+    * allowedHTTPMethods
+    * cachedHTTPMethods
+    * defaultTTL
+    * forwardedCookies
+      * cookiesAllowList
+        * items [string](#string)
+      * option
+    * forwardedHeaders
+      * headersAllowList
+        * items [HeaderEnum](#headerenum)
+      * option
+    * forwardedQueryStrings
+      * option
+      * queryStringsAllowList
+        * items [string](#string)
+    * maximumTTL
+    * minimumTTL
+  * cacheBehaviors
+    * items [CacheBehaviorPerPath](#cachebehaviorperpath)
+  * certificateName
+  * createdAt
+  * defaultCacheBehavior
+    * behavior
+  * domainName
+  * isEnabled
+  * location
+    * availabilityZone
+    * regionName
+  * name
+  * origin
+    * name
+    * protocolPolicy
+    * regionName
+    * resourceType
+  * originPublicDNS
+  * resourceType
+  * status
+  * supportCode
+
 ### LoadBalancer
 * LoadBalancer `object`: Describes the Lightsail load balancer.
-  * arn [NonEmptyString](#nonemptystring)
-  * configurationOptions [LoadBalancerConfigurationOptions](#loadbalancerconfigurationoptions)
-  * createdAt [IsoDate](#isodate)
-  * dnsName [NonEmptyString](#nonemptystring)
-  * healthCheckPath [NonEmptyString](#nonemptystring)
-  * instanceHealthSummary [InstanceHealthSummaryList](#instancehealthsummarylist)
-  * instancePort [integer](#integer)
-  * location [ResourceLocation](#resourcelocation)
-  * name [ResourceName](#resourcename)
-  * protocol [LoadBalancerProtocol](#loadbalancerprotocol)
-  * publicPorts [PortList](#portlist)
-  * resourceType [ResourceType](#resourcetype)
-  * state [LoadBalancerState](#loadbalancerstate)
-  * supportCode [string](#string)
-  * tlsCertificateSummaries [LoadBalancerTlsCertificateSummaryList](#loadbalancertlscertificatesummarylist)
+  * tags
+    * items [Tag](#tag)
+  * arn
+  * configurationOptions
+  * createdAt
+  * dnsName
+  * healthCheckPath
+  * instanceHealthSummary
+    * items [InstanceHealthSummary](#instancehealthsummary)
+  * instancePort
+  * location
+    * availabilityZone
+    * regionName
+  * name
+  * protocol
+  * publicPorts
+    * items [Port](#port)
+  * resourceType
+  * state
+  * supportCode
+  * tlsCertificateSummaries
+    * items [LoadBalancerTlsCertificateSummary](#loadbalancertlscertificatesummary)
 
 ### LoadBalancerAttributeName
 * LoadBalancerAttributeName `string` (values: HealthCheckPath, SessionStickinessEnabled, SessionStickiness_LB_CookieDurationSeconds)
 
 ### LoadBalancerConfigurationOptions
-* LoadBalancerConfigurationOptions `array`
-  * items `object`
-    * key [LoadBalancerAttributeName](#loadbalancerattributename)
-    * value [string](#string)
+* LoadBalancerConfigurationOptions `object`
 
 ### LoadBalancerList
 * LoadBalancerList `array`
@@ -2244,38 +5829,47 @@ amazonaws_lightsail.UpdateLoadBalancerAttribute({
 
 ### LoadBalancerTlsCertificate
 * LoadBalancerTlsCertificate `object`: <p>Describes a load balancer SSL/TLS certificate.</p> <p>TLS is just an updated, more secure version of Secure Socket Layer (SSL).</p>
-  * arn [NonEmptyString](#nonemptystring)
-  * createdAt [IsoDate](#isodate)
-  * domainName [DomainName](#domainname)
-  * domainValidationRecords [LoadBalancerTlsCertificateDomainValidationRecordList](#loadbalancertlscertificatedomainvalidationrecordlist)
-  * failureReason [LoadBalancerTlsCertificateFailureReason](#loadbalancertlscertificatefailurereason)
-  * isAttached [boolean](#boolean)
-  * issuedAt [IsoDate](#isodate)
-  * issuer [NonEmptyString](#nonemptystring)
-  * keyAlgorithm [NonEmptyString](#nonemptystring)
-  * loadBalancerName [ResourceName](#resourcename)
-  * location [ResourceLocation](#resourcelocation)
-  * name [ResourceName](#resourcename)
-  * notAfter [IsoDate](#isodate)
-  * notBefore [IsoDate](#isodate)
-  * renewalSummary [LoadBalancerTlsCertificateRenewalSummary](#loadbalancertlscertificaterenewalsummary)
-  * resourceType [ResourceType](#resourcetype)
-  * revocationReason [LoadBalancerTlsCertificateRevocationReason](#loadbalancertlscertificaterevocationreason)
-  * revokedAt [IsoDate](#isodate)
-  * serial [NonEmptyString](#nonemptystring)
-  * signatureAlgorithm [NonEmptyString](#nonemptystring)
-  * status [LoadBalancerTlsCertificateStatus](#loadbalancertlscertificatestatus)
-  * subject [NonEmptyString](#nonemptystring)
-  * subjectAlternativeNames [StringList](#stringlist)
-  * supportCode [string](#string)
+  * tags
+    * items [Tag](#tag)
+  * arn
+  * createdAt
+  * domainName
+  * domainValidationRecords
+    * items [LoadBalancerTlsCertificateDomainValidationRecord](#loadbalancertlscertificatedomainvalidationrecord)
+  * failureReason
+  * isAttached
+  * issuedAt
+  * issuer
+  * keyAlgorithm
+  * loadBalancerName
+  * location
+    * availabilityZone
+    * regionName
+  * name
+  * notAfter
+  * notBefore
+  * renewalSummary
+    * domainValidationOptions
+      * items [LoadBalancerTlsCertificateDomainValidationOption](#loadbalancertlscertificatedomainvalidationoption)
+    * renewalStatus
+  * resourceType
+  * revocationReason
+  * revokedAt
+  * serial
+  * signatureAlgorithm
+  * status
+  * subject
+  * subjectAlternativeNames
+    * items [string](#string)
+  * supportCode
 
 ### LoadBalancerTlsCertificateDomainStatus
 * LoadBalancerTlsCertificateDomainStatus `string` (values: PENDING_VALIDATION, FAILED, SUCCESS)
 
 ### LoadBalancerTlsCertificateDomainValidationOption
 * LoadBalancerTlsCertificateDomainValidationOption `object`: Contains information about the domain names on an SSL/TLS certificate that you will use to validate domain ownership.
-  * domainName [DomainName](#domainname)
-  * validationStatus [LoadBalancerTlsCertificateDomainStatus](#loadbalancertlscertificatedomainstatus)
+  * domainName
+  * validationStatus
 
 ### LoadBalancerTlsCertificateDomainValidationOptionList
 * LoadBalancerTlsCertificateDomainValidationOptionList `array`
@@ -2283,11 +5877,11 @@ amazonaws_lightsail.UpdateLoadBalancerAttribute({
 
 ### LoadBalancerTlsCertificateDomainValidationRecord
 * LoadBalancerTlsCertificateDomainValidationRecord `object`: Describes the validation record of each domain name in the SSL/TLS certificate.
-  * domainName [DomainName](#domainname)
-  * name [NonEmptyString](#nonemptystring)
-  * type [NonEmptyString](#nonemptystring)
-  * validationStatus [LoadBalancerTlsCertificateDomainStatus](#loadbalancertlscertificatedomainstatus)
-  * value [NonEmptyString](#nonemptystring)
+  * domainName
+  * name
+  * type
+  * validationStatus
+  * value
 
 ### LoadBalancerTlsCertificateDomainValidationRecordList
 * LoadBalancerTlsCertificateDomainValidationRecordList `array`
@@ -2304,9 +5898,10 @@ amazonaws_lightsail.UpdateLoadBalancerAttribute({
 * LoadBalancerTlsCertificateRenewalStatus `string` (values: PENDING_AUTO_RENEWAL, PENDING_VALIDATION, SUCCESS, FAILED)
 
 ### LoadBalancerTlsCertificateRenewalSummary
-* LoadBalancerTlsCertificateRenewalSummary `object`: Contains information about the status of Lightsail's managed renewal for the certificate.
-  * domainValidationOptions [LoadBalancerTlsCertificateDomainValidationOptionList](#loadbalancertlscertificatedomainvalidationoptionlist)
-  * renewalStatus [LoadBalancerTlsCertificateRenewalStatus](#loadbalancertlscertificaterenewalstatus)
+* LoadBalancerTlsCertificateRenewalSummary `object`: <p>Contains information about the status of Lightsail's managed renewal for the certificate.</p> <p>The renewal status of the certificate.</p> <p>The following renewal status are possible:</p> <ul> <li> <p> <b> <code>PendingAutoRenewal</code> </b> - Lightsail is attempting to automatically validate the domain names in the certificate. No further action is required. </p> </li> <li> <p> <b> <code>PendingValidation</code> </b> - Lightsail couldn't automatically validate one or more domain names in the certificate. You must take action to validate these domain names or the certificate won't be renewed. If you used DNS validation, check to make sure your certificate's domain validation records exist in your domain's DNS, and that your certificate remains in use.</p> </li> <li> <p> <b> <code>Success</code> </b> - All domain names in the certificate are validated, and Lightsail renewed the certificate. No further action is required. </p> </li> <li> <p> <b> <code>Failed</code> </b> - One or more domain names were not validated before the certificate expired, and Lightsail did not renew the certificate. You can request a new certificate using the <code>CreateCertificate</code> action.</p> </li> </ul>
+  * domainValidationOptions
+    * items [LoadBalancerTlsCertificateDomainValidationOption](#loadbalancertlscertificatedomainvalidationoption)
+  * renewalStatus
 
 ### LoadBalancerTlsCertificateRevocationReason
 * LoadBalancerTlsCertificateRevocationReason `string` (values: UNSPECIFIED, KEY_COMPROMISE, CA_COMPROMISE, AFFILIATION_CHANGED, SUPERCEDED, CESSATION_OF_OPERATION, CERTIFICATE_HOLD, REMOVE_FROM_CRL, PRIVILEGE_WITHDRAWN, A_A_COMPROMISE)
@@ -2316,26 +5911,38 @@ amazonaws_lightsail.UpdateLoadBalancerAttribute({
 
 ### LoadBalancerTlsCertificateSummary
 * LoadBalancerTlsCertificateSummary `object`: Provides a summary of SSL/TLS certificate metadata.
-  * isAttached [boolean](#boolean)
-  * name [ResourceName](#resourcename)
+  * isAttached
+  * name
 
 ### LoadBalancerTlsCertificateSummaryList
 * LoadBalancerTlsCertificateSummaryList `array`
   * items [LoadBalancerTlsCertificateSummary](#loadbalancertlscertificatesummary)
 
+### LogEvent
+* LogEvent `object`: Describes a database log event.
+  * createdAt
+  * message
+
+### LogEventList
+* LogEventList `array`
+  * items [LogEvent](#logevent)
+
 ### MetricDatapoint
 * MetricDatapoint `object`: Describes the metric data point.
-  * average [double](#double)
-  * maximum [double](#double)
-  * minimum [double](#double)
-  * sampleCount [double](#double)
-  * sum [double](#double)
-  * timestamp [timestamp](#timestamp)
-  * unit [MetricUnit](#metricunit)
+  * average
+  * maximum
+  * minimum
+  * sampleCount
+  * sum
+  * timestamp
+  * unit
 
 ### MetricDatapointList
 * MetricDatapointList `array`
   * items [MetricDatapoint](#metricdatapoint)
+
+### MetricName
+* MetricName `string` (values: CPUUtilization, NetworkIn, NetworkOut, StatusCheckFailed, StatusCheckFailed_Instance, StatusCheckFailed_System, ClientTLSNegotiationErrorCount, HealthyHostCount, UnhealthyHostCount, HTTPCode_LB_4XX_Count, HTTPCode_LB_5XX_Count, HTTPCode_Instance_2XX_Count, HTTPCode_Instance_3XX_Count, HTTPCode_Instance_4XX_Count, HTTPCode_Instance_5XX_Count, InstanceResponseTime, RejectedConnectionCount, RequestCount, DatabaseConnections, DiskQueueDepth, FreeStorageSpace, NetworkReceiveThroughput, NetworkTransmitThroughput, BurstCapacityTime, BurstCapacityPercentage)
 
 ### MetricPeriod
 * MetricPeriod `integer`
@@ -2350,53 +5957,78 @@ amazonaws_lightsail.UpdateLoadBalancerAttribute({
 ### MetricUnit
 * MetricUnit `string` (values: Seconds, Microseconds, Milliseconds, Bytes, Kilobytes, Megabytes, Gigabytes, Terabytes, Bits, Kilobits, Megabits, Gigabits, Terabits, Percent, Count, Bytes/Second, Kilobytes/Second, Megabytes/Second, Gigabytes/Second, Terabytes/Second, Bits/Second, Kilobits/Second, Megabits/Second, Gigabits/Second, Terabits/Second, Count/Second, None)
 
+### MonitoredResourceInfo
+* MonitoredResourceInfo `object`: <p>Describes resource being monitored by an alarm.</p> <p>An alarm is a way to monitor your Amazon Lightsail resource metrics. For more information, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-alarms">Alarms in Amazon Lightsail</a>.</p>
+  * arn
+  * name
+  * resourceType
+
 ### MonthlyTransfer
 * MonthlyTransfer `object`: Describes the monthly data transfer in and out of your virtual private server (or <i>instance</i>).
-  * gbPerMonthAllocated [integer](#integer)
+  * gbPerMonthAllocated
 
 ### NetworkProtocol
-* NetworkProtocol `string` (values: tcp, all, udp)
+* NetworkProtocol `string` (values: tcp, all, udp, icmp)
 
 ### NonEmptyString
 * NonEmptyString `string`
 
 ### NotFoundException
-* NotFoundException `object`: Lightsail throws this exception when it cannot find a resource.
-  * code [string](#string)
-  * docs [string](#string)
-  * message [string](#string)
-  * tip [string](#string)
+
+
+### NotificationTriggerList
+* NotificationTriggerList `array`
+  * items [AlarmState](#alarmstate)
 
 ### OpenInstancePublicPortsRequest
 * OpenInstancePublicPortsRequest `object`
-  * instanceName **required** [ResourceName](#resourcename)
-  * portInfo **required** [PortInfo](#portinfo)
+  * instanceName **required**
+  * portInfo **required**
+    * cidrListAliases
+      * items [string](#string)
+    * cidrs
+      * items [string](#string)
+    * fromPort
+    * protocol
+    * toPort
 
 ### OpenInstancePublicPortsResult
 * OpenInstancePublicPortsResult `object`
-  * operation [Operation](#operation)
+  * operation
+    * createdAt
+    * errorCode
+    * errorDetails
+    * id
+    * isTerminal
+    * location
+      * availabilityZone
+      * regionName
+    * operationDetails
+    * operationType
+    * resourceName
+    * resourceType
+    * status
+    * statusChangedAt
 
 ### Operation
 * Operation `object`: Describes the API operation.
-  * createdAt [IsoDate](#isodate)
-  * errorCode [string](#string)
-  * errorDetails [string](#string)
-  * id [NonEmptyString](#nonemptystring)
-  * isTerminal [boolean](#boolean)
-  * location [ResourceLocation](#resourcelocation)
-  * operationDetails [string](#string)
-  * operationType [OperationType](#operationtype)
-  * resourceName [ResourceName](#resourcename)
-  * resourceType [ResourceType](#resourcetype)
-  * status [OperationStatus](#operationstatus)
-  * statusChangedAt [IsoDate](#isodate)
+  * createdAt
+  * errorCode
+  * errorDetails
+  * id
+  * isTerminal
+  * location
+    * availabilityZone
+    * regionName
+  * operationDetails
+  * operationType
+  * resourceName
+  * resourceType
+  * status
+  * statusChangedAt
 
 ### OperationFailureException
-* OperationFailureException `object`: Lightsail throws this exception when an operation fails to execute.
-  * code [string](#string)
-  * docs [string](#string)
-  * message [string](#string)
-  * tip [string](#string)
+
 
 ### OperationList
 * OperationList `array`
@@ -2406,19 +6038,59 @@ amazonaws_lightsail.UpdateLoadBalancerAttribute({
 * OperationStatus `string` (values: NotStarted, Started, Failed, Completed, Succeeded)
 
 ### OperationType
-* OperationType `string` (values: DeleteInstance, CreateInstance, StopInstance, StartInstance, RebootInstance, OpenInstancePublicPorts, PutInstancePublicPorts, CloseInstancePublicPorts, AllocateStaticIp, ReleaseStaticIp, AttachStaticIp, DetachStaticIp, UpdateDomainEntry, DeleteDomainEntry, CreateDomain, DeleteDomain, CreateInstanceSnapshot, DeleteInstanceSnapshot, CreateInstancesFromSnapshot, CreateLoadBalancer, DeleteLoadBalancer, AttachInstancesToLoadBalancer, DetachInstancesFromLoadBalancer, UpdateLoadBalancerAttribute, CreateLoadBalancerTlsCertificate, DeleteLoadBalancerTlsCertificate, AttachLoadBalancerTlsCertificate, CreateDisk, DeleteDisk, AttachDisk, DetachDisk, CreateDiskSnapshot, DeleteDiskSnapshot, CreateDiskFromSnapshot)
+* OperationType `string` (values: DeleteKnownHostKeys, DeleteInstance, CreateInstance, StopInstance, StartInstance, RebootInstance, OpenInstancePublicPorts, PutInstancePublicPorts, CloseInstancePublicPorts, AllocateStaticIp, ReleaseStaticIp, AttachStaticIp, DetachStaticIp, UpdateDomainEntry, DeleteDomainEntry, CreateDomain, DeleteDomain, CreateInstanceSnapshot, DeleteInstanceSnapshot, CreateInstancesFromSnapshot, CreateLoadBalancer, DeleteLoadBalancer, AttachInstancesToLoadBalancer, DetachInstancesFromLoadBalancer, UpdateLoadBalancerAttribute, CreateLoadBalancerTlsCertificate, DeleteLoadBalancerTlsCertificate, AttachLoadBalancerTlsCertificate, CreateDisk, DeleteDisk, AttachDisk, DetachDisk, CreateDiskSnapshot, DeleteDiskSnapshot, CreateDiskFromSnapshot, CreateRelationalDatabase, UpdateRelationalDatabase, DeleteRelationalDatabase, CreateRelationalDatabaseFromSnapshot, CreateRelationalDatabaseSnapshot, DeleteRelationalDatabaseSnapshot, UpdateRelationalDatabaseParameters, StartRelationalDatabase, RebootRelationalDatabase, StopRelationalDatabase, EnableAddOn, DisableAddOn, PutAlarm, GetAlarms, DeleteAlarm, TestAlarm, CreateContactMethod, GetContactMethods, SendContactMethodVerification, DeleteContactMethod, CreateDistribution, UpdateDistribution, DeleteDistribution, ResetDistributionCache, AttachCertificateToDistribution, DetachCertificateFromDistribution, UpdateDistributionBundle, CreateCertificate, DeleteCertificate, CreateContainerService, UpdateContainerService, DeleteContainerService, CreateContainerServiceDeployment, CreateContainerServiceRegistryLogin, RegisterContainerImage, DeleteContainerImage)
+
+### Origin
+* Origin `object`: <p>Describes the origin resource of an Amazon Lightsail content delivery network (CDN) distribution.</p> <p>An origin can be a Lightsail instance or load balancer. A distribution pulls content from an origin, caches it, and serves it to viewers via a worldwide network of edge servers.</p>
+  * name
+  * protocolPolicy
+  * regionName
+  * resourceType
+
+### OriginProtocolPolicyEnum
+* OriginProtocolPolicyEnum `string` (values: http-only, https-only)
 
 ### PasswordData
 * PasswordData `object`: The password data for the Windows Server-based instance, including the ciphertext and the key pair name.
-  * ciphertext [string](#string)
-  * keyPairName [ResourceName](#resourcename)
+  * ciphertext
+  * keyPairName
 
 ### PeerVpcRequest
 * PeerVpcRequest `object`
 
 ### PeerVpcResult
 * PeerVpcResult `object`
-  * operation [Operation](#operation)
+  * operation
+    * createdAt
+    * errorCode
+    * errorDetails
+    * id
+    * isTerminal
+    * location
+      * availabilityZone
+      * regionName
+    * operationDetails
+    * operationType
+    * resourceName
+    * resourceType
+    * status
+    * statusChangedAt
+
+### PendingMaintenanceAction
+* PendingMaintenanceAction `object`: Describes a pending database maintenance action.
+  * action
+  * currentApplyDate
+  * description
+
+### PendingMaintenanceActionList
+* PendingMaintenanceActionList `array`
+  * items [PendingMaintenanceAction](#pendingmaintenanceaction)
+
+### PendingModifiedRelationalDatabaseValues
+* PendingModifiedRelationalDatabaseValues `object`: Describes a pending database value modification.
+  * backupRetentionEnabled
+  * engineVersion
+  * masterUserPassword
 
 ### Port
 * Port `integer`
@@ -2427,66 +6099,335 @@ amazonaws_lightsail.UpdateLoadBalancerAttribute({
 * PortAccessType `string` (values: Public, Private)
 
 ### PortInfo
-* PortInfo `object`: Describes information about the ports on your virtual private server (or <i>instance</i>).
-  * fromPort [Port](#port)
-  * protocol [NetworkProtocol](#networkprotocol)
-  * toPort [Port](#port)
+* PortInfo `object`: Describes ports to open on an instance, the IP addresses allowed to connect to the instance through the ports, and the protocol.
+  * cidrListAliases
+    * items [string](#string)
+  * cidrs
+    * items [string](#string)
+  * fromPort
+  * protocol
+  * toPort
 
 ### PortInfoList
 * PortInfoList `array`
   * items [PortInfo](#portinfo)
 
+### PortInfoSourceType
+* PortInfoSourceType `string` (values: DEFAULT, INSTANCE, NONE, CLOSED)
+
 ### PortList
 * PortList `array`
   * items [Port](#port)
 
+### PortMap
+* PortMap `object`
+
 ### PortState
 * PortState `string` (values: open, closed)
 
+### PutAlarmRequest
+* PutAlarmRequest `object`
+  * alarmName **required**
+  * comparisonOperator **required**
+  * contactProtocols
+    * items [ContactProtocol](#contactprotocol)
+  * datapointsToAlarm
+  * evaluationPeriods **required**
+  * metricName **required**
+  * monitoredResourceName **required**
+  * notificationEnabled
+  * notificationTriggers
+    * items [AlarmState](#alarmstate)
+  * threshold **required**
+  * treatMissingData
+
+### PutAlarmResult
+* PutAlarmResult `object`
+  * operations
+    * items [Operation](#operation)
+
 ### PutInstancePublicPortsRequest
 * PutInstancePublicPortsRequest `object`
-  * instanceName **required** [ResourceName](#resourcename)
-  * portInfos **required** [PortInfoList](#portinfolist)
+  * instanceName **required**
+  * portInfos **required**
+    * items [PortInfo](#portinfo)
 
 ### PutInstancePublicPortsResult
 * PutInstancePublicPortsResult `object`
-  * operation [Operation](#operation)
+  * operation
+    * createdAt
+    * errorCode
+    * errorDetails
+    * id
+    * isTerminal
+    * location
+      * availabilityZone
+      * regionName
+    * operationDetails
+    * operationType
+    * resourceName
+    * resourceType
+    * status
+    * statusChangedAt
+
+### QueryStringObject
+* QueryStringObject `object`: <p>Describes the query string parameters that an Amazon Lightsail content delivery network (CDN) distribution to bases caching on.</p> <p>For the query strings that you specify, your distribution caches separate versions of the specified content based on the query string values in viewer requests.</p>
+  * option
+  * queryStringsAllowList
+    * items [string](#string)
 
 ### RebootInstanceRequest
 * RebootInstanceRequest `object`
-  * instanceName **required** [ResourceName](#resourcename)
+  * instanceName **required**
 
 ### RebootInstanceResult
 * RebootInstanceResult `object`
-  * operations [OperationList](#operationlist)
+  * operations
+    * items [Operation](#operation)
+
+### RebootRelationalDatabaseRequest
+* RebootRelationalDatabaseRequest `object`
+  * relationalDatabaseName **required**
+
+### RebootRelationalDatabaseResult
+* RebootRelationalDatabaseResult `object`
+  * operations
+    * items [Operation](#operation)
+
+### RecordState
+* RecordState `string` (values: Started, Succeeded, Failed)
 
 ### Region
 * Region `object`: Describes the AWS Region.
-  * availabilityZones [AvailabilityZoneList](#availabilityzonelist)
-  * continentCode [string](#string)
-  * description [string](#string)
-  * displayName [string](#string)
-  * name [RegionName](#regionname)
+  * availabilityZones
+    * items [AvailabilityZone](#availabilityzone)
+  * continentCode
+  * description
+  * displayName
+  * name
+  * relationalDatabaseAvailabilityZones
+    * items [AvailabilityZone](#availabilityzone)
 
 ### RegionList
 * RegionList `array`
   * items [Region](#region)
 
 ### RegionName
-* RegionName `string` (values: us-east-1, us-east-2, us-west-1, us-west-2, eu-central-1, eu-west-1, eu-west-2, ap-south-1, ap-southeast-1, ap-southeast-2, ap-northeast-1, ap-northeast-2)
+* RegionName `string` (values: us-east-1, us-east-2, us-west-1, us-west-2, eu-west-1, eu-west-2, eu-west-3, eu-central-1, ca-central-1, ap-south-1, ap-southeast-1, ap-southeast-2, ap-northeast-1, ap-northeast-2)
+
+### RegisterContainerImageRequest
+* RegisterContainerImageRequest `object`
+  * digest **required**
+  * label **required**
+  * serviceName **required**
+
+### RegisterContainerImageResult
+* RegisterContainerImageResult `object`
+  * containerImage [ContainerImage](#containerimage)
+
+### RelationalDatabase
+* RelationalDatabase `object`: Describes a database.
+  * tags
+    * items [Tag](#tag)
+  * arn
+  * backupRetentionEnabled
+  * caCertificateIdentifier
+  * createdAt
+  * engine
+  * engineVersion
+  * hardware
+    * cpuCount
+    * diskSizeInGb
+    * ramSizeInGb
+  * latestRestorableTime
+  * location
+    * availabilityZone
+    * regionName
+  * masterDatabaseName
+  * masterEndpoint
+    * address
+    * port
+  * masterUsername
+  * name
+  * parameterApplyStatus
+  * pendingMaintenanceActions
+    * items [PendingMaintenanceAction](#pendingmaintenanceaction)
+  * pendingModifiedValues
+    * backupRetentionEnabled
+    * engineVersion
+    * masterUserPassword
+  * preferredBackupWindow
+  * preferredMaintenanceWindow
+  * publiclyAccessible
+  * relationalDatabaseBlueprintId
+  * relationalDatabaseBundleId
+  * resourceType
+  * secondaryAvailabilityZone
+  * state
+  * supportCode
+
+### RelationalDatabaseBlueprint
+* RelationalDatabaseBlueprint `object`: Describes a database image, or blueprint. A blueprint describes the major engine version of a database.
+  * blueprintId
+  * engine
+  * engineDescription
+  * engineVersion
+  * engineVersionDescription
+  * isEngineDefault
+
+### RelationalDatabaseBlueprintList
+* RelationalDatabaseBlueprintList `array`
+  * items [RelationalDatabaseBlueprint](#relationaldatabaseblueprint)
+
+### RelationalDatabaseBundle
+* RelationalDatabaseBundle `object`: Describes a database bundle. A bundle describes the performance specifications of the database.
+  * bundleId
+  * cpuCount
+  * diskSizeInGb
+  * isActive
+  * isEncrypted
+  * name
+  * price
+  * ramSizeInGb
+  * transferPerMonthInGb
+
+### RelationalDatabaseBundleList
+* RelationalDatabaseBundleList `array`
+  * items [RelationalDatabaseBundle](#relationaldatabasebundle)
+
+### RelationalDatabaseEndpoint
+* RelationalDatabaseEndpoint `object`: Describes an endpoint for a database.
+  * address
+  * port
+
+### RelationalDatabaseEngine
+* RelationalDatabaseEngine `string` (values: mysql)
+
+### RelationalDatabaseEvent
+* RelationalDatabaseEvent `object`: Describes an event for a database.
+  * createdAt
+  * eventCategories
+    * items [string](#string)
+  * message
+  * resource
+
+### RelationalDatabaseEventList
+* RelationalDatabaseEventList `array`
+  * items [RelationalDatabaseEvent](#relationaldatabaseevent)
+
+### RelationalDatabaseHardware
+* RelationalDatabaseHardware `object`: Describes the hardware of a database.
+  * cpuCount
+  * diskSizeInGb
+  * ramSizeInGb
+
+### RelationalDatabaseList
+* RelationalDatabaseList `array`
+  * items [RelationalDatabase](#relationaldatabase)
+
+### RelationalDatabaseMetricName
+* RelationalDatabaseMetricName `string` (values: CPUUtilization, DatabaseConnections, DiskQueueDepth, FreeStorageSpace, NetworkReceiveThroughput, NetworkTransmitThroughput)
+
+### RelationalDatabaseParameter
+* RelationalDatabaseParameter `object`: Describes the parameters of a database.
+  * allowedValues
+  * applyMethod
+  * applyType
+  * dataType
+  * description
+  * isModifiable
+  * parameterName
+  * parameterValue
+
+### RelationalDatabaseParameterList
+* RelationalDatabaseParameterList `array`
+  * items [RelationalDatabaseParameter](#relationaldatabaseparameter)
+
+### RelationalDatabasePasswordVersion
+* RelationalDatabasePasswordVersion `string` (values: CURRENT, PREVIOUS, PENDING)
+
+### RelationalDatabaseSnapshot
+* RelationalDatabaseSnapshot `object`: Describes a database snapshot.
+  * tags
+    * items [Tag](#tag)
+  * arn
+  * createdAt
+  * engine
+  * engineVersion
+  * fromRelationalDatabaseArn
+  * fromRelationalDatabaseBlueprintId
+  * fromRelationalDatabaseBundleId
+  * fromRelationalDatabaseName
+  * location
+    * availabilityZone
+    * regionName
+  * name
+  * resourceType
+  * sizeInGb
+  * state
+  * supportCode
+
+### RelationalDatabaseSnapshotList
+* RelationalDatabaseSnapshotList `array`
+  * items [RelationalDatabaseSnapshot](#relationaldatabasesnapshot)
 
 ### ReleaseStaticIpRequest
 * ReleaseStaticIpRequest `object`
-  * staticIpName **required** [ResourceName](#resourcename)
+  * staticIpName **required**
 
 ### ReleaseStaticIpResult
 * ReleaseStaticIpResult `object`
-  * operations [OperationList](#operationlist)
+  * operations
+    * items [Operation](#operation)
+
+### RenewalStatus
+* RenewalStatus `string` (values: PendingAutoRenewal, PendingValidation, Success, Failed)
+
+### RenewalStatusReason
+* RenewalStatusReason `string`
+
+### RenewalSummary
+* RenewalSummary `object`: Describes the status of a SSL/TLS certificate renewal managed by Amazon Lightsail.
+  * domainValidationRecords
+    * items [DomainValidationRecord](#domainvalidationrecord)
+  * renewalStatus
+  * renewalStatusReason
+  * updatedAt
+
+### RequestFailureReason
+* RequestFailureReason `string`
+
+### ResetDistributionCacheRequest
+* ResetDistributionCacheRequest `object`
+  * distributionName
+
+### ResetDistributionCacheResult
+* ResetDistributionCacheResult `object`
+  * createTime
+  * operation
+    * createdAt
+    * errorCode
+    * errorDetails
+    * id
+    * isTerminal
+    * location
+      * availabilityZone
+      * regionName
+    * operationDetails
+    * operationType
+    * resourceName
+    * resourceType
+    * status
+    * statusChangedAt
+  * status
+
+### ResourceArn
+* ResourceArn `string`
 
 ### ResourceLocation
 * ResourceLocation `object`: Describes the resource location.
-  * availabilityZone [string](#string)
-  * regionName [RegionName](#regionname)
+  * availabilityZone
+  * regionName
 
 ### ResourceName
 * ResourceName `string`
@@ -2495,35 +6436,67 @@ amazonaws_lightsail.UpdateLoadBalancerAttribute({
 * ResourceNameList `array`
   * items [ResourceName](#resourcename)
 
+### ResourceRecord
+* ResourceRecord `object`: Describes the domain name system (DNS) records to add to your domain's DNS to validate it for an Amazon Lightsail certificate.
+  * name
+  * type
+  * value
+
 ### ResourceType
-* ResourceType `string` (values: Instance, StaticIp, KeyPair, InstanceSnapshot, Domain, PeeredVpc, LoadBalancer, LoadBalancerTlsCertificate, Disk, DiskSnapshot)
+* ResourceType `string` (values: ContainerService, Instance, StaticIp, KeyPair, InstanceSnapshot, Domain, PeeredVpc, LoadBalancer, LoadBalancerTlsCertificate, Disk, DiskSnapshot, RelationalDatabase, RelationalDatabaseSnapshot, ExportSnapshotRecord, CloudFormationStackRecord, Alarm, ContactMethod, Distribution, Certificate)
+
+### RevocationReason
+* RevocationReason `string`
+
+### SendContactMethodVerificationRequest
+* SendContactMethodVerificationRequest `object`
+  * protocol **required**
+
+### SendContactMethodVerificationResult
+* SendContactMethodVerificationResult `object`
+  * operations
+    * items [Operation](#operation)
+
+### SensitiveString
+* SensitiveString `string`
+
+### SerialNumber
+* SerialNumber `string`
 
 ### ServiceException
-* ServiceException `object`: A general service exception.
-  * code [string](#string)
-  * docs [string](#string)
-  * message [string](#string)
-  * tip [string](#string)
+
 
 ### StartInstanceRequest
 * StartInstanceRequest `object`
-  * instanceName **required** [ResourceName](#resourcename)
+  * instanceName **required**
 
 ### StartInstanceResult
 * StartInstanceResult `object`
-  * operations [OperationList](#operationlist)
+  * operations
+    * items [Operation](#operation)
+
+### StartRelationalDatabaseRequest
+* StartRelationalDatabaseRequest `object`
+  * relationalDatabaseName **required**
+
+### StartRelationalDatabaseResult
+* StartRelationalDatabaseResult `object`
+  * operations
+    * items [Operation](#operation)
 
 ### StaticIp
 * StaticIp `object`: Describes the static IP.
-  * arn [NonEmptyString](#nonemptystring)
-  * attachedTo [ResourceName](#resourcename)
-  * createdAt [IsoDate](#isodate)
-  * ipAddress [IpAddress](#ipaddress)
-  * isAttached [boolean](#boolean)
-  * location [ResourceLocation](#resourcelocation)
-  * name [ResourceName](#resourcename)
-  * resourceType [ResourceType](#resourcetype)
-  * supportCode [string](#string)
+  * arn
+  * attachedTo
+  * createdAt
+  * ipAddress
+  * isAttached
+  * location
+    * availabilityZone
+    * regionName
+  * name
+  * resourceType
+  * supportCode
 
 ### StaticIpList
 * StaticIpList `array`
@@ -2531,12 +6504,23 @@ amazonaws_lightsail.UpdateLoadBalancerAttribute({
 
 ### StopInstanceRequest
 * StopInstanceRequest `object`
-  * force [boolean](#boolean)
-  * instanceName **required** [ResourceName](#resourcename)
+  * force
+  * instanceName **required**
 
 ### StopInstanceResult
 * StopInstanceResult `object`
-  * operations [OperationList](#operationlist)
+  * operations
+    * items [Operation](#operation)
+
+### StopRelationalDatabaseRequest
+* StopRelationalDatabaseRequest `object`
+  * relationalDatabaseName **required**
+  * relationalDatabaseSnapshotName
+
+### StopRelationalDatabaseResult
+* StopRelationalDatabaseResult `object`
+  * operations
+    * items [Operation](#operation)
 
 ### StringList
 * StringList `array`
@@ -2545,38 +6529,266 @@ amazonaws_lightsail.UpdateLoadBalancerAttribute({
 ### StringMax256
 * StringMax256 `string`
 
+### SubjectAlternativeNameList
+* SubjectAlternativeNameList `array`
+  * items [DomainName](#domainname)
+
+### Tag
+* Tag `object`: <p>Describes a tag key and optional value assigned to an Amazon Lightsail resource.</p> <p>For more information about tags in Lightsail, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags">Lightsail Dev Guide</a>.</p>
+  * key
+  * value
+
+### TagKey
+* TagKey `string`
+
+### TagKeyList
+* TagKeyList `array`
+  * items [TagKey](#tagkey)
+
+### TagList
+* TagList `array`
+  * items [Tag](#tag)
+
+### TagResourceRequest
+* TagResourceRequest `object`
+  * tags **required**
+    * items [Tag](#tag)
+  * resourceArn
+  * resourceName **required**
+
+### TagResourceResult
+* TagResourceResult `object`
+  * operations
+    * items [Operation](#operation)
+
+### TagValue
+* TagValue `string`
+
+### TestAlarmRequest
+* TestAlarmRequest `object`
+  * alarmName **required**
+  * state **required**
+
+### TestAlarmResult
+* TestAlarmResult `object`
+  * operations
+    * items [Operation](#operation)
+
+### TimeOfDay
+* TimeOfDay `string`
+
+### TreatMissingData
+* TreatMissingData `string` (values: breaching, notBreaching, ignore, missing)
+
 ### UnauthenticatedException
-* UnauthenticatedException `object`: Lightsail throws this exception when the user has not been authenticated.
-  * code [string](#string)
-  * docs [string](#string)
-  * message [string](#string)
-  * tip [string](#string)
+
 
 ### UnpeerVpcRequest
 * UnpeerVpcRequest `object`
 
 ### UnpeerVpcResult
 * UnpeerVpcResult `object`
+  * operation
+    * createdAt
+    * errorCode
+    * errorDetails
+    * id
+    * isTerminal
+    * location
+      * availabilityZone
+      * regionName
+    * operationDetails
+    * operationType
+    * resourceName
+    * resourceType
+    * status
+    * statusChangedAt
+
+### UntagResourceRequest
+* UntagResourceRequest `object`
+  * resourceArn
+  * resourceName **required**
+  * tagKeys **required**
+    * items [TagKey](#tagkey)
+
+### UntagResourceResult
+* UntagResourceResult `object`
+  * operations
+    * items [Operation](#operation)
+
+### UpdateContainerServiceRequest
+* UpdateContainerServiceRequest `object`
+  * isDisabled
+  * power
+  * publicDomainNames
+  * scale
+  * serviceName **required**
+
+### UpdateContainerServiceResult
+* UpdateContainerServiceResult `object`
+  * containerService
+    * tags
+      * items [Tag](#tag)
+    * arn
+    * containerServiceName
+    * createdAt
+    * currentDeployment
+      * containers
+      * createdAt
+      * publicEndpoint
+        * containerName
+        * containerPort
+        * healthCheck
+          * healthyThreshold
+          * intervalSeconds
+          * path
+          * successCodes
+          * timeoutSeconds
+          * unhealthyThreshold
+      * state
+      * version
+    * isDisabled
+    * location
+      * availabilityZone
+      * regionName
+    * nextDeployment
+      * containers
+      * createdAt
+      * publicEndpoint
+        * containerName
+        * containerPort
+        * healthCheck
+          * healthyThreshold
+          * intervalSeconds
+          * path
+          * successCodes
+          * timeoutSeconds
+          * unhealthyThreshold
+      * state
+      * version
+    * power
+    * powerId
+    * principalArn
+    * privateDomainName
+    * publicDomainNames
+    * resourceType
+    * scale
+    * state
+    * url
+
+### UpdateDistributionBundleRequest
+* UpdateDistributionBundleRequest `object`
+  * bundleId
+  * distributionName
+
+### UpdateDistributionBundleResult
+* UpdateDistributionBundleResult `object`
   * operation [Operation](#operation)
+
+### UpdateDistributionRequest
+* UpdateDistributionRequest `object`
+  * cacheBehaviorSettings
+    * allowedHTTPMethods
+    * cachedHTTPMethods
+    * defaultTTL
+    * forwardedCookies
+      * cookiesAllowList
+        * items [string](#string)
+      * option
+    * forwardedHeaders
+      * headersAllowList
+        * items [HeaderEnum](#headerenum)
+      * option
+    * forwardedQueryStrings
+      * option
+      * queryStringsAllowList
+        * items [string](#string)
+    * maximumTTL
+    * minimumTTL
+  * cacheBehaviors
+    * items [CacheBehaviorPerPath](#cachebehaviorperpath)
+  * defaultCacheBehavior
+    * behavior
+  * distributionName **required**
+  * isEnabled
+  * origin
+    * name
+    * protocolPolicy
+    * regionName
+
+### UpdateDistributionResult
+* UpdateDistributionResult `object`
+  * operation
+    * createdAt
+    * errorCode
+    * errorDetails
+    * id
+    * isTerminal
+    * location
+      * availabilityZone
+      * regionName
+    * operationDetails
+    * operationType
+    * resourceName
+    * resourceType
+    * status
+    * statusChangedAt
 
 ### UpdateDomainEntryRequest
 * UpdateDomainEntryRequest `object`
-  * domainEntry **required** [DomainEntry](#domainentry)
-  * domainName **required** [DomainName](#domainname)
+  * domainEntry **required**
+    * id
+    * isAlias
+    * name
+    * options
+    * target
+    * type
+  * domainName **required**
 
 ### UpdateDomainEntryResult
 * UpdateDomainEntryResult `object`
-  * operations [OperationList](#operationlist)
+  * operations
+    * items [Operation](#operation)
 
 ### UpdateLoadBalancerAttributeRequest
 * UpdateLoadBalancerAttributeRequest `object`
-  * attributeName **required** [LoadBalancerAttributeName](#loadbalancerattributename)
-  * attributeValue **required** [StringMax256](#stringmax256)
-  * loadBalancerName **required** [ResourceName](#resourcename)
+  * attributeName **required**
+  * attributeValue **required**
+  * loadBalancerName **required**
 
 ### UpdateLoadBalancerAttributeResult
 * UpdateLoadBalancerAttributeResult `object`
-  * operations [OperationList](#operationlist)
+  * operations
+    * items [Operation](#operation)
+
+### UpdateRelationalDatabaseParametersRequest
+* UpdateRelationalDatabaseParametersRequest `object`
+  * parameters **required**
+    * items [RelationalDatabaseParameter](#relationaldatabaseparameter)
+  * relationalDatabaseName **required**
+
+### UpdateRelationalDatabaseParametersResult
+* UpdateRelationalDatabaseParametersResult `object`
+  * operations
+    * items [Operation](#operation)
+
+### UpdateRelationalDatabaseRequest
+* UpdateRelationalDatabaseRequest `object`
+  * applyImmediately
+  * caCertificateIdentifier
+  * disableBackupRetention
+  * enableBackupRetention
+  * masterUserPassword
+  * preferredBackupWindow
+  * preferredMaintenanceWindow
+  * publiclyAccessible
+  * relationalDatabaseName **required**
+  * rotateMasterUserPassword
+
+### UpdateRelationalDatabaseResult
+* UpdateRelationalDatabaseResult `object`
+  * operations
+    * items [Operation](#operation)
 
 ### boolean
 * boolean `boolean`
@@ -2589,6 +6801,9 @@ amazonaws_lightsail.UpdateLoadBalancerAttribute({
 
 ### integer
 * integer `integer`
+
+### long
+* long `integer`
 
 ### string
 * string `string`

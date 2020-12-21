@@ -62,6 +62,9 @@
             }
           }
         ],
+        "produces": [
+          "application/json"
+        ],
         "responses": {
           "default": {
             "description": "successful location responses",
@@ -88,6 +91,9 @@
             "required": true,
             "type": "string"
           }
+        ],
+        "produces": [
+          "application/json"
         ],
         "responses": {
           "default": {
@@ -117,6 +123,9 @@
             }
           }
         ],
+        "produces": [
+          "application/json"
+        ],
         "responses": {
           "default": {
             "description": "successful location history response",
@@ -145,6 +154,9 @@
             }
           }
         ],
+        "produces": [
+          "application/json"
+        ],
         "responses": {
           "default": {
             "description": "visitor history response",
@@ -172,6 +184,9 @@
               "$ref": "#/definitions/MiataruUpdateLocationRequest"
             }
           }
+        ],
+        "produces": [
+          "application/json"
         ],
         "responses": {
           "default": {

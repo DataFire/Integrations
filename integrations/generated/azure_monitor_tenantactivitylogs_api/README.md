@@ -15,9 +15,7 @@ let azure_monitor_tenantactivitylogs_api = require('@datafire/azure_monitor_tena
   redirect_uri: ""
 });
 
-azure_monitor_tenantactivitylogs_api.TenantActivityLogs_List({
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

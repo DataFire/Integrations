@@ -1,0 +1,6884 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "contact": {
+      "email": "mike.ralphson@gmail.com",
+      "name": "Mike Ralphson",
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
+    },
+    "description": "<fullname>AWS IoT Things Graph</fullname> <p>AWS IoT Things Graph provides an integrated set of tools that enable developers to connect devices and services that use different standards, such as units of measure and communication protocols. AWS IoT Things Graph makes it possible to build IoT applications with little to no code by connecting devices and services and defining how they interact at an abstract level.</p> <p>For more information about how AWS IoT Things Graph works, see the <a href=\"https://docs.aws.amazon.com/thingsgraph/latest/ug/iot-tg-whatis.html\">User Guide</a>.</p>",
+    "license": {
+      "name": "Apache 2.0 License",
+      "url": "http://www.apache.org/licenses/"
+    },
+    "termsOfService": "https://aws.amazon.com/service-terms/",
+    "title": "AWS IoT Things Graph",
+    "version": "2018-09-06",
+    "x-apiClientRegistration": {
+      "url": "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"
+    },
+    "x-apisguru-categories": [
+      "cloud"
+    ],
+    "x-logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"
+    },
+    "x-origin": [
+      {
+        "contentType": "application/json",
+        "converter": {
+          "url": "https://github.com/mermade/aws2openapi",
+          "version": "1.0.0"
+        },
+        "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/iotthingsgraph-2018-09-06.normal.json",
+        "x-apisguru-driver": "external"
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "amazonaws.com",
+    "x-release": "v4",
+    "x-serviceName": "iotthingsgraph",
+    "x-datafire": {
+      "name": "amazonaws_iotthingsgraph",
+      "type": "openapi"
+    }
+  },
+  "host": "iotthingsgraph.us-east-1.amazonaws.com",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/#X-Amz-Target=IotThingsGraphFrontEndService.AssociateEntityToThing": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "IotThingsGraphFrontEndService.AssociateEntityToThing"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AssociateEntityToThingRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/AssociateEntityToThingResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          }
+        },
+        "description": "<p>Associates a device with a concrete thing that is in the user's registry.</p> <p>A thing can be associated with only one device at a time. If you associate a thing with a new device id, its previous association will be removed.</p>",
+        "operationId": "AssociateEntityToThing"
+      }
+    },
+    "/#X-Amz-Target=IotThingsGraphFrontEndService.CreateFlowTemplate": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "IotThingsGraphFrontEndService.CreateFlowTemplate"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateFlowTemplateRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateFlowTemplateResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "ResourceAlreadyExistsException",
+            "schema": {
+              "$ref": "#/definitions/ResourceAlreadyExistsException"
+            }
+          },
+          "482": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "483": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          },
+          "484": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          }
+        },
+        "description": "Creates a workflow template. Workflows can be created only in the user's namespace. (The public namespace contains only entities.) The workflow can contain only entities in the specified namespace. The workflow is validated against the entities in the latest version of the user's namespace unless another namespace version is specified in the request.",
+        "operationId": "CreateFlowTemplate"
+      }
+    },
+    "/#X-Amz-Target=IotThingsGraphFrontEndService.CreateSystemInstance": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "IotThingsGraphFrontEndService.CreateSystemInstance"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateSystemInstanceRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateSystemInstanceResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "ResourceAlreadyExistsException",
+            "schema": {
+              "$ref": "#/definitions/ResourceAlreadyExistsException"
+            }
+          },
+          "482": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "483": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          },
+          "484": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          }
+        },
+        "description": "<p>Creates a system instance. </p> <p>This action validates the system instance, prepares the deployment-related resources. For Greengrass deployments, it updates the Greengrass group that is specified by the <code>greengrassGroupName</code> parameter. It also adds a file to the S3 bucket specified by the <code>s3BucketName</code> parameter. You need to call <code>DeploySystemInstance</code> after running this action.</p> <p>For Greengrass deployments, since this action modifies and adds resources to a Greengrass group and an S3 bucket on the caller's behalf, the calling identity must have write permissions to both the specified Greengrass group and S3 bucket. Otherwise, the call will fail with an authorization error.</p> <p>For cloud deployments, this action requires a <code>flowActionsRoleArn</code> value. This is an IAM role that has permissions to access AWS services, such as AWS Lambda and AWS IoT, that the flow uses when it executes.</p> <p>If the definition document doesn't specify a version of the user's namespace, the latest version will be used by default.</p>",
+        "operationId": "CreateSystemInstance"
+      }
+    },
+    "/#X-Amz-Target=IotThingsGraphFrontEndService.CreateSystemTemplate": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "IotThingsGraphFrontEndService.CreateSystemTemplate"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateSystemTemplateRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateSystemTemplateResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "ResourceAlreadyExistsException",
+            "schema": {
+              "$ref": "#/definitions/ResourceAlreadyExistsException"
+            }
+          },
+          "482": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "483": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          }
+        },
+        "description": "Creates a system. The system is validated against the entities in the latest version of the user's namespace unless another namespace version is specified in the request.",
+        "operationId": "CreateSystemTemplate"
+      }
+    },
+    "/#X-Amz-Target=IotThingsGraphFrontEndService.DeleteFlowTemplate": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "IotThingsGraphFrontEndService.DeleteFlowTemplate"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteFlowTemplateRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteFlowTemplateResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "482": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          },
+          "483": {
+            "description": "ResourceInUseException",
+            "schema": {
+              "$ref": "#/definitions/ResourceInUseException"
+            }
+          }
+        },
+        "description": "Deletes a workflow. Any new system or deployment that contains this workflow will fail to update or deploy. Existing deployments that contain the workflow will continue to run (since they use a snapshot of the workflow taken at the time of deployment).",
+        "operationId": "DeleteFlowTemplate"
+      }
+    },
+    "/#X-Amz-Target=IotThingsGraphFrontEndService.DeleteNamespace": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "IotThingsGraphFrontEndService.DeleteNamespace"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteNamespaceRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteNamespaceResponse"
+            }
+          },
+          "480": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          },
+          "481": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          }
+        },
+        "description": "Deletes the specified namespace. This action deletes all of the entities in the namespace. Delete the systems and flows that use entities in the namespace before performing this action.",
+        "operationId": "DeleteNamespace"
+      }
+    },
+    "/#X-Amz-Target=IotThingsGraphFrontEndService.DeleteSystemInstance": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "IotThingsGraphFrontEndService.DeleteSystemInstance"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteSystemInstanceRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteSystemInstanceResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "482": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          },
+          "483": {
+            "description": "ResourceInUseException",
+            "schema": {
+              "$ref": "#/definitions/ResourceInUseException"
+            }
+          }
+        },
+        "description": "<p>Deletes a system instance. Only system instances that have never been deployed, or that have been undeployed can be deleted.</p> <p>Users can create a new system instance that has the same ID as a deleted system instance.</p>",
+        "operationId": "DeleteSystemInstance"
+      }
+    },
+    "/#X-Amz-Target=IotThingsGraphFrontEndService.DeleteSystemTemplate": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "IotThingsGraphFrontEndService.DeleteSystemTemplate"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteSystemTemplateRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteSystemTemplateResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "482": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          },
+          "483": {
+            "description": "ResourceInUseException",
+            "schema": {
+              "$ref": "#/definitions/ResourceInUseException"
+            }
+          }
+        },
+        "description": "Deletes a system. New deployments can't contain the system after its deletion. Existing deployments that contain the system will continue to work because they use a snapshot of the system that is taken when it is deployed.",
+        "operationId": "DeleteSystemTemplate"
+      }
+    },
+    "/#X-Amz-Target=IotThingsGraphFrontEndService.DeploySystemInstance": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "IotThingsGraphFrontEndService.DeploySystemInstance"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeploySystemInstanceRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeploySystemInstanceResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "482": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "483": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          },
+          "484": {
+            "description": "ResourceInUseException",
+            "schema": {
+              "$ref": "#/definitions/ResourceInUseException"
+            }
+          }
+        },
+        "description": "<p> <b>Greengrass and Cloud Deployments</b> </p> <p>Deploys the system instance to the target specified in <code>CreateSystemInstance</code>. </p> <p> <b>Greengrass Deployments</b> </p> <p>If the system or any workflows and entities have been updated before this action is called, then the deployment will create a new Amazon Simple Storage Service resource file and then deploy it.</p> <p>Since this action creates a Greengrass deployment on the caller's behalf, the calling identity must have write permissions to the specified Greengrass group. Otherwise, the call will fail with an authorization error.</p> <p>For information about the artifacts that get added to your Greengrass core device when you use this API, see <a href=\"https://docs.aws.amazon.com/thingsgraph/latest/ug/iot-tg-greengrass.html\">AWS IoT Things Graph and AWS IoT Greengrass</a>.</p>",
+        "operationId": "DeploySystemInstance"
+      }
+    },
+    "/#X-Amz-Target=IotThingsGraphFrontEndService.DeprecateFlowTemplate": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "IotThingsGraphFrontEndService.DeprecateFlowTemplate"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeprecateFlowTemplateRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeprecateFlowTemplateResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "482": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        },
+        "description": "Deprecates the specified workflow. This action marks the workflow for deletion. Deprecated flows can't be deployed, but existing deployments will continue to run.",
+        "operationId": "DeprecateFlowTemplate"
+      }
+    },
+    "/#X-Amz-Target=IotThingsGraphFrontEndService.DeprecateSystemTemplate": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "IotThingsGraphFrontEndService.DeprecateSystemTemplate"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeprecateSystemTemplateRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeprecateSystemTemplateResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "482": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        },
+        "description": "Deprecates the specified system.",
+        "operationId": "DeprecateSystemTemplate"
+      }
+    },
+    "/#X-Amz-Target=IotThingsGraphFrontEndService.DescribeNamespace": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "IotThingsGraphFrontEndService.DescribeNamespace"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeNamespaceRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeNamespaceResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "482": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          }
+        },
+        "description": "Gets the latest version of the user's namespace and the public version that it is tracking.",
+        "operationId": "DescribeNamespace"
+      }
+    },
+    "/#X-Amz-Target=IotThingsGraphFrontEndService.DissociateEntityFromThing": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "IotThingsGraphFrontEndService.DissociateEntityFromThing"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DissociateEntityFromThingRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DissociateEntityFromThingResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          }
+        },
+        "description": "Dissociates a device entity from a concrete thing. The action takes only the type of the entity that you need to dissociate because only one entity of a particular type can be associated with a thing.",
+        "operationId": "DissociateEntityFromThing"
+      }
+    },
+    "/#X-Amz-Target=IotThingsGraphFrontEndService.GetEntities": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "IotThingsGraphFrontEndService.GetEntities"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetEntitiesRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetEntitiesResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "483": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          }
+        },
+        "description": "<p>Gets definitions of the specified entities. Uses the latest version of the user's namespace by default. This API returns the following TDM entities.</p> <ul> <li> <p>Properties</p> </li> <li> <p>States</p> </li> <li> <p>Events</p> </li> <li> <p>Actions</p> </li> <li> <p>Capabilities</p> </li> <li> <p>Mappings</p> </li> <li> <p>Devices</p> </li> <li> <p>Device Models</p> </li> <li> <p>Services</p> </li> </ul> <p>This action doesn't return definitions for systems, flows, and deployments.</p>",
+        "operationId": "GetEntities"
+      }
+    },
+    "/#X-Amz-Target=IotThingsGraphFrontEndService.GetFlowTemplate": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "IotThingsGraphFrontEndService.GetFlowTemplate"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetFlowTemplateRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetFlowTemplateResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "482": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        },
+        "description": "Gets the latest version of the <code>DefinitionDocument</code> and <code>FlowTemplateSummary</code> for the specified workflow.",
+        "operationId": "GetFlowTemplate"
+      }
+    },
+    "/#X-Amz-Target=IotThingsGraphFrontEndService.GetFlowTemplateRevisions": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "maxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "IotThingsGraphFrontEndService.GetFlowTemplateRevisions"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetFlowTemplateRevisionsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetFlowTemplateRevisionsResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "482": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        },
+        "description": "Gets revisions of the specified workflow. Only the last 100 revisions are stored. If the workflow has been deprecated, this action will return revisions that occurred before the deprecation. This action won't work for workflows that have been deleted.",
+        "operationId": "GetFlowTemplateRevisions"
+      }
+    },
+    "/#X-Amz-Target=IotThingsGraphFrontEndService.GetNamespaceDeletionStatus": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "IotThingsGraphFrontEndService.GetNamespaceDeletionStatus"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetNamespaceDeletionStatusRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetNamespaceDeletionStatusResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          },
+          "482": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          }
+        },
+        "description": "Gets the status of a namespace deletion task.",
+        "operationId": "GetNamespaceDeletionStatus"
+      }
+    },
+    "/#X-Amz-Target=IotThingsGraphFrontEndService.GetSystemInstance": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "IotThingsGraphFrontEndService.GetSystemInstance"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetSystemInstanceRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetSystemInstanceResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "482": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        },
+        "description": "Gets a system instance.",
+        "operationId": "GetSystemInstance"
+      }
+    },
+    "/#X-Amz-Target=IotThingsGraphFrontEndService.GetSystemTemplate": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "IotThingsGraphFrontEndService.GetSystemTemplate"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetSystemTemplateRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetSystemTemplateResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "482": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        },
+        "description": "Gets a system.",
+        "operationId": "GetSystemTemplate"
+      }
+    },
+    "/#X-Amz-Target=IotThingsGraphFrontEndService.GetSystemTemplateRevisions": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "maxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "IotThingsGraphFrontEndService.GetSystemTemplateRevisions"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetSystemTemplateRevisionsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetSystemTemplateRevisionsResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "482": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        },
+        "description": "Gets revisions made to the specified system template. Only the previous 100 revisions are stored. If the system has been deprecated, this action will return the revisions that occurred before its deprecation. This action won't work with systems that have been deleted.",
+        "operationId": "GetSystemTemplateRevisions"
+      }
+    },
+    "/#X-Amz-Target=IotThingsGraphFrontEndService.GetUploadStatus": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "IotThingsGraphFrontEndService.GetUploadStatus"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetUploadStatusRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetUploadStatusResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          }
+        },
+        "description": "Gets the status of the specified upload.",
+        "operationId": "GetUploadStatus"
+      }
+    },
+    "/#X-Amz-Target=IotThingsGraphFrontEndService.ListFlowExecutionMessages": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "maxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "IotThingsGraphFrontEndService.ListFlowExecutionMessages"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListFlowExecutionMessagesRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListFlowExecutionMessagesResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "482": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        },
+        "description": "Returns a list of objects that contain information about events in a flow execution.",
+        "operationId": "ListFlowExecutionMessages"
+      }
+    },
+    "/#X-Amz-Target=IotThingsGraphFrontEndService.ListTagsForResource": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "maxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "IotThingsGraphFrontEndService.ListTagsForResource"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListTagsForResourceRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListTagsForResourceResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "ResourceAlreadyExistsException",
+            "schema": {
+              "$ref": "#/definitions/ResourceAlreadyExistsException"
+            }
+          },
+          "482": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "483": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          }
+        },
+        "description": "Lists all tags on an AWS IoT Things Graph resource.",
+        "operationId": "ListTagsForResource"
+      }
+    },
+    "/#X-Amz-Target=IotThingsGraphFrontEndService.SearchEntities": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "maxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "IotThingsGraphFrontEndService.SearchEntities"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SearchEntitiesRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/SearchEntitiesResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          },
+          "482": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          }
+        },
+        "description": "Searches for entities of the specified type. You can search for entities in your namespace and the public namespace that you're tracking.",
+        "operationId": "SearchEntities"
+      }
+    },
+    "/#X-Amz-Target=IotThingsGraphFrontEndService.SearchFlowExecutions": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "maxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "IotThingsGraphFrontEndService.SearchFlowExecutions"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SearchFlowExecutionsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/SearchFlowExecutionsResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "482": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        },
+        "description": "Searches for AWS IoT Things Graph workflow execution instances.",
+        "operationId": "SearchFlowExecutions"
+      }
+    },
+    "/#X-Amz-Target=IotThingsGraphFrontEndService.SearchFlowTemplates": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "maxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "IotThingsGraphFrontEndService.SearchFlowTemplates"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SearchFlowTemplatesRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/SearchFlowTemplatesResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "482": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          }
+        },
+        "description": "Searches for summary information about workflows.",
+        "operationId": "SearchFlowTemplates"
+      }
+    },
+    "/#X-Amz-Target=IotThingsGraphFrontEndService.SearchSystemInstances": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "maxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "IotThingsGraphFrontEndService.SearchSystemInstances"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SearchSystemInstancesRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/SearchSystemInstancesResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "482": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          }
+        },
+        "description": "Searches for system instances in the user's account.",
+        "operationId": "SearchSystemInstances"
+      }
+    },
+    "/#X-Amz-Target=IotThingsGraphFrontEndService.SearchSystemTemplates": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "maxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "IotThingsGraphFrontEndService.SearchSystemTemplates"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SearchSystemTemplatesRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/SearchSystemTemplatesResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "482": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          }
+        },
+        "description": "Searches for summary information about systems in the user's account. You can filter by the ID of a workflow to return only systems that use the specified workflow.",
+        "operationId": "SearchSystemTemplates"
+      }
+    },
+    "/#X-Amz-Target=IotThingsGraphFrontEndService.SearchThings": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "maxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "IotThingsGraphFrontEndService.SearchThings"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SearchThingsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/SearchThingsResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          }
+        },
+        "description": "<p>Searches for things associated with the specified entity. You can search by both device and device model.</p> <p>For example, if two different devices, camera1 and camera2, implement the camera device model, the user can associate thing1 to camera1 and thing2 to camera2. <code>SearchThings(camera2)</code> will return only thing2, but <code>SearchThings(camera)</code> will return both thing1 and thing2.</p> <p>This action searches for exact matches and doesn't perform partial text matching.</p>",
+        "operationId": "SearchThings"
+      }
+    },
+    "/#X-Amz-Target=IotThingsGraphFrontEndService.TagResource": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "IotThingsGraphFrontEndService.TagResource"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/TagResourceRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/TagResourceResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "ResourceAlreadyExistsException",
+            "schema": {
+              "$ref": "#/definitions/ResourceAlreadyExistsException"
+            }
+          },
+          "482": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "483": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          }
+        },
+        "description": "Creates a tag for the specified resource.",
+        "operationId": "TagResource"
+      }
+    },
+    "/#X-Amz-Target=IotThingsGraphFrontEndService.UndeploySystemInstance": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "IotThingsGraphFrontEndService.UndeploySystemInstance"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UndeploySystemInstanceRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UndeploySystemInstanceResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "482": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "484": {
+            "description": "ResourceInUseException",
+            "schema": {
+              "$ref": "#/definitions/ResourceInUseException"
+            }
+          }
+        },
+        "description": "Removes a system instance from its target (Cloud or Greengrass).",
+        "operationId": "UndeploySystemInstance"
+      }
+    },
+    "/#X-Amz-Target=IotThingsGraphFrontEndService.UntagResource": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "IotThingsGraphFrontEndService.UntagResource"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UntagResourceRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UntagResourceResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "ResourceAlreadyExistsException",
+            "schema": {
+              "$ref": "#/definitions/ResourceAlreadyExistsException"
+            }
+          },
+          "482": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "483": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          }
+        },
+        "description": "Removes a tag from the specified resource.",
+        "operationId": "UntagResource"
+      }
+    },
+    "/#X-Amz-Target=IotThingsGraphFrontEndService.UpdateFlowTemplate": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "IotThingsGraphFrontEndService.UpdateFlowTemplate"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateFlowTemplateRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UpdateFlowTemplateResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "483": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          }
+        },
+        "description": "Updates the specified workflow. All deployed systems and system instances that use the workflow will see the changes in the flow when it is redeployed. If you don't want this behavior, copy the workflow (creating a new workflow with a different ID), and update the copy. The workflow can contain only entities in the specified namespace. ",
+        "operationId": "UpdateFlowTemplate"
+      }
+    },
+    "/#X-Amz-Target=IotThingsGraphFrontEndService.UpdateSystemTemplate": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "IotThingsGraphFrontEndService.UpdateSystemTemplate"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateSystemTemplateRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UpdateSystemTemplateResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "483": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          }
+        },
+        "description": "Updates the specified system. You don't need to run this action after updating a workflow. Any deployment that uses the system will see the changes in the system when it is redeployed.",
+        "operationId": "UpdateSystemTemplate"
+      }
+    },
+    "/#X-Amz-Target=IotThingsGraphFrontEndService.UploadEntityDefinitions": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "IotThingsGraphFrontEndService.UploadEntityDefinitions"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UploadEntityDefinitionsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UploadEntityDefinitionsResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          },
+          "482": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          }
+        },
+        "description": "<p>Asynchronously uploads one or more entity definitions to the user's namespace. The <code>document</code> parameter is required if <code>syncWithPublicNamespace</code> and <code>deleteExistingEntites</code> are false. If the <code>syncWithPublicNamespace</code> parameter is set to <code>true</code>, the user's namespace will synchronize with the latest version of the public namespace. If <code>deprecateExistingEntities</code> is set to true, all entities in the latest version will be deleted before the new <code>DefinitionDocument</code> is uploaded.</p> <p>When a user uploads entity definitions for the first time, the service creates a new namespace for the user. The new namespace tracks the public namespace. Currently users can have only one namespace. The namespace version increments whenever a user uploads entity definitions that are backwards-incompatible and whenever a user sets the <code>syncWithPublicNamespace</code> parameter or the <code>deprecateExistingEntities</code> parameter to <code>true</code>.</p> <p>The IDs for all of the entities should be in URN format. Each entity must be in the user's namespace. Users can't create entities in the public namespace, but entity definitions can refer to entities in the public namespace.</p> <p>Valid entities are <code>Device</code>, <code>DeviceModel</code>, <code>Service</code>, <code>Capability</code>, <code>State</code>, <code>Action</code>, <code>Event</code>, <code>Property</code>, <code>Mapping</code>, <code>Enum</code>. </p>",
+        "operationId": "UploadEntityDefinitions"
+      }
+    }
+  },
+  "definitions": {
+    "Arn": {
+      "type": "string"
+    },
+    "AssociateEntityToThingRequest": {
+      "properties": {
+        "entityId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Urn"
+            },
+            {
+              "description": "<p>The ID of the device to be associated with the thing.</p> <p>The ID should be in the following format.</p> <p> <code>urn:tdm:REGION/ACCOUNT ID/default:device:DEVICENAME</code> </p>"
+            }
+          ]
+        },
+        "namespaceVersion": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Version"
+            },
+            {
+              "description": "The version of the user's namespace. Defaults to the latest version of the user's namespace."
+            }
+          ]
+        },
+        "thingName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ThingName"
+            },
+            {
+              "description": "The name of the thing to which the entity is to be associated."
+            }
+          ]
+        }
+      },
+      "required": [
+        "thingName",
+        "entityId"
+      ],
+      "title": "AssociateEntityToThingRequest",
+      "type": "object"
+    },
+    "AssociateEntityToThingResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "CreateFlowTemplateRequest": {
+      "properties": {
+        "compatibleNamespaceVersion": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Version"
+            },
+            {
+              "description": "<p>The namespace version in which the workflow is to be created.</p> <p>If no value is specified, the latest version is used by default.</p>"
+            }
+          ]
+        },
+        "definition": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DefinitionDocument"
+            },
+            {
+              "description": "The workflow <code>DefinitionDocument</code>."
+            }
+          ]
+        }
+      },
+      "required": [
+        "definition"
+      ],
+      "title": "CreateFlowTemplateRequest",
+      "type": "object"
+    },
+    "CreateFlowTemplateResponse": {
+      "properties": {
+        "summary": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/FlowTemplateSummary"
+            },
+            {
+              "description": "The summary object that describes the created workflow."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "CreateSystemInstanceRequest": {
+      "properties": {
+        "tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagList"
+            },
+            {
+              "description": "Metadata, consisting of key-value pairs, that can be used to categorize your system instances."
+            }
+          ]
+        },
+        "definition": {
+          "$ref": "#/definitions/DefinitionDocument"
+        },
+        "flowActionsRoleArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RoleArn"
+            },
+            {
+              "description": "The ARN of the IAM role that AWS IoT Things Graph will assume when it executes the flow. This role must have read and write access to AWS Lambda and AWS IoT and any other AWS services that the flow uses when it executes. This value is required if the value of the <code>target</code> parameter is <code>CLOUD</code>."
+            }
+          ]
+        },
+        "greengrassGroupName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/GroupName"
+            },
+            {
+              "description": "The name of the Greengrass group where the system instance will be deployed. This value is required if the value of the <code>target</code> parameter is <code>GREENGRASS</code>."
+            }
+          ]
+        },
+        "metricsConfiguration": {
+          "$ref": "#/definitions/MetricsConfiguration"
+        },
+        "s3BucketName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/S3BucketName"
+            },
+            {
+              "description": "The name of the Amazon Simple Storage Service bucket that will be used to store and deploy the system instance's resource file. This value is required if the value of the <code>target</code> parameter is <code>GREENGRASS</code>."
+            }
+          ]
+        },
+        "target": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DeploymentTarget"
+            },
+            {
+              "description": "The target type of the deployment. Valid values are <code>GREENGRASS</code> and <code>CLOUD</code>."
+            }
+          ]
+        }
+      },
+      "required": [
+        "definition",
+        "target"
+      ],
+      "title": "CreateSystemInstanceRequest",
+      "type": "object"
+    },
+    "CreateSystemInstanceResponse": {
+      "properties": {
+        "summary": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SystemInstanceSummary"
+            },
+            {
+              "description": "The summary object that describes the new system instance."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "CreateSystemTemplateRequest": {
+      "properties": {
+        "compatibleNamespaceVersion": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Version"
+            },
+            {
+              "description": "<p>The namespace version in which the system is to be created.</p> <p>If no value is specified, the latest version is used by default.</p>"
+            }
+          ]
+        },
+        "definition": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DefinitionDocument"
+            },
+            {
+              "description": "The <code>DefinitionDocument</code> used to create the system."
+            }
+          ]
+        }
+      },
+      "required": [
+        "definition"
+      ],
+      "title": "CreateSystemTemplateRequest",
+      "type": "object"
+    },
+    "CreateSystemTemplateResponse": {
+      "properties": {
+        "summary": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SystemTemplateSummary"
+            },
+            {
+              "description": "The summary object that describes the created system."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DefinitionDocument": {
+      "description": "A document that defines an entity. ",
+      "properties": {
+        "language": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DefinitionLanguage"
+            },
+            {
+              "description": "The language used to define the entity. <code>GRAPHQL</code> is the only valid value."
+            }
+          ]
+        },
+        "text": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DefinitionText"
+            },
+            {
+              "description": "The GraphQL text that defines the entity."
+            }
+          ]
+        }
+      },
+      "required": [
+        "language",
+        "text"
+      ],
+      "type": "object"
+    },
+    "DefinitionLanguage": {
+      "enum": [
+        "GRAPHQL"
+      ],
+      "type": "string"
+    },
+    "DefinitionText": {
+      "maxLength": 1048576,
+      "type": "string"
+    },
+    "DeleteFlowTemplateRequest": {
+      "properties": {
+        "id": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Urn"
+            },
+            {
+              "description": "<p>The ID of the workflow to be deleted.</p> <p>The ID should be in the following format.</p> <p> <code>urn:tdm:REGION/ACCOUNT ID/default:workflow:WORKFLOWNAME</code> </p>"
+            }
+          ]
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "title": "DeleteFlowTemplateRequest",
+      "type": "object"
+    },
+    "DeleteFlowTemplateResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "DeleteNamespaceRequest": {
+      "properties": {},
+      "title": "DeleteNamespaceRequest",
+      "type": "object"
+    },
+    "DeleteNamespaceResponse": {
+      "properties": {
+        "namespaceArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Arn"
+            },
+            {
+              "description": "The ARN of the namespace to be deleted."
+            }
+          ]
+        },
+        "namespaceName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NamespaceName"
+            },
+            {
+              "description": "The name of the namespace to be deleted."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DeleteSystemInstanceRequest": {
+      "properties": {
+        "id": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Urn"
+            },
+            {
+              "description": "The ID of the system instance to be deleted."
+            }
+          ]
+        }
+      },
+      "title": "DeleteSystemInstanceRequest",
+      "type": "object"
+    },
+    "DeleteSystemInstanceResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "DeleteSystemTemplateRequest": {
+      "properties": {
+        "id": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Urn"
+            },
+            {
+              "description": "<p>The ID of the system to be deleted.</p> <p>The ID should be in the following format.</p> <p> <code>urn:tdm:REGION/ACCOUNT ID/default:system:SYSTEMNAME</code> </p>"
+            }
+          ]
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "title": "DeleteSystemTemplateRequest",
+      "type": "object"
+    },
+    "DeleteSystemTemplateResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "DependencyRevision": {
+      "description": "An object that contains the ID and revision number of a workflow or system that is part of a deployment.",
+      "properties": {
+        "id": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Urn"
+            },
+            {
+              "description": "The ID of the workflow or system."
+            }
+          ]
+        },
+        "revisionNumber": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Version"
+            },
+            {
+              "description": "The revision number of the workflow or system."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DependencyRevisions": {
+      "items": {
+        "$ref": "#/definitions/DependencyRevision"
+      },
+      "type": "array"
+    },
+    "DeploySystemInstanceRequest": {
+      "properties": {
+        "id": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Urn"
+            },
+            {
+              "description": "<p>The ID of the system instance. This value is returned by the <code>CreateSystemInstance</code> action.</p> <p>The ID should be in the following format.</p> <p> <code>urn:tdm:REGION/ACCOUNT ID/default:deployment:DEPLOYMENTNAME</code> </p>"
+            }
+          ]
+        }
+      },
+      "title": "DeploySystemInstanceRequest",
+      "type": "object"
+    },
+    "DeploySystemInstanceResponse": {
+      "properties": {
+        "greengrassDeploymentId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/GreengrassDeploymentId"
+            },
+            {
+              "description": "The ID of the Greengrass deployment used to deploy the system instance."
+            }
+          ]
+        },
+        "summary": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SystemInstanceSummary"
+            },
+            {
+              "description": "An object that contains summary information about a system instance that was deployed. "
+            }
+          ]
+        }
+      },
+      "required": [
+        "summary"
+      ],
+      "type": "object"
+    },
+    "DeploymentTarget": {
+      "enum": [
+        "GREENGRASS",
+        "CLOUD"
+      ],
+      "type": "string"
+    },
+    "DeprecateExistingEntities": {
+      "type": "boolean"
+    },
+    "DeprecateFlowTemplateRequest": {
+      "properties": {
+        "id": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Urn"
+            },
+            {
+              "description": "<p>The ID of the workflow to be deleted.</p> <p>The ID should be in the following format.</p> <p> <code>urn:tdm:REGION/ACCOUNT ID/default:workflow:WORKFLOWNAME</code> </p>"
+            }
+          ]
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "title": "DeprecateFlowTemplateRequest",
+      "type": "object"
+    },
+    "DeprecateFlowTemplateResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "DeprecateSystemTemplateRequest": {
+      "properties": {
+        "id": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Urn"
+            },
+            {
+              "description": "<p>The ID of the system to delete.</p> <p>The ID should be in the following format.</p> <p> <code>urn:tdm:REGION/ACCOUNT ID/default:system:SYSTEMNAME</code> </p>"
+            }
+          ]
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "title": "DeprecateSystemTemplateRequest",
+      "type": "object"
+    },
+    "DeprecateSystemTemplateResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "DescribeNamespaceRequest": {
+      "properties": {
+        "namespaceName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NamespaceName"
+            },
+            {
+              "description": "The name of the user's namespace. Set this to <code>aws</code> to get the public namespace."
+            }
+          ]
+        }
+      },
+      "title": "DescribeNamespaceRequest",
+      "type": "object"
+    },
+    "DescribeNamespaceResponse": {
+      "properties": {
+        "namespaceArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Arn"
+            },
+            {
+              "description": "The ARN of the namespace."
+            }
+          ]
+        },
+        "namespaceName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NamespaceName"
+            },
+            {
+              "description": "The name of the namespace."
+            }
+          ]
+        },
+        "namespaceVersion": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Version"
+            },
+            {
+              "description": "The version of the user's namespace to describe."
+            }
+          ]
+        },
+        "trackingNamespaceName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NamespaceName"
+            },
+            {
+              "description": "The name of the public namespace that the latest namespace version is tracking."
+            }
+          ]
+        },
+        "trackingNamespaceVersion": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Version"
+            },
+            {
+              "description": "The version of the public namespace that the latest version is tracking."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DissociateEntityFromThingRequest": {
+      "properties": {
+        "entityType": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/EntityType"
+            },
+            {
+              "description": "The entity type from which to disassociate the thing."
+            }
+          ]
+        },
+        "thingName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ThingName"
+            },
+            {
+              "description": "The name of the thing to disassociate."
+            }
+          ]
+        }
+      },
+      "required": [
+        "thingName",
+        "entityType"
+      ],
+      "title": "DissociateEntityFromThingRequest",
+      "type": "object"
+    },
+    "DissociateEntityFromThingResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "Enabled": {
+      "type": "boolean"
+    },
+    "EntityDescription": {
+      "description": "Describes the properties of an entity.",
+      "properties": {
+        "arn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Arn"
+            },
+            {
+              "description": "The entity ARN."
+            }
+          ]
+        },
+        "createdAt": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "The time at which the entity was created."
+            }
+          ]
+        },
+        "definition": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DefinitionDocument"
+            },
+            {
+              "description": "The definition document of the entity."
+            }
+          ]
+        },
+        "id": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Urn"
+            },
+            {
+              "description": "The entity ID."
+            }
+          ]
+        },
+        "type": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/EntityType"
+            },
+            {
+              "description": "The entity type."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "EntityDescriptions": {
+      "items": {
+        "$ref": "#/definitions/EntityDescription"
+      },
+      "type": "array"
+    },
+    "EntityFilter": {
+      "description": "An object that filters an entity search. Multiple filters function as OR criteria in the search. For example a search that includes a <code>NAMESPACE</code> and a <code>REFERENCED_ENTITY_ID</code> filter searches for entities in the specified namespace that use the entity specified by the value of <code>REFERENCED_ENTITY_ID</code>.",
+      "properties": {
+        "name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/EntityFilterName"
+            },
+            {
+              "description": "The name of the entity search filter field. <code>REFERENCED_ENTITY_ID</code> filters on entities that are used by the entity in the result set. For example, you can filter on the ID of a property that is used in a state."
+            }
+          ]
+        },
+        "value": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/EntityFilterValues"
+            },
+            {
+              "description": "An array of string values for the search filter field. Multiple values function as AND criteria in the search."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "EntityFilterName": {
+      "enum": [
+        "NAME",
+        "NAMESPACE",
+        "SEMANTIC_TYPE_PATH",
+        "REFERENCED_ENTITY_ID"
+      ],
+      "type": "string"
+    },
+    "EntityFilterValue": {
+      "type": "string"
+    },
+    "EntityFilterValues": {
+      "items": {
+        "$ref": "#/definitions/EntityFilterValue"
+      },
+      "type": "array"
+    },
+    "EntityFilters": {
+      "items": {
+        "$ref": "#/definitions/EntityFilter"
+      },
+      "type": "array"
+    },
+    "EntityType": {
+      "enum": [
+        "DEVICE",
+        "SERVICE",
+        "DEVICE_MODEL",
+        "CAPABILITY",
+        "STATE",
+        "ACTION",
+        "EVENT",
+        "PROPERTY",
+        "MAPPING",
+        "ENUM"
+      ],
+      "type": "string"
+    },
+    "EntityTypes": {
+      "items": {
+        "$ref": "#/definitions/EntityType"
+      },
+      "type": "array"
+    },
+    "FlowExecutionEventType": {
+      "enum": [
+        "EXECUTION_STARTED",
+        "EXECUTION_FAILED",
+        "EXECUTION_ABORTED",
+        "EXECUTION_SUCCEEDED",
+        "STEP_STARTED",
+        "STEP_FAILED",
+        "STEP_SUCCEEDED",
+        "ACTIVITY_SCHEDULED",
+        "ACTIVITY_STARTED",
+        "ACTIVITY_FAILED",
+        "ACTIVITY_SUCCEEDED",
+        "START_FLOW_EXECUTION_TASK",
+        "SCHEDULE_NEXT_READY_STEPS_TASK",
+        "THING_ACTION_TASK",
+        "THING_ACTION_TASK_FAILED",
+        "THING_ACTION_TASK_SUCCEEDED",
+        "ACKNOWLEDGE_TASK_MESSAGE"
+      ],
+      "type": "string"
+    },
+    "FlowExecutionId": {
+      "type": "string"
+    },
+    "FlowExecutionMessage": {
+      "description": "An object that contains information about a flow event.",
+      "properties": {
+        "eventType": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/FlowExecutionEventType"
+            },
+            {
+              "description": "The type of flow event ."
+            }
+          ]
+        },
+        "messageId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/FlowExecutionMessageId"
+            },
+            {
+              "description": "The unique identifier of the message."
+            }
+          ]
+        },
+        "payload": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/FlowExecutionMessagePayload"
+            },
+            {
+              "description": "A string containing information about the flow event."
+            }
+          ]
+        },
+        "timestamp": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "The date and time when the message was last updated."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "FlowExecutionMessageId": {
+      "type": "string"
+    },
+    "FlowExecutionMessagePayload": {
+      "type": "string"
+    },
+    "FlowExecutionMessages": {
+      "items": {
+        "$ref": "#/definitions/FlowExecutionMessage"
+      },
+      "type": "array"
+    },
+    "FlowExecutionStatus": {
+      "enum": [
+        "RUNNING",
+        "ABORTED",
+        "SUCCEEDED",
+        "FAILED"
+      ],
+      "type": "string"
+    },
+    "FlowExecutionSummaries": {
+      "items": {
+        "$ref": "#/definitions/FlowExecutionSummary"
+      },
+      "type": "array"
+    },
+    "FlowExecutionSummary": {
+      "description": "An object that contains summary information about a flow execution.",
+      "properties": {
+        "createdAt": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "The date and time when the flow execution summary was created."
+            }
+          ]
+        },
+        "flowExecutionId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/FlowExecutionId"
+            },
+            {
+              "description": "The ID of the flow execution."
+            }
+          ]
+        },
+        "flowTemplateId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Urn"
+            },
+            {
+              "description": "The ID of the flow."
+            }
+          ]
+        },
+        "status": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/FlowExecutionStatus"
+            },
+            {
+              "description": "The current status of the flow execution."
+            }
+          ]
+        },
+        "systemInstanceId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Urn"
+            },
+            {
+              "description": "The ID of the system instance that contains the flow."
+            }
+          ]
+        },
+        "updatedAt": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "The date and time when the flow execution summary was last updated."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "FlowTemplateDescription": {
+      "description": "An object that contains a workflow's definition and summary information.",
+      "properties": {
+        "definition": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DefinitionDocument"
+            },
+            {
+              "description": "A workflow's definition document."
+            }
+          ]
+        },
+        "summary": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/FlowTemplateSummary"
+            },
+            {
+              "description": "An object that contains summary information about a workflow."
+            }
+          ]
+        },
+        "validatedNamespaceVersion": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Version"
+            },
+            {
+              "description": "The version of the user's namespace against which the workflow was validated. Use this value in your system instance."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "FlowTemplateFilter": {
+      "description": "An object that filters a workflow search.",
+      "properties": {
+        "name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/FlowTemplateFilterName"
+            },
+            {
+              "description": "The name of the search filter field."
+            }
+          ]
+        },
+        "value": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/FlowTemplateFilterValues"
+            },
+            {
+              "description": "An array of string values for the search filter field. Multiple values function as AND criteria in the search."
+            }
+          ]
+        }
+      },
+      "required": [
+        "name",
+        "value"
+      ],
+      "type": "object"
+    },
+    "FlowTemplateFilterName": {
+      "enum": [
+        "DEVICE_MODEL_ID"
+      ],
+      "type": "string"
+    },
+    "FlowTemplateFilterValue": {
+      "pattern": "^urn:tdm:(([a-z]{2}-(gov-)?[a-z]{4,9}-[0-9]{1,3}/[0-9]+/)*[\\p{Alnum}_]+(/[\\p{Alnum}_]+)*):([\\p{Alpha}]*):([\\p{Alnum}_]+(/[\\p{Alnum}_]+)*)$",
+      "type": "string"
+    },
+    "FlowTemplateFilterValues": {
+      "items": {
+        "$ref": "#/definitions/FlowTemplateFilterValue"
+      },
+      "type": "array"
+    },
+    "FlowTemplateFilters": {
+      "items": {
+        "$ref": "#/definitions/FlowTemplateFilter"
+      },
+      "type": "array"
+    },
+    "FlowTemplateSummaries": {
+      "items": {
+        "$ref": "#/definitions/FlowTemplateSummary"
+      },
+      "type": "array"
+    },
+    "FlowTemplateSummary": {
+      "description": "An object that contains summary information about a workflow.",
+      "properties": {
+        "arn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Arn"
+            },
+            {
+              "description": "The ARN of the workflow."
+            }
+          ]
+        },
+        "createdAt": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "The date when the workflow was created."
+            }
+          ]
+        },
+        "id": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Urn"
+            },
+            {
+              "description": "The ID of the workflow."
+            }
+          ]
+        },
+        "revisionNumber": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Version"
+            },
+            {
+              "description": "The revision number of the workflow."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "GetEntitiesRequest": {
+      "properties": {
+        "ids": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Urns"
+            },
+            {
+              "description": "<p>An array of entity IDs.</p> <p>The IDs should be in the following format.</p> <p> <code>urn:tdm:REGION/ACCOUNT ID/default:device:DEVICENAME</code> </p>"
+            }
+          ]
+        },
+        "namespaceVersion": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Version"
+            },
+            {
+              "description": "The version of the user's namespace. Defaults to the latest version of the user's namespace."
+            }
+          ]
+        }
+      },
+      "required": [
+        "ids"
+      ],
+      "title": "GetEntitiesRequest",
+      "type": "object"
+    },
+    "GetEntitiesResponse": {
+      "properties": {
+        "descriptions": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/EntityDescriptions"
+            },
+            {
+              "description": "An array of descriptions for the specified entities."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "GetFlowTemplateRequest": {
+      "properties": {
+        "id": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Urn"
+            },
+            {
+              "description": "<p>The ID of the workflow.</p> <p>The ID should be in the following format.</p> <p> <code>urn:tdm:REGION/ACCOUNT ID/default:workflow:WORKFLOWNAME</code> </p>"
+            }
+          ]
+        },
+        "revisionNumber": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Version"
+            },
+            {
+              "description": "The number of the workflow revision to retrieve."
+            }
+          ]
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "title": "GetFlowTemplateRequest",
+      "type": "object"
+    },
+    "GetFlowTemplateResponse": {
+      "properties": {
+        "description": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/FlowTemplateDescription"
+            },
+            {
+              "description": "The object that describes the specified workflow."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "GetFlowTemplateRevisionsRequest": {
+      "properties": {
+        "id": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Urn"
+            },
+            {
+              "description": "<p>The ID of the workflow.</p> <p>The ID should be in the following format.</p> <p> <code>urn:tdm:REGION/ACCOUNT ID/default:workflow:WORKFLOWNAME</code> </p>"
+            }
+          ]
+        },
+        "maxResults": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MaxResults"
+            },
+            {
+              "description": "The maximum number of results to return in the response."
+            }
+          ]
+        },
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NextToken"
+            },
+            {
+              "description": "The string that specifies the next page of results. Use this when you're paginating results."
+            }
+          ]
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "title": "GetFlowTemplateRevisionsRequest",
+      "type": "object"
+    },
+    "GetFlowTemplateRevisionsResponse": {
+      "properties": {
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NextToken"
+            },
+            {
+              "description": "The string to specify as <code>nextToken</code> when you request the next page of results."
+            }
+          ]
+        },
+        "summaries": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/FlowTemplateSummaries"
+            },
+            {
+              "description": "An array of objects that provide summary data about each revision."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "GetNamespaceDeletionStatusRequest": {
+      "properties": {},
+      "title": "GetNamespaceDeletionStatusRequest",
+      "type": "object"
+    },
+    "GetNamespaceDeletionStatusResponse": {
+      "properties": {
+        "errorCode": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NamespaceDeletionStatusErrorCodes"
+            },
+            {
+              "description": "An error code returned by the namespace deletion task."
+            }
+          ]
+        },
+        "errorMessage": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "An error code returned by the namespace deletion task."
+            }
+          ]
+        },
+        "namespaceArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Arn"
+            },
+            {
+              "description": "The ARN of the namespace that is being deleted."
+            }
+          ]
+        },
+        "namespaceName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NamespaceName"
+            },
+            {
+              "description": "The name of the namespace that is being deleted."
+            }
+          ]
+        },
+        "status": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NamespaceDeletionStatus"
+            },
+            {
+              "description": "The status of the deletion request."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "GetSystemInstanceRequest": {
+      "properties": {
+        "id": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Urn"
+            },
+            {
+              "description": "<p>The ID of the system deployment instance. This value is returned by <code>CreateSystemInstance</code>.</p> <p>The ID should be in the following format.</p> <p> <code>urn:tdm:REGION/ACCOUNT ID/default:deployment:DEPLOYMENTNAME</code> </p>"
+            }
+          ]
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "title": "GetSystemInstanceRequest",
+      "type": "object"
+    },
+    "GetSystemInstanceResponse": {
+      "properties": {
+        "description": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SystemInstanceDescription"
+            },
+            {
+              "description": "An object that describes the system instance."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "GetSystemTemplateRequest": {
+      "properties": {
+        "id": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Urn"
+            },
+            {
+              "description": "<p>The ID of the system to get. This ID must be in the user's namespace.</p> <p>The ID should be in the following format.</p> <p> <code>urn:tdm:REGION/ACCOUNT ID/default:system:SYSTEMNAME</code> </p>"
+            }
+          ]
+        },
+        "revisionNumber": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Version"
+            },
+            {
+              "description": "The number that specifies the revision of the system to get."
+            }
+          ]
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "title": "GetSystemTemplateRequest",
+      "type": "object"
+    },
+    "GetSystemTemplateResponse": {
+      "properties": {
+        "description": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SystemTemplateDescription"
+            },
+            {
+              "description": "An object that contains summary data about the system."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "GetSystemTemplateRevisionsRequest": {
+      "properties": {
+        "id": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Urn"
+            },
+            {
+              "description": "<p>The ID of the system template.</p> <p>The ID should be in the following format.</p> <p> <code>urn:tdm:REGION/ACCOUNT ID/default:system:SYSTEMNAME</code> </p>"
+            }
+          ]
+        },
+        "maxResults": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MaxResults"
+            },
+            {
+              "description": "The maximum number of results to return in the response."
+            }
+          ]
+        },
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NextToken"
+            },
+            {
+              "description": "The string that specifies the next page of results. Use this when you're paginating results."
+            }
+          ]
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "title": "GetSystemTemplateRevisionsRequest",
+      "type": "object"
+    },
+    "GetSystemTemplateRevisionsResponse": {
+      "properties": {
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NextToken"
+            },
+            {
+              "description": "The string to specify as <code>nextToken</code> when you request the next page of results. "
+            }
+          ]
+        },
+        "summaries": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SystemTemplateSummaries"
+            },
+            {
+              "description": "An array of objects that contain summary data about the system template revisions."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "GetUploadStatusRequest": {
+      "properties": {
+        "uploadId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/UploadId"
+            },
+            {
+              "description": "The ID of the upload. This value is returned by the <code>UploadEntityDefinitions</code> action."
+            }
+          ]
+        }
+      },
+      "required": [
+        "uploadId"
+      ],
+      "title": "GetUploadStatusRequest",
+      "type": "object"
+    },
+    "GetUploadStatusResponse": {
+      "properties": {
+        "createdDate": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "The date at which the upload was created."
+            }
+          ]
+        },
+        "failureReason": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/StringList"
+            },
+            {
+              "description": "The reason for an upload failure."
+            }
+          ]
+        },
+        "namespaceArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Arn"
+            },
+            {
+              "description": "The ARN of the upload."
+            }
+          ]
+        },
+        "namespaceName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NamespaceName"
+            },
+            {
+              "description": "The name of the upload's namespace."
+            }
+          ]
+        },
+        "namespaceVersion": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Version"
+            },
+            {
+              "description": "The version of the user's namespace. Defaults to the latest version of the user's namespace."
+            }
+          ]
+        },
+        "uploadId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/UploadId"
+            },
+            {
+              "description": "The ID of the upload."
+            }
+          ]
+        },
+        "uploadStatus": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/UploadStatus"
+            },
+            {
+              "description": "The status of the upload. The initial status is <code>IN_PROGRESS</code>. The response show all validation failures if the upload fails."
+            }
+          ]
+        }
+      },
+      "required": [
+        "uploadId",
+        "uploadStatus",
+        "createdDate"
+      ],
+      "type": "object"
+    },
+    "GreengrassDeploymentId": {
+      "type": "string"
+    },
+    "GreengrassGroupId": {
+      "type": "string"
+    },
+    "GreengrassGroupVersionId": {
+      "type": "string"
+    },
+    "GroupName": {
+      "type": "string"
+    },
+    "InternalFailureException": {},
+    "InvalidRequestException": {},
+    "LimitExceededException": {},
+    "ListFlowExecutionMessagesRequest": {
+      "properties": {
+        "flowExecutionId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/FlowExecutionId"
+            },
+            {
+              "description": "The ID of the flow execution."
+            }
+          ]
+        },
+        "maxResults": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MaxResults"
+            },
+            {
+              "description": "The maximum number of results to return in the response."
+            }
+          ]
+        },
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NextToken"
+            },
+            {
+              "description": "The string that specifies the next page of results. Use this when you're paginating results."
+            }
+          ]
+        }
+      },
+      "required": [
+        "flowExecutionId"
+      ],
+      "title": "ListFlowExecutionMessagesRequest",
+      "type": "object"
+    },
+    "ListFlowExecutionMessagesResponse": {
+      "properties": {
+        "messages": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/FlowExecutionMessages"
+            },
+            {
+              "description": "A list of objects that contain information about events in the specified flow execution."
+            }
+          ]
+        },
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NextToken"
+            },
+            {
+              "description": "The string to specify as <code>nextToken</code> when you request the next page of results. "
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ListTagsForResourceRequest": {
+      "properties": {
+        "maxResults": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MaxResults"
+            },
+            {
+              "description": "The maximum number of tags to return."
+            }
+          ]
+        },
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NextToken"
+            },
+            {
+              "description": "The token that specifies the next page of results to return."
+            }
+          ]
+        },
+        "resourceArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceArn"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the resource whose tags are to be returned."
+            }
+          ]
+        }
+      },
+      "required": [
+        "resourceArn"
+      ],
+      "title": "ListTagsForResourceRequest",
+      "type": "object"
+    },
+    "ListTagsForResourceResponse": {
+      "properties": {
+        "tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagList"
+            },
+            {
+              "description": "List of tags returned by the <code>ListTagsForResource</code> operation."
+            }
+          ]
+        },
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NextToken"
+            },
+            {
+              "description": "The token that specifies the next page of results to return."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "MaxResults": {
+      "maximum": 250,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "MetricsConfiguration": {
+      "description": "An object that specifies whether cloud metrics are collected in a deployment and, if so, what role is used to collect metrics.",
+      "properties": {
+        "cloudMetricEnabled": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Enabled"
+            },
+            {
+              "description": "A Boolean that specifies whether cloud metrics are collected."
+            }
+          ]
+        },
+        "metricRuleRoleArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RoleArn"
+            },
+            {
+              "description": "The ARN of the role that is used to collect cloud metrics."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "NamespaceDeletionStatus": {
+      "enum": [
+        "IN_PROGRESS",
+        "SUCCEEDED",
+        "FAILED"
+      ],
+      "type": "string"
+    },
+    "NamespaceDeletionStatusErrorCodes": {
+      "enum": [
+        "VALIDATION_FAILED"
+      ],
+      "type": "string"
+    },
+    "NamespaceName": {
+      "maxLength": 128,
+      "type": "string"
+    },
+    "NextToken": {
+      "type": "string"
+    },
+    "ResourceAlreadyExistsException": {},
+    "ResourceArn": {
+      "maxLength": 2048,
+      "minLength": 1,
+      "type": "string"
+    },
+    "ResourceInUseException": {},
+    "ResourceNotFoundException": {},
+    "RoleArn": {
+      "maxLength": 2048,
+      "minLength": 20,
+      "type": "string"
+    },
+    "S3BucketName": {
+      "type": "string"
+    },
+    "SearchEntitiesRequest": {
+      "properties": {
+        "entityTypes": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/EntityTypes"
+            },
+            {
+              "description": "The entity types for which to search."
+            }
+          ]
+        },
+        "filters": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/EntityFilters"
+            },
+            {
+              "description": "<p>Optional filter to apply to the search. Valid filters are <code>NAME</code> <code>NAMESPACE</code>, <code>SEMANTIC_TYPE_PATH</code> and <code>REFERENCED_ENTITY_ID</code>. <code>REFERENCED_ENTITY_ID</code> filters on entities that are used by the entity in the result set. For example, you can filter on the ID of a property that is used in a state.</p> <p>Multiple filters function as OR criteria in the query. Multiple values passed inside the filter function as AND criteria.</p>"
+            }
+          ]
+        },
+        "maxResults": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MaxResults"
+            },
+            {
+              "description": "The maximum number of results to return in the response."
+            }
+          ]
+        },
+        "namespaceVersion": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Version"
+            },
+            {
+              "description": "The version of the user's namespace. Defaults to the latest version of the user's namespace."
+            }
+          ]
+        },
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NextToken"
+            },
+            {
+              "description": "The string that specifies the next page of results. Use this when you're paginating results."
+            }
+          ]
+        }
+      },
+      "required": [
+        "entityTypes"
+      ],
+      "title": "SearchEntitiesRequest",
+      "type": "object"
+    },
+    "SearchEntitiesResponse": {
+      "properties": {
+        "descriptions": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/EntityDescriptions"
+            },
+            {
+              "description": "An array of descriptions for each entity returned in the search result."
+            }
+          ]
+        },
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NextToken"
+            },
+            {
+              "description": "The string to specify as <code>nextToken</code> when you request the next page of results."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "SearchFlowExecutionsRequest": {
+      "properties": {
+        "endTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "The date and time of the latest flow execution to return."
+            }
+          ]
+        },
+        "flowExecutionId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/FlowExecutionId"
+            },
+            {
+              "description": "The ID of a flow execution."
+            }
+          ]
+        },
+        "maxResults": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MaxResults"
+            },
+            {
+              "description": "The maximum number of results to return in the response."
+            }
+          ]
+        },
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NextToken"
+            },
+            {
+              "description": "The string that specifies the next page of results. Use this when you're paginating results."
+            }
+          ]
+        },
+        "startTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "The date and time of the earliest flow execution to return."
+            }
+          ]
+        },
+        "systemInstanceId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Urn"
+            },
+            {
+              "description": "The ID of the system instance that contains the flow."
+            }
+          ]
+        }
+      },
+      "required": [
+        "systemInstanceId"
+      ],
+      "title": "SearchFlowExecutionsRequest",
+      "type": "object"
+    },
+    "SearchFlowExecutionsResponse": {
+      "properties": {
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NextToken"
+            },
+            {
+              "description": "The string to specify as <code>nextToken</code> when you request the next page of results."
+            }
+          ]
+        },
+        "summaries": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/FlowExecutionSummaries"
+            },
+            {
+              "description": "An array of objects that contain summary information about each workflow execution in the result set."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "SearchFlowTemplatesRequest": {
+      "properties": {
+        "filters": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/FlowTemplateFilters"
+            },
+            {
+              "description": "An array of objects that limit the result set. The only valid filter is <code>DEVICE_MODEL_ID</code>."
+            }
+          ]
+        },
+        "maxResults": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MaxResults"
+            },
+            {
+              "description": "The maximum number of results to return in the response."
+            }
+          ]
+        },
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NextToken"
+            },
+            {
+              "description": "The string that specifies the next page of results. Use this when you're paginating results."
+            }
+          ]
+        }
+      },
+      "title": "SearchFlowTemplatesRequest",
+      "type": "object"
+    },
+    "SearchFlowTemplatesResponse": {
+      "properties": {
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NextToken"
+            },
+            {
+              "description": "The string to specify as <code>nextToken</code> when you request the next page of results."
+            }
+          ]
+        },
+        "summaries": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/FlowTemplateSummaries"
+            },
+            {
+              "description": "An array of objects that contain summary information about each workflow in the result set."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "SearchSystemInstancesRequest": {
+      "properties": {
+        "filters": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SystemInstanceFilters"
+            },
+            {
+              "description": "<p>Optional filter to apply to the search. Valid filters are <code>SYSTEM_TEMPLATE_ID</code>, <code>STATUS</code>, and <code>GREENGRASS_GROUP_NAME</code>.</p> <p>Multiple filters function as OR criteria in the query. Multiple values passed inside the filter function as AND criteria.</p>"
+            }
+          ]
+        },
+        "maxResults": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MaxResults"
+            },
+            {
+              "description": "The maximum number of results to return in the response."
+            }
+          ]
+        },
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NextToken"
+            },
+            {
+              "description": "The string that specifies the next page of results. Use this when you're paginating results."
+            }
+          ]
+        }
+      },
+      "title": "SearchSystemInstancesRequest",
+      "type": "object"
+    },
+    "SearchSystemInstancesResponse": {
+      "properties": {
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NextToken"
+            },
+            {
+              "description": "The string to specify as <code>nextToken</code> when you request the next page of results. "
+            }
+          ]
+        },
+        "summaries": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SystemInstanceSummaries"
+            },
+            {
+              "description": "An array of objects that contain summary data abour the system instances in the result set."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "SearchSystemTemplatesRequest": {
+      "properties": {
+        "filters": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SystemTemplateFilters"
+            },
+            {
+              "description": "An array of filters that limit the result set. The only valid filter is <code>FLOW_TEMPLATE_ID</code>."
+            }
+          ]
+        },
+        "maxResults": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MaxResults"
+            },
+            {
+              "description": "The maximum number of results to return in the response."
+            }
+          ]
+        },
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NextToken"
+            },
+            {
+              "description": "The string that specifies the next page of results. Use this when you're paginating results."
+            }
+          ]
+        }
+      },
+      "title": "SearchSystemTemplatesRequest",
+      "type": "object"
+    },
+    "SearchSystemTemplatesResponse": {
+      "properties": {
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NextToken"
+            },
+            {
+              "description": "The string to specify as <code>nextToken</code> when you request the next page of results."
+            }
+          ]
+        },
+        "summaries": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SystemTemplateSummaries"
+            },
+            {
+              "description": "An array of objects that contain summary information about each system deployment in the result set."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "SearchThingsRequest": {
+      "properties": {
+        "entityId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Urn"
+            },
+            {
+              "description": "<p>The ID of the entity to which the things are associated.</p> <p>The IDs should be in the following format.</p> <p> <code>urn:tdm:REGION/ACCOUNT ID/default:device:DEVICENAME</code> </p>"
+            }
+          ]
+        },
+        "maxResults": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MaxResults"
+            },
+            {
+              "description": "The maximum number of results to return in the response."
+            }
+          ]
+        },
+        "namespaceVersion": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Version"
+            },
+            {
+              "description": "The version of the user's namespace. Defaults to the latest version of the user's namespace."
+            }
+          ]
+        },
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NextToken"
+            },
+            {
+              "description": "The string that specifies the next page of results. Use this when you're paginating results."
+            }
+          ]
+        }
+      },
+      "required": [
+        "entityId"
+      ],
+      "title": "SearchThingsRequest",
+      "type": "object"
+    },
+    "SearchThingsResponse": {
+      "properties": {
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NextToken"
+            },
+            {
+              "description": "The string to specify as <code>nextToken</code> when you request the next page of results."
+            }
+          ]
+        },
+        "things": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Things"
+            },
+            {
+              "description": "An array of things in the result set."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "String": {
+      "type": "string"
+    },
+    "StringList": {
+      "items": {
+        "$ref": "#/definitions/String"
+      },
+      "type": "array"
+    },
+    "SyncWithPublicNamespace": {
+      "type": "boolean"
+    },
+    "SystemInstanceDeploymentStatus": {
+      "enum": [
+        "NOT_DEPLOYED",
+        "BOOTSTRAP",
+        "DEPLOY_IN_PROGRESS",
+        "DEPLOYED_IN_TARGET",
+        "UNDEPLOY_IN_PROGRESS",
+        "FAILED",
+        "PENDING_DELETE",
+        "DELETED_IN_TARGET"
+      ],
+      "type": "string"
+    },
+    "SystemInstanceDescription": {
+      "description": "An object that contains a system instance definition and summary information.",
+      "properties": {
+        "definition": {
+          "$ref": "#/definitions/DefinitionDocument"
+        },
+        "flowActionsRoleArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RoleArn"
+            },
+            {
+              "description": "The AWS Identity and Access Management (IAM) role that AWS IoT Things Graph assumes during flow execution in a cloud deployment. This role must have read and write permissionss to AWS Lambda and AWS IoT and to any other AWS services that the flow uses."
+            }
+          ]
+        },
+        "metricsConfiguration": {
+          "$ref": "#/definitions/MetricsConfiguration"
+        },
+        "s3BucketName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/S3BucketName"
+            },
+            {
+              "description": "The Amazon Simple Storage Service bucket where information about a system instance is stored."
+            }
+          ]
+        },
+        "summary": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SystemInstanceSummary"
+            },
+            {
+              "description": "An object that contains summary information about a system instance."
+            }
+          ]
+        },
+        "validatedDependencyRevisions": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DependencyRevisions"
+            },
+            {
+              "description": "A list of objects that contain all of the IDs and revision numbers of workflows and systems that are used in a system instance."
+            }
+          ]
+        },
+        "validatedNamespaceVersion": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Version"
+            },
+            {
+              "description": "The version of the user's namespace against which the system instance was validated."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "SystemInstanceFilter": {
+      "description": "An object that filters a system instance search. Multiple filters function as OR criteria in the search. For example a search that includes a GREENGRASS_GROUP_NAME and a STATUS filter searches for system instances in the specified Greengrass group that have the specified status.",
+      "properties": {
+        "name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SystemInstanceFilterName"
+            },
+            {
+              "description": "The name of the search filter field."
+            }
+          ]
+        },
+        "value": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SystemInstanceFilterValues"
+            },
+            {
+              "description": "An array of string values for the search filter field. Multiple values function as AND criteria in the search. "
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "SystemInstanceFilterName": {
+      "enum": [
+        "SYSTEM_TEMPLATE_ID",
+        "STATUS",
+        "GREENGRASS_GROUP_NAME"
+      ],
+      "type": "string"
+    },
+    "SystemInstanceFilterValue": {
+      "type": "string"
+    },
+    "SystemInstanceFilterValues": {
+      "items": {
+        "$ref": "#/definitions/SystemInstanceFilterValue"
+      },
+      "type": "array"
+    },
+    "SystemInstanceFilters": {
+      "items": {
+        "$ref": "#/definitions/SystemInstanceFilter"
+      },
+      "type": "array"
+    },
+    "SystemInstanceSummaries": {
+      "items": {
+        "$ref": "#/definitions/SystemInstanceSummary"
+      },
+      "type": "array"
+    },
+    "SystemInstanceSummary": {
+      "description": "An object that contains summary information about a system instance.",
+      "properties": {
+        "arn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Arn"
+            },
+            {
+              "description": "The ARN of the system instance."
+            }
+          ]
+        },
+        "createdAt": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "The date when the system instance was created."
+            }
+          ]
+        },
+        "greengrassGroupId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/GreengrassGroupId"
+            },
+            {
+              "description": "The ID of the Greengrass group where the system instance is deployed."
+            }
+          ]
+        },
+        "greengrassGroupName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/GroupName"
+            },
+            {
+              "description": "The ID of the Greengrass group where the system instance is deployed."
+            }
+          ]
+        },
+        "greengrassGroupVersionId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/GreengrassGroupVersionId"
+            },
+            {
+              "description": "The version of the Greengrass group where the system instance is deployed."
+            }
+          ]
+        },
+        "id": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Urn"
+            },
+            {
+              "description": "The ID of the system instance."
+            }
+          ]
+        },
+        "status": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SystemInstanceDeploymentStatus"
+            },
+            {
+              "description": "The status of the system instance."
+            }
+          ]
+        },
+        "target": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DeploymentTarget"
+            },
+            {
+              "description": "The target of the system instance."
+            }
+          ]
+        },
+        "updatedAt": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": " The date and time when the system instance was last updated."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "SystemTemplateDescription": {
+      "description": "An object that contains a system's definition document and summary information.",
+      "properties": {
+        "definition": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DefinitionDocument"
+            },
+            {
+              "description": "The definition document of a system."
+            }
+          ]
+        },
+        "summary": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SystemTemplateSummary"
+            },
+            {
+              "description": "An object that contains summary information about a system."
+            }
+          ]
+        },
+        "validatedNamespaceVersion": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Version"
+            },
+            {
+              "description": "The namespace version against which the system was validated. Use this value in your system instance."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "SystemTemplateFilter": {
+      "description": "An object that filters a system search.",
+      "properties": {
+        "name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SystemTemplateFilterName"
+            },
+            {
+              "description": "The name of the system search filter field."
+            }
+          ]
+        },
+        "value": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SystemTemplateFilterValues"
+            },
+            {
+              "description": "An array of string values for the search filter field. Multiple values function as AND criteria in the search."
+            }
+          ]
+        }
+      },
+      "required": [
+        "name",
+        "value"
+      ],
+      "type": "object"
+    },
+    "SystemTemplateFilterName": {
+      "enum": [
+        "FLOW_TEMPLATE_ID"
+      ],
+      "type": "string"
+    },
+    "SystemTemplateFilterValue": {
+      "pattern": "^urn:tdm:(([a-z]{2}-(gov-)?[a-z]{4,9}-[0-9]{1,3}/[0-9]+/)*[\\p{Alnum}_]+(/[\\p{Alnum}_]+)*):([\\p{Alpha}]*):([\\p{Alnum}_]+(/[\\p{Alnum}_]+)*)$",
+      "type": "string"
+    },
+    "SystemTemplateFilterValues": {
+      "items": {
+        "$ref": "#/definitions/SystemTemplateFilterValue"
+      },
+      "type": "array"
+    },
+    "SystemTemplateFilters": {
+      "items": {
+        "$ref": "#/definitions/SystemTemplateFilter"
+      },
+      "type": "array"
+    },
+    "SystemTemplateSummaries": {
+      "items": {
+        "$ref": "#/definitions/SystemTemplateSummary"
+      },
+      "type": "array"
+    },
+    "SystemTemplateSummary": {
+      "description": "An object that contains information about a system.",
+      "properties": {
+        "arn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Arn"
+            },
+            {
+              "description": "The ARN of the system."
+            }
+          ]
+        },
+        "createdAt": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "The date when the system was created."
+            }
+          ]
+        },
+        "id": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Urn"
+            },
+            {
+              "description": "The ID of the system."
+            }
+          ]
+        },
+        "revisionNumber": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Version"
+            },
+            {
+              "description": "The revision number of the system."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "Tag": {
+      "description": "Metadata assigned to an AWS IoT Things Graph resource consisting of a key-value pair.",
+      "properties": {
+        "key": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagKey"
+            },
+            {
+              "description": "The required name of the tag. The string value can be from 1 to 128 Unicode characters in length."
+            }
+          ]
+        },
+        "value": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagValue"
+            },
+            {
+              "description": "The optional value of the tag. The string value can be from 1 to 256 Unicode characters in length."
+            }
+          ]
+        }
+      },
+      "required": [
+        "key",
+        "value"
+      ],
+      "type": "object"
+    },
+    "TagKey": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
+      "type": "string"
+    },
+    "TagKeyList": {
+      "items": {
+        "$ref": "#/definitions/TagKey"
+      },
+      "maxItems": 50,
+      "minItems": 1,
+      "type": "array"
+    },
+    "TagList": {
+      "items": {
+        "$ref": "#/definitions/Tag"
+      },
+      "maxItems": 50,
+      "minItems": 0,
+      "type": "array"
+    },
+    "TagResourceRequest": {
+      "properties": {
+        "tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagList"
+            },
+            {
+              "description": "A list of tags to add to the resource.&gt;"
+            }
+          ]
+        },
+        "resourceArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceArn"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the resource whose tags are returned."
+            }
+          ]
+        }
+      },
+      "required": [
+        "resourceArn",
+        "tags"
+      ],
+      "title": "TagResourceRequest",
+      "type": "object"
+    },
+    "TagResourceResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "TagValue": {
+      "maxLength": 256,
+      "minLength": 1,
+      "type": "string"
+    },
+    "Thing": {
+      "description": "An AWS IoT thing.",
+      "properties": {
+        "thingArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ThingArn"
+            },
+            {
+              "description": "The ARN of the thing."
+            }
+          ]
+        },
+        "thingName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ThingName"
+            },
+            {
+              "description": "The name of the thing."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ThingArn": {
+      "type": "string"
+    },
+    "ThingName": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "[a-zA-Z0-9:_-]+",
+      "type": "string"
+    },
+    "Things": {
+      "items": {
+        "$ref": "#/definitions/Thing"
+      },
+      "type": "array"
+    },
+    "ThrottlingException": {},
+    "Timestamp": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "UndeploySystemInstanceRequest": {
+      "properties": {
+        "id": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Urn"
+            },
+            {
+              "description": "The ID of the system instance to remove from its target."
+            }
+          ]
+        }
+      },
+      "title": "UndeploySystemInstanceRequest",
+      "type": "object"
+    },
+    "UndeploySystemInstanceResponse": {
+      "properties": {
+        "summary": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SystemInstanceSummary"
+            },
+            {
+              "description": "An object that contains summary information about the system instance that was removed from its target."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "UntagResourceRequest": {
+      "properties": {
+        "resourceArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceArn"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the resource whose tags are to be removed."
+            }
+          ]
+        },
+        "tagKeys": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagKeyList"
+            },
+            {
+              "description": "<p>A list of tag key names to remove from the resource. You don't specify the value. Both the key and its associated value are removed. </p> <p>This parameter to the API requires a JSON text string argument. For information on how to format a JSON parameter for the various command line tool environments, see <a href=\"https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters.html#cli-using-param-json\">Using JSON for Parameters</a> in the <i>AWS CLI User Guide</i>. </p>"
+            }
+          ]
+        }
+      },
+      "required": [
+        "resourceArn",
+        "tagKeys"
+      ],
+      "title": "UntagResourceRequest",
+      "type": "object"
+    },
+    "UntagResourceResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "UpdateFlowTemplateRequest": {
+      "properties": {
+        "compatibleNamespaceVersion": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Version"
+            },
+            {
+              "description": "<p>The version of the user's namespace.</p> <p>If no value is specified, the latest version is used by default. Use the <code>GetFlowTemplateRevisions</code> if you want to find earlier revisions of the flow to update.</p>"
+            }
+          ]
+        },
+        "definition": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DefinitionDocument"
+            },
+            {
+              "description": "The <code>DefinitionDocument</code> that contains the updated workflow definition."
+            }
+          ]
+        },
+        "id": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Urn"
+            },
+            {
+              "description": "<p>The ID of the workflow to be updated.</p> <p>The ID should be in the following format.</p> <p> <code>urn:tdm:REGION/ACCOUNT ID/default:workflow:WORKFLOWNAME</code> </p>"
+            }
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "definition"
+      ],
+      "title": "UpdateFlowTemplateRequest",
+      "type": "object"
+    },
+    "UpdateFlowTemplateResponse": {
+      "properties": {
+        "summary": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/FlowTemplateSummary"
+            },
+            {
+              "description": "An object containing summary information about the updated workflow."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "UpdateSystemTemplateRequest": {
+      "properties": {
+        "compatibleNamespaceVersion": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Version"
+            },
+            {
+              "description": "<p>The version of the user's namespace. Defaults to the latest version of the user's namespace.</p> <p>If no value is specified, the latest version is used by default.</p>"
+            }
+          ]
+        },
+        "definition": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DefinitionDocument"
+            },
+            {
+              "description": "The <code>DefinitionDocument</code> that contains the updated system definition."
+            }
+          ]
+        },
+        "id": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Urn"
+            },
+            {
+              "description": "<p>The ID of the system to be updated.</p> <p>The ID should be in the following format.</p> <p> <code>urn:tdm:REGION/ACCOUNT ID/default:system:SYSTEMNAME</code> </p>"
+            }
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "definition"
+      ],
+      "title": "UpdateSystemTemplateRequest",
+      "type": "object"
+    },
+    "UpdateSystemTemplateResponse": {
+      "properties": {
+        "summary": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SystemTemplateSummary"
+            },
+            {
+              "description": "An object containing summary information about the updated system."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "UploadEntityDefinitionsRequest": {
+      "properties": {
+        "deprecateExistingEntities": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DeprecateExistingEntities"
+            },
+            {
+              "description": "A Boolean that specifies whether to deprecate all entities in the latest version before uploading the new <code>DefinitionDocument</code>. If set to <code>true</code>, the upload will create a new namespace version."
+            }
+          ]
+        },
+        "document": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DefinitionDocument"
+            },
+            {
+              "description": "The <code>DefinitionDocument</code> that defines the updated entities."
+            }
+          ]
+        },
+        "syncWithPublicNamespace": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SyncWithPublicNamespace"
+            },
+            {
+              "description": "A Boolean that specifies whether to synchronize with the latest version of the public namespace. If set to <code>true</code>, the upload will create a new namespace version."
+            }
+          ]
+        }
+      },
+      "title": "UploadEntityDefinitionsRequest",
+      "type": "object"
+    },
+    "UploadEntityDefinitionsResponse": {
+      "properties": {
+        "uploadId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/UploadId"
+            },
+            {
+              "description": "The ID that specifies the upload action. You can use this to track the status of the upload."
+            }
+          ]
+        }
+      },
+      "required": [
+        "uploadId"
+      ],
+      "type": "object"
+    },
+    "UploadId": {
+      "maxLength": 40,
+      "minLength": 1,
+      "type": "string"
+    },
+    "UploadStatus": {
+      "enum": [
+        "IN_PROGRESS",
+        "SUCCEEDED",
+        "FAILED"
+      ],
+      "type": "string"
+    },
+    "Urn": {
+      "maxLength": 160,
+      "pattern": "^urn:tdm:(([a-z]{2}-(gov-)?[a-z]{4,9}-[0-9]{1,3}/[0-9]+/)*[\\p{Alnum}_]+(/[\\p{Alnum}_]+)*):([\\p{Alpha}]*):([\\p{Alnum}_]+(/[\\p{Alnum}_]+)*)$",
+      "type": "string"
+    },
+    "Urns": {
+      "items": {
+        "$ref": "#/definitions/Urn"
+      },
+      "maxItems": 25,
+      "minItems": 0,
+      "type": "array"
+    },
+    "Version": {
+      "type": "integer"
+    }
+  },
+  "securityDefinitions": {
+    "hmac": {
+      "description": "Amazon Signature authorization v4",
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey",
+      "x-amazon-apigateway-authtype": "awsSigv4"
+    }
+  },
+  "security": [
+    {
+      "hmac": []
+    }
+  ],
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://docs.aws.amazon.com/iotthingsgraph/"
+  },
+  "x-components": {
+    "parameters": {
+      "X-Amz-Algorithm": {
+        "in": "header",
+        "name": "X-Amz-Algorithm",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Content-Sha256": {
+        "in": "header",
+        "name": "X-Amz-Content-Sha256",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Credential": {
+        "in": "header",
+        "name": "X-Amz-Credential",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Date": {
+        "in": "header",
+        "name": "X-Amz-Date",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Security-Token": {
+        "in": "header",
+        "name": "X-Amz-Security-Token",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Signature": {
+        "in": "header",
+        "name": "X-Amz-Signature",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-SignedHeaders": {
+        "in": "header",
+        "name": "X-Amz-SignedHeaders",
+        "required": false,
+        "type": "string"
+      }
+    }
+  },
+  "x-hasEquivalentPaths": true
+}

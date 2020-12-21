@@ -7,7 +7,7 @@
   "info": {
     "description": "The Azure SQL Database management API provides a RESTful set of web APIs that interact with Azure SQL Database services to manage your databases. The API enables users to create, retrieve, update, and delete databases, servers, and other entities.",
     "title": "SqlManagementClient",
-    "version": "2015-05-01-preview",
+    "version": "2018-06-01-preview",
     "x-apisguru-categories": [
       "cloud"
     ],
@@ -17,7 +17,7 @@
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/sql/resource-manager/Microsoft.Sql/preview/2015-05-01-preview/usages.json",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/sql/resource-manager/Microsoft.Sql/preview/2018-06-01-preview/usages.json",
         "version": "2.0"
       }
     ],
@@ -58,6 +58,17 @@
       "required": true,
       "type": "string",
       "x-ms-parameter-location": "client"
+    },
+    "BlobAuditingPolicyNameParameter": {
+      "description": "The name of the blob auditing policy.",
+      "enum": [
+        "default"
+      ],
+      "in": "path",
+      "name": "blobAuditingPolicyName",
+      "required": true,
+      "type": "string",
+      "x-ms-parameter-location": "method"
     },
     "DatabaseNameParameter": {
       "description": "The name of the database.",
@@ -125,17 +136,27 @@
     }
   },
   "paths": {
-    "/subscriptions/{subscriptionId}/providers/Microsoft.Sql/locations/{locationName}/usages": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/instancePools/{instancePoolName}/usages": {
       "get": {
-        "description": "Gets all subscription usage metrics in a given location.",
-        "operationId": "SubscriptionUsages_ListByLocation",
+        "description": "Gets all instance pool usage metrics",
+        "operationId": "Usages_ListByInstancePool",
         "parameters": [
           {
-            "description": "The name of the region where the resource is located.",
+            "$ref": "#/parameters/ResourceGroupParameter"
+          },
+          {
+            "description": "The name of the instance pool to be retrieved.",
             "in": "path",
-            "name": "locationName",
+            "name": "instancePoolName",
             "required": true,
             "type": "string"
+          },
+          {
+            "description": "Optional request parameter to include managed instance usages within the instance pool.",
+            "in": "query",
+            "name": "expandChildren",
+            "required": false,
+            "type": "boolean"
           },
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
@@ -146,23 +167,25 @@
         ],
         "responses": {
           "200": {
-            "description": "Successfully retrieved the subscription location usages.",
+            "description": "Successfully retrieved the instance pool usages.",
             "schema": {
-              "$ref": "#/definitions/SubscriptionUsageListResult"
+              "$ref": "#/definitions/UsageListResult"
             }
           },
           "default": {
-            "description": "*** Error Responses: ***\n\n * 400 SubscriptionNotFound - The requested subscription was not found.\n\n * 400 InvalidLocation - An invalid location was specified."
+            "description": "*** Error Responses: ***\n\n * 400 InstancePoolWrongUsageName - Request for an instance pool's usage has an unsupported usage name\n\n * 400 InstancePoolManagedInstanceInfoUnavailable - Information for managed instances inside this instance pool is not available\n\n * 404 InstancePoolNotFound - An instance pool cannot be found"
           }
         },
         "tags": [
-          "SubscriptionUsages"
+          "Usages"
         ],
         "x-ms-examples": {
-          "List subscription usages in the given location.": {
+          "List instance pool usages expanded with children.": {
             "parameters": {
-              "api-version": "2015-05-01-preview",
-              "locationName": "WestUS",
+              "api-version": "2018-06-01-preview",
+              "expandChildren": true,
+              "instancePoolName": "testIP",
+              "resourceGroupName": "group1",
               "subscriptionId": "00000000-1111-2222-3333-444444444444"
             },
             "responses": {
@@ -170,37 +193,164 @@
                 "body": {
                   "value": [
                     {
-                      "id": "/subscriptions/00000000-1111-2222-3333-444444444444/providers/Microsoft.Sql/locations/Onebox/usages/ServerQuota",
-                      "name": "ServerQuota",
-                      "properties": {
-                        "currentValue": 1,
-                        "displayName": "Regional Server Quota for West US",
-                        "limit": 20,
-                        "unit": "Count"
+                      "currentValue": 12,
+                      "id": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Sql/instancePools/testIP/usages/vcore_utilization",
+                      "limit": 16,
+                      "name": {
+                        "localizedValue": "VCore utilization",
+                        "value": "VCore utilization"
                       },
-                      "type": "Microsoft.Sql/locations/usages"
+                      "requestedLimit": 40,
+                      "type": "Microsoft.Sql/instancePools/usages",
+                      "unit": "VCores"
                     },
                     {
-                      "id": "/subscriptions/00000000-1111-2222-3333-444444444444/providers/Microsoft.Sql/locations/Onebox/usages/SubscriptionFreeDatabaseCount",
-                      "name": "SubscriptionFreeDatabaseCount",
-                      "properties": {
-                        "currentValue": 0,
-                        "displayName": "Free Database Count per Subscription for West US",
-                        "limit": 1,
-                        "unit": "Count"
+                      "currentValue": 384,
+                      "id": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Sql/instancePools/testIP/usages/storage_utilization",
+                      "limit": 8196,
+                      "name": {
+                        "localizedValue": "Storage utilization",
+                        "value": "Storage utilization"
                       },
-                      "type": "Microsoft.Sql/locations/usages"
+                      "requestedLimit": null,
+                      "type": "Microsoft.Sql/instancePools/usages",
+                      "unit": "VCores"
                     },
                     {
-                      "id": "/subscriptions/00000000-1111-2222-3333-444444444444/providers/Microsoft.Sql/locations/Onebox/usages/SubscriptionFreeDatabaseDaysLeft",
-                      "name": "SubscriptionFreeDatabaseDaysLeft",
-                      "properties": {
-                        "currentValue": 365,
-                        "displayName": "Free to Basic Database Upgrade count-down in West US",
-                        "limit": 365,
-                        "unit": "Count"
+                      "currentValue": 5,
+                      "id": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Sql/instancePools/testIP/usages/database_utilization",
+                      "limit": 100,
+                      "name": {
+                        "localizedValue": "Database utilization",
+                        "value": "Database utilization"
                       },
-                      "type": "Microsoft.Sql/locations/usages"
+                      "requestedLimit": null,
+                      "type": "Microsoft.Sql/instancePools/usages",
+                      "unit": "Number Of Databases"
+                    },
+                    {
+                      "currentValue": null,
+                      "id": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Sql/instancePools/testIP/managedInstances/managedInstance1/usages/vcore_utilization",
+                      "limit": 4,
+                      "name": {
+                        "localizedValue": "VCore utilization",
+                        "value": "VCore utilization"
+                      },
+                      "requestedLimit": null,
+                      "type": "Microsoft.Sql/instancePools/managedInstances/usages",
+                      "unit": "VCores"
+                    },
+                    {
+                      "currentValue": null,
+                      "id": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Sql/instancePools/testIP/managedInstances/managedInstance2/usages/vcore_utilization",
+                      "limit": 4,
+                      "name": {
+                        "localizedValue": "VCore utilization",
+                        "value": "VCore utilization"
+                      },
+                      "requestedLimit": 8,
+                      "type": "Microsoft.Sql/instancePools/managedInstances/usages",
+                      "unit": "VCores"
+                    },
+                    {
+                      "currentValue": null,
+                      "id": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Sql/instancePools/testIP/managedInstances/managedInstance1/usages/storage_utilization",
+                      "limit": 128,
+                      "name": {
+                        "localizedValue": "Storage utilization",
+                        "value": "Storage utilization"
+                      },
+                      "requestedLimit": null,
+                      "type": "Microsoft.Sql/instancePools/managedInstances/usages",
+                      "unit": "Gigabytes"
+                    },
+                    {
+                      "currentValue": null,
+                      "id": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Sql/instancePools/testIP/managedInstances/managedInstance2/usages/storage_utilization",
+                      "limit": 128,
+                      "name": {
+                        "localizedValue": "VCore utilization",
+                        "value": "VCore utilization"
+                      },
+                      "requestedLimit": 256,
+                      "type": "Microsoft.Sql/instancePools/managedInstances/usages",
+                      "unit": "Gigabytes"
+                    },
+                    {
+                      "currentValue": 2,
+                      "id": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Sql/instancePools/testIP/managedInstances/managedInstance1/usages/database_utilization",
+                      "limit": 100,
+                      "name": {
+                        "localizedValue": "Database utilization",
+                        "value": "Database utilization"
+                      },
+                      "requestedLimit": null,
+                      "type": "Microsoft.Sql/instancePools/managedInstances/usages",
+                      "unit": "Number Of Databases"
+                    },
+                    {
+                      "currentValue": 3,
+                      "id": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Sql/instancePools/testIP/managedInstances/managedInstance2/usages/database_utilization",
+                      "limit": 100,
+                      "name": {
+                        "localizedValue": "Database utilization",
+                        "value": "Database utilization"
+                      },
+                      "requestedLimit": null,
+                      "type": "Microsoft.Sql/instancePools/managedInstances/usages",
+                      "unit": "Number Of Databases"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "List instance pool usages.": {
+            "parameters": {
+              "api-version": "2018-06-01-preview",
+              "instancePoolName": "testIP",
+              "resourceGroupName": "group1",
+              "subscriptionId": "00000000-1111-2222-3333-444444444444"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "value": [
+                    {
+                      "currentValue": 12,
+                      "id": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Sql/instancePools/testIP/usages/vcore_utilization",
+                      "limit": 16,
+                      "name": {
+                        "localizedValue": "VCore utilization",
+                        "value": "VCore utilization"
+                      },
+                      "requestedLimit": 40,
+                      "type": "Microsoft.Sql/instancePools/usages",
+                      "unit": "VCores"
+                    },
+                    {
+                      "currentValue": 384,
+                      "id": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Sql/instancePools/testIP/usages/storage_utilization",
+                      "limit": 8196,
+                      "name": {
+                        "localizedValue": "Storage utilization",
+                        "value": "Storage utilization"
+                      },
+                      "requestedLimit": null,
+                      "type": "Microsoft.Sql/instancePools/usages",
+                      "unit": "VCores"
+                    },
+                    {
+                      "currentValue": 5,
+                      "id": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Sql/instancePools/testIP/usages/database_utilization",
+                      "limit": 100,
+                      "name": {
+                        "localizedValue": "Database utilization",
+                        "value": "Database utilization"
+                      },
+                      "requestedLimit": null,
+                      "type": "Microsoft.Sql/instancePools/usages",
+                      "unit": "Number Of Databases"
                     }
                   ]
                 }
@@ -212,120 +362,69 @@
           "nextLinkName": "nextLink"
         }
       }
-    },
-    "/subscriptions/{subscriptionId}/providers/Microsoft.Sql/locations/{locationName}/usages/{usageName}": {
-      "get": {
-        "description": "Gets a subscription usage metric.",
-        "operationId": "SubscriptionUsages_Get",
-        "parameters": [
-          {
-            "description": "The name of the region where the resource is located.",
-            "in": "path",
-            "name": "locationName",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "Name of usage metric to return.",
-            "in": "path",
-            "name": "usageName",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "$ref": "#/parameters/SubscriptionIdParameter"
-          },
-          {
-            "$ref": "#/parameters/ApiVersionParameter"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successfully retrieved particular subscription location usage.",
-            "schema": {
-              "$ref": "#/definitions/SubscriptionUsage"
-            }
-          },
-          "default": {
-            "description": "*** Error Responses: ***\n\n * 400 SubscriptionNotFound - The requested subscription was not found.\n\n * 400 InvalidLocation - An invalid location was specified."
-          }
-        },
-        "tags": [
-          "SubscriptionUsages"
-        ],
-        "x-ms-examples": {
-          "Get specific subscription usage in the given location.": {
-            "parameters": {
-              "api-version": "2015-05-01-preview",
-              "locationName": "WestUS",
-              "subscriptionId": "00000000-1111-2222-3333-444444444444",
-              "usageName": "ServerQuota"
-            },
-            "responses": {
-              "200": {
-                "body": {
-                  "id": "/subscriptions/00000000-1111-2222-3333-444444444444/providers/Microsoft.Sql/locations/Onebox/usages/ServerQuota",
-                  "name": "ServerQuota",
-                  "properties": {
-                    "currentValue": 1,
-                    "displayName": "Regional Server Quota for West US",
-                    "limit": 20,
-                    "unit": "Count"
-                  },
-                  "type": "Microsoft.Sql/locations/usages"
-                }
-              }
-            }
-          }
-        }
-      }
     }
   },
   "definitions": {
-    "SubscriptionUsage": {
-      "allOf": [
-        {
-          "allOf": [
-            {
-              "description": "ARM resource.",
-              "properties": {
-                "id": {
-                  "description": "Resource ID.",
-                  "readOnly": true,
-                  "type": "string"
-                },
-                "name": {
-                  "description": "Resource name.",
-                  "readOnly": true,
-                  "type": "string"
-                },
-                "type": {
-                  "description": "Resource type.",
-                  "readOnly": true,
-                  "type": "string"
-                }
-              },
-              "type": "object",
-              "x-ms-azure-resource": true
-            }
-          ],
-          "description": "ARM proxy resource.",
-          "properties": {},
-          "type": "object"
-        }
-      ],
-      "description": "Usage Metric of a Subscription in a Location.",
+    "Name": {
+      "description": "ARM Usage Name",
       "properties": {
-        "properties": {
-          "$ref": "#/definitions/SubscriptionUsageProperties",
-          "description": "Resource properties.",
-          "x-ms-client-flatten": true
+        "localizedValue": {
+          "description": "Usage name localized value.",
+          "type": "string"
+        },
+        "value": {
+          "description": "Usage name value",
+          "type": "string"
         }
       },
       "type": "object"
     },
-    "SubscriptionUsageListResult": {
-      "description": "A list of subscription usage metrics in a location.",
+    "Usage": {
+      "description": "ARM usage.",
+      "properties": {
+        "currentValue": {
+          "description": "Usage current value.",
+          "format": "int32",
+          "readOnly": true,
+          "type": "integer"
+        },
+        "id": {
+          "description": "Resource ID.",
+          "readOnly": true,
+          "type": "string"
+        },
+        "limit": {
+          "description": "Usage limit.",
+          "format": "int32",
+          "readOnly": true,
+          "type": "integer"
+        },
+        "name": {
+          "$ref": "#/definitions/Name",
+          "description": "Resource name.",
+          "readOnly": true
+        },
+        "requestedLimit": {
+          "description": "Usage requested limit.",
+          "format": "int32",
+          "readOnly": true,
+          "type": "integer"
+        },
+        "type": {
+          "description": "Resource type.",
+          "readOnly": true,
+          "type": "string"
+        },
+        "unit": {
+          "description": "Usage unit.",
+          "readOnly": true,
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "UsageListResult": {
+      "description": "A list of usages.",
       "properties": {
         "nextLink": {
           "description": "Link to retrieve next page of results.",
@@ -335,38 +434,10 @@
         "value": {
           "description": "Array of results.",
           "items": {
-            "$ref": "#/definitions/SubscriptionUsage"
+            "$ref": "#/definitions/Usage"
           },
           "readOnly": true,
           "type": "array"
-        }
-      },
-      "type": "object"
-    },
-    "SubscriptionUsageProperties": {
-      "description": "Properties of a subscription usage.",
-      "properties": {
-        "currentValue": {
-          "description": "Current value of the metric.",
-          "format": "double",
-          "readOnly": true,
-          "type": "number"
-        },
-        "displayName": {
-          "description": "User-readable name of the metric.",
-          "readOnly": true,
-          "type": "string"
-        },
-        "limit": {
-          "description": "Boundary value of the metric.",
-          "format": "double",
-          "readOnly": true,
-          "type": "number"
-        },
-        "unit": {
-          "description": "Unit of the metric.",
-          "readOnly": true,
-          "type": "string"
         }
       },
       "type": "object"

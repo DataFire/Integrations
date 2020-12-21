@@ -14,7 +14,7 @@
       "transport"
     ],
     "x-logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_wmata_profile_image.jpeg"
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_wmata_profile_image.png"
     },
     "x-origin": [
       {
@@ -51,6 +51,7 @@
       "apiKeyQuery": []
     }
   ],
+  "tags": [],
   "paths": {
     "/BusPositions": {
       "get": {
@@ -160,10 +161,11 @@
             "type": "string"
           },
           {
+            "default": false,
             "description": "Whether or not to include variations.  For example, if B30 is specified, include all variations such as B30v1, B30v2, etc.",
             "enum": [
-              "false",
-              "true"
+              false,
+              true
             ],
             "in": "query",
             "name": "IncludingVariations",
@@ -5250,10 +5252,11 @@
             "type": "string"
           },
           {
+            "default": false,
             "description": "Whether or not to include variations if a base route is specified in RouteID.  For example, if B30 is specified and IncludingVariations is set to true, data for all variations of B30 such as B30v1, B30v2, etc. will be returned.",
             "enum": [
-              "false",
-              "true"
+              false,
+              true
             ],
             "in": "query",
             "name": "IncludingVariations",
@@ -10014,7 +10017,7 @@
           {
             "description": "Center point Latitude, required if Longitude and Radius are specified.",
             "enum": [
-              "38.878586"
+              38.878586
             ],
             "in": "query",
             "name": "Lat",
@@ -10023,7 +10026,7 @@
           {
             "description": "Center point Longitude, required if Latitude and Radius are specified.",
             "enum": [
-              "-76.989626"
+              -76.989626
             ],
             "in": "query",
             "name": "Lon",
@@ -10032,7 +10035,7 @@
           {
             "description": "Radius (meters) to include in the search area, required if Latitude and Longitude are specified.",
             "enum": [
-              "500"
+              500
             ],
             "in": "query",
             "name": "Radius",

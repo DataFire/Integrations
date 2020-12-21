@@ -124,7 +124,9 @@
         "tags": [
           "Operations"
         ],
-        "x-ms-pageable": {}
+        "x-ms-pageable": {
+          "nextLinkName": null
+        }
       }
     },
     "/subscriptions/{subscriptionId}/providers/Microsoft.Search/checkNameAvailability": {
@@ -192,6 +194,102 @@
               }
             }
           }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/providers/Microsoft.Search/searchServices": {
+      "get": {
+        "description": "Gets a list of all Search services in the given subscription.",
+        "externalDocs": {
+          "url": "https://aka.ms/search-manage"
+        },
+        "operationId": "Services_ListBySubscription",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ClientRequestIdParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The operation succeeded. The response contains the list of all Search service definitions for the given subscription.",
+            "schema": {
+              "$ref": "#/definitions/SearchServiceListResult"
+            }
+          },
+          "default": {
+            "description": "An unexpected error occurred during the operation.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
+          }
+        },
+        "tags": [
+          "Services"
+        ],
+        "x-ms-examples": {
+          "SearchListServicesBySubscription": {
+            "parameters": {
+              "api-version": "2015-08-19",
+              "subscriptionId": "subid"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "value": [
+                    {
+                      "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Search/searchServices/mysearchservice",
+                      "location": "westus",
+                      "name": "mysearchservice",
+                      "properties": {
+                        "hostingMode": "default",
+                        "partitionCount": 1,
+                        "provisioningState": "succeeded",
+                        "replicaCount": 3,
+                        "status": "running",
+                        "statusDetails": ""
+                      },
+                      "sku": {
+                        "name": "standard"
+                      },
+                      "tags": {
+                        "app-name": "My e-commerce app"
+                      },
+                      "type": "Microsoft.Search/searchServices"
+                    },
+                    {
+                      "id": "/subscriptions/subid/resourceGroups/rg2/providers/Microsoft.Search/searchServices/mysearchservice2",
+                      "location": "eastus",
+                      "name": "mysearchservice2",
+                      "properties": {
+                        "hostingMode": "default",
+                        "partitionCount": 1,
+                        "provisioningState": "succeeded",
+                        "replicaCount": 1,
+                        "status": "running",
+                        "statusDetails": ""
+                      },
+                      "sku": {
+                        "name": "basic"
+                      },
+                      "tags": {
+                        "app-name": "My e-commerce app"
+                      },
+                      "type": "Microsoft.Search/searchServices"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "x-ms-pageable": {
+          "nextLinkName": null
         }
       }
     },
@@ -290,7 +388,9 @@
             }
           }
         },
-        "x-ms-pageable": {}
+        "x-ms-pageable": {
+          "nextLinkName": null
+        }
       }
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Search/searchServices/{searchServiceName}": {
@@ -522,6 +622,47 @@
                 }
               }
             }
+          },
+          "SearchUpdateServiceToRemoveIdentity": {
+            "parameters": {
+              "api-version": "2015-08-19",
+              "resourceGroupName": "rg1",
+              "searchServiceName": "mysearchservice",
+              "service": {
+                "identity": {
+                  "type": "None"
+                },
+                "sku": {
+                  "name": "standard"
+                }
+              },
+              "subscriptionId": "subid"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Search/searchServices/mysearchservice",
+                  "identity": {
+                    "type": "None"
+                  },
+                  "location": "westus",
+                  "name": "mysearchservice",
+                  "properties": {
+                    "hostingMode": "default",
+                    "partitionCount": 1,
+                    "provisioningState": "succeeded",
+                    "replicaCount": 3,
+                    "status": "running",
+                    "statusDetails": ""
+                  },
+                  "sku": {
+                    "name": "standard"
+                  },
+                  "tags": {},
+                  "type": "Microsoft.Search/searchServices"
+                }
+              }
+            }
           }
         }
       },
@@ -632,6 +773,87 @@
               "201": {
                 "body": {
                   "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Search/searchServices/mysearchservice",
+                  "location": "westus",
+                  "name": "mysearchservice",
+                  "properties": {
+                    "hostingMode": "default",
+                    "partitionCount": 1,
+                    "provisioningState": "provisioning",
+                    "replicaCount": 3,
+                    "status": "provisioning",
+                    "statusDetails": ""
+                  },
+                  "sku": {
+                    "name": "standard"
+                  },
+                  "tags": {
+                    "app-name": "My e-commerce app"
+                  },
+                  "type": "Microsoft.Search/searchServices"
+                }
+              }
+            }
+          },
+          "SearchCreateOrUpdateServiceWithIdentity": {
+            "parameters": {
+              "api-version": "2015-08-19",
+              "resourceGroupName": "rg1",
+              "searchServiceName": "mysearchservice",
+              "service": {
+                "identity": {
+                  "type": "SystemAssigned"
+                },
+                "location": "westus",
+                "properties": {
+                  "hostingMode": "default",
+                  "partitionCount": 1,
+                  "replicaCount": 3
+                },
+                "sku": {
+                  "name": "standard"
+                },
+                "tags": {
+                  "app-name": "My e-commerce app"
+                }
+              },
+              "subscriptionId": "subid"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Search/searchServices/mysearchservice",
+                  "identity": {
+                    "principalId": "9d1e1f18-2122-4988-a11c-878782e40a5c",
+                    "tenantId": "f686d426-8d16-42db-81b7-ab578e110ccd",
+                    "type": "SystemAssigned"
+                  },
+                  "location": "westus",
+                  "name": "mysearchservice",
+                  "properties": {
+                    "hostingMode": "default",
+                    "partitionCount": 1,
+                    "provisioningState": "provisioning",
+                    "replicaCount": 3,
+                    "status": "provisioning",
+                    "statusDetails": ""
+                  },
+                  "sku": {
+                    "name": "standard"
+                  },
+                  "tags": {
+                    "app-name": "My e-commerce app"
+                  },
+                  "type": "Microsoft.Search/searchServices"
+                }
+              },
+              "201": {
+                "body": {
+                  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Search/searchServices/mysearchservice",
+                  "identity": {
+                    "principalId": "9d1e1f18-2122-4988-a11c-878782e40a5c",
+                    "tenantId": "f686d426-8d16-42db-81b7-ab578e110ccd",
+                    "type": "SystemAssigned"
+                  },
                   "location": "westus",
                   "name": "mysearchservice",
                   "properties": {
@@ -923,7 +1145,9 @@
             }
           }
         },
-        "x-ms-pageable": {}
+        "x-ms-pageable": {
+          "nextLinkName": null
+        }
       }
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Search/searchServices/{searchServiceName}/regenerateAdminKey/{keyKind}": {
@@ -1090,7 +1314,7 @@
       "description": "Describes a particular API error with an error code and a message.",
       "properties": {
         "code": {
-          "description": "An error code that describes the error condition more precisely than an HTTP status code. Can be used to programatically handle specific error cases.",
+          "description": "An error code that describes the error condition more precisely than an HTTP status code. Can be used to programmatically handle specific error cases.",
           "type": "string"
         },
         "details": {
@@ -1111,6 +1335,36 @@
       },
       "type": "object",
       "x-ms-external": true
+    },
+    "Identity": {
+      "description": "Identity for the resource.",
+      "properties": {
+        "principalId": {
+          "description": "The principal ID of resource identity.",
+          "readOnly": true,
+          "type": "string"
+        },
+        "tenantId": {
+          "description": "The tenant ID of resource.",
+          "readOnly": true,
+          "type": "string"
+        },
+        "type": {
+          "description": "The identity type.",
+          "enum": [
+            "None",
+            "SystemAssigned"
+          ],
+          "type": "string",
+          "x-ms-enum": {
+            "modelAsString": false,
+            "name": "IdentityType"
+          }
+        }
+      },
+      "required": [
+        "type"
+      ]
     },
     "ListQueryKeysResult": {
       "description": "Response containing the query API keys for a given Azure Search service.",
@@ -1206,6 +1460,10 @@
           },
           "readOnly": true,
           "type": "string"
+        },
+        "identity": {
+          "$ref": "#/definitions/Identity",
+          "description": "The identity of the resource."
         },
         "location": {
           "description": "The geographic location of the resource. This must be one of the supported and registered Azure Geo Regions (for example, West US, East US, Southeast Asia, and so forth). This property is required when creating a new resource.",
@@ -1354,13 +1612,15 @@
       },
       "properties": {
         "name": {
-          "description": "The SKU of the Search service. Valid values include: 'free': Shared service. 'basic': Dedicated service with up to 3 replicas. 'standard': Dedicated service with up to 12 partitions and 12 replicas. 'standard2': Similar to standard, but with more capacity per search unit. 'standard3': Offers maximum capacity per search unit with up to 12 partitions and 12 replicas (or up to 3 partitions with more indexes if you also set the hostingMode property to 'highDensity').",
+          "description": "The SKU of the Search service. Valid values include: 'free': Shared service. 'basic': Dedicated service with up to 3 replicas. 'standard': Dedicated service with up to 12 partitions and 12 replicas. 'standard2': Similar to standard, but with more capacity per search unit. 'standard3': The largest Standard offering with up to 12 partitions and 12 replicas (or up to 3 partitions with more indexes if you also set the hostingMode property to 'highDensity'). 'storage_optimized_l1': Supports 1TB per partition, up to 12 partitions. 'storage_optimized_l2': Supports 2TB per partition, up to 12 partitions.'",
           "enum": [
             "free",
             "basic",
             "standard",
             "standard2",
-            "standard3"
+            "standard3",
+            "storage_optimized_l1",
+            "storage_optimized_l2"
           ],
           "type": "string",
           "x-ms-enum": {

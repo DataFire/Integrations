@@ -1,0 +1,4035 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "contact": {
+      "email": "mike.ralphson@gmail.com",
+      "name": "Mike Ralphson",
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
+    },
+    "description": "AWS Elemental MediaPackage VOD",
+    "license": {
+      "name": "Apache 2.0 License",
+      "url": "http://www.apache.org/licenses/"
+    },
+    "termsOfService": "https://aws.amazon.com/service-terms/",
+    "title": "AWS Elemental MediaPackage VOD",
+    "version": "2018-11-07",
+    "x-apiClientRegistration": {
+      "url": "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"
+    },
+    "x-apisguru-categories": [
+      "cloud"
+    ],
+    "x-logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"
+    },
+    "x-origin": [
+      {
+        "contentType": "application/json",
+        "converter": {
+          "url": "https://github.com/mermade/aws2openapi",
+          "version": "1.0.0"
+        },
+        "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/mediapackage-vod-2018-11-07.normal.json",
+        "x-apisguru-driver": "external"
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "amazonaws.com",
+    "x-release": "v4",
+    "x-serviceName": "mediapackage-vod",
+    "x-datafire": {
+      "name": "amazonaws_mediapackage_vod",
+      "type": "openapi"
+    }
+  },
+  "host": "mediapackage-vod.us-east-1.amazonaws.com",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/assets": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Upper bound on number of records to return.",
+            "in": "query",
+            "maximum": 1000,
+            "minimum": 1,
+            "name": "maxResults",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "A token used to resume pagination from the end of a previous request.",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Returns Assets associated with the specified PackagingGroup.",
+            "in": "query",
+            "name": "packagingGroupId",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListAssetsResponse"
+            }
+          },
+          "480": {
+            "description": "UnprocessableEntityException",
+            "schema": {
+              "$ref": "#/definitions/UnprocessableEntityException"
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "484": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          }
+        },
+        "description": "Returns a collection of MediaPackage VOD Asset resources.",
+        "operationId": "ListAssets"
+      },
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "tags": {
+                  "additionalProperties": {
+                    "$ref": "#/definitions/__string"
+                  },
+                  "description": "A collection of tags associated with a resource",
+                  "type": "object"
+                },
+                "id": {
+                  "description": "The unique identifier for the Asset.",
+                  "type": "string"
+                },
+                "packagingGroupId": {
+                  "description": "The ID of the PackagingGroup for the Asset.",
+                  "type": "string"
+                },
+                "resourceId": {
+                  "description": "The resource ID to include in SPEKE key requests.",
+                  "type": "string"
+                },
+                "sourceArn": {
+                  "description": "ARN of the source object in S3.",
+                  "type": "string"
+                },
+                "sourceRoleArn": {
+                  "description": "The IAM role ARN used to access the source S3 bucket.",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "packagingGroupId",
+                "sourceArn",
+                "sourceRoleArn"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateAssetResponse"
+            }
+          },
+          "480": {
+            "description": "UnprocessableEntityException",
+            "schema": {
+              "$ref": "#/definitions/UnprocessableEntityException"
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "484": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          }
+        },
+        "description": "Creates a new MediaPackage VOD Asset resource.",
+        "operationId": "CreateAsset"
+      }
+    },
+    "/assets/{id}": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "delete": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The ID of the MediaPackage VOD Asset resource to delete.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteAssetResponse"
+            }
+          },
+          "480": {
+            "description": "UnprocessableEntityException",
+            "schema": {
+              "$ref": "#/definitions/UnprocessableEntityException"
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "484": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          }
+        },
+        "description": "Deletes an existing MediaPackage VOD Asset resource.",
+        "operationId": "DeleteAsset"
+      },
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The ID of an MediaPackage VOD Asset resource.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeAssetResponse"
+            }
+          },
+          "480": {
+            "description": "UnprocessableEntityException",
+            "schema": {
+              "$ref": "#/definitions/UnprocessableEntityException"
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "484": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          }
+        },
+        "description": "Returns a description of a MediaPackage VOD Asset resource.",
+        "operationId": "DescribeAsset"
+      }
+    },
+    "/packaging_configurations": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Upper bound on number of records to return.",
+            "in": "query",
+            "maximum": 1000,
+            "minimum": 1,
+            "name": "maxResults",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "A token used to resume pagination from the end of a previous request.",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Returns MediaPackage VOD PackagingConfigurations associated with the specified PackagingGroup.",
+            "in": "query",
+            "name": "packagingGroupId",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListPackagingConfigurationsResponse"
+            }
+          },
+          "480": {
+            "description": "UnprocessableEntityException",
+            "schema": {
+              "$ref": "#/definitions/UnprocessableEntityException"
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "484": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          }
+        },
+        "description": "Returns a collection of MediaPackage VOD PackagingConfiguration resources.",
+        "operationId": "ListPackagingConfigurations"
+      },
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "tags": {
+                  "additionalProperties": {
+                    "$ref": "#/definitions/__string"
+                  },
+                  "description": "A collection of tags associated with a resource",
+                  "type": "object"
+                },
+                "cmafPackage": {
+                  "description": "A CMAF packaging configuration.",
+                  "properties": {
+                    "Encryption": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/CmafEncryption"
+                        },
+                        {
+                          "xml": {
+                            "name": "encryption"
+                          }
+                        }
+                      ]
+                    },
+                    "HlsManifests": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/__listOfHlsManifest"
+                        },
+                        {
+                          "description": "A list of HLS manifest configurations.",
+                          "xml": {
+                            "name": "hlsManifests"
+                          }
+                        }
+                      ]
+                    },
+                    "SegmentDurationSeconds": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/__integer"
+                        },
+                        {
+                          "description": "Duration (in seconds) of each fragment. Actual fragments will be\nrounded to the nearest multiple of the source fragment duration.\n",
+                          "xml": {
+                            "name": "segmentDurationSeconds"
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  "type": "object"
+                },
+                "dashPackage": {
+                  "description": "A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.",
+                  "properties": {
+                    "DashManifests": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/__listOfDashManifest"
+                        },
+                        {
+                          "description": "A list of DASH manifest configurations.",
+                          "xml": {
+                            "name": "dashManifests"
+                          }
+                        }
+                      ]
+                    },
+                    "Encryption": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/DashEncryption"
+                        },
+                        {
+                          "xml": {
+                            "name": "encryption"
+                          }
+                        }
+                      ]
+                    },
+                    "PeriodTriggers": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/__listOf__PeriodTriggersElement"
+                        },
+                        {
+                          "description": "A list of triggers that controls when the outgoing Dynamic Adaptive Streaming over HTTP (DASH)\nMedia Presentation Description (MPD) will be partitioned into multiple periods. If empty, the content will not\nbe partitioned into more than one period. If the list contains \"ADS\", new periods will be created where\nthe Asset contains SCTE-35 ad markers.\n",
+                          "xml": {
+                            "name": "periodTriggers"
+                          }
+                        }
+                      ]
+                    },
+                    "SegmentDurationSeconds": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/__integer"
+                        },
+                        {
+                          "description": "Duration (in seconds) of each segment. Actual segments will be\nrounded to the nearest multiple of the source segment duration.\n",
+                          "xml": {
+                            "name": "segmentDurationSeconds"
+                          }
+                        }
+                      ]
+                    },
+                    "SegmentTemplateFormat": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/SegmentTemplateFormat"
+                        },
+                        {
+                          "description": "Determines the type of SegmentTemplate included in the Media Presentation Description (MPD).  When set to NUMBER_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Number$ media URLs.  When set to TIME_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Time$ media URLs. When set to NUMBER_WITH_DURATION, only a duration is included in each SegmentTemplate, with $Number$ media URLs.",
+                          "xml": {
+                            "name": "segmentTemplateFormat"
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  "type": "object"
+                },
+                "hlsPackage": {
+                  "description": "An HTTP Live Streaming (HLS) packaging configuration.",
+                  "properties": {
+                    "Encryption": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/HlsEncryption"
+                        },
+                        {
+                          "xml": {
+                            "name": "encryption"
+                          }
+                        }
+                      ]
+                    },
+                    "HlsManifests": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/__listOfHlsManifest"
+                        },
+                        {
+                          "description": "A list of HLS manifest configurations.",
+                          "xml": {
+                            "name": "hlsManifests"
+                          }
+                        }
+                      ]
+                    },
+                    "SegmentDurationSeconds": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/__integer"
+                        },
+                        {
+                          "description": "Duration (in seconds) of each fragment. Actual fragments will be\nrounded to the nearest multiple of the source fragment duration.\n",
+                          "xml": {
+                            "name": "segmentDurationSeconds"
+                          }
+                        }
+                      ]
+                    },
+                    "UseAudioRenditionGroup": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/__boolean"
+                        },
+                        {
+                          "description": "When enabled, audio streams will be placed in rendition groups in the output.",
+                          "xml": {
+                            "name": "useAudioRenditionGroup"
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  "type": "object"
+                },
+                "id": {
+                  "description": "The ID of the PackagingConfiguration.",
+                  "type": "string"
+                },
+                "mssPackage": {
+                  "description": "A Microsoft Smooth Streaming (MSS) PackagingConfiguration.",
+                  "properties": {
+                    "Encryption": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/MssEncryption"
+                        },
+                        {
+                          "xml": {
+                            "name": "encryption"
+                          }
+                        }
+                      ]
+                    },
+                    "MssManifests": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/__listOfMssManifest"
+                        },
+                        {
+                          "description": "A list of MSS manifest configurations.",
+                          "xml": {
+                            "name": "mssManifests"
+                          }
+                        }
+                      ]
+                    },
+                    "SegmentDurationSeconds": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/__integer"
+                        },
+                        {
+                          "description": "The duration (in seconds) of each segment.",
+                          "xml": {
+                            "name": "segmentDurationSeconds"
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  "type": "object"
+                },
+                "packagingGroupId": {
+                  "description": "The ID of a PackagingGroup.",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "packagingGroupId"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreatePackagingConfigurationResponse"
+            }
+          },
+          "480": {
+            "description": "UnprocessableEntityException",
+            "schema": {
+              "$ref": "#/definitions/UnprocessableEntityException"
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "484": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          }
+        },
+        "description": "Creates a new MediaPackage VOD PackagingConfiguration resource.",
+        "operationId": "CreatePackagingConfiguration"
+      }
+    },
+    "/packaging_configurations/{id}": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "delete": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The ID of the MediaPackage VOD PackagingConfiguration resource to delete.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeletePackagingConfigurationResponse"
+            }
+          },
+          "480": {
+            "description": "UnprocessableEntityException",
+            "schema": {
+              "$ref": "#/definitions/UnprocessableEntityException"
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "484": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          }
+        },
+        "description": "Deletes a MediaPackage VOD PackagingConfiguration resource.",
+        "operationId": "DeletePackagingConfiguration"
+      },
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The ID of a MediaPackage VOD PackagingConfiguration resource.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribePackagingConfigurationResponse"
+            }
+          },
+          "480": {
+            "description": "UnprocessableEntityException",
+            "schema": {
+              "$ref": "#/definitions/UnprocessableEntityException"
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "484": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          }
+        },
+        "description": "Returns a description of a MediaPackage VOD PackagingConfiguration resource.",
+        "operationId": "DescribePackagingConfiguration"
+      }
+    },
+    "/packaging_groups": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Upper bound on number of records to return.",
+            "in": "query",
+            "maximum": 1000,
+            "minimum": 1,
+            "name": "maxResults",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "A token used to resume pagination from the end of a previous request.",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListPackagingGroupsResponse"
+            }
+          },
+          "480": {
+            "description": "UnprocessableEntityException",
+            "schema": {
+              "$ref": "#/definitions/UnprocessableEntityException"
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "484": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          }
+        },
+        "description": "Returns a collection of MediaPackage VOD PackagingGroup resources.",
+        "operationId": "ListPackagingGroups"
+      },
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "tags": {
+                  "additionalProperties": {
+                    "$ref": "#/definitions/__string"
+                  },
+                  "description": "A collection of tags associated with a resource",
+                  "type": "object"
+                },
+                "authorization": {
+                  "description": "CDN Authorization credentials",
+                  "properties": {
+                    "CdnIdentifierSecret": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/__string"
+                        },
+                        {
+                          "description": "The Amazon Resource Name (ARN) for the secret in AWS Secrets Manager that is used for CDN authorization.",
+                          "xml": {
+                            "name": "cdnIdentifierSecret"
+                          }
+                        }
+                      ]
+                    },
+                    "SecretsRoleArn": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/__string"
+                        },
+                        {
+                          "description": "The Amazon Resource Name (ARN) for the IAM role that allows MediaPackage to communicate with AWS Secrets Manager.",
+                          "xml": {
+                            "name": "secretsRoleArn"
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  "type": "object"
+                },
+                "id": {
+                  "description": "The ID of the PackagingGroup.",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreatePackagingGroupResponse"
+            }
+          },
+          "480": {
+            "description": "UnprocessableEntityException",
+            "schema": {
+              "$ref": "#/definitions/UnprocessableEntityException"
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "484": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          }
+        },
+        "description": "Creates a new MediaPackage VOD PackagingGroup resource.",
+        "operationId": "CreatePackagingGroup"
+      }
+    },
+    "/packaging_groups/{id}": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "delete": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The ID of the MediaPackage VOD PackagingGroup resource to delete.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeletePackagingGroupResponse"
+            }
+          },
+          "480": {
+            "description": "UnprocessableEntityException",
+            "schema": {
+              "$ref": "#/definitions/UnprocessableEntityException"
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "484": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          }
+        },
+        "description": "Deletes a MediaPackage VOD PackagingGroup resource.",
+        "operationId": "DeletePackagingGroup"
+      },
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The ID of a MediaPackage VOD PackagingGroup resource.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribePackagingGroupResponse"
+            }
+          },
+          "480": {
+            "description": "UnprocessableEntityException",
+            "schema": {
+              "$ref": "#/definitions/UnprocessableEntityException"
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "484": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          }
+        },
+        "description": "Returns a description of a MediaPackage VOD PackagingGroup resource.",
+        "operationId": "DescribePackagingGroup"
+      },
+      "put": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The ID of a MediaPackage VOD PackagingGroup resource.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "authorization": {
+                  "description": "CDN Authorization credentials",
+                  "properties": {
+                    "CdnIdentifierSecret": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/__string"
+                        },
+                        {
+                          "description": "The Amazon Resource Name (ARN) for the secret in AWS Secrets Manager that is used for CDN authorization.",
+                          "xml": {
+                            "name": "cdnIdentifierSecret"
+                          }
+                        }
+                      ]
+                    },
+                    "SecretsRoleArn": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/__string"
+                        },
+                        {
+                          "description": "The Amazon Resource Name (ARN) for the IAM role that allows MediaPackage to communicate with AWS Secrets Manager.",
+                          "xml": {
+                            "name": "secretsRoleArn"
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UpdatePackagingGroupResponse"
+            }
+          },
+          "480": {
+            "description": "UnprocessableEntityException",
+            "schema": {
+              "$ref": "#/definitions/UnprocessableEntityException"
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "484": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          }
+        },
+        "description": "Updates a specific packaging group. You can't change the id attribute or any other system-generated attributes.",
+        "operationId": "UpdatePackagingGroup"
+      }
+    },
+    "/tags/{resource-arn}": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The Amazon Resource Name (ARN) for the resource. You can get this from the response to any request to the resource.",
+            "in": "path",
+            "name": "resource-arn",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListTagsForResourceResponse"
+            }
+          }
+        },
+        "description": "Returns a list of the tags assigned to the specified resource.",
+        "operationId": "ListTagsForResource"
+      },
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The Amazon Resource Name (ARN) for the resource. You can get this from the response to any request to the resource.",
+            "in": "path",
+            "name": "resource-arn",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "tags": {
+                  "additionalProperties": {
+                    "$ref": "#/definitions/__string"
+                  },
+                  "description": "A collection of tags associated with a resource",
+                  "type": "object"
+                }
+              },
+              "required": [
+                "tags"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Success"
+          }
+        },
+        "description": "Adds tags to the specified resource. You can specify one or more tags to add.",
+        "operationId": "TagResource"
+      }
+    },
+    "/tags/{resource-arn}#tagKeys": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "delete": {
+        "parameters": [
+          {
+            "description": "The Amazon Resource Name (ARN) for the resource. You can get this from the response to any request to the resource.",
+            "in": "path",
+            "name": "resource-arn",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "collectionFormat": "multi",
+            "description": "A comma-separated list of the tag keys to remove from the resource.",
+            "in": "query",
+            "items": {
+              "$ref": "#/definitions/__string"
+            },
+            "name": "tagKeys",
+            "required": true,
+            "type": "array"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Success"
+          }
+        },
+        "description": "Removes tags from the specified resource. You can specify one or more tags to remove.",
+        "operationId": "UntagResource"
+      }
+    }
+  },
+  "definitions": {
+    "AdMarkers": {
+      "enum": [
+        "NONE",
+        "SCTE35_ENHANCED",
+        "PASSTHROUGH"
+      ],
+      "type": "string"
+    },
+    "AssetShallow": {
+      "description": "A MediaPackage VOD Asset resource.",
+      "properties": {
+        "Arn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/__string"
+            },
+            {
+              "description": "The ARN of the Asset.",
+              "xml": {
+                "name": "arn"
+              }
+            }
+          ]
+        },
+        "CreatedAt": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/__string"
+            },
+            {
+              "description": "The time the Asset was initially submitted for Ingest.",
+              "xml": {
+                "name": "createdAt"
+              }
+            }
+          ]
+        },
+        "Id": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/__string"
+            },
+            {
+              "description": "The unique identifier for the Asset.",
+              "xml": {
+                "name": "id"
+              }
+            }
+          ]
+        },
+        "PackagingGroupId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/__string"
+            },
+            {
+              "description": "The ID of the PackagingGroup for the Asset.",
+              "xml": {
+                "name": "packagingGroupId"
+              }
+            }
+          ]
+        },
+        "ResourceId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/__string"
+            },
+            {
+              "description": "The resource ID to include in SPEKE key requests.",
+              "xml": {
+                "name": "resourceId"
+              }
+            }
+          ]
+        },
+        "SourceArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/__string"
+            },
+            {
+              "description": "ARN of the source object in S3.",
+              "xml": {
+                "name": "sourceArn"
+              }
+            }
+          ]
+        },
+        "SourceRoleArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/__string"
+            },
+            {
+              "description": "The IAM role ARN used to access the source S3 bucket.",
+              "xml": {
+                "name": "sourceRoleArn"
+              }
+            }
+          ]
+        },
+        "Tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Tags"
+            },
+            {
+              "xml": {
+                "name": "tags"
+              }
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "Authorization": {
+      "description": "CDN Authorization credentials",
+      "properties": {
+        "CdnIdentifierSecret": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/__string"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) for the secret in AWS Secrets Manager that is used for CDN authorization.",
+              "xml": {
+                "name": "cdnIdentifierSecret"
+              }
+            }
+          ]
+        },
+        "SecretsRoleArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/__string"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) for the IAM role that allows MediaPackage to communicate with AWS Secrets Manager.",
+              "xml": {
+                "name": "secretsRoleArn"
+              }
+            }
+          ]
+        }
+      },
+      "required": [
+        "SecretsRoleArn",
+        "CdnIdentifierSecret"
+      ],
+      "type": "object"
+    },
+    "CmafEncryption": {
+      "description": "A CMAF encryption configuration.",
+      "properties": {
+        "SpekeKeyProvider": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SpekeKeyProvider"
+            },
+            {
+              "xml": {
+                "name": "spekeKeyProvider"
+              }
+            }
+          ]
+        }
+      },
+      "required": [
+        "SpekeKeyProvider"
+      ],
+      "type": "object"
+    },
+    "CmafPackage": {
+      "description": "A CMAF packaging configuration.",
+      "properties": {
+        "Encryption": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CmafEncryption"
+            },
+            {
+              "xml": {
+                "name": "encryption"
+              }
+            }
+          ]
+        },
+        "HlsManifests": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/__listOfHlsManifest"
+            },
+            {
+              "description": "A list of HLS manifest configurations.",
+              "xml": {
+                "name": "hlsManifests"
+              }
+            }
+          ]
+        },
+        "SegmentDurationSeconds": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/__integer"
+            },
+            {
+              "description": "Duration (in seconds) of each fragment. Actual fragments will be\nrounded to the nearest multiple of the source fragment duration.\n",
+              "xml": {
+                "name": "segmentDurationSeconds"
+              }
+            }
+          ]
+        }
+      },
+      "required": [
+        "HlsManifests"
+      ],
+      "type": "object"
+    },
+    "CreateAssetRequest": {
+      "description": "A new MediaPackage VOD Asset configuration.",
+      "properties": {
+        "Id": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/__string"
+            },
+            {
+              "description": "The unique identifier for the Asset.",
+              "xml": {
+                "name": "id"
+              }
+            }
+          ]
+        },
+        "PackagingGroupId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/__string"
+            },
+            {
+              "description": "The ID of the PackagingGroup for the Asset.",
+              "xml": {
+                "name": "packagingGroupId"
+              }
+            }
+          ]
+        },
+        "ResourceId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/__string"
+            },
+            {
+              "description": "The resource ID to include in SPEKE key requests.",
+              "xml": {
+                "name": "resourceId"
+              }
+            }
+          ]
+        },
+        "SourceArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/__string"
+            },
+            {
+              "description": "ARN of the source object in S3.",
+              "xml": {
+                "name": "sourceArn"
+              }
+            }
+          ]
+        },
+        "SourceRoleArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/__string"
+            },
+            {
+              "description": "The IAM role ARN used to access the source S3 bucket.",
+              "xml": {
+                "name": "sourceRoleArn"
+              }
+            }
+          ]
+        },
+        "Tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Tags"
+            },
+            {
+              "xml": {
+                "name": "tags"
+              }
+            }
+          ]
+        }
+      },
+      "required": [
+        "SourceArn",
+        "Id",
+        "PackagingGroupId",
+        "SourceRoleArn"
+      ],
+      "title": "CreateAssetRequest",
+      "type": "object"
+    },
+    "CreateAssetResponse": {
+      "properties": {
+        "Arn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/__string"
+            },
+            {
+              "description": "The ARN of the Asset.",
+              "xml": {
+                "name": "arn"
+              }
+            }
+          ]
+        },
+        "CreatedAt": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/__string"
+            },
+            {
+              "description": "The time the Asset was initially submitted for Ingest.",
+              "xml": {
+                "name": "createdAt"
+              }
+            }
+          ]
+        },
+        "EgressEndpoints": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/__listOfEgressEndpoint"
+            },
+            {
+              "description": "The list of egress endpoints available for the Asset.",
+              "xml": {
+                "name": "egressEndpoints"
+              }
+            }
+          ]
+        },
+        "Id": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/__string"
+            },
+            {
+              "description": "The unique identifier for the Asset.",
+              "xml": {
+                "name": "id"
+              }
+            }
+          ]
+        },
+        "PackagingGroupId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/__string"
+            },
+            {
+              "description": "The ID of the PackagingGroup for the Asset.",
+              "xml": {
+                "name": "packagingGroupId"
+              }
+            }
+          ]
+        },
+        "ResourceId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/__string"
+            },
+            {
+              "description": "The resource ID to include in SPEKE key requests.",
+              "xml": {
+                "name": "resourceId"
+              }
+            }
+          ]
+        },
+        "SourceArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/__string"
+            },
+            {
+              "description": "ARN of the source object in S3.",
+              "xml": {
+                "name": "sourceArn"
+              }
+            }
+          ]
+        },
+        "SourceRoleArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/__string"
+            },
+            {
+              "description": "The IAM role_arn used to access the source S3 bucket.",
+              "xml": {
+                "name": "sourceRoleArn"
+              }
+            }
+          ]
+        },
+        "Tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Tags"
+            },
+            {
+              "xml": {
+                "name": "tags"
+              }
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "CreatePackagingConfigurationRequest": {
+      "description": "A new MediaPackage VOD PackagingConfiguration resource configuration.",
+      "properties": {
+        "CmafPackage": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CmafPackage"
+            },
+            {
+              "xml": {
+                "name": "cmafPackage"
+              }
+            }
+          ]
+        },
+        "DashPackage": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DashPackage"
+            },
+            {
+              "xml": {
+                "name": "dashPackage"
+              }
+            }
+          ]
+        },
+        "HlsPackage": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/HlsPackage"
+            },
+            {
+              "xml": {
+                "name": "hlsPackage"
+              }
+            }
+          ]
+        },
+        "Id": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/__string"
+            },
+            {
+              "description": "The ID of the PackagingConfiguration.",
+              "xml": {
+                "name": "id"
+              }
+            }
+          ]
+        },
+        "MssPackage": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MssPackage"
+            },
+            {
+              "xml": {
+                "name": "mssPackage"
+              }
+            }
+          ]
+        },
+        "PackagingGroupId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/__string"
+            },
+            {
+              "description": "The ID of a PackagingGroup.",
+              "xml": {
+                "name": "packagingGroupId"
+              }
+            }
+          ]
+        },
+        "Tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Tags"
+            },
+            {
+              "xml": {
+                "name": "tags"
+              }
+            }
+          ]
+        }
+      },
+      "required": [
+        "Id",
+        "PackagingGroupId"
+      ],
+      "title": "CreatePackagingConfigurationRequest",
+      "type": "object"
+    },
+    "CreatePackagingConfigurationResponse": {
+      "properties": {
+        "Arn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/__string"
+            },
+            {
+              "description": "The ARN of the PackagingConfiguration.",
+              "xml": {
+                "name": "arn"
+              }
+            }
+          ]
+        },
+        "CmafPackage": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CmafPackage"
+            },
+            {
+              "xml": {
+                "name": "cmafPackage"
+              }
+            }
+          ]
+        },
+        "DashPackage": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DashPackage"
+            },
+            {
+              "xml": {
+                "name": "dashPackage"
+              }
+            }
+          ]
+        },
+        "HlsPackage": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/HlsPackage"
+            },
+            {
+              "xml": {
+                "name": "hlsPackage"
+              }
+            }
+          ]
+        },
+        "Id": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/__string"
+            },
+            {
+              "description": "The ID of the PackagingConfiguration.",
+              "xml": {
+                "name": "id"
+              }
+            }
+          ]
+        },
+        "MssPackage": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MssPackage"
+            },
+            {
+              "xml": {
+                "name": "mssPackage"
+              }
+            }
+          ]
+        },
+        "PackagingGroupId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/__string"
+            },
+            {
+              "description": "The ID of a PackagingGroup.",
+              "xml": {
+                "name": "packagingGroupId"
+              }
+            }
+          ]
+        },
+        "Tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Tags"
+            },
+            {
+              "xml": {
+                "name": "tags"
+              }
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "CreatePackagingGroupRequest": {
+      "description": "A new MediaPackage VOD PackagingGroup resource configuration.",
+      "properties": {
+        "Authorization": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Authorization"
+            },
+            {
+              "xml": {
+                "name": "authorization"
+              }
+            }
+          ]
+        },
+        "Id": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/__string"
+            },
+            {
+              "description": "The ID of the PackagingGroup.",
+              "xml": {
+                "name": "id"
+              }
+            }
+          ]
+        },
+        "Tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Tags"
+            },
+            {
+              "xml": {
+                "name": "tags"
+              }
+            }
+          ]
+        }
+      },
+      "required": [
+        "Id"
+      ],
+      "title": "CreatePackagingGroupRequest",
+      "type": "object"
+    },
+    "CreatePackagingGroupResponse": {
+      "properties": {
+        "Arn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/__string"
+            },
+            {
+              "description": "The ARN of the PackagingGroup.",
+              "xml": {
+                "name": "arn"
+              }
+            }
+          ]
+        },
+        "Authorization": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Authorization"
+            },
+            {
+              "xml": {
+                "name": "authorization"
+              }
+            }
+          ]
+        },
+        "DomainName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/__string"
+            },
+            {
+              "description": "The fully qualified domain name for Assets in the PackagingGroup.",
+              "xml": {
+                "name": "domainName"
+              }
+            }
+          ]
+        },
+        "Id": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/__string"
+            },
+            {
+              "description": "The ID of the PackagingGroup.",
+              "xml": {
+                "name": "id"
+              }
+            }
+          ]
+        },
+        "Tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Tags"
+            },
+            {
+              "xml": {
+                "name": "tags"
+              }
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DashEncryption": {
+      "description": "A Dynamic Adaptive Streaming over HTTP (DASH) encryption configuration.",
+      "properties": {
+        "SpekeKeyProvider": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SpekeKeyProvider"
+            },
+            {
+              "xml": {
+                "name": "spekeKeyProvider"
+              }
+            }
+          ]
+        }
+      },
+      "required": [
+        "SpekeKeyProvider"
+      ],
+      "type": "object"
+    },
+    "DashManifest": {
+      "description": "A DASH manifest configuration.",
+      "properties": {
+        "ManifestLayout": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ManifestLayout"
+            },
+            {
+              "description": "Determines the position of some tags in the Media Presentation Description (MPD).  When set to FULL, elements like SegmentTemplate and ContentProtection are included in each Representation.  When set to COMPACT, duplicate elements are combined and presented at the AdaptationSet level.",
+              "xml": {
+                "name": "manifestLayout"
+              }
+            }
+          ]
+        },
+        "ManifestName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/__string"
+            },
+            {
+              "description": "An optional string to include in the name of the manifest.",
+              "xml": {
+                "name": "manifestName"
+              }
+            }
+          ]
+        },
+        "MinBufferTimeSeconds": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/__integer"
+            },
+            {
+              "description": "Minimum duration (in seconds) that a player will buffer media before starting the presentation.",
+              "xml": {
+                "name": "minBufferTimeSeconds"
+              }
+            }
+          ]
+        },
+        "Profile": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Profile"
+            },
+            {
+              "description": "The Dynamic Adaptive Streaming over HTTP (DASH) profile type.  When set to \"HBBTV_1_5\", HbbTV 1.5 compliant output is enabled.",
+              "xml": {
+                "name": "profile"
+              }
+            }
+          ]
+        },
+        "StreamSelection": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/StreamSelection"
+            },
+            {
+              "xml": {
+                "name": "streamSelection"
+              }
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DashPackage": {
+      "description": "A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.",
+      "properties": {
+        "DashManifests": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/__listOfDashManifest"
+            },
+            {
+              "description": "A list of DASH manifest configurations.",
+              "xml": {
+                "name": "dashManifests"
+              }
+            }
+          ]
+        },
+        "Encryption": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DashEncryption"
+            },
+            {
+              "xml": {
+                "name": "encryption"
+              }
+            }
+          ]
+        },
+        "PeriodTriggers": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/__listOf__PeriodTriggersElement"
+            },
+            {
+              "description": "A list of triggers that controls when the outgoing Dynamic Adaptive Streaming over HTTP (DASH)\nMedia Presentation Description (MPD) will be partitioned into multiple periods. If empty, the content will not\nbe partitioned into more than one period. If the list contains \"ADS\", new periods will be created where\nthe Asset contains SCTE-35 ad markers.\n",
+              "xml": {
+                "name": "periodTriggers"
+              }
+            }
+          ]
+        },
+        "SegmentDurationSeconds": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/__integer"
+            },
+            {
+              "description": "Duration (in seconds) of each segment. Actual segments will be\nrounded to the nearest multiple of the source segment duration.\n",
+              "xml": {
+                "name": "segmentDurationSeconds"
+              }
+            }
+          ]
+        },
+        "SegmentTemplateFormat": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SegmentTemplateFormat"
+            },
+            {
+              "description": "Determines the type of SegmentTemplate included in the Media Presentation Description (MPD).  When set to NUMBER_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Number$ media URLs.  When set to TIME_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Time$ media URLs. When set to NUMBER_WITH_DURATION, only a duration is included in each SegmentTemplate, with $Number$ media URLs.",
+              "xml": {
+                "name": "segmentTemplateFormat"
+              }
+            }
+          ]
+        }
+      },
+      "required": [
+        "DashManifests"
+      ],
+      "type": "object"
+    },
+    "DeleteAssetRequest": {
+      "properties": {},
+      "title": "DeleteAssetRequest",
+      "type": "object"
+    },
+    "DeleteAssetResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "DeletePackagingConfigurationRequest": {
+      "properties": {},
+      "title": "DeletePackagingConfigurationRequest",
+      "type": "object"
+    },
+    "DeletePackagingConfigurationResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "DeletePackagingGroupRequest": {
+      "properties": {},
+      "title": "DeletePackagingGroupRequest",
+      "type": "object"
+    },
+    "DeletePackagingGroupResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "DescribeAssetRequest": {
+      "properties": {},
+      "title": "DescribeAssetRequest",
+      "type": "object"
+    },
+    "DescribeAssetResponse": {
+      "properties": {
+        "Arn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/__string"
+            },
+            {
+              "description": "The ARN of the Asset.",
+              "xml": {
+                "name": "arn"
+              }
+            }
+          ]
+        },
+        "CreatedAt": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/__string"
+            },
+            {
+              "description": "The time the Asset was initially submitted for Ingest.",
+              "xml": {
+                "name": "createdAt"
+              }
+            }
+          ]
+        },
+        "EgressEndpoints": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/__listOfEgressEndpoint"
+            },
+            {
+              "description": "The list of egress endpoints available for the Asset.",
+              "xml": {
+                "name": "egressEndpoints"
+              }
+            }
+          ]
+        },
+        "Id": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/__string"
+            },
+            {
+              "description": "The unique identifier for the Asset.",
+              "xml": {
+                "name": "id"
+              }
+            }
+          ]
+        },
+        "PackagingGroupId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/__string"
+            },
+            {
+              "description": "The ID of the PackagingGroup for the Asset.",
+              "xml": {
+                "name": "packagingGroupId"
+              }
+            }
+          ]
+        },
+        "ResourceId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/__string"
+            },
+            {
+              "description": "The resource ID to include in SPEKE key requests.",
+              "xml": {
+                "name": "resourceId"
+              }
+            }
+          ]
+        },
+        "SourceArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/__string"
+            },
+            {
+              "description": "ARN of the source object in S3.",
+              "xml": {
+                "name": "sourceArn"
+              }
+            }
+          ]
+        },
+        "SourceRoleArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/__string"
+            },
+            {
+              "description": "The IAM role_arn used to access the source S3 bucket.",
+              "xml": {
+                "name": "sourceRoleArn"
+              }
+            }
+          ]
+        },
+        "Tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Tags"
+            },
+            {
+              "xml": {
+                "name": "tags"
+              }
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DescribePackagingConfigurationRequest": {
+      "properties": {},
+      "title": "DescribePackagingConfigurationRequest",
+      "type": "object"
+    },
+    "DescribePackagingConfigurationResponse": {
+      "properties": {
+        "Arn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/__string"
+            },
+            {
+              "description": "The ARN of the PackagingConfiguration.",
+              "xml": {
+                "name": "arn"
+              }
+            }
+          ]
+        },
+        "CmafPackage": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CmafPackage"
+            },
+            {
+              "xml": {
+                "name": "cmafPackage"
+              }
+            }
+          ]
+        },
+        "DashPackage": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DashPackage"
+            },
+            {
+              "xml": {
+                "name": "dashPackage"
+              }
+            }
+          ]
+        },
+        "HlsPackage": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/HlsPackage"
+            },
+            {
+              "xml": {
+                "name": "hlsPackage"
+              }
+            }
+          ]
+        },
+        "Id": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/__string"
+            },
+            {
+              "description": "The ID of the PackagingConfiguration.",
+              "xml": {
+                "name": "id"
+              }
+            }
+          ]
+        },
+        "MssPackage": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MssPackage"
+            },
+            {
+              "xml": {
+                "name": "mssPackage"
+              }
+            }
+          ]
+        },
+        "PackagingGroupId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/__string"
+            },
+            {
+              "description": "The ID of a PackagingGroup.",
+              "xml": {
+                "name": "packagingGroupId"
+              }
+            }
+          ]
+        },
+        "Tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Tags"
+            },
+            {
+              "xml": {
+                "name": "tags"
+              }
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DescribePackagingGroupRequest": {
+      "properties": {},
+      "title": "DescribePackagingGroupRequest",
+      "type": "object"
+    },
+    "DescribePackagingGroupResponse": {
+      "properties": {
+        "Arn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/__string"
+            },
+            {
+              "description": "The ARN of the PackagingGroup.",
+              "xml": {
+                "name": "arn"
+              }
+            }
+          ]
+        },
+        "Authorization": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Authorization"
+            },
+            {
+              "xml": {
+                "name": "authorization"
+              }
+            }
+          ]
+        },
+        "DomainName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/__string"
+            },
+            {
+              "description": "The fully qualified domain name for Assets in the PackagingGroup.",
+              "xml": {
+                "name": "domainName"
+              }
+            }
+          ]
+        },
+        "Id": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/__string"
+            },
+            {
+              "description": "The ID of the PackagingGroup.",
+              "xml": {
+                "name": "id"
+              }
+            }
+          ]
+        },
+        "Tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Tags"
+            },
+            {
+              "xml": {
+                "name": "tags"
+              }
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "EgressEndpoint": {
+      "description": "The endpoint URL used to access an Asset using one PackagingConfiguration.",
+      "properties": {
+        "PackagingConfigurationId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/__string"
+            },
+            {
+              "description": "The ID of the PackagingConfiguration being applied to the Asset.",
+              "xml": {
+                "name": "packagingConfigurationId"
+              }
+            }
+          ]
+        },
+        "Url": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/__string"
+            },
+            {
+              "description": "The URL of the parent manifest for the repackaged Asset.",
+              "xml": {
+                "name": "url"
+              }
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "EncryptionMethod": {
+      "enum": [
+        "AES_128",
+        "SAMPLE_AES"
+      ],
+      "type": "string"
+    },
+    "ForbiddenException": {},
+    "HlsEncryption": {
+      "description": "An HTTP Live Streaming (HLS) encryption configuration.",
+      "properties": {
+        "ConstantInitializationVector": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/__string"
+            },
+            {
+              "description": "A constant initialization vector for encryption (optional).\nWhen not specified the initialization vector will be periodically rotated.\n",
+              "xml": {
+                "name": "constantInitializationVector"
+              }
+            }
+          ]
+        },
+        "EncryptionMethod": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/EncryptionMethod"
+            },
+            {
+              "description": "The encryption method to use.",
+              "xml": {
+                "name": "encryptionMethod"
+              }
+            }
+          ]
+        },
+        "SpekeKeyProvider": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SpekeKeyProvider"
+            },
+            {
+              "xml": {
+                "name": "spekeKeyProvider"
+              }
+            }
+          ]
+        }
+      },
+      "required": [
+        "SpekeKeyProvider"
+      ],
+      "type": "object"
+    },
+    "HlsManifest": {
+      "description": "An HTTP Live Streaming (HLS) manifest configuration.",
+      "properties": {
+        "AdMarkers": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AdMarkers"
+            },
+            {
+              "description": "This setting controls how ad markers are included in the packaged OriginEndpoint.\n\"NONE\" will omit all SCTE-35 ad markers from the output.\n\"PASSTHROUGH\" causes the manifest to contain a copy of the SCTE-35 ad\nmarkers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest.\n\"SCTE35_ENHANCED\" generates ad markers and blackout tags based on SCTE-35\nmessages in the input source.\n",
+              "xml": {
+                "name": "adMarkers"
+              }
+            }
+          ]
+        },
+        "IncludeIframeOnlyStream": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/__boolean"
+            },
+            {
+              "description": "When enabled, an I-Frame only stream will be included in the output.",
+              "xml": {
+                "name": "includeIframeOnlyStream"
+              }
+            }
+          ]
+        },
+        "ManifestName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/__string"
+            },
+            {
+              "description": "An optional string to include in the name of the manifest.",
+              "xml": {
+                "name": "manifestName"
+              }
+            }
+          ]
+        },
+        "ProgramDateTimeIntervalSeconds": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/__integer"
+            },
+            {
+              "description": "The interval (in seconds) between each EXT-X-PROGRAM-DATE-TIME tag\ninserted into manifests. Additionally, when an interval is specified\nID3Timed Metadata messages will be generated every 5 seconds using the\ningest time of the content.\nIf the interval is not specified, or set to 0, then\nno EXT-X-PROGRAM-DATE-TIME tags will be inserted into manifests and no\nID3Timed Metadata messages will be generated. Note that irrespective\nof this parameter, if any ID3 Timed Metadata is found in HTTP Live Streaming (HLS) input,\nit will be passed through to HLS output.\n",
+              "xml": {
+                "name": "programDateTimeIntervalSeconds"
+              }
+            }
+          ]
+        },
+        "RepeatExtXKey": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/__boolean"
+            },
+            {
+              "description": "When enabled, the EXT-X-KEY tag will be repeated in output manifests.",
+              "xml": {
+                "name": "repeatExtXKey"
+              }
+            }
+          ]
+        },
+        "StreamSelection": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/StreamSelection"
+            },
+            {
+              "xml": {
+                "name": "streamSelection"
+              }
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "HlsPackage": {
+      "description": "An HTTP Live Streaming (HLS) packaging configuration.",
+      "properties": {
+        "Encryption": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/HlsEncryption"
+            },
+            {
+              "xml": {
+                "name": "encryption"
+              }
+            }
+          ]
+        },
+        "HlsManifests": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/__listOfHlsManifest"
+            },
+            {
+              "description": "A list of HLS manifest configurations.",
+              "xml": {
+                "name": "hlsManifests"
+              }
+            }
+          ]
+        },
+        "SegmentDurationSeconds": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/__integer"
+            },
+            {
+              "description": "Duration (in seconds) of each fragment. Actual fragments will be\nrounded to the nearest multiple of the source fragment duration.\n",
+              "xml": {
+                "name": "segmentDurationSeconds"
+              }
+            }
+          ]
+        },
+        "UseAudioRenditionGroup": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/__boolean"
+            },
+            {
+              "description": "When enabled, audio streams will be placed in rendition groups in the output.",
+              "xml": {
+                "name": "useAudioRenditionGroup"
+              }
+            }
+          ]
+        }
+      },
+      "required": [
+        "HlsManifests"
+      ],
+      "type": "object"
+    },
+    "InternalServerErrorException": {},
+    "ListAssetsRequest": {
+      "properties": {},
+      "title": "ListAssetsRequest",
+      "type": "object"
+    },
+    "ListAssetsResponse": {
+      "properties": {
+        "Assets": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/__listOfAssetShallow"
+            },
+            {
+              "description": "A list of MediaPackage VOD Asset resources.",
+              "xml": {
+                "name": "assets"
+              }
+            }
+          ]
+        },
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/__string"
+            },
+            {
+              "description": "A token that can be used to resume pagination from the end of the collection.",
+              "xml": {
+                "name": "nextToken"
+              }
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ListPackagingConfigurationsRequest": {
+      "properties": {},
+      "title": "ListPackagingConfigurationsRequest",
+      "type": "object"
+    },
+    "ListPackagingConfigurationsResponse": {
+      "properties": {
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/__string"
+            },
+            {
+              "description": "A token that can be used to resume pagination from the end of the collection.",
+              "xml": {
+                "name": "nextToken"
+              }
+            }
+          ]
+        },
+        "PackagingConfigurations": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/__listOfPackagingConfiguration"
+            },
+            {
+              "description": "A list of MediaPackage VOD PackagingConfiguration resources.",
+              "xml": {
+                "name": "packagingConfigurations"
+              }
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ListPackagingGroupsRequest": {
+      "properties": {},
+      "title": "ListPackagingGroupsRequest",
+      "type": "object"
+    },
+    "ListPackagingGroupsResponse": {
+      "properties": {
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/__string"
+            },
+            {
+              "description": "A token that can be used to resume pagination from the end of the collection.",
+              "xml": {
+                "name": "nextToken"
+              }
+            }
+          ]
+        },
+        "PackagingGroups": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/__listOfPackagingGroup"
+            },
+            {
+              "description": "A list of MediaPackage VOD PackagingGroup resources.",
+              "xml": {
+                "name": "packagingGroups"
+              }
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ListTagsForResourceRequest": {
+      "properties": {},
+      "title": "ListTagsForResourceRequest",
+      "type": "object"
+    },
+    "ListTagsForResourceResponse": {
+      "properties": {
+        "Tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/__mapOf__string"
+            },
+            {
+              "description": "A collection of tags associated with a resource",
+              "xml": {
+                "name": "tags"
+              }
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ManifestLayout": {
+      "enum": [
+        "FULL",
+        "COMPACT"
+      ],
+      "type": "string"
+    },
+    "MaxResults": {
+      "maximum": 1000,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "MssEncryption": {
+      "description": "A Microsoft Smooth Streaming (MSS) encryption configuration.",
+      "properties": {
+        "SpekeKeyProvider": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SpekeKeyProvider"
+            },
+            {
+              "xml": {
+                "name": "spekeKeyProvider"
+              }
+            }
+          ]
+        }
+      },
+      "required": [
+        "SpekeKeyProvider"
+      ],
+      "type": "object"
+    },
+    "MssManifest": {
+      "description": "A Microsoft Smooth Streaming (MSS) manifest configuration.",
+      "properties": {
+        "ManifestName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/__string"
+            },
+            {
+              "description": "An optional string to include in the name of the manifest.",
+              "xml": {
+                "name": "manifestName"
+              }
+            }
+          ]
+        },
+        "StreamSelection": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/StreamSelection"
+            },
+            {
+              "xml": {
+                "name": "streamSelection"
+              }
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "MssPackage": {
+      "description": "A Microsoft Smooth Streaming (MSS) PackagingConfiguration.",
+      "properties": {
+        "Encryption": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MssEncryption"
+            },
+            {
+              "xml": {
+                "name": "encryption"
+              }
+            }
+          ]
+        },
+        "MssManifests": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/__listOfMssManifest"
+            },
+            {
+              "description": "A list of MSS manifest configurations.",
+              "xml": {
+                "name": "mssManifests"
+              }
+            }
+          ]
+        },
+        "SegmentDurationSeconds": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/__integer"
+            },
+            {
+              "description": "The duration (in seconds) of each segment.",
+              "xml": {
+                "name": "segmentDurationSeconds"
+              }
+            }
+          ]
+        }
+      },
+      "required": [
+        "MssManifests"
+      ],
+      "type": "object"
+    },
+    "NotFoundException": {},
+    "PackagingConfiguration": {
+      "description": "A MediaPackage VOD PackagingConfiguration resource.",
+      "properties": {
+        "Arn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/__string"
+            },
+            {
+              "description": "The ARN of the PackagingConfiguration.",
+              "xml": {
+                "name": "arn"
+              }
+            }
+          ]
+        },
+        "CmafPackage": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CmafPackage"
+            },
+            {
+              "xml": {
+                "name": "cmafPackage"
+              }
+            }
+          ]
+        },
+        "DashPackage": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DashPackage"
+            },
+            {
+              "xml": {
+                "name": "dashPackage"
+              }
+            }
+          ]
+        },
+        "HlsPackage": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/HlsPackage"
+            },
+            {
+              "xml": {
+                "name": "hlsPackage"
+              }
+            }
+          ]
+        },
+        "Id": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/__string"
+            },
+            {
+              "description": "The ID of the PackagingConfiguration.",
+              "xml": {
+                "name": "id"
+              }
+            }
+          ]
+        },
+        "MssPackage": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MssPackage"
+            },
+            {
+              "xml": {
+                "name": "mssPackage"
+              }
+            }
+          ]
+        },
+        "PackagingGroupId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/__string"
+            },
+            {
+              "description": "The ID of a PackagingGroup.",
+              "xml": {
+                "name": "packagingGroupId"
+              }
+            }
+          ]
+        },
+        "Tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Tags"
+            },
+            {
+              "xml": {
+                "name": "tags"
+              }
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "PackagingGroup": {
+      "description": "A MediaPackage VOD PackagingGroup resource.",
+      "properties": {
+        "Arn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/__string"
+            },
+            {
+              "description": "The ARN of the PackagingGroup.",
+              "xml": {
+                "name": "arn"
+              }
+            }
+          ]
+        },
+        "Authorization": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Authorization"
+            },
+            {
+              "xml": {
+                "name": "authorization"
+              }
+            }
+          ]
+        },
+        "DomainName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/__string"
+            },
+            {
+              "description": "The fully qualified domain name for Assets in the PackagingGroup.",
+              "xml": {
+                "name": "domainName"
+              }
+            }
+          ]
+        },
+        "Id": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/__string"
+            },
+            {
+              "description": "The ID of the PackagingGroup.",
+              "xml": {
+                "name": "id"
+              }
+            }
+          ]
+        },
+        "Tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Tags"
+            },
+            {
+              "xml": {
+                "name": "tags"
+              }
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "Profile": {
+      "enum": [
+        "NONE",
+        "HBBTV_1_5"
+      ],
+      "type": "string"
+    },
+    "SegmentTemplateFormat": {
+      "enum": [
+        "NUMBER_WITH_TIMELINE",
+        "TIME_WITH_TIMELINE",
+        "NUMBER_WITH_DURATION"
+      ],
+      "type": "string"
+    },
+    "ServiceUnavailableException": {},
+    "SpekeKeyProvider": {
+      "description": "A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that will provide encryption keys.",
+      "properties": {
+        "RoleArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/__string"
+            },
+            {
+              "description": "An Amazon Resource Name (ARN) of an IAM role that AWS Elemental\nMediaPackage will assume when accessing the key provider service.\n",
+              "xml": {
+                "name": "roleArn"
+              }
+            }
+          ]
+        },
+        "SystemIds": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/__listOf__string"
+            },
+            {
+              "description": "The system IDs to include in key requests.",
+              "xml": {
+                "name": "systemIds"
+              }
+            }
+          ]
+        },
+        "Url": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/__string"
+            },
+            {
+              "description": "The URL of the external key provider service.",
+              "xml": {
+                "name": "url"
+              }
+            }
+          ]
+        }
+      },
+      "required": [
+        "SystemIds",
+        "Url",
+        "RoleArn"
+      ],
+      "type": "object"
+    },
+    "StreamOrder": {
+      "enum": [
+        "ORIGINAL",
+        "VIDEO_BITRATE_ASCENDING",
+        "VIDEO_BITRATE_DESCENDING"
+      ],
+      "type": "string"
+    },
+    "StreamSelection": {
+      "description": "A StreamSelection configuration.",
+      "properties": {
+        "MaxVideoBitsPerSecond": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/__integer"
+            },
+            {
+              "description": "The maximum video bitrate (bps) to include in output.",
+              "xml": {
+                "name": "maxVideoBitsPerSecond"
+              }
+            }
+          ]
+        },
+        "MinVideoBitsPerSecond": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/__integer"
+            },
+            {
+              "description": "The minimum video bitrate (bps) to include in output.",
+              "xml": {
+                "name": "minVideoBitsPerSecond"
+              }
+            }
+          ]
+        },
+        "StreamOrder": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/StreamOrder"
+            },
+            {
+              "description": "A directive that determines the order of streams in the output.",
+              "xml": {
+                "name": "streamOrder"
+              }
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "TagResourceRequest": {
+      "properties": {
+        "Tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/__mapOf__string"
+            },
+            {
+              "description": "A collection of tags associated with a resource",
+              "xml": {
+                "name": "tags"
+              }
+            }
+          ]
+        }
+      },
+      "required": [
+        "Tags"
+      ],
+      "title": "TagResourceRequest",
+      "type": "object"
+    },
+    "Tags": {
+      "additionalProperties": {
+        "$ref": "#/definitions/__string"
+      },
+      "description": "A collection of tags associated with a resource",
+      "type": "object"
+    },
+    "TooManyRequestsException": {},
+    "UnprocessableEntityException": {},
+    "UntagResourceRequest": {
+      "properties": {},
+      "title": "UntagResourceRequest",
+      "type": "object"
+    },
+    "UpdatePackagingGroupRequest": {
+      "description": "A MediaPackage VOD PackagingGroup resource configuration.",
+      "properties": {
+        "Authorization": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Authorization"
+            },
+            {
+              "xml": {
+                "name": "authorization"
+              }
+            }
+          ]
+        }
+      },
+      "title": "UpdatePackagingGroupRequest",
+      "type": "object"
+    },
+    "UpdatePackagingGroupResponse": {
+      "properties": {
+        "Arn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/__string"
+            },
+            {
+              "description": "The ARN of the PackagingGroup.",
+              "xml": {
+                "name": "arn"
+              }
+            }
+          ]
+        },
+        "Authorization": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Authorization"
+            },
+            {
+              "xml": {
+                "name": "authorization"
+              }
+            }
+          ]
+        },
+        "DomainName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/__string"
+            },
+            {
+              "description": "The fully qualified domain name for Assets in the PackagingGroup.",
+              "xml": {
+                "name": "domainName"
+              }
+            }
+          ]
+        },
+        "Id": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/__string"
+            },
+            {
+              "description": "The ID of the PackagingGroup.",
+              "xml": {
+                "name": "id"
+              }
+            }
+          ]
+        },
+        "Tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Tags"
+            },
+            {
+              "xml": {
+                "name": "tags"
+              }
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "__PeriodTriggersElement": {
+      "enum": [
+        "ADS"
+      ],
+      "type": "string"
+    },
+    "__boolean": {
+      "type": "boolean"
+    },
+    "__integer": {
+      "type": "integer"
+    },
+    "__listOfAssetShallow": {
+      "items": {
+        "$ref": "#/definitions/AssetShallow"
+      },
+      "type": "array"
+    },
+    "__listOfDashManifest": {
+      "items": {
+        "$ref": "#/definitions/DashManifest"
+      },
+      "type": "array"
+    },
+    "__listOfEgressEndpoint": {
+      "items": {
+        "$ref": "#/definitions/EgressEndpoint"
+      },
+      "type": "array"
+    },
+    "__listOfHlsManifest": {
+      "items": {
+        "$ref": "#/definitions/HlsManifest"
+      },
+      "type": "array"
+    },
+    "__listOfMssManifest": {
+      "items": {
+        "$ref": "#/definitions/MssManifest"
+      },
+      "type": "array"
+    },
+    "__listOfPackagingConfiguration": {
+      "items": {
+        "$ref": "#/definitions/PackagingConfiguration"
+      },
+      "type": "array"
+    },
+    "__listOfPackagingGroup": {
+      "items": {
+        "$ref": "#/definitions/PackagingGroup"
+      },
+      "type": "array"
+    },
+    "__listOf__PeriodTriggersElement": {
+      "items": {
+        "$ref": "#/definitions/__PeriodTriggersElement"
+      },
+      "type": "array"
+    },
+    "__listOf__string": {
+      "items": {
+        "$ref": "#/definitions/__string"
+      },
+      "type": "array"
+    },
+    "__mapOf__string": {
+      "additionalProperties": {
+        "$ref": "#/definitions/__string"
+      },
+      "type": "object"
+    },
+    "__string": {
+      "type": "string"
+    }
+  },
+  "securityDefinitions": {
+    "hmac": {
+      "description": "Amazon Signature authorization v4",
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey",
+      "x-amazon-apigateway-authtype": "awsSigv4"
+    }
+  },
+  "security": [
+    {
+      "hmac": []
+    }
+  ],
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://docs.aws.amazon.com/mediapackage-vod/"
+  },
+  "x-components": {
+    "parameters": {
+      "X-Amz-Algorithm": {
+        "in": "header",
+        "name": "X-Amz-Algorithm",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Content-Sha256": {
+        "in": "header",
+        "name": "X-Amz-Content-Sha256",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Credential": {
+        "in": "header",
+        "name": "X-Amz-Credential",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Date": {
+        "in": "header",
+        "name": "X-Amz-Date",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Security-Token": {
+        "in": "header",
+        "name": "X-Amz-Security-Token",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Signature": {
+        "in": "header",
+        "name": "X-Amz-Signature",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-SignedHeaders": {
+        "in": "header",
+        "name": "X-Amz-SignedHeaders",
+        "required": false,
+        "type": "string"
+      }
+    }
+  },
+  "x-hasEquivalentPaths": true
+}

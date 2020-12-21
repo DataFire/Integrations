@@ -7,7 +7,7 @@
   "info": {
     "description": "Provides operations for working with resources and resource groups.",
     "title": "ResourceManagementClient",
-    "version": "2018-02-01",
+    "version": "2019-08-01",
     "x-apisguru-categories": [
       "cloud"
     ],
@@ -17,7 +17,7 @@
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/resources/resource-manager/Microsoft.Resources/stable/2018-02-01/resources.json",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/resources/resource-manager/Microsoft.Resources/stable/2019-08-01/resources.json",
         "version": "2.0"
       }
     ],
@@ -65,6 +65,35 @@
       "required": true,
       "type": "string"
     },
+    "DeploymentNameParameter": {
+      "description": "The name of the deployment.",
+      "in": "path",
+      "maxLength": 64,
+      "minLength": 1,
+      "name": "deploymentName",
+      "pattern": "^[-\\w\\._\\(\\)]+$",
+      "required": true,
+      "type": "string",
+      "x-ms-parameter-location": "method"
+    },
+    "GroupIdParameter": {
+      "description": "The management group ID.",
+      "in": "path",
+      "maxLength": 90,
+      "minLength": 1,
+      "name": "groupId",
+      "required": true,
+      "type": "string",
+      "x-ms-parameter-location": "method"
+    },
+    "ScopeParameter": {
+      "description": "The scope of a deployment.",
+      "in": "path",
+      "name": "scope",
+      "required": true,
+      "type": "string",
+      "x-ms-parameter-location": "method"
+    },
     "SubscriptionIdParameter": {
       "description": "The ID of the target subscription.",
       "in": "path",
@@ -74,6 +103,1257 @@
     }
   },
   "paths": {
+    "/providers": {
+      "get": {
+        "description": "Gets all resource providers for the tenant.",
+        "operationId": "Providers_ListAtTenantScope",
+        "parameters": [
+          {
+            "description": "The number of results to return. If null is passed returns all providers.",
+            "format": "int32",
+            "in": "query",
+            "name": "$top",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "The properties to include in the results. For example, use &$expand=metadata in the query string to retrieve resource provider metadata. To include property aliases in response, use $expand=resourceTypes/aliases.",
+            "in": "query",
+            "name": "$expand",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK - Returns an array of resource providers.",
+            "schema": {
+              "$ref": "#/definitions/ProviderListResult"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
+          }
+        },
+        "tags": [
+          "Providers"
+        ],
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        }
+      }
+    },
+    "/providers/Microsoft.Management/managementGroups/{groupId}/providers/Microsoft.Resources/deployments/": {
+      "get": {
+        "description": "Get all the deployments for a management group.",
+        "operationId": "Deployments_ListAtManagementGroupScope",
+        "parameters": [
+          {
+            "$ref": "#/parameters/GroupIdParameter"
+          },
+          {
+            "description": "The filter to apply on the operation. For example, you can use $filter=provisioningState eq '{state}'.",
+            "in": "query",
+            "name": "$filter",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "The number of results to get. If null is passed, returns all deployments.",
+            "format": "int32",
+            "in": "query",
+            "name": "$top",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK - Returns an array of deployments.",
+            "schema": {
+              "$ref": "#/definitions/DeploymentListResult"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
+          }
+        },
+        "tags": [
+          "Deployments"
+        ],
+        "x-ms-odata": "#/definitions/DeploymentExtendedFilter",
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        }
+      }
+    },
+    "/providers/Microsoft.Management/managementGroups/{groupId}/providers/Microsoft.Resources/deployments/{deploymentName}": {
+      "delete": {
+        "description": "A template deployment that is currently running cannot be deleted. Deleting a template deployment removes the associated deployment operations. This is an asynchronous operation that returns a status of 202 until the template deployment is successfully deleted. The Location response header contains the URI that is used to obtain the status of the process. While the process is running, a call to the URI in the Location header returns a status of 202. When the process finishes, the URI in the Location header returns a status of 204 on success. If the asynchronous request failed, the URI in the Location header returns an error-level status code.",
+        "operationId": "Deployments_DeleteAtManagementGroupScope",
+        "parameters": [
+          {
+            "$ref": "#/parameters/GroupIdParameter"
+          },
+          {
+            "$ref": "#/parameters/DeploymentNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Accepted - Returns this status until the asynchronous operation has completed."
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
+          }
+        },
+        "summary": "Deletes a deployment from the deployment history.",
+        "tags": [
+          "Deployments"
+        ],
+        "x-ms-long-running-operation": true
+      },
+      "get": {
+        "description": "Gets a deployment.",
+        "operationId": "Deployments_GetAtManagementGroupScope",
+        "parameters": [
+          {
+            "$ref": "#/parameters/GroupIdParameter"
+          },
+          {
+            "$ref": "#/parameters/DeploymentNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK - Returns information about the deployment, including provisioning status.",
+            "schema": {
+              "$ref": "#/definitions/DeploymentExtended"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
+          }
+        },
+        "tags": [
+          "Deployments"
+        ]
+      },
+      "head": {
+        "description": "Checks whether the deployment exists.",
+        "operationId": "Deployments_CheckExistenceAtManagementGroupScope",
+        "parameters": [
+          {
+            "$ref": "#/parameters/GroupIdParameter"
+          },
+          {
+            "$ref": "#/parameters/DeploymentNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
+          }
+        },
+        "tags": [
+          "Deployments"
+        ]
+      },
+      "put": {
+        "description": "You can provide the template and parameters directly in the request or link to JSON files.",
+        "operationId": "Deployments_CreateOrUpdateAtManagementGroupScope",
+        "parameters": [
+          {
+            "$ref": "#/parameters/GroupIdParameter"
+          },
+          {
+            "$ref": "#/parameters/DeploymentNameParameter"
+          },
+          {
+            "description": "Additional parameters supplied to the operation.",
+            "in": "body",
+            "name": "parameters",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ScopedDeployment"
+            }
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK - Returns information about the deployment, including provisioning status.",
+            "schema": {
+              "$ref": "#/definitions/DeploymentExtended"
+            }
+          },
+          "201": {
+            "description": "Created - Returns information about the deployment, including provisioning status.",
+            "schema": {
+              "$ref": "#/definitions/DeploymentExtended"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
+          }
+        },
+        "summary": "Deploys resources at management group scope.",
+        "tags": [
+          "Deployments"
+        ],
+        "x-ms-examples": {
+          "Create deployment at management group scope.": {
+            "parameters": {
+              "api-version": "2019-08-01",
+              "deploymentName": "mg-dep01",
+              "groupId": "tiano-group1",
+              "parameters": {
+                "location": "eastus",
+                "properties": {
+                  "mode": "Incremental",
+                  "parameters": {},
+                  "templateLink": "{templateUri}"
+                }
+              }
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "id": "/providers/Microsoft.Management/managementGroups/tiano-group1/providers/Microsoft.Resources/deployments/mg-dep01",
+                  "location": "eastus",
+                  "name": "mg-dep01",
+                  "properties": {
+                    "correlationId": "{correlationId}",
+                    "dependencies": [
+                      {
+                        "dependsOn": [
+                          {
+                            "id": "/providers/Microsoft.Management/managementGroups/tiano-group1/providers/Microsoft.Authorization/policyDefinitions/policy2",
+                            "resourceName": "policy2",
+                            "resourceType": "Microsoft.Authorization/policyDefinitions"
+                          }
+                        ],
+                        "id": "/providers/Microsoft.Management/managementGroups/tiano-group1/providers/Microsoft.Authorization/policyAssignments/location-lock",
+                        "resourceName": "location-lock",
+                        "resourceType": "Microsoft.Authorization/policyAssignments"
+                      }
+                    ],
+                    "duration": "PT1.2970875S",
+                    "mode": "Incremental",
+                    "parameters": {},
+                    "providers": [
+                      {
+                        "namespace": "Microsoft.Authorization",
+                        "resourceTypes": [
+                          {
+                            "locations": [
+                              null
+                            ],
+                            "resourceType": "policyDefinitions"
+                          },
+                          {
+                            "locations": [
+                              null
+                            ],
+                            "resourceType": "policyAssignments"
+                          }
+                        ]
+                      },
+                      {
+                        "namespace": "Microsoft.Resources",
+                        "resourceTypes": [
+                          {
+                            "locations": [
+                              "eastus"
+                            ],
+                            "resourceType": "deployments"
+                          }
+                        ]
+                      }
+                    ],
+                    "provisioningState": "Accepted",
+                    "timestamp": "2019-04-24T22:52:38.7895563Z"
+                  },
+                  "type": "Microsoft.Resources/deployments"
+                }
+              },
+              "201": {
+                "body": {
+                  "id": "/providers/Microsoft.Management/managementGroups/tiano-group1/providers/Microsoft.Resources/deployments/mg-dep01",
+                  "location": "eastus",
+                  "name": "mg-dep01",
+                  "properties": {
+                    "correlationId": "{correlationId}",
+                    "dependencies": [
+                      {
+                        "dependsOn": [
+                          {
+                            "id": "/providers/Microsoft.Management/managementGroups/tiano-group1/providers/Microsoft.Authorization/policyDefinitions/policy2",
+                            "resourceName": "policy2",
+                            "resourceType": "Microsoft.Authorization/policyDefinitions"
+                          }
+                        ],
+                        "id": "/providers/Microsoft.Management/managementGroups/tiano-group1/providers/Microsoft.Authorization/policyAssignments/location-lock",
+                        "resourceName": "location-lock",
+                        "resourceType": "Microsoft.Authorization/policyAssignments"
+                      }
+                    ],
+                    "duration": "PT1.2970875S",
+                    "mode": "Incremental",
+                    "parameters": {},
+                    "providers": [
+                      {
+                        "namespace": "Microsoft.Authorization",
+                        "resourceTypes": [
+                          {
+                            "locations": [
+                              null
+                            ],
+                            "resourceType": "policyDefinitions"
+                          },
+                          {
+                            "locations": [
+                              null
+                            ],
+                            "resourceType": "policyAssignments"
+                          }
+                        ]
+                      },
+                      {
+                        "namespace": "Microsoft.Resources",
+                        "resourceTypes": [
+                          {
+                            "locations": [
+                              "eastus"
+                            ],
+                            "resourceType": "deployments"
+                          }
+                        ]
+                      }
+                    ],
+                    "provisioningState": "Accepted",
+                    "timestamp": "2019-04-24T22:52:38.7895563Z"
+                  },
+                  "type": "Microsoft.Resources/deployments"
+                }
+              }
+            }
+          }
+        },
+        "x-ms-long-running-operation": true
+      }
+    },
+    "/providers/Microsoft.Management/managementGroups/{groupId}/providers/Microsoft.Resources/deployments/{deploymentName}/cancel": {
+      "post": {
+        "description": "You can cancel a deployment only if the provisioningState is Accepted or Running. After the deployment is canceled, the provisioningState is set to Canceled. Canceling a template deployment stops the currently running template deployment and leaves the resources partially deployed.",
+        "operationId": "Deployments_CancelAtManagementGroupScope",
+        "parameters": [
+          {
+            "$ref": "#/parameters/GroupIdParameter"
+          },
+          {
+            "$ref": "#/parameters/DeploymentNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
+          }
+        },
+        "summary": "Cancels a currently running template deployment.",
+        "tags": [
+          "Deployments"
+        ]
+      }
+    },
+    "/providers/Microsoft.Management/managementGroups/{groupId}/providers/Microsoft.Resources/deployments/{deploymentName}/exportTemplate": {
+      "post": {
+        "description": "Exports the template used for specified deployment.",
+        "operationId": "Deployments_ExportTemplateAtManagementGroupScope",
+        "parameters": [
+          {
+            "$ref": "#/parameters/GroupIdParameter"
+          },
+          {
+            "$ref": "#/parameters/DeploymentNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK - Returns the template.",
+            "schema": {
+              "$ref": "#/definitions/DeploymentExportResult"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
+          }
+        },
+        "tags": [
+          "Deployments"
+        ]
+      }
+    },
+    "/providers/Microsoft.Management/managementGroups/{groupId}/providers/Microsoft.Resources/deployments/{deploymentName}/operations": {
+      "get": {
+        "description": "Gets all deployments operations for a deployment.",
+        "operationId": "DeploymentOperations_ListAtManagementGroupScope",
+        "parameters": [
+          {
+            "$ref": "#/parameters/GroupIdParameter"
+          },
+          {
+            "$ref": "#/parameters/DeploymentNameParameter"
+          },
+          {
+            "description": "The number of results to return.",
+            "format": "int32",
+            "in": "query",
+            "name": "$top",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK - Return an array of deployment operations.",
+            "schema": {
+              "$ref": "#/definitions/DeploymentOperationsListResult"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
+          }
+        },
+        "tags": [
+          "DeploymentOperations"
+        ],
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        }
+      }
+    },
+    "/providers/Microsoft.Management/managementGroups/{groupId}/providers/Microsoft.Resources/deployments/{deploymentName}/operations/{operationId}": {
+      "get": {
+        "description": "Gets a deployments operation.",
+        "operationId": "DeploymentOperations_GetAtManagementGroupScope",
+        "parameters": [
+          {
+            "$ref": "#/parameters/GroupIdParameter"
+          },
+          {
+            "$ref": "#/parameters/DeploymentNameParameter"
+          },
+          {
+            "description": "The ID of the operation to get.",
+            "in": "path",
+            "name": "operationId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK - Returns information about the deployment operation.",
+            "schema": {
+              "$ref": "#/definitions/DeploymentOperation"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
+          }
+        },
+        "tags": [
+          "DeploymentOperations"
+        ]
+      }
+    },
+    "/providers/Microsoft.Management/managementGroups/{groupId}/providers/Microsoft.Resources/deployments/{deploymentName}/validate": {
+      "post": {
+        "description": "Validates whether the specified template is syntactically correct and will be accepted by Azure Resource Manager..",
+        "operationId": "Deployments_ValidateAtManagementGroupScope",
+        "parameters": [
+          {
+            "$ref": "#/parameters/GroupIdParameter"
+          },
+          {
+            "$ref": "#/parameters/DeploymentNameParameter"
+          },
+          {
+            "description": "Parameters to validate.",
+            "in": "body",
+            "name": "parameters",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ScopedDeployment"
+            }
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK - Returns the validation result.",
+            "schema": {
+              "$ref": "#/definitions/DeploymentValidateResult"
+            }
+          },
+          "400": {
+            "description": "Returns the validation result.",
+            "schema": {
+              "$ref": "#/definitions/DeploymentValidateResult"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
+          }
+        },
+        "tags": [
+          "Deployments"
+        ]
+      }
+    },
+    "/providers/Microsoft.Resources/calculateTemplateHash": {
+      "post": {
+        "description": "Calculate the hash of the given template.",
+        "operationId": "Deployments_CalculateTemplateHash",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "description": "The template provided to calculate hash.",
+            "in": "body",
+            "name": "template",
+            "required": true,
+            "schema": {
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK - Returns the hash.",
+            "schema": {
+              "$ref": "#/definitions/TemplateHashResult"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
+          }
+        },
+        "tags": [
+          "Deployments"
+        ],
+        "x-ms-examples": {
+          "Calculate template hash": {
+            "parameters": {
+              "api-version": "2019-08-01",
+              "template": {
+                "$schema": "http://schemas.management.azure.com/deploymentTemplate?api-version=2014-04-01-preview",
+                "contentVersion": "1.0.0.0",
+                "outputs": {
+                  "string": {
+                    "type": "string",
+                    "value": "myvalue"
+                  }
+                },
+                "parameters": {
+                  "string": {
+                    "type": "string"
+                  }
+                },
+                "resources": [],
+                "variables": {
+                  "array": [
+                    1,
+                    2,
+                    3,
+                    4
+                  ],
+                  "bool": true,
+                  "int": 42,
+                  "object": {
+                    "object": {
+                      "location": "West US",
+                      "vmSize": "Large"
+                    }
+                  },
+                  "string": "string"
+                }
+              }
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "minifiedTemplate": "{\"$SCHEMA\":\"HTTP://SCHEMAS.MANAGEMENT.AZURE.COM/DEPLOYMENTTEMPLATE?API-VERSION=2014-04-01-PREVIEW\",\"CONTENTVERSION\":\"1.0.0.0\",\"PARAMETERS\":{\"STRING\":{\"TYPE\":\"STRING\"}},\"VARIABLES\":{\"STRING\":\"STRING\",\"INT\":42,\"BOOL\":TRUE,\"ARRAY\":[1,2,3,4],\"OBJECT\":{\"OBJECT\":{\"VMSIZE\":\"LARGE\",\"LOCATION\":\"WEST US\"}}},\"RESOURCES\":[],\"OUTPUTS\":{\"STRING\":{\"TYPE\":\"STRING\",\"VALUE\":\"MYVALUE\"}}}",
+                  "templateHash": "695440707931307747"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/providers/Microsoft.Resources/deployments/": {
+      "get": {
+        "description": "Get all the deployments at the tenant scope.",
+        "operationId": "Deployments_ListAtTenantScope",
+        "parameters": [
+          {
+            "description": "The filter to apply on the operation. For example, you can use $filter=provisioningState eq '{state}'.",
+            "in": "query",
+            "name": "$filter",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "The number of results to get. If null is passed, returns all deployments.",
+            "format": "int32",
+            "in": "query",
+            "name": "$top",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK - Returns an array of deployments.",
+            "schema": {
+              "$ref": "#/definitions/DeploymentListResult"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
+          }
+        },
+        "tags": [
+          "Deployments"
+        ],
+        "x-ms-odata": "#/definitions/DeploymentExtendedFilter",
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        }
+      }
+    },
+    "/providers/Microsoft.Resources/deployments/{deploymentName}": {
+      "delete": {
+        "description": "A template deployment that is currently running cannot be deleted. Deleting a template deployment removes the associated deployment operations. This is an asynchronous operation that returns a status of 202 until the template deployment is successfully deleted. The Location response header contains the URI that is used to obtain the status of the process. While the process is running, a call to the URI in the Location header returns a status of 202. When the process finishes, the URI in the Location header returns a status of 204 on success. If the asynchronous request failed, the URI in the Location header returns an error-level status code.",
+        "operationId": "Deployments_DeleteAtTenantScope",
+        "parameters": [
+          {
+            "$ref": "#/parameters/DeploymentNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Accepted - Returns this status until the asynchronous operation has completed."
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
+          }
+        },
+        "summary": "Deletes a deployment from the deployment history.",
+        "tags": [
+          "Deployments"
+        ],
+        "x-ms-long-running-operation": true
+      },
+      "get": {
+        "description": "Gets a deployment.",
+        "operationId": "Deployments_GetAtTenantScope",
+        "parameters": [
+          {
+            "$ref": "#/parameters/DeploymentNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK - Returns information about the deployment, including provisioning status.",
+            "schema": {
+              "$ref": "#/definitions/DeploymentExtended"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
+          }
+        },
+        "tags": [
+          "Deployments"
+        ]
+      },
+      "head": {
+        "description": "Checks whether the deployment exists.",
+        "operationId": "Deployments_CheckExistenceAtTenantScope",
+        "parameters": [
+          {
+            "$ref": "#/parameters/DeploymentNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
+          }
+        },
+        "tags": [
+          "Deployments"
+        ]
+      },
+      "put": {
+        "description": "You can provide the template and parameters directly in the request or link to JSON files.",
+        "operationId": "Deployments_CreateOrUpdateAtTenantScope",
+        "parameters": [
+          {
+            "$ref": "#/parameters/DeploymentNameParameter"
+          },
+          {
+            "description": "Additional parameters supplied to the operation.",
+            "in": "body",
+            "name": "parameters",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ScopedDeployment"
+            }
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK - Returns information about the deployment, including provisioning status.",
+            "schema": {
+              "$ref": "#/definitions/DeploymentExtended"
+            }
+          },
+          "201": {
+            "description": "Created - Returns information about the deployment, including provisioning status.",
+            "schema": {
+              "$ref": "#/definitions/DeploymentExtended"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
+          }
+        },
+        "summary": "Deploys resources at tenant scope.",
+        "tags": [
+          "Deployments"
+        ],
+        "x-ms-examples": {
+          "Create deployment at tenant scope.": {
+            "parameters": {
+              "api-version": "2019-08-01",
+              "deploymentName": "tenant-dep01",
+              "parameters": {
+                "location": "eastus",
+                "properties": {
+                  "mode": "Incremental",
+                  "parameters": {},
+                  "templateLink": "{templateUri}"
+                }
+              }
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "id": "/providers/Microsoft.Resources/deployments/tenant-dep01",
+                  "location": "eastus",
+                  "name": "tenant-dep01",
+                  "properties": {
+                    "correlationId": "{correlationId}",
+                    "dependencies": [
+                      {
+                        "dependsOn": [
+                          {
+                            "id": "/providers/Microsoft.Authorization/policyDefinitions/policy2",
+                            "resourceName": "policy2",
+                            "resourceType": "Microsoft.Authorization/policyDefinitions"
+                          }
+                        ],
+                        "id": "/providers/Microsoft.Authorization/policyAssignments/location-lock",
+                        "resourceName": "location-lock",
+                        "resourceType": "Microsoft.Authorization/policyAssignments"
+                      }
+                    ],
+                    "duration": "PT1.2970875S",
+                    "mode": "Incremental",
+                    "parameters": {},
+                    "providers": [
+                      {
+                        "namespace": "Microsoft.Authorization",
+                        "resourceTypes": [
+                          {
+                            "locations": [
+                              null
+                            ],
+                            "resourceType": "policyDefinitions"
+                          },
+                          {
+                            "locations": [
+                              null
+                            ],
+                            "resourceType": "policyAssignments"
+                          }
+                        ]
+                      },
+                      {
+                        "namespace": "Microsoft.Resources",
+                        "resourceTypes": [
+                          {
+                            "locations": [
+                              "eastus"
+                            ],
+                            "resourceType": "deployments"
+                          }
+                        ]
+                      }
+                    ],
+                    "provisioningState": "Accepted",
+                    "timestamp": "2019-04-24T22:52:38.7895563Z"
+                  },
+                  "type": "Microsoft.Resources/deployments"
+                }
+              },
+              "201": {
+                "body": {
+                  "id": "/providers/Microsoft.Resources/deployments/tenant-dep01",
+                  "location": "eastus",
+                  "name": "tenant-dep01",
+                  "properties": {
+                    "correlationId": "{correlationId}",
+                    "dependencies": [
+                      {
+                        "dependsOn": [
+                          {
+                            "id": "/providers/Microsoft.Authorization/policyDefinitions/policy2",
+                            "resourceName": "policy2",
+                            "resourceType": "Microsoft.Authorization/policyDefinitions"
+                          }
+                        ],
+                        "id": "/providers/Microsoft.Authorization/policyAssignments/location-lock",
+                        "resourceName": "location-lock",
+                        "resourceType": "Microsoft.Authorization/policyAssignments"
+                      }
+                    ],
+                    "duration": "PT1.2970875S",
+                    "mode": "Incremental",
+                    "parameters": {},
+                    "providers": [
+                      {
+                        "namespace": "Microsoft.Authorization",
+                        "resourceTypes": [
+                          {
+                            "locations": [
+                              null
+                            ],
+                            "resourceType": "policyDefinitions"
+                          },
+                          {
+                            "locations": [
+                              null
+                            ],
+                            "resourceType": "policyAssignments"
+                          }
+                        ]
+                      },
+                      {
+                        "namespace": "Microsoft.Resources",
+                        "resourceTypes": [
+                          {
+                            "locations": [
+                              "eastus"
+                            ],
+                            "resourceType": "deployments"
+                          }
+                        ]
+                      }
+                    ],
+                    "provisioningState": "Accepted",
+                    "timestamp": "2019-04-24T22:52:38.7895563Z"
+                  },
+                  "type": "Microsoft.Resources/deployments"
+                }
+              }
+            }
+          }
+        },
+        "x-ms-long-running-operation": true
+      }
+    },
+    "/providers/Microsoft.Resources/deployments/{deploymentName}/cancel": {
+      "post": {
+        "description": "You can cancel a deployment only if the provisioningState is Accepted or Running. After the deployment is canceled, the provisioningState is set to Canceled. Canceling a template deployment stops the currently running template deployment and leaves the resources partially deployed.",
+        "operationId": "Deployments_CancelAtTenantScope",
+        "parameters": [
+          {
+            "$ref": "#/parameters/DeploymentNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
+          }
+        },
+        "summary": "Cancels a currently running template deployment.",
+        "tags": [
+          "Deployments"
+        ]
+      }
+    },
+    "/providers/Microsoft.Resources/deployments/{deploymentName}/exportTemplate": {
+      "post": {
+        "description": "Exports the template used for specified deployment.",
+        "operationId": "Deployments_ExportTemplateAtTenantScope",
+        "parameters": [
+          {
+            "$ref": "#/parameters/DeploymentNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK - Returns the template.",
+            "schema": {
+              "$ref": "#/definitions/DeploymentExportResult"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
+          }
+        },
+        "tags": [
+          "Deployments"
+        ]
+      }
+    },
+    "/providers/Microsoft.Resources/deployments/{deploymentName}/operations": {
+      "get": {
+        "description": "Gets all deployments operations for a deployment.",
+        "operationId": "DeploymentOperations_ListAtTenantScope",
+        "parameters": [
+          {
+            "$ref": "#/parameters/DeploymentNameParameter"
+          },
+          {
+            "description": "The number of results to return.",
+            "format": "int32",
+            "in": "query",
+            "name": "$top",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK - Return an array of deployment operations.",
+            "schema": {
+              "$ref": "#/definitions/DeploymentOperationsListResult"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
+          }
+        },
+        "tags": [
+          "DeploymentOperations"
+        ],
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        }
+      }
+    },
+    "/providers/Microsoft.Resources/deployments/{deploymentName}/operations/{operationId}": {
+      "get": {
+        "description": "Gets a deployments operation.",
+        "operationId": "DeploymentOperations_GetAtTenantScope",
+        "parameters": [
+          {
+            "$ref": "#/parameters/DeploymentNameParameter"
+          },
+          {
+            "description": "The ID of the operation to get.",
+            "in": "path",
+            "name": "operationId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK - Returns information about the deployment operation.",
+            "schema": {
+              "$ref": "#/definitions/DeploymentOperation"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
+          }
+        },
+        "tags": [
+          "DeploymentOperations"
+        ]
+      }
+    },
+    "/providers/Microsoft.Resources/deployments/{deploymentName}/validate": {
+      "post": {
+        "description": "Validates whether the specified template is syntactically correct and will be accepted by Azure Resource Manager..",
+        "operationId": "Deployments_ValidateAtTenantScope",
+        "parameters": [
+          {
+            "$ref": "#/parameters/DeploymentNameParameter"
+          },
+          {
+            "description": "Parameters to validate.",
+            "in": "body",
+            "name": "parameters",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ScopedDeployment"
+            }
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK - Returns the validation result.",
+            "schema": {
+              "$ref": "#/definitions/DeploymentValidateResult"
+            }
+          },
+          "400": {
+            "description": "Returns the validation result.",
+            "schema": {
+              "$ref": "#/definitions/DeploymentValidateResult"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
+          }
+        },
+        "tags": [
+          "Deployments"
+        ]
+      }
+    },
+    "/providers/Microsoft.Resources/operations": {
+      "get": {
+        "description": "Lists all of the available Microsoft.Resources REST API operations.",
+        "operationId": "Operations_List",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK. The request has succeeded.",
+            "schema": {
+              "$ref": "#/definitions/OperationListResult"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
+          }
+        },
+        "tags": [
+          "Operations"
+        ],
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        }
+      }
+    },
+    "/providers/{resourceProviderNamespace}": {
+      "get": {
+        "description": "Gets the specified resource provider at the tenant level.",
+        "operationId": "Providers_GetAtTenantScope",
+        "parameters": [
+          {
+            "description": "The $expand query parameter. For example, to include property aliases in response, use $expand=resourceTypes/aliases.",
+            "in": "query",
+            "name": "$expand",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "The namespace of the resource provider.",
+            "in": "path",
+            "name": "resourceProviderNamespace",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK - Returns information about the resource provider.",
+            "schema": {
+              "$ref": "#/definitions/Provider"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
+          }
+        },
+        "tags": [
+          "Providers"
+        ]
+      }
+    },
     "/subscriptions/{subscriptionId}/providers": {
       "get": {
         "description": "Gets all resource providers for a subscription.",
@@ -107,6 +1387,12 @@
             "schema": {
               "$ref": "#/definitions/ProviderListResult"
             }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
           }
         },
         "tags": [
@@ -114,6 +1400,552 @@
         ],
         "x-ms-pageable": {
           "nextLinkName": "nextLink"
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/providers/Microsoft.Resources/deployments/": {
+      "get": {
+        "description": "Get all the deployments for a subscription.",
+        "operationId": "Deployments_ListAtSubscriptionScope",
+        "parameters": [
+          {
+            "description": "The filter to apply on the operation. For example, you can use $filter=provisioningState eq '{state}'.",
+            "in": "query",
+            "name": "$filter",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "The number of results to get. If null is passed, returns all deployments.",
+            "format": "int32",
+            "in": "query",
+            "name": "$top",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK - Returns an array of deployments.",
+            "schema": {
+              "$ref": "#/definitions/DeploymentListResult"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
+          }
+        },
+        "tags": [
+          "Deployments"
+        ],
+        "x-ms-odata": "#/definitions/DeploymentExtendedFilter",
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/providers/Microsoft.Resources/deployments/{deploymentName}": {
+      "delete": {
+        "description": "A template deployment that is currently running cannot be deleted. Deleting a template deployment removes the associated deployment operations. This is an asynchronous operation that returns a status of 202 until the template deployment is successfully deleted. The Location response header contains the URI that is used to obtain the status of the process. While the process is running, a call to the URI in the Location header returns a status of 202. When the process finishes, the URI in the Location header returns a status of 204 on success. If the asynchronous request failed, the URI in the Location header returns an error-level status code.",
+        "operationId": "Deployments_DeleteAtSubscriptionScope",
+        "parameters": [
+          {
+            "$ref": "#/parameters/DeploymentNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Accepted - Returns this status until the asynchronous operation has completed."
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
+          }
+        },
+        "summary": "Deletes a deployment from the deployment history.",
+        "tags": [
+          "Deployments"
+        ],
+        "x-ms-long-running-operation": true
+      },
+      "get": {
+        "description": "Gets a deployment.",
+        "operationId": "Deployments_GetAtSubscriptionScope",
+        "parameters": [
+          {
+            "$ref": "#/parameters/DeploymentNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK - Returns information about the deployment, including provisioning status.",
+            "schema": {
+              "$ref": "#/definitions/DeploymentExtended"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
+          }
+        },
+        "tags": [
+          "Deployments"
+        ]
+      },
+      "head": {
+        "description": "Checks whether the deployment exists.",
+        "operationId": "Deployments_CheckExistenceAtSubscriptionScope",
+        "parameters": [
+          {
+            "$ref": "#/parameters/DeploymentNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
+          }
+        },
+        "tags": [
+          "Deployments"
+        ]
+      },
+      "put": {
+        "description": "You can provide the template and parameters directly in the request or link to JSON files.",
+        "operationId": "Deployments_CreateOrUpdateAtSubscriptionScope",
+        "parameters": [
+          {
+            "$ref": "#/parameters/DeploymentNameParameter"
+          },
+          {
+            "description": "Additional parameters supplied to the operation.",
+            "in": "body",
+            "name": "parameters",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Deployment"
+            }
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK - Returns information about the deployment, including provisioning status.",
+            "schema": {
+              "$ref": "#/definitions/DeploymentExtended"
+            }
+          },
+          "201": {
+            "description": "Created - Returns information about the deployment, including provisioning status.",
+            "schema": {
+              "$ref": "#/definitions/DeploymentExtended"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
+          }
+        },
+        "summary": "Deploys resources at subscription scope.",
+        "tags": [
+          "Deployments"
+        ],
+        "x-ms-long-running-operation": true
+      }
+    },
+    "/subscriptions/{subscriptionId}/providers/Microsoft.Resources/deployments/{deploymentName}/cancel": {
+      "post": {
+        "description": "You can cancel a deployment only if the provisioningState is Accepted or Running. After the deployment is canceled, the provisioningState is set to Canceled. Canceling a template deployment stops the currently running template deployment and leaves the resources partially deployed.",
+        "operationId": "Deployments_CancelAtSubscriptionScope",
+        "parameters": [
+          {
+            "$ref": "#/parameters/DeploymentNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
+          }
+        },
+        "summary": "Cancels a currently running template deployment.",
+        "tags": [
+          "Deployments"
+        ]
+      }
+    },
+    "/subscriptions/{subscriptionId}/providers/Microsoft.Resources/deployments/{deploymentName}/exportTemplate": {
+      "post": {
+        "description": "Exports the template used for specified deployment.",
+        "operationId": "Deployments_ExportTemplateAtSubscriptionScope",
+        "parameters": [
+          {
+            "$ref": "#/parameters/DeploymentNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK - Returns the template.",
+            "schema": {
+              "$ref": "#/definitions/DeploymentExportResult"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
+          }
+        },
+        "tags": [
+          "Deployments"
+        ]
+      }
+    },
+    "/subscriptions/{subscriptionId}/providers/Microsoft.Resources/deployments/{deploymentName}/operations": {
+      "get": {
+        "description": "Gets all deployments operations for a deployment.",
+        "operationId": "DeploymentOperations_ListAtSubscriptionScope",
+        "parameters": [
+          {
+            "$ref": "#/parameters/DeploymentNameParameter"
+          },
+          {
+            "description": "The number of results to return.",
+            "format": "int32",
+            "in": "query",
+            "name": "$top",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK - Return an array of deployment operations.",
+            "schema": {
+              "$ref": "#/definitions/DeploymentOperationsListResult"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
+          }
+        },
+        "tags": [
+          "DeploymentOperations"
+        ],
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/providers/Microsoft.Resources/deployments/{deploymentName}/operations/{operationId}": {
+      "get": {
+        "description": "Gets a deployments operation.",
+        "operationId": "DeploymentOperations_GetAtSubscriptionScope",
+        "parameters": [
+          {
+            "$ref": "#/parameters/DeploymentNameParameter"
+          },
+          {
+            "description": "The ID of the operation to get.",
+            "in": "path",
+            "name": "operationId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK - Returns information about the deployment operation.",
+            "schema": {
+              "$ref": "#/definitions/DeploymentOperation"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
+          }
+        },
+        "tags": [
+          "DeploymentOperations"
+        ]
+      }
+    },
+    "/subscriptions/{subscriptionId}/providers/Microsoft.Resources/deployments/{deploymentName}/validate": {
+      "post": {
+        "description": "Validates whether the specified template is syntactically correct and will be accepted by Azure Resource Manager..",
+        "operationId": "Deployments_ValidateAtSubscriptionScope",
+        "parameters": [
+          {
+            "$ref": "#/parameters/DeploymentNameParameter"
+          },
+          {
+            "description": "Parameters to validate.",
+            "in": "body",
+            "name": "parameters",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Deployment"
+            }
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK - Returns the validation result.",
+            "schema": {
+              "$ref": "#/definitions/DeploymentValidateResult"
+            }
+          },
+          "400": {
+            "description": "Returns the validation result.",
+            "schema": {
+              "$ref": "#/definitions/DeploymentValidateResult"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
+          }
+        },
+        "tags": [
+          "Deployments"
+        ]
+      }
+    },
+    "/subscriptions/{subscriptionId}/providers/Microsoft.Resources/deployments/{deploymentName}/whatIf": {
+      "post": {
+        "description": "Returns changes that will be made by the deployment if executed at the scope of the subscription.",
+        "operationId": "Deployments_WhatIfAtSubscriptionScope",
+        "parameters": [
+          {
+            "$ref": "#/parameters/DeploymentNameParameter"
+          },
+          {
+            "description": "Parameters to What If.",
+            "in": "body",
+            "name": "parameters",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeploymentWhatIf"
+            }
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK - Returns What-If operation status",
+            "schema": {
+              "$ref": "#/definitions/WhatIfOperationResult"
+            }
+          },
+          "202": {
+            "description": "Accepted - Returns URL in Location header to query for long-running operation status.",
+            "headers": {
+              "Location": {
+                "description": "URL to get status of this long-running operation.",
+                "type": "string"
+              },
+              "Retry-After": {
+                "description": "Number of seconds to wait before polling for status.",
+                "type": "string"
+              }
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
+          }
+        },
+        "tags": [
+          "Deployments"
+        ],
+        "x-ms-examples": {
+          "Predict template changes at subscription scope": {
+            "parameters": {
+              "api-version": "2019-08-01",
+              "deploymentName": "exampleDeploymentName",
+              "parameters": {
+                "location": "westus",
+                "properties": {
+                  "mode": "Incremental",
+                  "parameters": {},
+                  "templateLink": "https://example.com/exampleTemplate.json"
+                }
+              },
+              "subscriptionId": "00000000-0000-0000-0000-000000000001"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "properties": {
+                    "changes": [
+                      {
+                        "after": {
+                          "apiVersion": "2018-11-30",
+                          "id": "/subscriptions/00000000-0000-0000-0000-000000000001/resourceGroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myExistingIdentity",
+                          "location": "westus2",
+                          "name": "myExistingIdentity",
+                          "tags": {
+                            "myNewTag": "my tag value"
+                          },
+                          "type": "Microsoft.ManagedIdentity/userAssignedIdentities"
+                        },
+                        "before": {
+                          "apiVersion": "2018-11-30",
+                          "id": "/subscriptions/00000000-0000-0000-0000-000000000001/resourceGroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myExistingIdentity",
+                          "location": "westus2",
+                          "name": "myExistingIdentity",
+                          "type": "Microsoft.ManagedIdentity/userAssignedIdentities"
+                        },
+                        "changeType": "Modify",
+                        "delta": [
+                          {
+                            "after": "my tag value",
+                            "path": "tags.myNewTag",
+                            "propertyChangeType": "Create"
+                          }
+                        ],
+                        "resourceId": "/subscriptions/00000000-0000-0000-0000-000000000001/resourceGroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myExistingIdentity"
+                      },
+                      {
+                        "after": {
+                          "apiVersion": "2018-11-30",
+                          "id": "/subscriptions/00000000-0000-0000-0000-000000000001/resourceGroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myNewIdentity",
+                          "location": "eastus",
+                          "name": "myNewIdentity",
+                          "tags": {
+                            "myOtherNewTag": "another new tag value"
+                          },
+                          "type": "Microsoft.ManagedIdentity/userAssignedIdentities"
+                        },
+                        "changeType": "Create",
+                        "resourceId": "/subscriptions/00000000-0000-0000-0000-000000000001/resourceGroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myNewIdentity"
+                      },
+                      {
+                        "after": {
+                          "apiVersion": "2019-03-01",
+                          "id": "/subscriptions/00000000-0000-0000-0000-000000000001/resourceGroups/myResourceGroup2",
+                          "location": "{location3}",
+                          "name": "myResourceGroup2",
+                          "type": "Microsoft.Resources/resourceGroups"
+                        },
+                        "changeType": "Create",
+                        "resourceId": "/subscriptions/00000000-0000-0000-0000-000000000001/resourceGroups/myResourceGroup2"
+                      }
+                    ]
+                  },
+                  "status": "succeeded"
+                }
+              },
+              "202": {
+                "headers": {
+                  "Location": "/subscriptions/4d0ca63b-7939-4c9c-afbe-5fafae501724/operationresults/ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ"
+                }
+              }
+            }
+          }
+        },
+        "x-ms-long-running-operation": true,
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "location"
         }
       }
     },
@@ -149,6 +1981,12 @@
             "schema": {
               "$ref": "#/definitions/Provider"
             }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
           }
         },
         "tags": [
@@ -181,6 +2019,12 @@
             "schema": {
               "$ref": "#/definitions/Provider"
             }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
           }
         },
         "tags": [
@@ -209,9 +2053,15 @@
         ],
         "responses": {
           "200": {
-            "description": "OK - Returns informatin about the resource provider.",
+            "description": "OK - Returns information about the resource provider.",
             "schema": {
               "$ref": "#/definitions/Provider"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
             }
           }
         },
@@ -236,14 +2086,14 @@
             "type": "string"
           },
           {
-            "description": "The filter to apply on the operation.",
+            "description": "The filter to apply on the operation.<br><br>The properties you can use for eq (equals) or ne (not equals) are: location, resourceType, name, resourceGroup, identity, identity/principalId, plan, plan/publisher, plan/product, plan/name, plan/version, and plan/promotionCode.<br><br>For example, to filter by a resource type, use: $filter=resourceType eq 'Microsoft.Network/virtualNetworks'<br><br>You can use substringof(value, property) in the filter. The properties you can use for substring are: name and resourceGroup.<br><br>For example, to get all resources with 'demo' anywhere in the name, use: $filter=substringof('demo', name)<br><br>You can link more than one substringof together by adding and/or operators.<br><br>You can filter by tag names and values. For example, to filter for a tag name and value, use $filter=tagName eq 'tag1' and tagValue eq 'Value1'. When you filter by a tag name and value, the tags for each resource are not returned in the results.<br><br>You can use some properties together when filtering. The combinations you can use are: substringof and/or resourceType, plan and plan/publisher and plan/name, identity and identity/principalId.",
             "in": "query",
             "name": "$filter",
             "required": false,
             "type": "string"
           },
           {
-            "description": "The $expand query parameter",
+            "description": "The $expand query parameter. You can expand createdTime and changedTime. For example, to expand both properties, use $expand=changedTime,createdTime",
             "in": "query",
             "name": "$expand",
             "required": false,
@@ -269,6 +2119,12 @@
             "description": "OK - Returns an array of resources",
             "schema": {
               "$ref": "#/definitions/ResourceListResult"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
             }
           }
         },
@@ -318,6 +2174,12 @@
           },
           "204": {
             "description": "No Content"
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
           }
         },
         "summary": "Moves resources from one resource group to another resource group.",
@@ -365,8 +2227,11 @@
           "204": {
             "description": "No Content"
           },
-          "409": {
-            "description": "Conflict"
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
           }
         },
         "summary": "Validates whether resources can be moved from one resource group to another resource group.",
@@ -382,7 +2247,7 @@
         "operationId": "ResourceGroups_List",
         "parameters": [
           {
-            "description": "The filter to apply on the operation.",
+            "description": "The filter to apply on the operation.<br><br>You can filter by tag names and values. For example, to filter for a tag name and value, use $filter=tagName eq 'tag1' and tagValue eq 'Value1'",
             "in": "query",
             "name": "$filter",
             "required": false,
@@ -408,6 +2273,12 @@
             "description": "OK - Returns an array of resource groups.",
             "schema": {
               "$ref": "#/definitions/ResourceGroupListResult"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
             }
           }
         },
@@ -448,6 +2319,12 @@
           },
           "202": {
             "description": "Accepted"
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
           }
         },
         "summary": "Deletes a resource group.",
@@ -483,6 +2360,12 @@
             "schema": {
               "$ref": "#/definitions/ResourceGroup"
             }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
           }
         },
         "tags": [
@@ -516,6 +2399,12 @@
           },
           "404": {
             "description": "Not Found"
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
           }
         },
         "tags": [
@@ -558,6 +2447,12 @@
             "schema": {
               "$ref": "#/definitions/ResourceGroup"
             }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
           }
         },
         "summary": "Updates a resource group.",
@@ -570,7 +2465,7 @@
         "operationId": "ResourceGroups_CreateOrUpdate",
         "parameters": [
           {
-            "description": "The name of the resource group to create or update.",
+            "description": "The name of the resource group to create or update. Can include alphanumeric, underscore, parentheses, hyphen, period (except at end), and Unicode characters that match the allowed characters.",
             "in": "path",
             "maxLength": 90,
             "minLength": 1,
@@ -607,11 +2502,51 @@
             "schema": {
               "$ref": "#/definitions/ResourceGroup"
             }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
           }
         },
         "tags": [
           "ResourceGroups"
-        ]
+        ],
+        "x-ms-examples": {
+          "Create or update a resource group": {
+            "parameters": {
+              "api-version": "2019-08-01",
+              "parameters": {
+                "location": "eastus"
+              },
+              "resourceGroupName": "myResourceGroup",
+              "subscriptionId": "{subscription-id}"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup",
+                  "location": "eastus",
+                  "name": "myResourceGroup",
+                  "properties": {
+                    "provisioningState": "Succeeded"
+                  }
+                }
+              },
+              "201": {
+                "body": {
+                  "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup",
+                  "location": "eastus",
+                  "name": "myResourceGroup",
+                  "properties": {
+                    "provisioningState": "Succeeded"
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/deployments/{deploymentName}/operations": {
@@ -630,14 +2565,7 @@
             "type": "string"
           },
           {
-            "description": "The name of the deployment with the operation to get.",
-            "in": "path",
-            "maxLength": 64,
-            "minLength": 1,
-            "name": "deploymentName",
-            "pattern": "^[-\\w\\._\\(\\)]+$",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/DeploymentNameParameter"
           },
           {
             "description": "The number of results to return.",
@@ -659,6 +2587,12 @@
             "description": "OK - Return an array of deployment operations.",
             "schema": {
               "$ref": "#/definitions/DeploymentOperationsListResult"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
             }
           }
         },
@@ -686,14 +2620,7 @@
             "type": "string"
           },
           {
-            "description": "The name of the deployment.",
-            "in": "path",
-            "maxLength": 64,
-            "minLength": 1,
-            "name": "deploymentName",
-            "pattern": "^[-\\w\\._\\(\\)]+$",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/DeploymentNameParameter"
           },
           {
             "description": "The ID of the operation to get.",
@@ -715,6 +2642,12 @@
             "schema": {
               "$ref": "#/definitions/DeploymentOperation"
             }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
           }
         },
         "tags": [
@@ -728,12 +2661,29 @@
         "operationId": "ResourceGroups_ExportTemplate",
         "parameters": [
           {
-            "description": "The name of the resource group to export as a template.",
+            "description": "The ID of the target subscription.",
+            "in": "path",
+            "minLength": 1,
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The name of the resource group. The name is case insensitive.",
             "in": "path",
             "maxLength": 90,
             "minLength": 1,
             "name": "resourceGroupName",
             "pattern": "^[-\\w\\._\\(\\)]+$",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
+          },
+          {
+            "description": "The API version to use for this operation.",
+            "in": "query",
+            "minLength": 1,
+            "name": "api-version",
             "required": true,
             "type": "string"
           },
@@ -745,12 +2695,6 @@
             "schema": {
               "$ref": "#/definitions/ExportTemplateRequest"
             }
-          },
-          {
-            "$ref": "#/parameters/ApiVersionParameter"
-          },
-          {
-            "$ref": "#/parameters/SubscriptionIdParameter"
           }
         ],
         "responses": {
@@ -759,11 +2703,140 @@
             "schema": {
               "$ref": "#/definitions/ResourceGroupExportResult"
             }
+          },
+          "202": {
+            "description": "Accepted"
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
           }
         },
         "tags": [
           "ResourceGroups"
-        ]
+        ],
+        "x-ms-examples": {
+          "Export a resource group": {
+            "parameters": {
+              "api-version": "2019-08-01",
+              "parameters": {
+                "options": "IncludeParameterDefaultValue,IncludeComments",
+                "resources": [
+                  "*"
+                ]
+              },
+              "resourceGroupName": "myResourceGroup",
+              "subscriptionId": "eaee6a92-e973-4922-9471-3a0a6abf81cd"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "error": {
+                    "code": "ExportTemplateCompletedWithErrors",
+                    "details": [],
+                    "message": "Export template operation completed with errors. Some resources were not exported. Please see details for more information."
+                  },
+                  "template": {
+                    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+                    "contentVersion": "1.0.0.0",
+                    "parameters": {
+                      "myResourceType_myFirstResource_name": {
+                        "defaultValue": "myFirstResource",
+                        "type": "String"
+                      },
+                      "myResourceType_myFirstResource_secret": {
+                        "defaultValue": null,
+                        "type": "SecureString"
+                      },
+                      "myResourceType_mySecondResource_name": {
+                        "defaultValue": "mySecondResource",
+                        "type": "String"
+                      }
+                    },
+                    "resources": [
+                      {
+                        "apiVersion": "2019-01-01",
+                        "location": "West US",
+                        "name": "[parameters('myResourceType_myFirstResource_name')]",
+                        "properties": {
+                          "secret": "[parameters('myResourceType_myFirstResource_secret')]"
+                        },
+                        "type": "My.RP/myResourceType"
+                      },
+                      {
+                        "apiVersion": "2019-01-01",
+                        "location": "West US",
+                        "name": "[parameters('myResourceType_mySecondResource_name')]",
+                        "properties": {
+                          "customProperty": "hello!"
+                        },
+                        "type": "My.RP/myResourceType"
+                      }
+                    ],
+                    "variables": {}
+                  }
+                }
+              },
+              "202": {
+                "headers": {
+                  "location": "https://management.azure.com/subscriptions/eaee6a92-e973-4922-9471-3a0a6abf81cd/operationresults/c9bbccf4-e16a-4eb7-befb-2e2e5195c347?api-version=2018-08-01"
+                }
+              }
+            }
+          },
+          "Export a resource group with filtering": {
+            "parameters": {
+              "api-version": "2019-08-01",
+              "parameters": {
+                "options": "SkipResourceNameParameterization",
+                "resources": [
+                  "/subscriptions/eaee6a92-e973-4922-9471-3a0a6abf81cd/resourceGroups/myResourceGroup/providers/My.RP/myResourceType/myFirstResource"
+                ]
+              },
+              "resourceGroupName": "myResourceGroup",
+              "subscriptionId": "eaee6a92-e973-4922-9471-3a0a6abf81cd"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "template": {
+                    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+                    "contentVersion": "1.0.0.0",
+                    "parameters": {
+                      "myResourceType_myFirstResource_secret": {
+                        "defaultValue": null,
+                        "type": "SecureString"
+                      }
+                    },
+                    "resources": [
+                      {
+                        "apiVersion": "2019-01-01",
+                        "location": "West US",
+                        "name": "myFirstResource",
+                        "properties": {
+                          "secret": "[parameters('myResourceType_myFirstResource_secret')]"
+                        },
+                        "type": "My.RP/myResourceType"
+                      }
+                    ],
+                    "variables": {}
+                  }
+                }
+              },
+              "202": {
+                "headers": {
+                  "location": "https://management.azure.com/subscriptions/eaee6a92-e973-4922-9471-3a0a6abf81cd/operationresults/c9bbccf4-e16a-4eb7-befb-2e2e5195c347?api-version=2018-08-01"
+                }
+              }
+            }
+          }
+        },
+        "x-ms-long-running-operation": true,
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "location"
+        }
       }
     },
     "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Resources/deployments/": {
@@ -809,6 +2882,12 @@
             "schema": {
               "$ref": "#/definitions/DeploymentListResult"
             }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
           }
         },
         "tags": [
@@ -836,14 +2915,7 @@
             "type": "string"
           },
           {
-            "description": "The name of the deployment to delete.",
-            "in": "path",
-            "maxLength": 64,
-            "minLength": 1,
-            "name": "deploymentName",
-            "pattern": "^[-\\w\\._\\(\\)]+$",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/DeploymentNameParameter"
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
@@ -858,6 +2930,12 @@
           },
           "204": {
             "description": "No Content"
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
           }
         },
         "summary": "Deletes a deployment from the deployment history.",
@@ -881,14 +2959,7 @@
             "type": "string"
           },
           {
-            "description": "The name of the deployment to get.",
-            "in": "path",
-            "maxLength": 64,
-            "minLength": 1,
-            "name": "deploymentName",
-            "pattern": "^[-\\w\\._\\(\\)]+$",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/DeploymentNameParameter"
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
@@ -902,6 +2973,12 @@
             "description": "OK - Returns information about the deployment, including provisioning status.",
             "schema": {
               "$ref": "#/definitions/DeploymentExtended"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
             }
           }
         },
@@ -924,14 +3001,7 @@
             "type": "string"
           },
           {
-            "description": "The name of the deployment to check.",
-            "in": "path",
-            "maxLength": 64,
-            "minLength": 1,
-            "name": "deploymentName",
-            "pattern": "^[-\\w\\._\\(\\)]+$",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/DeploymentNameParameter"
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
@@ -946,6 +3016,12 @@
           },
           "404": {
             "description": "Not Found"
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
           }
         },
         "tags": [
@@ -967,14 +3043,7 @@
             "type": "string"
           },
           {
-            "description": "The name of the deployment.",
-            "in": "path",
-            "maxLength": 64,
-            "minLength": 1,
-            "name": "deploymentName",
-            "pattern": "^[-\\w\\._\\(\\)]+$",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/DeploymentNameParameter"
           },
           {
             "description": "Additional parameters supplied to the operation.",
@@ -1004,12 +3073,129 @@
             "schema": {
               "$ref": "#/definitions/DeploymentExtended"
             }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
           }
         },
         "summary": "Deploys resources to a resource group.",
         "tags": [
           "Deployments"
         ],
+        "x-ms-examples": {
+          "Create a deployment that will redeploy another deployment on failure": {
+            "parameters": {
+              "api-version": "2019-08-01",
+              "deploymentName": "exampleDeploymentName",
+              "parameters": {
+                "properties": {
+                  "mode": "Complete",
+                  "onErrorDeployment": {
+                    "deploymentName": "{nameOfDeploymentToUse}",
+                    "type": "SpecificDeployment"
+                  },
+                  "parameters": {},
+                  "templateLink": "{templateUri}"
+                }
+              },
+              "resourceGroupName": "myResourceGroup",
+              "subscriptionId": "{subscriptionId}"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "id": "/subscriptions/{subscriptionId}/resourcegroups/myResourceGroup/providers/Microsoft.Resources/deployments/exampleDeploymentName",
+                  "name": "exampleDeploymentName",
+                  "properties": {
+                    "correlationId": "{correlationId}",
+                    "mode": "Complete",
+                    "onErrorDeployment": {
+                      "deploymentName": "{nameOfDeploymentToUse}",
+                      "type": "SpecificDeployment"
+                    },
+                    "provisioningState": "Accepted",
+                    "timestamp": "2019-03-01T00:00:00.0000000Z"
+                  },
+                  "type": "Microsoft.Resources/deployments"
+                }
+              },
+              "201": {
+                "body": {
+                  "id": "/subscriptions/{subscriptionId}/resourcegroups/myResourceGroup/providers/Microsoft.Resources/deployments/exampleDeploymentName",
+                  "name": "exampleDeploymentName",
+                  "properties": {
+                    "correlationId": "{correlationId}",
+                    "mode": "Complete",
+                    "onErrorDeployment": {
+                      "deploymentName": "{nameOfDeploymentToUse}",
+                      "type": "SpecificDeployment"
+                    },
+                    "provisioningState": "Accepted",
+                    "timestamp": "2019-03-01T00:00:00.0000000Z"
+                  },
+                  "type": "Microsoft.Resources/deployments"
+                }
+              }
+            }
+          },
+          "Create a deployment that will redeploy the last successful deployment on failure": {
+            "parameters": {
+              "api-version": "2019-08-01",
+              "deploymentName": "exampleDeploymentName",
+              "parameters": {
+                "properties": {
+                  "mode": "Complete",
+                  "onErrorDeployment": {
+                    "type": "LastSuccessful"
+                  },
+                  "parameters": {},
+                  "templateLink": "{templateUri}"
+                }
+              },
+              "resourceGroupName": "myResourceGroup",
+              "subscriptionId": "{subscriptionId}"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "id": "/subscriptions/{subscriptionId}/resourcegroups/myResourceGroup/providers/Microsoft.Resources/deployments/exampleDeploymentName",
+                  "name": "exampleDeploymentName",
+                  "properties": {
+                    "correlationId": "{correlationId}",
+                    "mode": "Complete",
+                    "onErrorDeployment": {
+                      "deploymentName": "{nameOfLastSuccesfulDeployment}",
+                      "type": "LastSuccessful"
+                    },
+                    "provisioningState": "Accepted",
+                    "timestamp": "2019-03-01T00:00:00.0000000Z"
+                  },
+                  "type": "Microsoft.Resources/deployments"
+                }
+              },
+              "201": {
+                "body": {
+                  "id": "/subscriptions/{subscriptionId}/resourcegroups/myResourceGroup/providers/Microsoft.Resources/deployments/exampleDeploymentName",
+                  "name": "exampleDeploymentName",
+                  "properties": {
+                    "correlationId": "{correlationId}",
+                    "mode": "Complete",
+                    "onErrorDeployment": {
+                      "deploymentName": "{nameOfLastSuccesfulDeployment}",
+                      "type": "LastSuccessful"
+                    },
+                    "provisioningState": "Accepted",
+                    "timestamp": "2019-03-01T00:00:00.0000000Z"
+                  },
+                  "type": "Microsoft.Resources/deployments"
+                }
+              }
+            }
+          }
+        },
         "x-ms-long-running-operation": true
       }
     },
@@ -1029,14 +3215,7 @@
             "type": "string"
           },
           {
-            "description": "The name of the deployment to cancel.",
-            "in": "path",
-            "maxLength": 64,
-            "minLength": 1,
-            "name": "deploymentName",
-            "pattern": "^[-\\w\\._\\(\\)]+$",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/DeploymentNameParameter"
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
@@ -1048,6 +3227,12 @@
         "responses": {
           "204": {
             "description": "No Content"
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
           }
         },
         "summary": "Cancels a currently running template deployment.",
@@ -1072,14 +3257,7 @@
             "type": "string"
           },
           {
-            "description": "The name of the deployment from which to get the template.",
-            "in": "path",
-            "maxLength": 64,
-            "minLength": 1,
-            "name": "deploymentName",
-            "pattern": "^[-\\w\\._\\(\\)]+$",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/DeploymentNameParameter"
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
@@ -1093,6 +3271,12 @@
             "description": "OK - Returns the template.",
             "schema": {
               "$ref": "#/definitions/DeploymentExportResult"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
             }
           }
         },
@@ -1117,14 +3301,7 @@
             "type": "string"
           },
           {
-            "description": "The name of the deployment.",
-            "in": "path",
-            "maxLength": 64,
-            "minLength": 1,
-            "name": "deploymentName",
-            "pattern": "^[-\\w\\._\\(\\)]+$",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/DeploymentNameParameter"
           },
           {
             "description": "Parameters to validate.",
@@ -1154,11 +3331,162 @@
             "schema": {
               "$ref": "#/definitions/DeploymentValidateResult"
             }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
           }
         },
         "tags": [
           "Deployments"
         ]
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Resources/deployments/{deploymentName}/whatIf": {
+      "post": {
+        "description": "Returns changes that will be made by the deployment if executed at the scope of the resource group.",
+        "operationId": "Deployments_WhatIf",
+        "parameters": [
+          {
+            "description": "The name of the resource group the template will be deployed to. The name is case insensitive.",
+            "in": "path",
+            "maxLength": 90,
+            "minLength": 1,
+            "name": "resourceGroupName",
+            "pattern": "^[-\\w\\._\\(\\)]+$",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "$ref": "#/parameters/DeploymentNameParameter"
+          },
+          {
+            "description": "Parameters to validate.",
+            "in": "body",
+            "name": "parameters",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeploymentWhatIf"
+            }
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK - Returns What-If operation status",
+            "schema": {
+              "$ref": "#/definitions/WhatIfOperationResult"
+            }
+          },
+          "202": {
+            "description": "Accepted - Returns URL in Location header to query for long-running operation status.",
+            "headers": {
+              "Location": {
+                "description": "URL to get status of this long-running operation.",
+                "type": "string"
+              },
+              "Retry-After": {
+                "description": "Number of seconds to wait before polling for status.",
+                "type": "string"
+              }
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
+          }
+        },
+        "tags": [
+          "Deployments"
+        ],
+        "x-ms-examples": {
+          "Predict template changes at resource group scope": {
+            "parameters": {
+              "api-version": "2019-08-01",
+              "deploymentName": "exampleDeploymentName",
+              "parameters": {
+                "properties": {
+                  "mode": "Incremental",
+                  "parameters": {},
+                  "templateLink": "https://example.com/exampleTemplate.json"
+                }
+              },
+              "resourceGroupName": "myResourceGroup",
+              "subscriptionId": "00000000-0000-0000-0000-000000000001"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "properties": {
+                    "changes": [
+                      {
+                        "after": {
+                          "apiVersion": "2018-11-30",
+                          "id": "/subscriptions/00000000-0000-0000-0000-000000000001/resourceGroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myExistingIdentity",
+                          "location": "westus2",
+                          "name": "myExistingIdentity",
+                          "tags": {
+                            "myNewTag": "my tag value"
+                          },
+                          "type": "Microsoft.ManagedIdentity/userAssignedIdentities"
+                        },
+                        "before": {
+                          "apiVersion": "2018-11-30",
+                          "id": "/subscriptions/00000000-0000-0000-0000-000000000001/resourceGroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myExistingIdentity",
+                          "location": "westus2",
+                          "name": "myExistingIdentity",
+                          "type": "Microsoft.ManagedIdentity/userAssignedIdentities"
+                        },
+                        "changeType": "Modify",
+                        "delta": [
+                          {
+                            "after": "my tag value",
+                            "path": "tags.myNewTag",
+                            "propertyChangeType": "Create"
+                          }
+                        ],
+                        "resourceId": "/subscriptions/00000000-0000-0000-0000-000000000001/resourceGroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myExistingIdentity"
+                      },
+                      {
+                        "after": {
+                          "apiVersion": "2018-11-30",
+                          "id": "/subscriptions/00000000-0000-0000-0000-000000000001/resourceGroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myNewIdentity",
+                          "location": "eastus",
+                          "name": "myNewIdentity",
+                          "tags": {
+                            "myOtherNewTag": "another new tag value"
+                          },
+                          "type": "Microsoft.ManagedIdentity/userAssignedIdentities"
+                        },
+                        "changeType": "Create",
+                        "resourceId": "/subscriptions/00000000-0000-0000-0000-000000000001/resourceGroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myNewIdentity"
+                      }
+                    ]
+                  },
+                  "status": "succeeded"
+                }
+              },
+              "202": {
+                "headers": {
+                  "Location": "/subscriptions/4d0ca63b-7939-4c9c-afbe-5fafae501724/operationresults/ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ"
+                }
+              }
+            }
+          }
+        },
+        "x-ms-long-running-operation": true,
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "location"
+        }
       }
     },
     "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{parentResourcePath}/{resourceType}/{resourceName}": {
@@ -1207,11 +3535,7 @@
             "type": "string"
           },
           {
-            "description": "The API version to use for the operation.",
-            "in": "query",
-            "name": "api-version",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
@@ -1226,6 +3550,12 @@
           },
           "204": {
             "description": "No Content"
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
           }
         },
         "tags": [
@@ -1278,11 +3608,7 @@
             "type": "string"
           },
           {
-            "description": "The API version to use for the operation.",
-            "in": "query",
-            "name": "api-version",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
@@ -1293,6 +3619,12 @@
             "description": "OK - Returns information about the resource.",
             "schema": {
               "$ref": "#/definitions/GenericResource"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
             }
           }
         },
@@ -1345,11 +3677,7 @@
             "type": "string"
           },
           {
-            "description": "The API version to use for the operation.",
-            "in": "query",
-            "name": "api-version",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
@@ -1361,6 +3689,12 @@
           },
           "404": {
             "description": "Not Found"
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
           }
         },
         "tags": [
@@ -1412,11 +3746,7 @@
             "type": "string"
           },
           {
-            "description": "The API version to use for the operation.",
-            "in": "query",
-            "name": "api-version",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/ApiVersionParameter"
           },
           {
             "description": "Parameters for updating the resource.",
@@ -1440,6 +3770,12 @@
           },
           "202": {
             "description": "Accepted"
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
           }
         },
         "tags": [
@@ -1492,11 +3828,7 @@
             "type": "string"
           },
           {
-            "description": "The API version to use for the operation.",
-            "in": "query",
-            "name": "api-version",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/ApiVersionParameter"
           },
           {
             "description": "Parameters for creating or updating the resource.",
@@ -1526,6 +3858,12 @@
           },
           "202": {
             "description": "Accepted"
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
           }
         },
         "tags": [
@@ -1540,14 +3878,14 @@
         "operationId": "Resources_List",
         "parameters": [
           {
-            "description": "The filter to apply on the operation.",
+            "description": "The filter to apply on the operation.<br><br>The properties you can use for eq (equals) or ne (not equals) are: location, resourceType, name, resourceGroup, identity, identity/principalId, plan, plan/publisher, plan/product, plan/name, plan/version, and plan/promotionCode.<br><br>For example, to filter by a resource type, use: $filter=resourceType eq 'Microsoft.Network/virtualNetworks'<br><br>You can use substringof(value, property) in the filter. The properties you can use for substring are: name and resourceGroup.<br><br>For example, to get all resources with 'demo' anywhere in the name, use: $filter=substringof('demo', name)<br><br>You can link more than one substringof together by adding and/or operators.<br><br>You can filter by tag names and values. For example, to filter for a tag name and value, use $filter=tagName eq 'tag1' and tagValue eq 'Value1'. When you filter by a tag name and value, the tags for each resource are not returned in the results.<br><br>You can use some properties together when filtering. The combinations you can use are: substringof and/or resourceType, plan and plan/publisher and plan/name, identity and identity/principalId.",
             "in": "query",
             "name": "$filter",
             "required": false,
             "type": "string"
           },
           {
-            "description": "The $expand query parameter.",
+            "description": "The $expand query parameter. You can expand createdTime and changedTime. For example, to expand both properties, use $expand=changedTime,createdTime",
             "in": "query",
             "name": "$expand",
             "required": false,
@@ -1573,6 +3911,12 @@
             "description": "OK - Returns an array of resources.",
             "schema": {
               "$ref": "#/definitions/ResourceListResult"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
             }
           }
         },
@@ -1602,6 +3946,12 @@
             "description": "OK - Returns an array of tag names and values.",
             "schema": {
               "$ref": "#/definitions/TagsListResult"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
             }
           }
         },
@@ -1638,6 +3988,12 @@
           },
           "204": {
             "description": "No Content"
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
           }
         },
         "summary": "Deletes a tag from the subscription.",
@@ -1674,6 +4030,12 @@
             "description": "Created - Returns information about the tag.",
             "schema": {
               "$ref": "#/definitions/TagDetails"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
             }
           }
         },
@@ -1715,6 +4077,12 @@
           },
           "204": {
             "description": "No Content"
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
           }
         },
         "tags": [
@@ -1758,6 +4126,12 @@
             "schema": {
               "$ref": "#/definitions/TagValue"
             }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
           }
         },
         "tags": [
@@ -1779,11 +4153,7 @@
             "x-ms-skip-url-encoding": true
           },
           {
-            "description": "The API version to use for the operation.",
-            "in": "query",
-            "name": "api-version",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/ApiVersionParameter"
           }
         ],
         "responses": {
@@ -1795,6 +4165,12 @@
           },
           "204": {
             "description": "No Content"
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
           }
         },
         "tags": [
@@ -1815,11 +4191,7 @@
             "x-ms-skip-url-encoding": true
           },
           {
-            "description": "The API version to use for the operation.",
-            "in": "query",
-            "name": "api-version",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/ApiVersionParameter"
           }
         ],
         "responses": {
@@ -1827,6 +4199,12 @@
             "description": "OK - Returns information about the resource.",
             "schema": {
               "$ref": "#/definitions/GenericResource"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
             }
           }
         },
@@ -1847,11 +4225,7 @@
             "x-ms-skip-url-encoding": true
           },
           {
-            "description": "The API version to use for the operation.",
-            "in": "query",
-            "name": "api-version",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/ApiVersionParameter"
           }
         ],
         "responses": {
@@ -1860,6 +4234,12 @@
           },
           "404": {
             "description": "Not Found"
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
           }
         },
         "tags": [
@@ -1879,11 +4259,7 @@
             "x-ms-skip-url-encoding": true
           },
           {
-            "description": "The API version to use for the operation.",
-            "in": "query",
-            "name": "api-version",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/ApiVersionParameter"
           },
           {
             "description": "Update resource parameters.",
@@ -1904,6 +4280,12 @@
           },
           "202": {
             "description": "Accepted"
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
           }
         },
         "tags": [
@@ -1924,11 +4306,7 @@
             "x-ms-skip-url-encoding": true
           },
           {
-            "description": "The API version to use for the operation.",
-            "in": "query",
-            "name": "api-version",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/ApiVersionParameter"
           },
           {
             "description": "Create or update resource parameters.",
@@ -1955,12 +4333,557 @@
           },
           "202": {
             "description": "Accepted"
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
           }
         },
         "tags": [
           "Resources"
         ],
         "x-ms-long-running-operation": true
+      }
+    },
+    "/{scope}/providers/Microsoft.Resources/deployments/": {
+      "get": {
+        "description": "Get all the deployments at the given scope.",
+        "operationId": "Deployments_ListAtScope",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ScopeParameter"
+          },
+          {
+            "description": "The filter to apply on the operation. For example, you can use $filter=provisioningState eq '{state}'.",
+            "in": "query",
+            "name": "$filter",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "The number of results to get. If null is passed, returns all deployments.",
+            "format": "int32",
+            "in": "query",
+            "name": "$top",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK - Returns an array of deployments.",
+            "schema": {
+              "$ref": "#/definitions/DeploymentListResult"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
+          }
+        },
+        "tags": [
+          "Deployments"
+        ],
+        "x-ms-odata": "#/definitions/DeploymentExtendedFilter",
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        }
+      }
+    },
+    "/{scope}/providers/Microsoft.Resources/deployments/{deploymentName}": {
+      "delete": {
+        "description": "A template deployment that is currently running cannot be deleted. Deleting a template deployment removes the associated deployment operations. This is an asynchronous operation that returns a status of 202 until the template deployment is successfully deleted. The Location response header contains the URI that is used to obtain the status of the process. While the process is running, a call to the URI in the Location header returns a status of 202. When the process finishes, the URI in the Location header returns a status of 204 on success. If the asynchronous request failed, the URI in the Location header returns an error-level status code.",
+        "operationId": "Deployments_DeleteAtScope",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ScopeParameter"
+          },
+          {
+            "$ref": "#/parameters/DeploymentNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Accepted - Returns this status until the asynchronous operation has completed."
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
+          }
+        },
+        "summary": "Deletes a deployment from the deployment history.",
+        "tags": [
+          "Deployments"
+        ],
+        "x-ms-long-running-operation": true
+      },
+      "get": {
+        "description": "Gets a deployment.",
+        "operationId": "Deployments_GetAtScope",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ScopeParameter"
+          },
+          {
+            "$ref": "#/parameters/DeploymentNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK - Returns information about the deployment, including provisioning status.",
+            "schema": {
+              "$ref": "#/definitions/DeploymentExtended"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
+          }
+        },
+        "tags": [
+          "Deployments"
+        ]
+      },
+      "head": {
+        "description": "Checks whether the deployment exists.",
+        "operationId": "Deployments_CheckExistenceAtScope",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ScopeParameter"
+          },
+          {
+            "$ref": "#/parameters/DeploymentNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
+          }
+        },
+        "tags": [
+          "Deployments"
+        ]
+      },
+      "put": {
+        "description": "You can provide the template and parameters directly in the request or link to JSON files.",
+        "operationId": "Deployments_CreateOrUpdateAtScope",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ScopeParameter"
+          },
+          {
+            "$ref": "#/parameters/DeploymentNameParameter"
+          },
+          {
+            "description": "Additional parameters supplied to the operation.",
+            "in": "body",
+            "name": "parameters",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Deployment"
+            }
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK - Returns information about the deployment, including provisioning status.",
+            "schema": {
+              "$ref": "#/definitions/DeploymentExtended"
+            }
+          },
+          "201": {
+            "description": "Created - Returns information about the deployment, including provisioning status.",
+            "schema": {
+              "$ref": "#/definitions/DeploymentExtended"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
+          }
+        },
+        "summary": "Deploys resources at a given scope.",
+        "tags": [
+          "Deployments"
+        ],
+        "x-ms-examples": {
+          "Create deployment at a given scope.": {
+            "parameters": {
+              "api-version": "2019-08-01",
+              "deploymentName": "mg-dep01",
+              "parameters": {
+                "location": "eastus",
+                "properties": {
+                  "mode": "Incremental",
+                  "parameters": {},
+                  "templateLink": "{templateUri}"
+                }
+              },
+              "scope": "providers/Microsoft.Management/managementGroups/tiano-group1"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "id": "/providers/Microsoft.Management/managementGroups/tiano-group1/providers/Microsoft.Resources/deployments/mg-dep01",
+                  "location": "eastus",
+                  "name": "mg-dep01",
+                  "properties": {
+                    "correlationId": "{correlationId}",
+                    "dependencies": [
+                      {
+                        "dependsOn": [
+                          {
+                            "id": "/providers/Microsoft.Management/managementGroups/tiano-group1/providers/Microsoft.Authorization/policyDefinitions/policy2",
+                            "resourceName": "policy2",
+                            "resourceType": "Microsoft.Authorization/policyDefinitions"
+                          }
+                        ],
+                        "id": "/providers/Microsoft.Management/managementGroups/tiano-group1/providers/Microsoft.Authorization/policyAssignments/location-lock",
+                        "resourceName": "location-lock",
+                        "resourceType": "Microsoft.Authorization/policyAssignments"
+                      }
+                    ],
+                    "duration": "PT1.2970875S",
+                    "mode": "Incremental",
+                    "parameters": {},
+                    "providers": [
+                      {
+                        "namespace": "Microsoft.Authorization",
+                        "resourceTypes": [
+                          {
+                            "locations": [
+                              null
+                            ],
+                            "resourceType": "policyDefinitions"
+                          },
+                          {
+                            "locations": [
+                              null
+                            ],
+                            "resourceType": "policyAssignments"
+                          }
+                        ]
+                      },
+                      {
+                        "namespace": "Microsoft.Resources",
+                        "resourceTypes": [
+                          {
+                            "locations": [
+                              "eastus"
+                            ],
+                            "resourceType": "deployments"
+                          }
+                        ]
+                      }
+                    ],
+                    "provisioningState": "Accepted",
+                    "timestamp": "2019-04-24T22:52:38.7895563Z"
+                  },
+                  "type": "Microsoft.Resources/deployments"
+                }
+              },
+              "201": {
+                "body": {
+                  "id": "/providers/Microsoft.Management/managementGroups/tiano-group1/providers/Microsoft.Resources/deployments/mg-dep01",
+                  "location": "eastus",
+                  "name": "mg-dep01",
+                  "properties": {
+                    "correlationId": "{correlationId}",
+                    "dependencies": [
+                      {
+                        "dependsOn": [
+                          {
+                            "id": "/providers/Microsoft.Management/managementGroups/tiano-group1/providers/Microsoft.Authorization/policyDefinitions/policy2",
+                            "resourceName": "policy2",
+                            "resourceType": "Microsoft.Authorization/policyDefinitions"
+                          }
+                        ],
+                        "id": "/providers/Microsoft.Management/managementGroups/tiano-group1/providers/Microsoft.Authorization/policyAssignments/location-lock",
+                        "resourceName": "location-lock",
+                        "resourceType": "Microsoft.Authorization/policyAssignments"
+                      }
+                    ],
+                    "duration": "PT1.2970875S",
+                    "mode": "Incremental",
+                    "parameters": {},
+                    "providers": [
+                      {
+                        "namespace": "Microsoft.Authorization",
+                        "resourceTypes": [
+                          {
+                            "locations": [
+                              null
+                            ],
+                            "resourceType": "policyDefinitions"
+                          },
+                          {
+                            "locations": [
+                              null
+                            ],
+                            "resourceType": "policyAssignments"
+                          }
+                        ]
+                      },
+                      {
+                        "namespace": "Microsoft.Resources",
+                        "resourceTypes": [
+                          {
+                            "locations": [
+                              "eastus"
+                            ],
+                            "resourceType": "deployments"
+                          }
+                        ]
+                      }
+                    ],
+                    "provisioningState": "Accepted",
+                    "timestamp": "2019-04-24T22:52:38.7895563Z"
+                  },
+                  "type": "Microsoft.Resources/deployments"
+                }
+              }
+            }
+          }
+        },
+        "x-ms-long-running-operation": true
+      }
+    },
+    "/{scope}/providers/Microsoft.Resources/deployments/{deploymentName}/cancel": {
+      "post": {
+        "description": "You can cancel a deployment only if the provisioningState is Accepted or Running. After the deployment is canceled, the provisioningState is set to Canceled. Canceling a template deployment stops the currently running template deployment and leaves the resources partially deployed.",
+        "operationId": "Deployments_CancelAtScope",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ScopeParameter"
+          },
+          {
+            "$ref": "#/parameters/DeploymentNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
+          }
+        },
+        "summary": "Cancels a currently running template deployment.",
+        "tags": [
+          "Deployments"
+        ]
+      }
+    },
+    "/{scope}/providers/Microsoft.Resources/deployments/{deploymentName}/exportTemplate": {
+      "post": {
+        "description": "Exports the template used for specified deployment.",
+        "operationId": "Deployments_ExportTemplateAtScope",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ScopeParameter"
+          },
+          {
+            "$ref": "#/parameters/DeploymentNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK - Returns the template.",
+            "schema": {
+              "$ref": "#/definitions/DeploymentExportResult"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
+          }
+        },
+        "tags": [
+          "Deployments"
+        ]
+      }
+    },
+    "/{scope}/providers/Microsoft.Resources/deployments/{deploymentName}/operations": {
+      "get": {
+        "description": "Gets all deployments operations for a deployment.",
+        "operationId": "DeploymentOperations_ListAtScope",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ScopeParameter"
+          },
+          {
+            "$ref": "#/parameters/DeploymentNameParameter"
+          },
+          {
+            "description": "The number of results to return.",
+            "format": "int32",
+            "in": "query",
+            "name": "$top",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK - Return an array of deployment operations.",
+            "schema": {
+              "$ref": "#/definitions/DeploymentOperationsListResult"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
+          }
+        },
+        "tags": [
+          "DeploymentOperations"
+        ],
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        }
+      }
+    },
+    "/{scope}/providers/Microsoft.Resources/deployments/{deploymentName}/operations/{operationId}": {
+      "get": {
+        "description": "Gets a deployments operation.",
+        "operationId": "DeploymentOperations_GetAtScope",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ScopeParameter"
+          },
+          {
+            "$ref": "#/parameters/DeploymentNameParameter"
+          },
+          {
+            "description": "The ID of the operation to get.",
+            "in": "path",
+            "name": "operationId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK - Returns information about the deployment operation.",
+            "schema": {
+              "$ref": "#/definitions/DeploymentOperation"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
+          }
+        },
+        "tags": [
+          "DeploymentOperations"
+        ]
+      }
+    },
+    "/{scope}/providers/Microsoft.Resources/deployments/{deploymentName}/validate": {
+      "post": {
+        "description": "Validates whether the specified template is syntactically correct and will be accepted by Azure Resource Manager..",
+        "operationId": "Deployments_ValidateAtScope",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ScopeParameter"
+          },
+          {
+            "$ref": "#/parameters/DeploymentNameParameter"
+          },
+          {
+            "description": "Parameters to validate.",
+            "in": "body",
+            "name": "parameters",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Deployment"
+            }
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK - Returns the validation result.",
+            "schema": {
+              "$ref": "#/definitions/DeploymentValidateResult"
+            }
+          },
+          "400": {
+            "description": "Returns the validation result.",
+            "schema": {
+              "$ref": "#/definitions/DeploymentValidateResult"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
+          }
+        },
+        "tags": [
+          "Deployments"
+        ]
       }
     }
   },
@@ -2014,7 +4937,62 @@
         }
       }
     },
+    "CloudError": {
+      "description": "An error response for a resource management request.",
+      "properties": {
+        "error": {
+          "description": "The resource management error response.",
+          "properties": {
+            "additionalInfo": {
+              "description": "The error additional info.",
+              "items": {
+                "description": "The resource management error additional info.",
+                "properties": {
+                  "info": {
+                    "description": "The additional info.",
+                    "readOnly": true,
+                    "type": "object"
+                  },
+                  "type": {
+                    "description": "The additional info type.",
+                    "readOnly": true,
+                    "type": "string"
+                  }
+                }
+              },
+              "readOnly": true,
+              "type": "array"
+            },
+            "code": {
+              "description": "The error code.",
+              "readOnly": true,
+              "type": "string"
+            },
+            "details": {
+              "description": "The error details.",
+              "items": {
+                "$ref": "#/definitions/ErrorResponse"
+              },
+              "readOnly": true,
+              "type": "array"
+            },
+            "message": {
+              "description": "The error message.",
+              "readOnly": true,
+              "type": "string"
+            },
+            "target": {
+              "description": "The error target.",
+              "readOnly": true,
+              "type": "string"
+            }
+          }
+        }
+      },
+      "x-ms-external": true
+    },
     "DebugSetting": {
+      "description": "The debug setting.",
       "properties": {
         "detailLevel": {
           "description": "Specifies the type of information to log for debugging. The permitted values are none, requestContent, responseContent, or both requestContent and responseContent separated by a comma. The default is none. When setting this value, carefully consider the type of information you are passing in during deployment. By logging information about the request or response, you could potentially expose sensitive data that is retrieved through the deployment operations.",
@@ -2049,6 +5027,10 @@
     "Deployment": {
       "description": "Deployment operation parameters.",
       "properties": {
+        "location": {
+          "description": "The location to store the deployment data.",
+          "type": "string"
+        },
         "properties": {
           "$ref": "#/definitions/DeploymentProperties",
           "description": "The deployment properties."
@@ -2075,18 +5057,25 @@
           "readOnly": true,
           "type": "string"
         },
+        "location": {
+          "description": "the location of the deployment.",
+          "type": "string"
+        },
         "name": {
           "description": "The name of the deployment.",
+          "readOnly": true,
           "type": "string"
         },
         "properties": {
           "$ref": "#/definitions/DeploymentPropertiesExtended",
           "description": "Deployment properties."
+        },
+        "type": {
+          "description": "The type of the deployment.",
+          "readOnly": true,
+          "type": "string"
         }
       },
-      "required": [
-        "name"
-      ],
       "x-ms-azure-resource": true
     },
     "DeploymentExtendedFilter": {
@@ -2137,6 +5126,11 @@
     "DeploymentOperationProperties": {
       "description": "Deployment operation properties.",
       "properties": {
+        "duration": {
+          "description": "The duration of the operation.",
+          "readOnly": true,
+          "type": "string"
+        },
         "provisioningState": {
           "description": "The state of the provisioning.",
           "readOnly": true,
@@ -2260,6 +5254,11 @@
           },
           "type": "array"
         },
+        "duration": {
+          "description": "The duration of the template deployment.",
+          "readOnly": true,
+          "type": "string"
+        },
         "mode": {
           "description": "The deployment mode. Possible values are Incremental and Complete.",
           "enum": [
@@ -2277,7 +5276,7 @@
           "description": "The deployment on error behavior."
         },
         "outputs": {
-          "description": "Key/value pairs that represent deploymentoutput.",
+          "description": "Key/value pairs that represent deployment output.",
           "type": "object"
         },
         "parameters": {
@@ -2320,8 +5319,52 @@
       "description": "Information from validate template deployment response.",
       "properties": {
         "error": {
-          "$ref": "#/definitions/ResourceManagementErrorWithDetails",
-          "description": "Validation error."
+          "description": "The resource management error response.",
+          "properties": {
+            "additionalInfo": {
+              "description": "The error additional info.",
+              "items": {
+                "description": "The resource management error additional info.",
+                "properties": {
+                  "info": {
+                    "description": "The additional info.",
+                    "readOnly": true,
+                    "type": "object"
+                  },
+                  "type": {
+                    "description": "The additional info type.",
+                    "readOnly": true,
+                    "type": "string"
+                  }
+                }
+              },
+              "readOnly": true,
+              "type": "array"
+            },
+            "code": {
+              "description": "The error code.",
+              "readOnly": true,
+              "type": "string"
+            },
+            "details": {
+              "description": "The error details.",
+              "items": {
+                "$ref": "#/definitions/ErrorResponse"
+              },
+              "readOnly": true,
+              "type": "array"
+            },
+            "message": {
+              "description": "The error message.",
+              "readOnly": true,
+              "type": "string"
+            },
+            "target": {
+              "description": "The error target.",
+              "readOnly": true,
+              "type": "string"
+            }
+          }
         },
         "properties": {
           "$ref": "#/definitions/DeploymentPropertiesExtended",
@@ -2329,15 +5372,63 @@
         }
       }
     },
+    "DeploymentWhatIf": {
+      "description": "Deployment What-if operation parameters.",
+      "properties": {
+        "location": {
+          "description": "The location to store the deployment data.",
+          "type": "string"
+        },
+        "properties": {
+          "$ref": "#/definitions/DeploymentWhatIfProperties",
+          "description": "The deployment properties."
+        }
+      },
+      "required": [
+        "properties"
+      ]
+    },
+    "DeploymentWhatIfProperties": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/DeploymentProperties"
+        }
+      ],
+      "description": "Deployment What-if properties.",
+      "properties": {
+        "whatIfSettings": {
+          "$ref": "#/definitions/DeploymentWhatIfSettings",
+          "description": "Optional What-If operation settings."
+        }
+      }
+    },
+    "DeploymentWhatIfSettings": {
+      "description": "Deployment What-If operation settings.",
+      "properties": {
+        "resultFormat": {
+          "description": "The format of the What-If results",
+          "enum": [
+            "ResourceIdOnly",
+            "FullResourcePayloads"
+          ],
+          "type": "string",
+          "x-ms-enum": {
+            "modelAsString": false,
+            "name": "WhatIfResultFormat"
+          }
+        }
+      }
+    },
+    "ErrorResponse": {},
     "ExportTemplateRequest": {
       "description": "Export resource group template request parameters.",
       "properties": {
         "options": {
-          "description": "The export template options. Supported values include 'IncludeParameterDefaultValue', 'IncludeComments' or 'IncludeParameterDefaultValue, IncludeComments",
+          "description": "The export template options. A CSV-formatted list containing zero or more of the following: 'IncludeParameterDefaultValue', 'IncludeComments', 'SkipResourceNameParameterization', 'SkipAllParameterization'",
           "type": "string"
         },
         "resources": {
-          "description": "The IDs of the resources. The only supported string currently is '*' (all resources). Future updates will support exporting specific resources.",
+          "description": "The IDs of the resources to filter the export by. To export all resources, supply an array with single entry '*'.",
           "items": {
             "type": "string"
           },
@@ -2432,6 +5523,25 @@
             "modelAsString": false,
             "name": "ResourceIdentityType"
           }
+        },
+        "userAssignedIdentities": {
+          "additionalProperties": {
+            "properties": {
+              "clientId": {
+                "description": "The client id of user assigned identity.",
+                "readOnly": true,
+                "type": "string"
+              },
+              "principalId": {
+                "description": "The principal id of user assigned identity.",
+                "readOnly": true,
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "description": "The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.",
+          "type": "object"
         }
       }
     },
@@ -2482,8 +5592,55 @@
         }
       }
     },
+    "Operation": {
+      "description": "Microsoft.Resources operation",
+      "properties": {
+        "display": {
+          "description": "The object that represents the operation.",
+          "properties": {
+            "description": {
+              "description": "Description of the operation.",
+              "type": "string"
+            },
+            "operation": {
+              "description": "Operation type: Read, write, delete, etc.",
+              "type": "string"
+            },
+            "provider": {
+              "description": "Service provider: Microsoft.Resources",
+              "type": "string"
+            },
+            "resource": {
+              "description": "Resource on which the operation is performed: Profile, endpoint, etc.",
+              "type": "string"
+            }
+          }
+        },
+        "name": {
+          "description": "Operation name: {provider}/{resource}/{operation}",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "OperationListResult": {
+      "description": "Result of the request to list Microsoft.Resources operations. It contains a list of operations and a URL link to get the next set of results.",
+      "properties": {
+        "nextLink": {
+          "description": "URL to get the next set of operation list results if there are any.",
+          "type": "string"
+        },
+        "value": {
+          "description": "List of Microsoft.Resources operations.",
+          "items": {
+            "$ref": "#/definitions/Operation"
+          },
+          "type": "array"
+        }
+      }
+    },
     "ParametersLink": {
-      "description": "Entity representing the reference to the deployment paramaters.",
+      "description": "Entity representing the reference to the deployment parameters.",
       "properties": {
         "contentVersion": {
           "description": "If included, must match the ContentVersion in the template.",
@@ -2535,8 +5692,13 @@
           "description": "The namespace of the resource provider.",
           "type": "string"
         },
+        "registrationPolicy": {
+          "description": "The registration policy of the resource provider.",
+          "readOnly": true,
+          "type": "string"
+        },
         "registrationState": {
-          "description": "The registration state of the provider.",
+          "description": "The registration state of the resource provider.",
           "readOnly": true,
           "type": "string"
         },
@@ -2584,6 +5746,10 @@
           },
           "type": "array"
         },
+        "capabilities": {
+          "description": "The additional capabilities offered by this resource type.",
+          "type": "string"
+        },
         "locations": {
           "description": "The collection of locations where this resource type can be created.",
           "items": {
@@ -2606,7 +5772,7 @@
       }
     },
     "Resource": {
-      "description": "Resource.",
+      "description": "Specified resource.",
       "properties": {
         "id": {
           "description": "Resource ID",
@@ -2655,10 +5821,12 @@
         },
         "name": {
           "description": "The name of the resource group.",
+          "readOnly": true,
           "type": "string"
         },
         "properties": {
-          "$ref": "#/definitions/ResourceGroupProperties"
+          "$ref": "#/definitions/ResourceGroupProperties",
+          "description": "The resource group properties."
         },
         "tags": {
           "additionalProperties": {
@@ -2667,6 +5835,11 @@
           },
           "description": "The tags attached to the resource group.",
           "type": "object"
+        },
+        "type": {
+          "description": "The type of the resource group.",
+          "readOnly": true,
+          "type": "string"
         }
       },
       "required": [
@@ -2678,8 +5851,52 @@
       "description": "Resource group export result.",
       "properties": {
         "error": {
-          "$ref": "#/definitions/ResourceManagementErrorWithDetails",
-          "description": "The error."
+          "description": "The resource management error response.",
+          "properties": {
+            "additionalInfo": {
+              "description": "The error additional info.",
+              "items": {
+                "description": "The resource management error additional info.",
+                "properties": {
+                  "info": {
+                    "description": "The additional info.",
+                    "readOnly": true,
+                    "type": "object"
+                  },
+                  "type": {
+                    "description": "The additional info type.",
+                    "readOnly": true,
+                    "type": "string"
+                  }
+                }
+              },
+              "readOnly": true,
+              "type": "array"
+            },
+            "code": {
+              "description": "The error code.",
+              "readOnly": true,
+              "type": "string"
+            },
+            "details": {
+              "description": "The error details.",
+              "items": {
+                "$ref": "#/definitions/ErrorResponse"
+              },
+              "readOnly": true,
+              "type": "array"
+            },
+            "message": {
+              "description": "The error message.",
+              "readOnly": true,
+              "type": "string"
+            },
+            "target": {
+              "description": "The error target.",
+              "readOnly": true,
+              "type": "string"
+            }
+          }
         },
         "template": {
           "description": "The template content.",
@@ -2729,7 +5946,8 @@
           "type": "string"
         },
         "properties": {
-          "$ref": "#/definitions/ResourceGroupProperties"
+          "$ref": "#/definitions/ResourceGroupProperties",
+          "description": "The resource group properties."
         },
         "tags": {
           "additionalProperties": {
@@ -2768,34 +5986,6 @@
         }
       }
     },
-    "ResourceManagementErrorWithDetails": {
-      "description": "The detailed error message of resource management.",
-      "properties": {
-        "code": {
-          "description": "The error code returned when exporting the template.",
-          "readOnly": true,
-          "type": "string"
-        },
-        "details": {
-          "description": "Validation error.",
-          "items": {
-            "$ref": "#/definitions/ResourceManagementErrorWithDetails"
-          },
-          "readOnly": true,
-          "type": "array"
-        },
-        "message": {
-          "description": "The error message describing the export error.",
-          "readOnly": true,
-          "type": "string"
-        },
-        "target": {
-          "description": "The target of the error.",
-          "readOnly": true,
-          "type": "string"
-        }
-      }
-    },
     "ResourceProviderOperationDisplayProperties": {
       "description": "Resource provider operation's display properties.",
       "properties": {
@@ -2804,7 +5994,7 @@
           "type": "string"
         },
         "operation": {
-          "description": "Operation.",
+          "description": "Resource provider operation.",
           "type": "string"
         },
         "provider": {
@@ -2836,6 +6026,23 @@
           "type": "string"
         }
       }
+    },
+    "ScopedDeployment": {
+      "description": "Deployment operation parameters.",
+      "properties": {
+        "location": {
+          "description": "The location to store the deployment data.",
+          "type": "string"
+        },
+        "properties": {
+          "$ref": "#/definitions/DeploymentProperties",
+          "description": "The deployment properties."
+        }
+      },
+      "required": [
+        "location",
+        "properties"
+      ]
     },
     "Sku": {
       "description": "SKU for the resource.",
@@ -2968,6 +6175,19 @@
         }
       }
     },
+    "TemplateHashResult": {
+      "description": "Result of the request to calculate template hash. It contains a string of minified template and its hash.",
+      "properties": {
+        "minifiedTemplate": {
+          "description": "The minified template string.",
+          "type": "string"
+        },
+        "templateHash": {
+          "description": "The template hash.",
+          "type": "string"
+        }
+      }
+    },
     "TemplateLink": {
       "description": "Entity representing the reference to the template.",
       "properties": {
@@ -2982,6 +6202,210 @@
       },
       "required": [
         "uri"
+      ]
+    },
+    "WhatIfChange": {
+      "description": "Information about a single resource change predicted by What-If operation.",
+      "properties": {
+        "after": {
+          "description": "The predicted snapshot of the resource after the deployment is executed.",
+          "type": "object"
+        },
+        "before": {
+          "description": "The snapshot of the resource before the deployment is executed.",
+          "type": "object"
+        },
+        "changeType": {
+          "description": "Type of change that will be made to the resource when the deployment is executed.",
+          "enum": [
+            "Create",
+            "Delete",
+            "Ignore",
+            "Deploy",
+            "NoChange",
+            "Modify"
+          ],
+          "type": "string",
+          "x-ms-enum": {
+            "modelAsString": false,
+            "name": "ChangeType",
+            "values": [
+              {
+                "description": "The resource does not exist in the current state but is present in the desired state. The resource will be created when the deployment is executed.",
+                "value": "Create"
+              },
+              {
+                "description": "The resource exists in the current state and is missing from the desired state. The resource will be deleted when the deployment is executed.",
+                "value": "Delete"
+              },
+              {
+                "description": "The resource exists in the current state and is missing from the desired state. The resource will not be deployed or modified when the deployment is executed.",
+                "value": "Ignore"
+              },
+              {
+                "description": "The resource exists in the current state and the desired state and will be redeployed when the deployment is executed. The properties of the resource may or may not change.",
+                "value": "Deploy"
+              },
+              {
+                "description": "The resource exists in the current state and the desired state and will be redeployed when the deployment is executed. The properties of the resource will not change.",
+                "value": "NoChange"
+              },
+              {
+                "description": "The resource exists in the current state and the desired state and will be redeployed when the deployment is executed. The properties of the resource will change.",
+                "value": "Modify"
+              }
+            ]
+          }
+        },
+        "delta": {
+          "description": "The predicted changes to resource properties.",
+          "items": {
+            "$ref": "#/definitions/WhatIfPropertyChange"
+          },
+          "type": "array"
+        },
+        "resourceId": {
+          "description": "Resource ID",
+          "type": "string"
+        }
+      },
+      "required": [
+        "resourceId",
+        "changeType"
+      ]
+    },
+    "WhatIfOperationProperties": {
+      "description": "Deployment operation properties.",
+      "properties": {
+        "changes": {
+          "description": "List of resource changes predicted by What-If operation.",
+          "items": {
+            "$ref": "#/definitions/WhatIfChange"
+          },
+          "type": "array"
+        }
+      }
+    },
+    "WhatIfOperationResult": {
+      "description": "Result of the What-If operation. Contains a list of predicted changes and a URL link to get to the next set of results.",
+      "properties": {
+        "error": {
+          "description": "The resource management error response.",
+          "properties": {
+            "additionalInfo": {
+              "description": "The error additional info.",
+              "items": {
+                "description": "The resource management error additional info.",
+                "properties": {
+                  "info": {
+                    "description": "The additional info.",
+                    "readOnly": true,
+                    "type": "object"
+                  },
+                  "type": {
+                    "description": "The additional info type.",
+                    "readOnly": true,
+                    "type": "string"
+                  }
+                }
+              },
+              "readOnly": true,
+              "type": "array"
+            },
+            "code": {
+              "description": "The error code.",
+              "readOnly": true,
+              "type": "string"
+            },
+            "details": {
+              "description": "The error details.",
+              "items": {
+                "$ref": "#/definitions/ErrorResponse"
+              },
+              "readOnly": true,
+              "type": "array"
+            },
+            "message": {
+              "description": "The error message.",
+              "readOnly": true,
+              "type": "string"
+            },
+            "target": {
+              "description": "The error target.",
+              "readOnly": true,
+              "type": "string"
+            }
+          }
+        },
+        "properties": {
+          "$ref": "#/definitions/WhatIfOperationProperties",
+          "description": "What-If operation properties.",
+          "x-ms-client-flatten": true
+        },
+        "status": {
+          "description": "Status of the What-If operation.",
+          "type": "string"
+        }
+      }
+    },
+    "WhatIfPropertyChange": {
+      "description": "The predicted change to the resource property.",
+      "properties": {
+        "after": {
+          "description": "The value of the property after the deployment is executed.",
+          "type": "object"
+        },
+        "before": {
+          "description": "The value of the property before the deployment is executed.",
+          "type": "object"
+        },
+        "children": {
+          "description": "Nested property changes.",
+          "items": {
+            "$ref": "#/definitions/WhatIfPropertyChange"
+          },
+          "type": "array"
+        },
+        "path": {
+          "description": "The path of the property.",
+          "type": "string"
+        },
+        "propertyChangeType": {
+          "description": "The type of property change.",
+          "enum": [
+            "Create",
+            "Delete",
+            "Modify",
+            "Array"
+          ],
+          "type": "string",
+          "x-ms-enum": {
+            "modelAsString": false,
+            "name": "PropertyChangeType",
+            "values": [
+              {
+                "description": "The property does not exist in the current state but is present in the desired state. The property will be created when the deployment is executed.",
+                "value": "Create"
+              },
+              {
+                "description": "The property exists in the current state and is missing from the desired state. It will be deleted when the deployment is executed.",
+                "value": "Delete"
+              },
+              {
+                "description": "The property exists in both current and desired state and is different. The value of the property will change when the deployment is executed.",
+                "value": "Modify"
+              },
+              {
+                "description": "The property is an array and contains nested changes.",
+                "value": "Array"
+              }
+            ]
+          }
+        }
+      },
+      "required": [
+        "path",
+        "propertyChangeType"
       ]
     }
   }

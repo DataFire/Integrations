@@ -11,7 +11,7 @@ let taxamo = require('@datafire/taxamo').create({
   apiKey: ""
 });
 
-taxamo.listTransactions({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

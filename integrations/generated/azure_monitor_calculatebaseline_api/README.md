@@ -15,11 +15,7 @@ let azure_monitor_calculatebaseline_api = require('@datafire/azure_monitor_calcu
   redirect_uri: ""
 });
 
-azure_monitor_calculatebaseline_api.MetricBaseline_CalculateBaseline({
-  "resourceUri": "",
-  "api-version": "",
-  "TimeSeriesInformation": null
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -61,15 +57,15 @@ azure_monitor_calculatebaseline_api.MetricBaseline_CalculateBaseline({
     * items `number`: A single high threshold value.
   * lowThresholds **required** `array`: The low thresholds of the baseline.
     * items `number`: A single low threshold value.
-  * sensitivity **required** `string` (values: Low, Medium, High): the sensitivity of the baseline.
+  * sensitivity **required** `string` (values: Low, Medium, High): The sensitivity of the baseline.
 
 ### CalculateBaselineResponse
-* CalculateBaselineResponse `object`: The response to a calcualte baseline call.
-  * baseline **required** `array`: the baseline values for each sensitivity.
+* CalculateBaselineResponse `object`: The response to a calculate baseline call.
+  * baseline **required** `array`: The baseline values for each sensitivity.
     * items [Baseline](#baseline)
-  * timestamps `array`: the array of timestamps of the baselines.
-    * items `string`: the timestamp for the baseline value in ISO 8601 format.
-  * type **required** `string`: the resource type of the baseline resource.
+  * timestamps `array`: The array of timestamps of the baselines.
+    * items `string`: The timestamp for the baseline value in ISO 8601 format.
+  * type **required** `string`: The resource type of the baseline resource.
 
 ### ErrorResponse
 * ErrorResponse `object`: Describes the format of Error response.
@@ -78,10 +74,10 @@ azure_monitor_calculatebaseline_api.MetricBaseline_CalculateBaseline({
 
 ### TimeSeriesInformation
 * TimeSeriesInformation `object`: The time series info needed for calculating the baseline.
-  * sensitivities **required** `array`: the list of sensitivities for calculating the baseline.
-    * items `string`: the requested sensitivity for calculating the baseline.
-  * timestamps `array`: the array of timestamps of the baselines.
-    * items `string`: the timestamp for the baseline value in ISO 8601 format.
+  * sensitivities **required** `array`: The list of sensitivities for calculating the baseline.
+    * items `string`: The requested sensitivity for calculating the baseline.
+  * timestamps `array`: The array of timestamps of the baselines.
+    * items `string`: The timestamp for the baseline value in ISO 8601 format.
   * values **required** `array`: The metric values to calculate the baseline.
     * items `number`: A single metric value.
 

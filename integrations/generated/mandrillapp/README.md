@@ -9,9 +9,7 @@ npm install --save @datafire/mandrillapp
 ```js
 let mandrillapp = require('@datafire/mandrillapp').create();
 
-mandrillapp.exports.activity.json.post({
-  "body": {}
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -2004,8 +2002,6 @@ mandrillapp.whitelists.list.json.post({
         * rcpt `string`
         * vars `array`
           * items `object`
-            * content `string`
-            * name `string`
     * metadata `object`
       * website `string`
     * preserve_recipients `null`
@@ -2085,8 +2081,6 @@ mandrillapp.whitelists.list.json.post({
         * rcpt `string`
         * vars `array`
           * items `object`
-            * content `string`
-            * name `string`
     * metadata `object`
       * website `string`
     * preserve_recipients `null`

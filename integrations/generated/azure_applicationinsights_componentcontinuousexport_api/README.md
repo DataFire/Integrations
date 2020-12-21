@@ -15,12 +15,7 @@ let azure_applicationinsights_componentcontinuousexport_api = require('@datafire
   redirect_uri: ""
 });
 
-azure_applicationinsights_componentcontinuousexport_api.ExportConfigurations_List({
-  "resourceGroupName": "",
-  "api-version": "",
-  "subscriptionId": "",
-  "resourceName": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -46,9 +41,9 @@ azure_applicationinsights_componentcontinuousexport_api.ExportConfigurations_Lis
 
 #### Input
 * input `object`
-  * resourceGroupName **required** `string`: The name of the resource group.
-  * api-version **required** `string`: Client Api Version.
-  * subscriptionId **required** `string`: The Azure subscription ID.
+  * resourceGroupName **required** `string`: The name of the resource group. The name is case insensitive.
+  * api-version **required** `string`: The API version to use for this operation.
+  * subscriptionId **required** `string`: The ID of the target subscription.
   * resourceName **required** `string`: The name of the Application Insights component resource.
 
 #### Output
@@ -70,9 +65,9 @@ azure_applicationinsights_componentcontinuousexport_api.ExportConfigurations_Cre
 
 #### Input
 * input `object`
-  * resourceGroupName **required** `string`: The name of the resource group.
-  * api-version **required** `string`: Client Api Version.
-  * subscriptionId **required** `string`: The Azure subscription ID.
+  * resourceGroupName **required** `string`: The name of the resource group. The name is case insensitive.
+  * api-version **required** `string`: The API version to use for this operation.
+  * subscriptionId **required** `string`: The ID of the target subscription.
   * resourceName **required** `string`: The name of the Application Insights component resource.
   * ExportProperties **required** [ApplicationInsightsComponentExportRequest](#applicationinsightscomponentexportrequest)
 
@@ -95,9 +90,9 @@ azure_applicationinsights_componentcontinuousexport_api.ExportConfigurations_Del
 
 #### Input
 * input `object`
-  * resourceGroupName **required** `string`: The name of the resource group.
-  * api-version **required** `string`: Client Api Version.
-  * subscriptionId **required** `string`: The Azure subscription ID.
+  * resourceGroupName **required** `string`: The name of the resource group. The name is case insensitive.
+  * api-version **required** `string`: The API version to use for this operation.
+  * subscriptionId **required** `string`: The ID of the target subscription.
   * resourceName **required** `string`: The name of the Application Insights component resource.
   * exportId **required** `string`: The Continuous Export configuration ID. This is unique within a Application Insights component.
 
@@ -120,9 +115,9 @@ azure_applicationinsights_componentcontinuousexport_api.ExportConfigurations_Get
 
 #### Input
 * input `object`
-  * resourceGroupName **required** `string`: The name of the resource group.
-  * api-version **required** `string`: Client Api Version.
-  * subscriptionId **required** `string`: The Azure subscription ID.
+  * resourceGroupName **required** `string`: The name of the resource group. The name is case insensitive.
+  * api-version **required** `string`: The API version to use for this operation.
+  * subscriptionId **required** `string`: The ID of the target subscription.
   * resourceName **required** `string`: The name of the Application Insights component resource.
   * exportId **required** `string`: The Continuous Export configuration ID. This is unique within a Application Insights component.
 
@@ -146,9 +141,9 @@ azure_applicationinsights_componentcontinuousexport_api.ExportConfigurations_Upd
 
 #### Input
 * input `object`
-  * resourceGroupName **required** `string`: The name of the resource group.
-  * api-version **required** `string`: Client Api Version.
-  * subscriptionId **required** `string`: The Azure subscription ID.
+  * resourceGroupName **required** `string`: The name of the resource group. The name is case insensitive.
+  * api-version **required** `string`: The API version to use for this operation.
+  * subscriptionId **required** `string`: The ID of the target subscription.
   * resourceName **required** `string`: The name of the Application Insights component resource.
   * exportId **required** `string`: The Continuous Export configuration ID. This is unique within a Application Insights component.
   * ExportProperties **required** [ApplicationInsightsComponentExportRequest](#applicationinsightscomponentexportrequest)
@@ -168,7 +163,7 @@ azure_applicationinsights_componentcontinuousexport_api.ExportConfigurations_Upd
   * DestinationStorageLocationId `string`: The destination account location ID.
   * DestinationStorageSubscriptionId `string`: The destination storage account subscription ID.
   * DestinationType `string`: The destination type.
-  * ExportId `string`: The unique ID of the export configuration inside an Applciation Insights component. It is auto generated when the Continuous Export configuration is created.
+  * ExportId `string`: The unique ID of the export configuration inside an Application Insights component. It is auto generated when the Continuous Export configuration is created.
   * ExportStatus `string`: This indicates current Continuous Export configuration status. The possible values are 'Preparing', 'Success', 'Failure'.
   * InstrumentationKey `string`: The instrumentation key of the Application Insights component.
   * IsUserEnabled `string`: This will be 'true' if the Continuous Export configuration is enabled, otherwise it will be 'false'.

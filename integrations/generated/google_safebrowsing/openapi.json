@@ -1,23 +1,25 @@
 {
   "swagger": "2.0",
-  "schemes": [
-    "https"
-  ],
-  "host": "safebrowsing.googleapis.com",
-  "basePath": "/",
   "info": {
     "contact": {
       "name": "Google",
-      "url": "https://google.com"
+      "url": "https://google.com",
+      "x-twitter": "youtube"
     },
-    "description": "Enables client applications to check web resources (most commonly URLs) against Google-generated lists of unsafe web resources.",
-    "title": "Safe Browsing",
+    "description": "Enables client applications to check web resources (most commonly URLs) against Google-generated lists of unsafe web resources. The Safe Browsing APIs are for non-commercial use only. If you need to use APIs to detect malicious URLs for commercial purposes – meaning “for sale or revenue-generating purposes” – please refer to the Web Risk API.",
+    "license": {
+      "name": "Creative Commons Attribution 3.0",
+      "url": "http://creativecommons.org/licenses/by/3.0/"
+    },
+    "termsOfService": "https://developers.google.com/terms/",
+    "title": "Safe Browsing API",
     "version": "v4",
     "x-apiClientRegistration": {
       "url": "https://console.developers.google.com"
     },
     "x-apisguru-categories": [
-      "security"
+      "analytics",
+      "media"
     ],
     "x-logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
@@ -26,7 +28,7 @@
       {
         "converter": {
           "url": "https://github.com/lucybot/api-spec-converter",
-          "version": "2.6.2"
+          "version": "2.7.31"
         },
         "format": "google",
         "url": "https://safebrowsing.googleapis.com/$discovery/rest?version=v4",
@@ -41,132 +43,104 @@
       "type": "openapi"
     }
   },
-  "externalDocs": {
-    "url": "https://developers.google.com/safe-browsing/"
-  },
-  "parameters": {
-    "$.xgafv": {
-      "description": "V1 error format.",
-      "enum": [
-        "1",
-        "2"
-      ],
-      "in": "query",
-      "name": "$.xgafv",
-      "type": "string"
-    },
-    "access_token": {
-      "description": "OAuth access token.",
-      "in": "query",
-      "name": "access_token",
-      "type": "string"
-    },
-    "alt": {
-      "default": "json",
-      "description": "Data format for response.",
-      "enum": [
-        "json",
-        "media",
-        "proto"
-      ],
-      "in": "query",
-      "name": "alt",
-      "type": "string"
-    },
-    "bearer_token": {
-      "description": "OAuth bearer token.",
-      "in": "query",
-      "name": "bearer_token",
-      "type": "string"
-    },
-    "callback": {
-      "description": "JSONP",
-      "in": "query",
-      "name": "callback",
-      "type": "string"
-    },
-    "fields": {
-      "description": "Selector specifying which fields to include in a partial response.",
-      "in": "query",
-      "name": "fields",
-      "type": "string"
-    },
-    "key": {
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
-      "in": "query",
-      "name": "key",
-      "type": "string"
-    },
-    "oauth_token": {
-      "description": "OAuth 2.0 token for the current user.",
-      "in": "query",
-      "name": "oauth_token",
-      "type": "string"
-    },
-    "pp": {
-      "default": true,
-      "description": "Pretty-print response.",
-      "in": "query",
-      "name": "pp",
-      "type": "boolean"
-    },
-    "prettyPrint": {
-      "default": true,
-      "description": "Returns response with indentations and line breaks.",
-      "in": "query",
-      "name": "prettyPrint",
-      "type": "boolean"
-    },
-    "quotaUser": {
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
-      "in": "query",
-      "name": "quotaUser",
-      "type": "string"
-    },
-    "uploadType": {
-      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
-      "in": "query",
-      "name": "uploadType",
-      "type": "string"
-    },
-    "upload_protocol": {
-      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
-      "in": "query",
-      "name": "upload_protocol",
-      "type": "string"
-    }
-  },
-  "tags": [
-    {
-      "name": "encodedFullHashes"
-    },
-    {
-      "name": "encodedUpdates"
-    },
-    {
-      "name": "fullHashes"
-    },
-    {
-      "name": "threatHits"
-    },
-    {
-      "name": "threatListUpdates"
-    },
-    {
-      "name": "threatLists"
-    },
-    {
-      "name": "threatMatches"
-    }
+  "host": "safebrowsing.googleapis.com",
+  "basePath": "/",
+  "schemes": [
+    "https"
   ],
   "paths": {
     "/v4/encodedFullHashes/{encodedRequest}": {
+      "parameters": [
+        {
+          "description": "V1 error format.",
+          "enum": [
+            "1",
+            "2"
+          ],
+          "in": "query",
+          "name": "$.xgafv",
+          "type": "string"
+        },
+        {
+          "description": "OAuth access token.",
+          "in": "query",
+          "name": "access_token",
+          "type": "string"
+        },
+        {
+          "description": "Data format for response.",
+          "enum": [
+            "json",
+            "media",
+            "proto"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
+        },
+        {
+          "description": "JSONP",
+          "in": "query",
+          "name": "callback",
+          "type": "string"
+        },
+        {
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
+        },
+        {
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
+        },
+        {
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
+        },
+        {
+          "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
+        },
+        {
+          "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+          "in": "query",
+          "name": "upload_protocol",
+          "type": "string"
+        },
+        {
+          "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+          "in": "query",
+          "name": "uploadType",
+          "type": "string"
+        }
+      ],
       "get": {
-        "description": "",
-        "operationId": "encodedFullHashes.get",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "description": "A client ID that (hopefully) uniquely identifies the client implementation\nof the Safe Browsing API.",
+            "description": "A serialized FindFullHashesRequest proto.",
+            "in": "path",
+            "name": "encodedRequest",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "A client ID that (hopefully) uniquely identifies the client implementation of the Safe Browsing API.",
             "in": "query",
             "name": "clientId",
             "type": "string"
@@ -175,13 +149,6 @@
             "description": "The version of the client implementation.",
             "in": "query",
             "name": "clientVersion",
-            "type": "string"
-          },
-          {
-            "description": "A serialized FindFullHashesRequest proto.",
-            "in": "path",
-            "name": "encodedRequest",
-            "required": true,
             "type": "string"
           }
         ],
@@ -195,57 +162,103 @@
         },
         "tags": [
           "encodedFullHashes"
-        ]
-      },
-      "parameters": [
-        {
-          "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/access_token"
-        },
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/bearer_token"
-        },
-        {
-          "$ref": "#/parameters/callback"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
-          "$ref": "#/parameters/upload_protocol"
-        }
-      ]
+        ],
+        "description": "",
+        "operationId": "safebrowsing.encodedFullHashes.get"
+      }
     },
     "/v4/encodedUpdates/{encodedRequest}": {
+      "parameters": [
+        {
+          "description": "V1 error format.",
+          "enum": [
+            "1",
+            "2"
+          ],
+          "in": "query",
+          "name": "$.xgafv",
+          "type": "string"
+        },
+        {
+          "description": "OAuth access token.",
+          "in": "query",
+          "name": "access_token",
+          "type": "string"
+        },
+        {
+          "description": "Data format for response.",
+          "enum": [
+            "json",
+            "media",
+            "proto"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
+        },
+        {
+          "description": "JSONP",
+          "in": "query",
+          "name": "callback",
+          "type": "string"
+        },
+        {
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
+        },
+        {
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
+        },
+        {
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
+        },
+        {
+          "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
+        },
+        {
+          "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+          "in": "query",
+          "name": "upload_protocol",
+          "type": "string"
+        },
+        {
+          "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+          "in": "query",
+          "name": "uploadType",
+          "type": "string"
+        }
+      ],
       "get": {
-        "description": "",
-        "operationId": "encodedUpdates.get",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "description": "A client ID that uniquely identifies the client implementation of the Safe\nBrowsing API.",
+            "description": "A serialized FetchThreatListUpdatesRequest proto.",
+            "in": "path",
+            "name": "encodedRequest",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "A client ID that uniquely identifies the client implementation of the Safe Browsing API.",
             "in": "query",
             "name": "clientId",
             "type": "string"
@@ -254,13 +267,6 @@
             "description": "The version of the client implementation.",
             "in": "query",
             "name": "clientVersion",
-            "type": "string"
-          },
-          {
-            "description": "A serialized FetchThreatListUpdatesRequest proto.",
-            "in": "path",
-            "name": "encodedRequest",
-            "required": true,
             "type": "string"
           }
         ],
@@ -274,95 +280,96 @@
         },
         "tags": [
           "encodedUpdates"
-        ]
-      },
-      "parameters": [
-        {
-          "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/access_token"
-        },
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/bearer_token"
-        },
-        {
-          "$ref": "#/parameters/callback"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
-          "$ref": "#/parameters/upload_protocol"
-        }
-      ]
+        ],
+        "description": "",
+        "operationId": "safebrowsing.encodedUpdates.get"
+      }
     },
     "/v4/fullHashes:find": {
       "parameters": [
         {
-          "$ref": "#/parameters/$.xgafv"
+          "description": "V1 error format.",
+          "enum": [
+            "1",
+            "2"
+          ],
+          "in": "query",
+          "name": "$.xgafv",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/access_token"
+          "description": "OAuth access token.",
+          "in": "query",
+          "name": "access_token",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/alt"
+          "description": "Data format for response.",
+          "enum": [
+            "json",
+            "media",
+            "proto"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/bearer_token"
+          "description": "JSONP",
+          "in": "query",
+          "name": "callback",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/callback"
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/fields"
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/key"
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/oauth_token"
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
         },
         {
-          "$ref": "#/parameters/pp"
+          "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/prettyPrint"
+          "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+          "in": "query",
+          "name": "upload_protocol",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
-          "$ref": "#/parameters/upload_protocol"
+          "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+          "in": "query",
+          "name": "uploadType",
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Finds the full hashes that match the requested hash prefixes.",
-        "operationId": "fullHashes.find",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "in": "body",
@@ -382,54 +389,96 @@
         },
         "tags": [
           "fullHashes"
-        ]
+        ],
+        "description": "Finds the full hashes that match the requested hash prefixes.",
+        "operationId": "safebrowsing.fullHashes.find"
       }
     },
     "/v4/threatHits": {
       "parameters": [
         {
-          "$ref": "#/parameters/$.xgafv"
+          "description": "V1 error format.",
+          "enum": [
+            "1",
+            "2"
+          ],
+          "in": "query",
+          "name": "$.xgafv",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/access_token"
+          "description": "OAuth access token.",
+          "in": "query",
+          "name": "access_token",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/alt"
+          "description": "Data format for response.",
+          "enum": [
+            "json",
+            "media",
+            "proto"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/bearer_token"
+          "description": "JSONP",
+          "in": "query",
+          "name": "callback",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/callback"
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/fields"
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/key"
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/oauth_token"
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
         },
         {
-          "$ref": "#/parameters/pp"
+          "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/prettyPrint"
+          "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+          "in": "query",
+          "name": "upload_protocol",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
-          "$ref": "#/parameters/upload_protocol"
+          "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+          "in": "query",
+          "name": "uploadType",
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Reports a Safe Browsing threat list hit to Google. Only projects with\nTRUSTED_REPORTER visibility can use this method.",
-        "operationId": "threatHits.create",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "in": "body",
@@ -449,54 +498,96 @@
         },
         "tags": [
           "threatHits"
-        ]
+        ],
+        "description": "Reports a Safe Browsing threat list hit to Google. Only projects with TRUSTED_REPORTER visibility can use this method.",
+        "operationId": "safebrowsing.threatHits.create"
       }
     },
     "/v4/threatListUpdates:fetch": {
       "parameters": [
         {
-          "$ref": "#/parameters/$.xgafv"
+          "description": "V1 error format.",
+          "enum": [
+            "1",
+            "2"
+          ],
+          "in": "query",
+          "name": "$.xgafv",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/access_token"
+          "description": "OAuth access token.",
+          "in": "query",
+          "name": "access_token",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/alt"
+          "description": "Data format for response.",
+          "enum": [
+            "json",
+            "media",
+            "proto"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/bearer_token"
+          "description": "JSONP",
+          "in": "query",
+          "name": "callback",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/callback"
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/fields"
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/key"
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/oauth_token"
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
         },
         {
-          "$ref": "#/parameters/pp"
+          "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/prettyPrint"
+          "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+          "in": "query",
+          "name": "upload_protocol",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
-          "$ref": "#/parameters/upload_protocol"
+          "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+          "in": "query",
+          "name": "uploadType",
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Fetches the most recent threat list updates. A client can request updates\nfor multiple lists at once.",
-        "operationId": "threatListUpdates.fetch",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "in": "body",
@@ -516,13 +607,94 @@
         },
         "tags": [
           "threatListUpdates"
-        ]
+        ],
+        "description": "Fetches the most recent threat list updates. A client can request updates for multiple lists at once.",
+        "operationId": "safebrowsing.threatListUpdates.fetch"
       }
     },
     "/v4/threatLists": {
+      "parameters": [
+        {
+          "description": "V1 error format.",
+          "enum": [
+            "1",
+            "2"
+          ],
+          "in": "query",
+          "name": "$.xgafv",
+          "type": "string"
+        },
+        {
+          "description": "OAuth access token.",
+          "in": "query",
+          "name": "access_token",
+          "type": "string"
+        },
+        {
+          "description": "Data format for response.",
+          "enum": [
+            "json",
+            "media",
+            "proto"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
+        },
+        {
+          "description": "JSONP",
+          "in": "query",
+          "name": "callback",
+          "type": "string"
+        },
+        {
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
+        },
+        {
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
+        },
+        {
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
+        },
+        {
+          "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
+        },
+        {
+          "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+          "in": "query",
+          "name": "upload_protocol",
+          "type": "string"
+        },
+        {
+          "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+          "in": "query",
+          "name": "uploadType",
+          "type": "string"
+        }
+      ],
       "get": {
-        "description": "Lists the Safe Browsing threat lists available for download.",
-        "operationId": "threatLists.list",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -533,95 +705,96 @@
         },
         "tags": [
           "threatLists"
-        ]
-      },
-      "parameters": [
-        {
-          "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/access_token"
-        },
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/bearer_token"
-        },
-        {
-          "$ref": "#/parameters/callback"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
-          "$ref": "#/parameters/upload_protocol"
-        }
-      ]
+        ],
+        "description": "Lists the Safe Browsing threat lists available for download.",
+        "operationId": "safebrowsing.threatLists.list"
+      }
     },
     "/v4/threatMatches:find": {
       "parameters": [
         {
-          "$ref": "#/parameters/$.xgafv"
+          "description": "V1 error format.",
+          "enum": [
+            "1",
+            "2"
+          ],
+          "in": "query",
+          "name": "$.xgafv",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/access_token"
+          "description": "OAuth access token.",
+          "in": "query",
+          "name": "access_token",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/alt"
+          "description": "Data format for response.",
+          "enum": [
+            "json",
+            "media",
+            "proto"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/bearer_token"
+          "description": "JSONP",
+          "in": "query",
+          "name": "callback",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/callback"
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/fields"
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/key"
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/oauth_token"
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
         },
         {
-          "$ref": "#/parameters/pp"
+          "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/prettyPrint"
+          "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+          "in": "query",
+          "name": "upload_protocol",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
-          "$ref": "#/parameters/upload_protocol"
+          "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+          "in": "query",
+          "name": "uploadType",
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Finds the threat entries that match the Safe Browsing lists.",
-        "operationId": "threatMatches.find",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "in": "body",
@@ -641,7 +814,9 @@
         },
         "tags": [
           "threatMatches"
-        ]
+        ],
+        "description": "Finds the threat entries that match the Safe Browsing lists.",
+        "operationId": "safebrowsing.threatMatches.find"
       }
     }
   },
@@ -650,7 +825,7 @@
       "description": "The expected state of a client's local database.",
       "properties": {
         "sha256": {
-          "description": "The SHA256 hash of the client state; that is, of the sorted list of all\nhashes present in the database.",
+          "description": "The SHA256 hash of the client state; that is, of the sorted list of all hashes present in the database.",
           "format": "byte",
           "type": "string"
         }
@@ -661,7 +836,7 @@
       "description": "The client metadata associated with Safe Browsing API requests.",
       "properties": {
         "clientId": {
-          "description": "A client ID that (hopefully) uniquely identifies the client implementation\nof the Safe Browsing API.",
+          "description": "A client ID that (hopefully) uniquely identifies the client implementation of the Safe Browsing API.",
           "type": "string"
         },
         "clientVersion": {
@@ -675,25 +850,25 @@
       "description": "The constraints for this update.",
       "properties": {
         "deviceLocation": {
-          "description": "A client's physical location, expressed as a ISO 31166-1 alpha-2\nregion code.",
+          "description": "A client's physical location, expressed as a ISO 31166-1 alpha-2 region code.",
           "type": "string"
         },
         "language": {
-          "description": "Requests the lists for a specific language. Expects ISO 639 alpha-2\nformat.",
+          "description": "Requests the lists for a specific language. Expects ISO 639 alpha-2 format.",
           "type": "string"
         },
         "maxDatabaseEntries": {
-          "description": "Sets the maximum number of entries that the client is willing to have\nin the local database. This should be a power of 2 between 2**10 and\n2**20. If zero, no database size limit is set.",
+          "description": "Sets the maximum number of entries that the client is willing to have in the local database for the specified list. This should be a power of 2 between 2**10 and 2**20. If zero, no database size limit is set.",
           "format": "int32",
           "type": "integer"
         },
         "maxUpdateEntries": {
-          "description": "The maximum size in number of entries. The update will not contain more\nentries than this value.  This should be a power of 2 between 2**10 and\n2**20.  If zero, no update size limit is set.",
+          "description": "The maximum size in number of entries. The update will not contain more entries than this value. This should be a power of 2 between 2**10 and 2**20. If zero, no update size limit is set.",
           "format": "int32",
           "type": "integer"
         },
         "region": {
-          "description": "Requests the list for a specific geographic location. If not set the\nserver may pick that value based on the user's IP address. Expects ISO\n3166-1 alpha-2 format.",
+          "description": "Requests the list for a specific geographic location. If not set the server may pick that value based on the user's IP address. Expects ISO 3166-1 alpha-2 format.",
           "type": "string"
         },
         "supportedCompressions": {
@@ -712,12 +887,12 @@
       "type": "object"
     },
     "Empty": {
-      "description": "A generic empty message that you can re-use to avoid defining duplicated\nempty messages in your APIs. A typical example is to use it as the request\nor the response type of an API method. For instance:\n\n    service Foo {\n      rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);\n    }\n\nThe JSON representation for `Empty` is empty JSON object `{}`.",
+      "description": "A generic empty message that you can re-use to avoid defining duplicated empty messages in your APIs. A typical example is to use it as the request or the response type of an API method. For instance: service Foo { rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON representation for `Empty` is empty JSON object `{}`.",
       "properties": {},
       "type": "object"
     },
     "FetchThreatListUpdatesRequest": {
-      "description": "Describes a Safe Browsing API update request. Clients can request updates for\nmultiple lists in a single request.\nNOTE: Field index 2 is unused.\nNEXT: 5",
+      "description": "Describes a Safe Browsing API update request. Clients can request updates for multiple lists in a single request. NOTE: Field index 2 is unused. NEXT: 5",
       "properties": {
         "client": {
           "$ref": "#/definitions/ClientInfo",
@@ -743,7 +918,7 @@
           "type": "array"
         },
         "minimumWaitDuration": {
-          "description": "The minimum duration the client must wait before issuing any update\nrequest. If this field is not set clients may update as soon as they want.",
+          "description": "The minimum duration the client must wait before issuing any update request. If this field is not set clients may update as soon as they want.",
           "format": "google-duration",
           "type": "string"
         }
@@ -755,7 +930,7 @@
       "properties": {
         "apiClient": {
           "$ref": "#/definitions/ClientInfo",
-          "description": "Client metadata associated with callers of higher-level APIs built on top\nof the client's implementation."
+          "description": "Client metadata associated with callers of higher-level APIs built on top of the client's implementation."
         },
         "client": {
           "$ref": "#/definitions/ClientInfo",
@@ -786,12 +961,12 @@
           "type": "array"
         },
         "minimumWaitDuration": {
-          "description": "The minimum duration the client must wait before issuing any find hashes\nrequest. If this field is not set, clients can issue a request as soon as\nthey want.",
+          "description": "The minimum duration the client must wait before issuing any find hashes request. If this field is not set, clients can issue a request as soon as they want.",
           "format": "google-duration",
           "type": "string"
         },
         "negativeCacheDuration": {
-          "description": "For requested entities that did not match the threat list, how long to\ncache the response.",
+          "description": "For requested entities that did not match the threat list, how long to cache the response.",
           "format": "google-duration",
           "type": "string"
         }
@@ -859,7 +1034,7 @@
           "type": "string"
         },
         "state": {
-          "description": "The current state of the client for the requested list (the encrypted\nclient state that was received from the last successful list update).",
+          "description": "The current state of the client for the requested list (the encrypted client state that was received from the last successful list update).",
           "format": "byte",
           "type": "string"
         },
@@ -893,7 +1068,9 @@
             "CLIENT_INCIDENT_WHITELIST",
             "APK_MALWARE_OFFLINE",
             "SUBRESOURCE_FILTER",
-            "SUSPICIOUS"
+            "SUSPICIOUS",
+            "TRICK_TO_BILL",
+            "HIGH_CONFIDENCE_ALLOWLIST"
           ],
           "type": "string"
         }
@@ -904,7 +1081,7 @@
       "description": "An update to an individual list.",
       "properties": {
         "additions": {
-          "description": "A set of entries to add to a local threat type's list. Repeated to allow\nfor a combination of compressed and raw data to be sent in a single\nresponse.",
+          "description": "A set of entries to add to a local threat type's list. Repeated to allow for a combination of compressed and raw data to be sent in a single response.",
           "items": {
             "$ref": "#/definitions/ThreatEntrySet"
           },
@@ -912,7 +1089,7 @@
         },
         "checksum": {
           "$ref": "#/definitions/Checksum",
-          "description": "The expected SHA256 hash of the client state; that is, of the sorted list\nof all hashes present in the database after applying the provided update.\nIf the client state doesn't match the expected state, the client must\ndisregard this update and retry later."
+          "description": "The expected SHA256 hash of the client state; that is, of the sorted list of all hashes present in the database after applying the provided update. If the client state doesn't match the expected state, the client must disregard this update and retry later."
         },
         "newClientState": {
           "description": "The new client state, in encrypted format. Opaque to clients.",
@@ -935,14 +1112,14 @@
           "type": "string"
         },
         "removals": {
-          "description": "A set of entries to remove from a local threat type's list. In practice,\nthis field is empty or contains exactly one ThreatEntrySet.",
+          "description": "A set of entries to remove from a local threat type's list. In practice, this field is empty or contains exactly one ThreatEntrySet.",
           "items": {
             "$ref": "#/definitions/ThreatEntrySet"
           },
           "type": "array"
         },
         "responseType": {
-          "description": "The type of response. This may indicate that an action is required by the\nclient when the response is received.",
+          "description": "The type of response. This may indicate that an action is required by the client when the response is received.",
           "enum": [
             "RESPONSE_TYPE_UNSPECIFIED",
             "PARTIAL_UPDATE",
@@ -980,7 +1157,9 @@
             "CLIENT_INCIDENT_WHITELIST",
             "APK_MALWARE_OFFLINE",
             "SUBRESOURCE_FILTER",
-            "SUSPICIOUS"
+            "SUSPICIOUS",
+            "TRICK_TO_BILL",
+            "HIGH_CONFIDENCE_ALLOWLIST"
           ],
           "type": "string"
         }
@@ -1004,15 +1183,15 @@
       "type": "object"
     },
     "RawHashes": {
-      "description": "The uncompressed threat entries in hash format of a particular prefix length.\nHashes can be anywhere from 4 to 32 bytes in size. A large majority are 4\nbytes, but some hashes are lengthened if they collide with the hash of a\npopular URL.\n\nUsed for sending ThreatEntrySet to clients that do not support compression,\nor when sending non-4-byte hashes to clients that do support compression.",
+      "description": "The uncompressed threat entries in hash format of a particular prefix length. Hashes can be anywhere from 4 to 32 bytes in size. A large majority are 4 bytes, but some hashes are lengthened if they collide with the hash of a popular URL. Used for sending ThreatEntrySet to clients that do not support compression, or when sending non-4-byte hashes to clients that do support compression.",
       "properties": {
         "prefixSize": {
-          "description": "The number of bytes for each prefix encoded below.  This field can be\nanywhere from 4 (shortest prefix) to 32 (full SHA256 hash).",
+          "description": "The number of bytes for each prefix encoded below. This field can be anywhere from 4 (shortest prefix) to 32 (full SHA256 hash).",
           "format": "int32",
           "type": "integer"
         },
         "rawHashes": {
-          "description": "The hashes, in binary format, concatenated into one long string. Hashes are\nsorted in lexicographic order. For JSON API users, hashes are\nbase64-encoded.",
+          "description": "The hashes, in binary format, concatenated into one long string. Hashes are sorted in lexicographic order. For JSON API users, hashes are base64-encoded.",
           "format": "byte",
           "type": "string"
         }
@@ -1034,7 +1213,7 @@
       "type": "object"
     },
     "RiceDeltaEncoding": {
-      "description": "The Rice-Golomb encoded data. Used for sending compressed 4-byte hashes or\ncompressed removal indices.",
+      "description": "The Rice-Golomb encoded data. Used for sending compressed 4-byte hashes or compressed removal indices.",
       "properties": {
         "encodedData": {
           "description": "The encoded deltas that are encoded using the Golomb-Rice coder.",
@@ -1042,17 +1221,17 @@
           "type": "string"
         },
         "firstValue": {
-          "description": "The offset of the first entry in the encoded data, or, if only a single\ninteger was encoded, that single integer's value. If the field is empty or\nmissing, assume zero.",
+          "description": "The offset of the first entry in the encoded data, or, if only a single integer was encoded, that single integer's value. If the field is empty or missing, assume zero.",
           "format": "int64",
           "type": "string"
         },
         "numEntries": {
-          "description": "The number of entries that are delta encoded in the encoded data. If only a\nsingle integer was encoded, this will be zero and the single value will be\nstored in `first_value`.",
+          "description": "The number of entries that are delta encoded in the encoded data. If only a single integer was encoded, this will be zero and the single value will be stored in `first_value`.",
           "format": "int32",
           "type": "integer"
         },
         "riceParameter": {
-          "description": "The Golomb-Rice parameter, which is a number between 2 and 28. This field\nis missing (that is, zero) if `num_entries` is zero.",
+          "description": "The Golomb-Rice parameter, which is a number between 2 and 28. This field is missing (that is, zero) if `num_entries` is zero.",
           "format": "int32",
           "type": "integer"
         }
@@ -1060,15 +1239,15 @@
       "type": "object"
     },
     "ThreatEntry": {
-      "description": "An individual threat; for example, a malicious URL or its hash\nrepresentation. Only one of these fields should be set.",
+      "description": "An individual threat; for example, a malicious URL or its hash representation. Only one of these fields should be set.",
       "properties": {
         "digest": {
-          "description": "The digest of an executable in SHA256 format. The API supports both\nbinary and hex digests. For JSON requests, digests are base64-encoded.",
+          "description": "The digest of an executable in SHA256 format. The API supports both binary and hex digests. For JSON requests, digests are base64-encoded.",
           "format": "byte",
           "type": "string"
         },
         "hash": {
-          "description": "A hash prefix, consisting of the most significant 4-32 bytes of a SHA256\nhash. This field is in binary format. For JSON requests, hashes are\nbase64-encoded.",
+          "description": "A hash prefix, consisting of the most significant 4-32 bytes of a SHA256 hash. This field is in binary format. For JSON requests, hashes are base64-encoded.",
           "format": "byte",
           "type": "string"
         },
@@ -1080,7 +1259,7 @@
       "type": "object"
     },
     "ThreatEntryMetadata": {
-      "description": "The metadata associated with a specific threat entry. The client is expected\nto know the metadata key/value pairs associated with each threat type.",
+      "description": "The metadata associated with a specific threat entry. The client is expected to know the metadata key/value pairs associated with each threat type.",
       "properties": {
         "entries": {
           "description": "The metadata entries.",
@@ -1093,7 +1272,7 @@
       "type": "object"
     },
     "ThreatEntrySet": {
-      "description": "A set of threats that should be added or removed from a client's local\ndatabase.",
+      "description": "A set of threats that should be added or removed from a client's local database.",
       "properties": {
         "compressionType": {
           "description": "The compression type for the entries in this set.",
@@ -1114,11 +1293,11 @@
         },
         "riceHashes": {
           "$ref": "#/definitions/RiceDeltaEncoding",
-          "description": "The encoded 4-byte prefixes of SHA256-formatted entries, using a\nGolomb-Rice encoding. The hashes are converted to uint32, sorted in\nascending order, then delta encoded and stored as encoded_data."
+          "description": "The encoded 4-byte prefixes of SHA256-formatted entries, using a Golomb-Rice encoding. The hashes are converted to uint32, sorted in ascending order, then delta encoded and stored as encoded_data."
         },
         "riceIndices": {
           "$ref": "#/definitions/RiceDeltaEncoding",
-          "description": "The encoded local, lexicographically-sorted list indices, using a\nGolomb-Rice encoding. Used for sending compressed removal indices. The\nremoval indices (uint32) are sorted in ascending order, then delta encoded\nand stored as encoded_data."
+          "description": "The encoded local, lexicographically-sorted list indices, using a Golomb-Rice encoding. Used for sending compressed removal indices. The removal indices (uint32) are sorted in ascending order, then delta encoded and stored as encoded_data."
         }
       },
       "type": "object"
@@ -1131,7 +1310,7 @@
         },
         "entry": {
           "$ref": "#/definitions/ThreatEntry",
-          "description": "The threat entry responsible for the hit. Full hash should be reported for\nhash-based hits."
+          "description": "The threat entry responsible for the hit. Full hash should be reported for hash-based hits."
         },
         "platformType": {
           "description": "The platform type reported.",
@@ -1172,7 +1351,9 @@
             "CLIENT_INCIDENT_WHITELIST",
             "APK_MALWARE_OFFLINE",
             "SUBRESOURCE_FILTER",
-            "SUSPICIOUS"
+            "SUSPICIOUS",
+            "TRICK_TO_BILL",
+            "HIGH_CONFIDENCE_ALLOWLIST"
           ],
           "type": "string"
         },
@@ -1184,7 +1365,7 @@
       "type": "object"
     },
     "ThreatInfo": {
-      "description": "The information regarding one or more threats that a client submits when\nchecking for matches in threat lists.",
+      "description": "The information regarding one or more threats that a client submits when checking for matches in threat lists.",
       "properties": {
         "platformTypes": {
           "description": "The platform types to be checked.",
@@ -1245,7 +1426,9 @@
               "CLIENT_INCIDENT_WHITELIST",
               "APK_MALWARE_OFFLINE",
               "SUBRESOURCE_FILTER",
-              "SUSPICIOUS"
+              "SUSPICIOUS",
+              "TRICK_TO_BILL",
+              "HIGH_CONFIDENCE_ALLOWLIST"
             ],
             "type": "string"
           },
@@ -1255,7 +1438,7 @@
       "type": "object"
     },
     "ThreatListDescriptor": {
-      "description": "Describes an individual threat list. A list is defined by three parameters:\nthe type of threat posed, the type of platform targeted by the threat, and\nthe type of entries in the list.",
+      "description": "Describes an individual threat list. A list is defined by three parameters: the type of threat posed, the type of platform targeted by the threat, and the type of entries in the list.",
       "properties": {
         "platformType": {
           "description": "The platform type targeted by the list's entries.",
@@ -1302,7 +1485,9 @@
             "CLIENT_INCIDENT_WHITELIST",
             "APK_MALWARE_OFFLINE",
             "SUBRESOURCE_FILTER",
-            "SUSPICIOUS"
+            "SUSPICIOUS",
+            "TRICK_TO_BILL",
+            "HIGH_CONFIDENCE_ALLOWLIST"
           ],
           "type": "string"
         }
@@ -1313,7 +1498,7 @@
       "description": "A match when checking a threat entry in the Safe Browsing threat lists.",
       "properties": {
         "cacheDuration": {
-          "description": "The cache lifetime for the returned match. Clients must not cache this\nresponse for more than this duration to avoid false positives.",
+          "description": "The cache lifetime for the returned match. Clients must not cache this response for more than this duration to avoid false positives.",
           "format": "google-duration",
           "type": "string"
         },
@@ -1370,7 +1555,9 @@
             "CLIENT_INCIDENT_WHITELIST",
             "APK_MALWARE_OFFLINE",
             "SUBRESOURCE_FILTER",
-            "SUSPICIOUS"
+            "SUSPICIOUS",
+            "TRICK_TO_BILL",
+            "HIGH_CONFIDENCE_ALLOWLIST"
           ],
           "type": "string"
         }
@@ -1420,6 +1607,111 @@
         }
       },
       "type": "object"
+    }
+  },
+  "tags": [
+    {
+      "name": "encodedFullHashes"
+    },
+    {
+      "name": "encodedUpdates"
+    },
+    {
+      "name": "fullHashes"
+    },
+    {
+      "name": "threatHits"
+    },
+    {
+      "name": "threatLists"
+    },
+    {
+      "name": "threatListUpdates"
+    },
+    {
+      "name": "threatMatches"
+    }
+  ],
+  "externalDocs": {
+    "url": "https://developers.google.com/safe-browsing/"
+  },
+  "x-components": {
+    "parameters": {
+      "_.xgafv": {
+        "description": "V1 error format.",
+        "enum": [
+          "1",
+          "2"
+        ],
+        "in": "query",
+        "name": "$.xgafv",
+        "type": "string"
+      },
+      "access_token": {
+        "description": "OAuth access token.",
+        "in": "query",
+        "name": "access_token",
+        "type": "string"
+      },
+      "alt": {
+        "description": "Data format for response.",
+        "enum": [
+          "json",
+          "media",
+          "proto"
+        ],
+        "in": "query",
+        "name": "alt",
+        "type": "string"
+      },
+      "callback": {
+        "description": "JSONP",
+        "in": "query",
+        "name": "callback",
+        "type": "string"
+      },
+      "fields": {
+        "description": "Selector specifying which fields to include in a partial response.",
+        "in": "query",
+        "name": "fields",
+        "type": "string"
+      },
+      "key": {
+        "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+        "in": "query",
+        "name": "key",
+        "type": "string"
+      },
+      "oauth_token": {
+        "description": "OAuth 2.0 token for the current user.",
+        "in": "query",
+        "name": "oauth_token",
+        "type": "string"
+      },
+      "prettyPrint": {
+        "description": "Returns response with indentations and line breaks.",
+        "in": "query",
+        "name": "prettyPrint",
+        "type": "boolean"
+      },
+      "quotaUser": {
+        "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+        "in": "query",
+        "name": "quotaUser",
+        "type": "string"
+      },
+      "uploadType": {
+        "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+        "in": "query",
+        "name": "uploadType",
+        "type": "string"
+      },
+      "upload_protocol": {
+        "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+        "in": "query",
+        "name": "upload_protocol",
+        "type": "string"
+      }
     }
   }
 }

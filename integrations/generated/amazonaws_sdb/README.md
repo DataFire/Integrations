@@ -13,10 +13,7 @@ let amazonaws_sdb = require('@datafire/amazonaws_sdb').create({
   region: ""
 });
 
-amazonaws_sdb.BatchDeleteAttributes({
-  "DomainName": "",
-  "Items": []
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -40,8 +37,30 @@ amazonaws_sdb.BatchDeleteAttributes({
 
 #### Input
 * input `object`
-  * DomainName **required** [String](#string)
-  * Items **required** [DeletableItemList](#deletableitemlist)
+  * DomainName **required** `string`
+  * Items **required** `array`
+
+#### Output
+*Output schema unknown*
+
+### BatchDeleteAttributes
+
+
+
+```js
+amazonaws_sdb.BatchDeleteAttributes({
+  "DomainName": null,
+  "Items": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * DomainName **required**
+  * Items **required**
+    * items
+      * Attributes [DeletableAttributeList](#deletableattributelist)
+      * Name **required**
 
 #### Output
 *Output schema unknown*
@@ -59,8 +78,34 @@ amazonaws_sdb.BatchPutAttributes({
 
 #### Input
 * input `object`
-  * DomainName **required** [String](#string)
-  * Items **required** [ReplaceableItemList](#replaceableitemlist)
+  * DomainName **required** `string`
+  * Items **required** `array`
+
+#### Output
+*Output schema unknown*
+
+### BatchPutAttributes
+
+
+
+```js
+amazonaws_sdb.BatchPutAttributes({
+  "DomainName": null,
+  "Items": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * DomainName **required**
+  * Items **required**
+    * items
+      * Attributes **required**
+        * items
+          * Name **required**
+          * Replace
+          * Value **required**
+      * Name **required**
 
 #### Output
 *Output schema unknown*
@@ -77,7 +122,24 @@ amazonaws_sdb.CreateDomain({
 
 #### Input
 * input `object`
-  * DomainName **required** [String](#string)
+  * DomainName **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### CreateDomain
+
+
+
+```js
+amazonaws_sdb.CreateDomain({
+  "DomainName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * DomainName **required**
 
 #### Output
 *Output schema unknown*
@@ -95,10 +157,37 @@ amazonaws_sdb.DeleteAttributes({
 
 #### Input
 * input `object`
-  * Attributes [DeletableAttributeList](#deletableattributelist)
-  * DomainName **required** [String](#string)
-  * Expected [UpdateCondition](#updatecondition)
-  * ItemName **required** [String](#string)
+  * DomainName **required** `string`
+  * ItemName **required** `string`
+  * Attributes `array`
+  * Expected `object`
+
+#### Output
+*Output schema unknown*
+
+### DeleteAttributes
+
+
+
+```js
+amazonaws_sdb.DeleteAttributes({
+  "DomainName": null,
+  "ItemName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * Attributes
+    * items
+      * Name **required**
+      * Value
+  * DomainName **required**
+  * Expected
+    * Exists
+    * Name
+    * Value
+  * ItemName **required**
 
 #### Output
 *Output schema unknown*
@@ -115,7 +204,24 @@ amazonaws_sdb.DeleteDomain({
 
 #### Input
 * input `object`
-  * DomainName **required** [String](#string)
+  * DomainName **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### DeleteDomain
+
+
+
+```js
+amazonaws_sdb.DeleteDomain({
+  "DomainName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * DomainName **required**
 
 #### Output
 *Output schema unknown*
@@ -132,7 +238,24 @@ amazonaws_sdb.DomainMetadata({
 
 #### Input
 * input `object`
-  * DomainName **required** [String](#string)
+  * DomainName **required** `string`
+
+#### Output
+* output [DomainMetadataResult](#domainmetadataresult)
+
+### DomainMetadata
+
+
+
+```js
+amazonaws_sdb.DomainMetadata({
+  "DomainName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * DomainName **required**
 
 #### Output
 * output [DomainMetadataResult](#domainmetadataresult)
@@ -150,10 +273,32 @@ amazonaws_sdb.GetAttributes({
 
 #### Input
 * input `object`
-  * AttributeNames [AttributeNameList](#attributenamelist)
-  * ConsistentRead [Boolean](#boolean)
-  * DomainName **required** [String](#string)
-  * ItemName **required** [String](#string)
+  * DomainName **required** `string`
+  * ItemName **required** `string`
+  * AttributeNames `array`
+  * ConsistentRead `boolean`
+
+#### Output
+* output [GetAttributesResult](#getattributesresult)
+
+### GetAttributes
+
+
+
+```js
+amazonaws_sdb.GetAttributes({
+  "DomainName": null,
+  "ItemName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * AttributeNames
+    * items
+  * ConsistentRead
+  * DomainName **required**
+  * ItemName **required**
 
 #### Output
 * output [GetAttributesResult](#getattributesresult)
@@ -168,10 +313,26 @@ amazonaws_sdb.ListDomains({}, context)
 
 #### Input
 * input `object`
+  * MaxNumberOfDomains `integer`
+  * NextToken `string`
+
+#### Output
+* output [ListDomainsResult](#listdomainsresult)
+
+### ListDomains
+
+
+
+```js
+amazonaws_sdb.ListDomains({}, context)
+```
+
+#### Input
+* input `object`
   * MaxNumberOfDomains `string`
   * NextToken `string`
-  * MaxNumberOfDomains [Integer](#integer)
-  * NextToken [String](#string)
+  * MaxNumberOfDomains
+  * NextToken
 
 #### Output
 * output [ListDomainsResult](#listdomainsresult)
@@ -190,10 +351,39 @@ amazonaws_sdb.PutAttributes({
 
 #### Input
 * input `object`
-  * Attributes **required** [ReplaceableAttributeList](#replaceableattributelist)
-  * DomainName **required** [String](#string)
-  * Expected [UpdateCondition](#updatecondition)
-  * ItemName **required** [String](#string)
+  * DomainName **required** `string`
+  * ItemName **required** `string`
+  * Attributes **required** `array`
+  * Expected `object`
+
+#### Output
+*Output schema unknown*
+
+### PutAttributes
+
+
+
+```js
+amazonaws_sdb.PutAttributes({
+  "DomainName": null,
+  "ItemName": null,
+  "Attributes": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * Attributes **required**
+    * items
+      * Name **required**
+      * Replace
+      * Value **required**
+  * DomainName **required**
+  * Expected
+    * Exists
+    * Name
+    * Value
+  * ItemName **required**
 
 #### Output
 *Output schema unknown*
@@ -210,10 +400,29 @@ amazonaws_sdb.Select({
 
 #### Input
 * input `object`
+  * SelectExpression **required** `string`
   * NextToken `string`
-  * ConsistentRead [Boolean](#boolean)
-  * NextToken [String](#string)
-  * SelectExpression **required** [String](#string)
+  * ConsistentRead `boolean`
+
+#### Output
+* output [SelectResult](#selectresult)
+
+### Select
+
+
+
+```js
+amazonaws_sdb.Select({
+  "SelectExpression": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * NextToken `string`
+  * ConsistentRead
+  * NextToken
+  * SelectExpression **required**
 
 #### Output
 * output [SelectResult](#selectresult)
@@ -224,10 +433,10 @@ amazonaws_sdb.Select({
 
 ### Attribute
 * Attribute `object`
-  * AlternateNameEncoding [String](#string)
-  * AlternateValueEncoding [String](#string)
-  * Name **required** [String](#string)
-  * Value **required** [String](#string)
+  * AlternateNameEncoding
+  * AlternateValueEncoding
+  * Name **required**
+  * Value **required**
 
 ### AttributeDoesNotExist
 * AttributeDoesNotExist `object`: The specified attribute does not exist.
@@ -235,75 +444,99 @@ amazonaws_sdb.Select({
 
 ### AttributeList
 * AttributeList `array`
-  * items [Attribute](#attribute)
+  * items
+    * AlternateNameEncoding
+    * AlternateValueEncoding
+    * Name **required**
+    * Value **required**
 
 ### AttributeNameList
 * AttributeNameList `array`
-  * items [String](#string)
+  * items
 
 ### BatchDeleteAttributesRequest
 * BatchDeleteAttributesRequest `object`
-  * DomainName **required** [String](#string)
-  * Items **required** [DeletableItemList](#deletableitemlist)
+  * DomainName **required**
+  * Items **required**
+    * items
+      * Attributes [DeletableAttributeList](#deletableattributelist)
+      * Name **required**
 
 ### BatchPutAttributesRequest
 * BatchPutAttributesRequest `object`
-  * DomainName **required** [String](#string)
-  * Items **required** [ReplaceableItemList](#replaceableitemlist)
+  * DomainName **required**
+  * Items **required**
+    * items
+      * Attributes **required**
+        * items
+          * Name **required**
+          * Replace
+          * Value **required**
+      * Name **required**
 
 ### Boolean
 * Boolean `boolean`
 
 ### CreateDomainRequest
 * CreateDomainRequest `object`
-  * DomainName **required** [String](#string)
+  * DomainName **required**
 
 ### DeletableAttribute
 * DeletableAttribute `object`
-  * Name **required** [String](#string)
-  * Value [String](#string)
+  * Name **required**
+  * Value
 
 ### DeletableAttributeList
 * DeletableAttributeList `array`
-  * items [DeletableAttribute](#deletableattribute)
+  * items
+    * Name **required**
+    * Value
 
 ### DeletableItem
 * DeletableItem `object`
   * Attributes [DeletableAttributeList](#deletableattributelist)
-  * Name **required** [String](#string)
+  * Name **required**
 
 ### DeletableItemList
 * DeletableItemList `array`
-  * items [DeletableItem](#deletableitem)
+  * items
+    * Attributes [DeletableAttributeList](#deletableattributelist)
+    * Name **required**
 
 ### DeleteAttributesRequest
 * DeleteAttributesRequest `object`
-  * Attributes [DeletableAttributeList](#deletableattributelist)
-  * DomainName **required** [String](#string)
-  * Expected [UpdateCondition](#updatecondition)
-  * ItemName **required** [String](#string)
+  * Attributes
+    * items
+      * Name **required**
+      * Value
+  * DomainName **required**
+  * Expected
+    * Exists
+    * Name
+    * Value
+  * ItemName **required**
 
 ### DeleteDomainRequest
 * DeleteDomainRequest `object`
-  * DomainName **required** [String](#string)
+  * DomainName **required**
 
 ### DomainMetadataRequest
 * DomainMetadataRequest `object`
-  * DomainName **required** [String](#string)
+  * DomainName **required**
 
 ### DomainMetadataResult
 * DomainMetadataResult `object`
-  * AttributeNameCount [Integer](#integer)
-  * AttributeNamesSizeBytes [Long](#long)
-  * AttributeValueCount [Integer](#integer)
-  * AttributeValuesSizeBytes [Long](#long)
-  * ItemCount [Integer](#integer)
-  * ItemNamesSizeBytes [Long](#long)
-  * Timestamp [Integer](#integer)
+  * AttributeNameCount
+  * AttributeNamesSizeBytes
+  * AttributeValueCount
+  * AttributeValuesSizeBytes
+  * ItemCount
+  * ItemNamesSizeBytes
+  * Timestamp
 
 ### DomainNameList
 * DomainNameList `array`
-  * items [String](#string)
+  * items
 
 ### DuplicateItemName
 * DuplicateItemName `object`: The item name was specified more than once. 
@@ -314,14 +547,20 @@ amazonaws_sdb.Select({
 
 ### GetAttributesRequest
 * GetAttributesRequest `object`
-  * AttributeNames [AttributeNameList](#attributenamelist)
-  * ConsistentRead [Boolean](#boolean)
-  * DomainName **required** [String](#string)
-  * ItemName **required** [String](#string)
+  * AttributeNames
+    * items
+  * ConsistentRead
+  * DomainName **required**
+  * ItemName **required**
 
 ### GetAttributesResult
 * GetAttributesResult `object`
-  * Attributes [AttributeList](#attributelist)
+  * Attributes
+    * items
+      * AlternateNameEncoding
+      * AlternateValueEncoding
+      * Name **required**
+      * Value **required**
 
 ### Integer
 * Integer `integer`
@@ -348,23 +587,37 @@ amazonaws_sdb.Select({
 
 ### Item
 * Item `object`
-  * AlternateNameEncoding [String](#string)
-  * Attributes **required** [AttributeList](#attributelist)
-  * Name **required** [String](#string)
+  * AlternateNameEncoding
+  * Attributes **required**
+    * items
+      * AlternateNameEncoding
+      * AlternateValueEncoding
+      * Name **required**
+      * Value **required**
+  * Name **required**
 
 ### ItemList
 * ItemList `array`
-  * items [Item](#item)
+  * items
+    * AlternateNameEncoding
+    * Attributes **required**
+      * items
+        * AlternateNameEncoding
+        * AlternateValueEncoding
+        * Name **required**
+        * Value **required**
+    * Name **required**
 
 ### ListDomainsRequest
 * ListDomainsRequest `object`
-  * MaxNumberOfDomains [Integer](#integer)
-  * NextToken [String](#string)
+  * MaxNumberOfDomains
+  * NextToken
 
 ### ListDomainsResult
 * ListDomainsResult `object`
-  * DomainNames [DomainNameList](#domainnamelist)
-  * NextToken [String](#string)
+  * DomainNames
+    * items
+  * NextToken
 
 ### Long
 * Long `integer`
@@ -403,29 +656,49 @@ amazonaws_sdb.Select({
 
 ### PutAttributesRequest
 * PutAttributesRequest `object`
-  * Attributes **required** [ReplaceableAttributeList](#replaceableattributelist)
-  * DomainName **required** [String](#string)
-  * Expected [UpdateCondition](#updatecondition)
-  * ItemName **required** [String](#string)
+  * Attributes **required**
+    * items
+      * Name **required**
+      * Replace
+      * Value **required**
+  * DomainName **required**
+  * Expected
+    * Exists
+    * Name
+    * Value
+  * ItemName **required**
 
 ### ReplaceableAttribute
 * ReplaceableAttribute `object`
-  * Name **required** [String](#string)
-  * Replace [Boolean](#boolean)
-  * Value **required** [String](#string)
+  * Name **required**
+  * Replace
+  * Value **required**
 
 ### ReplaceableAttributeList
 * ReplaceableAttributeList `array`
-  * items [ReplaceableAttribute](#replaceableattribute)
+  * items
+    * Name **required**
+    * Replace
+    * Value **required**
 
 ### ReplaceableItem
 * ReplaceableItem `object`
-  * Attributes **required** [ReplaceableAttributeList](#replaceableattributelist)
-  * Name **required** [String](#string)
+  * Attributes **required**
+    * items
+      * Name **required**
+      * Replace
+      * Value **required**
+  * Name **required**
 
 ### ReplaceableItemList
 * ReplaceableItemList `array`
-  * items [ReplaceableItem](#replaceableitem)
+  * items
+    * Attributes **required**
+      * items
+        * Name **required**
+        * Replace
+        * Value **required**
+    * Name **required**
 
 ### RequestTimeout
 * RequestTimeout `object`: A timeout occurred when attempting to query the specified domain with specified query expression.
@@ -433,14 +706,23 @@ amazonaws_sdb.Select({
 
 ### SelectRequest
 * SelectRequest `object`
-  * ConsistentRead [Boolean](#boolean)
-  * NextToken [String](#string)
-  * SelectExpression **required** [String](#string)
+  * ConsistentRead
+  * NextToken
+  * SelectExpression **required**
 
 ### SelectResult
 * SelectResult `object`
-  * Items [ItemList](#itemlist)
-  * NextToken [String](#string)
+  * Items
+    * items
+      * AlternateNameEncoding
+      * Attributes **required**
+        * items
+          * AlternateNameEncoding
+          * AlternateValueEncoding
+          * Name **required**
+          * Value **required**
+      * Name **required**
+  * NextToken
 
 ### String
 * String `string`
@@ -451,8 +733,8 @@ amazonaws_sdb.Select({
 
 ### UpdateCondition
 * UpdateCondition `object`:  Specifies the conditions under which data should be updated. If an update condition is specified for a request, the data will only be updated if the condition is satisfied. For example, if an attribute with a specific name and value exists, or if a specific attribute doesn't exist. 
-  * Exists [Boolean](#boolean)
-  * Name [String](#string)
-  * Value [String](#string)
+  * Exists
+  * Name
+  * Value
 
 

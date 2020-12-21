@@ -11,7 +11,7 @@ let rottentomatoes = require('@datafire/rottentomatoes').create({
   key: ""
 });
 
-rottentomatoes.MoviesSearchSearch({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

@@ -1,6 +1,6 @@
 # @datafire/tyk
 
-Client library for Gateway
+Client library for Gateway REST API
 
 ## Installation and Usage
 ```bash
@@ -9,7 +9,7 @@ npm install --save @datafire/tyk
 ```js
 let tyk = require('@datafire/tyk').create();
 
-tyk.tyk.apis.post({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

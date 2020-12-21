@@ -1,12 +1,5 @@
 {
   "swagger": "2.0",
-  "schemes": [
-    "https",
-    "http"
-  ],
-  "host": "dax.amazonaws.com",
-  "basePath": "/",
-  "x-hasEquivalentPaths": true,
   "info": {
     "contact": {
       "email": "mike.ralphson@gmail.com",
@@ -30,7 +23,7 @@
     ],
     "x-logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.jpeg"
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"
     },
     "x-origin": [
       {
@@ -40,7 +33,7 @@
           "version": "1.0.0"
         },
         "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/dax-2017-04-19.normal.json",
-        "x-apisguru-direct": true
+        "x-apisguru-driver": "external"
       }
     ],
     "x-preferred": true,
@@ -52,121 +45,74 @@
       "type": "openapi"
     }
   },
-  "externalDocs": {
-    "description": "Amazon Web Services documentation",
-    "url": "https://aws.amazon.com/dax/"
-  },
-  "consumes": [
-    "application/json"
+  "host": "dax.us-east-1.amazonaws.com",
+  "basePath": "/",
+  "schemes": [
+    "http"
   ],
-  "produces": [
-    "application/json"
-  ],
-  "securityDefinitions": {
-    "hmac": {
-      "description": "Amazon Signature authorization v4",
-      "in": "header",
-      "name": "Authorization",
-      "type": "apiKey",
-      "x-amazon-apigateway-authtype": "awsSigv4"
-    }
-  },
-  "security": [
-    {
-      "hmac": []
-    }
-  ],
-  "parameters": {
-    "Action": {
-      "in": "header",
-      "name": "Action",
-      "required": true,
-      "type": "string"
-    },
-    "Version": {
-      "in": "header",
-      "name": "Version",
-      "required": true,
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "in": "header",
-      "name": "X-Amz-Algorithm",
-      "required": false,
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "in": "header",
-      "name": "X-Amz-Content-Sha256",
-      "required": false,
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "in": "header",
-      "name": "X-Amz-Credential",
-      "required": false,
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "in": "header",
-      "name": "X-Amz-Date",
-      "required": false,
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "in": "header",
-      "name": "X-Amz-Security-Token",
-      "required": false,
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "in": "header",
-      "name": "X-Amz-Signature",
-      "required": false,
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "in": "header",
-      "name": "X-Amz-SignedHeaders",
-      "required": false,
-      "type": "string"
-    }
-  },
   "paths": {
-    "/": {
+    "/#X-Amz-Target=AmazonDAXV3.CreateCluster": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Creates a DAX cluster. All nodes in the cluster run the same DAX caching software.",
-        "operationId": "CreateCluster",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "enum": [
+              "AmazonDAXV3.CreateCluster"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -250,54 +196,90 @@
             }
           },
           "491": {
+            "description": "ServiceLinkedRoleNotFoundFault",
+            "schema": {
+              "$ref": "#/definitions/ServiceLinkedRoleNotFoundFault"
+            }
+          },
+          "492": {
             "description": "InvalidParameterValueException",
             "schema": {
               "$ref": "#/definitions/InvalidParameterValueException"
             }
           },
-          "492": {
+          "493": {
             "description": "InvalidParameterCombinationException",
             "schema": {
               "$ref": "#/definitions/InvalidParameterCombinationException"
             }
           }
-        }
+        },
+        "description": "Creates a DAX cluster. All nodes in the cluster run the same DAX caching software.",
+        "operationId": "CreateCluster"
       }
     },
-    "/#CreateParameterGroup": {
+    "/#X-Amz-Target=AmazonDAXV3.CreateParameterGroup": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Creates a new parameter group. A parameter group is a collection of parameters that you apply to all of the nodes in a DAX cluster.",
-        "operationId": "CreateParameterGroup",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "enum": [
+              "AmazonDAXV3.CreateParameterGroup"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -333,54 +315,90 @@
             }
           },
           "483": {
+            "description": "ServiceLinkedRoleNotFoundFault",
+            "schema": {
+              "$ref": "#/definitions/ServiceLinkedRoleNotFoundFault"
+            }
+          },
+          "484": {
             "description": "InvalidParameterValueException",
             "schema": {
               "$ref": "#/definitions/InvalidParameterValueException"
             }
           },
-          "484": {
+          "485": {
             "description": "InvalidParameterCombinationException",
             "schema": {
               "$ref": "#/definitions/InvalidParameterCombinationException"
             }
           }
-        }
+        },
+        "description": "Creates a new parameter group. A parameter group is a collection of parameters that you apply to all of the nodes in a DAX cluster.",
+        "operationId": "CreateParameterGroup"
       }
     },
-    "/#CreateSubnetGroup": {
+    "/#X-Amz-Target=AmazonDAXV3.CreateSubnetGroup": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Creates a new subnet group.",
-        "operationId": "CreateSubnetGroup",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "enum": [
+              "AmazonDAXV3.CreateSubnetGroup"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -420,44 +438,80 @@
             "schema": {
               "$ref": "#/definitions/InvalidSubnet"
             }
+          },
+          "484": {
+            "description": "ServiceLinkedRoleNotFoundFault",
+            "schema": {
+              "$ref": "#/definitions/ServiceLinkedRoleNotFoundFault"
+            }
           }
-        }
+        },
+        "description": "Creates a new subnet group.",
+        "operationId": "CreateSubnetGroup"
       }
     },
-    "/#DecreaseReplicationFactor": {
+    "/#X-Amz-Target=AmazonDAXV3.DecreaseReplicationFactor": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "<p>Removes one or more nodes from a DAX cluster.</p> <note> <p>You cannot use <code>DecreaseReplicationFactor</code> to remove the last node in a DAX cluster. If you need to do this, use <code>DeleteCluster</code> instead.</p> </note>",
-        "operationId": "DecreaseReplicationFactor",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "enum": [
+              "AmazonDAXV3.DecreaseReplicationFactor"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -493,54 +547,90 @@
             }
           },
           "483": {
+            "description": "ServiceLinkedRoleNotFoundFault",
+            "schema": {
+              "$ref": "#/definitions/ServiceLinkedRoleNotFoundFault"
+            }
+          },
+          "484": {
             "description": "InvalidParameterValueException",
             "schema": {
               "$ref": "#/definitions/InvalidParameterValueException"
             }
           },
-          "484": {
+          "485": {
             "description": "InvalidParameterCombinationException",
             "schema": {
               "$ref": "#/definitions/InvalidParameterCombinationException"
             }
           }
-        }
+        },
+        "description": "<p>Removes one or more nodes from a DAX cluster.</p> <note> <p>You cannot use <code>DecreaseReplicationFactor</code> to remove the last node in a DAX cluster. If you need to do this, use <code>DeleteCluster</code> instead.</p> </note>",
+        "operationId": "DecreaseReplicationFactor"
       }
     },
-    "/#DeleteCluster": {
+    "/#X-Amz-Target=AmazonDAXV3.DeleteCluster": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Deletes a previously provisioned DAX cluster. <i>DeleteCluster</i> deletes all associated nodes, node endpoints and the DAX cluster itself. When you receive a successful response from this action, DAX immediately begins deleting the cluster; you cannot cancel or revert this action.",
-        "operationId": "DeleteCluster",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "enum": [
+              "AmazonDAXV3.DeleteCluster"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -570,54 +660,90 @@
             }
           },
           "482": {
+            "description": "ServiceLinkedRoleNotFoundFault",
+            "schema": {
+              "$ref": "#/definitions/ServiceLinkedRoleNotFoundFault"
+            }
+          },
+          "483": {
             "description": "InvalidParameterValueException",
             "schema": {
               "$ref": "#/definitions/InvalidParameterValueException"
             }
           },
-          "483": {
+          "484": {
             "description": "InvalidParameterCombinationException",
             "schema": {
               "$ref": "#/definitions/InvalidParameterCombinationException"
             }
           }
-        }
+        },
+        "description": "Deletes a previously provisioned DAX cluster. <i>DeleteCluster</i> deletes all associated nodes, node endpoints and the DAX cluster itself. When you receive a successful response from this action, DAX immediately begins deleting the cluster; you cannot cancel or revert this action.",
+        "operationId": "DeleteCluster"
       }
     },
-    "/#DeleteParameterGroup": {
+    "/#X-Amz-Target=AmazonDAXV3.DeleteParameterGroup": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Deletes the specified parameter group. You cannot delete a parameter group if it is associated with any DAX clusters.",
-        "operationId": "DeleteParameterGroup",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "enum": [
+              "AmazonDAXV3.DeleteParameterGroup"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -647,54 +773,90 @@
             }
           },
           "482": {
+            "description": "ServiceLinkedRoleNotFoundFault",
+            "schema": {
+              "$ref": "#/definitions/ServiceLinkedRoleNotFoundFault"
+            }
+          },
+          "483": {
             "description": "InvalidParameterValueException",
             "schema": {
               "$ref": "#/definitions/InvalidParameterValueException"
             }
           },
-          "483": {
+          "484": {
             "description": "InvalidParameterCombinationException",
             "schema": {
               "$ref": "#/definitions/InvalidParameterCombinationException"
             }
           }
-        }
+        },
+        "description": "Deletes the specified parameter group. You cannot delete a parameter group if it is associated with any DAX clusters.",
+        "operationId": "DeleteParameterGroup"
       }
     },
-    "/#DeleteSubnetGroup": {
+    "/#X-Amz-Target=AmazonDAXV3.DeleteSubnetGroup": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "<p>Deletes a subnet group.</p> <note> <p>You cannot delete a subnet group if it is associated with any DAX clusters.</p> </note>",
-        "operationId": "DeleteSubnetGroup",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "enum": [
+              "AmazonDAXV3.DeleteSubnetGroup"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -722,44 +884,80 @@
             "schema": {
               "$ref": "#/definitions/SubnetGroupNotFoundFault"
             }
+          },
+          "482": {
+            "description": "ServiceLinkedRoleNotFoundFault",
+            "schema": {
+              "$ref": "#/definitions/ServiceLinkedRoleNotFoundFault"
+            }
           }
-        }
+        },
+        "description": "<p>Deletes a subnet group.</p> <note> <p>You cannot delete a subnet group if it is associated with any DAX clusters.</p> </note>",
+        "operationId": "DeleteSubnetGroup"
       }
     },
-    "/#DescribeClusters": {
+    "/#X-Amz-Target=AmazonDAXV3.DescribeClusters": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "<p>Returns information about all provisioned DAX clusters if no cluster identifier is specified, or about a specific DAX cluster if a cluster identifier is supplied.</p> <p>If the cluster is in the CREATING state, only cluster level information will be displayed until all of the nodes are successfully provisioned.</p> <p>If the cluster is in the DELETING state, only cluster level information will be displayed.</p> <p>If nodes are currently being added to the DAX cluster, node endpoint information and creation time for the additional nodes will not be displayed until they are completely provisioned. When the DAX cluster state is <i>available</i>, the cluster is ready for use.</p> <p>If nodes are currently being removed from the DAX cluster, no endpoint information for the removed nodes is displayed.</p>",
-        "operationId": "DescribeClusters",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "enum": [
+              "AmazonDAXV3.DescribeClusters"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -783,54 +981,90 @@
             }
           },
           "481": {
+            "description": "ServiceLinkedRoleNotFoundFault",
+            "schema": {
+              "$ref": "#/definitions/ServiceLinkedRoleNotFoundFault"
+            }
+          },
+          "482": {
             "description": "InvalidParameterValueException",
             "schema": {
               "$ref": "#/definitions/InvalidParameterValueException"
             }
           },
-          "482": {
+          "483": {
             "description": "InvalidParameterCombinationException",
             "schema": {
               "$ref": "#/definitions/InvalidParameterCombinationException"
             }
           }
-        }
+        },
+        "description": "<p>Returns information about all provisioned DAX clusters if no cluster identifier is specified, or about a specific DAX cluster if a cluster identifier is supplied.</p> <p>If the cluster is in the CREATING state, only cluster level information will be displayed until all of the nodes are successfully provisioned.</p> <p>If the cluster is in the DELETING state, only cluster level information will be displayed.</p> <p>If nodes are currently being added to the DAX cluster, node endpoint information and creation time for the additional nodes will not be displayed until they are completely provisioned. When the DAX cluster state is <i>available</i>, the cluster is ready for use.</p> <p>If nodes are currently being removed from the DAX cluster, no endpoint information for the removed nodes is displayed.</p>",
+        "operationId": "DescribeClusters"
       }
     },
-    "/#DescribeDefaultParameters": {
+    "/#X-Amz-Target=AmazonDAXV3.DescribeDefaultParameters": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Returns the default system parameter information for the DAX caching software.",
-        "operationId": "DescribeDefaultParameters",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "enum": [
+              "AmazonDAXV3.DescribeDefaultParameters"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -848,54 +1082,90 @@
             }
           },
           "480": {
+            "description": "ServiceLinkedRoleNotFoundFault",
+            "schema": {
+              "$ref": "#/definitions/ServiceLinkedRoleNotFoundFault"
+            }
+          },
+          "481": {
             "description": "InvalidParameterValueException",
             "schema": {
               "$ref": "#/definitions/InvalidParameterValueException"
             }
           },
-          "481": {
+          "482": {
             "description": "InvalidParameterCombinationException",
             "schema": {
               "$ref": "#/definitions/InvalidParameterCombinationException"
             }
           }
-        }
+        },
+        "description": "Returns the default system parameter information for the DAX caching software.",
+        "operationId": "DescribeDefaultParameters"
       }
     },
-    "/#DescribeEvents": {
+    "/#X-Amz-Target=AmazonDAXV3.DescribeEvents": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "<p>Returns events related to DAX clusters and parameter groups. You can obtain events specific to a particular DAX cluster or parameter group by providing the name as a parameter.</p> <p>By default, only the events occurring within the last hour are returned; however, you can retrieve up to 14 days' worth of events if necessary.</p>",
-        "operationId": "DescribeEvents",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "enum": [
+              "AmazonDAXV3.DescribeEvents"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -913,54 +1183,90 @@
             }
           },
           "480": {
+            "description": "ServiceLinkedRoleNotFoundFault",
+            "schema": {
+              "$ref": "#/definitions/ServiceLinkedRoleNotFoundFault"
+            }
+          },
+          "481": {
             "description": "InvalidParameterValueException",
             "schema": {
               "$ref": "#/definitions/InvalidParameterValueException"
             }
           },
-          "481": {
+          "482": {
             "description": "InvalidParameterCombinationException",
             "schema": {
               "$ref": "#/definitions/InvalidParameterCombinationException"
             }
           }
-        }
+        },
+        "description": "<p>Returns events related to DAX clusters and parameter groups. You can obtain events specific to a particular DAX cluster or parameter group by providing the name as a parameter.</p> <p>By default, only the events occurring within the last 24 hours are returned; however, you can retrieve up to 14 days' worth of events if necessary.</p>",
+        "operationId": "DescribeEvents"
       }
     },
-    "/#DescribeParameterGroups": {
+    "/#X-Amz-Target=AmazonDAXV3.DescribeParameterGroups": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Returns a list of parameter group descriptions. If a parameter group name is specified, the list will contain only the descriptions for that group.",
-        "operationId": "DescribeParameterGroups",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "enum": [
+              "AmazonDAXV3.DescribeParameterGroups"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -984,54 +1290,90 @@
             }
           },
           "481": {
+            "description": "ServiceLinkedRoleNotFoundFault",
+            "schema": {
+              "$ref": "#/definitions/ServiceLinkedRoleNotFoundFault"
+            }
+          },
+          "482": {
             "description": "InvalidParameterValueException",
             "schema": {
               "$ref": "#/definitions/InvalidParameterValueException"
             }
           },
-          "482": {
+          "483": {
             "description": "InvalidParameterCombinationException",
             "schema": {
               "$ref": "#/definitions/InvalidParameterCombinationException"
             }
           }
-        }
+        },
+        "description": "Returns a list of parameter group descriptions. If a parameter group name is specified, the list will contain only the descriptions for that group.",
+        "operationId": "DescribeParameterGroups"
       }
     },
-    "/#DescribeParameters": {
+    "/#X-Amz-Target=AmazonDAXV3.DescribeParameters": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Returns the detailed parameter list for a particular parameter group.",
-        "operationId": "DescribeParameters",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "enum": [
+              "AmazonDAXV3.DescribeParameters"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -1055,54 +1397,90 @@
             }
           },
           "481": {
+            "description": "ServiceLinkedRoleNotFoundFault",
+            "schema": {
+              "$ref": "#/definitions/ServiceLinkedRoleNotFoundFault"
+            }
+          },
+          "482": {
             "description": "InvalidParameterValueException",
             "schema": {
               "$ref": "#/definitions/InvalidParameterValueException"
             }
           },
-          "482": {
+          "483": {
             "description": "InvalidParameterCombinationException",
             "schema": {
               "$ref": "#/definitions/InvalidParameterCombinationException"
             }
           }
-        }
+        },
+        "description": "Returns the detailed parameter list for a particular parameter group.",
+        "operationId": "DescribeParameters"
       }
     },
-    "/#DescribeSubnetGroups": {
+    "/#X-Amz-Target=AmazonDAXV3.DescribeSubnetGroups": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Returns a list of subnet group descriptions. If a subnet group name is specified, the list will contain only the description of that group.",
-        "operationId": "DescribeSubnetGroups",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "enum": [
+              "AmazonDAXV3.DescribeSubnetGroups"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -1124,44 +1502,80 @@
             "schema": {
               "$ref": "#/definitions/SubnetGroupNotFoundFault"
             }
+          },
+          "481": {
+            "description": "ServiceLinkedRoleNotFoundFault",
+            "schema": {
+              "$ref": "#/definitions/ServiceLinkedRoleNotFoundFault"
+            }
           }
-        }
+        },
+        "description": "Returns a list of subnet group descriptions. If a subnet group name is specified, the list will contain only the description of that group.",
+        "operationId": "DescribeSubnetGroups"
       }
     },
-    "/#IncreaseReplicationFactor": {
+    "/#X-Amz-Target=AmazonDAXV3.IncreaseReplicationFactor": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Adds one or more nodes to a DAX cluster.",
-        "operationId": "IncreaseReplicationFactor",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "enum": [
+              "AmazonDAXV3.IncreaseReplicationFactor"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -1215,54 +1629,90 @@
             }
           },
           "486": {
+            "description": "ServiceLinkedRoleNotFoundFault",
+            "schema": {
+              "$ref": "#/definitions/ServiceLinkedRoleNotFoundFault"
+            }
+          },
+          "487": {
             "description": "InvalidParameterValueException",
             "schema": {
               "$ref": "#/definitions/InvalidParameterValueException"
             }
           },
-          "487": {
+          "488": {
             "description": "InvalidParameterCombinationException",
             "schema": {
               "$ref": "#/definitions/InvalidParameterCombinationException"
             }
           }
-        }
+        },
+        "description": "Adds one or more nodes to a DAX cluster.",
+        "operationId": "IncreaseReplicationFactor"
       }
     },
-    "/#ListTags": {
+    "/#X-Amz-Target=AmazonDAXV3.ListTags": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "List all of the tags for a DAX cluster. You can call <code>ListTags</code> up to 10 times per second, per account.",
-        "operationId": "ListTags",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "enum": [
+              "AmazonDAXV3.ListTags"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -1298,54 +1748,90 @@
             }
           },
           "483": {
+            "description": "ServiceLinkedRoleNotFoundFault",
+            "schema": {
+              "$ref": "#/definitions/ServiceLinkedRoleNotFoundFault"
+            }
+          },
+          "484": {
             "description": "InvalidParameterValueException",
             "schema": {
               "$ref": "#/definitions/InvalidParameterValueException"
             }
           },
-          "484": {
+          "485": {
             "description": "InvalidParameterCombinationException",
             "schema": {
               "$ref": "#/definitions/InvalidParameterCombinationException"
             }
           }
-        }
+        },
+        "description": "List all of the tags for a DAX cluster. You can call <code>ListTags</code> up to 10 times per second, per account.",
+        "operationId": "ListTags"
       }
     },
-    "/#RebootNode": {
+    "/#X-Amz-Target=AmazonDAXV3.RebootNode": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Reboots a single node of a DAX cluster. The reboot action takes place as soon as possible. During the reboot, the node status is set to REBOOTING.",
-        "operationId": "RebootNode",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "enum": [
+              "AmazonDAXV3.RebootNode"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -1381,54 +1867,90 @@
             }
           },
           "483": {
+            "description": "ServiceLinkedRoleNotFoundFault",
+            "schema": {
+              "$ref": "#/definitions/ServiceLinkedRoleNotFoundFault"
+            }
+          },
+          "484": {
             "description": "InvalidParameterValueException",
             "schema": {
               "$ref": "#/definitions/InvalidParameterValueException"
             }
           },
-          "484": {
+          "485": {
             "description": "InvalidParameterCombinationException",
             "schema": {
               "$ref": "#/definitions/InvalidParameterCombinationException"
             }
           }
-        }
+        },
+        "description": "<p>Reboots a single node of a DAX cluster. The reboot action takes place as soon as possible. During the reboot, the node status is set to REBOOTING.</p> <note> <p> <code>RebootNode</code> restarts the DAX engine process and does not remove the contents of the cache. </p> </note>",
+        "operationId": "RebootNode"
       }
     },
-    "/#TagResource": {
+    "/#X-Amz-Target=AmazonDAXV3.TagResource": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Associates a set of tags with a DAX resource. You can call <code>TagResource</code> up to 5 times per second, per account. ",
-        "operationId": "TagResource",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "enum": [
+              "AmazonDAXV3.TagResource"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -1470,54 +1992,90 @@
             }
           },
           "484": {
+            "description": "ServiceLinkedRoleNotFoundFault",
+            "schema": {
+              "$ref": "#/definitions/ServiceLinkedRoleNotFoundFault"
+            }
+          },
+          "485": {
             "description": "InvalidParameterValueException",
             "schema": {
               "$ref": "#/definitions/InvalidParameterValueException"
             }
           },
-          "485": {
+          "486": {
             "description": "InvalidParameterCombinationException",
             "schema": {
               "$ref": "#/definitions/InvalidParameterCombinationException"
             }
           }
-        }
+        },
+        "description": "Associates a set of tags with a DAX resource. You can call <code>TagResource</code> up to 5 times per second, per account. ",
+        "operationId": "TagResource"
       }
     },
-    "/#UntagResource": {
+    "/#X-Amz-Target=AmazonDAXV3.UntagResource": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Removes the association of tags from a DAX resource. You can call <code>UntagResource</code> up to 5 times per second, per account. ",
-        "operationId": "UntagResource",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "enum": [
+              "AmazonDAXV3.UntagResource"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -1559,54 +2117,90 @@
             }
           },
           "484": {
+            "description": "ServiceLinkedRoleNotFoundFault",
+            "schema": {
+              "$ref": "#/definitions/ServiceLinkedRoleNotFoundFault"
+            }
+          },
+          "485": {
             "description": "InvalidParameterValueException",
             "schema": {
               "$ref": "#/definitions/InvalidParameterValueException"
             }
           },
-          "485": {
+          "486": {
             "description": "InvalidParameterCombinationException",
             "schema": {
               "$ref": "#/definitions/InvalidParameterCombinationException"
             }
           }
-        }
+        },
+        "description": "Removes the association of tags from a DAX resource. You can call <code>UntagResource</code> up to 5 times per second, per account. ",
+        "operationId": "UntagResource"
       }
     },
-    "/#UpdateCluster": {
+    "/#X-Amz-Target=AmazonDAXV3.UpdateCluster": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Modifies the settings for a DAX cluster. You can use this action to change one or more cluster configuration parameters by specifying the parameters and the new values.",
-        "operationId": "UpdateCluster",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "enum": [
+              "AmazonDAXV3.UpdateCluster"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -1648,54 +2242,90 @@
             }
           },
           "484": {
+            "description": "ServiceLinkedRoleNotFoundFault",
+            "schema": {
+              "$ref": "#/definitions/ServiceLinkedRoleNotFoundFault"
+            }
+          },
+          "485": {
             "description": "InvalidParameterValueException",
             "schema": {
               "$ref": "#/definitions/InvalidParameterValueException"
             }
           },
-          "485": {
+          "486": {
             "description": "InvalidParameterCombinationException",
             "schema": {
               "$ref": "#/definitions/InvalidParameterCombinationException"
             }
           }
-        }
+        },
+        "description": "Modifies the settings for a DAX cluster. You can use this action to change one or more cluster configuration parameters by specifying the parameters and the new values.",
+        "operationId": "UpdateCluster"
       }
     },
-    "/#UpdateParameterGroup": {
+    "/#X-Amz-Target=AmazonDAXV3.UpdateParameterGroup": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Modifies the parameters of a parameter group. You can modify up to 20 parameters in a single request by submitting a list parameter name and value pairs.",
-        "operationId": "UpdateParameterGroup",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "enum": [
+              "AmazonDAXV3.UpdateParameterGroup"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -1725,54 +2355,90 @@
             }
           },
           "482": {
+            "description": "ServiceLinkedRoleNotFoundFault",
+            "schema": {
+              "$ref": "#/definitions/ServiceLinkedRoleNotFoundFault"
+            }
+          },
+          "483": {
             "description": "InvalidParameterValueException",
             "schema": {
               "$ref": "#/definitions/InvalidParameterValueException"
             }
           },
-          "483": {
+          "484": {
             "description": "InvalidParameterCombinationException",
             "schema": {
               "$ref": "#/definitions/InvalidParameterCombinationException"
             }
           }
-        }
+        },
+        "description": "Modifies the parameters of a parameter group. You can modify up to 20 parameters in a single request by submitting a list parameter name and value pairs.",
+        "operationId": "UpdateParameterGroup"
       }
     },
-    "/#UpdateSubnetGroup": {
+    "/#X-Amz-Target=AmazonDAXV3.UpdateSubnetGroup": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Modifies an existing subnet group.",
-        "operationId": "UpdateSubnetGroup",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "enum": [
+              "AmazonDAXV3.UpdateSubnetGroup"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -1812,8 +2478,16 @@
             "schema": {
               "$ref": "#/definitions/InvalidSubnet"
             }
+          },
+          "484": {
+            "description": "ServiceLinkedRoleNotFoundFault",
+            "schema": {
+              "$ref": "#/definitions/ServiceLinkedRoleNotFoundFault"
+            }
           }
-        }
+        },
+        "description": "Modifies an existing subnet group.",
+        "operationId": "UpdateSubnetGroup"
       }
     }
   },
@@ -1823,9 +2497,6 @@
         "$ref": "#/definitions/String"
       },
       "type": "array"
-    },
-    "AwsQueryErrorMessage": {
-      "type": "string"
     },
     "ChangeType": {
       "enum": [
@@ -1838,77 +2509,179 @@
       "description": "Contains all of the attributes of a specific DAX cluster.",
       "properties": {
         "ActiveNodes": {
-          "$ref": "#/definitions/IntegerOptional",
-          "description": "The number of nodes in the cluster that are active (i.e., capable of serving requests)."
+          "allOf": [
+            {
+              "$ref": "#/definitions/IntegerOptional"
+            },
+            {
+              "description": "The number of nodes in the cluster that are active (i.e., capable of serving requests)."
+            }
+          ]
         },
         "ClusterArn": {
-          "$ref": "#/definitions/String",
-          "description": "The Amazon Resource Name (ARN) that uniquely identifies the cluster. "
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) that uniquely identifies the cluster. "
+            }
+          ]
         },
         "ClusterDiscoveryEndpoint": {
-          "$ref": "#/definitions/Endpoint",
-          "description": "The configuration endpoint for this DAX cluster, consisting of a DNS name and a port number. Client applications can specify this endpoint, rather than an individual node endpoint, and allow the DAX client software to intelligently route requests and responses to nodes in the DAX cluster."
+          "allOf": [
+            {
+              "$ref": "#/definitions/Endpoint"
+            },
+            {
+              "description": "The configuration endpoint for this DAX cluster, consisting of a DNS name and a port number. Client applications can specify this endpoint, rather than an individual node endpoint, and allow the DAX client software to intelligently route requests and responses to nodes in the DAX cluster."
+            }
+          ]
         },
         "ClusterName": {
-          "$ref": "#/definitions/String",
-          "description": "The name of the DAX cluster."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The name of the DAX cluster."
+            }
+          ]
         },
         "Description": {
-          "$ref": "#/definitions/String",
-          "description": "The description of the cluster."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The description of the cluster."
+            }
+          ]
         },
         "IamRoleArn": {
-          "$ref": "#/definitions/String",
-          "description": "A valid Amazon Resource Name (ARN) that identifies an IAM role. At runtime, DAX will assume this role and use the role's permissions to access DynamoDB on your behalf."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "A valid Amazon Resource Name (ARN) that identifies an IAM role. At runtime, DAX will assume this role and use the role's permissions to access DynamoDB on your behalf."
+            }
+          ]
         },
         "NodeIdsToRemove": {
-          "$ref": "#/definitions/NodeIdentifierList",
-          "description": "A list of nodes to be removed from the cluster."
+          "allOf": [
+            {
+              "$ref": "#/definitions/NodeIdentifierList"
+            },
+            {
+              "description": "A list of nodes to be removed from the cluster."
+            }
+          ]
         },
         "NodeType": {
-          "$ref": "#/definitions/String",
-          "description": "The node type for the nodes in the cluster. (All nodes in a DAX cluster are of the same type.)"
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The node type for the nodes in the cluster. (All nodes in a DAX cluster are of the same type.)"
+            }
+          ]
         },
         "Nodes": {
-          "$ref": "#/definitions/NodeList",
-          "description": "A list of nodes that are currently in the cluster."
+          "allOf": [
+            {
+              "$ref": "#/definitions/NodeList"
+            },
+            {
+              "description": "A list of nodes that are currently in the cluster."
+            }
+          ]
         },
         "NotificationConfiguration": {
-          "$ref": "#/definitions/NotificationConfiguration",
-          "description": "Describes a notification topic and its status. Notification topics are used for publishing DAX events to subscribers using Amazon Simple Notification Service (SNS)."
+          "allOf": [
+            {
+              "$ref": "#/definitions/NotificationConfiguration"
+            },
+            {
+              "description": "Describes a notification topic and its status. Notification topics are used for publishing DAX events to subscribers using Amazon Simple Notification Service (SNS)."
+            }
+          ]
         },
         "ParameterGroup": {
-          "$ref": "#/definitions/ParameterGroupStatus",
-          "description": "The parameter group being used by nodes in the cluster."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ParameterGroupStatus"
+            },
+            {
+              "description": "The parameter group being used by nodes in the cluster."
+            }
+          ]
         },
         "PreferredMaintenanceWindow": {
-          "$ref": "#/definitions/String",
-          "description": "A range of time when maintenance of DAX cluster software will be performed. For example: <code>sun:01:00-sun:09:00</code>. Cluster maintenance normally takes less than 30 minutes, and is performed automatically within the maintenance window."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "A range of time when maintenance of DAX cluster software will be performed. For example: <code>sun:01:00-sun:09:00</code>. Cluster maintenance normally takes less than 30 minutes, and is performed automatically within the maintenance window."
+            }
+          ]
+        },
+        "SSEDescription": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SSEDescription"
+            },
+            {
+              "description": "The description of the server-side encryption status on the specified DAX cluster."
+            }
+          ]
         },
         "SecurityGroups": {
-          "$ref": "#/definitions/SecurityGroupMembershipList",
-          "description": "A list of security groups, and the status of each, for the nodes in the cluster."
+          "allOf": [
+            {
+              "$ref": "#/definitions/SecurityGroupMembershipList"
+            },
+            {
+              "description": "A list of security groups, and the status of each, for the nodes in the cluster."
+            }
+          ]
         },
         "Status": {
-          "$ref": "#/definitions/String",
-          "description": "The current status of the cluster."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The current status of the cluster."
+            }
+          ]
         },
         "SubnetGroup": {
-          "$ref": "#/definitions/String",
-          "description": "The subnet group where the DAX cluster is running."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The subnet group where the DAX cluster is running."
+            }
+          ]
         },
         "TotalNodes": {
-          "$ref": "#/definitions/IntegerOptional",
-          "description": "The total number of nodes in the cluster."
+          "allOf": [
+            {
+              "$ref": "#/definitions/IntegerOptional"
+            },
+            {
+              "description": "The total number of nodes in the cluster."
+            }
+          ]
         }
       },
       "type": "object"
     },
-    "ClusterAlreadyExistsFault": {
-      "description": "You already have a DAX cluster with the given identifier.",
-      "properties": {},
-      "type": "object"
-    },
+    "ClusterAlreadyExistsFault": {},
     "ClusterList": {
       "items": {
         "$ref": "#/definitions/Cluster"
@@ -1921,65 +2694,139 @@
       },
       "type": "array"
     },
-    "ClusterNotFoundFault": {
-      "description": "The requested cluster ID does not refer to an existing DAX cluster.",
-      "properties": {},
-      "type": "object"
-    },
-    "ClusterQuotaForCustomerExceededFault": {
-      "description": "You have attempted to exceed the maximum number of DAX clusters for your AWS account.",
-      "properties": {},
-      "type": "object"
-    },
+    "ClusterNotFoundFault": {},
+    "ClusterQuotaForCustomerExceededFault": {},
     "CreateClusterRequest": {
       "properties": {
         "AvailabilityZones": {
-          "$ref": "#/definitions/AvailabilityZoneList",
-          "description": "The Availability Zones (AZs) in which the cluster nodes will be created. All nodes belonging to the cluster are placed in these Availability Zones. Use this parameter if you want to distribute the nodes across multiple AZs."
+          "allOf": [
+            {
+              "$ref": "#/definitions/AvailabilityZoneList"
+            },
+            {
+              "description": "The Availability Zones (AZs) in which the cluster nodes will reside after the cluster has been created or updated. If provided, the length of this list must equal the <code>ReplicationFactor</code> parameter. If you omit this parameter, DAX will spread the nodes across Availability Zones for the highest availability."
+            }
+          ]
         },
         "ClusterName": {
-          "$ref": "#/definitions/String",
-          "description": "<p>The cluster identifier. This parameter is stored as a lowercase string.</p> <p> <b>Constraints:</b> </p> <ul> <li> <p>A name must contain from 1 to 20 alphanumeric characters or hyphens.</p> </li> <li> <p>The first character must be a letter.</p> </li> <li> <p>A name cannot end with a hyphen or contain two consecutive hyphens.</p> </li> </ul>"
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "<p>The cluster identifier. This parameter is stored as a lowercase string.</p> <p> <b>Constraints:</b> </p> <ul> <li> <p>A name must contain from 1 to 20 alphanumeric characters or hyphens.</p> </li> <li> <p>The first character must be a letter.</p> </li> <li> <p>A name cannot end with a hyphen or contain two consecutive hyphens.</p> </li> </ul>"
+            }
+          ]
         },
         "Description": {
-          "$ref": "#/definitions/String",
-          "description": "A description of the cluster."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "A description of the cluster."
+            }
+          ]
         },
         "IamRoleArn": {
-          "$ref": "#/definitions/String",
-          "description": "A valid Amazon Resource Name (ARN) that identifies an IAM role. At runtime, DAX will assume this role and use the role's permissions to access DynamoDB on your behalf."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "A valid Amazon Resource Name (ARN) that identifies an IAM role. At runtime, DAX will assume this role and use the role's permissions to access DynamoDB on your behalf."
+            }
+          ]
         },
         "NodeType": {
-          "$ref": "#/definitions/String",
-          "description": "The compute and memory capacity of the nodes in the cluster."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The compute and memory capacity of the nodes in the cluster."
+            }
+          ]
         },
         "NotificationTopicArn": {
-          "$ref": "#/definitions/String",
-          "description": "<p>The Amazon Resource Name (ARN) of the Amazon SNS topic to which notifications will be sent.</p> <note> <p>The Amazon SNS topic owner must be same as the DAX cluster owner.</p> </note>"
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "<p>The Amazon Resource Name (ARN) of the Amazon SNS topic to which notifications will be sent.</p> <note> <p>The Amazon SNS topic owner must be same as the DAX cluster owner.</p> </note>"
+            }
+          ]
         },
         "ParameterGroupName": {
-          "$ref": "#/definitions/String",
-          "description": "The parameter group to be associated with the DAX cluster."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The parameter group to be associated with the DAX cluster."
+            }
+          ]
         },
         "PreferredMaintenanceWindow": {
-          "$ref": "#/definitions/String",
-          "description": "<p>Specifies the weekly time range during which maintenance on the DAX cluster is performed. It is specified as a range in the format ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum maintenance window is a 60 minute period. Valid values for <code>ddd</code> are:</p> <ul> <li> <p> <code>sun</code> </p> </li> <li> <p> <code>mon</code> </p> </li> <li> <p> <code>tue</code> </p> </li> <li> <p> <code>wed</code> </p> </li> <li> <p> <code>thu</code> </p> </li> <li> <p> <code>fri</code> </p> </li> <li> <p> <code>sat</code> </p> </li> </ul> <p>Example: <code>sun:05:00-sun:09:00</code> </p> <note> <p>If you don't specify a preferred maintenance window when you create or modify a cache cluster, DAX assigns a 60-minute maintenance window on a randomly selected day of the week.</p> </note>"
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "<p>Specifies the weekly time range during which maintenance on the DAX cluster is performed. It is specified as a range in the format ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum maintenance window is a 60 minute period. Valid values for <code>ddd</code> are:</p> <ul> <li> <p> <code>sun</code> </p> </li> <li> <p> <code>mon</code> </p> </li> <li> <p> <code>tue</code> </p> </li> <li> <p> <code>wed</code> </p> </li> <li> <p> <code>thu</code> </p> </li> <li> <p> <code>fri</code> </p> </li> <li> <p> <code>sat</code> </p> </li> </ul> <p>Example: <code>sun:05:00-sun:09:00</code> </p> <note> <p>If you don't specify a preferred maintenance window when you create or modify a cache cluster, DAX assigns a 60-minute maintenance window on a randomly selected day of the week.</p> </note>"
+            }
+          ]
         },
         "ReplicationFactor": {
-          "$ref": "#/definitions/Integer",
-          "description": "<p>The number of nodes in the DAX cluster. A replication factor of 1 will create a single-node cluster, without any read replicas. For additional fault tolerance, you can create a multiple node cluster with one or more read replicas. To do this, set <i>ReplicationFactor</i> to 2 or more.</p> <note> <p>AWS recommends that you have at least two read replicas per cluster.</p> </note>"
+          "allOf": [
+            {
+              "$ref": "#/definitions/Integer"
+            },
+            {
+              "description": "<p>The number of nodes in the DAX cluster. A replication factor of 1 will create a single-node cluster, without any read replicas. For additional fault tolerance, you can create a multiple node cluster with one or more read replicas. To do this, set <code>ReplicationFactor</code> to a number between 3 (one primary and two read replicas) and 10 (one primary and nine read replicas). <code>If the AvailabilityZones</code> parameter is provided, its length must equal the <code>ReplicationFactor</code>.</p> <note> <p>AWS recommends that you have at least two read replicas per cluster.</p> </note>"
+            }
+          ]
+        },
+        "SSESpecification": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SSESpecification"
+            },
+            {
+              "description": "Represents the settings used to enable server-side encryption on the cluster."
+            }
+          ]
         },
         "SecurityGroupIds": {
-          "$ref": "#/definitions/SecurityGroupIdentifierList",
-          "description": "<p>A list of security group IDs to be assigned to each node in the DAX cluster. (Each of the security group ID is system-generated.)</p> <p>If this parameter is not specified, DAX assigns the default VPC security group to each node.</p>"
+          "allOf": [
+            {
+              "$ref": "#/definitions/SecurityGroupIdentifierList"
+            },
+            {
+              "description": "<p>A list of security group IDs to be assigned to each node in the DAX cluster. (Each of the security group ID is system-generated.)</p> <p>If this parameter is not specified, DAX assigns the default VPC security group to each node.</p>"
+            }
+          ]
         },
         "SubnetGroupName": {
-          "$ref": "#/definitions/String",
-          "description": "<p>The name of the subnet group to be used for the replication group.</p> <important> <p>DAX clusters can only run in an Amazon VPC environment. All of the subnets that you specify in a subnet group must exist in the same VPC.</p> </important>"
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "<p>The name of the subnet group to be used for the replication group.</p> <important> <p>DAX clusters can only run in an Amazon VPC environment. All of the subnets that you specify in a subnet group must exist in the same VPC.</p> </important>"
+            }
+          ]
         },
         "Tags": {
-          "$ref": "#/definitions/TagList",
-          "description": "A set of tags to associate with the DAX cluster. "
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagList"
+            },
+            {
+              "description": "A set of tags to associate with the DAX cluster. "
+            }
+          ]
         }
       },
       "required": [
@@ -1988,13 +2835,20 @@
         "ReplicationFactor",
         "IamRoleArn"
       ],
+      "title": "CreateClusterRequest",
       "type": "object"
     },
     "CreateClusterResponse": {
       "properties": {
         "Cluster": {
-          "$ref": "#/definitions/Cluster",
-          "description": "A description of the DAX cluster that you have created."
+          "allOf": [
+            {
+              "$ref": "#/definitions/Cluster"
+            },
+            {
+              "description": "A description of the DAX cluster that you have created."
+            }
+          ]
         }
       },
       "type": "object"
@@ -2002,24 +2856,43 @@
     "CreateParameterGroupRequest": {
       "properties": {
         "Description": {
-          "$ref": "#/definitions/String",
-          "description": "A description of the parameter group."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "A description of the parameter group."
+            }
+          ]
         },
         "ParameterGroupName": {
-          "$ref": "#/definitions/String",
-          "description": "The name of the parameter group to apply to all of the clusters in this replication group."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The name of the parameter group to apply to all of the clusters in this replication group."
+            }
+          ]
         }
       },
       "required": [
         "ParameterGroupName"
       ],
+      "title": "CreateParameterGroupRequest",
       "type": "object"
     },
     "CreateParameterGroupResponse": {
       "properties": {
         "ParameterGroup": {
-          "$ref": "#/definitions/ParameterGroup",
-          "description": "Represents the output of a <i>CreateParameterGroup</i> action."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ParameterGroup"
+            },
+            {
+              "description": "Represents the output of a <i>CreateParameterGroup</i> action."
+            }
+          ]
         }
       },
       "type": "object"
@@ -2027,29 +2900,54 @@
     "CreateSubnetGroupRequest": {
       "properties": {
         "Description": {
-          "$ref": "#/definitions/String",
-          "description": "A description for the subnet group"
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "A description for the subnet group"
+            }
+          ]
         },
         "SubnetGroupName": {
-          "$ref": "#/definitions/String",
-          "description": "A name for the subnet group. This value is stored as a lowercase string. "
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "A name for the subnet group. This value is stored as a lowercase string. "
+            }
+          ]
         },
         "SubnetIds": {
-          "$ref": "#/definitions/SubnetIdentifierList",
-          "description": "A list of VPC subnet IDs for the subnet group."
+          "allOf": [
+            {
+              "$ref": "#/definitions/SubnetIdentifierList"
+            },
+            {
+              "description": "A list of VPC subnet IDs for the subnet group."
+            }
+          ]
         }
       },
       "required": [
         "SubnetGroupName",
         "SubnetIds"
       ],
+      "title": "CreateSubnetGroupRequest",
       "type": "object"
     },
     "CreateSubnetGroupResponse": {
       "properties": {
         "SubnetGroup": {
-          "$ref": "#/definitions/SubnetGroup",
-          "description": "Represents the output of a <i>CreateSubnetGroup</i> operation."
+          "allOf": [
+            {
+              "$ref": "#/definitions/SubnetGroup"
+            },
+            {
+              "description": "Represents the output of a <i>CreateSubnetGroup</i> operation."
+            }
+          ]
         }
       },
       "type": "object"
@@ -2057,33 +2955,64 @@
     "DecreaseReplicationFactorRequest": {
       "properties": {
         "AvailabilityZones": {
-          "$ref": "#/definitions/AvailabilityZoneList",
-          "description": "The Availability Zone(s) from which to remove nodes."
+          "allOf": [
+            {
+              "$ref": "#/definitions/AvailabilityZoneList"
+            },
+            {
+              "description": "The Availability Zone(s) from which to remove nodes."
+            }
+          ]
         },
         "ClusterName": {
-          "$ref": "#/definitions/String",
-          "description": "The name of the DAX cluster from which you want to remove nodes."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The name of the DAX cluster from which you want to remove nodes."
+            }
+          ]
         },
         "NewReplicationFactor": {
-          "$ref": "#/definitions/Integer",
-          "description": "The new number of nodes for the DAX cluster."
+          "allOf": [
+            {
+              "$ref": "#/definitions/Integer"
+            },
+            {
+              "description": "The new number of nodes for the DAX cluster."
+            }
+          ]
         },
         "NodeIdsToRemove": {
-          "$ref": "#/definitions/NodeIdentifierList",
-          "description": "The unique identifiers of the nodes to be removed from the cluster."
+          "allOf": [
+            {
+              "$ref": "#/definitions/NodeIdentifierList"
+            },
+            {
+              "description": "The unique identifiers of the nodes to be removed from the cluster."
+            }
+          ]
         }
       },
       "required": [
         "ClusterName",
         "NewReplicationFactor"
       ],
+      "title": "DecreaseReplicationFactorRequest",
       "type": "object"
     },
     "DecreaseReplicationFactorResponse": {
       "properties": {
         "Cluster": {
-          "$ref": "#/definitions/Cluster",
-          "description": "A description of the DAX cluster, after you have decreased its replication factor."
+          "allOf": [
+            {
+              "$ref": "#/definitions/Cluster"
+            },
+            {
+              "description": "A description of the DAX cluster, after you have decreased its replication factor."
+            }
+          ]
         }
       },
       "type": "object"
@@ -2091,20 +3020,33 @@
     "DeleteClusterRequest": {
       "properties": {
         "ClusterName": {
-          "$ref": "#/definitions/String",
-          "description": "The name of the cluster to be deleted."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The name of the cluster to be deleted."
+            }
+          ]
         }
       },
       "required": [
         "ClusterName"
       ],
+      "title": "DeleteClusterRequest",
       "type": "object"
     },
     "DeleteClusterResponse": {
       "properties": {
         "Cluster": {
-          "$ref": "#/definitions/Cluster",
-          "description": "A description of the DAX cluster that is being deleted."
+          "allOf": [
+            {
+              "$ref": "#/definitions/Cluster"
+            },
+            {
+              "description": "A description of the DAX cluster that is being deleted."
+            }
+          ]
         }
       },
       "type": "object"
@@ -2112,20 +3054,33 @@
     "DeleteParameterGroupRequest": {
       "properties": {
         "ParameterGroupName": {
-          "$ref": "#/definitions/String",
-          "description": "The name of the parameter group to delete."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The name of the parameter group to delete."
+            }
+          ]
         }
       },
       "required": [
         "ParameterGroupName"
       ],
+      "title": "DeleteParameterGroupRequest",
       "type": "object"
     },
     "DeleteParameterGroupResponse": {
       "properties": {
         "DeletionMessage": {
-          "$ref": "#/definitions/String",
-          "description": "A user-specified message for this action (i.e., a reason for deleting the parameter group)."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "A user-specified message for this action (i.e., a reason for deleting the parameter group)."
+            }
+          ]
         }
       },
       "type": "object"
@@ -2133,20 +3088,33 @@
     "DeleteSubnetGroupRequest": {
       "properties": {
         "SubnetGroupName": {
-          "$ref": "#/definitions/String",
-          "description": "The name of the subnet group to delete."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The name of the subnet group to delete."
+            }
+          ]
         }
       },
       "required": [
         "SubnetGroupName"
       ],
+      "title": "DeleteSubnetGroupRequest",
       "type": "object"
     },
     "DeleteSubnetGroupResponse": {
       "properties": {
         "DeletionMessage": {
-          "$ref": "#/definitions/String",
-          "description": "A user-specified message for this action (i.e., a reason for deleting the subnet group)."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "A user-specified message for this action (i.e., a reason for deleting the subnet group)."
+            }
+          ]
         }
       },
       "type": "object"
@@ -2154,29 +3122,60 @@
     "DescribeClustersRequest": {
       "properties": {
         "ClusterNames": {
-          "$ref": "#/definitions/ClusterNameList",
-          "description": "The names of the DAX clusters being described."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ClusterNameList"
+            },
+            {
+              "description": "The names of the DAX clusters being described."
+            }
+          ]
         },
         "MaxResults": {
-          "$ref": "#/definitions/IntegerOptional",
-          "description": "<p>The maximum number of results to include in the response. If more results exist than the specified <code>MaxResults</code> value, a token is included in the response so that the remaining results can be retrieved.</p> <p>The value for <code>MaxResults</code> must be between 20 and 100.</p>"
+          "allOf": [
+            {
+              "$ref": "#/definitions/IntegerOptional"
+            },
+            {
+              "description": "<p>The maximum number of results to include in the response. If more results exist than the specified <code>MaxResults</code> value, a token is included in the response so that the remaining results can be retrieved.</p> <p>The value for <code>MaxResults</code> must be between 20 and 100.</p>"
+            }
+          ]
         },
         "NextToken": {
-          "$ref": "#/definitions/String",
-          "description": "An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by <code>MaxResults</code>."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by <code>MaxResults</code>."
+            }
+          ]
         }
       },
+      "title": "DescribeClustersRequest",
       "type": "object"
     },
     "DescribeClustersResponse": {
       "properties": {
         "Clusters": {
-          "$ref": "#/definitions/ClusterList",
-          "description": "The descriptions of your DAX clusters, in response to a <i>DescribeClusters</i> request."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ClusterList"
+            },
+            {
+              "description": "The descriptions of your DAX clusters, in response to a <i>DescribeClusters</i> request."
+            }
+          ]
         },
         "NextToken": {
-          "$ref": "#/definitions/String",
-          "description": "Provides an identifier to allow retrieval of paginated results."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "Provides an identifier to allow retrieval of paginated results."
+            }
+          ]
         }
       },
       "type": "object"
@@ -2184,25 +3183,50 @@
     "DescribeDefaultParametersRequest": {
       "properties": {
         "MaxResults": {
-          "$ref": "#/definitions/IntegerOptional",
-          "description": "<p>The maximum number of results to include in the response. If more results exist than the specified <code>MaxResults</code> value, a token is included in the response so that the remaining results can be retrieved.</p> <p>The value for <code>MaxResults</code> must be between 20 and 100.</p>"
+          "allOf": [
+            {
+              "$ref": "#/definitions/IntegerOptional"
+            },
+            {
+              "description": "<p>The maximum number of results to include in the response. If more results exist than the specified <code>MaxResults</code> value, a token is included in the response so that the remaining results can be retrieved.</p> <p>The value for <code>MaxResults</code> must be between 20 and 100.</p>"
+            }
+          ]
         },
         "NextToken": {
-          "$ref": "#/definitions/String",
-          "description": "An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by <code>MaxResults</code>."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by <code>MaxResults</code>."
+            }
+          ]
         }
       },
+      "title": "DescribeDefaultParametersRequest",
       "type": "object"
     },
     "DescribeDefaultParametersResponse": {
       "properties": {
         "NextToken": {
-          "$ref": "#/definitions/String",
-          "description": "Provides an identifier to allow retrieval of paginated results."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "Provides an identifier to allow retrieval of paginated results."
+            }
+          ]
         },
         "Parameters": {
-          "$ref": "#/definitions/ParameterList",
-          "description": "A list of parameters. Each element in the list represents one parameter."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ParameterList"
+            },
+            {
+              "description": "A list of parameters. Each element in the list represents one parameter."
+            }
+          ]
         }
       },
       "type": "object"
@@ -2210,45 +3234,100 @@
     "DescribeEventsRequest": {
       "properties": {
         "Duration": {
-          "$ref": "#/definitions/IntegerOptional",
-          "description": "The number of minutes' worth of events to retrieve."
+          "allOf": [
+            {
+              "$ref": "#/definitions/IntegerOptional"
+            },
+            {
+              "description": "The number of minutes' worth of events to retrieve."
+            }
+          ]
         },
         "EndTime": {
-          "$ref": "#/definitions/TStamp",
-          "description": "The end of the time interval for which to retrieve events, specified in ISO 8601 format."
+          "allOf": [
+            {
+              "$ref": "#/definitions/TStamp"
+            },
+            {
+              "description": "The end of the time interval for which to retrieve events, specified in ISO 8601 format."
+            }
+          ]
         },
         "MaxResults": {
-          "$ref": "#/definitions/IntegerOptional",
-          "description": "<p>The maximum number of results to include in the response. If more results exist than the specified <code>MaxResults</code> value, a token is included in the response so that the remaining results can be retrieved.</p> <p>The value for <code>MaxResults</code> must be between 20 and 100.</p>"
+          "allOf": [
+            {
+              "$ref": "#/definitions/IntegerOptional"
+            },
+            {
+              "description": "<p>The maximum number of results to include in the response. If more results exist than the specified <code>MaxResults</code> value, a token is included in the response so that the remaining results can be retrieved.</p> <p>The value for <code>MaxResults</code> must be between 20 and 100.</p>"
+            }
+          ]
         },
         "NextToken": {
-          "$ref": "#/definitions/String",
-          "description": "An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by <code>MaxResults</code>."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by <code>MaxResults</code>."
+            }
+          ]
         },
         "SourceName": {
-          "$ref": "#/definitions/String",
-          "description": "The identifier of the event source for which events will be returned. If not specified, then all sources are included in the response."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The identifier of the event source for which events will be returned. If not specified, then all sources are included in the response."
+            }
+          ]
         },
         "SourceType": {
-          "$ref": "#/definitions/SourceType",
-          "description": "The event source to retrieve events for. If no value is specified, all events are returned."
+          "allOf": [
+            {
+              "$ref": "#/definitions/SourceType"
+            },
+            {
+              "description": "The event source to retrieve events for. If no value is specified, all events are returned."
+            }
+          ]
         },
         "StartTime": {
-          "$ref": "#/definitions/TStamp",
-          "description": "The beginning of the time interval to retrieve events for, specified in ISO 8601 format."
+          "allOf": [
+            {
+              "$ref": "#/definitions/TStamp"
+            },
+            {
+              "description": "The beginning of the time interval to retrieve events for, specified in ISO 8601 format."
+            }
+          ]
         }
       },
+      "title": "DescribeEventsRequest",
       "type": "object"
     },
     "DescribeEventsResponse": {
       "properties": {
         "Events": {
-          "$ref": "#/definitions/EventList",
-          "description": "An array of events. Each element in the array represents one event."
+          "allOf": [
+            {
+              "$ref": "#/definitions/EventList"
+            },
+            {
+              "description": "An array of events. Each element in the array represents one event."
+            }
+          ]
         },
         "NextToken": {
-          "$ref": "#/definitions/String",
-          "description": "Provides an identifier to allow retrieval of paginated results."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "Provides an identifier to allow retrieval of paginated results."
+            }
+          ]
         }
       },
       "type": "object"
@@ -2256,29 +3335,60 @@
     "DescribeParameterGroupsRequest": {
       "properties": {
         "MaxResults": {
-          "$ref": "#/definitions/IntegerOptional",
-          "description": "<p>The maximum number of results to include in the response. If more results exist than the specified <code>MaxResults</code> value, a token is included in the response so that the remaining results can be retrieved.</p> <p>The value for <code>MaxResults</code> must be between 20 and 100.</p>"
+          "allOf": [
+            {
+              "$ref": "#/definitions/IntegerOptional"
+            },
+            {
+              "description": "<p>The maximum number of results to include in the response. If more results exist than the specified <code>MaxResults</code> value, a token is included in the response so that the remaining results can be retrieved.</p> <p>The value for <code>MaxResults</code> must be between 20 and 100.</p>"
+            }
+          ]
         },
         "NextToken": {
-          "$ref": "#/definitions/String",
-          "description": "An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by <code>MaxResults</code>."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by <code>MaxResults</code>."
+            }
+          ]
         },
         "ParameterGroupNames": {
-          "$ref": "#/definitions/ParameterGroupNameList",
-          "description": "The names of the parameter groups."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ParameterGroupNameList"
+            },
+            {
+              "description": "The names of the parameter groups."
+            }
+          ]
         }
       },
+      "title": "DescribeParameterGroupsRequest",
       "type": "object"
     },
     "DescribeParameterGroupsResponse": {
       "properties": {
         "NextToken": {
-          "$ref": "#/definitions/String",
-          "description": "Provides an identifier to allow retrieval of paginated results."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "Provides an identifier to allow retrieval of paginated results."
+            }
+          ]
         },
         "ParameterGroups": {
-          "$ref": "#/definitions/ParameterGroupList",
-          "description": "An array of parameter groups. Each element in the array represents one parameter group."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ParameterGroupList"
+            },
+            {
+              "description": "An array of parameter groups. Each element in the array represents one parameter group."
+            }
+          ]
         }
       },
       "type": "object"
@@ -2286,36 +3396,73 @@
     "DescribeParametersRequest": {
       "properties": {
         "MaxResults": {
-          "$ref": "#/definitions/IntegerOptional",
-          "description": "<p>The maximum number of results to include in the response. If more results exist than the specified <code>MaxResults</code> value, a token is included in the response so that the remaining results can be retrieved.</p> <p>The value for <code>MaxResults</code> must be between 20 and 100.</p>"
+          "allOf": [
+            {
+              "$ref": "#/definitions/IntegerOptional"
+            },
+            {
+              "description": "<p>The maximum number of results to include in the response. If more results exist than the specified <code>MaxResults</code> value, a token is included in the response so that the remaining results can be retrieved.</p> <p>The value for <code>MaxResults</code> must be between 20 and 100.</p>"
+            }
+          ]
         },
         "NextToken": {
-          "$ref": "#/definitions/String",
-          "description": "An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by <code>MaxResults</code>."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by <code>MaxResults</code>."
+            }
+          ]
         },
         "ParameterGroupName": {
-          "$ref": "#/definitions/String",
-          "description": "The name of the parameter group."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The name of the parameter group."
+            }
+          ]
         },
         "Source": {
-          "$ref": "#/definitions/String",
-          "description": "How the parameter is defined. For example, <code>system</code> denotes a system-defined parameter."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "How the parameter is defined. For example, <code>system</code> denotes a system-defined parameter."
+            }
+          ]
         }
       },
       "required": [
         "ParameterGroupName"
       ],
+      "title": "DescribeParametersRequest",
       "type": "object"
     },
     "DescribeParametersResponse": {
       "properties": {
         "NextToken": {
-          "$ref": "#/definitions/String",
-          "description": "Provides an identifier to allow retrieval of paginated results."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "Provides an identifier to allow retrieval of paginated results."
+            }
+          ]
         },
         "Parameters": {
-          "$ref": "#/definitions/ParameterList",
-          "description": "A list of parameters within a parameter group. Each element in the list represents one parameter."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ParameterList"
+            },
+            {
+              "description": "A list of parameters within a parameter group. Each element in the list represents one parameter."
+            }
+          ]
         }
       },
       "type": "object"
@@ -2323,29 +3470,60 @@
     "DescribeSubnetGroupsRequest": {
       "properties": {
         "MaxResults": {
-          "$ref": "#/definitions/IntegerOptional",
-          "description": "<p>The maximum number of results to include in the response. If more results exist than the specified <code>MaxResults</code> value, a token is included in the response so that the remaining results can be retrieved.</p> <p>The value for <code>MaxResults</code> must be between 20 and 100.</p>"
+          "allOf": [
+            {
+              "$ref": "#/definitions/IntegerOptional"
+            },
+            {
+              "description": "<p>The maximum number of results to include in the response. If more results exist than the specified <code>MaxResults</code> value, a token is included in the response so that the remaining results can be retrieved.</p> <p>The value for <code>MaxResults</code> must be between 20 and 100.</p>"
+            }
+          ]
         },
         "NextToken": {
-          "$ref": "#/definitions/String",
-          "description": "An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by <code>MaxResults</code>."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by <code>MaxResults</code>."
+            }
+          ]
         },
         "SubnetGroupNames": {
-          "$ref": "#/definitions/SubnetGroupNameList",
-          "description": "The name of the subnet group."
+          "allOf": [
+            {
+              "$ref": "#/definitions/SubnetGroupNameList"
+            },
+            {
+              "description": "The name of the subnet group."
+            }
+          ]
         }
       },
+      "title": "DescribeSubnetGroupsRequest",
       "type": "object"
     },
     "DescribeSubnetGroupsResponse": {
       "properties": {
         "NextToken": {
-          "$ref": "#/definitions/String",
-          "description": "Provides an identifier to allow retrieval of paginated results."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "Provides an identifier to allow retrieval of paginated results."
+            }
+          ]
         },
         "SubnetGroups": {
-          "$ref": "#/definitions/SubnetGroupList",
-          "description": "An array of subnet groups. Each element in the array represents a single subnet group."
+          "allOf": [
+            {
+              "$ref": "#/definitions/SubnetGroupList"
+            },
+            {
+              "description": "An array of subnet groups. Each element in the array represents a single subnet group."
+            }
+          ]
         }
       },
       "type": "object"
@@ -2354,12 +3532,24 @@
       "description": "Represents the information required for client programs to connect to the configuration endpoint for a DAX cluster, or to an individual node within the cluster.",
       "properties": {
         "Address": {
-          "$ref": "#/definitions/String",
-          "description": "The DNS hostname of the endpoint."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The DNS hostname of the endpoint."
+            }
+          ]
         },
         "Port": {
-          "$ref": "#/definitions/Integer",
-          "description": "The port number that applications should use to connect to the endpoint."
+          "allOf": [
+            {
+              "$ref": "#/definitions/Integer"
+            },
+            {
+              "description": "The port number that applications should use to connect to the endpoint."
+            }
+          ]
         }
       },
       "type": "object"
@@ -2368,20 +3558,44 @@
       "description": "Represents a single occurrence of something interesting within the system. Some examples of events are creating a DAX cluster, adding or removing a node, or rebooting a node.",
       "properties": {
         "Date": {
-          "$ref": "#/definitions/TStamp",
-          "description": "The date and time when the event occurred."
+          "allOf": [
+            {
+              "$ref": "#/definitions/TStamp"
+            },
+            {
+              "description": "The date and time when the event occurred."
+            }
+          ]
         },
         "Message": {
-          "$ref": "#/definitions/String",
-          "description": "A user-defined message associated with the event."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "A user-defined message associated with the event."
+            }
+          ]
         },
         "SourceName": {
-          "$ref": "#/definitions/String",
-          "description": "The source of the event. For example, if the event occurred at the node level, the source would be the node ID."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The source of the event. For example, if the event occurred at the node level, the source would be the node ID."
+            }
+          ]
         },
         "SourceType": {
-          "$ref": "#/definitions/SourceType",
-          "description": "Specifies the origin of this event - a cluster, a parameter group, a node ID, etc."
+          "allOf": [
+            {
+              "$ref": "#/definitions/SourceType"
+            },
+            {
+              "description": "Specifies the origin of this event - a cluster, a parameter group, a node ID, etc."
+            }
+          ]
         }
       },
       "type": "object"
@@ -2395,87 +3609,72 @@
     "IncreaseReplicationFactorRequest": {
       "properties": {
         "AvailabilityZones": {
-          "$ref": "#/definitions/AvailabilityZoneList",
-          "description": "The Availability Zones (AZs) in which the cluster nodes will be created. All nodes belonging to the cluster are placed in these Availability Zones. Use this parameter if you want to distribute the nodes across multiple AZs."
+          "allOf": [
+            {
+              "$ref": "#/definitions/AvailabilityZoneList"
+            },
+            {
+              "description": "The Availability Zones (AZs) in which the cluster nodes will be created. All nodes belonging to the cluster are placed in these Availability Zones. Use this parameter if you want to distribute the nodes across multiple AZs."
+            }
+          ]
         },
         "ClusterName": {
-          "$ref": "#/definitions/String",
-          "description": "The name of the DAX cluster that will receive additional nodes."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The name of the DAX cluster that will receive additional nodes."
+            }
+          ]
         },
         "NewReplicationFactor": {
-          "$ref": "#/definitions/Integer",
-          "description": "The new number of nodes for the DAX cluster."
+          "allOf": [
+            {
+              "$ref": "#/definitions/Integer"
+            },
+            {
+              "description": "The new number of nodes for the DAX cluster."
+            }
+          ]
         }
       },
       "required": [
         "ClusterName",
         "NewReplicationFactor"
       ],
+      "title": "IncreaseReplicationFactorRequest",
       "type": "object"
     },
     "IncreaseReplicationFactorResponse": {
       "properties": {
         "Cluster": {
-          "$ref": "#/definitions/Cluster",
-          "description": "A description of the DAX cluster. with its new replication factor."
+          "allOf": [
+            {
+              "$ref": "#/definitions/Cluster"
+            },
+            {
+              "description": "A description of the DAX cluster. with its new replication factor."
+            }
+          ]
         }
       },
       "type": "object"
     },
-    "InsufficientClusterCapacityFault": {
-      "description": "There are not enough system resources to create the cluster you requested (or to resize an already-existing cluster). ",
-      "properties": {},
-      "type": "object"
-    },
+    "InsufficientClusterCapacityFault": {},
     "Integer": {
       "type": "integer"
     },
     "IntegerOptional": {
       "type": "integer"
     },
-    "InvalidARNFault": {
-      "description": "The Amazon Resource Name (ARN) supplied in the request is not valid.",
-      "properties": {},
-      "type": "object"
-    },
-    "InvalidClusterStateFault": {
-      "description": "The requested DAX cluster is not in the <i>available</i> state.",
-      "properties": {},
-      "type": "object"
-    },
-    "InvalidParameterCombinationException": {
-      "description": "Two or more incompatible parameters were specified.",
-      "properties": {
-        "message": {
-          "$ref": "#/definitions/AwsQueryErrorMessage"
-        }
-      },
-      "type": "object"
-    },
-    "InvalidParameterGroupStateFault": {
-      "description": "One or more parameters in a parameter group are in an invalid state.",
-      "properties": {},
-      "type": "object"
-    },
-    "InvalidParameterValueException": {
-      "description": "The value for a parameter is invalid.",
-      "properties": {
-        "message": {
-          "$ref": "#/definitions/AwsQueryErrorMessage"
-        }
-      },
-      "type": "object"
-    },
-    "InvalidSubnet": {
-      "description": "An invalid subnet identifier was specified.",
-      "properties": {},
-      "type": "object"
-    },
-    "InvalidVPCNetworkStateFault": {
-      "description": "The VPC network is in an invalid state.",
-      "properties": {},
-      "type": "object"
-    },
+    "InvalidARNFault": {},
+    "InvalidClusterStateFault": {},
+    "InvalidParameterCombinationException": {},
+    "InvalidParameterGroupStateFault": {},
+    "InvalidParameterValueException": {},
+    "InvalidSubnet": {},
+    "InvalidVPCNetworkStateFault": {},
     "IsModifiable": {
       "enum": [
         "TRUE",
@@ -2493,28 +3692,53 @@
     "ListTagsRequest": {
       "properties": {
         "NextToken": {
-          "$ref": "#/definitions/String",
-          "description": "An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token."
+            }
+          ]
         },
         "ResourceName": {
-          "$ref": "#/definitions/String",
-          "description": "The name of the DAX resource to which the tags belong."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The name of the DAX resource to which the tags belong."
+            }
+          ]
         }
       },
       "required": [
         "ResourceName"
       ],
+      "title": "ListTagsRequest",
       "type": "object"
     },
     "ListTagsResponse": {
       "properties": {
         "NextToken": {
-          "$ref": "#/definitions/String",
-          "description": "If this value is present, there are additional results to be displayed. To retrieve them, call <code>ListTags</code> again, with <code>NextToken</code> set to this value."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "If this value is present, there are additional results to be displayed. To retrieve them, call <code>ListTags</code> again, with <code>NextToken</code> set to this value."
+            }
+          ]
         },
         "Tags": {
-          "$ref": "#/definitions/TagList",
-          "description": "A list of tags currently associated with the DAX cluster."
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagList"
+            },
+            {
+              "description": "A list of tags currently associated with the DAX cluster."
+            }
+          ]
         }
       },
       "type": "object"
@@ -2523,28 +3747,64 @@
       "description": "Represents an individual node within a DAX cluster.",
       "properties": {
         "AvailabilityZone": {
-          "$ref": "#/definitions/String",
-          "description": "The Availability Zone (AZ) in which the node has been deployed."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The Availability Zone (AZ) in which the node has been deployed."
+            }
+          ]
         },
         "Endpoint": {
-          "$ref": "#/definitions/Endpoint",
-          "description": "The endpoint for the node, consisting of a DNS name and a port number. Client applications can connect directly to a node endpoint, if desired (as an alternative to allowing DAX client software to intelligently route requests and responses to nodes in the DAX cluster."
+          "allOf": [
+            {
+              "$ref": "#/definitions/Endpoint"
+            },
+            {
+              "description": "The endpoint for the node, consisting of a DNS name and a port number. Client applications can connect directly to a node endpoint, if desired (as an alternative to allowing DAX client software to intelligently route requests and responses to nodes in the DAX cluster."
+            }
+          ]
         },
         "NodeCreateTime": {
-          "$ref": "#/definitions/TStamp",
-          "description": "The date and time (in UNIX epoch format) when the node was launched."
+          "allOf": [
+            {
+              "$ref": "#/definitions/TStamp"
+            },
+            {
+              "description": "The date and time (in UNIX epoch format) when the node was launched."
+            }
+          ]
         },
         "NodeId": {
-          "$ref": "#/definitions/String",
-          "description": "A system-generated identifier for the node."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "A system-generated identifier for the node."
+            }
+          ]
         },
         "NodeStatus": {
-          "$ref": "#/definitions/String",
-          "description": "The current status of the node. For example: <code>available</code>."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The current status of the node. For example: <code>available</code>."
+            }
+          ]
         },
         "ParameterGroupStatus": {
-          "$ref": "#/definitions/String",
-          "description": "The status of the parameter group associated with this node. For example, <code>in-sync</code>."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The status of the parameter group associated with this node. For example, <code>in-sync</code>."
+            }
+          ]
         }
       },
       "type": "object"
@@ -2561,31 +3821,31 @@
       },
       "type": "array"
     },
-    "NodeNotFoundFault": {
-      "description": "None of the nodes in the cluster have the given node ID.",
-      "properties": {},
-      "type": "object"
-    },
-    "NodeQuotaForClusterExceededFault": {
-      "description": "You have attempted to exceed the maximum number of nodes for a DAX cluster.",
-      "properties": {},
-      "type": "object"
-    },
-    "NodeQuotaForCustomerExceededFault": {
-      "description": "You have attempted to exceed the maximum number of nodes for your AWS account.",
-      "properties": {},
-      "type": "object"
-    },
+    "NodeNotFoundFault": {},
+    "NodeQuotaForClusterExceededFault": {},
+    "NodeQuotaForCustomerExceededFault": {},
     "NodeTypeSpecificValue": {
       "description": "Represents a parameter value that is applicable to a particular node type.",
       "properties": {
         "NodeType": {
-          "$ref": "#/definitions/String",
-          "description": "A node type to which the parameter value applies."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "A node type to which the parameter value applies."
+            }
+          ]
         },
         "Value": {
-          "$ref": "#/definitions/String",
-          "description": "The parameter value for this node type."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The parameter value for this node type."
+            }
+          ]
         }
       },
       "type": "object"
@@ -2600,12 +3860,24 @@
       "description": "Describes a notification topic and its status. Notification topics are used for publishing DAX events to subscribers using Amazon Simple Notification Service (SNS).",
       "properties": {
         "TopicArn": {
-          "$ref": "#/definitions/String",
-          "description": "The Amazon Resource Name (ARN) that identifies the topic. "
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) that identifies the topic. "
+            }
+          ]
         },
         "TopicStatus": {
-          "$ref": "#/definitions/String",
-          "description": "The current state of the topic."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The current state of the topic."
+            }
+          ]
         }
       },
       "type": "object"
@@ -2614,44 +3886,104 @@
       "description": "Describes an individual setting that controls some aspect of DAX behavior.",
       "properties": {
         "AllowedValues": {
-          "$ref": "#/definitions/String",
-          "description": "A range of values within which the parameter can be set."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "A range of values within which the parameter can be set."
+            }
+          ]
         },
         "ChangeType": {
-          "$ref": "#/definitions/ChangeType",
-          "description": "The conditions under which changes to this parameter can be applied. For example, <code>requires-reboot</code> indicates that a new value for this parameter will only take effect if a node is rebooted."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ChangeType"
+            },
+            {
+              "description": "The conditions under which changes to this parameter can be applied. For example, <code>requires-reboot</code> indicates that a new value for this parameter will only take effect if a node is rebooted."
+            }
+          ]
         },
         "DataType": {
-          "$ref": "#/definitions/String",
-          "description": "The data type of the parameter. For example, <code>integer</code>:"
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The data type of the parameter. For example, <code>integer</code>:"
+            }
+          ]
         },
         "Description": {
-          "$ref": "#/definitions/String",
-          "description": "A description of the parameter"
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "A description of the parameter"
+            }
+          ]
         },
         "IsModifiable": {
-          "$ref": "#/definitions/IsModifiable",
-          "description": "Whether the customer is allowed to modify the parameter."
+          "allOf": [
+            {
+              "$ref": "#/definitions/IsModifiable"
+            },
+            {
+              "description": "Whether the customer is allowed to modify the parameter."
+            }
+          ]
         },
         "NodeTypeSpecificValues": {
-          "$ref": "#/definitions/NodeTypeSpecificValueList",
-          "description": "A list of node types, and specific parameter values for each node."
+          "allOf": [
+            {
+              "$ref": "#/definitions/NodeTypeSpecificValueList"
+            },
+            {
+              "description": "A list of node types, and specific parameter values for each node."
+            }
+          ]
         },
         "ParameterName": {
-          "$ref": "#/definitions/String",
-          "description": "The name of the parameter."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The name of the parameter."
+            }
+          ]
         },
         "ParameterType": {
-          "$ref": "#/definitions/ParameterType",
-          "description": "Determines whether the parameter can be applied to any nodes, or only nodes of a particular type."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ParameterType"
+            },
+            {
+              "description": "Determines whether the parameter can be applied to any nodes, or only nodes of a particular type."
+            }
+          ]
         },
         "ParameterValue": {
-          "$ref": "#/definitions/String",
-          "description": "The value for the parameter."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The value for the parameter."
+            }
+          ]
         },
         "Source": {
-          "$ref": "#/definitions/String",
-          "description": "How the parameter is defined. For example, <code>system</code> denotes a system-defined parameter."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "How the parameter is defined. For example, <code>system</code> denotes a system-defined parameter."
+            }
+          ]
         }
       },
       "type": "object"
@@ -2660,21 +3992,29 @@
       "description": "A named set of parameters that are applied to all of the nodes in a DAX cluster.",
       "properties": {
         "Description": {
-          "$ref": "#/definitions/String",
-          "description": "A description of the parameter group."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "A description of the parameter group."
+            }
+          ]
         },
         "ParameterGroupName": {
-          "$ref": "#/definitions/String",
-          "description": "The name of the parameter group."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The name of the parameter group."
+            }
+          ]
         }
       },
       "type": "object"
     },
-    "ParameterGroupAlreadyExistsFault": {
-      "description": "The specified parameter group already exists.",
-      "properties": {},
-      "type": "object"
-    },
+    "ParameterGroupAlreadyExistsFault": {},
     "ParameterGroupList": {
       "items": {
         "$ref": "#/definitions/ParameterGroup"
@@ -2687,30 +4027,40 @@
       },
       "type": "array"
     },
-    "ParameterGroupNotFoundFault": {
-      "description": "The specified parameter group does not exist.",
-      "properties": {},
-      "type": "object"
-    },
-    "ParameterGroupQuotaExceededFault": {
-      "description": "You have attempted to exceed the maximum number of parameter groups.",
-      "properties": {},
-      "type": "object"
-    },
+    "ParameterGroupNotFoundFault": {},
+    "ParameterGroupQuotaExceededFault": {},
     "ParameterGroupStatus": {
       "description": "The status of a parameter group.",
       "properties": {
         "NodeIdsToReboot": {
-          "$ref": "#/definitions/NodeIdentifierList",
-          "description": "The node IDs of one or more nodes to be rebooted."
+          "allOf": [
+            {
+              "$ref": "#/definitions/NodeIdentifierList"
+            },
+            {
+              "description": "The node IDs of one or more nodes to be rebooted."
+            }
+          ]
         },
         "ParameterApplyStatus": {
-          "$ref": "#/definitions/String",
-          "description": "The status of parameter updates. "
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The status of parameter updates. "
+            }
+          ]
         },
         "ParameterGroupName": {
-          "$ref": "#/definitions/String",
-          "description": "The name of the parameter group."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The name of the parameter group."
+            }
+          ]
         }
       },
       "type": "object"
@@ -2725,12 +4075,24 @@
       "description": "An individual DAX parameter.",
       "properties": {
         "ParameterName": {
-          "$ref": "#/definitions/String",
-          "description": "The name of the parameter."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The name of the parameter."
+            }
+          ]
         },
         "ParameterValue": {
-          "$ref": "#/definitions/String",
-          "description": "The value of the parameter."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The value of the parameter."
+            }
+          ]
         }
       },
       "type": "object"
@@ -2751,28 +4113,94 @@
     "RebootNodeRequest": {
       "properties": {
         "ClusterName": {
-          "$ref": "#/definitions/String",
-          "description": "The name of the DAX cluster containing the node to be rebooted."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The name of the DAX cluster containing the node to be rebooted."
+            }
+          ]
         },
         "NodeId": {
-          "$ref": "#/definitions/String",
-          "description": "The system-assigned ID of the node to be rebooted."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The system-assigned ID of the node to be rebooted."
+            }
+          ]
         }
       },
       "required": [
         "ClusterName",
         "NodeId"
       ],
+      "title": "RebootNodeRequest",
       "type": "object"
     },
     "RebootNodeResponse": {
       "properties": {
         "Cluster": {
-          "$ref": "#/definitions/Cluster",
-          "description": "A description of the DAX cluster after a node has been rebooted."
+          "allOf": [
+            {
+              "$ref": "#/definitions/Cluster"
+            },
+            {
+              "description": "A description of the DAX cluster after a node has been rebooted."
+            }
+          ]
         }
       },
       "type": "object"
+    },
+    "SSEDescription": {
+      "description": "The description of the server-side encryption status on the specified DAX cluster.",
+      "properties": {
+        "Status": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SSEStatus"
+            },
+            {
+              "description": "<p>The current state of server-side encryption:</p> <ul> <li> <p> <code>ENABLING</code> - Server-side encryption is being enabled.</p> </li> <li> <p> <code>ENABLED</code> - Server-side encryption is enabled.</p> </li> <li> <p> <code>DISABLING</code> - Server-side encryption is being disabled.</p> </li> <li> <p> <code>DISABLED</code> - Server-side encryption is disabled.</p> </li> </ul>"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "SSEEnabled": {
+      "type": "boolean"
+    },
+    "SSESpecification": {
+      "description": "Represents the settings used to enable server-side encryption.",
+      "properties": {
+        "Enabled": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SSEEnabled"
+            },
+            {
+              "description": "Indicates whether server-side encryption is enabled (true) or disabled (false) on the cluster."
+            }
+          ]
+        }
+      },
+      "required": [
+        "Enabled"
+      ],
+      "type": "object"
+    },
+    "SSEStatus": {
+      "enum": [
+        "ENABLING",
+        "ENABLED",
+        "DISABLING",
+        "DISABLED"
+      ],
+      "type": "string"
     },
     "SecurityGroupIdentifierList": {
       "items": {
@@ -2784,12 +4212,24 @@
       "description": "An individual VPC security group and its status.",
       "properties": {
         "SecurityGroupIdentifier": {
-          "$ref": "#/definitions/String",
-          "description": "The unique ID for this security group."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The unique ID for this security group."
+            }
+          ]
         },
         "Status": {
-          "$ref": "#/definitions/String",
-          "description": "The status of this security group."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The status of this security group."
+            }
+          ]
         }
       },
       "type": "object"
@@ -2800,6 +4240,7 @@
       },
       "type": "array"
     },
+    "ServiceLinkedRoleNotFoundFault": {},
     "SourceType": {
       "enum": [
         "CLUSTER",
@@ -2815,12 +4256,24 @@
       "description": "Represents the subnet associated with a DAX cluster. This parameter refers to subnets defined in Amazon Virtual Private Cloud (Amazon VPC) and used with DAX.",
       "properties": {
         "SubnetAvailabilityZone": {
-          "$ref": "#/definitions/String",
-          "description": "The Availability Zone (AZ) for subnet subnet."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The Availability Zone (AZ) for the subnet."
+            }
+          ]
         },
         "SubnetIdentifier": {
-          "$ref": "#/definitions/String",
-          "description": "The system-assigned identifier for the subnet."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The system-assigned identifier for the subnet."
+            }
+          ]
         }
       },
       "type": "object"
@@ -2829,34 +4282,50 @@
       "description": "<p>Represents the output of one of the following actions:</p> <ul> <li> <p> <i>CreateSubnetGroup</i> </p> </li> <li> <p> <i>ModifySubnetGroup</i> </p> </li> </ul>",
       "properties": {
         "Description": {
-          "$ref": "#/definitions/String",
-          "description": "The description of the subnet group."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The description of the subnet group."
+            }
+          ]
         },
         "SubnetGroupName": {
-          "$ref": "#/definitions/String",
-          "description": "The name of the subnet group."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The name of the subnet group."
+            }
+          ]
         },
         "Subnets": {
-          "$ref": "#/definitions/SubnetList",
-          "description": "A list of subnets associated with the subnet group. "
+          "allOf": [
+            {
+              "$ref": "#/definitions/SubnetList"
+            },
+            {
+              "description": "A list of subnets associated with the subnet group. "
+            }
+          ]
         },
         "VpcId": {
-          "$ref": "#/definitions/String",
-          "description": "The Amazon Virtual Private Cloud identifier (VPC ID) of the subnet group."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The Amazon Virtual Private Cloud identifier (VPC ID) of the subnet group."
+            }
+          ]
         }
       },
       "type": "object"
     },
-    "SubnetGroupAlreadyExistsFault": {
-      "description": "The specified subnet group already exists.",
-      "properties": {},
-      "type": "object"
-    },
-    "SubnetGroupInUseFault": {
-      "description": "The specified subnet group is currently in use.",
-      "properties": {},
-      "type": "object"
-    },
+    "SubnetGroupAlreadyExistsFault": {},
+    "SubnetGroupInUseFault": {},
     "SubnetGroupList": {
       "items": {
         "$ref": "#/definitions/SubnetGroup"
@@ -2869,38 +4338,22 @@
       },
       "type": "array"
     },
-    "SubnetGroupNotFoundFault": {
-      "description": "The requested subnet group name does not refer to an existing subnet group.",
-      "properties": {},
-      "type": "object"
-    },
-    "SubnetGroupQuotaExceededFault": {
-      "description": "The request cannot be processed because it would exceed the allowed number of subnets in a subnet group.",
-      "properties": {},
-      "type": "object"
-    },
+    "SubnetGroupNotFoundFault": {},
+    "SubnetGroupQuotaExceededFault": {},
     "SubnetIdentifierList": {
       "items": {
         "$ref": "#/definitions/String"
       },
       "type": "array"
     },
-    "SubnetInUse": {
-      "description": "The requested subnet is being used by another subnet group.",
-      "properties": {},
-      "type": "object"
-    },
+    "SubnetInUse": {},
     "SubnetList": {
       "items": {
         "$ref": "#/definitions/Subnet"
       },
       "type": "array"
     },
-    "SubnetQuotaExceededFault": {
-      "description": "The request cannot be processed because it would exceed the allowed number of subnets in a subnet group.",
-      "properties": {},
-      "type": "object"
-    },
+    "SubnetQuotaExceededFault": {},
     "TStamp": {
       "format": "date-time",
       "type": "string"
@@ -2909,12 +4362,24 @@
       "description": "<p>A description of a tag. Every tag is a key-value pair. You can add up to 50 tags to a single DAX cluster.</p> <p>AWS-assigned tag names and values are automatically assigned the <code>aws:</code> prefix, which the user cannot assign. AWS-assigned tag names do not count towards the tag limit of 50. User-assigned tag names have the prefix <code>user:</code>.</p> <p>You cannot backdate the application of a tag.</p>",
       "properties": {
         "Key": {
-          "$ref": "#/definitions/String",
-          "description": "The key for the tag. Tag keys are case sensitive. Every DAX cluster can only have one tag with the same key. If you try to add an existing tag (same key), the existing tag value will be updated to the new value."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The key for the tag. Tag keys are case sensitive. Every DAX cluster can only have one tag with the same key. If you try to add an existing tag (same key), the existing tag value will be updated to the new value."
+            }
+          ]
         },
         "Value": {
-          "$ref": "#/definitions/String",
-          "description": "The value of the tag. Tag values are case-sensitive and can be null. "
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The value of the tag. Tag values are case-sensitive and can be null. "
+            }
+          ]
         }
       },
       "type": "object"
@@ -2925,38 +4390,49 @@
       },
       "type": "array"
     },
-    "TagNotFoundFault": {
-      "description": "The tag does not exist.",
-      "properties": {},
-      "type": "object"
-    },
-    "TagQuotaPerResourceExceeded": {
-      "description": "You have exceeded the maximum number of tags for this DAX cluster.",
-      "properties": {},
-      "type": "object"
-    },
+    "TagNotFoundFault": {},
+    "TagQuotaPerResourceExceeded": {},
     "TagResourceRequest": {
       "properties": {
         "ResourceName": {
-          "$ref": "#/definitions/String",
-          "description": "The name of the DAX resource to which tags should be added."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The name of the DAX resource to which tags should be added."
+            }
+          ]
         },
         "Tags": {
-          "$ref": "#/definitions/TagList",
-          "description": "The tags to be assigned to the DAX resource. "
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagList"
+            },
+            {
+              "description": "The tags to be assigned to the DAX resource. "
+            }
+          ]
         }
       },
       "required": [
         "ResourceName",
         "Tags"
       ],
+      "title": "TagResourceRequest",
       "type": "object"
     },
     "TagResourceResponse": {
       "properties": {
         "Tags": {
-          "$ref": "#/definitions/TagList",
-          "description": "The list of tags that are associated with the DAX resource."
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagList"
+            },
+            {
+              "description": "The list of tags that are associated with the DAX resource."
+            }
+          ]
         }
       },
       "type": "object"
@@ -2964,25 +4440,44 @@
     "UntagResourceRequest": {
       "properties": {
         "ResourceName": {
-          "$ref": "#/definitions/String",
-          "description": "The name of the DAX resource from which the tags should be removed."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The name of the DAX resource from which the tags should be removed."
+            }
+          ]
         },
         "TagKeys": {
-          "$ref": "#/definitions/KeyList",
-          "description": "A list of tag keys. If the DAX cluster has any tags with these keys, then the tags are removed from the cluster."
+          "allOf": [
+            {
+              "$ref": "#/definitions/KeyList"
+            },
+            {
+              "description": "A list of tag keys. If the DAX cluster has any tags with these keys, then the tags are removed from the cluster."
+            }
+          ]
         }
       },
       "required": [
         "ResourceName",
         "TagKeys"
       ],
+      "title": "UntagResourceRequest",
       "type": "object"
     },
     "UntagResourceResponse": {
       "properties": {
         "Tags": {
-          "$ref": "#/definitions/TagList",
-          "description": "The tag keys that have been removed from the cluster."
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagList"
+            },
+            {
+              "description": "The tag keys that have been removed from the cluster."
+            }
+          ]
         }
       },
       "type": "object"
@@ -2990,44 +4485,93 @@
     "UpdateClusterRequest": {
       "properties": {
         "ClusterName": {
-          "$ref": "#/definitions/String",
-          "description": "The name of the DAX cluster to be modified."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The name of the DAX cluster to be modified."
+            }
+          ]
         },
         "Description": {
-          "$ref": "#/definitions/String",
-          "description": "A description of the changes being made to the cluster."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "A description of the changes being made to the cluster."
+            }
+          ]
         },
         "NotificationTopicArn": {
-          "$ref": "#/definitions/String",
-          "description": "The Amazon Resource Name (ARN) that identifies the topic."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) that identifies the topic."
+            }
+          ]
         },
         "NotificationTopicStatus": {
-          "$ref": "#/definitions/String",
-          "description": "The current state of the topic."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The current state of the topic."
+            }
+          ]
         },
         "ParameterGroupName": {
-          "$ref": "#/definitions/String",
-          "description": "The name of a parameter group for this cluster."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The name of a parameter group for this cluster."
+            }
+          ]
         },
         "PreferredMaintenanceWindow": {
-          "$ref": "#/definitions/String",
-          "description": "A range of time when maintenance of DAX cluster software will be performed. For example: <code>sun:01:00-sun:09:00</code>. Cluster maintenance normally takes less than 30 minutes, and is performed automatically within the maintenance window."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "A range of time when maintenance of DAX cluster software will be performed. For example: <code>sun:01:00-sun:09:00</code>. Cluster maintenance normally takes less than 30 minutes, and is performed automatically within the maintenance window."
+            }
+          ]
         },
         "SecurityGroupIds": {
-          "$ref": "#/definitions/SecurityGroupIdentifierList",
-          "description": "A list of user-specified security group IDs to be assigned to each node in the DAX cluster. If this parameter is not specified, DAX assigns the default VPC security group to each node."
+          "allOf": [
+            {
+              "$ref": "#/definitions/SecurityGroupIdentifierList"
+            },
+            {
+              "description": "A list of user-specified security group IDs to be assigned to each node in the DAX cluster. If this parameter is not specified, DAX assigns the default VPC security group to each node."
+            }
+          ]
         }
       },
       "required": [
         "ClusterName"
       ],
+      "title": "UpdateClusterRequest",
       "type": "object"
     },
     "UpdateClusterResponse": {
       "properties": {
         "Cluster": {
-          "$ref": "#/definitions/Cluster",
-          "description": "A description of the DAX cluster, after it has been modified."
+          "allOf": [
+            {
+              "$ref": "#/definitions/Cluster"
+            },
+            {
+              "description": "A description of the DAX cluster, after it has been modified."
+            }
+          ]
         }
       },
       "type": "object"
@@ -3035,25 +4579,44 @@
     "UpdateParameterGroupRequest": {
       "properties": {
         "ParameterGroupName": {
-          "$ref": "#/definitions/String",
-          "description": "The name of the parameter group."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The name of the parameter group."
+            }
+          ]
         },
         "ParameterNameValues": {
-          "$ref": "#/definitions/ParameterNameValueList",
-          "description": "An array of name-value pairs for the parameters in the group. Each element in the array represents a single parameter."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ParameterNameValueList"
+            },
+            {
+              "description": "An array of name-value pairs for the parameters in the group. Each element in the array represents a single parameter."
+            }
+          ]
         }
       },
       "required": [
         "ParameterGroupName",
         "ParameterNameValues"
       ],
+      "title": "UpdateParameterGroupRequest",
       "type": "object"
     },
     "UpdateParameterGroupResponse": {
       "properties": {
         "ParameterGroup": {
-          "$ref": "#/definitions/ParameterGroup",
-          "description": "The parameter group that has been modified."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ParameterGroup"
+            },
+            {
+              "description": "The parameter group that has been modified."
+            }
+          ]
         }
       },
       "type": "object"
@@ -3061,31 +4624,121 @@
     "UpdateSubnetGroupRequest": {
       "properties": {
         "Description": {
-          "$ref": "#/definitions/String",
-          "description": "A description of the subnet group."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "A description of the subnet group."
+            }
+          ]
         },
         "SubnetGroupName": {
-          "$ref": "#/definitions/String",
-          "description": "The name of the subnet group."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The name of the subnet group."
+            }
+          ]
         },
         "SubnetIds": {
-          "$ref": "#/definitions/SubnetIdentifierList",
-          "description": "A list of subnet IDs in the subnet group."
+          "allOf": [
+            {
+              "$ref": "#/definitions/SubnetIdentifierList"
+            },
+            {
+              "description": "A list of subnet IDs in the subnet group."
+            }
+          ]
         }
       },
       "required": [
         "SubnetGroupName"
       ],
+      "title": "UpdateSubnetGroupRequest",
       "type": "object"
     },
     "UpdateSubnetGroupResponse": {
       "properties": {
         "SubnetGroup": {
-          "$ref": "#/definitions/SubnetGroup",
-          "description": "The subnet group that has been modified."
+          "allOf": [
+            {
+              "$ref": "#/definitions/SubnetGroup"
+            },
+            {
+              "description": "The subnet group that has been modified."
+            }
+          ]
         }
       },
       "type": "object"
     }
-  }
+  },
+  "securityDefinitions": {
+    "hmac": {
+      "description": "Amazon Signature authorization v4",
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey",
+      "x-amazon-apigateway-authtype": "awsSigv4"
+    }
+  },
+  "security": [
+    {
+      "hmac": []
+    }
+  ],
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://docs.aws.amazon.com/dax/"
+  },
+  "x-components": {
+    "parameters": {
+      "X-Amz-Algorithm": {
+        "in": "header",
+        "name": "X-Amz-Algorithm",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Content-Sha256": {
+        "in": "header",
+        "name": "X-Amz-Content-Sha256",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Credential": {
+        "in": "header",
+        "name": "X-Amz-Credential",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Date": {
+        "in": "header",
+        "name": "X-Amz-Date",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Security-Token": {
+        "in": "header",
+        "name": "X-Amz-Security-Token",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Signature": {
+        "in": "header",
+        "name": "X-Amz-Signature",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-SignedHeaders": {
+        "in": "header",
+        "name": "X-Amz-SignedHeaders",
+        "required": false,
+        "type": "string"
+      }
+    }
+  },
+  "x-hasEquivalentPaths": true
 }

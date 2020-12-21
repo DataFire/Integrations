@@ -11,7 +11,7 @@ let openstf = require('@datafire/openstf').create({
   accessTokenAuth: ""
 });
 
-openstf.getUserDevices({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

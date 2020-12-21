@@ -15,7 +15,7 @@ let google_urlshortener = require('@datafire/google_urlshortener').create({
   redirect_uri: ""
 });
 
-google_urlshortener.url.list({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

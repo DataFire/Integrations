@@ -15,9 +15,7 @@ let azure_policyinsights_policystates = require('@datafire/azure_policyinsights_
   redirect_uri: ""
 });
 
-azure_policyinsights_policystates.Operations_List({
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -40,7 +38,7 @@ azure_policyinsights_policystates.Operations_List({
 
 #### Input
 * input `object`
-  * api-version **required** `string`: API version to use with the client requests.
+  * api-version **required** `string`: Client Api Version.
 
 #### Output
 * output [OperationsListResults](#operationslistresults)
@@ -63,7 +61,7 @@ azure_policyinsights_policystates.PolicyStates_ListQueryResultsForManagementGrou
   * policyStatesResource **required** `string` (values: default, latest): The virtual resource under PolicyStates resource type. In a given time range, 'latest' represents the latest policy state(s), whereas 'default' represents all policy state(s).
   * managementGroupsNamespace **required** `string` (values: Microsoft.Management): The namespace for Microsoft Management RP; only "Microsoft.Management" is allowed.
   * managementGroupName **required** `string`: Management group name.
-  * api-version **required** `string`: API version to use with the client requests.
+  * api-version **required** `string`: Client Api Version.
   * $top `integer`: Maximum number of records to return.
   * $orderby `string`: Ordering expression using OData notation. One or more comma-separated column names with an optional "desc" (the default) or "asc", e.g. "$orderby=PolicyAssignmentId, ResourceId asc".
   * $select `string`: Select expression using OData notation. Limits the columns on each record to just those requested, e.g. "$select=PolicyAssignmentId, ResourceId".
@@ -93,7 +91,7 @@ azure_policyinsights_policystates.PolicyStates_SummarizeForManagementGroup({
   * policyStatesSummaryResource **required** `string` (values: latest): The virtual resource under PolicyStates resource type for summarize action. In a given time range, 'latest' represents the latest policy state(s) and is the only allowed value.
   * managementGroupsNamespace **required** `string` (values: Microsoft.Management): The namespace for Microsoft Management RP; only "Microsoft.Management" is allowed.
   * managementGroupName **required** `string`: Management group name.
-  * api-version **required** `string`: API version to use with the client requests.
+  * api-version **required** `string`: Client Api Version.
   * $top `integer`: Maximum number of records to return.
   * $from `string`: ISO 8601 formatted timestamp specifying the start time of the interval to query. When not specified, the service uses ($to - 1-day).
   * $to `string`: ISO 8601 formatted timestamp specifying the end time of the interval to query. When not specified, the service uses request time.
@@ -118,7 +116,7 @@ azure_policyinsights_policystates.PolicyStates_ListQueryResultsForSubscription({
 * input `object`
   * policyStatesResource **required** `string` (values: default, latest): The virtual resource under PolicyStates resource type. In a given time range, 'latest' represents the latest policy state(s), whereas 'default' represents all policy state(s).
   * subscriptionId **required** `string`: Microsoft Azure subscription ID.
-  * api-version **required** `string`: API version to use with the client requests.
+  * api-version **required** `string`: Client Api Version.
   * $top `integer`: Maximum number of records to return.
   * $orderby `string`: Ordering expression using OData notation. One or more comma-separated column names with an optional "desc" (the default) or "asc", e.g. "$orderby=PolicyAssignmentId, ResourceId asc".
   * $select `string`: Select expression using OData notation. Limits the columns on each record to just those requested, e.g. "$select=PolicyAssignmentId, ResourceId".
@@ -146,7 +144,7 @@ azure_policyinsights_policystates.PolicyStates_SummarizeForSubscription({
 * input `object`
   * policyStatesSummaryResource **required** `string` (values: latest): The virtual resource under PolicyStates resource type for summarize action. In a given time range, 'latest' represents the latest policy state(s) and is the only allowed value.
   * subscriptionId **required** `string`: Microsoft Azure subscription ID.
-  * api-version **required** `string`: API version to use with the client requests.
+  * api-version **required** `string`: Client Api Version.
   * $top `integer`: Maximum number of records to return.
   * $from `string`: ISO 8601 formatted timestamp specifying the start time of the interval to query. When not specified, the service uses ($to - 1-day).
   * $to `string`: ISO 8601 formatted timestamp specifying the end time of the interval to query. When not specified, the service uses request time.
@@ -175,7 +173,7 @@ azure_policyinsights_policystates.PolicyStates_ListQueryResultsForSubscriptionLe
   * subscriptionId **required** `string`: Microsoft Azure subscription ID.
   * authorizationNamespace **required** `string` (values: Microsoft.Authorization): The namespace for Microsoft Authorization resource provider; only "Microsoft.Authorization" is allowed.
   * policyAssignmentName **required** `string`: Policy assignment name.
-  * api-version **required** `string`: API version to use with the client requests.
+  * api-version **required** `string`: Client Api Version.
   * $top `integer`: Maximum number of records to return.
   * $orderby `string`: Ordering expression using OData notation. One or more comma-separated column names with an optional "desc" (the default) or "asc", e.g. "$orderby=PolicyAssignmentId, ResourceId asc".
   * $select `string`: Select expression using OData notation. Limits the columns on each record to just those requested, e.g. "$select=PolicyAssignmentId, ResourceId".
@@ -207,7 +205,7 @@ azure_policyinsights_policystates.PolicyStates_SummarizeForSubscriptionLevelPoli
   * subscriptionId **required** `string`: Microsoft Azure subscription ID.
   * authorizationNamespace **required** `string` (values: Microsoft.Authorization): The namespace for Microsoft Authorization resource provider; only "Microsoft.Authorization" is allowed.
   * policyAssignmentName **required** `string`: Policy assignment name.
-  * api-version **required** `string`: API version to use with the client requests.
+  * api-version **required** `string`: Client Api Version.
   * $top `integer`: Maximum number of records to return.
   * $from `string`: ISO 8601 formatted timestamp specifying the start time of the interval to query. When not specified, the service uses ($to - 1-day).
   * $to `string`: ISO 8601 formatted timestamp specifying the end time of the interval to query. When not specified, the service uses request time.
@@ -236,7 +234,7 @@ azure_policyinsights_policystates.PolicyStates_ListQueryResultsForPolicyDefiniti
   * subscriptionId **required** `string`: Microsoft Azure subscription ID.
   * authorizationNamespace **required** `string` (values: Microsoft.Authorization): The namespace for Microsoft Authorization resource provider; only "Microsoft.Authorization" is allowed.
   * policyDefinitionName **required** `string`: Policy definition name.
-  * api-version **required** `string`: API version to use with the client requests.
+  * api-version **required** `string`: Client Api Version.
   * $top `integer`: Maximum number of records to return.
   * $orderby `string`: Ordering expression using OData notation. One or more comma-separated column names with an optional "desc" (the default) or "asc", e.g. "$orderby=PolicyAssignmentId, ResourceId asc".
   * $select `string`: Select expression using OData notation. Limits the columns on each record to just those requested, e.g. "$select=PolicyAssignmentId, ResourceId".
@@ -268,7 +266,7 @@ azure_policyinsights_policystates.PolicyStates_SummarizeForPolicyDefinition({
   * subscriptionId **required** `string`: Microsoft Azure subscription ID.
   * authorizationNamespace **required** `string` (values: Microsoft.Authorization): The namespace for Microsoft Authorization resource provider; only "Microsoft.Authorization" is allowed.
   * policyDefinitionName **required** `string`: Policy definition name.
-  * api-version **required** `string`: API version to use with the client requests.
+  * api-version **required** `string`: Client Api Version.
   * $top `integer`: Maximum number of records to return.
   * $from `string`: ISO 8601 formatted timestamp specifying the start time of the interval to query. When not specified, the service uses ($to - 1-day).
   * $to `string`: ISO 8601 formatted timestamp specifying the end time of the interval to query. When not specified, the service uses request time.
@@ -297,7 +295,7 @@ azure_policyinsights_policystates.PolicyStates_ListQueryResultsForPolicySetDefin
   * subscriptionId **required** `string`: Microsoft Azure subscription ID.
   * authorizationNamespace **required** `string` (values: Microsoft.Authorization): The namespace for Microsoft Authorization resource provider; only "Microsoft.Authorization" is allowed.
   * policySetDefinitionName **required** `string`: Policy set definition name.
-  * api-version **required** `string`: API version to use with the client requests.
+  * api-version **required** `string`: Client Api Version.
   * $top `integer`: Maximum number of records to return.
   * $orderby `string`: Ordering expression using OData notation. One or more comma-separated column names with an optional "desc" (the default) or "asc", e.g. "$orderby=PolicyAssignmentId, ResourceId asc".
   * $select `string`: Select expression using OData notation. Limits the columns on each record to just those requested, e.g. "$select=PolicyAssignmentId, ResourceId".
@@ -329,7 +327,7 @@ azure_policyinsights_policystates.PolicyStates_SummarizeForPolicySetDefinition({
   * subscriptionId **required** `string`: Microsoft Azure subscription ID.
   * authorizationNamespace **required** `string` (values: Microsoft.Authorization): The namespace for Microsoft Authorization resource provider; only "Microsoft.Authorization" is allowed.
   * policySetDefinitionName **required** `string`: Policy set definition name.
-  * api-version **required** `string`: API version to use with the client requests.
+  * api-version **required** `string`: Client Api Version.
   * $top `integer`: Maximum number of records to return.
   * $from `string`: ISO 8601 formatted timestamp specifying the start time of the interval to query. When not specified, the service uses ($to - 1-day).
   * $to `string`: ISO 8601 formatted timestamp specifying the end time of the interval to query. When not specified, the service uses request time.
@@ -356,7 +354,7 @@ azure_policyinsights_policystates.PolicyStates_ListQueryResultsForResourceGroup(
   * policyStatesResource **required** `string` (values: default, latest): The virtual resource under PolicyStates resource type. In a given time range, 'latest' represents the latest policy state(s), whereas 'default' represents all policy state(s).
   * subscriptionId **required** `string`: Microsoft Azure subscription ID.
   * resourceGroupName **required** `string`: Resource group name.
-  * api-version **required** `string`: API version to use with the client requests.
+  * api-version **required** `string`: Client Api Version.
   * $top `integer`: Maximum number of records to return.
   * $orderby `string`: Ordering expression using OData notation. One or more comma-separated column names with an optional "desc" (the default) or "asc", e.g. "$orderby=PolicyAssignmentId, ResourceId asc".
   * $select `string`: Select expression using OData notation. Limits the columns on each record to just those requested, e.g. "$select=PolicyAssignmentId, ResourceId".
@@ -386,7 +384,7 @@ azure_policyinsights_policystates.PolicyStates_SummarizeForResourceGroup({
   * policyStatesSummaryResource **required** `string` (values: latest): The virtual resource under PolicyStates resource type for summarize action. In a given time range, 'latest' represents the latest policy state(s) and is the only allowed value.
   * subscriptionId **required** `string`: Microsoft Azure subscription ID.
   * resourceGroupName **required** `string`: Resource group name.
-  * api-version **required** `string`: API version to use with the client requests.
+  * api-version **required** `string`: Client Api Version.
   * $top `integer`: Maximum number of records to return.
   * $from `string`: ISO 8601 formatted timestamp specifying the start time of the interval to query. When not specified, the service uses ($to - 1-day).
   * $to `string`: ISO 8601 formatted timestamp specifying the end time of the interval to query. When not specified, the service uses request time.
@@ -417,7 +415,7 @@ azure_policyinsights_policystates.PolicyStates_ListQueryResultsForResourceGroupL
   * resourceGroupName **required** `string`: Resource group name.
   * authorizationNamespace **required** `string` (values: Microsoft.Authorization): The namespace for Microsoft Authorization resource provider; only "Microsoft.Authorization" is allowed.
   * policyAssignmentName **required** `string`: Policy assignment name.
-  * api-version **required** `string`: API version to use with the client requests.
+  * api-version **required** `string`: Client Api Version.
   * $top `integer`: Maximum number of records to return.
   * $orderby `string`: Ordering expression using OData notation. One or more comma-separated column names with an optional "desc" (the default) or "asc", e.g. "$orderby=PolicyAssignmentId, ResourceId asc".
   * $select `string`: Select expression using OData notation. Limits the columns on each record to just those requested, e.g. "$select=PolicyAssignmentId, ResourceId".
@@ -451,7 +449,7 @@ azure_policyinsights_policystates.PolicyStates_SummarizeForResourceGroupLevelPol
   * resourceGroupName **required** `string`: Resource group name.
   * authorizationNamespace **required** `string` (values: Microsoft.Authorization): The namespace for Microsoft Authorization resource provider; only "Microsoft.Authorization" is allowed.
   * policyAssignmentName **required** `string`: Policy assignment name.
-  * api-version **required** `string`: API version to use with the client requests.
+  * api-version **required** `string`: Client Api Version.
   * $top `integer`: Maximum number of records to return.
   * $from `string`: ISO 8601 formatted timestamp specifying the start time of the interval to query. When not specified, the service uses ($to - 1-day).
   * $to `string`: ISO 8601 formatted timestamp specifying the end time of the interval to query. When not specified, the service uses request time.
@@ -476,7 +474,7 @@ azure_policyinsights_policystates.PolicyStates_ListQueryResultsForResource({
 * input `object`
   * policyStatesResource **required** `string` (values: default, latest): The virtual resource under PolicyStates resource type. In a given time range, 'latest' represents the latest policy state(s), whereas 'default' represents all policy state(s).
   * resourceId **required** `string`: Resource ID.
-  * api-version **required** `string`: API version to use with the client requests.
+  * api-version **required** `string`: Client Api Version.
   * $top `integer`: Maximum number of records to return.
   * $orderby `string`: Ordering expression using OData notation. One or more comma-separated column names with an optional "desc" (the default) or "asc", e.g. "$orderby=PolicyAssignmentId, ResourceId asc".
   * $select `string`: Select expression using OData notation. Limits the columns on each record to just those requested, e.g. "$select=PolicyAssignmentId, ResourceId".
@@ -484,6 +482,7 @@ azure_policyinsights_policystates.PolicyStates_ListQueryResultsForResource({
   * $to `string`: ISO 8601 formatted timestamp specifying the end time of the interval to query. When not specified, the service uses request time.
   * $filter `string`: OData filter expression.
   * $apply `string`: OData apply expression for aggregations.
+  * $expand `string`: The $expand query parameter. For example, to expand policyEvaluationDetails, use $expand=policyEvaluationDetails
 
 #### Output
 * output [PolicyStatesQueryResults](#policystatesqueryresults)
@@ -504,7 +503,7 @@ azure_policyinsights_policystates.PolicyStates_SummarizeForResource({
 * input `object`
   * policyStatesSummaryResource **required** `string` (values: latest): The virtual resource under PolicyStates resource type for summarize action. In a given time range, 'latest' represents the latest policy state(s) and is the only allowed value.
   * resourceId **required** `string`: Resource ID.
-  * api-version **required** `string`: API version to use with the client requests.
+  * api-version **required** `string`: Client Api Version.
   * $top `integer`: Maximum number of records to return.
   * $from `string`: ISO 8601 formatted timestamp specifying the start time of the interval to query. When not specified, the service uses ($to - 1-day).
   * $to `string`: ISO 8601 formatted timestamp specifying the end time of the interval to query. When not specified, the service uses request time.
@@ -527,7 +526,7 @@ azure_policyinsights_policystates.PolicyStates_GetMetadata({
 #### Input
 * input `object`
   * scope **required** `string`: A valid scope, i.e. management group, subscription, resource group, or resource ID. Scope used has no effect on metadata returned.
-  * api-version **required** `string`: API version to use with the client requests.
+  * api-version **required** `string`: Client Api Version.
 
 #### Output
 * output [MetadataDocument](#metadatadocument)
@@ -535,6 +534,20 @@ azure_policyinsights_policystates.PolicyStates_GetMetadata({
 
 
 ## Definitions
+
+### ExpressionEvaluationDetails
+* ExpressionEvaluationDetails `object`: Evaluation details of policy language expressions.
+  * expression `string`: Expression evaluated.
+  * expressionValue `object`: Value of the expression.
+  * operator `string`: Operator to compare the expression value and the target value.
+  * path `string`: Property path if the expression is a field or an alias.
+  * result `string`: Evaluation result.
+  * targetValue `object`: Target value to be compared with the expression value.
+
+### IfNotExistsEvaluationDetails
+* IfNotExistsEvaluationDetails `object`: Evaluation details of IfNotExists effect.
+  * resourceId `string`: ID of the last evaluated resource for IfNotExists effect.
+  * totalResources `integer`: Total number of resources to which the existence condition is applicable.
 
 ### MetadataDocument
 * MetadataDocument `string`: Metadata XML document.
@@ -566,15 +579,23 @@ azure_policyinsights_policystates.PolicyStates_GetMetadata({
 * PolicyDefinitionSummary `object`: Policy definition summary.
   * effect `string`: Policy effect, i.e. policy definition action.
   * policyDefinitionId `string`: Policy definition ID.
+  * policyDefinitionReferenceId `string`: Policy definition reference ID.
   * results [SummaryResults](#summaryresults)
+
+### PolicyEvaluationDetails
+* PolicyEvaluationDetails `object`: Policy evaluation details.
+  * evaluatedExpressions `array`: Details of the evaluated expressions.
+    * items [ExpressionEvaluationDetails](#expressionevaluationdetails)
+  * ifNotExistsDetails [IfNotExistsEvaluationDetails](#ifnotexistsevaluationdetails)
 
 ### PolicyState
 * PolicyState `object`: Policy state record.
   * @odata.context `string`: OData context string; used by OData clients to resolve type information based on metadata.
   * @odata.id `string`: OData entity ID; always set to null since policy state records do not have an entity ID.
+  * complianceState `string`: Compliance state of the resource.
   * effectiveParameters `string`: Effective parameters for the policy assignment.
   * isCompliant `boolean`: Flag which states whether the resource is compliant against the policy assignment it was evaluated against.
-  * managementGroupIds `string`: Comma seperated list of management group IDs, which represent the hierarchy of the management groups the resource is under.
+  * managementGroupIds `string`: Comma separated list of management group IDs, which represent the hierarchy of the management groups the resource is under.
   * policyAssignmentId `string`: Policy assignment ID.
   * policyAssignmentName `string`: Policy assignment name.
   * policyAssignmentOwner `string`: Policy assignment owner.
@@ -585,6 +606,7 @@ azure_policyinsights_policystates.PolicyStates_GetMetadata({
   * policyDefinitionId `string`: Policy definition ID.
   * policyDefinitionName `string`: Policy definition name.
   * policyDefinitionReferenceId `string`: Reference ID for the policy definition inside the policy set, if the policy assignment is for a policy set.
+  * policyEvaluationDetails [PolicyEvaluationDetails](#policyevaluationdetails)
   * policySetDefinitionCategory `string`: Policy set definition category, if the policy assignment is for a policy set.
   * policySetDefinitionId `string`: Policy set definition ID, if the policy assignment is for a policy set.
   * policySetDefinitionName `string`: Policy set definition name, if the policy assignment is for a policy set.

@@ -15,14 +15,7 @@ let azure_sql_databasesecurityalertpolicies = require('@datafire/azure_sql_datab
   redirect_uri: ""
 });
 
-azure_sql_databasesecurityalertpolicies.DatabaseThreatDetectionPolicies_Get({
-  "subscriptionId": "",
-  "resourceGroupName": "",
-  "serverName": "",
-  "databaseName": "",
-  "securityAlertPolicyName": "",
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -104,7 +97,7 @@ azure_sql_databasesecurityalertpolicies.DatabaseThreatDetectionPolicies_CreateOr
 
 ### DatabaseSecurityAlertPolicyProperties
 * DatabaseSecurityAlertPolicyProperties `object`: Properties for a database Threat Detection policy.
-  * disabledAlerts `string`: Specifies the semicolon-separated list of alerts that are disabled, or empty string to disable no alerts. Possible values: Sql_Injection; Sql_Injection_Vulnerability; Access_Anomaly; Usage_Anomaly.
+  * disabledAlerts `string`: Specifies the semicolon-separated list of alerts that are disabled, or empty string to disable no alerts. Possible values: Sql_Injection; Sql_Injection_Vulnerability; Access_Anomaly; Data_Exfiltration; Unsafe_Action.
   * emailAccountAdmins `string` (values: Enabled, Disabled): Specifies that the alert is sent to the account administrators.
   * emailAddresses `string`: Specifies the semicolon-separated list of e-mail addresses to which the alert is sent.
   * retentionDays `integer`: Specifies the number of days to keep in the Threat Detection audit logs.

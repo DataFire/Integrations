@@ -9,10 +9,7 @@ npm install --save @datafire/postmark
 ```js
 let postmark = require('@datafire/postmark').create();
 
-postmark.email.post({
-  "Content-Type": "",
-  "Accept": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

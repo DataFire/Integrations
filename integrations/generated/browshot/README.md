@@ -1,6 +1,6 @@
 # @datafire/browshot
 
-Client library for Browshot
+Client library for Browshot API
 
 ## Installation and Usage
 ```bash
@@ -11,7 +11,7 @@ let browshot = require('@datafire/browshot').create({
   apiKeyQuery: ""
 });
 
-browshot.GetMultipleScreenshotsInfo({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

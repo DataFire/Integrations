@@ -15,14 +15,7 @@ let azure_sql_blobauditingpolicies = require('@datafire/azure_sql_blobauditingpo
   redirect_uri: ""
 });
 
-azure_sql_blobauditingpolicies.DatabaseBlobAuditingPolicies_Get({
-  "resourceGroupName": "",
-  "serverName": "",
-  "databaseName": "",
-  "blobAuditingPolicyName": "",
-  "subscriptionId": "",
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

@@ -15,7 +15,7 @@ let imap = require('@datafire/imap').create({
   tls: ""
 });
 
-imap.getSubscribedBoxes({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

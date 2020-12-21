@@ -13,16 +13,250 @@ let amazonaws_greengrass = require('@datafire/amazonaws_greengrass').create({
   region: ""
 });
 
-amazonaws_greengrass.ListCoreDefinitions({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
 
 ## Description
 
-AWS Greengrass seamlessly extends AWS onto physical devices so they can act locally on the data they generate, while still using the cloud for management, analytics, and durable storage. AWS Greengrass ensures your devices can respond quickly to local events and operate with intermittent connectivity. AWS Greengrass minimizes the cost of transmitting data to the cloud by allowing you to author AWS Lambda functions that execute locally.
+AWS IoT Greengrass seamlessly extends AWS onto physical devices so they can act locally on the data they generate, while still using the cloud for management, analytics, and durable storage. AWS IoT Greengrass ensures your devices can respond quickly to local events and operate with intermittent connectivity. AWS IoT Greengrass minimizes the cost of transmitting data to the cloud by allowing you to author AWS Lambda functions that execute locally.
 
 ## Actions
+
+### ListBulkDeployments
+
+
+
+```js
+amazonaws_greengrass.ListBulkDeployments({}, context)
+```
+
+#### Input
+* input `object`
+  * MaxResults `string`
+  * NextToken `string`
+
+#### Output
+* output [ListBulkDeploymentsResponse](#listbulkdeploymentsresponse)
+
+### StartBulkDeployment
+
+
+
+```js
+amazonaws_greengrass.StartBulkDeployment({
+  "ExecutionRoleArn": "",
+  "InputFileUri": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * tags `object`: The key-value pair for the resource tag.
+  * ExecutionRoleArn **required** `string`: The ARN of the execution role to associate with the bulk deployment operation. This IAM role must allow the ''greengrass:CreateDeployment'' action for all group versions that are listed in the input file. This IAM role must have access to the S3 bucket containing the input file.
+  * InputFileUri **required** `string`: The URI of the input file contained in the S3 bucket. The execution role must have ''getObject'' permissions on this bucket to access the input file. The input file is a JSON-serialized, line delimited file with UTF-8 encoding that provides a list of group and version IDs and the deployment type. This file must be less than 100 MB. Currently, AWS IoT Greengrass supports only ''NewDeployment'' deployment types.
+
+#### Output
+* output [StartBulkDeploymentResponse](#startbulkdeploymentresponse)
+
+### StopBulkDeployment
+
+
+
+```js
+amazonaws_greengrass.StopBulkDeployment({
+  "BulkDeploymentId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * BulkDeploymentId **required** `string`
+
+#### Output
+* output [StopBulkDeploymentResponse](#stopbulkdeploymentresponse)
+
+### ListBulkDeploymentDetailedReports
+
+
+
+```js
+amazonaws_greengrass.ListBulkDeploymentDetailedReports({
+  "BulkDeploymentId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * BulkDeploymentId **required** `string`
+  * MaxResults `string`
+  * NextToken `string`
+
+#### Output
+* output [ListBulkDeploymentDetailedReportsResponse](#listbulkdeploymentdetailedreportsresponse)
+
+### GetBulkDeploymentStatus
+
+
+
+```js
+amazonaws_greengrass.GetBulkDeploymentStatus({
+  "BulkDeploymentId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * BulkDeploymentId **required** `string`
+
+#### Output
+* output [GetBulkDeploymentStatusResponse](#getbulkdeploymentstatusresponse)
+
+### ListConnectorDefinitions
+
+
+
+```js
+amazonaws_greengrass.ListConnectorDefinitions({}, context)
+```
+
+#### Input
+* input `object`
+  * MaxResults `string`
+  * NextToken `string`
+
+#### Output
+* output [ListConnectorDefinitionsResponse](#listconnectordefinitionsresponse)
+
+### CreateConnectorDefinition
+
+
+
+```js
+amazonaws_greengrass.CreateConnectorDefinition({}, context)
+```
+
+#### Input
+* input `object`
+  * tags `object`: The key-value pair for the resource tag.
+  * InitialVersion `object`: Information about the connector definition version, which is a container for connectors.
+    * Connectors
+      * items [Connector](#connector)
+  * Name `string`: The name of the connector definition.
+
+#### Output
+* output [CreateConnectorDefinitionResponse](#createconnectordefinitionresponse)
+
+### DeleteConnectorDefinition
+
+
+
+```js
+amazonaws_greengrass.DeleteConnectorDefinition({
+  "ConnectorDefinitionId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * ConnectorDefinitionId **required** `string`
+
+#### Output
+* output [DeleteConnectorDefinitionResponse](#deleteconnectordefinitionresponse)
+
+### GetConnectorDefinition
+
+
+
+```js
+amazonaws_greengrass.GetConnectorDefinition({
+  "ConnectorDefinitionId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * ConnectorDefinitionId **required** `string`
+
+#### Output
+* output [GetConnectorDefinitionResponse](#getconnectordefinitionresponse)
+
+### UpdateConnectorDefinition
+
+
+
+```js
+amazonaws_greengrass.UpdateConnectorDefinition({
+  "ConnectorDefinitionId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * ConnectorDefinitionId **required** `string`
+  * Name `string`: The name of the definition.
+
+#### Output
+* output [UpdateConnectorDefinitionResponse](#updateconnectordefinitionresponse)
+
+### ListConnectorDefinitionVersions
+
+
+
+```js
+amazonaws_greengrass.ListConnectorDefinitionVersions({
+  "ConnectorDefinitionId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * ConnectorDefinitionId **required** `string`
+  * MaxResults `string`
+  * NextToken `string`
+
+#### Output
+* output [ListConnectorDefinitionVersionsResponse](#listconnectordefinitionversionsresponse)
+
+### CreateConnectorDefinitionVersion
+
+
+
+```js
+amazonaws_greengrass.CreateConnectorDefinitionVersion({
+  "ConnectorDefinitionId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * ConnectorDefinitionId **required** `string`
+  * Connectors `array`: A list of references to connectors in this version, with their corresponding configuration settings.
+    * items [Connector](#connector)
+
+#### Output
+* output [CreateConnectorDefinitionVersionResponse](#createconnectordefinitionversionresponse)
+
+### GetConnectorDefinitionVersion
+
+
+
+```js
+amazonaws_greengrass.GetConnectorDefinitionVersion({
+  "ConnectorDefinitionId": "",
+  "ConnectorDefinitionVersionId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * ConnectorDefinitionId **required** `string`
+  * ConnectorDefinitionVersionId **required** `string`
+  * NextToken `string`
+
+#### Output
+* output [GetConnectorDefinitionVersionResponse](#getconnectordefinitionversionresponse)
 
 ### ListCoreDefinitions
 
@@ -34,6 +268,8 @@ amazonaws_greengrass.ListCoreDefinitions({}, context)
 
 #### Input
 * input `object`
+  * MaxResults `string`
+  * NextToken `string`
 
 #### Output
 * output [ListCoreDefinitionsResponse](#listcoredefinitionsresponse)
@@ -48,8 +284,11 @@ amazonaws_greengrass.CreateCoreDefinition({}, context)
 
 #### Input
 * input `object`
-  * InitialVersion [CoreDefinitionVersion](#coredefinitionversion)
-  * Name [__string](#__string)
+  * tags `object`: The key-value pair for the resource tag.
+  * InitialVersion `object`: Information about a core definition version.
+    * Cores
+      * items [Core](#core)
+  * Name `string`: The name of the core definition.
 
 #### Output
 * output [CreateCoreDefinitionResponse](#createcoredefinitionresponse)
@@ -101,7 +340,7 @@ amazonaws_greengrass.UpdateCoreDefinition({
 #### Input
 * input `object`
   * CoreDefinitionId **required** `string`
-  * Name [__string](#__string)
+  * Name `string`: The name of the definition.
 
 #### Output
 * output [UpdateCoreDefinitionResponse](#updatecoredefinitionresponse)
@@ -119,6 +358,8 @@ amazonaws_greengrass.ListCoreDefinitionVersions({
 #### Input
 * input `object`
   * CoreDefinitionId **required** `string`
+  * MaxResults `string`
+  * NextToken `string`
 
 #### Output
 * output [ListCoreDefinitionVersionsResponse](#listcoredefinitionversionsresponse)
@@ -136,7 +377,8 @@ amazonaws_greengrass.CreateCoreDefinitionVersion({
 #### Input
 * input `object`
   * CoreDefinitionId **required** `string`
-  * Cores [__listOfCore](#__listofcore)
+  * Cores `array`: A list of cores in the core definition version.
+    * items [Core](#core)
 
 #### Output
 * output [CreateCoreDefinitionVersionResponse](#createcoredefinitionversionresponse)
@@ -170,6 +412,8 @@ amazonaws_greengrass.ListDeviceDefinitions({}, context)
 
 #### Input
 * input `object`
+  * MaxResults `string`
+  * NextToken `string`
 
 #### Output
 * output [ListDeviceDefinitionsResponse](#listdevicedefinitionsresponse)
@@ -184,8 +428,11 @@ amazonaws_greengrass.CreateDeviceDefinition({}, context)
 
 #### Input
 * input `object`
-  * InitialVersion [DeviceDefinitionVersion](#devicedefinitionversion)
-  * Name [__string](#__string)
+  * tags `object`: The key-value pair for the resource tag.
+  * InitialVersion `object`: Information about a device definition version.
+    * Devices
+      * items [Device](#device)
+  * Name `string`: The name of the device definition.
 
 #### Output
 * output [CreateDeviceDefinitionResponse](#createdevicedefinitionresponse)
@@ -237,7 +484,7 @@ amazonaws_greengrass.UpdateDeviceDefinition({
 #### Input
 * input `object`
   * DeviceDefinitionId **required** `string`
-  * Name [__string](#__string)
+  * Name `string`: The name of the definition.
 
 #### Output
 * output [UpdateDeviceDefinitionResponse](#updatedevicedefinitionresponse)
@@ -255,6 +502,8 @@ amazonaws_greengrass.ListDeviceDefinitionVersions({
 #### Input
 * input `object`
   * DeviceDefinitionId **required** `string`
+  * MaxResults `string`
+  * NextToken `string`
 
 #### Output
 * output [ListDeviceDefinitionVersionsResponse](#listdevicedefinitionversionsresponse)
@@ -272,7 +521,8 @@ amazonaws_greengrass.CreateDeviceDefinitionVersion({
 #### Input
 * input `object`
   * DeviceDefinitionId **required** `string`
-  * Devices [__listOfDevice](#__listofdevice)
+  * Devices `array`: A list of devices in the definition version.
+    * items [Device](#device)
 
 #### Output
 * output [CreateDeviceDefinitionVersionResponse](#createdevicedefinitionversionresponse)
@@ -292,6 +542,7 @@ amazonaws_greengrass.GetDeviceDefinitionVersion({
 * input `object`
   * DeviceDefinitionId **required** `string`
   * DeviceDefinitionVersionId **required** `string`
+  * NextToken `string`
 
 #### Output
 * output [GetDeviceDefinitionVersionResponse](#getdevicedefinitionversionresponse)
@@ -306,6 +557,8 @@ amazonaws_greengrass.ListFunctionDefinitions({}, context)
 
 #### Input
 * input `object`
+  * MaxResults `string`
+  * NextToken `string`
 
 #### Output
 * output [ListFunctionDefinitionsResponse](#listfunctiondefinitionsresponse)
@@ -320,8 +573,13 @@ amazonaws_greengrass.CreateFunctionDefinition({}, context)
 
 #### Input
 * input `object`
-  * InitialVersion [FunctionDefinitionVersion](#functiondefinitionversion)
-  * Name [__string](#__string)
+  * tags `object`: The key-value pair for the resource tag.
+  * InitialVersion `object`: Information about a function definition version.
+    * DefaultConfig
+      * Execution [FunctionDefaultExecutionConfig](#functiondefaultexecutionconfig)
+    * Functions
+      * items [Function](#function)
+  * Name `string`: The name of the function definition.
 
 #### Output
 * output [CreateFunctionDefinitionResponse](#createfunctiondefinitionresponse)
@@ -373,7 +631,7 @@ amazonaws_greengrass.UpdateFunctionDefinition({
 #### Input
 * input `object`
   * FunctionDefinitionId **required** `string`
-  * Name [__string](#__string)
+  * Name `string`: The name of the definition.
 
 #### Output
 * output [UpdateFunctionDefinitionResponse](#updatefunctiondefinitionresponse)
@@ -391,6 +649,8 @@ amazonaws_greengrass.ListFunctionDefinitionVersions({
 #### Input
 * input `object`
   * FunctionDefinitionId **required** `string`
+  * MaxResults `string`
+  * NextToken `string`
 
 #### Output
 * output [ListFunctionDefinitionVersionsResponse](#listfunctiondefinitionversionsresponse)
@@ -408,7 +668,10 @@ amazonaws_greengrass.CreateFunctionDefinitionVersion({
 #### Input
 * input `object`
   * FunctionDefinitionId **required** `string`
-  * Functions [__listOfFunction](#__listoffunction)
+  * DefaultConfig `object`: The default configuration that applies to all Lambda functions in the group. Individual Lambda functions can override these settings.
+    * Execution [FunctionDefaultExecutionConfig](#functiondefaultexecutionconfig)
+  * Functions `array`: A list of Lambda functions in this function definition version.
+    * items [Function](#function)
 
 #### Output
 * output [CreateFunctionDefinitionVersionResponse](#createfunctiondefinitionversionresponse)
@@ -428,6 +691,7 @@ amazonaws_greengrass.GetFunctionDefinitionVersion({
 * input `object`
   * FunctionDefinitionId **required** `string`
   * FunctionDefinitionVersionId **required** `string`
+  * NextToken `string`
 
 #### Output
 * output [GetFunctionDefinitionVersionResponse](#getfunctiondefinitionversionresponse)
@@ -442,6 +706,8 @@ amazonaws_greengrass.ListLoggerDefinitions({}, context)
 
 #### Input
 * input `object`
+  * MaxResults `string`
+  * NextToken `string`
 
 #### Output
 * output [ListLoggerDefinitionsResponse](#listloggerdefinitionsresponse)
@@ -456,8 +722,11 @@ amazonaws_greengrass.CreateLoggerDefinition({}, context)
 
 #### Input
 * input `object`
-  * InitialVersion [LoggerDefinitionVersion](#loggerdefinitionversion)
-  * Name [__string](#__string)
+  * tags `object`: The key-value pair for the resource tag.
+  * InitialVersion `object`: Information about a logger definition version.
+    * Loggers
+      * items [Logger](#logger)
+  * Name `string`: The name of the logger definition.
 
 #### Output
 * output [CreateLoggerDefinitionResponse](#createloggerdefinitionresponse)
@@ -509,7 +778,7 @@ amazonaws_greengrass.UpdateLoggerDefinition({
 #### Input
 * input `object`
   * LoggerDefinitionId **required** `string`
-  * Name [__string](#__string)
+  * Name `string`: The name of the definition.
 
 #### Output
 * output [UpdateLoggerDefinitionResponse](#updateloggerdefinitionresponse)
@@ -527,6 +796,8 @@ amazonaws_greengrass.ListLoggerDefinitionVersions({
 #### Input
 * input `object`
   * LoggerDefinitionId **required** `string`
+  * MaxResults `string`
+  * NextToken `string`
 
 #### Output
 * output [ListLoggerDefinitionVersionsResponse](#listloggerdefinitionversionsresponse)
@@ -544,7 +815,8 @@ amazonaws_greengrass.CreateLoggerDefinitionVersion({
 #### Input
 * input `object`
   * LoggerDefinitionId **required** `string`
-  * Loggers [__listOfLogger](#__listoflogger)
+  * Loggers `array`: A list of loggers.
+    * items [Logger](#logger)
 
 #### Output
 * output [CreateLoggerDefinitionVersionResponse](#createloggerdefinitionversionresponse)
@@ -564,6 +836,7 @@ amazonaws_greengrass.GetLoggerDefinitionVersion({
 * input `object`
   * LoggerDefinitionId **required** `string`
   * LoggerDefinitionVersionId **required** `string`
+  * NextToken `string`
 
 #### Output
 * output [GetLoggerDefinitionVersionResponse](#getloggerdefinitionversionresponse)
@@ -578,6 +851,8 @@ amazonaws_greengrass.ListResourceDefinitions({}, context)
 
 #### Input
 * input `object`
+  * MaxResults `string`
+  * NextToken `string`
 
 #### Output
 * output [ListResourceDefinitionsResponse](#listresourcedefinitionsresponse)
@@ -592,8 +867,11 @@ amazonaws_greengrass.CreateResourceDefinition({}, context)
 
 #### Input
 * input `object`
-  * InitialVersion [ResourceDefinitionVersion](#resourcedefinitionversion)
-  * Name [__string](#__string)
+  * tags `object`: The key-value pair for the resource tag.
+  * InitialVersion `object`: Information about a resource definition version.
+    * Resources
+      * items [Resource](#resource)
+  * Name `string`: The name of the resource definition.
 
 #### Output
 * output [CreateResourceDefinitionResponse](#createresourcedefinitionresponse)
@@ -645,7 +923,7 @@ amazonaws_greengrass.UpdateResourceDefinition({
 #### Input
 * input `object`
   * ResourceDefinitionId **required** `string`
-  * Name [__string](#__string)
+  * Name `string`: The name of the definition.
 
 #### Output
 * output [UpdateResourceDefinitionResponse](#updateresourcedefinitionresponse)
@@ -662,6 +940,8 @@ amazonaws_greengrass.ListResourceDefinitionVersions({
 
 #### Input
 * input `object`
+  * MaxResults `string`
+  * NextToken `string`
   * ResourceDefinitionId **required** `string`
 
 #### Output
@@ -680,7 +960,8 @@ amazonaws_greengrass.CreateResourceDefinitionVersion({
 #### Input
 * input `object`
   * ResourceDefinitionId **required** `string`
-  * Resources [__listOfResource](#__listofresource)
+  * Resources `array`: A list of resources.
+    * items [Resource](#resource)
 
 #### Output
 * output [CreateResourceDefinitionVersionResponse](#createresourcedefinitionversionresponse)
@@ -714,6 +995,8 @@ amazonaws_greengrass.ListSubscriptionDefinitions({}, context)
 
 #### Input
 * input `object`
+  * MaxResults `string`
+  * NextToken `string`
 
 #### Output
 * output [ListSubscriptionDefinitionsResponse](#listsubscriptiondefinitionsresponse)
@@ -728,8 +1011,11 @@ amazonaws_greengrass.CreateSubscriptionDefinition({}, context)
 
 #### Input
 * input `object`
-  * InitialVersion [SubscriptionDefinitionVersion](#subscriptiondefinitionversion)
-  * Name [__string](#__string)
+  * tags `object`: The key-value pair for the resource tag.
+  * InitialVersion `object`: Information about a subscription definition version.
+    * Subscriptions
+      * items [Subscription](#subscription)
+  * Name `string`: The name of the subscription definition.
 
 #### Output
 * output [CreateSubscriptionDefinitionResponse](#createsubscriptiondefinitionresponse)
@@ -781,7 +1067,7 @@ amazonaws_greengrass.UpdateSubscriptionDefinition({
 #### Input
 * input `object`
   * SubscriptionDefinitionId **required** `string`
-  * Name [__string](#__string)
+  * Name `string`: The name of the definition.
 
 #### Output
 * output [UpdateSubscriptionDefinitionResponse](#updatesubscriptiondefinitionresponse)
@@ -798,6 +1084,8 @@ amazonaws_greengrass.ListSubscriptionDefinitionVersions({
 
 #### Input
 * input `object`
+  * MaxResults `string`
+  * NextToken `string`
   * SubscriptionDefinitionId **required** `string`
 
 #### Output
@@ -816,7 +1104,8 @@ amazonaws_greengrass.CreateSubscriptionDefinitionVersion({
 #### Input
 * input `object`
   * SubscriptionDefinitionId **required** `string`
-  * Subscriptions [__listOfSubscription](#__listofsubscription)
+  * Subscriptions `array`: A list of subscriptions.
+    * items [Subscription](#subscription)
 
 #### Output
 * output [CreateSubscriptionDefinitionVersionResponse](#createsubscriptiondefinitionversionresponse)
@@ -834,6 +1123,7 @@ amazonaws_greengrass.GetSubscriptionDefinitionVersion({
 
 #### Input
 * input `object`
+  * NextToken `string`
   * SubscriptionDefinitionId **required** `string`
   * SubscriptionDefinitionVersionId **required** `string`
 
@@ -850,6 +1140,8 @@ amazonaws_greengrass.ListGroups({}, context)
 
 #### Input
 * input `object`
+  * MaxResults `string`
+  * NextToken `string`
 
 #### Output
 * output [ListGroupsResponse](#listgroupsresponse)
@@ -864,8 +1156,16 @@ amazonaws_greengrass.CreateGroup({}, context)
 
 #### Input
 * input `object`
-  * InitialVersion [GroupVersion](#groupversion)
-  * Name [__string](#__string)
+  * tags `object`: The key-value pair for the resource tag.
+  * InitialVersion `object`: Information about a group version.
+    * ConnectorDefinitionVersionArn
+    * CoreDefinitionVersionArn
+    * DeviceDefinitionVersionArn
+    * FunctionDefinitionVersionArn
+    * LoggerDefinitionVersionArn
+    * ResourceDefinitionVersionArn
+    * SubscriptionDefinitionVersionArn
+  * Name `string`: The name of the group.
 
 #### Output
 * output [CreateGroupResponse](#creategroupresponse)
@@ -917,7 +1217,7 @@ amazonaws_greengrass.UpdateGroup({
 #### Input
 * input `object`
   * GroupId **required** `string`
-  * Name [__string](#__string)
+  * Name `string`: The name of the definition.
 
 #### Output
 * output [UpdateGroupResponse](#updategroupresponse)
@@ -986,7 +1286,7 @@ amazonaws_greengrass.UpdateGroupCertificateConfiguration({
 #### Input
 * input `object`
   * GroupId **required** `string`
-  * CertificateExpiryInMilliseconds [__string](#__string)
+  * CertificateExpiryInMilliseconds `string`: The amount of time remaining before the certificate expires, in milliseconds.
 
 #### Output
 * output [UpdateGroupCertificateConfigurationResponse](#updategroupcertificateconfigurationresponse)
@@ -997,15 +1297,15 @@ amazonaws_greengrass.UpdateGroupCertificateConfiguration({
 
 ```js
 amazonaws_greengrass.GetGroupCertificateAuthority({
-  "GroupId": "",
-  "CertificateAuthorityId": ""
+  "CertificateAuthorityId": "",
+  "GroupId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * GroupId **required** `string`
   * CertificateAuthorityId **required** `string`
+  * GroupId **required** `string`
 
 #### Output
 * output [GetGroupCertificateAuthorityResponse](#getgroupcertificateauthorityresponse)
@@ -1023,6 +1323,8 @@ amazonaws_greengrass.ListDeployments({
 #### Input
 * input `object`
   * GroupId **required** `string`
+  * MaxResults `string`
+  * NextToken `string`
 
 #### Output
 * output [ListDeploymentsResponse](#listdeploymentsresponse)
@@ -1033,16 +1335,17 @@ amazonaws_greengrass.ListDeployments({
 
 ```js
 amazonaws_greengrass.CreateDeployment({
-  "GroupId": ""
+  "GroupId": "",
+  "DeploymentType": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * GroupId **required** `string`
-  * DeploymentId [__string](#__string)
-  * DeploymentType [DeploymentType](#deploymenttype)
-  * GroupVersionId [__string](#__string)
+  * DeploymentId `string`: The ID of the deployment if you wish to redeploy a previous deployment.
+  * DeploymentType **required** `string` (values: NewDeployment, Redeployment, ResetDeployment, ForceResetDeployment): The type of deployment. When used for ''CreateDeployment'', only ''NewDeployment'' and ''Redeployment'' are valid.
+  * GroupVersionId `string`: The ID of the group version to be deployed.
 
 #### Output
 * output [CreateDeploymentResponse](#createdeploymentresponse)
@@ -1060,7 +1363,7 @@ amazonaws_greengrass.ResetDeployments({
 #### Input
 * input `object`
   * GroupId **required** `string`
-  * Force [__boolean](#__boolean)
+  * Force `boolean`: If true, performs a best-effort only core reset.
 
 #### Output
 * output [ResetDeploymentsResponse](#resetdeploymentsresponse)
@@ -1071,15 +1374,15 @@ amazonaws_greengrass.ResetDeployments({
 
 ```js
 amazonaws_greengrass.GetDeploymentStatus({
-  "GroupId": "",
-  "DeploymentId": ""
+  "DeploymentId": "",
+  "GroupId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * GroupId **required** `string`
   * DeploymentId **required** `string`
+  * GroupId **required** `string`
 
 #### Output
 * output [GetDeploymentStatusResponse](#getdeploymentstatusresponse)
@@ -1124,14 +1427,15 @@ amazonaws_greengrass.GetAssociatedRole({
 
 ```js
 amazonaws_greengrass.AssociateRoleToGroup({
-  "GroupId": ""
+  "GroupId": "",
+  "RoleArn": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * GroupId **required** `string`
-  * RoleArn [__string](#__string)
+  * RoleArn **required** `string`: The ARN of the role you wish to associate with this group. The existence of the role is not validated.
 
 #### Output
 * output [AssociateRoleToGroupResponse](#associateroletogroupresponse)
@@ -1149,6 +1453,8 @@ amazonaws_greengrass.ListGroupVersions({
 #### Input
 * input `object`
   * GroupId **required** `string`
+  * MaxResults `string`
+  * NextToken `string`
 
 #### Output
 * output [ListGroupVersionsResponse](#listgroupversionsresponse)
@@ -1166,12 +1472,13 @@ amazonaws_greengrass.CreateGroupVersion({
 #### Input
 * input `object`
   * GroupId **required** `string`
-  * CoreDefinitionVersionArn [__string](#__string)
-  * DeviceDefinitionVersionArn [__string](#__string)
-  * FunctionDefinitionVersionArn [__string](#__string)
-  * LoggerDefinitionVersionArn [__string](#__string)
-  * ResourceDefinitionVersionArn [__string](#__string)
-  * SubscriptionDefinitionVersionArn [__string](#__string)
+  * ConnectorDefinitionVersionArn `string`: The ARN of the connector definition version for this group.
+  * CoreDefinitionVersionArn `string`: The ARN of the core definition version for this group.
+  * DeviceDefinitionVersionArn `string`: The ARN of the device definition version for this group.
+  * FunctionDefinitionVersionArn `string`: The ARN of the function definition version for this group.
+  * LoggerDefinitionVersionArn `string`: The ARN of the logger definition version for this group.
+  * ResourceDefinitionVersionArn `string`: The ARN of the resource definition version for this group.
+  * SubscriptionDefinitionVersionArn `string`: The ARN of the subscription definition version for this group.
 
 #### Output
 * output [CreateGroupVersionResponse](#creategroupversionresponse)
@@ -1228,12 +1535,14 @@ amazonaws_greengrass.GetServiceRoleForAccount({}, context)
 
 
 ```js
-amazonaws_greengrass.AssociateServiceRoleToAccount({}, context)
+amazonaws_greengrass.AssociateServiceRoleToAccount({
+  "RoleArn": ""
+}, context)
 ```
 
 #### Input
 * input `object`
-  * RoleArn [__string](#__string)
+  * RoleArn **required** `string`: The ARN of the service role you wish to associate with your account.
 
 #### Output
 * output [AssociateServiceRoleToAccountResponse](#associateserviceroletoaccountresponse)
@@ -1268,30 +1577,128 @@ amazonaws_greengrass.UpdateConnectivityInfo({
 #### Input
 * input `object`
   * ThingName **required** `string`
-  * ConnectivityInfo [__listOfConnectivityInfo](#__listofconnectivityinfo)
+  * ConnectivityInfo `array`: A list of connectivity info.
+    * items [ConnectivityInfo](#connectivityinfo)
 
 #### Output
 * output [UpdateConnectivityInfoResponse](#updateconnectivityinforesponse)
+
+### GetThingRuntimeConfiguration
+
+
+
+```js
+amazonaws_greengrass.GetThingRuntimeConfiguration({
+  "ThingName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * ThingName **required** `string`
+
+#### Output
+* output [GetThingRuntimeConfigurationResponse](#getthingruntimeconfigurationresponse)
+
+### UpdateThingRuntimeConfiguration
+
+
+
+```js
+amazonaws_greengrass.UpdateThingRuntimeConfiguration({
+  "ThingName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * ThingName **required** `string`
+  * TelemetryConfiguration `object`: Configuration settings for running telemetry.
+    * Telemetry
+
+#### Output
+* output [UpdateThingRuntimeConfigurationResponse](#updatethingruntimeconfigurationresponse)
 
 ### CreateSoftwareUpdateJob
 
 
 
 ```js
-amazonaws_greengrass.CreateSoftwareUpdateJob({}, context)
+amazonaws_greengrass.CreateSoftwareUpdateJob({
+  "S3UrlSignerRole": "",
+  "SoftwareToUpdate": "",
+  "UpdateTargets": [],
+  "UpdateTargetsArchitecture": "",
+  "UpdateTargetsOperatingSystem": ""
+}, context)
 ```
 
 #### Input
 * input `object`
-  * S3UrlSignerRole [S3UrlSignerRole](#s3urlsignerrole)
-  * SoftwareToUpdate [SoftwareToUpdate](#softwaretoupdate)
-  * UpdateAgentLogLevel [UpdateAgentLogLevel](#updateagentloglevel)
-  * UpdateTargets [UpdateTargets](#updatetargets)
-  * UpdateTargetsArchitecture [UpdateTargetsArchitecture](#updatetargetsarchitecture)
-  * UpdateTargetsOperatingSystem [UpdateTargetsOperatingSystem](#updatetargetsoperatingsystem)
+  * S3UrlSignerRole **required** `string`: The IAM Role that Greengrass will use to create pre-signed URLs pointing towards the update artifact.
+  * SoftwareToUpdate **required** `string` (values: core, ota_agent): The piece of software on the Greengrass core that will be updated.
+  * UpdateAgentLogLevel `string` (values: NONE, TRACE, DEBUG, VERBOSE, INFO, WARN, ERROR, FATAL): The minimum level of log statements that should be logged by the OTA Agent during an update.
+  * UpdateTargets **required** `array`: The ARNs of the targets (IoT things or IoT thing groups) that this update will be applied to.
+    * items [__string](#__string)
+  * UpdateTargetsArchitecture **required** `string` (values: armv6l, armv7l, x86_64, aarch64): The architecture of the cores which are the targets of an update.
+  * UpdateTargetsOperatingSystem **required** `string` (values: ubuntu, raspbian, amazon_linux, openwrt): The operating system of the cores which are the targets of an update.
 
 #### Output
 * output [CreateSoftwareUpdateJobResponse](#createsoftwareupdatejobresponse)
+
+### ListTagsForResource
+
+
+
+```js
+amazonaws_greengrass.ListTagsForResource({
+  "resource-arn": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * resource-arn **required** `string`
+
+#### Output
+* output [ListTagsForResourceResponse](#listtagsforresourceresponse)
+
+### TagResource
+
+
+
+```js
+amazonaws_greengrass.TagResource({
+  "resource-arn": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * resource-arn **required** `string`
+  * tags `object`: The key-value pair for the resource tag.
+
+#### Output
+*Output schema unknown*
+
+### UntagResource
+
+
+
+```js
+amazonaws_greengrass.UntagResource({
+  "resource-arn": "",
+  "tagKeys": []
+}, context)
+```
+
+#### Input
+* input `object`
+  * resource-arn **required** `string`
+  * tagKeys **required** `array`
+
+#### Output
+*Output schema unknown*
 
 
 
@@ -1299,271 +1706,394 @@ amazonaws_greengrass.CreateSoftwareUpdateJob({}, context)
 
 ### AssociateRoleToGroupRequest
 * AssociateRoleToGroupRequest `object`
-  * RoleArn [__string](#__string)
+  * RoleArn **required**
 
 ### AssociateRoleToGroupResponse
 * AssociateRoleToGroupResponse `object`
-  * AssociatedAt [__string](#__string)
+  * AssociatedAt
 
 ### AssociateServiceRoleToAccountRequest
 * AssociateServiceRoleToAccountRequest `object`
-  * RoleArn [__string](#__string)
+  * RoleArn **required**
 
 ### AssociateServiceRoleToAccountResponse
 * AssociateServiceRoleToAccountResponse `object`
-  * AssociatedAt [__string](#__string)
+  * AssociatedAt
 
 ### BadRequestException
-* BadRequestException `object`: General error information.
-  * ErrorDetails [ErrorDetails](#errordetails)
-  * Message [__string](#__string)
+
+
+### BulkDeployment
+* BulkDeployment `object`: Information about a bulk deployment. You cannot start a new bulk deployment while another one is still running or in a non-terminal state.
+  * BulkDeploymentArn
+  * BulkDeploymentId
+  * CreatedAt
+
+### BulkDeploymentMetrics
+* BulkDeploymentMetrics `object`: Relevant metrics on input records processed during bulk deployment.
+  * InvalidInputRecords
+  * RecordsProcessed
+  * RetryAttempts
+
+### BulkDeploymentResult
+* BulkDeploymentResult `object`: Information about an individual group deployment in a bulk deployment operation.
+  * CreatedAt
+  * DeploymentArn
+  * DeploymentId
+  * DeploymentStatus
+  * DeploymentType
+  * ErrorDetails
+    * items [ErrorDetail](#errordetail)
+  * ErrorMessage
+  * GroupArn
+
+### BulkDeploymentResults
+* BulkDeploymentResults `array`
+  * items [BulkDeploymentResult](#bulkdeploymentresult)
+
+### BulkDeploymentStatus
+* BulkDeploymentStatus `string` (values: Initializing, Running, Completed, Stopping, Stopped, Failed): The current status of the bulk deployment.
+
+### BulkDeployments
+* BulkDeployments `array`
+  * items [BulkDeployment](#bulkdeployment)
+
+### ConfigurationSyncStatus
+* ConfigurationSyncStatus `string` (values: InSync, OutOfSync)
 
 ### ConnectivityInfo
 * ConnectivityInfo `object`: Information about a Greengrass core's connectivity.
-  * HostAddress [__string](#__string)
-  * Id [__string](#__string)
-  * Metadata [__string](#__string)
-  * PortNumber [__integer](#__integer)
+  * HostAddress
+  * Id
+  * Metadata
+  * PortNumber
+
+### Connector
+* Connector `object`: Information about a connector. Connectors run on the Greengrass core and contain built-in integration with local infrastructure, device protocols, AWS, and other cloud services.
+  * ConnectorArn **required**
+  * Id **required**
+  * Parameters
+
+### ConnectorDefinitionVersion
+* ConnectorDefinitionVersion `object`: Information about the connector definition version, which is a container for connectors.
+  * Connectors
+    * items [Connector](#connector)
 
 ### Core
 * Core `object`: Information about a core.
-  * CertificateArn [__string](#__string)
-  * Id [__string](#__string)
-  * SyncShadow [__boolean](#__boolean)
-  * ThingArn [__string](#__string)
+  * CertificateArn **required**
+  * Id **required**
+  * SyncShadow
+  * ThingArn **required**
 
 ### CoreDefinitionVersion
 * CoreDefinitionVersion `object`: Information about a core definition version.
-  * Cores [__listOfCore](#__listofcore)
+  * Cores
+    * items [Core](#core)
+
+### CreateConnectorDefinitionRequest
+* CreateConnectorDefinitionRequest `object`
+  * tags
+  * InitialVersion
+    * Connectors
+      * items [Connector](#connector)
+  * Name
+
+### CreateConnectorDefinitionResponse
+* CreateConnectorDefinitionResponse `object`
+  * Arn
+  * CreationTimestamp
+  * Id
+  * LastUpdatedTimestamp
+  * LatestVersion
+  * LatestVersionArn
+  * Name
+
+### CreateConnectorDefinitionVersionRequest
+* CreateConnectorDefinitionVersionRequest `object`
+  * Connectors
+    * items [Connector](#connector)
+
+### CreateConnectorDefinitionVersionResponse
+* CreateConnectorDefinitionVersionResponse `object`
+  * Arn
+  * CreationTimestamp
+  * Id
+  * Version
 
 ### CreateCoreDefinitionRequest
 * CreateCoreDefinitionRequest `object`: Information needed to create a core definition.
-  * InitialVersion [CoreDefinitionVersion](#coredefinitionversion)
-  * Name [__string](#__string)
+  * tags
+  * InitialVersion
+    * Cores
+      * items [Core](#core)
+  * Name
 
 ### CreateCoreDefinitionResponse
 * CreateCoreDefinitionResponse `object`
-  * Arn [__string](#__string)
-  * CreationTimestamp [__string](#__string)
-  * Id [__string](#__string)
-  * LastUpdatedTimestamp [__string](#__string)
-  * LatestVersion [__string](#__string)
-  * LatestVersionArn [__string](#__string)
-  * Name [__string](#__string)
+  * Arn
+  * CreationTimestamp
+  * Id
+  * LastUpdatedTimestamp
+  * LatestVersion
+  * LatestVersionArn
+  * Name
 
 ### CreateCoreDefinitionVersionRequest
 * CreateCoreDefinitionVersionRequest `object`
-  * Cores [__listOfCore](#__listofcore)
+  * Cores
+    * items [Core](#core)
 
 ### CreateCoreDefinitionVersionResponse
 * CreateCoreDefinitionVersionResponse `object`
-  * Arn [__string](#__string)
-  * CreationTimestamp [__string](#__string)
-  * Id [__string](#__string)
-  * Version [__string](#__string)
+  * Arn
+  * CreationTimestamp
+  * Id
+  * Version
 
 ### CreateDeploymentRequest
 * CreateDeploymentRequest `object`
-  * DeploymentId [__string](#__string)
-  * DeploymentType [DeploymentType](#deploymenttype)
-  * GroupVersionId [__string](#__string)
+  * DeploymentId
+  * DeploymentType **required**
+  * GroupVersionId
 
 ### CreateDeploymentResponse
 * CreateDeploymentResponse `object`
-  * DeploymentArn [__string](#__string)
-  * DeploymentId [__string](#__string)
+  * DeploymentArn
+  * DeploymentId
 
 ### CreateDeviceDefinitionRequest
 * CreateDeviceDefinitionRequest `object`
-  * InitialVersion [DeviceDefinitionVersion](#devicedefinitionversion)
-  * Name [__string](#__string)
+  * tags
+  * InitialVersion
+    * Devices
+      * items [Device](#device)
+  * Name
 
 ### CreateDeviceDefinitionResponse
 * CreateDeviceDefinitionResponse `object`
-  * Arn [__string](#__string)
-  * CreationTimestamp [__string](#__string)
-  * Id [__string](#__string)
-  * LastUpdatedTimestamp [__string](#__string)
-  * LatestVersion [__string](#__string)
-  * LatestVersionArn [__string](#__string)
-  * Name [__string](#__string)
+  * Arn
+  * CreationTimestamp
+  * Id
+  * LastUpdatedTimestamp
+  * LatestVersion
+  * LatestVersionArn
+  * Name
 
 ### CreateDeviceDefinitionVersionRequest
 * CreateDeviceDefinitionVersionRequest `object`
-  * Devices [__listOfDevice](#__listofdevice)
+  * Devices
+    * items [Device](#device)
 
 ### CreateDeviceDefinitionVersionResponse
 * CreateDeviceDefinitionVersionResponse `object`
-  * Arn [__string](#__string)
-  * CreationTimestamp [__string](#__string)
-  * Id [__string](#__string)
-  * Version [__string](#__string)
+  * Arn
+  * CreationTimestamp
+  * Id
+  * Version
 
 ### CreateFunctionDefinitionRequest
 * CreateFunctionDefinitionRequest `object`
-  * InitialVersion [FunctionDefinitionVersion](#functiondefinitionversion)
-  * Name [__string](#__string)
+  * tags
+  * InitialVersion
+    * DefaultConfig
+      * Execution [FunctionDefaultExecutionConfig](#functiondefaultexecutionconfig)
+    * Functions
+      * items [Function](#function)
+  * Name
 
 ### CreateFunctionDefinitionResponse
 * CreateFunctionDefinitionResponse `object`
-  * Arn [__string](#__string)
-  * CreationTimestamp [__string](#__string)
-  * Id [__string](#__string)
-  * LastUpdatedTimestamp [__string](#__string)
-  * LatestVersion [__string](#__string)
-  * LatestVersionArn [__string](#__string)
-  * Name [__string](#__string)
+  * Arn
+  * CreationTimestamp
+  * Id
+  * LastUpdatedTimestamp
+  * LatestVersion
+  * LatestVersionArn
+  * Name
 
 ### CreateFunctionDefinitionVersionRequest
 * CreateFunctionDefinitionVersionRequest `object`: Information needed to create a function definition version.
-  * Functions [__listOfFunction](#__listoffunction)
+  * DefaultConfig
+    * Execution [FunctionDefaultExecutionConfig](#functiondefaultexecutionconfig)
+  * Functions
+    * items [Function](#function)
 
 ### CreateFunctionDefinitionVersionResponse
 * CreateFunctionDefinitionVersionResponse `object`
-  * Arn [__string](#__string)
-  * CreationTimestamp [__string](#__string)
-  * Id [__string](#__string)
-  * Version [__string](#__string)
+  * Arn
+  * CreationTimestamp
+  * Id
+  * Version
 
 ### CreateGroupCertificateAuthorityRequest
 * CreateGroupCertificateAuthorityRequest `object`
 
 ### CreateGroupCertificateAuthorityResponse
 * CreateGroupCertificateAuthorityResponse `object`
-  * GroupCertificateAuthorityArn [__string](#__string)
+  * GroupCertificateAuthorityArn
 
 ### CreateGroupRequest
 * CreateGroupRequest `object`
-  * InitialVersion [GroupVersion](#groupversion)
-  * Name [__string](#__string)
+  * tags
+  * InitialVersion
+    * ConnectorDefinitionVersionArn
+    * CoreDefinitionVersionArn
+    * DeviceDefinitionVersionArn
+    * FunctionDefinitionVersionArn
+    * LoggerDefinitionVersionArn
+    * ResourceDefinitionVersionArn
+    * SubscriptionDefinitionVersionArn
+  * Name
 
 ### CreateGroupResponse
 * CreateGroupResponse `object`
-  * Arn [__string](#__string)
-  * CreationTimestamp [__string](#__string)
-  * Id [__string](#__string)
-  * LastUpdatedTimestamp [__string](#__string)
-  * LatestVersion [__string](#__string)
-  * LatestVersionArn [__string](#__string)
-  * Name [__string](#__string)
+  * Arn
+  * CreationTimestamp
+  * Id
+  * LastUpdatedTimestamp
+  * LatestVersion
+  * LatestVersionArn
+  * Name
 
 ### CreateGroupVersionRequest
 * CreateGroupVersionRequest `object`
-  * CoreDefinitionVersionArn [__string](#__string)
-  * DeviceDefinitionVersionArn [__string](#__string)
-  * FunctionDefinitionVersionArn [__string](#__string)
-  * LoggerDefinitionVersionArn [__string](#__string)
-  * ResourceDefinitionVersionArn [__string](#__string)
-  * SubscriptionDefinitionVersionArn [__string](#__string)
+  * ConnectorDefinitionVersionArn
+  * CoreDefinitionVersionArn
+  * DeviceDefinitionVersionArn
+  * FunctionDefinitionVersionArn
+  * LoggerDefinitionVersionArn
+  * ResourceDefinitionVersionArn
+  * SubscriptionDefinitionVersionArn
 
 ### CreateGroupVersionResponse
 * CreateGroupVersionResponse `object`
-  * Arn [__string](#__string)
-  * CreationTimestamp [__string](#__string)
-  * Id [__string](#__string)
-  * Version [__string](#__string)
+  * Arn
+  * CreationTimestamp
+  * Id
+  * Version
 
 ### CreateLoggerDefinitionRequest
 * CreateLoggerDefinitionRequest `object`
-  * InitialVersion [LoggerDefinitionVersion](#loggerdefinitionversion)
-  * Name [__string](#__string)
+  * tags
+  * InitialVersion
+    * Loggers
+      * items [Logger](#logger)
+  * Name
 
 ### CreateLoggerDefinitionResponse
 * CreateLoggerDefinitionResponse `object`
-  * Arn [__string](#__string)
-  * CreationTimestamp [__string](#__string)
-  * Id [__string](#__string)
-  * LastUpdatedTimestamp [__string](#__string)
-  * LatestVersion [__string](#__string)
-  * LatestVersionArn [__string](#__string)
-  * Name [__string](#__string)
+  * Arn
+  * CreationTimestamp
+  * Id
+  * LastUpdatedTimestamp
+  * LatestVersion
+  * LatestVersionArn
+  * Name
 
 ### CreateLoggerDefinitionVersionRequest
 * CreateLoggerDefinitionVersionRequest `object`
-  * Loggers [__listOfLogger](#__listoflogger)
+  * Loggers
+    * items [Logger](#logger)
 
 ### CreateLoggerDefinitionVersionResponse
 * CreateLoggerDefinitionVersionResponse `object`
-  * Arn [__string](#__string)
-  * CreationTimestamp [__string](#__string)
-  * Id [__string](#__string)
-  * Version [__string](#__string)
+  * Arn
+  * CreationTimestamp
+  * Id
+  * Version
 
 ### CreateResourceDefinitionRequest
 * CreateResourceDefinitionRequest `object`
-  * InitialVersion [ResourceDefinitionVersion](#resourcedefinitionversion)
-  * Name [__string](#__string)
+  * tags
+  * InitialVersion
+    * Resources
+      * items [Resource](#resource)
+  * Name
 
 ### CreateResourceDefinitionResponse
 * CreateResourceDefinitionResponse `object`
-  * Arn [__string](#__string)
-  * CreationTimestamp [__string](#__string)
-  * Id [__string](#__string)
-  * LastUpdatedTimestamp [__string](#__string)
-  * LatestVersion [__string](#__string)
-  * LatestVersionArn [__string](#__string)
-  * Name [__string](#__string)
+  * Arn
+  * CreationTimestamp
+  * Id
+  * LastUpdatedTimestamp
+  * LatestVersion
+  * LatestVersionArn
+  * Name
 
 ### CreateResourceDefinitionVersionRequest
 * CreateResourceDefinitionVersionRequest `object`
-  * Resources [__listOfResource](#__listofresource)
+  * Resources
+    * items [Resource](#resource)
 
 ### CreateResourceDefinitionVersionResponse
 * CreateResourceDefinitionVersionResponse `object`
-  * Arn [__string](#__string)
-  * CreationTimestamp [__string](#__string)
-  * Id [__string](#__string)
-  * Version [__string](#__string)
+  * Arn
+  * CreationTimestamp
+  * Id
+  * Version
 
 ### CreateSoftwareUpdateJobRequest
 * CreateSoftwareUpdateJobRequest `object`
-  * S3UrlSignerRole [S3UrlSignerRole](#s3urlsignerrole)
-  * SoftwareToUpdate [SoftwareToUpdate](#softwaretoupdate)
+  * S3UrlSignerRole **required** [S3UrlSignerRole](#s3urlsignerrole)
+  * SoftwareToUpdate **required** [SoftwareToUpdate](#softwaretoupdate)
   * UpdateAgentLogLevel [UpdateAgentLogLevel](#updateagentloglevel)
-  * UpdateTargets [UpdateTargets](#updatetargets)
-  * UpdateTargetsArchitecture [UpdateTargetsArchitecture](#updatetargetsarchitecture)
-  * UpdateTargetsOperatingSystem [UpdateTargetsOperatingSystem](#updatetargetsoperatingsystem)
+  * UpdateTargets **required** [UpdateTargets](#updatetargets)
+  * UpdateTargetsArchitecture **required** [UpdateTargetsArchitecture](#updatetargetsarchitecture)
+  * UpdateTargetsOperatingSystem **required** [UpdateTargetsOperatingSystem](#updatetargetsoperatingsystem)
 
 ### CreateSoftwareUpdateJobResponse
 * CreateSoftwareUpdateJobResponse `object`
-  * IotJobArn [__string](#__string)
-  * IotJobId [__string](#__string)
+  * IotJobArn
+  * IotJobId
+  * PlatformSoftwareVersion
 
 ### CreateSubscriptionDefinitionRequest
 * CreateSubscriptionDefinitionRequest `object`
-  * InitialVersion [SubscriptionDefinitionVersion](#subscriptiondefinitionversion)
-  * Name [__string](#__string)
+  * tags
+  * InitialVersion
+    * Subscriptions
+      * items [Subscription](#subscription)
+  * Name
 
 ### CreateSubscriptionDefinitionResponse
 * CreateSubscriptionDefinitionResponse `object`
-  * Arn [__string](#__string)
-  * CreationTimestamp [__string](#__string)
-  * Id [__string](#__string)
-  * LastUpdatedTimestamp [__string](#__string)
-  * LatestVersion [__string](#__string)
-  * LatestVersionArn [__string](#__string)
-  * Name [__string](#__string)
+  * Arn
+  * CreationTimestamp
+  * Id
+  * LastUpdatedTimestamp
+  * LatestVersion
+  * LatestVersionArn
+  * Name
 
 ### CreateSubscriptionDefinitionVersionRequest
 * CreateSubscriptionDefinitionVersionRequest `object`
-  * Subscriptions [__listOfSubscription](#__listofsubscription)
+  * Subscriptions
+    * items [Subscription](#subscription)
 
 ### CreateSubscriptionDefinitionVersionResponse
 * CreateSubscriptionDefinitionVersionResponse `object`
-  * Arn [__string](#__string)
-  * CreationTimestamp [__string](#__string)
-  * Id [__string](#__string)
-  * Version [__string](#__string)
+  * Arn
+  * CreationTimestamp
+  * Id
+  * Version
 
 ### DefinitionInformation
 * DefinitionInformation `object`: Information about a definition.
-  * Arn [__string](#__string)
-  * CreationTimestamp [__string](#__string)
-  * Id [__string](#__string)
-  * LastUpdatedTimestamp [__string](#__string)
-  * LatestVersion [__string](#__string)
-  * LatestVersionArn [__string](#__string)
-  * Name [__string](#__string)
+  * Arn
+  * CreationTimestamp
+  * Id
+  * LastUpdatedTimestamp
+  * LatestVersion
+  * LatestVersionArn
+  * Name
+  * Tags
+
+### DeleteConnectorDefinitionRequest
+* DeleteConnectorDefinitionRequest `object`
+
+### DeleteConnectorDefinitionResponse
+* DeleteConnectorDefinitionResponse `object`
 
 ### DeleteCoreDefinitionRequest
 * DeleteCoreDefinitionRequest `object`
@@ -1609,14 +2139,14 @@ amazonaws_greengrass.CreateSoftwareUpdateJob({}, context)
 
 ### Deployment
 * Deployment `object`: Information about a deployment.
-  * CreatedAt [__string](#__string)
-  * DeploymentArn [__string](#__string)
-  * DeploymentId [__string](#__string)
-  * DeploymentType [DeploymentType](#deploymenttype)
-  * GroupArn [__string](#__string)
+  * CreatedAt
+  * DeploymentArn
+  * DeploymentId
+  * DeploymentType
+  * GroupArn
 
 ### DeploymentType
-* DeploymentType `string` (values: NewDeployment, Redeployment, ResetDeployment, ForceResetDeployment)
+* DeploymentType `string` (values: NewDeployment, Redeployment, ResetDeployment, ForceResetDeployment): The type of deployment. When used for ''CreateDeployment'', only ''NewDeployment'' and ''Redeployment'' are valid.
 
 ### Deployments
 * Deployments `array`
@@ -1624,39 +2154,37 @@ amazonaws_greengrass.CreateSoftwareUpdateJob({}, context)
 
 ### Device
 * Device `object`: Information about a device.
-  * CertificateArn [__string](#__string)
-  * Id [__string](#__string)
-  * SyncShadow [__boolean](#__boolean)
-  * ThingArn [__string](#__string)
+  * CertificateArn **required**
+  * Id **required**
+  * SyncShadow
+  * ThingArn **required**
 
 ### DeviceDefinitionVersion
 * DeviceDefinitionVersion `object`: Information about a device definition version.
-  * Devices [__listOfDevice](#__listofdevice)
+  * Devices
+    * items [Device](#device)
 
 ### DisassociateRoleFromGroupRequest
 * DisassociateRoleFromGroupRequest `object`
 
 ### DisassociateRoleFromGroupResponse
 * DisassociateRoleFromGroupResponse `object`
-  * DisassociatedAt [__string](#__string)
+  * DisassociatedAt
 
 ### DisassociateServiceRoleFromAccountRequest
 * DisassociateServiceRoleFromAccountRequest `object`
 
 ### DisassociateServiceRoleFromAccountResponse
 * DisassociateServiceRoleFromAccountResponse `object`
-  * DisassociatedAt [__string](#__string)
-
-### Empty
-* Empty `object`: Empty
+  * DisassociatedAt
 
 ### EncodingType
 * EncodingType `string` (values: binary, json)
 
 ### ErrorDetail
 * ErrorDetail `object`: Details about the error.
-  * DetailedErrorCode [__string](#__string)
-  * DetailedErrorMessage [__string](#__string)
+  * DetailedErrorCode
+  * DetailedErrorMessage
 
 ### ErrorDetails
 * ErrorDetails `array`: A list of error details.
@@ -1664,458 +2192,638 @@ amazonaws_greengrass.CreateSoftwareUpdateJob({}, context)
 
 ### Function
 * Function `object`: Information about a Lambda function.
-  * FunctionArn [__string](#__string)
-  * FunctionConfiguration [FunctionConfiguration](#functionconfiguration)
-  * Id [__string](#__string)
+  * FunctionArn
+  * FunctionConfiguration
+    * EncodingType
+    * Environment
+      * AccessSysfs
+      * Execution
+        * IsolationMode [FunctionIsolationMode](#functionisolationmode)
+        * RunAs [FunctionRunAsConfig](#functionrunasconfig)
+      * ResourceAccessPolicies
+        * items [ResourceAccessPolicy](#resourceaccesspolicy)
+      * Variables
+    * ExecArgs
+    * Executable
+    * MemorySize
+    * Pinned
+    * Timeout
+  * Id **required**
 
 ### FunctionConfiguration
 * FunctionConfiguration `object`: The configuration of the Lambda function.
-  * EncodingType [EncodingType](#encodingtype)
-  * Environment [FunctionConfigurationEnvironment](#functionconfigurationenvironment)
-  * ExecArgs [__string](#__string)
-  * Executable [__string](#__string)
-  * MemorySize [__integer](#__integer)
-  * Pinned [__boolean](#__boolean)
-  * Timeout [__integer](#__integer)
+  * EncodingType
+  * Environment
+    * AccessSysfs
+    * Execution
+      * IsolationMode [FunctionIsolationMode](#functionisolationmode)
+      * RunAs [FunctionRunAsConfig](#functionrunasconfig)
+    * ResourceAccessPolicies
+      * items [ResourceAccessPolicy](#resourceaccesspolicy)
+    * Variables
+  * ExecArgs
+  * Executable
+  * MemorySize
+  * Pinned
+  * Timeout
 
 ### FunctionConfigurationEnvironment
 * FunctionConfigurationEnvironment `object`: The environment configuration of the function.
-  * AccessSysfs [__boolean](#__boolean)
-  * ResourceAccessPolicies [__listOfResourceAccessPolicy](#__listofresourceaccesspolicy)
-  * Variables [__mapOf__string](#__mapof__string)
+  * AccessSysfs
+  * Execution
+    * IsolationMode [FunctionIsolationMode](#functionisolationmode)
+    * RunAs [FunctionRunAsConfig](#functionrunasconfig)
+  * ResourceAccessPolicies
+    * items [ResourceAccessPolicy](#resourceaccesspolicy)
+  * Variables
+
+### FunctionDefaultConfig
+* FunctionDefaultConfig `object`: The default configuration that applies to all Lambda functions in the group. Individual Lambda functions can override these settings.
+  * Execution [FunctionDefaultExecutionConfig](#functiondefaultexecutionconfig)
+
+### FunctionDefaultExecutionConfig
+* FunctionDefaultExecutionConfig `object`: Configuration information that specifies how a Lambda function runs. 
+  * IsolationMode [FunctionIsolationMode](#functionisolationmode)
+  * RunAs [FunctionRunAsConfig](#functionrunasconfig)
 
 ### FunctionDefinitionVersion
 * FunctionDefinitionVersion `object`: Information about a function definition version.
-  * Functions [__listOfFunction](#__listoffunction)
+  * DefaultConfig
+    * Execution [FunctionDefaultExecutionConfig](#functiondefaultexecutionconfig)
+  * Functions
+    * items [Function](#function)
 
-### GeneralError
-* GeneralError `object`: General error information.
-  * ErrorDetails [ErrorDetails](#errordetails)
-  * Message [__string](#__string)
+### FunctionExecutionConfig
+* FunctionExecutionConfig `object`: Configuration information that specifies how a Lambda function runs. 
+  * IsolationMode [FunctionIsolationMode](#functionisolationmode)
+  * RunAs [FunctionRunAsConfig](#functionrunasconfig)
+
+### FunctionIsolationMode
+* FunctionIsolationMode `string` (values: GreengrassContainer, NoContainer): Specifies whether the Lambda function runs in a Greengrass container (default) or without containerization. Unless your scenario requires that you run without containerization, we recommend that you run in a Greengrass container. Omit this value to run the Lambda function with the default containerization for the group.
+
+### FunctionRunAsConfig
+* FunctionRunAsConfig `object`: Specifies the user and group whose permissions are used when running the Lambda function. You can specify one or both values to override the default values. We recommend that you avoid running as root unless absolutely necessary to minimize the risk of unintended changes or malicious attacks. To run as root, you must set ''IsolationMode'' to ''NoContainer'' and update config.json in ''greengrass-root/config'' to set ''allowFunctionsToRunAsRoot'' to ''yes''.
+  * Gid
+  * Uid
 
 ### GetAssociatedRoleRequest
 * GetAssociatedRoleRequest `object`
 
 ### GetAssociatedRoleResponse
 * GetAssociatedRoleResponse `object`
-  * AssociatedAt [__string](#__string)
-  * RoleArn [__string](#__string)
+  * AssociatedAt
+  * RoleArn
+
+### GetBulkDeploymentStatusRequest
+* GetBulkDeploymentStatusRequest `object`
+
+### GetBulkDeploymentStatusResponse
+* GetBulkDeploymentStatusResponse `object`
+  * tags
+  * BulkDeploymentMetrics
+    * InvalidInputRecords
+    * RecordsProcessed
+    * RetryAttempts
+  * BulkDeploymentStatus
+  * CreatedAt
+  * ErrorDetails
+    * items [ErrorDetail](#errordetail)
+  * ErrorMessage
 
 ### GetConnectivityInfoRequest
 * GetConnectivityInfoRequest `object`
 
 ### GetConnectivityInfoResponse
 * GetConnectivityInfoResponse `object`
-  * ConnectivityInfo [__listOfConnectivityInfo](#__listofconnectivityinfo)
-  * Message [__string](#__string)
+  * ConnectivityInfo
+    * items [ConnectivityInfo](#connectivityinfo)
+  * Message
+
+### GetConnectorDefinitionRequest
+* GetConnectorDefinitionRequest `object`
+
+### GetConnectorDefinitionResponse
+* GetConnectorDefinitionResponse `object`
+  * tags
+  * Arn
+  * CreationTimestamp
+  * Id
+  * LastUpdatedTimestamp
+  * LatestVersion
+  * LatestVersionArn
+  * Name
+
+### GetConnectorDefinitionVersionRequest
+* GetConnectorDefinitionVersionRequest `object`
+
+### GetConnectorDefinitionVersionResponse
+* GetConnectorDefinitionVersionResponse `object`
+  * Arn
+  * CreationTimestamp
+  * Definition
+    * Connectors
+      * items [Connector](#connector)
+  * Id
+  * NextToken
+  * Version
 
 ### GetCoreDefinitionRequest
 * GetCoreDefinitionRequest `object`
 
 ### GetCoreDefinitionResponse
 * GetCoreDefinitionResponse `object`
-  * Arn [__string](#__string)
-  * CreationTimestamp [__string](#__string)
-  * Id [__string](#__string)
-  * LastUpdatedTimestamp [__string](#__string)
-  * LatestVersion [__string](#__string)
-  * LatestVersionArn [__string](#__string)
-  * Name [__string](#__string)
+  * tags
+  * Arn
+  * CreationTimestamp
+  * Id
+  * LastUpdatedTimestamp
+  * LatestVersion
+  * LatestVersionArn
+  * Name
 
 ### GetCoreDefinitionVersionRequest
 * GetCoreDefinitionVersionRequest `object`
 
 ### GetCoreDefinitionVersionResponse
 * GetCoreDefinitionVersionResponse `object`
-  * Arn [__string](#__string)
-  * CreationTimestamp [__string](#__string)
-  * Definition [CoreDefinitionVersion](#coredefinitionversion)
-  * Id [__string](#__string)
-  * Version [__string](#__string)
+  * Arn
+  * CreationTimestamp
+  * Definition
+    * Cores
+      * items [Core](#core)
+  * Id
+  * NextToken
+  * Version
 
 ### GetDeploymentStatusRequest
 * GetDeploymentStatusRequest `object`
 
 ### GetDeploymentStatusResponse
 * GetDeploymentStatusResponse `object`
-  * DeploymentStatus [__string](#__string)
-  * DeploymentType [DeploymentType](#deploymenttype)
-  * ErrorDetails [ErrorDetails](#errordetails)
-  * ErrorMessage [__string](#__string)
-  * UpdatedAt [__string](#__string)
+  * DeploymentStatus
+  * DeploymentType
+  * ErrorDetails
+    * items [ErrorDetail](#errordetail)
+  * ErrorMessage
+  * UpdatedAt
 
 ### GetDeviceDefinitionRequest
 * GetDeviceDefinitionRequest `object`
 
 ### GetDeviceDefinitionResponse
 * GetDeviceDefinitionResponse `object`
-  * Arn [__string](#__string)
-  * CreationTimestamp [__string](#__string)
-  * Id [__string](#__string)
-  * LastUpdatedTimestamp [__string](#__string)
-  * LatestVersion [__string](#__string)
-  * LatestVersionArn [__string](#__string)
-  * Name [__string](#__string)
+  * tags
+  * Arn
+  * CreationTimestamp
+  * Id
+  * LastUpdatedTimestamp
+  * LatestVersion
+  * LatestVersionArn
+  * Name
 
 ### GetDeviceDefinitionVersionRequest
 * GetDeviceDefinitionVersionRequest `object`
 
 ### GetDeviceDefinitionVersionResponse
 * GetDeviceDefinitionVersionResponse `object`
-  * Arn [__string](#__string)
-  * CreationTimestamp [__string](#__string)
-  * Definition [DeviceDefinitionVersion](#devicedefinitionversion)
-  * Id [__string](#__string)
-  * Version [__string](#__string)
+  * Arn
+  * CreationTimestamp
+  * Definition
+    * Devices
+      * items [Device](#device)
+  * Id
+  * NextToken
+  * Version
 
 ### GetFunctionDefinitionRequest
 * GetFunctionDefinitionRequest `object`
 
 ### GetFunctionDefinitionResponse
 * GetFunctionDefinitionResponse `object`
-  * Arn [__string](#__string)
-  * CreationTimestamp [__string](#__string)
-  * Id [__string](#__string)
-  * LastUpdatedTimestamp [__string](#__string)
-  * LatestVersion [__string](#__string)
-  * LatestVersionArn [__string](#__string)
-  * Name [__string](#__string)
+  * tags
+  * Arn
+  * CreationTimestamp
+  * Id
+  * LastUpdatedTimestamp
+  * LatestVersion
+  * LatestVersionArn
+  * Name
 
 ### GetFunctionDefinitionVersionRequest
 * GetFunctionDefinitionVersionRequest `object`
 
 ### GetFunctionDefinitionVersionResponse
 * GetFunctionDefinitionVersionResponse `object`
-  * Arn [__string](#__string)
-  * CreationTimestamp [__string](#__string)
-  * Definition [FunctionDefinitionVersion](#functiondefinitionversion)
-  * Id [__string](#__string)
-  * Version [__string](#__string)
+  * Arn
+  * CreationTimestamp
+  * Definition
+    * DefaultConfig
+      * Execution [FunctionDefaultExecutionConfig](#functiondefaultexecutionconfig)
+    * Functions
+      * items [Function](#function)
+  * Id
+  * NextToken
+  * Version
 
 ### GetGroupCertificateAuthorityRequest
 * GetGroupCertificateAuthorityRequest `object`
 
 ### GetGroupCertificateAuthorityResponse
 * GetGroupCertificateAuthorityResponse `object`
-  * GroupCertificateAuthorityArn [__string](#__string)
-  * GroupCertificateAuthorityId [__string](#__string)
-  * PemEncodedCertificate [__string](#__string)
+  * GroupCertificateAuthorityArn
+  * GroupCertificateAuthorityId
+  * PemEncodedCertificate
 
 ### GetGroupCertificateConfigurationRequest
 * GetGroupCertificateConfigurationRequest `object`
 
 ### GetGroupCertificateConfigurationResponse
 * GetGroupCertificateConfigurationResponse `object`
-  * CertificateAuthorityExpiryInMilliseconds [__string](#__string)
-  * CertificateExpiryInMilliseconds [__string](#__string)
-  * GroupId [__string](#__string)
+  * CertificateAuthorityExpiryInMilliseconds
+  * CertificateExpiryInMilliseconds
+  * GroupId
 
 ### GetGroupRequest
 * GetGroupRequest `object`
 
 ### GetGroupResponse
 * GetGroupResponse `object`
-  * Arn [__string](#__string)
-  * CreationTimestamp [__string](#__string)
-  * Id [__string](#__string)
-  * LastUpdatedTimestamp [__string](#__string)
-  * LatestVersion [__string](#__string)
-  * LatestVersionArn [__string](#__string)
-  * Name [__string](#__string)
+  * tags
+  * Arn
+  * CreationTimestamp
+  * Id
+  * LastUpdatedTimestamp
+  * LatestVersion
+  * LatestVersionArn
+  * Name
 
 ### GetGroupVersionRequest
 * GetGroupVersionRequest `object`
 
 ### GetGroupVersionResponse
 * GetGroupVersionResponse `object`
-  * Arn [__string](#__string)
-  * CreationTimestamp [__string](#__string)
-  * Definition [GroupVersion](#groupversion)
-  * Id [__string](#__string)
-  * Version [__string](#__string)
+  * Arn
+  * CreationTimestamp
+  * Definition
+    * ConnectorDefinitionVersionArn
+    * CoreDefinitionVersionArn
+    * DeviceDefinitionVersionArn
+    * FunctionDefinitionVersionArn
+    * LoggerDefinitionVersionArn
+    * ResourceDefinitionVersionArn
+    * SubscriptionDefinitionVersionArn
+  * Id
+  * Version
 
 ### GetLoggerDefinitionRequest
 * GetLoggerDefinitionRequest `object`
 
 ### GetLoggerDefinitionResponse
 * GetLoggerDefinitionResponse `object`
-  * Arn [__string](#__string)
-  * CreationTimestamp [__string](#__string)
-  * Id [__string](#__string)
-  * LastUpdatedTimestamp [__string](#__string)
-  * LatestVersion [__string](#__string)
-  * LatestVersionArn [__string](#__string)
-  * Name [__string](#__string)
+  * tags
+  * Arn
+  * CreationTimestamp
+  * Id
+  * LastUpdatedTimestamp
+  * LatestVersion
+  * LatestVersionArn
+  * Name
 
 ### GetLoggerDefinitionVersionRequest
 * GetLoggerDefinitionVersionRequest `object`
 
 ### GetLoggerDefinitionVersionResponse
 * GetLoggerDefinitionVersionResponse `object`
-  * Arn [__string](#__string)
-  * CreationTimestamp [__string](#__string)
-  * Definition [LoggerDefinitionVersion](#loggerdefinitionversion)
-  * Id [__string](#__string)
-  * Version [__string](#__string)
+  * Arn
+  * CreationTimestamp
+  * Definition
+    * Loggers
+      * items [Logger](#logger)
+  * Id
+  * Version
 
 ### GetResourceDefinitionRequest
 * GetResourceDefinitionRequest `object`
 
 ### GetResourceDefinitionResponse
 * GetResourceDefinitionResponse `object`
-  * Arn [__string](#__string)
-  * CreationTimestamp [__string](#__string)
-  * Id [__string](#__string)
-  * LastUpdatedTimestamp [__string](#__string)
-  * LatestVersion [__string](#__string)
-  * LatestVersionArn [__string](#__string)
-  * Name [__string](#__string)
+  * tags
+  * Arn
+  * CreationTimestamp
+  * Id
+  * LastUpdatedTimestamp
+  * LatestVersion
+  * LatestVersionArn
+  * Name
 
 ### GetResourceDefinitionVersionRequest
 * GetResourceDefinitionVersionRequest `object`
 
 ### GetResourceDefinitionVersionResponse
 * GetResourceDefinitionVersionResponse `object`
-  * Arn [__string](#__string)
-  * CreationTimestamp [__string](#__string)
-  * Definition [ResourceDefinitionVersion](#resourcedefinitionversion)
-  * Id [__string](#__string)
-  * Version [__string](#__string)
+  * Arn
+  * CreationTimestamp
+  * Definition
+    * Resources
+      * items [Resource](#resource)
+  * Id
+  * Version
 
 ### GetServiceRoleForAccountRequest
 * GetServiceRoleForAccountRequest `object`
 
 ### GetServiceRoleForAccountResponse
 * GetServiceRoleForAccountResponse `object`
-  * AssociatedAt [__string](#__string)
-  * RoleArn [__string](#__string)
+  * AssociatedAt
+  * RoleArn
 
 ### GetSubscriptionDefinitionRequest
 * GetSubscriptionDefinitionRequest `object`
 
 ### GetSubscriptionDefinitionResponse
 * GetSubscriptionDefinitionResponse `object`
-  * Arn [__string](#__string)
-  * CreationTimestamp [__string](#__string)
-  * Id [__string](#__string)
-  * LastUpdatedTimestamp [__string](#__string)
-  * LatestVersion [__string](#__string)
-  * LatestVersionArn [__string](#__string)
-  * Name [__string](#__string)
+  * tags
+  * Arn
+  * CreationTimestamp
+  * Id
+  * LastUpdatedTimestamp
+  * LatestVersion
+  * LatestVersionArn
+  * Name
 
 ### GetSubscriptionDefinitionVersionRequest
 * GetSubscriptionDefinitionVersionRequest `object`
 
 ### GetSubscriptionDefinitionVersionResponse
 * GetSubscriptionDefinitionVersionResponse `object`
-  * Arn [__string](#__string)
-  * CreationTimestamp [__string](#__string)
-  * Definition [SubscriptionDefinitionVersion](#subscriptiondefinitionversion)
-  * Id [__string](#__string)
-  * Version [__string](#__string)
+  * Arn
+  * CreationTimestamp
+  * Definition
+    * Subscriptions
+      * items [Subscription](#subscription)
+  * Id
+  * NextToken
+  * Version
+
+### GetThingRuntimeConfigurationRequest
+* GetThingRuntimeConfigurationRequest `object`
+
+### GetThingRuntimeConfigurationResponse
+* GetThingRuntimeConfigurationResponse `object`
+  * RuntimeConfiguration
+    * TelemetryConfiguration
+      * ConfigurationSyncStatus
+      * Telemetry **required**
 
 ### GroupCertificateAuthorityProperties
 * GroupCertificateAuthorityProperties `object`: Information about a certificate authority for a group.
-  * GroupCertificateAuthorityArn [__string](#__string)
-  * GroupCertificateAuthorityId [__string](#__string)
-
-### GroupCertificateConfiguration
-* GroupCertificateConfiguration `object`: Information about a group certificate configuration.
-  * CertificateAuthorityExpiryInMilliseconds [__string](#__string)
-  * CertificateExpiryInMilliseconds [__string](#__string)
-  * GroupId [__string](#__string)
+  * GroupCertificateAuthorityArn
+  * GroupCertificateAuthorityId
 
 ### GroupInformation
 * GroupInformation `object`: Information about a group.
-  * Arn [__string](#__string)
-  * CreationTimestamp [__string](#__string)
-  * Id [__string](#__string)
-  * LastUpdatedTimestamp [__string](#__string)
-  * LatestVersion [__string](#__string)
-  * LatestVersionArn [__string](#__string)
-  * Name [__string](#__string)
+  * Arn
+  * CreationTimestamp
+  * Id
+  * LastUpdatedTimestamp
+  * LatestVersion
+  * LatestVersionArn
+  * Name
 
 ### GroupOwnerSetting
 * GroupOwnerSetting `object`: Group owner related settings for local resources.
-  * AutoAddGroupOwner [__boolean](#__boolean)
-  * GroupOwner [__string](#__string)
+  * AutoAddGroupOwner
+  * GroupOwner
 
 ### GroupVersion
 * GroupVersion `object`: Information about a group version.
-  * CoreDefinitionVersionArn [__string](#__string)
-  * DeviceDefinitionVersionArn [__string](#__string)
-  * FunctionDefinitionVersionArn [__string](#__string)
-  * LoggerDefinitionVersionArn [__string](#__string)
-  * ResourceDefinitionVersionArn [__string](#__string)
-  * SubscriptionDefinitionVersionArn [__string](#__string)
+  * ConnectorDefinitionVersionArn
+  * CoreDefinitionVersionArn
+  * DeviceDefinitionVersionArn
+  * FunctionDefinitionVersionArn
+  * LoggerDefinitionVersionArn
+  * ResourceDefinitionVersionArn
+  * SubscriptionDefinitionVersionArn
 
 ### InternalServerErrorException
-* InternalServerErrorException `object`: General error information.
-  * ErrorDetails [ErrorDetails](#errordetails)
-  * Message [__string](#__string)
+
+
+### ListBulkDeploymentDetailedReportsRequest
+* ListBulkDeploymentDetailedReportsRequest `object`
+
+### ListBulkDeploymentDetailedReportsResponse
+* ListBulkDeploymentDetailedReportsResponse `object`
+  * Deployments
+    * items [BulkDeploymentResult](#bulkdeploymentresult)
+  * NextToken
+
+### ListBulkDeploymentsRequest
+* ListBulkDeploymentsRequest `object`
+
+### ListBulkDeploymentsResponse
+* ListBulkDeploymentsResponse `object`
+  * BulkDeployments
+    * items [BulkDeployment](#bulkdeployment)
+  * NextToken
+
+### ListConnectorDefinitionVersionsRequest
+* ListConnectorDefinitionVersionsRequest `object`
+
+### ListConnectorDefinitionVersionsResponse
+* ListConnectorDefinitionVersionsResponse `object`
+  * NextToken
+  * Versions
+    * items [VersionInformation](#versioninformation)
+
+### ListConnectorDefinitionsRequest
+* ListConnectorDefinitionsRequest `object`
+
+### ListConnectorDefinitionsResponse
+* ListConnectorDefinitionsResponse `object`
+  * Definitions
+    * items [DefinitionInformation](#definitioninformation)
+  * NextToken
 
 ### ListCoreDefinitionVersionsRequest
 * ListCoreDefinitionVersionsRequest `object`
 
 ### ListCoreDefinitionVersionsResponse
 * ListCoreDefinitionVersionsResponse `object`
-  * NextToken [__string](#__string)
-  * Versions [__listOfVersionInformation](#__listofversioninformation)
+  * NextToken
+  * Versions
+    * items [VersionInformation](#versioninformation)
 
 ### ListCoreDefinitionsRequest
 * ListCoreDefinitionsRequest `object`
 
 ### ListCoreDefinitionsResponse
 * ListCoreDefinitionsResponse `object`
-  * Definitions [__listOfDefinitionInformation](#__listofdefinitioninformation)
-  * NextToken [__string](#__string)
-
-### ListDefinitionsResponse
-* ListDefinitionsResponse `object`: A list of definitions.
-  * Definitions [__listOfDefinitionInformation](#__listofdefinitioninformation)
-  * NextToken [__string](#__string)
+  * Definitions
+    * items [DefinitionInformation](#definitioninformation)
+  * NextToken
 
 ### ListDeploymentsRequest
 * ListDeploymentsRequest `object`
 
 ### ListDeploymentsResponse
 * ListDeploymentsResponse `object`
-  * Deployments [Deployments](#deployments)
-  * NextToken [__string](#__string)
+  * Deployments
+    * items [Deployment](#deployment)
+  * NextToken
 
 ### ListDeviceDefinitionVersionsRequest
 * ListDeviceDefinitionVersionsRequest `object`
 
 ### ListDeviceDefinitionVersionsResponse
 * ListDeviceDefinitionVersionsResponse `object`
-  * NextToken [__string](#__string)
-  * Versions [__listOfVersionInformation](#__listofversioninformation)
+  * NextToken
+  * Versions
+    * items [VersionInformation](#versioninformation)
 
 ### ListDeviceDefinitionsRequest
 * ListDeviceDefinitionsRequest `object`
 
 ### ListDeviceDefinitionsResponse
 * ListDeviceDefinitionsResponse `object`
-  * Definitions [__listOfDefinitionInformation](#__listofdefinitioninformation)
-  * NextToken [__string](#__string)
+  * Definitions
+    * items [DefinitionInformation](#definitioninformation)
+  * NextToken
 
 ### ListFunctionDefinitionVersionsRequest
 * ListFunctionDefinitionVersionsRequest `object`
 
 ### ListFunctionDefinitionVersionsResponse
 * ListFunctionDefinitionVersionsResponse `object`
-  * NextToken [__string](#__string)
-  * Versions [__listOfVersionInformation](#__listofversioninformation)
+  * NextToken
+  * Versions
+    * items [VersionInformation](#versioninformation)
 
 ### ListFunctionDefinitionsRequest
 * ListFunctionDefinitionsRequest `object`
 
 ### ListFunctionDefinitionsResponse
 * ListFunctionDefinitionsResponse `object`
-  * Definitions [__listOfDefinitionInformation](#__listofdefinitioninformation)
-  * NextToken [__string](#__string)
+  * Definitions
+    * items [DefinitionInformation](#definitioninformation)
+  * NextToken
 
 ### ListGroupCertificateAuthoritiesRequest
 * ListGroupCertificateAuthoritiesRequest `object`
 
 ### ListGroupCertificateAuthoritiesResponse
 * ListGroupCertificateAuthoritiesResponse `object`
-  * GroupCertificateAuthorities [__listOfGroupCertificateAuthorityProperties](#__listofgroupcertificateauthorityproperties)
+  * GroupCertificateAuthorities
+    * items [GroupCertificateAuthorityProperties](#groupcertificateauthorityproperties)
 
 ### ListGroupVersionsRequest
 * ListGroupVersionsRequest `object`
 
 ### ListGroupVersionsResponse
 * ListGroupVersionsResponse `object`
-  * NextToken [__string](#__string)
-  * Versions [__listOfVersionInformation](#__listofversioninformation)
+  * NextToken
+  * Versions
+    * items [VersionInformation](#versioninformation)
 
 ### ListGroupsRequest
 * ListGroupsRequest `object`
 
 ### ListGroupsResponse
 * ListGroupsResponse `object`
-  * Groups [__listOfGroupInformation](#__listofgroupinformation)
-  * NextToken [__string](#__string)
+  * Groups
+    * items [GroupInformation](#groupinformation)
+  * NextToken
 
 ### ListLoggerDefinitionVersionsRequest
 * ListLoggerDefinitionVersionsRequest `object`
 
 ### ListLoggerDefinitionVersionsResponse
 * ListLoggerDefinitionVersionsResponse `object`
-  * NextToken [__string](#__string)
-  * Versions [__listOfVersionInformation](#__listofversioninformation)
+  * NextToken
+  * Versions
+    * items [VersionInformation](#versioninformation)
 
 ### ListLoggerDefinitionsRequest
 * ListLoggerDefinitionsRequest `object`
 
 ### ListLoggerDefinitionsResponse
 * ListLoggerDefinitionsResponse `object`
-  * Definitions [__listOfDefinitionInformation](#__listofdefinitioninformation)
-  * NextToken [__string](#__string)
+  * Definitions
+    * items [DefinitionInformation](#definitioninformation)
+  * NextToken
 
 ### ListResourceDefinitionVersionsRequest
 * ListResourceDefinitionVersionsRequest `object`
 
 ### ListResourceDefinitionVersionsResponse
 * ListResourceDefinitionVersionsResponse `object`
-  * NextToken [__string](#__string)
-  * Versions [__listOfVersionInformation](#__listofversioninformation)
+  * NextToken
+  * Versions
+    * items [VersionInformation](#versioninformation)
 
 ### ListResourceDefinitionsRequest
 * ListResourceDefinitionsRequest `object`
 
 ### ListResourceDefinitionsResponse
 * ListResourceDefinitionsResponse `object`
-  * Definitions [__listOfDefinitionInformation](#__listofdefinitioninformation)
-  * NextToken [__string](#__string)
+  * Definitions
+    * items [DefinitionInformation](#definitioninformation)
+  * NextToken
 
 ### ListSubscriptionDefinitionVersionsRequest
 * ListSubscriptionDefinitionVersionsRequest `object`
 
 ### ListSubscriptionDefinitionVersionsResponse
 * ListSubscriptionDefinitionVersionsResponse `object`
-  * NextToken [__string](#__string)
-  * Versions [__listOfVersionInformation](#__listofversioninformation)
+  * NextToken
+  * Versions
+    * items [VersionInformation](#versioninformation)
 
 ### ListSubscriptionDefinitionsRequest
 * ListSubscriptionDefinitionsRequest `object`
 
 ### ListSubscriptionDefinitionsResponse
 * ListSubscriptionDefinitionsResponse `object`
-  * Definitions [__listOfDefinitionInformation](#__listofdefinitioninformation)
-  * NextToken [__string](#__string)
+  * Definitions
+    * items [DefinitionInformation](#definitioninformation)
+  * NextToken
 
-### ListVersionsResponse
-* ListVersionsResponse `object`: A list of versions.
-  * NextToken [__string](#__string)
-  * Versions [__listOfVersionInformation](#__listofversioninformation)
+### ListTagsForResourceRequest
+* ListTagsForResourceRequest `object`
+
+### ListTagsForResourceResponse
+* ListTagsForResourceResponse `object`
+  * tags [Tags](#tags)
 
 ### LocalDeviceResourceData
 * LocalDeviceResourceData `object`: Attributes that define a local device resource.
-  * GroupOwnerSetting [GroupOwnerSetting](#groupownersetting)
-  * SourcePath [__string](#__string)
+  * GroupOwnerSetting
+    * AutoAddGroupOwner
+    * GroupOwner
+  * SourcePath
 
 ### LocalVolumeResourceData
 * LocalVolumeResourceData `object`: Attributes that define a local volume resource.
-  * DestinationPath [__string](#__string)
-  * GroupOwnerSetting [GroupOwnerSetting](#groupownersetting)
-  * SourcePath [__string](#__string)
+  * DestinationPath
+  * GroupOwnerSetting
+    * AutoAddGroupOwner
+    * GroupOwner
+  * SourcePath
 
 ### Logger
 * Logger `object`: Information about a logger
-  * Component [LoggerComponent](#loggercomponent)
-  * Id [__string](#__string)
-  * Level [LoggerLevel](#loggerlevel)
-  * Space [__integer](#__integer)
-  * Type [LoggerType](#loggertype)
+  * Component **required**
+  * Id **required**
+  * Level **required**
+  * Space
+  * Type **required**
 
 ### LoggerComponent
 * LoggerComponent `string` (values: GreengrassSystem, Lambda)
 
 ### LoggerDefinitionVersion
 * LoggerDefinitionVersion `object`: Information about a logger definition version.
-  * Loggers [__listOfLogger](#__listoflogger)
+  * Loggers
+    * items [Logger](#logger)
 
 ### LoggerLevel
 * LoggerLevel `string` (values: DEBUG, INFO, WARN, ERROR, FATAL)
@@ -2128,129 +2836,239 @@ amazonaws_greengrass.CreateSoftwareUpdateJob({}, context)
 
 ### ResetDeploymentsRequest
 * ResetDeploymentsRequest `object`: Information needed to reset deployments.
-  * Force [__boolean](#__boolean)
+  * Force
 
 ### ResetDeploymentsResponse
 * ResetDeploymentsResponse `object`
-  * DeploymentArn [__string](#__string)
-  * DeploymentId [__string](#__string)
+  * DeploymentArn
+  * DeploymentId
 
 ### Resource
 * Resource `object`: Information about a resource.
-  * Id [__string](#__string)
-  * Name [__string](#__string)
-  * ResourceDataContainer [ResourceDataContainer](#resourcedatacontainer)
+  * Id **required**
+  * Name **required**
+  * ResourceDataContainer **required**
+    * LocalDeviceResourceData
+      * GroupOwnerSetting
+        * AutoAddGroupOwner
+        * GroupOwner
+      * SourcePath
+    * LocalVolumeResourceData
+      * DestinationPath
+      * GroupOwnerSetting
+        * AutoAddGroupOwner
+        * GroupOwner
+      * SourcePath
+    * S3MachineLearningModelResourceData
+      * DestinationPath
+      * OwnerSetting [ResourceDownloadOwnerSetting](#resourcedownloadownersetting)
+      * S3Uri
+    * SageMakerMachineLearningModelResourceData
+      * DestinationPath
+      * OwnerSetting [ResourceDownloadOwnerSetting](#resourcedownloadownersetting)
+      * SageMakerJobArn
+    * SecretsManagerSecretResourceData
+      * ARN
+      * AdditionalStagingLabelsToDownload
+        * items [__string](#__string)
 
 ### ResourceAccessPolicy
 * ResourceAccessPolicy `object`: A policy used by the function to access a resource.
-  * Permission [Permission](#permission)
-  * ResourceId [__string](#__string)
+  * Permission
+  * ResourceId **required**
 
 ### ResourceDataContainer
-* ResourceDataContainer `object`: A container for resource data. The container takes only one of the following supported resource data types: ''LocalDeviceResourceData'', ''LocalVolumeResourceData'', ''SageMakerMachineLearningModelResourceData'', ''S3MachineLearningModelResourceData''.
-  * LocalDeviceResourceData [LocalDeviceResourceData](#localdeviceresourcedata)
-  * LocalVolumeResourceData [LocalVolumeResourceData](#localvolumeresourcedata)
-  * S3MachineLearningModelResourceData [S3MachineLearningModelResourceData](#s3machinelearningmodelresourcedata)
-  * SageMakerMachineLearningModelResourceData [SageMakerMachineLearningModelResourceData](#sagemakermachinelearningmodelresourcedata)
+* ResourceDataContainer `object`: A container for resource data. The container takes only one of the following supported resource data types: ''LocalDeviceResourceData'', ''LocalVolumeResourceData'', ''SageMakerMachineLearningModelResourceData'', ''S3MachineLearningModelResourceData'', ''SecretsManagerSecretResourceData''.
+  * LocalDeviceResourceData
+    * GroupOwnerSetting
+      * AutoAddGroupOwner
+      * GroupOwner
+    * SourcePath
+  * LocalVolumeResourceData
+    * DestinationPath
+    * GroupOwnerSetting
+      * AutoAddGroupOwner
+      * GroupOwner
+    * SourcePath
+  * S3MachineLearningModelResourceData
+    * DestinationPath
+    * OwnerSetting [ResourceDownloadOwnerSetting](#resourcedownloadownersetting)
+    * S3Uri
+  * SageMakerMachineLearningModelResourceData
+    * DestinationPath
+    * OwnerSetting [ResourceDownloadOwnerSetting](#resourcedownloadownersetting)
+    * SageMakerJobArn
+  * SecretsManagerSecretResourceData
+    * ARN
+    * AdditionalStagingLabelsToDownload
+      * items [__string](#__string)
 
 ### ResourceDefinitionVersion
 * ResourceDefinitionVersion `object`: Information about a resource definition version.
-  * Resources [__listOfResource](#__listofresource)
+  * Resources
+    * items [Resource](#resource)
+
+### ResourceDownloadOwnerSetting
+* ResourceDownloadOwnerSetting `object`: The owner setting for downloaded machine learning resources.
+  * GroupOwner **required**
+  * GroupPermission **required**
+
+### RuntimeConfiguration
+* RuntimeConfiguration `object`: Runtime configuration for a thing.
+  * TelemetryConfiguration
+    * ConfigurationSyncStatus
+    * Telemetry **required**
 
 ### S3MachineLearningModelResourceData
-* S3MachineLearningModelResourceData `object`: Attributes that define an S3 machine learning resource.
-  * DestinationPath [__string](#__string)
-  * S3Uri [__string](#__string)
+* S3MachineLearningModelResourceData `object`: Attributes that define an Amazon S3 machine learning resource.
+  * DestinationPath
+  * OwnerSetting [ResourceDownloadOwnerSetting](#resourcedownloadownersetting)
+  * S3Uri
 
 ### S3UrlSignerRole
 * S3UrlSignerRole `string`: The IAM Role that Greengrass will use to create pre-signed URLs pointing towards the update artifact.
 
 ### SageMakerMachineLearningModelResourceData
-* SageMakerMachineLearningModelResourceData `object`: Attributes that define an SageMaker machine learning resource.
-  * DestinationPath [__string](#__string)
-  * SageMakerJobArn [__string](#__string)
+* SageMakerMachineLearningModelResourceData `object`: Attributes that define an Amazon SageMaker machine learning resource.
+  * DestinationPath
+  * OwnerSetting [ResourceDownloadOwnerSetting](#resourcedownloadownersetting)
+  * SageMakerJobArn
+
+### SecretsManagerSecretResourceData
+* SecretsManagerSecretResourceData `object`: Attributes that define a secret resource, which references a secret from AWS Secrets Manager. AWS IoT Greengrass stores a local, encrypted copy of the secret on the Greengrass core, where it can be securely accessed by connectors and Lambda functions.
+  * ARN
+  * AdditionalStagingLabelsToDownload
+    * items [__string](#__string)
 
 ### SoftwareToUpdate
 * SoftwareToUpdate `string` (values: core, ota_agent): The piece of software on the Greengrass core that will be updated.
 
+### StartBulkDeploymentRequest
+* StartBulkDeploymentRequest `object`
+  * tags
+  * ExecutionRoleArn **required**
+  * InputFileUri **required**
+
+### StartBulkDeploymentResponse
+* StartBulkDeploymentResponse `object`
+  * BulkDeploymentArn
+  * BulkDeploymentId
+
+### StopBulkDeploymentRequest
+* StopBulkDeploymentRequest `object`
+
+### StopBulkDeploymentResponse
+* StopBulkDeploymentResponse `object`
+
 ### Subscription
 * Subscription `object`: Information about a subscription.
-  * Id [__string](#__string)
-  * Source [__string](#__string)
-  * Subject [__string](#__string)
-  * Target [__string](#__string)
+  * Id **required**
+  * Source **required**
+  * Subject **required**
+  * Target **required**
 
 ### SubscriptionDefinitionVersion
 * SubscriptionDefinitionVersion `object`: Information about a subscription definition version.
-  * Subscriptions [__listOfSubscription](#__listofsubscription)
+  * Subscriptions
+    * items [Subscription](#subscription)
+
+### TagResourceRequest
+* TagResourceRequest `object`: A map of the key-value pairs for the resource tag.
+  * tags [Tags](#tags)
+
+### Tags
+* Tags `object`: The key-value pair for the resource tag.
+
+### Telemetry
+* Telemetry `string` (values: On, Off)
+
+### TelemetryConfiguration
+* TelemetryConfiguration `object`: Configuration settings for running telemetry.
+  * ConfigurationSyncStatus
+  * Telemetry **required**
+
+### TelemetryConfigurationUpdate
+* TelemetryConfigurationUpdate `object`: Configuration settings for running telemetry.
+  * Telemetry **required**
+
+### UntagResourceRequest
+* UntagResourceRequest `object`
 
 ### UpdateAgentLogLevel
 * UpdateAgentLogLevel `string` (values: NONE, TRACE, DEBUG, VERBOSE, INFO, WARN, ERROR, FATAL): The minimum level of log statements that should be logged by the OTA Agent during an update.
 
 ### UpdateConnectivityInfoRequest
 * UpdateConnectivityInfoRequest `object`: Connectivity information.
-  * ConnectivityInfo [__listOfConnectivityInfo](#__listofconnectivityinfo)
+  * ConnectivityInfo
+    * items [ConnectivityInfo](#connectivityinfo)
 
 ### UpdateConnectivityInfoResponse
 * UpdateConnectivityInfoResponse `object`
-  * Message [__string](#__string)
-  * Version [__string](#__string)
+  * Message
+  * Version
+
+### UpdateConnectorDefinitionRequest
+* UpdateConnectorDefinitionRequest `object`
+  * Name
+
+### UpdateConnectorDefinitionResponse
+* UpdateConnectorDefinitionResponse `object`
 
 ### UpdateCoreDefinitionRequest
 * UpdateCoreDefinitionRequest `object`
-  * Name [__string](#__string)
+  * Name
 
 ### UpdateCoreDefinitionResponse
 * UpdateCoreDefinitionResponse `object`
 
 ### UpdateDeviceDefinitionRequest
 * UpdateDeviceDefinitionRequest `object`
-  * Name [__string](#__string)
+  * Name
 
 ### UpdateDeviceDefinitionResponse
 * UpdateDeviceDefinitionResponse `object`
 
 ### UpdateFunctionDefinitionRequest
 * UpdateFunctionDefinitionRequest `object`
-  * Name [__string](#__string)
+  * Name
 
 ### UpdateFunctionDefinitionResponse
 * UpdateFunctionDefinitionResponse `object`
 
 ### UpdateGroupCertificateConfigurationRequest
 * UpdateGroupCertificateConfigurationRequest `object`
-  * CertificateExpiryInMilliseconds [__string](#__string)
+  * CertificateExpiryInMilliseconds
 
 ### UpdateGroupCertificateConfigurationResponse
 * UpdateGroupCertificateConfigurationResponse `object`
-  * CertificateAuthorityExpiryInMilliseconds [__string](#__string)
-  * CertificateExpiryInMilliseconds [__string](#__string)
-  * GroupId [__string](#__string)
+  * CertificateAuthorityExpiryInMilliseconds
+  * CertificateExpiryInMilliseconds
+  * GroupId
 
 ### UpdateGroupRequest
 * UpdateGroupRequest `object`
-  * Name [__string](#__string)
+  * Name
 
 ### UpdateGroupResponse
 * UpdateGroupResponse `object`
 
 ### UpdateLoggerDefinitionRequest
 * UpdateLoggerDefinitionRequest `object`
-  * Name [__string](#__string)
+  * Name
 
 ### UpdateLoggerDefinitionResponse
 * UpdateLoggerDefinitionResponse `object`
 
 ### UpdateResourceDefinitionRequest
 * UpdateResourceDefinitionRequest `object`
-  * Name [__string](#__string)
+  * Name
 
 ### UpdateResourceDefinitionResponse
 * UpdateResourceDefinitionResponse `object`
 
 ### UpdateSubscriptionDefinitionRequest
 * UpdateSubscriptionDefinitionRequest `object`
-  * Name [__string](#__string)
+  * Name
 
 ### UpdateSubscriptionDefinitionResponse
 * UpdateSubscriptionDefinitionResponse `object`
@@ -2260,23 +3078,28 @@ amazonaws_greengrass.CreateSoftwareUpdateJob({}, context)
   * items [__string](#__string)
 
 ### UpdateTargetsArchitecture
-* UpdateTargetsArchitecture `string` (values: armv7l, x86_64, aarch64): The architecture of the cores which are the targets of an update.
+* UpdateTargetsArchitecture `string` (values: armv6l, armv7l, x86_64, aarch64): The architecture of the cores which are the targets of an update.
 
 ### UpdateTargetsOperatingSystem
-* UpdateTargetsOperatingSystem `string` (values: ubuntu, raspbian, amazon_linux): The operating system of the cores which are the targets of an update.
+* UpdateTargetsOperatingSystem `string` (values: ubuntu, raspbian, amazon_linux, openwrt): The operating system of the cores which are the targets of an update.
+
+### UpdateThingRuntimeConfigurationRequest
+* UpdateThingRuntimeConfigurationRequest `object`
+  * TelemetryConfiguration
+    * Telemetry **required**
+
+### UpdateThingRuntimeConfigurationResponse
+* UpdateThingRuntimeConfigurationResponse `object`
 
 ### VersionInformation
 * VersionInformation `object`: Information about a version.
-  * Arn [__string](#__string)
-  * CreationTimestamp [__string](#__string)
-  * Id [__string](#__string)
-  * Version [__string](#__string)
+  * Arn
+  * CreationTimestamp
+  * Id
+  * Version
 
 ### __boolean
 * __boolean `boolean`
-
-### __double
-* __double `number`
 
 ### __integer
 * __integer `integer`
@@ -2284,6 +3107,10 @@ amazonaws_greengrass.CreateSoftwareUpdateJob({}, context)
 ### __listOfConnectivityInfo
 * __listOfConnectivityInfo `array`
   * items [ConnectivityInfo](#connectivityinfo)
+
+### __listOfConnector
+* __listOfConnector `array`
+  * items [Connector](#connector)
 
 ### __listOfCore
 * __listOfCore `array`
@@ -2329,19 +3156,14 @@ amazonaws_greengrass.CreateSoftwareUpdateJob({}, context)
 * __listOfVersionInformation `array`
   * items [VersionInformation](#versioninformation)
 
-### __long
-* __long `integer`
+### __listOf__string
+* __listOf__string `array`
+  * items [__string](#__string)
 
 ### __mapOf__string
-* __mapOf__string `array`
-  * items `object`
-    * key [__string](#__string)
-    * value [__string](#__string)
+* __mapOf__string `object`
 
 ### __string
 * __string `string`
-
-### __timestamp
-* __timestamp `string`
 
 

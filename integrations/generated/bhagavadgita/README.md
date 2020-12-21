@@ -1,6 +1,6 @@
 # @datafire/bhagavadgita
 
-Client library for Bhagavad Gita
+Client library for Bhagavad Gita API
 
 ## Installation and Usage
 ```bash
@@ -9,9 +9,7 @@ npm install --save @datafire/bhagavadgita
 ```js
 let bhagavadgita = require('@datafire/bhagavadgita').create();
 
-bhagavadgita.api.v1.chapters.get({
-  "access_token": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -23,7 +21,7 @@ bhagavadgita.api.v1.chapters.get({
 ## Actions
 
 ### api.v1.chapters.get
-Get a list of all the 18 Chapters of the Bhagavad Gita.
+Get a list of all the 18 Chapters of the Bhagavad Gita.<br/>
 
 
 ```js
@@ -41,7 +39,7 @@ bhagavadgita.api.v1.chapters.get({
 * output [ChapterSchema](#chapterschema)
 
 ### api.v1.chapters.chapter_number.get
-Get information about a specific chapter from the Bhagavad Gita.
+Get information about a specific chapter from the Bhagavad Gita.<br/>
 
 
 ```js
@@ -61,7 +59,7 @@ bhagavadgita.api.v1.chapters.chapter_number.get({
 * output [ChapterSchema](#chapterschema)
 
 ### api.v1.chapters.chapter_number.verses.get
-Get a list of all Verses from a particular Chapter.
+Get a list of all Verses from a particular Chapter.<br/>
 
 
 ```js
@@ -81,7 +79,7 @@ bhagavadgita.api.v1.chapters.chapter_number.verses.get({
 * output [VerseSchema](#verseschema)
 
 ### api.v1.chapters.chapter_number.verses.verse_number.get
-Get a specific verse from a specific chapter.
+Get a specific verse from a specific chapter.<br/>
 
 
 ```js
@@ -103,7 +101,7 @@ bhagavadgita.api.v1.chapters.chapter_number.verses.verse_number.get({
 * output [VerseSchema](#verseschema)
 
 ### api.v1.verses.get
-Get a list of all Verses.
+Get a list of all Verses.<br/>
 
 
 ```js
@@ -160,7 +158,6 @@ bhagavadgita.auth.oauth.token.post({
 ### VerseSchema
 * VerseSchema `object`
   * meaning `string`
-  * meaning_large `string`
   * text `string`
   * transliteration `string`
   * verse_number `string`

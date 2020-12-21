@@ -1,6 +1,6 @@
 # @datafire/google_cloudresourcemanager
 
-Client library for Cloud Resource Manager
+Client library for Cloud Resource Manager API
 
 ## Installation and Usage
 ```bash
@@ -15,14 +15,14 @@ let google_cloudresourcemanager = require('@datafire/google_cloudresourcemanager
   redirect_uri: ""
 });
 
-google_cloudresourcemanager.projects.create({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
 
 ## Description
 
-The Google Cloud Resource Manager API provides methods for creating, reading, and updating project metadata.
+Creates, reads, and updates metadata for Google Cloud Platform resource containers.
 
 ## Actions
 
@@ -67,565 +67,12 @@ google_cloudresourcemanager.oauthRefresh(null, context)
   * scope `string`
   * expiration `string`
 
-### liens.list
-List all Liens applied to the `parent` resource.
-
-Callers of this method will require permission on the `parent` resource.
-For example, a Lien with a `parent` of `projects/1234` requires permission
-`resourcemanager.projects.get`.
+### cloudresourcemanager.operations.get
+Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
 
 
 ```js
-google_cloudresourcemanager.liens.list({}, context)
-```
-
-#### Input
-* input `object`
-  * pageSize `integer`: The maximum number of items to return. This is a suggestion for the server.
-  * pageToken `string`: The `next_page_token` value returned from a previous List request, if any.
-  * parent `string`: The name of the resource to list all attached Liens.
-  * $.xgafv `string` (values: 1, 2): V1 error format.
-  * access_token `string`: OAuth access token.
-  * alt `string` (values: json, media, proto): Data format for response.
-  * bearer_token `string`: OAuth bearer token.
-  * callback `string`: JSONP
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * pp `boolean`: Pretty-print response.
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-
-#### Output
-* output [ListLiensResponse](#listliensresponse)
-
-### liens.create
-Create a Lien which applies to the resource denoted by the `parent` field.
-
-Callers of this method will require permission on the `parent` resource.
-For example, applying to `projects/1234` requires permission
-`resourcemanager.projects.updateLiens`.
-
-NOTE: Some resources may limit the number of Liens which may be applied.
-
-
-```js
-google_cloudresourcemanager.liens.create({}, context)
-```
-
-#### Input
-* input `object`
-  * body [Lien](#lien)
-  * $.xgafv `string` (values: 1, 2): V1 error format.
-  * access_token `string`: OAuth access token.
-  * alt `string` (values: json, media, proto): Data format for response.
-  * bearer_token `string`: OAuth bearer token.
-  * callback `string`: JSONP
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * pp `boolean`: Pretty-print response.
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-
-#### Output
-* output [Lien](#lien)
-
-### organizations.search
-Searches Organization resources that are visible to the user and satisfy
-the specified filter. This method returns Organizations in an unspecified
-order. New Organizations do not necessarily appear at the end of the
-results.
-
-Search will only return organizations on which the user has the permission
-`resourcemanager.organizations.get`
-
-
-```js
-google_cloudresourcemanager.organizations.search({}, context)
-```
-
-#### Input
-* input `object`
-  * body [SearchOrganizationsRequest](#searchorganizationsrequest)
-  * $.xgafv `string` (values: 1, 2): V1 error format.
-  * access_token `string`: OAuth access token.
-  * alt `string` (values: json, media, proto): Data format for response.
-  * bearer_token `string`: OAuth bearer token.
-  * callback `string`: JSONP
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * pp `boolean`: Pretty-print response.
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-
-#### Output
-* output [SearchOrganizationsResponse](#searchorganizationsresponse)
-
-### projects.list
-Lists Projects that are visible to the user and satisfy the
-specified filter. This method returns Projects in an unspecified order.
-This method is eventually consistent with project mutations; this means
-that a newly created project may not appear in the results or recent
-updates to an existing project may not be reflected in the results. To
-retrieve the latest state of a project, use the
-GetProject method.
-
-
-```js
-google_cloudresourcemanager.projects.list({}, context)
-```
-
-#### Input
-* input `object`
-  * filter `string`: An expression for filtering the results of the request.  Filter rules are
-  * pageSize `integer`: The maximum number of Projects to return in the response.
-  * pageToken `string`: A pagination token returned from a previous call to ListProjects
-  * $.xgafv `string` (values: 1, 2): V1 error format.
-  * access_token `string`: OAuth access token.
-  * alt `string` (values: json, media, proto): Data format for response.
-  * bearer_token `string`: OAuth bearer token.
-  * callback `string`: JSONP
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * pp `boolean`: Pretty-print response.
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-
-#### Output
-* output [ListProjectsResponse](#listprojectsresponse)
-
-### projects.create
-Request that a new Project be created. The result is an Operation which
-can be used to track the creation process. It is automatically deleted
-after a few hours, so there is no need to call DeleteOperation.
-
-Our SLO permits Project creation to take up to 30 seconds at the 90th
-percentile. As of 2016-08-29, we are observing 6 seconds 50th percentile
-latency. 95th percentile latency is around 11 seconds. We recommend
-polling at the 5th second with an exponential backoff.
-
-Authorization requires the Google IAM permission
-`resourcemanager.projects.create` on the specified parent for the new
-project. The parent is identified by a specified ResourceId,
-which must include both an ID and a type, such as organization.
-
-This method does not associate the new project with a billing account.
-You can set or update the billing account associated with a project using
-the [`projects.updateBillingInfo`]
-(/billing/reference/rest/v1/projects/updateBillingInfo) method.
-
-
-```js
-google_cloudresourcemanager.projects.create({}, context)
-```
-
-#### Input
-* input `object`
-  * body [Project](#project)
-  * $.xgafv `string` (values: 1, 2): V1 error format.
-  * access_token `string`: OAuth access token.
-  * alt `string` (values: json, media, proto): Data format for response.
-  * bearer_token `string`: OAuth bearer token.
-  * callback `string`: JSONP
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * pp `boolean`: Pretty-print response.
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-
-#### Output
-* output [Operation](#operation)
-
-### projects.delete
-Marks the Project identified by the specified
-`project_id` (for example, `my-project-123`) for deletion.
-This method will only affect the Project if it has a lifecycle state of
-ACTIVE.
-
-This method changes the Project's lifecycle state from
-ACTIVE
-to DELETE_REQUESTED.
-The deletion starts at an unspecified time,
-at which point the Project is no longer accessible.
-
-Until the deletion completes, you can check the lifecycle state
-checked by retrieving the Project with GetProject,
-and the Project remains visible to ListProjects.
-However, you cannot update the project.
-
-After the deletion completes, the Project is not retrievable by
-the  GetProject and
-ListProjects methods.
-
-The caller must have modify permissions for this Project.
-
-
-```js
-google_cloudresourcemanager.projects.delete({
-  "projectId": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * projectId **required** `string`: The Project ID (for example, `foo-bar-123`).
-  * $.xgafv `string` (values: 1, 2): V1 error format.
-  * access_token `string`: OAuth access token.
-  * alt `string` (values: json, media, proto): Data format for response.
-  * bearer_token `string`: OAuth bearer token.
-  * callback `string`: JSONP
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * pp `boolean`: Pretty-print response.
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-
-#### Output
-* output [Empty](#empty)
-
-### projects.get
-Retrieves the Project identified by the specified
-`project_id` (for example, `my-project-123`).
-
-The caller must have read permissions for this Project.
-
-
-```js
-google_cloudresourcemanager.projects.get({
-  "projectId": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * projectId **required** `string`: The Project ID (for example, `my-project-123`).
-  * $.xgafv `string` (values: 1, 2): V1 error format.
-  * access_token `string`: OAuth access token.
-  * alt `string` (values: json, media, proto): Data format for response.
-  * bearer_token `string`: OAuth bearer token.
-  * callback `string`: JSONP
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * pp `boolean`: Pretty-print response.
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-
-#### Output
-* output [Project](#project)
-
-### projects.update
-Updates the attributes of the Project identified by the specified
-`project_id` (for example, `my-project-123`).
-
-The caller must have modify permissions for this Project.
-
-
-```js
-google_cloudresourcemanager.projects.update({
-  "projectId": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * body [Project](#project)
-  * projectId **required** `string`: The project ID (for example, `my-project-123`).
-  * $.xgafv `string` (values: 1, 2): V1 error format.
-  * access_token `string`: OAuth access token.
-  * alt `string` (values: json, media, proto): Data format for response.
-  * bearer_token `string`: OAuth bearer token.
-  * callback `string`: JSONP
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * pp `boolean`: Pretty-print response.
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-
-#### Output
-* output [Project](#project)
-
-### projects.getAncestry
-Gets a list of ancestors in the resource hierarchy for the Project
-identified by the specified `project_id` (for example, `my-project-123`).
-
-The caller must have read permissions for this Project.
-
-
-```js
-google_cloudresourcemanager.projects.getAncestry({
-  "projectId": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * body [GetAncestryRequest](#getancestryrequest)
-  * projectId **required** `string`: The Project ID (for example, `my-project-123`).
-  * $.xgafv `string` (values: 1, 2): V1 error format.
-  * access_token `string`: OAuth access token.
-  * alt `string` (values: json, media, proto): Data format for response.
-  * bearer_token `string`: OAuth bearer token.
-  * callback `string`: JSONP
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * pp `boolean`: Pretty-print response.
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-
-#### Output
-* output [GetAncestryResponse](#getancestryresponse)
-
-### projects.undelete
-Restores the Project identified by the specified
-`project_id` (for example, `my-project-123`).
-You can only use this method for a Project that has a lifecycle state of
-DELETE_REQUESTED.
-After deletion starts, the Project cannot be restored.
-
-The caller must have modify permissions for this Project.
-
-
-```js
-google_cloudresourcemanager.projects.undelete({
-  "projectId": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * body [UndeleteProjectRequest](#undeleteprojectrequest)
-  * projectId **required** `string`: The project ID (for example, `foo-bar-123`).
-  * $.xgafv `string` (values: 1, 2): V1 error format.
-  * access_token `string`: OAuth access token.
-  * alt `string` (values: json, media, proto): Data format for response.
-  * bearer_token `string`: OAuth bearer token.
-  * callback `string`: JSONP
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * pp `boolean`: Pretty-print response.
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-
-#### Output
-* output [Empty](#empty)
-
-### projects.getIamPolicy
-Returns the IAM access control policy for the specified Project.
-Permission is denied if the policy or the resource does not exist.
-
-Authorization requires the Google IAM permission
-`resourcemanager.projects.getIamPolicy` on the project.
-
-For additional information about resource structure and identification,
-see [Resource Names](/apis/design/resource_names).
-
-
-```js
-google_cloudresourcemanager.projects.getIamPolicy({
-  "resource": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * body [GetIamPolicyRequest](#getiampolicyrequest)
-  * resource **required** `string`: REQUIRED: The resource for which the policy is being requested.
-  * $.xgafv `string` (values: 1, 2): V1 error format.
-  * access_token `string`: OAuth access token.
-  * alt `string` (values: json, media, proto): Data format for response.
-  * bearer_token `string`: OAuth bearer token.
-  * callback `string`: JSONP
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * pp `boolean`: Pretty-print response.
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-
-#### Output
-* output [Policy](#policy)
-
-### projects.setIamPolicy
-Sets the IAM access control policy for the specified Project. Overwrites
-any existing policy.
-
-The following constraints apply when using `setIamPolicy()`:
-
-+ Project does not support `allUsers` and `allAuthenticatedUsers` as
-`members` in a `Binding` of a `Policy`.
-
-+ The owner role can be granted only to `user` and `serviceAccount`.
-
-+ Service accounts can be made owners of a project directly
-without any restrictions. However, to be added as an owner, a user must be
-invited via Cloud Platform console and must accept the invitation.
-
-+ A user cannot be granted the owner role using `setIamPolicy()`. The user
-must be granted the owner role using the Cloud Platform Console and must
-explicitly accept the invitation.
-
-+ You can only grant ownership of a project to a member by using the
-GCP Console. Inviting a member will deliver an invitation email that
-they must accept. An invitation email is not generated if you are
-granting a role other than owner, or if both the member you are inviting
-and the project are part of your organization.
-
-+ Membership changes that leave the project without any owners that have
-accepted the Terms of Service (ToS) will be rejected.
-
-+ If the project is not part of an organization, there must be at least
-one owner who has accepted the Terms of Service (ToS) agreement in the
-policy. Calling `setIamPolicy()` to remove the last ToS-accepted owner
-from the policy will fail. This restriction also applies to legacy
-projects that no longer have owners who have accepted the ToS. Edits to
-IAM policies will be rejected until the lack of a ToS-accepting owner is
-rectified.
-
-+ This method will replace the existing policy, and cannot be used to
-append additional IAM settings.
-
-Note: Removing service accounts from policies or changing their roles
-can render services completely inoperable. It is important to understand
-how the service account is being used before removing or updating its
-roles.
-
-Authorization requires the Google IAM permission
-`resourcemanager.projects.setIamPolicy` on the project
-
-
-```js
-google_cloudresourcemanager.projects.setIamPolicy({
-  "resource": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * body [SetIamPolicyRequest](#setiampolicyrequest)
-  * resource **required** `string`: REQUIRED: The resource for which the policy is being specified.
-  * $.xgafv `string` (values: 1, 2): V1 error format.
-  * access_token `string`: OAuth access token.
-  * alt `string` (values: json, media, proto): Data format for response.
-  * bearer_token `string`: OAuth bearer token.
-  * callback `string`: JSONP
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * pp `boolean`: Pretty-print response.
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-
-#### Output
-* output [Policy](#policy)
-
-### projects.testIamPermissions
-Returns permissions that a caller has on the specified Project.
-
-There are no permissions required for making this API call.
-
-
-```js
-google_cloudresourcemanager.projects.testIamPermissions({
-  "resource": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * body [TestIamPermissionsRequest](#testiampermissionsrequest)
-  * resource **required** `string`: REQUIRED: The resource for which the policy detail is being requested.
-  * $.xgafv `string` (values: 1, 2): V1 error format.
-  * access_token `string`: OAuth access token.
-  * alt `string` (values: json, media, proto): Data format for response.
-  * bearer_token `string`: OAuth bearer token.
-  * callback `string`: JSONP
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * pp `boolean`: Pretty-print response.
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-
-#### Output
-* output [TestIamPermissionsResponse](#testiampermissionsresponse)
-
-### liens.delete
-Delete a Lien by `name`.
-
-Callers of this method will require permission on the `parent` resource.
-For example, a Lien with a `parent` of `projects/1234` requires permission
-`resourcemanager.projects.updateLiens`.
-
-
-```js
-google_cloudresourcemanager.liens.delete({
-  "name": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * name **required** `string`: The name/identifier of the Lien to delete.
-  * $.xgafv `string` (values: 1, 2): V1 error format.
-  * access_token `string`: OAuth access token.
-  * alt `string` (values: json, media, proto): Data format for response.
-  * bearer_token `string`: OAuth bearer token.
-  * callback `string`: JSONP
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * pp `boolean`: Pretty-print response.
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-
-#### Output
-* output [Empty](#empty)
-
-### operations.get
-Gets the latest state of a long-running operation.  Clients can use this
-method to poll the operation result at intervals as recommended by the API
-service.
-
-
-```js
-google_cloudresourcemanager.operations.get({
+google_cloudresourcemanager.cloudresourcemanager.operations.get({
   "name": ""
 }, context)
 ```
@@ -636,320 +83,327 @@ google_cloudresourcemanager.operations.get({
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
-  * bearer_token `string`: OAuth bearer token.
   * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
-  * pp `boolean`: Pretty-print response.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
   * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [Operation](#operation)
 
-### projects.clearOrgPolicy
-Clears a `Policy` from a resource.
+### cloudresourcemanager.folders.list
+Lists the Folders that are direct descendants of supplied parent resource. List provides a strongly consistent view of the Folders underneath the specified parent resource. List returns Folders sorted based upon the (ascending) lexical ordering of their display_name. The caller must have `resourcemanager.folders.list` permission on the identified parent.
 
 
 ```js
-google_cloudresourcemanager.projects.clearOrgPolicy({
-  "resource": ""
-}, context)
+google_cloudresourcemanager.cloudresourcemanager.folders.list({}, context)
 ```
 
 #### Input
 * input `object`
-  * body [ClearOrgPolicyRequest](#clearorgpolicyrequest)
-  * resource **required** `string`: Name of the resource for the `Policy` to clear.
+  * pageSize `integer`: Optional. The maximum number of Folders to return in the response.
+  * pageToken `string`: Optional. A pagination token returned from a previous call to `ListFolders` that indicates where this listing should continue from.
+  * parent `string`: Required. The resource name of the Organization or Folder whose Folders are being listed. Must be of the form `folders/{folder_id}` or `organizations/{org_id}`. Access to this method is controlled by checking the `resourcemanager.folders.list` permission on the `parent`.
+  * showDeleted `boolean`: Optional. Controls whether Folders in the DELETE_REQUESTED state should be returned. Defaults to false.
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
-  * bearer_token `string`: OAuth bearer token.
   * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
-  * pp `boolean`: Pretty-print response.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
   * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
-* output [Empty](#empty)
+* output [ListFoldersResponse](#listfoldersresponse)
 
-### projects.getEffectiveOrgPolicy
-Gets the effective `Policy` on a resource. This is the result of merging
-`Policies` in the resource hierarchy. The returned `Policy` will not have
-an `etag`set because it is a computed `Policy` across multiple resources.
+### cloudresourcemanager.folders.create
+Creates a Folder in the resource hierarchy. Returns an Operation which can be used to track the progress of the folder creation workflow. Upon success the Operation.response field will be populated with the created Folder. In order to succeed, the addition of this new Folder must not violate the Folder naming, height or fanout constraints. + The Folder's display_name must be distinct from all other Folders that share its parent. + The addition of the Folder must not cause the active Folder hierarchy to exceed a height of 10. Note, the full active + deleted Folder hierarchy is allowed to reach a height of 20; this provides additional headroom when moving folders that contain deleted folders. + The addition of the Folder must not cause the total number of Folders under its parent to exceed 300. If the operation fails due to a folder constraint violation, some errors may be returned by the CreateFolder request, with status code FAILED_PRECONDITION and an error description. Other folder constraint violations will be communicated in the Operation, with the specific PreconditionFailure returned via the details list in the Operation.error field. The caller must have `resourcemanager.folders.create` permission on the identified parent.
 
 
 ```js
-google_cloudresourcemanager.projects.getEffectiveOrgPolicy({
-  "resource": ""
-}, context)
+google_cloudresourcemanager.cloudresourcemanager.folders.create({}, context)
 ```
 
 #### Input
 * input `object`
-  * body [GetEffectiveOrgPolicyRequest](#geteffectiveorgpolicyrequest)
-  * resource **required** `string`: The name of the resource to start computing the effective `Policy`.
+  * parent `string`: Required. The resource name of the new Folder's parent. Must be of the form `folders/{folder_id}` or `organizations/{org_id}`.
+  * body [Folder](#folder)
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
-  * bearer_token `string`: OAuth bearer token.
   * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
-  * pp `boolean`: Pretty-print response.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
   * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
-* output [OrgPolicy](#orgpolicy)
+* output [Operation](#operation)
 
-### organizations.getIamPolicy
-Gets the access control policy for an Organization resource. May be empty
-if no such policy or resource exists. The `resource` field should be the
-organization's resource name, e.g. "organizations/123".
-
-Authorization requires the Google IAM permission
-`resourcemanager.organizations.getIamPolicy` on the specified organization
+### cloudresourcemanager.folders.search
+Search for folders that match specific filter criteria. Search provides an eventually consistent view of the folders a user has access to which meet the specified filter criteria. This will only return folders on which the caller has the permission `resourcemanager.folders.get`.
 
 
 ```js
-google_cloudresourcemanager.organizations.getIamPolicy({
+google_cloudresourcemanager.cloudresourcemanager.folders.search({}, context)
+```
+
+#### Input
+* input `object`
+  * body [SearchFoldersRequest](#searchfoldersrequest)
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+
+#### Output
+* output [SearchFoldersResponse](#searchfoldersresponse)
+
+### cloudresourcemanager.folders.delete
+Requests deletion of a Folder. The Folder is moved into the DELETE_REQUESTED state immediately, and is deleted approximately 30 days later. This method may only be called on an empty Folder in the ACTIVE state, where a Folder is empty if it doesn't contain any Folders or Projects in the ACTIVE state. The caller must have `resourcemanager.folders.delete` permission on the identified folder.
+
+
+```js
+google_cloudresourcemanager.cloudresourcemanager.folders.delete({
+  "name": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * name **required** `string`: Required. the resource name of the Folder to be deleted. Must be of the form `folders/{folder_id}`.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+
+#### Output
+* output [Folder](#folder)
+
+### cloudresourcemanager.folders.get
+Retrieves a Folder identified by the supplied resource name. Valid Folder resource names have the format `folders/{folder_id}` (for example, `folders/1234`). The caller must have `resourcemanager.folders.get` permission on the identified folder.
+
+
+```js
+google_cloudresourcemanager.cloudresourcemanager.folders.get({
+  "name": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * name **required** `string`: Required. The resource name of the Folder to retrieve. Must be of the form `folders/{folder_id}`.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+
+#### Output
+* output [Folder](#folder)
+
+### cloudresourcemanager.folders.patch
+Updates a Folder, changing its display_name. Changes to the folder display_name will be rejected if they violate either the display_name formatting rules or naming constraints described in the CreateFolder documentation. The Folder's display name must start and end with a letter or digit, may contain letters, digits, spaces, hyphens and underscores and can be between 3 and 30 characters. This is captured by the regular expression: `\p{L}\p{N}{1,28}[\p{L}\p{N}]`. The caller must have `resourcemanager.folders.update` permission on the identified folder. If the update fails due to the unique name constraint then a PreconditionFailure explaining this violation will be returned in the Status.details field.
+
+
+```js
+google_cloudresourcemanager.cloudresourcemanager.folders.patch({
+  "name": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * name **required** `string`: Output only. The resource name of the Folder. Its format is `folders/{folder_id}`, for example: "folders/1234".
+  * updateMask `string`: Required. Fields to be updated. Only the `display_name` can be updated.
+  * body [Folder](#folder)
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+
+#### Output
+* output [Folder](#folder)
+
+### cloudresourcemanager.folders.move
+Moves a Folder under a new resource parent. Returns an Operation which can be used to track the progress of the folder move workflow. Upon success the Operation.response field will be populated with the moved Folder. Upon failure, a FolderOperationError categorizing the failure cause will be returned - if the failure occurs synchronously then the FolderOperationError will be returned via the Status.details field and if it occurs asynchronously then the FolderOperation will be returned via the Operation.error field. In addition, the Operation.metadata field will be populated with a FolderOperation message as an aid to stateless clients. Folder moves will be rejected if they violate either the naming, height or fanout constraints described in the CreateFolder documentation. The caller must have `resourcemanager.folders.move` permission on the folder's current and proposed new parent.
+
+
+```js
+google_cloudresourcemanager.cloudresourcemanager.folders.move({
+  "name": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * name **required** `string`: Required. The resource name of the Folder to move. Must be of the form folders/{folder_id}
+  * body [MoveFolderRequest](#movefolderrequest)
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+
+#### Output
+* output [Operation](#operation)
+
+### cloudresourcemanager.folders.undelete
+Cancels the deletion request for a Folder. This method may only be called on a Folder in the DELETE_REQUESTED state. In order to succeed, the Folder's parent must be in the ACTIVE state. In addition, reintroducing the folder into the tree must not violate folder naming, height and fanout constraints described in the CreateFolder documentation. The caller must have `resourcemanager.folders.undelete` permission on the identified folder.
+
+
+```js
+google_cloudresourcemanager.cloudresourcemanager.folders.undelete({
+  "name": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * name **required** `string`: Required. The resource name of the Folder to undelete. Must be of the form `folders/{folder_id}`.
+  * body [UndeleteFolderRequest](#undeletefolderrequest)
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+
+#### Output
+* output [Folder](#folder)
+
+### cloudresourcemanager.folders.getIamPolicy
+Gets the access control policy for a Folder. The returned policy may be empty if no such policy or resource exists. The `resource` field should be the Folder's resource name, e.g. "folders/1234". The caller must have `resourcemanager.folders.getIamPolicy` permission on the identified folder.
+
+
+```js
+google_cloudresourcemanager.cloudresourcemanager.folders.getIamPolicy({
   "resource": ""
 }, context)
 ```
 
 #### Input
 * input `object`
+  * resource **required** `string`: REQUIRED: The resource for which the policy is being requested. See the operation documentation for the appropriate value for this field.
   * body [GetIamPolicyRequest](#getiampolicyrequest)
-  * resource **required** `string`: REQUIRED: The resource for which the policy is being requested.
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
-  * bearer_token `string`: OAuth bearer token.
   * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
-  * pp `boolean`: Pretty-print response.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
   * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [Policy](#policy)
 
-### projects.getOrgPolicy
-Gets a `Policy` on a resource.
-
-If no `Policy` is set on the resource, a `Policy` is returned with default
-values including `POLICY_TYPE_NOT_SET` for the `policy_type oneof`. The
-`etag` value can be used with `SetOrgPolicy()` to create or update a
-`Policy` during read-modify-write.
+### cloudresourcemanager.folders.setIamPolicy
+Sets the access control policy on a Folder, replacing any existing policy. The `resource` field should be the Folder's resource name, e.g. "folders/1234". The caller must have `resourcemanager.folders.setIamPolicy` permission on the identified folder.
 
 
 ```js
-google_cloudresourcemanager.projects.getOrgPolicy({
+google_cloudresourcemanager.cloudresourcemanager.folders.setIamPolicy({
   "resource": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * body [GetOrgPolicyRequest](#getorgpolicyrequest)
-  * resource **required** `string`: Name of the resource the `Policy` is set on.
-  * $.xgafv `string` (values: 1, 2): V1 error format.
-  * access_token `string`: OAuth access token.
-  * alt `string` (values: json, media, proto): Data format for response.
-  * bearer_token `string`: OAuth bearer token.
-  * callback `string`: JSONP
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * pp `boolean`: Pretty-print response.
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-
-#### Output
-* output [OrgPolicy](#orgpolicy)
-
-### projects.listAvailableOrgPolicyConstraints
-Lists `Constraints` that could be applied on the specified resource.
-
-
-```js
-google_cloudresourcemanager.projects.listAvailableOrgPolicyConstraints({
-  "resource": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * body [ListAvailableOrgPolicyConstraintsRequest](#listavailableorgpolicyconstraintsrequest)
-  * resource **required** `string`: Name of the resource to list `Constraints` for.
-  * $.xgafv `string` (values: 1, 2): V1 error format.
-  * access_token `string`: OAuth access token.
-  * alt `string` (values: json, media, proto): Data format for response.
-  * bearer_token `string`: OAuth bearer token.
-  * callback `string`: JSONP
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * pp `boolean`: Pretty-print response.
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-
-#### Output
-* output [ListAvailableOrgPolicyConstraintsResponse](#listavailableorgpolicyconstraintsresponse)
-
-### projects.listOrgPolicies
-Lists all the `Policies` set for a particular resource.
-
-
-```js
-google_cloudresourcemanager.projects.listOrgPolicies({
-  "resource": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * body [ListOrgPoliciesRequest](#listorgpoliciesrequest)
-  * resource **required** `string`: Name of the resource to list Policies for.
-  * $.xgafv `string` (values: 1, 2): V1 error format.
-  * access_token `string`: OAuth access token.
-  * alt `string` (values: json, media, proto): Data format for response.
-  * bearer_token `string`: OAuth bearer token.
-  * callback `string`: JSONP
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * pp `boolean`: Pretty-print response.
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-
-#### Output
-* output [ListOrgPoliciesResponse](#listorgpoliciesresponse)
-
-### organizations.setIamPolicy
-Sets the access control policy on an Organization resource. Replaces any
-existing policy. The `resource` field should be the organization's resource
-name, e.g. "organizations/123".
-
-Authorization requires the Google IAM permission
-`resourcemanager.organizations.setIamPolicy` on the specified organization
-
-
-```js
-google_cloudresourcemanager.organizations.setIamPolicy({
-  "resource": ""
-}, context)
-```
-
-#### Input
-* input `object`
+  * resource **required** `string`: REQUIRED: The resource for which the policy is being specified. See the operation documentation for the appropriate value for this field.
   * body [SetIamPolicyRequest](#setiampolicyrequest)
-  * resource **required** `string`: REQUIRED: The resource for which the policy is being specified.
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
-  * bearer_token `string`: OAuth bearer token.
   * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
-  * pp `boolean`: Pretty-print response.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
   * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [Policy](#policy)
 
-### projects.setOrgPolicy
-Updates the specified `Policy` on the resource. Creates a new `Policy` for
-that `Constraint` on the resource if one does not exist.
-
-Not supplying an `etag` on the request `Policy` results in an unconditional
-write of the `Policy`.
+### cloudresourcemanager.folders.testIamPermissions
+Returns permissions that a caller has on the specified Folder. The `resource` field should be the Folder's resource name, e.g. "folders/1234". There are no permissions required for making this API call.
 
 
 ```js
-google_cloudresourcemanager.projects.setOrgPolicy({
+google_cloudresourcemanager.cloudresourcemanager.folders.testIamPermissions({
   "resource": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * body [SetOrgPolicyRequest](#setorgpolicyrequest)
-  * resource **required** `string`: Resource name of the resource to attach the `Policy`.
-  * $.xgafv `string` (values: 1, 2): V1 error format.
-  * access_token `string`: OAuth access token.
-  * alt `string` (values: json, media, proto): Data format for response.
-  * bearer_token `string`: OAuth bearer token.
-  * callback `string`: JSONP
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * pp `boolean`: Pretty-print response.
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-
-#### Output
-* output [OrgPolicy](#orgpolicy)
-
-### organizations.testIamPermissions
-Returns permissions that a caller has on the specified Organization.
-The `resource` field should be the organization's resource name,
-e.g. "organizations/123".
-
-There are no permissions required for making this API call.
-
-
-```js
-google_cloudresourcemanager.organizations.testIamPermissions({
-  "resource": ""
-}, context)
-```
-
-#### Input
-* input `object`
+  * resource **required** `string`: REQUIRED: The resource for which the policy detail is being requested. See the operation documentation for the appropriate value for this field.
   * body [TestIamPermissionsRequest](#testiampermissionsrequest)
-  * resource **required** `string`: REQUIRED: The resource for which the policy detail is being requested.
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
-  * bearer_token `string`: OAuth bearer token.
   * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
-  * pp `boolean`: Pretty-print response.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
   * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [TestIamPermissionsResponse](#testiampermissionsresponse)
@@ -958,243 +412,203 @@ google_cloudresourcemanager.organizations.testIamPermissions({
 
 ## Definitions
 
-### Ancestor
-* Ancestor `object`: Identifying information for a single ancestor of a project.
-  * resourceId [ResourceId](#resourceid)
-
 ### AuditConfig
-* AuditConfig `object`: Specifies the audit configuration for a service.
+* AuditConfig `object`: Specifies the audit configuration for a service. The configuration determines which permission types are logged, and what identities, if any, are exempted from logging. An AuditConfig must have one or more AuditLogConfigs. If there are AuditConfigs for both `allServices` and a specific service, the union of the two AuditConfigs is used for that service: the log_types specified in each AuditConfig are enabled, and the exempted_members in each AuditLogConfig are exempted. Example Policy with multiple AuditConfigs: { "audit_configs": [ { "service": "allServices", "audit_log_configs": [ { "log_type": "DATA_READ", "exempted_members": [ "user:jose@example.com" ] }, { "log_type": "DATA_WRITE" }, { "log_type": "ADMIN_READ" } ] }, { "service": "sampleservice.googleapis.com", "audit_log_configs": [ { "log_type": "DATA_READ" }, { "log_type": "DATA_WRITE", "exempted_members": [ "user:aliya@example.com" ] } ] } ] } For sampleservice, this policy enables DATA_READ, DATA_WRITE and ADMIN_READ logging. It also exempts jose@example.com from DATA_READ logging, and aliya@example.com from DATA_WRITE logging.
   * auditLogConfigs `array`: The configuration for logging of each type of permission.
     * items [AuditLogConfig](#auditlogconfig)
-  * service `string`: Specifies a service that will be enabled for audit logging.
+  * service `string`: Specifies a service that will be enabled for audit logging. For example, `storage.googleapis.com`, `cloudsql.googleapis.com`. `allServices` is a special value that covers all services.
 
 ### AuditLogConfig
-* AuditLogConfig `object`: Provides the configuration for logging a type of permissions.
-  * exemptedMembers `array`: Specifies the identities that do not cause logging for this type of
+* AuditLogConfig `object`: Provides the configuration for logging a type of permissions. Example: { "audit_log_configs": [ { "log_type": "DATA_READ", "exempted_members": [ "user:jose@example.com" ] }, { "log_type": "DATA_WRITE" } ] } This enables 'DATA_READ' and 'DATA_WRITE' logging, while exempting jose@example.com from DATA_READ logging.
+  * exemptedMembers `array`: Specifies the identities that do not cause logging for this type of permission. Follows the same format of Binding.members.
     * items `string`
   * logType `string` (values: LOG_TYPE_UNSPECIFIED, ADMIN_READ, DATA_WRITE, DATA_READ): The log type that this config enables.
 
 ### Binding
 * Binding `object`: Associates `members` with a `role`.
-  * members `array`: Specifies the identities requesting access for a Cloud Platform resource.
+  * condition [Expr](#expr)
+  * members `array`: Specifies the identities requesting access for a Cloud Platform resource. `members` can have the following values: * `allUsers`: A special identifier that represents anyone who is on the internet; with or without a Google account. * `allAuthenticatedUsers`: A special identifier that represents anyone who is authenticated with a Google account or a service account. * `user:{emailid}`: An email address that represents a specific Google account. For example, `alice@example.com` . * `serviceAccount:{emailid}`: An email address that represents a service account. For example, `my-other-app@appspot.gserviceaccount.com`. * `group:{emailid}`: An email address that represents a Google group. For example, `admins@example.com`. * `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a user that has been recently deleted. For example, `alice@example.com?uid=123456789012345678901`. If the user is recovered, this value reverts to `user:{emailid}` and the recovered user retains the role in the binding. * `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a service account that has been recently deleted. For example, `my-other-app@appspot.gserviceaccount.com?uid=123456789012345678901`. If the service account is undeleted, this value reverts to `serviceAccount:{emailid}` and the undeleted service account retains the role in the binding. * `deleted:group:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a Google group that has been recently deleted. For example, `admins@example.com?uid=123456789012345678901`. If the group is recovered, this value reverts to `group:{emailid}` and the recovered group retains the role in the binding. * `domain:{domain}`: The G Suite domain (primary) that represents all the users of that domain. For example, `google.com` or `example.com`. 
     * items `string`
-  * role `string`: Role that is assigned to `members`.
+  * role `string`: Role that is assigned to `members`. For example, `roles/viewer`, `roles/editor`, or `roles/owner`.
 
-### BooleanConstraint
-* BooleanConstraint `object`: A `Constraint` that is either enforced or not.
+### CloudresourcemanagerGoogleCloudResourcemanagerV2alpha1FolderOperation
+* CloudresourcemanagerGoogleCloudResourcemanagerV2alpha1FolderOperation `object`: Metadata describing a long running folder operation
+  * destinationParent `string`: The resource name of the folder or organization we are either creating the folder under or moving the folder to.
+  * displayName `string`: The display name of the folder.
+  * operationType `string` (values: OPERATION_TYPE_UNSPECIFIED, CREATE, MOVE): The type of this operation.
+  * sourceParent `string`: The resource name of the folder's parent. Only applicable when the operation_type is MOVE.
 
-### BooleanPolicy
-* BooleanPolicy `object`: Used in `policy_type` to specify how `boolean_policy` will behave at this
-  * enforced `boolean`: If `true`, then the `Policy` is enforced. If `false`, then any
+### CloudresourcemanagerGoogleCloudResourcemanagerV2beta1FolderOperation
+* CloudresourcemanagerGoogleCloudResourcemanagerV2beta1FolderOperation `object`: Metadata describing a long running folder operation
+  * destinationParent `string`: The resource name of the folder or organization we are either creating the folder under or moving the folder to.
+  * displayName `string`: The display name of the folder.
+  * operationType `string` (values: OPERATION_TYPE_UNSPECIFIED, CREATE, MOVE): The type of this operation.
+  * sourceParent `string`: The resource name of the folder's parent. Only applicable when the operation_type is MOVE.
 
-### ClearOrgPolicyRequest
-* ClearOrgPolicyRequest `object`: The request sent to the ClearOrgPolicy method.
-  * constraint `string`: Name of the `Constraint` of the `Policy` to clear.
-  * etag `string`: The current version, for concurrency control. Not sending an `etag`
+### CreateFolderMetadata
+* CreateFolderMetadata `object`: Metadata pertaining to the Folder creation process.
+  * displayName `string`: The display name of the folder.
+  * parent `string`: The resource name of the folder or organization we are creating the folder under.
 
-### Constraint
-* Constraint `object`: A `Constraint` describes a way in which a resource's configuration can be
-  * booleanConstraint [BooleanConstraint](#booleanconstraint)
-  * constraintDefault `string` (values: CONSTRAINT_DEFAULT_UNSPECIFIED, ALLOW, DENY): The evaluation behavior of this constraint in the absense of 'Policy'.
-  * description `string`: Detailed description of what this `Constraint` controls as well as how and
-  * displayName `string`: The human readable name.
-  * listConstraint [ListConstraint](#listconstraint)
-  * name `string`: Immutable value, required to globally be unique. For example,
-  * version `integer`: Version of the `Constraint`. Default version is 0;
+### CreateProjectMetadata
+* CreateProjectMetadata `object`: A status object which is used as the `metadata` field for the Operation returned by CreateProject. It provides insight for when significant phases of Project creation have completed.
+  * createTime `string`: Creation time of the project creation workflow.
+  * gettable `boolean`: True if the project can be retrieved using GetProject. No other operations on the project are guaranteed to work until the project creation is complete.
+  * ready `boolean`: True if the project creation process is complete.
 
-### Empty
-* Empty `object`: A generic empty message that you can re-use to avoid defining duplicated
+### CreateTagKeyMetadata
+* CreateTagKeyMetadata `object`: Runtime operation information for creating a TagKey.
+
+### CreateTagValueMetadata
+* CreateTagValueMetadata `object`: Runtime operation information for creating a TagValue.
+
+### DeleteFolderMetadata
+* DeleteFolderMetadata `object`: A status object which is used as the `metadata` field for the Operation returned by DeleteFolder.
+
+### DeleteOrganizationMetadata
+* DeleteOrganizationMetadata `object`: A status object which is used as the `metadata` field for the Operation returned by DeleteOrganization.
+
+### DeleteProjectMetadata
+* DeleteProjectMetadata `object`: A status object which is used as the `metadata` field for the Operation returned by DeleteProject.
+
+### DeleteTagKeyMetadata
+* DeleteTagKeyMetadata `object`: Runtime operation information for deleting a TagKey.
+
+### DeleteTagValueMetadata
+* DeleteTagValueMetadata `object`: Runtime operation information for deleting a TagValue.
+
+### Expr
+* Expr `object`: Represents a textual expression in the Common Expression Language (CEL) syntax. CEL is a C-like expression language. The syntax and semantics of CEL are documented at https://github.com/google/cel-spec. Example (Comparison): title: "Summary size limit" description: "Determines if a summary is less than 100 chars" expression: "document.summary.size() < 100" Example (Equality): title: "Requestor is owner" description: "Determines if requestor is the document owner" expression: "document.owner == request.auth.claims.email" Example (Logic): title: "Public documents" description: "Determine whether the document should be publicly visible" expression: "document.type != 'private' && document.type != 'internal'" Example (Data Manipulation): title: "Notification string" description: "Create a notification string with a timestamp." expression: "'New message received at ' + string(document.create_time)" The exact variables and functions that may be referenced within an expression are determined by the service that evaluates it. See the service documentation for additional information.
+  * description `string`: Optional. Description of the expression. This is a longer text which describes the expression, e.g. when hovered over it in a UI.
+  * expression `string`: Textual representation of an expression in Common Expression Language syntax.
+  * location `string`: Optional. String indicating the location of the expression for error reporting, e.g. a file name and a position in the file.
+  * title `string`: Optional. Title for the expression, i.e. a short string describing its purpose. This can be used e.g. in UIs which allow to enter the expression.
+
+### Folder
+* Folder `object`: A Folder in an Organization's resource hierarchy, used to organize that Organization's resources.
+  * createTime `string`: Output only. Timestamp when the Folder was created. Assigned by the server.
+  * displayName `string`: The folder's display name. A folder's display name must be unique amongst its siblings, e.g. no two folders with the same parent can share the same display name. The display name must start and end with a letter or digit, may contain letters, digits, spaces, hyphens and underscores and can be no longer than 30 characters. This is captured by the regular expression: `[\p{L}\p{N}]([\p{L}\p{N}_- ]{0,28}[\p{L}\p{N}])?`.
+  * lifecycleState `string` (values: LIFECYCLE_STATE_UNSPECIFIED, ACTIVE, DELETE_REQUESTED): Output only. The lifecycle state of the folder. Updates to the lifecycle_state must be performed via DeleteFolder and UndeleteFolder.
+  * name `string`: Output only. The resource name of the Folder. Its format is `folders/{folder_id}`, for example: "folders/1234".
+  * parent `string`: Required. The Folder's parent's resource name. Updates to the folder's parent must be performed via MoveFolder.
 
 ### FolderOperation
 * FolderOperation `object`: Metadata describing a long running folder operation
-  * destinationParent `string`: The resource name of the folder or organization we are either creating
+  * destinationParent `string`: The resource name of the folder or organization we are either creating the folder under or moving the folder to.
   * displayName `string`: The display name of the folder.
   * operationType `string` (values: OPERATION_TYPE_UNSPECIFIED, CREATE, MOVE): The type of this operation.
-  * sourceParent `string`: The resource name of the folder's parent.
+  * sourceParent `string`: The resource name of the folder's parent. Only applicable when the operation_type is MOVE.
 
 ### FolderOperationError
 * FolderOperationError `object`: A classification of the Folder Operation error.
   * errorMessageId `string` (values: ERROR_TYPE_UNSPECIFIED, ACTIVE_FOLDER_HEIGHT_VIOLATION, MAX_CHILD_FOLDERS_VIOLATION, FOLDER_NAME_UNIQUENESS_VIOLATION, RESOURCE_DELETED_VIOLATION, PARENT_DELETED_VIOLATION, CYCLE_INTRODUCED_VIOLATION, FOLDER_BEING_MOVED_VIOLATION, FOLDER_TO_DELETE_NON_EMPTY_VIOLATION, DELETED_FOLDER_HEIGHT_VIOLATION): The type of operation error experienced.
 
-### GetAncestryRequest
-* GetAncestryRequest `object`: The request sent to the
-
-### GetAncestryResponse
-* GetAncestryResponse `object`: Response from the GetAncestry method.
-  * ancestor `array`: Ancestors are ordered from bottom to top of the resource hierarchy. The
-    * items [Ancestor](#ancestor)
-
-### GetEffectiveOrgPolicyRequest
-* GetEffectiveOrgPolicyRequest `object`: The request sent to the GetEffectiveOrgPolicy method.
-  * constraint `string`: The name of the `Constraint` to compute the effective `Policy`.
-
 ### GetIamPolicyRequest
 * GetIamPolicyRequest `object`: Request message for `GetIamPolicy` method.
+  * options [GetPolicyOptions](#getpolicyoptions)
 
-### GetOrgPolicyRequest
-* GetOrgPolicyRequest `object`: The request sent to the GetOrgPolicy method.
-  * constraint `string`: Name of the `Constraint` to get the `Policy`.
+### GetPolicyOptions
+* GetPolicyOptions `object`: Encapsulates settings provided to GetIamPolicy.
+  * requestedPolicyVersion `integer`: Optional. The policy format version to be returned. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for policies with any conditional bindings must specify version 3. Policies without any conditional bindings may specify any valid value or leave the field unset. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
 
-### Lien
-* Lien `object`: A Lien represents an encumbrance on the actions that can be performed on a
-  * createTime `string`: The creation time of this Lien.
-  * name `string`: A system-generated unique identifier for this Lien.
-  * origin `string`: A stable, user-visible/meaningful string identifying the origin of the
-  * parent `string`: A reference to the resource this Lien is attached to. The server will
-  * reason `string`: Concise user-visible strings indicating why an action cannot be performed
-  * restrictions `array`: The types of operations which should be blocked as a result of this Lien.
-    * items `string`
+### ListFoldersResponse
+* ListFoldersResponse `object`: The ListFolders response message.
+  * folders `array`: A possibly paginated list of Folders that are direct descendants of the specified parent resource.
+    * items [Folder](#folder)
+  * nextPageToken `string`: A pagination token returned from a previous call to `ListFolders` that indicates from where listing should continue.
 
-### ListAvailableOrgPolicyConstraintsRequest
-* ListAvailableOrgPolicyConstraintsRequest `object`: The request sent to the [ListAvailableOrgPolicyConstraints]
-  * pageSize `integer`: Size of the pages to be returned. This is currently unsupported and will
-  * pageToken `string`: Page token used to retrieve the next page. This is currently unsupported
+### MoveFolderMetadata
+* MoveFolderMetadata `object`: Metadata pertaining to the Folder move process.
+  * destinationParent `string`: The resource name of the folder or organization to move the folder to.
+  * displayName `string`: The display name of the folder.
+  * sourceParent `string`: The resource name of the folder's parent.
 
-### ListAvailableOrgPolicyConstraintsResponse
-* ListAvailableOrgPolicyConstraintsResponse `object`: The response returned from the ListAvailableOrgPolicyConstraints method.
-  * constraints `array`: The collection of constraints that are settable on the request resource.
-    * items [Constraint](#constraint)
-  * nextPageToken `string`: Page token used to retrieve the next page. This is currently not used.
+### MoveFolderRequest
+* MoveFolderRequest `object`: The MoveFolder request message.
+  * destinationParent `string`: Required. The resource name of the Folder or Organization to reparent the folder under. Must be of the form `folders/{folder_id}` or `organizations/{org_id}`.
 
-### ListConstraint
-* ListConstraint `object`: A `Constraint` that allows or disallows a list of string values, which are
-  * suggestedValue `string`: Optional. The Google Cloud Console will try to default to a configuration
-
-### ListLiensResponse
-* ListLiensResponse `object`: The response message for Liens.ListLiens.
-  * liens `array`: A list of Liens.
-    * items [Lien](#lien)
-  * nextPageToken `string`: Token to retrieve the next page of results, or empty if there are no more
-
-### ListOrgPoliciesRequest
-* ListOrgPoliciesRequest `object`: The request sent to the ListOrgPolicies method.
-  * pageSize `integer`: Size of the pages to be returned. This is currently unsupported and will
-  * pageToken `string`: Page token used to retrieve the next page. This is currently unsupported
-
-### ListOrgPoliciesResponse
-* ListOrgPoliciesResponse `object`: The response returned from the ListOrgPolicies method. It will be empty
-  * nextPageToken `string`: Page token used to retrieve the next page. This is currently not used, but
-  * policies `array`: The `Policies` that are set on the resource. It will be empty if no
-    * items [OrgPolicy](#orgpolicy)
-
-### ListPolicy
-* ListPolicy `object`: Used in `policy_type` to specify how `list_policy` behaves at this
-  * allValues `string` (values: ALL_VALUES_UNSPECIFIED, ALLOW, DENY): The policy all_values state.
-  * allowedValues `array`: List of values allowed  at this resource. Can only be set if no values
-    * items `string`
-  * deniedValues `array`: List of values denied at this resource. Can only be set if no values are
-    * items `string`
-  * inheritFromParent `boolean`: Determines the inheritance behavior for this `Policy`.
-  * suggestedValue `string`: Optional. The Google Cloud Console will try to default to a configuration
-
-### ListProjectsResponse
-* ListProjectsResponse `object`: A page of the response received from the
-  * nextPageToken `string`: Pagination token.
-  * projects `array`: The list of Projects that matched the list filter. This list can
-    * items [Project](#project)
+### MoveProjectMetadata
+* MoveProjectMetadata `object`: A status object which is used as the `metadata` field for the Operation returned by MoveProject.
 
 ### Operation
-* Operation `object`: This resource represents a long-running operation that is the result of a
-  * done `boolean`: If the value is `false`, it means the operation is still in progress.
+* Operation `object`: This resource represents a long-running operation that is the result of a network API call.
+  * done `boolean`: If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available.
   * error [Status](#status)
-  * metadata `object`: Service-specific metadata associated with the operation.  It typically
-  * name `string`: The server-assigned name, which is only unique within the same service that
-  * response `object`: The normal response of the operation in case of success.  If the original
-
-### OrgPolicy
-* OrgPolicy `object`: Defines a Cloud Organization `Policy` which is used to specify `Constraints`
-  * booleanPolicy [BooleanPolicy](#booleanpolicy)
-  * constraint `string`: The name of the `Constraint` the `Policy` is configuring, for example,
-  * etag `string`: An opaque tag indicating the current version of the `Policy`, used for
-  * listPolicy [ListPolicy](#listpolicy)
-  * restoreDefault [RestoreDefault](#restoredefault)
-  * updateTime `string`: The time stamp the `Policy` was previously updated. This is set by the
-  * version `integer`: Version of the `Policy`. Default version is 0;
-
-### Organization
-* Organization `object`: The root node in the resource hierarchy to which a particular entity's
-  * creationTime `string`: Timestamp when the Organization was created. Assigned by the server.
-  * displayName `string`: A human-readable string that refers to the Organization in the
-  * lifecycleState `string` (values: LIFECYCLE_STATE_UNSPECIFIED, ACTIVE, DELETE_REQUESTED): The organization's current lifecycle state. Assigned by the server.
-  * name `string`: Output Only. The resource name of the organization. This is the
-  * owner [OrganizationOwner](#organizationowner)
-
-### OrganizationOwner
-* OrganizationOwner `object`: The entity that owns an Organization. The lifetime of the Organization and
-  * directoryCustomerId `string`: The G Suite customer id used in the Directory API.
+  * metadata `object`: Service-specific metadata associated with the operation. It typically contains progress information and common metadata such as create time. Some services might not provide such metadata. Any method that returns a long-running operation should document the metadata type, if any.
+  * name `string`: The server-assigned name, which is only unique within the same service that originally returns it. If you use the default HTTP mapping, the `name` should be a resource name ending with `operations/{unique_id}`.
+  * response `object`: The normal response of the operation in case of success. If the original method returns no data on success, such as `Delete`, the response is `google.protobuf.Empty`. If the original method is standard `Get`/`Create`/`Update`, the response should be the resource. For other methods, the response should have the type `XxxResponse`, where `Xxx` is the original method name. For example, if the original method name is `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
 
 ### Policy
-* Policy `object`: Defines an Identity and Access Management (IAM) policy. It is used to
+* Policy `object`: An Identity and Access Management (IAM) policy, which specifies access controls for Google Cloud resources. A `Policy` is a collection of `bindings`. A `binding` binds one or more `members` to a single `role`. Members can be user accounts, service accounts, Google groups, and domains (such as G Suite). A `role` is a named list of permissions; each `role` can be an IAM predefined role or a user-created custom role. For some types of Google Cloud resources, a `binding` can also specify a `condition`, which is a logical expression that allows access to a resource only if the expression evaluates to `true`. A condition can add constraints based on attributes of the request, the resource, or both. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies). **JSON example:** { "bindings": [ { "role": "roles/resourcemanager.organizationAdmin", "members": [ "user:mike@example.com", "group:admins@example.com", "domain:google.com", "serviceAccount:my-project-id@appspot.gserviceaccount.com" ] }, { "role": "roles/resourcemanager.organizationViewer", "members": [ "user:eve@example.com" ], "condition": { "title": "expirable access", "description": "Does not grant access after Sep 2020", "expression": "request.time < timestamp('2020-10-01T00:00:00.000Z')", } } ], "etag": "BwWWja0YfJA=", "version": 3 } **YAML example:** bindings: - members: - user:mike@example.com - group:admins@example.com - domain:google.com - serviceAccount:my-project-id@appspot.gserviceaccount.com role: roles/resourcemanager.organizationAdmin - members: - user:eve@example.com role: roles/resourcemanager.organizationViewer condition: title: expirable access description: Does not grant access after Sep 2020 expression: request.time < timestamp('2020-10-01T00:00:00.000Z') - etag: BwWWja0YfJA= - version: 3 For a description of IAM and its features, see the [IAM documentation](https://cloud.google.com/iam/docs/).
   * auditConfigs `array`: Specifies cloud audit logging configuration for this policy.
     * items [AuditConfig](#auditconfig)
-  * bindings `array`: Associates a list of `members` to a `role`.
+  * bindings `array`: Associates a list of `members` to a `role`. Optionally, may specify a `condition` that determines how and when the `bindings` are applied. Each of the `bindings` must contain at least one member.
     * items [Binding](#binding)
-  * etag `string`: `etag` is used for optimistic concurrency control as a way to help
-  * version `integer`: Deprecated.
-
-### Project
-* Project `object`: A Project is a high-level Google Cloud Platform entity.  It is a
-  * createTime `string`: Creation time.
-  * labels `object`: The labels associated with this Project.
-  * lifecycleState `string` (values: LIFECYCLE_STATE_UNSPECIFIED, ACTIVE, DELETE_REQUESTED, DELETE_IN_PROGRESS): The Project lifecycle state.
-  * name `string`: The user-assigned display name of the Project.
-  * parent [ResourceId](#resourceid)
-  * projectId `string`: The unique, user-assigned ID of the Project.
-  * projectNumber `string`: The number uniquely identifying the project.
+  * etag `string`: `etag` is used for optimistic concurrency control as a way to help prevent simultaneous updates of a policy from overwriting each other. It is strongly suggested that systems make use of the `etag` in the read-modify-write cycle to perform policy updates in order to avoid race conditions: An `etag` is returned in the response to `getIamPolicy`, and systems are expected to put that etag in the request to `setIamPolicy` to ensure that their change will be applied to the same version of the policy. **Important:** If you use IAM Conditions, you must include the `etag` field whenever you call `setIamPolicy`. If you omit this field, then IAM allows you to overwrite a version `3` policy with a version `1` policy, and all of the conditions in the version `3` policy are lost.
+  * version `integer`: Specifies the format of the policy. Valid values are `0`, `1`, and `3`. Requests that specify an invalid value are rejected. Any operation that affects conditional role bindings must specify version `3`. This requirement applies to the following operations: * Getting a policy that includes a conditional role binding * Adding a conditional role binding to a policy * Changing a conditional role binding in a policy * Removing any role binding, with or without a condition, from a policy that includes conditions **Important:** If you use IAM Conditions, you must include the `etag` field whenever you call `setIamPolicy`. If you omit this field, then IAM allows you to overwrite a version `3` policy with a version `1` policy, and all of the conditions in the version `3` policy are lost. If a policy does not include any conditions, operations on that policy may specify any valid version or leave the field unset. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
 
 ### ProjectCreationStatus
-* ProjectCreationStatus `object`: A status object which is used as the `metadata` field for the Operation
+* ProjectCreationStatus `object`: A status object which is used as the `metadata` field for the Operation returned by CreateProject. It provides insight for when significant phases of Project creation have completed.
   * createTime `string`: Creation time of the project creation workflow.
-  * gettable `boolean`: True if the project can be retrieved using GetProject. No other operations
+  * gettable `boolean`: True if the project can be retrieved using GetProject. No other operations on the project are guaranteed to work until the project creation is complete.
   * ready `boolean`: True if the project creation process is complete.
 
-### ResourceId
-* ResourceId `object`: A container to reference an id for any resource type. A `resource` in Google
-  * id `string`: Required field for the type-specific id. This should correspond to the id
-  * type `string`: Required field representing the resource type this id is for.
+### SearchFoldersRequest
+* SearchFoldersRequest `object`: The request message for searching folders.
+  * pageSize `integer`: Optional. The maximum number of folders to return in the response.
+  * pageToken `string`: Optional. A pagination token returned from a previous call to `SearchFolders` that indicates from where search should continue.
+  * query `string`: Search criteria used to select the Folders to return. If no search criteria is specified then all accessible folders will be returned. Query expressions can be used to restrict results based upon displayName, lifecycleState and parent, where the operators `=`, `NOT`, `AND` and `OR` can be used along with the suffix wildcard symbol `*`. The displayName field in a query expression should use escaped quotes for values that include whitespace to prevent unexpected behavior. Some example queries are: * Query `displayName=Test*` returns Folder resources whose display name starts with "Test". * Query `lifecycleState=ACTIVE` returns Folder resources with `lifecycleState` set to `ACTIVE`. * Query `parent=folders/123` returns Folder resources that have `folders/123` as a parent resource. * Query `parent=folders/123 AND lifecycleState=ACTIVE` returns active Folder resources that have `folders/123` as a parent resource. * Query `displayName=\\"Test String\\"` returns Folder resources with display names that include both "Test" and "String".
 
-### RestoreDefault
-* RestoreDefault `object`: Ignores policies set above this resource and restores the
-
-### SearchOrganizationsRequest
-* SearchOrganizationsRequest `object`: The request sent to the `SearchOrganizations` method.
-  * filter `string`: An optional query string used to filter the Organizations to return in
-  * pageSize `integer`: The maximum number of Organizations to return in the response.
-  * pageToken `string`: A pagination token returned from a previous call to `SearchOrganizations`
-
-### SearchOrganizationsResponse
-* SearchOrganizationsResponse `object`: The response returned from the `SearchOrganizations` method.
-  * nextPageToken `string`: A pagination token to be used to retrieve the next page of results. If the
-  * organizations `array`: The list of Organizations that matched the search query, possibly
-    * items [Organization](#organization)
+### SearchFoldersResponse
+* SearchFoldersResponse `object`: The response message for searching folders.
+  * folders `array`: A possibly paginated folder search results. the specified parent resource.
+    * items [Folder](#folder)
+  * nextPageToken `string`: A pagination token returned from a previous call to `SearchFolders` that indicates from where searching should continue.
 
 ### SetIamPolicyRequest
 * SetIamPolicyRequest `object`: Request message for `SetIamPolicy` method.
   * policy [Policy](#policy)
-  * updateMask `string`: OPTIONAL: A FieldMask specifying which fields of the policy to modify. Only
-
-### SetOrgPolicyRequest
-* SetOrgPolicyRequest `object`: The request sent to the SetOrgPolicyRequest method.
-  * policy [OrgPolicy](#orgpolicy)
+  * updateMask `string`: OPTIONAL: A FieldMask specifying which fields of the policy to modify. Only the fields in the mask will be modified. If no mask is provided, the following default mask is used: `paths: "bindings, etag"`
 
 ### Status
-* Status `object`: The `Status` type defines a logical error model that is suitable for different
+* Status `object`: The `Status` type defines a logical error model that is suitable for different programming environments, including REST APIs and RPC APIs. It is used by [gRPC](https://github.com/grpc). Each `Status` message contains three pieces of data: error code, error message, and error details. You can find out more about this error model and how to work with it in the [API Design Guide](https://cloud.google.com/apis/design/errors).
   * code `integer`: The status code, which should be an enum value of google.rpc.Code.
-  * details `array`: A list of messages that carry the error details.  There is a common set of
+  * details `array`: A list of messages that carry the error details. There is a common set of message types for APIs to use.
     * items `object`
-  * message `string`: A developer-facing error message, which should be in English. Any
+  * message `string`: A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the google.rpc.Status.details field, or localized by the client.
 
 ### TestIamPermissionsRequest
 * TestIamPermissionsRequest `object`: Request message for `TestIamPermissions` method.
-  * permissions `array`: The set of permissions to check for the `resource`. Permissions with
+  * permissions `array`: The set of permissions to check for the `resource`. Permissions with wildcards (such as '*' or 'storage.*') are not allowed. For more information see [IAM Overview](https://cloud.google.com/iam/docs/overview#permissions).
     * items `string`
 
 ### TestIamPermissionsResponse
 * TestIamPermissionsResponse `object`: Response message for `TestIamPermissions` method.
-  * permissions `array`: A subset of `TestPermissionsRequest.permissions` that the caller is
+  * permissions `array`: A subset of `TestPermissionsRequest.permissions` that the caller is allowed.
     * items `string`
 
-### UndeleteProjectRequest
-* UndeleteProjectRequest `object`: The request sent to the UndeleteProject
+### UndeleteFolderMetadata
+* UndeleteFolderMetadata `object`: A status object which is used as the `metadata` field for the Operation returned by UndeleteFolder.
+
+### UndeleteFolderRequest
+* UndeleteFolderRequest `object`: The UndeleteFolder request message.
+
+### UndeleteOrganizationMetadata
+* UndeleteOrganizationMetadata `object`: A status object which is used as the `metadata` field for the Operation returned by UndeleteOrganization.
+
+### UndeleteProjectMetadata
+* UndeleteProjectMetadata `object`: A status object which is used as the `metadata` field for the Operation returned by UndeleteProject.
+
+### UpdateFolderMetadata
+* UpdateFolderMetadata `object`: A status object which is used as the `metadata` field for the Operation returned by UpdateFolder.
+
+### UpdateProjectMetadata
+* UpdateProjectMetadata `object`: A status object which is used as the `metadata` field for the Operation returned by UpdateProject.
+
+### UpdateTagKeyMetadata
+* UpdateTagKeyMetadata `object`: Runtime operation information for updating a TagKey.
+
+### UpdateTagValueMetadata
+* UpdateTagValueMetadata `object`: Runtime operation information for updating a TagValue.
 
 

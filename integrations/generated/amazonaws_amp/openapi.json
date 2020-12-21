@@ -1,0 +1,998 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "contact": {
+      "email": "mike.ralphson@gmail.com",
+      "name": "Mike Ralphson",
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
+    },
+    "description": "Amazon Managed Service for Prometheus",
+    "license": {
+      "name": "Apache 2.0 License",
+      "url": "http://www.apache.org/licenses/"
+    },
+    "termsOfService": "https://aws.amazon.com/service-terms/",
+    "title": "Amazon Prometheus Service",
+    "version": "2020-08-01",
+    "x-apiClientRegistration": {
+      "url": "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"
+    },
+    "x-apisguru-categories": [
+      "cloud"
+    ],
+    "x-logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"
+    },
+    "x-origin": [
+      {
+        "contentType": "application/json",
+        "converter": {
+          "url": "https://github.com/mermade/aws2openapi",
+          "version": "1.0.0"
+        },
+        "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/amp-2020-08-01.normal.json",
+        "x-apisguru-driver": "external"
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "amazonaws.com",
+    "x-release": "v4",
+    "x-serviceName": "amp",
+    "x-datafire": {
+      "name": "amazonaws_amp",
+      "type": "openapi"
+    }
+  },
+  "host": "aps.us-east-1.amazonaws.com",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/workspaces": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Optional filter for workspace alias. Only the workspaces with aliases that begin with this value will be returned.",
+            "in": "query",
+            "maxLength": 100,
+            "minLength": 1,
+            "name": "alias",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Maximum results to return in response (default=100, maximum=1000).",
+            "in": "query",
+            "maximum": 1000,
+            "minimum": 1,
+            "name": "maxResults",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Pagination token to request the next page in a paginated list. This token is obtained from the output of the previous ListWorkspaces request.",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListWorkspacesResponse"
+            }
+          },
+          "480": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "481": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "482": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "483": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Lists all AMP workspaces, including workspaces being created or deleted.",
+        "operationId": "ListWorkspaces"
+      },
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "alias": {
+                  "description": "A user-assigned workspace alias.",
+                  "maxLength": 100,
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "clientToken": {
+                  "description": "An identifier used to ensure the idempotency of a write request.",
+                  "maxLength": 64,
+                  "minLength": 1,
+                  "pattern": "[!-~]+",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateWorkspaceResponse"
+            }
+          },
+          "480": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "481": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          },
+          "482": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "483": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "484": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "485": {
+            "description": "ServiceQuotaExceededException",
+            "schema": {
+              "$ref": "#/definitions/ServiceQuotaExceededException"
+            }
+          }
+        },
+        "description": "Creates a new AMP workspace.",
+        "operationId": "CreateWorkspace"
+      }
+    },
+    "/workspaces/{workspaceId}": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "delete": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Optional, unique, case-sensitive, user-provided identifier to ensure the idempotency of the request.",
+            "in": "query",
+            "maxLength": 64,
+            "minLength": 1,
+            "name": "clientToken",
+            "pattern": "[!-~]+",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "The ID of the workspace to delete.",
+            "in": "path",
+            "maxLength": 64,
+            "minLength": 1,
+            "name": "workspaceId",
+            "pattern": "[0-9A-Za-z][-.0-9A-Z_a-z]*",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Success"
+          },
+          "480": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "481": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "484": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Deletes an AMP workspace.",
+        "operationId": "DeleteWorkspace"
+      },
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The ID of the workspace to describe.",
+            "in": "path",
+            "maxLength": 64,
+            "minLength": 1,
+            "name": "workspaceId",
+            "pattern": "[0-9A-Za-z][-.0-9A-Z_a-z]*",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeWorkspaceResponse"
+            }
+          },
+          "480": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "481": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "484": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Describes an existing AMP workspace.",
+        "operationId": "DescribeWorkspace"
+      }
+    },
+    "/workspaces/{workspaceId}/alias": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The ID of the workspace being updated.",
+            "in": "path",
+            "maxLength": 64,
+            "minLength": 1,
+            "name": "workspaceId",
+            "pattern": "[0-9A-Za-z][-.0-9A-Z_a-z]*",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "alias": {
+                  "description": "A user-assigned workspace alias.",
+                  "maxLength": 100,
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "clientToken": {
+                  "description": "An identifier used to ensure the idempotency of a write request.",
+                  "maxLength": 64,
+                  "minLength": 1,
+                  "pattern": "[!-~]+",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Success"
+          },
+          "480": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "481": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          },
+          "482": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "484": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "485": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "486": {
+            "description": "ServiceQuotaExceededException",
+            "schema": {
+              "$ref": "#/definitions/ServiceQuotaExceededException"
+            }
+          }
+        },
+        "description": "Updates an AMP workspace alias.",
+        "operationId": "UpdateWorkspaceAlias"
+      }
+    }
+  },
+  "definitions": {
+    "AccessDeniedException": {},
+    "ConflictException": {},
+    "CreateWorkspaceRequest": {
+      "description": "Represents the input of a CreateWorkspace operation.",
+      "properties": {
+        "alias": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/WorkspaceAlias"
+            },
+            {
+              "description": "An optional user-assigned alias for this workspace. This alias is for user reference and does not need to be unique."
+            }
+          ]
+        },
+        "clientToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/IdempotencyToken"
+            },
+            {
+              "description": "Optional, unique, case-sensitive, user-provided identifier to ensure the idempotency of the request."
+            }
+          ]
+        }
+      },
+      "title": "CreateWorkspaceRequest",
+      "type": "object"
+    },
+    "CreateWorkspaceResponse": {
+      "description": "Represents the output of a CreateWorkspace operation.",
+      "properties": {
+        "arn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/WorkspaceArn"
+            },
+            {
+              "description": "The ARN of the workspace that was just created."
+            }
+          ]
+        },
+        "status": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/WorkspaceStatus"
+            },
+            {
+              "description": "The status of the workspace that was just created (usually CREATING)."
+            }
+          ]
+        },
+        "workspaceId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/WorkspaceId"
+            },
+            {
+              "description": "The generated ID of the workspace that was just created."
+            }
+          ]
+        }
+      },
+      "required": [
+        "arn",
+        "status",
+        "workspaceId"
+      ],
+      "type": "object"
+    },
+    "DeleteWorkspaceRequest": {
+      "description": "Represents the input of a DeleteWorkspace operation.",
+      "properties": {},
+      "title": "DeleteWorkspaceRequest",
+      "type": "object"
+    },
+    "DescribeWorkspaceRequest": {
+      "description": "Represents the input of a DescribeWorkspace operation.",
+      "properties": {},
+      "title": "DescribeWorkspaceRequest",
+      "type": "object"
+    },
+    "DescribeWorkspaceResponse": {
+      "description": "Represents the output of a DescribeWorkspace operation.",
+      "properties": {
+        "workspace": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/WorkspaceDescription"
+            },
+            {
+              "description": "The properties of the selected workspace."
+            }
+          ]
+        }
+      },
+      "required": [
+        "workspace"
+      ],
+      "type": "object"
+    },
+    "IdempotencyToken": {
+      "description": "An identifier used to ensure the idempotency of a write request.",
+      "maxLength": 64,
+      "minLength": 1,
+      "pattern": "[!-~]+",
+      "type": "string"
+    },
+    "InternalServerException": {},
+    "ListWorkspacesRequest": {
+      "description": "Represents the input of a ListWorkspaces operation.",
+      "properties": {},
+      "title": "ListWorkspacesRequest",
+      "type": "object"
+    },
+    "ListWorkspacesRequestMaxResultsInteger": {
+      "maximum": 1000,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "ListWorkspacesResponse": {
+      "description": "Represents the output of a ListWorkspaces operation.",
+      "properties": {
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PaginationToken"
+            },
+            {
+              "description": "Pagination token to use when requesting the next page in this list."
+            }
+          ]
+        },
+        "workspaces": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/WorkspaceSummaryList"
+            },
+            {
+              "description": "The list of existing workspaces, including those undergoing creation or deletion."
+            }
+          ]
+        }
+      },
+      "required": [
+        "workspaces"
+      ],
+      "type": "object"
+    },
+    "PaginationToken": {
+      "description": "A token used to access the next page in a paginated result set.",
+      "type": "string"
+    },
+    "ResourceNotFoundException": {},
+    "ServiceQuotaExceededException": {},
+    "ThrottlingException": {},
+    "Timestamp": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "UpdateWorkspaceAliasRequest": {
+      "description": "Represents the input of an UpdateWorkspaceAlias operation.",
+      "properties": {
+        "alias": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/WorkspaceAlias"
+            },
+            {
+              "description": "The new alias of the workspace."
+            }
+          ]
+        },
+        "clientToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/IdempotencyToken"
+            },
+            {
+              "description": "Optional, unique, case-sensitive, user-provided identifier to ensure the idempotency of the request."
+            }
+          ]
+        }
+      },
+      "title": "UpdateWorkspaceAliasRequest",
+      "type": "object"
+    },
+    "Uri": {
+      "maxLength": 1024,
+      "minLength": 1,
+      "type": "string"
+    },
+    "ValidationException": {},
+    "WorkspaceAlias": {
+      "description": "A user-assigned workspace alias.",
+      "maxLength": 100,
+      "minLength": 1,
+      "type": "string"
+    },
+    "WorkspaceArn": {
+      "description": "An ARN identifying a Workspace.",
+      "type": "string"
+    },
+    "WorkspaceDescription": {
+      "description": "Represents the properties of a workspace.",
+      "properties": {
+        "alias": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/WorkspaceAlias"
+            },
+            {
+              "description": "Alias of this workspace."
+            }
+          ]
+        },
+        "arn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/WorkspaceArn"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of this workspace."
+            }
+          ]
+        },
+        "createdAt": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "The time when the workspace was created."
+            }
+          ]
+        },
+        "prometheusEndpoint": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Uri"
+            },
+            {
+              "description": "Prometheus endpoint URI."
+            }
+          ]
+        },
+        "status": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/WorkspaceStatus"
+            },
+            {
+              "description": "The status of this workspace."
+            }
+          ]
+        },
+        "workspaceId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/WorkspaceId"
+            },
+            {
+              "description": "Unique string identifying this workspace."
+            }
+          ]
+        }
+      },
+      "required": [
+        "arn",
+        "createdAt",
+        "status",
+        "workspaceId"
+      ],
+      "type": "object"
+    },
+    "WorkspaceId": {
+      "description": "A workspace ID.",
+      "maxLength": 64,
+      "minLength": 1,
+      "pattern": "[0-9A-Za-z][-.0-9A-Z_a-z]*",
+      "type": "string"
+    },
+    "WorkspaceStatus": {
+      "description": "Represents the status of a workspace.",
+      "properties": {
+        "statusCode": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/WorkspaceStatusCode"
+            },
+            {
+              "description": "Status code of this workspace."
+            }
+          ]
+        }
+      },
+      "required": [
+        "statusCode"
+      ],
+      "type": "object"
+    },
+    "WorkspaceStatusCode": {
+      "description": "State of a workspace.",
+      "enum": [
+        "CREATING",
+        "ACTIVE",
+        "UPDATING",
+        "DELETING",
+        "CREATION_FAILED"
+      ],
+      "type": "string"
+    },
+    "WorkspaceSummary": {
+      "description": "Represents a summary of the properties of a workspace.",
+      "properties": {
+        "alias": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/WorkspaceAlias"
+            },
+            {
+              "description": "Alias of this workspace."
+            }
+          ]
+        },
+        "arn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/WorkspaceArn"
+            },
+            {
+              "description": "The AmazonResourceName of this workspace."
+            }
+          ]
+        },
+        "createdAt": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "The time when the workspace was created."
+            }
+          ]
+        },
+        "status": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/WorkspaceStatus"
+            },
+            {
+              "description": "The status of this workspace."
+            }
+          ]
+        },
+        "workspaceId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/WorkspaceId"
+            },
+            {
+              "description": "Unique string identifying this workspace."
+            }
+          ]
+        }
+      },
+      "required": [
+        "arn",
+        "createdAt",
+        "status",
+        "workspaceId"
+      ],
+      "type": "object"
+    },
+    "WorkspaceSummaryList": {
+      "description": "A list of workspace summaries.",
+      "items": {
+        "$ref": "#/definitions/WorkspaceSummary"
+      },
+      "type": "array"
+    }
+  },
+  "securityDefinitions": {
+    "hmac": {
+      "description": "Amazon Signature authorization v4",
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey",
+      "x-amazon-apigateway-authtype": "awsSigv4"
+    }
+  },
+  "security": [
+    {
+      "hmac": []
+    }
+  ],
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://docs.aws.amazon.com/aps/"
+  },
+  "x-components": {
+    "parameters": {
+      "X-Amz-Algorithm": {
+        "in": "header",
+        "name": "X-Amz-Algorithm",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Content-Sha256": {
+        "in": "header",
+        "name": "X-Amz-Content-Sha256",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Credential": {
+        "in": "header",
+        "name": "X-Amz-Credential",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Date": {
+        "in": "header",
+        "name": "X-Amz-Date",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Security-Token": {
+        "in": "header",
+        "name": "X-Amz-Security-Token",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Signature": {
+        "in": "header",
+        "name": "X-Amz-Signature",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-SignedHeaders": {
+        "in": "header",
+        "name": "X-Amz-SignedHeaders",
+        "required": false,
+        "type": "string"
+      }
+    }
+  }
+}

@@ -14,7 +14,7 @@ let xero = require('@datafire/xero').create({
   token_secret: ""
 });
 
-xero.Users.get({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -4417,12 +4417,6 @@ xero.Users.UserID.get({
       * Rows `array`: The rows of the report (including header rows)
         * items `object`
           * Cells `array`: The cells that contain the data of the report
-            * items `object`
-              * Attributes `array`: AccountID that the Value relates to
-                * items `object`
-                  * Id `string` (values: account): Always 'account'
-                  * Value `string`: The AccountID that the Value relates to
-              * Value `string`: The data displayed in the report
           * RowType `string` (values: Row, SummaryRow): The type of row
       * Title `string`: The title of the row
   * UpdatedDateUTC `string`: The date and time the report was generated

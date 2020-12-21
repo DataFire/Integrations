@@ -1,6 +1,6 @@
 {
   "name": "@datafire/victorops",
-  "version": "5.0.0",
+  "version": "6.0.0",
   "main": "index.js",
   "description": "DataFire integration for VictorOps",
   "repository": {
@@ -14,7 +14,7 @@
   },
   "homepage": "https://github.com/DataFire/integrations#readme",
   "datafire": {
-    "origin": "https://api.apis.guru/v2/specs/victorops.com/0.0.2/swagger.json",
+    "origin": "https://api.apis.guru/v2/specs/victorops.com/0.0.3/swagger.json",
     "type": "openapi"
   },
   "dependencies": {

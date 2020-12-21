@@ -13,19 +13,37 @@ let amazonaws_cloudhsmv2 = require('@datafire/amazonaws_cloudhsmv2').create({
   region: ""
 });
 
-amazonaws_cloudhsmv2.CreateCluster({
-  "SubnetIds": [],
-  "HsmType": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
 
 ## Description
 
-For more information about AWS CloudHSM, see <a href="http://aws.amazon.com/cloudhsm/">AWS CloudHSM</a> and the <a href="http://docs.aws.amazon.com/cloudhsm/latest/userguide/">AWS CloudHSM User Guide</a>.
+For more information about AWS CloudHSM, see <a href="http://aws.amazon.com/cloudhsm/">AWS CloudHSM</a> and the <a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/">AWS CloudHSM User Guide</a>.
 
 ## Actions
+
+### CopyBackupToRegion
+
+
+
+```js
+amazonaws_cloudhsmv2.CopyBackupToRegion({
+  "DestinationRegion": null,
+  "BackupId": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * BackupId **required**
+  * DestinationRegion **required**
+  * TagList
+    * items [Tag](#tag)
+
+#### Output
+* output [CopyBackupToRegionResponse](#copybackuptoregionresponse)
 
 ### CreateCluster
 
@@ -33,16 +51,22 @@ For more information about AWS CloudHSM, see <a href="http://aws.amazon.com/clou
 
 ```js
 amazonaws_cloudhsmv2.CreateCluster({
-  "SubnetIds": [],
-  "HsmType": ""
+  "HsmType": null,
+  "SubnetIds": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * HsmType **required** [HsmType](#hsmtype)
-  * SourceBackupId [BackupId](#backupid)
-  * SubnetIds **required** [SubnetIds](#subnetids)
+  * BackupRetentionPolicy
+    * Type
+    * Value
+  * HsmType **required**
+  * SourceBackupId
+  * SubnetIds **required**
+    * items [SubnetId](#subnetid)
+  * TagList
+    * items [Tag](#tag)
 
 #### Output
 * output [CreateClusterResponse](#createclusterresponse)
@@ -53,19 +77,36 @@ amazonaws_cloudhsmv2.CreateCluster({
 
 ```js
 amazonaws_cloudhsmv2.CreateHsm({
-  "ClusterId": "",
-  "AvailabilityZone": ""
+  "ClusterId": null,
+  "AvailabilityZone": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * AvailabilityZone **required** [ExternalAz](#externalaz)
-  * ClusterId **required** [ClusterId](#clusterid)
-  * IpAddress [IpAddress](#ipaddress)
+  * AvailabilityZone **required**
+  * ClusterId **required**
+  * IpAddress
 
 #### Output
 * output [CreateHsmResponse](#createhsmresponse)
+
+### DeleteBackup
+
+
+
+```js
+amazonaws_cloudhsmv2.DeleteBackup({
+  "BackupId": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * BackupId **required**
+
+#### Output
+* output [DeleteBackupResponse](#deletebackupresponse)
 
 ### DeleteCluster
 
@@ -73,13 +114,13 @@ amazonaws_cloudhsmv2.CreateHsm({
 
 ```js
 amazonaws_cloudhsmv2.DeleteCluster({
-  "ClusterId": ""
+  "ClusterId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ClusterId **required** [ClusterId](#clusterid)
+  * ClusterId **required**
 
 #### Output
 * output [DeleteClusterResponse](#deleteclusterresponse)
@@ -90,16 +131,16 @@ amazonaws_cloudhsmv2.DeleteCluster({
 
 ```js
 amazonaws_cloudhsmv2.DeleteHsm({
-  "ClusterId": ""
+  "ClusterId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ClusterId **required** [ClusterId](#clusterid)
-  * EniId [EniId](#eniid)
-  * EniIp [IpAddress](#ipaddress)
-  * HsmId [HsmId](#hsmid)
+  * ClusterId **required**
+  * EniId
+  * EniIp
+  * HsmId
 
 #### Output
 * output [DeleteHsmResponse](#deletehsmresponse)
@@ -116,9 +157,10 @@ amazonaws_cloudhsmv2.DescribeBackups({}, context)
 * input `object`
   * MaxResults `string`
   * NextToken `string`
-  * Filters [Filters](#filters)
-  * MaxResults [MaxSize](#maxsize)
-  * NextToken [NextToken](#nexttoken)
+  * Filters
+  * MaxResults
+  * NextToken
+  * SortAscending
 
 #### Output
 * output [DescribeBackupsResponse](#describebackupsresponse)
@@ -135,9 +177,9 @@ amazonaws_cloudhsmv2.DescribeClusters({}, context)
 * input `object`
   * MaxResults `string`
   * NextToken `string`
-  * Filters [Filters](#filters)
-  * MaxResults [MaxSize](#maxsize)
-  * NextToken [NextToken](#nexttoken)
+  * Filters
+  * MaxResults
+  * NextToken
 
 #### Output
 * output [DescribeClustersResponse](#describeclustersresponse)
@@ -148,17 +190,17 @@ amazonaws_cloudhsmv2.DescribeClusters({}, context)
 
 ```js
 amazonaws_cloudhsmv2.InitializeCluster({
-  "ClusterId": "",
-  "SignedCert": "",
-  "TrustAnchor": ""
+  "ClusterId": null,
+  "SignedCert": null,
+  "TrustAnchor": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ClusterId **required** [ClusterId](#clusterid)
-  * SignedCert **required** [Cert](#cert)
-  * TrustAnchor **required** [Cert](#cert)
+  * ClusterId **required**
+  * SignedCert **required**
+  * TrustAnchor **required**
 
 #### Output
 * output [InitializeClusterResponse](#initializeclusterresponse)
@@ -169,7 +211,7 @@ amazonaws_cloudhsmv2.InitializeCluster({
 
 ```js
 amazonaws_cloudhsmv2.ListTags({
-  "ResourceId": ""
+  "ResourceId": null
 }, context)
 ```
 
@@ -177,12 +219,69 @@ amazonaws_cloudhsmv2.ListTags({
 * input `object`
   * MaxResults `string`
   * NextToken `string`
-  * MaxResults [MaxSize](#maxsize)
-  * NextToken [NextToken](#nexttoken)
-  * ResourceId **required** [ClusterId](#clusterid)
+  * MaxResults
+  * NextToken
+  * ResourceId **required**
 
 #### Output
 * output [ListTagsResponse](#listtagsresponse)
+
+### ModifyBackupAttributes
+
+
+
+```js
+amazonaws_cloudhsmv2.ModifyBackupAttributes({
+  "BackupId": null,
+  "NeverExpires": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * BackupId **required**
+  * NeverExpires **required**
+
+#### Output
+* output [ModifyBackupAttributesResponse](#modifybackupattributesresponse)
+
+### ModifyCluster
+
+
+
+```js
+amazonaws_cloudhsmv2.ModifyCluster({
+  "BackupRetentionPolicy": null,
+  "ClusterId": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * BackupRetentionPolicy **required**
+    * Type
+    * Value
+  * ClusterId **required**
+
+#### Output
+* output [ModifyClusterResponse](#modifyclusterresponse)
+
+### RestoreBackup
+
+
+
+```js
+amazonaws_cloudhsmv2.RestoreBackup({
+  "BackupId": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * BackupId **required**
+
+#### Output
+* output [RestoreBackupResponse](#restorebackupresponse)
 
 ### TagResource
 
@@ -190,15 +289,16 @@ amazonaws_cloudhsmv2.ListTags({
 
 ```js
 amazonaws_cloudhsmv2.TagResource({
-  "ResourceId": "",
-  "TagList": []
+  "ResourceId": null,
+  "TagList": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ResourceId **required** [ClusterId](#clusterid)
-  * TagList **required** [TagList](#taglist)
+  * ResourceId **required**
+  * TagList **required**
+    * items [Tag](#tag)
 
 #### Output
 * output [TagResourceResponse](#tagresourceresponse)
@@ -209,15 +309,16 @@ amazonaws_cloudhsmv2.TagResource({
 
 ```js
 amazonaws_cloudhsmv2.UntagResource({
-  "ResourceId": "",
-  "TagKeyList": []
+  "ResourceId": null,
+  "TagKeyList": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ResourceId **required** [ClusterId](#clusterid)
-  * TagKeyList **required** [TagKeyList](#tagkeylist)
+  * ResourceId **required**
+  * TagKeyList **required**
+    * items [TagKey](#tagkey)
 
 #### Output
 * output [UntagResourceResponse](#untagresourceresponse)
@@ -227,11 +328,19 @@ amazonaws_cloudhsmv2.UntagResource({
 ## Definitions
 
 ### Backup
-* Backup `object`: Contains information about a backup of an AWS CloudHSM cluster.
-  * BackupId **required** [BackupId](#backupid)
-  * BackupState [BackupState](#backupstate)
-  * ClusterId [ClusterId](#clusterid)
-  * CreateTimestamp [Timestamp](#timestamp)
+* Backup `object`: Contains information about a backup of an AWS CloudHSM cluster. All backup objects contain the <code>BackupId</code>, <code>BackupState</code>, <code>ClusterId</code>, and <code>CreateTimestamp</code> parameters. Backups that were copied into a destination region additionally contain the <code>CopyTimestamp</code>, <code>SourceBackup</code>, <code>SourceCluster</code>, and <code>SourceRegion</code> parameters. A backup that is pending deletion will include the <code>DeleteTimestamp</code> parameter.
+  * BackupId **required**
+  * BackupState
+  * ClusterId
+  * CopyTimestamp
+  * CreateTimestamp
+  * DeleteTimestamp
+  * NeverExpires
+  * SourceBackup
+  * SourceCluster
+  * SourceRegion
+  * TagList
+    * items [Tag](#tag)
 
 ### BackupId
 * BackupId `string`
@@ -239,59 +348,85 @@ amazonaws_cloudhsmv2.UntagResource({
 ### BackupPolicy
 * BackupPolicy `string` (values: DEFAULT)
 
+### BackupRetentionPolicy
+* BackupRetentionPolicy `object`: A policy that defines the number of days to retain backups.
+  * Type
+  * Value
+
+### BackupRetentionType
+* BackupRetentionType `string` (values: DAYS)
+
+### BackupRetentionValue
+* BackupRetentionValue `string`
+
 ### BackupState
-* BackupState `string` (values: CREATE_IN_PROGRESS, READY, DELETED)
+* BackupState `string` (values: CREATE_IN_PROGRESS, READY, DELETED, PENDING_DELETION)
 
 ### Backups
 * Backups `array`
   * items [Backup](#backup)
+
+### BackupsMaxSize
+* BackupsMaxSize `integer`
+
+### Boolean
+* Boolean `boolean`
 
 ### Cert
 * Cert `string`
 
 ### Certificates
 * Certificates `object`: Contains one or more certificates or a certificate signing request (CSR).
-  * AwsHardwareCertificate [Cert](#cert)
-  * ClusterCertificate [Cert](#cert)
-  * ClusterCsr [Cert](#cert)
-  * HsmCertificate [Cert](#cert)
-  * ManufacturerHardwareCertificate [Cert](#cert)
+  * AwsHardwareCertificate
+  * ClusterCertificate
+  * ClusterCsr
+  * HsmCertificate
+  * ManufacturerHardwareCertificate
 
 ### CloudHsmAccessDeniedException
-* CloudHsmAccessDeniedException `object`: The request was rejected because the requester does not have permission to perform the requested operation.
-  * Message [errorMessage](#errormessage)
+
 
 ### CloudHsmInternalFailureException
-* CloudHsmInternalFailureException `object`: The request was rejected because of an AWS CloudHSM internal failure. The request can be retried.
-  * Message [errorMessage](#errormessage)
+
 
 ### CloudHsmInvalidRequestException
-* CloudHsmInvalidRequestException `object`: The request was rejected because it is not a valid request.
-  * Message [errorMessage](#errormessage)
+
 
 ### CloudHsmResourceNotFoundException
-* CloudHsmResourceNotFoundException `object`: The request was rejected because it refers to a resource that cannot be found.
-  * Message [errorMessage](#errormessage)
+
 
 ### CloudHsmServiceException
-* CloudHsmServiceException `object`: The request was rejected because an error occurred.
-  * Message [errorMessage](#errormessage)
+
+
+### CloudHsmTagException
+
 
 ### Cluster
 * Cluster `object`: Contains information about an AWS CloudHSM cluster.
-  * BackupPolicy [BackupPolicy](#backuppolicy)
-  * Certificates [Certificates](#certificates)
-  * ClusterId [ClusterId](#clusterid)
-  * CreateTimestamp [Timestamp](#timestamp)
-  * HsmType [HsmType](#hsmtype)
-  * Hsms [Hsms](#hsms)
-  * PreCoPassword [PreCoPassword](#precopassword)
-  * SecurityGroup [SecurityGroup](#securitygroup)
-  * SourceBackupId [BackupId](#backupid)
-  * State [ClusterState](#clusterstate)
-  * StateMessage [StateMessage](#statemessage)
-  * SubnetMapping [ExternalSubnetMapping](#externalsubnetmapping)
-  * VpcId [VpcId](#vpcid)
+  * BackupPolicy
+  * BackupRetentionPolicy
+    * Type
+    * Value
+  * Certificates
+    * AwsHardwareCertificate
+    * ClusterCertificate
+    * ClusterCsr
+    * HsmCertificate
+    * ManufacturerHardwareCertificate
+  * ClusterId
+  * CreateTimestamp
+  * HsmType
+  * Hsms
+    * items [Hsm](#hsm)
+  * PreCoPassword
+  * SecurityGroup
+  * SourceBackupId
+  * State
+  * StateMessage
+  * SubnetMapping
+  * TagList
+    * items [Tag](#tag)
+  * VpcId
 
 ### ClusterId
 * ClusterId `string`
@@ -303,66 +438,176 @@ amazonaws_cloudhsmv2.UntagResource({
 * Clusters `array`
   * items [Cluster](#cluster)
 
+### ClustersMaxSize
+* ClustersMaxSize `integer`
+
+### CopyBackupToRegionRequest
+* CopyBackupToRegionRequest `object`
+  * BackupId **required**
+  * DestinationRegion **required**
+  * TagList
+    * items [Tag](#tag)
+
+### CopyBackupToRegionResponse
+* CopyBackupToRegionResponse `object`
+  * DestinationBackup
+    * CreateTimestamp
+    * SourceBackup
+    * SourceCluster
+    * SourceRegion
+
 ### CreateClusterRequest
 * CreateClusterRequest `object`
-  * HsmType **required** [HsmType](#hsmtype)
-  * SourceBackupId [BackupId](#backupid)
-  * SubnetIds **required** [SubnetIds](#subnetids)
+  * BackupRetentionPolicy
+    * Type
+    * Value
+  * HsmType **required**
+  * SourceBackupId
+  * SubnetIds **required**
+    * items [SubnetId](#subnetid)
+  * TagList
+    * items [Tag](#tag)
 
 ### CreateClusterResponse
 * CreateClusterResponse `object`
-  * Cluster [Cluster](#cluster)
+  * Cluster
+    * BackupPolicy
+    * BackupRetentionPolicy
+      * Type
+      * Value
+    * Certificates
+      * AwsHardwareCertificate
+      * ClusterCertificate
+      * ClusterCsr
+      * HsmCertificate
+      * ManufacturerHardwareCertificate
+    * ClusterId
+    * CreateTimestamp
+    * HsmType
+    * Hsms
+      * items [Hsm](#hsm)
+    * PreCoPassword
+    * SecurityGroup
+    * SourceBackupId
+    * State
+    * StateMessage
+    * SubnetMapping
+    * TagList
+      * items [Tag](#tag)
+    * VpcId
 
 ### CreateHsmRequest
 * CreateHsmRequest `object`
-  * AvailabilityZone **required** [ExternalAz](#externalaz)
-  * ClusterId **required** [ClusterId](#clusterid)
-  * IpAddress [IpAddress](#ipaddress)
+  * AvailabilityZone **required**
+  * ClusterId **required**
+  * IpAddress
 
 ### CreateHsmResponse
 * CreateHsmResponse `object`
-  * Hsm [Hsm](#hsm)
+  * Hsm
+    * AvailabilityZone
+    * ClusterId
+    * EniId
+    * EniIp
+    * HsmId **required**
+    * State
+    * StateMessage
+    * SubnetId
+
+### DeleteBackupRequest
+* DeleteBackupRequest `object`
+  * BackupId **required**
+
+### DeleteBackupResponse
+* DeleteBackupResponse `object`
+  * Backup
+    * BackupId **required**
+    * BackupState
+    * ClusterId
+    * CopyTimestamp
+    * CreateTimestamp
+    * DeleteTimestamp
+    * NeverExpires
+    * SourceBackup
+    * SourceCluster
+    * SourceRegion
+    * TagList
+      * items [Tag](#tag)
 
 ### DeleteClusterRequest
 * DeleteClusterRequest `object`
-  * ClusterId **required** [ClusterId](#clusterid)
+  * ClusterId **required**
 
 ### DeleteClusterResponse
 * DeleteClusterResponse `object`
-  * Cluster [Cluster](#cluster)
+  * Cluster
+    * BackupPolicy
+    * BackupRetentionPolicy
+      * Type
+      * Value
+    * Certificates
+      * AwsHardwareCertificate
+      * ClusterCertificate
+      * ClusterCsr
+      * HsmCertificate
+      * ManufacturerHardwareCertificate
+    * ClusterId
+    * CreateTimestamp
+    * HsmType
+    * Hsms
+      * items [Hsm](#hsm)
+    * PreCoPassword
+    * SecurityGroup
+    * SourceBackupId
+    * State
+    * StateMessage
+    * SubnetMapping
+    * TagList
+      * items [Tag](#tag)
+    * VpcId
 
 ### DeleteHsmRequest
 * DeleteHsmRequest `object`
-  * ClusterId **required** [ClusterId](#clusterid)
-  * EniId [EniId](#eniid)
-  * EniIp [IpAddress](#ipaddress)
-  * HsmId [HsmId](#hsmid)
+  * ClusterId **required**
+  * EniId
+  * EniIp
+  * HsmId
 
 ### DeleteHsmResponse
 * DeleteHsmResponse `object`
-  * HsmId [HsmId](#hsmid)
+  * HsmId
 
 ### DescribeBackupsRequest
 * DescribeBackupsRequest `object`
-  * Filters [Filters](#filters)
-  * MaxResults [MaxSize](#maxsize)
-  * NextToken [NextToken](#nexttoken)
+  * Filters
+  * MaxResults
+  * NextToken
+  * SortAscending
 
 ### DescribeBackupsResponse
 * DescribeBackupsResponse `object`
-  * Backups [Backups](#backups)
-  * NextToken [NextToken](#nexttoken)
+  * Backups
+    * items [Backup](#backup)
+  * NextToken
 
 ### DescribeClustersRequest
 * DescribeClustersRequest `object`
-  * Filters [Filters](#filters)
-  * MaxResults [MaxSize](#maxsize)
-  * NextToken [NextToken](#nexttoken)
+  * Filters
+  * MaxResults
+  * NextToken
 
 ### DescribeClustersResponse
 * DescribeClustersResponse `object`
-  * Clusters [Clusters](#clusters)
-  * NextToken [NextToken](#nexttoken)
+  * Clusters
+    * items [Cluster](#cluster)
+  * NextToken
+
+### DestinationBackup
+* DestinationBackup `object`: Contains information about the backup that will be copied and created by the <a>CopyBackupToRegion</a> operation.
+  * CreateTimestamp
+  * SourceBackup
+  * SourceCluster
+  * SourceRegion
 
 ### EniId
 * EniId `string`
@@ -371,30 +616,24 @@ amazonaws_cloudhsmv2.UntagResource({
 * ExternalAz `string`
 
 ### ExternalSubnetMapping
-* ExternalSubnetMapping `array`
-  * items `object`
-    * key [ExternalAz](#externalaz)
-    * value [SubnetId](#subnetid)
+* ExternalSubnetMapping `object`
 
 ### Field
 * Field `string`
 
 ### Filters
-* Filters `array`
-  * items `object`
-    * key [Field](#field)
-    * value [Strings](#strings)
+* Filters `object`
 
 ### Hsm
 * Hsm `object`: Contains information about a hardware security module (HSM) in an AWS CloudHSM cluster.
-  * AvailabilityZone [ExternalAz](#externalaz)
-  * ClusterId [ClusterId](#clusterid)
-  * EniId [EniId](#eniid)
-  * EniIp [IpAddress](#ipaddress)
-  * HsmId **required** [HsmId](#hsmid)
-  * State [HsmState](#hsmstate)
-  * StateMessage [String](#string)
-  * SubnetId [SubnetId](#subnetid)
+  * AvailabilityZone
+  * ClusterId
+  * EniId
+  * EniIp
+  * HsmId **required**
+  * State
+  * StateMessage
+  * SubnetId
 
 ### HsmId
 * HsmId `string`
@@ -411,37 +650,84 @@ amazonaws_cloudhsmv2.UntagResource({
 
 ### InitializeClusterRequest
 * InitializeClusterRequest `object`
-  * ClusterId **required** [ClusterId](#clusterid)
-  * SignedCert **required** [Cert](#cert)
-  * TrustAnchor **required** [Cert](#cert)
+  * ClusterId **required**
+  * SignedCert **required**
+  * TrustAnchor **required**
 
 ### InitializeClusterResponse
 * InitializeClusterResponse `object`
-  * State [ClusterState](#clusterstate)
-  * StateMessage [StateMessage](#statemessage)
+  * State
+  * StateMessage
 
 ### IpAddress
 * IpAddress `string`
 
 ### ListTagsRequest
 * ListTagsRequest `object`
-  * MaxResults [MaxSize](#maxsize)
-  * NextToken [NextToken](#nexttoken)
-  * ResourceId **required** [ClusterId](#clusterid)
+  * MaxResults
+  * NextToken
+  * ResourceId **required**
 
 ### ListTagsResponse
 * ListTagsResponse `object`
-  * NextToken [NextToken](#nexttoken)
-  * TagList **required** [TagList](#taglist)
+  * NextToken
+  * TagList **required**
+    * items [Tag](#tag)
 
 ### MaxSize
 * MaxSize `integer`
+
+### ModifyBackupAttributesRequest
+* ModifyBackupAttributesRequest `object`
+  * BackupId **required**
+  * NeverExpires **required**
+
+### ModifyBackupAttributesResponse
+* ModifyBackupAttributesResponse `object`
+  * Backup [Backup](#backup)
+
+### ModifyClusterRequest
+* ModifyClusterRequest `object`
+  * BackupRetentionPolicy **required**
+    * Type
+    * Value
+  * ClusterId **required**
+
+### ModifyClusterResponse
+* ModifyClusterResponse `object`
+  * Cluster [Cluster](#cluster)
 
 ### NextToken
 * NextToken `string`
 
 ### PreCoPassword
 * PreCoPassword `string`
+
+### Region
+* Region `string`
+
+### ResourceId
+* ResourceId `string`
+
+### RestoreBackupRequest
+* RestoreBackupRequest `object`
+  * BackupId **required**
+
+### RestoreBackupResponse
+* RestoreBackupResponse `object`
+  * Backup
+    * BackupId **required**
+    * BackupState
+    * ClusterId
+    * CopyTimestamp
+    * CreateTimestamp
+    * DeleteTimestamp
+    * NeverExpires
+    * SourceBackup
+    * SourceCluster
+    * SourceRegion
+    * TagList
+      * items [Tag](#tag)
 
 ### SecurityGroup
 * SecurityGroup `string`
@@ -465,8 +751,8 @@ amazonaws_cloudhsmv2.UntagResource({
 
 ### Tag
 * Tag `object`: Contains a tag. A tag is a key-value pair.
-  * Key **required** [TagKey](#tagkey)
-  * Value **required** [TagValue](#tagvalue)
+  * Key **required**
+  * Value **required**
 
 ### TagKey
 * TagKey `string`
@@ -481,8 +767,9 @@ amazonaws_cloudhsmv2.UntagResource({
 
 ### TagResourceRequest
 * TagResourceRequest `object`
-  * ResourceId **required** [ClusterId](#clusterid)
-  * TagList **required** [TagList](#taglist)
+  * ResourceId **required**
+  * TagList **required**
+    * items [Tag](#tag)
 
 ### TagResourceResponse
 * TagResourceResponse `object`
@@ -495,16 +782,14 @@ amazonaws_cloudhsmv2.UntagResource({
 
 ### UntagResourceRequest
 * UntagResourceRequest `object`
-  * ResourceId **required** [ClusterId](#clusterid)
-  * TagKeyList **required** [TagKeyList](#tagkeylist)
+  * ResourceId **required**
+  * TagKeyList **required**
+    * items [TagKey](#tagkey)
 
 ### UntagResourceResponse
 * UntagResourceResponse `object`
 
 ### VpcId
 * VpcId `string`
-
-### errorMessage
-* errorMessage `string`
 
 

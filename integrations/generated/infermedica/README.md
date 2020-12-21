@@ -1,6 +1,6 @@
 # @datafire/infermedica
 
-Client library for Infermedica
+Client library for Infermedica API
 
 ## Installation and Usage
 ```bash
@@ -9,7 +9,7 @@ npm install --save @datafire/infermedica
 ```js
 let infermedica = require('@datafire/infermedica').create();
 
-infermedica.getAllConditions(null).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -20,20 +20,57 @@ Empower your healthcare services with intelligent diagnostic insights of Inferme
 
 ## Actions
 
+### getConcepts
+
+
+
+```js
+infermedica.getConcepts({}, context)
+```
+
+#### Input
+* input `object`
+  * ids `string`: ids
+  * types `string`: types
+
+#### Output
+* output `array`
+  * items [ConceptItemModel_Public](#conceptitemmodel_public)
+
+### getConcept
+
+
+
+```js
+infermedica.getConcept({
+  "id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * id **required** `string`: concept id
+
+#### Output
+* output [ConceptItemModel_Public](#conceptitemmodel_public)
+
 ### getAllConditions
 Returns a list of all available conditions.
 
 
 ```js
-infermedica.getAllConditions(null, context)
+infermedica.getAllConditions({}, context)
 ```
 
 #### Input
-*This action has no parameters*
+* input `object`
+  * age.value `integer`: age value
+  * age.unit `string` (values: year, month): unit in which age value was provided
+  * enable_triage_5 `boolean`: enable 5-level triage values
 
 #### Output
 * output `array`
-  * items [Condition](#condition)
+  * items [Condition_Public](#condition_public)
 
 ### getCondition
 Returns details of a single condition specified by id parameter.
@@ -48,18 +85,21 @@ infermedica.getCondition({
 #### Input
 * input `object`
   * id **required** `string`: condition id
+  * age.value `integer`: age value
+  * age.unit `string` (values: year, month): unit in which age value was provided
+  * enable_triage_5 `boolean`: enable 5-level triage values
 
 #### Output
-* output [Condition](#condition)
+* output [Condition_Details](#condition_details)
 
-### diagnosis.post
+### computeDiagnosis
 Suggests possible diagnoses and relevant observations based on provided patient information.
 
 
 ```js
-infermedica.diagnosis.post({
+infermedica.computeDiagnosis({
   "body": {
-    "age": 0,
+    "age": {},
     "sex": ""
   }
 }, context)
@@ -70,16 +110,16 @@ infermedica.diagnosis.post({
   * body **required** [DiagnosisRequest](#diagnosisrequest)
 
 #### Output
-* output [DiagnosisResponse](#diagnosisresponse)
+* output [DiagnosisResponse_Public](#diagnosisresponse_public)
 
-### getExplanation
+### computeExplanation
 Explains which evidence impact probability of selected condition.
 
 
 ```js
-infermedica.getExplanation({
+infermedica.computeExplanation({
   "body": {
-    "age": 0,
+    "age": {},
     "sex": "",
     "target": ""
   }
@@ -98,29 +138,33 @@ Returns information about data used by diagnostic engine.
 
 
 ```js
-infermedica.getDatabaseInfo(null, context)
+infermedica.getDatabaseInfo({}, context)
 ```
 
 #### Input
-*This action has no parameters*
+* input `object`
+  * age.value `integer`: age value
+  * age.unit `string` (values: year, month): unit in which age value was provided
 
 #### Output
-* output [Info](#info)
+* output [Info_Public](#info_public)
 
 ### getAllLabTests
 Returns a list of all available lab tests.
 
 
 ```js
-infermedica.getAllLabTests(null, context)
+infermedica.getAllLabTests({}, context)
 ```
 
 #### Input
-*This action has no parameters*
+* input `object`
+  * age.value `integer`: age value
+  * age.unit `string` (values: year, month): unit in which age value was provided
 
 #### Output
 * output `array`
-  * items [LabTest](#labtest)
+  * items [LabTest_Public](#labtest_public)
 
 ### getLabTest
 Returns details of a single lab test specified by id parameter.
@@ -135,9 +179,11 @@ infermedica.getLabTest({
 #### Input
 * input `object`
   * id **required** `string`: lab test id
+  * age.value `integer`: age value
+  * age.unit `string` (values: year, month): unit in which age value was provided
 
 #### Output
-* output [LabTest](#labtest)
+* output [LabTest_Details](#labtest_details)
 
 ### getMatchingObservation
 Returns a single observation matching given phrase.
@@ -153,6 +199,8 @@ infermedica.getMatchingObservation({
 * input `object`
   * phrase **required** `string`: phrase to match
   * sex `string` (values: male, female): sex filter
+  * age.value `integer`: age value
+  * age.unit `string` (values: year, month): unit in which age value was provided
 
 #### Output
 * output [SearchResult](#searchresult)
@@ -176,20 +224,65 @@ infermedica.getMentions({
 #### Output
 * output [ParseResponse](#parseresponse)
 
+### computeRationale
+Returns rationale behind the question asked by the system.
+
+
+```js
+infermedica.computeRationale({
+  "body": {
+    "age": {},
+    "sex": ""
+  }
+}, context)
+```
+
+#### Input
+* input `object`
+  * body **required** [RationaleRequest](#rationalerequest)
+
+#### Output
+* output [RationaleResponse](#rationaleresponse)
+
+### computeRedFlags
+Suggests possible red flag symptoms based on provided patient information.
+
+
+```js
+infermedica.computeRedFlags({
+  "body": {
+    "age": {},
+    "sex": ""
+  }
+}, context)
+```
+
+#### Input
+* input `object`
+  * body **required** [DiagnosisRequest](#diagnosisrequest)
+  * max_results `integer`: maximum number of results
+
+#### Output
+* output `array`
+  * items [SuggestResult](#suggestresult)
+
 ### getAllRiskFactors
 Returns a list of all available risk factors.
 
 
 ```js
-infermedica.getAllRiskFactors(null, context)
+infermedica.getAllRiskFactors({}, context)
 ```
 
 #### Input
-*This action has no parameters*
+* input `object`
+  * age.value `integer`: age value
+  * age.unit `string` (values: year, month): unit in which age value was provided
+  * enable_triage_5 `boolean`: enable 5-level triage values
 
 #### Output
 * output `array`
-  * items [RiskFactor](#riskfactor)
+  * items [RiskFactor_Public](#riskfactor_public)
 
 ### getRiskFactor
 Returns details of a single risk factor specified by id parameter.
@@ -204,9 +297,12 @@ infermedica.getRiskFactor({
 #### Input
 * input `object`
   * id **required** `string`: risk factor id
+  * age.value `integer`: age value
+  * age.unit `string` (values: year, month): unit in which age value was provided
+  * enable_triage_5 `boolean`: enable 5-level triage values
 
 #### Output
-* output [RiskFactor](#riskfactor)
+* output [RiskFactor_Details](#riskfactor_details)
 
 ### getMatchingObservations
 Returns list of observations matching the given phrase.
@@ -222,6 +318,8 @@ infermedica.getMatchingObservations({
 * input `object`
   * phrase **required** `string`: phrase to match
   * sex `string` (values: male, female): sex filter
+  * age.value `integer`: age value
+  * age.unit `string` (values: year, month): unit in which age value was provided
   * max_results `integer`: maximum number of results
   * type `array`: type of results
 
@@ -253,15 +351,18 @@ Returns a list of all available symptoms.
 
 
 ```js
-infermedica.getAllSymptoms(null, context)
+infermedica.getAllSymptoms({}, context)
 ```
 
 #### Input
-*This action has no parameters*
+* input `object`
+  * age.value `integer`: age value
+  * age.unit `string` (values: year, month): unit in which age value was provided
+  * enable_triage_5 `boolean`: enable 5-level triage values
 
 #### Output
 * output `array`
-  * items [Symptom](#symptom)
+  * items [Symptom_Public](#symptom_public)
 
 ### getSymptom
 Returns details of a single symptom specified by id parameter.
@@ -276,18 +377,21 @@ infermedica.getSymptom({
 #### Input
 * input `object`
   * id **required** `string`: symptoms id
+  * age.value `integer`: age value
+  * age.unit `string` (values: year, month): unit in which age value was provided
+  * enable_triage_5 `boolean`: enable 5-level triage values
 
 #### Output
-* output [Symptom](#symptom)
+* output [Symptom_Details](#symptom_details)
 
-### triage.post
+### computeTriage
 Estimates triage level based on provided patient information.
 
 
 ```js
-infermedica.triage.post({
+infermedica.computeTriage({
   "body": {
-    "age": 0,
+    "age": {},
     "sex": ""
   }
 }, context)
@@ -304,13 +408,27 @@ infermedica.triage.post({
 
 ## Definitions
 
-### Choice
-* Choice `object`
+### Choice_Public
+* Choice_Public `object`
   * id **required** `string` (values: present, absent, unknown)
   * label **required** `string`
 
-### Condition
-* Condition `object`
+### ConceptItemModel_Public
+* ConceptItemModel_Public `object`
+  * common_name `string`
+  * id `string`
+  * name `string`
+  * type `string` (values: condition, symptom, risk_factor, lab_test)
+
+### ConditionProbability_Public
+* ConditionProbability_Public `object`
+  * common_name `string`: condition common name
+  * id **required** `string`: condition id
+  * name **required** `string`: condition name
+  * probability **required** `number`
+
+### Condition_Details
+* Condition_Details `object`
   * acuteness `string` (values: chronic, chronic_with_exacerbations, acute_potentially_chronic, acute)
   * categories **required** `array`
     * items `string`
@@ -321,39 +439,45 @@ infermedica.triage.post({
   * prevalence `string` (values: very_rare, rare, moderate, common)
   * severity `string` (values: mild, moderate, severe)
   * sex_filter **required** `string` (values: both, male, female)
-  * triage_level `string` (values: emergency, consultation, self_care)
+  * triage_level `string` (values: emergency_ambulance, emergency, consultation_24, consultation, self_care)
 
-### ConditionProbability
-* ConditionProbability `object`
-  * common_name `string`: condition common name
-  * id **required** `string`: condition id
-  * name **required** `string`: condition name
-  * probability **required** `number`
+### Condition_Public
+* Condition_Public `object`
+  * acuteness `string` (values: chronic, chronic_with_exacerbations, acute_potentially_chronic, acute)
+  * categories **required** `array`
+    * items `string`
+  * common_name `string`
+  * extras `object`: additional content, like custom properties or images
+  * id **required** `string`
+  * name **required** `string`
+  * prevalence `string` (values: very_rare, rare, moderate, common)
+  * severity `string` (values: mild, moderate, severe)
+  * sex_filter **required** `string` (values: both, male, female)
+  * triage_level `string` (values: emergency_ambulance, emergency, consultation_24, consultation, self_care)
 
 ### DiagnosisRequest
 * DiagnosisRequest `object`
-  * age **required** `integer`
+  * age **required** `object`
   * evaluated_at `string`: time when diagnosis was evaluated in ISO 8601 format
   * evidence `array`
     * items [Evidence](#evidence)
   * extras `object`
   * sex **required** `string` (values: male, female)
 
-### DiagnosisResponse
-* DiagnosisResponse `object`
+### DiagnosisResponse_Public
+* DiagnosisResponse_Public `object`
   * conditions `array`
-    * items [ConditionProbability](#conditionprobability)
+    * items [ConditionProbability_Public](#conditionprobability_public)
   * extras `object`
-  * question [Question](#question)
+  * question [Question_Public](#question_public)
   * should_stop `boolean`
 
 ### Evidence
 * Evidence `object`
   * choice_id **required** `string` (values: present, absent, unknown)
   * id **required** `string`: id of observation or condition
-  * initial `boolean`: true for initial evidence, false for evidence reported during interview
   * observed_at `string`: time when evidence was observed in ISO 8601 format
-  * related `boolean`: true for related evidence, false for evidence reported during interview
+  * source `string` (values: initial, suggest, predefined, red_flags): Flag describing evidence origin
 
 ### ExplanationEvidence
 * ExplanationEvidence `object`
@@ -363,7 +487,7 @@ infermedica.triage.post({
 
 ### ExplanationRequest
 * ExplanationRequest `object`
-  * age **required** `integer`
+  * age **required** `object`
   * evaluated_at `string`: time when diagnosis was evaluated in ISO 8601 format
   * evidence `array`
     * items [Evidence](#evidence)
@@ -380,27 +504,42 @@ infermedica.triage.post({
   * unconfirmed_evidence **required** `array`: unconfirmed evidence
     * items [ExplanationEvidence](#explanationevidence)
 
-### Info
-* Info `object`
+### Info_Public
+* Info_Public `object`
+  * api_version `string`: version of api release
   * conditions_count **required** `integer`
   * lab_tests_count **required** `integer`
   * risk_factors_count **required** `integer`
   * symptoms_count **required** `integer`
   * updated_at **required** `string`: time of last model update in ISO 8601 format
 
-### LabTest
-* LabTest `object`
+### LabTestResult_Details
+* LabTestResult_Details `object`
+  * id **required** `string`
+  * type **required** `string` (values: very_low, low, normal, high, very_high, absent, present)
+
+### LabTestResult_Public
+* LabTestResult_Public `object`
+  * id **required** `string`
+  * type **required** `string` (values: very_low, low, normal, high, very_high, absent, present)
+
+### LabTest_Details
+* LabTest_Details `object`
   * category `string`
   * common_name `string`
   * id **required** `string`
   * name **required** `string`
   * results `array`
-    * items [LabTestResult](#labtestresult)
+    * items [LabTestResult_Details](#labtestresult_details)
 
-### LabTestResult
-* LabTestResult `object`
+### LabTest_Public
+* LabTest_Public `object`
+  * category `string`
+  * common_name `string`
   * id **required** `string`
-  * type **required** `string` (values: very_low, low, normal, high, very_high, absent, present)
+  * name **required** `string`
+  * results `array`
+    * items [LabTestResult_Public](#labtestresult_public)
 
 ### ObservationMention
 * ObservationMention `object`
@@ -431,23 +570,46 @@ infermedica.triage.post({
   * tokens `array`
     * items `string`
 
-### Question
-* Question `object`
-  * extras `object`: additional content, like images or HTML
-  * items **required** `array`: one or more observations to evaluate
-    * items [QuestionItem](#questionitem)
-  * text **required** `string`: question text
-  * type `string` (values: single, group_single, group_multiple)
-
-### QuestionItem
-* QuestionItem `object`
+### QuestionItem_Public
+* QuestionItem_Public `object`
   * choices **required** `array`: list of available answer choices
-    * items [Choice](#choice)
+    * items [Choice_Public](#choice_public)
   * id **required** `string`: observation id
   * name **required** `string`: name or alias of observation
 
-### RiskFactor
-* RiskFactor `object`
+### Question_Public
+* Question_Public `object`
+  * extras `object`: additional content, like images or HTML
+  * items **required** `array`: one or more observations to evaluate
+    * items [QuestionItem_Public](#questionitem_public)
+  * text **required** `string`: question text
+  * type `string` (values: single, group_single, group_multiple)
+
+### RationaleParam
+* RationaleParam `object`
+  * common_name `string`: observation or condition common name
+  * id **required** `string`: observation or condition id
+  * name **required** `string`: observation or condition name
+
+### RationaleRequest
+* RationaleRequest `object`
+  * age **required** `object`
+  * evaluated_at `string`: time when diagnosis was evaluated in ISO 8601 format
+  * evidence `array`
+    * items [Evidence](#evidence)
+  * extras `object`
+  * sex **required** `string` (values: male, female)
+
+### RationaleResponse
+* RationaleResponse `object`
+  * condition_params `array`: condition params
+    * items [RationaleParam](#rationaleparam)
+  * observation_params `array`: observation params
+    * items [RationaleParam](#rationaleparam)
+  * type **required** `string` (values: r0, r1, r2, r3, r4, r5, r6): type
+
+### RiskFactor_Details
+* RiskFactor_Details `object`
   * category `string`
   * common_name `string`
   * extras `object`: additional content, like custom properties or images
@@ -456,6 +618,17 @@ infermedica.triage.post({
   * image_url `string`
   * name **required** `string`
   * question **required** `string`: only available in object details, not in listing
+  * sex_filter **required** `string` (values: both, male, female)
+
+### RiskFactor_Public
+* RiskFactor_Public `object`
+  * category `string`
+  * common_name `string`
+  * extras `object`: additional content, like custom properties or images
+  * id **required** `string`
+  * image_source `string`
+  * image_url `string`
+  * name **required** `string`
   * sex_filter **required** `string` (values: both, male, female)
 
 ### SearchResult
@@ -472,7 +645,7 @@ infermedica.triage.post({
 
 ### SuggestRequest
 * SuggestRequest `object`
-  * age `integer`
+  * age `object`
   * evaluated_at `string`: time when diagnosis was evaluated in ISO 8601 format
   * evidence `array`
     * items [Evidence](#evidence)
@@ -485,8 +658,8 @@ infermedica.triage.post({
   * id **required** `string`
   * name **required** `string`
 
-### Symptom
-* Symptom `object`
+### Symptom_Details
+* Symptom_Details `object`
   * category `string`
   * children `object`: list of child symptoms
   * common_name `string`
@@ -500,10 +673,26 @@ infermedica.triage.post({
   * question **required** `string`: only available in object details, not in listing
   * sex_filter **required** `string` (values: both, male, female)
 
+### Symptom_Public
+* Symptom_Public `object`
+  * category `string`
+  * children `object`: list of child symptoms
+  * common_name `string`
+  * extras `object`: additional content, like custom properties or images
+  * id **required** `string`
+  * image_source `string`
+  * image_url `string`
+  * name **required** `string`
+  * parent_id `string`: id of parent symptom
+  * parent_relation `string` (values: base, duration, severity, character, exacerbating_factor, diminishing_factor, location, radiation): type of relation with parent symptom
+  * sex_filter **required** `string` (values: both, male, female)
+
 ### TriageResponse
 * TriageResponse `object`
+  * root_cause `string` (values: r1, r2, r3, r4, r5, r6, r7, r8, r9, r10, r11, r12)
   * serious `array`
     * items [SeriousObservation](#seriousobservation)
-  * triage_level `string` (values: emergency, consultation, self_care)
+  * teleconsultation_applicable `boolean`
+  * triage_level `string` (values: emergency_ambulance, emergency, consultation_24, consultation, self_care)
 
 

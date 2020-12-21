@@ -9,11 +9,7 @@ npm install --save @datafire/schooldigger
 ```js
 let schooldigger = require('@datafire/schooldigger').create();
 
-schooldigger.Districts_GetAllDistricts({
-  "st": "",
-  "appID": "",
-  "appKey": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -45,15 +41,15 @@ schooldigger.Districts_GetAllDistricts({
   * nearLatitude `number`: Search for districts within (distanceMiles) of (nearLatitude)/(nearLongitude) (e.g. 44.982560) (optional) (Pro, Enterprise API levels only. Enterprise API level will flag districts that include lat/long in its attendance boundary.)
   * nearLongitude `number`: Search for districts within (distanceMiles) of (nearLatitude)/(nearLongitude) (e.g. -124.289185) (optional) (Pro, Enterprise API levels only. Enterprise API level will flag districts that include lat/long in its attendance boundary.)
   * boundaryAddress `string`: Full U.S. address: flag returned districts that include this address in its attendance boundary. Example: '123 Main St. AnyTown CA 90001' (optional) (Enterprise API level only)
-  * distanceMiles `integer`: Search for districts within (distanceMiles) of (nearLatitude)/(nearLongitude) (Default 5 miles) (optional) (Pro, Enterprise API levels only)
-  * isInBoundaryOnly `boolean`: Return only the districts that include given location (nearLatitdue/nearLongitude) or (nearAddress) in its attendance boundary (Enterprise API level only)
+  * distanceMiles `integer`: Search for districts within (distanceMiles) of (nearLatitude)/(nearLongitude) (Default 50 miles) (optional) (Pro, Enterprise API levels only)
+  * isInBoundaryOnly `boolean`: Return only the districts that include given location (nearLatitude/nearLongitude) or (boundaryAddress) in its attendance boundary (Enterprise API level only)
   * boxLatitudeNW `number`: Search for districts within a 'box' defined by (BoxLatitudeNW/BoxLongitudeNW) to (BoxLongitudeSE/BoxLatitudeSE) (optional)
   * boxLongitudeNW `number`: Search for districts within a 'box' defined by (BoxLatitudeNW/BoxLongitudeNW) to (BoxLongitudeSE/BoxLatitudeSE) (optional)
   * boxLatitudeSE `number`: Search for districts within a 'box' defined by (BoxLatitudeNW/BoxLongitudeNW) to (BoxLongitudeSE/BoxLatitudeSE) (optional)
   * boxLongitudeSE `number`: Search for districts within a 'box' defined by (BoxLatitudeNW/BoxLongitudeNW) to (BoxLongitudeSE/BoxLatitudeSE) (optional)
   * page `integer`: Page number to retrieve (optional, default: 1)
   * perPage `integer`: Number of districts to retrieve on a page (50 max) (optional, default: 10)
-  * sortBy `string`: Sort list. Values are: districtname, distance, rank. For descending order, preceed with '-' i.e. -districtname (optional, default: districtname)
+  * sortBy `string`: Sort list. Values are: districtname, distance, rank. For descending order, precede with '-' i.e. -districtname (optional, default: districtname)
   * appID **required** `string`: Your API app id
   * appKey **required** `string`: Your API app key
 
@@ -81,12 +77,12 @@ schooldigger.Districts_GetDistrict({
 #### Output
 * output [APIDistrict](#apidistrict)
 
-### v1.rankings.districts.st.get
+### Rankings_GetRank_District
 Returns a SchoolDigger district ranking list
 
 
 ```js
-schooldigger.v1.rankings.districts.st.get({
+schooldigger.Rankings_GetRank_District({
   "st": "",
   "appID": "",
   "appKey": ""
@@ -105,12 +101,12 @@ schooldigger.v1.rankings.districts.st.get({
 #### Output
 * output [APIDistrictListRank](#apidistrictlistrank)
 
-### v1.rankings.schools.st.get
+### Rankings_GetRank
 Returns a SchoolDigger school ranking list
 
 
 ```js
-schooldigger.v1.rankings.schools.st.get({
+schooldigger.Rankings_GetRank({
   "st": "",
   "appID": "",
   "appKey": ""
@@ -146,6 +142,7 @@ schooldigger.Schools_GetAllSchools({
 * input `object`
   * st **required** `string`: Two character state (e.g. 'CA') - required
   * q `string`: Search term - note: will match school name or city (optional)
+  * qSearchSchoolNameOnly `boolean`: For parameter 'q', only search school names instead of school and city (optional)
   * districtID `string`: Search for schools within this district (7 digit district id) (optional)
   * level `string`: Search for schools at this level. Valid values: 'Elementary', 'Middle', 'High', 'Alt', 'Private' (optional)
   * city `string`: Search for schools in this city (optional)
@@ -154,19 +151,19 @@ schooldigger.Schools_GetAllSchools({
   * isCharter `boolean`: True = return only charter schools, False = return only non-charter schools (optional) (Pro, Enterprise API levels only)
   * isVirtual `boolean`: True = return only virtual schools, False = return only non-virtual schools (optional) (Pro, Enterprise API levels only)
   * isTitleI `boolean`: True = return only Title I schools, False = return only non-Title I schools (optional) (Pro, Enterprise API levels only)
-  * isTitleISchoolwide `boolean`: True = return only Title I schoolwide schools, False = return only non-Title I Schoolwide schools (optional) (Pro, Enterprise API levels only)
+  * isTitleISchoolwide `boolean`: True = return only Title I school-wide schools, False = return only non-Title I school-wide schools (optional) (Pro, Enterprise API levels only)
   * nearLatitude `number`: Search for schools within (distanceMiles) of (nearLatitude)/(nearLongitude) (e.g. 44.982560) (optional) (Pro, Enterprise API levels only. Enterprise API level will flag schools that include lat/long in its attendance boundary.)
   * nearLongitude `number`: Search for schools within (distanceMiles) of (nearLatitude)/(nearLongitude) (e.g. -124.289185) (optional) (Pro, Enterprise API levels only. Enterprise API level will flag schools that include lat/long in its attendance boundary.)
-  * boundaryAddress `string`: Full U.S. address: flag returned schools that include this address in its attendance boundary. Example: '123 Main St. AnyTown CA 90001' (optional) (Enterprise API level only)
+  * boundaryAddress `string`: Full U.S. address: flag returned schools that include this address in its attendance boundary. Example: '123 Main St. AnyTown CA 90001' (optional) (Enterprise API level only) IMPORTANT NOTE: If you have the lat/long of the address, use nearLatitude and nearLongitude instead for much faster response times
   * distanceMiles `integer`: Search for schools within (distanceMiles) of (nearLatitude)/(nearLongitude) (Default 5 miles) (optional) (Pro, Enterprise API levels only)
-  * isInBoundaryOnly `boolean`: Return only the schools that include given location (nearLatitdue/nearLongitude) or (nearAddress) in its attendance boundary (Enterprise API level only)
+  * isInBoundaryOnly `boolean`: Return only the schools that include given location (nearLatitude/nearLongitude) or (boundaryAddress) in its attendance boundary (Enterprise API level only)
   * boxLatitudeNW `number`: Search for schools within a 'box' defined by (boxLatitudeNW/boxLongitudeNW) to (boxLongitudeSE/boxLatitudeSE) (optional)
   * boxLongitudeNW `number`: Search for schools within a 'box' defined by (boxLatitudeNW/boxLongitudeNW) to (boxLongitudeSE/boxLatitudeSE) (optional)
   * boxLatitudeSE `number`: Search for schools within a 'box' defined by (boxLatitudeNW/boxLongitudeNW) to (boxLongitudeSE/boxLatitudeSE) (optional)
   * boxLongitudeSE `number`: Search for schools within a 'box' defined by (boxLatitudeNW/boxLongitudeNW) to (boxLongitudeSE/boxLatitudeSE) (optional)
   * page `integer`: Page number to retrieve (optional, default: 1)
   * perPage `integer`: Number of schools to retrieve on a page (50 max) (optional, default: 10)
-  * sortBy `string`: Sort list. Values are: schoolname, distance, rank. For descending order, preceed with '-' i.e. -schoolname (optional, default: schoolname)
+  * sortBy `string`: Sort list. Values are: schoolname, distance, rank. For descending order, precede with '-' i.e. -schoolname (optional, default: schoolname)
   * appID **required** `string`: Your API app id
   * appKey **required** `string`: Your API app key
 
@@ -255,8 +252,6 @@ schooldigger.Schools_GetSchool({
   * phone `string`: District phone number
   * rankHistory `array`: SchoolDigger yearly rank history of the district
     * items [APILEARankHistory](#apilearankhistory)
-  * testScores `array`: Test scores (district and state) -- requires Pro or Enterprise level API subscription
-    * items [APITestScoreWrapper](#apitestscorewrapper)
   * url `string`: SchoolDigger URL for this district
 
 ### APIDistrictList
@@ -462,7 +457,7 @@ schooldigger.Schools_GetSchool({
   * schoolTestScore [APITestScore](#apitestscore)
   * stateTestScore [APITestScore](#apitestscore)
   * subject `string`: Test subject
-  * test `string`: The name of the state-administed test
+  * test `string`: The name of the state-administered test
   * tier1 `string`: Tier 1 test score description (Enterprise API level only)
   * tier2 `string`: Tier 2 test score description (Enterprise API level only)
   * tier3 `string`: Tier 3 test score description (Enterprise API level only)
@@ -491,7 +486,7 @@ schooldigger.Schools_GetSchool({
   * percentofUnspecifiedRaceStudents `number`
   * percentofWhiteStudents `number`
   * pupilTeacherRatio `number`: Number of students / number of full-time equivalent teachers
-  * teachersFulltime `number`: Number of full-time equvalent teachers employed at the school
+  * teachersFulltime `number`: Number of full-time equivalent teachers employed at the school
   * year `integer`: School year (2018 = 2017-18)
 
 

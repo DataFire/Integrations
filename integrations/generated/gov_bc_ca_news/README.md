@@ -9,9 +9,7 @@ npm install --save @datafire/gov_bc_ca_news
 ```js
 let gov_bc_ca_news = require('@datafire/gov_bc_ca_news').create();
 
-gov_bc_ca_news.FacebookPosts_GetByUri({
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

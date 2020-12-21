@@ -1,11 +1,5 @@
 {
   "swagger": "2.0",
-  "schemes": [
-    "http",
-    "https"
-  ],
-  "host": "programmes.api.bbc.com",
-  "basePath": "/nitro/api",
   "info": {
     "contact": {
       "email": "nitro@bbc.co.uk",
@@ -15,10 +9,10 @@
     "description": "BBC Nitro is the BBC's application programming interface (API) for BBC Programmes Metadata.",
     "license": {
       "name": "Nitro Public License",
-      "url": "https://developer.bbc.co.uk/nitropubliclicence/"
+      "url": "https://github.com/Mermade/bbcparse/wiki/Nitro-Public-License"
     },
     "termsOfService": "http://www.bbc.co.uk/terms/",
-    "title": "BBC Nitro",
+    "title": "BBC Nitro API",
     "version": "1.0.0",
     "x-apiClientRegistration": {
       "url": "https://developer.bbc.co.uk/user/register"
@@ -40,9 +34,13 @@
         "url": "http://programmes.api.bbc.com/nitro/api"
       },
       {
-        "format": "swagger",
-        "url": "https://raw.githubusercontent.com/Mermade/bbcparse/master/nitroApi/swagger.json",
-        "version": "2.0"
+        "converter": {
+          "url": "https://github.com/lucybot/api-spec-converter",
+          "version": "2.7.11"
+        },
+        "format": "openapi",
+        "url": "https://raw.githubusercontent.com/Mermade/bbcparse/master/nitroApi/openapi.yaml",
+        "version": "3.0"
       }
     ],
     "x-preferred": true,
@@ -59,48 +57,18 @@
       "type": "openapi"
     }
   },
-  "externalDocs": {
-    "description": "Nitro for developers",
-    "url": "https://developer.bbc.co.uk/nitro"
-  },
-  "consumes": [
-    "application/json"
-  ],
-  "produces": [
-    "application/json",
-    "application/xml"
-  ],
-  "securityDefinitions": {
-    "api_key": {
-      "in": "query",
-      "name": "api_key",
-      "type": "apiKey"
-    }
-  },
-  "security": [
-    {
-      "api_key": []
-    }
-  ],
-  "tags": [
-    {
-      "description": "Nitro data feeds",
-      "name": "feeds"
-    },
-    {
-      "description": "Nitro metadata",
-      "name": "schema"
-    },
-    {
-      "description": "Nitro Raw",
-      "name": "Raw"
-    }
+  "host": "programmes.api.bbc.com",
+  "basePath": "/",
+  "schemes": [
+    "https"
   ],
   "paths": {
     "/": {
       "get": {
-        "description": "Get API definition",
-        "operationId": "getAPI",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
         "parameters": [],
         "responses": {
           "200": {
@@ -113,16 +81,20 @@
             }
           }
         },
-        "summary": "Get API definition",
         "tags": [
           "schema"
-        ]
+        ],
+        "description": "Get API definition",
+        "operationId": "getAPI",
+        "summary": "Get API definition"
       }
     },
     "/availabilities": {
       "get": {
-        "description": "Discover details of on-demand availability for programmes and their versions",
-        "operationId": "listAvailability",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
         "parameters": [
           {
             "description": "Sorts:\n* scheduled_start: sort chronologically by scheduled start time/date, ascending\n",
@@ -148,11 +120,11 @@
           {
             "collectionFormat": "multi",
             "description": "filter for subset of availabilities",
-            "enum": [
-              "available"
-            ],
             "in": "query",
             "items": {
+              "enum": [
+                "available"
+              ],
               "type": "string"
             },
             "name": "availability",
@@ -204,13 +176,13 @@
           {
             "collectionFormat": "multi",
             "description": "filter for availabilities in given territory",
-            "enum": [
-              "uk",
-              "nonuk",
-              "world"
-            ],
             "in": "query",
             "items": {
+              "enum": [
+                "uk",
+                "nonuk",
+                "world"
+              ],
               "type": "string"
             },
             "name": "territory",
@@ -239,16 +211,20 @@
             }
           }
         },
-        "summary": "Discover details of on-demand availability for programmes and their versions",
         "tags": [
           "feeds"
-        ]
+        ],
+        "description": "Discover details of on-demand availability for programmes and their versions",
+        "operationId": "listAvailability",
+        "summary": "Discover details of on-demand availability for programmes and their versions"
       }
     },
     "/broadcasts": {
       "get": {
-        "description": "Fetch metadata about linear Broadcasts and Services, allowing the generation of Television and Radio schedules and other datasets for broadcast items. Use /schedules instead of this feed as it is more efficient. Broadcasts will be deprecated in the future.",
-        "operationId": "listBroadcasts",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
         "parameters": [
           {
             "description": "Sorts:\n* start_date: sort chronologically by scheduled start time/date, ascending\n",
@@ -274,11 +250,11 @@
           {
             "collectionFormat": "multi",
             "description": "Mixins:\n* titles: return ancestor programme titles\n",
-            "enum": [
-              "titles"
-            ],
             "in": "query",
             "items": {
+              "enum": [
+                "titles"
+              ],
               "type": "string"
             },
             "name": "mixin",
@@ -506,16 +482,20 @@
             }
           }
         },
-        "summary": "Build schedules and find metadata for TV and radio broadcasts",
         "tags": [
           "feeds"
-        ]
+        ],
+        "description": "Fetch metadata about linear Broadcasts and Services, allowing the generation of Television and Radio schedules and other datasets for broadcast items. Use /schedules instead of this feed as it is more efficient. Broadcasts will be deprecated in the future.",
+        "operationId": "listBroadcasts",
+        "summary": "Build schedules and find metadata for TV and radio broadcasts"
       }
     },
     "/groups": {
       "get": {
-        "description": "Long-lived curated collections of programmes and more, including Collections, Seasons, Franchises and Galleries",
-        "operationId": "listGroups",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
         "parameters": [
           {
             "description": "Sorts:\n* pid: sort alphabetically by PID\n",
@@ -540,14 +520,14 @@
           {
             "collectionFormat": "multi",
             "description": "Mixins:\n* alternate_images: mixin to return the alternate images for a group\n* group_for: mixin to return links to programme entities that group belongs to\n* images: mixin to add image information for a group\n* related_links: mixin to return related links for the group\n",
-            "enum": [
-              "alternate_images",
-              "group_for",
-              "images",
-              "related_links"
-            ],
             "in": "query",
             "items": {
+              "enum": [
+                "alternate_images",
+                "group_for",
+                "images",
+                "related_links"
+              ],
               "type": "string"
             },
             "name": "mixin",
@@ -584,14 +564,14 @@
           {
             "collectionFormat": "multi",
             "description": "filter for subset of groups that have the given group type",
-            "enum": [
-              "collection",
-              "franchise",
-              "gallery",
-              "season"
-            ],
             "in": "query",
             "items": {
+              "enum": [
+                "collection",
+                "franchise",
+                "gallery",
+                "season"
+              ],
               "type": "string"
             },
             "name": "group_type",
@@ -699,16 +679,20 @@
             }
           }
         },
-        "summary": "Find metadata for curated groups: seasons, collections, galleries or franchises",
         "tags": [
           "feeds"
-        ]
+        ],
+        "description": "Long-lived curated collections of programmes and more, including Collections, Seasons, Franchises and Galleries",
+        "operationId": "listGroups",
+        "summary": "Find metadata for curated groups: seasons, collections, galleries or franchises"
       }
     },
     "/images": {
       "get": {
-        "description": "Find metadata for images, particularly those in galleries",
-        "operationId": "listImages",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
         "parameters": [
           {
             "description": "Sorts:\n* group_position: sort numerically by position, ascending only\n* pid: sort alphabetically by PID\n",
@@ -744,15 +728,15 @@
           {
             "collectionFormat": "multi",
             "description": "filter for images by type",
-            "enum": [
-              "standard",
-              "podcast",
-              "store",
-              "portrait",
-              "letterbox"
-            ],
             "in": "query",
             "items": {
+              "enum": [
+                "standard",
+                "podcast",
+                "store",
+                "portrait",
+                "letterbox"
+              ],
               "type": "string"
             },
             "name": "image_type",
@@ -869,16 +853,20 @@
             }
           }
         },
-        "summary": "Find metadata for images",
         "tags": [
           "feeds"
-        ]
+        ],
+        "description": "Find metadata for images, particularly those in galleries",
+        "operationId": "listImages",
+        "summary": "Find metadata for images"
       }
     },
     "/items": {
       "get": {
-        "description": "Look inside programmes to find segments: chapters, tracks and more",
-        "operationId": "listItems",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
         "parameters": [
           {
             "description": "Sorts:\n* pid: sort by pid, descending\n",
@@ -903,14 +891,14 @@
           {
             "collectionFormat": "multi",
             "description": "Mixins:\n* contributions: mixin to return information about contributors to items\n* images: mixin to add image information for an item\n* offset: mixin to return programme segment offsets, works in conjunction with programme filter\n* play_event: mixin to return programme segment events, works in conjunction with programme or segment_event filters\n",
-            "enum": [
-              "contributions",
-              "images",
-              "offset",
-              "play_event"
-            ],
             "in": "query",
             "items": {
+              "enum": [
+                "contributions",
+                "images",
+                "offset",
+                "play_event"
+              ],
               "type": "string"
             },
             "name": "mixin",
@@ -945,15 +933,15 @@
           {
             "collectionFormat": "multi",
             "description": "filter for specific type(s) of items",
-            "enum": [
-              "chapter",
-              "highlight",
-              "music",
-              "speech",
-              "other"
-            ],
             "in": "query",
             "items": {
+              "enum": [
+                "chapter",
+                "highlight",
+                "music",
+                "speech",
+                "other"
+              ],
               "type": "string"
             },
             "name": "item_type",
@@ -1063,16 +1051,20 @@
             }
           }
         },
-        "summary": "Look inside programmes to find segments: chapters, tracks and more",
         "tags": [
           "feeds"
-        ]
+        ],
+        "description": "Look inside programmes to find segments: chapters, tracks and more",
+        "operationId": "listItems",
+        "summary": "Look inside programmes to find segments: chapters, tracks and more"
       }
     },
     "/master_brands": {
       "get": {
-        "description": "List all Master Brands",
-        "operationId": "listMasterbrands",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
         "parameters": [
           {
             "description": "Sorts:\n* mid: sort by mid, ascending\n",
@@ -1097,11 +1089,11 @@
           {
             "collectionFormat": "multi",
             "description": "Mixins:\n* images: mixin to add image information for a masterbrand\n",
-            "enum": [
-              "images"
-            ],
             "in": "query",
             "items": {
+              "enum": [
+                "images"
+              ],
               "type": "string"
             },
             "name": "mixin",
@@ -1186,16 +1178,20 @@
             }
           }
         },
-        "summary": "List all Master Brands",
         "tags": [
           "feeds"
-        ]
+        ],
+        "description": "List all Master Brands",
+        "operationId": "listMasterbrands",
+        "summary": "List all Master Brands"
       }
     },
     "/people": {
       "get": {
-        "description": "The People feed allows you to search for the people and groups that contribute to programmes. This is the starting point for cast and crew credits, as well as finding contributors using external IDs (such as Wikipedia URLs)",
-        "operationId": "listPeople",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
         "parameters": [
           {
             "description": "filter for subset of people that have an ID issued by the given authority",
@@ -1207,12 +1203,12 @@
           {
             "collectionFormat": "multi",
             "description": "filter for people who have an external identifier",
-            "enum": [
-              "true",
-              "false"
-            ],
             "in": "query",
             "items": {
+              "enum": [
+                "true",
+                "false"
+              ],
               "type": "string"
             },
             "name": "has_external_id",
@@ -1324,16 +1320,20 @@
             }
           }
         },
-        "summary": "Find the people behind and in programmes: cast, crew, guests and more",
         "tags": [
           "feeds"
-        ]
+        ],
+        "description": "The People feed allows you to search for the people and groups that contribute to programmes. This is the starting point for cast and crew credits, as well as finding contributors using external IDs (such as Wikipedia URLs)",
+        "operationId": "listPeople",
+        "summary": "Find the people behind and in programmes: cast, crew, guests and more"
       }
     },
     "/pips": {
       "get": {
-        "description": "Look inside pips entities",
-        "operationId": "listPips",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
         "parameters": [
           {
             "default": 1,
@@ -1375,16 +1375,20 @@
             }
           }
         },
-        "summary": "Look inside pips entities",
         "tags": [
           "feeds"
-        ]
+        ],
+        "description": "Look inside pips entities",
+        "operationId": "listPips",
+        "summary": "Look inside pips entities"
       }
     },
     "/programme_details": {
       "get": {
-        "description": "Exposes programme information for a single pid",
-        "operationId": "listProgrammeDetails",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
         "parameters": [
           {
             "default": 1,
@@ -1437,16 +1441,20 @@
             }
           }
         },
-        "summary": "Exposes programme information for a single pid",
         "tags": [
           "feeds"
-        ]
+        ],
+        "description": "Exposes programme information for a single pid",
+        "operationId": "listProgrammeDetails",
+        "summary": "Exposes programme information for a single pid"
       }
     },
     "/programmes": {
       "get": {
-        "description": "Fetch metadata about Programmes (brands, series, episodes, clips). By applying different filter restrictions this feed can be used in many ways, for example to retrieve all series belonging to a brand, all the episodes and/or clips for a specific series, or any TLEO objects for a masterbrand. Other filters permit restricting to specific formats and/or genres, and you can request specific versions (for example Signed or Audio-Described). Parameters may be combined in any way suitable for your application.",
-        "operationId": "listProgrammes",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
         "parameters": [
           {
             "description": "Sorts:\n* group_position: sort numerically by position in group, ascending\n* pid: sort alphabetically by PID, descending\n* position: sort numerically by position, ascending\n* promotion: sort by promotion rank, ascending\n* release_date: sort chronologically by release date, descending\n* relevance: sort by weighting of search term (use with q parameter)\n* scheduled_start: sort chronologically by scheduled start time/date, ascending\n* strict_title: sort alphabetically by title, ascending\n* title: sort by title librarian style (ignoring leading 'The', 'A', etc), ascending\n* tree: sort by root pid and then preorder tree sort. Requires entities to have release date.\n",
@@ -1481,27 +1489,27 @@
           {
             "collectionFormat": "multi",
             "description": "Mixins:\n* alternate_images: mixin to return the alternate images for a programme\n* ancestor_titles: mixin to return ancestor programme titles\n* availability: mixin to return programme availability information\n* available_simulcasts: mixin to return information about programmes that are currently available as simulcasts\n* available_versions: mixin to return information about programmes that are currently available on demand\n* available_webcasts: mixin to return information about programmes that are currently available as webcasts\n* contributions: mixin to return information about contributors to a programme\n* duration: mixin to return original version duration in programme concept entities\n* genre_groupings: mixin to return list of genre groupings\n* genre_groups: mixin to return list of genre groups\n* images: mixin to add image information for a programme\n* is_embeddable: mixin to add embeddable information for a programme\n* previous_next: mixin to return the programmes which appear before and after a programme (as determined by the sort applied in the request)\n* programme_type: mixin to return the programme type\n* related_links: mixin to return information about related links to a programme\n* titles: mixin to return ancestor programme titles\n* versions_availability: mixin to return information about programmes that are currently available\n",
-            "enum": [
-              "alternate_images",
-              "ancestor_titles",
-              "availability",
-              "available_simulcasts",
-              "available_versions",
-              "available_webcasts",
-              "contributions",
-              "duration",
-              "genre_groupings",
-              "genre_groups",
-              "images",
-              "is_embeddable",
-              "previous_next",
-              "programme_type",
-              "related_links",
-              "titles",
-              "versions_availability"
-            ],
             "in": "query",
             "items": {
+              "enum": [
+                "alternate_images",
+                "ancestor_titles",
+                "availability",
+                "available_simulcasts",
+                "available_versions",
+                "available_webcasts",
+                "contributions",
+                "duration",
+                "genre_groupings",
+                "genre_groups",
+                "images",
+                "is_embeddable",
+                "previous_next",
+                "programme_type",
+                "related_links",
+                "titles",
+                "versions_availability"
+              ],
               "type": "string"
             },
             "name": "mixin",
@@ -1511,12 +1519,12 @@
           {
             "collectionFormat": "multi",
             "description": "filter for subset of programmes that are audio-described",
-            "enum": [
-              "true",
-              "false"
-            ],
             "in": "query",
             "items": {
+              "enum": [
+                "true",
+                "false"
+              ],
               "type": "string"
             },
             "name": "audio_described",
@@ -1526,12 +1534,12 @@
           {
             "collectionFormat": "multi",
             "description": "filter for subset of programmes that have availability",
-            "enum": [
-              "available",
-              "pending"
-            ],
             "in": "query",
             "items": {
+              "enum": [
+                "available",
+                "pending"
+              ],
               "type": "string"
             },
             "name": "availability",
@@ -1541,12 +1549,12 @@
           {
             "collectionFormat": "multi",
             "description": "additional filter when availability=available",
-            "enum": [
-              "episode",
-              "clip"
-            ],
             "in": "query",
             "items": {
+              "enum": [
+                "episode",
+                "clip"
+              ],
               "type": "string"
             },
             "name": "availability_entity_type",
@@ -1554,24 +1562,24 @@
             "type": "array"
           },
           {
+            "deprecated": true,
             "description": "filter for subset of programmes that are available after or at the specified datetime",
             "format": "date-time",
             "in": "query",
             "name": "availability_from",
             "required": false,
-            "type": "string",
-            "x-deprecated": true
+            "type": "string"
           },
           {
             "collectionFormat": "multi",
             "description": "filter for a subset of programmes that are available for a given type",
-            "enum": [
-              "ondemand",
-              "webcast",
-              "simulcast"
-            ],
             "in": "query",
             "items": {
+              "enum": [
+                "ondemand",
+                "webcast",
+                "simulcast"
+              ],
               "type": "string"
             },
             "name": "availability_type",
@@ -1607,13 +1615,13 @@
           {
             "collectionFormat": "multi",
             "description": "filter for subset of programmes that have given duration",
-            "enum": [
-              "short",
-              "medium",
-              "long"
-            ],
             "in": "query",
             "items": {
+              "enum": [
+                "short",
+                "medium",
+                "long"
+              ],
               "type": "string"
             },
             "name": "duration",
@@ -1623,14 +1631,14 @@
           {
             "collectionFormat": "multi",
             "description": "filter for subset of programmes that have given entity type",
-            "enum": [
-              "brand",
-              "series",
-              "episode",
-              "clip"
-            ],
             "in": "query",
             "items": {
+              "enum": [
+                "brand",
+                "series",
+                "episode",
+                "clip"
+              ],
               "type": "string"
             },
             "name": "entity_type",
@@ -1742,12 +1750,12 @@
           {
             "collectionFormat": "multi",
             "description": "filter for subset of programmes with media type",
-            "enum": [
-              "audio",
-              "audio_video"
-            ],
             "in": "query",
             "items": {
+              "enum": [
+                "audio",
+                "audio_video"
+              ],
               "type": "string"
             },
             "name": "media_type",
@@ -1802,13 +1810,13 @@
           {
             "collectionFormat": "multi",
             "description": "filter for a subset of programmes that are of the given payment_type",
-            "enum": [
-              "free",
-              "bbcstore",
-              "uscansvod"
-            ],
             "in": "query",
             "items": {
+              "enum": [
+                "free",
+                "bbcstore",
+                "uscansvod"
+              ],
               "type": "string"
             },
             "name": "payment_type",
@@ -1854,13 +1862,13 @@
           {
             "collectionFormat": "multi",
             "description": "filter for subset of programmes that are signed",
-            "enum": [
-              "exclusive",
-              "inclusive",
-              "exclude"
-            ],
             "in": "query",
             "items": {
+              "enum": [
+                "exclusive",
+                "inclusive",
+                "exclude"
+              ],
               "type": "string"
             },
             "name": "signed",
@@ -1884,12 +1892,12 @@
           {
             "collectionFormat": "multi",
             "description": "filter for subset of programmes that are TLEOs",
-            "enum": [
-              "true",
-              "false"
-            ],
             "in": "query",
             "items": {
+              "enum": [
+                "true",
+                "false"
+              ],
               "type": "string"
             },
             "name": "tleo",
@@ -1936,25 +1944,29 @@
             }
           }
         },
-        "summary": "Start here for programmes metadata: Brands, Series, Episodes and Clips",
         "tags": [
           "feeds"
-        ]
+        ],
+        "description": "Fetch metadata about Programmes (brands, series, episodes, clips). By applying different filter restrictions this feed can be used in many ways, for example to retrieve all series belonging to a brand, all the episodes and/or clips for a specific series, or any TLEO objects for a masterbrand. Other filters permit restricting to specific formats and/or genres, and you can request specific versions (for example Signed or Audio-Described). Parameters may be combined in any way suitable for your application.",
+        "operationId": "listProgrammes",
+        "summary": "Start here for programmes metadata: Brands, Series, Episodes and Clips"
       }
     },
     "/promotions": {
       "get": {
-        "description": "Details of short-term editorially curated \"promotions\", for instance those programmes featured on iPlayer today",
-        "operationId": "listPromotions",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
         "parameters": [
           {
             "collectionFormat": "multi",
             "description": "Mixins:\n* related_links: mixin to return information about related links to a promotion\n",
-            "enum": [
-              "related_links"
-            ],
             "in": "query",
             "items": {
+              "enum": [
+                "related_links"
+              ],
               "type": "string"
             },
             "name": "mixin",
@@ -2060,11 +2072,11 @@
           {
             "collectionFormat": "multi",
             "description": "filter for subset of promotions with status",
-            "enum": [
-              "current"
-            ],
             "in": "query",
             "items": {
+              "enum": [
+                "current"
+              ],
               "type": "string"
             },
             "name": "status",
@@ -2086,16 +2098,20 @@
             }
           }
         },
-        "summary": "Discover metadata for content promotions",
         "tags": [
           "feeds"
-        ]
+        ],
+        "description": "Details of short-term editorially curated \"promotions\", for instance those programmes featured on iPlayer today",
+        "operationId": "listPromotions",
+        "summary": "Discover metadata for content promotions"
       }
     },
     "/schedules": {
       "get": {
-        "description": "Dates, Times, Schedules: when and where are programmes being shown?",
-        "operationId": "listSchedules",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
         "parameters": [
           {
             "description": "Sorts:\n* start_date: sort chronologically by scheduled start time/date, ascending\n",
@@ -2121,13 +2137,13 @@
           {
             "collectionFormat": "multi",
             "description": "Mixins:\n* ancestor_titles: return ancestor programme titles\n* images: mixin to add image information for broadcasts and webcasts\n* titles: return ancestor programme titles\n",
-            "enum": [
-              "ancestor_titles",
-              "images",
-              "titles"
-            ],
             "in": "query",
             "items": {
+              "enum": [
+                "ancestor_titles",
+                "images",
+                "titles"
+              ],
               "type": "string"
             },
             "name": "mixin",
@@ -2409,16 +2425,20 @@
             }
           }
         },
-        "summary": "Build schedules and find metadata for TV and radio broadcasts and webcasts",
         "tags": [
           "feeds"
-        ]
+        ],
+        "description": "Dates, Times, Schedules: when and where are programmes being shown?",
+        "operationId": "listSchedules",
+        "summary": "Build schedules and find metadata for TV and radio broadcasts and webcasts"
       }
     },
     "/schema": {
       "get": {
-        "description": "Get Schema definition",
-        "operationId": "getXSD",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
         "parameters": [],
         "responses": {
           "200": {
@@ -2431,16 +2451,20 @@
             }
           }
         },
-        "summary": "Get Schema definition",
         "tags": [
           "schema"
-        ]
+        ],
+        "description": "Get Schema definition",
+        "operationId": "getXSD",
+        "summary": "Get Schema definition"
       }
     },
     "/services": {
       "get": {
-        "description": "The services feed exposes the linear broadcast \"services\" from PIPs. These are the actual services which broadcast programmes (eg bbc_one_oxford is the service for BBC One in Oxford).",
-        "operationId": "listServices",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
         "parameters": [
           {
             "description": "Return services that end on or later than the specified datetime",
@@ -2524,20 +2548,20 @@
           {
             "collectionFormat": "multi",
             "description": "filter for specified type of linear services",
-            "enum": [
-              "Interactive",
-              "Local Radio",
-              "Master Brand Only",
-              "National Radio",
-              "On Demand",
-              "Regional Radio",
-              "Simulcast",
-              "TV",
-              "Web Only",
-              "Webcast"
-            ],
             "in": "query",
             "items": {
+              "enum": [
+                "Interactive",
+                "Local Radio",
+                "Master Brand Only",
+                "National Radio",
+                "On Demand",
+                "Regional Radio",
+                "Simulcast",
+                "TV",
+                "Web Only",
+                "Webcast"
+              ],
               "type": "string"
             },
             "name": "service_type",
@@ -2586,16 +2610,20 @@
             }
           }
         },
-        "summary": "Information about the linear services used for broadcast transmissions",
         "tags": [
           "feeds"
-        ]
+        ],
+        "description": "The services feed exposes the linear broadcast \"services\" from PIPs. These are the actual services which broadcast programmes (eg bbc_one_oxford is the service for BBC One in Oxford).",
+        "operationId": "listServices",
+        "summary": "Information about the linear services used for broadcast transmissions"
       }
     },
     "/v1/brands/{pid}": {
       "get": {
-        "description": "Get raw brand",
-        "operationId": "Get_Raw_brand",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
         "parameters": [
           {
             "in": "path",
@@ -2612,16 +2640,20 @@
             }
           }
         },
-        "summary": "Get raw brand",
         "tags": [
           "Raw"
-        ]
+        ],
+        "description": "Get raw brand",
+        "operationId": "Get_Raw_brand",
+        "summary": "Get raw brand"
       }
     },
     "/v1/brands/{pid}/franchises/": {
       "get": {
-        "description": "Get raw brand franchises",
-        "operationId": "v1.brands.pid.franchises.get",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
         "parameters": [
           {
             "in": "path",
@@ -2638,16 +2670,20 @@
             }
           }
         },
-        "summary": "Get raw brand franchise",
         "tags": [
           "Raw"
-        ]
+        ],
+        "description": "Get raw brand franchises",
+        "operationId": "Get_Raw_brand franchises",
+        "summary": "Get raw brand franchise"
       }
     },
     "/v1/episodes/{pid}": {
       "get": {
-        "description": "Get raw episode",
-        "operationId": "Get_Raw_episode",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
         "parameters": [
           {
             "in": "path",
@@ -2664,16 +2700,20 @@
             }
           }
         },
-        "summary": "Get raw episode",
         "tags": [
           "Raw"
-        ]
+        ],
+        "description": "Get raw episode",
+        "operationId": "Get_Raw_episode",
+        "summary": "Get raw episode"
       }
     },
     "/v1/episodes/{pid}/ancestors/": {
       "get": {
-        "description": "Get raw ancestors",
-        "operationId": "Get_Raw_ancestors",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
         "parameters": [
           {
             "in": "path",
@@ -2690,16 +2730,20 @@
             }
           }
         },
-        "summary": "Get raw ancestors",
         "tags": [
           "Raw"
-        ]
+        ],
+        "description": "Get raw ancestors",
+        "operationId": "Get_Raw_ancestors",
+        "summary": "Get raw ancestors"
       }
     },
     "/v1/episodes/{pid}/formats/": {
       "get": {
-        "description": "Get raw formats",
-        "operationId": "Get_Raw_formats",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
         "parameters": [
           {
             "in": "path",
@@ -2716,16 +2760,20 @@
             }
           }
         },
-        "summary": "Get raw formats",
         "tags": [
           "Raw"
-        ]
+        ],
+        "description": "Get raw formats",
+        "operationId": "Get_Raw_formats",
+        "summary": "Get raw formats"
       }
     },
     "/v1/episodes/{pid}/genre_groups/": {
       "get": {
-        "description": "Get raw genre groups",
-        "operationId": "Get_Raw_genre_groups",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
         "parameters": [
           {
             "in": "path",
@@ -2742,16 +2790,20 @@
             }
           }
         },
-        "summary": "Get raw genre groups",
         "tags": [
           "Raw"
-        ]
+        ],
+        "description": "Get raw genre groups",
+        "operationId": "Get_Raw_genre_groups",
+        "summary": "Get raw genre groups"
       }
     },
     "/v1/images/{pid}": {
       "get": {
-        "description": "Get raw image",
-        "operationId": "Get_Raw_image",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
         "parameters": [
           {
             "in": "path",
@@ -2768,16 +2820,20 @@
             }
           }
         },
-        "summary": "Get raw image",
         "tags": [
           "Raw"
-        ]
+        ],
+        "description": "Get raw image",
+        "operationId": "Get_Raw_image",
+        "summary": "Get raw image"
       }
     },
     "/v1/master_brands/{mbid}": {
       "get": {
-        "description": "Get raw masterbrand",
-        "operationId": "Get_Raw_masterbrand",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
         "parameters": [
           {
             "in": "path",
@@ -2794,16 +2850,20 @@
             }
           }
         },
-        "summary": "Get raw masterbrand",
         "tags": [
           "Raw"
-        ]
+        ],
+        "description": "Get raw masterbrand",
+        "operationId": "Get_Raw_masterbrand",
+        "summary": "Get raw masterbrand"
       }
     },
     "/v1/promotions/{pid}": {
       "get": {
-        "description": "Get raw promotion",
-        "operationId": "Get_Raw_promotion",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
         "parameters": [
           {
             "in": "path",
@@ -2820,25 +2880,29 @@
             }
           }
         },
-        "summary": "Get raw promotion",
         "tags": [
           "Raw"
-        ]
+        ],
+        "description": "Get raw promotion",
+        "operationId": "Get_Raw_promotion",
+        "summary": "Get raw promotion"
       }
     },
     "/versions": {
       "get": {
-        "description": "The versions feed exposes editorial \"Versions\" of programmes. These are concepts used to capture different presentations of an overall programme: for example, versions of a programme may include one with sign language, one with audio description, one edited for content and more. Versions are also important to understand for broadcasts: a linear broadcast or an ondemand is always of a specific version, not merely of a programme.",
-        "operationId": "listVersions",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
         "parameters": [
           {
             "collectionFormat": "multi",
             "description": "filter for subset of versions that have availability",
-            "enum": [
-              "available"
-            ],
             "in": "query",
             "items": {
+              "enum": [
+                "available"
+              ],
               "type": "string"
             },
             "name": "availability",
@@ -2917,13 +2981,13 @@
           {
             "collectionFormat": "multi",
             "description": "filter for a subset of versions that are of the given payment_type",
-            "enum": [
-              "free",
-              "bbcstore",
-              "uscansvod"
-            ],
             "in": "query",
             "items": {
+              "enum": [
+                "free",
+                "bbcstore",
+                "uscansvod"
+              ],
               "type": "string"
             },
             "name": "payment_type",
@@ -2970,10 +3034,12 @@
             }
           }
         },
-        "summary": "Metadata on editorial programme versions: original, signed, audio-described, etc",
         "tags": [
           "feeds"
-        ]
+        ],
+        "description": "The versions feed exposes editorial \"Versions\" of programmes. These are concepts used to capture different presentations of an overall programme: for example, versions of a programme may include one with sign language, one with audio description, one edited for content and more. Versions are also important to understand for broadcasts: a linear broadcast or an ondemand is always of a specific version, not merely of a programme.",
+        "operationId": "listVersions",
+        "summary": "Metadata on editorial programme versions: original, signed, audio-described, etc"
       }
     }
   },
@@ -5473,42 +5539,8 @@
       "additionalProperties": false,
       "properties": {
         "image": {
-          "additionalProperties": true,
-          "type": "object",
-          "x-anyOf": [
-            {
-              "$ref": "#/definitions/deprecationAttributes"
-            },
-            {
-              "properties": {
-                "image": {
-                  "additionalProperties": false,
-                  "properties": {
-                    "pid": {
-                      "$ref": "#/definitions/pid"
-                    },
-                    "template_url": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "template_url"
-                  ],
-                  "type": "object"
-                },
-                "pid": {
-                  "$ref": "#/definitions/pid"
-                },
-                "template_url": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "template_url",
-                "image"
-              ]
-            }
-          ]
+          "additionalProperties": false,
+          "type": "object"
         }
       },
       "required": [
@@ -7818,5 +7850,36 @@
         "XSLT"
       ]
     }
-  }
+  },
+  "securityDefinitions": {
+    "api_key": {
+      "in": "query",
+      "name": "api_key",
+      "type": "apiKey"
+    }
+  },
+  "security": [
+    {
+      "api_key": []
+    }
+  ],
+  "tags": [
+    {
+      "description": "Nitro data feeds",
+      "name": "feeds"
+    },
+    {
+      "description": "Nitro metadata",
+      "name": "schema"
+    },
+    {
+      "description": "Nitro Raw",
+      "name": "Raw"
+    }
+  ],
+  "externalDocs": {
+    "description": "Nitro for developers",
+    "url": "https://developer.bbc.co.uk/nitro"
+  },
+  "x-components": {}
 }

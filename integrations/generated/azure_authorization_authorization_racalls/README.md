@@ -15,10 +15,7 @@ let azure_authorization_authorization_racalls = require('@datafire/azure_authori
   redirect_uri: ""
 });
 
-azure_authorization_authorization_racalls.RoleAssignments_List({
-  "api-version": "",
-  "subscriptionId": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -262,7 +259,7 @@ azure_authorization_authorization_racalls.RoleAssignments_Create({
 
 ### RoleAssignmentFilter
 * RoleAssignmentFilter `object`: Role Assignments filter
-  * canDelegate `boolean`: The Delegation flag for the roleassignment
+  * canDelegate `boolean`: The Delegation flag for the role assignment
   * principalId `string`: Returns role assignment of the specific principal.
 
 ### RoleAssignmentListResult
@@ -273,13 +270,13 @@ azure_authorization_authorization_racalls.RoleAssignments_Create({
 
 ### RoleAssignmentProperties
 * RoleAssignmentProperties `object`: Role assignment properties.
-  * canDelegate `boolean`: The delgation flag used for creating a role assignment
+  * canDelegate `boolean`: The delegation flag used for creating a role assignment
   * principalId `string`: The principal ID assigned to the role. This maps to the ID inside the Active Directory. It can point to a user, service principal, or security group.
   * roleDefinitionId `string`: The role definition ID used in the role assignment.
 
 ### RoleAssignmentPropertiesWithScope
 * RoleAssignmentPropertiesWithScope `object`: Role assignment properties with scope.
-  * canDelegate `boolean`: The Delegation flag for the roleassignment
+  * canDelegate `boolean`: The Delegation flag for the role assignment
   * principalId `string`: The principal ID.
   * roleDefinitionId `string`: The role definition ID.
   * scope `string`: The role assignment scope.

@@ -1,12 +1,7 @@
 {
   "swagger": "2.0",
-  "schemes": [
-    "https"
-  ],
-  "host": "go.netlicensing.io",
-  "basePath": "/core/v2/rest",
   "info": {
-    "description": "The Labs64 <a href='https://www.labs64.de/confluence/x/pwCo' target='_blank'>NetLicensing RESTful API</a> gives you access to NetLicensing’s core features.<br/><br/><strong>Authentication</strong><br/>You authenticate to the NetLicensing API by providing your account credentials or simply use our demo account - <code>demo:demo</code><br/><br/>Find out more about Labs64 NetLicensing at <a href='https://netlicensing.io' target='_blank'>netlicensing.io</a>",
+    "description": "The Labs64 <a href='https://netlicensing.io/wiki/restful-api' target='_blank'>NetLicensing RESTful API</a> gives you access to NetLicensing’s core features.<br/><br/><strong>Authentication</strong><br/>You authenticate to the NetLicensing API by providing your account credentials or simply use our demo account - <code>demo:demo</code><br/><br/>Find out more about Labs64 NetLicensing at <a href='https://netlicensing.io' target='_blank'>netlicensing.io</a>",
     "termsOfService": "https://www.labs64.com/legal/terms-of-service/netlicensing",
     "title": "Labs64 NetLicensing RESTful API Test Center",
     "version": "2.x",
@@ -18,9 +13,9 @@
     },
     "x-origin": [
       {
-        "format": "swagger",
+        "format": "openapi",
         "url": "http://io.labs64.com/NetLicensing-API/v2.x/netlicensing.json",
-        "version": "2.0"
+        "version": "3.0"
       }
     ],
     "x-preferred": true,
@@ -30,100 +25,19 @@
       "type": "openapi"
     }
   },
-  "produces": [
-    "application/xml",
-    "application/json"
-  ],
-  "securityDefinitions": {
-    "api_key": {
-      "in": "header",
-      "name": "api_key",
-      "type": "apiKey"
-    },
-    "basicAuth": {
-      "description": "HTTP Basic Authentication. Works over `HTTP` and `HTTPS`",
-      "type": "basic"
-    }
-  },
-  "tags": [
-    {
-      "description": "Product operations",
-      "externalDocs": {
-        "description": "Product Services",
-        "url": "https://www.labs64.de/confluence/x/qACo"
-      },
-      "name": "Product"
-    },
-    {
-      "description": "Product Module operations",
-      "externalDocs": {
-        "description": "Product Module Services",
-        "url": "https://www.labs64.de/confluence/x/qwCo"
-      },
-      "name": "Product Module"
-    },
-    {
-      "description": "License Template operations",
-      "externalDocs": {
-        "description": "License Template Services",
-        "url": "https://www.labs64.de/confluence/x/rQCo"
-      },
-      "name": "License Template"
-    },
-    {
-      "description": "Licensee operations",
-      "externalDocs": {
-        "description": "Licensee Services",
-        "url": "https://www.labs64.de/confluence/x/qQCo"
-      },
-      "name": "Licensee"
-    },
-    {
-      "description": "License operations",
-      "externalDocs": {
-        "description": "License Services",
-        "url": "https://www.labs64.de/confluence/x/rACo"
-      },
-      "name": "License"
-    },
-    {
-      "description": "Transaction operations",
-      "externalDocs": {
-        "description": "Transaction Services",
-        "url": "https://www.labs64.de/confluence/x/qgCo"
-      },
-      "name": "Transaction"
-    },
-    {
-      "description": "Token operations",
-      "externalDocs": {
-        "description": "Token Services",
-        "url": "https://www.labs64.de/confluence/x/rwCo"
-      },
-      "name": "Token"
-    },
-    {
-      "description": "Payment Method operations",
-      "externalDocs": {
-        "description": "Payment Method Services",
-        "url": "https://www.labs64.de/confluence/x/sACo"
-      },
-      "name": "Payment Method"
-    },
-    {
-      "description": "Utility operations",
-      "externalDocs": {
-        "description": "Utility Services",
-        "url": "https://www.labs64.de/confluence/x/rgCo"
-      },
-      "name": "Utility"
-    }
+  "host": "go.netlicensing.io",
+  "basePath": "/core/v2/rest",
+  "schemes": [
+    "https"
   ],
   "paths": {
     "/license": {
       "get": {
-        "description": "Return a list of all licenses for the current vendor",
-        "operationId": "listLicenses",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": "Successful request",
@@ -152,23 +66,39 @@
             "basicAuth": []
           }
         ],
-        "summary": "Licenses list",
         "tags": [
           "License"
-        ]
+        ],
+        "description": "Return a list of all Licenses for the current Vendor",
+        "operationId": "listLicenses",
+        "summary": "List Licenses"
       },
       "post": {
         "consumes": [
           "application/x-www-form-urlencoded"
         ],
-        "description": "Creates a new license",
-        "operationId": "createLicense",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
         "parameters": [
           {
             "in": "formData",
-            "name": "licenseeNumber",
+            "name": "active",
             "required": true,
+            "type": "boolean"
+          },
+          {
+            "description": "Specifies currency for the License price. Check data types to discover which currencies are supported. Read-only, set from License Template on creation",
+            "in": "formData",
+            "name": "currency",
             "type": "string"
+          },
+          {
+            "description": "If set to 'true', this License is not shown in NetLicensing Shop as purchased License. Set from License Template on creation, if not specified explicitly",
+            "in": "formData",
+            "name": "hidden",
+            "type": "boolean"
           },
           {
             "in": "formData",
@@ -178,96 +108,63 @@
           },
           {
             "in": "formData",
-            "name": "active",
+            "name": "licenseeNumber",
             "required": true,
-            "type": "boolean"
+            "type": "string"
+          },
+          {
+            "description": "Name for the Licensed item. Set from License Template on creation, if not specified explicitly.",
+            "in": "formData",
+            "name": "name",
+            "type": "string"
           },
           {
             "in": "formData",
             "name": "number",
-            "required": true,
             "type": "string"
           },
           {
-            "description": "Name for the licensed item. Set from license template on creation, if not specified explicitly.",
-            "in": "formData",
-            "name": "name",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "Mandatory for 'TIMEVOLUME' license type and 'RENTAL' licensing model",
+            "description": "Mandatory for 'TIMEVOLUME' License Type and 'RENTAL' licensing model",
             "in": "formData",
             "name": "parentfeature",
-            "required": false,
             "type": "string"
           },
           {
-            "description": "Mandatory for 'TIMEVOLUME' license type.",
-            "in": "formData",
-            "name": "timeVolume",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "For 'TIMEVOLUME' license type.",
-            "in": "formData",
-            "items": {
-              "default": "DAY",
-              "enum": [
-                "DAY",
-                "WEEK",
-                "MONTH",
-                "YEAR"
-              ],
-              "type": "string"
-            },
-            "name": "timeVolumePeriod",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "Mandatory for 'TIMEVOLUME' license type.",
-            "format": "date-time",
-            "in": "formData",
-            "name": "startDate",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "Price for the license. If >0, it must always be accompanied by the currency specification. Read-only, set from license template on creation",
+            "description": "Price for the License. If >0, it must always be accompanied by the currency specification. Read-only, set from License Template on creation",
             "format": "double",
             "in": "formData",
             "name": "price",
-            "required": false,
             "type": "number"
           },
           {
-            "description": "Specifies currency for the license price. Check data types to discover which currencies are supported. Read-only, set from license template on creation",
-            "in": "formData",
-            "name": "currency",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "If set to 'true', this license is not shown in NetLicensing Shop as purchased license. Set from license template on creation, if not specified explicitly",
-            "in": "formData",
-            "name": "hidden",
-            "required": false,
-            "type": "boolean"
-          },
-          {
-            "description": "Mandatory for 'Pay-per-Use' license model.",
+            "description": "Mandatory for 'Pay-per-Use' License Model.",
             "in": "formData",
             "name": "quantity",
-            "required": false,
             "type": "string"
           },
           {
-            "description": "Mandatory for 'Pay-per-Use' license model.",
+            "description": "Mandatory for 'TIMEVOLUME' License Type.",
+            "format": "date-time",
+            "in": "formData",
+            "name": "startDate",
+            "type": "string"
+          },
+          {
+            "description": "Mandatory for 'TIMEVOLUME' License Type.",
+            "in": "formData",
+            "name": "timeVolume",
+            "type": "string"
+          },
+          {
+            "description": "For 'TIMEVOLUME' License Type.",
+            "in": "formData",
+            "name": "timeVolumePeriod",
+            "type": "string"
+          },
+          {
+            "description": "Mandatory for 'Pay-per-Use' License Model.",
             "in": "formData",
             "name": "usedQuantity",
-            "required": false,
             "type": "string"
           }
         ],
@@ -296,19 +193,23 @@
             "basicAuth": []
           }
         ],
-        "summary": "Create license",
         "tags": [
           "License"
-        ]
+        ],
+        "description": "Creates a new License",
+        "operationId": "createLicense",
+        "summary": "Create License"
       }
     },
     "/license/{licenseNumber}": {
       "delete": {
-        "description": "Delete license by a licenseNumber",
-        "operationId": "deleteLicense",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
         "parameters": [
           {
-            "description": "Unique number (across all products/licensees of a vendor) that identifies the license. Vendor can assign this number when creating a license or let NetLicensing generate one. Read-only after corresponding creation transaction status is set to closed.",
+            "description": "Unique number (across all Products/Licensees of a Vendor) that identifies the License. Vendor can assign this number when creating a License or let NetLicensing generate one. Read-only after corresponding creation Transaction status is set to closed.",
             "in": "path",
             "name": "licenseNumber",
             "required": true,
@@ -340,17 +241,21 @@
             "basicAuth": []
           }
         ],
-        "summary": "Delete license",
         "tags": [
           "License"
-        ]
+        ],
+        "description": "Delete License by a 'licenseNumber'",
+        "operationId": "deleteLicense",
+        "summary": "Delete License"
       },
       "get": {
-        "description": "Get license by a licenseNumber",
-        "operationId": "getLicense",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
         "parameters": [
           {
-            "description": "Unique number (across all products/licensees of a vendor) that identifies the license. Vendor can assign this number when creating a license or let NetLicensing generate one. Read-only after corresponding creation transaction status is set to closed.",
+            "description": "Unique number (across all Products/Licensees of a Vendor) that identifies the License. Vendor can assign this number when creating a License or let NetLicensing generate one. Read-only after corresponding creation Transaction status is set to closed.",
             "in": "path",
             "name": "licenseNumber",
             "required": true,
@@ -382,117 +287,99 @@
             "basicAuth": []
           }
         ],
-        "summary": "Get license",
         "tags": [
           "License"
-        ]
+        ],
+        "description": "Get License by a 'licenseNumber'",
+        "operationId": "getLicense",
+        "summary": "Get License"
       },
       "post": {
         "consumes": [
           "application/x-www-form-urlencoded"
         ],
-        "description": "Update license by a licenseNumber",
-        "operationId": "updateLicense",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
         "parameters": [
           {
-            "description": "Unique number (across all products/licensees of a vendor) that identifies the license. Vendor can assign this number when creating a license or let NetLicensing generate one. Read-only after corresponding creation transaction status is set to closed.",
+            "description": "Unique number (across all Products/Licensees of a Vendor) that identifies the License. Vendor can assign this number when creating a License or let NetLicensing generate one. Read-only after corresponding creation Transaction status is set to closed.",
             "in": "path",
             "name": "licenseNumber",
             "required": true,
             "type": "string"
           },
           {
-            "description": "Unique number (across all products/licensees of a vendor) that identifies the license. Vendor can assign this number when creating a license or let NetLicensing generate one. Read-only after corresponding creation transaction status is set to closed.",
-            "in": "formData",
-            "name": "number",
-            "required": false,
-            "type": "string"
-          },
-          {
             "in": "formData",
             "name": "active",
-            "required": false,
             "type": "boolean"
           },
           {
-            "description": "Name for the licensed item. Set from license template on creation, if not specified explicitly.",
+            "description": "Specifies currency for the License price. Check data types to discover which currencies are supported. Read-only, set from License Template on creation",
             "in": "formData",
-            "name": "name",
-            "required": false,
+            "name": "currency",
             "type": "string"
           },
           {
-            "description": "for TIMEVOLUME licenseType",
-            "format": "date-time",
+            "description": "If set to 'true', this License is not shown in NetLicensing Shop as purchased License. Set from License Template on creation, if not specified explicitly",
             "in": "formData",
-            "name": "startDate",
-            "required": false,
+            "name": "hidden",
+            "type": "boolean"
+          },
+          {
+            "description": "Name for the Licensed item. Set from License Template on creation, if not specified explicitly.",
+            "in": "formData",
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "description": "Unique number (across all Products/Licensees of a Vendor) that identifies the License. Vendor can assign this number when creating a License or let NetLicensing generate one. Read-only after corresponding creation Transaction status is set to closed.",
+            "in": "formData",
+            "name": "number",
             "type": "string"
           },
           {
             "in": "formData",
             "name": "parentfeature",
-            "required": false,
             "type": "string"
           },
           {
-            "description": "Mandatory for 'TIMEVOLUME' license type.",
-            "in": "formData",
-            "name": "timeVolume",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "For 'TIMEVOLUME' license type.",
-            "in": "formData",
-            "items": {
-              "default": "DAY",
-              "enum": [
-                "DAY",
-                "WEEK",
-                "MONTH",
-                "YEAR"
-              ],
-              "type": "string"
-            },
-            "name": "timeVolumePeriod",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "Price for the license. If > 0, it must always be accompanied by the currency specification. Read-only, set from license template on creation",
+            "description": "Price for the License. If > 0, it must always be accompanied by the currency specification. Read-only, set from License Template on creation",
             "format": "double",
             "in": "formData",
             "name": "price",
-            "required": false,
             "type": "number"
           },
           {
-            "description": "Specifies currency for the license price. Check data types to discover which currencies are supported. Read-only, set from license template on creation",
-            "in": "formData",
-            "name": "currency",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "If set to 'true', this license is not shown in NetLicensing Shop as purchased license. Set from license template on creation, if not specified explicitly",
-            "in": "formData",
-            "name": "hidden",
-            "required": false,
-            "type": "boolean"
-          },
-          {
-            "description": "Mandatory for 'Pay-per-Use' license model.",
+            "description": "Mandatory for 'Pay-per-Use' License Model.",
             "in": "formData",
             "name": "quantity",
-            "required": false,
             "type": "string"
           },
           {
-            "description": "Mandatory for 'Pay-per-Use' license model.",
+            "description": "For 'TIMEVOLUME' License type",
+            "format": "date-time",
+            "in": "formData",
+            "name": "startDate",
+            "type": "string"
+          },
+          {
+            "description": "Mandatory for 'TIMEVOLUME' License Type.",
+            "in": "formData",
+            "name": "timeVolume",
+            "type": "string"
+          },
+          {
+            "description": "For 'TIMEVOLUME' License Type.",
+            "in": "formData",
+            "name": "timeVolumePeriod",
+            "type": "string"
+          },
+          {
+            "description": "Mandatory for 'Pay-per-Use' License Model.",
             "in": "formData",
             "name": "usedQuantity",
-            "required": false,
             "type": "string"
           }
         ],
@@ -521,16 +408,21 @@
             "basicAuth": []
           }
         ],
-        "summary": "Update license",
         "tags": [
           "License"
-        ]
+        ],
+        "description": "Update License by a 'licenseNumber'",
+        "operationId": "updateLicense",
+        "summary": "Update License"
       }
     },
     "/licensee": {
       "get": {
-        "description": "Return a list of all licensees for the current vendor",
-        "operationId": "listLicensees",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": "Successful request",
@@ -559,58 +451,52 @@
             "basicAuth": []
           }
         ],
-        "summary": "Licensees list",
         "tags": [
           "Licensee"
-        ]
+        ],
+        "description": "Return a list of all Licensees for the current Vendor",
+        "operationId": "listLicensees",
+        "summary": "List Licensees"
       },
       "post": {
         "consumes": [
           "application/x-www-form-urlencoded"
         ],
-        "description": "Creates a new licensee",
-        "operationId": "createLicensee",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
         "parameters": [
           {
-            "description": "Unique number (across all products of a vendor) that identifies the licensee. Vendor can assign this number when creating a licensee or let NetLicensing generate one. Read-only after creation of the first license for the licensee",
-            "in": "formData",
-            "name": "number",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "productNumber to assign new licensee object",
-            "in": "formData",
-            "name": "productNumber",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "in": "formData",
-            "name": "name",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "If set to 'false', the licensee is disabled. Licensee can not obtain new licenses, and validation is disabled",
+            "description": "If set to 'false', the Licensee is disabled. Licensee can not obtain new Licenses, and validation is disabled",
             "in": "formData",
             "name": "active",
             "required": true,
             "type": "boolean"
           },
           {
-            "description": "Licensee Secret for licensee.",
+            "description": "Mark Licensee for transfer.",
             "in": "formData",
-            "name": "licenseeSecret",
-            "required": false,
+            "name": "markedForTransfer",
+            "type": "boolean"
+          },
+          {
+            "in": "formData",
+            "name": "name",
             "type": "string"
           },
           {
-            "description": "Mark licensee for transfer.",
+            "description": "Unique number (across all Products of a Vendor) that identifies the Licensee. Vendor can assign this number when creating a Licensee or let NetLicensing generate one. Read-only after creation of the first License for the Licensee",
             "in": "formData",
-            "name": "markedForTransfer",
-            "required": false,
-            "type": "boolean"
+            "name": "number",
+            "type": "string"
+          },
+          {
+            "description": "'productNumber' to assign new Licensee object",
+            "in": "formData",
+            "name": "productNumber",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -622,6 +508,9 @@
           },
           "400": {
             "description": "Malformed or illegal request"
+          },
+          "402": {
+            "description": "Quota exceeded"
           },
           "403": {
             "description": "Access is denied"
@@ -638,19 +527,23 @@
             "basicAuth": []
           }
         ],
-        "summary": "Create licensee",
         "tags": [
           "Licensee"
-        ]
+        ],
+        "description": "Creates a new Licensee",
+        "operationId": "createLicensee",
+        "summary": "Create Licensee"
       }
     },
     "/licensee/{licenseeNumber}": {
       "delete": {
-        "description": "Delete a licensee by number",
-        "operationId": "deleteLicensee",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
         "parameters": [
           {
-            "description": "Unique number (across all products of a vendor) that identifies the licensee.",
+            "description": "Unique number (across all Products of a Vendor) that identifies the Licensee.",
             "in": "path",
             "name": "licenseeNumber",
             "required": true,
@@ -689,17 +582,21 @@
             "basicAuth": []
           }
         ],
-        "summary": "Delete licensee",
         "tags": [
           "Licensee"
-        ]
+        ],
+        "description": "Delete a Licensee by 'number'",
+        "operationId": "deleteLicensee",
+        "summary": "Delete Licensee"
       },
       "get": {
-        "description": "Return a licensee by licenseeNumber",
-        "operationId": "getLicensee",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
         "parameters": [
           {
-            "description": "Unique number (across all products of a vendor) that identifies the licensee. Vendor can assign this number when creating a licensee or let NetLicensing generate one. Read-only after creation of the first license for the licensee.",
+            "description": "Unique number (across all Products of a Vendor) that identifies the Licensee. Vendor can assign this number when creating a Licensee or let NetLicensing generate one. Read-only after creation of the first License for the Licensee.",
             "in": "path",
             "name": "licenseeNumber",
             "required": true,
@@ -731,58 +628,51 @@
             "basicAuth": []
           }
         ],
-        "summary": "Get licensee",
         "tags": [
           "Licensee"
-        ]
+        ],
+        "description": "Return a Licensee by 'licenseeNumber'",
+        "operationId": "getLicensee",
+        "summary": "Get Licensee"
       },
       "post": {
         "consumes": [
           "application/x-www-form-urlencoded"
         ],
-        "description": "Sets the provided properties to a licensee. Return an updated licensee",
-        "operationId": "updateLicensee",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
         "parameters": [
           {
-            "description": "Unique number (across all products of a vendor) that identifies the licensee. Vendor can assign this number when creating a licensee or let NetLicensing generate one. Read-only after creation of the first license for the licensee.",
+            "description": "Unique number (across all Products of a Vendor) that identifies the Licensee. Vendor can assign this number when creating a Licensee or let NetLicensing generate one. Read-only after creation of the first License for the Licensee.",
             "in": "path",
             "name": "licenseeNumber",
             "required": true,
             "type": "string"
           },
           {
-            "description": "New licensee number (update).",
-            "in": "formData",
-            "name": "number",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "If set to 'false', the licensee is disabled. Licensee can not obtain new licenses, and validation is disabled",
+            "description": "If set to 'false', the Licensee is disabled. Licensee can not obtain new Licenses, and validation is disabled",
             "in": "formData",
             "name": "active",
-            "required": false,
+            "type": "boolean"
+          },
+          {
+            "description": "Mark Licensee for transfer.",
+            "in": "formData",
+            "name": "markedForTransfer",
             "type": "boolean"
           },
           {
             "in": "formData",
             "name": "name",
-            "required": false,
             "type": "string"
           },
           {
-            "description": "Licensee Secret for licensee.",
+            "description": "New Licensee number (update).",
             "in": "formData",
-            "name": "licenseeSecret",
-            "required": false,
+            "name": "number",
             "type": "string"
-          },
-          {
-            "description": "Mark licensee for transfer.",
-            "in": "formData",
-            "name": "markedForTransfer",
-            "required": false,
-            "type": "boolean"
           }
         ],
         "responses": {
@@ -794,6 +684,9 @@
           },
           "400": {
             "description": "Malformed or illegal request"
+          },
+          "402": {
+            "description": "Quota exceeded"
           },
           "403": {
             "description": "Access is denied"
@@ -810,10 +703,12 @@
             "basicAuth": []
           }
         ],
-        "summary": "Update licensee",
         "tags": [
           "Licensee"
-        ]
+        ],
+        "description": "Sets the provided properties to a Licensee. Return an updated Licensee",
+        "operationId": "updateLicensee",
+        "summary": "Update Licensee"
       }
     },
     "/licensee/{licenseeNumber}/transfer": {
@@ -821,8 +716,10 @@
         "consumes": [
           "application/x-www-form-urlencoded"
         ],
-        "description": "Licenses transfer between licensees",
-        "operationId": "transferLicenses",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
         "parameters": [
           {
             "description": "Licensee number with a maximum length of 1000 characters",
@@ -832,7 +729,7 @@
             "type": "string"
           },
           {
-            "description": "Licensee number which licenses to be transferred",
+            "description": "Licensee number which Licenses to be transferred",
             "in": "formData",
             "name": "sourceLicenseeNumber",
             "required": true,
@@ -864,10 +761,12 @@
             "basicAuth": []
           }
         ],
-        "summary": "Transfer licenses",
         "tags": [
           "Licensee"
-        ]
+        ],
+        "description": "Licenses transfer between Licensees",
+        "operationId": "transferLicenses",
+        "summary": "Transfer Licenses"
       }
     },
     "/licensee/{licenseeNumber}/validate": {
@@ -875,8 +774,10 @@
         "consumes": [
           "application/x-www-form-urlencoded"
         ],
-        "description": "Validates active licenses of the licensee",
-        "operationId": "validateLicensee",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
         "parameters": [
           {
             "description": "Licensee number with a maximum length of 1000 characters",
@@ -886,24 +787,43 @@
             "type": "string"
           },
           {
-            "description": "Product number, must be provided when 'licensee auto-create' is enabled (see also Product JavaDoc). Identifies the product to which new licensee should be added",
+            "description": "'Floating' licensing model: check-out or check-in session action, to allocate or return it from/to the pool of available sessions",
+            "enum": [
+              "checkOut",
+              "checkIn"
+            ],
             "in": "formData",
-            "name": "productNumber",
-            "required": false,
+            "name": "action",
             "type": "string"
           },
           {
-            "description": "Human-readable name for the auto-created licensee (will be set as custom Licensee property)",
+            "description": "Human-readable name for the auto-created Licensee (will be set as custom Licensee property)",
             "in": "formData",
             "name": "licenseeName",
-            "required": false,
             "type": "string"
           },
           {
-            "description": "Licensee Secret key for licensee",
+            "description": "'Node-Locked' licensing model: specifies unique secret",
             "in": "formData",
-            "name": "licenseeSecret",
-            "required": false,
+            "name": "nodeSecret",
+            "type": "string"
+          },
+          {
+            "description": "'Node-Locked' licensing model: product module number",
+            "in": "formData",
+            "name": "productModuleNumber",
+            "type": "string"
+          },
+          {
+            "description": "Product number, must be provided when 'Licensee auto-create' is enabled (see also Product JavaDoc). Identifies the Product to which new Licensee should be added",
+            "in": "formData",
+            "name": "productNumber",
+            "type": "string"
+          },
+          {
+            "description": "'Floating' licensing model: specifies unique session identifier",
+            "in": "formData",
+            "name": "sessionId",
             "type": "string"
           }
         ],
@@ -932,16 +852,21 @@
             "basicAuth": []
           }
         ],
-        "summary": "Validate licensee",
         "tags": [
           "Licensee"
-        ]
+        ],
+        "description": "Validates active Licenses of the Licensee",
+        "operationId": "validateLicensee",
+        "summary": "Validate Licensee"
       }
     },
     "/licensetemplate": {
       "get": {
-        "description": "Return a list of all license templates for the current vendor",
-        "operationId": "listLicenseTemplates",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": "Successful request",
@@ -970,136 +895,115 @@
             "basicAuth": []
           }
         ],
-        "summary": "License Templates list",
         "tags": [
           "License Template"
-        ]
+        ],
+        "description": "Return a list of all License Templates for the current Vendor",
+        "operationId": "listLicenseTemplates",
+        "summary": "List License Templates"
       },
       "post": {
         "consumes": [
           "application/x-www-form-urlencoded"
         ],
-        "description": "Creates a new license template",
-        "operationId": "createLicenseTemplate",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
         "parameters": [
           {
-            "description": "Number of product module to сreate license template object",
-            "in": "formData",
-            "name": "productModuleNumber",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "lUnique number (across all products of a vendor) that identifies the license template. Vendor can assign this number when creating a license template or let NetLicensing generate one. Read-only after creation of the first license from this license template.",
-            "in": "formData",
-            "name": "number",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "license template name to сreate license template object",
-            "in": "formData",
-            "name": "name",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "If set to 'false', the license template is disabled. Licensee can not obtain any new licenses off this license template.",
+            "description": "If set to 'false', the License Template is disabled. Licensee can not obtain any new Licenses off this License Template.",
             "in": "formData",
             "name": "active",
             "required": true,
             "type": "boolean"
           },
           {
-            "collectionFormat": "multi",
-            "description": "type of licenses created from this license template. Supported types: FEATURE, TIMEVOLUME, FLOATING, QUANTITY",
+            "description": "If set to 'true', every new Licensee automatically gets one License out of this License Template on creation. Automatic Licenses must have their price set to 0.",
             "in": "formData",
-            "items": {
-              "default": "FEATURE",
-              "enum": [
-                "FEATURE",
-                "TIMEVOLUME",
-                "FLOATING",
-                "QUANTITY"
-              ],
-              "type": "string"
-            },
+            "name": "automatic",
+            "type": "boolean"
+          },
+          {
+            "description": "Specifies currency for the License price. Check data types to discover which currencies are supported.",
+            "in": "formData",
+            "name": "currency",
+            "type": "string"
+          },
+          {
+            "description": "If set to 'true', this License Template is not shown in NetLicensing Shop as offered for purchase.",
+            "in": "formData",
+            "name": "hidden",
+            "type": "boolean"
+          },
+          {
+            "description": "If set to 'true', Licenses from this License Template are not visible to the end customer, but participate in validation.",
+            "in": "formData",
+            "name": "hideLicenses",
+            "type": "boolean"
+          },
+          {
+            "description": "Type of Licenses created from this License Template. Supported types: FEATURE, TIMEVOLUME, FLOATING, QUANTITY",
+            "in": "formData",
             "name": "licenseType",
             "required": true,
             "type": "string"
           },
           {
-            "description": "Mandatory for 'TIMEVOLUME' license type.",
-            "in": "formData",
-            "name": "timeVolume",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "For 'TIMEVOLUME' license type.",
-            "in": "formData",
-            "items": {
-              "default": "DAY",
-              "enum": [
-                "DAY",
-                "WEEK",
-                "MONTH",
-                "YEAR"
-              ],
-              "type": "string"
-            },
-            "name": "timeVolumePeriod",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "Mandatory for 'FLOATING' license type.",
+            "description": "Mandatory for 'FLOATING' License Type.",
             "in": "formData",
             "name": "maxSessions",
-            "required": false,
             "type": "string"
           },
           {
-            "description": "price for the license. If >0, it must always be accompanied by the currency specification.",
+            "description": "License Template name to create License Template object",
+            "in": "formData",
+            "name": "name",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Unique number (across all Products of a Vendor) that identifies the License Template. Vendor can assign this number when creating a License Template or let NetLicensing generate one. Read-only after creation of the first License from this License Template.",
+            "in": "formData",
+            "name": "number",
+            "type": "string"
+          },
+          {
+            "description": "Price for the License. If >0, it must always be accompanied by the currency specification.",
             "format": "double",
             "in": "formData",
             "name": "price",
-            "required": false,
             "type": "number"
           },
           {
-            "description": "specifies currency for the license price. Check data types to discover which currencies are supported.",
+            "description": "Number of Product Module to create License Template object",
             "in": "formData",
-            "name": "currency",
-            "required": false,
+            "name": "productModuleNumber",
+            "required": true,
             "type": "string"
           },
           {
-            "description": "If set to 'true', every new licensee automatically gets one license out of this license template on creation. Automatic licenses must have their price set to 0.",
-            "in": "formData",
-            "name": "automatic",
-            "required": false,
-            "type": "boolean"
-          },
-          {
-            "description": "If set to 'true', this license template is not shown in NetLicensing Shop as offered for purchase.",
-            "in": "formData",
-            "name": "hidden",
-            "required": false,
-            "type": "boolean"
-          },
-          {
-            "description": "If set to 'true', licenses from this license template are not visible to the end customer, but participate in validation.",
-            "in": "formData",
-            "name": "hideLicenses",
-            "required": false,
-            "type": "boolean"
-          },
-          {
-            "description": "Mandatory for 'Pay-per-Use' license model.",
+            "description": "Mandatory for 'Pay-per-Use' and 'Node-Locked' License Model.",
             "in": "formData",
             "name": "quantity",
-            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Mandatory for 'Quota' License Model.",
+            "in": "formData",
+            "name": "quota",
+            "type": "string"
+          },
+          {
+            "description": "Mandatory for 'TIMEVOLUME' License Type.",
+            "in": "formData",
+            "name": "timeVolume",
+            "type": "string"
+          },
+          {
+            "description": "For 'TIMEVOLUME' License Type.",
+            "in": "formData",
+            "name": "timeVolumePeriod",
             "type": "string"
           }
         ],
@@ -1128,22 +1032,23 @@
             "basicAuth": []
           }
         ],
-        "summary": "Create license template",
         "tags": [
           "License Template"
-        ]
+        ],
+        "description": "Creates a new License Template",
+        "operationId": "createLicenseTemplate",
+        "summary": "Create License Template"
       }
     },
     "/licensetemplate/{licenseTemplateNumber}": {
       "delete": {
-        "consumes": [
-          "application/x-www-form-urlencoded"
+        "produces": [
+          "application/json",
+          "application/xml"
         ],
-        "description": "Delete a license template by number.",
-        "operationId": "deleteLicenseTemplate",
         "parameters": [
           {
-            "description": "Unique number (across all products of a vendor) that identifies the license template.",
+            "description": "Unique number (across all Products of a Vendor) that identifies the License Template.",
             "in": "path",
             "name": "licenseTemplateNumber",
             "required": true,
@@ -1182,17 +1087,21 @@
             "basicAuth": []
           }
         ],
-        "summary": "Delete license template",
         "tags": [
           "License Template"
-        ]
+        ],
+        "description": "Delete a License Template by 'number'.",
+        "operationId": "deleteLicenseTemplate",
+        "summary": "Delete License Template"
       },
       "get": {
-        "description": "Return a license template by licenseTemplateNumber",
-        "operationId": "getLicenseTemplate",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
         "parameters": [
           {
-            "description": "Unique number (across all products of a vendor) that identifies the license template. Vendor can assign this number when creating a license template or let NetLicensing generate one. Read-only after creation of the first license from this license template.",
+            "description": "Unique number (across all Products of a Vendor) that identifies the License Template. Vendor can assign this number when creating a License Template or let NetLicensing generate one. Read-only after creation of the first License from this License Template.",
             "in": "path",
             "name": "licenseTemplateNumber",
             "required": true,
@@ -1224,136 +1133,112 @@
             "basicAuth": []
           }
         ],
-        "summary": "Get license template",
         "tags": [
           "License Template"
-        ]
+        ],
+        "description": "Return a License Template by 'licenseTemplateNumber'",
+        "operationId": "getLicenseTemplate",
+        "summary": "Get License Template"
       },
       "post": {
         "consumes": [
           "application/x-www-form-urlencoded"
         ],
-        "description": "Sets the provided properties to a license template. Return an updated license template",
-        "operationId": "updateLicenseTemplate",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
         "parameters": [
           {
-            "description": "Unique number (across all products of a vendor) that identifies the license template. Vendor can assign this number when creating a license template or let NetLicensing generate one. Read-only after creation of the first license from this license template.",
+            "description": "Unique number (across all Products of a Vendor) that identifies the License Template. Vendor can assign this number when creating a License Template or let NetLicensing generate one. Read-only after creation of the first License from this License Template.",
             "in": "path",
             "name": "licenseTemplateNumber",
             "required": true,
             "type": "string"
           },
           {
-            "description": "New license template number (update).",
-            "in": "formData",
-            "name": "number",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "Name for the licensed item",
-            "in": "formData",
-            "name": "name",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "If set to 'false', the license template is disabled. Licensee can not obtain any new licenses off this license template.",
+            "description": "If set to 'false', the License Template is disabled. Licensee can not obtain any new Licenses off this License Template.",
             "in": "formData",
             "name": "active",
-            "required": false,
             "type": "boolean"
           },
           {
-            "collectionFormat": "multi",
-            "description": "type of licenses created from this license template. Supported types: FEATURE, TIMEVOLUME, FLOATING, QUANTITY",
+            "description": "If set to 'true', every new Licensee automatically gets one License out of this License Template on creation. Automatic Licenses must have their price set to 0.",
             "in": "formData",
-            "items": {
-              "default": "FEATURE",
-              "enum": [
-                "FEATURE",
-                "TIMEVOLUME",
-                "FLOATING",
-                "QUANTITY"
-              ],
-              "type": "string"
-            },
+            "name": "automatic",
+            "type": "boolean"
+          },
+          {
+            "description": "Specifies currency for the License price. Check data types to discover which currencies are supported.",
+            "in": "formData",
+            "name": "currency",
+            "type": "string"
+          },
+          {
+            "description": "If set to 'true', this License Template is not shown in NetLicensing Shop as offered for purchase.",
+            "in": "formData",
+            "name": "hidden",
+            "type": "boolean"
+          },
+          {
+            "description": "If set to 'true', Licenses from this License Template are not visible to the end customer, but participate in validation.",
+            "in": "formData",
+            "name": "hideLicenses",
+            "type": "boolean"
+          },
+          {
+            "description": "Type of Licenses created from this License Template. Supported types: FEATURE, TIMEVOLUME, FLOATING, QUANTITY",
+            "in": "formData",
             "name": "licenseType",
-            "required": false,
             "type": "string"
           },
           {
-            "description": "Mandatory for 'TIMEVOLUME' license type.",
-            "in": "formData",
-            "name": "timeVolume",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "For 'TIMEVOLUME' license type.",
-            "in": "formData",
-            "items": {
-              "default": "DAY",
-              "enum": [
-                "DAY",
-                "WEEK",
-                "MONTH",
-                "YEAR"
-              ],
-              "type": "string"
-            },
-            "name": "timeVolumePeriod",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "Mandatory for 'FLOATING' license type.",
+            "description": "Mandatory for 'FLOATING' License Type.",
             "in": "formData",
             "name": "maxSessions",
-            "required": false,
             "type": "string"
           },
           {
-            "description": "Price for the license. If >0, it must always be accompanied by the currency specification.",
+            "description": "Name for the Licensed item",
+            "in": "formData",
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "description": "New License Template number (update).",
+            "in": "formData",
+            "name": "number",
+            "type": "string"
+          },
+          {
+            "description": "Price for the License. If >0, it must always be accompanied by the currency specification.",
             "format": "double",
             "in": "formData",
             "name": "price",
-            "required": false,
             "type": "number"
           },
           {
-            "description": "Specifies currency for the license price. Check data types to discover which currencies are supported.",
+            "description": "Mandatory for 'Pay-per-Use' and 'Node-Locked' License Model.",
             "in": "formData",
-            "name": "currency",
-            "required": false,
+            "name": "quantity",
             "type": "string"
           },
           {
-            "description": "If set to 'true', every new licensee automatically gets one license out of this license template on creation. Automatic licenses must have their price set to 0.",
+            "description": "Mandatory for 'Quota' License Model.",
             "in": "formData",
-            "name": "automatic",
-            "required": false,
-            "type": "boolean"
+            "name": "quota",
+            "type": "string"
           },
           {
-            "description": "If set to 'true', this license template is not shown in NetLicensing Shop as offered for purchase.",
+            "description": "Mandatory for 'TIMEVOLUME' License Type.",
             "in": "formData",
-            "name": "hidden",
-            "required": false,
-            "type": "boolean"
+            "name": "timeVolume",
+            "type": "string"
           },
           {
-            "description": "If set to 'true', licenses from this license template are not visible to the end customer, but participate in validation.",
+            "description": "For 'TIMEVOLUME' License Type.",
             "in": "formData",
-            "name": "hideLicenses",
-            "required": false,
-            "type": "boolean"
-          },
-          {
-            "description": "Mandatory for 'Pay-per-Use' license model.",
-            "in": "formData",
-            "name": "quantity",
-            "required": false,
+            "name": "timeVolumePeriod",
             "type": "string"
           }
         ],
@@ -1382,16 +1267,21 @@
             "basicAuth": []
           }
         ],
-        "summary": "Update license template",
         "tags": [
           "License Template"
-        ]
+        ],
+        "description": "Sets the provided properties to a License Template. Return an updated License Template",
+        "operationId": "updateLicenseTemplate",
+        "summary": "Update License Template"
       }
     },
     "/paymentmethod": {
       "get": {
-        "description": "Return a list of all payment methods for the current vendor",
-        "operationId": "listPaymentMethods",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": "Successful request",
@@ -1420,16 +1310,20 @@
             "basicAuth": []
           }
         ],
-        "summary": "Payment Methods list",
         "tags": [
           "Payment Method"
-        ]
+        ],
+        "description": "Return a list of all Payment Methods for the current Vendor",
+        "operationId": "listPaymentMethods",
+        "summary": "List Payment Methods"
       }
     },
     "/paymentmethod/{paymentMethodNumber}": {
       "get": {
-        "description": "Return a payment method info by paymentMethodNumber",
-        "operationId": "getPaymentMethod",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
         "parameters": [
           {
             "description": "Payment method number",
@@ -1464,17 +1358,21 @@
             "basicAuth": []
           }
         ],
-        "summary": "Get payment method",
         "tags": [
           "Payment Method"
-        ]
+        ],
+        "description": "Return a Payment Method info by 'paymentMethodNumber'",
+        "operationId": "getPaymentMethod",
+        "summary": "Get Payment Method"
       },
       "post": {
         "consumes": [
           "application/x-www-form-urlencoded"
         ],
-        "description": "Sets the provided properties to a payment method. Return an updated payment method",
-        "operationId": "updatePaymentMethod",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
         "parameters": [
           {
             "description": "Payment method number",
@@ -1484,17 +1382,15 @@
             "type": "string"
           },
           {
-            "description": "If set to 'false', the payment method is disabled.",
+            "description": "If set to 'false', the Payment Method is disabled.",
             "in": "formData",
             "name": "active",
-            "required": false,
             "type": "boolean"
           },
           {
             "description": "The e-mail address of the PayPal account for which you are making the API calls.",
             "in": "formData",
             "name": "paypal.subject",
-            "required": false,
             "type": "string"
           }
         ],
@@ -1523,16 +1419,21 @@
             "basicAuth": []
           }
         ],
-        "summary": "Update payment method",
         "tags": [
           "Payment Method"
-        ]
+        ],
+        "description": "Sets the provided properties to a Payment Method. Return an updated Payment Method",
+        "operationId": "updatePaymentMethod",
+        "summary": "Update Payment Method"
       }
     },
     "/product": {
       "get": {
-        "description": "Return a list of all configured products for the current vendor",
-        "operationId": "listProducts",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": "Successful request",
@@ -1561,88 +1462,75 @@
             "basicAuth": []
           }
         ],
-        "summary": "Products list",
         "tags": [
           "Product"
-        ]
+        ],
+        "description": "Return a list of all configured Products for the current Vendor",
+        "operationId": "listProducts",
+        "summary": "List Products"
       },
       "post": {
         "consumes": [
           "application/x-www-form-urlencoded"
         ],
-        "description": "Creates a new product",
-        "operationId": "createProduct",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
         "parameters": [
           {
-            "description": "Unique number that identifies the product. Vendor can assign this number when creating a product or let NetLicensing generate one.",
-            "in": "formData",
-            "name": "number",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "If set to 'false', the product is disabled. No new licensees can be registered for the product, existing licensees can not obtain new licenses.",
+            "description": "If set to 'false', the Product is disabled. No new Licensees can be registered for the Product, existing Licensees can not obtain new Licenses.",
             "in": "formData",
             "name": "active",
             "required": true,
             "type": "boolean"
           },
           {
-            "description": "Product name. Together with the version identifies the product for the end customer.",
+            "description": "Product description.",
+            "in": "formData",
+            "name": "description",
+            "type": "string"
+          },
+          {
+            "description": "If set to 'true', non-existing Licensees will be created at first validation attempt.",
+            "in": "formData",
+            "name": "licenseeAutoCreate",
+            "type": "boolean"
+          },
+          {
+            "description": "Licensing information.",
+            "in": "formData",
+            "name": "licensingInfo",
+            "type": "string"
+          },
+          {
+            "description": "Product name. Together with the version identifies the Product for the end customer.",
             "in": "formData",
             "name": "name",
             "required": true,
             "type": "string"
           },
           {
-            "description": "Product version. Convenience parameter, additional to the product name.",
+            "description": "Unique number that identifies the Product. Vendor can assign this number when creating a Product or let NetLicensing generate one.",
             "in": "formData",
-            "name": "version",
-            "required": true,
+            "name": "number",
             "type": "string"
           },
           {
-            "description": "If set to 'true', non-existing licensees will be created at first validation attempt.",
-            "in": "formData",
-            "name": "licenseeAutoCreate",
-            "required": false,
-            "type": "boolean"
-          },
-          {
-            "description": "Product description.",
-            "in": "formData",
-            "name": "description",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "Licensing information.",
-            "in": "formData",
-            "name": "licensingInfo",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "Licensee secret mode for product. Supported types: DISABLED, PREDEFINED, CLIENT",
-            "enum": [
-              "DISABLED",
-              "PREDEFINED",
-              "CLIENT"
-            ],
-            "in": "formData",
-            "name": "licenseeSecretMode",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "Vat mode for product. Supported types: GROSS, NET",
+            "description": "Vat mode for Product. Supported types: GROSS, NET",
             "enum": [
               "GROSS",
               "NET"
             ],
             "in": "formData",
             "name": "vatMode",
-            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Product version. Convenience parameter, additional to the Product name.",
+            "in": "formData",
+            "name": "version",
+            "required": true,
             "type": "string"
           }
         ],
@@ -1655,6 +1543,9 @@
           },
           "400": {
             "description": "Malformed or illegal request"
+          },
+          "402": {
+            "description": "Quota exceeded"
           },
           "403": {
             "description": "Access is denied"
@@ -1671,22 +1562,23 @@
             "basicAuth": []
           }
         ],
-        "summary": "Create product",
         "tags": [
           "Product"
-        ]
+        ],
+        "description": "Creates a new Product",
+        "operationId": "createProduct",
+        "summary": "Create Product"
       }
     },
     "/product/{productNumber}": {
       "delete": {
-        "consumes": [
-          "application/x-www-form-urlencoded"
+        "produces": [
+          "application/json",
+          "application/xml"
         ],
-        "description": "Delete a product by number",
-        "operationId": "deleteProduct",
         "parameters": [
           {
-            "description": "Unique number that identifies the product.",
+            "description": "Unique number that identifies the Product.",
             "in": "path",
             "name": "productNumber",
             "required": true,
@@ -1725,17 +1617,21 @@
             "basicAuth": []
           }
         ],
-        "summary": "Delete product",
         "tags": [
           "Product"
-        ]
+        ],
+        "description": "Delete a Product by 'number'",
+        "operationId": "deleteProduct",
+        "summary": "Delete Product"
       },
       "get": {
-        "description": "Return a product by productNumber",
-        "operationId": "productNumber",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
         "parameters": [
           {
-            "description": "Unique number that identifies the product.",
+            "description": "Unique number that identifies the Product.",
             "in": "path",
             "name": "productNumber",
             "required": true,
@@ -1767,95 +1663,79 @@
             "basicAuth": []
           }
         ],
-        "summary": "Get product",
         "tags": [
           "Product"
-        ]
+        ],
+        "description": "Return a Product by 'productNumber'",
+        "operationId": "productNumber",
+        "summary": "Get Product"
       },
       "post": {
         "consumes": [
           "application/x-www-form-urlencoded"
         ],
-        "description": "Sets the provided properties to a product. Return an updated product",
-        "operationId": "updateProduct",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
         "parameters": [
           {
-            "description": "Unique number that identifies the product.",
+            "description": "Unique number that identifies the Product.",
             "in": "path",
             "name": "productNumber",
             "required": true,
             "type": "string"
           },
           {
-            "description": "New product number (update)",
-            "in": "formData",
-            "name": "number",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "If set to 'false', the product is disabled. No new licensees can be registered for the product, existing licensees can not obtain new licenses.",
+            "description": "If set to 'false', the Product is disabled. No new Licensees can be registered for the Product, existing Licensees can not obtain new Licenses.",
             "in": "formData",
             "name": "active",
-            "required": false,
-            "type": "boolean"
-          },
-          {
-            "description": "Product name. Together with the version identifies the product for the end customer.",
-            "in": "formData",
-            "name": "name",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "Product version. Convenience parameter, additional to the product name.",
-            "in": "formData",
-            "name": "version",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "If set to 'true', non-existing licensees will be created at first validation attempt.",
-            "in": "formData",
-            "name": "licenseeAutoCreate",
-            "required": false,
             "type": "boolean"
           },
           {
             "description": "Product description.",
             "in": "formData",
             "name": "description",
-            "required": false,
             "type": "string"
+          },
+          {
+            "description": "If set to 'true', non-existing Licensees will be created at first validation attempt.",
+            "in": "formData",
+            "name": "licenseeAutoCreate",
+            "type": "boolean"
           },
           {
             "description": "Licensing information.",
             "in": "formData",
             "name": "licensingInfo",
-            "required": false,
             "type": "string"
           },
           {
-            "description": "Licensee secret mode for product. Supported types: DISABLED, PREDEFINED, CLIENT",
-            "enum": [
-              "DISABLED",
-              "PREDEFINED",
-              "CLIENT"
-            ],
+            "description": "Product name. Together with the version identifies the Product for the end customer.",
             "in": "formData",
-            "name": "licenseeSecretMode",
-            "required": false,
+            "name": "name",
             "type": "string"
           },
           {
-            "description": "Vat mode for product. Supported types: GROSS, NET",
+            "description": "New Product number (update)",
+            "in": "formData",
+            "name": "number",
+            "type": "string"
+          },
+          {
+            "description": "Vat mode for Product. Supported types: GROSS, NET",
             "enum": [
               "GROSS",
               "NET"
             ],
             "in": "formData",
             "name": "vatMode",
-            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Product version. Convenience parameter, additional to the Product name.",
+            "in": "formData",
+            "name": "version",
             "type": "string"
           }
         ],
@@ -1868,6 +1748,9 @@
           },
           "400": {
             "description": "Malformed or illegal request"
+          },
+          "402": {
+            "description": "Quota exceeded"
           },
           "403": {
             "description": "Access is denied"
@@ -1884,16 +1767,21 @@
             "basicAuth": []
           }
         ],
-        "summary": "Update product",
         "tags": [
           "Product"
-        ]
+        ],
+        "description": "Sets the provided properties to a Product. Return an updated Product",
+        "operationId": "updateProduct",
+        "summary": "Update Product"
       }
     },
     "/productmodule": {
       "get": {
-        "description": "Return a list of all product modules for the current vendor",
-        "operationId": "listProductModules",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": "Successful request",
@@ -1922,93 +1810,32 @@
             "basicAuth": []
           }
         ],
-        "summary": "Product Modules list",
         "tags": [
           "Product Module"
-        ]
+        ],
+        "description": "Return a list of all Product Modules for the current Vendor",
+        "operationId": "listProductModules",
+        "summary": "List Product Modules"
       },
       "post": {
         "consumes": [
           "application/x-www-form-urlencoded"
         ],
-        "description": "Creates a new product module",
-        "operationId": "createProductModule",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
         "parameters": [
           {
-            "description": "Unique number (across all products of a vendor) that identifies the product module. Vendor can assign this number when creating a product module or let NetLicensing generate one. Read-only after creation of the first licensee for the product.",
-            "in": "formData",
-            "name": "productNumber",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "Unique number (across all products of a vendor) that identifies the product module. Vendor can assign this number when creating a product module or let NetLicensing generate one. Read-only after creation of the first licensee for the product.",
-            "in": "formData",
-            "name": "number",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "If set to 'false', the product module is disabled. Licensees can not obtain any new licenses for this product module.",
+            "description": "If set to 'false', the Product Module is disabled. Licensees can not obtain any new Licenses for this Product Module.",
             "in": "formData",
             "name": "active",
             "required": true,
             "type": "boolean"
           },
           {
-            "description": "Product module name that is visible to the end customers in NetLicensing Shop.",
-            "in": "formData",
-            "name": "name",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "collectionFormat": "multi",
-            "description": "Licensing model applied to this product module. Defines what license templates can be configured for the product module and how licenses for this product module are processed during validation.",
-            "in": "formData",
-            "items": {
-              "default": "Subscription",
-              "enum": [
-                "Subscription",
-                "TryAndBuy",
-                "Rental",
-                "Floating",
-                "MultiFeature",
-                "PayPerUse",
-                "Quota"
-              ],
-              "type": "string"
-            },
-            "name": "licensingModel",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "Maximum checkout validity (days). Mandatory for 'Floating' licensing model.",
-            "format": "int32",
-            "in": "formData",
-            "name": "maxCheckoutValidity",
-            "required": false,
-            "type": "integer"
-          },
-          {
-            "description": "Remaining time volume for yellow level. Mandatory for 'Rental' licensing model.",
-            "format": "int32",
-            "in": "formData",
-            "name": "yellowThreshold",
-            "required": false,
-            "type": "integer"
-          },
-          {
-            "description": "Remaining time volume for red level. Mandatory for 'Rental' licensing model.",
-            "format": "int32",
-            "in": "formData",
-            "name": "redThreshold",
-            "required": false,
-            "type": "integer"
-          },
-          {
-            "description": "License template. Mandatory for 'Try &amp; Buy' licensing model.",
+            "collectionFormat": "csv",
+            "description": "License Template. Mandatory for 'Try &amp; Buy' licensing model.",
             "in": "formData",
             "items": {
               "default": "TIMEVOLUME",
@@ -2019,8 +1846,70 @@
               "type": "string"
             },
             "name": "licenseTemplate",
-            "required": false,
             "type": "array"
+          },
+          {
+            "description": "Licensing model applied to this Product Module. Defines what License Templates can be configured for the Product Module and how Licenses for this Product Module are processed during validation.",
+            "in": "formData",
+            "name": "licensingModel",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Maximum checkout validity (days). Mandatory for 'Floating' licensing model.",
+            "format": "int32",
+            "in": "formData",
+            "name": "maxCheckoutValidity",
+            "type": "integer"
+          },
+          {
+            "description": "Product Module name that is visible to the end customers in NetLicensing Shop.",
+            "in": "formData",
+            "name": "name",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "collectionFormat": "csv",
+            "description": "Secret Mode. Mandatory for 'Node-Locked' licensing model.",
+            "in": "formData",
+            "items": {
+              "default": "PREDEFINED",
+              "enum": [
+                "PREDEFINED",
+                "CLIENT"
+              ],
+              "type": "string"
+            },
+            "name": "nodeSecretMode",
+            "type": "array"
+          },
+          {
+            "description": "Unique number (across all Products of a Vendor) that identifies the Product Module. Vendor can assign this number when creating a Product Module or let NetLicensing generate one. Read-only after creation of the first Licensee for the Product.",
+            "in": "formData",
+            "name": "number",
+            "type": "string"
+          },
+          {
+            "description": "Unique number (across all Products of a Vendor) that identifies the Product Module. Vendor can assign this number when creating a Product Module or let NetLicensing generate one. Read-only after creation of the first Licensee for the Product.",
+            "in": "formData",
+            "name": "productNumber",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Remaining time volume for red level. Mandatory for 'Rental' licensing model.",
+            "format": "int32",
+            "in": "formData",
+            "name": "redThreshold",
+            "type": "integer"
+          },
+          {
+            "description": "Remaining time volume for yellow level. Mandatory for 'Rental' licensing model.",
+            "format": "int32",
+            "in": "formData",
+            "name": "yellowThreshold",
+            "type": "integer"
           }
         ],
         "responses": {
@@ -2032,6 +1921,9 @@
           },
           "400": {
             "description": "Malformed or illegal request"
+          },
+          "402": {
+            "description": "Quota exceeded"
           },
           "403": {
             "description": "Access is denied"
@@ -2048,19 +1940,23 @@
             "basicAuth": []
           }
         ],
-        "summary": "Create product module",
         "tags": [
           "Product Module"
-        ]
+        ],
+        "description": "Creates a new Product Module",
+        "operationId": "createProductModule",
+        "summary": "Create Product Module"
       }
     },
     "/productmodule/{productModuleNumber}": {
       "delete": {
-        "description": "Delete a product module by number",
-        "operationId": "deleteProductModule",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
         "parameters": [
           {
-            "description": "Unique number (across all products of a vendor) that identifies the product module.",
+            "description": "Unique number (across all Products of a Vendor) that identifies the Product Module.",
             "in": "path",
             "name": "productModuleNumber",
             "required": true,
@@ -2099,17 +1995,21 @@
             "basicAuth": []
           }
         ],
-        "summary": "Delete product module",
         "tags": [
           "Product Module"
-        ]
+        ],
+        "description": "Delete a Product Module by 'number'",
+        "operationId": "deleteProductModule",
+        "summary": "Delete Product Module"
       },
       "get": {
-        "description": "Return a product module by productModuleNumber",
-        "operationId": "getProductModule",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
         "parameters": [
           {
-            "description": "Unique number (across all products of a vendor) that identifies the product module. Vendor can assign this number when creating a product module or let NetLicensing generate one. Read-only after creation of the first licensee for the product.",
+            "description": "Unique number (across all Products of a Vendor) that identifies the Product Module. Vendor can assign this number when creating a Product Module or let NetLicensing generate one. Read-only after creation of the first Licensee for the Product.",
             "in": "path",
             "name": "productModuleNumber",
             "required": true,
@@ -2141,90 +2041,38 @@
             "basicAuth": []
           }
         ],
-        "summary": "Get product module",
         "tags": [
           "Product Module"
-        ]
+        ],
+        "description": "Return a Product Module by 'productModuleNumber'",
+        "operationId": "getProductModule",
+        "summary": "Get Product Module"
       },
       "post": {
         "consumes": [
           "application/x-www-form-urlencoded"
         ],
-        "description": "Sets the provided properties to a product module. Return an updated product module",
-        "operationId": "updateProductModule",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
         "parameters": [
           {
-            "description": "Unique number (across all products of a vendor) that identifies the product module. Vendor can assign this number when creating a product module or let NetLicensing generate one. Read-only after creation of the first licensee for the product.",
+            "description": "Unique number (across all Products of a Vendor) that identifies the Product Module. Vendor can assign this number when creating a Product Module or let NetLicensing generate one. Read-only after creation of the first Licensee for the Product.",
             "in": "path",
             "name": "productModuleNumber",
             "required": true,
             "type": "string"
           },
           {
-            "description": "New product module number (update).",
-            "in": "formData",
-            "name": "number",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "If set to 'false', the product module is disabled. Licensees can not obtain any new licenses for this product module.",
+            "description": "If set to 'false', the Product Module is disabled. Licensees can not obtain any new Licenses for this Product Module.",
             "in": "formData",
             "name": "active",
-            "required": false,
             "type": "boolean"
           },
           {
-            "description": "Product module name that is visible to the end customers in NetLicensing Shop.",
-            "in": "formData",
-            "name": "name",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "collectionFormat": "multi",
-            "description": "Licensing model applied to this product module. Defines what license templates can be configured for the product module and how licenses for this product module are processed during validation.",
-            "in": "formData",
-            "items": {
-              "default": "Subscription",
-              "enum": [
-                "Subscription",
-                "TryAndBuy",
-                "Rental",
-                "Floating"
-              ],
-              "type": "string"
-            },
-            "name": "licensingModel",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "Maximum checkout validity (days). Mandatory for 'Floating' licensing model.",
-            "format": "int32",
-            "in": "formData",
-            "name": "maxCheckoutValidity",
-            "required": false,
-            "type": "integer"
-          },
-          {
-            "description": "Remaining time volume for yellow level. Mandatory for 'Rental' licensing model.",
-            "format": "int32",
-            "in": "formData",
-            "name": "yellowThreshold",
-            "required": false,
-            "type": "integer"
-          },
-          {
-            "description": "Remaining time volume for red level. Mandatory for 'Rental' licensing model.",
-            "format": "int32",
-            "in": "formData",
-            "name": "redThreshold",
-            "required": false,
-            "type": "integer"
-          },
-          {
-            "description": "License template. Mandatory for 'Try &amp; Buy' licensing model.",
+            "collectionFormat": "csv",
+            "description": "License Template. Mandatory for 'Try &amp; Buy' licensing model.",
             "in": "formData",
             "items": {
               "default": "TIMEVOLUME",
@@ -2235,8 +2083,61 @@
               "type": "string"
             },
             "name": "licenseTemplate",
-            "required": false,
             "type": "array"
+          },
+          {
+            "description": "Licensing model applied to this Product Module. Defines what License Templates can be configured for the Product Module and how Licenses for this Product Module are processed during validation.",
+            "in": "formData",
+            "name": "licensingModel",
+            "type": "string"
+          },
+          {
+            "description": "Maximum checkout validity (days). Mandatory for 'Floating' licensing model.",
+            "format": "int32",
+            "in": "formData",
+            "name": "maxCheckoutValidity",
+            "type": "integer"
+          },
+          {
+            "description": "Product Module name that is visible to the end customers in NetLicensing Shop.",
+            "in": "formData",
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "collectionFormat": "csv",
+            "description": "Secret Mode. Mandatory for 'Node-Locked' licensing model.",
+            "in": "formData",
+            "items": {
+              "default": "PREDEFINED",
+              "enum": [
+                "PREDEFINED",
+                "CLIENT"
+              ],
+              "type": "string"
+            },
+            "name": "nodeSecretMode",
+            "type": "array"
+          },
+          {
+            "description": "New Product Module number (update).",
+            "in": "formData",
+            "name": "number",
+            "type": "string"
+          },
+          {
+            "description": "Remaining time volume for red level. Mandatory for 'Rental' licensing model.",
+            "format": "int32",
+            "in": "formData",
+            "name": "redThreshold",
+            "type": "integer"
+          },
+          {
+            "description": "Remaining time volume for yellow level. Mandatory for 'Rental' licensing model.",
+            "format": "int32",
+            "in": "formData",
+            "name": "yellowThreshold",
+            "type": "integer"
           }
         ],
         "responses": {
@@ -2248,6 +2149,9 @@
           },
           "400": {
             "description": "Malformed or illegal request"
+          },
+          "402": {
+            "description": "Quota exceeded"
           },
           "403": {
             "description": "Access is denied"
@@ -2264,16 +2168,21 @@
             "basicAuth": []
           }
         ],
-        "summary": "Update product module",
         "tags": [
           "Product Module"
-        ]
+        ],
+        "description": "Sets the provided properties to a Product Module. Return an updated Product Module",
+        "operationId": "updateProductModule",
+        "summary": "Update Product Module"
       }
     },
     "/token": {
       "get": {
-        "description": "Return a list of all tokens for the current vendor",
-        "operationId": "listTokens",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": "Successful request",
@@ -2302,20 +2211,99 @@
             "basicAuth": []
           }
         ],
-        "summary": "Tokens list",
         "tags": [
           "Token"
-        ]
+        ],
+        "description": "Return a list of all tokens for the current Vendor",
+        "operationId": "listTokens",
+        "summary": "List Tokens"
       },
       "post": {
         "consumes": [
           "application/x-www-form-urlencoded"
         ],
-        "description": "Create token by tokenType and additional token parameters",
-        "operationId": "createToken",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
         "parameters": [
           {
-            "collectionFormat": "multi",
+            "description": "For <i>type=ACTION</i> only; defines token action to be perfromed",
+            "enum": [
+              "licenseeLogin"
+            ],
+            "in": "formData",
+            "name": "action",
+            "type": "string"
+          },
+          {
+            "description": "For <i>tokenType=APIKEY</i> only (default: ROLE_APIKEY_LICENSEE); defines token RoleID",
+            "enum": [
+              "ROLE_APIKEY_LICENSEE",
+              "ROLE_APIKEY_ANALYTICS",
+              "ROLE_APIKEY_OPERATION",
+              "ROLE_APIKEY_MAINTENANCE",
+              "ROLE_APIKEY_ADMIN"
+            ],
+            "in": "formData",
+            "name": "apiKeyRole",
+            "type": "string"
+          },
+          {
+            "description": "For <i>tokenType=SHOP</i> only; take customers to this URL when they cancel their checkout",
+            "in": "formData",
+            "name": "cancelURL",
+            "type": "string"
+          },
+          {
+            "description": "For <i>tokenType=SHOP</i> only; shop link title for cancel checkout process",
+            "in": "formData",
+            "name": "cancelURLTitle",
+            "type": "string"
+          },
+          {
+            "description": "For <i>tokenType=SHOP</i> only; identifies LicenseTemplate that will be assigned to the shop token",
+            "in": "formData",
+            "name": "licenseTemplateNumber",
+            "type": "string"
+          },
+          {
+            "description": "For <i>tokenType=SHOP</i> or <i>type=ACTION</i> only (mandatory); identifies Licensee that will be assigned to the shop token",
+            "in": "formData",
+            "name": "licenseeNumber",
+            "type": "string"
+          },
+          {
+            "description": "For <i>tokenType=SHOP</i> only; identifies Shopping Item name that will be shown to the customer",
+            "in": "formData",
+            "name": "predefinedShoppingItem",
+            "type": "string"
+          },
+          {
+            "description": "For <i>tokenType=APIKEY</i> only (optional); defines PrivateKey to be used with the validate method<br/><strong>Please Note:</strong> PrivateKey need to be provided as one line without spaces",
+            "in": "formData",
+            "name": "privateKey",
+            "type": "string"
+          },
+          {
+            "description": "For <i>tokenType=SHOP</i> only (mandatory); identifies Product that will be assigned to the shop token",
+            "in": "formData",
+            "name": "productNumber",
+            "type": "string"
+          },
+          {
+            "description": "For <i>tokenType=SHOP</i> only; take customers to this URL when they finish checkout",
+            "in": "formData",
+            "name": "successURL",
+            "type": "string"
+          },
+          {
+            "description": "For <i>tokenType=SHOP</i> only; shop link title for successful checkout process",
+            "in": "formData",
+            "name": "successURLTitle",
+            "type": "string"
+          },
+          {
             "description": "Token type to be generated",
             "enum": [
               "DEFAULT",
@@ -2328,38 +2316,12 @@
             "type": "string"
           },
           {
-            "description": "for <i>tokenType=SHOP</i> only (mandatory); identifies licensee that will be assigned to the shop token",
+            "description": "For <i>tokenType=DEFAULT</i> only; action type to be set",
+            "enum": [
+              "ACTION"
+            ],
             "in": "formData",
-            "name": "licenseeNumber",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "for <i>tokenType=SHOP</i> only; take customers to this URL when they finish checkout",
-            "in": "formData",
-            "name": "successURL",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "for <i>tokenType=SHOP</i> only; shop link title for successful checkout process",
-            "in": "formData",
-            "name": "successURLTitle",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "for <i>tokenType=SHOP</i> only; take customers to this URL when they cancel their checkout",
-            "in": "formData",
-            "name": "cancelURL",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "for <i>tokenType=SHOP</i> only; shop link title for cancel checkout process",
-            "in": "formData",
-            "name": "cancelURLTitle",
-            "required": false,
+            "name": "type",
             "type": "string"
           }
         ],
@@ -2385,20 +2347,23 @@
         },
         "security": [
           {
-            "api_key": [],
             "basicAuth": []
           }
         ],
-        "summary": "Create token",
         "tags": [
           "Token"
-        ]
+        ],
+        "description": "Create token by 'tokenType' and additional token parameters",
+        "operationId": "createToken",
+        "summary": "Create token"
       }
     },
     "/token/{tokenNumber}": {
       "delete": {
-        "description": "Delete a token by number",
-        "operationId": "deleteToken",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
         "parameters": [
           {
             "description": "Token number",
@@ -2433,14 +2398,18 @@
             "basicAuth": []
           }
         ],
-        "summary": "Delete token",
         "tags": [
           "Token"
-        ]
+        ],
+        "description": "Delete a token by 'number'",
+        "operationId": "deleteToken",
+        "summary": "Delete token"
       },
       "get": {
-        "description": "Return a token by tokenNumber",
-        "operationId": "getToken",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
         "parameters": [
           {
             "description": "Token number",
@@ -2475,16 +2444,21 @@
             "basicAuth": []
           }
         ],
-        "summary": "Get token",
         "tags": [
           "Token"
-        ]
+        ],
+        "description": "Return a token by 'tokenNumber'",
+        "operationId": "getToken",
+        "summary": "Get token"
       }
     },
     "/transaction": {
       "get": {
-        "description": "Return a list of all transactions for the current vendor",
-        "operationId": "listTransactions",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": "Successful request",
@@ -2513,53 +2487,59 @@
             "basicAuth": []
           }
         ],
-        "summary": "Transactions list",
         "tags": [
           "Transaction"
-        ]
+        ],
+        "description": "Return a list of all Transactions for the current Vendor",
+        "operationId": "listTransactions",
+        "summary": "List Transactions"
       },
       "post": {
         "consumes": [
           "application/x-www-form-urlencoded"
         ],
-        "description": "Creates a new transaction",
-        "operationId": "createTransaction",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
         "parameters": [
           {
-            "in": "formData",
-            "name": "licenseeNumber",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "Unique number (across all products of a vendor) that identifies the transaction",
-            "in": "formData",
-            "name": "number",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "always true for transactions",
+            "description": "Always 'true' for Transactions",
             "in": "formData",
             "name": "active",
             "required": true,
             "type": "boolean"
           },
           {
-            "collectionFormat": "multi",
-            "enum": [
-              "CANCELLED",
-              "CLOSED",
-              "PENDING"
-            ],
+            "format": "date-time",
             "in": "formData",
-            "name": "status",
-            "required": true,
+            "name": "dateClosed",
             "type": "string"
           },
           {
-            "collectionFormat": "multi",
-            "description": "AUTO transaction for internal use only",
+            "format": "date-time",
+            "in": "formData",
+            "name": "dateCreated",
+            "type": "string"
+          },
+          {
+            "in": "formData",
+            "name": "licenseeNumber",
+            "type": "string"
+          },
+          {
+            "description": "Unique number (across all Products of a Vendor) that identifies the Transaction",
+            "in": "formData",
+            "name": "number",
+            "type": "string"
+          },
+          {
+            "in": "formData",
+            "name": "paymentMethod",
+            "type": "string"
+          },
+          {
+            "description": "AUTO Transaction for internal use only",
             "enum": [
               "SHOP"
             ],
@@ -2569,23 +2549,14 @@
             "type": "string"
           },
           {
-            "format": "date-time",
+            "enum": [
+              "CANCELLED",
+              "CLOSED",
+              "PENDING"
+            ],
             "in": "formData",
-            "name": "dateCreated",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "format": "date-time",
-            "in": "formData",
-            "name": "dateClosed",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "in": "formData",
-            "name": "paymentMethod",
-            "required": false,
+            "name": "status",
+            "required": true,
             "type": "string"
           }
         ],
@@ -2614,19 +2585,23 @@
             "basicAuth": []
           }
         ],
-        "summary": "Create transaction",
         "tags": [
           "Transaction"
-        ]
+        ],
+        "description": "Creates a new Transaction",
+        "operationId": "createTransaction",
+        "summary": "Create Transaction"
       }
     },
     "/transaction/{transactionNumber}": {
       "get": {
-        "description": "Return a transaction by transactionNumber",
-        "operationId": "getTransaction",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
         "parameters": [
           {
-            "description": "Unique number (across all products of a vendor) that identifies the transaction",
+            "description": "Unique number (across all Products of a Vendor) that identifies the Transaction",
             "in": "path",
             "name": "transactionNumber",
             "required": true,
@@ -2658,41 +2633,68 @@
             "basicAuth": []
           }
         ],
-        "summary": "Get transaction ",
         "tags": [
           "Transaction"
-        ]
+        ],
+        "description": "Return a Transaction by 'transactionNumber'",
+        "operationId": "getTransaction",
+        "summary": "Get Transaction "
       },
       "post": {
         "consumes": [
           "application/x-www-form-urlencoded"
         ],
-        "description": "Sets the provided properties to a transaction. Return an updated transaction",
-        "operationId": "updateTransaction",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
         "parameters": [
           {
-            "description": "Unique number (across all products of a vendor) that identifies the transaction",
+            "description": "Unique number (across all Products of a Vendor) that identifies the Transaction",
             "in": "path",
             "name": "transactionNumber",
             "required": true,
             "type": "string"
           },
           {
-            "description": "Unique number (across all products of a vendor) that identifies the transaction",
-            "in": "formData",
-            "name": "number",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "always true for transactions",
+            "description": "Always 'true' for Transactions",
             "in": "formData",
             "name": "active",
-            "required": false,
             "type": "boolean"
           },
           {
-            "collectionFormat": "multi",
+            "format": "date-time",
+            "in": "formData",
+            "name": "dateClosed",
+            "type": "string"
+          },
+          {
+            "format": "date-time",
+            "in": "formData",
+            "name": "dateCreated",
+            "type": "string"
+          },
+          {
+            "description": "Unique number (across all Products of a Vendor) that identifies the Transaction",
+            "in": "formData",
+            "name": "number",
+            "type": "string"
+          },
+          {
+            "in": "formData",
+            "name": "paymentMethod",
+            "type": "string"
+          },
+          {
+            "description": "AUTO Transaction for internal use only",
+            "enum": [
+              "SHOP"
+            ],
+            "in": "formData",
+            "name": "source",
+            "type": "string"
+          },
+          {
             "enum": [
               "CANCELLED",
               "CLOSED",
@@ -2700,38 +2702,6 @@
             ],
             "in": "formData",
             "name": "status",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "collectionFormat": "multi",
-            "description": "AUTO transaction for internal use only",
-            "enum": [
-              "SHOP"
-            ],
-            "in": "formData",
-            "name": "source",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "format": "date-time",
-            "in": "formData",
-            "name": "dateCreated",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "format": "date-time",
-            "in": "formData",
-            "name": "dateClosed",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "in": "formData",
-            "name": "paymentMethod",
-            "required": false,
             "type": "string"
           }
         ],
@@ -2760,16 +2730,21 @@
             "basicAuth": []
           }
         ],
-        "summary": "Update transaction",
         "tags": [
           "Transaction"
-        ]
+        ],
+        "description": "Sets the provided properties to a Transaction. Return an updated Transaction",
+        "operationId": "updateTransaction",
+        "summary": "Update Transaction"
       }
     },
     "/utility/licenseTypes": {
       "get": {
-        "description": "Return a list of all license types supported by the service",
-        "operationId": "licenseTypes",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": "Successful request",
@@ -2795,16 +2770,21 @@
             "basicAuth": []
           }
         ],
-        "summary": "License Types list",
         "tags": [
           "Utility"
-        ]
+        ],
+        "description": "Return a list of all License Types supported by the service",
+        "operationId": "licenseTypes",
+        "summary": "List License Types"
       }
     },
     "/utility/licensingModels": {
       "get": {
-        "description": "Return a list of all licensing models supported by the service",
-        "operationId": "licensingModels",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": "Successful request",
@@ -2830,10 +2810,12 @@
             "basicAuth": []
           }
         ],
-        "summary": "Licensing Models list",
         "tags": [
           "Utility"
-        ]
+        ],
+        "description": "Return a list of all licensing models supported by the service",
+        "operationId": "licensingModels",
+        "summary": "List Licensing Models"
       }
     }
   },
@@ -2841,27 +2823,27 @@
     "License": {
       "properties": {
         "active": {
-          "description": "If set to 'false', the license is disabled. License can be re-enabled, but as long as it is disabled, the license is excluded from the validation process.",
+          "description": "If set to 'false', the License is disabled. License can be re-enabled, but as long as it is disabled, the License is excluded from the validation process.",
           "type": "boolean"
         },
         "currency": {
-          "description": "specifies currency for the license price. Check data types to discover which currencies are supported. Read-only, set from license template on creation.",
+          "description": "Specifies currency for the License price. Check data types to discover which currencies are supported. Read-only, set from License Template on creation.",
           "type": "string"
         },
         "hidden": {
-          "description": "If set to 'true', this license is not shown in NetLicensing Shop as purchased license. Set from license template on creation, if not specified explicitly.",
+          "description": "If set to 'true', this License is not shown in NetLicensing Shop as purchased License. Set from License Template on creation, if not specified explicitly.",
           "type": "boolean"
         },
         "name": {
-          "description": "Name for the licensed item. Set from license template on creation, if not specified explicitly.",
+          "description": "Name for the Licensed item. Set from License Template on creation, if not specified explicitly.",
           "type": "string"
         },
         "number": {
-          "description": "Unique number (across all products/licensees of a vendor) that identifies the license. Vendor can assign this number when creating a license or let NetLicensing generate one. Read-only after corresponding creation transaction status is set to closed.",
+          "description": "Unique number (across all Products/Licensees of a Vendor) that identifies the License. Vendor can assign this number when creating a License or let NetLicensing generate one. Read-only after corresponding creation Transaction status is set to closed.",
           "type": "string"
         },
         "price": {
-          "description": "price for the license. If >0, it must always be accompanied by the currency specification. Read-only, set from license template on creation.",
+          "description": "'price' for the License. If >0, it must always be accompanied by the currency specification. Read-only, set from License Template on creation.",
           "format": "double",
           "type": "number"
         }
@@ -2874,27 +2856,27 @@
     "LicenseTemplate": {
       "properties": {
         "active": {
-          "description": "If set to 'false', the license template is disabled. Licensee can not obtain any new licenses off this license template.",
+          "description": "If set to 'false', the License Template is disabled. Licensee can not obtain any new Licenses off this License Template.",
           "type": "boolean"
         },
         "automatic": {
-          "description": "If set to 'true', every new licensee automatically gets one license out of this license template on creation. Automatic licenses must have their price set to 0.",
+          "description": "If set to 'true', every new Licensee automatically gets one License out of this License Template on creation. Automatic Licenses must have their price set to 0.",
           "type": "boolean"
         },
         "currency": {
-          "description": "specifies currency for the license price. Check data types to discover which currencies are supported.",
+          "description": "Specifies currency for the License price. Check data types to discover which currencies are supported.",
           "type": "string"
         },
         "hidden": {
-          "description": "If set to 'true', this license template is not shown in NetLicensing Shop as offered for purchase.",
+          "description": "If set to 'true', this License Template is not shown in NetLicensing Shop as offered for purchase.",
           "type": "boolean"
         },
         "hiddenLicenses": {
-          "description": "If set to 'true', licenses from this license template are not visible to the end customer, but participate in validation.",
+          "description": "If set to 'true', Licenses from this License Template are not visible to the end customer, but participate in validation.",
           "type": "boolean"
         },
         "licenseType": {
-          "description": "type of licenses created from this license template",
+          "description": "Type of Licenses created from this License Template",
           "enum": [
             "FEATURE",
             "TIMEVOLUME"
@@ -2902,15 +2884,15 @@
           "type": "string"
         },
         "name": {
-          "description": "Name for the licensed item.",
+          "description": "Name for the Licensed item.",
           "type": "string"
         },
         "number": {
-          "description": "Unique number (across all products of a vendor) that identifies the license template. Vendor can assign this number when creating a license template or let NetLicensing generate one. Read-only after creation of the first license from this license template.",
+          "description": "Unique number (across all Product of a Vendor) that identifies the License Template. Vendor can assign this number when creating a License Template or let NetLicensing generate one. Read-only after creation of the first License from this License Template.",
           "type": "string"
         },
         "price": {
-          "description": "price for the license. If >0, it must always be accompanied by the currency specification.",
+          "description": "'price' for the License. If >0, it must always be accompanied by the currency specification.",
           "format": "double",
           "type": "number"
         }
@@ -2923,11 +2905,11 @@
     "Licensee": {
       "properties": {
         "active": {
-          "description": "If set to 'false', the licensee is disabled. Licensee can not obtain new licenses, and validation is disabled.",
+          "description": "If set to 'false', the Licensee is disabled. Licensee can not obtain new Licenses, and validation is disabled.",
           "type": "boolean"
         },
         "number": {
-          "description": "Unique number (across all products of a vendor) that identifies the licensee. Vendor can assign this number when creating a licensee or let NetLicensing generate one. Read-only after creation of the first license for the licensee.",
+          "description": "Unique number (across all Products of a Vendor) that identifies the Licensee. Vendor can assign this number when creating a Licensee or let NetLicensing generate one. Read-only after creation of the first License for the Licensee.",
           "type": "string"
         }
       },
@@ -2953,23 +2935,23 @@
     "Product": {
       "properties": {
         "active": {
-          "description": "If set to 'false', the product is disabled. No new licensees can be registered for the product, existing licensees can not obtain new licenses",
+          "description": "If set to 'false', the Product is disabled. No new Licensees can be registered for the Product, existing Licensees can not obtain new Licenses",
           "type": "boolean"
         },
         "licenseeAutoCreate": {
-          "description": "If set to 'true', non-existing licensees will be created at first validation attempt.",
+          "description": "If set to 'true', non-existing Licensees will be created at first validation attempt.",
           "type": "boolean"
         },
         "name": {
-          "description": "Product name. Together with the version identifies the product for the end customer",
+          "description": "Product name. Together with the version identifies the Product for the end customer",
           "type": "string"
         },
         "number": {
-          "description": "Unique number that identifies the product. Vendor can assign this number when creating a product or let NetLicensing generate one. Read-only after creation of the first licensee for the product.",
+          "description": "Unique number that identifies the Product. Vendor can assign this number when creating a Product or let NetLicensing generate one. Read-only after creation of the first Licensee for the Product.",
           "type": "string"
         },
         "version": {
-          "description": "Product version. Convenience parameter, additional to the product name.",
+          "description": "Product version. Convenience parameter, additional to the Product name.",
           "type": "string"
         }
       },
@@ -2981,19 +2963,19 @@
     "ProductModule": {
       "properties": {
         "active": {
-          "description": "If set to 'false', the product module is disabled. Licensees can not obtain any new licenses for this product module.",
+          "description": "If set to 'false', the Product Module is disabled. Licensees can not obtain any new Licenses for this Product Module.",
           "type": "boolean"
         },
         "licensingInfo": {
-          "description": "Licensing model applied to this product module. Defines what license templates can be configured for the product module and how licenses for this product module are processed during validation.",
+          "description": "Licensing model applied to this Product Module. Defines what License Templates can be configured for the Product Module and how Licenses for this Product Module are processed during validation.",
           "type": "string"
         },
         "name": {
-          "description": "Product module name that is visible to the end customers in NetLicensing Shop.",
+          "description": "Product Module name that is visible to the end customers in NetLicensing Shop.",
           "type": "string"
         },
         "number": {
-          "description": "Unique number (across all products of a vendor) that identifies the product module. Vendor can assign this number when creating a product module or let NetLicensing generate one. Read-only after creation of the first licensee for the product.",
+          "description": "Unique number (across all Product of a Vendor) that identifies the Product Module. Vendor can assign this number when creating a Product Module or let NetLicensing generate one. Read-only after creation of the first Licensee for the Product.",
           "type": "string"
         }
       },
@@ -3023,7 +3005,7 @@
         "tokenType": {
           "type": "string"
         },
-        "vensorNumber": {
+        "vendorNumber": {
           "type": "string"
         }
       },
@@ -3035,11 +3017,11 @@
     "Transaction": {
       "properties": {
         "active": {
-          "description": "Always true for the transactions",
+          "description": "Always true for the Transactions",
           "type": "string"
         },
         "number": {
-          "description": "Unique number (across all products of a vendor) that identifies the transaction. This number is always generated by NetLicensing.",
+          "description": "Unique number (across all Products of a Vendor) that identifies the Transaction. This number is always generated by NetLicensing.",
           "type": "string"
         },
         "source": {
@@ -3116,5 +3098,86 @@
         "name": "netlicensing"
       }
     }
-  }
+  },
+  "securityDefinitions": {
+    "basicAuth": {
+      "description": "HTTP Basic Authentication. Use either `username:password` or `apiKey:token` to authenticate.",
+      "type": "basic"
+    }
+  },
+  "tags": [
+    {
+      "externalDocs": {
+        "description": "Product Services",
+        "url": "https://netlicensing.io/wiki/product-services"
+      },
+      "description": "Product operations",
+      "name": "Product"
+    },
+    {
+      "externalDocs": {
+        "description": "Product Module Services",
+        "url": "https://netlicensing.io/wiki/product-module-services"
+      },
+      "description": "Product Module operations",
+      "name": "Product Module"
+    },
+    {
+      "externalDocs": {
+        "description": "License Template Services",
+        "url": "https://netlicensing.io/wiki/license-template-services"
+      },
+      "description": "License Template operations",
+      "name": "License Template"
+    },
+    {
+      "externalDocs": {
+        "description": "Licensee Services",
+        "url": "https://netlicensing.io/wiki/licensee-services"
+      },
+      "description": "Licensee operations",
+      "name": "Licensee"
+    },
+    {
+      "externalDocs": {
+        "description": "License Services",
+        "url": "https://netlicensing.io/wiki/license-services"
+      },
+      "description": "License operations",
+      "name": "License"
+    },
+    {
+      "externalDocs": {
+        "description": "Transaction Services",
+        "url": "https://netlicensing.io/wiki/transaction-services"
+      },
+      "description": "Transaction operations",
+      "name": "Transaction"
+    },
+    {
+      "externalDocs": {
+        "description": "Token Services",
+        "url": "https://netlicensing.io/wiki/token-services"
+      },
+      "description": "Token operations",
+      "name": "Token"
+    },
+    {
+      "externalDocs": {
+        "description": "Payment Method Services",
+        "url": "https://netlicensing.io/wiki/payment-method-services"
+      },
+      "description": "Payment Method operations",
+      "name": "Payment Method"
+    },
+    {
+      "externalDocs": {
+        "description": "Utility Services",
+        "url": "https://netlicensing.io/wiki/utility-services"
+      },
+      "description": "Utility operations",
+      "name": "Utility"
+    }
+  ],
+  "x-components": {}
 }

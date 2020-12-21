@@ -14,8 +14,8 @@
   },
   "homepage": "https://github.com/DataFire/integrations#readme",
   "datafire": {
-    "origin": "https://api.apis.guru/v2/specs/amazonaws.com/entitlement.marketplace/2017-01-11/swagger.json",
-    "type": "openapi"
+    "origin": "https://api.apis.guru/v2/specs/amazonaws.com/entitlement.marketplace/2017-01-11/openapi.json",
+    "type": "openapi_3"
   },
   "dependencies": {
     "datafire": "^2.0.0",

@@ -11,7 +11,7 @@ let orghunter = require('@datafire/orghunter').create({
   user_key: ""
 });
 
-orghunter.v1.charitysearch.post({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

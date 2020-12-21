@@ -13,10 +13,7 @@ let amazonaws_ds = require('@datafire/amazonaws_ds').create({
   region: ""
 });
 
-amazonaws_ds.AddIpRoutes({
-  "DirectoryId": "",
-  "IpRoutes": []
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -27,25 +24,67 @@ amazonaws_ds.AddIpRoutes({
 
 ## Actions
 
+### AcceptSharedDirectory
+
+
+
+```js
+amazonaws_ds.AcceptSharedDirectory({
+  "SharedDirectoryId": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * SharedDirectoryId **required**
+
+#### Output
+* output [AcceptSharedDirectoryResult](#acceptshareddirectoryresult)
+
 ### AddIpRoutes
 
 
 
 ```js
 amazonaws_ds.AddIpRoutes({
-  "DirectoryId": "",
-  "IpRoutes": []
+  "DirectoryId": null,
+  "IpRoutes": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * DirectoryId **required** [DirectoryId](#directoryid)
-  * IpRoutes **required** [IpRoutes](#iproutes)
-  * UpdateSecurityGroupForDirectoryControllers [UpdateSecurityGroupForDirectoryControllers](#updatesecuritygroupfordirectorycontrollers)
+  * DirectoryId **required**
+  * IpRoutes **required**
+    * items [IpRoute](#iproute)
+  * UpdateSecurityGroupForDirectoryControllers
 
 #### Output
 * output [AddIpRoutesResult](#addiproutesresult)
+
+### AddRegion
+
+
+
+```js
+amazonaws_ds.AddRegion({
+  "DirectoryId": null,
+  "RegionName": null,
+  "VPCSettings": {
+    "VpcId": null,
+    "SubnetIds": null
+  }
+}, context)
+```
+
+#### Input
+* input `object`
+  * DirectoryId **required**
+  * RegionName **required**
+  * VPCSettings **required** [DirectoryVpcSettings](#directoryvpcsettings)
+
+#### Output
+* output [AddRegionResult](#addregionresult)
 
 ### AddTagsToResource
 
@@ -53,15 +92,16 @@ amazonaws_ds.AddIpRoutes({
 
 ```js
 amazonaws_ds.AddTagsToResource({
-  "ResourceId": "",
-  "Tags": []
+  "ResourceId": null,
+  "Tags": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ResourceId **required** [ResourceId](#resourceid)
-  * Tags **required** [Tags](#tags)
+  * ResourceId **required**
+  * Tags **required**
+    * items [Tag](#tag)
 
 #### Output
 * output [AddTagsToResourceResult](#addtagstoresourceresult)
@@ -72,15 +112,15 @@ amazonaws_ds.AddTagsToResource({
 
 ```js
 amazonaws_ds.CancelSchemaExtension({
-  "DirectoryId": "",
-  "SchemaExtensionId": ""
+  "DirectoryId": null,
+  "SchemaExtensionId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * DirectoryId **required** [DirectoryId](#directoryid)
-  * SchemaExtensionId **required** [SchemaExtensionId](#schemaextensionid)
+  * DirectoryId **required**
+  * SchemaExtensionId **required**
 
 #### Output
 * output [CancelSchemaExtensionResult](#cancelschemaextensionresult)
@@ -91,26 +131,29 @@ amazonaws_ds.CancelSchemaExtension({
 
 ```js
 amazonaws_ds.ConnectDirectory({
-  "Name": "",
-  "Password": "",
-  "Size": "",
-  "ConnectSettings": {
-    "VpcId": "",
-    "SubnetIds": [],
-    "CustomerDnsIps": [],
-    "CustomerUserName": ""
-  }
+  "Name": null,
+  "Password": null,
+  "Size": null,
+  "ConnectSettings": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ConnectSettings **required** [DirectoryConnectSettings](#directoryconnectsettings)
-  * Description [Description](#description)
-  * Name **required** [DirectoryName](#directoryname)
-  * Password **required** [ConnectPassword](#connectpassword)
-  * ShortName [DirectoryShortName](#directoryshortname)
-  * Size **required** [DirectorySize](#directorysize)
+  * ConnectSettings **required**
+    * CustomerDnsIps **required**
+      * items [IpAddr](#ipaddr)
+    * CustomerUserName **required**
+    * SubnetIds **required**
+      * items [SubnetId](#subnetid)
+    * VpcId **required**
+  * Description
+  * Name **required**
+  * Password **required**
+  * ShortName
+  * Size **required**
+  * Tags
+    * items [Tag](#tag)
 
 #### Output
 * output [ConnectDirectoryResult](#connectdirectoryresult)
@@ -121,15 +164,15 @@ amazonaws_ds.ConnectDirectory({
 
 ```js
 amazonaws_ds.CreateAlias({
-  "DirectoryId": "",
-  "Alias": ""
+  "DirectoryId": null,
+  "Alias": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Alias **required** [AliasName](#aliasname)
-  * DirectoryId **required** [DirectoryId](#directoryid)
+  * Alias **required**
+  * DirectoryId **required**
 
 #### Output
 * output [CreateAliasResult](#createaliasresult)
@@ -140,19 +183,20 @@ amazonaws_ds.CreateAlias({
 
 ```js
 amazonaws_ds.CreateComputer({
-  "DirectoryId": "",
-  "ComputerName": "",
-  "Password": ""
+  "DirectoryId": null,
+  "ComputerName": null,
+  "Password": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ComputerAttributes [Attributes](#attributes)
-  * ComputerName **required** [ComputerName](#computername)
-  * DirectoryId **required** [DirectoryId](#directoryid)
-  * OrganizationalUnitDistinguishedName [OrganizationalUnitDN](#organizationalunitdn)
-  * Password **required** [ComputerPassword](#computerpassword)
+  * ComputerAttributes
+    * items [Attribute](#attribute)
+  * ComputerName **required**
+  * DirectoryId **required**
+  * OrganizationalUnitDistinguishedName
+  * Password **required**
 
 #### Output
 * output [CreateComputerResult](#createcomputerresult)
@@ -163,17 +207,18 @@ amazonaws_ds.CreateComputer({
 
 ```js
 amazonaws_ds.CreateConditionalForwarder({
-  "DirectoryId": "",
-  "RemoteDomainName": "",
-  "DnsIpAddrs": []
+  "DirectoryId": null,
+  "RemoteDomainName": null,
+  "DnsIpAddrs": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * DirectoryId **required** [DirectoryId](#directoryid)
-  * DnsIpAddrs **required** [DnsIpAddrs](#dnsipaddrs)
-  * RemoteDomainName **required** [RemoteDomainName](#remotedomainname)
+  * DirectoryId **required**
+  * DnsIpAddrs **required**
+    * items [IpAddr](#ipaddr)
+  * RemoteDomainName **required**
 
 #### Output
 * output [CreateConditionalForwarderResult](#createconditionalforwarderresult)
@@ -184,23 +229,47 @@ amazonaws_ds.CreateConditionalForwarder({
 
 ```js
 amazonaws_ds.CreateDirectory({
-  "Name": "",
-  "Password": "",
-  "Size": ""
+  "Name": null,
+  "Password": null,
+  "Size": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Description [Description](#description)
-  * Name **required** [DirectoryName](#directoryname)
-  * Password **required** [Password](#password)
-  * ShortName [DirectoryShortName](#directoryshortname)
-  * Size **required** [DirectorySize](#directorysize)
-  * VpcSettings [DirectoryVpcSettings](#directoryvpcsettings)
+  * Description
+  * Name **required**
+  * Password **required**
+  * ShortName
+  * Size **required**
+  * Tags
+    * items [Tag](#tag)
+  * VpcSettings
+    * SubnetIds **required**
+      * items [SubnetId](#subnetid)
+    * VpcId **required**
 
 #### Output
 * output [CreateDirectoryResult](#createdirectoryresult)
+
+### CreateLogSubscription
+
+
+
+```js
+amazonaws_ds.CreateLogSubscription({
+  "DirectoryId": null,
+  "LogGroupName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * DirectoryId **required**
+  * LogGroupName **required**
+
+#### Output
+* output [CreateLogSubscriptionResult](#createlogsubscriptionresult)
 
 ### CreateMicrosoftAD
 
@@ -208,23 +277,25 @@ amazonaws_ds.CreateDirectory({
 
 ```js
 amazonaws_ds.CreateMicrosoftAD({
-  "Name": "",
-  "Password": "",
-  "VpcSettings": {
-    "VpcId": "",
-    "SubnetIds": []
-  }
+  "Name": null,
+  "Password": null,
+  "VpcSettings": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Description [Description](#description)
-  * Edition [DirectoryEdition](#directoryedition)
-  * Name **required** [DirectoryName](#directoryname)
-  * Password **required** [Password](#password)
-  * ShortName [DirectoryShortName](#directoryshortname)
-  * VpcSettings **required** [DirectoryVpcSettings](#directoryvpcsettings)
+  * Description
+  * Edition
+  * Name **required**
+  * Password **required**
+  * ShortName
+  * Tags
+    * items [Tag](#tag)
+  * VpcSettings **required**
+    * SubnetIds **required**
+      * items [SubnetId](#subnetid)
+    * VpcId **required**
 
 #### Output
 * output [CreateMicrosoftADResult](#createmicrosoftadresult)
@@ -235,14 +306,14 @@ amazonaws_ds.CreateMicrosoftAD({
 
 ```js
 amazonaws_ds.CreateSnapshot({
-  "DirectoryId": ""
+  "DirectoryId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * DirectoryId **required** [DirectoryId](#directoryid)
-  * Name [SnapshotName](#snapshotname)
+  * DirectoryId **required**
+  * Name
 
 #### Output
 * output [CreateSnapshotResult](#createsnapshotresult)
@@ -253,21 +324,23 @@ amazonaws_ds.CreateSnapshot({
 
 ```js
 amazonaws_ds.CreateTrust({
-  "DirectoryId": "",
-  "RemoteDomainName": "",
-  "TrustPassword": "",
-  "TrustDirection": ""
+  "DirectoryId": null,
+  "RemoteDomainName": null,
+  "TrustPassword": null,
+  "TrustDirection": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ConditionalForwarderIpAddrs [DnsIpAddrs](#dnsipaddrs)
-  * DirectoryId **required** [DirectoryId](#directoryid)
-  * RemoteDomainName **required** [RemoteDomainName](#remotedomainname)
-  * TrustDirection **required** [TrustDirection](#trustdirection)
-  * TrustPassword **required** [TrustPassword](#trustpassword)
-  * TrustType [TrustType](#trusttype)
+  * ConditionalForwarderIpAddrs
+    * items [IpAddr](#ipaddr)
+  * DirectoryId **required**
+  * RemoteDomainName **required**
+  * SelectiveAuth
+  * TrustDirection **required**
+  * TrustPassword **required**
+  * TrustType
 
 #### Output
 * output [CreateTrustResult](#createtrustresult)
@@ -278,15 +351,15 @@ amazonaws_ds.CreateTrust({
 
 ```js
 amazonaws_ds.DeleteConditionalForwarder({
-  "DirectoryId": "",
-  "RemoteDomainName": ""
+  "DirectoryId": null,
+  "RemoteDomainName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * DirectoryId **required** [DirectoryId](#directoryid)
-  * RemoteDomainName **required** [RemoteDomainName](#remotedomainname)
+  * DirectoryId **required**
+  * RemoteDomainName **required**
 
 #### Output
 * output [DeleteConditionalForwarderResult](#deleteconditionalforwarderresult)
@@ -297,16 +370,33 @@ amazonaws_ds.DeleteConditionalForwarder({
 
 ```js
 amazonaws_ds.DeleteDirectory({
-  "DirectoryId": ""
+  "DirectoryId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * DirectoryId **required** [DirectoryId](#directoryid)
+  * DirectoryId **required**
 
 #### Output
 * output [DeleteDirectoryResult](#deletedirectoryresult)
+
+### DeleteLogSubscription
+
+
+
+```js
+amazonaws_ds.DeleteLogSubscription({
+  "DirectoryId": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * DirectoryId **required**
+
+#### Output
+* output [DeleteLogSubscriptionResult](#deletelogsubscriptionresult)
 
 ### DeleteSnapshot
 
@@ -314,13 +404,13 @@ amazonaws_ds.DeleteDirectory({
 
 ```js
 amazonaws_ds.DeleteSnapshot({
-  "SnapshotId": ""
+  "SnapshotId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * SnapshotId **required** [SnapshotId](#snapshotid)
+  * SnapshotId **required**
 
 #### Output
 * output [DeleteSnapshotResult](#deletesnapshotresult)
@@ -331,17 +421,36 @@ amazonaws_ds.DeleteSnapshot({
 
 ```js
 amazonaws_ds.DeleteTrust({
-  "TrustId": ""
+  "TrustId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * DeleteAssociatedConditionalForwarder [DeleteAssociatedConditionalForwarder](#deleteassociatedconditionalforwarder)
-  * TrustId **required** [TrustId](#trustid)
+  * DeleteAssociatedConditionalForwarder
+  * TrustId **required**
 
 #### Output
 * output [DeleteTrustResult](#deletetrustresult)
+
+### DeregisterCertificate
+
+
+
+```js
+amazonaws_ds.DeregisterCertificate({
+  "DirectoryId": null,
+  "CertificateId": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * CertificateId **required**
+  * DirectoryId **required**
+
+#### Output
+* output [DeregisterCertificateResult](#deregistercertificateresult)
 
 ### DeregisterEventTopic
 
@@ -349,18 +458,37 @@ amazonaws_ds.DeleteTrust({
 
 ```js
 amazonaws_ds.DeregisterEventTopic({
-  "DirectoryId": "",
-  "TopicName": ""
+  "DirectoryId": null,
+  "TopicName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * DirectoryId **required** [DirectoryId](#directoryid)
-  * TopicName **required** [TopicName](#topicname)
+  * DirectoryId **required**
+  * TopicName **required**
 
 #### Output
 * output [DeregisterEventTopicResult](#deregistereventtopicresult)
+
+### DescribeCertificate
+
+
+
+```js
+amazonaws_ds.DescribeCertificate({
+  "DirectoryId": null,
+  "CertificateId": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * CertificateId **required**
+  * DirectoryId **required**
+
+#### Output
+* output [DescribeCertificateResult](#describecertificateresult)
 
 ### DescribeConditionalForwarders
 
@@ -368,14 +496,15 @@ amazonaws_ds.DeregisterEventTopic({
 
 ```js
 amazonaws_ds.DescribeConditionalForwarders({
-  "DirectoryId": ""
+  "DirectoryId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * DirectoryId **required** [DirectoryId](#directoryid)
-  * RemoteDomainNames [RemoteDomainNames](#remotedomainnames)
+  * DirectoryId **required**
+  * RemoteDomainNames
+    * items [RemoteDomainName](#remotedomainname)
 
 #### Output
 * output [DescribeConditionalForwardersResult](#describeconditionalforwardersresult)
@@ -390,9 +519,10 @@ amazonaws_ds.DescribeDirectories({}, context)
 
 #### Input
 * input `object`
-  * DirectoryIds [DirectoryIds](#directoryids)
-  * Limit [Limit](#limit)
-  * NextToken [NextToken](#nexttoken)
+  * DirectoryIds
+    * items [DirectoryId](#directoryid)
+  * Limit
+  * NextToken
 
 #### Output
 * output [DescribeDirectoriesResult](#describedirectoriesresult)
@@ -403,7 +533,7 @@ amazonaws_ds.DescribeDirectories({}, context)
 
 ```js
 amazonaws_ds.DescribeDomainControllers({
-  "DirectoryId": ""
+  "DirectoryId": null
 }, context)
 ```
 
@@ -411,10 +541,11 @@ amazonaws_ds.DescribeDomainControllers({
 * input `object`
   * Limit `string`
   * NextToken `string`
-  * DirectoryId **required** [DirectoryId](#directoryid)
-  * DomainControllerIds [DomainControllerIds](#domaincontrollerids)
-  * Limit [Limit](#limit)
-  * NextToken [NextToken](#nexttoken)
+  * DirectoryId **required**
+  * DomainControllerIds
+    * items [DomainControllerId](#domaincontrollerid)
+  * Limit
+  * NextToken
 
 #### Output
 * output [DescribeDomainControllersResult](#describedomaincontrollersresult)
@@ -429,11 +560,72 @@ amazonaws_ds.DescribeEventTopics({}, context)
 
 #### Input
 * input `object`
-  * DirectoryId [DirectoryId](#directoryid)
-  * TopicNames [TopicNames](#topicnames)
+  * DirectoryId
+  * TopicNames
+    * items [TopicName](#topicname)
 
 #### Output
 * output [DescribeEventTopicsResult](#describeeventtopicsresult)
+
+### DescribeLDAPSSettings
+
+
+
+```js
+amazonaws_ds.DescribeLDAPSSettings({
+  "DirectoryId": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * DirectoryId **required**
+  * Limit
+  * NextToken
+  * Type
+
+#### Output
+* output [DescribeLDAPSSettingsResult](#describeldapssettingsresult)
+
+### DescribeRegions
+
+
+
+```js
+amazonaws_ds.DescribeRegions({
+  "DirectoryId": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * DirectoryId **required**
+  * NextToken
+  * RegionName
+
+#### Output
+* output [DescribeRegionsResult](#describeregionsresult)
+
+### DescribeSharedDirectories
+
+
+
+```js
+amazonaws_ds.DescribeSharedDirectories({
+  "OwnerDirectoryId": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * Limit
+  * NextToken
+  * OwnerDirectoryId **required**
+  * SharedDirectoryIds
+    * items [DirectoryId](#directoryid)
+
+#### Output
+* output [DescribeSharedDirectoriesResult](#describeshareddirectoriesresult)
 
 ### DescribeSnapshots
 
@@ -445,10 +637,11 @@ amazonaws_ds.DescribeSnapshots({}, context)
 
 #### Input
 * input `object`
-  * DirectoryId [DirectoryId](#directoryid)
-  * Limit [Limit](#limit)
-  * NextToken [NextToken](#nexttoken)
-  * SnapshotIds [SnapshotIds](#snapshotids)
+  * DirectoryId
+  * Limit
+  * NextToken
+  * SnapshotIds
+    * items [SnapshotId](#snapshotid)
 
 #### Output
 * output [DescribeSnapshotsResult](#describesnapshotsresult)
@@ -463,13 +656,52 @@ amazonaws_ds.DescribeTrusts({}, context)
 
 #### Input
 * input `object`
-  * DirectoryId [DirectoryId](#directoryid)
-  * Limit [Limit](#limit)
-  * NextToken [NextToken](#nexttoken)
-  * TrustIds [TrustIds](#trustids)
+  * DirectoryId
+  * Limit
+  * NextToken
+  * TrustIds
+    * items [TrustId](#trustid)
 
 #### Output
 * output [DescribeTrustsResult](#describetrustsresult)
+
+### DisableClientAuthentication
+
+
+
+```js
+amazonaws_ds.DisableClientAuthentication({
+  "DirectoryId": null,
+  "Type": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * DirectoryId **required**
+  * Type **required**
+
+#### Output
+* output [DisableClientAuthenticationResult](#disableclientauthenticationresult)
+
+### DisableLDAPS
+
+
+
+```js
+amazonaws_ds.DisableLDAPS({
+  "DirectoryId": null,
+  "Type": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * DirectoryId **required**
+  * Type **required**
+
+#### Output
+* output [DisableLDAPSResult](#disableldapsresult)
 
 ### DisableRadius
 
@@ -477,13 +709,13 @@ amazonaws_ds.DescribeTrusts({}, context)
 
 ```js
 amazonaws_ds.DisableRadius({
-  "DirectoryId": ""
+  "DirectoryId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * DirectoryId **required** [DirectoryId](#directoryid)
+  * DirectoryId **required**
 
 #### Output
 * output [DisableRadiusResult](#disableradiusresult)
@@ -494,18 +726,56 @@ amazonaws_ds.DisableRadius({
 
 ```js
 amazonaws_ds.DisableSso({
-  "DirectoryId": ""
+  "DirectoryId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * DirectoryId **required** [DirectoryId](#directoryid)
-  * Password [ConnectPassword](#connectpassword)
-  * UserName [UserName](#username)
+  * DirectoryId **required**
+  * Password
+  * UserName
 
 #### Output
 * output [DisableSsoResult](#disablessoresult)
+
+### EnableClientAuthentication
+
+
+
+```js
+amazonaws_ds.EnableClientAuthentication({
+  "DirectoryId": null,
+  "Type": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * DirectoryId **required**
+  * Type **required**
+
+#### Output
+* output [EnableClientAuthenticationResult](#enableclientauthenticationresult)
+
+### EnableLDAPS
+
+
+
+```js
+amazonaws_ds.EnableLDAPS({
+  "DirectoryId": null,
+  "Type": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * DirectoryId **required**
+  * Type **required**
+
+#### Output
+* output [EnableLDAPSResult](#enableldapsresult)
 
 ### EnableRadius
 
@@ -513,15 +783,24 @@ amazonaws_ds.DisableSso({
 
 ```js
 amazonaws_ds.EnableRadius({
-  "DirectoryId": "",
-  "RadiusSettings": {}
+  "DirectoryId": null,
+  "RadiusSettings": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * DirectoryId **required** [DirectoryId](#directoryid)
-  * RadiusSettings **required** [RadiusSettings](#radiussettings)
+  * DirectoryId **required**
+  * RadiusSettings **required**
+    * AuthenticationProtocol
+    * DisplayLabel
+    * RadiusPort
+    * RadiusRetries
+    * RadiusServers
+      * items [Server](#server)
+    * RadiusTimeout
+    * SharedSecret
+    * UseSameUsername
 
 #### Output
 * output [EnableRadiusResult](#enableradiusresult)
@@ -532,15 +811,15 @@ amazonaws_ds.EnableRadius({
 
 ```js
 amazonaws_ds.EnableSso({
-  "DirectoryId": ""
+  "DirectoryId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * DirectoryId **required** [DirectoryId](#directoryid)
-  * Password [ConnectPassword](#connectpassword)
-  * UserName [UserName](#username)
+  * DirectoryId **required**
+  * Password
+  * UserName
 
 #### Output
 * output [EnableSsoResult](#enablessoresult)
@@ -565,16 +844,35 @@ amazonaws_ds.GetDirectoryLimits({}, context)
 
 ```js
 amazonaws_ds.GetSnapshotLimits({
-  "DirectoryId": ""
+  "DirectoryId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * DirectoryId **required** [DirectoryId](#directoryid)
+  * DirectoryId **required**
 
 #### Output
 * output [GetSnapshotLimitsResult](#getsnapshotlimitsresult)
+
+### ListCertificates
+
+
+
+```js
+amazonaws_ds.ListCertificates({
+  "DirectoryId": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * DirectoryId **required**
+  * Limit
+  * NextToken
+
+#### Output
+* output [ListCertificatesResult](#listcertificatesresult)
 
 ### ListIpRoutes
 
@@ -582,18 +880,35 @@ amazonaws_ds.GetSnapshotLimits({
 
 ```js
 amazonaws_ds.ListIpRoutes({
-  "DirectoryId": ""
+  "DirectoryId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * DirectoryId **required** [DirectoryId](#directoryid)
-  * Limit [Limit](#limit)
-  * NextToken [NextToken](#nexttoken)
+  * DirectoryId **required**
+  * Limit
+  * NextToken
 
 #### Output
 * output [ListIpRoutesResult](#listiproutesresult)
+
+### ListLogSubscriptions
+
+
+
+```js
+amazonaws_ds.ListLogSubscriptions({}, context)
+```
+
+#### Input
+* input `object`
+  * DirectoryId
+  * Limit
+  * NextToken
+
+#### Output
+* output [ListLogSubscriptionsResult](#listlogsubscriptionsresult)
 
 ### ListSchemaExtensions
 
@@ -601,15 +916,15 @@ amazonaws_ds.ListIpRoutes({
 
 ```js
 amazonaws_ds.ListSchemaExtensions({
-  "DirectoryId": ""
+  "DirectoryId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * DirectoryId **required** [DirectoryId](#directoryid)
-  * Limit [Limit](#limit)
-  * NextToken [NextToken](#nexttoken)
+  * DirectoryId **required**
+  * Limit
+  * NextToken
 
 #### Output
 * output [ListSchemaExtensionsResult](#listschemaextensionsresult)
@@ -620,18 +935,40 @@ amazonaws_ds.ListSchemaExtensions({
 
 ```js
 amazonaws_ds.ListTagsForResource({
-  "ResourceId": ""
+  "ResourceId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Limit [Limit](#limit)
-  * NextToken [NextToken](#nexttoken)
-  * ResourceId **required** [ResourceId](#resourceid)
+  * Limit
+  * NextToken
+  * ResourceId **required**
 
 #### Output
 * output [ListTagsForResourceResult](#listtagsforresourceresult)
+
+### RegisterCertificate
+
+
+
+```js
+amazonaws_ds.RegisterCertificate({
+  "DirectoryId": null,
+  "CertificateData": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * CertificateData **required**
+  * ClientCertAuthSettings
+    * OCSPUrl
+  * DirectoryId **required**
+  * Type
+
+#### Output
+* output [RegisterCertificateResult](#registercertificateresult)
 
 ### RegisterEventTopic
 
@@ -639,18 +976,35 @@ amazonaws_ds.ListTagsForResource({
 
 ```js
 amazonaws_ds.RegisterEventTopic({
-  "DirectoryId": "",
-  "TopicName": ""
+  "DirectoryId": null,
+  "TopicName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * DirectoryId **required** [DirectoryId](#directoryid)
-  * TopicName **required** [TopicName](#topicname)
+  * DirectoryId **required**
+  * TopicName **required**
 
 #### Output
 * output [RegisterEventTopicResult](#registereventtopicresult)
+
+### RejectSharedDirectory
+
+
+
+```js
+amazonaws_ds.RejectSharedDirectory({
+  "SharedDirectoryId": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * SharedDirectoryId **required**
+
+#### Output
+* output [RejectSharedDirectoryResult](#rejectshareddirectoryresult)
 
 ### RemoveIpRoutes
 
@@ -658,18 +1012,36 @@ amazonaws_ds.RegisterEventTopic({
 
 ```js
 amazonaws_ds.RemoveIpRoutes({
-  "DirectoryId": "",
-  "CidrIps": []
+  "DirectoryId": null,
+  "CidrIps": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * CidrIps **required** [CidrIps](#cidrips)
-  * DirectoryId **required** [DirectoryId](#directoryid)
+  * CidrIps **required**
+    * items [CidrIp](#cidrip)
+  * DirectoryId **required**
 
 #### Output
 * output [RemoveIpRoutesResult](#removeiproutesresult)
+
+### RemoveRegion
+
+
+
+```js
+amazonaws_ds.RemoveRegion({
+  "DirectoryId": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * DirectoryId **required**
+
+#### Output
+* output [RemoveRegionResult](#removeregionresult)
 
 ### RemoveTagsFromResource
 
@@ -677,15 +1049,16 @@ amazonaws_ds.RemoveIpRoutes({
 
 ```js
 amazonaws_ds.RemoveTagsFromResource({
-  "ResourceId": "",
-  "TagKeys": []
+  "ResourceId": null,
+  "TagKeys": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ResourceId **required** [ResourceId](#resourceid)
-  * TagKeys **required** [TagKeys](#tagkeys)
+  * ResourceId **required**
+  * TagKeys **required**
+    * items [TagKey](#tagkey)
 
 #### Output
 * output [RemoveTagsFromResourceResult](#removetagsfromresourceresult)
@@ -696,17 +1069,17 @@ amazonaws_ds.RemoveTagsFromResource({
 
 ```js
 amazonaws_ds.ResetUserPassword({
-  "DirectoryId": "",
-  "UserName": "",
-  "NewPassword": ""
+  "DirectoryId": null,
+  "UserName": null,
+  "NewPassword": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * DirectoryId **required** [DirectoryId](#directoryid)
-  * NewPassword **required** [UserPassword](#userpassword)
-  * UserName **required** [CustomerUserName](#customerusername)
+  * DirectoryId **required**
+  * NewPassword **required**
+  * UserName **required**
 
 #### Output
 * output [ResetUserPasswordResult](#resetuserpasswordresult)
@@ -717,16 +1090,40 @@ amazonaws_ds.ResetUserPassword({
 
 ```js
 amazonaws_ds.RestoreFromSnapshot({
-  "SnapshotId": ""
+  "SnapshotId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * SnapshotId **required** [SnapshotId](#snapshotid)
+  * SnapshotId **required**
 
 #### Output
 * output [RestoreFromSnapshotResult](#restorefromsnapshotresult)
+
+### ShareDirectory
+
+
+
+```js
+amazonaws_ds.ShareDirectory({
+  "DirectoryId": null,
+  "ShareTarget": null,
+  "ShareMethod": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * DirectoryId **required**
+  * ShareMethod **required**
+  * ShareNotes
+  * ShareTarget **required**
+    * Id **required**
+    * Type **required**
+
+#### Output
+* output [ShareDirectoryResult](#sharedirectoryresult)
 
 ### StartSchemaExtension
 
@@ -734,22 +1131,43 @@ amazonaws_ds.RestoreFromSnapshot({
 
 ```js
 amazonaws_ds.StartSchemaExtension({
-  "DirectoryId": "",
-  "CreateSnapshotBeforeSchemaExtension": true,
-  "LdifContent": "",
-  "Description": ""
+  "DirectoryId": null,
+  "CreateSnapshotBeforeSchemaExtension": null,
+  "LdifContent": null,
+  "Description": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * CreateSnapshotBeforeSchemaExtension **required** [CreateSnapshotBeforeSchemaExtension](#createsnapshotbeforeschemaextension)
-  * Description **required** [Description](#description)
-  * DirectoryId **required** [DirectoryId](#directoryid)
-  * LdifContent **required** [LdifContent](#ldifcontent)
+  * CreateSnapshotBeforeSchemaExtension **required**
+  * Description **required**
+  * DirectoryId **required**
+  * LdifContent **required**
 
 #### Output
 * output [StartSchemaExtensionResult](#startschemaextensionresult)
+
+### UnshareDirectory
+
+
+
+```js
+amazonaws_ds.UnshareDirectory({
+  "DirectoryId": null,
+  "UnshareTarget": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * DirectoryId **required**
+  * UnshareTarget **required**
+    * Id **required**
+    * Type **required**
+
+#### Output
+* output [UnshareDirectoryResult](#unsharedirectoryresult)
 
 ### UpdateConditionalForwarder
 
@@ -757,17 +1175,18 @@ amazonaws_ds.StartSchemaExtension({
 
 ```js
 amazonaws_ds.UpdateConditionalForwarder({
-  "DirectoryId": "",
-  "RemoteDomainName": "",
-  "DnsIpAddrs": []
+  "DirectoryId": null,
+  "RemoteDomainName": null,
+  "DnsIpAddrs": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * DirectoryId **required** [DirectoryId](#directoryid)
-  * DnsIpAddrs **required** [DnsIpAddrs](#dnsipaddrs)
-  * RemoteDomainName **required** [RemoteDomainName](#remotedomainname)
+  * DirectoryId **required**
+  * DnsIpAddrs **required**
+    * items [IpAddr](#ipaddr)
+  * RemoteDomainName **required**
 
 #### Output
 * output [UpdateConditionalForwarderResult](#updateconditionalforwarderresult)
@@ -778,15 +1197,15 @@ amazonaws_ds.UpdateConditionalForwarder({
 
 ```js
 amazonaws_ds.UpdateNumberOfDomainControllers({
-  "DirectoryId": "",
-  "DesiredNumber": 0
+  "DirectoryId": null,
+  "DesiredNumber": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * DesiredNumber **required** [DesiredNumberOfDomainControllers](#desirednumberofdomaincontrollers)
-  * DirectoryId **required** [DirectoryId](#directoryid)
+  * DesiredNumber **required**
+  * DirectoryId **required**
 
 #### Output
 * output [UpdateNumberOfDomainControllersResult](#updatenumberofdomaincontrollersresult)
@@ -797,18 +1216,45 @@ amazonaws_ds.UpdateNumberOfDomainControllers({
 
 ```js
 amazonaws_ds.UpdateRadius({
-  "DirectoryId": "",
-  "RadiusSettings": {}
+  "DirectoryId": null,
+  "RadiusSettings": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * DirectoryId **required** [DirectoryId](#directoryid)
-  * RadiusSettings **required** [RadiusSettings](#radiussettings)
+  * DirectoryId **required**
+  * RadiusSettings **required**
+    * AuthenticationProtocol
+    * DisplayLabel
+    * RadiusPort
+    * RadiusRetries
+    * RadiusServers
+      * items [Server](#server)
+    * RadiusTimeout
+    * SharedSecret
+    * UseSameUsername
 
 #### Output
 * output [UpdateRadiusResult](#updateradiusresult)
+
+### UpdateTrust
+
+
+
+```js
+amazonaws_ds.UpdateTrust({
+  "TrustId": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * SelectiveAuth
+  * TrustId **required**
+
+#### Output
+* output [UpdateTrustResult](#updatetrustresult)
 
 ### VerifyTrust
 
@@ -816,13 +1262,13 @@ amazonaws_ds.UpdateRadius({
 
 ```js
 amazonaws_ds.VerifyTrust({
-  "TrustId": ""
+  "TrustId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * TrustId **required** [TrustId](#trustid)
+  * TrustId **required**
 
 #### Output
 * output [VerifyTrustResult](#verifytrustresult)
@@ -831,22 +1277,53 @@ amazonaws_ds.VerifyTrust({
 
 ## Definitions
 
+### AcceptSharedDirectoryRequest
+* AcceptSharedDirectoryRequest `object`
+  * SharedDirectoryId **required**
+
+### AcceptSharedDirectoryResult
+* AcceptSharedDirectoryResult `object`
+  * SharedDirectory
+    * CreatedDateTime
+    * LastUpdatedDateTime
+    * OwnerAccountId
+    * OwnerDirectoryId
+    * ShareMethod
+    * ShareNotes
+    * ShareStatus
+    * SharedAccountId
+    * SharedDirectoryId
+
+### AccessDeniedException
+
+
 ### AccessUrl
 * AccessUrl `string`
 
 ### AddIpRoutesRequest
 * AddIpRoutesRequest `object`
-  * DirectoryId **required** [DirectoryId](#directoryid)
-  * IpRoutes **required** [IpRoutes](#iproutes)
-  * UpdateSecurityGroupForDirectoryControllers [UpdateSecurityGroupForDirectoryControllers](#updatesecuritygroupfordirectorycontrollers)
+  * DirectoryId **required**
+  * IpRoutes **required**
+    * items [IpRoute](#iproute)
+  * UpdateSecurityGroupForDirectoryControllers
 
 ### AddIpRoutesResult
 * AddIpRoutesResult `object`
 
+### AddRegionRequest
+* AddRegionRequest `object`
+  * DirectoryId **required**
+  * RegionName **required**
+  * VPCSettings **required** [DirectoryVpcSettings](#directoryvpcsettings)
+
+### AddRegionResult
+* AddRegionResult `object`
+
 ### AddTagsToResourceRequest
 * AddTagsToResourceRequest `object`
-  * ResourceId **required** [ResourceId](#resourceid)
-  * Tags **required** [Tags](#tags)
+  * ResourceId **required**
+  * Tags **required**
+    * items [Tag](#tag)
 
 ### AddTagsToResourceResult
 * AddTagsToResourceResult `object`
@@ -854,13 +1331,17 @@ amazonaws_ds.VerifyTrust({
 ### AddedDateTime
 * AddedDateTime `string`
 
+### AdditionalRegions
+* AdditionalRegions `array`
+  * items [RegionName](#regionname)
+
 ### AliasName
 * AliasName `string`
 
 ### Attribute
 * Attribute `object`: Represents a named directory attribute.
-  * Name [AttributeName](#attributename)
-  * Value [AttributeValue](#attributevalue)
+  * Name
+  * Value
 
 ### AttributeName
 * AttributeName `string`
@@ -873,9 +1354,7 @@ amazonaws_ds.VerifyTrust({
   * items [Attribute](#attribute)
 
 ### AuthenticationFailedException
-* AuthenticationFailedException `object`: An authentication error occurred.
-  * Message [ExceptionMessage](#exceptionmessage)
-  * RequestId [RequestId](#requestid)
+
 
 ### AvailabilityZone
 * AvailabilityZone `string`
@@ -886,11 +1365,71 @@ amazonaws_ds.VerifyTrust({
 
 ### CancelSchemaExtensionRequest
 * CancelSchemaExtensionRequest `object`
-  * DirectoryId **required** [DirectoryId](#directoryid)
-  * SchemaExtensionId **required** [SchemaExtensionId](#schemaextensionid)
+  * DirectoryId **required**
+  * SchemaExtensionId **required**
 
 ### CancelSchemaExtensionResult
 * CancelSchemaExtensionResult `object`
+
+### Certificate
+* Certificate `object`: Information about the certificate.
+  * CertificateId
+  * ClientCertAuthSettings
+    * OCSPUrl
+  * CommonName
+  * ExpiryDateTime
+  * RegisteredDateTime
+  * State
+  * StateReason
+  * Type
+
+### CertificateAlreadyExistsException
+
+
+### CertificateCN
+* CertificateCN `string`
+
+### CertificateData
+* CertificateData `string`
+
+### CertificateDoesNotExistException
+
+
+### CertificateExpiryDateTime
+* CertificateExpiryDateTime `string`
+
+### CertificateId
+* CertificateId `string`
+
+### CertificateInUseException
+
+
+### CertificateInfo
+* CertificateInfo `object`: Contains general information about a certificate.
+  * CertificateId
+  * CommonName
+  * ExpiryDateTime
+  * State
+  * Type
+
+### CertificateLimitExceededException
+
+
+### CertificateRegisteredDateTime
+* CertificateRegisteredDateTime `string`
+
+### CertificateState
+* CertificateState `string` (values: Registering, Registered, RegisterFailed, Deregistering, Deregistered, DeregisterFailed)
+
+### CertificateStateReason
+* CertificateStateReason `string`
+
+### CertificateType
+* CertificateType `string` (values: ClientCertAuth, ClientLDAPS)
+
+### CertificatesInfo
+* CertificatesInfo `array`
+  * items [CertificateInfo](#certificateinfo)
 
 ### CidrIp
 * CidrIp `string`
@@ -899,19 +1438,25 @@ amazonaws_ds.VerifyTrust({
 * CidrIps `array`
   * items [CidrIp](#cidrip)
 
+### ClientAuthenticationType
+* ClientAuthenticationType `string` (values: SmartCard)
+
+### ClientCertAuthSettings
+* ClientCertAuthSettings `object`: Contains information about the client certificate authentication settings for the <code>RegisterCertificate</code> and <code>DescribeCertificate</code> operations. 
+  * OCSPUrl
+
 ### ClientException
-* ClientException `object`: A client exception has occurred.
-  * Message [ExceptionMessage](#exceptionmessage)
-  * RequestId [RequestId](#requestid)
+
 
 ### CloudOnlyDirectoriesLimitReached
 * CloudOnlyDirectoriesLimitReached `boolean`
 
 ### Computer
 * Computer `object`: Contains information about a computer account in a directory.
-  * ComputerAttributes [Attributes](#attributes)
-  * ComputerId [SID](#sid)
-  * ComputerName [ComputerName](#computername)
+  * ComputerAttributes
+    * items [Attribute](#attribute)
+  * ComputerId
+  * ComputerName
 
 ### ComputerName
 * ComputerName `string`
@@ -921,9 +1466,10 @@ amazonaws_ds.VerifyTrust({
 
 ### ConditionalForwarder
 * ConditionalForwarder `object`: Points to a remote domain with which you are setting up a trust relationship. Conditional forwarders are required in order to set up a trust relationship with another domain.
-  * DnsIpAddrs [DnsIpAddrs](#dnsipaddrs)
-  * RemoteDomainName [RemoteDomainName](#remotedomainname)
-  * ReplicationScope [ReplicationScope](#replicationscope)
+  * DnsIpAddrs
+    * items [IpAddr](#ipaddr)
+  * RemoteDomainName
+  * ReplicationScope
 
 ### ConditionalForwarders
 * ConditionalForwarders `array`
@@ -931,16 +1477,24 @@ amazonaws_ds.VerifyTrust({
 
 ### ConnectDirectoryRequest
 * ConnectDirectoryRequest `object`: Contains the inputs for the <a>ConnectDirectory</a> operation.
-  * ConnectSettings **required** [DirectoryConnectSettings](#directoryconnectsettings)
-  * Description [Description](#description)
-  * Name **required** [DirectoryName](#directoryname)
-  * Password **required** [ConnectPassword](#connectpassword)
-  * ShortName [DirectoryShortName](#directoryshortname)
-  * Size **required** [DirectorySize](#directorysize)
+  * ConnectSettings **required**
+    * CustomerDnsIps **required**
+      * items [IpAddr](#ipaddr)
+    * CustomerUserName **required**
+    * SubnetIds **required**
+      * items [SubnetId](#subnetid)
+    * VpcId **required**
+  * Description
+  * Name **required**
+  * Password **required**
+  * ShortName
+  * Size **required**
+  * Tags
+    * items [Tag](#tag)
 
 ### ConnectDirectoryResult
 * ConnectDirectoryResult `object`: Contains the results of the <a>ConnectDirectory</a> operation.
-  * DirectoryId [DirectoryId](#directoryid)
+  * DirectoryId
 
 ### ConnectPassword
 * ConnectPassword `string`
@@ -950,88 +1504,117 @@ amazonaws_ds.VerifyTrust({
 
 ### CreateAliasRequest
 * CreateAliasRequest `object`: Contains the inputs for the <a>CreateAlias</a> operation.
-  * Alias **required** [AliasName](#aliasname)
-  * DirectoryId **required** [DirectoryId](#directoryid)
+  * Alias **required**
+  * DirectoryId **required**
 
 ### CreateAliasResult
 * CreateAliasResult `object`: Contains the results of the <a>CreateAlias</a> operation.
-  * Alias [AliasName](#aliasname)
-  * DirectoryId [DirectoryId](#directoryid)
+  * Alias
+  * DirectoryId
 
 ### CreateComputerRequest
 * CreateComputerRequest `object`: Contains the inputs for the <a>CreateComputer</a> operation.
-  * ComputerAttributes [Attributes](#attributes)
-  * ComputerName **required** [ComputerName](#computername)
-  * DirectoryId **required** [DirectoryId](#directoryid)
-  * OrganizationalUnitDistinguishedName [OrganizationalUnitDN](#organizationalunitdn)
-  * Password **required** [ComputerPassword](#computerpassword)
+  * ComputerAttributes
+    * items [Attribute](#attribute)
+  * ComputerName **required**
+  * DirectoryId **required**
+  * OrganizationalUnitDistinguishedName
+  * Password **required**
 
 ### CreateComputerResult
 * CreateComputerResult `object`: Contains the results for the <a>CreateComputer</a> operation.
-  * Computer [Computer](#computer)
+  * Computer
+    * ComputerAttributes
+      * items [Attribute](#attribute)
+    * ComputerId
+    * ComputerName
 
 ### CreateConditionalForwarderRequest
 * CreateConditionalForwarderRequest `object`: Initiates the creation of a conditional forwarder for your AWS Directory Service for Microsoft Active Directory. Conditional forwarders are required in order to set up a trust relationship with another domain.
-  * DirectoryId **required** [DirectoryId](#directoryid)
-  * DnsIpAddrs **required** [DnsIpAddrs](#dnsipaddrs)
-  * RemoteDomainName **required** [RemoteDomainName](#remotedomainname)
+  * DirectoryId **required**
+  * DnsIpAddrs **required**
+    * items [IpAddr](#ipaddr)
+  * RemoteDomainName **required**
 
 ### CreateConditionalForwarderResult
 * CreateConditionalForwarderResult `object`: The result of a CreateConditinalForwarder request.
 
 ### CreateDirectoryRequest
 * CreateDirectoryRequest `object`: Contains the inputs for the <a>CreateDirectory</a> operation. 
-  * Description [Description](#description)
-  * Name **required** [DirectoryName](#directoryname)
-  * Password **required** [Password](#password)
-  * ShortName [DirectoryShortName](#directoryshortname)
-  * Size **required** [DirectorySize](#directorysize)
-  * VpcSettings [DirectoryVpcSettings](#directoryvpcsettings)
+  * Description
+  * Name **required**
+  * Password **required**
+  * ShortName
+  * Size **required**
+  * Tags
+    * items [Tag](#tag)
+  * VpcSettings
+    * SubnetIds **required**
+      * items [SubnetId](#subnetid)
+    * VpcId **required**
 
 ### CreateDirectoryResult
 * CreateDirectoryResult `object`: Contains the results of the <a>CreateDirectory</a> operation.
-  * DirectoryId [DirectoryId](#directoryid)
+  * DirectoryId
+
+### CreateLogSubscriptionRequest
+* CreateLogSubscriptionRequest `object`
+  * DirectoryId **required**
+  * LogGroupName **required**
+
+### CreateLogSubscriptionResult
+* CreateLogSubscriptionResult `object`
 
 ### CreateMicrosoftADRequest
-* CreateMicrosoftADRequest `object`: Creates a Microsoft AD in the AWS cloud.
-  * Description [Description](#description)
-  * Edition [DirectoryEdition](#directoryedition)
-  * Name **required** [DirectoryName](#directoryname)
-  * Password **required** [Password](#password)
-  * ShortName [DirectoryShortName](#directoryshortname)
-  * VpcSettings **required** [DirectoryVpcSettings](#directoryvpcsettings)
+* CreateMicrosoftADRequest `object`: Creates an AWS Managed Microsoft AD directory.
+  * Description
+  * Edition
+  * Name **required**
+  * Password **required**
+  * ShortName
+  * Tags
+    * items [Tag](#tag)
+  * VpcSettings **required**
+    * SubnetIds **required**
+      * items [SubnetId](#subnetid)
+    * VpcId **required**
 
 ### CreateMicrosoftADResult
 * CreateMicrosoftADResult `object`: Result of a CreateMicrosoftAD request.
-  * DirectoryId [DirectoryId](#directoryid)
+  * DirectoryId
 
 ### CreateSnapshotBeforeSchemaExtension
 * CreateSnapshotBeforeSchemaExtension `boolean`
 
 ### CreateSnapshotRequest
 * CreateSnapshotRequest `object`: Contains the inputs for the <a>CreateSnapshot</a> operation.
-  * DirectoryId **required** [DirectoryId](#directoryid)
-  * Name [SnapshotName](#snapshotname)
+  * DirectoryId **required**
+  * Name
 
 ### CreateSnapshotResult
 * CreateSnapshotResult `object`: Contains the results of the <a>CreateSnapshot</a> operation.
-  * SnapshotId [SnapshotId](#snapshotid)
+  * SnapshotId
 
 ### CreateTrustRequest
-* CreateTrustRequest `object`: <p>AWS Directory Service for Microsoft Active Directory allows you to configure trust relationships. For example, you can establish a trust between your Microsoft AD in the AWS cloud, and your existing on-premises Microsoft Active Directory. This would allow you to provide users and groups access to resources in either domain, with a single set of credentials.</p> <p>This action initiates the creation of the AWS side of a trust relationship between a Microsoft AD in the AWS cloud and an external domain.</p>
-  * ConditionalForwarderIpAddrs [DnsIpAddrs](#dnsipaddrs)
-  * DirectoryId **required** [DirectoryId](#directoryid)
-  * RemoteDomainName **required** [RemoteDomainName](#remotedomainname)
-  * TrustDirection **required** [TrustDirection](#trustdirection)
-  * TrustPassword **required** [TrustPassword](#trustpassword)
-  * TrustType [TrustType](#trusttype)
+* CreateTrustRequest `object`: <p>AWS Directory Service for Microsoft Active Directory allows you to configure trust relationships. For example, you can establish a trust between your AWS Managed Microsoft AD directory, and your existing on-premises Microsoft Active Directory. This would allow you to provide users and groups access to resources in either domain, with a single set of credentials.</p> <p>This action initiates the creation of the AWS side of a trust relationship between an AWS Managed Microsoft AD directory and an external domain.</p>
+  * ConditionalForwarderIpAddrs
+    * items [IpAddr](#ipaddr)
+  * DirectoryId **required**
+  * RemoteDomainName **required**
+  * SelectiveAuth
+  * TrustDirection **required**
+  * TrustPassword **required**
+  * TrustType
 
 ### CreateTrustResult
 * CreateTrustResult `object`: The result of a CreateTrust request.
-  * TrustId [TrustId](#trustid)
+  * TrustId
 
 ### CreatedDateTime
 * CreatedDateTime `string`
+
+### CustomerId
+* CustomerId `string`
 
 ### CustomerUserName
 * CustomerUserName `string`
@@ -1041,109 +1624,193 @@ amazonaws_ds.VerifyTrust({
 
 ### DeleteConditionalForwarderRequest
 * DeleteConditionalForwarderRequest `object`: Deletes a conditional forwarder.
-  * DirectoryId **required** [DirectoryId](#directoryid)
-  * RemoteDomainName **required** [RemoteDomainName](#remotedomainname)
+  * DirectoryId **required**
+  * RemoteDomainName **required**
 
 ### DeleteConditionalForwarderResult
 * DeleteConditionalForwarderResult `object`: The result of a DeleteConditionalForwarder request.
 
 ### DeleteDirectoryRequest
 * DeleteDirectoryRequest `object`: Contains the inputs for the <a>DeleteDirectory</a> operation.
-  * DirectoryId **required** [DirectoryId](#directoryid)
+  * DirectoryId **required**
 
 ### DeleteDirectoryResult
 * DeleteDirectoryResult `object`: Contains the results of the <a>DeleteDirectory</a> operation.
-  * DirectoryId [DirectoryId](#directoryid)
+  * DirectoryId
+
+### DeleteLogSubscriptionRequest
+* DeleteLogSubscriptionRequest `object`
+  * DirectoryId **required**
+
+### DeleteLogSubscriptionResult
+* DeleteLogSubscriptionResult `object`
 
 ### DeleteSnapshotRequest
 * DeleteSnapshotRequest `object`: Contains the inputs for the <a>DeleteSnapshot</a> operation.
-  * SnapshotId **required** [SnapshotId](#snapshotid)
+  * SnapshotId **required**
 
 ### DeleteSnapshotResult
 * DeleteSnapshotResult `object`: Contains the results of the <a>DeleteSnapshot</a> operation.
-  * SnapshotId [SnapshotId](#snapshotid)
+  * SnapshotId
 
 ### DeleteTrustRequest
-* DeleteTrustRequest `object`: Deletes the local side of an existing trust relationship between the Microsoft AD in the AWS cloud and the external domain.
-  * DeleteAssociatedConditionalForwarder [DeleteAssociatedConditionalForwarder](#deleteassociatedconditionalforwarder)
-  * TrustId **required** [TrustId](#trustid)
+* DeleteTrustRequest `object`: Deletes the local side of an existing trust relationship between the AWS Managed Microsoft AD directory and the external domain.
+  * DeleteAssociatedConditionalForwarder
+  * TrustId **required**
 
 ### DeleteTrustResult
 * DeleteTrustResult `object`: The result of a DeleteTrust request.
-  * TrustId [TrustId](#trustid)
+  * TrustId
+
+### DeregisterCertificateRequest
+* DeregisterCertificateRequest `object`
+  * CertificateId **required**
+  * DirectoryId **required**
+
+### DeregisterCertificateResult
+* DeregisterCertificateResult `object`
 
 ### DeregisterEventTopicRequest
 * DeregisterEventTopicRequest `object`: Removes the specified directory as a publisher to the specified SNS topic.
-  * DirectoryId **required** [DirectoryId](#directoryid)
-  * TopicName **required** [TopicName](#topicname)
+  * DirectoryId **required**
+  * TopicName **required**
 
 ### DeregisterEventTopicResult
 * DeregisterEventTopicResult `object`: The result of a DeregisterEventTopic request.
 
+### DescribeCertificateRequest
+* DescribeCertificateRequest `object`
+  * CertificateId **required**
+  * DirectoryId **required**
+
+### DescribeCertificateResult
+* DescribeCertificateResult `object`
+  * Certificate
+    * CertificateId
+    * ClientCertAuthSettings
+      * OCSPUrl
+    * CommonName
+    * ExpiryDateTime
+    * RegisteredDateTime
+    * State
+    * StateReason
+    * Type
+
 ### DescribeConditionalForwardersRequest
 * DescribeConditionalForwardersRequest `object`: Describes a conditional forwarder.
-  * DirectoryId **required** [DirectoryId](#directoryid)
-  * RemoteDomainNames [RemoteDomainNames](#remotedomainnames)
+  * DirectoryId **required**
+  * RemoteDomainNames
+    * items [RemoteDomainName](#remotedomainname)
 
 ### DescribeConditionalForwardersResult
 * DescribeConditionalForwardersResult `object`: The result of a DescribeConditionalForwarder request.
-  * ConditionalForwarders [ConditionalForwarders](#conditionalforwarders)
+  * ConditionalForwarders
+    * items [ConditionalForwarder](#conditionalforwarder)
 
 ### DescribeDirectoriesRequest
 * DescribeDirectoriesRequest `object`: Contains the inputs for the <a>DescribeDirectories</a> operation.
-  * DirectoryIds [DirectoryIds](#directoryids)
-  * Limit [Limit](#limit)
-  * NextToken [NextToken](#nexttoken)
+  * DirectoryIds
+    * items [DirectoryId](#directoryid)
+  * Limit
+  * NextToken
 
 ### DescribeDirectoriesResult
 * DescribeDirectoriesResult `object`: Contains the results of the <a>DescribeDirectories</a> operation.
-  * DirectoryDescriptions [DirectoryDescriptions](#directorydescriptions)
-  * NextToken [NextToken](#nexttoken)
+  * DirectoryDescriptions
+    * items [DirectoryDescription](#directorydescription)
+  * NextToken
 
 ### DescribeDomainControllersRequest
 * DescribeDomainControllersRequest `object`
-  * DirectoryId **required** [DirectoryId](#directoryid)
-  * DomainControllerIds [DomainControllerIds](#domaincontrollerids)
-  * Limit [Limit](#limit)
-  * NextToken [NextToken](#nexttoken)
+  * DirectoryId **required**
+  * DomainControllerIds
+    * items [DomainControllerId](#domaincontrollerid)
+  * Limit
+  * NextToken
 
 ### DescribeDomainControllersResult
 * DescribeDomainControllersResult `object`
-  * DomainControllers [DomainControllers](#domaincontrollers)
-  * NextToken [NextToken](#nexttoken)
+  * DomainControllers
+    * items [DomainController](#domaincontroller)
+  * NextToken
 
 ### DescribeEventTopicsRequest
 * DescribeEventTopicsRequest `object`: Describes event topics.
-  * DirectoryId [DirectoryId](#directoryid)
-  * TopicNames [TopicNames](#topicnames)
+  * DirectoryId
+  * TopicNames
+    * items [TopicName](#topicname)
 
 ### DescribeEventTopicsResult
 * DescribeEventTopicsResult `object`: The result of a DescribeEventTopic request.
-  * EventTopics [EventTopics](#eventtopics)
+  * EventTopics
+    * items [EventTopic](#eventtopic)
+
+### DescribeLDAPSSettingsRequest
+* DescribeLDAPSSettingsRequest `object`
+  * DirectoryId **required**
+  * Limit
+  * NextToken
+  * Type
+
+### DescribeLDAPSSettingsResult
+* DescribeLDAPSSettingsResult `object`
+  * LDAPSSettingsInfo
+    * items [LDAPSSettingInfo](#ldapssettinginfo)
+  * NextToken
+
+### DescribeRegionsRequest
+* DescribeRegionsRequest `object`
+  * DirectoryId **required**
+  * NextToken
+  * RegionName
+
+### DescribeRegionsResult
+* DescribeRegionsResult `object`
+  * NextToken
+  * RegionsDescription
+    * items [RegionDescription](#regiondescription)
+
+### DescribeSharedDirectoriesRequest
+* DescribeSharedDirectoriesRequest `object`
+  * Limit
+  * NextToken
+  * OwnerDirectoryId **required**
+  * SharedDirectoryIds
+    * items [DirectoryId](#directoryid)
+
+### DescribeSharedDirectoriesResult
+* DescribeSharedDirectoriesResult `object`
+  * NextToken
+  * SharedDirectories
+    * items [SharedDirectory](#shareddirectory)
 
 ### DescribeSnapshotsRequest
 * DescribeSnapshotsRequest `object`: Contains the inputs for the <a>DescribeSnapshots</a> operation.
-  * DirectoryId [DirectoryId](#directoryid)
-  * Limit [Limit](#limit)
-  * NextToken [NextToken](#nexttoken)
-  * SnapshotIds [SnapshotIds](#snapshotids)
+  * DirectoryId
+  * Limit
+  * NextToken
+  * SnapshotIds
+    * items [SnapshotId](#snapshotid)
 
 ### DescribeSnapshotsResult
 * DescribeSnapshotsResult `object`: Contains the results of the <a>DescribeSnapshots</a> operation.
-  * NextToken [NextToken](#nexttoken)
-  * Snapshots [Snapshots](#snapshots)
+  * NextToken
+  * Snapshots
+    * items [Snapshot](#snapshot)
 
 ### DescribeTrustsRequest
-* DescribeTrustsRequest `object`: Describes the trust relationships for a particular Microsoft AD in the AWS cloud. If no input parameters are are provided, such as directory ID or trust ID, this request describes all the trust relationships.
-  * DirectoryId [DirectoryId](#directoryid)
-  * Limit [Limit](#limit)
-  * NextToken [NextToken](#nexttoken)
-  * TrustIds [TrustIds](#trustids)
+* DescribeTrustsRequest `object`: Describes the trust relationships for a particular AWS Managed Microsoft AD directory. If no input parameters are are provided, such as directory ID or trust ID, this request describes all the trust relationships.
+  * DirectoryId
+  * Limit
+  * NextToken
+  * TrustIds
+    * items [TrustId](#trustid)
 
 ### DescribeTrustsResult
 * DescribeTrustsResult `object`: The result of a DescribeTrust request.
-  * NextToken [NextToken](#nexttoken)
-  * Trusts [Trusts](#trusts)
+  * NextToken
+  * Trusts
+    * items [Trust](#trust)
 
 ### Description
 * Description `string`
@@ -1151,48 +1818,117 @@ amazonaws_ds.VerifyTrust({
 ### DesiredNumberOfDomainControllers
 * DesiredNumberOfDomainControllers `integer`
 
+### DirectoryAlreadyInRegionException
+
+
+### DirectoryAlreadySharedException
+
+
 ### DirectoryConnectSettings
 * DirectoryConnectSettings `object`: Contains information for the <a>ConnectDirectory</a> operation when an AD Connector directory is being created.
-  * CustomerDnsIps **required** [DnsIpAddrs](#dnsipaddrs)
-  * CustomerUserName **required** [UserName](#username)
-  * SubnetIds **required** [SubnetIds](#subnetids)
-  * VpcId **required** [VpcId](#vpcid)
+  * CustomerDnsIps **required**
+    * items [IpAddr](#ipaddr)
+  * CustomerUserName **required**
+  * SubnetIds **required**
+    * items [SubnetId](#subnetid)
+  * VpcId **required**
 
 ### DirectoryConnectSettingsDescription
 * DirectoryConnectSettingsDescription `object`: Contains information about an AD Connector directory.
-  * AvailabilityZones [AvailabilityZones](#availabilityzones)
-  * ConnectIps [IpAddrs](#ipaddrs)
-  * CustomerUserName [UserName](#username)
-  * SecurityGroupId [SecurityGroupId](#securitygroupid)
-  * SubnetIds [SubnetIds](#subnetids)
-  * VpcId [VpcId](#vpcid)
+  * AvailabilityZones
+    * items [AvailabilityZone](#availabilityzone)
+  * ConnectIps
+    * items [IpAddr](#ipaddr)
+  * CustomerUserName
+  * SecurityGroupId
+  * SubnetIds
+    * items [SubnetId](#subnetid)
+  * VpcId
 
 ### DirectoryDescription
 * DirectoryDescription `object`: Contains information about an AWS Directory Service directory.
-  * AccessUrl [AccessUrl](#accessurl)
-  * Alias [AliasName](#aliasname)
-  * ConnectSettings [DirectoryConnectSettingsDescription](#directoryconnectsettingsdescription)
-  * Description [Description](#description)
-  * DesiredNumberOfDomainControllers [DesiredNumberOfDomainControllers](#desirednumberofdomaincontrollers)
-  * DirectoryId [DirectoryId](#directoryid)
-  * DnsIpAddrs [DnsIpAddrs](#dnsipaddrs)
-  * Edition [DirectoryEdition](#directoryedition)
-  * LaunchTime [LaunchTime](#launchtime)
-  * Name [DirectoryName](#directoryname)
-  * RadiusSettings [RadiusSettings](#radiussettings)
-  * RadiusStatus [RadiusStatus](#radiusstatus)
-  * ShortName [DirectoryShortName](#directoryshortname)
-  * Size [DirectorySize](#directorysize)
-  * SsoEnabled [SsoEnabled](#ssoenabled)
-  * Stage [DirectoryStage](#directorystage)
-  * StageLastUpdatedDateTime [LastUpdatedDateTime](#lastupdateddatetime)
-  * StageReason [StageReason](#stagereason)
-  * Type [DirectoryType](#directorytype)
-  * VpcSettings [DirectoryVpcSettingsDescription](#directoryvpcsettingsdescription)
+  * AccessUrl
+  * Alias
+  * ConnectSettings
+    * AvailabilityZones
+      * items [AvailabilityZone](#availabilityzone)
+    * ConnectIps
+      * items [IpAddr](#ipaddr)
+    * CustomerUserName
+    * SecurityGroupId
+    * SubnetIds
+      * items [SubnetId](#subnetid)
+    * VpcId
+  * Description
+  * DesiredNumberOfDomainControllers
+  * DirectoryId
+  * DnsIpAddrs
+    * items [IpAddr](#ipaddr)
+  * Edition
+  * LaunchTime
+  * Name
+  * OwnerDirectoryDescription
+    * AccountId
+    * DirectoryId
+    * DnsIpAddrs
+      * items [IpAddr](#ipaddr)
+    * RadiusSettings
+      * AuthenticationProtocol
+      * DisplayLabel
+      * RadiusPort
+      * RadiusRetries
+      * RadiusServers
+        * items [Server](#server)
+      * RadiusTimeout
+      * SharedSecret
+      * UseSameUsername
+    * RadiusStatus
+    * VpcSettings
+      * AvailabilityZones
+        * items [AvailabilityZone](#availabilityzone)
+      * SecurityGroupId
+      * SubnetIds
+        * items [SubnetId](#subnetid)
+      * VpcId
+  * RadiusSettings
+    * AuthenticationProtocol
+    * DisplayLabel
+    * RadiusPort
+    * RadiusRetries
+    * RadiusServers
+      * items [Server](#server)
+    * RadiusTimeout
+    * SharedSecret
+    * UseSameUsername
+  * RadiusStatus
+  * RegionsInfo
+    * AdditionalRegions
+      * items [RegionName](#regionname)
+    * PrimaryRegion
+  * ShareMethod
+  * ShareNotes
+  * ShareStatus
+  * ShortName
+  * Size
+  * SsoEnabled
+  * Stage
+  * StageLastUpdatedDateTime
+  * StageReason
+  * Type
+  * VpcSettings
+    * AvailabilityZones
+      * items [AvailabilityZone](#availabilityzone)
+    * SecurityGroupId
+    * SubnetIds
+      * items [SubnetId](#subnetid)
+    * VpcId
 
 ### DirectoryDescriptions
 * DirectoryDescriptions `array`: A list of directory descriptions.
   * items [DirectoryDescription](#directorydescription)
+
+### DirectoryDoesNotExistException
+
 
 ### DirectoryEdition
 * DirectoryEdition `string` (values: Enterprise, Standard)
@@ -1205,24 +1941,25 @@ amazonaws_ds.VerifyTrust({
   * items [DirectoryId](#directoryid)
 
 ### DirectoryLimitExceededException
-* DirectoryLimitExceededException `object`: The maximum number of directories in the region has been reached. You can use the <a>GetDirectoryLimits</a> operation to determine your directory limits in the region.
-  * Message [ExceptionMessage](#exceptionmessage)
-  * RequestId [RequestId](#requestid)
+
 
 ### DirectoryLimits
-* DirectoryLimits `object`: Contains directory limit information for a region.
-  * CloudOnlyDirectoriesCurrentCount [Limit](#limit)
-  * CloudOnlyDirectoriesLimit [Limit](#limit)
-  * CloudOnlyDirectoriesLimitReached [CloudOnlyDirectoriesLimitReached](#cloudonlydirectorieslimitreached)
-  * CloudOnlyMicrosoftADCurrentCount [Limit](#limit)
-  * CloudOnlyMicrosoftADLimit [Limit](#limit)
-  * CloudOnlyMicrosoftADLimitReached [CloudOnlyDirectoriesLimitReached](#cloudonlydirectorieslimitreached)
-  * ConnectedDirectoriesCurrentCount [Limit](#limit)
-  * ConnectedDirectoriesLimit [Limit](#limit)
-  * ConnectedDirectoriesLimitReached [ConnectedDirectoriesLimitReached](#connecteddirectorieslimitreached)
+* DirectoryLimits `object`: Contains directory limit information for a Region.
+  * CloudOnlyDirectoriesCurrentCount
+  * CloudOnlyDirectoriesLimit
+  * CloudOnlyDirectoriesLimitReached
+  * CloudOnlyMicrosoftADCurrentCount
+  * CloudOnlyMicrosoftADLimit
+  * CloudOnlyMicrosoftADLimitReached
+  * ConnectedDirectoriesCurrentCount
+  * ConnectedDirectoriesLimit
+  * ConnectedDirectoriesLimitReached
 
 ### DirectoryName
 * DirectoryName `string`
+
+### DirectoryNotSharedException
+
 
 ### DirectoryShortName
 * DirectoryShortName `string`
@@ -1234,37 +1971,54 @@ amazonaws_ds.VerifyTrust({
 * DirectoryStage `string` (values: Requested, Creating, Created, Active, Inoperable, Impaired, Restoring, RestoreFailed, Deleting, Deleted, Failed)
 
 ### DirectoryType
-* DirectoryType `string` (values: SimpleAD, ADConnector, MicrosoftAD)
+* DirectoryType `string` (values: SimpleAD, ADConnector, MicrosoftAD, SharedMicrosoftAD)
 
 ### DirectoryUnavailableException
-* DirectoryUnavailableException `object`: The specified directory is unavailable or could not be found.
-  * Message [ExceptionMessage](#exceptionmessage)
-  * RequestId [RequestId](#requestid)
+
 
 ### DirectoryVpcSettings
 * DirectoryVpcSettings `object`: Contains VPC information for the <a>CreateDirectory</a> or <a>CreateMicrosoftAD</a> operation.
-  * SubnetIds **required** [SubnetIds](#subnetids)
-  * VpcId **required** [VpcId](#vpcid)
+  * SubnetIds **required**
+    * items [SubnetId](#subnetid)
+  * VpcId **required**
 
 ### DirectoryVpcSettingsDescription
 * DirectoryVpcSettingsDescription `object`: Contains information about the directory.
-  * AvailabilityZones [AvailabilityZones](#availabilityzones)
-  * SecurityGroupId [SecurityGroupId](#securitygroupid)
-  * SubnetIds [SubnetIds](#subnetids)
-  * VpcId [VpcId](#vpcid)
+  * AvailabilityZones
+    * items [AvailabilityZone](#availabilityzone)
+  * SecurityGroupId
+  * SubnetIds
+    * items [SubnetId](#subnetid)
+  * VpcId
+
+### DisableClientAuthenticationRequest
+* DisableClientAuthenticationRequest `object`
+  * DirectoryId **required**
+  * Type **required**
+
+### DisableClientAuthenticationResult
+* DisableClientAuthenticationResult `object`
+
+### DisableLDAPSRequest
+* DisableLDAPSRequest `object`
+  * DirectoryId **required**
+  * Type **required**
+
+### DisableLDAPSResult
+* DisableLDAPSResult `object`
 
 ### DisableRadiusRequest
 * DisableRadiusRequest `object`: Contains the inputs for the <a>DisableRadius</a> operation.
-  * DirectoryId **required** [DirectoryId](#directoryid)
+  * DirectoryId **required**
 
 ### DisableRadiusResult
 * DisableRadiusResult `object`: Contains the results of the <a>DisableRadius</a> operation.
 
 ### DisableSsoRequest
 * DisableSsoRequest `object`: Contains the inputs for the <a>DisableSso</a> operation.
-  * DirectoryId **required** [DirectoryId](#directoryid)
-  * Password [ConnectPassword](#connectpassword)
-  * UserName [UserName](#username)
+  * DirectoryId **required**
+  * Password
+  * UserName
 
 ### DisableSsoResult
 * DisableSsoResult `object`: Contains the results of the <a>DisableSso</a> operation.
@@ -1275,16 +2029,16 @@ amazonaws_ds.VerifyTrust({
 
 ### DomainController
 * DomainController `object`: Contains information about the domain controllers for a specified directory.
-  * AvailabilityZone [AvailabilityZone](#availabilityzone)
-  * DirectoryId [DirectoryId](#directoryid)
-  * DnsIpAddr [IpAddr](#ipaddr)
-  * DomainControllerId [DomainControllerId](#domaincontrollerid)
-  * LaunchTime [LaunchTime](#launchtime)
-  * Status [DomainControllerStatus](#domaincontrollerstatus)
-  * StatusLastUpdatedDateTime [LastUpdatedDateTime](#lastupdateddatetime)
-  * StatusReason [DomainControllerStatusReason](#domaincontrollerstatusreason)
-  * SubnetId [SubnetId](#subnetid)
-  * VpcId [VpcId](#vpcid)
+  * AvailabilityZone
+  * DirectoryId
+  * DnsIpAddr
+  * DomainControllerId
+  * LaunchTime
+  * Status
+  * StatusLastUpdatedDateTime
+  * StatusReason
+  * SubnetId
+  * VpcId
 
 ### DomainControllerId
 * DomainControllerId `string`
@@ -1294,9 +2048,7 @@ amazonaws_ds.VerifyTrust({
   * items [DomainControllerId](#domaincontrollerid)
 
 ### DomainControllerLimitExceededException
-* DomainControllerLimitExceededException `object`: The maximum allowed number of domain controllers per directory was exceeded. The default limit per directory is 20 domain controllers.
-  * Message [ExceptionMessage](#exceptionmessage)
-  * RequestId [RequestId](#requestid)
+
 
 ### DomainControllerStatus
 * DomainControllerStatus `string` (values: Creating, Active, Impaired, Restoring, Deleting, Deleted, Failed)
@@ -1308,19 +2060,44 @@ amazonaws_ds.VerifyTrust({
 * DomainControllers `array`
   * items [DomainController](#domaincontroller)
 
+### EnableClientAuthenticationRequest
+* EnableClientAuthenticationRequest `object`
+  * DirectoryId **required**
+  * Type **required**
+
+### EnableClientAuthenticationResult
+* EnableClientAuthenticationResult `object`
+
+### EnableLDAPSRequest
+* EnableLDAPSRequest `object`
+  * DirectoryId **required**
+  * Type **required**
+
+### EnableLDAPSResult
+* EnableLDAPSResult `object`
+
 ### EnableRadiusRequest
 * EnableRadiusRequest `object`: Contains the inputs for the <a>EnableRadius</a> operation.
-  * DirectoryId **required** [DirectoryId](#directoryid)
-  * RadiusSettings **required** [RadiusSettings](#radiussettings)
+  * DirectoryId **required**
+  * RadiusSettings **required**
+    * AuthenticationProtocol
+    * DisplayLabel
+    * RadiusPort
+    * RadiusRetries
+    * RadiusServers
+      * items [Server](#server)
+    * RadiusTimeout
+    * SharedSecret
+    * UseSameUsername
 
 ### EnableRadiusResult
 * EnableRadiusResult `object`: Contains the results of the <a>EnableRadius</a> operation.
 
 ### EnableSsoRequest
 * EnableSsoRequest `object`: Contains the inputs for the <a>EnableSso</a> operation.
-  * DirectoryId **required** [DirectoryId](#directoryid)
-  * Password [ConnectPassword](#connectpassword)
-  * UserName [UserName](#username)
+  * DirectoryId **required**
+  * Password
+  * UserName
 
 ### EnableSsoResult
 * EnableSsoResult `object`: Contains the results of the <a>EnableSso</a> operation.
@@ -1329,64 +2106,73 @@ amazonaws_ds.VerifyTrust({
 * EndDateTime `string`
 
 ### EntityAlreadyExistsException
-* EntityAlreadyExistsException `object`: The specified entity already exists.
-  * Message [ExceptionMessage](#exceptionmessage)
-  * RequestId [RequestId](#requestid)
+
 
 ### EntityDoesNotExistException
-* EntityDoesNotExistException `object`: The specified entity could not be found.
-  * Message [ExceptionMessage](#exceptionmessage)
-  * RequestId [RequestId](#requestid)
+
 
 ### EventTopic
 * EventTopic `object`: Information about SNS topic and AWS Directory Service directory associations.
-  * CreatedDateTime [CreatedDateTime](#createddatetime)
-  * DirectoryId [DirectoryId](#directoryid)
-  * Status [TopicStatus](#topicstatus)
-  * TopicArn [TopicArn](#topicarn)
-  * TopicName [TopicName](#topicname)
+  * CreatedDateTime
+  * DirectoryId
+  * Status
+  * TopicArn
+  * TopicName
 
 ### EventTopics
 * EventTopics `array`
   * items [EventTopic](#eventtopic)
-
-### ExceptionMessage
-* ExceptionMessage `string`: The descriptive message for the exception.
 
 ### GetDirectoryLimitsRequest
 * GetDirectoryLimitsRequest `object`: Contains the inputs for the <a>GetDirectoryLimits</a> operation.
 
 ### GetDirectoryLimitsResult
 * GetDirectoryLimitsResult `object`: Contains the results of the <a>GetDirectoryLimits</a> operation.
-  * DirectoryLimits [DirectoryLimits](#directorylimits)
+  * DirectoryLimits
+    * CloudOnlyDirectoriesCurrentCount
+    * CloudOnlyDirectoriesLimit
+    * CloudOnlyDirectoriesLimitReached
+    * CloudOnlyMicrosoftADCurrentCount
+    * CloudOnlyMicrosoftADLimit
+    * CloudOnlyMicrosoftADLimitReached
+    * ConnectedDirectoriesCurrentCount
+    * ConnectedDirectoriesLimit
+    * ConnectedDirectoriesLimitReached
 
 ### GetSnapshotLimitsRequest
 * GetSnapshotLimitsRequest `object`: Contains the inputs for the <a>GetSnapshotLimits</a> operation.
-  * DirectoryId **required** [DirectoryId](#directoryid)
+  * DirectoryId **required**
 
 ### GetSnapshotLimitsResult
 * GetSnapshotLimitsResult `object`: Contains the results of the <a>GetSnapshotLimits</a> operation.
-  * SnapshotLimits [SnapshotLimits](#snapshotlimits)
+  * SnapshotLimits
+    * ManualSnapshotsCurrentCount
+    * ManualSnapshotsLimit
+    * ManualSnapshotsLimitReached
 
 ### InsufficientPermissionsException
-* InsufficientPermissionsException `object`: The account does not have sufficient permission to perform the operation.
-  * Message [ExceptionMessage](#exceptionmessage)
-  * RequestId [RequestId](#requestid)
+
+
+### InvalidCertificateException
+
+
+### InvalidClientAuthStatusException
+
+
+### InvalidLDAPSStatusException
+
 
 ### InvalidNextTokenException
-* InvalidNextTokenException `object`: The <i>NextToken</i> value is not valid.
-  * Message [ExceptionMessage](#exceptionmessage)
-  * RequestId [RequestId](#requestid)
+
 
 ### InvalidParameterException
-* InvalidParameterException `object`: One or more parameters are not valid.
-  * Message [ExceptionMessage](#exceptionmessage)
-  * RequestId [RequestId](#requestid)
+
 
 ### InvalidPasswordException
-* InvalidPasswordException `object`: The new password provided by the user does not meet the password complexity requirements defined in your directory.
-  * Message [ExceptionMessage](#exceptionmessage)
-  * RequestId [RequestId](#requestid)
+
+
+### InvalidTargetException
+
 
 ### IpAddr
 * IpAddr `string`
@@ -1397,22 +2183,20 @@ amazonaws_ds.VerifyTrust({
 
 ### IpRoute
 * IpRoute `object`: IP address block. This is often the address block of the DNS server used for your on-premises domain. 
-  * CidrIp [CidrIp](#cidrip)
-  * Description [Description](#description)
+  * CidrIp
+  * Description
 
 ### IpRouteInfo
 * IpRouteInfo `object`: Information about one or more IP address blocks.
-  * AddedDateTime [AddedDateTime](#addeddatetime)
-  * CidrIp [CidrIp](#cidrip)
-  * Description [Description](#description)
-  * DirectoryId [DirectoryId](#directoryid)
-  * IpRouteStatusMsg [IpRouteStatusMsg](#iproutestatusmsg)
-  * IpRouteStatusReason [IpRouteStatusReason](#iproutestatusreason)
+  * AddedDateTime
+  * CidrIp
+  * Description
+  * DirectoryId
+  * IpRouteStatusMsg
+  * IpRouteStatusReason
 
 ### IpRouteLimitExceededException
-* IpRouteLimitExceededException `object`: The maximum allowed number of IP addresses was exceeded. The default limit is 100 IP address blocks.
-  * Message [ExceptionMessage](#exceptionmessage)
-  * RequestId [RequestId](#requestid)
+
 
 ### IpRouteStatusMsg
 * IpRouteStatusMsg `string` (values: Adding, Added, Removing, Removed, AddFailed, RemoveFailed)
@@ -1428,6 +2212,25 @@ amazonaws_ds.VerifyTrust({
 * IpRoutesInfo `array`
   * items [IpRouteInfo](#iprouteinfo)
 
+### LDAPSSettingInfo
+* LDAPSSettingInfo `object`: Contains general information about the LDAPS settings.
+  * LDAPSStatus
+  * LDAPSStatusReason
+  * LastUpdatedDateTime
+
+### LDAPSSettingsInfo
+* LDAPSSettingsInfo `array`
+  * items [LDAPSSettingInfo](#ldapssettinginfo)
+
+### LDAPSStatus
+* LDAPSStatus `string` (values: Enabling, Enabled, EnableFailed, Disabled)
+
+### LDAPSStatusReason
+* LDAPSStatusReason `string`
+
+### LDAPSType
+* LDAPSType `string` (values: Client)
+
 ### LastUpdatedDateTime
 * LastUpdatedDateTime `string`
 
@@ -1440,38 +2243,78 @@ amazonaws_ds.VerifyTrust({
 ### Limit
 * Limit `integer`
 
+### ListCertificatesRequest
+* ListCertificatesRequest `object`
+  * DirectoryId **required**
+  * Limit
+  * NextToken
+
+### ListCertificatesResult
+* ListCertificatesResult `object`
+  * CertificatesInfo
+    * items [CertificateInfo](#certificateinfo)
+  * NextToken
+
 ### ListIpRoutesRequest
 * ListIpRoutesRequest `object`
-  * DirectoryId **required** [DirectoryId](#directoryid)
-  * Limit [Limit](#limit)
-  * NextToken [NextToken](#nexttoken)
+  * DirectoryId **required**
+  * Limit
+  * NextToken
 
 ### ListIpRoutesResult
 * ListIpRoutesResult `object`
-  * IpRoutesInfo [IpRoutesInfo](#iproutesinfo)
-  * NextToken [NextToken](#nexttoken)
+  * IpRoutesInfo
+    * items [IpRouteInfo](#iprouteinfo)
+  * NextToken
+
+### ListLogSubscriptionsRequest
+* ListLogSubscriptionsRequest `object`
+  * DirectoryId
+  * Limit
+  * NextToken
+
+### ListLogSubscriptionsResult
+* ListLogSubscriptionsResult `object`
+  * LogSubscriptions
+    * items [LogSubscription](#logsubscription)
+  * NextToken
 
 ### ListSchemaExtensionsRequest
 * ListSchemaExtensionsRequest `object`
-  * DirectoryId **required** [DirectoryId](#directoryid)
-  * Limit [Limit](#limit)
-  * NextToken [NextToken](#nexttoken)
+  * DirectoryId **required**
+  * Limit
+  * NextToken
 
 ### ListSchemaExtensionsResult
 * ListSchemaExtensionsResult `object`
-  * NextToken [NextToken](#nexttoken)
-  * SchemaExtensionsInfo [SchemaExtensionsInfo](#schemaextensionsinfo)
+  * NextToken
+  * SchemaExtensionsInfo
+    * items [SchemaExtensionInfo](#schemaextensioninfo)
 
 ### ListTagsForResourceRequest
 * ListTagsForResourceRequest `object`
-  * Limit [Limit](#limit)
-  * NextToken [NextToken](#nexttoken)
-  * ResourceId **required** [ResourceId](#resourceid)
+  * Limit
+  * NextToken
+  * ResourceId **required**
 
 ### ListTagsForResourceResult
 * ListTagsForResourceResult `object`
-  * NextToken [NextToken](#nexttoken)
-  * Tags [Tags](#tags)
+  * NextToken
+  * Tags
+    * items [Tag](#tag)
+
+### LogGroupName
+* LogGroupName `string`
+
+### LogSubscription
+* LogSubscription `object`: Represents a log subscription, which tracks real-time data from a chosen log group to a specified destination.
+  * DirectoryId
+  * LogGroupName
+  * SubscriptionCreatedDateTime
+
+### LogSubscriptions
+* LogSubscriptions `array`
+  * items [LogSubscription](#logsubscription)
 
 ### ManualSnapshotsLimitReached
 * ManualSnapshotsLimitReached `boolean`
@@ -1479,8 +2322,48 @@ amazonaws_ds.VerifyTrust({
 ### NextToken
 * NextToken `string`
 
+### NoAvailableCertificateException
+
+
+### Notes
+* Notes `string`
+
+### OCSPUrl
+* OCSPUrl `string`
+
 ### OrganizationalUnitDN
 * OrganizationalUnitDN `string`
+
+### OrganizationsException
+
+
+### OwnerDirectoryDescription
+* OwnerDirectoryDescription `object`: Describes the directory owner account details that have been shared to the directory consumer account.
+  * AccountId
+  * DirectoryId
+  * DnsIpAddrs
+    * items [IpAddr](#ipaddr)
+  * RadiusSettings
+    * AuthenticationProtocol
+    * DisplayLabel
+    * RadiusPort
+    * RadiusRetries
+    * RadiusServers
+      * items [Server](#server)
+    * RadiusTimeout
+    * SharedSecret
+    * UseSameUsername
+  * RadiusStatus
+  * VpcSettings
+    * AvailabilityZones
+      * items [AvailabilityZone](#availabilityzone)
+    * SecurityGroupId
+    * SubnetIds
+      * items [SubnetId](#subnetid)
+    * VpcId
+
+### PageLimit
+* PageLimit `integer`
 
 ### Password
 * Password `string`
@@ -1499,14 +2382,15 @@ amazonaws_ds.VerifyTrust({
 
 ### RadiusSettings
 * RadiusSettings `object`: Contains information about a Remote Authentication Dial In User Service (RADIUS) server.
-  * AuthenticationProtocol [RadiusAuthenticationProtocol](#radiusauthenticationprotocol)
-  * DisplayLabel [RadiusDisplayLabel](#radiusdisplaylabel)
-  * RadiusPort [PortNumber](#portnumber)
-  * RadiusRetries [RadiusRetries](#radiusretries)
-  * RadiusServers [Servers](#servers)
-  * RadiusTimeout [RadiusTimeout](#radiustimeout)
-  * SharedSecret [RadiusSharedSecret](#radiussharedsecret)
-  * UseSameUsername [UseSameUsername](#usesameusername)
+  * AuthenticationProtocol
+  * DisplayLabel
+  * RadiusPort
+  * RadiusRetries
+  * RadiusServers
+    * items [Server](#server)
+  * RadiusTimeout
+  * SharedSecret
+  * UseSameUsername
 
 ### RadiusSharedSecret
 * RadiusSharedSecret `string`
@@ -1517,13 +2401,64 @@ amazonaws_ds.VerifyTrust({
 ### RadiusTimeout
 * RadiusTimeout `integer`
 
+### RegionDescription
+* RegionDescription `object`: The replicated Region information for a directory.
+  * DesiredNumberOfDomainControllers
+  * DirectoryId
+  * LastUpdatedDateTime
+  * LaunchTime
+  * RegionName
+  * RegionType
+  * Status
+  * StatusLastUpdatedDateTime
+  * VpcSettings [DirectoryVpcSettings](#directoryvpcsettings)
+
+### RegionLimitExceededException
+
+
+### RegionName
+* RegionName `string`
+
+### RegionType
+* RegionType `string` (values: Primary, Additional)
+
+### RegionsDescription
+* RegionsDescription `array`
+  * items [RegionDescription](#regiondescription)
+
+### RegionsInfo
+* RegionsInfo `object`: Provides information about the Regions that are configured for multi-Region replication.
+  * AdditionalRegions
+    * items [RegionName](#regionname)
+  * PrimaryRegion
+
+### RegisterCertificateRequest
+* RegisterCertificateRequest `object`
+  * CertificateData **required**
+  * ClientCertAuthSettings
+    * OCSPUrl
+  * DirectoryId **required**
+  * Type
+
+### RegisterCertificateResult
+* RegisterCertificateResult `object`
+  * CertificateId
+
 ### RegisterEventTopicRequest
 * RegisterEventTopicRequest `object`: Registers a new event topic.
-  * DirectoryId **required** [DirectoryId](#directoryid)
-  * TopicName **required** [TopicName](#topicname)
+  * DirectoryId **required**
+  * TopicName **required**
 
 ### RegisterEventTopicResult
 * RegisterEventTopicResult `object`: The result of a RegisterEventTopic request.
+
+### RejectSharedDirectoryRequest
+* RejectSharedDirectoryRequest `object`
+  * SharedDirectoryId **required**
+
+### RejectSharedDirectoryResult
+* RejectSharedDirectoryResult `object`
+  * SharedDirectoryId
 
 ### RemoteDomainName
 * RemoteDomainName `string`
@@ -1534,16 +2469,25 @@ amazonaws_ds.VerifyTrust({
 
 ### RemoveIpRoutesRequest
 * RemoveIpRoutesRequest `object`
-  * CidrIps **required** [CidrIps](#cidrips)
-  * DirectoryId **required** [DirectoryId](#directoryid)
+  * CidrIps **required**
+    * items [CidrIp](#cidrip)
+  * DirectoryId **required**
 
 ### RemoveIpRoutesResult
 * RemoveIpRoutesResult `object`
 
+### RemoveRegionRequest
+* RemoveRegionRequest `object`
+  * DirectoryId **required**
+
+### RemoveRegionResult
+* RemoveRegionResult `object`
+
 ### RemoveTagsFromResourceRequest
 * RemoveTagsFromResourceRequest `object`
-  * ResourceId **required** [ResourceId](#resourceid)
-  * TagKeys **required** [TagKeys](#tagkeys)
+  * ResourceId **required**
+  * TagKeys **required**
+    * items [TagKey](#tagkey)
 
 ### RemoveTagsFromResourceResult
 * RemoveTagsFromResourceResult `object`
@@ -1556,9 +2500,9 @@ amazonaws_ds.VerifyTrust({
 
 ### ResetUserPasswordRequest
 * ResetUserPasswordRequest `object`
-  * DirectoryId **required** [DirectoryId](#directoryid)
-  * NewPassword **required** [UserPassword](#userpassword)
-  * UserName **required** [CustomerUserName](#customerusername)
+  * DirectoryId **required**
+  * NewPassword **required**
+  * UserName **required**
 
 ### ResetUserPasswordResult
 * ResetUserPasswordResult `object`
@@ -1568,7 +2512,7 @@ amazonaws_ds.VerifyTrust({
 
 ### RestoreFromSnapshotRequest
 * RestoreFromSnapshotRequest `object`: An object representing the inputs for the <a>RestoreFromSnapshot</a> operation.
-  * SnapshotId **required** [SnapshotId](#snapshotid)
+  * SnapshotId **required**
 
 ### RestoreFromSnapshotResult
 * RestoreFromSnapshotResult `object`: Contains the results of the <a>RestoreFromSnapshot</a> operation.
@@ -1581,13 +2525,13 @@ amazonaws_ds.VerifyTrust({
 
 ### SchemaExtensionInfo
 * SchemaExtensionInfo `object`: Information about a schema extension.
-  * Description [Description](#description)
-  * DirectoryId [DirectoryId](#directoryid)
-  * EndDateTime [EndDateTime](#enddatetime)
-  * SchemaExtensionId [SchemaExtensionId](#schemaextensionid)
-  * SchemaExtensionStatus [SchemaExtensionStatus](#schemaextensionstatus)
-  * SchemaExtensionStatusReason [SchemaExtensionStatusReason](#schemaextensionstatusreason)
-  * StartDateTime [StartDateTime](#startdatetime)
+  * Description
+  * DirectoryId
+  * EndDateTime
+  * SchemaExtensionId
+  * SchemaExtensionStatus
+  * SchemaExtensionStatusReason
+  * StartDateTime
 
 ### SchemaExtensionStatus
 * SchemaExtensionStatus `string` (values: Initializing, CreatingSnapshot, UpdatingSchema, Replicating, CancelInProgress, RollbackInProgress, Cancelled, Failed, Completed)
@@ -1602,6 +2546,9 @@ amazonaws_ds.VerifyTrust({
 ### SecurityGroupId
 * SecurityGroupId `string`
 
+### SelectiveAuth
+* SelectiveAuth `string` (values: Enabled, Disabled)
+
 ### Server
 * Server `string`
 
@@ -1610,18 +2557,59 @@ amazonaws_ds.VerifyTrust({
   * items [Server](#server)
 
 ### ServiceException
-* ServiceException `object`: An exception has occurred in AWS Directory Service.
-  * Message [ExceptionMessage](#exceptionmessage)
-  * RequestId [RequestId](#requestid)
+
+
+### ShareDirectoryRequest
+* ShareDirectoryRequest `object`
+  * DirectoryId **required**
+  * ShareMethod **required**
+  * ShareNotes
+  * ShareTarget **required**
+    * Id **required**
+    * Type **required**
+
+### ShareDirectoryResult
+* ShareDirectoryResult `object`
+  * SharedDirectoryId
+
+### ShareLimitExceededException
+
+
+### ShareMethod
+* ShareMethod `string` (values: ORGANIZATIONS, HANDSHAKE)
+
+### ShareStatus
+* ShareStatus `string` (values: Shared, PendingAcceptance, Rejected, Rejecting, RejectFailed, Sharing, ShareFailed, Deleted, Deleting)
+
+### ShareTarget
+* ShareTarget `object`: Identifier that contains details about the directory consumer account.
+  * Id **required**
+  * Type **required**
+
+### SharedDirectories
+* SharedDirectories `array`
+  * items [SharedDirectory](#shareddirectory)
+
+### SharedDirectory
+* SharedDirectory `object`: Details about the shared directory in the directory owner account for which the share request in the directory consumer account has been accepted.
+  * CreatedDateTime
+  * LastUpdatedDateTime
+  * OwnerAccountId
+  * OwnerDirectoryId
+  * ShareMethod
+  * ShareNotes
+  * ShareStatus
+  * SharedAccountId
+  * SharedDirectoryId
 
 ### Snapshot
 * Snapshot `object`: Describes a directory snapshot.
-  * DirectoryId [DirectoryId](#directoryid)
-  * Name [SnapshotName](#snapshotname)
-  * SnapshotId [SnapshotId](#snapshotid)
-  * StartTime [StartTime](#starttime)
-  * Status [SnapshotStatus](#snapshotstatus)
-  * Type [SnapshotType](#snapshottype)
+  * DirectoryId
+  * Name
+  * SnapshotId
+  * StartTime
+  * Status
+  * Type
 
 ### SnapshotId
 * SnapshotId `string`
@@ -1631,15 +2619,13 @@ amazonaws_ds.VerifyTrust({
   * items [SnapshotId](#snapshotid)
 
 ### SnapshotLimitExceededException
-* SnapshotLimitExceededException `object`: The maximum number of manual snapshots for the directory has been reached. You can use the <a>GetSnapshotLimits</a> operation to determine the snapshot limits for a directory.
-  * Message [ExceptionMessage](#exceptionmessage)
-  * RequestId [RequestId](#requestid)
+
 
 ### SnapshotLimits
 * SnapshotLimits `object`: Contains manual snapshot limit information for a directory.
-  * ManualSnapshotsCurrentCount [Limit](#limit)
-  * ManualSnapshotsLimit [Limit](#limit)
-  * ManualSnapshotsLimitReached [ManualSnapshotsLimitReached](#manualsnapshotslimitreached)
+  * ManualSnapshotsCurrentCount
+  * ManualSnapshotsLimit
+  * ManualSnapshotsLimitReached
 
 ### SnapshotName
 * SnapshotName `string`
@@ -1665,14 +2651,14 @@ amazonaws_ds.VerifyTrust({
 
 ### StartSchemaExtensionRequest
 * StartSchemaExtensionRequest `object`
-  * CreateSnapshotBeforeSchemaExtension **required** [CreateSnapshotBeforeSchemaExtension](#createsnapshotbeforeschemaextension)
-  * Description **required** [Description](#description)
-  * DirectoryId **required** [DirectoryId](#directoryid)
-  * LdifContent **required** [LdifContent](#ldifcontent)
+  * CreateSnapshotBeforeSchemaExtension **required**
+  * Description **required**
+  * DirectoryId **required**
+  * LdifContent **required**
 
 ### StartSchemaExtensionResult
 * StartSchemaExtensionResult `object`
-  * SchemaExtensionId [SchemaExtensionId](#schemaextensionid)
+  * SchemaExtensionId
 
 ### StartTime
 * StartTime `string`
@@ -1687,10 +2673,13 @@ amazonaws_ds.VerifyTrust({
 * SubnetIds `array`
   * items [SubnetId](#subnetid)
 
+### SubscriptionCreatedDateTime
+* SubscriptionCreatedDateTime `string`
+
 ### Tag
 * Tag `object`: Metadata assigned to a directory consisting of a key-value pair.
-  * Key **required** [TagKey](#tagkey)
-  * Value **required** [TagValue](#tagvalue)
+  * Key **required**
+  * Value **required**
 
 ### TagKey
 * TagKey `string`
@@ -1700,9 +2689,7 @@ amazonaws_ds.VerifyTrust({
   * items [TagKey](#tagkey)
 
 ### TagLimitExceededException
-* TagLimitExceededException `object`: The maximum allowed number of tags was exceeded.
-  * Message [ExceptionMessage](#exceptionmessage)
-  * RequestId [RequestId](#requestid)
+
 
 ### TagValue
 * TagValue `string`
@@ -1710,6 +2697,12 @@ amazonaws_ds.VerifyTrust({
 ### Tags
 * Tags `array`
   * items [Tag](#tag)
+
+### TargetId
+* TargetId `string`
+
+### TargetType
+* TargetType `string` (values: ACCOUNT)
 
 ### TopicArn
 * TopicArn `string`
@@ -1725,17 +2718,18 @@ amazonaws_ds.VerifyTrust({
 * TopicStatus `string` (values: Registered, Topic not found, Failed, Deleted)
 
 ### Trust
-* Trust `object`: Describes a trust relationship between an Microsoft AD in the AWS cloud and an external domain.
-  * CreatedDateTime [CreatedDateTime](#createddatetime)
-  * DirectoryId [DirectoryId](#directoryid)
-  * LastUpdatedDateTime [LastUpdatedDateTime](#lastupdateddatetime)
-  * RemoteDomainName [RemoteDomainName](#remotedomainname)
-  * StateLastUpdatedDateTime [StateLastUpdatedDateTime](#statelastupdateddatetime)
-  * TrustDirection [TrustDirection](#trustdirection)
-  * TrustId [TrustId](#trustid)
-  * TrustState [TrustState](#truststate)
-  * TrustStateReason [TrustStateReason](#truststatereason)
-  * TrustType [TrustType](#trusttype)
+* Trust `object`: Describes a trust relationship between an AWS Managed Microsoft AD directory and an external domain.
+  * CreatedDateTime
+  * DirectoryId
+  * LastUpdatedDateTime
+  * RemoteDomainName
+  * SelectiveAuth
+  * StateLastUpdatedDateTime
+  * TrustDirection
+  * TrustId
+  * TrustState
+  * TrustStateReason
+  * TrustType
 
 ### TrustDirection
 * TrustDirection `string` (values: One-Way: Outgoing, One-Way: Incoming, Two-Way)
@@ -1751,44 +2745,68 @@ amazonaws_ds.VerifyTrust({
 * TrustPassword `string`
 
 ### TrustState
-* TrustState `string` (values: Creating, Created, Verifying, VerifyFailed, Verified, Deleting, Deleted, Failed)
+* TrustState `string` (values: Creating, Created, Verifying, VerifyFailed, Verified, Updating, UpdateFailed, Updated, Deleting, Deleted, Failed)
 
 ### TrustStateReason
 * TrustStateReason `string`
 
 ### TrustType
-* TrustType `string` (values: Forest)
+* TrustType `string` (values: Forest, External)
 
 ### Trusts
 * Trusts `array`
   * items [Trust](#trust)
 
+### UnshareDirectoryRequest
+* UnshareDirectoryRequest `object`
+  * DirectoryId **required**
+  * UnshareTarget **required**
+    * Id **required**
+    * Type **required**
+
+### UnshareDirectoryResult
+* UnshareDirectoryResult `object`
+  * SharedDirectoryId
+
+### UnshareTarget
+* UnshareTarget `object`: Identifier that contains details about the directory consumer account with whom the directory is being unshared.
+  * Id **required**
+  * Type **required**
+
 ### UnsupportedOperationException
-* UnsupportedOperationException `object`: The operation is not supported.
-  * Message [ExceptionMessage](#exceptionmessage)
-  * RequestId [RequestId](#requestid)
+
 
 ### UpdateConditionalForwarderRequest
 * UpdateConditionalForwarderRequest `object`: Updates a conditional forwarder.
-  * DirectoryId **required** [DirectoryId](#directoryid)
-  * DnsIpAddrs **required** [DnsIpAddrs](#dnsipaddrs)
-  * RemoteDomainName **required** [RemoteDomainName](#remotedomainname)
+  * DirectoryId **required**
+  * DnsIpAddrs **required**
+    * items [IpAddr](#ipaddr)
+  * RemoteDomainName **required**
 
 ### UpdateConditionalForwarderResult
 * UpdateConditionalForwarderResult `object`: The result of an UpdateConditionalForwarder request.
 
 ### UpdateNumberOfDomainControllersRequest
 * UpdateNumberOfDomainControllersRequest `object`
-  * DesiredNumber **required** [DesiredNumberOfDomainControllers](#desirednumberofdomaincontrollers)
-  * DirectoryId **required** [DirectoryId](#directoryid)
+  * DesiredNumber **required**
+  * DirectoryId **required**
 
 ### UpdateNumberOfDomainControllersResult
 * UpdateNumberOfDomainControllersResult `object`
 
 ### UpdateRadiusRequest
 * UpdateRadiusRequest `object`: Contains the inputs for the <a>UpdateRadius</a> operation.
-  * DirectoryId **required** [DirectoryId](#directoryid)
-  * RadiusSettings **required** [RadiusSettings](#radiussettings)
+  * DirectoryId **required**
+  * RadiusSettings **required**
+    * AuthenticationProtocol
+    * DisplayLabel
+    * RadiusPort
+    * RadiusRetries
+    * RadiusServers
+      * items [Server](#server)
+    * RadiusTimeout
+    * SharedSecret
+    * UseSameUsername
 
 ### UpdateRadiusResult
 * UpdateRadiusResult `object`: Contains the results of the <a>UpdateRadius</a> operation.
@@ -1796,13 +2814,21 @@ amazonaws_ds.VerifyTrust({
 ### UpdateSecurityGroupForDirectoryControllers
 * UpdateSecurityGroupForDirectoryControllers `boolean`
 
+### UpdateTrustRequest
+* UpdateTrustRequest `object`
+  * SelectiveAuth
+  * TrustId **required**
+
+### UpdateTrustResult
+* UpdateTrustResult `object`
+  * RequestId [RequestId](#requestid)
+  * TrustId
+
 ### UseSameUsername
 * UseSameUsername `boolean`
 
 ### UserDoesNotExistException
-* UserDoesNotExistException `object`: The user provided a username that does not exist in your directory.
-  * Message [ExceptionMessage](#exceptionmessage)
-  * RequestId [RequestId](#requestid)
+
 
 ### UserName
 * UserName `string`
@@ -1811,12 +2837,12 @@ amazonaws_ds.VerifyTrust({
 * UserPassword `string`
 
 ### VerifyTrustRequest
-* VerifyTrustRequest `object`: Initiates the verification of an existing trust relationship between a Microsoft AD in the AWS cloud and an external domain.
-  * TrustId **required** [TrustId](#trustid)
+* VerifyTrustRequest `object`: Initiates the verification of an existing trust relationship between an AWS Managed Microsoft AD directory and an external domain.
+  * TrustId **required**
 
 ### VerifyTrustResult
 * VerifyTrustResult `object`: Result of a VerifyTrust request.
-  * TrustId [TrustId](#trustid)
+  * TrustId
 
 ### VpcId
 * VpcId `string`

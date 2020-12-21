@@ -12,7 +12,7 @@ let noosh = require('@datafire/noosh').create({
   password: ""
 });
 
-noosh.getWorkgroupList({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

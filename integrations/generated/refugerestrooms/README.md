@@ -1,6 +1,6 @@
 # @datafire/refugerestrooms
 
-Client library for Refuge Restrooms
+Client library for API title
 
 ## Installation and Usage
 ```bash
@@ -9,7 +9,7 @@ npm install --save @datafire/refugerestrooms
 ```js
 let refugerestrooms = require('@datafire/refugerestrooms').create();
 
-refugerestrooms.v1.restrooms.json.get({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -20,12 +20,12 @@ REFUGE is a web application that seeks to provide safe restroom access for trans
 
 ## Actions
 
-### v1.restrooms.json.get
+### getV1Restrooms
 Get all restroom records ordered by date descending.
 
 
 ```js
-refugerestrooms.v1.restrooms.json.get({}, context)
+refugerestrooms.getV1Restrooms({}, context)
 ```
 
 #### Input
@@ -39,12 +39,12 @@ refugerestrooms.v1.restrooms.json.get({}, context)
 #### Output
 *Output schema unknown*
 
-### v1.restrooms.by_date.json.get
+### getV1RestroomsByDate
 Search for restroom records updated or created on or after a given date
 
 
 ```js
-refugerestrooms.v1.restrooms.by_date.json.get({
+refugerestrooms.getV1RestroomsByDate({
   "day": 0,
   "month": 0,
   "year": 0
@@ -66,12 +66,12 @@ refugerestrooms.v1.restrooms.by_date.json.get({
 #### Output
 *Output schema unknown*
 
-### v1.restrooms.by_location.json.get
+### getV1RestroomsByLocation
 Search by location.
 
 
 ```js
-refugerestrooms.v1.restrooms.by_location.json.get({
+refugerestrooms.getV1RestroomsByLocation({
   "lat": 0,
   "lng": 0
 }, context)
@@ -90,12 +90,12 @@ refugerestrooms.v1.restrooms.by_location.json.get({
 #### Output
 *Output schema unknown*
 
-### v1.restrooms.search.json.get
+### getV1RestroomsSearch
 Perform full-text search of restroom records.
 
 
 ```js
-refugerestrooms.v1.restrooms.search.json.get({
+refugerestrooms.getV1RestroomsSearch({
   "query": ""
 }, context)
 ```

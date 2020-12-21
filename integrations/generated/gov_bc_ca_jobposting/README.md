@@ -1,6 +1,6 @@
 # @datafire/gov_bc_ca_jobposting
 
-Client library for WorkBC Job Posting
+Client library for WorkBC Job Posting API
 
 ## Installation and Usage
 ```bash
@@ -9,20 +9,20 @@ npm install --save @datafire/gov_bc_ca_jobposting
 ```js
 let gov_bc_ca_jobposting = require('@datafire/gov_bc_ca_jobposting').create();
 
-gov_bc_ca_jobposting.jobs.post({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
 
 ## Description
 
-This API allows you to receive a feed of jobs from WorkBC's Job Board. Please see our <a href="https://github.com/bcgov/api-specs/blob/master/COLLECTION_NOTICE.md#collection-notice" target="_blank">data collection notice</a>.
+This API allows you to receive a feed of jobs from WorkBC's Job Board. Please see our <a href="https://github.com/bcgov/api-specs/blob/master/COLLECTION_NOTICE.md#collection-notice" target="_blank">data collection notice</a>. Please note that you may experience issues when submitting requests to the delivery or test environment if using this [OpenAPI specification](https://github.com/bcgov/api-specs) in other API console viewers.
 
 ## Actions
 
 ### Industries.get
-The Industries endpoint returns all the Industries and related sub industries
-defined in WorkBC's Job Board. The response includes the id and caption for
+The Industries endpoint returns all the Industries and related sub industries 
+defined in WorkBC's Job Board. The response includes the id and caption for 
 each industry and each sub industry.
 
 
@@ -66,14 +66,12 @@ gov_bc_ca_jobposting.jobs.post({}, context)
 
 #### Input
 * input `object`
-  * lastRequestDate `string`: The date of the last request. Only job postings changed or deleted after this time will be included in the response. Default is _today_ - 10 days.
-  * region `integer`: The unique id of a region within B.C. Only job postings located within the specified region will be included in the response. If not specified, the data is not filtered by region.
-  * city `string`: The name of a city within B.C. Only job postings located within the specified city will be included in the response. If not specified, the data is not filtered by city.
-  * jobTypes `array`: ID values for types of job to filter on. Only job postings matching all specified values will be included in the response. If not specified, the data is not filtered by job type.
-  * majorProjects `boolean`: When true, only include job postings that have a Major Project associated with them.  When false, only include job postings that do not have a Major Project associated with them. If not specified, the data is not filtered by major project, unless the MajorProjectID parameter is used.
-  * majorProjectID `integer`: The unique id of a major project within the WorkBC Job Board database. When specified, only job postings associated with the specified major project will be included in the response. This parameter has no effect if the MajorProjects parameter is supplied with the value false. If not specified, the data is not filtered by major project, unless the MajorProjects parameter is used.
-  * industries `array`: ID values for industries to filter on. Only job postings matching all specified values will be included in the response. If not specified, the data is not filtered by industry.
-  * subIndustries `array`: ID values for sub industries to filter on. Only job postings matching all specified values will be included in the response. If not specified, the data is not filtered by sub industry.
+  * body `object`
+    * city `string` (values: Victoria, Vancouver): The name of a city within B.C. Only job postings located within the specified city will be included in the response. If not specified, the data is not filtered by city.
+    * jobTypes `integer` (values: 1, 2): ID values for types of job to filter on. Only job postings matching all specified values will be included in the response. If not specified, the data is not filtered by job type.
+    * lastRequestDate `string` (values: 2018-08-29T00:00:00.000Z): The date of the last request. Only job postings changed or deleted after this time will be included in the response. Default is _today_ - 10 days.
+    * majorProjects `boolean`: When true, only include job postings that have a Major Project associated with them. When false, only include job postings that do not have a Major Project associated with them. If not specified, the data is not filtered by major project, unless the MajorProjectID parameter is used.
+    * region `integer` (values: 1, 2): The unique id of a region within B.C. Only job postings located within the specified region will be included in the response. If not specified, the data is not filtered by region
 
 #### Output
 * output [JobFeedResponse](#jobfeedresponse)

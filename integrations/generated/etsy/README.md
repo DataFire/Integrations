@@ -9,7 +9,7 @@ npm install --save @datafire/etsy
 ```js
 let etsy = require('@datafire/etsy').create();
 
-etsy.featured.users.get({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

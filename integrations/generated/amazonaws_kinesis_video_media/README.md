@@ -13,11 +13,7 @@ let amazonaws_kinesis_video_media = require('@datafire/amazonaws_kinesis_video_m
   region: ""
 });
 
-amazonaws_kinesis_video_media.GetMedia({
-  "StartSelector": {
-    "StartSelectorType": ""
-  }
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -34,17 +30,19 @@ amazonaws_kinesis_video_media.GetMedia({
 
 ```js
 amazonaws_kinesis_video_media.GetMedia({
-  "StartSelector": {
-    "StartSelectorType": ""
-  }
+  "StartSelector": {}
 }, context)
 ```
 
 #### Input
 * input `object`
-  * StartSelector **required** [StartSelector](#startselector)
-  * StreamARN [ResourceARN](#resourcearn)
-  * StreamName [StreamName](#streamname)
+  * StartSelector **required** `object`: <p>Identifies the chunk on the Kinesis video stream where you want the <code>GetMedia</code> API to start returning media data. You have the following options to identify the starting chunk: </p> <ul> <li> <p>Choose the latest (or oldest) chunk.</p> </li> <li> <p>Identify a specific chunk. You can identify a specific chunk either by providing a fragment number or timestamp (server or producer). </p> </li> <li> <p>Each chunk's metadata includes a continuation token as a Matroska (MKV) tag (<code>AWS_KINESISVIDEO_CONTINUATION_TOKEN</code>). If your previous <code>GetMedia</code> request terminated, you can use this tag value in your next <code>GetMedia</code> request. The API then starts returning chunks starting where the last API ended.</p> </li> </ul>
+    * AfterFragmentNumber
+    * ContinuationToken
+    * StartSelectorType
+    * StartTimestamp
+  * StreamARN `string`: The ARN of the stream from where you want to get the media content. If you don't specify the <code>streamARN</code>, you must specify the <code>streamName</code>.
+  * StreamName `string`: The Kinesis video stream name from where you want to get the media content. If you don't specify the <code>streamName</code>, you must specify the <code>streamARN</code>.
 
 #### Output
 * output [GetMediaOutput](#getmediaoutput)
@@ -54,12 +52,10 @@ amazonaws_kinesis_video_media.GetMedia({
 ## Definitions
 
 ### ClientLimitExceededException
-* ClientLimitExceededException `object`: Kinesis Video Streams has throttled the request because you have exceeded the limit of allowed client calls. Try making the call later.
-  * Message [ErrorMessage](#errormessage)
+
 
 ### ConnectionLimitExceededException
-* ConnectionLimitExceededException `object`: Kinesis Video Streams has throttled the request because you have exceeded the limit of allowed client connections.
-  * Message [ErrorMessage](#errormessage)
+
 
 ### ContentType
 * ContentType `string`
@@ -67,33 +63,31 @@ amazonaws_kinesis_video_media.GetMedia({
 ### ContinuationToken
 * ContinuationToken `string`
 
-### ErrorMessage
-* ErrorMessage `string`
-
 ### FragmentNumberString
 * FragmentNumberString `string`
 
 ### GetMediaInput
 * GetMediaInput `object`
-  * StartSelector **required** [StartSelector](#startselector)
-  * StreamARN [ResourceARN](#resourcearn)
-  * StreamName [StreamName](#streamname)
+  * StartSelector **required**
+    * AfterFragmentNumber
+    * ContinuationToken
+    * StartSelectorType **required**
+    * StartTimestamp
+  * StreamARN
+  * StreamName
 
 ### GetMediaOutput
 * GetMediaOutput `object`
-  * Payload [Payload](#payload)
+  * Payload
 
 ### InvalidArgumentException
-* InvalidArgumentException `object`: The value for this input parameter is invalid.
-  * Message [ErrorMessage](#errormessage)
+
 
 ### InvalidEndpointException
-* InvalidEndpointException `object`:  Status Code: 400, Caller used wrong endpoint to write data to a stream. On receiving such an exception, the user must call <code>GetDataEndpoint</code> with <code>AccessMode</code> set to "READ" and use the endpoint Kinesis Video returns in the next <code>GetMedia</code> call. 
-  * Message [ErrorMessage](#errormessage)
+
 
 ### NotAuthorizedException
-* NotAuthorizedException `object`: Status Code: 403, The caller is not authorized to perform an operation on the given stream, or the token has expired.
-  * Message [ErrorMessage](#errormessage)
+
 
 ### Payload
 * Payload `string`
@@ -102,15 +96,14 @@ amazonaws_kinesis_video_media.GetMedia({
 * ResourceARN `string`
 
 ### ResourceNotFoundException
-* ResourceNotFoundException `object`: Status Code: 404, The stream with the given name does not exist.
-  * Message [ErrorMessage](#errormessage)
+
 
 ### StartSelector
-* StartSelector `object`: <p>Identifies the chunk on the Kinesis video stream where you want the <code>GetMedia</code> API to start returning media data. You have the following options to identify the starting chunk: </p> <ul> <li> <p>Choose the latest (or oldest) chunk.</p> </li> <li> <p>Identify a specific chunk. You can identify a specific chunk either by providing a fragment number or time stamp (server or producer). </p> </li> <li> <p>Each chunk's metadata includes a continuation token as a Matroska (MKV) tag (<code>AWS_KINESISVIDEO_CONTINUATION_TOKEN</code>). If your previous <code>GetMedia</code> request terminated, you can use this tag value in your next <code>GetMedia</code> request. The API then starts returning chunks starting where the last API ended.</p> </li> </ul>
-  * AfterFragmentNumber [FragmentNumberString](#fragmentnumberstring)
-  * ContinuationToken [ContinuationToken](#continuationtoken)
-  * StartSelectorType **required** [StartSelectorType](#startselectortype)
-  * StartTimestamp [Timestamp](#timestamp)
+* StartSelector `object`: <p>Identifies the chunk on the Kinesis video stream where you want the <code>GetMedia</code> API to start returning media data. You have the following options to identify the starting chunk: </p> <ul> <li> <p>Choose the latest (or oldest) chunk.</p> </li> <li> <p>Identify a specific chunk. You can identify a specific chunk either by providing a fragment number or timestamp (server or producer). </p> </li> <li> <p>Each chunk's metadata includes a continuation token as a Matroska (MKV) tag (<code>AWS_KINESISVIDEO_CONTINUATION_TOKEN</code>). If your previous <code>GetMedia</code> request terminated, you can use this tag value in your next <code>GetMedia</code> request. The API then starts returning chunks starting where the last API ended.</p> </li> </ul>
+  * AfterFragmentNumber
+  * ContinuationToken
+  * StartSelectorType **required**
+  * StartTimestamp
 
 ### StartSelectorType
 * StartSelectorType `string` (values: FRAGMENT_NUMBER, SERVER_TIMESTAMP, PRODUCER_TIMESTAMP, NOW, EARLIEST, CONTINUATION_TOKEN)

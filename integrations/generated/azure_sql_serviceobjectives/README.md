@@ -15,12 +15,7 @@ let azure_sql_serviceobjectives = require('@datafire/azure_sql_serviceobjectives
   redirect_uri: ""
 });
 
-azure_sql_serviceobjectives.ServiceObjectives_ListByServer({
-  "api-version": "",
-  "subscriptionId": "",
-  "resourceGroupName": "",
-  "serverName": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

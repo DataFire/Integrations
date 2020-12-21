@@ -17,13 +17,13 @@
       "url": "http://opensource.org/licenses/MIT"
     },
     "termsOfService": "http://www.greenpeace.org/international/en/Help/copyright2/",
-    "title": "Greenwire Public",
+    "title": "Greenwire Public API",
     "version": "1.0.0",
     "x-apisguru-categories": [
       "collaboration"
     ],
     "x-logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_Greenpeace_profile_image.jpeg"
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_Greenpeace_profile_image.png"
     },
     "x-origin": [
       {

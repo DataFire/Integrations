@@ -15,14 +15,7 @@ let azure_sql_datawarehouseuseractivities = require('@datafire/azure_sql_datawar
   redirect_uri: ""
 });
 
-azure_sql_datawarehouseuseractivities.DataWarehouseUserActivities_Get({
-  "resourceGroupName": "",
-  "serverName": "",
-  "databaseName": "",
-  "dataWarehouseUserActivityName": "",
-  "subscriptionId": "",
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

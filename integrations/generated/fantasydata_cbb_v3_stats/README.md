@@ -12,9 +12,7 @@ let fantasydata_cbb_v3_stats = require('@datafire/fantasydata_cbb_v3_stats').cre
   apiKeyQuery: ""
 });
 
-fantasydata_cbb_v3_stats.AreGamesInProgress({
-  "format": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

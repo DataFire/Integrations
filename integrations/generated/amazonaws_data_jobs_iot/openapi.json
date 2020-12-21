@@ -1,11 +1,5 @@
 {
   "swagger": "2.0",
-  "schemes": [
-    "https",
-    "http"
-  ],
-  "host": "data.jobs.iot.amazonaws.com",
-  "basePath": "/",
   "info": {
     "contact": {
       "email": "mike.ralphson@gmail.com",
@@ -29,7 +23,7 @@
     ],
     "x-logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.jpeg"
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"
     },
     "x-origin": [
       {
@@ -39,7 +33,7 @@
           "version": "1.0.0"
         },
         "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/iot-jobs-data-2017-09-29.normal.json",
-        "x-apisguru-direct": true
+        "x-apisguru-driver": "external"
       }
     ],
     "x-preferred": true,
@@ -51,103 +45,69 @@
       "type": "openapi"
     }
   },
-  "externalDocs": {
-    "description": "Amazon Web Services documentation",
-    "url": "https://aws.amazon.com/iot/"
-  },
-  "consumes": [
-    "application/json"
+  "host": "data.jobs.iot.us-east-1.amazonaws.com",
+  "basePath": "/",
+  "schemes": [
+    "http"
   ],
-  "produces": [
-    "application/json"
-  ],
-  "securityDefinitions": {
-    "hmac": {
-      "description": "Amazon Signature authorization v4",
-      "in": "header",
-      "name": "Authorization",
-      "type": "apiKey",
-      "x-amazon-apigateway-authtype": "awsSigv4"
-    }
-  },
-  "security": [
-    {
-      "hmac": []
-    }
-  ],
-  "parameters": {
-    "Action": {
-      "in": "header",
-      "name": "Action",
-      "required": true,
-      "type": "string"
-    },
-    "Version": {
-      "in": "header",
-      "name": "Version",
-      "required": true,
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "in": "header",
-      "name": "X-Amz-Algorithm",
-      "required": false,
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "in": "header",
-      "name": "X-Amz-Content-Sha256",
-      "required": false,
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "in": "header",
-      "name": "X-Amz-Credential",
-      "required": false,
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "in": "header",
-      "name": "X-Amz-Date",
-      "required": false,
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "in": "header",
-      "name": "X-Amz-Security-Token",
-      "required": false,
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "in": "header",
-      "name": "X-Amz-Signature",
-      "required": false,
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "in": "header",
-      "name": "X-Amz-SignedHeaders",
-      "required": false,
-      "type": "string"
-    }
-  },
   "paths": {
     "/things/{thingName}/jobs": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
       "get": {
-        "description": "Gets the list of all jobs for a thing that are not in a terminal status.",
-        "operationId": "GetPendingJobExecutions",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "in": "body",
-            "name": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/GetPendingJobExecutionsRequest"
-            }
-          },
-          {
+            "description": "The name of the thing that is executing the job.",
             "in": "path",
+            "maxLength": 128,
+            "minLength": 1,
             "name": "thingName",
+            "pattern": "[a-zA-Z0-9:_-]+",
             "required": true,
             "type": "string"
           }
@@ -189,85 +149,94 @@
               "$ref": "#/definitions/CertificateValidationException"
             }
           }
-        }
-      },
-      "parameters": [
-        {
-          "$ref": "#/parameters/Action"
         },
-        {
-          "$ref": "#/parameters/Version"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Date"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Algorithm"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Credential"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
-        }
-      ]
+        "description": "Gets the list of all jobs for a thing that are not in a terminal status.",
+        "operationId": "GetPendingJobExecutions"
+      }
     },
     "/things/{thingName}/jobs/$next": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "put": {
-        "description": "Gets and starts the next pending (status IN_PROGRESS or QUEUED) job execution for a thing.",
-        "operationId": "StartNextPendingJobExecution",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "description": "The name of the thing associated with the device.",
+            "in": "path",
+            "maxLength": 128,
+            "minLength": 1,
+            "name": "thingName",
+            "pattern": "[a-zA-Z0-9:_-]+",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/StartNextPendingJobExecutionRequest"
+              "properties": {
+                "statusDetails": {
+                  "additionalProperties": {
+                    "$ref": "#/definitions/DetailsValue"
+                  },
+                  "description": "A collection of name/value pairs that describe the status of the job execution. If not specified, the statusDetails are unchanged.",
+                  "type": "object"
+                },
+                "stepTimeoutInMinutes": {
+                  "description": "Specifies the amount of time this device has to finish execution of this job. If the job execution status is not set to a terminal state before this timer expires, or before the timer is reset (by calling <code>UpdateJobExecution</code>, setting the status to <code>IN_PROGRESS</code> and specifying a new timeout value in field <code>stepTimeoutInMinutes</code>) the job execution status will be automatically set to <code>TIMED_OUT</code>. Note that setting this timeout has no effect on that job execution timeout which may have been specified when the job was created (<code>CreateJob</code> using field <code>timeoutConfig</code>).",
+                  "type": "integer"
+                }
+              },
+              "type": "object"
             }
-          },
-          {
-            "in": "path",
-            "name": "thingName",
-            "required": true,
-            "type": "string"
           }
         ],
         "responses": {
@@ -307,33 +276,92 @@
               "$ref": "#/definitions/CertificateValidationException"
             }
           }
-        }
+        },
+        "description": "Gets and starts the next pending (status IN_PROGRESS or QUEUED) job execution for a thing.",
+        "operationId": "StartNextPendingJobExecution"
       }
     },
     "/things/{thingName}/jobs/{jobId}": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
       "get": {
-        "description": "Gets details of a job execution.",
-        "operationId": "DescribeJobExecution",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "in": "body",
-            "name": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/DescribeJobExecutionRequest"
-            }
-          },
-          {
+            "description": "The unique identifier assigned to this job when it was created.",
             "in": "path",
             "name": "jobId",
+            "pattern": "[a-zA-Z0-9_-]+|^\\$next",
             "required": true,
             "type": "string"
           },
           {
+            "description": "The thing name associated with the device the job execution is running on.",
             "in": "path",
+            "maxLength": 128,
+            "minLength": 1,
             "name": "thingName",
+            "pattern": "[a-zA-Z0-9:_-]+",
             "required": true,
             "type": "string"
+          },
+          {
+            "description": "Optional. When set to true, the response contains the job document. The default is false.",
+            "in": "query",
+            "name": "includeJobDocument",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "description": "Optional. A number that identifies a particular job execution on a particular device. If not specified, the latest job execution is returned.",
+            "in": "query",
+            "name": "executionNumber",
+            "required": false,
+            "type": "integer"
           }
         ],
         "responses": {
@@ -379,60 +407,91 @@
               "$ref": "#/definitions/TerminalStateException"
             }
           }
-        }
+        },
+        "description": "Gets details of a job execution.",
+        "operationId": "DescribeJobExecution"
       },
-      "parameters": [
-        {
-          "$ref": "#/parameters/Action"
-        },
-        {
-          "$ref": "#/parameters/Version"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Date"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Algorithm"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Credential"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
-        }
-      ],
       "post": {
-        "description": "Updates the status of a job execution.",
-        "operationId": "UpdateJobExecution",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "description": "The unique identifier assigned to this job when it was created.",
+            "in": "path",
+            "maxLength": 64,
+            "minLength": 1,
+            "name": "jobId",
+            "pattern": "[a-zA-Z0-9_-]+",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The name of the thing associated with the device.",
+            "in": "path",
+            "maxLength": 128,
+            "minLength": 1,
+            "name": "thingName",
+            "pattern": "[a-zA-Z0-9:_-]+",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/UpdateJobExecutionRequest"
+              "properties": {
+                "executionNumber": {
+                  "description": "Optional. A number that identifies a particular job execution on a particular device.",
+                  "type": "integer"
+                },
+                "expectedVersion": {
+                  "description": "Optional. The expected current version of the job execution. Each time you update the job execution, its version is incremented. If the version of the job execution stored in Jobs does not match, the update is rejected with a VersionMismatch error, and an ErrorResponse that contains the current job execution status data is returned. (This makes it unnecessary to perform a separate DescribeJobExecution request in order to obtain the job execution status data.)",
+                  "type": "integer"
+                },
+                "includeJobDocument": {
+                  "description": "Optional. When set to true, the response contains the job document. The default is false.",
+                  "type": "boolean"
+                },
+                "includeJobExecutionState": {
+                  "description": "Optional. When included and set to true, the response contains the JobExecutionState data. The default is false.",
+                  "type": "boolean"
+                },
+                "status": {
+                  "description": "The new status for the job execution (IN_PROGRESS, FAILED, SUCCESS, or REJECTED). This must be specified on every update.",
+                  "enum": [
+                    "QUEUED",
+                    "IN_PROGRESS",
+                    "SUCCEEDED",
+                    "FAILED",
+                    "TIMED_OUT",
+                    "REJECTED",
+                    "REMOVED",
+                    "CANCELED"
+                  ],
+                  "type": "string"
+                },
+                "statusDetails": {
+                  "additionalProperties": {
+                    "$ref": "#/definitions/DetailsValue"
+                  },
+                  "description": " Optional. A collection of name/value pairs that describe the status of the job execution. If not specified, the statusDetails are unchanged.",
+                  "type": "object"
+                },
+                "stepTimeoutInMinutes": {
+                  "description": "Specifies the amount of time this device has to finish execution of this job. If the job execution status is not set to a terminal state before this timer expires, or before the timer is reset (by again calling <code>UpdateJobExecution</code>, setting the status to <code>IN_PROGRESS</code> and specifying a new timeout value in this field) the job execution status will be automatically set to <code>TIMED_OUT</code>. Note that setting or resetting this timeout has no effect on that job execution timeout which may have been specified when the job was created (<code>CreateJob</code> using field <code>timeoutConfig</code>).",
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "status"
+              ],
+              "type": "object"
             }
-          },
-          {
-            "in": "path",
-            "name": "jobId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "in": "path",
-            "name": "thingName",
-            "required": true,
-            "type": "string"
           }
         ],
         "responses": {
@@ -478,34 +537,37 @@
               "$ref": "#/definitions/InvalidStateTransitionException"
             }
           }
-        }
+        },
+        "description": "Updates the status of a job execution.",
+        "operationId": "UpdateJobExecution"
       }
     }
   },
   "definitions": {
-    "CertificateValidationException": {
-      "description": "The certificate is invalid.",
-      "properties": {
-        "message": {
-          "$ref": "#/definitions/errorMessage",
-          "description": "Additional information about the exception."
-        }
-      },
-      "type": "object"
+    "ApproximateSecondsBeforeTimedOut": {
+      "type": "integer"
     },
+    "CertificateValidationException": {},
     "DescribeJobExecutionJobId": {
       "pattern": "[a-zA-Z0-9_-]+|^\\$next",
       "type": "string"
     },
     "DescribeJobExecutionRequest": {
       "properties": {},
+      "title": "DescribeJobExecutionRequest",
       "type": "object"
     },
     "DescribeJobExecutionResponse": {
       "properties": {
         "execution": {
-          "$ref": "#/definitions/JobExecution",
-          "description": "Contains data about a job execution."
+          "allOf": [
+            {
+              "$ref": "#/definitions/JobExecution"
+            },
+            {
+              "description": "Contains data about a job execution."
+            }
+          ]
         }
       },
       "type": "object"
@@ -517,18 +579,10 @@
       "type": "string"
     },
     "DetailsMap": {
-      "items": {
-        "properties": {
-          "key": {
-            "$ref": "#/definitions/DetailsKey"
-          },
-          "value": {
-            "$ref": "#/definitions/DetailsValue"
-          }
-        },
-        "type": "object"
+      "additionalProperties": {
+        "$ref": "#/definitions/DetailsValue"
       },
-      "type": "array"
+      "type": "object"
     },
     "DetailsValue": {
       "maxLength": 1024,
@@ -544,17 +598,30 @@
     },
     "GetPendingJobExecutionsRequest": {
       "properties": {},
+      "title": "GetPendingJobExecutionsRequest",
       "type": "object"
     },
     "GetPendingJobExecutionsResponse": {
       "properties": {
         "inProgressJobs": {
-          "$ref": "#/definitions/JobExecutionSummaryList",
-          "description": "A list of JobExecutionSummary objects with status IN_PROGRESS."
+          "allOf": [
+            {
+              "$ref": "#/definitions/JobExecutionSummaryList"
+            },
+            {
+              "description": "A list of JobExecutionSummary objects with status IN_PROGRESS."
+            }
+          ]
         },
         "queuedJobs": {
-          "$ref": "#/definitions/JobExecutionSummaryList",
-          "description": "A list of JobExecutionSummary objects with status QUEUED."
+          "allOf": [
+            {
+              "$ref": "#/definitions/JobExecutionSummaryList"
+            },
+            {
+              "description": "A list of JobExecutionSummary objects with status QUEUED."
+            }
+          ]
         }
       },
       "type": "object"
@@ -565,25 +632,8 @@
     "IncludeJobDocument": {
       "type": "boolean"
     },
-    "InvalidRequestException": {
-      "description": "The contents of the request were invalid. For example, this code is returned when an UpdateJobExecution request contains invalid status details. The message contains details about the error.",
-      "properties": {
-        "message": {
-          "$ref": "#/definitions/errorMessage",
-          "description": "The message for the exception."
-        }
-      },
-      "type": "object"
-    },
-    "InvalidStateTransitionException": {
-      "description": "An update attempted to change the job execution to a state that is invalid because of the job execution's current state (for example, an attempt to change a request in state SUCCESS to state IN_PROGRESS). In this case, the body of the error message also contains the executionState field.",
-      "properties": {
-        "message": {
-          "$ref": "#/definitions/errorMessage"
-        }
-      },
-      "type": "object"
-    },
+    "InvalidRequestException": {},
+    "InvalidStateTransitionException": {},
     "JobDocument": {
       "maxLength": 32768,
       "type": "string"
@@ -591,45 +641,115 @@
     "JobExecution": {
       "description": "Contains data about a job execution.",
       "properties": {
+        "approximateSecondsBeforeTimedOut": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ApproximateSecondsBeforeTimedOut"
+            },
+            {
+              "description": "The estimated number of seconds that remain before the job execution status will be changed to <code>TIMED_OUT</code>."
+            }
+          ]
+        },
         "executionNumber": {
-          "$ref": "#/definitions/ExecutionNumber",
-          "description": "A number that identifies a particular job execution on a particular device. It can be used later in commands that return or update job execution information."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ExecutionNumber"
+            },
+            {
+              "description": "A number that identifies a particular job execution on a particular device. It can be used later in commands that return or update job execution information."
+            }
+          ]
         },
         "jobDocument": {
-          "$ref": "#/definitions/JobDocument",
-          "description": "The content of the job document."
+          "allOf": [
+            {
+              "$ref": "#/definitions/JobDocument"
+            },
+            {
+              "description": "The content of the job document."
+            }
+          ]
         },
         "jobId": {
-          "$ref": "#/definitions/JobId",
-          "description": "The unique identifier you assigned to this job when it was created."
+          "allOf": [
+            {
+              "$ref": "#/definitions/JobId"
+            },
+            {
+              "description": "The unique identifier you assigned to this job when it was created."
+            }
+          ]
         },
         "lastUpdatedAt": {
-          "$ref": "#/definitions/LastUpdatedAt",
-          "description": "The time, in milliseconds since the epoch, when the job execution was last updated. "
+          "allOf": [
+            {
+              "$ref": "#/definitions/LastUpdatedAt"
+            },
+            {
+              "description": "The time, in milliseconds since the epoch, when the job execution was last updated. "
+            }
+          ]
         },
         "queuedAt": {
-          "$ref": "#/definitions/QueuedAt",
-          "description": "The time, in milliseconds since the epoch, when the job execution was enqueued."
+          "allOf": [
+            {
+              "$ref": "#/definitions/QueuedAt"
+            },
+            {
+              "description": "The time, in milliseconds since the epoch, when the job execution was enqueued."
+            }
+          ]
         },
         "startedAt": {
-          "$ref": "#/definitions/StartedAt",
-          "description": "The time, in milliseconds since the epoch, when the job execution was started."
+          "allOf": [
+            {
+              "$ref": "#/definitions/StartedAt"
+            },
+            {
+              "description": "The time, in milliseconds since the epoch, when the job execution was started."
+            }
+          ]
         },
         "status": {
-          "$ref": "#/definitions/JobExecutionStatus",
-          "description": "The status of the job execution. Can be one of: \"QUEUED\", \"IN_PROGRESS\", \"FAILED\", \"SUCCESS\", \"CANCELED\", \"REJECTED\", or \"REMOVED\"."
+          "allOf": [
+            {
+              "$ref": "#/definitions/JobExecutionStatus"
+            },
+            {
+              "description": "The status of the job execution. Can be one of: \"QUEUED\", \"IN_PROGRESS\", \"FAILED\", \"SUCCESS\", \"CANCELED\", \"REJECTED\", or \"REMOVED\"."
+            }
+          ]
         },
         "statusDetails": {
-          "$ref": "#/definitions/DetailsMap",
-          "description": "A collection of name/value pairs that describe the status of the job execution."
+          "allOf": [
+            {
+              "$ref": "#/definitions/DetailsMap"
+            },
+            {
+              "description": "A collection of name/value pairs that describe the status of the job execution."
+            }
+          ]
         },
         "thingName": {
-          "$ref": "#/definitions/ThingName",
-          "description": "The name of the thing that is executing the job."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ThingName"
+            },
+            {
+              "description": "The name of the thing that is executing the job."
+            }
+          ]
         },
         "versionNumber": {
-          "$ref": "#/definitions/VersionNumber",
-          "description": "The version of the job execution. Job execution versions are incremented each time they are updated by a device."
+          "allOf": [
+            {
+              "$ref": "#/definitions/VersionNumber"
+            },
+            {
+              "description": "The version of the job execution. Job execution versions are incremented each time they are updated by a device."
+            }
+          ]
         }
       },
       "type": "object"
@@ -638,16 +758,34 @@
       "description": "Contains data about the state of a job execution.",
       "properties": {
         "status": {
-          "$ref": "#/definitions/JobExecutionStatus",
-          "description": "The status of the job execution. Can be one of: \"QUEUED\", \"IN_PROGRESS\", \"FAILED\", \"SUCCESS\", \"CANCELED\", \"REJECTED\", or \"REMOVED\"."
+          "allOf": [
+            {
+              "$ref": "#/definitions/JobExecutionStatus"
+            },
+            {
+              "description": "The status of the job execution. Can be one of: \"QUEUED\", \"IN_PROGRESS\", \"FAILED\", \"SUCCESS\", \"CANCELED\", \"REJECTED\", or \"REMOVED\"."
+            }
+          ]
         },
         "statusDetails": {
-          "$ref": "#/definitions/DetailsMap",
-          "description": "A collection of name/value pairs that describe the status of the job execution."
+          "allOf": [
+            {
+              "$ref": "#/definitions/DetailsMap"
+            },
+            {
+              "description": "A collection of name/value pairs that describe the status of the job execution."
+            }
+          ]
         },
         "versionNumber": {
-          "$ref": "#/definitions/VersionNumber",
-          "description": "The version of the job execution. Job execution versions are incremented each time they are updated by a device."
+          "allOf": [
+            {
+              "$ref": "#/definitions/VersionNumber"
+            },
+            {
+              "description": "The version of the job execution. Job execution versions are incremented each time they are updated by a device."
+            }
+          ]
         }
       },
       "type": "object"
@@ -658,6 +796,7 @@
         "IN_PROGRESS",
         "SUCCEEDED",
         "FAILED",
+        "TIMED_OUT",
         "REJECTED",
         "REMOVED",
         "CANCELED"
@@ -668,28 +807,64 @@
       "description": "Contains a subset of information about a job execution.",
       "properties": {
         "executionNumber": {
-          "$ref": "#/definitions/ExecutionNumber",
-          "description": "A number that identifies a particular job execution on a particular device."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ExecutionNumber"
+            },
+            {
+              "description": "A number that identifies a particular job execution on a particular device."
+            }
+          ]
         },
         "jobId": {
-          "$ref": "#/definitions/JobId",
-          "description": "The unique identifier you assigned to this job when it was created."
+          "allOf": [
+            {
+              "$ref": "#/definitions/JobId"
+            },
+            {
+              "description": "The unique identifier you assigned to this job when it was created."
+            }
+          ]
         },
         "lastUpdatedAt": {
-          "$ref": "#/definitions/LastUpdatedAt",
-          "description": "The time, in milliseconds since the epoch, when the job execution was last updated."
+          "allOf": [
+            {
+              "$ref": "#/definitions/LastUpdatedAt"
+            },
+            {
+              "description": "The time, in milliseconds since the epoch, when the job execution was last updated."
+            }
+          ]
         },
         "queuedAt": {
-          "$ref": "#/definitions/QueuedAt",
-          "description": "The time, in milliseconds since the epoch, when the job execution was enqueued."
+          "allOf": [
+            {
+              "$ref": "#/definitions/QueuedAt"
+            },
+            {
+              "description": "The time, in milliseconds since the epoch, when the job execution was enqueued."
+            }
+          ]
         },
         "startedAt": {
-          "$ref": "#/definitions/StartedAt",
-          "description": "The time, in milliseconds since the epoch, when the job execution started."
+          "allOf": [
+            {
+              "$ref": "#/definitions/StartedAt"
+            },
+            {
+              "description": "The time, in milliseconds since the epoch, when the job execution started."
+            }
+          ]
         },
         "versionNumber": {
-          "$ref": "#/definitions/VersionNumber",
-          "description": "The version of the job execution. Job execution versions are incremented each time AWS IoT Jobs receives an update from a device."
+          "allOf": [
+            {
+              "$ref": "#/definitions/VersionNumber"
+            },
+            {
+              "description": "The version of the job execution. Job execution versions are incremented each time AWS IoT Jobs receives an update from a device."
+            }
+          ]
         }
       },
       "type": "object"
@@ -712,40 +887,45 @@
     "QueuedAt": {
       "type": "integer"
     },
-    "ResourceNotFoundException": {
-      "description": "The specified resource does not exist.",
-      "properties": {
-        "message": {
-          "$ref": "#/definitions/errorMessage",
-          "description": "The message for the exception."
-        }
-      },
-      "type": "object"
-    },
-    "ServiceUnavailableException": {
-      "description": "The service is temporarily unavailable.",
-      "properties": {
-        "message": {
-          "$ref": "#/definitions/errorMessage",
-          "description": "The message for the exception."
-        }
-      },
-      "type": "object"
-    },
+    "ResourceNotFoundException": {},
+    "ServiceUnavailableException": {},
     "StartNextPendingJobExecutionRequest": {
       "properties": {
         "statusDetails": {
-          "$ref": "#/definitions/DetailsMap",
-          "description": "A collection of name/value pairs that describe the status of the job execution. If not specified, the statusDetails are unchanged."
+          "allOf": [
+            {
+              "$ref": "#/definitions/DetailsMap"
+            },
+            {
+              "description": "A collection of name/value pairs that describe the status of the job execution. If not specified, the statusDetails are unchanged."
+            }
+          ]
+        },
+        "stepTimeoutInMinutes": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/StepTimeoutInMinutes"
+            },
+            {
+              "description": "Specifies the amount of time this device has to finish execution of this job. If the job execution status is not set to a terminal state before this timer expires, or before the timer is reset (by calling <code>UpdateJobExecution</code>, setting the status to <code>IN_PROGRESS</code> and specifying a new timeout value in field <code>stepTimeoutInMinutes</code>) the job execution status will be automatically set to <code>TIMED_OUT</code>. Note that setting this timeout has no effect on that job execution timeout which may have been specified when the job was created (<code>CreateJob</code> using field <code>timeoutConfig</code>)."
+            }
+          ]
         }
       },
+      "title": "StartNextPendingJobExecutionRequest",
       "type": "object"
     },
     "StartNextPendingJobExecutionResponse": {
       "properties": {
         "execution": {
-          "$ref": "#/definitions/JobExecution",
-          "description": "A JobExecution object."
+          "allOf": [
+            {
+              "$ref": "#/definitions/JobExecution"
+            },
+            {
+              "description": "A JobExecution object."
+            }
+          ]
         }
       },
       "type": "object"
@@ -753,81 +933,187 @@
     "StartedAt": {
       "type": "integer"
     },
-    "TerminalStateException": {
-      "description": "The job is in a terminal state.",
-      "properties": {
-        "message": {
-          "$ref": "#/definitions/errorMessage"
-        }
-      },
-      "type": "object"
+    "StepTimeoutInMinutes": {
+      "type": "integer"
     },
+    "TerminalStateException": {},
     "ThingName": {
       "maxLength": 128,
       "minLength": 1,
       "pattern": "[a-zA-Z0-9:_-]+",
       "type": "string"
     },
-    "ThrottlingException": {
-      "description": "The rate exceeds the limit.",
-      "properties": {
-        "message": {
-          "$ref": "#/definitions/errorMessage",
-          "description": "The message for the exception."
-        }
-      },
-      "type": "object"
-    },
+    "ThrottlingException": {},
     "UpdateJobExecutionRequest": {
       "properties": {
         "executionNumber": {
-          "$ref": "#/definitions/ExecutionNumber",
-          "description": "Optional. A number that identifies a particular job execution on a particular device."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ExecutionNumber"
+            },
+            {
+              "description": "Optional. A number that identifies a particular job execution on a particular device."
+            }
+          ]
         },
         "expectedVersion": {
-          "$ref": "#/definitions/ExpectedVersion",
-          "description": "Optional. The expected current version of the job execution. Each time you update the job execution, its version is incremented. If the version of the job execution stored in Jobs does not match, the update is rejected with a VersionMismatch error, and an ErrorResponse that contains the current job execution status data is returned. (This makes it unnecessary to perform a separate DescribeJobExecution request in order to obtain the job execution status data.)"
+          "allOf": [
+            {
+              "$ref": "#/definitions/ExpectedVersion"
+            },
+            {
+              "description": "Optional. The expected current version of the job execution. Each time you update the job execution, its version is incremented. If the version of the job execution stored in Jobs does not match, the update is rejected with a VersionMismatch error, and an ErrorResponse that contains the current job execution status data is returned. (This makes it unnecessary to perform a separate DescribeJobExecution request in order to obtain the job execution status data.)"
+            }
+          ]
         },
         "includeJobDocument": {
-          "$ref": "#/definitions/IncludeJobDocument",
-          "description": "Optional. When set to true, the response contains the job document. The default is false."
+          "allOf": [
+            {
+              "$ref": "#/definitions/IncludeJobDocument"
+            },
+            {
+              "description": "Optional. When set to true, the response contains the job document. The default is false."
+            }
+          ]
         },
         "includeJobExecutionState": {
-          "$ref": "#/definitions/IncludeExecutionState",
-          "description": "Optional. When included and set to true, the response contains the JobExecutionState data. The default is false."
+          "allOf": [
+            {
+              "$ref": "#/definitions/IncludeExecutionState"
+            },
+            {
+              "description": "Optional. When included and set to true, the response contains the JobExecutionState data. The default is false."
+            }
+          ]
         },
         "status": {
-          "$ref": "#/definitions/JobExecutionStatus",
-          "description": "The new status for the job execution (IN_PROGRESS, FAILED, SUCCESS, or REJECTED). This must be specified on every update."
+          "allOf": [
+            {
+              "$ref": "#/definitions/JobExecutionStatus"
+            },
+            {
+              "description": "The new status for the job execution (IN_PROGRESS, FAILED, SUCCESS, or REJECTED). This must be specified on every update."
+            }
+          ]
         },
         "statusDetails": {
-          "$ref": "#/definitions/DetailsMap",
-          "description": " Optional. A collection of name/value pairs that describe the status of the job execution. If not specified, the statusDetails are unchanged."
+          "allOf": [
+            {
+              "$ref": "#/definitions/DetailsMap"
+            },
+            {
+              "description": " Optional. A collection of name/value pairs that describe the status of the job execution. If not specified, the statusDetails are unchanged."
+            }
+          ]
+        },
+        "stepTimeoutInMinutes": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/StepTimeoutInMinutes"
+            },
+            {
+              "description": "Specifies the amount of time this device has to finish execution of this job. If the job execution status is not set to a terminal state before this timer expires, or before the timer is reset (by again calling <code>UpdateJobExecution</code>, setting the status to <code>IN_PROGRESS</code> and specifying a new timeout value in this field) the job execution status will be automatically set to <code>TIMED_OUT</code>. Note that setting or resetting this timeout has no effect on that job execution timeout which may have been specified when the job was created (<code>CreateJob</code> using field <code>timeoutConfig</code>)."
+            }
+          ]
         }
       },
       "required": [
         "status"
       ],
+      "title": "UpdateJobExecutionRequest",
       "type": "object"
     },
     "UpdateJobExecutionResponse": {
       "properties": {
         "executionState": {
-          "$ref": "#/definitions/JobExecutionState",
-          "description": "A JobExecutionState object."
+          "allOf": [
+            {
+              "$ref": "#/definitions/JobExecutionState"
+            },
+            {
+              "description": "A JobExecutionState object."
+            }
+          ]
         },
         "jobDocument": {
-          "$ref": "#/definitions/JobDocument",
-          "description": "The contents of the Job Documents."
+          "allOf": [
+            {
+              "$ref": "#/definitions/JobDocument"
+            },
+            {
+              "description": "The contents of the Job Documents."
+            }
+          ]
         }
       },
       "type": "object"
     },
     "VersionNumber": {
       "type": "integer"
-    },
-    "errorMessage": {
-      "type": "string"
+    }
+  },
+  "securityDefinitions": {
+    "hmac": {
+      "description": "Amazon Signature authorization v4",
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey",
+      "x-amazon-apigateway-authtype": "awsSigv4"
+    }
+  },
+  "security": [
+    {
+      "hmac": []
+    }
+  ],
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://docs.aws.amazon.com/iot/"
+  },
+  "x-components": {
+    "parameters": {
+      "X-Amz-Algorithm": {
+        "in": "header",
+        "name": "X-Amz-Algorithm",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Content-Sha256": {
+        "in": "header",
+        "name": "X-Amz-Content-Sha256",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Credential": {
+        "in": "header",
+        "name": "X-Amz-Credential",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Date": {
+        "in": "header",
+        "name": "X-Amz-Date",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Security-Token": {
+        "in": "header",
+        "name": "X-Amz-Security-Token",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Signature": {
+        "in": "header",
+        "name": "X-Amz-Signature",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-SignedHeaders": {
+        "in": "header",
+        "name": "X-Amz-SignedHeaders",
+        "required": false,
+        "type": "string"
+      }
     }
   }
 }

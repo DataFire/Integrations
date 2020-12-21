@@ -1,8 +1,8 @@
 {
   "name": "@datafire/storecove",
-  "version": "5.0.0",
+  "version": "6.0.0",
   "main": "index.js",
-  "description": "DataFire integration for Storecove",
+  "description": "DataFire integration for Storecove API",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DataFire/integrations.git"

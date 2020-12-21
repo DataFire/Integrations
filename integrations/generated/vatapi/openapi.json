@@ -13,13 +13,13 @@
       "financial"
     ],
     "x-logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_vatapi.com_images_logo-invoice.jpg"
+      "url": "https://api.apis.guru/v2/cache/logo/http_vatapi.com_graphics_logo.svg"
     },
     "x-origin": [
       {
         "converter": {
           "url": "https://github.com/lucybot/api-spec-converter",
-          "version": "2.6.2"
+          "version": "2.7.11"
         },
         "format": "swagger",
         "url": "https://vatapi.com/api-docs.json",

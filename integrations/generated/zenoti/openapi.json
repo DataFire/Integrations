@@ -9,15 +9,12 @@
       "email": "support@zenoti.com",
       "x-twitter": "ZenotiSoftware"
     },
-    "description": "Zenoti Open APIs now help you manage the powerful capabilities offered through a suite of Open APIs. \n\n",
+    "description": "Zenoti Open APIs now help you manage the powerful capabilities offered through a suite of Open APIs.\n\n",
     "title": "Zenoti Open",
     "version": "1.0.0",
     "x-apisguru-categories": [
       "customer_relation"
     ],
-    "x-logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_ZenotiSoftware_profile_image.png"
-    },
     "x-origin": [
       {
         "format": "swagger",
@@ -57,10 +54,18 @@
     }
   ],
   "paths": {
-    "/packages/{package_id}": {
+    "/packages/{packageId}": {
       "get": {
         "description": "Returns details of a package",
-        "parameters": [],
+        "parameters": [
+          {
+            "description": "DataType: UniqueIdentifier(GUID)",
+            "in": "query",
+            "name": "centerId",
+            "required": true,
+            "type": "string"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Status 200",
@@ -73,19 +78,20 @@
         "tags": [
           "Packages"
         ],
-        "operationId": "packages.package_id.get"
+        "operationId": "packages.packageId.get"
       },
       "parameters": [
         {
+          "description": "DataType: UniqueIdentifier(GUID)",
           "in": "path",
-          "name": "package_id",
+          "name": "packageId",
           "required": true,
           "type": "string"
         }
       ],
       "x-restlet": {
         "section": "Packages",
-        "operationId": "packages.package_id.x-restlet"
+        "operationId": "packages.packageId.x-restlet"
       }
     },
     "/v1/Catalog/Appointments/AvailableTimes": {
@@ -178,7 +184,7 @@
               "application/json": "{\n    \"IsConfirmed\": true,\n    \"ConfirmationId\": \"3d714afc-d60a-4dd3-bc17-7a5cb386f1c7\",\n    \"ReservationId\": \"00000000-0000-0000-0000-000000000000\",\n    \"ConfirmedBookings\": [\n        {\n            \"GuestId\": \"75ac5009-6b23-4275-8efe-4bb187683876\",\n            \"AppointmentGroupId\": \"a09cfcf1-cceb-47ca-803c-bfa5a8dd1547\",\n            \"Services\": [\n                {\n                    \"AppointmentId\": \"c575be1e-9c96-4fe9-a760-b57596afb4e7\",\n                    \"InvoiceItemId\": \"144ff1cb-6a94-4a51-a352-e1f9648bc33b\",\n                    \"CartItemId\": null,\n                    \"AppointmentSegmentId\": null,\n                    \"PackageId\": null,\n                    \"Package\": null,\n                    \"Service\": {\n                        \"Id\": \"5794a470-7b92-4942-a7e9-15a06f128244\",\n                        \"Name\": \"Age Defying With Body Firming\",\n                        \"Price\": null,\n                        \"Duration\": 75,\n                        \"CategoryId\": \"b789ab1a-ec37-4866-8701-74a1333c4cd4\",\n                        \"IsAddOn\": false,\n                        \"HasAddOns\": null,\n                        \"AddOnToServiceId\": null,\n                        \"CategoryName\": null,\n                        \"AddOns\": null,\n                        \"IsVariant\": false,\n                        \"HasVariant\": false,\n                        \"ParentServiceId\": null,\n                        \"CartItemId\": null\n                    },\n                    \"ReducedTimeGroupId\": null,\n                    \"RequestedTherapistGender\": 0,\n                    \"StartTime\": \"2017-10-26T13:00:00\",\n                    \"EndTime\": \"2017-10-26T14:15:00\",\n                    \"NonReducedDuration\": null,\n                    \"StartTimeInCenter\": \"2017-10-26T18:30:00\",\n                    \"EndTimeInCenter\": \"2017-10-26T19:45:00\",\n                    \"Room\": null,\n                    \"Lock\": false,\n                    \"Equipment\": null,\n                    \"Status\": 0,\n                    \"RequestedTherapist\": {\n                        \"Id\": \"1afd493a-4aad-48a3-8f94-9fdea88691ac\",\n                        \"ShortName\": \"Ajay K\",\n                        \"NickName\": \"Ajay k\",\n                        \"FullName\": \"Ajay k\",\n                        \"Email\": null,\n                        \"PhoneNumber\": \"9213158104\",\n                        \"MobilePhoneModel\": {\n                            \"CountryId\": 95,\n                            \"Number\": \"9213158104\",\n                            \"DisplayNumber\": \"+91 92 13 158104\"\n                        },\n                        \"Gender\": 1,\n                        \"FirstName\": \"Ajay\",\n                        \"LastName\": \"Kumar Singh\",\n                        \"IsAvailable\": false,\n                        \"VanityImageUrl\": null,\n                        \"ScalingFactor\": 0,\n                        \"ScaledPrice\": 0,\n                        \"ServiceTime\": 0,\n                        \"DisplayName\": \"Ajay K\"\n                    },\n                    \"Quantity\": 1,\n                    \"Price\": {\n                        \"CurrencyId\": 61,\n                        \"Sales\": 1200,\n                        \"Tax\": 118.656,\n                        \"Final\": 1078.656,\n                        \"Final1\": 0,\n                        \"Discount\": 0,\n                        \"Tip\": 0,\n                        \"SSG\": null,\n                        \"RoundingCorrection\": 0\n                    },\n                    \"SCD\": null,\n                    \"ActualStartTime\": null,\n                    \"CompletedTime\": null,\n                    \"Progress\": 0,\n                    \"ParentAppointmentId\": null,\n                    \"ServiceCustomData\": null,\n                    \"ItemActions\": null,\n                    \"EquivalenceFactor\": null,\n                    \"EquivalentName\": null,\n                    \"IsMembershipApplied\": null,\n                    \"IsAddOn\": null,\n                    \"AddonAppointmentId\": null,\n                    \"IsPackageApplied\": null,\n                    \"IsDiscountApplied\": null,\n                    \"CanModifyTherapist\": false\n                }\n            ],\n            \"TherapistId\": null,\n            \"RoomId\": null,\n            \"Quantity\": 1,\n            \"BookingNotes\": null,\n            \"Price\": {\n                \"CurrencyId\": 61,\n                \"Sales\": 1200,\n                \"Tax\": 118.656,\n                \"Final\": 1078.656,\n                \"Final1\": 1078.656,\n                \"Discount\": 240,\n                \"Tip\": 0,\n                \"SSG\": 0,\n                \"RoundingCorrection\": 0\n            },\n            \"VirtualGuest\": null,\n            \"CartItemIds\": null,\n            \"ReducedTimeGroupId\": null\n        }\n    ],\n    \"Error\": null\n}"
             },
             "schema": {
-              "description": "Returns following Json fields.\n\n\n| Field | Value Type | \n| -------- | -------- | \n| IsConfirmed     | Bool     |\n| ConfirmationId     | GUID     |\n| ReservationId     | GUID     |\n| ConfirmedBookings     | Object     |\n\n\n\nComponents of ConfirmedBookings:\n\n| Field | Value Type | \n| -------- | -------- | \n| GuestId     | GUID     |\n| AppointmentGroupId     | GUID     |\n| Services     | Array of `Service` Object     |\n| TherapistId     | GUID     |\n| RoomId     | GUID     |\n| Quantity     | String     |\n| BookingNotes     | String     |\n| Price     | `Price` object     |\n| Virtual Guest     | `Virtual guest` Object     |\n| CartItemIds     | Array of GUIDs     |\n\n\n",
+              "description": "Returns following Json fields.\n\n\n| Field | Value Type |\n| -------- | -------- |\n| IsConfirmed     | Bool     |\n| ConfirmationId     | GUID     |\n| ReservationId     | GUID     |\n| ConfirmedBookings     | Object     |\n\n\n\nComponents of ConfirmedBookings:\n\n| Field | Value Type |\n| -------- | -------- |\n| GuestId     | GUID     |\n| AppointmentGroupId     | GUID     |\n| Services     | Array of `Service` Object     |\n| TherapistId     | GUID     |\n| RoomId     | GUID     |\n| Quantity     | String     |\n| BookingNotes     | String     |\n| Price     | `Price` object     |\n| Virtual Guest     | `Virtual guest` Object     |\n| CartItemIds     | Array of GUIDs     |\n\n\n",
               "type": "object"
             }
           }
@@ -314,7 +320,7 @@
             "name": "body",
             "required": true,
             "schema": {
-              "description": "All of the below fields are nullable\n\n| Field |Value Type | Description |\n| -------- | -------- | -------- |\n| Comments     | Comments     | string     |\n| Feedback1     | Service     | Feedback Raing Enum     |\n| Feedback2     | Ambience     | Feedback Raing Enum     |\n| Feedback3     | Cleanliness     | Feedback Raing Enum     |\n| Feedback4     | Therapist     | Feedback Raing Enum     |\n| FeedbackAnswer1     | Recommendation     | bool     |\n| FeedbackAnswer2     | Share Feedback     | bool     |\n\n\n\n| Feedback Rating  | Enum  | \n| -------- | -------- | -------- |\n| Poor      | 1     | \n| Average      | 2     | \n| Good      | 3    | \n| Excellent      | 4     | \n| Outstanding      | 5    | \n\n",
+              "description": "All of the below fields are nullable\n\n| Field |Value Type | Description |\n| -------- | -------- | -------- |\n| Comments     | Comments     | string     |\n| Feedback1     | Service     | Feedback Raing Enum     |\n| Feedback2     | Ambience     | Feedback Raing Enum     |\n| Feedback3     | Cleanliness     | Feedback Raing Enum     |\n| Feedback4     | Therapist     | Feedback Raing Enum     |\n| FeedbackAnswer1     | Recommendation     | bool     |\n| FeedbackAnswer2     | Share Feedback     | bool     |\n\n\n\n| Feedback Rating  | Enum  |\n| -------- | -------- | -------- |\n| Poor      | 1     |\n| Average      | 2     |\n| Good      | 3    |\n| Excellent      | 4     |\n| Outstanding      | 5    |\n\n",
               "type": "object"
             },
             "x-examples": {
@@ -390,7 +396,7 @@
               "application/json": "{\n    \"IsAddOnServiceAdded\": boolean ,\n    \"AddOnAppointmentId\": \"string\",\n    \"AppointmentId\": \"string\",\n    \"Error\": null\n}"
             },
             "schema": {
-              "description": "returns the status of the add on service and appointment id of the add on service.\n\n\n\n|  Field |Value Type |  Description |\n| -------- | -------- | -------- |\n| IsAddOnServiceAdded     | boolean     |  Add on service added or not     |\n| AddOnAppointmentId     | String     |  AppointmentId of Add on service added    |\n| AppointmentId     | String     |  AppointmentId of Service to which Add on service is added    |\n\n \n",
+              "description": "returns the status of the add on service and appointment id of the add on service.\n\n\n\n|  Field |Value Type |  Description |\n| -------- | -------- | -------- |\n| IsAddOnServiceAdded     | boolean     |  Add on service added or not     |\n| AddOnAppointmentId     | String     |  AppointmentId of Add on service added    |\n| AppointmentId     | String     |  AppointmentId of Service to which Add on service is added    |\n",
               "type": "object"
             }
           }
@@ -636,7 +642,7 @@
               "application/json": "{\n  \"ReservationId\": \"string\",\n  \"IsCancelled\": true,\n  \"Error\": {\n    \"StatusCode\": 0,\n    \"Message\": \"string\"\n  }\n}"
             },
             "schema": {
-              "description": "Returns following Json Fields\n\n| Field | Value Type | \n| -------- | -------- |\n| ReservationId     | String     | \n| IsCancelled     | bool     |\n\n",
+              "description": "Returns following Json Fields\n\n| Field | Value Type |\n| -------- | -------- |\n| ReservationId     | String     |\n| IsCancelled     | bool     |\n\n",
               "type": "object"
             }
           }
@@ -851,7 +857,7 @@
     },
     "/v1/Catalog/Guests/Guest/{GuestId}/CreditCardsOnFile": {
       "get": {
-        "description": "Gets the Credit Cards on File for guest\n\nTransaction Form\n\n| Enum | Value | \n| -------- | -------- | \n| Web     | 1     |\n| WebStore     | 2     |\n| CheckWeb     | 4     |\n| Mobile     | 8     |\n| MobilePOS     | 16     | ",
+        "description": "Gets the Credit Cards on File for guest\n\nTransaction Form\n\n| Enum | Value |\n| -------- | -------- |\n| Web     | 1     |\n| WebStore     | 2     |\n| CheckWeb     | 4     |\n| Mobile     | 8     |\n| MobilePOS     | 16     |",
         "parameters": [
           {
             "in": "query",
@@ -1226,7 +1232,7 @@
     },
     "/v1/Catalog/Guests/Register": {
       "post": {
-        "description": "Creates a new guest user account by providing the mandatory fields. First name and Last name are mandatory. According to your organization settings, email/phone number is mandatory to maintain uniqueness of the guest. Along side, the recent verificationId has to be passed in the request. CenterId is mandatory.\n\nThe request contains the following:\n\n\n\n| Field | Value Type | Description |\n| -------- | -------- | -------- |\n| VerificationId   `*` | GUID     | VerificationId you get from OTP API\n| CenterId  `*`   | GUID     | Unique Identifier. Guest should register at a center\n| Guest   `*`  | `Guest Model` object     | FirstName, LastName, Gender, Mobile Number, Email, Password\n\nFields marked with `*` are mandatory.\n\nExapmle request : \n\n```\n{\n  \"VerificationId\": \"string\",\n  \"CenterId\": \"string\",\n  \"Guest\": {\n    \"FirstName\": \"string\",\n    \"LastName\": \"string\",\n    \"Email\": \"string\",\n    \"MobileNumber\": \"string\",\n    \"MobilePhoneModel\": {\n      \"CountryId\": 0,\n      \"Number\": \"string\",\n      \"DisplayNumber\": \"string\"\n    },\n    \"Gender\": 0,\n    \"DateOfBirth\": \"2017-09-13T04:48:01.773Z\",\n    \"AnniversaryDate\": \"2017-09-13T04:48:01.773Z\",\n    \"Address1\": \"string\",\n    \"Address2\": \"string\",\n    \"City\": \"string\",\n    \"PostalCode\": \"string\",\n    \"State\": {\n      \"Id\": 0,\n      \"Code\": \"string\",\n      \"Name\": \"string\",\n      \"ShortName\": \"string\"\n    },\n    \"Country\": {\n      \"Id\": 0,\n      \"Code\": \"string\",\n      \"Name\": \"string\",\n      \"PhoneCode\": 0,\n      \"Nationality\": \"string\"\n    },\n    \"Nationality\": {\n      \"Id\": 0,\n      \"Code\": \"string\",\n      \"Name\": \"string\",\n      \"PhoneCode\": 0,\n      \"Nationality\": \"string\"\n    },\n    \"ReferralSource\": {\n      \"Id\": \"string\",\n      \"Name\": \"string\"\n    },\n    \"ReferredGuestId\": \"string\",\n    \"ReceiveTransactionalSms\": true,\n    \"ReceiveMarketingEmail\": true,\n    \"ReceiveTransactionalEmail\": true,\n    \"ReceiveMarketingSms\": true,\n    \"DOB_IncompleteYear\": \"string\",\n    \"Password\": \"string\",\n    \"UserName\": \"string\",\n  }\n}\n```\n\n\n",
+        "description": "Creates a new guest user account by providing the mandatory fields. First name and Last name are mandatory. According to your organization settings, email/phone number is mandatory to maintain uniqueness of the guest. Along side, the recent verificationId has to be passed in the request. CenterId is mandatory.\n\nThe request contains the following:\n\n\n\n| Field | Value Type | Description |\n| -------- | -------- | -------- |\n| VerificationId   `*` | GUID     | VerificationId you get from OTP API\n| CenterId  `*`   | GUID     | Unique Identifier. Guest should register at a center\n| Guest   `*`  | `Guest Model` object     | FirstName, LastName, Gender, Mobile Number, Email, Password\n\nFields marked with `*` are mandatory.\n\nExapmle request :\n\n```\n{\n  \"VerificationId\": \"string\",\n  \"CenterId\": \"string\",\n  \"Guest\": {\n    \"FirstName\": \"string\",\n    \"LastName\": \"string\",\n    \"Email\": \"string\",\n    \"MobileNumber\": \"string\",\n    \"MobilePhoneModel\": {\n      \"CountryId\": 0,\n      \"Number\": \"string\",\n      \"DisplayNumber\": \"string\"\n    },\n    \"Gender\": 0,\n    \"DateOfBirth\": \"2017-09-13T04:48:01.773Z\",\n    \"AnniversaryDate\": \"2017-09-13T04:48:01.773Z\",\n    \"Address1\": \"string\",\n    \"Address2\": \"string\",\n    \"City\": \"string\",\n    \"PostalCode\": \"string\",\n    \"State\": {\n      \"Id\": 0,\n      \"Code\": \"string\",\n      \"Name\": \"string\",\n      \"ShortName\": \"string\"\n    },\n    \"Country\": {\n      \"Id\": 0,\n      \"Code\": \"string\",\n      \"Name\": \"string\",\n      \"PhoneCode\": 0,\n      \"Nationality\": \"string\"\n    },\n    \"Nationality\": {\n      \"Id\": 0,\n      \"Code\": \"string\",\n      \"Name\": \"string\",\n      \"PhoneCode\": 0,\n      \"Nationality\": \"string\"\n    },\n    \"ReferralSource\": {\n      \"Id\": \"string\",\n      \"Name\": \"string\"\n    },\n    \"ReferredGuestId\": \"string\",\n    \"ReceiveTransactionalSms\": true,\n    \"ReceiveMarketingEmail\": true,\n    \"ReceiveTransactionalEmail\": true,\n    \"ReceiveMarketingSms\": true,\n    \"DOB_IncompleteYear\": \"string\",\n    \"Password\": \"string\",\n    \"UserName\": \"string\",\n  }\n}\n```\n\n\n",
         "parameters": [
           {
             "description": "Security token",
@@ -1279,7 +1285,7 @@
     },
     "/v1/Catalog/Guests/SendOtp": {
       "post": {
-        "description": "Create OTP for a guest account verification\n\nExample Request : \n\n```\n{\n  \"Email\": \"string\",\n  \"Phone\": {\n    \"CountryId\": 0,\n    \"Number\": \"string\",\n    \"DisplayNumber\": \"string\"\n  },\n  \"CenterId\": \"string\"\n}\n```",
+        "description": "Create OTP for a guest account verification\n\nExample Request :\n\n```\n{\n  \"Email\": \"string\",\n  \"Phone\": {\n    \"CountryId\": 0,\n    \"Number\": \"string\",\n    \"DisplayNumber\": \"string\"\n  },\n  \"CenterId\": \"string\"\n}\n```",
         "parameters": [
           {
             "description": "Security token",
@@ -1450,7 +1456,7 @@
     },
     "/v1/Catalog/Guests/VerifyOtp": {
       "post": {
-        "description": "Verify a guest account based on the generated OTP\n\nExample Request : \n\n```\n{\n  \"VerificationId\": \"string\",\n  \"OTP\": \"string\",\n  \"CenterId\": \"string\"\n}\n```",
+        "description": "Verify a guest account based on the generated OTP\n\nExample Request :\n\n```\n{\n  \"VerificationId\": \"string\",\n  \"OTP\": \"string\",\n  \"CenterId\": \"string\"\n}\n```",
         "parameters": [
           {
             "description": "Security token",
@@ -1524,7 +1530,7 @@
             "name": "body",
             "required": true,
             "schema": {
-              "description": "Input Json Fields\n\n| Field | Value Type | \n| -------- | -------- | \n| Code     | string     |      \n| InvoiceId     | GUID     | \n| CenterId     | GUID     | \n\n",
+              "description": "Input Json Fields\n\n| Field | Value Type |\n| -------- | -------- |\n| Code     | string     |\n| InvoiceId     | GUID     |\n| CenterId     | GUID     |\n\n",
               "type": "object"
             },
             "x-examples": {
@@ -2093,7 +2099,7 @@
     },
     "/v1/Collections/OnlineTransactions/{CenterId}": {
       "get": {
-        "description": "Below is the description of the enums used.\n\nTransactionType - enum\n\n| enum | value | \n| -------- | -------- | \n| All     | 0     | \n| Authorize     | 1     | \n| Refund     | 2     | \n| Reversal     | 3     | \n| Sale     | 4     | \n| Voided |  5  |\n\nTransactionStatus - enum\n\n| feild | value | \n| -------- | -------- |\n| All     | 0     | \n| CCCompleteNotYetSubmitted     | 1     | \n| Error     | 2     | \n| Failed     | 3     | \n| Originated     | 4     | \n| Pending     | 5     | \n| Queued     | 6     | \n| Returned     | 7     | \n| Settled     | 8     | \n| Success     | 9     | \n| Voided     | 10     | \n\nView - enum\n\n| feild | value | \n| -------- | -------- |\n| Default     | 1     | \n| Deposit     | 2     | \n\n",
+        "description": "Below is the description of the enums used.\n\nTransactionType - enum\n\n| enum | value |\n| -------- | -------- |\n| All     | 0     |\n| Authorize     | 1     |\n| Refund     | 2     |\n| Reversal     | 3     |\n| Sale     | 4     |\n| Voided |  5  |\n\nTransactionStatus - enum\n\n| feild | value |\n| -------- | -------- |\n| All     | 0     |\n| CCCompleteNotYetSubmitted     | 1     |\n| Error     | 2     |\n| Failed     | 3     |\n| Originated     | 4     |\n| Pending     | 5     |\n| Queued     | 6     |\n| Returned     | 7     |\n| Settled     | 8     |\n| Success     | 9     |\n| Voided     | 10     |\n\nView - enum\n\n| feild | value |\n| -------- | -------- |\n| Default     | 1     |\n| Deposit     | 2     |\n\n",
         "parameters": [
           {
             "format": "date-time",
@@ -2435,7 +2441,7 @@
     },
     "/v1/Revenues/InvoiceItem/{CenterId}": {
       "get": {
-        "description": "\n| ItemType | value |\n| -------- | -------- |\n| Service     | 0     | \n| Product     | 2     | \n| Membership     | 3     | \n| Package     | 4     | \n| Day Package     | 5     | \n| Pre-Paid/GiftCard     | 6     | ",
+        "description": "\n| ItemType | value |\n| -------- | -------- |\n| Service     | 0     |\n| Product     | 2     |\n| Membership     | 3     |\n| Package     | 4     |\n| Day Package     | 5     |\n| Pre-Paid/GiftCard     | 6     |",
         "parameters": [
           {
             "format": "date-time",
@@ -2599,7 +2605,7 @@
           "application/x-www-form-urlencoded",
           "text/html"
         ],
-        "description": "API is used to create a confirmed appointment. It is expected that following information is sent as the request body. \n\n```\n{\"CenterId\":\"adb0c9cd-5357-440d-8ee4-4557c6241271\",\"ReservationId\":\"ab2549c1-aea3-476e-b16b-d856f4363b03\"}\n```\n\nSecurity:\n`API requires a security token of user with write permission on Appointments.`",
+        "description": "API is used to create a confirmed appointment. It is expected that following information is sent as the request body.\n\n```\n{\"CenterId\":\"adb0c9cd-5357-440d-8ee4-4557c6241271\",\"ReservationId\":\"ab2549c1-aea3-476e-b16b-d856f4363b03\"}\n```\n\nSecurity:\n`API requires a security token of user with write permission on Appointments.`",
         "operationId": "AppointmentsApi_ConfirmReservation",
         "parameters": [
           {
@@ -2813,7 +2819,7 @@
     "/v1/appointments/ConfirmReservation": {
       "post": {
         "consumes": [],
-        "description": "Example Request : \n```\n{\n  \"CenterId\": \"string\",\n  \"ReservationId\": \"string\",\n  \"BookingSource\": 0,\n  \"HostId\": \"string\",\n  \"SlotBookings\": [\n    {\n      \"GuestId\": \"string\",\n      \"AppointmentGroupId\": \"string\",\n      \"Services\": [\n        {\n          \"AppointmentId\": \"string\",\n          \"InvoiceItemId\": \"string\",\n          \"CartItemId\": \"string\",\n          \"AppointmentSegmentId\": \"string\",\n          \"PackageId\": \"string\",\n          \"Package\": {\n            \"Id\": \"string\",\n            \"Name\": \"string\",\n            \"Description\": \"string\",\n            \"Code\": \"string\",\n            \"Type\": 1,\n            \"Price\": {\n              \"CurrencyId\": 0,\n              \"Sales\": 0,\n              \"Tax\": 0,\n              \"Final\": 0,\n              \"Final1\": 0,\n              \"Discount\": 0,\n              \"Tip\": 0,\n              \"SSG\": 0,\n              \"RoundingCorrection\": 0\n            },\n            \"Services\": [\n              {\n                \"Id\": \"string\",\n                \"Name\": \"string\",\n                \"Price\": {\n                  \"CurrencyId\": 0,\n                  \"Sales\": 0,\n                  \"Tax\": 0,\n                  \"Final\": 0,\n                  \"Final1\": 0,\n                  \"Discount\": 0,\n                  \"Tip\": 0,\n                  \"SSG\": 0,\n                  \"RoundingCorrection\": 0\n                },\n                \"Duration\": 0,\n                \"CategoryId\": \"string\",\n                \"IsAddOn\": true,\n                \"HasAddOns\": true,\n                \"AddOnToServiceId\": \"string\",\n                \"CategoryName\": \"string\",\n                \"AddOns\": [\n                  {}\n                ],\n                \"IsVariant\": true,\n                \"HasVariant\": true,\n                \"ParentServiceId\": \"string\",\n                \"CartItemId\": \"string\"\n              }\n            ],\n            \"Items\": [\n              {\n                \"Type\": 1,\n                \"Id\": \"string\",\n                \"Name\": \"string\",\n                \"Quantity\": 0,\n                \"Order\": 0,\n                \"Service\": {\n                  \"Id\": \"string\",\n                  \"Name\": \"string\",\n                  \"Price\": {\n                    \"CurrencyId\": 0,\n                    \"Sales\": 0,\n                    \"Tax\": 0,\n                    \"Final\": 0,\n                    \"Final1\": 0,\n                    \"Discount\": 0,\n                    \"Tip\": 0,\n                    \"SSG\": 0,\n                    \"RoundingCorrection\": 0\n                  },\n                  \"Duration\": 0,\n                  \"CategoryId\": \"string\",\n                  \"IsAddOn\": true,\n                  \"HasAddOns\": true,\n                  \"AddOnToServiceId\": \"string\",\n                  \"CategoryName\": \"string\",\n                  \"AddOns\": [\n                    {}\n                  ],\n                  \"IsVariant\": true,\n                  \"HasVariant\": true,\n                  \"ParentServiceId\": \"string\",\n                  \"CartItemId\": \"string\"\n                }\n              }\n            ]\n          },\n          \"Service\": {\n            \"Id\": \"string\",\n            \"Name\": \"string\",\n            \"Price\": {\n              \"CurrencyId\": 0,\n              \"Sales\": 0,\n              \"Tax\": 0,\n              \"Final\": 0,\n              \"Final1\": 0,\n              \"Discount\": 0,\n              \"Tip\": 0,\n              \"SSG\": 0,\n              \"RoundingCorrection\": 0\n            },\n            \"Duration\": 0,\n            \"CategoryId\": \"string\",\n            \"IsAddOn\": true,\n            \"HasAddOns\": true,\n            \"AddOnToServiceId\": \"string\",\n            \"CategoryName\": \"string\",\n            \"AddOns\": [\n              {}\n            ],\n            \"IsVariant\": true,\n            \"HasVariant\": true,\n            \"ParentServiceId\": \"string\",\n            \"CartItemId\": \"string\"\n          },\n          \"RequestedTherapistGender\": 0,\n          \"StartTime\": \"2017-09-04T04:51:31.647Z\",\n          \"EndTime\": \"2017-09-04T04:51:31.647Z\",\n          \"StartTimeInCenter\": \"2017-09-04T04:51:31.647Z\",\n          \"EndTimeInCenter\": \"2017-09-04T04:51:31.647Z\",\n          \"Room\": {\n            \"Id\": \"string\",\n            \"Name\": \"string\"\n          },\n          \"Lock\": true,\n          \"Equipment\": {\n            \"Id\": \"string\",\n            \"Name\": \"string\"\n          },\n          \"Status\": 0,\n          \"RequestedTherapist\": {\n            \"Id\": \"string\",\n            \"ShortName\": \"string\",\n            \"NickName\": \"string\",\n            \"FullName\": \"string\",\n            \"Email\": \"string\",\n            \"PhoneNumber\": \"string\",\n            \"MobilePhoneModel\": {\n              \"CountryId\": 0,\n              \"Number\": \"string\",\n              \"DisplayNumber\": \"string\"\n            },\n            \"Gender\": 0,\n            \"FirstName\": \"string\",\n            \"LastName\": \"string\",\n            \"IsAvailable\": true,\n            \"VanityImageUrl\": \"string\",\n            \"ScalingFactor\": 0,\n            \"ScaledPrice\": 0,\n            \"ServiceTime\": 0,\n            \"DisplayName\": \"string\"\n          },\n          \"Quantity\": 0,\n          \"Price\": {\n            \"CurrencyId\": 0,\n            \"Sales\": 0,\n            \"Tax\": 0,\n            \"Final\": 0,\n            \"Final1\": 0,\n            \"Discount\": 0,\n            \"Tip\": 0,\n            \"SSG\": 0,\n            \"RoundingCorrection\": 0\n          },\n          \"SCD\": \"string\",\n          \"ActualStartTime\": \"2017-09-04T04:51:31.647Z\",\n          \"CompletedTime\": \"2017-09-04T04:51:31.647Z\",\n          \"Progress\": 0,\n          \"ParentAppointmentId\": \"string\",\n          \"ServiceCustomData\": {\n            \"Permission\": {\n              \"CanView\": true,\n              \"CanEdit\": true\n            }\n          },\n          \"ItemActions\": \"string\",\n          \"EquivalenceFactor\": 0,\n          \"EquivalentName\": \"string\",\n          \"IsMembershipApplied\": true,\n          \"IsAddOn\": true,\n          \"AddonAppointmentId\": \"string\",\n          \"IsPackageApplied\": true,\n          \"IsDiscountApplied\": true,\n          \"CanModifyTherapist\": true\n        }\n      ],\n      \"TherapistId\": \"string\",\n      \"RoomId\": \"string\",\n      \"Quantity\": 0,\n      \"BookingNotes\": \"string\",\n      \"Price\": {\n        \"CurrencyId\": 0,\n        \"Sales\": 0,\n        \"Tax\": 0,\n        \"Final\": 0,\n        \"Final1\": 0,\n        \"Discount\": 0,\n        \"Tip\": 0,\n        \"SSG\": 0,\n        \"RoundingCorrection\": 0\n      },\n      \"VirtualGuest\": {\n        \"FirstName\": \"string\",\n        \"LastName\": \"string\",\n        \"Email\": \"string\",\n        \"Mobile\": {\n          \"CountryId\": 0,\n          \"Number\": \"string\",\n          \"DisplayNumber\": \"string\"\n        },\n        \"Gender\": 0\n      },\n      \"CartItemIds\": [\n        \"string\"\n      ]\n    }\n  ]\n}\n```",
+        "description": "Example Request :\n```\n{\n  \"CenterId\": \"string\",\n  \"ReservationId\": \"string\",\n  \"BookingSource\": 0,\n  \"HostId\": \"string\",\n  \"SlotBookings\": [\n    {\n      \"GuestId\": \"string\",\n      \"AppointmentGroupId\": \"string\",\n      \"Services\": [\n        {\n          \"AppointmentId\": \"string\",\n          \"InvoiceItemId\": \"string\",\n          \"CartItemId\": \"string\",\n          \"AppointmentSegmentId\": \"string\",\n          \"PackageId\": \"string\",\n          \"Package\": {\n            \"Id\": \"string\",\n            \"Name\": \"string\",\n            \"Description\": \"string\",\n            \"Code\": \"string\",\n            \"Type\": 1,\n            \"Price\": {\n              \"CurrencyId\": 0,\n              \"Sales\": 0,\n              \"Tax\": 0,\n              \"Final\": 0,\n              \"Final1\": 0,\n              \"Discount\": 0,\n              \"Tip\": 0,\n              \"SSG\": 0,\n              \"RoundingCorrection\": 0\n            },\n            \"Services\": [\n              {\n                \"Id\": \"string\",\n                \"Name\": \"string\",\n                \"Price\": {\n                  \"CurrencyId\": 0,\n                  \"Sales\": 0,\n                  \"Tax\": 0,\n                  \"Final\": 0,\n                  \"Final1\": 0,\n                  \"Discount\": 0,\n                  \"Tip\": 0,\n                  \"SSG\": 0,\n                  \"RoundingCorrection\": 0\n                },\n                \"Duration\": 0,\n                \"CategoryId\": \"string\",\n                \"IsAddOn\": true,\n                \"HasAddOns\": true,\n                \"AddOnToServiceId\": \"string\",\n                \"CategoryName\": \"string\",\n                \"AddOns\": [\n                  {}\n                ],\n                \"IsVariant\": true,\n                \"HasVariant\": true,\n                \"ParentServiceId\": \"string\",\n                \"CartItemId\": \"string\"\n              }\n            ],\n            \"Items\": [\n              {\n                \"Type\": 1,\n                \"Id\": \"string\",\n                \"Name\": \"string\",\n                \"Quantity\": 0,\n                \"Order\": 0,\n                \"Service\": {\n                  \"Id\": \"string\",\n                  \"Name\": \"string\",\n                  \"Price\": {\n                    \"CurrencyId\": 0,\n                    \"Sales\": 0,\n                    \"Tax\": 0,\n                    \"Final\": 0,\n                    \"Final1\": 0,\n                    \"Discount\": 0,\n                    \"Tip\": 0,\n                    \"SSG\": 0,\n                    \"RoundingCorrection\": 0\n                  },\n                  \"Duration\": 0,\n                  \"CategoryId\": \"string\",\n                  \"IsAddOn\": true,\n                  \"HasAddOns\": true,\n                  \"AddOnToServiceId\": \"string\",\n                  \"CategoryName\": \"string\",\n                  \"AddOns\": [\n                    {}\n                  ],\n                  \"IsVariant\": true,\n                  \"HasVariant\": true,\n                  \"ParentServiceId\": \"string\",\n                  \"CartItemId\": \"string\"\n                }\n              }\n            ]\n          },\n          \"Service\": {\n            \"Id\": \"string\",\n            \"Name\": \"string\",\n            \"Price\": {\n              \"CurrencyId\": 0,\n              \"Sales\": 0,\n              \"Tax\": 0,\n              \"Final\": 0,\n              \"Final1\": 0,\n              \"Discount\": 0,\n              \"Tip\": 0,\n              \"SSG\": 0,\n              \"RoundingCorrection\": 0\n            },\n            \"Duration\": 0,\n            \"CategoryId\": \"string\",\n            \"IsAddOn\": true,\n            \"HasAddOns\": true,\n            \"AddOnToServiceId\": \"string\",\n            \"CategoryName\": \"string\",\n            \"AddOns\": [\n              {}\n            ],\n            \"IsVariant\": true,\n            \"HasVariant\": true,\n            \"ParentServiceId\": \"string\",\n            \"CartItemId\": \"string\"\n          },\n          \"RequestedTherapistGender\": 0,\n          \"StartTime\": \"2017-09-04T04:51:31.647Z\",\n          \"EndTime\": \"2017-09-04T04:51:31.647Z\",\n          \"StartTimeInCenter\": \"2017-09-04T04:51:31.647Z\",\n          \"EndTimeInCenter\": \"2017-09-04T04:51:31.647Z\",\n          \"Room\": {\n            \"Id\": \"string\",\n            \"Name\": \"string\"\n          },\n          \"Lock\": true,\n          \"Equipment\": {\n            \"Id\": \"string\",\n            \"Name\": \"string\"\n          },\n          \"Status\": 0,\n          \"RequestedTherapist\": {\n            \"Id\": \"string\",\n            \"ShortName\": \"string\",\n            \"NickName\": \"string\",\n            \"FullName\": \"string\",\n            \"Email\": \"string\",\n            \"PhoneNumber\": \"string\",\n            \"MobilePhoneModel\": {\n              \"CountryId\": 0,\n              \"Number\": \"string\",\n              \"DisplayNumber\": \"string\"\n            },\n            \"Gender\": 0,\n            \"FirstName\": \"string\",\n            \"LastName\": \"string\",\n            \"IsAvailable\": true,\n            \"VanityImageUrl\": \"string\",\n            \"ScalingFactor\": 0,\n            \"ScaledPrice\": 0,\n            \"ServiceTime\": 0,\n            \"DisplayName\": \"string\"\n          },\n          \"Quantity\": 0,\n          \"Price\": {\n            \"CurrencyId\": 0,\n            \"Sales\": 0,\n            \"Tax\": 0,\n            \"Final\": 0,\n            \"Final1\": 0,\n            \"Discount\": 0,\n            \"Tip\": 0,\n            \"SSG\": 0,\n            \"RoundingCorrection\": 0\n          },\n          \"SCD\": \"string\",\n          \"ActualStartTime\": \"2017-09-04T04:51:31.647Z\",\n          \"CompletedTime\": \"2017-09-04T04:51:31.647Z\",\n          \"Progress\": 0,\n          \"ParentAppointmentId\": \"string\",\n          \"ServiceCustomData\": {\n            \"Permission\": {\n              \"CanView\": true,\n              \"CanEdit\": true\n            }\n          },\n          \"ItemActions\": \"string\",\n          \"EquivalenceFactor\": 0,\n          \"EquivalentName\": \"string\",\n          \"IsMembershipApplied\": true,\n          \"IsAddOn\": true,\n          \"AddonAppointmentId\": \"string\",\n          \"IsPackageApplied\": true,\n          \"IsDiscountApplied\": true,\n          \"CanModifyTherapist\": true\n        }\n      ],\n      \"TherapistId\": \"string\",\n      \"RoomId\": \"string\",\n      \"Quantity\": 0,\n      \"BookingNotes\": \"string\",\n      \"Price\": {\n        \"CurrencyId\": 0,\n        \"Sales\": 0,\n        \"Tax\": 0,\n        \"Final\": 0,\n        \"Final1\": 0,\n        \"Discount\": 0,\n        \"Tip\": 0,\n        \"SSG\": 0,\n        \"RoundingCorrection\": 0\n      },\n      \"VirtualGuest\": {\n        \"FirstName\": \"string\",\n        \"LastName\": \"string\",\n        \"Email\": \"string\",\n        \"Mobile\": {\n          \"CountryId\": 0,\n          \"Number\": \"string\",\n          \"DisplayNumber\": \"string\"\n        },\n        \"Gender\": 0\n      },\n      \"CartItemIds\": [\n        \"string\"\n      ]\n    }\n  ]\n}\n```",
         "parameters": [
           {
             "in": "body",
@@ -2931,7 +2937,7 @@
     "/v1/appointments/add": {
       "post": {
         "consumes": [],
-        "description": "This API can be called to add an appointment. \n\nParameters\n\n\n| Parameter  | Type | Description |\n| -------- | -------- | -------- |\n| AppointmentGroupId    | GUID     | Unique identifier for the appointment    ||\n| Comments    | String     | Comments for No Show    |\n\nSecurity:  Permissions required to call this API. \n\n\n\n\n\n\n\n\n",
+        "description": "This API can be called to add an appointment.\n\nParameters\n\n\n| Parameter  | Type | Description |\n| -------- | -------- | -------- |\n| AppointmentGroupId    | GUID     | Unique identifier for the appointment    ||\n| Comments    | String     | Comments for No Show    |\n\nSecurity:  Permissions required to call this API.\n\n\n\n\n\n\n\n\n",
         "parameters": [
           {
             "in": "body",
@@ -3009,7 +3015,7 @@
     "/v1/appointments/availability": {
       "post": {
         "consumes": [],
-        "description": "The API returns a list of available appointments. API expects that following information be passed in the Request body. \n\n```\n{\"CenterId\":\"adb0c9cd-5357-440d-8ee4-4557c6241271\",\"CenterDate\":\"2017-05-08\",\"SlotBookings\":[{\"Services\":[{\"Service\":{\"Id\":\"8b15f00d-0594-4975-8d27-c88a3c64bfab\"}}]}]}\n```\n\n\nSecurity:\n`API requires a security token for a user with read permission on Appointments.`",
+        "description": "The API returns a list of available appointments. API expects that following information be passed in the Request body.\n\n```\n{\"CenterId\":\"adb0c9cd-5357-440d-8ee4-4557c6241271\",\"CenterDate\":\"2017-05-08\",\"SlotBookings\":[{\"Services\":[{\"Service\":{\"Id\":\"8b15f00d-0594-4975-8d27-c88a3c64bfab\"}}]}]}\n```\n\n\nSecurity:\n`API requires a security token for a user with read permission on Appointments.`",
         "operationId": "AppointmentsApi_GetAvailableSlotsV2",
         "parameters": [
           {
@@ -3264,7 +3270,7 @@
     "/v1/appointments/cancel": {
       "post": {
         "consumes": [],
-        "description": "This API can be  called to cancel an existing appointment. \n\nParameters\n\n\n| Parameter  | Type | Description |\n| -------- | -------- | -------- |\n| AppointmentGroupId    | GUID     | Unique identifier for the appointment    |\n| ReasonId    | INT     |  Reason for cancellation of appointment    |\n| Comments    | String     | Comments for cancellation    |\n\nSecurity:  Permissions required to call this API. \n\n\n\n\n\n\n\n\n",
+        "description": "This API can be  called to cancel an existing appointment.\n\nParameters\n\n\n| Parameter  | Type | Description |\n| -------- | -------- | -------- |\n| AppointmentGroupId    | GUID     | Unique identifier for the appointment    |\n| ReasonId    | INT     |  Reason for cancellation of appointment    |\n| Comments    | String     | Comments for cancellation    |\n\nSecurity:  Permissions required to call this API.\n\n\n\n\n\n\n\n\n",
         "parameters": [
           {
             "in": "body",
@@ -3297,7 +3303,7 @@
     "/v1/appointments/noshow": {
       "post": {
         "consumes": [],
-        "description": "This API can be  called to Mark No Show for an existing appointment. \n\nParameters\n\n\n| Parameter  | Type | Description |\n| -------- | -------- | -------- |\n| AppointmentGroupId    | GUID     | Unique identifier for the appointment    ||\n| Comments    | String     | Comments for No Show    |\n\nSecurity:  Permissions required to call this API. \n\n\n\n\n\n\n\n\n",
+        "description": "This API can be  called to Mark No Show for an existing appointment.\n\nParameters\n\n\n| Parameter  | Type | Description |\n| -------- | -------- | -------- |\n| AppointmentGroupId    | GUID     | Unique identifier for the appointment    ||\n| Comments    | String     | Comments for No Show    |\n\nSecurity:  Permissions required to call this API.\n\n\n\n\n\n\n\n\n",
         "parameters": [
           {
             "in": "body",
@@ -3336,7 +3342,7 @@
     "/v1/appointments/reebook": {
       "post": {
         "consumes": [],
-        "description": "This API can be  called to cancel an existing appointment. \n\nParameters\n\n\n| Parameter  | Type | Description |\n| -------- | -------- | -------- |\n| AppointmentGroupId    | GUID     | Unique identifier for the appointment    |\n| ReasonId    | INT     |  Reason for cancellation of appointment    |\n| Comments    | String     | Comments for cancellation    |\n\nSecurity:  Permissions required to call this API. \n\n\n\n\n\n\n\n\n",
+        "description": "This API can be  called to cancel an existing appointment.\n\nParameters\n\n\n| Parameter  | Type | Description |\n| -------- | -------- | -------- |\n| AppointmentGroupId    | GUID     | Unique identifier for the appointment    |\n| ReasonId    | INT     |  Reason for cancellation of appointment    |\n| Comments    | String     | Comments for cancellation    |\n\nSecurity:  Permissions required to call this API.\n\n\n\n\n\n\n\n\n",
         "parameters": [
           {
             "in": "body",
@@ -3414,7 +3420,7 @@
     "/v1/appointments/setstatus": {
       "post": {
         "consumes": [],
-        "description": "Below are the respective statuses for the value of the status tag in the input.\n\n| status  | value  | \n| -------- | -------- | \n| New | 0 |\n| Checkin     | 1     |\n| Undo Checkin     | 2     |\n| Confirm     | 3     |\n\n",
+        "description": "Below are the respective statuses for the value of the status tag in the input.\n\n| status  | value  |\n| -------- | -------- |\n| New | 0 |\n| Checkin     | 2     |\n| Undo Checkin     | 0     |\n| Confirm     | 4     |\n\n",
         "parameters": [
           {
             "description": "issued key",
@@ -3474,7 +3480,7 @@
           "application/x-www-form-urlencoded",
           "text/html"
         ],
-        "description": "The API is used to reserve a temporary Appointment slot. API expects following information be sent in the Request body. \n\n```\n{\"CenterId\":\"adb0c9cd-5357-440d-8ee4-4557c6241271\",\"CenterTime\":\"2017-05-05 12:00:00\",\"SlotBookings\":[{\"GuestId\":\"2e24d650-d7b4-473e-9bf3-b835c882cf35\",\"Services\":[{\"Service\":{\"Id\":\"8b15f00d-0594-4975-8d27-c88a3c64bfab\"}}],\"StartTime\":\"2017-05-05 12:00:00\"}]}\n```\n\nSecurity:\n`API requires a security token for user with write permission on  Appointments.`",
+        "description": "The API is used to reserve a temporary Appointment slot. API expects following information be sent in the Request body.\n\n```\n{\"CenterId\":\"adb0c9cd-5357-440d-8ee4-4557c6241271\",\"CenterTime\":\"2017-05-05 12:00:00\",\"SlotBookings\":[{\"GuestId\":\"2e24d650-d7b4-473e-9bf3-b835c882cf35\",\"Services\":[{\"Service\":{\"Id\":\"8b15f00d-0594-4975-8d27-c88a3c64bfab\"}}],\"StartTime\":\"2017-05-05 12:00:00\"}]}\n```\n\nSecurity:\n`API requires a security token for user with write permission on  Appointments.`",
         "operationId": "AppointmentsApi_ReserveSlots",
         "parameters": [
           {
@@ -3534,7 +3540,7 @@
     "/v1/appointments/update": {
       "post": {
         "consumes": [],
-        "description": "This API can be  called to cancel an existing appointment. \n\nParameters\n\n\n| Parameter  | Type | Description |\n| -------- | -------- | -------- |\n| AppointmentGroupId    | GUID     | Unique identifier for the appointment    |\n| ReasonId    | INT     |  Reason for cancellation of appointment    |\n| Comments    | String     | Comments for cancellation    |\n\nSecurity:  Permissions required to call this API. \n\n\n\n\n\n\n\n\n",
+        "description": "This API can be  called to cancel an existing appointment.\n\nParameters\n\n\n| Parameter  | Type | Description |\n| -------- | -------- | -------- |\n| AppointmentGroupId    | GUID     | Unique identifier for the appointment    |\n| ReasonId    | INT     |  Reason for cancellation of appointment    |\n| Comments    | String     | Comments for cancellation    |\n\nSecurity:  Permissions required to call this API.\n\n\n\n\n\n\n\n\n",
         "parameters": [
           {
             "in": "body",
@@ -3765,7 +3771,7 @@
       ],
       "post": {
         "consumes": [],
-        "description": "Below are the respective statuses for the value of the status tag in the input.\n\n| status  | value  | \n| New | 0 |\n| Checkin     | 1     |\n| Undo Checkin     | 2     |\n| Confirm     | 3     |\n\n",
+        "description": "Below are the respective statuses for the value of the status tag in the input.\n\n| status  | value  |\n| New | 0 |\n| Checkin     | 1     |\n| Undo Checkin     | 2     |\n| Confirm     | 3     |\n\n",
         "parameters": [
           {
             "description": "issued key",
@@ -4073,7 +4079,7 @@
     },
     "/v1/centers": {
       "get": {
-        "description": "API returns a list of Centers that the user is authorized to view. \n\nSecurity:\n`API requires a security token for a user with read permission on Centers.`",
+        "description": "API returns a list of Centers that the user is authorized to view.\n\nSecurity:\n`API requires a security token for a user with read permission on Centers.`",
         "operationId": "CentersApi_GetCenters",
         "parameters": [
           {
@@ -4129,7 +4135,7 @@
     },
     "/v1/centers/{CenterId}": {
       "get": {
-        "description": "API returns the details of a specific center. \n\nSecurity:\n`API requires a security token for a user with read permission on Centers.`",
+        "description": "API returns the details of a specific center.\n\nSecurity:\n`API requires a security token for a user with read permission on Centers.`",
         "operationId": "CentersApi_GetCenterDetails",
         "parameters": [
           {
@@ -4435,7 +4441,7 @@
     },
     "/v1/giftcards/{giftcard_id}": {
       "get": {
-        "description": "Get details of a giftcard. API accepts a giftcard_id to return the response. Giftcard_id refers to the unique identifier stored in Zenoti and is not the same as the giftcard number. \n\n`Security:  A user who has read access to giftcards object can call this API to get giftcard details. User role must also have API Access permission.`\n\nNote:  It is not secure to create a GET API that fetches giftcard details by passing giftcard number as either a path parameter or a query parameter, because this information may reside in browser history, and can be misused.  If we need an API that returns giftcard details by passing a giftcard number,  we will need to create a POST api that accepts giftcard number in the request body.  ",
+        "description": "Get details of a giftcard. API accepts a giftcard_id to return the response. Giftcard_id refers to the unique identifier stored in Zenoti and is not the same as the giftcard number.\n\n`Security:  A user who has read access to giftcards object can call this API to get giftcard details. User role must also have API Access permission.`\n\nNote:  It is not secure to create a GET API that fetches giftcard details by passing giftcard number as either a path parameter or a query parameter, because this information may reside in browser history, and can be misused.  If we need an API that returns giftcard details by passing a giftcard number,  we will need to create a POST api that accepts giftcard number in the request body.",
         "parameters": [],
         "responses": {
           "200": {
@@ -4603,7 +4609,7 @@
           "application/x-www-form-urlencoded",
           "text/html"
         ],
-        "description": "First name and Last name are always mandatory. Depending on the settings on your system, more fields will be mandatory - check the Add Guest page on your site (Loyalty→Manage Guests). One or more of the following may be set as mandatory: \n```\na. Mobile number\nb. Email\nc. Birthday\nd. Address1\ne. City\nf. State\ng. Country\nh. Nationality\ni. Referral Source\nj. Gender\n``` \n Please note that the API user has to send one of the following values for Gender: \n\n -1 - NotSpecified \n\n 0 - Female \n\n 1 - Male \n\n  Validate = true should be passed at all time so that input can be validated.\n\nSecurity:\n`API requires a security token of an admin user with write permission on Guest.`",
+        "description": "First name and Last name are always mandatory. Depending on the settings on your system, more fields will be mandatory - check the Add Guest page on your site (Loyalty→Manage Guests). One or more of the following may be set as mandatory:\n```\na. Mobile number\nb. Email\nc. Birthday\nd. Address1\ne. City\nf. State\ng. Country\nh. Nationality\ni. Referral Source\nj. Gender\n```\n Please note that the API user has to send one of the following values for Gender:\n\n -1 - NotSpecified\n\n 0 - Female\n\n 1 - Male\n\n  Validate = true should be passed at all time so that input can be validated.\n\nSecurity:\n`API requires a security token of an admin user with write permission on Guest.`",
         "operationId": "GuestsApi_AddGuest",
         "parameters": [
           {
@@ -4656,7 +4662,7 @@
     },
     "/v1/guests/{guest_id}": {
       "get": {
-        "description": "API can be used to obtain details of a particular Guest user by passing a GuestId. \n\nSecurity:\n`API requires security  token of an admin with read permission on Guest, or that of a user who has permission to read information for a particular Guest.`",
+        "description": "API can be used to obtain details of a particular Guest user by passing a GuestId.\n\nSecurity:\n`API requires security  token of an admin with read permission on Guest, or that of a user who has permission to read information for a particular Guest.`",
         "operationId": "GuestsApi_GetGuest",
         "parameters": [
           {
@@ -4716,7 +4722,7 @@
       ],
       "put": {
         "consumes": [],
-        "description": "API is used to perform update on the details of a guest. One or more values from below list can be updated. \n\n| Parameter  | Data Type | Description |\n| -------- | -------- | -------- |\n| firstname    | string  |  First name of the guest   |\n| middlename    | string  |  Middle name of the guest   |\n| lastname    | string   |  Last name of the guest   |\n| email*    | string   |  Email address of the guest   |\n| password    | string   |  New password   |\n| mobilephonemodel  | object  |  Refer to phone object definition. |\n| homephonemodel  | object   |  Refer to phone object definition.  |\n| gender  | string   |  male, female, other  |\n| dateofbirth  | datetime   |  yyyy-mm-ddThh:mm:ss.SSSZ   |\n| anniversarydate  | datetime   |  yyyy-mm-ddThh:mm:ss.SSSZ   |\n| address1  | string   |  Address field |\n| address2  | string   |  Address field  |\n| city  |  string  |  City of the guest   |\n| postalcode  |  string  |  Zip code  |\n| state  |  object  |  Refer to state object definition in request body   |\n| country  |  object  | Refer to country object definition in request body   |\n| nationality  |  object  |  Refer to nationality object definition in  request body   |\n| referralsource  |  object  |  Refer to referralsource object definition in request body   |\n| referredguest_id  |  string  |   |\n| receivetransactionalemail  |  boolean  |   |\n| receivetransactionalsms  |  boolean  |   |\n| receivemarketingemail  |  boolean  |   |\n| receivemarketingsms  |  boolean  |   |\n| creationdate  |  datetime  |   |\n| updatedate  |  datetime  |   |\n| center_id  |  string  |   |\n| is_member  |  boolean  | Indicates if guest is a valid member.  |\n| dob_incompleteyear  |  string  |  Date of birth without year information.  |\n\nSecurity:  `Requires an authorization for read and write permission on the guest object. * Edit Email and Edit Mobile permission should be enabled for the user.`\n\n\nAPI Specific Errors:\n\n| Error Code | Error Message | Note |\n| -------- | -------- | -------- |\n| 503 | MissingInput | One or more required input is missing |\n| 414 | GuestNotFound | Guest is not found |\n| 441 | UserCodeAlreadyExists | Code already exists |\n| 442 | UserEmailAlreadyExists | Email address already exists |\n| 481 | GuestMandatoryFieldsMissing | Mandatory fields are missing |\n| 482 | MobileNumberNotInLengthRange | Mobile  Number is outside the length range |\n| 484 | CountryIsNotValid | Invalid code provided for the country |\n| 484 | NationalityIsNotValid | Invalid code provided for the nationality |\n| 484 | StateIsNotValid | Invalid code provided for the state |\n\nSample code:\n\n```\n{\n  \"guest\": {\n    \"firstname\": \"TestGuest2SK\",\n    \"middlename\": \"Changed\",\n    \"lastname\": \"TestGuest1SK\",\n    \"email\": \"TestGuest1SrK@zenoti.com\",\n    \"mobilephonemodel\": {\n      \"countryid\": 91,\n      \"number\": \"9000498410\"\n    },\n  \"password\":\"changed1\",\n   \"ReferralSource\":{\n     \"Id\":\"3db2bb19-7430-4608-b34e-be44e64ac692\"\n   }\n  }\n}\n```",
+        "description": "API is used to perform update on the details of a guest. One or more values from below list can be updated.\n\n| Parameter  | Data Type | Description |\n| -------- | -------- | -------- |\n| firstname    | string  |  First name of the guest   |\n| middlename    | string  |  Middle name of the guest   |\n| lastname    | string   |  Last name of the guest   |\n| email*    | string   |  Email address of the guest   |\n| password    | string   |  New password   |\n| mobilephonemodel  | object  |  Refer to phone object definition. |\n| homephonemodel  | object   |  Refer to phone object definition.  |\n| gender  | string   |  male, female, other  |\n| dateofbirth  | datetime   |  yyyy-mm-ddThh:mm:ss.SSSZ   |\n| anniversarydate  | datetime   |  yyyy-mm-ddThh:mm:ss.SSSZ   |\n| address1  | string   |  Address field |\n| address2  | string   |  Address field  |\n| city  |  string  |  City of the guest   |\n| postalcode  |  string  |  Zip code  |\n| state  |  object  |  Refer to state object definition in request body   |\n| country  |  object  | Refer to country object definition in request body   |\n| nationality  |  object  |  Refer to nationality object definition in  request body   |\n| referralsource  |  object  |  Refer to referralsource object definition in request body   |\n| referredguest_id  |  string  |   |\n| receivetransactionalemail  |  boolean  |   |\n| receivetransactionalsms  |  boolean  |   |\n| receivemarketingemail  |  boolean  |   |\n| receivemarketingsms  |  boolean  |   |\n| creationdate  |  datetime  |   |\n| updatedate  |  datetime  |   |\n| center_id  |  string  |   |\n| is_member  |  boolean  | Indicates if guest is a valid member.  |\n| dob_incompleteyear  |  string  |  Date of birth without year information.  |\n\nSecurity:  `Requires an authorization for read and write permission on the guest object. * Edit Email and Edit Mobile permission should be enabled for the user.`\n\n\nAPI Specific Errors:\n\n| Error Code | Error Message | Note |\n| -------- | -------- | -------- |\n| 503 | MissingInput | One or more required input is missing |\n| 414 | GuestNotFound | Guest is not found |\n| 441 | UserCodeAlreadyExists | Code already exists |\n| 442 | UserEmailAlreadyExists | Email address already exists |\n| 481 | GuestMandatoryFieldsMissing | Mandatory fields are missing |\n| 482 | MobileNumberNotInLengthRange | Mobile  Number is outside the length range |\n| 484 | CountryIsNotValid | Invalid code provided for the country |\n| 484 | NationalityIsNotValid | Invalid code provided for the nationality |\n| 484 | StateIsNotValid | Invalid code provided for the state |\n\nSample code:\n\n```\n{\n  \"guest\": {\n    \"firstname\": \"TestGuest2SK\",\n    \"middlename\": \"Changed\",\n    \"lastname\": \"TestGuest1SK\",\n    \"email\": \"TestGuest1SrK@zenoti.com\",\n    \"mobilephonemodel\": {\n      \"countryid\": 91,\n      \"number\": \"9000498410\"\n    },\n  \"password\":\"changed1\",\n   \"ReferralSource\":{\n     \"Id\":\"3db2bb19-7430-4608-b34e-be44e64ac692\"\n   }\n  }\n}\n```",
         "parameters": [
           {
             "in": "header",
@@ -4831,7 +4837,7 @@
     },
     "/v1/guests/{guest_id}/notes": {
       "get": {
-        "description": "Returns notes associated with a guest\n\nNoteType - enum\n\n\n| enum | value |\n| -------- | -------- | \n| Generic     | 2     | \n|Checkin | 3   |\n| Booking     | 4     | \n| Payment     |8    | \n| Profile     | 10     | \n\nSecurity: `Requires read permission on guest and notes. Guest can view only her information.`",
+        "description": "Returns notes associated with a guest\n\nNoteType - enum\n\n\n| enum | value |\n| -------- | -------- |\n| Generic     | 2     |\n|Checkin | 3   |\n| Booking     | 4     |\n| Payment     |8    |\n| Profile     | 10     |\n\nSecurity: `Requires read permission on guest and notes. Guest can view only her information.`",
         "parameters": [],
         "responses": {
           "200": {
@@ -4860,7 +4866,7 @@
       ],
       "post": {
         "consumes": [],
-        "description": "Create a note associated with the guest. \n\nNoteType - enum\n\n\n| enum | value |\n| -------- | -------- | \n| Generic     | 2     | \n|Checkin | 3   |\n| Booking     | 4     | \n| Payment     |8    | \n| Profile     | 10     | \n\n\n\nSecurity:`Write permission on notes object.`",
+        "description": "Create a note associated with the guest.\n\nNoteType - enum\n\n\n| enum | value |\n| -------- | -------- |\n| Generic     | 2     |\n|Checkin | 3   |\n| Booking     | 4     |\n| Payment     |8    |\n| Profile     | 10     |\n\n\n\nSecurity:`Write permission on notes object.`",
         "parameters": [
           {
             "in": "body",
@@ -4909,7 +4915,7 @@
     },
     "/v1/guests/{guest_id}/notes/{note_id}": {
       "delete": {
-        "description": "Delete a note associated with the guest. \n\nSecurity:`Write permission on notes object.`",
+        "description": "Delete a note associated with the guest.\n\nSecurity:`Write permission on notes object.`",
         "parameters": [],
         "responses": {
           "200": {
@@ -4943,7 +4949,7 @@
     },
     "/v1/guests/{guest_id}/packages": {
       "get": {
-        "description": "Returns packages bought by a guest. \n\nSecurity:  `Required read permission on the guest and packages object. Guest user can only view her information.`\n\n",
+        "description": "Returns packages bought by a guest.\n\nSecurity:  `Required read permission on the guest and packages object. Guest user can only view her information.`\n\n",
         "parameters": [
           {
             "description": "Unique Identifier",
@@ -5002,7 +5008,7 @@
     "/v1/otp": {
       "post": {
         "consumes": [],
-        "description": "API is used to create an OTP associated with a provided email address or phone number.  Below are the samples. The user has to pass either email or phone number (but not both) in the  request body. \n\nCase 1:  Generate OTP and send to email\n```\n{\n  \"CenterId\": \"3ECC3E05-8AAF-4792-BA0A-EC3D822FA6C5\",\n  \"Email\": \"danjohn@zenoti.com\"\n}\n```\n\nCase 2: Genetate OTP and send to phone number. \n```\n{\n   \"CenterId\": \"3ECC3E05-8AAF-4792-BA0A-EC3D822FA6C5\",\n   \"Phone\": {\n    \"CountryId\": 91,\n    \"Number\": \"3434443339\",\n    \"DisplayNumber\": \"3434443339\"\n  }\n}\n```\n\n\n\n\n\n",
+        "description": "API is used to create an OTP associated with a provided email address or phone number.  Below are the samples. The user has to pass either email or phone number (but not both) in the  request body.\n\nCase 1:  Generate OTP and send to email\n```\n{\n  \"CenterId\": \"3ECC3E05-8AAF-4792-BA0A-EC3D822FA6C5\",\n  \"Email\": \"danjohn@zenoti.com\"\n}\n```\n\nCase 2: Genetate OTP and send to phone number.\n```\n{\n   \"CenterId\": \"3ECC3E05-8AAF-4792-BA0A-EC3D822FA6C5\",\n   \"Phone\": {\n    \"CountryId\": 91,\n    \"Number\": \"3434443339\",\n    \"DisplayNumber\": \"3434443339\"\n  }\n}\n```\n\n\n\n\n\n",
         "parameters": [
           {
             "description": "Issued API key",
@@ -5049,7 +5055,7 @@
       },
       "put": {
         "consumes": [],
-        "description": "API can be used to check if the provided OTP matches with the issued OTP to a given email address or phone number.  \n\nPUT method has been used for security reasons. Following request has to be sent in the body. \n\n```\n{\n  \"VerificationId\": \"4d0cf94f-be9a-43b1-9b7b-8aab57fbc7e2\",\n  \"OTP\": \"234954\",\n  \"CenterId\": \"3ECC3E05-8AAF-4792-BA0A-EC3D822FA6C5\"\n}\n```",
+        "description": "API can be used to check if the provided OTP matches with the issued OTP to a given email address or phone number.\n\nPUT method has been used for security reasons. Following request has to be sent in the body.\n\n```\n{\n  \"VerificationId\": \"4d0cf94f-be9a-43b1-9b7b-8aab57fbc7e2\",\n  \"OTP\": \"234954\",\n  \"CenterId\": \"3ECC3E05-8AAF-4792-BA0A-EC3D822FA6C5\"\n}\n```",
         "parameters": [
           {
             "description": "Issued API key",
@@ -5101,7 +5107,7 @@
     },
     "/v1/services": {
       "get": {
-        "description": "API returns a list of services. Following filter options are supported. \n\n```\na. centerId - To return services in a particular center. \nb. categoryId - To return services in a specified category only. \nc. isCatalogEnabled - To return services that can be displayed in a webstore. \nd. tag - To return services which are tagged by\n```\n\nSecurity:\n`Required read permisson on Services`",
+        "description": "API returns a list of services. Following filter options are supported.\n\n```\na. centerId - To return services in a particular center.\nb. categoryId - To return services in a specified category only.\nc. isCatalogEnabled - To return services that can be displayed in a webstore.\nd. tag - To return services which are tagged by\n```\n\nSecurity:\n`Required read permisson on Services`",
         "operationId": "ServicesApi_GetServices",
         "parameters": [
           {
@@ -5196,7 +5202,7 @@
     },
     "/v1/services/categories": {
       "get": {
-        "description": "API returns a list of main categories for the services. The API exposes following two filters. \n\n```\na. centerId - To view the categories only for a particular center. \nb. parentCategoryId - To view child categories of a particular main category.\n```\n\n\n\nSecurity:\n`Requires read permisson on Services.`",
+        "description": "API returns a list of main categories for the services. The API exposes following two filters.\n\n```\na. centerId - To view the categories only for a particular center.\nb. parentCategoryId - To view child categories of a particular main category.\n```\n\n\n\nSecurity:\n`Requires read permisson on Services.`",
         "operationId": "ServicesApi_GetServiceCategories",
         "parameters": [
           {
@@ -5318,7 +5324,7 @@
         "consumes": [
           "text/plain"
         ],
-        "description": "This API is used to create a token for a valid user. The token can subsequenty be used as a Authorization token for other API calls. \nThe request body should be a string in the below format. (grant_type should be passed as \"password\"). \n\n```\nusername={{username}}&password={{password}}&clientid={{clientid}}&grant_type={{grant_type}}\n```\n\nNote:  OAuth2 token is not required to be passed in the header. Only API key is required. ",
+        "description": "This API is used to create a token for a valid user. The token can subsequenty be used as a Authorization token for other API calls.\nThe request body should be a string in the below format. (grant_type should be passed as \"password\").\n\n```\nusername={{username}}&password={{password}}&clientid={{clientid}}&grant_type={{grant_type}}\n```\n\nNote:  OAuth2 token is not required to be passed in the header. Only API key is required.",
         "parameters": [
           {
             "description": "Issued API key",
@@ -5442,7 +5448,7 @@
     },
     "/v2/appointments": {
       "get": {
-        "description": "Status - Enum\n\n| Enum | Value |\n| -------- | -------- | \n| NoShow     | -2     | \n| Cancelled     | -1     | \n| New     | 0     | \n| Closed     | 1    |\n| Checkin     | 2     | \n| Confirm     | 4     | \n| Break     | 10    | \n| NotSpecified     | 11     | \n| Available     | 20     | ",
+        "description": "Status - Enum\n\n| Enum | Value |\n| -------- | -------- |\n| NoShow     | -2     |\n| Cancelled     | -1     |\n| New     | 0     |\n| Closed     | 1    |\n| Checkin     | 2     |\n| Confirm     | 4     |\n| Break     | 10    |\n| NotSpecified     | 11     |\n| Available     | 20     |",
         "parameters": [
           {
             "description": "DataType: UniqueIdentifier(GUID)",
@@ -5466,7 +5472,7 @@
             "type": "string"
           },
           {
-            "description": "| Enum | Value |\n| -------- | -------- | \n| NoShow     | -2     | \n| Cancelled     | -1     | \n| New     | 0     | \n| Closed     | 1    |\n| Checkin     | 2     | \n| Confirm     | 4     | \n| Break     | 10    | \n| NotSpecified     | 11     | \n| Available     | 20     |",
+            "description": "| Enum | Value |\n| -------- | -------- |\n| NoShow     | -2     |\n| Cancelled     | -1     |\n| New     | 0     |\n| Closed     | 1    |\n| Checkin     | 2     |\n| Confirm     | 4     |\n| Break     | 10    |\n| NotSpecified     | 11     |\n| Available     | 20     |",
             "in": "query",
             "name": "status",
             "required": false,
@@ -5511,7 +5517,7 @@
     },
     "/v2/guests/{guestId}/memberships": {
       "get": {
-        "description": "Returns membership information of a guest. \n\nSecurity: `Read permission on guest and memberships.  Guest can only view her information.`",
+        "description": "Returns membership information of a guest.\n\nSecurity: `Read permission on guest and memberships.  Guest can only view her information.`",
         "parameters": [],
         "responses": {
           "200": {
@@ -5554,7 +5560,7 @@
     },
     "/v2/guests/{guest_id}/customdata": {
       "get": {
-        "description": "Returns custom data of a guest. \n\nSecurity:`Write permission on the custom data.`",
+        "description": "Returns custom data of a guest.\n\nSecurity:`Write permission on the custom data.`",
         "parameters": [],
         "responses": {
           "200": {
@@ -6113,7 +6119,7 @@
           {
             "description": "0 - Service,\n2- Product,\n3-Membership,\n4-Package,\n6-Giftcard,\n7-all\nDefault :- 0",
             "in": "query",
-            "name": "itemtype",
+            "name": "item_type",
             "required": false,
             "type": "integer"
           },
@@ -21091,7 +21097,7 @@
       "type": "object"
     },
     "alternative_type": {
-      "description": "Appointment alternative type\n\n| Name | Value |\n| -------- | -------- | -------- |\n| Therapist     | 1     | \n| Room | 2 |\n\n",
+      "description": "Appointment alternative type\n\n| Name | Value |\n| -------- | -------- | -------- |\n| Therapist     | 1     |\n| Room | 2 |\n\n",
       "enum": [
         "1",
         "2"
@@ -21250,7 +21256,7 @@
       }
     },
     "appointment_progress": {
-      "description": "| Name | Value | \n| -------- | -------- |\n| Not started     | 0     | \n| Started | 1 |\n| Completed | 2|",
+      "description": "| Name | Value |\n| -------- | -------- |\n| Not started     | 0     |\n| Started | 1 |\n| Completed | 2|",
       "enum": [
         "0",
         "1",
@@ -21794,7 +21800,7 @@
           "type": "boolean"
         },
         "NoteType": {
-          "description": "| enum | value |\n| -------- | -------- | \n| Generic     | 2     | \n|Checkin | 3   |\n| Booking     | 4     | \n| Payment     |8    | \n| Profile     | 10     |",
+          "description": "| enum | value |\n| -------- | -------- |\n| Generic     | 2     |\n|Checkin | 3   |\n| Booking     | 4     |\n| Payment     |8    |\n| Profile     | 10     |",
           "enum": [
             0,
             2,

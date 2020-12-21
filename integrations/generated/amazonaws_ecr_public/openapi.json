@@ -1,0 +1,4655 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "contact": {
+      "email": "mike.ralphson@gmail.com",
+      "name": "Mike Ralphson",
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
+    },
+    "description": "<fullname>Amazon Elastic Container Registry Public</fullname> <p>Amazon Elastic Container Registry (Amazon ECR) is a managed container image registry service. Amazon ECR provides both public and private registries to host your container images. You can use the familiar Docker CLI, or their preferred client, to push, pull, and manage images. Amazon ECR provides a secure, scalable, and reliable registry for your Docker or Open Container Initiative (OCI) images. Amazon ECR supports public repositories with this API. For information about the Amazon ECR API for private repositories, see <a href=\"https://docs.aws.amazon.com/AmazonECR/latest/APIReference/Welcome.html\">Amazon Elastic Container Registry API Reference</a>.</p>",
+    "license": {
+      "name": "Apache 2.0 License",
+      "url": "http://www.apache.org/licenses/"
+    },
+    "termsOfService": "https://aws.amazon.com/service-terms/",
+    "title": "Amazon Elastic Container Registry Public",
+    "version": "2020-10-30",
+    "x-apiClientRegistration": {
+      "url": "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"
+    },
+    "x-apisguru-categories": [
+      "cloud"
+    ],
+    "x-logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"
+    },
+    "x-origin": [
+      {
+        "contentType": "application/json",
+        "converter": {
+          "url": "https://github.com/mermade/aws2openapi",
+          "version": "1.0.0"
+        },
+        "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/ecr-public-2020-10-30.normal.json",
+        "x-apisguru-driver": "external"
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "amazonaws.com",
+    "x-release": "v4",
+    "x-serviceName": "ecr-public",
+    "x-datafire": {
+      "name": "amazonaws_ecr_public",
+      "type": "openapi"
+    }
+  },
+  "host": "api.ecr-public.us-east-1.amazonaws.com",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/#X-Amz-Target=SpencerFrontendService.BatchCheckLayerAvailability": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "SpencerFrontendService.BatchCheckLayerAvailability"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/BatchCheckLayerAvailabilityRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/BatchCheckLayerAvailabilityResponse"
+            }
+          },
+          "480": {
+            "description": "RepositoryNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/RepositoryNotFoundException"
+            }
+          },
+          "481": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "482": {
+            "description": "ServerException",
+            "schema": {
+              "$ref": "#/definitions/ServerException"
+            }
+          },
+          "483": {
+            "description": "RegistryNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/RegistryNotFoundException"
+            }
+          }
+        },
+        "description": "<p>Checks the availability of one or more image layers within a repository in a public registry. When an image is pushed to a repository, each image layer is checked to verify if it has been uploaded before. If it has been uploaded, then the image layer is skipped.</p> <note> <p>This operation is used by the Amazon ECR proxy and is not generally used by customers for pulling and pushing images. In most cases, you should use the <code>docker</code> CLI to pull, tag, and push images.</p> </note>",
+        "operationId": "BatchCheckLayerAvailability"
+      }
+    },
+    "/#X-Amz-Target=SpencerFrontendService.BatchDeleteImage": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "SpencerFrontendService.BatchDeleteImage"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/BatchDeleteImageRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/BatchDeleteImageResponse"
+            }
+          },
+          "480": {
+            "description": "ServerException",
+            "schema": {
+              "$ref": "#/definitions/ServerException"
+            }
+          },
+          "481": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "482": {
+            "description": "RepositoryNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/RepositoryNotFoundException"
+            }
+          }
+        },
+        "description": "<p>Deletes a list of specified images within a repository in a public registry. Images are specified with either an <code>imageTag</code> or <code>imageDigest</code>.</p> <p>You can remove a tag from an image by specifying the image's tag in your request. When you remove the last tag from an image, the image is deleted from your repository.</p> <p>You can completely delete an image (and all of its tags) by specifying the image's digest in your request.</p>",
+        "operationId": "BatchDeleteImage"
+      }
+    },
+    "/#X-Amz-Target=SpencerFrontendService.CompleteLayerUpload": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "SpencerFrontendService.CompleteLayerUpload"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CompleteLayerUploadRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CompleteLayerUploadResponse"
+            }
+          },
+          "480": {
+            "description": "ServerException",
+            "schema": {
+              "$ref": "#/definitions/ServerException"
+            }
+          },
+          "481": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "482": {
+            "description": "RepositoryNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/RepositoryNotFoundException"
+            }
+          },
+          "483": {
+            "description": "UploadNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/UploadNotFoundException"
+            }
+          },
+          "484": {
+            "description": "InvalidLayerException",
+            "schema": {
+              "$ref": "#/definitions/InvalidLayerException"
+            }
+          },
+          "485": {
+            "description": "LayerPartTooSmallException",
+            "schema": {
+              "$ref": "#/definitions/LayerPartTooSmallException"
+            }
+          },
+          "486": {
+            "description": "LayerAlreadyExistsException",
+            "schema": {
+              "$ref": "#/definitions/LayerAlreadyExistsException"
+            }
+          },
+          "487": {
+            "description": "EmptyUploadException",
+            "schema": {
+              "$ref": "#/definitions/EmptyUploadException"
+            }
+          },
+          "488": {
+            "description": "RegistryNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/RegistryNotFoundException"
+            }
+          },
+          "489": {
+            "description": "UnsupportedCommandException",
+            "schema": {
+              "$ref": "#/definitions/UnsupportedCommandException"
+            }
+          }
+        },
+        "description": "<p>Informs Amazon ECR that the image layer upload has completed for a specified public registry, repository name, and upload ID. You can optionally provide a <code>sha256</code> digest of the image layer for data validation purposes.</p> <p>When an image is pushed, the CompleteLayerUpload API is called once per each new image layer to verify that the upload has completed.</p> <note> <p>This operation is used by the Amazon ECR proxy and is not generally used by customers for pulling and pushing images. In most cases, you should use the <code>docker</code> CLI to pull, tag, and push images.</p> </note>",
+        "operationId": "CompleteLayerUpload"
+      }
+    },
+    "/#X-Amz-Target=SpencerFrontendService.CreateRepository": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "SpencerFrontendService.CreateRepository"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateRepositoryRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateRepositoryResponse"
+            }
+          },
+          "480": {
+            "description": "ServerException",
+            "schema": {
+              "$ref": "#/definitions/ServerException"
+            }
+          },
+          "481": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "482": {
+            "description": "RepositoryAlreadyExistsException",
+            "schema": {
+              "$ref": "#/definitions/RepositoryAlreadyExistsException"
+            }
+          },
+          "483": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          }
+        },
+        "description": "Creates a repository in a public registry. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECR/latest/userguide/Repositories.html\">Amazon ECR repositories</a> in the <i>Amazon Elastic Container Registry User Guide</i>.",
+        "operationId": "CreateRepository"
+      }
+    },
+    "/#X-Amz-Target=SpencerFrontendService.DeleteRepository": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "SpencerFrontendService.DeleteRepository"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteRepositoryRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteRepositoryResponse"
+            }
+          },
+          "480": {
+            "description": "ServerException",
+            "schema": {
+              "$ref": "#/definitions/ServerException"
+            }
+          },
+          "481": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "482": {
+            "description": "RepositoryNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/RepositoryNotFoundException"
+            }
+          },
+          "483": {
+            "description": "RepositoryNotEmptyException",
+            "schema": {
+              "$ref": "#/definitions/RepositoryNotEmptyException"
+            }
+          }
+        },
+        "description": "Deletes a repository in a public registry. If the repository contains images, you must either delete all images in the repository or use the <code>force</code> option which deletes all images on your behalf before deleting the repository.",
+        "operationId": "DeleteRepository"
+      }
+    },
+    "/#X-Amz-Target=SpencerFrontendService.DeleteRepositoryPolicy": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "SpencerFrontendService.DeleteRepositoryPolicy"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteRepositoryPolicyRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteRepositoryPolicyResponse"
+            }
+          },
+          "480": {
+            "description": "ServerException",
+            "schema": {
+              "$ref": "#/definitions/ServerException"
+            }
+          },
+          "481": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "482": {
+            "description": "RepositoryNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/RepositoryNotFoundException"
+            }
+          },
+          "483": {
+            "description": "RepositoryPolicyNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/RepositoryPolicyNotFoundException"
+            }
+          }
+        },
+        "description": "Deletes the repository policy associated with the specified repository.",
+        "operationId": "DeleteRepositoryPolicy"
+      }
+    },
+    "/#X-Amz-Target=SpencerFrontendService.DescribeImageTags": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "maxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "SpencerFrontendService.DescribeImageTags"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeImageTagsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeImageTagsResponse"
+            }
+          },
+          "480": {
+            "description": "ServerException",
+            "schema": {
+              "$ref": "#/definitions/ServerException"
+            }
+          },
+          "481": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "482": {
+            "description": "RepositoryNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/RepositoryNotFoundException"
+            }
+          }
+        },
+        "description": "Returns the image tag details for a repository in a public registry.",
+        "operationId": "DescribeImageTags"
+      }
+    },
+    "/#X-Amz-Target=SpencerFrontendService.DescribeImages": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "maxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "SpencerFrontendService.DescribeImages"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeImagesRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeImagesResponse"
+            }
+          },
+          "480": {
+            "description": "ServerException",
+            "schema": {
+              "$ref": "#/definitions/ServerException"
+            }
+          },
+          "481": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "482": {
+            "description": "RepositoryNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/RepositoryNotFoundException"
+            }
+          },
+          "483": {
+            "description": "ImageNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ImageNotFoundException"
+            }
+          }
+        },
+        "description": "<p>Returns metadata about the images in a repository in a public registry.</p> <note> <p>Beginning with Docker version 1.9, the Docker client compresses image layers before pushing them to a V2 Docker registry. The output of the <code>docker images</code> command shows the uncompressed image size, so it may return a larger image size than the image sizes returned by <a>DescribeImages</a>.</p> </note>",
+        "operationId": "DescribeImages"
+      }
+    },
+    "/#X-Amz-Target=SpencerFrontendService.DescribeRegistries": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "maxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "SpencerFrontendService.DescribeRegistries"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeRegistriesRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeRegistriesResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "481": {
+            "description": "UnsupportedCommandException",
+            "schema": {
+              "$ref": "#/definitions/UnsupportedCommandException"
+            }
+          },
+          "482": {
+            "description": "ServerException",
+            "schema": {
+              "$ref": "#/definitions/ServerException"
+            }
+          }
+        },
+        "description": "Returns details for a public registry.",
+        "operationId": "DescribeRegistries"
+      }
+    },
+    "/#X-Amz-Target=SpencerFrontendService.DescribeRepositories": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "maxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "SpencerFrontendService.DescribeRepositories"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeRepositoriesRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeRepositoriesResponse"
+            }
+          },
+          "480": {
+            "description": "ServerException",
+            "schema": {
+              "$ref": "#/definitions/ServerException"
+            }
+          },
+          "481": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "482": {
+            "description": "RepositoryNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/RepositoryNotFoundException"
+            }
+          }
+        },
+        "description": "Describes repositories in a public registry.",
+        "operationId": "DescribeRepositories"
+      }
+    },
+    "/#X-Amz-Target=SpencerFrontendService.GetAuthorizationToken": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "SpencerFrontendService.GetAuthorizationToken"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetAuthorizationTokenRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetAuthorizationTokenResponse"
+            }
+          },
+          "480": {
+            "description": "ServerException",
+            "schema": {
+              "$ref": "#/definitions/ServerException"
+            }
+          },
+          "481": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          }
+        },
+        "description": "Retrieves an authorization token. An authorization token represents your IAM authentication credentials and can be used to access any Amazon ECR registry that your IAM principal has access to. The authorization token is valid for 12 hours. This API requires the <code>ecr-public:GetAuthorizationToken</code> and <code>sts:GetServiceBearerToken</code> permissions.",
+        "operationId": "GetAuthorizationToken"
+      }
+    },
+    "/#X-Amz-Target=SpencerFrontendService.GetRegistryCatalogData": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "SpencerFrontendService.GetRegistryCatalogData"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetRegistryCatalogDataRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetRegistryCatalogDataResponse"
+            }
+          },
+          "480": {
+            "description": "ServerException",
+            "schema": {
+              "$ref": "#/definitions/ServerException"
+            }
+          },
+          "481": {
+            "description": "UnsupportedCommandException",
+            "schema": {
+              "$ref": "#/definitions/UnsupportedCommandException"
+            }
+          }
+        },
+        "description": "Retrieves catalog metadata for a public registry.",
+        "operationId": "GetRegistryCatalogData"
+      }
+    },
+    "/#X-Amz-Target=SpencerFrontendService.GetRepositoryCatalogData": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "SpencerFrontendService.GetRepositoryCatalogData"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetRepositoryCatalogDataRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetRepositoryCatalogDataResponse"
+            }
+          },
+          "480": {
+            "description": "ServerException",
+            "schema": {
+              "$ref": "#/definitions/ServerException"
+            }
+          },
+          "481": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "482": {
+            "description": "RepositoryNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/RepositoryNotFoundException"
+            }
+          }
+        },
+        "description": "Retrieve catalog metadata for a repository in a public registry. This metadata is displayed publicly in the Amazon ECR Public Gallery.",
+        "operationId": "GetRepositoryCatalogData"
+      }
+    },
+    "/#X-Amz-Target=SpencerFrontendService.GetRepositoryPolicy": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "SpencerFrontendService.GetRepositoryPolicy"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetRepositoryPolicyRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetRepositoryPolicyResponse"
+            }
+          },
+          "480": {
+            "description": "ServerException",
+            "schema": {
+              "$ref": "#/definitions/ServerException"
+            }
+          },
+          "481": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "482": {
+            "description": "RepositoryNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/RepositoryNotFoundException"
+            }
+          },
+          "483": {
+            "description": "RepositoryPolicyNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/RepositoryPolicyNotFoundException"
+            }
+          }
+        },
+        "description": "Retrieves the repository policy for the specified repository.",
+        "operationId": "GetRepositoryPolicy"
+      }
+    },
+    "/#X-Amz-Target=SpencerFrontendService.InitiateLayerUpload": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "SpencerFrontendService.InitiateLayerUpload"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/InitiateLayerUploadRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/InitiateLayerUploadResponse"
+            }
+          },
+          "480": {
+            "description": "ServerException",
+            "schema": {
+              "$ref": "#/definitions/ServerException"
+            }
+          },
+          "481": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "482": {
+            "description": "RepositoryNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/RepositoryNotFoundException"
+            }
+          },
+          "483": {
+            "description": "RegistryNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/RegistryNotFoundException"
+            }
+          },
+          "484": {
+            "description": "UnsupportedCommandException",
+            "schema": {
+              "$ref": "#/definitions/UnsupportedCommandException"
+            }
+          }
+        },
+        "description": "<p>Notifies Amazon ECR that you intend to upload an image layer.</p> <p>When an image is pushed, the InitiateLayerUpload API is called once per image layer that has not already been uploaded. Whether or not an image layer has been uploaded is determined by the BatchCheckLayerAvailability API action.</p> <note> <p>This operation is used by the Amazon ECR proxy and is not generally used by customers for pulling and pushing images. In most cases, you should use the <code>docker</code> CLI to pull, tag, and push images.</p> </note>",
+        "operationId": "InitiateLayerUpload"
+      }
+    },
+    "/#X-Amz-Target=SpencerFrontendService.PutImage": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "SpencerFrontendService.PutImage"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PutImageRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/PutImageResponse"
+            }
+          },
+          "480": {
+            "description": "ServerException",
+            "schema": {
+              "$ref": "#/definitions/ServerException"
+            }
+          },
+          "481": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "482": {
+            "description": "RepositoryNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/RepositoryNotFoundException"
+            }
+          },
+          "483": {
+            "description": "ImageAlreadyExistsException",
+            "schema": {
+              "$ref": "#/definitions/ImageAlreadyExistsException"
+            }
+          },
+          "484": {
+            "description": "LayersNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/LayersNotFoundException"
+            }
+          },
+          "485": {
+            "description": "ReferencedImagesNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ReferencedImagesNotFoundException"
+            }
+          },
+          "486": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          },
+          "487": {
+            "description": "ImageTagAlreadyExistsException",
+            "schema": {
+              "$ref": "#/definitions/ImageTagAlreadyExistsException"
+            }
+          },
+          "488": {
+            "description": "ImageDigestDoesNotMatchException",
+            "schema": {
+              "$ref": "#/definitions/ImageDigestDoesNotMatchException"
+            }
+          },
+          "489": {
+            "description": "RegistryNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/RegistryNotFoundException"
+            }
+          },
+          "490": {
+            "description": "UnsupportedCommandException",
+            "schema": {
+              "$ref": "#/definitions/UnsupportedCommandException"
+            }
+          }
+        },
+        "description": "<p>Creates or updates the image manifest and tags associated with an image.</p> <p>When an image is pushed and all new image layers have been uploaded, the PutImage API is called once to create or update the image manifest and the tags associated with the image.</p> <note> <p>This operation is used by the Amazon ECR proxy and is not generally used by customers for pulling and pushing images. In most cases, you should use the <code>docker</code> CLI to pull, tag, and push images.</p> </note>",
+        "operationId": "PutImage"
+      }
+    },
+    "/#X-Amz-Target=SpencerFrontendService.PutRegistryCatalogData": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "SpencerFrontendService.PutRegistryCatalogData"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PutRegistryCatalogDataRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/PutRegistryCatalogDataResponse"
+            }
+          },
+          "480": {
+            "description": "ServerException",
+            "schema": {
+              "$ref": "#/definitions/ServerException"
+            }
+          },
+          "481": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "482": {
+            "description": "UnsupportedCommandException",
+            "schema": {
+              "$ref": "#/definitions/UnsupportedCommandException"
+            }
+          }
+        },
+        "description": "Create or updates the catalog data for a public registry.",
+        "operationId": "PutRegistryCatalogData"
+      }
+    },
+    "/#X-Amz-Target=SpencerFrontendService.PutRepositoryCatalogData": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "SpencerFrontendService.PutRepositoryCatalogData"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PutRepositoryCatalogDataRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/PutRepositoryCatalogDataResponse"
+            }
+          },
+          "480": {
+            "description": "ServerException",
+            "schema": {
+              "$ref": "#/definitions/ServerException"
+            }
+          },
+          "481": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "482": {
+            "description": "RepositoryNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/RepositoryNotFoundException"
+            }
+          }
+        },
+        "description": "Creates or updates the catalog data for a repository in a public registry.",
+        "operationId": "PutRepositoryCatalogData"
+      }
+    },
+    "/#X-Amz-Target=SpencerFrontendService.SetRepositoryPolicy": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "SpencerFrontendService.SetRepositoryPolicy"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SetRepositoryPolicyRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/SetRepositoryPolicyResponse"
+            }
+          },
+          "480": {
+            "description": "ServerException",
+            "schema": {
+              "$ref": "#/definitions/ServerException"
+            }
+          },
+          "481": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "482": {
+            "description": "RepositoryNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/RepositoryNotFoundException"
+            }
+          }
+        },
+        "description": "Applies a repository policy to the specified public repository to control access permissions. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECR/latest/userguide/repository-policies.html\">Amazon ECR Repository Policies</a> in the <i>Amazon Elastic Container Registry User Guide</i>.",
+        "operationId": "SetRepositoryPolicy"
+      }
+    },
+    "/#X-Amz-Target=SpencerFrontendService.UploadLayerPart": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "SpencerFrontendService.UploadLayerPart"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UploadLayerPartRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UploadLayerPartResponse"
+            }
+          },
+          "480": {
+            "description": "ServerException",
+            "schema": {
+              "$ref": "#/definitions/ServerException"
+            }
+          },
+          "481": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "482": {
+            "description": "InvalidLayerPartException",
+            "schema": {
+              "$ref": "#/definitions/InvalidLayerPartException"
+            }
+          },
+          "483": {
+            "description": "RepositoryNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/RepositoryNotFoundException"
+            }
+          },
+          "484": {
+            "description": "UploadNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/UploadNotFoundException"
+            }
+          },
+          "485": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          },
+          "486": {
+            "description": "RegistryNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/RegistryNotFoundException"
+            }
+          },
+          "487": {
+            "description": "UnsupportedCommandException",
+            "schema": {
+              "$ref": "#/definitions/UnsupportedCommandException"
+            }
+          }
+        },
+        "description": "<p>Uploads an image layer part to Amazon ECR.</p> <p>When an image is pushed, each new image layer is uploaded in parts. The maximum size of each image layer part can be 20971520 bytes (or about 20MB). The UploadLayerPart API is called once per each new image layer part.</p> <note> <p>This operation is used by the Amazon ECR proxy and is not generally used by customers for pulling and pushing images. In most cases, you should use the <code>docker</code> CLI to pull, tag, and push images.</p> </note>",
+        "operationId": "UploadLayerPart"
+      }
+    }
+  },
+  "definitions": {
+    "AboutText": {
+      "maxLength": 10240,
+      "type": "string"
+    },
+    "Architecture": {
+      "maxLength": 50,
+      "minLength": 1,
+      "type": "string"
+    },
+    "ArchitectureList": {
+      "items": {
+        "$ref": "#/definitions/Architecture"
+      },
+      "maxItems": 50,
+      "type": "array"
+    },
+    "Arn": {
+      "type": "string"
+    },
+    "AuthorizationData": {
+      "description": "An authorization token data object that corresponds to a public registry.",
+      "properties": {
+        "authorizationToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Base64"
+            },
+            {
+              "description": "A base64-encoded string that contains authorization data for a public Amazon ECR registry. When the string is decoded, it is presented in the format <code>user:password</code> for public registry authentication using <code>docker login</code>."
+            }
+          ]
+        },
+        "expiresAt": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ExpirationTimestamp"
+            },
+            {
+              "description": "The Unix time in seconds and milliseconds when the authorization token expires. Authorization tokens are valid for 12 hours."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "Base64": {
+      "pattern": "^\\S+$",
+      "type": "string"
+    },
+    "BatchCheckLayerAvailabilityRequest": {
+      "properties": {
+        "layerDigests": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/BatchedOperationLayerDigestList"
+            },
+            {
+              "description": "The digests of the image layers to check."
+            }
+          ]
+        },
+        "registryId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RegistryIdOrAlias"
+            },
+            {
+              "description": "The AWS account ID associated with the public registry that contains the image layers to check. If you do not specify a registry, the default public registry is assumed."
+            }
+          ]
+        },
+        "repositoryName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RepositoryName"
+            },
+            {
+              "description": "The name of the repository that is associated with the image layers to check."
+            }
+          ]
+        }
+      },
+      "required": [
+        "repositoryName",
+        "layerDigests"
+      ],
+      "title": "BatchCheckLayerAvailabilityRequest",
+      "type": "object"
+    },
+    "BatchCheckLayerAvailabilityResponse": {
+      "properties": {
+        "failures": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/LayerFailureList"
+            },
+            {
+              "description": "Any failures associated with the call."
+            }
+          ]
+        },
+        "layers": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/LayerList"
+            },
+            {
+              "description": "A list of image layer objects corresponding to the image layer references in the request."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "BatchDeleteImageRequest": {
+      "properties": {
+        "imageIds": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ImageIdentifierList"
+            },
+            {
+              "description": "A list of image ID references that correspond to images to delete. The format of the <code>imageIds</code> reference is <code>imageTag=tag</code> or <code>imageDigest=digest</code>."
+            }
+          ]
+        },
+        "registryId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RegistryId"
+            },
+            {
+              "description": "The AWS account ID associated with the registry that contains the image to delete. If you do not specify a registry, the default public registry is assumed."
+            }
+          ]
+        },
+        "repositoryName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RepositoryName"
+            },
+            {
+              "description": "The repository in a public registry that contains the image to delete."
+            }
+          ]
+        }
+      },
+      "required": [
+        "repositoryName",
+        "imageIds"
+      ],
+      "title": "BatchDeleteImageRequest",
+      "type": "object"
+    },
+    "BatchDeleteImageResponse": {
+      "properties": {
+        "failures": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ImageFailureList"
+            },
+            {
+              "description": "Any failures associated with the call."
+            }
+          ]
+        },
+        "imageIds": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ImageIdentifierList"
+            },
+            {
+              "description": "The image IDs of the deleted images."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "BatchedOperationLayerDigest": {
+      "maxLength": 1000,
+      "minLength": 0,
+      "type": "string"
+    },
+    "BatchedOperationLayerDigestList": {
+      "items": {
+        "$ref": "#/definitions/BatchedOperationLayerDigest"
+      },
+      "maxItems": 100,
+      "minItems": 1,
+      "type": "array"
+    },
+    "CompleteLayerUploadRequest": {
+      "properties": {
+        "layerDigests": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/LayerDigestList"
+            },
+            {
+              "description": "The <code>sha256</code> digest of the image layer."
+            }
+          ]
+        },
+        "registryId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RegistryIdOrAlias"
+            },
+            {
+              "description": "The AWS account ID associated with the registry to which to upload layers. If you do not specify a registry, the default public registry is assumed."
+            }
+          ]
+        },
+        "repositoryName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RepositoryName"
+            },
+            {
+              "description": "The name of the repository in a public registry to associate with the image layer."
+            }
+          ]
+        },
+        "uploadId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/UploadId"
+            },
+            {
+              "description": "The upload ID from a previous <a>InitiateLayerUpload</a> operation to associate with the image layer."
+            }
+          ]
+        }
+      },
+      "required": [
+        "repositoryName",
+        "uploadId",
+        "layerDigests"
+      ],
+      "title": "CompleteLayerUploadRequest",
+      "type": "object"
+    },
+    "CompleteLayerUploadResponse": {
+      "properties": {
+        "layerDigest": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/LayerDigest"
+            },
+            {
+              "description": "The <code>sha256</code> digest of the image layer."
+            }
+          ]
+        },
+        "registryId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RegistryId"
+            },
+            {
+              "description": "The public registry ID associated with the request."
+            }
+          ]
+        },
+        "repositoryName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RepositoryName"
+            },
+            {
+              "description": "The repository name associated with the request."
+            }
+          ]
+        },
+        "uploadId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/UploadId"
+            },
+            {
+              "description": "The upload ID associated with the layer."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "CreateRepositoryRequest": {
+      "properties": {
+        "catalogData": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RepositoryCatalogDataInput"
+            },
+            {
+              "description": "The details about the repository that are publicly visible in the Amazon ECR Public Gallery."
+            }
+          ]
+        },
+        "repositoryName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RepositoryName"
+            },
+            {
+              "description": "The name to use for the repository. This appears publicly in the Amazon ECR Public Gallery. The repository name may be specified on its own (such as <code>nginx-web-app</code>) or it can be prepended with a namespace to group the repository into a category (such as <code>project-a/nginx-web-app</code>)."
+            }
+          ]
+        }
+      },
+      "required": [
+        "repositoryName"
+      ],
+      "title": "CreateRepositoryRequest",
+      "type": "object"
+    },
+    "CreateRepositoryResponse": {
+      "properties": {
+        "catalogData": {
+          "$ref": "#/definitions/RepositoryCatalogData"
+        },
+        "repository": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Repository"
+            },
+            {
+              "description": "The repository that was created."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "CreationTimestamp": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "DefaultRegistryAliasFlag": {
+      "type": "boolean"
+    },
+    "DeleteRepositoryPolicyRequest": {
+      "properties": {
+        "registryId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RegistryId"
+            },
+            {
+              "description": "The AWS account ID associated with the public registry that contains the repository policy to delete. If you do not specify a registry, the default public registry is assumed."
+            }
+          ]
+        },
+        "repositoryName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RepositoryName"
+            },
+            {
+              "description": "The name of the repository that is associated with the repository policy to delete."
+            }
+          ]
+        }
+      },
+      "required": [
+        "repositoryName"
+      ],
+      "title": "DeleteRepositoryPolicyRequest",
+      "type": "object"
+    },
+    "DeleteRepositoryPolicyResponse": {
+      "properties": {
+        "policyText": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RepositoryPolicyText"
+            },
+            {
+              "description": "The JSON repository policy that was deleted from the repository."
+            }
+          ]
+        },
+        "registryId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RegistryId"
+            },
+            {
+              "description": "The registry ID associated with the request."
+            }
+          ]
+        },
+        "repositoryName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RepositoryName"
+            },
+            {
+              "description": "The repository name associated with the request."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DeleteRepositoryRequest": {
+      "properties": {
+        "force": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ForceFlag"
+            },
+            {
+              "description": " If a repository contains images, forces the deletion."
+            }
+          ]
+        },
+        "registryId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RegistryId"
+            },
+            {
+              "description": "The AWS account ID associated with the public registry that contains the repository to delete. If you do not specify a registry, the default public registry is assumed."
+            }
+          ]
+        },
+        "repositoryName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RepositoryName"
+            },
+            {
+              "description": "The name of the repository to delete."
+            }
+          ]
+        }
+      },
+      "required": [
+        "repositoryName"
+      ],
+      "title": "DeleteRepositoryRequest",
+      "type": "object"
+    },
+    "DeleteRepositoryResponse": {
+      "properties": {
+        "repository": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Repository"
+            },
+            {
+              "description": "The repository that was deleted."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DescribeImageTagsRequest": {
+      "properties": {
+        "maxResults": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MaxResults"
+            },
+            {
+              "description": "The maximum number of repository results returned by <code>DescribeImageTags</code> in paginated output. When this parameter is used, <code>DescribeImageTags</code> only returns <code>maxResults</code> results in a single page along with a <code>nextToken</code> response element. The remaining results of the initial request can be seen by sending another <code>DescribeImageTags</code> request with the returned <code>nextToken</code> value. This value can be between 1 and 1000. If this parameter is not used, then <code>DescribeImageTags</code> returns up to 100 results and a <code>nextToken</code> value, if applicable. This option cannot be used when you specify images with <code>imageIds</code>."
+            }
+          ]
+        },
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NextToken"
+            },
+            {
+              "description": "The <code>nextToken</code> value returned from a previous paginated <code>DescribeImageTags</code> request where <code>maxResults</code> was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the <code>nextToken</code> value. This value is <code>null</code> when there are no more results to return. This option cannot be used when you specify images with <code>imageIds</code>."
+            }
+          ]
+        },
+        "registryId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RegistryId"
+            },
+            {
+              "description": "The AWS account ID associated with the public registry that contains the repository in which to describe images. If you do not specify a registry, the default public registry is assumed."
+            }
+          ]
+        },
+        "repositoryName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RepositoryName"
+            },
+            {
+              "description": "The name of the repository that contains the image tag details to describe."
+            }
+          ]
+        }
+      },
+      "required": [
+        "repositoryName"
+      ],
+      "title": "DescribeImageTagsRequest",
+      "type": "object"
+    },
+    "DescribeImageTagsResponse": {
+      "properties": {
+        "imageTagDetails": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ImageTagDetailList"
+            },
+            {
+              "description": "The image tag details for the images in the requested repository."
+            }
+          ]
+        },
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NextToken"
+            },
+            {
+              "description": "The <code>nextToken</code> value to include in a future <code>DescribeImageTags</code> request. When the results of a <code>DescribeImageTags</code> request exceed <code>maxResults</code>, this value can be used to retrieve the next page of results. This value is <code>null</code> when there are no more results to return."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DescribeImagesRequest": {
+      "properties": {
+        "imageIds": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ImageIdentifierList"
+            },
+            {
+              "description": "The list of image IDs for the requested repository."
+            }
+          ]
+        },
+        "maxResults": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MaxResults"
+            },
+            {
+              "description": "The maximum number of repository results returned by <code>DescribeImages</code> in paginated output. When this parameter is used, <code>DescribeImages</code> only returns <code>maxResults</code> results in a single page along with a <code>nextToken</code> response element. The remaining results of the initial request can be seen by sending another <code>DescribeImages</code> request with the returned <code>nextToken</code> value. This value can be between 1 and 1000. If this parameter is not used, then <code>DescribeImages</code> returns up to 100 results and a <code>nextToken</code> value, if applicable. This option cannot be used when you specify images with <code>imageIds</code>."
+            }
+          ]
+        },
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NextToken"
+            },
+            {
+              "description": "The <code>nextToken</code> value returned from a previous paginated <code>DescribeImages</code> request where <code>maxResults</code> was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the <code>nextToken</code> value. This value is <code>null</code> when there are no more results to return. This option cannot be used when you specify images with <code>imageIds</code>."
+            }
+          ]
+        },
+        "registryId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RegistryId"
+            },
+            {
+              "description": "The AWS account ID associated with the public registry that contains the repository in which to describe images. If you do not specify a registry, the default public registry is assumed."
+            }
+          ]
+        },
+        "repositoryName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RepositoryName"
+            },
+            {
+              "description": "The repository that contains the images to describe."
+            }
+          ]
+        }
+      },
+      "required": [
+        "repositoryName"
+      ],
+      "title": "DescribeImagesRequest",
+      "type": "object"
+    },
+    "DescribeImagesResponse": {
+      "properties": {
+        "imageDetails": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ImageDetailList"
+            },
+            {
+              "description": "A list of <a>ImageDetail</a> objects that contain data about the image."
+            }
+          ]
+        },
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NextToken"
+            },
+            {
+              "description": "The <code>nextToken</code> value to include in a future <code>DescribeImages</code> request. When the results of a <code>DescribeImages</code> request exceed <code>maxResults</code>, this value can be used to retrieve the next page of results. This value is <code>null</code> when there are no more results to return."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DescribeRegistriesRequest": {
+      "properties": {
+        "maxResults": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MaxResults"
+            },
+            {
+              "description": "The maximum number of repository results returned by <code>DescribeRegistries</code> in paginated output. When this parameter is used, <code>DescribeRegistries</code> only returns <code>maxResults</code> results in a single page along with a <code>nextToken</code> response element. The remaining results of the initial request can be seen by sending another <code>DescribeRegistries</code> request with the returned <code>nextToken</code> value. This value can be between 1 and 1000. If this parameter is not used, then <code>DescribeRegistries</code> returns up to 100 results and a <code>nextToken</code> value, if applicable."
+            }
+          ]
+        },
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NextToken"
+            },
+            {
+              "description": "<p>The <code>nextToken</code> value returned from a previous paginated <code>DescribeRegistries</code> request where <code>maxResults</code> was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the <code>nextToken</code> value. This value is <code>null</code> when there are no more results to return.</p> <note> <p>This token should be treated as an opaque identifier that is only used to retrieve the next items in a list and not for other programmatic purposes.</p> </note>"
+            }
+          ]
+        }
+      },
+      "title": "DescribeRegistriesRequest",
+      "type": "object"
+    },
+    "DescribeRegistriesResponse": {
+      "properties": {
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NextToken"
+            },
+            {
+              "description": "The <code>nextToken</code> value to include in a future <code>DescribeRepositories</code> request. When the results of a <code>DescribeRepositories</code> request exceed <code>maxResults</code>, this value can be used to retrieve the next page of results. This value is <code>null</code> when there are no more results to return."
+            }
+          ]
+        },
+        "registries": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RegistryList"
+            },
+            {
+              "description": "An object containing the details for a public registry."
+            }
+          ]
+        }
+      },
+      "required": [
+        "registries"
+      ],
+      "type": "object"
+    },
+    "DescribeRepositoriesRequest": {
+      "properties": {
+        "maxResults": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MaxResults"
+            },
+            {
+              "description": "The maximum number of repository results returned by <code>DescribeRepositories</code> in paginated output. When this parameter is used, <code>DescribeRepositories</code> only returns <code>maxResults</code> results in a single page along with a <code>nextToken</code> response element. The remaining results of the initial request can be seen by sending another <code>DescribeRepositories</code> request with the returned <code>nextToken</code> value. This value can be between 1 and 1000. If this parameter is not used, then <code>DescribeRepositories</code> returns up to 100 results and a <code>nextToken</code> value, if applicable. This option cannot be used when you specify repositories with <code>repositoryNames</code>."
+            }
+          ]
+        },
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NextToken"
+            },
+            {
+              "description": "<p>The <code>nextToken</code> value returned from a previous paginated <code>DescribeRepositories</code> request where <code>maxResults</code> was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the <code>nextToken</code> value. This value is <code>null</code> when there are no more results to return. This option cannot be used when you specify repositories with <code>repositoryNames</code>.</p> <note> <p>This token should be treated as an opaque identifier that is only used to retrieve the next items in a list and not for other programmatic purposes.</p> </note>"
+            }
+          ]
+        },
+        "registryId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RegistryId"
+            },
+            {
+              "description": "The AWS account ID associated with the registry that contains the repositories to be described. If you do not specify a registry, the default public registry is assumed."
+            }
+          ]
+        },
+        "repositoryNames": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RepositoryNameList"
+            },
+            {
+              "description": "A list of repositories to describe. If this parameter is omitted, then all repositories in a registry are described."
+            }
+          ]
+        }
+      },
+      "title": "DescribeRepositoriesRequest",
+      "type": "object"
+    },
+    "DescribeRepositoriesResponse": {
+      "properties": {
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NextToken"
+            },
+            {
+              "description": "The <code>nextToken</code> value to include in a future <code>DescribeRepositories</code> request. When the results of a <code>DescribeRepositories</code> request exceed <code>maxResults</code>, this value can be used to retrieve the next page of results. This value is <code>null</code> when there are no more results to return."
+            }
+          ]
+        },
+        "repositories": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RepositoryList"
+            },
+            {
+              "description": "A list of repository objects corresponding to valid repositories."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "EmptyUploadException": {},
+    "ExpirationTimestamp": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "ForceFlag": {
+      "type": "boolean"
+    },
+    "GetAuthorizationTokenRequest": {
+      "properties": {},
+      "title": "GetAuthorizationTokenRequest",
+      "type": "object"
+    },
+    "GetAuthorizationTokenResponse": {
+      "properties": {
+        "authorizationData": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AuthorizationData"
+            },
+            {
+              "description": "An authorization token data object that corresponds to a public registry."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "GetRegistryCatalogDataRequest": {
+      "properties": {},
+      "title": "GetRegistryCatalogDataRequest",
+      "type": "object"
+    },
+    "GetRegistryCatalogDataResponse": {
+      "properties": {
+        "registryCatalogData": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RegistryCatalogData"
+            },
+            {
+              "description": "The catalog metadata for the public registry."
+            }
+          ]
+        }
+      },
+      "required": [
+        "registryCatalogData"
+      ],
+      "type": "object"
+    },
+    "GetRepositoryCatalogDataRequest": {
+      "properties": {
+        "registryId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RegistryId"
+            },
+            {
+              "description": "The AWS account ID associated with the registry that contains the repositories to be described. If you do not specify a registry, the default public registry is assumed."
+            }
+          ]
+        },
+        "repositoryName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RepositoryName"
+            },
+            {
+              "description": "The name of the repository to retrieve the catalog metadata for."
+            }
+          ]
+        }
+      },
+      "required": [
+        "repositoryName"
+      ],
+      "title": "GetRepositoryCatalogDataRequest",
+      "type": "object"
+    },
+    "GetRepositoryCatalogDataResponse": {
+      "properties": {
+        "catalogData": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RepositoryCatalogData"
+            },
+            {
+              "description": "The catalog metadata for the repository."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "GetRepositoryPolicyRequest": {
+      "properties": {
+        "registryId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RegistryId"
+            },
+            {
+              "description": "The AWS account ID associated with the public registry that contains the repository. If you do not specify a registry, the default public registry is assumed."
+            }
+          ]
+        },
+        "repositoryName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RepositoryName"
+            },
+            {
+              "description": "The name of the repository with the policy to retrieve."
+            }
+          ]
+        }
+      },
+      "required": [
+        "repositoryName"
+      ],
+      "title": "GetRepositoryPolicyRequest",
+      "type": "object"
+    },
+    "GetRepositoryPolicyResponse": {
+      "properties": {
+        "policyText": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RepositoryPolicyText"
+            },
+            {
+              "description": "The repository policy text associated with the repository. The policy text will be in JSON format."
+            }
+          ]
+        },
+        "registryId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RegistryId"
+            },
+            {
+              "description": "The registry ID associated with the request."
+            }
+          ]
+        },
+        "repositoryName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RepositoryName"
+            },
+            {
+              "description": "The repository name associated with the request."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "Image": {
+      "description": "An object representing an Amazon ECR image.",
+      "properties": {
+        "imageId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ImageIdentifier"
+            },
+            {
+              "description": "An object containing the image tag and image digest associated with an image."
+            }
+          ]
+        },
+        "imageManifest": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ImageManifest"
+            },
+            {
+              "description": "The image manifest associated with the image."
+            }
+          ]
+        },
+        "imageManifestMediaType": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MediaType"
+            },
+            {
+              "description": "The manifest media type of the image."
+            }
+          ]
+        },
+        "registryId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RegistryIdOrAlias"
+            },
+            {
+              "description": "The AWS account ID associated with the registry containing the image."
+            }
+          ]
+        },
+        "repositoryName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RepositoryName"
+            },
+            {
+              "description": "The name of the repository associated with the image."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ImageAlreadyExistsException": {},
+    "ImageDetail": {
+      "description": "An object that describes an image returned by a <a>DescribeImages</a> operation.",
+      "properties": {
+        "artifactMediaType": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MediaType"
+            },
+            {
+              "description": "The artifact media type of the image."
+            }
+          ]
+        },
+        "imageDigest": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ImageDigest"
+            },
+            {
+              "description": "The <code>sha256</code> digest of the image manifest."
+            }
+          ]
+        },
+        "imageManifestMediaType": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MediaType"
+            },
+            {
+              "description": "The media type of the image manifest."
+            }
+          ]
+        },
+        "imagePushedAt": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PushTimestamp"
+            },
+            {
+              "description": "The date and time, expressed in standard JavaScript date format, at which the current image was pushed to the repository. "
+            }
+          ]
+        },
+        "imageSizeInBytes": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ImageSizeInBytes"
+            },
+            {
+              "description": "<p>The size, in bytes, of the image in the repository.</p> <p>If the image is a manifest list, this will be the max size of all manifests in the list.</p> <note> <p>Beginning with Docker version 1.9, the Docker client compresses image layers before pushing them to a V2 Docker registry. The output of the <code>docker images</code> command shows the uncompressed image size, so it may return a larger image size than the image sizes returned by <a>DescribeImages</a>.</p> </note>"
+            }
+          ]
+        },
+        "imageTags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ImageTagList"
+            },
+            {
+              "description": "The list of tags associated with this image."
+            }
+          ]
+        },
+        "registryId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RegistryId"
+            },
+            {
+              "description": "The AWS account ID associated with the public registry to which this image belongs."
+            }
+          ]
+        },
+        "repositoryName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RepositoryName"
+            },
+            {
+              "description": "The name of the repository to which this image belongs."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ImageDetailList": {
+      "items": {
+        "$ref": "#/definitions/ImageDetail"
+      },
+      "type": "array"
+    },
+    "ImageDigest": {
+      "type": "string"
+    },
+    "ImageDigestDoesNotMatchException": {},
+    "ImageFailure": {
+      "description": "An object representing an Amazon ECR image failure.",
+      "properties": {
+        "failureCode": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ImageFailureCode"
+            },
+            {
+              "description": "The code associated with the failure."
+            }
+          ]
+        },
+        "failureReason": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ImageFailureReason"
+            },
+            {
+              "description": "The reason for the failure."
+            }
+          ]
+        },
+        "imageId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ImageIdentifier"
+            },
+            {
+              "description": "The image ID associated with the failure."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ImageFailureCode": {
+      "enum": [
+        "InvalidImageDigest",
+        "InvalidImageTag",
+        "ImageTagDoesNotMatchDigest",
+        "ImageNotFound",
+        "MissingDigestAndTag",
+        "ImageReferencedByManifestList",
+        "KmsError"
+      ],
+      "type": "string"
+    },
+    "ImageFailureList": {
+      "items": {
+        "$ref": "#/definitions/ImageFailure"
+      },
+      "type": "array"
+    },
+    "ImageFailureReason": {
+      "type": "string"
+    },
+    "ImageIdentifier": {
+      "description": "An object with identifying information for an Amazon ECR image.",
+      "properties": {
+        "imageDigest": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ImageDigest"
+            },
+            {
+              "description": "The <code>sha256</code> digest of the image manifest."
+            }
+          ]
+        },
+        "imageTag": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ImageTag"
+            },
+            {
+              "description": "The tag used for the image."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ImageIdentifierList": {
+      "items": {
+        "$ref": "#/definitions/ImageIdentifier"
+      },
+      "maxItems": 100,
+      "minItems": 1,
+      "type": "array"
+    },
+    "ImageManifest": {
+      "maxLength": 4194304,
+      "minLength": 1,
+      "type": "string"
+    },
+    "ImageNotFoundException": {},
+    "ImageSizeInBytes": {
+      "type": "integer"
+    },
+    "ImageTag": {
+      "maxLength": 300,
+      "minLength": 1,
+      "type": "string"
+    },
+    "ImageTagAlreadyExistsException": {},
+    "ImageTagDetail": {
+      "description": "An object representing the image tag details for an image.",
+      "properties": {
+        "createdAt": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CreationTimestamp"
+            },
+            {
+              "description": "The time stamp indicating when the image tag was created."
+            }
+          ]
+        },
+        "imageDetail": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ReferencedImageDetail"
+            },
+            {
+              "description": "An object that describes the details of an image."
+            }
+          ]
+        },
+        "imageTag": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ImageTag"
+            },
+            {
+              "description": "The tag associated with the image."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ImageTagDetailList": {
+      "items": {
+        "$ref": "#/definitions/ImageTagDetail"
+      },
+      "type": "array"
+    },
+    "ImageTagList": {
+      "items": {
+        "$ref": "#/definitions/ImageTag"
+      },
+      "type": "array"
+    },
+    "InitiateLayerUploadRequest": {
+      "properties": {
+        "registryId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RegistryIdOrAlias"
+            },
+            {
+              "description": "The AWS account ID associated with the registry to which you intend to upload layers. If you do not specify a registry, the default public registry is assumed."
+            }
+          ]
+        },
+        "repositoryName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RepositoryName"
+            },
+            {
+              "description": "The name of the repository to which you intend to upload layers."
+            }
+          ]
+        }
+      },
+      "required": [
+        "repositoryName"
+      ],
+      "title": "InitiateLayerUploadRequest",
+      "type": "object"
+    },
+    "InitiateLayerUploadResponse": {
+      "properties": {
+        "partSize": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PartSize"
+            },
+            {
+              "description": "The size, in bytes, that Amazon ECR expects future layer part uploads to be."
+            }
+          ]
+        },
+        "uploadId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/UploadId"
+            },
+            {
+              "description": "The upload ID for the layer upload. This parameter is passed to further <a>UploadLayerPart</a> and <a>CompleteLayerUpload</a> operations."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "InvalidLayerException": {},
+    "InvalidLayerPartException": {},
+    "InvalidParameterException": {},
+    "Layer": {
+      "description": "An object representing an Amazon ECR image layer.",
+      "properties": {
+        "layerAvailability": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/LayerAvailability"
+            },
+            {
+              "description": "The availability status of the image layer."
+            }
+          ]
+        },
+        "layerDigest": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/LayerDigest"
+            },
+            {
+              "description": "The <code>sha256</code> digest of the image layer."
+            }
+          ]
+        },
+        "layerSize": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/LayerSizeInBytes"
+            },
+            {
+              "description": "The size, in bytes, of the image layer."
+            }
+          ]
+        },
+        "mediaType": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MediaType"
+            },
+            {
+              "description": "The media type of the layer, such as <code>application/vnd.docker.image.rootfs.diff.tar.gzip</code> or <code>application/vnd.oci.image.layer.v1.tar+gzip</code>."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "LayerAlreadyExistsException": {},
+    "LayerAvailability": {
+      "enum": [
+        "AVAILABLE",
+        "UNAVAILABLE"
+      ],
+      "type": "string"
+    },
+    "LayerDigest": {
+      "pattern": "[a-zA-Z0-9-_+.]+:[a-fA-F0-9]+",
+      "type": "string"
+    },
+    "LayerDigestList": {
+      "items": {
+        "$ref": "#/definitions/LayerDigest"
+      },
+      "maxItems": 100,
+      "minItems": 1,
+      "type": "array"
+    },
+    "LayerFailure": {
+      "description": "An object representing an Amazon ECR image layer failure.",
+      "properties": {
+        "failureCode": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/LayerFailureCode"
+            },
+            {
+              "description": "The failure code associated with the failure."
+            }
+          ]
+        },
+        "failureReason": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/LayerFailureReason"
+            },
+            {
+              "description": "The reason for the failure."
+            }
+          ]
+        },
+        "layerDigest": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/BatchedOperationLayerDigest"
+            },
+            {
+              "description": "The layer digest associated with the failure."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "LayerFailureCode": {
+      "enum": [
+        "InvalidLayerDigest",
+        "MissingLayerDigest"
+      ],
+      "type": "string"
+    },
+    "LayerFailureList": {
+      "items": {
+        "$ref": "#/definitions/LayerFailure"
+      },
+      "type": "array"
+    },
+    "LayerFailureReason": {
+      "type": "string"
+    },
+    "LayerList": {
+      "items": {
+        "$ref": "#/definitions/Layer"
+      },
+      "type": "array"
+    },
+    "LayerPartBlob": {
+      "maxLength": 20971520,
+      "minLength": 0,
+      "type": "string"
+    },
+    "LayerPartTooSmallException": {},
+    "LayerSizeInBytes": {
+      "type": "integer"
+    },
+    "LayersNotFoundException": {},
+    "LimitExceededException": {},
+    "LogoImageBlob": {
+      "maxLength": 512000,
+      "minLength": 0,
+      "type": "string"
+    },
+    "MarketplaceCertified": {
+      "type": "boolean"
+    },
+    "MaxResults": {
+      "maximum": 1000,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "MediaType": {
+      "type": "string"
+    },
+    "NextToken": {
+      "type": "string"
+    },
+    "OperatingSystem": {
+      "maxLength": 50,
+      "minLength": 1,
+      "type": "string"
+    },
+    "OperatingSystemList": {
+      "items": {
+        "$ref": "#/definitions/OperatingSystem"
+      },
+      "maxItems": 50,
+      "type": "array"
+    },
+    "PartSize": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "PrimaryRegistryAliasFlag": {
+      "type": "boolean"
+    },
+    "PushTimestamp": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "PutImageRequest": {
+      "properties": {
+        "imageDigest": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ImageDigest"
+            },
+            {
+              "description": "The image digest of the image manifest corresponding to the image."
+            }
+          ]
+        },
+        "imageManifest": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ImageManifest"
+            },
+            {
+              "description": "The image manifest corresponding to the image to be uploaded."
+            }
+          ]
+        },
+        "imageManifestMediaType": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MediaType"
+            },
+            {
+              "description": "The media type of the image manifest. If you push an image manifest that does not contain the <code>mediaType</code> field, you must specify the <code>imageManifestMediaType</code> in the request."
+            }
+          ]
+        },
+        "imageTag": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ImageTag"
+            },
+            {
+              "description": "The tag to associate with the image. This parameter is required for images that use the Docker Image Manifest V2 Schema 2 or Open Container Initiative (OCI) formats."
+            }
+          ]
+        },
+        "registryId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RegistryIdOrAlias"
+            },
+            {
+              "description": "The AWS account ID associated with the public registry that contains the repository in which to put the image. If you do not specify a registry, the default public registry is assumed."
+            }
+          ]
+        },
+        "repositoryName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RepositoryName"
+            },
+            {
+              "description": "The name of the repository in which to put the image."
+            }
+          ]
+        }
+      },
+      "required": [
+        "repositoryName",
+        "imageManifest"
+      ],
+      "title": "PutImageRequest",
+      "type": "object"
+    },
+    "PutImageResponse": {
+      "properties": {
+        "image": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Image"
+            },
+            {
+              "description": "Details of the image uploaded."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "PutRegistryCatalogDataRequest": {
+      "properties": {
+        "displayName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RegistryDisplayName"
+            },
+            {
+              "description": "<p>The display name for a public registry. The display name is shown as the repository author in the Amazon ECR Public Gallery.</p> <note> <p>The registry display name is only publicly visible in the Amazon ECR Public Gallery for verified accounts.</p> </note>"
+            }
+          ]
+        }
+      },
+      "title": "PutRegistryCatalogDataRequest",
+      "type": "object"
+    },
+    "PutRegistryCatalogDataResponse": {
+      "properties": {
+        "registryCatalogData": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RegistryCatalogData"
+            },
+            {
+              "description": "The catalog data for the public registry."
+            }
+          ]
+        }
+      },
+      "required": [
+        "registryCatalogData"
+      ],
+      "type": "object"
+    },
+    "PutRepositoryCatalogDataRequest": {
+      "properties": {
+        "catalogData": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RepositoryCatalogDataInput"
+            },
+            {
+              "description": "An object containing the catalog data for a repository. This data is publicly visible in the Amazon ECR Public Gallery."
+            }
+          ]
+        },
+        "registryId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RegistryId"
+            },
+            {
+              "description": "The AWS account ID associated with the public registry the repository is in. If you do not specify a registry, the default public registry is assumed."
+            }
+          ]
+        },
+        "repositoryName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RepositoryName"
+            },
+            {
+              "description": "The name of the repository to create or update the catalog data for."
+            }
+          ]
+        }
+      },
+      "required": [
+        "repositoryName",
+        "catalogData"
+      ],
+      "title": "PutRepositoryCatalogDataRequest",
+      "type": "object"
+    },
+    "PutRepositoryCatalogDataResponse": {
+      "properties": {
+        "catalogData": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RepositoryCatalogData"
+            },
+            {
+              "description": "The catalog data for the repository."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ReferencedImageDetail": {
+      "description": "An object that describes the image tag details returned by a <a>DescribeImageTags</a> action.",
+      "properties": {
+        "artifactMediaType": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MediaType"
+            },
+            {
+              "description": "The artifact media type of the image."
+            }
+          ]
+        },
+        "imageDigest": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ImageDigest"
+            },
+            {
+              "description": "The <code>sha256</code> digest of the image manifest."
+            }
+          ]
+        },
+        "imageManifestMediaType": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MediaType"
+            },
+            {
+              "description": "The media type of the image manifest."
+            }
+          ]
+        },
+        "imagePushedAt": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PushTimestamp"
+            },
+            {
+              "description": "The date and time, expressed in standard JavaScript date format, at which the current image tag was pushed to the repository."
+            }
+          ]
+        },
+        "imageSizeInBytes": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ImageSizeInBytes"
+            },
+            {
+              "description": "<p>The size, in bytes, of the image in the repository.</p> <p>If the image is a manifest list, this will be the max size of all manifests in the list.</p> <note> <p>Beginning with Docker version 1.9, the Docker client compresses image layers before pushing them to a V2 Docker registry. The output of the <code>docker images</code> command shows the uncompressed image size, so it may return a larger image size than the image sizes returned by <a>DescribeImages</a>.</p> </note>"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ReferencedImagesNotFoundException": {},
+    "Registry": {
+      "description": "The details of a public registry.",
+      "properties": {
+        "aliases": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RegistryAliasList"
+            },
+            {
+              "description": "An array of objects representing the aliases for a public registry."
+            }
+          ]
+        },
+        "registryArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Arn"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the public registry."
+            }
+          ]
+        },
+        "registryId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RegistryId"
+            },
+            {
+              "description": "The AWS account ID associated with the registry. If you do not specify a registry, the default public registry is assumed."
+            }
+          ]
+        },
+        "registryUri": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Url"
+            },
+            {
+              "description": "The URI of a public registry. The URI contains a universal prefix and the registry alias."
+            }
+          ]
+        },
+        "verified": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RegistryVerified"
+            },
+            {
+              "description": "Whether the account is verified. This indicates whether the account is an AWS Marketplace vendor. If an account is verified, each public repository will received a verified account badge on the Amazon ECR Public Gallery."
+            }
+          ]
+        }
+      },
+      "required": [
+        "registryId",
+        "registryArn",
+        "registryUri",
+        "verified",
+        "aliases"
+      ],
+      "type": "object"
+    },
+    "RegistryAlias": {
+      "description": "An object representing the aliases for a public registry. A public registry is given an alias upon creation but a custom alias can be set using the Amazon ECR console. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECR/latest/userguide/Registries.html\">Registries</a> in the <i>Amazon Elastic Container Registry User Guide</i>.",
+      "properties": {
+        "defaultRegistryAlias": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DefaultRegistryAliasFlag"
+            },
+            {
+              "description": "Whether or not the registry alias is the default alias for the registry. When the first public repository is created, your public registry is assigned a default registry alias."
+            }
+          ]
+        },
+        "name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RegistryAliasName"
+            },
+            {
+              "description": "The name of the registry alias."
+            }
+          ]
+        },
+        "primaryRegistryAlias": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PrimaryRegistryAliasFlag"
+            },
+            {
+              "description": "<p>Whether or not the registry alias is the primary alias for the registry. If true, the alias is the primary registry alias and is displayed in both the repository URL and the image URI used in the <code>docker pull</code> commands on the Amazon ECR Public Gallery.</p> <note> <p>A registry alias that is not the primary registry alias can be used in the repository URI in a <code>docker pull</code> command.</p> </note>"
+            }
+          ]
+        },
+        "status": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RegistryAliasStatus"
+            },
+            {
+              "description": "The status of the registry alias."
+            }
+          ]
+        }
+      },
+      "required": [
+        "name",
+        "status",
+        "primaryRegistryAlias",
+        "defaultRegistryAlias"
+      ],
+      "type": "object"
+    },
+    "RegistryAliasList": {
+      "items": {
+        "$ref": "#/definitions/RegistryAlias"
+      },
+      "type": "array"
+    },
+    "RegistryAliasName": {
+      "maxLength": 50,
+      "minLength": 2,
+      "pattern": "[a-z][a-z0-9]+(?:[._-][a-z0-9]+)*",
+      "type": "string"
+    },
+    "RegistryAliasStatus": {
+      "enum": [
+        "ACTIVE",
+        "PENDING",
+        "REJECTED"
+      ],
+      "type": "string"
+    },
+    "RegistryCatalogData": {
+      "description": "The metadata for a public registry.",
+      "properties": {
+        "displayName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RegistryDisplayName"
+            },
+            {
+              "description": "<p>The display name for a public registry. This appears on the Amazon ECR Public Gallery.</p> <important> <p>Only accounts that have the verified account badge can have a registry display name.</p> </important>"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "RegistryDisplayName": {
+      "maxLength": 100,
+      "minLength": 0,
+      "type": "string"
+    },
+    "RegistryId": {
+      "pattern": "[0-9]{12}",
+      "type": "string"
+    },
+    "RegistryIdOrAlias": {
+      "maxLength": 256,
+      "minLength": 1,
+      "type": "string"
+    },
+    "RegistryList": {
+      "items": {
+        "$ref": "#/definitions/Registry"
+      },
+      "type": "array"
+    },
+    "RegistryNotFoundException": {},
+    "RegistryVerified": {
+      "type": "boolean"
+    },
+    "Repository": {
+      "description": "An object representing a repository.",
+      "properties": {
+        "createdAt": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CreationTimestamp"
+            },
+            {
+              "description": "The date and time, in JavaScript date format, when the repository was created."
+            }
+          ]
+        },
+        "registryId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RegistryId"
+            },
+            {
+              "description": "The AWS account ID associated with the public registry that contains the repository."
+            }
+          ]
+        },
+        "repositoryArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Arn"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) that identifies the repository. The ARN contains the <code>arn:aws:ecr</code> namespace, followed by the region of the repository, AWS account ID of the repository owner, repository namespace, and repository name. For example, <code>arn:aws:ecr:region:012345678910:repository/test</code>."
+            }
+          ]
+        },
+        "repositoryName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RepositoryName"
+            },
+            {
+              "description": "The name of the repository."
+            }
+          ]
+        },
+        "repositoryUri": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Url"
+            },
+            {
+              "description": "The URI for the repository. You can use this URI for container image <code>push</code> and <code>pull</code> operations."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "RepositoryAlreadyExistsException": {},
+    "RepositoryCatalogData": {
+      "description": "The catalog data for a repository. This data is publicly visible in the Amazon ECR Public Gallery.",
+      "properties": {
+        "aboutText": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AboutText"
+            },
+            {
+              "description": "The longform description of the contents of the repository. This text appears in the repository details on the Amazon ECR Public Gallery."
+            }
+          ]
+        },
+        "architectures": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ArchitectureList"
+            },
+            {
+              "description": "<p>The architecture tags that are associated with the repository.</p> <note> <p>Only supported operating system tags appear publicly in the Amazon ECR Public Gallery. For more information, see <a>RepositoryCatalogDataInput</a>.</p> </note>"
+            }
+          ]
+        },
+        "description": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RepositoryDescription"
+            },
+            {
+              "description": "The short description of the repository."
+            }
+          ]
+        },
+        "logoUrl": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceUrl"
+            },
+            {
+              "description": "The URL containing the logo associated with the repository."
+            }
+          ]
+        },
+        "marketplaceCertified": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MarketplaceCertified"
+            },
+            {
+              "description": "Whether or not the repository is certified by AWS Marketplace."
+            }
+          ]
+        },
+        "operatingSystems": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/OperatingSystemList"
+            },
+            {
+              "description": "<p>The operating system tags that are associated with the repository.</p> <note> <p>Only supported operating system tags appear publicly in the Amazon ECR Public Gallery. For more information, see <a>RepositoryCatalogDataInput</a>.</p> </note>"
+            }
+          ]
+        },
+        "usageText": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/UsageText"
+            },
+            {
+              "description": "The longform usage details of the contents of the repository. The usage text provides context for users of the repository."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "RepositoryCatalogDataInput": {
+      "description": "An object containing the catalog data for a repository. This data is publicly visible in the Amazon ECR Public Gallery.",
+      "properties": {
+        "aboutText": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AboutText"
+            },
+            {
+              "description": "A detailed description of the contents of the repository. It is publicly visible in the Amazon ECR Public Gallery. The text must be in markdown format."
+            }
+          ]
+        },
+        "architectures": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ArchitectureList"
+            },
+            {
+              "description": "<p>The system architecture that the images in the repository are compatible with. On the Amazon ECR Public Gallery, the following supported architectures will appear as badges on the repository and are used as search filters.</p> <ul> <li> <p> <code>Linux</code> </p> </li> <li> <p> <code>Windows</code> </p> </li> </ul> <note> <p>If an unsupported tag is added to your repository catalog data, it will be associated with the repository and can be retrieved using the API but will not be discoverable in the Amazon ECR Public Gallery.</p> </note>"
+            }
+          ]
+        },
+        "description": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RepositoryDescription"
+            },
+            {
+              "description": "A short description of the contents of the repository. This text appears in both the image details and also when searching for repositories on the Amazon ECR Public Gallery."
+            }
+          ]
+        },
+        "logoImageBlob": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/LogoImageBlob"
+            },
+            {
+              "description": "<p>The base64-encoded repository logo payload.</p> <note> <p>The repository logo is only publicly visible in the Amazon ECR Public Gallery for verified accounts.</p> </note>"
+            }
+          ]
+        },
+        "operatingSystems": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/OperatingSystemList"
+            },
+            {
+              "description": "<p>The operating systems that the images in the repository are compatible with. On the Amazon ECR Public Gallery, the following supported operating systems will appear as badges on the repository and are used as search filters.</p> <ul> <li> <p> <code>ARM</code> </p> </li> <li> <p> <code>ARM 64</code> </p> </li> <li> <p> <code>x86</code> </p> </li> <li> <p> <code>x86-64</code> </p> </li> </ul> <note> <p>If an unsupported tag is added to your repository catalog data, it will be associated with the repository and can be retrieved using the API but will not be discoverable in the Amazon ECR Public Gallery.</p> </note>"
+            }
+          ]
+        },
+        "usageText": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/UsageText"
+            },
+            {
+              "description": "Detailed information on how to use the contents of the repository. It is publicly visible in the Amazon ECR Public Gallery. The usage text provides context, support information, and additional usage details for users of the repository. The text must be in markdown format."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "RepositoryDescription": {
+      "maxLength": 1024,
+      "type": "string"
+    },
+    "RepositoryList": {
+      "items": {
+        "$ref": "#/definitions/Repository"
+      },
+      "type": "array"
+    },
+    "RepositoryName": {
+      "maxLength": 205,
+      "minLength": 2,
+      "pattern": "(?:[a-z0-9]+(?:[._-][a-z0-9]+)*/)*[a-z0-9]+(?:[._-][a-z0-9]+)*",
+      "type": "string"
+    },
+    "RepositoryNameList": {
+      "items": {
+        "$ref": "#/definitions/RepositoryName"
+      },
+      "maxItems": 100,
+      "minItems": 1,
+      "type": "array"
+    },
+    "RepositoryNotEmptyException": {},
+    "RepositoryNotFoundException": {},
+    "RepositoryPolicyNotFoundException": {},
+    "RepositoryPolicyText": {
+      "maxLength": 10240,
+      "minLength": 0,
+      "type": "string"
+    },
+    "ResourceUrl": {
+      "maxLength": 2048,
+      "type": "string"
+    },
+    "ServerException": {},
+    "SetRepositoryPolicyRequest": {
+      "properties": {
+        "force": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ForceFlag"
+            },
+            {
+              "description": "If the policy you are attempting to set on a repository policy would prevent you from setting another policy in the future, you must force the <a>SetRepositoryPolicy</a> operation. This is intended to prevent accidental repository lock outs."
+            }
+          ]
+        },
+        "policyText": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RepositoryPolicyText"
+            },
+            {
+              "description": "The JSON repository policy text to apply to the repository. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECR/latest/userguide/repository-policy-examples.html\">Amazon ECR Repository Policies</a> in the <i>Amazon Elastic Container Registry User Guide</i>."
+            }
+          ]
+        },
+        "registryId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RegistryId"
+            },
+            {
+              "description": "The AWS account ID associated with the registry that contains the repository. If you do not specify a registry, the default public registry is assumed."
+            }
+          ]
+        },
+        "repositoryName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RepositoryName"
+            },
+            {
+              "description": "The name of the repository to receive the policy."
+            }
+          ]
+        }
+      },
+      "required": [
+        "repositoryName",
+        "policyText"
+      ],
+      "title": "SetRepositoryPolicyRequest",
+      "type": "object"
+    },
+    "SetRepositoryPolicyResponse": {
+      "properties": {
+        "policyText": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RepositoryPolicyText"
+            },
+            {
+              "description": "The JSON repository policy text applied to the repository."
+            }
+          ]
+        },
+        "registryId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RegistryId"
+            },
+            {
+              "description": "The registry ID associated with the request."
+            }
+          ]
+        },
+        "repositoryName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RepositoryName"
+            },
+            {
+              "description": "The repository name associated with the request."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "UnsupportedCommandException": {},
+    "UploadId": {
+      "pattern": "[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}",
+      "type": "string"
+    },
+    "UploadLayerPartRequest": {
+      "properties": {
+        "layerPartBlob": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/LayerPartBlob"
+            },
+            {
+              "description": "The base64-encoded layer part payload."
+            }
+          ]
+        },
+        "partFirstByte": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PartSize"
+            },
+            {
+              "description": "The position of the first byte of the layer part witin the overall image layer."
+            }
+          ]
+        },
+        "partLastByte": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PartSize"
+            },
+            {
+              "description": "The position of the last byte of the layer part within the overall image layer."
+            }
+          ]
+        },
+        "registryId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RegistryIdOrAlias"
+            },
+            {
+              "description": "The AWS account ID associated with the registry to which you are uploading layer parts. If you do not specify a registry, the default public registry is assumed."
+            }
+          ]
+        },
+        "repositoryName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RepositoryName"
+            },
+            {
+              "description": "The name of the repository to which you are uploading layer parts."
+            }
+          ]
+        },
+        "uploadId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/UploadId"
+            },
+            {
+              "description": "The upload ID from a previous <a>InitiateLayerUpload</a> operation to associate with the layer part upload."
+            }
+          ]
+        }
+      },
+      "required": [
+        "repositoryName",
+        "uploadId",
+        "partFirstByte",
+        "partLastByte",
+        "layerPartBlob"
+      ],
+      "title": "UploadLayerPartRequest",
+      "type": "object"
+    },
+    "UploadLayerPartResponse": {
+      "properties": {
+        "lastByteReceived": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PartSize"
+            },
+            {
+              "description": "The integer value of the last byte received in the request."
+            }
+          ]
+        },
+        "registryId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RegistryId"
+            },
+            {
+              "description": "The registry ID associated with the request."
+            }
+          ]
+        },
+        "repositoryName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RepositoryName"
+            },
+            {
+              "description": "The repository name associated with the request."
+            }
+          ]
+        },
+        "uploadId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/UploadId"
+            },
+            {
+              "description": "The upload ID associated with the request."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "UploadNotFoundException": {},
+    "Url": {
+      "type": "string"
+    },
+    "UsageText": {
+      "maxLength": 10240,
+      "type": "string"
+    }
+  },
+  "securityDefinitions": {
+    "hmac": {
+      "description": "Amazon Signature authorization v4",
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey",
+      "x-amazon-apigateway-authtype": "awsSigv4"
+    }
+  },
+  "security": [
+    {
+      "hmac": []
+    }
+  ],
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://docs.aws.amazon.com/ecr-public/"
+  },
+  "x-components": {
+    "parameters": {
+      "X-Amz-Algorithm": {
+        "in": "header",
+        "name": "X-Amz-Algorithm",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Content-Sha256": {
+        "in": "header",
+        "name": "X-Amz-Content-Sha256",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Credential": {
+        "in": "header",
+        "name": "X-Amz-Credential",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Date": {
+        "in": "header",
+        "name": "X-Amz-Date",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Security-Token": {
+        "in": "header",
+        "name": "X-Amz-Security-Token",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Signature": {
+        "in": "header",
+        "name": "X-Amz-Signature",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-SignedHeaders": {
+        "in": "header",
+        "name": "X-Amz-SignedHeaders",
+        "required": false,
+        "type": "string"
+      }
+    }
+  },
+  "x-hasEquivalentPaths": true
+}

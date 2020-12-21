@@ -15,7 +15,7 @@ let reverb = require('@datafire/reverb').create({
   redirect_uri: ""
 });
 
-reverb.webhooks.registrations.post({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -290,6 +290,7 @@ reverb.conversations.conversation_id.offer.post({
       * amount **required** `string`: The amount of money being expressed, as a POSIX-compliant decimal number
       * currency **required** `string` (values: USD, CAD, EUR, GBP, AUD, JPY, NZD, MXN): The currency the money will be expressed in
     * quantity `string`
+    * recipient_id `string`: ID of the recipient of the offer. Required if you are the seller pushing an offer to a buyer.
     * region_code `string`
     * shipping_price `object`: Shipping price (sellers only)
       * amount **required** `string`: The amount of money being expressed, as a POSIX-compliant decimal number
@@ -357,6 +358,39 @@ reverb.csps.categories.get(null, context)
 
 #### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
+
+### csps.find.get
+Show comparison shopping page
+
+
+```js
+reverb.csps.find.get({}, context)
+```
+
+#### Input
+* input `object`
+  * id `string`: ID of the comparison shopping page
+  * slug `string`: Slug of the comparison shopping page
+
+#### Output
+*Output schema unknown*
+
+### csps.id.get
+
+
+
+```js
+reverb.csps.id.get({
+  "id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * id **required** `string`
 
 #### Output
 *Output schema unknown*
@@ -440,7 +474,7 @@ reverb.handpicked.slug.get({
   * auction_price_max `number`: Maximum current auction price
   * category `string`: Category slug from /api/categories
   * product_type `string`: Product type slug from /api/categories
-  * conditions `array`: Condition: all,new,b-stock,used,non-functioning
+  * conditions `array`: Condition: all,new,b-stock,used,non-functioning,all-but-new,poor,fair,good,very-good,excellent,mint
   * decade `string`: Decade: e.g. 1970s, early 70s
   * finish `string`: Visual finish of the item, common for guitars
   * handmade `boolean`: Handmade items only
@@ -466,6 +500,7 @@ reverb.handpicked.slug.get({
   * accepts_payment_plans `boolean`: If true, only show items that can be purchased with a payment plan
   * watchers_count_min `integer`: Minimum number of watchers (used to find popular items)
   * not_ids `array`: Listing ID negation. If you want to exclude a listing, add it here.
+  * local_pickup `boolean`: Only items that offer local pickup
   * page `integer`
   * per_page `integer`
   * offset `integer`
@@ -501,7 +536,7 @@ reverb.listings.get({}, context)
   * auction_price_max `number`: Maximum current auction price
   * category `string`: Category slug from /api/categories
   * product_type `string`: Product type slug from /api/categories
-  * conditions `array`: Condition: all,new,b-stock,used,non-functioning
+  * conditions `array`: Condition: all,new,b-stock,used,non-functioning,all-but-new,poor,fair,good,very-good,excellent,mint
   * decade `string`: Decade: e.g. 1970s, early 70s
   * finish `string`: Visual finish of the item, common for guitars
   * handmade `boolean`: Handmade items only
@@ -527,6 +562,7 @@ reverb.listings.get({}, context)
   * accepts_payment_plans `boolean`: If true, only show items that can be purchased with a payment plan
   * watchers_count_min `integer`: Minimum number of watchers (used to find popular items)
   * not_ids `array`: Listing ID negation. If you want to exclude a listing, add it here.
+  * local_pickup `boolean`: Only items that offer local pickup
   * page `integer`
   * per_page `integer`
   * offset `integer`
@@ -561,13 +597,19 @@ reverb.listings.post({}, context)
       * region `string`: Ex: IL
     * make `string`: ex: Fender, Gibson
     * model `string`: ex: Stratocaster, SG
+    * multi_item `boolean`: Specifies if the listing is a bundle of multiple individual items
     * offers_enabled `boolean`: Whether the listing accepts negotiated offers (default: true)
     * origin_country_code `string`: Country of origin/manufacture, ISO code (e.g: US)
     * photos `array`: An array of image URLs. Ex: ['http://my.site.com/image.jpg']
       * items `string`
+    * preorder_info `object`: Create or update a preorder listing. Requires opt-in. Please contact sales@reverb.com if you would like to activate this feature.
+      * lead_time `integer`: The amount of time before the item will be ready to ship. When lead_time is submitted it is converted into days and added to the current date to produce `estimated_ship_date` in the response body of the request.
+      * lead_time_unit **required** `string` (values: days, weeks): The unit of time which lead_time is measured in
+      * ship_date `string`: The date the item will be available to ship. In the response body of the request, `estimated_ship_date`, will be the same as ship_date. Date must be ISO8601 format - e.g: 2015-04-09T10:52:23-00:00.
     * price `object`
       * amount **required** `string`: The amount of money being expressed, as a POSIX-compliant decimal number
       * currency **required** `string` (values: USD, CAD, EUR, GBP, AUD, JPY, NZD, MXN): The currency the money will be expressed in
+    * prop_65_warning `string`: If your listing contains chemicals that are required to be reported under California Prop 65, please provide your warning statement. We will add the required 'Warning' label and link to California's information page, so you only need to provide the body of the warning. For more information, see https://www.p65warnings.ca.gov/new-proposition-65-warnings
     * publish `boolean`: Publish your listing if draft
     * seller `object`
       * paypal_email `string`
@@ -577,8 +619,6 @@ reverb.listings.post({}, context)
       * rates `array`: List of shipping rates. Set to null to clear rates.
         * items `object`
           * rate `object`
-            * amount **required** `string`: The amount of money being expressed, as a POSIX-compliant decimal number
-            * currency **required** `string` (values: USD, CAD, EUR, GBP, AUD, JPY, NZD, MXN): The currency the money will be expressed in
           * region_code `string`: Country code or subregion/superregion code. Full list of codes at /api/shipping/regions
     * shipping_profile_id `string`: id of a shop's shipping profile
     * shipping_profile_name `string`: DEPRECATED, please use shipping_profile_id. Name of a shipping profile
@@ -588,7 +628,7 @@ reverb.listings.post({}, context)
     * tax_exempt `boolean`: Listing is exempt from taxes / VAT
     * title `string`: Title of your listing
     * upc `string`: Valid UPC code
-    * upc_does_not_apply `string`: True if a brand new product has no UPC code, ie for a handmade or custom item
+    * upc_does_not_apply `boolean`: True if a brand new product has no UPC code, ie for a handmade or custom item
     * videos `array`: List of YouTube video urls. Note: ONLY ONE ALLOWED
       * items `object`
         * link **required** `string`: Valid YouTube url
@@ -611,7 +651,7 @@ reverb.listings.all.get({}, context)
   * auction_price_max `number`: Maximum current auction price
   * category `string`: Category slug from /api/categories
   * product_type `string`: Product type slug from /api/categories
-  * conditions `array`: Condition: all,new,b-stock,used,non-functioning
+  * conditions `array`: Condition: all,new,b-stock,used,non-functioning,all-but-new,poor,fair,good,very-good,excellent,mint
   * decade `string`: Decade: e.g. 1970s, early 70s
   * finish `string`: Visual finish of the item, common for guitars
   * handmade `boolean`: Handmade items only
@@ -637,6 +677,7 @@ reverb.listings.all.get({}, context)
   * accepts_payment_plans `boolean`: If true, only show items that can be purchased with a payment plan
   * watchers_count_min `integer`: Minimum number of watchers (used to find popular items)
   * not_ids `array`: Listing ID negation. If you want to exclude a listing, add it here.
+  * local_pickup `boolean`: Only items that offer local pickup
   * page `integer`
   * per_page `integer`
   * offset `integer`
@@ -886,13 +927,19 @@ reverb.listings.slug.put({
       * region `string`: Ex: IL
     * make `string`: ex: Fender, Gibson
     * model `string`: ex: Stratocaster, SG
+    * multi_item `boolean`: Specifies if the listing is a bundle of multiple individual items
     * offers_enabled `boolean`: Whether the listing accepts negotiated offers (default: true)
     * origin_country_code `string`: Country of origin/manufacture, ISO code (e.g: US)
     * photos `array`: An array of image URLs. Ex: ['http://my.site.com/image.jpg']
       * items `string`
+    * preorder_info `object`: Create or update a preorder listing. Requires opt-in. Please contact sales@reverb.com if you would like to activate this feature.
+      * lead_time `integer`: The amount of time before the item will be ready to ship. When lead_time is submitted it is converted into days and added to the current date to produce `estimated_ship_date` in the response body of the request.
+      * lead_time_unit **required** `string` (values: days, weeks): The unit of time which lead_time is measured in
+      * ship_date `string`: The date the item will be available to ship. In the response body of the request, `estimated_ship_date`, will be the same as ship_date. Date must be ISO8601 format - e.g: 2015-04-09T10:52:23-00:00.
     * price `object`
       * amount **required** `string`: The amount of money being expressed, as a POSIX-compliant decimal number
       * currency **required** `string` (values: USD, CAD, EUR, GBP, AUD, JPY, NZD, MXN): The currency the money will be expressed in
+    * prop_65_warning `string`: If your listing contains chemicals that are required to be reported under California Prop 65, please provide your warning statement. We will add the required 'Warning' label and link to California's information page, so you only need to provide the body of the warning. For more information, see https://www.p65warnings.ca.gov/new-proposition-65-warnings
     * publish `boolean`: Publish your listing if draft
     * seller `object`
       * paypal_email `string`
@@ -902,8 +949,6 @@ reverb.listings.slug.put({
       * rates `array`: List of shipping rates. Set to null to clear rates.
         * items `object`
           * rate `object`
-            * amount **required** `string`: The amount of money being expressed, as a POSIX-compliant decimal number
-            * currency **required** `string` (values: USD, CAD, EUR, GBP, AUD, JPY, NZD, MXN): The currency the money will be expressed in
           * region_code `string`: Country code or subregion/superregion code. Full list of codes at /api/shipping/regions
     * shipping_profile_id `string`: id of a shop's shipping profile
     * shipping_profile_name `string`: DEPRECATED, please use shipping_profile_id. Name of a shipping profile
@@ -913,7 +958,7 @@ reverb.listings.slug.put({
     * tax_exempt `boolean`: Listing is exempt from taxes / VAT
     * title `string`: Title of your listing
     * upc `string`: Valid UPC code
-    * upc_does_not_apply `string`: True if a brand new product has no UPC code, ie for a handmade or custom item
+    * upc_does_not_apply `boolean`: True if a brand new product has no UPC code, ie for a handmade or custom item
     * videos `array`: List of YouTube video urls. Note: ONLY ONE ALLOWED
       * items `object`
         * link **required** `string`: Valid YouTube url
@@ -1037,6 +1082,7 @@ reverb.my.account.put({}, context)
     * currency `string`: The currency preference for the account
     * first_name `string`: The first name of the account holder
     * last_name `string`: The last name of the account holder
+    * locale_code `string`: The locale code for the account
     * shipping_region_code `string`: The shipping region preference for the account
 
 #### Output
@@ -1139,6 +1185,7 @@ reverb.my.conversations.post({}, context)
       * items `string`
     * listing_id `integer`: The id of the listing being discussed
     * recipient_id `integer`: The id of the user you are trying to contact
+    * recipient_uuid `string`: The uuid of the user you are trying to contact
     * shop_id `string`: The id of the shop you are trying to contact
 
 #### Output
@@ -1520,6 +1567,23 @@ reverb.my.follows.categories.identifier.post({
 #### Output
 *Output schema unknown*
 
+### my.follows.categories.uuid.post
+Follow a category
+
+
+```js
+reverb.my.follows.categories.uuid.post({
+  "uuid": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * uuid **required** `string`
+
+#### Output
+*Output schema unknown*
+
 ### my.follows.collections.slug.delete
 Unfollow a collection
 
@@ -1651,9 +1715,9 @@ reverb.my.follows.search.post({}, context)
     * accepts_payment_plans `boolean`: If true, only show items that can be purchased with a payment plan
     * auction_price_max `number`: Maximum current auction price
     * category `string`: Category slug from /api/categories
-    * conditions `array` (values: all, new, b-stock, used, non-functioning): Condition: all,new,b-stock,used,non-functioning
+    * conditions `array` (values: all, new, b-stock, used, non-functioning, all-but-new, poor, fair, good, very-good, excellent, mint): Condition: all,new,b-stock,used,non-functioning,all-but-new,poor,fair,good,very-good,excellent,mint
       * items `string`
-    * currency `string` (values: USD, CAD, EUR, GBP, AUD, JPY, NZD, MXN): The currency to be used for the price filters
+    * currency `string` (values: USD, CAD, EUR, GBP, AUD, JPY, NZD, MXN, DKK, SEK, CHF, ARS, BRL, HKD, NOK, PHP, PLN, RUB): The currency to be used for the price filters
     * decade `string`: Decade: e.g. 1970s, early 70s
     * exclude_auctions `boolean`: If true, exclude auctions
     * finish `string`: Visual finish of the item, common for guitars
@@ -1663,6 +1727,7 @@ reverb.my.follows.search.post({}, context)
     * item_region `string`: Country code where item is located
     * item_state `string`: State or region code where item is located
     * listing_type `string` (values: auctions, offers): Type of listing: auctions,offers
+    * local_pickup `boolean`: Only items that offer local pickup
     * make `array`: Make(s)/brand of item (e.g. Fender). Can take a single value or an array.
       * items `string`
     * model `string`: Model of item (e.g. Stratocaster)
@@ -1800,7 +1865,7 @@ reverb.my.listings.get({}, context)
   * auction_price_max `number`: Maximum current auction price
   * category `string`: Category slug from /api/categories
   * product_type `string`: Product type slug from /api/categories
-  * conditions `array`: Condition: all,new,b-stock,used,non-functioning
+  * conditions `array`: Condition: all,new,b-stock,used,non-functioning,all-but-new,poor,fair,good,very-good,excellent,mint
   * decade `string`: Decade: e.g. 1970s, early 70s
   * finish `string`: Visual finish of the item, common for guitars
   * handmade `boolean`: Handmade items only
@@ -1826,6 +1891,7 @@ reverb.my.listings.get({}, context)
   * accepts_payment_plans `boolean`: If true, only show items that can be purchased with a payment plan
   * watchers_count_min `integer`: Minimum number of watchers (used to find popular items)
   * not_ids `array`: Listing ID negation. If you want to exclude a listing, add it here.
+  * local_pickup `boolean`: Only items that offer local pickup
   * state `string`: Available: ["all", "draft", "ended", "live", "ordered", "sold_out", "suspended", "seller_unavailable"]. Defaults to 'live'
   * sku `string`: Find a listing by sku
 
@@ -1846,7 +1912,7 @@ reverb.my.listings.drafts.get({}, context)
   * auction_price_max `number`: Maximum current auction price
   * category `string`: Category slug from /api/categories
   * product_type `string`: Product type slug from /api/categories
-  * conditions `array`: Condition: all,new,b-stock,used,non-functioning
+  * conditions `array`: Condition: all,new,b-stock,used,non-functioning,all-but-new,poor,fair,good,very-good,excellent,mint
   * decade `string`: Decade: e.g. 1970s, early 70s
   * finish `string`: Visual finish of the item, common for guitars
   * handmade `boolean`: Handmade items only
@@ -1872,6 +1938,7 @@ reverb.my.listings.drafts.get({}, context)
   * accepts_payment_plans `boolean`: If true, only show items that can be purchased with a payment plan
   * watchers_count_min `integer`: Minimum number of watchers (used to find popular items)
   * not_ids `array`: Listing ID negation. If you want to exclude a listing, add it here.
+  * local_pickup `boolean`: Only items that offer local pickup
 
 #### Output
 *Output schema unknown*
@@ -2005,6 +2072,7 @@ reverb.my.negotiations.id.counter.post({
       * amount **required** `string`: The amount of money being expressed, as a POSIX-compliant decimal number
       * currency **required** `string` (values: USD, CAD, EUR, GBP, AUD, JPY, NZD, MXN): The currency the money will be expressed in
     * quantity `string`
+    * recipient_id `string`: ID of the recipient of the offer. Required if you are the seller pushing an offer to a buyer.
     * region_code `string`
     * shipping_price `object`: Shipping price (sellers only)
       * amount **required** `string`: The amount of money being expressed, as a POSIX-compliant decimal number
@@ -2249,7 +2317,7 @@ reverb.my.orders.selling.id.ship.post({
 * input `object`
   * id **required** `string`
   * body `object`
-    * provider **required** `string`: Shipping provider: One of UPS, USPS, FedEx, DHL, DHLExpress, DHLGlobalMail, DHL Germany, Canada Post, Royal Mail, PostNL, Australia Post, EMS, La Poste, China Post, GLS, Parcelforce, Purolator, Interlogistica, Correos España, Ukraine Post, DPD, Other
+    * provider **required** `string`: Shipping provider: One of UPS, USPS, FedEx, DHL Deutschland, DHLExpress, DHLGlobalMail, DHL, Canada Post, Royal Mail, PostNL, Australia Post, EMS, La Poste, China Post, GLS, Parcelforce, Purolator, Interlogistica, Correos España, Ukraine Post, DPD Germany, DPD UK, DPD France, Other
     * send_notification **required** `boolean`: Should we send an email notification to the buyer
     * tracking_number **required** `string`: Tracking number provided by the shipping provider
 
@@ -2752,7 +2820,7 @@ reverb.shop.put({}, context)
       * street_address `string`
     * currency `string` (values: USD, CAD, EUR, GBP, AUD, JPY, NZD, MXN)
     * description `string`
-    * legal_country_code `string` (values: AD, AE, AF, AG, AI, AL, AM, AO, AR, AS, AT, AU, AW, AX, AZ, BA, BB, BD, BE, BF, BG, BH, BI, BJ, BL, BM, BN, BO, BQ, BR, BS, BT, BV, BW, BY, BZ, CA, CC, CD, CF, CG, CH, CI, CK, CL, CM, CN, CO, CR, CU, CV, CW, CX, CY, CZ, DE, DJ, DK, DM, DO, DZ, EC, EE, EG, EH, ER, ES, ET, FI, FJ, FK, FM, FO, FR, GA, GB, GD, GE, GF, GG, GH, GI, GL, GM, GN, GP, GQ, GR, GS, GT, GU, GW, GY, HK, HM, HN, HR, HT, HU, ID, IE, IL, IM, IN, IO, IQ, IR, IS, IT, JE, JM, JO, JP, KE, KG, KH, KI, KM, KN, KP, KR, KW, KY, KZ, LA, LB, LC, LI, LK, LR, LS, LT, LU, LV, LY, MA, MC, MD, ME, MF, MG, MH, MK, ML, MM, MN, MO, MP, MQ, MR, MS, MT, MU, MV, MW, MX, MY, MZ, NA, NC, NE, NF, NG, NI, NL, NO, NP, NR, NU, NZ, OM, PA, PE, PF, PG, PH, PK, PL, PM, PN, PS, PT, PW, PY, QA, RE, RO, RS, RU, RW, SA, SB, SC, SD, SE, SG, SH, SI, SJ, SK, SL, SM, SN, SO, SR, SS, ST, SV, SX, SY, SZ, TC, TD, TF, TG, TH, TJ, TK, TL, TM, TN, TO, TR, TT, TV, TW, TZ, UA, UG, UM, US, UY, UZ, VA, VC, VE, VG, VI, VN, VU, WF, WS, YE, YT, ZA, ZM, ZW)
+    * legal_country_code `string` (values: AD, AE, AF, AG, AI, AL, AM, AO, AR, AS, AT, AU, AW, AX, AZ, BA, BB, BD, BE, BF, BG, BH, BI, BJ, BL, BM, BN, BO, BQ, BR, BS, BT, BV, BW, BY, BZ, CA, CC, CD, CF, CG, CH, CI, CK, CL, CM, CN, CO, CR, CV, CW, CX, CY, CZ, DE, DJ, DK, DM, DO, DZ, EC, EE, EG, EH, ER, ES, ET, FI, FJ, FK, FM, FO, FR, GA, GB, GD, GE, GF, GG, GH, GI, GL, GM, GN, GP, GQ, GR, GS, GT, GU, GW, GY, HK, HM, HN, HR, HT, HU, ID, IE, IL, IM, IN, IO, IQ, IS, IT, JE, JM, JO, JP, KE, KG, KH, KI, KM, KN, KR, KW, KY, KZ, LA, LB, LC, LI, LK, LR, LS, LT, LU, LV, LY, MA, MC, MD, ME, MF, MG, MH, MK, ML, MM, MN, MO, MP, MQ, MR, MS, MT, MU, MV, MW, MX, MY, MZ, NA, NC, NE, NF, NG, NI, NL, NO, NP, NR, NU, NZ, OM, PA, PE, PF, PG, PH, PK, PL, PM, PN, PS, PT, PW, PY, QA, RE, RO, RS, RU, RW, SA, SB, SC, SE, SG, SH, SI, SJ, SK, SL, SM, SN, SO, SR, SS, ST, SV, SX, SZ, TC, TD, TF, TG, TH, TJ, TK, TL, TM, TN, TO, TR, TT, TV, TW, TZ, UA, UG, UM, US, UY, UZ, VA, VC, VE, VG, VI, VN, VU, WF, WS, YE, YT, ZA, ZM, ZW)
     * legal_country_code_confirmed `boolean` (values: true)
     * name `string`
     * payment_policy `string`

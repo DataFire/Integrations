@@ -15,12 +15,7 @@ let azure_apimanagement_apimgroups = require('@datafire/azure_apimanagement_apim
   redirect_uri: ""
 });
 
-azure_apimanagement_apimgroups.Group_ListByService({
-  "resourceGroupName": "",
-  "serviceName": "",
-  "api-version": "",
-  "subscriptionId": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -48,14 +43,26 @@ azure_apimanagement_apimgroups.Group_ListByService({
 * input `object`
   * resourceGroupName **required** `string`: The name of the resource group.
   * serviceName **required** `string`: The name of the API Management service.
-  * $filter `string`: | Field       | Supported operators    | Supported functions                         |
+  * $filter `string`: |   Field     |     Usage     |     Supported operators     |     Supported functions     |</br>|-------------|-------------|-------------|-------------|</br>| name | filter | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith | </br>| displayName | filter | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith | </br>| description | filter | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith | </br>| aadObjectId | filter | eq |     | </br>
   * $top `integer`: Number of records to return.
   * $skip `integer`: Number of records to skip.
   * api-version **required** `string`: Version of the API to be used with the client request.
   * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
 #### Output
-* output [GroupCollection](#groupcollection)
+* output `object`: Paged Group list representation.
+  * nextLink `string`: Next page link if any.
+  * value `array`: Page values.
+    * items `object`: Contract details.
+      * properties `object`: Group contract Properties.
+        * builtIn `boolean`: true if the group is one of the three system groups (Administrators, Developers, or Guests); otherwise false.
+        * description `string`: Group description. Can contain HTML formatting tags.
+        * displayName **required** `string`: Group name.
+        * externalId `string`: For external groups, this property contains the id of the group from the external identity provider, e.g. for Azure Active Directory `aad://<tenant>.onmicrosoft.com/groups/<group object id>`; otherwise the value is null.
+        * type `string` (values: custom, system, external): Group type.
+      * id `string`: Resource ID.
+      * name `string`: Resource name.
+      * type `string`: Resource type for API Management resource.
 
 ### Group_Delete
 Deletes specific group of the API Management service instance.
@@ -107,7 +114,16 @@ azure_apimanagement_apimgroups.Group_Get({
   * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
 #### Output
-* output [GroupContract](#groupcontract)
+* output `object`: Contract details.
+  * properties `object`: Group contract Properties.
+    * builtIn `boolean`: true if the group is one of the three system groups (Administrators, Developers, or Guests); otherwise false.
+    * description `string`: Group description. Can contain HTML formatting tags.
+    * displayName **required** `string`: Group name.
+    * externalId `string`: For external groups, this property contains the id of the group from the external identity provider, e.g. for Azure Active Directory `aad://<tenant>.onmicrosoft.com/groups/<group object id>`; otherwise the value is null.
+    * type `string` (values: custom, system, external): Group type.
+  * id `string`: Resource ID.
+  * name `string`: Resource name.
+  * type `string`: Resource type for API Management resource.
 
 ### Group_GetEntityTag
 Gets the entity state (Etag) version of the group specified by its identifier.
@@ -155,7 +171,12 @@ azure_apimanagement_apimgroups.Group_Update({
   * resourceGroupName **required** `string`: The name of the resource group.
   * serviceName **required** `string`: The name of the API Management service.
   * groupId **required** `string`: Group identifier. Must be unique in the current API Management service instance.
-  * parameters **required** [GroupUpdateParameters](#groupupdateparameters)
+  * parameters **required** `object`: Parameters supplied to the Update Group operation.
+    * properties `object`: Parameters supplied to the Update Group operation.
+      * description `string`: Group description.
+      * displayName `string`: Group name.
+      * externalId `string`: Identifier of the external groups, this property contains the id of the group from the external identity provider, e.g. for Azure Active Directory `aad://<tenant>.onmicrosoft.com/groups/<group object id>`; otherwise the value is null.
+      * type `string` (values: custom, system, external): Group type.
   * If-Match **required** `string`: ETag of the Entity. ETag should match the current entity state from the header response of the GET request or it should be * for unconditional update.
   * api-version **required** `string`: Version of the API to be used with the client request.
   * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
@@ -183,16 +204,30 @@ azure_apimanagement_apimgroups.Group_CreateOrUpdate({
   * resourceGroupName **required** `string`: The name of the resource group.
   * serviceName **required** `string`: The name of the API Management service.
   * groupId **required** `string`: Group identifier. Must be unique in the current API Management service instance.
-  * parameters **required** [GroupCreateParameters](#groupcreateparameters)
+  * parameters **required** `object`: Parameters supplied to the Create Group operation.
+    * properties `object`: Parameters supplied to the Create Group operation.
+      * description `string`: Group description.
+      * displayName **required** `string`: Group name.
+      * externalId `string`: Identifier of the external groups, this property contains the id of the group from the external identity provider, e.g. for Azure Active Directory `aad://<tenant>.onmicrosoft.com/groups/<group object id>`; otherwise the value is null.
+      * type `string` (values: custom, system, external): Group type.
   * If-Match `string`: ETag of the Entity. Not required when creating an entity, but required when updating an entity.
   * api-version **required** `string`: Version of the API to be used with the client request.
   * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
 #### Output
-* output [GroupContract](#groupcontract)
+* output `object`: Contract details.
+  * properties `object`: Group contract Properties.
+    * builtIn `boolean`: true if the group is one of the three system groups (Administrators, Developers, or Guests); otherwise false.
+    * description `string`: Group description. Can contain HTML formatting tags.
+    * displayName **required** `string`: Group name.
+    * externalId `string`: For external groups, this property contains the id of the group from the external identity provider, e.g. for Azure Active Directory `aad://<tenant>.onmicrosoft.com/groups/<group object id>`; otherwise the value is null.
+    * type `string` (values: custom, system, external): Group type.
+  * id `string`: Resource ID.
+  * name `string`: Resource name.
+  * type `string`: Resource type for API Management resource.
 
 ### GroupUser_List
-Lists a collection of the members of the group, specified by its identifier.
+Lists a collection of user entities associated with the group.
 
 
 ```js
@@ -210,7 +245,7 @@ azure_apimanagement_apimgroups.GroupUser_List({
   * resourceGroupName **required** `string`: The name of the resource group.
   * serviceName **required** `string`: The name of the API Management service.
   * groupId **required** `string`: Group identifier. Must be unique in the current API Management service instance.
-  * $filter `string`: | Field            | Supported operators    | Supported functions               |
+  * $filter `string`: |   Field     |     Usage     |     Supported operators     |     Supported functions     |</br>|-------------|-------------|-------------|-------------|</br>| name | filter | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith | </br>| firstName | filter | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith | </br>| lastName | filter | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith | </br>| email | filter | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith | </br>| registrationDate | filter | ge, le, eq, ne, gt, lt |     | </br>| note | filter | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith | </br>
   * $top `integer`: Number of records to return.
   * $skip `integer`: Number of records to skip.
   * api-version **required** `string`: Version of the API to be used with the client request.
@@ -226,17 +261,10 @@ azure_apimanagement_apimgroups.GroupUser_List({
         * firstName `string`: First name.
         * groups `array`: Collection of groups user is part of.
           * items `object`: Group contract Properties.
-            * builtIn `boolean`: true if the group is one of the three system groups (Administrators, Developers, or Guests); otherwise false.
-            * description `string`: Group description. Can contain HTML formatting tags.
-            * displayName **required** `string`: Group name.
-            * externalId `string`: For external groups, this property contains the id of the group from the external identity provider, e.g. for Azure Active Directory aad://<tenant>.onmicrosoft.com/groups/<group object id>; otherwise the value is null.
-            * type `string` (values: custom, system, external): Group type.
         * lastName `string`: Last name.
         * registrationDate `string`: Date of user registration. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
         * identities `array`: Collection of user identities.
           * items `object`: User identity details.
-            * id `string`: Identifier value within provider.
-            * provider `string`: Identity provider name.
         * note `string`: Optional note about a user set by the administrator.
         * state `string` (values: active, blocked, pending, deleted): Account state. Specifies whether the user is active or not. Blocked users are unable to sign into the developer portal or call any APIs of subscribed products. Default state is Active.
       * id `string`: Resource ID.
@@ -252,7 +280,7 @@ azure_apimanagement_apimgroups.GroupUser_Delete({
   "resourceGroupName": "",
   "serviceName": "",
   "groupId": "",
-  "uid": "",
+  "userId": "",
   "api-version": "",
   "subscriptionId": ""
 }, context)
@@ -263,7 +291,7 @@ azure_apimanagement_apimgroups.GroupUser_Delete({
   * resourceGroupName **required** `string`: The name of the resource group.
   * serviceName **required** `string`: The name of the API Management service.
   * groupId **required** `string`: Group identifier. Must be unique in the current API Management service instance.
-  * uid **required** `string`: User identifier. Must be unique in the current API Management service instance.
+  * userId **required** `string`: User identifier. Must be unique in the current API Management service instance.
   * api-version **required** `string`: Version of the API to be used with the client request.
   * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
@@ -279,7 +307,7 @@ azure_apimanagement_apimgroups.GroupUser_CheckEntityExists({
   "resourceGroupName": "",
   "serviceName": "",
   "groupId": "",
-  "uid": "",
+  "userId": "",
   "api-version": "",
   "subscriptionId": ""
 }, context)
@@ -290,7 +318,7 @@ azure_apimanagement_apimgroups.GroupUser_CheckEntityExists({
   * resourceGroupName **required** `string`: The name of the resource group.
   * serviceName **required** `string`: The name of the API Management service.
   * groupId **required** `string`: Group identifier. Must be unique in the current API Management service instance.
-  * uid **required** `string`: User identifier. Must be unique in the current API Management service instance.
+  * userId **required** `string`: User identifier. Must be unique in the current API Management service instance.
   * api-version **required** `string`: Version of the API to be used with the client request.
   * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
@@ -298,7 +326,7 @@ azure_apimanagement_apimgroups.GroupUser_CheckEntityExists({
 *Output schema unknown*
 
 ### GroupUser_Create
-Adds a user to the specified group.
+Add existing user to existing group
 
 
 ```js
@@ -306,7 +334,7 @@ azure_apimanagement_apimgroups.GroupUser_Create({
   "resourceGroupName": "",
   "serviceName": "",
   "groupId": "",
-  "uid": "",
+  "userId": "",
   "api-version": "",
   "subscriptionId": ""
 }, context)
@@ -317,7 +345,7 @@ azure_apimanagement_apimgroups.GroupUser_Create({
   * resourceGroupName **required** `string`: The name of the resource group.
   * serviceName **required** `string`: The name of the API Management service.
   * groupId **required** `string`: Group identifier. Must be unique in the current API Management service instance.
-  * uid **required** `string`: User identifier. Must be unique in the current API Management service instance.
+  * userId **required** `string`: User identifier. Must be unique in the current API Management service instance.
   * api-version **required** `string`: Version of the API to be used with the client request.
   * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
@@ -331,7 +359,7 @@ azure_apimanagement_apimgroups.GroupUser_Create({
         * builtIn `boolean`: true if the group is one of the three system groups (Administrators, Developers, or Guests); otherwise false.
         * description `string`: Group description. Can contain HTML formatting tags.
         * displayName **required** `string`: Group name.
-        * externalId `string`: For external groups, this property contains the id of the group from the external identity provider, e.g. for Azure Active Directory aad://<tenant>.onmicrosoft.com/groups/<group object id>; otherwise the value is null.
+        * externalId `string`: For external groups, this property contains the id of the group from the external identity provider, e.g. for Azure Active Directory `aad://<tenant>.onmicrosoft.com/groups/<group object id>`; otherwise the value is null.
         * type `string` (values: custom, system, external): Group type.
     * lastName `string`: Last name.
     * registrationDate `string`: Date of user registration. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
@@ -349,47 +377,4 @@ azure_apimanagement_apimgroups.GroupUser_Create({
 
 ## Definitions
 
-### GroupCollection
-* GroupCollection `object`: Paged Group list representation.
-  * nextLink `string`: Next page link if any.
-  * value `array`: Page values.
-    * items [GroupContract](#groupcontract)
-
-### GroupContract
-* GroupContract `object`: Contract details.
-  * properties [GroupContractProperties](#groupcontractproperties)
-  * id `string`: Resource ID.
-  * name `string`: Resource name.
-  * type `string`: Resource type for API Management resource.
-
-### GroupContractProperties
-* GroupContractProperties `object`: Group contract Properties.
-  * builtIn `boolean`: true if the group is one of the three system groups (Administrators, Developers, or Guests); otherwise false.
-  * description `string`: Group description. Can contain HTML formatting tags.
-  * displayName **required** `string`: Group name.
-  * externalId `string`: For external groups, this property contains the id of the group from the external identity provider, e.g. for Azure Active Directory aad://<tenant>.onmicrosoft.com/groups/<group object id>; otherwise the value is null.
-  * type `string` (values: custom, system, external): Group type.
-
-### GroupCreateParameters
-* GroupCreateParameters `object`: Parameters supplied to the Create Group operation.
-  * properties [GroupCreateParametersProperties](#groupcreateparametersproperties)
-
-### GroupCreateParametersProperties
-* GroupCreateParametersProperties `object`: Parameters supplied to the Create Group operation.
-  * description `string`: Group description.
-  * displayName **required** `string`: Group name.
-  * externalId `string`: Identifier of the external groups, this property contains the id of the group from the external identity provider, e.g. for Azure Active Directory aad://<tenant>.onmicrosoft.com/groups/<group object id>; otherwise the value is null.
-  * type `string` (values: custom, system, external): Group type.
-
-### GroupUpdateParameters
-* GroupUpdateParameters `object`: Parameters supplied to the Update Group operation.
-  * properties [GroupUpdateParametersProperties](#groupupdateparametersproperties)
-
-### GroupUpdateParametersProperties
-* GroupUpdateParametersProperties `object`: Parameters supplied to the Update Group operation.
-  * description `string`: Group description.
-  * displayName `string`: Group name.
-  * externalId `string`: Identifier of the external groups, this property contains the id of the group from the external identity provider, e.g. for Azure Active Directory aad://<tenant>.onmicrosoft.com/groups/<group object id>; otherwise the value is null.
-  * type `string` (values: custom, system, external): Group type.
-
-
+*This integration has no definitions*

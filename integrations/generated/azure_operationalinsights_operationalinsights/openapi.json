@@ -166,7 +166,9 @@
             }
           }
         },
-        "x-ms-pageable": {}
+        "x-ms-pageable": {
+          "nextLinkName": null
+        }
       }
     },
     "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces": {
@@ -229,7 +231,9 @@
             }
           }
         },
-        "x-ms-pageable": {}
+        "x-ms-pageable": {
+          "nextLinkName": null
+        }
       }
     },
     "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}": {
@@ -424,7 +428,10 @@
               "parameters": {
                 "location": "australiasoutheast",
                 "properties": {
-                  "customerId": "6c576b6a-75d3-4ff9-bc23-28d524e52f5b"
+                  "retentionInDays": 30,
+                  "sku": {
+                    "name": "PerNode"
+                  }
                 }
               },
               "resourceGroupName": "oiautorest6685",
@@ -4322,7 +4329,9 @@
             }
           }
         },
-        "x-ms-pageable": {}
+        "x-ms-pageable": {
+          "nextLinkName": null
+        }
       }
     },
     "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/linkedServices/{linkedServiceName}": {
@@ -4588,7 +4597,9 @@
             }
           }
         },
-        "x-ms-pageable": {}
+        "x-ms-pageable": {
+          "nextLinkName": null
+        }
       }
     },
     "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/sharedKeys": {
@@ -4706,7 +4717,9 @@
             }
           }
         },
-        "x-ms-pageable": {}
+        "x-ms-pageable": {
+          "nextLinkName": null
+        }
       }
     }
   },
@@ -5038,7 +5051,6 @@
             "Free",
             "Standard",
             "Premium",
-            "Unlimited",
             "PerNode",
             "PerGB2018",
             "Standalone"
@@ -5107,7 +5119,7 @@
       "x-ms-azure-resource": true
     },
     "WorkspaceListManagementGroupsResult": {
-      "description": "The list workspace managmement groups operation response.",
+      "description": "The list workspace management groups operation response.",
       "properties": {
         "value": {
           "description": "Gets or sets a list of management groups attached to the workspace.",
@@ -5146,11 +5158,13 @@
       "description": "Workspace properties.",
       "properties": {
         "customerId": {
-          "description": "The ID associated with the workspace.  Setting this value at creation time allows the workspace being created to be linked to an existing workspace.",
+          "description": "This is a read-only property. Represents the ID associated with the workspace.",
+          "readOnly": true,
           "type": "string"
         },
         "portalUrl": {
-          "description": "The URL of the Operational Insights portal for this workspace.  This value is set on the service side and read-only on the client side.",
+          "description": "This is a legacy property and is not used anymore. Kept here for backward compatibility.",
+          "readOnly": true,
           "type": "string"
         },
         "provisioningState": {
@@ -5181,7 +5195,8 @@
           "description": "The SKU of the workspace."
         },
         "source": {
-          "description": "The source of the workspace.  Source defines where the workspace was created. 'Azure' implies it was created in Azure.  'External' implies it was created via the Operational Insights Portal. This value is set on the service side and read-only on the client side.",
+          "description": "This is a read-only legacy property. It is always set to 'Azure' by the service. Kept here for backward compatibility.",
+          "readOnly": true,
           "type": "string"
         }
       }

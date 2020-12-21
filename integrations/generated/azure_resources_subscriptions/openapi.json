@@ -7,7 +7,7 @@
   "info": {
     "description": "All resource groups and resources exist within subscriptions. These operation enable you get information about your subscriptions and tenants. A tenant is a dedicated instance of Azure Active Directory (Azure AD) for your organization.",
     "title": "SubscriptionClient",
-    "version": "2016-06-01",
+    "version": "2019-06-01",
     "x-apisguru-categories": [
       "cloud"
     ],
@@ -17,7 +17,7 @@
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/resources/resource-manager/Microsoft.Resources/stable/2016-06-01/subscriptions.json",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/resources/resource-manager/Microsoft.Resources/stable/2019-06-01/subscriptions.json",
         "version": "2.0"
       }
     ],
@@ -76,6 +76,31 @@
     }
   },
   "paths": {
+    "/providers/Microsoft.Resources/operations": {
+      "get": {
+        "description": "Lists all of the available Microsoft.Resources REST API operations.",
+        "operationId": "Operations_List",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK. The request has succeeded.",
+            "schema": {
+              "$ref": "#/definitions/OperationListResult"
+            }
+          }
+        },
+        "tags": [
+          "Operations"
+        ],
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        }
+      }
+    },
     "/subscriptions": {
       "get": {
         "description": "Gets all subscriptions for a tenant.",
@@ -96,6 +121,61 @@
         "tags": [
           "Subscriptions"
         ],
+        "x-ms-examples": {
+          "Get all subscriptions.": {
+            "parameters": {
+              "api-version": "2019-06-01"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "nextLink": "...",
+                  "value": [
+                    {
+                      "authorizationSource": "RoleBased",
+                      "displayName": "Example Subscription",
+                      "id": "/subscriptions/291bba3f-e0a5-47bc-a099-3bdcb2a50a05",
+                      "managedByTenants": [
+                        {
+                          "tenantId": "8f70baf1-1f6e-46a2-a1ff-238dac1ebfb7"
+                        }
+                      ],
+                      "state": "Enabled",
+                      "subscriptionId": "291bba3f-e0a5-47bc-a099-3bdcb2a50a05",
+                      "subscriptionPolicies": {
+                        "locationPlacementId": "Internal_2014-09-01",
+                        "quotaId": "Internal_2014-09-01",
+                        "spendingLimit": "Off"
+                      },
+                      "tenantId": "31c75423-32d6-4322-88b7-c478bdde4858"
+                    },
+                    {
+                      "authorizationSource": "RoleBased",
+                      "displayName": "Example Subscription2",
+                      "id": "/subscriptions/72ac930a-f34e-42d8-b06d-dc2a9e12ed71",
+                      "managedByTenants": [
+                        {
+                          "tenantId": "8f70baf1-1f6e-46a2-a1ff-238dac1ebfb7"
+                        },
+                        {
+                          "tenantId": "f7fb6af2-321d-47c8-9c0f-b0239eaad39a"
+                        }
+                      ],
+                      "state": "Enabled",
+                      "subscriptionId": "72ac930a-f34e-42d8-b06d-dc2a9e12ed71",
+                      "subscriptionPolicies": {
+                        "locationPlacementId": "Internal_2014-09-01",
+                        "quotaId": "Internal_2014-09-01",
+                        "spendingLimit": "Off"
+                      },
+                      "tenantId": "2a0ff0de-96b2-4859-bb7c-a430d07a3e0c"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
         "x-ms-pageable": {
           "nextLinkName": "nextLink"
         }
@@ -123,7 +203,37 @@
         },
         "tags": [
           "Subscriptions"
-        ]
+        ],
+        "x-ms-examples": {
+          "Get a single subscription.": {
+            "parameters": {
+              "api-version": "2019-06-01",
+              "subscriptionId": "291bba3f-e0a5-47bc-a099-3bdcb2a50a05"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "authorizationSource": "Bypassed",
+                  "displayName": "Example Subscription",
+                  "id": "/subscriptions/291bba3f-e0a5-47bc-a099-3bdcb2a50a05",
+                  "managedByTenants": [
+                    {
+                      "tenantId": "8f70baf1-1f6e-46a2-a1ff-238dac1ebfb7"
+                    }
+                  ],
+                  "state": "Enabled",
+                  "subscriptionId": "291bba3f-e0a5-47bc-a099-3bdcb2a50a05",
+                  "subscriptionPolicies": {
+                    "locationPlacementId": "Internal_2014-09-01",
+                    "quotaId": "Internal_2014-09-01",
+                    "spendingLimit": "Off"
+                  },
+                  "tenantId": "31c75423-32d6-4322-88b7-c478bdde4858"
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/subscriptions/{subscriptionId}/locations": {
@@ -150,7 +260,9 @@
         "tags": [
           "Subscriptions"
         ],
-        "x-ms-pageable": {}
+        "x-ms-pageable": {
+          "nextLinkName": null
+        }
       }
     },
     "/tenants": {
@@ -227,6 +339,63 @@
         }
       }
     },
+    "ManagedByTenant": {
+      "description": "Information about a tenant managing the subscription.",
+      "properties": {
+        "tenantId": {
+          "description": "The tenant ID of the managing tenant. This is a GUID.",
+          "readOnly": true,
+          "type": "string"
+        }
+      }
+    },
+    "Operation": {
+      "description": "Microsoft.Resources operation",
+      "properties": {
+        "display": {
+          "description": "The object that represents the operation.",
+          "properties": {
+            "description": {
+              "description": "Description of the operation.",
+              "type": "string"
+            },
+            "operation": {
+              "description": "Operation type: Read, write, delete, etc.",
+              "type": "string"
+            },
+            "provider": {
+              "description": "Service provider: Microsoft.Resources",
+              "type": "string"
+            },
+            "resource": {
+              "description": "Resource on which the operation is performed: Profile, endpoint, etc.",
+              "type": "string"
+            }
+          }
+        },
+        "name": {
+          "description": "Operation name: {provider}/{resource}/{operation}",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "OperationListResult": {
+      "description": "Result of the request to list Microsoft.Resources operations. It contains a list of operations and a URL link to get the next set of results.",
+      "properties": {
+        "nextLink": {
+          "description": "URL to get the next set of operation list results if there are any.",
+          "type": "string"
+        },
+        "value": {
+          "description": "List of Microsoft.Resources operations.",
+          "items": {
+            "$ref": "#/definitions/Operation"
+          },
+          "type": "array"
+        }
+      }
+    },
     "Subscription": {
       "description": "Subscription information.",
       "properties": {
@@ -243,6 +412,13 @@
           "description": "The fully qualified ID for the subscription. For example, /subscriptions/00000000-0000-0000-0000-000000000000.",
           "readOnly": true,
           "type": "string"
+        },
+        "managedByTenants": {
+          "description": "An array containing the tenants managing the subscription.",
+          "items": {
+            "$ref": "#/definitions/ManagedByTenant"
+          },
+          "type": "array"
         },
         "state": {
           "description": "The subscription state. Possible values are Enabled, Warned, PastDue, Disabled, and Deleted.",
@@ -268,6 +444,11 @@
         "subscriptionPolicies": {
           "$ref": "#/definitions/SubscriptionPolicies",
           "description": "The subscription policies."
+        },
+        "tenantId": {
+          "description": "The subscription tenant ID.",
+          "readOnly": true,
+          "type": "string"
         }
       }
     },

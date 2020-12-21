@@ -17,7 +17,7 @@
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/applicationinsights/resource-manager/microsoft.insights/stable/2015-05-01/webTests_API.json",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/applicationinsights/resource-manager/Microsoft.Insights/stable/2015-05-01/webTests_API.json",
         "version": "2.0"
       }
     ],
@@ -58,27 +58,13 @@
     }
   ],
   "parameters": {
-    "ApiVersionParameter": {
-      "description": "Client Api Version.",
-      "in": "query",
-      "name": "api-version",
-      "required": true,
-      "type": "string"
-    },
-    "ResourceGroupNameParameter": {
-      "description": "The name of the resource group.",
+    "ComponentNameParameter": {
+      "description": "The name of the Application Insights component resource.",
       "in": "path",
-      "name": "resourceGroupName",
+      "name": "componentName",
       "required": true,
       "type": "string",
       "x-ms-parameter-location": "method"
-    },
-    "SubscriptionIdParameter": {
-      "description": "The Azure subscription ID.",
-      "in": "path",
-      "name": "subscriptionId",
-      "required": true,
-      "type": "string"
     },
     "WebTestNameParameter": {
       "description": "The name of the Application Insights webtest resource.",
@@ -90,16 +76,26 @@
     }
   },
   "paths": {
-    "/subscriptions/{subscriptionId}/providers/microsoft.insights/webtests": {
+    "/subscriptions/{subscriptionId}/providers/Microsoft.Insights/webtests": {
       "get": {
-        "description": "Get all Application Insights web test alerts definitioned within a subscription.",
+        "description": "Get all Application Insights web test alerts definitions within a subscription.",
         "operationId": "WebTests_List",
         "parameters": [
           {
-            "$ref": "#/parameters/ApiVersionParameter"
+            "description": "The API version to use for this operation.",
+            "in": "query",
+            "minLength": 1,
+            "name": "api-version",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/SubscriptionIdParameter"
+            "description": "The ID of the target subscription.",
+            "in": "path",
+            "minLength": 1,
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -120,10 +116,10 @@
             "responses": {
               "200": {
                 "body": {
-                  "nextLink": "",
+                  "nextLink": null,
                   "value": [
                     {
-                      "id": "/subscriptions/subid/resourceGroups/my-resource-group/providers/microsoft.insights/webtests/my-webtest-my-component",
+                      "id": "/subscriptions/subid/resourceGroups/my-resource-group/providers/Microsoft.Insights/webtests/my-webtest-my-component",
                       "kind": "ping",
                       "location": "southcentralus",
                       "name": "my-webtest-my-component",
@@ -143,13 +139,13 @@
                         "provisioningState": "Succeeded"
                       },
                       "tags": {
-                        "hidden-link:/subscriptions/subid/resourceGroups/my-resource-group/providers/Microsoft.Web/sites/mytestwebapp": "Resource",
-                        "hidden-link:/subscriptions/subid/resourceGroups/my-resource-group/providers/microsoft.insights/components/my-component": "Resource"
+                        "hidden-link:/subscriptions/subid/resourceGroups/my-resource-group/providers/Microsoft.Insights/components/my-component": "Resource",
+                        "hidden-link:/subscriptions/subid/resourceGroups/my-resource-group/providers/Microsoft.Web/sites/mytestwebapp": "Resource"
                       },
-                      "type": "microsoft.insights/webtests"
+                      "type": "Microsoft.Insights/webtests"
                     },
                     {
-                      "id": "/subscriptions/subid/resourceGroups/my-other-resource-group/providers/microsoft.insights/webtests/my-webtest-my-other-component",
+                      "id": "/subscriptions/subid/resourceGroups/my-other-resource-group/providers/Microsoft.Insights/webtests/my-webtest-my-other-component",
                       "kind": "ping",
                       "location": "southcentralus",
                       "name": "my-webtest-my-other-component",
@@ -170,9 +166,9 @@
                       },
                       "tags": {
                         "Test": "You can delete this synthetic monitor anytime",
-                        "hidden-link:/subscriptions/subid/resourceGroups/my-other-resource-group/providers/microsoft.insights/components/my-other-component": "Resource"
+                        "hidden-link:/subscriptions/subid/resourceGroups/my-other-resource-group/providers/Microsoft.Insights/components/my-other-component": "Resource"
                       },
-                      "type": "microsoft.insights/webtests"
+                      "type": "Microsoft.Insights/webtests"
                     }
                   ]
                 }
@@ -185,19 +181,40 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.insights/webtests": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/components/{componentName}/webtests": {
       "get": {
-        "description": "Get all Application Insights web tests defined within a specified resource group.",
-        "operationId": "WebTests_ListByResourceGroup",
+        "description": "Get all Application Insights web tests defined for the specified component.",
+        "operationId": "WebTests_ListByComponent",
         "parameters": [
           {
-            "$ref": "#/parameters/ResourceGroupNameParameter"
+            "$ref": "#/parameters/ComponentNameParameter"
           },
           {
-            "$ref": "#/parameters/ApiVersionParameter"
+            "description": "The name of the resource group. The name is case insensitive.",
+            "in": "path",
+            "maxLength": 90,
+            "minLength": 1,
+            "name": "resourceGroupName",
+            "pattern": "^[-\\w\\._\\(\\)]+$",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
-            "$ref": "#/parameters/SubscriptionIdParameter"
+            "description": "The API version to use for this operation.",
+            "in": "query",
+            "minLength": 1,
+            "name": "api-version",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The ID of the target subscription.",
+            "in": "path",
+            "minLength": 1,
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -209,19 +226,20 @@
           }
         },
         "x-ms-examples": {
-          "webTestListByResourceGroup": {
+          "webTestListByComponent": {
             "parameters": {
               "api-version": "2015-05-01",
+              "componentName": "my-component",
               "resourceGroupName": "my-resource-group",
               "subscriptionId": "subid"
             },
             "responses": {
               "200": {
                 "body": {
-                  "nextLink": "",
+                  "nextLink": null,
                   "value": [
                     {
-                      "id": "/subscriptions/subid/resourceGroups/my-resource-group/providers/microsoft.insights/webtests/my-webtest-my-component",
+                      "id": "/subscriptions/subid/resourceGroups/my-resource-group/providers/Microsoft.Insights/webtests/my-webtest-my-component",
                       "kind": "ping",
                       "location": "southcentralus",
                       "name": "my-webtest-my-component",
@@ -245,13 +263,107 @@
                         "provisioningState": "Succeeded"
                       },
                       "tags": {
-                        "hidden-link:/subscriptions/subid/resourceGroups/my-resource-group/providers/Microsoft.Web/sites/mytestwebapp": "Resource",
-                        "hidden-link:/subscriptions/subid/resourceGroups/my-resource-group/providers/microsoft.insights/components/my-component": "Resource"
+                        "hidden-link:/subscriptions/subid/resourceGroups/my-resource-group/providers/Microsoft.Insights/components/my-component": "Resource",
+                        "hidden-link:/subscriptions/subid/resourceGroups/my-resource-group/providers/Microsoft.Web/sites/mytestwebapp": "Resource"
                       },
-                      "type": "microsoft.insights/webtests"
+                      "type": "Microsoft.Insights/webtests"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/webtests": {
+      "get": {
+        "description": "Get all Application Insights web tests defined within a specified resource group.",
+        "operationId": "WebTests_ListByResourceGroup",
+        "parameters": [
+          {
+            "description": "The name of the resource group. The name is case insensitive.",
+            "in": "path",
+            "maxLength": 90,
+            "minLength": 1,
+            "name": "resourceGroupName",
+            "pattern": "^[-\\w\\._\\(\\)]+$",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
+          },
+          {
+            "description": "The API version to use for this operation.",
+            "in": "query",
+            "minLength": 1,
+            "name": "api-version",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The ID of the target subscription.",
+            "in": "path",
+            "minLength": 1,
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A list containing 0 or more web test definitions.",
+            "schema": {
+              "$ref": "#/definitions/webTestListResult"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "webTestListByResourceGroup": {
+            "parameters": {
+              "api-version": "2015-05-01",
+              "resourceGroupName": "my-resource-group",
+              "subscriptionId": "subid"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "nextLink": null,
+                  "value": [
+                    {
+                      "id": "/subscriptions/subid/resourceGroups/my-resource-group/providers/Microsoft.Insights/webtests/my-webtest-my-component",
+                      "kind": "ping",
+                      "location": "southcentralus",
+                      "name": "my-webtest-my-component",
+                      "properties": {
+                        "Configuration": {
+                          "WebTest": "<WebTest Name=\"my-webtest\" Id=\"678ddf96-1ab8-44c8-9274-123456789abc\" Enabled=\"True\" CssProjectStructure=\"\" CssIteration=\"\" Timeout=\"120\" WorkItemIds=\"\" xmlns=\"http://microsoft.com/schemas/VisualStudio/TeamTest/2010\" Description=\"\" CredentialUserName=\"\" CredentialPassword=\"\" PreAuthenticate=\"True\" Proxy=\"default\" StopOnError=\"False\" RecordedResultFile=\"\" ResultsLocale=\"\"><Items><Request Method=\"GET\" Guid=\"a4162485-9114-fcfc-e086-123456789abc\" Version=\"1.1\" Url=\"http://my-component.azurewebsites.net\" ThinkTime=\"0\" Timeout=\"120\" ParseDependentRequests=\"True\" FollowRedirects=\"True\" RecordResult=\"True\" Cache=\"False\" ResponseTimeGoal=\"0\" Encoding=\"utf-8\" ExpectedHttpStatusCode=\"200\" ExpectedResponseUrl=\"\" ReportingName=\"\" IgnoreHttpStatusCode=\"False\" /></Items></WebTest>"
+                        },
+                        "Description": "",
+                        "Enabled": false,
+                        "Frequency": 900,
+                        "Kind": "ping",
+                        "Locations": [
+                          {
+                            "Id": "apac-hk-hkn-azr"
+                          }
+                        ],
+                        "Name": "my-webtest",
+                        "RetryEnabled": true,
+                        "SyntheticMonitorId": "my-webtest-my-component",
+                        "Timeout": 120,
+                        "provisioningState": "Succeeded"
+                      },
+                      "tags": {
+                        "hidden-link:/subscriptions/subid/resourceGroups/my-resource-group/providers/Microsoft.Insights/components/my-component": "Resource",
+                        "hidden-link:/subscriptions/subid/resourceGroups/my-resource-group/providers/Microsoft.Web/sites/mytestwebapp": "Resource"
+                      },
+                      "type": "Microsoft.Insights/webtests"
                     },
                     {
-                      "id": "/subscriptions/subid/resourceGroups/my-resource-group/providers/microsoft.insights/webtests/my-webtest-my-other-component",
+                      "id": "/subscriptions/subid/resourceGroups/my-resource-group/providers/Microsoft.Insights/webtests/my-webtest-my-other-component",
                       "kind": "ping",
                       "location": "southcentralus",
                       "name": "my-webtest-my-other-component",
@@ -276,9 +388,9 @@
                       },
                       "tags": {
                         "Test": "You can delete this synthetic monitor anytime",
-                        "hidden-link:/subscriptions/subid/resourceGroups/my-resource-group/providers/microsoft.insights/components/my-other-component": "Resource"
+                        "hidden-link:/subscriptions/subid/resourceGroups/my-resource-group/providers/Microsoft.Insights/components/my-other-component": "Resource"
                       },
-                      "type": "microsoft.insights/webtests"
+                      "type": "Microsoft.Insights/webtests"
                     }
                   ]
                 }
@@ -291,22 +403,40 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.insights/webtests/{webTestName}": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/webtests/{webTestName}": {
       "delete": {
         "description": "Deletes an Application Insights web test.",
         "operationId": "WebTests_Delete",
         "parameters": [
           {
-            "$ref": "#/parameters/SubscriptionIdParameter"
+            "description": "The ID of the target subscription.",
+            "in": "path",
+            "minLength": 1,
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/ResourceGroupNameParameter"
+            "description": "The name of the resource group. The name is case insensitive.",
+            "in": "path",
+            "maxLength": 90,
+            "minLength": 1,
+            "name": "resourceGroupName",
+            "pattern": "^[-\\w\\._\\(\\)]+$",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "$ref": "#/parameters/WebTestNameParameter"
           },
           {
-            "$ref": "#/parameters/ApiVersionParameter"
+            "description": "The API version to use for this operation.",
+            "in": "query",
+            "minLength": 1,
+            "name": "api-version",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -326,9 +456,8 @@
               "webTestName": "my-webtest-01-mywebservice"
             },
             "responses": {
-              "200": {
-                "body": {}
-              }
+              "200": {},
+              "204": {}
             }
           }
         }
@@ -338,13 +467,31 @@
         "operationId": "WebTests_Get",
         "parameters": [
           {
-            "$ref": "#/parameters/ResourceGroupNameParameter"
+            "description": "The name of the resource group. The name is case insensitive.",
+            "in": "path",
+            "maxLength": 90,
+            "minLength": 1,
+            "name": "resourceGroupName",
+            "pattern": "^[-\\w\\._\\(\\)]+$",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
-            "$ref": "#/parameters/ApiVersionParameter"
+            "description": "The API version to use for this operation.",
+            "in": "query",
+            "minLength": 1,
+            "name": "api-version",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/SubscriptionIdParameter"
+            "description": "The ID of the target subscription.",
+            "in": "path",
+            "minLength": 1,
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string"
           },
           {
             "$ref": "#/parameters/WebTestNameParameter"
@@ -369,7 +516,7 @@
             "responses": {
               "200": {
                 "body": {
-                  "id": "/subscriptions/subid/resourceGroups/my-test-resources/providers/microsoft.insights/webtests/my-webtest-01-mywebservice",
+                  "id": "/subscriptions/subid/resourceGroups/my-test-resources/providers/Microsoft.Insights/webtests/my-webtest-01-mywebservice",
                   "kind": "ping",
                   "location": "southcentralus",
                   "name": "my-webtest-01-mywebservice",
@@ -396,10 +543,10 @@
                     "provisioningState": "Succeeded"
                   },
                   "tags": {
-                    "hidden-link:/subscriptions/subid/resourceGroups/my-test-resources/providers/Microsoft.Web/sites/mytester": "Resource",
-                    "hidden-link:/subscriptions/subid/resourceGroups/my-test-resources/providers/microsoft.insights/components/mytester": "Resource"
+                    "hidden-link:/subscriptions/subid/resourceGroups/my-test-resources/providers/Microsoft.Insights/components/mytester": "Resource",
+                    "hidden-link:/subscriptions/subid/resourceGroups/my-test-resources/providers/Microsoft.Web/sites/mytester": "Resource"
                   },
-                  "type": "microsoft.insights/webtests"
+                  "type": "Microsoft.Insights/webtests"
                 }
               }
             }
@@ -411,13 +558,31 @@
         "operationId": "WebTests_UpdateTags",
         "parameters": [
           {
-            "$ref": "#/parameters/ResourceGroupNameParameter"
+            "description": "The name of the resource group. The name is case insensitive.",
+            "in": "path",
+            "maxLength": 90,
+            "minLength": 1,
+            "name": "resourceGroupName",
+            "pattern": "^[-\\w\\._\\(\\)]+$",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
-            "$ref": "#/parameters/ApiVersionParameter"
+            "description": "The API version to use for this operation.",
+            "in": "query",
+            "minLength": 1,
+            "name": "api-version",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/SubscriptionIdParameter"
+            "description": "The ID of the target subscription.",
+            "in": "path",
+            "minLength": 1,
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string"
           },
           {
             "$ref": "#/parameters/WebTestNameParameter"
@@ -448,8 +613,8 @@
                   "Color": "AzureBlue",
                   "CustomField-01": "This is a random value",
                   "SystemType": "A08",
-                  "hidden-link:/subscriptions/subid/resourceGroups/my-resource-group/providers/Microsoft.Web/sites/mytestwebapp": "Resource",
-                  "hidden-link:/subscriptions/subid/resourceGroups/my-resource-group/providers/microsoft.insights/components/my-component": "Resource"
+                  "hidden-link:/subscriptions/subid/resourceGroups/my-resource-group/providers/Microsoft.Insights/components/my-component": "Resource",
+                  "hidden-link:/subscriptions/subid/resourceGroups/my-resource-group/providers/Microsoft.Web/sites/mytestwebapp": "Resource"
                 }
               },
               "api-version": "2015-05-01",
@@ -460,7 +625,7 @@
             "responses": {
               "200": {
                 "body": {
-                  "id": "/subscriptions/subid/resourceGroups/my-resource-group/providers/microsoft.insights/webtests/my-webtest-my-component",
+                  "id": "/subscriptions/subid/resourceGroups/my-resource-group/providers/Microsoft.Insights/webtests/my-webtest-my-component",
                   "kind": "ping",
                   "location": "southcentralus",
                   "name": "my-webtest-my-component",
@@ -490,10 +655,10 @@
                     "Color": "AzureBlue",
                     "CustomField-01": "This is a random value",
                     "SystemType": "A08",
-                    "hidden-link:/subscriptions/subid/resourceGroups/my-resource-group/providers/Microsoft.Web/sites/mytestwebapp": "Resource",
-                    "hidden-link:/subscriptions/subid/resourceGroups/my-resource-group/providers/microsoft.insights/components/my-component": "Resource"
+                    "hidden-link:/subscriptions/subid/resourceGroups/my-resource-group/providers/Microsoft.Insights/components/my-component": "Resource",
+                    "hidden-link:/subscriptions/subid/resourceGroups/my-resource-group/providers/Microsoft.Web/sites/mytestwebapp": "Resource"
                   },
-                  "type": "microsoft.insights/webtests"
+                  "type": "Microsoft.Insights/webtests"
                 }
               }
             }
@@ -505,13 +670,31 @@
         "operationId": "WebTests_CreateOrUpdate",
         "parameters": [
           {
-            "$ref": "#/parameters/ResourceGroupNameParameter"
+            "description": "The name of the resource group. The name is case insensitive.",
+            "in": "path",
+            "maxLength": 90,
+            "minLength": 1,
+            "name": "resourceGroupName",
+            "pattern": "^[-\\w\\._\\(\\)]+$",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
-            "$ref": "#/parameters/ApiVersionParameter"
+            "description": "The API version to use for this operation.",
+            "in": "query",
+            "minLength": 1,
+            "name": "api-version",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/SubscriptionIdParameter"
+            "description": "The ID of the target subscription.",
+            "in": "path",
+            "minLength": 1,
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string"
           },
           {
             "$ref": "#/parameters/WebTestNameParameter"
@@ -567,7 +750,7 @@
             "responses": {
               "200": {
                 "body": {
-                  "id": "/subscriptions/subid/resourceGroups/my-resource-group/providers/microsoft.insights/webtests/my-webtest-my-component",
+                  "id": "/subscriptions/subid/resourceGroups/my-resource-group/providers/Microsoft.Insights/webtests/my-webtest-my-component",
                   "kind": "ping",
                   "location": "southcentralus",
                   "name": "my-webtest-my-component",
@@ -591,10 +774,10 @@
                     "provisioningState": "Succeeded"
                   },
                   "tags": {
-                    "hidden-link:/subscriptions/subid/resourceGroups/my-resource-group/providers/Microsoft.Web/sites/mytestwebapp": "Resource",
-                    "hidden-link:/subscriptions/subid/resourceGroups/my-resource-group/providers/microsoft.insights/components/my-component": "Resource"
+                    "hidden-link:/subscriptions/subid/resourceGroups/my-resource-group/providers/Microsoft.Insights/components/my-component": "Resource",
+                    "hidden-link:/subscriptions/subid/resourceGroups/my-resource-group/providers/Microsoft.Web/sites/mytestwebapp": "Resource"
                   },
-                  "type": "microsoft.insights/webtests"
+                  "type": "Microsoft.Insights/webtests"
                 }
               }
             }
@@ -631,7 +814,7 @@
             "responses": {
               "200": {
                 "body": {
-                  "id": "/subscriptions/subid/resourceGroups/my-resource-group/providers/microsoft.insights/webtests/my-webtest-my-component",
+                  "id": "/subscriptions/subid/resourceGroups/my-resource-group/providers/Microsoft.Insights/webtests/my-webtest-my-component",
                   "kind": "ping",
                   "location": "southcentralus",
                   "name": "my-webtest-my-component",
@@ -658,10 +841,10 @@
                     "provisioningState": "Succeeded"
                   },
                   "tags": {
-                    "hidden-link:/subscriptions/subid/resourceGroups/my-resource-group/providers/Microsoft.Web/sites/mytestwebapp": "Resource",
-                    "hidden-link:/subscriptions/subid/resourceGroups/my-resource-group/providers/microsoft.insights/components/my-component": "Resource"
+                    "hidden-link:/subscriptions/subid/resourceGroups/my-resource-group/providers/Microsoft.Insights/components/my-component": "Resource",
+                    "hidden-link:/subscriptions/subid/resourceGroups/my-resource-group/providers/Microsoft.Web/sites/mytestwebapp": "Resource"
                   },
-                  "type": "microsoft.insights/webtests"
+                  "type": "Microsoft.Insights/webtests"
                 }
               }
             }
@@ -671,44 +854,6 @@
     }
   },
   "definitions": {
-    "Resource": {
-      "description": "An azure resource object",
-      "properties": {
-        "id": {
-          "description": "Azure resource Id",
-          "readOnly": true,
-          "type": "string"
-        },
-        "location": {
-          "description": "Resource location",
-          "type": "string",
-          "x-ms-mutability": [
-            "create",
-            "read"
-          ]
-        },
-        "name": {
-          "description": "Azure resource name",
-          "readOnly": true,
-          "type": "string"
-        },
-        "tags": {
-          "additionalProperties": {
-            "type": "string"
-          },
-          "description": "Resource tags"
-        },
-        "type": {
-          "description": "Azure resource type",
-          "readOnly": true,
-          "type": "string"
-        }
-      },
-      "required": [
-        "location"
-      ],
-      "x-ms-azure-resource": true
-    },
     "TagsResource": {
       "description": "A container holding only the Tags for a resource, allowing the user to update the tags on a WebTest instance.",
       "properties": {
@@ -723,7 +868,7 @@
     "WebTest": {
       "allOf": [
         {
-          "$ref": "#/definitions/Resource"
+          "$ref": "#/definitions/WebtestsResource"
         }
       ],
       "description": "An Application Insights web test definition.",
@@ -838,6 +983,44 @@
         "Locations",
         "SyntheticMonitorId"
       ]
+    },
+    "WebtestsResource": {
+      "description": "An azure resource object",
+      "properties": {
+        "id": {
+          "description": "Azure resource Id",
+          "readOnly": true,
+          "type": "string"
+        },
+        "location": {
+          "description": "Resource location",
+          "type": "string",
+          "x-ms-mutability": [
+            "create",
+            "read"
+          ]
+        },
+        "name": {
+          "description": "Azure resource name",
+          "readOnly": true,
+          "type": "string"
+        },
+        "tags": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "Resource tags"
+        },
+        "type": {
+          "description": "Azure resource type",
+          "readOnly": true,
+          "type": "string"
+        }
+      },
+      "required": [
+        "location"
+      ],
+      "x-ms-azure-resource": true
     },
     "webTestListResult": {
       "description": "A list of 0 or more Application Insights web test definitions.",

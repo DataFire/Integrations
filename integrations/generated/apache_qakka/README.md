@@ -9,7 +9,7 @@ npm install --save @datafire/apache_qakka
 ```js
 let apache_qakka = require('@datafire/apache_qakka').create();
 
-apache_qakka.getListOfQueues(null).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

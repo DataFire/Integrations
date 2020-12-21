@@ -15,9 +15,7 @@ let google_playmoviespartner = require('@datafire/google_playmoviespartner').cre
   redirect_uri: ""
 });
 
-google_playmoviespartner.accounts.avails.list({
-  "accountId": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

@@ -6,7 +6,7 @@
   "host": "management.azure.com",
   "info": {
     "title": "AppServicePlans API Client",
-    "version": "2016-09-01",
+    "version": "2018-02-01",
     "x-apisguru-categories": [
       "cloud"
     ],
@@ -16,7 +16,7 @@
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/web/resource-manager/Microsoft.Web/stable/2016-09-01/AppServicePlans.json",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/web/resource-manager/Microsoft.Web/stable/2018-02-01/AppServicePlans.json",
         "version": "2.0"
       }
     ],
@@ -86,7 +86,7 @@
   "paths": {
     "/subscriptions/{subscriptionId}/providers/Microsoft.Web/serverfarms": {
       "get": {
-        "description": "Get all App Service plans for a subcription.",
+        "description": "Get all App Service plans for a subscription.",
         "operationId": "AppServicePlans_List",
         "parameters": [
           {
@@ -110,6 +110,7 @@
               "properties": {
                 "nextLink": {
                   "description": "Link to next page of resources.",
+                  "readOnly": true,
                   "type": "string"
                 },
                 "value": {
@@ -161,8 +162,9 @@
                       "properties": {
                         "description": "AppServicePlan resource specific properties",
                         "properties": {
-                          "adminSiteName": {
-                            "description": "App Service plan administration site.",
+                          "freeOfferExpirationTime": {
+                            "description": "The time when the server farm free offer expires.",
+                            "format": "date-time",
                             "type": "string"
                           },
                           "geoRegion": {
@@ -190,19 +192,38 @@
                             },
                             "type": "object"
                           },
+                          "hyperV": {
+                            "default": false,
+                            "description": "If Hyper-V container app service plan <code>true</code>, <code>false</code> otherwise.",
+                            "type": "boolean",
+                            "x-ms-mutability": [
+                              "create",
+                              "read"
+                            ]
+                          },
                           "isSpot": {
                             "description": "If <code>true</code>, this App Service Plan owns spot instances.",
                             "type": "boolean"
+                          },
+                          "isXenon": {
+                            "default": false,
+                            "description": "Obsolete: If Hyper-V container app service plan <code>true</code>, <code>false</code> otherwise.",
+                            "type": "boolean",
+                            "x-ms-mutability": [
+                              "create",
+                              "read"
+                            ]
+                          },
+                          "maximumElasticWorkerCount": {
+                            "description": "Maximum number of total workers allowed for this ElasticScaleEnabled App Service Plan",
+                            "format": "int32",
+                            "type": "integer"
                           },
                           "maximumNumberOfWorkers": {
                             "description": "Maximum number of instances that can be assigned to this App Service plan.",
                             "format": "int32",
                             "readOnly": true,
                             "type": "integer"
-                          },
-                          "name": {
-                            "description": "Name for the App Service plan.",
-                            "type": "string"
                           },
                           "numberOfSites": {
                             "description": "Number of apps assigned to this App Service plan.",
@@ -284,9 +305,6 @@
                             "type": "string"
                           }
                         },
-                        "required": [
-                          "name"
-                        ],
                         "x-ms-client-flatten": true
                       },
                       "sku": {
@@ -381,9 +399,69 @@
               ],
               "type": "object"
             }
+          },
+          "default": {
+            "description": "App Service error response.",
+            "schema": {
+              "description": "App Service error response.",
+              "properties": {
+                "error": {
+                  "description": "Error model.",
+                  "properties": {
+                    "code": {
+                      "description": "Standardized string to programmatically identify the error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "details": {
+                      "items": {
+                        "description": "Detailed errors.",
+                        "properties": {
+                          "code": {
+                            "description": "Standardized string to programmatically identify the error.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "message": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "target": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          }
+                        },
+                        "readOnly": true
+                      },
+                      "type": "array"
+                    },
+                    "innererror": {
+                      "description": "More information to debug error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "message": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "target": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    }
+                  },
+                  "readOnly": true,
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
           }
         },
-        "summary": "Get all App Service plans for a subcription.",
+        "summary": "Get all App Service plans for a subscription.",
         "tags": [
           "AppServicePlans"
         ],
@@ -496,6 +574,7 @@
               "properties": {
                 "nextLink": {
                   "description": "Link to next page of resources.",
+                  "readOnly": true,
                   "type": "string"
                 },
                 "value": {
@@ -547,8 +626,9 @@
                       "properties": {
                         "description": "AppServicePlan resource specific properties",
                         "properties": {
-                          "adminSiteName": {
-                            "description": "App Service plan administration site.",
+                          "freeOfferExpirationTime": {
+                            "description": "The time when the server farm free offer expires.",
+                            "format": "date-time",
                             "type": "string"
                           },
                           "geoRegion": {
@@ -576,19 +656,38 @@
                             },
                             "type": "object"
                           },
+                          "hyperV": {
+                            "default": false,
+                            "description": "If Hyper-V container app service plan <code>true</code>, <code>false</code> otherwise.",
+                            "type": "boolean",
+                            "x-ms-mutability": [
+                              "create",
+                              "read"
+                            ]
+                          },
                           "isSpot": {
                             "description": "If <code>true</code>, this App Service Plan owns spot instances.",
                             "type": "boolean"
+                          },
+                          "isXenon": {
+                            "default": false,
+                            "description": "Obsolete: If Hyper-V container app service plan <code>true</code>, <code>false</code> otherwise.",
+                            "type": "boolean",
+                            "x-ms-mutability": [
+                              "create",
+                              "read"
+                            ]
+                          },
+                          "maximumElasticWorkerCount": {
+                            "description": "Maximum number of total workers allowed for this ElasticScaleEnabled App Service Plan",
+                            "format": "int32",
+                            "type": "integer"
                           },
                           "maximumNumberOfWorkers": {
                             "description": "Maximum number of instances that can be assigned to this App Service plan.",
                             "format": "int32",
                             "readOnly": true,
                             "type": "integer"
-                          },
-                          "name": {
-                            "description": "Name for the App Service plan.",
-                            "type": "string"
                           },
                           "numberOfSites": {
                             "description": "Number of apps assigned to this App Service plan.",
@@ -670,9 +769,6 @@
                             "type": "string"
                           }
                         },
-                        "required": [
-                          "name"
-                        ],
                         "x-ms-client-flatten": true
                       },
                       "sku": {
@@ -765,6 +861,66 @@
               "required": [
                 "value"
               ],
+              "type": "object"
+            }
+          },
+          "default": {
+            "description": "App Service error response.",
+            "schema": {
+              "description": "App Service error response.",
+              "properties": {
+                "error": {
+                  "description": "Error model.",
+                  "properties": {
+                    "code": {
+                      "description": "Standardized string to programmatically identify the error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "details": {
+                      "items": {
+                        "description": "Detailed errors.",
+                        "properties": {
+                          "code": {
+                            "description": "Standardized string to programmatically identify the error.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "message": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "target": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          }
+                        },
+                        "readOnly": true
+                      },
+                      "type": "array"
+                    },
+                    "innererror": {
+                      "description": "More information to debug error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "message": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "target": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    }
+                  },
+                  "readOnly": true,
+                  "type": "object"
+                }
+              },
               "type": "object"
             }
           }
@@ -980,8 +1136,9 @@
                 "properties": {
                   "description": "AppServicePlan resource specific properties",
                   "properties": {
-                    "adminSiteName": {
-                      "description": "App Service plan administration site.",
+                    "freeOfferExpirationTime": {
+                      "description": "The time when the server farm free offer expires.",
+                      "format": "date-time",
                       "type": "string"
                     },
                     "geoRegion": {
@@ -1009,19 +1166,38 @@
                       },
                       "type": "object"
                     },
+                    "hyperV": {
+                      "default": false,
+                      "description": "If Hyper-V container app service plan <code>true</code>, <code>false</code> otherwise.",
+                      "type": "boolean",
+                      "x-ms-mutability": [
+                        "create",
+                        "read"
+                      ]
+                    },
                     "isSpot": {
                       "description": "If <code>true</code>, this App Service Plan owns spot instances.",
                       "type": "boolean"
+                    },
+                    "isXenon": {
+                      "default": false,
+                      "description": "Obsolete: If Hyper-V container app service plan <code>true</code>, <code>false</code> otherwise.",
+                      "type": "boolean",
+                      "x-ms-mutability": [
+                        "create",
+                        "read"
+                      ]
+                    },
+                    "maximumElasticWorkerCount": {
+                      "description": "Maximum number of total workers allowed for this ElasticScaleEnabled App Service Plan",
+                      "format": "int32",
+                      "type": "integer"
                     },
                     "maximumNumberOfWorkers": {
                       "description": "Maximum number of instances that can be assigned to this App Service plan.",
                       "format": "int32",
                       "readOnly": true,
                       "type": "integer"
-                    },
-                    "name": {
-                      "description": "Name for the App Service plan.",
-                      "type": "string"
                     },
                     "numberOfSites": {
                       "description": "Number of apps assigned to this App Service plan.",
@@ -1103,9 +1279,6 @@
                       "type": "string"
                     }
                   },
-                  "required": [
-                    "name"
-                  ],
                   "x-ms-client-flatten": true
                 },
                 "sku": {
@@ -1330,8 +1503,9 @@
                 "properties": {
                   "description": "AppServicePlan resource specific properties",
                   "properties": {
-                    "adminSiteName": {
-                      "description": "App Service plan administration site.",
+                    "freeOfferExpirationTime": {
+                      "description": "The time when the server farm free offer expires.",
+                      "format": "date-time",
                       "type": "string"
                     },
                     "geoRegion": {
@@ -1359,19 +1533,38 @@
                       },
                       "type": "object"
                     },
+                    "hyperV": {
+                      "default": false,
+                      "description": "If Hyper-V container app service plan <code>true</code>, <code>false</code> otherwise.",
+                      "type": "boolean",
+                      "x-ms-mutability": [
+                        "create",
+                        "read"
+                      ]
+                    },
                     "isSpot": {
                       "description": "If <code>true</code>, this App Service Plan owns spot instances.",
                       "type": "boolean"
+                    },
+                    "isXenon": {
+                      "default": false,
+                      "description": "Obsolete: If Hyper-V container app service plan <code>true</code>, <code>false</code> otherwise.",
+                      "type": "boolean",
+                      "x-ms-mutability": [
+                        "create",
+                        "read"
+                      ]
+                    },
+                    "maximumElasticWorkerCount": {
+                      "description": "Maximum number of total workers allowed for this ElasticScaleEnabled App Service Plan",
+                      "format": "int32",
+                      "type": "integer"
                     },
                     "maximumNumberOfWorkers": {
                       "description": "Maximum number of instances that can be assigned to this App Service plan.",
                       "format": "int32",
                       "readOnly": true,
                       "type": "integer"
-                    },
-                    "name": {
-                      "description": "Name for the App Service plan.",
-                      "type": "string"
                     },
                     "numberOfSites": {
                       "description": "Number of apps assigned to this App Service plan.",
@@ -1453,9 +1646,6 @@
                       "type": "string"
                     }
                   },
-                  "required": [
-                    "name"
-                  ],
                   "x-ms-client-flatten": true
                 },
                 "sku": {
@@ -1592,8 +1782,9 @@
                 "properties": {
                   "description": "AppServicePlan resource specific properties",
                   "properties": {
-                    "adminSiteName": {
-                      "description": "App Service plan administration site.",
+                    "freeOfferExpirationTime": {
+                      "description": "The time when the server farm free offer expires.",
+                      "format": "date-time",
                       "type": "string"
                     },
                     "geoRegion": {
@@ -1621,19 +1812,38 @@
                       },
                       "type": "object"
                     },
+                    "hyperV": {
+                      "default": false,
+                      "description": "If Hyper-V container app service plan <code>true</code>, <code>false</code> otherwise.",
+                      "type": "boolean",
+                      "x-ms-mutability": [
+                        "create",
+                        "read"
+                      ]
+                    },
                     "isSpot": {
                       "description": "If <code>true</code>, this App Service Plan owns spot instances.",
                       "type": "boolean"
+                    },
+                    "isXenon": {
+                      "default": false,
+                      "description": "Obsolete: If Hyper-V container app service plan <code>true</code>, <code>false</code> otherwise.",
+                      "type": "boolean",
+                      "x-ms-mutability": [
+                        "create",
+                        "read"
+                      ]
+                    },
+                    "maximumElasticWorkerCount": {
+                      "description": "Maximum number of total workers allowed for this ElasticScaleEnabled App Service Plan",
+                      "format": "int32",
+                      "type": "integer"
                     },
                     "maximumNumberOfWorkers": {
                       "description": "Maximum number of instances that can be assigned to this App Service plan.",
                       "format": "int32",
                       "readOnly": true,
                       "type": "integer"
-                    },
-                    "name": {
-                      "description": "Name for the App Service plan.",
-                      "type": "string"
                     },
                     "numberOfSites": {
                       "description": "Number of apps assigned to this App Service plan.",
@@ -1715,9 +1925,6 @@
                       "type": "string"
                     }
                   },
-                  "required": [
-                    "name"
-                  ],
                   "x-ms-client-flatten": true
                 },
                 "sku": {
@@ -1799,6 +2006,66 @@
                       "type": "string"
                     }
                   },
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "default": {
+            "description": "App Service error response.",
+            "schema": {
+              "description": "App Service error response.",
+              "properties": {
+                "error": {
+                  "description": "Error model.",
+                  "properties": {
+                    "code": {
+                      "description": "Standardized string to programmatically identify the error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "details": {
+                      "items": {
+                        "description": "Detailed errors.",
+                        "properties": {
+                          "code": {
+                            "description": "Standardized string to programmatically identify the error.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "message": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "target": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          }
+                        },
+                        "readOnly": true
+                      },
+                      "type": "array"
+                    },
+                    "innererror": {
+                      "description": "More information to debug error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "message": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "target": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    }
+                  },
+                  "readOnly": true,
                   "type": "object"
                 }
               },
@@ -1968,8 +2235,9 @@
                 "properties": {
                   "description": "AppServicePlan resource specific properties",
                   "properties": {
-                    "adminSiteName": {
-                      "description": "App Service plan administration site.",
+                    "freeOfferExpirationTime": {
+                      "description": "The time when the server farm free offer expires.",
+                      "format": "date-time",
                       "type": "string"
                     },
                     "geoRegion": {
@@ -1997,19 +2265,38 @@
                       },
                       "type": "object"
                     },
+                    "hyperV": {
+                      "default": false,
+                      "description": "If Hyper-V container app service plan <code>true</code>, <code>false</code> otherwise.",
+                      "type": "boolean",
+                      "x-ms-mutability": [
+                        "create",
+                        "read"
+                      ]
+                    },
                     "isSpot": {
                       "description": "If <code>true</code>, this App Service Plan owns spot instances.",
                       "type": "boolean"
+                    },
+                    "isXenon": {
+                      "default": false,
+                      "description": "Obsolete: If Hyper-V container app service plan <code>true</code>, <code>false</code> otherwise.",
+                      "type": "boolean",
+                      "x-ms-mutability": [
+                        "create",
+                        "read"
+                      ]
+                    },
+                    "maximumElasticWorkerCount": {
+                      "description": "Maximum number of total workers allowed for this ElasticScaleEnabled App Service Plan",
+                      "format": "int32",
+                      "type": "integer"
                     },
                     "maximumNumberOfWorkers": {
                       "description": "Maximum number of instances that can be assigned to this App Service plan.",
                       "format": "int32",
                       "readOnly": true,
                       "type": "integer"
-                    },
-                    "name": {
-                      "description": "Name for the App Service plan.",
-                      "type": "string"
                     },
                     "numberOfSites": {
                       "description": "Number of apps assigned to this App Service plan.",
@@ -2091,9 +2378,6 @@
                       "type": "string"
                     }
                   },
-                  "required": [
-                    "name"
-                  ],
                   "x-ms-client-flatten": true
                 },
                 "sku": {
@@ -2238,8 +2522,9 @@
                 "properties": {
                   "description": "AppServicePlan resource specific properties",
                   "properties": {
-                    "adminSiteName": {
-                      "description": "App Service plan administration site.",
+                    "freeOfferExpirationTime": {
+                      "description": "The time when the server farm free offer expires.",
+                      "format": "date-time",
                       "type": "string"
                     },
                     "geoRegion": {
@@ -2267,19 +2552,38 @@
                       },
                       "type": "object"
                     },
+                    "hyperV": {
+                      "default": false,
+                      "description": "If Hyper-V container app service plan <code>true</code>, <code>false</code> otherwise.",
+                      "type": "boolean",
+                      "x-ms-mutability": [
+                        "create",
+                        "read"
+                      ]
+                    },
                     "isSpot": {
                       "description": "If <code>true</code>, this App Service Plan owns spot instances.",
                       "type": "boolean"
+                    },
+                    "isXenon": {
+                      "default": false,
+                      "description": "Obsolete: If Hyper-V container app service plan <code>true</code>, <code>false</code> otherwise.",
+                      "type": "boolean",
+                      "x-ms-mutability": [
+                        "create",
+                        "read"
+                      ]
+                    },
+                    "maximumElasticWorkerCount": {
+                      "description": "Maximum number of total workers allowed for this ElasticScaleEnabled App Service Plan",
+                      "format": "int32",
+                      "type": "integer"
                     },
                     "maximumNumberOfWorkers": {
                       "description": "Maximum number of instances that can be assigned to this App Service plan.",
                       "format": "int32",
                       "readOnly": true,
                       "type": "integer"
-                    },
-                    "name": {
-                      "description": "Name for the App Service plan.",
-                      "type": "string"
                     },
                     "numberOfSites": {
                       "description": "Number of apps assigned to this App Service plan.",
@@ -2361,9 +2665,285 @@
                       "type": "string"
                     }
                   },
+                  "x-ms-client-flatten": true
+                },
+                "sku": {
+                  "description": "Description of a SKU for a scalable resource.",
+                  "properties": {
+                    "capabilities": {
+                      "description": "Capabilities of the SKU, e.g., is traffic manager enabled?",
+                      "items": {
+                        "description": "Describes the capabilities/features allowed for a specific SKU.",
+                        "properties": {
+                          "name": {
+                            "description": "Name of the SKU capability.",
+                            "type": "string"
+                          },
+                          "reason": {
+                            "description": "Reason of the SKU capability.",
+                            "type": "string"
+                          },
+                          "value": {
+                            "description": "Value of the SKU capability.",
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    "capacity": {
+                      "description": "Current number of instances assigned to the resource.",
+                      "format": "int32",
+                      "type": "integer"
+                    },
+                    "family": {
+                      "description": "Family code of the resource SKU.",
+                      "type": "string"
+                    },
+                    "locations": {
+                      "description": "Locations of the SKU.",
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    },
+                    "name": {
+                      "description": "Name of the resource SKU.",
+                      "type": "string"
+                    },
+                    "size": {
+                      "description": "Size specifier of the resource SKU.",
+                      "type": "string"
+                    },
+                    "skuCapacity": {
+                      "description": "Description of the App Service plan scale options.",
+                      "properties": {
+                        "default": {
+                          "description": "Default number of workers for this App Service plan SKU.",
+                          "format": "int32",
+                          "type": "integer"
+                        },
+                        "maximum": {
+                          "description": "Maximum number of workers for this App Service plan SKU.",
+                          "format": "int32",
+                          "type": "integer"
+                        },
+                        "minimum": {
+                          "description": "Minimum number of workers for this App Service plan SKU.",
+                          "format": "int32",
+                          "type": "integer"
+                        },
+                        "scaleType": {
+                          "description": "Available scale configurations for an App Service plan.",
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "tier": {
+                      "description": "Service tier of the resource SKU.",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "201": {
+            "description": "Created.",
+            "schema": {
+              "allOf": [
+                {
+                  "description": "Azure resource. This resource is tracked in Azure Resource Manager",
+                  "properties": {
+                    "id": {
+                      "description": "Resource Id.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "kind": {
+                      "description": "Kind of resource.",
+                      "type": "string"
+                    },
+                    "location": {
+                      "description": "Resource Location.",
+                      "type": "string"
+                    },
+                    "name": {
+                      "description": "Resource Name.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "tags": {
+                      "additionalProperties": {
+                        "type": "string"
+                      },
+                      "description": "Resource tags.",
+                      "type": "object"
+                    },
+                    "type": {
+                      "description": "Resource type.",
+                      "readOnly": true,
+                      "type": "string"
+                    }
+                  },
                   "required": [
-                    "name"
+                    "location"
                   ],
+                  "x-ms-azure-resource": true
+                }
+              ],
+              "description": "App Service plan.",
+              "properties": {
+                "properties": {
+                  "description": "AppServicePlan resource specific properties",
+                  "properties": {
+                    "freeOfferExpirationTime": {
+                      "description": "The time when the server farm free offer expires.",
+                      "format": "date-time",
+                      "type": "string"
+                    },
+                    "geoRegion": {
+                      "description": "Geographical location for the App Service plan.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "hostingEnvironmentProfile": {
+                      "description": "Specification for an App Service Environment to use for this resource.",
+                      "properties": {
+                        "id": {
+                          "description": "Resource ID of the App Service Environment.",
+                          "type": "string"
+                        },
+                        "name": {
+                          "description": "Name of the App Service Environment.",
+                          "readOnly": true,
+                          "type": "string"
+                        },
+                        "type": {
+                          "description": "Resource type of the App Service Environment.",
+                          "readOnly": true,
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "hyperV": {
+                      "default": false,
+                      "description": "If Hyper-V container app service plan <code>true</code>, <code>false</code> otherwise.",
+                      "type": "boolean",
+                      "x-ms-mutability": [
+                        "create",
+                        "read"
+                      ]
+                    },
+                    "isSpot": {
+                      "description": "If <code>true</code>, this App Service Plan owns spot instances.",
+                      "type": "boolean"
+                    },
+                    "isXenon": {
+                      "default": false,
+                      "description": "Obsolete: If Hyper-V container app service plan <code>true</code>, <code>false</code> otherwise.",
+                      "type": "boolean",
+                      "x-ms-mutability": [
+                        "create",
+                        "read"
+                      ]
+                    },
+                    "maximumElasticWorkerCount": {
+                      "description": "Maximum number of total workers allowed for this ElasticScaleEnabled App Service Plan",
+                      "format": "int32",
+                      "type": "integer"
+                    },
+                    "maximumNumberOfWorkers": {
+                      "description": "Maximum number of instances that can be assigned to this App Service plan.",
+                      "format": "int32",
+                      "readOnly": true,
+                      "type": "integer"
+                    },
+                    "numberOfSites": {
+                      "description": "Number of apps assigned to this App Service plan.",
+                      "format": "int32",
+                      "readOnly": true,
+                      "type": "integer"
+                    },
+                    "perSiteScaling": {
+                      "default": false,
+                      "description": "If <code>true</code>, apps assigned to this App Service plan can be scaled independently.\nIf <code>false</code>, apps assigned to this App Service plan will scale to all instances of the plan.",
+                      "type": "boolean"
+                    },
+                    "provisioningState": {
+                      "description": "Provisioning state of the App Service Environment.",
+                      "enum": [
+                        "Succeeded",
+                        "Failed",
+                        "Canceled",
+                        "InProgress",
+                        "Deleting"
+                      ],
+                      "readOnly": true,
+                      "type": "string",
+                      "x-ms-enum": {
+                        "modelAsString": false,
+                        "name": "ProvisioningState"
+                      }
+                    },
+                    "reserved": {
+                      "default": false,
+                      "description": "If Linux app service plan <code>true</code>, <code>false</code> otherwise.",
+                      "type": "boolean",
+                      "x-ms-mutability": [
+                        "create",
+                        "read"
+                      ]
+                    },
+                    "resourceGroup": {
+                      "description": "Resource group of the App Service plan.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "spotExpirationTime": {
+                      "description": "The time when the server farm expires. Valid only if it is a spot server farm.",
+                      "format": "date-time",
+                      "type": "string"
+                    },
+                    "status": {
+                      "description": "App Service plan status.",
+                      "enum": [
+                        "Ready",
+                        "Pending",
+                        "Creating"
+                      ],
+                      "readOnly": true,
+                      "type": "string",
+                      "x-ms-enum": {
+                        "modelAsString": false,
+                        "name": "StatusOptions"
+                      }
+                    },
+                    "subscription": {
+                      "description": "App Service plan subscription.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "targetWorkerCount": {
+                      "description": "Scaling worker count.",
+                      "format": "int32",
+                      "type": "integer"
+                    },
+                    "targetWorkerSizeId": {
+                      "description": "Scaling worker size ID.",
+                      "format": "int32",
+                      "type": "integer"
+                    },
+                    "workerTierName": {
+                      "description": "Target worker tier assigned to the App Service plan.",
+                      "type": "string"
+                    }
+                  },
                   "x-ms-client-flatten": true
                 },
                 "sku": {
@@ -2500,8 +3080,9 @@
                 "properties": {
                   "description": "AppServicePlan resource specific properties",
                   "properties": {
-                    "adminSiteName": {
-                      "description": "App Service plan administration site.",
+                    "freeOfferExpirationTime": {
+                      "description": "The time when the server farm free offer expires.",
+                      "format": "date-time",
                       "type": "string"
                     },
                     "geoRegion": {
@@ -2529,19 +3110,38 @@
                       },
                       "type": "object"
                     },
+                    "hyperV": {
+                      "default": false,
+                      "description": "If Hyper-V container app service plan <code>true</code>, <code>false</code> otherwise.",
+                      "type": "boolean",
+                      "x-ms-mutability": [
+                        "create",
+                        "read"
+                      ]
+                    },
                     "isSpot": {
                       "description": "If <code>true</code>, this App Service Plan owns spot instances.",
                       "type": "boolean"
+                    },
+                    "isXenon": {
+                      "default": false,
+                      "description": "Obsolete: If Hyper-V container app service plan <code>true</code>, <code>false</code> otherwise.",
+                      "type": "boolean",
+                      "x-ms-mutability": [
+                        "create",
+                        "read"
+                      ]
+                    },
+                    "maximumElasticWorkerCount": {
+                      "description": "Maximum number of total workers allowed for this ElasticScaleEnabled App Service Plan",
+                      "format": "int32",
+                      "type": "integer"
                     },
                     "maximumNumberOfWorkers": {
                       "description": "Maximum number of instances that can be assigned to this App Service plan.",
                       "format": "int32",
                       "readOnly": true,
                       "type": "integer"
-                    },
-                    "name": {
-                      "description": "Name for the App Service plan.",
-                      "type": "string"
                     },
                     "numberOfSites": {
                       "description": "Number of apps assigned to this App Service plan.",
@@ -2623,9 +3223,6 @@
                       "type": "string"
                     }
                   },
-                  "required": [
-                    "name"
-                  ],
                   "x-ms-client-flatten": true
                 },
                 "sku": {
@@ -2712,6 +3309,66 @@
               },
               "type": "object"
             }
+          },
+          "default": {
+            "description": "App Service error response.",
+            "schema": {
+              "description": "App Service error response.",
+              "properties": {
+                "error": {
+                  "description": "Error model.",
+                  "properties": {
+                    "code": {
+                      "description": "Standardized string to programmatically identify the error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "details": {
+                      "items": {
+                        "description": "Detailed errors.",
+                        "properties": {
+                          "code": {
+                            "description": "Standardized string to programmatically identify the error.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "message": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "target": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          }
+                        },
+                        "readOnly": true
+                      },
+                      "type": "array"
+                    },
+                    "innererror": {
+                      "description": "More information to debug error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "message": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "target": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    }
+                  },
+                  "readOnly": true,
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
           }
         },
         "summary": "Creates or updates an App Service Plan.",
@@ -2719,7 +3376,7 @@
           "AppServicePlans"
         ],
         "x-ms-examples": {
-          "Create or Update App Service plan": {
+          "Create Or Update App Service plan": {
             "parameters": {
               "api-version": "2016-09-01",
               "appServicePlan": {
@@ -2745,6 +3402,39 @@
             },
             "responses": {
               "200": {
+                "body": {
+                  "id": "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.Web/serverfarms/testsf6141",
+                  "kind": "app",
+                  "location": "East US",
+                  "name": "testsf6141",
+                  "properties": {
+                    "currentNumberOfWorkers": 1,
+                    "currentWorkerSize": "Default",
+                    "geoRegion": "East US",
+                    "maximumNumberOfWorkers": 20,
+                    "mdmId": "waws-prod-blu-033_4740",
+                    "name": "testsf6141",
+                    "numberOfSites": 4,
+                    "numberOfWorkers": 1,
+                    "provisioningState": "Succeeded",
+                    "reserved": false,
+                    "status": "Ready",
+                    "targetWorkerCount": 0,
+                    "targetWorkerSizeId": 0,
+                    "workerSize": "Default"
+                  },
+                  "sku": {
+                    "capacity": 1,
+                    "family": "P",
+                    "name": "P1",
+                    "size": "P1",
+                    "tier": "Premium"
+                  },
+                  "type": "Microsoft.Web/serverfarms"
+                },
+                "headers": {}
+              },
+              "201": {
                 "body": {
                   "id": "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.Web/serverfarms/testsf6141",
                   "kind": "app",
@@ -2865,6 +3555,66 @@
                 "type": "object"
               },
               "type": "array"
+            }
+          },
+          "default": {
+            "description": "App Service error response.",
+            "schema": {
+              "description": "App Service error response.",
+              "properties": {
+                "error": {
+                  "description": "Error model.",
+                  "properties": {
+                    "code": {
+                      "description": "Standardized string to programmatically identify the error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "details": {
+                      "items": {
+                        "description": "Detailed errors.",
+                        "properties": {
+                          "code": {
+                            "description": "Standardized string to programmatically identify the error.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "message": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "target": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          }
+                        },
+                        "readOnly": true
+                      },
+                      "type": "array"
+                    },
+                    "innererror": {
+                      "description": "More information to debug error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "message": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "target": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    }
+                  },
+                  "readOnly": true,
+                  "type": "object"
+                }
+              },
+              "type": "object"
             }
           }
         },
@@ -3041,6 +3791,66 @@
               },
               "type": "object"
             }
+          },
+          "default": {
+            "description": "App Service error response.",
+            "schema": {
+              "description": "App Service error response.",
+              "properties": {
+                "error": {
+                  "description": "Error model.",
+                  "properties": {
+                    "code": {
+                      "description": "Standardized string to programmatically identify the error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "details": {
+                      "items": {
+                        "description": "Detailed errors.",
+                        "properties": {
+                          "code": {
+                            "description": "Standardized string to programmatically identify the error.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "message": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "target": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          }
+                        },
+                        "readOnly": true
+                      },
+                      "type": "array"
+                    },
+                    "innererror": {
+                      "description": "More information to debug error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "message": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "target": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    }
+                  },
+                  "readOnly": true,
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
           }
         },
         "summary": "Retrieve a Hybrid Connection in use in an App Service plan.",
@@ -3137,6 +3947,66 @@
               },
               "type": "object"
             }
+          },
+          "default": {
+            "description": "App Service error response.",
+            "schema": {
+              "description": "App Service error response.",
+              "properties": {
+                "error": {
+                  "description": "Error model.",
+                  "properties": {
+                    "code": {
+                      "description": "Standardized string to programmatically identify the error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "details": {
+                      "items": {
+                        "description": "Detailed errors.",
+                        "properties": {
+                          "code": {
+                            "description": "Standardized string to programmatically identify the error.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "message": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "target": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          }
+                        },
+                        "readOnly": true
+                      },
+                      "type": "array"
+                    },
+                    "innererror": {
+                      "description": "More information to debug error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "message": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "target": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    }
+                  },
+                  "readOnly": true,
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
           }
         },
         "summary": "Get the send key name and value of a Hybrid Connection.",
@@ -3187,6 +4057,66 @@
             "schema": {
               "$ref": "#/definitions/ResourceCollection"
             }
+          },
+          "default": {
+            "description": "App Service error response.",
+            "schema": {
+              "description": "App Service error response.",
+              "properties": {
+                "error": {
+                  "description": "Error model.",
+                  "properties": {
+                    "code": {
+                      "description": "Standardized string to programmatically identify the error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "details": {
+                      "items": {
+                        "description": "Detailed errors.",
+                        "properties": {
+                          "code": {
+                            "description": "Standardized string to programmatically identify the error.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "message": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "target": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          }
+                        },
+                        "readOnly": true
+                      },
+                      "type": "array"
+                    },
+                    "innererror": {
+                      "description": "More information to debug error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "message": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "target": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    }
+                  },
+                  "readOnly": true,
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
           }
         },
         "summary": "Get all apps that use a Hybrid Connection in an App Service Plan.",
@@ -3226,6 +4156,66 @@
             "schema": {
               "$ref": "#/definitions/HybridConnectionLimits"
             }
+          },
+          "default": {
+            "description": "App Service error response.",
+            "schema": {
+              "description": "App Service error response.",
+              "properties": {
+                "error": {
+                  "description": "Error model.",
+                  "properties": {
+                    "code": {
+                      "description": "Standardized string to programmatically identify the error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "details": {
+                      "items": {
+                        "description": "Detailed errors.",
+                        "properties": {
+                          "code": {
+                            "description": "Standardized string to programmatically identify the error.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "message": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "target": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          }
+                        },
+                        "readOnly": true
+                      },
+                      "type": "array"
+                    },
+                    "innererror": {
+                      "description": "More information to debug error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "message": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "target": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    }
+                  },
+                  "readOnly": true,
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
           }
         },
         "summary": "Get the maximum number of Hybrid Connections allowed in an App Service plan.",
@@ -3261,6 +4251,66 @@
             "description": "OK",
             "schema": {
               "$ref": "#/definitions/HybridConnectionCollection"
+            }
+          },
+          "default": {
+            "description": "App Service error response.",
+            "schema": {
+              "description": "App Service error response.",
+              "properties": {
+                "error": {
+                  "description": "Error model.",
+                  "properties": {
+                    "code": {
+                      "description": "Standardized string to programmatically identify the error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "details": {
+                      "items": {
+                        "description": "Detailed errors.",
+                        "properties": {
+                          "code": {
+                            "description": "Standardized string to programmatically identify the error.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "message": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "target": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          }
+                        },
+                        "readOnly": true
+                      },
+                      "type": "array"
+                    },
+                    "innererror": {
+                      "description": "More information to debug error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "message": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "target": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    }
+                  },
+                  "readOnly": true,
+                  "type": "object"
+                }
+              },
+              "type": "object"
             }
           }
         },
@@ -3341,11 +4391,6 @@
                       "properties": {
                         "description": "ResourceMetricDefinition resource specific properties",
                         "properties": {
-                          "id": {
-                            "description": "Resource ID.",
-                            "readOnly": true,
-                            "type": "string"
-                          },
                           "metricAvailabilities": {
                             "description": "List of time grains supported for the metric together with retention period.",
                             "items": {
@@ -3366,22 +4411,6 @@
                             },
                             "readOnly": true,
                             "type": "array"
-                          },
-                          "name": {
-                            "description": "Name of a metric for any resource .",
-                            "properties": {
-                              "localizedValue": {
-                                "description": "Localized metric name value.",
-                                "readOnly": true,
-                                "type": "string"
-                              },
-                              "value": {
-                                "description": "metric name value.",
-                                "readOnly": true,
-                                "type": "string"
-                              }
-                            },
-                            "type": "object"
                           },
                           "primaryAggregationType": {
                             "description": "Primary aggregation type.",
@@ -3420,6 +4449,66 @@
               ],
               "type": "object"
             }
+          },
+          "default": {
+            "description": "App Service error response.",
+            "schema": {
+              "description": "App Service error response.",
+              "properties": {
+                "error": {
+                  "description": "Error model.",
+                  "properties": {
+                    "code": {
+                      "description": "Standardized string to programmatically identify the error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "details": {
+                      "items": {
+                        "description": "Detailed errors.",
+                        "properties": {
+                          "code": {
+                            "description": "Standardized string to programmatically identify the error.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "message": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "target": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          }
+                        },
+                        "readOnly": true
+                      },
+                      "type": "array"
+                    },
+                    "innererror": {
+                      "description": "More information to debug error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "message": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "target": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    }
+                  },
+                  "readOnly": true,
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
           }
         },
         "summary": "Get metrics that can be queried for an App Service plan, and their definitions.",
@@ -3433,7 +4522,7 @@
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/serverfarms/{name}/metrics": {
       "get": {
-        "description": "Get metrics for an App Serice plan.",
+        "description": "Get metrics for an App Service plan.",
         "operationId": "AppServicePlans_ListMetrics",
         "parameters": [
           {
@@ -3453,7 +4542,7 @@
             "type": "boolean"
           },
           {
-            "description": "Return only usages/metrics specified in the filter. Filter conforms to odata syntax. Example: $filter=(name.value eq 'Metric1' or name.value eq 'Metric2') and startTime eq '2014-01-01T00:00:00Z' and endTime eq '2014-12-31T23:59:59Z' and timeGrain eq duration'[Hour|Minute|Day]'.",
+            "description": "Return only usages/metrics specified in the filter. Filter conforms to odata syntax. Example: $filter=(name.value eq 'Metric1' or name.value eq 'Metric2') and startTime eq 2014-01-01T00:00:00Z and endTime eq 2014-12-31T23:59:59Z and timeGrain eq duration'[Hour|Minute|Day]'.",
             "in": "query",
             "name": "$filter",
             "type": "string",
@@ -3625,9 +4714,69 @@
               ],
               "type": "object"
             }
+          },
+          "default": {
+            "description": "App Service error response.",
+            "schema": {
+              "description": "App Service error response.",
+              "properties": {
+                "error": {
+                  "description": "Error model.",
+                  "properties": {
+                    "code": {
+                      "description": "Standardized string to programmatically identify the error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "details": {
+                      "items": {
+                        "description": "Detailed errors.",
+                        "properties": {
+                          "code": {
+                            "description": "Standardized string to programmatically identify the error.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "message": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "target": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          }
+                        },
+                        "readOnly": true
+                      },
+                      "type": "array"
+                    },
+                    "innererror": {
+                      "description": "More information to debug error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "message": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "target": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    }
+                  },
+                  "readOnly": true,
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
           }
         },
-        "summary": "Get metrics for an App Serice plan.",
+        "summary": "Get metrics for an App Service plan.",
         "tags": [
           "AppServicePlans"
         ],
@@ -3652,7 +4801,7 @@
             "type": "string"
           },
           {
-            "description": "Specify <code>true</code> to performa a soft restart, applies the configuration settings and restarts the apps if necessary. The default is <code>false</code>, which always restarts and reprovisions the apps",
+            "description": "Specify <code>true</code> to perform a soft restart, applies the configuration settings and restarts the apps if necessary. The default is <code>false</code>, which always restarts and reprovisions the apps",
             "in": "query",
             "name": "softRestart",
             "type": "boolean"
@@ -3789,12 +4938,35 @@
                           "type": {
                             "description": "Type of managed service identity.",
                             "enum": [
-                              "SystemAssigned"
+                              "SystemAssigned",
+                              "UserAssigned",
+                              "SystemAssigned, UserAssigned",
+                              "None"
                             ],
+                            "type": "string",
                             "x-ms-enum": {
                               "modelAsString": true,
                               "name": "ManagedServiceIdentityType"
                             }
+                          },
+                          "userAssignedIdentities": {
+                            "additionalProperties": {
+                              "properties": {
+                                "clientId": {
+                                  "description": "Client Id of user assigned identity",
+                                  "readOnly": true,
+                                  "type": "string"
+                                },
+                                "principalId": {
+                                  "description": "Principal Id of user assigned identity",
+                                  "readOnly": true,
+                                  "type": "string"
+                                }
+                              },
+                              "type": "object"
+                            },
+                            "description": "The list of user assigned identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}",
+                            "type": "object"
                           }
                         },
                         "type": "object"
@@ -3823,6 +4995,10 @@
                           "clientCertEnabled": {
                             "description": "<code>true</code> to enable client certificate authentication (TLS mutual authentication); otherwise, <code>false</code>. Default is <code>false</code>.",
                             "type": "boolean"
+                          },
+                          "clientCertExclusionPaths": {
+                            "description": "client certificate authentication comma-separated exclusion paths",
+                            "type": "string"
                           },
                           "cloningInfo": {
                             "description": "Information needed for cloning operation.",
@@ -3856,16 +5032,16 @@
                                 "description": "App Service Environment.",
                                 "type": "string"
                               },
-                              "ignoreQuotas": {
-                                "description": "<code>true</code> if quotas should be ignored; otherwise, <code>false</code>.",
-                                "type": "boolean"
-                              },
                               "overwrite": {
                                 "description": "<code>true</code> to overwrite destination app; otherwise, <code>false</code>.",
                                 "type": "boolean"
                               },
                               "sourceWebAppId": {
                                 "description": "ARM resource ID of the source app. App resource ID is of the form \n/subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName} for production slots and \n/subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName}/slots/{slotName} for other slots.",
+                                "type": "string"
+                              },
+                              "sourceWebAppLocation": {
+                                "description": "Location of source app ex: West US or North Europe",
                                 "type": "string"
                               },
                               "trafficManagerProfileId": {
@@ -3907,6 +5083,25 @@
                               "type": "string"
                             },
                             "readOnly": true,
+                            "type": "array"
+                          },
+                          "geoDistributions": {
+                            "description": "GeoDistributions for this site",
+                            "items": {
+                              "description": "A global distribution definition.",
+                              "properties": {
+                                "location": {
+                                  "description": "Location.",
+                                  "type": "string"
+                                },
+                                "numberOfWorkers": {
+                                  "description": "NumberOfWorkers.",
+                                  "format": "int32",
+                                  "type": "integer"
+                                }
+                              },
+                              "type": "object"
+                            },
                             "type": "array"
                           },
                           "hostNameSslStates": {
@@ -3996,10 +5191,35 @@
                             "description": "HttpsOnly: configures a web site to accept only https requests. Issues redirect for\nhttp requests",
                             "type": "boolean"
                           },
+                          "hyperV": {
+                            "default": false,
+                            "description": "Hyper-V sandbox.",
+                            "type": "boolean",
+                            "x-ms-mutability": [
+                              "create",
+                              "read"
+                            ]
+                          },
+                          "inProgressOperationId": {
+                            "description": "Specifies an operation id if this site has a pending operation.",
+                            "example": "00000000-0000-0000-0000-000000000000",
+                            "format": "uuid",
+                            "readOnly": true,
+                            "type": "string"
+                          },
                           "isDefaultContainer": {
                             "description": "<code>true</code> if the app is a default container; otherwise, <code>false</code>.",
                             "readOnly": true,
                             "type": "boolean"
+                          },
+                          "isXenon": {
+                            "default": false,
+                            "description": "Obsolete: Hyper-V sandbox.",
+                            "type": "boolean",
+                            "x-ms-mutability": [
+                              "create",
+                              "read"
+                            ]
                           },
                           "lastModifiedTimeUtc": {
                             "description": "Last time the app was modified, in UTC. Read-only.",
@@ -4022,6 +5242,21 @@
                             "description": "List of IP addresses that the app uses for outbound connections (e.g. database access). Includes VIPs from all tenants. Read-only.",
                             "readOnly": true,
                             "type": "string"
+                          },
+                          "redundancyMode": {
+                            "description": "Site redundancy mode",
+                            "enum": [
+                              "None",
+                              "Manual",
+                              "Failover",
+                              "ActiveActive",
+                              "GeoRedundant"
+                            ],
+                            "type": "string",
+                            "x-ms-enum": {
+                              "modelAsString": false,
+                              "name": "RedundancyMode"
+                            }
                           },
                           "repositorySiteName": {
                             "description": "Name of the repository site.",
@@ -4220,6 +5455,58 @@
                                 "description": "Auto-swap slot name.",
                                 "type": "string"
                               },
+                              "azureStorageAccounts": {
+                                "additionalProperties": {
+                                  "description": "Azure Files or Blob Storage access information value for dictionary storage.",
+                                  "properties": {
+                                    "accessKey": {
+                                      "description": "Access key for the storage account.",
+                                      "type": "string"
+                                    },
+                                    "accountName": {
+                                      "description": "Name of the storage account.",
+                                      "type": "string"
+                                    },
+                                    "mountPath": {
+                                      "description": "Path to mount the storage within the site's runtime environment.",
+                                      "type": "string"
+                                    },
+                                    "shareName": {
+                                      "description": "Name of the file share (container name, for Blob storage).",
+                                      "type": "string"
+                                    },
+                                    "state": {
+                                      "description": "State of the storage account.",
+                                      "enum": [
+                                        "Ok",
+                                        "InvalidCredentials",
+                                        "InvalidShare"
+                                      ],
+                                      "readOnly": true,
+                                      "type": "string",
+                                      "x-ms-enum": {
+                                        "modelAsString": false,
+                                        "name": "AzureStorageState"
+                                      }
+                                    },
+                                    "type": {
+                                      "description": "Type of storage.",
+                                      "enum": [
+                                        "AzureFiles",
+                                        "AzureBlob"
+                                      ],
+                                      "type": "string",
+                                      "x-ms-enum": {
+                                        "modelAsString": false,
+                                        "name": "AzureStorageType"
+                                      }
+                                    }
+                                  },
+                                  "type": "object"
+                                },
+                                "description": "User-provided Azure storage accounts.",
+                                "type": "object"
+                              },
                               "connectionStrings": {
                                 "description": "Connection strings.",
                                 "items": {
@@ -4268,6 +5555,10 @@
                                       "type": "string"
                                     },
                                     "type": "array"
+                                  },
+                                  "supportCredentials": {
+                                    "description": "Gets or sets whether CORS requests with credentials are allowed. See \nhttps://developer.mozilla.org/en-US/docs/Web/HTTP/CORS#Requests_with_credentials\nfor more details.",
+                                    "type": "boolean"
                                   }
                                 },
                                 "type": "object"
@@ -4304,12 +5595,12 @@
                                           "type": "string"
                                         },
                                         "changeIntervalInMinutes": {
-                                          "description": "Specifies interval in mimuntes to reevaluate ReroutePercentage.",
+                                          "description": "Specifies interval in minutes to reevaluate ReroutePercentage.",
                                           "format": "int32",
                                           "type": "integer"
                                         },
                                         "changeStep": {
-                                          "description": "In auto ramp up scenario this is the step to to add/remove from <code>ReroutePercentage</code> until it reaches \n<code>MinReroutePercentage</code> or <code>MaxReroutePercentage</code>. Site metrics are checked every N minutes specificed in <code>ChangeIntervalInMinutes</code>.\nCustom decision algorithm can be provided in TiPCallback site extension which URL can be specified in <code>ChangeDecisionCallbackUrl</code>.",
+                                          "description": "In auto ramp up scenario this is the step to add/remove from <code>ReroutePercentage</code> until it reaches \n<code>MinReroutePercentage</code> or <code>MaxReroutePercentage</code>. Site metrics are checked every N minutes specified in <code>ChangeIntervalInMinutes</code>.\nCustom decision algorithm can be provided in TiPCallback site extension which URL can be specified in <code>ChangeDecisionCallbackUrl</code>.",
                                           "format": "double",
                                           "type": "number"
                                         },
@@ -4339,6 +5630,19 @@
                                   }
                                 },
                                 "type": "object"
+                              },
+                              "ftpsState": {
+                                "description": "State of FTP / FTPS service",
+                                "enum": [
+                                  "AllAllowed",
+                                  "FtpsOnly",
+                                  "Disabled"
+                                ],
+                                "type": "string",
+                                "x-ms-enum": {
+                                  "modelAsString": true,
+                                  "name": "FtpsState"
+                                }
                               },
                               "handlerMappings": {
                                 "description": "Handler mappings.",
@@ -4372,22 +5676,62 @@
                                 "type": "boolean"
                               },
                               "ipSecurityRestrictions": {
-                                "description": "IP security restrictions.",
+                                "description": "IP security restrictions for main.",
                                 "items": {
                                   "description": "IP security restriction on an app.",
                                   "properties": {
-                                    "ipAddress": {
-                                      "description": "IP address the security restriction is valid for.",
+                                    "action": {
+                                      "description": "Allow or Deny access for this IP range.",
                                       "type": "string"
+                                    },
+                                    "description": {
+                                      "description": "IP restriction rule description.",
+                                      "type": "string"
+                                    },
+                                    "ipAddress": {
+                                      "description": "IP address the security restriction is valid for.\nIt can be in form of pure ipv4 address (required SubnetMask property) or\nCIDR notation such as ipv4/mask (leading bit match). For CIDR,\nSubnetMask property must not be specified.",
+                                      "type": "string"
+                                    },
+                                    "name": {
+                                      "description": "IP restriction rule name.",
+                                      "type": "string"
+                                    },
+                                    "priority": {
+                                      "description": "Priority of IP restriction rule.",
+                                      "format": "int32",
+                                      "type": "integer"
                                     },
                                     "subnetMask": {
                                       "description": "Subnet mask for the range of IP addresses the restriction is valid for.",
                                       "type": "string"
+                                    },
+                                    "subnetTrafficTag": {
+                                      "description": "(internal) Subnet traffic tag",
+                                      "format": "int32",
+                                      "type": "integer"
+                                    },
+                                    "tag": {
+                                      "description": "Defines what this IP filter will be used for. This is to support IP filtering on proxies.",
+                                      "enum": [
+                                        "Default",
+                                        "XffProxy"
+                                      ],
+                                      "type": "string",
+                                      "x-ms-enum": {
+                                        "modelAsString": false,
+                                        "name": "IpFilterTag"
+                                      }
+                                    },
+                                    "vnetSubnetResourceId": {
+                                      "description": "Virtual network resource id",
+                                      "type": "string"
+                                    },
+                                    "vnetTrafficTag": {
+                                      "description": "(internal) Vnet traffic tag",
+                                      "format": "int32",
+                                      "type": "integer"
                                     }
                                   },
-                                  "required": [
-                                    "ipAddress"
-                                  ],
                                   "type": "object"
                                 },
                                 "type": "array"
@@ -4487,6 +5831,11 @@
                                   "modelAsString": false,
                                   "name": "ManagedPipelineMode"
                                 }
+                              },
+                              "managedServiceIdentityId": {
+                                "description": "Managed Service Identity Id",
+                                "format": "int32",
+                                "type": "integer"
                               },
                               "minTlsVersion": {
                                 "description": "MinTlsVersion: configures the minimum version of TLS required for SSL requests",
@@ -4602,6 +5951,78 @@
                                 "format": "date-time",
                                 "type": "string"
                               },
+                              "reservedInstanceCount": {
+                                "description": "Number of reserved instances.\nThis setting only applies to the Consumption Plan",
+                                "format": "int32",
+                                "maximum": 10,
+                                "minimum": 0,
+                                "type": "integer"
+                              },
+                              "scmIpSecurityRestrictions": {
+                                "description": "IP security restrictions for scm.",
+                                "items": {
+                                  "description": "IP security restriction on an app.",
+                                  "properties": {
+                                    "action": {
+                                      "description": "Allow or Deny access for this IP range.",
+                                      "type": "string"
+                                    },
+                                    "description": {
+                                      "description": "IP restriction rule description.",
+                                      "type": "string"
+                                    },
+                                    "ipAddress": {
+                                      "description": "IP address the security restriction is valid for.\nIt can be in form of pure ipv4 address (required SubnetMask property) or\nCIDR notation such as ipv4/mask (leading bit match). For CIDR,\nSubnetMask property must not be specified.",
+                                      "type": "string"
+                                    },
+                                    "name": {
+                                      "description": "IP restriction rule name.",
+                                      "type": "string"
+                                    },
+                                    "priority": {
+                                      "description": "Priority of IP restriction rule.",
+                                      "format": "int32",
+                                      "type": "integer"
+                                    },
+                                    "subnetMask": {
+                                      "description": "Subnet mask for the range of IP addresses the restriction is valid for.",
+                                      "type": "string"
+                                    },
+                                    "subnetTrafficTag": {
+                                      "description": "(internal) Subnet traffic tag",
+                                      "format": "int32",
+                                      "type": "integer"
+                                    },
+                                    "tag": {
+                                      "description": "Defines what this IP filter will be used for. This is to support IP filtering on proxies.",
+                                      "enum": [
+                                        "Default",
+                                        "XffProxy"
+                                      ],
+                                      "type": "string",
+                                      "x-ms-enum": {
+                                        "modelAsString": false,
+                                        "name": "IpFilterTag"
+                                      }
+                                    },
+                                    "vnetSubnetResourceId": {
+                                      "description": "Virtual network resource id",
+                                      "type": "string"
+                                    },
+                                    "vnetTrafficTag": {
+                                      "description": "(internal) Vnet traffic tag",
+                                      "format": "int32",
+                                      "type": "integer"
+                                    }
+                                  },
+                                  "type": "object"
+                                },
+                                "type": "array"
+                              },
+                              "scmIpSecurityRestrictionsUseMain": {
+                                "description": "IP security restrictions for scm to use main.",
+                                "type": "boolean"
+                              },
                               "scmType": {
                                 "description": "SCM type.",
                                 "enum": [
@@ -4684,12 +6105,21 @@
                               "webSocketsEnabled": {
                                 "description": "<code>true</code> if WebSocket is enabled; otherwise, <code>false</code>.",
                                 "type": "boolean"
+                              },
+                              "windowsFxVersion": {
+                                "description": "Xenon App Framework and version",
+                                "type": "string"
+                              },
+                              "xManagedServiceIdentityId": {
+                                "description": "Explicit Managed Service Identity Id",
+                                "format": "int32",
+                                "type": "integer"
                               }
                             },
                             "type": "object"
                           },
                           "slotSwapStatus": {
-                            "description": "The status of the last successfull slot swap operation.",
+                            "description": "The status of the last successful slot swap operation.",
                             "properties": {
                               "destinationSlotName": {
                                 "description": "The destination slot of the last swap operation.",
@@ -4706,78 +6136,6 @@
                                 "format": "date-time",
                                 "readOnly": true,
                                 "type": "string"
-                              }
-                            },
-                            "type": "object"
-                          },
-                          "snapshotInfo": {
-                            "allOf": [
-                              {
-                                "description": "Azure proxy only resource. This resource is not tracked by Azure Resource Manager.",
-                                "properties": {
-                                  "id": {
-                                    "description": "Resource Id.",
-                                    "readOnly": true,
-                                    "type": "string"
-                                  },
-                                  "kind": {
-                                    "description": "Kind of resource.",
-                                    "type": "string"
-                                  },
-                                  "name": {
-                                    "description": "Resource Name.",
-                                    "readOnly": true,
-                                    "type": "string"
-                                  },
-                                  "type": {
-                                    "description": "Resource type.",
-                                    "readOnly": true,
-                                    "type": "string"
-                                  }
-                                },
-                                "x-ms-azure-resource": true
-                              }
-                            ],
-                            "description": "Details about app recovery operation.",
-                            "properties": {
-                              "properties": {
-                                "description": "SnapshotRecoveryRequest resource specific properties",
-                                "properties": {
-                                  "ignoreConflictingHostNames": {
-                                    "description": "If true, custom hostname conflicts will be ignored when recovering to a target web app.\nThis setting is only necessary when RecoverConfiguration is enabled.",
-                                    "type": "boolean"
-                                  },
-                                  "overwrite": {
-                                    "description": "If <code>true</code> the recovery operation can overwrite source app; otherwise, <code>false</code>.",
-                                    "type": "boolean"
-                                  },
-                                  "recoverConfiguration": {
-                                    "description": "If true, site configuration, in addition to content, will be reverted.",
-                                    "type": "boolean"
-                                  },
-                                  "recoveryTarget": {
-                                    "description": "Specifies the web app that snapshot contents will be written to.",
-                                    "properties": {
-                                      "id": {
-                                        "description": "ARM resource ID of the target app. \n/subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName} for production slots and \n/subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName}/slots/{slotName} for other slots.",
-                                        "type": "string"
-                                      },
-                                      "location": {
-                                        "description": "Geographical location of the target web app, e.g. SouthEastAsia, SouthCentralUS",
-                                        "type": "string"
-                                      }
-                                    },
-                                    "type": "object"
-                                  },
-                                  "snapshotTime": {
-                                    "description": "Point in time in which the app recovery should be attempted, formatted as a DateTime string.",
-                                    "type": "string"
-                                  }
-                                },
-                                "required": [
-                                  "overwrite"
-                                ],
-                                "x-ms-client-flatten": true
                               }
                             },
                             "type": "object"
@@ -4833,6 +6191,66 @@
               ],
               "type": "object"
             }
+          },
+          "default": {
+            "description": "App Service error response.",
+            "schema": {
+              "description": "App Service error response.",
+              "properties": {
+                "error": {
+                  "description": "Error model.",
+                  "properties": {
+                    "code": {
+                      "description": "Standardized string to programmatically identify the error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "details": {
+                      "items": {
+                        "description": "Detailed errors.",
+                        "properties": {
+                          "code": {
+                            "description": "Standardized string to programmatically identify the error.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "message": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "target": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          }
+                        },
+                        "readOnly": true
+                      },
+                      "type": "array"
+                    },
+                    "innererror": {
+                      "description": "More information to debug error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "message": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "target": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    }
+                  },
+                  "readOnly": true,
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
           }
         },
         "summary": "Get all apps associated with an App Service plan.",
@@ -4846,7 +6264,7 @@
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/serverfarms/{name}/skus": {
       "get": {
-        "description": "Gets all selectable sku's for a given App Service Plan",
+        "description": "Gets all selectable SKUs for a given App Service Plan",
         "operationId": "AppServicePlans_GetServerFarmSkus",
         "parameters": [
           {
@@ -4872,9 +6290,69 @@
             "schema": {
               "type": "object"
             }
+          },
+          "default": {
+            "description": "App Service error response.",
+            "schema": {
+              "description": "App Service error response.",
+              "properties": {
+                "error": {
+                  "description": "Error model.",
+                  "properties": {
+                    "code": {
+                      "description": "Standardized string to programmatically identify the error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "details": {
+                      "items": {
+                        "description": "Detailed errors.",
+                        "properties": {
+                          "code": {
+                            "description": "Standardized string to programmatically identify the error.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "message": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "target": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          }
+                        },
+                        "readOnly": true
+                      },
+                      "type": "array"
+                    },
+                    "innererror": {
+                      "description": "More information to debug error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "message": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "target": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    }
+                  },
+                  "readOnly": true,
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
           }
         },
-        "summary": "Gets all selectable sku's for a given App Service Plan",
+        "summary": "Gets all selectable SKUs for a given App Service Plan",
         "tags": [
           "AppServicePlans"
         ]
@@ -4955,7 +6433,7 @@
                         "type": "string"
                       },
                       "unit": {
-                        "description": "Units of measurement for the quota resourse.",
+                        "description": "Units of measurement for the quota resource.",
                         "type": "string"
                       }
                     },
@@ -4967,6 +6445,66 @@
               "required": [
                 "value"
               ],
+              "type": "object"
+            }
+          },
+          "default": {
+            "description": "App Service error response.",
+            "schema": {
+              "description": "App Service error response.",
+              "properties": {
+                "error": {
+                  "description": "Error model.",
+                  "properties": {
+                    "code": {
+                      "description": "Standardized string to programmatically identify the error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "details": {
+                      "items": {
+                        "description": "Detailed errors.",
+                        "properties": {
+                          "code": {
+                            "description": "Standardized string to programmatically identify the error.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "message": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "target": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          }
+                        },
+                        "readOnly": true
+                      },
+                      "type": "array"
+                    },
+                    "innererror": {
+                      "description": "More information to debug error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "message": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "target": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    }
+                  },
+                  "readOnly": true,
+                  "type": "object"
+                }
+              },
               "type": "object"
             }
           }
@@ -5041,7 +6579,6 @@
                     "properties": {
                       "certBlob": {
                         "description": "A certificate file (.cer) blob containing the public key of the private key used to authenticate a \nPoint-To-Site VPN connection.",
-                        "format": "byte",
                         "type": "string"
                       },
                       "certThumbprint": {
@@ -5052,6 +6589,10 @@
                       "dnsServers": {
                         "description": "DNS servers to be used by this Virtual Network. This should be a comma-separated list of IP addresses.",
                         "type": "string"
+                      },
+                      "isSwift": {
+                        "description": "Flag that is used to denote if this is VNET injection",
+                        "type": "boolean"
                       },
                       "resyncRequired": {
                         "description": "<code>true</code> if a resync is required; otherwise, <code>false</code>.",
@@ -5097,15 +6638,6 @@
                                   "description": "The ending address for this route. If the start address is specified in CIDR notation, this must be omitted.",
                                   "type": "string"
                                 },
-                                "name": {
-                                  "description": "The name of this route. This is only returned by the server and does not need to be set by the client.",
-                                  "type": "string",
-                                  "x-ms-client-name": "vnetRouteName",
-                                  "x-ms-mutability": [
-                                    "create",
-                                    "read"
-                                  ]
-                                },
                                 "routeType": {
                                   "description": "The type of route this is:\nDEFAULT - By default, every app has routes to the local address ranges specified by RFC1918\nINHERITED - Routes inherited from the real Virtual Network routes\nSTATIC - Static route set on the app only\n\nThese values will be used for syncing an app's routes with those from a Virtual Network.",
                                   "enum": [
@@ -5143,6 +6675,66 @@
                 "type": "object"
               },
               "type": "array"
+            }
+          },
+          "default": {
+            "description": "App Service error response.",
+            "schema": {
+              "description": "App Service error response.",
+              "properties": {
+                "error": {
+                  "description": "Error model.",
+                  "properties": {
+                    "code": {
+                      "description": "Standardized string to programmatically identify the error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "details": {
+                      "items": {
+                        "description": "Detailed errors.",
+                        "properties": {
+                          "code": {
+                            "description": "Standardized string to programmatically identify the error.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "message": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "target": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          }
+                        },
+                        "readOnly": true
+                      },
+                      "type": "array"
+                    },
+                    "innererror": {
+                      "description": "More information to debug error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "message": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "target": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    }
+                  },
+                  "readOnly": true,
+                  "type": "object"
+                }
+              },
+              "type": "object"
             }
           }
         },
@@ -5219,7 +6811,6 @@
                   "properties": {
                     "certBlob": {
                       "description": "A certificate file (.cer) blob containing the public key of the private key used to authenticate a \nPoint-To-Site VPN connection.",
-                      "format": "byte",
                       "type": "string"
                     },
                     "certThumbprint": {
@@ -5230,6 +6821,10 @@
                     "dnsServers": {
                       "description": "DNS servers to be used by this Virtual Network. This should be a comma-separated list of IP addresses.",
                       "type": "string"
+                    },
+                    "isSwift": {
+                      "description": "Flag that is used to denote if this is VNET injection",
+                      "type": "boolean"
                     },
                     "resyncRequired": {
                       "description": "<code>true</code> if a resync is required; otherwise, <code>false</code>.",
@@ -5274,15 +6869,6 @@
                               "endAddress": {
                                 "description": "The ending address for this route. If the start address is specified in CIDR notation, this must be omitted.",
                                 "type": "string"
-                              },
-                              "name": {
-                                "description": "The name of this route. This is only returned by the server and does not need to be set by the client.",
-                                "type": "string",
-                                "x-ms-client-name": "vnetRouteName",
-                                "x-ms-mutability": [
-                                  "create",
-                                  "read"
-                                ]
                               },
                               "routeType": {
                                 "description": "The type of route this is:\nDEFAULT - By default, every app has routes to the local address ranges specified by RFC1918\nINHERITED - Routes inherited from the real Virtual Network routes\nSTATIC - Static route set on the app only\n\nThese values will be used for syncing an app's routes with those from a Virtual Network.",
@@ -5424,6 +7010,66 @@
                     "vpnPackageUri"
                   ],
                   "x-ms-client-flatten": true
+                }
+              },
+              "type": "object"
+            }
+          },
+          "default": {
+            "description": "App Service error response.",
+            "schema": {
+              "description": "App Service error response.",
+              "properties": {
+                "error": {
+                  "description": "Error model.",
+                  "properties": {
+                    "code": {
+                      "description": "Standardized string to programmatically identify the error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "details": {
+                      "items": {
+                        "description": "Detailed errors.",
+                        "properties": {
+                          "code": {
+                            "description": "Standardized string to programmatically identify the error.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "message": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "target": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          }
+                        },
+                        "readOnly": true
+                      },
+                      "type": "array"
+                    },
+                    "innererror": {
+                      "description": "More information to debug error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "message": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "target": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    }
+                  },
+                  "readOnly": true,
+                  "type": "object"
                 }
               },
               "type": "object"
@@ -5595,6 +7241,66 @@
               },
               "type": "object"
             }
+          },
+          "default": {
+            "description": "App Service error response.",
+            "schema": {
+              "description": "App Service error response.",
+              "properties": {
+                "error": {
+                  "description": "Error model.",
+                  "properties": {
+                    "code": {
+                      "description": "Standardized string to programmatically identify the error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "details": {
+                      "items": {
+                        "description": "Detailed errors.",
+                        "properties": {
+                          "code": {
+                            "description": "Standardized string to programmatically identify the error.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "message": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "target": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          }
+                        },
+                        "readOnly": true
+                      },
+                      "type": "array"
+                    },
+                    "innererror": {
+                      "description": "More information to debug error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "message": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "target": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    }
+                  },
+                  "readOnly": true,
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
           }
         },
         "summary": "Update a Virtual Network gateway.",
@@ -5673,15 +7379,6 @@
                         "description": "The ending address for this route. If the start address is specified in CIDR notation, this must be omitted.",
                         "type": "string"
                       },
-                      "name": {
-                        "description": "The name of this route. This is only returned by the server and does not need to be set by the client.",
-                        "type": "string",
-                        "x-ms-client-name": "vnetRouteName",
-                        "x-ms-mutability": [
-                          "create",
-                          "read"
-                        ]
-                      },
                       "routeType": {
                         "description": "The type of route this is:\nDEFAULT - By default, every app has routes to the local address ranges specified by RFC1918\nINHERITED - Routes inherited from the real Virtual Network routes\nSTATIC - Static route set on the app only\n\nThese values will be used for syncing an app's routes with those from a Virtual Network.",
                         "enum": [
@@ -5706,6 +7403,66 @@
                 "type": "object"
               },
               "type": "array"
+            }
+          },
+          "default": {
+            "description": "App Service error response.",
+            "schema": {
+              "description": "App Service error response.",
+              "properties": {
+                "error": {
+                  "description": "Error model.",
+                  "properties": {
+                    "code": {
+                      "description": "Standardized string to programmatically identify the error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "details": {
+                      "items": {
+                        "description": "Detailed errors.",
+                        "properties": {
+                          "code": {
+                            "description": "Standardized string to programmatically identify the error.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "message": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "target": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          }
+                        },
+                        "readOnly": true
+                      },
+                      "type": "array"
+                    },
+                    "innererror": {
+                      "description": "More information to debug error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "message": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "target": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    }
+                  },
+                  "readOnly": true,
+                  "type": "object"
+                }
+              },
+              "type": "object"
             }
           }
         },
@@ -5840,15 +7597,6 @@
                         "description": "The ending address for this route. If the start address is specified in CIDR notation, this must be omitted.",
                         "type": "string"
                       },
-                      "name": {
-                        "description": "The name of this route. This is only returned by the server and does not need to be set by the client.",
-                        "type": "string",
-                        "x-ms-client-name": "vnetRouteName",
-                        "x-ms-mutability": [
-                          "create",
-                          "read"
-                        ]
-                      },
                       "routeType": {
                         "description": "The type of route this is:\nDEFAULT - By default, every app has routes to the local address ranges specified by RFC1918\nINHERITED - Routes inherited from the real Virtual Network routes\nSTATIC - Static route set on the app only\n\nThese values will be used for syncing an app's routes with those from a Virtual Network.",
                         "enum": [
@@ -5954,15 +7702,6 @@
                       "description": "The ending address for this route. If the start address is specified in CIDR notation, this must be omitted.",
                       "type": "string"
                     },
-                    "name": {
-                      "description": "The name of this route. This is only returned by the server and does not need to be set by the client.",
-                      "type": "string",
-                      "x-ms-client-name": "vnetRouteName",
-                      "x-ms-mutability": [
-                        "create",
-                        "read"
-                      ]
-                    },
                     "routeType": {
                       "description": "The type of route this is:\nDEFAULT - By default, every app has routes to the local address ranges specified by RFC1918\nINHERITED - Routes inherited from the real Virtual Network routes\nSTATIC - Static route set on the app only\n\nThese values will be used for syncing an app's routes with those from a Virtual Network.",
                       "enum": [
@@ -6033,15 +7772,6 @@
                     "endAddress": {
                       "description": "The ending address for this route. If the start address is specified in CIDR notation, this must be omitted.",
                       "type": "string"
-                    },
-                    "name": {
-                      "description": "The name of this route. This is only returned by the server and does not need to be set by the client.",
-                      "type": "string",
-                      "x-ms-client-name": "vnetRouteName",
-                      "x-ms-mutability": [
-                        "create",
-                        "read"
-                      ]
                     },
                     "routeType": {
                       "description": "The type of route this is:\nDEFAULT - By default, every app has routes to the local address ranges specified by RFC1918\nINHERITED - Routes inherited from the real Virtual Network routes\nSTATIC - Static route set on the app only\n\nThese values will be used for syncing an app's routes with those from a Virtual Network.",
@@ -6149,15 +7879,6 @@
                       "description": "The ending address for this route. If the start address is specified in CIDR notation, this must be omitted.",
                       "type": "string"
                     },
-                    "name": {
-                      "description": "The name of this route. This is only returned by the server and does not need to be set by the client.",
-                      "type": "string",
-                      "x-ms-client-name": "vnetRouteName",
-                      "x-ms-mutability": [
-                        "create",
-                        "read"
-                      ]
-                    },
                     "routeType": {
                       "description": "The type of route this is:\nDEFAULT - By default, every app has routes to the local address ranges specified by RFC1918\nINHERITED - Routes inherited from the real Virtual Network routes\nSTATIC - Static route set on the app only\n\nThese values will be used for syncing an app's routes with those from a Virtual Network.",
                       "enum": [
@@ -6228,15 +7949,6 @@
                     "endAddress": {
                       "description": "The ending address for this route. If the start address is specified in CIDR notation, this must be omitted.",
                       "type": "string"
-                    },
-                    "name": {
-                      "description": "The name of this route. This is only returned by the server and does not need to be set by the client.",
-                      "type": "string",
-                      "x-ms-client-name": "vnetRouteName",
-                      "x-ms-mutability": [
-                        "create",
-                        "read"
-                      ]
                     },
                     "routeType": {
                       "description": "The type of route this is:\nDEFAULT - By default, every app has routes to the local address ranges specified by RFC1918\nINHERITED - Routes inherited from the real Virtual Network routes\nSTATIC - Static route set on the app only\n\nThese values will be used for syncing an app's routes with those from a Virtual Network.",
@@ -6350,8 +8062,9 @@
         "properties": {
           "description": "AppServicePlanPatchResource resource specific properties",
           "properties": {
-            "adminSiteName": {
-              "description": "App Service plan administration site.",
+            "freeOfferExpirationTime": {
+              "description": "The time when the server farm free offer expires.",
+              "format": "date-time",
               "type": "string"
             },
             "geoRegion": {
@@ -6379,19 +8092,38 @@
               },
               "type": "object"
             },
+            "hyperV": {
+              "default": false,
+              "description": "If Hyper-V container app service plan <code>true</code>, <code>false</code> otherwise.",
+              "type": "boolean",
+              "x-ms-mutability": [
+                "create",
+                "read"
+              ]
+            },
             "isSpot": {
               "description": "If <code>true</code>, this App Service Plan owns spot instances.",
               "type": "boolean"
+            },
+            "isXenon": {
+              "default": false,
+              "description": "Obsolete: If Hyper-V container app service plan <code>true</code>, <code>false</code> otherwise.",
+              "type": "boolean",
+              "x-ms-mutability": [
+                "create",
+                "read"
+              ]
+            },
+            "maximumElasticWorkerCount": {
+              "description": "Maximum number of total workers allowed for this ElasticScaleEnabled App Service Plan",
+              "format": "int32",
+              "type": "integer"
             },
             "maximumNumberOfWorkers": {
               "description": "Maximum number of instances that can be assigned to this App Service plan.",
               "format": "int32",
               "readOnly": true,
               "type": "integer"
-            },
-            "name": {
-              "description": "Name for the App Service plan.",
-              "type": "string"
             },
             "numberOfSites": {
               "description": "Number of apps assigned to this App Service plan.",
@@ -6473,9 +8205,6 @@
               "type": "string"
             }
           },
-          "required": [
-            "name"
-          ],
           "x-ms-client-flatten": true
         }
       },

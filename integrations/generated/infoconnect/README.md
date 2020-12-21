@@ -9,10 +9,7 @@ npm install --save @datafire/infoconnect
 ```js
 let infoconnect = require('@datafire/infoconnect').create();
 
-infoconnect.v1.companies.id.get({
-  "id": "",
-  "Content-Type": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

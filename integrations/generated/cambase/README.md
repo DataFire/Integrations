@@ -9,7 +9,7 @@ npm install --save @datafire/cambase
 ```js
 let cambase = require('@datafire/cambase').create();
 
-cambase.api.v1.vendors.json.get({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

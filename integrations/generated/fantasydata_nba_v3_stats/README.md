@@ -12,10 +12,7 @@ let fantasydata_nba_v3_stats = require('@datafire/fantasydata_nba_v3_stats').cre
   apiKeyQuery: ""
 });
 
-fantasydata_nba_v3_stats.AllStars({
-  "format": "",
-  "season": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

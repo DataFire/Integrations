@@ -1,8 +1,8 @@
 {
   "name": "@datafire/refugerestrooms",
-  "version": "5.0.0",
+  "version": "6.0.0",
   "main": "index.js",
-  "description": "DataFire integration for Refuge Restrooms",
+  "description": "DataFire integration for API title",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DataFire/integrations.git"
@@ -14,7 +14,7 @@
   },
   "homepage": "https://github.com/DataFire/integrations#readme",
   "datafire": {
-    "origin": "https://api.apis.guru/v2/specs/refugerestrooms.org/v1/swagger.json",
+    "origin": "https://api.apis.guru/v2/specs/refugerestrooms.org/0.0.1/swagger.json",
     "type": "openapi"
   },
   "dependencies": {

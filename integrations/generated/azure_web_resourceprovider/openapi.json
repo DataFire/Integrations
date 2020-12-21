@@ -6,7 +6,7 @@
   "host": "management.azure.com",
   "info": {
     "title": " API Client",
-    "version": "2016-03-01",
+    "version": "2018-02-01",
     "x-apisguru-categories": [
       "cloud"
     ],
@@ -16,7 +16,7 @@
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/web/resource-manager/Microsoft.Web/stable/2016-03-01/ResourceProvider.json",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/web/resource-manager/Microsoft.Web/stable/2018-02-01/ResourceProvider.json",
         "version": "2.0"
       }
     ],
@@ -124,16 +124,11 @@
                   "x-ms-azure-resource": true
                 }
               ],
-              "description": "User crendentials used for publishing activity.",
+              "description": "User credentials used for publishing activity.",
               "properties": {
                 "properties": {
                   "description": "User resource specific properties",
                   "properties": {
-                    "name": {
-                      "description": "Username",
-                      "type": "string",
-                      "x-ms-client-name": "UserName"
-                    },
                     "publishingPassword": {
                       "description": "Password used for publishing.",
                       "format": "password",
@@ -152,12 +147,76 @@
                     "publishingUserName": {
                       "description": "Username used for publishing.",
                       "type": "string"
+                    },
+                    "scmUri": {
+                      "description": "Url of SCM site.",
+                      "type": "string"
                     }
                   },
                   "required": [
                     "publishingUserName"
                   ],
                   "x-ms-client-flatten": true
+                }
+              },
+              "type": "object"
+            }
+          },
+          "default": {
+            "description": "App Service error response.",
+            "schema": {
+              "description": "App Service error response.",
+              "properties": {
+                "error": {
+                  "description": "Error model.",
+                  "properties": {
+                    "code": {
+                      "description": "Standardized string to programmatically identify the error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "details": {
+                      "items": {
+                        "description": "Detailed errors.",
+                        "properties": {
+                          "code": {
+                            "description": "Standardized string to programmatically identify the error.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "message": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "target": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          }
+                        },
+                        "readOnly": true
+                      },
+                      "type": "array"
+                    },
+                    "innererror": {
+                      "description": "More information to debug error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "message": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "target": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    }
+                  },
+                  "readOnly": true,
+                  "type": "object"
                 }
               },
               "type": "object"
@@ -203,16 +262,11 @@
                   "x-ms-azure-resource": true
                 }
               ],
-              "description": "User crendentials used for publishing activity.",
+              "description": "User credentials used for publishing activity.",
               "properties": {
                 "properties": {
                   "description": "User resource specific properties",
                   "properties": {
-                    "name": {
-                      "description": "Username",
-                      "type": "string",
-                      "x-ms-client-name": "UserName"
-                    },
                     "publishingPassword": {
                       "description": "Password used for publishing.",
                       "format": "password",
@@ -230,6 +284,10 @@
                     },
                     "publishingUserName": {
                       "description": "Username used for publishing.",
+                      "type": "string"
+                    },
+                    "scmUri": {
+                      "description": "Url of SCM site.",
                       "type": "string"
                     }
                   },
@@ -277,16 +335,11 @@
                   "x-ms-azure-resource": true
                 }
               ],
-              "description": "User crendentials used for publishing activity.",
+              "description": "User credentials used for publishing activity.",
               "properties": {
                 "properties": {
                   "description": "User resource specific properties",
                   "properties": {
-                    "name": {
-                      "description": "Username",
-                      "type": "string",
-                      "x-ms-client-name": "UserName"
-                    },
                     "publishingPassword": {
                       "description": "Password used for publishing.",
                       "format": "password",
@@ -305,12 +358,76 @@
                     "publishingUserName": {
                       "description": "Username used for publishing.",
                       "type": "string"
+                    },
+                    "scmUri": {
+                      "description": "Url of SCM site.",
+                      "type": "string"
                     }
                   },
                   "required": [
                     "publishingUserName"
                   ],
                   "x-ms-client-flatten": true
+                }
+              },
+              "type": "object"
+            }
+          },
+          "default": {
+            "description": "App Service error response.",
+            "schema": {
+              "description": "App Service error response.",
+              "properties": {
+                "error": {
+                  "description": "Error model.",
+                  "properties": {
+                    "code": {
+                      "description": "Standardized string to programmatically identify the error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "details": {
+                      "items": {
+                        "description": "Detailed errors.",
+                        "properties": {
+                          "code": {
+                            "description": "Standardized string to programmatically identify the error.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "message": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "target": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          }
+                        },
+                        "readOnly": true
+                      },
+                      "type": "array"
+                    },
+                    "innererror": {
+                      "description": "More information to debug error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "message": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "target": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    }
+                  },
+                  "readOnly": true,
+                  "type": "object"
                 }
               },
               "type": "object"
@@ -334,6 +451,66 @@
             "description": "OK",
             "schema": {
               "$ref": "#/definitions/SourceControlCollection"
+            }
+          },
+          "default": {
+            "description": "App Service error response.",
+            "schema": {
+              "description": "App Service error response.",
+              "properties": {
+                "error": {
+                  "description": "Error model.",
+                  "properties": {
+                    "code": {
+                      "description": "Standardized string to programmatically identify the error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "details": {
+                      "items": {
+                        "description": "Detailed errors.",
+                        "properties": {
+                          "code": {
+                            "description": "Standardized string to programmatically identify the error.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "message": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "target": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          }
+                        },
+                        "readOnly": true
+                      },
+                      "type": "array"
+                    },
+                    "innererror": {
+                      "description": "More information to debug error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "message": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "target": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    }
+                  },
+                  "readOnly": true,
+                  "type": "object"
+                }
+              },
+              "type": "object"
             }
           }
         },
@@ -364,6 +541,66 @@
             "description": "OK",
             "schema": {
               "$ref": "#/definitions/SourceControl"
+            }
+          },
+          "default": {
+            "description": "App Service error response.",
+            "schema": {
+              "description": "App Service error response.",
+              "properties": {
+                "error": {
+                  "description": "Error model.",
+                  "properties": {
+                    "code": {
+                      "description": "Standardized string to programmatically identify the error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "details": {
+                      "items": {
+                        "description": "Detailed errors.",
+                        "properties": {
+                          "code": {
+                            "description": "Standardized string to programmatically identify the error.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "message": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "target": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          }
+                        },
+                        "readOnly": true
+                      },
+                      "type": "array"
+                    },
+                    "innererror": {
+                      "description": "More information to debug error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "message": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "target": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    }
+                  },
+                  "readOnly": true,
+                  "type": "object"
+                }
+              },
+              "type": "object"
             }
           }
         },
@@ -399,6 +636,66 @@
             "schema": {
               "$ref": "#/definitions/SourceControl"
             }
+          },
+          "default": {
+            "description": "App Service error response.",
+            "schema": {
+              "description": "App Service error response.",
+              "properties": {
+                "error": {
+                  "description": "Error model.",
+                  "properties": {
+                    "code": {
+                      "description": "Standardized string to programmatically identify the error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "details": {
+                      "items": {
+                        "description": "Detailed errors.",
+                        "properties": {
+                          "code": {
+                            "description": "Standardized string to programmatically identify the error.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "message": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "target": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          }
+                        },
+                        "readOnly": true
+                      },
+                      "type": "array"
+                    },
+                    "innererror": {
+                      "description": "More information to debug error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "message": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "target": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    }
+                  },
+                  "readOnly": true,
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
           }
         },
         "summary": "Updates source control token"
@@ -407,12 +704,18 @@
     "/subscriptions/{subscriptionId}/providers/Microsoft.Web/billingMeters": {
       "get": {
         "description": "Gets a list of meters for a given location.",
-        "operationId": "BillingMeters_List",
+        "operationId": "ListBillingMeters",
         "parameters": [
           {
             "description": "Azure Location of billable resource",
             "in": "query",
             "name": "billingLocation",
+            "type": "string"
+          },
+          {
+            "description": "App Service OS type meters used for",
+            "in": "query",
+            "name": "osType",
             "type": "string"
           },
           {
@@ -427,6 +730,66 @@
             "description": "OK",
             "schema": {
               "$ref": "#/definitions/BillingMeterCollection"
+            }
+          },
+          "default": {
+            "description": "App Service error response.",
+            "schema": {
+              "description": "App Service error response.",
+              "properties": {
+                "error": {
+                  "description": "Error model.",
+                  "properties": {
+                    "code": {
+                      "description": "Standardized string to programmatically identify the error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "details": {
+                      "items": {
+                        "description": "Detailed errors.",
+                        "properties": {
+                          "code": {
+                            "description": "Standardized string to programmatically identify the error.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "message": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "target": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          }
+                        },
+                        "readOnly": true
+                      },
+                      "type": "array"
+                    },
+                    "innererror": {
+                      "description": "More information to debug error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "message": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "target": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    }
+                  },
+                  "readOnly": true,
+                  "type": "object"
+                }
+              },
+              "type": "object"
             }
           }
         },
@@ -464,6 +827,66 @@
             "schema": {
               "$ref": "#/definitions/ResourceNameAvailability"
             }
+          },
+          "default": {
+            "description": "App Service error response.",
+            "schema": {
+              "description": "App Service error response.",
+              "properties": {
+                "error": {
+                  "description": "Error model.",
+                  "properties": {
+                    "code": {
+                      "description": "Standardized string to programmatically identify the error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "details": {
+                      "items": {
+                        "description": "Detailed errors.",
+                        "properties": {
+                          "code": {
+                            "description": "Standardized string to programmatically identify the error.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "message": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "target": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          }
+                        },
+                        "readOnly": true
+                      },
+                      "type": "array"
+                    },
+                    "innererror": {
+                      "description": "More information to debug error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "message": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "target": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    }
+                  },
+                  "readOnly": true,
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
           }
         },
         "summary": "Check if a resource name is available."
@@ -487,6 +910,66 @@
             "schema": {
               "$ref": "#/definitions/DeploymentLocations"
             }
+          },
+          "default": {
+            "description": "App Service error response.",
+            "schema": {
+              "description": "App Service error response.",
+              "properties": {
+                "error": {
+                  "description": "Error model.",
+                  "properties": {
+                    "code": {
+                      "description": "Standardized string to programmatically identify the error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "details": {
+                      "items": {
+                        "description": "Detailed errors.",
+                        "properties": {
+                          "code": {
+                            "description": "Standardized string to programmatically identify the error.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "message": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "target": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          }
+                        },
+                        "readOnly": true
+                      },
+                      "type": "array"
+                    },
+                    "innererror": {
+                      "description": "More information to debug error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "message": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "target": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    }
+                  },
+                  "readOnly": true,
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
           }
         },
         "summary": "Gets list of available geo regions plus ministamps"
@@ -505,9 +988,11 @@
               "Basic",
               "Standard",
               "Premium",
-              "PremiumV2",
               "Dynamic",
-              "Isolated"
+              "Isolated",
+              "PremiumV2",
+              "ElasticPremium",
+              "ElasticIsolated"
             ],
             "in": "query",
             "name": "sku",
@@ -524,6 +1009,18 @@
             "type": "boolean"
           },
           {
+            "description": "Specify <code>true</code> if you want to filter to only regions that support Xenon workers.",
+            "in": "query",
+            "name": "xenonWorkersEnabled",
+            "type": "boolean"
+          },
+          {
+            "description": "Specify <code>true</code> if you want to filter to only regions that support Linux Consumption Workers.",
+            "in": "query",
+            "name": "linuxDynamicWorkersEnabled",
+            "type": "boolean"
+          },
+          {
             "$ref": "#/parameters/subscriptionIdParameter"
           },
           {
@@ -535,6 +1032,66 @@
             "description": "OK",
             "schema": {
               "$ref": "#/definitions/GeoRegionCollection"
+            }
+          },
+          "default": {
+            "description": "App Service error response.",
+            "schema": {
+              "description": "App Service error response.",
+              "properties": {
+                "error": {
+                  "description": "Error model.",
+                  "properties": {
+                    "code": {
+                      "description": "Standardized string to programmatically identify the error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "details": {
+                      "items": {
+                        "description": "Detailed errors.",
+                        "properties": {
+                          "code": {
+                            "description": "Standardized string to programmatically identify the error.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "message": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "target": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          }
+                        },
+                        "readOnly": true
+                      },
+                      "type": "array"
+                    },
+                    "innererror": {
+                      "description": "More information to debug error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "message": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "target": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    }
+                  },
+                  "readOnly": true,
+                  "type": "object"
+                }
+              },
+              "type": "object"
             }
           }
         },
@@ -636,6 +1193,66 @@
               ],
               "type": "object"
             }
+          },
+          "default": {
+            "description": "App Service error response.",
+            "schema": {
+              "description": "App Service error response.",
+              "properties": {
+                "error": {
+                  "description": "Error model.",
+                  "properties": {
+                    "code": {
+                      "description": "Standardized string to programmatically identify the error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "details": {
+                      "items": {
+                        "description": "Detailed errors.",
+                        "properties": {
+                          "code": {
+                            "description": "Standardized string to programmatically identify the error.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "message": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "target": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          }
+                        },
+                        "readOnly": true
+                      },
+                      "type": "array"
+                    },
+                    "innererror": {
+                      "description": "More information to debug error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "message": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "target": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    }
+                  },
+                  "readOnly": true,
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
           }
         },
         "summary": "List all apps that are assigned to a hostname.",
@@ -662,6 +1279,66 @@
             "schema": {
               "$ref": "#/definitions/PremierAddOnOfferCollection"
             }
+          },
+          "default": {
+            "description": "App Service error response.",
+            "schema": {
+              "description": "App Service error response.",
+              "properties": {
+                "error": {
+                  "description": "Error model.",
+                  "properties": {
+                    "code": {
+                      "description": "Standardized string to programmatically identify the error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "details": {
+                      "items": {
+                        "description": "Detailed errors.",
+                        "properties": {
+                          "code": {
+                            "description": "Standardized string to programmatically identify the error.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "message": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "target": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          }
+                        },
+                        "readOnly": true
+                      },
+                      "type": "array"
+                    },
+                    "innererror": {
+                      "description": "More information to debug error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "message": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "target": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    }
+                  },
+                  "readOnly": true,
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
           }
         },
         "summary": "List all premier add-on offers.",
@@ -687,6 +1364,66 @@
             "description": "OK",
             "schema": {
               "$ref": "#/definitions/SkuInfos"
+            }
+          },
+          "default": {
+            "description": "App Service error response.",
+            "schema": {
+              "description": "App Service error response.",
+              "properties": {
+                "error": {
+                  "description": "Error model.",
+                  "properties": {
+                    "code": {
+                      "description": "Standardized string to programmatically identify the error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "details": {
+                      "items": {
+                        "description": "Detailed errors.",
+                        "properties": {
+                          "code": {
+                            "description": "Standardized string to programmatically identify the error.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "message": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "target": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          }
+                        },
+                        "readOnly": true
+                      },
+                      "type": "array"
+                    },
+                    "innererror": {
+                      "description": "More information to debug error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "message": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "target": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    }
+                  },
+                  "readOnly": true,
+                  "type": "object"
+                }
+              },
+              "type": "object"
             }
           }
         },
@@ -720,13 +1457,73 @@
             "schema": {
               "$ref": "#/definitions/VnetValidationFailureDetails"
             }
+          },
+          "default": {
+            "description": "App Service error response.",
+            "schema": {
+              "description": "App Service error response.",
+              "properties": {
+                "error": {
+                  "description": "Error model.",
+                  "properties": {
+                    "code": {
+                      "description": "Standardized string to programmatically identify the error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "details": {
+                      "items": {
+                        "description": "Detailed errors.",
+                        "properties": {
+                          "code": {
+                            "description": "Standardized string to programmatically identify the error.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "message": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "target": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          }
+                        },
+                        "readOnly": true
+                      },
+                      "type": "array"
+                    },
+                    "innererror": {
+                      "description": "More information to debug error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "message": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "target": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    }
+                  },
+                  "readOnly": true,
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
           }
         },
         "summary": "Verifies if this VNET is compatible with an App Service Environment by analyzing the Network Security Group rules.",
         "x-ms-examples": {
           "VerifyHostingEnvironmentVnet": {
             "parameters": {
-              "api-version": "2016-03-01",
+              "api-version": "2018-02-01",
               "parameters": {
                 "properties": {
                   "vnetName": "vNet123",
@@ -813,9 +1610,164 @@
             "schema": {
               "$ref": "#/definitions/ValidateResponse"
             }
+          },
+          "default": {
+            "description": "App Service error response.",
+            "schema": {
+              "description": "App Service error response.",
+              "properties": {
+                "error": {
+                  "description": "Error model.",
+                  "properties": {
+                    "code": {
+                      "description": "Standardized string to programmatically identify the error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "details": {
+                      "items": {
+                        "description": "Detailed errors.",
+                        "properties": {
+                          "code": {
+                            "description": "Standardized string to programmatically identify the error.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "message": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "target": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          }
+                        },
+                        "readOnly": true
+                      },
+                      "type": "array"
+                    },
+                    "innererror": {
+                      "description": "More information to debug error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "message": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "target": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    }
+                  },
+                  "readOnly": true,
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
           }
         },
         "summary": "Validate if a resource can be created."
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/validateContainerSettings": {
+      "post": {
+        "description": "Validate if the container settings are correct.",
+        "operationId": "ValidateContainerSettings",
+        "parameters": [
+          {
+            "description": "",
+            "in": "body",
+            "name": "validateContainerSettingsRequest",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ValidateContainerSettingsRequest"
+            }
+          },
+          {
+            "$ref": "#/parameters/resourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/subscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/apiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "default": {
+            "description": "App Service error response.",
+            "schema": {
+              "description": "App Service error response.",
+              "properties": {
+                "error": {
+                  "description": "Error model.",
+                  "properties": {
+                    "code": {
+                      "description": "Standardized string to programmatically identify the error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "details": {
+                      "items": {
+                        "description": "Detailed errors.",
+                        "properties": {
+                          "code": {
+                            "description": "Standardized string to programmatically identify the error.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "message": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "target": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          }
+                        },
+                        "readOnly": true
+                      },
+                      "type": "array"
+                    },
+                    "innererror": {
+                      "description": "More information to debug error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "message": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "target": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    }
+                  },
+                  "readOnly": true,
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
+          }
+        },
+        "summary": "Validate if the container settings are correct."
       }
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/validateMoveResources": {
@@ -897,8 +1849,12 @@
               "description": "Meter GUID onboarded in Commerce",
               "type": "string"
             },
+            "osType": {
+              "description": "App Service OS type meter used for",
+              "type": "string"
+            },
             "resourceType": {
-              "description": "App Service resource type meter used for",
+              "description": "App Service ResourceType meter used for",
               "type": "string"
             },
             "shortName": {
@@ -920,7 +1876,7 @@
           "type": "string"
         },
         "value": {
-          "description": "Collection of Billing Meters.",
+          "description": "Collection of resources.",
           "items": {
             "$ref": "#/definitions/BillingMeter"
           },
@@ -1052,6 +2008,10 @@
                       "description": "<code>true</code> if capacity is applicable for all apps; otherwise, <code>false</code>.",
                       "type": "boolean"
                     },
+                    "isLinux": {
+                      "description": "Is this a linux stamp capacity",
+                      "type": "boolean"
+                    },
                     "name": {
                       "description": "Name of the stamp.",
                       "type": "string"
@@ -1072,13 +2032,13 @@
                     "workerSize": {
                       "description": "Size of the machines.",
                       "enum": [
-                        "Default",
                         "Small",
                         "Medium",
                         "Large",
                         "D1",
                         "D2",
-                        "D3"
+                        "D3",
+                        "Default"
                       ],
                       "type": "string",
                       "x-ms-enum": {
@@ -1111,6 +2071,10 @@
                 "description": "Scale factor for front-ends.",
                 "format": "int32",
                 "type": "integer"
+              },
+              "hasLinuxWorkers": {
+                "description": "Flag that displays whether an ASE has linux workers or not",
+                "type": "boolean"
               },
               "internalLoadBalancingMode": {
                 "description": "Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment.",
@@ -1217,6 +2181,14 @@
               "resourceGroup": {
                 "description": "Resource group of the App Service Environment.",
                 "readOnly": true,
+                "type": "string"
+              },
+              "sslCertKeyVaultId": {
+                "description": "Key Vault ID for ILB App Service Environment default SSL certificate",
+                "type": "string"
+              },
+              "sslCertKeyVaultSecretName": {
+                "description": "Key Vault Secret Name for ILB App Service Environment default SSL certificate",
                 "type": "string"
               },
               "status": {
@@ -1429,11 +2401,6 @@
               "description": "Display name for region.",
               "readOnly": true,
               "type": "string"
-            },
-            "name": {
-              "description": "Region name.",
-              "readOnly": true,
-              "type": "string"
             }
           },
           "x-ms-client-flatten": true
@@ -1597,10 +2564,6 @@
               "description": "Marketplace publisher.",
               "type": "string"
             },
-            "name": {
-              "description": "Premier add on offer Name.",
-              "type": "string"
-            },
             "privacyPolicyUrl": {
               "description": "Privacy policy URL.",
               "type": "string"
@@ -1670,7 +2633,7 @@
       "type": "object"
     },
     "ResourceNameAvailability": {
-      "description": "Information regarding availbility of a resource name.",
+      "description": "Information regarding availability of a resource name.",
       "properties": {
         "message": {
           "description": "If reason == invalid, provide the user with the reason why the given name is invalid, and provide the resource naming requirements so that the user can select a valid name. If reason == AlreadyExists, explain that resource name is already in use, and direct them to select a different name.",
@@ -1786,10 +2749,6 @@
               "format": "date-time",
               "type": "string"
             },
-            "name": {
-              "description": "Name or source control type.",
-              "type": "string"
-            },
             "refreshToken": {
               "description": "OAuth refresh token.",
               "type": "string"
@@ -1829,11 +2788,41 @@
       ],
       "type": "object"
     },
+    "ValidateContainerSettingsRequest": {
+      "description": "Container settings validation request context",
+      "properties": {
+        "baseUrl": {
+          "description": "Base URL of the container registry",
+          "type": "string"
+        },
+        "password": {
+          "description": "Password for to access the container registry",
+          "type": "string"
+        },
+        "platform": {
+          "description": "Platform (windows or linux)",
+          "type": "string"
+        },
+        "repository": {
+          "description": "Repository name (image name)",
+          "type": "string"
+        },
+        "tag": {
+          "description": "Image tag",
+          "type": "string"
+        },
+        "username": {
+          "description": "Username for to access the container registry",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "ValidateProperties": {
       "description": "App properties used for validation.",
       "properties": {
         "capacity": {
-          "description": "Target capacity of the App Service plan (number of VM's).",
+          "description": "Target capacity of the App Service plan (number of VMs).",
           "format": "int32",
           "minimum": 1,
           "type": "integer"
@@ -1844,6 +2833,10 @@
         },
         "isSpot": {
           "description": "<code>true</code> if App Service plan is for Spot instances; otherwise, <code>false</code>.",
+          "type": "boolean"
+        },
+        "isXenon": {
+          "description": "<code>true</code> if App Service plan is running as a windows container",
           "type": "boolean"
         },
         "needLinuxWorkers": {

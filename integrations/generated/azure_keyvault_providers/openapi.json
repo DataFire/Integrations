@@ -7,7 +7,7 @@
   "info": {
     "description": "The Azure management API provides a RESTful set of web services that interact with Azure Key Vault.",
     "title": "KeyVaultManagementClient",
-    "version": "2016-10-01",
+    "version": "2018-02-14-preview",
     "x-apisguru-categories": [
       "cloud"
     ],
@@ -17,7 +17,7 @@
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/keyvault/resource-manager/Microsoft.KeyVault/stable/2016-10-01/providers.json",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/keyvault/resource-manager/Microsoft.KeyVault/preview/2018-02-14-preview/providers.json",
         "version": "2.0"
       }
     ],
@@ -90,7 +90,7 @@
         "x-ms-examples": {
           "Lists available Rest API operations.": {
             "parameters": {
-              "api-version": "2016-10-01"
+              "api-version": "2018-02-14-preview"
             },
             "responses": {
               "200": {
@@ -368,7 +368,7 @@
           "description": "Display metadata associated with the operation.",
           "properties": {
             "description": {
-              "description": "Decription of operation.",
+              "description": "Description of operation.",
               "type": "string"
             },
             "operation": {

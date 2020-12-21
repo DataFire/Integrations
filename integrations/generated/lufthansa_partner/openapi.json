@@ -1,16 +1,12 @@
 {
   "swagger": "2.0",
-  "schemes": [
-    "https"
-  ],
-  "host": "api.lufthansa.com",
-  "basePath": "/v1",
   "info": {
+    "description": "",
     "license": {
       "name": "LH",
       "url": "https://developer.lufthansa.com"
     },
-    "title": "LH Partner",
+    "title": "LH Partner API",
     "version": "1.0",
     "x-apisguru-categories": [
       "transport"
@@ -21,9 +17,9 @@
     },
     "x-origin": [
       {
-        "format": "swagger",
+        "format": "openapi",
         "url": "https://raw.githubusercontent.com/LufthansaOpenAPI/Swagger4Partners/master/LH-OpenAPI-Partners-Swagger2.json",
-        "version": "2.0"
+        "version": "3.0"
       }
     ],
     "x-preferred": true,
@@ -34,27 +30,17 @@
       "type": "openapi"
     }
   },
-  "consumes": [
-    "application/json"
+  "host": "api.lufthansa.com",
+  "basePath": "/v1",
+  "schemes": [
+    "https"
   ],
-  "produces": [
-    "application/json"
-  ],
-  "securityDefinitions": {
-    "auth": {
-      "flow": "application",
-      "scopes": {
-        "read:LH Open API": "read access"
-      },
-      "tokenUrl": "https://api.lufthansa.com/v1/partners/oauth/token",
-      "type": "oauth2"
-    }
-  },
   "paths": {
     "/baggage/baggagetripandcontact/{searchID}": {
       "get": {
-        "description": "Retrieve passenger trip, contact and baggage details. This service is only accessible for LH privileged partners",
-        "operationId": "baggage.baggagetripandcontact.searchID.get",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Bag tag number, PNR, boarding card or FQTV ID",
@@ -84,10 +70,12 @@
             "auth": []
           }
         ],
-        "summary": "Baggage Trip and Contact",
         "tags": [
           "Baggage"
         ],
+        "description": "Retrieve passenger trip, contact and baggage details. This service is only accessible for LH privileged partners",
+        "operationId": "Baggage Trip and Contact",
+        "summary": "Baggage Trip and Contact",
         "x-operation-settings": {
           "AllowDynamicFormParameters": false,
           "AllowDynamicQueryParameters": false,
@@ -99,8 +87,9 @@
     },
     "/offers/fares/allfares": {
       "get": {
-        "description": "Retrieves all available fares for a specific Origin & Destination pair on a given date. Available fares are: One-way and Return for 4U. Return only for OS",
-        "operationId": "offers.fares.allfares.get",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Specifies in which catalogue the fares need to be searched (e.g.'4U;OS').",
@@ -189,10 +178,12 @@
             "auth": []
           }
         ],
-        "summary": "All Fares",
         "tags": [
           "Offers"
         ],
+        "description": "Retrieves all available fares for a specific Origin & Destination pair on a given date. Available fares are: One-way and Return for 4U. Return only for OS",
+        "operationId": "All Fares",
+        "summary": "All Fares",
         "x-operation-settings": {
           "AllowDynamicFormParameters": false,
           "AllowDynamicQueryParameters": false,
@@ -204,8 +195,9 @@
     },
     "/offers/fares/bestfares": {
       "get": {
-        "description": "Retrieve best fares for the requested journey across multiple days or multiple months.",
-        "operationId": "offers.fares.bestfares.get",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Search fares from these carriers' catalogues (e.g. '4U;OS;LH')",
@@ -298,10 +290,12 @@
             "auth": []
           }
         ],
-        "summary": "Best Fares",
         "tags": [
           "Offers"
         ],
+        "description": "Retrieve best fares for the requested journey across multiple days or multiple months.",
+        "operationId": "Best Fares",
+        "summary": "Best Fares",
         "x-operation-settings": {
           "AllowDynamicFormParameters": false,
           "AllowDynamicQueryParameters": false,
@@ -313,8 +307,9 @@
     },
     "/offers/fares/deeplink": {
       "get": {
-        "description": "Returns valid deep links for the provided input parameters",
-        "operationId": "offers.fares.deeplink.get",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Carrier for which the deep link will be created (e.g. 'LH')",
@@ -470,10 +465,12 @@
             "auth": []
           }
         ],
-        "summary": "Deep Links",
         "tags": [
           "Offers"
         ],
+        "description": "Returns valid deep links for the provided input parameters",
+        "operationId": "Deep Links",
+        "summary": "Deep Links",
         "x-operation-settings": {
           "AllowDynamicFormParameters": false,
           "AllowDynamicQueryParameters": false,
@@ -485,8 +482,9 @@
     },
     "/offers/fares/deeplink/ffp": {
       "get": {
-        "description": "Returns valid LH deep links (FFP - links to flight selection screen on LH.COM)",
-        "operationId": "offers.fares.deeplink.ffp.get",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Carrier for which the deep link will be created (e.g. 'LH')",
@@ -593,10 +591,12 @@
             "auth": []
           }
         ],
-        "summary": "LH Deep Links - FFP",
         "tags": [
           "Offers"
         ],
+        "description": "Returns valid LH deep links (FFP - links to flight selection screen on LH.COM)",
+        "operationId": "LH Deep Links - FFP",
+        "summary": "LH Deep Links - FFP",
         "x-operation-settings": {
           "AllowDynamicFormParameters": false,
           "AllowDynamicQueryParameters": false,
@@ -608,8 +608,9 @@
     },
     "/offers/fares/deeplink/itco": {
       "get": {
-        "description": "Returns valid LH deep links (ITCO - links to shopping cart on LH.COM)",
-        "operationId": "offers.fares.deeplink.itco.get",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Carrier for which the deep link will be created (e.g. 'LH')",
@@ -751,10 +752,12 @@
             "auth": []
           }
         ],
-        "summary": "LH Deep Links - ITCO",
         "tags": [
           "Offers"
         ],
+        "description": "Returns valid LH deep links (ITCO - links to shopping cart on LH.COM)",
+        "operationId": "LH Deep Links - ITCO",
+        "summary": "LH Deep Links - ITCO",
         "x-operation-settings": {
           "AllowDynamicFormParameters": false,
           "AllowDynamicQueryParameters": false,
@@ -766,8 +769,9 @@
     },
     "/offers/fares/fares": {
       "get": {
-        "description": "Retrieve all available fares per fare family for a specific Origin & Destination on a given date",
-        "operationId": "Fares",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Search fares from these carriers' catalogues - currently active for Germanwings only  (4U)",
@@ -826,10 +830,12 @@
             "auth": []
           }
         ],
-        "summary": "Fares",
         "tags": [
           "Offers"
         ],
+        "description": "Retrieve all available fares per fare family for a specific Origin & Destination on a given date",
+        "operationId": "Fares",
+        "summary": "Fares",
         "x-operation-settings": {
           "AllowDynamicFormParameters": false,
           "AllowDynamicQueryParameters": false,
@@ -841,8 +847,9 @@
     },
     "/offers/fares/lowestfares": {
       "get": {
-        "description": "Retrieve lowest fare for a specific Origin & Destination pair on a given date. Available fares are: One-way and Return for 4U. Return only for OS & LH",
-        "operationId": "offers.fares.lowestfares.get",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Search fares from these carriers' catalogues e.g. '4U;OS;LH'",
@@ -929,10 +936,12 @@
             "auth": []
           }
         ],
-        "summary": "Lowest Fares",
         "tags": [
           "Offers"
         ],
+        "description": "Retrieve lowest fare for a specific Origin & Destination pair on a given date. Available fares are: One-way and Return for 4U. Return only for OS & LH",
+        "operationId": "Lowest Fares",
+        "summary": "Lowest Fares",
         "x-operation-settings": {
           "AllowDynamicFormParameters": false,
           "AllowDynamicQueryParameters": false,
@@ -944,8 +953,9 @@
     },
     "/offers/fares/subscriptions": {
       "get": {
-        "description": "Create a subscription for best price O&D. Receive regular updates on lowest fares",
-        "operationId": "offers.fares.subscriptions.get",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Journey origin. 3-leter IATA airport code (e.g. 'FRA')",
@@ -1024,10 +1034,12 @@
             "auth": []
           }
         ],
-        "summary": "Fares Subscriptions",
         "tags": [
           "Offers"
         ],
+        "description": "Create a subscription for best price O&D. Receive regular updates on lowest fares",
+        "operationId": "Fares Subscriptions",
+        "summary": "Fares Subscriptions",
         "x-operation-settings": {
           "AllowDynamicFormParameters": false,
           "AllowDynamicQueryParameters": false,
@@ -1039,8 +1051,9 @@
     },
     "/offers/ond/route/{origin}/{destination}": {
       "get": {
-        "description": "Returns LH route origin & destination information",
-        "operationId": "offers.ond.route.origin.destination.get",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Enter either the orgin city or orgin country code (e.g 'FRA' or 'DE'). Enter '*' for all",
@@ -1099,10 +1112,12 @@
             "auth": []
           }
         ],
-        "summary": "OND Route",
         "tags": [
           "Offers"
         ],
+        "description": "Returns LH route origin & destination information",
+        "operationId": "OND Route",
+        "summary": "OND Route",
         "x-operation-settings": {
           "AllowDynamicFormParameters": false,
           "AllowDynamicQueryParameters": false,
@@ -1114,8 +1129,9 @@
     },
     "/offers/ond/status": {
       "get": {
-        "description": "Returns LH network route status information. Search for recently added or retired routes",
-        "operationId": "offers.ond.status.get",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Mandatory http header:  application/xml or application/json",
@@ -1160,10 +1176,12 @@
             "auth": []
           }
         ],
-        "summary": "OND Status",
         "tags": [
           "Offers"
         ],
+        "description": "Returns LH network route status information. Search for recently added or retired routes",
+        "operationId": "OND Status",
+        "summary": "OND Status",
         "x-operation-settings": {
           "AllowDynamicFormParameters": false,
           "AllowDynamicQueryParameters": false,
@@ -1175,8 +1193,9 @@
     },
     "/offers/ond/top": {
       "get": {
-        "description": "Returns LH Top routes per country or across all countries",
-        "operationId": "offers.ond.top.get",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Mandatory http header:  application/xml or application/json",
@@ -1214,10 +1233,12 @@
             "auth": []
           }
         ],
-        "summary": "Top OND",
         "tags": [
           "Offers"
         ],
+        "description": "Returns LH Top routes per country or across all countries",
+        "operationId": "Top OND",
+        "summary": "Top OND",
         "x-operation-settings": {
           "AllowDynamicFormParameters": false,
           "AllowDynamicQueryParameters": false,
@@ -1229,8 +1250,9 @@
     },
     "/orders/orders/{orderID}/{name}": {
       "get": {
-        "description": "Retrieve order by ID and optionally name. This service is only accessible for LH privileged partners",
-        "operationId": "Orders",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Unique order identifier",
@@ -1267,10 +1289,12 @@
             "auth": []
           }
         ],
-        "summary": "Orders",
         "tags": [
           "Orders"
         ],
+        "description": "Retrieve order by ID and optionally name. This service is only accessible for LH privileged partners",
+        "operationId": "Orders",
+        "summary": "Orders",
         "x-operation-settings": {
           "AllowDynamicFormParameters": false,
           "AllowDynamicQueryParameters": false,
@@ -1282,8 +1306,9 @@
     },
     "/preflight/autocheckin/{ticketnumber}": {
       "put": {
-        "description": "Trigger an automatic check-in given a ticket number. This service is only accessible for LH privileged partners",
-        "operationId": "preflight.autocheckin.ticketnumber.put",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Ticket number",
@@ -1320,10 +1345,12 @@
             "auth": []
           }
         ],
-        "summary": "Auto Check-In",
         "tags": [
           "Preflight"
         ],
+        "description": "Trigger an automatic check-in given a ticket number. This service is only accessible for LH privileged partners",
+        "operationId": "Auto Check-In",
+        "summary": "Auto Check-In",
         "x-operation-settings": {
           "AllowDynamicFormParameters": false,
           "AllowDynamicQueryParameters": false,
@@ -1335,8 +1362,9 @@
     },
     "/promotions/priceoffers/flights/ond/{origin}/{destination}": {
       "get": {
-        "description": "Retrieve a best price offer given an origin and destination.",
-        "operationId": "promotions.priceoffers.flights.ond.origin.destination.get",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Departure city. 3-letter IATA city code",
@@ -1388,10 +1416,12 @@
             "auth": []
           }
         ],
-        "summary": "Price Offers",
         "tags": [
           "Promotions"
         ],
+        "description": "Retrieve a best price offer given an origin and destination.",
+        "operationId": "Price Offers",
+        "summary": "Price Offers",
         "x-operation-settings": {
           "AllowDynamicFormParameters": false,
           "AllowDynamicQueryParameters": false,
@@ -1403,8 +1433,9 @@
     },
     "/references/seatdetails/{aircraftCode}/{cabinCode}": {
       "get": {
-        "description": "A description of all available seat details by aircraft type. You can retrieve the full set or details for a particular aircraft type.",
-        "operationId": "references.seatdetails.aircraftCode.cabinCode.get",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Aircraft type. 3-character IATA equipment code",
@@ -1449,10 +1480,12 @@
             "auth": []
           }
         ],
-        "summary": "Seat Details",
         "tags": [
           "Reference Data"
         ],
+        "description": "A description of all available seat details by aircraft type. You can retrieve the full set or details for a particular aircraft type.",
+        "operationId": "Seat Details",
+        "summary": "Seat Details",
         "x-operation-settings": {
           "AllowDynamicFormParameters": false,
           "AllowDynamicQueryParameters": false,
@@ -1462,5 +1495,16 @@
         "x-unitTests": []
       }
     }
-  }
+  },
+  "securityDefinitions": {
+    "auth": {
+      "flow": "application",
+      "scopes": {
+        "read:LH Open API": "read access"
+      },
+      "tokenUrl": "https://api.lufthansa.com/v1/partners/oauth/token",
+      "type": "oauth2"
+    }
+  },
+  "x-components": {}
 }

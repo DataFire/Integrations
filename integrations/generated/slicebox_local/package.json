@@ -1,8 +1,8 @@
 {
   "name": "@datafire/slicebox_local",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "main": "index.js",
-  "description": "DataFire integration for Slicebox",
+  "description": "DataFire integration for Slicebox API",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DataFire/integrations.git"
@@ -14,7 +14,7 @@
   },
   "homepage": "https://github.com/DataFire/integrations#readme",
   "datafire": {
-    "origin": "https://api.apis.guru/v2/specs/slicebox.local/1.2/swagger.json",
+    "origin": "https://api.apis.guru/v2/specs/slicebox.local/2.0/swagger.json",
     "type": "openapi"
   },
   "peerDependencies": {

@@ -7,7 +7,7 @@
   "info": {
     "description": "The HDInsight Management Client.",
     "title": "HDInsightManagementClient",
-    "version": "2015-03-01-preview",
+    "version": "2018-06-01-preview",
     "x-apisguru-categories": [
       "cloud"
     ],
@@ -17,7 +17,7 @@
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/hdinsight/resource-manager/Microsoft.HDInsight/preview/2015-03-01-preview/extensions.json",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/hdinsight/resource-manager/Microsoft.HDInsight/stable/2018-06-01-preview/extensions.json",
         "version": "2.0"
       }
     ],
@@ -65,6 +65,30 @@
       "required": true,
       "type": "string"
     },
+    "ClusterNameParameter": {
+      "description": "The name of the cluster.",
+      "in": "path",
+      "name": "clusterName",
+      "required": true,
+      "type": "string",
+      "x-ms-parameter-location": "method"
+    },
+    "ExtensionNameParameter": {
+      "description": "The name of the cluster extension.",
+      "in": "path",
+      "name": "extensionName",
+      "required": true,
+      "type": "string",
+      "x-ms-parameter-location": "method"
+    },
+    "ResourceGroupNameParameter": {
+      "description": "The name of the resource group.",
+      "in": "path",
+      "name": "resourceGroupName",
+      "required": true,
+      "type": "string",
+      "x-ms-parameter-location": "method"
+    },
     "SubscriptionIdParameter": {
       "description": "The subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
       "in": "path",
@@ -77,32 +101,44 @@
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HDInsight/clusters/{clusterName}/extensions/clustermonitoring": {
       "delete": {
         "description": "Disables the Operations Management Suite (OMS) on the HDInsight cluster.",
-        "operationId": "Extension_DisableMonitoring",
+        "operationId": "Extensions_DisableMonitoring",
         "parameters": [
           {
-            "description": "The name of the resource group.",
-            "in": "path",
-            "name": "resourceGroupName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/SubscriptionIdParameter"
           },
           {
-            "description": "The name of the cluster.",
-            "in": "path",
-            "name": "clusterName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ClusterNameParameter"
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
-          },
-          {
-            "$ref": "#/parameters/SubscriptionIdParameter"
           }
         ],
         "responses": {
+          "200": {
+            "description": "Ok response definition."
+          },
           "202": {
             "description": "OK response definition."
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "description": "Describes the format of Error response.",
+              "properties": {
+                "code": {
+                  "description": "Error code",
+                  "type": "string"
+                },
+                "message": {
+                  "description": "Error message indicating why the operation failed.",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
           }
         },
         "tags": [
@@ -111,12 +147,13 @@
         "x-ms-examples": {
           "Enable cluster monitoring": {
             "parameters": {
-              "api-version": "2015-03-01-preview",
+              "api-version": "2018-06-01-preview",
               "clusterName": "cluster1",
               "resourceGroupName": "rg1",
               "subscriptionId": "subid"
             },
             "responses": {
+              "200": {},
               "202": {}
             }
           }
@@ -125,27 +162,19 @@
       },
       "get": {
         "description": "Gets the status of Operations Management Suite (OMS) on the HDInsight cluster.",
-        "operationId": "Extension_GetMonitoringStatus",
+        "operationId": "Extensions_GetMonitoringStatus",
         "parameters": [
           {
-            "description": "The name of the resource group.",
-            "in": "path",
-            "name": "resourceGroupName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/SubscriptionIdParameter"
           },
           {
-            "description": "The name of the cluster.",
-            "in": "path",
-            "name": "clusterName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ClusterNameParameter"
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
-          },
-          {
-            "$ref": "#/parameters/SubscriptionIdParameter"
           }
         ],
         "responses": {
@@ -153,6 +182,23 @@
             "description": "OK. The request has succeeded.",
             "schema": {
               "$ref": "#/definitions/ClusterMonitoringResponse"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "description": "Describes the format of Error response.",
+              "properties": {
+                "code": {
+                  "description": "Error code",
+                  "type": "string"
+                },
+                "message": {
+                  "description": "Error message indicating why the operation failed.",
+                  "type": "string"
+                }
+              },
+              "type": "object"
             }
           }
         },
@@ -162,34 +208,37 @@
         "x-ms-examples": {
           "Enable cluster monitoring": {
             "parameters": {
-              "api-version": "2015-03-01-preview",
+              "api-version": "2018-06-01-preview",
               "clusterName": "cluster1",
               "resourceGroupName": "rg1",
               "subscriptionId": "subid"
             },
             "responses": {
-              "200": {}
+              "200": {
+                "body": {
+                  "clusterMonitoringEnabled": true,
+                  "workspaceId": "id"
+                }
+              }
             }
           }
         }
       },
       "put": {
         "description": "Enables the Operations Management Suite (OMS) on the HDInsight cluster.",
-        "operationId": "Extension_EnableMonitoring",
+        "operationId": "Extensions_EnableMonitoring",
         "parameters": [
           {
-            "description": "The name of the resource group.",
-            "in": "path",
-            "name": "resourceGroupName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/SubscriptionIdParameter"
           },
           {
-            "description": "The name of the cluster.",
-            "in": "path",
-            "name": "clusterName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ClusterNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
           },
           {
             "description": "The Operations Management Suite (OMS) workspace parameters.",
@@ -199,17 +248,31 @@
             "schema": {
               "$ref": "#/definitions/ClusterMonitoringRequest"
             }
-          },
-          {
-            "$ref": "#/parameters/ApiVersionParameter"
-          },
-          {
-            "$ref": "#/parameters/SubscriptionIdParameter"
           }
         ],
         "responses": {
+          "200": {
+            "description": "Ok response definition."
+          },
           "202": {
             "description": "Accepted response definition."
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "description": "Describes the format of Error response.",
+              "properties": {
+                "code": {
+                  "description": "Error code",
+                  "type": "string"
+                },
+                "message": {
+                  "description": "Error message indicating why the operation failed.",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
           }
         },
         "tags": [
@@ -218,7 +281,7 @@
         "x-ms-examples": {
           "Enable cluster monitoring": {
             "parameters": {
-              "api-version": "2015-03-01-preview",
+              "api-version": "2018-06-01-preview",
               "clusterName": "cluster1",
               "parameters": {
                 "primaryKey": "**********",
@@ -228,6 +291,7 @@
               "subscriptionId": "subid"
             },
             "responses": {
+              "200": {},
               "202": {}
             }
           }
@@ -238,46 +302,47 @@
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HDInsight/clusters/{clusterName}/extensions/{extensionName}": {
       "delete": {
         "description": "Deletes the specified extension for HDInsight cluster.",
-        "operationId": "Extension_Delete",
+        "operationId": "Extensions_Delete",
         "parameters": [
           {
-            "description": "The name of the resource group.",
-            "in": "path",
-            "name": "resourceGroupName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/SubscriptionIdParameter"
           },
           {
-            "description": "The name of the cluster.",
-            "in": "path",
-            "name": "clusterName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/ResourceGroupNameParameter"
           },
           {
-            "description": "The name of the cluster extension.",
-            "enum": [
-              "clustermonitoring"
-            ],
-            "in": "path",
-            "name": "extensionName",
-            "required": true,
-            "type": "string",
-            "x-ms-enum": {
-              "modelAsString": false,
-              "name": "ExtensionName"
-            }
+            "$ref": "#/parameters/ClusterNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ExtensionNameParameter"
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
-          },
-          {
-            "$ref": "#/parameters/SubscriptionIdParameter"
           }
         ],
         "responses": {
+          "200": {
+            "description": "Ok response definition."
+          },
           "202": {
-            "description": "OK response definition."
+            "description": "Accepted response definition."
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "description": "Describes the format of Error response.",
+              "properties": {
+                "code": {
+                  "description": "Error code",
+                  "type": "string"
+                },
+                "message": {
+                  "description": "Error message indicating why the operation failed.",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
           }
         },
         "tags": [
@@ -286,55 +351,38 @@
         "x-ms-examples": {
           "Delete an extension": {
             "parameters": {
-              "api-version": "2015-03-01-preview",
+              "api-version": "2018-06-01-preview",
               "clusterName": "cluster1",
               "extensionName": "clustermonitoring",
               "resourceGroupName": "rg1",
               "subscriptionId": "subid"
             },
             "responses": {
+              "200": {},
               "202": {}
             }
           }
-        }
+        },
+        "x-ms-long-running-operation": true
       },
       "get": {
         "description": "Gets the extension properties for the specified HDInsight cluster extension.",
-        "operationId": "Extension_Get",
+        "operationId": "Extensions_Get",
         "parameters": [
           {
-            "description": "The name of the resource group.",
-            "in": "path",
-            "name": "resourceGroupName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/SubscriptionIdParameter"
           },
           {
-            "description": "The name of the cluster.",
-            "in": "path",
-            "name": "clusterName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/ResourceGroupNameParameter"
           },
           {
-            "description": "The name of the cluster extension.",
-            "enum": [
-              "clustermonitoring"
-            ],
-            "in": "path",
-            "name": "extensionName",
-            "required": true,
-            "type": "string",
-            "x-ms-enum": {
-              "modelAsString": false,
-              "name": "ExtensionName"
-            }
+            "$ref": "#/parameters/ClusterNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ExtensionNameParameter"
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
-          },
-          {
-            "$ref": "#/parameters/SubscriptionIdParameter"
           }
         ],
         "responses": {
@@ -342,6 +390,23 @@
             "description": "OK. The request has succeeded.",
             "schema": {
               "$ref": "#/definitions/Extension"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "description": "Describes the format of Error response.",
+              "properties": {
+                "code": {
+                  "description": "Error code",
+                  "type": "string"
+                },
+                "message": {
+                  "description": "Error message indicating why the operation failed.",
+                  "type": "string"
+                }
+              },
+              "type": "object"
             }
           }
         },
@@ -351,35 +416,41 @@
         "x-ms-examples": {
           "Get an extension": {
             "parameters": {
-              "api-version": "2015-03-01-preview",
+              "api-version": "2018-06-01-preview",
               "clusterName": "cluster1",
               "extensionName": "clustermonitoring",
               "resourceGroupName": "rg1",
               "subscriptionId": "subid"
             },
             "responses": {
-              "200": {}
+              "200": {
+                "body": {
+                  "primaryKey": "key",
+                  "workspaceId": "id"
+                }
+              }
             }
           }
         }
       },
       "put": {
         "description": "Creates an HDInsight cluster extension.",
-        "operationId": "Extension_Create",
+        "operationId": "Extensions_Create",
         "parameters": [
           {
-            "description": "The name of the resource group.",
-            "in": "path",
-            "name": "resourceGroupName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/SubscriptionIdParameter"
           },
           {
-            "description": "The name of the cluster.",
-            "in": "path",
-            "name": "clusterName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ClusterNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ExtensionNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
           },
           {
             "description": "The cluster extensions create request.",
@@ -389,31 +460,31 @@
             "schema": {
               "$ref": "#/definitions/Extension"
             }
-          },
-          {
-            "description": "The name of the cluster extension.",
-            "enum": [
-              "clustermonitoring"
-            ],
-            "in": "path",
-            "name": "extensionName",
-            "required": true,
-            "type": "string",
-            "x-ms-enum": {
-              "modelAsString": false,
-              "name": "ExtensionName"
-            }
-          },
-          {
-            "$ref": "#/parameters/ApiVersionParameter"
-          },
-          {
-            "$ref": "#/parameters/SubscriptionIdParameter"
           }
         ],
         "responses": {
+          "200": {
+            "description": "Ok response definition."
+          },
           "202": {
-            "description": "OK. The request has succeeded."
+            "description": "Accepted response definition."
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "description": "Describes the format of Error response.",
+              "properties": {
+                "code": {
+                  "description": "Error code",
+                  "type": "string"
+                },
+                "message": {
+                  "description": "Error message indicating why the operation failed.",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
           }
         },
         "tags": [
@@ -422,7 +493,7 @@
         "x-ms-examples": {
           "Create a monitoring extension on Hadoop Linux cluster": {
             "parameters": {
-              "api-version": "2015-03-01-preview",
+              "api-version": "2018-06-01-preview",
               "clusterName": "cluster1",
               "extensionName": "clustermonitoring",
               "parameters": {
@@ -433,10 +504,12 @@
               "subscriptionId": "subid"
             },
             "responses": {
+              "200": {},
               "202": {}
             }
           }
-        }
+        },
+        "x-ms-long-running-operation": true
       }
     }
   },
@@ -457,11 +530,11 @@
     "ClusterMonitoringResponse": {
       "description": "The Operations Management Suite (OMS) status response",
       "properties": {
-        "ClusterMonitoringEnabled": {
+        "clusterMonitoringEnabled": {
           "description": "The status of the Operations Management Suite (OMS) on the HDInsight cluster.",
           "type": "boolean"
         },
-        "WorkspaceId": {
+        "workspaceId": {
           "description": "The workspace ID of the Operations Management Suite (OMS) on the HDInsight cluster.",
           "type": "string"
         }

@@ -7,7 +7,7 @@
   "info": {
     "description": "The Microsoft Azure Network management API provides a RESTful set of web services that interact with Microsoft Azure Networks service to manage your network resources. The API has entities that capture the relationship between an end user and the Microsoft Azure Networks service.",
     "title": "NetworkManagementClient",
-    "version": "2017-10-01",
+    "version": "2019-07-01",
     "x-apisguru-categories": [
       "cloud"
     ],
@@ -17,7 +17,7 @@
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/network/resource-manager/Microsoft.Network/stable/2017-10-01/serviceCommunity.json",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/network/resource-manager/Microsoft.Network/stable/2019-07-01/serviceCommunity.json",
         "version": "2.0"
       }
     ],
@@ -42,7 +42,7 @@
   "securityDefinitions": {
     "azure_auth": {
       "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
-      "description": "Azure Active Directory OAuth2 Flow",
+      "description": "Azure Active Directory OAuth2 Flow.",
       "flow": "implicit",
       "scopes": {
         "user_impersonation": "impersonate your user account"
@@ -57,22 +57,6 @@
       ]
     }
   ],
-  "parameters": {
-    "ApiVersionParameter": {
-      "description": "Client API version.",
-      "in": "query",
-      "name": "api-version",
-      "required": true,
-      "type": "string"
-    },
-    "SubscriptionIdParameter": {
-      "description": "The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
-      "in": "path",
-      "name": "subscriptionId",
-      "required": true,
-      "type": "string"
-    }
-  },
   "paths": {
     "/subscriptions/{subscriptionId}/providers/Microsoft.Network/bgpServiceCommunities": {
       "get": {
@@ -80,10 +64,18 @@
         "operationId": "BgpServiceCommunities_List",
         "parameters": [
           {
-            "$ref": "#/parameters/ApiVersionParameter"
+            "description": "Client API version.",
+            "in": "query",
+            "name": "api-version",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/SubscriptionIdParameter"
+            "description": "The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -100,7 +92,7 @@
         "x-ms-examples": {
           "ServiceCommunityList": {
             "parameters": {
-              "api-version": "2017-10-01",
+              "api-version": "2019-07-01",
               "subscriptionId": "subid"
             },
             "responses": {
@@ -108,7 +100,7 @@
                 "body": {
                   "value": [
                     {
-                      "id": "/subscriptions/subid/providers/Microsofot.Network/bgpServiceCommunities/skype",
+                      "id": "/subscriptions/subid/providers/Microsoft.Network/bgpServiceCommunities/skype",
                       "name": "skype",
                       "properties": {
                         "bgpCommunities": [
@@ -126,10 +118,10 @@
                         ],
                         "serviceName": "skype"
                       },
-                      "type": "Microsofot.Network/bgpServiceCommunities"
+                      "type": "Microsoft.Network/bgpServiceCommunities"
                     },
                     {
-                      "id": "/subscriptions/subid/providers/Microsofot.Network/bgpServiceCommunities/exchange",
+                      "id": "/subscriptions/subid/providers/Microsoft.Network/bgpServiceCommunities/exchange",
                       "name": "exchange",
                       "properties": {
                         "bgpCommunities": [
@@ -147,7 +139,7 @@
                         ],
                         "serviceName": "exchange"
                       },
-                      "type": "Microsofot.Network/bgpServiceCommunities"
+                      "type": "Microsoft.Network/bgpServiceCommunities"
                     }
                   ]
                 }
@@ -232,6 +224,7 @@
       "properties": {
         "properties": {
           "$ref": "#/definitions/BgpServiceCommunityPropertiesFormat",
+          "description": "Properties of the BGP service community.",
           "x-ms-client-flatten": true
         }
       }
@@ -256,7 +249,7 @@
       "description": "Properties of Service Community.",
       "properties": {
         "bgpCommunities": {
-          "description": "Get a list of bgp communities.",
+          "description": "A list of bgp communities.",
           "items": {
             "$ref": "#/definitions/BGPCommunity"
           },

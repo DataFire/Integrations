@@ -15,7 +15,7 @@ let producthunt = require('@datafire/producthunt').create({
   redirect_uri: ""
 });
 
-producthunt.categories.category.posts.get({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

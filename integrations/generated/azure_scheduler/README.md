@@ -9,10 +9,7 @@ npm install --save @datafire/azure_scheduler
 ```js
 let azure_scheduler = require('@datafire/azure_scheduler').create();
 
-azure_scheduler.JobCollections_ListBySubscription({
-  "subscriptionId": "",
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

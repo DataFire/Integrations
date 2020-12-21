@@ -15,12 +15,7 @@ let azure_sql_encryptionprotectors = require('@datafire/azure_sql_encryptionprot
   redirect_uri: ""
 });
 
-azure_sql_encryptionprotectors.EncryptionProtectors_ListByServer({
-  "resourceGroupName": "",
-  "serverName": "",
-  "subscriptionId": "",
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -105,6 +100,31 @@ azure_sql_encryptionprotectors.EncryptionProtectors_CreateOrUpdate({
 
 #### Output
 * output [EncryptionProtector](#encryptionprotector)
+
+### EncryptionProtectors_Revalidate
+Revalidates an existing encryption protector.
+
+
+```js
+azure_sql_encryptionprotectors.EncryptionProtectors_Revalidate({
+  "resourceGroupName": "",
+  "serverName": "",
+  "encryptionProtectorName": "",
+  "subscriptionId": "",
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * resourceGroupName **required** `string`: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+  * serverName **required** `string`: The name of the server.
+  * encryptionProtectorName **required** `string` (values: current): The name of the encryption protector to be updated.
+  * subscriptionId **required** `string`: The subscription ID that identifies an Azure subscription.
+  * api-version **required** `string`: The API version to use for the request.
+
+#### Output
+*Output schema unknown*
 
 
 

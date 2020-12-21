@@ -1,8 +1,8 @@
 {
   "name": "@datafire/adafruit",
-  "version": "4.0.0",
+  "version": "5.0.0",
   "main": "index.js",
-  "description": "DataFire integration for Adafruit IO",
+  "description": "DataFire integration for Adafruit IO REST API",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DataFire/integrations.git"

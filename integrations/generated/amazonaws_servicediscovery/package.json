@@ -2,7 +2,7 @@
   "name": "@datafire/amazonaws_servicediscovery",
   "version": "5.0.0",
   "main": "index.js",
-  "description": "DataFire integration for Amazon Route 53 Auto Naming",
+  "description": "DataFire integration for AWS Cloud Map",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DataFire/integrations.git"
@@ -14,8 +14,8 @@
   },
   "homepage": "https://github.com/DataFire/integrations#readme",
   "datafire": {
-    "origin": "https://api.apis.guru/v2/specs/amazonaws.com/servicediscovery/2017-03-14/swagger.json",
-    "type": "openapi"
+    "origin": "https://api.apis.guru/v2/specs/amazonaws.com/servicediscovery/2017-03-14/openapi.json",
+    "type": "openapi_3"
   },
   "peerDependencies": {
     "datafire": "^2.0.0"

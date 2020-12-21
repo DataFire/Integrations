@@ -15,7 +15,7 @@ let squareup = require('@datafire/squareup').create({
   redirect_uri: ""
 });
 
-squareup.ListCustomers({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

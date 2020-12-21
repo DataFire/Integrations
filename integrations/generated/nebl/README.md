@@ -7,9 +7,12 @@ Client library for Neblio REST API Suite
 npm install --save @datafire/nebl
 ```
 ```js
-let nebl = require('@datafire/nebl').create();
+let nebl = require('@datafire/nebl').create({
+  username: "",
+  password: ""
+});
 
-nebl.testnet_getTxs({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -19,6 +22,28 @@ nebl.testnet_getTxs({}).then(data => {
 APIs for Interacting with NTP1 Tokens & The Neblio Blockchain
 
 ## Actions
+
+### json_rpc
+Call any Neblio RPC command from the Neblio API libraries. Useful for signing transactions with a local node and other functions. Will not work from a browser due to CORS restrictions. Requires a node to be running locally at 127.0.0.1
+
+
+```js
+nebl.json_rpc({
+  "body": {
+    "jsonrpc": "",
+    "id": "",
+    "method": "",
+    "params": []
+  }
+}, context)
+```
+
+#### Input
+* input `object`
+  * body **required** [rpcRequest](#rpcrequest)
+
+#### Output
+* output [rpcResponse](#rpcresponse)
 
 ### getAddress
 Returns NEBL address object containing information on a specific address
@@ -249,7 +274,7 @@ nebl.getTxs({}, context)
 * input `object`
   * address `string`: Address
   * block `string`: Block Hash
-  * page `number`: Page number to display
+  * pageNum `number`: Page number to display
 
 #### Output
 * output [getTxsResponse](#gettxsresponse)
@@ -325,7 +350,8 @@ nebl.issueToken({
     "amount": 0,
     "divisibility": 0,
     "fee": 0,
-    "reissuable": true
+    "reissuable": true,
+    "transfer": []
   }
 }, context)
 ```
@@ -394,13 +420,13 @@ nebl.getTokenId({
 #### Output
 * output [getTokenIdResponse](#gettokenidresponse)
 
-### getTokenMetadataOfIssuance
-Returns the metadata associated with a token at time of issuance.
+### getTokenMetadata
+Returns the metadata associated with a token.
 
 
 
 ```js
-nebl.getTokenMetadataOfIssuance({
+nebl.getTokenMetadata({
   "tokenid": ""
 }, context)
 ```
@@ -408,6 +434,7 @@ nebl.getTokenMetadataOfIssuance({
 #### Input
 * input `object`
   * tokenid **required** `string`: TokenId to request metadata for
+  * verbosity `number`: 0 (Default) is fastest, 1 contains token stats, 2 contains token holding addresses
 
 #### Output
 * output [getTokenMetadataResponse](#gettokenmetadataresponse)
@@ -428,6 +455,7 @@ nebl.getTokenMetadataOfUtxo({
 * input `object`
   * tokenid **required** `string`: TokenId to request metadata for
   * utxo **required** `string`: Specific UTXO to request metadata for
+  * verbosity `number`: 0 (Default) is fastest, 1 contains token stats, 2 contains token holding addresses
 
 #### Output
 * output [getTokenMetadataResponse](#gettokenmetadataresponse)
@@ -698,7 +726,7 @@ nebl.testnet_getTxs({}, context)
 * input `object`
   * address `string`: Address
   * block `string`: Block Hash
-  * page `number`: Page number to display
+  * pageNum `number`: Page number to display
 
 #### Output
 * output [getTxsResponse](#gettxsresponse)
@@ -774,7 +802,8 @@ nebl.testnet_issueToken({
     "amount": 0,
     "divisibility": 0,
     "fee": 0,
-    "reissuable": true
+    "reissuable": true,
+    "transfer": []
   }
 }, context)
 ```
@@ -843,13 +872,13 @@ nebl.testnet_getTokenId({
 #### Output
 * output [getTokenIdResponse](#gettokenidresponse)
 
-### testnet_getTokenMetadataOfIssuance
-Returns the metadata associated with a token at time of issuance.
+### testnet_getTokenMetadata
+Returns the metadata associated with a token.
 
 
 
 ```js
-nebl.testnet_getTokenMetadataOfIssuance({
+nebl.testnet_getTokenMetadata({
   "tokenid": ""
 }, context)
 ```
@@ -857,6 +886,7 @@ nebl.testnet_getTokenMetadataOfIssuance({
 #### Input
 * input `object`
   * tokenid **required** `string`: TokenId to request metadata for
+  * verbosity `number`: 0 (Default) is fastest, 1 contains token stats, 2 contains token holding addresses
 
 #### Output
 * output [getTokenMetadataResponse](#gettokenmetadataresponse)
@@ -877,6 +907,7 @@ nebl.testnet_getTokenMetadataOfUtxo({
 * input `object`
   * tokenid **required** `string`: TokenId to request metadata for
   * utxo **required** `string`: Specific UTXO to request metadata for
+  * verbosity `number`: 0 (Default) is fastest, 1 contains token stats, 2 contains token holding addresses
 
 #### Output
 * output [getTokenMetadataResponse](#gettokenmetadataresponse)
@@ -1066,6 +1097,7 @@ nebl.testnet_getTransactionInfo({
   * aggregationPolicy `string`: Whether the tokens are aggregatable
   * divisibility `number`: Decimal places the token is divisible to
   * firstBlock `number`: Block number token was issued in
+  * initialIssuanceAmount `number`: Total tokens issued in initial issuance
   * issuanceTxid `string`: TXID the token was issued with
   * issueAddress `string`: Address that issued the tokens
   * lockStatus `boolean`: Whether issuance of more tokens is locked
@@ -1077,22 +1109,15 @@ nebl.testnet_getTransactionInfo({
       * userData `object`: Metadata set by user on token
         * meta `array`
           * items `object`
-            * key `string`
-            * value `string`
-  * metadataOfUtxo `object`: Metadata set at issuance
-    * data `object`
-      * description `string`: Token description
-      * issuer `string`: Name of token issuer
-      * tokenName `string`: Token symbol
-      * userData `object`: Metadata set by user on token
-        * meta `array`
-          * items `object`
-            * key `string`
-            * value `string`
+  * metadataOfUtxo `object`: Metadata set for UTXO
+    * userData `object`: Metadata set by user on token for UTXO
+      * meta `array`
+        * items `object`
   * numOfBurns `number`: Number of times tokens have been burned
   * numOfHolders `number`: Total number of addresses this token is held at
+  * numOfIssuance `number`: Total number of times this token has been issued
   * numOfTransfers `number`: Total number of transactions of this token
-  * numofIssuance `number`: Total number of times this token has been issued
+  * someUtxo `string`: Example UTXO containing this token.
   * tokenId `string`: ID of the token
   * totalSupply `number`: Total number of tokens in supply
 
@@ -1230,9 +1255,6 @@ nebl.testnet_getTransactionInfo({
       * fees `object`
         * items `array`: Array of objects describing fee rules
           * items `object`
-            * address `string`: Address fee is auto sent to
-            * tokenId `string`: How fee should be paid, either with a tokenId, or with NEBL if null
-            * value `string`: Amount of NTP1 token, or NEBL (in satoshi) to pay as fee
         * locked `boolean`: Whether this rule can be modified in future transactions
       * holders `array`: Array of objects describing what addresses can hold the token
         * items `object`
@@ -1251,11 +1273,29 @@ nebl.testnet_getTransactionInfo({
           * key `string`
           * value `string`
   * reissuable **required** `boolean`: whether the token should be reissuable
+  * transfer **required** `array`
+    * items `object`
+      * address `string`: Address to send the amount of issued tokens to
+      * amount `number`
 
 ### issueTokenResponse
 * issueTokenResponse `object`
   * tokenId `string`: TokenId of the to be issued token
   * txHex `string`: Unsigned, raw transaction hex of the transaction to issue the token
+
+### rpcRequest
+* rpcRequest `object`
+  * id **required** `string`: Identifier of RCP caller
+  * jsonrpc **required** `string`: JSON-RPC version
+  * method **required** `string`: Name of the Neblio RPC method to call
+  * params **required** `array`: Array of string params that should be passed to the RPC method.
+    * items `string`
+
+### rpcResponse
+* rpcResponse `object`: Object containing the JSON response from the Neblio node.
+  * error `object`: Object containing any error information.
+  * id `string`: Identifier of RCP caller
+  * result `object`: Object containing the response output.
 
 ### sendTokenRequest
 * sendTokenRequest `object`
@@ -1280,9 +1320,6 @@ nebl.testnet_getTransactionInfo({
       * fees `object`
         * items `array`: Array of objects describing fee rules
           * items `object`
-            * address `string`: Address fee is auto sent to
-            * tokenId `string`: How fee should be paid, either with a tokenId, or with NEBL if null
-            * value `string`: Amount of NTP1 token, or NEBL (in satoshi) to pay as fee
         * locked `boolean`: Whether this rule can be modified in future transactions
       * holders `array`: Array of objects describing what addresses can hold the token
         * items `object`

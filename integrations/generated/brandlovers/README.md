@@ -11,10 +11,7 @@ let brandlovers = require('@datafire/brandlovers').create({
   authorization: ""
 });
 
-brandlovers.order.orderId.get({
-  "authorization": "",
-  "orderId": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

@@ -13,20 +13,38 @@ let amazonaws_sms = require('@datafire/amazonaws_sms').create({
   region: ""
 });
 
-amazonaws_sms.CreateReplicationJob({
-  "serverId": "",
-  "seedReplicationTime": "",
-  "frequency": 0
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
 
 ## Description
 
-Amazon Server Migration Service automates the process of migrating servers to EC2.
+<fullname>AWS Server Migration Service</fullname> <p>AWS Server Migration Service (AWS SMS) makes it easier and faster for you to migrate your on-premises workloads to AWS. To learn more about AWS SMS, see the following resources:</p> <ul> <li> <p> <a href="http://aws.amazon.com/server-migration-service/">AWS Server Migration Service product page</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/server-migration-service/latest/userguide/">AWS Server Migration Service User Guide</a> </p> </li> </ul>
 
 ## Actions
+
+### CreateApp
+
+
+
+```js
+amazonaws_sms.CreateApp({}, context)
+```
+
+#### Input
+* input `object`
+  * tags
+    * items [Tag](#tag)
+  * clientToken
+  * description
+  * name
+  * roleName
+  * serverGroups
+    * items [ServerGroup](#servergroup)
+
+#### Output
+* output [CreateAppResponse](#createappresponse)
 
 ### CreateReplicationJob
 
@@ -34,23 +52,90 @@ Amazon Server Migration Service automates the process of migrating servers to EC
 
 ```js
 amazonaws_sms.CreateReplicationJob({
-  "serverId": "",
-  "seedReplicationTime": "",
-  "frequency": 0
+  "serverId": null,
+  "seedReplicationTime": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * description [Description](#description)
-  * frequency **required** [Frequency](#frequency)
-  * licenseType [LicenseType](#licensetype)
-  * roleName [RoleName](#rolename)
-  * seedReplicationTime **required** [Timestamp](#timestamp)
-  * serverId **required** [ServerId](#serverid)
+  * description
+  * encrypted
+  * frequency
+  * kmsKeyId
+  * licenseType
+  * numberOfRecentAmisToKeep
+  * roleName
+  * runOnce
+  * seedReplicationTime **required**
+  * serverId **required**
 
 #### Output
 * output [CreateReplicationJobResponse](#createreplicationjobresponse)
+
+### DeleteApp
+
+
+
+```js
+amazonaws_sms.DeleteApp({}, context)
+```
+
+#### Input
+* input `object`
+  * appId
+  * forceStopAppReplication
+  * forceTerminateApp
+
+#### Output
+* output [DeleteAppResponse](#deleteappresponse)
+
+### DeleteAppLaunchConfiguration
+
+
+
+```js
+amazonaws_sms.DeleteAppLaunchConfiguration({}, context)
+```
+
+#### Input
+* input `object`
+  * appId
+
+#### Output
+* output [DeleteAppLaunchConfigurationResponse](#deleteapplaunchconfigurationresponse)
+
+### DeleteAppReplicationConfiguration
+
+
+
+```js
+amazonaws_sms.DeleteAppReplicationConfiguration({}, context)
+```
+
+#### Input
+* input `object`
+  * appId
+
+#### Output
+* output [DeleteAppReplicationConfigurationResponse](#deleteappreplicationconfigurationresponse)
+
+### DeleteAppValidationConfiguration
+
+
+
+```js
+amazonaws_sms.DeleteAppValidationConfiguration({
+  "appId": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * appId **required**
+
+#### Output
+* output [DeleteAppValidationConfigurationResponse](#deleteappvalidationconfigurationresponse)
 
 ### DeleteReplicationJob
 
@@ -58,13 +143,13 @@ amazonaws_sms.CreateReplicationJob({
 
 ```js
 amazonaws_sms.DeleteReplicationJob({
-  "replicationJobId": ""
+  "replicationJobId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * replicationJobId **required** [ReplicationJobId](#replicationjobid)
+  * replicationJobId **required**
 
 #### Output
 * output [DeleteReplicationJobResponse](#deletereplicationjobresponse)
@@ -89,16 +174,127 @@ amazonaws_sms.DeleteServerCatalog({}, context)
 
 ```js
 amazonaws_sms.DisassociateConnector({
-  "connectorId": ""
+  "connectorId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * connectorId **required** [ConnectorId](#connectorid)
+  * connectorId **required**
 
 #### Output
 * output [DisassociateConnectorResponse](#disassociateconnectorresponse)
+
+### GenerateChangeSet
+
+
+
+```js
+amazonaws_sms.GenerateChangeSet({}, context)
+```
+
+#### Input
+* input `object`
+  * appId
+  * changesetFormat
+
+#### Output
+* output [GenerateChangeSetResponse](#generatechangesetresponse)
+
+### GenerateTemplate
+
+
+
+```js
+amazonaws_sms.GenerateTemplate({}, context)
+```
+
+#### Input
+* input `object`
+  * appId
+  * templateFormat
+
+#### Output
+* output [GenerateTemplateResponse](#generatetemplateresponse)
+
+### GetApp
+
+
+
+```js
+amazonaws_sms.GetApp({}, context)
+```
+
+#### Input
+* input `object`
+  * appId
+
+#### Output
+* output [GetAppResponse](#getappresponse)
+
+### GetAppLaunchConfiguration
+
+
+
+```js
+amazonaws_sms.GetAppLaunchConfiguration({}, context)
+```
+
+#### Input
+* input `object`
+  * appId
+
+#### Output
+* output [GetAppLaunchConfigurationResponse](#getapplaunchconfigurationresponse)
+
+### GetAppReplicationConfiguration
+
+
+
+```js
+amazonaws_sms.GetAppReplicationConfiguration({}, context)
+```
+
+#### Input
+* input `object`
+  * appId
+
+#### Output
+* output [GetAppReplicationConfigurationResponse](#getappreplicationconfigurationresponse)
+
+### GetAppValidationConfiguration
+
+
+
+```js
+amazonaws_sms.GetAppValidationConfiguration({
+  "appId": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * appId **required**
+
+#### Output
+* output [GetAppValidationConfigurationResponse](#getappvalidationconfigurationresponse)
+
+### GetAppValidationOutput
+
+
+
+```js
+amazonaws_sms.GetAppValidationOutput({
+  "appId": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * appId **required**
+
+#### Output
+* output [GetAppValidationOutputResponse](#getappvalidationoutputresponse)
 
 ### GetConnectors
 
@@ -112,8 +308,8 @@ amazonaws_sms.GetConnectors({}, context)
 * input `object`
   * maxResults `string`
   * nextToken `string`
-  * maxResults [MaxResults](#maxresults)
-  * nextToken [NextToken](#nexttoken)
+  * maxResults
+  * nextToken
 
 #### Output
 * output [GetConnectorsResponse](#getconnectorsresponse)
@@ -130,9 +326,9 @@ amazonaws_sms.GetReplicationJobs({}, context)
 * input `object`
   * maxResults `string`
   * nextToken `string`
-  * maxResults [MaxResults](#maxresults)
-  * nextToken [NextToken](#nexttoken)
-  * replicationJobId [ReplicationJobId](#replicationjobid)
+  * maxResults
+  * nextToken
+  * replicationJobId
 
 #### Output
 * output [GetReplicationJobsResponse](#getreplicationjobsresponse)
@@ -143,7 +339,7 @@ amazonaws_sms.GetReplicationJobs({}, context)
 
 ```js
 amazonaws_sms.GetReplicationRuns({
-  "replicationJobId": ""
+  "replicationJobId": null
 }, context)
 ```
 
@@ -151,9 +347,9 @@ amazonaws_sms.GetReplicationRuns({
 * input `object`
   * maxResults `string`
   * nextToken `string`
-  * maxResults [MaxResults](#maxresults)
-  * nextToken [NextToken](#nexttoken)
-  * replicationJobId **required** [ReplicationJobId](#replicationjobid)
+  * maxResults
+  * nextToken
+  * replicationJobId **required**
 
 #### Output
 * output [GetReplicationRunsResponse](#getreplicationrunsresponse)
@@ -170,11 +366,28 @@ amazonaws_sms.GetServers({}, context)
 * input `object`
   * maxResults `string`
   * nextToken `string`
-  * maxResults [MaxResults](#maxresults)
-  * nextToken [NextToken](#nexttoken)
+  * maxResults
+  * nextToken
+  * vmServerAddressList
+    * items [VmServerAddress](#vmserveraddress)
 
 #### Output
 * output [GetServersResponse](#getserversresponse)
+
+### ImportAppCatalog
+
+
+
+```js
+amazonaws_sms.ImportAppCatalog({}, context)
+```
+
+#### Input
+* input `object`
+  * roleName
+
+#### Output
+* output [ImportAppCatalogResponse](#importappcatalogresponse)
 
 ### ImportServerCatalog
 
@@ -190,23 +403,219 @@ amazonaws_sms.ImportServerCatalog({}, context)
 #### Output
 * output [ImportServerCatalogResponse](#importservercatalogresponse)
 
+### LaunchApp
+
+
+
+```js
+amazonaws_sms.LaunchApp({}, context)
+```
+
+#### Input
+* input `object`
+  * appId
+
+#### Output
+* output [LaunchAppResponse](#launchappresponse)
+
+### ListApps
+
+
+
+```js
+amazonaws_sms.ListApps({}, context)
+```
+
+#### Input
+* input `object`
+  * appIds
+    * items [AppId](#appid)
+  * maxResults
+  * nextToken
+
+#### Output
+* output [ListAppsResponse](#listappsresponse)
+
+### NotifyAppValidationOutput
+
+
+
+```js
+amazonaws_sms.NotifyAppValidationOutput({
+  "appId": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * appId **required**
+  * notificationContext
+    * status
+    * statusMessage
+    * validationId
+
+#### Output
+* output [NotifyAppValidationOutputResponse](#notifyappvalidationoutputresponse)
+
+### PutAppLaunchConfiguration
+
+
+
+```js
+amazonaws_sms.PutAppLaunchConfiguration({}, context)
+```
+
+#### Input
+* input `object`
+  * appId
+  * autoLaunch
+  * roleName
+  * serverGroupLaunchConfigurations
+    * items [ServerGroupLaunchConfiguration](#servergrouplaunchconfiguration)
+
+#### Output
+* output [PutAppLaunchConfigurationResponse](#putapplaunchconfigurationresponse)
+
+### PutAppReplicationConfiguration
+
+
+
+```js
+amazonaws_sms.PutAppReplicationConfiguration({}, context)
+```
+
+#### Input
+* input `object`
+  * appId
+  * serverGroupReplicationConfigurations
+    * items [ServerGroupReplicationConfiguration](#servergroupreplicationconfiguration)
+
+#### Output
+* output [PutAppReplicationConfigurationResponse](#putappreplicationconfigurationresponse)
+
+### PutAppValidationConfiguration
+
+
+
+```js
+amazonaws_sms.PutAppValidationConfiguration({
+  "appId": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * appId **required**
+  * appValidationConfigurations
+    * items [AppValidationConfiguration](#appvalidationconfiguration)
+  * serverGroupValidationConfigurations
+    * items [ServerGroupValidationConfiguration](#servergroupvalidationconfiguration)
+
+#### Output
+* output [PutAppValidationConfigurationResponse](#putappvalidationconfigurationresponse)
+
+### StartAppReplication
+
+
+
+```js
+amazonaws_sms.StartAppReplication({}, context)
+```
+
+#### Input
+* input `object`
+  * appId
+
+#### Output
+* output [StartAppReplicationResponse](#startappreplicationresponse)
+
+### StartOnDemandAppReplication
+
+
+
+```js
+amazonaws_sms.StartOnDemandAppReplication({
+  "appId": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * appId **required**
+  * description
+
+#### Output
+* output [StartOnDemandAppReplicationResponse](#startondemandappreplicationresponse)
+
 ### StartOnDemandReplicationRun
 
 
 
 ```js
 amazonaws_sms.StartOnDemandReplicationRun({
-  "replicationJobId": ""
+  "replicationJobId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * description [Description](#description)
-  * replicationJobId **required** [ReplicationJobId](#replicationjobid)
+  * description
+  * replicationJobId **required**
 
 #### Output
 * output [StartOnDemandReplicationRunResponse](#startondemandreplicationrunresponse)
+
+### StopAppReplication
+
+
+
+```js
+amazonaws_sms.StopAppReplication({}, context)
+```
+
+#### Input
+* input `object`
+  * appId
+
+#### Output
+* output [StopAppReplicationResponse](#stopappreplicationresponse)
+
+### TerminateApp
+
+
+
+```js
+amazonaws_sms.TerminateApp({}, context)
+```
+
+#### Input
+* input `object`
+  * appId
+
+#### Output
+* output [TerminateAppResponse](#terminateappresponse)
+
+### UpdateApp
+
+
+
+```js
+amazonaws_sms.UpdateApp({}, context)
+```
+
+#### Input
+* input `object`
+  * tags
+    * items [Tag](#tag)
+  * appId
+  * description
+  * name
+  * roleName
+  * serverGroups
+    * items [ServerGroup](#servergroup)
+
+#### Output
+* output [UpdateAppResponse](#updateappresponse)
 
 ### UpdateReplicationJob
 
@@ -214,18 +623,21 @@ amazonaws_sms.StartOnDemandReplicationRun({
 
 ```js
 amazonaws_sms.UpdateReplicationJob({
-  "replicationJobId": ""
+  "replicationJobId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * description [Description](#description)
-  * frequency [Frequency](#frequency)
-  * licenseType [LicenseType](#licensetype)
-  * nextReplicationRunStartTime [Timestamp](#timestamp)
-  * replicationJobId **required** [ReplicationJobId](#replicationjobid)
-  * roleName [RoleName](#rolename)
+  * description
+  * encrypted
+  * frequency
+  * kmsKeyId
+  * licenseType
+  * nextReplicationRunStartTime
+  * numberOfRecentAmisToKeep
+  * replicationJobId **required**
+  * roleName
 
 #### Output
 * output [UpdateReplicationJobResponse](#updatereplicationjobresponse)
@@ -235,57 +647,243 @@ amazonaws_sms.UpdateReplicationJob({
 ## Definitions
 
 ### AmiId
-* AmiId `string`: The AMI id for the image resulting from a Replication Run.
+* AmiId `string`
+
+### AppDescription
+* AppDescription `string`
+
+### AppId
+* AppId `string`
+
+### AppIdWithValidation
+* AppIdWithValidation `string`
+
+### AppIds
+* AppIds `array`
+  * items [AppId](#appid)
+
+### AppLaunchConfigurationStatus
+* AppLaunchConfigurationStatus `string` (values: NOT_CONFIGURED, CONFIGURED)
+
+### AppLaunchStatus
+* AppLaunchStatus `string` (values: READY_FOR_CONFIGURATION, CONFIGURATION_IN_PROGRESS, CONFIGURATION_INVALID, READY_FOR_LAUNCH, VALIDATION_IN_PROGRESS, LAUNCH_PENDING, LAUNCH_IN_PROGRESS, LAUNCHED, PARTIALLY_LAUNCHED, DELTA_LAUNCH_IN_PROGRESS, DELTA_LAUNCH_FAILED, LAUNCH_FAILED, TERMINATE_IN_PROGRESS, TERMINATE_FAILED, TERMINATED)
+
+### AppLaunchStatusMessage
+* AppLaunchStatusMessage `string`
+
+### AppName
+* AppName `string`
+
+### AppReplicationConfigurationStatus
+* AppReplicationConfigurationStatus `string` (values: NOT_CONFIGURED, CONFIGURED)
+
+### AppReplicationStatus
+* AppReplicationStatus `string` (values: READY_FOR_CONFIGURATION, CONFIGURATION_IN_PROGRESS, CONFIGURATION_INVALID, READY_FOR_REPLICATION, VALIDATION_IN_PROGRESS, REPLICATION_PENDING, REPLICATION_IN_PROGRESS, REPLICATED, PARTIALLY_REPLICATED, DELTA_REPLICATION_IN_PROGRESS, DELTA_REPLICATED, DELTA_REPLICATION_FAILED, REPLICATION_FAILED, REPLICATION_STOPPING, REPLICATION_STOP_FAILED, REPLICATION_STOPPED)
+
+### AppReplicationStatusMessage
+* AppReplicationStatusMessage `string`
+
+### AppStatus
+* AppStatus `string` (values: CREATING, ACTIVE, UPDATING, DELETING, DELETED, DELETE_FAILED)
+
+### AppStatusMessage
+* AppStatusMessage `string`
+
+### AppSummary
+* AppSummary `object`: Information about the application.
+  * appId
+  * creationTime
+  * description
+  * importedAppId
+  * lastModified
+  * latestReplicationTime
+  * launchConfigurationStatus
+  * launchDetails
+    * latestLaunchTime
+    * stackId
+    * stackName
+  * launchStatus
+  * launchStatusMessage
+  * name
+  * replicationConfigurationStatus
+  * replicationStatus
+  * replicationStatusMessage
+  * roleName
+  * status
+  * statusMessage
+  * totalServerGroups
+  * totalServers
+
+### AppValidationConfiguration
+* AppValidationConfiguration `object`: Configuration for validating an application.
+  * appValidationStrategy
+  * name
+  * ssmValidationParameters
+    * command
+    * executionTimeoutSeconds
+    * instanceId
+    * outputS3BucketName
+    * scriptType
+    * source
+      * s3Location [S3Location](#s3location)
+  * validationId
+
+### AppValidationConfigurations
+* AppValidationConfigurations `array`
+  * items [AppValidationConfiguration](#appvalidationconfiguration)
+
+### AppValidationOutput
+* AppValidationOutput `object`: Output from validating an application.
+  * ssmOutput
+    * s3Location [S3Location](#s3location)
+
+### AppValidationStrategy
+* AppValidationStrategy `string` (values: SSM)
+
+### Apps
+* Apps `array`
+  * items [AppSummary](#appsummary)
+
+### AssociatePublicIpAddress
+* AssociatePublicIpAddress `boolean`
+
+### AutoLaunch
+* AutoLaunch `boolean`
+
+### BucketName
+* BucketName `string`
+
+### ClientToken
+* ClientToken `string`
+
+### Command
+* Command `string`
 
 ### Connector
-* Connector `object`: Object representing a Connector
-  * associatedOn [Timestamp](#timestamp)
-  * capabilityList [ConnectorCapabilityList](#connectorcapabilitylist)
-  * connectorId [ConnectorId](#connectorid)
-  * ipAddress [IpAddress](#ipaddress)
-  * macAddress [MacAddress](#macaddress)
-  * status [ConnectorStatus](#connectorstatus)
-  * version [ConnectorVersion](#connectorversion)
-  * vmManagerId [VmManagerId](#vmmanagerid)
-  * vmManagerName [VmManagerName](#vmmanagername)
-  * vmManagerType [VmManagerType](#vmmanagertype)
+* Connector `object`: Represents a connector.
+  * associatedOn
+  * capabilityList
+    * items [ConnectorCapability](#connectorcapability)
+  * connectorId
+  * ipAddress
+  * macAddress
+  * status
+  * version
+  * vmManagerId
+  * vmManagerName
+  * vmManagerType
 
 ### ConnectorCapability
-* ConnectorCapability `string` (values: VSPHERE): Capabilities for a Connector
+* ConnectorCapability `string` (values: VSPHERE, SCVMM, HYPERV-MANAGER, SNAPSHOT_BATCHING, SMS_OPTIMIZED)
 
 ### ConnectorCapabilityList
-* ConnectorCapabilityList `array`: List of Connector Capabilities
+* ConnectorCapabilityList `array`
   * items [ConnectorCapability](#connectorcapability)
 
 ### ConnectorId
-* ConnectorId `string`: Unique Identifier for Connector
+* ConnectorId `string`
 
 ### ConnectorList
-* ConnectorList `array`: List of connectors
+* ConnectorList `array`
   * items [Connector](#connector)
 
 ### ConnectorStatus
-* ConnectorStatus `string` (values: HEALTHY, UNHEALTHY): Status of on-premise Connector
+* ConnectorStatus `string` (values: HEALTHY, UNHEALTHY)
 
 ### ConnectorVersion
-* ConnectorVersion `string`: Connector version string
+* ConnectorVersion `string`
+
+### CreateAppRequest
+* CreateAppRequest `object`
+  * tags
+    * items [Tag](#tag)
+  * clientToken
+  * description
+  * name
+  * roleName
+  * serverGroups
+    * items [ServerGroup](#servergroup)
+
+### CreateAppResponse
+* CreateAppResponse `object`
+  * tags
+    * items [Tag](#tag)
+  * appSummary
+    * appId
+    * creationTime
+    * description
+    * importedAppId
+    * lastModified
+    * latestReplicationTime
+    * launchConfigurationStatus
+    * launchDetails
+      * latestLaunchTime
+      * stackId
+      * stackName
+    * launchStatus
+    * launchStatusMessage
+    * name
+    * replicationConfigurationStatus
+    * replicationStatus
+    * replicationStatusMessage
+    * roleName
+    * status
+    * statusMessage
+    * totalServerGroups
+    * totalServers
+  * serverGroups
+    * items [ServerGroup](#servergroup)
 
 ### CreateReplicationJobRequest
 * CreateReplicationJobRequest `object`
-  * description [Description](#description)
-  * frequency **required** [Frequency](#frequency)
-  * licenseType [LicenseType](#licensetype)
-  * roleName [RoleName](#rolename)
-  * seedReplicationTime **required** [Timestamp](#timestamp)
-  * serverId **required** [ServerId](#serverid)
+  * description
+  * encrypted
+  * frequency
+  * kmsKeyId
+  * licenseType
+  * numberOfRecentAmisToKeep
+  * roleName
+  * runOnce
+  * seedReplicationTime **required**
+  * serverId **required**
 
 ### CreateReplicationJobResponse
 * CreateReplicationJobResponse `object`
-  * replicationJobId [ReplicationJobId](#replicationjobid)
+  * replicationJobId
+
+### DeleteAppLaunchConfigurationRequest
+* DeleteAppLaunchConfigurationRequest `object`
+  * appId
+
+### DeleteAppLaunchConfigurationResponse
+* DeleteAppLaunchConfigurationResponse `object`
+
+### DeleteAppReplicationConfigurationRequest
+* DeleteAppReplicationConfigurationRequest `object`
+  * appId
+
+### DeleteAppReplicationConfigurationResponse
+* DeleteAppReplicationConfigurationResponse `object`
+
+### DeleteAppRequest
+* DeleteAppRequest `object`
+  * appId
+  * forceStopAppReplication
+  * forceTerminateApp
+
+### DeleteAppResponse
+* DeleteAppResponse `object`
+
+### DeleteAppValidationConfigurationRequest
+* DeleteAppValidationConfigurationRequest `object`
+  * appId **required**
+
+### DeleteAppValidationConfigurationResponse
+* DeleteAppValidationConfigurationResponse `object`
 
 ### DeleteReplicationJobRequest
 * DeleteReplicationJobRequest `object`
-  * replicationJobId **required** [ReplicationJobId](#replicationjobid)
+  * replicationJobId **required**
 
 ### DeleteReplicationJobResponse
 * DeleteReplicationJobResponse `object`
@@ -297,65 +895,216 @@ amazonaws_sms.UpdateReplicationJob({
 * DeleteServerCatalogResponse `object`
 
 ### Description
-* Description `string`: The description for a Replication Job/Run.
+* Description `string`
 
 ### DisassociateConnectorRequest
 * DisassociateConnectorRequest `object`
-  * connectorId **required** [ConnectorId](#connectorid)
+  * connectorId **required**
 
 ### DisassociateConnectorResponse
 * DisassociateConnectorResponse `object`
 
-### ErrorMessage
-* ErrorMessage `string`: Error Message string
+### DryRunOperationException
+
+
+### EC2KeyName
+* EC2KeyName `string`
+
+### Encrypted
+* Encrypted `boolean`
+
+### ExecutionTimeoutSeconds
+* ExecutionTimeoutSeconds `integer`
+
+### ForceStopAppReplication
+* ForceStopAppReplication `boolean`
+
+### ForceTerminateApp
+* ForceTerminateApp `boolean`
 
 ### Frequency
-* Frequency `integer`: Interval between Replication Runs. This value is specified in hours, and represents the time between consecutive Replication Runs.
+* Frequency `integer`
+
+### GenerateChangeSetRequest
+* GenerateChangeSetRequest `object`
+  * appId
+  * changesetFormat
+
+### GenerateChangeSetResponse
+* GenerateChangeSetResponse `object`
+  * s3Location
+    * bucket
+    * key
+
+### GenerateTemplateRequest
+* GenerateTemplateRequest `object`
+  * appId
+  * templateFormat
+
+### GenerateTemplateResponse
+* GenerateTemplateResponse `object`
+  * s3Location
+    * bucket
+    * key
+
+### GetAppLaunchConfigurationRequest
+* GetAppLaunchConfigurationRequest `object`
+  * appId
+
+### GetAppLaunchConfigurationResponse
+* GetAppLaunchConfigurationResponse `object`
+  * appId
+  * autoLaunch
+  * roleName
+  * serverGroupLaunchConfigurations
+    * items [ServerGroupLaunchConfiguration](#servergrouplaunchconfiguration)
+
+### GetAppReplicationConfigurationRequest
+* GetAppReplicationConfigurationRequest `object`
+  * appId
+
+### GetAppReplicationConfigurationResponse
+* GetAppReplicationConfigurationResponse `object`
+  * serverGroupReplicationConfigurations
+    * items [ServerGroupReplicationConfiguration](#servergroupreplicationconfiguration)
+
+### GetAppRequest
+* GetAppRequest `object`
+  * appId
+
+### GetAppResponse
+* GetAppResponse `object`
+  * tags
+    * items [Tag](#tag)
+  * appSummary
+    * appId
+    * creationTime
+    * description
+    * importedAppId
+    * lastModified
+    * latestReplicationTime
+    * launchConfigurationStatus
+    * launchDetails
+      * latestLaunchTime
+      * stackId
+      * stackName
+    * launchStatus
+    * launchStatusMessage
+    * name
+    * replicationConfigurationStatus
+    * replicationStatus
+    * replicationStatusMessage
+    * roleName
+    * status
+    * statusMessage
+    * totalServerGroups
+    * totalServers
+  * serverGroups
+    * items [ServerGroup](#servergroup)
+
+### GetAppValidationConfigurationRequest
+* GetAppValidationConfigurationRequest `object`
+  * appId **required**
+
+### GetAppValidationConfigurationResponse
+* GetAppValidationConfigurationResponse `object`
+  * appValidationConfigurations
+    * items [AppValidationConfiguration](#appvalidationconfiguration)
+  * serverGroupValidationConfigurations
+    * items [ServerGroupValidationConfiguration](#servergroupvalidationconfiguration)
+
+### GetAppValidationOutputRequest
+* GetAppValidationOutputRequest `object`
+  * appId **required**
+
+### GetAppValidationOutputResponse
+* GetAppValidationOutputResponse `object`
+  * validationOutputList
+    * items [ValidationOutput](#validationoutput)
 
 ### GetConnectorsRequest
 * GetConnectorsRequest `object`
-  * maxResults [MaxResults](#maxresults)
-  * nextToken [NextToken](#nexttoken)
+  * maxResults
+  * nextToken
 
 ### GetConnectorsResponse
 * GetConnectorsResponse `object`
-  * connectorList [ConnectorList](#connectorlist)
-  * nextToken [NextToken](#nexttoken)
+  * connectorList
+    * items [Connector](#connector)
+  * nextToken
 
 ### GetReplicationJobsRequest
 * GetReplicationJobsRequest `object`
-  * maxResults [MaxResults](#maxresults)
-  * nextToken [NextToken](#nexttoken)
-  * replicationJobId [ReplicationJobId](#replicationjobid)
+  * maxResults
+  * nextToken
+  * replicationJobId
 
 ### GetReplicationJobsResponse
 * GetReplicationJobsResponse `object`
-  * nextToken [NextToken](#nexttoken)
-  * replicationJobList [ReplicationJobList](#replicationjoblist)
+  * nextToken
+  * replicationJobList
+    * items [ReplicationJob](#replicationjob)
 
 ### GetReplicationRunsRequest
 * GetReplicationRunsRequest `object`
-  * maxResults [MaxResults](#maxresults)
-  * nextToken [NextToken](#nexttoken)
-  * replicationJobId **required** [ReplicationJobId](#replicationjobid)
+  * maxResults
+  * nextToken
+  * replicationJobId **required**
 
 ### GetReplicationRunsResponse
 * GetReplicationRunsResponse `object`
-  * nextToken [NextToken](#nexttoken)
-  * replicationJob [ReplicationJob](#replicationjob)
-  * replicationRunList [ReplicationRunList](#replicationrunlist)
+  * nextToken
+  * replicationJob
+    * description
+    * encrypted
+    * frequency
+    * kmsKeyId
+    * latestAmiId
+    * licenseType
+    * nextReplicationRunStartTime
+    * numberOfRecentAmisToKeep
+    * replicationJobId
+    * replicationRunList
+      * items [ReplicationRun](#replicationrun)
+    * roleName
+    * runOnce
+    * seedReplicationTime
+    * serverId
+    * serverType
+    * state
+    * statusMessage
+    * vmServer
+      * vmManagerName
+      * vmManagerType
+      * vmName
+      * vmPath
+      * vmServerAddress
+        * vmId
+        * vmManagerId
+  * replicationRunList
+    * items [ReplicationRun](#replicationrun)
 
 ### GetServersRequest
 * GetServersRequest `object`
-  * maxResults [MaxResults](#maxresults)
-  * nextToken [NextToken](#nexttoken)
+  * maxResults
+  * nextToken
+  * vmServerAddressList
+    * items [VmServerAddress](#vmserveraddress)
 
 ### GetServersResponse
 * GetServersResponse `object`
-  * lastModifiedOn [Timestamp](#timestamp)
-  * nextToken [NextToken](#nexttoken)
-  * serverCatalogStatus [ServerCatalogStatus](#servercatalogstatus)
-  * serverList [ServerList](#serverlist)
+  * lastModifiedOn
+  * nextToken
+  * serverCatalogStatus
+  * serverList
+    * items [Server](#server)
+
+### ImportAppCatalogRequest
+* ImportAppCatalogRequest `object`
+  * roleName
+
+### ImportAppCatalogResponse
+* ImportAppCatalogResponse `object`
 
 ### ImportServerCatalogRequest
 * ImportServerCatalogRequest `object`
@@ -363,198 +1112,657 @@ amazonaws_sms.UpdateReplicationJob({
 ### ImportServerCatalogResponse
 * ImportServerCatalogResponse `object`
 
+### ImportedAppId
+* ImportedAppId `string`
+
+### InstanceId
+* InstanceId `string`
+
+### InstanceType
+* InstanceType `string`
+
 ### InternalError
-* InternalError `object`: An internal error has occured.
-  * message [ErrorMessage](#errormessage)
+
 
 ### InvalidParameterException
-* InvalidParameterException `object`: A parameter specified in the request is not valid, is unsupported, or cannot be used.
-  * message [ErrorMessage](#errormessage)
+
 
 ### IpAddress
-* IpAddress `string`: Internet Protocol (IP) Address
+* IpAddress `string`
+
+### KmsKeyId
+* KmsKeyId `string`
+
+### LaunchAppRequest
+* LaunchAppRequest `object`
+  * appId
+
+### LaunchAppResponse
+* LaunchAppResponse `object`
+
+### LaunchDetails
+* LaunchDetails `object`: Details about the latest launch of an application.
+  * latestLaunchTime
+  * stackId
+  * stackName
+
+### LaunchOrder
+* LaunchOrder `integer`
 
 ### LicenseType
-* LicenseType `string` (values: AWS, BYOL): The license type to be used for the Amazon Machine Image (AMI) created after a successful ReplicationRun.
+* LicenseType `string` (values: AWS, BYOL)
+
+### ListAppsRequest
+* ListAppsRequest `object`
+  * appIds
+    * items [AppId](#appid)
+  * maxResults
+  * nextToken
+
+### ListAppsResponse
+* ListAppsResponse `object`
+  * apps
+    * items [AppSummary](#appsummary)
+  * nextToken
+
+### LogicalId
+* LogicalId `string`
 
 ### MacAddress
-* MacAddress `string`: Hardware (MAC) address
+* MacAddress `string`
 
 ### MaxResults
-* MaxResults `integer`: The maximum number of results to return in one API call. If left empty, this will default to 50.
+* MaxResults `integer`
 
 ### MissingRequiredParameterException
-* MissingRequiredParameterException `object`: The request is missing a required parameter. Ensure that you have supplied all the required parameters for the request.
-  * message [ErrorMessage](#errormessage)
+
 
 ### NextToken
-* NextToken `string`: Pagination token to pass as input to API call
+* NextToken `string`
 
 ### NoConnectorsAvailableException
-* NoConnectorsAvailableException `object`: No connectors are available to handle this request. Please associate connector(s) and verify any existing connectors are healthy and can respond to requests.
-  * message [ErrorMessage](#errormessage)
+
+
+### NonEmptyStringWithMaxLen255
+* NonEmptyStringWithMaxLen255 `string`
+
+### NotificationContext
+* NotificationContext `object`: Contains the status of validating an application.
+  * status
+  * statusMessage
+  * validationId
+
+### NotifyAppValidationOutputRequest
+* NotifyAppValidationOutputRequest `object`
+  * appId **required**
+  * notificationContext
+    * status
+    * statusMessage
+    * validationId
+
+### NotifyAppValidationOutputResponse
+* NotifyAppValidationOutputResponse `object`
+
+### NumberOfRecentAmisToKeep
+* NumberOfRecentAmisToKeep `integer`
 
 ### OperationNotPermittedException
-* OperationNotPermittedException `object`: The specified operation is not allowed. This error can occur for a number of reasons; for example, you might be trying to start a Replication Run before seed Replication Run.
-  * message [ErrorMessage](#errormessage)
+
+
+### OutputFormat
+* OutputFormat `string` (values: JSON, YAML)
+
+### PutAppLaunchConfigurationRequest
+* PutAppLaunchConfigurationRequest `object`
+  * appId
+  * autoLaunch
+  * roleName
+  * serverGroupLaunchConfigurations
+    * items [ServerGroupLaunchConfiguration](#servergrouplaunchconfiguration)
+
+### PutAppLaunchConfigurationResponse
+* PutAppLaunchConfigurationResponse `object`
+
+### PutAppReplicationConfigurationRequest
+* PutAppReplicationConfigurationRequest `object`
+  * appId
+  * serverGroupReplicationConfigurations
+    * items [ServerGroupReplicationConfiguration](#servergroupreplicationconfiguration)
+
+### PutAppReplicationConfigurationResponse
+* PutAppReplicationConfigurationResponse `object`
+
+### PutAppValidationConfigurationRequest
+* PutAppValidationConfigurationRequest `object`
+  * appId **required**
+  * appValidationConfigurations
+    * items [AppValidationConfiguration](#appvalidationconfiguration)
+  * serverGroupValidationConfigurations
+    * items [ServerGroupValidationConfiguration](#servergroupvalidationconfiguration)
+
+### PutAppValidationConfigurationResponse
+* PutAppValidationConfigurationResponse `object`
 
 ### ReplicationJob
-* ReplicationJob `object`: Object representing a Replication Job
-  * description [Description](#description)
-  * frequency [Frequency](#frequency)
-  * latestAmiId [AmiId](#amiid)
-  * licenseType [LicenseType](#licensetype)
-  * nextReplicationRunStartTime [Timestamp](#timestamp)
-  * replicationJobId [ReplicationJobId](#replicationjobid)
-  * replicationRunList [ReplicationRunList](#replicationrunlist)
-  * roleName [RoleName](#rolename)
-  * seedReplicationTime [Timestamp](#timestamp)
-  * serverId [ServerId](#serverid)
-  * serverType [ServerType](#servertype)
-  * state [ReplicationJobState](#replicationjobstate)
-  * statusMessage [ReplicationJobStatusMessage](#replicationjobstatusmessage)
-  * vmServer [VmServer](#vmserver)
+* ReplicationJob `object`: Represents a replication job.
+  * description
+  * encrypted
+  * frequency
+  * kmsKeyId
+  * latestAmiId
+  * licenseType
+  * nextReplicationRunStartTime
+  * numberOfRecentAmisToKeep
+  * replicationJobId
+  * replicationRunList
+    * items [ReplicationRun](#replicationrun)
+  * roleName
+  * runOnce
+  * seedReplicationTime
+  * serverId
+  * serverType
+  * state
+  * statusMessage
+  * vmServer
+    * vmManagerName
+    * vmManagerType
+    * vmName
+    * vmPath
+    * vmServerAddress
+      * vmId
+      * vmManagerId
 
 ### ReplicationJobAlreadyExistsException
-* ReplicationJobAlreadyExistsException `object`: An active Replication Job already exists for the specified server.
-  * message [ErrorMessage](#errormessage)
+
 
 ### ReplicationJobId
-* ReplicationJobId `string`: The unique identifier for a Replication Job.
+* ReplicationJobId `string`
 
 ### ReplicationJobList
-* ReplicationJobList `array`: List of Replication Jobs
+* ReplicationJobList `array`
   * items [ReplicationJob](#replicationjob)
 
 ### ReplicationJobNotFoundException
-* ReplicationJobNotFoundException `object`: The specified Replication Job cannot be found.
-  * message [ErrorMessage](#errormessage)
+
 
 ### ReplicationJobState
-* ReplicationJobState `string` (values: PENDING, ACTIVE, FAILED, DELETING, DELETED): Current state of Replication Job
+* ReplicationJobState `string` (values: PENDING, ACTIVE, FAILED, DELETING, DELETED, COMPLETED, PAUSED_ON_FAILURE, FAILING)
 
 ### ReplicationJobStatusMessage
-* ReplicationJobStatusMessage `string`: String describing current status of Replication Job
+* ReplicationJobStatusMessage `string`
 
 ### ReplicationJobTerminated
-* ReplicationJobTerminated `boolean`: An indicator of the Replication Job being deleted or failed.
+* ReplicationJobTerminated `boolean`
 
 ### ReplicationRun
-* ReplicationRun `object`: Object representing a Replication Run
-  * amiId [AmiId](#amiid)
-  * completedTime [Timestamp](#timestamp)
-  * description [Description](#description)
-  * replicationRunId [ReplicationRunId](#replicationrunid)
-  * scheduledStartTime [Timestamp](#timestamp)
-  * state [ReplicationRunState](#replicationrunstate)
-  * statusMessage [ReplicationRunStatusMessage](#replicationrunstatusmessage)
-  * type [ReplicationRunType](#replicationruntype)
+* ReplicationRun `object`: Represents a replication run.
+  * amiId
+  * completedTime
+  * description
+  * encrypted
+  * kmsKeyId
+  * replicationRunId
+  * scheduledStartTime
+  * stageDetails
+    * stage
+    * stageProgress
+  * state
+  * statusMessage
+  * type
 
 ### ReplicationRunId
-* ReplicationRunId `string`: The unique identifier for a Replication Run.
+* ReplicationRunId `string`
 
 ### ReplicationRunLimitExceededException
-* ReplicationRunLimitExceededException `object`: This user has exceeded the maximum allowed Replication Run limit.
-  * message [ErrorMessage](#errormessage)
+
 
 ### ReplicationRunList
-* ReplicationRunList `array`: List of Replication Runs
+* ReplicationRunList `array`
   * items [ReplicationRun](#replicationrun)
 
+### ReplicationRunStage
+* ReplicationRunStage `string`
+
+### ReplicationRunStageDetails
+* ReplicationRunStageDetails `object`: Details of the current stage of a replication run.
+  * stage
+  * stageProgress
+
+### ReplicationRunStageProgress
+* ReplicationRunStageProgress `string`
+
 ### ReplicationRunState
-* ReplicationRunState `string` (values: PENDING, MISSED, ACTIVE, FAILED, COMPLETED, DELETING, DELETED): Current state of Replication Run
+* ReplicationRunState `string` (values: PENDING, MISSED, ACTIVE, FAILED, COMPLETED, DELETING, DELETED)
 
 ### ReplicationRunStatusMessage
-* ReplicationRunStatusMessage `string`: String describing current status of Replication Run
+* ReplicationRunStatusMessage `string`
 
 ### ReplicationRunType
-* ReplicationRunType `string` (values: ON_DEMAND, AUTOMATIC): Type of Replication Run
+* ReplicationRunType `string` (values: ON_DEMAND, AUTOMATIC)
 
 ### RoleName
-* RoleName `string`: Name of service role in customer's account to be used by SMS service.
+* RoleName `string`
+
+### RunOnce
+* RunOnce `boolean`
+
+### S3BucketName
+* S3BucketName `string`
+
+### S3KeyName
+* S3KeyName `string`
+
+### S3Location
+* S3Location `object`: Location of an Amazon S3 object.
+  * bucket
+  * key
+
+### SSMOutput
+* SSMOutput `object`: Contains the location of validation output.
+  * s3Location [S3Location](#s3location)
+
+### SSMValidationParameters
+* SSMValidationParameters `object`: Contains validation parameters.
+  * command
+  * executionTimeoutSeconds
+  * instanceId
+  * outputS3BucketName
+  * scriptType
+  * source
+    * s3Location [S3Location](#s3location)
+
+### ScriptType
+* ScriptType `string` (values: SHELL_SCRIPT, POWERSHELL_SCRIPT)
+
+### SecurityGroup
+* SecurityGroup `string`
 
 ### Server
-* Server `object`: Object representing a server
-  * replicationJobId [ReplicationJobId](#replicationjobid)
-  * replicationJobTerminated [ReplicationJobTerminated](#replicationjobterminated)
-  * serverId [ServerId](#serverid)
-  * serverType [ServerType](#servertype)
-  * vmServer [VmServer](#vmserver)
+* Server `object`: Represents a server.
+  * replicationJobId
+  * replicationJobTerminated
+  * serverId
+  * serverType
+  * vmServer
+    * vmManagerName
+    * vmManagerType
+    * vmName
+    * vmPath
+    * vmServerAddress
+      * vmId
+      * vmManagerId
 
 ### ServerCannotBeReplicatedException
-* ServerCannotBeReplicatedException `object`: The provided server cannot be replicated.
-  * message [ErrorMessage](#errormessage)
+
 
 ### ServerCatalogStatus
-* ServerCatalogStatus `string` (values: NOT_IMPORTED, IMPORTING, AVAILABLE, DELETED, EXPIRED): Status of Server catalog
+* ServerCatalogStatus `string` (values: NOT_IMPORTED, IMPORTING, AVAILABLE, DELETED, EXPIRED)
+
+### ServerGroup
+* ServerGroup `object`: Logical grouping of servers.
+  * name
+  * serverGroupId
+  * serverList
+    * items [Server](#server)
+
+### ServerGroupId
+* ServerGroupId `string`
+
+### ServerGroupLaunchConfiguration
+* ServerGroupLaunchConfiguration `object`: Launch configuration for a server group.
+  * launchOrder
+  * serverGroupId
+  * serverLaunchConfigurations
+    * items [ServerLaunchConfiguration](#serverlaunchconfiguration)
+
+### ServerGroupLaunchConfigurations
+* ServerGroupLaunchConfigurations `array`
+  * items [ServerGroupLaunchConfiguration](#servergrouplaunchconfiguration)
+
+### ServerGroupName
+* ServerGroupName `string`
+
+### ServerGroupReplicationConfiguration
+* ServerGroupReplicationConfiguration `object`: Replication configuration for a server group.
+  * serverGroupId
+  * serverReplicationConfigurations
+    * items [ServerReplicationConfiguration](#serverreplicationconfiguration)
+
+### ServerGroupReplicationConfigurations
+* ServerGroupReplicationConfigurations `array`
+  * items [ServerGroupReplicationConfiguration](#servergroupreplicationconfiguration)
+
+### ServerGroupValidationConfiguration
+* ServerGroupValidationConfiguration `object`: Configuration for validating an instance.
+  * serverGroupId
+  * serverValidationConfigurations
+    * items [ServerValidationConfiguration](#servervalidationconfiguration)
+
+### ServerGroupValidationConfigurations
+* ServerGroupValidationConfigurations `array`
+  * items [ServerGroupValidationConfiguration](#servergroupvalidationconfiguration)
+
+### ServerGroups
+* ServerGroups `array`
+  * items [ServerGroup](#servergroup)
 
 ### ServerId
-* ServerId `string`: Unique Identifier for a server
+* ServerId `string`
+
+### ServerLaunchConfiguration
+* ServerLaunchConfiguration `object`: Launch configuration for a server.
+  * associatePublicIpAddress
+  * configureScript [S3Location](#s3location)
+  * configureScriptType
+  * ec2KeyName
+  * iamInstanceProfileName
+  * instanceType
+  * logicalId
+  * securityGroup
+  * server
+    * replicationJobId
+    * replicationJobTerminated
+    * serverId
+    * serverType
+    * vmServer
+      * vmManagerName
+      * vmManagerType
+      * vmName
+      * vmPath
+      * vmServerAddress
+        * vmId
+        * vmManagerId
+  * subnet
+  * userData
+    * s3Location
+      * bucket
+      * key
+  * vpc
+
+### ServerLaunchConfigurations
+* ServerLaunchConfigurations `array`
+  * items [ServerLaunchConfiguration](#serverlaunchconfiguration)
 
 ### ServerList
-* ServerList `array`: List of servers from catalog
+* ServerList `array`
   * items [Server](#server)
 
+### ServerReplicationConfiguration
+* ServerReplicationConfiguration `object`: Replication configuration of a server.
+  * server
+    * replicationJobId
+    * replicationJobTerminated
+    * serverId
+    * serverType
+    * vmServer
+      * vmManagerName
+      * vmManagerType
+      * vmName
+      * vmPath
+      * vmServerAddress
+        * vmId
+        * vmManagerId
+  * serverReplicationParameters
+    * encrypted
+    * frequency
+    * kmsKeyId
+    * licenseType
+    * numberOfRecentAmisToKeep
+    * runOnce
+    * seedTime
+
+### ServerReplicationConfigurations
+* ServerReplicationConfigurations `array`
+  * items [ServerReplicationConfiguration](#serverreplicationconfiguration)
+
+### ServerReplicationParameters
+* ServerReplicationParameters `object`: The replication parameters for replicating a server.
+  * encrypted
+  * frequency
+  * kmsKeyId
+  * licenseType
+  * numberOfRecentAmisToKeep
+  * runOnce
+  * seedTime
+
 ### ServerType
-* ServerType `string` (values: VIRTUAL_MACHINE): Type of server.
+* ServerType `string` (values: VIRTUAL_MACHINE)
+
+### ServerValidationConfiguration
+* ServerValidationConfiguration `object`: Configuration for validating an instance.
+  * name
+  * server [Server](#server)
+  * serverValidationStrategy
+  * userDataValidationParameters
+    * scriptType
+    * source
+      * s3Location [S3Location](#s3location)
+  * validationId
+
+### ServerValidationConfigurations
+* ServerValidationConfigurations `array`
+  * items [ServerValidationConfiguration](#servervalidationconfiguration)
+
+### ServerValidationOutput
+* ServerValidationOutput `object`: Contains output from validating an instance.
+  * server [Server](#server)
+
+### ServerValidationStrategy
+* ServerValidationStrategy `string` (values: USERDATA)
+
+### Source
+* Source `object`: Contains the location of a validation script.
+  * s3Location [S3Location](#s3location)
+
+### StackId
+* StackId `string`
+
+### StackName
+* StackName `string`
+
+### StartAppReplicationRequest
+* StartAppReplicationRequest `object`
+  * appId
+
+### StartAppReplicationResponse
+* StartAppReplicationResponse `object`
+
+### StartOnDemandAppReplicationRequest
+* StartOnDemandAppReplicationRequest `object`
+  * appId **required**
+  * description
+
+### StartOnDemandAppReplicationResponse
+* StartOnDemandAppReplicationResponse `object`
 
 ### StartOnDemandReplicationRunRequest
 * StartOnDemandReplicationRunRequest `object`
-  * description [Description](#description)
-  * replicationJobId **required** [ReplicationJobId](#replicationjobid)
+  * description
+  * replicationJobId **required**
 
 ### StartOnDemandReplicationRunResponse
 * StartOnDemandReplicationRunResponse `object`
-  * replicationRunId [ReplicationRunId](#replicationrunid)
+  * replicationRunId
+
+### StopAppReplicationRequest
+* StopAppReplicationRequest `object`
+  * appId
+
+### StopAppReplicationResponse
+* StopAppReplicationResponse `object`
+
+### Subnet
+* Subnet `string`
+
+### Tag
+* Tag `object`: Key/value pair that can be assigned to an application.
+  * key
+  * value
+
+### TagKey
+* TagKey `string`
+
+### TagValue
+* TagValue `string`
+
+### Tags
+* Tags `array`
+  * items [Tag](#tag)
+
+### TemporarilyUnavailableException
+
+
+### TerminateAppRequest
+* TerminateAppRequest `object`
+  * appId
+
+### TerminateAppResponse
+* TerminateAppResponse `object`
 
 ### Timestamp
-* Timestamp `string`: Timestamp of an operation
+* Timestamp `string`
+
+### TotalServerGroups
+* TotalServerGroups `integer`
+
+### TotalServers
+* TotalServers `integer`
 
 ### UnauthorizedOperationException
-* UnauthorizedOperationException `object`: This user does not have permissions to perform this operation.
-  * message [ErrorMessage](#errormessage)
+
+
+### UpdateAppRequest
+* UpdateAppRequest `object`
+  * tags
+    * items [Tag](#tag)
+  * appId
+  * description
+  * name
+  * roleName
+  * serverGroups
+    * items [ServerGroup](#servergroup)
+
+### UpdateAppResponse
+* UpdateAppResponse `object`
+  * tags
+    * items [Tag](#tag)
+  * appSummary
+    * appId
+    * creationTime
+    * description
+    * importedAppId
+    * lastModified
+    * latestReplicationTime
+    * launchConfigurationStatus
+    * launchDetails
+      * latestLaunchTime
+      * stackId
+      * stackName
+    * launchStatus
+    * launchStatusMessage
+    * name
+    * replicationConfigurationStatus
+    * replicationStatus
+    * replicationStatusMessage
+    * roleName
+    * status
+    * statusMessage
+    * totalServerGroups
+    * totalServers
+  * serverGroups
+    * items [ServerGroup](#servergroup)
 
 ### UpdateReplicationJobRequest
 * UpdateReplicationJobRequest `object`
-  * description [Description](#description)
-  * frequency [Frequency](#frequency)
-  * licenseType [LicenseType](#licensetype)
-  * nextReplicationRunStartTime [Timestamp](#timestamp)
-  * replicationJobId **required** [ReplicationJobId](#replicationjobid)
-  * roleName [RoleName](#rolename)
+  * description
+  * encrypted
+  * frequency
+  * kmsKeyId
+  * licenseType
+  * nextReplicationRunStartTime
+  * numberOfRecentAmisToKeep
+  * replicationJobId **required**
+  * roleName
 
 ### UpdateReplicationJobResponse
 * UpdateReplicationJobResponse `object`
 
+### UserData
+* UserData `object`: A script that runs on first launch of an Amazon EC2 instance. Used for configuring the server during launch.
+  * s3Location
+    * bucket
+    * key
+
+### UserDataValidationParameters
+* UserDataValidationParameters `object`: Contains validation parameters.
+  * scriptType
+  * source
+    * s3Location [S3Location](#s3location)
+
+### VPC
+* VPC `string`
+
+### ValidationId
+* ValidationId `string`
+
+### ValidationOutput
+* ValidationOutput `object`: Contains validation output.
+  * appValidationOutput
+    * ssmOutput
+      * s3Location [S3Location](#s3location)
+  * latestValidationTime
+  * name
+  * serverValidationOutput
+    * server [Server](#server)
+  * status
+  * statusMessage
+  * validationId
+
+### ValidationOutputList
+* ValidationOutputList `array`
+  * items [ValidationOutput](#validationoutput)
+
+### ValidationStatus
+* ValidationStatus `string` (values: READY_FOR_VALIDATION, PENDING, IN_PROGRESS, SUCCEEDED, FAILED)
+
+### ValidationStatusMessage
+* ValidationStatusMessage `string`
+
 ### VmId
-* VmId `string`: Unique Identifier for a VM
+* VmId `string`
 
 ### VmManagerId
-* VmManagerId `string`: Unique Identifier for VM Manager
+* VmManagerId `string`
 
 ### VmManagerName
-* VmManagerName `string`: VM Manager Name
+* VmManagerName `string`
 
 ### VmManagerType
-* VmManagerType `string` (values: VSPHERE): VM Management Product
+* VmManagerType `string` (values: VSPHERE, SCVMM, HYPERV-MANAGER)
 
 ### VmName
-* VmName `string`: Name of Virtual Machine
+* VmName `string`
 
 ### VmPath
-* VmPath `string`: Path to VM
+* VmPath `string`
 
 ### VmServer
-* VmServer `object`: Object representing a VM server
-  * vmManagerName [VmManagerName](#vmmanagername)
-  * vmManagerType [VmManagerType](#vmmanagertype)
-  * vmName [VmName](#vmname)
-  * vmPath [VmPath](#vmpath)
-  * vmServerAddress [VmServerAddress](#vmserveraddress)
+* VmServer `object`: Represents a VM server.
+  * vmManagerName
+  * vmManagerType
+  * vmName
+  * vmPath
+  * vmServerAddress
+    * vmId
+    * vmManagerId
 
 ### VmServerAddress
-* VmServerAddress `object`: Object representing a server's location
-  * vmId [VmId](#vmid)
-  * vmManagerId [VmManagerId](#vmmanagerid)
+* VmServerAddress `object`: Represents a VM server location.
+  * vmId
+  * vmManagerId
+
+### VmServerAddressList
+* VmServerAddressList `array`
+  * items [VmServerAddress](#vmserveraddress)
 
 

@@ -7,7 +7,7 @@
   "info": {
     "description": "The Microsoft Azure Network management API provides a RESTful set of web services that interact with Microsoft Azure Networks service to manage your network resources. The API has entities that capture the relationship between an end user and the Microsoft Azure Networks service.",
     "title": "NetworkManagementClient",
-    "version": "2018-01-01",
+    "version": "2019-08-01",
     "x-apisguru-categories": [
       "cloud"
     ],
@@ -17,7 +17,7 @@
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/network/resource-manager/Microsoft.Network/stable/2018-01-01/publicIpAddress.json",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/network/resource-manager/Microsoft.Network/stable/2019-08-01/publicIpAddress.json",
         "version": "2.0"
       }
     ],
@@ -34,17 +34,15 @@
     }
   },
   "consumes": [
-    "application/json",
-    "text/json"
+    "application/json"
   ],
   "produces": [
-    "application/json",
-    "text/json"
+    "application/json"
   ],
   "securityDefinitions": {
     "azure_auth": {
       "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
-      "description": "Azure Active Directory OAuth2 Flow",
+      "description": "Azure Active Directory OAuth2 Flow.",
       "flow": "implicit",
       "scopes": {
         "user_impersonation": "impersonate your user account"
@@ -59,22 +57,6 @@
       ]
     }
   ],
-  "parameters": {
-    "ApiVersionParameter": {
-      "description": "Client API version.",
-      "in": "query",
-      "name": "api-version",
-      "required": true,
-      "type": "string"
-    },
-    "SubscriptionIdParameter": {
-      "description": "The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
-      "in": "path",
-      "name": "subscriptionId",
-      "required": true,
-      "type": "string"
-    }
-  },
   "paths": {
     "/subscriptions/{subscriptionId}/providers/Microsoft.Network/publicIPAddresses": {
       "get": {
@@ -82,10 +64,18 @@
         "operationId": "PublicIPAddresses_ListAll",
         "parameters": [
           {
-            "$ref": "#/parameters/ApiVersionParameter"
+            "description": "Client API version.",
+            "in": "query",
+            "name": "api-version",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/SubscriptionIdParameter"
+            "description": "The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -102,7 +92,7 @@
         "x-ms-examples": {
           "List all public IP addresses": {
             "parameters": {
-              "api-version": "2018-01-01",
+              "api-version": "2019-08-01",
               "subscriptionId": "subid"
             },
             "responses": {
@@ -168,10 +158,18 @@
             "type": "string"
           },
           {
-            "$ref": "#/parameters/ApiVersionParameter"
+            "description": "Client API version.",
+            "in": "query",
+            "name": "api-version",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/SubscriptionIdParameter"
+            "description": "The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -188,7 +186,7 @@
         "x-ms-examples": {
           "List resource group public IP addresses": {
             "parameters": {
-              "api-version": "2018-01-01",
+              "api-version": "2019-08-01",
               "resourceGroupName": "rg1",
               "subscriptionId": "subid"
             },
@@ -272,10 +270,18 @@
             "type": "string"
           },
           {
-            "$ref": "#/parameters/ApiVersionParameter"
+            "description": "Client API version.",
+            "in": "query",
+            "name": "api-version",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/SubscriptionIdParameter"
+            "description": "The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -295,7 +301,7 @@
         "x-ms-examples": {
           "Delete public IP address": {
             "parameters": {
-              "api-version": "2018-01-01",
+              "api-version": "2019-08-01",
               "publicIpAddressName": "test-ip",
               "resourceGroupName": "rg1",
               "subscriptionId": "subid"
@@ -307,7 +313,10 @@
             }
           }
         },
-        "x-ms-long-running-operation": true
+        "x-ms-long-running-operation": true,
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "location"
+        }
       },
       "get": {
         "description": "Gets the specified public IP address in a specified resource group.",
@@ -328,10 +337,18 @@
             "type": "string"
           },
           {
-            "$ref": "#/parameters/ApiVersionParameter"
+            "description": "Client API version.",
+            "in": "query",
+            "name": "api-version",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/SubscriptionIdParameter"
+            "description": "The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string"
           },
           {
             "description": "Expands referenced resources.",
@@ -355,7 +372,7 @@
         "x-ms-examples": {
           "Get public IP address": {
             "parameters": {
-              "api-version": "2018-01-01",
+              "api-version": "2019-08-01",
               "publicIpAddressName": "testDNS-ip",
               "resourceGroupName": "rg1",
               "subscriptionId": "subid"
@@ -429,10 +446,18 @@
             }
           },
           {
-            "$ref": "#/parameters/ApiVersionParameter"
+            "description": "Client API version.",
+            "in": "query",
+            "name": "api-version",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/SubscriptionIdParameter"
+            "description": "The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -449,7 +474,7 @@
         "x-ms-examples": {
           "Update public IP address tags": {
             "parameters": {
-              "api-version": "2018-01-01",
+              "api-version": "2019-08-01",
               "parameters": {
                 "tags": {
                   "tag1": "value1",
@@ -515,10 +540,18 @@
             }
           },
           {
-            "$ref": "#/parameters/ApiVersionParameter"
+            "description": "Client API version.",
+            "in": "query",
+            "name": "api-version",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/SubscriptionIdParameter"
+            "description": "The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -541,8 +574,9 @@
         "x-ms-examples": {
           "Create public IP address DNS": {
             "parameters": {
-              "api-version": "2018-01-01",
+              "api-version": "2019-08-01",
               "parameters": {
+                "location": "eastus",
                 "properties": {
                   "dnsSettings": {
                     "domainNameLabel": "dnslbl"
@@ -557,7 +591,7 @@
               "200": {
                 "body": {
                   "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/publicIPAddresses/test-ip",
-                  "location": "westus",
+                  "location": "eastus",
                   "name": "testDNS-ip",
                   "properties": {
                     "dnsSettings": {
@@ -578,7 +612,7 @@
               "201": {
                 "body": {
                   "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/publicIPAddresses/test-ip",
-                  "location": "westus",
+                  "location": "eastus",
                   "name": "testDNS-ip",
                   "properties": {
                     "dnsSettings": {
@@ -600,8 +634,9 @@
           },
           "Create public IP address allocation method": {
             "parameters": {
-              "api-version": "2018-01-01",
+              "api-version": "2019-08-01",
               "parameters": {
+                "location": "eastus",
                 "properties": {
                   "idleTimeoutInMinutes": 10,
                   "publicIPAddressVersion": "IPv4",
@@ -622,7 +657,7 @@
               "200": {
                 "body": {
                   "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/publicIPAddresses/test-ip",
-                  "location": "westus",
+                  "location": "eastus",
                   "name": "testDNS-ip",
                   "properties": {
                     "idleTimeoutInMinutes": 10,
@@ -645,7 +680,7 @@
               "201": {
                 "body": {
                   "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/publicIPAddresses/test-ip",
-                  "location": "westus",
+                  "location": "eastus",
                   "name": "testDNS-ip",
                   "properties": {
                     "idleTimeoutInMinutes": 10,
@@ -669,8 +704,10 @@
           },
           "Create public IP address defaults": {
             "parameters": {
-              "api-version": "2018-01-01",
-              "parameters": {},
+              "api-version": "2019-08-01",
+              "parameters": {
+                "location": "eastus"
+              },
               "publicIpAddressName": "test-ip",
               "resourceGroupName": "rg1",
               "subscriptionId": "subid"
@@ -679,7 +716,7 @@
               "200": {
                 "body": {
                   "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/publicIPAddresses/test-ip",
-                  "location": "westus",
+                  "location": "eastus",
                   "name": "testDNS-ip",
                   "properties": {
                     "idleTimeoutInMinutes": 4,
@@ -699,7 +736,7 @@
               "201": {
                 "body": {
                   "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/publicIPAddresses/test-ip",
-                  "location": "westus",
+                  "location": "eastus",
                   "name": "testDNS-ip",
                   "properties": {
                     "idleTimeoutInMinutes": 4,
@@ -719,20 +756,51 @@
             }
           }
         },
-        "x-ms-long-running-operation": true
+        "x-ms-long-running-operation": true,
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "azure-async-operation"
+        }
       }
     }
   },
   "definitions": {
+    "DdosSettings": {
+      "description": "Contains the DDoS protection settings of the public IP.",
+      "properties": {
+        "ddosCustomPolicy": {
+          "description": "Reference to another subresource.",
+          "properties": {
+            "id": {
+              "description": "Resource ID.",
+              "type": "string"
+            }
+          },
+          "x-ms-azure-resource": true
+        },
+        "protectionCoverage": {
+          "description": "The DDoS protection policy customizability of the public IP. Only standard coverage will have the ability to be customized.",
+          "enum": [
+            "Basic",
+            "Standard"
+          ],
+          "readOnly": false,
+          "type": "string",
+          "x-ms-enum": {
+            "modelAsString": true,
+            "name": "DdosSettingsProtectionCoverage"
+          }
+        }
+      }
+    },
     "IpTag": {
-      "description": "Contains the IpTag associated with the public IP address",
+      "description": "Contains the IpTag associated with the object.",
       "properties": {
         "ipTagType": {
-          "description": "Gets or sets the ipTag type: Example FirstPartyUsage.",
+          "description": "The IP tag type. Example: FirstPartyUsage.",
           "type": "string"
         },
         "tag": {
-          "description": "Gets or sets value of the IpTag associated with the public IP. Example SQL, Storage etc",
+          "description": "The value of the IP tag associated with the public IP. Example: SQL.",
           "type": "string"
         }
       }
@@ -783,7 +851,7 @@
           "x-ms-client-flatten": true
         },
         "sku": {
-          "description": "SKU of a public IP address",
+          "description": "SKU of a public IP address.",
           "properties": {
             "name": {
               "description": "Name of a public IP address SKU.",
@@ -809,18 +877,18 @@
       }
     },
     "PublicIPAddressDnsSettings": {
-      "description": "Contains FQDN of the DNS record associated with the public IP address",
+      "description": "Contains FQDN of the DNS record associated with the public IP address.",
       "properties": {
         "domainNameLabel": {
-          "description": "Gets or sets the Domain name label.The concatenation of the domain name label and the regionalized DNS zone make up the fully qualified domain name associated with the public IP address. If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.",
+          "description": "The domain name label. The concatenation of the domain name label and the regionalized DNS zone make up the fully qualified domain name associated with the public IP address. If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.",
           "type": "string"
         },
         "fqdn": {
-          "description": "Gets the FQDN, Fully qualified domain name of the A DNS record associated with the public IP. This is the concatenation of the domainNameLabel and the regionalized DNS zone.",
+          "description": "The Fully Qualified Domain Name of the A DNS record associated with the public IP. This is the concatenation of the domainNameLabel and the regionalized DNS zone.",
           "type": "string"
         },
         "reverseFqdn": {
-          "description": "Gets or Sets the Reverse FQDN. A user-visible, fully qualified domain name that resolves to this public IP address. If the reverseFqdn is specified, then a PTR DNS record is created pointing from the IP address in the in-addr.arpa domain to the reverse FQDN. ",
+          "description": "The reverse FQDN. A user-visible, fully qualified domain name that resolves to this public IP address. If the reverseFqdn is specified, then a PTR DNS record is created pointing from the IP address in the in-addr.arpa domain to the reverse FQDN.",
           "type": "string"
         }
       }
@@ -844,19 +912,47 @@
     "PublicIPAddressPropertiesFormat": {
       "description": "Public IP address properties.",
       "properties": {
+        "ddosSettings": {
+          "description": "Contains the DDoS protection settings of the public IP.",
+          "properties": {
+            "ddosCustomPolicy": {
+              "description": "Reference to another subresource.",
+              "properties": {
+                "id": {
+                  "description": "Resource ID.",
+                  "type": "string"
+                }
+              },
+              "x-ms-azure-resource": true
+            },
+            "protectionCoverage": {
+              "description": "The DDoS protection policy customizability of the public IP. Only standard coverage will have the ability to be customized.",
+              "enum": [
+                "Basic",
+                "Standard"
+              ],
+              "readOnly": false,
+              "type": "string",
+              "x-ms-enum": {
+                "modelAsString": true,
+                "name": "DdosSettingsProtectionCoverage"
+              }
+            }
+          }
+        },
         "dnsSettings": {
-          "description": "Contains FQDN of the DNS record associated with the public IP address",
+          "description": "Contains FQDN of the DNS record associated with the public IP address.",
           "properties": {
             "domainNameLabel": {
-              "description": "Gets or sets the Domain name label.The concatenation of the domain name label and the regionalized DNS zone make up the fully qualified domain name associated with the public IP address. If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.",
+              "description": "The domain name label. The concatenation of the domain name label and the regionalized DNS zone make up the fully qualified domain name associated with the public IP address. If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.",
               "type": "string"
             },
             "fqdn": {
-              "description": "Gets the FQDN, Fully qualified domain name of the A DNS record associated with the public IP. This is the concatenation of the domainNameLabel and the regionalized DNS zone.",
+              "description": "The Fully Qualified Domain Name of the A DNS record associated with the public IP. This is the concatenation of the domainNameLabel and the regionalized DNS zone.",
               "type": "string"
             },
             "reverseFqdn": {
-              "description": "Gets or Sets the Reverse FQDN. A user-visible, fully qualified domain name that resolves to this public IP address. If the reverseFqdn is specified, then a PTR DNS record is created pointing from the IP address in the in-addr.arpa domain to the reverse FQDN. ",
+              "description": "The reverse FQDN. A user-visible, fully qualified domain name that resolves to this public IP address. If the reverseFqdn is specified, then a PTR DNS record is created pointing from the IP address in the in-addr.arpa domain to the reverse FQDN.",
               "type": "string"
             }
           }
@@ -878,14 +974,14 @@
         "ipTags": {
           "description": "The list of tags associated with the public IP address.",
           "items": {
-            "description": "Contains the IpTag associated with the public IP address",
+            "description": "Contains the IpTag associated with the object.",
             "properties": {
               "ipTagType": {
-                "description": "Gets or sets the ipTag type: Example FirstPartyUsage.",
+                "description": "The IP tag type. Example: FirstPartyUsage.",
                 "type": "string"
               },
               "tag": {
-                "description": "Gets or sets value of the IpTag associated with the public IP. Example SQL, Storage etc",
+                "description": "The value of the IP tag associated with the public IP. Example: SQL.",
                 "type": "string"
               }
             }
@@ -893,11 +989,22 @@
           "type": "array"
         },
         "provisioningState": {
-          "description": "The provisioning state of the PublicIP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.",
-          "type": "string"
+          "description": "The current provisioning state.",
+          "enum": [
+            "Succeeded",
+            "Updating",
+            "Deleting",
+            "Failed"
+          ],
+          "readOnly": true,
+          "type": "string",
+          "x-ms-enum": {
+            "modelAsString": true,
+            "name": "ProvisioningState"
+          }
         },
         "publicIPAddressVersion": {
-          "description": "The public IP address version. Possible values are: 'IPv4' and 'IPv6'.",
+          "description": "IP address version.",
           "enum": [
             "IPv4",
             "IPv6"
@@ -909,7 +1016,7 @@
           }
         },
         "publicIPAllocationMethod": {
-          "description": "The public IP allocation method. Possible values are: 'Static' and 'Dynamic'.",
+          "description": "IP address allocation method.",
           "enum": [
             "Static",
             "Dynamic"
@@ -920,14 +1027,24 @@
             "name": "IPAllocationMethod"
           }
         },
+        "publicIPPrefix": {
+          "description": "Reference to another subresource.",
+          "properties": {
+            "id": {
+              "description": "Resource ID.",
+              "type": "string"
+            }
+          },
+          "x-ms-azure-resource": true
+        },
         "resourceGuid": {
-          "description": "The resource GUID property of the public IP resource.",
+          "description": "The resource GUID property of the public IP address resource.",
           "type": "string"
         }
       }
     },
     "PublicIPAddressSku": {
-      "description": "SKU of a public IP address",
+      "description": "SKU of a public IP address.",
       "properties": {
         "name": {
           "description": "Name of a public IP address SKU.",

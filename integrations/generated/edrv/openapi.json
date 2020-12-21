@@ -1,0 +1,3872 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "contact": {
+      "email": "hello@edrv.io",
+      "name": "eDRV",
+      "url": "https://edrv.io"
+    },
+    "description": "edrv.io API Documentation",
+    "title": "eDRV API",
+    "version": "v1",
+    "x-apisguru-categories": [
+      "open_data",
+      "transport",
+      "location"
+    ],
+    "x-logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_uploads-ssl.webflow.com_5eb5ba31ecd0593f18002773_5edcf57799287361407a98a4_Untitled (3)-p-500.png"
+    },
+    "x-origin": [
+      {
+        "format": "openapi",
+        "url": "https://developers.edrv.io/openapi/5f15c43c87b0d6001ea97414",
+        "version": "3.0"
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "edrv.io",
+    "x-datafire": {
+      "name": "edrv",
+      "type": "openapi"
+    }
+  },
+  "basePath": "/api.edrv.io",
+  "paths": {
+    "/v1/chargestations": {
+      "get": {
+        "parameters": [
+          {
+            "description": "Filter by Org. Id",
+            "in": "query",
+            "name": "organization",
+            "type": "string"
+          },
+          {
+            "description": "Filter by Location Id",
+            "in": "query",
+            "name": "location",
+            "type": "string"
+          },
+          {
+            "description": "Filter by Online Status",
+            "in": "query",
+            "name": "online",
+            "type": "boolean"
+          },
+          {
+            "description": "Chargestations that have been activated/deactivated by the admin",
+            "in": "query",
+            "name": "active",
+            "type": "boolean"
+          },
+          {
+            "description": "Chargestations that are public",
+            "in": "query",
+            "name": "public",
+            "type": "boolean"
+          },
+          {
+            "default": 20,
+            "description": "Number of results per page",
+            "in": "query",
+            "maximum": 1000,
+            "minimum": 1,
+            "name": "paginate_limit",
+            "type": "integer"
+          },
+          {
+            "description": "The queried page index",
+            "in": "query",
+            "name": "paginate_page",
+            "type": "string"
+          },
+          {
+            "default": true,
+            "description": "Enable pagination",
+            "in": "query",
+            "name": "paginate_enabled",
+            "type": "boolean"
+          },
+          {
+            "default": "createdAt",
+            "description": "Sort data by this key",
+            "in": "query",
+            "name": "sort_by",
+            "type": "string"
+          },
+          {
+            "default": "desc",
+            "description": "asc to sort ascending (default is desc - descending)",
+            "enum": [
+              "desc",
+              "asc"
+            ],
+            "in": "query",
+            "name": "sort_order",
+            "type": "string"
+          },
+          {
+            "description": "Date as ISO String",
+            "format": "date-time",
+            "in": "query",
+            "name": "createdAt[$gte]",
+            "type": "string"
+          },
+          {
+            "description": "Date as ISO String",
+            "format": "date-time",
+            "in": "query",
+            "name": "createdAt[$lte]",
+            "type": "string"
+          },
+          {
+            "description": "Date as ISO String",
+            "format": "date-time",
+            "in": "query",
+            "name": "updatedAt[$gte]",
+            "type": "string"
+          },
+          {
+            "description": "Date as ISO String",
+            "format": "date-time",
+            "in": "query",
+            "name": "updatedAt[$lte]",
+            "type": "string"
+          },
+          {
+            "description": "Populate location",
+            "in": "query",
+            "name": "include_location",
+            "type": "boolean"
+          },
+          {
+            "description": "Populate evses",
+            "in": "query",
+            "name": "include_evses",
+            "type": "boolean"
+          },
+          {
+            "description": "Populate organization",
+            "in": "query",
+            "name": "include_organization",
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "An array of chargestation objects"
+          }
+        },
+        "tags": [
+          "Charge Stations"
+        ],
+        "description": "List all Chargestations",
+        "operationId": "getChargeStations"
+      },
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Include charge station properties to create here",
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/schema1"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Returns the newly created chargestion object",
+            "schema": {
+              "properties": {
+                "chargestation": {
+                  "type": "object"
+                },
+                "message": {
+                  "type": "string"
+                },
+                "ok": {
+                  "type": "boolean"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "400": {
+            "description": "A failure response"
+          }
+        },
+        "tags": [
+          "Charge Stations"
+        ],
+        "description": "Create a new charge station",
+        "operationId": "postChargeStations"
+      }
+    },
+    "/v1/chargestations/{id}": {
+      "delete": {
+        "parameters": [
+          {
+            "description": "The charge station id that needs to be deleted",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns the deleted chargestion object"
+          },
+          "400": {
+            "description": "Request Error"
+          }
+        },
+        "tags": [
+          "Charge Stations"
+        ],
+        "description": "Use to delete a charge station",
+        "operationId": "deleteChargeStation"
+      },
+      "get": {
+        "parameters": [
+          {
+            "description": "The charge station id that needs to be fetched",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Populate location",
+            "in": "query",
+            "name": "include_location",
+            "type": "boolean"
+          },
+          {
+            "description": "Populate evses",
+            "in": "query",
+            "name": "include_evses",
+            "type": "boolean"
+          },
+          {
+            "description": "Populate organization",
+            "in": "query",
+            "name": "include_organization",
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns a chargestion object"
+          }
+        },
+        "tags": [
+          "Charge Stations"
+        ],
+        "description": "Get a single charge station's data",
+        "operationId": "getChargeStation"
+      },
+      "patch": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "ID of charge station that needs to be updated",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Include charge station properties to update here",
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/schema1"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns the updated chargestion object",
+            "schema": {
+              "properties": {
+                "message": {
+                  "type": "string"
+                },
+                "ok": {
+                  "type": "boolean"
+                },
+                "result": {
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "400": {
+            "description": "A failure response"
+          }
+        },
+        "tags": [
+          "Charge Stations"
+        ],
+        "description": "Update a charge station's data",
+        "operationId": "patchChargeStation"
+      }
+    },
+    "/v1/chargestations/{id}/connectors": {
+      "get": {
+        "parameters": [
+          {
+            "description": "chargeStation id",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Populate evse",
+            "in": "query",
+            "name": "include_evse",
+            "type": "boolean"
+          },
+          {
+            "description": "Populate organization",
+            "in": "query",
+            "name": "include_organization",
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns an array of connector objects"
+          },
+          "400": {
+            "description": "A failure response"
+          }
+        },
+        "tags": [
+          "Charge Stations"
+        ],
+        "description": "List connectors for a chargestation",
+        "operationId": "getChargeStationConnectors"
+      }
+    },
+    "/v1/commands": {
+      "get": {
+        "parameters": [
+          {
+            "default": 20,
+            "description": "Number of results per page",
+            "in": "query",
+            "maximum": 1000,
+            "minimum": 1,
+            "name": "paginate_limit",
+            "type": "integer"
+          },
+          {
+            "description": "The queried page index",
+            "in": "query",
+            "name": "paginate_page",
+            "type": "string"
+          },
+          {
+            "default": true,
+            "description": "Enable pagination",
+            "in": "query",
+            "name": "paginate_enabled",
+            "type": "boolean"
+          },
+          {
+            "default": "createdAt",
+            "description": "Sort data by this key",
+            "in": "query",
+            "name": "sort_by",
+            "type": "string"
+          },
+          {
+            "default": "desc",
+            "description": "asc to sort ascending (default is desc - descending)",
+            "enum": [
+              "desc",
+              "asc"
+            ],
+            "in": "query",
+            "name": "sort_order",
+            "type": "string"
+          },
+          {
+            "description": "Date as ISO String",
+            "format": "date-time",
+            "in": "query",
+            "name": "createdAt[$gte]",
+            "type": "string"
+          },
+          {
+            "description": "Date as ISO String",
+            "format": "date-time",
+            "in": "query",
+            "name": "createdAt[$lte]",
+            "type": "string"
+          },
+          {
+            "description": "Date as ISO String",
+            "format": "date-time",
+            "in": "query",
+            "name": "updatedAt[$gte]",
+            "type": "string"
+          },
+          {
+            "description": "Date as ISO String",
+            "format": "date-time",
+            "in": "query",
+            "name": "updatedAt[$lte]",
+            "type": "string"
+          },
+          {
+            "description": "Populate chargestation",
+            "in": "query",
+            "name": "include_chargestation",
+            "type": "boolean"
+          },
+          {
+            "description": "Populate driver",
+            "in": "query",
+            "name": "include_driver",
+            "type": "boolean"
+          },
+          {
+            "description": "Populate transaction",
+            "in": "query",
+            "name": "include_transaction",
+            "type": "boolean"
+          },
+          {
+            "description": "Populate organization",
+            "in": "query",
+            "name": "include_organization",
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "tags": [
+          "Commands"
+        ],
+        "description": "Get Commands data",
+        "operationId": "getCommands"
+      }
+    },
+    "/v1/commands/cancelreservation": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "reservation": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "A successful response",
+            "schema": {
+              "properties": {
+                "message": {
+                  "type": "string"
+                },
+                "ok": {
+                  "type": "boolean"
+                },
+                "result": {
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "400": {
+            "description": "A failure response"
+          }
+        },
+        "tags": [
+          "Commands"
+        ],
+        "description": "Use to request a delete an existing reservation. The request will wait for the charge station to process the command. It will timeout after 60 seconds.",
+        "operationId": "cancelreservation"
+      }
+    },
+    "/v1/commands/chargingschedule": {
+      "delete": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "id": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "A successful response",
+            "schema": {
+              "properties": {
+                "command": {
+                  "type": "object"
+                },
+                "message": {
+                  "type": "string"
+                },
+                "ok": {
+                  "type": "boolean"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "400": {
+            "description": "Schedule not found"
+          }
+        },
+        "tags": [
+          "Smart Charging"
+        ],
+        "description": "Delete a smart charging schedule",
+        "operationId": "deletechargingschedule"
+      },
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "connector": {
+                  "type": "string"
+                },
+                "schedule": {
+                  "items": {
+                    "properties": {
+                      "endDate": {
+                        "type": "string"
+                      },
+                      "limit": {
+                        "type": "number"
+                      },
+                      "startDate": {
+                        "type": "string"
+                      },
+                      "unit": {
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "A successful response",
+            "schema": {
+              "properties": {
+                "command": {
+                  "type": "object"
+                },
+                "message": {
+                  "type": "string"
+                },
+                "ok": {
+                  "type": "boolean"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "400": {
+            "description": "A failure response"
+          }
+        },
+        "tags": [
+          "Smart Charging"
+        ],
+        "description": "Set one of charging power or current of a specific chargestation connector",
+        "operationId": "setchargingschedule"
+      }
+    },
+    "/v1/commands/remotestart": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "chargestation": {
+                  "type": "string"
+                },
+                "connector": {
+                  "type": "string"
+                },
+                "driver": {
+                  "type": "string"
+                },
+                "token": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "A successful response",
+            "schema": {
+              "properties": {
+                "command": {
+                  "type": "object"
+                },
+                "message": {
+                  "type": "string"
+                },
+                "ok": {
+                  "type": "boolean"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "400": {
+            "description": "A failure response"
+          }
+        },
+        "tags": [
+          "Commands"
+        ],
+        "description": "Use to request a remote start command. The request will wait for the charge station to process the command. It will timeout after 60 seconds.",
+        "operationId": "remotestart"
+      }
+    },
+    "/v1/commands/remotestop": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Remote stop transaction info here.",
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "chargestation": {
+                  "type": "string"
+                },
+                "driver": {
+                  "type": "string"
+                },
+                "transaction": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "A successful response"
+          },
+          "400": {
+            "description": "A failure response"
+          }
+        },
+        "tags": [
+          "Commands"
+        ],
+        "description": "Use to request a remote stop command. The request will wait for the charge station to process the command. It will timeout after 60 seconds.",
+        "operationId": "remotestop"
+      }
+    },
+    "/v1/commands/reserve": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "chargestation": {
+                  "type": "string"
+                },
+                "connector": {
+                  "type": "string"
+                },
+                "driver": {
+                  "type": "string"
+                },
+                "endDate": {
+                  "type": "string"
+                },
+                "token": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "A successful response",
+            "schema": {
+              "properties": {
+                "command": {
+                  "type": "object"
+                },
+                "message": {
+                  "type": "string"
+                },
+                "ok": {
+                  "type": "boolean"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "400": {
+            "description": "A failure response"
+          }
+        },
+        "tags": [
+          "Commands"
+        ],
+        "description": "Use to request a reserve command. The request will wait for the charge station to process the command. It will timeout after 60 seconds.",
+        "operationId": "reserve"
+      }
+    },
+    "/v1/commands/reset": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "chargestation": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "A successful response",
+            "schema": {
+              "properties": {
+                "message": {
+                  "type": "string"
+                },
+                "ok": {
+                  "type": "boolean"
+                },
+                "result": {
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "400": {
+            "description": "A failure response"
+          }
+        },
+        "tags": [
+          "Commands"
+        ],
+        "description": "Use to request a reset command. The request will wait for the charge station to process the command. It will timeout after 60 seconds.",
+        "operationId": "reset"
+      }
+    },
+    "/v1/commands/unlockconnector": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "chargestation": {
+                  "type": "string"
+                },
+                "connector": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "A successful response",
+            "schema": {
+              "properties": {
+                "command": {
+                  "type": "object"
+                },
+                "message": {
+                  "type": "string"
+                },
+                "ok": {
+                  "type": "boolean"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "400": {
+            "description": "A failure response"
+          }
+        },
+        "tags": [
+          "Commands"
+        ],
+        "description": "Use to request an unlock command for a connector. The request will wait for the charge station to process the command. It will timeout after 60 seconds.",
+        "operationId": "unlockconnector"
+      }
+    },
+    "/v1/commands/{id}/variables": {
+      "get": {
+        "parameters": [
+          {
+            "description": "The chargestation id",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns Cs configurations array"
+          }
+        },
+        "tags": [
+          "Commands"
+        ],
+        "description": "Get a charge station's config variables",
+        "operationId": "getVariables"
+      },
+      "patch": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "ID of charge station",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Charge Station Variable to set",
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "value": {
+                  "type": "string"
+                },
+                "variable": {
+                  "enum": [
+                    "MeterValueSampleInterval",
+                    "HeartbeatInterval",
+                    "ConnectionTimeOut",
+                    "WebSocketPingInterval",
+                    "TransactionMessageRetryInterval",
+                    "TransactionMessageAttempts"
+                  ],
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "A successful response",
+            "schema": {
+              "properties": {
+                "message": {
+                  "type": "string"
+                },
+                "ok": {
+                  "type": "boolean"
+                },
+                "result": {
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "400": {
+            "description": "A failure response"
+          }
+        },
+        "tags": [
+          "Commands"
+        ],
+        "description": "Update config variables for a chargestation",
+        "operationId": "patchChargeStationVariable"
+      }
+    },
+    "/v1/configurations": {
+      "get": {
+        "parameters": [
+          {
+            "default": 20,
+            "description": "Number of results per page",
+            "in": "query",
+            "maximum": 1000,
+            "minimum": 1,
+            "name": "paginate_limit",
+            "type": "integer"
+          },
+          {
+            "description": "The queried page index",
+            "in": "query",
+            "name": "paginate_page",
+            "type": "string"
+          },
+          {
+            "default": true,
+            "description": "Enable pagination",
+            "in": "query",
+            "name": "paginate_enabled",
+            "type": "boolean"
+          },
+          {
+            "default": "createdAt",
+            "description": "Sort data by this key",
+            "in": "query",
+            "name": "sort_by",
+            "type": "string"
+          },
+          {
+            "default": "desc",
+            "description": "asc to sort ascending (default is desc - descending)",
+            "enum": [
+              "desc",
+              "asc"
+            ],
+            "in": "query",
+            "name": "sort_order",
+            "type": "string"
+          },
+          {
+            "description": "Date as ISO String",
+            "format": "date-time",
+            "in": "query",
+            "name": "createdAt[$gte]",
+            "type": "string"
+          },
+          {
+            "description": "Date as ISO String",
+            "format": "date-time",
+            "in": "query",
+            "name": "createdAt[$lte]",
+            "type": "string"
+          },
+          {
+            "description": "Date as ISO String",
+            "format": "date-time",
+            "in": "query",
+            "name": "updatedAt[$gte]",
+            "type": "string"
+          },
+          {
+            "description": "Date as ISO String",
+            "format": "date-time",
+            "in": "query",
+            "name": "updatedAt[$lte]",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "tags": [
+          "Configurations"
+        ],
+        "description": "Get Configurations data",
+        "operationId": "getConfigurations"
+      },
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Include Configuration properties to create here",
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "key": {
+                  "type": "string"
+                },
+                "value": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "A successful response",
+            "schema": {
+              "properties": {
+                "message": {
+                  "type": "string"
+                },
+                "ok": {
+                  "type": "boolean"
+                },
+                "result": {
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "400": {
+            "description": "A failure response"
+          }
+        },
+        "tags": [
+          "Configurations"
+        ],
+        "description": "Create connector with parameters",
+        "operationId": "postConfigurations"
+      }
+    },
+    "/v1/configurations/{id}": {
+      "get": {
+        "parameters": [
+          {
+            "description": "ID of Configuration that needs to be fetched",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "tags": [
+          "Configurations"
+        ],
+        "description": "Get one Configuration data",
+        "operationId": "getConfiguration"
+      }
+    },
+    "/v1/connectors": {
+      "get": {
+        "parameters": [
+          {
+            "default": 20,
+            "description": "Number of results per page",
+            "in": "query",
+            "maximum": 1000,
+            "minimum": 1,
+            "name": "paginate_limit",
+            "type": "integer"
+          },
+          {
+            "description": "The queried page index",
+            "in": "query",
+            "name": "paginate_page",
+            "type": "string"
+          },
+          {
+            "default": true,
+            "description": "Enable pagination",
+            "in": "query",
+            "name": "paginate_enabled",
+            "type": "boolean"
+          },
+          {
+            "default": "createdAt",
+            "description": "Sort data by this key",
+            "in": "query",
+            "name": "sort_by",
+            "type": "string"
+          },
+          {
+            "default": "desc",
+            "description": "asc to sort ascending (default is desc - descending)",
+            "enum": [
+              "desc",
+              "asc"
+            ],
+            "in": "query",
+            "name": "sort_order",
+            "type": "string"
+          },
+          {
+            "description": "Date as ISO String",
+            "format": "date-time",
+            "in": "query",
+            "name": "createdAt[$gte]",
+            "type": "string"
+          },
+          {
+            "description": "Date as ISO String",
+            "format": "date-time",
+            "in": "query",
+            "name": "createdAt[$lte]",
+            "type": "string"
+          },
+          {
+            "description": "Date as ISO String",
+            "format": "date-time",
+            "in": "query",
+            "name": "updatedAt[$gte]",
+            "type": "string"
+          },
+          {
+            "description": "Date as ISO String",
+            "format": "date-time",
+            "in": "query",
+            "name": "updatedAt[$lte]",
+            "type": "string"
+          },
+          {
+            "description": "Populate evse",
+            "in": "query",
+            "name": "include_evse",
+            "type": "boolean"
+          },
+          {
+            "description": "Populate organization",
+            "in": "query",
+            "name": "include_organization",
+            "type": "boolean"
+          },
+          {
+            "description": "Populate rate",
+            "in": "query",
+            "name": "include_rate",
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns an array of connector objects"
+          }
+        },
+        "tags": [
+          "Connectors"
+        ],
+        "description": "List connectors",
+        "operationId": "getConnectors"
+      },
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Include Connector properties to create here",
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "chargestation": {
+                  "type": "string"
+                },
+                "format": {
+                  "type": "string"
+                },
+                "power": {
+                  "type": "integer"
+                },
+                "power_type": {
+                  "type": "string"
+                },
+                "rate": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns the new connector object",
+            "schema": {
+              "properties": {
+                "message": {
+                  "type": "string"
+                },
+                "ok": {
+                  "type": "boolean"
+                },
+                "result": {
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "400": {
+            "description": "A failure response"
+          }
+        },
+        "tags": [
+          "Connectors"
+        ],
+        "description": "Create a new connector",
+        "operationId": "postConnectors"
+      }
+    },
+    "/v1/connectors/{id}": {
+      "delete": {
+        "parameters": [
+          {
+            "description": "The connector id that needs to be deleted",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns the deleted connector object"
+          }
+        },
+        "tags": [
+          "Connectors"
+        ],
+        "description": "Delete a connector",
+        "operationId": "deleteConnector"
+      },
+      "get": {
+        "parameters": [
+          {
+            "description": "ID of connector that needs to be fetched",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Populate evse",
+            "in": "query",
+            "name": "include_evse",
+            "type": "boolean"
+          },
+          {
+            "description": "Populate organization",
+            "in": "query",
+            "name": "include_organization",
+            "type": "boolean"
+          },
+          {
+            "description": "Populate rate",
+            "in": "query",
+            "name": "include_rate",
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns a connector object"
+          }
+        },
+        "tags": [
+          "Connectors"
+        ],
+        "description": "Get a connector",
+        "operationId": "getConnector"
+      },
+      "patch": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "ID of connector that needs to be updated",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Include connector properties to update here",
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "chargestation": {
+                  "type": "string"
+                },
+                "format": {
+                  "type": "string"
+                },
+                "power": {
+                  "type": "integer"
+                },
+                "power_type": {
+                  "type": "string"
+                },
+                "rate": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Returns the updated connector object",
+            "schema": {
+              "properties": {
+                "message": {
+                  "type": "string"
+                },
+                "ok": {
+                  "type": "boolean"
+                },
+                "result": {
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "400": {
+            "description": "A failure response"
+          }
+        },
+        "tags": [
+          "Connectors"
+        ],
+        "description": "Update a connector's data",
+        "operationId": "patchConnector"
+      }
+    },
+    "/v1/drivers": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Get a list of active drivers",
+            "in": "query",
+            "name": "active",
+            "type": "boolean"
+          },
+          {
+            "default": 20,
+            "description": "Number of results per page",
+            "in": "query",
+            "maximum": 1000,
+            "minimum": 1,
+            "name": "paginate_limit",
+            "type": "integer"
+          },
+          {
+            "description": "The queried page index",
+            "in": "query",
+            "name": "paginate_page",
+            "type": "string"
+          },
+          {
+            "default": true,
+            "description": "Enable pagination",
+            "in": "query",
+            "name": "paginate_enabled",
+            "type": "boolean"
+          },
+          {
+            "default": "createdAt",
+            "description": "Sort data by this key",
+            "in": "query",
+            "name": "sort_by",
+            "type": "string"
+          },
+          {
+            "default": "desc",
+            "description": "asc to sort ascending (default is desc - descending)",
+            "enum": [
+              "desc",
+              "asc"
+            ],
+            "in": "query",
+            "name": "sort_order",
+            "type": "string"
+          },
+          {
+            "description": "Date as ISO String",
+            "format": "date-time",
+            "in": "query",
+            "name": "createdAt[$gte]",
+            "type": "string"
+          },
+          {
+            "description": "Date as ISO String",
+            "format": "date-time",
+            "in": "query",
+            "name": "createdAt[$lte]",
+            "type": "string"
+          },
+          {
+            "description": "Date as ISO String",
+            "format": "date-time",
+            "in": "query",
+            "name": "updatedAt[$gte]",
+            "type": "string"
+          },
+          {
+            "description": "Date as ISO String",
+            "format": "date-time",
+            "in": "query",
+            "name": "updatedAt[$lte]",
+            "type": "string"
+          },
+          {
+            "description": "Populate tokens",
+            "in": "query",
+            "name": "include_tokens",
+            "type": "boolean"
+          },
+          {
+            "description": "Populate group",
+            "in": "query",
+            "name": "include_group",
+            "type": "boolean"
+          },
+          {
+            "description": "Populate organization",
+            "in": "query",
+            "name": "include_organization",
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns a list of driver objects",
+            "schema": {
+              "properties": {
+                "message": {
+                  "type": "string"
+                },
+                "ok": {
+                  "type": "boolean"
+                },
+                "result": {
+                  "items": {},
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "400": {
+            "description": "A failure response"
+          }
+        },
+        "tags": [
+          "Drivers"
+        ],
+        "description": "List all drivers",
+        "operationId": "getDrivers"
+      },
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Include driver properties to create here",
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "active": {
+                  "default": true,
+                  "type": "boolean"
+                },
+                "address": {
+                  "properties": {
+                    "city": {
+                      "type": "string"
+                    },
+                    "country": {
+                      "type": "string"
+                    },
+                    "postalCode": {
+                      "type": "string"
+                    },
+                    "streetAndNumber": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "firstname": {
+                  "type": "string"
+                },
+                "lastname": {
+                  "type": "string"
+                },
+                "phone": {
+                  "properties": {
+                    "home": {
+                      "type": "string"
+                    },
+                    "mobile": {
+                      "type": "string"
+                    },
+                    "work": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "source": {
+                  "enum": [
+                    "physical",
+                    "slack",
+                    "telegram",
+                    "sms"
+                  ],
+                  "type": "string"
+                }
+              },
+              "required": [
+                "firstname",
+                "lastname",
+                "source"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns the newly created driver object",
+            "schema": {
+              "properties": {
+                "message": {
+                  "type": "string"
+                },
+                "ok": {
+                  "type": "boolean"
+                },
+                "result": {
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "400": {
+            "description": "A failure response"
+          }
+        },
+        "tags": [
+          "Drivers"
+        ],
+        "description": "Create a new driver",
+        "operationId": "postDrivers"
+      }
+    },
+    "/v1/drivers/{id}": {
+      "delete": {
+        "parameters": [
+          {
+            "description": "The driver id that needs to be deleted",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns the deleted driver object"
+          }
+        },
+        "tags": [
+          "Drivers"
+        ],
+        "description": "Delete a driver",
+        "operationId": "deleteDriver"
+      },
+      "get": {
+        "parameters": [
+          {
+            "description": "The driver id that needs to be fetched",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Populate tokens",
+            "in": "query",
+            "name": "include_tokens",
+            "type": "boolean"
+          },
+          {
+            "description": "Populate group",
+            "in": "query",
+            "name": "include_group",
+            "type": "boolean"
+          },
+          {
+            "description": "Populate organization",
+            "in": "query",
+            "name": "include_organization",
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns a driver object"
+          }
+        },
+        "tags": [
+          "Drivers"
+        ],
+        "description": "Get a driver's data",
+        "operationId": "getDriver"
+      },
+      "patch": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "ID of driver that needs to be updated",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Include driver properties to create here",
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "active": {
+                  "type": "boolean"
+                },
+                "address": {
+                  "properties": {
+                    "city": {
+                      "type": "string"
+                    },
+                    "country": {
+                      "type": "string"
+                    },
+                    "postalCode": {
+                      "type": "string"
+                    },
+                    "streetAndNumber": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "firstname": {
+                  "type": "string"
+                },
+                "lastname": {
+                  "type": "string"
+                },
+                "phone": {
+                  "properties": {
+                    "home": {
+                      "type": "string"
+                    },
+                    "mobile": {
+                      "type": "string"
+                    },
+                    "work": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "source": {
+                  "type": "string"
+                },
+                "tokens": {
+                  "items": {},
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns the updated driver object",
+            "schema": {
+              "properties": {
+                "message": {
+                  "type": "string"
+                },
+                "ok": {
+                  "type": "boolean"
+                },
+                "result": {
+                  "items": {},
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "400": {
+            "description": "A failure response"
+          }
+        },
+        "tags": [
+          "Drivers"
+        ],
+        "description": "Update a driver's data",
+        "operationId": "patchDriver"
+      }
+    },
+    "/v1/location/{id}": {
+      "delete": {
+        "parameters": [
+          {
+            "description": "The location id that needs to be deleted",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns the deleted location object"
+          }
+        },
+        "tags": [
+          "Locations"
+        ],
+        "description": "Delete a location",
+        "operationId": "deleteLocation"
+      },
+      "get": {
+        "parameters": [
+          {
+            "description": "The location id that needs to be fetched",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Populate chargestations",
+            "in": "query",
+            "name": "include_chargestations",
+            "type": "boolean"
+          },
+          {
+            "description": "Populate organization",
+            "in": "query",
+            "name": "include_organization",
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns a location object"
+          }
+        },
+        "tags": [
+          "Locations"
+        ],
+        "description": "Get a location's data",
+        "operationId": "getLocation"
+      },
+      "patch": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "ID of location that needs to be updated",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Include location properties to create here",
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "active": {
+                  "default": true,
+                  "type": "boolean"
+                },
+                "address": {
+                  "properties": {
+                    "city": {
+                      "type": "string"
+                    },
+                    "country": {
+                      "type": "string"
+                    },
+                    "postalCode": {
+                      "type": "string"
+                    },
+                    "streetAndNumber": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "chargestations": {
+                  "items": {},
+                  "type": "array"
+                },
+                "coordinates": {
+                  "properties": {
+                    "latitude": {
+                      "type": "number"
+                    },
+                    "longitude": {
+                      "type": "number"
+                    }
+                  },
+                  "type": "object"
+                },
+                "operatorName": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns the updated location object",
+            "schema": {
+              "properties": {
+                "message": {
+                  "type": "string"
+                },
+                "ok": {
+                  "type": "boolean"
+                },
+                "result": {
+                  "items": {},
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "400": {
+            "description": "A failure response"
+          }
+        },
+        "tags": [
+          "Locations"
+        ],
+        "description": "Update a location's data",
+        "operationId": "patchLocation"
+      }
+    },
+    "/v1/locations": {
+      "get": {
+        "parameters": [
+          {
+            "default": 20,
+            "description": "Number of results per page",
+            "in": "query",
+            "maximum": 1000,
+            "minimum": 1,
+            "name": "paginate_limit",
+            "type": "integer"
+          },
+          {
+            "description": "The queried page index",
+            "in": "query",
+            "name": "paginate_page",
+            "type": "string"
+          },
+          {
+            "default": true,
+            "description": "Enable pagination",
+            "in": "query",
+            "name": "paginate_enabled",
+            "type": "boolean"
+          },
+          {
+            "default": "createdAt",
+            "description": "Sort data by this key",
+            "in": "query",
+            "name": "sort_by",
+            "type": "string"
+          },
+          {
+            "default": "desc",
+            "description": "asc to sort ascending (default is desc - descending)",
+            "enum": [
+              "desc",
+              "asc"
+            ],
+            "in": "query",
+            "name": "sort_order",
+            "type": "string"
+          },
+          {
+            "description": "Date as ISO String",
+            "format": "date-time",
+            "in": "query",
+            "name": "createdAt[$gte]",
+            "type": "string"
+          },
+          {
+            "description": "Date as ISO String",
+            "format": "date-time",
+            "in": "query",
+            "name": "createdAt[$lte]",
+            "type": "string"
+          },
+          {
+            "description": "Date as ISO String",
+            "format": "date-time",
+            "in": "query",
+            "name": "updatedAt[$gte]",
+            "type": "string"
+          },
+          {
+            "description": "Date as ISO String",
+            "format": "date-time",
+            "in": "query",
+            "name": "updatedAt[$lte]",
+            "type": "string"
+          },
+          {
+            "description": "Populate organization",
+            "in": "query",
+            "name": "include_organization",
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "A failure response"
+          }
+        },
+        "tags": [
+          "Locations"
+        ],
+        "description": "Get Locations data",
+        "operationId": "getLocations"
+      },
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Include location properties to create here",
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "active": {
+                  "default": true,
+                  "type": "boolean"
+                },
+                "address": {
+                  "properties": {
+                    "city": {
+                      "type": "string"
+                    },
+                    "country": {
+                      "type": "string"
+                    },
+                    "postalCode": {
+                      "type": "string"
+                    },
+                    "streetAndNumber": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "chargestations": {
+                  "items": {},
+                  "type": "array"
+                },
+                "coordinates": {
+                  "properties": {
+                    "latitude": {
+                      "type": "number"
+                    },
+                    "longitude": {
+                      "type": "number"
+                    }
+                  },
+                  "type": "object"
+                },
+                "operatorName": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "operatorName",
+                "address",
+                "coordinates"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns the newly created location object",
+            "schema": {
+              "properties": {
+                "message": {
+                  "type": "string"
+                },
+                "ok": {
+                  "type": "boolean"
+                },
+                "result": {
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "400": {
+            "description": "A failure response"
+          }
+        },
+        "tags": [
+          "Locations"
+        ],
+        "description": "Create a new location",
+        "operationId": "postLocations"
+      }
+    },
+    "/v1/organizations": {
+      "get": {
+        "parameters": [
+          {
+            "default": 20,
+            "description": "Number of results per page",
+            "in": "query",
+            "maximum": 1000,
+            "minimum": 1,
+            "name": "paginate_limit",
+            "type": "integer"
+          },
+          {
+            "description": "The queried page index",
+            "in": "query",
+            "name": "paginate_page",
+            "type": "string"
+          },
+          {
+            "default": true,
+            "description": "Enable pagination",
+            "in": "query",
+            "name": "paginate_enabled",
+            "type": "boolean"
+          },
+          {
+            "default": "createdAt",
+            "description": "Sort data by this key",
+            "in": "query",
+            "name": "sort_by",
+            "type": "string"
+          },
+          {
+            "default": "desc",
+            "description": "asc to sort ascending (default is desc - descending)",
+            "enum": [
+              "desc",
+              "asc"
+            ],
+            "in": "query",
+            "name": "sort_order",
+            "type": "string"
+          },
+          {
+            "description": "Date as ISO String",
+            "format": "date-time",
+            "in": "query",
+            "name": "createdAt[$gte]",
+            "type": "string"
+          },
+          {
+            "description": "Date as ISO String",
+            "format": "date-time",
+            "in": "query",
+            "name": "createdAt[$lte]",
+            "type": "string"
+          },
+          {
+            "description": "Date as ISO String",
+            "format": "date-time",
+            "in": "query",
+            "name": "updatedAt[$gte]",
+            "type": "string"
+          },
+          {
+            "description": "Date as ISO String",
+            "format": "date-time",
+            "in": "query",
+            "name": "updatedAt[$lte]",
+            "type": "string"
+          },
+          {
+            "description": "Populate locations",
+            "in": "query",
+            "name": "include_locations",
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns an array of Organization Objects"
+          }
+        },
+        "tags": [
+          "Organizations"
+        ],
+        "description": "Get an array of all Organizations",
+        "operationId": "getOrganizations"
+      }
+    },
+    "/v1/organizations/{id}": {
+      "get": {
+        "parameters": [
+          {
+            "description": "ID of organization that needs to be fetched",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Populate locations",
+            "in": "query",
+            "name": "include_locations",
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns an Organization Object"
+          }
+        },
+        "tags": [
+          "Organizations"
+        ],
+        "description": "Get one organization's data by id",
+        "operationId": "getOrganization"
+      },
+      "patch": {
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "ID of organization that needs to be updated",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Include organization properties to create here",
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "active": {
+                  "type": "boolean"
+                },
+                "address": {
+                  "properties": {
+                    "city": {
+                      "type": "string"
+                    },
+                    "country": {
+                      "type": "string"
+                    },
+                    "postalCode": {
+                      "type": "string"
+                    },
+                    "streetAndNumber": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "channels": {
+                  "properties": {
+                    "slack": {
+                      "type": "object"
+                    },
+                    "telegram": {
+                      "type": "object"
+                    }
+                  },
+                  "type": "object"
+                },
+                "configurations": {
+                  "properties": {
+                    "basicAuthEnabled": {
+                      "type": "boolean"
+                    },
+                    "basicAuthPassword": {
+                      "type": "boolean"
+                    }
+                  },
+                  "type": "object"
+                },
+                "links": {
+                  "properties": {
+                    "about": {
+                      "type": "string"
+                    },
+                    "contact": {
+                      "type": "string"
+                    },
+                    "privacy": {
+                      "type": "string"
+                    },
+                    "support": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "locations": {
+                  "items": {},
+                  "type": "array"
+                },
+                "logo": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "otp": {
+                  "type": "string"
+                },
+                "stripe_connected_account_id": {
+                  "type": "string"
+                },
+                "stripe_country": {
+                  "type": "string"
+                },
+                "stripe_currency": {
+                  "type": "string"
+                },
+                "stripe_reserve_amount": {
+                  "type": "integer"
+                },
+                "support": {
+                  "properties": {
+                    "business_hours": {
+                      "type": "string"
+                    },
+                    "chat": {
+                      "properties": {
+                        "type": {
+                          "type": "string"
+                        },
+                        "value": {
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "contact_number": {
+                      "type": "string"
+                    },
+                    "email": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "supportChat": {
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "theme": {
+                  "properties": {
+                    "colors": {
+                      "properties": {
+                        "primary": {
+                          "type": "string"
+                        },
+                        "secondary": {
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Returns the modified Organization Object"
+          },
+          "400": {
+            "description": "A failure response"
+          }
+        },
+        "tags": [
+          "Organizations"
+        ],
+        "description": "Update an organization's data",
+        "operationId": "patchOrganization"
+      }
+    },
+    "/v1/realtime": {
+      "get": {
+        "parameters": [
+          {
+            "description": "The JWT token to use for auth",
+            "in": "header",
+            "name": "sec-websocket-protocol",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "101": {
+            "description": "Upgrade connection"
+          }
+        },
+        "tags": [
+          "Realtime"
+        ],
+        "description": "Use to request a Websockets handshake",
+        "operationId": "getRealtime"
+      }
+    },
+    "/v1/reservations": {
+      "get": {
+        "parameters": [
+          {
+            "default": 20,
+            "description": "Number of results per page",
+            "in": "query",
+            "maximum": 1000,
+            "minimum": 1,
+            "name": "paginate_limit",
+            "type": "integer"
+          },
+          {
+            "description": "The queried page index",
+            "in": "query",
+            "name": "paginate_page",
+            "type": "string"
+          },
+          {
+            "default": true,
+            "description": "Enable pagination",
+            "in": "query",
+            "name": "paginate_enabled",
+            "type": "boolean"
+          },
+          {
+            "default": "createdAt",
+            "description": "Sort data by this key",
+            "in": "query",
+            "name": "sort_by",
+            "type": "string"
+          },
+          {
+            "default": "desc",
+            "description": "asc to sort ascending (default is desc - descending)",
+            "enum": [
+              "desc",
+              "asc"
+            ],
+            "in": "query",
+            "name": "sort_order",
+            "type": "string"
+          },
+          {
+            "description": "Date as ISO String",
+            "format": "date-time",
+            "in": "query",
+            "name": "createdAt[$gte]",
+            "type": "string"
+          },
+          {
+            "description": "Date as ISO String",
+            "format": "date-time",
+            "in": "query",
+            "name": "createdAt[$lte]",
+            "type": "string"
+          },
+          {
+            "description": "Date as ISO String",
+            "format": "date-time",
+            "in": "query",
+            "name": "updatedAt[$gte]",
+            "type": "string"
+          },
+          {
+            "description": "Date as ISO String",
+            "format": "date-time",
+            "in": "query",
+            "name": "updatedAt[$lte]",
+            "type": "string"
+          },
+          {
+            "description": "Populate chargestation",
+            "in": "query",
+            "name": "include_chargestation",
+            "type": "boolean"
+          },
+          {
+            "description": "Populate organization",
+            "in": "query",
+            "name": "include_organization",
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "tags": [
+          "Reservations"
+        ],
+        "description": "Get Reservations data",
+        "operationId": "getReservations"
+      }
+    },
+    "/v1/reservations/{id}": {
+      "get": {
+        "parameters": [
+          {
+            "description": "ID of the reservation that needs to be fetched",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Populate chargestation",
+            "in": "query",
+            "name": "include_chargestation",
+            "type": "boolean"
+          },
+          {
+            "description": "Populate organization",
+            "in": "query",
+            "name": "include_organization",
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "tags": [
+          "Reservations"
+        ],
+        "description": "Get one reservation data",
+        "operationId": "getReservation"
+      },
+      "patch": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "ID of the reservation that needs to be fetched",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "connector": {
+                  "minimum": 1,
+                  "type": "integer"
+                },
+                "driver": {
+                  "type": "string"
+                },
+                "endDate": {
+                  "type": "string"
+                },
+                "evse": {
+                  "minimum": 1,
+                  "type": "integer"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "A successful response",
+            "schema": {
+              "properties": {
+                "message": {
+                  "type": "string"
+                },
+                "ok": {
+                  "type": "boolean"
+                },
+                "result": {
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "400": {
+            "description": "A failure response"
+          }
+        },
+        "tags": [
+          "Reservations"
+        ],
+        "description": "Use to request a update an existing reservation. The request will wait for the charge station to process the command. It will timeout after 60 seconds.",
+        "operationId": "updatereservation"
+      }
+    },
+    "/v1/tokens": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "default": 20,
+            "description": "Number of results per page",
+            "in": "query",
+            "maximum": 1000,
+            "minimum": 1,
+            "name": "paginate_limit",
+            "type": "integer"
+          },
+          {
+            "description": "The queried page index",
+            "in": "query",
+            "name": "paginate_page",
+            "type": "string"
+          },
+          {
+            "default": true,
+            "description": "Enable pagination",
+            "in": "query",
+            "name": "paginate_enabled",
+            "type": "boolean"
+          },
+          {
+            "default": "createdAt",
+            "description": "Sort data by this key",
+            "in": "query",
+            "name": "sort_by",
+            "type": "string"
+          },
+          {
+            "default": "desc",
+            "description": "asc to sort ascending (default is desc - descending)",
+            "enum": [
+              "desc",
+              "asc"
+            ],
+            "in": "query",
+            "name": "sort_order",
+            "type": "string"
+          },
+          {
+            "description": "Date as ISO String",
+            "format": "date-time",
+            "in": "query",
+            "name": "createdAt[$gte]",
+            "type": "string"
+          },
+          {
+            "description": "Date as ISO String",
+            "format": "date-time",
+            "in": "query",
+            "name": "createdAt[$lte]",
+            "type": "string"
+          },
+          {
+            "description": "Date as ISO String",
+            "format": "date-time",
+            "in": "query",
+            "name": "updatedAt[$gte]",
+            "type": "string"
+          },
+          {
+            "description": "Date as ISO String",
+            "format": "date-time",
+            "in": "query",
+            "name": "updatedAt[$lte]",
+            "type": "string"
+          },
+          {
+            "description": "Populate driver",
+            "in": "query",
+            "name": "include_driver",
+            "type": "boolean"
+          },
+          {
+            "description": "Populate organization",
+            "in": "query",
+            "name": "include_organization",
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns an array of token objects",
+            "schema": {
+              "properties": {
+                "message": {
+                  "type": "string"
+                },
+                "ok": {
+                  "type": "boolean"
+                },
+                "result": {
+                  "items": {},
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "401": {
+            "description": "A failure response"
+          }
+        },
+        "tags": [
+          "Tokens"
+        ],
+        "description": "List tokens",
+        "operationId": "getTokens"
+      },
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Include token properties to create here",
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "active": {
+                  "default": true,
+                  "type": "boolean"
+                },
+                "channel": {
+                  "enum": [
+                    "physical",
+                    "slack",
+                    "telegram",
+                    "sms"
+                  ],
+                  "type": "string"
+                },
+                "driver": {
+                  "type": "string"
+                },
+                "physicalId": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "active",
+                "physicalId",
+                "driver",
+                "channel"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Returns a newly created token object",
+            "schema": {
+              "properties": {
+                "message": {
+                  "type": "string"
+                },
+                "ok": {
+                  "type": "boolean"
+                },
+                "result": {
+                  "items": {},
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "400": {
+            "description": "A failure response"
+          }
+        },
+        "tags": [
+          "Tokens"
+        ],
+        "description": "Create a new token",
+        "operationId": "postTokens"
+      }
+    },
+    "/v1/tokens/{id}": {
+      "delete": {
+        "parameters": [
+          {
+            "description": "The token id that needs to be deleted",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns the deleted token object"
+          }
+        },
+        "tags": [
+          "Tokens"
+        ],
+        "description": "Use to delete a token",
+        "operationId": "deleteToken"
+      },
+      "get": {
+        "parameters": [
+          {
+            "description": "The token id that needs to be fetched",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Populate driver",
+            "in": "query",
+            "name": "include_driver",
+            "type": "boolean"
+          },
+          {
+            "description": "Populate organization",
+            "in": "query",
+            "name": "include_organization",
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns a token object"
+          }
+        },
+        "tags": [
+          "Tokens"
+        ],
+        "description": "Get a single token's data",
+        "operationId": "getToken"
+      },
+      "patch": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "ID of token that needs to be updated",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Include token properties to create here",
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "active": {
+                  "default": true,
+                  "type": "boolean"
+                },
+                "channel": {
+                  "enum": [
+                    "physical",
+                    "slack",
+                    "telegram",
+                    "sms"
+                  ],
+                  "type": "string"
+                },
+                "driver": {
+                  "type": "string"
+                },
+                "physicalId": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Returns the updated token",
+            "schema": {
+              "properties": {
+                "message": {
+                  "type": "string"
+                },
+                "ok": {
+                  "type": "boolean"
+                },
+                "result": {
+                  "items": {},
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "400": {
+            "description": "A failure response"
+          }
+        },
+        "tags": [
+          "Tokens"
+        ],
+        "description": "Update a token",
+        "operationId": "patchToken"
+      }
+    },
+    "/v1/transactions": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Started to get only active transactions",
+            "enum": [
+              "Started",
+              "Ended"
+            ],
+            "in": "query",
+            "name": "status",
+            "type": "string"
+          },
+          {
+            "default": 20,
+            "description": "Number of results per page",
+            "in": "query",
+            "maximum": 1000,
+            "minimum": 1,
+            "name": "paginate_limit",
+            "type": "integer"
+          },
+          {
+            "description": "The queried page index",
+            "in": "query",
+            "name": "paginate_page",
+            "type": "string"
+          },
+          {
+            "default": true,
+            "description": "Enable pagination",
+            "in": "query",
+            "name": "paginate_enabled",
+            "type": "boolean"
+          },
+          {
+            "default": "createdAt",
+            "description": "Sort data by this key",
+            "in": "query",
+            "name": "sort_by",
+            "type": "string"
+          },
+          {
+            "default": "desc",
+            "description": "asc to sort ascending (default is desc - descending)",
+            "enum": [
+              "desc",
+              "asc"
+            ],
+            "in": "query",
+            "name": "sort_order",
+            "type": "string"
+          },
+          {
+            "description": "Date as ISO String",
+            "format": "date-time",
+            "in": "query",
+            "name": "createdAt[$gte]",
+            "type": "string"
+          },
+          {
+            "description": "Date as ISO String",
+            "format": "date-time",
+            "in": "query",
+            "name": "createdAt[$lte]",
+            "type": "string"
+          },
+          {
+            "description": "Date as ISO String",
+            "format": "date-time",
+            "in": "query",
+            "name": "updatedAt[$gte]",
+            "type": "string"
+          },
+          {
+            "description": "Date as ISO String",
+            "format": "date-time",
+            "in": "query",
+            "name": "updatedAt[$lte]",
+            "type": "string"
+          },
+          {
+            "description": "Populate chargestation",
+            "in": "query",
+            "name": "include_chargestation",
+            "type": "boolean"
+          },
+          {
+            "description": "Populate evse",
+            "in": "query",
+            "name": "include_evse",
+            "type": "boolean"
+          },
+          {
+            "description": "Populate connector",
+            "in": "query",
+            "name": "include_connector",
+            "type": "boolean"
+          },
+          {
+            "description": "Populate driver",
+            "in": "query",
+            "name": "include_driver",
+            "type": "boolean"
+          },
+          {
+            "description": "Populate token",
+            "in": "query",
+            "name": "include_token",
+            "type": "boolean"
+          },
+          {
+            "description": "Populate reservation",
+            "in": "query",
+            "name": "include_reservation",
+            "type": "boolean"
+          },
+          {
+            "description": "Populate organization",
+            "in": "query",
+            "name": "include_organization",
+            "type": "boolean"
+          },
+          {
+            "description": "Populate rate",
+            "in": "query",
+            "name": "include_rate",
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns an array of transaction objects",
+            "schema": {
+              "properties": {
+                "hasNext": {
+                  "type": "boolean"
+                },
+                "hasPrevious": {
+                  "type": "boolean"
+                },
+                "message": {
+                  "type": "string"
+                },
+                "ok": {
+                  "type": "boolean"
+                },
+                "result": {
+                  "items": {},
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "400": {
+            "description": "Not Found"
+          }
+        },
+        "tags": [
+          "Transactions"
+        ],
+        "description": "Get a list of transactions",
+        "operationId": "getTransactions"
+      }
+    },
+    "/v1/transactions/{id}": {
+      "get": {
+        "parameters": [
+          {
+            "description": "The transaction id that needs to be fetched",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Populate chargestation",
+            "in": "query",
+            "name": "include_chargestation",
+            "type": "boolean"
+          },
+          {
+            "description": "Populate evse",
+            "in": "query",
+            "name": "include_evse",
+            "type": "boolean"
+          },
+          {
+            "description": "Populate connector",
+            "in": "query",
+            "name": "include_connector",
+            "type": "boolean"
+          },
+          {
+            "description": "Populate driver",
+            "in": "query",
+            "name": "include_driver",
+            "type": "boolean"
+          },
+          {
+            "description": "Populate token",
+            "in": "query",
+            "name": "include_token",
+            "type": "boolean"
+          },
+          {
+            "description": "Populate reservation",
+            "in": "query",
+            "name": "include_reservation",
+            "type": "boolean"
+          },
+          {
+            "description": "Populate organization",
+            "in": "query",
+            "name": "include_organization",
+            "type": "boolean"
+          },
+          {
+            "description": "Populate rate",
+            "in": "query",
+            "name": "include_rate",
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns a transaction object"
+          },
+          "401": {
+            "description": "Not Found"
+          }
+        },
+        "tags": [
+          "Transactions"
+        ],
+        "description": "Get a specific transaction",
+        "operationId": "getTransaction"
+      }
+    },
+    "/v1/transactions/{id}/cost": {
+      "get": {
+        "parameters": [
+          {
+            "description": "The transaction id that needs to be fetched",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns a transaction's cost object"
+          },
+          "401": {
+            "description": "Not Found"
+          }
+        },
+        "tags": [
+          "Transactions"
+        ],
+        "description": "Get a specific transaction's cost",
+        "operationId": "getTransactionCost"
+      }
+    },
+    "/v1/vehicles": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Get a list of active vehicles",
+            "in": "query",
+            "name": "active",
+            "type": "boolean"
+          },
+          {
+            "default": 20,
+            "description": "Number of results per page",
+            "in": "query",
+            "maximum": 1000,
+            "minimum": 1,
+            "name": "paginate_limit",
+            "type": "integer"
+          },
+          {
+            "description": "The queried page index",
+            "in": "query",
+            "name": "paginate_page",
+            "type": "string"
+          },
+          {
+            "default": true,
+            "description": "Enable pagination",
+            "in": "query",
+            "name": "paginate_enabled",
+            "type": "boolean"
+          },
+          {
+            "default": "createdAt",
+            "description": "Sort data by this key",
+            "in": "query",
+            "name": "sort_by",
+            "type": "string"
+          },
+          {
+            "default": "desc",
+            "description": "asc to sort ascending (default is desc - descending)",
+            "enum": [
+              "desc",
+              "asc"
+            ],
+            "in": "query",
+            "name": "sort_order",
+            "type": "string"
+          },
+          {
+            "description": "Date as ISO String",
+            "format": "date-time",
+            "in": "query",
+            "name": "createdAt[$gte]",
+            "type": "string"
+          },
+          {
+            "description": "Date as ISO String",
+            "format": "date-time",
+            "in": "query",
+            "name": "createdAt[$lte]",
+            "type": "string"
+          },
+          {
+            "description": "Date as ISO String",
+            "format": "date-time",
+            "in": "query",
+            "name": "updatedAt[$gte]",
+            "type": "string"
+          },
+          {
+            "description": "Date as ISO String",
+            "format": "date-time",
+            "in": "query",
+            "name": "updatedAt[$lte]",
+            "type": "string"
+          },
+          {
+            "description": "Populate driver",
+            "in": "query",
+            "name": "include_driver",
+            "type": "boolean"
+          },
+          {
+            "description": "Populate token",
+            "in": "query",
+            "name": "include_token",
+            "type": "boolean"
+          },
+          {
+            "description": "Populate organization",
+            "in": "query",
+            "name": "include_organization",
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns a list of vehicle objects",
+            "schema": {
+              "properties": {
+                "message": {
+                  "type": "string"
+                },
+                "ok": {
+                  "type": "boolean"
+                },
+                "result": {
+                  "items": {},
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "400": {
+            "description": "A failure response"
+          }
+        },
+        "tags": [
+          "Vehicles"
+        ],
+        "description": "List all vehicles",
+        "operationId": "getVehicles"
+      }
+    },
+    "/v1/vehicles/{id}": {
+      "get": {
+        "parameters": [
+          {
+            "description": "The vehicule id that needs to be fetched",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Populate driver",
+            "in": "query",
+            "name": "include_driver",
+            "type": "boolean"
+          },
+          {
+            "description": "Populate token",
+            "in": "query",
+            "name": "include_token",
+            "type": "boolean"
+          },
+          {
+            "description": "Populate organization",
+            "in": "query",
+            "name": "include_organization",
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns a vehicle object"
+          }
+        },
+        "tags": [
+          "Vehicles"
+        ],
+        "description": "Get a vehicle's data",
+        "operationId": "getVehicle"
+      }
+    },
+    "/v1/vehicles/{id}/battery": {
+      "get": {
+        "parameters": [
+          {
+            "description": "The vehicle id that needs to be fetched",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns a vehicle object"
+          }
+        },
+        "tags": [
+          "Vehicles"
+        ],
+        "description": "Get a vehicle's battery",
+        "operationId": "getVehicleBattery"
+      }
+    },
+    "/v1/vehicles/{id}/charge": {
+      "get": {
+        "parameters": [
+          {
+            "description": "The vehicle id that needs to be fetched",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns a vehicle object"
+          }
+        },
+        "tags": [
+          "Vehicles"
+        ],
+        "description": "Get a vehicle's charge",
+        "operationId": "getVehicleCharge"
+      },
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The vehicle id that needs to be fetched",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Include command properties to send here",
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "action": {
+                  "enum": [
+                    "START",
+                    "STOP"
+                  ],
+                  "type": "string"
+                }
+              },
+              "required": [
+                "action"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns the status of the command",
+            "schema": {
+              "properties": {
+                "message": {
+                  "type": "string"
+                },
+                "ok": {
+                  "type": "boolean"
+                },
+                "result": {
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "400": {
+            "description": "A failure response"
+          }
+        },
+        "tags": [
+          "Vehicles"
+        ],
+        "description": "Change charge",
+        "operationId": "postCharge"
+      }
+    },
+    "/v1/vehicles/{id}/location": {
+      "get": {
+        "parameters": [
+          {
+            "description": "The vehicle id that needs to be fetched",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns a vehicle object"
+          }
+        },
+        "tags": [
+          "Vehicles"
+        ],
+        "description": "Get a vehicle's location",
+        "operationId": "getVehicleLocation"
+      }
+    },
+    "/v1/vehicles/{id}/odometer": {
+      "get": {
+        "parameters": [
+          {
+            "description": "The vehicle id that needs to be fetched",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns a vehicle object"
+          }
+        },
+        "tags": [
+          "Vehicles"
+        ],
+        "description": "Get a vehicle's odometer",
+        "operationId": "getVehicleOdometer"
+      }
+    }
+  },
+  "definitions": {
+    "schema1": {
+      "properties": {
+        "location": {
+          "type": "string"
+        },
+        "manufacturer": {
+          "type": "string"
+        },
+        "model": {
+          "type": "string"
+        },
+        "protocol": {
+          "type": "string"
+        },
+        "public": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "securityDefinitions": {
+    "oauth2": {
+      "authorizationUrl": "https://auth.edrv.io/authorize",
+      "flow": "implicit",
+      "scopes": {
+        "read:chargestations": "Read chargestations",
+        "read:chargestations/:id": "Read a chargestation",
+        "read:chargestations/:id/connectors": "Read connectors for a chargestation",
+        "read:connectors": "Read connectors",
+        "read:connectors/:id": "Read a connector",
+        "read:drivers": "Read drivers",
+        "read:drivers/:id": "Read a driver",
+        "read:locations": "Read locations",
+        "read:locations/:id": "Read a location",
+        "read:organizations": "Read organizations",
+        "read:organizations/:id": "Read an organization",
+        "read:realtime": "Read realtime",
+        "read:reservations": "Read reservations",
+        "read:reservations/:id": "Read a reservations",
+        "read:stats/:asset/:statistic": "Read a statistic",
+        "read:tokens": "Read tokens",
+        "read:tokens/:id": "Read a token",
+        "read:transactions": "Read transactions",
+        "read:transactions/:id": "Read a transaction",
+        "write:chargestations": "Write chargestations",
+        "write:chargestations/:id": "Write a chargestation",
+        "write:commands/remotestart": "Write remotestart for commands",
+        "write:commands/remotestop": "Write remotestop for commands",
+        "write:commands/reserve": "Write reserve for commands",
+        "write:commands/reset": "Write reset for commands",
+        "write:commands/unlockconnector": "Write unlockconnector for commands",
+        "write:connectors": "Write connectors",
+        "write:connectors/:id": "Write a connector",
+        "write:drivers": "Write drivers",
+        "write:drivers/:id": "Write a driver",
+        "write:locations": "Write locations",
+        "write:locations/:id": "Write a location",
+        "write:organizations": "Write organizations",
+        "write:organizations/:id": "Writen an organization",
+        "write:reservations": "Write reservations",
+        "write:reservations/:id": "Write a reservation",
+        "write:tokens": "Write tokens",
+        "write:tokens/:id": "Write a token",
+        "write:transactions": "Write transactions",
+        "write:transactions/:id": "Write a transactions"
+      },
+      "type": "oauth2"
+    }
+  },
+  "security": [
+    {
+      "oauth2": []
+    }
+  ],
+  "x-components": {
+    "parameters": {
+      "include_chargestation1": {
+        "description": "Populate chargestation",
+        "in": "query",
+        "name": "include_chargestation",
+        "type": "boolean"
+      },
+      "include_connector1": {
+        "description": "Populate connector",
+        "in": "query",
+        "name": "include_connector",
+        "type": "boolean"
+      },
+      "include_driver1": {
+        "description": "Populate driver",
+        "in": "query",
+        "name": "include_driver",
+        "type": "boolean"
+      },
+      "include_evse1": {
+        "description": "Populate evse",
+        "in": "query",
+        "name": "include_evse",
+        "type": "boolean"
+      },
+      "include_organization1": {
+        "description": "Populate organization",
+        "in": "query",
+        "name": "include_organization",
+        "type": "boolean"
+      },
+      "include_rate1": {
+        "description": "Populate rate",
+        "in": "query",
+        "name": "include_rate",
+        "type": "boolean"
+      },
+      "include_reservation1": {
+        "description": "Populate reservation",
+        "in": "query",
+        "name": "include_reservation",
+        "type": "boolean"
+      },
+      "include_token1": {
+        "description": "Populate token",
+        "in": "query",
+        "name": "include_token",
+        "type": "boolean"
+      },
+      "paginate_enabled1": {
+        "default": true,
+        "description": "Enable pagination",
+        "in": "query",
+        "name": "paginate_enabled",
+        "type": "boolean"
+      },
+      "paginate_limit1": {
+        "default": 20,
+        "description": "Number of results per page",
+        "in": "query",
+        "maximum": 1000,
+        "minimum": 1,
+        "name": "paginate_limit",
+        "type": "integer"
+      },
+      "paginate_page1": {
+        "description": "The queried page index",
+        "in": "query",
+        "name": "paginate_page",
+        "type": "string"
+      },
+      "parameter1": {
+        "description": "Date as ISO String",
+        "format": "date-time",
+        "in": "query",
+        "name": "createdAt[$gte]",
+        "type": "string"
+      },
+      "parameter2": {
+        "description": "Date as ISO String",
+        "format": "date-time",
+        "in": "query",
+        "name": "createdAt[$lte]",
+        "type": "string"
+      },
+      "parameter3": {
+        "description": "Date as ISO String",
+        "format": "date-time",
+        "in": "query",
+        "name": "updatedAt[$gte]",
+        "type": "string"
+      },
+      "parameter4": {
+        "description": "Date as ISO String",
+        "format": "date-time",
+        "in": "query",
+        "name": "updatedAt[$lte]",
+        "type": "string"
+      },
+      "sort_by1": {
+        "default": "createdAt",
+        "description": "Sort data by this key",
+        "in": "query",
+        "name": "sort_by",
+        "type": "string"
+      },
+      "sort_order1": {
+        "default": "desc",
+        "description": "asc to sort ascending (default is desc - descending)",
+        "enum": [
+          "desc",
+          "asc"
+        ],
+        "in": "query",
+        "name": "sort_order",
+        "type": "string"
+      }
+    }
+  },
+  "x-explorer-enabled": true,
+  "x-github-repo": "rsafaya-edrv/edrv-api",
+  "x-github-sha": "4783f25a7ba86ed1597ce7ff733ebbd84ae5e33b",
+  "x-proxy-enabled": true,
+  "x-samples-enabled": true,
+  "x-samples-languages": [
+    "curl",
+    "node",
+    "ruby",
+    "javascript",
+    "python"
+  ],
+  "x-si-base": "/home/runner/work/edrv-api/edrv-api/swagger.yml"
+}

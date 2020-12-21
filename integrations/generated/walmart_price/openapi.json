@@ -11,7 +11,7 @@
       "x-twitter": "Walmart"
     },
     "description": "Please make sure you use the correct version of the APIs for your use case. To find out the appropriate version, go to the API Docs  drop down on the menu.",
-    "title": "Price",
+    "title": "Price API",
     "version": "3.0.1",
     "x-apisguru-categories": [
       "ecommerce"
@@ -34,9 +34,6 @@
       "type": "openapi"
     }
   },
-  "produces": [
-    "application/xml"
-  ],
   "tags": [
     {
       "name": "Version 3"
@@ -121,6 +118,9 @@
             "required": true,
             "type": "string"
           }
+        ],
+        "produces": [
+          "application/xml"
         ],
         "responses": {
           "default": {
@@ -222,6 +222,9 @@
             "required": true,
             "type": "string"
           }
+        ],
+        "produces": [
+          "application/xml"
         ],
         "responses": {
           "default": {

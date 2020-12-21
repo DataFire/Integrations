@@ -15,12 +15,7 @@ let azure_apimanagement = require('@datafire/azure_apimanagement').create({
   redirect_uri: ""
 });
 
-azure_apimanagement.Policy_ListByService({
-  "resourceGroupName": "",
-  "serviceName": "",
-  "api-version": "",
-  "subscriptionId": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

@@ -1,0 +1,1102 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "contact": {
+      "email": "mike.ralphson@gmail.com",
+      "name": "Mike Ralphson",
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
+    },
+    "description": "<important> <p>Amazon Augmented AI is in preview release and is subject to change. We do not recommend using this product in production environments.</p> </important> <p>Amazon Augmented AI (Amazon A2I) adds the benefit of human judgment to any machine learning application. When an AI application can't evaluate data with a high degree of confidence, human reviewers can take over. This human review is called a human review workflow. To create and start a human review workflow, you need three resources: a <i>worker task template</i>, a <i>flow definition</i>, and a <i>human loop</i>.</p> <p>For information about these resources and prerequisites for using Amazon A2I, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/a2i-getting-started.html\">Get Started with Amazon Augmented AI</a> in the Amazon SageMaker Developer Guide.</p> <p>This API reference includes information about API actions and data types that you can use to interact with Amazon A2I programmatically. Use this guide to:</p> <ul> <li> <p>Start a human loop with the <code>StartHumanLoop</code> operation when using Amazon A2I with a <i>custom task type</i>. To learn more about the difference between custom and built-in task types, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/a2i-task-types-general.html\">Use Task Types </a>. To learn how to start a human loop using this API, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/a2i-start-human-loop.html#a2i-instructions-starthumanloop\">Create and Start a Human Loop for a Custom Task Type </a> in the Amazon SageMaker Developer Guide.</p> </li> <li> <p>Manage your human loops. You can list all human loops that you have created, describe individual human loops, and stop and delete human loops. To learn more, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/a2i-monitor-humanloop-results.html\">Monitor and Manage Your Human Loop </a> in the Amazon SageMaker Developer Guide.</p> </li> </ul> <p>Amazon A2I integrates APIs from various AWS services to create and start human review workflows for those services. To learn how Amazon A2I uses these APIs, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/a2i-api-references.html\">Use APIs in Amazon A2I</a> in the Amazon SageMaker Developer Guide.</p>",
+    "license": {
+      "name": "Apache 2.0 License",
+      "url": "http://www.apache.org/licenses/"
+    },
+    "termsOfService": "https://aws.amazon.com/service-terms/",
+    "title": "Amazon Augmented AI Runtime",
+    "version": "2019-11-07",
+    "x-apiClientRegistration": {
+      "url": "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"
+    },
+    "x-apisguru-categories": [
+      "cloud"
+    ],
+    "x-logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"
+    },
+    "x-origin": [
+      {
+        "contentType": "application/json",
+        "converter": {
+          "url": "https://github.com/mermade/aws2openapi",
+          "version": "1.0.0"
+        },
+        "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/sagemaker-a2i-runtime-2019-11-07.normal.json",
+        "x-apisguru-driver": "external"
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "amazonaws.com",
+    "x-release": "v4",
+    "x-serviceName": "sagemaker-a2i-runtime",
+    "x-datafire": {
+      "name": "amazonaws_sagemaker_a2i_runtime",
+      "type": "openapi"
+    }
+  },
+  "host": "a2i-runtime.sagemaker.us-east-1.amazonaws.com",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/human-loops": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "DataAttributes": {
+                  "description": "Attributes of the data specified by the customer. Use these to describe the data to be labeled.",
+                  "properties": {
+                    "ContentClassifiers": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/ContentClassifiers"
+                        },
+                        {
+                          "description": "<p>Declares that your content is free of personally identifiable information or adult content.</p> <p>Amazon SageMaker can restrict the Amazon Mechanical Turk workers who can view your task based on this information.</p>"
+                        }
+                      ]
+                    }
+                  },
+                  "type": "object"
+                },
+                "FlowDefinitionArn": {
+                  "description": "The Amazon Resource Name (ARN) of the flow definition associated with this human loop.",
+                  "maxLength": 1024,
+                  "pattern": "arn:aws[a-z\\-]*:sagemaker:[a-z0-9\\-]*:[0-9]{12}:flow-definition/.*",
+                  "type": "string"
+                },
+                "HumanLoopInput": {
+                  "description": "An object containing the human loop input in JSON format.",
+                  "properties": {
+                    "InputContent": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/InputContent"
+                        },
+                        {
+                          "description": "Serialized input from the human loop. The input must be a string representation of a file in JSON format."
+                        }
+                      ]
+                    }
+                  },
+                  "type": "object"
+                },
+                "HumanLoopName": {
+                  "description": "The name of the human loop.",
+                  "maxLength": 63,
+                  "minLength": 1,
+                  "pattern": "^[a-z0-9](-*[a-z0-9])*$",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "HumanLoopName",
+                "FlowDefinitionArn",
+                "HumanLoopInput"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/StartHumanLoopResponse"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "482": {
+            "description": "ServiceQuotaExceededException",
+            "schema": {
+              "$ref": "#/definitions/ServiceQuotaExceededException"
+            }
+          },
+          "483": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "484": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          }
+        },
+        "description": "Starts a human loop, provided that at least one activation condition is met.",
+        "operationId": "StartHumanLoop"
+      }
+    },
+    "/human-loops#FlowDefinitionArn": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "(Optional) The timestamp of the date when you want the human loops to begin in ISO 8601 format. For example, <code>2020-02-24</code>.",
+            "format": "date-time",
+            "in": "query",
+            "name": "CreationTimeAfter",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "(Optional) The timestamp of the date before which you want the human loops to begin in ISO 8601 format. For example, <code>2020-02-24</code>.",
+            "format": "date-time",
+            "in": "query",
+            "name": "CreationTimeBefore",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "The Amazon Resource Name (ARN) of a flow definition.",
+            "in": "query",
+            "maxLength": 1024,
+            "name": "FlowDefinitionArn",
+            "pattern": "arn:aws[a-z\\-]*:sagemaker:[a-z0-9\\-]*:[0-9]{12}:flow-definition/.*",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Optional. The order for displaying results. Valid values: <code>Ascending</code> and <code>Descending</code>.",
+            "enum": [
+              "Ascending",
+              "Descending"
+            ],
+            "in": "query",
+            "name": "SortOrder",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "A token to display the next page of results.",
+            "in": "query",
+            "maxLength": 8192,
+            "name": "NextToken",
+            "pattern": ".*",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "The total number of items to return. If the total number of available items is more than the value specified in <code>MaxResults</code>, then a <code>NextToken</code> is returned in the output. You can use this token to display the next page of results. ",
+            "in": "query",
+            "maximum": 100,
+            "minimum": 1,
+            "name": "MaxResults",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListHumanLoopsResponse"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "483": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Returns information about human loops, given the specified parameters. If a human loop was deleted, it will not be included.",
+        "operationId": "ListHumanLoops"
+      }
+    },
+    "/human-loops/stop": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "HumanLoopName": {
+                  "description": "The name of the human loop that you want to stop.",
+                  "maxLength": 63,
+                  "minLength": 1,
+                  "pattern": "^[a-z0-9](-*[a-z0-9])*$",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "HumanLoopName"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/StopHumanLoopResponse"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "483": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Stops the specified human loop.",
+        "operationId": "StopHumanLoop"
+      }
+    },
+    "/human-loops/{HumanLoopName}": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "delete": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The name of the human loop that you want to delete.",
+            "in": "path",
+            "maxLength": 63,
+            "minLength": 1,
+            "name": "HumanLoopName",
+            "pattern": "^[a-z0-9](-*[a-z0-9])*$",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteHumanLoopResponse"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "483": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Deletes the specified human loop for a flow definition.",
+        "operationId": "DeleteHumanLoop"
+      },
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The name of the human loop that you want information about.",
+            "in": "path",
+            "maxLength": 63,
+            "minLength": 1,
+            "name": "HumanLoopName",
+            "pattern": "^[a-z0-9](-*[a-z0-9])*$",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeHumanLoopResponse"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "483": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Returns information about the specified human loop.",
+        "operationId": "DescribeHumanLoop"
+      }
+    }
+  },
+  "definitions": {
+    "ConflictException": {},
+    "ContentClassifier": {
+      "enum": [
+        "FreeOfPersonallyIdentifiableInformation",
+        "FreeOfAdultContent"
+      ],
+      "type": "string"
+    },
+    "ContentClassifiers": {
+      "items": {
+        "$ref": "#/definitions/ContentClassifier"
+      },
+      "maxItems": 256,
+      "type": "array"
+    },
+    "DeleteHumanLoopRequest": {
+      "properties": {},
+      "title": "DeleteHumanLoopRequest",
+      "type": "object"
+    },
+    "DeleteHumanLoopResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "DescribeHumanLoopRequest": {
+      "properties": {},
+      "title": "DescribeHumanLoopRequest",
+      "type": "object"
+    },
+    "DescribeHumanLoopResponse": {
+      "properties": {
+        "CreationTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "The creation time when Amazon Augmented AI created the human loop."
+            }
+          ]
+        },
+        "FailureCode": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "A failure code that identifies the type of failure."
+            }
+          ]
+        },
+        "FailureReason": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The reason why a human loop failed. The failure reason is returned when the status of the human loop is <code>Failed</code>."
+            }
+          ]
+        },
+        "FlowDefinitionArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/FlowDefinitionArn"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the flow definition."
+            }
+          ]
+        },
+        "HumanLoopArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/HumanLoopArn"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the human loop."
+            }
+          ]
+        },
+        "HumanLoopName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/HumanLoopName"
+            },
+            {
+              "description": "The name of the human loop. The name must be lowercase, unique within the Region in your account, and can have up to 63 characters. Valid characters: a-z, 0-9, and - (hyphen)."
+            }
+          ]
+        },
+        "HumanLoopOutput": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/HumanLoopOutput"
+            },
+            {
+              "description": "An object that contains information about the output of the human loop."
+            }
+          ]
+        },
+        "HumanLoopStatus": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/HumanLoopStatus"
+            },
+            {
+              "description": "The status of the human loop. "
+            }
+          ]
+        }
+      },
+      "required": [
+        "CreationTime",
+        "HumanLoopStatus",
+        "HumanLoopName",
+        "HumanLoopArn",
+        "FlowDefinitionArn"
+      ],
+      "type": "object"
+    },
+    "FailureReason": {
+      "maxLength": 1024,
+      "type": "string"
+    },
+    "FlowDefinitionArn": {
+      "maxLength": 1024,
+      "pattern": "arn:aws[a-z\\-]*:sagemaker:[a-z0-9\\-]*:[0-9]{12}:flow-definition/.*",
+      "type": "string"
+    },
+    "HumanLoopArn": {
+      "maxLength": 1024,
+      "pattern": "arn:aws[a-z\\-]*:sagemaker:[a-z0-9\\-]*:[0-9]{12}:human-loop/.*",
+      "type": "string"
+    },
+    "HumanLoopDataAttributes": {
+      "description": "Attributes of the data specified by the customer. Use these to describe the data to be labeled.",
+      "properties": {
+        "ContentClassifiers": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ContentClassifiers"
+            },
+            {
+              "description": "<p>Declares that your content is free of personally identifiable information or adult content.</p> <p>Amazon SageMaker can restrict the Amazon Mechanical Turk workers who can view your task based on this information.</p>"
+            }
+          ]
+        }
+      },
+      "required": [
+        "ContentClassifiers"
+      ],
+      "type": "object"
+    },
+    "HumanLoopInput": {
+      "description": "An object containing the human loop input in JSON format.",
+      "properties": {
+        "InputContent": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InputContent"
+            },
+            {
+              "description": "Serialized input from the human loop. The input must be a string representation of a file in JSON format."
+            }
+          ]
+        }
+      },
+      "required": [
+        "InputContent"
+      ],
+      "type": "object"
+    },
+    "HumanLoopName": {
+      "maxLength": 63,
+      "minLength": 1,
+      "pattern": "^[a-z0-9](-*[a-z0-9])*$",
+      "type": "string"
+    },
+    "HumanLoopOutput": {
+      "description": "Information about where the human output will be stored.",
+      "properties": {
+        "OutputS3Uri": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The location of the Amazon S3 object where Amazon Augmented AI stores your human loop output."
+            }
+          ]
+        }
+      },
+      "required": [
+        "OutputS3Uri"
+      ],
+      "type": "object"
+    },
+    "HumanLoopStatus": {
+      "enum": [
+        "InProgress",
+        "Failed",
+        "Completed",
+        "Stopped",
+        "Stopping"
+      ],
+      "type": "string"
+    },
+    "HumanLoopSummaries": {
+      "items": {
+        "$ref": "#/definitions/HumanLoopSummary"
+      },
+      "type": "array"
+    },
+    "HumanLoopSummary": {
+      "description": "Summary information about the human loop.",
+      "properties": {
+        "CreationTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "When Amazon Augmented AI created the human loop."
+            }
+          ]
+        },
+        "FailureReason": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/FailureReason"
+            },
+            {
+              "description": "The reason why the human loop failed. A failure reason is returned when the status of the human loop is <code>Failed</code>."
+            }
+          ]
+        },
+        "FlowDefinitionArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/FlowDefinitionArn"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the flow definition used to configure the human loop."
+            }
+          ]
+        },
+        "HumanLoopName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/HumanLoopName"
+            },
+            {
+              "description": "The name of the human loop."
+            }
+          ]
+        },
+        "HumanLoopStatus": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/HumanLoopStatus"
+            },
+            {
+              "description": "The status of the human loop. "
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "InputContent": {
+      "maxLength": 3145728,
+      "type": "string"
+    },
+    "InternalServerException": {},
+    "ListHumanLoopsRequest": {
+      "properties": {},
+      "title": "ListHumanLoopsRequest",
+      "type": "object"
+    },
+    "ListHumanLoopsResponse": {
+      "properties": {
+        "HumanLoopSummaries": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/HumanLoopSummaries"
+            },
+            {
+              "description": "An array of objects that contain information about the human loops."
+            }
+          ]
+        },
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NextToken"
+            },
+            {
+              "description": "A token to display the next page of results."
+            }
+          ]
+        }
+      },
+      "required": [
+        "HumanLoopSummaries"
+      ],
+      "type": "object"
+    },
+    "MaxResults": {
+      "maximum": 100,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "NextToken": {
+      "maxLength": 8192,
+      "pattern": ".*",
+      "type": "string"
+    },
+    "ResourceNotFoundException": {},
+    "ServiceQuotaExceededException": {},
+    "SortOrder": {
+      "enum": [
+        "Ascending",
+        "Descending"
+      ],
+      "type": "string"
+    },
+    "StartHumanLoopRequest": {
+      "properties": {
+        "DataAttributes": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/HumanLoopDataAttributes"
+            },
+            {
+              "description": "Attributes of the specified data. Use <code>DataAttributes</code> to specify if your data is free of personally identifiable information and/or free of adult content."
+            }
+          ]
+        },
+        "FlowDefinitionArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/FlowDefinitionArn"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the flow definition associated with this human loop."
+            }
+          ]
+        },
+        "HumanLoopInput": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/HumanLoopInput"
+            },
+            {
+              "description": "An object that contains information about the human loop."
+            }
+          ]
+        },
+        "HumanLoopName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/HumanLoopName"
+            },
+            {
+              "description": "The name of the human loop."
+            }
+          ]
+        }
+      },
+      "required": [
+        "HumanLoopName",
+        "FlowDefinitionArn",
+        "HumanLoopInput"
+      ],
+      "title": "StartHumanLoopRequest",
+      "type": "object"
+    },
+    "StartHumanLoopResponse": {
+      "properties": {
+        "HumanLoopArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/HumanLoopArn"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the human loop."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "StopHumanLoopRequest": {
+      "properties": {
+        "HumanLoopName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/HumanLoopName"
+            },
+            {
+              "description": "The name of the human loop that you want to stop."
+            }
+          ]
+        }
+      },
+      "required": [
+        "HumanLoopName"
+      ],
+      "title": "StopHumanLoopRequest",
+      "type": "object"
+    },
+    "StopHumanLoopResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "String": {
+      "type": "string"
+    },
+    "ThrottlingException": {},
+    "Timestamp": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "ValidationException": {}
+  },
+  "securityDefinitions": {
+    "hmac": {
+      "description": "Amazon Signature authorization v4",
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey",
+      "x-amazon-apigateway-authtype": "awsSigv4"
+    }
+  },
+  "security": [
+    {
+      "hmac": []
+    }
+  ],
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://docs.aws.amazon.com/sagemaker/"
+  },
+  "x-components": {
+    "parameters": {
+      "X-Amz-Algorithm": {
+        "in": "header",
+        "name": "X-Amz-Algorithm",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Content-Sha256": {
+        "in": "header",
+        "name": "X-Amz-Content-Sha256",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Credential": {
+        "in": "header",
+        "name": "X-Amz-Credential",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Date": {
+        "in": "header",
+        "name": "X-Amz-Date",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Security-Token": {
+        "in": "header",
+        "name": "X-Amz-Security-Token",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Signature": {
+        "in": "header",
+        "name": "X-Amz-Signature",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-SignedHeaders": {
+        "in": "header",
+        "name": "X-Amz-SignedHeaders",
+        "required": false,
+        "type": "string"
+      }
+    }
+  },
+  "x-hasEquivalentPaths": true
+}

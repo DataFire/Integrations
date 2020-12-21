@@ -15,9 +15,7 @@ let azure_hdinsight_operations = require('@datafire/azure_hdinsight_operations')
   redirect_uri: ""
 });
 
-azure_hdinsight_operations.Operations_List({
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -49,12 +47,17 @@ azure_hdinsight_operations.Operations_List({
 
 ## Definitions
 
+### ErrorResponse
+* ErrorResponse `object`: Describes the format of Error response.
+  * code `string`: Error code
+  * message `string`: Error message indicating why the operation failed.
+
 ### Operation
 * Operation `object`: The HDInsight REST API operation.
   * display `object`: The object that represents the operation.
     * operation `string`: The operation type: read, write, delete, etc.
     * provider `string`: The service provider: Microsoft.HDInsight
-    * resource `string`: The resource on which the operation is performed: Cluster, Capabilities, etc.
+    * resource `string`: The resource on which the operation is performed: Cluster, Applications, etc.
   * name `string`: The operation name: {provider}/{resource}/{operation}
 
 ### OperationListResult

@@ -14,8 +14,8 @@
       "name": "Apache 2.0 License",
       "url": "http://opensource.org/licenses/Apache-2.0"
     },
-    "title": "Slicebox",
-    "version": "1.2",
+    "title": "Slicebox API",
+    "version": "2.0",
     "x-apisguru-categories": [
       "collaboration"
     ],
@@ -90,6 +90,10 @@
     {
       "description": "Methods for handling forwarding rules for automatically forwarding image data from sources to destinations.",
       "name": "Forwarding"
+    },
+    {
+      "description": "Methods for handling filtering of DICOM attributes on incoming objects.",
+      "name": "Filtering"
     },
     {
       "description": "Methods for defining and handling series types",
@@ -201,6 +205,23 @@
         "operationId": "anonymization.keys.get"
       }
     },
+    "/anonymization/keys/export/csv": {
+      "get": {
+        "description": "export all anonymization keys as a csv file",
+        "responses": {
+          "200": {
+            "description": "all anonymization keys as a csv file",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "tags": [
+          "Anonymization"
+        ],
+        "operationId": "anonymization.keys.export.csv.get"
+      }
+    },
     "/anonymization/keys/query": {
       "post": {
         "description": "submit a query for anonymization keys",
@@ -284,7 +305,7 @@
         "operationId": "anonymization.keys.id.get"
       }
     },
-    "/anonymization/keys/{id}/images": {
+    "/anonymization/keys/{id}/keyvalues": {
       "get": {
         "description": "get pointers to the images corresponding to the anonymization key with the supplied ID",
         "parameters": [
@@ -299,10 +320,10 @@
         ],
         "responses": {
           "200": {
-            "description": "an array of pointers each containing an image ID corresponding to the anonymization key for the supplied ID",
+            "description": "an array of anonymization key-value pairs corresponding to the anonymization key for the supplied ID",
             "schema": {
               "items": {
-                "$ref": "#/definitions/image"
+                "$ref": "#/definitions/anonymizationKeyValue"
               },
               "type": "array"
             }
@@ -314,7 +335,27 @@
         "tags": [
           "Anonymization"
         ],
-        "operationId": "anonymization.keys.id.images.get"
+        "operationId": "anonymization.keys.id.keyvalues.get"
+      }
+    },
+    "/anonymization/options": {
+      "get": {
+        "description": "list all supported anonymization options defining an anonymization profile",
+        "responses": {
+          "200": {
+            "description": "supported anonymization options",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/confidentialityOption"
+              },
+              "type": "array"
+            }
+          }
+        },
+        "tags": [
+          "Anonymization"
+        ],
+        "operationId": "anonymization.options.get"
       }
     },
     "/boxes": {
@@ -392,10 +433,10 @@
           {
             "description": "name of box to connect (and send URL) to",
             "in": "body",
-            "name": "remoteBoxName",
+            "name": "remoteBoxConnectionData",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/remoteBoxName"
+              "$ref": "#/definitions/remoteBoxConnectionData"
             }
           }
         ],
@@ -649,10 +690,7 @@
             "name": "sequence of image tag values",
             "required": true,
             "schema": {
-              "items": {
-                "$ref": "#/definitions/imageTagValues"
-              },
-              "type": "array"
+              "$ref": "#/definitions/bulkAnonymizationData"
             }
           }
         ],
@@ -777,6 +815,273 @@
           "Directories"
         ],
         "operationId": "directorywatches.id.delete"
+      }
+    },
+    "/filtering/associations": {
+      "get": {
+        "description": "Get a list of source to filter associations.",
+        "parameters": [
+          {
+            "default": 0,
+            "description": "start index of returned slice of source <-> filter associations",
+            "format": "int64",
+            "in": "query",
+            "name": "startindex",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "default": 20,
+            "description": "size of returned slice of source <-> filter associations",
+            "format": "int64",
+            "in": "query",
+            "name": "count",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "the list of source <-> filter associations",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/sourceTagFilter"
+              },
+              "type": "array"
+            }
+          }
+        },
+        "tags": [
+          "Filtering"
+        ],
+        "operationId": "filtering.associations.get"
+      },
+      "post": {
+        "description": "Inserts or updates a source <-> filter associations. If the specified Source already  has an association this is updated, otherwise a new is inserted.",
+        "parameters": [
+          {
+            "description": "Source to Filter association",
+            "in": "body",
+            "name": "sourcetagfilter",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/sourceTagFilter"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Upserted source <-> filter association"
+          }
+        },
+        "tags": [
+          "Filtering"
+        ],
+        "operationId": "filtering.associations.post"
+      }
+    },
+    "/filtering/associations/{id}": {
+      "delete": {
+        "description": "remove the source <-> filter association corresponding to the supplied ID",
+        "parameters": [
+          {
+            "description": "id of source <-> filter association to remove",
+            "format": "int64",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "source <-> filter association removed"
+          }
+        },
+        "tags": [
+          "Filtering"
+        ],
+        "operationId": "filtering.associations.id.delete"
+      }
+    },
+    "/filtering/filters": {
+      "get": {
+        "description": "List defined filters",
+        "parameters": [
+          {
+            "default": 0,
+            "description": "start index of returned slice of filters",
+            "format": "int64",
+            "in": "query",
+            "name": "startindex",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "default": 20,
+            "description": "size of returned slice of filters",
+            "format": "int64",
+            "in": "query",
+            "name": "count",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "the list of filters",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/filter"
+              },
+              "type": "array"
+            }
+          }
+        },
+        "tags": [
+          "Filtering"
+        ],
+        "operationId": "filtering.filters.get"
+      },
+      "post": {
+        "description": "Inserts or updates a filter. If a filter with same name as supplied filter exists this filter is updated, otherwise a new filter is inserted.",
+        "parameters": [
+          {
+            "description": "Filter",
+            "in": "body",
+            "name": "tagFilter",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/filter"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Filter upserted"
+          }
+        },
+        "tags": [
+          "Filtering"
+        ],
+        "operationId": "filtering.filters.post"
+      }
+    },
+    "/filtering/filters/{id}": {
+      "delete": {
+        "description": "remove the filter corresponding to the supplied ID",
+        "parameters": [
+          {
+            "description": "id of filter to remove",
+            "format": "int64",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Filter removed"
+          }
+        },
+        "tags": [
+          "Filtering"
+        ],
+        "operationId": "filtering.filters.id.delete"
+      }
+    },
+    "/filtering/filters/{id}/tagpaths": {
+      "get": {
+        "description": "List tagpaths for the selected filter",
+        "parameters": [
+          {
+            "description": "id of filter",
+            "format": "int64",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "the list of tagpaths",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/tagPathTag"
+              },
+              "type": "array"
+            }
+          }
+        },
+        "tags": [
+          "Filtering"
+        ],
+        "operationId": "filtering.filters.id.tagpaths.get"
+      },
+      "post": {
+        "description": "add a tagpath to a filter",
+        "parameters": [
+          {
+            "description": "id of filter to remove",
+            "format": "int64",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "id of filter to remove",
+            "in": "body",
+            "name": "tagpath",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/tagPathTag"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "TagPath added"
+          }
+        },
+        "tags": [
+          "Filtering"
+        ],
+        "operationId": "filtering.filters.id.tagpaths.post"
+      }
+    },
+    "/filtering/filters/{id}/tagpaths/{tagpathid}": {
+      "delete": {
+        "description": "remove the tagpath corresponding to the supplied ID",
+        "parameters": [
+          {
+            "description": "id of filter",
+            "format": "int64",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "id of TagPath to remove",
+            "format": "int64",
+            "in": "path",
+            "name": "tagpathid",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "TagPath removed"
+          }
+        },
+        "tags": [
+          "Filtering"
+        ],
+        "operationId": "filtering.filters.id.tagpaths.tagpathid.delete"
       }
     },
     "/forwarding/rule/{id}": {
@@ -1100,10 +1405,7 @@
             "name": "tag values",
             "required": true,
             "schema": {
-              "items": {
-                "$ref": "#/definitions/tagValue"
-              },
-              "type": "array"
+              "$ref": "#/definitions/anonymizationData"
             }
           }
         ],
@@ -1143,10 +1445,7 @@
             "name": "tag values",
             "required": true,
             "schema": {
-              "items": {
-                "$ref": "#/definitions/tagValue"
-              },
-              "type": "array"
+              "$ref": "#/definitions/anonymizationData"
             }
           }
         ],
@@ -1226,6 +1525,42 @@
           "Images"
         ],
         "operationId": "images.id.imageinformation.get"
+      }
+    },
+    "/images/{id}/modify": {
+      "put": {
+        "description": "modify and/or insert image attributes according to the input tagpath-value mappings",
+        "parameters": [
+          {
+            "description": "ID of image to modify",
+            "format": "int64",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "specification of tag paths and corresponding values to insert or modify",
+            "in": "body",
+            "name": "tag path value mappings",
+            "required": true,
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/tagMapping"
+              },
+              "type": "array"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "image attributes successfully modified"
+          }
+        },
+        "tags": [
+          "Images"
+        ],
+        "operationId": "images.id.modify.put"
       }
     },
     "/images/{id}/png": {
@@ -1490,6 +1825,18 @@
       }
     },
     "/log": {
+      "delete": {
+        "description": "delete all log messages",
+        "responses": {
+          "204": {
+            "description": "log messages successfully"
+          }
+        },
+        "tags": [
+          "Logs"
+        ],
+        "operationId": "log.delete"
+      },
       "get": {
         "description": "get a list of slicebox log messages",
         "parameters": [
@@ -2953,7 +3300,10 @@
         "description": "get the status of the internal process of updating series types for series following a change of series types, rules or attributes.",
         "responses": {
           "200": {
-            "description": "a status message, either idle or running."
+            "description": "a status message, indicating if an update is running",
+            "schema": {
+              "$ref": "#/definitions/seriestypeupdatestatus"
+            }
           }
         },
         "tags": [
@@ -3397,7 +3747,10 @@
           "200": {
             "description": "next outgoing transaction and image information block",
             "schema": {
-              "$ref": "#/definitions/outgoingTransactionImage"
+              "items": {
+                "$ref": "#/definitions/outgoingTransactionImage"
+              },
+              "type": "array"
             }
           },
           "401": {
@@ -3646,18 +3999,29 @@
     }
   },
   "definitions": {
+    "anonymizationData": {
+      "properties": {
+        "profile": {
+          "$ref": "#/definitions/anonymizationProfile"
+        },
+        "tagValues": {
+          "items": {
+            "$ref": "#/definitions/tagValue"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
     "anonymizationKey": {
       "properties": {
-        "accessionNumber": {
-          "type": "string"
-        },
-        "anonFrameOfReferenceUID": {
-          "type": "string"
-        },
         "anonPatientID": {
           "type": "string"
         },
         "anonPatientName": {
+          "type": "string"
+        },
+        "anonSOPInstanceUID": {
           "type": "string"
         },
         "anonSeriesInstanceUID": {
@@ -3670,15 +4034,13 @@
           "format": "int64",
           "type": "integer"
         },
-        "frameOfReferenceUID": {
-          "type": "string"
-        },
         "id": {
           "format": "int64",
           "type": "integer"
         },
-        "patientBirthDate": {
-          "type": "string"
+        "imageId": {
+          "format": "int64",
+          "type": "integer"
         },
         "patientID": {
           "type": "string"
@@ -3686,19 +4048,10 @@
         "patientName": {
           "type": "string"
         },
-        "protocolName": {
-          "type": "string"
-        },
-        "seriesDescription": {
-          "type": "string"
-        },
         "seriesInstanceUID": {
           "type": "string"
         },
-        "studyDescription": {
-          "type": "string"
-        },
-        "studyID": {
+        "sopInstanceUID": {
           "type": "string"
         },
         "studyInstanceUID": {
@@ -3734,6 +4087,39 @@
       ],
       "type": "object"
     },
+    "anonymizationKeyValue": {
+      "properties": {
+        "anonymizationKeyId": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "anonymizedValue": {
+          "type": "string"
+        },
+        "id": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "tagPath": {
+          "$ref": "#/definitions/tagPathTag"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "anonymizationProfile": {
+      "properties": {
+        "options": {
+          "items": {
+            "$ref": "#/definitions/confidentialityOption"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
     "box": {
       "properties": {
         "baseUrl": {
@@ -3749,10 +4135,45 @@
         "online": {
           "type": "boolean"
         },
+        "profile": {
+          "$ref": "#/definitions/anonymizationProfile"
+        },
         "sendMethod": {
           "type": "string"
         },
         "token": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "bulkAnonymizationData": {
+      "properties": {
+        "imageTagValuesSet": {
+          "items": {
+            "$ref": "#/definitions/imageTagValues"
+          },
+          "type": "array"
+        },
+        "profile": {
+          "$ref": "#/definitions/anonymizationProfile"
+        }
+      },
+      "type": "object"
+    },
+    "confidentialityOption": {
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "rank": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "title": {
           "type": "string"
         }
       },
@@ -3797,6 +4218,27 @@
         },
         "transactionImage": {
           "$ref": "#/definitions/outgoingTransactionImage"
+        }
+      },
+      "type": "object"
+    },
+    "filter": {
+      "properties": {
+        "id": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "tagFilterType": {
+          "type": "string"
+        },
+        "tags": {
+          "items": {
+            "$ref": "#/definitions/tagPathTag"
+          },
+          "type": "array"
         }
       },
       "type": "object"
@@ -4092,6 +4534,9 @@
           "format": "int64",
           "type": "integer"
         },
+        "profile": {
+          "$ref": "#/definitions/anonymizationProfile"
+        },
         "sentImageCount": {
           "format": "int64",
           "type": "integer"
@@ -4227,15 +4672,21 @@
         "baseUrl": {
           "type": "string"
         },
+        "defaultProfile": {
+          "$ref": "#/definitions/anonymizationProfile"
+        },
         "name": {
           "type": "string"
         }
       },
       "type": "object"
     },
-    "remoteBoxName": {
+    "remoteBoxConnectionData": {
       "properties": {
-        "value": {
+        "defaultProfile": {
+          "$ref": "#/definitions/anonymizationProfile"
+        },
+        "name": {
           "type": "string"
         }
       },
@@ -4416,6 +4867,17 @@
       ],
       "type": "object"
     },
+    "seriestypeupdatestatus": {
+      "properties": {
+        "running": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "running"
+      ],
+      "type": "object"
+    },
     "source": {
       "properties": {
         "sourceId": {
@@ -4439,6 +4901,26 @@
         },
         "sourceType": {
           "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "sourceTagFilter": {
+      "properties": {
+        "id": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "sourceId": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "sourceType": {
+          "type": "string"
+        },
+        "tagFilterId": {
+          "format": "int64",
+          "type": "integer"
         }
       },
       "type": "object"
@@ -4474,11 +4956,48 @@
       },
       "type": "object"
     },
-    "tagValue": {
+    "tagMapping": {
       "properties": {
+        "tagPath": {
+          "$ref": "#/definitions/tagPathTag"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "tagPathTag": {
+      "properties": {
+        "previous": {
+          "$ref": "#/definitions/tagPathTrunk"
+        },
         "tag": {
           "format": "int32",
           "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "tagPathTrunk": {
+      "properties": {
+        "item": {
+          "type": "string"
+        },
+        "previous": {
+          "$ref": "#/definitions/tagPathTrunk"
+        },
+        "tag": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "tagValue": {
+      "properties": {
+        "tagPath": {
+          "$ref": "#/definitions/tagPathTag"
         },
         "value": {
           "type": "string"

@@ -15,13 +15,7 @@ let azure_apimanagement_apimtenant = require('@datafire/azure_apimanagement_apim
   redirect_uri: ""
 });
 
-azure_apimanagement_apimtenant.TenantAccess_Get({
-  "resourceGroupName": "",
-  "serviceName": "",
-  "api-version": "",
-  "subscriptionId": "",
-  "accessName": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -33,7 +27,7 @@ Use these REST APIs for performing operations on tenant entity associated with y
 ## Actions
 
 ### TenantAccess_Get
-Get tenant access information details.
+Get tenant access information details
 
 
 ```js
@@ -55,7 +49,36 @@ azure_apimanagement_apimtenant.TenantAccess_Get({
   * accessName **required** `string` (values: access): The identifier of the Access configuration.
 
 #### Output
-* output [AccessInformationContract](#accessinformationcontract)
+* output `object`: Tenant access information contract of the API Management service.
+  * enabled `boolean`: Determines whether direct access is enabled.
+  * id `string`: Identifier.
+  * primaryKey `string`: Primary access key.
+  * secondaryKey `string`: Secondary access key.
+
+### TenantAccess_GetEntityTag
+Tenant access metadata
+
+
+```js
+azure_apimanagement_apimtenant.TenantAccess_GetEntityTag({
+  "resourceGroupName": "",
+  "serviceName": "",
+  "api-version": "",
+  "subscriptionId": "",
+  "accessName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * resourceGroupName **required** `string`: The name of the resource group.
+  * serviceName **required** `string`: The name of the API Management service.
+  * api-version **required** `string`: Version of the API to be used with the client request.
+  * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+  * accessName **required** `string` (values: access): The identifier of the Access configuration.
+
+#### Output
+*Output schema unknown*
 
 ### TenantAccess_Update
 Update tenant access information details.
@@ -77,7 +100,9 @@ azure_apimanagement_apimtenant.TenantAccess_Update({
 * input `object`
   * resourceGroupName **required** `string`: The name of the resource group.
   * serviceName **required** `string`: The name of the API Management service.
-  * parameters **required** [AccessInformationUpdateParameters](#accessinformationupdateparameters)
+  * parameters **required** `object`: Tenant access information update parameters.
+    * properties `object`: Tenant access information update parameters of the API Management service
+      * enabled `boolean`: Determines whether direct access is enabled.
   * accessName **required** `string` (values: access): The identifier of the Access configuration.
   * If-Match **required** `string`: ETag of the Entity. ETag should match the current entity state from the header response of the GET request or it should be * for unconditional update.
   * api-version **required** `string`: Version of the API to be used with the client request.
@@ -109,7 +134,11 @@ azure_apimanagement_apimtenant.TenantAccessGit_Get({
   * accessName **required** `string` (values: access): The identifier of the Access configuration.
 
 #### Output
-* output [AccessInformationContract](#accessinformationcontract)
+* output `object`: Tenant access information contract of the API Management service.
+  * enabled `boolean`: Determines whether direct access is enabled.
+  * id `string`: Identifier.
+  * primaryKey `string`: Primary access key.
+  * secondaryKey `string`: Secondary access key.
 
 ### TenantAccessGit_RegeneratePrimaryKey
 Regenerate primary access key for GIT.
@@ -162,7 +191,7 @@ azure_apimanagement_apimtenant.TenantAccessGit_RegenerateSecondaryKey({
 *Output schema unknown*
 
 ### TenantAccess_RegeneratePrimaryKey
-Regenerate primary access key.
+Regenerate primary access key
 
 
 ```js
@@ -187,7 +216,7 @@ azure_apimanagement_apimtenant.TenantAccess_RegeneratePrimaryKey({
 *Output schema unknown*
 
 ### TenantAccess_RegenerateSecondaryKey
-Regenerate secondary access key.
+Regenerate secondary access key
 
 
 ```js
@@ -230,13 +259,34 @@ azure_apimanagement_apimtenant.TenantConfiguration_Deploy({
 * input `object`
   * resourceGroupName **required** `string`: The name of the resource group.
   * serviceName **required** `string`: The name of the API Management service.
-  * parameters **required** [DeployConfigurationParameters](#deployconfigurationparameters)
+  * parameters **required** `object`: Deploy Tenant Configuration Contract.
+    * properties `object`: Parameters supplied to the Deploy Configuration operation.
+      * branch **required** `string`: The name of the Git branch from which the configuration is to be deployed to the configuration database.
+      * force `boolean`: The value enforcing deleting subscriptions to products that are deleted in this update.
   * api-version **required** `string`: Version of the API to be used with the client request.
   * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
   * configurationName **required** `string` (values: configuration): The identifier of the Git Configuration Operation.
 
 #### Output
-* output [OperationResultContract](#operationresultcontract)
+* output `object`: Operation Result.
+  * actionLog `array`: This property if only provided as part of the TenantConfiguration_Validate operation. It contains the log the entities which will be updated/created/deleted as part of the TenantConfiguration_Deploy operation.
+    * items `object`: Log of the entity being created, updated or deleted.
+      * action `string`: Action like create/update/delete.
+      * objectKey `string`: Identifier of the entity being created/updated/deleted.
+      * objectType `string`: The type of entity contract.
+  * error `object`: Error Body contract.
+    * code `string`: Service-defined error code. This code serves as a sub-status for the HTTP error code specified in the response.
+    * details `array`: The list of invalid fields send in request, in case of validation error.
+      * items `object`: Error Field contract.
+        * code `string`: Property level error code.
+        * message `string`: Human-readable representation of property-level error.
+        * target `string`: Property name.
+    * message `string`: Human-readable representation of the error.
+  * id `string`: Operation result identifier.
+  * resultInfo `string`: Optional result info.
+  * started `string`: Start time of an async operation. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+  * status `string` (values: Started, InProgress, Succeeded, Failed): Status of an async operation.
+  * updated `string`: Last update time of an async operation. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
 
 ### TenantConfiguration_Save
 This operation creates a commit with the current configuration snapshot to the specified branch in the repository. This is a long running operation and could take several minutes to complete.
@@ -257,13 +307,34 @@ azure_apimanagement_apimtenant.TenantConfiguration_Save({
 * input `object`
   * resourceGroupName **required** `string`: The name of the resource group.
   * serviceName **required** `string`: The name of the API Management service.
-  * parameters **required** [SaveConfigurationParameter](#saveconfigurationparameter)
+  * parameters **required** `object`: Save Tenant Configuration Contract details.
+    * properties `object`: Parameters supplied to the Save Tenant Configuration operation.
+      * branch **required** `string`: The name of the Git branch in which to commit the current configuration snapshot.
+      * force `boolean`: The value if true, the current configuration database is committed to the Git repository, even if the Git repository has newer changes that would be overwritten.
   * api-version **required** `string`: Version of the API to be used with the client request.
   * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
   * configurationName **required** `string` (values: configuration): The identifier of the Git Configuration Operation.
 
 #### Output
-* output [OperationResultContract](#operationresultcontract)
+* output `object`: Operation Result.
+  * actionLog `array`: This property if only provided as part of the TenantConfiguration_Validate operation. It contains the log the entities which will be updated/created/deleted as part of the TenantConfiguration_Deploy operation.
+    * items `object`: Log of the entity being created, updated or deleted.
+      * action `string`: Action like create/update/delete.
+      * objectKey `string`: Identifier of the entity being created/updated/deleted.
+      * objectType `string`: The type of entity contract.
+  * error `object`: Error Body contract.
+    * code `string`: Service-defined error code. This code serves as a sub-status for the HTTP error code specified in the response.
+    * details `array`: The list of invalid fields send in request, in case of validation error.
+      * items `object`: Error Field contract.
+        * code `string`: Property level error code.
+        * message `string`: Human-readable representation of property-level error.
+        * target `string`: Property name.
+    * message `string`: Human-readable representation of the error.
+  * id `string`: Operation result identifier.
+  * resultInfo `string`: Optional result info.
+  * started `string`: Start time of an async operation. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+  * status `string` (values: Started, InProgress, Succeeded, Failed): Status of an async operation.
+  * updated `string`: Last update time of an async operation. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
 
 ### TenantConfiguration_GetSyncState
 Gets the status of the most recent synchronization between the configuration database and the Git repository.
@@ -288,7 +359,14 @@ azure_apimanagement_apimtenant.TenantConfiguration_GetSyncState({
   * configurationName **required** `string` (values: configuration): The identifier of the Git Configuration Operation.
 
 #### Output
-* output [TenantConfigurationSyncStateContract](#tenantconfigurationsyncstatecontract)
+* output `object`: Tenant Configuration Synchronization State.
+  * branch `string`: The name of Git branch.
+  * commitId `string`: The latest commit Id.
+  * configurationChangeDate `string`: The date of the latest configuration change. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+  * isExport `boolean`: value indicating if last sync was save (true) or deploy (false) operation.
+  * isGitEnabled `boolean`: value indicating whether Git configuration access is enabled.
+  * isSynced `boolean`: value indicating if last synchronization was later than the configuration change.
+  * syncDate `string`: The date of the latest synchronization. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
 
 ### TenantConfiguration_Validate
 This operation validates the changes in the specified Git branch. This is a long running operation and could take several minutes to complete.
@@ -309,72 +387,37 @@ azure_apimanagement_apimtenant.TenantConfiguration_Validate({
 * input `object`
   * resourceGroupName **required** `string`: The name of the resource group.
   * serviceName **required** `string`: The name of the API Management service.
-  * parameters **required** [DeployConfigurationParameters](#deployconfigurationparameters)
+  * parameters **required** `object`: Deploy Tenant Configuration Contract.
+    * properties `object`: Parameters supplied to the Deploy Configuration operation.
+      * branch **required** `string`: The name of the Git branch from which the configuration is to be deployed to the configuration database.
+      * force `boolean`: The value enforcing deleting subscriptions to products that are deleted in this update.
   * api-version **required** `string`: Version of the API to be used with the client request.
   * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
   * configurationName **required** `string` (values: configuration): The identifier of the Git Configuration Operation.
 
 #### Output
-* output [OperationResultContract](#operationresultcontract)
-
-
-
-## Definitions
-
-### AccessInformationContract
-* AccessInformationContract `object`: Tenant access information contract of the API Management service.
-  * enabled `boolean`: Tenant access information of the API Management service.
-  * id `string`: Identifier.
-  * primaryKey `string`: Primary access key.
-  * secondaryKey `string`: Secondary access key.
-
-### AccessInformationUpdateParameters
-* AccessInformationUpdateParameters `object`: Tenant access information update parameters of the API Management service.
-  * enabled `boolean`: Tenant access information of the API Management service.
-
-### DeployConfigurationParameters
-* DeployConfigurationParameters `object`: Parameters supplied to the Deploy Configuration operation.
-  * branch **required** `string`: The name of the Git branch from which the configuration is to be deployed to the configuration database.
-  * force `boolean`: The value enforcing deleting subscriptions to products that are deleted in this update.
-
-### OperationResultContract
-* OperationResultContract `object`: Operation Result.
+* output `object`: Operation Result.
   * actionLog `array`: This property if only provided as part of the TenantConfiguration_Validate operation. It contains the log the entities which will be updated/created/deleted as part of the TenantConfiguration_Deploy operation.
-    * items [OperationResultLogItemContract](#operationresultlogitemcontract)
-  * error `object`: Error Response.
-    * error `object`: Error Body contract.
-      * code `string`: Service-defined error code. This code serves as a sub-status for the HTTP error code specified in the response.
-      * details `array`: The list of invalid fields send in request, in case of validation error.
-        * items `object`: Error Field contract.
-          * code `string`: Property level error code.
-          * message `string`: Human-readable representation of property-level error.
-          * target `string`: Property name.
-      * message `string`: Human-readable representation of the error.
+    * items `object`: Log of the entity being created, updated or deleted.
+      * action `string`: Action like create/update/delete.
+      * objectKey `string`: Identifier of the entity being created/updated/deleted.
+      * objectType `string`: The type of entity contract.
+  * error `object`: Error Body contract.
+    * code `string`: Service-defined error code. This code serves as a sub-status for the HTTP error code specified in the response.
+    * details `array`: The list of invalid fields send in request, in case of validation error.
+      * items `object`: Error Field contract.
+        * code `string`: Property level error code.
+        * message `string`: Human-readable representation of property-level error.
+        * target `string`: Property name.
+    * message `string`: Human-readable representation of the error.
   * id `string`: Operation result identifier.
   * resultInfo `string`: Optional result info.
   * started `string`: Start time of an async operation. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
   * status `string` (values: Started, InProgress, Succeeded, Failed): Status of an async operation.
   * updated `string`: Last update time of an async operation. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
 
-### OperationResultLogItemContract
-* OperationResultLogItemContract `object`: Log of the entity being created, updated or deleted.
-  * action `string`: Action like create/update/delete.
-  * objectKey `string`: Identifier of the entity being created/updated/deleted.
-  * objectType `string`: The type of entity contract.
-
-### SaveConfigurationParameter
-* SaveConfigurationParameter `object`: Parameters supplied to the Save Tenant Configuration operation.
-  * branch **required** `string`: The name of the Git branch in which to commit the current configuration snapshot.
-  * force `boolean`: The value if true, the current configuration database is committed to the Git repository, even if the Git repository has newer changes that would be overwritten.
-
-### TenantConfigurationSyncStateContract
-* TenantConfigurationSyncStateContract `object`: Tenant Configuration Synchronization State.
-  * branch `string`: The name of Git branch.
-  * commitId `string`: The latest commit Id.
-  * configurationChangeDate `string`: The date of the latest configuration change. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
-  * isExport `boolean`: value indicating if last sync was save (true) or deploy (false) operation.
-  * isGitEnabled `boolean`: value indicating whether Git configuration access is enabled.
-  * isSynced `boolean`: value indicating if last synchronization was later than the configuration change.
-  * syncDate `string`: The date of the latest synchronization. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
 
 
+## Definitions
+
+*This integration has no definitions*

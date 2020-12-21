@@ -11,10 +11,7 @@ let data_gov = require('@datafire/data_gov').create({
   api_key: ""
 });
 
-data_gov.docket({
-  "response_format": "",
-  "docketId": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

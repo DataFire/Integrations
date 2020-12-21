@@ -12,9 +12,7 @@ let fantasydata_nhl_v3_stats = require('@datafire/fantasydata_nhl_v3_stats').cre
   apiKeyQuery: ""
 });
 
-fantasydata_nhl_v3_stats.TeamsAll({
-  "format": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

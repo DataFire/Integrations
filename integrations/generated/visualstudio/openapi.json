@@ -1,0 +1,3462 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "Public APIs for managing VS Online Environments",
+    "title": "VSOnline",
+    "version": "v1",
+    "x-apisguru-categories": [
+      "developer_tools",
+      "collaboration"
+    ],
+    "x-origin": [
+      {
+        "format": "openapi",
+        "url": "https://online.visualstudio.com/api/v1/swagger",
+        "version": "3.0"
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "visualstudio.com",
+    "x-datafire": {
+      "name": "visualstudio",
+      "type": "openapi"
+    }
+  },
+  "host": "online.visualstudio.com",
+  "basePath": "/",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/api/v1/AgentTelemetry": {
+      "post": {
+        "consumes": [
+          "application/json",
+          "application/json-patch+json",
+          "text/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "text/plain"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/TelemetryData"
+              },
+              "type": "array",
+              "x-nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/ProblemDetails"
+            }
+          }
+        },
+        "tags": [
+          "AgentTelemetry"
+        ]
+      }
+    },
+    "/api/v1/Agents/{family}": {
+      "get": {
+        "produces": [
+          "application/json",
+          "text/json",
+          "text/plain"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "family",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/AgentResponse"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/ProblemDetails"
+            }
+          }
+        },
+        "tags": [
+          "Agents"
+        ]
+      }
+    },
+    "/api/v1/Environments": {
+      "get": {
+        "produces": [
+          "application/json",
+          "text/json",
+          "text/plain"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "planId",
+            "type": "string"
+          },
+          {
+            "default": false,
+            "in": "query",
+            "name": "deleted",
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/CloudEnvironmentResult"
+              },
+              "type": "array"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/ProblemDetails"
+            }
+          }
+        },
+        "tags": [
+          "Environments"
+        ]
+      },
+      "post": {
+        "consumes": [
+          "application/json",
+          "application/json-patch+json",
+          "text/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "text/plain"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/CreateCloudEnvironmentBody"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CloudEnvironmentResult"
+            }
+          },
+          "307": {
+            "description": "Redirect",
+            "schema": {
+              "$ref": "#/definitions/MessageCodes"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/MessageCodes"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/ProblemDetails"
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "schema": {
+              "$ref": "#/definitions/MessageCodes"
+            }
+          },
+          "409": {
+            "description": "Conflict",
+            "schema": {
+              "$ref": "#/definitions/MessageCodes"
+            }
+          },
+          "503": {
+            "description": "Server Error",
+            "schema": {
+              "$ref": "#/definitions/MessageCodes"
+            }
+          }
+        },
+        "tags": [
+          "Environments"
+        ]
+      }
+    },
+    "/api/v1/Environments/{environmentId}": {
+      "delete": {
+        "produces": [
+          "application/json",
+          "text/json",
+          "text/plain"
+        ],
+        "parameters": [
+          {
+            "format": "uuid",
+            "in": "path",
+            "name": "environmentId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/ProblemDetails"
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "schema": {
+              "$ref": "#/definitions/ProblemDetails"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/ProblemDetails"
+            }
+          }
+        },
+        "tags": [
+          "Environments"
+        ]
+      },
+      "get": {
+        "produces": [
+          "application/json",
+          "text/json",
+          "text/plain"
+        ],
+        "parameters": [
+          {
+            "format": "uuid",
+            "in": "path",
+            "name": "environmentId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "connect",
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CloudEnvironmentResult"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/ProblemDetails"
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "schema": {
+              "$ref": "#/definitions/ProblemDetails"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/ProblemDetails"
+            }
+          }
+        },
+        "tags": [
+          "Environments"
+        ]
+      },
+      "patch": {
+        "consumes": [
+          "application/json",
+          "application/json-patch+json",
+          "text/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "text/plain"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "environmentId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/UpdateCloudEnvironmentBody"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CloudEnvironmentResult"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/MessageCodes"
+              },
+              "type": "array"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/ProblemDetails"
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "schema": {
+              "$ref": "#/definitions/ProblemDetails"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/ProblemDetails"
+            }
+          },
+          "409": {
+            "description": "Conflict",
+            "schema": {
+              "$ref": "#/definitions/ProblemDetails"
+            }
+          }
+        },
+        "tags": [
+          "Environments"
+        ]
+      }
+    },
+    "/api/v1/Environments/{environmentId}/_callback": {
+      "post": {
+        "consumes": [
+          "application/json",
+          "application/json-patch+json",
+          "text/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "text/plain"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "environmentId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/EnvironmentRegistrationCallbackBody"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CloudEnvironmentResult"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/ProblemDetails"
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "schema": {
+              "$ref": "#/definitions/ProblemDetails"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/ProblemDetails"
+            }
+          }
+        },
+        "tags": [
+          "Environments"
+        ]
+      }
+    },
+    "/api/v1/Environments/{environmentId}/export": {
+      "post": {
+        "produces": [
+          "application/json",
+          "text/json",
+          "text/plain"
+        ],
+        "parameters": [
+          {
+            "format": "uuid",
+            "in": "path",
+            "name": "environmentId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CloudEnvironmentResult"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/MessageCodes"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/ProblemDetails"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/ProblemDetails"
+            }
+          },
+          "503": {
+            "description": "Server Error",
+            "schema": {
+              "$ref": "#/definitions/MessageCodes"
+            }
+          }
+        },
+        "tags": [
+          "Environments"
+        ]
+      }
+    },
+    "/api/v1/Environments/{environmentId}/folder": {
+      "patch": {
+        "consumes": [
+          "application/json",
+          "application/json-patch+json",
+          "text/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "text/plain"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "environmentId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/CloudEnvironmentFolderBody"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CloudEnvironmentResult"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/MessageCodes"
+              },
+              "type": "array"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/ProblemDetails"
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "schema": {
+              "$ref": "#/definitions/ProblemDetails"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/ProblemDetails"
+            }
+          }
+        },
+        "tags": [
+          "Environments"
+        ]
+      }
+    },
+    "/api/v1/Environments/{environmentId}/heartbeattoken": {
+      "get": {
+        "produces": [
+          "application/json",
+          "text/json",
+          "text/plain"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "environmentId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CloudEnvironmentResult"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/ProblemDetails"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/ProblemDetails"
+            }
+          }
+        },
+        "tags": [
+          "Environments"
+        ]
+      }
+    },
+    "/api/v1/Environments/{environmentId}/restore": {
+      "patch": {
+        "produces": [
+          "application/json",
+          "text/json",
+          "text/plain"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "environmentId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/ProblemDetails"
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "schema": {
+              "$ref": "#/definitions/ProblemDetails"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/ProblemDetails"
+            }
+          }
+        },
+        "tags": [
+          "Environments"
+        ]
+      }
+    },
+    "/api/v1/Environments/{environmentId}/shutdown": {
+      "post": {
+        "produces": [
+          "application/json",
+          "text/json",
+          "text/plain"
+        ],
+        "parameters": [
+          {
+            "format": "uuid",
+            "in": "path",
+            "name": "environmentId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CloudEnvironmentResult"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/MessageCodes"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/ProblemDetails"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/ProblemDetails"
+            }
+          }
+        },
+        "tags": [
+          "Environments"
+        ]
+      }
+    },
+    "/api/v1/Environments/{environmentId}/start": {
+      "post": {
+        "produces": [
+          "application/json",
+          "text/json",
+          "text/plain"
+        ],
+        "parameters": [
+          {
+            "format": "uuid",
+            "in": "path",
+            "name": "environmentId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CloudEnvironmentResult"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/MessageCodes"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/ProblemDetails"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/ProblemDetails"
+            }
+          },
+          "503": {
+            "description": "Server Error",
+            "schema": {
+              "$ref": "#/definitions/MessageCodes"
+            }
+          }
+        },
+        "tags": [
+          "Environments"
+        ]
+      }
+    },
+    "/api/v1/Environments/{environmentId}/updates": {
+      "get": {
+        "produces": [
+          "application/json",
+          "text/json",
+          "text/plain"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "environmentId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CloudEnvironmentResult"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/ProblemDetails"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/ProblemDetails"
+            }
+          }
+        },
+        "tags": [
+          "Environments"
+        ]
+      }
+    },
+    "/api/v1/HeartBeat": {
+      "post": {
+        "consumes": [
+          "application/json",
+          "application/json-patch+json",
+          "text/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "text/plain"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/HeartBeatBody"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Success"
+          },
+          "422": {
+            "description": "Client Error",
+            "schema": {
+              "$ref": "#/definitions/ProblemDetails"
+            }
+          }
+        },
+        "tags": [
+          "HeartBeat"
+        ]
+      }
+    },
+    "/api/v1/Locations": {
+      "get": {
+        "produces": [
+          "application/json",
+          "text/json",
+          "text/plain"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/LocationsResult"
+            }
+          }
+        },
+        "tags": [
+          "Locations"
+        ]
+      }
+    },
+    "/api/v1/Locations/{location}": {
+      "get": {
+        "produces": [
+          "application/json",
+          "text/json",
+          "text/plain"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "location",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "planId",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/LocationInfoResult"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/ProblemDetails"
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "schema": {
+              "$ref": "#/definitions/ProblemDetails"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/ProblemDetails"
+            }
+          }
+        },
+        "tags": [
+          "Locations"
+        ]
+      }
+    },
+    "/api/v1/Plans": {
+      "get": {
+        "produces": [
+          "application/json",
+          "text/json",
+          "text/plain"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/PlanResult"
+              },
+              "type": "array"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/ProblemDetails"
+            }
+          }
+        },
+        "tags": [
+          "Plans"
+        ]
+      }
+    },
+    "/api/v1/Plans/{subscriptionId}/{resourceGroupName}/{resourceName}": {
+      "get": {
+        "produces": [
+          "application/json",
+          "text/json",
+          "text/plain"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "resourceGroupName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "resourceName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/PlanResult"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/ProblemDetails"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/ProblemDetails"
+            }
+          }
+        },
+        "tags": [
+          "Plans"
+        ]
+      }
+    },
+    "/api/v1/Sas": {
+      "get": {
+        "produces": [
+          "application/json",
+          "text/json",
+          "text/plain"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/ScopedSecretResultBody"
+              },
+              "type": "array"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/ProblemDetails"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/ProblemDetails"
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "schema": {
+              "$ref": "#/definitions/ProblemDetails"
+            }
+          }
+        },
+        "tags": [
+          "Sas"
+        ]
+      }
+    },
+    "/api/v1/Secrets": {
+      "get": {
+        "produces": [
+          "application/json",
+          "text/json",
+          "text/plain"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "planId",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/ScopedSecretResultBody"
+              },
+              "type": "array"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/ProblemDetails"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/ProblemDetails"
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "schema": {
+              "$ref": "#/definitions/ProblemDetails"
+            }
+          }
+        },
+        "tags": [
+          "Secrets"
+        ]
+      },
+      "post": {
+        "consumes": [
+          "application/json",
+          "application/json-patch+json",
+          "text/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "text/plain"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "planId",
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/ScopedCreateSecretBody"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ScopedSecretResultBody"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/ProblemDetails"
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "schema": {
+              "$ref": "#/definitions/ProblemDetails"
+            }
+          }
+        },
+        "tags": [
+          "Secrets"
+        ]
+      }
+    },
+    "/api/v1/Secrets/{secretId}": {
+      "delete": {
+        "produces": [
+          "application/json",
+          "text/json",
+          "text/plain"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "planId",
+            "type": "string"
+          },
+          {
+            "enum": [
+              "1 (Plan)",
+              "2 (User)"
+            ],
+            "format": "int32",
+            "in": "query",
+            "name": "scope",
+            "type": "integer"
+          },
+          {
+            "format": "uuid",
+            "in": "path",
+            "name": "secretId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/ProblemDetails"
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "schema": {
+              "$ref": "#/definitions/ProblemDetails"
+            }
+          }
+        },
+        "tags": [
+          "Secrets"
+        ]
+      },
+      "put": {
+        "consumes": [
+          "application/json",
+          "application/json-patch+json",
+          "text/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "text/plain"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "planId",
+            "type": "string"
+          },
+          {
+            "format": "uuid",
+            "in": "path",
+            "name": "secretId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/ScopedUpdateSecretBody"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ScopedSecretResultBody"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/ProblemDetails"
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "schema": {
+              "$ref": "#/definitions/ProblemDetails"
+            }
+          }
+        },
+        "tags": [
+          "Secrets"
+        ]
+      }
+    },
+    "/api/v1/Subscriptions/{subscriptionId}/providers/{providerNamespace}/{resourceType}/SubscriptionLifeCycleNotification": {
+      "put": {
+        "consumes": [
+          "application/json",
+          "application/json-patch+json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "providerNamespace",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "resourceType",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/RPSubscriptionNotification"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "tags": [
+          "Subscriptions"
+        ]
+      }
+    },
+    "/api/v1/Subscriptions/{subscriptionId}/providers/{providerNamespace}/{resourceType}/resourceReadBegin": {
+      "post": {
+        "consumes": [
+          "application/json",
+          "application/json-patch+json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "providerNamespace",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "resourceType",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/PlanResourceList"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "tags": [
+          "Subscriptions"
+        ]
+      }
+    },
+    "/api/v1/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/{providerNamespace}/{resourceType}/resourceReadBegin": {
+      "post": {
+        "consumes": [
+          "application/json",
+          "application/json-patch+json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "resourceGroup",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "providerNamespace",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "resourceType",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/PlanResourceList"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "tags": [
+          "Subscriptions"
+        ]
+      }
+    },
+    "/api/v1/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/{providerNamespace}/{resourceType}/{resourceName}": {
+      "put": {
+        "consumes": [
+          "application/json",
+          "application/json-patch+json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "resourceGroup",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "providerNamespace",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "resourceType",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "resourceName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "header",
+            "name": "headers",
+            "type": "object"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/PlanResource"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "tags": [
+          "Subscriptions"
+        ]
+      }
+    },
+    "/api/v1/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/{providerNamespace}/{resourceType}/{resourceName}/deleteAllCodespaces": {
+      "post": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "resourceGroup",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "providerNamespace",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "resourceType",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "resourceName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "format": "date-time",
+            "in": "query",
+            "name": "expiration",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "tags": [
+          "Subscriptions"
+        ]
+      }
+    },
+    "/api/v1/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/{providerNamespace}/{resourceType}/{resourceName}/deleteAllEnvironments": {
+      "post": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "resourceGroup",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "providerNamespace",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "resourceType",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "resourceName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "format": "date-time",
+            "in": "query",
+            "name": "expiration",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "tags": [
+          "Subscriptions"
+        ]
+      }
+    },
+    "/api/v1/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/{providerNamespace}/{resourceType}/{resourceName}/deleteDelegates": {
+      "post": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "resourceGroup",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "providerNamespace",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "resourceType",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "resourceName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "tags": [
+          "Subscriptions"
+        ]
+      }
+    },
+    "/api/v1/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/{providerNamespace}/{resourceType}/{resourceName}/readAllCodespaces": {
+      "post": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "resourceGroup",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "providerNamespace",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "resourceType",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "resourceName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "format": "date-time",
+            "in": "query",
+            "name": "expiration",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "tags": [
+          "Subscriptions"
+        ]
+      }
+    },
+    "/api/v1/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/{providerNamespace}/{resourceType}/{resourceName}/readAllEnvironments": {
+      "post": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "resourceGroup",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "providerNamespace",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "resourceType",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "resourceName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "format": "date-time",
+            "in": "query",
+            "name": "expiration",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "tags": [
+          "Subscriptions"
+        ]
+      }
+    },
+    "/api/v1/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/{providerNamespace}/{resourceType}/{resourceName}/readDelegates": {
+      "post": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "resourceGroup",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "providerNamespace",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "resourceType",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "resourceName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "tags": [
+          "Subscriptions"
+        ]
+      }
+    },
+    "/api/v1/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/{providerNamespace}/{resourceType}/{resourceName}/resourceCreationCompleted": {
+      "post": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "resourceGroup",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "providerNamespace",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "resourceType",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "resourceName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "tags": [
+          "Subscriptions"
+        ]
+      }
+    },
+    "/api/v1/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/{providerNamespace}/{resourceType}/{resourceName}/resourceCreationValidate": {
+      "post": {
+        "consumes": [
+          "application/json",
+          "application/json-patch+json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "resourceGroup",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "providerNamespace",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "resourceType",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "resourceName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/PlanResource"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "tags": [
+          "Subscriptions"
+        ]
+      }
+    },
+    "/api/v1/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/{providerNamespace}/{resourceType}/{resourceName}/resourceDeletionValidate": {
+      "post": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "resourceGroup",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "providerNamespace",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "resourceType",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "resourceName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "tags": [
+          "Subscriptions"
+        ]
+      }
+    },
+    "/api/v1/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/{providerNamespace}/{resourceType}/{resourceName}/resourcePatchCompleted": {
+      "post": {
+        "consumes": [
+          "application/json",
+          "application/json-patch+json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "resourceGroup",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "providerNamespace",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "resourceType",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "resourceName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "header",
+            "name": "headers",
+            "type": "object"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/PlanResourceUpdateBody"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "tags": [
+          "Subscriptions"
+        ]
+      }
+    },
+    "/api/v1/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/{providerNamespace}/{resourceType}/{resourceName}/resourcePatchValidate": {
+      "post": {
+        "consumes": [
+          "application/json",
+          "application/json-patch+json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "resourceGroup",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "providerNamespace",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "resourceType",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "resourceName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/PlanResourceUpdateBody"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "tags": [
+          "Subscriptions"
+        ]
+      }
+    },
+    "/api/v1/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/{providerNamespace}/{resourceType}/{resourceName}/resourceReadBegin": {
+      "post": {
+        "consumes": [
+          "application/json",
+          "application/json-patch+json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "resourceGroup",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "providerNamespace",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "resourceType",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "resourceName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/PlanResource"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "tags": [
+          "Subscriptions"
+        ]
+      }
+    },
+    "/api/v1/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/{providerNamespace}/{resourceType}/{resourceName}/writeCodespaces": {
+      "post": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "resourceGroup",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "providerNamespace",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "resourceType",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "resourceName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "format": "date-time",
+            "in": "query",
+            "name": "expiration",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "tags": [
+          "Subscriptions"
+        ]
+      }
+    },
+    "/api/v1/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/{providerNamespace}/{resourceType}/{resourceName}/writeDelegates": {
+      "post": {
+        "consumes": [
+          "application/json",
+          "application/json-patch+json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "resourceGroup",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "providerNamespace",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "resourceType",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "resourceName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/IssueDelegatePlanAccessTokenBody"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "tags": [
+          "Subscriptions"
+        ]
+      }
+    },
+    "/api/v1/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/{providerNamespace}/{resourceType}/{resourceName}/writeEnvironments": {
+      "post": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "resourceGroup",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "providerNamespace",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "resourceType",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "resourceName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "format": "date-time",
+            "in": "query",
+            "name": "expiration",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "tags": [
+          "Subscriptions"
+        ]
+      }
+    },
+    "/api/v1/UserSubscriptions": {
+      "delete": {
+        "parameters": [
+          {
+            "in": "query",
+            "name": "email",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "tags": [
+          "UserSubscriptions"
+        ]
+      },
+      "post": {
+        "parameters": [
+          {
+            "in": "query",
+            "name": "email",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "tags": [
+          "UserSubscriptions"
+        ]
+      }
+    },
+    "/health": {
+      "get": {
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "500": {
+            "description": "Server Error"
+          }
+        },
+        "tags": [
+          "Health"
+        ]
+      }
+    },
+    "/warmup": {
+      "get": {
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "503": {
+            "description": "Server Error"
+          }
+        },
+        "tags": [
+          "Warmup"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "AgentResponse": {
+      "additionalProperties": false,
+      "properties": {
+        "assetUri": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "family": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "name": {
+          "type": "string",
+          "x-nullable": true
+        }
+      },
+      "type": "object"
+    },
+    "AzureLocation": {
+      "enum": [
+        "101 (EastAsia)",
+        "102 (SouthEastAsia)",
+        "201 (AustraliaCentral)",
+        "202 (AustraliaCentral2)",
+        "203 (AustraliaEast)",
+        "205 (AustraliaSouthEast)",
+        "301 (BrazilSouth)",
+        "401 (CanadaCentral)",
+        "402 (CanadaEast)",
+        "501 (NorthEurope)",
+        "502 (WestEurope)",
+        "601 (FranceCentral)",
+        "602 (FranceSouth)",
+        "701 (CentralIndia)",
+        "702 (SouthIndia)",
+        "703 (WestIndia)",
+        "801 (JapanEast)",
+        "802 (JapanWest)",
+        "901 (KoreaCentral)",
+        "902 (KoreaSouth)",
+        "1001 (SouthAfricaNorth)",
+        "1002 (SouthAfricaWest)",
+        "1201 (UaeCentral)",
+        "1202 (UaeNorth)",
+        "1401 (UkSouth)",
+        "1402 (UkWest)",
+        "1501 (CentralUs)",
+        "1502 (EastUs)",
+        "1503 (EastUs2)",
+        "1504 (NorthCentralUs)",
+        "1505 (SouthCentralUs)",
+        "1506 (WestCentralUs)",
+        "1507 (WestUs)",
+        "1508 (WestUs2)",
+        "1601 (CentralUsEuap)",
+        "1602 (EastUs2Euap)",
+        "1701 (SwitzerlandNorth)",
+        "1702 (SwitzerlandWest)",
+        "1801 (GermanyNorth)",
+        "1802 (GermanyWestCentral)",
+        "1901 (NorwayWest)",
+        "1902 (NorwayEast)"
+      ],
+      "format": "int32",
+      "type": "integer"
+    },
+    "BillingProperties": {
+      "additionalProperties": false,
+      "properties": {
+        "billingType": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "channelType": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "paymentType": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "tier": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "workloadType": {
+          "type": "string",
+          "x-nullable": true
+        }
+      },
+      "type": "object"
+    },
+    "CloudEnvironmentFolderBody": {
+      "additionalProperties": false,
+      "properties": {
+        "recentFolderPaths": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array",
+          "x-nullable": true
+        }
+      },
+      "type": "object"
+    },
+    "CloudEnvironmentResult": {
+      "additionalProperties": false,
+      "properties": {
+        "active": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "autoShutdownDelayMinutes": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "connection": {
+          "$ref": "#/definitions/ConnectionInfoBody"
+        },
+        "containerImage": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "created": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "exportedBlobUrl": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "features": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "type": "object",
+          "x-nullable": true
+        },
+        "friendlyName": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "hasUnpushedGitChanges": {
+          "type": "boolean"
+        },
+        "id": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "lastStateUpdateReason": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "lastUsed": {
+          "format": "date-time",
+          "type": "string",
+          "x-nullable": true
+        },
+        "location": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "ownerId": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "planId": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "platform": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "recentFolders": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array",
+          "x-nullable": true
+        },
+        "seed": {
+          "$ref": "#/definitions/SeedInfoBody"
+        },
+        "skuDisplayName": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "skuName": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "state": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "subscriptionData": {
+          "$ref": "#/definitions/SubscriptionData"
+        },
+        "type": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "updated": {
+          "format": "date-time",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "CollectedData": {
+      "additionalProperties": false,
+      "properties": {
+        "environmentId": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "name": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "timestamp": {
+          "format": "date-time",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "ConnectionInfoBody": {
+      "additionalProperties": false,
+      "properties": {
+        "connectionServiceUri": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "connectionSessionId": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "connectionSessionPath": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "hostPublicKeys": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array",
+          "x-nullable": true
+        },
+        "relayEndpoint": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "relaySasToken": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "sessionToken": {
+          "type": "string",
+          "x-nullable": true
+        }
+      },
+      "type": "object"
+    },
+    "CreateCloudEnvironmentBody": {
+      "additionalProperties": false,
+      "properties": {
+        "autoShutdownDelayMinutes": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "connection": {
+          "$ref": "#/definitions/ConnectionInfoBody"
+        },
+        "containerImage": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "devContainer": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "experimentalFeatures": {
+          "$ref": "#/definitions/ExperimentalFeaturesBody"
+        },
+        "features": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "type": "object",
+          "x-nullable": true
+        },
+        "friendlyName": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "location": {
+          "type": "string",
+          "x-deprecated": true,
+          "x-nullable": true
+        },
+        "personalization": {
+          "$ref": "#/definitions/PersonalizationInfoBody"
+        },
+        "planId": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "platform": {
+          "type": "string",
+          "x-deprecated": true,
+          "x-nullable": true
+        },
+        "secrets": {
+          "items": {
+            "$ref": "#/definitions/SecretDataBody"
+          },
+          "type": "array",
+          "x-nullable": true
+        },
+        "seed": {
+          "$ref": "#/definitions/SeedInfoBody"
+        },
+        "skuName": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "friendlyName",
+        "type"
+      ],
+      "type": "object"
+    },
+    "DelegateIdentity": {
+      "additionalProperties": false,
+      "properties": {
+        "displayName": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "id": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "username": {
+          "type": "string",
+          "x-nullable": true
+        }
+      },
+      "type": "object"
+    },
+    "EnvironmentRegistrationCallbackBody": {
+      "additionalProperties": false,
+      "properties": {
+        "payload": {
+          "$ref": "#/definitions/EnvironmentRegistrationCallbackPayloadBody"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type"
+      ],
+      "type": "object"
+    },
+    "EnvironmentRegistrationCallbackPayloadBody": {
+      "additionalProperties": false,
+      "properties": {
+        "sessionId": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "sessionPath": {
+          "type": "string",
+          "x-nullable": true
+        }
+      },
+      "type": "object"
+    },
+    "ExperimentalFeaturesBody": {
+      "additionalProperties": false,
+      "properties": {
+        "customContainers": {
+          "type": "boolean"
+        },
+        "disableHostNetworkingForDockerCompose": {
+          "type": "boolean"
+        },
+        "enableDynamicHttpsDetection": {
+          "type": "boolean"
+        },
+        "localCredentialHelper": {
+          "type": "boolean"
+        },
+        "newTerminal": {
+          "type": "boolean"
+        },
+        "queueResourceAllocation": {
+          "type": "boolean"
+        },
+        "shallowClone": {
+          "type": "boolean"
+        },
+        "unifiedContainerImplementation": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "GitConfigOptionsBody": {
+      "additionalProperties": false,
+      "properties": {
+        "userEmail": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "userName": {
+          "type": "string",
+          "x-nullable": true
+        }
+      },
+      "type": "object"
+    },
+    "HeartBeatBody": {
+      "additionalProperties": false,
+      "properties": {
+        "agentVersion": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "collectedDataList": {
+          "items": {
+            "$ref": "#/definitions/CollectedData"
+          },
+          "type": "array",
+          "x-nullable": true
+        },
+        "environmentId": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "resourceId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "timeStamp": {
+          "format": "date-time",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "IssueDelegatePlanAccessTokenBody": {
+      "additionalProperties": false,
+      "properties": {
+        "environmentIds": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array",
+          "x-nullable": true
+        },
+        "expiration": {
+          "format": "date-time",
+          "type": "string",
+          "x-nullable": true
+        },
+        "identity": {
+          "$ref": "#/definitions/DelegateIdentity"
+        },
+        "scope": {
+          "type": "string",
+          "x-nullable": true
+        }
+      },
+      "type": "object"
+    },
+    "LocationInfoResult": {
+      "additionalProperties": false,
+      "properties": {
+        "defaultAutoSuspendDelayMinutes": {
+          "items": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "type": "array",
+          "x-nullable": true
+        },
+        "skus": {
+          "items": {
+            "$ref": "#/definitions/SkuInfoResult"
+          },
+          "type": "array",
+          "x-nullable": true
+        }
+      },
+      "type": "object"
+    },
+    "LocationsResult": {
+      "additionalProperties": false,
+      "properties": {
+        "available": {
+          "items": {
+            "$ref": "#/definitions/AzureLocation"
+          },
+          "type": "array",
+          "x-nullable": true
+        },
+        "current": {
+          "$ref": "#/definitions/AzureLocation"
+        },
+        "hostnames": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "type": "object",
+          "x-nullable": true
+        }
+      },
+      "type": "object"
+    },
+    "MessageCodes": {
+      "enum": [
+        "0 (Unknown)",
+        "1 (ExceededQuota)",
+        "2 (EnvironmentNameAlreadyExists)",
+        "3 (EnvironmentDoesNotExist)",
+        "4 (ShutdownStaticEnvironment)",
+        "5 (StartStaticEnvironment)",
+        "6 (EnvironmentNotAvailable)",
+        "7 (EnvironmentNotShutdown)",
+        "8 (UnableToAllocateResources)",
+        "9 (UnableToAllocateResourcesWhileStarting)",
+        "10 (RequestedAutoShutdownDelayMinutesIsInvalid)",
+        "11 (UnableToUpdateSku)",
+        "12 (RequestedSkuIsInvalid)",
+        "13 (HeartbeatUnhealthy)",
+        "14 (StartEnvironmentGenericError)",
+        "15 (RestoringFromArchive)",
+        "16 (FilePathIsInvalid)",
+        "17 (TooManyRecentFolders)",
+        "18 (SubscriptionIsBanned)",
+        "19 (EnvironmentArchived)",
+        "20 (SubscriptionStateIsNotRegistered)",
+        "21 (FeatureDisabled)",
+        "22 (SubscriptionCannotPerformAction)",
+        "23 (InvalidLocationChange)",
+        "24 (PlanDoesNotExist)",
+        "25 (UnableToResolveEnvironmentNameConflict)",
+        "26 (ExceededSecretsQuota)",
+        "27 (InvalidPlanTenant)",
+        "28 (ExportStaticEnvironment)",
+        "29 (ExportEnvironmentGenericError)",
+        "30 (ExceededOrgDevContainerMaxLength)",
+        "31 (ActionNotAllowedInThisState)",
+        "32 (ExportRunningEnvironmentError)",
+        "33 (GitHubProxyError)"
+      ],
+      "format": "int32",
+      "type": "integer"
+    },
+    "PersonalizationInfoBody": {
+      "additionalProperties": false,
+      "properties": {
+        "dotfilesInstallCommand": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "dotfilesRepository": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "dotfilesTargetPath": {
+          "type": "string",
+          "x-nullable": true
+        }
+      },
+      "type": "object"
+    },
+    "PlanResource": {
+      "additionalProperties": false,
+      "properties": {
+        "tags": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "type": "object",
+          "x-nullable": true
+        },
+        "id": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "identity": {
+          "$ref": "#/definitions/PlanResourceIdentity"
+        },
+        "location": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "name": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "properties": {
+          "$ref": "#/definitions/PlanResourceProperties"
+        },
+        "provisioningState": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "type": {
+          "type": "string",
+          "x-nullable": true
+        }
+      },
+      "type": "object"
+    },
+    "PlanResourceEncryptionProperties": {
+      "additionalProperties": false,
+      "properties": {
+        "keySource": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "keyVaultProperties": {
+          "$ref": "#/definitions/PlanResourceKeyVaultProperties"
+        }
+      },
+      "type": "object"
+    },
+    "PlanResourceHeaders": {
+      "additionalProperties": false,
+      "properties": {
+        "clientTenantId": {
+          "format": "uuid",
+          "type": "string",
+          "x-nullable": true
+        },
+        "homeTenantId": {
+          "format": "uuid",
+          "type": "string",
+          "x-nullable": true
+        },
+        "identityPrincipalId": {
+          "format": "uuid",
+          "type": "string",
+          "x-nullable": true
+        },
+        "identityUrl": {
+          "type": "string",
+          "x-nullable": true
+        }
+      },
+      "type": "object"
+    },
+    "PlanResourceIdentity": {
+      "additionalProperties": false,
+      "properties": {
+        "principalId": {
+          "format": "uuid",
+          "type": "string",
+          "x-nullable": true
+        },
+        "tenantId": {
+          "format": "uuid",
+          "type": "string",
+          "x-nullable": true
+        },
+        "type": {
+          "type": "string",
+          "x-nullable": true
+        }
+      },
+      "type": "object"
+    },
+    "PlanResourceKeyVaultProperties": {
+      "additionalProperties": false,
+      "properties": {
+        "keyName": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "keyVaultUri": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "keyVersion": {
+          "type": "string",
+          "x-nullable": true
+        }
+      },
+      "type": "object"
+    },
+    "PlanResourceList": {
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "items": {
+            "$ref": "#/definitions/PlanResource"
+          },
+          "type": "array",
+          "x-nullable": true
+        }
+      },
+      "type": "object"
+    },
+    "PlanResourceProperties": {
+      "additionalProperties": false,
+      "properties": {
+        "defaultAutoSuspendDelayMinutes": {
+          "format": "int32",
+          "type": "integer",
+          "x-nullable": true
+        },
+        "defaultCodespaceSku": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "defaultEnvironmentSku": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "encryption": {
+          "$ref": "#/definitions/PlanResourceEncryptionProperties"
+        },
+        "userId": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "vnetProperties": {
+          "$ref": "#/definitions/VnetProperties"
+        }
+      },
+      "type": "object"
+    },
+    "PlanResourceUpdateBody": {
+      "additionalProperties": false,
+      "properties": {
+        "identity": {
+          "$ref": "#/definitions/PlanResourceIdentity"
+        },
+        "properties": {
+          "$ref": "#/definitions/PlanResourceProperties"
+        }
+      },
+      "type": "object"
+    },
+    "PlanResult": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "location": {
+          "$ref": "#/definitions/AzureLocation"
+        },
+        "name": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "resourceGroup": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "subscription": {
+          "type": "string",
+          "x-nullable": true
+        }
+      },
+      "type": "object"
+    },
+    "ProblemDetails": {
+      "additionalProperties": {},
+      "properties": {
+        "detail": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "instance": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "status": {
+          "format": "int32",
+          "type": "integer",
+          "x-nullable": true
+        },
+        "title": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "type": {
+          "type": "string",
+          "x-nullable": true
+        }
+      },
+      "type": "object"
+    },
+    "RPSubscriptionNotification": {
+      "additionalProperties": false,
+      "properties": {
+        "properties": {
+          "$ref": "#/definitions/RPSubscriptionProperties"
+        },
+        "registrationDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "state": {
+          "type": "string",
+          "x-nullable": true
+        }
+      },
+      "type": "object"
+    },
+    "RPSubscriptionProperties": {
+      "additionalProperties": false,
+      "properties": {
+        "accountOwner": {
+          "$ref": "#/definitions/SubscriptionAccountOwner"
+        },
+        "additionalProperties": {
+          "$ref": "#/definitions/SubscriptionAdditionalProperties"
+        },
+        "locationPlacementId": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "managedByTenants": {
+          "items": {
+            "$ref": "#/definitions/StringStringKeyValuePair"
+          },
+          "type": "array",
+          "x-nullable": true
+        },
+        "quotaId": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "registeredFeatures": {
+          "items": {
+            "$ref": "#/definitions/StringStringKeyValuePair"
+          },
+          "type": "array",
+          "x-nullable": true
+        },
+        "tenantId": {
+          "format": "uuid",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "ScopedCreateSecretBody": {
+      "additionalProperties": false,
+      "properties": {
+        "filters": {
+          "items": {
+            "$ref": "#/definitions/SecretFilterBody"
+          },
+          "type": "array",
+          "x-nullable": true
+        },
+        "notes": {
+          "maxLength": 200,
+          "minLength": 0,
+          "type": "string",
+          "x-nullable": true
+        },
+        "scope": {
+          "$ref": "#/definitions/SecretScope"
+        },
+        "secretName": {
+          "pattern": "^(?!CLOUDENV.*$)[a-zA-Z_][a-zA-Z0-9_]{0,199}$",
+          "type": "string",
+          "x-nullable": true
+        },
+        "type": {
+          "$ref": "#/definitions/SecretType"
+        },
+        "value": {
+          "maxLength": 1024,
+          "minLength": 1,
+          "type": "string",
+          "x-nullable": true
+        }
+      },
+      "type": "object"
+    },
+    "ScopedSecretResultBody": {
+      "additionalProperties": false,
+      "properties": {
+        "filters": {
+          "items": {
+            "$ref": "#/definitions/SecretFilterBody"
+          },
+          "type": "array",
+          "x-nullable": true
+        },
+        "id": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "lastModified": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "notes": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "scope": {
+          "$ref": "#/definitions/SecretScope"
+        },
+        "secretName": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "type": {
+          "$ref": "#/definitions/SecretType"
+        }
+      },
+      "type": "object"
+    },
+    "ScopedUpdateSecretBody": {
+      "additionalProperties": false,
+      "properties": {
+        "filters": {
+          "items": {
+            "$ref": "#/definitions/SecretFilterBody"
+          },
+          "type": "array",
+          "x-nullable": true
+        },
+        "notes": {
+          "maxLength": 200,
+          "minLength": 0,
+          "type": "string",
+          "x-nullable": true
+        },
+        "scope": {
+          "$ref": "#/definitions/SecretScope"
+        },
+        "secretName": {
+          "pattern": "^(?!CLOUDENV.*$)[a-zA-Z_][a-zA-Z0-9_]{0,199}$",
+          "type": "string",
+          "x-nullable": true
+        },
+        "value": {
+          "maxLength": 1024,
+          "minLength": 1,
+          "type": "string",
+          "x-nullable": true
+        }
+      },
+      "type": "object"
+    },
+    "SecretDataBody": {
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "type": {
+          "$ref": "#/definitions/SecretType"
+        },
+        "value": {
+          "maxLength": 1024,
+          "minLength": 1,
+          "type": "string",
+          "x-nullable": true
+        }
+      },
+      "type": "object"
+    },
+    "SecretFilterBody": {
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "$ref": "#/definitions/SecretFilterType"
+        },
+        "value": {
+          "maxLength": 200,
+          "minLength": 1,
+          "type": "string",
+          "x-nullable": true
+        }
+      },
+      "type": "object"
+    },
+    "SecretFilterType": {
+      "enum": [
+        "1 (GitRepo)",
+        "2 (CodespaceName)"
+      ],
+      "format": "int32",
+      "type": "integer"
+    },
+    "SecretScope": {
+      "enum": [
+        "1 (Plan)",
+        "2 (User)"
+      ],
+      "format": "int32",
+      "type": "integer"
+    },
+    "SecretType": {
+      "enum": [
+        "1 (EnvironmentVariable)",
+        "2 (ContainerRegistry)"
+      ],
+      "format": "int32",
+      "type": "integer"
+    },
+    "SeedInfoBody": {
+      "additionalProperties": false,
+      "properties": {
+        "gitConfig": {
+          "$ref": "#/definitions/GitConfigOptionsBody"
+        },
+        "recurseClone": {
+          "type": "boolean"
+        },
+        "seedMoniker": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "seedType": {
+          "type": "string",
+          "x-nullable": true
+        }
+      },
+      "type": "object"
+    },
+    "SkuInfoResult": {
+      "additionalProperties": false,
+      "properties": {
+        "displayName": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "name": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "os": {
+          "type": "string",
+          "x-nullable": true
+        }
+      },
+      "type": "object"
+    },
+    "StringStringKeyValuePair": {
+      "additionalProperties": false,
+      "properties": {
+        "key": {
+          "readOnly": true,
+          "type": "string",
+          "x-nullable": true
+        },
+        "value": {
+          "readOnly": true,
+          "type": "string",
+          "x-nullable": true
+        }
+      },
+      "type": "object"
+    },
+    "SubscriptionAccountOwner": {
+      "additionalProperties": false,
+      "properties": {
+        "email": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "puid": {
+          "type": "string",
+          "x-nullable": true
+        }
+      },
+      "type": "object"
+    },
+    "SubscriptionAdditionalProperties": {
+      "additionalProperties": false,
+      "properties": {
+        "billingProperties": {
+          "$ref": "#/definitions/BillingProperties"
+        },
+        "resourceProviderProperties": {
+          "type": "string",
+          "x-nullable": true
+        }
+      },
+      "type": "object"
+    },
+    "SubscriptionData": {
+      "additionalProperties": false,
+      "properties": {
+        "computeQuota": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "computeUsage": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "subscriptionId": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "subscriptionState": {
+          "type": "string",
+          "x-nullable": true
+        }
+      },
+      "type": "object"
+    },
+    "TelemetryData": {
+      "additionalProperties": false,
+      "properties": {
+        "level": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "message": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "optionalValues": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "type": "object",
+          "x-nullable": true
+        },
+        "time": {
+          "type": "string",
+          "x-nullable": true
+        }
+      },
+      "type": "object"
+    },
+    "UpdateCloudEnvironmentBody": {
+      "additionalProperties": false,
+      "properties": {
+        "autoShutdownDelayMinutes": {
+          "format": "int32",
+          "type": "integer",
+          "x-nullable": true
+        },
+        "friendlyName": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "planAccessToken": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "planId": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "skuName": {
+          "type": "string",
+          "x-nullable": true
+        }
+      },
+      "type": "object"
+    },
+    "VnetProperties": {
+      "additionalProperties": false,
+      "properties": {
+        "subnetId": {
+          "type": "string",
+          "x-nullable": true
+        }
+      },
+      "type": "object"
+    }
+  },
+  "securityDefinitions": {
+    "Bearer": {
+      "description": "JWT auth token for the user. Example: eyJ2...",
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey"
+    }
+  },
+  "security": [
+    {
+      "Bearer": []
+    }
+  ],
+  "x-components": {}
+}

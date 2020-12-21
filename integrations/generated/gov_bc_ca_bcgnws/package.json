@@ -1,8 +1,8 @@
 {
   "name": "@datafire/gov_bc_ca_bcgnws",
-  "version": "5.0.0",
+  "version": "6.0.0",
   "main": "index.js",
-  "description": "DataFire integration for BC Geographical Names Web Service -",
+  "description": "DataFire integration for BC Geographical Names Web Service - REST API",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DataFire/integrations.git"

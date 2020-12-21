@@ -1,0 +1,1047 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "All about Numbers. REST access with json/xml/jsonp result support. Below is the documentation for the Numbers API. You can try them out right here. Find more information and subscribe at [math.tools](https://math.tools/api/numbers/)  \n",
+    "title": "Numbers API",
+    "version": "1.5",
+    "x-apisguru-categories": [
+      "open_data"
+    ],
+    "x-logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_math.tools_branding_blackboard_small.png"
+    },
+    "x-origin": [
+      {
+        "converter": {
+          "url": "https://github.com/lucybot/api-spec-converter",
+          "version": "2.7.31"
+        },
+        "format": "openapi",
+        "url": "https://api.math.tools/yaml/math.tools.numbers.openapi.yaml",
+        "version": "3.0"
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "math.tools",
+    "x-datafire": {
+      "name": "math_tools",
+      "type": "openapi"
+    }
+  },
+  "host": "api.math.tools",
+  "basePath": "/",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/numbers/base": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Number to convert to the target base",
+            "format": "integer",
+            "in": "query",
+            "name": "number",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Base of the supplied number (Optional base 10 assumed by default)",
+            "format": "integer",
+            "in": "query",
+            "name": "from",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Target base to convert to",
+            "format": "integer",
+            "in": "query",
+            "name": "to",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 success response"
+          },
+          "401": {
+            "description": "401 Unauthorized response"
+          }
+        },
+        "security": [
+          {
+            "X-Mathtools-Api-Secret": []
+          }
+        ],
+        "tags": [
+          "Base Conversion"
+        ],
+        "description": "Convert a given number from one base to another base"
+      }
+    },
+    "/numbers/base/binary": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Number to convert to binary",
+            "format": "integer",
+            "in": "query",
+            "name": "number",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Base of the supplied number (Optional base 10 assumed by default)",
+            "format": "integer",
+            "in": "query",
+            "name": "from",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 success response"
+          },
+          "401": {
+            "description": "401 Unauthorized response"
+          }
+        },
+        "security": [
+          {
+            "X-Mathtools-Api-Secret": []
+          }
+        ],
+        "tags": [
+          "Base Conversion"
+        ],
+        "description": "Convert a given number to binary"
+      }
+    },
+    "/numbers/base/hex": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Number to convert to hex",
+            "format": "integer",
+            "in": "query",
+            "name": "number",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Base of the supplied number (Optional base 10 assumed by default)",
+            "format": "integer",
+            "in": "query",
+            "name": "from",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 success response"
+          },
+          "401": {
+            "description": "401 Unauthorized response"
+          }
+        },
+        "security": [
+          {
+            "X-Mathtools-Api-Secret": []
+          }
+        ],
+        "tags": [
+          "Base Conversion"
+        ],
+        "description": "Convert a given number to hexadecimal"
+      }
+    },
+    "/numbers/base/octal": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Number to convert to octal",
+            "format": "integer",
+            "in": "query",
+            "name": "number",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Base of the supplied number (Optional base 10 assumed by default)",
+            "format": "integer",
+            "in": "query",
+            "name": "from",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 success response"
+          },
+          "401": {
+            "description": "401 Unauthorized response"
+          }
+        },
+        "security": [
+          {
+            "X-Mathtools-Api-Secret": []
+          }
+        ],
+        "tags": [
+          "Base Conversion"
+        ],
+        "description": "Convert a given number to octal"
+      }
+    },
+    "/numbers/cardinal": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Number value",
+            "format": "integer",
+            "in": "query",
+            "name": "number",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Language to use",
+            "format": "string",
+            "in": "query",
+            "name": "language",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 Success response"
+          },
+          "401": {
+            "description": "401 Unauthorized response"
+          }
+        },
+        "security": [
+          {
+            "X-Mathtools-Api-Secret": []
+          }
+        ],
+        "tags": [
+          "Spell"
+        ],
+        "description": "Get the cardinal of the given number"
+      }
+    },
+    "/numbers/currency": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Number to spell",
+            "format": "integer",
+            "in": "query",
+            "name": "number",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Language to use",
+            "format": "string",
+            "in": "query",
+            "name": "language",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 Success response"
+          },
+          "401": {
+            "description": "401 Unauthorized response"
+          }
+        },
+        "security": [
+          {
+            "X-Mathtools-Api-Secret": []
+          }
+        ],
+        "tags": [
+          "Spell"
+        ],
+        "description": "Spells out the number as a currency"
+      }
+    },
+    "/numbers/fact": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Number value",
+            "format": "integer",
+            "in": "query",
+            "name": "number",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 Success response"
+          },
+          "401": {
+            "description": "401 Unauthorized response"
+          }
+        },
+        "security": [
+          {
+            "X-Mathtools-Api-Secret": []
+          }
+        ],
+        "tags": [
+          "Number Facts"
+        ],
+        "description": "Get a random fact about a number"
+      }
+    },
+    "/numbers/is-cube": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Number to check",
+            "format": "integer",
+            "in": "query",
+            "name": "number",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 Success response"
+          },
+          "401": {
+            "description": "401 Unauthorized response"
+          }
+        },
+        "security": [
+          {
+            "X-Mathtools-Api-Secret": []
+          }
+        ],
+        "tags": [
+          "Number Checks"
+        ],
+        "description": "Checks whether a given number is a cube number or not."
+      }
+    },
+    "/numbers/is-palindrome": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Number to check",
+            "format": "integer",
+            "in": "query",
+            "name": "number",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 Success response"
+          },
+          "401": {
+            "description": "401 Unauthorized response"
+          }
+        },
+        "security": [
+          {
+            "X-Mathtools-Api-Secret": []
+          }
+        ],
+        "tags": [
+          "Number Checks"
+        ],
+        "description": "Checks whether a given number is a palindrome number or not."
+      }
+    },
+    "/numbers/is-square": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Number to check",
+            "format": "integer",
+            "in": "query",
+            "name": "number",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 Success response"
+          },
+          "401": {
+            "description": "401 Unauthorized response"
+          }
+        },
+        "security": [
+          {
+            "X-Mathtools-Api-Secret": []
+          }
+        ],
+        "tags": [
+          "Number Checks"
+        ],
+        "description": "Checks whether a given number is a square number or not."
+      }
+    },
+    "/numbers/is-triangle": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Number to check",
+            "format": "integer",
+            "in": "query",
+            "name": "number",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 Success response"
+          },
+          "401": {
+            "description": "401 Unauthorized response"
+          }
+        },
+        "security": [
+          {
+            "X-Mathtools-Api-Secret": []
+          }
+        ],
+        "tags": [
+          "Number Checks"
+        ],
+        "description": "Checks whether a given number is a triangle number or not."
+      }
+    },
+    "/numbers/nod": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "200 Success response"
+          },
+          "401": {
+            "description": "401 Unauthorized response"
+          }
+        },
+        "security": [
+          {
+            "X-Mathtools-Api-Secret": []
+          }
+        ],
+        "tags": [
+          "Number of the day"
+        ],
+        "description": "Get the number of the day for current day"
+      }
+    },
+    "/numbers/numeral/chinese": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Number to convert",
+            "format": "integer",
+            "in": "query",
+            "name": "number",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 Success response"
+          },
+          "401": {
+            "description": "401 Unauthorized response"
+          }
+        },
+        "security": [
+          {
+            "X-Mathtools-Api-Secret": []
+          }
+        ],
+        "tags": [
+          "Number Systems Conversion"
+        ],
+        "description": "Convert base 10 representation of a given number to chinese numeral."
+      }
+    },
+    "/numbers/numeral/egyptian": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Number to convert",
+            "format": "integer",
+            "in": "query",
+            "name": "number",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 Success response"
+          },
+          "401": {
+            "description": "401 Unauthorized response"
+          }
+        },
+        "security": [
+          {
+            "X-Mathtools-Api-Secret": []
+          }
+        ],
+        "tags": [
+          "Number Systems Conversion"
+        ],
+        "description": "Convert base 10 representation of a given number to egyptian numeral."
+      }
+    },
+    "/numbers/numeral/roman": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Number to convert",
+            "format": "integer",
+            "in": "query",
+            "name": "number",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 Success response"
+          },
+          "401": {
+            "description": "401 Unauthorized response"
+          }
+        },
+        "security": [
+          {
+            "X-Mathtools-Api-Secret": []
+          }
+        ],
+        "tags": [
+          "Number Systems Conversion"
+        ],
+        "description": "Convert base 10 representation of a given number to roman numeral."
+      }
+    },
+    "/numbers/ordinal": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Number value",
+            "format": "integer",
+            "in": "query",
+            "name": "number",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 Success response"
+          },
+          "401": {
+            "description": "401 Unauthorized response"
+          }
+        },
+        "security": [
+          {
+            "X-Mathtools-Api-Secret": []
+          }
+        ],
+        "tags": [
+          "Spell"
+        ],
+        "description": "Get the ordinal of the given number"
+      }
+    },
+    "/numbers/pi": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Optional start position",
+            "format": "integer",
+            "in": "query",
+            "name": "from",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Optional start position",
+            "format": "integer",
+            "in": "query",
+            "name": "to",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 Success response"
+          },
+          "401": {
+            "description": "401 Unauthorized response"
+          }
+        },
+        "security": [
+          {
+            "X-Mathtools-Api-Secret": []
+          }
+        ],
+        "tags": [
+          "PI"
+        ],
+        "description": "Get digits of pi (Ï€)"
+      }
+    },
+    "/numbers/prime/factors": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Number to get the factors",
+            "format": "integer",
+            "in": "query",
+            "name": "number",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 Success response"
+          },
+          "401": {
+            "description": "401 Unauthorized response"
+          }
+        },
+        "security": [
+          {
+            "X-Mathtools-Api-Secret": []
+          }
+        ],
+        "tags": [
+          "Prime"
+        ],
+        "description": "Get the prime factors of a given number."
+      }
+    },
+    "/numbers/prime/is-fermat-prime": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Number to check",
+            "format": "integer",
+            "in": "query",
+            "name": "number",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 Success response"
+          },
+          "401": {
+            "description": "401 Unauthorized response"
+          }
+        },
+        "security": [
+          {
+            "X-Mathtools-Api-Secret": []
+          }
+        ],
+        "tags": [
+          "Prime",
+          "Number Checks"
+        ],
+        "description": "Checks whether a given number is a known fermat prime number or not."
+      }
+    },
+    "/numbers/prime/is-fibonacci-prime": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Number to check",
+            "format": "integer",
+            "in": "query",
+            "name": "number",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 Success response"
+          },
+          "401": {
+            "description": "401 Unauthorized response"
+          }
+        },
+        "security": [
+          {
+            "X-Mathtools-Api-Secret": []
+          }
+        ],
+        "tags": [
+          "Prime",
+          "Number Checks"
+        ],
+        "description": "Checks whether a given number is a known fibonacci prime number or not."
+      }
+    },
+    "/numbers/prime/is-mersenne-prime": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Number to check",
+            "format": "integer",
+            "in": "query",
+            "name": "number",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 Success response"
+          },
+          "401": {
+            "description": "401 Unauthorized response"
+          }
+        },
+        "security": [
+          {
+            "X-Mathtools-Api-Secret": []
+          }
+        ],
+        "tags": [
+          "Prime",
+          "Number Checks"
+        ],
+        "description": "Checks whether a given number is a known mersenne prime number or not."
+      }
+    },
+    "/numbers/prime/is-partition-prime": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Number to check",
+            "format": "integer",
+            "in": "query",
+            "name": "number",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 Success response"
+          },
+          "401": {
+            "description": "401 Unauthorized response"
+          }
+        },
+        "security": [
+          {
+            "X-Mathtools-Api-Secret": []
+          }
+        ],
+        "tags": [
+          "Prime",
+          "Number Checks"
+        ],
+        "description": "Checks whether a given number is a known partition prime number or not."
+      }
+    },
+    "/numbers/prime/is-pell-prime": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Number to check",
+            "format": "integer",
+            "in": "query",
+            "name": "number",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 Success response"
+          },
+          "401": {
+            "description": "401 Unauthorized response"
+          }
+        },
+        "security": [
+          {
+            "X-Mathtools-Api-Secret": []
+          }
+        ],
+        "tags": [
+          "Prime",
+          "Number Checks"
+        ],
+        "description": "Checks whether a given number is a known pell prime number or not."
+      }
+    },
+    "/numbers/prime/is-perfect": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Number to check",
+            "format": "integer",
+            "in": "query",
+            "name": "number",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 Success response"
+          },
+          "401": {
+            "description": "401 Unauthorized response"
+          }
+        },
+        "security": [
+          {
+            "X-Mathtools-Api-Secret": []
+          }
+        ],
+        "tags": [
+          "Prime",
+          "Number Checks"
+        ],
+        "description": "Checks whether a given number is a perfect number or not."
+      }
+    },
+    "/numbers/prime/is-prime": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Number to check",
+            "format": "integer",
+            "in": "query",
+            "name": "number",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 Success response"
+          },
+          "401": {
+            "description": "401 Unauthorized response"
+          }
+        },
+        "security": [
+          {
+            "X-Mathtools-Api-Secret": []
+          }
+        ],
+        "tags": [
+          "Prime",
+          "Number Checks"
+        ],
+        "description": "Checks whether a given number is a known prime number or not."
+      }
+    },
+    "/numbers/random": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Minimum Number value in the range",
+            "format": "integer",
+            "in": "query",
+            "name": "min",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Maximum Number value",
+            "format": "integer",
+            "in": "query",
+            "name": "max",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Total number of random numbers to generate. Defaults to 1",
+            "format": "integer",
+            "in": "query",
+            "name": "total",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 Success response"
+          },
+          "401": {
+            "description": "401 Unauthorized response"
+          }
+        },
+        "security": [
+          {
+            "X-Mathtools-Api-Secret": []
+          }
+        ],
+        "tags": [
+          "Number Generation"
+        ],
+        "description": "Generate random number(s)"
+      }
+    }
+  },
+  "securityDefinitions": {
+    "X-Mathtools-Api-Secret": {
+      "in": "header",
+      "name": "X-Mathtools-Api-Secret",
+      "type": "apiKey"
+    }
+  },
+  "tags": [
+    {
+      "description": "Number of the day. This API is free (rate limited).",
+      "name": "Number of the day"
+    },
+    {
+      "description": "Get random interesting fact about a given number.",
+      "name": "Number Facts"
+    },
+    {
+      "description": "Generate Random and interesting numbers.",
+      "name": "Number Generation"
+    },
+    {
+      "description": "Spell out a number ordinal, cardinal or currency. This API is free (rate limited).",
+      "name": "Spell"
+    },
+    {
+      "description": "Convert from one base to another. This API is free (rate limited).",
+      "name": "Base Conversion"
+    },
+    {
+      "description": "Convert from one number system to another.",
+      "name": "Number Systems Conversion"
+    },
+    {
+      "description": "Things to do with Prime numbers",
+      "name": "Prime"
+    },
+    {
+      "description": "Digits of PI and more.This API is free (rate limited).",
+      "name": "PI"
+    },
+    {
+      "description": "Check Property of a given number.",
+      "name": "Number Checks"
+    }
+  ],
+  "x-components": {}
+}

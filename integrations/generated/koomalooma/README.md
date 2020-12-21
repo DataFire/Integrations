@@ -1,6 +1,6 @@
 # @datafire/koomalooma
 
-Client library for koomalooma Partner
+Client library for koomalooma Partner API
 
 ## Installation and Usage
 ```bash
@@ -11,7 +11,7 @@ let koomalooma = require('@datafire/koomalooma').create({
   api_key: ""
 });
 
-koomalooma.users.post(null).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

@@ -1,6 +1,6 @@
 # @datafire/thetvdb
 
-Client library for TheTVDB API v2
+Client library for TheTVDB API v3
 
 ## Installation and Usage
 ```bash
@@ -11,14 +11,14 @@ let thetvdb = require('@datafire/thetvdb').create({
   jwtToken: ""
 });
 
-thetvdb.user.ratings.query.get({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
 
 ## Description
 
-API v2 targets v1 functionality with a few minor additions. The API is accessible via https://api.thetvdb.com and provides the following REST endpoints in JSON format.
+API v3 targets v2 functionality with a few minor additions. The API is accessible via https://api.thetvdb.com and provides the following REST endpoints in JSON format.
 
 
 How to use this API documentation
@@ -73,7 +73,7 @@ thetvdb.episodes.id.get({
 #### Input
 * input `object`
   * id **required** `integer`: ID of the episode
-  * Accept-Language `string`: Records are returned with the Episode name and Overview in the desired language, if it exists. If there is no translation for the given language, then the record is still returned but with empty values for the translated fields.
+  * Accept-Language `string`: Records are returned with the some fields in the desired language, if it exists. If there is no translation for the given language, then the record is still returned but with empty values for the translated fields.
 
 #### Output
 * output [EpisodeRecordData](#episoderecorddata)
@@ -126,6 +126,41 @@ thetvdb.login.post({
 #### Output
 * output [Token](#token)
 
+### movies.id.get
+Returns a movies records that contains all information known about a particular movies id.
+
+
+```js
+thetvdb.movies.id.get({
+  "id": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * id **required** `integer`: ID of the movie
+  * Accept-Language `string`: Records are returned with the some fields in the desired language, if it exists. If there is no translation for the given language, then the record is still returned but with empty values for the translated fields.
+
+#### Output
+* output [Movie](#movie)
+
+### movieupdates.get
+Returns all movies ids updated since a given timestamp.
+
+
+```js
+thetvdb.movieupdates.get({
+  "since": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * since **required** `string`: Epoch time to start your date range.
+
+#### Output
+* output [UpdatedMovies](#updatedmovies)
+
 ### refresh_token.get
 Refreshes your current, valid JWT token and returns a new token. Hit this route so that you do not have to post to `/login` with your API key and credentials once you have already been authenticated.
 
@@ -153,7 +188,8 @@ thetvdb.search.series.get({}, context)
   * name `string`: Name of the series to search for.
   * imdbId `string`: IMDB id of the series
   * zap2itId `string`: Zap2it ID of the series to search for.
-  * Accept-Language `string`: Records are returned with the Episode name and Overview in the desired language, if it exists. If there is no translation for the given language, then the record is still returned but with empty values for the translated fields.
+  * slug `string`: Slug from site URL of series (https://www.thetvdb.com/series/$SLUG)
+  * Accept-Language `string`: Records are returned with the some fields in the desired language, if it exists. If there is no translation for the given language, then the record is still returned but with empty values for the translated fields.
 
 #### Output
 * output [SeriesSearchResults](#seriessearchresults)
@@ -185,7 +221,7 @@ thetvdb.series.id.get({
 #### Input
 * input `object`
   * id **required** `integer`: ID of the series
-  * Accept-Language `string`: Records are returned with the Episode name and Overview in the desired language, if it exists. If there is no translation for the given language, then the record is still returned but with empty values for the translated fields.
+  * Accept-Language `string`: Records are returned with the some fields in the desired language, if it exists. If there is no translation for the given language, then the record is still returned but with empty values for the translated fields.
 
 #### Output
 * output [SeriesData](#seriesdata)
@@ -203,7 +239,7 @@ thetvdb.series.id.head({
 #### Input
 * input `object`
   * id **required** `integer`: ID of the series
-  * Accept-Language `string`: Records are returned with the Episode name and Overview in the desired language, if it exists. If there is no translation for the given language, then the record is still returned but with empty values for the translated fields.
+  * Accept-Language `string`: Records are returned with the some fields in the desired language, if it exists. If there is no translation for the given language, then the record is still returned but with empty values for the translated fields.
 
 #### Output
 *Output schema unknown*
@@ -244,7 +280,7 @@ thetvdb.series.id.episodes.get({
 * output [SeriesEpisodes](#seriesepisodes)
 
 ### series.id.episodes.query.get
-This route allows the user to query against episodes for the given series. The response is a paginated array of episode records that have been filtered down to basic information.
+This route allows the user to query against episodes for the given series. The response is a paginated array of episode records.
 
 
 ```js
@@ -263,7 +299,7 @@ thetvdb.series.id.episodes.query.get({
   * dvdEpisode `string`: DVD episode number
   * imdbId `string`: IMDB id of the series
   * page `string`: Page of results to fetch. Defaults to page 1 if not provided.
-  * Accept-Language `string`: Records are returned with the Episode name and Overview in the desired language, if it exists. If there is no translation for the given language, then the record is still returned but with empty values for the translated fields.
+  * Accept-Language `string`: Records are returned with the some fields in the desired language, if it exists. If there is no translation for the given language, then the record is still returned but with empty values for the translated fields.
 
 #### Output
 * output [SeriesEpisodesQuery](#seriesepisodesquery)
@@ -319,7 +355,7 @@ thetvdb.series.id.filter.get({
 * input `object`
   * id **required** `integer`: ID of the series
   * keys **required** `string`: Comma-separated list of keys to filter by
-  * Accept-Language `string`: Records are returned with the Episode name and Overview in the desired language, if it exists. If there is no translation for the given language, then the record is still returned but with empty values for the translated fields.
+  * Accept-Language `string`: Records are returned with the some fields in the desired language, if it exists. If there is no translation for the given language, then the record is still returned but with empty values for the translated fields.
 
 #### Output
 * output [SeriesData](#seriesdata)
@@ -337,7 +373,7 @@ thetvdb.series.id.filter.params.get({
 #### Input
 * input `object`
   * id **required** `integer`: ID of the series
-  * Accept-Language `string`: Records are returned with the Episode name and Overview in the desired language, if it exists. If there is no translation for the given language, then the record is still returned but with empty values for the translated fields.
+  * Accept-Language `string`: Records are returned with the some fields in the desired language, if it exists. If there is no translation for the given language, then the record is still returned but with empty values for the translated fields.
 
 #### Output
 * output [FilterKeys](#filterkeys)
@@ -355,7 +391,7 @@ thetvdb.series.id.images.get({
 #### Input
 * input `object`
   * id **required** `integer`: ID of the series
-  * Accept-Language `string`: Records are returned with the Episode name and Overview in the desired language, if it exists. If there is no translation for the given language, then the record is still returned but with empty values for the translated fields.
+  * Accept-Language `string`: Records are returned with the some fields in the desired language, if it exists. If there is no translation for the given language, then the record is still returned but with empty values for the translated fields.
 
 #### Output
 * output [SeriesImagesCounts](#seriesimagescounts)
@@ -376,7 +412,7 @@ thetvdb.series.id.images.query.get({
   * keyType `string`: Type of image you're querying for (fanart, poster, etc. See ../images/query/params for more details).
   * resolution `string`: Resolution to filter by (1280x1024, for example)
   * subKey `string`: Subkey for the above query keys. See /series/{id}/images/query/params for more information
-  * Accept-Language `string`: Records are returned with the Episode name and Overview in the desired language, if it exists. If there is no translation for the given language, then the record is still returned but with empty values for the translated fields.
+  * Accept-Language `string`: Records are returned with the some fields in the desired language, if it exists. If there is no translation for the given language, then the record is still returned but with empty values for the translated fields.
 
 #### Output
 * output [SeriesImageQueryResults](#seriesimagequeryresults)
@@ -394,7 +430,7 @@ thetvdb.series.id.images.query.params.get({
 #### Input
 * input `object`
   * id **required** `integer`: ID of the series
-  * Accept-Language `string`: Records are returned with the Episode name and Overview in the desired language, if it exists. If there is no translation for the given language, then the record is still returned but with empty values for the translated fields.
+  * Accept-Language `string`: Records are returned with the some fields in the desired language, if it exists. If there is no translation for the given language, then the record is still returned but with empty values for the translated fields.
 
 #### Output
 * output [SeriesImagesQueryParams](#seriesimagesqueryparams)
@@ -416,7 +452,7 @@ thetvdb.updated.query.get({
 * input `object`
   * fromTime **required** `string`: Epoch time to start your date range.
   * toTime `string`: Epoch time to end your date range. Must be one week from `fromTime`.
-  * Accept-Language `string`: Records are returned with the Episode name and Overview in the desired language, if it exists. If there is no translation for the given language, then the record is still returned but with empty values for the translated fields.
+  * Accept-Language `string`: Records are returned with the some fields in the desired language, if it exists. If there is no translation for the given language, then the record is still returned but with empty values for the translated fields.
 
 #### Output
 * output [UpdateData](#updatedata)
@@ -665,6 +701,10 @@ thetvdb.user.ratings.itemType.itemId.itemRating.put({
   * data `array`
     * items `string`
 
+### InvalidQueryParams
+* InvalidQueryParams `object`
+  * Error `string`
+
 ### JSONErrors
 * JSONErrors `object`
   * invalidFilters `array`: Invalid filters passed to route
@@ -691,6 +731,91 @@ thetvdb.user.ratings.itemType.itemId.itemRating.put({
   * last `integer`
   * next `integer`
   * previous `integer`
+
+### Movie
+* Movie `object`
+  * artworks `array`
+    * items [MovieArtwork](#movieartwork)
+  * genres `array`
+    * items [MovieGenre](#moviegenre)
+  * id `integer`
+  * people `object`
+    * actors `array`
+      * items [MoviePeople](#moviepeople)
+    * directors `array`
+      * items [MoviePeople](#moviepeople)
+    * producers `array`
+      * items [MoviePeople](#moviepeople)
+    * writers `array`
+      * items [MoviePeople](#moviepeople)
+  * release_dates `array`
+    * items [MovieReleaseDate](#moviereleasedate)
+  * remoteids `array`
+    * items [MovieRemoteId](#movieremoteid)
+  * runtime `integer`
+  * trailers `array`
+    * items [MovieTrailer](#movietrailer)
+  * translations `array`
+    * items [MovieTranslation](#movietranslation)
+  * url `string`
+
+### MovieArtwork
+* MovieArtwork `object`
+  * artwork_type `string`
+  * height `integer`
+  * id `string`
+  * is_primary `boolean`
+  * tags `string`
+  * thumb_url `string`
+  * url `string`
+  * width `integer`
+
+### MovieGenre
+* MovieGenre `object`
+  * id `integer`
+  * name `string`
+  * url `string`
+
+### MoviePeople
+* MoviePeople `object`
+  * id `string`
+  * imdb_id `string`
+  * is_featured `boolean`
+  * name `string`
+  * people_facebook `string`
+  * people_id `string`
+  * people_image `string`
+  * people_instagram `string`
+  * people_twitter `string`
+  * role `string`
+  * role_image `string`
+
+### MovieReleaseDate
+* MovieReleaseDate `object`
+  * country `string`
+  * date `string`
+  * type `string`
+
+### MovieRemoteId
+* MovieRemoteId `object`
+  * id `string`
+  * source_id `integer`
+  * source_name `string`
+  * source_url `string`
+  * url `string`
+
+### MovieTrailer
+* MovieTrailer `object`
+  * name `string`
+  * url `string`
+
+### MovieTranslation
+* MovieTranslation `object`
+  * is_primary `boolean`
+  * language_code `string`
+  * name `string`
+  * overview `string`
+  * tagline `string`
 
 ### NotAuthorized
 * NotAuthorized `object`
@@ -723,6 +848,7 @@ thetvdb.user.ratings.itemType.itemId.itemRating.put({
   * seriesName `string`
   * siteRating `number`
   * siteRatingCount `integer`
+  * slug `string`
   * status `string`
   * zap2itId `string`
 
@@ -752,14 +878,14 @@ thetvdb.user.ratings.itemType.itemId.itemRating.put({
 ### SeriesEpisodes
 * SeriesEpisodes `object`
   * data `array`
-    * items [BasicEpisode](#basicepisode)
+    * items [Episode](#episode)
   * errors [JSONErrors](#jsonerrors)
   * links [Links](#links)
 
 ### SeriesEpisodesQuery
 * SeriesEpisodesQuery `object`
   * data `array`
-    * items [BasicEpisode](#basicepisode)
+    * items [Episode](#episode)
   * errors [JSONErrors](#jsonerrors)
   * links [Links](#links)
 
@@ -829,9 +955,12 @@ thetvdb.user.ratings.itemType.itemId.itemRating.put({
   * banner `string`
   * firstAired `string`
   * id `integer`
+  * image `string`
   * network `string`
   * overview `string`
+  * poster `string`
   * seriesName `string`
+  * slug `string`
   * status `string`
 
 ### SeriesSearchResults
@@ -858,6 +987,11 @@ thetvdb.user.ratings.itemType.itemId.itemRating.put({
 * UpdateDataQueryParams `object`
   * data `array`
     * items `string`
+
+### UpdatedMovies
+* UpdatedMovies `object`
+  * movies `array`
+    * items `integer`
 
 ### User
 * User `object`
@@ -900,7 +1034,6 @@ thetvdb.user.ratings.itemType.itemId.itemRating.put({
 ### UserRatingsDataNoLinksEmptyArray
 * UserRatingsDataNoLinksEmptyArray `object`
   * data `array`
-
 
 ### UserRatingsQueryParams
 * UserRatingsQueryParams `object`

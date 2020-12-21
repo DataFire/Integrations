@@ -1,0 +1,137 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "Exude API is an Open Source project, It is used for the primary ways for filtering the stopping, stemming words from the text data. This API is in a very basic level of development need to work on for later changes.",
+    "termsOfService": "http://uttesh.com/apis/terms/",
+    "title": "Exude API Service",
+    "version": "1.0.0",
+    "x-apisguru-categories": [
+      "text"
+    ],
+    "x-origin": [
+      {
+        "format": "openapi",
+        "url": "http://uttesh.com/exude-api/exude-service-open-api.json",
+        "version": "3.0"
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "exude-api.herokuapp.com",
+    "x-datafire": {
+      "name": "exude_api_herokuapp",
+      "type": "openapi"
+    }
+  },
+  "host": "exude-api.herokuapp.com",
+  "basePath": "/",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/exude/{type}/data": {
+      "post": {
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "provide the type of filtering required stopping/swear",
+            "examples": {
+              "type": {
+                "summary": "provide the type of filtering required stopping/swear",
+                "value": "stopping"
+              }
+            },
+            "in": "path",
+            "name": "type",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Filter the stopping words from the provided input data or links",
+            "in": "formData",
+            "name": "body",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Exude response",
+            "schema": {
+              "$ref": "#/definitions/ExudeResponseBean"
+            }
+          }
+        },
+        "tags": [
+          "exude"
+        ],
+        "operationId": "filterStoppings",
+        "summary": "Filter the stopping words from the provided input data or links"
+      }
+    },
+    "/exude/{type}/file": {
+      "post": {
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "provide the type of filtering required stopping/swear",
+            "in": "path",
+            "name": "type",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "format": "binary",
+            "in": "formData",
+            "name": "file",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "model response",
+            "schema": {
+              "$ref": "#/definitions/ExudeResponseBean"
+            }
+          }
+        },
+        "tags": [
+          "exude"
+        ],
+        "operationId": "filterFileDataStoppings",
+        "summary": "Filter the stopping words from the provided input file"
+      }
+    }
+  },
+  "definitions": {
+    "ExudeBean": {
+      "properties": {
+        "data": {
+          "type": "string"
+        },
+        "links": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      }
+    },
+    "ExudeResponseBean": {
+      "properties": {
+        "data": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "x-components": {}
+}

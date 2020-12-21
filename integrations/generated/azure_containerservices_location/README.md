@@ -15,11 +15,7 @@ let azure_containerservices_location = require('@datafire/azure_containerservice
   redirect_uri: ""
 });
 
-azure_containerservices_location.ContainerServices_ListOrchestrators({
-  "api-version": "",
-  "subscriptionId": "",
-  "location": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -31,7 +27,7 @@ The Container Service Client.
 ## Actions
 
 ### ContainerServices_ListOrchestrators
-Gets a list of supported orchestrators in the specified subscription. The operation returns properties of each orchestrator including verison and available upgrades.
+Gets a list of supported orchestrators in the specified subscription. The operation returns properties of each orchestrator including version and available upgrades.
 
 
 ```js

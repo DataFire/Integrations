@@ -9,7 +9,7 @@ npm install --save @datafire/rummblelabs
 ```js
 let rummblelabs = require('@datafire/rummblelabs').create();
 
-rummblelabs.getUsers({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

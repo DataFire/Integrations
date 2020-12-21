@@ -13,7 +13,7 @@ let confluence = require('@datafire/confluence').create({
   host: ""
 });
 
-confluence.user.memberof.get({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

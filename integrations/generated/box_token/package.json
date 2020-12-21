@@ -1,6 +1,6 @@
 {
   "name": "@datafire/box_token",
-  "version": "5.0.0",
+  "version": "6.0.0",
   "main": "index.js",
   "description": "DataFire integration for Box 2.0 OAuth2 Token",
   "repository": {

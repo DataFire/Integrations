@@ -11,9 +11,7 @@ let dropx = require('@datafire/dropx').create({
   api_key: ""
 });
 
-dropx.products.get({
-  "pids": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

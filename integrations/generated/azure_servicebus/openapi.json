@@ -58,41 +58,7 @@
     }
   ],
   "parameters": {
-    "ApiVersionParameter": {
-      "description": "Client API version.",
-      "in": "query",
-      "name": "api-version",
-      "required": true,
-      "type": "string"
-    },
-    "SkipParameter": {
-      "description": "Skip is only used if a previous operation returned a partial result. If a previous response contains a nextLink element, the value of the nextLink element will include a skip parameter that specifies a starting point to use for subsequent calls.",
-      "in": "query",
-      "maximum": 1000,
-      "minimum": 0,
-      "name": "$skip",
-      "required": false,
-      "type": "integer",
-      "x-ms-parameter-location": "method"
-    },
-    "SubscriptionIdParameter": {
-      "description": "Subscription credentials that uniquely identify a Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
-      "in": "path",
-      "name": "subscriptionId",
-      "required": true,
-      "type": "string"
-    },
-    "TopParameter": {
-      "description": "May be used to limit the number of results to the most recent N usageDetails.",
-      "in": "query",
-      "maximum": 1000,
-      "minimum": 1,
-      "name": "$top",
-      "required": false,
-      "type": "integer",
-      "x-ms-parameter-location": "method"
-    },
-    "aliasNameParameter": {
+    "AliasNameParameter": {
       "description": "The Disaster Recovery configuration name",
       "in": "path",
       "maxLength": 50,
@@ -102,8 +68,15 @@
       "type": "string",
       "x-ms-parameter-location": "method"
     },
-    "authorizationRuleNameParameter": {
-      "description": "The authorizationrule name.",
+    "ApiVersionParameter": {
+      "description": "Client API version.",
+      "in": "query",
+      "name": "api-version",
+      "required": true,
+      "type": "string"
+    },
+    "AuthorizationRuleNameParameter": {
+      "description": "The authorization rule name.",
       "in": "path",
       "maxLength": 50,
       "minLength": 1,
@@ -112,7 +85,7 @@
       "type": "string",
       "x-ms-parameter-location": "method"
     },
-    "configNameParameter": {
+    "ConfigNameParameter": {
       "description": "The configuration name. Should always be \"$default\".",
       "enum": [
         "$default"
@@ -127,7 +100,7 @@
       },
       "x-ms-parameter-location": "method"
     },
-    "namespaceNameParameter": {
+    "NamespaceNameParameter": {
       "description": "The namespace name",
       "in": "path",
       "maxLength": 50,
@@ -137,7 +110,7 @@
       "type": "string",
       "x-ms-parameter-location": "method"
     },
-    "queueNameParameter": {
+    "QueueNameParameter": {
       "description": "The queue name.",
       "in": "path",
       "minLength": 1,
@@ -146,7 +119,7 @@
       "type": "string",
       "x-ms-parameter-location": "method"
     },
-    "resourceGroupNameParameter": {
+    "ResourceGroupNameParameter": {
       "description": "Name of the Resource group within the Azure subscription.",
       "in": "path",
       "maxLength": 90,
@@ -156,7 +129,7 @@
       "type": "string",
       "x-ms-parameter-location": "method"
     },
-    "ruleNameParameter": {
+    "RuleNameParameter": {
       "description": "The rule name.",
       "in": "path",
       "maxLength": 50,
@@ -166,7 +139,17 @@
       "type": "string",
       "x-ms-parameter-location": "method"
     },
-    "skuNameParameter": {
+    "SkipParameter": {
+      "description": "Skip is only used if a previous operation returned a partial result. If a previous response contains a nextLink element, the value of the nextLink element will include a skip parameter that specifies a starting point to use for subsequent calls.",
+      "in": "query",
+      "maximum": 1000,
+      "minimum": 0,
+      "name": "$skip",
+      "required": false,
+      "type": "integer",
+      "x-ms-parameter-location": "method"
+    },
+    "SkuNameParameter": {
       "description": "The sku type.",
       "in": "path",
       "maxLength": 50,
@@ -176,7 +159,14 @@
       "type": "string",
       "x-ms-parameter-location": "method"
     },
-    "subscriptionNameParameter": {
+    "SubscriptionIdParameter": {
+      "description": "Subscription credentials that uniquely identify a Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
+      "in": "path",
+      "name": "subscriptionId",
+      "required": true,
+      "type": "string"
+    },
+    "SubscriptionNameParameter": {
       "description": "The subscription name.",
       "in": "path",
       "maxLength": 50,
@@ -186,7 +176,17 @@
       "type": "string",
       "x-ms-parameter-location": "method"
     },
-    "topicNameParameter": {
+    "TopParameter": {
+      "description": "May be used to limit the number of results to the most recent N usageDetails.",
+      "in": "query",
+      "maximum": 1000,
+      "minimum": 1,
+      "name": "$top",
+      "required": false,
+      "type": "integer",
+      "x-ms-parameter-location": "method"
+    },
+    "TopicNameParameter": {
       "description": "The topic name.",
       "in": "path",
       "minLength": 1,
@@ -234,7 +234,6 @@
                   "value": [
                     {
                       "display": {
-                        "description": "Checks availability of namespace under given subscription.",
                         "operation": "Get namespace availability.",
                         "provider": "Microsoft Azure ServiceBus",
                         "resource": "Non Resource Operation"
@@ -243,7 +242,6 @@
                     },
                     {
                       "display": {
-                        "description": "Registers the subscription for the ServiceBus resource provider and enables the creation of ServiceBus resources",
                         "operation": "Registers the ServiceBus Resource Provider",
                         "provider": "Microsoft Azure ServiceBus",
                         "resource": "ServiceBus Resource Provider"
@@ -252,7 +250,6 @@
                     },
                     {
                       "display": {
-                        "description": "Create a Namespace Resource and Update its properties. Tags and status of the Namespace are the properties which can be updated.",
                         "operation": "Create Or Update Namespace ",
                         "provider": "Microsoft Azure ServiceBus",
                         "resource": "Namespace"
@@ -261,7 +258,6 @@
                     },
                     {
                       "display": {
-                        "description": "Get the list of Namespace Resource Description",
                         "operation": "Get Namespace Resource",
                         "provider": "Microsoft Azure ServiceBus",
                         "resource": "Namespace"
@@ -270,7 +266,6 @@
                     },
                     {
                       "display": {
-                        "description": "Delete Namespace Resource",
                         "operation": "Delete Namespace",
                         "provider": "Microsoft Azure ServiceBus",
                         "resource": "Namespace"
@@ -279,7 +274,6 @@
                     },
                     {
                       "display": {
-                        "description": "Create a Namespace level Authorization Rules and update its properties. The Authorization Rules Access Rights, the Primary and Secondary Keys can be updated.",
                         "operation": "Create or Update Namespace Authorization Rules",
                         "provider": "Microsoft Azure ServiceBus",
                         "resource": "AuthorizationRules"
@@ -288,7 +282,6 @@
                     },
                     {
                       "display": {
-                        "description": "Get the list of Namespaces Authorization Rules description.",
                         "operation": "Get Namespace Authorization Rules",
                         "provider": "Microsoft Azure ServiceBus",
                         "resource": "AuthorizationRules"
@@ -297,7 +290,6 @@
                     },
                     {
                       "display": {
-                        "description": "Delete Namespace Authorization Rule. The Default Namespace Authorization Rule cannot be deleted. ",
                         "operation": "Delete Namespace Authorization Rule",
                         "provider": "Microsoft Azure ServiceBus",
                         "resource": "AuthorizationRules"
@@ -306,7 +298,6 @@
                     },
                     {
                       "display": {
-                        "description": "Get the Connection String to the Namespace",
                         "operation": "Get Namespace Listkeys",
                         "provider": "Microsoft Azure ServiceBus",
                         "resource": "AuthorizationRules"
@@ -315,7 +306,6 @@
                     },
                     {
                       "display": {
-                        "description": "Regenerate the Primary or Secondary key to the Resource",
                         "operation": "Resource Regeneratekeys",
                         "provider": "Microsoft Azure ServiceBus",
                         "resource": "AuthorizationRules"
@@ -324,7 +314,6 @@
                     },
                     {
                       "display": {
-                        "description": "Create or Update Queue properties.",
                         "operation": "Create or Update Queue",
                         "provider": "Microsoft Azure ServiceBus",
                         "resource": "Queue"
@@ -333,7 +322,6 @@
                     },
                     {
                       "display": {
-                        "description": "Get list of Queue Resource Descriptions",
                         "operation": "Get Queue",
                         "provider": "Microsoft Azure ServiceBus",
                         "resource": "Queue"
@@ -342,7 +330,6 @@
                     },
                     {
                       "display": {
-                        "description": "Operation to delete Queue Resource",
                         "operation": "Delete Queue",
                         "provider": "Microsoft Azure ServiceBus",
                         "resource": "Queue"
@@ -351,7 +338,6 @@
                     },
                     {
                       "display": {
-                        "description": "Create Queue Authorization Rules and Update its properties. The Authorization Rules Access Rights, the Primary and Secondary Keys can be updated.",
                         "operation": "Create or Update Queue Authorization Rule",
                         "provider": "Microsoft Azure ServiceBus",
                         "resource": "Queue AuthorizationRules"
@@ -360,7 +346,6 @@
                     },
                     {
                       "display": {
-                        "description": " Get the list of Queue Authorization Rules",
                         "operation": " Get Queue Authorization Rules",
                         "provider": "Microsoft Azure ServiceBus",
                         "resource": "Queue AuthorizationRules"
@@ -369,7 +354,6 @@
                     },
                     {
                       "display": {
-                        "description": "Operation to delete Queue Authorization Rules",
                         "operation": "Delete Queue Authorization Rules",
                         "provider": "Microsoft Azure ServiceBus",
                         "resource": "Queue AuthorizationRules"
@@ -378,7 +362,6 @@
                     },
                     {
                       "display": {
-                        "description": "Get the Connection String to Queue",
                         "operation": "List Queue keys",
                         "provider": "Microsoft Azure ServiceBus",
                         "resource": "Queue AuthorizationRules"
@@ -387,7 +370,6 @@
                     },
                     {
                       "display": {
-                        "description": "Regenerate the Primary or Secondary key to the Resource",
                         "operation": "Resource Regeneratekeys",
                         "provider": "Microsoft Azure ServiceBus",
                         "resource": "Queue AuthorizationRules"
@@ -396,7 +378,6 @@
                     },
                     {
                       "display": {
-                        "description": "Create or Update Topic properties.",
                         "operation": "Create or Update Topic",
                         "provider": "Microsoft Azure ServiceBus",
                         "resource": "Topic"
@@ -405,7 +386,6 @@
                     },
                     {
                       "display": {
-                        "description": "Get list of Topic Resource Descriptions",
                         "operation": "Get Topic",
                         "provider": "Microsoft Azure ServiceBus",
                         "resource": "Topic"
@@ -414,7 +394,6 @@
                     },
                     {
                       "display": {
-                        "description": "Operation to delete Topic Resource",
                         "operation": "Delete Topic",
                         "provider": "Microsoft Azure ServiceBus",
                         "resource": "Topic"
@@ -423,7 +402,6 @@
                     },
                     {
                       "display": {
-                        "description": "Create Topic Authorization Rules and Update its properties. The Authorization Rules Access Rights, the Primary and Secondary Keys can be updated.",
                         "operation": "Create or Update Topic Authorization Rule",
                         "provider": "Microsoft Azure ServiceBus",
                         "resource": "Topic AuthorizationRules"
@@ -432,7 +410,6 @@
                     },
                     {
                       "display": {
-                        "description": " Get the list of Topic Authorization Rules",
                         "operation": " Get Topic Authorization Rules",
                         "provider": "Microsoft Azure ServiceBus",
                         "resource": "Topic AuthorizationRules"
@@ -441,7 +418,6 @@
                     },
                     {
                       "display": {
-                        "description": "Operation to delete Topic Authorization Rules",
                         "operation": "Delete Topic Authorization Rules",
                         "provider": "Microsoft Azure ServiceBus",
                         "resource": "Topic AuthorizationRules"
@@ -450,7 +426,6 @@
                     },
                     {
                       "display": {
-                        "description": "Get the Connection String to Topic",
                         "operation": "List Topic keys",
                         "provider": "Microsoft Azure ServiceBus",
                         "resource": "Topic AuthorizationRules"
@@ -459,7 +434,6 @@
                     },
                     {
                       "display": {
-                        "description": "Regenerate the Primary or Secondary key to the Resource",
                         "operation": "Resource Regeneratekeys",
                         "provider": "Microsoft Azure ServiceBus",
                         "resource": "Topic AuthorizationRules"
@@ -468,7 +442,6 @@
                     },
                     {
                       "display": {
-                        "description": "Create or Update TopicSubscription properties.",
                         "operation": "Create or Update TopicSubscription",
                         "provider": "Microsoft Azure ServiceBus",
                         "resource": "TopicSubscription"
@@ -477,7 +450,6 @@
                     },
                     {
                       "display": {
-                        "description": "Get list of TopicSubscription Resource Descriptions",
                         "operation": "Get TopicSubscription",
                         "provider": "Microsoft Azure ServiceBus",
                         "resource": "TopicSubscription"
@@ -486,7 +458,6 @@
                     },
                     {
                       "display": {
-                        "description": "Operation to delete TopicSubscription Resource",
                         "operation": "Delete TopicSubscription",
                         "provider": "Microsoft Azure ServiceBus",
                         "resource": "TopicSubscription"
@@ -495,7 +466,6 @@
                     },
                     {
                       "display": {
-                        "description": "Create or Update Rule properties.",
                         "operation": "Create or Update Rule",
                         "provider": "Microsoft Azure ServiceBus",
                         "resource": "Rule"
@@ -504,7 +474,6 @@
                     },
                     {
                       "display": {
-                        "description": "Get list of Rule Resource Descriptions",
                         "operation": "Get Rule",
                         "provider": "Microsoft Azure ServiceBus",
                         "resource": "Rule"
@@ -513,7 +482,6 @@
                     },
                     {
                       "display": {
-                        "description": "Operation to delete Rule Resource",
                         "operation": "Delete Rule",
                         "provider": "Microsoft Azure ServiceBus",
                         "resource": "Rule"
@@ -522,7 +490,6 @@
                     },
                     {
                       "display": {
-                        "description": "Get list of Namespace metrics Resource Descriptions",
                         "operation": "Get Namespace metrics",
                         "provider": "Microsoft Azure ServiceBus",
                         "resource": "Namespace metrics"
@@ -531,7 +498,6 @@
                     },
                     {
                       "display": {
-                        "description": "Get list of Namespace diagnostic settings Resource Descriptions",
                         "operation": "Get Namespace diagnostic settings",
                         "provider": "Microsoft Azure ServiceBus",
                         "resource": "Namespace diagnostic settings"
@@ -540,7 +506,6 @@
                     },
                     {
                       "display": {
-                        "description": "Get list of Namespace diagnostic settings Resource Descriptions",
                         "operation": "Create or Update Namespace diagnostic settings",
                         "provider": "Microsoft Azure ServiceBus",
                         "resource": "Namespace diagnostic settings"
@@ -549,7 +514,6 @@
                     },
                     {
                       "display": {
-                        "description": "Get list of Namespace logs Resource Descriptions",
                         "operation": "Get Namespace logs",
                         "provider": "Microsoft Azure ServiceBus",
                         "resource": "Namespace logs"
@@ -1783,7 +1747,7 @@
             "$ref": "#/parameters/SubscriptionIdParameter"
           },
           {
-            "$ref": "#/parameters/skuNameParameter"
+            "$ref": "#/parameters/SkuNameParameter"
           }
         ],
         "responses": {
@@ -2104,7 +2068,7 @@
         "operationId": "Namespaces_ListByResourceGroup",
         "parameters": [
           {
-            "$ref": "#/parameters/resourceGroupNameParameter"
+            "$ref": "#/parameters/ResourceGroupNameParameter"
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
@@ -2182,10 +2146,10 @@
         "operationId": "Namespaces_Delete",
         "parameters": [
           {
-            "$ref": "#/parameters/resourceGroupNameParameter"
+            "$ref": "#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/namespaceNameParameter"
+            "$ref": "#/parameters/NamespaceNameParameter"
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
@@ -2239,10 +2203,10 @@
         "operationId": "Namespaces_Get",
         "parameters": [
           {
-            "$ref": "#/parameters/resourceGroupNameParameter"
+            "$ref": "#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/namespaceNameParameter"
+            "$ref": "#/parameters/NamespaceNameParameter"
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
@@ -2309,10 +2273,10 @@
         "operationId": "Namespaces_Update",
         "parameters": [
           {
-            "$ref": "#/parameters/resourceGroupNameParameter"
+            "$ref": "#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/namespaceNameParameter"
+            "$ref": "#/parameters/NamespaceNameParameter"
           },
           {
             "description": "Parameters supplied to update a namespace resource.",
@@ -2431,7 +2395,7 @@
         "operationId": "Namespaces_CreateOrUpdate",
         "parameters": [
           {
-            "$ref": "#/parameters/resourceGroupNameParameter"
+            "$ref": "#/parameters/ResourceGroupNameParameter"
           },
           {
             "description": "The namespace name.",
@@ -2564,10 +2528,10 @@
         "operationId": "Namespaces_ListAuthorizationRules",
         "parameters": [
           {
-            "$ref": "#/parameters/resourceGroupNameParameter"
+            "$ref": "#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/namespaceNameParameter"
+            "$ref": "#/parameters/NamespaceNameParameter"
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
@@ -2594,7 +2558,7 @@
           "Namespaces"
         ],
         "x-ms-examples": {
-          "NameSpaceAutorizationRuleListAll": {
+          "NameSpaceAuthorizationRuleListAll": {
             "parameters": {
               "api-version": "2017-04-01",
               "namespaceName": "sdk-Namespace-6914",
@@ -2648,13 +2612,13 @@
         "operationId": "Namespaces_DeleteAuthorizationRule",
         "parameters": [
           {
-            "$ref": "#/parameters/resourceGroupNameParameter"
+            "$ref": "#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/namespaceNameParameter"
+            "$ref": "#/parameters/NamespaceNameParameter"
           },
           {
-            "$ref": "#/parameters/authorizationRuleNameParameter"
+            "$ref": "#/parameters/AuthorizationRuleNameParameter"
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
@@ -2681,7 +2645,7 @@
           "Namespaces"
         ],
         "x-ms-examples": {
-          "NameSpaceAutorizationRuleDelete": {
+          "NameSpaceAuthorizationRuleDelete": {
             "parameters": {
               "api-version": "2017-04-01",
               "authorizationRuleName": "sdk-AuthRules-1788",
@@ -2704,13 +2668,13 @@
         "operationId": "Namespaces_GetAuthorizationRule",
         "parameters": [
           {
-            "$ref": "#/parameters/resourceGroupNameParameter"
+            "$ref": "#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/namespaceNameParameter"
+            "$ref": "#/parameters/NamespaceNameParameter"
           },
           {
-            "$ref": "#/parameters/authorizationRuleNameParameter"
+            "$ref": "#/parameters/AuthorizationRuleNameParameter"
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
@@ -2737,7 +2701,7 @@
           "Namespaces"
         ],
         "x-ms-examples": {
-          "NameSpaceAutorizationRuleGet": {
+          "NameSpaceAuthorizationRuleGet": {
             "parameters": {
               "api-version": "2017-04-01",
               "authorizationRuleName": "sdk-AuthRules-1788",
@@ -2771,13 +2735,13 @@
         "operationId": "Namespaces_CreateOrUpdateAuthorizationRule",
         "parameters": [
           {
-            "$ref": "#/parameters/resourceGroupNameParameter"
+            "$ref": "#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/namespaceNameParameter"
+            "$ref": "#/parameters/NamespaceNameParameter"
           },
           {
-            "$ref": "#/parameters/authorizationRuleNameParameter"
+            "$ref": "#/parameters/AuthorizationRuleNameParameter"
           },
           {
             "description": "The shared access authorization rule.",
@@ -2857,13 +2821,13 @@
         "operationId": "Namespaces_ListKeys",
         "parameters": [
           {
-            "$ref": "#/parameters/resourceGroupNameParameter"
+            "$ref": "#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/namespaceNameParameter"
+            "$ref": "#/parameters/NamespaceNameParameter"
           },
           {
-            "$ref": "#/parameters/authorizationRuleNameParameter"
+            "$ref": "#/parameters/AuthorizationRuleNameParameter"
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
@@ -2922,13 +2886,13 @@
         "operationId": "Namespaces_RegenerateKeys",
         "parameters": [
           {
-            "$ref": "#/parameters/resourceGroupNameParameter"
+            "$ref": "#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/namespaceNameParameter"
+            "$ref": "#/parameters/NamespaceNameParameter"
           },
           {
-            "$ref": "#/parameters/authorizationRuleNameParameter"
+            "$ref": "#/parameters/AuthorizationRuleNameParameter"
           },
           {
             "description": "Parameters supplied to regenerate the authorization rule.",
@@ -2964,7 +2928,7 @@
           "Namespaces"
         ],
         "x-ms-examples": {
-          "NameSpaceAuthorizationRuleRegenrateKey": {
+          "NameSpaceAuthorizationRuleRegenerateKey": {
             "parameters": {
               "api-version": "2017-04-01",
               "authorizationRuleName": "sdk-AuthRules-1788",
@@ -2996,10 +2960,10 @@
         "operationId": "DisasterRecoveryConfigs_List",
         "parameters": [
           {
-            "$ref": "#/parameters/resourceGroupNameParameter"
+            "$ref": "#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/namespaceNameParameter"
+            "$ref": "#/parameters/NamespaceNameParameter"
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
@@ -3044,8 +3008,7 @@
                       "properties": {
                         "partnerNamespace": "sdk-Namespace-37",
                         "provisioningState": "Accepted",
-                        "role": "Primary",
-                        "type": "MetadataReplication"
+                        "role": "Primary"
                       },
                       "type": "Microsoft.ServiceBus/Namespaces/DisasterRecoveryConfig"
                     }
@@ -3066,10 +3029,10 @@
         "operationId": "DisasterRecoveryConfigs_CheckNameAvailability",
         "parameters": [
           {
-            "$ref": "#/parameters/resourceGroupNameParameter"
+            "$ref": "#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/namespaceNameParameter"
+            "$ref": "#/parameters/NamespaceNameParameter"
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
@@ -3134,13 +3097,13 @@
         "operationId": "DisasterRecoveryConfigs_Delete",
         "parameters": [
           {
-            "$ref": "#/parameters/resourceGroupNameParameter"
+            "$ref": "#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/namespaceNameParameter"
+            "$ref": "#/parameters/NamespaceNameParameter"
           },
           {
-            "$ref": "#/parameters/aliasNameParameter"
+            "$ref": "#/parameters/AliasNameParameter"
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
@@ -3183,13 +3146,13 @@
         "operationId": "DisasterRecoveryConfigs_Get",
         "parameters": [
           {
-            "$ref": "#/parameters/resourceGroupNameParameter"
+            "$ref": "#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/namespaceNameParameter"
+            "$ref": "#/parameters/NamespaceNameParameter"
           },
           {
-            "$ref": "#/parameters/aliasNameParameter"
+            "$ref": "#/parameters/AliasNameParameter"
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
@@ -3231,9 +3194,9 @@
                   "name": "sdk-DisasterRecovery-3814",
                   "properties": {
                     "partnerNamespace": "sdk-Namespace-8860",
+                    "pendingReplicationOperationsCount": 0,
                     "provisioningState": "Accepted",
-                    "role": "Secondary",
-                    "type": "MetadataReplication"
+                    "role": "Secondary"
                   },
                   "type": "Microsoft.ServiceBus/Namespaces/DisasterRecoveryConfig"
                 }
@@ -3247,13 +3210,13 @@
         "operationId": "DisasterRecoveryConfigs_CreateOrUpdate",
         "parameters": [
           {
-            "$ref": "#/parameters/resourceGroupNameParameter"
+            "$ref": "#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/namespaceNameParameter"
+            "$ref": "#/parameters/NamespaceNameParameter"
           },
           {
-            "$ref": "#/parameters/aliasNameParameter"
+            "$ref": "#/parameters/AliasNameParameter"
           },
           {
             "description": "Parameters required to create an Alias(Disaster Recovery configuration)",
@@ -3315,8 +3278,7 @@
                     "alternateName": "alternameforAlias-Namespace-8860",
                     "partnerNamespace": "sdk-Namespace-37",
                     "provisioningState": "Accepted",
-                    "role": "Primary",
-                    "type": "MetadataReplication"
+                    "role": "Primary"
                   },
                   "type": "Microsoft.ServiceBus/Namespaces/DisasterRecoveryConfig"
                 }
@@ -3336,13 +3298,13 @@
         "operationId": "DisasterRecoveryConfigs_ListAuthorizationRules",
         "parameters": [
           {
-            "$ref": "#/parameters/resourceGroupNameParameter"
+            "$ref": "#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/namespaceNameParameter"
+            "$ref": "#/parameters/NamespaceNameParameter"
           },
           {
-            "$ref": "#/parameters/aliasNameParameter"
+            "$ref": "#/parameters/AliasNameParameter"
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
@@ -3369,7 +3331,7 @@
           "DisasterRecoveryConfigs"
         ],
         "x-ms-examples": {
-          "NameSpaceAutorizationRuleListAll": {
+          "NameSpaceAuthorizationRuleListAll": {
             "parameters": {
               "alias": "sdk-DisasterRecovery-4047",
               "api-version": "2017-04-01",
@@ -3446,16 +3408,16 @@
         "operationId": "DisasterRecoveryConfigs_GetAuthorizationRule",
         "parameters": [
           {
-            "$ref": "#/parameters/resourceGroupNameParameter"
+            "$ref": "#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/namespaceNameParameter"
+            "$ref": "#/parameters/NamespaceNameParameter"
           },
           {
-            "$ref": "#/parameters/aliasNameParameter"
+            "$ref": "#/parameters/AliasNameParameter"
           },
           {
-            "$ref": "#/parameters/authorizationRuleNameParameter"
+            "$ref": "#/parameters/AuthorizationRuleNameParameter"
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
@@ -3482,7 +3444,7 @@
           "DisasterRecoveryConfigs"
         ],
         "x-ms-examples": {
-          "DisasterRecoveryConfigsAutorizationRuleGet": {
+          "DisasterRecoveryConfigsAuthorizationRuleGet": {
             "parameters": {
               "alias": "sdk-DisasterRecovery-4879",
               "api-version": "2017-04-01",
@@ -3519,16 +3481,16 @@
         "operationId": "DisasterRecoveryConfigs_ListKeys",
         "parameters": [
           {
-            "$ref": "#/parameters/resourceGroupNameParameter"
+            "$ref": "#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/namespaceNameParameter"
+            "$ref": "#/parameters/NamespaceNameParameter"
           },
           {
-            "$ref": "#/parameters/aliasNameParameter"
+            "$ref": "#/parameters/AliasNameParameter"
           },
           {
-            "$ref": "#/parameters/authorizationRuleNameParameter"
+            "$ref": "#/parameters/AuthorizationRuleNameParameter"
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
@@ -3585,13 +3547,13 @@
         "operationId": "DisasterRecoveryConfigs_BreakPairing",
         "parameters": [
           {
-            "$ref": "#/parameters/resourceGroupNameParameter"
+            "$ref": "#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/namespaceNameParameter"
+            "$ref": "#/parameters/NamespaceNameParameter"
           },
           {
-            "$ref": "#/parameters/aliasNameParameter"
+            "$ref": "#/parameters/AliasNameParameter"
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
@@ -3632,17 +3594,17 @@
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}/disasterRecoveryConfigs/{alias}/failover": {
       "post": {
-        "description": "envokes GEO DR failover and reconfigure the alias to point to the secondary namespace",
+        "description": "Invokes GEO DR failover and reconfigure the alias to point to the secondary namespace",
         "operationId": "DisasterRecoveryConfigs_FailOver",
         "parameters": [
           {
-            "$ref": "#/parameters/resourceGroupNameParameter"
+            "$ref": "#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/namespaceNameParameter"
+            "$ref": "#/parameters/NamespaceNameParameter"
           },
           {
-            "$ref": "#/parameters/aliasNameParameter"
+            "$ref": "#/parameters/AliasNameParameter"
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
@@ -3687,10 +3649,10 @@
         "operationId": "EventHubs_ListByNamespace",
         "parameters": [
           {
-            "$ref": "#/parameters/resourceGroupNameParameter"
+            "$ref": "#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/namespaceNameParameter"
+            "$ref": "#/parameters/NamespaceNameParameter"
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
@@ -3707,7 +3669,7 @@
             }
           },
           "default": {
-            "description": "Eventhub error response describing why the operation failed.",
+            "description": "ServiceBus error response describing why the operation failed.",
             "schema": {
               "$ref": "#/definitions/ErrorResponse"
             }
@@ -3771,16 +3733,75 @@
         }
       }
     },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}/migrate": {
+      "post": {
+        "description": "This operation Migrate the given namespace to provided name type",
+        "operationId": "Namespaces_Migrate",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/NamespaceNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "description": "Parameters supplied to migrate namespace type.",
+            "in": "body",
+            "name": "parameters",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SBNamespaceMigrate"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Migrate Namespace type is successful."
+          },
+          "default": {
+            "description": "ServiceBus error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "tags": [
+          "Namespaces"
+        ],
+        "x-ms-examples": {
+          "NameSpaceUpdate": {
+            "parameters": {
+              "api-version": "2017-04-01",
+              "namespaceName": "sdk-Namespace-41",
+              "parameters": {
+                "targetNamespaceType": "EventHub"
+              },
+              "resourceGroupName": "ResourceGroup",
+              "subscriptionId": "SubscriptionId"
+            },
+            "responses": {
+              "200": {}
+            }
+          }
+        }
+      }
+    },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}/migrationConfigurations": {
       "get": {
         "description": "Gets all migrationConfigurations",
         "operationId": "MigrationConfigs_List",
         "parameters": [
           {
-            "$ref": "#/parameters/resourceGroupNameParameter"
+            "$ref": "#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/namespaceNameParameter"
+            "$ref": "#/parameters/NamespaceNameParameter"
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
@@ -3823,6 +3844,7 @@
                       "id": "/subscriptions/SubscriptionId/resourceGroups/ResourceGroup/providers/Microsoft.ServiceBus/namespaces/sdk-Namespace-9259/migrationConfigs/sdk-Namespace-9259",
                       "name": "sdk-Namespace-9259",
                       "properties": {
+                        "migrationState": "Active",
                         "postMigrationName": "sdk-PostMigration-9423",
                         "provisioningState": "Succeeded",
                         "targetNamespace": "/subscriptions/SubscriptionId/resourceGroups/ResourceGroup/providers/Microsoft.ServiceBus/namespaces/sdk-Namespace-7454"
@@ -3846,13 +3868,13 @@
         "operationId": "MigrationConfigs_Delete",
         "parameters": [
           {
-            "$ref": "#/parameters/resourceGroupNameParameter"
+            "$ref": "#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/namespaceNameParameter"
+            "$ref": "#/parameters/NamespaceNameParameter"
           },
           {
-            "$ref": "#/parameters/configNameParameter"
+            "$ref": "#/parameters/ConfigNameParameter"
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
@@ -3899,13 +3921,13 @@
         "operationId": "MigrationConfigs_Get",
         "parameters": [
           {
-            "$ref": "#/parameters/resourceGroupNameParameter"
+            "$ref": "#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/namespaceNameParameter"
+            "$ref": "#/parameters/NamespaceNameParameter"
           },
           {
-            "$ref": "#/parameters/configNameParameter"
+            "$ref": "#/parameters/ConfigNameParameter"
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
@@ -3946,6 +3968,8 @@
                   "id": "/subscriptions/SubscriptionId/resourceGroups/ResourceGroup/providers/Microsoft.ServiceBus/namespaces/sdk-Namespace-41/migrationConfigs/$default",
                   "name": "sdk-Namespace-41",
                   "properties": {
+                    "migrationState": "Active",
+                    "pendingReplicationOperationsCount": 0,
                     "postMigrationName": "sdk-PostMigration-5919",
                     "provisioningState": "Succeeded",
                     "targetNamespace": "/subscriptions/SubscriptionId/resourceGroups/ResourceGroup/providers/Microsoft.ServiceBus/namespaces/sdk-Namespace-4028"
@@ -3958,17 +3982,17 @@
         }
       },
       "put": {
-        "description": "Creates Migration configuration and starts migration of enties from Standard to Premium namespace",
+        "description": "Creates Migration configuration and starts migration of entities from Standard to Premium namespace",
         "operationId": "MigrationConfigs_CreateAndStartMigration",
         "parameters": [
           {
-            "$ref": "#/parameters/resourceGroupNameParameter"
+            "$ref": "#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/namespaceNameParameter"
+            "$ref": "#/parameters/NamespaceNameParameter"
           },
           {
-            "$ref": "#/parameters/configNameParameter"
+            "$ref": "#/parameters/ConfigNameParameter"
           },
           {
             "description": "Parameters required to create Migration Configuration",
@@ -4027,6 +4051,7 @@
                   "id": "/subscriptions/SubscriptionId/resourceGroups/ResourceGroup/providers/Microsoft.ServiceBus/namespaces/sdk-Namespace-41/migrationConfigs/$default",
                   "name": "sdk-Namespace-41",
                   "properties": {
+                    "migrationState": "Initiating",
                     "postMigrationName": "sdk-PostMigration-5919",
                     "provisioningState": "Accepted",
                     "targetNamespace": "/subscriptions/SubscriptionId/resourceGroups/ResourceGroup/providers/Microsoft.ServiceBus/namespaces/sdk-Namespace-4028"
@@ -4047,13 +4072,13 @@
         "operationId": "MigrationConfigs_Revert",
         "parameters": [
           {
-            "$ref": "#/parameters/resourceGroupNameParameter"
+            "$ref": "#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/namespaceNameParameter"
+            "$ref": "#/parameters/NamespaceNameParameter"
           },
           {
-            "$ref": "#/parameters/configNameParameter"
+            "$ref": "#/parameters/ConfigNameParameter"
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
@@ -4094,17 +4119,17 @@
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}/migrationConfigurations/{configName}/upgrade": {
       "post": {
-        "description": "This operation Completes Migration of entities by pointing the connection strings to Premium namespace and any enties created after the operation will be under Premium Namespace. CompleteMigration operation will fail when entity migration is in-progress.",
+        "description": "This operation Completes Migration of entities by pointing the connection strings to Premium namespace and any entities created after the operation will be under Premium Namespace. CompleteMigration operation will fail when entity migration is in-progress.",
         "operationId": "MigrationConfigs_CompleteMigration",
         "parameters": [
           {
-            "$ref": "#/parameters/resourceGroupNameParameter"
+            "$ref": "#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/namespaceNameParameter"
+            "$ref": "#/parameters/NamespaceNameParameter"
           },
           {
-            "$ref": "#/parameters/configNameParameter"
+            "$ref": "#/parameters/ConfigNameParameter"
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
@@ -4143,6 +4168,370 @@
         }
       }
     },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}/networkRuleSets": {
+      "get": {
+        "description": "Gets list of NetworkRuleSet for a Namespace.",
+        "operationId": "Namespaces_ListNetworkRuleSets",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/NamespaceNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of NetworkRuleSets for Namespace successfully returned.",
+            "schema": {
+              "$ref": "#/definitions/NetworkRuleSetListResult"
+            }
+          },
+          "default": {
+            "description": "ServiceBus error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "tags": [
+          "Namespaces"
+        ],
+        "x-ms-examples": {
+          "NameSpaceNetworkRuleSetList": {
+            "parameters": {
+              "api-version": "2017-04-01",
+              "namespaceName": "sdk-Namespace-6019",
+              "resourceGroupName": "ResourceGroup",
+              "subscriptionId": "Subscription"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "value": [
+                    {
+                      "id": "/subscriptions/subscriptionid/resourceGroups/resourcegroupid/providers/Microsoft.ServiceBus/namespaces/sdk-Namespace-9659/networkrulesets/default",
+                      "name": "default",
+                      "properties": {
+                        "defaultAction": "Deny",
+                        "ipRules": [
+                          {
+                            "action": "Allow",
+                            "ipMask": "1.1.1.1"
+                          },
+                          {
+                            "action": "Allow",
+                            "ipMask": "1.1.1.2"
+                          },
+                          {
+                            "action": "Allow",
+                            "ipMask": "1.1.1.3"
+                          },
+                          {
+                            "action": "Allow",
+                            "ipMask": "1.1.1.4"
+                          },
+                          {
+                            "action": "Allow",
+                            "ipMask": "1.1.1.5"
+                          }
+                        ],
+                        "virtualNetworkRules": [
+                          {
+                            "ignoreMissingVnetServiceEndpoint": true,
+                            "subnet": {
+                              "id": "/subscriptions/subscriptionid/resourcegroups/resourcegroupid/providers/Microsoft.Network/virtualNetworks/myvn/subnets/subnet2"
+                            }
+                          },
+                          {
+                            "ignoreMissingVnetServiceEndpoint": false,
+                            "subnet": {
+                              "id": "/subscriptions/subscriptionid/resourcegroups/resourcegroupid/providers/Microsoft.Network/virtualNetworks/myvn/subnets/subnet3"
+                            }
+                          },
+                          {
+                            "ignoreMissingVnetServiceEndpoint": false,
+                            "subnet": {
+                              "id": "/subscriptions/subscriptionid/resourcegroups/resourcegroupid/providers/Microsoft.Network/virtualNetworks/myvn/subnets/subnet6"
+                            }
+                          }
+                        ]
+                      },
+                      "type": "Microsoft.ServiceBus/Namespaces/NetworkRuleSet"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}/networkRuleSets/default": {
+      "get": {
+        "description": "Gets NetworkRuleSet for a Namespace.",
+        "operationId": "Namespaces_GetNetworkRuleSet",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/NamespaceNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Namespace NetworkRuleSet successfully returned.",
+            "schema": {
+              "$ref": "#/definitions/NetworkRuleSet"
+            }
+          },
+          "default": {
+            "description": "ServiceBus error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "tags": [
+          "Namespaces"
+        ],
+        "x-ms-examples": {
+          "NameSpaceNetworkRuleSetGet": {
+            "parameters": {
+              "api-version": "2017-04-01",
+              "namespaceName": "sdk-Namespace-6019",
+              "resourceGroupName": "ResourceGroup",
+              "subscriptionId": "Subscription"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "id": "/subscriptions/subscriptionid/resourceGroups/resourcegroupid/providers/Microsoft.ServiceBus/namespaces/sdk-Namespace-9659/networkrulesets/default",
+                  "name": "default",
+                  "properties": {
+                    "defaultAction": "Deny",
+                    "ipRules": [
+                      {
+                        "action": "Allow",
+                        "ipMask": "1.1.1.1"
+                      },
+                      {
+                        "action": "Allow",
+                        "ipMask": "1.1.1.2"
+                      },
+                      {
+                        "action": "Allow",
+                        "ipMask": "1.1.1.3"
+                      },
+                      {
+                        "action": "Allow",
+                        "ipMask": "1.1.1.4"
+                      },
+                      {
+                        "action": "Allow",
+                        "ipMask": "1.1.1.5"
+                      }
+                    ],
+                    "virtualNetworkRules": [
+                      {
+                        "ignoreMissingVnetServiceEndpoint": true,
+                        "subnet": {
+                          "id": "/subscriptions/subscriptionid/resourcegroups/resourcegroupid/providers/Microsoft.Network/virtualNetworks/myvn/subnets/subnet2"
+                        }
+                      },
+                      {
+                        "ignoreMissingVnetServiceEndpoint": false,
+                        "subnet": {
+                          "id": "/subscriptions/subscriptionid/resourcegroups/resourcegroupid/providers/Microsoft.Network/virtualNetworks/myvn/subnets/subnet3"
+                        }
+                      },
+                      {
+                        "ignoreMissingVnetServiceEndpoint": false,
+                        "subnet": {
+                          "id": "/subscriptions/subscriptionid/resourcegroups/resourcegroupid/providers/Microsoft.Network/virtualNetworks/myvn/subnets/subnet6"
+                        }
+                      }
+                    ]
+                  },
+                  "type": "Microsoft.ServiceBus/Namespaces/NetworkRuleSet"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "description": "Create or update NetworkRuleSet for a Namespace.",
+        "operationId": "Namespaces_CreateOrUpdateNetworkRuleSet",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/NamespaceNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "description": "The Namespace IpFilterRule.",
+            "in": "body",
+            "name": "parameters",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/NetworkRuleSet"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Namespace NetworkRuleSet successfully returned.",
+            "schema": {
+              "$ref": "#/definitions/NetworkRuleSet"
+            }
+          },
+          "default": {
+            "description": "ServiceBus error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "tags": [
+          "Namespaces"
+        ],
+        "x-ms-examples": {
+          "NameSpaceNetworkRuleSetCreate": {
+            "parameters": {
+              "api-version": "2017-04-01",
+              "namespaceName": "sdk-Namespace-6019",
+              "parameters": {
+                "properties": {
+                  "defaultAction": "Deny",
+                  "ipRules": [
+                    {
+                      "action": "Allow",
+                      "ipMask": "1.1.1.1"
+                    },
+                    {
+                      "action": "Allow",
+                      "ipMask": "1.1.1.2"
+                    },
+                    {
+                      "action": "Allow",
+                      "ipMask": "1.1.1.3"
+                    },
+                    {
+                      "action": "Allow",
+                      "ipMask": "1.1.1.4"
+                    },
+                    {
+                      "action": "Allow",
+                      "ipMask": "1.1.1.5"
+                    }
+                  ],
+                  "virtualNetworkRules": [
+                    {
+                      "ignoreMissingVnetServiceEndpoint": true,
+                      "subnet": {
+                        "id": "/subscriptions/subscriptionid/resourcegroups/resourcegroupid/providers/Microsoft.Network/virtualNetworks/myvn/subnets/subnet2"
+                      }
+                    },
+                    {
+                      "ignoreMissingVnetServiceEndpoint": false,
+                      "subnet": {
+                        "id": "/subscriptions/subscriptionid/resourcegroups/resourcegroupid/providers/Microsoft.Network/virtualNetworks/myvn/subnets/subnet3"
+                      }
+                    },
+                    {
+                      "ignoreMissingVnetServiceEndpoint": false,
+                      "subnet": {
+                        "id": "/subscriptions/subscriptionid/resourcegroups/resourcegroupid/providers/Microsoft.Network/virtualNetworks/myvn/subnets/subnet6"
+                      }
+                    }
+                  ]
+                }
+              },
+              "resourceGroupName": "ResourceGroup",
+              "subscriptionId": "Subscription"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "id": "/subscriptions/854d368f-1828-428f-8f3c-f2affa9b2f7d/resourceGroups/resourcegroupid/providers/Microsoft.ServiceBus/namespaces/sdk-Namespace-9659/networkrulesets/default",
+                  "name": "default",
+                  "properties": {
+                    "defaultAction": "Deny",
+                    "ipRules": [
+                      {
+                        "action": "Allow",
+                        "ipMask": "1.1.1.1"
+                      },
+                      {
+                        "action": "Allow",
+                        "ipMask": "1.1.1.2"
+                      },
+                      {
+                        "action": "Allow",
+                        "ipMask": "1.1.1.3"
+                      },
+                      {
+                        "action": "Allow",
+                        "ipMask": "1.1.1.4"
+                      },
+                      {
+                        "action": "Allow",
+                        "ipMask": "1.1.1.5"
+                      }
+                    ],
+                    "virtualNetworkRules": [
+                      {
+                        "ignoreMissingVnetServiceEndpoint": true,
+                        "subnet": {
+                          "id": "/subscriptions/subscriptionid/resourcegroups/resourcegroupid/providers/Microsoft.Network/virtualNetworks/myvn/subnets/subnet2"
+                        }
+                      },
+                      {
+                        "ignoreMissingVnetServiceEndpoint": false,
+                        "subnet": {
+                          "id": "/subscriptions/subscriptionid/resourcegroups/resourcegroupid/providers/Microsoft.Network/virtualNetworks/myvn/subnets/subnet3"
+                        }
+                      },
+                      {
+                        "ignoreMissingVnetServiceEndpoint": false,
+                        "subnet": {
+                          "id": "/subscriptions/subscriptionid/resourcegroups/resourcegroupid/providers/Microsoft.Network/virtualNetworks/myvn/subnets/subnet6"
+                        }
+                      }
+                    ]
+                  },
+                  "type": "Microsoft.ServiceBus/Namespaces/NetworkRuleSet"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}/queues": {
       "get": {
         "description": "Gets the queues within a namespace.",
@@ -4152,10 +4541,10 @@
         "operationId": "Queues_ListByNamespace",
         "parameters": [
           {
-            "$ref": "#/parameters/resourceGroupNameParameter"
+            "$ref": "#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/namespaceNameParameter"
+            "$ref": "#/parameters/NamespaceNameParameter"
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
@@ -4242,13 +4631,13 @@
         "operationId": "Queues_Delete",
         "parameters": [
           {
-            "$ref": "#/parameters/resourceGroupNameParameter"
+            "$ref": "#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/namespaceNameParameter"
+            "$ref": "#/parameters/NamespaceNameParameter"
           },
           {
-            "$ref": "#/parameters/queueNameParameter"
+            "$ref": "#/parameters/QueueNameParameter"
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
@@ -4298,13 +4687,13 @@
         "operationId": "Queues_Get",
         "parameters": [
           {
-            "$ref": "#/parameters/resourceGroupNameParameter"
+            "$ref": "#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/namespaceNameParameter"
+            "$ref": "#/parameters/NamespaceNameParameter"
           },
           {
-            "$ref": "#/parameters/queueNameParameter"
+            "$ref": "#/parameters/QueueNameParameter"
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
@@ -4377,13 +4766,13 @@
         "operationId": "Queues_CreateOrUpdate",
         "parameters": [
           {
-            "$ref": "#/parameters/resourceGroupNameParameter"
+            "$ref": "#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/namespaceNameParameter"
+            "$ref": "#/parameters/NamespaceNameParameter"
           },
           {
-            "$ref": "#/parameters/queueNameParameter"
+            "$ref": "#/parameters/QueueNameParameter"
           },
           {
             "description": "Parameters supplied to create or update a queue resource.",
@@ -4472,13 +4861,13 @@
         "operationId": "Queues_ListAuthorizationRules",
         "parameters": [
           {
-            "$ref": "#/parameters/resourceGroupNameParameter"
+            "$ref": "#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/namespaceNameParameter"
+            "$ref": "#/parameters/NamespaceNameParameter"
           },
           {
-            "$ref": "#/parameters/queueNameParameter"
+            "$ref": "#/parameters/QueueNameParameter"
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
@@ -4505,7 +4894,7 @@
           "Queues"
         ],
         "x-ms-examples": {
-          "QueueAutorizationRuleListAll": {
+          "QueueAuthorizationRuleListAll": {
             "parameters": {
               "api-version": "2017-04-01",
               "namespaceName": "sdk-Namespace-7982",
@@ -4548,16 +4937,16 @@
         "operationId": "Queues_DeleteAuthorizationRule",
         "parameters": [
           {
-            "$ref": "#/parameters/resourceGroupNameParameter"
+            "$ref": "#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/namespaceNameParameter"
+            "$ref": "#/parameters/NamespaceNameParameter"
           },
           {
-            "$ref": "#/parameters/queueNameParameter"
+            "$ref": "#/parameters/QueueNameParameter"
           },
           {
-            "$ref": "#/parameters/authorizationRuleNameParameter"
+            "$ref": "#/parameters/AuthorizationRuleNameParameter"
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
@@ -4584,7 +4973,7 @@
           "Queues"
         ],
         "x-ms-examples": {
-          "QueueAutorizationRuleDelete": {
+          "QueueAuthorizationRuleDelete": {
             "parameters": {
               "api-version": "2015-08-01",
               "authorizationRuleName": "sdk-AuthRules-5800",
@@ -4608,16 +4997,16 @@
         "operationId": "Queues_GetAuthorizationRule",
         "parameters": [
           {
-            "$ref": "#/parameters/resourceGroupNameParameter"
+            "$ref": "#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/namespaceNameParameter"
+            "$ref": "#/parameters/NamespaceNameParameter"
           },
           {
-            "$ref": "#/parameters/queueNameParameter"
+            "$ref": "#/parameters/QueueNameParameter"
           },
           {
-            "$ref": "#/parameters/authorizationRuleNameParameter"
+            "$ref": "#/parameters/AuthorizationRuleNameParameter"
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
@@ -4644,7 +5033,7 @@
           "Queues"
         ],
         "x-ms-examples": {
-          "QueueAutorizationRuleGet": {
+          "QueueAuthorizationRuleGet": {
             "parameters": {
               "api-version": "2017-04-01",
               "authorizationRuleName": "sdk-AuthRules-5800",
@@ -4676,16 +5065,16 @@
         "operationId": "Queues_CreateOrUpdateAuthorizationRule",
         "parameters": [
           {
-            "$ref": "#/parameters/resourceGroupNameParameter"
+            "$ref": "#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/namespaceNameParameter"
+            "$ref": "#/parameters/NamespaceNameParameter"
           },
           {
-            "$ref": "#/parameters/queueNameParameter"
+            "$ref": "#/parameters/QueueNameParameter"
           },
           {
-            "$ref": "#/parameters/authorizationRuleNameParameter"
+            "$ref": "#/parameters/AuthorizationRuleNameParameter"
           },
           {
             "description": "The shared access authorization rule.",
@@ -4766,16 +5155,16 @@
         "operationId": "Queues_ListKeys",
         "parameters": [
           {
-            "$ref": "#/parameters/resourceGroupNameParameter"
+            "$ref": "#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/namespaceNameParameter"
+            "$ref": "#/parameters/NamespaceNameParameter"
           },
           {
-            "$ref": "#/parameters/queueNameParameter"
+            "$ref": "#/parameters/QueueNameParameter"
           },
           {
-            "$ref": "#/parameters/authorizationRuleNameParameter"
+            "$ref": "#/parameters/AuthorizationRuleNameParameter"
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
@@ -4835,16 +5224,16 @@
         "operationId": "Queues_RegenerateKeys",
         "parameters": [
           {
-            "$ref": "#/parameters/resourceGroupNameParameter"
+            "$ref": "#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/namespaceNameParameter"
+            "$ref": "#/parameters/NamespaceNameParameter"
           },
           {
-            "$ref": "#/parameters/queueNameParameter"
+            "$ref": "#/parameters/QueueNameParameter"
           },
           {
-            "$ref": "#/parameters/authorizationRuleNameParameter"
+            "$ref": "#/parameters/AuthorizationRuleNameParameter"
           },
           {
             "description": "Parameters supplied to regenerate the authorization rule.",
@@ -4880,7 +5269,7 @@
           "Queues"
         ],
         "x-ms-examples": {
-          "QueueAuthorizationRuleRegenrateKey": {
+          "QueueAuthorizationRuleRegenerateKey": {
             "parameters": {
               "api-version": "2015-08-01",
               "authorizationRuleName": "sdk-AuthRules-5800",
@@ -4916,10 +5305,10 @@
         "operationId": "Topics_ListByNamespace",
         "parameters": [
           {
-            "$ref": "#/parameters/resourceGroupNameParameter"
+            "$ref": "#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/namespaceNameParameter"
+            "$ref": "#/parameters/NamespaceNameParameter"
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
@@ -5005,13 +5394,13 @@
         "operationId": "Topics_Delete",
         "parameters": [
           {
-            "$ref": "#/parameters/resourceGroupNameParameter"
+            "$ref": "#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/namespaceNameParameter"
+            "$ref": "#/parameters/NamespaceNameParameter"
           },
           {
-            "$ref": "#/parameters/topicNameParameter"
+            "$ref": "#/parameters/TopicNameParameter"
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
@@ -5061,13 +5450,13 @@
         "operationId": "Topics_Get",
         "parameters": [
           {
-            "$ref": "#/parameters/resourceGroupNameParameter"
+            "$ref": "#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/namespaceNameParameter"
+            "$ref": "#/parameters/NamespaceNameParameter"
           },
           {
-            "$ref": "#/parameters/topicNameParameter"
+            "$ref": "#/parameters/TopicNameParameter"
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
@@ -5139,13 +5528,13 @@
         "operationId": "Topics_CreateOrUpdate",
         "parameters": [
           {
-            "$ref": "#/parameters/resourceGroupNameParameter"
+            "$ref": "#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/namespaceNameParameter"
+            "$ref": "#/parameters/NamespaceNameParameter"
           },
           {
-            "$ref": "#/parameters/topicNameParameter"
+            "$ref": "#/parameters/TopicNameParameter"
           },
           {
             "description": "Parameters supplied to create a topic resource.",
@@ -5233,13 +5622,13 @@
         "operationId": "Topics_ListAuthorizationRules",
         "parameters": [
           {
-            "$ref": "#/parameters/resourceGroupNameParameter"
+            "$ref": "#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/namespaceNameParameter"
+            "$ref": "#/parameters/NamespaceNameParameter"
           },
           {
-            "$ref": "#/parameters/topicNameParameter"
+            "$ref": "#/parameters/TopicNameParameter"
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
@@ -5266,7 +5655,7 @@
           "Topics"
         ],
         "x-ms-examples": {
-          "TopicAutorizationRuleListAll": {
+          "TopicAuthorizationRuleListAll": {
             "parameters": {
               "api-version": "2017-04-01",
               "namespaceName": "sdk-Namespace-6261",
@@ -5309,16 +5698,16 @@
         "operationId": "Topics_DeleteAuthorizationRule",
         "parameters": [
           {
-            "$ref": "#/parameters/resourceGroupNameParameter"
+            "$ref": "#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/namespaceNameParameter"
+            "$ref": "#/parameters/NamespaceNameParameter"
           },
           {
-            "$ref": "#/parameters/topicNameParameter"
+            "$ref": "#/parameters/TopicNameParameter"
           },
           {
-            "$ref": "#/parameters/authorizationRuleNameParameter"
+            "$ref": "#/parameters/AuthorizationRuleNameParameter"
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
@@ -5345,7 +5734,7 @@
           "Topics"
         ],
         "x-ms-examples": {
-          "TopicAutorizationRuleDelete": {
+          "TopicAuthorizationRuleDelete": {
             "parameters": {
               "api-version": "2017-04-01",
               "authorizationRuleName": "sdk-AuthRules-4310",
@@ -5369,16 +5758,16 @@
         "operationId": "Topics_GetAuthorizationRule",
         "parameters": [
           {
-            "$ref": "#/parameters/resourceGroupNameParameter"
+            "$ref": "#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/namespaceNameParameter"
+            "$ref": "#/parameters/NamespaceNameParameter"
           },
           {
-            "$ref": "#/parameters/topicNameParameter"
+            "$ref": "#/parameters/TopicNameParameter"
           },
           {
-            "$ref": "#/parameters/authorizationRuleNameParameter"
+            "$ref": "#/parameters/AuthorizationRuleNameParameter"
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
@@ -5405,7 +5794,7 @@
           "Topics"
         ],
         "x-ms-examples": {
-          "TopicAutorizationRuleGet": {
+          "TopicAuthorizationRuleGet": {
             "parameters": {
               "api-version": "2017-04-01",
               "authorizationRuleName": "sdk-AuthRules-4310",
@@ -5433,23 +5822,23 @@
         }
       },
       "put": {
-        "description": "Creates an authorizatio rule for the specified topic.",
+        "description": "Creates an authorization rule for the specified topic.",
         "externalDocs": {
           "url": "https://msdn.microsoft.com/en-us/library/azure/mt720678.aspx"
         },
         "operationId": "Topics_CreateOrUpdateAuthorizationRule",
         "parameters": [
           {
-            "$ref": "#/parameters/resourceGroupNameParameter"
+            "$ref": "#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/namespaceNameParameter"
+            "$ref": "#/parameters/NamespaceNameParameter"
           },
           {
-            "$ref": "#/parameters/topicNameParameter"
+            "$ref": "#/parameters/TopicNameParameter"
           },
           {
-            "$ref": "#/parameters/authorizationRuleNameParameter"
+            "$ref": "#/parameters/AuthorizationRuleNameParameter"
           },
           {
             "description": "The shared access authorization rule.",
@@ -5530,16 +5919,16 @@
         "operationId": "Topics_ListKeys",
         "parameters": [
           {
-            "$ref": "#/parameters/resourceGroupNameParameter"
+            "$ref": "#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/namespaceNameParameter"
+            "$ref": "#/parameters/NamespaceNameParameter"
           },
           {
-            "$ref": "#/parameters/topicNameParameter"
+            "$ref": "#/parameters/TopicNameParameter"
           },
           {
-            "$ref": "#/parameters/authorizationRuleNameParameter"
+            "$ref": "#/parameters/AuthorizationRuleNameParameter"
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
@@ -5599,16 +5988,16 @@
         "operationId": "Topics_RegenerateKeys",
         "parameters": [
           {
-            "$ref": "#/parameters/resourceGroupNameParameter"
+            "$ref": "#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/namespaceNameParameter"
+            "$ref": "#/parameters/NamespaceNameParameter"
           },
           {
-            "$ref": "#/parameters/topicNameParameter"
+            "$ref": "#/parameters/TopicNameParameter"
           },
           {
-            "$ref": "#/parameters/authorizationRuleNameParameter"
+            "$ref": "#/parameters/AuthorizationRuleNameParameter"
           },
           {
             "description": "Parameters supplied to regenerate the authorization rule.",
@@ -5644,7 +6033,7 @@
           "Topics"
         ],
         "x-ms-examples": {
-          "TopicAuthorizationRuleRegenrateKey": {
+          "TopicAuthorizationRuleRegenerateKey": {
             "parameters": {
               "api-version": "2015-08-01",
               "authorizationRuleName": "sdk-Authrules5067",
@@ -5680,13 +6069,13 @@
         "operationId": "Subscriptions_ListByTopic",
         "parameters": [
           {
-            "$ref": "#/parameters/resourceGroupNameParameter"
+            "$ref": "#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/namespaceNameParameter"
+            "$ref": "#/parameters/NamespaceNameParameter"
           },
           {
-            "$ref": "#/parameters/topicNameParameter"
+            "$ref": "#/parameters/TopicNameParameter"
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
@@ -5780,16 +6169,16 @@
         "operationId": "Subscriptions_Delete",
         "parameters": [
           {
-            "$ref": "#/parameters/resourceGroupNameParameter"
+            "$ref": "#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/namespaceNameParameter"
+            "$ref": "#/parameters/NamespaceNameParameter"
           },
           {
-            "$ref": "#/parameters/topicNameParameter"
+            "$ref": "#/parameters/TopicNameParameter"
           },
           {
-            "$ref": "#/parameters/subscriptionNameParameter"
+            "$ref": "#/parameters/SubscriptionNameParameter"
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
@@ -5840,16 +6229,16 @@
         "operationId": "Subscriptions_Get",
         "parameters": [
           {
-            "$ref": "#/parameters/resourceGroupNameParameter"
+            "$ref": "#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/namespaceNameParameter"
+            "$ref": "#/parameters/NamespaceNameParameter"
           },
           {
-            "$ref": "#/parameters/topicNameParameter"
+            "$ref": "#/parameters/TopicNameParameter"
           },
           {
-            "$ref": "#/parameters/subscriptionNameParameter"
+            "$ref": "#/parameters/SubscriptionNameParameter"
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
@@ -5929,16 +6318,16 @@
         "operationId": "Subscriptions_CreateOrUpdate",
         "parameters": [
           {
-            "$ref": "#/parameters/resourceGroupNameParameter"
+            "$ref": "#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/namespaceNameParameter"
+            "$ref": "#/parameters/NamespaceNameParameter"
           },
           {
-            "$ref": "#/parameters/topicNameParameter"
+            "$ref": "#/parameters/TopicNameParameter"
           },
           {
-            "$ref": "#/parameters/subscriptionNameParameter"
+            "$ref": "#/parameters/SubscriptionNameParameter"
           },
           {
             "description": "Parameters supplied to create a subscription resource.",
@@ -6031,16 +6420,16 @@
         "operationId": "Rules_ListBySubscriptions",
         "parameters": [
           {
-            "$ref": "#/parameters/resourceGroupNameParameter"
+            "$ref": "#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/namespaceNameParameter"
+            "$ref": "#/parameters/NamespaceNameParameter"
           },
           {
-            "$ref": "#/parameters/topicNameParameter"
+            "$ref": "#/parameters/TopicNameParameter"
           },
           {
-            "$ref": "#/parameters/subscriptionNameParameter"
+            "$ref": "#/parameters/SubscriptionNameParameter"
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
@@ -6116,19 +6505,19 @@
         "operationId": "Rules_Delete",
         "parameters": [
           {
-            "$ref": "#/parameters/resourceGroupNameParameter"
+            "$ref": "#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/namespaceNameParameter"
+            "$ref": "#/parameters/NamespaceNameParameter"
           },
           {
-            "$ref": "#/parameters/topicNameParameter"
+            "$ref": "#/parameters/TopicNameParameter"
           },
           {
-            "$ref": "#/parameters/subscriptionNameParameter"
+            "$ref": "#/parameters/SubscriptionNameParameter"
           },
           {
-            "$ref": "#/parameters/ruleNameParameter"
+            "$ref": "#/parameters/RuleNameParameter"
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
@@ -6180,19 +6569,19 @@
         "operationId": "Rules_Get",
         "parameters": [
           {
-            "$ref": "#/parameters/resourceGroupNameParameter"
+            "$ref": "#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/namespaceNameParameter"
+            "$ref": "#/parameters/NamespaceNameParameter"
           },
           {
-            "$ref": "#/parameters/topicNameParameter"
+            "$ref": "#/parameters/TopicNameParameter"
           },
           {
-            "$ref": "#/parameters/subscriptionNameParameter"
+            "$ref": "#/parameters/SubscriptionNameParameter"
           },
           {
-            "$ref": "#/parameters/ruleNameParameter"
+            "$ref": "#/parameters/RuleNameParameter"
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
@@ -6254,19 +6643,19 @@
         "operationId": "Rules_CreateOrUpdate",
         "parameters": [
           {
-            "$ref": "#/parameters/resourceGroupNameParameter"
+            "$ref": "#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/namespaceNameParameter"
+            "$ref": "#/parameters/NamespaceNameParameter"
           },
           {
-            "$ref": "#/parameters/topicNameParameter"
+            "$ref": "#/parameters/TopicNameParameter"
           },
           {
-            "$ref": "#/parameters/subscriptionNameParameter"
+            "$ref": "#/parameters/SubscriptionNameParameter"
           },
           {
-            "$ref": "#/parameters/ruleNameParameter"
+            "$ref": "#/parameters/RuleNameParameter"
           },
           {
             "description": "Parameters supplied to create a rule.",
@@ -6302,7 +6691,7 @@
           "Rules"
         ],
         "x-ms-examples": {
-          "RulesCreateCorelationFilter": {
+          "RulesCreateCorrelationFilter": {
             "parameters": {
               "api-version": "2017-04-01",
               "namespaceName": "sdk-Namespace-1319",
@@ -6370,7 +6759,7 @@
               }
             }
           },
-          "RulesCreateSQLFilter": {
+          "RulesCreateSqlFilter": {
             "parameters": {
               "api-version": "2017-04-01",
               "namespaceName": "sdk-Namespace-1319",
@@ -6483,12 +6872,18 @@
           "description": "Properties required to the Create Or Update Alias(Disaster Recovery configurations)",
           "properties": {
             "alternateName": {
-              "description": "Primary/Secondary eventhub namespace name, which is part of GEO DR pairning",
+              "description": "Primary/Secondary eventhub namespace name, which is part of GEO DR pairing",
               "type": "string"
             },
             "partnerNamespace": {
-              "description": "ARM Id of the Primary/Secondary eventhub namespace name, which is part of GEO DR pairning",
+              "description": "ARM Id of the Primary/Secondary eventhub namespace name, which is part of GEO DR pairing",
               "type": "string"
+            },
+            "pendingReplicationOperationsCount": {
+              "description": "Number of entities pending to be replicated.",
+              "format": "int64",
+              "readOnly": true,
+              "type": "integer"
             },
             "provisioningState": {
               "description": "Provisioning state of the Alias(Disaster Recovery configuration) - possible values 'Accepted' or 'Succeeded' or 'Failed'",
@@ -6607,7 +7002,7 @@
       "description": "Description of a Check Name availability request properties.",
       "properties": {
         "name": {
-          "description": "The Name to check the namespce name availability and The namespace name can contain only letters, numbers, and hyphens. The namespace must start with a letter, and it must end with a letter or number.",
+          "description": "The Name to check the namespace name availability and The namespace name can contain only letters, numbers, and hyphens. The namespace must start with a letter, and it must end with a letter or number.",
           "type": "string"
         }
       },
@@ -6691,7 +7086,7 @@
           "type": "string"
         },
         "properties": {
-          "description": "Properties describing the storage account, blob container and acrchive name format for capture destination",
+          "description": "Properties describing the storage account, blob container and archive name format for capture destination",
           "properties": {
             "archiveNameFormat": {
               "description": "Blob naming convention for archive, e.g. {Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}. Here all the parameters (Namespace,EventHub .. etc) are mandatory irrespective of order",
@@ -6730,7 +7125,7 @@
       }
     },
     "ErrorResponse": {
-      "description": "Error reponse indicates ServiceBus service is not able to process the incoming request. The reason is provided in the error message.",
+      "description": "Error response indicates ServiceBus service is not able to process the incoming request. The reason is provided in the error message.",
       "properties": {
         "code": {
           "description": "Error code.",
@@ -6909,6 +7304,17 @@
         "properties": {
           "description": "Properties required to the Create Migration Configuration",
           "properties": {
+            "migrationState": {
+              "description": "State in which Standard to Premium Migration is, possible values : Unknown, Reverting, Completing, Initiating, Syncing, Active",
+              "readOnly": true,
+              "type": "string"
+            },
+            "pendingReplicationOperationsCount": {
+              "description": "Number of entities pending to be replicated.",
+              "format": "int64",
+              "readOnly": true,
+              "type": "integer"
+            },
             "postMigrationName": {
               "description": "Name to access Standard Namespace after migration",
               "type": "string"
@@ -6928,6 +7334,100 @@
             "postMigrationName"
           ],
           "x-ms-client-flatten": true
+        }
+      }
+    },
+    "NWRuleSetIpRules": {
+      "description": "Description of NetWorkRuleSet - IpRules resource.",
+      "properties": {
+        "action": {
+          "default": "Allow",
+          "description": "The IP Filter Action",
+          "enum": [
+            "Allow"
+          ],
+          "type": "string",
+          "x-ms-enum": {
+            "modelAsString": true,
+            "name": "NetworkRuleIPAction"
+          }
+        },
+        "ipMask": {
+          "description": "IP Mask",
+          "type": "string"
+        }
+      },
+      "x-ms-client-flatten": true
+    },
+    "NWRuleSetVirtualNetworkRules": {
+      "description": "Description of VirtualNetworkRules - NetworkRules resource.",
+      "properties": {
+        "ignoreMissingVnetServiceEndpoint": {
+          "description": "Value that indicates whether to ignore missing VNet Service Endpoint",
+          "type": "boolean"
+        },
+        "subnet": {
+          "$ref": "#/definitions/Subnet",
+          "description": "Subnet properties"
+        }
+      },
+      "x-ms-client-flatten": true
+    },
+    "NetworkRuleSet": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Resource"
+        }
+      ],
+      "description": "Description of NetworkRuleSet resource.",
+      "properties": {
+        "properties": {
+          "description": "NetworkRuleSet properties",
+          "properties": {
+            "defaultAction": {
+              "description": "Default Action for Network Rule Set",
+              "enum": [
+                "Allow",
+                "Deny"
+              ],
+              "type": "string",
+              "x-ms-enum": {
+                "modelAsString": true,
+                "name": "DefaultAction"
+              }
+            },
+            "ipRules": {
+              "description": "List of IpRules",
+              "items": {
+                "$ref": "#/definitions/NWRuleSetIpRules"
+              },
+              "type": "array"
+            },
+            "virtualNetworkRules": {
+              "description": "List VirtualNetwork Rules",
+              "items": {
+                "$ref": "#/definitions/NWRuleSetVirtualNetworkRules"
+              },
+              "type": "array"
+            }
+          },
+          "x-ms-client-flatten": true
+        }
+      }
+    },
+    "NetworkRuleSetListResult": {
+      "description": "The response of the List NetworkRuleSet operation.",
+      "properties": {
+        "nextLink": {
+          "description": "Link to the next set of results. Not empty if Value contains incomplete list of NetworkRuleSet.",
+          "type": "string"
+        },
+        "value": {
+          "description": "Result of the List NetworkRuleSet operation.",
+          "items": {
+            "$ref": "#/definitions/NetworkRuleSet"
+          },
+          "type": "array"
         }
       }
     },
@@ -7022,7 +7522,7 @@
       }
     },
     "RegenerateAccessKeyParameters": {
-      "description": "Parameters supplied to the Regenerate Authorization Rule operation, specifies which key neeeds to be reset.",
+      "description": "Parameters supplied to the Regenerate Authorization Rule operation, specifies which key needs to be reset.",
       "properties": {
         "key": {
           "description": "Optional, if the key value provided, is reset for KeyType value or autogenerate Key value set for keyType",
@@ -7205,7 +7705,7 @@
         },
         "sku": {
           "$ref": "#/definitions/SBSku",
-          "description": "Porperties of Sku"
+          "description": "Properties of Sku"
         }
       }
     },
@@ -7224,6 +7724,30 @@
           "type": "array"
         }
       }
+    },
+    "SBNamespaceMigrate": {
+      "description": "Namespace Migrate Object",
+      "properties": {
+        "targetNamespaceType": {
+          "description": "Type of namespaces",
+          "enum": [
+            "Messaging",
+            "NotificationHub",
+            "Mixed",
+            "EventHub",
+            "Relay"
+          ],
+          "type": "string",
+          "x-ms-enum": {
+            "modelAsString": false,
+            "name": "NameSpaceType"
+          }
+        }
+      },
+      "required": [
+        "targetNamespaceType"
+      ],
+      "type": "object"
     },
     "SBNamespaceProperties": {
       "description": "Properties of the namespace.",
@@ -7272,7 +7796,7 @@
         },
         "sku": {
           "$ref": "#/definitions/SBSku",
-          "description": "Porperties of Sku"
+          "description": "Properties of Sku"
         }
       }
     },
@@ -7603,7 +8127,7 @@
       }
     },
     "SBTopicProperties": {
-      "description": "The Tpoic Properties definition.",
+      "description": "The Topic Properties definition.",
       "properties": {
         "accessedAt": {
           "description": "Last time the message was sent, or a request was received, for this topic.",
@@ -7618,7 +8142,7 @@
         },
         "countDetails": {
           "$ref": "#/definitions/MessageCountDetails",
-          "description": "Message count deatils",
+          "description": "Message count details",
           "readOnly": true
         },
         "createdAt": {
@@ -7693,7 +8217,8 @@
           "default": 20,
           "description": "This property is reserved for future use. An integer value showing the compatibility level, currently hard-coded to 20.",
           "format": "int32",
-          "readOnly": true,
+          "maximum": 20,
+          "minimum": 20,
           "type": "integer"
         },
         "requiresPreprocessing": {
@@ -7732,6 +8257,18 @@
         }
       },
       "type": "object"
+    },
+    "Subnet": {
+      "description": "Properties supplied for Subnet",
+      "properties": {
+        "id": {
+          "description": "Resource ID of Virtual Network Subnet",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ]
     },
     "TrackedResource": {
       "allOf": [

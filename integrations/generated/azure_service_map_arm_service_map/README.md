@@ -15,13 +15,7 @@ let azure_service_map_arm_service_map = require('@datafire/azure_service_map_arm
   redirect_uri: ""
 });
 
-azure_service_map_arm_service_map.ClientGroups_Get({
-  "subscriptionId": "",
-  "resourceGroupName": "",
-  "workspaceName": "",
-  "api-version": "",
-  "clientGroupName": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -771,18 +765,18 @@ azure_service_map_arm_service_map.Summaries_GetMachines({
   * updateDomain `string`: Update domain of the VM.
   * vmId `string`: Virtual Machine ID (unique identifier).
   * vmScaleSet [AzureVmScaleSetConfiguration](#azurevmscalesetconfiguration)
-  * kind **required** `string` (values: provider:azure): Additional hostring configuration type qualifier.
+  * kind **required** `string` (values: provider:azure): Additional hosting configuration type qualifier.
   * provider `string` (values: azure): The hosting provider of the VM.
 
 ### AzureProcessHostingConfiguration
 * AzureProcessHostingConfiguration `object`: Describes the hosting configuration of a process when hosted on azure
   * cloudService [AzureCloudServiceConfiguration](#azurecloudserviceconfiguration)
-  * kind **required** `string` (values: provider:azure): Additional hostring configuration type qualifier.
+  * kind **required** `string` (values: provider:azure): Additional hosting configuration type qualifier.
   * provider `string` (values: azure): The hosting provider of the VM.
 
 ### AzureServiceFabricClusterConfiguration
 * AzureServiceFabricClusterConfiguration `object`: Describes an Azure Service Fabric Cluster
-  * clusterId `string`: Service Fabric cluster indentifier.
+  * clusterId `string`: Service Fabric cluster identifier.
   * name `string`: Service Fabric cluster name.
 
 ### AzureVmScaleSetConfiguration
@@ -882,7 +876,7 @@ azure_service_map_arm_service_map.Summaries_GetMachines({
 
 ### HostingConfiguration
 * HostingConfiguration `object`: Describes the hosting configuration of a machine.
-  * kind **required** `string` (values: provider:azure): Additional hostring configuration type qualifier.
+  * kind **required** `string` (values: provider:azure): Additional hosting configuration type qualifier.
   * provider `string` (values: azure): The hosting provider of the VM.
 
 ### HypervisorConfiguration
@@ -1163,9 +1157,9 @@ azure_service_map_arm_service_map.Summaries_GetMachines({
   * description `string`: Process description.
   * executablePath `string`: Process executable path.
   * fileVersion `string`: File version.
-  * firstPid `integer`: The Operating System Process Idendifier (PID) of the first process in this process pool.
+  * firstPid `integer`: The Operating System Process Identifier (PID) of the first process in this process pool.
   * internalName `string`: Internal process name.
-  * persistentKey `string`: A unique indentifier for a process, generally resilient to process restart, computed by Service Map.
+  * persistentKey `string`: A unique identifier for a process, generally resilient to process restart, computed by Service Map.
   * poolId `integer`: Represents the identity of the process pool assigned to the process by Dependency Agent.
   * productName `string`: Product name.
   * productVersion `string`: Product version.
@@ -1181,7 +1175,7 @@ azure_service_map_arm_service_map.Summaries_GetMachines({
 
 ### ProcessHostingConfiguration
 * ProcessHostingConfiguration `object`: Describes the hosting configuration of a process.
-  * kind **required** `string` (values: provider:azure): Additional hostring configuration type qualifier.
+  * kind **required** `string` (values: provider:azure): Additional hosting configuration type qualifier.
   * provider `string` (values: azure): The hosting provider of the VM.
 
 ### ProcessReference
@@ -1248,9 +1242,9 @@ azure_service_map_arm_service_map.Summaries_GetMachines({
   * fullName `string`: Timezone full name.
 
 ### VirtualMachineConfiguration
-* VirtualMachineConfiguration `object`: Describes the virtualizaton-related configuration of a machine.
+* VirtualMachineConfiguration `object`: Describes the virtualization-related configuration of a machine.
   * nativeHostMachineId `string`: The unique identifier of the host of this virtual machine as reported by the underlying virtualization system.
-  * nativeMachineId `string`: The unique identifier of the virtual machine as reported by the underlying virtualization sytem.
+  * nativeMachineId `string`: The unique identifier of the virtual machine as reported by the underlying virtualization system.
   * virtualMachineName `string`: The Name of the virtual machine.
   * virtualMachineType [VirtualMachineType](#virtualmachinetype)
 

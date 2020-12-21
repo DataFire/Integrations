@@ -13,17 +13,14 @@ let amazonaws_runtime_sagemaker = require('@datafire/amazonaws_runtime_sagemaker
   region: ""
 });
 
-amazonaws_runtime_sagemaker.InvokeEndpoint({
-  "EndpointName": "",
-  "Body": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
 
 ## Description
 
- Amazon SageMaker runtime API. 
+ The Amazon SageMaker runtime API. 
 
 ## Actions
 
@@ -41,7 +38,9 @@ amazonaws_runtime_sagemaker.InvokeEndpoint({
 #### Input
 * input `object`
   * EndpointName **required** `string`
-  * Body **required** [BodyBlob](#bodyblob)
+  * Content-Type `string`
+  * Accept `string`
+  * Body **required** `string`: <p>Provides input data, in the format specified in the <code>ContentType</code> request header. Amazon SageMaker passes all of the data in the body to the model. </p> <p>For information about the format of the request body, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/cdf-inference.html">Common Data Formats-Inference</a>.</p>
 
 #### Output
 * output [InvokeEndpointOutput](#invokeendpointoutput)
@@ -53,46 +52,42 @@ amazonaws_runtime_sagemaker.InvokeEndpoint({
 ### BodyBlob
 * BodyBlob `string`
 
+### CustomAttributesHeader
+* CustomAttributesHeader `string`
+
 ### EndpointName
 * EndpointName `string`
 
 ### Header
 * Header `string`
 
+### InferenceId
+* InferenceId `string`
+
 ### InternalFailure
-* InternalFailure `object`:  Internal failure occurred. 
-  * Message [Message](#message)
+
 
 ### InvokeEndpointInput
 * InvokeEndpointInput `object`
-  * Body **required** [BodyBlob](#bodyblob)
+  * Body **required**
 
 ### InvokeEndpointOutput
 * InvokeEndpointOutput `object`
-  * Body **required** [BodyBlob](#bodyblob)
-
-### LogStreamArn
-* LogStreamArn `string`
-
-### Message
-* Message `string`
+  * Body **required**
 
 ### ModelError
-* ModelError `object`:  Model (owned by the customer in the container) returned an error 500. 
-  * LogStreamArn [LogStreamArn](#logstreamarn)
-  * Message [Message](#message)
-  * OriginalMessage [Message](#message)
-  * OriginalStatusCode [StatusCode](#statuscode)
+
 
 ### ServiceUnavailable
-* ServiceUnavailable `object`:  Service is unavailable. Try your call again. 
-  * Message [Message](#message)
 
-### StatusCode
-* StatusCode `integer`
+
+### TargetModelHeader
+* TargetModelHeader `string`
+
+### TargetVariantHeader
+* TargetVariantHeader `string`
 
 ### ValidationError
-* ValidationError `object`:  Inspect your request and try again. 
-  * Message [Message](#message)
+
 
 

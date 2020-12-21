@@ -9,7 +9,7 @@ npm install --save @datafire/learnifier
 ```js
 let learnifier = require('@datafire/learnifier').create();
 
-learnifier.users.get({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

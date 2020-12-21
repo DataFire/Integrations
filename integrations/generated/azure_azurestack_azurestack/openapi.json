@@ -262,6 +262,36 @@
         }
       }
     },
+    "ErrorDetails": {
+      "description": "The details of the error.",
+      "properties": {
+        "code": {
+          "description": "Error code.",
+          "readOnly": true,
+          "type": "string"
+        },
+        "message": {
+          "description": "Error message indicating why the operation failed.",
+          "readOnly": true,
+          "type": "string"
+        },
+        "target": {
+          "description": "The target of the particular error.",
+          "readOnly": true,
+          "type": "string"
+        }
+      }
+    },
+    "ErrorResponse": {
+      "description": "Error response indicates that the service is not able to process the incoming request. The reason is provided in the error message.",
+      "properties": {
+        "error": {
+          "$ref": "#/definitions/ErrorDetails",
+          "description": "The details of the error."
+        }
+      },
+      "type": "object"
+    },
     "Operation": {
       "description": "Describes the supported REST operation.",
       "properties": {
@@ -312,7 +342,33 @@
       "description": "Base resource object.",
       "properties": {
         "etag": {
-          "description": "The entity tag used for optimistic concurency when modifying the resource.",
+          "description": "The entity tag used for optimistic concurrency when modifying the resource.",
+          "type": "string"
+        },
+        "id": {
+          "description": "ID of the resource.",
+          "readOnly": true,
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of the resource.",
+          "readOnly": true,
+          "type": "string"
+        },
+        "type": {
+          "description": "Type of Resource.",
+          "readOnly": true,
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "x-ms-azure-resource": true
+    },
+    "TrackedResource": {
+      "description": "Base resource object.",
+      "properties": {
+        "etag": {
+          "description": "The entity tag used for optimistic concurrency when modifying the resource.",
           "type": "string"
         },
         "id": {

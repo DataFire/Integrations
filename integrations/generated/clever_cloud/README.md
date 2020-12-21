@@ -9,7 +9,7 @@ npm install --save @datafire/clever_cloud
 ```js
 let clever_cloud = require('@datafire/clever_cloud').create();
 
-clever_cloud.getVendorApps({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

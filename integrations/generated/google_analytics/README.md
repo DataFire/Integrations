@@ -1,6 +1,6 @@
 # @datafire/google_analytics
 
-Client library for Google Analytics
+Client library for Google Analytics API
 
 ## Installation and Usage
 ```bash
@@ -15,7 +15,7 @@ let google_analytics = require('@datafire/google_analytics').create({
   redirect_uri: ""
 });
 
-google_analytics.userDeletion.userDeletionRequest.upsert({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -67,33 +67,33 @@ google_analytics.oauthRefresh(null, context)
   * scope `string`
   * expiration `string`
 
-### data.ga.get
+### analytics.data.ga.get
 Returns Analytics data for a view (profile).
 
 
 ```js
-google_analytics.data.ga.get({
-  "end-date": "",
+google_analytics.analytics.data.ga.get({
   "ids": "",
-  "metrics": "",
-  "start-date": ""
+  "start-date": "",
+  "end-date": "",
+  "metrics": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * dimensions `string`: A comma-separated list of Analytics dimensions. E.g., 'ga:browser,ga:city'.
-  * end-date **required** `string`: End date for fetching Analytics data. Request can should specify an end date formatted as YYYY-MM-DD, or as a relative date (e.g., today, yesterday, or 7daysAgo). The default value is yesterday.
-  * filters `string`: A comma-separated list of dimension or metric filters to be applied to Analytics data.
   * ids **required** `string`: Unique table ID for retrieving Analytics data. Table ID is of the form ga:XXXX, where XXXX is the Analytics view (profile) ID.
+  * start-date **required** `string`: Start date for fetching Analytics data. Requests can specify a start date formatted as YYYY-MM-DD, or as a relative date (e.g., today, yesterday, or 7daysAgo). The default value is 7daysAgo.
+  * end-date **required** `string`: End date for fetching Analytics data. Request can should specify an end date formatted as YYYY-MM-DD, or as a relative date (e.g., today, yesterday, or 7daysAgo). The default value is yesterday.
+  * metrics **required** `string`: A comma-separated list of Analytics metrics. E.g., 'ga:sessions,ga:pageviews'. At least one metric must be specified.
+  * dimensions `string`: A comma-separated list of Analytics dimensions. E.g., 'ga:browser,ga:city'.
+  * filters `string`: A comma-separated list of dimension or metric filters to be applied to Analytics data.
   * include-empty-rows `boolean`: The response will include empty rows if this parameter is set to true, the default is true
   * max-results `integer`: The maximum number of entries to include in this feed.
-  * metrics **required** `string`: A comma-separated list of Analytics metrics. E.g., 'ga:sessions,ga:pageviews'. At least one metric must be specified.
   * output `string` (values: dataTable, json): The selected format for the response. Default format is JSON.
   * samplingLevel `string` (values: DEFAULT, FASTER, HIGHER_PRECISION): The desired sampling level.
   * segment `string`: An Analytics segment to be applied to data.
   * sort `string`: A comma-separated list of dimensions or metrics that determine the sort order for Analytics data.
-  * start-date **required** `string`: Start date for fetching Analytics data. Requests can specify a start date formatted as YYYY-MM-DD, or as a relative date (e.g., today, yesterday, or 7daysAgo). The default value is 7daysAgo.
   * start-index `integer`: An index of the first entity to retrieve. Use this parameter as a pagination mechanism along with the max-results parameter.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
@@ -106,30 +106,30 @@ google_analytics.data.ga.get({
 #### Output
 * output [GaData](#gadata)
 
-### data.mcf.get
+### analytics.data.mcf.get
 Returns Analytics Multi-Channel Funnels data for a view (profile).
 
 
 ```js
-google_analytics.data.mcf.get({
-  "end-date": "",
+google_analytics.analytics.data.mcf.get({
   "ids": "",
-  "metrics": "",
-  "start-date": ""
+  "start-date": "",
+  "end-date": "",
+  "metrics": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * dimensions `string`: A comma-separated list of Multi-Channel Funnels dimensions. E.g., 'mcf:source,mcf:medium'.
-  * end-date **required** `string`: End date for fetching Analytics data. Requests can specify a start date formatted as YYYY-MM-DD, or as a relative date (e.g., today, yesterday, or 7daysAgo). The default value is 7daysAgo.
-  * filters `string`: A comma-separated list of dimension or metric filters to be applied to the Analytics data.
   * ids **required** `string`: Unique table ID for retrieving Analytics data. Table ID is of the form ga:XXXX, where XXXX is the Analytics view (profile) ID.
-  * max-results `integer`: The maximum number of entries to include in this feed.
+  * start-date **required** `string`: Start date for fetching Analytics data. Requests can specify a start date formatted as YYYY-MM-DD, or as a relative date (e.g., today, yesterday, or 7daysAgo). The default value is 7daysAgo.
+  * end-date **required** `string`: End date for fetching Analytics data. Requests can specify a start date formatted as YYYY-MM-DD, or as a relative date (e.g., today, yesterday, or 7daysAgo). The default value is 7daysAgo.
   * metrics **required** `string`: A comma-separated list of Multi-Channel Funnels metrics. E.g., 'mcf:totalConversions,mcf:totalConversionValue'. At least one metric must be specified.
+  * dimensions `string`: A comma-separated list of Multi-Channel Funnels dimensions. E.g., 'mcf:source,mcf:medium'.
+  * filters `string`: A comma-separated list of dimension or metric filters to be applied to the Analytics data.
+  * max-results `integer`: The maximum number of entries to include in this feed.
   * samplingLevel `string` (values: DEFAULT, FASTER, HIGHER_PRECISION): The desired sampling level.
   * sort `string`: A comma-separated list of dimensions or metrics that determine the sort order for the Analytics data.
-  * start-date **required** `string`: Start date for fetching Analytics data. Requests can specify a start date formatted as YYYY-MM-DD, or as a relative date (e.g., today, yesterday, or 7daysAgo). The default value is 7daysAgo.
   * start-index `integer`: An index of the first entity to retrieve. Use this parameter as a pagination mechanism along with the max-results parameter.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
@@ -142,12 +142,12 @@ google_analytics.data.mcf.get({
 #### Output
 * output [McfData](#mcfdata)
 
-### data.realtime.get
+### analytics.data.realtime.get
 Returns real time data for a view (profile).
 
 
 ```js
-google_analytics.data.realtime.get({
+google_analytics.analytics.data.realtime.get({
   "ids": "",
   "metrics": ""
 }, context)
@@ -155,11 +155,11 @@ google_analytics.data.realtime.get({
 
 #### Input
 * input `object`
+  * ids **required** `string`: Unique table ID for retrieving real time data. Table ID is of the form ga:XXXX, where XXXX is the Analytics view (profile) ID.
+  * metrics **required** `string`: A comma-separated list of real time metrics. E.g., 'rt:activeUsers'. At least one metric must be specified.
   * dimensions `string`: A comma-separated list of real time dimensions. E.g., 'rt:medium,rt:city'.
   * filters `string`: A comma-separated list of dimension or metric filters to be applied to real time data.
-  * ids **required** `string`: Unique table ID for retrieving real time data. Table ID is of the form ga:XXXX, where XXXX is the Analytics view (profile) ID.
   * max-results `integer`: The maximum number of entries to include in this feed.
-  * metrics **required** `string`: A comma-separated list of real time metrics. E.g., 'rt:activeUsers'. At least one metric must be specified.
   * sort `string`: A comma-separated list of dimensions or metrics that determine the sort order for real time data.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
@@ -172,12 +172,12 @@ google_analytics.data.realtime.get({
 #### Output
 * output [RealtimeData](#realtimedata)
 
-### management.accountSummaries.list
+### analytics.management.accountSummaries.list
 Lists account summaries (lightweight tree comprised of accounts/properties/profiles) to which the user has access.
 
 
 ```js
-google_analytics.management.accountSummaries.list({}, context)
+google_analytics.analytics.management.accountSummaries.list({}, context)
 ```
 
 #### Input
@@ -195,12 +195,12 @@ google_analytics.management.accountSummaries.list({}, context)
 #### Output
 * output [AccountSummaries](#accountsummaries)
 
-### management.accounts.list
+### analytics.management.accounts.list
 Lists all accounts to which the user has access.
 
 
 ```js
-google_analytics.management.accounts.list({}, context)
+google_analytics.analytics.management.accounts.list({}, context)
 ```
 
 #### Input
@@ -218,12 +218,12 @@ google_analytics.management.accounts.list({}, context)
 #### Output
 * output [Accounts](#accounts)
 
-### management.accountUserLinks.list
+### analytics.management.accountUserLinks.list
 Lists account-user links for a given account.
 
 
 ```js
-google_analytics.management.accountUserLinks.list({
+google_analytics.analytics.management.accountUserLinks.list({
   "accountId": ""
 }, context)
 ```
@@ -244,12 +244,12 @@ google_analytics.management.accountUserLinks.list({
 #### Output
 * output [EntityUserLinks](#entityuserlinks)
 
-### management.accountUserLinks.insert
+### analytics.management.accountUserLinks.insert
 Adds a new user to the given account.
 
 
 ```js
-google_analytics.management.accountUserLinks.insert({
+google_analytics.analytics.management.accountUserLinks.insert({
   "accountId": ""
 }, context)
 ```
@@ -269,12 +269,12 @@ google_analytics.management.accountUserLinks.insert({
 #### Output
 * output [EntityUserLink](#entityuserlink)
 
-### management.accountUserLinks.delete
+### analytics.management.accountUserLinks.delete
 Removes a user from the given account.
 
 
 ```js
-google_analytics.management.accountUserLinks.delete({
+google_analytics.analytics.management.accountUserLinks.delete({
   "accountId": "",
   "linkId": ""
 }, context)
@@ -295,12 +295,12 @@ google_analytics.management.accountUserLinks.delete({
 #### Output
 *Output schema unknown*
 
-### management.accountUserLinks.update
+### analytics.management.accountUserLinks.update
 Updates permissions for an existing user on the given account.
 
 
 ```js
-google_analytics.management.accountUserLinks.update({
+google_analytics.analytics.management.accountUserLinks.update({
   "accountId": "",
   "linkId": ""
 }, context)
@@ -309,8 +309,8 @@ google_analytics.management.accountUserLinks.update({
 #### Input
 * input `object`
   * accountId **required** `string`: Account ID to update the account-user link for.
-  * body [EntityUserLink](#entityuserlink)
   * linkId **required** `string`: Link ID to update the account-user link for.
+  * body [EntityUserLink](#entityuserlink)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -322,12 +322,12 @@ google_analytics.management.accountUserLinks.update({
 #### Output
 * output [EntityUserLink](#entityuserlink)
 
-### management.filters.list
+### analytics.management.filters.list
 Lists all filters for an account
 
 
 ```js
-google_analytics.management.filters.list({
+google_analytics.analytics.management.filters.list({
   "accountId": ""
 }, context)
 ```
@@ -348,12 +348,12 @@ google_analytics.management.filters.list({
 #### Output
 * output [Filters](#filters)
 
-### management.filters.insert
+### analytics.management.filters.insert
 Create a new filter.
 
 
 ```js
-google_analytics.management.filters.insert({
+google_analytics.analytics.management.filters.insert({
   "accountId": ""
 }, context)
 ```
@@ -373,12 +373,12 @@ google_analytics.management.filters.insert({
 #### Output
 * output [Filter](#filter)
 
-### management.filters.delete
+### analytics.management.filters.delete
 Delete a filter.
 
 
 ```js
-google_analytics.management.filters.delete({
+google_analytics.analytics.management.filters.delete({
   "accountId": "",
   "filterId": ""
 }, context)
@@ -399,12 +399,12 @@ google_analytics.management.filters.delete({
 #### Output
 * output [Filter](#filter)
 
-### management.filters.get
-Returns a filters to which the user has access.
+### analytics.management.filters.get
+Returns filters to which the user has access.
 
 
 ```js
-google_analytics.management.filters.get({
+google_analytics.analytics.management.filters.get({
   "accountId": "",
   "filterId": ""
 }, context)
@@ -425,12 +425,12 @@ google_analytics.management.filters.get({
 #### Output
 * output [Filter](#filter)
 
-### management.filters.patch
+### analytics.management.filters.patch
 Updates an existing filter. This method supports patch semantics.
 
 
 ```js
-google_analytics.management.filters.patch({
+google_analytics.analytics.management.filters.patch({
   "accountId": "",
   "filterId": ""
 }, context)
@@ -439,8 +439,8 @@ google_analytics.management.filters.patch({
 #### Input
 * input `object`
   * accountId **required** `string`: Account ID to which the filter belongs.
-  * body [Filter](#filter)
   * filterId **required** `string`: ID of the filter to be updated.
+  * body [Filter](#filter)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -452,12 +452,12 @@ google_analytics.management.filters.patch({
 #### Output
 * output [Filter](#filter)
 
-### management.filters.update
+### analytics.management.filters.update
 Updates an existing filter.
 
 
 ```js
-google_analytics.management.filters.update({
+google_analytics.analytics.management.filters.update({
   "accountId": "",
   "filterId": ""
 }, context)
@@ -466,8 +466,8 @@ google_analytics.management.filters.update({
 #### Input
 * input `object`
   * accountId **required** `string`: Account ID to which the filter belongs.
-  * body [Filter](#filter)
   * filterId **required** `string`: ID of the filter to be updated.
+  * body [Filter](#filter)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -479,12 +479,12 @@ google_analytics.management.filters.update({
 #### Output
 * output [Filter](#filter)
 
-### management.webproperties.list
+### analytics.management.webproperties.list
 Lists web properties to which the user has access.
 
 
 ```js
-google_analytics.management.webproperties.list({
+google_analytics.analytics.management.webproperties.list({
   "accountId": ""
 }, context)
 ```
@@ -505,12 +505,12 @@ google_analytics.management.webproperties.list({
 #### Output
 * output [Webproperties](#webproperties)
 
-### management.webproperties.insert
+### analytics.management.webproperties.insert
 Create a new property if the account has fewer than 20 properties. Web properties are visible in the Google Analytics interface only if they have at least one profile.
 
 
 ```js
-google_analytics.management.webproperties.insert({
+google_analytics.analytics.management.webproperties.insert({
   "accountId": ""
 }, context)
 ```
@@ -530,12 +530,12 @@ google_analytics.management.webproperties.insert({
 #### Output
 * output [Webproperty](#webproperty)
 
-### management.webproperties.get
+### analytics.management.webproperties.get
 Gets a web property to which the user has access.
 
 
 ```js
-google_analytics.management.webproperties.get({
+google_analytics.analytics.management.webproperties.get({
   "accountId": "",
   "webPropertyId": ""
 }, context)
@@ -556,12 +556,12 @@ google_analytics.management.webproperties.get({
 #### Output
 * output [Webproperty](#webproperty)
 
-### management.webproperties.patch
+### analytics.management.webproperties.patch
 Updates an existing web property. This method supports patch semantics.
 
 
 ```js
-google_analytics.management.webproperties.patch({
+google_analytics.analytics.management.webproperties.patch({
   "accountId": "",
   "webPropertyId": ""
 }, context)
@@ -570,8 +570,8 @@ google_analytics.management.webproperties.patch({
 #### Input
 * input `object`
   * accountId **required** `string`: Account ID to which the web property belongs
-  * body [Webproperty](#webproperty)
   * webPropertyId **required** `string`: Web property ID
+  * body [Webproperty](#webproperty)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -583,12 +583,12 @@ google_analytics.management.webproperties.patch({
 #### Output
 * output [Webproperty](#webproperty)
 
-### management.webproperties.update
+### analytics.management.webproperties.update
 Updates an existing web property.
 
 
 ```js
-google_analytics.management.webproperties.update({
+google_analytics.analytics.management.webproperties.update({
   "accountId": "",
   "webPropertyId": ""
 }, context)
@@ -597,8 +597,8 @@ google_analytics.management.webproperties.update({
 #### Input
 * input `object`
   * accountId **required** `string`: Account ID to which the web property belongs
-  * body [Webproperty](#webproperty)
   * webPropertyId **required** `string`: Web property ID
+  * body [Webproperty](#webproperty)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -610,12 +610,12 @@ google_analytics.management.webproperties.update({
 #### Output
 * output [Webproperty](#webproperty)
 
-### management.customDataSources.list
+### analytics.management.customDataSources.list
 List custom data sources to which the user has access.
 
 
 ```js
-google_analytics.management.customDataSources.list({
+google_analytics.analytics.management.customDataSources.list({
   "accountId": "",
   "webPropertyId": ""
 }, context)
@@ -624,9 +624,9 @@ google_analytics.management.customDataSources.list({
 #### Input
 * input `object`
   * accountId **required** `string`: Account Id for the custom data sources to retrieve.
+  * webPropertyId **required** `string`: Web property Id for the custom data sources to retrieve.
   * max-results `integer`: The maximum number of custom data sources to include in this response.
   * start-index `integer`: A 1-based index of the first custom data source to retrieve. Use this parameter as a pagination mechanism along with the max-results parameter.
-  * webPropertyId **required** `string`: Web property Id for the custom data sources to retrieve.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -638,24 +638,24 @@ google_analytics.management.customDataSources.list({
 #### Output
 * output [CustomDataSources](#customdatasources)
 
-### management.uploads.deleteUploadData
+### analytics.management.uploads.deleteUploadData
 Delete data associated with a previous upload.
 
 
 ```js
-google_analytics.management.uploads.deleteUploadData({
+google_analytics.analytics.management.uploads.deleteUploadData({
   "accountId": "",
-  "customDataSourceId": "",
-  "webPropertyId": ""
+  "webPropertyId": "",
+  "customDataSourceId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * accountId **required** `string`: Account Id for the uploads to be deleted.
-  * body [AnalyticsDataimportDeleteUploadDataRequest](#analyticsdataimportdeleteuploaddatarequest)
-  * customDataSourceId **required** `string`: Custom data source Id for the uploads to be deleted.
   * webPropertyId **required** `string`: Web property Id for the uploads to be deleted.
+  * customDataSourceId **required** `string`: Custom data source Id for the uploads to be deleted.
+  * body [AnalyticsDataimportDeleteUploadDataRequest](#analyticsdataimportdeleteuploaddatarequest)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -667,25 +667,25 @@ google_analytics.management.uploads.deleteUploadData({
 #### Output
 *Output schema unknown*
 
-### management.uploads.list
+### analytics.management.uploads.list
 List uploads to which the user has access.
 
 
 ```js
-google_analytics.management.uploads.list({
+google_analytics.analytics.management.uploads.list({
   "accountId": "",
-  "customDataSourceId": "",
-  "webPropertyId": ""
+  "webPropertyId": "",
+  "customDataSourceId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * accountId **required** `string`: Account Id for the uploads to retrieve.
+  * webPropertyId **required** `string`: Web property Id for the uploads to retrieve.
   * customDataSourceId **required** `string`: Custom data source Id for uploads to retrieve.
   * max-results `integer`: The maximum number of uploads to include in this response.
   * start-index `integer`: A 1-based index of the first upload to retrieve. Use this parameter as a pagination mechanism along with the max-results parameter.
-  * webPropertyId **required** `string`: Web property Id for the uploads to retrieve.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -697,23 +697,23 @@ google_analytics.management.uploads.list({
 #### Output
 * output [Uploads](#uploads)
 
-### management.uploads.uploadData
+### analytics.management.uploads.uploadData
 Upload data for a custom data source.
 
 
 ```js
-google_analytics.management.uploads.uploadData({
+google_analytics.analytics.management.uploads.uploadData({
   "accountId": "",
-  "customDataSourceId": "",
-  "webPropertyId": ""
+  "webPropertyId": "",
+  "customDataSourceId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * accountId **required** `string`: Account Id associated with the upload.
-  * customDataSourceId **required** `string`: Custom data source Id to which the data being uploaded belongs.
   * webPropertyId **required** `string`: Web property UA-string associated with the upload.
+  * customDataSourceId **required** `string`: Custom data source Id to which the data being uploaded belongs.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -725,25 +725,25 @@ google_analytics.management.uploads.uploadData({
 #### Output
 * output [Upload](#upload)
 
-### management.uploads.get
+### analytics.management.uploads.get
 List uploads to which the user has access.
 
 
 ```js
-google_analytics.management.uploads.get({
+google_analytics.analytics.management.uploads.get({
   "accountId": "",
+  "webPropertyId": "",
   "customDataSourceId": "",
-  "uploadId": "",
-  "webPropertyId": ""
+  "uploadId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * accountId **required** `string`: Account Id for the upload to retrieve.
+  * webPropertyId **required** `string`: Web property Id for the upload to retrieve.
   * customDataSourceId **required** `string`: Custom data source Id for upload to retrieve.
   * uploadId **required** `string`: Upload Id to retrieve.
-  * webPropertyId **required** `string`: Web property Id for the upload to retrieve.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -755,12 +755,12 @@ google_analytics.management.uploads.get({
 #### Output
 * output [Upload](#upload)
 
-### management.customDimensions.list
+### analytics.management.customDimensions.list
 Lists custom dimensions to which the user has access.
 
 
 ```js
-google_analytics.management.customDimensions.list({
+google_analytics.analytics.management.customDimensions.list({
   "accountId": "",
   "webPropertyId": ""
 }, context)
@@ -769,9 +769,9 @@ google_analytics.management.customDimensions.list({
 #### Input
 * input `object`
   * accountId **required** `string`: Account ID for the custom dimensions to retrieve.
+  * webPropertyId **required** `string`: Web property ID for the custom dimensions to retrieve.
   * max-results `integer`: The maximum number of custom dimensions to include in this response.
   * start-index `integer`: An index of the first entity to retrieve. Use this parameter as a pagination mechanism along with the max-results parameter.
-  * webPropertyId **required** `string`: Web property ID for the custom dimensions to retrieve.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -783,12 +783,12 @@ google_analytics.management.customDimensions.list({
 #### Output
 * output [CustomDimensions](#customdimensions)
 
-### management.customDimensions.insert
+### analytics.management.customDimensions.insert
 Create a new custom dimension.
 
 
 ```js
-google_analytics.management.customDimensions.insert({
+google_analytics.analytics.management.customDimensions.insert({
   "accountId": "",
   "webPropertyId": ""
 }, context)
@@ -797,8 +797,8 @@ google_analytics.management.customDimensions.insert({
 #### Input
 * input `object`
   * accountId **required** `string`: Account ID for the custom dimension to create.
-  * body [CustomDimension](#customdimension)
   * webPropertyId **required** `string`: Web property ID for the custom dimension to create.
+  * body [CustomDimension](#customdimension)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -810,23 +810,23 @@ google_analytics.management.customDimensions.insert({
 #### Output
 * output [CustomDimension](#customdimension)
 
-### management.customDimensions.get
+### analytics.management.customDimensions.get
 Get a custom dimension to which the user has access.
 
 
 ```js
-google_analytics.management.customDimensions.get({
+google_analytics.analytics.management.customDimensions.get({
   "accountId": "",
-  "customDimensionId": "",
-  "webPropertyId": ""
+  "webPropertyId": "",
+  "customDimensionId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * accountId **required** `string`: Account ID for the custom dimension to retrieve.
-  * customDimensionId **required** `string`: The ID of the custom dimension to retrieve.
   * webPropertyId **required** `string`: Web property ID for the custom dimension to retrieve.
+  * customDimensionId **required** `string`: The ID of the custom dimension to retrieve.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -838,25 +838,25 @@ google_analytics.management.customDimensions.get({
 #### Output
 * output [CustomDimension](#customdimension)
 
-### management.customDimensions.patch
+### analytics.management.customDimensions.patch
 Updates an existing custom dimension. This method supports patch semantics.
 
 
 ```js
-google_analytics.management.customDimensions.patch({
+google_analytics.analytics.management.customDimensions.patch({
   "accountId": "",
-  "customDimensionId": "",
-  "webPropertyId": ""
+  "webPropertyId": "",
+  "customDimensionId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * accountId **required** `string`: Account ID for the custom dimension to update.
-  * body [CustomDimension](#customdimension)
+  * webPropertyId **required** `string`: Web property ID for the custom dimension to update.
   * customDimensionId **required** `string`: Custom dimension ID for the custom dimension to update.
   * ignoreCustomDataSourceLinks `boolean`: Force the update and ignore any warnings related to the custom dimension being linked to a custom data source / data set.
-  * webPropertyId **required** `string`: Web property ID for the custom dimension to update.
+  * body [CustomDimension](#customdimension)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -868,25 +868,25 @@ google_analytics.management.customDimensions.patch({
 #### Output
 * output [CustomDimension](#customdimension)
 
-### management.customDimensions.update
+### analytics.management.customDimensions.update
 Updates an existing custom dimension.
 
 
 ```js
-google_analytics.management.customDimensions.update({
+google_analytics.analytics.management.customDimensions.update({
   "accountId": "",
-  "customDimensionId": "",
-  "webPropertyId": ""
+  "webPropertyId": "",
+  "customDimensionId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * accountId **required** `string`: Account ID for the custom dimension to update.
-  * body [CustomDimension](#customdimension)
+  * webPropertyId **required** `string`: Web property ID for the custom dimension to update.
   * customDimensionId **required** `string`: Custom dimension ID for the custom dimension to update.
   * ignoreCustomDataSourceLinks `boolean`: Force the update and ignore any warnings related to the custom dimension being linked to a custom data source / data set.
-  * webPropertyId **required** `string`: Web property ID for the custom dimension to update.
+  * body [CustomDimension](#customdimension)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -898,12 +898,12 @@ google_analytics.management.customDimensions.update({
 #### Output
 * output [CustomDimension](#customdimension)
 
-### management.customMetrics.list
+### analytics.management.customMetrics.list
 Lists custom metrics to which the user has access.
 
 
 ```js
-google_analytics.management.customMetrics.list({
+google_analytics.analytics.management.customMetrics.list({
   "accountId": "",
   "webPropertyId": ""
 }, context)
@@ -912,9 +912,9 @@ google_analytics.management.customMetrics.list({
 #### Input
 * input `object`
   * accountId **required** `string`: Account ID for the custom metrics to retrieve.
+  * webPropertyId **required** `string`: Web property ID for the custom metrics to retrieve.
   * max-results `integer`: The maximum number of custom metrics to include in this response.
   * start-index `integer`: An index of the first entity to retrieve. Use this parameter as a pagination mechanism along with the max-results parameter.
-  * webPropertyId **required** `string`: Web property ID for the custom metrics to retrieve.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -926,12 +926,12 @@ google_analytics.management.customMetrics.list({
 #### Output
 * output [CustomMetrics](#custommetrics)
 
-### management.customMetrics.insert
+### analytics.management.customMetrics.insert
 Create a new custom metric.
 
 
 ```js
-google_analytics.management.customMetrics.insert({
+google_analytics.analytics.management.customMetrics.insert({
   "accountId": "",
   "webPropertyId": ""
 }, context)
@@ -940,8 +940,8 @@ google_analytics.management.customMetrics.insert({
 #### Input
 * input `object`
   * accountId **required** `string`: Account ID for the custom metric to create.
-  * body [CustomMetric](#custommetric)
   * webPropertyId **required** `string`: Web property ID for the custom dimension to create.
+  * body [CustomMetric](#custommetric)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -953,23 +953,23 @@ google_analytics.management.customMetrics.insert({
 #### Output
 * output [CustomMetric](#custommetric)
 
-### management.customMetrics.get
+### analytics.management.customMetrics.get
 Get a custom metric to which the user has access.
 
 
 ```js
-google_analytics.management.customMetrics.get({
+google_analytics.analytics.management.customMetrics.get({
   "accountId": "",
-  "customMetricId": "",
-  "webPropertyId": ""
+  "webPropertyId": "",
+  "customMetricId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * accountId **required** `string`: Account ID for the custom metric to retrieve.
-  * customMetricId **required** `string`: The ID of the custom metric to retrieve.
   * webPropertyId **required** `string`: Web property ID for the custom metric to retrieve.
+  * customMetricId **required** `string`: The ID of the custom metric to retrieve.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -981,25 +981,25 @@ google_analytics.management.customMetrics.get({
 #### Output
 * output [CustomMetric](#custommetric)
 
-### management.customMetrics.patch
+### analytics.management.customMetrics.patch
 Updates an existing custom metric. This method supports patch semantics.
 
 
 ```js
-google_analytics.management.customMetrics.patch({
+google_analytics.analytics.management.customMetrics.patch({
   "accountId": "",
-  "customMetricId": "",
-  "webPropertyId": ""
+  "webPropertyId": "",
+  "customMetricId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * accountId **required** `string`: Account ID for the custom metric to update.
-  * body [CustomMetric](#custommetric)
+  * webPropertyId **required** `string`: Web property ID for the custom metric to update.
   * customMetricId **required** `string`: Custom metric ID for the custom metric to update.
   * ignoreCustomDataSourceLinks `boolean`: Force the update and ignore any warnings related to the custom metric being linked to a custom data source / data set.
-  * webPropertyId **required** `string`: Web property ID for the custom metric to update.
+  * body [CustomMetric](#custommetric)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1011,25 +1011,25 @@ google_analytics.management.customMetrics.patch({
 #### Output
 * output [CustomMetric](#custommetric)
 
-### management.customMetrics.update
+### analytics.management.customMetrics.update
 Updates an existing custom metric.
 
 
 ```js
-google_analytics.management.customMetrics.update({
+google_analytics.analytics.management.customMetrics.update({
   "accountId": "",
-  "customMetricId": "",
-  "webPropertyId": ""
+  "webPropertyId": "",
+  "customMetricId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * accountId **required** `string`: Account ID for the custom metric to update.
-  * body [CustomMetric](#custommetric)
+  * webPropertyId **required** `string`: Web property ID for the custom metric to update.
   * customMetricId **required** `string`: Custom metric ID for the custom metric to update.
   * ignoreCustomDataSourceLinks `boolean`: Force the update and ignore any warnings related to the custom metric being linked to a custom data source / data set.
-  * webPropertyId **required** `string`: Web property ID for the custom metric to update.
+  * body [CustomMetric](#custommetric)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1041,12 +1041,12 @@ google_analytics.management.customMetrics.update({
 #### Output
 * output [CustomMetric](#custommetric)
 
-### management.webPropertyAdWordsLinks.list
-Lists webProperty-AdWords links for a given web property.
+### analytics.management.webPropertyAdWordsLinks.list
+Lists webProperty-Google Ads links for a given web property.
 
 
 ```js
-google_analytics.management.webPropertyAdWordsLinks.list({
+google_analytics.analytics.management.webPropertyAdWordsLinks.list({
   "accountId": "",
   "webPropertyId": ""
 }, context)
@@ -1055,9 +1055,9 @@ google_analytics.management.webPropertyAdWordsLinks.list({
 #### Input
 * input `object`
   * accountId **required** `string`: ID of the account which the given web property belongs to.
-  * max-results `integer`: The maximum number of webProperty-AdWords links to include in this response.
-  * start-index `integer`: An index of the first webProperty-AdWords link to retrieve. Use this parameter as a pagination mechanism along with the max-results parameter.
-  * webPropertyId **required** `string`: Web property ID to retrieve the AdWords links for.
+  * webPropertyId **required** `string`: Web property ID to retrieve the Google Ads links for.
+  * max-results `integer`: The maximum number of webProperty-Google Ads links to include in this response.
+  * start-index `integer`: An index of the first webProperty-Google Ads link to retrieve. Use this parameter as a pagination mechanism along with the max-results parameter.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1069,12 +1069,12 @@ google_analytics.management.webPropertyAdWordsLinks.list({
 #### Output
 * output [EntityAdWordsLinks](#entityadwordslinks)
 
-### management.webPropertyAdWordsLinks.insert
-Creates a webProperty-AdWords link.
+### analytics.management.webPropertyAdWordsLinks.insert
+Creates a webProperty-Google Ads link.
 
 
 ```js
-google_analytics.management.webPropertyAdWordsLinks.insert({
+google_analytics.analytics.management.webPropertyAdWordsLinks.insert({
   "accountId": "",
   "webPropertyId": ""
 }, context)
@@ -1083,8 +1083,8 @@ google_analytics.management.webPropertyAdWordsLinks.insert({
 #### Input
 * input `object`
   * accountId **required** `string`: ID of the Google Analytics account to create the link for.
-  * body [EntityAdWordsLink](#entityadwordslink)
   * webPropertyId **required** `string`: Web property ID to create the link for.
+  * body [EntityAdWordsLink](#entityadwordslink)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1096,23 +1096,23 @@ google_analytics.management.webPropertyAdWordsLinks.insert({
 #### Output
 * output [EntityAdWordsLink](#entityadwordslink)
 
-### management.webPropertyAdWordsLinks.delete
-Deletes a web property-AdWords link.
+### analytics.management.webPropertyAdWordsLinks.delete
+Deletes a web property-Google Ads link.
 
 
 ```js
-google_analytics.management.webPropertyAdWordsLinks.delete({
+google_analytics.analytics.management.webPropertyAdWordsLinks.delete({
   "accountId": "",
-  "webPropertyAdWordsLinkId": "",
-  "webPropertyId": ""
+  "webPropertyId": "",
+  "webPropertyAdWordsLinkId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * accountId **required** `string`: ID of the account which the given web property belongs to.
-  * webPropertyAdWordsLinkId **required** `string`: Web property AdWords link ID.
-  * webPropertyId **required** `string`: Web property ID to delete the AdWords link for.
+  * webPropertyId **required** `string`: Web property ID to delete the Google Ads link for.
+  * webPropertyAdWordsLinkId **required** `string`: Web property Google Ads link ID.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1124,23 +1124,23 @@ google_analytics.management.webPropertyAdWordsLinks.delete({
 #### Output
 *Output schema unknown*
 
-### management.webPropertyAdWordsLinks.get
-Returns a web property-AdWords link to which the user has access.
+### analytics.management.webPropertyAdWordsLinks.get
+Returns a web property-Google Ads link to which the user has access.
 
 
 ```js
-google_analytics.management.webPropertyAdWordsLinks.get({
+google_analytics.analytics.management.webPropertyAdWordsLinks.get({
   "accountId": "",
-  "webPropertyAdWordsLinkId": "",
-  "webPropertyId": ""
+  "webPropertyId": "",
+  "webPropertyAdWordsLinkId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * accountId **required** `string`: ID of the account which the given web property belongs to.
-  * webPropertyAdWordsLinkId **required** `string`: Web property-AdWords link ID.
-  * webPropertyId **required** `string`: Web property ID to retrieve the AdWords link for.
+  * webPropertyId **required** `string`: Web property ID to retrieve the Google Ads link for.
+  * webPropertyAdWordsLinkId **required** `string`: Web property-Google Ads link ID.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1152,24 +1152,24 @@ google_analytics.management.webPropertyAdWordsLinks.get({
 #### Output
 * output [EntityAdWordsLink](#entityadwordslink)
 
-### management.webPropertyAdWordsLinks.patch
-Updates an existing webProperty-AdWords link. This method supports patch semantics.
+### analytics.management.webPropertyAdWordsLinks.patch
+Updates an existing webProperty-Google Ads link. This method supports patch semantics.
 
 
 ```js
-google_analytics.management.webPropertyAdWordsLinks.patch({
+google_analytics.analytics.management.webPropertyAdWordsLinks.patch({
   "accountId": "",
-  "webPropertyAdWordsLinkId": "",
-  "webPropertyId": ""
+  "webPropertyId": "",
+  "webPropertyAdWordsLinkId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * accountId **required** `string`: ID of the account which the given web property belongs to.
+  * webPropertyId **required** `string`: Web property ID to retrieve the Google Ads link for.
+  * webPropertyAdWordsLinkId **required** `string`: Web property-Google Ads link ID.
   * body [EntityAdWordsLink](#entityadwordslink)
-  * webPropertyAdWordsLinkId **required** `string`: Web property-AdWords link ID.
-  * webPropertyId **required** `string`: Web property ID to retrieve the AdWords link for.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1181,24 +1181,24 @@ google_analytics.management.webPropertyAdWordsLinks.patch({
 #### Output
 * output [EntityAdWordsLink](#entityadwordslink)
 
-### management.webPropertyAdWordsLinks.update
-Updates an existing webProperty-AdWords link.
+### analytics.management.webPropertyAdWordsLinks.update
+Updates an existing webProperty-Google Ads link.
 
 
 ```js
-google_analytics.management.webPropertyAdWordsLinks.update({
+google_analytics.analytics.management.webPropertyAdWordsLinks.update({
   "accountId": "",
-  "webPropertyAdWordsLinkId": "",
-  "webPropertyId": ""
+  "webPropertyId": "",
+  "webPropertyAdWordsLinkId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * accountId **required** `string`: ID of the account which the given web property belongs to.
+  * webPropertyId **required** `string`: Web property ID to retrieve the Google Ads link for.
+  * webPropertyAdWordsLinkId **required** `string`: Web property-Google Ads link ID.
   * body [EntityAdWordsLink](#entityadwordslink)
-  * webPropertyAdWordsLinkId **required** `string`: Web property-AdWords link ID.
-  * webPropertyId **required** `string`: Web property ID to retrieve the AdWords link for.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1210,12 +1210,12 @@ google_analytics.management.webPropertyAdWordsLinks.update({
 #### Output
 * output [EntityAdWordsLink](#entityadwordslink)
 
-### management.webpropertyUserLinks.list
+### analytics.management.webpropertyUserLinks.list
 Lists webProperty-user links for a given web property.
 
 
 ```js
-google_analytics.management.webpropertyUserLinks.list({
+google_analytics.analytics.management.webpropertyUserLinks.list({
   "accountId": "",
   "webPropertyId": ""
 }, context)
@@ -1224,9 +1224,9 @@ google_analytics.management.webpropertyUserLinks.list({
 #### Input
 * input `object`
   * accountId **required** `string`: Account ID which the given web property belongs to.
+  * webPropertyId **required** `string`: Web Property ID for the webProperty-user links to retrieve. Can either be a specific web property ID or '~all', which refers to all the web properties that user has access to.
   * max-results `integer`: The maximum number of webProperty-user Links to include in this response.
   * start-index `integer`: An index of the first webProperty-user link to retrieve. Use this parameter as a pagination mechanism along with the max-results parameter.
-  * webPropertyId **required** `string`: Web Property ID for the webProperty-user links to retrieve. Can either be a specific web property ID or '~all', which refers to all the web properties that user has access to.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1238,12 +1238,12 @@ google_analytics.management.webpropertyUserLinks.list({
 #### Output
 * output [EntityUserLinks](#entityuserlinks)
 
-### management.webpropertyUserLinks.insert
+### analytics.management.webpropertyUserLinks.insert
 Adds a new user to the given web property.
 
 
 ```js
-google_analytics.management.webpropertyUserLinks.insert({
+google_analytics.analytics.management.webpropertyUserLinks.insert({
   "accountId": "",
   "webPropertyId": ""
 }, context)
@@ -1252,8 +1252,8 @@ google_analytics.management.webpropertyUserLinks.insert({
 #### Input
 * input `object`
   * accountId **required** `string`: Account ID to create the user link for.
-  * body [EntityUserLink](#entityuserlink)
   * webPropertyId **required** `string`: Web Property ID to create the user link for.
+  * body [EntityUserLink](#entityuserlink)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1265,23 +1265,23 @@ google_analytics.management.webpropertyUserLinks.insert({
 #### Output
 * output [EntityUserLink](#entityuserlink)
 
-### management.webpropertyUserLinks.delete
+### analytics.management.webpropertyUserLinks.delete
 Removes a user from the given web property.
 
 
 ```js
-google_analytics.management.webpropertyUserLinks.delete({
+google_analytics.analytics.management.webpropertyUserLinks.delete({
   "accountId": "",
-  "linkId": "",
-  "webPropertyId": ""
+  "webPropertyId": "",
+  "linkId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * accountId **required** `string`: Account ID to delete the user link for.
-  * linkId **required** `string`: Link ID to delete the user link for.
   * webPropertyId **required** `string`: Web Property ID to delete the user link for.
+  * linkId **required** `string`: Link ID to delete the user link for.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1293,24 +1293,24 @@ google_analytics.management.webpropertyUserLinks.delete({
 #### Output
 *Output schema unknown*
 
-### management.webpropertyUserLinks.update
+### analytics.management.webpropertyUserLinks.update
 Updates permissions for an existing user on the given web property.
 
 
 ```js
-google_analytics.management.webpropertyUserLinks.update({
+google_analytics.analytics.management.webpropertyUserLinks.update({
   "accountId": "",
-  "linkId": "",
-  "webPropertyId": ""
+  "webPropertyId": "",
+  "linkId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * accountId **required** `string`: Account ID to update the account-user link for.
-  * body [EntityUserLink](#entityuserlink)
-  * linkId **required** `string`: Link ID to update the account-user link for.
   * webPropertyId **required** `string`: Web property ID to update the account-user link for.
+  * linkId **required** `string`: Link ID to update the account-user link for.
+  * body [EntityUserLink](#entityuserlink)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1322,12 +1322,12 @@ google_analytics.management.webpropertyUserLinks.update({
 #### Output
 * output [EntityUserLink](#entityuserlink)
 
-### management.profiles.list
+### analytics.management.profiles.list
 Lists views (profiles) to which the user has access.
 
 
 ```js
-google_analytics.management.profiles.list({
+google_analytics.analytics.management.profiles.list({
   "accountId": "",
   "webPropertyId": ""
 }, context)
@@ -1336,9 +1336,9 @@ google_analytics.management.profiles.list({
 #### Input
 * input `object`
   * accountId **required** `string`: Account ID for the view (profiles) to retrieve. Can either be a specific account ID or '~all', which refers to all the accounts to which the user has access.
+  * webPropertyId **required** `string`: Web property ID for the views (profiles) to retrieve. Can either be a specific web property ID or '~all', which refers to all the web properties to which the user has access.
   * max-results `integer`: The maximum number of views (profiles) to include in this response.
   * start-index `integer`: An index of the first entity to retrieve. Use this parameter as a pagination mechanism along with the max-results parameter.
-  * webPropertyId **required** `string`: Web property ID for the views (profiles) to retrieve. Can either be a specific web property ID or '~all', which refers to all the web properties to which the user has access.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1350,12 +1350,12 @@ google_analytics.management.profiles.list({
 #### Output
 * output [Profiles](#profiles)
 
-### management.profiles.insert
+### analytics.management.profiles.insert
 Create a new view (profile).
 
 
 ```js
-google_analytics.management.profiles.insert({
+google_analytics.analytics.management.profiles.insert({
   "accountId": "",
   "webPropertyId": ""
 }, context)
@@ -1364,8 +1364,8 @@ google_analytics.management.profiles.insert({
 #### Input
 * input `object`
   * accountId **required** `string`: Account ID to create the view (profile) for.
-  * body [Profile](#profile)
   * webPropertyId **required** `string`: Web property ID to create the view (profile) for.
+  * body [Profile](#profile)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1377,23 +1377,23 @@ google_analytics.management.profiles.insert({
 #### Output
 * output [Profile](#profile)
 
-### management.profiles.delete
+### analytics.management.profiles.delete
 Deletes a view (profile).
 
 
 ```js
-google_analytics.management.profiles.delete({
+google_analytics.analytics.management.profiles.delete({
   "accountId": "",
-  "profileId": "",
-  "webPropertyId": ""
+  "webPropertyId": "",
+  "profileId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * accountId **required** `string`: Account ID to delete the view (profile) for.
-  * profileId **required** `string`: ID of the view (profile) to be deleted.
   * webPropertyId **required** `string`: Web property ID to delete the view (profile) for.
+  * profileId **required** `string`: ID of the view (profile) to be deleted.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1405,23 +1405,23 @@ google_analytics.management.profiles.delete({
 #### Output
 *Output schema unknown*
 
-### management.profiles.get
+### analytics.management.profiles.get
 Gets a view (profile) to which the user has access.
 
 
 ```js
-google_analytics.management.profiles.get({
+google_analytics.analytics.management.profiles.get({
   "accountId": "",
-  "profileId": "",
-  "webPropertyId": ""
+  "webPropertyId": "",
+  "profileId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * accountId **required** `string`: Account ID to retrieve the view (profile) for.
-  * profileId **required** `string`: View (Profile) ID to retrieve the view (profile) for.
   * webPropertyId **required** `string`: Web property ID to retrieve the view (profile) for.
+  * profileId **required** `string`: View (Profile) ID to retrieve the view (profile) for.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1433,24 +1433,24 @@ google_analytics.management.profiles.get({
 #### Output
 * output [Profile](#profile)
 
-### management.profiles.patch
+### analytics.management.profiles.patch
 Updates an existing view (profile). This method supports patch semantics.
 
 
 ```js
-google_analytics.management.profiles.patch({
+google_analytics.analytics.management.profiles.patch({
   "accountId": "",
-  "profileId": "",
-  "webPropertyId": ""
+  "webPropertyId": "",
+  "profileId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * accountId **required** `string`: Account ID to which the view (profile) belongs
-  * body [Profile](#profile)
-  * profileId **required** `string`: ID of the view (profile) to be updated.
   * webPropertyId **required** `string`: Web property ID to which the view (profile) belongs
+  * profileId **required** `string`: ID of the view (profile) to be updated.
+  * body [Profile](#profile)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1462,24 +1462,24 @@ google_analytics.management.profiles.patch({
 #### Output
 * output [Profile](#profile)
 
-### management.profiles.update
+### analytics.management.profiles.update
 Updates an existing view (profile).
 
 
 ```js
-google_analytics.management.profiles.update({
+google_analytics.analytics.management.profiles.update({
   "accountId": "",
-  "profileId": "",
-  "webPropertyId": ""
+  "webPropertyId": "",
+  "profileId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * accountId **required** `string`: Account ID to which the view (profile) belongs
-  * body [Profile](#profile)
-  * profileId **required** `string`: ID of the view (profile) to be updated.
   * webPropertyId **required** `string`: Web property ID to which the view (profile) belongs
+  * profileId **required** `string`: ID of the view (profile) to be updated.
+  * body [Profile](#profile)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1491,25 +1491,25 @@ google_analytics.management.profiles.update({
 #### Output
 * output [Profile](#profile)
 
-### management.profileUserLinks.list
+### analytics.management.profileUserLinks.list
 Lists profile-user links for a given view (profile).
 
 
 ```js
-google_analytics.management.profileUserLinks.list({
+google_analytics.analytics.management.profileUserLinks.list({
   "accountId": "",
-  "profileId": "",
-  "webPropertyId": ""
+  "webPropertyId": "",
+  "profileId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * accountId **required** `string`: Account ID which the given view (profile) belongs to.
-  * max-results `integer`: The maximum number of profile-user links to include in this response.
-  * profileId **required** `string`: View (Profile) ID to retrieve the profile-user links for. Can either be a specific profile ID or '~all', which refers to all the profiles that user has access to.
-  * start-index `integer`: An index of the first profile-user link to retrieve. Use this parameter as a pagination mechanism along with the max-results parameter.
   * webPropertyId **required** `string`: Web Property ID which the given view (profile) belongs to. Can either be a specific web property ID or '~all', which refers to all the web properties that user has access to.
+  * profileId **required** `string`: View (Profile) ID to retrieve the profile-user links for. Can either be a specific profile ID or '~all', which refers to all the profiles that user has access to.
+  * max-results `integer`: The maximum number of profile-user links to include in this response.
+  * start-index `integer`: An index of the first profile-user link to retrieve. Use this parameter as a pagination mechanism along with the max-results parameter.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1521,24 +1521,24 @@ google_analytics.management.profileUserLinks.list({
 #### Output
 * output [EntityUserLinks](#entityuserlinks)
 
-### management.profileUserLinks.insert
+### analytics.management.profileUserLinks.insert
 Adds a new user to the given view (profile).
 
 
 ```js
-google_analytics.management.profileUserLinks.insert({
+google_analytics.analytics.management.profileUserLinks.insert({
   "accountId": "",
-  "profileId": "",
-  "webPropertyId": ""
+  "webPropertyId": "",
+  "profileId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * accountId **required** `string`: Account ID to create the user link for.
-  * body [EntityUserLink](#entityuserlink)
-  * profileId **required** `string`: View (Profile) ID to create the user link for.
   * webPropertyId **required** `string`: Web Property ID to create the user link for.
+  * profileId **required** `string`: View (Profile) ID to create the user link for.
+  * body [EntityUserLink](#entityuserlink)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1550,25 +1550,25 @@ google_analytics.management.profileUserLinks.insert({
 #### Output
 * output [EntityUserLink](#entityuserlink)
 
-### management.profileUserLinks.delete
+### analytics.management.profileUserLinks.delete
 Removes a user from the given view (profile).
 
 
 ```js
-google_analytics.management.profileUserLinks.delete({
+google_analytics.analytics.management.profileUserLinks.delete({
   "accountId": "",
-  "linkId": "",
+  "webPropertyId": "",
   "profileId": "",
-  "webPropertyId": ""
+  "linkId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * accountId **required** `string`: Account ID to delete the user link for.
-  * linkId **required** `string`: Link ID to delete the user link for.
-  * profileId **required** `string`: View (Profile) ID to delete the user link for.
   * webPropertyId **required** `string`: Web Property ID to delete the user link for.
+  * profileId **required** `string`: View (Profile) ID to delete the user link for.
+  * linkId **required** `string`: Link ID to delete the user link for.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1580,26 +1580,26 @@ google_analytics.management.profileUserLinks.delete({
 #### Output
 *Output schema unknown*
 
-### management.profileUserLinks.update
+### analytics.management.profileUserLinks.update
 Updates permissions for an existing user on the given view (profile).
 
 
 ```js
-google_analytics.management.profileUserLinks.update({
+google_analytics.analytics.management.profileUserLinks.update({
   "accountId": "",
-  "linkId": "",
+  "webPropertyId": "",
   "profileId": "",
-  "webPropertyId": ""
+  "linkId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * accountId **required** `string`: Account ID to update the user link for.
-  * body [EntityUserLink](#entityuserlink)
-  * linkId **required** `string`: Link ID to update the user link for.
-  * profileId **required** `string`: View (Profile ID) to update the user link for.
   * webPropertyId **required** `string`: Web Property ID to update the user link for.
+  * profileId **required** `string`: View (Profile ID) to update the user link for.
+  * linkId **required** `string`: Link ID to update the user link for.
+  * body [EntityUserLink](#entityuserlink)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1611,25 +1611,25 @@ google_analytics.management.profileUserLinks.update({
 #### Output
 * output [EntityUserLink](#entityuserlink)
 
-### management.experiments.list
+### analytics.management.experiments.list
 Lists experiments to which the user has access.
 
 
 ```js
-google_analytics.management.experiments.list({
+google_analytics.analytics.management.experiments.list({
   "accountId": "",
-  "profileId": "",
-  "webPropertyId": ""
+  "webPropertyId": "",
+  "profileId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * accountId **required** `string`: Account ID to retrieve experiments for.
-  * max-results `integer`: The maximum number of experiments to include in this response.
-  * profileId **required** `string`: View (Profile) ID to retrieve experiments for.
-  * start-index `integer`: An index of the first experiment to retrieve. Use this parameter as a pagination mechanism along with the max-results parameter.
   * webPropertyId **required** `string`: Web property ID to retrieve experiments for.
+  * profileId **required** `string`: View (Profile) ID to retrieve experiments for.
+  * max-results `integer`: The maximum number of experiments to include in this response.
+  * start-index `integer`: An index of the first experiment to retrieve. Use this parameter as a pagination mechanism along with the max-results parameter.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1641,24 +1641,24 @@ google_analytics.management.experiments.list({
 #### Output
 * output [Experiments](#experiments)
 
-### management.experiments.insert
+### analytics.management.experiments.insert
 Create a new experiment.
 
 
 ```js
-google_analytics.management.experiments.insert({
+google_analytics.analytics.management.experiments.insert({
   "accountId": "",
-  "profileId": "",
-  "webPropertyId": ""
+  "webPropertyId": "",
+  "profileId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * accountId **required** `string`: Account ID to create the experiment for.
-  * body [Experiment](#experiment)
-  * profileId **required** `string`: View (Profile) ID to create the experiment for.
   * webPropertyId **required** `string`: Web property ID to create the experiment for.
+  * profileId **required** `string`: View (Profile) ID to create the experiment for.
+  * body [Experiment](#experiment)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1670,25 +1670,25 @@ google_analytics.management.experiments.insert({
 #### Output
 * output [Experiment](#experiment)
 
-### management.experiments.delete
+### analytics.management.experiments.delete
 Delete an experiment.
 
 
 ```js
-google_analytics.management.experiments.delete({
+google_analytics.analytics.management.experiments.delete({
   "accountId": "",
-  "experimentId": "",
+  "webPropertyId": "",
   "profileId": "",
-  "webPropertyId": ""
+  "experimentId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * accountId **required** `string`: Account ID to which the experiment belongs
-  * experimentId **required** `string`: ID of the experiment to delete
-  * profileId **required** `string`: View (Profile) ID to which the experiment belongs
   * webPropertyId **required** `string`: Web property ID to which the experiment belongs
+  * profileId **required** `string`: View (Profile) ID to which the experiment belongs
+  * experimentId **required** `string`: ID of the experiment to delete
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1700,25 +1700,25 @@ google_analytics.management.experiments.delete({
 #### Output
 *Output schema unknown*
 
-### management.experiments.get
+### analytics.management.experiments.get
 Returns an experiment to which the user has access.
 
 
 ```js
-google_analytics.management.experiments.get({
+google_analytics.analytics.management.experiments.get({
   "accountId": "",
-  "experimentId": "",
+  "webPropertyId": "",
   "profileId": "",
-  "webPropertyId": ""
+  "experimentId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * accountId **required** `string`: Account ID to retrieve the experiment for.
-  * experimentId **required** `string`: Experiment ID to retrieve the experiment for.
-  * profileId **required** `string`: View (Profile) ID to retrieve the experiment for.
   * webPropertyId **required** `string`: Web property ID to retrieve the experiment for.
+  * profileId **required** `string`: View (Profile) ID to retrieve the experiment for.
+  * experimentId **required** `string`: Experiment ID to retrieve the experiment for.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1730,26 +1730,26 @@ google_analytics.management.experiments.get({
 #### Output
 * output [Experiment](#experiment)
 
-### management.experiments.patch
+### analytics.management.experiments.patch
 Update an existing experiment. This method supports patch semantics.
 
 
 ```js
-google_analytics.management.experiments.patch({
+google_analytics.analytics.management.experiments.patch({
   "accountId": "",
-  "experimentId": "",
+  "webPropertyId": "",
   "profileId": "",
-  "webPropertyId": ""
+  "experimentId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * accountId **required** `string`: Account ID of the experiment to update.
-  * body [Experiment](#experiment)
-  * experimentId **required** `string`: Experiment ID of the experiment to update.
-  * profileId **required** `string`: View (Profile) ID of the experiment to update.
   * webPropertyId **required** `string`: Web property ID of the experiment to update.
+  * profileId **required** `string`: View (Profile) ID of the experiment to update.
+  * experimentId **required** `string`: Experiment ID of the experiment to update.
+  * body [Experiment](#experiment)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1761,26 +1761,26 @@ google_analytics.management.experiments.patch({
 #### Output
 * output [Experiment](#experiment)
 
-### management.experiments.update
+### analytics.management.experiments.update
 Update an existing experiment.
 
 
 ```js
-google_analytics.management.experiments.update({
+google_analytics.analytics.management.experiments.update({
   "accountId": "",
-  "experimentId": "",
+  "webPropertyId": "",
   "profileId": "",
-  "webPropertyId": ""
+  "experimentId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * accountId **required** `string`: Account ID of the experiment to update.
-  * body [Experiment](#experiment)
-  * experimentId **required** `string`: Experiment ID of the experiment to update.
-  * profileId **required** `string`: View (Profile) ID of the experiment to update.
   * webPropertyId **required** `string`: Web property ID of the experiment to update.
+  * profileId **required** `string`: View (Profile) ID of the experiment to update.
+  * experimentId **required** `string`: Experiment ID of the experiment to update.
+  * body [Experiment](#experiment)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1792,25 +1792,25 @@ google_analytics.management.experiments.update({
 #### Output
 * output [Experiment](#experiment)
 
-### management.goals.list
+### analytics.management.goals.list
 Lists goals to which the user has access.
 
 
 ```js
-google_analytics.management.goals.list({
+google_analytics.analytics.management.goals.list({
   "accountId": "",
-  "profileId": "",
-  "webPropertyId": ""
+  "webPropertyId": "",
+  "profileId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * accountId **required** `string`: Account ID to retrieve goals for. Can either be a specific account ID or '~all', which refers to all the accounts that user has access to.
-  * max-results `integer`: The maximum number of goals to include in this response.
-  * profileId **required** `string`: View (Profile) ID to retrieve goals for. Can either be a specific view (profile) ID or '~all', which refers to all the views (profiles) that user has access to.
-  * start-index `integer`: An index of the first goal to retrieve. Use this parameter as a pagination mechanism along with the max-results parameter.
   * webPropertyId **required** `string`: Web property ID to retrieve goals for. Can either be a specific web property ID or '~all', which refers to all the web properties that user has access to.
+  * profileId **required** `string`: View (Profile) ID to retrieve goals for. Can either be a specific view (profile) ID or '~all', which refers to all the views (profiles) that user has access to.
+  * max-results `integer`: The maximum number of goals to include in this response.
+  * start-index `integer`: An index of the first goal to retrieve. Use this parameter as a pagination mechanism along with the max-results parameter.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1822,24 +1822,24 @@ google_analytics.management.goals.list({
 #### Output
 * output [Goals](#goals)
 
-### management.goals.insert
+### analytics.management.goals.insert
 Create a new goal.
 
 
 ```js
-google_analytics.management.goals.insert({
+google_analytics.analytics.management.goals.insert({
   "accountId": "",
-  "profileId": "",
-  "webPropertyId": ""
+  "webPropertyId": "",
+  "profileId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * accountId **required** `string`: Account ID to create the goal for.
-  * body [Goal](#goal)
-  * profileId **required** `string`: View (Profile) ID to create the goal for.
   * webPropertyId **required** `string`: Web property ID to create the goal for.
+  * profileId **required** `string`: View (Profile) ID to create the goal for.
+  * body [Goal](#goal)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1851,25 +1851,25 @@ google_analytics.management.goals.insert({
 #### Output
 * output [Goal](#goal)
 
-### management.goals.get
+### analytics.management.goals.get
 Gets a goal to which the user has access.
 
 
 ```js
-google_analytics.management.goals.get({
+google_analytics.analytics.management.goals.get({
   "accountId": "",
-  "goalId": "",
+  "webPropertyId": "",
   "profileId": "",
-  "webPropertyId": ""
+  "goalId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * accountId **required** `string`: Account ID to retrieve the goal for.
-  * goalId **required** `string`: Goal ID to retrieve the goal for.
-  * profileId **required** `string`: View (Profile) ID to retrieve the goal for.
   * webPropertyId **required** `string`: Web property ID to retrieve the goal for.
+  * profileId **required** `string`: View (Profile) ID to retrieve the goal for.
+  * goalId **required** `string`: Goal ID to retrieve the goal for.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1881,26 +1881,26 @@ google_analytics.management.goals.get({
 #### Output
 * output [Goal](#goal)
 
-### management.goals.patch
+### analytics.management.goals.patch
 Updates an existing goal. This method supports patch semantics.
 
 
 ```js
-google_analytics.management.goals.patch({
+google_analytics.analytics.management.goals.patch({
   "accountId": "",
-  "goalId": "",
+  "webPropertyId": "",
   "profileId": "",
-  "webPropertyId": ""
+  "goalId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * accountId **required** `string`: Account ID to update the goal.
-  * body [Goal](#goal)
-  * goalId **required** `string`: Index of the goal to be updated.
-  * profileId **required** `string`: View (Profile) ID to update the goal.
   * webPropertyId **required** `string`: Web property ID to update the goal.
+  * profileId **required** `string`: View (Profile) ID to update the goal.
+  * goalId **required** `string`: Index of the goal to be updated.
+  * body [Goal](#goal)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1912,26 +1912,26 @@ google_analytics.management.goals.patch({
 #### Output
 * output [Goal](#goal)
 
-### management.goals.update
+### analytics.management.goals.update
 Updates an existing goal.
 
 
 ```js
-google_analytics.management.goals.update({
+google_analytics.analytics.management.goals.update({
   "accountId": "",
-  "goalId": "",
+  "webPropertyId": "",
   "profileId": "",
-  "webPropertyId": ""
+  "goalId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * accountId **required** `string`: Account ID to update the goal.
-  * body [Goal](#goal)
-  * goalId **required** `string`: Index of the goal to be updated.
-  * profileId **required** `string`: View (Profile) ID to update the goal.
   * webPropertyId **required** `string`: Web property ID to update the goal.
+  * profileId **required** `string`: View (Profile) ID to update the goal.
+  * goalId **required** `string`: Index of the goal to be updated.
+  * body [Goal](#goal)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1943,25 +1943,25 @@ google_analytics.management.goals.update({
 #### Output
 * output [Goal](#goal)
 
-### management.profileFilterLinks.list
+### analytics.management.profileFilterLinks.list
 Lists all profile filter links for a profile.
 
 
 ```js
-google_analytics.management.profileFilterLinks.list({
+google_analytics.analytics.management.profileFilterLinks.list({
   "accountId": "",
-  "profileId": "",
-  "webPropertyId": ""
+  "webPropertyId": "",
+  "profileId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * accountId **required** `string`: Account ID to retrieve profile filter links for.
-  * max-results `integer`: The maximum number of profile filter links to include in this response.
-  * profileId **required** `string`: Profile ID to retrieve filter links for. Can either be a specific profile ID or '~all', which refers to all the profiles that user has access to.
-  * start-index `integer`: An index of the first entity to retrieve. Use this parameter as a pagination mechanism along with the max-results parameter.
   * webPropertyId **required** `string`: Web property Id for profile filter links for. Can either be a specific web property ID or '~all', which refers to all the web properties that user has access to.
+  * profileId **required** `string`: Profile ID to retrieve filter links for. Can either be a specific profile ID or '~all', which refers to all the profiles that user has access to.
+  * max-results `integer`: The maximum number of profile filter links to include in this response.
+  * start-index `integer`: An index of the first entity to retrieve. Use this parameter as a pagination mechanism along with the max-results parameter.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1973,24 +1973,24 @@ google_analytics.management.profileFilterLinks.list({
 #### Output
 * output [ProfileFilterLinks](#profilefilterlinks)
 
-### management.profileFilterLinks.insert
+### analytics.management.profileFilterLinks.insert
 Create a new profile filter link.
 
 
 ```js
-google_analytics.management.profileFilterLinks.insert({
+google_analytics.analytics.management.profileFilterLinks.insert({
   "accountId": "",
-  "profileId": "",
-  "webPropertyId": ""
+  "webPropertyId": "",
+  "profileId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * accountId **required** `string`: Account ID to create profile filter link for.
-  * body [ProfileFilterLink](#profilefilterlink)
-  * profileId **required** `string`: Profile ID to create filter link for.
   * webPropertyId **required** `string`: Web property Id to create profile filter link for.
+  * profileId **required** `string`: Profile ID to create filter link for.
+  * body [ProfileFilterLink](#profilefilterlink)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -2002,25 +2002,25 @@ google_analytics.management.profileFilterLinks.insert({
 #### Output
 * output [ProfileFilterLink](#profilefilterlink)
 
-### management.profileFilterLinks.delete
+### analytics.management.profileFilterLinks.delete
 Delete a profile filter link.
 
 
 ```js
-google_analytics.management.profileFilterLinks.delete({
+google_analytics.analytics.management.profileFilterLinks.delete({
   "accountId": "",
-  "linkId": "",
+  "webPropertyId": "",
   "profileId": "",
-  "webPropertyId": ""
+  "linkId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * accountId **required** `string`: Account ID to which the profile filter link belongs.
-  * linkId **required** `string`: ID of the profile filter link to delete.
-  * profileId **required** `string`: Profile ID to which the filter link belongs.
   * webPropertyId **required** `string`: Web property Id to which the profile filter link belongs.
+  * profileId **required** `string`: Profile ID to which the filter link belongs.
+  * linkId **required** `string`: ID of the profile filter link to delete.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -2032,25 +2032,25 @@ google_analytics.management.profileFilterLinks.delete({
 #### Output
 *Output schema unknown*
 
-### management.profileFilterLinks.get
+### analytics.management.profileFilterLinks.get
 Returns a single profile filter link.
 
 
 ```js
-google_analytics.management.profileFilterLinks.get({
+google_analytics.analytics.management.profileFilterLinks.get({
   "accountId": "",
-  "linkId": "",
+  "webPropertyId": "",
   "profileId": "",
-  "webPropertyId": ""
+  "linkId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * accountId **required** `string`: Account ID to retrieve profile filter link for.
-  * linkId **required** `string`: ID of the profile filter link.
-  * profileId **required** `string`: Profile ID to retrieve filter link for.
   * webPropertyId **required** `string`: Web property Id to retrieve profile filter link for.
+  * profileId **required** `string`: Profile ID to retrieve filter link for.
+  * linkId **required** `string`: ID of the profile filter link.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -2062,26 +2062,26 @@ google_analytics.management.profileFilterLinks.get({
 #### Output
 * output [ProfileFilterLink](#profilefilterlink)
 
-### management.profileFilterLinks.patch
+### analytics.management.profileFilterLinks.patch
 Update an existing profile filter link. This method supports patch semantics.
 
 
 ```js
-google_analytics.management.profileFilterLinks.patch({
+google_analytics.analytics.management.profileFilterLinks.patch({
   "accountId": "",
-  "linkId": "",
+  "webPropertyId": "",
   "profileId": "",
-  "webPropertyId": ""
+  "linkId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * accountId **required** `string`: Account ID to which profile filter link belongs.
-  * body [ProfileFilterLink](#profilefilterlink)
-  * linkId **required** `string`: ID of the profile filter link to be updated.
-  * profileId **required** `string`: Profile ID to which filter link belongs
   * webPropertyId **required** `string`: Web property Id to which profile filter link belongs
+  * profileId **required** `string`: Profile ID to which filter link belongs
+  * linkId **required** `string`: ID of the profile filter link to be updated.
+  * body [ProfileFilterLink](#profilefilterlink)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -2093,26 +2093,26 @@ google_analytics.management.profileFilterLinks.patch({
 #### Output
 * output [ProfileFilterLink](#profilefilterlink)
 
-### management.profileFilterLinks.update
+### analytics.management.profileFilterLinks.update
 Update an existing profile filter link.
 
 
 ```js
-google_analytics.management.profileFilterLinks.update({
+google_analytics.analytics.management.profileFilterLinks.update({
   "accountId": "",
-  "linkId": "",
+  "webPropertyId": "",
   "profileId": "",
-  "webPropertyId": ""
+  "linkId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * accountId **required** `string`: Account ID to which profile filter link belongs.
-  * body [ProfileFilterLink](#profilefilterlink)
-  * linkId **required** `string`: ID of the profile filter link to be updated.
-  * profileId **required** `string`: Profile ID to which filter link belongs
   * webPropertyId **required** `string`: Web property Id to which profile filter link belongs
+  * profileId **required** `string`: Profile ID to which filter link belongs
+  * linkId **required** `string`: ID of the profile filter link to be updated.
+  * body [ProfileFilterLink](#profilefilterlink)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -2124,25 +2124,25 @@ google_analytics.management.profileFilterLinks.update({
 #### Output
 * output [ProfileFilterLink](#profilefilterlink)
 
-### management.unsampledReports.list
+### analytics.management.unsampledReports.list
 Lists unsampled reports to which the user has access.
 
 
 ```js
-google_analytics.management.unsampledReports.list({
+google_analytics.analytics.management.unsampledReports.list({
   "accountId": "",
-  "profileId": "",
-  "webPropertyId": ""
+  "webPropertyId": "",
+  "profileId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * accountId **required** `string`: Account ID to retrieve unsampled reports for. Must be a specific account ID, ~all is not supported.
-  * max-results `integer`: The maximum number of unsampled reports to include in this response.
-  * profileId **required** `string`: View (Profile) ID to retrieve unsampled reports for. Must be a specific view (profile) ID, ~all is not supported.
-  * start-index `integer`: An index of the first unsampled report to retrieve. Use this parameter as a pagination mechanism along with the max-results parameter.
   * webPropertyId **required** `string`: Web property ID to retrieve unsampled reports for. Must be a specific web property ID, ~all is not supported.
+  * profileId **required** `string`: View (Profile) ID to retrieve unsampled reports for. Must be a specific view (profile) ID, ~all is not supported.
+  * max-results `integer`: The maximum number of unsampled reports to include in this response.
+  * start-index `integer`: An index of the first unsampled report to retrieve. Use this parameter as a pagination mechanism along with the max-results parameter.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -2154,24 +2154,24 @@ google_analytics.management.unsampledReports.list({
 #### Output
 * output [UnsampledReports](#unsampledreports)
 
-### management.unsampledReports.insert
+### analytics.management.unsampledReports.insert
 Create a new unsampled report.
 
 
 ```js
-google_analytics.management.unsampledReports.insert({
+google_analytics.analytics.management.unsampledReports.insert({
   "accountId": "",
-  "profileId": "",
-  "webPropertyId": ""
+  "webPropertyId": "",
+  "profileId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * accountId **required** `string`: Account ID to create the unsampled report for.
-  * body [UnsampledReport](#unsampledreport)
-  * profileId **required** `string`: View (Profile) ID to create the unsampled report for.
   * webPropertyId **required** `string`: Web property ID to create the unsampled report for.
+  * profileId **required** `string`: View (Profile) ID to create the unsampled report for.
+  * body [UnsampledReport](#unsampledreport)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -2183,25 +2183,25 @@ google_analytics.management.unsampledReports.insert({
 #### Output
 * output [UnsampledReport](#unsampledreport)
 
-### management.unsampledReports.delete
+### analytics.management.unsampledReports.delete
 Deletes an unsampled report.
 
 
 ```js
-google_analytics.management.unsampledReports.delete({
+google_analytics.analytics.management.unsampledReports.delete({
   "accountId": "",
+  "webPropertyId": "",
   "profileId": "",
-  "unsampledReportId": "",
-  "webPropertyId": ""
+  "unsampledReportId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * accountId **required** `string`: Account ID to delete the unsampled report for.
+  * webPropertyId **required** `string`: Web property ID to delete the unsampled reports for.
   * profileId **required** `string`: View (Profile) ID to delete the unsampled report for.
   * unsampledReportId **required** `string`: ID of the unsampled report to be deleted.
-  * webPropertyId **required** `string`: Web property ID to delete the unsampled reports for.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -2213,25 +2213,25 @@ google_analytics.management.unsampledReports.delete({
 #### Output
 *Output schema unknown*
 
-### management.unsampledReports.get
+### analytics.management.unsampledReports.get
 Returns a single unsampled report.
 
 
 ```js
-google_analytics.management.unsampledReports.get({
+google_analytics.analytics.management.unsampledReports.get({
   "accountId": "",
+  "webPropertyId": "",
   "profileId": "",
-  "unsampledReportId": "",
-  "webPropertyId": ""
+  "unsampledReportId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * accountId **required** `string`: Account ID to retrieve unsampled report for.
+  * webPropertyId **required** `string`: Web property ID to retrieve unsampled reports for.
   * profileId **required** `string`: View (Profile) ID to retrieve unsampled report for.
   * unsampledReportId **required** `string`: ID of the unsampled report to retrieve.
-  * webPropertyId **required** `string`: Web property ID to retrieve unsampled reports for.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -2243,12 +2243,12 @@ google_analytics.management.unsampledReports.get({
 #### Output
 * output [UnsampledReport](#unsampledreport)
 
-### management.remarketingAudience.list
+### analytics.management.remarketingAudience.list
 Lists remarketing audiences to which the user has access.
 
 
 ```js
-google_analytics.management.remarketingAudience.list({
+google_analytics.analytics.management.remarketingAudience.list({
   "accountId": "",
   "webPropertyId": ""
 }, context)
@@ -2257,10 +2257,10 @@ google_analytics.management.remarketingAudience.list({
 #### Input
 * input `object`
   * accountId **required** `string`: The account ID of the remarketing audiences to retrieve.
+  * webPropertyId **required** `string`: The web property ID of the remarketing audiences to retrieve.
   * max-results `integer`: The maximum number of remarketing audiences to include in this response.
   * start-index `integer`: An index of the first entity to retrieve. Use this parameter as a pagination mechanism along with the max-results parameter.
   * type `string`
-  * webPropertyId **required** `string`: The web property ID of the remarketing audiences to retrieve.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -2272,12 +2272,12 @@ google_analytics.management.remarketingAudience.list({
 #### Output
 * output [RemarketingAudiences](#remarketingaudiences)
 
-### management.remarketingAudience.insert
+### analytics.management.remarketingAudience.insert
 Creates a new remarketing audience.
 
 
 ```js
-google_analytics.management.remarketingAudience.insert({
+google_analytics.analytics.management.remarketingAudience.insert({
   "accountId": "",
   "webPropertyId": ""
 }, context)
@@ -2286,8 +2286,8 @@ google_analytics.management.remarketingAudience.insert({
 #### Input
 * input `object`
   * accountId **required** `string`: The account ID for which to create the remarketing audience.
-  * body [RemarketingAudience](#remarketingaudience)
   * webPropertyId **required** `string`: Web property ID for which to create the remarketing audience.
+  * body [RemarketingAudience](#remarketingaudience)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -2299,23 +2299,23 @@ google_analytics.management.remarketingAudience.insert({
 #### Output
 * output [RemarketingAudience](#remarketingaudience)
 
-### management.remarketingAudience.delete
+### analytics.management.remarketingAudience.delete
 Delete a remarketing audience.
 
 
 ```js
-google_analytics.management.remarketingAudience.delete({
+google_analytics.analytics.management.remarketingAudience.delete({
   "accountId": "",
-  "remarketingAudienceId": "",
-  "webPropertyId": ""
+  "webPropertyId": "",
+  "remarketingAudienceId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * accountId **required** `string`: Account ID to which the remarketing audience belongs.
-  * remarketingAudienceId **required** `string`: The ID of the remarketing audience to delete.
   * webPropertyId **required** `string`: Web property ID to which the remarketing audience belongs.
+  * remarketingAudienceId **required** `string`: The ID of the remarketing audience to delete.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -2327,23 +2327,23 @@ google_analytics.management.remarketingAudience.delete({
 #### Output
 *Output schema unknown*
 
-### management.remarketingAudience.get
+### analytics.management.remarketingAudience.get
 Gets a remarketing audience to which the user has access.
 
 
 ```js
-google_analytics.management.remarketingAudience.get({
+google_analytics.analytics.management.remarketingAudience.get({
   "accountId": "",
-  "remarketingAudienceId": "",
-  "webPropertyId": ""
+  "webPropertyId": "",
+  "remarketingAudienceId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * accountId **required** `string`: The account ID of the remarketing audience to retrieve.
-  * remarketingAudienceId **required** `string`: The ID of the remarketing audience to retrieve.
   * webPropertyId **required** `string`: The web property ID of the remarketing audience to retrieve.
+  * remarketingAudienceId **required** `string`: The ID of the remarketing audience to retrieve.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -2355,24 +2355,24 @@ google_analytics.management.remarketingAudience.get({
 #### Output
 * output [RemarketingAudience](#remarketingaudience)
 
-### management.remarketingAudience.patch
+### analytics.management.remarketingAudience.patch
 Updates an existing remarketing audience. This method supports patch semantics.
 
 
 ```js
-google_analytics.management.remarketingAudience.patch({
+google_analytics.analytics.management.remarketingAudience.patch({
   "accountId": "",
-  "remarketingAudienceId": "",
-  "webPropertyId": ""
+  "webPropertyId": "",
+  "remarketingAudienceId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * accountId **required** `string`: The account ID of the remarketing audience to update.
-  * body [RemarketingAudience](#remarketingaudience)
-  * remarketingAudienceId **required** `string`: The ID of the remarketing audience to update.
   * webPropertyId **required** `string`: The web property ID of the remarketing audience to update.
+  * remarketingAudienceId **required** `string`: The ID of the remarketing audience to update.
+  * body [RemarketingAudience](#remarketingaudience)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -2384,24 +2384,24 @@ google_analytics.management.remarketingAudience.patch({
 #### Output
 * output [RemarketingAudience](#remarketingaudience)
 
-### management.remarketingAudience.update
+### analytics.management.remarketingAudience.update
 Updates an existing remarketing audience.
 
 
 ```js
-google_analytics.management.remarketingAudience.update({
+google_analytics.analytics.management.remarketingAudience.update({
   "accountId": "",
-  "remarketingAudienceId": "",
-  "webPropertyId": ""
+  "webPropertyId": "",
+  "remarketingAudienceId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * accountId **required** `string`: The account ID of the remarketing audience to update.
-  * body [RemarketingAudience](#remarketingaudience)
-  * remarketingAudienceId **required** `string`: The ID of the remarketing audience to update.
   * webPropertyId **required** `string`: The web property ID of the remarketing audience to update.
+  * remarketingAudienceId **required** `string`: The ID of the remarketing audience to update.
+  * body [RemarketingAudience](#remarketingaudience)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -2413,12 +2413,34 @@ google_analytics.management.remarketingAudience.update({
 #### Output
 * output [RemarketingAudience](#remarketingaudience)
 
-### management.segments.list
+### analytics.management.clientId.hashClientId
+Hashes the given Client ID.
+
+
+```js
+google_analytics.analytics.management.clientId.hashClientId({}, context)
+```
+
+#### Input
+* input `object`
+  * body [HashClientIdRequest](#hashclientidrequest)
+  * alt `string` (values: json): Data format for the response.
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
+
+#### Output
+* output [HashClientIdResponse](#hashclientidresponse)
+
+### analytics.management.segments.list
 Lists segments to which the user has access.
 
 
 ```js
-google_analytics.management.segments.list({}, context)
+google_analytics.analytics.management.segments.list({}, context)
 ```
 
 #### Input
@@ -2436,12 +2458,12 @@ google_analytics.management.segments.list({}, context)
 #### Output
 * output [Segments](#segments)
 
-### metadata.columns.list
+### analytics.metadata.columns.list
 Lists all columns for a report type
 
 
 ```js
-google_analytics.metadata.columns.list({
+google_analytics.analytics.metadata.columns.list({
   "reportType": ""
 }, context)
 ```
@@ -2460,12 +2482,12 @@ google_analytics.metadata.columns.list({
 #### Output
 * output [Columns](#columns)
 
-### provisioning.createAccountTicket
+### analytics.provisioning.createAccountTicket
 Creates an account ticket.
 
 
 ```js
-google_analytics.provisioning.createAccountTicket({}, context)
+google_analytics.analytics.provisioning.createAccountTicket({}, context)
 ```
 
 #### Input
@@ -2482,12 +2504,12 @@ google_analytics.provisioning.createAccountTicket({}, context)
 #### Output
 * output [AccountTicket](#accountticket)
 
-### provisioning.createAccountTree
+### analytics.provisioning.createAccountTree
 Provision account.
 
 
 ```js
-google_analytics.provisioning.createAccountTree({}, context)
+google_analytics.analytics.provisioning.createAccountTree({}, context)
 ```
 
 #### Input
@@ -2504,12 +2526,12 @@ google_analytics.provisioning.createAccountTree({}, context)
 #### Output
 * output [AccountTreeResponse](#accounttreeresponse)
 
-### userDeletion.userDeletionRequest.upsert
+### analytics.userDeletion.userDeletionRequest.upsert
 Insert or update a user deletion requests.
 
 
 ```js
-google_analytics.userDeletion.userDeletionRequest.upsert({}, context)
+google_analytics.analytics.userDeletion.userDeletionRequest.upsert({}, context)
 ```
 
 #### Input
@@ -2586,11 +2608,6 @@ google_analytics.userDeletion.userDeletionRequest.upsert({}, context)
 ### AccountTreeRequest
 * AccountTreeRequest `object`: JSON template for an Analytics account tree requests. The account tree request is used in the provisioning api to create an account, property, and view (profile). It contains the basic information required to make these fields.
   * accountName `string`
-  * accountSettings `object`
-    * shareAnonymouslyWithOthers `boolean`
-    * shareWithGoogleProducts `boolean`
-    * shareWithSpecialists `boolean`
-    * shareWithSupport `boolean`
   * kind `string`: Resource type for account ticket.
   * profileName `string`
   * timezone `string`
@@ -2600,11 +2617,6 @@ google_analytics.userDeletion.userDeletionRequest.upsert({}, context)
 ### AccountTreeResponse
 * AccountTreeResponse `object`: JSON template for an Analytics account tree response. The account tree response is used in the provisioning api to return the result of creating an account, property, and view (profile).
   * account [Account](#account)
-  * accountSettings `object`
-    * shareAnonymouslyWithOthers `boolean`
-    * shareWithGoogleProducts `boolean`
-    * shareWithSpecialists `boolean`
-    * shareWithSupport `boolean`
   * kind `string`: Resource type for account ticket.
   * profile [Profile](#profile)
   * webproperty [Webproperty](#webproperty)
@@ -2622,10 +2634,10 @@ google_analytics.userDeletion.userDeletionRequest.upsert({}, context)
   * username `string`: Email ID of the authenticated user
 
 ### AdWordsAccount
-* AdWordsAccount `object`: JSON template for an AdWords account.
-  * autoTaggingEnabled `boolean`: True if auto-tagging is enabled on the AdWords account. Read-only after the insert operation.
-  * customerId `string`: Customer ID. This field is required when creating an AdWords link.
-  * kind `string`: Resource type for AdWords account.
+* AdWordsAccount `object`: JSON template for an Google Ads account.
+  * autoTaggingEnabled `boolean`: True if auto-tagging is enabled on the Google Ads account. Read-only after the insert operation.
+  * customerId `string`: Customer ID. This field is required when creating a Google Ads link.
+  * kind `string`: Resource type for Google Ads account.
 
 ### AnalyticsDataimportDeleteUploadDataRequest
 * AnalyticsDataimportDeleteUploadDataRequest `object`: Request template for the delete upload data request.
@@ -2747,26 +2759,26 @@ google_analytics.userDeletion.userDeletionRequest.upsert({}, context)
   * username `string`: Email ID of the authenticated user
 
 ### EntityAdWordsLink
-* EntityAdWordsLink `object`: JSON template for Analytics Entity AdWords Link.
-  * adWordsAccounts `array`: A list of AdWords client accounts. These cannot be MCC accounts. This field is required when creating an AdWords link. It cannot be empty.
+* EntityAdWordsLink `object`: JSON template for Analytics Entity Google Ads Link.
+  * adWordsAccounts `array`: A list of Google Ads client accounts. These cannot be MCC accounts. This field is required when creating a Google Ads link. It cannot be empty.
     * items [AdWordsAccount](#adwordsaccount)
   * entity `object`: Web property being linked.
     * webPropertyRef [WebPropertyRef](#webpropertyref)
-  * id `string`: Entity AdWords link ID
-  * kind `string`: Resource type for entity AdWords link.
-  * name `string`: Name of the link. This field is required when creating an AdWords link.
+  * id `string`: Entity Google Ads link ID
+  * kind `string`: Resource type for entity Google Ads link.
+  * name `string`: Name of the link. This field is required when creating a Google Ads link.
   * profileIds `array`: IDs of linked Views (Profiles) represented as strings.
     * items `string`
-  * selfLink `string`: URL link for this Google Analytics - Google AdWords link.
+  * selfLink `string`: URL link for this Google Analytics - Google Ads link.
 
 ### EntityAdWordsLinks
-* EntityAdWordsLinks `object`: An entity AdWords link collection provides a list of GA-AdWords links Each resource in this collection corresponds to a single link.
-  * items `array`: A list of entity AdWords links.
+* EntityAdWordsLinks `object`: An entity Google Ads link collection provides a list of GA-Google Ads links Each resource in this collection corresponds to a single link.
+  * items `array`: A list of entity Google Ads links.
     * items [EntityAdWordsLink](#entityadwordslink)
   * itemsPerPage `integer`: The maximum number of entries the response can contain, regardless of the actual number of entries returned. Its value ranges from 1 to 1000 with a value of 1000 by default, or otherwise specified by the max-results query parameter.
   * kind `string`: Collection type.
-  * nextLink `string`: Next link for this AdWords link collection.
-  * previousLink `string`: Previous link for this AdWords link collection.
+  * nextLink `string`: Next link for this Google Ads link collection.
+  * previousLink `string`: Previous link for this Google Ads link collection.
   * startIndex `integer`: The starting index of the entries, which is 1 by default or otherwise specified by the start-index query parameter.
   * totalResults `integer`: The total number of results for the query, regardless of the number of results in the response.
 
@@ -2938,7 +2950,6 @@ google_analytics.userDeletion.userDeletionRequest.upsert({}, context)
       * items `object`
         * c `array`
           * items `object`
-            * v `string`
   * id `string`: Unique ID for this data response.
   * itemsPerPage `integer`: The maximum number of rows the response can contain, regardless of the actual number of rows returned. Its value ranges from 1 to 10,000 with a value of 1000 by default, or otherwise specified by the max-results query parameter.
   * kind `string`: Resource type.
@@ -3030,6 +3041,19 @@ google_analytics.userDeletion.userDeletionRequest.upsert({}, context)
   * totalResults `integer`: The total number of results for the query, regardless of the number of resources in the result.
   * username `string`: Email ID of the authenticated user
 
+### HashClientIdRequest
+* HashClientIdRequest `object`: JSON template for a hash Client Id request resource.
+  * clientId `string`
+  * kind `string`
+  * webPropertyId `string`
+
+### HashClientIdResponse
+* HashClientIdResponse `object`: JSON template for a hash Client Id response resource.
+  * clientId `string`
+  * hashedClientId `string`
+  * kind `string`
+  * webPropertyId `string`
+
 ### IncludeConditions
 * IncludeConditions `object`: JSON template for an Analytics Remarketing Include Conditions.
   * daysToLookBack `integer`: The look-back window lets you specify a time frame for evaluating the behavior that qualifies users for your audience. For example, if your filters include users from Central Asia, and Transactions Greater than 2, and you set the look-back window to 14 days, then any user from Central Asia whose cumulative transactions exceed 2 during the last 14 days is added to the audience.
@@ -3045,7 +3069,7 @@ google_analytics.userDeletion.userDeletionRequest.upsert({}, context)
   * id `string`: Entity ad account link ID.
   * internalWebPropertyId `string`: Internal ID for the web property to which this linked foreign account belongs.
   * kind `string`: Resource type for linked foreign account.
-  * linkedAccountId `string`: The foreign account ID. For example the an AdWords `linkedAccountId` has the following format XXX-XXX-XXXX.
+  * linkedAccountId `string`: The foreign account ID. For example the an Google Ads `linkedAccountId` has the following format XXX-XXX-XXXX.
   * remarketingAudienceId `string`: Remarketing audience ID to which this linked foreign account belongs.
   * status `string`: The status of this foreign account link.
   * type `string`: The type of the foreign account. For example, `ADWORDS_LINKS`, `DBM_LINKS`, `MCC_LINKS` or `OPTIMIZE`.
@@ -3090,8 +3114,6 @@ google_analytics.userDeletion.userDeletionRequest.upsert({}, context)
       * items `object`: A union object representing a dimension or metric value. Only one of "primitiveValue" or "conversionPathValue" attribute will be populated.
         * conversionPathValue `array`: A conversion path dimension value, containing a list of interactions with their attributes.
           * items `object`
-            * interactionType `string`: Type of an interaction on conversion path. Such as CLICK, IMPRESSION etc.
-            * nodeValue `string`: Node value of an interaction on conversion path. Such as source, medium etc.
         * primitiveValue `string`: A primitive dimension value. A primitive metric value.
   * sampleSize `string`: The number of samples used to calculate the result.
   * sampleSpace `string`: Total size of the sample space from which the samples were selected.
@@ -3344,6 +3366,7 @@ google_analytics.userDeletion.userDeletionRequest.upsert({}, context)
     * type `string`: Type of user
     * userId `string`: The User's id
   * kind `string`: Value is "analytics#userDeletionRequest".
+  * propertyId `string`: Property ID
   * webPropertyId `string`: Web property ID of the form UA-XXXXX-YY.
 
 ### UserRef

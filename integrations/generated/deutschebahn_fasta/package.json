@@ -1,8 +1,8 @@
 {
   "name": "@datafire/deutschebahn_fasta",
-  "version": "5.0.0",
+  "version": "6.0.0",
   "main": "index.js",
-  "description": "DataFire integration for FaSta-Station_Facilities_Status",
+  "description": "DataFire integration for FaSta - Station Facilities Status",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DataFire/integrations.git"
@@ -14,7 +14,7 @@
   },
   "homepage": "https://github.com/DataFire/integrations#readme",
   "datafire": {
-    "origin": "https://api.apis.guru/v2/specs/deutschebahn.com/fasta/v1/swagger.json",
+    "origin": "https://api.apis.guru/v2/specs/deutschebahn.com/fasta/2.1/swagger.json",
     "type": "openapi"
   },
   "dependencies": {

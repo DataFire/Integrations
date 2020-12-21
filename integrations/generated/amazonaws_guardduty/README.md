@@ -13,16 +13,68 @@ let amazonaws_guardduty = require('@datafire/amazonaws_guardduty').create({
   region: ""
 });
 
-amazonaws_guardduty.ListDetectors({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
 
 ## Description
 
-Assess, monitor, manage, and remediate security issues across your AWS infrastructure, applications, and data.
+<p>Amazon GuardDuty is a continuous security monitoring service that analyzes and processes the following data sources: VPC Flow Logs, AWS CloudTrail event logs, and DNS logs. It uses threat intelligence feeds (such as lists of malicious IPs and domains) and machine learning to identify unexpected, potentially unauthorized, and malicious activity within your AWS environment. This can include issues like escalations of privileges, uses of exposed credentials, or communication with malicious IPs, URLs, or domains. For example, GuardDuty can detect compromised EC2 instances that serve malware or mine bitcoin. </p> <p>GuardDuty also monitors AWS account access behavior for signs of compromise. Some examples of this are unauthorized infrastructure deployments such as EC2 instances deployed in a Region that has never been used, or unusual API calls like a password policy change to reduce password strength. </p> <p>GuardDuty informs you of the status of your AWS environment by producing security findings that you can view in the GuardDuty console or through Amazon CloudWatch events. For more information, see the <i> <a href="https://docs.aws.amazon.com/guardduty/latest/ug/what-is-guardduty.html">Amazon GuardDuty User Guide</a> </i>. </p>
 
 ## Actions
+
+### ListOrganizationAdminAccounts
+
+
+
+```js
+amazonaws_guardduty.ListOrganizationAdminAccounts({}, context)
+```
+
+#### Input
+* input `object`
+  * maxResults `integer`
+  * nextToken `string`
+  * MaxResults `string`
+  * NextToken `string`
+
+#### Output
+* output [ListOrganizationAdminAccountsResponse](#listorganizationadminaccountsresponse)
+
+### DisableOrganizationAdminAccount
+
+
+
+```js
+amazonaws_guardduty.DisableOrganizationAdminAccount({
+  "adminAccountId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * adminAccountId **required** `string`: The AWS Account ID for the organizations account to be disabled as a GuardDuty delegated administrator.
+
+#### Output
+* output [DisableOrganizationAdminAccountResponse](#disableorganizationadminaccountresponse)
+
+### EnableOrganizationAdminAccount
+
+
+
+```js
+amazonaws_guardduty.EnableOrganizationAdminAccount({
+  "adminAccountId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * adminAccountId **required** `string`: The AWS Account ID for the organization account to be enabled as a GuardDuty delegated administrator.
+
+#### Output
+* output [EnableOrganizationAdminAccountResponse](#enableorganizationadminaccountresponse)
 
 ### ListDetectors
 
@@ -34,6 +86,8 @@ amazonaws_guardduty.ListDetectors({}, context)
 
 #### Input
 * input `object`
+  * maxResults `integer`
+  * nextToken `string`
   * MaxResults `string`
   * NextToken `string`
 
@@ -45,12 +99,20 @@ amazonaws_guardduty.ListDetectors({}, context)
 
 
 ```js
-amazonaws_guardduty.CreateDetector({}, context)
+amazonaws_guardduty.CreateDetector({
+  "enable": true
+}, context)
 ```
 
 #### Input
 * input `object`
-  * Enable [Enable](#enable)
+  * tags `object`: The tags to be added to a new detector resource.
+  * clientToken `string`: The idempotency token for the create request.
+  * dataSources `object`: Contains information about which data sources are enabled.
+    * S3Logs
+      * Enable **required**
+  * enable **required** `boolean`: A Boolean value that specifies whether the detector is to be enabled.
+  * findingPublishingFrequency `string` (values: FIFTEEN_MINUTES, ONE_HOUR, SIX_HOURS): A value that specifies how frequently updated findings are exported.
 
 #### Output
 * output [CreateDetectorResponse](#createdetectorresponse)
@@ -102,10 +164,53 @@ amazonaws_guardduty.UpdateDetector({
 #### Input
 * input `object`
   * detectorId **required** `string`
-  * Enable [Enable](#enable)
+  * dataSources `object`: Contains information about which data sources are enabled.
+    * S3Logs
+      * Enable **required**
+  * enable `boolean`: Specifies whether the detector is enabled or not enabled.
+  * findingPublishingFrequency `string` (values: FIFTEEN_MINUTES, ONE_HOUR, SIX_HOURS): An enum value that specifies how frequently findings are exported, such as to CloudWatch Events.
 
 #### Output
 * output [UpdateDetectorResponse](#updatedetectorresponse)
+
+### DescribeOrganizationConfiguration
+
+
+
+```js
+amazonaws_guardduty.DescribeOrganizationConfiguration({
+  "detectorId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * detectorId **required** `string`
+
+#### Output
+* output [DescribeOrganizationConfigurationResponse](#describeorganizationconfigurationresponse)
+
+### UpdateOrganizationConfiguration
+
+
+
+```js
+amazonaws_guardduty.UpdateOrganizationConfiguration({
+  "detectorId": "",
+  "autoEnable": true
+}, context)
+```
+
+#### Input
+* input `object`
+  * detectorId **required** `string`
+  * autoEnable **required** `boolean`: Indicates whether to automatically enable member accounts in the organization.
+  * dataSources `object`: An object that contains information on which data sources will be configured to be automatically enabled for new members within the organization.
+    * S3Logs
+      * AutoEnable **required**
+
+#### Output
+* output [UpdateOrganizationConfigurationResponse](#updateorganizationconfigurationresponse)
 
 ### ListFilters
 
@@ -119,9 +224,11 @@ amazonaws_guardduty.ListFilters({
 
 #### Input
 * input `object`
+  * detectorId **required** `string`
+  * maxResults `integer`
+  * nextToken `string`
   * MaxResults `string`
   * NextToken `string`
-  * detectorId **required** `string`
 
 #### Output
 * output [ListFiltersResponse](#listfiltersresponse)
@@ -132,19 +239,23 @@ amazonaws_guardduty.ListFilters({
 
 ```js
 amazonaws_guardduty.CreateFilter({
-  "detectorId": ""
+  "detectorId": "",
+  "name": "",
+  "findingCriteria": {}
 }, context)
 ```
 
 #### Input
 * input `object`
   * detectorId **required** `string`
-  * Action [FilterAction](#filteraction)
-  * ClientToken [__stringMin0Max64](#__stringmin0max64)
-  * Description [FilterDescription](#filterdescription)
-  * FindingCriteria [FindingCriteria](#findingcriteria)
-  * Name [FilterName](#filtername)
-  * Rank [FilterRank](#filterrank)
+  * tags `object`: The tags to be added to a new filter resource.
+  * action `string` (values: NOOP, ARCHIVE): Specifies the action that is to be applied to the findings that match the filter.
+  * clientToken `string`: The idempotency token for the create request.
+  * description `string`: The description of the filter.
+  * findingCriteria **required** `object`: Contains information about the criteria used for querying findings.
+    * Criterion
+  * name **required** `string`: The name of the filter. Minimum length of 3. Maximum length of 64. Valid characters include alphanumeric characters, dot (.), underscore (_), and dash (-). Spaces are not allowed.
+  * rank `integer`: Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings.
 
 #### Output
 * output [CreateFilterResponse](#createfilterresponse)
@@ -202,10 +313,11 @@ amazonaws_guardduty.UpdateFilter({
 * input `object`
   * detectorId **required** `string`
   * filterName **required** `string`
-  * Action [FilterAction](#filteraction)
-  * Description [FilterDescription](#filterdescription)
-  * FindingCriteria [FindingCriteria](#findingcriteria)
-  * Rank [FilterRank](#filterrank)
+  * action `string` (values: NOOP, ARCHIVE): Specifies the action that is to be applied to the findings that match the filter.
+  * description `string`: The description of the filter.
+  * findingCriteria `object`: Contains information about the criteria used for querying findings.
+    * Criterion
+  * rank `integer`: Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings.
 
 #### Output
 * output [UpdateFilterResponse](#updatefilterresponse)
@@ -222,13 +334,16 @@ amazonaws_guardduty.ListFindings({
 
 #### Input
 * input `object`
+  * detectorId **required** `string`
   * MaxResults `string`
   * NextToken `string`
-  * detectorId **required** `string`
-  * FindingCriteria [FindingCriteria](#findingcriteria)
-  * MaxResults [MaxResults](#maxresults)
-  * NextToken [NextToken](#nexttoken)
-  * SortCriteria [SortCriteria](#sortcriteria)
+  * findingCriteria `object`: Contains information about the criteria used for querying findings.
+    * Criterion
+  * maxResults `integer`: You can use this parameter to indicate the maximum number of items you want in the response. The default value is 50. The maximum value is 50.
+  * nextToken `string`: You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the list action. For subsequent calls to the action, fill nextToken in the request with the value of NextToken from the previous response to continue listing data.
+  * sortCriteria `object`: Contains information about the criteria used for sorting findings.
+    * AttributeName
+    * OrderBy
 
 #### Output
 * output [ListFindingsResponse](#listfindingsresponse)
@@ -239,14 +354,16 @@ amazonaws_guardduty.ListFindings({
 
 ```js
 amazonaws_guardduty.ArchiveFindings({
-  "detectorId": ""
+  "detectorId": "",
+  "findingIds": []
 }, context)
 ```
 
 #### Input
 * input `object`
   * detectorId **required** `string`
-  * FindingIds [FindingIds](#findingids)
+  * findingIds **required** `array`: The IDs of the findings that you want to archive.
+    * items [FindingId](#findingid)
 
 #### Output
 * output [ArchiveFindingsResponse](#archivefindingsresponse)
@@ -264,7 +381,8 @@ amazonaws_guardduty.CreateSampleFindings({
 #### Input
 * input `object`
   * detectorId **required** `string`
-  * FindingTypes [FindingTypes](#findingtypes)
+  * findingTypes `array`: The types of sample findings to generate.
+    * items [FindingType](#findingtype)
 
 #### Output
 * output [CreateSampleFindingsResponse](#createsamplefindingsresponse)
@@ -275,16 +393,19 @@ amazonaws_guardduty.CreateSampleFindings({
 
 ```js
 amazonaws_guardduty.UpdateFindingsFeedback({
-  "detectorId": ""
+  "detectorId": "",
+  "findingIds": [],
+  "feedback": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * detectorId **required** `string`
-  * Comments [Comments](#comments)
-  * Feedback [Feedback](#feedback)
-  * FindingIds [FindingIds](#findingids)
+  * comments `string`: Additional feedback about the GuardDuty findings.
+  * feedback **required** `string` (values: USEFUL, NOT_USEFUL): The feedback for the finding.
+  * findingIds **required** `array`: The IDs of the findings that you want to mark as useful or not useful.
+    * items [FindingId](#findingid)
 
 #### Output
 * output [UpdateFindingsFeedbackResponse](#updatefindingsfeedbackresponse)
@@ -295,15 +416,19 @@ amazonaws_guardduty.UpdateFindingsFeedback({
 
 ```js
 amazonaws_guardduty.GetFindings({
-  "detectorId": ""
+  "detectorId": "",
+  "findingIds": []
 }, context)
 ```
 
 #### Input
 * input `object`
   * detectorId **required** `string`
-  * FindingIds [FindingIds](#findingids)
-  * SortCriteria [SortCriteria](#sortcriteria)
+  * findingIds **required** `array`: The IDs of the findings that you want to retrieve.
+    * items [FindingId](#findingid)
+  * sortCriteria `object`: Contains information about the criteria used for sorting findings.
+    * AttributeName
+    * OrderBy
 
 #### Output
 * output [GetFindingsResponse](#getfindingsresponse)
@@ -314,15 +439,18 @@ amazonaws_guardduty.GetFindings({
 
 ```js
 amazonaws_guardduty.GetFindingsStatistics({
-  "detectorId": ""
+  "detectorId": "",
+  "findingStatisticTypes": []
 }, context)
 ```
 
 #### Input
 * input `object`
   * detectorId **required** `string`
-  * FindingCriteria [FindingCriteria](#findingcriteria)
-  * FindingStatisticTypes [FindingStatisticTypes](#findingstatistictypes)
+  * findingCriteria `object`: Contains information about the criteria used for querying findings.
+    * Criterion
+  * findingStatisticTypes **required** `array`: The types of finding statistics to retrieve.
+    * items [FindingStatisticType](#findingstatistictype)
 
 #### Output
 * output [GetFindingsStatisticsResponse](#getfindingsstatisticsresponse)
@@ -333,14 +461,16 @@ amazonaws_guardduty.GetFindingsStatistics({
 
 ```js
 amazonaws_guardduty.UnarchiveFindings({
-  "detectorId": ""
+  "detectorId": "",
+  "findingIds": []
 }, context)
 ```
 
 #### Input
 * input `object`
   * detectorId **required** `string`
-  * FindingIds [FindingIds](#findingids)
+  * findingIds **required** `array`: The IDs of the findings to unarchive.
+    * items [FindingId](#findingid)
 
 #### Output
 * output [UnarchiveFindingsResponse](#unarchivefindingsresponse)
@@ -357,9 +487,11 @@ amazonaws_guardduty.ListIPSets({
 
 #### Input
 * input `object`
+  * detectorId **required** `string`
+  * maxResults `integer`
+  * nextToken `string`
   * MaxResults `string`
   * NextToken `string`
-  * detectorId **required** `string`
 
 #### Output
 * output [ListIPSetsResponse](#listipsetsresponse)
@@ -370,17 +502,23 @@ amazonaws_guardduty.ListIPSets({
 
 ```js
 amazonaws_guardduty.CreateIPSet({
-  "detectorId": ""
+  "detectorId": "",
+  "name": "",
+  "format": "",
+  "location": "",
+  "activate": true
 }, context)
 ```
 
 #### Input
 * input `object`
   * detectorId **required** `string`
-  * Activate [Activate](#activate)
-  * Format [IpSetFormat](#ipsetformat)
-  * Location [Location](#location)
-  * Name [Name](#name)
+  * tags `object`: The tags to be added to a new IP set resource.
+  * activate **required** `boolean`: A Boolean value that indicates whether GuardDuty is to start using the uploaded IPSet.
+  * clientToken `string`: The idempotency token for the create request.
+  * format **required** `string` (values: TXT, STIX, OTX_CSV, ALIEN_VAULT, PROOF_POINT, FIRE_EYE): The format of the file that contains the IPSet.
+  * location **required** `string`: The URI of the file that contains the IPSet. For example: https://s3.us-west-2.amazonaws.com/my-bucket/my-object-key.
+  * name **required** `string`: <p>The user-friendly name to identify the IPSet.</p> <p> Allowed characters are alphanumerics, spaces, hyphens (-), and underscores (_).</p>
 
 #### Output
 * output [CreateIPSetResponse](#createipsetresponse)
@@ -438,9 +576,9 @@ amazonaws_guardduty.UpdateIPSet({
 * input `object`
   * detectorId **required** `string`
   * ipSetId **required** `string`
-  * Activate [Activate](#activate)
-  * Location [Location](#location)
-  * Name [Name](#name)
+  * activate `boolean`: The updated Boolean value that specifies whether the IPSet is active or not.
+  * location `string`: The updated URI of the file that contains the IPSet. For example: https://s3.us-west-2.amazonaws.com/my-bucket/my-object-key.
+  * name `string`: The unique ID that specifies the IPSet that you want to update.
 
 #### Output
 * output [UpdateIPSetResponse](#updateipsetresponse)
@@ -468,15 +606,17 @@ amazonaws_guardduty.GetMasterAccount({
 
 ```js
 amazonaws_guardduty.AcceptInvitation({
-  "detectorId": ""
+  "detectorId": "",
+  "masterId": "",
+  "invitationId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * detectorId **required** `string`
-  * InvitationId [InvitationId](#invitationid)
-  * MasterId [MasterId](#masterid)
+  * invitationId **required** `string`: The value that is used to validate the administrator account to the member account.
+  * masterId **required** `string`: The account ID of the GuardDuty administrator account whose invitation you're accepting.
 
 #### Output
 * output [AcceptInvitationResponse](#acceptinvitationresponse)
@@ -510,9 +650,12 @@ amazonaws_guardduty.ListMembers({
 
 #### Input
 * input `object`
+  * detectorId **required** `string`
+  * maxResults `integer`
+  * nextToken `string`
+  * onlyAssociated `string`
   * MaxResults `string`
   * NextToken `string`
-  * detectorId **required** `string`
 
 #### Output
 * output [ListMembersResponse](#listmembersresponse)
@@ -523,14 +666,16 @@ amazonaws_guardduty.ListMembers({
 
 ```js
 amazonaws_guardduty.CreateMembers({
-  "detectorId": ""
+  "detectorId": "",
+  "accountDetails": []
 }, context)
 ```
 
 #### Input
 * input `object`
   * detectorId **required** `string`
-  * AccountDetails [AccountDetails](#accountdetails)
+  * accountDetails **required** `array`: A list of account ID and email address pairs of the accounts that you want to associate with the GuardDuty administrator account.
+    * items [AccountDetail](#accountdetail)
 
 #### Output
 * output [CreateMembersResponse](#createmembersresponse)
@@ -541,17 +686,62 @@ amazonaws_guardduty.CreateMembers({
 
 ```js
 amazonaws_guardduty.DeleteMembers({
-  "detectorId": ""
+  "detectorId": "",
+  "accountIds": []
 }, context)
 ```
 
 #### Input
 * input `object`
   * detectorId **required** `string`
-  * AccountIds [AccountIds](#accountids)
+  * accountIds **required** `array`: A list of account IDs of the GuardDuty member accounts that you want to delete.
+    * items [AccountId](#accountid)
 
 #### Output
 * output [DeleteMembersResponse](#deletemembersresponse)
+
+### GetMemberDetectors
+
+
+
+```js
+amazonaws_guardduty.GetMemberDetectors({
+  "detectorId": "",
+  "accountIds": []
+}, context)
+```
+
+#### Input
+* input `object`
+  * detectorId **required** `string`
+  * accountIds **required** `array`: The account ID of the member account.
+    * items [AccountId](#accountid)
+
+#### Output
+* output [GetMemberDetectorsResponse](#getmemberdetectorsresponse)
+
+### UpdateMemberDetectors
+
+
+
+```js
+amazonaws_guardduty.UpdateMemberDetectors({
+  "detectorId": "",
+  "accountIds": []
+}, context)
+```
+
+#### Input
+* input `object`
+  * detectorId **required** `string`
+  * accountIds **required** `array`: A list of member account IDs to be updated.
+    * items [AccountId](#accountid)
+  * dataSources `object`: Contains information about which data sources are enabled.
+    * S3Logs
+      * Enable **required**
+
+#### Output
+* output [UpdateMemberDetectorsResponse](#updatememberdetectorsresponse)
 
 ### DisassociateMembers
 
@@ -559,14 +749,16 @@ amazonaws_guardduty.DeleteMembers({
 
 ```js
 amazonaws_guardduty.DisassociateMembers({
-  "detectorId": ""
+  "detectorId": "",
+  "accountIds": []
 }, context)
 ```
 
 #### Input
 * input `object`
   * detectorId **required** `string`
-  * AccountIds [AccountIds](#accountids)
+  * accountIds **required** `array`: A list of account IDs of the GuardDuty member accounts that you want to disassociate from the administrator account.
+    * items [AccountId](#accountid)
 
 #### Output
 * output [DisassociateMembersResponse](#disassociatemembersresponse)
@@ -577,14 +769,16 @@ amazonaws_guardduty.DisassociateMembers({
 
 ```js
 amazonaws_guardduty.GetMembers({
-  "detectorId": ""
+  "detectorId": "",
+  "accountIds": []
 }, context)
 ```
 
 #### Input
 * input `object`
   * detectorId **required** `string`
-  * AccountIds [AccountIds](#accountids)
+  * accountIds **required** `array`: A list of account IDs of the GuardDuty member accounts that you want to describe.
+    * items [AccountId](#accountid)
 
 #### Output
 * output [GetMembersResponse](#getmembersresponse)
@@ -595,16 +789,18 @@ amazonaws_guardduty.GetMembers({
 
 ```js
 amazonaws_guardduty.InviteMembers({
-  "detectorId": ""
+  "detectorId": "",
+  "accountIds": []
 }, context)
 ```
 
 #### Input
 * input `object`
   * detectorId **required** `string`
-  * AccountIds [AccountIds](#accountids)
-  * DisableEmailNotification [__boolean](#__boolean)
-  * Message [Message](#message)
+  * accountIds **required** `array`: A list of account IDs of the accounts that you want to invite to GuardDuty as members.
+    * items [AccountId](#accountid)
+  * disableEmailNotification `boolean`: A Boolean value that specifies whether you want to disable email notification to the accounts that you are inviting to GuardDuty as members.
+  * message `string`: The invitation message that you want to send to the accounts that you're inviting to GuardDuty as members.
 
 #### Output
 * output [InviteMembersResponse](#invitemembersresponse)
@@ -615,14 +811,16 @@ amazonaws_guardduty.InviteMembers({
 
 ```js
 amazonaws_guardduty.StartMonitoringMembers({
-  "detectorId": ""
+  "detectorId": "",
+  "accountIds": []
 }, context)
 ```
 
 #### Input
 * input `object`
   * detectorId **required** `string`
-  * AccountIds [AccountIds](#accountids)
+  * accountIds **required** `array`: A list of account IDs of the GuardDuty member accounts to start monitoring.
+    * items [AccountId](#accountid)
 
 #### Output
 * output [StartMonitoringMembersResponse](#startmonitoringmembersresponse)
@@ -633,6 +831,26 @@ amazonaws_guardduty.StartMonitoringMembers({
 
 ```js
 amazonaws_guardduty.StopMonitoringMembers({
+  "detectorId": "",
+  "accountIds": []
+}, context)
+```
+
+#### Input
+* input `object`
+  * detectorId **required** `string`
+  * accountIds **required** `array`: A list of account IDs for the member accounts to stop monitoring.
+    * items [AccountId](#accountid)
+
+#### Output
+* output [StopMonitoringMembersResponse](#stopmonitoringmembersresponse)
+
+### ListPublishingDestinations
+
+
+
+```js
+amazonaws_guardduty.ListPublishingDestinations({
   "detectorId": ""
 }, context)
 ```
@@ -640,10 +858,97 @@ amazonaws_guardduty.StopMonitoringMembers({
 #### Input
 * input `object`
   * detectorId **required** `string`
-  * AccountIds [AccountIds](#accountids)
+  * maxResults `integer`
+  * nextToken `string`
+  * MaxResults `string`
+  * NextToken `string`
 
 #### Output
-* output [StopMonitoringMembersResponse](#stopmonitoringmembersresponse)
+* output [ListPublishingDestinationsResponse](#listpublishingdestinationsresponse)
+
+### CreatePublishingDestination
+
+
+
+```js
+amazonaws_guardduty.CreatePublishingDestination({
+  "detectorId": "",
+  "destinationType": "",
+  "destinationProperties": {}
+}, context)
+```
+
+#### Input
+* input `object`
+  * detectorId **required** `string`
+  * clientToken `string`: The idempotency token for the request.
+  * destinationProperties **required** `object`: Contains the Amazon Resource Name (ARN) of the resource to publish to, such as an S3 bucket, and the ARN of the KMS key to use to encrypt published findings.
+    * DestinationArn
+    * KmsKeyArn
+  * destinationType **required** `string` (values: S3): The type of resource for the publishing destination. Currently only Amazon S3 buckets are supported.
+
+#### Output
+* output [CreatePublishingDestinationResponse](#createpublishingdestinationresponse)
+
+### DeletePublishingDestination
+
+
+
+```js
+amazonaws_guardduty.DeletePublishingDestination({
+  "detectorId": "",
+  "destinationId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * detectorId **required** `string`
+  * destinationId **required** `string`
+
+#### Output
+* output [DeletePublishingDestinationResponse](#deletepublishingdestinationresponse)
+
+### DescribePublishingDestination
+
+
+
+```js
+amazonaws_guardduty.DescribePublishingDestination({
+  "detectorId": "",
+  "destinationId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * detectorId **required** `string`
+  * destinationId **required** `string`
+
+#### Output
+* output [DescribePublishingDestinationResponse](#describepublishingdestinationresponse)
+
+### UpdatePublishingDestination
+
+
+
+```js
+amazonaws_guardduty.UpdatePublishingDestination({
+  "detectorId": "",
+  "destinationId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * detectorId **required** `string`
+  * destinationId **required** `string`
+  * destinationProperties `object`: Contains the Amazon Resource Name (ARN) of the resource to publish to, such as an S3 bucket, and the ARN of the KMS key to use to encrypt published findings.
+    * DestinationArn
+    * KmsKeyArn
+
+#### Output
+* output [UpdatePublishingDestinationResponse](#updatepublishingdestinationresponse)
 
 ### ListThreatIntelSets
 
@@ -657,9 +962,11 @@ amazonaws_guardduty.ListThreatIntelSets({
 
 #### Input
 * input `object`
+  * detectorId **required** `string`
+  * maxResults `integer`
+  * nextToken `string`
   * MaxResults `string`
   * NextToken `string`
-  * detectorId **required** `string`
 
 #### Output
 * output [ListThreatIntelSetsResponse](#listthreatintelsetsresponse)
@@ -670,17 +977,23 @@ amazonaws_guardduty.ListThreatIntelSets({
 
 ```js
 amazonaws_guardduty.CreateThreatIntelSet({
-  "detectorId": ""
+  "detectorId": "",
+  "name": "",
+  "format": "",
+  "location": "",
+  "activate": true
 }, context)
 ```
 
 #### Input
 * input `object`
   * detectorId **required** `string`
-  * Activate [Activate](#activate)
-  * Format [ThreatIntelSetFormat](#threatintelsetformat)
-  * Location [Location](#location)
-  * Name [Name](#name)
+  * tags `object`: The tags to be added to a new threat list resource.
+  * activate **required** `boolean`: A Boolean value that indicates whether GuardDuty is to start using the uploaded ThreatIntelSet.
+  * clientToken `string`: The idempotency token for the create request.
+  * format **required** `string` (values: TXT, STIX, OTX_CSV, ALIEN_VAULT, PROOF_POINT, FIRE_EYE): The format of the file that contains the ThreatIntelSet.
+  * location **required** `string`: The URI of the file that contains the ThreatIntelSet. For example: https://s3.us-west-2.amazonaws.com/my-bucket/my-object-key.
+  * name **required** `string`: A user-friendly ThreatIntelSet name displayed in all findings that are generated by activity that involves IP addresses included in this ThreatIntelSet.
 
 #### Output
 * output [CreateThreatIntelSetResponse](#createthreatintelsetresponse)
@@ -738,12 +1051,44 @@ amazonaws_guardduty.UpdateThreatIntelSet({
 * input `object`
   * detectorId **required** `string`
   * threatIntelSetId **required** `string`
-  * Activate [Activate](#activate)
-  * Location [Location](#location)
-  * Name [Name](#name)
+  * activate `boolean`: The updated Boolean value that specifies whether the ThreateIntelSet is active or not.
+  * location `string`: The updated URI of the file that contains the ThreateIntelSet.
+  * name `string`: The unique ID that specifies the ThreatIntelSet that you want to update.
 
 #### Output
 * output [UpdateThreatIntelSetResponse](#updatethreatintelsetresponse)
+
+### GetUsageStatistics
+
+
+
+```js
+amazonaws_guardduty.GetUsageStatistics({
+  "detectorId": "",
+  "usageStatisticsType": "",
+  "usageCriteria": {}
+}, context)
+```
+
+#### Input
+* input `object`
+  * detectorId **required** `string`
+  * MaxResults `string`
+  * NextToken `string`
+  * maxResults `integer`: The maximum number of results to return in the response.
+  * nextToken `string`: A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request to a list action. For subsequent calls, use the NextToken value returned from the previous request to continue listing results after the first page.
+  * unit `string`: The currency unit you would like to view your usage statistics in. Current valid values are USD.
+  * usageCriteria **required** `object`: Contains information about the criteria used to query usage statistics.
+    * AccountIds
+      * items [AccountId](#accountid)
+    * DataSources
+      * items [DataSource](#datasource)
+    * Resources
+      * items [String](#string)
+  * usageStatisticsType **required** `string` (values: SUM_BY_ACCOUNT, SUM_BY_DATA_SOURCE, SUM_BY_RESOURCE, TOP_RESOURCES): The type of usage statistics to retrieve.
+
+#### Output
+* output [GetUsageStatisticsResponse](#getusagestatisticsresponse)
 
 ### ListInvitations
 
@@ -755,6 +1100,8 @@ amazonaws_guardduty.ListInvitations({}, context)
 
 #### Input
 * input `object`
+  * maxResults `integer`
+  * nextToken `string`
   * MaxResults `string`
   * NextToken `string`
 
@@ -780,12 +1127,15 @@ amazonaws_guardduty.GetInvitationsCount({}, context)
 
 
 ```js
-amazonaws_guardduty.DeclineInvitations({}, context)
+amazonaws_guardduty.DeclineInvitations({
+  "accountIds": []
+}, context)
 ```
 
 #### Input
 * input `object`
-  * AccountIds [AccountIds](#accountids)
+  * accountIds **required** `array`: A list of account IDs of the AWS accounts that sent invitations to the current member account that you want to decline invitations from.
+    * items [AccountId](#accountid)
 
 #### Output
 * output [DeclineInvitationsResponse](#declineinvitationsresponse)
@@ -795,174 +1145,427 @@ amazonaws_guardduty.DeclineInvitations({}, context)
 
 
 ```js
-amazonaws_guardduty.DeleteInvitations({}, context)
+amazonaws_guardduty.DeleteInvitations({
+  "accountIds": []
+}, context)
 ```
 
 #### Input
 * input `object`
-  * AccountIds [AccountIds](#accountids)
+  * accountIds **required** `array`: A list of account IDs of the AWS accounts that sent invitations to the current member account that you want to delete invitations from.
+    * items [AccountId](#accountid)
 
 #### Output
 * output [DeleteInvitationsResponse](#deleteinvitationsresponse)
+
+### ListTagsForResource
+
+
+
+```js
+amazonaws_guardduty.ListTagsForResource({
+  "resourceArn": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * resourceArn **required** `string`
+
+#### Output
+* output [ListTagsForResourceResponse](#listtagsforresourceresponse)
+
+### TagResource
+
+
+
+```js
+amazonaws_guardduty.TagResource({
+  "resourceArn": "",
+  "tags": {}
+}, context)
+```
+
+#### Input
+* input `object`
+  * resourceArn **required** `string`
+  * tags **required** `object`: The tags to be added to a resource.
+
+#### Output
+*Output schema unknown*
+
+### UntagResource
+
+
+
+```js
+amazonaws_guardduty.UntagResource({
+  "resourceArn": "",
+  "tagKeys": []
+}, context)
+```
+
+#### Input
+* input `object`
+  * resourceArn **required** `string`
+  * tagKeys **required** `array`
+
+#### Output
+*Output schema unknown*
 
 
 
 ## Definitions
 
 ### AcceptInvitationRequest
-* AcceptInvitationRequest `object`: AcceptInvitation request body.
-  * InvitationId [InvitationId](#invitationid)
-  * MasterId [MasterId](#masterid)
+* AcceptInvitationRequest `object`
+  * InvitationId **required**
+  * MasterId **required**
 
 ### AcceptInvitationResponse
 * AcceptInvitationResponse `object`
 
+### AccessControlList
+* AccessControlList `object`: Contains information on the current access control policies for the bucket.
+  * AllowsPublicReadAccess
+  * AllowsPublicWriteAccess
+
 ### AccessKeyDetails
-* AccessKeyDetails `object`: The IAM access key details (IAM user information) of a user that engaged in the activity that prompted GuardDuty to generate a finding.
-  * AccessKeyId [__string](#__string)
-  * PrincipalId [__string](#__string)
-  * UserName [__string](#__string)
-  * UserType [__string](#__string)
+* AccessKeyDetails `object`: Contains information about the access keys.
+  * AccessKeyId
+  * PrincipalId
+  * UserName
+  * UserType
 
 ### AccountDetail
-* AccountDetail `object`: An object containing the member's accountId and email address.
-  * AccountId **required** [AccountId](#accountid)
-  * Email **required** [Email](#email)
+* AccountDetail `object`: Contains information about the account.
+  * AccountId **required**
+  * Email **required**
 
 ### AccountDetails
-* AccountDetails `array`: A list of account/email pairs.
+* AccountDetails `array`
   * items [AccountDetail](#accountdetail)
 
 ### AccountId
-* AccountId `string`: AWS account ID.
+* AccountId `string`
 
 ### AccountIds
-* AccountIds `array`: A list of account IDs.
-  * items [__string](#__string)
+* AccountIds `array`
+  * items [AccountId](#accountid)
+
+### AccountLevelPermissions
+* AccountLevelPermissions `object`: Contains information about the account level permissions on the S3 bucket.
+  * BlockPublicAccess
+    * BlockPublicAcls
+    * BlockPublicPolicy
+    * IgnorePublicAcls
+    * RestrictPublicBuckets
 
 ### Action
-* Action `object`: Information about the activity described in a finding.
-  * ActionType [__string](#__string)
-  * AwsApiCallAction [AwsApiCallAction](#awsapicallaction)
-  * DnsRequestAction [DnsRequestAction](#dnsrequestaction)
-  * NetworkConnectionAction [NetworkConnectionAction](#networkconnectionaction)
-  * PortProbeAction [PortProbeAction](#portprobeaction)
+* Action `object`: Contains information about actions.
+  * ActionType
+  * AwsApiCallAction
+    * Api
+    * CallerType
+    * DomainDetails
+      * Domain
+    * ErrorCode
+    * RemoteIpDetails
+      * City
+        * CityName
+      * Country
+        * CountryCode
+        * CountryName
+      * GeoLocation
+        * Lat
+        * Lon
+      * IpAddressV4
+      * Organization
+        * Asn
+        * AsnOrg
+        * Isp
+        * Org
+    * ServiceName
+  * DnsRequestAction
+    * Domain
+  * NetworkConnectionAction
+    * Blocked
+    * ConnectionDirection
+    * LocalIpDetails
+      * IpAddressV4
+    * LocalPortDetails
+      * Port
+      * PortName
+    * Protocol
+    * RemoteIpDetails
+      * City
+        * CityName
+      * Country
+        * CountryCode
+        * CountryName
+      * GeoLocation
+        * Lat
+        * Lon
+      * IpAddressV4
+      * Organization
+        * Asn
+        * AsnOrg
+        * Isp
+        * Org
+    * RemotePortDetails
+      * Port
+      * PortName
+  * PortProbeAction
+    * Blocked
+    * PortProbeDetails
+      * items [PortProbeDetail](#portprobedetail)
 
-### Activate
-* Activate `boolean`: Whether we should start processing the list immediately or not.
+### AdminAccount
+* AdminAccount `object`: The account within the organization specified as the GuardDuty delegated administrator.
+  * AdminAccountId
+  * AdminStatus
+
+### AdminAccounts
+* AdminAccounts `array`
+  * items [AdminAccount](#adminaccount)
+
+### AdminStatus
+* AdminStatus `string` (values: ENABLED, DISABLE_IN_PROGRESS)
 
 ### ArchiveFindingsRequest
-* ArchiveFindingsRequest `object`: ArchiveFindings request body.
-  * FindingIds [FindingIds](#findingids)
+* ArchiveFindingsRequest `object`
+  * FindingIds **required**
+    * items [FindingId](#findingid)
 
 ### ArchiveFindingsResponse
 * ArchiveFindingsResponse `object`
 
 ### AwsApiCallAction
-* AwsApiCallAction `object`: Information about the AWS_API_CALL action described in this finding.
-  * Api [__string](#__string)
-  * CallerType [__string](#__string)
-  * DomainDetails [DomainDetails](#domaindetails)
-  * RemoteIpDetails [RemoteIpDetails](#remoteipdetails)
-  * ServiceName [__string](#__string)
+* AwsApiCallAction `object`: Contains information about the API action.
+  * Api
+  * CallerType
+  * DomainDetails
+    * Domain
+  * ErrorCode
+  * RemoteIpDetails
+    * City
+      * CityName
+    * Country
+      * CountryCode
+      * CountryName
+    * GeoLocation
+      * Lat
+      * Lon
+    * IpAddressV4
+    * Organization
+      * Asn
+      * AsnOrg
+      * Isp
+      * Org
+  * ServiceName
 
 ### BadRequestException
-* BadRequestException `object`: Error response object.
-  * Message [__string](#__string)
-  * Type [__string](#__string)
+
+
+### BlockPublicAccess
+* BlockPublicAccess `object`: Contains information on how the bucker owner's S3 Block Public Access settings are being applied to the S3 bucket. See <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html">S3 Block Public Access</a> for more information. 
+  * BlockPublicAcls
+  * BlockPublicPolicy
+  * IgnorePublicAcls
+  * RestrictPublicBuckets
+
+### Boolean
+* Boolean `boolean`
+
+### BucketLevelPermissions
+* BucketLevelPermissions `object`: Contains information about the bucket level permissions for the S3 bucket.
+  * AccessControlList
+    * AllowsPublicReadAccess
+    * AllowsPublicWriteAccess
+  * BlockPublicAccess
+    * BlockPublicAcls
+    * BlockPublicPolicy
+    * IgnorePublicAcls
+    * RestrictPublicBuckets
+  * BucketPolicy
+    * AllowsPublicReadAccess
+    * AllowsPublicWriteAccess
+
+### BucketPolicy
+* BucketPolicy `object`: Contains information on the current bucket policies for the S3 bucket.
+  * AllowsPublicReadAccess
+  * AllowsPublicWriteAccess
 
 ### City
-* City `object`: City information of the remote IP address.
-  * CityName [__string](#__string)
+* City `object`: Contains information about the city associated with the IP address.
+  * CityName
 
-### Comments
-* Comments `string`: Additional feedback about the GuardDuty findings.
+### ClientToken
+* ClientToken `string`
+
+### CloudTrailConfigurationResult
+* CloudTrailConfigurationResult `object`: Contains information on the status of CloudTrail as a data source for the detector.
+  * Status **required**
 
 ### Condition
-* Condition `object`: Finding attribute (for example, accountId) for which conditions and values must be specified when querying findings.
-  * Eq [Eq](#eq)
-  * Gt [__integer](#__integer)
-  * Gte [__integer](#__integer)
-  * Lt [__integer](#__integer)
-  * Lte [__integer](#__integer)
-  * Neq [Neq](#neq)
+* Condition `object`: Contains information about the condition.
+  * Eq
+    * items [String](#string)
+  * Equals
+    * items [String](#string)
+  * GreaterThan
+  * GreaterThanOrEqual
+  * Gt
+  * Gte
+  * LessThan
+  * LessThanOrEqual
+  * Lt
+  * Lte
+  * Neq
+    * items [String](#string)
+  * NotEquals
+    * items [String](#string)
 
-### CountBySeverityFindingStatistic
-* CountBySeverityFindingStatistic `integer`: The count of findings for the given severity.
+### CountBySeverity
+* CountBySeverity `object`
 
 ### Country
-* Country `object`: Country information of the remote IP address.
-  * CountryCode [__string](#__string)
-  * CountryName [__string](#__string)
+* Country `object`: Contains information about the country where the remote IP address is located.
+  * CountryCode
+  * CountryName
 
 ### CreateDetectorRequest
-* CreateDetectorRequest `object`: CreateDetector request body.
-  * Enable [Enable](#enable)
+* CreateDetectorRequest `object`
+  * ClientToken
+  * DataSources
+    * S3Logs
+      * Enable **required**
+  * Enable **required**
+  * FindingPublishingFrequency
+  * Tags
 
 ### CreateDetectorResponse
 * CreateDetectorResponse `object`
-  * DetectorId [DetectorId](#detectorid)
+  * DetectorId
 
 ### CreateFilterRequest
-* CreateFilterRequest `object`: CreateFilterRequest request body.
-  * Action [FilterAction](#filteraction)
-  * ClientToken [__stringMin0Max64](#__stringmin0max64)
-  * Description [FilterDescription](#filterdescription)
-  * FindingCriteria [FindingCriteria](#findingcriteria)
-  * Name [FilterName](#filtername)
-  * Rank [FilterRank](#filterrank)
+* CreateFilterRequest `object`
+  * Action
+  * ClientToken
+  * Description
+  * FindingCriteria **required**
+    * Criterion
+  * Name **required**
+  * Rank
+  * Tags
 
 ### CreateFilterResponse
 * CreateFilterResponse `object`
-  * Name [FilterName](#filtername)
+  * Name **required**
 
 ### CreateIPSetRequest
-* CreateIPSetRequest `object`: CreateIPSet request body.
-  * Activate [Activate](#activate)
-  * Format [IpSetFormat](#ipsetformat)
-  * Location [Location](#location)
-  * Name [Name](#name)
+* CreateIPSetRequest `object`
+  * Activate **required**
+  * ClientToken
+  * Format **required**
+  * Location **required**
+  * Name **required**
+  * Tags
 
 ### CreateIPSetResponse
 * CreateIPSetResponse `object`
-  * IpSetId [IpSetId](#ipsetid)
+  * IpSetId **required**
 
 ### CreateMembersRequest
-* CreateMembersRequest `object`: CreateMembers request body.
-  * AccountDetails [AccountDetails](#accountdetails)
+* CreateMembersRequest `object`
+  * AccountDetails **required**
+    * items [AccountDetail](#accountdetail)
 
 ### CreateMembersResponse
 * CreateMembersResponse `object`
-  * UnprocessedAccounts [UnprocessedAccounts](#unprocessedaccounts)
+  * UnprocessedAccounts **required**
+    * items [UnprocessedAccount](#unprocessedaccount)
+
+### CreatePublishingDestinationRequest
+* CreatePublishingDestinationRequest `object`
+  * ClientToken
+  * DestinationProperties **required**
+    * DestinationArn
+    * KmsKeyArn
+  * DestinationType **required**
+
+### CreatePublishingDestinationResponse
+* CreatePublishingDestinationResponse `object`
+  * DestinationId **required**
 
 ### CreateSampleFindingsRequest
-* CreateSampleFindingsRequest `object`: CreateSampleFindings request body.
-  * FindingTypes [FindingTypes](#findingtypes)
+* CreateSampleFindingsRequest `object`
+  * FindingTypes
+    * items [FindingType](#findingtype)
 
 ### CreateSampleFindingsResponse
 * CreateSampleFindingsResponse `object`
 
 ### CreateThreatIntelSetRequest
-* CreateThreatIntelSetRequest `object`: CreateThreatIntelSet request body.
-  * Activate [Activate](#activate)
-  * Format [ThreatIntelSetFormat](#threatintelsetformat)
-  * Location [Location](#location)
-  * Name [Name](#name)
+* CreateThreatIntelSetRequest `object`
+  * Activate **required**
+  * ClientToken
+  * Format **required**
+  * Location **required**
+  * Name **required**
+  * Tags
 
 ### CreateThreatIntelSetResponse
 * CreateThreatIntelSetResponse `object`
-  * ThreatIntelSetId [ThreatIntelSetId](#threatintelsetid)
+  * ThreatIntelSetId **required**
 
-### CreatedAt
-* CreatedAt `string`: The first time a resource was created. The format will be ISO-8601.
+### Criterion
+* Criterion `object`
+
+### DNSLogsConfigurationResult
+* DNSLogsConfigurationResult `object`: Contains information on the status of DNS logs as a data source.
+  * Status **required**
+
+### DataSource
+* DataSource `string` (values: FLOW_LOGS, CLOUD_TRAIL, DNS_LOGS, S3_LOGS)
+
+### DataSourceConfigurations
+* DataSourceConfigurations `object`: Contains information about which data sources are enabled.
+  * S3Logs
+    * Enable **required**
+
+### DataSourceConfigurationsResult
+* DataSourceConfigurationsResult `object`: Contains information on the status of data sources for the detector.
+  * CloudTrail **required**
+    * Status **required**
+  * DNSLogs **required**
+    * Status **required**
+  * FlowLogs **required**
+    * Status **required**
+  * S3Logs **required**
+    * Status **required**
+
+### DataSourceList
+* DataSourceList `array`
+  * items [DataSource](#datasource)
+
+### DataSourceStatus
+* DataSourceStatus `string` (values: ENABLED, DISABLED)
 
 ### DeclineInvitationsRequest
-* DeclineInvitationsRequest `object`: DeclineInvitations request body.
-  * AccountIds [AccountIds](#accountids)
+* DeclineInvitationsRequest `object`
+  * AccountIds **required**
+    * items [AccountId](#accountid)
 
 ### DeclineInvitationsResponse
 * DeclineInvitationsResponse `object`
-  * UnprocessedAccounts [UnprocessedAccounts](#unprocessedaccounts)
+  * UnprocessedAccounts **required**
+    * items [UnprocessedAccount](#unprocessedaccount)
+
+### DefaultServerSideEncryption
+* DefaultServerSideEncryption `object`: Contains information on the server side encryption method used in the S3 bucket. See <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/serv-side-encryption.html">S3 Server-Side Encryption</a> for more information.
+  * EncryptionType
+  * KmsMasterKeyArn
 
 ### DeleteDetectorRequest
 * DeleteDetectorRequest `object`
@@ -983,20 +1586,30 @@ amazonaws_guardduty.DeleteInvitations({}, context)
 * DeleteIPSetResponse `object`
 
 ### DeleteInvitationsRequest
-* DeleteInvitationsRequest `object`: DeleteInvitations request body.
-  * AccountIds [AccountIds](#accountids)
+* DeleteInvitationsRequest `object`
+  * AccountIds **required**
+    * items [AccountId](#accountid)
 
 ### DeleteInvitationsResponse
 * DeleteInvitationsResponse `object`
-  * UnprocessedAccounts [UnprocessedAccounts](#unprocessedaccounts)
+  * UnprocessedAccounts **required**
+    * items [UnprocessedAccount](#unprocessedaccount)
 
 ### DeleteMembersRequest
-* DeleteMembersRequest `object`: DeleteMembers request body.
-  * AccountIds [AccountIds](#accountids)
+* DeleteMembersRequest `object`
+  * AccountIds **required**
+    * items [AccountId](#accountid)
 
 ### DeleteMembersResponse
 * DeleteMembersResponse `object`
-  * UnprocessedAccounts [UnprocessedAccounts](#unprocessedaccounts)
+  * UnprocessedAccounts **required**
+    * items [UnprocessedAccount](#unprocessedaccount)
+
+### DeletePublishingDestinationRequest
+* DeletePublishingDestinationRequest `object`
+
+### DeletePublishingDestinationResponse
+* DeletePublishingDestinationResponse `object`
 
 ### DeleteThreatIntelSetRequest
 * DeleteThreatIntelSetRequest `object`
@@ -1004,15 +1617,64 @@ amazonaws_guardduty.DeleteInvitations({}, context)
 ### DeleteThreatIntelSetResponse
 * DeleteThreatIntelSetResponse `object`
 
+### DescribeOrganizationConfigurationRequest
+* DescribeOrganizationConfigurationRequest `object`
+
+### DescribeOrganizationConfigurationResponse
+* DescribeOrganizationConfigurationResponse `object`
+  * AutoEnable **required**
+  * DataSources
+    * S3Logs **required**
+      * AutoEnable **required**
+  * MemberAccountLimitReached **required**
+
+### DescribePublishingDestinationRequest
+* DescribePublishingDestinationRequest `object`
+
+### DescribePublishingDestinationResponse
+* DescribePublishingDestinationResponse `object`
+  * DestinationId **required**
+  * DestinationProperties **required**
+    * DestinationArn
+    * KmsKeyArn
+  * DestinationType **required**
+  * PublishingFailureStartTimestamp **required**
+  * Status **required**
+
+### Destination
+* Destination `object`: Contains information about the publishing destination, including the ID, type, and status.
+  * DestinationId **required**
+  * DestinationType **required**
+  * Status **required**
+
+### DestinationProperties
+* DestinationProperties `object`: Contains the Amazon Resource Name (ARN) of the resource to publish to, such as an S3 bucket, and the ARN of the KMS key to use to encrypt published findings.
+  * DestinationArn
+  * KmsKeyArn
+
+### DestinationType
+* DestinationType `string` (values: S3)
+
+### Destinations
+* Destinations `array`
+  * items [Destination](#destination)
+
 ### DetectorId
-* DetectorId `string`: The unique identifier for a detector.
+* DetectorId `string`
 
 ### DetectorIds
-* DetectorIds `array`: A list of detector Ids.
+* DetectorIds `array`
   * items [DetectorId](#detectorid)
 
 ### DetectorStatus
-* DetectorStatus `string` (values: ENABLED, DISABLED): The status of detector.
+* DetectorStatus `string` (values: ENABLED, DISABLED)
+
+### DisableOrganizationAdminAccountRequest
+* DisableOrganizationAdminAccountRequest `object`
+  * AdminAccountId **required**
+
+### DisableOrganizationAdminAccountResponse
+* DisableOrganizationAdminAccountResponse `object`
 
 ### DisassociateFromMasterAccountRequest
 * DisassociateFromMasterAccountRequest `object`
@@ -1021,633 +1683,1203 @@ amazonaws_guardduty.DeleteInvitations({}, context)
 * DisassociateFromMasterAccountResponse `object`
 
 ### DisassociateMembersRequest
-* DisassociateMembersRequest `object`: DisassociateMembers request body.
-  * AccountIds [AccountIds](#accountids)
+* DisassociateMembersRequest `object`
+  * AccountIds **required**
+    * items [AccountId](#accountid)
 
 ### DisassociateMembersResponse
 * DisassociateMembersResponse `object`
-  * UnprocessedAccounts [UnprocessedAccounts](#unprocessedaccounts)
+  * UnprocessedAccounts **required**
+    * items [UnprocessedAccount](#unprocessedaccount)
 
 ### DnsRequestAction
-* DnsRequestAction `object`: Information about the DNS_REQUEST action described in this finding.
-  * Domain [Domain](#domain)
-
-### Domain
-* Domain `string`: A domain name.
+* DnsRequestAction `object`: Contains information about the DNS_REQUEST action described in this finding.
+  * Domain
 
 ### DomainDetails
-* DomainDetails `object`: Domain information for the AWS API call.
+* DomainDetails `object`: Contains information about the domain.
+  * Domain
+
+### Double
+* Double `number`
 
 ### Email
-* Email `string`: Member account's email address.
+* Email `string`
 
-### Enable
-* Enable `boolean`: A boolean value that specifies whether the detector is to be enabled.
+### EnableOrganizationAdminAccountRequest
+* EnableOrganizationAdminAccountRequest `object`
+  * AdminAccountId **required**
+
+### EnableOrganizationAdminAccountResponse
+* EnableOrganizationAdminAccountResponse `object`
 
 ### Eq
-* Eq `array`: Represents the equal condition to be applied to a single field when querying for findings.
-  * items [__string](#__string)
+* Eq `array`
+  * items [String](#string)
 
-### ErrorResponse
-* ErrorResponse `object`: Error response object.
-  * Message [__string](#__string)
-  * Type [__string](#__string)
+### Equals
+* Equals `array`
+  * items [String](#string)
+
+### Evidence
+* Evidence `object`: Contains information about the reason that the finding was generated.
+  * ThreatIntelligenceDetails
+    * items [ThreatIntelligenceDetail](#threatintelligencedetail)
 
 ### Feedback
-* Feedback `string` (values: USEFUL, NOT_USEFUL): Finding Feedback Value
+* Feedback `string` (values: USEFUL, NOT_USEFUL)
 
 ### FilterAction
-* FilterAction `string` (values: NOOP, ARCHIVE): The action associated with a filter.
+* FilterAction `string` (values: NOOP, ARCHIVE)
 
 ### FilterDescription
-* FilterDescription `string`: The filter description
+* FilterDescription `string`
 
 ### FilterName
-* FilterName `string`: The unique identifier for a filter
+* FilterName `string`
 
 ### FilterNames
-* FilterNames `array`: A list of filter names
+* FilterNames `array`
   * items [FilterName](#filtername)
 
 ### FilterRank
-* FilterRank `integer`: Relative position of filter among list of exisiting filters.
+* FilterRank `integer`
 
 ### Finding
-* Finding `object`: Representation of a abnormal or suspicious activity.
-  * AccountId **required** [__string](#__string)
-  * Arn **required** [__string](#__string)
-  * Confidence [__double](#__double)
-  * CreatedAt **required** [CreatedAt](#createdat)
-  * Description [__string](#__string)
-  * Id **required** [__string](#__string)
-  * Partition [__string](#__string)
-  * Region **required** [__string](#__string)
-  * Resource **required** [Resource](#resource)
-  * SchemaVersion **required** [__string](#__string)
-  * Service [Service](#service)
-  * Severity **required** [__double](#__double)
-  * Title [__string](#__string)
-  * Type **required** [__string](#__string)
-  * UpdatedAt **required** [UpdatedAt](#updatedat)
+* Finding `object`: Contains information about the finding, which is generated when abnormal or suspicious activity is detected.
+  * AccountId **required**
+  * Arn **required**
+  * Confidence
+  * CreatedAt **required**
+  * Description
+  * Id **required**
+  * Partition
+  * Region **required**
+  * Resource **required**
+    * AccessKeyDetails
+      * AccessKeyId
+      * PrincipalId
+      * UserName
+      * UserType
+    * InstanceDetails
+      * AvailabilityZone
+      * IamInstanceProfile
+        * Arn
+        * Id
+      * ImageDescription
+      * ImageId
+      * InstanceId
+      * InstanceState
+      * InstanceType
+      * LaunchTime
+      * NetworkInterfaces
+        * items [NetworkInterface](#networkinterface)
+      * OutpostArn
+      * Platform
+      * ProductCodes
+        * items [ProductCode](#productcode)
+      * Tags
+        * items [Tag](#tag)
+    * ResourceType
+    * S3BucketDetails
+      * items [S3BucketDetail](#s3bucketdetail)
+  * SchemaVersion **required**
+  * Service
+    * Action
+      * ActionType
+      * AwsApiCallAction
+        * Api
+        * CallerType
+        * DomainDetails
+          * Domain
+        * ErrorCode
+        * RemoteIpDetails
+          * City
+          * Country
+          * GeoLocation
+          * IpAddressV4
+          * Organization
+        * ServiceName
+      * DnsRequestAction
+        * Domain
+      * NetworkConnectionAction
+        * Blocked
+        * ConnectionDirection
+        * LocalIpDetails
+          * IpAddressV4
+        * LocalPortDetails
+          * Port
+          * PortName
+        * Protocol
+        * RemoteIpDetails
+          * City
+          * Country
+          * GeoLocation
+          * IpAddressV4
+          * Organization
+        * RemotePortDetails
+          * Port
+          * PortName
+      * PortProbeAction
+        * Blocked
+        * PortProbeDetails
+          * items [PortProbeDetail](#portprobedetail)
+    * Archived
+    * Count
+    * DetectorId
+    * EventFirstSeen
+    * EventLastSeen
+    * Evidence
+      * ThreatIntelligenceDetails
+        * items [ThreatIntelligenceDetail](#threatintelligencedetail)
+    * ResourceRole
+    * ServiceName
+    * UserFeedback
+  * Severity **required**
+  * Title
+  * Type **required**
+  * UpdatedAt **required**
 
 ### FindingCriteria
-* FindingCriteria `object`: Represents the criteria used for querying findings.
-  * Criterion [__mapOfCondition](#__mapofcondition)
+* FindingCriteria `object`: Contains information about the criteria used for querying findings.
+  * Criterion
 
 ### FindingId
-* FindingId `string`: The unique identifier for the Finding
+* FindingId `string`
 
 ### FindingIds
-* FindingIds `array`: The list of the Findings.
+* FindingIds `array`
   * items [FindingId](#findingid)
 
+### FindingPublishingFrequency
+* FindingPublishingFrequency `string` (values: FIFTEEN_MINUTES, ONE_HOUR, SIX_HOURS)
+
 ### FindingStatisticType
-* FindingStatisticType `string` (values: COUNT_BY_SEVERITY): The types of finding statistics.
+* FindingStatisticType `string` (values: COUNT_BY_SEVERITY)
 
 ### FindingStatisticTypes
-* FindingStatisticTypes `array`: The list of the finding statistics.
+* FindingStatisticTypes `array`
   * items [FindingStatisticType](#findingstatistictype)
 
 ### FindingStatistics
-* FindingStatistics `object`: Finding statistics object.
-  * CountBySeverity [__mapOfCountBySeverityFindingStatistic](#__mapofcountbyseverityfindingstatistic)
+* FindingStatistics `object`: Contains information about finding statistics.
+  * CountBySeverity
 
 ### FindingType
-* FindingType `string`: The finding type for the finding
+* FindingType `string`
 
 ### FindingTypes
-* FindingTypes `array`: The list of the finding types.
+* FindingTypes `array`
   * items [FindingType](#findingtype)
 
 ### Findings
-* Findings `array`: A list of findings.
+* Findings `array`
   * items [Finding](#finding)
 
+### FlowLogsConfigurationResult
+* FlowLogsConfigurationResult `object`: Contains information on the status of VPC flow logs as a data source.
+  * Status **required**
+
 ### GeoLocation
-* GeoLocation `object`: Location information of the remote IP address.
-  * Lat [__double](#__double)
-  * Lon [__double](#__double)
+* GeoLocation `object`: Contains information about the location of the remote IP address.
+  * Lat
+  * Lon
 
 ### GetDetectorRequest
 * GetDetectorRequest `object`
 
 ### GetDetectorResponse
 * GetDetectorResponse `object`
-  * CreatedAt [CreatedAt](#createdat)
-  * ServiceRole [ServiceRole](#servicerole)
-  * Status [DetectorStatus](#detectorstatus)
-  * UpdatedAt [UpdatedAt](#updatedat)
+  * CreatedAt
+  * DataSources
+    * CloudTrail **required**
+      * Status **required**
+    * DNSLogs **required**
+      * Status **required**
+    * FlowLogs **required**
+      * Status **required**
+    * S3Logs **required**
+      * Status **required**
+  * FindingPublishingFrequency
+  * ServiceRole **required**
+  * Status **required**
+  * Tags
+  * UpdatedAt
 
 ### GetFilterRequest
 * GetFilterRequest `object`
 
 ### GetFilterResponse
 * GetFilterResponse `object`
-  * Action [FilterAction](#filteraction)
-  * Description [FilterDescription](#filterdescription)
-  * FindingCriteria [FindingCriteria](#findingcriteria)
-  * Name [FilterName](#filtername)
-  * Rank [FilterRank](#filterrank)
+  * Action **required**
+  * Description
+  * FindingCriteria **required**
+    * Criterion
+  * Name **required**
+  * Rank
+  * Tags
 
 ### GetFindingsRequest
-* GetFindingsRequest `object`: GetFindings request body.
-  * FindingIds [FindingIds](#findingids)
-  * SortCriteria [SortCriteria](#sortcriteria)
+* GetFindingsRequest `object`
+  * FindingIds **required**
+    * items [FindingId](#findingid)
+  * SortCriteria
+    * AttributeName
+    * OrderBy
 
 ### GetFindingsResponse
 * GetFindingsResponse `object`
-  * Findings [Findings](#findings)
+  * Findings **required**
+    * items [Finding](#finding)
 
 ### GetFindingsStatisticsRequest
-* GetFindingsStatisticsRequest `object`: GetFindingsStatistics request body.
-  * FindingCriteria [FindingCriteria](#findingcriteria)
-  * FindingStatisticTypes [FindingStatisticTypes](#findingstatistictypes)
+* GetFindingsStatisticsRequest `object`
+  * FindingCriteria
+    * Criterion
+  * FindingStatisticTypes **required**
+    * items [FindingStatisticType](#findingstatistictype)
 
 ### GetFindingsStatisticsResponse
 * GetFindingsStatisticsResponse `object`
-  * FindingStatistics [FindingStatistics](#findingstatistics)
+  * FindingStatistics **required**
+    * CountBySeverity
 
 ### GetIPSetRequest
 * GetIPSetRequest `object`
 
 ### GetIPSetResponse
 * GetIPSetResponse `object`
-  * Format [IpSetFormat](#ipsetformat)
-  * Location [Location](#location)
-  * Name [Name](#name)
-  * Status [IpSetStatus](#ipsetstatus)
+  * Format **required**
+  * Location **required**
+  * Name **required**
+  * Status **required**
+  * Tags
 
 ### GetInvitationsCountRequest
 * GetInvitationsCountRequest `object`
 
 ### GetInvitationsCountResponse
 * GetInvitationsCountResponse `object`
-  * InvitationsCount [__integer](#__integer)
+  * InvitationsCount
 
 ### GetMasterAccountRequest
 * GetMasterAccountRequest `object`
 
 ### GetMasterAccountResponse
 * GetMasterAccountResponse `object`
-  * Master [Master](#master)
+  * Master **required**
+    * AccountId
+    * InvitationId
+    * InvitedAt
+    * RelationshipStatus
+
+### GetMemberDetectorsRequest
+* GetMemberDetectorsRequest `object`
+  * AccountIds **required**
+    * items [AccountId](#accountid)
+
+### GetMemberDetectorsResponse
+* GetMemberDetectorsResponse `object`
+  * MemberDataSourceConfigurations **required**
+    * items [MemberDataSourceConfiguration](#memberdatasourceconfiguration)
+  * UnprocessedAccounts **required**
+    * items [UnprocessedAccount](#unprocessedaccount)
 
 ### GetMembersRequest
-* GetMembersRequest `object`: GetMembers request body.
-  * AccountIds [AccountIds](#accountids)
+* GetMembersRequest `object`
+  * AccountIds **required**
+    * items [AccountId](#accountid)
 
 ### GetMembersResponse
 * GetMembersResponse `object`
-  * Members [Members](#members)
-  * UnprocessedAccounts [UnprocessedAccounts](#unprocessedaccounts)
+  * Members **required**
+    * items [Member](#member)
+  * UnprocessedAccounts **required**
+    * items [UnprocessedAccount](#unprocessedaccount)
 
 ### GetThreatIntelSetRequest
 * GetThreatIntelSetRequest `object`
 
 ### GetThreatIntelSetResponse
 * GetThreatIntelSetResponse `object`
-  * Format [ThreatIntelSetFormat](#threatintelsetformat)
-  * Location [Location](#location)
-  * Name [Name](#name)
-  * Status [ThreatIntelSetStatus](#threatintelsetstatus)
+  * Format **required**
+  * Location **required**
+  * Name **required**
+  * Status **required**
+  * Tags
+
+### GetUsageStatisticsRequest
+* GetUsageStatisticsRequest `object`
+  * MaxResults
+  * NextToken
+  * Unit
+  * UsageCriteria **required**
+    * AccountIds
+      * items [AccountId](#accountid)
+    * DataSources **required**
+      * items [DataSource](#datasource)
+    * Resources
+      * items [String](#string)
+  * UsageStatisticType **required**
+
+### GetUsageStatisticsResponse
+* GetUsageStatisticsResponse `object`
+  * NextToken
+  * UsageStatistics
+    * SumByAccount
+      * items [UsageAccountResult](#usageaccountresult)
+    * SumByDataSource
+      * items [UsageDataSourceResult](#usagedatasourceresult)
+    * SumByResource
+      * items [UsageResourceResult](#usageresourceresult)
+    * TopResources
+      * items [UsageResourceResult](#usageresourceresult)
+
+### GuardDutyArn
+* GuardDutyArn `string`
 
 ### IamInstanceProfile
-* IamInstanceProfile `object`: The profile information of the EC2 instance.
-  * Arn [__string](#__string)
-  * Id [__string](#__string)
+* IamInstanceProfile `object`: Contains information about the EC2 instance profile.
+  * Arn
+  * Id
 
 ### InstanceDetails
-* InstanceDetails `object`: The information about the EC2 instance associated with the activity that prompted GuardDuty to generate a finding.
-  * AvailabilityZone [__string](#__string)
-  * IamInstanceProfile [IamInstanceProfile](#iaminstanceprofile)
-  * ImageDescription [__string](#__string)
-  * ImageId [__string](#__string)
-  * InstanceId [__string](#__string)
-  * InstanceState [__string](#__string)
-  * InstanceType [__string](#__string)
-  * LaunchTime [__string](#__string)
-  * NetworkInterfaces [NetworkInterfaces](#networkinterfaces)
-  * Platform [__string](#__string)
-  * ProductCodes [ProductCodes](#productcodes)
-  * Tags [Tags](#tags)
+* InstanceDetails `object`: Contains information about the details of an instance.
+  * AvailabilityZone
+  * IamInstanceProfile
+    * Arn
+    * Id
+  * ImageDescription
+  * ImageId
+  * InstanceId
+  * InstanceState
+  * InstanceType
+  * LaunchTime
+  * NetworkInterfaces
+    * items [NetworkInterface](#networkinterface)
+  * OutpostArn
+  * Platform
+  * ProductCodes
+    * items [ProductCode](#productcode)
+  * Tags
+    * items [Tag](#tag)
+
+### Integer
+* Integer `integer`
 
 ### InternalServerErrorException
-* InternalServerErrorException `object`: Error response object.
-  * Message [__string](#__string)
-  * Type [__string](#__string)
+
 
 ### Invitation
-* Invitation `object`: Invitation from an AWS account to become the current account's master.
-  * AccountId [__string](#__string)
-  * InvitationId [InvitationId](#invitationid)
-  * InvitedAt [InvitedAt](#invitedat)
-  * RelationshipStatus [__string](#__string)
-
-### InvitationId
-* InvitationId `string`: This value is used to validate the master account to the member account.
+* Invitation `object`: Contains information about the invitation to become a member account.
+  * AccountId
+  * InvitationId
+  * InvitedAt
+  * RelationshipStatus
 
 ### Invitations
-* Invitations `array`: A list of invitation descriptions.
+* Invitations `array`
   * items [Invitation](#invitation)
 
 ### InviteMembersRequest
-* InviteMembersRequest `object`: InviteMembers request body.
-  * AccountIds [AccountIds](#accountids)
-  * DisableEmailNotification [__boolean](#__boolean)
-  * Message [Message](#message)
+* InviteMembersRequest `object`
+  * AccountIds **required**
+    * items [AccountId](#accountid)
+  * DisableEmailNotification
+  * Message
 
 ### InviteMembersResponse
 * InviteMembersResponse `object`
-  * UnprocessedAccounts [UnprocessedAccounts](#unprocessedaccounts)
-
-### InvitedAt
-* InvitedAt `string`: Timestamp at which a member has been invited. The format will be ISO-8601.
+  * UnprocessedAccounts **required**
+    * items [UnprocessedAccount](#unprocessedaccount)
 
 ### IpSetFormat
-* IpSetFormat `string` (values: TXT, STIX, OTX_CSV, ALIEN_VAULT, PROOF_POINT, FIRE_EYE): The format of the ipSet.
-
-### IpSetId
-* IpSetId `string`: The unique identifier for an IP Set
+* IpSetFormat `string` (values: TXT, STIX, OTX_CSV, ALIEN_VAULT, PROOF_POINT, FIRE_EYE)
 
 ### IpSetIds
-* IpSetIds `array`: A list of the IP set IDs
-  * items [IpSetId](#ipsetid)
+* IpSetIds `array`
+  * items [String](#string)
 
 ### IpSetStatus
-* IpSetStatus `string` (values: INACTIVE, ACTIVATING, ACTIVE, DEACTIVATING, ERROR, DELETE_PENDING, DELETED): The status of ipSet file uploaded.
-
-### Ipv6Address
-* Ipv6Address `string`: IpV6 address of the EC2 instance.
+* IpSetStatus `string` (values: INACTIVE, ACTIVATING, ACTIVE, DEACTIVATING, ERROR, DELETE_PENDING, DELETED)
 
 ### Ipv6Addresses
-* Ipv6Addresses `array`: A list of EC2 instance IPv6 address information.
-  * items [Ipv6Address](#ipv6address)
+* Ipv6Addresses `array`
+  * items [String](#string)
 
 ### ListDetectorsRequest
 * ListDetectorsRequest `object`
 
 ### ListDetectorsResponse
 * ListDetectorsResponse `object`
-  * DetectorIds [DetectorIds](#detectorids)
-  * NextToken [NextToken](#nexttoken)
+  * DetectorIds **required**
+    * items [DetectorId](#detectorid)
+  * NextToken
 
 ### ListFiltersRequest
 * ListFiltersRequest `object`
 
 ### ListFiltersResponse
 * ListFiltersResponse `object`
-  * FilterNames [FilterNames](#filternames)
-  * NextToken [NextToken](#nexttoken)
+  * FilterNames **required**
+    * items [FilterName](#filtername)
+  * NextToken
 
 ### ListFindingsRequest
-* ListFindingsRequest `object`: ListFindings request body.
-  * FindingCriteria [FindingCriteria](#findingcriteria)
-  * MaxResults [MaxResults](#maxresults)
-  * NextToken [NextToken](#nexttoken)
-  * SortCriteria [SortCriteria](#sortcriteria)
+* ListFindingsRequest `object`
+  * FindingCriteria
+    * Criterion
+  * MaxResults
+  * NextToken
+  * SortCriteria
+    * AttributeName
+    * OrderBy
 
 ### ListFindingsResponse
 * ListFindingsResponse `object`
-  * FindingIds [FindingIds](#findingids)
-  * NextToken [NextToken](#nexttoken)
+  * FindingIds **required**
+    * items [FindingId](#findingid)
+  * NextToken
 
 ### ListIPSetsRequest
 * ListIPSetsRequest `object`
 
 ### ListIPSetsResponse
 * ListIPSetsResponse `object`
-  * IpSetIds [IpSetIds](#ipsetids)
-  * NextToken [NextToken](#nexttoken)
+  * IpSetIds **required**
+    * items [String](#string)
+  * NextToken
 
 ### ListInvitationsRequest
 * ListInvitationsRequest `object`
 
 ### ListInvitationsResponse
 * ListInvitationsResponse `object`
-  * Invitations [Invitations](#invitations)
-  * NextToken [NextToken](#nexttoken)
+  * Invitations
+    * items [Invitation](#invitation)
+  * NextToken
 
 ### ListMembersRequest
 * ListMembersRequest `object`
 
 ### ListMembersResponse
 * ListMembersResponse `object`
-  * Members [Members](#members)
-  * NextToken [NextToken](#nexttoken)
+  * Members
+    * items [Member](#member)
+  * NextToken
+
+### ListOrganizationAdminAccountsRequest
+* ListOrganizationAdminAccountsRequest `object`
+
+### ListOrganizationAdminAccountsResponse
+* ListOrganizationAdminAccountsResponse `object`
+  * AdminAccounts
+    * items [AdminAccount](#adminaccount)
+  * NextToken
+
+### ListPublishingDestinationsRequest
+* ListPublishingDestinationsRequest `object`
+
+### ListPublishingDestinationsResponse
+* ListPublishingDestinationsResponse `object`
+  * Destinations **required**
+    * items [Destination](#destination)
+  * NextToken
+
+### ListTagsForResourceRequest
+* ListTagsForResourceRequest `object`
+
+### ListTagsForResourceResponse
+* ListTagsForResourceResponse `object`
+  * Tags
 
 ### ListThreatIntelSetsRequest
 * ListThreatIntelSetsRequest `object`
 
 ### ListThreatIntelSetsResponse
 * ListThreatIntelSetsResponse `object`
-  * NextToken [NextToken](#nexttoken)
-  * ThreatIntelSetIds [ThreatIntelSetIds](#threatintelsetids)
+  * NextToken
+  * ThreatIntelSetIds **required**
+    * items [String](#string)
+
+### LocalIpDetails
+* LocalIpDetails `object`: Contains information about the local IP address of the connection.
+  * IpAddressV4
 
 ### LocalPortDetails
-* LocalPortDetails `object`: Local port information of the connection.
-  * Port [__integer](#__integer)
-  * PortName [__string](#__string)
+* LocalPortDetails `object`: Contains information about the port for the local connection.
+  * Port
+  * PortName
 
 ### Location
-* Location `string`: The location of the S3 bucket where the list resides. For example (https://s3.us-west-2.amazonaws.com/my-bucket/my-object-key)
+* Location `string`
+
+### Long
+* Long `integer`
 
 ### Master
-* Master `object`: Contains details about the master account.
-  * AccountId [__string](#__string)
-  * InvitationId [InvitationId](#invitationid)
-  * InvitedAt [InvitedAt](#invitedat)
-  * RelationshipStatus [__string](#__string)
-
-### MasterId
-* MasterId `string`: The master account ID.
+* Master `object`: Contains information about the administrator account and invitation.
+  * AccountId
+  * InvitationId
+  * InvitedAt
+  * RelationshipStatus
 
 ### MaxResults
 * MaxResults `integer`
 
 ### Member
-* Member `object`: Contains details about the member account.
-  * AccountId **required** [AccountId](#accountid)
-  * DetectorId [DetectorId](#detectorid)
-  * Email **required** [Email](#email)
-  * InvitedAt [InvitedAt](#invitedat)
-  * MasterId **required** [MasterId](#masterid)
-  * RelationshipStatus **required** [__string](#__string)
-  * UpdatedAt **required** [UpdatedAt](#updatedat)
+* Member `object`: Contains information about the member account. 
+  * AccountId **required**
+  * DetectorId
+  * Email **required**
+  * InvitedAt
+  * MasterId **required**
+  * RelationshipStatus **required**
+  * UpdatedAt **required**
+
+### MemberDataSourceConfiguration
+* MemberDataSourceConfiguration `object`: Contains information on which data sources are enabled for a member account.
+  * AccountId **required**
+  * DataSources **required**
+    * CloudTrail **required**
+      * Status **required**
+    * DNSLogs **required**
+      * Status **required**
+    * FlowLogs **required**
+      * Status **required**
+    * S3Logs **required**
+      * Status **required**
+
+### MemberDataSourceConfigurations
+* MemberDataSourceConfigurations `array`
+  * items [MemberDataSourceConfiguration](#memberdatasourceconfiguration)
 
 ### Members
-* Members `array`: A list of member descriptions.
+* Members `array`
   * items [Member](#member)
 
-### Message
-* Message `string`: The invitation message that you want to send to the accounts that you’re inviting to GuardDuty as members.
-
 ### Name
-* Name `string`: The user-friendly name to identify the list.
+* Name `string`
 
 ### Neq
-* Neq `array`: Represents the not equal condition to be applied to a single field when querying for findings.
-  * items [__string](#__string)
+* Neq `array`
+  * items [String](#string)
 
 ### NetworkConnectionAction
-* NetworkConnectionAction `object`: Information about the NETWORK_CONNECTION action described in this finding.
-  * Blocked [__boolean](#__boolean)
-  * ConnectionDirection [__string](#__string)
-  * LocalPortDetails [LocalPortDetails](#localportdetails)
-  * Protocol [__string](#__string)
-  * RemoteIpDetails [RemoteIpDetails](#remoteipdetails)
-  * RemotePortDetails [RemotePortDetails](#remoteportdetails)
+* NetworkConnectionAction `object`: Contains information about the NETWORK_CONNECTION action described in the finding.
+  * Blocked
+  * ConnectionDirection
+  * LocalIpDetails
+    * IpAddressV4
+  * LocalPortDetails
+    * Port
+    * PortName
+  * Protocol
+  * RemoteIpDetails
+    * City
+      * CityName
+    * Country
+      * CountryCode
+      * CountryName
+    * GeoLocation
+      * Lat
+      * Lon
+    * IpAddressV4
+    * Organization
+      * Asn
+      * AsnOrg
+      * Isp
+      * Org
+  * RemotePortDetails
+    * Port
+    * PortName
 
 ### NetworkInterface
-* NetworkInterface `object`: The network interface information of the EC2 instance.
-  * Ipv6Addresses [Ipv6Addresses](#ipv6addresses)
-  * NetworkInterfaceId [NetworkInterfaceId](#networkinterfaceid)
-  * PrivateDnsName [PrivateDnsName](#privatednsname)
-  * PrivateIpAddress [PrivateIpAddress](#privateipaddress)
-  * PrivateIpAddresses [PrivateIpAddresses](#privateipaddresses)
-  * PublicDnsName [__string](#__string)
-  * PublicIp [__string](#__string)
-  * SecurityGroups [SecurityGroups](#securitygroups)
-  * SubnetId [__string](#__string)
-  * VpcId [__string](#__string)
-
-### NetworkInterfaceId
-* NetworkInterfaceId `string`: The ID of the network interface.
+* NetworkInterface `object`: Contains information about the elastic network interface of the EC2 instance.
+  * Ipv6Addresses
+    * items [String](#string)
+  * NetworkInterfaceId
+  * PrivateDnsName
+  * PrivateIpAddress
+  * PrivateIpAddresses
+    * items [PrivateIpAddressDetails](#privateipaddressdetails)
+  * PublicDnsName
+  * PublicIp
+  * SecurityGroups
+    * items [SecurityGroup](#securitygroup)
+  * SubnetId
+  * VpcId
 
 ### NetworkInterfaces
-* NetworkInterfaces `array`: The network interface information of the EC2 instance.
+* NetworkInterfaces `array`
   * items [NetworkInterface](#networkinterface)
 
-### NextToken
-* NextToken `string`: You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the list action. For subsequent calls to the action fill nextToken in the request with the value of NextToken from the previous response to continue listing data.
+### NotEquals
+* NotEquals `array`
+  * items [String](#string)
 
 ### OrderBy
 * OrderBy `string` (values: ASC, DESC)
 
 ### Organization
-* Organization `object`: ISP Organization information of the remote IP address.
-  * Asn [__string](#__string)
-  * AsnOrg [__string](#__string)
-  * Isp [__string](#__string)
-  * Org [__string](#__string)
+* Organization `object`: Contains information about the ISP organization of the remote IP address.
+  * Asn
+  * AsnOrg
+  * Isp
+  * Org
+
+### OrganizationDataSourceConfigurations
+* OrganizationDataSourceConfigurations `object`: An object that contains information on which data sources will be configured to be automatically enabled for new members within the organization.
+  * S3Logs
+    * AutoEnable **required**
+
+### OrganizationDataSourceConfigurationsResult
+* OrganizationDataSourceConfigurationsResult `object`: An object that contains information on which data sources are automatically enabled for new members within the organization.
+  * S3Logs **required**
+    * AutoEnable **required**
+
+### OrganizationS3LogsConfiguration
+* OrganizationS3LogsConfiguration `object`: Describes whether S3 data event logs will be automatically enabled for new members of the organization.
+  * AutoEnable **required**
+
+### OrganizationS3LogsConfigurationResult
+* OrganizationS3LogsConfigurationResult `object`: The current configuration of S3 data event logs as a data source for the organization.
+  * AutoEnable **required**
+
+### Owner
+* Owner `object`: Contains information on the owner of the bucket.
+  * Id
+
+### PermissionConfiguration
+* PermissionConfiguration `object`: Contains information about how permissions are configured for the S3 bucket.
+  * AccountLevelPermissions
+    * BlockPublicAccess
+      * BlockPublicAcls
+      * BlockPublicPolicy
+      * IgnorePublicAcls
+      * RestrictPublicBuckets
+  * BucketLevelPermissions
+    * AccessControlList
+      * AllowsPublicReadAccess
+      * AllowsPublicWriteAccess
+    * BlockPublicAccess
+      * BlockPublicAcls
+      * BlockPublicPolicy
+      * IgnorePublicAcls
+      * RestrictPublicBuckets
+    * BucketPolicy
+      * AllowsPublicReadAccess
+      * AllowsPublicWriteAccess
 
 ### PortProbeAction
-* PortProbeAction `object`: Information about the PORT_PROBE action described in this finding.
-  * Blocked [__boolean](#__boolean)
-  * PortProbeDetails [__listOfPortProbeDetail](#__listofportprobedetail)
+* PortProbeAction `object`: Contains information about the PORT_PROBE action described in the finding.
+  * Blocked
+  * PortProbeDetails
+    * items [PortProbeDetail](#portprobedetail)
 
 ### PortProbeDetail
-* PortProbeDetail `object`: Details about the port probe finding.
-  * LocalPortDetails [LocalPortDetails](#localportdetails)
-  * RemoteIpDetails [RemoteIpDetails](#remoteipdetails)
+* PortProbeDetail `object`: Contains information about the port probe details.
+  * LocalIpDetails
+    * IpAddressV4
+  * LocalPortDetails
+    * Port
+    * PortName
+  * RemoteIpDetails
+    * City
+      * CityName
+    * Country
+      * CountryCode
+      * CountryName
+    * GeoLocation
+      * Lat
+      * Lon
+    * IpAddressV4
+    * Organization
+      * Asn
+      * AsnOrg
+      * Isp
+      * Org
 
-### PrivateDnsName
-* PrivateDnsName `string`: Private DNS name of the EC2 instance.
-
-### PrivateIpAddress
-* PrivateIpAddress `string`: Private IP address of the EC2 instance.
+### PortProbeDetails
+* PortProbeDetails `array`
+  * items [PortProbeDetail](#portprobedetail)
 
 ### PrivateIpAddressDetails
-* PrivateIpAddressDetails `object`: Other private IP address information of the EC2 instance.
-  * PrivateDnsName [PrivateDnsName](#privatednsname)
-  * PrivateIpAddress [PrivateIpAddress](#privateipaddress)
+* PrivateIpAddressDetails `object`: Contains other private IP address information of the EC2 instance.
+  * PrivateDnsName
+  * PrivateIpAddress
 
 ### PrivateIpAddresses
-* PrivateIpAddresses `array`: Other private IP address information of the EC2 instance.
+* PrivateIpAddresses `array`
   * items [PrivateIpAddressDetails](#privateipaddressdetails)
 
 ### ProductCode
-* ProductCode `object`: The product code of the EC2 instance.
-  * Code [__string](#__string)
-  * ProductType [__string](#__string)
+* ProductCode `object`: Contains information about the product code for the EC2 instance.
+  * Code
+  * ProductType
 
 ### ProductCodes
-* ProductCodes `array`: The product code of the EC2 instance.
+* ProductCodes `array`
   * items [ProductCode](#productcode)
 
+### PublicAccess
+* PublicAccess `object`: Describes the public access policies that apply to the S3 bucket.
+  * EffectivePermission
+  * PermissionConfiguration
+    * AccountLevelPermissions
+      * BlockPublicAccess
+        * BlockPublicAcls
+        * BlockPublicPolicy
+        * IgnorePublicAcls
+        * RestrictPublicBuckets
+    * BucketLevelPermissions
+      * AccessControlList
+        * AllowsPublicReadAccess
+        * AllowsPublicWriteAccess
+      * BlockPublicAccess
+        * BlockPublicAcls
+        * BlockPublicPolicy
+        * IgnorePublicAcls
+        * RestrictPublicBuckets
+      * BucketPolicy
+        * AllowsPublicReadAccess
+        * AllowsPublicWriteAccess
+
+### PublishingStatus
+* PublishingStatus `string` (values: PENDING_VERIFICATION, PUBLISHING, UNABLE_TO_PUBLISH_FIX_DESTINATION_PROPERTY, STOPPED)
+
 ### RemoteIpDetails
-* RemoteIpDetails `object`: Remote IP information of the connection.
-  * City [City](#city)
-  * Country [Country](#country)
-  * GeoLocation [GeoLocation](#geolocation)
-  * IpAddressV4 [__string](#__string)
-  * Organization [Organization](#organization)
+* RemoteIpDetails `object`: Contains information about the remote IP address of the connection.
+  * City
+    * CityName
+  * Country
+    * CountryCode
+    * CountryName
+  * GeoLocation
+    * Lat
+    * Lon
+  * IpAddressV4
+  * Organization
+    * Asn
+    * AsnOrg
+    * Isp
+    * Org
 
 ### RemotePortDetails
-* RemotePortDetails `object`: Remote port information of the connection.
-  * Port [__integer](#__integer)
-  * PortName [__string](#__string)
+* RemotePortDetails `object`: Contains information about the remote port.
+  * Port
+  * PortName
 
 ### Resource
-* Resource `object`: The AWS resource associated with the activity that prompted GuardDuty to generate a finding.
-  * AccessKeyDetails [AccessKeyDetails](#accesskeydetails)
-  * InstanceDetails [InstanceDetails](#instancedetails)
-  * ResourceType [__string](#__string)
+* Resource `object`: Contains information about the AWS resource associated with the activity that prompted GuardDuty to generate a finding.
+  * AccessKeyDetails
+    * AccessKeyId
+    * PrincipalId
+    * UserName
+    * UserType
+  * InstanceDetails
+    * AvailabilityZone
+    * IamInstanceProfile
+      * Arn
+      * Id
+    * ImageDescription
+    * ImageId
+    * InstanceId
+    * InstanceState
+    * InstanceType
+    * LaunchTime
+    * NetworkInterfaces
+      * items [NetworkInterface](#networkinterface)
+    * OutpostArn
+    * Platform
+    * ProductCodes
+      * items [ProductCode](#productcode)
+    * Tags
+      * items [Tag](#tag)
+  * ResourceType
+  * S3BucketDetails
+    * items [S3BucketDetail](#s3bucketdetail)
+
+### ResourceList
+* ResourceList `array`
+  * items [String](#string)
+
+### S3BucketDetail
+* S3BucketDetail `object`: Contains information on the S3 bucket.
+  * Arn
+  * CreatedAt
+  * DefaultServerSideEncryption
+    * EncryptionType
+    * KmsMasterKeyArn
+  * Name
+  * Owner
+    * Id
+  * PublicAccess
+    * EffectivePermission
+    * PermissionConfiguration
+      * AccountLevelPermissions
+        * BlockPublicAccess
+          * BlockPublicAcls
+          * BlockPublicPolicy
+          * IgnorePublicAcls
+          * RestrictPublicBuckets
+      * BucketLevelPermissions
+        * AccessControlList
+          * AllowsPublicReadAccess
+          * AllowsPublicWriteAccess
+        * BlockPublicAccess
+          * BlockPublicAcls
+          * BlockPublicPolicy
+          * IgnorePublicAcls
+          * RestrictPublicBuckets
+        * BucketPolicy
+          * AllowsPublicReadAccess
+          * AllowsPublicWriteAccess
+  * Tags
+    * items [Tag](#tag)
+  * Type
+
+### S3BucketDetails
+* S3BucketDetails `array`
+  * items [S3BucketDetail](#s3bucketdetail)
+
+### S3LogsConfiguration
+* S3LogsConfiguration `object`: Describes whether S3 data event logs will be enabled as a data source.
+  * Enable **required**
+
+### S3LogsConfigurationResult
+* S3LogsConfigurationResult `object`: Describes whether S3 data event logs will be enabled as a data source.
+  * Status **required**
 
 ### SecurityGroup
-* SecurityGroup `object`: Security groups associated with the EC2 instance.
-  * GroupId [__string](#__string)
-  * GroupName [__string](#__string)
+* SecurityGroup `object`: Contains information about the security groups associated with the EC2 instance.
+  * GroupId
+  * GroupName
 
 ### SecurityGroups
-* SecurityGroups `array`: Security groups associated with the EC2 instance.
+* SecurityGroups `array`
   * items [SecurityGroup](#securitygroup)
 
 ### Service
-* Service `object`: Additional information assigned to the generated finding by GuardDuty.
-  * Action [Action](#action)
-  * Archived [__boolean](#__boolean)
-  * Count [__integer](#__integer)
-  * DetectorId [DetectorId](#detectorid)
-  * EventFirstSeen [__string](#__string)
-  * EventLastSeen [__string](#__string)
-  * ResourceRole [__string](#__string)
-  * ServiceName [__string](#__string)
-  * UserFeedback [__string](#__string)
-
-### ServiceRole
-* ServiceRole `string`: Customer serviceRole name or ARN for accessing customer resources
+* Service `object`: Contains additional information about the generated finding.
+  * Action
+    * ActionType
+    * AwsApiCallAction
+      * Api
+      * CallerType
+      * DomainDetails
+        * Domain
+      * ErrorCode
+      * RemoteIpDetails
+        * City
+          * CityName
+        * Country
+          * CountryCode
+          * CountryName
+        * GeoLocation
+          * Lat
+          * Lon
+        * IpAddressV4
+        * Organization
+          * Asn
+          * AsnOrg
+          * Isp
+          * Org
+      * ServiceName
+    * DnsRequestAction
+      * Domain
+    * NetworkConnectionAction
+      * Blocked
+      * ConnectionDirection
+      * LocalIpDetails
+        * IpAddressV4
+      * LocalPortDetails
+        * Port
+        * PortName
+      * Protocol
+      * RemoteIpDetails
+        * City
+          * CityName
+        * Country
+          * CountryCode
+          * CountryName
+        * GeoLocation
+          * Lat
+          * Lon
+        * IpAddressV4
+        * Organization
+          * Asn
+          * AsnOrg
+          * Isp
+          * Org
+      * RemotePortDetails
+        * Port
+        * PortName
+    * PortProbeAction
+      * Blocked
+      * PortProbeDetails
+        * items [PortProbeDetail](#portprobedetail)
+  * Archived
+  * Count
+  * DetectorId
+  * EventFirstSeen
+  * EventLastSeen
+  * Evidence
+    * ThreatIntelligenceDetails
+      * items [ThreatIntelligenceDetail](#threatintelligencedetail)
+  * ResourceRole
+  * ServiceName
+  * UserFeedback
 
 ### SortCriteria
-* SortCriteria `object`: Represents the criteria used for sorting findings.
-  * AttributeName [__string](#__string)
-  * OrderBy [OrderBy](#orderby)
+* SortCriteria `object`: Contains information about the criteria used for sorting findings.
+  * AttributeName
+  * OrderBy
 
 ### StartMonitoringMembersRequest
-* StartMonitoringMembersRequest `object`: StartMonitoringMembers request body.
-  * AccountIds [AccountIds](#accountids)
+* StartMonitoringMembersRequest `object`
+  * AccountIds **required**
+    * items [AccountId](#accountid)
 
 ### StartMonitoringMembersResponse
 * StartMonitoringMembersResponse `object`
-  * UnprocessedAccounts [UnprocessedAccounts](#unprocessedaccounts)
+  * UnprocessedAccounts **required**
+    * items [UnprocessedAccount](#unprocessedaccount)
 
 ### StopMonitoringMembersRequest
-* StopMonitoringMembersRequest `object`: StopMonitoringMembers request body.
-  * AccountIds [AccountIds](#accountids)
+* StopMonitoringMembersRequest `object`
+  * AccountIds **required**
+    * items [AccountId](#accountid)
 
 ### StopMonitoringMembersResponse
 * StopMonitoringMembersResponse `object`
-  * UnprocessedAccounts [UnprocessedAccounts](#unprocessedaccounts)
+  * UnprocessedAccounts **required**
+    * items [UnprocessedAccount](#unprocessedaccount)
+
+### String
+* String `string`
 
 ### Tag
-* Tag `object`: A tag of the EC2 instance.
-  * Key [__string](#__string)
-  * Value [__string](#__string)
+* Tag `object`: Contains information about a tag associated with the EC2 instance.
+  * Key
+  * Value
+
+### TagKey
+* TagKey `string`
+
+### TagKeyList
+* TagKeyList `array`
+  * items [TagKey](#tagkey)
+
+### TagMap
+* TagMap `object`
+
+### TagResourceRequest
+* TagResourceRequest `object`
+  * Tags **required**
+
+### TagResourceResponse
+* TagResourceResponse `object`
+
+### TagValue
+* TagValue `string`
 
 ### Tags
-* Tags `array`: The tags of the EC2 instance.
+* Tags `array`
   * items [Tag](#tag)
 
 ### ThreatIntelSetFormat
-* ThreatIntelSetFormat `string` (values: TXT, STIX, OTX_CSV, ALIEN_VAULT, PROOF_POINT, FIRE_EYE): The format of the threatIntelSet.
-
-### ThreatIntelSetId
-* ThreatIntelSetId `string`: The unique identifier for an threat intel set
+* ThreatIntelSetFormat `string` (values: TXT, STIX, OTX_CSV, ALIEN_VAULT, PROOF_POINT, FIRE_EYE)
 
 ### ThreatIntelSetIds
-* ThreatIntelSetIds `array`: The list of the threat intel set IDs
-  * items [ThreatIntelSetId](#threatintelsetid)
+* ThreatIntelSetIds `array`
+  * items [String](#string)
 
 ### ThreatIntelSetStatus
-* ThreatIntelSetStatus `string` (values: INACTIVE, ACTIVATING, ACTIVE, DEACTIVATING, ERROR, DELETE_PENDING, DELETED): The status of threatIntelSet file uploaded.
+* ThreatIntelSetStatus `string` (values: INACTIVE, ACTIVATING, ACTIVE, DEACTIVATING, ERROR, DELETE_PENDING, DELETED)
+
+### ThreatIntelligenceDetail
+* ThreatIntelligenceDetail `object`: An instance of a threat intelligence detail that constitutes evidence for the finding.
+  * ThreatListName
+  * ThreatNames
+    * items [String](#string)
+
+### ThreatIntelligenceDetails
+* ThreatIntelligenceDetails `array`
+  * items [ThreatIntelligenceDetail](#threatintelligencedetail)
+
+### ThreatNames
+* ThreatNames `array`
+  * items [String](#string)
+
+### Timestamp
+* Timestamp `string`
+
+### Total
+* Total `object`: Contains the total usage with the corresponding currency unit for that value.
+  * Amount
+  * Unit
 
 ### UnarchiveFindingsRequest
-* UnarchiveFindingsRequest `object`: UnarchiveFindings request body.
-  * FindingIds [FindingIds](#findingids)
+* UnarchiveFindingsRequest `object`
+  * FindingIds **required**
+    * items [FindingId](#findingid)
 
 ### UnarchiveFindingsResponse
 * UnarchiveFindingsResponse `object`
 
 ### UnprocessedAccount
-* UnprocessedAccount `object`: An object containing the unprocessed account and a result string explaining why it was unprocessed.
-  * AccountId **required** [__string](#__string)
-  * Result **required** [__string](#__string)
+* UnprocessedAccount `object`: Contains information about the accounts that weren't processed.
+  * AccountId **required**
+  * Result **required**
 
 ### UnprocessedAccounts
-* UnprocessedAccounts `array`: A list of objects containing the unprocessed account and a result string explaining why it was unprocessed.
+* UnprocessedAccounts `array`
   * items [UnprocessedAccount](#unprocessedaccount)
 
+### UntagResourceRequest
+* UntagResourceRequest `object`
+
+### UntagResourceResponse
+* UntagResourceResponse `object`
+
 ### UpdateDetectorRequest
-* UpdateDetectorRequest `object`: UpdateDetector request body.
-  * Enable [Enable](#enable)
+* UpdateDetectorRequest `object`
+  * DataSources
+    * S3Logs
+      * Enable **required**
+  * Enable
+  * FindingPublishingFrequency
 
 ### UpdateDetectorResponse
 * UpdateDetectorResponse `object`
 
 ### UpdateFilterRequest
-* UpdateFilterRequest `object`: UpdateFilterRequest request body.
-  * Action [FilterAction](#filteraction)
-  * Description [FilterDescription](#filterdescription)
-  * FindingCriteria [FindingCriteria](#findingcriteria)
-  * Rank [FilterRank](#filterrank)
+* UpdateFilterRequest `object`
+  * Action
+  * Description
+  * FindingCriteria
+    * Criterion
+  * Rank
 
 ### UpdateFilterResponse
 * UpdateFilterResponse `object`
-  * Name [FilterName](#filtername)
+  * Name **required**
 
 ### UpdateFindingsFeedbackRequest
-* UpdateFindingsFeedbackRequest `object`: UpdateFindingsFeedback request body.
-  * Comments [Comments](#comments)
-  * Feedback [Feedback](#feedback)
-  * FindingIds [FindingIds](#findingids)
+* UpdateFindingsFeedbackRequest `object`
+  * Comments
+  * Feedback **required**
+  * FindingIds **required**
+    * items [FindingId](#findingid)
 
 ### UpdateFindingsFeedbackResponse
 * UpdateFindingsFeedbackResponse `object`
 
 ### UpdateIPSetRequest
-* UpdateIPSetRequest `object`: UpdateIPSet request body.
-  * Activate [Activate](#activate)
-  * Location [Location](#location)
-  * Name [Name](#name)
+* UpdateIPSetRequest `object`
+  * Activate
+  * Location
+  * Name
 
 ### UpdateIPSetResponse
 * UpdateIPSetResponse `object`
 
+### UpdateMemberDetectorsRequest
+* UpdateMemberDetectorsRequest `object`
+  * AccountIds **required**
+    * items [AccountId](#accountid)
+  * DataSources
+    * S3Logs
+      * Enable **required**
+
+### UpdateMemberDetectorsResponse
+* UpdateMemberDetectorsResponse `object`
+  * UnprocessedAccounts **required**
+    * items [UnprocessedAccount](#unprocessedaccount)
+
+### UpdateOrganizationConfigurationRequest
+* UpdateOrganizationConfigurationRequest `object`
+  * AutoEnable **required**
+  * DataSources
+    * S3Logs
+      * AutoEnable **required**
+
+### UpdateOrganizationConfigurationResponse
+* UpdateOrganizationConfigurationResponse `object`
+
+### UpdatePublishingDestinationRequest
+* UpdatePublishingDestinationRequest `object`
+  * DestinationProperties
+    * DestinationArn
+    * KmsKeyArn
+
+### UpdatePublishingDestinationResponse
+* UpdatePublishingDestinationResponse `object`
+
 ### UpdateThreatIntelSetRequest
-* UpdateThreatIntelSetRequest `object`: UpdateThreatIntelSet request body.
-  * Activate [Activate](#activate)
-  * Location [Location](#location)
-  * Name [Name](#name)
+* UpdateThreatIntelSetRequest `object`
+  * Activate
+  * Location
+  * Name
 
 ### UpdateThreatIntelSetResponse
 * UpdateThreatIntelSetResponse `object`
 
-### UpdatedAt
-* UpdatedAt `string`: The first time a resource was created. The format will be ISO-8601.
+### UsageAccountResult
+* UsageAccountResult `object`: Contains information on the total of usage based on account IDs.
+  * AccountId
+  * Total
+    * Amount
+    * Unit
 
-### __boolean
-* __boolean `boolean`
+### UsageAccountResultList
+* UsageAccountResultList `array`
+  * items [UsageAccountResult](#usageaccountresult)
 
-### __double
-* __double `number`
+### UsageCriteria
+* UsageCriteria `object`: Contains information about the criteria used to query usage statistics.
+  * AccountIds
+    * items [AccountId](#accountid)
+  * DataSources **required**
+    * items [DataSource](#datasource)
+  * Resources
+    * items [String](#string)
 
-### __integer
-* __integer `integer`
+### UsageDataSourceResult
+* UsageDataSourceResult `object`: Contains information on the result of usage based on data source type.
+  * DataSource
+  * Total
+    * Amount
+    * Unit
 
-### __listOfPortProbeDetail
-* __listOfPortProbeDetail `array`
-  * items [PortProbeDetail](#portprobedetail)
+### UsageDataSourceResultList
+* UsageDataSourceResultList `array`
+  * items [UsageDataSourceResult](#usagedatasourceresult)
 
-### __long
-* __long `integer`
+### UsageResourceResult
+* UsageResourceResult `object`: Contains information on the sum of usage based on an AWS resource.
+  * Resource
+  * Total
+    * Amount
+    * Unit
 
-### __mapOfCondition
-* __mapOfCondition `array`
-  * items `object`
-    * key [__string](#__string)
-    * value [Condition](#condition)
+### UsageResourceResultList
+* UsageResourceResultList `array`
+  * items [UsageResourceResult](#usageresourceresult)
 
-### __mapOfCountBySeverityFindingStatistic
-* __mapOfCountBySeverityFindingStatistic `array`
-  * items `object`
-    * key [__string](#__string)
-    * value [CountBySeverityFindingStatistic](#countbyseverityfindingstatistic)
+### UsageStatisticType
+* UsageStatisticType `string` (values: SUM_BY_ACCOUNT, SUM_BY_DATA_SOURCE, SUM_BY_RESOURCE, TOP_RESOURCES)
 
-### __string
-* __string `string`
-
-### __stringMin0Max64
-* __stringMin0Max64 `string`
-
-### __timestamp
-* __timestamp `string`
+### UsageStatistics
+* UsageStatistics `object`: Contains the result of GuardDuty usage. If a UsageStatisticType is provided the result for other types will be null. 
+  * SumByAccount
+    * items [UsageAccountResult](#usageaccountresult)
+  * SumByDataSource
+    * items [UsageDataSourceResult](#usagedatasourceresult)
+  * SumByResource
+    * items [UsageResourceResult](#usageresourceresult)
+  * TopResources
+    * items [UsageResourceResult](#usageresourceresult)
 
 

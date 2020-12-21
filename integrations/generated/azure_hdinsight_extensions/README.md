@@ -15,12 +15,7 @@ let azure_hdinsight_extensions = require('@datafire/azure_hdinsight_extensions')
   redirect_uri: ""
 });
 
-azure_hdinsight_extensions.Extension_DisableMonitoring({
-  "resourceGroupName": "",
-  "clusterName": "",
-  "api-version": "",
-  "subscriptionId": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -31,150 +26,150 @@ The HDInsight Management Client.
 
 ## Actions
 
-### Extension_DisableMonitoring
+### Extensions_DisableMonitoring
 Disables the Operations Management Suite (OMS) on the HDInsight cluster.
 
 
 ```js
-azure_hdinsight_extensions.Extension_DisableMonitoring({
+azure_hdinsight_extensions.Extensions_DisableMonitoring({
+  "subscriptionId": "",
   "resourceGroupName": "",
   "clusterName": "",
-  "api-version": "",
-  "subscriptionId": ""
+  "api-version": ""
 }, context)
 ```
 
 #### Input
 * input `object`
+  * subscriptionId **required** `string`: The subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
   * resourceGroupName **required** `string`: The name of the resource group.
   * clusterName **required** `string`: The name of the cluster.
   * api-version **required** `string`: The HDInsight client API Version.
-  * subscriptionId **required** `string`: The subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
 #### Output
 *Output schema unknown*
 
-### Extension_GetMonitoringStatus
+### Extensions_GetMonitoringStatus
 Gets the status of Operations Management Suite (OMS) on the HDInsight cluster.
 
 
 ```js
-azure_hdinsight_extensions.Extension_GetMonitoringStatus({
+azure_hdinsight_extensions.Extensions_GetMonitoringStatus({
+  "subscriptionId": "",
   "resourceGroupName": "",
   "clusterName": "",
-  "api-version": "",
-  "subscriptionId": ""
+  "api-version": ""
 }, context)
 ```
 
 #### Input
 * input `object`
+  * subscriptionId **required** `string`: The subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
   * resourceGroupName **required** `string`: The name of the resource group.
   * clusterName **required** `string`: The name of the cluster.
   * api-version **required** `string`: The HDInsight client API Version.
-  * subscriptionId **required** `string`: The subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
 #### Output
 * output [ClusterMonitoringResponse](#clustermonitoringresponse)
 
-### Extension_EnableMonitoring
+### Extensions_EnableMonitoring
 Enables the Operations Management Suite (OMS) on the HDInsight cluster.
 
 
 ```js
-azure_hdinsight_extensions.Extension_EnableMonitoring({
+azure_hdinsight_extensions.Extensions_EnableMonitoring({
+  "subscriptionId": "",
   "resourceGroupName": "",
   "clusterName": "",
-  "parameters": null,
   "api-version": "",
-  "subscriptionId": ""
+  "parameters": null
 }, context)
 ```
 
 #### Input
 * input `object`
+  * subscriptionId **required** `string`: The subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
   * resourceGroupName **required** `string`: The name of the resource group.
   * clusterName **required** `string`: The name of the cluster.
-  * parameters **required** [ClusterMonitoringRequest](#clustermonitoringrequest)
   * api-version **required** `string`: The HDInsight client API Version.
-  * subscriptionId **required** `string`: The subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+  * parameters **required** [ClusterMonitoringRequest](#clustermonitoringrequest)
 
 #### Output
 *Output schema unknown*
 
-### Extension_Delete
+### Extensions_Delete
 Deletes the specified extension for HDInsight cluster.
 
 
 ```js
-azure_hdinsight_extensions.Extension_Delete({
+azure_hdinsight_extensions.Extensions_Delete({
+  "subscriptionId": "",
   "resourceGroupName": "",
   "clusterName": "",
   "extensionName": "",
-  "api-version": "",
-  "subscriptionId": ""
+  "api-version": ""
 }, context)
 ```
 
 #### Input
 * input `object`
+  * subscriptionId **required** `string`: The subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
   * resourceGroupName **required** `string`: The name of the resource group.
   * clusterName **required** `string`: The name of the cluster.
-  * extensionName **required** `string` (values: clustermonitoring): The name of the cluster extension.
+  * extensionName **required** `string`: The name of the cluster extension.
   * api-version **required** `string`: The HDInsight client API Version.
-  * subscriptionId **required** `string`: The subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
 #### Output
 *Output schema unknown*
 
-### Extension_Get
+### Extensions_Get
 Gets the extension properties for the specified HDInsight cluster extension.
 
 
 ```js
-azure_hdinsight_extensions.Extension_Get({
+azure_hdinsight_extensions.Extensions_Get({
+  "subscriptionId": "",
   "resourceGroupName": "",
   "clusterName": "",
   "extensionName": "",
-  "api-version": "",
-  "subscriptionId": ""
+  "api-version": ""
 }, context)
 ```
 
 #### Input
 * input `object`
+  * subscriptionId **required** `string`: The subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
   * resourceGroupName **required** `string`: The name of the resource group.
   * clusterName **required** `string`: The name of the cluster.
-  * extensionName **required** `string` (values: clustermonitoring): The name of the cluster extension.
+  * extensionName **required** `string`: The name of the cluster extension.
   * api-version **required** `string`: The HDInsight client API Version.
-  * subscriptionId **required** `string`: The subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
 #### Output
 * output [Extension](#extension)
 
-### Extension_Create
+### Extensions_Create
 Creates an HDInsight cluster extension.
 
 
 ```js
-azure_hdinsight_extensions.Extension_Create({
+azure_hdinsight_extensions.Extensions_Create({
+  "subscriptionId": "",
   "resourceGroupName": "",
   "clusterName": "",
-  "parameters": null,
   "extensionName": "",
   "api-version": "",
-  "subscriptionId": ""
+  "parameters": null
 }, context)
 ```
 
 #### Input
 * input `object`
+  * subscriptionId **required** `string`: The subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
   * resourceGroupName **required** `string`: The name of the resource group.
   * clusterName **required** `string`: The name of the cluster.
-  * parameters **required** [Extension](#extension)
-  * extensionName **required** `string` (values: clustermonitoring): The name of the cluster extension.
+  * extensionName **required** `string`: The name of the cluster extension.
   * api-version **required** `string`: The HDInsight client API Version.
-  * subscriptionId **required** `string`: The subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+  * parameters **required** [Extension](#extension)
 
 #### Output
 *Output schema unknown*
@@ -190,8 +185,8 @@ azure_hdinsight_extensions.Extension_Create({
 
 ### ClusterMonitoringResponse
 * ClusterMonitoringResponse `object`: The Operations Management Suite (OMS) status response
-  * ClusterMonitoringEnabled `boolean`: The status of the Operations Management Suite (OMS) on the HDInsight cluster.
-  * WorkspaceId `string`: The workspace ID of the Operations Management Suite (OMS) on the HDInsight cluster.
+  * clusterMonitoringEnabled `boolean`: The status of the Operations Management Suite (OMS) on the HDInsight cluster.
+  * workspaceId `string`: The workspace ID of the Operations Management Suite (OMS) on the HDInsight cluster.
 
 ### Extension
 * Extension `object`: Cluster monitoring extensions

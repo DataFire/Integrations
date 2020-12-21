@@ -15,11 +15,7 @@ let azure_streamanalytics_subscriptions = require('@datafire/azure_streamanalyti
   redirect_uri: ""
 });
 
-azure_streamanalytics_subscriptions.Subscriptions_ListQuotas({
-  "location": "",
-  "api-version": "",
-  "subscriptionId": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

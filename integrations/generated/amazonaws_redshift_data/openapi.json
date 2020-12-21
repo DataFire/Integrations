@@ -1,0 +1,2449 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "contact": {
+      "email": "mike.ralphson@gmail.com",
+      "name": "Mike Ralphson",
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
+    },
+    "description": "You can use the Amazon Redshift Data API to run queries on Amazon Redshift tables. You can run individual SQL statements, which are committed if the statement succeeds. ",
+    "license": {
+      "name": "Apache 2.0 License",
+      "url": "http://www.apache.org/licenses/"
+    },
+    "termsOfService": "https://aws.amazon.com/service-terms/",
+    "title": "Redshift Data API Service",
+    "version": "2019-12-20",
+    "x-apiClientRegistration": {
+      "url": "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"
+    },
+    "x-apisguru-categories": [
+      "cloud"
+    ],
+    "x-logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"
+    },
+    "x-origin": [
+      {
+        "contentType": "application/json",
+        "converter": {
+          "url": "https://github.com/mermade/aws2openapi",
+          "version": "1.0.0"
+        },
+        "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/redshift-data-2019-12-20.normal.json",
+        "x-apisguru-driver": "external"
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "amazonaws.com",
+    "x-release": "v4",
+    "x-serviceName": "redshift-data",
+    "x-datafire": {
+      "name": "amazonaws_redshift_data",
+      "type": "openapi"
+    }
+  },
+  "host": "redshift-data.us-east-1.amazonaws.com",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/#X-Amz-Target=RedshiftData.CancelStatement": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "RedshiftData.CancelStatement"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CancelStatementRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CancelStatementResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Cancels a running query. To be canceled, a query must be running. ",
+        "operationId": "CancelStatement"
+      }
+    },
+    "/#X-Amz-Target=RedshiftData.DescribeStatement": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "RedshiftData.DescribeStatement"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeStatementRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeStatementResponse"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Describes the details about a specific instance when a query was run by the Amazon Redshift Data API. The information includes when the query started, when it finished, the query status, the number of rows returned, and the SQL statement. ",
+        "operationId": "DescribeStatement"
+      }
+    },
+    "/#X-Amz-Target=RedshiftData.DescribeTable": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "RedshiftData.DescribeTable"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeTableRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeTableResponse"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "<p>Describes the detailed information about a table from metadata in the cluster. The information includes its columns. A token is returned to page through the column list. Depending on the authorization method, use one of the following combinations of request parameters: </p> <ul> <li> <p>AWS Secrets Manager - specify the Amazon Resource Name (ARN) of the secret and the cluster identifier that matches the cluster in the secret. </p> </li> <li> <p>Temporary credentials - specify the cluster identifier, the database name, and the database user name. Permission to call the <code>redshift:GetClusterCredentials</code> operation is required to use this method. </p> </li> </ul>",
+        "operationId": "DescribeTable"
+      }
+    },
+    "/#X-Amz-Target=RedshiftData.ExecuteStatement": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "RedshiftData.ExecuteStatement"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ExecuteStatementInput"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ExecuteStatementOutput"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "ExecuteStatementException",
+            "schema": {
+              "$ref": "#/definitions/ExecuteStatementException"
+            }
+          }
+        },
+        "description": "<p>Runs an SQL statement, which can be data manipulation language (DML) or data definition language (DDL). This statement must be a single SQL statement. Depending on the authorization method, use one of the following combinations of request parameters: </p> <ul> <li> <p>AWS Secrets Manager - specify the Amazon Resource Name (ARN) of the secret and the cluster identifier that matches the cluster in the secret. </p> </li> <li> <p>Temporary credentials - specify the cluster identifier, the database name, and the database user name. Permission to call the <code>redshift:GetClusterCredentials</code> operation is required to use this method. </p> </li> </ul>",
+        "operationId": "ExecuteStatement"
+      }
+    },
+    "/#X-Amz-Target=RedshiftData.GetStatementResult": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "RedshiftData.GetStatementResult"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetStatementResultRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetStatementResultResponse"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Fetches the temporarily cached result of an SQL statement. A token is returned to page through the statement results. ",
+        "operationId": "GetStatementResult"
+      }
+    },
+    "/#X-Amz-Target=RedshiftData.ListDatabases": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "RedshiftData.ListDatabases"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListDatabasesRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListDatabasesResponse"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "<p>List the databases in a cluster. A token is returned to page through the database list. Depending on the authorization method, use one of the following combinations of request parameters: </p> <ul> <li> <p>AWS Secrets Manager - specify the Amazon Resource Name (ARN) of the secret and the cluster identifier that matches the cluster in the secret. </p> </li> <li> <p>Temporary credentials - specify the cluster identifier, the database name, and the database user name. Permission to call the <code>redshift:GetClusterCredentials</code> operation is required to use this method. </p> </li> </ul>",
+        "operationId": "ListDatabases"
+      }
+    },
+    "/#X-Amz-Target=RedshiftData.ListSchemas": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "RedshiftData.ListSchemas"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListSchemasRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListSchemasResponse"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "<p>Lists the schemas in a database. A token is returned to page through the schema list. Depending on the authorization method, use one of the following combinations of request parameters: </p> <ul> <li> <p>AWS Secrets Manager - specify the Amazon Resource Name (ARN) of the secret and the cluster identifier that matches the cluster in the secret. </p> </li> <li> <p>Temporary credentials - specify the cluster identifier, the database name, and the database user name. Permission to call the <code>redshift:GetClusterCredentials</code> operation is required to use this method. </p> </li> </ul>",
+        "operationId": "ListSchemas"
+      }
+    },
+    "/#X-Amz-Target=RedshiftData.ListStatements": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "RedshiftData.ListStatements"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListStatementsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListStatementsResponse"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "List of SQL statements. By default, only finished statements are shown. A token is returned to page through the statement list. ",
+        "operationId": "ListStatements"
+      }
+    },
+    "/#X-Amz-Target=RedshiftData.ListTables": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "RedshiftData.ListTables"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListTablesRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListTablesResponse"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "<p>List the tables in a database. If neither <code>SchemaPattern</code> nor <code>TablePattern</code> are specified, then all tables in the database are returned. A token is returned to page through the table list. Depending on the authorization method, use one of the following combinations of request parameters: </p> <ul> <li> <p>AWS Secrets Manager - specify the Amazon Resource Name (ARN) of the secret and the cluster identifier that matches the cluster in the secret. </p> </li> <li> <p>Temporary credentials - specify the cluster identifier, the database name, and the database user name. Permission to call the <code>redshift:GetClusterCredentials</code> operation is required to use this method. </p> </li> </ul>",
+        "operationId": "ListTables"
+      }
+    }
+  },
+  "definitions": {
+    "Blob": {
+      "type": "string"
+    },
+    "Boolean": {
+      "type": "boolean"
+    },
+    "BoxedBoolean": {
+      "type": "boolean"
+    },
+    "BoxedDouble": {
+      "format": "double",
+      "type": "number"
+    },
+    "BoxedLong": {
+      "type": "integer"
+    },
+    "CancelStatementRequest": {
+      "properties": {
+        "Id": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/UUID"
+            },
+            {
+              "description": "The identifier of the SQL statement to cancel. This value is a universally unique identifier (UUID) generated by Amazon Redshift Data API. This identifier is returned by <code>ExecuteStatment</code> and <code>ListStatements</code>. "
+            }
+          ]
+        }
+      },
+      "required": [
+        "Id"
+      ],
+      "title": "CancelStatementRequest",
+      "type": "object"
+    },
+    "CancelStatementResponse": {
+      "properties": {
+        "Status": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Boolean"
+            },
+            {
+              "description": "A value that indicates whether the cancel statement succeeded (true). "
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ColumnList": {
+      "items": {
+        "$ref": "#/definitions/ColumnMetadata"
+      },
+      "type": "array"
+    },
+    "ColumnMetadata": {
+      "description": "The properties (metadata) of a column. ",
+      "properties": {
+        "columnDefault": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The default value of the column. "
+            }
+          ]
+        },
+        "isCaseSensitive": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/bool"
+            },
+            {
+              "description": "A value that indicates whether the column is case-sensitive. "
+            }
+          ]
+        },
+        "isCurrency": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/bool"
+            },
+            {
+              "description": "A value that indicates whether the column contains currency values."
+            }
+          ]
+        },
+        "isSigned": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/bool"
+            },
+            {
+              "description": "A value that indicates whether an integer column is signed."
+            }
+          ]
+        },
+        "label": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The label for the column. "
+            }
+          ]
+        },
+        "length": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Integer"
+            },
+            {
+              "description": "The length of the column."
+            }
+          ]
+        },
+        "name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The name of the column. "
+            }
+          ]
+        },
+        "nullable": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Integer"
+            },
+            {
+              "description": "A value that indicates whether the column is nullable. "
+            }
+          ]
+        },
+        "precision": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Integer"
+            },
+            {
+              "description": "The precision value of a decimal number column. "
+            }
+          ]
+        },
+        "scale": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Integer"
+            },
+            {
+              "description": "The scale value of a decimal number column. "
+            }
+          ]
+        },
+        "schemaName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The name of the schema that contains the table that includes the column."
+            }
+          ]
+        },
+        "tableName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The name of the table that includes the column. "
+            }
+          ]
+        },
+        "typeName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The database-specific data type of the column. "
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ColumnMetadataList": {
+      "items": {
+        "$ref": "#/definitions/ColumnMetadata"
+      },
+      "type": "array"
+    },
+    "DatabaseList": {
+      "items": {
+        "$ref": "#/definitions/String"
+      },
+      "type": "array"
+    },
+    "DescribeStatementRequest": {
+      "properties": {
+        "Id": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/UUID"
+            },
+            {
+              "description": "The identifier of the SQL statement to describe. This value is a universally unique identifier (UUID) generated by Amazon Redshift Data API. This identifier is returned by <code>ExecuteStatment</code> and <code>ListStatements</code>. "
+            }
+          ]
+        }
+      },
+      "required": [
+        "Id"
+      ],
+      "title": "DescribeStatementRequest",
+      "type": "object"
+    },
+    "DescribeStatementResponse": {
+      "properties": {
+        "ClusterIdentifier": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The cluster identifier. "
+            }
+          ]
+        },
+        "CreatedAt": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "The date and time (UTC) when the SQL statement was submitted to run. "
+            }
+          ]
+        },
+        "Database": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The name of the database. "
+            }
+          ]
+        },
+        "DbUser": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The database user name. "
+            }
+          ]
+        },
+        "Duration": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Long"
+            },
+            {
+              "description": "The amount of time in nanoseconds that the statement ran. "
+            }
+          ]
+        },
+        "Error": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The error message from the cluster if the SQL statement encountered an error while running. "
+            }
+          ]
+        },
+        "Id": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/UUID"
+            },
+            {
+              "description": "The identifier of the SQL statement described. This value is a universally unique identifier (UUID) generated by Amazon Redshift Data API. "
+            }
+          ]
+        },
+        "QueryString": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/StatementString"
+            },
+            {
+              "description": "The SQL statement text. "
+            }
+          ]
+        },
+        "RedshiftPid": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Long"
+            },
+            {
+              "description": "The process identifier from Amazon Redshift. "
+            }
+          ]
+        },
+        "RedshiftQueryId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Long"
+            },
+            {
+              "description": "The identifier of the query generated by Amazon Redshift. These identifiers are also available in the <code>query</code> column of the <code>STL_QUERY</code> system view. "
+            }
+          ]
+        },
+        "ResultRows": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Long"
+            },
+            {
+              "description": "Either the number of rows returned from the SQL statement or the number of rows affected. If result size is greater than zero, the result rows can be the number of rows affected by SQL statements such as INSERT, UPDATE, DELETE, COPY, and others. "
+            }
+          ]
+        },
+        "ResultSize": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Long"
+            },
+            {
+              "description": "The size in bytes of the returned results. "
+            }
+          ]
+        },
+        "SecretArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SecretArn"
+            },
+            {
+              "description": "The name or Amazon Resource Name (ARN) of the secret that enables access to the database. "
+            }
+          ]
+        },
+        "Status": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/StatusString"
+            },
+            {
+              "description": "<p>The status of the SQL statement being described. Status values are defined as follows: </p> <ul> <li> <p>ABORTED - The query run was stopped by the user. </p> </li> <li> <p>ALL - A status value that includes all query statuses. This value can be used to filter results. </p> </li> <li> <p>FAILED - The query run failed. </p> </li> <li> <p>FINISHED - The query has finished running. </p> </li> <li> <p>PICKED - The query has been chosen to be run. </p> </li> <li> <p>STARTED - The query run has started. </p> </li> <li> <p>SUBMITTED - The query was submitted, but not yet processed. </p> </li> </ul>"
+            }
+          ]
+        },
+        "UpdatedAt": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "The date and time (UTC) that the metadata for the SQL statement was last updated. An example is the time the status last changed. "
+            }
+          ]
+        }
+      },
+      "required": [
+        "Id"
+      ],
+      "type": "object"
+    },
+    "DescribeTableRequest": {
+      "properties": {
+        "ClusterIdentifier": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Location"
+            },
+            {
+              "description": "The cluster identifier. This parameter is required when authenticating using either AWS Secrets Manager or temporary credentials. "
+            }
+          ]
+        },
+        "Database": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The name of the database. This parameter is required when authenticating using temporary credentials."
+            }
+          ]
+        },
+        "DbUser": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The database user name. This parameter is required when authenticating using temporary credentials. "
+            }
+          ]
+        },
+        "MaxResults": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PageSize"
+            },
+            {
+              "description": "The maximum number of tables to return in the response. If more tables exist than fit in one response, then <code>NextToken</code> is returned to page through the results. "
+            }
+          ]
+        },
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned NextToken value in the next NextToken parameter and retrying the command. If the NextToken field is empty, all response records have been retrieved for the request. "
+            }
+          ]
+        },
+        "Schema": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The schema that contains the table. If no schema is specified, then matching tables for all schemas are returned. "
+            }
+          ]
+        },
+        "SecretArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SecretArn"
+            },
+            {
+              "description": "The name or ARN of the secret that enables access to the database. This parameter is required when authenticating using AWS Secrets Manager. "
+            }
+          ]
+        },
+        "Table": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The table name. If no table is specified, then all tables for all matching schemas are returned. If no table and no schema is specified, then all tables for all schemas in the database are returned"
+            }
+          ]
+        }
+      },
+      "required": [
+        "ClusterIdentifier"
+      ],
+      "title": "DescribeTableRequest",
+      "type": "object"
+    },
+    "DescribeTableResponse": {
+      "properties": {
+        "ColumnList": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ColumnList"
+            },
+            {
+              "description": "A list of columns in the table. "
+            }
+          ]
+        },
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned NextToken value in the next NextToken parameter and retrying the command. If the NextToken field is empty, all response records have been retrieved for the request. "
+            }
+          ]
+        },
+        "TableName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The table name. "
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ExecuteStatementException": {},
+    "ExecuteStatementInput": {
+      "properties": {
+        "ClusterIdentifier": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Location"
+            },
+            {
+              "description": "The cluster identifier. This parameter is required when authenticating using either AWS Secrets Manager or temporary credentials. "
+            }
+          ]
+        },
+        "Database": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The name of the database. This parameter is required when authenticating using temporary credentials."
+            }
+          ]
+        },
+        "DbUser": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The database user name. This parameter is required when authenticating using temporary credentials. "
+            }
+          ]
+        },
+        "SecretArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SecretArn"
+            },
+            {
+              "description": "The name or ARN of the secret that enables access to the database. This parameter is required when authenticating using AWS Secrets Manager. "
+            }
+          ]
+        },
+        "Sql": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/StatementString"
+            },
+            {
+              "description": "The SQL statement text to run. "
+            }
+          ]
+        },
+        "StatementName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/StatementNameString"
+            },
+            {
+              "description": "The name of the SQL statement. You can name the SQL statement when you create it to identify the query. "
+            }
+          ]
+        },
+        "WithEvent": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Boolean"
+            },
+            {
+              "description": "A value that indicates whether to send an event to the Amazon EventBridge event bus after the SQL statement runs. "
+            }
+          ]
+        }
+      },
+      "required": [
+        "ClusterIdentifier",
+        "Sql"
+      ],
+      "title": "ExecuteStatementInput",
+      "type": "object"
+    },
+    "ExecuteStatementOutput": {
+      "properties": {
+        "ClusterIdentifier": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Location"
+            },
+            {
+              "description": "The cluster identifier. "
+            }
+          ]
+        },
+        "CreatedAt": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "The date and time (UTC) the statement was created. "
+            }
+          ]
+        },
+        "Database": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The name of the database."
+            }
+          ]
+        },
+        "DbUser": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The database user name."
+            }
+          ]
+        },
+        "Id": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/UUID"
+            },
+            {
+              "description": "The identifier of the statement to be run. This value is a universally unique identifier (UUID) generated by Amazon Redshift Data API. "
+            }
+          ]
+        },
+        "SecretArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SecretArn"
+            },
+            {
+              "description": "The name or ARN of the secret that enables access to the database. "
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "Field": {
+      "description": "A data value in a column. ",
+      "properties": {
+        "blobValue": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Blob"
+            },
+            {
+              "description": "A value of the BLOB data type. "
+            }
+          ]
+        },
+        "booleanValue": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/BoxedBoolean"
+            },
+            {
+              "description": "A value of the Boolean data type. "
+            }
+          ]
+        },
+        "doubleValue": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/BoxedDouble"
+            },
+            {
+              "description": "A value of the double data type. "
+            }
+          ]
+        },
+        "isNull": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/BoxedBoolean"
+            },
+            {
+              "description": "A value that indicates whether the data is NULL. "
+            }
+          ]
+        },
+        "longValue": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/BoxedLong"
+            },
+            {
+              "description": "A value of the long data type. "
+            }
+          ]
+        },
+        "stringValue": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "A value of the string data type. "
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "FieldList": {
+      "items": {
+        "$ref": "#/definitions/Field"
+      },
+      "type": "array"
+    },
+    "GetStatementResultRequest": {
+      "properties": {
+        "Id": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/UUID"
+            },
+            {
+              "description": "The identifier of the SQL statement whose results are to be fetched. This value is a universally unique identifier (UUID) generated by Amazon Redshift Data API. This identifier is returned by <code>ExecuteStatment</code> and <code>ListStatements</code>. "
+            }
+          ]
+        },
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned NextToken value in the next NextToken parameter and retrying the command. If the NextToken field is empty, all response records have been retrieved for the request. "
+            }
+          ]
+        }
+      },
+      "required": [
+        "Id"
+      ],
+      "title": "GetStatementResultRequest",
+      "type": "object"
+    },
+    "GetStatementResultResponse": {
+      "properties": {
+        "ColumnMetadata": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ColumnMetadataList"
+            },
+            {
+              "description": "The properties (metadata) of a column. "
+            }
+          ]
+        },
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned NextToken value in the next NextToken parameter and retrying the command. If the NextToken field is empty, all response records have been retrieved for the request. "
+            }
+          ]
+        },
+        "Records": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SqlRecords"
+            },
+            {
+              "description": "The results of the SQL statement."
+            }
+          ]
+        },
+        "TotalNumRows": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Long"
+            },
+            {
+              "description": "The total number of rows in the result set returned from a query. You can use this number to estimate the number of calls to the <code>GetStatementResult</code> operation needed to page through the results. "
+            }
+          ]
+        }
+      },
+      "required": [
+        "Records"
+      ],
+      "type": "object"
+    },
+    "Integer": {
+      "type": "integer"
+    },
+    "InternalServerException": {},
+    "ListDatabasesRequest": {
+      "properties": {
+        "ClusterIdentifier": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Location"
+            },
+            {
+              "description": "The cluster identifier. This parameter is required when authenticating using either AWS Secrets Manager or temporary credentials. "
+            }
+          ]
+        },
+        "Database": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The name of the database. This parameter is required when authenticating using temporary credentials. "
+            }
+          ]
+        },
+        "DbUser": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The database user name. This parameter is required when authenticating using temporary credentials. "
+            }
+          ]
+        },
+        "MaxResults": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PageSize"
+            },
+            {
+              "description": "The maximum number of databases to return in the response. If more databases exist than fit in one response, then <code>NextToken</code> is returned to page through the results. "
+            }
+          ]
+        },
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned NextToken value in the next NextToken parameter and retrying the command. If the NextToken field is empty, all response records have been retrieved for the request. "
+            }
+          ]
+        },
+        "SecretArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SecretArn"
+            },
+            {
+              "description": "The name or ARN of the secret that enables access to the database. This parameter is required when authenticating using AWS Secrets Manager. "
+            }
+          ]
+        }
+      },
+      "required": [
+        "ClusterIdentifier"
+      ],
+      "title": "ListDatabasesRequest",
+      "type": "object"
+    },
+    "ListDatabasesResponse": {
+      "properties": {
+        "Databases": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DatabaseList"
+            },
+            {
+              "description": "The names of databases. "
+            }
+          ]
+        },
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned NextToken value in the next NextToken parameter and retrying the command. If the NextToken field is empty, all response records have been retrieved for the request. "
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ListSchemasRequest": {
+      "properties": {
+        "ClusterIdentifier": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Location"
+            },
+            {
+              "description": "The cluster identifier. This parameter is required when authenticating using either AWS Secrets Manager or temporary credentials. "
+            }
+          ]
+        },
+        "Database": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The name of the database. This parameter is required when authenticating using temporary credentials. "
+            }
+          ]
+        },
+        "DbUser": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The database user name. This parameter is required when authenticating using temporary credentials. "
+            }
+          ]
+        },
+        "MaxResults": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PageSize"
+            },
+            {
+              "description": "The maximum number of schemas to return in the response. If more schemas exist than fit in one response, then <code>NextToken</code> is returned to page through the results. "
+            }
+          ]
+        },
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned NextToken value in the next NextToken parameter and retrying the command. If the NextToken field is empty, all response records have been retrieved for the request. "
+            }
+          ]
+        },
+        "SchemaPattern": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "A pattern to filter results by schema name. Within a schema pattern, \"%\" means match any substring of 0 or more characters and \"_\" means match any one character. Only schema name entries matching the search pattern are returned. "
+            }
+          ]
+        },
+        "SecretArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SecretArn"
+            },
+            {
+              "description": "The name or ARN of the secret that enables access to the database. This parameter is required when authenticating using AWS Secrets Manager. "
+            }
+          ]
+        }
+      },
+      "required": [
+        "ClusterIdentifier",
+        "Database"
+      ],
+      "title": "ListSchemasRequest",
+      "type": "object"
+    },
+    "ListSchemasResponse": {
+      "properties": {
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned NextToken value in the next NextToken parameter and retrying the command. If the NextToken field is empty, all response records have been retrieved for the request. "
+            }
+          ]
+        },
+        "Schemas": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SchemaList"
+            },
+            {
+              "description": "The schemas that match the request pattern. "
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ListStatementsLimit": {
+      "maximum": 100,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "ListStatementsRequest": {
+      "properties": {
+        "MaxResults": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ListStatementsLimit"
+            },
+            {
+              "description": "The maximum number of SQL statements to return in the response. If more SQL statements exist than fit in one response, then <code>NextToken</code> is returned to page through the results. "
+            }
+          ]
+        },
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned NextToken value in the next NextToken parameter and retrying the command. If the NextToken field is empty, all response records have been retrieved for the request. "
+            }
+          ]
+        },
+        "StatementName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/StatementNameString"
+            },
+            {
+              "description": "The name of the SQL statement specified as input to <code>ExecuteStatement</code> to identify the query. You can list multiple statements by providing a prefix that matches the beginning of the statement name. For example, to list myStatement1, myStatement2, myStatement3, and so on, then provide the a value of <code>myStatement</code>. Data API does a case-sensitive match of SQL statement names to the prefix value you provide. "
+            }
+          ]
+        },
+        "Status": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/StatusString"
+            },
+            {
+              "description": "<p>The status of the SQL statement to list. Status values are defined as follows: </p> <ul> <li> <p>ABORTED - The query run was stopped by the user. </p> </li> <li> <p>ALL - A status value that includes all query statuses. This value can be used to filter results. </p> </li> <li> <p>FAILED - The query run failed. </p> </li> <li> <p>FINISHED - The query has finished running. </p> </li> <li> <p>PICKED - The query has been chosen to be run. </p> </li> <li> <p>STARTED - The query run has started. </p> </li> <li> <p>SUBMITTED - The query was submitted, but not yet processed. </p> </li> </ul>"
+            }
+          ]
+        }
+      },
+      "title": "ListStatementsRequest",
+      "type": "object"
+    },
+    "ListStatementsResponse": {
+      "properties": {
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned NextToken value in the next NextToken parameter and retrying the command. If the NextToken field is empty, all response records have been retrieved for the request. "
+            }
+          ]
+        },
+        "Statements": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/StatementList"
+            },
+            {
+              "description": "The SQL statements. "
+            }
+          ]
+        }
+      },
+      "required": [
+        "Statements"
+      ],
+      "type": "object"
+    },
+    "ListTablesRequest": {
+      "properties": {
+        "ClusterIdentifier": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Location"
+            },
+            {
+              "description": "The cluster identifier. This parameter is required when authenticating using either AWS Secrets Manager or temporary credentials. "
+            }
+          ]
+        },
+        "Database": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The name of the database. This parameter is required when authenticating using temporary credentials."
+            }
+          ]
+        },
+        "DbUser": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The database user name. This parameter is required when authenticating using temporary credentials. "
+            }
+          ]
+        },
+        "MaxResults": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PageSize"
+            },
+            {
+              "description": "The maximum number of tables to return in the response. If more tables exist than fit in one response, then <code>NextToken</code> is returned to page through the results. "
+            }
+          ]
+        },
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned NextToken value in the next NextToken parameter and retrying the command. If the NextToken field is empty, all response records have been retrieved for the request. "
+            }
+          ]
+        },
+        "SchemaPattern": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "A pattern to filter results by schema name. Within a schema pattern, \"%\" means match any substring of 0 or more characters and \"_\" means match any one character. Only schema name entries matching the search pattern are returned. If <code>SchemaPattern</code> is not specified, then all tables that match <code>TablePattern</code> are returned. If neither <code>SchemaPattern</code> or <code>TablePattern</code> are specified, then all tables are returned. "
+            }
+          ]
+        },
+        "SecretArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SecretArn"
+            },
+            {
+              "description": "The name or ARN of the secret that enables access to the database. This parameter is required when authenticating using AWS Secrets Manager. "
+            }
+          ]
+        },
+        "TablePattern": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "A pattern to filter results by table name. Within a table pattern, \"%\" means match any substring of 0 or more characters and \"_\" means match any one character. Only table name entries matching the search pattern are returned. If <code>TablePattern</code> is not specified, then all tables that match <code>SchemaPattern</code>are returned. If neither <code>SchemaPattern</code> or <code>TablePattern</code> are specified, then all tables are returned. "
+            }
+          ]
+        }
+      },
+      "required": [
+        "ClusterIdentifier",
+        "Database"
+      ],
+      "title": "ListTablesRequest",
+      "type": "object"
+    },
+    "ListTablesResponse": {
+      "properties": {
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned NextToken value in the next NextToken parameter and retrying the command. If the NextToken field is empty, all response records have been retrieved for the request. "
+            }
+          ]
+        },
+        "Tables": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TableList"
+            },
+            {
+              "description": "The tables that match the request pattern. "
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "Location": {
+      "type": "string"
+    },
+    "Long": {
+      "type": "integer"
+    },
+    "PageSize": {
+      "type": "integer"
+    },
+    "ResourceNotFoundException": {},
+    "SchemaList": {
+      "items": {
+        "$ref": "#/definitions/String"
+      },
+      "type": "array"
+    },
+    "SecretArn": {
+      "type": "string"
+    },
+    "SqlRecords": {
+      "items": {
+        "$ref": "#/definitions/FieldList"
+      },
+      "type": "array"
+    },
+    "StatementData": {
+      "description": "The SQL statement to run.",
+      "properties": {
+        "CreatedAt": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "The date and time (UTC) the statement was created. "
+            }
+          ]
+        },
+        "Id": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/UUID"
+            },
+            {
+              "description": "The SQL statement identifier. This value is a universally unique identifier (UUID) generated by Amazon Redshift Data API. "
+            }
+          ]
+        },
+        "QueryString": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/StatementString"
+            },
+            {
+              "description": "The SQL statement."
+            }
+          ]
+        },
+        "SecretArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SecretArn"
+            },
+            {
+              "description": "The name or Amazon Resource Name (ARN) of the secret that enables access to the database. "
+            }
+          ]
+        },
+        "StatementName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/StatementNameString"
+            },
+            {
+              "description": "The name of the SQL statement. "
+            }
+          ]
+        },
+        "Status": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/StatusString"
+            },
+            {
+              "description": "The status of the SQL statement. An example is the that the SQL statement finished. "
+            }
+          ]
+        },
+        "UpdatedAt": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "The date and time (UTC) that the statement metadata was last updated."
+            }
+          ]
+        }
+      },
+      "required": [
+        "Id"
+      ],
+      "type": "object"
+    },
+    "StatementList": {
+      "items": {
+        "$ref": "#/definitions/StatementData"
+      },
+      "type": "array"
+    },
+    "StatementNameString": {
+      "maxLength": 500,
+      "minLength": 0,
+      "type": "string"
+    },
+    "StatementString": {
+      "type": "string"
+    },
+    "StatusString": {
+      "enum": [
+        "ABORTED",
+        "ALL",
+        "FAILED",
+        "FINISHED",
+        "PICKED",
+        "STARTED",
+        "SUBMITTED"
+      ],
+      "type": "string"
+    },
+    "String": {
+      "type": "string"
+    },
+    "TableList": {
+      "items": {
+        "$ref": "#/definitions/TableMember"
+      },
+      "type": "array"
+    },
+    "TableMember": {
+      "description": "The properties of a table. ",
+      "properties": {
+        "name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The name of the table. "
+            }
+          ]
+        },
+        "schema": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The schema containing the table. "
+            }
+          ]
+        },
+        "type": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The type of the table. Possible values include TABLE, VIEW, SYSTEM TABLE, GLOBAL TEMPORARY, LOCAL TEMPORARY, ALIAS, and SYNONYM. "
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "Timestamp": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "UUID": {
+      "type": "string"
+    },
+    "ValidationException": {},
+    "bool": {
+      "type": "boolean"
+    }
+  },
+  "securityDefinitions": {
+    "hmac": {
+      "description": "Amazon Signature authorization v4",
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey",
+      "x-amazon-apigateway-authtype": "awsSigv4"
+    }
+  },
+  "security": [
+    {
+      "hmac": []
+    }
+  ],
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://docs.aws.amazon.com/redshift-data/"
+  },
+  "x-components": {
+    "parameters": {
+      "X-Amz-Algorithm": {
+        "in": "header",
+        "name": "X-Amz-Algorithm",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Content-Sha256": {
+        "in": "header",
+        "name": "X-Amz-Content-Sha256",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Credential": {
+        "in": "header",
+        "name": "X-Amz-Credential",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Date": {
+        "in": "header",
+        "name": "X-Amz-Date",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Security-Token": {
+        "in": "header",
+        "name": "X-Amz-Security-Token",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Signature": {
+        "in": "header",
+        "name": "X-Amz-Signature",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-SignedHeaders": {
+        "in": "header",
+        "name": "X-Amz-SignedHeaders",
+        "required": false,
+        "type": "string"
+      }
+    }
+  },
+  "x-hasEquivalentPaths": true
+}

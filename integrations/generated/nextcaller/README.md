@@ -9,11 +9,7 @@ npm install --save @datafire/nextcaller
 ```js
 let nextcaller = require('@datafire/nextcaller').create();
 
-nextcaller.version.records.get({
-  "version": "",
-  "phone": 0,
-  "format": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

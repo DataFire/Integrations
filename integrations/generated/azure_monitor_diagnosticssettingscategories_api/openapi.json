@@ -19,7 +19,7 @@
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/monitor/resource-manager/microsoft.insights/preview/2017-05-01-preview/diagnosticsSettingsCategories_API.json",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/monitor/resource-manager/Microsoft.Insights/preview/2017-05-01-preview/diagnosticsSettingsCategories_API.json",
         "version": "2.0"
       }
     ],
@@ -81,7 +81,8 @@
       "name": "resourceUri",
       "required": true,
       "type": "string",
-      "x-ms-parameter-location": "method"
+      "x-ms-parameter-location": "method",
+      "x-ms-skip-url-encoding": true
     }
   },
   "paths": {
@@ -100,30 +101,6 @@
         "responses": {
           "200": {
             "description": "Successful request to get more information about diagnostic setting category",
-            "examples": {
-              "application/json": {
-                "value": [
-                  {
-                    "id": "/subscriptions/1a66ce04-b633-4a0b-b2bc-a912ec8986a6/resourcegroups/viruela1/providers/microsoft.logic/workflows/viruela6/providers/microsoft.insights/diagnosticSettingsCategories/WorkflowRuntime",
-                    "location": "eastus",
-                    "name": "WorkflowRuntime",
-                    "properties": {
-                      "categoryType": "Logs"
-                    },
-                    "type": "microsoft.insights/diagnosticSettingsCategories"
-                  },
-                  {
-                    "id": "/subscriptions/1a66ce04-b633-4a0b-b2bc-a912ec8986a6/resourcegroups/viruela1/providers/microsoft.logic/workflows/viruela6/providers/microsoft.insights/diagnosticSettingsCategories/WorkflowMetric",
-                    "location": "eastus",
-                    "name": "WorkflowMetric",
-                    "properties": {
-                      "categoryType": "Metrics"
-                    },
-                    "type": "microsoft.insights/diagnosticSettingsCategories"
-                  }
-                ]
-              }
-            },
             "schema": {
               "$ref": "#/definitions/DiagnosticSettingsCategoryResourceCollection"
             }
@@ -142,7 +119,7 @@
           "Gets the diagnostic setting": {
             "parameters": {
               "api-version": "2017-05-01-preview",
-              "resourceUri": "/subscriptions/1a66ce04-b633-4a0b-b2bc-a912ec8986a6/resourcegroups/viruela1/providers/microsoft.logic/workflows/viruela6"
+              "resourceUri": "subscriptions/1a66ce04-b633-4a0b-b2bc-a912ec8986a6/resourcegroups/viruela1/providers/microsoft.logic/workflows/viruela6"
             },
             "responses": {
               "200": {
@@ -191,17 +168,6 @@
         "responses": {
           "200": {
             "description": "Successful request to get more information about diagnostic setting category",
-            "examples": {
-              "application/json": {
-                "id": "/subscriptions/1a66ce04-b633-4a0b-b2bc-a912ec8986a6/resourcegroups/viruela1/providers/microsoft.logic/workflows/viruela6/providers/microsoft.insights/diagnosticSettingsCategories/WorkflowRuntime",
-                "location": "eastus",
-                "name": "WorkflowRuntime",
-                "properties": {
-                  "categoryType": "Logs"
-                },
-                "type": "microsoft.insights/diagnosticSettingsCategories"
-              }
-            },
             "schema": {
               "$ref": "#/definitions/DiagnosticSettingsCategoryResource"
             }
@@ -221,7 +187,7 @@
             "parameters": {
               "api-version": "2017-05-01-preview",
               "name": "WorkflowRuntime",
-              "resourceUri": "/subscriptions/1a66ce04-b633-4a0b-b2bc-a912ec8986a6/resourcegroups/viruela1/providers/microsoft.logic/workflows/viruela6"
+              "resourceUri": "subscriptions/1a66ce04-b633-4a0b-b2bc-a912ec8986a6/resourcegroups/viruela1/providers/microsoft.logic/workflows/viruela6"
             },
             "responses": {
               "200": {
@@ -269,6 +235,7 @@
       "properties": {
         "properties": {
           "$ref": "#/definitions/DiagnosticSettingsCategory",
+          "description": "The properties of a Diagnostic Settings Category.",
           "x-ms-client-flatten": true
         }
       },

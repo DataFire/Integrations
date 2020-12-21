@@ -1455,7 +1455,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Successfully retrieved the specified package from the underying database and schema combination",
+            "description": "Successfully retrieved the specified package from the underlying database and schema combination",
             "schema": {
               "$ref": "#/definitions/USqlPackage"
             }
@@ -2036,7 +2036,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Successfully retrieved the specified table from the underying database and schema combination",
+            "description": "Successfully retrieved the specified table from the underlying database and schema combination",
             "schema": {
               "$ref": "#/definitions/USqlTable"
             }
@@ -2885,7 +2885,8 @@
                       "indexId": 1,
                       "parentId": "9d2d7abd-c641-4ddb-88ab-90cafdfe1c1b",
                       "rowCount": 1,
-                      "size": 33786
+                      "size": 33786,
+                      "streamPath": "catalog/database/86bf2a20-b511-48c8-91c5-1f73c4c0ec74/schema/b83d3be1-9e11-40b7-85f9-ad823efe2414/table/1e666ab1-d6f0-4990-8180-1a6160caf405/91193f18-06dd-47a2-96fa-2cca3b4777e1.ss"
                     }
                   ]
                 }
@@ -3068,7 +3069,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Successfully retrieved the specified table type from the underying database and schema combination",
+            "description": "Successfully retrieved the specified table type from the underlying database and schema combination",
             "schema": {
               "$ref": "#/definitions/USqlTableType"
             }
@@ -3590,7 +3591,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Successfully retrieved the specified view from the underying database and schema combination",
+            "description": "Successfully retrieved the specified view from the underlying database and schema combination",
             "schema": {
               "$ref": "#/definitions/USqlView"
             }
@@ -4799,11 +4800,11 @@
       "description": "A Data Lake Analytics catalog U-SQL assembly file information item.",
       "properties": {
         "contentPath": {
-          "description": "the the content path to the assembly file.",
+          "description": "The content path to the assembly file.",
           "type": "string"
         },
         "originalPath": {
-          "description": "the the original path to the assembly file.",
+          "description": "The original path to the assembly file.",
           "type": "string"
         },
         "type": {
@@ -5041,7 +5042,7 @@
           "type": "string"
         },
         "partitionKeyList": {
-          "description": "the list of partion keys in the index",
+          "description": "the list of partition keys in the index",
           "items": {
             "type": "string"
           },
@@ -5312,6 +5313,10 @@
           "description": "the data size of the table fragment in bytes.",
           "format": "int64",
           "type": "integer"
+        },
+        "streamPath": {
+          "description": "the relative path for the table fragment location.",
+          "type": "string"
         }
       }
     },
@@ -5637,23 +5642,23 @@
           "type": "string"
         },
         "isAssemblyType": {
-          "description": "the the switch indicating if this type is an assembly type.",
+          "description": "The switch indicating if this type is an assembly type.",
           "type": "boolean"
         },
         "isComplexType": {
-          "description": "the the switch indicating if this type is a complex type.",
+          "description": "The switch indicating if this type is a complex type.",
           "type": "boolean"
         },
         "isNullable": {
-          "description": "the the switch indicating if this type is nullable.",
+          "description": "The switch indicating if this type is nullable.",
           "type": "boolean"
         },
         "isTableType": {
-          "description": "the the switch indicating if this type is a table type.",
+          "description": "The switch indicating if this type is a table type.",
           "type": "boolean"
         },
         "isUserDefined": {
-          "description": "the the switch indicating if this type is user defined.",
+          "description": "The switch indicating if this type is user defined.",
           "type": "boolean"
         },
         "principalId": {

@@ -1,20 +1,15 @@
 # @datafire/betfair
 
-Client library for Betfair: Exchange Streaming
+Client library for Betfair: Exchange Streaming API
 
 ## Installation and Usage
 ```bash
 npm install --save @datafire/betfair
 ```
 ```js
-let betfair = require('@datafire/betfair').create({
-  ApplicationKey: "",
-  Session: ""
-});
+let betfair = require('@datafire/betfair').create();
 
-betfair.request.post({
-  "RequestMessage": null
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -31,13 +26,13 @@ This is a socket protocol delimited by CRLF (not http)
 
 ```js
 betfair.request.post({
-  "RequestMessage": null
+  "body": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * RequestMessage **required** [AllRequestTypesExample](#allrequesttypesexample)
+  * body **required** [AllRequestTypesExample](#allrequesttypesexample)
 
 #### Output
 * output [AllResponseTypesExample](#allresponsetypesexample)
@@ -198,8 +193,10 @@ betfair.request.post({
 * Order `object`
   * avp `number`: Average Price Matched - the average price the order was matched at (null if the order is not matched). This value is not meaningful for activity on Line markets and is not guaranteed to be returned or maintained for these markets.
   * bsp `number`: BSP Liability - the BSP liability of the order (null if the order is not a BSP order)
+  * cd `integer`: Cancelled Date - the date the order was cancelled (null if the order is not cancelled)
   * id `string`: Bet Id - the id of the order
   * ld `integer`: Lapsed Date - the date the order was lapsed (null if the order is not lapsed)
+  * lsrc `string`: Lapse Status Reason Code - the reason that some or all of this order has been lapsed (null if no portion of the order is lapsed
   * md `integer`: Matched Date - the date the order was matched (null if the order is not matched)
   * ot `string` (values: L, LOC, MOC): Order Type - the type of the order (L = LIMIT, MOC = MARKET_ON_CLOSE, LOC = LIMIT_ON_CLOSE)
   * p `number`: Price - the original placed price of the order. Line markets operate at even-money odds of 2.0. However, price for these markets refers to the line positions available as defined by the markets min-max range and interval steps
@@ -246,6 +243,7 @@ betfair.request.post({
 * OrderMarketChange `object`
   * accountId `integer`
   * closed `boolean`
+  * fullImage `boolean`
   * id `string`: Market Id - the id of the market the order is on
   * orc `array`: Order Changes - a list of changes to orders on a selection
     * items [OrderRunnerChange](#orderrunnerchange)
@@ -342,7 +340,8 @@ betfair.request.post({
   * op `string`: The operation type
   * connectionClosed `boolean`: Is the connection now closed
   * connectionId `string`: The connection id
-  * errorCode `string` (values: NO_APP_KEY, INVALID_APP_KEY, NO_SESSION, INVALID_SESSION_INFORMATION, NOT_AUTHORIZED, INVALID_INPUT, INVALID_CLOCK, UNEXPECTED_ERROR, TIMEOUT, SUBSCRIPTION_LIMIT_EXCEEDED, INVALID_REQUEST, CONNECTION_FAILED, MAX_CONNECTION_LIMIT_EXCEEDED): The type of error in case of a failure
+  * connectionsAvailable `integer`: The number of connections available for this account at this moment in time. Present on responses to Authentication messages only.
+  * errorCode `string` (values: NO_APP_KEY, INVALID_APP_KEY, NO_SESSION, INVALID_SESSION_INFORMATION, NOT_AUTHORIZED, INVALID_INPUT, INVALID_CLOCK, UNEXPECTED_ERROR, TIMEOUT, SUBSCRIPTION_LIMIT_EXCEEDED, INVALID_REQUEST, CONNECTION_FAILED, MAX_CONNECTION_LIMIT_EXCEEDED, TOO_MANY_REQUESTS): The type of error in case of a failure
   * errorMessage `string`: Additional message in case of a failure
   * statusCode `string` (values: SUCCESS, FAILURE): The status of the last request
 

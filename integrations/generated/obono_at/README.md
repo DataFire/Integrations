@@ -13,7 +13,7 @@ let obono_at = require('@datafire/obono_at').create({
   jwt: ""
 });
 
-obono_at.auth.get(null).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -74,6 +74,63 @@ obono_at.export.csv.registrierkassen.registrierkasseUuid.belege.get({
   * before `string`: Only return results that were saved before the specified date-time string (i.e., anything that `Date.parse()` can parse).
   * after `string`: Only return results that were saved after the specified date-time string (i.e., anything that `Date.parse()` can parse).
   * posten `boolean`: Export `Posten` instead of `Belegdaten`.
+
+#### Output
+*Output schema unknown*
+
+### export.dep131.registrierkassen.registrierkasseUuid.belege.get
+
+
+
+```js
+obono_at.export.dep131.registrierkassen.registrierkasseUuid.belege.get({
+  "registrierkasseUuid": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * registrierkasseUuid **required** `string`: The `_uuid` of the `Registrierkasse` to export.
+  * before `string`: Only return results that were saved before the specified date-time string (i.e., anything that `Date.parse()` can parse).
+  * after `string`: Only return results that were saved after the specified date-time string (i.e., anything that `Date.parse()` can parse).
+
+#### Output
+*Output schema unknown*
+
+### export.dep7.registrierkassen.registrierkasseUuid.belege.get
+
+
+
+```js
+obono_at.export.dep7.registrierkassen.registrierkasseUuid.belege.get({
+  "registrierkasseUuid": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * registrierkasseUuid **required** `string`: The `_uuid` of the `Registrierkasse` to export.
+  * before `string`: Only return results that were saved before the specified date-time string (i.e., anything that `Date.parse()` can parse).
+  * after `string`: Only return results that were saved after the specified date-time string (i.e., anything that `Date.parse()` can parse).
+
+#### Output
+*Output schema unknown*
+
+### export.gobd.registrierkassen.registrierkasseUuid.get
+
+
+
+```js
+obono_at.export.gobd.registrierkassen.registrierkasseUuid.get({
+  "registrierkasseUuid": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * registrierkasseUuid **required** `string`: The `_uuid` of the `Registrierkasse` to export.
+  * before `string`: Only return results that were saved before the specified date-time string (i.e., anything that `Date.parse()` can parse).
+  * after `string`: Only return results that were saved after the specified date-time string (i.e., anything that `Date.parse()` can parse).
 
 #### Output
 *Output schema unknown*
@@ -144,7 +201,7 @@ obono_at.export.thermal_print.belege.belegUuid.get({
   * belegUuid **required** `string`: The `_uuid` of a particular `Beleg` to export.
   * qr `boolean`: Should the RKSV QR code should be rendered?
   * width `integer`: Number of characters per line.
-  * dialect `string` (values: esc, star): The thermal printer dialect.
+  * dialect `string` (values: escpos, escposlite, star, text): The thermal printer dialect.
   * encoding `string` (values: raw, base64): The encoding of the binary data.
 
 #### Output
@@ -270,6 +327,23 @@ obono_at.addBeleg({
   * registrierkasseUuid **required** `string`: The `_uuid` of the `Registrierkasse` to use for signing data.
   * belegUuid **required** `string`: The `_uuid` of the `Beleg` to store.
   * belegdaten **required** [Belegdaten](#belegdaten)
+
+#### Output
+*Output schema unknown*
+
+### getDEP
+Generates a DEP file.
+
+
+```js
+obono_at.getDEP({
+  "registrierkasseUuid": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * registrierkasseUuid **required** `string`: The `_uuid` of the `Registrierkasse` to retrieve the DEP file.
 
 #### Output
 *Output schema unknown*

@@ -1,6 +1,6 @@
 # @datafire/gov_bc_ca_geomark
 
-Client library for GeoMark Web Service
+Client library for GeoMark Web Service REST API
 
 ## Installation and Usage
 ```bash
@@ -9,7 +9,7 @@ npm install --save @datafire/gov_bc_ca_geomark
 ```js
 let gov_bc_ca_geomark = require('@datafire/gov_bc_ca_geomark').create();
 
-gov_bc_ca_geomark.geomarks.new.post({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -18,7 +18,7 @@ gov_bc_ca_geomark.geomarks.new.post({}).then(data => {
 
 The Geomark Web Service allows you to create and share geographic areas of interest over the web in a variety of formats and coordinate systems. This service is especially helpful when you need to share an area of interest with people who require that the data be in a different format, or they use different mapping software. 
 
-Please note that you may experience issues when submitting requests to the delivery or test environment if using this [OpenAPI specification](https://github.com/bcgov/api-specs) in other API console viewers.
+Please note that you may experience issues when submitting requests to the delivery or test environment if using this [OpenAPI specification](https://github.com/bcgov/api-specs/tree/master/geomark) in other API console viewers.
 
 ## Actions
 
@@ -72,7 +72,7 @@ gov_bc_ca_geomark.geomarks.new.post({}, context)
   * multiple `boolean` (values: false, true): Boolean flag indicating if multiple geometries are to be used for the geomark (true) or only a single geometry from the first geometry (false).
   * redirectUrl `string`: The optional external URL to redirect the user to when the geomark is created rather than showing the geomark info page. The geomarkId and geomarkUrl query string parameters will be added to the redirectUrl so that the target application gets a reference to the geomark.
   * resultFormat `string` (values: json, xml, kml, kmz, shp, shpz, geojson, gml, wkt): The file format the geomark info resource should be returned using.
-  * srid `integer` (values: 4326, 3005, 26907, 26908, 26909, 26910, 26911): The srid of the coordinate system the input geometries are in. If the file includes a coordinate system definition that will be used.
+  * srid `integer` (values: 4326, 3005, 3857, 26907, 26908, 26909, 26910, 26911): The srid of the coordinate system the input geometries are in. If the file includes a coordinate system definition that will be used.
 
 #### Output
 *Output schema unknown*
@@ -92,7 +92,7 @@ gov_bc_ca_geomark.geomarks.geomarkId.fileFormatExtension.get({
 * input `object`
   * geomarkId **required** `string`: The unique identifier for the geomark.
   * fileFormatExtension **required** `string` (values: json, xml, kml, kmz, shp, shpz, geojson, gml, wkt): The file format name extension used to represent the geomark download.
-  * srid `integer` (values: 4326, 3005, 26907, 26908, 26909, 26910, 26911): The srid of the coordinate system the geometry should be converted to.
+  * srid `integer` (values: 4326, 3005, 3857, 26907, 26908, 26909, 26910, 26911): The srid of the coordinate system the geometry should be converted to.
 
 #### Output
 *Output schema unknown*
@@ -112,7 +112,7 @@ gov_bc_ca_geomark.geomarks.geomarkId.boundingBox.fileFormatExtension.get({
 * input `object`
   * geomarkId **required** `string`: The unique identifier for the geomark
   * fileFormatExtension **required** `string` (values: json, xml, kml, kmz, shp, shpz, geojson, gml, wkt): The file format name extension used to represent the geomark download.
-  * srid `integer` (values: 4326, 3005, 26907, 26908, 26909, 26910, 26911): The srid of the coordinate system the geometry should be converted to.
+  * srid `integer` (values: 4326, 3005, 3857, 26907, 26908, 26909, 26910, 26911): The srid of the coordinate system the geometry should be converted to.
 
 #### Output
 *Output schema unknown*
@@ -132,7 +132,7 @@ gov_bc_ca_geomark.geomarks.geomarkId.feature.fileFormatExtension.get({
 * input `object`
   * geomarkId **required** `string`: The unique identifier for the geomark
   * fileFormatExtension **required** `string` (values: json, xml, kml, kmz, shp, shpz, geojson, gml, wkt): The file format name extension used to represent the geomark download.
-  * srid `integer` (values: 4326, 3005, 26907, 26908, 26909, 26910, 26911): The srid of the coordinate system the geometry should be converted to.
+  * srid `integer` (values: 4326, 3005, 3857, 26907, 26908, 26909, 26910, 26911): The srid of the coordinate system the geometry should be converted to.
 
 #### Output
 *Output schema unknown*
@@ -152,7 +152,7 @@ gov_bc_ca_geomark.geomarks.geomarkId.parts.fileFormatExtension.get({
 * input `object`
   * geomarkId **required** `string`: The unique identifier for the geomark
   * fileFormatExtension **required** `string` (values: json, xml, kml, kmz, shp, shpz, geojson, gml, wkt): The file format name extension used to represent the geomark download.
-  * srid `integer` (values: 4326, 3005, 26907, 26908, 26909, 26910, 26911): The srid of the coordinate system the geometry should be converted to.
+  * srid `integer` (values: 4326, 3005, 3857, 26907, 26908, 26909, 26910, 26911): The srid of the coordinate system the geometry should be converted to.
 
 #### Output
 *Output schema unknown*
@@ -172,7 +172,7 @@ gov_bc_ca_geomark.geomarks.geomarkId.point.fileFormatExtension.get({
 * input `object`
   * geomarkId **required** `string`: The unique identifier for the geomark.
   * fileFormatExtension **required** `string` (values: json, xml, kml, kmz, shp, shpz, geojson, gml, wkt): The file format name extension used to represent the geomark download.
-  * srid `integer` (values: 4326, 3005, 26907, 26908, 26909, 26910, 26911): The srid of the coordinate system the geometry should be converted to.
+  * srid `integer` (values: 4326, 3005, 3857, 26907, 26908, 26909, 26910, 26911): The srid of the coordinate system the geometry should be converted to.
 
 #### Output
 *Output schema unknown*

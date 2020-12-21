@@ -9,7 +9,7 @@ npm install --save @datafire/pivotaltracker
 ```js
 let pivotaltracker = require('@datafire/pivotaltracker').create();
 
-pivotaltracker.activities.get({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

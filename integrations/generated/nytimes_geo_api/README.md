@@ -1,6 +1,6 @@
 # @datafire/nytimes_geo_api
 
-Client library for Geographic
+Client library for Geographic API
 
 ## Installation and Usage
 ```bash
@@ -11,7 +11,7 @@ let nytimes_geo_api = require('@datafire/nytimes_geo_api').create({
   apikey: ""
 });
 
-nytimes_geo_api.query.json.get({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

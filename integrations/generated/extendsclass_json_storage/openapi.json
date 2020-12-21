@@ -1,0 +1,264 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "JSON storage API",
+    "title": "JSON storage",
+    "version": "0.1",
+    "x-apisguru-categories": [
+      "developer_tools"
+    ],
+    "x-origin": [
+      {
+        "converter": {
+          "url": "https://github.com/lucybot/api-spec-converter",
+          "version": "2.7.31"
+        },
+        "format": "openapi",
+        "url": "https://extendsclass.com/json-storage.openapi.json",
+        "version": "3.0"
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "extendsclass.com",
+    "x-serviceName": "json-storage",
+    "x-datafire": {
+      "name": "extendsclass_json_storage",
+      "type": "openapi"
+    }
+  },
+  "host": "extendsclass.com",
+  "basePath": "/api/json-storage",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/bin": {
+      "post": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Bin information (id and URL)",
+            "schema": {
+              "$ref": "#/definitions/CreateStatus"
+            }
+          },
+          "413": {
+            "description": "'JSON data too large' or 'Security key is too large'",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "422": {
+            "description": "Security key is required for private bin",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "summary": "Create a json bin"
+      }
+    },
+    "/bin/{id}": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "delete": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Status of the deletion",
+            "schema": {
+              "$ref": "#/definitions/DeleteStatus"
+            }
+          },
+          "401": {
+            "description": "Wrong security key",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "404": {
+            "description": "Bin not found",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "422": {
+            "description": "Id must be specified",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "summary": "Delete a json bin"
+      },
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Bin data",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "404": {
+            "description": "Bin not found",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "422": {
+            "description": "Id must be specified",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "summary": "Return a json bin"
+      },
+      "patch": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Bin data updated",
+            "schema": {
+              "$ref": "#/definitions/UpdateStatus"
+            }
+          },
+          "401": {
+            "description": "Wrong security key",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "404": {
+            "description": "Bin not found",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "413": {
+            "description": "JSON data too large",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "422": {
+            "description": "Id must be specified",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "summary": "Partially update a json bin with JSON Merge Patch"
+      },
+      "put": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Bin data updated",
+            "schema": {
+              "$ref": "#/definitions/UpdateStatus"
+            }
+          },
+          "401": {
+            "description": "Wrong security key",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "404": {
+            "description": "Bin not found",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "413": {
+            "description": "JSON data too large",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "422": {
+            "description": "Id must be specified",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "summary": "Update a json bin"
+      }
+    }
+  },
+  "definitions": {
+    "CreateStatus": {
+      "properties": {
+        "id": {
+          "title": "Id of the bin",
+          "type": "string"
+        },
+        "status": {
+          "title": "Update status (0: Success)",
+          "type": "integer"
+        },
+        "uri": {
+          "title": "URI of the bin",
+          "type": "string"
+        }
+      }
+    },
+    "DeleteStatus": {
+      "properties": {
+        "status": {
+          "title": "Update status (0: Success)",
+          "type": "integer"
+        }
+      }
+    },
+    "Error": {
+      "properties": {
+        "message": {
+          "title": "Error message",
+          "type": "string"
+        },
+        "status": {
+          "title": "Status (1: Error)",
+          "type": "integer"
+        }
+      }
+    },
+    "UpdateStatus": {
+      "properties": {
+        "data": {
+          "title": "Data updated",
+          "type": "object"
+        },
+        "status": {
+          "title": "Update status (0: Success)",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "x-components": {}
+}

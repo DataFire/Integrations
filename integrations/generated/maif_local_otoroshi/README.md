@@ -12,7 +12,7 @@ let maif_local_otoroshi = require('@datafire/maif_local_otoroshi').create({
   password: ""
 });
 
-maif_local_otoroshi.allApiKeys(null).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

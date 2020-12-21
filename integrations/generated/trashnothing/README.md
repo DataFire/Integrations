@@ -1,6 +1,6 @@
 # @datafire/trashnothing
 
-Client library for trash nothing!
+Client library for trash nothing
 
 ## Installation and Usage
 ```bash
@@ -16,7 +16,7 @@ let trashnothing = require('@datafire/trashnothing').create({
   redirect_uri: ""
 });
 
-trashnothing.get_user_group_notices({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -26,7 +26,10 @@ trashnothing.get_user_group_notices({}).then(data => {
 This is the REST API for [trashnothing.com](https://trashnothing.com).
 
 To learn more about the API or to register your app for use with the API
-visit the [trash nothing! Developer page](https://trashnothing.com/developer).
+visit the [trash nothing Developer page](https://trashnothing.com/developer).
+
+NOTE: All date-time values are [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time)
+and are in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601) (eg. 2019-02-03T01:23:53).
 
 
 ## Actions
@@ -71,6 +74,245 @@ trashnothing.oauthRefresh(null, context)
   * token_type `string`
   * scope `string`
   * expiration `string`
+
+### get_conversations
+List conversations
+
+
+```js
+trashnothing.get_conversations({}, context)
+```
+
+#### Input
+* input `object`
+  * category `string`: Used to filter messases by category.  Must be set to one of the following three categories: inbox, archived, blocked
+  * page `integer`: The page of conversations to return.
+  * per_page `integer`: The number of conversations to return per page (must be >= 1 and <= 30).
+  * num_messages `integer`: The number of recent messages to return with each conversation. Additional messages can be retrieved using get conversation messages endpoint.
+  * include_num_unread `integer`: If set to 1, the num_unread field in the response will be set to the count of the total number of conversations that have unread messages. <br /><br /> This is useful for showing users the total number of unread messages that they have in their inbox. Calculating the count will slow the request down a bit so setting this should be avoided for requests where it's not needed (eg. requesting archived or blocked conversations or requests that are just paging through older conversations).
+  * device_pixel_ratio `number`: Client device pixel ratio used to determine thumbnail size (default 1.0).
+
+#### Output
+* output `object`
+  * conversations `array`
+    * items [Conversation](#conversation)
+  * num_unread `integer`: If the include_num_unread parameter is set to 1, this will be set to the total number of conversations that have unread messages matching the query parameters of the request.  If the include_num_unread parameter is set to 0, this will be null.
+  * page `integer`
+  * per_page `integer`
+
+### mark_all_conversations_read
+Mark all conversations as read
+
+
+```js
+trashnothing.mark_all_conversations_read({
+  "message_id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * message_id **required** `string`: The message_id of the most recent message from the conversations that the client has downloaded.
+
+#### Output
+*Output schema unknown*
+
+### search_conversations
+Searches all conversations except blocked conversations.
+
+
+```js
+trashnothing.search_conversations({
+  "search": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * search **required** `string`: The search query used to find conversations and messages.
+  * page `integer`: The page of conversations to return.
+  * per_page `integer`: The number of conversations to return per page (must be >= 1 and <= 30).
+  * device_pixel_ratio `number`: Client device pixel ratio used to determine thumbnail size (default 1.0).
+
+#### Output
+* output `object`
+  * conversations `array`
+    * items [Conversation](#conversation)
+  * page `integer`
+  * per_page `integer`
+  * search `string`
+
+### delete_conversation
+Delete conversation
+
+
+```js
+trashnothing.delete_conversation({
+  "conversation_id": "",
+  "message_id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * conversation_id **required** `string`: The ID of the conversation to delete.
+  * message_id **required** `string`: The ID of the newest message in the conversation that the client has downloaded.
+
+#### Output
+*Output schema unknown*
+
+### archive_conversation
+Archive conversation
+
+
+```js
+trashnothing.archive_conversation({
+  "conversation_id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * conversation_id **required** `string`: The ID of the conversation to archive.
+
+#### Output
+*Output schema unknown*
+
+### block_conversation
+Block conversation
+
+
+```js
+trashnothing.block_conversation({
+  "conversation_id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * conversation_id **required** `string`: The ID of the conversation to block.
+
+#### Output
+*Output schema unknown*
+
+### mark_conversation_read
+Mark conversation as read
+
+
+```js
+trashnothing.mark_conversation_read({
+  "conversation_id": "",
+  "message_id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * conversation_id **required** `string`: The ID of the conversation to mark as read.
+  * message_id **required** `string`: The ID of the newest message in the conversation that the current user has read.
+
+#### Output
+*Output schema unknown*
+
+### get_conversation_messages
+List conversation messages
+
+
+```js
+trashnothing.get_conversation_messages({
+  "conversation_id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * conversation_id **required** `string`: The ID of the conversation to return messages from.
+  * page `integer`: The page of messages to return.
+  * per_page `integer`: The number of messages to return per page (must be >= 1 and <= 30).
+  * device_pixel_ratio `number`: Client device pixel ratio used to determine thumbnail size (default 1.0).
+  * include_conversation `integer`: If set to 1, the conversation will be returned along with the messages.
+
+#### Output
+* output `object`
+  * conversation [Conversation](#conversation)
+  * messages `array`
+    * items [Message](#message)
+  * page `integer`
+  * per_page `integer`
+
+### reply_to_conversation
+Reply to conversation
+
+
+```js
+trashnothing.reply_to_conversation({
+  "conversation_id": "",
+  "content": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * conversation_id **required** `string`: The ID of the conversation to reply to.
+  * content **required** `string`: The content of the reply.
+  * photo_ids `string`: A comma separated list of the IDs of the photos that should be attached to this message.
+  * device_pixel_ratio `number`: Client device pixel ratio used to determine thumbnail size (default 1.0).
+
+#### Output
+* output [Message](#message)
+
+### report_conversation
+Report conversation
+
+
+```js
+trashnothing.report_conversation({
+  "conversation_id": "",
+  "reason": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * conversation_id **required** `string`: The ID of the conversation to report.
+  * reason **required** `string`: A user provided reason why the conversation is being reported.
+
+#### Output
+*Output schema unknown*
+
+### unarchive_conversation
+Unarchive conversation
+
+
+```js
+trashnothing.unarchive_conversation({
+  "conversation_id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * conversation_id **required** `string`: The ID of the conversation to unarchive.
+
+#### Output
+*Output schema unknown*
+
+### unblock_conversation
+Unblock conversation
+
+
+```js
+trashnothing.unblock_conversation({
+  "conversation_id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * conversation_id **required** `string`: The ID of the conversation to unblock.
+
+#### Output
+*Output schema unknown*
 
 ### send_feedback
 Allows users to send feedback about the trashnothing.com site or apps.
@@ -142,7 +384,7 @@ trashnothing.get_groups_by_ids({
   * items [Group](#group)
 
 ### join_groups
-Request membership to one or more groups. <br /><br /> NOTE: Any group with a has_questions field set to true will also require answers to the groups' new member questionnaire to be submitted.  Groups waiting for answers will have their membership field set to 'pending-questions'.  And the questionnaire that needs to be answered can be found in the membership.questionnaire field of the group.
+Request membership to one or more groups. <br /><br /> NOTE: Any group with a has_questions field set to true will also require answers to the groups' new member questionnaire to be submitted.  Groups waiting for answers will have their membership field set to 'pending-questions'.  And the questionnaire that needs to be answered can be found in the membership.questionnaire field of the group after a subscribe request is made to that group.
 
 
 
@@ -243,8 +485,7 @@ Create a photo
 
 ```js
 trashnothing.upload_photo({
-  "photo": "",
-  "upload_key": ""
+  "photo": ""
 }, context)
 ```
 
@@ -255,11 +496,29 @@ trashnothing.upload_photo({
     * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
     * contentType `string`
     * filename `string`
-  * upload_key **required** `string`: A client created identifier used to associate a photo or set of photos with a post (a  random number will work - must be <= 32 characters).
   * device_pixel_ratio `number`: Client device pixel ratio used to determine thumbnail size (default 1.0).
 
 #### Output
 * output [PhotoResult](#photoresult)
+
+### get_photos_by_ids
+Retrieve multiple photos
+
+
+```js
+trashnothing.get_photos_by_ids({
+  "photo_ids": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * photo_ids **required** `string`: The IDs of the photos to retrieve.  If more than 50 photo IDs are passed, only the first 50 photos will be returned.
+  * device_pixel_ratio `number`: Client device pixel ratio used to determine thumbnail size (default 1.0).
+
+#### Output
+* output `array`
+  * items [PhotoResult](#photoresult)
 
 ### delete_photo
 Delete a photo
@@ -299,7 +558,8 @@ trashnothing.rotate_photo({
 * output [PhotoResult](#photoresult)
 
 ### get_posts
-Only posts from the last 30 days will be returned. <br /><br /> NOTE: Passing the latitude, longitude and radius parameters filters all posts by their location and so these parameters will temporarily override the current users' location preferences. When latitude, longitude and radius are not specified, public posts will be filtered by the current users' location preferences.
+NOTE: When paging through the posts returned by this endpoint, there will be at most 1,000 posts that can be returned (eg. 50 pages worth of posts with the default per_page value of 20).  In areas where there are more than 1,000 posts, clients can use more specific query parameters to adjust which posts are returned.
+NOTE: Passing the latitude, longitude and radius parameters filters all posts by their location and so these parameters will temporarily override the current users' location preferences. When latitude, longitude and radius are not specified, public posts will be filtered by the current users' location preferences.
 
 
 
@@ -313,19 +573,25 @@ trashnothing.get_posts({
 #### Input
 * input `object`
   * types **required** `string`: A comma separated list of the post types to return.  The available post types are: offer, taken, wanted, received, admin
-  * sources **required** `string`: A comma separated list of the post sources to retrieve posts from. The available sources are: groups, trashnothing. The trashnothing source is for public posts that are posted on trash nothing but are not associated with any group.
-  * group_ids `string`: A comma separated list of the group IDs to retrieve posts from. This parameter is only used if the 'groups' source is passed in the sources parameter and only groups that the current user is a member of will be used (the group IDs of other groups will be silently discarded). <br /><br /> NOTE: For requests using an api key instead of oauth, this field is required if the 'groups' source is passed. In addition, only posts from groups that have open_archives set to true will be used (the group IDS of other groups will be silently discarded).
+  * sources **required** `string`: A comma separated list of the post sources to retrieve posts from. The available sources are: groups, trashnothing, open_archive_groups. The trashnothing source is for public posts that are posted on trash nothing but are not associated with any group. The open_archive_groups source provides a way to easily request posts from groups that have open_archives set to true without having to pass a group_ids parameter.  When passed, it will automatically return posts from open archive groups that are within the area specified by the latitude, longitude and radius parameters (or the current users' location if latitude, longitude and radius aren't passed). <br /><br /> NOTE: For requests using an api key instead of oauth, passing the trashnothing source or the open_archive_groups source makes the latitude, longitude and radius parameters required.
+  * group_ids `string`: A comma separated list of the group IDs to retrieve posts from. This parameter is only used if the 'groups' source is passed in the sources parameter and only groups that the current user is a member of or that are open archives groups will be used (the group IDs of other groups will be silently discarded*). <br /><br /> NOTE: For requests using an api key instead of oauth, this field is required if the 'groups' source is passed. In addition, only posts from groups that have open_archives set to true will be used (the group IDS of other groups will be silently discarded*). <br /><br/> *To determine which group IDs were used and which were discarded, use the group_ids field in the response.
   * per_page `integer`: The number of posts to return per page (must be >= 1 and <= 100).
   * page `integer`: The page of posts to return.
   * device_pixel_ratio `number`: Client device pixel ratio used to determine thumbnail size (default 1.0).
   * latitude `number`: The latitude of a point around which to return posts.
   * longitude `number`: The longitude of a point around which to return posts.
   * radius `number`: The radius in meters of a circle centered at the point defined by the latitude and longitude parameters. When latitude, longitude and radius are passed, only posts within the circle defined by these parameters will be returned.
+  * date_min `string`: Only posts newer than or equal to this UTC date and time will be returned.  If unset, defaults to the current date and time minus 90 days.
+  * date_max `string`: Only posts older than this UTC date and time will be returned.  If unset, defaults to the current date and time.
+  * outcomes `string`: A comma separated list of the post outcomes to return.  The available post outcomes are: satisfied, withdrawn <br /><br /> There are also a couple special values that can be passed.  If set to an empty string (the default), only posts that are not satisfied and not withdrawn are returned. If set to 'all', all posts will be returned no matter what outcome the posts have.
+  * user_state `string`: If user_state is set, only posts matching the state specified will be returned.  Only one state may be passed and it must be one of the following: viewed, replied, bookmarked <br><br> NOTE: This option will only work with oauth requests.
 
 #### Output
 * output `object`
   * end_index `integer`: The index of the last post being returned (an integer between start_index and num_posts).
-  * last_listings_view `string`: The date and time when the current user last viewed the newest posts on the All Posts page (may be null). <br /><br /> NOTE: For this to be accurate, clients must update the last_listings_view property of the current user every time the user is shown the newest posts on the All Posts page. <br /><br /> NOTE: For requests using an api key instead of oauth, this field is always null.
+  * group_ids `array`: The IDs of the groups that the posts were retrieved from (will be null when no group IDs were used). These IDs may be a subset of the requested group IDs when a request includes group IDs for groups that are not open archives and that the current user is not a member of.  If the open_archive_groups source is used, these IDs may include the IDs of open archive groups that weren't present in the group_ids parameter of the request.
+    * items `string`
+  * last_listings_view `string`: The UTC date and time when the current user last viewed the newest posts on the All Posts page (may be null). <br /><br /> NOTE: For this to be accurate, clients must update the last_listings_view property of the current user every time the user is shown the newest posts on the All Posts page. <br /><br /> NOTE: For requests using an api key instead of oauth, this field is always null.
   * num_pages `integer`: The total number of pages available.
   * num_posts `integer`: The total number of posts available.
   * page `integer`: The page number of the posts being returned.
@@ -342,10 +608,8 @@ Submits a new post. <br /><br /> NOTE: An alternate way to submit posts that doe
 ```js
 trashnothing.submit_post({
   "type": "",
-  "item": "",
+  "title": "",
   "location": "",
-  "latitude": 0,
-  "longitude": 0,
   "session": ""
 }, context)
 ```
@@ -354,22 +618,77 @@ trashnothing.submit_post({
 * input `object`
   * group_ids `string`: A comma separated list of group IDs to submit the post to (if any).
   * type **required** `string`: The type of post.  One of: offer, wanted
-  * item **required** `string`: A short description of the item(s).
+  * title **required** `string`: A short description of the item(s).
   * location **required** `string`: A short location description.
   * content `string`: A longer description of the item(s).
   * fair_offer `integer`: If set to 1, the post will be posted with the Fair Offer Policy (only valid for offer posts - see https://trashnothing.com/fair_offer_policy ).
-  * latitude **required** `number`: The latitude corresponding to the location description provided. <br /><br /> NOTE: This should NOT be the users' exact location because we don't want to publicize their exact location unless their location description is their full address.
-  * longitude **required** `number`: The longitude corresponding to the location description provided. (see the NOTE in latitude description)
-  * upload_key `string`: The upload_key used to upload any photos that should be attached to this post.
-  * session **required** `string`: A JSON string representing a temporary object that is used to store data about the submission process for a single post.  The first time a post is submitted, session should be a new empty object (eg. '{}').  The session object should be persisted by the client until that post is successfully submitted and then it can be discarded so that the next post will start over with a new empty session object.  Every time a post is submitted and the response indicates that the submission was not successful, the session object returned in the response should override the clients copy of the session.
-  * preferences `string`: A JSON string representing a permanent object that the client persists and modifies based on warnings returned by the post submission process and user input.  Some warnings returned after submitting a post have a preference_key string property so that users can opt out of those warnings in the future.  To save this opt-out preference, set the property indicated by the preference_key in the preferences object (eg. preferences[preference_key] = 1).  The preferences object is only read by submit_post and never modified - it is up to the client to initialize, modify and persist the preferences object.
+  * latitude `number`: The latitude corresponding to the location description provided. <br /><br /> If latitude and longitude are not provided, an attempt will be made to automatically geocode the location.  If the location is unable to be geocoded, the post will be rejected* and will have to be resubmitted with a latitude and longitude corresponding to the location or resubmitted with a different location that can be automatically geocoded. <br /><br /> NOTE: The latitude and longitude should NOT be the users' exact location because we don't want to publicize their exact location unless their location description is their full address (which is not recommended). <br /><br /> *When a post is rejected because it can't be geocoded, the returned error will have its identifier property set to 'unknown-location'.
+  * longitude `number`: The longitude corresponding to the location description provided. (see the NOTE in latitude description)
+  * photo_ids `string`: A comma separated list of the IDs of the photos that should be attached to this post.
+  * session **required** `string`: A JSON string representing a temporary object that is used to store data about the submission process for a single post.  The first time a post is submitted, session should be a new empty object (eg. '{}').  The session object should be persisted by the client until that post is successfully submitted and then it  can be discarded so that the next post will start over with a new empty session object.  Every time a post is submitted and the response indicates that the submission was not successful, the session object returned in the response should override the clients copy of the session.
+  * preferences `string`: A JSON string representing a permanent object that the client persists and modifies based on warnings returned by the post submission process and user input.  Some warnings returned after submitting  a post have a preference_key string property so that users can opt out of those warnings in the future.  To save this opt-out preference, set the property indicated by the preference_key in the preferences object (eg. preferences[preference_key] = 1).  The preferences object is never modified by the server - it is up to the client to initialize, modify and persist the preferences object.
 
 #### Output
 * output `object`
-  * message `string`: Contains text describing the reason a post was not successful.  Is null on success.
-  * preference_key `string`: Certain types of warnings can be opted out of.  These warnings will set preference_key to a string that can be  set in the preferences object by the client to opt out of that type of warning in the future (see the description of the preferences parameter for more details).
-  * result `string`: One of: success, error, warning. <br /><br /> A success result indicates that the post was submitted successfully. Note that posts may not appear instantly after submission because the moderators of many groups may have additional automatic or manual review processes in place that can delay the publishing of a post. <br /><br /> An error result indicates that there is an error with the post to show the user and the message property will contain text describing the error. <br /><br /> A warning result indicates that there is a warning about the post to show the user and the message property will contain a string describing the warning.  A warning result doesn't prevent a post from being submitted, to continue the submission process after a warning result, just re-submit the post  (with the updated session object) to temporarily override that specific warning.
-  * session `object`: The updated session object that should override the client's copy of the session that was passed in the session parameter.
+  * identifier `string`: When an error or warning is returned, this will contain a short string representing the type of error or warning that occurred.  Is null on success.
+  * message `string`: Contains text describing the reason a post  was not successful.  Is null on success.
+  * preference_key `string`: Certain types of warnings can be opted out of.  These warnings will set preference_key to a string that can be  set in the preferences object by the client to opt out of that type of warning in the future (see the description of the preferences parameter for more details).  Is null for errors, success and warnings that can't be opted out of.
+  * result `string`: One of: success, error, warning. <br /><br /> A success result indicates that the post  was submitted successfully. Note that posts may not appear instantly after submission because the moderators of many groups may have additional automatic or manual review processes in place that can cause delays. <br /><br /> An error result indicates that there is an error with the post that should be shown to the user and the message property will contain text describing the error. <br /><br /> A warning result indicates that there is a warning about the post  to show the user and the message property will contain a string describing the warning.   A warning result doesn't prevent a post  from being submitted, to continue the submission process after a warning result, just re-submit (with the updated session object) to temporarily override that specific warning.
+  * session `object`: The updated session object that should override the client's copy of the session that was passed in the session parameter. Is null on success.
+
+### get_all_posts
+This endpoint provides an easy way to get a feed of all the publicly published posts on trash nothing. It provides access to all publicly published offer and wanted posts from the last 30 days. The posts are sorted by date (newest first). <br /><br /> There are fewer options for filtering, sorting and searching posts with this endpoint but there is no 1,000 post limit and posts that are crossposted to multiple groups are not merged together in the response.  In most cases, crossposted posts are easy to detect because they have the same user_id, title and content.
+
+
+
+```js
+trashnothing.get_all_posts({
+  "types": "",
+  "date_min": "",
+  "date_max": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * types **required** `string`: A comma separated list of the post types to return.  The available post types are: offer, wanted
+  * date_min **required** `string`: Only posts newer than or equal to this UTC date and time will be returned. The UTC date and time used must be within a day or less of date_max. And the date and time must be within the last 30 days. And the date and time must be rounded to the nearest second.
+  * date_max **required** `string`: Only posts older than this UTC date and time will be returned. The UTC date and time used must be within a day or less of date_min. And the date and time must be rounded to the nearest second.
+  * per_page `integer`: The number of posts to return per page (must be >= 1 and <= 50).
+  * page `integer`: The page of posts to return.
+  * device_pixel_ratio `number`: Client device pixel ratio used to determine thumbnail size (default 1.0).
+
+#### Output
+* output `object`
+  * posts `array`
+    * items [Post](#post)
+
+### get_all_posts_changes
+This endpoint provides an easy way to get a feed of all the changes that have been made to publicly published posts on trash nothing.  Similar to the /posts/all endpoint, only data from the last 30 days is available and the changes are sorted by date (newest first).  Every change includes the date of the change, the post_id of the post that was changed and the type of change. <br /><br /> The different types of changes that are returned are listed below. <br /><br /> - deleted<br /> - undeleted<br /> - satisfied<br /> - promised<br /> - unpromised<br /> - withdrawn<br /> - edited<br /> - expired<br /> <br /> For edited changes, clients can use the retrieve post API endpoint to get the edits that have been made to the post.
+
+
+
+```js
+trashnothing.get_all_posts_changes({
+  "date_min": "",
+  "date_max": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * date_min **required** `string`: Only changes newer than or equal to this UTC date and time will be returned. The UTC date and time used must be within a day or less of date_max. And the date and time must be within the last 30 days. And the date and time must be rounded to the nearest second.
+  * date_max **required** `string`: Only changes older than this UTC date and time will be returned. The UTC date and time used must be within a day or less of date_min. And the date and time must be rounded to the nearest second.
+  * per_page `integer`: The number of changes to return per page (must be >= 1 and <= 50).
+  * page `integer`: The page of changes to return.
+
+#### Output
+* output `object`
+  * changes `array`
+    * items `object`
+      * date `string`: The UTC date and time when the post was changed.
+      * post_id `string`
+      * type `string`: The type of change.  One of: deleted, undeleted, satisfied, promised, unpromised, withdrawn, edited, expired
 
 ### get_post_client_javascript
 Defines javascript functions that can be used to validate and submit posts.
@@ -414,7 +733,7 @@ posting to group 1, the returned object will be:
 
 **window.TN.submit_post(args, session, preferences, callback)**
 
-Submits a new post and performs validation checks on the post before it is accepted for submission..
+Submits a new post and performs validation checks on the post before it is accepted for submission.
 
 Parameters:
 
@@ -422,7 +741,7 @@ Parameters:
   the following properties:
 
   - type: The type of post.  One of: offer, wanted
-  - item: A short description of the item(s).
+  - title: A short description of the item(s).
   - location: A short location description.
 
   The following properties are optional:
@@ -430,7 +749,7 @@ Parameters:
   - content: A longer description of the item(s).
   - group_ids: An array of group IDs to submit the post to (if any).
   - fair_offer: If set to 1, the post will be posted with the Fair Offer Policy (only valid for offer posts - see https://trashnothing.com/fair_offer_policy ).
-  - upload_key: The key used to upload any photos that should be attached to this post.
+  - photo_ids: A comma separated list of the IDs of the photos that should be attached to this post.
   - latitude
   - longitude
 
@@ -448,8 +767,10 @@ Parameters:
   never modified - it is up to the client to initialize, modify and persist the preferences object.
 
 - **callback** is a function used to return the result of the post submission. It is called and passed
-  one argument - an object with three properties {result, message, preference_key}.  The result property
-  is a string that is one of: success, error, warning.
+  one argument - an object with five properties {result, message, preference_key, identifier, session}.
+  The result property is a string that is one of: success, error, warning.  The identifier property is
+  set for errors and warnings and will contain a string that represents the type of error or warning that
+  occurred.
 
   A success result indicates that the post was submitted successfully. Note that posts may not
   appear instantly after submission because the moderators of many groups may have additional
@@ -471,13 +792,16 @@ Parameters:
 
 ```js
 trashnothing.get_post_client_javascript({
-  "group_ids": ""
+  "group_ids": "",
+  "access_token": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * group_ids **required** `string`: A comma separated list of all the group IDs that the current user is a member of. If the current user is not a member of any groups, simply pass an empty string.
+  * callback `string`: The name of a global function to call once the script is loaded.
+  * access_token **required** `string`: Passing the current users' OAuth2 access token as a GET parameter makes it easier to load this script in a normal HTML <script> tag.
 
 #### Output
 *Output schema unknown*
@@ -494,14 +818,15 @@ trashnothing.get_posts_by_ids({
 
 #### Input
 * input `object`
-  * post_ids **required** `string`: The IDs of the posts to retrieve.  If more than 10 post IDs are passed, only the first 10 posts will be returned.
+  * post_ids **required** `string`: A comma separated list of the post IDs. If more than 10 post IDs are passed, only the first 10 posts will be returned.
 
 #### Output
 * output `array`
   * items [Post](#post)
 
 ### search_posts
-Searching posts takes the same arguments as listing posts except for the addition of the search and sort_by parameters. <br /><br /> Only posts from the last 30 days will be returned.
+Searching posts takes the same arguments as listing posts except for the addition of the search and sort_by parameters.
+NOTE: When paging through the posts returned by this endpoint, there will be at most 1,000 posts that can be returned (eg. 50 pages worth of posts with the default per_page value of 20).  In areas where there are more than 1,000 posts, clients can use more specific query parameters to adjust which posts are returned.
 
 
 
@@ -518,18 +843,24 @@ trashnothing.search_posts({
   * search **required** `string`: The search query used to find posts.
   * sort_by `string`: How to sort the posts that are returned.  One of: relevance, date <br /><br /> Setting sort_by to date will sort posts from newest to oldest.
   * types **required** `string`: A comma separated list of the post types to return.  The available post types are: offer, taken, wanted, received, admin
-  * sources **required** `string`: A comma separated list of the post sources to retrieve posts from. The available sources are: groups, trashnothing. The trashnothing source is for public posts that are posted on trash nothing but are not associated with any group.
-  * group_ids `string`: A comma separated list of the group IDs to retrieve posts from. This parameter is only used if the 'groups' source is passed in the sources parameter and only groups that the current user is a member of will be used (the group IDs of other groups will be silently discarded). <br /><br /> NOTE: For requests using an api key instead of oauth, this field is required if the 'groups' source is passed. In addition, only posts from groups that have open_archives set to true will be used (the group IDS of other groups will be silently discarded).
+  * sources **required** `string`: A comma separated list of the post sources to retrieve posts from. The available sources are: groups, trashnothing, open_archive_groups. The trashnothing source is for public posts that are posted on trash nothing but are not associated with any group. The open_archive_groups source provides a way to easily request posts from groups that have open_archives set to true without having to pass a group_ids parameter.  When passed, it will automatically return posts from open archive groups that are within the area specified by the latitude, longitude and radius parameters (or the current users' location if latitude, longitude and radius aren't passed). <br /><br /> NOTE: For requests using an api key instead of oauth, passing the trashnothing source or the open_archive_groups source makes the latitude, longitude and radius parameters required.
+  * group_ids `string`: A comma separated list of the group IDs to retrieve posts from. This parameter is only used if the 'groups' source is passed in the sources parameter and only groups that the current user is a member of or that are open archives groups will be used (the group IDs of other groups will be silently discarded*). <br /><br /> NOTE: For requests using an api key instead of oauth, this field is required if the 'groups' source is passed. In addition, only posts from groups that have open_archives set to true will be used (the group IDS of other groups will be silently discarded*). <br /><br/> *To determine which group IDs were used and which were discarded, use the group_ids field in the response.
   * per_page `integer`: The number of posts to return per page (must be >= 1 and <= 100).
   * page `integer`: The page of posts to return.
   * device_pixel_ratio `number`: Client device pixel ratio used to determine thumbnail size (default 1.0).
   * latitude `number`: The latitude of a point around which to return posts.
   * longitude `number`: The longitude of a point around which to return posts.
   * radius `number`: The radius in meters of a circle centered at the point defined by the latitude and longitude parameters. When latitude, longitude and radius are passed, only posts within the circle defined by these parameters will be returned.
+  * date_min `string`: Only posts newer than or equal to this UTC date and time will be returned.  If unset, defaults to the current date and time minus 90 days.
+  * date_max `string`: Only posts older than this UTC date and time will be returned.  If unset, defaults to the current date and time.
+  * outcomes `string`: A comma separated list of the post outcomes to return.  The available post outcomes are: satisfied, withdrawn <br /><br /> There are also a couple special values that can be passed.  If set to an empty string (the default), only posts that are not satisfied and not withdrawn are returned. If set to 'all', all posts will be returned no matter what outcome the posts have.
+  * user_state `string`: If user_state is set, only posts matching the state specified will be returned.  Only one state may be passed and it must be one of the following: viewed, replied, bookmarked <br><br> NOTE: This option will only work with oauth requests.
 
 #### Output
 * output `object`
   * end_index `integer`: The index of the last post being returned (an integer between start_index and num_posts).
+  * group_ids `array`: The IDs of the groups that the posts were retrieved from (will be null when no group IDs were used). These IDs may be a subset of the requested group IDs when a request includes group IDs for groups that are not open archives and that the current user is not a member of.  If the open_archive_groups source is used, these IDs may include the IDs of open archive groups that weren't present in the group_ids parameter of the request.
+    * items `string`
   * num_pages `integer`: The total number of pages available.
   * num_posts `integer`: The total number of posts available.
   * page `integer`: The page number of the posts being returned.
@@ -555,6 +886,77 @@ trashnothing.get_post({
 #### Output
 * output [Post](#post)
 
+### update_post
+Users can update posts to fix mistakes with their post, add photos, or add more details about the items. Updates should not be used to say that items in a post have been taken or received since the post satisfy endpoint is designed to do that.
+
+
+
+```js
+trashnothing.update_post({
+  "post_id": "",
+  "type": "",
+  "title": "",
+  "location": "",
+  "session": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * post_id **required** `string`: The ID of the post to update.
+  * type **required** `string`: The type of post.  One of: offer, wanted
+  * title **required** `string`: A short description of the item(s).
+  * location **required** `string`: A short location description.
+  * content `string`: A longer description of the item(s).
+  * fair_offer `integer`: If set to 1, the post will be posted with the Fair Offer Policy (only valid for offer posts - see https://trashnothing.com/fair_offer_policy ).
+  * latitude `number`: The latitude corresponding to the location description provided. <br /><br /> If latitude and longitude are not provided, an attempt will be made to automatically geocode the location.  If the location is unable to be geocoded, the post will be rejected* and will have to be resubmitted with a latitude and longitude corresponding to the location or resubmitted with a different location that can be automatically geocoded. <br /><br /> NOTE: The latitude and longitude should NOT be the users' exact location because we don't want to publicize their exact location unless their location description is their full address (which is not recommended). <br /><br /> *When a post is rejected because it can't be geocoded, the returned error will have its identifier property set to 'unknown-location'.
+  * longitude `number`: The longitude corresponding to the location description provided. (see the NOTE in latitude description)
+  * photo_ids `string`: A comma separated list of the IDs of the photos that should be attached to this post.
+  * session **required** `string`: A JSON string representing a temporary object that is used to store data about the update process for a single post.  The first time a post update is submitted, session should be a new empty object (eg. '{}').  The session object should be persisted by the client until that update is successfully submitted and then it  can be discarded so that the next update will start over with a new empty session object.  Every time an update is submitted and the response indicates that the submission was not successful, the session object returned in the response should override the clients copy of the session.
+  * preferences `string`: A JSON string representing a permanent object that the client persists and modifies based on warnings returned by the update submission process and user input.  Some warnings returned after submitting  an update have a preference_key string property so that users can opt out of those warnings in the future.  To save this opt-out preference, set the property indicated by the preference_key in the preferences object (eg. preferences[preference_key] = 1).  The preferences object is never modified by the server - it is up to the client to initialize, modify and persist the preferences object.
+
+#### Output
+* output `object`
+  * identifier `string`: When an error or warning is returned, this will contain a short string representing the type of error or warning that occurred.  Is null on success.
+  * message `string`: Contains text describing the reason a post update was not successful.  Is null on success.
+  * preference_key `string`: Certain types of warnings can be opted out of.  These warnings will set preference_key to a string that can be  set in the preferences object by the client to opt out of that type of warning in the future (see the description of the preferences parameter for more details).  Is null for errors, success and warnings that can't be opted out of.
+  * result `string`: One of: success, error, warning. <br /><br /> A success result indicates that the post update was submitted successfully. Note that post updates may not appear instantly after submission because the moderators of many groups may have additional automatic or manual review processes in place that can cause delays. <br /><br /> An error result indicates that there is an error with the post that should be shown to the user and the message property will contain text describing the error. <br /><br /> A warning result indicates that there is a warning about the post update to show the user and the message property will contain a string describing the warning.   A warning result doesn't prevent a post update from being submitted, to continue the submission process after a warning result, just re-submit (with the updated session object) to temporarily override that specific warning.
+  * session `object`: The updated session object that should override the client's copy of the session that was passed in the session parameter. Is null on success.
+
+### delete_bookmark
+Delete a post bookmark
+
+
+```js
+trashnothing.delete_bookmark({
+  "post_id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * post_id **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### bookmark_post
+Bookmark a post
+
+
+```js
+trashnothing.bookmark_post({
+  "post_id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * post_id **required** `string`
+
+#### Output
+*Output schema unknown*
+
 ### get_post_and_related_data
 Retrieve a post and other data related to the post that is useful for displaying the post such as data about the user who posted the post and the groups the post was posted on.
 
@@ -573,16 +975,20 @@ trashnothing.get_post_and_related_data({
 #### Output
 * output `object`
   * author [User](#user)
-  * author_offer_count `integer`: Count of offer posts made by the post author in the last 30 days.
-  * author_posts `array`: Other posts by the post author.
+  * author_offer_count `integer`: Count of offer posts made by the post author in the last 90 days.
+  * author_posts `array`: Other active posts from the post author in the last 90 days. A maximum of 30 posts will be returned.
     * items [Post](#post)
-  * author_wanted_count `integer`: Count of wanted posts made by the post author in the last 30 days.
+  * author_wanted_count `integer`: Count of wanted posts made by the post author in the last 90 days.
+  * bookmarked `boolean`: Whether or not the current user has bookmarked this post.  Will be null for api key requests and for the current users' posts.
+  * feedback `array`: Feedback the current user has left on the post author.
+    * items [Feedback](#feedback)
   * geolocate_bounds [GeolocateBounds](#geolocatebounds)
   * groups `array`: The groups the post is published on.
     * items [Group](#group)
   * post [Post](#post)
-  * related_posts `array`: If the post is an offer post, this will contain taken posts that may correspond to the offer post (if any). If the post is a wanted post, this will contain received posts that may correspond to the wanted post (if any). These posts are useful to help people viewing the post decide if one or more of the items in the post is no longer available (for offer posts) or needed (for wanted posts).
-    * items [Post](#post)
+  * replied `boolean`: Whether or not the current user has replied to this post.  Will be null for api key requests and for the current users' posts.
+  * user_can_reply `boolean`: Whether or not the current user (if any) can reply to this post. Unverified users cannot reply to posts until they verify their account.
+  * viewed `boolean`: Whether or not the current user has previously viewed this post.  Will be null for api key requests and for the current users' posts.
 
 ### flag_post
 Flags a post to be reviewed by the moderators.
@@ -626,6 +1032,24 @@ trashnothing.geolocate_post({
 #### Output
 * output [Post](#post)
 
+### promise_post
+Mark an offer by the current user as promised to someone. This helps people viewing the post know that the items being offered may soon be given away as long as the person who was promised the items picks them up.
+
+
+
+```js
+trashnothing.promise_post({
+  "post_id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * post_id **required** `string`: The ID of the post to promise.
+
+#### Output
+* output [Post](#post)
+
 ### reply_to_post
 Send a reply to a post from the current user to the post author.
 
@@ -642,6 +1066,7 @@ trashnothing.reply_to_post({
   * post_id **required** `string`: The ID of the post to reply to.
   * message **required** `string`: The message to send to the post author.
   * send_copy `integer`: If set to 1, a copy of the reply will be emailed to the current user.
+  * photo_ids `string`: A comma separated list of the IDs of the photos that should be attached to this reply.
 
 #### Output
 *Output schema unknown*
@@ -659,7 +1084,6 @@ trashnothing.satisfy_post({
 #### Input
 * input `object`
   * post_id **required** `string`: The ID of the post to satisfy.
-  * summary `string`: If the post contains multiple items and not every item has been taken or received, pass a short summary of the items that have been so that the post will be updated to reflect which items are still being offered or request. Once all items in the post have been taken or received, this endpoint should be called with no summary passed so that the post will be removed from the listings.
 
 #### Output
 * output [Post](#post)
@@ -685,7 +1109,7 @@ trashnothing.get_post_share_content({
   * text `string`: Email body as plain text.
 
 ### share_post
-Shares a post by email.
+Forwards a copy of the post to the current user so that they can forward it to friends.
 
 
 ```js
@@ -697,9 +1121,156 @@ trashnothing.share_post({
 #### Input
 * input `object`
   * post_id **required** `string`: The ID of the post to share.
-  * send_copy `integer`: If set to 1, a copy of post will be emailed to the current user so that they can share the email with anyone.  The message and recipients parameters are not used when this is set.
-  * message `string`: An optional message to prefix to the email body that will be sent to the recipients.
-  * recipients `string`: A comma separated list of email addresses to share the post with.  This is a required field if send_copy is not set.
+
+#### Output
+*Output schema unknown*
+
+### unpromise_post
+Mark an offer by the current user as unpromised.
+
+
+```js
+trashnothing.unpromise_post({
+  "post_id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * post_id **required** `string`: The ID of the post to unpromise.
+
+#### Output
+* output [Post](#post)
+
+### withdraw_post
+Mark an offer or wanted post by the current user as withdrawn.
+
+
+```js
+trashnothing.withdraw_post({
+  "post_id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * post_id **required** `string`: The ID of the post to withdraw.
+
+#### Output
+* output [Post](#post)
+
+### get_stories
+List stories
+
+
+```js
+trashnothing.get_stories({}, context)
+```
+
+#### Input
+* input `object`
+  * page `integer`: The page of stories to return.
+  * per_page `integer`: The number of stories to return per page (must be >= 1 and <= 50).
+  * sort_by `string`: How to sort the stories that are returned.  One of: date, distance, likes, views <br /><br /> Setting sort_by to date will sort posts from newest to oldest.  Setting sort_by to distance will sort posts from nearest to farthest.  Setting sort_by to likes will sort posts with the most likes first.  Setting sort_by to views will show the posts with the most views first.
+  * latitude `number`: Find groups near the given latitude and longitude.
+  * longitude `number`: Find groups near the given latitude and longitude.
+  * device_pixel_ratio `number`: Client device pixel ratio used to determine thumbnail size (default 1.0).
+
+#### Output
+* output `object`
+  * stories `array`
+    * items [Story](#story)
+
+### submit_story
+Submit a story
+
+
+```js
+trashnothing.submit_story({
+  "title": "",
+  "content": "",
+  "sharing": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * title **required** `string`: The title of the story.
+  * content **required** `string`: The content of the story.
+  * sharing **required** `string`: Must be set to one of the following two options: public, members <br /><br /> When sharing is set to public, anyone will be able to view the story. When sharing is set to members, only other members will be able to view the story.
+  * photo_ids `string`: A comma separated list of the IDs of the photos that should be attached to this story.
+  * device_pixel_ratio `number`: Client device pixel ratio used to determine thumbnail size (default 1.0).
+
+#### Output
+* output [Story](#story)
+
+### get_story
+Retrieve a story
+
+
+```js
+trashnothing.get_story({
+  "story_id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * story_id **required** `string`: The ID of the story to retrieve.
+  * device_pixel_ratio `number`: Client device pixel ratio used to determine thumbnail size (default 1.0).
+
+#### Output
+* output [Story](#story)
+
+### like_story
+Like a story
+
+
+```js
+trashnothing.like_story({
+  "story_id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * story_id **required** `string`: The ID of the story to like.
+  * device_pixel_ratio `number`: Client device pixel ratio used to determine thumbnail size (default 1.0).
+
+#### Output
+* output [Story](#story)
+
+### unlike_story
+Unlike a story
+
+
+```js
+trashnothing.unlike_story({
+  "story_id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * story_id **required** `string`: The ID of the story to unlike.
+  * device_pixel_ratio `number`: Client device pixel ratio used to determine thumbnail size (default 1.0).
+
+#### Output
+* output [Story](#story)
+
+### viewed_story
+Records every time a user views the full story (and not just a preview or snippet),
+
+
+```js
+trashnothing.viewed_story({
+  "story_id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * story_id **required** `string`: The ID of the story viewed.
 
 #### Output
 *Output schema unknown*
@@ -732,15 +1303,16 @@ trashnothing.update_current_user({}, context)
   * firstname `string`: The first name of the user.
   * lastname `string`: The last name of the user.
   * public_name `integer`: Whether or not the users' first and last name will be visible to other users. Set to 1 to enable and 0 to disable.
-  * digest_enabled `integer`: Whether or not the user will receive digest emails summarizing the new posts. Set to 1 to enable and 0 to disable.
-  * digest_frequency `string`: The frequency of digest emails sent to this user. One of: daily, 12_hours, 8_hours, 6_hours, 4_hours, 2_hours, hourly <br /><br /> NOTE: A weekly option with the value 'weekly' will probably be added in the future so clients should recognize weekly as a valid value that can be displayed and set if it is ever returned.
+  * digest `string`: The frequency of digest emails sent to this user. One of: weekly, twice_weekly, daily, 12_hours, 8_hours, 6_hours, 4_hours, 2_hours, hourly <br /><br /> To disable digests, set this to an empty string.
+  * digest_photos `integer`: Whether or not to include photos in the digest emails. Set to 1 to enable photos and 0 to disable photos.
   * post_reminders `integer`: Whether or not the user will receive post reminder emails (to remind them to update or repost their posts). Set to 1 to enable and 0 to disable.
   * password `string`: A new password for the users' account.  When setting a new password, the old_password parameter must be passed and set to the users' current password. <br /><br /> NOTE: The password and old_password properties can NOT be used when the user property has_password is false.  Instead, use the password reset endpoint to have a new password emailed to the user.
   * old_password `string`: The users current password.  This is required when the user is changing their password.
   * profile_image_source `string`: The source of the users' profile image. The values this can be set to change dynamically based on the users' account. To get the values that can be used, use the source properties returned by the profile images endpoint.
-  * last_listings_view `string`: The date and time when the user last viewed the newest posts on the All Posts page.
-  * filter_group_posts_by_location `integer`: Whether or not group posts should be filtered by their location to only include posts defined by the users' location field. Set to 1 to enable and 0 to disable.
+  * last_listings_view `string`: The UTC date and time when the user last viewed the newest posts on the All Posts page.
   * public_post_sources `string`: A comma separated list of the sources to show public posts from. Currently only 'trashnothing' is supported.
+  * show_all_group_posts `integer`: Set to 1 to show all group posts on the main posts page and in the digest emails.  Set to 0 to only show group posts in the area defined by the users' location.  Can only be set to 0 if the users' location is already set.
+  * special_notices `integer`: Whether or not the user wants to receive special notice emails from the groups they are a member of. Special notices are admin posts that the group moderators choose to send out by email. Set to 1 to enable and 0 to disable.
 
 #### Output
 * output [CurrentUser](#currentuser)
@@ -796,117 +1368,45 @@ trashnothing.delete_alert({
 #### Output
 *Output schema unknown*
 
-### get_emails
-List email addresses
-
-
-```js
-trashnothing.get_emails(null, context)
-```
-
-#### Input
-*This action has no parameters*
-
-#### Output
-* output `array`
-  * items [Email](#email)
-
-### add_email
-Add a new email address to the current users' account.  The first time an email address is added to a users account, a verification link will be sent to the email address to verify the address.
+### change_email
+Change the users' current email address.  A verification link will be emailed to the new email address to verify that the email account belongs to the user.  The email change will not take effect until the user clicks the link in the verification email.
 
 
 
 ```js
-trashnothing.add_email({
+trashnothing.change_email({
   "address": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * address **required** `string`: The email address to add.
-
-#### Output
-* output [Email](#email)
-
-### delete_email
-Delete an existing email address from the current users' account. If the email being deleted is the last email address the user has or if the email address is the primary email for the user, deleting the email will fail. In order to delete a users' primary email, another email must first be made the primary email.
-
-
-
-```js
-trashnothing.delete_email({
-  "email_id": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * email_id **required** `string`: The ID of the email address to delete.
-
-#### Output
-* output `array`
-  * items [Email](#email)
-
-### set_email_not_bouncing
-Resets an email address bouncing state to false.  The email address may be automatically marked as bouncing if further emails sent to it are bounced.
-
-
-
-```js
-trashnothing.set_email_not_bouncing({
-  "email_id": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * email_id **required** `string`: The ID of the email to set as not bouncing.
-
-#### Output
-* output [Email](#email)
-
-### resend_email_verification_email
-Resends the verification email to one of the users' unverified email addresses.
-
-
-```js
-trashnothing.resend_email_verification_email({
-  "email_id": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * email_id **required** `string`: The ID of the email to resend the verification email to.
+  * address **required** `string`: The new email address.
 
 #### Output
 *Output schema unknown*
 
-### update_primary_email
-Update primary email
+### set_email_not_bouncing
+Resets an email address bouncing state to false.  The users' email address may be automatically marked as bouncing again if further emails sent to it are bounced.
+
 
 
 ```js
-trashnothing.update_primary_email({
-  "email_id": ""
-}, context)
+trashnothing.set_email_not_bouncing(null, context)
 ```
 
 #### Input
-* input `object`
-  * email_id **required** `string`: The ID of the email address to make the primary email address for the user.
+*This action has no parameters*
 
 #### Output
-* output `array`
-  * items [Email](#email)
+* output [CurrentUser](#currentuser)
 
-### get_user_groups
+### get_current_user_groups
 List current users' groups
 
 
 ```js
-trashnothing.get_user_groups({}, context)
+trashnothing.get_current_user_groups({}, context)
 ```
 
 #### Input
@@ -918,7 +1418,7 @@ trashnothing.get_user_groups({}, context)
   * items [Group](#group)
 
 ### update_location
-Update the current users' location. The location is used to determine what (if any) public posts are shown to the user.
+Update the current users' location. The location is used to determine which posts are shown to the user (both public posts and group posts).
 
 
 
@@ -958,7 +1458,7 @@ trashnothing.get_user_group_notices({}, context)
   * items [GroupNotice](#groupnotice)
 
 ### get_current_user_posts
-Only posts from the last 30 days will be returned. <br /><br /> NOTE: In order to make it easier to see all a users&#39; posts, the current users&#39; location preferences are not applied when listing or searching posts from a single user.  If location based filtering of the posts is needed, the latitude, longitude and radius parameters may be used.
+NOTE: In order to make it easier to see all a users&#39; posts, the current users&#39; location preferences are not applied when listing or searching posts from a single user.  If location based filtering of the posts is needed, the latitude, longitude and radius parameters may be used.
 
 
 
@@ -972,19 +1472,25 @@ trashnothing.get_current_user_posts({
 #### Input
 * input `object`
   * types **required** `string`: A comma separated list of the post types to return.  The available post types are: offer, taken, wanted, received, admin
-  * sources **required** `string`: A comma separated list of the post sources to retrieve posts from. The available sources are: groups, trashnothing. The trashnothing source is for public posts that are posted on trash nothing but are not associated with any group.
-  * group_ids `string`: A comma separated list of the group IDs to retrieve posts from. This parameter is only used if the 'groups' source is passed in the sources parameter and only groups that the current user is a member of will be used (the group IDs of other groups will be silently discarded). <br /><br /> NOTE: For requests using an api key instead of oauth, this field is required if the 'groups' source is passed. In addition, only posts from groups that have open_archives set to true will be used (the group IDS of other groups will be silently discarded).
+  * sources **required** `string`: A comma separated list of the post sources to retrieve posts from. The available sources are: groups, trashnothing, open_archive_groups. The trashnothing source is for public posts that are posted on trash nothing but are not associated with any group. The open_archive_groups source provides a way to easily request posts from groups that have open_archives set to true without having to pass a group_ids parameter.  When passed, it will automatically return posts from open archive groups that are within the area specified by the latitude, longitude and radius parameters (or the current users' location if latitude, longitude and radius aren't passed). <br /><br /> NOTE: For requests using an api key instead of oauth, passing the trashnothing source or the open_archive_groups source makes the latitude, longitude and radius parameters required.
+  * group_ids `string`: A comma separated list of the group IDs to retrieve posts from. This parameter is only used if the 'groups' source is passed in the sources parameter and only groups that the current user is a member of or that are open archives groups will be used (the group IDs of other groups will be silently discarded*). <br /><br /> NOTE: For requests using an api key instead of oauth, this field is required if the 'groups' source is passed. In addition, only posts from groups that have open_archives set to true will be used (the group IDS of other groups will be silently discarded*). <br /><br/> *To determine which group IDs were used and which were discarded, use the group_ids field in the response.
   * per_page `integer`: The number of posts to return per page (must be >= 1 and <= 100).
   * page `integer`: The page of posts to return.
   * device_pixel_ratio `number`: Client device pixel ratio used to determine thumbnail size (default 1.0).
   * latitude `number`: The latitude of a point around which to return posts.
   * longitude `number`: The longitude of a point around which to return posts.
   * radius `number`: The radius in meters of a circle centered at the point defined by the latitude and longitude parameters. When latitude, longitude and radius are passed, only posts within the circle defined by these parameters will be returned.
+  * date_min `string`: Only posts newer than or equal to this UTC date and time will be returned.
+  * date_max `string`: Only posts older than this UTC date and time will be returned.
+  * outcomes `string`: A comma separated list of the post outcomes to return.  The available post outcomes are: satisfied, withdrawn <br /><br /> There are also a couple special values that can be passed.  If set to an empty string (the default), only posts that are not satisfied and not withdrawn are returned. If set to 'all', all posts will be returned no matter what outcome the posts have.
+  * user_state `string`: If user_state is set, only posts matching the state specified will be returned.  Only one state may be passed and it must be one of the following: viewed, replied, bookmarked <br><br> NOTE: This option will only work with oauth requests.
 
 #### Output
 * output `object`
   * end_index `integer`: The index of the last post being returned (an integer between start_index and num_posts).
-  * last_listings_view `string`: The date and time when the current user last viewed the newest posts on the All Posts page (may be null). <br /><br /> NOTE: For this to be accurate, clients must update the last_listings_view property of the current user every time the user is shown the newest posts on the All Posts page. <br /><br /> NOTE: For requests using an api key instead of oauth, this field is always null.
+  * group_ids `array`: The IDs of the groups that the posts were retrieved from (will be null when no group IDs were used). These IDs may be a subset of the requested group IDs when a request includes group IDs for groups that are not open archives and that the current user is not a member of.  If the open_archive_groups source is used, these IDs may include the IDs of open archive groups that weren't present in the group_ids parameter of the request.
+    * items `string`
+  * last_listings_view `string`: The UTC date and time when the current user last viewed the newest posts on the All Posts page (may be null). <br /><br /> NOTE: For this to be accurate, clients must update the last_listings_view property of the current user every time the user is shown the newest posts on the All Posts page. <br /><br /> NOTE: For requests using an api key instead of oauth, this field is always null.
   * num_pages `integer`: The total number of pages available.
   * num_posts `integer`: The total number of posts available.
   * page `integer`: The page number of the posts being returned.
@@ -994,7 +1500,7 @@ trashnothing.get_current_user_posts({
   * start_index `integer`: The index of the first post being returned (an integer between 1 and num_posts).
 
 ### search_current_user_posts
-Searching posts takes the same arguments as listing posts except for the addition of the search and sort_by parameters. <br /><br /> Only posts from the last 30 days will be returned.
+Searching posts takes the same arguments as listing posts except for the addition of the search and sort_by parameters.
 
 
 
@@ -1011,18 +1517,24 @@ trashnothing.search_current_user_posts({
   * search **required** `string`: The search query used to find posts.
   * sort_by `string`: How to sort the posts that are returned.  One of: relevance, date <br /><br /> Setting sort_by to date will sort posts from newest to oldest.
   * types **required** `string`: A comma separated list of the post types to return.  The available post types are: offer, taken, wanted, received, admin
-  * sources **required** `string`: A comma separated list of the post sources to retrieve posts from. The available sources are: groups, trashnothing. The trashnothing source is for public posts that are posted on trash nothing but are not associated with any group.
-  * group_ids `string`: A comma separated list of the group IDs to retrieve posts from. This parameter is only used if the 'groups' source is passed in the sources parameter and only groups that the current user is a member of will be used (the group IDs of other groups will be silently discarded). <br /><br /> NOTE: For requests using an api key instead of oauth, this field is required if the 'groups' source is passed. In addition, only posts from groups that have open_archives set to true will be used (the group IDS of other groups will be silently discarded).
+  * sources **required** `string`: A comma separated list of the post sources to retrieve posts from. The available sources are: groups, trashnothing, open_archive_groups. The trashnothing source is for public posts that are posted on trash nothing but are not associated with any group. The open_archive_groups source provides a way to easily request posts from groups that have open_archives set to true without having to pass a group_ids parameter.  When passed, it will automatically return posts from open archive groups that are within the area specified by the latitude, longitude and radius parameters (or the current users' location if latitude, longitude and radius aren't passed). <br /><br /> NOTE: For requests using an api key instead of oauth, passing the trashnothing source or the open_archive_groups source makes the latitude, longitude and radius parameters required.
+  * group_ids `string`: A comma separated list of the group IDs to retrieve posts from. This parameter is only used if the 'groups' source is passed in the sources parameter and only groups that the current user is a member of or that are open archives groups will be used (the group IDs of other groups will be silently discarded*). <br /><br /> NOTE: For requests using an api key instead of oauth, this field is required if the 'groups' source is passed. In addition, only posts from groups that have open_archives set to true will be used (the group IDS of other groups will be silently discarded*). <br /><br/> *To determine which group IDs were used and which were discarded, use the group_ids field in the response.
   * per_page `integer`: The number of posts to return per page (must be >= 1 and <= 100).
   * page `integer`: The page of posts to return.
   * device_pixel_ratio `number`: Client device pixel ratio used to determine thumbnail size (default 1.0).
   * latitude `number`: The latitude of a point around which to return posts.
   * longitude `number`: The longitude of a point around which to return posts.
   * radius `number`: The radius in meters of a circle centered at the point defined by the latitude and longitude parameters. When latitude, longitude and radius are passed, only posts within the circle defined by these parameters will be returned.
+  * date_min `string`: Only posts newer than or equal to this UTC date and time will be returned.
+  * date_max `string`: Only posts older than this UTC date and time will be returned.
+  * outcomes `string`: A comma separated list of the post outcomes to return.  The available post outcomes are: satisfied, withdrawn <br /><br /> There are also a couple special values that can be passed.  If set to an empty string (the default), only posts that are not satisfied and not withdrawn are returned. If set to 'all', all posts will be returned no matter what outcome the posts have.
+  * user_state `string`: If user_state is set, only posts matching the state specified will be returned.  Only one state may be passed and it must be one of the following: viewed, replied, bookmarked <br><br> NOTE: This option will only work with oauth requests.
 
 #### Output
 * output `object`
   * end_index `integer`: The index of the last post being returned (an integer between start_index and num_posts).
+  * group_ids `array`: The IDs of the groups that the posts were retrieved from (will be null when no group IDs were used). These IDs may be a subset of the requested group IDs when a request includes group IDs for groups that are not open archives and that the current user is not a member of.  If the open_archive_groups source is used, these IDs may include the IDs of open archive groups that weren't present in the group_ids parameter of the request.
+    * items `string`
   * num_pages `integer`: The total number of pages available.
   * num_posts `integer`: The total number of posts available.
   * page `integer`: The page number of the posts being returned.
@@ -1115,8 +1627,57 @@ trashnothing.get_user({
 #### Output
 * output [User](#user)
 
+### get_user_and_related_data
+Retrieve a user and information related to the user (eg. recent posts) that is useful for displaying a more detailed view of the user.
+
+
+
+```js
+trashnothing.get_user_and_related_data({
+  "user_id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * user_id **required** `string`: A user ID.
+
+#### Output
+* output `object`
+  * feedback `array`: Feedback the current user has left on the user.
+    * items [Feedback](#feedback)
+  * offer_count `integer`: Count of offer posts made by the user in the last 90 days.
+  * posts `array`: Other active posts from the user in the last 90 days. A maximum of 30 posts will be returned.
+    * items [Post](#post)
+  * user [User](#user)
+  * wanted_count `integer`: Count of wanted posts made by the user in the last 90 days.
+
+### submit_user_feedback
+Allows the current user to submit feedback on a user.  The current user can only leave feedback on a user if the feedback allowed property on that user is set to true (see User definition for more details). And the system will only store the most recent feedback submission that the current user has submitted on a user. If the current user submits feedback multiple times, the newest feedback will overwrite the older feedback. This allows users to update their feedback as long as the feedback allowed property allows it.
+
+
+
+```js
+trashnothing.submit_user_feedback({
+  "user_id": "",
+  "positive": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * user_id **required** `string`: A user ID.
+  * positive **required** `integer`: If set to 1, the feedback is positive.  If set to 0, the feedback is negative.
+  * content `string`: A comment written by the current user about the user they are leaving feedback on. This is optional for positive feedback but is required for negative feedback.
+  * category `string`: For positive feedback, category should not be set. <br /><br /> For negative feedback, category should be set to one of: NO_SHOW, UNRESPONSIVE, LATE, ITEM_NOT_AS_DESCRIBED, BROKEN_PROMISE, RUDE, RESELLER, SELLING, UNWANTED_MESSAGES, OTHER <br /><br /> Below are descriptions for each of these categories: <br /><br /> **NO_SHOW** - The user did not show up when they said they would.<br /> **UNRESPONSIVE** - The user failed to respond when a response was expected.<br /> **LATE** - The user showed up later than they said they would.<br /> **ITEM_NOT_AS_DESCRIBED** - The user gave away an item that had a misleading on incomplete description.<br /> **BROKEN_PROMISE** - The user broke a promise.<br /> **RUDE** - The user was rude or impolite.<br /> **RESELLER** - The user is obtaining free items to sell on other sites without disclosing their intent to resell.<br /> **SELLING** - The user is selling items on trash nothing.<br /> **UNWANTED_MESSAGES** - The user is sending off-topic or unrelated messages.<br />           **OTHER** - This category is for anything that does not fit in any of the above categories.
+
+#### Output
+* output `object`
+  * feedback [Feedback](#feedback)
+  * user [User](#user)
+
 ### get_user_posts
-Only posts from the last 30 days will be returned. <br /><br /> NOTE: In order to make it easier to see all a users&#39; posts, the current users&#39; location preferences are not applied when listing or searching posts from a single user.  If location based filtering of the posts is needed, the latitude, longitude and radius parameters may be used.
+NOTE: In order to make it easier to see all a users&#39; posts, the current users&#39; location preferences are not applied when listing or searching posts from a single user.  If location based filtering of the posts is needed, the latitude, longitude and radius parameters may be used.
 
 
 
@@ -1132,19 +1693,24 @@ trashnothing.get_user_posts({
 * input `object`
   * user_id **required** `string`: The user ID of the user whose posts will be retrieved. Using 'me' as the user_id will return the posts for the current user.
   * types **required** `string`: A comma separated list of the post types to return.  The available post types are: offer, taken, wanted, received, admin
-  * sources **required** `string`: A comma separated list of the post sources to retrieve posts from. The available sources are: groups, trashnothing. The trashnothing source is for public posts that are posted on trash nothing but are not associated with any group.
-  * group_ids `string`: A comma separated list of the group IDs to retrieve posts from. This parameter is only used if the 'groups' source is passed in the sources parameter and only groups that the current user is a member of will be used (the group IDs of other groups will be silently discarded). <br /><br /> NOTE: For requests using an api key instead of oauth, this field is required if the 'groups' source is passed. In addition, only posts from groups that have open_archives set to true will be used (the group IDS of other groups will be silently discarded).
+  * sources **required** `string`: A comma separated list of the post sources to retrieve posts from. The available sources are: groups, trashnothing, open_archive_groups. The trashnothing source is for public posts that are posted on trash nothing but are not associated with any group. The open_archive_groups source provides a way to easily request posts from groups that have open_archives set to true without having to pass a group_ids parameter.  When passed, it will automatically return posts from open archive groups that are within the area specified by the latitude, longitude and radius parameters (or all the open archive groups the requested user has posted to if latitude, longitude and radius aren't passed). <br /><br /> NOTE: For requests using an api key instead of oauth, passing the trashnothing source or the open_archive_groups source makes the latitude, longitude and radius parameters required.
+  * group_ids `string`: A comma separated list of the group IDs to retrieve posts from. This parameter is only used if the 'groups' source is passed in the sources parameter and only groups that the current user is a member of or that are open archives groups will be used (the group IDs of other groups will be silently discarded*). <br /><br /> NOTE: For requests using an api key instead of oauth, this field is required if the 'groups' source is passed. In addition, only posts from groups that have open_archives set to true will be used (the group IDS of other groups will be silently discarded*). <br /><br/> *To determine which group IDs were used and which were discarded, use the group_ids field in the response.
   * per_page `integer`: The number of posts to return per page (must be >= 1 and <= 100).
   * page `integer`: The page of posts to return.
   * device_pixel_ratio `number`: Client device pixel ratio used to determine thumbnail size (default 1.0).
   * latitude `number`: The latitude of a point around which to return posts.
   * longitude `number`: The longitude of a point around which to return posts.
   * radius `number`: The radius in meters of a circle centered at the point defined by the latitude and longitude parameters. When latitude, longitude and radius are passed, only posts within the circle defined by these parameters will be returned.
+  * date_min `string`: Only posts newer than or equal to this UTC date and time will be returned.
+  * date_max `string`: Only posts older than this UTC date and time will be returned.
+  * outcomes `string`: A comma separated list of the post outcomes to return.  The available post outcomes are: satisfied, withdrawn <br /><br /> There are also a couple special values that can be passed.  If set to an empty string (the default), only posts that are not satisfied and not withdrawn are returned. If set to 'all', all posts will be returned no matter what outcome the posts have.
 
 #### Output
 * output `object`
   * end_index `integer`: The index of the last post being returned (an integer between start_index and num_posts).
-  * last_listings_view `string`: The date and time when the current user last viewed the newest posts on the All Posts page (may be null). <br /><br /> NOTE: For this to be accurate, clients must update the last_listings_view property of the current user every time the user is shown the newest posts on the All Posts page. <br /><br /> NOTE: For requests using an api key instead of oauth, this field is always null.
+  * group_ids `array`: The IDs of the groups that the posts were retrieved from (will be null when no group IDs were used). These IDs may be a subset of the requested group IDs when a request includes group IDs for groups that are not open archives and that the current user is not a member of.  If the open_archive_groups source is used, these IDs may include the IDs of open archive groups that weren't present in the group_ids parameter of the request.
+    * items `string`
+  * last_listings_view `string`: The UTC date and time when the current user last viewed the newest posts on the All Posts page (may be null). <br /><br /> NOTE: For this to be accurate, clients must update the last_listings_view property of the current user every time the user is shown the newest posts on the All Posts page. <br /><br /> NOTE: For requests using an api key instead of oauth, this field is always null.
   * num_pages `integer`: The total number of pages available.
   * num_posts `integer`: The total number of posts available.
   * page `integer`: The page number of the posts being returned.
@@ -1154,7 +1720,7 @@ trashnothing.get_user_posts({
   * start_index `integer`: The index of the first post being returned (an integer between 1 and num_posts).
 
 ### search_user_posts
-Searching posts takes the same arguments as listing posts except for the addition of the search and sort_by parameters. <br /><br /> Only posts from the last 30 days will be returned.
+Searching posts takes the same arguments as listing posts except for the addition of the search and sort_by parameters.
 
 
 
@@ -1173,18 +1739,23 @@ trashnothing.search_user_posts({
   * search **required** `string`: The search query used to find posts.
   * sort_by `string`: How to sort the posts that are returned.  One of: relevance, date <br /><br /> Setting sort_by to date will sort posts from newest to oldest.
   * types **required** `string`: A comma separated list of the post types to return.  The available post types are: offer, taken, wanted, received, admin
-  * sources **required** `string`: A comma separated list of the post sources to retrieve posts from. The available sources are: groups, trashnothing. The trashnothing source is for public posts that are posted on trash nothing but are not associated with any group.
-  * group_ids `string`: A comma separated list of the group IDs to retrieve posts from. This parameter is only used if the 'groups' source is passed in the sources parameter and only groups that the current user is a member of will be used (the group IDs of other groups will be silently discarded). <br /><br /> NOTE: For requests using an api key instead of oauth, this field is required if the 'groups' source is passed. In addition, only posts from groups that have open_archives set to true will be used (the group IDS of other groups will be silently discarded).
+  * sources **required** `string`: A comma separated list of the post sources to retrieve posts from. The available sources are: groups, trashnothing, open_archive_groups. The trashnothing source is for public posts that are posted on trash nothing but are not associated with any group. The open_archive_groups source provides a way to easily request posts from groups that have open_archives set to true without having to pass a group_ids parameter.  When passed, it will automatically return posts from open archive groups that are within the area specified by the latitude, longitude and radius parameters (or all the open archive groups the requested user has posted to if latitude, longitude and radius aren't passed). <br /><br /> NOTE: For requests using an api key instead of oauth, passing the trashnothing source or the open_archive_groups source makes the latitude, longitude and radius parameters required.
+  * group_ids `string`: A comma separated list of the group IDs to retrieve posts from. This parameter is only used if the 'groups' source is passed in the sources parameter and only groups that the current user is a member of or that are open archives groups will be used (the group IDs of other groups will be silently discarded*). <br /><br /> NOTE: For requests using an api key instead of oauth, this field is required if the 'groups' source is passed. In addition, only posts from groups that have open_archives set to true will be used (the group IDS of other groups will be silently discarded*). <br /><br/> *To determine which group IDs were used and which were discarded, use the group_ids field in the response.
   * per_page `integer`: The number of posts to return per page (must be >= 1 and <= 100).
   * page `integer`: The page of posts to return.
   * device_pixel_ratio `number`: Client device pixel ratio used to determine thumbnail size (default 1.0).
   * latitude `number`: The latitude of a point around which to return posts.
   * longitude `number`: The longitude of a point around which to return posts.
   * radius `number`: The radius in meters of a circle centered at the point defined by the latitude and longitude parameters. When latitude, longitude and radius are passed, only posts within the circle defined by these parameters will be returned.
+  * date_min `string`: Only posts newer than or equal to this UTC date and time will be returned.
+  * date_max `string`: Only posts older than this UTC date and time will be returned.
+  * outcomes `string`: A comma separated list of the post outcomes to return.  The available post outcomes are: satisfied, withdrawn <br /><br /> There are also a couple special values that can be passed.  If set to an empty string (the default), only posts that are not satisfied and not withdrawn are returned. If set to 'all', all posts will be returned no matter what outcome the posts have.
 
 #### Output
 * output `object`
   * end_index `integer`: The index of the last post being returned (an integer between start_index and num_posts).
+  * group_ids `array`: The IDs of the groups that the posts were retrieved from (will be null when no group IDs were used). These IDs may be a subset of the requested group IDs when a request includes group IDs for groups that are not open archives and that the current user is not a member of.  If the open_archive_groups source is used, these IDs may include the IDs of open archive groups that weren't present in the group_ids parameter of the request.
+    * items `string`
   * num_pages `integer`: The total number of pages available.
   * num_posts `integer`: The total number of posts available.
   * page `integer`: The page number of the posts being returned.
@@ -1219,7 +1790,7 @@ trashnothing.get_profile_image_file({
 ### Alert
 * Alert `object`: A search alert that the user has created so that they can be notified when new posts match the search query specified by the alert.
   * alert_id `string`
-  * last_sent `string`: The last time that the alert was triggered and sent out (may be null).
+  * last_sent `string`: The UTC date and time when the alert was last triggered and sent out (may be null).
   * search `string`: The search phrase that the alert triggers on.
   * send_count `integer`: The number of time the alert has triggered and been send out.
   * types `array`: A list of the post types that the alert is set to match against.  The available post types are: offer, wanted <br /><br /> NOTE: Additional post types may be added in the future (eg. events) so clients should take care to support arbitrary types being returned.
@@ -1235,26 +1806,40 @@ trashnothing.get_profile_image_file({
     * latitude `number`
     * longitude `number`
 
+### Conversation
+* Conversation `object`: A conversation between the current user and another user.
+  * archived `boolean`: Whether or not this conversation is archived.
+  * blocked `boolean`: Whether or not this conversation is blocked.
+  * conversation_id `string`
+  * last_message_date `string`: The UTC date and time of the last message in this conversation.
+  * messages `array`: The latest messages in this conversation.
+    * items [Message](#message)
+  * num_unread_messages `integer`: The count of how many unread messages this conversation has.
+  * user [User](#user)
+
 ### CurrentUser
 * CurrentUser
   * country `string`: A 2 letter country code for the country that has been automatically detected for the user (see https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 ). May be null if no country has been set.
+  * feedback `object`
+    * percent_positive `number`: The percent of feedback that this user has received in the last year that was positive. May be null if a user has not received enough feedback to calculate a percentage.
+    * restriction `string`: If the current user can leave positive or negative feedback on this user then restriction is null. <br /><br /> Otherwise, restriction is set to a string that explains why feedback is currently restricted and what type of feedback is restricted. The string will be one of the following:  no-recent-messages, negative-score, moderator, [days]-day-wait-for-negative <br /><br /> - **no-recent-messages**: The current user has not received any messages from this user in the last 30 days. <br /> - **negative-score**: The current user has a negative feedback and will not be able to leave feedback until their score is >= 0. <br /> - **moderator**: The user is a moderator and leaving feedback on moderators is not currently supported. <br /> - **[days]-day-wait-for-negative**: Positive feedback is not restricted but the current user must wait
+    * score `integer`: The feedback score of this user.  Higher scores are better.   Scores are calculated by substracting the total number of negative feedback from the total number of positive feedback that a user has received.  May be null if a user has not received enough feedback to calculate a score.
   * firstname `string`: The first name of the user (may be null).
   * lastname `string`: The last name of the user (may be null).
   * member_since `string`: The date and time when the user first became publicly active on a group (the date may be older than when the user signed up).
-  * profile_image `string`: A URL to a profile image for the user.  Profile images sizes vary based on the source (Google, Facebook, Twitter, Gravatar, etc) and some can be as small as 64px by 64px.
+  * profile_image `string`: A URL to a profile image for the user.  Profile images sizes vary based on the source (Google, Facebook, Twitter, Gravatar, etc) and some can be as small as 64px by 64px.  Will be null for api key requests and requests where the oauth user doesn't belong to any of the same groups as this user.
+  * reply_time `integer`: An estimate of how many seconds it takes this user to reply to messages. May be null when there is not enough data to calculate an estimate.
   * user_id `string`
-  * username `string`: A username that can be displayed for the user (the username is NOT guaranteed to be unique).
-  * contributed_recently `boolean`: Whether or not this user has contributed money recently to support the site using the page at: https://trashnothing.com/payment
-  * digest_enabled `boolean`: Whether or not digest emails are enabled for this user.
-  * digest_frequency `string`: The frequency of digest emails sent to this user. One of: daily, 12_hours, 8_hours, 6_hours, 4_hours, 2_hours, hourly <br /><br /> NOTE: A weekly option with the value 'weekly' will probably be added in the future so clients should recognize weekly as a valid value that can be displayed and set if it is ever returned.
-  * digest_timezone `string`: The timezone used for emailing digests to this user (may be null if digests are disabled).
-  * email_bouncing `boolean`: Whether or not the users' primary email address is bouncing emails sent to it.
-  * email_spam_stop `boolean`: Whether or not emails have been stopped because of a spam complaint from the users' email account.
-  * filter_group_posts_by_location `boolean`: Whether or not group posts should be filtered by their location to only include posts defined by the users' location field.
-  * has_password `boolean`: Whether or not the user has a password (accounts created using 3rd party providers like Facebook don't have passwords set).
-  * hide_ads `boolean`: Whether or not advertisements (eg. Google Ads) should be shown to this user.
-  * last_listings_view `string`: The date and time when the user last viewed the newest posts on the All Posts page (may be null). <br /><br /> NOTE: For this to be accurate, clients must update the last_listings_view property of the current user every time the user is shown the newest posts on the All Posts page.
-  * location `object`: The users' preference for what public posts they want to see outside of the groups they are a member of (may be null).
+  * username `string`: A username that can be displayed for the user (the username is NOT guaranteed to be unique). Will be null for api key requests and requests where the oauth user doesn't belong to any of the same groups as this user.
+  * digest `string`: If digest emails are enabled, this is the frequency of digest emails sent to this user. One of: weekly, twice_weekly, daily, 12_hours, 8_hours, 6_hours, 4_hours, 2_hours, hourly <br /><br /> If digest emails are disabled, this will be null.
+  * digest_photos `boolean`: Whether or not photos are included in the digest emails sent to the user.
+  * email `object`: Data related to the users' email address.
+    * address `string`: The email address.
+    * bouncing `boolean`: Whether or not this email address has been bouncing emails that are sent to it.  When bouncing is true, no emails will be sent to the user.  If the user thinks that their email account shouldn't be bouncing emails, use the email not bouncing endpoint to reset bouncing to false.
+    * spam_stop `boolean`: Whether or not emails have been stopped because of a spam complaint from the users' email account. When spam_stop is first set to true, it indicates that all emails have been automatically disabled for the users' account (eg. digest and alerts).  The user will need to re-enable digests and re-add any alerts that they had previously set up.
+  * has_password `boolean`: Whether or not the user has a password (accounts created using 3rd party providers like Facebook don't have passwords set). <br /><br /> When has_password is false, the only way to set a password on the users' account is to send the user a password reset email.
+  * last_listings_view `string`: The UTC date and time when the user last viewed the newest posts on the All Posts page (may be null). <br /><br /> NOTE: For this to be accurate, clients must update the last_listings_view property of the current user every time the user is shown the newest posts on the All Posts page.
+  * location `object`: The users' location.  The location is used to determine which posts are shown to the user (may be null).
     * latitude `number`
     * longitude `number`
     * name `string`: A text description of the location specified by latitude and longitude.
@@ -1266,20 +1851,21 @@ trashnothing.get_profile_image_file({
   * post_reminders `boolean`: Whether or not post reminders are enabled for this user (to remind them to update or repost their posts).
   * profile_image_source `string`: The source of the users' profile image. One of: gravatar, facebook, twitter, google, freegle, custom
   * public_name `boolean`: Whether or not the user has chosen to make their first and last name public.
-  * public_post_sources `array`: A list of the public post sources the user is interested in seeing posts from (currently only 'trashnothing' is supported). <br /><br /> NOTE: Additional sources may be added in the future so clients should take care to support arbitrary sources being returned.
+  * public_post_sources `array`: A list of the public post sources the user is interested in seeing posts from (currently only 'trashnothing' is supported). If the array is empty, no sources are enabled and the user will only see posts from the groups they are a member of. <br /><br /> NOTE: Additional sources may be added in the future so clients should take care to support arbitrary sources being returned.
     * items `string`
-  * signup `string`: The date and time when the user signed up.
+  * show_all_group_posts `boolean`: If true, all group posts from the users' groups are shown to them on the main posts page and in the digest emails. <br /><br /> If false, only group posts in the area defined by the users' location are shown.
+  * signup `string`: The UTC date and time when the user signed up.
+  * special_notices `boolean`: Whether or not the user wants to receive special notice emails from the groups they are a member of. Special notices are admin posts that the group moderators choose to send out by email.
   * uses_fair_offer_policy `boolean`: Whether or not the user used the Fair Offer Policy (see https://trashnothing.com/fair_offer_policy ) the last time they posted.
-  * verified `boolean`: Whether or not the user has verified their account.
+  * verified `boolean`: Whether or not the user has verified their account. The user account will be limited (eg. they will not be able to reply to posts) until their account is verified.
 
-### Email
-* Email `object`: Contains information about a user email address.
-  * address `string`: The email address.
-  * bouncing `boolean`: Whether or not this email address has been bouncing emails that are sent to it.
-  * email_id `string`
-  * is_primary `boolean`: Whether or not this email is the primary email on the user account.
-  * user_id `string`
-  * verified `boolean`: Whether or not this email address has been verified.
+### Feedback
+* Feedback `object`
+  * content `string`: A comment written by the reviewer about the user (may be null).
+  * date `string`: Date when the feedback was submitted.
+  * positive `boolean`: Set to true for positive feedback and false for negative feedback.
+  * reviewer_user_id `string`: The user ID of the user that submitted the feedback.
+  * user_id `string`: The user ID of the user that the feedback is about.
 
 ### GeolocateBounds
 * GeolocateBounds `object`: Two bounding boxes that make using Google Maps' geocoder easier. <br /><br /> The default bounding box defines the area in which the post is probably located.  This is useful for providing a bounds to Google Maps geocoder. <br /><br /> The limit bounding box is a larger bounding box that contains the default bounding box. This is useful for discarding Google Maps geocoding results that are outside of this bounding box.
@@ -1299,7 +1885,7 @@ trashnothing.get_profile_image_file({
   * longitude `number`
   * member_count `integer`: The number of members who belong to the group.
   * membership `object`: Provides information about the current users' active or pending membership to this group (if any).  Will be null if there is no active or pending membership to this group.
-    * date `string`: For pending and pending-questions memberships, this is the date and time when the current user requested membership to this group. For subscribed memberships, this is the date and time when the membership status became subscribed.
+    * date `string`: For pending and pending-questions memberships, this is the UTC date and time when the current user requested membership to this group. For subscribed memberships, this is the UTC date and time when the membership status became subscribed.
     * questionnaire `object`: Membership questionnaire data.  Will be null unless the membership status is pending-questions.
       * message `string`: A message from the group moderators to be displayed above the questions (may be null).
       * questions `array`: The list of questions.
@@ -1317,14 +1903,38 @@ trashnothing.get_profile_image_file({
 ### GroupNotice
 * GroupNotice `object`: Group notices are created by group moderators in order to provide useful information to the group members (eg. group rules and guidelines).
   * content `string`
-  * date `string`: The date and time when this notice was received.
+  * date `string`: The UTC date and time when this notice was received.
   * group_id `string`
   * notice_id `string`
   * title `string`
 
+### Message
+* Message `object`: A message between two users.
+  * content `string`: The content of the message.
+  * date `string`: The UTC date and time when the message was sent.
+  * email_attachments `array`: Every message a user receives is made available via the API and is sent to the user by email.  Some messages may contain unsupported attachments that are not available by the API but are emailed to the user (eg. documents, videos, zip files). The email_attachments field provides the names of all the unsupported attachments that were emailed to the user (will be null if there are no unsupported attachments).
+    * items `string`
+  * from_user_id `string`: The ID of the user that sent the message (the sender).
+  * message_id `string`
+  * photos `array`: Details about the photos associated with this message (may be null if there are no photos).
+    * items [Photo](#photo)
+  * subject `string`: Because many messages are received by email, all messages have a subject. The subject is often useful to allow the recipient to determine which post a message may be referring to.  In rare cases, some senders send emails with a subject and but no email body which causes the message content to be an empty string.
+  * to_user_id `string`: The ID of the user that received the message (the recipient).
+
+### Photo
+* Photo `object`
+  * blurhash `string`: A blurhash of the photo that can be used as a placeholder while the photo is loading (see: https://github.com/woltapp/blurhash). May be null if no blurhash is available and the length of the blurhash can vary based on the photo.
+  * images `array`: All the versions of this photo ordered from smallest to largest.  This list is guaranteed to include the photos specified by the above thumbnail and url properties.
+    * items `object`
+      * height `integer`
+      * url `string`
+      * width `integer`
+  * photo_id `string`
+  * thumbnail `string`: A URL to a thumbnail of this photo.  The size of the thumbnail depends on the device_pixel_ratio parameter and it is not guaranteed to be square.
+  * url `string`: A URL to a large version of this photo (but not necessarily the largest size available).
+
 ### PhotoResult
 * PhotoResult `object`: The result of uploading or editing a photo.
-  * album_url `string`: A URL to view all the photos uploaded using the upload_key that this photo was uploaded with.
   * photo_id `string`
   * thumbnail `object`: Photo thumbnail data.
     * height `integer`
@@ -1334,63 +1944,67 @@ trashnothing.get_profile_image_file({
 ### Post
 * Post `object`: An offer, wanted, admin, taken or received post.
   * content `string`
-  * date `string`: The date and time when the post was published.
+  * date `string`: The UTC date and time when the post was published.
   * footer `string`: Some groups add footers to posts that are separate and sometimes unrelated to the post itself - such as reminders about group rules or features (may be null).
   * group_id `string`: The group ID of the post.  For public posts, this is always null.
   * latitude `number`: May be null if a post hasn't been mapped.
   * longitude `number`: May be null if a post hasn't been mapped.
+  * outcome `string`: For offer and wanted posts, this indicates the outcome of the post which is null if no outcome has been set yet.   <br /><br /> Offer post outcomes will be one of: satisfied, withdrawn, promised, expired <br /><br /> Wanted post outcomes will be one of: satisfied, withdrawn, expired <br /><br /> For all other posts, outcome is always null.
   * photos `array`: Details about the photos associated with this post (may be null if there are no photos).
-    * items `object`
-      * images `array`: All the versions of this photo ordered from smallest to largest.  This list is guaranteed to include the photos specified by the above thumbnail and url properties.
-        * items `object`
-          * height `integer`
-          * url `string`
-          * width `integer`
-      * photo_id `string`
-      * thumbnail `string`: A URL to a thumbnail of this photo.  The size of the thumbnail depends on the device_pixel_ratio parameter and can vary from 120px by 120px up to 360px by 360px (but the thumbnail is not guaranteed to be square).
-      * url `string`: A URL to a version of this photo that is at most 800px by 600px (but may be smaller if no copy of the photo exists at that exact size).
+    * items [Photo](#photo)
   * post_id `string`
-  * satisfied `boolean`: For offer and wanted posts, indicates whether or not this post has been satisfied or not. An offer that has been taken or a want that has been received have both been satisfied. For other types of posts, this is always null.
-  * source `string`: The source of the post.  One of: groups, trashnothing.  A value of groups indicates the post is from a group and the group_id field will contain the ID of the group. A value of trashnothing indicates the post is a public post not associated with any group.
+  * source `string`: The source of the post.  One of: groups, trashnothing, open_archive_groups.  A value of groups or open_archive_groups indicates the post is from a group and the group_id field will contain the ID of the group. A value of trashnothing indicates the post is a public post not associated with any group.
   * title `string`
   * type `string`: The type of post.  One of: offer, taken, wanted, received, admin
+  * url `string`: The link to use to view the post on the trash nothing site.
   * user_id `string`
 
 ### PostSearchResult
 * PostSearchResult
   * content `string`
-  * date `string`: The date and time when the post was published.
+  * date `string`: The UTC date and time when the post was published.
   * footer `string`: Some groups add footers to posts that are separate and sometimes unrelated to the post itself - such as reminders about group rules or features (may be null).
   * group_id `string`: The group ID of the post.  For public posts, this is always null.
   * latitude `number`: May be null if a post hasn't been mapped.
   * longitude `number`: May be null if a post hasn't been mapped.
+  * outcome `string`: For offer and wanted posts, this indicates the outcome of the post which is null if no outcome has been set yet.   <br /><br /> Offer post outcomes will be one of: satisfied, withdrawn, promised, expired <br /><br /> Wanted post outcomes will be one of: satisfied, withdrawn, expired <br /><br /> For all other posts, outcome is always null.
   * photos `array`: Details about the photos associated with this post (may be null if there are no photos).
-    * items `object`
-      * images `array`: All the versions of this photo ordered from smallest to largest.  This list is guaranteed to include the photos specified by the above thumbnail and url properties.
-        * items `object`
-          * height `integer`
-          * url `string`
-          * width `integer`
-      * photo_id `string`
-      * thumbnail `string`: A URL to a thumbnail of this photo.  The size of the thumbnail depends on the device_pixel_ratio parameter and can vary from 120px by 120px up to 360px by 360px (but the thumbnail is not guaranteed to be square).
-      * url `string`: A URL to a version of this photo that is at most 800px by 600px (but may be smaller if no copy of the photo exists at that exact size).
+    * items [Photo](#photo)
   * post_id `string`
-  * satisfied `boolean`: For offer and wanted posts, indicates whether or not this post has been satisfied or not. An offer that has been taken or a want that has been received have both been satisfied. For other types of posts, this is always null.
-  * source `string`: The source of the post.  One of: groups, trashnothing.  A value of groups indicates the post is from a group and the group_id field will contain the ID of the group. A value of trashnothing indicates the post is a public post not associated with any group.
+  * source `string`: The source of the post.  One of: groups, trashnothing, open_archive_groups.  A value of groups or open_archive_groups indicates the post is from a group and the group_id field will contain the ID of the group. A value of trashnothing indicates the post is a public post not associated with any group.
   * title `string`
   * type `string`: The type of post.  One of: offer, taken, wanted, received, admin
+  * url `string`: The link to use to view the post on the trash nothing site.
   * user_id `string`
   * search_content `string`: A snippet of the post content as HTML with the parts of the content that matched the search query (if any) wrapped in an HTML span tags with the class 'highlight' (eg. &lt;span class="highlight"&gt;matched words&lt;/span&gt;). May be null if none of the words in the post content matched the search query. <br /><br /> NOTE: This is not the full content of the post  It is just a snippet of around 200 characters that can be used to display the parts of the post content relevant to the search query.
-  * search_subject `string`: The post subject as HTML with the parts of the subject that matched the search query (if any) wrapped in HTML span tags with the class 'highlight'. (eg. &lt;span class="highlight"&gt;matched words&lt;/span&gt;). May be null if none of the words in the subject matched the search query.
+  * search_title `string`: The post subject as HTML with the parts of the subject that matched the search query (if any) wrapped in HTML span tags with the class 'highlight'. (eg. &lt;span class="highlight"&gt;matched words&lt;/span&gt;). May be null if none of the words in the subject matched the search query.
+
+### Story
+* Story `object`: A user story
+  * content `string`
+  * date `string`: The UTC date and time when the post was published.
+  * like_count `integer`: The number of people who have liked this story.
+  * photos `array`: Details about the photos associated with this story (may be null if there are no photos).
+    * items [Photo](#photo)
+  * share_url `string`: A URL that can be used to share the story (may be null if the story is not public).
+  * story_id `string`
+  * title `string`
+  * user [User](#user)
+  * user_liked `boolean`: Whether or not the current user has liked this story or not.
 
 ### User
 * User `object`
   * country `string`: A 2 letter country code for the country that has been automatically detected for the user (see https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 ). May be null if no country has been set.
+  * feedback `object`
+    * percent_positive `number`: The percent of feedback that this user has received in the last year that was positive. May be null if a user has not received enough feedback to calculate a percentage.
+    * restriction `string`: If the current user can leave positive or negative feedback on this user then restriction is null. <br /><br /> Otherwise, restriction is set to a string that explains why feedback is currently restricted and what type of feedback is restricted. The string will be one of the following:  no-recent-messages, negative-score, moderator, [days]-day-wait-for-negative <br /><br /> - **no-recent-messages**: The current user has not received any messages from this user in the last 30 days. <br /> - **negative-score**: The current user has a negative feedback and will not be able to leave feedback until their score is >= 0. <br /> - **moderator**: The user is a moderator and leaving feedback on moderators is not currently supported. <br /> - **[days]-day-wait-for-negative**: Positive feedback is not restricted but the current user must wait
+    * score `integer`: The feedback score of this user.  Higher scores are better.   Scores are calculated by substracting the total number of negative feedback from the total number of positive feedback that a user has received.  May be null if a user has not received enough feedback to calculate a score.
   * firstname `string`: The first name of the user (may be null).
   * lastname `string`: The last name of the user (may be null).
   * member_since `string`: The date and time when the user first became publicly active on a group (the date may be older than when the user signed up).
-  * profile_image `string`: A URL to a profile image for the user.  Profile images sizes vary based on the source (Google, Facebook, Twitter, Gravatar, etc) and some can be as small as 64px by 64px.
+  * profile_image `string`: A URL to a profile image for the user.  Profile images sizes vary based on the source (Google, Facebook, Twitter, Gravatar, etc) and some can be as small as 64px by 64px.  Will be null for api key requests and requests where the oauth user doesn't belong to any of the same groups as this user.
+  * reply_time `integer`: An estimate of how many seconds it takes this user to reply to messages. May be null when there is not enough data to calculate an estimate.
   * user_id `string`
-  * username `string`: A username that can be displayed for the user (the username is NOT guaranteed to be unique).
+  * username `string`: A username that can be displayed for the user (the username is NOT guaranteed to be unique). Will be null for api key requests and requests where the oauth user doesn't belong to any of the same groups as this user.
 
 

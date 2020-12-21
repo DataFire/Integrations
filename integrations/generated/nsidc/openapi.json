@@ -1,10 +1,5 @@
 {
   "swagger": "2.0",
-  "schemes": [
-    "http"
-  ],
-  "host": "nsidc.org",
-  "basePath": "/api/dataset/2",
   "info": {
     "contact": {
       "email": "support@aoncadis.org"
@@ -22,7 +17,7 @@
       {
         "converter": {
           "url": "https://github.com/lucybot/api-spec-converter",
-          "version": "2.6.2"
+          "version": "2.7.31"
         },
         "format": "swagger",
         "url": "http://documentation-index-vm.apps.nsidc.org/api-docs",
@@ -36,17 +31,17 @@
       "type": "openapi"
     }
   },
-  "tags": [
-    {
-      "description": "Dataset search",
-      "name": "SwaggerDocs"
-    }
+  "host": "nsidc.org",
+  "basePath": "/api/dataset/2",
+  "schemes": [
+    "http"
   ],
   "paths": {
     "/Facets": {
       "get": {
-        "description": "In the NSIDC Search and Arctic Data Explorer interfaces, this endpoint is used in conjunction with /OpenSearch whenever a user submits a new search. Consequently, it has the same parameters as /OpenSearch.",
-        "operationId": "facets",
+        "produces": [
+          "application/nsidcfacets+xml"
+        ],
         "parameters": [
           {
             "description": "URL-encoded keyword or keywords desired by the client; OpenSearch 1.1",
@@ -131,9 +126,6 @@
             "type": "string"
           }
         ],
-        "produces": [
-          "application/nsidcfacets+xml"
-        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -148,16 +140,19 @@
             "description": "Internal server error"
           }
         },
-        "summary": "View the facet information corresponding to a search",
         "tags": [
           "SwaggerDocs"
-        ]
+        ],
+        "description": "In the NSIDC Search and Arctic Data Explorer interfaces, this endpoint is used in conjunction with /OpenSearch whenever a user submits a new search. Consequently, it has the same parameters as /OpenSearch.",
+        "operationId": "facets",
+        "summary": "View the facet information corresponding to a search"
       }
     },
     "/OpenSearch": {
       "get": {
-        "description": "This endpoint uses parameters from the OpenSearch 1.1 specification, as well as parameters from the OpenSearch Geo (1.0) and SRU (1.0) extensions.",
-        "operationId": "OpenSearch.get",
+        "produces": [
+          "application/atom+xml"
+        ],
         "parameters": [
           {
             "description": "URL-encoded keyword or keywords desired by the client; OpenSearch 1.1",
@@ -242,9 +237,6 @@
             "type": "string"
           }
         ],
-        "produces": [
-          "application/atom+xml"
-        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -259,18 +251,20 @@
             "description": "Internal server error"
           }
         },
-        "summary": "Search documents using the OpenSearch 1.1 Specification",
         "tags": [
           "SwaggerDocs"
-        ]
+        ],
+        "description": "This endpoint uses parameters from the OpenSearch 1.1 specification, as well as parameters from the OpenSearch Geo (1.0) and SRU (1.0) extensions.",
+        "operationId": "open search",
+        "summary": "Search documents using the OpenSearch 1.1 Specification"
       }
     },
     "/OpenSearchDescription": {
       "get": {
-        "operationId": "OpenSearchDescription.get",
         "produces": [
           "application/opensearchdescription+xml"
         ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": "Success",
@@ -279,16 +273,18 @@
             }
           }
         },
-        "summary": "Describes the web interface of NSIDC's data search engine",
         "tags": [
           "SwaggerDocs"
-        ]
+        ],
+        "operationId": "opensearch description",
+        "summary": "Describes the web interface of NSIDC's data search engine"
       }
     },
     "/suggest": {
       "get": {
-        "description": "In NSIDC Search and the Arctic Data Explorer, this endpoint is queried whenever the user types into the search terms box, and the returned suggestions are displayed in a dropdown beneath the search terms box. The q parameter and returned JSON follow the specifications of the OpenSearch Suggestions 1.0 extension.",
-        "operationId": "id",
+        "produces": [
+          "application/x-suggestions+json"
+        ],
         "parameters": [
           {
             "description": "Search terms typed into the interface (minimum two characters)",
@@ -310,9 +306,6 @@
             "type": "string"
           }
         ],
-        "produces": [
-          "application/x-suggestions+json"
-        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -327,11 +320,19 @@
             "description": "Internal server error"
           }
         },
-        "summary": "Suggest search terms based on a partial query",
         "tags": [
           "SwaggerDocs"
-        ]
+        ],
+        "description": "In NSIDC Search and the Arctic Data Explorer, this endpoint is queried whenever the user types into the search terms box, and the returned suggestions are displayed in a dropdown beneath the search terms box. The q parameter and returned JSON follow the specifications of the OpenSearch Suggestions 1.0 extension.",
+        "operationId": "id",
+        "summary": "Suggest search terms based on a partial query"
       }
     }
-  }
+  },
+  "tags": [
+    {
+      "description": "Dataset search",
+      "name": "SwaggerDocs"
+    }
+  ]
 }

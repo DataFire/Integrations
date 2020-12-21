@@ -9,7 +9,7 @@ npm install --save @datafire/watchful_li
 ```js
 let watchful_li = require('@datafire/watchful_li').create();
 
-watchful_li.tags.get({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -1176,7 +1176,6 @@ watchful_li.getSitesByTags({
   * secret_word `string`: Watchful secret word
   * siteid **required** `integer`: Unique identifier for the site
   * tags `array`: List of tags for this site
-
   * up `boolean`: Site status
   * word_akeeba `string`: Akeeba backup word
   * word_check `string`: Word checked for uptime

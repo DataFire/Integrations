@@ -1,8 +1,8 @@
 {
   "name": "@datafire/naviplancentral_plan",
-  "version": "4.0.0",
+  "version": "5.0.0",
   "main": "index.js",
-  "description": "DataFire integration for Published Plan Service",
+  "description": "DataFire integration for NaviPlan API",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DataFire/integrations.git"

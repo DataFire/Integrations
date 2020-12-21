@@ -1,6 +1,6 @@
 # @datafire/twinehealth
 
-Client library for Twine
+Client library for Fitbit Plus API
 
 ## Installation and Usage
 ```bash
@@ -15,7 +15,7 @@ let twinehealth = require('@datafire/twinehealth').create({
   redirect_uri: ""
 });
 
-twinehealth.fetchPatients({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -23,18 +23,39 @@ twinehealth.fetchPatients({}).then(data => {
 ## Description
 
 # Overview
-The Twine Health API is RESTful API. The requests and responses are formated according to the [JSON API](http://jsonapi.org/format/1.0/) specification.
+The Fitbit Plus API is a RESTful API. The requests and responses are formated according to the
+[JSON API](http://jsonapi.org/format/1.0/) specification.
 
-In addition to this documentation, we also provide an [OpenAPI](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md) "yaml" file describing the API: [Twine API Specification](swagger.yaml).
+In addition to this documentation, we also provide an
+[OpenAPI](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md) "yaml" file describing the API:
+[Fitbit Plus API Specification](swagger.yaml).
 
 # Authentication
-Authentication for the Twine API is based on the [OAuth 2.0 Authorization Framework](https://tools.ietf.org/html/rfc6749). Twine currently supports grant types of **client_credentials** and **refresh_token**.
+Authentication for the Fitbit Plus API is based on the
+[OAuth 2.0 Authorization Framework](https://tools.ietf.org/html/rfc6749). Fitbit Plus currently supports grant
+types of **client_credentials** and **refresh_token**.
 
 See [POST /oauth/token](#operation/createToken) for details on the request and response formats.
 <!-- ReDoc-Inject: <security-definitions> -->
 
+## Building Integrations
+We will provide customers with unique client credentials for each application/integration they build, allowing us
+to enforce appropriate access controls and monitor API usage.
+The client credentials will be scoped to the organization, and allow full access to all patients and related data
+within that organization.
+
+These credentials are appropriate for creating an integration that does one of the following:
+ - background reporting/analysis
+ - synchronizing data with another system (such as an EMR)
+
+The API credentials and oauth flows we currently support are **not** well suited for creating a user-facing
+application that allows a user (patient, coach, or admin) to login and have access to data which is appropriate to
+that specific user. It is possible to build such an application, but it is not possible to use Fitbit Plus as a
+federated identity provider. You would need to have a separate means of verifying a user's identity. We do not
+currently support the required password-based oauth flow to make this possible.
+
 # Paging
-The Twine API supports two different pagination strategies for GET collection endpoints. 
+The Fitbit Plus API supports two different pagination strategies for GET collection endpoints.
 
 #### Skip-based paging
 
@@ -43,11 +64,11 @@ Skip-based paging uses the query parameters `page[size]` and `page[number]` to s
 If the contents of the collection change while you are iterating through the collection, you will see duplicate or missing documents. For example, if you are iterating through the `calender_event` resource via `GET /pub/calendar_event?sort=start_at&page[size]=50&page[number]=1`, and a new `calendar_event` is created that has a `start_at` value before the first `calendar_event`, when you fetch the next page at `GET /pub/calendar_event?sort=start_at&page[size]=50&page[number]=2`, the first entry in the second response will be a duplicate of the last entry in the first response.
 
 #### Cursor-based paging
-Cursor-based paging uses the query parameters `page[limit]` and `page[after]` to specify the max number of entries returned and identify where to begin the next page. Add `page[limit]` to the parameters to use cursor-based paging. The response will include a `links` object containing a link to the next page of data, if the next page exists. 
+Cursor-based paging uses the query parameters `page[limit]` and `page[after]` to specify the max number of entries returned and identify where to begin the next page. Add `page[limit]` to the parameters to use cursor-based paging. The response will include a `links` object containing a link to the next page of data, if the next page exists.
 
-Cursor-based paging is not subject to duplication if new resources are added to the collection. For example, if you are iterating through the `calender_event` resource via `GET /pub/calendar_event?sort=start_at&page[limit]=50`, and a new `calendar_event` is created that has a `start_at` value before the first `calendar_event`, you will not see a duplicate entry when you fetch the next page at `GET /pub/calendar_event?sort=start_at&page[limit]=50&page[after]=<cursor>`. 
+Cursor-based paging is not subject to duplication if new resources are added to the collection. For example, if you are iterating through the `calender_event` resource via `GET /pub/calendar_event?sort=start_at&page[limit]=50`, and a new `calendar_event` is created that has a `start_at` value before the first `calendar_event`, you will not see a duplicate entry when you fetch the next page at `GET /pub/calendar_event?sort=start_at&page[limit]=50&page[after]=<cursor>`.
 
-We encourage the use of cursor-based paging for performance reasons. 
+We encourage the use of cursor-based paging for performance reasons.
 
 In either form of paging, you can determine whether any resources were missed by comparing the number of fetched resources against `meta.count`. Set `page[size]` or `page[limit]` to 0 to get only the count.
 
@@ -55,6 +76,47 @@ It is not valid to mix the two strategies.
 
 
 ## Actions
+
+### oauthCallback
+Exchange the code passed to your redirect URI for an access_token
+
+
+```js
+twinehealth.oauthCallback({
+  "code": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * code **required** `string`
+
+#### Output
+* output `object`
+  * access_token `string`
+  * refresh_token `string`
+  * token_type `string`
+  * scope `string`
+  * expiration `string`
+
+### oauthRefresh
+Exchange a refresh_token for an access_token
+
+
+```js
+twinehealth.oauthRefresh(null, context)
+```
+
+#### Input
+*This action has no parameters*
+
+#### Output
+* output `object`
+  * access_token `string`
+  * refresh_token `string`
+  * token_type `string`
+  * scope `string`
+  * expiration `string`
 
 ### createAction
 Create a plan action
@@ -194,7 +256,7 @@ twinehealth.fetchCalendarEvents({}, context)
 * input `object`
   * filter[patient] `string`: Patient id to fetch calendar event. Note that one of the following filters must be specified: `filter[patient]`, `filter[group]`, `filter[organization]`, or `filter[attendees]`.
   * filter[groups] `string`: Comma-separated list of group ids. Note that one of the following filters must be specified: `filter[patient]`, `filter[group]`, `filter[organization]`, or `filter[attendees]`.
-  * filter[organization] `string`: Twine organization id. Note that one of the following filters must be specified: `filter[patient]`, `filter[group]`, `filter[organization]`, or `filter[attendees]`.
+  * filter[organization] `string`: Fitbit Plus organization id. Note that one of the following filters must be specified: `filter[patient]`, `filter[group]`, `filter[organization]`, or `filter[attendees]`.
   * filter[attendees] `string`: Comma-separated list of coach or patient ids. Note that one of the following filters must be specified: `filter[patient]`, `filter[group]`, `filter[organization]`, or `filter[attendees]`.
   * filter[type] `string` (values: plan-check-in, reminder, telephone-call, office-visit, video-call): Calendar event type
   * filter[completed] `boolean`: If not specified, return all calendar events. If set to `true` return only events marked as completed, if set to `false`, return only events not marked as completed yet.
@@ -311,6 +373,22 @@ twinehealth.createCalendarEventResponse({
 #### Output
 * output [CreateCalendarEventResponseRequest](#createcalendareventresponserequest)
 
+### fetchCoaches
+Get a list of coaches matching the specified filters.
+
+
+```js
+twinehealth.fetchCoaches({}, context)
+```
+
+#### Input
+* input `object`
+  * filter[groups] `string`: Comma-separated list of group ids. Note that one of the following filters must be specified: `filter[groups]`, `filter[organization]`.
+  * filter[organization] `string`: Fitbit Plus organization id. Note that one of the following filters must be specified: `filter[groups]`, `filter[organization]`.
+
+#### Output
+* output [FetchCoachesResponse](#fetchcoachesresponse)
+
 ### fetchCoach
 Get a coach record by id.
 
@@ -338,8 +416,8 @@ twinehealth.fetchEmailHistories({}, context)
 
 #### Input
 * input `object`
-  * filter[receiver] `string`: Twine user id of email recipient. Required if filter[sender] is not defined.
-  * filter[sender] `string`: Twine user id of email sender. Required if filter[receiver] is not defined.
+  * filter[receiver] `string`: Fitbit Plus user id of email recipient. Required if filter[sender] is not defined.
+  * filter[sender] `string`: Fitbit Plus user id of email sender. Required if filter[receiver] is not defined.
   * filter[emailType] `string`: Type of email
   * sort `string` (values: send_time, -send_time): valid sorts:
 
@@ -435,7 +513,7 @@ twinehealth.fetchHealthProfiles({}, context)
 * input `object`
   * filter[patient] `string`: Patient id to fetch health profile. Note that one of the following filters must be specified: `filter[patient]`, `filter[group]`, or `filter[organization]`.
   * filter[groups] `string`: Comma-separated list of group ids. Note that one of the following filters must be specified: `filter[patient]`, `filter[group]`, or `filter[organization]`.
-  * filter[organization] `string`: Twine organization id. Note that one of the following filters must be specified: `filter[patient]`, `filter[group]`, or `filter[organization]`.
+  * filter[organization] `string`: Fitbit Plus organization id. Note that one of the following filters must be specified: `filter[patient]`, `filter[group]`, or `filter[organization]`.
   * page[number] `integer`: Page number
   * page[size] `integer`: Page size
   * page[limit] `integer`: Page limit
@@ -475,7 +553,7 @@ twinehealth.fetchHealthProfileAnswers({}, context)
 * input `object`
   * filter[patient] `string`: Patient id to fetch healt profile answers. Note that one of the following filters must be specified: `filter[patient]`, `filter[group]`, or `filter[organization]`.
   * filter[groups] `string`: Comma-separated list of group ids. Note that one of the following filters must be specified: `filter[patient]`, `filter[group]`, or `filter[organization]`.
-  * filter[organization] `string`: Twine organization id. Note that one of the following filters must be specified: `filter[patient]`, `filter[group]`, or `filter[organization]`.
+  * filter[organization] `string`: Fitbit Plus organization id. Note that one of the following filters must be specified: `filter[patient]`, `filter[group]`, or `filter[organization]`.
   * page[number] `integer`: Page number
   * page[size] `integer`: Page size
   * page[limit] `integer`: Page limit
@@ -502,6 +580,24 @@ twinehealth.fetchHealthProfileAnswer({
 
 #### Output
 * output [FetchHealthProfileAnswerResponse](#fetchhealthprofileanswerresponse)
+
+### fetchHealthProfileQuestions
+Get a list of health profile questions
+
+
+```js
+twinehealth.fetchHealthProfileQuestions({}, context)
+```
+
+#### Input
+* input `object`
+  * filter[patient] `string`: Patient id to fetch healt profile questions. Note that one of the following filters must be specified: `filter[patient]`, `filter[group]`, or `filter[organization]`.
+  * filter[groups] `string`: Comma-separated list of group ids. Note that one of the following filters must be specified: `filter[patient]`, `filter[group]`, or `filter[organization]`.
+  * filter[organization] `string`: Fitbit Plus organization id. Note that one of the following filters must be specified: `filter[patient]`, `filter[group]`, or `filter[organization]`.
+  * include `string` (values: question_definition, answer): List of related resources to include in the response
+
+#### Output
+* output [FetchHealthProfileQuestionsResponse](#fetchhealthprofilequestionsresponse)
 
 ### fetchHealthProfileQuestion
 Get a health profile by id
@@ -652,7 +748,7 @@ twinehealth.fetchPatients({}, context)
 #### Input
 * input `object`
   * filter[groups] `string`: Comma-separated list of group ids. Note that either `filter[group]` or `filter[organization]` must be specified.
-  * filter[organization] `string`: Twine organization id. Note that either `filter[group]` or `filter[organization]` must be specified.
+  * filter[organization] `string`: Fitbit Plus organization id. Note that either `filter[group]` or `filter[organization]` must be specified.
   * filter[identifier][system] `string`: Identifier system (example: "MyEHR") - requires a "filter[identifier][value]" parameter
   * filter[identifier][value] `string`: Identifier value (example: "12345") - requires a "filter[identifier][system]" parameter
   * filter[archived] `boolean`: If not specified, return all patients. If set to 'true' return only archived patients, if set to 'false', return only patients who are not archived.
@@ -714,6 +810,34 @@ twinehealth.createPatient({
 #### Input
 * input `object`
   * body **required** [CreatePatientRequest](#createpatientrequest)
+
+#### Output
+* output [CreatePatientResponse](#createpatientresponse)
+
+### upsertPatient
+Create a new patient or update an existing patient
+
+
+```js
+twinehealth.upsertPatient({
+  "body": {
+    "meta": {
+      "query": {
+        "identifier": {},
+        "groups": []
+      }
+    },
+    "data": {
+      "type": "",
+      "attributes": {}
+    }
+  }
+}, context)
+```
+
+#### Input
+* input `object`
+  * body **required** [UpsertPatientRequest](#upsertpatientrequest)
 
 #### Output
 * output [CreatePatientResponse](#createpatientresponse)
@@ -798,14 +922,14 @@ Get a list of patient health metrics.
 
 
 ```js
-twinehealth.fetchPatientHealthMetrics({
-  "filter[patient]": ""
-}, context)
+twinehealth.fetchPatientHealthMetrics({}, context)
 ```
 
 #### Input
 * input `object`
-  * filter[patient] **required** `string`: Filter the patient health metrics for a specified patient
+  * filter[patient] `string`: Filter the patient health metrics for a specified patient. Note that one of the following filters must be specified: `filter[patient]`, `filter[groups]`, `filter[organization]`.
+  * filter[groups] `string`: Comma-separated list of group ids. Note that one of the following filters must be specified: `filter[patient]`, `filter[groups]`, `filter[organization]`.
+  * filter[organization] `string`: Fitbit Plus organization id. Note that one of the following filters must be specified: `filter[patient]`, `filter[groups]`, `filter[organization]`.
   * page[number] `integer`: Page number
   * page[size] `integer`: Page size
   * page[limit] `integer`: Page limit
@@ -830,7 +954,7 @@ Example for creating a patient health result with a patient specified using `met
          },
          "type": "ldl_cholesterol",
          "occurred_at": "2017-03-14T11:00:57.000Z",
-         "value": "121",
+         "value": 121,
          "unit": "mg/dl"
       },
       "relationships": {
@@ -895,14 +1019,14 @@ Get a list of patient plan summaries
 
 
 ```js
-twinehealth.fetchPatientPlanSummaries({
-  "filter[patient]": ""
-}, context)
+twinehealth.fetchPatientPlanSummaries({}, context)
 ```
 
 #### Input
 * input `object`
-  * filter[patient] **required** `string`: Patient id to fetch plan summary for
+  * filter[patient] `string`: Patient id to fetch plan summary for. Note that one of the following filters must be specified: `filter[patient]`, `filter[groups]`, `filter[organization]`.
+  * filter[groups] `string`: Comma-separated list of group ids. Note that one of the following filters must be specified: `filter[patient]`, `filter[groups]`, `filter[organization]`.
+  * filter[organization] `string`: Fitbit Plus organization id. Note that one of the following filters must be specified: `filter[patient]`, `filter[groups]`, `filter[organization]`.
   * include `string` (values: actions, bundles, patient, current_results): List of related resources to include in the response
 
 #### Output
@@ -950,21 +1074,65 @@ twinehealth.updatePatientPlanSummary({
 #### Output
 * output [UpdatePatientPlanSummaryResponse](#updatepatientplansummaryresponse)
 
-### fetchRewards
-Get a list of rewards matching the specified filters.
+### fetchPatientHealthResults
+Get a list of patient health results.
 
 
 ```js
-twinehealth.fetchRewards({
+twinehealth.fetchPatientHealthResults({
   "filter[patient]": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * filter[patient] **required** `string`: Patient identifier
+  * filter[patient] **required** `string`: Filter the patient health results for a specified patient
+  * filter[actions] `string`: A comma-separated list of action identifiers
+  * filter[start_at] `string`: Filter results that occurred after the passed ISO date and time string
+  * filter[end_at] `string`: Filter results that occurred before the passed ISO date and time string
+  * filter[threads] `string`: A comma-separated list of thread identifiers
+  * filter[created_at] `string`: The start (inclusive) and end (exclusive) dates are ISO date and time strings separated by `..`. Example for results created in November 2017 (America/New_York): `filter[created_at]=2017-11-01T00:00:00-04:00..2017-12-01T00:00:00-05:00`
+  * filter[updated_at] `string`: The start (inclusive) and end (exclusive) dates are ISO date and time strings separated by `..`. Example for results updated in November 2017 (America/New_York): `filter[updated_at]=2017-11-01T00:00:00-04:00..2017-12-01T00:00:00-05:00`
+  * page[number] `integer`: Page number
+  * page[size] `integer`: Page size
+  * page[limit] `integer`: Page limit
+  * page[after] `string`: Page cursor
+
+#### Output
+* output [FetchPatientHealthResultResponse](#fetchpatienthealthresultresponse)
+
+### fetchPatientHealthResult
+Get patient health result by id.
+
+
+```js
+twinehealth.fetchPatientHealthResult({
+  "id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * id **required** `string`: Patient health result identifier
+
+#### Output
+* output [FetchPatientHealthResultResponse](#fetchpatienthealthresultresponse)
+
+### fetchRewards
+Get a list of rewards matching the specified filters.
+
+
+```js
+twinehealth.fetchRewards({}, context)
+```
+
+#### Input
+* input `object`
+  * filter[patient] `string`: Patient identifier. Note that one of the following filters must be specified: `filter[patient]`, `filter[groups]`, `filter[organization]`.
   * filter[reward_program_activation] `string`: Reward program activation identifier
   * filter[thread] `string`: Thread identifier
+  * filter[groups] `string`: Comma-separated list of group ids. Note that one of the following filters must be specified: `filter[patient]`, `filter[groups]`, `filter[organization]`.
+  * filter[organization] `string`: Fitbit Plus organization id. Note that one of the following filters must be specified: `filter[patient]`, `filter[groups]`, `filter[organization]`.
 
 #### Output
 * output [FetchRewardsResponse](#fetchrewardsresponse)
@@ -1125,14 +1293,13 @@ Get a list of reward programs matching the specified filters.
 
 
 ```js
-twinehealth.fetchRewardPrograms({
-  "filter[groups]": ""
-}, context)
+twinehealth.fetchRewardPrograms({}, context)
 ```
 
 #### Input
 * input `object`
-  * filter[groups] **required** `string`: Comma-separated list of group identifiers
+  * filter[groups] `string`: Comma-separated list of group identifiers. Note that one of the following filters must be specified: `filter[groups]`, `filter[organization]`.
+  * filter[organization] `string`: Fitbit Plus organization id. Note that one of the following filters must be specified: `filter[groups]`, `filter[organization]`.
 
 #### Output
 * output [FetchRewardProgramsResponse](#fetchrewardprogramsresponse)
@@ -1197,14 +1364,14 @@ Get a list of reward program activations matching the specified filters.
 
 
 ```js
-twinehealth.fetchRewardProgramActivations({
-  "filter[patient]": ""
-}, context)
+twinehealth.fetchRewardProgramActivations({}, context)
 ```
 
 #### Input
 * input `object`
-  * filter[patient] **required** `string`: Patient identifier
+  * filter[patient] `string`: Patient identifier. Note that one of the following filters must be specified: `filter[patient]`, `filter[groups]`, `filter[organization]`.
+  * filter[groups] `string`: Comma-separated list of group ids. Note that one of the following filters must be specified: `filter[patient]`, `filter[groups]`, `filter[organization]`.
+  * filter[organization] `string`: Fitbit Plus organization id. Note that one of the following filters must be specified: `filter[patient]`, `filter[groups]`, `filter[organization]`.
 
 #### Output
 * output [FetchRewardProgramActivationsResponse](#fetchrewardprogramactivationsresponse)
@@ -1569,8 +1736,8 @@ twinehealth.fetchRewardProgramActivation({
 * CreateTokenRequest `object`
   * data **required** `object`
     * attributes **required** `object`
-      * client_id **required** `string`: Contact Twine to get a client id and secret.
-      * client_secret `string`: Contact Twine to get a client id and secret. Secret is required if grant_type is "client_credentials"
+      * client_id **required** `string`: Contact Fitbit Plus API Support to get a client id and secret.
+      * client_secret `string`: Contact Fitbit Plus API Support to get a client id and secret. Secret is required if grant_type is "client_credentials"
       * grant_type **required** `string` (values: refresh_token, client_credentials)
       * refresh_token `string`: Required if grant_type is "refresh_token"
     * type `string` (values: token)
@@ -1708,6 +1875,15 @@ twinehealth.fetchRewardProgramActivation({
     * items [Resource](#resource)
   * meta [FetchMetaResponse](#fetchmetaresponse)
 
+### FetchHealthProfileQuestionsResponse
+* FetchHealthProfileQuestionsResponse `object`
+  * data **required** `array`
+    * items [HealthProfileQuestionResource](#healthprofilequestionresource)
+  * included `array`: Related resources which are included in the response based on the `include` param.
+    * items [Resource](#resource)
+  * links [CollectionResponseLinks](#collectionresponselinks)
+  * meta [FetchMetaResponse](#fetchmetaresponse)
+
 ### FetchHealthProfileResponse
 * FetchHealthProfileResponse `object`
   * data **required** [HealthProfileResource](#healthprofileresource)
@@ -1750,6 +1926,13 @@ twinehealth.fetchRewardProgramActivation({
 * FetchPatientHealthMetricResponse `object`
   * data **required** `array`
     * items [PatientHealthMetricResource](#patienthealthmetricresource)
+  * links [CollectionResponseLinks](#collectionresponselinks)
+  * meta [FetchMetaResponse](#fetchmetaresponse)
+
+### FetchPatientHealthResultResponse
+* FetchPatientHealthResultResponse `object`
+  * data **required** `array`
+    * items [PatientHealthResultResource](#patienthealthresultresource)
   * links [CollectionResponseLinks](#collectionresponselinks)
   * meta [FetchMetaResponse](#fetchmetaresponse)
 
@@ -1984,18 +2167,21 @@ twinehealth.fetchRewardProgramActivation({
     * note `string`: Coach's note about the patient. Not visible to the patient.
     * phone_numbers `array`
       * items [PhoneNumber](#phonenumber)
+    * statement `object`: A patient's motivation statement.
+      * updated_at `string`
+      * updated_by `string`
+      * value `string`
     * updated_at `string`
   * id `string`
   * links `object`
     * self `string`
-    * twine_web_app `string`: A link to the patient record in the Twine web application.
+    * twine_web_app `string`: A link to the patient record in the Fitbit Plus web application.
   * relationships `object`
     * coaches `object`
       * data **required** `array`
         * items `object`
           * id **required** `string`
           * meta `object`
-            * primary `boolean`
           * type **required** `string` (values: coach)
       * links `object`
         * related `string`
@@ -2011,7 +2197,6 @@ twinehealth.fetchRewardProgramActivation({
         * items `object`
           * id **required** `string`
           * meta `object`
-            * primary `boolean`
           * type **required** `string` (values: coach)
       * links `object`
         * related `string`
@@ -2020,9 +2205,6 @@ twinehealth.fetchRewardProgramActivation({
         * items `object`
           * id `string`: Required if the `meta.query` is not defined.
           * meta `object`: Allows the specification of a query for a group rather than providing a group id directly
-            * query **required** `object`: 1. If the query does not return any groups, a group with the specified name will be created and related to the patient.
-              * name **required** `string`
-              * organization **required** `string`
           * type **required** `string` (values: group)
 
 ### PatientHealthMetricCreateResource
@@ -2036,7 +2218,6 @@ twinehealth.fetchRewardProgramActivation({
     * systolic `number`
     * type `string` (values: blood_pressure_systolic, blood_pressure_diastolic, hemoglobin_a1c, hdl_cholesterol, ldl_cholesterol, total_cholesterol, triglycerides, blood_urea_nitrogen, creatinine, hemoglobin, hematocrit, total_serum_iron, thyroid_stimulating_hormone, free_thyroxine, free_triiodothyronine, total_triiodothyronine, cd4_cell_count, hiv_viral_load, inr, free_testosterone, total_testosterone, c_reactive_protein, prostate_specific_antigen, cotinine, c_peptide, blood_pressure, blood_glucose, weight, heart_rate, body_fat_percentage, body_mass_index, body_temperature, forced_expiratory_volume1, forced_vital_capacity, lean_body_mass, nausea_level, oxygen_saturation, pain_level, peak_expiratory_flow_rate, peripheral_perfusion_index, respiratory_rate, inhaler_usage)
     * unit `string`
-    * value `number`
   * id **required** `string`
   * relationships `object`
     * patient `object`
@@ -2044,12 +2225,6 @@ twinehealth.fetchRewardProgramActivation({
         * id `string`: Required if the `meta.query` is not defined.
         * meta `object`: Allows the specification of a query for a patient rather than providing a patient id directly
           * query **required** `object`: The query must return one and only one patient.
-            * groups `array`
-              * items `string`
-            * identifier **required** `object`
-              * system **required** `string`
-              * value **required** `string`
-            * organization `string`
         * type `string`
       * links `object`
   * type **required** `string`
@@ -2065,7 +2240,6 @@ twinehealth.fetchRewardProgramActivation({
     * systolic `number`
     * type `string` (values: blood_pressure_systolic, blood_pressure_diastolic, hemoglobin_a1c, hdl_cholesterol, ldl_cholesterol, total_cholesterol, triglycerides, blood_urea_nitrogen, creatinine, hemoglobin, hematocrit, total_serum_iron, thyroid_stimulating_hormone, free_thyroxine, free_triiodothyronine, total_triiodothyronine, cd4_cell_count, hiv_viral_load, inr, free_testosterone, total_testosterone, c_reactive_protein, prostate_specific_antigen, cotinine, c_peptide, blood_pressure, blood_glucose, weight, heart_rate, body_fat_percentage, body_mass_index, body_temperature, forced_expiratory_volume1, forced_vital_capacity, lean_body_mass, nausea_level, oxygen_saturation, pain_level, peak_expiratory_flow_rate, peripheral_perfusion_index, respiratory_rate, inhaler_usage)
     * unit `string`
-    * value `number`
   * id **required** `string`
   * relationships `object`
     * patient `object`
@@ -2073,12 +2247,48 @@ twinehealth.fetchRewardProgramActivation({
         * id `string`: Required if the `meta.query` is not defined.
         * meta `object`: Allows the specification of a query for a patient rather than providing a patient id directly
           * query **required** `object`: The query must return one and only one patient.
-            * groups `array`
-              * items `string`
-            * identifier **required** `object`
-              * system **required** `string`
-              * value **required** `string`
-            * organization `string`
+        * type `string`
+      * links `object`
+  * type **required** `string`
+
+### PatientHealthResultResource
+* PatientHealthResultResource `object`
+  * attributes `object`
+    * _thread `string`: Links together results. This should be the same as the thread of _action, if it is defined
+    * aggregation `string`
+    * annotations `array`
+      * items `object`
+        * text `string`
+        * title `string`
+    * channel `string`
+    * data `object`
+    * external_id `string`
+    * metric_type `string` (values: blood_pressure_systolic, blood_pressure_diastolic, hemoglobin_a1c, hdl_cholesterol, ldl_cholesterol, total_cholesterol, triglycerides, blood_urea_nitrogen, creatinine, hemoglobin, hematocrit, total_serum_iron, thyroid_stimulating_hormone, free_thyroxine, free_triiodothyronine, total_triiodothyronine, cd4_cell_count, hiv_viral_load, inr, free_testosterone, total_testosterone, c_reactive_protein, prostate_specific_antigen, cotinine, c_peptide, blood_pressure, blood_glucose, weight, heart_rate, body_fat_percentage, body_mass_index, body_temperature, forced_expiratory_volume1, forced_vital_capacity, lean_body_mass, nausea_level, oxygen_saturation, pain_level, peak_expiratory_flow_rate, peripheral_perfusion_index, respiratory_rate, inhaler_usage)
+    * occurred_at `string`
+    * occurred_at_time_zone `string`
+    * skipped `boolean`
+    * source `object`
+      * name `string`
+      * source_id `string`
+    * type `string`: Type of result. Usually the same as metric_type except for lifestyle actions
+    * window `string`
+  * id **required** `string`
+  * relationships `object`
+    * action `object`
+      * data `object`
+        * id `string`
+        * type `string`
+      * links `object`
+    * metric `object`
+      * data `object`
+        * id `string`
+        * type `string`
+      * links `object`
+    * patient `object`
+      * data `object`
+        * id `string`: Required if the `meta.query` is not defined.
+        * meta `object`: Allows the specification of a query for a patient rather than providing a patient id directly
+          * query **required** `object`: The query must return one and only one patient.
         * type `string`
       * links `object`
   * type **required** `string`
@@ -2087,15 +2297,14 @@ twinehealth.fetchRewardProgramActivation({
 * PatientIdentifier `object`
   * label `string`
   * system **required** `string`
-  * unique `boolean`: If `true`, the combination of system and value must be global unique among all patients and coaches in Twine.
+  * unique `boolean`: If `true`, the combination of system and value must be global unique among all patients and coaches in Fitbit Plus.
   * value **required** `string`
 
 ### PatientPlanSummaryResource
 * PatientPlanSummaryResource `object`
   * attributes `object`
     * adherence `object`
-    * critical `array`
-      * items `object`
+    * critical `object`
     * effective_from `string`
     * time_zone `string`
     * window_notification_times `object`
@@ -2112,29 +2321,33 @@ twinehealth.fetchRewardProgramActivation({
   * links `object`
     * self **required** `string`
   * relationships `object`
-    * actions **required** `array`
-      * items `object`
-        * data `object`
+    * actions **required** `object`
+      * data `array`
+        * items `object`
           * id **required** `string`
           * type **required** `string`
-        * links `object`
-          * related `string`
-    * bundles **required** `array`
-      * items `object`
-        * data `object`
+      * links `object`
+        * related `string`
+    * bundles **required** `object`
+      * data `array`
+        * items `object`
           * id **required** `string`
           * type **required** `string`
-        * links `object`
-          * related `string`
-    * current_results `array`
-      * items `object`
-        * data `object`
+      * links `object`
+        * related `string`
+    * current_results `object`
+      * data `array`
+        * items `object`
           * id **required** `string`
           * type **required** `string`
+      * links `object`
+        * related `string`
     * patient **required** `object`
       * data `object`
         * id `string`
         * type `string`
+      * links `object`
+        * related `string`
   * type **required** `string` (values: patient_plan_summary)
 
 ### PatientResource
@@ -2159,18 +2372,21 @@ twinehealth.fetchRewardProgramActivation({
     * note `string`: Coach's note about the patient. Not visible to the patient.
     * phone_numbers `array`
       * items [PhoneNumber](#phonenumber)
+    * statement `object`: A patient's motivation statement.
+      * updated_at `string`
+      * updated_by `string`
+      * value `string`
     * updated_at `string`
   * id `string`
   * links `object`
     * self `string`
-    * twine_web_app `string`: A link to the patient record in the Twine web application.
+    * twine_web_app `string`: A link to the patient record in the Fitbit Plus web application.
   * relationships `object`
     * coaches `object`
       * data **required** `array`
         * items `object`
           * id **required** `string`
           * meta `object`
-            * primary `boolean`
           * type **required** `string` (values: coach)
       * links `object`
         * related `string`
@@ -2399,5 +2615,16 @@ twinehealth.fetchRewardProgramActivation({
 * UpdatePatientResponse `object`
   * data **required** [PatientResource](#patientresource)
   * meta [CreateOrUpdateMetaResponse](#createorupdatemetaresponse)
+
+### UpsertPatientRequest
+* UpsertPatientRequest `object`
+  * data **required** [PatientResource](#patientresource)
+  * meta **required** `object`
+    * query **required** `object`
+      * groups **required** `array`: Group to create/update patient in.
+        * items `string`: ID of group
+      * identifier **required** `object`: Identifier to match patient
+        * system `string`: Name of system
+        * value `string`: Value in system
 
 

@@ -15,9 +15,7 @@ let azure_web_service = require('@datafire/azure_web_service').create({
   redirect_uri: ""
 });
 
-azure_web_service.Provider_GetPublishingUser({
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -567,7 +565,7 @@ azure_web_service.Recommendations_GetRecommendationBySubscription({
   * items [Recommendation](#recommendation)
 
 ### Global_GetAllServerFarms
-Gets all App Service Plans for a subcription
+Gets all App Service Plans for a subscription
 
 
 ```js
@@ -970,7 +968,7 @@ azure_web_service.CertificateOrders_RetrieveCertificateActions({
   * items [CertificateOrderAction](#certificateorderaction)
 
 ### CertificateOrders_RetrieveCertificateEmailHistory
-Retrive email history
+Retrieve email history
 
 
 ```js
@@ -1208,7 +1206,7 @@ azure_web_service.Certificates_GetCertificates({
 * output [CertificateCollection](#certificatecollection)
 
 ### Certificates_DeleteCertificate
-Delete a certificate by name in a specificed subscription and resourcegroup.
+Delete a certificate by name in a specified subscription and resourcegroup.
 
 
 ```js
@@ -1771,7 +1769,7 @@ azure_web_service.HostingEnvironments_GetMultiRolePools({
 * output [WorkerPoolCollection](#workerpoolcollection)
 
 ### HostingEnvironments_GetMultiRolePool
-Get properties of a multiRool pool.
+Get properties of a multiRole pool.
 
 
 ```js
@@ -2738,7 +2736,7 @@ azure_web_service.ServerFarms_GetServerFarmMetricDefintions({
 * output [MetricDefinitionCollection](#metricdefinitioncollection)
 
 ### ServerFarms_GetServerFarmMetrics
-Queries for App Serice Plan metrics
+Queries for App Service Plan metrics
 
 
 ```js
@@ -2838,7 +2836,7 @@ azure_web_service.ServerFarms_GetServerFarmSites({
 * output [SiteCollection](#sitecollection)
 
 ### ServerFarms_GetVnetsForServerFarm
-Gets list of vnets associated with App Service Plan
+Gets list of VNets associated with App Service Plan
 
 
 ```js
@@ -4045,7 +4043,7 @@ azure_web_service.Sites_CreateOrUpdateSiteHostNameBinding({
 * output [HostNameBinding](#hostnamebinding)
 
 ### Sites_ListSiteRelayServiceConnections
-Retrieves all Biztalk Hybrid Connections associated with this web app.
+Retrieves all BizTalk Hybrid Connections associated with this web app.
 
 
 ```js
@@ -4068,7 +4066,7 @@ azure_web_service.Sites_ListSiteRelayServiceConnections({
 * output [RelayServiceConnectionEntity](#relayserviceconnectionentity)
 
 ### Sites_DeleteSiteRelayServiceConnection
-Removes the association to a Biztalk Hybrid Connection, identified by its entity name.
+Removes the association to a BizTalk Hybrid Connection, identified by its entity name.
 
 
 ```js
@@ -4093,7 +4091,7 @@ azure_web_service.Sites_DeleteSiteRelayServiceConnection({
 * output [Object](#object)
 
 ### Sites_GetSiteRelayServiceConnection
-Retrieves a Biztalk Hybrid Connection identified by its entity name.
+Retrieves a BizTalk Hybrid Connection identified by its entity name.
 
 
 ```js
@@ -4118,7 +4116,7 @@ azure_web_service.Sites_GetSiteRelayServiceConnection({
 * output [RelayServiceConnectionEntity](#relayserviceconnectionentity)
 
 ### Sites_UpdateSiteRelayServiceConnection
-Creates a new association to a Biztalk Hybrid Connection, or updates an existing one.
+Creates a new association to a BizTalk Hybrid Connection, or updates an existing one.
 
 
 ```js
@@ -4145,7 +4143,7 @@ azure_web_service.Sites_UpdateSiteRelayServiceConnection({
 * output [RelayServiceConnectionEntity](#relayserviceconnectionentity)
 
 ### Sites_CreateOrUpdateSiteRelayServiceConnection
-Creates a new association to a Biztalk Hybrid Connection, or updates an existing one.
+Creates a new association to a BizTalk Hybrid Connection, or updates an existing one.
 
 
 ```js
@@ -5605,7 +5603,7 @@ azure_web_service.Sites_CreateOrUpdateSiteHostNameBindingSlot({
 * output [HostNameBinding](#hostnamebinding)
 
 ### Sites_ListSiteRelayServiceConnectionsSlot
-Retrieves all Biztalk Hybrid Connections associated with this web app.
+Retrieves all BizTalk Hybrid Connections associated with this web app.
 
 
 ```js
@@ -5630,7 +5628,7 @@ azure_web_service.Sites_ListSiteRelayServiceConnectionsSlot({
 * output [RelayServiceConnectionEntity](#relayserviceconnectionentity)
 
 ### Sites_DeleteSiteRelayServiceConnectionSlot
-Removes the association to a Biztalk Hybrid Connection, identified by its entity name.
+Removes the association to a BizTalk Hybrid Connection, identified by its entity name.
 
 
 ```js
@@ -5657,7 +5655,7 @@ azure_web_service.Sites_DeleteSiteRelayServiceConnectionSlot({
 * output [Object](#object)
 
 ### Sites_GetSiteRelayServiceConnectionSlot
-Retrieves a Biztalk Hybrid Connection identified by its entity name.
+Retrieves a BizTalk Hybrid Connection identified by its entity name.
 
 
 ```js
@@ -5684,7 +5682,7 @@ azure_web_service.Sites_GetSiteRelayServiceConnectionSlot({
 * output [RelayServiceConnectionEntity](#relayserviceconnectionentity)
 
 ### Sites_UpdateSiteRelayServiceConnectionSlot
-Creates a new association to a Biztalk Hybrid Connection, or updates an existing one.
+Creates a new association to a BizTalk Hybrid Connection, or updates an existing one.
 
 
 ```js
@@ -5713,7 +5711,7 @@ azure_web_service.Sites_UpdateSiteRelayServiceConnectionSlot({
 * output [RelayServiceConnectionEntity](#relayserviceconnectionentity)
 
 ### Sites_CreateOrUpdateSiteRelayServiceConnectionSlot
-Creates a new association to a Biztalk Hybrid Connection, or updates an existing one.
+Creates a new association to a BizTalk Hybrid Connection, or updates an existing one.
 
 
 ```js
@@ -7460,7 +7458,7 @@ azure_web_service.Recommendations_GetRuleDetailsBySiteName({
 * Certificate `object`: App certificate
   * properties `object`
     * cerBlob `string`: Raw bytes of .cer file
-    * expirationDate `string`: Certificate expriration date
+    * expirationDate `string`: Certificate expiration date
     * friendlyName `string`: Friendly name of the certificate
     * hostNames `array`: Host names the certificate applies to
       * items `string`
@@ -7571,13 +7569,13 @@ azure_web_service.Recommendations_GetRuleDetailsBySiteName({
   * type `string`: Resource type
 
 ### CertificateOrderCertificateCollection
-* CertificateOrderCertificateCollection `object`: Collection of ceritificateorder certificates
+* CertificateOrderCertificateCollection `object`: Collection of certificate order certificates
   * nextLink `string`: Link to next page of resources
   * value `array`: Collection of resources
     * items [CertificateOrderCertificate](#certificateordercertificate)
 
 ### CertificateOrderCollection
-* CertificateOrderCollection `object`: Collection of ceritificate orders
+* CertificateOrderCollection `object`: Collection of certificate orders
   * nextLink `string`: Link to next page of resources
   * value `array`: Collection of resources
     * items [CertificateOrder](#certificateorder)
@@ -7634,7 +7632,7 @@ azure_web_service.Recommendations_GetRuleDetailsBySiteName({
   * type `string`: Resource type
 
 ### Contact
-* Contact `object`: Contact information for domain registration. If 'Domain Privacy' option is not selected then the contact information will be  be made publicly available through the Whois directories as per ICANN requirements.
+* Contact `object`: Contact information for domain registration. If 'Domain Privacy' option is not selected then the contact information will be made publicly available through the Whois directories as per ICANN requirements.
   * addressMailing [Address](#address)
   * email `string`: Email address
   * fax `string`: Fax number
@@ -7661,7 +7659,7 @@ azure_web_service.Recommendations_GetRuleDetailsBySiteName({
   * format `string`: Name of the format. Valid values are: 
 
 ### CsmSiteRecoveryEntity
-* CsmSiteRecoveryEntity `object`: Class containting details about site recovery operation.
+* CsmSiteRecoveryEntity `object`: Class containing details about site recovery operation.
   * recoverConfig `boolean`: If true, then the website's configuration will be reverted to its state at SnapshotTime
   * siteName `string`: [Optional] Destination web app name into which web app should be recovered. This is case when new web app should be created instead.
   * slotName `string`: [Optional] Destination web app slot name into which web app should be recovered
@@ -7678,7 +7676,7 @@ azure_web_service.Recommendations_GetRuleDetailsBySiteName({
   * limit `integer`: The resource limit
   * name [LocalizableString](#localizablestring)
   * nextResetTime `string`: Next reset time for the resource counter
-  * unit `string`: Units of measurement for the quota resourse
+  * unit `string`: Units of measurement for the quota resource
 
 ### CsmUsageQuotaCollection
 * CsmUsageQuotaCollection `object`: Collection of csm usage quotas
@@ -7694,7 +7692,7 @@ azure_web_service.Recommendations_GetRuleDetailsBySiteName({
     * hostingEnvironment `string`: Hosting environment
     * name `string`: Name used to locate CSR object
     * password `string`: PFX password
-    * pfxBlob `string`: PFX certifcate of created certificate
+    * pfxBlob `string`: PFX certificate of created certificate
     * publicKeyHash `string`: Hash of the certificates public key
   * id `string`: Resource Id
   * kind `string`: Kind of resource
@@ -7761,7 +7759,7 @@ azure_web_service.Recommendations_GetRuleDetailsBySiteName({
     * items [DeletedSite](#deletedsite)
 
 ### Deployment
-* Deployment `object`: Represents user crendentials used for publishing activity
+* Deployment `object`: Represents user credentials used for publishing activity
   * properties `object`
     * active `boolean`: Active
     * author `string`: Author
@@ -8073,12 +8071,12 @@ azure_web_service.Recommendations_GetRuleDetailsBySiteName({
     * items [ManagedHostingEnvironment](#managedhostingenvironment)
 
 ### MetricAvailabilily
-* MetricAvailabilily `object`: Class repesenting metrics availability and retention
+* MetricAvailabilily `object`: Class representing metrics availability and retention
   * retention `string`: Retention period for the current {Microsoft.Web.Hosting.Administration.MetricAvailabilily.TimeGrain}
   * timeGrain `string`: Time grain
 
 ### MetricDefinition
-* MetricDefinition `object`: Class repesenting metadata for the metrics
+* MetricDefinition `object`: Class representing metadata for the metrics
   * properties `object`
     * displayName `string`: Friendly name shown in the UI
     * metricAvailabilities `array`: List of time grains supported for the metric together with retention period
@@ -8094,7 +8092,7 @@ azure_web_service.Recommendations_GetRuleDetailsBySiteName({
   * type `string`: Resource type
 
 ### MetricDefinitionCollection
-* MetricDefinitionCollection `object`: Collection of metric defintions
+* MetricDefinitionCollection `object`: Collection of metric definitions
   * nextLink `string`: Link to next page of resources
   * value `array`: Collection of resources
     * items [MetricDefinition](#metricdefinition)
@@ -8150,8 +8148,8 @@ azure_web_service.Recommendations_GetRuleDetailsBySiteName({
 * RampUpRule `object`: Routing rules for ramp up testing. This rule allows to redirect static traffic % to a slot or to gradually change routing % based on performance
   * actionHostName `string`: Hostname of a slot to which the traffic will be redirected if decided to. E.g. mysite-stage.azurewebsites.net
   * changeDecisionCallbackUrl `string`: Custom decision algorithm can be provided in TiPCallback site extension which Url can be specified. See TiPCallback site extension for the scaffold and contracts.
-  * changeIntervalInMinutes `integer`: [Optional] Specifies interval in mimuntes to reevaluate ReroutePercentage
-  * changeStep `number`: [Optional] In auto ramp up scenario this is the step to to add/remove from {Microsoft.Web.Hosting.Administration.RampUpRule.ReroutePercentage} until it reaches 
+  * changeIntervalInMinutes `integer`: [Optional] Specifies interval in minutes to reevaluate ReroutePercentage
+  * changeStep `number`: [Optional] In auto ramp up scenario this is the step to add/remove from {Microsoft.Web.Hosting.Administration.RampUpRule.ReroutePercentage} until it reaches 
   * maxReroutePercentage `number`: [Optional] Specifies upper boundary below which ReroutePercentage will stay.
   * minReroutePercentage `number`: [Optional] Specifies lower boundary above which ReroutePercentage will stay.
   * name `string`: Name of the routing rule. The recommended name would be to point to the slot which will receive the traffic in the experiment.
@@ -8206,7 +8204,7 @@ azure_web_service.Recommendations_GetRuleDetailsBySiteName({
   * type `string`: Resource type
 
 ### RelayServiceConnectionEntity
-* RelayServiceConnectionEntity `object`: Class that represents a Biztalk Hybrid Connection
+* RelayServiceConnectionEntity `object`: Class that represents a BizTalk Hybrid Connection
   * properties `object`
     * biztalkUri `string`
     * entityConnectionString `string`
@@ -8297,7 +8295,7 @@ azure_web_service.Recommendations_GetRuleDetailsBySiteName({
   * properties `object`
     * adjustConnectionStrings `boolean`: Gets or sets a flag showing if SiteConfig.ConnectionStrings should be set in new site
     * blobName `string`: Name of a blob which contains the backup
-    * databases `array`: Collection of databses which should be restored. This list has to match the list of databases included in the backup.
+    * databases `array`: Collection of databases which should be restored. This list has to match the list of databases included in the backup.
       * items [DatabaseBackupSetting](#databasebackupsetting)
     * hostingEnvironment `string`: App Service Environment name, if needed (only when restoring a site to an App Service Environment)
     * ignoreConflictingHostNames `boolean`: Changes a logic when restoring a site with custom domains. If "true", custom domains are removed automatically. If "false", custom domains are added to 
@@ -8344,7 +8342,7 @@ azure_web_service.Recommendations_GetRuleDetailsBySiteName({
     * numberOfSites `integer`: Number of web apps assigned to this App Service Plan
     * perSiteScaling `boolean`: If True apps assigned to this App Service Plan can be scaled independently
     * reserved `boolean`: Enables creation of a Linux App Service Plan
-    * resourceGroup `string`: Resource group of the serverfarm
+    * resourceGroup `string`: Resource group of the server farm
     * status **required** `string` (values: Ready, Pending): App Service Plan Status
     * subscription `string`: App Service Plan Subscription
     * workerTierName `string`: Target worker tier assigned to the App Service Plan
@@ -8667,7 +8665,7 @@ azure_web_service.Recommendations_GetRuleDetailsBySiteName({
   * type `string`: Resource type
 
 ### SourceControlCollection
-* SourceControlCollection `object`: Collection of soure controls
+* SourceControlCollection `object`: Collection of source controls
   * nextLink `string`: Link to next page of resources
   * value `array`: Collection of resources
     * items [SourceControl](#sourcecontrol)
@@ -8736,7 +8734,7 @@ azure_web_service.Recommendations_GetRuleDetailsBySiteName({
 
 ### TopLevelDomainAgreementOption
 * TopLevelDomainAgreementOption `object`: Options for retrieving the list of top level domain legal agreements
-  * includePrivacy `boolean`: If true then the list of agreements will inclue agreements for domain privacy as well.
+  * includePrivacy `boolean`: If true then the list of agreements will include agreements for domain privacy as well.
 
 ### TopLevelDomainCollection
 * TopLevelDomainCollection `object`: Collection of Top Level Domains
@@ -8770,7 +8768,7 @@ azure_web_service.Recommendations_GetRuleDetailsBySiteName({
     * items [Usage](#usage)
 
 ### User
-* User `object`: Represents user crendentials used for publishing activity
+* User `object`: Represents user credentials used for publishing activity
   * properties `object`
     * name `string`: Username (internal)
     * publishingPassword `string`: Password used for publishing

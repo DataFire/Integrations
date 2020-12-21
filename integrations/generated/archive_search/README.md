@@ -9,7 +9,7 @@ npm install --save @datafire/archive_search
 ```js
 let archive_search = require('@datafire/archive_search').create();
 
-archive_search.search.v1.scrape.get({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

@@ -9,9 +9,7 @@ npm install --save @datafire/healthcare_gov
 ```js
 let healthcare_gov = require('@datafire/healthcare_gov').create();
 
-healthcare_gov.api.articlesmediaTypeExtension.get({
-  "mediaTypeExtension": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -344,7 +342,6 @@ healthcare_gov.stateNamemediaTypeExtension.get({
       * sort `number`
       * tags `array`
         * items `array`
-
       * title `string`
       * title-short `string`
       * topics `array`
@@ -359,7 +356,6 @@ healthcare_gov.stateNamemediaTypeExtension.get({
       * items `object`
         * categories `array`
           * items `array`
-            * items `string`
         * content `string`
         * date `string`
         * lang `string`
@@ -371,11 +367,9 @@ healthcare_gov.stateNamemediaTypeExtension.get({
         * sort `number`
         * tags `array`
           * items `array`
-
         * title `string`
         * topics `array`
           * items `array`
-            * items `string`
         * url `string`
 
 ### blogPage
@@ -397,7 +391,6 @@ healthcare_gov.stateNamemediaTypeExtension.get({
   * sort `number`
   * tags `array`
     * items `array`
-
   * title `string`
   * topics `array`
     * items `array`
@@ -446,7 +439,6 @@ healthcare_gov.stateNamemediaTypeExtension.get({
 * page `object`
   * categories `array`
     * items `array`
-
   * content `string`
   * date `string`
   * excerpt `string`
@@ -459,7 +451,6 @@ healthcare_gov.stateNamemediaTypeExtension.get({
   * sort `number`
   * tags `array`
     * items `array`
-
   * title `string`
   * url `string`
 
@@ -503,7 +494,6 @@ healthcare_gov.stateNamemediaTypeExtension.get({
 * statePage `object`
   * categories `array`
     * items `array`
-
   * content `string`
   * date `string`
   * excerpt `string`
@@ -525,7 +515,6 @@ healthcare_gov.stateNamemediaTypeExtension.get({
       * items `object`
         * categories `array`
           * items `array`
-
         * content `string`
         * date `string`
         * excerpt `string`
@@ -536,7 +525,6 @@ healthcare_gov.stateNamemediaTypeExtension.get({
         * stateurl `string`
         * tags `array`
           * items `array`
-            * items `string`
         * title `string`
         * url `string`
 
@@ -549,7 +537,6 @@ healthcare_gov.stateNamemediaTypeExtension.get({
           * items `string`
       * categories `array`
         * items `array`
-
       * content `string`
       * date `string`
       * excerpt `string`

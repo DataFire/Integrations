@@ -13,7 +13,7 @@ let amazonaws_polly = require('@datafire/amazonaws_polly').create({
   region: ""
 });
 
-amazonaws_polly.ListLexicons({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -34,6 +34,7 @@ amazonaws_polly.ListLexicons({}, context)
 
 #### Input
 * input `object`
+  * NextToken `string`
 
 #### Output
 * output [ListLexiconsOutput](#listlexiconsoutput)
@@ -86,7 +87,7 @@ amazonaws_polly.PutLexicon({
 #### Input
 * input `object`
   * LexiconName **required** `string`
-  * Content **required** [LexiconContent](#lexiconcontent)
+  * Content **required** `string`: Content of the PLS lexicon as string data.
 
 #### Output
 * output [PutLexiconOutput](#putlexiconoutput)
@@ -105,16 +106,87 @@ amazonaws_polly.SynthesizeSpeech({
 
 #### Input
 * input `object`
-  * LexiconNames [LexiconNameList](#lexiconnamelist)
-  * OutputFormat **required** [OutputFormat](#outputformat)
-  * SampleRate [SampleRate](#samplerate)
-  * SpeechMarkTypes [SpeechMarkTypeList](#speechmarktypelist)
-  * Text **required** [Text](#text)
-  * TextType [TextType](#texttype)
-  * VoiceId **required** [VoiceId](#voiceid)
+  * Engine `string` (values: standard, neural): <p>Specifies the engine (<code>standard</code> or <code>neural</code>) for Amazon Polly to use when processing input text for speech synthesis. For information on Amazon Polly voices and which voices are available in standard-only, NTTS-only, and both standard and NTTS formats, see <a href="https://docs.aws.amazon.com/polly/latest/dg/voicelist.html">Available Voices</a>.</p> <p> <b>NTTS-only voices</b> </p> <p>When using NTTS-only voices such as Kevin (en-US), this parameter is required and must be set to <code>neural</code>. If the engine is not specified, or is set to <code>standard</code>, this will result in an error. </p> <p>Type: String</p> <p>Valid Values: <code>standard</code> | <code>neural</code> </p> <p>Required: Yes</p> <p> <b>Standard voices</b> </p> <p>For standard voices, this is not required; the engine parameter defaults to <code>standard</code>. If the engine is not specified, or is set to <code>standard</code> and an NTTS-only voice is selected, this will result in an error. </p>
+  * LanguageCode `string` (values: arb, cmn-CN, cy-GB, da-DK, de-DE, en-AU, en-GB, en-GB-WLS, en-IN, en-US, es-ES, es-MX, es-US, fr-CA, fr-FR, is-IS, it-IT, ja-JP, hi-IN, ko-KR, nb-NO, nl-NL, pl-PL, pt-BR, pt-PT, ro-RO, ru-RU, sv-SE, tr-TR): <p>Optional language code for the Synthesize Speech request. This is only necessary if using a bilingual voice, such as Aditi, which can be used for either Indian English (en-IN) or Hindi (hi-IN). </p> <p>If a bilingual voice is used and no language code is specified, Amazon Polly will use the default language of the bilingual voice. The default language for any voice is the one returned by the <a href="https://docs.aws.amazon.com/polly/latest/dg/API_DescribeVoices.html">DescribeVoices</a> operation for the <code>LanguageCode</code> parameter. For example, if no language code is specified, Aditi will use Indian English rather than Hindi.</p>
+  * LexiconNames `array`: List of one or more pronunciation lexicon names you want the service to apply during synthesis. Lexicons are applied only if the language of the lexicon is the same as the language of the voice. For information about storing lexicons, see <a href="https://docs.aws.amazon.com/polly/latest/dg/API_PutLexicon.html">PutLexicon</a>.
+    * items [LexiconName](#lexiconname)
+  * OutputFormat **required** `string` (values: json, mp3, ogg_vorbis, pcm): <p> The format in which the returned output will be encoded. For audio stream, this will be mp3, ogg_vorbis, or pcm. For speech marks, this will be json. </p> <p>When pcm is used, the content returned is audio/pcm in a signed 16-bit, 1 channel (mono), little-endian format. </p>
+  * SampleRate `string`: <p>The audio frequency specified in Hz.</p> <p>The valid values for mp3 and ogg_vorbis are "8000", "16000", "22050", and "24000". The default value for standard voices is "22050". The default value for neural voices is "24000".</p> <p>Valid values for pcm are "8000" and "16000" The default value is "16000". </p>
+  * SpeechMarkTypes `array`: The type of speech marks returned for the input text.
+    * items [SpeechMarkType](#speechmarktype)
+  * Text **required** `string`:  Input text to synthesize. If you specify <code>ssml</code> as the <code>TextType</code>, follow the SSML format for the input text. 
+  * TextType `string` (values: ssml, text):  Specifies whether the input text is plain text or SSML. The default value is plain text. For more information, see <a href="https://docs.aws.amazon.com/polly/latest/dg/ssml.html">Using SSML</a>.
+  * VoiceId **required** `string` (values: Aditi, Amy, Astrid, Bianca, Brian, Camila, Carla, Carmen, Celine, Chantal, Conchita, Cristiano, Dora, Emma, Enrique, Ewa, Filiz, Geraint, Giorgio, Gwyneth, Hans, Ines, Ivy, Jacek, Jan, Joanna, Joey, Justin, Karl, Kendra, Kevin, Kimberly, Lea, Liv, Lotte, Lucia, Lupe, Mads, Maja, Marlene, Mathieu, Matthew, Maxim, Mia, Miguel, Mizuki, Naja, Nicole, Olivia, Penelope, Raveena, Ricardo, Ruben, Russell, Salli, Seoyeon, Takumi, Tatyana, Vicki, Vitoria, Zeina, Zhiyu):  Voice ID to use for the synthesis. You can get a list of available voice IDs by calling the <a href="https://docs.aws.amazon.com/polly/latest/dg/API_DescribeVoices.html">DescribeVoices</a> operation. 
 
 #### Output
 * output [SynthesizeSpeechOutput](#synthesizespeechoutput)
+
+### ListSpeechSynthesisTasks
+
+
+
+```js
+amazonaws_polly.ListSpeechSynthesisTasks({}, context)
+```
+
+#### Input
+* input `object`
+  * MaxResults `integer`
+  * NextToken `string`
+  * Status `string`
+
+#### Output
+* output [ListSpeechSynthesisTasksOutput](#listspeechsynthesistasksoutput)
+
+### StartSpeechSynthesisTask
+
+
+
+```js
+amazonaws_polly.StartSpeechSynthesisTask({
+  "OutputFormat": "",
+  "OutputS3BucketName": "",
+  "Text": "",
+  "VoiceId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * Engine `string` (values: standard, neural): Specifies the engine (<code>standard</code> or <code>neural</code>) for Amazon Polly to use when processing input text for speech synthesis. Using a voice that is not supported for the engine selected will result in an error.
+  * LanguageCode `string` (values: arb, cmn-CN, cy-GB, da-DK, de-DE, en-AU, en-GB, en-GB-WLS, en-IN, en-US, es-ES, es-MX, es-US, fr-CA, fr-FR, is-IS, it-IT, ja-JP, hi-IN, ko-KR, nb-NO, nl-NL, pl-PL, pt-BR, pt-PT, ro-RO, ru-RU, sv-SE, tr-TR): <p>Optional language code for the Speech Synthesis request. This is only necessary if using a bilingual voice, such as Aditi, which can be used for either Indian English (en-IN) or Hindi (hi-IN). </p> <p>If a bilingual voice is used and no language code is specified, Amazon Polly will use the default language of the bilingual voice. The default language for any voice is the one returned by the <a href="https://docs.aws.amazon.com/polly/latest/dg/API_DescribeVoices.html">DescribeVoices</a> operation for the <code>LanguageCode</code> parameter. For example, if no language code is specified, Aditi will use Indian English rather than Hindi.</p>
+  * LexiconNames `array`: List of one or more pronunciation lexicon names you want the service to apply during synthesis. Lexicons are applied only if the language of the lexicon is the same as the language of the voice. 
+    * items [LexiconName](#lexiconname)
+  * OutputFormat **required** `string` (values: json, mp3, ogg_vorbis, pcm): The format in which the returned output will be encoded. For audio stream, this will be mp3, ogg_vorbis, or pcm. For speech marks, this will be json. 
+  * OutputS3BucketName **required** `string`: Amazon S3 bucket name to which the output file will be saved.
+  * OutputS3KeyPrefix `string`: The Amazon S3 key prefix for the output speech file.
+  * SampleRate `string`: <p>The audio frequency specified in Hz.</p> <p>The valid values for mp3 and ogg_vorbis are "8000", "16000", "22050", and "24000". The default value for standard voices is "22050". The default value for neural voices is "24000".</p> <p>Valid values for pcm are "8000" and "16000" The default value is "16000". </p>
+  * SnsTopicArn `string`: ARN for the SNS topic optionally used for providing status notification for a speech synthesis task.
+  * SpeechMarkTypes `array`: The type of speech marks returned for the input text.
+    * items [SpeechMarkType](#speechmarktype)
+  * Text **required** `string`: The input text to synthesize. If you specify ssml as the TextType, follow the SSML format for the input text. 
+  * TextType `string` (values: ssml, text): Specifies whether the input text is plain text or SSML. The default value is plain text. 
+  * VoiceId **required** `string` (values: Aditi, Amy, Astrid, Bianca, Brian, Camila, Carla, Carmen, Celine, Chantal, Conchita, Cristiano, Dora, Emma, Enrique, Ewa, Filiz, Geraint, Giorgio, Gwyneth, Hans, Ines, Ivy, Jacek, Jan, Joanna, Joey, Justin, Karl, Kendra, Kevin, Kimberly, Lea, Liv, Lotte, Lucia, Lupe, Mads, Maja, Marlene, Mathieu, Matthew, Maxim, Mia, Miguel, Mizuki, Naja, Nicole, Olivia, Penelope, Raveena, Ricardo, Ruben, Russell, Salli, Seoyeon, Takumi, Tatyana, Vicki, Vitoria, Zeina, Zhiyu): Voice ID to use for the synthesis. 
+
+#### Output
+* output [StartSpeechSynthesisTaskOutput](#startspeechsynthesistaskoutput)
+
+### GetSpeechSynthesisTask
+
+
+
+```js
+amazonaws_polly.GetSpeechSynthesisTask({
+  "TaskId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * TaskId **required** `string`
+
+#### Output
+* output [GetSpeechSynthesisTaskOutput](#getspeechsynthesistaskoutput)
 
 ### DescribeVoices
 
@@ -126,6 +198,10 @@ amazonaws_polly.DescribeVoices({}, context)
 
 #### Input
 * input `object`
+  * Engine `string`
+  * LanguageCode `string`
+  * IncludeAdditionalLanguageCodes `boolean`
+  * NextToken `string`
 
 #### Output
 * output [DescribeVoicesOutput](#describevoicesoutput)
@@ -143,6 +219,9 @@ amazonaws_polly.DescribeVoices({}, context)
 ### ContentType
 * ContentType `string`
 
+### DateTime
+* DateTime `string`
+
 ### DeleteLexiconInput
 * DeleteLexiconInput `object`
 
@@ -154,11 +233,19 @@ amazonaws_polly.DescribeVoices({}, context)
 
 ### DescribeVoicesOutput
 * DescribeVoicesOutput `object`
-  * NextToken [NextToken](#nexttoken)
-  * Voices [VoiceList](#voicelist)
+  * NextToken
+  * Voices
+    * items [Voice](#voice)
 
-### ErrorMessage
-* ErrorMessage `string`
+### Engine
+* Engine `string` (values: standard, neural)
+
+### EngineList
+* EngineList `array`
+  * items [Engine](#engine)
+
+### EngineNotSupportedException
+
 
 ### Gender
 * Gender `string` (values: Female, Male)
@@ -168,30 +255,80 @@ amazonaws_polly.DescribeVoices({}, context)
 
 ### GetLexiconOutput
 * GetLexiconOutput `object`
-  * Lexicon [Lexicon](#lexicon)
-  * LexiconAttributes [LexiconAttributes](#lexiconattributes)
+  * Lexicon
+    * Content
+    * Name
+  * LexiconAttributes
+    * Alphabet
+    * LanguageCode
+    * LastModified
+    * LexemesCount
+    * LexiconArn
+    * Size
+
+### GetSpeechSynthesisTaskInput
+* GetSpeechSynthesisTaskInput `object`
+
+### GetSpeechSynthesisTaskOutput
+* GetSpeechSynthesisTaskOutput `object`
+  * SynthesisTask
+    * CreationTime
+    * Engine
+    * LanguageCode
+    * LexiconNames
+      * items [LexiconName](#lexiconname)
+    * OutputFormat
+    * OutputUri
+    * RequestCharacters
+    * SampleRate
+    * SnsTopicArn
+    * SpeechMarkTypes
+      * items [SpeechMarkType](#speechmarktype)
+    * TaskId
+    * TaskStatus
+    * TaskStatusReason
+    * TextType
+    * VoiceId
+
+### IncludeAdditionalLanguageCodes
+* IncludeAdditionalLanguageCodes `boolean`
 
 ### InvalidLexiconException
-* InvalidLexiconException `object`: Amazon Polly can't find the specified lexicon. Verify that the lexicon's name is spelled correctly, and then try again.
-  * message [ErrorMessage](#errormessage)
+
 
 ### InvalidNextTokenException
-* InvalidNextTokenException `object`: The NextToken is invalid. Verify that it's spelled correctly, and then try again.
-  * message [ErrorMessage](#errormessage)
+
+
+### InvalidS3BucketException
+
+
+### InvalidS3KeyException
+
 
 ### InvalidSampleRateException
-* InvalidSampleRateException `object`: The specified sample rate is not valid.
-  * message [ErrorMessage](#errormessage)
+
+
+### InvalidSnsTopicArnException
+
 
 ### InvalidSsmlException
-* InvalidSsmlException `object`: The SSML you provided is invalid. Verify the SSML syntax, spelling of tags and values, and then try again.
-  * message [ErrorMessage](#errormessage)
+
+
+### InvalidTaskIdException
+
 
 ### LanguageCode
-* LanguageCode `string` (values: cy-GB, da-DK, de-DE, en-AU, en-GB, en-GB-WLS, en-IN, en-US, es-ES, es-US, fr-CA, fr-FR, is-IS, it-IT, ko-KR, ja-JP, nb-NO, nl-NL, pl-PL, pt-BR, pt-PT, ro-RO, ru-RU, sv-SE, tr-TR)
+* LanguageCode `string` (values: arb, cmn-CN, cy-GB, da-DK, de-DE, en-AU, en-GB, en-GB-WLS, en-IN, en-US, es-ES, es-MX, es-US, fr-CA, fr-FR, is-IS, it-IT, ja-JP, hi-IN, ko-KR, nb-NO, nl-NL, pl-PL, pt-BR, pt-PT, ro-RO, ru-RU, sv-SE, tr-TR)
+
+### LanguageCodeList
+* LanguageCodeList `array`
+  * items [LanguageCode](#languagecode)
 
 ### LanguageName
 * LanguageName `string`
+
+### LanguageNotSupportedException
+
 
 ### LastModified
 * LastModified `string`
@@ -201,28 +338,34 @@ amazonaws_polly.DescribeVoices({}, context)
 
 ### Lexicon
 * Lexicon `object`: Provides lexicon name and lexicon content in string format. For more information, see <a href="https://www.w3.org/TR/pronunciation-lexicon/">Pronunciation Lexicon Specification (PLS) Version 1.0</a>.
-  * Content [LexiconContent](#lexiconcontent)
-  * Name [LexiconName](#lexiconname)
+  * Content
+  * Name
 
 ### LexiconArn
 * LexiconArn `string`
 
 ### LexiconAttributes
-* LexiconAttributes `object`: Contains metadata describing the lexicon such as the number of lexemes, language code, and so on. For more information, see <a href="http://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html">Managing Lexicons</a>.
-  * Alphabet [Alphabet](#alphabet)
-  * LanguageCode [LanguageCode](#languagecode)
-  * LastModified [LastModified](#lastmodified)
-  * LexemesCount [LexemesCount](#lexemescount)
-  * LexiconArn [LexiconArn](#lexiconarn)
-  * Size [Size](#size)
+* LexiconAttributes `object`: Contains metadata describing the lexicon such as the number of lexemes, language code, and so on. For more information, see <a href="https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html">Managing Lexicons</a>.
+  * Alphabet
+  * LanguageCode
+  * LastModified
+  * LexemesCount
+  * LexiconArn
+  * Size
 
 ### LexiconContent
 * LexiconContent `string`
 
 ### LexiconDescription
 * LexiconDescription `object`: Describes the content of the lexicon.
-  * Attributes [LexiconAttributes](#lexiconattributes)
-  * Name [LexiconName](#lexiconname)
+  * Attributes
+    * Alphabet
+    * LanguageCode
+    * LastModified
+    * LexemesCount
+    * LexiconArn
+    * Size
+  * Name
 
 ### LexiconDescriptionList
 * LexiconDescriptionList `array`
@@ -236,32 +379,40 @@ amazonaws_polly.DescribeVoices({}, context)
   * items [LexiconName](#lexiconname)
 
 ### LexiconNotFoundException
-* LexiconNotFoundException `object`: <p>Amazon Polly can't find the specified lexicon. This could be caused by a lexicon that is missing, its name is misspelled or specifying a lexicon that is in a different region.</p> <p>Verify that the lexicon exists, is in the region (see <a>ListLexicons</a>) and that you spelled its name is spelled correctly. Then try again.</p>
-  * message [ErrorMessage](#errormessage)
+
 
 ### LexiconSizeExceededException
-* LexiconSizeExceededException `object`: The maximum size of the specified lexicon would be exceeded by this operation.
-  * message [ErrorMessage](#errormessage)
+
 
 ### ListLexiconsInput
 * ListLexiconsInput `object`
 
 ### ListLexiconsOutput
 * ListLexiconsOutput `object`
-  * Lexicons [LexiconDescriptionList](#lexicondescriptionlist)
-  * NextToken [NextToken](#nexttoken)
+  * Lexicons
+    * items [LexiconDescription](#lexicondescription)
+  * NextToken
+
+### ListSpeechSynthesisTasksInput
+* ListSpeechSynthesisTasksInput `object`
+
+### ListSpeechSynthesisTasksOutput
+* ListSpeechSynthesisTasksOutput `object`
+  * NextToken
+  * SynthesisTasks
+    * items [SynthesisTask](#synthesistask)
 
 ### MarksNotSupportedForFormatException
-* MarksNotSupportedForFormatException `object`: Speech marks are not supported for the <code>OutputFormat</code> selected. Speech marks are only available for content in <code>json</code> format.
-  * message [ErrorMessage](#errormessage)
+
 
 ### MaxLexemeLengthExceededException
-* MaxLexemeLengthExceededException `object`: The maximum size of the lexeme would be exceeded by this operation.
-  * message [ErrorMessage](#errormessage)
+
 
 ### MaxLexiconsNumberExceededException
-* MaxLexiconsNumberExceededException `object`: The maximum number of lexicons would be exceeded by this operation.
-  * message [ErrorMessage](#errormessage)
+
+
+### MaxResults
+* MaxResults `integer`
 
 ### NextToken
 * NextToken `string`
@@ -269,9 +420,18 @@ amazonaws_polly.DescribeVoices({}, context)
 ### OutputFormat
 * OutputFormat `string` (values: json, mp3, ogg_vorbis, pcm)
 
+### OutputS3BucketName
+* OutputS3BucketName `string`
+
+### OutputS3KeyPrefix
+* OutputS3KeyPrefix `string`
+
+### OutputUri
+* OutputUri `string`
+
 ### PutLexiconInput
 * PutLexiconInput `object`
-  * Content **required** [LexiconContent](#lexiconcontent)
+  * Content **required**
 
 ### PutLexiconOutput
 * PutLexiconOutput `object`
@@ -283,11 +443,13 @@ amazonaws_polly.DescribeVoices({}, context)
 * SampleRate `string`
 
 ### ServiceFailureException
-* ServiceFailureException `object`: An unknown condition has caused a service failure.
-  * message [ErrorMessage](#errormessage)
+
 
 ### Size
 * Size `integer`
+
+### SnsTopicArn
+* SnsTopicArn `string`
 
 ### SpeechMarkType
 * SpeechMarkType `string` (values: sentence, ssml, viseme, word)
@@ -297,51 +459,129 @@ amazonaws_polly.DescribeVoices({}, context)
   * items [SpeechMarkType](#speechmarktype)
 
 ### SsmlMarksNotSupportedForTextTypeException
-* SsmlMarksNotSupportedForTextTypeException `object`: SSML speech marks are not supported for plain text-type input.
-  * message [ErrorMessage](#errormessage)
+
+
+### StartSpeechSynthesisTaskInput
+* StartSpeechSynthesisTaskInput `object`
+  * Engine
+  * LanguageCode
+  * LexiconNames
+    * items [LexiconName](#lexiconname)
+  * OutputFormat **required**
+  * OutputS3BucketName **required**
+  * OutputS3KeyPrefix
+  * SampleRate
+  * SnsTopicArn
+  * SpeechMarkTypes
+    * items [SpeechMarkType](#speechmarktype)
+  * Text **required**
+  * TextType
+  * VoiceId **required**
+
+### StartSpeechSynthesisTaskOutput
+* StartSpeechSynthesisTaskOutput `object`
+  * SynthesisTask
+    * CreationTime
+    * Engine
+    * LanguageCode
+    * LexiconNames
+      * items [LexiconName](#lexiconname)
+    * OutputFormat
+    * OutputUri
+    * RequestCharacters
+    * SampleRate
+    * SnsTopicArn
+    * SpeechMarkTypes
+      * items [SpeechMarkType](#speechmarktype)
+    * TaskId
+    * TaskStatus
+    * TaskStatusReason
+    * TextType
+    * VoiceId
+
+### SynthesisTask
+* SynthesisTask `object`: SynthesisTask object that provides information about a speech synthesis task.
+  * CreationTime
+  * Engine
+  * LanguageCode
+  * LexiconNames
+    * items [LexiconName](#lexiconname)
+  * OutputFormat
+  * OutputUri
+  * RequestCharacters
+  * SampleRate
+  * SnsTopicArn
+  * SpeechMarkTypes
+    * items [SpeechMarkType](#speechmarktype)
+  * TaskId
+  * TaskStatus
+  * TaskStatusReason
+  * TextType
+  * VoiceId
+
+### SynthesisTaskNotFoundException
+
+
+### SynthesisTasks
+* SynthesisTasks `array`
+  * items [SynthesisTask](#synthesistask)
 
 ### SynthesizeSpeechInput
 * SynthesizeSpeechInput `object`
-  * LexiconNames [LexiconNameList](#lexiconnamelist)
-  * OutputFormat **required** [OutputFormat](#outputformat)
-  * SampleRate [SampleRate](#samplerate)
-  * SpeechMarkTypes [SpeechMarkTypeList](#speechmarktypelist)
-  * Text **required** [Text](#text)
-  * TextType [TextType](#texttype)
-  * VoiceId **required** [VoiceId](#voiceid)
+  * Engine
+  * LanguageCode
+  * LexiconNames
+    * items [LexiconName](#lexiconname)
+  * OutputFormat **required**
+  * SampleRate
+  * SpeechMarkTypes
+    * items [SpeechMarkType](#speechmarktype)
+  * Text **required**
+  * TextType
+  * VoiceId **required**
 
 ### SynthesizeSpeechOutput
 * SynthesizeSpeechOutput `object`
-  * AudioStream [AudioStream](#audiostream)
+  * AudioStream
+
+### TaskId
+* TaskId `string`
+
+### TaskStatus
+* TaskStatus `string` (values: scheduled, inProgress, completed, failed)
+
+### TaskStatusReason
+* TaskStatusReason `string`
 
 ### Text
 * Text `string`
 
 ### TextLengthExceededException
-* TextLengthExceededException `object`: The value of the "Text" parameter is longer than the accepted limits. The limit for input text is a maximum of 6000 characters total, of which no more than 3000 can be billed characters. SSML tags are not counted as billed characters.
-  * message [ErrorMessage](#errormessage)
+
 
 ### TextType
 * TextType `string` (values: ssml, text)
 
 ### UnsupportedPlsAlphabetException
-* UnsupportedPlsAlphabetException `object`: The alphabet specified by the lexicon is not a supported alphabet. Valid values are <code>x-sampa</code> and <code>ipa</code>.
-  * message [ErrorMessage](#errormessage)
+
 
 ### UnsupportedPlsLanguageException
-* UnsupportedPlsLanguageException `object`: The language specified in the lexicon is unsupported. For a list of supported languages, see <a href="http://docs.aws.amazon.com/polly/latest/dg/API_LexiconAttributes.html">Lexicon Attributes</a>.
-  * message [ErrorMessage](#errormessage)
+
 
 ### Voice
 * Voice `object`: Description of the voice.
-  * Gender [Gender](#gender)
-  * Id [VoiceId](#voiceid)
-  * LanguageCode [LanguageCode](#languagecode)
-  * LanguageName [LanguageName](#languagename)
-  * Name [VoiceName](#voicename)
+  * AdditionalLanguageCodes
+    * items [LanguageCode](#languagecode)
+  * Gender
+  * Id
+  * LanguageCode
+  * LanguageName
+  * Name
+  * SupportedEngines
+    * items [Engine](#engine)
 
 ### VoiceId
-* VoiceId `string` (values: Geraint, Gwyneth, Mads, Naja, Hans, Marlene, Nicole, Russell, Amy, Brian, Emma, Raveena, Ivy, Joanna, Joey, Justin, Kendra, Kimberly, Matthew, Salli, Conchita, Enrique, Miguel, Penelope, Chantal, Celine, Lea, Mathieu, Dora, Karl, Carla, Giorgio, Mizuki, Liv, Lotte, Ruben, Ewa, Jacek, Jan, Maja, Ricardo, Vitoria, Cristiano, Ines, Carmen, Maxim, Tatyana, Astrid, Filiz, Vicki, Takumi, Seoyeon, Aditi)
+* VoiceId `string` (values: Aditi, Amy, Astrid, Bianca, Brian, Camila, Carla, Carmen, Celine, Chantal, Conchita, Cristiano, Dora, Emma, Enrique, Ewa, Filiz, Geraint, Giorgio, Gwyneth, Hans, Ines, Ivy, Jacek, Jan, Joanna, Joey, Justin, Karl, Kendra, Kevin, Kimberly, Lea, Liv, Lotte, Lucia, Lupe, Mads, Maja, Marlene, Mathieu, Matthew, Maxim, Mia, Miguel, Mizuki, Naja, Nicole, Olivia, Penelope, Raveena, Ricardo, Ruben, Russell, Salli, Seoyeon, Takumi, Tatyana, Vicki, Vitoria, Zeina, Zhiyu)
 
 ### VoiceList
 * VoiceList `array`

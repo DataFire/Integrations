@@ -15,12 +15,7 @@ let azure_automation_jobschedule = require('@datafire/azure_automation_jobschedu
   redirect_uri: ""
 });
 
-azure_automation_jobschedule.JobSchedule_ListByAutomationAccount({
-  "resourceGroupName": "",
-  "automationAccountName": "",
-  "subscriptionId": "",
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -47,27 +42,13 @@ azure_automation_jobschedule.JobSchedule_ListByAutomationAccount({
 #### Input
 * input `object`
   * resourceGroupName **required** `string`: Name of an Azure Resource group.
-  * automationAccountName **required** `string`: The automation account name.
+  * automationAccountName **required** `string`: The name of the automation account.
   * $filter `string`: The filter to apply on the operation.
   * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
   * api-version **required** `string`: Client Api Version.
 
 #### Output
-* output `object`: The response model for the list job schedule operation.
-  * nextLink `string`: Gets or sets the next link.
-  * value `array`: Gets or sets a list of job schedules.
-    * items `object`: Definition of the job schedule.
-      * id `string`: Gets the id of the resource.
-      * name `string`: Gets the name of the variable.
-      * properties `object`: Definition of job schedule parameters.
-        * jobScheduleId `string`: Gets or sets the id of job schedule.
-        * parameters `object`: Gets or sets the parameters of the job schedule.
-        * runOn `string`: Gets or sets the hybrid worker group that the scheduled job should run on.
-        * runbook `object`: The runbook property associated with the entity.
-          * name `string`: Gets or sets the name of the runbook.
-        * schedule `object`: The schedule property associated with the entity.
-          * name `string`: Gets or sets the name of the schedule.
-      * type `string`: Resource type
+* output [JobScheduleListResult](#jobschedulelistresult)
 
 ### JobSchedule_Delete
 Delete the job schedule identified by job schedule name.
@@ -86,7 +67,7 @@ azure_automation_jobschedule.JobSchedule_Delete({
 #### Input
 * input `object`
   * resourceGroupName **required** `string`: Name of an Azure Resource group.
-  * automationAccountName **required** `string`: The automation account name.
+  * automationAccountName **required** `string`: The name of the automation account.
   * jobScheduleId **required** `string`: The job schedule name.
   * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
   * api-version **required** `string`: Client Api Version.
@@ -111,24 +92,13 @@ azure_automation_jobschedule.JobSchedule_Get({
 #### Input
 * input `object`
   * resourceGroupName **required** `string`: Name of an Azure Resource group.
-  * automationAccountName **required** `string`: The automation account name.
+  * automationAccountName **required** `string`: The name of the automation account.
   * jobScheduleId **required** `string`: The job schedule name.
   * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
   * api-version **required** `string`: Client Api Version.
 
 #### Output
-* output `object`: Definition of the job schedule.
-  * id `string`: Gets the id of the resource.
-  * name `string`: Gets the name of the variable.
-  * properties `object`: Definition of job schedule parameters.
-    * jobScheduleId `string`: Gets or sets the id of job schedule.
-    * parameters `object`: Gets or sets the parameters of the job schedule.
-    * runOn `string`: Gets or sets the hybrid worker group that the scheduled job should run on.
-    * runbook `object`: The runbook property associated with the entity.
-      * name `string`: Gets or sets the name of the runbook.
-    * schedule `object`: The schedule property associated with the entity.
-      * name `string`: Gets or sets the name of the schedule.
-  * type `string`: Resource type
+* output [JobSchedule](#jobschedule)
 
 ### JobSchedule_Create
 Create a job schedule.
@@ -148,35 +118,57 @@ azure_automation_jobschedule.JobSchedule_Create({
 #### Input
 * input `object`
   * resourceGroupName **required** `string`: Name of an Azure Resource group.
-  * automationAccountName **required** `string`: The automation account name.
+  * automationAccountName **required** `string`: The name of the automation account.
   * jobScheduleId **required** `string`: The job schedule name.
-  * parameters **required** `object`: The parameters supplied to the create job schedule operation.
-    * properties **required** `object`: The parameters supplied to the create job schedule operation.
-      * parameters `object`: Gets or sets a list of job properties.
-      * runOn `string`: Gets or sets the hybrid worker group that the scheduled job should run on.
-      * runbook **required** `object`: The runbook property associated with the entity.
-        * name `string`: Gets or sets the name of the runbook.
-      * schedule **required** `object`: The schedule property associated with the entity.
-        * name `string`: Gets or sets the name of the schedule.
+  * parameters **required** [JobScheduleCreateParameters](#jobschedulecreateparameters)
   * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
   * api-version **required** `string`: Client Api Version.
 
 #### Output
-* output `object`: Definition of the job schedule.
-  * id `string`: Gets the id of the resource.
-  * name `string`: Gets the name of the variable.
-  * properties `object`: Definition of job schedule parameters.
-    * jobScheduleId `string`: Gets or sets the id of job schedule.
-    * parameters `object`: Gets or sets the parameters of the job schedule.
-    * runOn `string`: Gets or sets the hybrid worker group that the scheduled job should run on.
-    * runbook `object`: The runbook property associated with the entity.
-      * name `string`: Gets or sets the name of the runbook.
-    * schedule `object`: The schedule property associated with the entity.
-      * name `string`: Gets or sets the name of the schedule.
-  * type `string`: Resource type
+* output [JobSchedule](#jobschedule)
 
 
 
 ## Definitions
 
-*This integration has no definitions*
+### JobSchedule
+* JobSchedule `object`: Definition of the job schedule.
+  * id `string`: Gets the id of the resource.
+  * name `string`: Gets the name of the variable.
+  * properties [JobScheduleProperties](#jobscheduleproperties)
+  * type `string`: Resource type
+
+### JobScheduleCreateParameters
+* JobScheduleCreateParameters `object`: The parameters supplied to the create job schedule operation.
+  * properties **required** [JobScheduleCreateProperties](#jobschedulecreateproperties)
+
+### JobScheduleCreateProperties
+* JobScheduleCreateProperties `object`: The parameters supplied to the create job schedule operation.
+  * parameters `object`: Gets or sets a list of job properties.
+  * runOn `string`: Gets or sets the hybrid worker group that the scheduled job should run on.
+  * runbook **required** [RunbookAssociationProperty](#runbookassociationproperty)
+  * schedule **required** [ScheduleAssociationProperty](#scheduleassociationproperty)
+
+### JobScheduleListResult
+* JobScheduleListResult `object`: The response model for the list job schedule operation.
+  * nextLink `string`: Gets or sets the next link.
+  * value `array`: Gets or sets a list of job schedules.
+    * items [JobSchedule](#jobschedule)
+
+### JobScheduleProperties
+* JobScheduleProperties `object`: Definition of job schedule parameters.
+  * jobScheduleId `string`: Gets or sets the id of job schedule.
+  * parameters `object`: Gets or sets the parameters of the job schedule.
+  * runOn `string`: Gets or sets the hybrid worker group that the scheduled job should run on.
+  * runbook [RunbookAssociationProperty](#runbookassociationproperty)
+  * schedule [ScheduleAssociationProperty](#scheduleassociationproperty)
+
+### RunbookAssociationProperty
+* RunbookAssociationProperty `object`: The runbook property associated with the entity.
+  * name `string`: Gets or sets the name of the runbook.
+
+### ScheduleAssociationProperty
+* ScheduleAssociationProperty `object`: The schedule property associated with the entity.
+  * name `string`: Gets or sets the name of the Schedule.
+
+

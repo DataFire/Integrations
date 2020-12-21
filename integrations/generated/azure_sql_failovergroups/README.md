@@ -15,12 +15,7 @@ let azure_sql_failovergroups = require('@datafire/azure_sql_failovergroups').cre
   redirect_uri: ""
 });
 
-azure_sql_failovergroups.FailoverGroups_ListByServer({
-  "resourceGroupName": "",
-  "serverName": "",
-  "subscriptionId": "",
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

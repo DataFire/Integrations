@@ -1,35 +1,33 @@
 {
   "swagger": "2.0",
-  "schemes": [
-    "https"
-  ],
-  "host": "www.googleapis.com",
-  "basePath": "/calendar/v3",
   "info": {
     "contact": {
       "name": "Google",
-      "url": "https://google.com"
+      "url": "https://google.com",
+      "x-twitter": "youtube"
     },
     "description": "Manipulates events and other calendar data.",
-    "title": "Calendar",
+    "license": {
+      "name": "Creative Commons Attribution 3.0",
+      "url": "http://creativecommons.org/licenses/by/3.0/"
+    },
+    "termsOfService": "https://developers.google.com/terms/",
+    "title": "Calendar API",
     "version": "v3",
     "x-apiClientRegistration": {
       "url": "https://console.developers.google.com"
     },
     "x-apisguru-categories": [
-      "time_management"
+      "analytics",
+      "media"
     ],
     "x-logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.gstatic.com_images_icons_material_product_2x_calendar_64dp.png"
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
     },
     "x-origin": [
       {
-        "converter": {
-          "url": "https://github.com/lucybot/api-spec-converter",
-          "version": "2.6.2"
-        },
         "format": "google",
-        "url": "https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest",
+        "url": "https://calendar-json.googleapis.com/$discovery/rest?version=v3",
         "version": "v1"
       }
     ],
@@ -41,135 +39,67 @@
       "type": "openapi"
     }
   },
-  "externalDocs": {
-    "url": "https://developers.google.com/google-apps/calendar/firstapp"
-  },
-  "securityDefinitions": {
-    "Oauth2": {
-      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 authentication",
-      "flow": "implicit",
-      "scopes": {
-        "https://www.googleapis.com/auth/calendar": "Manage your calendars",
-        "https://www.googleapis.com/auth/calendar.readonly": "View your calendars"
-      },
-      "type": "oauth2"
-    },
-    "offline": {
-      "type": "oauth2",
-      "flow": "accessCode",
-      "scopes": {
-        "https://www.googleapis.com/auth/calendar": "Manage your calendars",
-        "https://www.googleapis.com/auth/calendar.readonly": "View your calendars"
-      },
-      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "tokenUrl": "https://www.googleapis.com/oauth2/v4/token",
-      "description": "Allows offline access using a refresh_token"
-    }
-  },
-  "parameters": {
-    "alt": {
-      "default": "json",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ],
-      "in": "query",
-      "name": "alt",
-      "type": "string"
-    },
-    "fields": {
-      "description": "Selector specifying which fields to include in a partial response.",
-      "in": "query",
-      "name": "fields",
-      "type": "string"
-    },
-    "key": {
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
-      "in": "query",
-      "name": "key",
-      "type": "string"
-    },
-    "oauth_token": {
-      "description": "OAuth 2.0 token for the current user.",
-      "in": "query",
-      "name": "oauth_token",
-      "type": "string"
-    },
-    "prettyPrint": {
-      "default": true,
-      "description": "Returns response with indentations and line breaks.",
-      "in": "query",
-      "name": "prettyPrint",
-      "type": "boolean"
-    },
-    "quotaUser": {
-      "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
-      "in": "query",
-      "name": "quotaUser",
-      "type": "string"
-    },
-    "userIp": {
-      "description": "Deprecated. Please use quotaUser instead.",
-      "in": "query",
-      "name": "userIp",
-      "type": "string"
-    }
-  },
-  "tags": [
-    {
-      "name": "acl"
-    },
-    {
-      "name": "calendarList"
-    },
-    {
-      "name": "calendars"
-    },
-    {
-      "name": "channels"
-    },
-    {
-      "name": "colors"
-    },
-    {
-      "name": "events"
-    },
-    {
-      "name": "freebusy"
-    },
-    {
-      "name": "settings"
-    }
+  "host": "www.googleapis.com",
+  "basePath": "/calendar/v3",
+  "schemes": [
+    "https"
   ],
   "paths": {
     "/calendars": {
       "parameters": [
         {
-          "$ref": "#/parameters/alt"
+          "description": "Data format for the response.",
+          "enum": [
+            "json"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/fields"
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/key"
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/oauth_token"
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/prettyPrint"
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
         },
         {
-          "$ref": "#/parameters/quotaUser"
+          "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/userIp"
+          "description": "Deprecated. Please use quotaUser instead.",
+          "in": "query",
+          "name": "userIp",
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Creates a secondary calendar.",
-        "operationId": "calendars.insert",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "in": "body",
@@ -191,18 +121,68 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/calendar"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/calendar"
             ]
           }
         ],
         "tags": [
           "calendars"
-        ]
+        ],
+        "description": "Creates a secondary calendar.",
+        "operationId": "calendar.calendars.insert"
       }
     },
     "/calendars/{calendarId}": {
+      "parameters": [
+        {
+          "description": "Data format for the response.",
+          "enum": [
+            "json"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
+        },
+        {
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
+        },
+        {
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
+        },
+        {
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
+        },
+        {
+          "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
+        },
+        {
+          "description": "Deprecated. Please use quotaUser instead.",
+          "in": "query",
+          "name": "userIp",
+          "type": "string"
+        }
+      ],
       "delete": {
-        "description": "Deletes a secondary calendar. Use calendars.clear for clearing all events on primary calendars.",
-        "operationId": "calendars.delete",
         "parameters": [
           {
             "description": "Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the \"primary\" keyword.",
@@ -221,16 +201,22 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/calendar"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/calendar"
             ]
           }
         ],
         "tags": [
           "calendars"
-        ]
+        ],
+        "description": "Deletes a secondary calendar. Use calendars.clear for clearing all events on primary calendars.",
+        "operationId": "calendar.calendars.delete"
       },
       "get": {
-        "description": "Returns metadata for a calendar.",
-        "operationId": "calendars.get",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the \"primary\" keyword.",
@@ -251,59 +237,48 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/calendar"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/calendar"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/calendar.readonly"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/calendar.readonly"
             ]
           }
         ],
         "tags": [
           "calendars"
-        ]
+        ],
+        "description": "Returns metadata for a calendar.",
+        "operationId": "calendar.calendars.get"
       },
-      "parameters": [
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/userIp"
-        }
-      ],
       "patch": {
-        "description": "Updates metadata for a calendar. This method supports patch semantics.",
-        "operationId": "calendars.patch",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Calendar"
-            }
-          },
           {
             "description": "Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the \"primary\" keyword.",
             "in": "path",
             "name": "calendarId",
             "required": true,
             "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Calendar"
+            }
           }
         ],
         "responses": {
@@ -318,30 +293,39 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/calendar"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/calendar"
             ]
           }
         ],
         "tags": [
           "calendars"
-        ]
+        ],
+        "description": "Updates metadata for a calendar. This method supports patch semantics.",
+        "operationId": "calendar.calendars.patch"
       },
       "put": {
-        "description": "Updates metadata for a calendar.",
-        "operationId": "calendars.update",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Calendar"
-            }
-          },
           {
             "description": "Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the \"primary\" keyword.",
             "in": "path",
             "name": "calendarId",
             "required": true,
             "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Calendar"
+            }
           }
         ],
         "responses": {
@@ -356,18 +340,71 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/calendar"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/calendar"
             ]
           }
         ],
         "tags": [
           "calendars"
-        ]
+        ],
+        "description": "Updates metadata for a calendar.",
+        "operationId": "calendar.calendars.update"
       }
     },
     "/calendars/{calendarId}/acl": {
+      "parameters": [
+        {
+          "description": "Data format for the response.",
+          "enum": [
+            "json"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
+        },
+        {
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
+        },
+        {
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
+        },
+        {
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
+        },
+        {
+          "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
+        },
+        {
+          "description": "Deprecated. Please use quotaUser instead.",
+          "in": "query",
+          "name": "userIp",
+          "type": "string"
+        }
+      ],
       "get": {
-        "description": "Returns the rules in the access control list for the calendar.",
-        "operationId": "acl.list",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the \"primary\" keyword.",
@@ -414,47 +451,26 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/calendar"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/calendar"
             ]
           }
         ],
         "tags": [
           "acl"
-        ]
+        ],
+        "description": "Returns the rules in the access control list for the calendar.",
+        "operationId": "calendar.acl.list"
       },
-      "parameters": [
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/userIp"
-        }
-      ],
       "post": {
-        "description": "Creates an access control rule.",
-        "operationId": "acl.insert",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/AclRule"
-            }
-          },
           {
             "description": "Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the \"primary\" keyword.",
             "in": "path",
@@ -467,6 +483,13 @@
             "in": "query",
             "name": "sendNotifications",
             "type": "boolean"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/AclRule"
+            }
           }
         ],
         "responses": {
@@ -481,41 +504,74 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/calendar"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/calendar"
             ]
           }
         ],
         "tags": [
           "acl"
-        ]
+        ],
+        "description": "Creates an access control rule.",
+        "operationId": "calendar.acl.insert"
       }
     },
     "/calendars/{calendarId}/acl/watch": {
       "parameters": [
         {
-          "$ref": "#/parameters/alt"
+          "description": "Data format for the response.",
+          "enum": [
+            "json"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/fields"
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/key"
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/oauth_token"
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/prettyPrint"
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
         },
         {
-          "$ref": "#/parameters/quotaUser"
+          "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/userIp"
+          "description": "Deprecated. Please use quotaUser instead.",
+          "in": "query",
+          "name": "userIp",
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Watch for changes to ACL resources.",
-        "operationId": "acl.watch",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the \"primary\" keyword.",
@@ -538,13 +594,6 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "resource",
-            "schema": {
-              "$ref": "#/definitions/Channel"
-            }
-          },
-          {
             "description": "Whether to include deleted ACLs in the result. Deleted ACLs are represented by role equal to \"none\". Deleted ACLs will always be included if syncToken is provided. Optional. The default is False.",
             "in": "query",
             "name": "showDeleted",
@@ -555,6 +604,13 @@
             "in": "query",
             "name": "syncToken",
             "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Channel"
+            }
           }
         ],
         "responses": {
@@ -569,18 +625,68 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/calendar"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/calendar"
             ]
           }
         ],
         "tags": [
           "acl"
-        ]
+        ],
+        "description": "Watch for changes to ACL resources.",
+        "operationId": "calendar.acl.watch"
       }
     },
     "/calendars/{calendarId}/acl/{ruleId}": {
+      "parameters": [
+        {
+          "description": "Data format for the response.",
+          "enum": [
+            "json"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
+        },
+        {
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
+        },
+        {
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
+        },
+        {
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
+        },
+        {
+          "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
+        },
+        {
+          "description": "Deprecated. Please use quotaUser instead.",
+          "in": "query",
+          "name": "userIp",
+          "type": "string"
+        }
+      ],
       "delete": {
-        "description": "Deletes an access control rule.",
-        "operationId": "acl.delete",
         "parameters": [
           {
             "description": "Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the \"primary\" keyword.",
@@ -606,16 +712,22 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/calendar"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/calendar"
             ]
           }
         ],
         "tags": [
           "acl"
-        ]
+        ],
+        "description": "Deletes an access control rule.",
+        "operationId": "calendar.acl.delete"
       },
       "get": {
-        "description": "Returns an access control rule.",
-        "operationId": "acl.get",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the \"primary\" keyword.",
@@ -643,53 +755,35 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/calendar"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/calendar"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/calendar.readonly"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/calendar.readonly"
             ]
           }
         ],
         "tags": [
           "acl"
-        ]
+        ],
+        "description": "Returns an access control rule.",
+        "operationId": "calendar.acl.get"
       },
-      "parameters": [
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/userIp"
-        }
-      ],
       "patch": {
-        "description": "Updates an access control rule. This method supports patch semantics.",
-        "operationId": "acl.patch",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/AclRule"
-            }
-          },
           {
             "description": "Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the \"primary\" keyword.",
             "in": "path",
@@ -709,6 +803,13 @@
             "in": "query",
             "name": "sendNotifications",
             "type": "boolean"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/AclRule"
+            }
           }
         ],
         "responses": {
@@ -723,24 +824,26 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/calendar"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/calendar"
             ]
           }
         ],
         "tags": [
           "acl"
-        ]
+        ],
+        "description": "Updates an access control rule. This method supports patch semantics.",
+        "operationId": "calendar.acl.patch"
       },
       "put": {
-        "description": "Updates an access control rule.",
-        "operationId": "acl.update",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/AclRule"
-            }
-          },
           {
             "description": "Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the \"primary\" keyword.",
             "in": "path",
@@ -760,6 +863,13 @@
             "in": "query",
             "name": "sendNotifications",
             "type": "boolean"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/AclRule"
+            }
           }
         ],
         "responses": {
@@ -774,41 +884,68 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/calendar"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/calendar"
             ]
           }
         ],
         "tags": [
           "acl"
-        ]
+        ],
+        "description": "Updates an access control rule.",
+        "operationId": "calendar.acl.update"
       }
     },
     "/calendars/{calendarId}/clear": {
       "parameters": [
         {
-          "$ref": "#/parameters/alt"
+          "description": "Data format for the response.",
+          "enum": [
+            "json"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/fields"
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/key"
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/oauth_token"
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/prettyPrint"
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
         },
         {
-          "$ref": "#/parameters/quotaUser"
+          "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/userIp"
+          "description": "Deprecated. Please use quotaUser instead.",
+          "in": "query",
+          "name": "userIp",
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Clears a primary calendar. This operation deletes all events associated with the primary calendar of an account.",
-        "operationId": "calendars.clear",
         "parameters": [
           {
             "description": "Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the \"primary\" keyword.",
@@ -827,31 +964,84 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/calendar"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/calendar"
             ]
           }
         ],
         "tags": [
           "calendars"
-        ]
+        ],
+        "description": "Clears a primary calendar. This operation deletes all events associated with the primary calendar of an account.",
+        "operationId": "calendar.calendars.clear"
       }
     },
     "/calendars/{calendarId}/events": {
+      "parameters": [
+        {
+          "description": "Data format for the response.",
+          "enum": [
+            "json"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
+        },
+        {
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
+        },
+        {
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
+        },
+        {
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
+        },
+        {
+          "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
+        },
+        {
+          "description": "Deprecated. Please use quotaUser instead.",
+          "in": "query",
+          "name": "userIp",
+          "type": "string"
+        }
+      ],
       "get": {
-        "description": "Returns events on the specified calendar.",
-        "operationId": "events.list",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
-          {
-            "description": "Whether to always include a value in the email field for the organizer, creator and attendees, even if no real email is available (i.e. a generated, non-working value will be provided). The use of this option is discouraged and should only be used by clients which cannot handle the absence of an email address value in the mentioned places. Optional. The default is False.",
-            "in": "query",
-            "name": "alwaysIncludeEmail",
-            "type": "boolean"
-          },
           {
             "description": "Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the \"primary\" keyword.",
             "in": "path",
             "name": "calendarId",
             "required": true,
             "type": "string"
+          },
+          {
+            "description": "Deprecated and ignored. A value will always be returned in the email field for the organizer, creator and attendees, even if no real email address is available (i.e. a generated, non-working value will be provided).",
+            "in": "query",
+            "name": "alwaysIncludeEmail",
+            "type": "boolean"
           },
           {
             "description": "Specifies event ID in the iCalendar format to be included in the response. Optional.",
@@ -867,7 +1057,6 @@
             "type": "integer"
           },
           {
-            "default": 250,
             "description": "Maximum number of events returned on one result page. The number of events in the resulting page may be less than this value, or none at all, even if there are more events matching the query. Incomplete pages can be detected by a non-empty nextPageToken field in the response. By default the value is 250 events. The page size can never be larger than 2500 events. Optional.",
             "in": "query",
             "minimum": 1,
@@ -941,13 +1130,13 @@
             "type": "string"
           },
           {
-            "description": "Upper bound (exclusive) for an event's start time to filter by. Optional. The default is not to filter by start time. Must be an RFC3339 timestamp with mandatory time zone offset, e.g., 2011-06-03T10:00:00-07:00, 2011-06-03T10:00:00Z. Milliseconds may be provided but will be ignored. If timeMin is set, timeMax must be greater than timeMin.",
+            "description": "Upper bound (exclusive) for an event's start time to filter by. Optional. The default is not to filter by start time. Must be an RFC3339 timestamp with mandatory time zone offset, for example, 2011-06-03T10:00:00-07:00, 2011-06-03T10:00:00Z. Milliseconds may be provided but are ignored. If timeMin is set, timeMax must be greater than timeMin.",
             "in": "query",
             "name": "timeMax",
             "type": "string"
           },
           {
-            "description": "Lower bound (inclusive) for an event's end time to filter by. Optional. The default is not to filter by end time. Must be an RFC3339 timestamp with mandatory time zone offset, e.g., 2011-06-03T10:00:00-07:00, 2011-06-03T10:00:00Z. Milliseconds may be provided but will be ignored. If timeMax is set, timeMin must be smaller than timeMax.",
+            "description": "Lower bound (exclusive) for an event's end time to filter by. Optional. The default is not to filter by end time. Must be an RFC3339 timestamp with mandatory time zone offset, for example, 2011-06-03T10:00:00-07:00, 2011-06-03T10:00:00Z. Milliseconds may be provided but are ignored. If timeMax is set, timeMin must be smaller than timeMax.",
             "in": "query",
             "name": "timeMin",
             "type": "string"
@@ -977,52 +1166,50 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/calendar"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/calendar"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/calendar.events"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/calendar.events"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/calendar.events.readonly"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/calendar.events.readonly"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/calendar.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/calendar.readonly"
             ]
           }
         ],
         "tags": [
           "events"
-        ]
+        ],
+        "description": "Returns events on the specified calendar.",
+        "operationId": "calendar.events.list"
       },
-      "parameters": [
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/userIp"
-        }
-      ],
       "post": {
-        "description": "Creates an event.",
-        "operationId": "events.insert",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Event"
-            }
-          },
           {
             "description": "Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the \"primary\" keyword.",
             "in": "path",
@@ -1046,16 +1233,34 @@
             "type": "integer"
           },
           {
-            "description": "Whether to send notifications about the creation of the new event. Optional. The default is False.",
+            "description": "Deprecated. Please use sendUpdates instead.\n\nWhether to send notifications about the creation of the new event. Note that some emails might still be sent even if you set the value to false. The default is false.",
             "in": "query",
             "name": "sendNotifications",
             "type": "boolean"
+          },
+          {
+            "description": "Whether to send notifications about the creation of the new event. Note that some emails might still be sent. The default is false.",
+            "enum": [
+              "all",
+              "externalOnly",
+              "none"
+            ],
+            "in": "query",
+            "name": "sendUpdates",
+            "type": "string"
           },
           {
             "description": "Whether API client performing operation supports event attachments. Optional. The default is False.",
             "in": "query",
             "name": "supportsAttachments",
             "type": "boolean"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Event"
+            }
           }
         ],
         "responses": {
@@ -1070,49 +1275,83 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/calendar"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/calendar"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/calendar.events"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/calendar.events"
             ]
           }
         ],
         "tags": [
           "events"
-        ]
+        ],
+        "description": "Creates an event.",
+        "operationId": "calendar.events.insert"
       }
     },
     "/calendars/{calendarId}/events/import": {
       "parameters": [
         {
-          "$ref": "#/parameters/alt"
+          "description": "Data format for the response.",
+          "enum": [
+            "json"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/fields"
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/key"
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/oauth_token"
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/prettyPrint"
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
         },
         {
-          "$ref": "#/parameters/quotaUser"
+          "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/userIp"
+          "description": "Deprecated. Please use quotaUser instead.",
+          "in": "query",
+          "name": "userIp",
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Imports an event. This operation is used to add a private copy of an existing event to a calendar.",
-        "operationId": "events.import",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Event"
-            }
-          },
           {
             "description": "Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the \"primary\" keyword.",
             "in": "path",
@@ -1133,6 +1372,13 @@
             "in": "query",
             "name": "supportsAttachments",
             "type": "boolean"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Event"
+            }
           }
         ],
         "responses": {
@@ -1147,41 +1393,79 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/calendar"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/calendar"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/calendar.events"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/calendar.events"
             ]
           }
         ],
         "tags": [
           "events"
-        ]
+        ],
+        "description": "Imports an event. This operation is used to add a private copy of an existing event to a calendar.",
+        "operationId": "calendar.events.import"
       }
     },
     "/calendars/{calendarId}/events/quickAdd": {
       "parameters": [
         {
-          "$ref": "#/parameters/alt"
+          "description": "Data format for the response.",
+          "enum": [
+            "json"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/fields"
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/key"
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/oauth_token"
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/prettyPrint"
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
         },
         {
-          "$ref": "#/parameters/quotaUser"
+          "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/userIp"
+          "description": "Deprecated. Please use quotaUser instead.",
+          "in": "query",
+          "name": "userIp",
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Creates an event based on a simple text string.",
-        "operationId": "events.quickAdd",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the \"primary\" keyword.",
@@ -1189,12 +1473,6 @@
             "name": "calendarId",
             "required": true,
             "type": "string"
-          },
-          {
-            "description": "Whether to send notifications about the creation of the event. Optional. The default is False.",
-            "in": "query",
-            "name": "sendNotifications",
-            "type": "boolean"
           },
           {
             "description": "The text describing the event to be created.",
@@ -1202,6 +1480,23 @@
             "name": "text",
             "required": true,
             "type": "string"
+          },
+          {
+            "description": "Deprecated. Please use sendUpdates instead.\n\nWhether to send notifications about the creation of the event. Note that some emails might still be sent even if you set the value to false. The default is false.",
+            "in": "query",
+            "name": "sendNotifications",
+            "type": "boolean"
+          },
+          {
+            "description": "Guests who should receive notifications about the creation of the new event.",
+            "enum": [
+              "all",
+              "externalOnly",
+              "none"
+            ],
+            "in": "query",
+            "name": "sendUpdates",
+            "type": "string"
           }
         ],
         "responses": {
@@ -1216,54 +1511,95 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/calendar"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/calendar"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/calendar.events"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/calendar.events"
             ]
           }
         ],
         "tags": [
           "events"
-        ]
+        ],
+        "description": "Creates an event based on a simple text string.",
+        "operationId": "calendar.events.quickAdd"
       }
     },
     "/calendars/{calendarId}/events/watch": {
       "parameters": [
         {
-          "$ref": "#/parameters/alt"
+          "description": "Data format for the response.",
+          "enum": [
+            "json"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/fields"
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/key"
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/oauth_token"
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/prettyPrint"
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
         },
         {
-          "$ref": "#/parameters/quotaUser"
+          "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/userIp"
+          "description": "Deprecated. Please use quotaUser instead.",
+          "in": "query",
+          "name": "userIp",
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Watch for changes to Events resources.",
-        "operationId": "events.watch",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
-          {
-            "description": "Whether to always include a value in the email field for the organizer, creator and attendees, even if no real email is available (i.e. a generated, non-working value will be provided). The use of this option is discouraged and should only be used by clients which cannot handle the absence of an email address value in the mentioned places. Optional. The default is False.",
-            "in": "query",
-            "name": "alwaysIncludeEmail",
-            "type": "boolean"
-          },
           {
             "description": "Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the \"primary\" keyword.",
             "in": "path",
             "name": "calendarId",
             "required": true,
             "type": "string"
+          },
+          {
+            "description": "Deprecated and ignored. A value will always be returned in the email field for the organizer, creator and attendees, even if no real email address is available (i.e. a generated, non-working value will be provided).",
+            "in": "query",
+            "name": "alwaysIncludeEmail",
+            "type": "boolean"
           },
           {
             "description": "Specifies event ID in the iCalendar format to be included in the response. Optional.",
@@ -1279,7 +1615,6 @@
             "type": "integer"
           },
           {
-            "default": 250,
             "description": "Maximum number of events returned on one result page. The number of events in the resulting page may be less than this value, or none at all, even if there are more events matching the query. Incomplete pages can be detected by a non-empty nextPageToken field in the response. By default the value is 250 events. The page size can never be larger than 2500 events. Optional.",
             "in": "query",
             "minimum": 1,
@@ -1319,13 +1654,6 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "resource",
-            "schema": {
-              "$ref": "#/definitions/Channel"
-            }
-          },
-          {
             "collectionFormat": "multi",
             "description": "Extended properties constraint specified as propertyName=value. Matches only shared properties. This parameter might be repeated multiple times to return events that match all given constraints.",
             "in": "query",
@@ -1360,13 +1688,13 @@
             "type": "string"
           },
           {
-            "description": "Upper bound (exclusive) for an event's start time to filter by. Optional. The default is not to filter by start time. Must be an RFC3339 timestamp with mandatory time zone offset, e.g., 2011-06-03T10:00:00-07:00, 2011-06-03T10:00:00Z. Milliseconds may be provided but will be ignored. If timeMin is set, timeMax must be greater than timeMin.",
+            "description": "Upper bound (exclusive) for an event's start time to filter by. Optional. The default is not to filter by start time. Must be an RFC3339 timestamp with mandatory time zone offset, for example, 2011-06-03T10:00:00-07:00, 2011-06-03T10:00:00Z. Milliseconds may be provided but are ignored. If timeMin is set, timeMax must be greater than timeMin.",
             "in": "query",
             "name": "timeMax",
             "type": "string"
           },
           {
-            "description": "Lower bound (inclusive) for an event's end time to filter by. Optional. The default is not to filter by end time. Must be an RFC3339 timestamp with mandatory time zone offset, e.g., 2011-06-03T10:00:00-07:00, 2011-06-03T10:00:00Z. Milliseconds may be provided but will be ignored. If timeMax is set, timeMin must be smaller than timeMax.",
+            "description": "Lower bound (exclusive) for an event's end time to filter by. Optional. The default is not to filter by end time. Must be an RFC3339 timestamp with mandatory time zone offset, for example, 2011-06-03T10:00:00-07:00, 2011-06-03T10:00:00Z. Milliseconds may be provided but are ignored. If timeMax is set, timeMin must be smaller than timeMax.",
             "in": "query",
             "name": "timeMin",
             "type": "string"
@@ -1382,6 +1710,13 @@
             "in": "query",
             "name": "updatedMin",
             "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Channel"
+            }
           }
         ],
         "responses": {
@@ -1396,23 +1731,92 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/calendar"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/calendar"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/calendar.events"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/calendar.events"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/calendar.events.readonly"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/calendar.events.readonly"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/calendar.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/calendar.readonly"
             ]
           }
         ],
         "tags": [
           "events"
-        ]
+        ],
+        "description": "Watch for changes to Events resources.",
+        "operationId": "calendar.events.watch"
       }
     },
     "/calendars/{calendarId}/events/{eventId}": {
+      "parameters": [
+        {
+          "description": "Data format for the response.",
+          "enum": [
+            "json"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
+        },
+        {
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
+        },
+        {
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
+        },
+        {
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
+        },
+        {
+          "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
+        },
+        {
+          "description": "Deprecated. Please use quotaUser instead.",
+          "in": "query",
+          "name": "userIp",
+          "type": "string"
+        }
+      ],
       "delete": {
-        "description": "Deletes an event.",
-        "operationId": "events.delete",
         "parameters": [
           {
             "description": "Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the \"primary\" keyword.",
@@ -1429,10 +1833,21 @@
             "type": "string"
           },
           {
-            "description": "Whether to send notifications about the deletion of the event. Optional. The default is False.",
+            "description": "Deprecated. Please use sendUpdates instead.\n\nWhether to send notifications about the deletion of the event. Note that some emails might still be sent even if you set the value to false. The default is false.",
             "in": "query",
             "name": "sendNotifications",
             "type": "boolean"
+          },
+          {
+            "description": "Guests who should receive notifications about the deletion of the event.",
+            "enum": [
+              "all",
+              "externalOnly",
+              "none"
+            ],
+            "in": "query",
+            "name": "sendUpdates",
+            "type": "string"
           }
         ],
         "responses": {
@@ -1444,23 +1859,31 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/calendar"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/calendar"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/calendar.events"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/calendar.events"
             ]
           }
         ],
         "tags": [
           "events"
-        ]
+        ],
+        "description": "Deletes an event.",
+        "operationId": "calendar.events.delete"
       },
       "get": {
-        "description": "Returns an event.",
-        "operationId": "events.get",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
-          {
-            "description": "Whether to always include a value in the email field for the organizer, creator and attendees, even if no real email is available (i.e. a generated, non-working value will be provided). The use of this option is discouraged and should only be used by clients which cannot handle the absence of an email address value in the mentioned places. Optional. The default is False.",
-            "in": "query",
-            "name": "alwaysIncludeEmail",
-            "type": "boolean"
-          },
           {
             "description": "Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the \"primary\" keyword.",
             "in": "path",
@@ -1474,6 +1897,12 @@
             "name": "eventId",
             "required": true,
             "type": "string"
+          },
+          {
+            "description": "Deprecated and ignored. A value will always be returned in the email field for the organizer, creator and attendees, even if no real email address is available (i.e. a generated, non-working value will be provided).",
+            "in": "query",
+            "name": "alwaysIncludeEmail",
+            "type": "boolean"
           },
           {
             "description": "The maximum number of attendees to include in the response. If there are more than the specified number of attendees, only the participant is returned. Optional.",
@@ -1501,64 +1930,69 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/calendar"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/calendar"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/calendar.events"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/calendar.events"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/calendar.events.readonly"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/calendar.events.readonly"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/calendar.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/calendar.readonly"
             ]
           }
         ],
         "tags": [
           "events"
-        ]
+        ],
+        "description": "Returns an event.",
+        "operationId": "calendar.events.get"
       },
-      "parameters": [
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/userIp"
-        }
-      ],
       "patch": {
-        "description": "Updates an event. This method supports patch semantics.",
-        "operationId": "events.patch",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
-          {
-            "description": "Whether to always include a value in the email field for the organizer, creator and attendees, even if no real email is available (i.e. a generated, non-working value will be provided). The use of this option is discouraged and should only be used by clients which cannot handle the absence of an email address value in the mentioned places. Optional. The default is False.",
-            "in": "query",
-            "name": "alwaysIncludeEmail",
-            "type": "boolean"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Event"
-            }
-          },
           {
             "description": "Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the \"primary\" keyword.",
             "in": "path",
             "name": "calendarId",
             "required": true,
             "type": "string"
+          },
+          {
+            "description": "Event identifier.",
+            "in": "path",
+            "name": "eventId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Deprecated and ignored. A value will always be returned in the email field for the organizer, creator and attendees, even if no real email address is available (i.e. a generated, non-working value will be provided).",
+            "in": "query",
+            "name": "alwaysIncludeEmail",
+            "type": "boolean"
           },
           {
             "description": "Version number of conference data supported by the API client. Version 0 assumes no conference data support and ignores conference data in the event's body. Version 1 enables support for copying of ConferenceData as well as for creating new conferences using the createRequest field of conferenceData. The default is 0.",
@@ -1569,13 +2003,6 @@
             "type": "integer"
           },
           {
-            "description": "Event identifier.",
-            "in": "path",
-            "name": "eventId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "The maximum number of attendees to include in the response. If there are more than the specified number of attendees, only the participant is returned. Optional.",
             "in": "query",
             "minimum": 1,
@@ -1583,16 +2010,34 @@
             "type": "integer"
           },
           {
-            "description": "Whether to send notifications about the event update (e.g. attendee's responses, title changes, etc.). Optional. The default is False.",
+            "description": "Deprecated. Please use sendUpdates instead.\n\nWhether to send notifications about the event update (for example, description changes, etc.). Note that some emails might still be sent even if you set the value to false. The default is false.",
             "in": "query",
             "name": "sendNotifications",
             "type": "boolean"
+          },
+          {
+            "description": "Guests who should receive notifications about the event update (for example, title changes, etc.).",
+            "enum": [
+              "all",
+              "externalOnly",
+              "none"
+            ],
+            "in": "query",
+            "name": "sendUpdates",
+            "type": "string"
           },
           {
             "description": "Whether API client performing operation supports event attachments. Optional. The default is False.",
             "in": "query",
             "name": "supportsAttachments",
             "type": "boolean"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Event"
+            }
           }
         ],
         "responses": {
@@ -1607,36 +2052,53 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/calendar"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/calendar"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/calendar.events"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/calendar.events"
             ]
           }
         ],
         "tags": [
           "events"
-        ]
+        ],
+        "description": "Updates an event. This method supports patch semantics.",
+        "operationId": "calendar.events.patch"
       },
       "put": {
-        "description": "Updates an event.",
-        "operationId": "events.update",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
-          {
-            "description": "Whether to always include a value in the email field for the organizer, creator and attendees, even if no real email is available (i.e. a generated, non-working value will be provided). The use of this option is discouraged and should only be used by clients which cannot handle the absence of an email address value in the mentioned places. Optional. The default is False.",
-            "in": "query",
-            "name": "alwaysIncludeEmail",
-            "type": "boolean"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Event"
-            }
-          },
           {
             "description": "Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the \"primary\" keyword.",
             "in": "path",
             "name": "calendarId",
             "required": true,
             "type": "string"
+          },
+          {
+            "description": "Event identifier.",
+            "in": "path",
+            "name": "eventId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Deprecated and ignored. A value will always be returned in the email field for the organizer, creator and attendees, even if no real email address is available (i.e. a generated, non-working value will be provided).",
+            "in": "query",
+            "name": "alwaysIncludeEmail",
+            "type": "boolean"
           },
           {
             "description": "Version number of conference data supported by the API client. Version 0 assumes no conference data support and ignores conference data in the event's body. Version 1 enables support for copying of ConferenceData as well as for creating new conferences using the createRequest field of conferenceData. The default is 0.",
@@ -1647,13 +2109,6 @@
             "type": "integer"
           },
           {
-            "description": "Event identifier.",
-            "in": "path",
-            "name": "eventId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "The maximum number of attendees to include in the response. If there are more than the specified number of attendees, only the participant is returned. Optional.",
             "in": "query",
             "minimum": 1,
@@ -1661,16 +2116,34 @@
             "type": "integer"
           },
           {
-            "description": "Whether to send notifications about the event update (e.g. attendee's responses, title changes, etc.). Optional. The default is False.",
+            "description": "Deprecated. Please use sendUpdates instead.\n\nWhether to send notifications about the event update (for example, description changes, etc.). Note that some emails might still be sent even if you set the value to false. The default is false.",
             "in": "query",
             "name": "sendNotifications",
             "type": "boolean"
+          },
+          {
+            "description": "Guests who should receive notifications about the event update (for example, title changes, etc.).",
+            "enum": [
+              "all",
+              "externalOnly",
+              "none"
+            ],
+            "in": "query",
+            "name": "sendUpdates",
+            "type": "string"
           },
           {
             "description": "Whether API client performing operation supports event attachments. Optional. The default is False.",
             "in": "query",
             "name": "supportsAttachments",
             "type": "boolean"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Event"
+            }
           }
         ],
         "responses": {
@@ -1685,25 +2158,80 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/calendar"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/calendar"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/calendar.events"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/calendar.events"
             ]
           }
         ],
         "tags": [
           "events"
-        ]
+        ],
+        "description": "Updates an event.",
+        "operationId": "calendar.events.update"
       }
     },
     "/calendars/{calendarId}/events/{eventId}/instances": {
+      "parameters": [
+        {
+          "description": "Data format for the response.",
+          "enum": [
+            "json"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
+        },
+        {
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
+        },
+        {
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
+        },
+        {
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
+        },
+        {
+          "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
+        },
+        {
+          "description": "Deprecated. Please use quotaUser instead.",
+          "in": "query",
+          "name": "userIp",
+          "type": "string"
+        }
+      ],
       "get": {
-        "description": "Returns instances of the specified recurring event.",
-        "operationId": "events.instances",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
-          {
-            "description": "Whether to always include a value in the email field for the organizer, creator and attendees, even if no real email is available (i.e. a generated, non-working value will be provided). The use of this option is discouraged and should only be used by clients which cannot handle the absence of an email address value in the mentioned places. Optional. The default is False.",
-            "in": "query",
-            "name": "alwaysIncludeEmail",
-            "type": "boolean"
-          },
           {
             "description": "Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the \"primary\" keyword.",
             "in": "path",
@@ -1717,6 +2245,12 @@
             "name": "eventId",
             "required": true,
             "type": "string"
+          },
+          {
+            "description": "Deprecated and ignored. A value will always be returned in the email field for the organizer, creator and attendees, even if no real email address is available (i.e. a generated, non-working value will be provided).",
+            "in": "query",
+            "name": "alwaysIncludeEmail",
+            "type": "boolean"
           },
           {
             "description": "The maximum number of attendees to include in the response. If there are more than the specified number of attendees, only the participant is returned. Optional.",
@@ -1781,81 +2315,100 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/calendar"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/calendar"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/calendar.events"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/calendar.events"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/calendar.events.readonly"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/calendar.events.readonly"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/calendar.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/calendar.readonly"
             ]
           }
         ],
         "tags": [
           "events"
-        ]
-      },
-      "parameters": [
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/userIp"
-        }
-      ]
+        ],
+        "description": "Returns instances of the specified recurring event.",
+        "operationId": "calendar.events.instances"
+      }
     },
     "/calendars/{calendarId}/events/{eventId}/move": {
       "parameters": [
         {
-          "$ref": "#/parameters/alt"
+          "description": "Data format for the response.",
+          "enum": [
+            "json"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/fields"
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/key"
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/oauth_token"
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/prettyPrint"
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
         },
         {
-          "$ref": "#/parameters/quotaUser"
+          "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/userIp"
+          "description": "Deprecated. Please use quotaUser instead.",
+          "in": "query",
+          "name": "userIp",
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Moves an event to another calendar, i.e. changes an event's organizer.",
-        "operationId": "events.move",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Calendar identifier of the source calendar where the event currently is on.",
             "in": "path",
             "name": "calendarId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "Calendar identifier of the target calendar where the event is to be moved to.",
-            "in": "query",
-            "name": "destination",
             "required": true,
             "type": "string"
           },
@@ -1867,10 +2420,28 @@
             "type": "string"
           },
           {
-            "description": "Whether to send notifications about the change of the event's organizer. Optional. The default is False.",
+            "description": "Calendar identifier of the target calendar where the event is to be moved to.",
+            "in": "query",
+            "name": "destination",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Deprecated. Please use sendUpdates instead.\n\nWhether to send notifications about the change of the event's organizer. Note that some emails might still be sent even if you set the value to false. The default is false.",
             "in": "query",
             "name": "sendNotifications",
             "type": "boolean"
+          },
+          {
+            "description": "Guests who should receive notifications about the change of the event's organizer.",
+            "enum": [
+              "all",
+              "externalOnly",
+              "none"
+            ],
+            "in": "query",
+            "name": "sendUpdates",
+            "type": "string"
           }
         ],
         "responses": {
@@ -1885,45 +2456,83 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/calendar"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/calendar"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/calendar.events"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/calendar.events"
             ]
           }
         ],
         "tags": [
           "events"
-        ]
+        ],
+        "description": "Moves an event to another calendar, i.e. changes an event's organizer.",
+        "operationId": "calendar.events.move"
       }
     },
     "/channels/stop": {
       "parameters": [
         {
-          "$ref": "#/parameters/alt"
+          "description": "Data format for the response.",
+          "enum": [
+            "json"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/fields"
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/key"
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/oauth_token"
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/prettyPrint"
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
         },
         {
-          "$ref": "#/parameters/quotaUser"
+          "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/userIp"
+          "description": "Deprecated. Please use quotaUser instead.",
+          "in": "query",
+          "name": "userIp",
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Stop watching resources through this channel",
-        "operationId": "channels.stop",
+        "consumes": [
+          "application/json"
+        ],
         "parameters": [
           {
             "in": "body",
-            "name": "resource",
+            "name": "body",
             "schema": {
               "$ref": "#/definitions/Channel"
             }
@@ -1938,23 +2547,104 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/calendar"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/calendar"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/calendar.events"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/calendar.events"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/calendar.events.readonly"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/calendar.events.readonly"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/calendar.readonly"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/calendar.readonly"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/calendar.settings.readonly"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/calendar.settings.readonly"
             ]
           }
         ],
         "tags": [
           "channels"
-        ]
+        ],
+        "description": "Stop watching resources through this channel",
+        "operationId": "calendar.channels.stop"
       }
     },
     "/colors": {
+      "parameters": [
+        {
+          "description": "Data format for the response.",
+          "enum": [
+            "json"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
+        },
+        {
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
+        },
+        {
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
+        },
+        {
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
+        },
+        {
+          "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
+        },
+        {
+          "description": "Deprecated. Please use quotaUser instead.",
+          "in": "query",
+          "name": "userIp",
+          "type": "string"
+        }
+      ],
       "get": {
-        "description": "Returns the color definitions for calendars and events.",
-        "operationId": "colors.get",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -1967,69 +2657,82 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/calendar"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/calendar"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/calendar.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/calendar.readonly"
             ]
           }
         ],
         "tags": [
           "colors"
-        ]
-      },
-      "parameters": [
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/userIp"
-        }
-      ]
+        ],
+        "description": "Returns the color definitions for calendars and events.",
+        "operationId": "calendar.colors.get"
+      }
     },
     "/freeBusy": {
       "parameters": [
         {
-          "$ref": "#/parameters/alt"
+          "description": "Data format for the response.",
+          "enum": [
+            "json"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/fields"
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/key"
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/oauth_token"
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/prettyPrint"
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
         },
         {
-          "$ref": "#/parameters/quotaUser"
+          "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/userIp"
+          "description": "Deprecated. Please use quotaUser instead.",
+          "in": "query",
+          "name": "userIp",
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Returns free/busy information for a set of calendars.",
-        "operationId": "freebusy.query",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "in": "body",
@@ -2051,23 +2754,79 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/calendar"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/calendar"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/calendar.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/calendar.readonly"
             ]
           }
         ],
         "tags": [
           "freebusy"
-        ]
+        ],
+        "description": "Returns free/busy information for a set of calendars.",
+        "operationId": "calendar.freebusy.query"
       }
     },
     "/users/me/calendarList": {
+      "parameters": [
+        {
+          "description": "Data format for the response.",
+          "enum": [
+            "json"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
+        },
+        {
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
+        },
+        {
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
+        },
+        {
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
+        },
+        {
+          "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
+        },
+        {
+          "description": "Deprecated. Please use quotaUser instead.",
+          "in": "query",
+          "name": "userIp",
+          "type": "string"
+        }
+      ],
       "get": {
-        "description": "Returns entries on the user's calendar list.",
-        "operationId": "calendarList.list",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Maximum number of entries returned on one result page. By default the value is 100 entries. The page size can never be larger than 250 entries. Optional.",
@@ -2125,57 +2884,46 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/calendar"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/calendar"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/calendar.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/calendar.readonly"
             ]
           }
         ],
         "tags": [
           "calendarList"
-        ]
+        ],
+        "description": "Returns the calendars on the user's calendar list.",
+        "operationId": "calendar.calendarList.list"
       },
-      "parameters": [
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/userIp"
-        }
-      ],
       "post": {
-        "description": "Adds an entry to the user's calendar list.",
-        "operationId": "calendarList.insert",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "description": "Whether to use the foregroundColor and backgroundColor fields to write the calendar colors (RGB). If this feature is used, the index-based colorId field will be set to the best matching option automatically. Optional. The default is False.",
+            "in": "query",
+            "name": "colorRgbFormat",
+            "type": "boolean"
+          },
           {
             "in": "body",
             "name": "body",
             "schema": {
               "$ref": "#/definitions/CalendarListEntry"
             }
-          },
-          {
-            "description": "Whether to use the foregroundColor and backgroundColor fields to write the calendar colors (RGB). If this feature is used, the index-based colorId field will be set to the best matching option automatically. Optional. The default is False.",
-            "in": "query",
-            "name": "colorRgbFormat",
-            "type": "boolean"
           }
         ],
         "responses": {
@@ -2190,41 +2938,74 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/calendar"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/calendar"
             ]
           }
         ],
         "tags": [
           "calendarList"
-        ]
+        ],
+        "description": "Inserts an existing calendar into the user's calendar list.",
+        "operationId": "calendar.calendarList.insert"
       }
     },
     "/users/me/calendarList/watch": {
       "parameters": [
         {
-          "$ref": "#/parameters/alt"
+          "description": "Data format for the response.",
+          "enum": [
+            "json"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/fields"
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/key"
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/oauth_token"
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/prettyPrint"
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
         },
         {
-          "$ref": "#/parameters/quotaUser"
+          "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/userIp"
+          "description": "Deprecated. Please use quotaUser instead.",
+          "in": "query",
+          "name": "userIp",
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Watch for changes to CalendarList resources.",
-        "operationId": "calendarList.watch",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Maximum number of entries returned on one result page. By default the value is 100 entries. The page size can never be larger than 250 entries. Optional.",
@@ -2252,13 +3033,6 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "resource",
-            "schema": {
-              "$ref": "#/definitions/Channel"
-            }
-          },
-          {
             "description": "Whether to include deleted calendar list entries in the result. Optional. The default is False.",
             "in": "query",
             "name": "showDeleted",
@@ -2275,6 +3049,13 @@
             "in": "query",
             "name": "syncToken",
             "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Channel"
+            }
           }
         ],
         "responses": {
@@ -2289,23 +3070,76 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/calendar"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/calendar"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/calendar.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/calendar.readonly"
             ]
           }
         ],
         "tags": [
           "calendarList"
-        ]
+        ],
+        "description": "Watch for changes to CalendarList resources.",
+        "operationId": "calendar.calendarList.watch"
       }
     },
     "/users/me/calendarList/{calendarId}": {
+      "parameters": [
+        {
+          "description": "Data format for the response.",
+          "enum": [
+            "json"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
+        },
+        {
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
+        },
+        {
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
+        },
+        {
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
+        },
+        {
+          "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
+        },
+        {
+          "description": "Deprecated. Please use quotaUser instead.",
+          "in": "query",
+          "name": "userIp",
+          "type": "string"
+        }
+      ],
       "delete": {
-        "description": "Deletes an entry on the user's calendar list.",
-        "operationId": "calendarList.delete",
         "parameters": [
           {
             "description": "Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the \"primary\" keyword.",
@@ -2324,16 +3158,22 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/calendar"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/calendar"
             ]
           }
         ],
         "tags": [
           "calendarList"
-        ]
+        ],
+        "description": "Removes a calendar from the user's calendar list.",
+        "operationId": "calendar.calendarList.delete"
       },
       "get": {
-        "description": "Returns an entry on the user's calendar list.",
-        "operationId": "calendarList.get",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the \"primary\" keyword.",
@@ -2354,53 +3194,35 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/calendar"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/calendar"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/calendar.readonly"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/calendar.readonly"
             ]
           }
         ],
         "tags": [
           "calendarList"
-        ]
+        ],
+        "description": "Returns a calendar from the user's calendar list.",
+        "operationId": "calendar.calendarList.get"
       },
-      "parameters": [
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/userIp"
-        }
-      ],
       "patch": {
-        "description": "Updates an entry on the user's calendar list. This method supports patch semantics.",
-        "operationId": "calendarList.patch",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/CalendarListEntry"
-            }
-          },
           {
             "description": "Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the \"primary\" keyword.",
             "in": "path",
@@ -2413,6 +3235,13 @@
             "in": "query",
             "name": "colorRgbFormat",
             "type": "boolean"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/CalendarListEntry"
+            }
           }
         ],
         "responses": {
@@ -2427,24 +3256,26 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/calendar"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/calendar"
             ]
           }
         ],
         "tags": [
           "calendarList"
-        ]
+        ],
+        "description": "Updates an existing calendar on the user's calendar list. This method supports patch semantics.",
+        "operationId": "calendar.calendarList.patch"
       },
       "put": {
-        "description": "Updates an entry on the user's calendar list.",
-        "operationId": "calendarList.update",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/CalendarListEntry"
-            }
-          },
           {
             "description": "Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the \"primary\" keyword.",
             "in": "path",
@@ -2457,6 +3288,13 @@
             "in": "query",
             "name": "colorRgbFormat",
             "type": "boolean"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/CalendarListEntry"
+            }
           }
         ],
         "responses": {
@@ -2471,18 +3309,71 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/calendar"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/calendar"
             ]
           }
         ],
         "tags": [
           "calendarList"
-        ]
+        ],
+        "description": "Updates an existing calendar on the user's calendar list.",
+        "operationId": "calendar.calendarList.update"
       }
     },
     "/users/me/settings": {
+      "parameters": [
+        {
+          "description": "Data format for the response.",
+          "enum": [
+            "json"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
+        },
+        {
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
+        },
+        {
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
+        },
+        {
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
+        },
+        {
+          "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
+        },
+        {
+          "description": "Deprecated. Please use quotaUser instead.",
+          "in": "query",
+          "name": "userIp",
+          "type": "string"
+        }
+      ],
       "get": {
-        "description": "Returns all user settings for the authenticated user.",
-        "operationId": "settings.list",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Maximum number of entries returned on one result page. By default the value is 100 entries. The page size can never be larger than 250 entries. Optional.",
@@ -2516,69 +3407,90 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/calendar"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/calendar"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/calendar.readonly"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/calendar.readonly"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/calendar.settings.readonly"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/calendar.settings.readonly"
             ]
           }
         ],
         "tags": [
           "settings"
-        ]
-      },
-      "parameters": [
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/userIp"
-        }
-      ]
+        ],
+        "description": "Returns all user settings for the authenticated user.",
+        "operationId": "calendar.settings.list"
+      }
     },
     "/users/me/settings/watch": {
       "parameters": [
         {
-          "$ref": "#/parameters/alt"
+          "description": "Data format for the response.",
+          "enum": [
+            "json"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/fields"
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/key"
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/oauth_token"
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/prettyPrint"
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
         },
         {
-          "$ref": "#/parameters/quotaUser"
+          "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/userIp"
+          "description": "Deprecated. Please use quotaUser instead.",
+          "in": "query",
+          "name": "userIp",
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Watch for changes to Settings resources.",
-        "operationId": "settings.watch",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Maximum number of entries returned on one result page. By default the value is 100 entries. The page size can never be larger than 250 entries. Optional.",
@@ -2594,17 +3506,17 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "resource",
-            "schema": {
-              "$ref": "#/definitions/Channel"
-            }
-          },
-          {
             "description": "Token obtained from the nextSyncToken field returned on the last page of results from the previous list request. It makes the result of this list request contain only entries that have changed since then.\nIf the syncToken expires, the server will respond with a 410 GONE response code and the client should clear its storage and perform a full synchronization without any syncToken.\nLearn more about incremental synchronization.\nOptional. The default is to return all entries.",
             "in": "query",
             "name": "syncToken",
             "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Channel"
+            }
           }
         ],
         "responses": {
@@ -2619,23 +3531,87 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/calendar"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/calendar"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/calendar.readonly"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/calendar.readonly"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/calendar.settings.readonly"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/calendar.settings.readonly"
             ]
           }
         ],
         "tags": [
           "settings"
-        ]
+        ],
+        "description": "Watch for changes to Settings resources.",
+        "operationId": "calendar.settings.watch"
       }
     },
     "/users/me/settings/{setting}": {
+      "parameters": [
+        {
+          "description": "Data format for the response.",
+          "enum": [
+            "json"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
+        },
+        {
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
+        },
+        {
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
+        },
+        {
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
+        },
+        {
+          "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
+        },
+        {
+          "description": "Deprecated. Please use quotaUser instead.",
+          "in": "query",
+          "name": "userIp",
+          "type": "string"
+        }
+      ],
       "get": {
-        "description": "Returns a single user setting.",
-        "operationId": "settings.get",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "The id of the user setting.",
@@ -2657,41 +3633,34 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/calendar"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/calendar"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/calendar.readonly"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/calendar.readonly"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/calendar.settings.readonly"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/calendar.settings.readonly"
             ]
           }
         ],
         "tags": [
           "settings"
-        ]
-      },
-      "parameters": [
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/userIp"
-        }
-      ]
+        ],
+        "description": "Returns a single user setting.",
+        "operationId": "calendar.settings.get"
+      }
     }
   },
   "definitions": {
@@ -2871,7 +3840,7 @@
         },
         "hidden": {
           "default": false,
-          "description": "Whether the calendar has been hidden from the list. Optional. The default is False.",
+          "description": "Whether the calendar has been hidden from the list. Optional. The attribute is only returned when the calendar is hidden, in which case the value is true.",
           "type": "boolean"
         },
         "id": {
@@ -2928,11 +3897,11 @@
     "CalendarNotification": {
       "properties": {
         "method": {
-          "description": "The method used to deliver the notification. Possible values are:  \n- \"email\" - Reminders are sent via email. \n- \"sms\" - Reminders are sent via SMS. This value is read-only and is ignored on inserts and updates. SMS reminders are only available for G Suite customers.",
+          "description": "The method used to deliver the notification. The possible value is:  \n- \"email\" - Notifications are sent via email.  \nRequired when adding a notification.",
           "type": "string"
         },
         "type": {
-          "description": "The type of notification. Possible values are:  \n- \"eventCreation\" - Notification sent when a new event is put on the calendar. \n- \"eventChange\" - Notification sent when an event is changed. \n- \"eventCancellation\" - Notification sent when an event is cancelled. \n- \"eventResponse\" - Notification sent when an event is changed. \n- \"agenda\" - An agenda with the events of the day (sent out in the morning).",
+          "description": "The type of notification. Possible values are:  \n- \"eventCreation\" - Notification sent when a new event is put on the calendar. \n- \"eventChange\" - Notification sent when an event is changed. \n- \"eventCancellation\" - Notification sent when an event is cancelled. \n- \"eventResponse\" - Notification sent when an attendee responds to the event invitation. \n- \"agenda\" - An agenda with the events of the day (sent out in the morning).  \nRequired when adding a notification.",
           "type": "string"
         }
       },
@@ -2955,7 +3924,7 @@
         },
         "kind": {
           "default": "api#channel",
-          "description": "Identifies this as a notification channel used to watch for changes to a resource. Value: the fixed string \"api#channel\".",
+          "description": "Identifies this as a notification channel used to watch for changes to a resource, which is \"api#channel\".",
           "type": "string"
         },
         "params": {
@@ -3035,13 +4004,17 @@
     },
     "ConferenceData": {
       "properties": {
+        "parameters": {
+          "$ref": "#/definitions/ConferenceParameters",
+          "description": "Additional properties related to a conference. An example would be a solution-specific setting for enabling video streaming."
+        },
         "conferenceId": {
-          "description": "The ID of the conference.\nCan be used by developers to keep track of conferences, should not be displayed to users.\nValues for solution types:  \n- \"eventHangout\": unset.\n- \"eventNamedHangout\": the name of the Hangout.\n- \"hangoutsMeet\": the 10-letter meeting code, for example \"aaa-bbbb-ccc\".  Optional.",
+          "description": "The ID of the conference.\nCan be used by developers to keep track of conferences, should not be displayed to users.\nValues for solution types:  \n- \"eventHangout\": unset.\n- \"eventNamedHangout\": the name of the Hangout.\n- \"hangoutsMeet\": the 10-letter meeting code, for example \"aaa-bbbb-ccc\".\n- \"addOn\": defined by 3P conference provider.  Optional.",
           "type": "string"
         },
         "conferenceSolution": {
           "$ref": "#/definitions/ConferenceSolution",
-          "description": "The conference solution, such as Hangouts or Hangouts Meet.\nUnset for a conference with a failed create request.\nEither conferenceSolution and at least one entryPoint, or createRequest is required."
+          "description": "The conference solution, such as Hangouts or Google Meet.\nUnset for a conference with a failed create request.\nEither conferenceSolution and at least one entryPoint, or createRequest is required."
         },
         "createRequest": {
           "$ref": "#/definitions/CreateConferenceRequest",
@@ -3058,12 +4031,8 @@
           "description": "Additional notes (such as instructions from the domain administrator, legal notices) to display to the user. Can contain HTML. The maximum length is 2048 characters. Optional.",
           "type": "string"
         },
-        "parameters": {
-          "$ref": "#/definitions/ConferenceParameters",
-          "description": "Additional properties related to a conference. An example would be a solution-specific setting for enabling video streaming."
-        },
         "signature": {
-          "description": "The signature of the conference data.\nGenereated on server side. Must be preserved while copying the conference data between events, otherwise the conference data will not be copied.\nUnset for a conference with a failed create request.\nOptional for a conference with a pending create request.",
+          "description": "The signature of the conference data.\nGenerated on server side. Must be preserved while copying the conference data between events, otherwise the conference data will not be copied.\nUnset for a conference with a failed create request.\nOptional for a conference with a pending create request.",
           "type": "string"
         }
       },
@@ -3130,7 +4099,7 @@
     "ConferenceSolutionKey": {
       "properties": {
         "type": {
-          "description": "The conference solution type.\nIf a client encounters an unfamiliar or empty type, it should still be able to display the entry points. However, it should disallow modifications.\nThe possible values are:  \n- \"eventHangout\" for Hangouts for consumers (http://hangouts.google.com)\n- \"eventNamedHangout\" for classic Hangouts for G Suite users (http://hangouts.google.com)\n- \"hangoutsMeet\" for Hangouts Meet (http://meet.google.com)",
+          "description": "The conference solution type.\nIf a client encounters an unfamiliar or empty type, it should still be able to display the entry points. However, it should disallow modifications.\nThe possible values are:  \n- \"eventHangout\" for Hangouts for consumers (http://hangouts.google.com)\n- \"eventNamedHangout\" for classic Hangouts for Google Workspace users (http://hangouts.google.com)\n- \"hangoutsMeet\" for Google Meet (http://meet.google.com)\n- \"addOn\" for 3P conference providers",
           "type": "string"
         }
       },
@@ -3140,7 +4109,7 @@
       "properties": {
         "conferenceSolutionKey": {
           "$ref": "#/definitions/ConferenceSolutionKey",
-          "description": "The conference solution, such as Hangouts or Hangouts Meet."
+          "description": "The conference solution, such as Hangouts or Google Meet."
         },
         "requestId": {
           "description": "The client-generated unique ID for this request.\nClients should regenerate this ID for every new request. If an ID provided is the same as for the previous request, the request is ignored.",
@@ -3158,6 +4127,13 @@
         "accessCode": {
           "description": "The access code to access the conference. The maximum length is 128 characters.\nWhen creating new conference data, populate only the subset of {meetingCode, accessCode, passcode, password, pin} fields that match the terminology that the conference provider uses. Only the populated fields should be displayed.\nOptional.",
           "type": "string"
+        },
+        "entryPointFeatures": {
+          "description": "Features of the entry point, such as being toll or toll-free. One entry point can have multiple features. However, toll and toll-free cannot be both set on the same entry point.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
         },
         "entryPointType": {
           "description": "The type of the conference entry point.\nPossible values are:  \n- \"video\" - joining a conference over HTTP. A conference can have zero or one video entry point.\n- \"phone\" - joining a conference by dialing a phone number. A conference can have zero or more phone entry points.\n- \"sip\" - joining a conference over SIP. A conference can have zero or one sip entry point.\n- \"more\" - further conference joining instructions, for example additional phone numbers. A conference can have zero or one more entry point. A conference with only a more entry point is not a valid conference.",
@@ -3181,6 +4157,10 @@
         },
         "pin": {
           "description": "The PIN to access the conference. The maximum length is 128 characters.\nWhen creating new conference data, populate only the subset of {meetingCode, accessCode, passcode, password, pin} fields that match the terminology that the conference provider uses. Only the populated fields should be displayed.\nOptional.",
+          "type": "string"
+        },
+        "regionCode": {
+          "description": "The CLDR/ISO 3166 region code for the country associated with this phone access. Example: \"SE\" for Sweden.\nCalendar backend will populate this field only for EntryPointType.PHONE.",
           "type": "string"
         },
         "uri": {
@@ -3218,7 +4198,7 @@
           "type": "array"
         },
         "attendees": {
-          "description": "The attendees of the event. See the Events with attendees guide for more information on scheduling events with other calendar users.",
+          "description": "The attendees of the event. See the Events with attendees guide for more information on scheduling events with other calendar users. Service accounts need to use domain-wide delegation of authority to populate the attendee list.",
           "items": {
             "$ref": "#/definitions/EventAttendee"
           },
@@ -3235,7 +4215,7 @@
         },
         "conferenceData": {
           "$ref": "#/definitions/ConferenceData",
-          "description": "The conference-related information, such as details of a Hangouts Meet conference. To create new conference details use the createRequest field. To persist your changes, remember to set the conferenceDataVersion request parameter to 1 for all event modification requests."
+          "description": "The conference-related information, such as details of a Google Meet conference. To create new conference details use the createRequest field. To persist your changes, remember to set the conferenceDataVersion request parameter to 1 for all event modification requests."
         },
         "created": {
           "description": "Creation time of the event (as a RFC3339 timestamp). Read-only.",
@@ -3254,7 +4234,7 @@
               "type": "string"
             },
             "id": {
-              "description": "The creator's Profile ID, if available. It corresponds to theid field in the People collection of the Google+ API",
+              "description": "The creator's Profile ID, if available. It corresponds to the id field in the People collection of the Google+ API",
               "type": "string"
             },
             "self": {
@@ -3266,7 +4246,7 @@
           "type": "object"
         },
         "description": {
-          "description": "Description of the event. Optional.",
+          "description": "Description of the event. Can contain HTML. Optional.",
           "type": "string"
         },
         "end": {
@@ -3305,23 +4285,23 @@
           "type": "object"
         },
         "gadget": {
-          "description": "A gadget that extends this event.",
+          "description": "A gadget that extends this event. Gadgets are deprecated; this structure is instead only used for returning birthday calendar metadata.",
           "properties": {
             "display": {
-              "description": "The gadget's display mode. Optional. Possible values are:  \n- \"icon\" - The gadget displays next to the event's title in the calendar view. \n- \"chip\" - The gadget displays when the event is clicked.",
+              "description": "The gadget's display mode. Deprecated. Possible values are:  \n- \"icon\" - The gadget displays next to the event's title in the calendar view. \n- \"chip\" - The gadget displays when the event is clicked.",
               "type": "string"
             },
             "height": {
-              "description": "The gadget's height in pixels. The height must be an integer greater than 0. Optional.",
+              "description": "The gadget's height in pixels. The height must be an integer greater than 0. Optional. Deprecated.",
               "format": "int32",
               "type": "integer"
             },
             "iconLink": {
-              "description": "The gadget's icon URL. The URL scheme must be HTTPS.",
+              "description": "The gadget's icon URL. The URL scheme must be HTTPS. Deprecated.",
               "type": "string"
             },
             "link": {
-              "description": "The gadget's URL. The URL scheme must be HTTPS.",
+              "description": "The gadget's URL. The URL scheme must be HTTPS. Deprecated.",
               "type": "string"
             },
             "preferences": {
@@ -3333,15 +4313,15 @@
               "type": "object"
             },
             "title": {
-              "description": "The gadget's title.",
+              "description": "The gadget's title. Deprecated.",
               "type": "string"
             },
             "type": {
-              "description": "The gadget's type.",
+              "description": "The gadget's type. Deprecated.",
               "type": "string"
             },
             "width": {
-              "description": "The gadget's width in pixels. The width must be an integer greater than 0. Optional.",
+              "description": "The gadget's width in pixels. The width must be an integer greater than 0. Optional. Deprecated.",
               "format": "int32",
               "type": "integer"
             }
@@ -3405,7 +4385,7 @@
               "type": "string"
             },
             "id": {
-              "description": "The organizer's Profile ID, if available. It corresponds to theid field in the People collection of the Google+ API",
+              "description": "The organizer's Profile ID, if available. It corresponds to the id field in the People collection of the Google+ API",
               "type": "string"
             },
             "self": {
@@ -3418,11 +4398,11 @@
         },
         "originalStartTime": {
           "$ref": "#/definitions/EventDateTime",
-          "description": "For an instance of a recurring event, this is the time at which this event would start according to the recurrence data in the recurring event identified by recurringEventId. Immutable."
+          "description": "For an instance of a recurring event, this is the time at which this event would start according to the recurrence data in the recurring event identified by recurringEventId. It uniquely identifies the instance within the recurring event series even if the instance was moved to a different time. Immutable."
         },
         "privateCopy": {
           "default": false,
-          "description": "Whether this is a private event copy where changes are not shared with other copies on other calendars. Optional. Immutable. The default is False.",
+          "description": "If set to True, Event propagation is disabled. Note that it is not the same thing as Private event properties. Optional. Immutable. The default is False.",
           "type": "boolean"
         },
         "recurrence": {
@@ -3477,7 +4457,7 @@
           "description": "The (inclusive) start time of the event. For a recurring event, this is the start time of the first instance."
         },
         "status": {
-          "description": "Status of the event. Optional. Possible values are:  \n- \"confirmed\" - The event is confirmed. This is the default status. \n- \"tentative\" - The event is tentatively confirmed. \n- \"cancelled\" - The event is cancelled.",
+          "description": "Status of the event. Optional. Possible values are:  \n- \"confirmed\" - The event is confirmed. This is the default status. \n- \"tentative\" - The event is tentatively confirmed. \n- \"cancelled\" - The event is cancelled (deleted). The list method returns cancelled events only on incremental sync (when syncToken or updatedMin are specified) or if the showDeleted flag is set to true. The get method always returns them.\nA cancelled status represents two different states depending on the event type:  \n- Cancelled exceptions of an uncancelled recurring event indicate that this instance should no longer be presented to the user. Clients should store these events for the lifetime of the parent recurring event.\nCancelled exceptions are only guaranteed to have values for the id, recurringEventId and originalStartTime fields populated. The other fields might be empty.  \n- All other cancelled events represent deleted events. Clients should remove their locally synced copies. Such cancelled events will eventually disappear, so do not rely on them being available indefinitely.\nDeleted events are only guaranteed to have the id field populated.   On the organizer's calendar, cancelled events continue to expose event details (summary, location, etc.) so that they can be restored (undeleted). Similarly, the events to which the user was invited and that they manually removed continue to provide details. However, incremental sync requests with showDeleted set to false will not return these details.\nIf an event changes its organizer (for example via the move operation) and the original organizer is not on the attendee list, it will leave behind a cancelled event where only the id field is guaranteed to be populated.",
           "type": "string"
         },
         "summary": {
@@ -3509,7 +4489,7 @@
           "type": "string"
         },
         "fileUrl": {
-          "description": "URL link to the attachment.\nFor adding Google Drive file attachments use the same format as in alternateLink property of the Files resource in the Drive API.",
+          "description": "URL link to the attachment.\nFor adding Google Drive file attachments use the same format as in alternateLink property of the Files resource in the Drive API.\nRequired when adding an attachment.",
           "type": "string"
         },
         "iconLink": {
@@ -3544,11 +4524,11 @@
           "type": "string"
         },
         "email": {
-          "description": "The attendee's email address, if available. This field must be present when adding an attendee. It must be a valid email address as per RFC5322.",
+          "description": "The attendee's email address, if available. This field must be present when adding an attendee. It must be a valid email address as per RFC5322.\nRequired when adding an attendee.",
           "type": "string"
         },
         "id": {
-          "description": "The attendee's Profile ID, if available. It corresponds to theid field in the People collection of the Google+ API",
+          "description": "The attendee's Profile ID, if available. It corresponds to the id field in the People collection of the Google+ API",
           "type": "string"
         },
         "optional": {
@@ -3599,11 +4579,11 @@
     "EventReminder": {
       "properties": {
         "method": {
-          "description": "The method used by this reminder. Possible values are:  \n- \"email\" - Reminders are sent via email. \n- \"sms\" - Reminders are sent via SMS. These are only available for G Suite customers. Requests to set SMS reminders for other account types are ignored. \n- \"popup\" - Reminders are sent via a UI popup.",
+          "description": "The method used by this reminder. Possible values are:  \n- \"email\" - Reminders are sent via email. \n- \"popup\" - Reminders are sent via a UI popup.  \nRequired when adding a reminder.",
           "type": "string"
         },
         "minutes": {
-          "description": "Number of minutes before the start of the event when the reminder should trigger. Valid values are between 0 and 40320 (4 weeks in minutes).",
+          "description": "Number of minutes before the start of the event when the reminder should trigger. Valid values are between 0 and 40320 (4 weeks in minutes).\nRequired when adding a reminder.",
           "format": "int32",
           "type": "integer"
         }
@@ -3708,12 +4688,12 @@
     "FreeBusyRequest": {
       "properties": {
         "calendarExpansionMax": {
-          "description": "Maximal number of calendars for which FreeBusy information is to be provided. Optional.",
+          "description": "Maximal number of calendars for which FreeBusy information is to be provided. Optional. Maximum value is 50.",
           "format": "int32",
           "type": "integer"
         },
         "groupExpansionMax": {
-          "description": "Maximal number of calendar identifiers to be provided for a single group. Optional. An error will be returned for a group with more members than this value.",
+          "description": "Maximal number of calendar identifiers to be provided for a single group. Optional. An error is returned for a group with more members than this value. Maximum value is 100.",
           "format": "int32",
           "type": "integer"
         },
@@ -3725,12 +4705,12 @@
           "type": "array"
         },
         "timeMax": {
-          "description": "The end of the interval for the query.",
+          "description": "The end of the interval for the query formatted as per RFC3339.",
           "format": "date-time",
           "type": "string"
         },
         "timeMin": {
-          "description": "The start of the interval for the query.",
+          "description": "The start of the interval for the query formatted as per RFC3339.",
           "format": "date-time",
           "type": "string"
         },
@@ -3852,6 +4832,113 @@
         }
       },
       "type": "object"
+    }
+  },
+  "securityDefinitions": {
+    "Oauth2": {
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+      "description": "Oauth 2.0 implicit authentication",
+      "flow": "implicit",
+      "scopes": {
+        "https://www.googleapis.com/auth/calendar": "See, edit, share, and permanently delete all the calendars you can access using Google Calendar",
+        "https://www.googleapis.com/auth/calendar.events": "View and edit events on all your calendars",
+        "https://www.googleapis.com/auth/calendar.events.readonly": "View events on all your calendars",
+        "https://www.googleapis.com/auth/calendar.readonly": "View your calendars",
+        "https://www.googleapis.com/auth/calendar.settings.readonly": "View your Calendar settings"
+      },
+      "type": "oauth2"
+    },
+    "Oauth2c": {
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+      "description": "Oauth 2.0 authorizationCode authentication",
+      "flow": "accessCode",
+      "scopes": {
+        "https://www.googleapis.com/auth/calendar": "See, edit, share, and permanently delete all the calendars you can access using Google Calendar",
+        "https://www.googleapis.com/auth/calendar.events": "View and edit events on all your calendars",
+        "https://www.googleapis.com/auth/calendar.events.readonly": "View events on all your calendars",
+        "https://www.googleapis.com/auth/calendar.readonly": "View your calendars",
+        "https://www.googleapis.com/auth/calendar.settings.readonly": "View your Calendar settings"
+      },
+      "tokenUrl": "https://accounts.google.com/o/oauth2/token",
+      "type": "oauth2"
+    }
+  },
+  "tags": [
+    {
+      "name": "acl"
+    },
+    {
+      "name": "calendarList"
+    },
+    {
+      "name": "calendars"
+    },
+    {
+      "name": "channels"
+    },
+    {
+      "name": "colors"
+    },
+    {
+      "name": "events"
+    },
+    {
+      "name": "freebusy"
+    },
+    {
+      "name": "settings"
+    }
+  ],
+  "externalDocs": {
+    "url": "https://developers.google.com/google-apps/calendar/firstapp"
+  },
+  "x-components": {
+    "parameters": {
+      "alt": {
+        "description": "Data format for the response.",
+        "enum": [
+          "json"
+        ],
+        "in": "query",
+        "name": "alt",
+        "type": "string"
+      },
+      "fields": {
+        "description": "Selector specifying which fields to include in a partial response.",
+        "in": "query",
+        "name": "fields",
+        "type": "string"
+      },
+      "key": {
+        "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+        "in": "query",
+        "name": "key",
+        "type": "string"
+      },
+      "oauth_token": {
+        "description": "OAuth 2.0 token for the current user.",
+        "in": "query",
+        "name": "oauth_token",
+        "type": "string"
+      },
+      "prettyPrint": {
+        "description": "Returns response with indentations and line breaks.",
+        "in": "query",
+        "name": "prettyPrint",
+        "type": "boolean"
+      },
+      "quotaUser": {
+        "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
+        "in": "query",
+        "name": "quotaUser",
+        "type": "string"
+      },
+      "userIp": {
+        "description": "Deprecated. Please use quotaUser instead.",
+        "in": "query",
+        "name": "userIp",
+        "type": "string"
+      }
     }
   }
 }

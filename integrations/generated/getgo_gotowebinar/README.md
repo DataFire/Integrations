@@ -9,12 +9,7 @@ npm install --save @datafire/getgo_gotowebinar
 ```js
 let getgo_gotowebinar = require('@datafire/getgo_gotowebinar').create();
 
-getgo_gotowebinar.getAllAccountWebinars({
-  "Authorization": "",
-  "accountKey": 0,
-  "fromTime": "",
-  "toTime": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

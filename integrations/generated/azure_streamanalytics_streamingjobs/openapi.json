@@ -1129,7 +1129,7 @@
             }
           },
           {
-            "description": "The ETag of the streaming job. Omit this value to always overwrite the current record set. Specify the last-seen ETag value to prevent accidentally overwritting concurrent changes.",
+            "description": "The ETag of the streaming job. Omit this value to always overwrite the current record set. Specify the last-seen ETag value to prevent accidentally overwriting concurrent changes.",
             "in": "header",
             "name": "If-Match",
             "required": false,
@@ -1230,7 +1230,7 @@
             }
           },
           {
-            "description": "The ETag of the streaming job. Omit this value to always overwrite the current record set. Specify the last-seen ETag value to prevent accidentally overwritting concurrent changes.",
+            "description": "The ETag of the streaming job. Omit this value to always overwrite the current record set. Specify the last-seen ETag value to prevent accidentally overwriting concurrent changes.",
             "in": "header",
             "name": "If-Match",
             "required": false,
@@ -1961,7 +1961,7 @@
           "$ref": "#/definitions/Resource"
         }
       ],
-      "description": "A streamng job object, containing all information associated with the named streaming job.",
+      "description": "A streaming job object, containing all information associated with the named streaming job.",
       "properties": {
         "properties": {
           "$ref": "#/definitions/StreamingJobProperties",

@@ -15,9 +15,7 @@ let azure_datacatalog = require('@datafire/azure_datacatalog').create({
   redirect_uri: ""
 });
 
-azure_datacatalog.ADCOperations_List({
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -84,7 +82,7 @@ azure_datacatalog.ADCCatalogs_Delete({
   * api-version **required** `string`: Client Api Version.
   * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
   * resourceGroupName **required** `string`: The name of the resource group within the user's subscription. The name is case insensitive.
-  * catalogName **required** `string`: The name of the data catlog in the specified subscription and resource group.
+  * catalogName **required** `string`: The name of the data catalog in the specified subscription and resource group.
 
 #### Output
 *Output schema unknown*
@@ -107,7 +105,7 @@ azure_datacatalog.ADCCatalogs_Get({
   * api-version **required** `string`: Client Api Version.
   * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
   * resourceGroupName **required** `string`: The name of the resource group within the user's subscription. The name is case insensitive.
-  * catalogName **required** `string`: The name of the data catlog in the specified subscription and resource group.
+  * catalogName **required** `string`: The name of the data catalog in the specified subscription and resource group.
 
 #### Output
 * output [ADCCatalog](#adccatalog)
@@ -131,7 +129,7 @@ azure_datacatalog.ADCCatalogs_Update({
   * api-version **required** `string`: Client Api Version.
   * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
   * resourceGroupName **required** `string`: The name of the resource group within the user's subscription. The name is case insensitive.
-  * catalogName **required** `string`: The name of the data catlog in the specified subscription and resource group.
+  * catalogName **required** `string`: The name of the data catalog in the specified subscription and resource group.
   * properties **required** [ADCCatalog](#adccatalog)
 
 #### Output
@@ -156,7 +154,7 @@ azure_datacatalog.ADCCatalogs_CreateOrUpdate({
   * api-version **required** `string`: Client Api Version.
   * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
   * resourceGroupName **required** `string`: The name of the resource group within the user's subscription. The name is case insensitive.
-  * catalogName **required** `string`: The name of the data catlog in the specified subscription and resource group.
+  * catalogName **required** `string`: The name of the data catalog in the specified subscription and resource group.
   * properties **required** [ADCCatalog](#adccatalog)
 
 #### Output

@@ -6,7 +6,7 @@
   "host": "management.azure.com",
   "info": {
     "title": "Certificates API Client",
-    "version": "2016-03-01",
+    "version": "2018-11-01",
     "x-apisguru-categories": [
       "cloud"
     ],
@@ -16,7 +16,7 @@
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/web/resource-manager/Microsoft.Web/stable/2016-03-01/Certificates.json",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/web/resource-manager/Microsoft.Web/stable/2018-11-01/Certificates.json",
         "version": "2.0"
       }
     ],
@@ -102,6 +102,66 @@
             "schema": {
               "$ref": "#/definitions/CertificateCollection"
             }
+          },
+          "default": {
+            "description": "App Service error response.",
+            "schema": {
+              "description": "App Service error response.",
+              "properties": {
+                "error": {
+                  "description": "Error model.",
+                  "properties": {
+                    "code": {
+                      "description": "Standardized string to programmatically identify the error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "details": {
+                      "items": {
+                        "description": "Detailed errors.",
+                        "properties": {
+                          "code": {
+                            "description": "Standardized string to programmatically identify the error.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "message": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "target": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          }
+                        },
+                        "readOnly": true
+                      },
+                      "type": "array"
+                    },
+                    "innererror": {
+                      "description": "More information to debug error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "message": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "target": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    }
+                  },
+                  "readOnly": true,
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
           }
         },
         "summary": "Get all certificates for a subscription.",
@@ -111,7 +171,7 @@
         "x-ms-examples": {
           "List Certificates for subscription": {
             "parameters": {
-              "api-version": "2016-03-01",
+              "api-version": "2018-02-01",
               "subscriptionId": "34adfa4f-cedf-4dc0-ba29-b6d1a69ab345"
             },
             "responses": {
@@ -187,6 +247,66 @@
             "schema": {
               "$ref": "#/definitions/CertificateCollection"
             }
+          },
+          "default": {
+            "description": "App Service error response.",
+            "schema": {
+              "description": "App Service error response.",
+              "properties": {
+                "error": {
+                  "description": "Error model.",
+                  "properties": {
+                    "code": {
+                      "description": "Standardized string to programmatically identify the error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "details": {
+                      "items": {
+                        "description": "Detailed errors.",
+                        "properties": {
+                          "code": {
+                            "description": "Standardized string to programmatically identify the error.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "message": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "target": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          }
+                        },
+                        "readOnly": true
+                      },
+                      "type": "array"
+                    },
+                    "innererror": {
+                      "description": "More information to debug error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "message": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "target": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    }
+                  },
+                  "readOnly": true,
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
           }
         },
         "summary": "Get all certificates in a resource group.",
@@ -196,7 +316,7 @@
         "x-ms-examples": {
           "List Certificates by resource group": {
             "parameters": {
-              "api-version": "2016-03-01",
+              "api-version": "2018-02-01",
               "resourceGroupName": "testrg123",
               "subscriptionId": "34adfa4f-cedf-4dc0-ba29-b6d1a69ab345"
             },
@@ -276,7 +396,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Succesfully deleted certificate."
+            "description": "Successfully deleted certificate."
           },
           "204": {
             "description": "Certificate does not exist."
@@ -289,7 +409,7 @@
         "x-ms-examples": {
           "Delete Certificate": {
             "parameters": {
-              "api-version": "2016-03-01",
+              "api-version": "2018-02-01",
               "name": "testc6282",
               "resourceGroupName": "testrg123",
               "subscriptionId": "34adfa4f-cedf-4dc0-ba29-b6d1a69ab345"
@@ -328,6 +448,66 @@
             "schema": {
               "$ref": "#/definitions/Certificate"
             }
+          },
+          "default": {
+            "description": "App Service error response.",
+            "schema": {
+              "description": "App Service error response.",
+              "properties": {
+                "error": {
+                  "description": "Error model.",
+                  "properties": {
+                    "code": {
+                      "description": "Standardized string to programmatically identify the error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "details": {
+                      "items": {
+                        "description": "Detailed errors.",
+                        "properties": {
+                          "code": {
+                            "description": "Standardized string to programmatically identify the error.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "message": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "target": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          }
+                        },
+                        "readOnly": true
+                      },
+                      "type": "array"
+                    },
+                    "innererror": {
+                      "description": "More information to debug error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "message": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "target": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    }
+                  },
+                  "readOnly": true,
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
           }
         },
         "summary": "Get a certificate.",
@@ -337,7 +517,7 @@
         "x-ms-examples": {
           "Get Certificate": {
             "parameters": {
-              "api-version": "2016-03-01",
+              "api-version": "2018-02-01",
               "name": "testc6282",
               "resourceGroupName": "testrg123",
               "subscriptionId": "34adfa4f-cedf-4dc0-ba29-b6d1a69ab345"
@@ -404,6 +584,66 @@
             "schema": {
               "$ref": "#/definitions/Certificate"
             }
+          },
+          "default": {
+            "description": "App Service error response.",
+            "schema": {
+              "description": "App Service error response.",
+              "properties": {
+                "error": {
+                  "description": "Error model.",
+                  "properties": {
+                    "code": {
+                      "description": "Standardized string to programmatically identify the error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "details": {
+                      "items": {
+                        "description": "Detailed errors.",
+                        "properties": {
+                          "code": {
+                            "description": "Standardized string to programmatically identify the error.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "message": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "target": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          }
+                        },
+                        "readOnly": true
+                      },
+                      "type": "array"
+                    },
+                    "innererror": {
+                      "description": "More information to debug error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "message": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "target": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    }
+                  },
+                  "readOnly": true,
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
           }
         },
         "summary": "Create or update a certificate.",
@@ -413,7 +653,7 @@
         "x-ms-examples": {
           "Patch Certificate": {
             "parameters": {
-              "api-version": "2016-03-01",
+              "api-version": "2018-02-01",
               "certificateEnvelope": {
                 "id": "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.Web/certificates/testc6282",
                 "name": "testc6282",
@@ -488,6 +728,66 @@
             "schema": {
               "$ref": "#/definitions/Certificate"
             }
+          },
+          "default": {
+            "description": "App Service error response.",
+            "schema": {
+              "description": "App Service error response.",
+              "properties": {
+                "error": {
+                  "description": "Error model.",
+                  "properties": {
+                    "code": {
+                      "description": "Standardized string to programmatically identify the error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "details": {
+                      "items": {
+                        "description": "Detailed errors.",
+                        "properties": {
+                          "code": {
+                            "description": "Standardized string to programmatically identify the error.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "message": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "target": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          }
+                        },
+                        "readOnly": true
+                      },
+                      "type": "array"
+                    },
+                    "innererror": {
+                      "description": "More information to debug error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "message": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "target": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    }
+                  },
+                  "readOnly": true,
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
           }
         },
         "summary": "Create or update a certificate.",
@@ -497,7 +797,7 @@
         "x-ms-examples": {
           "Create Or Update Certificate": {
             "parameters": {
-              "api-version": "2016-03-01",
+              "api-version": "2018-02-01",
               "certificateEnvelope": {
                 "id": "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.Web/certificates/testc6282",
                 "location": "East US",
@@ -603,18 +903,13 @@
               "type": "string"
             },
             "expirationDate": {
-              "description": "Certificate expriration date.",
+              "description": "Certificate expiration date.",
               "format": "date-time",
               "readOnly": true,
               "type": "string"
             },
             "friendlyName": {
               "description": "Friendly name of the certificate.",
-              "readOnly": true,
-              "type": "string"
-            },
-            "geoRegion": {
-              "description": "Region of the certificate.",
               "readOnly": true,
               "type": "string"
             },
@@ -802,18 +1097,13 @@
               "type": "string"
             },
             "expirationDate": {
-              "description": "Certificate expriration date.",
+              "description": "Certificate expiration date.",
               "format": "date-time",
               "readOnly": true,
               "type": "string"
             },
             "friendlyName": {
               "description": "Friendly name of the certificate.",
-              "readOnly": true,
-              "type": "string"
-            },
-            "geoRegion": {
-              "description": "Region of the certificate.",
               "readOnly": true,
               "type": "string"
             },

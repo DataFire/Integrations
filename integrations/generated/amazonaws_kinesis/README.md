@@ -13,10 +13,7 @@ let amazonaws_kinesis = require('@datafire/amazonaws_kinesis').create({
   region: ""
 });
 
-amazonaws_kinesis.AddTagsToStream({
-  "StreamName": "",
-  "Tags": []
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -33,15 +30,15 @@ amazonaws_kinesis.AddTagsToStream({
 
 ```js
 amazonaws_kinesis.AddTagsToStream({
-  "StreamName": "",
-  "Tags": []
+  "StreamName": null,
+  "Tags": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * StreamName **required** [StreamName](#streamname)
-  * Tags **required** [TagMap](#tagmap)
+  * StreamName **required**
+  * Tags **required**
 
 #### Output
 *Output schema unknown*
@@ -52,15 +49,15 @@ amazonaws_kinesis.AddTagsToStream({
 
 ```js
 amazonaws_kinesis.CreateStream({
-  "StreamName": "",
-  "ShardCount": 0
+  "StreamName": null,
+  "ShardCount": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ShardCount **required** [PositiveIntegerObject](#positiveintegerobject)
-  * StreamName **required** [StreamName](#streamname)
+  * ShardCount **required**
+  * StreamName **required**
 
 #### Output
 *Output schema unknown*
@@ -71,15 +68,15 @@ amazonaws_kinesis.CreateStream({
 
 ```js
 amazonaws_kinesis.DecreaseStreamRetentionPeriod({
-  "StreamName": "",
-  "RetentionPeriodHours": 0
+  "StreamName": null,
+  "RetentionPeriodHours": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * RetentionPeriodHours **required** [RetentionPeriodHours](#retentionperiodhours)
-  * StreamName **required** [StreamName](#streamname)
+  * RetentionPeriodHours **required**
+  * StreamName **required**
 
 #### Output
 *Output schema unknown*
@@ -90,13 +87,31 @@ amazonaws_kinesis.DecreaseStreamRetentionPeriod({
 
 ```js
 amazonaws_kinesis.DeleteStream({
-  "StreamName": ""
+  "StreamName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * StreamName **required** [StreamName](#streamname)
+  * EnforceConsumerDeletion
+  * StreamName **required**
+
+#### Output
+*Output schema unknown*
+
+### DeregisterStreamConsumer
+
+
+
+```js
+amazonaws_kinesis.DeregisterStreamConsumer({}, context)
+```
+
+#### Input
+* input `object`
+  * ConsumerARN
+  * ConsumerName
+  * StreamARN
 
 #### Output
 *Output schema unknown*
@@ -121,7 +136,7 @@ amazonaws_kinesis.DescribeLimits({}, context)
 
 ```js
 amazonaws_kinesis.DescribeStream({
-  "StreamName": ""
+  "StreamName": null
 }, context)
 ```
 
@@ -129,12 +144,29 @@ amazonaws_kinesis.DescribeStream({
 * input `object`
   * Limit `string`
   * ExclusiveStartShardId `string`
-  * ExclusiveStartShardId [ShardId](#shardid)
-  * Limit [DescribeStreamInputLimit](#describestreaminputlimit)
-  * StreamName **required** [StreamName](#streamname)
+  * ExclusiveStartShardId
+  * Limit
+  * StreamName **required**
 
 #### Output
 * output [DescribeStreamOutput](#describestreamoutput)
+
+### DescribeStreamConsumer
+
+
+
+```js
+amazonaws_kinesis.DescribeStreamConsumer({}, context)
+```
+
+#### Input
+* input `object`
+  * ConsumerARN
+  * ConsumerName
+  * StreamARN
+
+#### Output
+* output [DescribeStreamConsumerOutput](#describestreamconsumeroutput)
 
 ### DescribeStreamSummary
 
@@ -142,13 +174,13 @@ amazonaws_kinesis.DescribeStream({
 
 ```js
 amazonaws_kinesis.DescribeStreamSummary({
-  "StreamName": ""
+  "StreamName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * StreamName **required** [StreamName](#streamname)
+  * StreamName **required**
 
 #### Output
 * output [DescribeStreamSummaryOutput](#describestreamsummaryoutput)
@@ -159,15 +191,16 @@ amazonaws_kinesis.DescribeStreamSummary({
 
 ```js
 amazonaws_kinesis.DisableEnhancedMonitoring({
-  "StreamName": "",
-  "ShardLevelMetrics": []
+  "StreamName": null,
+  "ShardLevelMetrics": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ShardLevelMetrics **required** [MetricsNameList](#metricsnamelist)
-  * StreamName **required** [StreamName](#streamname)
+  * ShardLevelMetrics **required**
+    * items [MetricsName](#metricsname)
+  * StreamName **required**
 
 #### Output
 * output [EnhancedMonitoringOutput](#enhancedmonitoringoutput)
@@ -178,15 +211,16 @@ amazonaws_kinesis.DisableEnhancedMonitoring({
 
 ```js
 amazonaws_kinesis.EnableEnhancedMonitoring({
-  "StreamName": "",
-  "ShardLevelMetrics": []
+  "StreamName": null,
+  "ShardLevelMetrics": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ShardLevelMetrics **required** [MetricsNameList](#metricsnamelist)
-  * StreamName **required** [StreamName](#streamname)
+  * ShardLevelMetrics **required**
+    * items [MetricsName](#metricsname)
+  * StreamName **required**
 
 #### Output
 * output [EnhancedMonitoringOutput](#enhancedmonitoringoutput)
@@ -197,14 +231,14 @@ amazonaws_kinesis.EnableEnhancedMonitoring({
 
 ```js
 amazonaws_kinesis.GetRecords({
-  "ShardIterator": ""
+  "ShardIterator": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Limit [GetRecordsInputLimit](#getrecordsinputlimit)
-  * ShardIterator **required** [ShardIterator](#sharditerator)
+  * Limit
+  * ShardIterator **required**
 
 #### Output
 * output [GetRecordsOutput](#getrecordsoutput)
@@ -215,19 +249,19 @@ amazonaws_kinesis.GetRecords({
 
 ```js
 amazonaws_kinesis.GetShardIterator({
-  "StreamName": "",
-  "ShardId": "",
-  "ShardIteratorType": ""
+  "StreamName": null,
+  "ShardId": null,
+  "ShardIteratorType": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ShardId **required** [ShardId](#shardid)
-  * ShardIteratorType **required** [ShardIteratorType](#sharditeratortype)
-  * StartingSequenceNumber [SequenceNumber](#sequencenumber)
-  * StreamName **required** [StreamName](#streamname)
-  * Timestamp [Timestamp](#timestamp)
+  * ShardId **required**
+  * ShardIteratorType **required**
+  * StartingSequenceNumber
+  * StreamName **required**
+  * Timestamp
 
 #### Output
 * output [GetShardIteratorOutput](#getsharditeratoroutput)
@@ -238,15 +272,15 @@ amazonaws_kinesis.GetShardIterator({
 
 ```js
 amazonaws_kinesis.IncreaseStreamRetentionPeriod({
-  "StreamName": "",
-  "RetentionPeriodHours": 0
+  "StreamName": null,
+  "RetentionPeriodHours": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * RetentionPeriodHours **required** [RetentionPeriodHours](#retentionperiodhours)
-  * StreamName **required** [StreamName](#streamname)
+  * RetentionPeriodHours **required**
+  * StreamName **required**
 
 #### Output
 *Output schema unknown*
@@ -261,14 +295,37 @@ amazonaws_kinesis.ListShards({}, context)
 
 #### Input
 * input `object`
-  * ExclusiveStartShardId [ShardId](#shardid)
-  * MaxResults [ListShardsInputLimit](#listshardsinputlimit)
-  * NextToken [NextToken](#nexttoken)
-  * StreamCreationTimestamp [Timestamp](#timestamp)
-  * StreamName [StreamName](#streamname)
+  * ExclusiveStartShardId
+  * MaxResults
+  * NextToken
+  * ShardFilter [ShardFilter](#shardfilter)
+  * StreamCreationTimestamp
+  * StreamName
 
 #### Output
 * output [ListShardsOutput](#listshardsoutput)
+
+### ListStreamConsumers
+
+
+
+```js
+amazonaws_kinesis.ListStreamConsumers({
+  "StreamARN": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * MaxResults `string`
+  * NextToken `string`
+  * MaxResults
+  * NextToken
+  * StreamARN **required**
+  * StreamCreationTimestamp
+
+#### Output
+* output [ListStreamConsumersOutput](#liststreamconsumersoutput)
 
 ### ListStreams
 
@@ -282,8 +339,8 @@ amazonaws_kinesis.ListStreams({}, context)
 * input `object`
   * Limit `string`
   * ExclusiveStartStreamName `string`
-  * ExclusiveStartStreamName [StreamName](#streamname)
-  * Limit [ListStreamsInputLimit](#liststreamsinputlimit)
+  * ExclusiveStartStreamName
+  * Limit
 
 #### Output
 * output [ListStreamsOutput](#liststreamsoutput)
@@ -294,15 +351,15 @@ amazonaws_kinesis.ListStreams({}, context)
 
 ```js
 amazonaws_kinesis.ListTagsForStream({
-  "StreamName": ""
+  "StreamName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ExclusiveStartTagKey [TagKey](#tagkey)
-  * Limit [ListTagsForStreamInputLimit](#listtagsforstreaminputlimit)
-  * StreamName **required** [StreamName](#streamname)
+  * ExclusiveStartTagKey
+  * Limit
+  * StreamName **required**
 
 #### Output
 * output [ListTagsForStreamOutput](#listtagsforstreamoutput)
@@ -313,17 +370,17 @@ amazonaws_kinesis.ListTagsForStream({
 
 ```js
 amazonaws_kinesis.MergeShards({
-  "StreamName": "",
-  "ShardToMerge": "",
-  "AdjacentShardToMerge": ""
+  "StreamName": null,
+  "ShardToMerge": null,
+  "AdjacentShardToMerge": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * AdjacentShardToMerge **required** [ShardId](#shardid)
-  * ShardToMerge **required** [ShardId](#shardid)
-  * StreamName **required** [StreamName](#streamname)
+  * AdjacentShardToMerge **required**
+  * ShardToMerge **required**
+  * StreamName **required**
 
 #### Output
 *Output schema unknown*
@@ -334,19 +391,19 @@ amazonaws_kinesis.MergeShards({
 
 ```js
 amazonaws_kinesis.PutRecord({
-  "StreamName": "",
-  "Data": "",
-  "PartitionKey": ""
+  "StreamName": null,
+  "Data": null,
+  "PartitionKey": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Data **required** [Data](#data)
-  * ExplicitHashKey [HashKey](#hashkey)
-  * PartitionKey **required** [PartitionKey](#partitionkey)
-  * SequenceNumberForOrdering [SequenceNumber](#sequencenumber)
-  * StreamName **required** [StreamName](#streamname)
+  * Data **required**
+  * ExplicitHashKey
+  * PartitionKey **required**
+  * SequenceNumberForOrdering
+  * StreamName **required**
 
 #### Output
 * output [PutRecordOutput](#putrecordoutput)
@@ -357,18 +414,38 @@ amazonaws_kinesis.PutRecord({
 
 ```js
 amazonaws_kinesis.PutRecords({
-  "Records": [],
-  "StreamName": ""
+  "Records": null,
+  "StreamName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Records **required** [PutRecordsRequestEntryList](#putrecordsrequestentrylist)
-  * StreamName **required** [StreamName](#streamname)
+  * Records **required**
+    * items [PutRecordsRequestEntry](#putrecordsrequestentry)
+  * StreamName **required**
 
 #### Output
 * output [PutRecordsOutput](#putrecordsoutput)
+
+### RegisterStreamConsumer
+
+
+
+```js
+amazonaws_kinesis.RegisterStreamConsumer({
+  "StreamARN": null,
+  "ConsumerName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * ConsumerName **required**
+  * StreamARN **required**
+
+#### Output
+* output [RegisterStreamConsumerOutput](#registerstreamconsumeroutput)
 
 ### RemoveTagsFromStream
 
@@ -376,15 +453,16 @@ amazonaws_kinesis.PutRecords({
 
 ```js
 amazonaws_kinesis.RemoveTagsFromStream({
-  "StreamName": "",
-  "TagKeys": []
+  "StreamName": null,
+  "TagKeys": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * StreamName **required** [StreamName](#streamname)
-  * TagKeys **required** [TagKeyList](#tagkeylist)
+  * StreamName **required**
+  * TagKeys **required**
+    * items [TagKey](#tagkey)
 
 #### Output
 *Output schema unknown*
@@ -395,17 +473,17 @@ amazonaws_kinesis.RemoveTagsFromStream({
 
 ```js
 amazonaws_kinesis.SplitShard({
-  "StreamName": "",
-  "ShardToSplit": "",
-  "NewStartingHashKey": ""
+  "StreamName": null,
+  "ShardToSplit": null,
+  "NewStartingHashKey": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * NewStartingHashKey **required** [HashKey](#hashkey)
-  * ShardToSplit **required** [ShardId](#shardid)
-  * StreamName **required** [StreamName](#streamname)
+  * NewStartingHashKey **required**
+  * ShardToSplit **required**
+  * StreamName **required**
 
 #### Output
 *Output schema unknown*
@@ -416,17 +494,17 @@ amazonaws_kinesis.SplitShard({
 
 ```js
 amazonaws_kinesis.StartStreamEncryption({
-  "StreamName": "",
-  "EncryptionType": "",
-  "KeyId": ""
+  "StreamName": null,
+  "EncryptionType": null,
+  "KeyId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * EncryptionType **required** [EncryptionType](#encryptiontype)
-  * KeyId **required** [KeyId](#keyid)
-  * StreamName **required** [StreamName](#streamname)
+  * EncryptionType **required**
+  * KeyId **required**
+  * StreamName **required**
 
 #### Output
 *Output schema unknown*
@@ -437,17 +515,17 @@ amazonaws_kinesis.StartStreamEncryption({
 
 ```js
 amazonaws_kinesis.StopStreamEncryption({
-  "StreamName": "",
-  "EncryptionType": "",
-  "KeyId": ""
+  "StreamName": null,
+  "EncryptionType": null,
+  "KeyId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * EncryptionType **required** [EncryptionType](#encryptiontype)
-  * KeyId **required** [KeyId](#keyid)
-  * StreamName **required** [StreamName](#streamname)
+  * EncryptionType **required**
+  * KeyId **required**
+  * StreamName **required**
 
 #### Output
 *Output schema unknown*
@@ -458,17 +536,17 @@ amazonaws_kinesis.StopStreamEncryption({
 
 ```js
 amazonaws_kinesis.UpdateShardCount({
-  "StreamName": "",
-  "TargetShardCount": 0,
-  "ScalingType": ""
+  "StreamName": null,
+  "TargetShardCount": null,
+  "ScalingType": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ScalingType **required** [ScalingType](#scalingtype)
-  * StreamName **required** [StreamName](#streamname)
-  * TargetShardCount **required** [PositiveIntegerObject](#positiveintegerobject)
+  * ScalingType **required**
+  * StreamName **required**
+  * TargetShardCount **required**
 
 #### Output
 * output [UpdateShardCountOutput](#updateshardcountoutput)
@@ -479,74 +557,163 @@ amazonaws_kinesis.UpdateShardCount({
 
 ### AddTagsToStreamInput
 * AddTagsToStreamInput `object`: Represents the input for <code>AddTagsToStream</code>.
-  * StreamName **required** [StreamName](#streamname)
-  * Tags **required** [TagMap](#tagmap)
+  * StreamName **required**
+  * Tags **required**
 
 ### BooleanObject
 * BooleanObject `boolean`
 
+### ChildShard
+* ChildShard `object`
+  * HashKeyRange **required** [HashKeyRange](#hashkeyrange)
+  * ParentShards **required** [ShardIdList](#shardidlist)
+  * ShardId **required** [ShardId](#shardid)
+
+### ChildShardList
+* ChildShardList `array`
+  * items [ChildShard](#childshard)
+
+### Consumer
+* Consumer `object`: An object that represents the details of the consumer you registered. This type of object is returned by <a>RegisterStreamConsumer</a>.
+  * ConsumerARN **required**
+  * ConsumerCreationTimestamp **required**
+  * ConsumerName **required**
+  * ConsumerStatus **required**
+
+### ConsumerARN
+* ConsumerARN `string`
+
+### ConsumerCountObject
+* ConsumerCountObject `integer`
+
+### ConsumerDescription
+* ConsumerDescription `object`: An object that represents the details of a registered consumer. This type of object is returned by <a>DescribeStreamConsumer</a>.
+  * ConsumerARN **required**
+  * ConsumerCreationTimestamp **required**
+  * ConsumerName **required**
+  * ConsumerStatus **required**
+  * StreamARN **required**
+
+### ConsumerList
+* ConsumerList `array`
+  * items [Consumer](#consumer)
+
+### ConsumerName
+* ConsumerName `string`
+
+### ConsumerStatus
+* ConsumerStatus `string` (values: CREATING, DELETING, ACTIVE)
+
 ### CreateStreamInput
 * CreateStreamInput `object`: Represents the input for <code>CreateStream</code>.
-  * ShardCount **required** [PositiveIntegerObject](#positiveintegerobject)
-  * StreamName **required** [StreamName](#streamname)
+  * ShardCount **required**
+  * StreamName **required**
 
 ### Data
 * Data `string`
 
 ### DecreaseStreamRetentionPeriodInput
 * DecreaseStreamRetentionPeriodInput `object`: Represents the input for <a>DecreaseStreamRetentionPeriod</a>.
-  * RetentionPeriodHours **required** [RetentionPeriodHours](#retentionperiodhours)
-  * StreamName **required** [StreamName](#streamname)
+  * RetentionPeriodHours **required**
+  * StreamName **required**
 
 ### DeleteStreamInput
 * DeleteStreamInput `object`: Represents the input for <a>DeleteStream</a>.
-  * StreamName **required** [StreamName](#streamname)
+  * EnforceConsumerDeletion
+  * StreamName **required**
+
+### DeregisterStreamConsumerInput
+* DeregisterStreamConsumerInput `object`
+  * ConsumerARN
+  * ConsumerName
+  * StreamARN
 
 ### DescribeLimitsInput
 * DescribeLimitsInput `object`
 
 ### DescribeLimitsOutput
 * DescribeLimitsOutput `object`
-  * OpenShardCount **required** [ShardCountObject](#shardcountobject)
-  * ShardLimit **required** [ShardCountObject](#shardcountobject)
+  * OpenShardCount **required**
+  * ShardLimit **required**
+
+### DescribeStreamConsumerInput
+* DescribeStreamConsumerInput `object`
+  * ConsumerARN
+  * ConsumerName
+  * StreamARN
+
+### DescribeStreamConsumerOutput
+* DescribeStreamConsumerOutput `object`
+  * ConsumerDescription **required**
+    * ConsumerARN **required**
+    * ConsumerCreationTimestamp **required**
+    * ConsumerName **required**
+    * ConsumerStatus **required**
+    * StreamARN **required**
 
 ### DescribeStreamInput
 * DescribeStreamInput `object`: Represents the input for <code>DescribeStream</code>.
-  * ExclusiveStartShardId [ShardId](#shardid)
-  * Limit [DescribeStreamInputLimit](#describestreaminputlimit)
-  * StreamName **required** [StreamName](#streamname)
+  * ExclusiveStartShardId
+  * Limit
+  * StreamName **required**
 
 ### DescribeStreamInputLimit
 * DescribeStreamInputLimit `integer`
 
 ### DescribeStreamOutput
 * DescribeStreamOutput `object`: Represents the output for <code>DescribeStream</code>.
-  * StreamDescription **required** [StreamDescription](#streamdescription)
+  * StreamDescription **required**
+    * EncryptionType
+    * EnhancedMonitoring **required**
+      * items [EnhancedMetrics](#enhancedmetrics)
+    * HasMoreShards **required**
+    * KeyId
+    * RetentionPeriodHours **required**
+    * Shards **required**
+      * items [Shard](#shard)
+    * StreamARN **required**
+    * StreamCreationTimestamp **required**
+    * StreamName **required**
+    * StreamStatus **required**
 
 ### DescribeStreamSummaryInput
 * DescribeStreamSummaryInput `object`
-  * StreamName **required** [StreamName](#streamname)
+  * StreamName **required**
 
 ### DescribeStreamSummaryOutput
 * DescribeStreamSummaryOutput `object`
-  * StreamDescriptionSummary **required** [StreamDescriptionSummary](#streamdescriptionsummary)
+  * StreamDescriptionSummary **required**
+    * ConsumerCount
+    * EncryptionType
+    * EnhancedMonitoring **required**
+      * items [EnhancedMetrics](#enhancedmetrics)
+    * KeyId
+    * OpenShardCount **required**
+    * RetentionPeriodHours **required**
+    * StreamARN **required**
+    * StreamCreationTimestamp **required**
+    * StreamName **required**
+    * StreamStatus **required**
 
 ### DisableEnhancedMonitoringInput
 * DisableEnhancedMonitoringInput `object`: Represents the input for <a>DisableEnhancedMonitoring</a>.
-  * ShardLevelMetrics **required** [MetricsNameList](#metricsnamelist)
-  * StreamName **required** [StreamName](#streamname)
+  * ShardLevelMetrics **required**
+    * items [MetricsName](#metricsname)
+  * StreamName **required**
 
 ### EnableEnhancedMonitoringInput
 * EnableEnhancedMonitoringInput `object`: Represents the input for <a>EnableEnhancedMonitoring</a>.
-  * ShardLevelMetrics **required** [MetricsNameList](#metricsnamelist)
-  * StreamName **required** [StreamName](#streamname)
+  * ShardLevelMetrics **required**
+    * items [MetricsName](#metricsname)
+  * StreamName **required**
 
 ### EncryptionType
 * EncryptionType `string` (values: NONE, KMS)
 
 ### EnhancedMetrics
 * EnhancedMetrics `object`: Represents enhanced metrics types.
-  * ShardLevelMetrics [MetricsNameList](#metricsnamelist)
+  * ShardLevelMetrics
+    * items [MetricsName](#metricsname)
 
 ### EnhancedMonitoringList
 * EnhancedMonitoringList `array`
@@ -554,9 +721,11 @@ amazonaws_kinesis.UpdateShardCount({
 
 ### EnhancedMonitoringOutput
 * EnhancedMonitoringOutput `object`: Represents the output for <a>EnableEnhancedMonitoring</a> and <a>DisableEnhancedMonitoring</a>.
-  * CurrentShardLevelMetrics [MetricsNameList](#metricsnamelist)
-  * DesiredShardLevelMetrics [MetricsNameList](#metricsnamelist)
-  * StreamName [StreamName](#streamname)
+  * CurrentShardLevelMetrics
+    * items [MetricsName](#metricsname)
+  * DesiredShardLevelMetrics
+    * items [MetricsName](#metricsname)
+  * StreamName
 
 ### ErrorCode
 * ErrorCode `string`
@@ -565,135 +734,147 @@ amazonaws_kinesis.UpdateShardCount({
 * ErrorMessage `string`
 
 ### ExpiredIteratorException
-* ExpiredIteratorException `object`: The provided iterator exceeds the maximum age allowed.
-  * message [ErrorMessage](#errormessage)
+
 
 ### ExpiredNextTokenException
-* ExpiredNextTokenException `object`: The pagination token passed to the <code>ListShards</code> operation is expired. For more information, see <a>ListShardsInput$NextToken</a>.
-  * message [ErrorMessage](#errormessage)
+
 
 ### GetRecordsInput
 * GetRecordsInput `object`: Represents the input for <a>GetRecords</a>.
-  * Limit [GetRecordsInputLimit](#getrecordsinputlimit)
-  * ShardIterator **required** [ShardIterator](#sharditerator)
+  * Limit
+  * ShardIterator **required**
 
 ### GetRecordsInputLimit
 * GetRecordsInputLimit `integer`
 
 ### GetRecordsOutput
 * GetRecordsOutput `object`: Represents the output for <a>GetRecords</a>.
-  * MillisBehindLatest [MillisBehindLatest](#millisbehindlatest)
-  * NextShardIterator [ShardIterator](#sharditerator)
-  * Records **required** [RecordList](#recordlist)
+  * ChildShards [ChildShardList](#childshardlist)
+  * MillisBehindLatest
+  * NextShardIterator
+  * Records **required**
+    * items [Record](#record)
 
 ### GetShardIteratorInput
 * GetShardIteratorInput `object`: Represents the input for <code>GetShardIterator</code>.
-  * ShardId **required** [ShardId](#shardid)
-  * ShardIteratorType **required** [ShardIteratorType](#sharditeratortype)
-  * StartingSequenceNumber [SequenceNumber](#sequencenumber)
-  * StreamName **required** [StreamName](#streamname)
-  * Timestamp [Timestamp](#timestamp)
+  * ShardId **required**
+  * ShardIteratorType **required**
+  * StartingSequenceNumber
+  * StreamName **required**
+  * Timestamp
 
 ### GetShardIteratorOutput
 * GetShardIteratorOutput `object`: Represents the output for <code>GetShardIterator</code>.
-  * ShardIterator [ShardIterator](#sharditerator)
+  * ShardIterator
 
 ### HashKey
 * HashKey `string`
 
 ### HashKeyRange
 * HashKeyRange `object`: The range of possible hash key values for the shard, which is a set of ordered contiguous positive integers.
-  * EndingHashKey **required** [HashKey](#hashkey)
-  * StartingHashKey **required** [HashKey](#hashkey)
+  * EndingHashKey **required**
+  * StartingHashKey **required**
 
 ### IncreaseStreamRetentionPeriodInput
 * IncreaseStreamRetentionPeriodInput `object`: Represents the input for <a>IncreaseStreamRetentionPeriod</a>.
-  * RetentionPeriodHours **required** [RetentionPeriodHours](#retentionperiodhours)
-  * StreamName **required** [StreamName](#streamname)
+  * RetentionPeriodHours **required**
+  * StreamName **required**
 
 ### InvalidArgumentException
-* InvalidArgumentException `object`: A specified parameter exceeds its restrictions, is not supported, or can't be used. For more information, see the returned message.
-  * message [ErrorMessage](#errormessage)
+
 
 ### KMSAccessDeniedException
-* KMSAccessDeniedException `object`: The ciphertext references a key that doesn't exist or that you don't have access to.
-  * message [ErrorMessage](#errormessage)
+
 
 ### KMSDisabledException
-* KMSDisabledException `object`: The request was rejected because the specified customer master key (CMK) isn't enabled.
-  * message [ErrorMessage](#errormessage)
+
 
 ### KMSInvalidStateException
-* KMSInvalidStateException `object`: The request was rejected because the state of the specified resource isn't valid for this request. For more information, see <a href="http://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How Key State Affects Use of a Customer Master Key</a> in the <i>AWS Key Management Service Developer Guide</i>.
-  * message [ErrorMessage](#errormessage)
+
 
 ### KMSNotFoundException
-* KMSNotFoundException `object`: The request was rejected because the specified entity or resource can't be found.
-  * message [ErrorMessage](#errormessage)
+
 
 ### KMSOptInRequired
-* KMSOptInRequired `object`: The AWS access key ID needs a subscription for the service.
-  * message [ErrorMessage](#errormessage)
+
 
 ### KMSThrottlingException
-* KMSThrottlingException `object`: The request was denied due to request throttling. For more information about throttling, see <a href="http://docs.aws.amazon.com/kms/latest/developerguide/limits.html#requests-per-second">Limits</a> in the <i>AWS Key Management Service Developer Guide</i>.
-  * message [ErrorMessage](#errormessage)
+
 
 ### KeyId
 * KeyId `string`
 
 ### LimitExceededException
-* LimitExceededException `object`: The requested resource exceeds the maximum number allowed, or the number of concurrent stream requests exceeds the maximum number allowed. 
-  * message [ErrorMessage](#errormessage)
+
 
 ### ListShardsInput
 * ListShardsInput `object`
-  * ExclusiveStartShardId [ShardId](#shardid)
-  * MaxResults [ListShardsInputLimit](#listshardsinputlimit)
-  * NextToken [NextToken](#nexttoken)
-  * StreamCreationTimestamp [Timestamp](#timestamp)
-  * StreamName [StreamName](#streamname)
+  * ExclusiveStartShardId
+  * MaxResults
+  * NextToken
+  * ShardFilter [ShardFilter](#shardfilter)
+  * StreamCreationTimestamp
+  * StreamName
 
 ### ListShardsInputLimit
 * ListShardsInputLimit `integer`
 
 ### ListShardsOutput
 * ListShardsOutput `object`
-  * NextToken [NextToken](#nexttoken)
-  * Shards [ShardList](#shardlist)
+  * NextToken
+  * Shards
+    * items [Shard](#shard)
+
+### ListStreamConsumersInput
+* ListStreamConsumersInput `object`
+  * MaxResults
+  * NextToken
+  * StreamARN **required**
+  * StreamCreationTimestamp
+
+### ListStreamConsumersInputLimit
+* ListStreamConsumersInputLimit `integer`
+
+### ListStreamConsumersOutput
+* ListStreamConsumersOutput `object`
+  * Consumers
+    * items [Consumer](#consumer)
+  * NextToken
 
 ### ListStreamsInput
 * ListStreamsInput `object`: Represents the input for <code>ListStreams</code>.
-  * ExclusiveStartStreamName [StreamName](#streamname)
-  * Limit [ListStreamsInputLimit](#liststreamsinputlimit)
+  * ExclusiveStartStreamName
+  * Limit
 
 ### ListStreamsInputLimit
 * ListStreamsInputLimit `integer`
 
 ### ListStreamsOutput
 * ListStreamsOutput `object`: Represents the output for <code>ListStreams</code>.
-  * HasMoreStreams **required** [BooleanObject](#booleanobject)
-  * StreamNames **required** [StreamNameList](#streamnamelist)
+  * HasMoreStreams **required**
+  * StreamNames **required**
+    * items [StreamName](#streamname)
 
 ### ListTagsForStreamInput
 * ListTagsForStreamInput `object`: Represents the input for <code>ListTagsForStream</code>.
-  * ExclusiveStartTagKey [TagKey](#tagkey)
-  * Limit [ListTagsForStreamInputLimit](#listtagsforstreaminputlimit)
-  * StreamName **required** [StreamName](#streamname)
+  * ExclusiveStartTagKey
+  * Limit
+  * StreamName **required**
 
 ### ListTagsForStreamInputLimit
 * ListTagsForStreamInputLimit `integer`
 
 ### ListTagsForStreamOutput
 * ListTagsForStreamOutput `object`: Represents the output for <code>ListTagsForStream</code>.
-  * HasMoreTags **required** [BooleanObject](#booleanobject)
-  * Tags **required** [TagList](#taglist)
+  * HasMoreTags **required**
+  * Tags **required**
+    * items [Tag](#tag)
 
 ### MergeShardsInput
 * MergeShardsInput `object`: Represents the input for <code>MergeShards</code>.
-  * AdjacentShardToMerge **required** [ShardId](#shardid)
-  * ShardToMerge **required** [ShardId](#shardid)
-  * StreamName **required** [StreamName](#streamname)
+  * AdjacentShardToMerge **required**
+  * ShardToMerge **required**
+  * StreamName **required**
 
 ### MetricsName
 * MetricsName `string` (values: IncomingBytes, IncomingRecords, OutgoingBytes, OutgoingRecords, WriteProvisionedThroughputExceeded, ReadProvisionedThroughputExceeded, IteratorAgeMilliseconds, ALL)
@@ -715,39 +896,40 @@ amazonaws_kinesis.UpdateShardCount({
 * PositiveIntegerObject `integer`
 
 ### ProvisionedThroughputExceededException
-* ProvisionedThroughputExceededException `object`: The request rate for the stream is too high, or the requested data is too large for the available throughput. Reduce the frequency or size of your requests. For more information, see <a href="http://docs.aws.amazon.com/kinesis/latest/dev/service-sizes-and-limits.html">Streams Limits</a> in the <i>Amazon Kinesis Data Streams Developer Guide</i>, and <a href="http://docs.aws.amazon.com/general/latest/gr/api-retries.html">Error Retries and Exponential Backoff in AWS</a> in the <i>AWS General Reference</i>.
-  * message [ErrorMessage](#errormessage)
+
 
 ### PutRecordInput
 * PutRecordInput `object`: Represents the input for <code>PutRecord</code>.
-  * Data **required** [Data](#data)
-  * ExplicitHashKey [HashKey](#hashkey)
-  * PartitionKey **required** [PartitionKey](#partitionkey)
-  * SequenceNumberForOrdering [SequenceNumber](#sequencenumber)
-  * StreamName **required** [StreamName](#streamname)
+  * Data **required**
+  * ExplicitHashKey
+  * PartitionKey **required**
+  * SequenceNumberForOrdering
+  * StreamName **required**
 
 ### PutRecordOutput
 * PutRecordOutput `object`: Represents the output for <code>PutRecord</code>.
-  * EncryptionType [EncryptionType](#encryptiontype)
-  * SequenceNumber **required** [SequenceNumber](#sequencenumber)
-  * ShardId **required** [ShardId](#shardid)
+  * EncryptionType
+  * SequenceNumber **required**
+  * ShardId **required**
 
 ### PutRecordsInput
 * PutRecordsInput `object`: A <code>PutRecords</code> request.
-  * Records **required** [PutRecordsRequestEntryList](#putrecordsrequestentrylist)
-  * StreamName **required** [StreamName](#streamname)
+  * Records **required**
+    * items [PutRecordsRequestEntry](#putrecordsrequestentry)
+  * StreamName **required**
 
 ### PutRecordsOutput
 * PutRecordsOutput `object`:  <code>PutRecords</code> results.
-  * EncryptionType [EncryptionType](#encryptiontype)
-  * FailedRecordCount [PositiveIntegerObject](#positiveintegerobject)
-  * Records **required** [PutRecordsResultEntryList](#putrecordsresultentrylist)
+  * EncryptionType
+  * FailedRecordCount
+  * Records **required**
+    * items [PutRecordsResultEntry](#putrecordsresultentry)
 
 ### PutRecordsRequestEntry
 * PutRecordsRequestEntry `object`: Represents the output for <code>PutRecords</code>.
-  * Data **required** [Data](#data)
-  * ExplicitHashKey [HashKey](#hashkey)
-  * PartitionKey **required** [PartitionKey](#partitionkey)
+  * Data **required**
+  * ExplicitHashKey
+  * PartitionKey **required**
 
 ### PutRecordsRequestEntryList
 * PutRecordsRequestEntryList `array`
@@ -755,10 +937,10 @@ amazonaws_kinesis.UpdateShardCount({
 
 ### PutRecordsResultEntry
 * PutRecordsResultEntry `object`: Represents the result of an individual record from a <code>PutRecords</code> request. A record that is successfully added to a stream includes <code>SequenceNumber</code> and <code>ShardId</code> in the result. A record that fails to be added to the stream includes <code>ErrorCode</code> and <code>ErrorMessage</code> in the result.
-  * ErrorCode [ErrorCode](#errorcode)
-  * ErrorMessage [ErrorMessage](#errormessage)
-  * SequenceNumber [SequenceNumber](#sequencenumber)
-  * ShardId [ShardId](#shardid)
+  * ErrorCode
+  * ErrorMessage
+  * SequenceNumber
+  * ShardId
 
 ### PutRecordsResultEntryList
 * PutRecordsResultEntryList `array`
@@ -766,28 +948,40 @@ amazonaws_kinesis.UpdateShardCount({
 
 ### Record
 * Record `object`: The unit of data of the Kinesis data stream, which is composed of a sequence number, a partition key, and a data blob.
-  * ApproximateArrivalTimestamp [Timestamp](#timestamp)
-  * Data **required** [Data](#data)
-  * EncryptionType [EncryptionType](#encryptiontype)
-  * PartitionKey **required** [PartitionKey](#partitionkey)
-  * SequenceNumber **required** [SequenceNumber](#sequencenumber)
+  * ApproximateArrivalTimestamp
+  * Data **required**
+  * EncryptionType
+  * PartitionKey **required**
+  * SequenceNumber **required**
 
 ### RecordList
 * RecordList `array`
   * items [Record](#record)
 
+### RegisterStreamConsumerInput
+* RegisterStreamConsumerInput `object`
+  * ConsumerName **required**
+  * StreamARN **required**
+
+### RegisterStreamConsumerOutput
+* RegisterStreamConsumerOutput `object`
+  * Consumer **required**
+    * ConsumerARN **required**
+    * ConsumerCreationTimestamp **required**
+    * ConsumerName **required**
+    * ConsumerStatus **required**
+
 ### RemoveTagsFromStreamInput
 * RemoveTagsFromStreamInput `object`: Represents the input for <code>RemoveTagsFromStream</code>.
-  * StreamName **required** [StreamName](#streamname)
-  * TagKeys **required** [TagKeyList](#tagkeylist)
+  * StreamName **required**
+  * TagKeys **required**
+    * items [TagKey](#tagkey)
 
 ### ResourceInUseException
-* ResourceInUseException `object`: The resource is not available for this operation. For successful operation, the resource must be in the <code>ACTIVE</code> state.
-  * message [ErrorMessage](#errormessage)
+
 
 ### ResourceNotFoundException
-* ResourceNotFoundException `object`: The requested resource could not be found. The stream might not be specified correctly.
-  * message [ErrorMessage](#errormessage)
+
 
 ### RetentionPeriodHours
 * RetentionPeriodHours `integer`
@@ -800,22 +994,39 @@ amazonaws_kinesis.UpdateShardCount({
 
 ### SequenceNumberRange
 * SequenceNumberRange `object`: The range of possible sequence numbers for the shard.
-  * EndingSequenceNumber [SequenceNumber](#sequencenumber)
-  * StartingSequenceNumber **required** [SequenceNumber](#sequencenumber)
+  * EndingSequenceNumber
+  * StartingSequenceNumber **required**
 
 ### Shard
 * Shard `object`: A uniquely identified group of data records in a Kinesis data stream.
-  * AdjacentParentShardId [ShardId](#shardid)
-  * HashKeyRange **required** [HashKeyRange](#hashkeyrange)
-  * ParentShardId [ShardId](#shardid)
-  * SequenceNumberRange **required** [SequenceNumberRange](#sequencenumberrange)
-  * ShardId **required** [ShardId](#shardid)
+  * AdjacentParentShardId
+  * HashKeyRange **required**
+    * EndingHashKey **required**
+    * StartingHashKey **required**
+  * ParentShardId
+  * SequenceNumberRange **required**
+    * EndingSequenceNumber
+    * StartingSequenceNumber **required**
+  * ShardId **required**
 
 ### ShardCountObject
 * ShardCountObject `integer`
 
+### ShardFilter
+* ShardFilter `object`
+  * ShardId [ShardId](#shardid)
+  * Timestamp [Timestamp](#timestamp)
+  * Type **required** [ShardFilterType](#shardfiltertype)
+
+### ShardFilterType
+* ShardFilterType `string` (values: AFTER_SHARD_ID, AT_TRIM_HORIZON, FROM_TRIM_HORIZON, AT_LATEST, AT_TIMESTAMP, FROM_TIMESTAMP)
+
 ### ShardId
 * ShardId `string`
+
+### ShardIdList
+* ShardIdList `array`
+  * items [ShardId](#shardid)
 
 ### ShardIterator
 * ShardIterator `string`
@@ -829,49 +1040,53 @@ amazonaws_kinesis.UpdateShardCount({
 
 ### SplitShardInput
 * SplitShardInput `object`: Represents the input for <code>SplitShard</code>.
-  * NewStartingHashKey **required** [HashKey](#hashkey)
-  * ShardToSplit **required** [ShardId](#shardid)
-  * StreamName **required** [StreamName](#streamname)
+  * NewStartingHashKey **required**
+  * ShardToSplit **required**
+  * StreamName **required**
 
 ### StartStreamEncryptionInput
 * StartStreamEncryptionInput `object`
-  * EncryptionType **required** [EncryptionType](#encryptiontype)
-  * KeyId **required** [KeyId](#keyid)
-  * StreamName **required** [StreamName](#streamname)
+  * EncryptionType **required**
+  * KeyId **required**
+  * StreamName **required**
 
 ### StopStreamEncryptionInput
 * StopStreamEncryptionInput `object`
-  * EncryptionType **required** [EncryptionType](#encryptiontype)
-  * KeyId **required** [KeyId](#keyid)
-  * StreamName **required** [StreamName](#streamname)
+  * EncryptionType **required**
+  * KeyId **required**
+  * StreamName **required**
 
 ### StreamARN
 * StreamARN `string`
 
 ### StreamDescription
 * StreamDescription `object`: Represents the output for <a>DescribeStream</a>.
-  * EncryptionType [EncryptionType](#encryptiontype)
-  * EnhancedMonitoring **required** [EnhancedMonitoringList](#enhancedmonitoringlist)
-  * HasMoreShards **required** [BooleanObject](#booleanobject)
-  * KeyId [KeyId](#keyid)
-  * RetentionPeriodHours **required** [RetentionPeriodHours](#retentionperiodhours)
-  * Shards **required** [ShardList](#shardlist)
-  * StreamARN **required** [StreamARN](#streamarn)
-  * StreamCreationTimestamp **required** [Timestamp](#timestamp)
-  * StreamName **required** [StreamName](#streamname)
-  * StreamStatus **required** [StreamStatus](#streamstatus)
+  * EncryptionType
+  * EnhancedMonitoring **required**
+    * items [EnhancedMetrics](#enhancedmetrics)
+  * HasMoreShards **required**
+  * KeyId
+  * RetentionPeriodHours **required**
+  * Shards **required**
+    * items [Shard](#shard)
+  * StreamARN **required**
+  * StreamCreationTimestamp **required**
+  * StreamName **required**
+  * StreamStatus **required**
 
 ### StreamDescriptionSummary
 * StreamDescriptionSummary `object`: Represents the output for <a>DescribeStreamSummary</a> 
-  * EncryptionType [EncryptionType](#encryptiontype)
-  * EnhancedMonitoring **required** [EnhancedMonitoringList](#enhancedmonitoringlist)
-  * KeyId [KeyId](#keyid)
-  * OpenShardCount **required** [ShardCountObject](#shardcountobject)
-  * RetentionPeriodHours **required** [PositiveIntegerObject](#positiveintegerobject)
-  * StreamARN **required** [StreamARN](#streamarn)
-  * StreamCreationTimestamp **required** [Timestamp](#timestamp)
-  * StreamName **required** [StreamName](#streamname)
-  * StreamStatus **required** [StreamStatus](#streamstatus)
+  * ConsumerCount
+  * EncryptionType
+  * EnhancedMonitoring **required**
+    * items [EnhancedMetrics](#enhancedmetrics)
+  * KeyId
+  * OpenShardCount **required**
+  * RetentionPeriodHours **required**
+  * StreamARN **required**
+  * StreamCreationTimestamp **required**
+  * StreamName **required**
+  * StreamStatus **required**
 
 ### StreamName
 * StreamName `string`
@@ -885,8 +1100,8 @@ amazonaws_kinesis.UpdateShardCount({
 
 ### Tag
 * Tag `object`: Metadata assigned to the stream, consisting of a key-value pair.
-  * Key **required** [TagKey](#tagkey)
-  * Value [TagValue](#tagvalue)
+  * Key **required**
+  * Value
 
 ### TagKey
 * TagKey `string`
@@ -900,10 +1115,7 @@ amazonaws_kinesis.UpdateShardCount({
   * items [Tag](#tag)
 
 ### TagMap
-* TagMap `array`
-  * items `object`
-    * key [TagKey](#tagkey)
-    * value [TagValue](#tagvalue)
+* TagMap `object`
 
 ### TagValue
 * TagValue `string`
@@ -913,14 +1125,14 @@ amazonaws_kinesis.UpdateShardCount({
 
 ### UpdateShardCountInput
 * UpdateShardCountInput `object`
-  * ScalingType **required** [ScalingType](#scalingtype)
-  * StreamName **required** [StreamName](#streamname)
-  * TargetShardCount **required** [PositiveIntegerObject](#positiveintegerobject)
+  * ScalingType **required**
+  * StreamName **required**
+  * TargetShardCount **required**
 
 ### UpdateShardCountOutput
 * UpdateShardCountOutput `object`
-  * CurrentShardCount [PositiveIntegerObject](#positiveintegerobject)
-  * StreamName [StreamName](#streamname)
-  * TargetShardCount [PositiveIntegerObject](#positiveintegerobject)
+  * CurrentShardCount
+  * StreamName
+  * TargetShardCount
 
 

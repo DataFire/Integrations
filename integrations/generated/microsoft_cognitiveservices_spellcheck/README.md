@@ -1,6 +1,6 @@
 # @datafire/microsoft_cognitiveservices_spellcheck
 
-Client library for Spell Check
+Client library for Spell Check Client
 
 ## Installation and Usage
 ```bash
@@ -11,10 +11,7 @@ let microsoft_cognitiveservices_spellcheck = require('@datafire/microsoft_cognit
   apiKeyHeader: ""
 });
 
-microsoft_cognitiveservices_spellcheck.SpellChecker({
-  "X-BingApis-SDK": "",
-  "Text": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

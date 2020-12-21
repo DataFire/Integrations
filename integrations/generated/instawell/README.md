@@ -9,13 +9,7 @@ npm install --save @datafire/instawell
 ```js
 let instawell = require('@datafire/instawell').create();
 
-instawell.campaigns.create.post({
-  "email": "",
-  "name": "",
-  "description": "",
-  "image": "",
-  "Content-Type": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

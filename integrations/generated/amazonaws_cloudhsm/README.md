@@ -13,10 +13,7 @@ let amazonaws_cloudhsm = require('@datafire/amazonaws_cloudhsm').create({
   region: ""
 });
 
-amazonaws_cloudhsm.AddTagsToResource({
-  "ResourceArn": "",
-  "TagList": []
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -33,15 +30,16 @@ amazonaws_cloudhsm.AddTagsToResource({
 
 ```js
 amazonaws_cloudhsm.AddTagsToResource({
-  "ResourceArn": "",
-  "TagList": []
+  "ResourceArn": null,
+  "TagList": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ResourceArn **required** [String](#string)
-  * TagList **required** [TagList](#taglist)
+  * ResourceArn **required**
+  * TagList **required**
+    * items [Tag](#tag)
 
 #### Output
 * output [AddTagsToResourceResponse](#addtagstoresourceresponse)
@@ -52,13 +50,13 @@ amazonaws_cloudhsm.AddTagsToResource({
 
 ```js
 amazonaws_cloudhsm.CreateHapg({
-  "Label": ""
+  "Label": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Label **required** [Label](#label)
+  * Label **required**
 
 #### Output
 * output [CreateHapgResponse](#createhapgresponse)
@@ -69,23 +67,23 @@ amazonaws_cloudhsm.CreateHapg({
 
 ```js
 amazonaws_cloudhsm.CreateHsm({
-  "SubnetId": "",
-  "SshKey": "",
-  "IamRoleArn": "",
+  "SubnetId": null,
+  "SshKey": null,
+  "IamRoleArn": null,
   "SubscriptionType": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ClientToken [ClientToken](#clienttoken)
-  * EniIp [IpAddress](#ipaddress)
-  * ExternalId [ExternalId](#externalid)
-  * IamRoleArn **required** [IamRoleArn](#iamrolearn)
-  * SshKey **required** [SshKey](#sshkey)
-  * SubnetId **required** [SubnetId](#subnetid)
+  * ClientToken
+  * EniIp
+  * ExternalId
+  * IamRoleArn **required**
+  * SshKey **required**
+  * SubnetId **required**
   * SubscriptionType **required** [SubscriptionType](#subscriptiontype)
-  * SyslogIp [IpAddress](#ipaddress)
+  * SyslogIp
 
 #### Output
 * output [CreateHsmResponse](#createhsmresponse)
@@ -96,14 +94,14 @@ amazonaws_cloudhsm.CreateHsm({
 
 ```js
 amazonaws_cloudhsm.CreateLunaClient({
-  "Certificate": ""
+  "Certificate": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Certificate **required** [Certificate](#certificate)
-  * Label [ClientLabel](#clientlabel)
+  * Certificate **required**
+  * Label
 
 #### Output
 * output [CreateLunaClientResponse](#createlunaclientresponse)
@@ -114,13 +112,13 @@ amazonaws_cloudhsm.CreateLunaClient({
 
 ```js
 amazonaws_cloudhsm.DeleteHapg({
-  "HapgArn": ""
+  "HapgArn": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * HapgArn **required** [HapgArn](#hapgarn)
+  * HapgArn **required**
 
 #### Output
 * output [DeleteHapgResponse](#deletehapgresponse)
@@ -131,13 +129,13 @@ amazonaws_cloudhsm.DeleteHapg({
 
 ```js
 amazonaws_cloudhsm.DeleteHsm({
-  "HsmArn": ""
+  "HsmArn": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * HsmArn **required** [HsmArn](#hsmarn)
+  * HsmArn **required**
 
 #### Output
 * output [DeleteHsmResponse](#deletehsmresponse)
@@ -148,13 +146,13 @@ amazonaws_cloudhsm.DeleteHsm({
 
 ```js
 amazonaws_cloudhsm.DeleteLunaClient({
-  "ClientArn": ""
+  "ClientArn": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ClientArn **required** [ClientArn](#clientarn)
+  * ClientArn **required**
 
 #### Output
 * output [DeleteLunaClientResponse](#deletelunaclientresponse)
@@ -165,13 +163,13 @@ amazonaws_cloudhsm.DeleteLunaClient({
 
 ```js
 amazonaws_cloudhsm.DescribeHapg({
-  "HapgArn": ""
+  "HapgArn": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * HapgArn **required** [HapgArn](#hapgarn)
+  * HapgArn **required**
 
 #### Output
 * output [DescribeHapgResponse](#describehapgresponse)
@@ -186,8 +184,8 @@ amazonaws_cloudhsm.DescribeHsm({}, context)
 
 #### Input
 * input `object`
-  * HsmArn [HsmArn](#hsmarn)
-  * HsmSerialNumber [HsmSerialNumber](#hsmserialnumber)
+  * HsmArn
+  * HsmSerialNumber
 
 #### Output
 * output [DescribeHsmResponse](#describehsmresponse)
@@ -202,8 +200,8 @@ amazonaws_cloudhsm.DescribeLunaClient({}, context)
 
 #### Input
 * input `object`
-  * CertificateFingerprint [CertificateFingerprint](#certificatefingerprint)
-  * ClientArn [ClientArn](#clientarn)
+  * CertificateFingerprint
+  * ClientArn
 
 #### Output
 * output [DescribeLunaClientResponse](#describelunaclientresponse)
@@ -214,17 +212,18 @@ amazonaws_cloudhsm.DescribeLunaClient({}, context)
 
 ```js
 amazonaws_cloudhsm.GetConfig({
-  "ClientArn": "",
-  "ClientVersion": "",
-  "HapgList": []
+  "ClientArn": null,
+  "ClientVersion": null,
+  "HapgList": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ClientArn **required** [ClientArn](#clientarn)
-  * ClientVersion **required** [ClientVersion](#clientversion)
-  * HapgList **required** [HapgList](#hapglist)
+  * ClientArn **required**
+  * ClientVersion **required**
+  * HapgList **required**
+    * items [HapgArn](#hapgarn)
 
 #### Output
 * output [GetConfigResponse](#getconfigresponse)
@@ -253,7 +252,7 @@ amazonaws_cloudhsm.ListHapgs({}, context)
 
 #### Input
 * input `object`
-  * NextToken [PaginationToken](#paginationtoken)
+  * NextToken
 
 #### Output
 * output [ListHapgsResponse](#listhapgsresponse)
@@ -268,7 +267,7 @@ amazonaws_cloudhsm.ListHsms({}, context)
 
 #### Input
 * input `object`
-  * NextToken [PaginationToken](#paginationtoken)
+  * NextToken
 
 #### Output
 * output [ListHsmsResponse](#listhsmsresponse)
@@ -283,7 +282,7 @@ amazonaws_cloudhsm.ListLunaClients({}, context)
 
 #### Input
 * input `object`
-  * NextToken [PaginationToken](#paginationtoken)
+  * NextToken
 
 #### Output
 * output [ListLunaClientsResponse](#listlunaclientsresponse)
@@ -294,13 +293,13 @@ amazonaws_cloudhsm.ListLunaClients({}, context)
 
 ```js
 amazonaws_cloudhsm.ListTagsForResource({
-  "ResourceArn": ""
+  "ResourceArn": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ResourceArn **required** [String](#string)
+  * ResourceArn **required**
 
 #### Output
 * output [ListTagsForResourceResponse](#listtagsforresourceresponse)
@@ -311,15 +310,16 @@ amazonaws_cloudhsm.ListTagsForResource({
 
 ```js
 amazonaws_cloudhsm.ModifyHapg({
-  "HapgArn": ""
+  "HapgArn": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * HapgArn **required** [HapgArn](#hapgarn)
-  * Label [Label](#label)
-  * PartitionSerialList [PartitionSerialList](#partitionseriallist)
+  * HapgArn **required**
+  * Label
+  * PartitionSerialList
+    * items [PartitionSerial](#partitionserial)
 
 #### Output
 * output [ModifyHapgResponse](#modifyhapgresponse)
@@ -330,18 +330,18 @@ amazonaws_cloudhsm.ModifyHapg({
 
 ```js
 amazonaws_cloudhsm.ModifyHsm({
-  "HsmArn": ""
+  "HsmArn": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * EniIp [IpAddress](#ipaddress)
-  * ExternalId [ExternalId](#externalid)
-  * HsmArn **required** [HsmArn](#hsmarn)
-  * IamRoleArn [IamRoleArn](#iamrolearn)
-  * SubnetId [SubnetId](#subnetid)
-  * SyslogIp [IpAddress](#ipaddress)
+  * EniIp
+  * ExternalId
+  * HsmArn **required**
+  * IamRoleArn
+  * SubnetId
+  * SyslogIp
 
 #### Output
 * output [ModifyHsmResponse](#modifyhsmresponse)
@@ -352,15 +352,15 @@ amazonaws_cloudhsm.ModifyHsm({
 
 ```js
 amazonaws_cloudhsm.ModifyLunaClient({
-  "ClientArn": "",
-  "Certificate": ""
+  "ClientArn": null,
+  "Certificate": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Certificate **required** [Certificate](#certificate)
-  * ClientArn **required** [ClientArn](#clientarn)
+  * Certificate **required**
+  * ClientArn **required**
 
 #### Output
 * output [ModifyLunaClientResponse](#modifylunaclientresponse)
@@ -371,15 +371,16 @@ amazonaws_cloudhsm.ModifyLunaClient({
 
 ```js
 amazonaws_cloudhsm.RemoveTagsFromResource({
-  "ResourceArn": "",
-  "TagKeyList": []
+  "ResourceArn": null,
+  "TagKeyList": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ResourceArn **required** [String](#string)
-  * TagKeyList **required** [TagKeyList](#tagkeylist)
+  * ResourceArn **required**
+  * TagKeyList **required**
+    * items [TagKey](#tagkey)
 
 #### Output
 * output [RemoveTagsFromResourceResponse](#removetagsfromresourceresponse)
@@ -397,12 +398,13 @@ amazonaws_cloudhsm.RemoveTagsFromResource({
 
 ### AddTagsToResourceRequest
 * AddTagsToResourceRequest `object`
-  * ResourceArn **required** [String](#string)
-  * TagList **required** [TagList](#taglist)
+  * ResourceArn **required**
+  * TagList **required**
+    * items [Tag](#tag)
 
 ### AddTagsToResourceResponse
 * AddTagsToResourceResponse `object`
-  * Status **required** [String](#string)
+  * Status **required**
 
 ### Boolean
 * Boolean `boolean`
@@ -437,122 +439,127 @@ amazonaws_cloudhsm.RemoveTagsFromResource({
 
 ### CloudHsmServiceException
 * CloudHsmServiceException `object`: Indicates that an exception occurred in the AWS CloudHSM service.
-  * message [String](#string)
-  * retryable [Boolean](#boolean)
+  * message
+  * retryable
 
 ### CreateHapgRequest
 * CreateHapgRequest `object`: Contains the inputs for the <a>CreateHapgRequest</a> action.
-  * Label **required** [Label](#label)
+  * Label **required**
 
 ### CreateHapgResponse
 * CreateHapgResponse `object`: Contains the output of the <a>CreateHAPartitionGroup</a> action.
-  * HapgArn [HapgArn](#hapgarn)
+  * HapgArn
 
 ### CreateHsmRequest
 * CreateHsmRequest `object`: Contains the inputs for the <code>CreateHsm</code> operation.
-  * ClientToken [ClientToken](#clienttoken)
-  * EniIp [IpAddress](#ipaddress)
-  * ExternalId [ExternalId](#externalid)
-  * IamRoleArn **required** [IamRoleArn](#iamrolearn)
-  * SshKey **required** [SshKey](#sshkey)
-  * SubnetId **required** [SubnetId](#subnetid)
+  * ClientToken
+  * EniIp
+  * ExternalId
+  * IamRoleArn **required**
+  * SshKey **required**
+  * SubnetId **required**
   * SubscriptionType **required** [SubscriptionType](#subscriptiontype)
-  * SyslogIp [IpAddress](#ipaddress)
+  * SyslogIp
 
 ### CreateHsmResponse
 * CreateHsmResponse `object`: Contains the output of the <code>CreateHsm</code> operation.
-  * HsmArn [HsmArn](#hsmarn)
+  * HsmArn
 
 ### CreateLunaClientRequest
 * CreateLunaClientRequest `object`: Contains the inputs for the <a>CreateLunaClient</a> action.
-  * Certificate **required** [Certificate](#certificate)
-  * Label [ClientLabel](#clientlabel)
+  * Certificate **required**
+  * Label
 
 ### CreateLunaClientResponse
 * CreateLunaClientResponse `object`: Contains the output of the <a>CreateLunaClient</a> action.
-  * ClientArn [ClientArn](#clientarn)
+  * ClientArn
 
 ### DeleteHapgRequest
 * DeleteHapgRequest `object`: Contains the inputs for the <a>DeleteHapg</a> action.
-  * HapgArn **required** [HapgArn](#hapgarn)
+  * HapgArn **required**
 
 ### DeleteHapgResponse
 * DeleteHapgResponse `object`: Contains the output of the <a>DeleteHapg</a> action.
-  * Status **required** [String](#string)
+  * Status **required**
 
 ### DeleteHsmRequest
 * DeleteHsmRequest `object`: Contains the inputs for the <a>DeleteHsm</a> operation.
-  * HsmArn **required** [HsmArn](#hsmarn)
+  * HsmArn **required**
 
 ### DeleteHsmResponse
 * DeleteHsmResponse `object`: Contains the output of the <a>DeleteHsm</a> operation.
-  * Status **required** [String](#string)
+  * Status **required**
 
 ### DeleteLunaClientRequest
 * DeleteLunaClientRequest `object`
-  * ClientArn **required** [ClientArn](#clientarn)
+  * ClientArn **required**
 
 ### DeleteLunaClientResponse
 * DeleteLunaClientResponse `object`
-  * Status **required** [String](#string)
+  * Status **required**
 
 ### DescribeHapgRequest
 * DescribeHapgRequest `object`: Contains the inputs for the <a>DescribeHapg</a> action.
-  * HapgArn **required** [HapgArn](#hapgarn)
+  * HapgArn **required**
 
 ### DescribeHapgResponse
 * DescribeHapgResponse `object`: Contains the output of the <a>DescribeHapg</a> action.
-  * HapgArn [HapgArn](#hapgarn)
-  * HapgSerial [String](#string)
-  * HsmsLastActionFailed [HsmList](#hsmlist)
-  * HsmsPendingDeletion [HsmList](#hsmlist)
-  * HsmsPendingRegistration [HsmList](#hsmlist)
-  * Label [Label](#label)
-  * LastModifiedTimestamp [Timestamp](#timestamp)
-  * PartitionSerialList [PartitionSerialList](#partitionseriallist)
-  * State [CloudHsmObjectState](#cloudhsmobjectstate)
+  * HapgArn
+  * HapgSerial
+  * HsmsLastActionFailed
+    * items [HsmArn](#hsmarn)
+  * HsmsPendingDeletion
+    * items [HsmArn](#hsmarn)
+  * HsmsPendingRegistration
+    * items [HsmArn](#hsmarn)
+  * Label
+  * LastModifiedTimestamp
+  * PartitionSerialList
+    * items [PartitionSerial](#partitionserial)
+  * State
 
 ### DescribeHsmRequest
 * DescribeHsmRequest `object`: Contains the inputs for the <a>DescribeHsm</a> operation.
-  * HsmArn [HsmArn](#hsmarn)
-  * HsmSerialNumber [HsmSerialNumber](#hsmserialnumber)
+  * HsmArn
+  * HsmSerialNumber
 
 ### DescribeHsmResponse
 * DescribeHsmResponse `object`: Contains the output of the <a>DescribeHsm</a> operation.
-  * AvailabilityZone [AZ](#az)
-  * EniId [EniId](#eniid)
-  * EniIp [IpAddress](#ipaddress)
-  * HsmArn [HsmArn](#hsmarn)
-  * HsmType [String](#string)
-  * IamRoleArn [IamRoleArn](#iamrolearn)
-  * Partitions [PartitionList](#partitionlist)
-  * SerialNumber [HsmSerialNumber](#hsmserialnumber)
-  * ServerCertLastUpdated [Timestamp](#timestamp)
-  * ServerCertUri [String](#string)
-  * SoftwareVersion [String](#string)
-  * SshKeyLastUpdated [Timestamp](#timestamp)
-  * SshPublicKey [SshKey](#sshkey)
-  * Status [HsmStatus](#hsmstatus)
-  * StatusDetails [String](#string)
-  * SubnetId [SubnetId](#subnetid)
-  * SubscriptionEndDate [Timestamp](#timestamp)
-  * SubscriptionStartDate [Timestamp](#timestamp)
+  * AvailabilityZone
+  * EniId
+  * EniIp
+  * HsmArn
+  * HsmType
+  * IamRoleArn
+  * Partitions
+    * items [PartitionArn](#partitionarn)
+  * SerialNumber
+  * ServerCertLastUpdated
+  * ServerCertUri
+  * SoftwareVersion
+  * SshKeyLastUpdated
+  * SshPublicKey
+  * Status
+  * StatusDetails
+  * SubnetId
+  * SubscriptionEndDate
+  * SubscriptionStartDate
   * SubscriptionType [SubscriptionType](#subscriptiontype)
-  * VendorName [String](#string)
-  * VpcId [VpcId](#vpcid)
+  * VendorName
+  * VpcId
 
 ### DescribeLunaClientRequest
 * DescribeLunaClientRequest `object`
-  * CertificateFingerprint [CertificateFingerprint](#certificatefingerprint)
-  * ClientArn [ClientArn](#clientarn)
+  * CertificateFingerprint
+  * ClientArn
 
 ### DescribeLunaClientResponse
 * DescribeLunaClientResponse `object`
-  * Certificate [Certificate](#certificate)
-  * CertificateFingerprint [CertificateFingerprint](#certificatefingerprint)
-  * ClientArn [ClientArn](#clientarn)
-  * Label [Label](#label)
-  * LastModifiedTimestamp [Timestamp](#timestamp)
+  * Certificate
+  * CertificateFingerprint
+  * ClientArn
+  * Label
+  * LastModifiedTimestamp
 
 ### EniId
 * EniId `string`
@@ -562,15 +569,16 @@ amazonaws_cloudhsm.RemoveTagsFromResource({
 
 ### GetConfigRequest
 * GetConfigRequest `object`
-  * ClientArn **required** [ClientArn](#clientarn)
-  * ClientVersion **required** [ClientVersion](#clientversion)
-  * HapgList **required** [HapgList](#hapglist)
+  * ClientArn **required**
+  * ClientVersion **required**
+  * HapgList **required**
+    * items [HapgArn](#hapgarn)
 
 ### GetConfigResponse
 * GetConfigResponse `object`
-  * ConfigCred [String](#string)
-  * ConfigFile [String](#string)
-  * ConfigType [String](#string)
+  * ConfigCred
+  * ConfigFile
+  * ConfigType
 
 ### HapgArn
 * HapgArn `string`
@@ -609,74 +617,80 @@ amazonaws_cloudhsm.RemoveTagsFromResource({
 
 ### ListAvailableZonesResponse
 * ListAvailableZonesResponse `object`
-  * AZList [AZList](#azlist)
+  * AZList
+    * items [AZ](#az)
 
 ### ListHapgsRequest
 * ListHapgsRequest `object`
-  * NextToken [PaginationToken](#paginationtoken)
+  * NextToken
 
 ### ListHapgsResponse
 * ListHapgsResponse `object`
-  * HapgList **required** [HapgList](#hapglist)
-  * NextToken [PaginationToken](#paginationtoken)
+  * HapgList **required**
+    * items [HapgArn](#hapgarn)
+  * NextToken
 
 ### ListHsmsRequest
 * ListHsmsRequest `object`
-  * NextToken [PaginationToken](#paginationtoken)
+  * NextToken
 
 ### ListHsmsResponse
 * ListHsmsResponse `object`: Contains the output of the <code>ListHsms</code> operation.
-  * HsmList [HsmList](#hsmlist)
-  * NextToken [PaginationToken](#paginationtoken)
+  * HsmList
+    * items [HsmArn](#hsmarn)
+  * NextToken
 
 ### ListLunaClientsRequest
 * ListLunaClientsRequest `object`
-  * NextToken [PaginationToken](#paginationtoken)
+  * NextToken
 
 ### ListLunaClientsResponse
 * ListLunaClientsResponse `object`
-  * ClientList **required** [ClientList](#clientlist)
-  * NextToken [PaginationToken](#paginationtoken)
+  * ClientList **required**
+    * items [ClientArn](#clientarn)
+  * NextToken
 
 ### ListTagsForResourceRequest
 * ListTagsForResourceRequest `object`
-  * ResourceArn **required** [String](#string)
+  * ResourceArn **required**
 
 ### ListTagsForResourceResponse
 * ListTagsForResourceResponse `object`
-  * TagList **required** [TagList](#taglist)
+  * TagList **required**
+    * items [Tag](#tag)
 
 ### ModifyHapgRequest
 * ModifyHapgRequest `object`
-  * HapgArn **required** [HapgArn](#hapgarn)
-  * Label [Label](#label)
-  * PartitionSerialList [PartitionSerialList](#partitionseriallist)
+  * HapgArn **required**
+  * Label
+  * PartitionSerialList
+    * items [PartitionSerial](#partitionserial)
 
 ### ModifyHapgResponse
 * ModifyHapgResponse `object`
-  * HapgArn [HapgArn](#hapgarn)
+  * HapgArn
 
 ### ModifyHsmRequest
 * ModifyHsmRequest `object`: Contains the inputs for the <a>ModifyHsm</a> operation.
-  * EniIp [IpAddress](#ipaddress)
-  * ExternalId [ExternalId](#externalid)
-  * HsmArn **required** [HsmArn](#hsmarn)
-  * IamRoleArn [IamRoleArn](#iamrolearn)
-  * SubnetId [SubnetId](#subnetid)
-  * SyslogIp [IpAddress](#ipaddress)
+  * EniIp
+  * ExternalId
+  * HsmArn **required**
+  * IamRoleArn
+  * SubnetId
+  * SyslogIp
 
 ### ModifyHsmResponse
 * ModifyHsmResponse `object`: Contains the output of the <a>ModifyHsm</a> operation.
-  * HsmArn [HsmArn](#hsmarn)
+  * HsmArn
 
 ### ModifyLunaClientRequest
 * ModifyLunaClientRequest `object`
-  * Certificate **required** [Certificate](#certificate)
-  * ClientArn **required** [ClientArn](#clientarn)
+  * Certificate **required**
+  * ClientArn **required**
 
 ### ModifyLunaClientResponse
 * ModifyLunaClientResponse `object`
-  * ClientArn [ClientArn](#clientarn)
+  * ClientArn
 
 ### PaginationToken
 * PaginationToken `string`
@@ -697,12 +711,13 @@ amazonaws_cloudhsm.RemoveTagsFromResource({
 
 ### RemoveTagsFromResourceRequest
 * RemoveTagsFromResourceRequest `object`
-  * ResourceArn **required** [String](#string)
-  * TagKeyList **required** [TagKeyList](#tagkeylist)
+  * ResourceArn **required**
+  * TagKeyList **required**
+    * items [TagKey](#tagkey)
 
 ### RemoveTagsFromResourceResponse
 * RemoveTagsFromResourceResponse `object`
-  * Status **required** [String](#string)
+  * Status **required**
 
 ### SshKey
 * SshKey `string`
@@ -718,8 +733,8 @@ amazonaws_cloudhsm.RemoveTagsFromResource({
 
 ### Tag
 * Tag `object`: A key-value pair that identifies or specifies metadata about an AWS CloudHSM resource.
-  * Key **required** [TagKey](#tagkey)
-  * Value **required** [TagValue](#tagvalue)
+  * Key **required**
+  * Value **required**
 
 ### TagKey
 * TagKey `string`

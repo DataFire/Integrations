@@ -11,11 +11,7 @@ let azure_cognitiveservices_computervision = require('@datafire/azure_cognitives
   apim_key: ""
 });
 
-azure_cognitiveservices_computervision.AnalyzeImage({
-  "ImageUrl": {
-    "url": ""
-  }
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -42,7 +38,7 @@ azure_cognitiveservices_computervision.AnalyzeImage({
 * input `object`
   * visualFeatures `array`: A string indicating what visual feature types to return. Multiple values should be comma-separated. Valid visual feature types include:Categories - categorizes image content according to a taxonomy defined in documentation. Tags - tags the image with a detailed list of words related to the image content. Description - describes the image content with a complete English sentence. Faces - detects if faces are present. If present, generate coordinates, gender and age. ImageType - detects if image is clipart or a line drawing. Color - determines the accent color, dominant color, and whether an image is black&white.Adult - detects if the image is pornographic in nature (depicts nudity or a sex act).  Sexually suggestive content is also detected.
   * details `array`: A string indicating which domain-specific details to return. Multiple values should be comma-separated. Valid visual feature types include:Celebrities - identifies celebrities if detected in the image.
-  * language `string` (values: en, ja, pt, zh): The desired language for output generation. If this parameter is not specified, the default value is &quot;en&quot;.Supported languages:en - English, Default.ja - Japanese pt - Portuguese zh - Simplified Chinese.
+  * language `string` (values: en, es, ja, pt, zh): The desired language for output generation. If this parameter is not specified, the default value is &quot;en&quot;.Supported languages:en - English, Default. es - Spanish, ja - Japanese, pt - Portuguese, zh - Simplified Chinese.
   * ImageUrl **required** `object`
     * url **required** `string`: Publicly reachable URL of an image
 
@@ -64,7 +60,7 @@ azure_cognitiveservices_computervision.DescribeImage({
 #### Input
 * input `object`
   * maxCandidates `string`: Maximum number of candidate descriptions to be returned.  The default is 1.
-  * language `string` (values: en, ja, pt, zh): The desired language for output generation. If this parameter is not specified, the default value is &quot;en&quot;.Supported languages:en - English, Default.ja - Japanese pt - Portuguese zh - Simplified Chinese.
+  * language `string` (values: en, es, ja, pt, zh): The desired language for output generation. If this parameter is not specified, the default value is &quot;en&quot;.Supported languages:en - English, Default. es - Spanish, ja - Japanese, pt - Portuguese, zh - Simplified Chinese.
   * ImageUrl **required** `object`
     * url **required** `string`: Publicly reachable URL of an image
 
@@ -125,7 +121,8 @@ azure_cognitiveservices_computervision.AnalyzeImageByDomain({
 
 #### Input
 * input `object`
-  * model **required** `string` (values: Celebrities, Landmarks): The domain-specific content to recognize.
+  * model **required** `string`: The domain-specific content to recognize.
+  * language `string` (values: en, es, ja, pt, zh): The desired language for output generation. If this parameter is not specified, the default value is &quot;en&quot;.Supported languages:en - English, Default. es - Spanish, ja - Japanese, pt - Portuguese, zh - Simplified Chinese.
   * ImageUrl **required** `object`
     * url **required** `string`: Publicly reachable URL of an image
 
@@ -190,7 +187,7 @@ azure_cognitiveservices_computervision.TagImage({
 
 #### Input
 * input `object`
-  * language `string` (values: en, ja, pt, zh): The desired language for output generation. If this parameter is not specified, the default value is &quot;en&quot;.Supported languages:en - English, Default.ja - Japanese pt - Portuguese zh - Simplified Chinese.
+  * language `string` (values: en, es, ja, pt, zh): The desired language for output generation. If this parameter is not specified, the default value is &quot;en&quot;.Supported languages:en - English, Default. es - Spanish, ja - Japanese, pt - Portuguese, zh - Simplified Chinese.
   * ImageUrl **required** `object`
     * url **required** `string`: Publicly reachable URL of an image
 
@@ -246,6 +243,13 @@ azure_cognitiveservices_computervision.GetTextOperationResult({
   * faceRectangle [FaceRectangle](#facerectangle)
   * name `string`: Name of the celebrity.
 
+### CelebrityResults
+* CelebrityResults `object`: List of celebrities recognized in the image.
+  * celebrities `array`
+    * items [CelebritiesModel](#celebritiesmodel)
+  * metadata [ImageMetadata](#imagemetadata)
+  * requestId `string`: Id of the REST API request.
+
 ### ColorInfo
 * ColorInfo `object`: An object providing additional metadata describing color attributes.
   * accentColor `string`: Possible accent color.
@@ -261,16 +265,11 @@ azure_cognitiveservices_computervision.GetTextOperationResult({
   * message **required** `string`: A message explaining the error reported by the service.
   * requestId `string`: A unique request identifier.
 
-### DomainModelResult
-* DomainModelResult `object`
-  * celebrities `array`: An array of possible celebritied identified in the image.
-    * items [CelebritiesModel](#celebritiesmodel)
-
 ### DomainModelResults
 * DomainModelResults `object`: Result of image analysis using a specific domain model including additional metadata.
   * metadata [ImageMetadata](#imagemetadata)
   * requestId `string`: Id of the REST API request.
-  * result [DomainModelResult](#domainmodelresult)
+  * result `object`: Model-specific response
 
 ### FaceDescription
 * FaceDescription `object`: An object describing a face identified in the image.
@@ -334,6 +333,15 @@ azure_cognitiveservices_computervision.GetTextOperationResult({
   * clipArtType `number`: Confidence level that the image is a clip art.
   * lineDrawingType `number`: Confidence level that the image is a line drawing.
 
+### LandmarkResults
+* LandmarkResults `object`: List of landmarks recognized in the image.
+  * landmarks `array`
+    * items `object`: A landmark recognized in the image
+      * confidence `number`: Confidence level for the landmark recognition.
+      * name `string`: Name of the landmark.
+  * metadata [ImageMetadata](#imagemetadata)
+  * requestId `string`: Id of the REST API request.
+
 ### Line
 * Line `object`
   * boundingBox [BoundingBox](#boundingbox)
@@ -366,7 +374,7 @@ azure_cognitiveservices_computervision.GetTextOperationResult({
 
 ### OcrResult
 * OcrResult `object`
-  * language [OcrResult](#ocrresult)
+  * language `string`: The BCP-47 language code of the text in the image.
   * orientation `string`: Orientation of the text recognized in the image. The value (up,down,left, or right) refers to the direction that the top of the recognized text is facing, after the image has been rotated around its center according to the detected text angle (see textAngle property).
   * regions `array`: An array of objects, where each object represents a region of recognized text.
     * items [OcrRegion](#ocrregion)

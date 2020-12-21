@@ -1,0 +1,26 @@
+{
+  "name": "@datafire/amentum_space_global_magnet",
+  "version": "3.0.0",
+  "main": "index.js",
+  "description": "DataFire integration for Global Magnet API - calculate main components of the geomagnetic field at or near Earth's surface",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DataFire/integrations.git"
+  },
+  "author": "DataFire",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DataFire/integrations/issues"
+  },
+  "homepage": "https://github.com/DataFire/integrations#readme",
+  "datafire": {
+    "origin": "https://api.apis.guru/v2/specs/amentum.space/global-magnet/1.1.0/swagger.json",
+    "type": "openapi"
+  },
+  "peerDependencies": {
+    "datafire": "^2.0.0"
+  },
+  "dependencies": {
+    "datafire": "^2.0.0"
+  }
+}

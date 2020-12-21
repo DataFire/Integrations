@@ -1,6 +1,6 @@
 {
   "name": "@datafire/epa_gov_air",
-  "version": "5.0.0",
+  "version": "6.0.0",
   "main": "index.js",
   "description": "DataFire integration for U.S. EPA Enforcement and Compliance History Online (ECHO) - Clean Air Act",
   "repository": {
@@ -14,7 +14,7 @@
   },
   "homepage": "https://github.com/DataFire/integrations#readme",
   "datafire": {
-    "origin": "https://api.apis.guru/v2/specs/epa.gov/air/0.0.0/swagger.json",
+    "origin": "https://api.apis.guru/v2/specs/epa.gov/air/2019.10.15/swagger.json",
     "type": "openapi"
   },
   "dependencies": {

@@ -68,7 +68,6 @@
   "paths": {
     "/providers/Microsoft.RecoveryServices/operations": {
       "get": {
-        "deprecated": false,
         "description": "Returns the list of available operations.",
         "operationId": "Operations_List",
         "parameters": [
@@ -631,7 +630,7 @@
           "type": "string"
         },
         "value": {
-          "description": "List of available operationss.",
+          "description": "List of available operations.",
           "items": {
             "$ref": "#/definitions/ClientDiscoveryValueForSingleApi"
           },

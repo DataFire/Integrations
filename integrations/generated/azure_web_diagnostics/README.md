@@ -15,12 +15,7 @@ let azure_web_diagnostics = require('@datafire/azure_web_diagnostics').create({
   redirect_uri: ""
 });
 
-azure_web_diagnostics.Diagnostics_ListHostingEnvironmentDetectorResponses({
-  "resourceGroupName": "",
-  "name": "",
-  "subscriptionId": "",
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -669,7 +664,7 @@ azure_web_diagnostics.Diagnostics_ExecuteSiteDetectorSlot({
     * items `object`: Name value pair.
       * name `string`: Pair name.
       * value `string`: Pair value.
-  * instructions `array`: Instrunctions if any for the data source
+  * instructions `array`: Instructions if any for the data source
     * items `string`
 
 ### DataTableResponseColumn
@@ -689,7 +684,7 @@ azure_web_diagnostics.Diagnostics_ExecuteSiteDetectorSlot({
 
 ### DetectorAbnormalTimePeriod
 * DetectorAbnormalTimePeriod `object`: Class representing Abnormal Time Period detected.
-  * endTime `string`: End time of the corelated event
+  * endTime `string`: End time of the correlated event
   * message `string`: Message describing the event
   * metaData `array`: Downtime metadata
     * items `array`
@@ -700,7 +695,7 @@ azure_web_diagnostics.Diagnostics_ExecuteSiteDetectorSlot({
   * solutions `array`: List of proposed solutions
     * items [Solution](#solution)
   * source `string`: Represents the name of the Detector
-  * startTime `string`: Start time of the corelated event
+  * startTime `string`: Start time of the correlated event
   * type `string` (values: ServiceIncident, AppDeployment, AppCrash, RuntimeIssueDetected, AseDeployment, UserIssue, PlatformIssue, Other): Represents the type of the Detector
 
 ### DetectorDefinition
@@ -788,7 +783,7 @@ azure_web_diagnostics.Diagnostics_ExecuteSiteDetectorSlot({
     * items [DetectorDefinition](#detectordefinition)
 
 ### DiagnosticDetectorResponse
-* DiagnosticDetectorResponse `object`: Class representing Reponse from Diagnostic Detectors
+* DiagnosticDetectorResponse `object`: Class representing Response from Diagnostic Detectors
   * properties `object`: DiagnosticDetectorResponse resource specific properties
     * abnormalTimePeriods `array`: List of Correlated events found by the detector
       * items [DetectorAbnormalTimePeriod](#detectorabnormaltimeperiod)
@@ -831,8 +826,8 @@ azure_web_diagnostics.Diagnostics_ExecuteSiteDetectorSlot({
 ### Rendering
 * Rendering `object`: Instructions for rendering the data
   * description `string`: Description of the data that will help it be interpreted
-  * renderingType `string` (values: NoGraph, Table, TimeSeries, TimeSeriesPerInstance): Rendering Type
   * title `string`: Title of data
+  * type `string` (values: NoGraph, Table, TimeSeries, TimeSeriesPerInstance): Rendering Type
 
 ### ResponseMetaData
 * ResponseMetaData `object`

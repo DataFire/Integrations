@@ -1,8 +1,8 @@
 {
   "name": "@datafire/whapi_sessions",
-  "version": "4.0.0",
+  "version": "5.0.0",
   "main": "index.js",
-  "description": "DataFire integration for Sessions",
+  "description": "DataFire integration for Sessions API",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DataFire/integrations.git"

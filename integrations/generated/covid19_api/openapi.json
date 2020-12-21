@@ -1,0 +1,798 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "COVID-19 data API",
+    "version": "1.2.6",
+    "x-apisguru-categories": [
+      "open_data"
+    ],
+    "x-origin": [
+      {
+        "format": "openapi",
+        "url": "https://covid19-api.com/docs.json",
+        "version": "3.0"
+      },
+      {
+        "format": "openapi",
+        "url": "https://covid19-api.com/docs.json",
+        "version": "3.0"
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "covid19-api.com",
+    "x-datafire": {
+      "name": "covid19_api",
+      "type": "openapi"
+    }
+  },
+  "paths": {
+    "/country": {
+      "get": {
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "description": "Name of the country",
+            "in": "query",
+            "name": "name",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": "json",
+            "description": "Format of the response",
+            "enum": [
+              "json",
+              "xml"
+            ],
+            "in": "query",
+            "name": "format",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Latest data about COVID-19 for selected country",
+            "schema": {
+              "items": {
+                "properties": {
+                  "confirmed": {
+                    "type": "integer"
+                  },
+                  "country": {
+                    "type": "string"
+                  },
+                  "critical": {
+                    "type": "integer"
+                  },
+                  "deaths": {
+                    "type": "integer"
+                  },
+                  "lastChange": {
+                    "format": "date-time",
+                    "type": "string"
+                  },
+                  "lastUpdate": {
+                    "format": "date-time",
+                    "type": "string"
+                  },
+                  "latitude": {
+                    "format": "float",
+                    "type": "number"
+                  },
+                  "longitude": {
+                    "format": "float",
+                    "type": "number"
+                  },
+                  "recovered": {
+                    "type": "integer"
+                  }
+                },
+                "type": "object"
+              },
+              "type": "array"
+            }
+          }
+        },
+        "tags": [
+          "Country"
+        ],
+        "description": "Get latest data for specific country. Country name and format are in parametars.",
+        "operationId": "getLatestCountryDataByName",
+        "summary": "getLatestCountryDataByName"
+      }
+    },
+    "/country/all": {
+      "get": {
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "default": "json",
+            "description": "Format of the response",
+            "enum": [
+              "json",
+              "xml"
+            ],
+            "in": "query",
+            "name": "format",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns all countries with latest data about COVID-19",
+            "schema": {
+              "items": {
+                "properties": {
+                  "confirmed": {
+                    "type": "integer"
+                  },
+                  "country": {
+                    "type": "string"
+                  },
+                  "critical": {
+                    "type": "integer"
+                  },
+                  "deaths": {
+                    "type": "integer"
+                  },
+                  "lastChange": {
+                    "format": "date-time",
+                    "type": "string"
+                  },
+                  "lastUpdate": {
+                    "format": "date-time",
+                    "type": "string"
+                  },
+                  "latitude": {
+                    "format": "float",
+                    "type": "number"
+                  },
+                  "longitude": {
+                    "format": "float",
+                    "type": "number"
+                  },
+                  "recovered": {
+                    "type": "integer"
+                  }
+                },
+                "type": "object"
+              },
+              "type": "array"
+            }
+          }
+        },
+        "tags": [
+          "Country"
+        ],
+        "description": "Get latest data from all countries.",
+        "operationId": "getLatestAllCountries",
+        "summary": "getLatestAllCountries"
+      }
+    },
+    "/country/code": {
+      "get": {
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "description": "Country code",
+            "in": "query",
+            "name": "code",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": "json",
+            "description": "Format of the response",
+            "enum": [
+              "json",
+              "xml"
+            ],
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Latest data about COVID-19 for selected country",
+            "schema": {
+              "items": {
+                "properties": {
+                  "confirmed": {
+                    "type": "integer"
+                  },
+                  "country": {
+                    "type": "string"
+                  },
+                  "critical": {
+                    "type": "integer"
+                  },
+                  "deaths": {
+                    "type": "integer"
+                  },
+                  "lastChange": {
+                    "format": "date-time",
+                    "type": "string"
+                  },
+                  "lastUpdate": {
+                    "format": "date-time",
+                    "type": "string"
+                  },
+                  "latitude": {
+                    "format": "float",
+                    "type": "number"
+                  },
+                  "longitude": {
+                    "format": "float",
+                    "type": "number"
+                  },
+                  "recovered": {
+                    "type": "integer"
+                  }
+                },
+                "type": "object"
+              },
+              "type": "array"
+            }
+          }
+        },
+        "tags": [
+          "Country"
+        ],
+        "description": "Get latest data for specific country. Country code and format are in parametars. Country code is in ISO 3166-1 standard. It can be 2 chars (Alpha-2) or 3 chars (Alpha-3) type.",
+        "operationId": "getLatestCountryDataByCode",
+        "summary": "getLatestCountryDataByCode"
+      }
+    },
+    "/help/countries": {
+      "get": {
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "default": "json",
+            "description": "Format of the response",
+            "enum": [
+              "json",
+              "xml"
+            ],
+            "in": "query",
+            "name": "format",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get name name, alpha-2, alpha-3 code, latitude and longitude for every country",
+            "schema": {
+              "items": {
+                "properties": {
+                  "alpha-2-code": {
+                    "type": "string"
+                  },
+                  "alpha-3-code": {
+                    "type": "string"
+                  },
+                  "latitude": {
+                    "format": "float",
+                    "type": "number"
+                  },
+                  "longitude": {
+                    "format": "float",
+                    "type": "number"
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "type": "array"
+            }
+          }
+        },
+        "tags": [
+          "Help"
+        ],
+        "description": "Get name name, alpha-2, alpha-3 code, latitude and longitude for every country.",
+        "operationId": "getListOfCountries",
+        "summary": "getListOfCountries"
+      }
+    },
+    "/report/country/all": {
+      "get": {
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "description": "Date of the report.",
+            "in": "query",
+            "name": "date",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": "YYYY-MM-DD",
+            "description": "Date format. If you dont want to use ISO 8601 standard (YYYY-MM-DD), you can provide different format.",
+            "enum": [
+              "YYYY-MM-DD",
+              "YYYY-DD-MM",
+              "DD-MM-YYYY",
+              "MM-DD-YYYY"
+            ],
+            "in": "query",
+            "name": "date-format",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "default": "json",
+            "description": "Format of the response",
+            "enum": [
+              "json",
+              "xml"
+            ],
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Daily report for COVID-19 for selected country.",
+            "schema": {
+              "items": {
+                "properties": {
+                  "country": {
+                    "type": "string"
+                  },
+                  "date": {
+                    "type": "string"
+                  },
+                  "latitude": {
+                    "format": "float",
+                    "type": "number"
+                  },
+                  "longitude": {
+                    "format": "float",
+                    "type": "number"
+                  },
+                  "province": {
+                    "items": {
+                      "properties": {
+                        "active": {
+                          "type": "integer"
+                        },
+                        "confirmed": {
+                          "type": "integer"
+                        },
+                        "deaths": {
+                          "type": "integer"
+                        },
+                        "recovered": {
+                          "type": "integer"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "type": "array"
+                  }
+                },
+                "type": "object"
+              },
+              "type": "array"
+            }
+          }
+        },
+        "tags": [
+          "Country"
+        ],
+        "description": "Get daily report for all countries. Date is mandatory parametar. Date format is by ISO 8601 standard, but you can provide different format with date-format parameter.",
+        "operationId": "getDailyReportAllCountries",
+        "summary": "getDailyReportAllCountries"
+      }
+    },
+    "/report/country/code": {
+      "get": {
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "description": "Country code. Country code is by ISO 3166-1 standard. It can be 2 chars (Alpha-2) or 3 chars (Alpha-3) type.",
+            "in": "query",
+            "name": "code",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Date of the report.",
+            "in": "query",
+            "name": "date",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": "YYYY-MM-DD",
+            "description": "Date format. If you dont want to use ISO 8601 standard (YYYY-MM-DD), you can provide different format.",
+            "enum": [
+              "YYYY-MM-DD",
+              "YYYY-DD-MM",
+              "DD-MM-YYYY",
+              "MM-DD-YYYY"
+            ],
+            "in": "query",
+            "name": "date-format",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "default": "json",
+            "description": "Format of the response",
+            "enum": [
+              "json",
+              "xml"
+            ],
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Daily report for COVID-19 for selected country.",
+            "schema": {
+              "items": {
+                "properties": {
+                  "country": {
+                    "type": "string"
+                  },
+                  "date": {
+                    "type": "string"
+                  },
+                  "latitude": {
+                    "format": "float",
+                    "type": "number"
+                  },
+                  "longitude": {
+                    "format": "float",
+                    "type": "number"
+                  },
+                  "province": {
+                    "items": {
+                      "properties": {
+                        "active": {
+                          "type": "integer"
+                        },
+                        "confirmed": {
+                          "type": "integer"
+                        },
+                        "deaths": {
+                          "type": "integer"
+                        },
+                        "recovered": {
+                          "type": "integer"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "type": "array"
+                  }
+                },
+                "type": "object"
+              },
+              "type": "array"
+            }
+          }
+        },
+        "tags": [
+          "Country"
+        ],
+        "description": "Get daily report for specific country. Country code and date are mandatory in parametars. Country code is in ISO 3166-1 standard. It can be 2 chars (Alpha-2) or 3 chars (Alpha-3) type. Date format is by ISO 8601 standard, but you can provide different format with date-format parameter",
+        "operationId": "getDailyReportByCountryCode",
+        "summary": "getDailyReportByCountryCode"
+      }
+    },
+    "/report/country/name": {
+      "get": {
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "description": "Country name.",
+            "in": "query",
+            "name": "name",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Date of the report.",
+            "in": "query",
+            "name": "date",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": "YYYY-MM-DD",
+            "description": "Date format. If you dont want to use ISO 8601 standard (YYYY-MM-DD), you can provide different format.",
+            "enum": [
+              "YYYY-MM-DD",
+              "YYYY-DD-MM",
+              "DD-MM-YYYY",
+              "MM-DD-YYYY"
+            ],
+            "in": "query",
+            "name": "date-format",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "default": "json",
+            "description": "Format of the response",
+            "enum": [
+              "json",
+              "xml"
+            ],
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Daily report for COVID-19 for selected country.",
+            "schema": {
+              "items": {
+                "properties": {
+                  "country": {
+                    "type": "string"
+                  },
+                  "date": {
+                    "type": "string"
+                  },
+                  "latitude": {
+                    "format": "float",
+                    "type": "number"
+                  },
+                  "longitude": {
+                    "format": "float",
+                    "type": "number"
+                  },
+                  "province": {
+                    "items": {
+                      "properties": {
+                        "active": {
+                          "type": "integer"
+                        },
+                        "confirmed": {
+                          "type": "integer"
+                        },
+                        "deaths": {
+                          "type": "integer"
+                        },
+                        "recovered": {
+                          "type": "integer"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "type": "array"
+                  }
+                },
+                "type": "object"
+              },
+              "type": "array"
+            }
+          }
+        },
+        "tags": [
+          "Country"
+        ],
+        "description": "Get daily report for specific country. Country name and date are mandatory in parametars. Date format is by ISO 8601 standard, but you can provide different format with date-format parameter",
+        "operationId": "getDailyReportByCountryName",
+        "summary": "getDailyReportByCountryName"
+      }
+    },
+    "/report/totals": {
+      "get": {
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "description": "Date of the report. If you don't put this field all dates will be returned.",
+            "in": "query",
+            "name": "date",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "default": "YYYY-MM-DD",
+            "description": "Date format. If you dont want to use ISO 8601 standard (YYYY-MM-DD), you can provide different format.",
+            "enum": [
+              "YYYY-MM-DD",
+              "YYYY-DD-MM",
+              "DD-MM-YYYY",
+              "MM-DD-YYYY"
+            ],
+            "in": "query",
+            "name": "date-format",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "default": "json",
+            "description": "Format of the response. If you don't put this field JSON will be response format.",
+            "enum": [
+              "json",
+              "xml"
+            ],
+            "in": "query",
+            "name": "format",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Data about COVID-19 for whole world",
+            "schema": {
+              "items": {
+                "properties": {
+                  "active": {
+                    "type": "integer"
+                  },
+                  "confirmed": {
+                    "type": "integer"
+                  },
+                  "critical": {
+                    "type": "integer"
+                  },
+                  "date": {
+                    "type": "string"
+                  },
+                  "deaths": {
+                    "type": "integer"
+                  },
+                  "recovered": {
+                    "type": "integer"
+                  }
+                },
+                "type": "object"
+              },
+              "type": "array"
+            }
+          }
+        },
+        "tags": [
+          "Totals"
+        ],
+        "description": "Get daily report data for whole world.",
+        "operationId": "getDailyReportTotals",
+        "summary": "getDailyReportTotals"
+      }
+    },
+    "/totals": {
+      "get": {
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "default": "json",
+            "description": "Format of the response",
+            "enum": [
+              "json",
+              "xml"
+            ],
+            "in": "query",
+            "name": "format",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Latest data about COVID-19 for whole world",
+            "schema": {
+              "items": {
+                "properties": {
+                  "confirmed": {
+                    "type": "integer"
+                  },
+                  "critical": {
+                    "type": "integer"
+                  },
+                  "deaths": {
+                    "type": "integer"
+                  },
+                  "lastChange": {
+                    "format": "date-time",
+                    "type": "string"
+                  },
+                  "lastUpdate": {
+                    "format": "date-time",
+                    "type": "string"
+                  },
+                  "recovered": {
+                    "type": "integer"
+                  }
+                },
+                "type": "object"
+              },
+              "type": "array"
+            }
+          }
+        },
+        "tags": [
+          "Totals"
+        ],
+        "description": "Get latest data for whole world.",
+        "operationId": "getLatestTotals",
+        "summary": "getLatestTotals"
+      }
+    }
+  },
+  "definitions": {
+    "Country-read": {
+      "description": "",
+      "properties": {
+        "confirmed": {
+          "type": "integer"
+        },
+        "critical": {
+          "type": "integer"
+        },
+        "deaths": {
+          "type": "integer"
+        },
+        "lastChange": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "lastUpdate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "latitude": {
+          "type": "number"
+        },
+        "longitude": {
+          "type": "number"
+        },
+        "name": {
+          "type": "string"
+        },
+        "recovered": {
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "DailyReport-read": {
+      "description": "",
+      "type": "object"
+    }
+  },
+  "x-components": {}
+}

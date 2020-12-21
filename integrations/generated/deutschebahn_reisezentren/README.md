@@ -9,7 +9,7 @@ npm install --save @datafire/deutschebahn_reisezentren
 ```js
 let deutschebahn_reisezentren = require('@datafire/deutschebahn_reisezentren').create();
 
-deutschebahn_reisezentren.reisezentren.get({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

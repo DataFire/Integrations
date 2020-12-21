@@ -15,9 +15,7 @@ let azure_marketplaceordering_agreements = require('@datafire/azure_marketplaceo
   redirect_uri: ""
 });
 
-azure_marketplaceordering_agreements.Operations_List({
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -44,6 +42,101 @@ azure_marketplaceordering_agreements.Operations_List({
 
 #### Output
 * output [OperationListResult](#operationlistresult)
+
+### MarketplaceAgreements_List
+List marketplace agreements in the subscription.
+
+
+```js
+azure_marketplaceordering_agreements.MarketplaceAgreements_List({
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * api-version **required** `string`: The API version to use for the request.
+  * subscriptionId **required** `string`: The subscription ID that identifies an Azure subscription.
+
+#### Output
+* output `array`
+  * items [AgreementTerms](#agreementterms)
+
+### MarketplaceAgreements_GetAgreement
+Get marketplace agreement.
+
+
+```js
+azure_marketplaceordering_agreements.MarketplaceAgreements_GetAgreement({
+  "api-version": "",
+  "subscriptionId": "",
+  "publisherId": "",
+  "offerId": "",
+  "planId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * api-version **required** `string`: The API version to use for the request.
+  * subscriptionId **required** `string`: The subscription ID that identifies an Azure subscription.
+  * publisherId **required** `string`: Publisher identifier string of image being deployed.
+  * offerId **required** `string`: Offer identifier string of image being deployed.
+  * planId **required** `string`: Plan identifier string of image being deployed.
+
+#### Output
+* output [AgreementTerms](#agreementterms)
+
+### MarketplaceAgreements_Cancel
+Cancel marketplace terms.
+
+
+```js
+azure_marketplaceordering_agreements.MarketplaceAgreements_Cancel({
+  "api-version": "",
+  "subscriptionId": "",
+  "publisherId": "",
+  "offerId": "",
+  "planId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * api-version **required** `string`: The API version to use for the request.
+  * subscriptionId **required** `string`: The subscription ID that identifies an Azure subscription.
+  * publisherId **required** `string`: Publisher identifier string of image being deployed.
+  * offerId **required** `string`: Offer identifier string of image being deployed.
+  * planId **required** `string`: Plan identifier string of image being deployed.
+
+#### Output
+* output [AgreementTerms](#agreementterms)
+
+### MarketplaceAgreements_Sign
+Sign marketplace terms.
+
+
+```js
+azure_marketplaceordering_agreements.MarketplaceAgreements_Sign({
+  "api-version": "",
+  "subscriptionId": "",
+  "publisherId": "",
+  "offerId": "",
+  "planId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * api-version **required** `string`: The API version to use for the request.
+  * subscriptionId **required** `string`: The subscription ID that identifies an Azure subscription.
+  * publisherId **required** `string`: Publisher identifier string of image being deployed.
+  * offerId **required** `string`: Offer identifier string of image being deployed.
+  * planId **required** `string`: Plan identifier string of image being deployed.
+
+#### Output
+* output [AgreementTerms](#agreementterms)
 
 ### MarketplaceAgreements_Get
 Get marketplace terms.
@@ -124,7 +217,7 @@ azure_marketplaceordering_agreements.MarketplaceAgreements_Create({
   * type `string`: Resource type.
 
 ### ErrorResponse
-* ErrorResponse `object`: Error reponse indicates Microsoft.MarketplaceOrdering service is not able to process the incoming request. The reason is provided in the error message.
+* ErrorResponse `object`: Error response indicates Microsoft.MarketplaceOrdering service is not able to process the incoming request. The reason is provided in the error message.
   * error `object`: The details of the error.
     * code `string`: Error code.
     * message `string`: Error message indicating why the operation failed.

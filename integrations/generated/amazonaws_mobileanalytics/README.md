@@ -13,9 +13,7 @@ let amazonaws_mobileanalytics = require('@datafire/amazonaws_mobileanalytics').c
   region: ""
 });
 
-amazonaws_mobileanalytics.PutEvents({
-  "events": []
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -32,13 +30,17 @@ Amazon Mobile Analytics is a service for collecting, visualizing, and understand
 
 ```js
 amazonaws_mobileanalytics.PutEvents({
+  "x-amz-Client-Context": "",
   "events": []
 }, context)
 ```
 
 #### Input
 * input `object`
-  * events **required** [EventListDefinition](#eventlistdefinition)
+  * x-amz-Client-Context **required** `string`
+  * x-amz-Client-Context-Encoding `string`
+  * events **required** `array`: An array of Event JSON objects
+    * items [Event](#event)
 
 #### Output
 *Output schema unknown*
@@ -49,19 +51,23 @@ amazonaws_mobileanalytics.PutEvents({
 
 ### BadRequestException
 * BadRequestException `object`: An exception object returned when a request fails.
-  * message [String](#string)
+  * message
 
 ### Double
 * Double `number`
 
 ### Event
 * Event `object`: A JSON object representing a batch of unique event occurrences in your app.
-  * attributes [MapOfStringToString](#mapofstringtostring)
-  * eventType **required** [String50Chars](#string50chars)
-  * metrics [MapOfStringToNumber](#mapofstringtonumber)
-  * session [Session](#session)
-  * timestamp **required** [ISO8601Timestamp](#iso8601timestamp)
-  * version [String10Chars](#string10chars)
+  * attributes
+  * eventType **required**
+  * metrics
+  * session
+    * duration
+    * id
+    * startTimestamp
+    * stopTimestamp
+  * timestamp **required**
+  * version
 
 ### EventListDefinition
 * EventListDefinition `array`
@@ -74,27 +80,22 @@ amazonaws_mobileanalytics.PutEvents({
 * Long `integer`
 
 ### MapOfStringToNumber
-* MapOfStringToNumber `array`
-  * items `object`
-    * key [String50Chars](#string50chars)
-    * value [Double](#double)
+* MapOfStringToNumber `object`
 
 ### MapOfStringToString
-* MapOfStringToString `array`
-  * items `object`
-    * key [String50Chars](#string50chars)
-    * value [String0to1000Chars](#string0to1000chars)
+* MapOfStringToString `object`
 
 ### PutEventsInput
 * PutEventsInput `object`: A container for the data needed for a PutEvent operation
-  * events **required** [EventListDefinition](#eventlistdefinition)
+  * events **required**
+    * items [Event](#event)
 
 ### Session
 * Session `object`: Describes the session. Session information is required on ALL events.
-  * duration [Long](#long)
-  * id [String50Chars](#string50chars)
-  * startTimestamp [ISO8601Timestamp](#iso8601timestamp)
-  * stopTimestamp [ISO8601Timestamp](#iso8601timestamp)
+  * duration
+  * id
+  * startTimestamp
+  * stopTimestamp
 
 ### String
 * String `string`

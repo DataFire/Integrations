@@ -1,30 +1,24 @@
 {
   "swagger": "2.0",
-  "schemes": [
-    "https",
-    "http"
-  ],
-  "host": "api.tvmaze.com",
-  "basePath": "/v1",
   "info": {
     "contact": {
       "url": "http://www.tvmaze.com"
     },
     "description": "Access to the user API is only possible for users with a [premium](http://www.tvmaze.com/premium) account. A user can only access their own user data.\n\nAuthentication uses HTTP Basic. Use the TVmaze username as authentication username, and the TVmaze API key as authentication password. Your API key can be found on your [dashboard](http://www.tvmaze.com/dashboard). To try out these API calls from this page, click the \"Authorize\" button on top and input your credentials.\n",
-    "title": "TVmaze user",
+    "title": "TVmaze user API",
     "version": "1.0",
     "x-apisguru-categories": [
       "media"
     ],
     "x-logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_515600283242463232_-APY1VAo_400x400.png"
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_tvmaze_profile_image.jpeg"
     },
     "x-origin": [
       {
-        "format": "swagger",
+        "format": "openapi",
         "url": "http://static.tvmaze.com/apidoc/v1.yaml",
-        "version": "2.0"
+        "version": "3.0"
       }
     ],
     "x-preferred": true,
@@ -34,86 +28,223 @@
       "type": "openapi"
     }
   },
-  "consumes": [
-    "application/json"
-  ],
-  "produces": [
-    "application/json"
-  ],
-  "securityDefinitions": {
-    "usertoken": {
-      "type": "basic"
-    }
-  },
-  "security": [
-    {
-      "usertoken": []
-    }
+  "host": "api.tvmaze.com",
+  "basePath": "/v1",
+  "schemes": [
+    "https"
   ],
   "paths": {
-    "/user/episodes": {
-      "get": {
+    "/auth/poll": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "description": "Only return episodes from this specific show",
-            "in": "query",
-            "name": "show_id",
-            "required": false,
-            "type": "integer"
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "token": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
           }
         ],
         "responses": {
           "200": {
-            "description": "An array of marked episodes",
+            "description": "The user confirmed the authentication request",
+            "schema": {
+              "properties": {
+                "apikey": {
+                  "description": "The user's API key",
+                  "type": "string"
+                },
+                "username": {
+                  "description": "The user's username",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "403": {
+            "description": "The authentication request was not confirmed yet"
+          },
+          "404": {
+            "description": "The authentication request was not found"
+          },
+          "429": {
+            "description": "You are polling too quickly, please back off"
+          }
+        },
+        "tags": [
+          "auth"
+        ],
+        "description": "Using the token acquired in the `start` endpoint, you can start polling this endpoint once every 10 seconds.\n\nWhen the user has confirmed the authentication request on their end, this endpoint will return the user's API key that you can use in subsequent authenticated endpoints. Note that it'll do so only once, subsequent requests after the initial 200 response will return a 404.\n\nFor as long as the user did not yet confirm their authentication request, this endpoint will return a 403.\n",
+        "summary": "Poll whether an authentication request was confirmed"
+      }
+    },
+    "/auth/start": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "email": {
+                  "description": "The user's email address",
+                  "type": "string"
+                },
+                "email_confirmation": {
+                  "default": true,
+                  "description": "Whether to email the user a confirmation link",
+                  "type": "boolean"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The authentication request was succesfully started",
+            "schema": {
+              "properties": {
+                "confirm_url": {
+                  "description": "URL where the user can confirm the authentication request",
+                  "type": "string"
+                },
+                "token": {
+                  "description": "Authentication token to use in the `poll` endpoint",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "401": {
+            "description": "The email address was found, but not confirmed"
+          },
+          "404": {
+            "description": "The email address was not found"
+          },
+          "429": {
+            "description": "You are starting authentication requests too quickly, please back off"
+          }
+        },
+        "tags": [
+          "auth"
+        ],
+        "description": "If you want to access the TVmaze API on behalf of a user without querying them for their password, use this endpoint.\n\nTo get started, send a POST request containing the user's email address. The response will contain a `token`, which you can use as input to the `poll` endpoint. The user will receive an email prompting them to confirm the authentication request.\n\nAlternatively, if you expect the user to be logged in to TVmaze on the device they are currently interacting with, you can set `email_confirmation` to false and redirect them to the `confirm_url` URL. If they are logged in to TVmaze, they will be able to confirm the authentication request instantly.\n",
+        "summary": "Start an authentication request"
+      }
+    },
+    "/auth/validate": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "The supplied credentials are valid",
+            "schema": {
+              "properties": {
+                "premium": {
+                  "description": "The user's premium level; 1 for Bronze, 2 for Silver, 3 for Gold; or 0 for none",
+                  "type": "integer"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "401": {
+            "description": "The supplied credentials are not valid"
+          }
+        },
+        "tags": [
+          "auth"
+        ],
+        "description": "If the credentials supplied as HTTP basic are valid, the user's level of premium - if any - is returned.",
+        "summary": "Validate your authentication credentials"
+      }
+    },
+    "/scrobble/episodes": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
             "schema": {
               "items": {
-                "$ref": "#/definitions/MarkedEpisode"
+                "properties": {
+                  "episode_id": {
+                    "description": "The TVmaze episode ID",
+                    "type": "integer"
+                  },
+                  "marked_at": {
+                    "description": "Epoch timestamp for when the user watched the episode, or 0 for unknown.",
+                    "type": "integer"
+                  },
+                  "type": {
+                    "$ref": "#/definitions/MarkType"
+                  }
+                },
+                "type": "object"
               },
               "type": "array"
             }
           }
-        },
-        "summary": "List the marked episodes",
-        "tags": [
-          "marked episodes"
         ],
-        "operationId": "user.episodes.get"
-      }
-    },
-    "/user/episodes/{episode_id}": {
-      "delete": {
         "responses": {
           "200": {
-            "description": "the episode is now unmarked"
-          },
-          "404": {
-            "description": "this episode was not marked"
-          }
-        },
-        "summary": "Unmark an episode",
-        "tags": [
-          "marked episodes"
-        ],
-        "operationId": "user.episodes.episode_id.delete"
-      },
-      "get": {
-        "responses": {
-          "200": {
-            "description": "The marked episode",
+            "description": "All episodes were succesfully marked",
             "schema": {
-              "$ref": "#/definitions/MarkedEpisode"
+              "$ref": "#/definitions/BulkResponse"
             }
           },
-          "404": {
-            "description": "This episode is not marked"
+          "207": {
+            "description": "Some episodes were succesfully marked, but there are errors",
+            "schema": {
+              "$ref": "#/definitions/BulkResponse"
+            }
+          },
+          "422": {
+            "description": "None of the episodes were succesfully marked",
+            "schema": {
+              "$ref": "#/definitions/BulkResponse"
+            }
           }
         },
-        "summary": "Check if an episode is marked",
         "tags": [
-          "marked episodes"
+          "scrobbling"
         ],
-        "operationId": "user.episodes.episode_id.get"
-      },
+        "description": "This endpoint can be used by all users, even without premium",
+        "summary": "Mark episodes as acquired or watched based on their IDs"
+      }
+    },
+    "/scrobble/episodes/{episode_id}": {
       "parameters": [
         {
           "in": "path",
@@ -123,7 +254,12 @@
         }
       ],
       "put": {
-        "description": "Set `marked_at` to `NULL` or leave it out to use the current time.",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "in": "body",
@@ -147,15 +283,261 @@
             "description": "invalid input data"
           }
         },
-        "summary": "Mark an episode",
+        "tags": [
+          "scrobbling"
+        ],
+        "description": "This endpoint can be used by all users, even without premium",
+        "summary": "Mark an episode as acquired or watched based on its ID"
+      }
+    },
+    "/scrobble/shows": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The show's TVmaze ID",
+            "in": "query",
+            "name": "tvmaze_id",
+            "type": "integer"
+          },
+          {
+            "description": "The show's TheTVDB ID",
+            "in": "query",
+            "name": "thetvdb_id",
+            "type": "integer"
+          },
+          {
+            "description": "The show's IMDB ID",
+            "in": "query",
+            "name": "imdb_id",
+            "type": "integer"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "items": {
+                "properties": {
+                  "airdate": {
+                    "description": "The episode airdate",
+                    "format": "date",
+                    "type": "string"
+                  },
+                  "episode": {
+                    "description": "The episode number",
+                    "type": "integer"
+                  },
+                  "marked_at": {
+                    "description": "Epoch timestamp for when the user watched the episode, or 0 for unknown.",
+                    "type": "integer"
+                  },
+                  "season": {
+                    "description": "The season number",
+                    "type": "integer"
+                  },
+                  "type": {
+                    "$ref": "#/definitions/MarkType"
+                  }
+                },
+                "type": "object"
+              },
+              "type": "array"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "All episodes were succesfully marked",
+            "schema": {
+              "$ref": "#/definitions/BulkResponse"
+            }
+          },
+          "207": {
+            "description": "Some episodes were succesfully marked, but there are errors",
+            "schema": {
+              "$ref": "#/definitions/BulkResponse"
+            }
+          },
+          "422": {
+            "description": "None of the episodes were succesfully marked",
+            "schema": {
+              "$ref": "#/definitions/BulkResponse"
+            }
+          }
+        },
+        "tags": [
+          "scrobbling"
+        ],
+        "description": "To specify a show, supply either `tvmaze_id`, `thetvdb_id` or `imdb_id`. To specify an episode, supply either both `season` and `episode`, or `airdate`.\n\nThis endpoint can be used by all users, even without premium.\n",
+        "summary": "Mark episodes within a show as acquired or watched based on their attributes"
+      }
+    },
+    "/scrobble/shows/{show_id}": {
+      "parameters": [
+        {
+          "description": "ID of the target show",
+          "in": "path",
+          "name": "show_id",
+          "required": true,
+          "type": "integer"
+        },
+        {
+          "description": "Embed full episode info",
+          "enum": [
+            "episode"
+          ],
+          "in": "query",
+          "name": "embed",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "An array of marked episodes",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/MarkedEpisode"
+              },
+              "type": "array"
+            }
+          }
+        },
+        "tags": [
+          "scrobbling"
+        ],
+        "description": "This endpoint can be used by all users, even without premium",
+        "summary": "List watched and acquired episodes for a show"
+      }
+    },
+    "/user/episodes": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Only return episodes from this specific show",
+            "in": "query",
+            "name": "show_id",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "An array of marked episodes",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/MarkedEpisode"
+              },
+              "type": "array"
+            }
+          }
+        },
         "tags": [
           "marked episodes"
         ],
-        "operationId": "user.episodes.episode_id.put"
+        "summary": "List the marked episodes"
+      }
+    },
+    "/user/episodes/{episode_id}": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "episode_id",
+          "required": true,
+          "type": "integer"
+        }
+      ],
+      "delete": {
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "the episode is now unmarked"
+          },
+          "404": {
+            "description": "this episode was not marked"
+          }
+        },
+        "tags": [
+          "marked episodes"
+        ],
+        "summary": "Unmark an episode"
+      },
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "The marked episode",
+            "schema": {
+              "$ref": "#/definitions/MarkedEpisode"
+            }
+          },
+          "404": {
+            "description": "This episode is not marked"
+          }
+        },
+        "tags": [
+          "marked episodes"
+        ],
+        "summary": "Check if an episode is marked"
+      },
+      "put": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/MarkedEpisode"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "this episode is now marked",
+            "schema": {
+              "$ref": "#/definitions/MarkedEpisode"
+            }
+          },
+          "404": {
+            "description": "this episode does not exist"
+          },
+          "422": {
+            "description": "invalid input data"
+          }
+        },
+        "tags": [
+          "marked episodes"
+        ],
+        "description": "Set `marked_at` to `NULL` or leave it out to use the current time.",
+        "summary": "Mark an episode"
       }
     },
     "/user/follows/networks": {
       "get": {
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Embed full network info",
@@ -179,15 +561,23 @@
             }
           }
         },
-        "summary": "List the followed networks",
         "tags": [
           "followed networks"
         ],
-        "operationId": "user.follows.networks.get"
+        "summary": "List the followed networks"
       }
     },
     "/user/follows/networks/{network_id}": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "network_id",
+          "required": true,
+          "type": "integer"
+        }
+      ],
       "delete": {
+        "parameters": [],
         "responses": {
           "200": {
             "description": "the network is now unfollowed"
@@ -196,13 +586,16 @@
             "description": "this network was not followed"
           }
         },
-        "summary": "Unfollow a network",
         "tags": [
           "followed networks"
         ],
-        "operationId": "user.follows.networks.network_id.delete"
+        "summary": "Unfollow a network"
       },
       "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": "The followed network",
@@ -214,21 +607,16 @@
             "description": "this network is not followed"
           }
         },
-        "summary": "Check if a network is followed",
         "tags": [
           "followed networks"
         ],
-        "operationId": "user.follows.networks.network_id.get"
+        "summary": "Check if a network is followed"
       },
-      "parameters": [
-        {
-          "in": "path",
-          "name": "network_id",
-          "required": true,
-          "type": "integer"
-        }
-      ],
       "put": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": "this network is now followed",
@@ -240,15 +628,17 @@
             "description": "this network does not exist"
           }
         },
-        "summary": "Follow a network",
         "tags": [
           "followed networks"
         ],
-        "operationId": "user.follows.networks.network_id.put"
+        "summary": "Follow a network"
       }
     },
     "/user/follows/people": {
       "get": {
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Embed full person info",
@@ -272,15 +662,23 @@
             }
           }
         },
-        "summary": "List the followed people",
         "tags": [
           "followed people"
         ],
-        "operationId": "user.follows.people.get"
+        "summary": "List the followed people"
       }
     },
     "/user/follows/people/{person_id}": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "person_id",
+          "required": true,
+          "type": "integer"
+        }
+      ],
       "delete": {
+        "parameters": [],
         "responses": {
           "200": {
             "description": "the person is now unfollowed"
@@ -289,13 +687,16 @@
             "description": "this person was not followed"
           }
         },
-        "summary": "Unfollow a person",
         "tags": [
           "followed people"
         ],
-        "operationId": "user.follows.people.person_id.delete"
+        "summary": "Unfollow a person"
       },
       "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": "The followed person",
@@ -307,21 +708,16 @@
             "description": "this person is not followed"
           }
         },
-        "summary": "Check if a person is followed",
         "tags": [
           "followed people"
         ],
-        "operationId": "user.follows.people.person_id.get"
+        "summary": "Check if a person is followed"
       },
-      "parameters": [
-        {
-          "in": "path",
-          "name": "person_id",
-          "required": true,
-          "type": "integer"
-        }
-      ],
       "put": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": "this person is now followed",
@@ -333,15 +729,17 @@
             "description": "this person does not exist"
           }
         },
-        "summary": "Follow a person",
         "tags": [
           "followed people"
         ],
-        "operationId": "user.follows.people.person_id.put"
+        "summary": "Follow a person"
       }
     },
     "/user/follows/shows": {
       "get": {
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Embed full show info",
@@ -365,15 +763,23 @@
             }
           }
         },
-        "summary": "List the followed shows",
         "tags": [
           "followed shows"
         ],
-        "operationId": "user.follows.shows.get"
+        "summary": "List the followed shows"
       }
     },
     "/user/follows/shows/{show_id}": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "show_id",
+          "required": true,
+          "type": "integer"
+        }
+      ],
       "delete": {
+        "parameters": [],
         "responses": {
           "200": {
             "description": "The show is now unfollowed"
@@ -382,13 +788,16 @@
             "description": "This show was not followed"
           }
         },
-        "summary": "Unfollow a show",
         "tags": [
           "followed shows"
         ],
-        "operationId": "user.follows.shows.show_id.delete"
+        "summary": "Unfollow a show"
       },
       "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": "The followed show",
@@ -400,21 +809,16 @@
             "description": "This show is not followed"
           }
         },
-        "summary": "Check if a show is followed",
         "tags": [
           "followed shows"
         ],
-        "operationId": "user.follows.shows.show_id.get"
+        "summary": "Check if a show is followed"
       },
-      "parameters": [
-        {
-          "in": "path",
-          "name": "show_id",
-          "required": true,
-          "type": "integer"
-        }
-      ],
       "put": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": "This show is now followed",
@@ -426,15 +830,17 @@
             "description": "This show does not exist"
           }
         },
-        "summary": "Follow a show",
         "tags": [
           "followed shows"
         ],
-        "operationId": "user.follows.shows.show_id.put"
+        "summary": "Follow a show"
       }
     },
     "/user/follows/webchannels": {
       "get": {
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Embed full webchannel info",
@@ -458,15 +864,23 @@
             }
           }
         },
-        "summary": "List the followed webchannels",
         "tags": [
           "followed webchannels"
         ],
-        "operationId": "user.follows.webchannels.get"
+        "summary": "List the followed webchannels"
       }
     },
     "/user/follows/webchannels/{webchannel_id}": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "webchannel_id",
+          "required": true,
+          "type": "integer"
+        }
+      ],
       "delete": {
+        "parameters": [],
         "responses": {
           "200": {
             "description": "the webchannel is now unfollowed"
@@ -475,13 +889,16 @@
             "description": "this webchannel was not followed"
           }
         },
-        "summary": "Unfollow a webchannel",
         "tags": [
           "followed webchannels"
         ],
-        "operationId": "user.follows.webchannels.webchannel_id.delete"
+        "summary": "Unfollow a webchannel"
       },
       "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": "The followed webchannel",
@@ -493,21 +910,16 @@
             "description": "this webchannel is not followed"
           }
         },
-        "summary": "Check if a webchannel is followed",
         "tags": [
           "followed webchannels"
         ],
-        "operationId": "user.follows.webchannels.webchannel_id.get"
+        "summary": "Check if a webchannel is followed"
       },
-      "parameters": [
-        {
-          "in": "path",
-          "name": "webchannel_id",
-          "required": true,
-          "type": "integer"
-        }
-      ],
       "put": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": "this webchannel is now followed",
@@ -519,15 +931,245 @@
             "description": "this webchannel does not exist"
           }
         },
-        "summary": "Follow a webchannel",
         "tags": [
           "followed webchannels"
         ],
-        "operationId": "user.follows.webchannels.webchannel_id.put"
+        "summary": "Follow a webchannel"
+      }
+    },
+    "/user/tags": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "An array of tags",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/Tag"
+              },
+              "type": "array"
+            }
+          }
+        },
+        "tags": [
+          "tagged shows"
+        ],
+        "summary": "List all tags"
+      },
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Tag"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The newly created tag",
+            "schema": {
+              "$ref": "#/definitions/Tag"
+            }
+          },
+          "422": {
+            "description": "invalid input data"
+          }
+        },
+        "tags": [
+          "tagged shows"
+        ],
+        "summary": "Create a new tag"
+      }
+    },
+    "/user/tags/{tag_id}": {
+      "delete": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "tag_id",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The tag was deleted"
+          },
+          "404": {
+            "description": "The tag does not exist"
+          }
+        },
+        "tags": [
+          "tagged shows"
+        ],
+        "summary": "Delete a specific tag"
+      },
+      "patch": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "tag_id",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Tag"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The tag was updated",
+            "schema": {
+              "$ref": "#/definitions/Tag"
+            }
+          },
+          "404": {
+            "description": "The tag does not exist"
+          },
+          "422": {
+            "description": "The tag could not be updated"
+          }
+        },
+        "tags": [
+          "tagged shows"
+        ],
+        "summary": "Update a specific tag"
+      }
+    },
+    "/user/tags/{tag_id}/shows": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "tag_id",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Embed full show info",
+            "enum": [
+              "show"
+            ],
+            "in": "query",
+            "name": "embed",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of tagged shows",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/TagInstance"
+              },
+              "type": "array"
+            }
+          },
+          "404": {
+            "description": "The tag does not exist"
+          }
+        },
+        "tags": [
+          "tagged shows"
+        ],
+        "summary": "List all shows under this tag"
+      }
+    },
+    "/user/tags/{tag_id}/shows/{show_id}": {
+      "delete": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "tag_id",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "in": "path",
+            "name": "show_id",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The show was untagged"
+          },
+          "404": {
+            "description": "The show was not tagged"
+          }
+        },
+        "tags": [
+          "tagged shows"
+        ],
+        "summary": "Untag a show"
+      },
+      "put": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "tag_id",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "in": "path",
+            "name": "show_id",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The show was tagged",
+            "schema": {
+              "$ref": "#/definitions/TagInstance"
+            }
+          },
+          "404": {
+            "description": "The show or tag does not exist"
+          }
+        },
+        "tags": [
+          "tagged shows"
+        ],
+        "summary": "Tag a show"
       }
     },
     "/user/votes/episodes": {
       "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": "An array of episode votes",
@@ -539,15 +1181,23 @@
             }
           }
         },
-        "summary": "List the episodes voted for",
         "tags": [
           "voted episodes"
         ],
-        "operationId": "user.votes.episodes.get"
+        "summary": "List the episodes voted for"
       }
     },
     "/user/votes/episodes/{episode_id}": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "episode_id",
+          "required": true,
+          "type": "integer"
+        }
+      ],
       "delete": {
+        "parameters": [],
         "responses": {
           "200": {
             "description": "The episode vote is now removed"
@@ -556,13 +1206,16 @@
             "description": "This episode was not voted for"
           }
         },
-        "summary": "Remove an episode vote",
         "tags": [
           "voted episodes"
         ],
-        "operationId": "user.votes.episodes.episode_id.delete"
+        "summary": "Remove an episode vote"
       },
       "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": "The episode vote",
@@ -574,21 +1227,18 @@
             "description": "This episode is not voted for"
           }
         },
-        "summary": "Check if an episode is voted for",
         "tags": [
           "voted episodes"
         ],
-        "operationId": "user.votes.episodes.episode_id.get"
+        "summary": "Check if an episode is voted for"
       },
-      "parameters": [
-        {
-          "in": "path",
-          "name": "episode_id",
-          "required": true,
-          "type": "integer"
-        }
-      ],
       "put": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "in": "body",
@@ -609,15 +1259,17 @@
             "description": "This episode does not exist"
           }
         },
-        "summary": "Vote for an episode",
         "tags": [
           "voted episodes"
         ],
-        "operationId": "user.votes.episodes.episode_id.put"
+        "summary": "Vote for an episode"
       }
     },
     "/user/votes/shows": {
       "get": {
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Embed full show info",
@@ -641,15 +1293,23 @@
             }
           }
         },
-        "summary": "List the shows voted for",
         "tags": [
           "voted shows"
         ],
-        "operationId": "user.votes.shows.get"
+        "summary": "List the shows voted for"
       }
     },
     "/user/votes/shows/{show_id}": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "show_id",
+          "required": true,
+          "type": "integer"
+        }
+      ],
       "delete": {
+        "parameters": [],
         "responses": {
           "200": {
             "description": "The show vote is now removed"
@@ -658,13 +1318,16 @@
             "description": "This show was not voted for"
           }
         },
-        "summary": "Remove a show vote",
         "tags": [
           "voted shows"
         ],
-        "operationId": "user.votes.shows.show_id.delete"
+        "summary": "Remove a show vote"
       },
       "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": "The show vote",
@@ -676,22 +1339,18 @@
             "description": "This show is not voted for"
           }
         },
-        "summary": "Check if a show is voted for",
         "tags": [
           "voted shows"
         ],
-        "operationId": "user.votes.shows.show_id.get"
+        "summary": "Check if a show is voted for"
       },
-      "parameters": [
-        {
-          "in": "path",
-          "name": "show_id",
-          "required": true,
-          "type": "integer"
-        }
-      ],
       "put": {
-        "description": "Set `voted_at` to `NULL` or leave it out to use the current time.",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "in": "body",
@@ -712,15 +1371,46 @@
             "description": "This show does not exist"
           }
         },
-        "summary": "Vote for a show",
         "tags": [
           "voted shows"
         ],
-        "operationId": "user.votes.shows.show_id.put"
+        "description": "Set `voted_at` to `NULL` or leave it out to use the current time.",
+        "summary": "Vote for a show"
       }
     }
   },
   "definitions": {
+    "BulkResponse": {
+      "description": "A list of responses to your bulk input, ordered the same as your input",
+      "items": {
+        "properties": {
+          "code": {
+            "description": "The HTTP code that corresponds to this item",
+            "type": "integer"
+          },
+          "errors": {
+            "description": "A list of validation errors for this item (in case of error)",
+            "type": "object"
+          },
+          "input": {
+            "description": "The request data that belonged to this response (in case of error)",
+            "type": "object"
+          },
+          "message": {
+            "description": "A human-readable error message (in case of error)",
+            "type": "string"
+          },
+          "result": {
+            "description": "The resulting created/updated object (in case of success)",
+            "type": "object"
+          }
+        }
+      },
+      "type": "array"
+    },
+    "Episode": {
+      "type": "object"
+    },
     "EpisodeVote": {
       "properties": {
         "episode_id": {
@@ -741,8 +1431,19 @@
       },
       "type": "object"
     },
+    "MarkType": {
+      "description": "0 for watched, 1 for acquired, 2 for skipped"
+    },
     "MarkedEpisode": {
       "properties": {
+        "_embedded": {
+          "properties": {
+            "episode": {
+              "$ref": "#/definitions/Episode"
+            }
+          },
+          "type": "object"
+        },
         "episode_id": {
           "readOnly": true,
           "type": "integer"
@@ -752,13 +1453,7 @@
           "type": "integer"
         },
         "type": {
-          "description": "0 for watched, 1 for acquired, 2 for skipped",
-          "enum": [
-            0,
-            1,
-            2
-          ],
-          "type": "integer"
+          "$ref": "#/definitions/MarkType"
         }
       },
       "type": "object"
@@ -840,6 +1535,34 @@
       },
       "type": "object"
     },
+    "Tag": {
+      "properties": {
+        "id": {
+          "readOnly": true,
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "TagInstance": {
+      "properties": {
+        "_embedded": {
+          "properties": {
+            "show": {
+              "$ref": "#/definitions/Show"
+            }
+          },
+          "type": "object"
+        },
+        "show_id": {
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
     "Webchannel": {
       "type": "object"
     },
@@ -858,6 +1581,38 @@
         }
       },
       "type": "object"
+    }
+  },
+  "securityDefinitions": {
+    "usertoken": {
+      "type": "basic"
+    }
+  },
+  "security": [
+    {
+      "usertoken": []
+    }
+  ],
+  "x-components": {
+    "requestBodies": {
+      "MarkedEpisode": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/definitions/MarkedEpisode"
+            }
+          }
+        }
+      },
+      "Tag": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/definitions/Tag"
+            }
+          }
+        }
+      }
     }
   }
 }

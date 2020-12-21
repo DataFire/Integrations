@@ -11,7 +11,7 @@ let illumidesk = require('@datafire/illumidesk').create({
   jwt: ""
 });
 
-illumidesk.users_create({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

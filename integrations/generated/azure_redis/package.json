@@ -1,6 +1,6 @@
 {
   "name": "@datafire/azure_redis",
-  "version": "4.0.0",
+  "version": "5.0.0",
   "main": "index.js",
   "description": "DataFire integration for RedisManagementClient",
   "repository": {
@@ -14,7 +14,7 @@
   },
   "homepage": "https://github.com/DataFire/integrations#readme",
   "datafire": {
-    "origin": "https://api.apis.guru/v2/specs/azure.com/redis/2017-10-01/swagger.json",
+    "origin": "https://api.apis.guru/v2/specs/azure.com/redis/2018-03-01/swagger.json",
     "type": "openapi"
   },
   "peerDependencies": {

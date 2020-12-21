@@ -13,9 +13,7 @@ let amazonaws_mturk_requester = require('@datafire/amazonaws_mturk_requester').c
   region: ""
 });
 
-amazonaws_mturk_requester.AcceptQualificationRequest({
-  "QualificationRequestId": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -32,14 +30,14 @@ amazonaws_mturk_requester.AcceptQualificationRequest({
 
 ```js
 amazonaws_mturk_requester.AcceptQualificationRequest({
-  "QualificationRequestId": ""
+  "QualificationRequestId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * IntegerValue [Integer](#integer)
-  * QualificationRequestId **required** [String](#string)
+  * IntegerValue
+  * QualificationRequestId **required**
 
 #### Output
 * output [AcceptQualificationRequestResponse](#acceptqualificationrequestresponse)
@@ -50,15 +48,15 @@ amazonaws_mturk_requester.AcceptQualificationRequest({
 
 ```js
 amazonaws_mturk_requester.ApproveAssignment({
-  "AssignmentId": ""
+  "AssignmentId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * AssignmentId **required** [EntityId](#entityid)
-  * OverrideRejection [Boolean](#boolean)
-  * RequesterFeedback [String](#string)
+  * AssignmentId **required**
+  * OverrideRejection
+  * RequesterFeedback
 
 #### Output
 * output [ApproveAssignmentResponse](#approveassignmentresponse)
@@ -69,17 +67,17 @@ amazonaws_mturk_requester.ApproveAssignment({
 
 ```js
 amazonaws_mturk_requester.AssociateQualificationWithWorker({
-  "QualificationTypeId": "",
-  "WorkerId": ""
+  "QualificationTypeId": null,
+  "WorkerId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * IntegerValue [Integer](#integer)
-  * QualificationTypeId **required** [EntityId](#entityid)
-  * SendNotification [Boolean](#boolean)
-  * WorkerId **required** [CustomerId](#customerid)
+  * IntegerValue
+  * QualificationTypeId **required**
+  * SendNotification
+  * WorkerId **required**
 
 #### Output
 * output [AssociateQualificationWithWorkerResponse](#associatequalificationwithworkerresponse)
@@ -90,16 +88,16 @@ amazonaws_mturk_requester.AssociateQualificationWithWorker({
 
 ```js
 amazonaws_mturk_requester.CreateAdditionalAssignmentsForHIT({
-  "HITId": "",
-  "NumberOfAdditionalAssignments": 0
+  "HITId": null,
+  "NumberOfAdditionalAssignments": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * HITId **required** [EntityId](#entityid)
-  * NumberOfAdditionalAssignments **required** [Integer](#integer)
-  * UniqueRequestToken [IdempotencyToken](#idempotencytoken)
+  * HITId **required**
+  * NumberOfAdditionalAssignments **required**
+  * UniqueRequestToken
 
 #### Output
 * output [CreateAdditionalAssignmentsForHITResponse](#createadditionalassignmentsforhitresponse)
@@ -110,32 +108,40 @@ amazonaws_mturk_requester.CreateAdditionalAssignmentsForHIT({
 
 ```js
 amazonaws_mturk_requester.CreateHIT({
-  "LifetimeInSeconds": 0,
-  "AssignmentDurationInSeconds": 0,
-  "Reward": "",
-  "Title": "",
-  "Description": ""
+  "LifetimeInSeconds": null,
+  "AssignmentDurationInSeconds": null,
+  "Reward": null,
+  "Title": null,
+  "Description": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * AssignmentDurationInSeconds **required** [Long](#long)
-  * AssignmentReviewPolicy [ReviewPolicy](#reviewpolicy)
-  * AutoApprovalDelayInSeconds [Long](#long)
-  * Description **required** [String](#string)
-  * HITLayoutId [EntityId](#entityid)
-  * HITLayoutParameters [HITLayoutParameterList](#hitlayoutparameterlist)
-  * HITReviewPolicy [ReviewPolicy](#reviewpolicy)
-  * Keywords [String](#string)
-  * LifetimeInSeconds **required** [Long](#long)
-  * MaxAssignments [Integer](#integer)
-  * QualificationRequirements [QualificationRequirementList](#qualificationrequirementlist)
-  * Question [String](#string)
-  * RequesterAnnotation [String](#string)
-  * Reward **required** [CurrencyAmount](#currencyamount)
-  * Title **required** [String](#string)
-  * UniqueRequestToken [IdempotencyToken](#idempotencytoken)
+  * AssignmentDurationInSeconds **required**
+  * AssignmentReviewPolicy
+    * Parameters
+      * items [PolicyParameter](#policyparameter)
+    * PolicyName **required**
+  * AutoApprovalDelayInSeconds
+  * Description **required**
+  * HITLayoutId
+  * HITLayoutParameters
+    * items [HITLayoutParameter](#hitlayoutparameter)
+  * HITReviewPolicy
+    * Parameters
+      * items [PolicyParameter](#policyparameter)
+    * PolicyName **required**
+  * Keywords
+  * LifetimeInSeconds **required**
+  * MaxAssignments
+  * QualificationRequirements
+    * items [QualificationRequirement](#qualificationrequirement)
+  * Question
+  * RequesterAnnotation
+  * Reward **required**
+  * Title **required**
+  * UniqueRequestToken
 
 #### Output
 * output [CreateHITResponse](#createhitresponse)
@@ -146,22 +152,23 @@ amazonaws_mturk_requester.CreateHIT({
 
 ```js
 amazonaws_mturk_requester.CreateHITType({
-  "AssignmentDurationInSeconds": 0,
-  "Reward": "",
-  "Title": "",
-  "Description": ""
+  "AssignmentDurationInSeconds": null,
+  "Reward": null,
+  "Title": null,
+  "Description": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * AssignmentDurationInSeconds **required** [Long](#long)
-  * AutoApprovalDelayInSeconds [Long](#long)
-  * Description **required** [String](#string)
-  * Keywords [String](#string)
-  * QualificationRequirements [QualificationRequirementList](#qualificationrequirementlist)
-  * Reward **required** [CurrencyAmount](#currencyamount)
-  * Title **required** [String](#string)
+  * AssignmentDurationInSeconds **required**
+  * AutoApprovalDelayInSeconds
+  * Description **required**
+  * Keywords
+  * QualificationRequirements
+    * items [QualificationRequirement](#qualificationrequirement)
+  * Reward **required**
+  * Title **required**
 
 #### Output
 * output [CreateHITTypeResponse](#createhittyperesponse)
@@ -172,23 +179,30 @@ amazonaws_mturk_requester.CreateHITType({
 
 ```js
 amazonaws_mturk_requester.CreateHITWithHITType({
-  "HITTypeId": "",
-  "LifetimeInSeconds": 0
+  "HITTypeId": null,
+  "LifetimeInSeconds": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * AssignmentReviewPolicy [ReviewPolicy](#reviewpolicy)
-  * HITLayoutId [EntityId](#entityid)
-  * HITLayoutParameters [HITLayoutParameterList](#hitlayoutparameterlist)
-  * HITReviewPolicy [ReviewPolicy](#reviewpolicy)
-  * HITTypeId **required** [EntityId](#entityid)
-  * LifetimeInSeconds **required** [Long](#long)
-  * MaxAssignments [Integer](#integer)
-  * Question [String](#string)
-  * RequesterAnnotation [String](#string)
-  * UniqueRequestToken [IdempotencyToken](#idempotencytoken)
+  * AssignmentReviewPolicy
+    * Parameters
+      * items [PolicyParameter](#policyparameter)
+    * PolicyName **required**
+  * HITLayoutId
+  * HITLayoutParameters
+    * items [HITLayoutParameter](#hitlayoutparameter)
+  * HITReviewPolicy
+    * Parameters
+      * items [PolicyParameter](#policyparameter)
+    * PolicyName **required**
+  * HITTypeId **required**
+  * LifetimeInSeconds **required**
+  * MaxAssignments
+  * Question
+  * RequesterAnnotation
+  * UniqueRequestToken
 
 #### Output
 * output [CreateHITWithHITTypeResponse](#createhitwithhittyperesponse)
@@ -199,24 +213,24 @@ amazonaws_mturk_requester.CreateHITWithHITType({
 
 ```js
 amazonaws_mturk_requester.CreateQualificationType({
-  "Name": "",
-  "Description": "",
-  "QualificationTypeStatus": ""
+  "Name": null,
+  "Description": null,
+  "QualificationTypeStatus": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * AnswerKey [String](#string)
-  * AutoGranted [Boolean](#boolean)
-  * AutoGrantedValue [Integer](#integer)
-  * Description **required** [String](#string)
-  * Keywords [String](#string)
-  * Name **required** [String](#string)
-  * QualificationTypeStatus **required** [QualificationTypeStatus](#qualificationtypestatus)
-  * RetryDelayInSeconds [Long](#long)
-  * Test [String](#string)
-  * TestDurationInSeconds [Long](#long)
+  * AnswerKey
+  * AutoGranted
+  * AutoGrantedValue
+  * Description **required**
+  * Keywords
+  * Name **required**
+  * QualificationTypeStatus **required**
+  * RetryDelayInSeconds
+  * Test
+  * TestDurationInSeconds
 
 #### Output
 * output [CreateQualificationTypeResponse](#createqualificationtyperesponse)
@@ -227,15 +241,15 @@ amazonaws_mturk_requester.CreateQualificationType({
 
 ```js
 amazonaws_mturk_requester.CreateWorkerBlock({
-  "WorkerId": "",
-  "Reason": ""
+  "WorkerId": null,
+  "Reason": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Reason **required** [String](#string)
-  * WorkerId **required** [CustomerId](#customerid)
+  * Reason **required**
+  * WorkerId **required**
 
 #### Output
 * output [CreateWorkerBlockResponse](#createworkerblockresponse)
@@ -246,13 +260,13 @@ amazonaws_mturk_requester.CreateWorkerBlock({
 
 ```js
 amazonaws_mturk_requester.DeleteHIT({
-  "HITId": ""
+  "HITId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * HITId **required** [EntityId](#entityid)
+  * HITId **required**
 
 #### Output
 * output [DeleteHITResponse](#deletehitresponse)
@@ -263,13 +277,13 @@ amazonaws_mturk_requester.DeleteHIT({
 
 ```js
 amazonaws_mturk_requester.DeleteQualificationType({
-  "QualificationTypeId": ""
+  "QualificationTypeId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * QualificationTypeId **required** [EntityId](#entityid)
+  * QualificationTypeId **required**
 
 #### Output
 * output [DeleteQualificationTypeResponse](#deletequalificationtyperesponse)
@@ -280,14 +294,14 @@ amazonaws_mturk_requester.DeleteQualificationType({
 
 ```js
 amazonaws_mturk_requester.DeleteWorkerBlock({
-  "WorkerId": ""
+  "WorkerId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Reason [String](#string)
-  * WorkerId **required** [CustomerId](#customerid)
+  * Reason
+  * WorkerId **required**
 
 #### Output
 * output [DeleteWorkerBlockResponse](#deleteworkerblockresponse)
@@ -298,16 +312,16 @@ amazonaws_mturk_requester.DeleteWorkerBlock({
 
 ```js
 amazonaws_mturk_requester.DisassociateQualificationFromWorker({
-  "WorkerId": "",
-  "QualificationTypeId": ""
+  "WorkerId": null,
+  "QualificationTypeId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * QualificationTypeId **required** [EntityId](#entityid)
-  * Reason [String](#string)
-  * WorkerId **required** [CustomerId](#customerid)
+  * QualificationTypeId **required**
+  * Reason
+  * WorkerId **required**
 
 #### Output
 * output [DisassociateQualificationFromWorkerResponse](#disassociatequalificationfromworkerresponse)
@@ -332,13 +346,13 @@ amazonaws_mturk_requester.GetAccountBalance({}, context)
 
 ```js
 amazonaws_mturk_requester.GetAssignment({
-  "AssignmentId": ""
+  "AssignmentId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * AssignmentId **required** [EntityId](#entityid)
+  * AssignmentId **required**
 
 #### Output
 * output [GetAssignmentResponse](#getassignmentresponse)
@@ -349,15 +363,15 @@ amazonaws_mturk_requester.GetAssignment({
 
 ```js
 amazonaws_mturk_requester.GetFileUploadURL({
-  "AssignmentId": "",
-  "QuestionIdentifier": ""
+  "AssignmentId": null,
+  "QuestionIdentifier": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * AssignmentId **required** [EntityId](#entityid)
-  * QuestionIdentifier **required** [String](#string)
+  * AssignmentId **required**
+  * QuestionIdentifier **required**
 
 #### Output
 * output [GetFileUploadURLResponse](#getfileuploadurlresponse)
@@ -368,13 +382,13 @@ amazonaws_mturk_requester.GetFileUploadURL({
 
 ```js
 amazonaws_mturk_requester.GetHIT({
-  "HITId": ""
+  "HITId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * HITId **required** [EntityId](#entityid)
+  * HITId **required**
 
 #### Output
 * output [GetHITResponse](#gethitresponse)
@@ -385,15 +399,15 @@ amazonaws_mturk_requester.GetHIT({
 
 ```js
 amazonaws_mturk_requester.GetQualificationScore({
-  "QualificationTypeId": "",
-  "WorkerId": ""
+  "QualificationTypeId": null,
+  "WorkerId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * QualificationTypeId **required** [EntityId](#entityid)
-  * WorkerId **required** [CustomerId](#customerid)
+  * QualificationTypeId **required**
+  * WorkerId **required**
 
 #### Output
 * output [GetQualificationScoreResponse](#getqualificationscoreresponse)
@@ -404,13 +418,13 @@ amazonaws_mturk_requester.GetQualificationScore({
 
 ```js
 amazonaws_mturk_requester.GetQualificationType({
-  "QualificationTypeId": ""
+  "QualificationTypeId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * QualificationTypeId **required** [EntityId](#entityid)
+  * QualificationTypeId **required**
 
 #### Output
 * output [GetQualificationTypeResponse](#getqualificationtyperesponse)
@@ -421,7 +435,7 @@ amazonaws_mturk_requester.GetQualificationType({
 
 ```js
 amazonaws_mturk_requester.ListAssignmentsForHIT({
-  "HITId": ""
+  "HITId": null
 }, context)
 ```
 
@@ -429,10 +443,11 @@ amazonaws_mturk_requester.ListAssignmentsForHIT({
 * input `object`
   * MaxResults `string`
   * NextToken `string`
-  * AssignmentStatuses [AssignmentStatusList](#assignmentstatuslist)
-  * HITId **required** [EntityId](#entityid)
+  * AssignmentStatuses
+    * items [AssignmentStatus](#assignmentstatus)
+  * HITId **required**
   * MaxResults [ResultSize](#resultsize)
-  * NextToken [PaginationToken](#paginationtoken)
+  * NextToken
 
 #### Output
 * output [ListAssignmentsForHITResponse](#listassignmentsforhitresponse)
@@ -449,10 +464,10 @@ amazonaws_mturk_requester.ListBonusPayments({}, context)
 * input `object`
   * MaxResults `string`
   * NextToken `string`
-  * AssignmentId [EntityId](#entityid)
-  * HITId [EntityId](#entityid)
+  * AssignmentId
+  * HITId
   * MaxResults [ResultSize](#resultsize)
-  * NextToken [PaginationToken](#paginationtoken)
+  * NextToken
 
 #### Output
 * output [ListBonusPaymentsResponse](#listbonuspaymentsresponse)
@@ -470,7 +485,7 @@ amazonaws_mturk_requester.ListHITs({}, context)
   * MaxResults `string`
   * NextToken `string`
   * MaxResults [ResultSize](#resultsize)
-  * NextToken [PaginationToken](#paginationtoken)
+  * NextToken
 
 #### Output
 * output [ListHITsResponse](#listhitsresponse)
@@ -481,7 +496,7 @@ amazonaws_mturk_requester.ListHITs({}, context)
 
 ```js
 amazonaws_mturk_requester.ListHITsForQualificationType({
-  "QualificationTypeId": ""
+  "QualificationTypeId": null
 }, context)
 ```
 
@@ -489,9 +504,9 @@ amazonaws_mturk_requester.ListHITsForQualificationType({
 * input `object`
   * MaxResults `string`
   * NextToken `string`
-  * MaxResults [ResultSize](#resultsize)
-  * NextToken [PaginationToken](#paginationtoken)
-  * QualificationTypeId **required** [EntityId](#entityid)
+  * MaxResults
+  * NextToken
+  * QualificationTypeId **required**
 
 #### Output
 * output [ListHITsForQualificationTypeResponse](#listhitsforqualificationtyperesponse)
@@ -508,9 +523,9 @@ amazonaws_mturk_requester.ListQualificationRequests({}, context)
 * input `object`
   * MaxResults `string`
   * NextToken `string`
-  * MaxResults [ResultSize](#resultsize)
+  * MaxResults
   * NextToken [PaginationToken](#paginationtoken)
-  * QualificationTypeId [EntityId](#entityid)
+  * QualificationTypeId
 
 #### Output
 * output [ListQualificationRequestsResponse](#listqualificationrequestsresponse)
@@ -521,7 +536,7 @@ amazonaws_mturk_requester.ListQualificationRequests({}, context)
 
 ```js
 amazonaws_mturk_requester.ListQualificationTypes({
-  "MustBeRequestable": true
+  "MustBeRequestable": null
 }, context)
 ```
 
@@ -529,11 +544,11 @@ amazonaws_mturk_requester.ListQualificationTypes({
 * input `object`
   * MaxResults `string`
   * NextToken `string`
-  * MaxResults [ResultSize](#resultsize)
-  * MustBeOwnedByCaller [Boolean](#boolean)
-  * MustBeRequestable **required** [Boolean](#boolean)
+  * MaxResults
+  * MustBeOwnedByCaller
+  * MustBeRequestable **required**
   * NextToken [PaginationToken](#paginationtoken)
-  * Query [String](#string)
+  * Query
 
 #### Output
 * output [ListQualificationTypesResponse](#listqualificationtypesresponse)
@@ -544,7 +559,7 @@ amazonaws_mturk_requester.ListQualificationTypes({
 
 ```js
 amazonaws_mturk_requester.ListReviewPolicyResultsForHIT({
-  "HITId": ""
+  "HITId": null
 }, context)
 ```
 
@@ -552,12 +567,13 @@ amazonaws_mturk_requester.ListReviewPolicyResultsForHIT({
 * input `object`
   * MaxResults `string`
   * NextToken `string`
-  * HITId **required** [EntityId](#entityid)
-  * MaxResults [ResultSize](#resultsize)
-  * NextToken [PaginationToken](#paginationtoken)
-  * PolicyLevels [ReviewPolicyLevelList](#reviewpolicylevellist)
-  * RetrieveActions [Boolean](#boolean)
-  * RetrieveResults [Boolean](#boolean)
+  * HITId **required**
+  * MaxResults
+  * NextToken
+  * PolicyLevels
+    * items [ReviewPolicyLevel](#reviewpolicylevel)
+  * RetrieveActions
+  * RetrieveResults
 
 #### Output
 * output [ListReviewPolicyResultsForHITResponse](#listreviewpolicyresultsforhitresponse)
@@ -574,10 +590,10 @@ amazonaws_mturk_requester.ListReviewableHITs({}, context)
 * input `object`
   * MaxResults `string`
   * NextToken `string`
-  * HITTypeId [EntityId](#entityid)
-  * MaxResults [ResultSize](#resultsize)
-  * NextToken [PaginationToken](#paginationtoken)
-  * Status [ReviewableHITStatus](#reviewablehitstatus)
+  * HITTypeId
+  * MaxResults
+  * NextToken
+  * Status
 
 #### Output
 * output [ListReviewableHITsResponse](#listreviewablehitsresponse)
@@ -595,7 +611,7 @@ amazonaws_mturk_requester.ListWorkerBlocks({}, context)
   * MaxResults `string`
   * NextToken `string`
   * MaxResults [ResultSize](#resultsize)
-  * NextToken [PaginationToken](#paginationtoken)
+  * NextToken
 
 #### Output
 * output [ListWorkerBlocksResponse](#listworkerblocksresponse)
@@ -606,7 +622,7 @@ amazonaws_mturk_requester.ListWorkerBlocks({}, context)
 
 ```js
 amazonaws_mturk_requester.ListWorkersWithQualificationType({
-  "QualificationTypeId": ""
+  "QualificationTypeId": null
 }, context)
 ```
 
@@ -614,10 +630,10 @@ amazonaws_mturk_requester.ListWorkersWithQualificationType({
 * input `object`
   * MaxResults `string`
   * NextToken `string`
-  * MaxResults [ResultSize](#resultsize)
-  * NextToken [PaginationToken](#paginationtoken)
-  * QualificationTypeId **required** [EntityId](#entityid)
-  * Status [QualificationStatus](#qualificationstatus)
+  * MaxResults
+  * NextToken
+  * QualificationTypeId **required**
+  * Status
 
 #### Output
 * output [ListWorkersWithQualificationTypeResponse](#listworkerswithqualificationtyperesponse)
@@ -628,17 +644,18 @@ amazonaws_mturk_requester.ListWorkersWithQualificationType({
 
 ```js
 amazonaws_mturk_requester.NotifyWorkers({
-  "Subject": "",
-  "MessageText": "",
-  "WorkerIds": []
+  "Subject": null,
+  "MessageText": null,
+  "WorkerIds": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * MessageText **required** [String](#string)
-  * Subject **required** [String](#string)
-  * WorkerIds **required** [CustomerIdList](#customeridlist)
+  * MessageText **required**
+  * Subject **required**
+  * WorkerIds **required**
+    * items [CustomerId](#customerid)
 
 #### Output
 * output [NotifyWorkersResponse](#notifyworkersresponse)
@@ -649,15 +666,15 @@ amazonaws_mturk_requester.NotifyWorkers({
 
 ```js
 amazonaws_mturk_requester.RejectAssignment({
-  "AssignmentId": "",
-  "RequesterFeedback": ""
+  "AssignmentId": null,
+  "RequesterFeedback": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * AssignmentId **required** [EntityId](#entityid)
-  * RequesterFeedback **required** [String](#string)
+  * AssignmentId **required**
+  * RequesterFeedback **required**
 
 #### Output
 * output [RejectAssignmentResponse](#rejectassignmentresponse)
@@ -668,14 +685,14 @@ amazonaws_mturk_requester.RejectAssignment({
 
 ```js
 amazonaws_mturk_requester.RejectQualificationRequest({
-  "QualificationRequestId": ""
+  "QualificationRequestId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * QualificationRequestId **required** [String](#string)
-  * Reason [String](#string)
+  * QualificationRequestId **required**
+  * Reason
 
 #### Output
 * output [RejectQualificationRequestResponse](#rejectqualificationrequestresponse)
@@ -686,20 +703,20 @@ amazonaws_mturk_requester.RejectQualificationRequest({
 
 ```js
 amazonaws_mturk_requester.SendBonus({
-  "WorkerId": "",
-  "BonusAmount": "",
-  "AssignmentId": "",
-  "Reason": ""
+  "WorkerId": null,
+  "BonusAmount": null,
+  "AssignmentId": null,
+  "Reason": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * AssignmentId **required** [EntityId](#entityid)
-  * BonusAmount **required** [CurrencyAmount](#currencyamount)
-  * Reason **required** [String](#string)
-  * UniqueRequestToken [IdempotencyToken](#idempotencytoken)
-  * WorkerId **required** [CustomerId](#customerid)
+  * AssignmentId **required**
+  * BonusAmount **required**
+  * Reason **required**
+  * UniqueRequestToken
+  * WorkerId **required**
 
 #### Output
 * output [SendBonusResponse](#sendbonusresponse)
@@ -710,20 +727,20 @@ amazonaws_mturk_requester.SendBonus({
 
 ```js
 amazonaws_mturk_requester.SendTestEventNotification({
-  "Notification": {
-    "Destination": "",
-    "Transport": "",
-    "Version": "",
-    "EventTypes": []
-  },
-  "TestEventType": ""
+  "Notification": null,
+  "TestEventType": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Notification **required** [NotificationSpecification](#notificationspecification)
-  * TestEventType **required** [EventType](#eventtype)
+  * Notification **required**
+    * Destination **required**
+    * EventTypes **required**
+      * items [EventType](#eventtype)
+    * Transport **required**
+    * Version **required**
+  * TestEventType **required**
 
 #### Output
 * output [SendTestEventNotificationResponse](#sendtesteventnotificationresponse)
@@ -734,15 +751,15 @@ amazonaws_mturk_requester.SendTestEventNotification({
 
 ```js
 amazonaws_mturk_requester.UpdateExpirationForHIT({
-  "HITId": "",
-  "ExpireAt": ""
+  "HITId": null,
+  "ExpireAt": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ExpireAt **required** [Timestamp](#timestamp)
-  * HITId **required** [EntityId](#entityid)
+  * ExpireAt **required**
+  * HITId **required**
 
 #### Output
 * output [UpdateExpirationForHITResponse](#updateexpirationforhitresponse)
@@ -753,14 +770,14 @@ amazonaws_mturk_requester.UpdateExpirationForHIT({
 
 ```js
 amazonaws_mturk_requester.UpdateHITReviewStatus({
-  "HITId": ""
+  "HITId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * HITId **required** [EntityId](#entityid)
-  * Revert [Boolean](#boolean)
+  * HITId **required**
+  * Revert
 
 #### Output
 * output [UpdateHITReviewStatusResponse](#updatehitreviewstatusresponse)
@@ -771,15 +788,15 @@ amazonaws_mturk_requester.UpdateHITReviewStatus({
 
 ```js
 amazonaws_mturk_requester.UpdateHITTypeOfHIT({
-  "HITId": "",
-  "HITTypeId": ""
+  "HITId": null,
+  "HITTypeId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * HITId **required** [EntityId](#entityid)
-  * HITTypeId **required** [EntityId](#entityid)
+  * HITId **required**
+  * HITTypeId **required**
 
 #### Output
 * output [UpdateHITTypeOfHITResponse](#updatehittypeofhitresponse)
@@ -790,15 +807,20 @@ amazonaws_mturk_requester.UpdateHITTypeOfHIT({
 
 ```js
 amazonaws_mturk_requester.UpdateNotificationSettings({
-  "HITTypeId": ""
+  "HITTypeId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Active [Boolean](#boolean)
-  * HITTypeId **required** [EntityId](#entityid)
-  * Notification [NotificationSpecification](#notificationspecification)
+  * Active
+  * HITTypeId **required**
+  * Notification
+    * Destination **required**
+    * EventTypes **required**
+      * items [EventType](#eventtype)
+    * Transport **required**
+    * Version **required**
 
 #### Output
 * output [UpdateNotificationSettingsResponse](#updatenotificationsettingsresponse)
@@ -809,21 +831,21 @@ amazonaws_mturk_requester.UpdateNotificationSettings({
 
 ```js
 amazonaws_mturk_requester.UpdateQualificationType({
-  "QualificationTypeId": ""
+  "QualificationTypeId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * AnswerKey [String](#string)
-  * AutoGranted [Boolean](#boolean)
-  * AutoGrantedValue [Integer](#integer)
-  * Description [String](#string)
-  * QualificationTypeId **required** [EntityId](#entityid)
-  * QualificationTypeStatus [QualificationTypeStatus](#qualificationtypestatus)
-  * RetryDelayInSeconds [Long](#long)
-  * Test [String](#string)
-  * TestDurationInSeconds [Long](#long)
+  * AnswerKey
+  * AutoGranted
+  * AutoGrantedValue
+  * Description
+  * QualificationTypeId **required**
+  * QualificationTypeStatus
+  * RetryDelayInSeconds
+  * Test
+  * TestDurationInSeconds
 
 #### Output
 * output [UpdateQualificationTypeResponse](#updatequalificationtyperesponse)
@@ -834,35 +856,35 @@ amazonaws_mturk_requester.UpdateQualificationType({
 
 ### AcceptQualificationRequestRequest
 * AcceptQualificationRequestRequest `object`
-  * IntegerValue [Integer](#integer)
-  * QualificationRequestId **required** [String](#string)
+  * IntegerValue
+  * QualificationRequestId **required**
 
 ### AcceptQualificationRequestResponse
 * AcceptQualificationRequestResponse `object`
 
 ### ApproveAssignmentRequest
 * ApproveAssignmentRequest `object`
-  * AssignmentId **required** [EntityId](#entityid)
-  * OverrideRejection [Boolean](#boolean)
-  * RequesterFeedback [String](#string)
+  * AssignmentId **required**
+  * OverrideRejection
+  * RequesterFeedback
 
 ### ApproveAssignmentResponse
 * ApproveAssignmentResponse `object`
 
 ### Assignment
 * Assignment `object`:  The Assignment data structure represents a single assignment of a HIT to a Worker. The assignment tracks the Worker's efforts to complete the HIT, and contains the results for later retrieval. 
-  * AcceptTime [Timestamp](#timestamp)
-  * Answer [String](#string)
-  * ApprovalTime [Timestamp](#timestamp)
-  * AssignmentId [EntityId](#entityid)
-  * AssignmentStatus [AssignmentStatus](#assignmentstatus)
-  * AutoApprovalTime [Timestamp](#timestamp)
-  * Deadline [Timestamp](#timestamp)
-  * HITId [EntityId](#entityid)
-  * RejectionTime [Timestamp](#timestamp)
-  * RequesterFeedback [String](#string)
-  * SubmitTime [Timestamp](#timestamp)
-  * WorkerId [CustomerId](#customerid)
+  * AcceptTime
+  * Answer
+  * ApprovalTime
+  * AssignmentId
+  * AssignmentStatus
+  * AutoApprovalTime
+  * Deadline
+  * HITId
+  * RejectionTime
+  * RequesterFeedback
+  * SubmitTime
+  * WorkerId
 
 ### AssignmentList
 * AssignmentList `array`
@@ -877,21 +899,21 @@ amazonaws_mturk_requester.UpdateQualificationType({
 
 ### AssociateQualificationWithWorkerRequest
 * AssociateQualificationWithWorkerRequest `object`
-  * IntegerValue [Integer](#integer)
-  * QualificationTypeId **required** [EntityId](#entityid)
-  * SendNotification [Boolean](#boolean)
-  * WorkerId **required** [CustomerId](#customerid)
+  * IntegerValue
+  * QualificationTypeId **required**
+  * SendNotification
+  * WorkerId **required**
 
 ### AssociateQualificationWithWorkerResponse
 * AssociateQualificationWithWorkerResponse `object`
 
 ### BonusPayment
 * BonusPayment `object`: An object representing a Bonus payment paid to a Worker.
-  * AssignmentId [EntityId](#entityid)
+  * AssignmentId
   * BonusAmount [CurrencyAmount](#currencyamount)
-  * GrantTime [Timestamp](#timestamp)
-  * Reason [String](#string)
-  * WorkerId [CustomerId](#customerid)
+  * GrantTime
+  * Reason
+  * WorkerId
 
 ### BonusPaymentList
 * BonusPaymentList `array`
@@ -908,88 +930,161 @@ amazonaws_mturk_requester.UpdateQualificationType({
 
 ### CreateAdditionalAssignmentsForHITRequest
 * CreateAdditionalAssignmentsForHITRequest `object`
-  * HITId **required** [EntityId](#entityid)
-  * NumberOfAdditionalAssignments **required** [Integer](#integer)
-  * UniqueRequestToken [IdempotencyToken](#idempotencytoken)
+  * HITId **required**
+  * NumberOfAdditionalAssignments **required**
+  * UniqueRequestToken
 
 ### CreateAdditionalAssignmentsForHITResponse
 * CreateAdditionalAssignmentsForHITResponse `object`
 
 ### CreateHITRequest
 * CreateHITRequest `object`
-  * AssignmentDurationInSeconds **required** [Long](#long)
-  * AssignmentReviewPolicy [ReviewPolicy](#reviewpolicy)
-  * AutoApprovalDelayInSeconds [Long](#long)
-  * Description **required** [String](#string)
-  * HITLayoutId [EntityId](#entityid)
-  * HITLayoutParameters [HITLayoutParameterList](#hitlayoutparameterlist)
-  * HITReviewPolicy [ReviewPolicy](#reviewpolicy)
-  * Keywords [String](#string)
-  * LifetimeInSeconds **required** [Long](#long)
-  * MaxAssignments [Integer](#integer)
-  * QualificationRequirements [QualificationRequirementList](#qualificationrequirementlist)
-  * Question [String](#string)
-  * RequesterAnnotation [String](#string)
-  * Reward **required** [CurrencyAmount](#currencyamount)
-  * Title **required** [String](#string)
-  * UniqueRequestToken [IdempotencyToken](#idempotencytoken)
+  * AssignmentDurationInSeconds **required**
+  * AssignmentReviewPolicy
+    * Parameters
+      * items [PolicyParameter](#policyparameter)
+    * PolicyName **required**
+  * AutoApprovalDelayInSeconds
+  * Description **required**
+  * HITLayoutId
+  * HITLayoutParameters
+    * items [HITLayoutParameter](#hitlayoutparameter)
+  * HITReviewPolicy
+    * Parameters
+      * items [PolicyParameter](#policyparameter)
+    * PolicyName **required**
+  * Keywords
+  * LifetimeInSeconds **required**
+  * MaxAssignments
+  * QualificationRequirements
+    * items [QualificationRequirement](#qualificationrequirement)
+  * Question
+  * RequesterAnnotation
+  * Reward **required**
+  * Title **required**
+  * UniqueRequestToken
 
 ### CreateHITResponse
 * CreateHITResponse `object`
-  * HIT [HIT](#hit)
+  * HIT
+    * AssignmentDurationInSeconds
+    * AutoApprovalDelayInSeconds
+    * CreationTime
+    * Description
+    * Expiration
+    * HITGroupId
+    * HITId
+    * HITLayoutId
+    * HITReviewStatus
+    * HITStatus
+    * HITTypeId
+    * Keywords
+    * MaxAssignments
+    * NumberOfAssignmentsAvailable
+    * NumberOfAssignmentsCompleted
+    * NumberOfAssignmentsPending
+    * QualificationRequirements
+      * items [QualificationRequirement](#qualificationrequirement)
+    * Question
+    * RequesterAnnotation
+    * Reward [CurrencyAmount](#currencyamount)
+    * Title
 
 ### CreateHITTypeRequest
 * CreateHITTypeRequest `object`
-  * AssignmentDurationInSeconds **required** [Long](#long)
-  * AutoApprovalDelayInSeconds [Long](#long)
-  * Description **required** [String](#string)
-  * Keywords [String](#string)
-  * QualificationRequirements [QualificationRequirementList](#qualificationrequirementlist)
-  * Reward **required** [CurrencyAmount](#currencyamount)
-  * Title **required** [String](#string)
+  * AssignmentDurationInSeconds **required**
+  * AutoApprovalDelayInSeconds
+  * Description **required**
+  * Keywords
+  * QualificationRequirements
+    * items [QualificationRequirement](#qualificationrequirement)
+  * Reward **required**
+  * Title **required**
 
 ### CreateHITTypeResponse
 * CreateHITTypeResponse `object`
-  * HITTypeId [EntityId](#entityid)
+  * HITTypeId
 
 ### CreateHITWithHITTypeRequest
 * CreateHITWithHITTypeRequest `object`
-  * AssignmentReviewPolicy [ReviewPolicy](#reviewpolicy)
-  * HITLayoutId [EntityId](#entityid)
-  * HITLayoutParameters [HITLayoutParameterList](#hitlayoutparameterlist)
-  * HITReviewPolicy [ReviewPolicy](#reviewpolicy)
-  * HITTypeId **required** [EntityId](#entityid)
-  * LifetimeInSeconds **required** [Long](#long)
-  * MaxAssignments [Integer](#integer)
-  * Question [String](#string)
-  * RequesterAnnotation [String](#string)
-  * UniqueRequestToken [IdempotencyToken](#idempotencytoken)
+  * AssignmentReviewPolicy
+    * Parameters
+      * items [PolicyParameter](#policyparameter)
+    * PolicyName **required**
+  * HITLayoutId
+  * HITLayoutParameters
+    * items [HITLayoutParameter](#hitlayoutparameter)
+  * HITReviewPolicy
+    * Parameters
+      * items [PolicyParameter](#policyparameter)
+    * PolicyName **required**
+  * HITTypeId **required**
+  * LifetimeInSeconds **required**
+  * MaxAssignments
+  * Question
+  * RequesterAnnotation
+  * UniqueRequestToken
 
 ### CreateHITWithHITTypeResponse
 * CreateHITWithHITTypeResponse `object`
-  * HIT [HIT](#hit)
+  * HIT
+    * AssignmentDurationInSeconds
+    * AutoApprovalDelayInSeconds
+    * CreationTime
+    * Description
+    * Expiration
+    * HITGroupId
+    * HITId
+    * HITLayoutId
+    * HITReviewStatus
+    * HITStatus
+    * HITTypeId
+    * Keywords
+    * MaxAssignments
+    * NumberOfAssignmentsAvailable
+    * NumberOfAssignmentsCompleted
+    * NumberOfAssignmentsPending
+    * QualificationRequirements
+      * items [QualificationRequirement](#qualificationrequirement)
+    * Question
+    * RequesterAnnotation
+    * Reward [CurrencyAmount](#currencyamount)
+    * Title
 
 ### CreateQualificationTypeRequest
 * CreateQualificationTypeRequest `object`
-  * AnswerKey [String](#string)
-  * AutoGranted [Boolean](#boolean)
-  * AutoGrantedValue [Integer](#integer)
-  * Description **required** [String](#string)
-  * Keywords [String](#string)
-  * Name **required** [String](#string)
-  * QualificationTypeStatus **required** [QualificationTypeStatus](#qualificationtypestatus)
-  * RetryDelayInSeconds [Long](#long)
-  * Test [String](#string)
-  * TestDurationInSeconds [Long](#long)
+  * AnswerKey
+  * AutoGranted
+  * AutoGrantedValue
+  * Description **required**
+  * Keywords
+  * Name **required**
+  * QualificationTypeStatus **required**
+  * RetryDelayInSeconds
+  * Test
+  * TestDurationInSeconds
 
 ### CreateQualificationTypeResponse
 * CreateQualificationTypeResponse `object`
-  * QualificationType [QualificationType](#qualificationtype)
+  * QualificationType
+    * AnswerKey
+    * AutoGranted
+    * AutoGrantedValue
+    * CreationTime
+    * Description
+    * IsRequestable
+    * Keywords
+    * Name
+    * QualificationTypeId
+    * QualificationTypeStatus
+    * RetryDelayInSeconds
+    * Test
+    * TestDurationInSeconds
 
 ### CreateWorkerBlockRequest
 * CreateWorkerBlockRequest `object`
-  * Reason **required** [String](#string)
-  * WorkerId **required** [CustomerId](#customerid)
+  * Reason **required**
+  * WorkerId **required**
 
 ### CreateWorkerBlockResponse
 * CreateWorkerBlockResponse `object`
@@ -1006,31 +1101,31 @@ amazonaws_mturk_requester.UpdateQualificationType({
 
 ### DeleteHITRequest
 * DeleteHITRequest `object`
-  * HITId **required** [EntityId](#entityid)
+  * HITId **required**
 
 ### DeleteHITResponse
 * DeleteHITResponse `object`
 
 ### DeleteQualificationTypeRequest
 * DeleteQualificationTypeRequest `object`
-  * QualificationTypeId **required** [EntityId](#entityid)
+  * QualificationTypeId **required**
 
 ### DeleteQualificationTypeResponse
 * DeleteQualificationTypeResponse `object`
 
 ### DeleteWorkerBlockRequest
 * DeleteWorkerBlockRequest `object`
-  * Reason [String](#string)
-  * WorkerId **required** [CustomerId](#customerid)
+  * Reason
+  * WorkerId **required**
 
 ### DeleteWorkerBlockResponse
 * DeleteWorkerBlockResponse `object`
 
 ### DisassociateQualificationFromWorkerRequest
 * DisassociateQualificationFromWorkerRequest `object`
-  * QualificationTypeId **required** [EntityId](#entityid)
-  * Reason [String](#string)
-  * WorkerId **required** [CustomerId](#customerid)
+  * QualificationTypeId **required**
+  * Reason
+  * WorkerId **required**
 
 ### DisassociateQualificationFromWorkerResponse
 * DisassociateQualificationFromWorkerResponse `object`
@@ -1058,78 +1153,154 @@ amazonaws_mturk_requester.UpdateQualificationType({
 
 ### GetAssignmentRequest
 * GetAssignmentRequest `object`
-  * AssignmentId **required** [EntityId](#entityid)
+  * AssignmentId **required**
 
 ### GetAssignmentResponse
 * GetAssignmentResponse `object`
-  * Assignment [Assignment](#assignment)
-  * HIT [HIT](#hit)
+  * Assignment
+    * AcceptTime
+    * Answer
+    * ApprovalTime
+    * AssignmentId
+    * AssignmentStatus
+    * AutoApprovalTime
+    * Deadline
+    * HITId
+    * RejectionTime
+    * RequesterFeedback
+    * SubmitTime
+    * WorkerId
+  * HIT
+    * AssignmentDurationInSeconds
+    * AutoApprovalDelayInSeconds
+    * CreationTime
+    * Description
+    * Expiration
+    * HITGroupId
+    * HITId
+    * HITLayoutId
+    * HITReviewStatus
+    * HITStatus
+    * HITTypeId
+    * Keywords
+    * MaxAssignments
+    * NumberOfAssignmentsAvailable
+    * NumberOfAssignmentsCompleted
+    * NumberOfAssignmentsPending
+    * QualificationRequirements
+      * items [QualificationRequirement](#qualificationrequirement)
+    * Question
+    * RequesterAnnotation
+    * Reward [CurrencyAmount](#currencyamount)
+    * Title
 
 ### GetFileUploadURLRequest
 * GetFileUploadURLRequest `object`
-  * AssignmentId **required** [EntityId](#entityid)
-  * QuestionIdentifier **required** [String](#string)
+  * AssignmentId **required**
+  * QuestionIdentifier **required**
 
 ### GetFileUploadURLResponse
 * GetFileUploadURLResponse `object`
-  * FileUploadURL [String](#string)
+  * FileUploadURL
 
 ### GetHITRequest
 * GetHITRequest `object`
-  * HITId **required** [EntityId](#entityid)
+  * HITId **required**
 
 ### GetHITResponse
 * GetHITResponse `object`
-  * HIT [HIT](#hit)
+  * HIT
+    * AssignmentDurationInSeconds
+    * AutoApprovalDelayInSeconds
+    * CreationTime
+    * Description
+    * Expiration
+    * HITGroupId
+    * HITId
+    * HITLayoutId
+    * HITReviewStatus
+    * HITStatus
+    * HITTypeId
+    * Keywords
+    * MaxAssignments
+    * NumberOfAssignmentsAvailable
+    * NumberOfAssignmentsCompleted
+    * NumberOfAssignmentsPending
+    * QualificationRequirements
+      * items [QualificationRequirement](#qualificationrequirement)
+    * Question
+    * RequesterAnnotation
+    * Reward [CurrencyAmount](#currencyamount)
+    * Title
 
 ### GetQualificationScoreRequest
 * GetQualificationScoreRequest `object`
-  * QualificationTypeId **required** [EntityId](#entityid)
-  * WorkerId **required** [CustomerId](#customerid)
+  * QualificationTypeId **required**
+  * WorkerId **required**
 
 ### GetQualificationScoreResponse
 * GetQualificationScoreResponse `object`
-  * Qualification [Qualification](#qualification)
+  * Qualification
+    * GrantTime
+    * IntegerValue
+    * LocaleValue [Locale](#locale)
+    * QualificationTypeId
+    * Status
+    * WorkerId
 
 ### GetQualificationTypeRequest
 * GetQualificationTypeRequest `object`
-  * QualificationTypeId **required** [EntityId](#entityid)
+  * QualificationTypeId **required**
 
 ### GetQualificationTypeResponse
 * GetQualificationTypeResponse `object`
-  * QualificationType [QualificationType](#qualificationtype)
+  * QualificationType
+    * AnswerKey
+    * AutoGranted
+    * AutoGrantedValue
+    * CreationTime
+    * Description
+    * IsRequestable
+    * Keywords
+    * Name
+    * QualificationTypeId
+    * QualificationTypeStatus
+    * RetryDelayInSeconds
+    * Test
+    * TestDurationInSeconds
 
 ### HIT
 * HIT `object`:  The HIT data structure represents a single HIT, including all the information necessary for a Worker to accept and complete the HIT.
-  * AssignmentDurationInSeconds [Long](#long)
-  * AutoApprovalDelayInSeconds [Long](#long)
-  * CreationTime [Timestamp](#timestamp)
-  * Description [String](#string)
-  * Expiration [Timestamp](#timestamp)
-  * HITGroupId [EntityId](#entityid)
-  * HITId [EntityId](#entityid)
-  * HITLayoutId [EntityId](#entityid)
-  * HITReviewStatus [HITReviewStatus](#hitreviewstatus)
-  * HITStatus [HITStatus](#hitstatus)
-  * HITTypeId [EntityId](#entityid)
-  * Keywords [String](#string)
-  * MaxAssignments [Integer](#integer)
-  * NumberOfAssignmentsAvailable [Integer](#integer)
-  * NumberOfAssignmentsCompleted [Integer](#integer)
-  * NumberOfAssignmentsPending [Integer](#integer)
-  * QualificationRequirements [QualificationRequirementList](#qualificationrequirementlist)
-  * Question [String](#string)
-  * RequesterAnnotation [String](#string)
+  * AssignmentDurationInSeconds
+  * AutoApprovalDelayInSeconds
+  * CreationTime
+  * Description
+  * Expiration
+  * HITGroupId
+  * HITId
+  * HITLayoutId
+  * HITReviewStatus
+  * HITStatus
+  * HITTypeId
+  * Keywords
+  * MaxAssignments
+  * NumberOfAssignmentsAvailable
+  * NumberOfAssignmentsCompleted
+  * NumberOfAssignmentsPending
+  * QualificationRequirements
+    * items [QualificationRequirement](#qualificationrequirement)
+  * Question
+  * RequesterAnnotation
   * Reward [CurrencyAmount](#currencyamount)
-  * Title [String](#string)
+  * Title
 
 ### HITAccessActions
 * HITAccessActions `string` (values: Accept, PreviewAndAccept, DiscoverPreviewAndAccept)
 
 ### HITLayoutParameter
 * HITLayoutParameter `object`:  The HITLayoutParameter data structure defines parameter values used with a HITLayout. A HITLayout is a reusable Amazon Mechanical Turk project template used to provide Human Intelligence Task (HIT) question data for CreateHIT. 
-  * Name **required** [String](#string)
-  * Value **required** [String](#string)
+  * Name **required**
+  * Value **required**
 
 ### HITLayoutParameterList
 * HITLayoutParameterList `array`
@@ -1157,138 +1328,163 @@ amazonaws_mturk_requester.UpdateQualificationType({
 
 ### ListAssignmentsForHITRequest
 * ListAssignmentsForHITRequest `object`
-  * AssignmentStatuses [AssignmentStatusList](#assignmentstatuslist)
-  * HITId **required** [EntityId](#entityid)
+  * AssignmentStatuses
+    * items [AssignmentStatus](#assignmentstatus)
+  * HITId **required**
   * MaxResults [ResultSize](#resultsize)
-  * NextToken [PaginationToken](#paginationtoken)
+  * NextToken
 
 ### ListAssignmentsForHITResponse
 * ListAssignmentsForHITResponse `object`
-  * Assignments [AssignmentList](#assignmentlist)
+  * Assignments
+    * items [Assignment](#assignment)
   * NextToken [PaginationToken](#paginationtoken)
-  * NumResults [Integer](#integer)
+  * NumResults
 
 ### ListBonusPaymentsRequest
 * ListBonusPaymentsRequest `object`
-  * AssignmentId [EntityId](#entityid)
-  * HITId [EntityId](#entityid)
+  * AssignmentId
+  * HITId
   * MaxResults [ResultSize](#resultsize)
-  * NextToken [PaginationToken](#paginationtoken)
+  * NextToken
 
 ### ListBonusPaymentsResponse
 * ListBonusPaymentsResponse `object`
-  * BonusPayments [BonusPaymentList](#bonuspaymentlist)
+  * BonusPayments
+    * items [BonusPayment](#bonuspayment)
   * NextToken [PaginationToken](#paginationtoken)
-  * NumResults [Integer](#integer)
+  * NumResults
 
 ### ListHITsForQualificationTypeRequest
 * ListHITsForQualificationTypeRequest `object`
-  * MaxResults [ResultSize](#resultsize)
-  * NextToken [PaginationToken](#paginationtoken)
-  * QualificationTypeId **required** [EntityId](#entityid)
+  * MaxResults
+  * NextToken
+  * QualificationTypeId **required**
 
 ### ListHITsForQualificationTypeResponse
 * ListHITsForQualificationTypeResponse `object`
-  * HITs [HITList](#hitlist)
+  * HITs
+    * items [HIT](#hit)
   * NextToken [PaginationToken](#paginationtoken)
-  * NumResults [Integer](#integer)
+  * NumResults
 
 ### ListHITsRequest
 * ListHITsRequest `object`
   * MaxResults [ResultSize](#resultsize)
-  * NextToken [PaginationToken](#paginationtoken)
+  * NextToken
 
 ### ListHITsResponse
 * ListHITsResponse `object`
-  * HITs [HITList](#hitlist)
+  * HITs
+    * items [HIT](#hit)
   * NextToken [PaginationToken](#paginationtoken)
-  * NumResults [Integer](#integer)
+  * NumResults
 
 ### ListQualificationRequestsRequest
 * ListQualificationRequestsRequest `object`
-  * MaxResults [ResultSize](#resultsize)
+  * MaxResults
   * NextToken [PaginationToken](#paginationtoken)
-  * QualificationTypeId [EntityId](#entityid)
+  * QualificationTypeId
 
 ### ListQualificationRequestsResponse
 * ListQualificationRequestsResponse `object`
   * NextToken [PaginationToken](#paginationtoken)
-  * NumResults [Integer](#integer)
-  * QualificationRequests [QualificationRequestList](#qualificationrequestlist)
+  * NumResults
+  * QualificationRequests
+    * items [QualificationRequest](#qualificationrequest)
 
 ### ListQualificationTypesRequest
 * ListQualificationTypesRequest `object`
-  * MaxResults [ResultSize](#resultsize)
-  * MustBeOwnedByCaller [Boolean](#boolean)
-  * MustBeRequestable **required** [Boolean](#boolean)
+  * MaxResults
+  * MustBeOwnedByCaller
+  * MustBeRequestable **required**
   * NextToken [PaginationToken](#paginationtoken)
-  * Query [String](#string)
+  * Query
 
 ### ListQualificationTypesResponse
 * ListQualificationTypesResponse `object`
   * NextToken [PaginationToken](#paginationtoken)
-  * NumResults [Integer](#integer)
-  * QualificationTypes [QualificationTypeList](#qualificationtypelist)
+  * NumResults
+  * QualificationTypes
+    * items [QualificationType](#qualificationtype)
 
 ### ListReviewPolicyResultsForHITRequest
 * ListReviewPolicyResultsForHITRequest `object`
-  * HITId **required** [EntityId](#entityid)
-  * MaxResults [ResultSize](#resultsize)
-  * NextToken [PaginationToken](#paginationtoken)
-  * PolicyLevels [ReviewPolicyLevelList](#reviewpolicylevellist)
-  * RetrieveActions [Boolean](#boolean)
-  * RetrieveResults [Boolean](#boolean)
+  * HITId **required**
+  * MaxResults
+  * NextToken
+  * PolicyLevels
+    * items [ReviewPolicyLevel](#reviewpolicylevel)
+  * RetrieveActions
+  * RetrieveResults
 
 ### ListReviewPolicyResultsForHITResponse
 * ListReviewPolicyResultsForHITResponse `object`
-  * AssignmentReviewPolicy [ReviewPolicy](#reviewpolicy)
-  * AssignmentReviewReport [ReviewReport](#reviewreport)
-  * HITId [EntityId](#entityid)
-  * HITReviewPolicy [ReviewPolicy](#reviewpolicy)
-  * HITReviewReport [ReviewReport](#reviewreport)
+  * AssignmentReviewPolicy
+    * Parameters
+      * items [PolicyParameter](#policyparameter)
+    * PolicyName **required**
+  * AssignmentReviewReport
+    * ReviewActions
+      * items [ReviewActionDetail](#reviewactiondetail)
+    * ReviewResults
+      * items [ReviewResultDetail](#reviewresultdetail)
+  * HITId
+  * HITReviewPolicy
+    * Parameters
+      * items [PolicyParameter](#policyparameter)
+    * PolicyName **required**
+  * HITReviewReport
+    * ReviewActions
+      * items [ReviewActionDetail](#reviewactiondetail)
+    * ReviewResults
+      * items [ReviewResultDetail](#reviewresultdetail)
   * NextToken [PaginationToken](#paginationtoken)
 
 ### ListReviewableHITsRequest
 * ListReviewableHITsRequest `object`
-  * HITTypeId [EntityId](#entityid)
-  * MaxResults [ResultSize](#resultsize)
-  * NextToken [PaginationToken](#paginationtoken)
-  * Status [ReviewableHITStatus](#reviewablehitstatus)
+  * HITTypeId
+  * MaxResults
+  * NextToken
+  * Status
 
 ### ListReviewableHITsResponse
 * ListReviewableHITsResponse `object`
-  * HITs [HITList](#hitlist)
+  * HITs
+    * items [HIT](#hit)
   * NextToken [PaginationToken](#paginationtoken)
-  * NumResults [Integer](#integer)
+  * NumResults
 
 ### ListWorkerBlocksRequest
 * ListWorkerBlocksRequest `object`
   * MaxResults [ResultSize](#resultsize)
-  * NextToken [PaginationToken](#paginationtoken)
+  * NextToken
 
 ### ListWorkerBlocksResponse
 * ListWorkerBlocksResponse `object`
   * NextToken [PaginationToken](#paginationtoken)
-  * NumResults [Integer](#integer)
-  * WorkerBlocks [WorkerBlockList](#workerblocklist)
+  * NumResults
+  * WorkerBlocks
+    * items [WorkerBlock](#workerblock)
 
 ### ListWorkersWithQualificationTypeRequest
 * ListWorkersWithQualificationTypeRequest `object`
-  * MaxResults [ResultSize](#resultsize)
-  * NextToken [PaginationToken](#paginationtoken)
-  * QualificationTypeId **required** [EntityId](#entityid)
-  * Status [QualificationStatus](#qualificationstatus)
+  * MaxResults
+  * NextToken
+  * QualificationTypeId **required**
+  * Status
 
 ### ListWorkersWithQualificationTypeResponse
 * ListWorkersWithQualificationTypeResponse `object`
   * NextToken [PaginationToken](#paginationtoken)
-  * NumResults [Integer](#integer)
-  * Qualifications [QualificationList](#qualificationlist)
+  * NumResults
+  * Qualifications
+    * items [Qualification](#qualification)
 
 ### Locale
 * Locale `object`: The Locale data structure represents a geographical region or location.
-  * Country **required** [CountryParameters](#countryparameters)
-  * Subdivision [CountryParameters](#countryparameters)
+  * Country **required**
+  * Subdivision
 
 ### LocaleList
 * LocaleList `array`
@@ -1299,10 +1495,11 @@ amazonaws_mturk_requester.UpdateQualificationType({
 
 ### NotificationSpecification
 * NotificationSpecification `object`: The NotificationSpecification data structure describes a HIT event notification for a HIT type.
-  * Destination **required** [String](#string)
-  * EventTypes **required** [EventTypeList](#eventtypelist)
-  * Transport **required** [NotificationTransport](#notificationtransport)
-  * Version **required** [String](#string)
+  * Destination **required**
+  * EventTypes **required**
+    * items [EventType](#eventtype)
+  * Transport **required**
+  * Version **required**
 
 ### NotificationTransport
 * NotificationTransport `string` (values: Email, SQS, SNS)
@@ -1312,9 +1509,9 @@ amazonaws_mturk_requester.UpdateQualificationType({
 
 ### NotifyWorkersFailureStatus
 * NotifyWorkersFailureStatus `object`:  When MTurk encounters an issue with notifying the Workers you specified, it returns back this object with failure details. 
-  * NotifyWorkersFailureCode [NotifyWorkersFailureCode](#notifyworkersfailurecode)
-  * NotifyWorkersFailureMessage [String](#string)
-  * WorkerId [CustomerId](#customerid)
+  * NotifyWorkersFailureCode
+  * NotifyWorkersFailureMessage
+  * WorkerId
 
 ### NotifyWorkersFailureStatusList
 * NotifyWorkersFailureStatusList `array`
@@ -1322,21 +1519,24 @@ amazonaws_mturk_requester.UpdateQualificationType({
 
 ### NotifyWorkersRequest
 * NotifyWorkersRequest `object`
-  * MessageText **required** [String](#string)
-  * Subject **required** [String](#string)
-  * WorkerIds **required** [CustomerIdList](#customeridlist)
+  * MessageText **required**
+  * Subject **required**
+  * WorkerIds **required**
+    * items [CustomerId](#customerid)
 
 ### NotifyWorkersResponse
 * NotifyWorkersResponse `object`
-  * NotifyWorkersFailureStatuses [NotifyWorkersFailureStatusList](#notifyworkersfailurestatuslist)
+  * NotifyWorkersFailureStatuses
+    * items [NotifyWorkersFailureStatus](#notifyworkersfailurestatus)
 
 ### PaginationToken
 * PaginationToken `string`: If the previous response was incomplete (because there is more data to retrieve), Amazon Mechanical Turk returns a pagination token in the response. You can use this pagination token to retrieve the next set of results. 
 
 ### ParameterMapEntry
 * ParameterMapEntry `object`:  This data structure is the data type for the AnswerKey parameter of the ScoreMyKnownAnswers/2011-09-01 Review Policy. 
-  * Key [String](#string)
-  * Values [StringList](#stringlist)
+  * Key
+  * Values
+    * items [String](#string)
 
 ### ParameterMapEntryList
 * ParameterMapEntryList `array`
@@ -1344,9 +1544,11 @@ amazonaws_mturk_requester.UpdateQualificationType({
 
 ### PolicyParameter
 * PolicyParameter `object`:  Name of the parameter from the Review policy. 
-  * Key [String](#string)
-  * MapEntries [ParameterMapEntryList](#parametermapentrylist)
-  * Values [StringList](#stringlist)
+  * Key
+  * MapEntries
+    * items [ParameterMapEntry](#parametermapentry)
+  * Values
+    * items [String](#string)
 
 ### PolicyParameterList
 * PolicyParameterList `array`
@@ -1354,12 +1556,12 @@ amazonaws_mturk_requester.UpdateQualificationType({
 
 ### Qualification
 * Qualification `object`: The Qualification data structure represents a Qualification assigned to a user, including the Qualification type and the value (score).
-  * GrantTime [Timestamp](#timestamp)
-  * IntegerValue [Integer](#integer)
+  * GrantTime
+  * IntegerValue
   * LocaleValue [Locale](#locale)
-  * QualificationTypeId [EntityId](#entityid)
-  * Status [QualificationStatus](#qualificationstatus)
-  * WorkerId [CustomerId](#customerid)
+  * QualificationTypeId
+  * Status
+  * WorkerId
 
 ### QualificationList
 * QualificationList `array`
@@ -1367,12 +1569,12 @@ amazonaws_mturk_requester.UpdateQualificationType({
 
 ### QualificationRequest
 * QualificationRequest `object`:  The QualificationRequest data structure represents a request a Worker has made for a Qualification. 
-  * Answer [String](#string)
-  * QualificationRequestId [String](#string)
-  * QualificationTypeId [EntityId](#entityid)
-  * SubmitTime [Timestamp](#timestamp)
-  * Test [String](#string)
-  * WorkerId [CustomerId](#customerid)
+  * Answer
+  * QualificationRequestId
+  * QualificationTypeId
+  * SubmitTime
+  * Test
+  * WorkerId
 
 ### QualificationRequestList
 * QualificationRequestList `array`
@@ -1380,12 +1582,14 @@ amazonaws_mturk_requester.UpdateQualificationType({
 
 ### QualificationRequirement
 * QualificationRequirement `object`:  The QualificationRequirement data structure describes a Qualification that a Worker must have before the Worker is allowed to accept a HIT. A requirement may optionally state that a Worker must have the Qualification in order to preview the HIT, or see the HIT in search results. 
-  * ActionsGuarded [HITAccessActions](#hitaccessactions)
-  * Comparator **required** [Comparator](#comparator)
-  * IntegerValues [IntegerList](#integerlist)
-  * LocaleValues [LocaleList](#localelist)
-  * QualificationTypeId **required** [String](#string)
-  * RequiredToPreview [Boolean](#boolean)
+  * ActionsGuarded
+  * Comparator **required**
+  * IntegerValues
+    * items [Integer](#integer)
+  * LocaleValues
+    * items [Locale](#locale)
+  * QualificationTypeId **required**
+  * RequiredToPreview
 
 ### QualificationRequirementList
 * QualificationRequirementList `array`
@@ -1396,19 +1600,19 @@ amazonaws_mturk_requester.UpdateQualificationType({
 
 ### QualificationType
 * QualificationType `object`:  The QualificationType data structure represents a Qualification type, a description of a property of a Worker that must match the requirements of a HIT for the Worker to be able to accept the HIT. The type also describes how a Worker can obtain a Qualification of that type, such as through a Qualification test. 
-  * AnswerKey [String](#string)
-  * AutoGranted [Boolean](#boolean)
-  * AutoGrantedValue [Integer](#integer)
-  * CreationTime [Timestamp](#timestamp)
-  * Description [String](#string)
-  * IsRequestable [Boolean](#boolean)
-  * Keywords [String](#string)
-  * Name [String](#string)
-  * QualificationTypeId [EntityId](#entityid)
-  * QualificationTypeStatus [QualificationTypeStatus](#qualificationtypestatus)
-  * RetryDelayInSeconds [Long](#long)
-  * Test [String](#string)
-  * TestDurationInSeconds [Long](#long)
+  * AnswerKey
+  * AutoGranted
+  * AutoGrantedValue
+  * CreationTime
+  * Description
+  * IsRequestable
+  * Keywords
+  * Name
+  * QualificationTypeId
+  * QualificationTypeStatus
+  * RetryDelayInSeconds
+  * Test
+  * TestDurationInSeconds
 
 ### QualificationTypeList
 * QualificationTypeList `array`
@@ -1419,16 +1623,16 @@ amazonaws_mturk_requester.UpdateQualificationType({
 
 ### RejectAssignmentRequest
 * RejectAssignmentRequest `object`
-  * AssignmentId **required** [EntityId](#entityid)
-  * RequesterFeedback **required** [String](#string)
+  * AssignmentId **required**
+  * RequesterFeedback **required**
 
 ### RejectAssignmentResponse
 * RejectAssignmentResponse `object`
 
 ### RejectQualificationRequestRequest
 * RejectQualificationRequestRequest `object`
-  * QualificationRequestId **required** [String](#string)
-  * Reason [String](#string)
+  * QualificationRequestId **required**
+  * Reason
 
 ### RejectQualificationRequestResponse
 * RejectQualificationRequestResponse `object`
@@ -1443,14 +1647,14 @@ amazonaws_mturk_requester.UpdateQualificationType({
 
 ### ReviewActionDetail
 * ReviewActionDetail `object`:  Both the AssignmentReviewReport and the HITReviewReport elements contains the ReviewActionDetail data structure. This structure is returned multiple times for each action specified in the Review Policy. 
-  * ActionId [EntityId](#entityid)
-  * ActionName [String](#string)
-  * CompleteTime [Timestamp](#timestamp)
-  * ErrorCode [String](#string)
-  * Result [String](#string)
-  * Status [ReviewActionStatus](#reviewactionstatus)
-  * TargetId [EntityId](#entityid)
-  * TargetType [String](#string)
+  * ActionId
+  * ActionName
+  * CompleteTime
+  * ErrorCode
+  * Result
+  * Status
+  * TargetId
+  * TargetType
 
 ### ReviewActionDetailList
 * ReviewActionDetailList `array`
@@ -1461,8 +1665,9 @@ amazonaws_mturk_requester.UpdateQualificationType({
 
 ### ReviewPolicy
 * ReviewPolicy `object`:  HIT Review Policy data structures represent HIT review policies, which you specify when you create a HIT. 
-  * Parameters [PolicyParameterList](#policyparameterlist)
-  * PolicyName **required** [String](#string)
+  * Parameters
+    * items [PolicyParameter](#policyparameter)
+  * PolicyName **required**
 
 ### ReviewPolicyLevel
 * ReviewPolicyLevel `string` (values: Assignment, HIT)
@@ -1473,17 +1678,19 @@ amazonaws_mturk_requester.UpdateQualificationType({
 
 ### ReviewReport
 * ReviewReport `object`:  Contains both ReviewResult and ReviewAction elements for a particular HIT. 
-  * ReviewActions [ReviewActionDetailList](#reviewactiondetaillist)
-  * ReviewResults [ReviewResultDetailList](#reviewresultdetaillist)
+  * ReviewActions
+    * items [ReviewActionDetail](#reviewactiondetail)
+  * ReviewResults
+    * items [ReviewResultDetail](#reviewresultdetail)
 
 ### ReviewResultDetail
 * ReviewResultDetail `object`:  This data structure is returned multiple times for each result specified in the Review Policy. 
-  * ActionId [EntityId](#entityid)
-  * Key [String](#string)
-  * QuestionId [EntityId](#entityid)
-  * SubjectId [EntityId](#entityid)
-  * SubjectType [String](#string)
-  * Value [String](#string)
+  * ActionId
+  * Key
+  * QuestionId
+  * SubjectId
+  * SubjectType
+  * Value
 
 ### ReviewResultDetailList
 * ReviewResultDetailList `array`
@@ -1494,19 +1701,24 @@ amazonaws_mturk_requester.UpdateQualificationType({
 
 ### SendBonusRequest
 * SendBonusRequest `object`
-  * AssignmentId **required** [EntityId](#entityid)
-  * BonusAmount **required** [CurrencyAmount](#currencyamount)
-  * Reason **required** [String](#string)
-  * UniqueRequestToken [IdempotencyToken](#idempotencytoken)
-  * WorkerId **required** [CustomerId](#customerid)
+  * AssignmentId **required**
+  * BonusAmount **required**
+  * Reason **required**
+  * UniqueRequestToken
+  * WorkerId **required**
 
 ### SendBonusResponse
 * SendBonusResponse `object`
 
 ### SendTestEventNotificationRequest
 * SendTestEventNotificationRequest `object`
-  * Notification **required** [NotificationSpecification](#notificationspecification)
-  * TestEventType **required** [EventType](#eventtype)
+  * Notification **required**
+    * Destination **required**
+    * EventTypes **required**
+      * items [EventType](#eventtype)
+    * Transport **required**
+    * Version **required**
+  * TestEventType **required**
 
 ### SendTestEventNotificationResponse
 * SendTestEventNotificationResponse `object`
@@ -1531,57 +1743,75 @@ amazonaws_mturk_requester.UpdateQualificationType({
 
 ### UpdateExpirationForHITRequest
 * UpdateExpirationForHITRequest `object`
-  * ExpireAt **required** [Timestamp](#timestamp)
-  * HITId **required** [EntityId](#entityid)
+  * ExpireAt **required**
+  * HITId **required**
 
 ### UpdateExpirationForHITResponse
 * UpdateExpirationForHITResponse `object`
 
 ### UpdateHITReviewStatusRequest
 * UpdateHITReviewStatusRequest `object`
-  * HITId **required** [EntityId](#entityid)
-  * Revert [Boolean](#boolean)
+  * HITId **required**
+  * Revert
 
 ### UpdateHITReviewStatusResponse
 * UpdateHITReviewStatusResponse `object`
 
 ### UpdateHITTypeOfHITRequest
 * UpdateHITTypeOfHITRequest `object`
-  * HITId **required** [EntityId](#entityid)
-  * HITTypeId **required** [EntityId](#entityid)
+  * HITId **required**
+  * HITTypeId **required**
 
 ### UpdateHITTypeOfHITResponse
 * UpdateHITTypeOfHITResponse `object`
 
 ### UpdateNotificationSettingsRequest
 * UpdateNotificationSettingsRequest `object`
-  * Active [Boolean](#boolean)
-  * HITTypeId **required** [EntityId](#entityid)
-  * Notification [NotificationSpecification](#notificationspecification)
+  * Active
+  * HITTypeId **required**
+  * Notification
+    * Destination **required**
+    * EventTypes **required**
+      * items [EventType](#eventtype)
+    * Transport **required**
+    * Version **required**
 
 ### UpdateNotificationSettingsResponse
 * UpdateNotificationSettingsResponse `object`
 
 ### UpdateQualificationTypeRequest
 * UpdateQualificationTypeRequest `object`
-  * AnswerKey [String](#string)
-  * AutoGranted [Boolean](#boolean)
-  * AutoGrantedValue [Integer](#integer)
-  * Description [String](#string)
-  * QualificationTypeId **required** [EntityId](#entityid)
-  * QualificationTypeStatus [QualificationTypeStatus](#qualificationtypestatus)
-  * RetryDelayInSeconds [Long](#long)
-  * Test [String](#string)
-  * TestDurationInSeconds [Long](#long)
+  * AnswerKey
+  * AutoGranted
+  * AutoGrantedValue
+  * Description
+  * QualificationTypeId **required**
+  * QualificationTypeStatus
+  * RetryDelayInSeconds
+  * Test
+  * TestDurationInSeconds
 
 ### UpdateQualificationTypeResponse
 * UpdateQualificationTypeResponse `object`
-  * QualificationType [QualificationType](#qualificationtype)
+  * QualificationType
+    * AnswerKey
+    * AutoGranted
+    * AutoGrantedValue
+    * CreationTime
+    * Description
+    * IsRequestable
+    * Keywords
+    * Name
+    * QualificationTypeId
+    * QualificationTypeStatus
+    * RetryDelayInSeconds
+    * Test
+    * TestDurationInSeconds
 
 ### WorkerBlock
 * WorkerBlock `object`:  The WorkerBlock data structure represents a Worker who has been blocked. It has two elements: the WorkerId and the Reason for the block. 
-  * Reason [String](#string)
-  * WorkerId [CustomerId](#customerid)
+  * Reason
+  * WorkerId
 
 ### WorkerBlockList
 * WorkerBlockList `array`

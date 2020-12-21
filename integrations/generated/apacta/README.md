@@ -12,7 +12,7 @@ let apacta = require('@datafire/apacta').create({
   api_key: ""
 });
 
-apacta.wall_posts.post({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -222,6 +222,13 @@ Running examples of how to retrieve the 5 most recent forms registered and embed
 ```
 
   $ curl --request GET --url 'https://app.apacta.com/api/v1/forms?extended=true&sort=Forms.created&direction=DESC&include=Products%2CCreatedBy&limit=5' --header 'accept: application/json' --header 'x-auth-token: {INSERT_YOUR_TOKEN}'
+
+
+
+
+
+
+
   
 ```
 
@@ -1695,6 +1702,7 @@ apacta.materials.material_id.rentals.post({
 
 #### Input
 * input `object`
+  * material_id **required** `string`
   * material_rental `object`
     * form_id `string`
     * from_date `string`
@@ -1703,7 +1711,6 @@ apacta.materials.material_id.rentals.post({
     * project_id `string`
     * quantity `number`
     * to_date `string`
-  * material_id **required** `string`
 
 #### Output
 * output `object`
@@ -1790,6 +1797,8 @@ apacta.materials.material_id.rentals.material_rental_id.post({
 
 #### Input
 * input `object`
+  * material_id **required** `string`
+  * material_rental_id **required** `string`
   * material `object`
     * barcode `string`
     * billing_cysle `string` (values: hourly, daily, weekly)
@@ -1798,8 +1807,6 @@ apacta.materials.material_id.rentals.material_rental_id.post({
     * is_single_usage `boolean`
     * name `string`
     * selling_price `number`
-  * material_id **required** `string`
-  * material_rental_id **required** `string`
 
 #### Output
 * output `object`
@@ -2074,7 +2081,8 @@ apacta.projects.get({}, context)
   * project_status_id `string`: Used to filter on the `project_status_id` of the projects
   * project_status_ids `array`: Used to filter on the `project_status_id` of the projects (match any of the provided values)
   * name `string`: Used to search on the `name` of the projects
-  * erp_id `string`: Used to search on the `erp_id` of the projects
+  * erp_project_id `string`: Used to search on the `erp_project_id` of the projects
+  * erp_task_id `string`: Used to search on the `erp_task_id` of the projects
   * start_time_gte `string`: Show projects with start time after than this value
   * start_time_lte `string`: Show projects with start time before this value
   * start_time_eq `string`: Show only projects with start time on specific date
@@ -2994,6 +3002,47 @@ apacta.users.user_id.put({
     * items `object`
   * success `boolean`
 
+### vendor_products.get
+List vendor products
+
+
+```js
+apacta.vendor_products.get({}, context)
+```
+
+#### Input
+* input `object`
+  * name `string`: Used to filter on the `name` of the vendor products
+  * product_number `string`: Used to filter on the `product_number` of the vendor products
+  * barcode `string`: Used to filter on the `barcode` of the vendor products
+  * vendor_id `string`: Used to filter on the `vendor_id` of the vendor products
+
+#### Output
+* output `object`
+  * data `array`
+    * items [VendorProduct](#vendorproduct)
+  * pagination [PaginationDetails](#paginationdetails)
+  * success `boolean`
+
+### vendor_products.vendor_product_id.get
+View single vendor product
+
+
+```js
+apacta.vendor_products.vendor_product_id.get({
+  "vendor_product_id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * vendor_product_id **required** `string`
+
+#### Output
+* output `object`
+  * data [VendorProduct](#vendorproduct)
+  * success `boolean`
+
 ### wall_comments.post
 Add wall comment
 
@@ -3629,6 +3678,21 @@ apacta.wall_posts.wall_post_id.wall_comments.get({
   * sale_price `number`: The price this employee costs per hour when working
   * street_name `string`
   * website `string`
+
+### VendorProduct
+* VendorProduct `object`
+  * barcode `string`
+  * created [created](#created)
+  * created_by_id `string`
+  * deleted [deleted](#deleted)
+  * description `string`
+  * id `string`
+  * modified [modified](#modified)
+  * name `string`
+  * price `number`
+  * product_category_number `string`
+  * product_number `string`
+  * vendor_id `string`
 
 ### WallComment
 * WallComment `object`

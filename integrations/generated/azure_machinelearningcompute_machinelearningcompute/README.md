@@ -15,9 +15,7 @@ let azure_machinelearningcompute_machinelearningcompute = require('@datafire/azu
   redirect_uri: ""
 });
 
-azure_machinelearningcompute_machinelearningcompute.MachineLearningCompute_ListAvailableOperations({
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -330,7 +328,7 @@ azure_machinelearningcompute_machinelearningcompute.OperationalizationClusters_U
 ### GlobalServiceConfiguration
 * GlobalServiceConfiguration `object`: Global configuration for services in the cluster.
   * autoScale [AutoScaleConfiguration](#autoscaleconfiguration)
-  * etag `string`: The configuartion ETag for updates.
+  * etag `string`: The configuration ETag for updates.
   * serviceAuth [ServiceAuthConfiguration](#serviceauthconfiguration)
   * ssl [SslConfiguration](#sslconfiguration)
 

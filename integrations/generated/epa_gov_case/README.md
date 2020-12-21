@@ -9,35 +9,216 @@ npm install --save @datafire/epa_gov_case
 ```js
 let epa_gov_case = require('@datafire/epa_gov_case').create();
 
-epa_gov_case.rest_lookups.icis_law_sections.post({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
 
 ## Description
 
-Enforcement and Compliance History Online (ECHO) is a tool developed and maintained by EPA's Office of Enforcement and Compliance Assurance for public use. ECHO provides integrated compliance and enforcement information for about 800,000 regulated facilities nationwide.
-<BR><BR>CASE Rest Services provide multiple service endpoints, each with specific capabilities, to search and retrieve data on civil cases entered into the 
+Enforcement and Compliance History Online (ECHO) is a tool developed and maintained by EPA's Office of Enforcement and Compliance Assurance for public use. ECHO provides integrated compliance and enforcement information for over 1 million regulated facilities nationwide.
+ CASE Rest Services provide multiple service endpoints, each with specific capabilities, to search and retrieve data on civil cases entered into the 
 Integrated Compliance Information System (ICIS) and criminal cases entered into the Summary of Criminal Prosecutions database.  
 See Enforcement Case Search Help (https://echo.epa.gov/help/enforcement-case-search-help) for additional information on searching civil and criminal cases. 
-<BR><BR>
-The get_cases, get_map, get_qid, and get_download end points are meant to be used together.<br>  
+\
+The get_cases, get_map, get_qid, and get_download end points are meant to be used together, while the enhanced get_case_info end point is self contained..   
 The recommended use scenario for get_cases, get_qid, get_map, and get_downoad is:
-<br>
-<br><b>1)</b>  Use get_cases to validate passed query parameters, obtain summary statistics and to obtain a query_id (QID).  QIDs are time sensitive and will be valid for approximately 30 minutes.
-<br><b>2)</b>  Use get_qid, with the returned QID, to paginate through arrays of case results.
-<br><b>3)</b>  Use get_map, with the returned QID, to zoom in/out and pan on the clustered and individual facility coordinates, related to the returned cases, that meet the QID query criteria.
-<br><b>4)</b>  Use get_download, with the returned QID, to generate a Comma Separated Value (CSV) file of facility information that meets the QID query criteria.
-<br><br>
+\
+ <b>1)</b>  Use get_cases to validate passed query parameters, obtain summary statistics and to obtain a query_id (QID).  QIDs are time sensitive and will be valid for approximately 30 minutes.
+ <b>2)</b>  Use get_qid, with the returned QID, to paginate through arrays of case results.
+ <b>3)</b>  Use get_map, with the returned QID, to zoom in/out and pan on the clustered and individual facility coordinates, related to the returned cases, that meet the QID query criteria.
+ <b>4)</b>  Use get_download, with the returned QID, to generate a Comma Separated Value (CSV) file of facility information that meets the QID query criteria.
+\
 In addition to the service endpoints listed above there are two detailed case report services, one for civil cases (get_case_report) and one for criminal cases (get_crcase_report). 
 See the Civil Enforcement Case Report Help (https://echo.epa.gov/help/reports/enforcement-case-report-help) and the Criminal Case Report Help (https://echo.epa.gov/help/reports/criminal-case-report-help) for additional information 
 on then data returned from these two services.   
-<br>
+\
 Additional ECHO Resources:   <a href="https://echo.epa.gov/tools/web-services">Web Services</a>, <a href="https://echo.epa.gov/resources/echo-data/about-the-data">About ECHO's Data</a>, <a href="https://echo.epa.gov/tools/data-downloads">Data Downloads</a>
-<br>
-
+ 
 
 ## Actions
+
+### case_rest_services.get_case_info.get
+The get_case_info service end point searches for civil enforcement and criminal cases based on the provided selection criteria and returns either individual cases or clusters of case facility locations.
+
+
+```js
+epa_gov_case.case_rest_services.get_case_info.get({}, context)
+```
+
+#### Input
+* input `object`
+  * output `string` (values: JSONP, JSON, XML): Output Format Flag.  Enter one of the following keywords:
+  * p_case_category `string`: Case Category Filter.  Enter one or more case category codes to filter results.   Provide multiple values as a comma-delimited list.
+  * p_case_status `string`: Case Status Code Filter.  Enter one or more case status codes to limit results.  Provide multiple values as a comma-delimited list.
+  * p_milestone `string`: Administrative or Judicial Milestone Filter.  Enter one or milestone values to restrict results.  Provide multiple values as a comma-delimited list.
+  * p_from_date `string`: Administrative or Judicial Milestone Date Range Start Limiter.  Enter a date value in MM/DD/YYYY format to limit milestone results.  Parameter p_to_date must also be populated when using this parameter option.
+  * p_to_date `string`: Administrative or Judicial Milestone Date Range End Limiter.  Enter a date value in MM/DD/YYYY format to limit milestone results.  Parameter p_from_date must also be populated when using this parameter option.
+  * p_milestone_fy `string`: Administrative or Judicial Milestone Fiscal Year Limiter.  Enter a single fiscal year value to limit milestone searches to a given fiscal year.
+  * p_name `string`: Case Name Filter.  Enter one or more case names to restrict results.  Provide multiple values as a comma-delimited list.  When using this parameter the p_name_type parameter is required.
+  * p_name_type `string`: Case Name Filter Modifier.
+  * p_case_number `string`: Case Number Filter.  Enter one or more case numbers to restrict results.  Provide multiple values as a comma-delimited list.
+  * p_docket_number `string`: DOJ Docket Number Filter.  Enter a single docket number or partial docket number to restrict results.  Use "%" as a wildcard for more complex filtering.
+  * p_court_docket_number `string`
+  * p_activity_number `string`: Case Activity Number Filter.  Enter a single case activity number to filter results.
+  * p_case_lead `string` (values: E, S): Case Lead Limiter.  Enter E or S to limit results.
+  * p_case_sens_flg `string`: Case Sensitive Data Flag.  Enter a Y or N to include or exclude cases with sensitive data.
+  * p_region `string` (values: 01, 02, 03, 04, 05, 06, 07, 08, 09, 10): EPA Region Filter. Provide a single value of 01 thru 10 to restrict results to a single EPA region.
+  * p_state `string`: Case Location State Filter.  Enter one or more state USPS postal codes to filter results.  Provide multiple values as a comma-delimited list.
+  * p_district `string`: Case Location Court District Limiter.  Enter a single state court district code to limit results.
+  * p_sic `string`: Standard Industrial Classification (SIC) Code Filter.  Enter a single 4-digit SIC Code to filter results.
+  * p_sic_ao_naics `string` (values: AND, OR): Case Location SIC/NAICS And/Or Modifier.  Enter either AND or OR to govern the search logic of SIC and NAICS codes.
+  * p_sic_primary_flg `string` (values: Y, N): Case Location Primary SIC Flag.  Enter Y to limit SIC search results to primary SIC codes only.
+  * p_sic_frs_flg `string` (values: Y, N): Case Location Extended FRS SIC Search Flag.  Enter Y to expand SIC search to include Federal Registry Service datasets.
+  * p_naics `string`: North American Industry Classification System Filter. Enter two to six digits to filter results to facilities having matching NAICS codes.  Digits less than six will match to all codes beginning with the provided values.
+  * p_naics_primary_flg `string` (values: Y, N): Case Location Primary NAICS Flag.  Enter Y to limit NAICS search results to primary NAICS codes only.
+  * p_naics_frs_flg `string` (values: Y, N): Case Location Extended FRS NAICS Search Flag.  Enter Y to expand NAICS search to include Federal Registry Service datasets.
+  * p_enf_type `string`: Case Enforcement Type Filter. Enter one or more case enforcement type codes to limit results.  Provide multiple values as a comma-delimited list.
+  * p_law `string`: Law Statute Code Filter.  Enter a single statute code to limit results.
+  * p_section `string`: Law Section Code Filter. Enter one or more law section codes to limit results.  Provide multiple values as a comma-delimited list.
+  * p_cp_citation `string`: Law Section Code Filter Alternative. Enter a single law section code to limit results.  This parameter accepts partial codes and allows for advanced search modifiers.
+  * p_rank_order `string` (values: 1, 0): Law Status Rank Order Limiter.  Enter a single integer rank order to limit results.
+  * p_enf_program `string`: Enforcement Program Code Limiter.  Enter one or more enforcement program codes to limit results.  Provide multiple values as a comma-delimited list.  
+  * p_violation `string`: Violation Type Code Filter.  Enter one or more violation type codes to limit results.  Provide multiple values as a comma-delimited list.
+  * p_priority_area `string`: Case Priority Area Filter.  Enter one or more case priority areas to limit results.  Provide multiple values as a comma-delimited list.
+  * p_priority_area_desc `string`: Case Priority Area Description Filter.  Enter a single case priority area description or partial case priority area description to limit results.  Use "%" as a wild-card match for more complex searches.
+  * p_tribal `string` (values: Y, N): Case Location Tribal Land Flag.  Enter Y or N to include or disallow cases on tribal land.
+  * p_oeca_core `string` (values: Y, N): OECA Core Program Flag.  Enter Y or N to include or exclude core program cases.
+  * p_multimedia `string` (values: Y, N): Enforcement Multimedia Case Flag.  Enter Y or N to include or exclude multimedia cases.
+  * p_fed_case `string` (values: Y, N): Federal Facility Involvement Flag.  Enter a Y or N to include or exclude cases involving federal facilities.
+  * p_activity_contact `string`: Activity Contact Last Name Filter.  Enter a single last name or partial last name to filter results.  Use "%" as a wild-card for advanced searching.
+  * p_role `string`: Activity Contact Role Code Filter.  Enter a single role code to restrict results.
+  * p_fed_penalty `string` (values: ANY, LE5000, GT5000, GT50000, GT100000, GT500000, GT1000000, GT2500000): Federal Penalty Assessed Amount Filter.  Provide one of the following keywords to restrict results.
+  * p_total_fed_penalty `string`: Total Federal Penalty Limiter.  Enter a keyword value to limit results to cases with given total federal penalties.
+  * p_cost_recovery `string`: Cost Recovery Awarded Amount Limiter.  Enter a keyword value to limit results to cases with given cost recovery amounts.
+  * p_total_cost_recovery `string`: Total Cost Recovery Amount Limiter.  Enter a keyword value to limit results to cases with given cost recovery amounts.
+  * p_complying_actions `string`: Complying Actions Type Code Limiter.  Enter one or more complying action codes to restrict results.  Provide multiple values as a comma-delimited list.
+  * p_comp_act_val `string` (values: ANY, LE5000, GT5000, GT100000, GT1000000, GT50000000): Compliance Action Cost Limiter. Enter a keyword value to limit results to cases with given compliance cost amounts.
+  * p_total_comp_act_val `string`: Total Compliance Action Amount Limiter.  Enter a keyword value to limit results to cases with given total compliance action amounts.
+  * p_sep_cats `string`: Supplemental Environmental Projects Activity Category Code Limiter.  Provide one or more SEP activity category codes to limit results.  Provide multiple values as a comma-delimited list.
+  * p_sep_val `string` (values: ANY, LE10000, GT10000, GT50000, GT100000, GT500000, GT1000000): Supplemental Environmental Projects Activity Value Limiter.  Provide a keyword to limit results.
+  * p_total_sep_val `string`: Supplemental Environmental Projects Total Value Limiter.  Provide a keyword to limit results.
+  * p_lodged_date `string`: Settlement Lodged Date Limiter.  Enter a single settlement lodged date in MM/DD/YYYY format to limit results.
+  * p_entered_date `string`: Settlement Entered Date Limiter.  Enter a single settlement entered date in MM/DD/YYYY format to limit results.
+  * p_facility_id `string`: Case Facility Registration Identifier Limiter.  Enter a single complete facility identifier to limit results.
+  * p_fac_city `string`: Case Facility City Limiter.  Enter a single complete city name to filter cases by facility location city.
+  * p_fac_zip `string`: Case Facility ZIP Code Limiter.  Enter a single 5-digit zip code to filter cases by facility location zip code.
+  * p_fac_county `string`: Case Facility County Limiter.  Enter a single complete county name to filter cases by facility location county name.
+  * p_case_summary `string`: Case Summary Search Limiter.  Enter a single case summary to limit results.  This parameter accepts partial codes and allows for advanced search modifiers.
+  * p_case_summary_type `string` (values: ALL, CONTAINS, WITHIN): Identifies how the the search terms enterened in p_case_summary are searched.  Valid values are ALL (Default), WITHIN, and CONTAINS.  Must be used with p_case_summary.
+  * p_usmex `string` (values: Y, N): US-Mexico Border Flag.  Enter Y/N to restrict searches to facilities located within 100KM of the border.
+  * p_c1lat `number`: In decimal degrees.  Latitude of 1st corner of box that bounds the resulting facilities. The latitude and longitude of both corners of the bounding box must be provided.
+  * p_c1lon `number`: In decimal degrees.  Longitude of 1st corner of box that bounds the resulting facilities. The latitude and longitude of both corners of the bounding box must be provided.
+  * p_c2lat `number`: In decimal degrees.  Latitude of 2nd corner of box that bounds the resulting facilities. The latitude and longitude of both corners of the bounding box must be provided.
+  * p_c2lon `number`: In decimal degrees.  Longitude of 2nd corner of box that bounds the resulting facilities. The latitude and longitude of both corners of the bounding box must be provided.
+  * p_voluntary `string`: Voluntary Self Disclosure Flag.  Enter Y or N to include or exclude cases results having voluntary disclosure.
+  * p_fed_indicator `string`: Federal Facility/Cross Media Flag.  Enter Y or N to limit results to cases with federal facility cross media.
+  * p_fntype `string` (values: ALL, CONTAINS, EXACT, BEGINS): Controls type of text search performed on facility name with parameter p_fn.
+  * p_civil_criminal_indicator `string` (values: CI, CR, ALL): Civil/Criminal Case Limiter.  Provide a keyword to limit results.
+  * queryset `number`: Query Limiter.  Enter a value to limit the number of records returned for each query. Value cannot exceed 70,000.
+  * responseset `number`: Response Set Limiter. Enter a value to limit the number of records per page. Value cannot exceed 1,000.
+  * mapset `string`: Identifies the maxium number of case facilities to return from the case_rest_services.get_case_info query.
+  * callback `string`: JSONP Callback.  For use with JSONP and GEOJSONP output only.  Enter a name of the function in which to wrap the JSON response.
+  * qcolumns `string`: Used to customize service output.  A list of comma-separated column IDs of output objects that will be returned in the service query object or download.  Use the metadata service endpoint for a complete list of Ids and definitions.
+  * p_pretty_print `number`: Optional flag to request GeoJSON formatted results to be pretty printed.  Only provide a numeric value when the output needs to be human readable as pretty printing has a performance cost.
+  * p_ocmap_fy `string`: Fiscal Year to select cases that are displayed in the Office of Complicance Fiscal Year Map Services
+  * p_qs `string`: Quick Search. Allows entry for city, state, and/or zip code.
+  * p_has_map `string`
+
+#### Output
+* output `object`: Root Object
+  * Results **required** [crs0_get_case_info.Results](#crs0_get_case_info.results)
+
+### case_rest_services.get_case_info.post
+The get_case_info service end point searches for civil enforcement and criminal cases based on the provided selection criteria and returns either individual cases or clusters of case facility locations.
+
+
+```js
+epa_gov_case.case_rest_services.get_case_info.post({}, context)
+```
+
+#### Input
+* input `object`
+  * output `string` (values: JSONP, JSON, XML): Output Format Flag.  Enter one of the following keywords:
+  * p_case_category `string`: Case Category Filter.  Enter one or more case category codes to filter results.   Provide multiple values as a comma-delimited list.
+  * p_case_status `string`: Case Status Code Filter.  Enter one or more case status codes to limit results.  Provide multiple values as a comma-delimited list.
+  * p_milestone `string`: Administrative or Judicial Milestone Filter.  Enter one or milestone values to restrict results.  Provide multiple values as a comma-delimited list.
+  * p_from_date `string`: Administrative or Judicial Milestone Date Range Start Limiter.  Enter a date value in MM/DD/YYYY format to limit milestone results.  Parameter p_to_date must also be populated when using this parameter option.
+  * p_to_date `string`: Administrative or Judicial Milestone Date Range End Limiter.  Enter a date value in MM/DD/YYYY format to limit milestone results.  Parameter p_from_date must also be populated when using this parameter option.
+  * p_milestone_fy `string`: Administrative or Judicial Milestone Fiscal Year Limiter.  Enter a single fiscal year value to limit milestone searches to a given fiscal year.
+  * p_name `string`: Case Name Filter.  Enter one or more case names to restrict results.  Provide multiple values as a comma-delimited list.  When using this parameter the p_name_type parameter is required.
+  * p_name_type `string`: Case Name Filter Modifier.
+  * p_case_number `string`: Case Number Filter.  Enter one or more case numbers to restrict results.  Provide multiple values as a comma-delimited list.
+  * p_docket_number `string`: DOJ Docket Number Filter.  Enter a single docket number or partial docket number to restrict results.  Use "%" as a wildcard for more complex filtering.
+  * p_court_docket_number `string`
+  * p_activity_number `string`: Case Activity Number Filter.  Enter a single case activity number to filter results.
+  * p_case_lead `string` (values: E, S): Case Lead Limiter.  Enter E or S to limit results.
+  * p_case_sens_flg `string`: Case Sensitive Data Flag.  Enter a Y or N to include or exclude cases with sensitive data.
+  * p_region `string` (values: 01, 02, 03, 04, 05, 06, 07, 08, 09, 10): EPA Region Filter. Provide a single value of 01 thru 10 to restrict results to a single EPA region.
+  * p_state `string`: Case Location State Filter.  Enter one or more state USPS postal codes to filter results.  Provide multiple values as a comma-delimited list.
+  * p_district `string`: Case Location Court District Limiter.  Enter a single state court district code to limit results.
+  * p_sic `string`: Standard Industrial Classification (SIC) Code Filter.  Enter a single 4-digit SIC Code to filter results.
+  * p_sic_ao_naics `string` (values: AND, OR): Case Location SIC/NAICS And/Or Modifier.  Enter either AND or OR to govern the search logic of SIC and NAICS codes.
+  * p_sic_primary_flg `string` (values: Y, N): Case Location Primary SIC Flag.  Enter Y to limit SIC search results to primary SIC codes only.
+  * p_sic_frs_flg `string` (values: Y, N): Case Location Extended FRS SIC Search Flag.  Enter Y to expand SIC search to include Federal Registry Service datasets.
+  * p_naics `string`: North American Industry Classification System Filter. Enter two to six digits to filter results to facilities having matching NAICS codes.  Digits less than six will match to all codes beginning with the provided values.
+  * p_naics_primary_flg `string` (values: Y, N): Case Location Primary NAICS Flag.  Enter Y to limit NAICS search results to primary NAICS codes only.
+  * p_naics_frs_flg `string` (values: Y, N): Case Location Extended FRS NAICS Search Flag.  Enter Y to expand NAICS search to include Federal Registry Service datasets.
+  * p_enf_type `string`: Case Enforcement Type Filter. Enter one or more case enforcement type codes to limit results.  Provide multiple values as a comma-delimited list.
+  * p_law `string`: Law Statute Code Filter.  Enter a single statute code to limit results.
+  * p_section `string`: Law Section Code Filter. Enter one or more law section codes to limit results.  Provide multiple values as a comma-delimited list.
+  * p_cp_citation `string`: Law Section Code Filter Alternative. Enter a single law section code to limit results.  This parameter accepts partial codes and allows for advanced search modifiers.
+  * p_rank_order `string` (values: 1, 0): Law Status Rank Order Limiter.  Enter a single integer rank order to limit results.
+  * p_enf_program `string`: Enforcement Program Code Limiter.  Enter one or more enforcement program codes to limit results.  Provide multiple values as a comma-delimited list.  
+  * p_violation `string`: Violation Type Code Filter.  Enter one or more violation type codes to limit results.  Provide multiple values as a comma-delimited list.
+  * p_priority_area `string`: Case Priority Area Filter.  Enter one or more case priority areas to limit results.  Provide multiple values as a comma-delimited list.
+  * p_priority_area_desc `string`: Case Priority Area Description Filter.  Enter a single case priority area description or partial case priority area description to limit results.  Use "%" as a wild-card match for more complex searches.
+  * p_tribal `string` (values: Y, N): Case Location Tribal Land Flag.  Enter Y or N to include or disallow cases on tribal land.
+  * p_oeca_core `string` (values: Y, N): OECA Core Program Flag.  Enter Y or N to include or exclude core program cases.
+  * p_multimedia `string` (values: Y, N): Enforcement Multimedia Case Flag.  Enter Y or N to include or exclude multimedia cases.
+  * p_fed_case `string` (values: Y, N): Federal Facility Involvement Flag.  Enter a Y or N to include or exclude cases involving federal facilities.
+  * p_activity_contact `string`: Activity Contact Last Name Filter.  Enter a single last name or partial last name to filter results.  Use "%" as a wild-card for advanced searching.
+  * p_role `string`: Activity Contact Role Code Filter.  Enter a single role code to restrict results.
+  * p_fed_penalty `string` (values: ANY, LE5000, GT5000, GT50000, GT100000, GT500000, GT1000000, GT2500000): Federal Penalty Assessed Amount Filter.  Provide one of the following keywords to restrict results.
+  * p_total_fed_penalty `string`: Total Federal Penalty Limiter.  Enter a keyword value to limit results to cases with given total federal penalties.
+  * p_cost_recovery `string`: Cost Recovery Awarded Amount Limiter.  Enter a keyword value to limit results to cases with given cost recovery amounts.
+  * p_total_cost_recovery `string`: Total Cost Recovery Amount Limiter.  Enter a keyword value to limit results to cases with given cost recovery amounts.
+  * p_complying_actions `string`: Complying Actions Type Code Limiter.  Enter one or more complying action codes to restrict results.  Provide multiple values as a comma-delimited list.
+  * p_comp_act_val `string` (values: ANY, LE5000, GT5000, GT100000, GT1000000, GT50000000): Compliance Action Cost Limiter. Enter a keyword value to limit results to cases with given compliance cost amounts.
+  * p_total_comp_act_val `string`: Total Compliance Action Amount Limiter.  Enter a keyword value to limit results to cases with given total compliance action amounts.
+  * p_sep_cats `string`: Supplemental Environmental Projects Activity Category Code Limiter.  Provide one or more SEP activity category codes to limit results.  Provide multiple values as a comma-delimited list.
+  * p_sep_val `string` (values: ANY, LE10000, GT10000, GT50000, GT100000, GT500000, GT1000000): Supplemental Environmental Projects Activity Value Limiter.  Provide a keyword to limit results.
+  * p_total_sep_val `string`: Supplemental Environmental Projects Total Value Limiter.  Provide a keyword to limit results.
+  * p_lodged_date `string`: Settlement Lodged Date Limiter.  Enter a single settlement lodged date in MM/DD/YYYY format to limit results.
+  * p_entered_date `string`: Settlement Entered Date Limiter.  Enter a single settlement entered date in MM/DD/YYYY format to limit results.
+  * p_facility_id `string`: Case Facility Registration Identifier Limiter.  Enter a single complete facility identifier to limit results.
+  * p_fac_city `string`: Case Facility City Limiter.  Enter a single complete city name to filter cases by facility location city.
+  * p_fac_zip `string`: Case Facility ZIP Code Limiter.  Enter a single 5-digit zip code to filter cases by facility location zip code.
+  * p_fac_county `string`: Case Facility County Limiter.  Enter a single complete county name to filter cases by facility location county name.
+  * p_case_summary `string`: Case Summary Search Limiter.  Enter a single case summary to limit results.  This parameter accepts partial codes and allows for advanced search modifiers.
+  * p_case_summary_type `string` (values: ALL, CONTAINS, WITHIN): Identifies how the the search terms enterened in p_case_summary are searched.  Valid values are ALL (Default), WITHIN, and CONTAINS.  Must be used with p_case_summary.
+  * p_usmex `string` (values: Y, N): US-Mexico Border Flag.  Enter Y/N to restrict searches to facilities located within 100KM of the border.
+  * p_c1lat `number`: In decimal degrees.  Latitude of 1st corner of box that bounds the resulting facilities. The latitude and longitude of both corners of the bounding box must be provided.
+  * p_c1lon `number`: In decimal degrees.  Longitude of 1st corner of box that bounds the resulting facilities. The latitude and longitude of both corners of the bounding box must be provided.
+  * p_c2lat `number`: In decimal degrees.  Latitude of 2nd corner of box that bounds the resulting facilities. The latitude and longitude of both corners of the bounding box must be provided.
+  * p_c2lon `number`: In decimal degrees.  Longitude of 2nd corner of box that bounds the resulting facilities. The latitude and longitude of both corners of the bounding box must be provided.
+  * p_voluntary `string`: Voluntary Self Disclosure Flag.  Enter Y or N to include or exclude cases results having voluntary disclosure.
+  * p_fed_indicator `string`: Federal Facility/Cross Media Flag.  Enter Y or N to limit results to cases with federal facility cross media.
+  * p_fntype `string` (values: ALL, CONTAINS, EXACT, BEGINS): Controls type of text search performed on facility name with parameter p_fn.
+  * p_civil_criminal_indicator `string` (values: CI, CR, ALL): Civil/Criminal Case Limiter.  Provide a keyword to limit results.
+  * queryset `number`: Query Limiter.  Enter a value to limit the number of records returned for each query. Value cannot exceed 70,000.
+  * responseset `number`: Response Set Limiter. Enter a value to limit the number of records per page. Value cannot exceed 1,000.
+  * mapset `string`: Identifies the maxium number of case facilities to return from the case_rest_services.get_case_info query.
+  * callback `string`: JSONP Callback.  For use with JSONP and GEOJSONP output only.  Enter a name of the function in which to wrap the JSON response.
+  * qcolumns `string`: Used to customize service output.  A list of comma-separated column IDs of output objects that will be returned in the service query object or download.  Use the metadata service endpoint for a complete list of Ids and definitions.
+  * p_pretty_print `number`: Optional flag to request GeoJSON formatted results to be pretty printed.  Only provide a numeric value when the output needs to be human readable as pretty printing has a performance cost.
+  * p_ocmap_fy `string`: Fiscal Year to select cases that are displayed in the Office of Complicance Fiscal Year Map Services
+  * p_qs `string`: Quick Search. Allows entry for city, state, and/or zip code.
+  * p_has_map `string`
+
+#### Output
+* output `object`: Root Object
+  * Results **required** [crs0_get_case_info.Results](#crs0_get_case_info.results)
 
 ### case_rest_services.get_case_report.get
 The get_case_report service endpoint returns a complex object of civil enforcement case details based on the provided case id.
@@ -88,6 +269,7 @@ epa_gov_case.case_rest_services.get_cases.get({}, context)
   * output `string` (values: JSONP, JSON, XML): Output Format Flag.  Enter one of the following keywords:
   * p_case_category `string`: Case Category Filter.  Enter one or more case category codes to filter results.   Provide multiple values as a comma-delimited list.
   * p_case_status `string`: Case Status Code Filter.  Enter one or more case status codes to limit results.  Provide multiple values as a comma-delimited list.
+  * p_violation `string`: Violation Type Code Filter.  Enter one or more violation type codes to limit results.  Provide multiple values as a comma-delimited list.
   * p_milestone `string`: Administrative or Judicial Milestone Filter.  Enter one or milestone values to restrict results.  Provide multiple values as a comma-delimited list.
   * p_from_date `string`: Administrative or Judicial Milestone Date Range Start Limiter.  Enter a date value in MM/DD/YYYY format to limit milestone results.  Parameter p_to_date must also be populated when using this parameter option.
   * p_to_date `string`: Administrative or Judicial Milestone Date Range End Limiter.  Enter a date value in MM/DD/YYYY format to limit milestone results.  Parameter p_from_date must also be populated when using this parameter option.
@@ -96,6 +278,7 @@ epa_gov_case.case_rest_services.get_cases.get({}, context)
   * p_name_type `string`: Case Name Filter Modifier.
   * p_case_number `string`: Case Number Filter.  Enter one or more case numbers to restrict results.  Provide multiple values as a comma-delimited list.
   * p_docket_number `string`: DOJ Docket Number Filter.  Enter a single docket number or partial docket number to restrict results.  Use "%" as a wildcard for more complex filtering.
+  * p_court_docket_number `string`
   * p_activity_number `string`: Case Activity Number Filter.  Enter a single case activity number to filter results.
   * p_case_lead `string` (values: E, S): Case Lead Limiter.  Enter E or S to limit results.
   * p_case_sens_flg `string`: Case Sensitive Data Flag.  Enter a Y or N to include or exclude cases with sensitive data.
@@ -115,7 +298,6 @@ epa_gov_case.case_rest_services.get_cases.get({}, context)
   * p_cp_citation `string`: Law Section Code Filter Alternative. Enter a single law section code to limit results.  This parameter accepts partial codes and allows for advanced search modifiers.
   * p_rank_order `string` (values: 1, 0): Law Status Rank Order Limiter.  Enter a single integer rank order to limit results.
   * p_enf_program `string`: Enforcement Program Code Limiter.  Enter one or more enforcement program codes to limit results.  Provide multiple values as a comma-delimited list.  
-  * p_violation `string`: Violation Type Code Filter.  Enter one or more violation type codes to limit results.  Provide multiple values as a comma-delimited list.
   * p_priority_area `string`: Case Priority Area Filter.  Enter one or more case priority areas to limit results.  Provide multiple values as a comma-delimited list.
   * p_priority_area_desc `string`: Case Priority Area Description Filter.  Enter a single case priority area description or partial case priority area description to limit results.  Use "%" as a wild-card match for more complex searches.
   * p_tribal `string` (values: Y, N): Case Location Tribal Land Flag.  Enter Y or N to include or disallow cases on tribal land.
@@ -141,6 +323,7 @@ epa_gov_case.case_rest_services.get_cases.get({}, context)
   * p_fac_zip `string`: Case Facility ZIP Code Limiter.  Enter a single 5-digit zip code to filter cases by facility location zip code.
   * p_fac_county `string`: Case Facility County Limiter.  Enter a single complete county name to filter cases by facility location county name.
   * p_case_summary `string`: Case Summary Search Limiter.  Enter a single case summary to limit results.  This parameter accepts partial codes and allows for advanced search modifiers.
+  * p_case_summary_type `string` (values: ALL, CONTAINS, WITHIN): Identifies how the the search terms enterened in p_case_summary are searched.  Valid values are ALL (Default), WITHIN, and CONTAINS.  Must be used with p_case_summary.
   * p_usmex `string` (values: Y, N): US-Mexico Border Flag.  Enter Y/N to restrict searches to facilities located within 100KM of the border.
   * p_c1lat `number`: In decimal degrees.  Latitude of 1st corner of box that bounds the resulting facilities. The latitude and longitude of both corners of the bounding box must be provided.
   * p_c1lon `number`: In decimal degrees.  Longitude of 1st corner of box that bounds the resulting facilities. The latitude and longitude of both corners of the bounding box must be provided.
@@ -155,7 +338,10 @@ epa_gov_case.case_rest_services.get_cases.get({}, context)
   * maplist `string` (values: Y, N): Map List Flag.  Provide a Y to return mappable coordinates representing the full geographic extent of the queryset (all facilities that met the selection criteria).
   * tablelist `string` (values: Y, N): Table List Flag. Enter a Y to display the first page of facility results.
   * callback `string`: JSONP Callback.  For use with JSONP and GEOJSONP output only.  Enter a name of the function in which to wrap the JSON response.
-  * qcolumns `string`: Used to cutomize service output.  A list of comma-separated column IDs of output objects that will be returned in the service query object or download.  Use the metadata service endpoint for a complete list of Ids and definitions.
+  * qcolumns `string`: Used to customize service output.  A list of comma-separated column IDs of output objects that will be returned in the service query object or download.  Use the metadata service endpoint for a complete list of Ids and definitions.
+  * p_ocmap_fy `string`: Fiscal Year to select cases that are displayed in the Office of Complicance Fiscal Year Map Services
+  * p_qs `string`: Quick Search. Allows entry for city, state, and/or zip code.
+  * p_has_map `string`
 
 #### Output
 * output `object`: Service call container.
@@ -182,6 +368,7 @@ epa_gov_case.case_rest_services.get_cases.post({}, context)
   * p_name_type `string`: Case Name Filter Modifier.
   * p_case_number `string`: Case Number Filter.  Enter one or more case numbers to restrict results.  Provide multiple values as a comma-delimited list.
   * p_docket_number `string`: DOJ Docket Number Filter.  Enter a single docket number or partial docket number to restrict results.  Use "%" as a wildcard for more complex filtering.
+  * p_court_docket_number `string`
   * p_activity_number `string`: Case Activity Number Filter.  Enter a single case activity number to filter results.
   * p_case_lead `string` (values: E, S): Case Lead Limiter.  Enter E or S to limit results.
   * p_case_sens_flg `string`: Case Sensitive Data Flag.  Enter a Y or N to include or exclude cases with sensitive data.
@@ -227,6 +414,7 @@ epa_gov_case.case_rest_services.get_cases.post({}, context)
   * p_fac_zip `string`: Case Facility ZIP Code Limiter.  Enter a single 5-digit zip code to filter cases by facility location zip code.
   * p_fac_county `string`: Case Facility County Limiter.  Enter a single complete county name to filter cases by facility location county name.
   * p_case_summary `string`: Case Summary Search Limiter.  Enter a single case summary to limit results.  This parameter accepts partial codes and allows for advanced search modifiers.
+  * p_case_summary_type `string` (values: ALL, CONTAINS, WITHIN): Identifies how the the search terms enterened in p_case_summary are searched.  Valid values are ALL (Default), WITHIN, and CONTAINS.  Must be used with p_case_summary.
   * p_usmex `string` (values: Y, N): US-Mexico Border Flag.  Enter Y/N to restrict searches to facilities located within 100KM of the border.
   * p_c1lat `number`: In decimal degrees.  Latitude of 1st corner of box that bounds the resulting facilities. The latitude and longitude of both corners of the bounding box must be provided.
   * p_c1lon `number`: In decimal degrees.  Longitude of 1st corner of box that bounds the resulting facilities. The latitude and longitude of both corners of the bounding box must be provided.
@@ -241,11 +429,54 @@ epa_gov_case.case_rest_services.get_cases.post({}, context)
   * maplist `string` (values: Y, N): Map List Flag.  Provide a Y to return mappable coordinates representing the full geographic extent of the queryset (all facilities that met the selection criteria).
   * tablelist `string` (values: Y, N): Table List Flag. Enter a Y to display the first page of facility results.
   * callback `string`: JSONP Callback.  For use with JSONP and GEOJSONP output only.  Enter a name of the function in which to wrap the JSON response.
-  * qcolumns `string`: Used to cutomize service output.  A list of comma-separated column IDs of output objects that will be returned in the service query object or download.  Use the metadata service endpoint for a complete list of Ids and definitions.
+  * qcolumns `string`: Used to customize service output.  A list of comma-separated column IDs of output objects that will be returned in the service query object or download.  Use the metadata service endpoint for a complete list of Ids and definitions.
+  * p_ocmap_fy `string`: Fiscal Year to select cases that are displayed in the Office of Complicance Fiscal Year Map Services
+  * p_qs `string`: Quick Search. Allows entry for city, state, and/or zip code.
+  * p_has_map `string`
 
 #### Output
 * output `object`: Service call container.
   * Results **required** [crs2_Results](#crs2_results)
+
+### case_rest_services.get_cases_from_facility.get
+Placeholder
+
+
+```js
+epa_gov_case.case_rest_services.get_cases_from_facility.get({
+  "p_id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * p_id **required** `string`: Identifier for the service.
+  * output `string` (values: JSONP, JSON, XML): Output Format Flag.  Enter one of the following keywords:
+  * callback `string`: JSONP Callback.  For use with JSONP and GEOJSONP output only.  Enter a name of the function in which to wrap the JSON response.
+
+#### Output
+* output `object`: Root Object
+  * Results **required** [crs0_get_cases_from_facility.Results](#crs0_get_cases_from_facility.results)
+
+### case_rest_services.get_cases_from_facility.post
+Placeholder
+
+
+```js
+epa_gov_case.case_rest_services.get_cases_from_facility.post({
+  "p_id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * p_id **required** `string`: Identifier for the service.
+  * output `string` (values: JSONP, JSON, XML): Output Format Flag.  Enter one of the following keywords:
+  * callback `string`: JSONP Callback.  For use with JSONP and GEOJSONP output only.  Enter a name of the function in which to wrap the JSON response.
+
+#### Output
+* output `object`: Root Object
+  * Results **required** [crs0_get_cases_from_facility.Results](#crs0_get_cases_from_facility.results)
 
 ### case_rest_services.get_crcase_report.get
 The get_crcase_report service end point returns a complex object of criminal case detials based on the provided criminal case id.
@@ -260,6 +491,7 @@ epa_gov_case.case_rest_services.get_crcase_report.get({}, context)
   * p_id `string`: Prosecution Summary Identifier. Enter the numeric prosecution summary identifier to retrieve the criminal case report.
   * output `string` (values: JSONP, JSON, XML): Output Format Flag.  Enter one of the following keywords:
   * callback `string`: JSONP Callback.  For use with JSONP and GEOJSONP output only.  Enter a name of the function in which to wrap the JSON response.
+  * mapset `string`: Identifies the maxium number of case facilities to return from the case_rest_services.get_case_info query.
 
 #### Output
 * output `object`: Service call container.
@@ -297,7 +529,7 @@ epa_gov_case.case_rest_services.get_download.get({
 * input `object`
   * output `string`: Output Format Flag.  Enter one of the following keywords:
   * qid **required** `string`: Query ID Selector.  Enter the QueryID number from a previously run query.
-  * qcolumns `string`: Used to cutomize service output.  A list of comma-separated column IDs of output objects that will be returned in the service query object or download.  Use the metadata service endpoint for a complete list of Ids and definitions.
+  * qcolumns `string`: Used to customize service output.  A list of comma-separated column IDs of output objects that will be returned in the service query object or download.  Use the metadata service endpoint for a complete list of Ids and definitions.
 
 #### Output
 * output `file`
@@ -316,10 +548,50 @@ epa_gov_case.case_rest_services.get_download.post({
 * input `object`
   * output `string`: Output Format Flag.  Enter one of the following keywords:
   * qid **required** `string`: Query ID Selector.  Enter the QueryID number from a previously run query.
-  * qcolumns `string`: Used to cutomize service output.  A list of comma-separated column IDs of output objects that will be returned in the service query object or download.  Use the metadata service endpoint for a complete list of Ids and definitions.
+  * qcolumns `string`: Used to customize service output.  A list of comma-separated column IDs of output objects that will be returned in the service query object or download.  Use the metadata service endpoint for a complete list of Ids and definitions.
 
 #### Output
 * output `file`
+
+### case_rest_services.get_facilities_from_case.get
+Placeholder
+
+
+```js
+epa_gov_case.case_rest_services.get_facilities_from_case.get({
+  "p_id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * p_id **required** `string`: Identifier for the service.
+  * output `string` (values: JSONP, JSON, XML): Output Format Flag.  Enter one of the following keywords:
+  * callback `string`: JSONP Callback.  For use with JSONP and GEOJSONP output only.  Enter a name of the function in which to wrap the JSON response.
+
+#### Output
+* output `object`: Root Object
+  * Results **required** [crs0_get_facilities_from_case.Results](#crs0_get_facilities_from_case.results)
+
+### case_rest_services.get_facilities_from_case.post
+Placeholder
+
+
+```js
+epa_gov_case.case_rest_services.get_facilities_from_case.post({
+  "p_id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * p_id **required** `string`: Identifier for the service.
+  * output `string` (values: JSONP, JSON, XML): Output Format Flag.  Enter one of the following keywords:
+  * callback `string`: JSONP Callback.  For use with JSONP and GEOJSONP output only.  Enter a name of the function in which to wrap the JSON response.
+
+#### Output
+* output `object`: Root Object
+  * Results **required** [crs0_get_facilities_from_case.Results](#crs0_get_facilities_from_case.results)
 
 ### case_rest_services.get_map.get
 The purpose of the GET_MAP service is to display facility coordinates and facility clusters related to a get_cases query. Currently, the maximum number of coordinates returned is 500. GET_MAP performs automatic clustering at the state, county, and zip code levels to maximize the number of coordinates returned.
@@ -366,6 +638,7 @@ epa_gov_case.case_rest_services.get_map.post({
   * c1_long `number`: Longitude of 1st corner of box that bounds the resulting facilities. The latitude and longitude of both corners of the bounding box must be provided.
   * c2_lat `number`: Latitude of 2nd corner of box that bounds the resulting facilities. The latitude and longitude of both corners of the bounding box must be provided.
   * c2_long `number`: Longitude of 2nd corner of box that bounds the resulting facilities. The latitude and longitude of both corners of the bounding box must be provided.
+  * mapset `string`: Identifies the maxium number of case facilities to return from the case_rest_services.get_case_info query.
 
 #### Output
 * output `object`: Service call container.
@@ -389,7 +662,7 @@ epa_gov_case.case_rest_services.get_qid.get({
   * callback `string`: JSONP Callback.  For use with JSONP and GEOJSONP output only.  Enter a name of the function in which to wrap the JSON response.
   * newsort `number`: Output Sort Column.  Enter the number of the column on which the data will be sorted. If unpopulated results will sort on the first column.
   * descending `string` (values: Y, N): Output Sort Column Descending Flag.  Enter Y to column identified in the newsort parameter descending.  Enter N to use ascending sort order. Used only when newsort parameter is populated.
-  * qcolumns `string`: Used to cutomize service output.  A list of comma-separated column IDs of output objects that will be returned in the service query object or download.  Use the metadata service endpoint for a complete list of Ids and definitions.
+  * qcolumns `string`: Used to customize service output.  A list of comma-separated column IDs of output objects that will be returned in the service query object or download.  Use the metadata service endpoint for a complete list of Ids and definitions.
 
 #### Output
 * output `object`: Service call container.
@@ -413,7 +686,7 @@ epa_gov_case.case_rest_services.get_qid.post({
   * callback `string`: JSONP Callback.  For use with JSONP and GEOJSONP output only.  Enter a name of the function in which to wrap the JSON response.
   * newsort `number`: Output Sort Column.  Enter the number of the column on which the data will be sorted. If unpopulated results will sort on the first column.
   * descending `string` (values: Y, N): Output Sort Column Descending Flag.  Enter Y to column identified in the newsort parameter descending.  Enter N to use ascending sort order. Used only when newsort parameter is populated.
-  * qcolumns `string`: Used to cutomize service output.  A list of comma-separated column IDs of output objects that will be returned in the service query object or download.  Use the metadata service endpoint for a complete list of Ids and definitions.
+  * qcolumns `string`: Used to customize service output.  A list of comma-separated column IDs of output objects that will be returned in the service query object or download.  Use the metadata service endpoint for a complete list of Ids and definitions.
 
 #### Output
 * output `object`: Service call container.
@@ -434,7 +707,7 @@ epa_gov_case.case_rest_services.metadata.get({}, context)
 
 #### Output
 * output `object`: Root Object
-  * Results **required** [met_Results](#met_results)
+  * Results **required** [met1](#met1)
 
 ### case_rest_services.metadata.post
 Returns the JSON Object Name and ColumnId for usage with the qcolumns parameter for get_cases endpoint.
@@ -451,7 +724,7 @@ epa_gov_case.case_rest_services.metadata.post({}, context)
 
 #### Output
 * output `object`: Root Object
-  * Results **required** [met_Results](#met_results)
+  * Results **required** [met1](#met1)
 
 ### rest_lookups.icis_law_sections.get
 Returns the ICIS Law Section Descriptions.
@@ -504,35 +777,75 @@ epa_gov_case.rest_lookups.icis_law_sections.post({}, context)
 ### crs0_Cases
 * crs0_Cases `object`: A summary of the violation(s), environmental problem(s), and a description of the cause of action.
   * ActivityId **required** `string`: The unique, system-generated identifier for an activity performed at or related to a particular site or Facility.
+  * CaaFlag **required** `string`: A flag indicating that the Primary Law cited for the case was the Clean Air Act.
   * CaseCategoryCode **required** `string`: A three-character code that identifies the type of ICIS activity, which includes general categories such as information requests, inspections, compliance determinations, and enforcement.  Activities selected for the ECHO data download are restricted to two subcategories of enforcement:  administrative – formal (AFR), and judicial activities (JDC).
   * CaseCategoryDesc **required** `string`: Identifies the type of action based on the enforcement authority used.  
   * CaseName **required** `string`: A unique number identifying the enforcement action. For EPA civil cases, these numbers begin with either the two digit EPA Region Code, "HQ" (headquarters initiated cases), and "EF" or "WF" (Eastern or Western Field Office CAA Mobile Source Program cases); followed by the fiscal year in which the action was initiated. After the fiscal year there is a sequence number. State NPDES civil cases start with the two character post abbreviation, followed by a sequence number.
   * CaseNumber **required** `string`: A unique number identifying the enforcement action. For EPA civil cases, these numbers begin with either the two digit EPA Region Code, "HQ" (headquarters initiated cases), and "EF" or "WF" (Eastern or Western Field Office CAA Mobile Source Program cases); followed by the fiscal year in which the action was initiated. After the fiscal year there is a sequence number. State NPDES civil cases start with the two character post abbreviation, followed by a sequence number.
   * CaseStatusCode **required** `string`: Code identifying the current status of an activity.
   * CaseStatusDesc **required** `string`: The description that identifies the current status of an activity.
+  * CerclaFlag **required** `string`: A flag indicating that the Primary Law cited for the case was the Comprehensive Environmental Response, Compensation, and Liability Act.
   * CivilCriminalIndicator **required** `string`: Civil vs. Criminal Indicator.
   * CostRecovery **required** `string`: For civil enforcement actions, cost recovery awarded is the amount of cost recovery ordered or agreed to be repaid by the responsible party of parties.
+  * CourtDocketNumber **required** `string`
+  * CwaFlag **required** `string`: A flag indicating that the Primary Law cited for the case was the Clean Water Act.
   * DOJDocketNmbr **required** `string`: The docket number assigned by the Department of Justice to EPA's Enforcement Action.  This number will identify cases in the Federal Register and in DOJ press releases when a settlement is lodged and entered.
   * DateClosed **required** `string`: The date the actions requested in the final order have been completed by the recipient; or the termination date of the final order (if such a date is specified) has passed; or the enforcement action has been withdrawn or dismissed; or the enforcement action has been superseded by, or combined into, another related enforcement action addressing the same violations.
   * DateFiled **required** `string`: The filed/issued date can have different meanings depending on the Case Category. The date the judicial complaint is filed in U.S. District Court by the U.S. Attorney. The date that an administrative order is issued or the administrative complaint is filed.
   * DateLodged **required** `string`: The date a proposed consent decree is given to the Clerk of the Court for lodging in the District Court.  Upon lodging a consent decree, a notice is published in the Federal Register indicating nature of the proposed settlement and the acceptance period for public comments.
   * EnfOutcome **required** `string`: The result of the enforcement action.
+  * EpcraFlag **required** `string`: A flag indicating that the Primary Law cited for the case was the Emergency Planning and Community Right to Know Act.
   * FedPenalty **required** `string`: For civil judicial Enforcement Actions, this amount is the Federal penalty assessed against the defendant(s) as specified in the final entered Consent Decree or Court Order.  For administrative Enforcement Actions, it is the penalty assessed in the Consent/Final Order.  It does not include the amount of the penalty mitigated due to a SEP or the amount shared with the state or local entities.  Interest payments associated with a penalty paid over time are not to be included in this amount.  It is the total Federal amount for each Final Order.
+  * FederalFlag **required** `string`: A flag indicating that the  case is related to a Federally Owned facility.
+  * FifraFlag **required** `string`: A flag indicating that the Primary Law cited for the case was the Federal Insecticide, Fungicide, and Rodenticide Act.
   * Lead **required** `string`: The lead agency (e.g., EPA, State) conducting the inspection
-  * MaxScore **required** `string`: [Col. 121]
+  * MaxScore **required** `string`: A sorting score for internal use.
   * PrimaryLaw **required** `string`: Identifies the primary statute/law violated and cited in the enforcement action. Many of EPA's judicial actions are based on incidents that are violations of more than one statute. One law entered into the ICIS record is designated the primary law, which is considered the law that is most seriously violated and/or for which the most significant relief is sought.
   * PrimaryNAICSCode **required** `string`: A 6-digit code to classify industrial establishments, as identified in FRS. North American Industry Classification System (NAICS) has replaced the U.S. Standard Industrial Classification (SIC) system. For detailed information about NAICS, please refer to the U.S. Census Bureau NAICS webpage.
   * PrimarySICCode **required** `string`: The Standard Industrial Classification (SIC) system code of the facility, as identified in FRS. SIC codes were established by the Census Bureau to identify processes, products and services. The SIC code describes the primary activity of the facility. The first two digits in the code define a major business sector; the last two digits denote a facility's specialty within the major sector.
   * PrimarySection **required** `string`: Identifies the primary section violated and cited in the enforcement action.
   * ProsecutionSummaryId **required** `string`: Prosecution Summary Identifier.
+  * RcraFlag **required** `string`: A flag indicating that the Primary Law cited for the case was the Resource Conservation and Recovery Act.
   * SEPCategories **required** `string`: For civil enforcement actions, as part of a settlement, a defendant may voluntarily agree to undertake an environmentally beneficial project (Supplement Environmental Project) related to the violation in exchange for mitigation of the penalty to be paid.  It may not include activities a defendant must take to return to compliance with the law. The EPA has set out eight categories that can be acceptable SEPs:
   * SEPCost **required** `string`: The total value of all SEPs for all settlements at the enforcement case.
   * SEPTexts **required** `string`: A description of the SEP. These actions do not include activities a violator must take to return to compliance with the law.
+  * SdwaFlag **required** `string`: A flag indicating that the Primary Law cited for the case was the Safe Drinking Water Act.
   * SettlementCnt **required** `string`: For civil enforcement actions, the number of settlements associated with the case. Most enforcement actions tend to follow a one-case, one-settlement scenario. However, and in particular with judicial actions involving multiple defendants, more than one settlement may result.
   * SettlementDate **required** `string`: For federal judicial actions, this is the date the settlement document is signed by the presiding judge and entered by the Clerk of the Court. At that point, the settlement becomes a binding court order. For administrative actions, this is the date that the final order is signed and issued by the enforcement authority.
-  * StateLocPenaltyAmt **required** `string`
+  * StateLocPenaltyAmt **required** `string`: The total State or Local Penalty amount collected pursuant to a Final Order.
   * TotalCompActionAmt **required** `string`: For civil enforcement actions, the value of the costs incurred by the defendant/respondent to attain compliance with the law and restore the environment. This value does not include penalties, cost recovery, or costs associated with SEPs.
   * TribalLandFlag **required** `string`: Flag indicating if the case is located on tribal land.
+  * TscaFlag **required** `string`: Flag indicating whether or not a facility has a TSCA ID
+
+### crs0_ClusterData
+* crs0_ClusterData `object`: Cluster Data Complex Object
+  * AFRRows **required** `string`: Displays the number of Administrative Formal cases within the search results.
+  * CAARows **required** `string`: The number of facilities or cases within the result set that have Clean Air Act (CAA) permits.
+  * CERCLARows **required** `string`: The number of cases within the results set that relate to the Comprehensive Environmental Response, Compensation, and Liability Act (CERCLA).
+  * CWARows **required** `string`: The number of facilities or cases within the results set that have Clean Water Act (CWA) permits.
+  * ClusterCount **required** `string`: The number of facilities or cases in the cluster.
+  * ClusterIcon **required** `string`: The icon file used to reprsent the cluster.
+  * ClusterLatitude **required** `string`: The latitude in decimal degrees expressed using the NAD83 horizontal datum.
+  * ClusterLongitude **required** `string`: The longitude in decimal degrees expressed using the NAD83 horizontal datum.
+  * ClusterName **required** `string`: THe name or the identifier of the geographic area used for clustering.  Examples:  Alaska, Fairfax County, 22314
+  * ClusterType **required** `string`: The representative geographic area used for clustering.  Examples:  State, County, Zip Code
+  * ClusterValue **required** `string`: The value, internal to the database report object, that represents this cluster, like a state abbreviation, zip code, or county FIPS code.  Examples: AK, 22314, 50011
+  * CriminalRows **required** `string`: Displays the number of criminal enforcement cases within the search results.
+  * EPCRARows **required** `string`: The number of cases within the results set that relate to the Emergency Planning and Community Right to Know Act (EPCRA).
+  * FIFRARows **required** `string`: The number of cases within the result set that relate to the Federal Insecticide, Fungicide, and Rodenticide Act (FIFRA).
+  * FedPenRows **required** `string`: Displays the number of cases with federal penalty assessed greater than $0.
+  * FederalRows **required** `string`: The number of facilities or cases within the result set that have a relationship to a Federal facility.
+  * JDCRows **required** `string`: Displays the number of Judicial cases within the search results.
+  * ObjectId **required** `string`: Sequential number assigned to each facility or cluster returned.
+  * RCRARows **required** `string`: The number of facilities or cases within the results set that have Resource Conservation and Recovery Action (RCRA) permits.
+  * SDWARows **required** `string`: The number of facilities or cases within the results set that have Safe Drinking Water Act (SDWA) permits.
+  * SEPRows **required** `string`: Displays the number of cases with SEP amount greater than $0.
+  * TSCARows **required** `string`: The number of cases within the result set that relate to the Toxic Substances Control Act (TSCA).
+
+### crs0_ClusterOutput
+* crs0_ClusterOutput `object`: Cluster Ouput Complex Object Array
+  * ClusterData `array`: An array of state, county, or zip code cluster information
+    * items [crs0_ClusterData](#crs0_clusterdata)
 
 ### crs0_MapData
 * crs0_MapData `object`: Data container providing locational information for each case.
@@ -542,18 +855,74 @@ epa_gov_case.rest_lookups.icis_law_sections.post({}, context)
   * NAME **required** `string`: For DFR, this is the Facility name. The name corresponds to the TYPE value
   * PUV **required** `string`: Pop up value. Combine with PopUpBaseURL to give the popup for the facility
   * TYPE **required** `string`: For DFR, this is always facility
+  * VALUE **required** `string`
 
 ### crs0_MapOutput
 * crs0_MapOutput `object`: Data container for visualizing case information.
   * IconBaseURL **required** `string`: URL where all the icons are located
-  * MapData **required** `array`
+  * MapData **required** `array`: An array of facility geospatial information.
     * items [crs0_MapData](#crs0_mapdata)
   * PopUpBaseURL **required** `string`: Combine this URL with the PUC to get popup info
   * QueryID **required** `string`: Sequential number assigned to entire search result
 
+### crs0_get_case_info.Results
+* crs0_get_case_info.Results `object`: Results Object
+  * AFRRows **required** `string`: Displays the number of Administrative Formal cases within the search results.
+  * CERCLARows **required** `string`: The number of cases within the results set that relate to the Comprehensive Environmental Response, Compensation, and Liability Act (CERCLA).
+  * CWARows **required** `string`: The number of facilities or cases within the results set that have Clean Water Act (CWA) permits.
+  * Cases `array`: A summary of the violation(s), environmental problem(s), and a description of the cause of action.
+    * items [crs0_Cases](#crs0_cases)
+  * ClusterOutput [crs0_ClusterOutput](#crs0_clusteroutput)
+  * ClusterRecords `string`: Number of clusters returned.
+  * CriminalRows **required** `string`: Displays the number of criminal enforcement cases within the search results.
+  * EPCRARows **required** `string`: The number of cases within the results set that relate to the Emergency Planning and Community Right to Know Act (EPCRA).
+  * FIFRARows **required** `string`: The number of cases within the result set that relate to the Federal Insecticide, Fungicide, and Rodenticide Act (FIFRA).
+  * FedPenRows **required** `string`: Displays the number of cases with federal penalty assessed greater than $0.
+  * FederalRows **required** `string`: The number of facilities or cases within the result set that have a relationship to a Federal facility.
+  * JDCRows **required** `string`: Displays the number of Judicial cases within the search results.
+  * MapLocations **required** `string`: Number of Faciliy Locations related to the Case Search Results
+  * Message **required** `string`: Field to record messages (typically performance-related) about packet processing
+  * QueryParameters **required** `array`: A list of submitted query parameters and their values.
+    * items [qp0](#qp0)
+  * QueryRows **required** `string`: Number of query results returned
+  * RCRARows **required** `string`: The number of facilities or cases within the results set that have Resource Conservation and Recovery Action (RCRA) permits.
+  * SDWARows **required** `string`: The number of facilities or cases within the results set that have Safe Drinking Water Act (SDWA) permits.
+  * SEPRows **required** `string`: Displays the number of cases with SEP amount greater than $0.
+  * TSCARows **required** `string`: The number of cases within the result set that relate to the Toxic Substances Control Act (TSCA).
+
+### crs0_get_cases_from_facility.CaseNumber
+* crs0_get_cases_from_facility.CaseNumber `object`: Case Number
+  * CaseNumber **required** `string`: A unique number identifying the enforcement action. For EPA civil cases, these numbers begin with either the two digit EPA Region Code, "HQ" (headquarters initiated cases), and "EF" or "WF" (Eastern or Western Field Office CAA Mobile Source Program cases); followed by the fiscal year in which the action was initiated. After the fiscal year there is a sequence number. State NPDES civil cases start with the two character post abbreviation, followed by a sequence number.
+
+### crs0_get_cases_from_facility.CaseNumbers
+* crs0_get_cases_from_facility.CaseNumbers `object`: Case Numbers
+  * CaseNumbers **required** `array`
+    * items [crs0_get_cases_from_facility.CaseNumber](#crs0_get_cases_from_facility.casenumber)
+
+### crs0_get_cases_from_facility.Results
+* crs0_get_cases_from_facility.Results `object`: Results
+  * Results **required** [crs0_get_cases_from_facility.CaseNumbers](#crs0_get_cases_from_facility.casenumbers)
+
+### crs0_get_facilities_from_case.RegistryID
+* crs0_get_facilities_from_case.RegistryID `object`: Registry ID
+  * RegistryID **required** `string`: An internal 12-digit Facility Registry Service (FRS) tracking number used to tie all facility data together in EPA regulatory program databases.
+
+### crs0_get_facilities_from_case.RegistryIDs
+* crs0_get_facilities_from_case.RegistryIDs `object`: Registry IDs
+  * RegistryIDs **required** `array`
+    * items [crs0_get_facilities_from_case.RegistryID](#crs0_get_facilities_from_case.registryid)
+
+### crs0_get_facilities_from_case.Results
+* crs0_get_facilities_from_case.Results `object`: Results
+  * Results **required** [crs0_get_facilities_from_case.RegistryIDs](#crs0_get_facilities_from_case.registryids)
+
 ### crs1_CAEDDocuments
-* crs1_CAEDDocuments `object`
-  * Dummy `string`
+* crs1_CAEDDocuments `object`: Case Related Uploaded Documents
+  * CaseNumber **required** `string`: A unique number identifying the enforcement action. For EPA civil cases, these numbers begin with either the two digit EPA Region Code, "HQ" (headquarters initiated cases), and "EF" or "WF" (Eastern or Western Field Office CAA Mobile Source Program cases); followed by the fiscal year in which the action was initiated. After the fiscal year there is a sequence number. State NPDES civil cases start with the two character post abbreviation, followed by a sequence number.
+  * DocumentLink **required** `string`: URLS for documents that EPA has colleted that are related to this Case.
+  * EPAProgram **required** `string`: The EPA Program associated with the Document URL
+  * FacilityName **required** `string`: The name of the facility.
+  * PublishDate **required** `string`: The date the document was published.
 
 ### crs1_CaseInformation
 * crs1_CaseInformation `object`: The basic information section contains information that identifies the action and some key descriptive variables, such as case status and case type.
@@ -575,10 +944,10 @@ epa_gov_case.rest_lookups.icis_law_sections.post({}, context)
   * ResultVolDisclosure **required** `string`: A flag that indicates the Enforcement Action was the result of a self disclosure.
   * TotalComplianceActionCost **required** `string`: The estimated dollar value of injunctive relief and other physical/nonphysical costs of returning to compliance, from all settlements at a case. Injunctive relief represents the actions a defendant is ordered to undertake to achieve and maintain compliance, such as installing a new pollution control device to reduce air pollution, or preventing emissions of a pollutant in the first place.
   * TotalCostRecovery **required** `string`: The amount of the cost recovery ordered or agreed to be repaid by the responsible parties, cost recovery whole dollar amount awarded by the Court and due the the Superfund. For administrative cases, it is the cost recovery whole dollar amount of the Final Order.
-  * TotalFederalPenalty **required** `string`: For civil judicial enforcement actions, this amount is the federal penalty assessed against the defendant(s)  as specified in the final entered Consent Decree or Court Order. For administrative enforcement actions, it is the penalty assessed in the Consent/Final Order. It does not include the amount of the penalty mitigated due to a SEP or the amount shared with the state or local entities. Interest payments associated with a penalty paid over time are not included in this amount.
+  * TotalFederalPenalty **required** `string`: For civil judicial enforcement actions, this amount is the federal penalty assessed against the defendant(s)� as specified in the final entered Consent Decree or Court Order. For administrative enforcement actions, it is the penalty assessed in the Consent/Final Order. It does not include the amount of the penalty mitigated due to a SEP or the amount shared with the state or local entities. Interest payments associated with a penalty paid over time are not included in this amount.
   * TotalSEPCost **required** `string`: The total value of all SEPs for all settlements at the enforcement case.
   * TotalStatePenalty **required** `string`: The total dollar penalty amount from all settlements to be paid to a state or local enforcement authority that is party to a concluded enforcement action.
-  * Violations **required** `string`: ???
+  * Violations **required** `string`: A compilation of all Case Violation Descriptions related to the case.
 
 ### crs1_CaseMilestones
 * crs1_CaseMilestones `object`: The major milestone events tracked for the enforcement action.
@@ -588,13 +957,13 @@ epa_gov_case.rest_lookups.icis_law_sections.post({}, context)
 ### crs1_Citations
 * crs1_Citations `object`: The corresponding regulation in the Code of Federal Regulations (CFR) or U.S. Code (U.S.C.) associated with the enforcement action.
   * Programs **required** `string`: A description of the EPA program(s) under which an enforcement action has been taken, and which correspond to the cited statutes and sections.
-  * Sections **required** `string`: ???
+  * Sections **required** `string`: A compilation of all Case Law Sections applicable for the Case.
   * Title **required** `string`: The title held by a person in an organization.
 
 ### crs1_ComplianceSchedules
 * crs1_ComplianceSchedules `object`: This section provides compliance schedule milestone activity information for a subset of EPA judicial consent decrees with compliance schedules.
   * ActualDate **required** `string`: The actual date on which the Compliance Schedule event was completed/achieved.
-  * EventAmount.ComplianceSchedules **required** `string`: The dollar amount of a scheduled payment initiated through a penalty action or a cost recovery pursuant to a Final Order.
+  * EventAmount **required** `string`: The dollar amount of a scheduled payment initiated through a penalty action or a cost recovery pursuant to a Final Order.
   * FacilityFRSID **required** `string`: The number assigned by the Facility Linkage Application that is used to associate facility records from multiple environmental database systems that are known or believed to represent the same facility.
   * ScheduleCommentText **required** `string`: The free-text field used to store descriptive Compliance Schedule information.
   * ScheduleDate **required** `string`: The date the event is scheduled to be completed (i.e. the due date).
@@ -642,13 +1011,13 @@ epa_gov_case.rest_lookups.icis_law_sections.post({}, context)
 
 ### crs1_Facilities
 * crs1_Facilities `object`: This section provides detailed facility and address information on all of the facilities associated with the civil enforcement case.
-  * FRSNumber **required** `string`: The identification number assigned to a facility in the Facility Registry Service (FRS) to uniquely identify a facility site.
+  * FRSNumber **required** `string`: The identification number assigned to a facility in the�Facility Registry Service (FRS)�to uniquely identify a facility site.
   * FacilityAddress **required** `string`: The address that describes the physical (geographic) location of the front door or main entrance of a Facility site, including urban-style street address or rural address.
   * FacilityCity **required** `string`: The city in which the facility is located
   * FacilityName **required** `string`: The name of the facility.
   * FacilityState **required** `string`: The state in which the facility is located
   * FacilityZip **required** `string`: The zip code of the area in which the facility is located
-  * NAICSCodes **required** `string`: A 6-digit code to classify industrial establishments. For detailed information about NAICS, please refer to the U.S. Census Bureau NAICS webpage.
+  * NAICSCodes **required** `string`: A 6-digit code to classify industrial establishments. For detailed information about NAICS, please refer to the U.S. Census Bureau�NAICS�webpage.
   * SICCodes **required** `string`: The Standard Industrial Classification codes applicable to the facility
 
 ### crs1_FinalOrderStatuses
@@ -663,7 +1032,7 @@ epa_gov_case.rest_lookups.icis_law_sections.post({}, context)
 * crs1_LawsAndSections `object`: Identifies the statute/law and sections cited in the enforcement action.
   * Law **required** `string`: Code for the primary and non-primary laws that were violated.
   * Programs **required** `string`: A description of the EPA program(s) under which an enforcement action has been taken, and which correspond to the cited statutes and sections.
-  * Sections **required** `string`: ???
+  * Sections **required** `string`: A compilation of all Case Law Sections applicable for the Case.
 
 ### crs1_PollutantReductions
 * crs1_PollutantReductions `object`: This section provides information relating complying actions and SEPs to their estimated or actual environmental impact on pollutant reduction.
@@ -683,7 +1052,7 @@ epa_gov_case.rest_lookups.icis_law_sections.post({}, context)
 
 ### crs1_ProgramLinks
 * crs1_ProgramLinks `object`: Crosswalk between programs and facilities (identified by FRS ID).
-  * FRSNumber **required** `string`: The identification number assigned to a facility in the Facility Registry Service (FRS) to uniquely identify a facility site.
+  * FRSNumber **required** `string`: The identification number assigned to a facility in the�Facility Registry Service (FRS)�to uniquely identify a facility site.
   * Program **required** `string`: The source database for the EPA programs information.
   * ProgramID **required** `string`: Unique identifier for the EPA program.
 
@@ -705,7 +1074,7 @@ epa_gov_case.rest_lookups.icis_law_sections.post({}, context)
     * items [crs1_Defendants](#crs1_defendants)
   * EnforcementConclusions **required** `array`
     * items [crs1_EnforcementConclusions](#crs1_enforcementconclusions)
-  * Facilities **required** `array`
+  * Facilities **required** `array`: A complex array of facility information.
     * items [crs1_Facilities](#crs1_facilities)
   * LawsAndSections **required** `array`
     * items [crs1_LawsAndSections](#crs1_lawsandsections)
@@ -728,17 +1097,26 @@ epa_gov_case.rest_lookups.icis_law_sections.post({}, context)
 ### crs2_Results
 * crs2_Results `object`: The data returned by the service call.
   * AFRRows **required** `string`: Displays the number of Administrative Formal cases within the search results.
+  * CAARows **required** `string`: The number of facilities or cases within the result set that have Clean Air Act (CAA) permits.
+  * CERCLARows **required** `string`: The number of cases within the results set that relate to the Comprehensive Environmental Response, Compensation, and Liability Act (CERCLA).
+  * CWARows **required** `string`: The number of facilities or cases within the results set that have Clean Water Act (CWA) permits.
   * Cases `array`: A summary of the violation(s), environmental problem(s), and a description of the cause of action.
     * items [crs0_Cases](#crs0_cases)
   * CriminalRows **required** `string`: Displays the number of criminal enforcement cases within the search results.
+  * EPCRARows **required** `string`: The number of cases within the results set that relate to the Emergency Planning and Community Right to Know Act (EPCRA).
+  * FIFRARows **required** `string`: The number of cases within the result set that relate to the Federal Insecticide, Fungicide, and Rodenticide Act (FIFRA).
   * FedPenRows **required** `string`: Displays the number of cases with federal penalty assessed greater than $0.
+  * FederalRows **required** `string`: The number of facilities or cases within the result set that have a relationship to a Federal facility.
   * JDCRows **required** `string`: Displays the number of Judicial cases within the search results.
   * MapOutput [crs0_MapOutput](#crs0_mapoutput)
   * Message **required** `string`: Field to record messages (typically performance-related) about packet processing
   * PageNo **required** `string`: The number of pages of results returned
   * QueryID **required** `string`: Sequential number assigned to entire search result
   * QueryRows **required** `string`: Number of query results returned
+  * RCRARows **required** `string`: The number of facilities or cases within the results set that have Resource Conservation and Recovery Action (RCRA) permits.
+  * SDWARows **required** `string`: The number of facilities or cases within the results set that have Safe Drinking Water Act (SDWA) permits.
   * SEPRows **required** `string`: Displays the number of cases with SEP amount greater than $0.
+  * TSCARows **required** `string`: The number of cases within the result set that relate to the Toxic Substances Control Act (TSCA).
 
 ### crs3_CRDefendants
 * crs3_CRDefendants `object`: Provides identifying information about the defendants and courts involved in the criminal enforcement case.
@@ -760,7 +1138,7 @@ epa_gov_case.rest_lookups.icis_law_sections.post({}, context)
   * CaseSummary **required** `string`: The summary of the violation environmental problem and a description of the cause of action (basis of legal action).  The summary could be extracted from the referral transmission memo or letter or it could be required as the first section of a revised standardized referral document.
   * Citations **required** `string`: The corresponding regulation in the Code of Federal Regulations (CFR) or U.S. Code (U.S.C.) associated with the enforcement action.
   * FiscalYear **required** `string`: The fiscal year in which the activity occurred.
-  * Statutes **required** `string`: ???
+  * Statutes **required** `string`: A compilation of all Case Law Statutes applicable to the Case.
 
 ### crs3_Locations
 * crs3_Locations `object`: This section provides geographic locational information for the criminal activity.
@@ -792,20 +1170,25 @@ epa_gov_case.rest_lookups.icis_law_sections.post({}, context)
   * QueryID **required** `string`: Sequential number assigned to entire search result
   * QueryRows **required** `string`: Number of query results returned
 
-### met_Results
-* met_Results `object`: Results Object
+### met1
+* met1 `object`: Results Object
   * Message **required** `string`: Field to record messages (typically performance-related) about packet processing
   * ResultColumns `array`
-    * items [met_ResultsColumns](#met_resultscolumns)
+    * items [met2](#met2)
 
-### met_ResultsColumns
-* met_ResultsColumns `object`: Results Column Object
+### met2
+* met2 `object`: Results Column Object
   * ColumnID **required** `string`
   * ColumnName **required** `string`
   * DataLength **required** `string`: Data length for EPA program database column.
   * DataType **required** `string`: Data type for EPA program database column.
   * Description **required** `string`: A description of the category of Supplemental Environment Project (SEP) for a settlement.
-  * ObjectName **required** `string`
+  * ObjectName **required** `string`: The JSON name used for the database column.
+
+### qp0
+* qp0 `object`: Query Parameters Object
+  * QP **required** `string`: Query parameter
+  * QV **required** `string`: Query value
 
 ### rlk00_LuValues
 * rlk00_LuValues `object`: Lookup Values

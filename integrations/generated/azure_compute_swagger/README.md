@@ -15,12 +15,7 @@ let azure_compute_swagger = require('@datafire/azure_compute_swagger').create({
   redirect_uri: ""
 });
 
-azure_compute_swagger.VirtualMachines_QuickCreate({
-  "resourceGroupName": "",
-  "deploymentName": "",
-  "api-version": "",
-  "subscriptionId": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -106,7 +101,7 @@ azure_compute_swagger.VirtualMachines_QuickCreate({
   * dependencies `array`: Gets the list of deployment dependencies.
     * items [Dependency](#dependency)
   * mode `string` (values: Incremental, Complete): Gets or sets the deployment mode.
-  * outputs `object`: Gets or sets key/value pairs that represent deploymentoutput.
+  * outputs `object`: Gets or sets key/value pairs that represent deployment output.
   * parameters `object`: Deployment parameters. Use only one of Parameters or ParametersLink.
   * parametersLink [ParametersLink](#parameterslink)
   * providers `array`: Gets the list of resource providers needed for the deployment.
@@ -117,7 +112,7 @@ azure_compute_swagger.VirtualMachines_QuickCreate({
   * timestamp `string`: Gets or sets the timestamp of the template deployment.
 
 ### ParametersLink
-* ParametersLink `object`: Entity representing the reference to the deployment paramaters.
+* ParametersLink `object`: Entity representing the reference to the deployment parameters.
   * contentVersion `string`: If included it must match the ContentVersion in the template.
   * uri **required** `string`: URI referencing the template.
 

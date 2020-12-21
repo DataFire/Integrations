@@ -12,7 +12,7 @@ let redmine = require('@datafire/redmine').create({
   host: ""
 });
 
-redmine.projects.json.get({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

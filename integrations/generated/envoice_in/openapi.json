@@ -451,6 +451,52 @@
         ]
       }
     },
+    "/api/general/dateformats": {
+      "get": {
+        "consumes": [],
+        "operationId": "GeneralApi_DateFormats",
+        "parameters": [
+          {
+            "default": "[authentication key]",
+            "description": "",
+            "in": "header",
+            "name": "x-auth-key",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": "[authentication secret]",
+            "description": "",
+            "in": "header",
+            "name": "x-auth-secret",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "text/html",
+          "application/xml",
+          "text/xml"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          }
+        },
+        "summary": "Return all of the platform supported Date Formats",
+        "tags": [
+          "General"
+        ]
+      }
+    },
     "/api/general/uilanguages": {
       "get": {
         "consumes": [],
@@ -942,7 +988,8 @@
                 "Draft",
                 "Paid",
                 "Unpaid",
-                "Overdue"
+                "Overdue",
+                "Void"
               ],
               "type": "string"
             }
@@ -2274,6 +2321,15 @@
     }
   },
   "definitions": {
+    "AdditionalClientEmailApiModel": {
+      "properties": {
+        "Email": {
+          "description": "CC",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "ChangeOrderStatusApiModel": {
       "properties": {
         "Id": {
@@ -2315,7 +2371,8 @@
             "Draft",
             "Paid",
             "Unpaid",
-            "Overdue"
+            "Overdue",
+            "Void"
           ],
           "type": "string"
         }
@@ -2324,12 +2381,15 @@
     },
     "ClientCreateApiModel": {
       "properties": {
+        "AdditionalEmails": {
+          "description": "Client additional emails contact for CC",
+          "items": {
+            "$ref": "#/definitions/AdditionalClientEmailApiModel"
+          },
+          "type": "array"
+        },
         "Address": {
           "description": "Client business address",
-          "type": "string"
-        },
-        "CC": {
-          "description": "Client additional email contact for CC",
           "type": "string"
         },
         "ClientCountryId": {
@@ -2341,6 +2401,10 @@
           "description": "Indicates the default system currency used by the user for the client",
           "format": "int32",
           "type": "integer"
+        },
+        "CompanyRegistrationNumber": {
+          "description": "Client's Company Registration Number",
+          "type": "string"
         },
         "Email": {
           "description": "Client email",
@@ -2378,12 +2442,15 @@
     },
     "ClientDetailsApiModel": {
       "properties": {
+        "AdditionalEmails": {
+          "description": "Client additional emails contact for CC",
+          "items": {
+            "$ref": "#/definitions/AdditionalClientEmailApiModel"
+          },
+          "type": "array"
+        },
         "Address": {
           "description": "Client business address",
-          "type": "string"
-        },
-        "CC": {
-          "description": "Client additional email contact for CC",
           "type": "string"
         },
         "ClientCountryId": {
@@ -2395,6 +2462,10 @@
           "description": "Indicates the default system currency used by the user for the client",
           "format": "int32",
           "type": "integer"
+        },
+        "CompanyRegistrationNumber": {
+          "description": "Client's Company Registration Number",
+          "type": "string"
         },
         "CreatedOn": {
           "description": "Date of creation",
@@ -2432,12 +2503,15 @@
     },
     "ClientUpdateApiModel": {
       "properties": {
+        "AdditionalEmails": {
+          "description": "Client additional emails contact for CC",
+          "items": {
+            "$ref": "#/definitions/AdditionalClientEmailApiModel"
+          },
+          "type": "array"
+        },
         "Address": {
           "description": "Client business address",
-          "type": "string"
-        },
-        "CC": {
-          "description": "Client additional email contact for CC",
           "type": "string"
         },
         "ClientCountryId": {
@@ -2449,6 +2523,10 @@
           "description": "Indicates the default system currency used by the user for the client",
           "format": "int32",
           "type": "integer"
+        },
+        "CompanyRegistrationNumber": {
+          "description": "Client's Company Registration Number",
+          "type": "string"
         },
         "Email": {
           "description": "Client email",
@@ -2609,7 +2687,11 @@
             "ChangeStatus",
             "OrderUpdated",
             "OrderCreated",
-            "NewPaymentWithTwoCheckout"
+            "NewPaymentWithTwoCheckout",
+            "NewPaymentWithPaymentWall",
+            "NewPaymentWithBamboraEU",
+            "NewPaymentWithBamboraNA",
+            "Void"
           ],
           "type": "string"
         }
@@ -2726,7 +2808,8 @@
             "Draft",
             "Paid",
             "Unpaid",
-            "Overdue"
+            "Overdue",
+            "Void"
           ],
           "type": "string"
         },
@@ -2886,7 +2969,8 @@
             "Draft",
             "Paid",
             "Unpaid",
-            "Overdue"
+            "Overdue",
+            "Void"
           ],
           "type": "string"
         },
@@ -3017,7 +3101,8 @@
             "Draft",
             "Paid",
             "Unpaid",
-            "Overdue"
+            "Overdue",
+            "Void"
           ],
           "type": "string"
         },
@@ -3162,7 +3247,10 @@
             "Razorpay",
             "Wepay",
             "Halkbank",
-            "TwoCheckout"
+            "TwoCheckout",
+            "PaymentWall",
+            "BamboraEU",
+            "BamboraNA"
           ],
           "type": "string"
         }
@@ -3322,7 +3410,8 @@
             "Draft",
             "Paid",
             "Unpaid",
-            "Overdue"
+            "Overdue",
+            "Void"
           ],
           "type": "string"
         },

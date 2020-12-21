@@ -1,6 +1,6 @@
 # @datafire/walmart_item
 
-Client library for Item
+Client library for Item API
 
 ## Installation and Usage
 ```bash
@@ -9,14 +9,7 @@ npm install --save @datafire/walmart_item
 ```js
 let walmart_item = require('@datafire/walmart_item').create();
 
-walmart_item.v2.feeds.get({
-  "WM_CONSUMER.CHANNEL.TYPE": "",
-  "WM_CONSUMER.ID": "",
-  "WM_SEC.TIMESTAMP": "",
-  "WM_SEC.AUTH_SIGNATURE": "",
-  "WM_SVC.NAME": "",
-  "WM_QOS.CORRELATION_ID": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -27,12 +20,12 @@ Please make sure you use the correct version of the APIs for your use case. To f
 
 ## Actions
 
-### v2.feeds.get
+### v2getFeedItemStatus
 You can display the status of an item within a feed. Use the feed ID returned from the upload an item API.
 
 
 ```js
-walmart_item.v2.feeds.get({
+walmart_item.v2getFeedItemStatus({
   "WM_CONSUMER.CHANNEL.TYPE": "",
   "WM_CONSUMER.ID": "",
   "WM_SEC.TIMESTAMP": "",
@@ -58,12 +51,12 @@ walmart_item.v2.feeds.get({
 #### Output
 *Output schema unknown*
 
-### v2.feeds.post
+### v2doPostMultiPart
 You can upload an item feed. If the feed successfully processed, it returns a feed ID. Use the returned feed ID to retrieve a feed status. You need your Consumer ID and the Private Key to upload an item.
 
 
 ```js
-walmart_item.v2.feeds.post({
+walmart_item.v2doPostMultiPart({
   "file": "",
   "WM_CONSUMER.CHANNEL.TYPE": "",
   "WM_CONSUMER.ID": "",
@@ -92,12 +85,12 @@ walmart_item.v2.feeds.post({
 #### Output
 *Output schema unknown*
 
-### v2.feeds.feedId.get
+### v2getAllItemsStatus
 You can display the status of all items within a feed. Use the feed ID returned from the upload an item API.
 
 
 ```js
-walmart_item.v2.feeds.feedId.get({
+walmart_item.v2getAllItemsStatus({
   "feedId": "",
   "WM_CONSUMER.CHANNEL.TYPE": "",
   "WM_CONSUMER.ID": "",
@@ -124,12 +117,12 @@ walmart_item.v2.feeds.feedId.get({
 #### Output
 *Output schema unknown*
 
-### v3.feeds.get
+### v3getFeedItemStatus
 You can display the status of an item within a feed. Use the feed ID returned from the upload an item API.
 
 
 ```js
-walmart_item.v3.feeds.get({
+walmart_item.v3getFeedItemStatus({
   "WM_CONSUMER.CHANNEL.TYPE": "",
   "WM_CONSUMER.ID": "",
   "WM_SEC.TIMESTAMP": "",
@@ -155,12 +148,12 @@ walmart_item.v3.feeds.get({
 #### Output
 *Output schema unknown*
 
-### v3.feeds.post
+### v3doPostMultiPart
 You can upload an item feed. If the feed successfully processed, it returns a feed ID. Use the returned feed ID to retrieve a feed status. You need your Consumer ID and the Private Key to upload an item.
 
 
 ```js
-walmart_item.v3.feeds.post({
+walmart_item.v3doPostMultiPart({
   "file": "",
   "WM_CONSUMER.CHANNEL.TYPE": "",
   "WM_CONSUMER.ID": "",
@@ -189,12 +182,12 @@ walmart_item.v3.feeds.post({
 #### Output
 *Output schema unknown*
 
-### v3.feeds.feedId.get
+### v3getAllItemsStatus
 You can display the status of all items within a feed. Use the feed ID returned from the upload an item API.
 
 
 ```js
-walmart_item.v3.feeds.feedId.get({
+walmart_item.v3getAllItemsStatus({
   "feedId": "",
   "WM_CONSUMER.CHANNEL.TYPE": "",
   "WM_CONSUMER.ID": "",

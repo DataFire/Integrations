@@ -9,15 +9,7 @@ npm install --save @datafire/youphoric
 ```js
 let youphoric = require('@datafire/youphoric').create();
 
-youphoric.register.php_.get({
-  "client": "",
-  "FirstName": "",
-  "LastName": "",
-  "username": "",
-  "password": null,
-  "email": "",
-  "contactno": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

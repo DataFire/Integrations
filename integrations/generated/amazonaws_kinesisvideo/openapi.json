@@ -1,11 +1,5 @@
 {
   "swagger": "2.0",
-  "schemes": [
-    "https",
-    "http"
-  ],
-  "host": "kinesisvideo.amazonaws.com",
-  "basePath": "/",
   "info": {
     "contact": {
       "email": "mike.ralphson@gmail.com",
@@ -29,7 +23,7 @@
     ],
     "x-logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.jpeg"
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"
     },
     "x-origin": [
       {
@@ -39,7 +33,7 @@
           "version": "1.0.0"
         },
         "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/kinesisvideo-2017-09-30.normal.json",
-        "x-apisguru-direct": true
+        "x-apisguru-driver": "external"
       }
     ],
     "x-preferred": true,
@@ -51,127 +45,635 @@
       "type": "openapi"
     }
   },
-  "externalDocs": {
-    "description": "Amazon Web Services documentation",
-    "url": "https://aws.amazon.com/kinesisvideo/"
-  },
-  "consumes": [
-    "application/json"
+  "host": "kinesisvideo.us-east-1.amazonaws.com",
+  "basePath": "/",
+  "schemes": [
+    "http"
   ],
-  "produces": [
-    "application/json"
-  ],
-  "securityDefinitions": {
-    "hmac": {
-      "description": "Amazon Signature authorization v4",
-      "in": "header",
-      "name": "Authorization",
-      "type": "apiKey",
-      "x-amazon-apigateway-authtype": "awsSigv4"
-    }
-  },
-  "security": [
-    {
-      "hmac": []
-    }
-  ],
-  "parameters": {
-    "Action": {
-      "in": "header",
-      "name": "Action",
-      "required": true,
-      "type": "string"
-    },
-    "Version": {
-      "in": "header",
-      "name": "Version",
-      "required": true,
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "in": "header",
-      "name": "X-Amz-Algorithm",
-      "required": false,
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "in": "header",
-      "name": "X-Amz-Content-Sha256",
-      "required": false,
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "in": "header",
-      "name": "X-Amz-Credential",
-      "required": false,
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "in": "header",
-      "name": "X-Amz-Date",
-      "required": false,
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "in": "header",
-      "name": "X-Amz-Security-Token",
-      "required": false,
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "in": "header",
-      "name": "X-Amz-Signature",
-      "required": false,
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "in": "header",
-      "name": "X-Amz-SignedHeaders",
-      "required": false,
-      "type": "string"
-    }
-  },
   "paths": {
-    "/createStream": {
+    "/ListTagsForResource": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "<p>Creates a new Kinesis video stream. </p> <p>When you create a new stream, Kinesis Video Streams assigns it a version number. When you change the stream's metadata, Kinesis Video Streams updates the version. </p> <p> <code>CreateStream</code> is an asynchronous operation.</p> <p>For information about how the service works, see <a href=\"http://docs.aws.amazon.com/kinesisvideostreams/latest/dg/how-it-works.html\">How it Works</a>. </p> <p>You must have permissions for the <code>KinesisVideo:CreateStream</code> action.</p>",
-        "operationId": "CreateStream",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "in": "body",
             "name": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/CreateStreamInput"
+              "properties": {
+                "NextToken": {
+                  "description": "If you specify this parameter and the result of a <code>ListTagsForResource</code> call is truncated, the response includes a token that you can use in the next request to fetch the next batch of tags. ",
+                  "maxLength": 512,
+                  "minLength": 0,
+                  "pattern": "[a-zA-Z0-9+/=]*",
+                  "type": "string"
+                },
+                "ResourceARN": {
+                  "description": "The Amazon Resource Name (ARN) of the signaling channel for which you want to list tags.",
+                  "maxLength": 1024,
+                  "minLength": 1,
+                  "pattern": "arn:aws:kinesisvideo:[a-z0-9-]+:[0-9]+:[a-z]+/[a-zA-Z0-9_.-]+/[0-9]+",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "ResourceARN"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListTagsForResourceOutput"
+            }
+          },
+          "480": {
+            "description": "InvalidArgumentException",
+            "schema": {
+              "$ref": "#/definitions/InvalidArgumentException"
+            }
+          },
+          "481": {
+            "description": "ClientLimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/ClientLimitExceededException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          }
+        },
+        "description": "Returns a list of tags associated with the specified signaling channel.",
+        "operationId": "ListTagsForResource"
+      }
+    },
+    "/TagResource": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "ResourceARN": {
+                  "description": "The Amazon Resource Name (ARN) of the signaling channel to which you want to add tags.",
+                  "maxLength": 1024,
+                  "minLength": 1,
+                  "pattern": "arn:aws:kinesisvideo:[a-z0-9-]+:[0-9]+:[a-z]+/[a-zA-Z0-9_.-]+/[0-9]+",
+                  "type": "string"
+                },
+                "Tags": {
+                  "description": "A list of tags to associate with the specified signaling channel. Each tag is a key-value pair.",
+                  "items": {
+                    "$ref": "#/definitions/Tag"
+                  },
+                  "maxItems": 50,
+                  "minItems": 1,
+                  "type": "array"
+                }
+              },
+              "required": [
+                "ResourceARN",
+                "Tags"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/TagResourceOutput"
+            }
+          },
+          "480": {
+            "description": "InvalidArgumentException",
+            "schema": {
+              "$ref": "#/definitions/InvalidArgumentException"
+            }
+          },
+          "481": {
+            "description": "ClientLimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/ClientLimitExceededException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "484": {
+            "description": "TagsPerResourceExceededLimitException",
+            "schema": {
+              "$ref": "#/definitions/TagsPerResourceExceededLimitException"
+            }
+          }
+        },
+        "description": "Adds one or more tags to a signaling channel. A <i>tag</i> is a key-value pair (the value is optional) that you can define and assign to AWS resources. If you specify a tag that already exists, the tag value is replaced with the value that you specify in the request. For more information, see <a href=\"https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html\">Using Cost Allocation Tags</a> in the <i>AWS Billing and Cost Management User Guide</i>.",
+        "operationId": "TagResource"
+      }
+    },
+    "/UntagResource": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "ResourceARN": {
+                  "description": "The Amazon Resource Name (ARN) of the signaling channel from which you want to remove tags.",
+                  "maxLength": 1024,
+                  "minLength": 1,
+                  "pattern": "arn:aws:kinesisvideo:[a-z0-9-]+:[0-9]+:[a-z]+/[a-zA-Z0-9_.-]+/[0-9]+",
+                  "type": "string"
+                },
+                "TagKeyList": {
+                  "description": "A list of the keys of the tags that you want to remove.",
+                  "items": {
+                    "$ref": "#/definitions/TagKey"
+                  },
+                  "maxItems": 50,
+                  "minItems": 1,
+                  "type": "array"
+                }
+              },
+              "required": [
+                "ResourceARN",
+                "TagKeyList"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UntagResourceOutput"
+            }
+          },
+          "480": {
+            "description": "InvalidArgumentException",
+            "schema": {
+              "$ref": "#/definitions/InvalidArgumentException"
+            }
+          },
+          "481": {
+            "description": "ClientLimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/ClientLimitExceededException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          }
+        },
+        "description": "Removes one or more tags from a signaling channel. In the request, specify only a tag key or keys; don't specify the value. If you specify a tag key that does not exist, it's ignored.",
+        "operationId": "UntagResource"
+      }
+    },
+    "/createSignalingChannel": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "ChannelName": {
+                  "description": "A name for the signaling channel that you are creating. It must be unique for each AWS account and AWS Region.",
+                  "maxLength": 256,
+                  "minLength": 1,
+                  "pattern": "[a-zA-Z0-9_.-]+",
+                  "type": "string"
+                },
+                "ChannelType": {
+                  "description": "A type of the signaling channel that you are creating. Currently, <code>SINGLE_MASTER</code> is the only supported channel type. ",
+                  "enum": [
+                    "SINGLE_MASTER"
+                  ],
+                  "type": "string"
+                },
+                "SingleMasterConfiguration": {
+                  "description": "A structure that contains the configuration for the <code>SINGLE_MASTER</code> channel type.",
+                  "properties": {
+                    "MessageTtlSeconds": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/MessageTtlSeconds"
+                        },
+                        {
+                          "description": "The period of time a signaling channel retains underlivered messages before they are discarded."
+                        }
+                      ]
+                    }
+                  },
+                  "type": "object"
+                },
+                "Tags": {
+                  "description": "A set of tags (key-value pairs) that you want to associate with this channel.",
+                  "items": {
+                    "$ref": "#/definitions/Tag"
+                  },
+                  "maxItems": 50,
+                  "minItems": 0,
+                  "type": "array"
+                }
+              },
+              "required": [
+                "ChannelName"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateSignalingChannelOutput"
+            }
+          },
+          "480": {
+            "description": "InvalidArgumentException",
+            "schema": {
+              "$ref": "#/definitions/InvalidArgumentException"
+            }
+          },
+          "481": {
+            "description": "ClientLimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/ClientLimitExceededException"
+            }
+          },
+          "482": {
+            "description": "AccountChannelLimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/AccountChannelLimitExceededException"
+            }
+          },
+          "483": {
+            "description": "ResourceInUseException",
+            "schema": {
+              "$ref": "#/definitions/ResourceInUseException"
+            }
+          },
+          "484": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "485": {
+            "description": "TagsPerResourceExceededLimitException",
+            "schema": {
+              "$ref": "#/definitions/TagsPerResourceExceededLimitException"
+            }
+          }
+        },
+        "description": "<p>Creates a signaling channel. </p> <p> <code>CreateSignalingChannel</code> is an asynchronous operation.</p>",
+        "operationId": "CreateSignalingChannel"
+      }
+    },
+    "/createStream": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "DataRetentionInHours": {
+                  "description": "<p>The number of hours that you want to retain the data in the stream. Kinesis Video Streams retains the data in a data store that is associated with the stream.</p> <p>The default value is 0, indicating that the stream does not persist data.</p> <p>When the <code>DataRetentionInHours</code> value is 0, consumers can still consume the fragments that remain in the service host buffer, which has a retention time limit of 5 minutes and a retention memory limit of 200 MB. Fragments are removed from the buffer when either limit is reached.</p>",
+                  "minimum": 0,
+                  "type": "integer"
+                },
+                "DeviceName": {
+                  "description": "<p>The name of the device that is writing to the stream. </p> <note> <p>In the current implementation, Kinesis Video Streams does not use this name.</p> </note>",
+                  "maxLength": 128,
+                  "minLength": 1,
+                  "pattern": "[a-zA-Z0-9_.-]+",
+                  "type": "string"
+                },
+                "KmsKeyId": {
+                  "description": "<p>The ID of the AWS Key Management Service (AWS KMS) key that you want Kinesis Video Streams to use to encrypt stream data.</p> <p>If no key ID is specified, the default, Kinesis Video-managed key (<code>aws/kinesisvideo</code>) is used.</p> <p> For more information, see <a href=\"https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters\">DescribeKey</a>. </p>",
+                  "maxLength": 2048,
+                  "minLength": 1,
+                  "pattern": ".+",
+                  "type": "string"
+                },
+                "MediaType": {
+                  "description": "<p>The media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see <a href=\"http://www.iana.org/assignments/media-types/media-types.xhtml\">Media Types</a>. If you choose to specify the <code>MediaType</code>, see <a href=\"https://tools.ietf.org/html/rfc6838#section-4.2\">Naming Requirements</a> for guidelines.</p> <p>Example valid values include \"video/h264\" and \"video/h264,audio/aac\".</p> <p>This parameter is optional; the default value is <code>null</code> (or empty in JSON).</p>",
+                  "maxLength": 128,
+                  "minLength": 1,
+                  "pattern": "[\\w\\-\\.\\+]+/[\\w\\-\\.\\+]+(,[\\w\\-\\.\\+]+/[\\w\\-\\.\\+]+)*",
+                  "type": "string"
+                },
+                "StreamName": {
+                  "description": "<p>A name for the stream that you are creating.</p> <p>The stream name is an identifier for the stream, and must be unique for each account and region.</p>",
+                  "maxLength": 256,
+                  "minLength": 1,
+                  "pattern": "[a-zA-Z0-9_.-]+",
+                  "type": "string"
+                },
+                "Tags": {
+                  "additionalProperties": {
+                    "$ref": "#/definitions/TagValue"
+                  },
+                  "description": "A list of tags to associate with the specified stream. Each tag is a key-value pair (the value is optional).",
+                  "maxProperties": 50,
+                  "minProperties": 1,
+                  "type": "object"
+                }
+              },
+              "required": [
+                "StreamName"
+              ],
+              "type": "object"
             }
           }
         ],
@@ -217,50 +719,225 @@
             "schema": {
               "$ref": "#/definitions/ClientLimitExceededException"
             }
+          },
+          "486": {
+            "description": "TagsPerResourceExceededLimitException",
+            "schema": {
+              "$ref": "#/definitions/TagsPerResourceExceededLimitException"
+            }
           }
-        }
+        },
+        "description": "<p>Creates a new Kinesis video stream. </p> <p>When you create a new stream, Kinesis Video Streams assigns it a version number. When you change the stream's metadata, Kinesis Video Streams updates the version. </p> <p> <code>CreateStream</code> is an asynchronous operation.</p> <p>For information about how the service works, see <a href=\"https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/how-it-works.html\">How it Works</a>. </p> <p>You must have permissions for the <code>KinesisVideo:CreateStream</code> action.</p>",
+        "operationId": "CreateStream"
       }
     },
-    "/deleteStream": {
+    "/deleteSignalingChannel": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "<p>Deletes a Kinesis video stream and the data contained in the stream. </p> <p>This method marks the stream for deletion, and makes the data in the stream inaccessible immediately.</p> <p> </p> <p> To ensure that you have the latest version of the stream before deleting it, you can specify the stream version. Kinesis Video Streams assigns a version to each stream. When you update a stream, Kinesis Video Streams assigns a new version number. To get the latest stream version, use the <code>DescribeStream</code> API. </p> <p>This operation requires permission for the <code>KinesisVideo:DeleteStream</code> action.</p>",
-        "operationId": "DeleteStream",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "in": "body",
             "name": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/DeleteStreamInput"
+              "properties": {
+                "ChannelARN": {
+                  "description": "The Amazon Resource Name (ARN) of the signaling channel that you want to delete.",
+                  "maxLength": 1024,
+                  "minLength": 1,
+                  "pattern": "arn:aws:kinesisvideo:[a-z0-9-]+:[0-9]+:[a-z]+/[a-zA-Z0-9_.-]+/[0-9]+",
+                  "type": "string"
+                },
+                "CurrentVersion": {
+                  "description": "The current version of the signaling channel that you want to delete. You can obtain the current version by invoking the <code>DescribeSignalingChannel</code> or <code>ListSignalingChannels</code> API operations.",
+                  "maxLength": 64,
+                  "minLength": 1,
+                  "pattern": "[a-zA-Z0-9]+",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "ChannelARN"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteSignalingChannelOutput"
+            }
+          },
+          "480": {
+            "description": "InvalidArgumentException",
+            "schema": {
+              "$ref": "#/definitions/InvalidArgumentException"
+            }
+          },
+          "481": {
+            "description": "ClientLimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/ClientLimitExceededException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "484": {
+            "description": "VersionMismatchException",
+            "schema": {
+              "$ref": "#/definitions/VersionMismatchException"
+            }
+          },
+          "485": {
+            "description": "ResourceInUseException",
+            "schema": {
+              "$ref": "#/definitions/ResourceInUseException"
+            }
+          }
+        },
+        "description": "Deletes a specified signaling channel. <code>DeleteSignalingChannel</code> is an asynchronous operation. If you don't specify the channel's current version, the most recent version is deleted.",
+        "operationId": "DeleteSignalingChannel"
+      }
+    },
+    "/deleteStream": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "CurrentVersion": {
+                  "description": "<p>Optional: The version of the stream that you want to delete. </p> <p>Specify the version as a safeguard to ensure that your are deleting the correct stream. To get the stream version, use the <code>DescribeStream</code> API.</p> <p>If not specified, only the <code>CreationTime</code> is checked before deleting the stream.</p>",
+                  "maxLength": 64,
+                  "minLength": 1,
+                  "pattern": "[a-zA-Z0-9]+",
+                  "type": "string"
+                },
+                "StreamARN": {
+                  "description": "The Amazon Resource Name (ARN) of the stream that you want to delete. ",
+                  "maxLength": 1024,
+                  "minLength": 1,
+                  "pattern": "arn:aws:kinesisvideo:[a-z0-9-]+:[0-9]+:[a-z]+/[a-zA-Z0-9_.-]+/[0-9]+",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "StreamARN"
+              ],
+              "type": "object"
             }
           }
         ],
@@ -294,50 +971,213 @@
             "schema": {
               "$ref": "#/definitions/NotAuthorizedException"
             }
+          },
+          "484": {
+            "description": "VersionMismatchException",
+            "schema": {
+              "$ref": "#/definitions/VersionMismatchException"
+            }
+          },
+          "485": {
+            "description": "ResourceInUseException",
+            "schema": {
+              "$ref": "#/definitions/ResourceInUseException"
+            }
           }
-        }
+        },
+        "description": "<p>Deletes a Kinesis video stream and the data contained in the stream. </p> <p>This method marks the stream for deletion, and makes the data in the stream inaccessible immediately.</p> <p> </p> <p> To ensure that you have the latest version of the stream before deleting it, you can specify the stream version. Kinesis Video Streams assigns a version to each stream. When you update a stream, Kinesis Video Streams assigns a new version number. To get the latest stream version, use the <code>DescribeStream</code> API. </p> <p>This operation requires permission for the <code>KinesisVideo:DeleteStream</code> action.</p>",
+        "operationId": "DeleteStream"
       }
     },
-    "/describeStream": {
+    "/describeSignalingChannel": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Returns the most current information about the specified stream. You must specify either the <code>StreamName</code> or the <code>StreamARN</code>. ",
-        "operationId": "DescribeStream",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "in": "body",
             "name": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/DescribeStreamInput"
+              "properties": {
+                "ChannelARN": {
+                  "description": "The ARN of the signaling channel that you want to describe.",
+                  "maxLength": 1024,
+                  "minLength": 1,
+                  "pattern": "arn:aws:kinesisvideo:[a-z0-9-]+:[0-9]+:[a-z]+/[a-zA-Z0-9_.-]+/[0-9]+",
+                  "type": "string"
+                },
+                "ChannelName": {
+                  "description": "The name of the signaling channel that you want to describe.",
+                  "maxLength": 256,
+                  "minLength": 1,
+                  "pattern": "[a-zA-Z0-9_.-]+",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeSignalingChannelOutput"
+            }
+          },
+          "480": {
+            "description": "InvalidArgumentException",
+            "schema": {
+              "$ref": "#/definitions/InvalidArgumentException"
+            }
+          },
+          "481": {
+            "description": "ClientLimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/ClientLimitExceededException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          }
+        },
+        "description": "Returns the most current information about the signaling channel. You must specify either the name or the Amazon Resource Name (ARN) of the channel that you want to describe.",
+        "operationId": "DescribeSignalingChannel"
+      }
+    },
+    "/describeStream": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "StreamARN": {
+                  "description": "The Amazon Resource Name (ARN) of the stream.",
+                  "maxLength": 1024,
+                  "minLength": 1,
+                  "pattern": "arn:aws:kinesisvideo:[a-z0-9-]+:[0-9]+:[a-z]+/[a-zA-Z0-9_.-]+/[0-9]+",
+                  "type": "string"
+                },
+                "StreamName": {
+                  "description": "The name of the stream.",
+                  "maxLength": 256,
+                  "minLength": 1,
+                  "pattern": "[a-zA-Z0-9_.-]+",
+                  "type": "string"
+                }
+              },
+              "type": "object"
             }
           }
         ],
@@ -372,49 +1212,102 @@
               "$ref": "#/definitions/NotAuthorizedException"
             }
           }
-        }
+        },
+        "description": "Returns the most current information about the specified stream. You must specify either the <code>StreamName</code> or the <code>StreamARN</code>. ",
+        "operationId": "DescribeStream"
       }
     },
     "/getDataEndpoint": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "<p>Gets an endpoint for a specified stream for either reading or writing. Use this endpoint in your application to read from the specified stream (using the <code>GetMedia</code> or <code>GetMediaForFragmentList</code> operations) or write to it (using the <code>PutMedia</code> operation). </p> <note> <p>The returned endpoint does not have the API name appended. The client needs to add the API name to the returned endpoint.</p> </note> <p>In the request, specify the stream either by <code>StreamName</code> or <code>StreamARN</code>.</p>",
-        "operationId": "GetDataEndpoint",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "in": "body",
             "name": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/GetDataEndpointInput"
+              "properties": {
+                "APIName": {
+                  "description": "The name of the API action for which to get an endpoint.",
+                  "enum": [
+                    "PUT_MEDIA",
+                    "GET_MEDIA",
+                    "LIST_FRAGMENTS",
+                    "GET_MEDIA_FOR_FRAGMENT_LIST",
+                    "GET_HLS_STREAMING_SESSION_URL",
+                    "GET_DASH_STREAMING_SESSION_URL",
+                    "GET_CLIP"
+                  ],
+                  "type": "string"
+                },
+                "StreamARN": {
+                  "description": "The Amazon Resource Name (ARN) of the stream that you want to get the endpoint for. You must specify either this parameter or a <code>StreamName</code> in the request. ",
+                  "maxLength": 1024,
+                  "minLength": 1,
+                  "pattern": "arn:aws:kinesisvideo:[a-z0-9-]+:[0-9]+:[a-z]+/[a-zA-Z0-9_.-]+/[0-9]+",
+                  "type": "string"
+                },
+                "StreamName": {
+                  "description": "The name of the stream that you want to get the endpoint for. You must specify either this parameter or a <code>StreamARN</code> in the request.",
+                  "maxLength": 256,
+                  "minLength": 1,
+                  "pattern": "[a-zA-Z0-9_.-]+",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "APIName"
+              ],
+              "type": "object"
             }
           }
         ],
@@ -449,49 +1342,414 @@
               "$ref": "#/definitions/NotAuthorizedException"
             }
           }
-        }
+        },
+        "description": "<p>Gets an endpoint for a specified stream for either reading or writing. Use this endpoint in your application to read from the specified stream (using the <code>GetMedia</code> or <code>GetMediaForFragmentList</code> operations) or write to it (using the <code>PutMedia</code> operation). </p> <note> <p>The returned endpoint does not have the API name appended. The client needs to add the API name to the returned endpoint.</p> </note> <p>In the request, specify the stream either by <code>StreamName</code> or <code>StreamARN</code>.</p>",
+        "operationId": "GetDataEndpoint"
       }
     },
-    "/listStreams": {
+    "/getSignalingChannelEndpoint": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Returns an array of <code>StreamInfo</code> objects. Each object describes a stream. To retrieve only streams that satisfy a specific condition, you can specify a <code>StreamNameCondition</code>. ",
-        "operationId": "ListStreams",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "in": "body",
             "name": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/ListStreamsInput"
+              "properties": {
+                "ChannelARN": {
+                  "description": "The Amazon Resource Name (ARN) of the signalling channel for which you want to get an endpoint.",
+                  "maxLength": 1024,
+                  "minLength": 1,
+                  "pattern": "arn:aws:kinesisvideo:[a-z0-9-]+:[0-9]+:[a-z]+/[a-zA-Z0-9_.-]+/[0-9]+",
+                  "type": "string"
+                },
+                "SingleMasterChannelEndpointConfiguration": {
+                  "description": "An object that contains the endpoint configuration for the <code>SINGLE_MASTER</code> channel type. ",
+                  "properties": {
+                    "Protocols": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/ListOfProtocols"
+                        },
+                        {
+                          "description": "This property is used to determine the nature of communication over this <code>SINGLE_MASTER</code> signaling channel. If <code>WSS</code> is specified, this API returns a websocket endpoint. If <code>HTTPS</code> is specified, this API returns an <code>HTTPS</code> endpoint."
+                        }
+                      ]
+                    },
+                    "Role": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/ChannelRole"
+                        },
+                        {
+                          "description": "This property is used to determine messaging permissions in this <code>SINGLE_MASTER</code> signaling channel. If <code>MASTER</code> is specified, this API returns an endpoint that a client can use to receive offers from and send answers to any of the viewers on this signaling channel. If <code>VIEWER</code> is specified, this API returns an endpoint that a client can use only to send offers to another <code>MASTER</code> client on this signaling channel. "
+                        }
+                      ]
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "required": [
+                "ChannelARN"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetSignalingChannelEndpointOutput"
+            }
+          },
+          "480": {
+            "description": "InvalidArgumentException",
+            "schema": {
+              "$ref": "#/definitions/InvalidArgumentException"
+            }
+          },
+          "481": {
+            "description": "ClientLimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/ClientLimitExceededException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "ResourceInUseException",
+            "schema": {
+              "$ref": "#/definitions/ResourceInUseException"
+            }
+          },
+          "484": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          }
+        },
+        "description": "<p>Provides an endpoint for the specified signaling channel to send and receive messages. This API uses the <code>SingleMasterChannelEndpointConfiguration</code> input parameter, which consists of the <code>Protocols</code> and <code>Role</code> properties.</p> <p> <code>Protocols</code> is used to determine the communication mechanism. For example, if you specify <code>WSS</code> as the protocol, this API produces a secure websocket endpoint. If you specify <code>HTTPS</code> as the protocol, this API generates an HTTPS endpoint. </p> <p> <code>Role</code> determines the messaging permissions. A <code>MASTER</code> role results in this API generating an endpoint that a client can use to communicate with any of the viewers on the channel. A <code>VIEWER</code> role results in this API generating an endpoint that a client can use to communicate only with a <code>MASTER</code>. </p>",
+        "operationId": "GetSignalingChannelEndpoint"
+      }
+    },
+    "/listSignalingChannels": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "ChannelNameCondition": {
+                  "description": "An optional input parameter for the <code>ListSignalingChannels</code> API. When this parameter is specified while invoking <code>ListSignalingChannels</code>, the API returns only the channels that satisfy a condition specified in <code>ChannelNameCondition</code>.",
+                  "properties": {
+                    "ComparisonOperator": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/ComparisonOperator"
+                        },
+                        {
+                          "description": "A comparison operator. Currently, you can only specify the <code>BEGINS_WITH</code> operator, which finds signaling channels whose names begin with a given prefix."
+                        }
+                      ]
+                    },
+                    "ComparisonValue": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/ChannelName"
+                        },
+                        {
+                          "description": "A value to compare."
+                        }
+                      ]
+                    }
+                  },
+                  "type": "object"
+                },
+                "MaxResults": {
+                  "description": "The maximum number of channels to return in the response. The default is 500.",
+                  "maximum": 10000,
+                  "minimum": 1,
+                  "type": "integer"
+                },
+                "NextToken": {
+                  "description": "If you specify this parameter, when the result of a <code>ListSignalingChannels</code> operation is truncated, the call returns the <code>NextToken</code> in the response. To get another batch of channels, provide this token in your next request.",
+                  "maxLength": 512,
+                  "minLength": 0,
+                  "pattern": "[a-zA-Z0-9+/=]*",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListSignalingChannelsOutput"
+            }
+          },
+          "480": {
+            "description": "InvalidArgumentException",
+            "schema": {
+              "$ref": "#/definitions/InvalidArgumentException"
+            }
+          },
+          "481": {
+            "description": "ClientLimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/ClientLimitExceededException"
+            }
+          },
+          "482": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          }
+        },
+        "description": "Returns an array of <code>ChannelInfo</code> objects. Each object describes a signaling channel. To retrieve only those channels that satisfy a specific condition, you can specify a <code>ChannelNameCondition</code>.",
+        "operationId": "ListSignalingChannels"
+      }
+    },
+    "/listStreams": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "MaxResults": {
+                  "description": "The maximum number of streams to return in the response. The default is 10,000.",
+                  "maximum": 10000,
+                  "minimum": 1,
+                  "type": "integer"
+                },
+                "NextToken": {
+                  "description": "If you specify this parameter, when the result of a <code>ListStreams</code> operation is truncated, the call returns the <code>NextToken</code> in the response. To get another batch of streams, provide this token in your next request.",
+                  "maxLength": 512,
+                  "minLength": 0,
+                  "pattern": "[a-zA-Z0-9+/=]*",
+                  "type": "string"
+                },
+                "StreamNameCondition": {
+                  "description": "Specifies the condition that streams must satisfy to be returned when you list streams (see the <code>ListStreams</code> API). A condition has a comparison operation and a value. Currently, you can specify only the <code>BEGINS_WITH</code> operator, which finds streams whose names start with a given prefix. ",
+                  "properties": {
+                    "ComparisonOperator": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/ComparisonOperator"
+                        },
+                        {
+                          "description": "A comparison operator. Currently, you can specify only the <code>BEGINS_WITH</code> operator, which finds streams whose names start with a given prefix."
+                        }
+                      ]
+                    },
+                    "ComparisonValue": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/StreamName"
+                        },
+                        {
+                          "description": "A value to compare."
+                        }
+                      ]
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "type": "object"
             }
           }
         ],
@@ -514,49 +1772,93 @@
               "$ref": "#/definitions/InvalidArgumentException"
             }
           }
-        }
+        },
+        "description": "Returns an array of <code>StreamInfo</code> objects. Each object describes a stream. To retrieve only streams that satisfy a specific condition, you can specify a <code>StreamNameCondition</code>. ",
+        "operationId": "ListStreams"
       }
     },
     "/listTagsForStream": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "<p>Returns a list of tags associated with the specified stream.</p> <p>In the request, you must specify either the <code>StreamName</code> or the <code>StreamARN</code>. </p>",
-        "operationId": "ListTagsForStream",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "in": "body",
             "name": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/ListTagsForStreamInput"
+              "properties": {
+                "NextToken": {
+                  "description": "If you specify this parameter and the result of a <code>ListTagsForStream</code> call is truncated, the response includes a token that you can use in the next request to fetch the next batch of tags.",
+                  "maxLength": 512,
+                  "minLength": 0,
+                  "pattern": "[a-zA-Z0-9+/=]*",
+                  "type": "string"
+                },
+                "StreamARN": {
+                  "description": "The Amazon Resource Name (ARN) of the stream that you want to list tags for.",
+                  "maxLength": 1024,
+                  "minLength": 1,
+                  "pattern": "arn:aws:kinesisvideo:[a-z0-9-]+:[0-9]+:[a-z]+/[a-zA-Z0-9_.-]+/[0-9]+",
+                  "type": "string"
+                },
+                "StreamName": {
+                  "description": "The name of the stream that you want to list tags for.",
+                  "maxLength": 256,
+                  "minLength": 1,
+                  "pattern": "[a-zA-Z0-9_.-]+",
+                  "type": "string"
+                }
+              },
+              "type": "object"
             }
           }
         ],
@@ -597,49 +1899,98 @@
               "$ref": "#/definitions/InvalidResourceFormatException"
             }
           }
-        }
+        },
+        "description": "<p>Returns a list of tags associated with the specified stream.</p> <p>In the request, you must specify either the <code>StreamName</code> or the <code>StreamARN</code>. </p>",
+        "operationId": "ListTagsForStream"
       }
     },
     "/tagStream": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "<p>Adds one or more tags to a stream. A <i>tag</i> is a key-value pair (the value is optional) that you can define and assign to AWS resources. If you specify a tag that already exists, the tag value is replaced with the value that you specify in the request. For more information, see <a href=\"http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html\">Using Cost Allocation Tags</a> in the <i>AWS Billing and Cost Management User Guide</i>. </p> <p>You must provide either the <code>StreamName</code> or the <code>StreamARN</code>.</p> <p>This operation requires permission for the <code>KinesisVideo:TagStream</code> action.</p> <p>Kinesis video streams support up to 50 tags.</p>",
-        "operationId": "TagStream",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "in": "body",
             "name": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/TagStreamInput"
+              "properties": {
+                "StreamARN": {
+                  "description": "The Amazon Resource Name (ARN) of the resource that you want to add the tag or tags to.",
+                  "maxLength": 1024,
+                  "minLength": 1,
+                  "pattern": "arn:aws:kinesisvideo:[a-z0-9-]+:[0-9]+:[a-z]+/[a-zA-Z0-9_.-]+/[0-9]+",
+                  "type": "string"
+                },
+                "StreamName": {
+                  "description": "The name of the stream that you want to add the tag or tags to.",
+                  "maxLength": 256,
+                  "minLength": 1,
+                  "pattern": "[a-zA-Z0-9_.-]+",
+                  "type": "string"
+                },
+                "Tags": {
+                  "additionalProperties": {
+                    "$ref": "#/definitions/TagValue"
+                  },
+                  "description": "A list of tags to associate with the specified stream. Each tag is a key-value pair (the value is optional).",
+                  "maxProperties": 50,
+                  "minProperties": 1,
+                  "type": "object"
+                }
+              },
+              "required": [
+                "Tags"
+              ],
+              "type": "object"
             }
           }
         ],
@@ -686,49 +2037,98 @@
               "$ref": "#/definitions/TagsPerResourceExceededLimitException"
             }
           }
-        }
+        },
+        "description": "<p>Adds one or more tags to a stream. A <i>tag</i> is a key-value pair (the value is optional) that you can define and assign to AWS resources. If you specify a tag that already exists, the tag value is replaced with the value that you specify in the request. For more information, see <a href=\"https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html\">Using Cost Allocation Tags</a> in the <i>AWS Billing and Cost Management User Guide</i>. </p> <p>You must provide either the <code>StreamName</code> or the <code>StreamARN</code>.</p> <p>This operation requires permission for the <code>KinesisVideo:TagStream</code> action.</p> <p>Kinesis video streams support up to 50 tags.</p>",
+        "operationId": "TagStream"
       }
     },
     "/untagStream": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "<p>Removes one or more tags from a stream. In the request, specify only a tag key or keys; don't specify the value. If you specify a tag key that does not exist, it's ignored.</p> <p>In the request, you must provide the <code>StreamName</code> or <code>StreamARN</code>.</p>",
-        "operationId": "UntagStream",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "in": "body",
             "name": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/UntagStreamInput"
+              "properties": {
+                "StreamARN": {
+                  "description": "The Amazon Resource Name (ARN) of the stream that you want to remove tags from.",
+                  "maxLength": 1024,
+                  "minLength": 1,
+                  "pattern": "arn:aws:kinesisvideo:[a-z0-9-]+:[0-9]+:[a-z]+/[a-zA-Z0-9_.-]+/[0-9]+",
+                  "type": "string"
+                },
+                "StreamName": {
+                  "description": "The name of the stream that you want to remove tags from.",
+                  "maxLength": 256,
+                  "minLength": 1,
+                  "pattern": "[a-zA-Z0-9_.-]+",
+                  "type": "string"
+                },
+                "TagKeyList": {
+                  "description": "A list of the keys of the tags that you want to remove.",
+                  "items": {
+                    "$ref": "#/definitions/TagKey"
+                  },
+                  "maxItems": 50,
+                  "minItems": 1,
+                  "type": "array"
+                }
+              },
+              "required": [
+                "TagKeyList"
+              ],
+              "type": "object"
             }
           }
         ],
@@ -769,49 +2169,111 @@
               "$ref": "#/definitions/InvalidResourceFormatException"
             }
           }
-        }
+        },
+        "description": "<p>Removes one or more tags from a stream. In the request, specify only a tag key or keys; don't specify the value. If you specify a tag key that does not exist, it's ignored.</p> <p>In the request, you must provide the <code>StreamName</code> or <code>StreamARN</code>.</p>",
+        "operationId": "UntagStream"
       }
     },
     "/updateDataRetention": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "<p> Increases or decreases the stream's data retention period by the value that you specify. To indicate whether you want to increase or decrease the data retention period, specify the <code>Operation</code> parameter in the request body. In the request, you must specify either the <code>StreamName</code> or the <code>StreamARN</code>. </p> <note> <p>The retention period that you specify replaces the current value.</p> </note> <p>This operation requires permission for the <code>KinesisVideo:UpdateDataRetention</code> action.</p> <p>Changing the data retention period affects the data in the stream as follows:</p> <ul> <li> <p>If the data retention period is increased, existing data is retained for the new retention period. For example, if the data retention period is increased from one hour to seven hours, all existing data is retained for seven hours.</p> </li> <li> <p>If the data retention period is decreased, existing data is retained for the new retention period. For example, if the data retention period is decreased from seven hours to one hour, all existing data is retained for one hour, and any data older than one hour is deleted immediately.</p> </li> </ul>",
-        "operationId": "UpdateDataRetention",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "in": "body",
             "name": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/UpdateDataRetentionInput"
+              "properties": {
+                "CurrentVersion": {
+                  "description": "The version of the stream whose retention period you want to change. To get the version, call either the <code>DescribeStream</code> or the <code>ListStreams</code> API.",
+                  "maxLength": 64,
+                  "minLength": 1,
+                  "pattern": "[a-zA-Z0-9]+",
+                  "type": "string"
+                },
+                "DataRetentionChangeInHours": {
+                  "description": "The retention period, in hours. The value you specify replaces the current value. The maximum value for this parameter is 87600 (ten years).",
+                  "minimum": 1,
+                  "type": "integer"
+                },
+                "Operation": {
+                  "description": "Indicates whether you want to increase or decrease the retention period.",
+                  "enum": [
+                    "INCREASE_DATA_RETENTION",
+                    "DECREASE_DATA_RETENTION"
+                  ],
+                  "type": "string"
+                },
+                "StreamARN": {
+                  "description": "The Amazon Resource Name (ARN) of the stream whose retention period you want to change.",
+                  "maxLength": 1024,
+                  "minLength": 1,
+                  "pattern": "arn:aws:kinesisvideo:[a-z0-9-]+:[0-9]+:[a-z]+/[a-zA-Z0-9_.-]+/[0-9]+",
+                  "type": "string"
+                },
+                "StreamName": {
+                  "description": "The name of the stream whose retention period you want to change.",
+                  "maxLength": 256,
+                  "minLength": 1,
+                  "pattern": "[a-zA-Z0-9_.-]+",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "CurrentVersion",
+                "Operation",
+                "DataRetentionChangeInHours"
+              ],
+              "type": "object"
             }
           }
         ],
@@ -858,49 +2320,256 @@
               "$ref": "#/definitions/VersionMismatchException"
             }
           }
-        }
+        },
+        "description": "<p> Increases or decreases the stream's data retention period by the value that you specify. To indicate whether you want to increase or decrease the data retention period, specify the <code>Operation</code> parameter in the request body. In the request, you must specify either the <code>StreamName</code> or the <code>StreamARN</code>. </p> <note> <p>The retention period that you specify replaces the current value.</p> </note> <p>This operation requires permission for the <code>KinesisVideo:UpdateDataRetention</code> action.</p> <p>Changing the data retention period affects the data in the stream as follows:</p> <ul> <li> <p>If the data retention period is increased, existing data is retained for the new retention period. For example, if the data retention period is increased from one hour to seven hours, all existing data is retained for seven hours.</p> </li> <li> <p>If the data retention period is decreased, existing data is retained for the new retention period. For example, if the data retention period is decreased from seven hours to one hour, all existing data is retained for one hour, and any data older than one hour is deleted immediately.</p> </li> </ul>",
+        "operationId": "UpdateDataRetention"
       }
     },
-    "/updateStream": {
+    "/updateSignalingChannel": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "<p>Updates stream metadata, such as the device name and media type.</p> <p>You must provide the stream name or the Amazon Resource Name (ARN) of the stream.</p> <p>To make sure that you have the latest version of the stream before updating it, you can specify the stream version. Kinesis Video Streams assigns a version to each stream. When you update a stream, Kinesis Video Streams assigns a new version number. To get the latest stream version, use the <code>DescribeStream</code> API. </p> <p> <code>UpdateStream</code> is an asynchronous operation, and takes time to complete.</p>",
-        "operationId": "UpdateStream",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "in": "body",
             "name": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/UpdateStreamInput"
+              "properties": {
+                "ChannelARN": {
+                  "description": "The Amazon Resource Name (ARN) of the signaling channel that you want to update.",
+                  "maxLength": 1024,
+                  "minLength": 1,
+                  "pattern": "arn:aws:kinesisvideo:[a-z0-9-]+:[0-9]+:[a-z]+/[a-zA-Z0-9_.-]+/[0-9]+",
+                  "type": "string"
+                },
+                "CurrentVersion": {
+                  "description": "The current version of the signaling channel that you want to update.",
+                  "maxLength": 64,
+                  "minLength": 1,
+                  "pattern": "[a-zA-Z0-9]+",
+                  "type": "string"
+                },
+                "SingleMasterConfiguration": {
+                  "description": "A structure that contains the configuration for the <code>SINGLE_MASTER</code> channel type.",
+                  "properties": {
+                    "MessageTtlSeconds": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/MessageTtlSeconds"
+                        },
+                        {
+                          "description": "The period of time a signaling channel retains underlivered messages before they are discarded."
+                        }
+                      ]
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "required": [
+                "ChannelARN",
+                "CurrentVersion"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UpdateSignalingChannelOutput"
+            }
+          },
+          "480": {
+            "description": "InvalidArgumentException",
+            "schema": {
+              "$ref": "#/definitions/InvalidArgumentException"
+            }
+          },
+          "481": {
+            "description": "ClientLimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/ClientLimitExceededException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "ResourceInUseException",
+            "schema": {
+              "$ref": "#/definitions/ResourceInUseException"
+            }
+          },
+          "484": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "485": {
+            "description": "VersionMismatchException",
+            "schema": {
+              "$ref": "#/definitions/VersionMismatchException"
+            }
+          }
+        },
+        "description": "<p>Updates the existing signaling channel. This is an asynchronous operation and takes time to complete. </p> <p>If the <code>MessageTtlSeconds</code> value is updated (either increased or reduced), it only applies to new messages sent via this channel after it's been updated. Existing messages are still expired as per the previous <code>MessageTtlSeconds</code> value.</p>",
+        "operationId": "UpdateSignalingChannel"
+      }
+    },
+    "/updateStream": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "CurrentVersion": {
+                  "description": "The version of the stream whose metadata you want to update.",
+                  "maxLength": 64,
+                  "minLength": 1,
+                  "pattern": "[a-zA-Z0-9]+",
+                  "type": "string"
+                },
+                "DeviceName": {
+                  "description": "<p>The name of the device that is writing to the stream. </p> <note> <p> In the current implementation, Kinesis Video Streams does not use this name. </p> </note>",
+                  "maxLength": 128,
+                  "minLength": 1,
+                  "pattern": "[a-zA-Z0-9_.-]+",
+                  "type": "string"
+                },
+                "MediaType": {
+                  "description": "<p>The stream's media type. Use <code>MediaType</code> to specify the type of content that the stream contains to the consumers of the stream. For more information about media types, see <a href=\"http://www.iana.org/assignments/media-types/media-types.xhtml\">Media Types</a>. If you choose to specify the <code>MediaType</code>, see <a href=\"https://tools.ietf.org/html/rfc6838#section-4.2\">Naming Requirements</a>.</p> <p>To play video on the console, you must specify the correct video type. For example, if the video in the stream is H.264, specify <code>video/h264</code> as the <code>MediaType</code>.</p>",
+                  "maxLength": 128,
+                  "minLength": 1,
+                  "pattern": "[\\w\\-\\.\\+]+/[\\w\\-\\.\\+]+(,[\\w\\-\\.\\+]+/[\\w\\-\\.\\+]+)*",
+                  "type": "string"
+                },
+                "StreamARN": {
+                  "description": "The ARN of the stream whose metadata you want to update.",
+                  "maxLength": 1024,
+                  "minLength": 1,
+                  "pattern": "arn:aws:kinesisvideo:[a-z0-9-]+:[0-9]+:[a-z]+/[a-zA-Z0-9_.-]+/[0-9]+",
+                  "type": "string"
+                },
+                "StreamName": {
+                  "description": "<p>The name of the stream whose metadata you want to update.</p> <p>The stream name is an identifier for the stream, and must be unique for each account and region.</p>",
+                  "maxLength": 256,
+                  "minLength": 1,
+                  "pattern": "[a-zA-Z0-9_.-]+",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "CurrentVersion"
+              ],
+              "type": "object"
             }
           }
         ],
@@ -947,7 +2616,9 @@
               "$ref": "#/definitions/VersionMismatchException"
             }
           }
-        }
+        },
+        "description": "<p>Updates stream metadata, such as the device name and media type.</p> <p>You must provide the stream name or the Amazon Resource Name (ARN) of the stream.</p> <p>To make sure that you have the latest version of the stream before updating it, you can specify the stream version. Kinesis Video Streams assigns a version to each stream. When you update a stream, Kinesis Video Streams assigns a new version number. To get the latest stream version, use the <code>DescribeStream</code> API. </p> <p> <code>UpdateStream</code> is an asynchronous operation, and takes time to complete.</p>",
+        "operationId": "UpdateStream"
       }
     }
   },
@@ -957,67 +2628,301 @@
         "PUT_MEDIA",
         "GET_MEDIA",
         "LIST_FRAGMENTS",
-        "GET_MEDIA_FOR_FRAGMENT_LIST"
+        "GET_MEDIA_FOR_FRAGMENT_LIST",
+        "GET_HLS_STREAMING_SESSION_URL",
+        "GET_DASH_STREAMING_SESSION_URL",
+        "GET_CLIP"
       ],
       "type": "string"
     },
-    "AccountStreamLimitExceededException": {
-      "description": "The number of streams created for the account is too high.",
+    "AccessDeniedException": {},
+    "AccountChannelLimitExceededException": {},
+    "AccountStreamLimitExceededException": {},
+    "ChannelInfo": {
+      "description": "A structure that encapsulates a signaling channel's metadata and properties.",
       "properties": {
-        "Message": {
-          "$ref": "#/definitions/ErrorMessage"
+        "ChannelARN": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceARN"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the signaling channel."
+            }
+          ]
+        },
+        "ChannelName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ChannelName"
+            },
+            {
+              "description": "The name of the signaling channel."
+            }
+          ]
+        },
+        "ChannelStatus": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Status"
+            },
+            {
+              "description": "Current status of the signaling channel."
+            }
+          ]
+        },
+        "ChannelType": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ChannelType"
+            },
+            {
+              "description": "The type of the signaling channel."
+            }
+          ]
+        },
+        "CreationTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "The time at which the signaling channel was created."
+            }
+          ]
+        },
+        "SingleMasterConfiguration": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SingleMasterConfiguration"
+            },
+            {
+              "description": "A structure that contains the configuration for the <code>SINGLE_MASTER</code> channel type."
+            }
+          ]
+        },
+        "Version": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Version"
+            },
+            {
+              "description": "The current version of the signaling channel."
+            }
+          ]
         }
       },
       "type": "object"
     },
-    "ClientLimitExceededException": {
-      "description": "Kinesis Video Streams has throttled the request because you have exceeded the limit of allowed client calls. Try making the call later.",
+    "ChannelInfoList": {
+      "items": {
+        "$ref": "#/definitions/ChannelInfo"
+      },
+      "type": "array"
+    },
+    "ChannelName": {
+      "maxLength": 256,
+      "minLength": 1,
+      "pattern": "[a-zA-Z0-9_.-]+",
+      "type": "string"
+    },
+    "ChannelNameCondition": {
+      "description": "An optional input parameter for the <code>ListSignalingChannels</code> API. When this parameter is specified while invoking <code>ListSignalingChannels</code>, the API returns only the channels that satisfy a condition specified in <code>ChannelNameCondition</code>.",
       "properties": {
-        "Message": {
-          "$ref": "#/definitions/ErrorMessage"
+        "ComparisonOperator": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ComparisonOperator"
+            },
+            {
+              "description": "A comparison operator. Currently, you can only specify the <code>BEGINS_WITH</code> operator, which finds signaling channels whose names begin with a given prefix."
+            }
+          ]
+        },
+        "ComparisonValue": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ChannelName"
+            },
+            {
+              "description": "A value to compare."
+            }
+          ]
         }
       },
       "type": "object"
     },
+    "ChannelProtocol": {
+      "enum": [
+        "WSS",
+        "HTTPS"
+      ],
+      "type": "string"
+    },
+    "ChannelRole": {
+      "enum": [
+        "MASTER",
+        "VIEWER"
+      ],
+      "type": "string"
+    },
+    "ChannelType": {
+      "enum": [
+        "SINGLE_MASTER"
+      ],
+      "type": "string"
+    },
+    "ClientLimitExceededException": {},
     "ComparisonOperator": {
       "enum": [
         "BEGINS_WITH"
       ],
       "type": "string"
     },
+    "CreateSignalingChannelInput": {
+      "properties": {
+        "ChannelName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ChannelName"
+            },
+            {
+              "description": "A name for the signaling channel that you are creating. It must be unique for each AWS account and AWS Region."
+            }
+          ]
+        },
+        "ChannelType": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ChannelType"
+            },
+            {
+              "description": "A type of the signaling channel that you are creating. Currently, <code>SINGLE_MASTER</code> is the only supported channel type. "
+            }
+          ]
+        },
+        "SingleMasterConfiguration": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SingleMasterConfiguration"
+            },
+            {
+              "description": "A structure containing the configuration for the <code>SINGLE_MASTER</code> channel type. "
+            }
+          ]
+        },
+        "Tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagOnCreateList"
+            },
+            {
+              "description": "A set of tags (key-value pairs) that you want to associate with this channel."
+            }
+          ]
+        }
+      },
+      "required": [
+        "ChannelName"
+      ],
+      "title": "CreateSignalingChannelInput",
+      "type": "object"
+    },
+    "CreateSignalingChannelOutput": {
+      "properties": {
+        "ChannelARN": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceARN"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the created channel."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
     "CreateStreamInput": {
       "properties": {
         "DataRetentionInHours": {
-          "$ref": "#/definitions/DataRetentionInHours",
-          "description": "<p>The number of hours that you want to retain the data in the stream. Kinesis Video Streams retains the data in a data store that is associated with the stream.</p> <p>The default value is 0, indicating that the stream does not persist data.</p>"
+          "allOf": [
+            {
+              "$ref": "#/definitions/DataRetentionInHours"
+            },
+            {
+              "description": "<p>The number of hours that you want to retain the data in the stream. Kinesis Video Streams retains the data in a data store that is associated with the stream.</p> <p>The default value is 0, indicating that the stream does not persist data.</p> <p>When the <code>DataRetentionInHours</code> value is 0, consumers can still consume the fragments that remain in the service host buffer, which has a retention time limit of 5 minutes and a retention memory limit of 200 MB. Fragments are removed from the buffer when either limit is reached.</p>"
+            }
+          ]
         },
         "DeviceName": {
-          "$ref": "#/definitions/DeviceName",
-          "description": "<p>The name of the device that is writing to the stream. </p> <note> <p>In the current implementation, Kinesis Video Streams does not use this name.</p> </note>"
+          "allOf": [
+            {
+              "$ref": "#/definitions/DeviceName"
+            },
+            {
+              "description": "<p>The name of the device that is writing to the stream. </p> <note> <p>In the current implementation, Kinesis Video Streams does not use this name.</p> </note>"
+            }
+          ]
         },
         "KmsKeyId": {
-          "$ref": "#/definitions/KmsKeyId",
-          "description": "<p>The ID of the AWS Key Management Service (AWS KMS) key that you want Kinesis Video Streams to use to encrypt stream data.</p> <p>If no key ID is specified, the default, Kinesis Video-managed key (<code>aws/kinesisvideo</code>) is used.</p> <p> For more information, see <a href=\"http://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters\">DescribeKey</a>. </p>"
+          "allOf": [
+            {
+              "$ref": "#/definitions/KmsKeyId"
+            },
+            {
+              "description": "<p>The ID of the AWS Key Management Service (AWS KMS) key that you want Kinesis Video Streams to use to encrypt stream data.</p> <p>If no key ID is specified, the default, Kinesis Video-managed key (<code>aws/kinesisvideo</code>) is used.</p> <p> For more information, see <a href=\"https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters\">DescribeKey</a>. </p>"
+            }
+          ]
         },
         "MediaType": {
-          "$ref": "#/definitions/MediaType",
-          "description": "<p>The media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see <a href=\"http://www.iana.org/assignments/media-types/media-types.xhtml\">Media Types</a>. If you choose to specify the <code>MediaType</code>, see <a href=\"https://tools.ietf.org/html/rfc6838#section-4.2\">Naming Requirements</a> for guidelines.</p> <p>To play video on the console, the media must be H.264 encoded, and you need to specify this video type in this parameter as <code>video/h264</code>. </p> <p>This parameter is optional; the default value is <code>null</code> (or empty in JSON).</p>"
+          "allOf": [
+            {
+              "$ref": "#/definitions/MediaType"
+            },
+            {
+              "description": "<p>The media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see <a href=\"http://www.iana.org/assignments/media-types/media-types.xhtml\">Media Types</a>. If you choose to specify the <code>MediaType</code>, see <a href=\"https://tools.ietf.org/html/rfc6838#section-4.2\">Naming Requirements</a> for guidelines.</p> <p>Example valid values include \"video/h264\" and \"video/h264,audio/aac\".</p> <p>This parameter is optional; the default value is <code>null</code> (or empty in JSON).</p>"
+            }
+          ]
         },
         "StreamName": {
-          "$ref": "#/definitions/StreamName",
-          "description": "<p>A name for the stream that you are creating.</p> <p>The stream name is an identifier for the stream, and must be unique for each account and region.</p>"
+          "allOf": [
+            {
+              "$ref": "#/definitions/StreamName"
+            },
+            {
+              "description": "<p>A name for the stream that you are creating.</p> <p>The stream name is an identifier for the stream, and must be unique for each account and region.</p>"
+            }
+          ]
+        },
+        "Tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceTags"
+            },
+            {
+              "description": "A list of tags to associate with the specified stream. Each tag is a key-value pair (the value is optional)."
+            }
+          ]
         }
       },
       "required": [
         "StreamName"
       ],
+      "title": "CreateStreamInput",
       "type": "object"
     },
     "CreateStreamOutput": {
       "properties": {
         "StreamARN": {
-          "$ref": "#/definitions/ResourceARN",
-          "description": "The Amazon Resource Name (ARN) of the stream."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceARN"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the stream."
+            }
+          ]
         }
       },
       "type": "object"
@@ -1033,44 +2938,150 @@
       "minimum": 0,
       "type": "integer"
     },
+    "DeleteSignalingChannelInput": {
+      "properties": {
+        "ChannelARN": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceARN"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the signaling channel that you want to delete."
+            }
+          ]
+        },
+        "CurrentVersion": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Version"
+            },
+            {
+              "description": "The current version of the signaling channel that you want to delete. You can obtain the current version by invoking the <code>DescribeSignalingChannel</code> or <code>ListSignalingChannels</code> API operations."
+            }
+          ]
+        }
+      },
+      "required": [
+        "ChannelARN"
+      ],
+      "title": "DeleteSignalingChannelInput",
+      "type": "object"
+    },
+    "DeleteSignalingChannelOutput": {
+      "properties": {},
+      "type": "object"
+    },
     "DeleteStreamInput": {
       "properties": {
         "CurrentVersion": {
-          "$ref": "#/definitions/Version",
-          "description": "<p>Optional: The version of the stream that you want to delete. </p> <p>Specify the version as a safeguard to ensure that your are deleting the correct stream. To get the stream version, use the <code>DescribeStream</code> API.</p> <p>If not specified, only the <code>CreationTime</code> is checked before deleting the stream.</p>"
+          "allOf": [
+            {
+              "$ref": "#/definitions/Version"
+            },
+            {
+              "description": "<p>Optional: The version of the stream that you want to delete. </p> <p>Specify the version as a safeguard to ensure that your are deleting the correct stream. To get the stream version, use the <code>DescribeStream</code> API.</p> <p>If not specified, only the <code>CreationTime</code> is checked before deleting the stream.</p>"
+            }
+          ]
         },
         "StreamARN": {
-          "$ref": "#/definitions/ResourceARN",
-          "description": "The Amazon Resource Name (ARN) of the stream that you want to delete. "
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceARN"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the stream that you want to delete. "
+            }
+          ]
         }
       },
       "required": [
         "StreamARN"
       ],
+      "title": "DeleteStreamInput",
       "type": "object"
     },
     "DeleteStreamOutput": {
       "properties": {},
       "type": "object"
     },
+    "DescribeSignalingChannelInput": {
+      "properties": {
+        "ChannelARN": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceARN"
+            },
+            {
+              "description": "The ARN of the signaling channel that you want to describe."
+            }
+          ]
+        },
+        "ChannelName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ChannelName"
+            },
+            {
+              "description": "The name of the signaling channel that you want to describe."
+            }
+          ]
+        }
+      },
+      "title": "DescribeSignalingChannelInput",
+      "type": "object"
+    },
+    "DescribeSignalingChannelOutput": {
+      "properties": {
+        "ChannelInfo": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ChannelInfo"
+            },
+            {
+              "description": "A structure that encapsulates the specified signaling channel's metadata and properties."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
     "DescribeStreamInput": {
       "properties": {
         "StreamARN": {
-          "$ref": "#/definitions/ResourceARN",
-          "description": "The Amazon Resource Name (ARN) of the stream."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceARN"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the stream."
+            }
+          ]
         },
         "StreamName": {
-          "$ref": "#/definitions/StreamName",
-          "description": "The name of the stream."
+          "allOf": [
+            {
+              "$ref": "#/definitions/StreamName"
+            },
+            {
+              "description": "The name of the stream."
+            }
+          ]
         }
       },
+      "title": "DescribeStreamInput",
       "type": "object"
     },
     "DescribeStreamOutput": {
       "properties": {
         "StreamInfo": {
-          "$ref": "#/definitions/StreamInfo",
-          "description": "An object that describes the stream."
+          "allOf": [
+            {
+              "$ref": "#/definitions/StreamInfo"
+            },
+            {
+              "description": "An object that describes the stream."
+            }
+          ]
         }
       },
       "type": "object"
@@ -1081,94 +3092,217 @@
       "pattern": "[a-zA-Z0-9_.-]+",
       "type": "string"
     },
-    "DeviceStreamLimitExceededException": {
-      "description": "Not implemented. ",
-      "properties": {
-        "Message": {
-          "$ref": "#/definitions/ErrorMessage"
-        }
-      },
-      "type": "object"
-    },
-    "ErrorMessage": {
-      "type": "string"
-    },
+    "DeviceStreamLimitExceededException": {},
     "GetDataEndpointInput": {
       "properties": {
         "APIName": {
-          "$ref": "#/definitions/APIName",
-          "description": "The name of the API action for which to get an endpoint."
+          "allOf": [
+            {
+              "$ref": "#/definitions/APIName"
+            },
+            {
+              "description": "The name of the API action for which to get an endpoint."
+            }
+          ]
         },
         "StreamARN": {
-          "$ref": "#/definitions/ResourceARN",
-          "description": "The Amazon Resource Name (ARN) of the stream that you want to get the endpoint for. You must specify either this parameter or a <code>StreamName</code> in the request. "
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceARN"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the stream that you want to get the endpoint for. You must specify either this parameter or a <code>StreamName</code> in the request. "
+            }
+          ]
         },
         "StreamName": {
-          "$ref": "#/definitions/StreamName",
-          "description": "The name of the stream that you want to get the endpoint for. You must specify either this parameter or a <code>StreamARN</code> in the request."
+          "allOf": [
+            {
+              "$ref": "#/definitions/StreamName"
+            },
+            {
+              "description": "The name of the stream that you want to get the endpoint for. You must specify either this parameter or a <code>StreamARN</code> in the request."
+            }
+          ]
         }
       },
       "required": [
         "APIName"
       ],
+      "title": "GetDataEndpointInput",
       "type": "object"
     },
     "GetDataEndpointOutput": {
       "properties": {
         "DataEndpoint": {
-          "$ref": "#/definitions/DataEndpoint",
-          "description": "The endpoint value. To read data from the stream or to write data to it, specify this endpoint in your application."
+          "allOf": [
+            {
+              "$ref": "#/definitions/DataEndpoint"
+            },
+            {
+              "description": "The endpoint value. To read data from the stream or to write data to it, specify this endpoint in your application."
+            }
+          ]
         }
       },
       "type": "object"
     },
-    "InvalidArgumentException": {
-      "description": "The value for this input parameter is invalid.",
+    "GetSignalingChannelEndpointInput": {
       "properties": {
-        "Message": {
-          "$ref": "#/definitions/ErrorMessage"
+        "ChannelARN": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceARN"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the signalling channel for which you want to get an endpoint."
+            }
+          ]
+        },
+        "SingleMasterChannelEndpointConfiguration": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SingleMasterChannelEndpointConfiguration"
+            },
+            {
+              "description": "A structure containing the endpoint configuration for the <code>SINGLE_MASTER</code> channel type."
+            }
+          ]
         }
       },
+      "required": [
+        "ChannelARN"
+      ],
+      "title": "GetSignalingChannelEndpointInput",
       "type": "object"
     },
-    "InvalidDeviceException": {
-      "description": "Not implemented.",
+    "GetSignalingChannelEndpointOutput": {
       "properties": {
-        "Message": {
-          "$ref": "#/definitions/ErrorMessage"
+        "ResourceEndpointList": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceEndpointList"
+            },
+            {
+              "description": "A list of endpoints for the specified signaling channel."
+            }
+          ]
         }
       },
       "type": "object"
     },
-    "InvalidResourceFormatException": {
-      "description": "The format of the <code>StreamARN</code> is invalid.",
-      "properties": {
-        "Message": {
-          "$ref": "#/definitions/ErrorMessage"
-        }
-      },
-      "type": "object"
-    },
+    "InvalidArgumentException": {},
+    "InvalidDeviceException": {},
+    "InvalidResourceFormatException": {},
     "KmsKeyId": {
       "maxLength": 2048,
       "minLength": 1,
+      "pattern": ".+",
       "type": "string"
+    },
+    "ListOfProtocols": {
+      "items": {
+        "$ref": "#/definitions/ChannelProtocol"
+      },
+      "maxItems": 5,
+      "minItems": 1,
+      "type": "array"
+    },
+    "ListSignalingChannelsInput": {
+      "properties": {
+        "ChannelNameCondition": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ChannelNameCondition"
+            },
+            {
+              "description": "Optional: Returns only the channels that satisfy a specific condition."
+            }
+          ]
+        },
+        "MaxResults": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ListStreamsInputLimit"
+            },
+            {
+              "description": "The maximum number of channels to return in the response. The default is 500."
+            }
+          ]
+        },
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NextToken"
+            },
+            {
+              "description": "If you specify this parameter, when the result of a <code>ListSignalingChannels</code> operation is truncated, the call returns the <code>NextToken</code> in the response. To get another batch of channels, provide this token in your next request."
+            }
+          ]
+        }
+      },
+      "title": "ListSignalingChannelsInput",
+      "type": "object"
+    },
+    "ListSignalingChannelsOutput": {
+      "properties": {
+        "ChannelInfoList": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ChannelInfoList"
+            },
+            {
+              "description": "An array of <code>ChannelInfo</code> objects."
+            }
+          ]
+        },
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NextToken"
+            },
+            {
+              "description": "If the response is truncated, the call returns this element with a token. To get the next batch of streams, use this token in your next request."
+            }
+          ]
+        }
+      },
+      "type": "object"
     },
     "ListStreamsInput": {
       "properties": {
         "MaxResults": {
-          "$ref": "#/definitions/ListStreamsInputLimit",
-          "description": "The maximum number of streams to return in the response. The default is 10,000."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ListStreamsInputLimit"
+            },
+            {
+              "description": "The maximum number of streams to return in the response. The default is 10,000."
+            }
+          ]
         },
         "NextToken": {
-          "$ref": "#/definitions/NextToken",
-          "description": "If you specify this parameter, when the result of a <code>ListStreams</code> operation is truncated, the call returns the <code>NextToken</code> in the response. To get another batch of streams, provide this token in your next request."
+          "allOf": [
+            {
+              "$ref": "#/definitions/NextToken"
+            },
+            {
+              "description": "If you specify this parameter, when the result of a <code>ListStreams</code> operation is truncated, the call returns the <code>NextToken</code> in the response. To get another batch of streams, provide this token in your next request."
+            }
+          ]
         },
         "StreamNameCondition": {
-          "$ref": "#/definitions/StreamNameCondition",
-          "description": "Optional: Returns only streams that satisfy a specific condition. Currently, you can specify only the prefix of a stream name as a condition. "
+          "allOf": [
+            {
+              "$ref": "#/definitions/StreamNameCondition"
+            },
+            {
+              "description": "Optional: Returns only streams that satisfy a specific condition. Currently, you can specify only the prefix of a stream name as a condition. "
+            }
+          ]
         }
       },
+      "title": "ListStreamsInput",
       "type": "object"
     },
     "ListStreamsInputLimit": {
@@ -1179,12 +3313,78 @@
     "ListStreamsOutput": {
       "properties": {
         "NextToken": {
-          "$ref": "#/definitions/NextToken",
-          "description": "If the response is truncated, the call returns this element with a token. To get the next batch of streams, use this token in your next request. "
+          "allOf": [
+            {
+              "$ref": "#/definitions/NextToken"
+            },
+            {
+              "description": "If the response is truncated, the call returns this element with a token. To get the next batch of streams, use this token in your next request. "
+            }
+          ]
         },
         "StreamInfoList": {
-          "$ref": "#/definitions/StreamInfoList",
-          "description": "An array of <code>StreamInfo</code> objects."
+          "allOf": [
+            {
+              "$ref": "#/definitions/StreamInfoList"
+            },
+            {
+              "description": "An array of <code>StreamInfo</code> objects."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ListTagsForResourceInput": {
+      "properties": {
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NextToken"
+            },
+            {
+              "description": "If you specify this parameter and the result of a <code>ListTagsForResource</code> call is truncated, the response includes a token that you can use in the next request to fetch the next batch of tags. "
+            }
+          ]
+        },
+        "ResourceARN": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceARN"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the signaling channel for which you want to list tags."
+            }
+          ]
+        }
+      },
+      "required": [
+        "ResourceARN"
+      ],
+      "title": "ListTagsForResourceInput",
+      "type": "object"
+    },
+    "ListTagsForResourceOutput": {
+      "properties": {
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NextToken"
+            },
+            {
+              "description": "If you specify this parameter and the result of a <code>ListTagsForResource</code> call is truncated, the response includes a token that you can use in the next request to fetch the next set of tags. "
+            }
+          ]
+        },
+        "Tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceTags"
+            },
+            {
+              "description": "A map of tag keys and values associated with the specified signaling channel."
+            }
+          ]
         }
       },
       "type": "object"
@@ -1192,29 +3392,60 @@
     "ListTagsForStreamInput": {
       "properties": {
         "NextToken": {
-          "$ref": "#/definitions/NextToken",
-          "description": "If you specify this parameter and the result of a <code>ListTagsForStream</code> call is truncated, the response includes a token that you can use in the next request to fetch the next batch of tags."
+          "allOf": [
+            {
+              "$ref": "#/definitions/NextToken"
+            },
+            {
+              "description": "If you specify this parameter and the result of a <code>ListTagsForStream</code> call is truncated, the response includes a token that you can use in the next request to fetch the next batch of tags."
+            }
+          ]
         },
         "StreamARN": {
-          "$ref": "#/definitions/ResourceARN",
-          "description": "The Amazon Resource Name (ARN) of the stream that you want to list tags for."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceARN"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the stream that you want to list tags for."
+            }
+          ]
         },
         "StreamName": {
-          "$ref": "#/definitions/StreamName",
-          "description": "The name of the stream that you want to list tags for."
+          "allOf": [
+            {
+              "$ref": "#/definitions/StreamName"
+            },
+            {
+              "description": "The name of the stream that you want to list tags for."
+            }
+          ]
         }
       },
+      "title": "ListTagsForStreamInput",
       "type": "object"
     },
     "ListTagsForStreamOutput": {
       "properties": {
         "NextToken": {
-          "$ref": "#/definitions/NextToken",
-          "description": "If you specify this parameter and the result of a <code>ListTags</code> call is truncated, the response includes a token that you can use in the next request to fetch the next set of tags."
+          "allOf": [
+            {
+              "$ref": "#/definitions/NextToken"
+            },
+            {
+              "description": "If you specify this parameter and the result of a <code>ListTags</code> call is truncated, the response includes a token that you can use in the next request to fetch the next set of tags."
+            }
+          ]
         },
         "Tags": {
-          "$ref": "#/definitions/ResourceTags",
-          "description": "A map of tag keys and values associated with the specified stream."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceTags"
+            },
+            {
+              "description": "A map of tag keys and values associated with the specified stream."
+            }
+          ]
         }
       },
       "type": "object"
@@ -1222,62 +3453,113 @@
     "MediaType": {
       "maxLength": 128,
       "minLength": 1,
-      "pattern": "[\\w\\-\\.\\+]+/[\\w\\-\\.\\+]+",
+      "pattern": "[\\w\\-\\.\\+]+/[\\w\\-\\.\\+]+(,[\\w\\-\\.\\+]+/[\\w\\-\\.\\+]+)*",
       "type": "string"
+    },
+    "MessageTtlSeconds": {
+      "maximum": 120,
+      "minimum": 5,
+      "type": "integer"
     },
     "NextToken": {
       "maxLength": 512,
       "minLength": 0,
+      "pattern": "[a-zA-Z0-9+/=]*",
       "type": "string"
     },
-    "NotAuthorizedException": {
-      "description": "The caller is not authorized to perform this operation.",
-      "properties": {
-        "Message": {
-          "$ref": "#/definitions/ErrorMessage"
-        }
-      },
-      "type": "object"
-    },
+    "NotAuthorizedException": {},
     "ResourceARN": {
       "maxLength": 1024,
       "minLength": 1,
       "pattern": "arn:aws:kinesisvideo:[a-z0-9-]+:[0-9]+:[a-z]+/[a-zA-Z0-9_.-]+/[0-9]+",
       "type": "string"
     },
-    "ResourceInUseException": {
-      "description": "The stream is currently not available for this operation.",
-      "properties": {
-        "Message": {
-          "$ref": "#/definitions/ErrorMessage"
-        }
-      },
-      "type": "object"
+    "ResourceEndpoint": {
+      "type": "string"
     },
-    "ResourceNotFoundException": {
-      "description": "Amazon Kinesis Video Streams can't find the stream that you specified.",
-      "properties": {
-        "Message": {
-          "$ref": "#/definitions/ErrorMessage"
-        }
-      },
-      "type": "object"
-    },
-    "ResourceTags": {
+    "ResourceEndpointList": {
       "items": {
-        "properties": {
-          "key": {
-            "$ref": "#/definitions/TagKey"
-          },
-          "value": {
-            "$ref": "#/definitions/TagValue"
-          }
-        },
-        "type": "object"
+        "$ref": "#/definitions/ResourceEndpointListItem"
       },
-      "maxItems": 50,
-      "minItems": 1,
       "type": "array"
+    },
+    "ResourceEndpointListItem": {
+      "description": "An object that describes the endpoint of the signaling channel returned by the <code>GetSignalingChannelEndpoint</code> API.",
+      "properties": {
+        "Protocol": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ChannelProtocol"
+            },
+            {
+              "description": "The protocol of the signaling channel returned by the <code>GetSignalingChannelEndpoint</code> API."
+            }
+          ]
+        },
+        "ResourceEndpoint": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceEndpoint"
+            },
+            {
+              "description": "The endpoint of the signaling channel returned by the <code>GetSignalingChannelEndpoint</code> API."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ResourceInUseException": {},
+    "ResourceNotFoundException": {},
+    "ResourceTags": {
+      "additionalProperties": {
+        "$ref": "#/definitions/TagValue"
+      },
+      "maxProperties": 50,
+      "minProperties": 1,
+      "type": "object"
+    },
+    "SingleMasterChannelEndpointConfiguration": {
+      "description": "An object that contains the endpoint configuration for the <code>SINGLE_MASTER</code> channel type. ",
+      "properties": {
+        "Protocols": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ListOfProtocols"
+            },
+            {
+              "description": "This property is used to determine the nature of communication over this <code>SINGLE_MASTER</code> signaling channel. If <code>WSS</code> is specified, this API returns a websocket endpoint. If <code>HTTPS</code> is specified, this API returns an <code>HTTPS</code> endpoint."
+            }
+          ]
+        },
+        "Role": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ChannelRole"
+            },
+            {
+              "description": "This property is used to determine messaging permissions in this <code>SINGLE_MASTER</code> signaling channel. If <code>MASTER</code> is specified, this API returns an endpoint that a client can use to receive offers from and send answers to any of the viewers on this signaling channel. If <code>VIEWER</code> is specified, this API returns an endpoint that a client can use only to send offers to another <code>MASTER</code> client on this signaling channel. "
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "SingleMasterConfiguration": {
+      "description": "A structure that contains the configuration for the <code>SINGLE_MASTER</code> channel type.",
+      "properties": {
+        "MessageTtlSeconds": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MessageTtlSeconds"
+            },
+            {
+              "description": "The period of time a signaling channel retains underlivered messages before they are discarded."
+            }
+          ]
+        }
+      },
+      "type": "object"
     },
     "Status": {
       "enum": [
@@ -1292,40 +3574,94 @@
       "description": "An object describing a Kinesis video stream.",
       "properties": {
         "CreationTime": {
-          "$ref": "#/definitions/Timestamp",
-          "description": "A time stamp that indicates when the stream was created."
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "A time stamp that indicates when the stream was created."
+            }
+          ]
         },
         "DataRetentionInHours": {
-          "$ref": "#/definitions/DataRetentionInHours",
-          "description": "How long the stream retains data, in hours."
+          "allOf": [
+            {
+              "$ref": "#/definitions/DataRetentionInHours"
+            },
+            {
+              "description": "How long the stream retains data, in hours."
+            }
+          ]
         },
         "DeviceName": {
-          "$ref": "#/definitions/DeviceName",
-          "description": "The name of the device that is associated with the stream."
+          "allOf": [
+            {
+              "$ref": "#/definitions/DeviceName"
+            },
+            {
+              "description": "The name of the device that is associated with the stream."
+            }
+          ]
         },
         "KmsKeyId": {
-          "$ref": "#/definitions/KmsKeyId",
-          "description": "The ID of the AWS Key Management Service (AWS KMS) key that Kinesis Video Streams uses to encrypt data on the stream."
+          "allOf": [
+            {
+              "$ref": "#/definitions/KmsKeyId"
+            },
+            {
+              "description": "The ID of the AWS Key Management Service (AWS KMS) key that Kinesis Video Streams uses to encrypt data on the stream."
+            }
+          ]
         },
         "MediaType": {
-          "$ref": "#/definitions/MediaType",
-          "description": "The <code>MediaType</code> of the stream. "
+          "allOf": [
+            {
+              "$ref": "#/definitions/MediaType"
+            },
+            {
+              "description": "The <code>MediaType</code> of the stream. "
+            }
+          ]
         },
         "Status": {
-          "$ref": "#/definitions/Status",
-          "description": "The status of the stream."
+          "allOf": [
+            {
+              "$ref": "#/definitions/Status"
+            },
+            {
+              "description": "The status of the stream."
+            }
+          ]
         },
         "StreamARN": {
-          "$ref": "#/definitions/ResourceARN",
-          "description": "The Amazon Resource Name (ARN) of the stream."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceARN"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the stream."
+            }
+          ]
         },
         "StreamName": {
-          "$ref": "#/definitions/StreamName",
-          "description": "The name of the stream."
+          "allOf": [
+            {
+              "$ref": "#/definitions/StreamName"
+            },
+            {
+              "description": "The name of the stream."
+            }
+          ]
         },
         "Version": {
-          "$ref": "#/definitions/Version",
-          "description": "The version of the stream."
+          "allOf": [
+            {
+              "$ref": "#/definitions/Version"
+            },
+            {
+              "description": "The version of the stream."
+            }
+          ]
         }
       },
       "type": "object"
@@ -1346,19 +3682,62 @@
       "description": "Specifies the condition that streams must satisfy to be returned when you list streams (see the <code>ListStreams</code> API). A condition has a comparison operation and a value. Currently, you can specify only the <code>BEGINS_WITH</code> operator, which finds streams whose names start with a given prefix. ",
       "properties": {
         "ComparisonOperator": {
-          "$ref": "#/definitions/ComparisonOperator",
-          "description": "A comparison operator. Currently, you can specify only the <code>BEGINS_WITH</code> operator, which finds streams whose names start with a given prefix."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ComparisonOperator"
+            },
+            {
+              "description": "A comparison operator. Currently, you can specify only the <code>BEGINS_WITH</code> operator, which finds streams whose names start with a given prefix."
+            }
+          ]
         },
         "ComparisonValue": {
-          "$ref": "#/definitions/StreamName",
-          "description": "A value to compare."
+          "allOf": [
+            {
+              "$ref": "#/definitions/StreamName"
+            },
+            {
+              "description": "A value to compare."
+            }
+          ]
         }
       },
+      "type": "object"
+    },
+    "Tag": {
+      "description": "A key and value pair that is associated with the specified signaling channel.",
+      "properties": {
+        "Key": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagKey"
+            },
+            {
+              "description": "The key of the tag that is associated with the specified signaling channel."
+            }
+          ]
+        },
+        "Value": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagValue"
+            },
+            {
+              "description": "The value of the tag that is associated with the specified signaling channel."
+            }
+          ]
+        }
+      },
+      "required": [
+        "Key",
+        "Value"
+      ],
       "type": "object"
     },
     "TagKey": {
       "maxLength": 128,
       "minLength": 1,
+      "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
       "type": "string"
     },
     "TagKeyList": {
@@ -1369,24 +3748,93 @@
       "minItems": 1,
       "type": "array"
     },
+    "TagList": {
+      "items": {
+        "$ref": "#/definitions/Tag"
+      },
+      "maxItems": 50,
+      "minItems": 1,
+      "type": "array"
+    },
+    "TagOnCreateList": {
+      "items": {
+        "$ref": "#/definitions/Tag"
+      },
+      "maxItems": 50,
+      "minItems": 0,
+      "type": "array"
+    },
+    "TagResourceInput": {
+      "properties": {
+        "ResourceARN": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceARN"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the signaling channel to which you want to add tags."
+            }
+          ]
+        },
+        "Tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagList"
+            },
+            {
+              "description": "A list of tags to associate with the specified signaling channel. Each tag is a key-value pair."
+            }
+          ]
+        }
+      },
+      "required": [
+        "ResourceARN",
+        "Tags"
+      ],
+      "title": "TagResourceInput",
+      "type": "object"
+    },
+    "TagResourceOutput": {
+      "properties": {},
+      "type": "object"
+    },
     "TagStreamInput": {
       "properties": {
         "StreamARN": {
-          "$ref": "#/definitions/ResourceARN",
-          "description": "The Amazon Resource Name (ARN) of the resource that you want to add the tag or tags to."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceARN"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the resource that you want to add the tag or tags to."
+            }
+          ]
         },
         "StreamName": {
-          "$ref": "#/definitions/StreamName",
-          "description": "The name of the stream that you want to add the tag or tags to."
+          "allOf": [
+            {
+              "$ref": "#/definitions/StreamName"
+            },
+            {
+              "description": "The name of the stream that you want to add the tag or tags to."
+            }
+          ]
         },
         "Tags": {
-          "$ref": "#/definitions/ResourceTags",
-          "description": "A list of tags to associate with the specified stream. Each tag is a key-value pair (the value is optional)."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceTags"
+            },
+            {
+              "description": "A list of tags to associate with the specified stream. Each tag is a key-value pair (the value is optional)."
+            }
+          ]
         }
       },
       "required": [
         "Tags"
       ],
+      "title": "TagStreamInput",
       "type": "object"
     },
     "TagStreamOutput": {
@@ -1396,39 +3844,85 @@
     "TagValue": {
       "maxLength": 256,
       "minLength": 0,
+      "pattern": "[\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*",
       "type": "string"
     },
-    "TagsPerResourceExceededLimitException": {
-      "description": "You have exceeded the limit of tags that you can associate with the resource. Kinesis video streams support up to 50 tags. ",
-      "properties": {
-        "Message": {
-          "$ref": "#/definitions/ErrorMessage"
-        }
-      },
-      "type": "object"
-    },
+    "TagsPerResourceExceededLimitException": {},
     "Timestamp": {
       "format": "date-time",
       "type": "string"
     },
+    "UntagResourceInput": {
+      "properties": {
+        "ResourceARN": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceARN"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the signaling channel from which you want to remove tags."
+            }
+          ]
+        },
+        "TagKeyList": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagKeyList"
+            },
+            {
+              "description": "A list of the keys of the tags that you want to remove."
+            }
+          ]
+        }
+      },
+      "required": [
+        "ResourceARN",
+        "TagKeyList"
+      ],
+      "title": "UntagResourceInput",
+      "type": "object"
+    },
+    "UntagResourceOutput": {
+      "properties": {},
+      "type": "object"
+    },
     "UntagStreamInput": {
       "properties": {
         "StreamARN": {
-          "$ref": "#/definitions/ResourceARN",
-          "description": "The Amazon Resource Name (ARN) of the stream that you want to remove tags from."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceARN"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the stream that you want to remove tags from."
+            }
+          ]
         },
         "StreamName": {
-          "$ref": "#/definitions/StreamName",
-          "description": "The name of the stream that you want to remove tags from."
+          "allOf": [
+            {
+              "$ref": "#/definitions/StreamName"
+            },
+            {
+              "description": "The name of the stream that you want to remove tags from."
+            }
+          ]
         },
         "TagKeyList": {
-          "$ref": "#/definitions/TagKeyList",
-          "description": "A list of the keys of the tags that you want to remove."
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagKeyList"
+            },
+            {
+              "description": "A list of the keys of the tags that you want to remove."
+            }
+          ]
         }
       },
       "required": [
         "TagKeyList"
       ],
+      "title": "UntagStreamInput",
       "type": "object"
     },
     "UntagStreamOutput": {
@@ -1438,24 +3932,54 @@
     "UpdateDataRetentionInput": {
       "properties": {
         "CurrentVersion": {
-          "$ref": "#/definitions/Version",
-          "description": "The version of the stream whose retention period you want to change. To get the version, call either the <code>DescribeStream</code> or the <code>ListStreams</code> API."
+          "allOf": [
+            {
+              "$ref": "#/definitions/Version"
+            },
+            {
+              "description": "The version of the stream whose retention period you want to change. To get the version, call either the <code>DescribeStream</code> or the <code>ListStreams</code> API."
+            }
+          ]
         },
         "DataRetentionChangeInHours": {
-          "$ref": "#/definitions/DataRetentionChangeInHours",
-          "description": "The retention period, in hours. The value you specify replaces the current value."
+          "allOf": [
+            {
+              "$ref": "#/definitions/DataRetentionChangeInHours"
+            },
+            {
+              "description": "The retention period, in hours. The value you specify replaces the current value. The maximum value for this parameter is 87600 (ten years)."
+            }
+          ]
         },
         "Operation": {
-          "$ref": "#/definitions/UpdateDataRetentionOperation",
-          "description": "Indicates whether you want to increase or decrease the retention period."
+          "allOf": [
+            {
+              "$ref": "#/definitions/UpdateDataRetentionOperation"
+            },
+            {
+              "description": "Indicates whether you want to increase or decrease the retention period."
+            }
+          ]
         },
         "StreamARN": {
-          "$ref": "#/definitions/ResourceARN",
-          "description": "The Amazon Resource Name (ARN) of the stream whose retention period you want to change."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceARN"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the stream whose retention period you want to change."
+            }
+          ]
         },
         "StreamName": {
-          "$ref": "#/definitions/StreamName",
-          "description": "The name of the stream whose retention period you want to change."
+          "allOf": [
+            {
+              "$ref": "#/definitions/StreamName"
+            },
+            {
+              "description": "The name of the stream whose retention period you want to change."
+            }
+          ]
         }
       },
       "required": [
@@ -1463,6 +3987,7 @@
         "Operation",
         "DataRetentionChangeInHours"
       ],
+      "title": "UpdateDataRetentionInput",
       "type": "object"
     },
     "UpdateDataRetentionOperation": {
@@ -1476,32 +4001,107 @@
       "properties": {},
       "type": "object"
     },
+    "UpdateSignalingChannelInput": {
+      "properties": {
+        "ChannelARN": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceARN"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the signaling channel that you want to update."
+            }
+          ]
+        },
+        "CurrentVersion": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Version"
+            },
+            {
+              "description": "The current version of the signaling channel that you want to update."
+            }
+          ]
+        },
+        "SingleMasterConfiguration": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SingleMasterConfiguration"
+            },
+            {
+              "description": "The structure containing the configuration for the <code>SINGLE_MASTER</code> type of the signaling channel that you want to update. "
+            }
+          ]
+        }
+      },
+      "required": [
+        "ChannelARN",
+        "CurrentVersion"
+      ],
+      "title": "UpdateSignalingChannelInput",
+      "type": "object"
+    },
+    "UpdateSignalingChannelOutput": {
+      "properties": {},
+      "type": "object"
+    },
     "UpdateStreamInput": {
       "properties": {
         "CurrentVersion": {
-          "$ref": "#/definitions/Version",
-          "description": "The version of the stream whose metadata you want to update."
+          "allOf": [
+            {
+              "$ref": "#/definitions/Version"
+            },
+            {
+              "description": "The version of the stream whose metadata you want to update."
+            }
+          ]
         },
         "DeviceName": {
-          "$ref": "#/definitions/DeviceName",
-          "description": "<p>The name of the device that is writing to the stream. </p> <note> <p> In the current implementation, Kinesis Video Streams does not use this name. </p> </note>"
+          "allOf": [
+            {
+              "$ref": "#/definitions/DeviceName"
+            },
+            {
+              "description": "<p>The name of the device that is writing to the stream. </p> <note> <p> In the current implementation, Kinesis Video Streams does not use this name. </p> </note>"
+            }
+          ]
         },
         "MediaType": {
-          "$ref": "#/definitions/MediaType",
-          "description": "<p>The stream's media type. Use <code>MediaType</code> to specify the type of content that the stream contains to the consumers of the stream. For more information about media types, see <a href=\"http://www.iana.org/assignments/media-types/media-types.xhtml\">Media Types</a>. If you choose to specify the <code>MediaType</code>, see <a href=\"https://tools.sietf.org/html/rfc6838#section-4.2\">Naming Requirements</a>.</p> <p>To play video on the console, you must specify the correct video type. For example, if the video in the stream is H.264, specify <code>video/h264</code> as the <code>MediaType</code>.</p>"
+          "allOf": [
+            {
+              "$ref": "#/definitions/MediaType"
+            },
+            {
+              "description": "<p>The stream's media type. Use <code>MediaType</code> to specify the type of content that the stream contains to the consumers of the stream. For more information about media types, see <a href=\"http://www.iana.org/assignments/media-types/media-types.xhtml\">Media Types</a>. If you choose to specify the <code>MediaType</code>, see <a href=\"https://tools.ietf.org/html/rfc6838#section-4.2\">Naming Requirements</a>.</p> <p>To play video on the console, you must specify the correct video type. For example, if the video in the stream is H.264, specify <code>video/h264</code> as the <code>MediaType</code>.</p>"
+            }
+          ]
         },
         "StreamARN": {
-          "$ref": "#/definitions/ResourceARN",
-          "description": "The ARN of the stream whose metadata you want to update."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceARN"
+            },
+            {
+              "description": "The ARN of the stream whose metadata you want to update."
+            }
+          ]
         },
         "StreamName": {
-          "$ref": "#/definitions/StreamName",
-          "description": "<p>The name of the stream whose metadata you want to update.</p> <p>The stream name is an identifier for the stream, and must be unique for each account and region.</p>"
+          "allOf": [
+            {
+              "$ref": "#/definitions/StreamName"
+            },
+            {
+              "description": "<p>The name of the stream whose metadata you want to update.</p> <p>The stream name is an identifier for the stream, and must be unique for each account and region.</p>"
+            }
+          ]
         }
       },
       "required": [
         "CurrentVersion"
       ],
+      "title": "UpdateStreamInput",
       "type": "object"
     },
     "UpdateStreamOutput": {
@@ -1514,14 +4114,70 @@
       "pattern": "[a-zA-Z0-9]+",
       "type": "string"
     },
-    "VersionMismatchException": {
-      "description": "The stream version that you specified is not the latest version. To get the latest version, use the <a href=\"http://docs.aws.amazon.com/kinesisvideo/latest/dg/API_DescribeStream.html\">DescribeStream</a> API.",
-      "properties": {
-        "Message": {
-          "$ref": "#/definitions/ErrorMessage"
-        }
+    "VersionMismatchException": {}
+  },
+  "securityDefinitions": {
+    "hmac": {
+      "description": "Amazon Signature authorization v4",
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey",
+      "x-amazon-apigateway-authtype": "awsSigv4"
+    }
+  },
+  "security": [
+    {
+      "hmac": []
+    }
+  ],
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://docs.aws.amazon.com/kinesisvideo/"
+  },
+  "x-components": {
+    "parameters": {
+      "X-Amz-Algorithm": {
+        "in": "header",
+        "name": "X-Amz-Algorithm",
+        "required": false,
+        "type": "string"
       },
-      "type": "object"
+      "X-Amz-Content-Sha256": {
+        "in": "header",
+        "name": "X-Amz-Content-Sha256",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Credential": {
+        "in": "header",
+        "name": "X-Amz-Credential",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Date": {
+        "in": "header",
+        "name": "X-Amz-Date",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Security-Token": {
+        "in": "header",
+        "name": "X-Amz-Security-Token",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Signature": {
+        "in": "header",
+        "name": "X-Amz-Signature",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-SignedHeaders": {
+        "in": "header",
+        "name": "X-Amz-SignedHeaders",
+        "required": false,
+        "type": "string"
+      }
     }
   }
 }

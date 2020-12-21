@@ -13,9 +13,7 @@ let amazonaws_datapipeline = require('@datafire/amazonaws_datapipeline').create(
   region: ""
 });
 
-amazonaws_datapipeline.ActivatePipeline({
-  "pipelineId": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -32,15 +30,16 @@ amazonaws_datapipeline.ActivatePipeline({
 
 ```js
 amazonaws_datapipeline.ActivatePipeline({
-  "pipelineId": ""
+  "pipelineId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * parameterValues [ParameterValueList](#parametervaluelist)
-  * pipelineId **required** [id](#id)
-  * startTimestamp [timestamp](#timestamp)
+  * parameterValues
+    * items [ParameterValue](#parametervalue)
+  * pipelineId **required**
+  * startTimestamp
 
 #### Output
 * output [ActivatePipelineOutput](#activatepipelineoutput)
@@ -51,15 +50,16 @@ amazonaws_datapipeline.ActivatePipeline({
 
 ```js
 amazonaws_datapipeline.AddTags({
-  "pipelineId": "",
-  "tags": []
+  "pipelineId": null,
+  "tags": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * pipelineId **required** [id](#id)
-  * tags **required** [tagList](#taglist)
+  * tags **required**
+    * items [Tag](#tag)
+  * pipelineId **required**
 
 #### Output
 * output [AddTagsOutput](#addtagsoutput)
@@ -70,17 +70,18 @@ amazonaws_datapipeline.AddTags({
 
 ```js
 amazonaws_datapipeline.CreatePipeline({
-  "name": "",
-  "uniqueId": ""
+  "name": null,
+  "uniqueId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * description [string](#string)
-  * name **required** [id](#id)
-  * tags [tagList](#taglist)
-  * uniqueId **required** [id](#id)
+  * tags
+    * items [Tag](#tag)
+  * description
+  * name **required**
+  * uniqueId **required**
 
 #### Output
 * output [CreatePipelineOutput](#createpipelineoutput)
@@ -91,14 +92,14 @@ amazonaws_datapipeline.CreatePipeline({
 
 ```js
 amazonaws_datapipeline.DeactivatePipeline({
-  "pipelineId": ""
+  "pipelineId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * cancelActive [cancelActive](#cancelactive)
-  * pipelineId **required** [id](#id)
+  * cancelActive
+  * pipelineId **required**
 
 #### Output
 * output [DeactivatePipelineOutput](#deactivatepipelineoutput)
@@ -109,13 +110,13 @@ amazonaws_datapipeline.DeactivatePipeline({
 
 ```js
 amazonaws_datapipeline.DeletePipeline({
-  "pipelineId": ""
+  "pipelineId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * pipelineId **required** [id](#id)
+  * pipelineId **required**
 
 #### Output
 *Output schema unknown*
@@ -126,18 +127,19 @@ amazonaws_datapipeline.DeletePipeline({
 
 ```js
 amazonaws_datapipeline.DescribeObjects({
-  "pipelineId": "",
-  "objectIds": []
+  "pipelineId": null,
+  "objectIds": null
 }, context)
 ```
 
 #### Input
 * input `object`
   * marker `string`
-  * evaluateExpressions [boolean](#boolean)
-  * marker [string](#string)
-  * objectIds **required** [idList](#idlist)
-  * pipelineId **required** [id](#id)
+  * evaluateExpressions
+  * marker
+  * objectIds **required**
+    * items [id](#id)
+  * pipelineId **required**
 
 #### Output
 * output [DescribeObjectsOutput](#describeobjectsoutput)
@@ -148,13 +150,14 @@ amazonaws_datapipeline.DescribeObjects({
 
 ```js
 amazonaws_datapipeline.DescribePipelines({
-  "pipelineIds": []
+  "pipelineIds": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * pipelineIds **required** [idList](#idlist)
+  * pipelineIds **required**
+    * items [id](#id)
 
 #### Output
 * output [DescribePipelinesOutput](#describepipelinesoutput)
@@ -165,17 +168,17 @@ amazonaws_datapipeline.DescribePipelines({
 
 ```js
 amazonaws_datapipeline.EvaluateExpression({
-  "pipelineId": "",
-  "objectId": "",
-  "expression": ""
+  "pipelineId": null,
+  "objectId": null,
+  "expression": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * expression **required** [longString](#longstring)
-  * objectId **required** [id](#id)
-  * pipelineId **required** [id](#id)
+  * expression **required**
+  * objectId **required**
+  * pipelineId **required**
 
 #### Output
 * output [EvaluateExpressionOutput](#evaluateexpressionoutput)
@@ -186,14 +189,14 @@ amazonaws_datapipeline.EvaluateExpression({
 
 ```js
 amazonaws_datapipeline.GetPipelineDefinition({
-  "pipelineId": ""
+  "pipelineId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * pipelineId **required** [id](#id)
-  * version [string](#string)
+  * pipelineId **required**
+  * version
 
 #### Output
 * output [GetPipelineDefinitionOutput](#getpipelinedefinitionoutput)
@@ -209,7 +212,7 @@ amazonaws_datapipeline.ListPipelines({}, context)
 #### Input
 * input `object`
   * marker `string`
-  * marker [string](#string)
+  * marker
 
 #### Output
 * output [ListPipelinesOutput](#listpipelinesoutput)
@@ -220,15 +223,17 @@ amazonaws_datapipeline.ListPipelines({}, context)
 
 ```js
 amazonaws_datapipeline.PollForTask({
-  "workerGroup": ""
+  "workerGroup": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * hostname [id](#id)
-  * instanceIdentity [InstanceIdentity](#instanceidentity)
-  * workerGroup **required** [string](#string)
+  * hostname
+  * instanceIdentity
+    * document
+    * signature
+  * workerGroup **required**
 
 #### Output
 * output [PollForTaskOutput](#pollfortaskoutput)
@@ -239,17 +244,20 @@ amazonaws_datapipeline.PollForTask({
 
 ```js
 amazonaws_datapipeline.PutPipelineDefinition({
-  "pipelineId": "",
-  "pipelineObjects": []
+  "pipelineId": null,
+  "pipelineObjects": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * parameterObjects [ParameterObjectList](#parameterobjectlist)
-  * parameterValues [ParameterValueList](#parametervaluelist)
-  * pipelineId **required** [id](#id)
-  * pipelineObjects **required** [PipelineObjectList](#pipelineobjectlist)
+  * parameterObjects
+    * items [ParameterObject](#parameterobject)
+  * parameterValues
+    * items [ParameterValue](#parametervalue)
+  * pipelineId **required**
+  * pipelineObjects **required**
+    * items [PipelineObject](#pipelineobject)
 
 #### Output
 * output [PutPipelineDefinitionOutput](#putpipelinedefinitionoutput)
@@ -260,8 +268,8 @@ amazonaws_datapipeline.PutPipelineDefinition({
 
 ```js
 amazonaws_datapipeline.QueryObjects({
-  "pipelineId": "",
-  "sphere": ""
+  "pipelineId": null,
+  "sphere": null
 }, context)
 ```
 
@@ -269,11 +277,13 @@ amazonaws_datapipeline.QueryObjects({
 * input `object`
   * limit `string`
   * marker `string`
-  * limit [int](#int)
-  * marker [string](#string)
-  * pipelineId **required** [id](#id)
-  * query [Query](#query)
-  * sphere **required** [string](#string)
+  * limit
+  * marker
+  * pipelineId **required**
+  * query
+    * selectors
+      * items [Selector](#selector)
+  * sphere **required**
 
 #### Output
 * output [QueryObjectsOutput](#queryobjectsoutput)
@@ -284,15 +294,16 @@ amazonaws_datapipeline.QueryObjects({
 
 ```js
 amazonaws_datapipeline.RemoveTags({
-  "pipelineId": "",
-  "tagKeys": []
+  "pipelineId": null,
+  "tagKeys": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * pipelineId **required** [id](#id)
-  * tagKeys **required** [stringList](#stringlist)
+  * pipelineId **required**
+  * tagKeys **required**
+    * items [string](#string)
 
 #### Output
 * output [RemoveTagsOutput](#removetagsoutput)
@@ -303,14 +314,15 @@ amazonaws_datapipeline.RemoveTags({
 
 ```js
 amazonaws_datapipeline.ReportTaskProgress({
-  "taskId": ""
+  "taskId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * fields [fieldList](#fieldlist)
-  * taskId **required** [taskId](#taskid)
+  * fields
+    * items [Field](#field)
+  * taskId **required**
 
 #### Output
 * output [ReportTaskProgressOutput](#reporttaskprogressoutput)
@@ -321,15 +333,15 @@ amazonaws_datapipeline.ReportTaskProgress({
 
 ```js
 amazonaws_datapipeline.ReportTaskRunnerHeartbeat({
-  "taskrunnerId": ""
+  "taskrunnerId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * hostname [id](#id)
-  * taskrunnerId **required** [id](#id)
-  * workerGroup [string](#string)
+  * hostname
+  * taskrunnerId **required**
+  * workerGroup
 
 #### Output
 * output [ReportTaskRunnerHeartbeatOutput](#reporttaskrunnerheartbeatoutput)
@@ -340,17 +352,18 @@ amazonaws_datapipeline.ReportTaskRunnerHeartbeat({
 
 ```js
 amazonaws_datapipeline.SetStatus({
-  "pipelineId": "",
-  "objectIds": [],
-  "status": ""
+  "pipelineId": null,
+  "objectIds": null,
+  "status": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * objectIds **required** [idList](#idlist)
-  * pipelineId **required** [id](#id)
-  * status **required** [string](#string)
+  * objectIds **required**
+    * items [id](#id)
+  * pipelineId **required**
+  * status **required**
 
 #### Output
 *Output schema unknown*
@@ -361,18 +374,18 @@ amazonaws_datapipeline.SetStatus({
 
 ```js
 amazonaws_datapipeline.SetTaskStatus({
-  "taskId": "",
-  "taskStatus": ""
+  "taskId": null,
+  "taskStatus": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * errorId [string](#string)
-  * errorMessage [errorMessage](#errormessage)
-  * errorStackTrace [string](#string)
-  * taskId **required** [taskId](#taskid)
-  * taskStatus **required** [TaskStatus](#taskstatus)
+  * errorId
+  * errorMessage
+  * errorStackTrace
+  * taskId **required**
+  * taskStatus **required**
 
 #### Output
 * output [SetTaskStatusOutput](#settaskstatusoutput)
@@ -383,17 +396,20 @@ amazonaws_datapipeline.SetTaskStatus({
 
 ```js
 amazonaws_datapipeline.ValidatePipelineDefinition({
-  "pipelineId": "",
-  "pipelineObjects": []
+  "pipelineId": null,
+  "pipelineObjects": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * parameterObjects [ParameterObjectList](#parameterobjectlist)
-  * parameterValues [ParameterValueList](#parametervaluelist)
-  * pipelineId **required** [id](#id)
-  * pipelineObjects **required** [PipelineObjectList](#pipelineobjectlist)
+  * parameterObjects
+    * items [ParameterObject](#parameterobject)
+  * parameterValues
+    * items [ParameterValue](#parametervalue)
+  * pipelineId **required**
+  * pipelineObjects **required**
+    * items [PipelineObject](#pipelineobject)
 
 #### Output
 * output [ValidatePipelineDefinitionOutput](#validatepipelinedefinitionoutput)
@@ -404,127 +420,139 @@ amazonaws_datapipeline.ValidatePipelineDefinition({
 
 ### ActivatePipelineInput
 * ActivatePipelineInput `object`: Contains the parameters for ActivatePipeline.
-  * parameterValues [ParameterValueList](#parametervaluelist)
-  * pipelineId **required** [id](#id)
-  * startTimestamp [timestamp](#timestamp)
+  * parameterValues
+    * items [ParameterValue](#parametervalue)
+  * pipelineId **required**
+  * startTimestamp
 
 ### ActivatePipelineOutput
 * ActivatePipelineOutput `object`: Contains the output of ActivatePipeline.
 
 ### AddTagsInput
 * AddTagsInput `object`: Contains the parameters for AddTags.
-  * pipelineId **required** [id](#id)
-  * tags **required** [tagList](#taglist)
+  * tags **required**
+    * items [Tag](#tag)
+  * pipelineId **required**
 
 ### AddTagsOutput
 * AddTagsOutput `object`: Contains the output of AddTags.
 
 ### CreatePipelineInput
 * CreatePipelineInput `object`: Contains the parameters for CreatePipeline.
-  * description [string](#string)
-  * name **required** [id](#id)
-  * tags [tagList](#taglist)
-  * uniqueId **required** [id](#id)
+  * tags
+    * items [Tag](#tag)
+  * description
+  * name **required**
+  * uniqueId **required**
 
 ### CreatePipelineOutput
 * CreatePipelineOutput `object`: Contains the output of CreatePipeline.
-  * pipelineId **required** [id](#id)
+  * pipelineId **required**
 
 ### DeactivatePipelineInput
 * DeactivatePipelineInput `object`: Contains the parameters for DeactivatePipeline.
-  * cancelActive [cancelActive](#cancelactive)
-  * pipelineId **required** [id](#id)
+  * cancelActive
+  * pipelineId **required**
 
 ### DeactivatePipelineOutput
 * DeactivatePipelineOutput `object`: Contains the output of DeactivatePipeline.
 
 ### DeletePipelineInput
 * DeletePipelineInput `object`: Contains the parameters for DeletePipeline.
-  * pipelineId **required** [id](#id)
+  * pipelineId **required**
 
 ### DescribeObjectsInput
 * DescribeObjectsInput `object`: Contains the parameters for DescribeObjects.
-  * evaluateExpressions [boolean](#boolean)
-  * marker [string](#string)
-  * objectIds **required** [idList](#idlist)
-  * pipelineId **required** [id](#id)
+  * evaluateExpressions
+  * marker
+  * objectIds **required**
+    * items [id](#id)
+  * pipelineId **required**
 
 ### DescribeObjectsOutput
 * DescribeObjectsOutput `object`: Contains the output of DescribeObjects.
-  * hasMoreResults [boolean](#boolean)
-  * marker [string](#string)
-  * pipelineObjects **required** [PipelineObjectList](#pipelineobjectlist)
+  * hasMoreResults
+  * marker
+  * pipelineObjects **required**
+    * items [PipelineObject](#pipelineobject)
 
 ### DescribePipelinesInput
 * DescribePipelinesInput `object`: Contains the parameters for DescribePipelines.
-  * pipelineIds **required** [idList](#idlist)
+  * pipelineIds **required**
+    * items [id](#id)
 
 ### DescribePipelinesOutput
 * DescribePipelinesOutput `object`: Contains the output of DescribePipelines.
-  * pipelineDescriptionList **required** [PipelineDescriptionList](#pipelinedescriptionlist)
+  * pipelineDescriptionList **required**
+    * items [PipelineDescription](#pipelinedescription)
 
 ### EvaluateExpressionInput
 * EvaluateExpressionInput `object`: Contains the parameters for EvaluateExpression.
-  * expression **required** [longString](#longstring)
-  * objectId **required** [id](#id)
-  * pipelineId **required** [id](#id)
+  * expression **required**
+  * objectId **required**
+  * pipelineId **required**
 
 ### EvaluateExpressionOutput
 * EvaluateExpressionOutput `object`: Contains the output of EvaluateExpression.
-  * evaluatedExpression **required** [longString](#longstring)
+  * evaluatedExpression **required**
 
 ### Field
 * Field `object`: A key-value pair that describes a property of a pipeline object. The value is specified as either a string value (<code>StringValue</code>) or a reference to another object (<code>RefValue</code>) but not as both.
-  * key **required** [fieldNameString](#fieldnamestring)
-  * refValue [fieldNameString](#fieldnamestring)
-  * stringValue [fieldStringValue](#fieldstringvalue)
+  * key **required**
+  * refValue
+  * stringValue
 
 ### GetPipelineDefinitionInput
 * GetPipelineDefinitionInput `object`: Contains the parameters for GetPipelineDefinition.
-  * pipelineId **required** [id](#id)
-  * version [string](#string)
+  * pipelineId **required**
+  * version
 
 ### GetPipelineDefinitionOutput
 * GetPipelineDefinitionOutput `object`: Contains the output of GetPipelineDefinition.
-  * parameterObjects [ParameterObjectList](#parameterobjectlist)
-  * parameterValues [ParameterValueList](#parametervaluelist)
-  * pipelineObjects [PipelineObjectList](#pipelineobjectlist)
+  * parameterObjects
+    * items [ParameterObject](#parameterobject)
+  * parameterValues
+    * items [ParameterValue](#parametervalue)
+  * pipelineObjects
+    * items [PipelineObject](#pipelineobject)
 
 ### InstanceIdentity
 * InstanceIdentity `object`: <p><p>Identity information for the EC2 instance that is hosting the task runner. You can get this value by calling a metadata URI from the EC2 instance. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AESDG-chapter-instancedata.html">Instance Metadata</a> in the <i>Amazon Elastic Compute Cloud User Guide.</i> Passing in this value proves that your task runner is running on an EC2 instance, and ensures the proper AWS Data Pipeline service charges are applied to your pipeline.</p></p>
-  * document [string](#string)
-  * signature [string](#string)
+  * document
+  * signature
 
 ### InternalServiceError
 * InternalServiceError `object`: An internal service error occurred.
-  * message [errorMessage](#errormessage)
+  * message
 
 ### InvalidRequestException
 * InvalidRequestException `object`: The request was not valid. Verify that your request was properly formatted, that the signature was generated with the correct credentials, and that you haven't exceeded any of the service limits for your account.
-  * message [errorMessage](#errormessage)
+  * message
 
 ### ListPipelinesInput
 * ListPipelinesInput `object`: Contains the parameters for ListPipelines.
-  * marker [string](#string)
+  * marker
 
 ### ListPipelinesOutput
 * ListPipelinesOutput `object`: Contains the output of ListPipelines.
-  * hasMoreResults [boolean](#boolean)
-  * marker [string](#string)
-  * pipelineIdList **required** [pipelineList](#pipelinelist)
+  * hasMoreResults
+  * marker
+  * pipelineIdList **required**
+    * items [PipelineIdName](#pipelineidname)
 
 ### Operator
 * Operator `object`: Contains a logical operation for comparing the value of a field with a specified value.
-  * type [OperatorType](#operatortype)
-  * values [stringList](#stringlist)
+  * type
+  * values
+    * items [string](#string)
 
 ### OperatorType
 * OperatorType `string` (values: EQ, REF_EQ, LE, GE, BETWEEN)
 
 ### ParameterAttribute
 * ParameterAttribute `object`: The attributes allowed or specified with a parameter object.
-  * key **required** [attributeNameString](#attributenamestring)
-  * stringValue **required** [attributeValueString](#attributevaluestring)
+  * key **required**
+  * stringValue **required**
 
 ### ParameterAttributeList
 * ParameterAttributeList `array`
@@ -532,8 +560,9 @@ amazonaws_datapipeline.ValidatePipelineDefinition({
 
 ### ParameterObject
 * ParameterObject `object`: Contains information about a parameter object.
-  * attributes **required** [ParameterAttributeList](#parameterattributelist)
-  * id **required** [fieldNameString](#fieldnamestring)
+  * attributes **required**
+    * items [ParameterAttribute](#parameterattribute)
+  * id **required**
 
 ### ParameterObjectList
 * ParameterObjectList `array`
@@ -541,8 +570,8 @@ amazonaws_datapipeline.ValidatePipelineDefinition({
 
 ### ParameterValue
 * ParameterValue `object`: A value or list of parameter values. 
-  * id **required** [fieldNameString](#fieldnamestring)
-  * stringValue **required** [fieldStringValue](#fieldstringvalue)
+  * id **required**
+  * stringValue **required**
 
 ### ParameterValueList
 * ParameterValueList `array`
@@ -550,15 +579,17 @@ amazonaws_datapipeline.ValidatePipelineDefinition({
 
 ### PipelineDeletedException
 * PipelineDeletedException `object`: The specified pipeline has been deleted.
-  * message [errorMessage](#errormessage)
+  * message
 
 ### PipelineDescription
 * PipelineDescription `object`: Contains pipeline metadata.
-  * description [string](#string)
-  * fields **required** [fieldList](#fieldlist)
-  * name **required** [id](#id)
-  * pipelineId **required** [id](#id)
-  * tags [tagList](#taglist)
+  * tags
+    * items [Tag](#tag)
+  * description
+  * fields **required**
+    * items [Field](#field)
+  * name **required**
+  * pipelineId **required**
 
 ### PipelineDescriptionList
 * PipelineDescriptionList `array`
@@ -566,100 +597,115 @@ amazonaws_datapipeline.ValidatePipelineDefinition({
 
 ### PipelineIdName
 * PipelineIdName `object`: Contains the name and identifier of a pipeline.
-  * id [id](#id)
-  * name [id](#id)
+  * id
+  * name
 
 ### PipelineNotFoundException
 * PipelineNotFoundException `object`: The specified pipeline was not found. Verify that you used the correct user and account identifiers.
-  * message [errorMessage](#errormessage)
+  * message
 
 ### PipelineObject
 * PipelineObject `object`: Contains information about a pipeline object. This can be a logical, physical, or physical attempt pipeline object. The complete set of components of a pipeline defines the pipeline.
-  * fields **required** [fieldList](#fieldlist)
-  * id **required** [id](#id)
-  * name **required** [id](#id)
+  * fields **required**
+    * items [Field](#field)
+  * id **required**
+  * name **required**
 
 ### PipelineObjectList
 * PipelineObjectList `array`
   * items [PipelineObject](#pipelineobject)
 
 ### PipelineObjectMap
-* PipelineObjectMap `array`
-  * items `object`
-    * key [id](#id)
-    * value [PipelineObject](#pipelineobject)
+* PipelineObjectMap `object`
 
 ### PollForTaskInput
 * PollForTaskInput `object`: Contains the parameters for PollForTask.
-  * hostname [id](#id)
-  * instanceIdentity [InstanceIdentity](#instanceidentity)
-  * workerGroup **required** [string](#string)
+  * hostname
+  * instanceIdentity
+    * document
+    * signature
+  * workerGroup **required**
 
 ### PollForTaskOutput
 * PollForTaskOutput `object`: Contains the output of PollForTask.
-  * taskObject [TaskObject](#taskobject)
+  * taskObject
+    * attemptId
+    * objects
+    * pipelineId
+    * taskId
 
 ### PutPipelineDefinitionInput
 * PutPipelineDefinitionInput `object`: Contains the parameters for PutPipelineDefinition.
-  * parameterObjects [ParameterObjectList](#parameterobjectlist)
-  * parameterValues [ParameterValueList](#parametervaluelist)
-  * pipelineId **required** [id](#id)
-  * pipelineObjects **required** [PipelineObjectList](#pipelineobjectlist)
+  * parameterObjects
+    * items [ParameterObject](#parameterobject)
+  * parameterValues
+    * items [ParameterValue](#parametervalue)
+  * pipelineId **required**
+  * pipelineObjects **required**
+    * items [PipelineObject](#pipelineobject)
 
 ### PutPipelineDefinitionOutput
 * PutPipelineDefinitionOutput `object`: Contains the output of PutPipelineDefinition.
-  * errored **required** [boolean](#boolean)
-  * validationErrors [ValidationErrors](#validationerrors)
-  * validationWarnings [ValidationWarnings](#validationwarnings)
+  * errored **required**
+  * validationErrors
+    * items [ValidationError](#validationerror)
+  * validationWarnings
+    * items [ValidationWarning](#validationwarning)
 
 ### Query
 * Query `object`: Defines the query to run against an object.
-  * selectors [SelectorList](#selectorlist)
+  * selectors
+    * items [Selector](#selector)
 
 ### QueryObjectsInput
 * QueryObjectsInput `object`: Contains the parameters for QueryObjects.
-  * limit [int](#int)
-  * marker [string](#string)
-  * pipelineId **required** [id](#id)
-  * query [Query](#query)
-  * sphere **required** [string](#string)
+  * limit
+  * marker
+  * pipelineId **required**
+  * query
+    * selectors
+      * items [Selector](#selector)
+  * sphere **required**
 
 ### QueryObjectsOutput
 * QueryObjectsOutput `object`: Contains the output of QueryObjects.
-  * hasMoreResults [boolean](#boolean)
-  * ids [idList](#idlist)
-  * marker [string](#string)
+  * hasMoreResults
+  * ids
+    * items [id](#id)
+  * marker
 
 ### RemoveTagsInput
 * RemoveTagsInput `object`: Contains the parameters for RemoveTags.
-  * pipelineId **required** [id](#id)
-  * tagKeys **required** [stringList](#stringlist)
+  * pipelineId **required**
+  * tagKeys **required**
+    * items [string](#string)
 
 ### RemoveTagsOutput
 * RemoveTagsOutput `object`: Contains the output of RemoveTags.
 
 ### ReportTaskProgressInput
 * ReportTaskProgressInput `object`: Contains the parameters for ReportTaskProgress.
-  * fields [fieldList](#fieldlist)
-  * taskId **required** [taskId](#taskid)
+  * fields
+    * items [Field](#field)
+  * taskId **required**
 
 ### ReportTaskProgressOutput
 * ReportTaskProgressOutput `object`: Contains the output of ReportTaskProgress.
-  * canceled **required** [boolean](#boolean)
+  * canceled **required**
 
 ### ReportTaskRunnerHeartbeatInput
 * ReportTaskRunnerHeartbeatInput `object`: Contains the parameters for ReportTaskRunnerHeartbeat.
-  * hostname [id](#id)
-  * taskrunnerId **required** [id](#id)
-  * workerGroup [string](#string)
+  * hostname
+  * taskrunnerId **required**
+  * workerGroup
 
 ### ReportTaskRunnerHeartbeatOutput
 * ReportTaskRunnerHeartbeatOutput `object`: Contains the output of ReportTaskRunnerHeartbeat.
-  * terminate **required** [boolean](#boolean)
+  * terminate **required**
 
 ### Selector
 * Selector `object`: A comparision that is used to determine whether a query should return this object.
-  * fieldName [string](#string)
+  * fieldName
   * operator [Operator](#operator)
 
 ### SelectorList
@@ -668,57 +714,64 @@ amazonaws_datapipeline.ValidatePipelineDefinition({
 
 ### SetStatusInput
 * SetStatusInput `object`: Contains the parameters for SetStatus.
-  * objectIds **required** [idList](#idlist)
-  * pipelineId **required** [id](#id)
-  * status **required** [string](#string)
+  * objectIds **required**
+    * items [id](#id)
+  * pipelineId **required**
+  * status **required**
 
 ### SetTaskStatusInput
 * SetTaskStatusInput `object`: Contains the parameters for SetTaskStatus.
-  * errorId [string](#string)
-  * errorMessage [errorMessage](#errormessage)
-  * errorStackTrace [string](#string)
-  * taskId **required** [taskId](#taskid)
-  * taskStatus **required** [TaskStatus](#taskstatus)
+  * errorId
+  * errorMessage
+  * errorStackTrace
+  * taskId **required**
+  * taskStatus **required**
 
 ### SetTaskStatusOutput
 * SetTaskStatusOutput `object`: Contains the output of SetTaskStatus.
 
 ### Tag
 * Tag `object`: Tags are key/value pairs defined by a user and associated with a pipeline to control access. AWS Data Pipeline allows you to associate ten tags per pipeline. For more information, see <a href="http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html">Controlling User Access to Pipelines</a> in the <i>AWS Data Pipeline Developer Guide</i>.
-  * key **required** [tagKey](#tagkey)
-  * value **required** [tagValue](#tagvalue)
+  * key **required**
+  * value **required**
 
 ### TaskNotFoundException
 * TaskNotFoundException `object`: The specified task was not found. 
-  * message [errorMessage](#errormessage)
+  * message
 
 ### TaskObject
 * TaskObject `object`: Contains information about a pipeline task that is assigned to a task runner.
-  * attemptId [id](#id)
-  * objects [PipelineObjectMap](#pipelineobjectmap)
-  * pipelineId [id](#id)
-  * taskId [taskId](#taskid)
+  * attemptId
+  * objects
+  * pipelineId
+  * taskId
 
 ### TaskStatus
 * TaskStatus `string` (values: FINISHED, FAILED, FALSE)
 
 ### ValidatePipelineDefinitionInput
 * ValidatePipelineDefinitionInput `object`: Contains the parameters for ValidatePipelineDefinition.
-  * parameterObjects [ParameterObjectList](#parameterobjectlist)
-  * parameterValues [ParameterValueList](#parametervaluelist)
-  * pipelineId **required** [id](#id)
-  * pipelineObjects **required** [PipelineObjectList](#pipelineobjectlist)
+  * parameterObjects
+    * items [ParameterObject](#parameterobject)
+  * parameterValues
+    * items [ParameterValue](#parametervalue)
+  * pipelineId **required**
+  * pipelineObjects **required**
+    * items [PipelineObject](#pipelineobject)
 
 ### ValidatePipelineDefinitionOutput
 * ValidatePipelineDefinitionOutput `object`: Contains the output of ValidatePipelineDefinition.
-  * errored **required** [boolean](#boolean)
-  * validationErrors [ValidationErrors](#validationerrors)
-  * validationWarnings [ValidationWarnings](#validationwarnings)
+  * errored **required**
+  * validationErrors
+    * items [ValidationError](#validationerror)
+  * validationWarnings
+    * items [ValidationWarning](#validationwarning)
 
 ### ValidationError
 * ValidationError `object`: Defines a validation error. Validation errors prevent pipeline activation. The set of validation errors that can be returned are defined by AWS Data Pipeline.
-  * errors [validationMessages](#validationmessages)
-  * id [id](#id)
+  * errors
+    * items [validationMessage](#validationmessage)
+  * id
 
 ### ValidationErrors
 * ValidationErrors `array`
@@ -726,8 +779,9 @@ amazonaws_datapipeline.ValidatePipelineDefinition({
 
 ### ValidationWarning
 * ValidationWarning `object`: Defines a validation warning. Validation warnings do not prevent pipeline activation. The set of validation warnings that can be returned are defined by AWS Data Pipeline.
-  * id [id](#id)
-  * warnings [validationMessages](#validationmessages)
+  * id
+  * warnings
+    * items [validationMessage](#validationmessage)
 
 ### ValidationWarnings
 * ValidationWarnings `array`

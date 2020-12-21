@@ -15,12 +15,7 @@ let azure_apimanagement_apimusers = require('@datafire/azure_apimanagement_apimu
   redirect_uri: ""
 });
 
-azure_apimanagement_apimusers.User_ListByService({
-  "resourceGroupName": "",
-  "serviceName": "",
-  "api-version": "",
-  "subscriptionId": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -48,14 +43,32 @@ azure_apimanagement_apimusers.User_ListByService({
 * input `object`
   * resourceGroupName **required** `string`: The name of the resource group.
   * serviceName **required** `string`: The name of the API Management service.
-  * $filter `string`: | Field            | Supported operators    | Supported functions               |
+  * $filter `string`: |   Field     |     Usage     |     Supported operators     |     Supported functions     |</br>|-------------|-------------|-------------|-------------|</br>| name | filter | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith | </br>| firstName | filter | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith | </br>| lastName | filter | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith | </br>| email | filter | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith | </br>| state | filter | eq |     | </br>| registrationDate | filter | ge, le, eq, ne, gt, lt |     | </br>| note | filter | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith | </br>| groups | expand |     |     | </br>
   * $top `integer`: Number of records to return.
   * $skip `integer`: Number of records to skip.
+  * expandGroups `boolean`: Detailed Group in response.
   * api-version **required** `string`: Version of the API to be used with the client request.
   * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
 #### Output
-* output [UserCollection](#usercollection)
+* output `object`: Paged Users list representation.
+  * nextLink `string`: Next page link if any.
+  * value `array`: Page values.
+    * items `object`: User details.
+      * properties `object`: User profile.
+        * email `string`: Email address.
+        * firstName `string`: First name.
+        * groups `array`: Collection of groups user is part of.
+          * items `object`: Group contract Properties.
+        * lastName `string`: Last name.
+        * registrationDate `string`: Date of user registration. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+        * identities `array`: Collection of user identities.
+          * items `object`: User identity details.
+        * note `string`: Optional note about a user set by the administrator.
+        * state `string` (values: active, blocked, pending, deleted): Account state. Specifies whether the user is active or not. Blocked users are unable to sign into the developer portal or call any APIs of subscribed products. Default state is Active.
+      * id `string`: Resource ID.
+      * name `string`: Resource name.
+      * type `string`: Resource type for API Management resource.
 
 ### User_Delete
 Deletes specific user.
@@ -65,7 +78,7 @@ Deletes specific user.
 azure_apimanagement_apimusers.User_Delete({
   "resourceGroupName": "",
   "serviceName": "",
-  "uid": "",
+  "userId": "",
   "If-Match": "",
   "api-version": "",
   "subscriptionId": ""
@@ -76,7 +89,7 @@ azure_apimanagement_apimusers.User_Delete({
 * input `object`
   * resourceGroupName **required** `string`: The name of the resource group.
   * serviceName **required** `string`: The name of the API Management service.
-  * uid **required** `string`: User identifier. Must be unique in the current API Management service instance.
+  * userId **required** `string`: User identifier. Must be unique in the current API Management service instance.
   * deleteSubscriptions `boolean`: Whether to delete user's subscription or not.
   * notify `boolean`: Send an Account Closed Email notification to the User.
   * If-Match **required** `string`: ETag of the Entity. ETag should match the current entity state from the header response of the GET request or it should be * for unconditional update.
@@ -94,7 +107,7 @@ Gets the details of the user specified by its identifier.
 azure_apimanagement_apimusers.User_Get({
   "resourceGroupName": "",
   "serviceName": "",
-  "uid": "",
+  "userId": "",
   "api-version": "",
   "subscriptionId": ""
 }, context)
@@ -104,12 +117,33 @@ azure_apimanagement_apimusers.User_Get({
 * input `object`
   * resourceGroupName **required** `string`: The name of the resource group.
   * serviceName **required** `string`: The name of the API Management service.
-  * uid **required** `string`: User identifier. Must be unique in the current API Management service instance.
+  * userId **required** `string`: User identifier. Must be unique in the current API Management service instance.
   * api-version **required** `string`: Version of the API to be used with the client request.
   * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
 #### Output
-* output [UserContract](#usercontract)
+* output `object`: User details.
+  * properties `object`: User profile.
+    * email `string`: Email address.
+    * firstName `string`: First name.
+    * groups `array`: Collection of groups user is part of.
+      * items `object`: Group contract Properties.
+        * builtIn `boolean`: true if the group is one of the three system groups (Administrators, Developers, or Guests); otherwise false.
+        * description `string`: Group description. Can contain HTML formatting tags.
+        * displayName **required** `string`: Group name.
+        * externalId `string`: For external groups, this property contains the id of the group from the external identity provider, e.g. for Azure Active Directory `aad://<tenant>.onmicrosoft.com/groups/<group object id>`; otherwise the value is null.
+        * type `string` (values: custom, system, external): Group type.
+    * lastName `string`: Last name.
+    * registrationDate `string`: Date of user registration. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+    * identities `array`: Collection of user identities.
+      * items `object`: User identity details.
+        * id `string`: Identifier value within provider.
+        * provider `string`: Identity provider name.
+    * note `string`: Optional note about a user set by the administrator.
+    * state `string` (values: active, blocked, pending, deleted): Account state. Specifies whether the user is active or not. Blocked users are unable to sign into the developer portal or call any APIs of subscribed products. Default state is Active.
+  * id `string`: Resource ID.
+  * name `string`: Resource name.
+  * type `string`: Resource type for API Management resource.
 
 ### User_GetEntityTag
 Gets the entity state (Etag) version of the user specified by its identifier.
@@ -119,7 +153,7 @@ Gets the entity state (Etag) version of the user specified by its identifier.
 azure_apimanagement_apimusers.User_GetEntityTag({
   "resourceGroupName": "",
   "serviceName": "",
-  "uid": "",
+  "userId": "",
   "api-version": "",
   "subscriptionId": ""
 }, context)
@@ -129,7 +163,7 @@ azure_apimanagement_apimusers.User_GetEntityTag({
 * input `object`
   * resourceGroupName **required** `string`: The name of the resource group.
   * serviceName **required** `string`: The name of the API Management service.
-  * uid **required** `string`: User identifier. Must be unique in the current API Management service instance.
+  * userId **required** `string`: User identifier. Must be unique in the current API Management service instance.
   * api-version **required** `string`: Version of the API to be used with the client request.
   * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
@@ -144,7 +178,7 @@ Updates the details of the user specified by its identifier.
 azure_apimanagement_apimusers.User_Update({
   "resourceGroupName": "",
   "serviceName": "",
-  "uid": "",
+  "userId": "",
   "parameters": null,
   "If-Match": "",
   "api-version": "",
@@ -156,8 +190,19 @@ azure_apimanagement_apimusers.User_Update({
 * input `object`
   * resourceGroupName **required** `string`: The name of the resource group.
   * serviceName **required** `string`: The name of the API Management service.
-  * uid **required** `string`: User identifier. Must be unique in the current API Management service instance.
-  * parameters **required** [UserUpdateParameters](#userupdateparameters)
+  * userId **required** `string`: User identifier. Must be unique in the current API Management service instance.
+  * parameters **required** `object`: User update parameters.
+    * properties `object`: Parameters supplied to the Update User operation.
+      * email `string`: Email address. Must not be empty and must be unique within the service instance.
+      * firstName `string`: First name.
+      * lastName `string`: Last name.
+      * password `string`: User Password.
+      * identities `array`: Collection of user identities.
+        * items `object`: User identity details.
+          * id `string`: Identifier value within provider.
+          * provider `string`: Identity provider name.
+      * note `string`: Optional note about a user set by the administrator.
+      * state `string` (values: active, blocked, pending, deleted): Account state. Specifies whether the user is active or not. Blocked users are unable to sign into the developer portal or call any APIs of subscribed products. Default state is Active.
   * If-Match **required** `string`: ETag of the Entity. ETag should match the current entity state from the header response of the GET request or it should be * for unconditional update.
   * api-version **required** `string`: Version of the API to be used with the client request.
   * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
@@ -173,7 +218,7 @@ Creates or Updates a user.
 azure_apimanagement_apimusers.User_CreateOrUpdate({
   "resourceGroupName": "",
   "serviceName": "",
-  "uid": "",
+  "userId": "",
   "parameters": null,
   "api-version": "",
   "subscriptionId": ""
@@ -184,14 +229,73 @@ azure_apimanagement_apimusers.User_CreateOrUpdate({
 * input `object`
   * resourceGroupName **required** `string`: The name of the resource group.
   * serviceName **required** `string`: The name of the API Management service.
-  * uid **required** `string`: User identifier. Must be unique in the current API Management service instance.
-  * parameters **required** [UserCreateParameters](#usercreateparameters)
+  * userId **required** `string`: User identifier. Must be unique in the current API Management service instance.
+  * parameters **required** `object`: User create details.
+    * properties `object`: Parameters supplied to the Create User operation.
+      * appType `string` (values: developerPortal): Determines the type of application which send the create user request. Default is old publisher portal.
+      * confirmation `string` (values: signup, invite): Determines the type of confirmation e-mail that will be sent to the newly created user.
+      * email **required** `string`: Email address. Must not be empty and must be unique within the service instance.
+      * firstName **required** `string`: First name.
+      * lastName **required** `string`: Last name.
+      * password `string`: User Password. If no value is provided, a default password is generated.
+      * identities `array`: Collection of user identities.
+        * items `object`: User identity details.
+          * id `string`: Identifier value within provider.
+          * provider `string`: Identity provider name.
+      * note `string`: Optional note about a user set by the administrator.
+      * state `string` (values: active, blocked, pending, deleted): Account state. Specifies whether the user is active or not. Blocked users are unable to sign into the developer portal or call any APIs of subscribed products. Default state is Active.
   * If-Match `string`: ETag of the Entity. Not required when creating an entity, but required when updating an entity.
   * api-version **required** `string`: Version of the API to be used with the client request.
   * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
 #### Output
-* output [UserContract](#usercontract)
+* output `object`: User details.
+  * properties `object`: User profile.
+    * email `string`: Email address.
+    * firstName `string`: First name.
+    * groups `array`: Collection of groups user is part of.
+      * items `object`: Group contract Properties.
+        * builtIn `boolean`: true if the group is one of the three system groups (Administrators, Developers, or Guests); otherwise false.
+        * description `string`: Group description. Can contain HTML formatting tags.
+        * displayName **required** `string`: Group name.
+        * externalId `string`: For external groups, this property contains the id of the group from the external identity provider, e.g. for Azure Active Directory `aad://<tenant>.onmicrosoft.com/groups/<group object id>`; otherwise the value is null.
+        * type `string` (values: custom, system, external): Group type.
+    * lastName `string`: Last name.
+    * registrationDate `string`: Date of user registration. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+    * identities `array`: Collection of user identities.
+      * items `object`: User identity details.
+        * id `string`: Identifier value within provider.
+        * provider `string`: Identity provider name.
+    * note `string`: Optional note about a user set by the administrator.
+    * state `string` (values: active, blocked, pending, deleted): Account state. Specifies whether the user is active or not. Blocked users are unable to sign into the developer portal or call any APIs of subscribed products. Default state is Active.
+  * id `string`: Resource ID.
+  * name `string`: Resource name.
+  * type `string`: Resource type for API Management resource.
+
+### UserConfirmationPassword_Send
+Sends confirmation
+
+
+```js
+azure_apimanagement_apimusers.UserConfirmationPassword_Send({
+  "resourceGroupName": "",
+  "serviceName": "",
+  "userId": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * resourceGroupName **required** `string`: The name of the resource group.
+  * serviceName **required** `string`: The name of the API Management service.
+  * userId **required** `string`: User identifier. Must be unique in the current API Management service instance.
+  * api-version **required** `string`: Version of the API to be used with the client request.
+  * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+#### Output
+*Output schema unknown*
 
 ### User_GenerateSsoUrl
 Retrieves a redirection URL containing an authentication token for signing a given user into the developer portal.
@@ -201,7 +305,7 @@ Retrieves a redirection URL containing an authentication token for signing a giv
 azure_apimanagement_apimusers.User_GenerateSsoUrl({
   "resourceGroupName": "",
   "serviceName": "",
-  "uid": "",
+  "userId": "",
   "api-version": "",
   "subscriptionId": ""
 }, context)
@@ -211,12 +315,13 @@ azure_apimanagement_apimusers.User_GenerateSsoUrl({
 * input `object`
   * resourceGroupName **required** `string`: The name of the resource group.
   * serviceName **required** `string`: The name of the API Management service.
-  * uid **required** `string`: User identifier. Must be unique in the current API Management service instance.
+  * userId **required** `string`: User identifier. Must be unique in the current API Management service instance.
   * api-version **required** `string`: Version of the API to be used with the client request.
   * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
 #### Output
-* output [GenerateSsoUrlResult](#generatessourlresult)
+* output `object`: Generate SSO Url operations response details.
+  * value `string`: Redirect Url containing the SSO URL value.
 
 ### UserGroup_List
 Lists all user groups.
@@ -226,7 +331,7 @@ Lists all user groups.
 azure_apimanagement_apimusers.UserGroup_List({
   "resourceGroupName": "",
   "serviceName": "",
-  "uid": "",
+  "userId": "",
   "api-version": "",
   "subscriptionId": ""
 }, context)
@@ -236,8 +341,8 @@ azure_apimanagement_apimusers.UserGroup_List({
 * input `object`
   * resourceGroupName **required** `string`: The name of the resource group.
   * serviceName **required** `string`: The name of the API Management service.
-  * uid **required** `string`: User identifier. Must be unique in the current API Management service instance.
-  * $filter `string`: | Field       | Supported operators    | Supported functions                         |
+  * userId **required** `string`: User identifier. Must be unique in the current API Management service instance.
+  * $filter `string`: |   Field     |     Usage     |     Supported operators     |     Supported functions     |</br>|-------------|-------------|-------------|-------------|</br>| name | filter | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith | </br>| displayName | filter | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith | </br>| description | filter | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith | </br>
   * $top `integer`: Number of records to return.
   * $skip `integer`: Number of records to skip.
   * api-version **required** `string`: Version of the API to be used with the client request.
@@ -252,21 +357,21 @@ azure_apimanagement_apimusers.UserGroup_List({
         * builtIn `boolean`: true if the group is one of the three system groups (Administrators, Developers, or Guests); otherwise false.
         * description `string`: Group description. Can contain HTML formatting tags.
         * displayName **required** `string`: Group name.
-        * externalId `string`: For external groups, this property contains the id of the group from the external identity provider, e.g. for Azure Active Directory aad://<tenant>.onmicrosoft.com/groups/<group object id>; otherwise the value is null.
+        * externalId `string`: For external groups, this property contains the id of the group from the external identity provider, e.g. for Azure Active Directory `aad://<tenant>.onmicrosoft.com/groups/<group object id>`; otherwise the value is null.
         * type `string` (values: custom, system, external): Group type.
       * id `string`: Resource ID.
       * name `string`: Resource name.
       * type `string`: Resource type for API Management resource.
 
 ### UserIdentities_List
-Lists all user identities.
+List of all user identities.
 
 
 ```js
 azure_apimanagement_apimusers.UserIdentities_List({
   "resourceGroupName": "",
   "serviceName": "",
-  "uid": "",
+  "userId": "",
   "api-version": "",
   "subscriptionId": ""
 }, context)
@@ -276,12 +381,18 @@ azure_apimanagement_apimusers.UserIdentities_List({
 * input `object`
   * resourceGroupName **required** `string`: The name of the resource group.
   * serviceName **required** `string`: The name of the API Management service.
-  * uid **required** `string`: User identifier. Must be unique in the current API Management service instance.
+  * userId **required** `string`: User identifier. Must be unique in the current API Management service instance.
   * api-version **required** `string`: Version of the API to be used with the client request.
   * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
 #### Output
-* output [UserIdentityCollection](#useridentitycollection)
+* output `object`: List of Users Identity list representation.
+  * count `integer`: Total record count number across all pages.
+  * nextLink `string`: Next page link if any.
+  * value `array`: User Identity values.
+    * items `object`: User identity details.
+      * id `string`: Identifier value within provider.
+      * provider `string`: Identity provider name.
 
 ### UserSubscription_List
 Lists the collection of subscriptions of the specified user.
@@ -291,7 +402,7 @@ Lists the collection of subscriptions of the specified user.
 azure_apimanagement_apimusers.UserSubscription_List({
   "resourceGroupName": "",
   "serviceName": "",
-  "uid": "",
+  "userId": "",
   "api-version": "",
   "subscriptionId": ""
 }, context)
@@ -301,8 +412,8 @@ azure_apimanagement_apimusers.UserSubscription_List({
 * input `object`
   * resourceGroupName **required** `string`: The name of the resource group.
   * serviceName **required** `string`: The name of the API Management service.
-  * uid **required** `string`: User identifier. Must be unique in the current API Management service instance.
-  * $filter `string`: | Field        | Supported operators    | Supported functions                         |
+  * userId **required** `string`: User identifier. Must be unique in the current API Management service instance.
+  * $filter `string`: |   Field     |     Usage     |     Supported operators     |     Supported functions     |</br>|-------------|-------------|-------------|-------------|</br>| name | filter | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith | </br>| displayName | filter | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith | </br>| stateComment | filter | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith | </br>| ownerId | filter | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith | </br>| scope | filter | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith | </br>| userId | filter | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith | </br>| productId | filter | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith | </br>
   * $top `integer`: Number of records to return.
   * $skip `integer`: Number of records to skip.
   * api-version **required** `string`: Version of the API to be used with the client request.
@@ -314,18 +425,19 @@ azure_apimanagement_apimusers.UserSubscription_List({
   * value `array`: Page values.
     * items `object`: Subscription details.
       * properties `object`: Subscription details.
+        * allowTracing `boolean`: Determines whether tracing is enabled
         * createdDate `string`: Subscription creation date. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
         * displayName `string`: The name of the subscription, or null if the subscription has no name.
         * endDate `string`: Date when subscription was cancelled or expired. The setting is for audit purposes only and the subscription is not automatically cancelled. The subscription lifecycle can be managed by using the `state` property. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
         * expirationDate `string`: Subscription expiration date. The setting is for audit purposes only and the subscription is not automatically expired. The subscription lifecycle can be managed by using the `state` property. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
         * notificationDate `string`: Upcoming subscription expiration notification date. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
-        * primaryKey **required** `string`: Subscription primary key.
-        * productId **required** `string`: The product resource identifier of the subscribed product. The value is a valid relative URL in the format of /products/{productId} where {productId} is a product identifier.
-        * secondaryKey **required** `string`: Subscription secondary key.
+        * ownerId `string`: The user resource identifier of the subscription owner. The value is a valid relative URL in the format of /users/{userId} where {userId} is a user identifier.
+        * primaryKey `string`: Subscription primary key. This property will not be filled on 'GET' operations! Use '/listSecrets' POST request to get the value.
+        * scope **required** `string`: Scope like /products/{productId} or /apis or /apis/{apiId}.
+        * secondaryKey `string`: Subscription secondary key. This property will not be filled on 'GET' operations! Use '/listSecrets' POST request to get the value.
         * startDate `string`: Subscription activation date. The setting is for audit purposes only and the subscription is not automatically activated. The subscription lifecycle can be managed by using the `state` property. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
         * state **required** `string` (values: suspended, active, expired, submitted, rejected, cancelled): Subscription state. Possible states are * active – the subscription is active, * suspended – the subscription is blocked, and the subscriber cannot call any APIs of the product, * submitted – the subscription request has been made by the developer, but has not yet been approved or rejected, * rejected – the subscription request has been denied by an administrator, * cancelled – the subscription has been cancelled by the developer or administrator, * expired – the subscription reached its expiration date and was deactivated.
         * stateComment `string`: Optional subscription comment added by an administrator.
-        * userId **required** `string`: The user resource identifier of the subscription owner. The value is a valid relative URL in the format of /users/{uid} where {uid} is a user identifier.
       * id `string`: Resource ID.
       * name `string`: Resource name.
       * type `string`: Resource type for API Management resource.
@@ -338,7 +450,7 @@ Gets the Shared Access Authorization Token for the User.
 azure_apimanagement_apimusers.User_GetSharedAccessToken({
   "resourceGroupName": "",
   "serviceName": "",
-  "uid": "",
+  "userId": "",
   "parameters": null,
   "api-version": "",
   "subscriptionId": ""
@@ -349,110 +461,20 @@ azure_apimanagement_apimusers.User_GetSharedAccessToken({
 * input `object`
   * resourceGroupName **required** `string`: The name of the resource group.
   * serviceName **required** `string`: The name of the API Management service.
-  * uid **required** `string`: User identifier. Must be unique in the current API Management service instance.
-  * parameters **required** [UserTokenParameters](#usertokenparameters)
+  * userId **required** `string`: User identifier. Must be unique in the current API Management service instance.
+  * parameters **required** `object`: Get User Token parameters.
+    * properties `object`: Parameters supplied to the Get User Token operation.
+      * expiry **required** `string`: The Expiry time of the Token. Maximum token expiry time is set to 30 days. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+      * keyType **required** `string` (values: primary, secondary): The Key to be used to generate token for user.
   * api-version **required** `string`: Version of the API to be used with the client request.
   * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
 #### Output
-* output [UserTokenResult](#usertokenresult)
+* output `object`: Get User Token response details.
+  * value `string`: Shared Access Authorization token for the User.
 
 
 
 ## Definitions
 
-### GenerateSsoUrlResult
-* GenerateSsoUrlResult `object`: Generate SSO Url operations response details.
-  * value `string`: Redirect Url containing the SSO URL value.
-
-### UserCollection
-* UserCollection `object`: Paged Users list representation.
-  * nextLink `string`: Next page link if any.
-  * value `array`: Page values.
-    * items [UserContract](#usercontract)
-
-### UserContract
-* UserContract `object`: User details.
-  * properties [UserContractProperties](#usercontractproperties)
-  * id `string`: Resource ID.
-  * name `string`: Resource name.
-  * type `string`: Resource type for API Management resource.
-
-### UserContractProperties
-* UserContractProperties `object`: User profile.
-  * email `string`: Email address.
-  * firstName `string`: First name.
-  * groups `array`: Collection of groups user is part of.
-    * items `object`: Group contract Properties.
-      * builtIn `boolean`: true if the group is one of the three system groups (Administrators, Developers, or Guests); otherwise false.
-      * description `string`: Group description. Can contain HTML formatting tags.
-      * displayName **required** `string`: Group name.
-      * externalId `string`: For external groups, this property contains the id of the group from the external identity provider, e.g. for Azure Active Directory aad://<tenant>.onmicrosoft.com/groups/<group object id>; otherwise the value is null.
-      * type `string` (values: custom, system, external): Group type.
-  * lastName `string`: Last name.
-  * registrationDate `string`: Date of user registration. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
-  * identities `array`: Collection of user identities.
-    * items [UserIdentityContract](#useridentitycontract)
-  * note `string`: Optional note about a user set by the administrator.
-  * state `string` (values: active, blocked, pending, deleted): Account state. Specifies whether the user is active or not. Blocked users are unable to sign into the developer portal or call any APIs of subscribed products. Default state is Active.
-
-### UserCreateParameterProperties
-* UserCreateParameterProperties `object`: Parameters supplied to the Create User operation.
-  * confirmation `string` (values: signup, invite): Determines the type of confirmation e-mail that will be sent to the newly created user.
-  * email **required** `string`: Email address. Must not be empty and must be unique within the service instance.
-  * firstName **required** `string`: First name.
-  * lastName **required** `string`: Last name.
-  * password `string`: User Password. If no value is provided, a default password is generated.
-  * identities `array`: Collection of user identities.
-    * items [UserIdentityContract](#useridentitycontract)
-  * note `string`: Optional note about a user set by the administrator.
-  * state `string` (values: active, blocked, pending, deleted): Account state. Specifies whether the user is active or not. Blocked users are unable to sign into the developer portal or call any APIs of subscribed products. Default state is Active.
-
-### UserCreateParameters
-* UserCreateParameters `object`: User create details.
-  * properties [UserCreateParameterProperties](#usercreateparameterproperties)
-
-### UserEntityBaseParameters
-* UserEntityBaseParameters `object`: User Entity Base Parameters set.
-  * identities `array`: Collection of user identities.
-    * items [UserIdentityContract](#useridentitycontract)
-  * note `string`: Optional note about a user set by the administrator.
-  * state `string` (values: active, blocked, pending, deleted): Account state. Specifies whether the user is active or not. Blocked users are unable to sign into the developer portal or call any APIs of subscribed products. Default state is Active.
-
-### UserIdentityCollection
-* UserIdentityCollection `object`: List of Users Identity list representation.
-  * count `integer`: Total record count number across all pages.
-  * nextLink `string`: Next page link if any.
-  * value `array`: User Identity values.
-    * items [UserIdentityContract](#useridentitycontract)
-
-### UserIdentityContract
-* UserIdentityContract `object`: User identity details.
-  * id `string`: Identifier value within provider.
-  * provider `string`: Identity provider name.
-
-### UserTokenParameters
-* UserTokenParameters `object`: Parameters supplied to the Get User Token operation.
-  * expiry **required** `string`: The Expiry time of the Token. Maximum token expiry time is set to 30 days. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
-  * keyType **required** `string` (values: primary, secondary): The Key to be used to generate token for user.
-
-### UserTokenResult
-* UserTokenResult `object`: Get User Token response details.
-  * value `string`: Shared Access Authorization token for the User.
-
-### UserUpdateParameters
-* UserUpdateParameters `object`: User update parameters.
-  * properties [UserUpdateParametersProperties](#userupdateparametersproperties)
-
-### UserUpdateParametersProperties
-* UserUpdateParametersProperties `object`: Parameters supplied to the Update User operation.
-  * email `string`: Email address. Must not be empty and must be unique within the service instance.
-  * firstName `string`: First name.
-  * lastName `string`: Last name.
-  * password `string`: User Password.
-  * identities `array`: Collection of user identities.
-    * items [UserIdentityContract](#useridentitycontract)
-  * note `string`: Optional note about a user set by the administrator.
-  * state `string` (values: active, blocked, pending, deleted): Account state. Specifies whether the user is active or not. Blocked users are unable to sign into the developer portal or call any APIs of subscribed products. Default state is Active.
-
-
+*This integration has no definitions*

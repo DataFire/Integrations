@@ -11,7 +11,7 @@ let inboxroute = require('@datafire/inboxroute').create({
   mqApiKey: ""
 });
 
-inboxroute.contacts.lists.post({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

@@ -1,21 +1,26 @@
 {
   "swagger": "2.0",
-  "schemes": [
-    "https"
-  ],
-  "host": "androidmanagement.googleapis.com",
-  "basePath": "/",
   "info": {
     "contact": {
       "name": "Google",
-      "url": "https://google.com"
+      "url": "https://google.com",
+      "x-twitter": "youtube"
     },
     "description": "The Android Management API provides remote enterprise management of Android devices and apps.",
-    "title": "Android Management",
+    "license": {
+      "name": "Creative Commons Attribution 3.0",
+      "url": "http://creativecommons.org/licenses/by/3.0/"
+    },
+    "termsOfService": "https://developers.google.com/terms/",
+    "title": "Android Management API",
     "version": "v1",
     "x-apiClientRegistration": {
       "url": "https://console.developers.google.com"
     },
+    "x-apisguru-categories": [
+      "analytics",
+      "media"
+    ],
     "x-logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
     },
@@ -23,7 +28,7 @@
       {
         "converter": {
           "url": "https://github.com/lucybot/api-spec-converter",
-          "version": "2.6.2"
+          "version": "2.7.31"
         },
         "format": "google",
         "url": "https://androidmanagement.googleapis.com/$discovery/rest?version=v1",
@@ -38,184 +43,98 @@
       "type": "openapi"
     }
   },
-  "externalDocs": {
-    "url": "https://developers.google.com/android/management"
-  },
-  "securityDefinitions": {
-    "Oauth2": {
-      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 authentication",
-      "flow": "implicit",
-      "scopes": {
-        "https://www.googleapis.com/auth/androidmanagement": "Manage Android devices and apps for your customers"
-      },
-      "type": "oauth2"
-    },
-    "offline": {
-      "type": "oauth2",
-      "flow": "accessCode",
-      "scopes": {
-        "https://www.googleapis.com/auth/androidmanagement": "Manage Android devices and apps for your customers"
-      },
-      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "tokenUrl": "https://www.googleapis.com/oauth2/v4/token",
-      "description": "Allows offline access using a refresh_token"
-    }
-  },
-  "parameters": {
-    "$.xgafv": {
-      "description": "V1 error format.",
-      "enum": [
-        "1",
-        "2"
-      ],
-      "in": "query",
-      "name": "$.xgafv",
-      "type": "string"
-    },
-    "access_token": {
-      "description": "OAuth access token.",
-      "in": "query",
-      "name": "access_token",
-      "type": "string"
-    },
-    "alt": {
-      "default": "json",
-      "description": "Data format for response.",
-      "enum": [
-        "json",
-        "media",
-        "proto"
-      ],
-      "in": "query",
-      "name": "alt",
-      "type": "string"
-    },
-    "bearer_token": {
-      "description": "OAuth bearer token.",
-      "in": "query",
-      "name": "bearer_token",
-      "type": "string"
-    },
-    "callback": {
-      "description": "JSONP",
-      "in": "query",
-      "name": "callback",
-      "type": "string"
-    },
-    "fields": {
-      "description": "Selector specifying which fields to include in a partial response.",
-      "in": "query",
-      "name": "fields",
-      "type": "string"
-    },
-    "key": {
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
-      "in": "query",
-      "name": "key",
-      "type": "string"
-    },
-    "oauth_token": {
-      "description": "OAuth 2.0 token for the current user.",
-      "in": "query",
-      "name": "oauth_token",
-      "type": "string"
-    },
-    "pp": {
-      "default": true,
-      "description": "Pretty-print response.",
-      "in": "query",
-      "name": "pp",
-      "type": "boolean"
-    },
-    "prettyPrint": {
-      "default": true,
-      "description": "Returns response with indentations and line breaks.",
-      "in": "query",
-      "name": "prettyPrint",
-      "type": "boolean"
-    },
-    "quotaUser": {
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
-      "in": "query",
-      "name": "quotaUser",
-      "type": "string"
-    },
-    "uploadType": {
-      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
-      "in": "query",
-      "name": "uploadType",
-      "type": "string"
-    },
-    "upload_protocol": {
-      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
-      "in": "query",
-      "name": "upload_protocol",
-      "type": "string"
-    }
-  },
-  "tags": [
-    {
-      "name": "enterprises"
-    },
-    {
-      "name": "signupUrls"
-    }
+  "host": "androidmanagement.googleapis.com",
+  "basePath": "/",
+  "schemes": [
+    "https"
   ],
   "paths": {
     "/v1/enterprises": {
       "parameters": [
         {
-          "$ref": "#/parameters/$.xgafv"
+          "description": "V1 error format.",
+          "enum": [
+            "1",
+            "2"
+          ],
+          "in": "query",
+          "name": "$.xgafv",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/access_token"
+          "description": "OAuth access token.",
+          "in": "query",
+          "name": "access_token",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/alt"
+          "description": "Data format for response.",
+          "enum": [
+            "json",
+            "media",
+            "proto"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/bearer_token"
+          "description": "JSONP",
+          "in": "query",
+          "name": "callback",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/callback"
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/fields"
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/key"
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/oauth_token"
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
         },
         {
-          "$ref": "#/parameters/pp"
+          "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/prettyPrint"
+          "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+          "in": "query",
+          "name": "upload_protocol",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
-          "$ref": "#/parameters/upload_protocol"
+          "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+          "in": "query",
+          "name": "uploadType",
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Creates an enterprise. This is the last step in the enterprise signup flow.",
-        "operationId": "enterprises.create",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Enterprise"
-            }
-          },
           {
             "description": "The enterprise token appended to the callback URL.",
             "in": "query",
@@ -233,6 +152,13 @@
             "in": "query",
             "name": "signupUrlName",
             "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Enterprise"
+            }
           }
         ],
         "responses": {
@@ -247,59 +173,101 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidmanagement"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/androidmanagement"
             ]
           }
         ],
         "tags": [
           "enterprises"
-        ]
+        ],
+        "description": "Creates an enterprise. This is the last step in the enterprise signup flow.",
+        "operationId": "androidmanagement.enterprises.create"
       }
     },
     "/v1/signupUrls": {
       "parameters": [
         {
-          "$ref": "#/parameters/$.xgafv"
+          "description": "V1 error format.",
+          "enum": [
+            "1",
+            "2"
+          ],
+          "in": "query",
+          "name": "$.xgafv",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/access_token"
+          "description": "OAuth access token.",
+          "in": "query",
+          "name": "access_token",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/alt"
+          "description": "Data format for response.",
+          "enum": [
+            "json",
+            "media",
+            "proto"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/bearer_token"
+          "description": "JSONP",
+          "in": "query",
+          "name": "callback",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/callback"
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/fields"
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/key"
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/oauth_token"
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
         },
         {
-          "$ref": "#/parameters/pp"
+          "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/prettyPrint"
+          "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+          "in": "query",
+          "name": "upload_protocol",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
-          "$ref": "#/parameters/upload_protocol"
+          "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+          "in": "query",
+          "name": "uploadType",
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Creates an enterprise signup URL.",
-        "operationId": "signupUrls.create",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "The callback URL that the admin will be redirected to after successfully creating an enterprise. Before redirecting there the system will add a query parameter to this URL named enterpriseToken which will contain an opaque token to be used for the create enterprise request. The URL will be parsed then reformatted in order to add the enterpriseToken parameter, so there may be some minor formatting changes.",
@@ -326,26 +294,129 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidmanagement"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/androidmanagement"
             ]
           }
         ],
         "tags": [
           "signupUrls"
-        ]
+        ],
+        "description": "Creates an enterprise signup URL.",
+        "operationId": "androidmanagement.signupUrls.create"
       }
     },
     "/v1/{name}": {
+      "parameters": [
+        {
+          "description": "V1 error format.",
+          "enum": [
+            "1",
+            "2"
+          ],
+          "in": "query",
+          "name": "$.xgafv",
+          "type": "string"
+        },
+        {
+          "description": "OAuth access token.",
+          "in": "query",
+          "name": "access_token",
+          "type": "string"
+        },
+        {
+          "description": "Data format for response.",
+          "enum": [
+            "json",
+            "media",
+            "proto"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
+        },
+        {
+          "description": "JSONP",
+          "in": "query",
+          "name": "callback",
+          "type": "string"
+        },
+        {
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
+        },
+        {
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
+        },
+        {
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
+        },
+        {
+          "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
+        },
+        {
+          "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+          "in": "query",
+          "name": "upload_protocol",
+          "type": "string"
+        },
+        {
+          "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+          "in": "query",
+          "name": "uploadType",
+          "type": "string"
+        }
+      ],
       "delete": {
-        "description": "Deletes an enrollment token. This operation invalidates the token, preventing its future use.",
-        "operationId": "enterprises.enrollmentTokens.delete",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "description": "The name of the enrollment token in the form enterprises/{enterpriseId}/enrollmentTokens/{enrollmentTokenId}.",
+            "description": "The name of the web app in the form enterprises/{enterpriseId}/webApps/{packageName}.",
             "in": "path",
             "name": "name",
             "required": true,
-            "type": "string",
-            "x-reservedExpansion": true
+            "type": "string"
+          },
+          {
+            "collectionFormat": "multi",
+            "description": "Optional flags that control the device wiping behavior.",
+            "in": "query",
+            "items": {
+              "enum": [
+                "WIPE_DATA_FLAG_UNSPECIFIED",
+                "PRESERVE_RESET_PROTECTION_DATA",
+                "WIPE_EXTERNAL_STORAGE"
+              ],
+              "type": "string"
+            },
+            "name": "wipeDataFlags",
+            "type": "array"
+          },
+          {
+            "description": "Optional. A short message displayed to the user before wiping the work profile on personal devices. This has no effect on company owned devices. The maximum message length is 200 characters.",
+            "in": "query",
+            "name": "wipeReasonMessage",
+            "type": "string"
           }
         ],
         "responses": {
@@ -360,37 +431,54 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidmanagement"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/androidmanagement"
             ]
           }
         ],
         "tags": [
           "enterprises"
-        ]
+        ],
+        "description": "Deletes a web app.",
+        "operationId": "androidmanagement.enterprises.webApps.delete"
       },
       "get": {
-        "description": "Gets info about an application.",
-        "operationId": "enterprises.applications.get",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "description": "The preferred language for localized application info, as a BCP47 tag (e.g. \"en-US\", \"de\"). If not specified the default language of the application will be used.",
-            "in": "query",
-            "name": "languageCode",
-            "type": "string"
-          },
-          {
-            "description": "The name of the application in the form enterprises/{enterpriseId}/applications/{package_name}.",
+            "description": "The name of the web app in the form enterprises/{enterpriseId}/webApp/{packageName}.",
             "in": "path",
             "name": "name",
             "required": true,
-            "type": "string",
-            "x-reservedExpansion": true
+            "type": "string"
+          },
+          {
+            "description": "The standard list filter.",
+            "in": "query",
+            "name": "filter",
+            "type": "string"
+          },
+          {
+            "description": "The standard list page size.",
+            "in": "query",
+            "name": "pageSize",
+            "type": "integer"
+          },
+          {
+            "description": "The standard list page token.",
+            "in": "query",
+            "name": "pageToken",
+            "type": "string"
           }
         ],
         "responses": {
           "200": {
             "description": "Successful response",
             "schema": {
-              "$ref": "#/definitions/Application"
+              "$ref": "#/definitions/WebApp"
             }
           }
         },
@@ -398,85 +486,52 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidmanagement"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/androidmanagement"
             ]
           }
         ],
         "tags": [
           "enterprises"
-        ]
+        ],
+        "description": "Gets a web app.",
+        "operationId": "androidmanagement.enterprises.webApps.get"
       },
-      "parameters": [
-        {
-          "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/access_token"
-        },
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/bearer_token"
-        },
-        {
-          "$ref": "#/parameters/callback"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
-          "$ref": "#/parameters/upload_protocol"
-        }
-      ],
       "patch": {
-        "description": "Updates or creates a policy.",
-        "operationId": "enterprises.policies.patch",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Policy"
-            }
-          },
-          {
-            "description": "The name of the policy in the form enterprises/{enterpriseId}/policies/{policyId}.",
+            "description": "The name of the web app in the form enterprises/{enterpriseId}/webApps/{packageName}.",
             "in": "path",
             "name": "name",
             "required": true,
-            "type": "string",
-            "x-reservedExpansion": true
+            "type": "string"
           },
           {
             "description": "The field mask indicating the fields to update. If not set, all modifiable fields will be modified.",
             "in": "query",
             "name": "updateMask",
             "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/WebApp"
+            }
           }
         ],
         "responses": {
           "200": {
             "description": "Successful response",
             "schema": {
-              "$ref": "#/definitions/Policy"
+              "$ref": "#/definitions/WebApp"
             }
           }
         },
@@ -484,67 +539,108 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidmanagement"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/androidmanagement"
             ]
           }
         ],
         "tags": [
           "enterprises"
-        ]
+        ],
+        "description": "Updates a web app.",
+        "operationId": "androidmanagement.enterprises.webApps.patch"
       }
     },
     "/v1/{name}:cancel": {
       "parameters": [
         {
-          "$ref": "#/parameters/$.xgafv"
+          "description": "V1 error format.",
+          "enum": [
+            "1",
+            "2"
+          ],
+          "in": "query",
+          "name": "$.xgafv",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/access_token"
+          "description": "OAuth access token.",
+          "in": "query",
+          "name": "access_token",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/alt"
+          "description": "Data format for response.",
+          "enum": [
+            "json",
+            "media",
+            "proto"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/bearer_token"
+          "description": "JSONP",
+          "in": "query",
+          "name": "callback",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/callback"
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/fields"
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/key"
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/oauth_token"
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
         },
         {
-          "$ref": "#/parameters/pp"
+          "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/prettyPrint"
+          "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+          "in": "query",
+          "name": "upload_protocol",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
-          "$ref": "#/parameters/upload_protocol"
+          "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+          "in": "query",
+          "name": "uploadType",
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns google.rpc.Code.UNIMPLEMENTED. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to Code.CANCELLED.",
-        "operationId": "enterprises.devices.operations.cancel",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "The name of the operation resource to be cancelled.",
             "in": "path",
             "name": "name",
             "required": true,
-            "type": "string",
-            "x-reservedExpansion": true
+            "type": "string"
           }
         ],
         "responses": {
@@ -559,74 +655,118 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidmanagement"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/androidmanagement"
             ]
           }
         ],
         "tags": [
           "enterprises"
-        ]
+        ],
+        "description": "Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns google.rpc.Code.UNIMPLEMENTED. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to Code.CANCELLED.",
+        "operationId": "androidmanagement.enterprises.devices.operations.cancel"
       }
     },
     "/v1/{name}:issueCommand": {
       "parameters": [
         {
-          "$ref": "#/parameters/$.xgafv"
+          "description": "V1 error format.",
+          "enum": [
+            "1",
+            "2"
+          ],
+          "in": "query",
+          "name": "$.xgafv",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/access_token"
+          "description": "OAuth access token.",
+          "in": "query",
+          "name": "access_token",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/alt"
+          "description": "Data format for response.",
+          "enum": [
+            "json",
+            "media",
+            "proto"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/bearer_token"
+          "description": "JSONP",
+          "in": "query",
+          "name": "callback",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/callback"
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/fields"
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/key"
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/oauth_token"
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
         },
         {
-          "$ref": "#/parameters/pp"
+          "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/prettyPrint"
+          "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+          "in": "query",
+          "name": "upload_protocol",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
-          "$ref": "#/parameters/upload_protocol"
+          "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+          "in": "query",
+          "name": "uploadType",
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Issues a command to a device. The Operation resource returned contains a Command in its metadata field. Use the get operation method to get the status of the command.",
-        "operationId": "enterprises.devices.issueCommand",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "description": "The name of the device in the form enterprises/{enterpriseId}/devices/{deviceId}.",
+            "in": "path",
+            "name": "name",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
             "schema": {
               "$ref": "#/definitions/Command"
             }
-          },
-          {
-            "description": "The name of the device in the form enterprises/{enterpriseId}/devices/{deviceId}.",
-            "in": "path",
-            "name": "name",
-            "required": true,
-            "type": "string",
-            "x-reservedExpansion": true
           }
         ],
         "responses": {
@@ -641,19 +781,109 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidmanagement"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/androidmanagement"
             ]
           }
         ],
         "tags": [
           "enterprises"
-        ]
+        ],
+        "description": "Issues a command to a device. The Operation resource returned contains a Command in its metadata field. Use the get operation method to get the status of the command.",
+        "operationId": "androidmanagement.enterprises.devices.issueCommand"
       }
     },
     "/v1/{parent}/devices": {
+      "parameters": [
+        {
+          "description": "V1 error format.",
+          "enum": [
+            "1",
+            "2"
+          ],
+          "in": "query",
+          "name": "$.xgafv",
+          "type": "string"
+        },
+        {
+          "description": "OAuth access token.",
+          "in": "query",
+          "name": "access_token",
+          "type": "string"
+        },
+        {
+          "description": "Data format for response.",
+          "enum": [
+            "json",
+            "media",
+            "proto"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
+        },
+        {
+          "description": "JSONP",
+          "in": "query",
+          "name": "callback",
+          "type": "string"
+        },
+        {
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
+        },
+        {
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
+        },
+        {
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
+        },
+        {
+          "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
+        },
+        {
+          "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+          "in": "query",
+          "name": "upload_protocol",
+          "type": "string"
+        },
+        {
+          "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+          "in": "query",
+          "name": "uploadType",
+          "type": "string"
+        }
+      ],
       "get": {
-        "description": "Lists devices for a given enterprise.",
-        "operationId": "enterprises.devices.list",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "description": "The name of the enterprise in the form enterprises/{enterpriseId}.",
+            "in": "path",
+            "name": "parent",
+            "required": true,
+            "type": "string"
+          },
           {
             "description": "The requested page size. The actual page size may be fixed to a min or max value.",
             "in": "query",
@@ -665,14 +895,6 @@
             "in": "query",
             "name": "pageToken",
             "type": "string"
-          },
-          {
-            "description": "The name of the enterprise in the form enterprises/{enterpriseId}.",
-            "in": "path",
-            "name": "parent",
-            "required": true,
-            "type": "string",
-            "x-reservedExpansion": true
           }
         ],
         "responses": {
@@ -687,115 +909,118 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidmanagement"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/androidmanagement"
             ]
           }
         ],
         "tags": [
           "enterprises"
-        ]
-      },
-      "parameters": [
-        {
-          "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/access_token"
-        },
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/bearer_token"
-        },
-        {
-          "$ref": "#/parameters/callback"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
-          "$ref": "#/parameters/upload_protocol"
-        }
-      ]
+        ],
+        "description": "Lists devices for a given enterprise.",
+        "operationId": "androidmanagement.enterprises.devices.list"
+      }
     },
     "/v1/{parent}/enrollmentTokens": {
       "parameters": [
         {
-          "$ref": "#/parameters/$.xgafv"
+          "description": "V1 error format.",
+          "enum": [
+            "1",
+            "2"
+          ],
+          "in": "query",
+          "name": "$.xgafv",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/access_token"
+          "description": "OAuth access token.",
+          "in": "query",
+          "name": "access_token",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/alt"
+          "description": "Data format for response.",
+          "enum": [
+            "json",
+            "media",
+            "proto"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/bearer_token"
+          "description": "JSONP",
+          "in": "query",
+          "name": "callback",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/callback"
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/fields"
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/key"
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/oauth_token"
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
         },
         {
-          "$ref": "#/parameters/pp"
+          "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/prettyPrint"
+          "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+          "in": "query",
+          "name": "upload_protocol",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
-          "$ref": "#/parameters/upload_protocol"
+          "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+          "in": "query",
+          "name": "uploadType",
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Creates an enrollment token for a given enterprise.",
-        "operationId": "enterprises.enrollmentTokens.create",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "description": "The name of the enterprise in the form enterprises/{enterpriseId}.",
+            "in": "path",
+            "name": "parent",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
             "schema": {
               "$ref": "#/definitions/EnrollmentToken"
             }
-          },
-          {
-            "description": "The name of the enterprise in the form enterprises/{enterpriseId}.",
-            "in": "path",
-            "name": "parent",
-            "required": true,
-            "type": "string",
-            "x-reservedExpansion": true
           }
         ],
         "responses": {
@@ -810,19 +1035,109 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidmanagement"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/androidmanagement"
             ]
           }
         ],
         "tags": [
           "enterprises"
-        ]
+        ],
+        "description": "Creates an enrollment token for a given enterprise.",
+        "operationId": "androidmanagement.enterprises.enrollmentTokens.create"
       }
     },
     "/v1/{parent}/policies": {
+      "parameters": [
+        {
+          "description": "V1 error format.",
+          "enum": [
+            "1",
+            "2"
+          ],
+          "in": "query",
+          "name": "$.xgafv",
+          "type": "string"
+        },
+        {
+          "description": "OAuth access token.",
+          "in": "query",
+          "name": "access_token",
+          "type": "string"
+        },
+        {
+          "description": "Data format for response.",
+          "enum": [
+            "json",
+            "media",
+            "proto"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
+        },
+        {
+          "description": "JSONP",
+          "in": "query",
+          "name": "callback",
+          "type": "string"
+        },
+        {
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
+        },
+        {
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
+        },
+        {
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
+        },
+        {
+          "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
+        },
+        {
+          "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+          "in": "query",
+          "name": "upload_protocol",
+          "type": "string"
+        },
+        {
+          "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+          "in": "query",
+          "name": "uploadType",
+          "type": "string"
+        }
+      ],
       "get": {
-        "description": "Lists policies for a given enterprise.",
-        "operationId": "enterprises.policies.list",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "description": "The name of the enterprise in the form enterprises/{enterpriseId}.",
+            "in": "path",
+            "name": "parent",
+            "required": true,
+            "type": "string"
+          },
           {
             "description": "The requested page size. The actual page size may be fixed to a min or max value.",
             "in": "query",
@@ -834,14 +1149,6 @@
             "in": "query",
             "name": "pageToken",
             "type": "string"
-          },
-          {
-            "description": "The name of the enterprise in the form enterprises/{enterpriseId}.",
-            "in": "path",
-            "name": "parent",
-            "required": true,
-            "type": "string",
-            "x-reservedExpansion": true
           }
         ],
         "responses": {
@@ -856,115 +1163,293 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidmanagement"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/androidmanagement"
             ]
           }
         ],
         "tags": [
           "enterprises"
-        ]
-      },
+        ],
+        "description": "Lists policies for a given enterprise.",
+        "operationId": "androidmanagement.enterprises.policies.list"
+      }
+    },
+    "/v1/{parent}/webApps": {
       "parameters": [
         {
-          "$ref": "#/parameters/$.xgafv"
+          "description": "V1 error format.",
+          "enum": [
+            "1",
+            "2"
+          ],
+          "in": "query",
+          "name": "$.xgafv",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/access_token"
+          "description": "OAuth access token.",
+          "in": "query",
+          "name": "access_token",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/alt"
+          "description": "Data format for response.",
+          "enum": [
+            "json",
+            "media",
+            "proto"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/bearer_token"
+          "description": "JSONP",
+          "in": "query",
+          "name": "callback",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/callback"
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/fields"
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/key"
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/oauth_token"
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
         },
         {
-          "$ref": "#/parameters/pp"
+          "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/prettyPrint"
+          "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+          "in": "query",
+          "name": "upload_protocol",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
-          "$ref": "#/parameters/upload_protocol"
+          "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+          "in": "query",
+          "name": "uploadType",
+          "type": "string"
         }
-      ]
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The name of the enterprise in the form enterprises/{enterpriseId}.",
+            "in": "path",
+            "name": "parent",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The requested page size. The actual page size may be fixed to a min or max value.",
+            "in": "query",
+            "name": "pageSize",
+            "type": "integer"
+          },
+          {
+            "description": "A token identifying a page of results returned by the server.",
+            "in": "query",
+            "name": "pageToken",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/ListWebAppsResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/androidmanagement"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/androidmanagement"
+            ]
+          }
+        ],
+        "tags": [
+          "enterprises"
+        ],
+        "description": "Lists web apps for a given enterprise.",
+        "operationId": "androidmanagement.enterprises.webApps.list"
+      },
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The name of the enterprise in the form enterprises/{enterpriseId}.",
+            "in": "path",
+            "name": "parent",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/WebApp"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/WebApp"
+            }
+          }
+        },
+        "security": [
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/androidmanagement"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/androidmanagement"
+            ]
+          }
+        ],
+        "tags": [
+          "enterprises"
+        ],
+        "description": "Creates a web app.",
+        "operationId": "androidmanagement.enterprises.webApps.create"
+      }
     },
     "/v1/{parent}/webTokens": {
       "parameters": [
         {
-          "$ref": "#/parameters/$.xgafv"
+          "description": "V1 error format.",
+          "enum": [
+            "1",
+            "2"
+          ],
+          "in": "query",
+          "name": "$.xgafv",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/access_token"
+          "description": "OAuth access token.",
+          "in": "query",
+          "name": "access_token",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/alt"
+          "description": "Data format for response.",
+          "enum": [
+            "json",
+            "media",
+            "proto"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/bearer_token"
+          "description": "JSONP",
+          "in": "query",
+          "name": "callback",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/callback"
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/fields"
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/key"
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/oauth_token"
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
         },
         {
-          "$ref": "#/parameters/pp"
+          "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/prettyPrint"
+          "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+          "in": "query",
+          "name": "upload_protocol",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
-          "$ref": "#/parameters/upload_protocol"
+          "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+          "in": "query",
+          "name": "uploadType",
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Creates a web token to access an embeddable managed Google Play web UI for a given enterprise.",
-        "operationId": "enterprises.webTokens.create",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "description": "The name of the enterprise in the form enterprises/{enterpriseId}.",
+            "in": "path",
+            "name": "parent",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
             "schema": {
               "$ref": "#/definitions/WebToken"
             }
-          },
-          {
-            "description": "The name of the enterprise in the form enterprises/{enterpriseId}.",
-            "in": "path",
-            "name": "parent",
-            "required": true,
-            "type": "string",
-            "x-reservedExpansion": true
           }
         ],
         "responses": {
@@ -979,16 +1464,46 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidmanagement"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/androidmanagement"
             ]
           }
         ],
         "tags": [
           "enterprises"
-        ]
+        ],
+        "description": "Creates a web token to access an embeddable managed Google Play web UI for a given enterprise.",
+        "operationId": "androidmanagement.enterprises.webTokens.create"
       }
     }
   },
   "definitions": {
+    "AdvancedSecurityOverrides": {
+      "description": "Security policies set to the most secure values by default. To maintain the security posture of a device, we don't recommend overriding any of the default values.",
+      "properties": {
+        "commonCriteriaMode": {
+          "description": "Controls Common Criteria Mode—security standards defined in the Common Criteria for Information Technology Security Evaluation (https://www.commoncriteriaportal.org/) (CC). Enabling Common Criteria Mode increases certain security components on a device, including AES-GCM encryption of Bluetooth Long Term Keys, and Wi-Fi configuration stores.Warning: Common Criteria Mode enforces a strict security model typically only required for IT products used in national security systems and other highly sensitive organizations. Standard device use may be affected. Only enabled if required.",
+          "enum": [
+            "COMMON_CRITERIA_MODE_UNSPECIFIED",
+            "COMMON_CRITERIA_MODE_DISABLED",
+            "COMMON_CRITERIA_MODE_ENABLED"
+          ],
+          "type": "string"
+        },
+        "untrustedAppsPolicy": {
+          "description": "The policy for untrusted apps (apps from unknown sources) enforced on the device. Replaces install_unknown_sources_allowed (deprecated).",
+          "enum": [
+            "UNTRUSTED_APPS_POLICY_UNSPECIFIED",
+            "DISALLOW_INSTALL",
+            "ALLOW_INSTALL_IN_PERSONAL_PROFILE_ONLY",
+            "ALLOW_INSTALL_DEVICE_WIDE"
+          ],
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "AlwaysOnVpnPackage": {
       "description": "Configuration for an always-on VPN connection.",
       "properties": {
@@ -1014,9 +1529,30 @@
       },
       "type": "object"
     },
+    "AppTrackInfo": {
+      "description": "Id to name association of a app track.",
+      "properties": {
+        "trackAlias": {
+          "description": "The track name associated with the trackId, set in the Play Console. The name is modifiable from Play Console.",
+          "type": "string"
+        },
+        "trackId": {
+          "description": "The unmodifiable unique track identifier, taken from the releaseTrackId in the URL of the Play Console page that displays the app’s track information.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "Application": {
       "description": "Information about an app.",
       "properties": {
+        "appTracks": {
+          "description": "Application tracks visible to the enterprise.",
+          "items": {
+            "$ref": "#/definitions/AppTrackInfo"
+          },
+          "type": "array"
+        },
         "managedProperties": {
           "description": "The set of managed properties available to be pre-configured for the app.",
           "items": {
@@ -1089,6 +1625,32 @@
     "ApplicationPolicy": {
       "description": "Policy for an individual app.",
       "properties": {
+        "accessibleTrackIds": {
+          "description": "List of the app’s track IDs that a device belonging to the enterprise can access. If the list contains multiple track IDs, devices receive the latest version among all accessible tracks. If the list contains no track IDs, devices only have access to the app’s production track. More details about each track are available in AppTrackInfo.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "autoUpdateMode": {
+          "description": "This feature is not generally available.",
+          "enum": [
+            "AUTO_UPDATE_MODE_UNSPECIFIED",
+            "AUTO_UPDATE_DEFAULT",
+            "AUTO_UPDATE_POSTPONED",
+            "AUTO_UPDATE_HIGH_PRIORITY"
+          ],
+          "type": "string"
+        },
+        "connectedWorkAndPersonalApp": {
+          "description": "Controls whether the app can communicate with itself across a device’s work and personal profiles, subject to user consent.",
+          "enum": [
+            "CONNECTED_WORK_AND_PERSONAL_APP_UNSPECIFIED",
+            "CONNECTED_WORK_AND_PERSONAL_APP_DISALLOWED",
+            "CONNECTED_WORK_AND_PERSONAL_APP_ALLOWED"
+          ],
+          "type": "string"
+        },
         "defaultPermissionPolicy": {
           "description": "The default policy for all permissions requested by the app. If specified, this overrides the policy-level default_permission_policy which applies to all apps. It does not override the permission_grants which applies to all apps.",
           "enum": [
@@ -1116,7 +1678,7 @@
           "type": "array"
         },
         "disabled": {
-          "description": "Whether the app should be disabled, but app data is preserved.",
+          "description": "Whether the app is disabled. When disabled, the app data is still preserved.",
           "type": "boolean"
         },
         "installType": {
@@ -1124,20 +1686,28 @@
           "enum": [
             "INSTALL_TYPE_UNSPECIFIED",
             "PREINSTALLED",
-            "FORCE_INSTALLED"
+            "FORCE_INSTALLED",
+            "BLOCKED",
+            "AVAILABLE",
+            "REQUIRED_FOR_SETUP",
+            "KIOSK"
           ],
           "type": "string"
         },
         "lockTaskAllowed": {
-          "description": "Whether the app is allowed to lock itself in full-screen mode.",
+          "description": "Whether the app is allowed to lock itself in full-screen mode. DEPRECATED. Use InstallType KIOSK or kioskCustomLauncherEnabled to to configure a dedicated device.",
           "type": "boolean"
         },
         "managedConfiguration": {
           "additionalProperties": {
             "description": "Properties of the object."
           },
-          "description": "Managed configuration applied to the app. The format for the configuration is dictated by the ManagedProperty values supported by the app. Each field name in the managed configuration must match the key field of the ManagedProperty. The field value must be compatible with the type of the ManagedProperty: <table> <tr><td><i>type</i></td><td><i>JSON value</i></td></tr> <tr><td>BOOL</td><td>true or false</td></tr> <tr><td>STRING</td><td>string</td></tr> <tr><td>INTEGER</td><td>number</td></tr> <tr><td>CHOICE</td><td>string</td></tr> <tr><td>MULTISELECT</td><td>array of strings</td></tr> <tr><td>HIDDEN</td><td>string</td></tr> <tr><td>BUNDLE_ARRAY</td><td>array of objects</td></tr> </table>",
+          "description": "Managed configuration applied to the app. The format for the configuration is dictated by the ManagedProperty values supported by the app. Each field name in the managed configuration must match the key field of the ManagedProperty. The field value must be compatible with the type of the ManagedProperty: *type* *JSON value* BOOL true or false STRING string INTEGER number CHOICE string MULTISELECT array of strings HIDDEN string BUNDLE_ARRAY array of objects ",
           "type": "object"
+        },
+        "managedConfigurationTemplate": {
+          "$ref": "#/definitions/ManagedConfigurationTemplate",
+          "description": "The managed configurations template for the app, saved from the managed configurations iframe. This field is ignored if managed_configuration is set."
         },
         "minimumVersionCode": {
           "description": "The minimum version of the app that runs on the device. If set, the device attempts to update the app to at least this version code. If the app is not up-to-date, the device will contain a NonComplianceDetail with non_compliance_reason set to APP_NOT_UPDATED. The app must already be published to Google Play with a version code greater than or equal to this value. At most 20 apps may specify a minimum version code per policy.",
@@ -1186,6 +1756,13 @@
           "description": "The package name of the app that installed this app.",
           "type": "string"
         },
+        "keyedAppStates": {
+          "description": "List of keyed app states reported by the app.",
+          "items": {
+            "$ref": "#/definitions/KeyedAppState"
+          },
+          "type": "array"
+        },
         "packageName": {
           "description": "Package name of the app.",
           "type": "string"
@@ -1204,8 +1781,9 @@
         "state": {
           "description": "Application state.",
           "enum": [
-            "INSTALLED",
-            "REMOVED"
+            "APPLICATION_STATE_UNSPECIFIED",
+            "REMOVED",
+            "INSTALLED"
           ],
           "type": "string"
         },
@@ -1216,6 +1794,36 @@
         },
         "versionName": {
           "description": "The app version as displayed to the user.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "ApplicationReportingSettings": {
+      "description": "Settings controlling the behavior of application reports.",
+      "properties": {
+        "includeRemovedApps": {
+          "description": "Whether removed apps are included in application reports.",
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "BlockAction": {
+      "description": "An action to block access to apps and data on a fully managed device or in a work profile. This action also triggers a device or work profile to displays a user-facing notification with information (where possible) on how to correct the compliance issue. Note: wipeAction must also be specified.",
+      "properties": {
+        "blockAfterDays": {
+          "description": "Number of days the policy is non-compliant before the device or work profile is blocked. To block access immediately, set to 0. blockAfterDays must be less than wipeAfterDays.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "blockScope": {
+          "description": "Specifies the scope of this BlockAction. Only applicable to devices that are company-owned.",
+          "enum": [
+            "BLOCK_SCOPE_UNSPECIFIED",
+            "BLOCK_SCOPE_WORK_PROFILE",
+            "BLOCK_SCOPE_DEVICE"
+          ],
           "type": "string"
         }
       },
@@ -1290,12 +1898,28 @@
             "COMMAND_TYPE_UNSPECIFIED",
             "LOCK",
             "RESET_PASSWORD",
-            "REBOOT"
+            "REBOOT",
+            "RELINQUISH_OWNERSHIP"
           ],
           "type": "string"
         },
         "userName": {
           "description": "The resource name of the user that owns the device in the form enterprises/{enterpriseId}/users/{userId}. This is automatically generated by the server based on the device the command is sent to.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "CommonCriteriaModeInfo": {
+      "description": "Information about Common Criteria Mode—security standards defined in the Common Criteria for Information Technology Security Evaluation (https://www.commoncriteriaportal.org/) (CC).This information is only available if statusReportingSettings.commonCriteriaModeEnabled is true in the device's policy.",
+      "properties": {
+        "commonCriteriaModeStatus": {
+          "description": "Whether Common Criteria Mode is enabled.",
+          "enum": [
+            "COMMON_CRITERIA_MODE_STATUS_UNKNOWN",
+            "COMMON_CRITERIA_MODE_DISABLED",
+            "COMMON_CRITERIA_MODE_ENABLED"
+          ],
           "type": "string"
         }
       },
@@ -1315,6 +1939,34 @@
         "nonComplianceDetailCondition": {
           "$ref": "#/definitions/NonComplianceDetailCondition",
           "description": "A condition which is satisfied if there exists any matching NonComplianceDetail for the device."
+        },
+        "packageNamesToDisable": {
+          "description": "If set, the rule includes a mitigating action to disable apps specified in the list, but app data is preserved.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "Date": {
+      "description": "Represents a whole or partial calendar date, such as a birthday. The time of day and time zone are either specified elsewhere or are insignificant. The date is relative to the Gregorian Calendar. This can represent one of the following: A full date, with non-zero year, month, and day values A month and day value, with a zero year, such as an anniversary A year on its own, with zero month and day values A year and month value, with a zero day, such as a credit card expiration dateRelated types are google.type.TimeOfDay and google.protobuf.Timestamp.",
+      "properties": {
+        "day": {
+          "description": "Day of a month. Must be from 1 to 31 and valid for the year and month, or 0 to specify a year by itself or a year and month where the day isn't significant.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "month": {
+          "description": "Month of a year. Must be from 1 to 12, or 0 to specify a year without a month and day.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "year": {
+          "description": "Year of the date. Must be from 1 to 9999, or 0 to specify a date without a year.",
+          "format": "int32",
+          "type": "integer"
         }
       },
       "type": "object"
@@ -1353,6 +2005,10 @@
             "PROVISIONING"
           ],
           "type": "string"
+        },
+        "commonCriteriaModeInfo": {
+          "$ref": "#/definitions/CommonCriteriaModeInfo",
+          "description": "Information about Common Criteria Mode—security standards defined in the Common Criteria for Information Technology Security Evaluation (https://www.commoncriteriaportal.org/) (CC).This information is only available if statusReportingSettings.commonCriteriaModeEnabled is true in the device's policy."
         },
         "deviceSettings": {
           "$ref": "#/definitions/DeviceSettings",
@@ -1394,7 +2050,7 @@
           "type": "array"
         },
         "lastPolicyComplianceReportTime": {
-          "description": "The last time the device sent a policy compliance report.",
+          "description": "Deprecated.",
           "format": "google-datetime",
           "type": "string"
         },
@@ -1406,6 +2062,15 @@
         "lastStatusReportTime": {
           "description": "The last time the device sent a status report.",
           "format": "google-datetime",
+          "type": "string"
+        },
+        "managementMode": {
+          "description": "The type of management mode Android Device Policy takes on the device. This influences which policy settings are supported.",
+          "enum": [
+            "MANAGEMENT_MODE_UNSPECIFIED",
+            "DEVICE_OWNER",
+            "PROFILE_OWNER"
+          ],
           "type": "string"
         },
         "memoryEvents": {
@@ -1434,6 +2099,15 @@
           },
           "type": "array"
         },
+        "ownership": {
+          "description": "Ownership of the managed device.",
+          "enum": [
+            "OWNERSHIP_UNSPECIFIED",
+            "COMPANY_OWNED",
+            "PERSONALLY_OWNED"
+          ],
+          "type": "string"
+        },
         "policyCompliant": {
           "description": "Whether the device is compliant with its policy.",
           "type": "boolean"
@@ -1456,6 +2130,10 @@
           },
           "type": "array"
         },
+        "securityPosture": {
+          "$ref": "#/definitions/SecurityPosture",
+          "description": "Device's security posture value that reflects how secure the device is."
+        },
         "softwareInfo": {
           "$ref": "#/definitions/SoftwareInfo",
           "description": "Detailed information about the device software. This information is only available if softwareInfoEnabled is true in the device's policy."
@@ -1470,6 +2148,17 @@
             "PROVISIONING"
           ],
           "type": "string"
+        },
+        "systemProperties": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "Map of selected system properties name and value related to the device. This information is only available if systemPropertiesEnabled is true in the device's policy.",
+          "type": "object"
+        },
+        "user": {
+          "$ref": "#/definitions/User",
+          "description": "The user who owns the device."
         },
         "userName": {
           "description": "The resource name of the user that owns this device in the form enterprises/{enterpriseId}/users/{userId}.",
@@ -1568,7 +2257,7 @@
       "type": "object"
     },
     "Empty": {
-      "description": "A generic empty message that you can re-use to avoid defining duplicated empty messages in your APIs. A typical example is to use it as the request or the response type of an API method. For instance:\nservice Foo {\n  rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);\n}\nThe JSON representation for Empty is empty JSON object {}.",
+      "description": "A generic empty message that you can re-use to avoid defining duplicated empty messages in your APIs. A typical example is to use it as the request or the response type of an API method. For instance: service Foo { rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON representation for Empty is empty JSON object {}.",
       "properties": {},
       "type": "object"
     },
@@ -1577,6 +2266,15 @@
       "properties": {
         "additionalData": {
           "description": "Optional, arbitrary data associated with the enrollment token. This could contain, for example, the ID of an org unit the device is assigned to after enrollment. After a device enrolls with the token, this data will be exposed in the enrollment_token_data field of the Device resource. The data must be 1024 characters or less; otherwise, the creation request will fail.",
+          "type": "string"
+        },
+        "allowPersonalUsage": {
+          "description": "Controls whether personal usage is allowed on a device provisioned with this enrollment token.For company-owned devices: Enabling personal usage allows the user to set up a work profile on the device. Disabling personal usage requires the user provision the device as a fully managed device.For personally-owned devices: Enabling personal usage allows the user to set up a work profile on the device. Disabling personal usage will prevent the device from provisioning. Personal usage cannot be disabled on personally-owned device.",
+          "enum": [
+            "ALLOW_PERSONAL_USAGE_UNSPECIFIED",
+            "PERSONAL_USAGE_ALLOWED",
+            "PERSONAL_USAGE_DISALLOWED"
+          ],
           "type": "string"
         },
         "duration": {
@@ -1593,6 +2291,10 @@
           "description": "The name of the enrollment token, which is generated by the server during creation, in the form enterprises/{enterpriseId}/enrollmentTokens/{enrollmentTokenId}.",
           "type": "string"
         },
+        "oneTimeOnly": {
+          "description": "Whether the enrollment token is for one time use only. If the flag is set to true, only one device can use it for registration.",
+          "type": "boolean"
+        },
         "policyName": {
           "description": "The name of the policy initially applied to the enrolled device, in the form enterprises/{enterpriseId}/policies/{policyId}. If not specified, the policy_name for the device’s user is applied. If user_name is also not specified, enterprises/{enterpriseId}/policies/default is applied by default. When updating this field, you can specify only the policyId as long as the policyId doesn’t contain any slashes. The rest of the policy name will be inferred.",
           "type": "string"
@@ -1600,6 +2302,10 @@
         "qrCode": {
           "description": "A JSON string whose UTF-8 representation can be used to generate a QR code to enroll a device with this enrollment token. To enroll a device using NFC, the NFC record must contain a serialized java.util.Properties representation of the properties in the JSON.",
           "type": "string"
+        },
+        "user": {
+          "$ref": "#/definitions/User",
+          "description": "The user associated with this enrollment token. If it's specified when the enrollment token is created and the user does not exist, the user will be created. This field must not contain personally identifiable information. Only the account_identifier field needs to be set."
         },
         "value": {
           "description": "The token value that's passed to the device and authorizes the device to enroll. This is a read-only field generated by the server.",
@@ -1650,6 +2356,13 @@
           "description": "The topic that Cloud Pub/Sub notifications are published to, in the form projects/{project}/topics/{topic}. This field is only required if Pub/Sub notifications are enabled.",
           "type": "string"
         },
+        "signinDetails": {
+          "description": "Sign-in details of the enterprise.",
+          "items": {
+            "$ref": "#/definitions/SigninDetail"
+          },
+          "type": "array"
+        },
         "termsAndConditions": {
           "description": "Terms and conditions that must be accepted when provisioning a device for this enterprise. A page of terms is generated for each value in this list.",
           "items": {
@@ -1670,6 +2383,20 @@
         "url": {
           "description": "The absolute URL to the data, which must use either the http or https scheme. Android Device Policy doesn't provide any credentials in the GET request, so the URL must be publicly accessible. Including a long, random component in the URL may be used to prevent attackers from discovering the URL.",
           "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "FreezePeriod": {
+      "description": "A system freeze period. When a device’s clock is within the freeze period, all incoming system updates (including security patches) are blocked and won’t be installed. When a device is outside the freeze period, normal update behavior applies. Leap years are ignored in freeze period calculations, in particular: * If Feb. 29th is set as the start or end date of a freeze period, the freeze period will start or end on Feb. 28th instead. * When a device’s system clock reads Feb. 29th, it’s treated as Feb. 28th. * When calculating the number of days in a freeze period or the time between two freeze periods, Feb. 29th is ignored and not counted as a day.",
+      "properties": {
+        "endDate": {
+          "$ref": "#/definitions/Date",
+          "description": "The end date (inclusive) of the freeze period. Must be no later than 90 days from the start date. If the end date is earlier than the start date, the freeze period is considered wrapping year-end. Note: year must not be set. For example, {\"month\": 1,\"date\": 30}."
+        },
+        "startDate": {
+          "$ref": "#/definitions/Date",
+          "description": "The start date (inclusive) of the freeze period. Note: year must not be set. For example, {\"month\": 1,\"date\": 30}."
         }
       },
       "type": "object"
@@ -1827,6 +2554,106 @@
       },
       "type": "object"
     },
+    "KeyedAppState": {
+      "description": "Keyed app state reported by the app.",
+      "properties": {
+        "createTime": {
+          "description": "The creation time of the app state on the device.",
+          "format": "google-datetime",
+          "type": "string"
+        },
+        "data": {
+          "description": "Optionally, a machine-readable value to be read by the EMM. For example, setting values that the admin can choose to query against in the EMM console (e.g. “notify me if the battery_warning data < 10”).",
+          "type": "string"
+        },
+        "key": {
+          "description": "The key for the app state. Acts as a point of reference for what the app is providing state for. For example, when providing managed configuration feedback, this key could be the managed configuration key.",
+          "type": "string"
+        },
+        "lastUpdateTime": {
+          "description": "The time the app state was most recently updated.",
+          "format": "google-datetime",
+          "type": "string"
+        },
+        "message": {
+          "description": "Optionally, a free-form message string to explain the app state. If the state was triggered by a particular value (e.g. a managed configuration value), it should be included in the message.",
+          "type": "string"
+        },
+        "severity": {
+          "description": "The severity of the app state.",
+          "enum": [
+            "SEVERITY_UNSPECIFIED",
+            "INFO",
+            "ERROR"
+          ],
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "KioskCustomization": {
+      "description": "Settings controlling the behavior of a device in kiosk mode. To enable kiosk mode, set kioskCustomLauncherEnabled to true or specify an app in the policy with installType KIOSK.",
+      "properties": {
+        "deviceSettings": {
+          "description": "Specifies whether the Settings app is allowed in kiosk mode.",
+          "enum": [
+            "DEVICE_SETTINGS_UNSPECIFIED",
+            "SETTINGS_ACCESS_ALLOWED",
+            "SETTINGS_ACCESS_BLOCKED"
+          ],
+          "type": "string"
+        },
+        "powerButtonActions": {
+          "description": "Sets the behavior of a device in kiosk mode when a user presses and holds (long-presses) the Power button.",
+          "enum": [
+            "POWER_BUTTON_ACTIONS_UNSPECIFIED",
+            "POWER_BUTTON_AVAILABLE",
+            "POWER_BUTTON_BLOCKED"
+          ],
+          "type": "string"
+        },
+        "statusBar": {
+          "description": "Specifies whether system info and notifications are disabled in kiosk mode.",
+          "enum": [
+            "STATUS_BAR_UNSPECIFIED",
+            "NOTIFICATIONS_AND_SYSTEM_INFO_ENABLED",
+            "NOTIFICATIONS_AND_SYSTEM_INFO_DISABLED",
+            "SYSTEM_INFO_ONLY"
+          ],
+          "type": "string"
+        },
+        "systemErrorWarnings": {
+          "description": "Specifies whether system error dialogs for crashed or unresponsive apps are blocked in kiosk mode. When blocked, the system will force-stop the app as if the user chooses the \"close app\" option on the UI.",
+          "enum": [
+            "SYSTEM_ERROR_WARNINGS_UNSPECIFIED",
+            "ERROR_AND_WARNINGS_ENABLED",
+            "ERROR_AND_WARNINGS_MUTED"
+          ],
+          "type": "string"
+        },
+        "systemNavigation": {
+          "description": "Specifies which navigation features are enabled (e.g. Home, Overview buttons) in kiosk mode.",
+          "enum": [
+            "SYSTEM_NAVIGATION_UNSPECIFIED",
+            "NAVIGATION_ENABLED",
+            "NAVIGATION_DISABLED",
+            "HOME_BUTTON_ONLY"
+          ],
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "LaunchAppAction": {
+      "description": "An action to launch an app.",
+      "properties": {
+        "packageName": {
+          "description": "Package name of app to be launched",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "ListDevicesResponse": {
       "description": "Response to a request to list devices for a given enterprise.",
       "properties": {
@@ -1878,6 +2705,40 @@
       },
       "type": "object"
     },
+    "ListWebAppsResponse": {
+      "description": "Response to a request to list web apps for a given enterprise.",
+      "properties": {
+        "nextPageToken": {
+          "description": "If there are more results, a token to retrieve next page of results.",
+          "type": "string"
+        },
+        "webApps": {
+          "description": "The list of web apps.",
+          "items": {
+            "$ref": "#/definitions/WebApp"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "ManagedConfigurationTemplate": {
+      "description": "The managed configurations template for the app, saved from the managed configurations iframe.",
+      "properties": {
+        "configurationVariables": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "Optional, a map containing configuration variables defined for the configuration.",
+          "type": "object"
+        },
+        "templateId": {
+          "description": "The ID of the managed configurations template.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "ManagedProperty": {
       "description": "Managed property.",
       "properties": {
@@ -1920,6 +2781,7 @@
             "CHOICE",
             "MULTISELECT",
             "HIDDEN",
+            "BUNDLE",
             "BUNDLE_ARRAY"
           ],
           "type": "string"
@@ -2014,7 +2876,7 @@
           "description": "If the policy setting could not be applied, the current value of the setting on the device."
         },
         "fieldPath": {
-          "description": "For settings with nested fields, if a particular nested field is out of compliance, this specifies the full path to the offending field. The path is formatted in the same way the policy JSON field would be referenced in JavaScript, that is: 1) For object-typed fields, the field name is followed by a dot then by a  subfield name. 2) For array-typed fields, the field name is followed by the array index  enclosed in brackets. For example, to indicate a problem with the url field in the externalData field in the 3rd application, the path would be applications[2].externalData.url",
+          "description": "For settings with nested fields, if a particular nested field is out of compliance, this specifies the full path to the offending field. The path is formatted in the same way the policy JSON field would be referenced in JavaScript, that is: 1) For object-typed fields, the field name is followed by a dot then by a subfield name. 2) For array-typed fields, the field name is followed by the array index enclosed in brackets. For example, to indicate a problem with the url field in the externalData field in the 3rd application, the path would be applications[2].externalData.url",
           "type": "string"
         },
         "installationFailureReason": {
@@ -2056,7 +2918,7 @@
           "type": "string"
         },
         "settingName": {
-          "description": "The name of the policy setting. This is the JSON field name of a top-level Policy  field.",
+          "description": "The name of the policy setting. This is the JSON field name of a top-level Policy field.",
           "type": "string"
         }
       },
@@ -2112,7 +2974,7 @@
           "type": "object"
         },
         "name": {
-          "description": "The server-assigned name, which is only unique within the same service that originally returns it. If you use the default HTTP mapping, the name should have the format of operations/some/unique/name.",
+          "description": "The server-assigned name, which is only unique within the same service that originally returns it. If you use the default HTTP mapping, the name should be a resource name ending with operations/{unique_id}.",
           "type": "string"
         },
         "response": {
@@ -2204,6 +3066,24 @@
             "COMPLEX"
           ],
           "type": "string"
+        },
+        "passwordScope": {
+          "description": "The scope that the password requirement applies to.",
+          "enum": [
+            "SCOPE_UNSPECIFIED",
+            "SCOPE_DEVICE",
+            "SCOPE_PROFILE"
+          ],
+          "type": "string"
+        },
+        "requirePasswordUnlock": {
+          "description": "The length of time after a device or work profile is unlocked using a strong form of authentication (password, PIN, pattern) that it can be unlocked using any other authentication method (e.g. fingerprint, trust agents, face). After the specified time period elapses, only strong forms of authentication can be used to unlock the device or work profile.",
+          "enum": [
+            "REQUIRE_PASSWORD_UNLOCK_UNSPECIFIED",
+            "USE_DEFAULT_DEVICE_TIMEOUT",
+            "REQUIRE_EVERY_DAY"
+          ],
+          "type": "string"
         }
       },
       "type": "object"
@@ -2212,7 +3092,7 @@
       "description": "Configuration for an Android permission and its grant state.",
       "properties": {
         "permission": {
-          "description": "The android permission, e.g. android.permission.READ_CALENDAR.",
+          "description": "The Android permission or group, e.g. android.permission.READ_CALENDAR or android.permission_group.CALENDAR.",
           "type": "string"
         },
         "policy": {
@@ -2229,7 +3109,7 @@
       "type": "object"
     },
     "PersistentPreferredActivity": {
-      "description": "A default activity for handling intents that match a particular intent filter.",
+      "description": "A default activity for handling intents that match a particular intent filter. Note: To set up a kiosk, use InstallType to KIOSK rather than use persistent preferred activities.",
       "properties": {
         "actions": {
           "description": "The intent actions to match in the filter. If any actions are included in the filter, then an intent's action must be one of those values for it to match. If no actions are included, the intent action is ignored.",
@@ -2252,8 +3132,70 @@
       },
       "type": "object"
     },
+    "PersonalApplicationPolicy": {
+      "description": "Policies for apps in the personal profile of a company-owned device with a work profile.",
+      "properties": {
+        "installType": {
+          "description": "The type of installation to perform.",
+          "enum": [
+            "INSTALL_TYPE_UNSPECIFIED",
+            "BLOCKED",
+            "AVAILABLE"
+          ],
+          "type": "string"
+        },
+        "packageName": {
+          "description": "The package name of the application.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "PersonalUsagePolicies": {
+      "description": "Policies controlling personal usage on a company-owned device with a work profile.",
+      "properties": {
+        "accountTypesWithManagementDisabled": {
+          "description": "Account types that can't be managed by the user.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "cameraDisabled": {
+          "description": "Whether camera is disabled.",
+          "type": "boolean"
+        },
+        "maxDaysWithWorkOff": {
+          "description": "Controls how long the work profile can stay off.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "personalApplications": {
+          "description": "Policy applied to applications in the personal profile.",
+          "items": {
+            "$ref": "#/definitions/PersonalApplicationPolicy"
+          },
+          "type": "array"
+        },
+        "personalPlayStoreMode": {
+          "description": "Used together with personalApplications to control how apps in the personal profile are allowed or blocked.",
+          "enum": [
+            "PLAY_STORE_MODE_UNSPECIFIED",
+            "BLACKLIST",
+            "BLOCKLIST",
+            "ALLOWLIST"
+          ],
+          "type": "string"
+        },
+        "screenCaptureDisabled": {
+          "description": "Whether screen capture is disabled.",
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
     "Policy": {
-      "description": "A policy resources represents a group settings that govern the behavior of a managed device and the apps installed on it.",
+      "description": "A policy resource represents a group of settings that govern the behavior of a managed device and the apps installed on it.",
       "properties": {
         "accountTypesWithManagementDisabled": {
           "description": "Account types that can't be managed by the user.",
@@ -2269,6 +3211,10 @@
         "adjustVolumeDisabled": {
           "description": "Whether adjusting the master volume is disabled.",
           "type": "boolean"
+        },
+        "advancedSecurityOverrides": {
+          "$ref": "#/definitions/AdvancedSecurityOverrides",
+          "description": "Security policies set to the most secure values by default. To maintain the security posture of a device, we don't recommend overriding any of the default values."
         },
         "alwaysOnVpnPackage": {
           "$ref": "#/definitions/AlwaysOnVpnPackage",
@@ -2304,8 +3250,17 @@
           },
           "type": "array"
         },
+        "autoDateAndTimeZone": {
+          "description": "Whether auto date, time, and time zone are enabled on a company-owned device. If this is set, then autoTimeRequired is ignored.",
+          "enum": [
+            "AUTO_DATE_AND_TIME_ZONE_UNSPECIFIED",
+            "AUTO_DATE_AND_TIME_ZONE_USER_CHOICE",
+            "AUTO_DATE_AND_TIME_ZONE_ENFORCED"
+          ],
+          "type": "string"
+        },
         "autoTimeRequired": {
-          "description": "Whether auto time is required, which prevents the user from manually setting the date and time.",
+          "description": "Whether auto time is required, which prevents the user from manually setting the date and time. If autoDateAndTimeZone is set, this field is ignored.",
           "type": "boolean"
         },
         "blockApplicationsEnabled": {
@@ -2340,7 +3295,7 @@
           "type": "array"
         },
         "complianceRules": {
-          "description": "Rules declaring which mitigating actions to take when a device is not compliant with its policy. When the conditions for multiple rules are satisfied, all of the mitigating actions for the rules are taken. There is a maximum limit of 100 rules.",
+          "description": "Rules declaring which mitigating actions to take when a device is not compliant with its policy. When the conditions for multiple rules are satisfied, all of the mitigating actions for the rules are taken. There is a maximum limit of 100 rules. Use policy enforcement rules instead.",
           "items": {
             "$ref": "#/definitions/ComplianceRule"
           },
@@ -2427,6 +3382,9 @@
               "TRUST_AGENTS",
               "DISABLE_FINGERPRINT",
               "DISABLE_REMOTE_INPUT",
+              "FACE",
+              "IRIS",
+              "BIOMETRICS",
               "ALL_FEATURES"
             ],
             "type": "string"
@@ -2434,17 +3392,24 @@
           "type": "array"
         },
         "kioskCustomLauncherEnabled": {
-          "description": "Whether the kiosk custom launcher is enabled. This replaces the home screen with a launcher that locks down the device to the apps installed via the applications setting. The apps appear on a single page in alphabetical order. It is recommended to also use status_bar_disabled to block access to device settings.",
+          "description": "Whether the kiosk custom launcher is enabled. This replaces the home screen with a launcher that locks down the device to the apps installed via the applications setting. Apps appear on a single page in alphabetical order. Use kioskCustomization to further configure the kiosk device behavior.",
           "type": "boolean"
         },
+        "kioskCustomization": {
+          "$ref": "#/definitions/KioskCustomization",
+          "description": "Settings controlling the behavior of a device in kiosk mode. To enable kiosk mode, set kioskCustomLauncherEnabled to true or specify an app in the policy with installType KIOSK."
+        },
         "locationMode": {
-          "description": "The degree of location detection enabled. The user may change the value unless the user is otherwise blocked from accessing device settings.",
+          "description": "The degree of location detection enabled.",
           "enum": [
             "LOCATION_MODE_UNSPECIFIED",
             "HIGH_ACCURACY",
             "SENSORS_ONLY",
             "BATTERY_SAVING",
-            "OFF"
+            "OFF",
+            "LOCATION_USER_CHOICE",
+            "LOCATION_ENFORCED",
+            "LOCATION_DISABLED"
           ],
           "type": "string"
         },
@@ -2456,6 +3421,11 @@
           "description": "Maximum time in milliseconds for user activity until the device locks. A value of 0 means there is no restriction.",
           "format": "int64",
           "type": "string"
+        },
+        "minimumApiLevel": {
+          "description": "The minimum allowed Android API level.",
+          "format": "int32",
+          "type": "integer"
         },
         "mobileNetworksConfigDisabled": {
           "description": "Whether configuring mobile networks is disabled.",
@@ -2496,9 +3466,27 @@
           "description": "Whether outgoing calls are disabled.",
           "type": "boolean"
         },
+        "passwordPolicies": {
+          "description": "Password requirement policies. Different policies can be set for work profile or fully managed devices by setting the password_scope field in the policy.",
+          "items": {
+            "$ref": "#/definitions/PasswordRequirements"
+          },
+          "type": "array"
+        },
         "passwordRequirements": {
           "$ref": "#/definitions/PasswordRequirements",
-          "description": "Password requirements."
+          "description": "Password requirements. The field password_requirements.require_password_unlock must not be set. DEPRECATED - Use password_policies."
+        },
+        "permissionGrants": {
+          "description": "Explicit permission or group grants or denials for all apps. These values override the default_permission_policy.",
+          "items": {
+            "$ref": "#/definitions/PermissionGrant"
+          },
+          "type": "array"
+        },
+        "permittedAccessibilityServices": {
+          "$ref": "#/definitions/PackageNameList",
+          "description": "Specifies permitted accessibility services. If the field is not set, any accessibility service can be used. If the field is set, only the accessibility services in this list and the system's built-in accessibility service can be used. In particular, if the field is set to empty, only the system's built-in accessibility servicess can be used."
         },
         "permittedInputMethods": {
           "$ref": "#/definitions/PackageNameList",
@@ -2508,6 +3496,26 @@
           "description": "Default intent handler activities.",
           "items": {
             "$ref": "#/definitions/PersistentPreferredActivity"
+          },
+          "type": "array"
+        },
+        "personalUsagePolicies": {
+          "$ref": "#/definitions/PersonalUsagePolicies",
+          "description": "Policies managing personal usage on a company-owned device."
+        },
+        "playStoreMode": {
+          "description": "This mode controls which apps are available to the user in the Play Store and the behavior on the device when apps are removed from the policy.",
+          "enum": [
+            "PLAY_STORE_MODE_UNSPECIFIED",
+            "WHITELIST",
+            "BLACKLIST"
+          ],
+          "type": "string"
+        },
+        "policyEnforcementRules": {
+          "description": "Rules that define the behavior when a particular policy can not be applied on device",
+          "items": {
+            "$ref": "#/definitions/PolicyEnforcementRule"
           },
           "type": "array"
         },
@@ -2539,13 +3547,20 @@
           "description": "Whether changing the wallpaper is disabled.",
           "type": "boolean"
         },
+        "setupActions": {
+          "description": "Actions to take during the setup process.",
+          "items": {
+            "$ref": "#/definitions/SetupAction"
+          },
+          "type": "array"
+        },
         "shareLocationDisabled": {
           "description": "Whether location sharing is disabled.",
           "type": "boolean"
         },
         "shortSupportMessage": {
           "$ref": "#/definitions/UserFacingMessage",
-          "description": "A message displayed to the user in the settings screen wherever functionality has been disabled by the admin."
+          "description": "A message displayed to the user in the settings screen wherever functionality has been disabled by the admin. If the message is longer than 200 characters it may be truncated."
         },
         "skipFirstUseHintsEnabled": {
           "description": "Flag to skip hints on the first use. Enterprise admin can enable the system recommendation for apps to skip their user tutorial and other introductory hints on first start-up.",
@@ -2556,7 +3571,7 @@
           "type": "boolean"
         },
         "statusBarDisabled": {
-          "description": "Whether the status bar is disabled. This disables notifications, quick settings, and other screen overlays that allow escape from full-screen mode.",
+          "description": "Whether the status bar is disabled. This disables notifications, quick settings, and other screen overlays that allow escape from full-screen mode. DEPRECATED. To disable the status bar on a kiosk device, use InstallType KIOSK or kioskCustomLauncherEnabled.",
           "type": "boolean"
         },
         "statusReportingSettings": {
@@ -2597,7 +3612,7 @@
           "type": "boolean"
         },
         "usbMassStorageEnabled": {
-          "description": "Allows admins to toggle whether USB storge is enabled or disabled on user's devices.",
+          "description": "Whether USB storage is enabled. Deprecated.",
           "type": "boolean"
         },
         "version": {
@@ -2614,8 +3629,48 @@
           "type": "boolean"
         },
         "wifiConfigsLockdownEnabled": {
-          "description": "Whether Wi-Fi networks defined in Open Network Configuration are locked so they can't be edited by the user.",
+          "description": "DEPRECATED - Use wifi_config_disabled.",
           "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "PolicyEnforcementRule": {
+      "description": "A rule that defines the actions to take if a device or work profile is not compliant with the policy specified in settingName.",
+      "properties": {
+        "blockAction": {
+          "$ref": "#/definitions/BlockAction",
+          "description": "An action to block access to apps and data on a fully managed device or in a work profile. This action also triggers a user-facing notification with information (where possible) on how to correct the compliance issue. Note: wipeAction must also be specified."
+        },
+        "settingName": {
+          "description": "The top-level policy to enforce. For example, applications or passwordPolicies.",
+          "type": "string"
+        },
+        "wipeAction": {
+          "$ref": "#/definitions/WipeAction",
+          "description": "An action to reset a fully managed device or delete a work profile. Note: blockAction must also be specified."
+        }
+      },
+      "type": "object"
+    },
+    "PostureDetail": {
+      "description": "Additional details regarding the security posture of the device.",
+      "properties": {
+        "advice": {
+          "description": "Corresponding admin-facing advice to mitigate this security risk and improve the security posture of the device.",
+          "items": {
+            "$ref": "#/definitions/UserFacingMessage"
+          },
+          "type": "array"
+        },
+        "securityRisk": {
+          "description": "A specific security risk that negatively affects the security posture of the device.",
+          "enum": [
+            "SECURITY_RISK_UNSPECIFIED",
+            "UNKNOWN_OS",
+            "COMPROMISED_OS"
+          ],
+          "type": "string"
         }
       },
       "type": "object"
@@ -2653,16 +3708,16 @@
     "ProxyInfo": {
       "description": "Configuration info for an HTTP proxy. For a direct proxy, set the host, port, and excluded_hosts fields. For a PAC script proxy, set the pac_uri field.",
       "properties": {
+        "host": {
+          "description": "The host of the direct proxy.",
+          "type": "string"
+        },
         "excludedHosts": {
           "description": "For a direct proxy, the hosts for which the proxy is bypassed. The host names may contain wildcards such as *.example.com.",
           "items": {
             "type": "string"
           },
           "type": "array"
-        },
-        "host": {
-          "description": "The host of the direct proxy.",
-          "type": "string"
         },
         "pacUri": {
           "description": "The URI of the PAC script used to configure the proxy.",
@@ -2672,6 +3727,74 @@
           "description": "The port of the direct proxy.",
           "format": "int32",
           "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "SecurityPosture": {
+      "description": "The security posture of the device, as determined by the current device state and the policies applied.",
+      "properties": {
+        "devicePosture": {
+          "description": "Device's security posture value.",
+          "enum": [
+            "POSTURE_UNSPECIFIED",
+            "SECURE",
+            "AT_RISK",
+            "POTENTIALLY_COMPROMISED"
+          ],
+          "type": "string"
+        },
+        "postureDetails": {
+          "description": "Additional details regarding the security posture of the device.",
+          "items": {
+            "$ref": "#/definitions/PostureDetail"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "SetupAction": {
+      "description": "An action executed during setup.",
+      "properties": {
+        "description": {
+          "$ref": "#/definitions/UserFacingMessage",
+          "description": "Description of this action."
+        },
+        "launchApp": {
+          "$ref": "#/definitions/LaunchAppAction",
+          "description": "An action to launch an app."
+        },
+        "title": {
+          "$ref": "#/definitions/UserFacingMessage",
+          "description": "Title of this action."
+        }
+      },
+      "type": "object"
+    },
+    "SigninDetail": {
+      "description": "A resource containing sign in details for an enterprise.",
+      "properties": {
+        "allowPersonalUsage": {
+          "description": "Controls whether personal usage is allowed on a device provisioned with this enrollment token.For company-owned devices: Enabling personal usage allows the user to set up a work profile on the device. Disabling personal usage requires the user provision the device as a fully managed device.For personally-owned devices: Enabling personal usage allows the user to set up a work profile on the device. Disabling personal usage will prevent the device from provisioning. Personal usage cannot be disabled on personally-owned device.",
+          "enum": [
+            "ALLOW_PERSONAL_USAGE_UNSPECIFIED",
+            "PERSONAL_USAGE_ALLOWED",
+            "PERSONAL_USAGE_DISALLOWED"
+          ],
+          "type": "string"
+        },
+        "qrCode": {
+          "description": "A JSON string whose UTF-8 representation can be used to generate a QR code to enroll a device with this enrollment token. To enroll a device using NFC, the NFC record must contain a serialized java.util.Properties representation of the properties in the JSON. This is a read-only field generated by the server.",
+          "type": "string"
+        },
+        "signinEnrollmentToken": {
+          "description": "An enterprise wide enrollment token used to trigger custom sign-in flow. This is a read-only field generated by the server.",
+          "type": "string"
+        },
+        "signinUrl": {
+          "description": "Sign-in URL for authentication when device is provisioned with a sign-in enrollment token. The sign-in endpoint should finish authentication flow with a URL in the form of https://enterprise.google.com/android/enroll?et= for a successful login, or https://enterprise.google.com/android/enroll/invalid for a failed login.",
+          "type": "string"
         }
       },
       "type": "object"
@@ -2727,15 +3850,23 @@
           "description": "Kernel version, for example, 2.6.32.9-g103d848.",
           "type": "string"
         },
+        "primaryLanguageCode": {
+          "description": "An IETF BCP 47 language code for the primary locale on the device.",
+          "type": "string"
+        },
         "securityPatchLevel": {
           "description": "Security patch level, e.g. 2016-05-01.",
           "type": "string"
+        },
+        "systemUpdateInfo": {
+          "$ref": "#/definitions/SystemUpdateInfo",
+          "description": "Information about a potential pending system update."
         }
       },
       "type": "object"
     },
     "Status": {
-      "description": "The Status type defines a logical error model that is suitable for different programming environments, including REST APIs and RPC APIs. It is used by gRPC (https://github.com/grpc). The error model is designed to be:\nSimple to use and understand for most users\nFlexible enough to meet unexpected needsOverviewThe Status message contains three pieces of data: error code, error message, and error details. The error code should be an enum value of google.rpc.Code, but it may accept additional error codes if needed. The error message should be a developer-facing English message that helps developers understand and resolve the error. If a localized user-facing error message is needed, put the localized message in the error details or localize it in the client. The optional error details may contain arbitrary information about the error. There is a predefined set of error detail types in the package google.rpc that can be used for common error conditions.Language mappingThe Status message is the logical representation of the error model, but it is not necessarily the actual wire format. When the Status message is exposed in different client libraries and different wire protocols, it can be mapped differently. For example, it will likely be mapped to some exceptions in Java, but more likely mapped to some error codes in C.Other usesThe error model and the Status message can be used in a variety of environments, either with or without APIs, to provide a consistent developer experience across different environments.Example uses of this error model include:\nPartial errors. If a service needs to return partial errors to the client, it may embed the Status in the normal response to indicate the partial errors.\nWorkflow errors. A typical workflow has multiple steps. Each step may have a Status message for error reporting.\nBatch operations. If a client uses batch request and batch response, the Status message should be used directly inside batch response, one for each error sub-response.\nAsynchronous operations. If an API call embeds asynchronous operation results in its response, the status of those operations should be represented directly using the Status message.\nLogging. If some API errors are stored in logs, the message Status could be used directly after any stripping needed for security/privacy reasons.",
+      "description": "The Status type defines a logical error model that is suitable for different programming environments, including REST APIs and RPC APIs. It is used by gRPC (https://github.com/grpc). Each Status message contains three pieces of data: error code, error message, and error details.You can find out more about this error model and how to work with it in the API Design Guide (https://cloud.google.com/apis/design/errors).",
       "properties": {
         "code": {
           "description": "The status code, which should be an enum value of google.rpc.Code.",
@@ -2762,8 +3893,16 @@
     "StatusReportingSettings": {
       "description": "Settings controlling the behavior of status reports.",
       "properties": {
+        "applicationReportingSettings": {
+          "$ref": "#/definitions/ApplicationReportingSettings",
+          "description": "Application reporting settings. Only applicable if application_reports_enabled is true."
+        },
         "applicationReportsEnabled": {
           "description": "Whether app reports are enabled.",
+          "type": "boolean"
+        },
+        "commonCriteriaModeEnabled": {
+          "description": "Whether Common Criteria Mode reporting is enabled.",
           "type": "boolean"
         },
         "deviceSettingsEnabled": {
@@ -2771,15 +3910,15 @@
           "type": "boolean"
         },
         "displayInfoEnabled": {
-          "description": "Whether displays reporting is enabled.",
+          "description": "Whether displays reporting is enabled. Report data is not available for personally owned devices with work profiles.",
           "type": "boolean"
         },
         "hardwareStatusEnabled": {
-          "description": "Whether hardware status reporting is enabled.",
+          "description": "Whether hardware status reporting is enabled. Report data is not available for personally owned devices with work profiles.",
           "type": "boolean"
         },
         "memoryInfoEnabled": {
-          "description": "Whether memory info reporting is enabled.",
+          "description": "Whether memory reporting is enabled.",
           "type": "boolean"
         },
         "networkInfoEnabled": {
@@ -2787,11 +3926,15 @@
           "type": "boolean"
         },
         "powerManagementEventsEnabled": {
-          "description": "Whether power management event reporting is enabled.",
+          "description": "Whether power management event reporting is enabled. Report data is not available for personally owned devices with work profiles.",
           "type": "boolean"
         },
         "softwareInfoEnabled": {
           "description": "Whether software info reporting is enabled.",
+          "type": "boolean"
+        },
+        "systemPropertiesEnabled": {
+          "description": "Whether system properties reporting is enabled.",
           "type": "boolean"
         }
       },
@@ -2805,6 +3948,13 @@
           "format": "int32",
           "type": "integer"
         },
+        "freezePeriods": {
+          "description": "An annually repeating time period in which over-the-air (OTA) system updates are postponed to freeze the OS version running on a device. To prevent freezing the device indefinitely, each freeze period must be separated by at least 60 days.",
+          "items": {
+            "$ref": "#/definitions/FreezePeriod"
+          },
+          "type": "array"
+        },
         "startMinutes": {
           "description": "If the type is WINDOWED, the start of the maintenance window, measured as the number of minutes after midnight in the device's local time. This value must be between 0 and 1439, inclusive.",
           "format": "int32",
@@ -2817,6 +3967,28 @@
             "AUTOMATIC",
             "WINDOWED",
             "POSTPONE"
+          ],
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "SystemUpdateInfo": {
+      "description": "Information about a potential pending system update.",
+      "properties": {
+        "updateReceivedTime": {
+          "description": "The time when the update was first available. A zero value indicates that this field is not set. This field is set only if an update is available (that is, updateStatus is neither UPDATE_STATUS_UNKNOWN nor UP_TO_DATE).",
+          "format": "google-datetime",
+          "type": "string"
+        },
+        "updateStatus": {
+          "description": "The status of an update: whether an update exists and what type it is.",
+          "enum": [
+            "UPDATE_STATUS_UNKNOWN",
+            "UP_TO_DATE",
+            "UNKNOWN_UPDATE_AVAILABLE",
+            "SECURITY_UPDATE_AVAILABLE",
+            "OS_UPDATE_AVAILABLE"
           ],
           "type": "string"
         }
@@ -2837,6 +4009,16 @@
       },
       "type": "object"
     },
+    "User": {
+      "description": "A user belonging to an enterprise.",
+      "properties": {
+        "accountIdentifier": {
+          "description": "A unique identifier you create for this user, such as user342 or asset#44418. This field must be set when the user is created and can't be updated. This field must not contain personally identifiable information (PII). This identifier must be 1024 characters or less; otherwise, the update policy request will fail.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "UserFacingMessage": {
       "description": "Provides a user-facing message with locale info. The maximum message length is 4096 characters.",
       "properties": {
@@ -2848,8 +4030,58 @@
           "additionalProperties": {
             "type": "string"
           },
-          "description": "A map containing <locale, message> pairs, where locale is a well-formed BCP 47 language (https://www.w3.org/International/articles/language-tags/) code, such as en-US, es-ES, or fr.",
+          "description": "A map containing pairs, where locale is a well-formed BCP 47 language (https://www.w3.org/International/articles/language-tags/) code, such as en-US, es-ES, or fr.",
           "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "WebApp": {
+      "description": "A web app.",
+      "properties": {
+        "displayMode": {
+          "description": "The display mode of the web app.",
+          "enum": [
+            "DISPLAY_MODE_UNSPECIFIED",
+            "MINIMAL_UI",
+            "STANDALONE",
+            "FULL_SCREEN"
+          ],
+          "type": "string"
+        },
+        "icons": {
+          "description": "A list of icons for the web app. Must have at least one element.",
+          "items": {
+            "$ref": "#/definitions/WebAppIcon"
+          },
+          "type": "array"
+        },
+        "name": {
+          "description": "The name of the web app, which is generated by the server during creation in the form enterprises/{enterpriseId}/webApps/{packageName}.",
+          "type": "string"
+        },
+        "startUrl": {
+          "description": "The start URL, i.e. the URL that should load when the user opens the application.",
+          "type": "string"
+        },
+        "title": {
+          "description": "The title of the web app as displayed to the user (e.g., amongst a list of other applications, or as a label for an icon).",
+          "type": "string"
+        },
+        "versionCode": {
+          "description": "The current version of the app.Note that the version can automatically increase during the lifetime of the web app, while Google does internal housekeeping to keep the web app up-to-date.",
+          "format": "int64",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "WebAppIcon": {
+      "description": "An icon for a web app. Supported formats are: png, jpg and webp.",
+      "properties": {
+        "imageData": {
+          "description": "The actual bytes of the image in a base64url encoded string (c.f. RFC4648, section 5 \"Base 64 Encoding with URL and Filename Safe Alphabet\"). - The image type can be png or jpg. - The image should ideally be square. - The image should ideally have a size of 512x512. ",
+          "type": "string"
         }
       },
       "type": "object"
@@ -2857,6 +4089,21 @@
     "WebToken": {
       "description": "A web token used to access the managed Google Play iframe.",
       "properties": {
+        "enabledFeatures": {
+          "description": "The features to enable. Use this if you want to control exactly which feature(s) will be activated; leave empty to allow all features.Restrictions / things to note: - If no features are listed here, all features are enabled — this is the default behavior where you give access to all features to your admins. - This must not contain any FEATURE_UNSPECIFIED values. - Repeated values are ignored ",
+          "items": {
+            "enum": [
+              "FEATURE_UNSPECIFIED",
+              "PLAY_SEARCH",
+              "PRIVATE_APPS",
+              "WEB_APPS",
+              "STORE_BUILDER",
+              "MANAGED_CONFIGURATIONS"
+            ],
+            "type": "string"
+          },
+          "type": "array"
+        },
         "name": {
           "description": "The name of the web token, which is generated by the server during creation in the form enterprises/{enterpriseId}/webTokens/{webTokenId}.",
           "type": "string"
@@ -2866,7 +4113,7 @@
           "type": "string"
         },
         "permissions": {
-          "description": "Permissions available to an admin in the embedded UI. An admin must have all of these permissions in order to view the UI.",
+          "description": "Permissions available to an admin in the embedded UI. An admin must have all of these permissions in order to view the UI. This field is deprecated.",
           "items": {
             "enum": [
               "WEB_TOKEN_PERMISSION_UNSPECIFIED",
@@ -2882,6 +4129,132 @@
         }
       },
       "type": "object"
+    },
+    "WipeAction": {
+      "description": "An action to reset a fully managed device or delete a work profile. Note: blockAction must also be specified.",
+      "properties": {
+        "preserveFrp": {
+          "description": "Whether the factory-reset protection data is preserved on the device. This setting doesn’t apply to work profiles.",
+          "type": "boolean"
+        },
+        "wipeAfterDays": {
+          "description": "Number of days the policy is non-compliant before the device or work profile is wiped. wipeAfterDays must be greater than blockAfterDays.",
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "securityDefinitions": {
+    "Oauth2": {
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+      "description": "Oauth 2.0 implicit authentication",
+      "flow": "implicit",
+      "scopes": {
+        "https://www.googleapis.com/auth/androidmanagement": "Manage Android devices and apps for your customers"
+      },
+      "type": "oauth2"
+    },
+    "Oauth2c": {
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+      "description": "Oauth 2.0 authorizationCode authentication",
+      "flow": "accessCode",
+      "scopes": {
+        "https://www.googleapis.com/auth/androidmanagement": "Manage Android devices and apps for your customers"
+      },
+      "tokenUrl": "https://accounts.google.com/o/oauth2/token",
+      "type": "oauth2"
+    }
+  },
+  "tags": [
+    {
+      "name": "enterprises"
+    },
+    {
+      "name": "signupUrls"
+    }
+  ],
+  "externalDocs": {
+    "url": "https://developers.google.com/android/management"
+  },
+  "x-components": {
+    "parameters": {
+      "_.xgafv": {
+        "description": "V1 error format.",
+        "enum": [
+          "1",
+          "2"
+        ],
+        "in": "query",
+        "name": "$.xgafv",
+        "type": "string"
+      },
+      "access_token": {
+        "description": "OAuth access token.",
+        "in": "query",
+        "name": "access_token",
+        "type": "string"
+      },
+      "alt": {
+        "description": "Data format for response.",
+        "enum": [
+          "json",
+          "media",
+          "proto"
+        ],
+        "in": "query",
+        "name": "alt",
+        "type": "string"
+      },
+      "callback": {
+        "description": "JSONP",
+        "in": "query",
+        "name": "callback",
+        "type": "string"
+      },
+      "fields": {
+        "description": "Selector specifying which fields to include in a partial response.",
+        "in": "query",
+        "name": "fields",
+        "type": "string"
+      },
+      "key": {
+        "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+        "in": "query",
+        "name": "key",
+        "type": "string"
+      },
+      "oauth_token": {
+        "description": "OAuth 2.0 token for the current user.",
+        "in": "query",
+        "name": "oauth_token",
+        "type": "string"
+      },
+      "prettyPrint": {
+        "description": "Returns response with indentations and line breaks.",
+        "in": "query",
+        "name": "prettyPrint",
+        "type": "boolean"
+      },
+      "quotaUser": {
+        "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+        "in": "query",
+        "name": "quotaUser",
+        "type": "string"
+      },
+      "uploadType": {
+        "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+        "in": "query",
+        "name": "uploadType",
+        "type": "string"
+      },
+      "upload_protocol": {
+        "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+        "in": "query",
+        "name": "upload_protocol",
+        "type": "string"
+      }
     }
   }
 }

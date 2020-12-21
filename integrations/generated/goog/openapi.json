@@ -1,0 +1,609 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "contact": {
+      "email": "support@goog.io",
+      "name": "API Support",
+      "url": "https://goog.io"
+    },
+    "description": "# Intoduction\n\nThis is the OpenAPI V3 documentation for https://api.goog.io\n\nAn API to perform Google Searches. Extremely fast and accurate. Zero proxies. Clean USA IPs.\n\nSimple to use API, but advance enough to support special parameters such as languages, country and geographic locality.\n\nGoogio is the ultimate search API for Google Searches, Google News, and Google SERP.\n# Docs\n\n> An Unofficial Google Search API\n\nAn API to perform Google Searches. Extremely fast and accurate. Zero proxies. Clean USA IPs.\n\nSimple to use API, but advance enough to support special parameters such as languages, country and geographic locality.\n\n# Example Code\n\n Check out [Github repo](https://github.com/googio/googio_examples) for example code for calling the API with various languages.\n\n# Authentication\n\n### API Key\n\nOptional API key for authenticated access. Note that we use \"API key\" interchangably in these docs.\n\nAuthenticated requests must include an `apikey` header containing your subscription's API Key.\n\n| Security Schema Type | Header Name | Example Token |\n| --- | --- | --- |\n| API Key | `apikey` | c5bfb018-ab46-4e61-9271-4ec7e9c04a6e |\n\nIn the following example, `YOU_APIKEY` represents the auth token for your account.\n\n```\ncurl --header 'apikey: YOU_APIKEY'\n```\n\nYou can view and manage your API keys in the [Dashboard](/dashboard).\n\nBe sure to keep your API keys secure. Do not share them in publicly accessible areas such as GitHub, client-side code, and so forth.\n\nAlso note that all API requests must be made over **HTTPS**. Calls made over plain HTTP will attempt to be automatically upgraded to HTTPS, though this use cases is discouraged.\n\n\n## Rate Limits\n\nAPI requests may be rate limited depending on your subscription plan and traffic patterns. The following response headers will be present in these cases:\n\n| Header | Description |\n| ------ | ----------- |\n| `X-RateLimit-Limit` | The maximum number of requests that the consumer is permitted to make. |\n| `X-RateLimit-Remaining` | The number of requests remaining in the current rate limit window. |\n| `X-RateLimit-Reset` | The time at which the current rate limit window resets in UTC epoch seconds. |\n\nWhen the rate limit is **exceeded**, an error is returned with the status \"**429 Too Many Requests**\":\n\n```json\n{\n  \"error\": {\n    \"code\": \"too_many_requests\",\n    \"message\": \"Rate limit exceeded\"\n  }\n}\n```\n\n\n\n## Errors\n\nThis API uses conventional HTTP response codes to indicate the success or failure of API requests. In general: Codes in the `2xx` range indicate success. Codes in the `4xx` range indicate an error that failed given the information provided (e.g., a required parameter was omitted, endpoint not found, etc.). Codes in the `5xx` range indicate an error with our API (these are rare).\n\n\n",
+    "title": "goog.io | Unoffical Google Search API",
+    "version": "0.1.0",
+    "x-apisguru-categories": [
+      "search"
+    ],
+    "x-origin": [
+      {
+        "format": "openapi",
+        "url": "https://goog.io/openapi.json",
+        "version": "3.0"
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "goog.io",
+    "x-datafire": {
+      "name": "goog",
+      "type": "openapi"
+    }
+  },
+  "host": "api.goog.io",
+  "basePath": "/",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "schema": {
+              "properties": {
+                "status": {
+                  "type": "boolean"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "description": "It \"status\" == true then API is up, else the API is down",
+        "operationId": "Get the status of the API service",
+        "summary": "Status",
+        "x-code-samples": [
+          {
+            "label": "cURL",
+            "lang": "bash",
+            "source": "curl \\\n  'https://api.goog.io/'"
+          },
+          {
+            "label": "Node.js",
+            "lang": "javascript",
+            "source": "const request = require('request')\nconst fs = require('fs')\n\nconst options = {\n  url: 'https://api.goog.io/',\n  qs: ,\n  json: true\n}\n\nrequest(options, (error, response, body) => {\n  if (error) throw new Error(error)\n\n  console.log(body)\n})"
+          }
+        ]
+      }
+    },
+    "/v1/crawl/{query}": {
+      "parameters": [
+        {
+          "description": "A url encoded query string, for reference checkout https://moz.com/blog/the-ultimate-guide-to-the-google-search-parameters",
+          "in": "path",
+          "name": "query",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "examples": {
+              "regularKeywordSearch": {
+                "value": "q=google+search+api"
+              }
+            },
+            "in": "path",
+            "name": "query",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "schema": {
+              "properties": {
+                "answer": {
+                  "type": "string"
+                },
+                "results": {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                "total": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "422": {
+            "description": "Validation Error",
+            "schema": {
+              "$ref": "#/definitions/HTTPValidationError"
+            }
+          },
+          "429": {
+            "description": "Rate limit exceeded"
+          }
+        },
+        "description": "Perform Google Search\n\n Parameters\n----------\nquery : the string query to perform search. supports advance queries. Check out https://moz.com/blog/the-ultimate-guide-to-the-google-search-parameters guide for formating\n\nReturns\n-------\njson: a the html source of the results page",
+        "operationId": "Crawl",
+        "summary": "Crawl",
+        "x-code-samples": [
+          {
+            "label": "cURL",
+            "lang": "bash",
+            "source": "curl \\\n  'https://api.goog.io/v1/crawl/q=united+states'"
+          },
+          {
+            "label": "Node.js",
+            "lang": "javascript",
+            "source": "const request = require('request')\nconst fs = require('fs')\n\nconst options = {\n  url: 'https://api.goog.io/v1/crawl/q=united+states',\n  qs: ,\n  json: true\n}\n\nrequest(options, (error, response, body) => {\n  if (error) throw new Error(error)\n\n  console.log(body)\n})"
+          }
+        ]
+      }
+    },
+    "/v1/images/{query}": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "query",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "schema": {
+              "properties": {
+                "answers": {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                "image_results": {
+                  "items": {
+                    "properties": {
+                      "image": {
+                        "properties": {
+                          "alt": {
+                            "type": "string"
+                          },
+                          "src": {
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "link": {
+                        "properties": {
+                          "domain": {
+                            "type": "string"
+                          },
+                          "href": {
+                            "type": "string"
+                          },
+                          "title": {
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "results": {
+                  "items": {
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "total": {
+                  "type": "integer"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "schema": {
+              "$ref": "#/definitions/HTTPValidationError"
+            }
+          }
+        },
+        "description": "Perform Google Image Search\n\nParameters\n----------\nquery : the string query to perform search. supports advance queries.\n\nReturns\n-------\njson: a list of results with the link, description, and title for each result",
+        "operationId": "Images",
+        "summary": "Images"
+      }
+    },
+    "/v1/news/{query}": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "query",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "properties": {
+                "entries": {
+                  "items": {
+                    "properties": {
+                      "guidislink": {
+                        "type": "string"
+                      },
+                      "id": {
+                        "type": "string"
+                      },
+                      "link": {
+                        "type": "string"
+                      },
+                      "links": {
+                        "type": "string"
+                      },
+                      "published": {
+                        "type": "string"
+                      },
+                      "published_parsed": {
+                        "type": "string"
+                      },
+                      "source": {
+                        "type": "string"
+                      },
+                      "sub_articles": {
+                        "type": "string"
+                      },
+                      "summary": {
+                        "type": "string"
+                      },
+                      "summary_detail": {
+                        "type": "string"
+                      },
+                      "title": {
+                        "type": "string"
+                      },
+                      "title_detail": {
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "feed": {
+                  "properties": {
+                    "generator": {
+                      "type": "string"
+                    },
+                    "generator_detail": {
+                      "type": "string"
+                    },
+                    "language": {
+                      "type": "string"
+                    },
+                    "link": {
+                      "type": "string"
+                    },
+                    "links": {
+                      "type": "string"
+                    },
+                    "publisher": {
+                      "type": "string"
+                    },
+                    "publisher_detail": {
+                      "type": "string"
+                    },
+                    "rights": {
+                      "type": "string"
+                    },
+                    "rights_detail": {
+                      "type": "string"
+                    },
+                    "subtitle": {
+                      "type": "string"
+                    },
+                    "subtitle_detail": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "updated": {
+                      "type": "string"
+                    },
+                    "updated_parsed": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "422": {
+            "description": "Unprocessable Entity (WebDAV)",
+            "schema": {
+              "$ref": "#/definitions/HTTPValidationError"
+            }
+          },
+          "429": {
+            "description": "Rate limit exceeded"
+          }
+        },
+        "tags": [],
+        "description": "Perform Google News Search\n\n Parameters\n----------\nquery : the string query to perform search for Google news. A simple query for `president` will be `q=president`. An example of multiple keyword would be `q=news+about+presdient+trump`. News can also be filtered by country and language. For `US` news and in English the query will be `q=trump&ceid=US:en` for news in Great Britian the query will be `q=trump&ceid=GB:en`\n\nReturns\n-------\njson: {\"feed\": { \"title\" : \"trump\" ...} , \"entites\": [ {\"title\" : \"Trump doubles down on divisive messaging in speech to honor Independence Day - CNN\", \"links\": []} ...]}",
+        "operationId": "News",
+        "summary": "News",
+        "x-code-samples": [
+          {
+            "label": "cURL",
+            "lang": "bash",
+            "source": "curl \\\n  'https://api.goog.io/v1/news/q=united+states+president'"
+          },
+          {
+            "label": "Node.js",
+            "lang": "javascript",
+            "source": "const request = require('request')\nconst fs = require('fs')\n\nconst options = {\n  url: 'https://api.goog.io/v1/news/q=united+states+president',\n  qs: ,\n  json: true\n}\n\nrequest(options, (error, response, body) => {\n  if (error) throw new Error(error)\n\n  console.log(body)\n})"
+          }
+        ]
+      }
+    },
+    "/v1/search/{query}": {
+      "parameters": [
+        {
+          "description": "A url encoded query string, for reference checkout https://moz.com/blog/the-ultimate-guide-to-the-google-search-parameters",
+          "in": "path",
+          "name": "query",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "examples": {
+              "regularKeywordSearch": {
+                "value": "q=google+search+api"
+              },
+              "regularKeywordSearchWith100Results": {
+                "value": "q=google+search+api&num=100"
+              }
+            },
+            "in": "path",
+            "name": "query",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "schema": {
+              "description": "results",
+              "properties": {
+                "answer": {
+                  "type": "string"
+                },
+                "results": {
+                  "items": {
+                    "properties": {
+                      "description": {
+                        "type": "string"
+                      },
+                      "link": {
+                        "type": "string"
+                      },
+                      "title": {
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "total": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "422": {
+            "description": "Validation Error",
+            "schema": {
+              "$ref": "#/definitions/HTTPValidationError"
+            }
+          },
+          "429": {
+            "description": "Rate limit exceeded"
+          }
+        },
+        "description": "Perform Google Search\n\nParameters\n----------\nquery : the string query to perform search. supports advance queries. Check out https://moz.com/blog/the-ultimate-guide-to-the-google-search-parameters guide for formating\n\nReturns\n-------\njson: a list of results with the link, description, and title for each result",
+        "operationId": "Search",
+        "summary": "Search",
+        "x-code-samples": [
+          {
+            "label": "cURL",
+            "lang": "bash",
+            "source": "curl \\\n  'https://api.goog.io/v1/search/q=united+states'"
+          },
+          {
+            "label": "Node.js",
+            "lang": "javascript",
+            "source": "const request = require('request')\nconst fs = require('fs')\n\nconst options = {\n  url: 'https://api.goog.io/v1/search/q=united+states',\n  qs: ,\n  json: true\n}\n\nrequest(options, (error, response, body) => {\n  if (error) throw new Error(error)\n\n  console.log(body)\n})"
+          }
+        ]
+      }
+    },
+    "/v1/serp/": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SerpData"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "schema": {
+              "properties": {
+                "position": {
+                  "type": "integer"
+                },
+                "query": {
+                  "type": "string"
+                },
+                "searched_results": {
+                  "type": "integer"
+                },
+                "website": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "422": {
+            "description": "Validation Error",
+            "schema": {
+              "$ref": "#/definitions/HTTPValidationError"
+            }
+          },
+          "429": {
+            "description": "Rate limit exceeded"
+          }
+        },
+        "description": "Perform Google Search and search for website in Search Engine Results Pages (SERP)\n\nParameters\n----------\nquery : the string query to perform search. supports advance queries. Check out https://moz.com/blog/the-ultimate-guide-to-the-google-search-parameters guide for formatting, it is recommended to set the query `&num=100`\n\nReturns\n-------\njson: a list of results with the query, website, searched_results, and position. json[\"position\"] will be set to -1 if website is not found in results",
+        "operationId": "serp",
+        "summary": "SERP"
+      }
+    }
+  },
+  "definitions": {
+    "HTTPValidationError": {
+      "properties": {
+        "detail": {
+          "items": {
+            "$ref": "#/definitions/ValidationError"
+          },
+          "title": "Detail",
+          "type": "array"
+        }
+      },
+      "title": "HTTPValidationError",
+      "type": "object"
+    },
+    "SerpData": {
+      "properties": {
+        "query": {
+          "title": "Query",
+          "type": "string"
+        },
+        "website": {
+          "title": "Website",
+          "type": "string"
+        }
+      },
+      "required": [
+        "query",
+        "website"
+      ],
+      "title": "SerpData",
+      "type": "object"
+    },
+    "ValidationError": {
+      "properties": {
+        "loc": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Location",
+          "type": "array"
+        },
+        "msg": {
+          "title": "Message",
+          "type": "string"
+        },
+        "type": {
+          "title": "Error Type",
+          "type": "string"
+        }
+      },
+      "required": [
+        "loc",
+        "msg",
+        "type"
+      ],
+      "title": "ValidationError",
+      "type": "object"
+    }
+  },
+  "securityDefinitions": {
+    "apikey": {
+      "description": "You can view and manage your API keys in the [Dashboard](https://goog.io/dashboard)",
+      "in": "header",
+      "name": "apikey",
+      "type": "apiKey"
+    }
+  },
+  "security": [
+    {
+      "apikey": []
+    }
+  ],
+  "tags": [
+    {
+      "name": "Endpoints",
+      "x-displayName": "Endpoints"
+    }
+  ],
+  "x-components": {}
+}

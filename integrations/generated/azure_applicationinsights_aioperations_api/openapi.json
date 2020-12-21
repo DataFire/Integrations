@@ -17,7 +17,7 @@
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/applicationinsights/resource-manager/microsoft.insights/stable/2015-05-01/aiOperations_API.json",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/applicationinsights/resource-manager/Microsoft.Insights/stable/2015-05-01/aiOperations_API.json",
         "version": "2.0"
       }
     ],
@@ -57,23 +57,19 @@
       ]
     }
   ],
-  "parameters": {
-    "ApiVersionParameter": {
-      "description": "Client Api Version.",
-      "in": "query",
-      "name": "api-version",
-      "required": true,
-      "type": "string"
-    }
-  },
   "paths": {
-    "/providers/microsoft.insights/operations": {
+    "/providers/Microsoft.Insights/operations": {
       "get": {
         "description": "Lists all of the available insights REST API operations.",
         "operationId": "Operations_List",
         "parameters": [
           {
-            "$ref": "#/parameters/ApiVersionParameter"
+            "description": "The API version to use for this operation.",
+            "in": "query",
+            "minLength": 1,
+            "name": "api-version",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -101,7 +97,7 @@
   },
   "definitions": {
     "ErrorResponse": {
-      "description": "Error reponse indicates Insights service is not able to process the incoming request. The reason is provided in the error message.",
+      "description": "Error response indicates Insights service is not able to process the incoming request. The reason is provided in the error message.",
       "properties": {
         "code": {
           "description": "Error code.",

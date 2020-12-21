@@ -1,0 +1,1283 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "contact": {
+      "email": "mike.ralphson@gmail.com",
+      "name": "Mike Ralphson",
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
+    },
+    "description": " Elastic Inference public APIs. ",
+    "license": {
+      "name": "Apache 2.0 License",
+      "url": "http://www.apache.org/licenses/"
+    },
+    "termsOfService": "https://aws.amazon.com/service-terms/",
+    "title": "Amazon Elastic  Inference",
+    "version": "2017-07-25",
+    "x-apiClientRegistration": {
+      "url": "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"
+    },
+    "x-apisguru-categories": [
+      "cloud"
+    ],
+    "x-logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"
+    },
+    "x-origin": [
+      {
+        "contentType": "application/json",
+        "converter": {
+          "url": "https://github.com/mermade/aws2openapi",
+          "version": "1.0.0"
+        },
+        "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/elastic-inference-2017-07-25.normal.json",
+        "x-apisguru-driver": "external"
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "amazonaws.com",
+    "x-release": "v4",
+    "x-serviceName": "elastic-inference",
+    "x-datafire": {
+      "name": "amazonaws_elastic_inference",
+      "type": "openapi"
+    }
+  },
+  "host": "api.elastic-inference.us-east-1.amazonaws.com",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/describe-accelerator-offerings": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "acceleratorTypes": {
+                  "description": " The list of accelerator types to describe. ",
+                  "items": {
+                    "$ref": "#/definitions/AcceleratorTypeName"
+                  },
+                  "maxItems": 100,
+                  "minItems": 0,
+                  "type": "array"
+                },
+                "locationType": {
+                  "description": " The location type that you want to describe accelerator type offerings for. It can assume the following values: region: will return the accelerator type offering at the regional level. availability-zone: will return the accelerator type offering at the availability zone level. availability-zone-id: will return the accelerator type offering at the availability zone level returning the availability zone id. ",
+                  "enum": [
+                    "region",
+                    "availability-zone",
+                    "availability-zone-id"
+                  ],
+                  "maxLength": 256,
+                  "minLength": 1,
+                  "type": "string"
+                }
+              },
+              "required": [
+                "locationType"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeAcceleratorOfferingsResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": " Describes the locations in which a given accelerator type or set of types is present in a given region. ",
+        "operationId": "DescribeAcceleratorOfferings"
+      }
+    },
+    "/describe-accelerator-types": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeAcceleratorTypesResponse"
+            }
+          },
+          "480": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": " Describes the accelerator types available in a given region, as well as their characteristics, such as memory and throughput. ",
+        "operationId": "DescribeAcceleratorTypes"
+      }
+    },
+    "/describe-accelerators": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "maxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "acceleratorIds": {
+                  "description": " The IDs of the accelerators to describe. ",
+                  "items": {
+                    "$ref": "#/definitions/AcceleratorId"
+                  },
+                  "maxItems": 1000,
+                  "minItems": 0,
+                  "type": "array"
+                },
+                "filters": {
+                  "description": " One or more filters. Filter names and values are case-sensitive. Valid filter names are: accelerator-types: can provide a list of accelerator type names to filter for. instance-id: can provide a list of EC2 instance ids to filter for. ",
+                  "items": {
+                    "$ref": "#/definitions/Filter"
+                  },
+                  "maxItems": 100,
+                  "minItems": 0,
+                  "type": "array"
+                },
+                "maxResults": {
+                  "description": " The total number of items to return in the command's output. If the total number of items available is more than the value specified, a NextToken is provided in the command's output. To resume pagination, provide the NextToken value in the starting-token argument of a subsequent command. Do not use the NextToken response element directly outside of the AWS CLI. ",
+                  "maximum": 100,
+                  "minimum": 0,
+                  "type": "integer"
+                },
+                "nextToken": {
+                  "description": " A token to specify where to start paginating. This is the NextToken from a previously truncated response. ",
+                  "maxLength": 2048,
+                  "minLength": 1,
+                  "pattern": "^[A-Za-z0-9+/]+={0,2}$",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeAcceleratorsResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": " Describes information over a provided set of accelerators belonging to an account. ",
+        "operationId": "DescribeAccelerators"
+      }
+    },
+    "/tags/{resourceArn}": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": " The ARN of the Elastic Inference Accelerator to list the tags for. ",
+            "in": "path",
+            "maxLength": 1011,
+            "minLength": 1,
+            "name": "resourceArn",
+            "pattern": "^arn:aws\\S*:elastic-inference:\\S+:\\d{12}:elastic-inference-accelerator/eia-[0-9a-f]+$",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListTagsForResourceResult"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": " Returns all tags of an Elastic Inference Accelerator. ",
+        "operationId": "ListTagsForResource"
+      },
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": " The ARN of the Elastic Inference Accelerator to tag. ",
+            "in": "path",
+            "maxLength": 1011,
+            "minLength": 1,
+            "name": "resourceArn",
+            "pattern": "^arn:aws\\S*:elastic-inference:\\S+:\\d{12}:elastic-inference-accelerator/eia-[0-9a-f]+$",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "tags": {
+                  "additionalProperties": {
+                    "$ref": "#/definitions/TagValue"
+                  },
+                  "description": " The tags to add to the Elastic Inference Accelerator. ",
+                  "maxProperties": 50,
+                  "minProperties": 1,
+                  "type": "object"
+                }
+              },
+              "required": [
+                "tags"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/TagResourceResult"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": " Adds the specified tags to an Elastic Inference Accelerator. ",
+        "operationId": "TagResource"
+      }
+    },
+    "/tags/{resourceArn}#tagKeys": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "delete": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": " The ARN of the Elastic Inference Accelerator to untag. ",
+            "in": "path",
+            "maxLength": 1011,
+            "minLength": 1,
+            "name": "resourceArn",
+            "pattern": "^arn:aws\\S*:elastic-inference:\\S+:\\d{12}:elastic-inference-accelerator/eia-[0-9a-f]+$",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "collectionFormat": "multi",
+            "description": " The list of tags to remove from the Elastic Inference Accelerator. ",
+            "in": "query",
+            "items": {
+              "$ref": "#/definitions/TagKey"
+            },
+            "maxItems": 50,
+            "minItems": 1,
+            "name": "tagKeys",
+            "required": true,
+            "type": "array"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UntagResourceResult"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": " Removes the specified tags from an Elastic Inference Accelerator. ",
+        "operationId": "UntagResource"
+      }
+    }
+  },
+  "definitions": {
+    "AcceleratorHealthStatus": {
+      "maxLength": 256,
+      "minLength": 1,
+      "type": "string"
+    },
+    "AcceleratorId": {
+      "maxLength": 256,
+      "minLength": 1,
+      "pattern": "^eia-[0-9a-f]+$",
+      "type": "string"
+    },
+    "AcceleratorIdList": {
+      "items": {
+        "$ref": "#/definitions/AcceleratorId"
+      },
+      "maxItems": 1000,
+      "minItems": 0,
+      "type": "array"
+    },
+    "AcceleratorType": {
+      "description": " The details of an Elastic Inference Accelerator type. ",
+      "properties": {
+        "acceleratorTypeName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AcceleratorTypeName"
+            },
+            {
+              "description": " The name of the Elastic Inference Accelerator type. "
+            }
+          ]
+        },
+        "memoryInfo": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MemoryInfo"
+            },
+            {
+              "description": " The memory information of the Elastic Inference Accelerator type. "
+            }
+          ]
+        },
+        "throughputInfo": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ThroughputInfoList"
+            },
+            {
+              "description": " The throughput information of the Elastic Inference Accelerator type. "
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "AcceleratorTypeList": {
+      "items": {
+        "$ref": "#/definitions/AcceleratorType"
+      },
+      "maxItems": 100,
+      "minItems": 0,
+      "type": "array"
+    },
+    "AcceleratorTypeName": {
+      "maxLength": 256,
+      "minLength": 1,
+      "pattern": "^\\S+$",
+      "type": "string"
+    },
+    "AcceleratorTypeNameList": {
+      "items": {
+        "$ref": "#/definitions/AcceleratorTypeName"
+      },
+      "maxItems": 100,
+      "minItems": 0,
+      "type": "array"
+    },
+    "AcceleratorTypeOffering": {
+      "description": " The offering for an Elastic Inference Accelerator type. ",
+      "properties": {
+        "acceleratorType": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AcceleratorTypeName"
+            },
+            {
+              "description": " The name of the Elastic Inference Accelerator type. "
+            }
+          ]
+        },
+        "location": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Location"
+            },
+            {
+              "description": " The location for the offering. It will return either the region, availability zone or availability zone id for the offering depending on the locationType value. "
+            }
+          ]
+        },
+        "locationType": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/LocationType"
+            },
+            {
+              "description": " The location type for the offering. It can assume the following values: region: defines that the offering is at the regional level. availability-zone: defines that the offering is at the availability zone level. availability-zone-id: defines that the offering is at the availability zone level, defined by the availability zone id. "
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "AcceleratorTypeOfferingList": {
+      "items": {
+        "$ref": "#/definitions/AcceleratorTypeOffering"
+      },
+      "maxItems": 100,
+      "minItems": 0,
+      "type": "array"
+    },
+    "AvailabilityZone": {
+      "maxLength": 256,
+      "minLength": 1,
+      "type": "string"
+    },
+    "BadRequestException": {},
+    "DescribeAcceleratorOfferingsRequest": {
+      "properties": {
+        "acceleratorTypes": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AcceleratorTypeNameList"
+            },
+            {
+              "description": " The list of accelerator types to describe. "
+            }
+          ]
+        },
+        "locationType": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/LocationType"
+            },
+            {
+              "description": " The location type that you want to describe accelerator type offerings for. It can assume the following values: region: will return the accelerator type offering at the regional level. availability-zone: will return the accelerator type offering at the availability zone level. availability-zone-id: will return the accelerator type offering at the availability zone level returning the availability zone id. "
+            }
+          ]
+        }
+      },
+      "required": [
+        "locationType"
+      ],
+      "title": "DescribeAcceleratorOfferingsRequest",
+      "type": "object"
+    },
+    "DescribeAcceleratorOfferingsResponse": {
+      "properties": {
+        "acceleratorTypeOfferings": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AcceleratorTypeOfferingList"
+            },
+            {
+              "description": " The list of accelerator type offerings for a specific location. "
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DescribeAcceleratorTypesRequest": {
+      "properties": {},
+      "title": "DescribeAcceleratorTypesRequest",
+      "type": "object"
+    },
+    "DescribeAcceleratorTypesResponse": {
+      "properties": {
+        "acceleratorTypes": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AcceleratorTypeList"
+            },
+            {
+              "description": " The available accelerator types. "
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DescribeAcceleratorsRequest": {
+      "properties": {
+        "acceleratorIds": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AcceleratorIdList"
+            },
+            {
+              "description": " The IDs of the accelerators to describe. "
+            }
+          ]
+        },
+        "filters": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/FilterList"
+            },
+            {
+              "description": " One or more filters. Filter names and values are case-sensitive. Valid filter names are: accelerator-types: can provide a list of accelerator type names to filter for. instance-id: can provide a list of EC2 instance ids to filter for. "
+            }
+          ]
+        },
+        "maxResults": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MaxResults"
+            },
+            {
+              "description": " The total number of items to return in the command's output. If the total number of items available is more than the value specified, a NextToken is provided in the command's output. To resume pagination, provide the NextToken value in the starting-token argument of a subsequent command. Do not use the NextToken response element directly outside of the AWS CLI. "
+            }
+          ]
+        },
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NextToken"
+            },
+            {
+              "description": " A token to specify where to start paginating. This is the NextToken from a previously truncated response. "
+            }
+          ]
+        }
+      },
+      "title": "DescribeAcceleratorsRequest",
+      "type": "object"
+    },
+    "DescribeAcceleratorsResponse": {
+      "properties": {
+        "acceleratorSet": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ElasticInferenceAcceleratorSet"
+            },
+            {
+              "description": " The details of the Elastic Inference Accelerators. "
+            }
+          ]
+        },
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NextToken"
+            },
+            {
+              "description": " A token to specify where to start paginating. This is the NextToken from a previously truncated response. "
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ElasticInferenceAccelerator": {
+      "description": " The details of an Elastic Inference Accelerator. ",
+      "properties": {
+        "acceleratorHealth": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ElasticInferenceAcceleratorHealth"
+            },
+            {
+              "description": " The health of the Elastic Inference Accelerator. "
+            }
+          ]
+        },
+        "acceleratorId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AcceleratorId"
+            },
+            {
+              "description": " The ID of the Elastic Inference Accelerator. "
+            }
+          ]
+        },
+        "acceleratorType": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AcceleratorTypeName"
+            },
+            {
+              "description": " The type of the Elastic Inference Accelerator. "
+            }
+          ]
+        },
+        "attachedResource": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceArn"
+            },
+            {
+              "description": " The ARN of the resource that the Elastic Inference Accelerator is attached to. "
+            }
+          ]
+        },
+        "availabilityZone": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AvailabilityZone"
+            },
+            {
+              "description": " The availability zone where the Elastic Inference Accelerator is present. "
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ElasticInferenceAcceleratorHealth": {
+      "description": " The health details of an Elastic Inference Accelerator. ",
+      "properties": {
+        "status": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AcceleratorHealthStatus"
+            },
+            {
+              "description": " The health status of the Elastic Inference Accelerator. "
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ElasticInferenceAcceleratorSet": {
+      "items": {
+        "$ref": "#/definitions/ElasticInferenceAccelerator"
+      },
+      "type": "array"
+    },
+    "Filter": {
+      "description": " A filter expression for the Elastic Inference Accelerator list. ",
+      "properties": {
+        "name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/FilterName"
+            },
+            {
+              "description": " The filter name for the Elastic Inference Accelerator list. It can assume the following values: accelerator-type: the type of Elastic Inference Accelerator to filter for. instance-id: an EC2 instance id to filter for. "
+            }
+          ]
+        },
+        "values": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ValueStringList"
+            },
+            {
+              "description": " The values for the filter of the Elastic Inference Accelerator list. "
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "FilterList": {
+      "items": {
+        "$ref": "#/definitions/Filter"
+      },
+      "maxItems": 100,
+      "minItems": 0,
+      "type": "array"
+    },
+    "FilterName": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "^\\S+$",
+      "type": "string"
+    },
+    "Integer": {
+      "type": "integer"
+    },
+    "InternalServerException": {},
+    "Key": {
+      "maxLength": 256,
+      "minLength": 1,
+      "pattern": "^\\S+$",
+      "type": "string"
+    },
+    "KeyValuePair": {
+      "description": " A throughput entry for an Elastic Inference Accelerator type. ",
+      "properties": {
+        "key": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Key"
+            },
+            {
+              "description": " The throughput value of the Elastic Inference Accelerator type. It can assume the following values: TFLOPS16bit: the throughput expressed in 16bit TeraFLOPS. TFLOPS32bit: the throughput expressed in 32bit TeraFLOPS. "
+            }
+          ]
+        },
+        "value": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Value"
+            },
+            {
+              "description": " The throughput value of the Elastic Inference Accelerator type. "
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ListTagsForResourceRequest": {
+      "properties": {},
+      "title": "ListTagsForResourceRequest",
+      "type": "object"
+    },
+    "ListTagsForResourceResult": {
+      "properties": {
+        "tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagMap"
+            },
+            {
+              "description": " The tags of the Elastic Inference Accelerator. "
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "Location": {
+      "maxLength": 256,
+      "minLength": 1,
+      "type": "string"
+    },
+    "LocationType": {
+      "enum": [
+        "region",
+        "availability-zone",
+        "availability-zone-id"
+      ],
+      "maxLength": 256,
+      "minLength": 1,
+      "type": "string"
+    },
+    "MaxResults": {
+      "maximum": 100,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "MemoryInfo": {
+      "description": " The memory information of an Elastic Inference Accelerator type. ",
+      "properties": {
+        "sizeInMiB": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Integer"
+            },
+            {
+              "description": " The size in mebibytes of the Elastic Inference Accelerator type. "
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "NextToken": {
+      "maxLength": 2048,
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9+/]+={0,2}$",
+      "type": "string"
+    },
+    "ResourceARN": {
+      "maxLength": 1011,
+      "minLength": 1,
+      "pattern": "^arn:aws\\S*:elastic-inference:\\S+:\\d{12}:elastic-inference-accelerator/eia-[0-9a-f]+$",
+      "type": "string"
+    },
+    "ResourceArn": {
+      "maxLength": 1283,
+      "minLength": 1,
+      "type": "string"
+    },
+    "ResourceNotFoundException": {},
+    "String": {
+      "maxLength": 500000,
+      "pattern": "^.*$",
+      "type": "string"
+    },
+    "TagKey": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "^\\S$",
+      "type": "string"
+    },
+    "TagKeyList": {
+      "items": {
+        "$ref": "#/definitions/TagKey"
+      },
+      "maxItems": 50,
+      "minItems": 1,
+      "type": "array"
+    },
+    "TagMap": {
+      "additionalProperties": {
+        "$ref": "#/definitions/TagValue"
+      },
+      "maxProperties": 50,
+      "minProperties": 1,
+      "type": "object"
+    },
+    "TagResourceRequest": {
+      "properties": {
+        "tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagMap"
+            },
+            {
+              "description": " The tags to add to the Elastic Inference Accelerator. "
+            }
+          ]
+        }
+      },
+      "required": [
+        "tags"
+      ],
+      "title": "TagResourceRequest",
+      "type": "object"
+    },
+    "TagResourceResult": {
+      "properties": {},
+      "type": "object"
+    },
+    "TagValue": {
+      "maxLength": 256,
+      "type": "string"
+    },
+    "ThroughputInfoList": {
+      "items": {
+        "$ref": "#/definitions/KeyValuePair"
+      },
+      "maxItems": 100,
+      "minItems": 0,
+      "type": "array"
+    },
+    "UntagResourceRequest": {
+      "properties": {},
+      "title": "UntagResourceRequest",
+      "type": "object"
+    },
+    "UntagResourceResult": {
+      "properties": {},
+      "type": "object"
+    },
+    "Value": {
+      "type": "integer"
+    },
+    "ValueStringList": {
+      "items": {
+        "$ref": "#/definitions/String"
+      },
+      "maxItems": 100,
+      "minItems": 0,
+      "type": "array"
+    }
+  },
+  "securityDefinitions": {
+    "hmac": {
+      "description": "Amazon Signature authorization v4",
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey",
+      "x-amazon-apigateway-authtype": "awsSigv4"
+    }
+  },
+  "security": [
+    {
+      "hmac": []
+    }
+  ],
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://docs.aws.amazon.com/elastic-inference/"
+  },
+  "x-components": {
+    "parameters": {
+      "X-Amz-Algorithm": {
+        "in": "header",
+        "name": "X-Amz-Algorithm",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Content-Sha256": {
+        "in": "header",
+        "name": "X-Amz-Content-Sha256",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Credential": {
+        "in": "header",
+        "name": "X-Amz-Credential",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Date": {
+        "in": "header",
+        "name": "X-Amz-Date",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Security-Token": {
+        "in": "header",
+        "name": "X-Amz-Security-Token",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Signature": {
+        "in": "header",
+        "name": "X-Amz-Signature",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-SignedHeaders": {
+        "in": "header",
+        "name": "X-Amz-SignedHeaders",
+        "required": false,
+        "type": "string"
+      }
+    }
+  },
+  "x-hasEquivalentPaths": true
+}

@@ -179,8 +179,9 @@
           "type": "string"
         },
         "ppm": {
+          "format": "decimal",
           "title": "Ppm",
-          "type": "number"
+          "type": "string"
         }
       },
       "required": [

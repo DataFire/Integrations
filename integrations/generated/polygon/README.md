@@ -11,7 +11,7 @@ let polygon = require('@datafire/polygon').create({
   apiKey: ""
 });
 
-polygon.v1.companies.get({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

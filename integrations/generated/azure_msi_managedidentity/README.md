@@ -15,9 +15,7 @@ let azure_msi_managedidentity = require('@datafire/azure_msi_managedidentity').c
   redirect_uri: ""
 });
 
-azure_msi_managedidentity.Operations_List({
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -209,7 +207,7 @@ azure_msi_managedidentity.UserAssignedIdentities_CreateOrUpdate({
 ### IdentityProperties
 * Identity properties. `object`: The properties associated with the identity.
   * clientId `string`: The id of the app associated with the identity. This is a random generated UUID by MSI.
-  * clientSecretUrl `string`:  The ManagedServiceIdentity DataPlane URL that can be queried to obtain the identity credentials.
+  * clientSecretUrl `string`:  The ManagedServiceIdentity DataPlane URL that can be queried to obtain the identity credentials. If identity is user assigned, then the clientSecretUrl will not be present in the response, otherwise it will be present.
   * principalId `string`: The id of the service principal object associated with the created identity.
   * tenantId `string`: The id of the tenant which the identity belongs to.
 

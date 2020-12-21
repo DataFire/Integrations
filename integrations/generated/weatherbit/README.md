@@ -9,13 +9,7 @@ npm install --save @datafire/weatherbit
 ```js
 let weatherbit = require('@datafire/weatherbit').create();
 
-weatherbit.bulk.history.daily_city_city_country_country.get({
-  "city": "",
-  "country": "",
-  "start_date": "",
-  "end_date": "",
-  "key": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -25,6 +19,47 @@ weatherbit.bulk.history.daily_city_city_country_country.get({
 This is the documentation for the Weatherbit Weather API.  The base URL for the API is [http://api.weatherbit.io/v2.0/](http://api.weatherbit.io/v2.0/) or [https://api.weatherbit.io/v2.0/](http://api.weatherbit.io/v2.0/). Below is the Swagger UI documentation for the API. All API requests require the `key` parameter.        An Example for a 5 day forecast for London, UK would be `http://api.weatherbit.io/v2.0/forecast/3hourly?city=London`&`country=UK`. See our [Weather API description page](https://www.weatherbit.io/api) for additional documentation.
 
 ## Actions
+
+### alerts_lat_lat_lon_lon.get
+Returns severe weather alerts issued by meteorological agencies - given a lat, and a lon.
+
+
+```js
+weatherbit.alerts_lat_lat_lon_lon.get({
+  "lat": 0,
+  "lon": 0,
+  "key": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * lat **required** `number`: Latitude component of location.
+  * lon **required** `number`: Longitude component of location.
+  * callback `string`: Wraps return in jsonp callback - Example - callback=func
+  * key **required** `string`: Your registered API key.
+
+#### Output
+* output [WeatherAlert](#weatheralert)
+
+### bulk.files.file.get
+**(Advanceed/Enterprise plans only)** Downloads bulk data files - OPTIONS: ( current.json.gz - Current observations for cities > 1000 population). Units are Metric (Celcius, m/s, etc).
+
+
+```js
+weatherbit.bulk.files.file.get({
+  "file": "",
+  "key": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * file **required** `string`: Filename (ie. current.json.gz)
+  * key **required** `string`: Your registered API key.
+
+#### Output
+* output [Error](#error)
 
 ### bulk.history.daily_city_city_country_country.get
 Returns Historical Observations - Given a city in the format of City,ST or City. The state, and country parameters can be provided to make the search more accurate.
@@ -73,32 +108,6 @@ weatherbit.bulk.history.daily_city_id_city_id.get({
   * city_id **required** `string`: City ID. Example: 4487042
   * start_date **required** `string`: Start Date (YYYY-MM-DD or YYYY-MM-DD:HH)
   * end_date **required** `string`: End Date (YYYY-MM-DD or YYYY-MM-DD:HH)
-  * units `string` (values: S, I): Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>
-  * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>
-  * callback `string`: Wraps return in jsonp callback. Example: callback=func
-  * key **required** `string`: Your registered API key.
-
-#### Output
-* output [HistoryDay](#historyday)
-
-### bulk.history.daily_ip_ip.get
-Returns Historical Observations - Given IP Address, or auto.
-
-
-```js
-weatherbit.bulk.history.daily_ip_ip.get({
-  "ip": "",
-  "start_date": "",
-  "end_date": "",
-  "key": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * ip **required** `string`: IP Address, or auto. Example: ip=auto
-  * start_date **required** `string`: Start Date (YYYY-MM-DD or YYYY-MM-DD:HH).
-  * end_date **required** `string`: End Date (YYYY-MM-DD or YYYY-MM-DD:HH).
   * units `string` (values: S, I): Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>
   * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>
   * callback `string`: Wraps return in jsonp callback. Example: callback=func
@@ -243,32 +252,6 @@ weatherbit.bulk.history.hourly_city_id_city_id.get({
 #### Output
 * output [History](#history)
 
-### bulk.history.hourly_ip_ip.get
-Returns Historical Observations - Given IP Address, or auto.
-
-
-```js
-weatherbit.bulk.history.hourly_ip_ip.get({
-  "ip": "",
-  "start_date": "",
-  "end_date": "",
-  "key": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * ip **required** `string`: IP Address, or auto. Example: ip=auto
-  * start_date **required** `string`: Start Date (YYYY-MM-DD or YYYY-MM-DD:HH).
-  * end_date **required** `string`: End Date (YYYY-MM-DD or YYYY-MM-DD:HH).
-  * units `string` (values: S, I): Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>
-  * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>
-  * callback `string`: Wraps return in jsonp callback. Example: callback=func
-  * key **required** `string`: Your registered API key.
-
-#### Output
-* output [History](#history)
-
 ### bulk.history.hourly_lat_lat_lon_lon.get
 Returns Historical Observations - Given a lat, and lon.
 
@@ -350,27 +333,94 @@ weatherbit.bulk.history.hourly_station_station.get({
 #### Output
 * output [History](#history)
 
-### bulk.file.get
-**(Advanced/Advanced+/Enterprise plans only)** Downloads bulk data files - OPTIONS: (forecast16d.json.gz - 16 day forecasts for cities > 1000 population, current.json.gz - Current observations for cities > 1000 population).
+### current.airquality_city_city_country_country.get
+Returns current air quality conditions.
 
 
 ```js
-weatherbit.bulk.file.get({
-  "file": "",
+weatherbit.current.airquality_city_city_country_country.get({
+  "city": "",
+  "country": "",
   "key": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * file **required** `string`: Filename (ie. forecast16d.json.gz)
+  * city **required** `string`: City search.. Example - &city=Raleigh,NC or &city=Berlin,DE or city=Paris&country=FR
+  * state `string`: Full name of state.
+  * country **required** `string`: Country Code (2 letter).
+  * callback `string`: Wraps return in jsonp callback. Example: callback=func
   * key **required** `string`: Your registered API key.
 
 #### Output
-* output [Error](#error)
+* output [AQCurrentGroup](#aqcurrentgroup)
+
+### current.airquality_city_id_city_id.get
+Returns current air quality conditions.
+
+
+```js
+weatherbit.current.airquality_city_id_city_id.get({
+  "city_id": 0,
+  "key": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * city_id **required** `integer`: City ID. Example: 4487042
+  * callback `string`: Wraps return in jsonp callback. Example - callback=func
+  * key **required** `string`: Your registered API key.
+
+#### Output
+* output [AQCurrentGroup](#aqcurrentgroup)
+
+### current.airquality_lat_lat_lon_lon.get
+Returns current air quality conditions.
+
+
+```js
+weatherbit.current.airquality_lat_lat_lon_lon.get({
+  "lat": 0,
+  "lon": 0,
+  "key": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * lat **required** `number`: Latitude component of location.
+  * lon **required** `number`: Longitude component of location.
+  * callback `string`: Wraps return in jsonp callback. Example - callback=func
+  * key **required** `string`: Your registered API key.
+
+#### Output
+* output [AQCurrentGroup](#aqcurrentgroup)
+
+### current.airquality_postal_code_postal_code.get
+Returns current air quality conditions.
+
+
+```js
+weatherbit.current.airquality_postal_code_postal_code.get({
+  "postal_code": 0,
+  "key": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * postal_code **required** `integer`: Postal Code. Example: 28546
+  * country `string`: Country Code (2 letter).
+  * callback `string`: Wraps return in jsonp callback. Example - callback=func
+  * key **required** `string`: Your registered API key.
+
+#### Output
+* output [AQCurrentGroup](#aqcurrentgroup)
 
 ### current_cities_cities.get
-**(Advanced/Advanced+/Enterprise plans only)** Returns a group of Current Observations - Given a list of City IDs. 
+Returns a group of Current Observations - Given a list of City IDs. 
 
 
 ```js
@@ -434,29 +484,6 @@ weatherbit.current_city_id_city_id.get({
   * city_id **required** `string`: City ID. Example: 4487042
   * units `string` (values: S, I): Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>
   * marine `string` (values: t): Marine stations only (buoys, oil platforms, etc)
-  * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>
-  * callback `string`: Wraps return in jsonp callback - Example - callback=func
-  * key **required** `string`: Your registered API key.
-
-#### Output
-* output [CurrentObsGroup](#currentobsgroup)
-
-### current_ip_ip.get
-Returns a Current Observation - Given an IP address, or auto.
-
-
-```js
-weatherbit.current_ip_ip.get({
-  "ip": "",
-  "key": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * ip **required** `string`: IP Address, or auto. Example: ip=auto
-  * marine `string` (values: t): Marine stations only (buoys, oil platforms, etc)
-  * units `string` (values: S, I): Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>
   * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>
   * callback `string`: Wraps return in jsonp callback - Example - callback=func
   * key **required** `string`: Your registered API key.
@@ -536,7 +563,7 @@ weatherbit.current_station_station.get({
 * output [CurrentObsGroup](#currentobsgroup)
 
 ### current_stations_stations.get
-**(Advanced/Advanced+/Enterprise plans only)** Returns a group of Current Observations - Given a list of Station Call IDs. 
+Returns a group of Current Observations - Given a list of Station Call IDs. 
 
 
 ```js
@@ -608,30 +635,6 @@ weatherbit.forecast.3hourly_city_id_city_id.get({
 #### Output
 * output [ForecastHourly](#forecasthourly)
 
-### forecast.3hourly_ip_ip.get
-Returns a 3-hourly forecast, where each point represents a three hour   period. Every point has a datetime string in the format "YYYY-MM-DD:HH". Time is UTC.
-
-
-
-```js
-weatherbit.forecast.3hourly_ip_ip.get({
-  "ip": "",
-  "key": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * ip **required** `string`: IP address, or auto. Example: ip=auto
-  * days `number`: Number of days to return. Default 16.
-  * units `string` (values: S, I): Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>
-  * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>
-  * callback `string`: Wraps return in jsonp callback. Example: callback=func
-  * key **required** `string`: Your registered API key.
-
-#### Output
-* output [ForecastHourly](#forecasthourly)
-
 ### forecast.3hourly_lat_lat_lon_lon.get
 Returns a 3-hourly forecast, where each point represents a three hour   period. Every point has a datetime string in the format "YYYY-MM-DD:HH". Time is UTC.
 
@@ -683,8 +686,98 @@ weatherbit.forecast.3hourly_postal_code_postal_code.get({
 #### Output
 * output [ForecastHourly](#forecasthourly)
 
+### forecast.airquality_city_city_country_country.get
+Returns 72 hour (hourly) Air Quality forecast, where each point represents a one hour period.
+
+
+```js
+weatherbit.forecast.airquality_city_city_country_country.get({
+  "city": "",
+  "country": "",
+  "key": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * city **required** `string`: City search.. Example - &city=Raleigh,NC or &city=Berlin,DE or city=Paris&country=FR
+  * state `string`: Full name of state.
+  * country **required** `string`: Country Code (2 letter).
+  * callback `string`: Wraps return in jsonp callback. Example: callback=func
+  * hours `integer`: Number of hours to return.
+  * key **required** `string`: Your registered API key.
+
+#### Output
+* output [AQHourly](#aqhourly)
+
+### forecast.airquality_city_id_city_id.get
+Returns 72 hour (hourly) Air Quality forecast, where each point represents a one hour period.
+
+
+```js
+weatherbit.forecast.airquality_city_id_city_id.get({
+  "city_id": 0,
+  "key": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * city_id **required** `integer`: City ID. Example: 4487042
+  * callback `string`: Wraps return in jsonp callback. Example - callback=func
+  * hours `integer`: Number of hours to return.
+  * key **required** `string`: Your registered API key.
+
+#### Output
+* output [AQHourly](#aqhourly)
+
+### forecast.airquality_lat_lat_lon_lon.get
+Returns 72 hour (hourly) Air Quality forecast, where each point represents a one hour period.
+
+
+```js
+weatherbit.forecast.airquality_lat_lat_lon_lon.get({
+  "lat": 0,
+  "lon": 0,
+  "key": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * lat **required** `number`: Latitude component of location.
+  * lon **required** `number`: Longitude component of location.
+  * callback `string`: Wraps return in jsonp callback. Example - callback=func
+  * key **required** `string`: Your registered API key.
+  * hours `integer`: Number of hours to return.
+
+#### Output
+* output [AQHourly](#aqhourly)
+
+### forecast.airquality_postal_code_postal_code.get
+Returns 72 hour (hourly) Air Quality forecast, where each point represents a one hour period.
+
+
+```js
+weatherbit.forecast.airquality_postal_code_postal_code.get({
+  "postal_code": 0,
+  "key": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * postal_code **required** `integer`: Postal Code. Example: 28546
+  * country `string`: Country Code (2 letter).
+  * callback `string`: Wraps return in jsonp callback. Example - callback=func
+  * hours `integer`: Number of hours to return.
+  * key **required** `string`: Your registered API key.
+
+#### Output
+* output [AQHourly](#aqhourly)
+
 ### forecast.daily_city_city_country_country.get
-**(REQUIRED: Basic Plan or Higher)** Returns a daily forecast, where each point represents one day (24hr) period. Every point has a datetime string in the format "YYYY-MM-DD". One day begins at 00:00 UTC, and ends at 23:59 UTC. Accepts a city in the format of City,ST or City. The state, and country parameters can be provided to make the search more accurate.
+Returns a daily forecast, where each point represents one day (24hr) period. Every point has a datetime string in the format "YYYY-MM-DD". One day begins at 00:00 UTC, and ends at 23:59 UTC. Accepts a city in the format of City,ST or City. The state, and country parameters can be provided to make the search more accurate.
 
 
 
@@ -711,7 +804,7 @@ weatherbit.forecast.daily_city_city_country_country.get({
 * output [ForecastDay](#forecastday)
 
 ### forecast.daily_city_id_city_id.get
-**(REQUIRED: Basic Plan or Higher)** Returns a daily forecast, where each point represents one day (24hr) period. Every point has a datetime string in the format "YYYY-MM-DD". One day begins at 00:00 UTC, and ends at 23:59 UTC.
+Returns a daily forecast, where each point represents one day (24hr) period. Every point has a datetime string in the format "YYYY-MM-DD". One day begins at 00:00 UTC, and ends at 23:59 UTC.
 
 
 
@@ -734,32 +827,8 @@ weatherbit.forecast.daily_city_id_city_id.get({
 #### Output
 * output [ForecastDay](#forecastday)
 
-### forecast.daily_ip_ip.get
-**(REQUIRED: Basic Plan or Higher)** Returns a daily forecast, where each point represents one day (24hr) period. Every point has a datetime string in the format "YYYY-MM-DD". One day begins at 00:00 UTC, and ends at 23:59 UTC. 
-
-
-
-```js
-weatherbit.forecast.daily_ip_ip.get({
-  "ip": "",
-  "key": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * ip **required** `string`: IP address, or auto. Example: ip=auto
-  * days `number`: Number of days to return. Default 16.
-  * units `string` (values: S, I): Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>
-  * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>
-  * callback `string`: Wraps return in jsonp callback. Example: callback=func
-  * key **required** `string`: Your registered API key.
-
-#### Output
-* output [ForecastDay](#forecastday)
-
 ### forecast.daily_lat_lat_lon_lon.get
-**(REQUIRED: Basic Plan or Higher)** Returns a daily forecast, where each point represents one day (24hr) period. Every point has a datetime string in the format "YYYY-MM-DD". One day begins at 00:00 UTC, and ends at 23:59 UTC. 
+Returns a daily forecast, where each point represents one day (24hr) period. Every point has a datetime string in the format "YYYY-MM-DD". One day begins at 00:00 UTC, and ends at 23:59 UTC. 
 
 
 
@@ -785,7 +854,7 @@ weatherbit.forecast.daily_lat_lat_lon_lon.get({
 * output [ForecastDay](#forecastday)
 
 ### forecast.daily_postal_code_postal_code.get
-**(REQUIRED: Basic Plan or Higher)** Returns a daily forecast, where each point represents one day (24hr) period. Every point has a datetime string in the format "YYYY-MM-DD". One day begins at 00:00 UTC, and ends at 23:59 UTC.
+Returns a daily forecast, where each point represents one day (24hr) period. Every point has a datetime string in the format "YYYY-MM-DD". One day begins at 00:00 UTC, and ends at 23:59 UTC.
 
 
 
@@ -809,8 +878,33 @@ weatherbit.forecast.daily_postal_code_postal_code.get({
 #### Output
 * output [ForecastDay](#forecastday)
 
+### forecast.energy_lat_lat_lon_lon.get
+Retrieve an 8 day forecast relevant to te Energy Sector (degree days, solar radiation, precipitation, wind).
+
+
+```js
+weatherbit.forecast.energy_lat_lat_lon_lon.get({
+  "lat": 0,
+  "lon": 0,
+  "key": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * lat **required** `number`: Latitude component of location.
+  * lon **required** `number`: Longitude component of location.
+  * threshold `number`: Temperature threshold to use to calculate degree days (default 18 C) 
+  * units `string` (values: S, I): Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>
+  * tp `string` (values: hourly, daily): Time period (default: daily)
+  * callback `string`: Wraps return in jsonp callback. Example: callback=func
+  * key **required** `string`: Your registered API key.
+
+#### Output
+* output [EnergyObsGroupForecast](#energyobsgroupforecast)
+
 ### forecast.hourly_city_city_country_country.get
-**(REQUIRED: Developer Plan or Higher)** Returns an hourly forecast, where each point represents a one hour   period. Every point has a datetime string in the format "YYYY-MM-DD:HH". Time is UTC. Accepts a city in the format of City,ST or City. The state, and country parameters can be provided to make the search more accurate.
+ Returns an hourly forecast, where each point represents a one hour   period. Every point has a datetime string in the format "YYYY-MM-DD:HH". Time is UTC. Accepts a city in the format of City,ST or City. The state, and country parameters can be provided to make the search more accurate.
 
 
 
@@ -837,7 +931,7 @@ weatherbit.forecast.hourly_city_city_country_country.get({
 * output [ForecastHourly](#forecasthourly)
 
 ### forecast.hourly_city_id_city_id.get
-**(REQUIRED: Developer Plan or Higher)** Returns an hourly forecast, where each point represents a one hour   period. Every point has a datetime string in the format "YYYY-MM-DD:HH". Time is UTC. 
+ Returns an hourly forecast, where each point represents a one hour   period. Every point has a datetime string in the format "YYYY-MM-DD:HH". Time is UTC. 
 
 
 
@@ -860,33 +954,8 @@ weatherbit.forecast.hourly_city_id_city_id.get({
 #### Output
 * output [ForecastHourly](#forecasthourly)
 
-### forecast.hourly_ip_ip.get
-**(REQUIRED: Developer Plan or Higher)** Returns an hourly forecast, where each point represents a one hour period. Every point has a datetime string in the format "YYYY-MM-DD:HH". Time is UTC. 
-
-
-
-```js
-weatherbit.forecast.hourly_ip_ip.get({
-  "ip": "",
-  "key": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * ip **required** `string`: IP address, or auto. Example: ip=auto
-  * days `number`: Number of days to return. Default 16.
-  * units `string` (values: S, I): Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>
-  * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>
-  * callback `string`: Wraps return in jsonp callback. Example: callback=func
-  * hours `integer`: Number of hours to return.
-  * key **required** `string`: Your registered API key.
-
-#### Output
-* output [ForecastHourly](#forecasthourly)
-
 ### forecast.hourly_lat_lat_lon_lon.get
-**(REQUIRED: Developer Plan or Higher)** Returns an hourly forecast, where each point represents a one hour period. Every point has a datetime string in the format "YYYY-MM-DD:HH". Time is UTC. 
+Returns an hourly forecast, where each point represents a one hour period. Every point has a datetime string in the format "YYYY-MM-DD:HH". Time is UTC. 
 
 
 
@@ -912,7 +981,7 @@ weatherbit.forecast.hourly_lat_lat_lon_lon.get({
 * output [ForecastHourly](#forecasthourly)
 
 ### forecast.hourly_postal_code_postal_code.get
-**(REQUIRED: Developer Plan or Higher)** Returns an hourly forecast, where each point represents a one hour   period. Every point has a datetime string in the format "YYYY-MM-DD:HH". Time is UTC. 
+ Returns an hourly forecast, where each point represents a one hour   period. Every point has a datetime string in the format "YYYY-MM-DD:HH". Time is UTC. 
 
 
 
@@ -936,8 +1005,94 @@ weatherbit.forecast.hourly_postal_code_postal_code.get({
 #### Output
 * output [ForecastHourly](#forecasthourly)
 
+### history.airquality_city_city_country_country.get
+Returns historical air quality conditions.
+
+
+```js
+weatherbit.history.airquality_city_city_country_country.get({
+  "city": "",
+  "country": "",
+  "key": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * city **required** `string`: City search.. Example - &city=Raleigh,NC or &city=Berlin,DE or city=Paris&country=FR
+  * state `string`: Full name of state.
+  * country **required** `string`: Country Code (2 letter).
+  * callback `string`: Wraps return in jsonp callback. Example: callback=func
+  * key **required** `string`: Your registered API key.
+
+#### Output
+* output [AQCurrentGroup](#aqcurrentgroup)
+
+### history.airquality_city_id_city_id.get
+Returns historical air quality conditions.
+
+
+```js
+weatherbit.history.airquality_city_id_city_id.get({
+  "city_id": 0,
+  "key": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * city_id **required** `number`: City ID.
+  * callback `string`: Wraps return in jsonp callback. Example - callback=func
+  * key **required** `string`: Your registered API key.
+
+#### Output
+* output [AQCurrentGroup](#aqcurrentgroup)
+
+### history.airquality_lat_lat_lon_lon.get
+Returns historical air quality conditions.
+
+
+```js
+weatherbit.history.airquality_lat_lat_lon_lon.get({
+  "lat": 0,
+  "lon": 0,
+  "key": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * lat **required** `number`: Latitude component of location.
+  * lon **required** `number`: Longitude component of location.
+  * callback `string`: Wraps return in jsonp callback. Example - callback=func
+  * key **required** `string`: Your registered API key.
+
+#### Output
+* output [AQCurrentGroup](#aqcurrentgroup)
+
+### history.airquality_postal_code_postal_code.get
+Returns historical air quality conditions.
+
+
+```js
+weatherbit.history.airquality_postal_code_postal_code.get({
+  "postal_code": 0,
+  "key": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * postal_code **required** `integer`: Postal Code. Example: 28546
+  * country `string`: Country Code (2 letter).
+  * callback `string`: Wraps return in jsonp callback. Example - callback=func
+  * key **required** `string`: Your registered API key.
+
+#### Output
+* output [AQCurrentGroup](#aqcurrentgroup)
+
 ### history.daily_city_city_country_country.get
-Returns Historical Observations - Given a city in the format of City,ST or City. The state, and country parameters can be provided to make the search more accurate. **(LIMIT 1 day for Low Volume plans. LIMIT 7 days for Basic/Developer. LIMIT 30 days for Advanced/Advanced+/Enterprise)**
+Returns Historical Observations - Given a city in the format of City,ST or City. The state, and country parameters can be provided to make the search more accurate. **(LIMIT 1 day for Free plan. LIMIT 7 days for Developer. LIMIT 30 days for Advanced/Advanced+/Enterprise)**
 
 
 ```js
@@ -966,7 +1121,7 @@ weatherbit.history.daily_city_city_country_country.get({
 * output [HistoryDay](#historyday)
 
 ### history.daily_city_id_city_id.get
-Returns Historical Observations - Given a City ID. **(LIMIT 1 day for Low Volume plans. LIMIT 7 days for Basic/Developer. LIMIT 30 days for Advanced/Advanced+/Enterprise)**
+Returns Historical Observations - Given a City ID. **(LIMIT 1 day for Free plan. LIMIT 7 days for Developer. LIMIT 30 days for Advanced/Advanced+/Enterprise)**
 
 
 ```js
@@ -991,34 +1146,8 @@ weatherbit.history.daily_city_id_city_id.get({
 #### Output
 * output [HistoryDay](#historyday)
 
-### history.daily_ip_ip.get
-Returns Historical Observations - Given IP Address, or auto. **(LIMIT 1 day for Low Volume plans. LIMIT 7 days for Basic/Developer. LIMIT 30 days for Advanced/Advanced+/Enterprise)**
-
-
-```js
-weatherbit.history.daily_ip_ip.get({
-  "ip": "",
-  "start_date": "",
-  "end_date": "",
-  "key": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * ip **required** `string`: IP Address, or auto. Example: ip=auto
-  * start_date **required** `string`: Start Date (YYYY-MM-DD or YYYY-MM-DD:HH).
-  * end_date **required** `string`: End Date (YYYY-MM-DD or YYYY-MM-DD:HH).
-  * units `string` (values: S, I): Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>
-  * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>
-  * callback `string`: Wraps return in jsonp callback. Example: callback=func
-  * key **required** `string`: Your registered API key.
-
-#### Output
-* output [HistoryDay](#historyday)
-
 ### history.daily_lat_lat_lon_lon.get
-Returns Historical Observations - Given a lat, and lon. **(LIMIT 1 day for Low Volume plans. LIMIT 7 days for Basic/Developer. LIMIT 30 days for Advanced/Advanced+/Enterprise)**
+Returns Historical Observations - Given a lat, and lon. **(LIMIT 1 day for Free plan. LIMIT 7 days for Developer. LIMIT 30 days for Advanced/Advanced+/Enterprise)**
 
 
 ```js
@@ -1046,7 +1175,7 @@ weatherbit.history.daily_lat_lat_lon_lon.get({
 * output [HistoryDay](#historyday)
 
 ### history.daily_postal_code_postal_code.get
-Returns Historical Observations - Given a Postal Code. **(LIMIT 1 day for Low Volume plans. LIMIT 7 days for Basic/Developer. LIMIT 30 days for Advanced/Advanced+/Enterprise)**
+Returns Historical Observations - Given a Postal Code. **(LIMIT 1 day for Free plan. LIMIT 7 days for Developer. LIMIT 30 days for Advanced/Advanced+/Enterprise)**
 
 
 ```js
@@ -1073,7 +1202,7 @@ weatherbit.history.daily_postal_code_postal_code.get({
 * output [HistoryDay](#historyday)
 
 ### history.daily_station_station.get
-Returns Historical Observations - Given a station ID. **(LIMIT 1 day for Low Volume plans. LIMIT 7 days for Basic/Developer. LIMIT 30 days for Advanced/Advanced+/Enterprise)**
+Returns Historical Observations - Given a station ID. **(LIMIT 1 day for Free plan. LIMIT 7 days for Developer. LIMIT 30 days for Advanced/Advanced+/Enterprise)**
 
 
 ```js
@@ -1150,7 +1279,7 @@ weatherbit.history.energy_lat_lat_lon_lon.get({
   * lon **required** `number`: Longitude component of location.
   * start_date **required** `string`: Start Date (YYYY-MM-DD or YYYY-MM-DD:HH).
   * end_date **required** `string`: End Date (YYYY-MM-DD or YYYY-MM-DD:HH).
-  * tp `string` (values: daily, monthly): Time period to aggregate by (daily, monthly)
+  * tp `string` (values: hourly, daily, monthly): Time period to aggregate by (daily, monthly)
   * threshold `number`: Temperature threshold to use to calculate degree days (default 18 C) 
   * units `string` (values: S, I): Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>
   * callback `string`: Wraps return in jsonp callback. Example: callback=func
@@ -1160,7 +1289,7 @@ weatherbit.history.energy_lat_lat_lon_lon.get({
 * output [EnergyObsGroup](#energyobsgroup)
 
 ### history.hourly_city_city_country_country.get
-Returns Historical Observations - Given a city in the format of City,ST or City. The state, and country parameters can be provided to make the search more accurate. **(LIMIT 1 day for Low Volume plans. LIMIT 7 days for Basic/Developer. LIMIT 30 days for Advanced/Advanced+/Enterprise)**
+Returns Historical Observations - Given a city in the format of City,ST or City. The state, and country parameters can be provided to make the search more accurate. **(LIMIT 1 day for Free plan. LIMIT 7 days for Developer. LIMIT 30 days for Advanced/Advanced+/Enterprise)**
 
 
 ```js
@@ -1182,6 +1311,7 @@ weatherbit.history.hourly_city_city_country_country.get({
   * end_date **required** `string`: End Date (YYYY-MM-DD or YYYY-MM-DD:HH).
   * units `string` (values: S, I): Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>
   * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>
+  * tz `string` (values: local, utc): Assume utc (default) or local time for start_date, end_date
   * callback `string`: Wraps return in jsonp callback. Example: callback=func
   * key **required** `string`: Your registered API key.
 
@@ -1189,7 +1319,7 @@ weatherbit.history.hourly_city_city_country_country.get({
 * output [History](#history)
 
 ### history.hourly_city_id_city_id.get
-Returns Historical Observations - Given a City ID. **(LIMIT 1 day for Low Volume plans. LIMIT 7 days for Basic/Developer. LIMIT 30 days for Advanced/Advanced+/Enterprise)**
+Returns Historical Observations - Given a City ID. **(LIMIT 1 day for Free plan. LIMIT 7 days for Developer. LIMIT 30 days for Advanced/Advanced+/Enterprise)**
 
 
 ```js
@@ -1208,32 +1338,7 @@ weatherbit.history.hourly_city_id_city_id.get({
   * end_date **required** `string`: End Date (YYYY-MM-DD or YYYY-MM-DD:HH)
   * units `string` (values: S, I): Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>
   * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>
-  * callback `string`: Wraps return in jsonp callback. Example: callback=func
-  * key **required** `string`: Your registered API key.
-
-#### Output
-* output [History](#history)
-
-### history.hourly_ip_ip.get
-Returns Historical Observations - Given IP Address, or auto. **(LIMIT 1 day for Low Volume plans. LIMIT 7 days for Basic/Developer. LIMIT 30 days for Advanced/Advanced+/Enterprise)**
-
-
-```js
-weatherbit.history.hourly_ip_ip.get({
-  "ip": "",
-  "start_date": "",
-  "end_date": "",
-  "key": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * ip **required** `string`: IP Address, or auto. Example: ip=auto
-  * start_date **required** `string`: Start Date (YYYY-MM-DD or YYYY-MM-DD:HH).
-  * end_date **required** `string`: End Date (YYYY-MM-DD or YYYY-MM-DD:HH).
-  * units `string` (values: S, I): Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>
-  * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>
+  * tz `string` (values: local, utc): Assume utc (default) or local time for start_date, end_date
   * callback `string`: Wraps return in jsonp callback. Example: callback=func
   * key **required** `string`: Your registered API key.
 
@@ -1241,7 +1346,7 @@ weatherbit.history.hourly_ip_ip.get({
 * output [History](#history)
 
 ### history.hourly_lat_lat_lon_lon.get
-Returns Historical Observations - Given a lat, and lon. **(LIMIT 1 day for Low Volume plans. LIMIT 7 days for Basic/Developer. LIMIT 30 days for Advanced/Advanced+/Enterprise)**
+Returns Historical Observations - Given a lat, and lon. **(LIMIT 1 day for Free plan. LIMIT 7 days for Developer. LIMIT 30 days for Advanced/Advanced+/Enterprise)**
 
 
 ```js
@@ -1262,6 +1367,7 @@ weatherbit.history.hourly_lat_lat_lon_lon.get({
   * end_date **required** `string`: End Date (YYYY-MM-DD or YYYY-MM-DD:HH).
   * units `string` (values: S, I): Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>
   * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>
+  * tz `string` (values: local, utc): Assume utc (default) or local time for start_date, end_date
   * callback `string`: Wraps return in jsonp callback. Example: callback=func
   * key **required** `string`: Your registered API key.
 
@@ -1269,7 +1375,7 @@ weatherbit.history.hourly_lat_lat_lon_lon.get({
 * output [History](#history)
 
 ### history.hourly_postal_code_postal_code.get
-Returns Historical Observations - Given a Postal Code. **(LIMIT 1 day for Low Volume plans. LIMIT 7 days for Basic/Developer. LIMIT 30 days for Advanced/Advanced+/Enterprise)**
+Returns Historical Observations - Given a Postal Code. **(LIMIT 1 day for Free plan. LIMIT 7 days for Developer. LIMIT 30 days for Advanced/Advanced+/Enterprise)**
 
 
 ```js
@@ -1289,6 +1395,7 @@ weatherbit.history.hourly_postal_code_postal_code.get({
   * end_date **required** `string`: End Date (YYYY-MM-DD or YYYY-MM-DD:HH)
   * units `string` (values: S, I): Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>
   * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>
+  * tz `string` (values: local, utc): Assume utc (default) or local time for start_date, end_date
   * callback `string`: Wraps return in jsonp callback. Example: callback=func
   * key **required** `string`: Your registered API key.
 
@@ -1296,7 +1403,7 @@ weatherbit.history.hourly_postal_code_postal_code.get({
 * output [History](#history)
 
 ### history.hourly_station_station.get
-Returns Historical Observations - Given a station ID. **(LIMIT 1 day for Low Volume plans. LIMIT 7 days for Basic/Developer. LIMIT 30 days for Advanced/Advanced+/Enterprise)**
+Returns Historical Observations - Given a station ID. **(LIMIT 1 day for Free plan. LIMIT 7 days for Developer. LIMIT 30 days for Advanced/Advanced+/Enterprise)**
 
 
 ```js
@@ -1315,48 +1422,76 @@ weatherbit.history.hourly_station_station.get({
   * end_date **required** `string`: End Date (YYYY-MM-DD or YYYY-MM-DD:HH).
   * units `string` (values: S, I): Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>
   * lang `string` (values: ar, az, be, bg, bs, ca, cs, de, fi, fr, el, es, et, hr, hu, id, it, is, kw, nb, nl, pl, pt, ro, ru, sk, sl, sr, sv, tr, uk, zh, zh-tw): Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>
+  * tz `string` (values: local, utc): Assume utc (default) or local time for start_date, end_date
   * callback `string`: Wraps return in jsonp callback. Example: callback=func
   * key **required** `string`: Your registered API key.
 
 #### Output
 * output [History](#history)
 
-### ip_ip_ip.get
-Returns a geolocation object. Given an IP address. If no IP supplied, will use request IP address.
-
-
-```js
-weatherbit.ip_ip_ip.get({
-  "ip": "",
-  "key": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * ip **required** `string`: IP address
-  * callback `string`: Wraps return in jsonp callback
-  * exclude `string`: exclude=all => return IP address only
-  * format `string`: &format=none => return IP address as string
-  * key **required** `string`: Your registered API key.
-
-#### Output
-* output [GeoIPObj](#geoipobj)
-
 
 
 ## Definitions
 
+### AQCurrent
+* AQCurrent `object`
+  * aqi `integer`: Cloud cover as a percentage (%)
+  * no2 `number`: Concentration of NO2 (µg/m³)
+  * o3 `number`: Concentration of O3 (µg/m³)
+  * pm10 `number`: Concentration of PM 10 (µg/m³)
+  * pm25 `number`: Concentration of PM 2.5 (µg/m³)
+  * so2 `number`: Concentration of SO2 (µg/m³)
+
+### AQCurrentGroup
+* AQCurrentGroup `object`
+  * city_name `string`: City Name
+  * country_code `string`: Country Abbreviation
+  * data `array`
+    * items [AQCurrent](#aqcurrent)
+  * lat `string`: Latitude
+  * lon `string`: Longitude
+  * state_code `string`: State Abbreviation
+  * timezone `string`: Local IANA time zone
+
+### AQHour
+* AQHour `object`
+  * aqi `integer`: Cloud cover as a percentage (%)
+  * no2 `number`: Concentration of NO2 (µg/m³)
+  * o3 `number`: Concentration of O3 (µg/m³)
+  * pm10 `number`: Concentration of PM 10 (µg/m³)
+  * pm25 `number`: Concentration of PM 2.5 (µg/m³)
+  * so2 `number`: Concentration of SO2 (µg/m³)
+  * timestamp_local `string`: Timestamp in local time
+  * timestamp_utc `string`: Timestamp UTC
+  * ts `number`: Unix Timestamp
+
+### AQHourly
+* AQHourly `object`
+  * city_name `string`: City Name
+  * country_code `string`: Country Abbreviation
+  * data `array`
+    * items [AQHour](#aqhour)
+  * lat `string`: Latitude
+  * lon `string`: Longitude
+  * state_code `string`: State Abbreviation
+  * timezone `string`: Local IANA time zone
+
+### AlertRegionGroup
+* AlertRegionGroup `string`: List of impacted regions
+
 ### CurrentObs
 * CurrentObs `object`
   * app_temp `number`: Apparent temperature - Default (C)
+  * aqi `number`: Air quality index (US EPA standard 0 to +500)
   * city_name `string`: City name (closest)
   * clouds `integer`: Cloud cover (%)
   * country_code `string`: Country abbreviation
   * datetime `string`: Cycle Hour (UTC) of observation
   * dewpt `number`: Dew point temperature - default (C)
-  * dhi `number`: Direct component of solar insolation (W/m^2)
+  * dhi `number`: Diffuse horizontal irradiance (W/m^2)
+  * dni `number`: Direct normal irradiance (W/m^2)
   * elev_angle `number`: Current solar elevation angle (Degrees)
+  * ghi `number`: Global horizontal irradiance (W/m^2)
   * hour_angle `number`: Current solar hour angle (Degrees)
   * lat `number`: Latitude
   * lon `number`: Longitude
@@ -1367,6 +1502,7 @@ weatherbit.ip_ip_ip.get({
   * rh `integer`: Relative humidity (%)
   * slp `number`: Mean sea level pressure in millibars (mb)
   * snow `number`: Snowfall in last hour - Default (mm)
+  * solar_rad `number`: Estimated solar radiation (W/m^2)
   * state_code `string`: State abbreviation
   * station `string`: Source Station ID
   * sunrise `string`: Time (UTC) of Sunrise (HH:MM)
@@ -1423,6 +1559,37 @@ weatherbit.ip_ip_ip.get({
   * end_date `integer`: End Date
   * start_date `integer`: Start Date
 
+### EnergyObsGroupForecast
+* EnergyObsGroupForecast `object`
+  * city_name `string`: City name (closest)
+  * country_code `string`: Country abbreviation
+  * data `array`
+    * items [EnergyObsSeries](#energyobsseries)
+  * lat `string`: Latitude
+  * lon `string`: Longitude
+  * state_code `string`: State abbreviation
+  * threshold_units `string`: Degree day threshold units
+  * threshold_value `string`: Degree day threshold
+  * timezone `string`: Local IANA time zone
+
+### EnergyObsSeries
+* EnergyObsSeries `object`
+  * cdd `number`: Cooling degree days
+  * clouds `integer`: Average cloud cover (%)
+  * date `string`: Date
+  * dewpt `number`: Average dew point temperature - Default (C)
+  * hdd `number`: Heating degree days
+  * precip `number`: Total precipitation in period - Default (mm)
+  * rh `integer`: Average Relative humidity (%)
+  * snow `number`: Total snowfall in period - Default (mm)
+  * sun_hours `number`: Average number of daily sun hours - # hours where Solar GHI > 1000 W/m^2
+  * t_dhi `number`: Total diffuse horizontal solar irradiance (W/m^2)
+  * t_dni `number`: Total direct normal solar irradiance (W/m^2)
+  * t_ghi `number`: Total global horizontal solar irradiance (W/m^2)
+  * temp `number`: Average temperature - Default (C)
+  * wind_dir `integer`: Average wind direction (Degrees)
+  * wind_speed `number`: Average wind speed - Default (m/s)
+
 ### Error
 * Error `object`
   * code `integer`
@@ -1433,11 +1600,14 @@ weatherbit.ip_ip_ip.get({
   * app_max_temp `number`: Apparent Maximum daily Temperature - default (C)
   * app_min_temp `number`: Apparent Minimum daily Temperature - default (C)
   * clouds `integer`: Cloud cover as a percentage (%)
-  * datetime `string`: (UTC) Date in format "YYYY-MM-DD"
+  * datetime `string`: Date in format "YYYY-MM-DD:HH". All datetime is in (UTC)
   * dewpt `number`: Dewpoint (Average) - default (C)
   * max_dhi `number`: [Deprecated] Max direct component of solar insolation (W/m^2)
   * max_temp `number`: Maximum daily Temperature - default (C)
   * min_temp `number`: Minimum daily Temperature - default (C)
+  * moon_phase `number`: Moon phase
+  * moonrise_ts `integer`: Moonrise unix timestamp
+  * moonset_ts `integer`: Moonset unix timestamp
   * pod `string`: Part of the day (d = day, n = night)
   * pop `number`: Chance of Precipitation as a percentage (%)
   * precip `number`: Accumulated precipitation since last forecast point - default (mm)
@@ -1446,7 +1616,11 @@ weatherbit.ip_ip_ip.get({
   * slp `number`: Mean Sea level pressure (mb)
   * snow `number`: Accumulated snowfall since last forecast point - default (mm)
   * snow_depth `number`: Snow Depth - default (mm)
+  * sunrise_ts `integer`: Sunrise unix timestamp
+  * sunset_ts `integer`: Sunset unix timestamp
   * temp `number`: Temperature (Average) - default (C)
+  * timestamp_local `string`: Timestamp in local time
+  * timestamp_utc `string`: Timestamp UTC
   * ts `number`: Unix Timestamp
   * uv `number`: UV Index
   * vis `number`: Average Visibility default (KM)
@@ -1474,7 +1648,7 @@ weatherbit.ip_ip_ip.get({
 * ForecastHour `object`
   * app_temp `number`: Apparent Temperature - Default (C)
   * clouds `integer`: Cloud cover as a percentage (%)
-  * datetime `string`: (UTC) Date in format "YYYY-MM-DD:HH"
+  * datetime `string`: Date in format "YYYY-MM-DD:HH". All datetime is in (UTC)
   * dewpt `number`: Dewpoint - Default (C)
   * dhi `number`: Diffuse normal solar irradiance (W/m^2)
   * dni `number`: Direct normal solar irradiance (W/m^2)
@@ -1482,14 +1656,16 @@ weatherbit.ip_ip_ip.get({
   * pod `string`: Part of day (d = day, n = night)
   * pop `number`: Chance of Precipitation as a percentage (%)
   * precip `number`: Accumulated precipitation since last forecast point. Default (mm)
-  * precip6h `number`: Accumulated precipitation since last forecast point. Default (mm)
   * pres `number`: Pressure (mb)
   * rh `integer`: Relative Humidity as a percentage (%)
   * slp `number`: Mean Sea level pressure (mb)
   * snow `number`: Accumulated snowfall since last forecast point - Default (mm)
   * snow6h `number`: 6 hour accumulated snowfall. Default (mm)
   * snow_depth `number`: Snow depth - Default (mm)
+  * solar_rad `number`: Estimated solar radiation (W/m^2)
   * temp `number`: Temperature - Default (C)
+  * timestamp_local `string`: Timestamp in local time
+  * timestamp_utc `string`: Timestamp UTC
   * ts `number`: Unix Timestamp
   * uv `number`: UV Index
   * vis `number`: Visibility - Default (KM)
@@ -1574,6 +1750,7 @@ weatherbit.ip_ip_ip.get({
   * min_temp `number`: Min temperature - Default (C)
   * min_temp_ts `number`: Time of max temperature - unix timestamp
   * precip `number`: Liquid equivalent precipitation - default (mm)
+  * precip_gpm `number`: Satellite estimated liquid equivalent precipitation - default (mm)
   * pres `number`: Average pressure (mb)
   * rh `integer`: Average relative humidity as a percentage (%)
   * slp `number`: Average sea level pressure (mb)
@@ -1583,9 +1760,9 @@ weatherbit.ip_ip_ip.get({
   * t_dni `integer`: Total direct normal solar irradiance (W/m^2)
   * t_ghi `integer`: Total global horizontal solar irradiance (W/m^2)
   * temp `number`: Average temperature - Default (C)
-  * ts `number`: Unix timestamp of datetime (Midnight UTC)
+  * ts `integer`: Unix timestamp of datetime (Midnight UTC)
   * wind_dir `integer`: Average wind direction (degrees)
-  * wind_gust_spd `number`: Wind gust direction (degrees)
+  * wind_gust_spd `number`: Wind gust speed - default (m/s)
   * wind_spd `number`: Average wind speed - default (m/s)
 
 ### HistoryObj
@@ -1599,14 +1776,16 @@ weatherbit.ip_ip_ip.get({
   * h_angle `number`: Solar hour angle (Degrees)
   * pod `string`: Part of the day (d = day, n = night)
   * precip `number`: Liquid equivalent precipitation - Default (mm)
-  * precip6h `number`: Liquid equivalent precipitation in last 6 hours - Default (mm)
   * pres `number`: Pressure (mb)
   * rh `integer`: Relative Humidity as a percentage (%)
   * slp `number`: Sea level pressure (mb)
   * snow `number`: Snowfall - Default (mm)
   * snow6h `number`: Snowfall in last 6 hours - Default (mm)
+  * solar_rad `number`: Estimated solar radiation (W/m^2)
   * temp `number`: Temperature (Default Celcius)
-  * ts `string`: Unix Timestamp (UTC)
+  * timestamp_local `string`: Timestamp in local time
+  * timestamp_utc `string`: Timestamp UTC
+  * ts `number`: Unix Timestamp
   * uv `integer`: UV Index (1-11+)
   * weather `object`
     * code `string`: Weather Condition code
@@ -1614,5 +1793,25 @@ weatherbit.ip_ip_ip.get({
     * icon `string`: Icon code for forecast image display
   * wind_dir `integer`: Wind direction (Degrees)
   * wind_spd `number`: Wind Speed (Default m/s)
+
+### WeatherAlert
+* WeatherAlert `object`
+  * alerts `array`
+    * items [WeatherAlertGroup](#weatheralertgroup)
+  * lat `number`: Latitude
+  * lon `number`: Longitude
+
+### WeatherAlertGroup
+* WeatherAlertGroup `object`
+  * alerts `array`
+    * items [AlertRegionGroup](#alertregiongroup)
+  * description `string`: Full description of weather alert
+  * effective_local `string`: Issued time local
+  * effective_utc `string`: Issued time UTC
+  * expires_local `string`: Expiration time local
+  * expires_utc `string`: Expiration time UTC
+  * severity `string`: Severity of weather. (Advisory | Watch | Warning)
+  * title `string`: Brief description of weather alert
+  * uri `string`: URI to weather alert
 
 

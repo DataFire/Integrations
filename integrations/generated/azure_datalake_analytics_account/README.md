@@ -15,9 +15,7 @@ let azure_datalake_analytics_account = require('@datafire/azure_datalake_analyti
   redirect_uri: ""
 });
 
-azure_datalake_analytics_account.Operations_List({
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

@@ -1,6 +1,6 @@
 # @datafire/gov_bc_ca_bcgnws
 
-Client library for BC Geographical Names Web Service -
+Client library for BC Geographical Names Web Service - REST API
 
 ## Installation and Usage
 ```bash
@@ -9,9 +9,7 @@ npm install --save @datafire/gov_bc_ca_bcgnws
 ```js
 let gov_bc_ca_bcgnws = require('@datafire/gov_bc_ca_bcgnws').create();
 
-gov_bc_ca_bcgnws.featureCategories.get({
-  "outputFormat": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

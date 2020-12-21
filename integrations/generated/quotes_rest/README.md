@@ -1,15 +1,17 @@
 # @datafire/quotes_rest
 
-Client library for They Said So Quotes
+Client library for They Said So Quotes API
 
 ## Installation and Usage
 ```bash
 npm install --save @datafire/quotes_rest
 ```
 ```js
-let quotes_rest = require('@datafire/quotes_rest').create();
+let quotes_rest = require('@datafire/quotes_rest').create({
+  "X-TheySaidSo-Api-Secret": ""
+});
 
-quotes_rest.qod.categories.get({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -21,9 +23,7 @@ quotes_rest.qod.categories.get({}).then(data => {
 ## Actions
 
 ### qod.get
-Gets `Quote of the Day`.
-Optional `category` param determines
-the category of returned quote of the day
+Gets `Quote of the Day`. Optional `category` param determines the category of returned quote of the day
 
 
 
@@ -34,7 +34,7 @@ quotes_rest.qod.get({}, context)
 #### Input
 * input `object`
   * category `string`: QOD Category
-  * X-TheySaidSo-Api-Secret `string`: API Key
+  * language `string`: Language of the QOD. The language must be supported in our QOD system.
 
 #### Output
 * output [QuoteResponse](#quoteresponse)
@@ -50,7 +50,23 @@ quotes_rest.qod.categories.get({}, context)
 
 #### Input
 * input `object`
-  * X-TheySaidSo-Api-Secret `string`: API Key
+  * language `string`: Language of the QOD category. The language must be supported in our QOD system.
+  * detailed `boolean`: Return detailed information of the categories. Note the data format changes between the two values of this switch.
+
+#### Output
+*Output schema unknown*
+
+### qod.languages.get
+Gets a list of supported languages for `Quote of the Day`. 
+
+
+
+```js
+quotes_rest.qod.languages.get(null, context)
+```
+
+#### Input
+*This action has no parameters*
 
 #### Output
 *Output schema unknown*
@@ -62,15 +78,13 @@ Delete a qshow.
 
 ```js
 quotes_rest.qshow.delete({
-  "id": "",
-  "X-TheySaidSo-Api-Secret": ""
+  "id": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * id **required** `string`: Qshow ID
-  * X-TheySaidSo-Api-Secret **required** `string`: API Key
 
 #### Output
 *Output schema unknown*
@@ -82,15 +96,13 @@ Gets a details about a qshow.
 
 ```js
 quotes_rest.qshow.get({
-  "id": "",
-  "X-TheySaidSo-Api-Secret": ""
+  "id": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * id **required** `string`: Qshow ID
-  * X-TheySaidSo-Api-Secret **required** `string`: API Key
 
 #### Output
 *Output schema unknown*
@@ -101,8 +113,7 @@ Update an existing qshow.
 
 ```js
 quotes_rest.qshow.patch({
-  "id": "",
-  "X-TheySaidSo-Api-Secret": ""
+  "id": ""
 }, context)
 ```
 
@@ -112,7 +123,6 @@ quotes_rest.qshow.patch({
   * title `string`: Qshow title
   * description `string`: Qshow description
   * tags `array`: Tags for the qshow
-  * X-TheySaidSo-Api-Secret **required** `string`: API Key
 
 #### Output
 *Output schema unknown*
@@ -123,8 +133,7 @@ Create and add a new qshow to your private collection.
 
 ```js
 quotes_rest.qshow.put({
-  "title": "",
-  "X-TheySaidSo-Api-Secret": ""
+  "title": ""
 }, context)
 ```
 
@@ -133,7 +142,6 @@ quotes_rest.qshow.put({
   * title **required** `string`: Qshow title
   * description `string`: Qshow description
   * tags `array`: Tags for the qshow
-  * X-TheySaidSo-Api-Secret **required** `string`: API Key
 
 #### Output
 *Output schema unknown*
@@ -143,14 +151,11 @@ Get the list of Qshows in They Said So platform.
 
 
 ```js
-quotes_rest.qshow.list.get({
-  "X-TheySaidSo-Api-Secret": ""
-}, context)
+quotes_rest.qshow.list.get({}, context)
 ```
 
 #### Input
 * input `object`
-  * X-TheySaidSo-Api-Secret **required** `string`: API Key
   * start `integer`: Response is paged. This parameter controls where response starts the listing at
   * public `boolean`: Should include public qshows or not in the list
 
@@ -163,14 +168,12 @@ Get the quotes in a given Qshow.
 
 ```js
 quotes_rest.qshow.quotes.get({
-  "X-TheySaidSo-Api-Secret": "",
   "id": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * X-TheySaidSo-Api-Secret **required** `string`: API Key
   * id **required** `string`: Qshow ID
 
 #### Output
@@ -182,7 +185,6 @@ Add a quote to a given Qshow.
 
 ```js
 quotes_rest.qshow.quotes.add.post({
-  "X-TheySaidSo-Api-Secret": "",
   "id": "",
   "quoteid": ""
 }, context)
@@ -190,7 +192,6 @@ quotes_rest.qshow.quotes.add.post({
 
 #### Input
 * input `object`
-  * X-TheySaidSo-Api-Secret **required** `string`: API Key
   * id **required** `string`: Qshow ID
   * quoteid **required** `string`: Quote ID to add the qshow collection
 
@@ -203,7 +204,6 @@ Remove a quote to a given Qshow.
 
 ```js
 quotes_rest.qshow.quotes.remove.post({
-  "X-TheySaidSo-Api-Secret": "",
   "id": "",
   "quoteid": ""
 }, context)
@@ -211,7 +211,6 @@ quotes_rest.qshow.quotes.remove.post({
 
 #### Input
 * input `object`
-  * X-TheySaidSo-Api-Secret **required** `string`: API Key
   * id **required** `string`: Qshow ID
   * quoteid **required** `string`: Quote ID to remove from the qshow collection
 
@@ -225,15 +224,13 @@ Delete a quote. The user needs to be the owner of the quote to be able to delete
 
 ```js
 quotes_rest.quote.delete({
-  "id": "",
-  "X-TheySaidSo-Api-Secret": ""
+  "id": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * id **required** `string`: Quote ID
-  * X-TheySaidSo-Api-Secret **required** `string`: API Key
 
 #### Output
 *Output schema unknown*
@@ -243,15 +240,12 @@ Gets a `Quote` with a given `id`.
 
 
 ```js
-quotes_rest.quote.get({
-  "X-TheySaidSo-Api-Secret": ""
-}, context)
+quotes_rest.quote.get({}, context)
 ```
 
 #### Input
 * input `object`
   * id `string`: Quote ID
-  * X-TheySaidSo-Api-Secret **required** `string`: API Key
 
 #### Output
 * output [QuoteResponse](#quoteresponse)
@@ -262,8 +256,7 @@ Update a quote
 
 ```js
 quotes_rest.quote.patch({
-  "id": "",
-  "X-TheySaidSo-Api-Secret": ""
+  "id": ""
 }, context)
 ```
 
@@ -272,8 +265,28 @@ quotes_rest.quote.patch({
   * id **required** `string`: Quote ID
   * quote `string`: Quote
   * author `string`: Quote Author
+  * language `string`: Language. If not supplied an auto detection mechanism will be used to detect a language.
   * tags `string`: Comma Separated tags
-  * X-TheySaidSo-Api-Secret **required** `string`: API Key
+
+#### Output
+*Output schema unknown*
+
+### quote.post
+Add a new quote to your private collection. Same as 'PUT' but added since some clients don't handle PUT well.
+
+
+```js
+quotes_rest.quote.post({
+  "quote": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * quote **required** `string`: Quote
+  * author `string`: Quote Author
+  * tags `string`: Comma Separated tags
+  * language `string`: Language. If not supplied an auto detection mechanism will be used to detect a language.
 
 #### Output
 *Output schema unknown*
@@ -284,8 +297,7 @@ Add a new quote to your private collection.
 
 ```js
 quotes_rest.quote.put({
-  "quote": "",
-  "X-TheySaidSo-Api-Secret": ""
+  "quote": ""
 }, context)
 ```
 
@@ -294,58 +306,421 @@ quotes_rest.quote.put({
   * quote **required** `string`: Quote
   * author `string`: Quote Author
   * tags `string`: Comma Separated tags
-  * X-TheySaidSo-Api-Secret **required** `string`: API Key
+  * language `string`: Language. If not supplied an auto detection mechanism will be used to detect a language.
 
 #### Output
 *Output schema unknown*
 
-### quote.authors.get
+### quote.authors.popular.get
+Gets a list of popular author names in the system. 
+
+
+
+```js
+quotes_rest.quote.authors.popular.get({}, context)
+```
+
+#### Input
+* input `object`
+  * language `string`: Language. A same author may have quotes in two or more different languages. So for example 'Mahatma Gandhi' may be returned for language "en"(English), and "மஹாத்மா காந்தி" may be returned when the language is "ta" (Tamil).
+  * detailed `boolean`: Should return detailed author information such as `birthday`, `death date`, `occupation`, `description` etc. Only available at certain subscription levels.
+  * start `integer`: Response is paged. This parameter controls where response starts the listing at
+  * limit `integer`: Response is paged. This parameter controls how many is returned in the result. The maximum depends on the subscription level.
+
+#### Output
+*Output schema unknown*
+
+### quote.authors.search.get
 Gets a list of author names in the system. 
 
 
 
 ```js
-quotes_rest.quote.authors.get({
-  "X-TheySaidSo-Api-Secret": ""
-}, context)
+quotes_rest.quote.authors.search.get({}, context)
 ```
 
 #### Input
 * input `object`
-  * X-TheySaidSo-Api-Secret **required** `string`: API Key
+  * query `string`: Text string to search for in author names
+  * language `string`: Language. A same author may have quotes in two or more different languages. So for example 'Mahatma Gandhi' may be returned for language "en"(English), and "மஹாத்மா காந்தி" may be returned when the language is "ta" (Tamil).
+  * detailed `boolean`: Should return detailed author information such as `birthday`, `death date`, `occupation`, `description` etc. Only available at certain subscription levels.
   * start `integer`: Response is paged. This parameter controls where response starts the listing at
+  * limit `integer`: Response is paged. This parameter controls how many is returned in the result. The maximum depends on the subscription level.
 
 #### Output
 *Output schema unknown*
 
-### quote.categories.get
-Gets a list of `Quote` Categories.
+### quote.categories.popular.get
+Gets a list of popular `Quote` Categories.
 
 
 
 ```js
-quotes_rest.quote.categories.get({
-  "X-TheySaidSo-Api-Secret": ""
+quotes_rest.quote.categories.popular.get({}, context)
+```
+
+#### Input
+* input `object`
+  * start `integer`: Response is paged. This parameter controls where response starts the listing at
+  * limit `integer`: Response is paged. This parameter controls how many is returned in the result. The maximum depends on the subscription level.
+
+#### Output
+*Output schema unknown*
+
+### quote.categories.search.get
+Gets a list of `Quote` Categories matching the query string.
+
+
+
+```js
+quotes_rest.quote.categories.search.get({}, context)
+```
+
+#### Input
+* input `object`
+  * query `string`: Text string to search for in the categories
+  * start `integer`: Response is paged. This parameter controls where response starts the listing at
+  * limit `integer`: Response is paged. This parameter controls how many is returned in the result. The maximum depends on the subscription level.
+
+#### Output
+*Output schema unknown*
+
+### quote.dislike.delete
+Remove the disLike for the given Quote as a user of the API Key.
+
+
+```js
+quotes_rest.quote.dislike.delete({
+  "quote_id": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * X-TheySaidSo-Api-Secret **required** `string`: API Key
-  * start `integer`: Response is paged. This parameter controls where response starts the listing at
+  * quote_id **required** `string`: Quote ID
+
+#### Output
+*Output schema unknown*
+
+### quote.dislike.post
+Dislike the given Quote as a user of the API Key. Same as `put` but a convenient alias for those clients that don't support `put` cleanly.
+
+
+```js
+quotes_rest.quote.dislike.post({
+  "quote_id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * quote_id **required** `string`: Quote ID
+
+#### Output
+*Output schema unknown*
+
+### quote.dislike.put
+Dislike the given Quote as a user of the API Key. Some clients don't cleanly support `PUT`, in such scenarios use the `POST` version of this.
+
+
+```js
+quotes_rest.quote.dislike.put({
+  "quote_id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * quote_id **required** `string`: Quote ID
+
+#### Output
+*Output schema unknown*
+
+### quote.image.delete
+Delete a quote image. The user needs to be the owner of the quote image to be able to delete it.
+
+
+
+```js
+quotes_rest.quote.image.delete({
+  "id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * id **required** `string`: Quote Image ID
+
+#### Output
+*Output schema unknown*
+
+### quote.image.get
+Gets a Quote image for a given id. Response can be an image file as a binary or a base64 encoded contents wrapped in json. `TODO`
+
+
+
+```js
+quotes_rest.quote.image.get({
+  "id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * id **required** `string`: Quote Image id
+  * binary `boolean`: Should the response be a direct file download of the image or a base64 encoded image file wrapped in json?
+
+#### Output
+*Output schema unknown*
+
+### quote.image.put
+Create a new quote image for a given quote. Choose background colors/images , choose different font styles and generate a beautiful quote image. Did you just had a feeling of being a god or what?!
+
+
+
+```js
+quotes_rest.quote.image.put({
+  "quote_id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * quote_id **required** `string`: Quote id
+  * bgimage_id `string`: Background Image id ( Will override bgcolor if supplied)
+  * bg_color `string`: Background Color(if background image id is not supplied)
+  * font_id `string`: Font id
+  * text_color `string`: Text Color
+  * text_size `string`: Text/font size
+  * halign `string`: Horizontal text Alignment Value
+  * valign `string`: Vertical text Alignment Value
+  * width `integer`: Image Width(By default this takes the width of the background image)
+  * height `integer`: Image Height(By default this takes the height of the background image)
+  * branding `boolean`: Disable They Said So branding (Only available in certain subscription levels. Ignored in other levels)
+  * include_transparent_layer `boolean`: Should include a transparent layer between the text and the background image? This helps when the background image is bright and obscures the text.
+
+#### Output
+*Output schema unknown*
+
+### quote.image.background.delete
+Delete a background image file. The user needs to be the owner of the background image to be able to delete it.
+
+
+
+```js
+quotes_rest.quote.image.background.delete({
+  "id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * id **required** `string`: Font ID
+
+#### Output
+*Output schema unknown*
+
+### quote.image.background.post
+Add an image for use later as a quote background image.
+
+
+```js
+quotes_rest.quote.image.background.post({
+  "image": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * image **required** `string`: Image file to add to your collection (png/jpg/gif are supported)
+  * tags `string`: Optional comma separated tags
+
+#### Output
+*Output schema unknown*
+
+### quote.image.background.list.get
+Lists background images in your private collection. 
+
+
+
+```js
+quotes_rest.quote.image.background.list.get({}, context)
+```
+
+#### Input
+* input `object`
+  * start `integer`: Response is paged. This parameter determines where the response should start.
+
+#### Output
+*Output schema unknown*
+
+### quote.image.background.search.get
+Searches for a background image with a given tag. 
+
+
+
+```js
+quotes_rest.quote.image.background.search.get({}, context)
+```
+
+#### Input
+* input `object`
+  * query `string`: Tag string
+
+#### Output
+*Output schema unknown*
+
+### quote.image.background.tags.add.post
+Add a tag to a given Image.
+
+
+```js
+quotes_rest.quote.image.background.tags.add.post({
+  "id": "",
+  "tags": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * id **required** `string`: Image ID
+  * tags **required** `string`: Comma Separated tags
+
+#### Output
+*Output schema unknown*
+
+### quote.image.background.tags.remove.post
+Remove a tag from a given Image.
+
+
+```js
+quotes_rest.quote.image.background.tags.remove.post({
+  "id": "",
+  "tags": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * id **required** `string`: Image ID
+  * tags **required** `string`: Comma Separated tags
+
+#### Output
+*Output schema unknown*
+
+### quote.image.font.delete
+Delete a font file. The user needs to be the owner of the font to be able to delete it.
+
+
+
+```js
+quotes_rest.quote.image.font.delete({
+  "id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * id **required** `string`: Font ID
+
+#### Output
+*Output schema unknown*
+
+### quote.image.font.post
+Add a font file for use later in creating a quote image. This is essentially a `PUT` but not many clients handle PUT with binary stream i.e. a file, gracefully.
+
+
+```js
+quotes_rest.quote.image.font.post({
+  "font": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * font **required** `string`: Font file to add to your collection (ttf/otf are supported)
+  * tags `string`: Optional comma separated tags
+
+#### Output
+*Output schema unknown*
+
+### quote.image.font.list.get
+Lists background images in your private collection. 
+
+
+
+```js
+quotes_rest.quote.image.font.list.get({}, context)
+```
+
+#### Input
+* input `object`
+  * start `integer`: Response is paged. This parameter determines where the response should start.
+
+#### Output
+*Output schema unknown*
+
+### quote.image.font.search.get
+Searches for a font with a given tag. 
+
+
+
+```js
+quotes_rest.quote.image.font.search.get({}, context)
+```
+
+#### Input
+* input `object`
+  * query `string`: Tag string
+
+#### Output
+*Output schema unknown*
+
+### quote.image.font.tags.add.post
+Add a tag to a given font.
+
+
+```js
+quotes_rest.quote.image.font.tags.add.post({
+  "id": "",
+  "tags": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * id **required** `string`: Font ID
+  * tags **required** `string`: Comma Separated tags
+
+#### Output
+*Output schema unknown*
+
+### quote.image.font.tags.remove.post
+Remove a tag from a given Font.
+
+
+```js
+quotes_rest.quote.image.font.tags.remove.post({
+  "id": "",
+  "tags": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * id **required** `string`: Font ID
+  * tags **required** `string`: Comma Separated tags
 
 #### Output
 *Output schema unknown*
 
 ### quote.image.search.get
-Gets a Random Quote image. Optional `category` param determinesthe category of quote used in the image. Optional `author` param gets the quote image of a given author. 
+Gets a Random Quote image. Optional `category` param determines the category of quote used in the image. Optional `author` param gets the quote image of a given author. 
 
 
 
 ```js
-quotes_rest.quote.image.search.get({
-  "X-TheySaidSo-Api-Secret": ""
-}, context)
+quotes_rest.quote.image.search.get({}, context)
 ```
 
 #### Input
@@ -353,7 +728,57 @@ quotes_rest.quote.image.search.get({
   * category `string`: Quote Category
   * author `string`: Quote Author
   * private `boolean`: Should search private collection. Default searches public image collection.
-  * X-TheySaidSo-Api-Secret **required** `string`: API Key
+
+#### Output
+*Output schema unknown*
+
+### quote.like.delete
+Remove the Like for the given Quote as a user of the API Key.
+
+
+```js
+quotes_rest.quote.like.delete({
+  "quote_id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * quote_id **required** `string`: Quote ID
+
+#### Output
+*Output schema unknown*
+
+### quote.like.post
+Like the given Quote as a user of the API Key. Same as `PUT` but a convenient alias for those clients that don't support `PUT` cleanly.
+
+
+```js
+quotes_rest.quote.like.post({
+  "quote_id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * quote_id **required** `string`: Quote ID
+
+#### Output
+*Output schema unknown*
+
+### quote.like.put
+Like the given Quote as a user of the API Key. Some clients don't cleanly support `PUT`, in such scenarios use the `POST` version of this.
+
+
+```js
+quotes_rest.quote.like.put({
+  "quote_id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * quote_id **required** `string`: Quote ID
 
 #### Output
 *Output schema unknown*
@@ -363,15 +788,13 @@ Get the list of quotes in your private collection.
 
 
 ```js
-quotes_rest.quote.list.get({
-  "X-TheySaidSo-Api-Secret": ""
-}, context)
+quotes_rest.quote.list.get({}, context)
 ```
 
 #### Input
 * input `object`
-  * X-TheySaidSo-Api-Secret **required** `string`: API Key
   * start `integer`: Response is paged. This parameter controls where response starts the listing at
+  * limit `integer`: Response is paged. This parameter controls how many is returned in the result.
 
 #### Output
 *Output schema unknown*
@@ -381,14 +804,13 @@ Gets a `Random Quote`. When you are in a hurry this is what you call to get a ra
 
 
 ```js
-quotes_rest.quote.random.get({
-  "X-TheySaidSo-Api-Secret": ""
-}, context)
+quotes_rest.quote.random.get({}, context)
 ```
 
 #### Input
 * input `object`
-  * X-TheySaidSo-Api-Secret **required** `string`: API Key
+  * language `string`: Language of the Quote. The language must be supported in our system.
+  * limit `integer`: No of quotes to return. The max limit depends on the subscription level.
 
 #### Output
 * output [QuoteResponse](#quoteresponse)
@@ -398,9 +820,7 @@ Search for a `Quote` in They Said So platform. Optional `category` , `author`, `
 
 
 ```js
-quotes_rest.quote.search.get({
-  "X-TheySaidSo-Api-Secret": ""
-}, context)
+quotes_rest.quote.search.get({}, context)
 ```
 
 #### Input
@@ -411,7 +831,9 @@ quotes_rest.quote.search.get({
   * maxlength `integer`: Quote maximum Length
   * query `string`: keyword to search for in the quote
   * private `boolean`: Should search private collection? Default searches public collection.
-  * X-TheySaidSo-Api-Secret **required** `string`: API Key
+  * language `string`: Language of the Quote. The language must be supported in our system.
+  * limit `integer`: No of quotes to return. The max limit depends on the subscription level.
+  * sfw `boolean`: Should search only SFW (Safe For Work) quotes?
 
 #### Output
 * output [QuoteResponse](#quoteresponse)
@@ -422,7 +844,6 @@ Add a tag to a given Quote.
 
 ```js
 quotes_rest.quote.tags.add.post({
-  "X-TheySaidSo-Api-Secret": "",
   "id": "",
   "tags": ""
 }, context)
@@ -430,7 +851,6 @@ quotes_rest.quote.tags.add.post({
 
 #### Input
 * input `object`
-  * X-TheySaidSo-Api-Secret **required** `string`: API Key
   * id **required** `string`: Quote ID
   * tags **required** `string`: Comma Separated tags
 
@@ -443,7 +863,6 @@ Remove a tag from a given quote.
 
 ```js
 quotes_rest.quote.tags.remove.post({
-  "X-TheySaidSo-Api-Secret": "",
   "id": "",
   "tags": ""
 }, context)
@@ -451,7 +870,6 @@ quotes_rest.quote.tags.remove.post({
 
 #### Input
 * input `object`
-  * X-TheySaidSo-Api-Secret **required** `string`: API Key
   * id **required** `string`: Quote ID
   * tags **required** `string`: Comma Separated tags
 
@@ -464,17 +882,17 @@ quotes_rest.quote.tags.remove.post({
 
 ### NewQuote
 * NewQuote `object`
-  * author `string`: Author name of quote.
-  * quote **required** `string`: The Quote.
   * tags `array`: Array of tags/categories.
     * items `string`
+  * author `string`: Author name of quote.
+  * quote **required** `string`: The Quote.
 
 ### QOD
 * QOD
-  * author `string`: Author name of quote.
-  * quote **required** `string`: The Quote.
   * tags `array`: Array of tags/categories.
     * items `string`
+  * author `string`: Author name of quote.
+  * quote **required** `string`: The Quote.
   * id **required** `string`: Unique identifier representing a specific quote in theysaidso.com.
   * image `string`: Image URL that can be used for background to display this quote.
   * length `integer`: Length of the quote string.
@@ -482,10 +900,10 @@ quotes_rest.quote.tags.remove.post({
 
 ### Quote
 * Quote
-  * author `string`: Author name of quote.
-  * quote **required** `string`: The Quote.
   * tags `array`: Array of tags/categories.
     * items `string`
+  * author `string`: Author name of quote.
+  * quote **required** `string`: The Quote.
   * id **required** `string`: Unique identifier representing a specific quote in theysaidso.com.
   * image `string`: Image URL that can be used for background to display this quote.
   * length `integer`: Length of the quote string.

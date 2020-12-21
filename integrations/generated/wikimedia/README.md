@@ -11,10 +11,7 @@ let wikimedia = require('@datafire/wikimedia').create({
   mediawiki_auth: ""
 });
 
-wikimedia.media.math.check.type.post({
-  "type": "",
-  "q": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -41,6 +38,23 @@ Please consult each endpoint's documentation for details on:
 
 
 ## Actions
+
+### feed.availability.get
+Gets availability of featured feed content for the apps by wiki domain.
+
+Stability: [experimental](https://www.mediawiki.org/wiki/API_versioning#Experimental)
+
+
+
+```js
+wikimedia.feed.availability.get(null, context)
+```
+
+#### Input
+*This action has no parameters*
+
+#### Output
+* output [availability](#availability)
 
 ### media.math.check.type.post
 Checks the supplied TeX formula for correctness and returns the
@@ -153,6 +167,42 @@ wikimedia.metrics.bytes_difference.absolute.aggregate.project.editor_type.page_t
 #### Output
 * output [absolute-bytes-difference](#absolute-bytes-difference)
 
+### metrics.bytes_difference.absolute.per_page.project.page_title.editor_type.granularity.start.end.get
+Given a Mediawiki project, a page-title prefixed with canonical namespace (for
+instance 'User:Jimbo_Wales') and a date range, returns a timeseries of bytes
+difference absolute sums. You can filter by editors-type (all-editor-types, anonymous,
+group-bot, name-bot, user). You can choose between daily and monthly granularity as well.
+
+- Stability: [experimental](https://www.mediawiki.org/wiki/API_versioning#Experimental)
+- Rate limit: 25 req/s
+- License: Data accessible via this endpoint is available under the
+  [CC0 1.0 license](https://creativecommons.org/publicdomain/zero/1.0/).
+
+
+
+```js
+wikimedia.metrics.bytes_difference.absolute.per_page.project.page_title.editor_type.granularity.start.end.get({
+  "project": "",
+  "page-title": "",
+  "editor-type": "",
+  "granularity": "",
+  "start": "",
+  "end": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * project **required** `string`: The name of any Wikimedia project formatted like {language code}.{project name},
+  * page-title **required** `string`: The page-title to request absolute bytes-difference for. Should be prefixed with the
+  * editor-type **required** `string` (values: all-editor-types, anonymous, group-bot, name-bot, user): If you want to filter by editor-type, use one of anonymous, group-bot (registered
+  * granularity **required** `string` (values: daily, monthly): Time unit for the response data. As of today, supported values are daily and monthly
+  * start **required** `string`: The date of the first day to include, in YYYYMMDD format
+  * end **required** `string`: The date of the last day to include, in YYYYMMDD format
+
+#### Output
+* output [absolute-bytes-difference-per-page](#absolute-bytes-difference-per-page)
+
 ### metrics.bytes_difference.net.aggregate.project.editor_type.page_type.granularity.start.end.get
 Given a Mediawiki project and a date range, returns a timeseries of bytes difference net
 sums. You can filter by editors-type (all-editor-types, anonymous, group-bot, name-bot,
@@ -188,6 +238,42 @@ wikimedia.metrics.bytes_difference.net.aggregate.project.editor_type.page_type.g
 
 #### Output
 * output [net-bytes-difference](#net-bytes-difference)
+
+### metrics.bytes_difference.net.per_page.project.page_title.editor_type.granularity.start.end.get
+Given a Mediawiki project, a page-title prefixed with canonical namespace (for
+instance 'User:Jimbo_Wales') and a date range, returns a timeseries of bytes
+difference net sums. You can filter by editors-type (all-editor-types, anonymous,
+group-bot, name-bot, user). You can choose between daily and monthly granularity as well.
+
+- Stability: [experimental](https://www.mediawiki.org/wiki/API_versioning#Experimental)
+- Rate limit: 25 req/s
+- License: Data accessible via this endpoint is available under the
+  [CC0 1.0 license](https://creativecommons.org/publicdomain/zero/1.0/).
+
+
+
+```js
+wikimedia.metrics.bytes_difference.net.per_page.project.page_title.editor_type.granularity.start.end.get({
+  "project": "",
+  "page-title": "",
+  "editor-type": "",
+  "granularity": "",
+  "start": "",
+  "end": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * project **required** `string`: The name of any Wikimedia project formatted like {language code}.{project name},
+  * page-title **required** `string`: The page-title to request net bytes-difference for. Should be prefixed with the
+  * editor-type **required** `string` (values: all-editor-types, anonymous, group-bot, name-bot, user): If you want to filter by editor-type, use one of anonymous, group-bot (registered
+  * granularity **required** `string` (values: daily, monthly): Time unit for the response data. As of today, supported values are daily and monthly
+  * start **required** `string`: The date of the first day to include, in YYYYMMDD format
+  * end **required** `string`: The date of the last day to include, in YYYYMMDD format
+
+#### Output
+* output [net-bytes-difference-per-page](#net-bytes-difference-per-page)
 
 ### metrics.edited_pages.aggregate.project.editor_type.page_type.activity_level.granularity.start.end.get
 Given a Mediawiki project and a date range, returns a timeseries of its edited-pages counts.
@@ -233,9 +319,6 @@ Given a Mediawiki project and a date range, returns a timeseries of its new page
 You can filter by editor type (all-editor-types, anonymous, group-bot, name-bot, user)
 or page-type (all-page-types, content or non-content). You can choose between daily and
 monthly granularity as well.
-The new pages value is computed as follow:
-  [number of created pages] - [number of deleted pages] + [number of restored pages]
-for the chosen filters.
 
 - Stability: [experimental](https://www.mediawiki.org/wiki/API_versioning#Experimental)
 - Rate limit: 25 req/s
@@ -267,11 +350,10 @@ wikimedia.metrics.edited_pages.new.project.editor_type.page_type.granularity.sta
 #### Output
 * output [new-pages](#new-pages)
 
-### metrics.edited_pages.top_by_absolute_bytes_difference.project.editor_type.page_type.granularity.start.end.get
-Given a Mediawiki project and a date range, returns a timeseries of the top 100 edited-pages
-by absolute bytes-difference. You can filter by editor-type (all-editor-types, anonymous,
-group-bot, name-bot, user) or page-type (all-page-types, content or non-content). You can
-choose between daily and monthly granularity as well.
+### metrics.edited_pages.top_by_absolute_bytes_difference.project.editor_type.page_type.year.month.day.get
+Given a Mediawiki project and a date (day or month), returns a timeseries of the top 100
+edited-pages by absolute bytes-difference. You can filter by editor-type (all-editor-types,
+anonymous, group-bot, name-bot, user) or page-type (all-page-types, content or non-content).
 
 - Stability: [experimental](https://www.mediawiki.org/wiki/API_versioning#Experimental)
 - Rate limit: 25 req/s
@@ -281,13 +363,13 @@ choose between daily and monthly granularity as well.
 
 
 ```js
-wikimedia.metrics.edited_pages.top_by_absolute_bytes_difference.project.editor_type.page_type.granularity.start.end.get({
+wikimedia.metrics.edited_pages.top_by_absolute_bytes_difference.project.editor_type.page_type.year.month.day.get({
   "project": "",
   "editor-type": "",
   "page-type": "",
-  "granularity": "",
-  "start": "",
-  "end": ""
+  "year": "",
+  "month": "",
+  "day": ""
 }, context)
 ```
 
@@ -296,18 +378,18 @@ wikimedia.metrics.edited_pages.top_by_absolute_bytes_difference.project.editor_t
   * project **required** `string`: The name of any Wikimedia project formatted like {language code}.{project name},
   * editor-type **required** `string` (values: all-editor-types, anonymous, group-bot, name-bot, user): If you want to filter by editor-type, use one of anonymous, group-bot (registered
   * page-type **required** `string` (values: all-page-types, content, non-content): If you want to filter by page-type, use one of content (edits on pages in content
-  * granularity **required** `string` (values: daily, monthly): Time unit for the response data. As of today, supported values are daily and monthly
-  * start **required** `string`: The date of the first day to include, in YYYYMMDD format
-  * end **required** `string`: The date of the last day to include, in YYYYMMDD format
+  * year **required** `string`: The year of the date for which to retrieve top edited-pages, in YYYY format.
+  * month **required** `string`: The month of the date for which to retrieve top edited-pages, in MM format. If you want to get the top edited-pages of a whole month, the day parameter should be all-days.
+  * day **required** `string`: The day of the date for which to retrieve top edited-pages, in DD format, or all-days for a monthly value.
 
 #### Output
 * output [top-edited-pages-by-abs-bytes-diff](#top-edited-pages-by-abs-bytes-diff)
 
-### metrics.edited_pages.top_by_edits.project.editor_type.page_type.granularity.start.end.get
-Given a Mediawiki project and a date range, returns a timeseries of the top 100 edited-pages
-by edits count. You can filter by editor-type (all-editor-types, anonymous, group-bot,
-name-bot, user) or page-type (all-page-types, content or non-content). You can choose
-between daily and monthly granularity as well.
+### metrics.edited_pages.top_by_edits.project.editor_type.page_type.year.month.day.get
+Given a Mediawiki project and a date (day or month), returns a timeseries of the top
+100 edited-pages by edits count. You can filter by editor-type (all-editor-types,
+anonymous, group-bot, name-bot, user) or page-type (all-page-types, content or
+non-content).
 
 - Stability: [experimental](https://www.mediawiki.org/wiki/API_versioning#Experimental)
 - Rate limit: 25 req/s
@@ -317,13 +399,13 @@ between daily and monthly granularity as well.
 
 
 ```js
-wikimedia.metrics.edited_pages.top_by_edits.project.editor_type.page_type.granularity.start.end.get({
+wikimedia.metrics.edited_pages.top_by_edits.project.editor_type.page_type.year.month.day.get({
   "project": "",
   "editor-type": "",
   "page-type": "",
-  "granularity": "",
-  "start": "",
-  "end": ""
+  "year": "",
+  "month": "",
+  "day": ""
 }, context)
 ```
 
@@ -332,18 +414,17 @@ wikimedia.metrics.edited_pages.top_by_edits.project.editor_type.page_type.granul
   * project **required** `string`: The name of any Wikimedia project formatted like {language code}.{project name},
   * editor-type **required** `string` (values: all-editor-types, anonymous, group-bot, name-bot, user): If you want to filter by editor-type, use one of anonymous, group-bot (registered
   * page-type **required** `string` (values: all-page-types, content, non-content): If you want to filter by page-type, use one of content (edits on pages in content
-  * granularity **required** `string` (values: daily, monthly): Time unit for the response data. As of today, supported values are daily and monthly
-  * start **required** `string`: The date of the first day to include, in YYYYMMDD format
-  * end **required** `string`: The date of the last day to include, in YYYYMMDD format
+  * year **required** `string`: The year of the date for which to retrieve top edited-pages, in YYYY format.
+  * month **required** `string`: The month of the date for which to retrieve top edited-pages, in MM format. If you want to get the top edited-pages of a whole month, the day parameter should be all-days.
+  * day **required** `string`: The day of the date for which to retrieve top edited-pages, in DD format, or all-days for a monthly value.
 
 #### Output
 * output [top-edited-pages-by-edits](#top-edited-pages-by-edits)
 
-### metrics.edited_pages.top_by_net_bytes_difference.project.editor_type.page_type.granularity.start.end.get
-Given a Mediawiki project and a date range, returns a timeseries of the top 100 edited-pages
-by net bytes-difference. You can filter by editor-type (all-editor-types, anonymous,
-group-bot, name-bot, user) or page-type (all-page-types, content or non-content). You can
-choose between daily and monthly granularity as well.
+### metrics.edited_pages.top_by_net_bytes_difference.project.editor_type.page_type.year.month.day.get
+Given a Mediawiki project and a date (day or month), returns a timeseries of the top 100
+edited-pages by net bytes-difference. You can filter by editor-type (all-editor-types,
+anonymous, group-bot, name-bot, user) or page-type (all-page-types, content or non-content).
 
 - Stability: [experimental](https://www.mediawiki.org/wiki/API_versioning#Experimental)
 - Rate limit: 25 req/s
@@ -353,13 +434,13 @@ choose between daily and monthly granularity as well.
 
 
 ```js
-wikimedia.metrics.edited_pages.top_by_net_bytes_difference.project.editor_type.page_type.granularity.start.end.get({
+wikimedia.metrics.edited_pages.top_by_net_bytes_difference.project.editor_type.page_type.year.month.day.get({
   "project": "",
   "editor-type": "",
   "page-type": "",
-  "granularity": "",
-  "start": "",
-  "end": ""
+  "year": "",
+  "month": "",
+  "day": ""
 }, context)
 ```
 
@@ -368,9 +449,9 @@ wikimedia.metrics.edited_pages.top_by_net_bytes_difference.project.editor_type.p
   * project **required** `string`: The name of any Wikimedia project formatted like {language code}.{project name},
   * editor-type **required** `string` (values: all-editor-types, anonymous, group-bot, name-bot, user): If you want to filter by editor-type, use one of anonymous, group-bot (registered
   * page-type **required** `string` (values: all-page-types, content, non-content): If you want to filter by page-type, use one of content (edits on pages in content
-  * granularity **required** `string` (values: daily, monthly): Time unit for the response data. As of today, supported values are daily and monthly
-  * start **required** `string`: The date of the first day to include, in YYYYMMDD format
-  * end **required** `string`: The date of the last day to include, in YYYYMMDD format
+  * year **required** `string`: The year of the date for which to retrieve top edited-pages, in YYYY format.
+  * month **required** `string`: The month of the date for which to retrieve top edited-pages, in MM format. If you want to get the top edited-pages of a whole month, the day parameter should be all-days.
+  * day **required** `string`: The day of the date for which to retrieve top edited-pages, in DD format, or all-days for a monthly value.
 
 #### Output
 * output [top-edited-pages-by-net-bytes-diff](#top-edited-pages-by-net-bytes-diff)
@@ -414,12 +495,12 @@ wikimedia.metrics.editors.aggregate.project.editor_type.page_type.activity_level
 #### Output
 * output [editors](#editors)
 
-### metrics.editors.top_by_absolute_bytes_difference.project.editor_type.page_type.granularity.start.end.get
-Given a Mediawiki project and a date range, returns a timeseries of the top 100 editors by
-absolute bytes-difference. You can filter by editor-type (all-editor-types, anonymous,
-group-bot, name-bot, user) or page-type (all-page-types, content or non-content). You can
-choose between daily and monthly granularity as well. The user_id returned is either the
-mediawiki user_id if user is registered, or his/her IP if the user is anonymous.
+### metrics.editors.top_by_absolute_bytes_difference.project.editor_type.page_type.year.month.day.get
+Given a Mediawiki project and a date (day or month), returns a timeseries of the top 100
+editors by absolute bytes-difference. You can filter by editor-type (all-editor-types,
+anonymous, group-bot, name-bot, user) or page-type (all-page-types, content or non-content).
+The user_text returned is either the mediawiki user_text if the user is registered, or
+null if user is anonymous.
 
 - Stability: [experimental](https://www.mediawiki.org/wiki/API_versioning#Experimental)
 - Rate limit: 25 req/s
@@ -429,13 +510,13 @@ mediawiki user_id if user is registered, or his/her IP if the user is anonymous.
 
 
 ```js
-wikimedia.metrics.editors.top_by_absolute_bytes_difference.project.editor_type.page_type.granularity.start.end.get({
+wikimedia.metrics.editors.top_by_absolute_bytes_difference.project.editor_type.page_type.year.month.day.get({
   "project": "",
   "editor-type": "",
   "page-type": "",
-  "granularity": "",
-  "start": "",
-  "end": ""
+  "year": "",
+  "month": "",
+  "day": ""
 }, context)
 ```
 
@@ -444,19 +525,19 @@ wikimedia.metrics.editors.top_by_absolute_bytes_difference.project.editor_type.p
   * project **required** `string`: The name of any Wikimedia project formatted like {language code}.{project name},
   * editor-type **required** `string` (values: all-editor-types, anonymous, group-bot, name-bot, user): If you want to filter by editor-type, use one of anonymous, group-bot (registered
   * page-type **required** `string` (values: all-page-types, content, non-content): If you want to filter by page-type, use one of content (edits on pages in content
-  * granularity **required** `string` (values: daily, monthly): Time unit for the response data. As of today, supported values are daily and monthly
-  * start **required** `string`: The date of the first day to include, in YYYYMMDD format
-  * end **required** `string`: The date of the last day to include, in YYYYMMDD format
+  * year **required** `string`: The year of the date for which to retrieve top editors, in YYYY format.
+  * month **required** `string`: The month of the date for which to retrieve top editors, in MM format. If you want to get the top editors of a whole month, the day parameter should be all-days.
+  * day **required** `string`: The day of the date for which to retrieve top editors, in DD format, or all-days for a monthly value.
 
 #### Output
 * output [top-editors-by-abs-bytes-diff](#top-editors-by-abs-bytes-diff)
 
-### metrics.editors.top_by_edits.project.editor_type.page_type.granularity.start.end.get
-Given a Mediawiki project and a date range, returns a timeseries of the top 100 editors by
-edits count. You can filter by editor-type (all-editor-types, anonymous, group-bot,
-name-bot, user) or page-type (all-page-types, content or non-content). You can choose
-between daily and monthly granularity as well. The user_id returned is either the
-mediawiki user_id if user is registered, or his/her IP if the user is anonymous.
+### metrics.editors.top_by_edits.project.editor_type.page_type.year.month.day.get
+Given a Mediawiki project and a date (day or month), returns a timeseries of the top
+100 editors by edits count. You can filter by editor-type (all-editor-types,
+anonymous, group-bot, name-bot, user) or page-type (all-page-types, content or
+non-content). The user_text returned is either the mediawiki user_text if the user is
+registered, or null if user is anonymous.
 
 - Stability: [experimental](https://www.mediawiki.org/wiki/API_versioning#Experimental)
 - Rate limit: 25 req/s
@@ -466,13 +547,13 @@ mediawiki user_id if user is registered, or his/her IP if the user is anonymous.
 
 
 ```js
-wikimedia.metrics.editors.top_by_edits.project.editor_type.page_type.granularity.start.end.get({
+wikimedia.metrics.editors.top_by_edits.project.editor_type.page_type.year.month.day.get({
   "project": "",
   "editor-type": "",
   "page-type": "",
-  "granularity": "",
-  "start": "",
-  "end": ""
+  "year": "",
+  "month": "",
+  "day": ""
 }, context)
 ```
 
@@ -481,19 +562,19 @@ wikimedia.metrics.editors.top_by_edits.project.editor_type.page_type.granularity
   * project **required** `string`: The name of any Wikimedia project formatted like {language code}.{project name},
   * editor-type **required** `string` (values: all-editor-types, anonymous, group-bot, name-bot, user): If you want to filter by editor-type, use one of anonymous, group-bot (registered
   * page-type **required** `string` (values: all-page-types, content, non-content): If you want to filter by page-type, use one of content (edits on pages in content
-  * granularity **required** `string` (values: daily, monthly): Time unit for the response data. As of today, supported values are daily and monthly
-  * start **required** `string`: The date of the first day to include, in YYYYMMDD format
-  * end **required** `string`: The date of the last day to include, in YYYYMMDD format
+  * year **required** `string`: The year of the date for which to retrieve top editors, in YYYY format.
+  * month **required** `string`: The month of the date for which to retrieve top editors, in MM format. If you want to get the top editors of a whole month, the day parameter should be all-days.
+  * day **required** `string`: The day of the date for which to retrieve top editors, in DD format, or all-days for a monthly value.
 
 #### Output
 * output [top-editors-by-edits](#top-editors-by-edits)
 
-### metrics.editors.top_by_net_bytes_difference.project.editor_type.page_type.granularity.start.end.get
-Given a Mediawiki project and a date range, returns a timeseries of the top 100 editors by
-net bytes-difference. You can filter by editor-type (all-editor-types, anonymous, group-bot,
-name-bot, user) or page-type (all-page-types, content or non-content). You can choose
-between daily and monthly granularity as well. The user_id returned is either the mediawiki
-user_id if user is registered, or his/her IP if the user is anonymous.
+### metrics.editors.top_by_net_bytes_difference.project.editor_type.page_type.year.month.day.get
+Given a Mediawiki project and a date (day or month), returns a timeseries of the top 100
+editors by net bytes-difference. You can filter by editor-type (all-editor-types, anonymous,
+group-bot, name-bot, user) or page-type (all-page-types, content or non-content). The
+user_text returned is either the mediawiki user_text if the user is registered, or
+"Anonymous Editor" if user is anonymous.
 
 - Stability: [experimental](https://www.mediawiki.org/wiki/API_versioning#Experimental)
 - Rate limit: 25 req/s
@@ -503,13 +584,13 @@ user_id if user is registered, or his/her IP if the user is anonymous.
 
 
 ```js
-wikimedia.metrics.editors.top_by_net_bytes_difference.project.editor_type.page_type.granularity.start.end.get({
+wikimedia.metrics.editors.top_by_net_bytes_difference.project.editor_type.page_type.year.month.day.get({
   "project": "",
   "editor-type": "",
   "page-type": "",
-  "granularity": "",
-  "start": "",
-  "end": ""
+  "year": "",
+  "month": "",
+  "day": ""
 }, context)
 ```
 
@@ -518,9 +599,9 @@ wikimedia.metrics.editors.top_by_net_bytes_difference.project.editor_type.page_t
   * project **required** `string`: The name of any Wikimedia project formatted like {language code}.{project name},
   * editor-type **required** `string` (values: all-editor-types, anonymous, group-bot, name-bot, user): If you want to filter by editor-type, use one of anonymous, group-bot (registered
   * page-type **required** `string` (values: all-page-types, content, non-content): If you want to filter by page-type, use one of content (edits on pages in content
-  * granularity **required** `string` (values: daily, monthly): Time unit for the response data. As of today, supported values are daily and monthly
-  * start **required** `string`: The date of the first day to include, in YYYYMMDD format
-  * end **required** `string`: The date of the last day to include, in YYYYMMDD format
+  * year **required** `string`: The year of the date for which to retrieve top editors, in YYYY format.
+  * month **required** `string`: The month of the date for which to retrieve top editors, in MM format. If you want to get the top editors of a whole month, the day parameter should be all-days.
+  * day **required** `string`: The day of the date for which to retrieve top editors, in DD format, or all-days for a monthly value.
 
 #### Output
 * output [top-editors-by-net-bytes-diff](#top-editors-by-net-bytes-diff)
@@ -560,6 +641,42 @@ wikimedia.metrics.edits.aggregate.project.editor_type.page_type.granularity.star
 
 #### Output
 * output [edits](#edits)
+
+### metrics.edits.per_page.project.page_title.editor_type.granularity.start.end.get
+Given a Mediawiki project, a page-title prefixed with its canonical namespace (for
+instance 'User:Jimbo_Wales') and a date range, returns a timeseries of edit counts.
+You can filter by editors-type (all-editor-types, anonymous, group-bot, name-bot, user).
+You can choose between daily and monthly granularity as well.
+
+- Stability: [experimental](https://www.mediawiki.org/wiki/API_versioning#Experimental)
+- Rate limit: 25 req/s
+- License: Data accessible via this endpoint is available under the
+  [CC0 1.0 license](https://creativecommons.org/publicdomain/zero/1.0/).
+
+
+
+```js
+wikimedia.metrics.edits.per_page.project.page_title.editor_type.granularity.start.end.get({
+  "project": "",
+  "page-title": "",
+  "editor-type": "",
+  "granularity": "",
+  "start": "",
+  "end": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * project **required** `string`: The name of any Wikimedia project formatted like {language code}.{project name},
+  * page-title **required** `string`: The page-title to request edits for. It should be prefixed with canonical namespace.
+  * editor-type **required** `string` (values: all-editor-types, anonymous, group-bot, name-bot, user): If you want to filter by editor-type, use one of anonymous, group-bot (registered
+  * granularity **required** `string` (values: daily, monthly): Time unit for the response data. As of today, supported values are daily and monthly
+  * start **required** `string`: The date of the first day to include, in YYYYMMDD format
+  * end **required** `string`: The date of the last day to include, in YYYYMMDD format
+
+#### Output
+* output [edits-per-page](#edits-per-page)
 
 ### metrics.legacy.pagecounts.aggregate.project.access_site.granularity.start.end.get
 Given a project and a date range, returns a timeseries of pagecounts.
@@ -1017,6 +1134,45 @@ wikimedia.transform.word.from.from_lang.to.to_lang.word.provider.get({
           * abs_bytes_diff `integer`
           * timestamp `string`
 
+### absolute-bytes-difference-per-editor
+* absolute-bytes-difference-per-editor `object`
+  * items `array`
+    * items `object`
+      * granularity `string`
+      * page-type `string`
+      * project `string`
+      * results `array`
+        * items `object`
+          * abs_bytes_diff `integer`
+          * timestamp `string`
+      * user-text `string`
+
+### absolute-bytes-difference-per-page
+* absolute-bytes-difference-per-page `object`
+  * items `array`
+    * items `object`
+      * editor-type `string`
+      * granularity `string`
+      * page-title `string`
+      * project `string`
+      * results `array`
+        * items `object`
+          * abs_bytes_diff `integer`
+          * timestamp `string`
+
+### availability
+* availability `object`
+  * in_the_news **required** `array`: domains for wikis with this feature enabled, or [ '*.<project>.org' ] for all wikis in a project
+    * items `string`
+  * most_read **required** `array`: domains for wikis with this feature enabled, or [ '*.<project>.org' ] for all wikis in a project
+    * items `string`
+  * on_this_day **required** `array`: domains for wikis with this feature enabled, or [ '*.<project>.org' ] for all wikis in a project
+    * items `string`
+  * picture_of_the_day **required** `array`: domains for wikis with this feature enabled, or [ '*.<project>.org' ] for all wikis in a project
+    * items `string`
+  * todays_featured_article **required** `array`: domains for wikis with this feature enabled, or [ '*.<project>.org' ] for all wikis in a project
+    * items `string`
+
 ### by-country
 * by-country `object`
   * items `array`
@@ -1100,6 +1256,32 @@ wikimedia.transform.word.from.from_lang.to.to_lang.word.provider.get({
           * edits `integer`
           * timestamp `string`
 
+### edits-per-editor
+* edits-per-editor `object`
+  * items `array`
+    * items `object`
+      * granularity `string`
+      * page-type `string`
+      * project `string`
+      * results `array`
+        * items `object`
+          * edits `integer`
+          * timestamp `string`
+      * user-text `string`
+
+### edits-per-page
+* edits-per-page `object`
+  * items `array`
+    * items `object`
+      * editor-type `string`
+      * granularity `string`
+      * page-title `string`
+      * project `string`
+      * results `array`
+        * items `object`
+          * edits `integer`
+          * timestamp `string`
+
 ### listing
 * listing `object`: The result format for listings
   * items **required** `array`
@@ -1112,6 +1294,32 @@ wikimedia.transform.word.from.from_lang.to.to_lang.word.provider.get({
       * editor-type `string`
       * granularity `string`
       * page-type `string`
+      * project `string`
+      * results `array`
+        * items `object`
+          * net_bytes_diff `integer`
+          * timestamp `string`
+
+### net-bytes-difference-per-editor
+* net-bytes-difference-per-editor `object`
+  * items `array`
+    * items `object`
+      * granularity `string`
+      * page-type `string`
+      * project `string`
+      * results `array`
+        * items `object`
+          * net_bytes_diff `integer`
+          * timestamp `string`
+      * user-text `string`
+
+### net-bytes-difference-per-page
+* net-bytes-difference-per-page `object`
+  * items `array`
+    * items `object`
+      * editor-type `string`
+      * granularity `string`
+      * page-title `string`
       * project `string`
       * results `array`
         * items `object`
@@ -1199,9 +1407,11 @@ wikimedia.transform.word.from.from_lang.to.to_lang.word.provider.get({
 ### problem
 * problem `object`
   * detail `string`
-  * instance `string`
+  * method `string`
+  * status `integer`
   * title `string`
   * type **required** `string`
+  * uri `string`
 
 ### summary
 * summary `object`
@@ -1238,9 +1448,6 @@ wikimedia.transform.word.from.from_lang.to.to_lang.word.provider.get({
         * items `object`
           * timestamp `string`
           * top `array`
-            * items `object`
-              * abs_bytes_diff `integer`
-              * page_id `string`
 
 ### top-edited-pages-by-edits
 * top-edited-pages-by-edits `object`
@@ -1254,9 +1461,6 @@ wikimedia.transform.word.from.from_lang.to.to_lang.word.provider.get({
         * items `object`
           * timestamp `string`
           * top `array`
-            * items `object`
-              * edits `integer`
-              * page_id `string`
 
 ### top-edited-pages-by-net-bytes-diff
 * top-edited-pages-by-net-bytes-diff `object`
@@ -1270,9 +1474,6 @@ wikimedia.transform.word.from.from_lang.to.to_lang.word.provider.get({
         * items `object`
           * timestamp `string`
           * top `array`
-            * items `object`
-              * net_bytes_diff `integer`
-              * page_id `string`
 
 ### top-editors-by-abs-bytes-diff
 * top-editors-by-abs-bytes-diff `object`
@@ -1286,9 +1487,6 @@ wikimedia.transform.word.from.from_lang.to.to_lang.word.provider.get({
         * items `object`
           * timestamp `string`
           * top `array`
-            * items `object`
-              * abs_bytes_diff `integer`
-              * user_id `string`
 
 ### top-editors-by-edits
 * top-editors-by-edits `object`
@@ -1302,9 +1500,6 @@ wikimedia.transform.word.from.from_lang.to.to_lang.word.provider.get({
         * items `object`
           * timestamp `string`
           * top `array`
-            * items `object`
-              * edits `integer`
-              * user_id `string`
 
 ### top-editors-by-net-bytes-diff
 * top-editors-by-net-bytes-diff `object`
@@ -1318,9 +1513,6 @@ wikimedia.transform.word.from.from_lang.to.to_lang.word.provider.get({
         * items `object`
           * timestamp `string`
           * top `array`
-            * items `object`
-              * net_bytes_diff `integer`
-              * user_id `string`
 
 ### unique-devices
 * unique-devices `object`

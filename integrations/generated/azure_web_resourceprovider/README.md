@@ -15,9 +15,7 @@ let azure_web_resourceprovider = require('@datafire/azure_web_resourceprovider')
   redirect_uri: ""
 });
 
-azure_web_resourceprovider.GetPublishingUser({
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -43,13 +41,13 @@ azure_web_resourceprovider.GetPublishingUser({
   * api-version **required** `string`: API Version
 
 #### Output
-* output `object`: User crendentials used for publishing activity.
+* output `object`: User credentials used for publishing activity.
   * properties `object`: User resource specific properties
-    * name `string`: Username
     * publishingPassword `string`: Password used for publishing.
     * publishingPasswordHash `string`: Password hash used for publishing.
     * publishingPasswordHashSalt `string`: Password hash salt used for publishing.
     * publishingUserName **required** `string`: Username used for publishing.
+    * scmUri `string`: Url of SCM site.
   * id `string`: Resource Id.
   * kind `string`: Kind of resource.
   * name `string`: Resource Name.
@@ -68,13 +66,13 @@ azure_web_resourceprovider.UpdatePublishingUser({
 
 #### Input
 * input `object`
-  * userDetails **required** `object`: User crendentials used for publishing activity.
+  * userDetails **required** `object`: User credentials used for publishing activity.
     * properties `object`: User resource specific properties
-      * name `string`: Username
       * publishingPassword `string`: Password used for publishing.
       * publishingPasswordHash `string`: Password hash used for publishing.
       * publishingPasswordHashSalt `string`: Password hash salt used for publishing.
       * publishingUserName **required** `string`: Username used for publishing.
+      * scmUri `string`: Url of SCM site.
     * id `string`: Resource Id.
     * kind `string`: Kind of resource.
     * name `string`: Resource Name.
@@ -82,13 +80,13 @@ azure_web_resourceprovider.UpdatePublishingUser({
   * api-version **required** `string`: API Version
 
 #### Output
-* output `object`: User crendentials used for publishing activity.
+* output `object`: User credentials used for publishing activity.
   * properties `object`: User resource specific properties
-    * name `string`: Username
     * publishingPassword `string`: Password used for publishing.
     * publishingPasswordHash `string`: Password hash used for publishing.
     * publishingPasswordHashSalt `string`: Password hash salt used for publishing.
     * publishingUserName **required** `string`: Username used for publishing.
+    * scmUri `string`: Url of SCM site.
   * id `string`: Resource Id.
   * kind `string`: Kind of resource.
   * name `string`: Resource Name.
@@ -151,12 +149,12 @@ azure_web_resourceprovider.UpdateSourceControl({
 #### Output
 * output [SourceControl](#sourcecontrol)
 
-### BillingMeters_List
+### ListBillingMeters
 Gets a list of meters for a given location.
 
 
 ```js
-azure_web_resourceprovider.BillingMeters_List({
+azure_web_resourceprovider.ListBillingMeters({
   "subscriptionId": "",
   "api-version": ""
 }, context)
@@ -165,6 +163,7 @@ azure_web_resourceprovider.BillingMeters_List({
 #### Input
 * input `object`
   * billingLocation `string`: Azure Location of billable resource
+  * osType `string`: App Service OS type meters used for
   * subscriptionId **required** `string`: Your Azure subscription ID. This is a GUID-formatted string (e.g. 00000000-0000-0000-0000-000000000000).
   * api-version **required** `string`: API Version
 
@@ -227,8 +226,10 @@ azure_web_resourceprovider.ListGeoRegions({
 
 #### Input
 * input `object`
-  * sku `string` (values: Free, Shared, Basic, Standard, Premium, PremiumV2, Dynamic, Isolated): Name of SKU used to filter the regions.
+  * sku `string` (values: Free, Shared, Basic, Standard, Premium, Dynamic, Isolated, PremiumV2, ElasticPremium, ElasticIsolated): Name of SKU used to filter the regions.
   * linuxWorkersEnabled `boolean`: Specify <code>true</code> if you want to filter to only regions that support Linux workers.
+  * xenonWorkersEnabled `boolean`: Specify <code>true</code> if you want to filter to only regions that support Xenon workers.
+  * linuxDynamicWorkersEnabled `boolean`: Specify <code>true</code> if you want to filter to only regions that support Linux Consumption Workers.
   * subscriptionId **required** `string`: Your Azure subscription ID. This is a GUID-formatted string (e.g. 00000000-0000-0000-0000-000000000000).
   * api-version **required** `string`: API Version
 
@@ -376,6 +377,29 @@ azure_web_resourceprovider.Validate({
 #### Output
 * output [ValidateResponse](#validateresponse)
 
+### ValidateContainerSettings
+Validate if the container settings are correct.
+
+
+```js
+azure_web_resourceprovider.ValidateContainerSettings({
+  "validateContainerSettingsRequest": {},
+  "resourceGroupName": "",
+  "subscriptionId": "",
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * validateContainerSettingsRequest **required** [ValidateContainerSettingsRequest](#validatecontainersettingsrequest)
+  * resourceGroupName **required** `string`: Name of the resource group to which the resource belongs.
+  * subscriptionId **required** `string`: Your Azure subscription ID. This is a GUID-formatted string (e.g. 00000000-0000-0000-0000-000000000000).
+  * api-version **required** `string`: API Version
+
+#### Output
+* output `object`
+
 ### ValidateMove
 Validate whether a resource can be moved.
 
@@ -409,7 +433,8 @@ azure_web_resourceprovider.ValidateMove({
     * billingLocation `string`: Azure Location of billable resource
     * friendlyName `string`: Friendly name of the meter
     * meterId `string`: Meter GUID onboarded in Commerce
-    * resourceType `string`: App Service resource type meter used for
+    * osType `string`: App Service OS type meter used for
+    * resourceType `string`: App Service ResourceType meter used for
     * shortName `string`: Short Name from App Service Azure pricing Page
   * id `string`: Resource Id.
   * kind `string`: Kind of resource.
@@ -419,7 +444,7 @@ azure_web_resourceprovider.ValidateMove({
 ### BillingMeterCollection
 * BillingMeterCollection `object`: Collection of Billing Meters
   * nextLink `string`: Link to next page of resources.
-  * value **required** `array`: Collection of Billing Meters.
+  * value **required** `array`: Collection of resources.
     * items [BillingMeter](#billingmeter)
 
 ### CsmMoveResourceEnvelope
@@ -452,15 +477,17 @@ azure_web_resourceprovider.ValidateMove({
           * computeMode `string` (values: Shared, Dedicated, Dynamic): Shared/dedicated workers.
           * excludeFromCapacityAllocation `boolean`: If <code>true</code>, it includes basic apps.
           * isApplicableForAllComputeModes `boolean`: <code>true</code> if capacity is applicable for all apps; otherwise, <code>false</code>.
+          * isLinux `boolean`: Is this a linux stamp capacity
           * name `string`: Name of the stamp.
           * siteMode `string`: Shared or Dedicated.
           * totalCapacity `integer`: Total capacity (# of machines, bytes of storage etc...).
           * unit `string`: Name of the unit.
-          * workerSize `string` (values: Default, Small, Medium, Large, D1, D2, D3): Size of the machines.
+          * workerSize `string` (values: Small, Medium, Large, D1, D2, D3, Default): Size of the machines.
           * workerSizeId `integer`: Size ID of machines: 
       * environmentIsHealthy `boolean`: True/false indicating whether the App Service Environment is healthy.
       * environmentStatus `string`: Detailed message about with results of the last check of the App Service Environment.
       * frontEndScaleFactor `integer`: Scale factor for front-ends.
+      * hasLinuxWorkers `boolean`: Flag that displays whether an ASE has linux workers or not
       * internalLoadBalancingMode `string` (values: None, Web, Publishing): Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment.
       * ipsslAddressCount `integer`: Number of IP SSL addresses reserved for the App Service Environment.
       * lastAction `string`: Last deployment action on the App Service Environment.
@@ -478,6 +505,8 @@ azure_web_resourceprovider.ValidateMove({
           * remoteSubnet `string`: Remote subnet.
       * provisioningState `string` (values: Succeeded, Failed, Canceled, InProgress, Deleting): Provisioning state of the App Service Environment.
       * resourceGroup `string`: Resource group of the App Service Environment.
+      * sslCertKeyVaultId `string`: Key Vault ID for ILB App Service Environment default SSL certificate
+      * sslCertKeyVaultSecretName `string`: Key Vault Secret Name for ILB App Service Environment default SSL certificate
       * status `string` (values: Preparing, Ready, Scaling, Deleting): Current status of the App Service Environment.
       * subscriptionId `string`: Subscription of the App Service Environment.
       * suspended `boolean`: <code>true</code> if the App Service Environment is suspended; otherwise, <code>false</code>. The environment can be suspended, e.g. when the management endpoint is no longer available
@@ -502,7 +531,6 @@ azure_web_resourceprovider.ValidateMove({
         * items `object`: Worker pool of an App Service Environment.
           * computeMode `string` (values: Shared, Dedicated, Dynamic): Shared or dedicated app hosting.
           * instanceNames `array`: Names of all instances in the worker pool (read only).
-            * items `string`
           * workerCount `integer`: Number of instances in the worker pool.
           * workerSize `string`: VM size of the worker pool instances.
           * workerSizeId `integer`: Worker size ID for referencing this worker pool.
@@ -514,7 +542,6 @@ azure_web_resourceprovider.ValidateMove({
   * properties `object`: GeoRegion resource specific properties
     * description `string`: Region description.
     * displayName `string`: Display name for region.
-    * name `string`: Region name.
   * id `string`: Resource Id.
   * kind `string`: Kind of resource.
   * name `string`: Resource Name.
@@ -556,7 +583,6 @@ azure_web_resourceprovider.ValidateMove({
     * legalTermsUrl `string`: Legal terms URL.
     * marketplaceOffer `string`: Marketplace offer.
     * marketplacePublisher `string`: Marketplace publisher.
-    * name `string`: Premier add on offer Name.
     * privacyPolicyUrl `string`: Privacy policy URL.
     * product `string`: Premier add on offer Product.
     * promoCodeRequired `boolean`: <code>true</code> if promotion code is required; otherwise, <code>false</code>.
@@ -576,7 +602,7 @@ azure_web_resourceprovider.ValidateMove({
     * items [PremierAddOnOffer](#premieraddonoffer)
 
 ### ResourceNameAvailability
-* ResourceNameAvailability `object`: Information regarding availbility of a resource name.
+* ResourceNameAvailability `object`: Information regarding availability of a resource name.
   * message `string`: If reason == invalid, provide the user with the reason why the given name is invalid, and provide the resource naming requirements so that the user can select a valid name. If reason == AlreadyExists, explain that resource name is already in use, and direct them to select a different name.
   * nameAvailable `boolean`: <code>true</code> indicates name is valid and available. <code>false</code> indicates the name is invalid, unavailable, or both.
   * reason `string` (values: Invalid, AlreadyExists): <code>Invalid</code> indicates the name provided does not match Azure App Service naming requirements. <code>AlreadyExists</code> indicates that the name is already in use and is therefore unavailable.
@@ -597,7 +623,6 @@ azure_web_resourceprovider.ValidateMove({
 * SourceControl `object`: The source control OAuth token.
   * properties `object`: SourceControl resource specific properties
     * expirationTime `string`: OAuth token expiration.
-    * name `string`: Name or source control type.
     * refreshToken `string`: OAuth refresh token.
     * token `string`: OAuth access token.
     * tokenSecret `string`: OAuth access token secret.
@@ -612,11 +637,21 @@ azure_web_resourceprovider.ValidateMove({
   * value **required** `array`: Collection of resources.
     * items [SourceControl](#sourcecontrol)
 
+### ValidateContainerSettingsRequest
+* ValidateContainerSettingsRequest `object`: Container settings validation request context
+  * baseUrl `string`: Base URL of the container registry
+  * password `string`: Password for to access the container registry
+  * platform `string`: Platform (windows or linux)
+  * repository `string`: Repository name (image name)
+  * tag `string`: Image tag
+  * username `string`: Username for to access the container registry
+
 ### ValidateProperties
 * ValidateProperties `object`: App properties used for validation.
-  * capacity `integer`: Target capacity of the App Service plan (number of VM's).
+  * capacity `integer`: Target capacity of the App Service plan (number of VMs).
   * hostingEnvironment `string`: Name of App Service Environment where app or App Service plan should be created.
   * isSpot `boolean`: <code>true</code> if App Service plan is for Spot instances; otherwise, <code>false</code>.
+  * isXenon `boolean`: <code>true</code> if App Service plan is running as a windows container
   * needLinuxWorkers `boolean`: <code>true</code> if App Service plan is for Linux workers; otherwise, <code>false</code>.
   * serverFarmId `string`: ARM resource ID of an App Service plan that would host the app.
   * skuName `string`: Name of the target SKU for the App Service plan.

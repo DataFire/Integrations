@@ -15,12 +15,7 @@ let azure_sql_syncagents = require('@datafire/azure_sql_syncagents').create({
   redirect_uri: ""
 });
 
-azure_sql_syncagents.SyncAgents_ListByServer({
-  "resourceGroupName": "",
-  "serverName": "",
-  "subscriptionId": "",
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

@@ -15,7 +15,7 @@
       "name": "LGPL license V3.",
       "url": "http://www.gisgraphy.com/license.html"
     },
-    "termsOfService": "http://www.gisgraphy.com/free-access.htm",
+    "termsOfService": "http://www.gisgraphy.com/free-access.htm | https://premium.gisgraphy.com/terms",
     "title": "Gisgraphy webservices",
     "version": "4.0.0",
     "x-apisguru-categories": [
@@ -90,7 +90,7 @@
             "type": "string"
           },
           {
-            "default": false,
+            "default": "false",
             "description": "indents the results.Default to false. Possible values are true or false (or on when used with the rest service. If you use a checkbox in a web form, to indent the results, the value will be 'on' or 'off', so for a simple use : the value of indent can be 'true' or 'on'",
             "in": "query",
             "name": "indent",
@@ -98,7 +98,7 @@
             "type": "boolean"
           },
           {
-            "default": false,
+            "default": "false",
             "description": "Whether the address should be standardized after parsing, the value will be 'on' or 'off', so for a simple use : the value of indent can be 'true' or 'on'",
             "in": "query",
             "name": "standardize",
@@ -106,7 +106,7 @@
             "type": "boolean"
           },
           {
-            "default": false,
+            "default": "false",
             "description": "UNUSED YET. Whether the address should be geocoded after parsing, the value will be 'on' or 'off', so for a simple use : the value of indent can be 'true' or 'on'",
             "in": "query",
             "name": "geocode",
@@ -169,7 +169,7 @@
             "type": "string"
           },
           {
-            "default": false,
+            "default": "false",
             "description": "Whether the fulltext engine should considers all the words specified as required. Defaults to false (since v 4.0). possible values are true|false (or 'on' when used with the rest service)",
             "in": "query",
             "name": "allwordsrequired",
@@ -209,7 +209,7 @@
             "type": "number"
           },
           {
-            "default": false,
+            "default": "false",
             "description": "If this parameter is set then it will search in part of the names of the street, place,.... It allow you to do auto completion auto suggestion. See the Gisgraphy leaflet plugin for more details. The JSON format will be forced if this parameter is true. See auto completion / suggestions engine for more details",
             "in": "query",
             "name": "suggest",
@@ -286,7 +286,7 @@
             "type": "string"
           },
           {
-            "default": false,
+            "default": "false",
             "description": "indents the results.Default to false. Possible values are true or false (or on when used with the rest service. If you use a checkbox in a web form, to indent the results, the value will be 'on' or 'off', so for a simple use : the value of indent can be 'true' or 'on'",
             "in": "query",
             "name": "indent",
@@ -405,7 +405,7 @@
             "type": "string"
           },
           {
-            "default": false,
+            "default": "false",
             "description": "indents the results. Possible values are true or false (or on when used with the rest service. If you use a checkbox in a web form, to indent the results, the value will be 'on' or 'off', so for a simple use : the value of indent can be 'true' or 'on'",
             "in": "query",
             "name": "indent",
@@ -542,7 +542,7 @@
             "type": "string"
           },
           {
-            "default": false,
+            "default": "false",
             "description": "indents the results.Default to false. Possible values are true or false (or on when used with the rest service. If you use a checkbox in a web form, to indent the results, the value will be 'on' or 'off', so for a simple use : the value of indent can be 'true' or 'on'",
             "in": "query",
             "name": "indent",
@@ -656,7 +656,7 @@
             "type": "string"
           },
           {
-            "default": false,
+            "default": "false",
             "description": "indents the results. Possible values are true or false (or on when used with the rest service. If you use a checkbox in a web form, to indent the results, the value will be 'on' or 'off', so for a simple use : the value of indent can be 'true' or 'on'",
             "in": "query",
             "name": "indent",
@@ -738,7 +738,7 @@
             "type": "number"
           },
           {
-            "default": false,
+            "default": "false",
             "description": "whether the street should be a oneWay street (optional) : limit the search to the street that are one way street. If you use a checkbox in a form to indent the results, the value will be 'on' or 'off', so to simplify the use : the value for the web service can be 'true' or 'on'",
             "in": "query",
             "name": "oneway",
@@ -802,7 +802,7 @@
             "type": "string"
           },
           {
-            "default": false,
+            "default": "false",
             "description": "indents the results. Possible values are true or false (or on when used with the rest service. If you use a checkbox in a web form, to indent the results, the value will be 'on' or 'off', so for a simple use : the value of indent can be 'true' or 'on'",
             "in": "query",
             "name": "indent",

@@ -15,9 +15,7 @@ let azure_cognitiveservices = require('@datafire/azure_cognitiveservices').creat
   redirect_uri: ""
 });
 
-azure_cognitiveservices.Operations_List({
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -64,12 +62,33 @@ azure_cognitiveservices.Accounts_List({
 #### Output
 * output [CognitiveServicesAccountListResult](#cognitiveservicesaccountlistresult)
 
-### CheckSkuAvailability_List
+### CheckDomainAvailability
+Check whether a domain is available.
+
+
+```js
+azure_cognitiveservices.CheckDomainAvailability({
+  "subscriptionId": "",
+  "api-version": "",
+  "parameters": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: Azure Subscription ID.
+  * api-version **required** `string`: Version of the API to be used with the client request. Current version is 2017-04-18
+  * parameters **required** [CheckDomainAvailabilityParameter](#checkdomainavailabilityparameter)
+
+#### Output
+* output [CheckDomainAvailabilityResult](#checkdomainavailabilityresult)
+
+### CheckSkuAvailability
 Check available SKUs.
 
 
 ```js
-azure_cognitiveservices.CheckSkuAvailability_List({
+azure_cognitiveservices.CheckSkuAvailability({
   "subscriptionId": "",
   "api-version": "",
   "location": "",
@@ -181,7 +200,7 @@ Updates a Cognitive Services account
 azure_cognitiveservices.Accounts_Update({
   "resourceGroupName": "",
   "accountName": "",
-  "parameters": null,
+  "account": {},
   "api-version": "",
   "subscriptionId": ""
 }, context)
@@ -191,7 +210,7 @@ azure_cognitiveservices.Accounts_Update({
 * input `object`
   * resourceGroupName **required** `string`: The name of the resource group within the user's subscription.
   * accountName **required** `string`: The name of Cognitive Services account.
-  * parameters **required** [CognitiveServicesAccountUpdateParameters](#cognitiveservicesaccountupdateparameters)
+  * account **required** [CognitiveServicesAccount](#cognitiveservicesaccount)
   * api-version **required** `string`: Version of the API to be used with the client request. Current version is 2017-04-18
   * subscriptionId **required** `string`: Azure Subscription ID.
 
@@ -206,7 +225,7 @@ Create Cognitive Services Account. Accounts is a resource group wide resource ty
 azure_cognitiveservices.Accounts_Create({
   "resourceGroupName": "",
   "accountName": "",
-  "parameters": null,
+  "account": {},
   "api-version": "",
   "subscriptionId": ""
 }, context)
@@ -216,7 +235,7 @@ azure_cognitiveservices.Accounts_Create({
 * input `object`
   * resourceGroupName **required** `string`: The name of the resource group within the user's subscription.
   * accountName **required** `string`: The name of Cognitive Services account.
-  * parameters **required** [CognitiveServicesAccountCreateParameters](#cognitiveservicesaccountcreateparameters)
+  * account **required** [CognitiveServicesAccount](#cognitiveservicesaccount)
   * api-version **required** `string`: Version of the API to be used with the client request. Current version is 2017-04-18
   * subscriptionId **required** `string`: Azure Subscription ID.
 
@@ -322,6 +341,18 @@ azure_cognitiveservices.Accounts_GetUsages({
 
 ## Definitions
 
+### CheckDomainAvailabilityParameter
+* CheckDomainAvailabilityParameter `object`: Check Domain availability parameter.
+  * subdomainName **required** `string`: The subdomain name to use.
+  * type **required** `string`: The Type of the resource.
+
+### CheckDomainAvailabilityResult
+* CheckDomainAvailabilityResult `object`: Check Domain availability result.
+  * isSubdomainAvailable `boolean`: Indicates the given SKU is available or not.
+  * reason `string`: Reason why the SKU is not available.
+  * subdomainName `string`: The subdomain name to use.
+  * type `string`: The Type of the resource.
+
 ### CheckSkuAvailabilityParameter
 * CheckSkuAvailabilityParameter `object`: Check SKU availability parameter.
   * kind **required** [CognitiveServicesAccountKind](#cognitiveservicesaccountkind)
@@ -347,7 +378,7 @@ azure_cognitiveservices.Accounts_GetUsages({
 * CognitiveServicesAccount `object`: Cognitive Services Account is an Azure resource representing the provisioned account, its type, location and SKU.
   * etag `string`: Entity Tag
   * id `string`: The id of the created account
-  * kind `string`: Type of cognitive service account.
+  * kind [CognitiveServicesAccountKind](#cognitiveservicesaccountkind)
   * location `string`: The location of the resource
   * name `string`: The name of the created account
   * properties [CognitiveServicesAccountProperties](#cognitiveservicesaccountproperties)
@@ -355,13 +386,12 @@ azure_cognitiveservices.Accounts_GetUsages({
   * tags `object`: Gets or sets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters.
   * type `string`: Resource type
 
-### CognitiveServicesAccountCreateParameters
-* CognitiveServicesAccountCreateParameters `object`: The parameters to provide for the account.
-  * kind **required** [CognitiveServicesAccountKind](#cognitiveservicesaccountkind)
-  * location **required** `string`: Required. Gets or sets the location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo region is specified on update the request will succeed.
-  * properties **required** `object`: Must exist in the request. Must be an empty object. Must not be null.
-  * sku **required** [Sku](#sku)
-  * tags `object`: Gets or sets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters.
+### CognitiveServicesAccountApiProperties
+* CognitiveServicesAccountApiProperties `object`: The api properties for special APIs.
+  * eventHubConnectionString `string`: (Personalization Only) The flag to enable statistics of Bing Search.
+  * qnaRuntimeEndpoint `string`: (QnAMaker Only) The runtime endpoint of QnAMaker.
+  * statisticsEnabled `boolean`: (Bing Search Only) The flag to enable statistics of Bing Search.
+  * storageAccountConnectionString `string`: (Personalization Only) The storage account connection string.
 
 ### CognitiveServicesAccountEnumerateSkusResult
 * CognitiveServicesAccountEnumerateSkusResult `object`: The list of cognitive services accounts operation response.
@@ -374,7 +404,7 @@ azure_cognitiveservices.Accounts_GetUsages({
   * key2 `string`: Gets the value of key 2.
 
 ### CognitiveServicesAccountKind
-* CognitiveServicesAccountKind `string` (values: Bing.Autosuggest.v7, Bing.CustomSearch, Bing.Search.v7, Bing.Speech, Bing.SpellCheck.v7, ComputerVision, ContentModerator, CustomSpeech, CustomVision.Prediction, CustomVision.Training, Emotion, Face, LUIS, QnAMaker, SpeakerRecognition, SpeechTranslation, TextAnalytics, TextTranslation, WebLM): Required. Indicates the type of cognitive service account.
+* CognitiveServicesAccountKind `string`: Required. Indicates the type of cognitive service account.
 
 ### CognitiveServicesAccountListResult
 * CognitiveServicesAccountListResult `object`: The list of cognitive services accounts operation response.
@@ -384,14 +414,12 @@ azure_cognitiveservices.Accounts_GetUsages({
 
 ### CognitiveServicesAccountProperties
 * CognitiveServicesAccountProperties `object`: Properties of Cognitive Services account.
+  * apiProperties [CognitiveServicesAccountApiProperties](#cognitiveservicesaccountapiproperties)
+  * customSubDomainName `string`: Optional subdomain name used for token-based authentication.
   * endpoint `string`: Endpoint of the created account.
   * internalId `string`: The internal identifier.
+  * networkAcls [NetworkRuleSet](#networkruleset)
   * provisioningState `string` (values: Creating, ResolvingDNS, Moving, Deleting, Succeeded, Failed): Gets the status of the cognitive services account at the time the operation was called.
-
-### CognitiveServicesAccountUpdateParameters
-* CognitiveServicesAccountUpdateParameters `object`: The parameters to provide for the account.
-  * sku [Sku](#sku)
-  * tags `object`: Gets or sets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters.
 
 ### CognitiveServicesResourceAndSku
 * CognitiveServicesResourceAndSku `object`: Cognitive Services resource type and SKU.
@@ -407,10 +435,22 @@ azure_cognitiveservices.Accounts_GetUsages({
   * code **required** `string`: error code
   * message **required** `string`: error message
 
+### IpRule
+* IpRule `object`: A rule governing the accessibility from a specific ip address or ip range.
+  * value **required** `string`: An IPv4 address range in CIDR notation, such as '124.56.78.91' (simple IP address) or '124.56.78.0/24' (all addresses that start with 124.56.78).
+
 ### MetricName
 * MetricName `object`: A metric name.
   * localizedValue `string`: The friendly name of the metric.
   * value `string`: The name of the metric.
+
+### NetworkRuleSet
+* NetworkRuleSet `object`: A set of rules governing the network accessibility.
+  * defaultAction `string` (values: Allow, Deny): The default action when no rule from ipRules and from virtualNetworkRules match. This is only used after the bypass property has been evaluated.
+  * ipRules `array`: The list of IP address rules.
+    * items [IpRule](#iprule)
+  * virtualNetworkRules `array`: The list of virtual network rules.
+    * items [VirtualNetworkRule](#virtualnetworkrule)
 
 ### OperationDisplayInfo
 * OperationDisplayInfo `object`: The operation supported by Cognitive Services.
@@ -474,7 +514,7 @@ azure_cognitiveservices.Accounts_GetUsages({
   * tier `string` (values: Free, Standard, Premium): Gets the sku tier. This is based on the SKU name.
 
 ### SkuName
-* SkuName `string` (values: F0, P0, P1, P2, S0, S1, S2, S3, S4, S5, S6): The name of SKU.
+* SkuName `string`: The name of SKU.
 
 ### UnitType
 * UnitType `string` (values: Count, Bytes, Seconds, Percent, CountPerSecond, BytesPerSecond, Milliseconds): The unit of the metric.
@@ -493,5 +533,11 @@ azure_cognitiveservices.Accounts_GetUsages({
 * UsagesResult `object`: The response to a list usage request.
   * value `array`: The list of usages for Cognitive Service account.
     * items [Usage](#usage)
+
+### VirtualNetworkRule
+* VirtualNetworkRule `object`: A rule governing the accessibility from a specific virtual network.
+  * id **required** `string`: Full resource id of a vnet subnet, such as '/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1'.
+  * ignoreMissingVnetServiceEndpoint `boolean`: Ignore missing vnet service endpoint or not.
+  * state `string`: Gets the state of virtual network rule.
 
 

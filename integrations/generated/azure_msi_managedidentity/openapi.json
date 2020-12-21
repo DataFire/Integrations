@@ -7,7 +7,7 @@
   "info": {
     "description": "The Managed Service Identity Client.",
     "title": "ManagedServiceIdentityClient",
-    "version": "2015-08-31-preview",
+    "version": "2018-11-30",
     "x-apisguru-categories": [
       "cloud"
     ],
@@ -17,7 +17,7 @@
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/msi/resource-manager/Microsoft.ManagedIdentity/preview/2015-08-31-preview/ManagedIdentity.json",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/msi/resource-manager/Microsoft.ManagedIdentity/stable/2018-11-30/ManagedIdentity.json",
         "version": "2.0"
       }
     ],
@@ -116,12 +116,12 @@
         "x-ms-examples": {
           "MsiOperationsList": {
             "parameters": {
-              "api-version": "2015-08-31-preview"
+              "api-version": "2018-11-30"
             },
             "responses": {
               "200": {
                 "body": {
-                  "nextLink": "https://serviceRoot/providers/Microsoft.ManagedIdentity/operations?api-version=2015-08-31-preview&$skiptoken=X'12345'",
+                  "nextLink": "https://serviceRoot/providers/Microsoft.ManagedIdentity/operations?api-version=2018-11-30&$skiptoken=X'12345'",
                   "value": [
                     {
                       "display": {
@@ -190,13 +190,13 @@
         "x-ms-examples": {
           "IdentityListBySubscription": {
             "parameters": {
-              "api-version": "2015-08-31-preview",
+              "api-version": "2018-11-30",
               "subscriptionId": "subid"
             },
             "responses": {
               "200": {
                 "body": {
-                  "nextLink": "https://serviceRoot/subscriptions/subId/providers/Microsoft.ManagedIdentity/userAssignedIdentities?api-version=2015-08-31-preview&$skiptoken=X'12345'",
+                  "nextLink": "https://serviceRoot/subscriptions/subId/providers/Microsoft.ManagedIdentity/userAssignedIdentities?api-version=2018-11-30&$skiptoken=X'12345'",
                   "value": [
                     {
                       "id": "/subscriptions/subid/resourcegroups/rgName/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identityName",
@@ -204,7 +204,6 @@
                       "name": "identityName",
                       "properties": {
                         "clientId": "clientGUID",
-                        "clientSecretUrl": "https://serviceRoot/subscriptions/subscriptionId/resourcegroups/rgName/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identityName/credentials?tid=tenantId&oid=principalId&aid=clientId",
                         "principalId": "identityObjectID",
                         "tenantId": "tenantGUID"
                       },
@@ -257,14 +256,14 @@
         "x-ms-examples": {
           "IdentityListByResourceGroup": {
             "parameters": {
-              "api-version": "2015-08-31-preview",
+              "api-version": "2018-11-30",
               "resourceGroupName": "rgName",
               "subscriptionId": "subid"
             },
             "responses": {
               "200": {
                 "body": {
-                  "nextLink": "https://serviceRoot/subscriptions/subId/resourcegroups/rgName/providers/Microsoft.ManagedIdentity/userAssignedIdentities?api-version=2015-08-31-preview&$skiptoken=X'12345'",
+                  "nextLink": "https://serviceRoot/subscriptions/subId/resourcegroups/rgName/providers/Microsoft.ManagedIdentity/userAssignedIdentities?api-version=2018-11-30&$skiptoken=X'12345'",
                   "value": [
                     {
                       "id": "/subscriptions/subid/resourcegroups/rgName/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identityName",
@@ -272,7 +271,6 @@
                       "name": "identityName",
                       "properties": {
                         "clientId": "clientGUID",
-                        "clientSecretUrl": "https://serviceRoot/subscriptions/subscriptionId/resourcegroups/rgName/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identityName/credentials?tid=tenantId&oid=principalId&aid=clientId",
                         "principalId": "identityObjectID",
                         "tenantId": "tenantGUID"
                       },
@@ -328,18 +326,14 @@
         "x-ms-examples": {
           "IdentityDelete": {
             "parameters": {
-              "api-version": "2015-08-31-preview",
+              "api-version": "2018-11-30",
               "resourceGroupName": "rgName",
               "resourceName": "resourceName",
               "subscriptionId": "subid"
             },
             "responses": {
-              "200": {
-                "body": ""
-              },
-              "204": {
-                "body": ""
-              }
+              "200": {},
+              "204": {}
             }
           }
         }
@@ -378,7 +372,7 @@
         "x-ms-examples": {
           "IdentityGet": {
             "parameters": {
-              "api-version": "2015-08-31-preview",
+              "api-version": "2018-11-30",
               "resourceGroupName": "rgName",
               "resourceName": "resourceName",
               "subscriptionId": "subid"
@@ -391,7 +385,6 @@
                   "name": "identityName",
                   "properties": {
                     "clientId": "clientGUID",
-                    "clientSecretUrl": "https://serviceRoot/subscriptions/subscriptionId/resourcegroups/rgName/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identityName/credentials?tid=tenantId&oid=principalId&aid=clientId",
                     "principalId": "identityObjectID",
                     "tenantId": "tenantGUID"
                   },
@@ -449,7 +442,7 @@
         "x-ms-examples": {
           "IdentityUpdate": {
             "parameters": {
-              "api-version": "2015-08-31-preview",
+              "api-version": "2018-11-30",
               "parameters": {
                 "location": "cus",
                 "tags": {
@@ -469,7 +462,6 @@
                   "name": "identityName",
                   "properties": {
                     "clientId": "clientGUID",
-                    "clientSecretUrl": "https://serviceRoot/subscriptions/subscriptionId/resourcegroups/rgName/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identityName/credentials?tid=tenantId&oid=principalId&aid=clientId",
                     "principalId": "identityObjectID",
                     "tenantId": "tenantGUID"
                   },
@@ -533,7 +525,7 @@
         "x-ms-examples": {
           "IdentityCreate": {
             "parameters": {
-              "api-version": "2015-08-31-preview",
+              "api-version": "2018-11-30",
               "parameters": {
                 "location": "cus",
                 "tags": {
@@ -553,7 +545,6 @@
                   "name": "identityName",
                   "properties": {
                     "clientId": "clientGUID",
-                    "clientSecretUrl": "https://serviceRoot/subscriptions/subscriptionId/resourcegroups/rgName/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identityName/credentials?tid=tenantId&oid=principalId&aid=clientId",
                     "principalId": "identityObjectID",
                     "tenantId": "tenantGUID"
                   },
@@ -571,7 +562,6 @@
                   "name": "identityName",
                   "properties": {
                     "clientId": "clientGUID",
-                    "clientSecretUrl": "https://serviceRoot/subscriptions/subscriptionId/resourcegroups/rgName/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identityName/credentials?tid=tenantId&oid=principalId&aid=clientId",
                     "principalId": "identityObjectID",
                     "tenantId": "tenantGUID"
                   },
@@ -673,24 +663,24 @@
       "properties": {
         "clientId": {
           "description": "The id of the app associated with the identity. This is a random generated UUID by MSI.",
-          "format": "UUID",
+          "format": "uuid",
           "readOnly": true,
           "type": "string"
         },
         "clientSecretUrl": {
-          "description": " The ManagedServiceIdentity DataPlane URL that can be queried to obtain the identity credentials.",
+          "description": " The ManagedServiceIdentity DataPlane URL that can be queried to obtain the identity credentials. If identity is user assigned, then the clientSecretUrl will not be present in the response, otherwise it will be present.",
           "readOnly": true,
           "type": "string"
         },
         "principalId": {
           "description": "The id of the service principal object associated with the created identity.",
-          "format": "UUID",
+          "format": "uuid",
           "readOnly": true,
           "type": "string"
         },
         "tenantId": {
           "description": "The id of the tenant which the identity belongs to.",
-          "format": "UUID",
+          "format": "uuid",
           "readOnly": true,
           "type": "string"
         }

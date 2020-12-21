@@ -7,15 +7,16 @@
   "basePath": "/echo",
   "info": {
     "contact": {
-      "name": "US EPA, OECA Integration, Targeting and Access Branch"
+      "name": "U.S. EPA, OECA Integration, Targeting and Access Branch",
+      "url": "https://echo.epa.gov/resources/general-info/contact-us"
     },
-    "description": "Enforcement and Compliance History Online (ECHO) is a tool developed and maintained by EPA's Office of Enforcement and Compliance Assurance for public use. ECHO provides integrated compliance and enforcement information for about 800,000 regulated facilities nationwide.\n<BR><BR>SDW Rest Services provides multiple service endpoints, each with specific capabilities, to search and retrieve data on public water systems regulated under the Safe Drinking Water Act (SDWA) .\nThe returned results reflect data drawn from EPA's Federal Safe Drinking Water Information System (SDWIS) database.\n<BR><BR>\nThe get_systems, get_qid, and get_download end points are meant to be used together.\n<br><br>\nThe recommended use scenario for get_systems, get_qid, and get_downoad is:\n<br>\n<br><b>1)</b>  Use get_systems to validate passed query parameters, obtain summary statistics and to obtain a query_id (QID).  QIDs are time sensitive and will be valid for approximately 30 minutes.\n<br><b>2)</b>  Use get_qid, with the returned QID, to paginate through arrays of water system results.\n<br><b>3)</b>  Use get_download, with the returned QID, to generate a Comma Separated Value (CSV) file of water system information that meets the QID query criteria.\n<br>\n<br>\nUse the qcolumns parameter to customize your search results.  Use the Metdata service endpoint for a list of available output objects, their Column Ids, and their definitions to help you build your customized output. \n<br><br>\nAdditional ECHO Resources:   <a href=\"https://echo.epa.gov/tools/web-services\">Web Services</a>, <a href=\"https://echo.epa.gov/resources/echo-data/about-the-data\">About ECHO's Data</a>, <a href=\"https://echo.epa.gov/tools/data-downloads\">Data Downloads</a>\n<br>",
+    "description": "Enforcement and Compliance History Online (ECHO) is a tool developed and maintained by EPA's Office of Enforcement and Compliance Assurance for public use. ECHO provides integrated compliance and enforcement information for over 1 million regulated facilities nationwide.\n   SDW Rest Services provides multiple service endpoints, each with specific capabilities, to search and retrieve data on public water systems regulated under the Safe Drinking Water Act (SDWA).  The returned results reflect data drawn from EPA's Federal Safe Drinking Water Information System (SDWIS) database.\n\\\nThe get_systems, get_qid, and get_download end points are meant to be used together.\n\\\nThe recommended use scenario for get_systems, get_qid, and get_downoad is:\n\\\n <b>1)</b>  Use get_systems to validate passed query parameters, obtain summary statistics and to obtain a query_id (QID).  QIDs are time sensitive and will be valid for approximately 30 minutes.\n <b>2)</b>  Use get_qid, with the returned QID, to paginate through arrays of water system results.\n <b>3)</b>  Use get_download, with the returned QID, to generate a Comma Separated Value (CSV) file of water system information that meets the QID query criteria.\n\\\n\\\nUse the qcolumns parameter to customize your search results.  Use the Metadata service endpoint for a list of available output objects, their Column Ids, and their definitions to help you build your customized output. \n\\\nAdditional ECHO Resources:   <a href=\"https://echo.epa.gov/tools/web-services\">Web Services</a>, <a href=\"https://echo.epa.gov/resources/echo-data/about-the-data\">About ECHO's Data</a>, <a href=\"https://echo.epa.gov/tools/data-downloads\">Data Downloads</a>\n ",
     "license": {
-      "name": "This page was built with the Swagger API.",
-      "url": "https://swagger.io"
+      "name": "U.S. Public Domain License",
+      "url": "https://edg.epa.gov/EPA_Data_License.html"
     },
     "title": "U.S. EPA Enforcement and Compliance History Online (ECHO) - Safe Drinking Water Act",
-    "version": "0.0.0",
+    "version": "2019.10.15",
     "x-apisguru-categories": [
       "open_data"
     ],
@@ -39,22 +40,580 @@
     }
   },
   "consumes": [
-    "application/json",
-    "application/xml"
+    "application/x-www-form-urlencoded"
   ],
   "produces": [
     "application/json",
     "application/xml"
   ],
   "parameters": {
-    "callback": {
+    "f.callback": {
+      "description": "JSONP Callback.  For use with JSONP and GEOJSONP output only.  Enter a name of the function in which to wrap the JSON response.",
+      "in": "formData",
+      "name": "callback",
+      "required": false,
+      "type": "string"
+    },
+    "f.descending": {
+      "description": "Output Sort Column Descending Flag.  Enter Y to column identified in the newsort parameter descending.  Enter N to use ascending sort order. Used only when newsort parameter is populated.",
+      "enum": [
+        "Y",
+        "N"
+      ],
+      "in": "formData",
+      "name": "descending",
+      "required": false,
+      "type": "string"
+    },
+    "f.newsort": {
+      "description": "Output Sort Column.  Enter the number of the column on which the data will be sorted. If unpopulated results will sort on the first column.",
+      "in": "formData",
+      "name": "newsort",
+      "required": false,
+      "type": "number"
+    },
+    "f.p_act": {
+      "description": "Active Permits/Facilities Flag.  Provide Y or N to filter results to facilities with active permits.",
+      "enum": [
+        "Y",
+        "N",
+        "A"
+      ],
+      "in": "formData",
+      "name": "p_act",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_cms_flag": {
+      "in": "formData",
+      "name": "p_cms_flag",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_cntysv": {
+      "in": "formData",
+      "name": "p_cntysv",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_co": {
+      "description": "Facility County Filter. Provide a single county name in combination with a state value provided via p_st.",
+      "in": "formData",
+      "name": "p_co",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_cs": {
+      "description": "Current violations:\n- M = Monitoring and Reporting Violations\n- H = Health-based Violations\n- O = Other Violations\n- P = Public Notice Violations\n- S = Serious Violator\n- N = No Violations\nMay contain multiple comma-separated values.",
+      "in": "formData",
+      "name": "p_cs",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_ct": {
+      "description": "Facility City Filter. Enter a single case-insensitive city name to filter results.",
+      "in": "formData",
+      "name": "p_ct",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_cuale": {
+      "description": "Copper Action Level Exceedance.  A \"Y\" value will select water systems with at least 1 Copper Action Level Exceedance.",
+      "in": "formData",
+      "name": "p_cuale",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_cuv": {
+      "description": "Copper Violation.  A \"Y\" value will select water systems with at least 1 Copper Violation.",
+      "in": "formData",
+      "name": "p_cuv",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_fea": {
+      "description": "Formal Enforcement Actions [within / not within] specified date range indicator. The date range is determined by parameters p_fead1 and p_fead2 or by parameter p_feay.\n- W = within date range\n- N = not within date range",
+      "enum": [
+        "W",
+        "N"
+      ],
+      "in": "formData",
+      "name": "p_fea",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_feaa": {
+      "description": "Agency associated with Formal Enforcement Actions:\n- E = EPA\n- S = State\n- A = All",
+      "enum": [
+        "A",
+        "E",
+        "S"
+      ],
+      "in": "formData",
+      "name": "p_feaa",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_feay": {
+      "description": "Years (1 to 5) Range.  This value is used to create a date range for Formal Enforcement Actions (FEA). Used along with p_fea (which indicates whether to look within or outside of the date range) to find FEAs within (or not within) the number of years specified.",
+      "enum": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "in": "formData",
+      "name": "p_feay",
+      "required": false,
+      "type": "number"
+    },
+    "f.p_fips": {
+      "description": "FIPS Code Filter.  Enter a single 5-character Federal Information Processing Standards (FIPS) state + county value to restrict results.  E.g. to limit results to Kenosha County, Wisconsin, use 55059.",
+      "in": "formData",
+      "name": "p_fips",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_fn": {
+      "description": "Facility Name Filter. Enter one or more case-insensitive facility names to filter results.  Provide multiple values as a comma-delimited list.  See p_fntype for additional modifiers.",
+      "in": "formData",
+      "name": "p_fn",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_health": {
+      "description": "Violations of health-based drinking water standards (maximum contaminant levels, maximum residual disinfectant levels, or treatment technique rules).",
+      "enum": [
+        "Y",
+        "N"
+      ],
+      "in": "formData",
+      "name": "p_health",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_ico": {
+      "description": "Indian Country Flag.  Enter a \"Y\" or \"N\" to restrict searches to facilities inside or outside Indian Country.",
+      "enum": [
+        "Y",
+        "N"
+      ],
+      "in": "formData",
+      "name": "p_ico",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_idt1": {
+      "description": "Beginning of date range of most recent facility inspection.",
+      "in": "formData",
+      "name": "p_idt1",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_idt2": {
+      "description": "End of date range of most recent facility inspection.",
+      "in": "formData",
+      "name": "p_idt2",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_iea": {
+      "description": "Informal Enforcement Actions [within / not within] specified date range.  The date range is determined by parameters p_iead1 and p_iead2 or by parameter p_ieay.\n- W = within date range\n- N = not within date range",
+      "enum": [
+        "W",
+        "N"
+      ],
+      "in": "formData",
+      "name": "p_iea",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_ieaa": {
+      "description": "Agency associated with Informal Enforcement Actions. If left blank, both agencies are included.\n- E = EPA\n- S = State",
+      "enum": [
+        "E",
+        "S"
+      ],
+      "in": "formData",
+      "name": "p_ieaa",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_ieay": {
+      "description": "Years (1 to 5) Range.  This value is used to create a date range for Informal Enforcement Actions (IEA). Used along with p_iea (which indicates whether to look within or outside of the date range) to find IEAs within (or not within) the number of years specified.",
+      "enum": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "in": "formData",
+      "name": "p_ieay",
+      "required": false,
+      "type": "number"
+    },
+    "f.p_lcrv": {
+      "description": "Lead or Copper rule violations.  A \"Y\" value will select water systems with at least 1 Lead or Copper Rule Violation.",
+      "in": "formData",
+      "name": "p_lcrv",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_mr": {
+      "description": "Monitoring and Reporting Violations (failure to conduct regular monitoring of drinking water quality or submit monitoring results in a timely fashion).",
+      "enum": [
+        "Y",
+        "N"
+      ],
+      "in": "formData",
+      "name": "p_mr",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_other": {
+      "description": "Other violations, such as failing to issue annual consumer confidence reports or maintain required records.",
+      "enum": [
+        "Y",
+        "N"
+      ],
+      "in": "formData",
+      "name": "p_other",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_owop": {
+      "description": "Owner/Operator code filter.  Enter one of the following codes to filter results:\n- F = Federal Government\n- S = State Government\n- L = Local Government\n- M = Public/Private\n- N = Native American\n- P = Private",
+      "enum": [
+        "F",
+        "S",
+        "L",
+        "M",
+        "N",
+        "P"
+      ],
+      "in": "formData",
+      "name": "p_owop",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_pbale": {
+      "description": "Lead Action Level Exceedance.  A \"Y\" value will select water systems with at least 1 Lead Action Level Exceedance.",
+      "in": "formData",
+      "name": "p_pbale",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_pbv": {
+      "description": "Lead Violations.  A \"Y\" value will select water systems with at least 1 Lead Violation.",
+      "in": "formData",
+      "name": "p_pbv",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_pfead1": {
+      "description": "Formal Enforcement Action Date Range Start.  Enter a date in MM/DD/YYYY format to set the start of the range for filtering by recent Formal Enforcement Action (FEA) taken against the facility within the last five years.",
+      "in": "formData",
+      "name": "p_pfead1",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_pfead2": {
+      "description": "Formal Enforcement Action Date Range End.  Enter a date in MM/DD/YYYY format to set the end of the date range for filtering by recent Formal Enforcement Action (FEA) taken against the facility within the last five years.",
+      "in": "formData",
+      "name": "p_pfead2",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_pfeat": {
+      "description": "Formal Enforcement Action (FEA) Code Filter.  Enter one or more three-letter FEA codes to restrict results to facilities with these attributes.  Use p_fead1 and p_fead2 parameters to further restrict this filter by entering a date range.  Provide multiple codes as a comma-delimited list.",
+      "in": "formData",
+      "name": "p_pfeat",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_pid": {
+      "description": "Nine-digit permit IDs. May contain up to 2000 comma-separated values.",
+      "in": "formData",
+      "name": "p_pid",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_pn": {
+      "description": "Public Notice Violations (failure to immediately alert consumers of serious problem with drinking water).",
+      "enum": [
+        "Y",
+        "N"
+      ],
+      "in": "formData",
+      "name": "p_pn",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_popsv": {
+      "description": "Estimated average daily population served by a system:\n- LE500 = 500 or less\n- IN501_3K = 501-3,300\n- IN3K_10K = 3,301-10,000\n- IN10K_100K = 10,001-100,000\n- IN100K_1M = 100,001-1,000,000\n- GT1M = More than 1,000,000\nMay contain multiple comma-separated values.",
+      "in": "formData",
+      "name": "p_popsv",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_pswpol": {
+      "description": "For CWA, pollutant names for surface water discharges. for Drinking Water, SDWIS Violation contaminant codes for unaddressed violations that have occurred in the last 3 years. May contain multiple comma-separated values.",
+      "in": "formData",
+      "name": "p_pswpol",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_pswvio": {
+      "description": "Used in conjuction with parameters p_pswpol and p_pswparam, indicates whether search should only include pollutants with violations.",
+      "enum": [
+        "Y",
+        "N"
+      ],
+      "in": "formData",
+      "name": "p_pswvio",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_qis": {
+      "description": "Significant Quarters in Noncompliance Limiter.  Enter one of the following codes to limit results to facilities having given quarters of noncompliance.\n- Z = Zero quarters in noncompliance.\n- GE1 = One or more quarters in noncompliance.\n- GT1 = More than one quarters in noncompliance.\n- GE2 = Two or more quarters in noncompliance.\n- GT2 = More than two quarters in noncompliance.\n- GE4 = Four or more quarters in noncompliance.\n- GT4 = More than four quarters in noncompliance.\n- GE8 = Eight or more quarters in noncompliance.\n- GT8 = More than eight quarters in noncompliance.\n- GE12 = Twelve or more quarters in noncompliance.\n- GT12 = Twelve or more quarters in noncompliance.\n- 12 = Exactly twelve quarters in noncompliance.\nNote the seemingly incongruous of GT12 is deliberate.",
+      "enum": [
+        "Z",
+        "GE1",
+        "GT1",
+        "GE2",
+        "GT2",
+        "GE4",
+        "GT4",
+        "GE8",
+        "GT8",
+        "GE12",
+        "GT12",
+        "12"
+      ],
+      "in": "formData",
+      "name": "p_qis",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_qiv": {
+      "description": "Quarters in Noncompliance Limiter.  Enter a coded value to limit results to facilities with given quarter of noncompliance.\n- Z = Zero quarters in noncompliance.\n- GEXX = Replacing XX with a numeric value, that number of quarterd or more in noncompliance.\n- GTXX = Replacing XX with a numeric value, more than that number of quarters in noncompliance.",
+      "enum": [
+        "0",
+        "GT1",
+        "GT2",
+        "GT4",
+        "GT8",
+        "12"
+      ],
+      "in": "formData",
+      "name": "p_qiv",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_qs": {
+      "description": "Quick Search. Allows entry for city, state, and/or zip code.",
+      "in": "formData",
+      "name": "p_qs",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_rc350v": {
+      "description": "Rule code 350 violation. A \"Y\" value will select water systems with at least one rule code 350 violation.",
+      "in": "formData",
+      "name": "p_rc350v",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_reg": {
+      "description": "EPA Region Filter. Provide a single value of 01 thru 10 to restrict results to a single EPA region.",
+      "enum": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05",
+        "06",
+        "07",
+        "08",
+        "09",
+        "10"
+      ],
+      "in": "formData",
+      "name": "p_reg",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_sdc": {
+      "description": "Significant Deficiency Count (in past 5 years) flag.  \n\nEnter \"Y\" to select facilities with Sanitary Surveys within the past 5 years.  \n\nEnter \"N\" to select facilities without Sanitary Surveys in the past 5 years.\n\nEnter a number to search for facilities with a quantity greater than or equal to that value.",
+      "in": "formData",
+      "name": "p_sdc",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_sdc_ils": {
+      "in": "formData",
+      "name": "p_sdc_ils",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_sfs": {
+      "description": "Single Facility Search Filter.  Provide a facility name or program system identifier to limit results.  For the all data search, the FRS registry identifier is also searched.",
+      "in": "formData",
+      "name": "p_sfs",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_ss5yr": {
+      "description": "Sanitary Surveys (in past 5 years) flag.  Values of visit_reason_code are either \"SNSV\" or \"SNSP\" in the past 5 years indicate a Sanitary Survey.  \n\nEnter \"Y\" to select facilities with Sanitary Surveys within the past 5 years.  \n\nEnter \"N\" to select facilities without Sanitary Surveys in the past 5 years.\n\nEnter a number to search for greater for facilities with a quantity than or equal to that value.\n\n\n",
+      "in": "formData",
+      "name": "p_ss5yr",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_st": {
+      "description": "Facility State and State-Equivalent Filter.  Provide one or more USPS postal abbreviations for states and state-equivalents to filter results.  Provide multiple values as a comma-delimited list.",
+      "in": "formData",
+      "name": "p_st",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_sv": {
+      "description": "Serious Violator (unresolved serious, multiple, and/or continuing violations). A value of Y will return only SDWIS systems that are Serious Violators, while a value of N will only return SDWIS Systems that are not Serious Violators.",
+      "enum": [
+        "Y",
+        "N"
+      ],
+      "in": "formData",
+      "name": "p_sv",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_swtyp": {
+      "description": "Source Water Type:\n- SW = Surface water \n- GW= Ground water\n- GU = Ground water under direct influence of (UDI) surface water\n- SWP = Purchased Surface water\n- GWP = Purchased Ground water\n- GUP = Purchased Ground water UDI surface water",
+      "enum": [
+        "SW",
+        "GW",
+        "GU",
+        "SWP",
+        "GWP",
+        "GUP"
+      ],
+      "in": "formData",
+      "name": "p_swtyp",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_systyp": {
+      "description": "Type of public water system:\n- CWS=Community water system\n- NCWS=Non-community water system\n- NTCWS=Non-transient non-community water system\n- TNCWS=Transient non-community water system",
+      "enum": [
+        "CWS",
+        "NCWS",
+        "NTCWS",
+        "TNCWS"
+      ],
+      "in": "formData",
+      "name": "p_systyp",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_trb": {
+      "description": "Tribe name",
+      "in": "formData",
+      "name": "p_trb",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_ysl": {
+      "description": "Last Facility Inspection [within / not within] Specified Date Range Indicator. The date range is determined by parameters p_idt1 and p_idt2 or by parameter p_ysly.\n- W = within date range\n- N = not within date range",
+      "enum": [
+        "W",
+        "N",
+        "NV"
+      ],
+      "in": "formData",
+      "name": "p_ysl",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_ysla": {
+      "description": "Facility Last Inspection Code Filter.  If left blank, both agencies are included.  Enter a value to limit results:\n- E = EPA\n- S = State",
+      "enum": [
+        "E",
+        "S",
+        "A"
+      ],
+      "in": "formData",
+      "name": "p_ysla",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_ysly": {
+      "description": "Number of years (1 to 5) since last facility inspection.  A value of 1 means that it has been inspected within the year.",
+      "enum": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "in": "formData",
+      "name": "p_ysly",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_zip": {
+      "description": "5-Digit ZIP Code Filter. Provide one or more 5-digit postal zip codes to filter results.  May contain multiple comma-separated values.",
+      "in": "formData",
+      "name": "p_zip",
+      "required": false,
+      "type": "string"
+    },
+    "f.pageno": {
+      "default": 1,
+      "description": "Indicates the number of the page to display. It is used only when the results are paginated.",
+      "in": "formData",
+      "name": "pageno",
+      "required": false,
+      "type": "number"
+    },
+    "f.qcolumns": {
+      "description": "Used to customize service output.  A list of comma-separated column IDs of output objects that will be returned in the service query object or download.  Use the metadata service endpoint for a complete list of Ids and definitions.",
+      "in": "formData",
+      "name": "qcolumns",
+      "required": false,
+      "type": "string"
+    },
+    "f.qid": {
+      "description": "Query ID Selector.  Enter the QueryID number from a previously run query.",
+      "in": "formData",
+      "name": "qid",
+      "required": true,
+      "type": "string"
+    },
+    "f.queryset": {
+      "description": "Query Limiter.  Enter a value to limit the number of records returned for each query. Value cannot exceed 70,000.",
+      "in": "formData",
+      "name": "queryset",
+      "required": false,
+      "type": "number"
+    },
+    "f.responseset": {
+      "description": "Response Set Limiter. Enter a value to limit the number of records per page. Value cannot exceed 1,000.",
+      "in": "formData",
+      "name": "responseset",
+      "required": false,
+      "type": "number"
+    },
+    "q.callback": {
       "description": "JSONP Callback.  For use with JSONP and GEOJSONP output only.  Enter a name of the function in which to wrap the JSON response.",
       "in": "query",
       "name": "callback",
       "required": false,
       "type": "string"
     },
-    "descending": {
+    "q.descending": {
       "description": "Output Sort Column Descending Flag.  Enter Y to column identified in the newsort parameter descending.  Enter N to use ascending sort order. Used only when newsort parameter is populated.",
       "enum": [
         "Y",
@@ -65,14 +624,14 @@
       "required": false,
       "type": "string"
     },
-    "newsort": {
+    "q.newsort": {
       "description": "Output Sort Column.  Enter the number of the column on which the data will be sorted. If unpopulated results will sort on the first column.",
       "in": "query",
       "name": "newsort",
       "required": false,
       "type": "number"
     },
-    "p_act": {
+    "q.p_act": {
       "description": "Active Permits/Facilities Flag.  Provide Y or N to filter results to facilities with active permits.",
       "enum": [
         "Y",
@@ -84,42 +643,54 @@
       "required": false,
       "type": "string"
     },
-    "p_co": {
+    "q.p_cms_flag": {
+      "in": "query",
+      "name": "p_cms_flag",
+      "required": false,
+      "type": "string"
+    },
+    "q.p_cntysv": {
+      "in": "query",
+      "name": "p_cntysv",
+      "required": false,
+      "type": "string"
+    },
+    "q.p_co": {
       "description": "Facility County Filter. Provide a single county name in combination with a state value provided via p_st.",
       "in": "query",
       "name": "p_co",
       "required": false,
       "type": "string"
     },
-    "p_cs": {
+    "q.p_cs": {
       "description": "Current violations:\n- M = Monitoring and Reporting Violations\n- H = Health-based Violations\n- O = Other Violations\n- P = Public Notice Violations\n- S = Serious Violator\n- N = No Violations\nMay contain multiple comma-separated values.",
       "in": "query",
       "name": "p_cs",
       "required": false,
       "type": "string"
     },
-    "p_ct": {
+    "q.p_ct": {
       "description": "Facility City Filter. Enter a single case-insensitive city name to filter results.",
       "in": "query",
       "name": "p_ct",
       "required": false,
       "type": "string"
     },
-    "p_cuale": {
+    "q.p_cuale": {
       "description": "Copper Action Level Exceedance.  A \"Y\" value will select water systems with at least 1 Copper Action Level Exceedance.",
       "in": "query",
       "name": "p_cuale",
       "required": false,
       "type": "string"
     },
-    "p_cuv": {
+    "q.p_cuv": {
       "description": "Copper Violation.  A \"Y\" value will select water systems with at least 1 Copper Violation.",
       "in": "query",
       "name": "p_cuv",
       "required": false,
       "type": "string"
     },
-    "p_fea": {
+    "q.p_fea": {
       "description": "Formal Enforcement Actions [within / not within] specified date range indicator. The date range is determined by parameters p_fead1 and p_fead2 or by parameter p_feay.\n- W = within date range\n- N = not within date range",
       "enum": [
         "W",
@@ -130,7 +701,7 @@
       "required": false,
       "type": "string"
     },
-    "p_feaa": {
+    "q.p_feaa": {
       "description": "Agency associated with Formal Enforcement Actions:\n- E = EPA\n- S = State\n- A = All",
       "enum": [
         "A",
@@ -142,7 +713,7 @@
       "required": false,
       "type": "string"
     },
-    "p_feay": {
+    "q.p_feay": {
       "description": "Years (1 to 5) Range.  This value is used to create a date range for Formal Enforcement Actions (FEA). Used along with p_fea (which indicates whether to look within or outside of the date range) to find FEAs within (or not within) the number of years specified.",
       "enum": [
         1,
@@ -156,21 +727,21 @@
       "required": false,
       "type": "number"
     },
-    "p_fips": {
+    "q.p_fips": {
       "description": "FIPS Code Filter.  Enter a single 5-character Federal Information Processing Standards (FIPS) state + county value to restrict results.  E.g. to limit results to Kenosha County, Wisconsin, use 55059.",
       "in": "query",
       "name": "p_fips",
       "required": false,
       "type": "string"
     },
-    "p_fn": {
+    "q.p_fn": {
       "description": "Facility Name Filter. Enter one or more case-insensitive facility names to filter results.  Provide multiple values as a comma-delimited list.  See p_fntype for additional modifiers.",
       "in": "query",
       "name": "p_fn",
       "required": false,
       "type": "string"
     },
-    "p_health": {
+    "q.p_health": {
       "description": "Violations of health-based drinking water standards (maximum contaminant levels, maximum residual disinfectant levels, or treatment technique rules).",
       "enum": [
         "Y",
@@ -181,7 +752,7 @@
       "required": false,
       "type": "string"
     },
-    "p_ico": {
+    "q.p_ico": {
       "description": "Indian Country Flag.  Enter a \"Y\" or \"N\" to restrict searches to facilities inside or outside Indian Country.",
       "enum": [
         "Y",
@@ -192,7 +763,21 @@
       "required": false,
       "type": "string"
     },
-    "p_iea": {
+    "q.p_idt1": {
+      "description": "Beginning of date range of most recent facility inspection.",
+      "in": "query",
+      "name": "p_idt1",
+      "required": false,
+      "type": "string"
+    },
+    "q.p_idt2": {
+      "description": "End of date range of most recent facility inspection.",
+      "in": "query",
+      "name": "p_idt2",
+      "required": false,
+      "type": "string"
+    },
+    "q.p_iea": {
       "description": "Informal Enforcement Actions [within / not within] specified date range.  The date range is determined by parameters p_iead1 and p_iead2 or by parameter p_ieay.\n- W = within date range\n- N = not within date range",
       "enum": [
         "W",
@@ -203,7 +788,7 @@
       "required": false,
       "type": "string"
     },
-    "p_ieaa": {
+    "q.p_ieaa": {
       "description": "Agency associated with Informal Enforcement Actions. If left blank, both agencies are included.\n- E = EPA\n- S = State",
       "enum": [
         "E",
@@ -214,7 +799,7 @@
       "required": false,
       "type": "string"
     },
-    "p_ieay": {
+    "q.p_ieay": {
       "description": "Years (1 to 5) Range.  This value is used to create a date range for Informal Enforcement Actions (IEA). Used along with p_iea (which indicates whether to look within or outside of the date range) to find IEAs within (or not within) the number of years specified.",
       "enum": [
         1,
@@ -228,14 +813,14 @@
       "required": false,
       "type": "number"
     },
-    "p_lcrv": {
+    "q.p_lcrv": {
       "description": "Lead or Copper rule violations.  A \"Y\" value will select water systems with at least 1 Lead or Copper Rule Violation.",
       "in": "query",
       "name": "p_lcrv",
       "required": false,
       "type": "string"
     },
-    "p_mr": {
+    "q.p_mr": {
       "description": "Monitoring and Reporting Violations (failure to conduct regular monitoring of drinking water quality or submit monitoring results in a timely fashion).",
       "enum": [
         "Y",
@@ -246,7 +831,7 @@
       "required": false,
       "type": "string"
     },
-    "p_other": {
+    "q.p_other": {
       "description": "Other violations, such as failing to issue annual consumer confidence reports or maintain required records.",
       "enum": [
         "Y",
@@ -257,7 +842,7 @@
       "required": false,
       "type": "string"
     },
-    "p_owop": {
+    "q.p_owop": {
       "description": "Owner/Operator code filter.  Enter one of the following codes to filter results:\n- F = Federal Government\n- S = State Government\n- L = Local Government\n- M = Public/Private\n- N = Native American\n- P = Private",
       "enum": [
         "F",
@@ -272,49 +857,49 @@
       "required": false,
       "type": "string"
     },
-    "p_pbale": {
+    "q.p_pbale": {
       "description": "Lead Action Level Exceedance.  A \"Y\" value will select water systems with at least 1 Lead Action Level Exceedance.",
       "in": "query",
       "name": "p_pbale",
       "required": false,
       "type": "string"
     },
-    "p_pbv": {
+    "q.p_pbv": {
       "description": "Lead Violations.  A \"Y\" value will select water systems with at least 1 Lead Violation.",
       "in": "query",
       "name": "p_pbv",
       "required": false,
       "type": "string"
     },
-    "p_pfead1": {
+    "q.p_pfead1": {
       "description": "Formal Enforcement Action Date Range Start.  Enter a date in MM/DD/YYYY format to set the start of the range for filtering by recent Formal Enforcement Action (FEA) taken against the facility within the last five years.",
       "in": "query",
       "name": "p_pfead1",
       "required": false,
       "type": "string"
     },
-    "p_pfead2": {
+    "q.p_pfead2": {
       "description": "Formal Enforcement Action Date Range End.  Enter a date in MM/DD/YYYY format to set the end of the date range for filtering by recent Formal Enforcement Action (FEA) taken against the facility within the last five years.",
       "in": "query",
       "name": "p_pfead2",
       "required": false,
       "type": "string"
     },
-    "p_pfeat": {
+    "q.p_pfeat": {
       "description": "Formal Enforcement Action (FEA) Code Filter.  Enter one or more three-letter FEA codes to restrict results to facilities with these attributes.  Use p_fead1 and p_fead2 parameters to further restrict this filter by entering a date range.  Provide multiple codes as a comma-delimited list.",
       "in": "query",
       "name": "p_pfeat",
       "required": false,
       "type": "string"
     },
-    "p_pid": {
+    "q.p_pid": {
       "description": "Nine-digit permit IDs. May contain up to 2000 comma-separated values.",
       "in": "query",
       "name": "p_pid",
       "required": false,
       "type": "string"
     },
-    "p_pn": {
+    "q.p_pn": {
       "description": "Public Notice Violations (failure to immediately alert consumers of serious problem with drinking water).",
       "enum": [
         "Y",
@@ -325,21 +910,21 @@
       "required": false,
       "type": "string"
     },
-    "p_popsv": {
+    "q.p_popsv": {
       "description": "Estimated average daily population served by a system:\n- LE500 = 500 or less\n- IN501_3K = 501-3,300\n- IN3K_10K = 3,301-10,000\n- IN10K_100K = 10,001-100,000\n- IN100K_1M = 100,001-1,000,000\n- GT1M = More than 1,000,000\nMay contain multiple comma-separated values.",
       "in": "query",
       "name": "p_popsv",
       "required": false,
       "type": "string"
     },
-    "p_pswpol": {
+    "q.p_pswpol": {
       "description": "For CWA, pollutant names for surface water discharges. for Drinking Water, SDWIS Violation contaminant codes for unaddressed violations that have occurred in the last 3 years. May contain multiple comma-separated values.",
       "in": "query",
       "name": "p_pswpol",
       "required": false,
       "type": "string"
     },
-    "p_pswvio": {
+    "q.p_pswvio": {
       "description": "Used in conjuction with parameters p_pswpol and p_pswparam, indicates whether search should only include pollutants with violations.",
       "enum": [
         "Y",
@@ -350,7 +935,7 @@
       "required": false,
       "type": "string"
     },
-    "p_qis": {
+    "q.p_qis": {
       "description": "Significant Quarters in Noncompliance Limiter.  Enter one of the following codes to limit results to facilities having given quarters of noncompliance.\n- Z = Zero quarters in noncompliance.\n- GE1 = One or more quarters in noncompliance.\n- GT1 = More than one quarters in noncompliance.\n- GE2 = Two or more quarters in noncompliance.\n- GT2 = More than two quarters in noncompliance.\n- GE4 = Four or more quarters in noncompliance.\n- GT4 = More than four quarters in noncompliance.\n- GE8 = Eight or more quarters in noncompliance.\n- GT8 = More than eight quarters in noncompliance.\n- GE12 = Twelve or more quarters in noncompliance.\n- GT12 = Twelve or more quarters in noncompliance.\n- 12 = Exactly twelve quarters in noncompliance.\nNote the seemingly incongruous of GT12 is deliberate.",
       "enum": [
         "Z",
@@ -371,7 +956,7 @@
       "required": false,
       "type": "string"
     },
-    "p_qiv": {
+    "q.p_qiv": {
       "description": "Quarters in Noncompliance Limiter.  Enter a coded value to limit results to facilities with given quarter of noncompliance.\n- Z = Zero quarters in noncompliance.\n- GEXX = Replacing XX with a numeric value, that number of quarterd or more in noncompliance.\n- GTXX = Replacing XX with a numeric value, more than that number of quarters in noncompliance.",
       "enum": [
         "0",
@@ -386,21 +971,21 @@
       "required": false,
       "type": "string"
     },
-    "p_qs": {
+    "q.p_qs": {
       "description": "Quick Search. Allows entry for city, state, and/or zip code.",
       "in": "query",
       "name": "p_qs",
       "required": false,
       "type": "string"
     },
-    "p_rc350v": {
+    "q.p_rc350v": {
       "description": "Rule code 350 violation. A \"Y\" value will select water systems with at least one rule code 350 violation.",
       "in": "query",
       "name": "p_rc350v",
       "required": false,
       "type": "string"
     },
-    "p_reg": {
+    "q.p_reg": {
       "description": "EPA Region Filter. Provide a single value of 01 thru 10 to restrict results to a single EPA region.",
       "enum": [
         "01",
@@ -419,21 +1004,41 @@
       "required": false,
       "type": "string"
     },
-    "p_sfs": {
+    "q.p_sdc": {
+      "description": "Significant Deficiency Count (in past 5 years) flag.  \n\nEnter \"Y\" to select facilities with Sanitary Surveys within the past 5 years.  \n\nEnter \"N\" to select facilities without Sanitary Surveys in the past 5 years.\n\nEnter a number to search for facilities with a quantity greater than or equal to that value.",
+      "in": "query",
+      "name": "p_sdc",
+      "required": false,
+      "type": "string"
+    },
+    "q.p_sdc_ils": {
+      "in": "query",
+      "name": "p_sdc_ils",
+      "required": false,
+      "type": "string"
+    },
+    "q.p_sfs": {
       "description": "Single Facility Search Filter.  Provide a facility name or program system identifier to limit results.  For the all data search, the FRS registry identifier is also searched.",
       "in": "query",
       "name": "p_sfs",
       "required": false,
       "type": "string"
     },
-    "p_st": {
+    "q.p_ss5yr": {
+      "description": "Sanitary Surveys (in past 5 years) flag.  Values of visit_reason_code are either \"SNSV\" or \"SNSP\" in the past 5 years indicate a Sanitary Survey.  \n\nEnter \"Y\" to select facilities with Sanitary Surveys within the past 5 years.  \n\nEnter \"N\" to select facilities without Sanitary Surveys in the past 5 years.\n\nEnter a number to search for greater for facilities with a quantity than or equal to that value.\n\n\n",
+      "in": "query",
+      "name": "p_ss5yr",
+      "required": false,
+      "type": "string"
+    },
+    "q.p_st": {
       "description": "Facility State and State-Equivalent Filter.  Provide one or more USPS postal abbreviations for states and state-equivalents to filter results.  Provide multiple values as a comma-delimited list.",
       "in": "query",
       "name": "p_st",
       "required": false,
       "type": "string"
     },
-    "p_sv": {
+    "q.p_sv": {
       "description": "Serious Violator (unresolved serious, multiple, and/or continuing violations). A value of Y will return only SDWIS systems that are Serious Violators, while a value of N will only return SDWIS Systems that are not Serious Violators.",
       "enum": [
         "Y",
@@ -444,7 +1049,7 @@
       "required": false,
       "type": "string"
     },
-    "p_swtyp": {
+    "q.p_swtyp": {
       "description": "Source Water Type:\n- SW = Surface water \n- GW= Ground water\n- GU = Ground water under direct influence of (UDI) surface water\n- SWP = Purchased Surface water\n- GWP = Purchased Ground water\n- GUP = Purchased Ground water UDI surface water",
       "enum": [
         "SW",
@@ -459,7 +1064,7 @@
       "required": false,
       "type": "string"
     },
-    "p_systyp": {
+    "q.p_systyp": {
       "description": "Type of public water system:\n- CWS=Community water system\n- NCWS=Non-community water system\n- NTCWS=Non-transient non-community water system\n- TNCWS=Transient non-community water system",
       "enum": [
         "CWS",
@@ -472,21 +1077,59 @@
       "required": false,
       "type": "string"
     },
-    "p_trb": {
+    "q.p_trb": {
       "description": "Tribe name",
       "in": "query",
       "name": "p_trb",
       "required": false,
       "type": "string"
     },
-    "p_zip": {
+    "q.p_ysl": {
+      "description": "Last Facility Inspection [within / not within] Specified Date Range Indicator. The date range is determined by parameters p_idt1 and p_idt2 or by parameter p_ysly.\n- W = within date range\n- N = not within date range",
+      "enum": [
+        "W",
+        "N",
+        "NV"
+      ],
+      "in": "query",
+      "name": "p_ysl",
+      "required": false,
+      "type": "string"
+    },
+    "q.p_ysla": {
+      "description": "Facility Last Inspection Code Filter.  If left blank, both agencies are included.  Enter a value to limit results:\n- E = EPA\n- S = State",
+      "enum": [
+        "E",
+        "S",
+        "A"
+      ],
+      "in": "query",
+      "name": "p_ysla",
+      "required": false,
+      "type": "string"
+    },
+    "q.p_ysly": {
+      "description": "Number of years (1 to 5) since last facility inspection.  A value of 1 means that it has been inspected within the year.",
+      "enum": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "in": "query",
+      "name": "p_ysly",
+      "required": false,
+      "type": "string"
+    },
+    "q.p_zip": {
       "description": "5-Digit ZIP Code Filter. Provide one or more 5-digit postal zip codes to filter results.  May contain multiple comma-separated values.",
       "in": "query",
       "name": "p_zip",
       "required": false,
       "type": "string"
     },
-    "pageno": {
+    "q.pageno": {
       "default": 1,
       "description": "Indicates the number of the page to display. It is used only when the results are paginated.",
       "in": "query",
@@ -494,28 +1137,28 @@
       "required": false,
       "type": "number"
     },
-    "qcolumns": {
-      "description": "Used to cutomize service output.  A list of comma-separated column IDs of output objects that will be returned in the service query object or download.  Use the metadata service endpoint for a complete list of Ids and definitions.",
+    "q.qcolumns": {
+      "description": "Used to customize service output.  A list of comma-separated column IDs of output objects that will be returned in the service query object or download.  Use the metadata service endpoint for a complete list of Ids and definitions.",
       "in": "query",
       "name": "qcolumns",
       "required": false,
       "type": "string"
     },
-    "qid": {
+    "q.qid": {
       "description": "Query ID Selector.  Enter the QueryID number from a previously run query.",
       "in": "query",
       "name": "qid",
       "required": true,
       "type": "string"
     },
-    "queryset": {
+    "q.queryset": {
       "description": "Query Limiter.  Enter a value to limit the number of records returned for each query. Value cannot exceed 70,000.",
       "in": "query",
       "name": "queryset",
       "required": false,
       "type": "number"
     },
-    "responseset": {
+    "q.responseset": {
       "description": "Response Set Limiter. Enter a value to limit the number of records per page. Value cannot exceed 1,000.",
       "in": "query",
       "name": "responseset",
@@ -536,10 +1179,10 @@
             "type": "string"
           },
           {
-            "$ref": "#/parameters/qid"
+            "$ref": "#/parameters/q.qid"
           },
           {
-            "$ref": "#/parameters/qcolumns"
+            "$ref": "#/parameters/q.qcolumns"
           }
         ],
         "responses": {
@@ -561,16 +1204,16 @@
         "parameters": [
           {
             "description": "Output Format Flag.  Enter one of the following keywords:\n- CSV = Facility results formatted as comma delimited file download (default).",
-            "in": "query",
+            "in": "formData",
             "name": "output",
             "required": false,
             "type": "string"
           },
           {
-            "$ref": "#/parameters/qid"
+            "$ref": "#/parameters/f.qid"
           },
           {
-            "$ref": "#/parameters/qcolumns"
+            "$ref": "#/parameters/f.qcolumns"
           }
         ],
         "responses": {
@@ -605,19 +1248,22 @@
             "type": "string"
           },
           {
-            "$ref": "#/parameters/qid"
+            "$ref": "#/parameters/q.qid"
           },
           {
-            "$ref": "#/parameters/pageno"
+            "$ref": "#/parameters/q.pageno"
           },
           {
-            "$ref": "#/parameters/callback"
+            "$ref": "#/parameters/q.callback"
           },
           {
-            "$ref": "#/parameters/newsort"
+            "$ref": "#/parameters/q.newsort"
           },
           {
-            "$ref": "#/parameters/descending"
+            "$ref": "#/parameters/q.descending"
+          },
+          {
+            "$ref": "#/parameters/q.qcolumns"
           }
         ],
         "responses": {
@@ -627,13 +1273,16 @@
               "description": "Root Object",
               "properties": {
                 "Results": {
-                  "$ref": "#/definitions/sdw2_Results"
+                  "$ref": "#/definitions/sdw02"
                 }
               },
               "required": [
                 "Results"
               ],
-              "type": "object"
+              "type": "object",
+              "xml": {
+                "name": "Root"
+              }
             }
           }
         },
@@ -653,25 +1302,28 @@
               "JSON",
               "XML"
             ],
-            "in": "query",
+            "in": "formData",
             "name": "output",
             "required": false,
             "type": "string"
           },
           {
-            "$ref": "#/parameters/qid"
+            "$ref": "#/parameters/f.qid"
           },
           {
-            "$ref": "#/parameters/pageno"
+            "$ref": "#/parameters/f.pageno"
           },
           {
-            "$ref": "#/parameters/callback"
+            "$ref": "#/parameters/f.callback"
           },
           {
-            "$ref": "#/parameters/newsort"
+            "$ref": "#/parameters/f.newsort"
           },
           {
-            "$ref": "#/parameters/descending"
+            "$ref": "#/parameters/f.descending"
+          },
+          {
+            "$ref": "#/parameters/f.qcolumns"
           }
         ],
         "responses": {
@@ -681,13 +1333,16 @@
               "description": "Root Object",
               "properties": {
                 "Results": {
-                  "$ref": "#/definitions/sdw2_Results"
+                  "$ref": "#/definitions/sdw02"
                 }
               },
               "required": [
                 "Results"
               ],
-              "type": "object"
+              "type": "object",
+              "xml": {
+                "name": "Root"
+              }
             }
           }
         },
@@ -715,139 +1370,172 @@
             "type": "string"
           },
           {
-            "$ref": "#/parameters/p_fn"
+            "$ref": "#/parameters/q.p_fn"
           },
           {
-            "$ref": "#/parameters/p_ct"
+            "$ref": "#/parameters/q.p_ct"
           },
           {
-            "$ref": "#/parameters/p_co"
+            "$ref": "#/parameters/q.p_co"
           },
           {
-            "$ref": "#/parameters/p_fips"
+            "$ref": "#/parameters/q.p_fips"
           },
           {
-            "$ref": "#/parameters/p_st"
+            "$ref": "#/parameters/q.p_st"
           },
           {
-            "$ref": "#/parameters/p_zip"
+            "$ref": "#/parameters/q.p_zip"
           },
           {
-            "$ref": "#/parameters/p_reg"
+            "$ref": "#/parameters/q.p_reg"
           },
           {
-            "$ref": "#/parameters/p_trb"
+            "$ref": "#/parameters/q.p_trb"
           },
           {
-            "$ref": "#/parameters/p_act"
+            "$ref": "#/parameters/q.p_act"
           },
           {
-            "$ref": "#/parameters/p_qiv"
+            "$ref": "#/parameters/q.p_qiv"
           },
           {
-            "$ref": "#/parameters/p_ico"
+            "$ref": "#/parameters/q.p_ico"
           },
           {
-            "$ref": "#/parameters/p_pid"
+            "$ref": "#/parameters/q.p_pid"
           },
           {
-            "$ref": "#/parameters/p_owop"
+            "$ref": "#/parameters/q.p_owop"
           },
           {
-            "$ref": "#/parameters/p_systyp"
+            "$ref": "#/parameters/q.p_systyp"
           },
           {
-            "$ref": "#/parameters/p_swtyp"
+            "$ref": "#/parameters/q.p_swtyp"
           },
           {
-            "$ref": "#/parameters/p_popsv"
+            "$ref": "#/parameters/q.p_popsv"
           },
           {
-            "$ref": "#/parameters/p_cs"
+            "$ref": "#/parameters/q.p_cntysv"
           },
           {
-            "$ref": "#/parameters/p_mr"
+            "$ref": "#/parameters/q.p_cs"
           },
           {
-            "$ref": "#/parameters/p_health"
+            "$ref": "#/parameters/q.p_mr"
           },
           {
-            "$ref": "#/parameters/p_other"
+            "$ref": "#/parameters/q.p_health"
           },
           {
-            "$ref": "#/parameters/p_pn"
+            "$ref": "#/parameters/q.p_other"
           },
           {
-            "$ref": "#/parameters/p_sv"
+            "$ref": "#/parameters/q.p_pn"
           },
           {
-            "$ref": "#/parameters/p_qs"
+            "$ref": "#/parameters/q.p_sv"
           },
           {
-            "$ref": "#/parameters/p_sfs"
+            "$ref": "#/parameters/q.p_qs"
           },
           {
-            "$ref": "#/parameters/p_pswpol"
+            "$ref": "#/parameters/q.p_sfs"
           },
           {
-            "$ref": "#/parameters/p_pswvio"
+            "$ref": "#/parameters/q.p_pswpol"
           },
           {
-            "$ref": "#/parameters/p_pbale"
+            "$ref": "#/parameters/q.p_pswvio"
           },
           {
-            "$ref": "#/parameters/p_cuale"
+            "$ref": "#/parameters/q.p_pbale"
           },
           {
-            "$ref": "#/parameters/p_rc350v"
+            "$ref": "#/parameters/q.p_cuale"
           },
           {
-            "$ref": "#/parameters/p_pbv"
+            "$ref": "#/parameters/q.p_rc350v"
           },
           {
-            "$ref": "#/parameters/p_cuv"
+            "$ref": "#/parameters/q.p_pbv"
           },
           {
-            "$ref": "#/parameters/p_lcrv"
+            "$ref": "#/parameters/q.p_cuv"
           },
           {
-            "$ref": "#/parameters/p_fea"
+            "$ref": "#/parameters/q.p_lcrv"
           },
           {
-            "$ref": "#/parameters/p_feay"
+            "$ref": "#/parameters/q.p_fea"
           },
           {
-            "$ref": "#/parameters/p_feaa"
+            "$ref": "#/parameters/q.p_feay"
           },
           {
-            "$ref": "#/parameters/p_iea"
+            "$ref": "#/parameters/q.p_feaa"
           },
           {
-            "$ref": "#/parameters/p_ieay"
+            "$ref": "#/parameters/q.p_iea"
           },
           {
-            "$ref": "#/parameters/p_ieaa"
+            "$ref": "#/parameters/q.p_ieay"
           },
           {
-            "$ref": "#/parameters/p_qis"
+            "$ref": "#/parameters/q.p_ieaa"
           },
           {
-            "$ref": "#/parameters/p_pfead1"
+            "$ref": "#/parameters/q.p_qis"
           },
           {
-            "$ref": "#/parameters/p_pfead2"
+            "$ref": "#/parameters/q.p_pfead1"
           },
           {
-            "$ref": "#/parameters/p_pfeat"
+            "$ref": "#/parameters/q.p_pfead2"
           },
           {
-            "$ref": "#/parameters/queryset"
+            "$ref": "#/parameters/q.p_pfeat"
           },
           {
-            "$ref": "#/parameters/responseset"
+            "$ref": "#/parameters/q.p_ss5yr"
           },
           {
-            "$ref": "#/parameters/callback"
+            "$ref": "#/parameters/q.p_sdc"
+          },
+          {
+            "$ref": "#/parameters/q.p_sdc_ils"
+          },
+          {
+            "$ref": "#/parameters/q.p_ysl"
+          },
+          {
+            "$ref": "#/parameters/q.p_ysly"
+          },
+          {
+            "$ref": "#/parameters/q.p_ysla"
+          },
+          {
+            "$ref": "#/parameters/q.p_idt1"
+          },
+          {
+            "$ref": "#/parameters/q.p_idt2"
+          },
+          {
+            "$ref": "#/parameters/q.p_cms_flag"
+          },
+          {
+            "$ref": "#/parameters/q.queryset"
+          },
+          {
+            "$ref": "#/parameters/q.responseset"
+          },
+          {
+            "$ref": "#/parameters/q.callback"
+          },
+          {
+            "$ref": "#/parameters/q.qcolumns"
           }
         ],
         "responses": {
@@ -857,13 +1545,16 @@
               "description": "Root Object",
               "properties": {
                 "Results": {
-                  "$ref": "#/definitions/sdw3_Results"
+                  "$ref": "#/definitions/sdw03"
                 }
               },
               "required": [
                 "Results"
               ],
-              "type": "object"
+              "type": "object",
+              "xml": {
+                "name": "Root"
+              }
             }
           }
         },
@@ -883,145 +1574,178 @@
               "JSON",
               "XML"
             ],
-            "in": "query",
+            "in": "formData",
             "name": "output",
             "required": false,
             "type": "string"
           },
           {
-            "$ref": "#/parameters/p_fn"
+            "$ref": "#/parameters/f.p_fn"
           },
           {
-            "$ref": "#/parameters/p_ct"
+            "$ref": "#/parameters/f.p_ct"
           },
           {
-            "$ref": "#/parameters/p_co"
+            "$ref": "#/parameters/f.p_co"
           },
           {
-            "$ref": "#/parameters/p_fips"
+            "$ref": "#/parameters/f.p_fips"
           },
           {
-            "$ref": "#/parameters/p_st"
+            "$ref": "#/parameters/f.p_st"
           },
           {
-            "$ref": "#/parameters/p_zip"
+            "$ref": "#/parameters/f.p_zip"
           },
           {
-            "$ref": "#/parameters/p_reg"
+            "$ref": "#/parameters/f.p_reg"
           },
           {
-            "$ref": "#/parameters/p_trb"
+            "$ref": "#/parameters/f.p_trb"
           },
           {
-            "$ref": "#/parameters/p_act"
+            "$ref": "#/parameters/f.p_act"
           },
           {
-            "$ref": "#/parameters/p_qiv"
+            "$ref": "#/parameters/f.p_qiv"
           },
           {
-            "$ref": "#/parameters/p_ico"
+            "$ref": "#/parameters/f.p_ico"
           },
           {
-            "$ref": "#/parameters/p_pid"
+            "$ref": "#/parameters/f.p_pid"
           },
           {
-            "$ref": "#/parameters/p_owop"
+            "$ref": "#/parameters/f.p_owop"
           },
           {
-            "$ref": "#/parameters/p_systyp"
+            "$ref": "#/parameters/f.p_systyp"
           },
           {
-            "$ref": "#/parameters/p_swtyp"
+            "$ref": "#/parameters/f.p_swtyp"
           },
           {
-            "$ref": "#/parameters/p_popsv"
+            "$ref": "#/parameters/f.p_popsv"
           },
           {
-            "$ref": "#/parameters/p_cs"
+            "$ref": "#/parameters/f.p_cntysv"
           },
           {
-            "$ref": "#/parameters/p_mr"
+            "$ref": "#/parameters/f.p_cs"
           },
           {
-            "$ref": "#/parameters/p_health"
+            "$ref": "#/parameters/f.p_mr"
           },
           {
-            "$ref": "#/parameters/p_other"
+            "$ref": "#/parameters/f.p_health"
           },
           {
-            "$ref": "#/parameters/p_pn"
+            "$ref": "#/parameters/f.p_other"
           },
           {
-            "$ref": "#/parameters/p_sv"
+            "$ref": "#/parameters/f.p_pn"
           },
           {
-            "$ref": "#/parameters/p_qs"
+            "$ref": "#/parameters/f.p_sv"
           },
           {
-            "$ref": "#/parameters/p_sfs"
+            "$ref": "#/parameters/f.p_qs"
           },
           {
-            "$ref": "#/parameters/p_pswpol"
+            "$ref": "#/parameters/f.p_sfs"
           },
           {
-            "$ref": "#/parameters/p_pswvio"
+            "$ref": "#/parameters/f.p_pswpol"
           },
           {
-            "$ref": "#/parameters/p_pbale"
+            "$ref": "#/parameters/f.p_pswvio"
           },
           {
-            "$ref": "#/parameters/p_cuale"
+            "$ref": "#/parameters/f.p_pbale"
           },
           {
-            "$ref": "#/parameters/p_rc350v"
+            "$ref": "#/parameters/f.p_cuale"
           },
           {
-            "$ref": "#/parameters/p_pbv"
+            "$ref": "#/parameters/f.p_rc350v"
           },
           {
-            "$ref": "#/parameters/p_cuv"
+            "$ref": "#/parameters/f.p_pbv"
           },
           {
-            "$ref": "#/parameters/p_lcrv"
+            "$ref": "#/parameters/f.p_cuv"
           },
           {
-            "$ref": "#/parameters/p_fea"
+            "$ref": "#/parameters/f.p_lcrv"
           },
           {
-            "$ref": "#/parameters/p_feay"
+            "$ref": "#/parameters/f.p_fea"
           },
           {
-            "$ref": "#/parameters/p_feaa"
+            "$ref": "#/parameters/f.p_feay"
           },
           {
-            "$ref": "#/parameters/p_iea"
+            "$ref": "#/parameters/f.p_feaa"
           },
           {
-            "$ref": "#/parameters/p_ieay"
+            "$ref": "#/parameters/f.p_iea"
           },
           {
-            "$ref": "#/parameters/p_ieaa"
+            "$ref": "#/parameters/f.p_ieay"
           },
           {
-            "$ref": "#/parameters/p_qis"
+            "$ref": "#/parameters/f.p_ieaa"
           },
           {
-            "$ref": "#/parameters/p_pfead1"
+            "$ref": "#/parameters/f.p_qis"
           },
           {
-            "$ref": "#/parameters/p_pfead2"
+            "$ref": "#/parameters/f.p_pfead1"
           },
           {
-            "$ref": "#/parameters/p_pfeat"
+            "$ref": "#/parameters/f.p_pfead2"
           },
           {
-            "$ref": "#/parameters/queryset"
+            "$ref": "#/parameters/f.p_pfeat"
           },
           {
-            "$ref": "#/parameters/responseset"
+            "$ref": "#/parameters/f.p_ss5yr"
           },
           {
-            "$ref": "#/parameters/callback"
+            "$ref": "#/parameters/f.p_sdc"
+          },
+          {
+            "$ref": "#/parameters/f.p_sdc_ils"
+          },
+          {
+            "$ref": "#/parameters/f.p_ysl"
+          },
+          {
+            "$ref": "#/parameters/f.p_ysly"
+          },
+          {
+            "$ref": "#/parameters/f.p_ysla"
+          },
+          {
+            "$ref": "#/parameters/f.p_idt1"
+          },
+          {
+            "$ref": "#/parameters/f.p_idt2"
+          },
+          {
+            "$ref": "#/parameters/f.p_cms_flag"
+          },
+          {
+            "$ref": "#/parameters/f.queryset"
+          },
+          {
+            "$ref": "#/parameters/f.responseset"
+          },
+          {
+            "$ref": "#/parameters/f.callback"
+          },
+          {
+            "$ref": "#/parameters/f.qcolumns"
           }
         ],
         "responses": {
@@ -1031,13 +1755,16 @@
               "description": "Root Object",
               "properties": {
                 "Results": {
-                  "$ref": "#/definitions/sdw3_Results"
+                  "$ref": "#/definitions/sdw03"
                 }
               },
               "required": [
                 "Results"
               ],
-              "type": "object"
+              "type": "object",
+              "xml": {
+                "name": "Root"
+              }
             }
           }
         },
@@ -1065,7 +1792,7 @@
             "type": "string"
           },
           {
-            "$ref": "#/parameters/callback"
+            "$ref": "#/parameters/q.callback"
           }
         ],
         "responses": {
@@ -1075,13 +1802,16 @@
               "description": "Root Object",
               "properties": {
                 "Results": {
-                  "$ref": "#/definitions/met_Results"
+                  "$ref": "#/definitions/meta1"
                 }
               },
               "required": [
                 "Results"
               ],
-              "type": "object"
+              "type": "object",
+              "xml": {
+                "name": "Root"
+              }
             }
           }
         },
@@ -1101,13 +1831,13 @@
               "JSON",
               "XML"
             ],
-            "in": "query",
+            "in": "formData",
             "name": "output",
             "required": false,
             "type": "string"
           },
           {
-            "$ref": "#/parameters/callback"
+            "$ref": "#/parameters/f.callback"
           }
         ],
         "responses": {
@@ -1117,13 +1847,16 @@
               "description": "Root Object",
               "properties": {
                 "Results": {
-                  "$ref": "#/definitions/met_Results"
+                  "$ref": "#/definitions/meta1"
                 }
               },
               "required": [
                 "Results"
               ],
-              "type": "object"
+              "type": "object",
+              "xml": {
+                "name": "Root"
+              }
             }
           }
         },
@@ -1136,7 +1869,7 @@
     }
   },
   "definitions": {
-    "met_Results": {
+    "meta1": {
       "description": "Results Object",
       "properties": {
         "Message": {
@@ -1147,10 +1880,14 @@
         },
         "ResultColumns": {
           "items": {
-            "$ref": "#/definitions/met_ResultsColumns"
+            "$ref": "#/definitions/meta3"
           },
           "title": "Result Columns",
-          "type": "array"
+          "type": "array",
+          "xml": {
+            "name": "ResultColumns",
+            "wrapped": true
+          }
         }
       },
       "required": [
@@ -1158,7 +1895,7 @@
       ],
       "type": "object"
     },
-    "met_ResultsColumns": {
+    "meta3": {
       "description": "Results Column Object",
       "properties": {
         "ColumnID": {
@@ -1182,11 +1919,12 @@
           "type": "string"
         },
         "Description": {
-          "description": "A description of the category of Supplemental Environment Project (SEP) for a settlement.",
-          "title": "Description",
+          "title": "Column Description",
           "type": "string"
         },
         "ObjectName": {
+          "description": "The JSON name used for the database column.",
+          "example": "CaseName",
           "title": "Object Name",
           "type": "string"
         }
@@ -1199,9 +1937,12 @@
         "ObjectName",
         "Description"
       ],
-      "type": "object"
+      "type": "object",
+      "xml": {
+        "name": "ResultColumn"
+      }
     },
-    "sdw2_Results": {
+    "sdw02": {
       "description": "Results Object",
       "properties": {
         "Message": {
@@ -1228,11 +1969,16 @@
           "title": "Query Row Count",
           "type": "string"
         },
-        "SDWSearchResults": {
+        "WaterSystems": {
           "items": {
-            "$ref": "#/definitions/sdw3_SDWSearchResults"
+            "$ref": "#/definitions/sdw04"
           },
-          "type": "array"
+          "title": "Water Systems",
+          "type": "array",
+          "xml": {
+            "name": "WaterSystems",
+            "wrapped": true
+          }
         }
       },
       "required": [
@@ -1243,9 +1989,13 @@
       ],
       "type": "object"
     },
-    "sdw3_Results": {
+    "sdw03": {
       "description": "Results Object",
       "properties": {
+        "BadSystemIDs": {
+          "description": "Identifies which passed query system identifiers are invalid.",
+          "type": "string"
+        },
         "CVRows": {
           "description": "Summary count of the number of CWA facilities or SDWA public drinking water systems with current violations.",
           "example": "0",
@@ -1296,12 +2046,6 @@
           "title": "Query Row Count",
           "type": "string"
         },
-        "SDWSearchResults": {
-          "items": {
-            "$ref": "#/definitions/sdw3_SDWSearchResults"
-          },
-          "type": "array"
-        },
         "SVRows": {
           "description": "Number of facilities with curr_sv_flag populated (CWP_STATUS = \"Significant Violation\")",
           "example": "0",
@@ -1318,6 +2062,17 @@
           "example": "v2016-02-02 14:",
           "title": "Version",
           "type": "string"
+        },
+        "WaterSystems": {
+          "items": {
+            "$ref": "#/definitions/sdw04"
+          },
+          "title": "Water Systems",
+          "type": "array",
+          "xml": {
+            "name": "WaterSystems",
+            "wrapped": true
+          }
         }
       },
       "required": [
@@ -1331,51 +2086,78 @@
         "FEARows",
         "InfFEARows",
         "INSPRows",
+        "BadSystemIDs",
         "QueryID",
         "PageNo"
       ],
       "type": "object"
     },
-    "sdw3_SDWSearchResults": {
+    "sdw04": {
       "description": "Safe Drinking Water Search Results Object",
       "properties": {
-        "ACT": {
-          "description": "Activity status code:\n- A = Active\n- I = Inactive",
-          "example": "A",
-          "title": "Activity Status Code",
-          "type": "string"
-        },
-        "ActivityDesc": {
-          "description": "Description of activity status code (ACT), e.g., active, inactive.",
-          "example": "Active",
-          "title": "Activity Description",
-          "type": "string"
-        },
-        "CT": {
+        "CitiesServed": {
           "description": "County",
           "example": "CAROLINE",
           "type": "string"
         },
-        "CTY": {
+        "CountiesServed": {
           "description": "City",
           "example": "ALEXANDRIA",
           "title": "City",
           "type": "string"
         },
-        "CuALEIn5Yr": {
+        "CuAle": {
+          "description": "The count of occurrences when 90th percentile sample concentrations of copper exceeded the copper action level of 1.3 mg/L in the past five years.",
+          "example": "4",
+          "title": "Copper Action Level Exceedances (5 years)",
           "type": "string"
         },
-        "CuViolIn5Yr": {
+        "CuViol": {
+          "description": "The number of copper violations in the last five years.",
+          "example": "2",
+          "title": "Copper Violation",
           "type": "string"
         },
-        "FEA": {
+        "CurrVioFlag": {
+          "description": "Indicates if the facility has a current violation. 1 = Yes",
+          "example": "0",
+          "title": "Current Violation Flag",
+          "type": "string"
+        },
+        "DateLastSansurvey": {
+          "type": "string"
+        },
+        "DfrUrl": {
+          "description": "The URL to the facility's Detailed Facility Report.",
+          "title": "DFR URL",
+          "type": "string"
+        },
+        "EPARegion": {
+          "description": "The EPA region in which the facility is located",
+          "example": "04",
+          "title": "EPA Region",
+          "type": "string"
+        },
+        "FIPSCodes": {
+          "description": "Five-character Federal Information Processing Standards (FIPS) value: 2-character state || 3-character county",
+          "example": "51033",
+          "type": "string"
+        },
+        "FeaFlag": {
           "description": "Number of formal enforcement responses during the past 5 years (20 most recent quarters) as of the last quarterly refresh.  Formal enforcement actions compel a PWS to take specific actions by specific dates to return to compliance",
           "example": "1",
           "type": "string"
         },
-        "FIPS": {
-          "description": "Five-character Federal Information Processing Standards (FIPS) value: 2-character state || 3-character county",
-          "example": "51033",
+        "Feas": {
+          "description": "Number of formal enforcement responses during the past 5 years (20 most recent quarters) as of the last quarterly refresh.  Formal enforcement actions compel a PWS to take specific actions by specific dates to return to compliance.",
+          "example": "2",
+          "title": "Formal Enforcement Actions",
+          "type": "string"
+        },
+        "GwSwCode": {
+          "description": "Returns \"GW\" if the system�source water type is ground water. Returns \"SW\" if the system source water type is surface water.",
+          "example": "GW",
+          "title": "Ground Water/Surface Water Code",
           "type": "string"
         },
         "HealthFlag": {
@@ -1384,24 +2166,51 @@
           "title": "Health Flag",
           "type": "string"
         },
-        "ICO": {
-          "description": "Indicates whether the system is located in Indian Country",
-          "example": "N",
-          "title": "Icon",
+        "IeaFlag": {
+          "description": "Returns 0 if the system does not have informal enforcement actions in the past five years. Returns 1 if the system does have informal enforcement actions in the past five years.",
+          "example": "1",
+          "title": "Informal Enforcement Action Flag",
           "type": "string"
         },
-        "IEA": {
-          "description": "Number of informal enforcement responses during the past 5 years (20 most recent quarters) as of the last quarterly refresh.  Informal enforcement actions do not specify actions and deadlines for returning to compliance",
+        "Ifea": {
+          "description": "Number of informal enforcement responses during the past 5 years (20 most recent quarters) as of the last quarterly refresh.  Informal enforcement actions do not specify actions and deadlines for returning to compliance.",
           "example": "3",
+          "title": "Informal Enforcement Actions",
           "type": "string"
         },
-        "MRFlag": {
+        "IndianCountry": {
+          "description": "Indicates whether the facility is located in Indian Country",
+          "example": "N",
+          "title": "Indian Country",
+          "type": "string"
+        },
+        "Insp5yrFlag": {
+          "description": "Indicates if the facility has an inspection within the last 5 years. 1 = Yes",
+          "example": "1",
+          "title": "Inspected Within Last Five Years Flag",
+          "type": "string"
+        },
+        "LeadAndCopperViol": {
+          "description": "The number of lead and copper violations.",
+          "example": "4",
+          "title": "Lead and Copper Violation",
+          "type": "string"
+        },
+        "MaxScore": {
+          "description": "A sorting score for internal use.",
+          "example": "1",
+          "title": "Max Score",
+          "type": "string"
+        },
+        "MrFlag": {
           "description": "Indicates whether system has monitoring and reporting violations",
           "example": "Y",
           "type": "string"
         },
-        "NewVioFlag": {
-          "example": "N",
+        "NewVioFlg": {
+          "description": "Violations that have been reported to SDWA since end of the last official quarter. These violations are considered draft and do not reflect the official compliance status for the facility.",
+          "example": "No",
+          "title": "Has New Violations",
           "type": "string"
         },
         "OtherFlag": {
@@ -1410,22 +2219,28 @@
           "title": "Other Flag",
           "type": "string"
         },
-        "Owner": {
-          "description": "Owner/Operator:\n- P = Private\n- F = Federal Government\n- S = State Government\n- L = Local Government",
-          "example": "P",
-          "title": "Owner",
-          "type": "string"
-        },
         "OwnerDesc": {
           "description": "Description of Owner code",
           "example": "Local Government",
           "title": "Owner Description",
           "type": "string"
         },
-        "PNFlag": {
-          "description": "Indicates whether system has Public Notice Violations (failure to immediately alert consumers of serious problem with drinking water)",
-          "example": "Y",
-          "title": "Public Notice Violation Flag",
+        "OwnerTypeCode": {
+          "description": "Owner/Operator:\n- P = Private\n- F = Federal Government\n- S = State Government\n- L = Local Government",
+          "example": "P",
+          "title": "Owner Type Code",
+          "type": "string"
+        },
+        "PWSActivityCode": {
+          "description": "Indicates whether systems have an active or inactive designation.",
+          "example": "A",
+          "title": "PWS Activity Code",
+          "type": "string"
+        },
+        "PWSActivityDesc": {
+          "description": "Description of activity status code (ACT), e.g., active, inactive.",
+          "example": "Active",
+          "title": "PWS Activity Description",
           "type": "string"
         },
         "PWSId": {
@@ -1434,98 +2249,192 @@
           "title": "Public Water System Identifier",
           "type": "string"
         },
-        "PbALEIn5Yr": {
+        "PWSName": {
+          "description": "Name of the system regulated under the Safe Drinking Water Act (SDWA)",
+          "example": "ARBOR CHRISTIAN HOME",
+          "title": "System Name",
           "type": "string"
         },
-        "PbCuViolIn5Yr": {
+        "PWSTypeCode": {
+          "description": "Type of public water system:\n- CWS   = Community water system\n- NCWS  = Non-community water system\n- NTCWS = Non-transient non-community water system\n- TNCWS = Transient non-community water system",
+          "example": "TNCWS",
+          "title": "System Type",
           "type": "string"
         },
-        "PbViolIn5Yr": {
+        "PWSTypeDesc": {
+          "description": "The type of public water system (PWS) and description of corresponding SystemType code. A public water system is a system for the provision to the public of piped water for human consumption, which has at least 15 service connections or regularly serves a",
+          "example": "Transient non-community system",
+          "title": "System Type Description",
           "type": "string"
         },
-        "PopulationServed": {
+        "PbAle": {
+          "description": "The count of occurrences when 90th percentile sample concentrations of lead exceeded the lead action level of 0.015 mg/L in the past five years.",
+          "title": "Lead Action Level Exceedances (5 years)",
+          "type": "string"
+        },
+        "PbViol": {
+          "description": "The number of lead violations in the last five years.",
+          "example": "1",
+          "title": "Lead Violation",
+          "type": "string"
+        },
+        "PnFlag": {
+          "description": "Indicates whether system has Public Notice Violations (failure to immediately alert consumers of serious problem with drinking water)",
+          "example": "Y",
+          "title": "Public Notice Violation Flag",
+          "type": "string"
+        },
+        "PopulationServedCount": {
           "description": "Estimated average daily population served by a system",
           "example": "34",
           "title": "Population Served",
           "type": "string"
         },
-        "QNC": {
-          "description": "Number of quarters the system was in violation over the past three years (12 most recent quarters)",
-          "example": "1",
-          "title": "Quarters in Noncompliance",
+        "PrimarySourceCode": {
+          "description": "The source water type:\nSurface water (SW) - Water pumped and treated from sources open to the atmosphere, such as rivers, lakes, and reservoirs.\nGround water (GW) - Water pumped and treated from aquifers (natural reservoirs below the earth's surface).\nGround water under direct influence of surface water (GU) - Any water pumped from natural reservoirs below the earth's surface that has been determined to be under the direct influence of surface water.\nPurchased (Surface, Ground, Ground UDI Surface) Water - Water purchased from a wholesaler who pumps and treats water.",
+          "example": "SW",
+          "title": "Primary Source Code",
           "type": "string"
         },
-        "QuartersInSNC": {
-          "title": "Quarters in Significant Noncompliance",
+        "PrimarySourceDesc": {
+          "description": "The source water type:\nSurface water (SW) - Water pumped and treated from sources open to the atmosphere, such as rivers, lakes, and reservoirs.\nGround water (GW) - Water pumped and treated from aquifers (natural reservoirs below the earth's surface).\nGround water under direct influence of surface water (GU) - Any water pumped from natural reservoirs below the earth's surface that has been determined to be under the direct influence of surface water.\nPurchased (Surface, Ground, Ground UDI Surface) Water - Water purchased from a wholesaler who pumps and treats water.",
+          "example": "Surface water",
+          "title": "Primary Source Description",
           "type": "string"
         },
-        "RC350ViolIn5Yr": {
+        "QtrsWithSNC": {
+          "description": "The number of quarters the system was designated by EPA as a serious violator over the past 3 years (12 most recent quarters).",
+          "example": "0",
+          "title": "Quarters with SNC",
           "type": "string"
         },
-        "REG": {
-          "description": "EPA Region number where the system is located. Values range from 01 to 10.",
-          "example": "3",
+        "QtrsWithVio": {
+          "description": "The number of quarters the system was in violation over the past three years. This includes the 12 most recent official quarters and new violations reported after the end of the last official quarter.",
+          "example": "0",
+          "title": "Quarters with Violation",
           "type": "string"
         },
-        "RulesVio3YrCnt": {
+        "Rc350Viol": {
+          "description": "The count of open health-based lead violations in the past five years. These include violations of maximum contaminant levels (MCLs), maximum residual disinfectant levels (MRDLs), or treatment technique (TT) rules. This count includes new violations that have been reported since the end of the last official quarter.",
+          "example": "2",
+          "type": "string"
+        },
+        "RegistryID": {
+          "description": "An internal 12-digit Facility Registry Service (FRS) tracking number used to tie all facility data together in EPA regulatory program databases.",
+          "example": "110020837601",
+          "title": "FRS ID",
+          "type": "string"
+        },
+        "RulesVio": {
+          "description": "The count of rules the system is violating as of the latest official quarter of data in the source system, SDWIS, which may lag by 3-6 months. This includes violations in the most recent official quarter and new violations reported after the end of the last official quarter.",
+          "example": "0",
+          "title": "Rules Being Violated",
+          "type": "string"
+        },
+        "RulesVio3yr": {
+          "description": "The count of rules the system was in violation of over the past three years. This includes the 12 most recent official quarters and new violations reported after the end of the last official quarter.",
           "example": "5",
+          "title": "Rules In Violation (past 3 years)",
           "type": "string"
         },
-        "RulesVioCurrCnt": {
-          "example": "4",
+        "SDWA3yrComplQtrsHistory": {
+          "description": "The system's 3-year compliance status history by quarter (3-month period). Each character represents a quarter of compliance, going from oldest to most recent. Character values correspond to the following compliance statuses:\n_ - No Violation Identified\nV - Noncompliance\nS - Significant Noncompliance\nU - Undetermined",
+          "example": "____SS__VVUU",
+          "title": "SDWA 3-Year Compliance History",
           "type": "string"
         },
-        "SDW3yrComplianceQtrsStatus": {
-          "description": "Quarterly compliance status for the most recent 12 quarters. Each letter indicates the compliance status for the corresponding quarter",
-          "example": "_____VVV_SSV",
+        "SDWAContaminants": {
+          "description": "All unresolved violation contaminants or violation contaminants that have been resolved in the last 5 years.",
+          "title": "SDWA Contaminants",
           "type": "string"
         },
-        "SDWContaminantsInCurViol": {
+        "SDWAContaminantsInCurViol": {
+          "description": "The contaminant name and code (in SDWIS) in violation of a SDWA regulation. This includes violations in the most recent official quarter and new violations that have been reported since the end of the last official quarter.",
           "example": "7500=Public Notice",
+          "title": "SDWA Contaminants in Current Violation",
           "type": "string"
         },
-        "SDWContaminantsInViol3Yr": {
+        "SDWAContaminantsInViol3yr": {
           "description": "The contaminant name and code in violation of a SDWA regulation in the past three years",
           "example": "2456=Total Haloacetic Acids (HAA5); 7500=Public Notice",
           "type": "string"
         },
-        "SDWDateLastFEA": {
+        "SDWDateLastFea": {
+          "description": "Indicates the effective date of the most recent listed formal enforcement action taken against the PWS within the last five years.",
           "example": "1/27/2013",
+          "title": "Date Last Formal Enforcement Action",
           "type": "string"
         },
-        "SDWDateLastFEAEPA": {
+        "SDWDateLastFeaEPA": {
+          "description": "Indicates the effective date of the most recent listed formal enforcement action taken against the PWS by EPA within the last five years.",
           "example": "4/5/2011",
+          "title": "Date Last Formal Enforcement Action by EPA",
           "type": "string"
         },
-        "SDWDateLastFEAState": {
+        "SDWDateLastFeaSt": {
+          "description": "Indicates the effective date of the most recent listed formal enforcement action taken against the PWS by a state environmental agency within the last five years.",
           "example": "2/19/2010",
+          "title": "Date Last Formal Enforcement Action by State",
           "type": "string"
         },
-        "SDWDateLastIEA": {
+        "SDWDateLastIea": {
+          "description": "Indicates the effective date of the most recent listed informal enforcement action taken against the PWS within the last five years.",
           "example": "6/30/2008",
+          "title": "Date Last Informal Enforcement Action",
           "type": "string"
         },
-        "SDWDateLastIEAEPA": {
+        "SDWDateLastIeaEPA": {
+          "description": "Indicates the effective date of the most recent listed informal enforcement action taken against the PWS by EPA within the last five years.",
           "example": "4/11/2013",
+          "title": "Date Last Informal Enforcement Action by EPA",
           "type": "string"
         },
-        "SDWDateLastIEAState": {
+        "SDWDateLastIeaSt": {
+          "description": "Indicates the effective date of the most recent listed informal enforcement action taken against the PWS by a state environmental agency within the last five years.",
           "example": "7/17/2010",
+          "title": "Date Last Informal Enforcement Action by State",
           "type": "string"
         },
-        "SSNC": {
-          "description": "Current compliance status",
-          "example": "No Violation",
+        "SDWDateLastVisit": {
+          "description": "The date of the last system visit.",
+          "example": "4/11/2013",
+          "title": "Date Last Visit",
           "type": "string"
         },
-        "ST": {
-          "description": "Two-letter state abbreviation",
-          "example": "VA",
-          "title": "State",
+        "SDWDateLastVisitEPA": {
+          "description": "The date of the last system visit by EPA.",
+          "example": "4/11/2013",
+          "title": "Date Last Visit by EPA",
           "type": "string"
         },
-        "SearchedContaminantsLastValues": {
-          "example": "2,4,5-TP=NRM; HEXACHLOROBENZENE=NRM; Endrin=NRM",
+        "SDWDateLastVisitLocal": {
+          "description": "The date of the last system visit by a local agency.",
+          "example": "4/11/2013",
+          "title": "Date Last Visit by Local",
+          "type": "string"
+        },
+        "SDWDateLastVisitState": {
+          "description": "The date of the last system visit by a state agency.",
+          "example": "4/11/2013",
+          "title": "Date Last Visit by State",
+          "type": "string"
+        },
+        "SNC": {
+          "description": "Indicates the system's compliance status: No Violation,�In Violation, Signficant Noncompliance, or Unknown.",
+          "example": "In Violation",
+          "title": "Compliance Status",
+          "type": "string"
+        },
+        "SNCFlag": {
+          "description": "Returns 1 if the system is in significant noncompliance (SNC); returns 0 if not.",
+          "example": "0",
+          "title": "SNC Flag",
+          "type": "string"
+        },
+        "Sansurvey5yr": {
+          "description": "The number of sanitary surveys completed within the past five years. A sanitary survey is an on-site review of a system's water source, facilities, equipment, operation, and maintenance, intended to point out sanitary deficiencies and assess the system's capability to supply safe drinking water.",
+          "example": "5",
+          "title": "Sanitary Surveys (5 years)",
           "type": "string"
         },
         "SeriousViolator": {
@@ -1534,69 +2443,77 @@
           "title": "Serious Violator",
           "type": "string"
         },
-        "SourceWaterDesc": {
-          "description": "Description of SourceWaterType code",
-          "example": "Ground Water",
-          "title": "Source Water Description",
+        "ServiceAreaTypeCode": {
           "type": "string"
         },
-        "SourceWaterType": {
-          "description": "Source Water Type:\n- SW = Surface water\n- GW = Ground water\n- GU = Ground water under direct influence of (UDI) surface water\n- SWP = Purchased Surface water\n- GWP = Purchased Ground water\n- GUP = Purchased Ground water UDI surface water",
-          "example": "GW",
-          "title": "Source Water Type",
+        "ServiceAreaTypeDesc": {
           "type": "string"
         },
-        "SystemName": {
-          "description": "Name of the system regulated under the Safe Drinking Water Act (SDWA)",
-          "example": "ARBOR CHRISTIAN HOME",
-          "title": "System Name",
+        "SignificantDeficiencyCount": {
+          "description": "The number of significant deficiencies found from a sanitary survey within the past five years.",
+          "example": "3",
+          "title": "Significant Deficiency Count",
           "type": "string"
         },
-        "SystemType": {
-          "description": "Type of public water system:\n- CWS   = Community water system\n- NCWS  = Non-community water system\n- NTCWS = Non-transient non-community water system\n- TNCWS = Transient non-community water system",
-          "example": "TNCWS",
-          "title": "System Type",
+        "SignificantDeficiencyCountIls": {
           "type": "string"
         },
-        "SystemTypeDesc": {
-          "description": "The type of public water system (PWS) and description of corresponding SystemType code. A public water system is a system for the provision to the public of piped water for human consumption, which has at least 15 service connections or regularly serves a",
-          "example": "Transient non-community system",
-          "title": "System Type Description",
+        "SiteVisits5yrAll": {
           "type": "string"
         },
-        "Tribes": {
-          "items": {
-            "$ref": "#/definitions/sdw3_Tribes"
-          },
-          "title": "Tribes",
-          "type": "array"
-        },
-        "VioPointsAccrued": {
-          "description": "Sum of all violation points for violations reported during the past five years (20 most recent quarters), as of the last quarterly refresh",
-          "example": "12",
+        "SiteVisits5yrInspections": {
           "type": "string"
         },
-        "VioPointsFEANotCorrected": {
+        "SiteVisits5yrOther": {
+          "type": "string"
+        },
+        "StateCode": {
+          "description": "The state in which the system is located.",
+          "example": "VA",
+          "title": "State Code",
+          "type": "string"
+        },
+        "TRIbalFlag": {
+          "description": "A flag indicating that the facility is within a tribal area.",
+          "example": "1",
+          "title": "Tribal Lands Flag",
+          "type": "string"
+        },
+        "VioFlag": {
+          "description": "Indicates whether the system has been in violation in the past five years (1 if yes, 0 if no).",
+          "example": "0",
+          "title": "Violation Flag",
+          "type": "string"
+        },
+        "Viofeanot": {
           "description": "Sum of violation points accrued during past five years (20 most recent quarters) that are under formal enforcement but not yet returned to compliance, as of the last quarterly refresh",
           "example": "1",
           "type": "string"
         },
-        "VioPointsRTCwFEA": {
-          "description": "Sum of violation points during past 5 years (20 most recent quarters) that received formal enforcement and returned to compliance, as of the last quarterly refresh",
-          "example": "6",
+        "ViolationCategories": {
           "type": "string"
         },
-        "VioPointsRTCwoFEA": {
-          "description": "Sum of violation points during past 5 years (20 most recent quarters) that did not receive formal enforcement but did return to compliance, as of the last quarterly refresh",
-          "example": "2",
+        "Viopaccr": {
+          "description": "Sum of all violation points for violations reported during the past five years (20 most recent quarters), as of the last quarterly refresh",
+          "example": "12",
           "type": "string"
         },
-        "VioPointsRemaining": {
+        "Vioremain": {
           "description": "Sum of violation points that were not returned to compliance as of the last quarterly refresh.  Includes points that have received formal enforcement but have not returned to compliance",
           "example": "4",
           "type": "string"
         },
-        "ZIP": {
+        "Viortcfea": {
+          "description": "Sum of violation points during past 5 years (20 most recent quarters) that received formal enforcement and returned to compliance, as of the last quarterly refresh",
+          "example": "6",
+          "type": "string"
+        },
+        "Viortcnofea": {
+          "description": "Sum of violation points during past 5 years (20 most recent quarters) that did not receive formal enforcement but did return to compliance, as of the last quarterly refresh",
+          "example": "2",
+          "type": "string"
+        },
+        "ZipCodesServed": {
           "description": "ZIP code",
           "example": "22302",
           "title": "Zip Code",
@@ -1604,83 +2521,87 @@
         }
       },
       "required": [
+        "PWSName",
         "PWSId",
-        "SystemName",
-        "CT",
-        "CTY",
-        "ST",
-        "ZIP",
-        "SystemType",
-        "SourceWaterType",
-        "PopulationServed",
-        "QNC",
-        "SSNC",
-        "IEA",
-        "FEA",
-        "ACT",
-        "VioPointsAccrued",
-        "VioPointsFEANotCorrected",
-        "VioPointsRTCwFEA",
-        "VioPointsRTCwoFEA",
-        "VioPointsRemaining",
-        "REG",
-        "Owner",
-        "ICO",
-        "FIPS",
-        "MRFlag",
-        "HealthFlag",
-        "OtherFlag",
-        "PNFlag",
-        "SystemTypeDesc",
-        "SourceWaterDesc",
-        "ActivityDesc",
+        "CitiesServed",
+        "StateCode",
+        "ZipCodesServed",
+        "CountiesServed",
+        "EPARegion",
+        "IndianCountry",
+        "PWSTypeCode",
+        "PWSTypeDesc",
+        "PrimarySourceCode",
+        "PrimarySourceDesc",
+        "PopulationServedCount",
+        "PWSActivityCode",
+        "PWSActivityDesc",
+        "OwnerTypeCode",
         "OwnerDesc",
+        "QtrsWithVio",
+        "QtrsWithSNC",
         "SeriousViolator",
-        "SDW3yrComplianceQtrsStatus",
-        "SDWContaminantsInViol3Yr",
-        "SDWContaminantsInCurViol",
-        "SDWDateLastFEA",
-        "SDWDateLastFEAState",
-        "SDWDateLastFEAEPA",
-        "SDWDateLastIEA",
-        "SDWDateLastIEAState",
-        "SDWDateLastIEAEPA",
-        "PbALEIn5Yr",
-        "CuALEIn5Yr",
-        "RC350ViolIn5Yr",
-        "PbViolIn5Yr",
-        "CuViolIn5Yr",
-        "PbCuViolIn5Yr",
-        "QuartersInSNC",
-        "NewVioFlag",
-        "RulesVio3YrCnt",
-        "RulesVioCurrCnt"
-      ],
-      "type": "object"
-    },
-    "sdw3_Tribes": {
-      "description": "Tribes Object",
-      "properties": {
-        "TribalCode": {
-          "description": "Tribe code",
-          "example": "610",
-          "title": "Tribal Code",
-          "type": "string"
-        },
-        "TribalName": {
-          "description": "Tribe Name",
-          "example": "Tohono O'Odham Nation of Arizona",
-          "title": "Tribal Name",
-          "type": "string"
-        }
-      },
-      "required": [
-        "TribalCode",
-        "TribalName"
+        "HealthFlag",
+        "MrFlag",
+        "PnFlag",
+        "OtherFlag",
+        "NewVioFlg",
+        "RulesVio3yr",
+        "RulesVio",
+        "Viopaccr",
+        "Vioremain",
+        "Viofeanot",
+        "Viortcfea",
+        "Viortcnofea",
+        "Ifea",
+        "Feas",
+        "SDWDateLastIea",
+        "SDWDateLastIeaEPA",
+        "SDWDateLastIeaSt",
+        "SDWDateLastFea",
+        "SDWDateLastFeaEPA",
+        "SDWDateLastFeaSt",
+        "SDWAContaminantsInViol3yr",
+        "SDWAContaminantsInCurViol",
+        "PbAle",
+        "CuAle",
+        "Rc350Viol",
+        "DfrUrl",
+        "FIPSCodes",
+        "SNC",
+        "GwSwCode",
+        "SDWA3yrComplQtrsHistory",
+        "SDWAContaminants",
+        "PbViol",
+        "CuViol",
+        "LeadAndCopperViol",
+        "TRIbalFlag",
+        "FeaFlag",
+        "IeaFlag",
+        "SNCFlag",
+        "CurrVioFlag",
+        "VioFlag",
+        "Insp5yrFlag",
+        "ServiceAreaTypeCode",
+        "ServiceAreaTypeDesc",
+        "ViolationCategories",
+        "Sansurvey5yr",
+        "DateLastSansurvey",
+        "SignificantDeficiencyCount",
+        "SignificantDeficiencyCountIls",
+        "SDWDateLastVisit",
+        "SDWDateLastVisitEPA",
+        "SDWDateLastVisitState",
+        "SDWDateLastVisitLocal",
+        "SiteVisits5yrAll",
+        "SiteVisits5yrInspections",
+        "SiteVisits5yrOther",
+        "RegistryID",
+        "MaxScore"
       ],
       "type": "object",
       "xml": {
-        "name": "Tribe"
+        "name": "WaterSystem"
       }
     }
   }

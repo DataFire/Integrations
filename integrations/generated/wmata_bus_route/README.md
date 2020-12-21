@@ -12,7 +12,7 @@ let wmata_bus_route = require('@datafire/wmata_bus_route').create({
   apiKeyQuery: ""
 });
 
-wmata_bus_route.5476362a281d830c946a3d6d({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

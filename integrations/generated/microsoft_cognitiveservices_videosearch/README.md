@@ -1,6 +1,6 @@
 # @datafire/microsoft_cognitiveservices_videosearch
 
-Client library for Video Search
+Client library for Video Search Client
 
 ## Installation and Usage
 ```bash
@@ -11,10 +11,7 @@ let microsoft_cognitiveservices_videosearch = require('@datafire/microsoft_cogni
   apiKeyHeader: ""
 });
 
-microsoft_cognitiveservices_videosearch.Videos_Details({
-  "X-BingApis-SDK": "",
-  "q": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

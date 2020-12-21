@@ -1,9 +1,5 @@
 {
   "swagger": "2.0",
-  "schemes": [
-    "http"
-  ],
-  "host": "api.paccurate.io",
   "info": {
     "contact": {
       "x-twitter": "beneship"
@@ -30,15 +26,12 @@
       "type": "openapi"
     }
   },
-  "consumes": [
-    "application/json"
-  ],
-  "produces": [
-    "application/json"
-  ],
   "paths": {
     "/": {
       "post": {
+        "consumes": [
+          "application/json"
+        ],
         "description": "a pure-JSON endpoint for packing requests.\n",
         "parameters": [
           {
@@ -49,6 +42,9 @@
               "$ref": "#/definitions/Pack"
             }
           }
+        ],
+        "produces": [
+          "application/json"
         ],
         "responses": {
           "200": {

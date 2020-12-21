@@ -15,10 +15,7 @@ let azure_compute_disk = require('@datafire/azure_compute_disk').create({
   redirect_uri: ""
 });
 
-azure_compute_disk.Disks_List({
-  "subscriptionId": "",
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -109,7 +106,7 @@ azure_compute_disk.Disks_Delete({
   * api-version **required** `string`: Client Api Version.
 
 #### Output
-* output [OperationStatusResponse](#operationstatusresponse)
+*Output schema unknown*
 
 ### Disks_Get
 Gets information about a disk.
@@ -230,7 +227,7 @@ azure_compute_disk.Disks_RevokeAccess({
   * api-version **required** `string`: Client Api Version.
 
 #### Output
-* output [OperationStatusResponse](#operationstatusresponse)
+*Output schema unknown*
 
 ### Snapshots_ListByResourceGroup
 Lists snapshots under a resource group.
@@ -274,7 +271,7 @@ azure_compute_disk.Snapshots_Delete({
   * api-version **required** `string`: Client Api Version.
 
 #### Output
-* output [OperationStatusResponse](#operationstatusresponse)
+*Output schema unknown*
 
 ### Snapshots_Get
 Gets information about a snapshot.
@@ -395,7 +392,7 @@ azure_compute_disk.Snapshots_RevokeAccess({
   * api-version **required** `string`: Client Api Version.
 
 #### Output
-* output [OperationStatusResponse](#operationstatusresponse)
+*Output schema unknown*
 
 
 
@@ -403,38 +400,17 @@ azure_compute_disk.Snapshots_RevokeAccess({
 
 ### AccessUri
 * AccessUri `object`: A disk access SAS uri.
-  * properties [AccessUriOutput](#accessurioutput)
-
-### AccessUriOutput
-* AccessUriOutput `object`: Azure properties, including output.
-  * output [AccessUriRaw](#accessuriraw)
-
-### AccessUriRaw
-* AccessUriRaw `object`: This object gets 'bubbled up' through flattening.
   * accessSAS `string`: A SAS uri for accessing a disk.
-
-### ApiError
-* ApiError `object`: Api error.
-  * code `string`: The error code.
-  * details `array`: The Api error details
-    * items [ApiErrorBase](#apierrorbase)
-  * innererror [InnerError](#innererror)
-  * message `string`: The error message.
-  * target `string`: The target of the particular error.
-
-### ApiErrorBase
-* ApiErrorBase `object`: Api error base.
-  * code `string`: The error code.
-  * message `string`: The error message.
-  * target `string`: The target of the particular error.
 
 ### CreationData
 * CreationData `object`: Data used when creating a disk.
-  * createOption **required** `string` (values: Empty, Attach, FromImage, Import, Copy): This enumerates the possible sources of a disk's creation.
+  * createOption **required** `string` (values: Empty, Attach, FromImage, Import, Copy, Restore, Upload): This enumerates the possible sources of a disk's creation.
   * imageReference [ImageDiskReference](#imagediskreference)
   * sourceResourceId `string`: If createOption is Copy, this is the ARM id of the source snapshot or disk.
+  * sourceUniqueId `string`: If this field is set, this is the unique id identifying the source of this resource.
   * sourceUri `string`: If createOption is Import, this is the URI of a blob to be imported into a managed disk.
   * storageAccountId `string`: If createOption is Import, the Azure Resource Manager identifier of the storage account containing the blob to import as a disk. Required only if the blob is in a different subscription
+  * uploadSizeBytes `integer`: If createOption is Upload, this is the size of the contents of the upload including the VHD footer. This value should be between 20972032 (20 MiB + 512 bytes for the VHD footer) and 35183298347520 bytes (32 TiB + 512 bytes for the VHD footer).
 
 ### Disk
 * Disk `object`: Disk resource.
@@ -458,15 +434,21 @@ azure_compute_disk.Snapshots_RevokeAccess({
 ### DiskProperties
 * DiskProperties `object`: Disk resource properties.
   * creationData **required** [CreationData](#creationdata)
-  * diskSizeGB `integer`: If creationData.createOption is Empty, this field is mandatory and it indicates the size of the VHD to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
-  * encryptionSettings [EncryptionSettings](#encryptionsettings)
+  * diskIOPSReadWrite `integer`: The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
+  * diskMBpsReadWrite `integer`: The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10.
+  * diskSizeBytes `integer`: The size of the disk in bytes. This field is read only.
+  * diskSizeGB `integer`: If creationData.createOption is Empty, this field is mandatory and it indicates the size of the disk to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
+  * diskState `string` (values: Unattached, Attached, Reserved, ActiveSAS, ReadyToUpload, ActiveUpload): The state of the disk.
+  * encryptionSettingsCollection [EncryptionSettingsCollection](#encryptionsettingscollection)
+  * hyperVGeneration `string` (values: V1, V2): The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
   * osType `string` (values: Windows, Linux): The Operating System type.
   * provisioningState `string`: The disk provisioning state.
   * timeCreated `string`: The time when the disk was created.
+  * uniqueId `string`: Unique Guid identifying the resource.
 
 ### DiskSku
-* DiskSku `object`: The disks and snapshots sku name. Can be Standard_LRS or Premium_LRS.
-  * name `string` (values: Standard_LRS, Premium_LRS): The sku name.
+* DiskSku `object`: The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, or UltraSSD_LRS.
+  * name `string` (values: Standard_LRS, Premium_LRS, StandardSSD_LRS, UltraSSD_LRS): The sku name.
   * tier `string`: The sku tier.
 
 ### DiskUpdate
@@ -477,30 +459,33 @@ azure_compute_disk.Snapshots_RevokeAccess({
 
 ### DiskUpdateProperties
 * DiskUpdateProperties `object`: Disk resource update properties.
-  * diskSizeGB `integer`: If creationData.createOption is Empty, this field is mandatory and it indicates the size of the VHD to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
-  * encryptionSettings [EncryptionSettings](#encryptionsettings)
+  * diskIOPSReadWrite `integer`: The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
+  * diskMBpsReadWrite `integer`: The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10.
+  * diskSizeGB `integer`: If creationData.createOption is Empty, this field is mandatory and it indicates the size of the disk to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
+  * encryptionSettingsCollection [EncryptionSettingsCollection](#encryptionsettingscollection)
   * osType `string` (values: Windows, Linux): the Operating System type.
 
-### EncryptionSettings
-* EncryptionSettings `object`: Encryption settings for disk or snapshot
+### EncryptionSettingsCollection
+* EncryptionSettingsCollection `object`: Encryption settings for disk or snapshot
+  * enabled **required** `boolean`: Set this flag to true and provide DiskEncryptionKey and optional KeyEncryptionKey to enable encryption. Set this flag to false and remove DiskEncryptionKey and KeyEncryptionKey to disable encryption. If EncryptionSettings is null in the request object, the existing settings remain unchanged.
+  * encryptionSettings `array`: A collection of encryption settings, one for each disk volume.
+    * items [EncryptionSettingsElement](#encryptionsettingselement)
+  * encryptionSettingsVersion `string`: Describes what type of encryption is used for the disks. Once this field is set, it cannot be overwritten. '1.0' corresponds to Azure Disk Encryption with AAD app.'1.1' corresponds to Azure Disk Encryption.
+
+### EncryptionSettingsElement
+* EncryptionSettingsElement `object`: Encryption settings for one disk volume.
   * diskEncryptionKey [KeyVaultAndSecretReference](#keyvaultandsecretreference)
-  * enabled `boolean`: Set this flag to true and provide DiskEncryptionKey and optional KeyEncryptionKey to enable encryption. Set this flag to false and remove DiskEncryptionKey and KeyEncryptionKey to disable encryption. If EncryptionSettings is null in the request object, the existing settings remain unchanged.
   * keyEncryptionKey [KeyVaultAndKeyReference](#keyvaultandkeyreference)
 
 ### GrantAccessData
 * GrantAccessData `object`: Data used for requesting a SAS.
-  * access **required** `string` (values: None, Read)
+  * access **required** `string` (values: None, Read, Write)
   * durationInSeconds **required** `integer`: Time duration in seconds until the SAS access expires.
 
 ### ImageDiskReference
 * ImageDiskReference `object`: The source image used for creating the disk.
-  * id **required** `string`: A relative uri containing either a Platform Imgage Repository or user image reference.
+  * id **required** `string`: A relative uri containing either a Platform Image Repository or user image reference.
   * lun `integer`: If the disk is created from an image's data disk, this is an index that indicates which of the data disks in the image to use. For OS disks, this field is null.
-
-### InnerError
-* InnerError `object`: Inner error details.
-  * errordetail `string`: The internal error message or exception dump.
-  * exceptiontype `string`: The exception type.
 
 ### KeyVaultAndKeyReference
 * KeyVaultAndKeyReference `object`: Key Vault Key Url and vault id of KeK, KeK is optional and when provided is used to unwrap the encryptionKey
@@ -512,14 +497,6 @@ azure_compute_disk.Snapshots_RevokeAccess({
   * secretUrl **required** `string`: Url pointing to a key or secret in KeyVault
   * sourceVault **required** [SourceVault](#sourcevault)
 
-### OperationStatusResponse
-* OperationStatusResponse `object`: Operation status response
-  * endTime `string`: End time of the operation
-  * error [ApiError](#apierror)
-  * name `string`: Operation ID
-  * startTime `string`: Start time of the operation
-  * status `string`: Operation status
-
 ### Resource
 * Resource `object`: The Resource model definition.
   * id `string`: Resource Id
@@ -528,16 +505,11 @@ azure_compute_disk.Snapshots_RevokeAccess({
   * tags `object`: Resource tags
   * type `string`: Resource type
 
-### ResourceUpdate
-* ResourceUpdate `object`: The Resource model definition.
-  * sku [DiskSku](#disksku)
-  * tags `object`: Resource tags
-
 ### Snapshot
 * Snapshot `object`: Snapshot resource.
   * managedBy `string`: Unused. Always Null.
-  * properties [DiskProperties](#diskproperties)
-  * sku [DiskSku](#disksku)
+  * properties [SnapshotProperties](#snapshotproperties)
+  * sku [SnapshotSku](#snapshotsku)
   * id `string`: Resource Id
   * location **required** `string`: Resource location
   * name `string`: Resource name
@@ -550,14 +522,38 @@ azure_compute_disk.Snapshots_RevokeAccess({
   * value **required** `array`: A list of snapshots.
     * items [Snapshot](#snapshot)
 
+### SnapshotProperties
+* SnapshotProperties `object`: Snapshot resource properties.
+  * creationData **required** [CreationData](#creationdata)
+  * diskSizeBytes `integer`: The size of the disk in bytes. This field is read only.
+  * diskSizeGB `integer`: If creationData.createOption is Empty, this field is mandatory and it indicates the size of the disk to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
+  * encryptionSettingsCollection [EncryptionSettingsCollection](#encryptionsettingscollection)
+  * hyperVGeneration `string` (values: V1, V2): The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
+  * incremental `boolean`: Whether a snapshot is incremental. Incremental snapshots on the same disk occupy less space than full snapshots and can be diffed.
+  * osType `string` (values: Windows, Linux): The Operating System type.
+  * provisioningState `string`: The disk provisioning state.
+  * timeCreated `string`: The time when the disk was created.
+  * uniqueId `string`: Unique Guid identifying the resource.
+
+### SnapshotSku
+* SnapshotSku `object`: The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS.
+  * name `string` (values: Standard_LRS, Premium_LRS, Standard_ZRS): The sku name.
+  * tier `string`: The sku tier.
+
 ### SnapshotUpdate
 * SnapshotUpdate `object`: Snapshot update resource.
-  * properties [DiskUpdateProperties](#diskupdateproperties)
-  * sku [DiskSku](#disksku)
+  * properties [SnapshotUpdateProperties](#snapshotupdateproperties)
+  * sku [SnapshotSku](#snapshotsku)
   * tags `object`: Resource tags
 
+### SnapshotUpdateProperties
+* SnapshotUpdateProperties `object`: Snapshot resource update properties.
+  * diskSizeGB `integer`: If creationData.createOption is Empty, this field is mandatory and it indicates the size of the disk to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
+  * encryptionSettingsCollection [EncryptionSettingsCollection](#encryptionsettingscollection)
+  * osType `string` (values: Windows, Linux): the Operating System type.
+
 ### SourceVault
-* SourceVault `object`: The vault id is an Azure Resource Manager Resoure id in the form /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/vaults/{vaultName}
+* SourceVault `object`: The vault id is an Azure Resource Manager Resource id in the form /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/vaults/{vaultName}
   * id `string`: Resource Id
 
 

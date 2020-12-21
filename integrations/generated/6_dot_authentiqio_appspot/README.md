@@ -9,10 +9,7 @@ npm install --save @datafire/6_dot_authentiqio_appspot
 ```js
 let dot_authentiqio_appspot = require('@datafire/6_dot_authentiqio_appspot').create();
 
-dot_authentiqio_appspot.key_revoke_nosecret({
-  "email": "",
-  "phone": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

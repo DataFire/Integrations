@@ -31,9 +31,6 @@
       "type": "openapi"
     }
   },
-  "produces": [
-    "application/json"
-  ],
   "securityDefinitions": {
     "api_key": {
       "in": "header",
@@ -57,6 +54,9 @@
             "required": false,
             "type": "string"
           }
+        ],
+        "produces": [
+          "application/json"
         ],
         "responses": {
           "200": {
@@ -114,6 +114,9 @@
     },
     "/noauth/styles": {
       "get": {
+        "produces": [
+          "application/json"
+        ],
         "responses": {
           "200": {
             "description": "200 response",
@@ -144,7 +147,7 @@
                 "method.response.header.Access-Control-Allow-Origin": "'*'"
               },
               "responseTemplates": {
-                "application/json": "#set($inputRoot = $input.path('$'))\n{\n  \"styles\": [\n#foreach($style in $inputRoot.data)\n    {\n      \"id\" : \"$style.identifier\",\n      \"title\" : \"$style.title\",\n      \"url\" : \"$style.url\",\n      \"description\" : \"$style.description\"\n    }#if($foreach.hasNext),#end\n\t\t\n#end\n  ]\n}"
+                "application/json": "#set($inputRoot = $input.path('$'))\n{\n  \"styles\": [\n#foreach($style in $inputRoot.data)\n    {\n      \"id\" : \"$style.identifier\",\n      \"title\" : \"$style.title\",\n      \"url\" : \"$style.url\",\n      \"description\" : \"$style.description\"\n    }#if($foreach.hasNext),#end\n\n\n\t\t\n#end\n  ]\n}"
               },
               "statusCode": "200"
             }
@@ -169,6 +172,9 @@
               "$ref": "#/definitions/UploadRequest"
             }
           }
+        ],
+        "produces": [
+          "application/json"
         ],
         "responses": {
           "200": {

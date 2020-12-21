@@ -1,6 +1,6 @@
 {
   "name": "@datafire/azure_automation_dsccompilationjob",
-  "version": "4.0.0",
+  "version": "5.0.0",
   "main": "index.js",
   "description": "DataFire integration for AutomationManagement",
   "repository": {
@@ -14,7 +14,7 @@
   },
   "homepage": "https://github.com/DataFire/integrations#readme",
   "datafire": {
-    "origin": "https://api.apis.guru/v2/specs/azure.com/automation-dscCompilationJob/2015-10-31/swagger.json",
+    "origin": "https://api.apis.guru/v2/specs/azure.com/automation-dscCompilationJob/2018-01-15/swagger.json",
     "type": "openapi"
   },
   "peerDependencies": {

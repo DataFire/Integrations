@@ -1,0 +1,1702 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "contact": {
+      "email": "support@ideaconsult.net",
+      "name": "IDEAconsult's technical support",
+      "url": "https://phabricator.ideaconsult.net"
+    },
+    "description": "AMBIT REST web services [eNanoMapper profile] with free text & faceted search",
+    "license": {
+      "name": "API available under GNU Lesser General Public License",
+      "url": "http://www.gnu.org/licenses/lgpl.html"
+    },
+    "termsOfService": "http://ambit.sf.net",
+    "title": "eNanoMapper database",
+    "version": "4.0.0",
+    "x-apisguru-categories": [
+      "open_data"
+    ],
+    "x-logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_api.ideaconsult.net_portal_themes_assets_idea_simple_logo.svg"
+    },
+    "x-origin": [
+      {
+        "format": "openapi",
+        "url": "https://api.ideaconsult.net/management/apis/b5e2f290-5673-49da-a2f2-90567359da82/pages/ee38f795-655c-40b7-b8f7-95655cc0b7a1/content",
+        "version": "3.0"
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "ideaconsult.net",
+    "x-serviceName": "enanomapper",
+    "x-datafire": {
+      "name": "ideaconsult_enanomapper",
+      "type": "openapi"
+    }
+  },
+  "host": "api.ideaconsult.net",
+  "basePath": "/enanomapper",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/enm/{db}/investigation": {
+      "get": {
+        "produces": [
+          "application/json",
+          "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+          "application/x-javascript",
+          "text/csv",
+          "text/plain"
+        ],
+        "parameters": [
+          {
+            "default": "nanoreg1",
+            "description": "Database ID",
+            "enum": [
+              "calibrate",
+              "enanomapper",
+              "enpra",
+              "marina",
+              "nanogenotox",
+              "nanoinformatix",
+              "nanoreg1",
+              "nanoreg2",
+              "nanotest"
+            ],
+            "in": "path",
+            "name": "db",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "query type",
+            "enum": [
+              "byinvestigation",
+              "byassay",
+              "bysubstance",
+              "byprovider",
+              "bycitation",
+              "bystudytype",
+              "bystructure_inchikey",
+              "bystructure_smiles",
+              "bystructure_name",
+              "bysubstance_name",
+              "bysubstance_type"
+            ],
+            "in": "query",
+            "name": "type",
+            "required": true,
+            "type": "string",
+            "x-example": "bystudytype"
+          },
+          {
+            "description": "Search parameter, UUID of the investigation or a substance",
+            "in": "query",
+            "name": "search",
+            "required": true,
+            "type": "string",
+            "x-example": "PC_GRANULOMETRY_SECTION"
+          },
+          {
+            "description": "Search parameter, InChI key(s) of the substance component(s), comma delimited",
+            "in": "query",
+            "name": "inchikey",
+            "required": false,
+            "type": "string",
+            "x-example": "YUYCVXFAYWRXLS-UHFFFAOYSA-N"
+          },
+          {
+            "description": "Search parameter, chemical structure or substance identifier(s), comma delimited",
+            "in": "query",
+            "name": "id",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Starting page",
+            "in": "query",
+            "name": "page",
+            "required": false,
+            "type": "integer",
+            "x-example": 0
+          },
+          {
+            "description": "Page size",
+            "in": "query",
+            "name": "pagesize",
+            "required": false,
+            "type": "integer",
+            "x-example": 10
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK. Entries found",
+            "schema": {
+              "$ref": "#/definitions/Investigation"
+            }
+          },
+          "404": {
+            "description": "Entries not found"
+          }
+        },
+        "tags": [
+          "Studies"
+        ],
+        "description": "Multiple studies in tabular form",
+        "operationId": "getInvestigationResults",
+        "summary": "Details of multiple studies"
+      }
+    },
+    "/enm/{db}/query/compound/{term}/{representation}": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "default": "nanoreg1",
+            "description": "Database ID",
+            "enum": [
+              "calibrate",
+              "enanomapper",
+              "enpra",
+              "marina",
+              "nanogenotox",
+              "nanoinformatix",
+              "nanoreg1",
+              "nanoreg2",
+              "nanotest"
+            ],
+            "in": "path",
+            "name": "db",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "search term type",
+            "enum": [
+              "search",
+              "url",
+              "inchikey"
+            ],
+            "in": "path",
+            "name": "term",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "all",
+              "smiles",
+              "reach",
+              "stdinchi",
+              "stdinchikey",
+              "names",
+              "iupac_name",
+              "synonym",
+              "cas",
+              "einecs"
+            ],
+            "in": "path",
+            "name": "representation",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Compound identifier (SMILES, InChI, name, registry identifiers)",
+            "in": "query",
+            "name": "search",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Base64 encoded mol file; if included, will be used instead of the 'search' parameter",
+            "in": "query",
+            "name": "b64search",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Case sensitive search if yes",
+            "in": "query",
+            "name": "casesens",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "description": "Bundle URI",
+            "in": "query",
+            "name": "bundle_uri",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Ontology URI to define groups of columns",
+            "in": "query",
+            "name": "sameas",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Starting page",
+            "in": "query",
+            "name": "page",
+            "required": false,
+            "type": "integer",
+            "x-example": 0
+          },
+          {
+            "description": "Page size",
+            "in": "query",
+            "name": "pagesize",
+            "required": false,
+            "type": "integer",
+            "x-example": 10
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK. Entries found",
+            "schema": {
+              "$ref": "#/definitions/Dataset"
+            }
+          },
+          "404": {
+            "description": "Entries not found"
+          }
+        },
+        "tags": [
+          "Structures"
+        ],
+        "externalDocs": {
+          "description": "Learn more about operations provided by this API.",
+          "url": "http://ambit.sf.net"
+        },
+        "description": "Returns compounds found",
+        "operationId": "searchByIdentifier",
+        "summary": "Exact chemical structure search"
+      }
+    },
+    "/enm/{db}/query/similarity": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "default": "nanoreg1",
+            "description": "Database ID",
+            "enum": [
+              "calibrate",
+              "enanomapper",
+              "enpra",
+              "marina",
+              "nanogenotox",
+              "nanoinformatix",
+              "nanoreg1",
+              "nanoreg2",
+              "nanotest"
+            ],
+            "in": "path",
+            "name": "db",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Compound identifier (SMILES, InChI, name, registry identifiers)",
+            "in": "query",
+            "name": "search",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Base64 encoded mol file; if included, will be used instead of the 'search' parameter",
+            "in": "query",
+            "name": "b64search",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Defines the expected content of the search parameter",
+            "enum": [
+              "smiles",
+              "mol",
+              "url"
+            ],
+            "in": "query",
+            "name": "type",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Similarity threshold",
+            "in": "query",
+            "name": "threshold",
+            "required": false,
+            "type": "number"
+          },
+          {
+            "description": "Restrict the search within the AMBIT dataset specified with the URI",
+            "in": "query",
+            "name": "dataset_uri",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Restrict the search within the set of structures with assigned substances",
+            "in": "query",
+            "name": "filterBySubstance",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "description": "If the structure is used in the specified bundle URI, the selection tag will be returned",
+            "in": "query",
+            "name": "bundle_uri",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Ontology URI to define groups of columns",
+            "in": "query",
+            "name": "sameas",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Only for application/json; to include mol as JSON field",
+            "in": "query",
+            "name": "mol",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "description": "Starting page",
+            "in": "query",
+            "name": "page",
+            "required": false,
+            "type": "integer",
+            "x-example": 0
+          },
+          {
+            "description": "Page size",
+            "in": "query",
+            "name": "pagesize",
+            "required": false,
+            "type": "integer",
+            "x-example": 10
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK. Entries found",
+            "schema": {
+              "$ref": "#/definitions/Dataset"
+            }
+          },
+          "404": {
+            "description": "Entries not found"
+          }
+        },
+        "tags": [
+          "Structures"
+        ],
+        "externalDocs": {
+          "description": "Learn more about operations provided by this API.",
+          "url": "http://ambit.sf.net"
+        },
+        "description": "Returns similar compounds",
+        "operationId": "searchBySimilarity",
+        "summary": "Exact similarity search"
+      }
+    },
+    "/enm/{db}/query/smarts": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "default": "nanoreg1",
+            "description": "Database ID",
+            "enum": [
+              "calibrate",
+              "enanomapper",
+              "enpra",
+              "marina",
+              "nanogenotox",
+              "nanoinformatix",
+              "nanoreg1",
+              "nanoreg2",
+              "nanotest"
+            ],
+            "in": "path",
+            "name": "db",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Compound identifier (SMILES, InChI, name, registry identifiers)",
+            "in": "query",
+            "name": "search",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Base64 encoded mol file; if included, will be used instead of the 'search' parameter",
+            "in": "query",
+            "name": "b64search",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Defines the expected content of the search parameter",
+            "enum": [
+              "smiles",
+              "mol",
+              "url"
+            ],
+            "in": "query",
+            "name": "type",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Restrict the search within the AMBIT dataset specified with the URI",
+            "in": "query",
+            "name": "dataset_uri",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Restrict the search within the set of structures with assigned substances",
+            "in": "query",
+            "name": "filterBySubstance",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "description": "If the structure is used in the specified bundle URI, the selection tag will be returned",
+            "in": "query",
+            "name": "bundle_uri",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Ontology URI to define groups of columns",
+            "in": "query",
+            "name": "sameas",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Only for application/json; to include mol as JSON field",
+            "in": "query",
+            "name": "mol",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "description": "Starting page",
+            "in": "query",
+            "name": "page",
+            "required": false,
+            "type": "integer",
+            "x-example": 0
+          },
+          {
+            "description": "Page size",
+            "in": "query",
+            "name": "pagesize",
+            "required": false,
+            "type": "integer",
+            "x-example": 10
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK. Entries found",
+            "schema": {
+              "$ref": "#/definitions/Dataset"
+            }
+          },
+          "404": {
+            "description": "Entries not found"
+          }
+        },
+        "tags": [
+          "Structures"
+        ],
+        "externalDocs": {
+          "description": "Learn more about operations provided by this API.",
+          "url": "http://ambit.sf.net"
+        },
+        "description": "Returns compounds with the specified substructure",
+        "operationId": "searchBySmarts",
+        "summary": "Substructure search"
+      }
+    },
+    "/enm/{db}/query/study": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "default": "nanoreg1",
+            "description": "Database ID",
+            "enum": [
+              "calibrate",
+              "enanomapper",
+              "enpra",
+              "marina",
+              "nanogenotox",
+              "nanoinformatix",
+              "nanoreg1",
+              "nanoreg2",
+              "nanotest"
+            ],
+            "in": "path",
+            "name": "db",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Top endpoint category",
+            "enum": [
+              "P-CHEM",
+              "ECOTOX",
+              "ENV FATE",
+              "TOX",
+              "EXPOSURE"
+            ],
+            "in": "query",
+            "name": "top",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Endpoint category (The value in the protocol.category.code field)",
+            "in": "query",
+            "name": "category",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK.",
+            "schema": {
+              "$ref": "#/definitions/Facet"
+            }
+          },
+          "404": {
+            "description": "Entries not found"
+          }
+        },
+        "tags": [
+          "Studies",
+          "Facets"
+        ],
+        "description": "Returns endpoint summary",
+        "operationId": "getEndpointSummary",
+        "summary": "Search endpoint summary"
+      }
+    },
+    "/enm/{db}/substance": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "default": "nanoreg1",
+            "description": "Database ID",
+            "enum": [
+              "calibrate",
+              "enanomapper",
+              "enpra",
+              "marina",
+              "nanogenotox",
+              "nanoinformatix",
+              "nanoreg1",
+              "nanoreg2",
+              "nanotest"
+            ],
+            "in": "path",
+            "name": "db",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Search parameter",
+            "in": "query",
+            "name": "search",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "substancetype",
+              "name",
+              "like",
+              "regexp",
+              "uuif",
+              "CompTox",
+              "DOI",
+              "reliability",
+              "purposeFlag",
+              "studyResultType",
+              "isRobustStudy",
+              "citation",
+              "citationowner",
+              "topcategory",
+              "endpointcategory",
+              "params",
+              "owner_name",
+              "owner_uuid",
+              "related",
+              "reference",
+              "facet"
+            ],
+            "in": "query",
+            "name": "type",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "If type=related finds all substances containing this compound; if typ =reference - finds all substances with this compound as reference structure",
+            "in": "query",
+            "name": "compound_uri",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Retrieves if selected in this bundle",
+            "in": "query",
+            "name": "bundle_uri",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Adds a compound record as substance in JSON; only if type=related",
+            "in": "query",
+            "name": "addDummySubstance",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "description": "If true retrieves study summary for each substance",
+            "in": "query",
+            "name": "studysummary",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "description": "Starting page",
+            "in": "query",
+            "name": "page",
+            "required": false,
+            "type": "integer",
+            "x-example": 0
+          },
+          {
+            "description": "Page size",
+            "in": "query",
+            "name": "pagesize",
+            "required": false,
+            "type": "integer",
+            "x-example": 10
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK. Substances found",
+            "schema": {
+              "$ref": "#/definitions/Substance"
+            }
+          },
+          "404": {
+            "description": "Substances not found"
+          }
+        },
+        "tags": [
+          "Substances"
+        ],
+        "description": "Returns a list of substances, according to the search criteria",
+        "operationId": "getSubstances",
+        "summary": "List substances"
+      }
+    },
+    "/enm/{db}/substance/{uuid}": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "default": "nanoreg1",
+            "description": "Database ID",
+            "enum": [
+              "calibrate",
+              "enanomapper",
+              "enpra",
+              "marina",
+              "nanogenotox",
+              "nanoinformatix",
+              "nanoreg1",
+              "nanoreg2",
+              "nanotest"
+            ],
+            "in": "path",
+            "name": "db",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Substance UUID",
+            "in": "path",
+            "name": "uuid",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Property URIs",
+            "in": "query",
+            "name": "property_uris[]",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Starting page",
+            "in": "query",
+            "name": "page",
+            "required": false,
+            "type": "integer",
+            "x-example": 0
+          },
+          {
+            "description": "Page size",
+            "in": "query",
+            "name": "pagesize",
+            "required": false,
+            "type": "integer",
+            "x-example": 10
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK. Substances found",
+            "schema": {
+              "$ref": "#/definitions/Substance"
+            }
+          },
+          "404": {
+            "description": "Substances not found"
+          }
+        },
+        "tags": [
+          "Substances"
+        ],
+        "description": "Returns substance representation",
+        "operationId": "getSubstanceByUUID",
+        "summary": "Get a substance"
+      }
+    },
+    "/enm/{db}/substance/{uuid}/composition": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "default": "nanoreg1",
+            "description": "Database ID",
+            "enum": [
+              "calibrate",
+              "enanomapper",
+              "enpra",
+              "marina",
+              "nanogenotox",
+              "nanoinformatix",
+              "nanoreg1",
+              "nanoreg2",
+              "nanotest"
+            ],
+            "in": "path",
+            "name": "db",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Substance UUID",
+            "in": "path",
+            "name": "uuid",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "true (Show all compositions) false (do not show hidden compositions)",
+            "in": "query",
+            "name": "all",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "description": "Starting page",
+            "in": "query",
+            "name": "page",
+            "required": false,
+            "type": "integer",
+            "x-example": 0
+          },
+          {
+            "description": "Page size",
+            "in": "query",
+            "name": "pagesize",
+            "required": false,
+            "type": "integer",
+            "x-example": 10
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK. compositions found",
+            "schema": {
+              "$ref": "#/definitions/SubstanceComposition"
+            }
+          },
+          "404": {
+            "description": "compositions not found"
+          }
+        },
+        "tags": [
+          "Structures",
+          "Substances"
+        ],
+        "description": "Returns substance composition",
+        "operationId": "getSubstanceComposition",
+        "summary": "Substance composition"
+      }
+    },
+    "/enm/{db}/substance/{uuid}/structures": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "default": "nanoreg1",
+            "description": "Database ID",
+            "enum": [
+              "calibrate",
+              "enanomapper",
+              "enpra",
+              "marina",
+              "nanogenotox",
+              "nanoinformatix",
+              "nanoreg1",
+              "nanoreg2",
+              "nanotest"
+            ],
+            "in": "path",
+            "name": "db",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Substance UUID",
+            "in": "path",
+            "name": "uuid",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Starting page",
+            "in": "query",
+            "name": "page",
+            "required": false,
+            "type": "integer",
+            "x-example": 0
+          },
+          {
+            "description": "Page size",
+            "in": "query",
+            "name": "pagesize",
+            "required": false,
+            "type": "integer",
+            "x-example": 10
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK. compositions found",
+            "schema": {
+              "$ref": "#/definitions/Dataset"
+            }
+          },
+          "404": {
+            "description": "compositions not found"
+          }
+        },
+        "tags": [
+          "Structures",
+          "Substances"
+        ],
+        "description": "Returns substance composition",
+        "operationId": "getSubstanceStructures",
+        "summary": "Get substance composition as a dataset"
+      }
+    },
+    "/enm/{db}/substance/{uuid}/study": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "default": "nanoreg1",
+            "description": "Database ID",
+            "enum": [
+              "calibrate",
+              "enanomapper",
+              "enpra",
+              "marina",
+              "nanogenotox",
+              "nanoinformatix",
+              "nanoreg1",
+              "nanoreg2",
+              "nanotest"
+            ],
+            "in": "path",
+            "name": "db",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Substance UUID",
+            "in": "path",
+            "name": "uuid",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Top endpoint category",
+            "enum": [
+              "P-CHEM",
+              "ECOTOX",
+              "ENV FATE",
+              "TOX",
+              "EXPOSURE"
+            ],
+            "in": "query",
+            "name": "top",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Endpoint category (The value in the protocol.category.code field)",
+            "in": "query",
+            "name": "category",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Property URI https://data.enanomapper.net/property/{UUID} , see Property service",
+            "in": "query",
+            "name": "property_uri",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Property UUID",
+            "in": "query",
+            "name": "property",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Investigation UUID, a code to link different studies",
+            "in": "query",
+            "name": "investigation_uuid",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Starting page",
+            "in": "query",
+            "name": "page",
+            "required": false,
+            "type": "integer",
+            "x-example": 0
+          },
+          {
+            "description": "Page size",
+            "in": "query",
+            "name": "pagesize",
+            "required": false,
+            "type": "integer",
+            "x-example": 10
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK. Substances found",
+            "schema": {
+              "$ref": "#/definitions/SubstanceStudy"
+            }
+          },
+          "404": {
+            "description": "Substances not found"
+          }
+        },
+        "tags": [
+          "Studies",
+          "Substances"
+        ],
+        "description": "Returns substance study representation",
+        "operationId": "getSubstanceStudy",
+        "summary": "get substance study"
+      }
+    },
+    "/enm/{db}/substance/{uuid}/studySummary": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "default": "nanoreg1",
+            "description": "Database ID",
+            "enum": [
+              "calibrate",
+              "enanomapper",
+              "enpra",
+              "marina",
+              "nanogenotox",
+              "nanoinformatix",
+              "nanoreg1",
+              "nanoreg2",
+              "nanotest"
+            ],
+            "in": "path",
+            "name": "db",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Substance UUID",
+            "in": "path",
+            "name": "uuid",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Top endpoint category",
+            "enum": [
+              "P-CHEM",
+              "ECOTOX",
+              "ENV FATE",
+              "TOX",
+              "EXPOSURE"
+            ],
+            "in": "query",
+            "name": "top",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Endpoint category (The value in the protocol.category.code field)",
+            "in": "query",
+            "name": "category",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Property URI https://data.enanomapper.net/property/{UUID} , see Property service",
+            "in": "query",
+            "name": "property_uri",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Property UUID, see Property service",
+            "in": "query",
+            "name": "property",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "If true will group by topcategory,endpointcategory,interpretation result",
+            "in": "query",
+            "name": "result",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "description": "Starting page",
+            "in": "query",
+            "name": "page",
+            "required": false,
+            "type": "integer",
+            "x-example": 0
+          },
+          {
+            "description": "Page size",
+            "in": "query",
+            "name": "pagesize",
+            "required": false,
+            "type": "integer",
+            "x-example": 10
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK.",
+            "schema": {
+              "$ref": "#/definitions/SubstanceStudySummary"
+            }
+          },
+          "404": {
+            "description": "Entries not found"
+          }
+        },
+        "tags": [
+          "Studies",
+          "Substances"
+        ],
+        "description": "Study summary",
+        "operationId": "getSubstanceStudySummary",
+        "summary": "Get study summary for the substance"
+      }
+    },
+    "/select": {
+      "description": "Apache Solr powered search for Nanosafety data",
+      "get": {
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "description": "The query",
+            "in": "query",
+            "name": "q",
+            "required": false,
+            "type": "string",
+            "x-example": "*:*"
+          },
+          {
+            "description": "Filter query",
+            "in": "query",
+            "name": "fq",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Field list",
+            "in": "query",
+            "name": "fl",
+            "required": false,
+            "type": "string",
+            "x-example": "*"
+          },
+          {
+            "description": "Starting page",
+            "in": "query",
+            "name": "start",
+            "required": false,
+            "type": "integer",
+            "x-example": 0
+          },
+          {
+            "description": "Page size",
+            "in": "query",
+            "name": "rows",
+            "required": false,
+            "type": "integer",
+            "x-example": 10
+          },
+          {
+            "default": "xml",
+            "description": "Response format",
+            "enum": [
+              "json",
+              "xml",
+              "csv"
+            ],
+            "in": "query",
+            "name": "wt",
+            "required": false,
+            "type": "string",
+            "x-example": "json"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Query performed successfully",
+            "schema": {
+              "$ref": "#/definitions/SolrResponse"
+            }
+          },
+          "400": {
+            "description": "BAD_REQUEST"
+          },
+          "401": {
+            "description": "UNAUTHORIZED"
+          },
+          "403": {
+            "description": "FORBIDDEN"
+          },
+          "404": {
+            "description": "NOT_FOUND"
+          },
+          "409": {
+            "description": "CONFLICT"
+          },
+          "415": {
+            "description": "UNSUPPORTED_MEDIA_TYPE"
+          },
+          "500": {
+            "description": "SERVER_ERROR"
+          },
+          "503": {
+            "description": "SERVICE_UNAVAILABLE"
+          },
+          "510": {
+            "description": "INVALID_STATE          "
+          }
+        },
+        "tags": [
+          "Search"
+        ],
+        "description": "GET is simpler to use, but imposes restrictions on the complexity and the lenght of the parameters.",
+        "operationId": "solrquery_get",
+        "summary": "Apache Solr powered search"
+      },
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "default": "xml",
+            "description": "Response format",
+            "enum": [
+              "json",
+              "xml"
+            ],
+            "in": "query",
+            "name": "wt",
+            "required": false,
+            "type": "string",
+            "x-example": "json"
+          },
+          {
+            "description": "a JSON object with Solr query parameters",
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "example": "{\n  \"params\": {\n    \"fl\": [\n      \"[child parentFilter=type_s:substance childFilter=type_s:composition limit=100]\",\n      \"dbtag_hss\",\n      \"name:name_hs\",\n      \"publicname:publicname_hs\",\n      \"owner_name:owner_name_hs\",\n      \"substanceType:substanceType_hs\",\n      \"s_uuid:s_uuid_hs\",\n      \"content:content_hss\",\n      \"SUMMARY.*\"\n    ],\n    \"rows\": 20\n  },\n  \"facet\": {\n    \"owner_name\": {\n      \"type\": \"terms\",\n      \"field\": \"owner_name_s\",\n      \"mincount\": 1,\n      \"limit\": -1,\n      \"domain\": {\n        \"excludeTags\": \"owner_name_tag\",\n        \"blockChildren\": \"type_s:substance\"\n      }\n    },\n    \"reference_owner\": {\n      \"type\": \"terms\",\n      \"field\": \"reference_owner_s\",\n      \"mincount\": 1,\n      \"limit\": -1,\n      \"domain\": {\n        \"excludeTags\": \"reference_owner_tag\",\n        \"blockChildren\": \"type_s:substance\"\n      }\n    },\n    \"substanceType\": {\n      \"type\": \"terms\",\n      \"field\": \"substanceType_s\",\n      \"mincount\": 1,\n      \"limit\": -1,\n      \"domain\": {\n        \"excludeTags\": \"substanceType_tag\",\n        \"blockChildren\": \"type_s:substance\"\n      }\n    },\n    \"nm_name\": {\n      \"type\": \"terms\",\n      \"field\": \"publicname_s\",\n      \"mincount\": 451,\n      \"limit\": -1,\n      \"domain\": {\n        \"excludeTags\": \"nm_name_tag\",\n        \"blockChildren\": \"type_s:substance\"\n      }\n    },\n    \"protocol\": {\n      \"type\": \"terms\",\n      \"field\": \"guidance_s\",\n      \"mincount\": 1,\n      \"limit\": -1,\n      \"domain\": {\n        \"excludeTags\": \"protocol_tag\",\n        \"blockChildren\": \"type_s:substance\"\n      }\n    },\n    \"method\": {\n      \"type\": \"terms\",\n      \"field\": \"E.method_s\",\n      \"mincount\": 1,\n      \"limit\": -1,\n      \"domain\": {\n        \"excludeTags\": \"method_tag\",\n        \"blockChildren\": \"type_s:substance\"\n      }\n    },\n    \"cell\": {\n      \"type\": \"terms\",\n      \"field\": \"E.cell_type_s\",\n      \"mincount\": 1,\n      \"limit\": -1,\n      \"domain\": {\n        \"excludeTags\": \"cell_tag\",\n        \"blockChildren\": \"type_s:substance\"\n      }\n    },\n    \"species\": {\n      \"type\": \"terms\",\n      \"field\": \"E.animal_model_s\",\n      \"mincount\": 1,\n      \"limit\": -1,\n      \"domain\": {\n        \"excludeTags\": \"species_tag\",\n        \"blockChildren\": \"type_s:substance\"\n      }\n    },\n    \"route\": {\n      \"type\": \"terms\",\n      \"field\": \"E.exposure_route_s\",\n      \"mincount\": 1,\n      \"limit\": -1,\n      \"domain\": {\n        \"excludeTags\": \"route_tag\",\n        \"blockChildren\": \"type_s:substance\"\n      }\n    },\n    \"interpretation\": {\n      \"type\": \"terms\",\n      \"field\": \"MEDIUM_s\",\n      \"mincount\": 2,\n      \"limit\": -1,\n      \"domain\": {\n        \"excludeTags\": \"interpretation_tag\",\n        \"blockChildren\": \"type_s:substance\"\n      }\n    },\n    \"dprotocol\": {\n      \"type\": \"terms\",\n      \"field\": \"Dispersion protocol_s\",\n      \"mincount\": 2,\n      \"limit\": -1,\n      \"domain\": {\n        \"excludeTags\": \"dprotocol_tag\",\n        \"blockChildren\": \"type_s:substance\"\n      }\n    },\n    \"reference_year\": {\n      \"type\": \"terms\",\n      \"field\": \"reference_year_s\",\n      \"mincount\": 2,\n      \"limit\": -1,\n      \"domain\": {\n        \"excludeTags\": \"reference_year_tag\",\n        \"blockChildren\": \"type_s:substance\"\n      }\n    },\n    \"reference\": {\n      \"type\": \"terms\",\n      \"field\": \"reference_s\",\n      \"mincount\": 2,\n      \"limit\": -1,\n      \"domain\": {\n        \"excludeTags\": \"reference_tag\",\n        \"blockChildren\": \"type_s:substance\"\n      }\n    },\n    \"release\": {\n      \"type\": \"terms\",\n      \"field\": \"updated_s\",\n      \"mincount\": 1,\n      \"limit\": -1,\n      \"domain\": {\n        \"excludeTags\": \"release_tag\",\n        \"blockChildren\": \"type_s:substance\"\n      }\n    },\n    \"topcategory\": {\n      \"type\": \"terms\",\n      \"field\": \"topcategory_s\",\n      \"mincount\": 1,\n      \"limit\": -1,\n      \"facet\": {\n        \"min\": \"min(loValue_d)\",\n        \"max\": \"max(loValue_d)\",\n        \"avg\": \"avg(loValue_d)\",\n        \"endpointcategory\": {\n          \"type\": \"terms\",\n          \"field\": \"endpointcategory_s\",\n          \"mincount\": 1,\n          \"limit\": -1,\n          \"facet\": {\n            \"min\": \"min(loValue_d)\",\n            \"max\": \"max(loValue_d)\",\n            \"avg\": \"avg(loValue_d)\",\n            \"effectendpoint\": {\n              \"type\": \"terms\",\n              \"field\": \"effectendpoint_s\",\n              \"mincount\": 1,\n              \"limit\": -1,\n              \"facet\": {\n                \"min\": \"min(loValue_d)\",\n                \"max\": \"max(loValue_d)\",\n                \"avg\": \"avg(loValue_d)\",\n                \"unit\": {\n                  \"type\": \"terms\",\n                  \"field\": \"unit_s\",\n                  \"mincount\": 1,\n                  \"limit\": -1,\n                  \"facet\": {\n                    \"min\": \"min(loValue_d)\",\n                    \"max\": \"max(loValue_d)\",\n                    \"avg\": \"avg(loValue_d)\"\n                  }\n                }\n              }\n            }\n          }\n        }\n      },\n      \"domain\": {\n        \"blockChildren\": \"type_s:substance\"\n      }\n    }\n  }\n}\n",
+              "properties": {
+                "facet": {
+                  "type": "object"
+                },
+                "params": {
+                  "properties": {
+                    "fl": {
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    },
+                    "rows": {
+                      "type": "integer"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Query performed successfully",
+            "schema": {
+              "$ref": "#/definitions/SolrResponse"
+            }
+          },
+          "400": {
+            "description": "BAD_REQUEST"
+          },
+          "401": {
+            "description": "UNAUTHORIZED"
+          },
+          "403": {
+            "description": "FORBIDDEN"
+          },
+          "404": {
+            "description": "NOT_FOUND"
+          },
+          "409": {
+            "description": "CONFLICT"
+          },
+          "415": {
+            "description": "UNSUPPORTED_MEDIA_TYPE"
+          },
+          "500": {
+            "description": "SERVER_ERROR"
+          },
+          "503": {
+            "description": "SERVICE_UNAVAILABLE"
+          },
+          "510": {
+            "description": "INVALID_STATE"
+          }
+        },
+        "tags": [
+          "Search"
+        ],
+        "description": "POST is more complex to use, but also allows for much for complex and lengthy queries.",
+        "operationId": "solrquery_post",
+        "summary": "Apache Solr powered search"
+      },
+      "summary": "eNanoMapper Database aggregated search"
+    }
+  },
+  "definitions": {
+    "Dataset": {
+      "properties": {
+        "dataEntry": {
+          "type": "object"
+        },
+        "feature": {
+          "type": "object"
+        },
+        "model_uri": {
+          "type": "string"
+        },
+        "query": {
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "Facet": {
+      "properties": {
+        "facet": {
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "Investigation": {
+      "properties": {
+        "_childDocuments_": {
+          "type": "object"
+        },
+        "assay": {
+          "type": "string"
+        },
+        "document_uuid": {
+          "type": "string"
+        },
+        "effectendpoint": {
+          "type": "string"
+        },
+        "endpoint": {
+          "type": "string"
+        },
+        "endpointcategory": {
+          "type": "string"
+        },
+        "err": {
+          "type": "number"
+        },
+        "errQualifier": {
+          "type": "string"
+        },
+        "guidance": {
+          "type": "string"
+        },
+        "investigation": {
+          "type": "string"
+        },
+        "loQualifier": {
+          "type": "string"
+        },
+        "loValue": {
+          "type": "number"
+        },
+        "name": {
+          "type": "string"
+        },
+        "owner_name": {
+          "type": "string"
+        },
+        "publicname": {
+          "type": "string"
+        },
+        "reference": {
+          "type": "string"
+        },
+        "reference_owner": {
+          "type": "string"
+        },
+        "reference_year": {
+          "type": "string"
+        },
+        "resulttype": {
+          "type": "string"
+        },
+        "s_uuid": {
+          "type": "string"
+        },
+        "studyResultType": {
+          "type": "string"
+        },
+        "substanceType": {
+          "type": "string"
+        },
+        "textValue": {
+          "type": "string"
+        },
+        "topcategory": {
+          "type": "string"
+        },
+        "type_s": {
+          "type": "string"
+        },
+        "unit": {
+          "type": "string"
+        },
+        "upQualifier": {
+          "type": "string"
+        },
+        "upValue": {
+          "type": "number"
+        },
+        "updated": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "SolrQuery": {
+      "properties": {
+        "facet": {
+          "type": "string"
+        },
+        "filter": {
+          "type": "string"
+        },
+        "query": {
+          "type": "string"
+        },
+        "rows": {
+          "type": "integer"
+        },
+        "sort": {
+          "type": "boolean"
+        },
+        "start": {
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "SolrResponse": {
+      "properties": {
+        "response": {
+          "properties": {
+            "docs": {
+              "items": {
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "maxScore": {
+              "type": "number"
+            },
+            "numFound": {
+              "type": "integer"
+            },
+            "start": {
+              "type": "integer"
+            }
+          },
+          "type": "object"
+        },
+        "responseHeader": {
+          "properties": {
+            "QTime": {
+              "type": "integer"
+            },
+            "params": {
+              "type": "object"
+            },
+            "status": {
+              "type": "integer"
+            },
+            "zkConnected": {
+              "type": "boolean"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "Substance": {
+      "properties": {
+        "substance": {
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "SubstanceComposition": {
+      "properties": {
+        "composition": {
+          "type": "object"
+        },
+        "feature": {
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "SubstanceStudy": {
+      "properties": {
+        "study": {
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "SubstanceStudySummary": {
+      "properties": {
+        "facet": {
+          "type": "object"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "tags": [
+    {
+      "description": "Multi-DB aggregated free text and faceted search",
+      "name": "Search"
+    },
+    {
+      "externalDocs": {
+        "url": "https://github.com/ideaconsult/apps-ambit/blob/master/ambit-json-docs/"
+      },
+      "description": "Chemical structures",
+      "name": "Structures"
+    },
+    {
+      "externalDocs": {
+        "url": "https://github.com/ideaconsult/apps-ambit/blob/master/ambit-json-docs/substance.md"
+      },
+      "description": "Chemical substances and (nano)materials",
+      "name": "Substances"
+    },
+    {
+      "externalDocs": {
+        "url": "https://github.com/ideaconsult/apps-ambit/blob/master/ambit-json-docs/substance.md#study"
+      },
+      "description": "Measurements or calculations attached to a substance",
+      "name": "Studies"
+    },
+    {
+      "externalDocs": {
+        "url": "https://github.com/ideaconsult/apps-ambit/blob/master/ambit-json-docs"
+      },
+      "description": "Machine learning algorithms and models, property prediction models",
+      "name": "Data analysis"
+    },
+    {
+      "externalDocs": {
+        "url": "https://github.com/ideaconsult/apps-ambit/blob/master/ambit-json-docs"
+      },
+      "description": "Summaries",
+      "name": "Facets"
+    },
+    {
+      "externalDocs": {
+        "url": "https://github.com/ideaconsult/apps-ambit/blob/master/ambit-json-docs"
+      },
+      "description": "Asynchronous jobs",
+      "name": "Task service"
+    }
+  ],
+  "externalDocs": {
+    "description": "More information about the Nano safety data",
+    "url": "https://search.data.enanomapper.net"
+  },
+  "x-components": {
+    "parameters": {
+      "ambitDatabaseId": {
+        "default": "nanoreg1",
+        "description": "Database ID",
+        "enum": [
+          "calibrate",
+          "enanomapper",
+          "enpra",
+          "marina",
+          "nanogenotox",
+          "nanoinformatix",
+          "nanoreg1",
+          "nanoreg2",
+          "nanotest"
+        ],
+        "in": "path",
+        "name": "db",
+        "required": true,
+        "type": "string"
+      }
+    },
+    "requestBodies": {
+      "QueryBody": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "example": "{\n  \"params\": {\n    \"fl\": [\n      \"[child parentFilter=type_s:substance childFilter=type_s:composition limit=100]\",\n      \"dbtag_hss\",\n      \"name:name_hs\",\n      \"publicname:publicname_hs\",\n      \"owner_name:owner_name_hs\",\n      \"substanceType:substanceType_hs\",\n      \"s_uuid:s_uuid_hs\",\n      \"content:content_hss\",\n      \"SUMMARY.*\"\n    ],\n    \"rows\": 20\n  },\n  \"facet\": {\n    \"owner_name\": {\n      \"type\": \"terms\",\n      \"field\": \"owner_name_s\",\n      \"mincount\": 1,\n      \"limit\": -1,\n      \"domain\": {\n        \"excludeTags\": \"owner_name_tag\",\n        \"blockChildren\": \"type_s:substance\"\n      }\n    },\n    \"reference_owner\": {\n      \"type\": \"terms\",\n      \"field\": \"reference_owner_s\",\n      \"mincount\": 1,\n      \"limit\": -1,\n      \"domain\": {\n        \"excludeTags\": \"reference_owner_tag\",\n        \"blockChildren\": \"type_s:substance\"\n      }\n    },\n    \"substanceType\": {\n      \"type\": \"terms\",\n      \"field\": \"substanceType_s\",\n      \"mincount\": 1,\n      \"limit\": -1,\n      \"domain\": {\n        \"excludeTags\": \"substanceType_tag\",\n        \"blockChildren\": \"type_s:substance\"\n      }\n    },\n    \"nm_name\": {\n      \"type\": \"terms\",\n      \"field\": \"publicname_s\",\n      \"mincount\": 451,\n      \"limit\": -1,\n      \"domain\": {\n        \"excludeTags\": \"nm_name_tag\",\n        \"blockChildren\": \"type_s:substance\"\n      }\n    },\n    \"protocol\": {\n      \"type\": \"terms\",\n      \"field\": \"guidance_s\",\n      \"mincount\": 1,\n      \"limit\": -1,\n      \"domain\": {\n        \"excludeTags\": \"protocol_tag\",\n        \"blockChildren\": \"type_s:substance\"\n      }\n    },\n    \"method\": {\n      \"type\": \"terms\",\n      \"field\": \"E.method_s\",\n      \"mincount\": 1,\n      \"limit\": -1,\n      \"domain\": {\n        \"excludeTags\": \"method_tag\",\n        \"blockChildren\": \"type_s:substance\"\n      }\n    },\n    \"cell\": {\n      \"type\": \"terms\",\n      \"field\": \"E.cell_type_s\",\n      \"mincount\": 1,\n      \"limit\": -1,\n      \"domain\": {\n        \"excludeTags\": \"cell_tag\",\n        \"blockChildren\": \"type_s:substance\"\n      }\n    },\n    \"species\": {\n      \"type\": \"terms\",\n      \"field\": \"E.animal_model_s\",\n      \"mincount\": 1,\n      \"limit\": -1,\n      \"domain\": {\n        \"excludeTags\": \"species_tag\",\n        \"blockChildren\": \"type_s:substance\"\n      }\n    },\n    \"route\": {\n      \"type\": \"terms\",\n      \"field\": \"E.exposure_route_s\",\n      \"mincount\": 1,\n      \"limit\": -1,\n      \"domain\": {\n        \"excludeTags\": \"route_tag\",\n        \"blockChildren\": \"type_s:substance\"\n      }\n    },\n    \"interpretation\": {\n      \"type\": \"terms\",\n      \"field\": \"MEDIUM_s\",\n      \"mincount\": 2,\n      \"limit\": -1,\n      \"domain\": {\n        \"excludeTags\": \"interpretation_tag\",\n        \"blockChildren\": \"type_s:substance\"\n      }\n    },\n    \"dprotocol\": {\n      \"type\": \"terms\",\n      \"field\": \"Dispersion protocol_s\",\n      \"mincount\": 2,\n      \"limit\": -1,\n      \"domain\": {\n        \"excludeTags\": \"dprotocol_tag\",\n        \"blockChildren\": \"type_s:substance\"\n      }\n    },\n    \"reference_year\": {\n      \"type\": \"terms\",\n      \"field\": \"reference_year_s\",\n      \"mincount\": 2,\n      \"limit\": -1,\n      \"domain\": {\n        \"excludeTags\": \"reference_year_tag\",\n        \"blockChildren\": \"type_s:substance\"\n      }\n    },\n    \"reference\": {\n      \"type\": \"terms\",\n      \"field\": \"reference_s\",\n      \"mincount\": 2,\n      \"limit\": -1,\n      \"domain\": {\n        \"excludeTags\": \"reference_tag\",\n        \"blockChildren\": \"type_s:substance\"\n      }\n    },\n    \"release\": {\n      \"type\": \"terms\",\n      \"field\": \"updated_s\",\n      \"mincount\": 1,\n      \"limit\": -1,\n      \"domain\": {\n        \"excludeTags\": \"release_tag\",\n        \"blockChildren\": \"type_s:substance\"\n      }\n    },\n    \"topcategory\": {\n      \"type\": \"terms\",\n      \"field\": \"topcategory_s\",\n      \"mincount\": 1,\n      \"limit\": -1,\n      \"facet\": {\n        \"min\": \"min(loValue_d)\",\n        \"max\": \"max(loValue_d)\",\n        \"avg\": \"avg(loValue_d)\",\n        \"endpointcategory\": {\n          \"type\": \"terms\",\n          \"field\": \"endpointcategory_s\",\n          \"mincount\": 1,\n          \"limit\": -1,\n          \"facet\": {\n            \"min\": \"min(loValue_d)\",\n            \"max\": \"max(loValue_d)\",\n            \"avg\": \"avg(loValue_d)\",\n            \"effectendpoint\": {\n              \"type\": \"terms\",\n              \"field\": \"effectendpoint_s\",\n              \"mincount\": 1,\n              \"limit\": -1,\n              \"facet\": {\n                \"min\": \"min(loValue_d)\",\n                \"max\": \"max(loValue_d)\",\n                \"avg\": \"avg(loValue_d)\",\n                \"unit\": {\n                  \"type\": \"terms\",\n                  \"field\": \"unit_s\",\n                  \"mincount\": 1,\n                  \"limit\": -1,\n                  \"facet\": {\n                    \"min\": \"min(loValue_d)\",\n                    \"max\": \"max(loValue_d)\",\n                    \"avg\": \"avg(loValue_d)\"\n                  }\n                }\n              }\n            }\n          }\n        }\n      },\n      \"domain\": {\n        \"blockChildren\": \"type_s:substance\"\n      }\n    }\n  }\n}\n",
+              "properties": {
+                "facet": {
+                  "type": "object"
+                },
+                "params": {
+                  "properties": {
+                    "fl": {
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    },
+                    "rows": {
+                      "type": "integer"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
+          }
+        },
+        "description": "a JSON object with Solr query parameters"
+      }
+    }
+  }
+}

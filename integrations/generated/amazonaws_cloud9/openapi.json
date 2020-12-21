@@ -1,12 +1,5 @@
 {
   "swagger": "2.0",
-  "schemes": [
-    "https",
-    "http"
-  ],
-  "host": "cloud9.amazonaws.com",
-  "basePath": "/",
-  "x-hasEquivalentPaths": true,
   "info": {
     "contact": {
       "email": "mike.ralphson@gmail.com",
@@ -14,7 +7,7 @@
       "url": "https://github.com/mermade/aws2openapi",
       "x-twitter": "PermittedSoc"
     },
-    "description": "<fullname>AWS Cloud9</fullname> <p>AWS Cloud9 is a collection of tools that you can use to code, build, run, test, debug, and release software in the cloud.</p> <p>For more information about AWS Cloud9, see the <a href=\"https://docs.aws.amazon.com/cloud9/latest/user-guide\">AWS Cloud9 User Guide</a>.</p> <p>AWS Cloud9 supports these operations:</p> <ul> <li> <p> <code>CreateEnvironmentEC2</code>: Creates an AWS Cloud9 development environment, launches an Amazon EC2 instance, and then connects from the instance to the environment.</p> </li> <li> <p> <code>CreateEnvironmentMembership</code>: Adds an environment member to an environment.</p> </li> <li> <p> <code>DeleteEnvironment</code>: Deletes an environment. If an Amazon EC2 instance is connected to the environment, also terminates the instance.</p> </li> <li> <p> <code>DeleteEnvironmentMembership</code>: Deletes an environment member from an environment.</p> </li> <li> <p> <code>DescribeEnvironmentMemberships</code>: Gets information about environment members for an environment.</p> </li> <li> <p> <code>DescribeEnvironments</code>: Gets information about environments.</p> </li> <li> <p> <code>DescribeEnvironmentStatus</code>: Gets status information for an environment.</p> </li> <li> <p> <code>ListEnvironments</code>: Gets a list of environment identifiers.</p> </li> <li> <p> <code>UpdateEnvironment</code>: Changes the settings of an existing environment.</p> </li> <li> <p> <code>UpdateEnvironmentMembership</code>: Changes the settings of an existing environment member for an environment.</p> </li> </ul>",
+    "description": "<fullname>AWS Cloud9</fullname> <p>AWS Cloud9 is a collection of tools that you can use to code, build, run, test, debug, and release software in the cloud.</p> <p>For more information about AWS Cloud9, see the <a href=\"https://docs.aws.amazon.com/cloud9/latest/user-guide\">AWS Cloud9 User Guide</a>.</p> <p>AWS Cloud9 supports these operations:</p> <ul> <li> <p> <code>CreateEnvironmentEC2</code>: Creates an AWS Cloud9 development environment, launches an Amazon EC2 instance, and then connects from the instance to the environment.</p> </li> <li> <p> <code>CreateEnvironmentMembership</code>: Adds an environment member to an environment.</p> </li> <li> <p> <code>DeleteEnvironment</code>: Deletes an environment. If an Amazon EC2 instance is connected to the environment, also terminates the instance.</p> </li> <li> <p> <code>DeleteEnvironmentMembership</code>: Deletes an environment member from an environment.</p> </li> <li> <p> <code>DescribeEnvironmentMemberships</code>: Gets information about environment members for an environment.</p> </li> <li> <p> <code>DescribeEnvironments</code>: Gets information about environments.</p> </li> <li> <p> <code>DescribeEnvironmentStatus</code>: Gets status information for an environment.</p> </li> <li> <p> <code>ListEnvironments</code>: Gets a list of environment identifiers.</p> </li> <li> <p> <code>ListTagsForResource</code>: Gets the tags for an environment.</p> </li> <li> <p> <code>TagResource</code>: Adds tags to an environment.</p> </li> <li> <p> <code>UntagResource</code>: Removes tags from an environment.</p> </li> <li> <p> <code>UpdateEnvironment</code>: Changes the settings of an existing environment.</p> </li> <li> <p> <code>UpdateEnvironmentMembership</code>: Changes the settings of an existing environment member for an environment.</p> </li> </ul>",
     "license": {
       "name": "Apache 2.0 License",
       "url": "http://www.apache.org/licenses/"
@@ -30,7 +23,7 @@
     ],
     "x-logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.jpeg"
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"
     },
     "x-origin": [
       {
@@ -40,7 +33,7 @@
           "version": "1.0.0"
         },
         "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/cloud9-2017-09-23.normal.json",
-        "x-apisguru-direct": true
+        "x-apisguru-driver": "external"
       }
     ],
     "x-preferred": true,
@@ -52,121 +45,74 @@
       "type": "openapi"
     }
   },
-  "externalDocs": {
-    "description": "Amazon Web Services documentation",
-    "url": "https://aws.amazon.com/cloud9/"
-  },
-  "consumes": [
-    "application/json"
+  "host": "cloud9.us-east-1.amazonaws.com",
+  "basePath": "/",
+  "schemes": [
+    "http"
   ],
-  "produces": [
-    "application/json"
-  ],
-  "securityDefinitions": {
-    "hmac": {
-      "description": "Amazon Signature authorization v4",
-      "in": "header",
-      "name": "Authorization",
-      "type": "apiKey",
-      "x-amazon-apigateway-authtype": "awsSigv4"
-    }
-  },
-  "security": [
-    {
-      "hmac": []
-    }
-  ],
-  "parameters": {
-    "Action": {
-      "in": "header",
-      "name": "Action",
-      "required": true,
-      "type": "string"
-    },
-    "Version": {
-      "in": "header",
-      "name": "Version",
-      "required": true,
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "in": "header",
-      "name": "X-Amz-Algorithm",
-      "required": false,
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "in": "header",
-      "name": "X-Amz-Content-Sha256",
-      "required": false,
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "in": "header",
-      "name": "X-Amz-Credential",
-      "required": false,
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "in": "header",
-      "name": "X-Amz-Date",
-      "required": false,
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "in": "header",
-      "name": "X-Amz-Security-Token",
-      "required": false,
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "in": "header",
-      "name": "X-Amz-Signature",
-      "required": false,
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "in": "header",
-      "name": "X-Amz-SignedHeaders",
-      "required": false,
-      "type": "string"
-    }
-  },
   "paths": {
-    "/": {
+    "/#X-Amz-Target=AWSCloud9WorkspaceManagementService.CreateEnvironmentEC2": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Creates an AWS Cloud9 development environment, launches an Amazon Elastic Compute Cloud (Amazon EC2) instance, and then connects from the instance to the environment.",
-        "operationId": "CreateEnvironmentEC2",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "enum": [
+              "AWSCloud9WorkspaceManagementService.CreateEnvironmentEC2"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -225,43 +171,73 @@
               "$ref": "#/definitions/InternalServerErrorException"
             }
           }
-        }
+        },
+        "description": "Creates an AWS Cloud9 development environment, launches an Amazon Elastic Compute Cloud (Amazon EC2) instance, and then connects from the instance to the environment.",
+        "operationId": "CreateEnvironmentEC2"
       }
     },
-    "/#CreateEnvironmentMembership": {
+    "/#X-Amz-Target=AWSCloud9WorkspaceManagementService.CreateEnvironmentMembership": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Adds an environment member to an AWS Cloud9 development environment.",
-        "operationId": "CreateEnvironmentMembership",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "enum": [
+              "AWSCloud9WorkspaceManagementService.CreateEnvironmentMembership"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -320,43 +296,73 @@
               "$ref": "#/definitions/InternalServerErrorException"
             }
           }
-        }
+        },
+        "description": "Adds an environment member to an AWS Cloud9 development environment.",
+        "operationId": "CreateEnvironmentMembership"
       }
     },
-    "/#DeleteEnvironment": {
+    "/#X-Amz-Target=AWSCloud9WorkspaceManagementService.DeleteEnvironment": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Deletes an AWS Cloud9 development environment. If an Amazon EC2 instance is connected to the environment, also terminates the instance.",
-        "operationId": "DeleteEnvironment",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "enum": [
+              "AWSCloud9WorkspaceManagementService.DeleteEnvironment"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -415,43 +421,73 @@
               "$ref": "#/definitions/InternalServerErrorException"
             }
           }
-        }
+        },
+        "description": "Deletes an AWS Cloud9 development environment. If an Amazon EC2 instance is connected to the environment, also terminates the instance.",
+        "operationId": "DeleteEnvironment"
       }
     },
-    "/#DeleteEnvironmentMembership": {
+    "/#X-Amz-Target=AWSCloud9WorkspaceManagementService.DeleteEnvironmentMembership": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Deletes an environment member from an AWS Cloud9 development environment.",
-        "operationId": "DeleteEnvironmentMembership",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "enum": [
+              "AWSCloud9WorkspaceManagementService.DeleteEnvironmentMembership"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -510,51 +546,64 @@
               "$ref": "#/definitions/InternalServerErrorException"
             }
           }
-        }
+        },
+        "description": "Deletes an environment member from an AWS Cloud9 development environment.",
+        "operationId": "DeleteEnvironmentMembership"
       }
     },
-    "/#DescribeEnvironmentMemberships": {
+    "/#X-Amz-Target=AWSCloud9WorkspaceManagementService.DescribeEnvironmentMemberships": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Gets information about environment members for an AWS Cloud9 development environment.",
-        "operationId": "DescribeEnvironmentMemberships",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/DescribeEnvironmentMembershipsRequest"
-            }
-          },
           {
             "description": "Pagination limit",
             "in": "query",
@@ -568,6 +617,23 @@
             "name": "nextToken",
             "required": false,
             "type": "string"
+          },
+          {
+            "enum": [
+              "AWSCloud9WorkspaceManagementService.DescribeEnvironmentMemberships"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeEnvironmentMembershipsRequest"
+            }
           }
         ],
         "responses": {
@@ -619,43 +685,73 @@
               "$ref": "#/definitions/InternalServerErrorException"
             }
           }
-        }
+        },
+        "description": "Gets information about environment members for an AWS Cloud9 development environment.",
+        "operationId": "DescribeEnvironmentMemberships"
       }
     },
-    "/#DescribeEnvironmentStatus": {
+    "/#X-Amz-Target=AWSCloud9WorkspaceManagementService.DescribeEnvironmentStatus": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Gets status information for an AWS Cloud9 development environment.",
-        "operationId": "DescribeEnvironmentStatus",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "enum": [
+              "AWSCloud9WorkspaceManagementService.DescribeEnvironmentStatus"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -714,43 +810,73 @@
               "$ref": "#/definitions/InternalServerErrorException"
             }
           }
-        }
+        },
+        "description": "Gets status information for an AWS Cloud9 development environment.",
+        "operationId": "DescribeEnvironmentStatus"
       }
     },
-    "/#DescribeEnvironments": {
+    "/#X-Amz-Target=AWSCloud9WorkspaceManagementService.DescribeEnvironments": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Gets information about AWS Cloud9 development environments.",
-        "operationId": "DescribeEnvironments",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "enum": [
+              "AWSCloud9WorkspaceManagementService.DescribeEnvironments"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -809,51 +935,64 @@
               "$ref": "#/definitions/InternalServerErrorException"
             }
           }
-        }
+        },
+        "description": "Gets information about AWS Cloud9 development environments.",
+        "operationId": "DescribeEnvironments"
       }
     },
-    "/#ListEnvironments": {
+    "/#X-Amz-Target=AWSCloud9WorkspaceManagementService.ListEnvironments": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Gets a list of AWS Cloud9 development environment identifiers.",
-        "operationId": "ListEnvironments",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/ListEnvironmentsRequest"
-            }
-          },
           {
             "description": "Pagination limit",
             "in": "query",
@@ -867,6 +1006,23 @@
             "name": "nextToken",
             "required": false,
             "type": "string"
+          },
+          {
+            "enum": [
+              "AWSCloud9WorkspaceManagementService.ListEnvironments"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListEnvironmentsRequest"
+            }
           }
         ],
         "responses": {
@@ -918,43 +1074,388 @@
               "$ref": "#/definitions/InternalServerErrorException"
             }
           }
-        }
+        },
+        "description": "Gets a list of AWS Cloud9 development environment identifiers.",
+        "operationId": "ListEnvironments"
       }
     },
-    "/#UpdateEnvironment": {
+    "/#X-Amz-Target=AWSCloud9WorkspaceManagementService.ListTagsForResource": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Changes the settings of an existing AWS Cloud9 development environment.",
-        "operationId": "UpdateEnvironment",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "enum": [
+              "AWSCloud9WorkspaceManagementService.ListTagsForResource"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListTagsForResourceRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListTagsForResourceResponse"
+            }
+          },
+          "480": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "482": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          }
+        },
+        "description": "Gets a list of the tags associated with an AWS Cloud9 development environment.",
+        "operationId": "ListTagsForResource"
+      }
+    },
+    "/#X-Amz-Target=AWSCloud9WorkspaceManagementService.TagResource": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "AWSCloud9WorkspaceManagementService.TagResource"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/TagResourceRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/TagResourceResponse"
+            }
+          },
+          "480": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "482": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "483": {
+            "description": "ConcurrentAccessException",
+            "schema": {
+              "$ref": "#/definitions/ConcurrentAccessException"
+            }
+          }
+        },
+        "description": "<p>Adds tags to an AWS Cloud9 development environment.</p> <important> <p>Tags that you add to an AWS Cloud9 environment by using this method will NOT be automatically propagated to underlying resources.</p> </important>",
+        "operationId": "TagResource"
+      }
+    },
+    "/#X-Amz-Target=AWSCloud9WorkspaceManagementService.UntagResource": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "AWSCloud9WorkspaceManagementService.UntagResource"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UntagResourceRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UntagResourceResponse"
+            }
+          },
+          "480": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "482": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "483": {
+            "description": "ConcurrentAccessException",
+            "schema": {
+              "$ref": "#/definitions/ConcurrentAccessException"
+            }
+          }
+        },
+        "description": "Removes tags from an AWS Cloud9 development environment.",
+        "operationId": "UntagResource"
+      }
+    },
+    "/#X-Amz-Target=AWSCloud9WorkspaceManagementService.UpdateEnvironment": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "AWSCloud9WorkspaceManagementService.UpdateEnvironment"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -1013,43 +1514,73 @@
               "$ref": "#/definitions/InternalServerErrorException"
             }
           }
-        }
+        },
+        "description": "Changes the settings of an existing AWS Cloud9 development environment.",
+        "operationId": "UpdateEnvironment"
       }
     },
-    "/#UpdateEnvironmentMembership": {
+    "/#X-Amz-Target=AWSCloud9WorkspaceManagementService.UpdateEnvironmentMembership": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Changes the settings of an existing environment member for an AWS Cloud9 development environment.",
-        "operationId": "UpdateEnvironmentMembership",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "enum": [
+              "AWSCloud9WorkspaceManagementService.UpdateEnvironmentMembership"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -1108,7 +1639,9 @@
               "$ref": "#/definitions/InternalServerErrorException"
             }
           }
-        }
+        },
+        "description": "Changes the settings of an existing environment member for an AWS Cloud9 development environment.",
+        "operationId": "UpdateEnvironmentMembership"
       }
     }
   },
@@ -1117,11 +1650,7 @@
       "maximum": 20160,
       "type": "integer"
     },
-    "BadRequestException": {
-      "description": "The target request is invalid.",
-      "properties": {},
-      "type": "object"
-    },
+    "BadRequestException": {},
     "BoundedEnvironmentIdList": {
       "items": {
         "$ref": "#/definitions/EnvironmentId"
@@ -1134,54 +1663,113 @@
       "pattern": "[\\x20-\\x7E]{10,128}",
       "type": "string"
     },
-    "ConflictException": {
-      "description": "A conflict occurred.",
-      "properties": {},
-      "type": "object"
+    "ConcurrentAccessException": {},
+    "ConflictException": {},
+    "ConnectionType": {
+      "enum": [
+        "CONNECT_SSH",
+        "CONNECT_SSM"
+      ],
+      "type": "string"
     },
     "CreateEnvironmentEC2Request": {
-      "example": {
-        "automaticStopTimeMinutes": 60,
-        "description": "This is my demonstration environment.",
-        "instanceType": "t2.micro",
-        "name": "my-demo-environment",
-        "ownerArn": "arn:aws:iam::123456789012:user/MyDemoUser",
-        "subnetId": "subnet-1fab8aEX"
-      },
       "properties": {
+        "tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagList"
+            },
+            {
+              "description": "An array of key-value pairs that will be associated with the new AWS Cloud9 development environment."
+            }
+          ]
+        },
         "automaticStopTimeMinutes": {
-          "$ref": "#/definitions/AutomaticStopTimeMinutes",
-          "description": "The number of minutes until the running instance is shut down after the environment has last been used."
+          "allOf": [
+            {
+              "$ref": "#/definitions/AutomaticStopTimeMinutes"
+            },
+            {
+              "description": "The number of minutes until the running instance is shut down after the environment has last been used."
+            }
+          ]
         },
         "clientRequestToken": {
-          "$ref": "#/definitions/ClientRequestToken",
-          "description": "<p>A unique, case-sensitive string that helps AWS Cloud9 to ensure this operation completes no more than one time.</p> <p>For more information, see <a href=\"http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Client Tokens</a> in the <i>Amazon EC2 API Reference</i>.</p>"
+          "allOf": [
+            {
+              "$ref": "#/definitions/ClientRequestToken"
+            },
+            {
+              "description": "<p>A unique, case-sensitive string that helps AWS Cloud9 to ensure this operation completes no more than one time.</p> <p>For more information, see <a href=\"http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Client Tokens</a> in the <i>Amazon EC2 API Reference</i>.</p>"
+            }
+          ]
+        },
+        "connectionType": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ConnectionType"
+            },
+            {
+              "description": "The connection type used for connecting to an Amazon EC2 environment."
+            }
+          ]
         },
         "description": {
-          "$ref": "#/definitions/EnvironmentDescription",
-          "description": "The description of the environment to create."
+          "allOf": [
+            {
+              "$ref": "#/definitions/EnvironmentDescription"
+            },
+            {
+              "description": "The description of the environment to create."
+            }
+          ]
         },
         "instanceType": {
-          "$ref": "#/definitions/InstanceType",
-          "description": "The type of instance to connect to the environment (for example, <code>t2.micro</code>)."
+          "allOf": [
+            {
+              "$ref": "#/definitions/InstanceType"
+            },
+            {
+              "description": "The type of instance to connect to the environment (for example, <code>t2.micro</code>)."
+            }
+          ]
         },
         "name": {
-          "$ref": "#/definitions/EnvironmentName",
-          "description": "<p>The name of the environment to create.</p> <p>This name is visible to other AWS IAM users in the same AWS account.</p>"
+          "allOf": [
+            {
+              "$ref": "#/definitions/EnvironmentName"
+            },
+            {
+              "description": "<p>The name of the environment to create.</p> <p>This name is visible to other AWS IAM users in the same AWS account.</p>"
+            }
+          ]
         },
         "ownerArn": {
-          "$ref": "#/definitions/UserArn",
-          "description": "The Amazon Resource Name (ARN) of the environment owner. This ARN can be the ARN of any AWS IAM principal. If this value is not specified, the ARN defaults to this environment's creator."
+          "allOf": [
+            {
+              "$ref": "#/definitions/UserArn"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the environment owner. This ARN can be the ARN of any AWS IAM principal. If this value is not specified, the ARN defaults to this environment's creator."
+            }
+          ]
         },
         "subnetId": {
-          "$ref": "#/definitions/SubnetId",
-          "description": "The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance."
+          "allOf": [
+            {
+              "$ref": "#/definitions/SubnetId"
+            },
+            {
+              "description": "The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance."
+            }
+          ]
         }
       },
       "required": [
         "name",
         "instanceType"
       ],
+      "title": "CreateEnvironmentEC2Request",
       "type": "object"
     },
     "CreateEnvironmentEC2Result": {
@@ -1190,30 +1778,49 @@
       },
       "properties": {
         "environmentId": {
-          "$ref": "#/definitions/EnvironmentId",
-          "description": "The ID of the environment that was created."
+          "allOf": [
+            {
+              "$ref": "#/definitions/EnvironmentId"
+            },
+            {
+              "description": "The ID of the environment that was created."
+            }
+          ]
         }
       },
       "type": "object"
     },
     "CreateEnvironmentMembershipRequest": {
-      "example": {
-        "environmentId": "8d9967e2f0624182b74e7690ad69ebEX",
-        "permissions": "read-write",
-        "userArn": "arn:aws:iam::123456789012:user/AnotherDemoUser"
-      },
       "properties": {
         "environmentId": {
-          "$ref": "#/definitions/EnvironmentId",
-          "description": "The ID of the environment that contains the environment member you want to add."
+          "allOf": [
+            {
+              "$ref": "#/definitions/EnvironmentId"
+            },
+            {
+              "description": "The ID of the environment that contains the environment member you want to add."
+            }
+          ]
         },
         "permissions": {
-          "$ref": "#/definitions/MemberPermissions",
-          "description": "<p>The type of environment member permissions you want to associate with this environment member. Available values include:</p> <ul> <li> <p> <code>read-only</code>: Has read-only access to the environment.</p> </li> <li> <p> <code>read-write</code>: Has read-write access to the environment.</p> </li> </ul>"
+          "allOf": [
+            {
+              "$ref": "#/definitions/MemberPermissions"
+            },
+            {
+              "description": "<p>The type of environment member permissions you want to associate with this environment member. Available values include:</p> <ul> <li> <p> <code>read-only</code>: Has read-only access to the environment.</p> </li> <li> <p> <code>read-write</code>: Has read-write access to the environment.</p> </li> </ul>"
+            }
+          ]
         },
         "userArn": {
-          "$ref": "#/definitions/UserArn",
-          "description": "The Amazon Resource Name (ARN) of the environment member you want to add."
+          "allOf": [
+            {
+              "$ref": "#/definitions/UserArn"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the environment member you want to add."
+            }
+          ]
         }
       },
       "required": [
@@ -1221,6 +1828,7 @@
         "userArn",
         "permissions"
       ],
+      "title": "CreateEnvironmentMembershipRequest",
       "type": "object"
     },
     "CreateEnvironmentMembershipResult": {
@@ -1234,31 +1842,46 @@
       },
       "properties": {
         "membership": {
-          "$ref": "#/definitions/EnvironmentMember",
-          "description": "Information about the environment member that was added."
+          "allOf": [
+            {
+              "$ref": "#/definitions/EnvironmentMember"
+            },
+            {
+              "description": "Information about the environment member that was added."
+            }
+          ]
         }
       },
       "type": "object"
     },
     "DeleteEnvironmentMembershipRequest": {
-      "example": {
-        "environmentId": "8d9967e2f0624182b74e7690ad69ebEX",
-        "userArn": "arn:aws:iam::123456789012:user/AnotherDemoUser"
-      },
       "properties": {
         "environmentId": {
-          "$ref": "#/definitions/EnvironmentId",
-          "description": "The ID of the environment to delete the environment member from."
+          "allOf": [
+            {
+              "$ref": "#/definitions/EnvironmentId"
+            },
+            {
+              "description": "The ID of the environment to delete the environment member from."
+            }
+          ]
         },
         "userArn": {
-          "$ref": "#/definitions/UserArn",
-          "description": "The Amazon Resource Name (ARN) of the environment member to delete from the environment."
+          "allOf": [
+            {
+              "$ref": "#/definitions/UserArn"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the environment member to delete from the environment."
+            }
+          ]
         }
       },
       "required": [
         "environmentId",
         "userArn"
       ],
+      "title": "DeleteEnvironmentMembershipRequest",
       "type": "object"
     },
     "DeleteEnvironmentMembershipResult": {
@@ -1267,18 +1890,22 @@
       "type": "object"
     },
     "DeleteEnvironmentRequest": {
-      "example": {
-        "environmentId": "8d9967e2f0624182b74e7690ad69ebEX"
-      },
       "properties": {
         "environmentId": {
-          "$ref": "#/definitions/EnvironmentId",
-          "description": "The ID of the environment to delete."
+          "allOf": [
+            {
+              "$ref": "#/definitions/EnvironmentId"
+            },
+            {
+              "description": "The ID of the environment to delete."
+            }
+          ]
         }
       },
       "required": [
         "environmentId"
       ],
+      "title": "DeleteEnvironmentRequest",
       "type": "object"
     },
     "DeleteEnvironmentResult": {
@@ -1287,31 +1914,59 @@
       "type": "object"
     },
     "DescribeEnvironmentMembershipsRequest": {
-      "example": {
-        "userArn": "arn:aws:iam::123456789012:user/MyDemoUser"
-      },
       "properties": {
         "environmentId": {
-          "$ref": "#/definitions/EnvironmentId",
-          "description": "The ID of the environment to get environment member information about."
+          "allOf": [
+            {
+              "$ref": "#/definitions/EnvironmentId"
+            },
+            {
+              "description": "The ID of the environment to get environment member information about."
+            }
+          ]
         },
         "maxResults": {
-          "$ref": "#/definitions/MaxResults",
-          "description": "The maximum number of environment members to get information about."
+          "allOf": [
+            {
+              "$ref": "#/definitions/MaxResults"
+            },
+            {
+              "description": "The maximum number of environment members to get information about."
+            }
+          ]
         },
         "nextToken": {
-          "$ref": "#/definitions/String",
-          "description": "During a previous call, if there are more than 25 items in the list, only the first 25 items are returned, along with a unique string called a <i>next token</i>. To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "During a previous call, if there are more than 25 items in the list, only the first 25 items are returned, along with a unique string called a <i>next token</i>. To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned."
+            }
+          ]
         },
         "permissions": {
-          "$ref": "#/definitions/PermissionsList",
-          "description": "<p>The type of environment member permissions to get information about. Available values include:</p> <ul> <li> <p> <code>owner</code>: Owns the environment.</p> </li> <li> <p> <code>read-only</code>: Has read-only access to the environment.</p> </li> <li> <p> <code>read-write</code>: Has read-write access to the environment.</p> </li> </ul> <p>If no value is specified, information about all environment members are returned.</p>"
+          "allOf": [
+            {
+              "$ref": "#/definitions/PermissionsList"
+            },
+            {
+              "description": "<p>The type of environment member permissions to get information about. Available values include:</p> <ul> <li> <p> <code>owner</code>: Owns the environment.</p> </li> <li> <p> <code>read-only</code>: Has read-only access to the environment.</p> </li> <li> <p> <code>read-write</code>: Has read-write access to the environment.</p> </li> </ul> <p>If no value is specified, information about all environment members are returned.</p>"
+            }
+          ]
         },
         "userArn": {
-          "$ref": "#/definitions/UserArn",
-          "description": "The Amazon Resource Name (ARN) of an individual environment member to get information about. If no value is specified, information about all environment members are returned."
+          "allOf": [
+            {
+              "$ref": "#/definitions/UserArn"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of an individual environment member to get information about. If no value is specified, information about all environment members are returned."
+            }
+          ]
         }
       },
+      "title": "DescribeEnvironmentMembershipsRequest",
       "type": "object"
     },
     "DescribeEnvironmentMembershipsResult": {
@@ -1335,29 +1990,45 @@
       },
       "properties": {
         "memberships": {
-          "$ref": "#/definitions/EnvironmentMembersList",
-          "description": "Information about the environment members for the environment."
+          "allOf": [
+            {
+              "$ref": "#/definitions/EnvironmentMembersList"
+            },
+            {
+              "description": "Information about the environment members for the environment."
+            }
+          ]
         },
         "nextToken": {
-          "$ref": "#/definitions/String",
-          "description": "If there are more than 25 items in the list, only the first 25 items are returned, along with a unique string called a <i>next token</i>. To get the next batch of items in the list, call this operation again, adding the next token to the call."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "If there are more than 25 items in the list, only the first 25 items are returned, along with a unique string called a <i>next token</i>. To get the next batch of items in the list, call this operation again, adding the next token to the call."
+            }
+          ]
         }
       },
       "type": "object"
     },
     "DescribeEnvironmentStatusRequest": {
-      "example": {
-        "environmentId": "8d9967e2f0624182b74e7690ad69ebEX"
-      },
       "properties": {
         "environmentId": {
-          "$ref": "#/definitions/EnvironmentId",
-          "description": "The ID of the environment to get status information about."
+          "allOf": [
+            {
+              "$ref": "#/definitions/EnvironmentId"
+            },
+            {
+              "description": "The ID of the environment to get status information about."
+            }
+          ]
         }
       },
       "required": [
         "environmentId"
       ],
+      "title": "DescribeEnvironmentStatusRequest",
       "type": "object"
     },
     "DescribeEnvironmentStatusResult": {
@@ -1367,32 +2038,45 @@
       },
       "properties": {
         "message": {
-          "$ref": "#/definitions/String",
-          "description": "Any informational message about the status of the environment."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "Any informational message about the status of the environment."
+            }
+          ]
         },
         "status": {
-          "$ref": "#/definitions/EnvironmentStatus",
-          "description": "<p>The status of the environment. Available values include:</p> <ul> <li> <p> <code>connecting</code>: The environment is connecting.</p> </li> <li> <p> <code>creating</code>: The environment is being created.</p> </li> <li> <p> <code>deleting</code>: The environment is being deleted.</p> </li> <li> <p> <code>error</code>: The environment is in an error state.</p> </li> <li> <p> <code>ready</code>: The environment is ready.</p> </li> <li> <p> <code>stopped</code>: The environment is stopped.</p> </li> <li> <p> <code>stopping</code>: The environment is stopping.</p> </li> </ul>"
+          "allOf": [
+            {
+              "$ref": "#/definitions/EnvironmentStatus"
+            },
+            {
+              "description": "<p>The status of the environment. Available values include:</p> <ul> <li> <p> <code>connecting</code>: The environment is connecting.</p> </li> <li> <p> <code>creating</code>: The environment is being created.</p> </li> <li> <p> <code>deleting</code>: The environment is being deleted.</p> </li> <li> <p> <code>error</code>: The environment is in an error state.</p> </li> <li> <p> <code>ready</code>: The environment is ready.</p> </li> <li> <p> <code>stopped</code>: The environment is stopped.</p> </li> <li> <p> <code>stopping</code>: The environment is stopping.</p> </li> </ul>"
+            }
+          ]
         }
       },
       "type": "object"
     },
     "DescribeEnvironmentsRequest": {
-      "example": {
-        "environmentIds": [
-          "8d9967e2f0624182b74e7690ad69ebEX",
-          "349c86d4579e4e7298d500ff57a6b2EX"
-        ]
-      },
       "properties": {
         "environmentIds": {
-          "$ref": "#/definitions/BoundedEnvironmentIdList",
-          "description": "The IDs of individual environments to get information about."
+          "allOf": [
+            {
+              "$ref": "#/definitions/BoundedEnvironmentIdList"
+            },
+            {
+              "description": "The IDs of individual environments to get information about."
+            }
+          ]
         }
       },
       "required": [
         "environmentIds"
       ],
+      "title": "DescribeEnvironmentsRequest",
       "type": "object"
     },
     "DescribeEnvironmentsResult": {
@@ -1402,13 +2086,20 @@
             "arn": "arn:aws:cloud9:us-east-2:123456789012:environment:8d9967e2f0624182b74e7690ad69ebEX",
             "description": "This is my demonstration environment.",
             "id": "8d9967e2f0624182b74e7690ad69ebEX",
+            "lifecycle": {
+              "status": "CREATED"
+            },
             "name": "my-demo-environment",
             "ownerArn": "arn:aws:iam::123456789012:user/MyDemoUser",
             "type": "ec2"
           },
           {
             "arn": "arn:aws:cloud9:us-east-2:123456789012:environment:349c86d4579e4e7298d500ff57a6b2EX",
+            "description": "",
             "id": "349c86d4579e4e7298d500ff57a6b2EX",
+            "lifecycle": {
+              "status": "CREATED"
+            },
             "name": "another-demo-environment",
             "ownerArn": "arn:aws:sts::123456789012:assumed-role/AnotherDemoUser/AnotherDemoUser",
             "type": "ssh"
@@ -1417,8 +2108,14 @@
       },
       "properties": {
         "environments": {
-          "$ref": "#/definitions/EnvironmentList",
-          "description": "Information about the environments that are returned."
+          "allOf": [
+            {
+              "$ref": "#/definitions/EnvironmentList"
+            },
+            {
+              "description": "Information about the environments that are returned."
+            }
+          ]
         }
       },
       "type": "object"
@@ -1427,33 +2124,94 @@
       "description": "Information about an AWS Cloud9 development environment.",
       "properties": {
         "arn": {
-          "$ref": "#/definitions/String",
-          "description": "The Amazon Resource Name (ARN) of the environment."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the environment."
+            }
+          ]
+        },
+        "connectionType": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ConnectionType"
+            },
+            {
+              "description": "The connection type used for connecting to an Amazon EC2 environment."
+            }
+          ]
         },
         "description": {
-          "$ref": "#/definitions/EnvironmentDescription",
-          "description": "The description for the environment."
+          "allOf": [
+            {
+              "$ref": "#/definitions/EnvironmentDescription"
+            },
+            {
+              "description": "The description for the environment."
+            }
+          ]
         },
         "id": {
-          "$ref": "#/definitions/EnvironmentId",
-          "description": "The ID of the environment."
+          "allOf": [
+            {
+              "$ref": "#/definitions/EnvironmentId"
+            },
+            {
+              "description": "The ID of the environment."
+            }
+          ]
+        },
+        "lifecycle": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/EnvironmentLifecycle"
+            },
+            {
+              "description": "The state of the environment in its creation or deletion lifecycle."
+            }
+          ]
         },
         "name": {
-          "$ref": "#/definitions/EnvironmentName",
-          "description": "The name of the environment."
+          "allOf": [
+            {
+              "$ref": "#/definitions/EnvironmentName"
+            },
+            {
+              "description": "The name of the environment."
+            }
+          ]
         },
         "ownerArn": {
-          "$ref": "#/definitions/String",
-          "description": "The Amazon Resource Name (ARN) of the environment owner."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the environment owner."
+            }
+          ]
         },
         "type": {
-          "$ref": "#/definitions/EnvironmentType",
-          "description": "<p>The type of environment. Valid values include the following:</p> <ul> <li> <p> <code>ec2</code>: An Amazon Elastic Compute Cloud (Amazon EC2) instance connects to the environment.</p> </li> <li> <p> <code>ssh</code>: Your own server connects to the environment.</p> </li> </ul>"
+          "allOf": [
+            {
+              "$ref": "#/definitions/EnvironmentType"
+            },
+            {
+              "description": "<p>The type of environment. Valid values include the following:</p> <ul> <li> <p> <code>ec2</code>: An Amazon Elastic Compute Cloud (Amazon EC2) instance connects to the environment.</p> </li> <li> <p> <code>ssh</code>: Your own server connects to the environment.</p> </li> </ul>"
+            }
+          ]
         }
       },
       "type": "object"
     },
+    "EnvironmentArn": {
+      "pattern": "arn:aws:cloud9:([a-z]{2}-[a-z]+-\\d{1}):[0-9]{12}:environment:[a-zA-Z0-9]{8,32}",
+      "type": "string"
+    },
     "EnvironmentDescription": {
+      "format": "password",
       "maxLength": 200,
       "type": "string"
     },
@@ -1467,6 +2225,52 @@
       },
       "type": "array"
     },
+    "EnvironmentLifecycle": {
+      "description": "Information about the current creation or deletion lifecycle state of an AWS Cloud9 development environment.",
+      "properties": {
+        "failureResource": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "If the environment failed to delete, the Amazon Resource Name (ARN) of the related AWS resource."
+            }
+          ]
+        },
+        "reason": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "Any informational message about the lifecycle state of the environment."
+            }
+          ]
+        },
+        "status": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/EnvironmentLifecycleStatus"
+            },
+            {
+              "description": "<p>The current creation or deletion lifecycle state of the environment.</p> <ul> <li> <p> <code>CREATING</code>: The environment is in the process of being created.</p> </li> <li> <p> <code>CREATED</code>: The environment was successfully created.</p> </li> <li> <p> <code>CREATE_FAILED</code>: The environment failed to be created.</p> </li> <li> <p> <code>DELETING</code>: The environment is in the process of being deleted.</p> </li> <li> <p> <code>DELETE_FAILED</code>: The environment failed to delete.</p> </li> </ul>"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "EnvironmentLifecycleStatus": {
+      "enum": [
+        "CREATING",
+        "CREATED",
+        "CREATE_FAILED",
+        "DELETING",
+        "DELETE_FAILED"
+      ],
+      "type": "string"
+    },
     "EnvironmentList": {
       "items": {
         "$ref": "#/definitions/Environment"
@@ -1477,24 +2281,54 @@
       "description": "Information about an environment member for an AWS Cloud9 development environment.",
       "properties": {
         "environmentId": {
-          "$ref": "#/definitions/EnvironmentId",
-          "description": "The ID of the environment for the environment member."
+          "allOf": [
+            {
+              "$ref": "#/definitions/EnvironmentId"
+            },
+            {
+              "description": "The ID of the environment for the environment member."
+            }
+          ]
         },
         "lastAccess": {
-          "$ref": "#/definitions/Timestamp",
-          "description": "The time, expressed in epoch time format, when the environment member last opened the environment."
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "The time, expressed in epoch time format, when the environment member last opened the environment."
+            }
+          ]
         },
         "permissions": {
-          "$ref": "#/definitions/Permissions",
-          "description": "<p>The type of environment member permissions associated with this environment member. Available values include:</p> <ul> <li> <p> <code>owner</code>: Owns the environment.</p> </li> <li> <p> <code>read-only</code>: Has read-only access to the environment.</p> </li> <li> <p> <code>read-write</code>: Has read-write access to the environment.</p> </li> </ul>"
+          "allOf": [
+            {
+              "$ref": "#/definitions/Permissions"
+            },
+            {
+              "description": "<p>The type of environment member permissions associated with this environment member. Available values include:</p> <ul> <li> <p> <code>owner</code>: Owns the environment.</p> </li> <li> <p> <code>read-only</code>: Has read-only access to the environment.</p> </li> <li> <p> <code>read-write</code>: Has read-write access to the environment.</p> </li> </ul>"
+            }
+          ]
         },
         "userArn": {
-          "$ref": "#/definitions/UserArn",
-          "description": "The Amazon Resource Name (ARN) of the environment member."
+          "allOf": [
+            {
+              "$ref": "#/definitions/UserArn"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the environment member."
+            }
+          ]
         },
         "userId": {
-          "$ref": "#/definitions/String",
-          "description": "The user ID in AWS Identity and Access Management (AWS IAM) of the environment member."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The user ID in AWS Identity and Access Management (AWS IAM) of the environment member."
+            }
+          ]
         }
       },
       "type": "object"
@@ -1529,39 +2363,39 @@
       ],
       "type": "string"
     },
-    "ForbiddenException": {
-      "description": "An access permissions issue occurred.",
-      "properties": {},
-      "type": "object"
-    },
+    "ForbiddenException": {},
     "InstanceType": {
       "maxLength": 20,
       "minLength": 5,
       "pattern": "^[a-z][1-9][.][a-z0-9]+$",
       "type": "string"
     },
-    "InternalServerErrorException": {
-      "description": "An internal server error occurred.",
-      "properties": {},
-      "type": "object"
-    },
-    "LimitExceededException": {
-      "description": "A service limit was exceeded.",
-      "properties": {},
-      "type": "object"
-    },
+    "InternalServerErrorException": {},
+    "LimitExceededException": {},
     "ListEnvironmentsRequest": {
-      "example": {},
       "properties": {
         "maxResults": {
-          "$ref": "#/definitions/MaxResults",
-          "description": "The maximum number of environments to get identifiers for."
+          "allOf": [
+            {
+              "$ref": "#/definitions/MaxResults"
+            },
+            {
+              "description": "The maximum number of environments to get identifiers for."
+            }
+          ]
         },
         "nextToken": {
-          "$ref": "#/definitions/String",
-          "description": "During a previous call, if there are more than 25 items in the list, only the first 25 items are returned, along with a unique string called a <i>next token</i>. To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "During a previous call, if there are more than 25 items in the list, only the first 25 items are returned, along with a unique string called a <i>next token</i>. To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned."
+            }
+          ]
         }
       },
+      "title": "ListEnvironmentsRequest",
       "type": "object"
     },
     "ListEnvironmentsResult": {
@@ -1573,12 +2407,58 @@
       },
       "properties": {
         "environmentIds": {
-          "$ref": "#/definitions/EnvironmentIdList",
-          "description": "The list of environment identifiers."
+          "allOf": [
+            {
+              "$ref": "#/definitions/EnvironmentIdList"
+            },
+            {
+              "description": "The list of environment identifiers."
+            }
+          ]
         },
         "nextToken": {
-          "$ref": "#/definitions/String",
-          "description": "If there are more than 25 items in the list, only the first 25 items are returned, along with a unique string called a <i>next token</i>. To get the next batch of items in the list, call this operation again, adding the next token to the call."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "If there are more than 25 items in the list, only the first 25 items are returned, along with a unique string called a <i>next token</i>. To get the next batch of items in the list, call this operation again, adding the next token to the call."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ListTagsForResourceRequest": {
+      "properties": {
+        "ResourceARN": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/EnvironmentArn"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the AWS Cloud9 development environment to get the tags for."
+            }
+          ]
+        }
+      },
+      "required": [
+        "ResourceARN"
+      ],
+      "title": "ListTagsForResourceRequest",
+      "type": "object"
+    },
+    "ListTagsForResourceResponse": {
+      "properties": {
+        "Tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagList"
+            },
+            {
+              "description": "The list of tags associated with the AWS Cloud9 development environment."
+            }
+          ]
         }
       },
       "type": "object"
@@ -1595,11 +2475,7 @@
       ],
       "type": "string"
     },
-    "NotFoundException": {
-      "description": "The target resource cannot be found.",
-      "properties": {},
-      "type": "object"
-    },
+    "NotFoundException": {},
     "Permissions": {
       "enum": [
         "owner",
@@ -1622,33 +2498,166 @@
       "minLength": 5,
       "type": "string"
     },
+    "Tag": {
+      "description": "Metadata that is associated with AWS resources. In particular, a name-value pair that can be associated with an AWS Cloud9 development environment. There are two types of tags: <i>user tags</i> and <i>system tags</i>. A user tag is created by the user. A system tag is automatically created by AWS services. A system tag is prefixed with \"aws:\" and cannot be modified by the user.",
+      "properties": {
+        "Key": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagKey"
+            },
+            {
+              "description": "The <b>name</b> part of a tag."
+            }
+          ]
+        },
+        "Value": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagValue"
+            },
+            {
+              "description": "The <b>value</b> part of a tag."
+            }
+          ]
+        }
+      },
+      "required": [
+        "Key",
+        "Value"
+      ],
+      "type": "object"
+    },
+    "TagKey": {
+      "maxLength": 128,
+      "minLength": 1,
+      "type": "string"
+    },
+    "TagKeyList": {
+      "items": {
+        "$ref": "#/definitions/TagKey"
+      },
+      "maxItems": 200,
+      "minItems": 0,
+      "type": "array"
+    },
+    "TagList": {
+      "items": {
+        "$ref": "#/definitions/Tag"
+      },
+      "maxItems": 200,
+      "minItems": 0,
+      "type": "array"
+    },
+    "TagResourceRequest": {
+      "properties": {
+        "ResourceARN": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/EnvironmentArn"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the AWS Cloud9 development environment to add tags to."
+            }
+          ]
+        },
+        "Tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagList"
+            },
+            {
+              "description": "The list of tags to add to the given AWS Cloud9 development environment."
+            }
+          ]
+        }
+      },
+      "required": [
+        "ResourceARN",
+        "Tags"
+      ],
+      "title": "TagResourceRequest",
+      "type": "object"
+    },
+    "TagResourceResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "TagValue": {
+      "maxLength": 256,
+      "minLength": 0,
+      "type": "string"
+    },
     "Timestamp": {
       "format": "date-time",
       "type": "string"
     },
-    "TooManyRequestsException": {
-      "description": "Too many service requests were made over the given time period.",
+    "TooManyRequestsException": {},
+    "UntagResourceRequest": {
+      "properties": {
+        "ResourceARN": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/EnvironmentArn"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the AWS Cloud9 development environment to remove tags from."
+            }
+          ]
+        },
+        "TagKeys": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagKeyList"
+            },
+            {
+              "description": "The tag names of the tags to remove from the given AWS Cloud9 development environment."
+            }
+          ]
+        }
+      },
+      "required": [
+        "ResourceARN",
+        "TagKeys"
+      ],
+      "title": "UntagResourceRequest",
+      "type": "object"
+    },
+    "UntagResourceResponse": {
       "properties": {},
       "type": "object"
     },
     "UpdateEnvironmentMembershipRequest": {
-      "example": {
-        "environmentId": "8d9967e2f0624182b74e7690ad69ebEX",
-        "permissions": "read-only",
-        "userArn": "arn:aws:iam::123456789012:user/AnotherDemoUser"
-      },
       "properties": {
         "environmentId": {
-          "$ref": "#/definitions/EnvironmentId",
-          "description": "The ID of the environment for the environment member whose settings you want to change."
+          "allOf": [
+            {
+              "$ref": "#/definitions/EnvironmentId"
+            },
+            {
+              "description": "The ID of the environment for the environment member whose settings you want to change."
+            }
+          ]
         },
         "permissions": {
-          "$ref": "#/definitions/MemberPermissions",
-          "description": "<p>The replacement type of environment member permissions you want to associate with this environment member. Available values include:</p> <ul> <li> <p> <code>read-only</code>: Has read-only access to the environment.</p> </li> <li> <p> <code>read-write</code>: Has read-write access to the environment.</p> </li> </ul>"
+          "allOf": [
+            {
+              "$ref": "#/definitions/MemberPermissions"
+            },
+            {
+              "description": "<p>The replacement type of environment member permissions you want to associate with this environment member. Available values include:</p> <ul> <li> <p> <code>read-only</code>: Has read-only access to the environment.</p> </li> <li> <p> <code>read-write</code>: Has read-write access to the environment.</p> </li> </ul>"
+            }
+          ]
         },
         "userArn": {
-          "$ref": "#/definitions/UserArn",
-          "description": "The Amazon Resource Name (ARN) of the environment member whose settings you want to change."
+          "allOf": [
+            {
+              "$ref": "#/definitions/UserArn"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the environment member whose settings you want to change."
+            }
+          ]
         }
       },
       "required": [
@@ -1656,6 +2665,7 @@
         "userArn",
         "permissions"
       ],
+      "title": "UpdateEnvironmentMembershipRequest",
       "type": "object"
     },
     "UpdateEnvironmentMembershipResult": {
@@ -1669,35 +2679,55 @@
       },
       "properties": {
         "membership": {
-          "$ref": "#/definitions/EnvironmentMember",
-          "description": "Information about the environment member whose settings were changed."
+          "allOf": [
+            {
+              "$ref": "#/definitions/EnvironmentMember"
+            },
+            {
+              "description": "Information about the environment member whose settings were changed."
+            }
+          ]
         }
       },
       "type": "object"
     },
     "UpdateEnvironmentRequest": {
-      "example": {
-        "description": "This is my changed demonstration environment.",
-        "environmentId": "8d9967e2f0624182b74e7690ad69ebEX",
-        "name": "my-changed-demo-environment"
-      },
       "properties": {
         "description": {
-          "$ref": "#/definitions/EnvironmentDescription",
-          "description": "Any new or replacement description for the environment."
+          "allOf": [
+            {
+              "$ref": "#/definitions/EnvironmentDescription"
+            },
+            {
+              "description": "Any new or replacement description for the environment."
+            }
+          ]
         },
         "environmentId": {
-          "$ref": "#/definitions/EnvironmentId",
-          "description": "The ID of the environment to change settings."
+          "allOf": [
+            {
+              "$ref": "#/definitions/EnvironmentId"
+            },
+            {
+              "description": "The ID of the environment to change settings."
+            }
+          ]
         },
         "name": {
-          "$ref": "#/definitions/EnvironmentName",
-          "description": "A replacement name for the environment."
+          "allOf": [
+            {
+              "$ref": "#/definitions/EnvironmentName"
+            },
+            {
+              "description": "A replacement name for the environment."
+            }
+          ]
         }
       },
       "required": [
         "environmentId"
       ],
+      "title": "UpdateEnvironmentRequest",
       "type": "object"
     },
     "UpdateEnvironmentResult": {
@@ -1706,8 +2736,73 @@
       "type": "object"
     },
     "UserArn": {
-      "pattern": "arn:aws:(iam|sts)::\\d+:\\S+",
+      "pattern": "^arn:aws:(iam|sts)::\\d+:(root|(user\\/[\\w+=/:,.@-]{1,64}|federated-user\\/[\\w+=/:,.@-]{2,32}|assumed-role\\/[\\w+=:,.@-]{1,64}\\/[\\w+=,.@-]{1,64}))$",
       "type": "string"
     }
-  }
+  },
+  "securityDefinitions": {
+    "hmac": {
+      "description": "Amazon Signature authorization v4",
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey",
+      "x-amazon-apigateway-authtype": "awsSigv4"
+    }
+  },
+  "security": [
+    {
+      "hmac": []
+    }
+  ],
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://docs.aws.amazon.com/cloud9/"
+  },
+  "x-components": {
+    "parameters": {
+      "X-Amz-Algorithm": {
+        "in": "header",
+        "name": "X-Amz-Algorithm",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Content-Sha256": {
+        "in": "header",
+        "name": "X-Amz-Content-Sha256",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Credential": {
+        "in": "header",
+        "name": "X-Amz-Credential",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Date": {
+        "in": "header",
+        "name": "X-Amz-Date",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Security-Token": {
+        "in": "header",
+        "name": "X-Amz-Security-Token",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Signature": {
+        "in": "header",
+        "name": "X-Amz-Signature",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-SignedHeaders": {
+        "in": "header",
+        "name": "X-Amz-SignedHeaders",
+        "required": false,
+        "type": "string"
+      }
+    }
+  },
+  "x-hasEquivalentPaths": true
 }

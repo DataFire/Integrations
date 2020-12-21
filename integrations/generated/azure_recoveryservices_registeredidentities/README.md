@@ -15,14 +15,7 @@ let azure_recoveryservices_registeredidentities = require('@datafire/azure_recov
   redirect_uri: ""
 });
 
-azure_recoveryservices_registeredidentities.VaultCertificates_Create({
-  "subscriptionId": "",
-  "api-version": "",
-  "resourceGroupName": "",
-  "vaultName": "",
-  "certificateName": "",
-  "certificateRequest": {}
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -105,9 +98,9 @@ azure_recoveryservices_registeredidentities.RegisteredIdentities_Delete({
   * azureManagementEndpointAudience **required** `string`: Azure Management Endpoint Audience.
   * servicePrincipalClientId **required** `string`: AAD service principal clientId.
   * servicePrincipalObjectId **required** `string`: AAD service principal ObjectId.
-  * authType **required** `string`: This property will be used as the discriminator for deciding the specific types in the polymorhpic chain of types.
+  * authType **required** `string`: This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
   * certificate `string`: The base64 encoded certificate raw data string.
-  * friendlyName `string`: Certificate friendlyname.
+  * friendlyName `string`: Certificate friendly name.
   * issuer `string`: Certificate issuer.
   * resourceId `integer`: Resource ID of the vault.
   * subject `string`: Certificate Subject Name.
@@ -120,9 +113,9 @@ azure_recoveryservices_registeredidentities.RegisteredIdentities_Delete({
   * globalAcsHostName **required** `string`: Acs mgmt host name to connect to.
   * globalAcsNamespace **required** `string`: ACS namespace name - tenant for our service.
   * globalAcsRPRealm **required** `string`: Global ACS namespace RP realm.
-  * authType **required** `string`: This property will be used as the discriminator for deciding the specific types in the polymorhpic chain of types.
+  * authType **required** `string`: This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
   * certificate `string`: The base64 encoded certificate raw data string.
-  * friendlyName `string`: Certificate friendlyname.
+  * friendlyName `string`: Certificate friendly name.
   * issuer `string`: Certificate issuer.
   * resourceId `integer`: Resource ID of the vault.
   * subject `string`: Certificate Subject Name.
@@ -132,9 +125,9 @@ azure_recoveryservices_registeredidentities.RegisteredIdentities_Delete({
 
 ### ResourceCertificateDetails
 * ResourceCertificateDetails `object`: Certificate details representing the Vault credentials.
-  * authType **required** `string`: This property will be used as the discriminator for deciding the specific types in the polymorhpic chain of types.
+  * authType **required** `string`: This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
   * certificate `string`: The base64 encoded certificate raw data string.
-  * friendlyName `string`: Certificate friendlyname.
+  * friendlyName `string`: Certificate friendly name.
   * issuer `string`: Certificate issuer.
   * resourceId `integer`: Resource ID of the vault.
   * subject `string`: Certificate Subject Name.

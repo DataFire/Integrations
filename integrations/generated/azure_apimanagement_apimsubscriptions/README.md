@@ -15,12 +15,7 @@ let azure_apimanagement_apimsubscriptions = require('@datafire/azure_apimanageme
   redirect_uri: ""
 });
 
-azure_apimanagement_apimsubscriptions.Subscription_List({
-  "resourceGroupName": "",
-  "serviceName": "",
-  "api-version": "",
-  "subscriptionId": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -48,14 +43,34 @@ azure_apimanagement_apimsubscriptions.Subscription_List({
 * input `object`
   * resourceGroupName **required** `string`: The name of the resource group.
   * serviceName **required** `string`: The name of the API Management service.
-  * $filter `string`: | Field        | Supported operators    | Supported functions                         |
+  * $filter `string`: |   Field     |     Usage     |     Supported operators     |     Supported functions     |</br>|-------------|-------------|-------------|-------------|</br>| name | filter | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith | </br>| displayName | filter | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith | </br>| stateComment | filter | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith | </br>| ownerId | filter | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith | </br>| scope | filter | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith | </br>| userId | filter | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith | </br>| productId | filter | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith | </br>| state | filter | eq |     | </br>| user | expand |     |     | </br>
   * $top `integer`: Number of records to return.
   * $skip `integer`: Number of records to skip.
   * api-version **required** `string`: Version of the API to be used with the client request.
   * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
 #### Output
-* output [SubscriptionCollection](#subscriptioncollection)
+* output `object`: Paged Subscriptions list representation.
+  * nextLink `string`: Next page link if any.
+  * value `array`: Page values.
+    * items `object`: Subscription details.
+      * properties `object`: Subscription details.
+        * allowTracing `boolean`: Determines whether tracing is enabled
+        * createdDate `string`: Subscription creation date. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+        * displayName `string`: The name of the subscription, or null if the subscription has no name.
+        * endDate `string`: Date when subscription was cancelled or expired. The setting is for audit purposes only and the subscription is not automatically cancelled. The subscription lifecycle can be managed by using the `state` property. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+        * expirationDate `string`: Subscription expiration date. The setting is for audit purposes only and the subscription is not automatically expired. The subscription lifecycle can be managed by using the `state` property. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+        * notificationDate `string`: Upcoming subscription expiration notification date. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+        * ownerId `string`: The user resource identifier of the subscription owner. The value is a valid relative URL in the format of /users/{userId} where {userId} is a user identifier.
+        * primaryKey `string`: Subscription primary key. This property will not be filled on 'GET' operations! Use '/listSecrets' POST request to get the value.
+        * scope **required** `string`: Scope like /products/{productId} or /apis or /apis/{apiId}.
+        * secondaryKey `string`: Subscription secondary key. This property will not be filled on 'GET' operations! Use '/listSecrets' POST request to get the value.
+        * startDate `string`: Subscription activation date. The setting is for audit purposes only and the subscription is not automatically activated. The subscription lifecycle can be managed by using the `state` property. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+        * state **required** `string` (values: suspended, active, expired, submitted, rejected, cancelled): Subscription state. Possible states are * active – the subscription is active, * suspended – the subscription is blocked, and the subscriber cannot call any APIs of the product, * submitted – the subscription request has been made by the developer, but has not yet been approved or rejected, * rejected – the subscription request has been denied by an administrator, * cancelled – the subscription has been cancelled by the developer or administrator, * expired – the subscription reached its expiration date and was deactivated.
+        * stateComment `string`: Optional subscription comment added by an administrator.
+      * id `string`: Resource ID.
+      * name `string`: Resource name.
+      * type `string`: Resource type for API Management resource.
 
 ### Subscription_Delete
 Deletes the specified subscription.
@@ -107,7 +122,24 @@ azure_apimanagement_apimsubscriptions.Subscription_Get({
   * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
 #### Output
-* output [SubscriptionContract](#subscriptioncontract)
+* output `object`: Subscription details.
+  * properties `object`: Subscription details.
+    * allowTracing `boolean`: Determines whether tracing is enabled
+    * createdDate `string`: Subscription creation date. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+    * displayName `string`: The name of the subscription, or null if the subscription has no name.
+    * endDate `string`: Date when subscription was cancelled or expired. The setting is for audit purposes only and the subscription is not automatically cancelled. The subscription lifecycle can be managed by using the `state` property. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+    * expirationDate `string`: Subscription expiration date. The setting is for audit purposes only and the subscription is not automatically expired. The subscription lifecycle can be managed by using the `state` property. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+    * notificationDate `string`: Upcoming subscription expiration notification date. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+    * ownerId `string`: The user resource identifier of the subscription owner. The value is a valid relative URL in the format of /users/{userId} where {userId} is a user identifier.
+    * primaryKey `string`: Subscription primary key. This property will not be filled on 'GET' operations! Use '/listSecrets' POST request to get the value.
+    * scope **required** `string`: Scope like /products/{productId} or /apis or /apis/{apiId}.
+    * secondaryKey `string`: Subscription secondary key. This property will not be filled on 'GET' operations! Use '/listSecrets' POST request to get the value.
+    * startDate `string`: Subscription activation date. The setting is for audit purposes only and the subscription is not automatically activated. The subscription lifecycle can be managed by using the `state` property. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+    * state **required** `string` (values: suspended, active, expired, submitted, rejected, cancelled): Subscription state. Possible states are * active – the subscription is active, * suspended – the subscription is blocked, and the subscriber cannot call any APIs of the product, * submitted – the subscription request has been made by the developer, but has not yet been approved or rejected, * rejected – the subscription request has been denied by an administrator, * cancelled – the subscription has been cancelled by the developer or administrator, * expired – the subscription reached its expiration date and was deactivated.
+    * stateComment `string`: Optional subscription comment added by an administrator.
+  * id `string`: Resource ID.
+  * name `string`: Resource name.
+  * type `string`: Resource type for API Management resource.
 
 ### Subscription_GetEntityTag
 Gets the entity state (Etag) version of the apimanagement subscription specified by its identifier.
@@ -135,7 +167,7 @@ azure_apimanagement_apimsubscriptions.Subscription_GetEntityTag({
 *Output schema unknown*
 
 ### Subscription_Update
-Updates the details of a subscription specificied by its identifier.
+Updates the details of a subscription specified by its identifier.
 
 
 ```js
@@ -155,7 +187,17 @@ azure_apimanagement_apimsubscriptions.Subscription_Update({
   * resourceGroupName **required** `string`: The name of the resource group.
   * serviceName **required** `string`: The name of the API Management service.
   * sid **required** `string`: Subscription entity Identifier. The entity represents the association between a user and a product in API Management.
-  * parameters **required** [SubscriptionUpdateParameters](#subscriptionupdateparameters)
+  * parameters **required** `object`: Subscription update details.
+    * properties `object`: Parameters supplied to the Update subscription operation.
+      * allowTracing `boolean`: Determines whether tracing can be enabled
+      * displayName `string`: Subscription name.
+      * expirationDate `string`: Subscription expiration date. The setting is for audit purposes only and the subscription is not automatically expired. The subscription lifecycle can be managed by using the `state` property. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+      * ownerId `string`: User identifier path: /users/{userId}
+      * primaryKey `string`: Primary subscription key.
+      * scope `string`: Scope like /products/{productId} or /apis or /apis/{apiId}
+      * secondaryKey `string`: Secondary subscription key.
+      * state `string` (values: suspended, active, expired, submitted, rejected, cancelled): Subscription state. Possible states are * active – the subscription is active, * suspended – the subscription is blocked, and the subscriber cannot call any APIs of the product, * submitted – the subscription request has been made by the developer, but has not yet been approved or rejected, * rejected – the subscription request has been denied by an administrator, * cancelled – the subscription has been cancelled by the developer or administrator, * expired – the subscription reached its expiration date and was deactivated.
+      * stateComment `string`: Comments describing subscription state change by the administrator.
   * notify `boolean`: Notify change in Subscription State. 
   * If-Match **required** `string`: ETag of the Entity. ETag should match the current entity state from the header response of the GET request or it should be * for unconditional update.
   * api-version **required** `string`: Version of the API to be used with the client request.
@@ -184,14 +226,66 @@ azure_apimanagement_apimsubscriptions.Subscription_CreateOrUpdate({
   * resourceGroupName **required** `string`: The name of the resource group.
   * serviceName **required** `string`: The name of the API Management service.
   * sid **required** `string`: Subscription entity Identifier. The entity represents the association between a user and a product in API Management.
-  * parameters **required** [SubscriptionCreateParameters](#subscriptioncreateparameters)
+  * parameters **required** `object`: Subscription create details.
+    * properties `object`: Parameters supplied to the Create subscription operation.
+      * allowTracing `boolean`: Determines whether tracing can be enabled
+      * displayName **required** `string`: Subscription name.
+      * ownerId `string`: User (user id path) for whom subscription is being created in form /users/{userId}
+      * primaryKey `string`: Primary subscription key. If not specified during request key will be generated automatically.
+      * scope **required** `string`: Scope like /products/{productId} or /apis or /apis/{apiId}.
+      * secondaryKey `string`: Secondary subscription key. If not specified during request key will be generated automatically.
+      * state `string` (values: suspended, active, expired, submitted, rejected, cancelled): Initial subscription state. If no value is specified, subscription is created with Submitted state. Possible states are * active – the subscription is active, * suspended – the subscription is blocked, and the subscriber cannot call any APIs of the product, * submitted – the subscription request has been made by the developer, but has not yet been approved or rejected, * rejected – the subscription request has been denied by an administrator, * cancelled – the subscription has been cancelled by the developer or administrator, * expired – the subscription reached its expiration date and was deactivated.
   * notify `boolean`: Notify change in Subscription State. 
   * If-Match `string`: ETag of the Entity. Not required when creating an entity, but required when updating an entity.
   * api-version **required** `string`: Version of the API to be used with the client request.
   * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
 #### Output
-* output [SubscriptionContract](#subscriptioncontract)
+* output `object`: Subscription details.
+  * properties `object`: Subscription details.
+    * allowTracing `boolean`: Determines whether tracing is enabled
+    * createdDate `string`: Subscription creation date. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+    * displayName `string`: The name of the subscription, or null if the subscription has no name.
+    * endDate `string`: Date when subscription was cancelled or expired. The setting is for audit purposes only and the subscription is not automatically cancelled. The subscription lifecycle can be managed by using the `state` property. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+    * expirationDate `string`: Subscription expiration date. The setting is for audit purposes only and the subscription is not automatically expired. The subscription lifecycle can be managed by using the `state` property. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+    * notificationDate `string`: Upcoming subscription expiration notification date. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+    * ownerId `string`: The user resource identifier of the subscription owner. The value is a valid relative URL in the format of /users/{userId} where {userId} is a user identifier.
+    * primaryKey `string`: Subscription primary key. This property will not be filled on 'GET' operations! Use '/listSecrets' POST request to get the value.
+    * scope **required** `string`: Scope like /products/{productId} or /apis or /apis/{apiId}.
+    * secondaryKey `string`: Subscription secondary key. This property will not be filled on 'GET' operations! Use '/listSecrets' POST request to get the value.
+    * startDate `string`: Subscription activation date. The setting is for audit purposes only and the subscription is not automatically activated. The subscription lifecycle can be managed by using the `state` property. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+    * state **required** `string` (values: suspended, active, expired, submitted, rejected, cancelled): Subscription state. Possible states are * active – the subscription is active, * suspended – the subscription is blocked, and the subscriber cannot call any APIs of the product, * submitted – the subscription request has been made by the developer, but has not yet been approved or rejected, * rejected – the subscription request has been denied by an administrator, * cancelled – the subscription has been cancelled by the developer or administrator, * expired – the subscription reached its expiration date and was deactivated.
+    * stateComment `string`: Optional subscription comment added by an administrator.
+  * id `string`: Resource ID.
+  * name `string`: Resource name.
+  * type `string`: Resource type for API Management resource.
+
+### Subscription_ListSecrets
+Gets the subscription keys.
+
+
+```js
+azure_apimanagement_apimsubscriptions.Subscription_ListSecrets({
+  "resourceGroupName": "",
+  "serviceName": "",
+  "sid": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * resourceGroupName **required** `string`: The name of the resource group.
+  * serviceName **required** `string`: The name of the API Management service.
+  * sid **required** `string`: Subscription entity Identifier. The entity represents the association between a user and a product in API Management.
+  * api-version **required** `string`: Version of the API to be used with the client request.
+  * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+#### Output
+* output `object`: Subscription keys.
+  * primaryKey `string`: Subscription primary key.
+  * secondaryKey `string`: Subscription secondary key.
 
 ### Subscription_RegeneratePrimaryKey
 Regenerates primary key of existing subscription of the API Management service instance.
@@ -247,60 +341,4 @@ azure_apimanagement_apimsubscriptions.Subscription_RegenerateSecondaryKey({
 
 ## Definitions
 
-### SubscriptionCollection
-* SubscriptionCollection `object`: Paged Subscriptions list representation.
-  * nextLink `string`: Next page link if any.
-  * value `array`: Page values.
-    * items [SubscriptionContract](#subscriptioncontract)
-
-### SubscriptionContract
-* SubscriptionContract `object`: Subscription details.
-  * properties [SubscriptionContractProperties](#subscriptioncontractproperties)
-  * id `string`: Resource ID.
-  * name `string`: Resource name.
-  * type `string`: Resource type for API Management resource.
-
-### SubscriptionContractProperties
-* SubscriptionContractProperties `object`: Subscription details.
-  * createdDate `string`: Subscription creation date. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
-  * displayName `string`: The name of the subscription, or null if the subscription has no name.
-  * endDate `string`: Date when subscription was cancelled or expired. The setting is for audit purposes only and the subscription is not automatically cancelled. The subscription lifecycle can be managed by using the `state` property. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
-  * expirationDate `string`: Subscription expiration date. The setting is for audit purposes only and the subscription is not automatically expired. The subscription lifecycle can be managed by using the `state` property. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
-  * notificationDate `string`: Upcoming subscription expiration notification date. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
-  * primaryKey **required** `string`: Subscription primary key.
-  * productId **required** `string`: The product resource identifier of the subscribed product. The value is a valid relative URL in the format of /products/{productId} where {productId} is a product identifier.
-  * secondaryKey **required** `string`: Subscription secondary key.
-  * startDate `string`: Subscription activation date. The setting is for audit purposes only and the subscription is not automatically activated. The subscription lifecycle can be managed by using the `state` property. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
-  * state **required** `string` (values: suspended, active, expired, submitted, rejected, cancelled): Subscription state. Possible states are * active – the subscription is active, * suspended – the subscription is blocked, and the subscriber cannot call any APIs of the product, * submitted – the subscription request has been made by the developer, but has not yet been approved or rejected, * rejected – the subscription request has been denied by an administrator, * cancelled – the subscription has been cancelled by the developer or administrator, * expired – the subscription reached its expiration date and was deactivated.
-  * stateComment `string`: Optional subscription comment added by an administrator.
-  * userId **required** `string`: The user resource identifier of the subscription owner. The value is a valid relative URL in the format of /users/{uid} where {uid} is a user identifier.
-
-### SubscriptionCreateParameterProperties
-* SubscriptionCreateParameterProperties `object`: Parameters supplied to the Create subscription operation.
-  * displayName **required** `string`: Subscription name.
-  * primaryKey `string`: Primary subscription key. If not specified during request key will be generated automatically.
-  * productId **required** `string`: Product (product id path) for which subscription is being created in form /products/{productid}
-  * secondaryKey `string`: Secondary subscription key. If not specified during request key will be generated automatically.
-  * state `string` (values: suspended, active, expired, submitted, rejected, cancelled): Initial subscription state. If no value is specified, subscription is created with Submitted state. Possible states are * active – the subscription is active, * suspended – the subscription is blocked, and the subscriber cannot call any APIs of the product, * submitted – the subscription request has been made by the developer, but has not yet been approved or rejected, * rejected – the subscription request has been denied by an administrator, * cancelled – the subscription has been cancelled by the developer or administrator, * expired – the subscription reached its expiration date and was deactivated.
-  * userId **required** `string`: User (user id path) for whom subscription is being created in form /users/{uid}
-
-### SubscriptionCreateParameters
-* SubscriptionCreateParameters `object`: Subscription create details.
-  * properties [SubscriptionCreateParameterProperties](#subscriptioncreateparameterproperties)
-
-### SubscriptionUpdateParameterProperties
-* SubscriptionUpdateParameterProperties `object`: Parameters supplied to the Update subscription operation.
-  * displayName `string`: Subscription name.
-  * expirationDate `string`: Subscription expiration date. The setting is for audit purposes only and the subscription is not automatically expired. The subscription lifecycle can be managed by using the `state` property. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
-  * primaryKey `string`: Primary subscription key.
-  * productId `string`: Product identifier path: /products/{productId}
-  * secondaryKey `string`: Secondary subscription key.
-  * state `string` (values: suspended, active, expired, submitted, rejected, cancelled): Subscription state. Possible states are * active – the subscription is active, * suspended – the subscription is blocked, and the subscriber cannot call any APIs of the product, * submitted – the subscription request has been made by the developer, but has not yet been approved or rejected, * rejected – the subscription request has been denied by an administrator, * cancelled – the subscription has been cancelled by the developer or administrator, * expired – the subscription reached its expiration date and was deactivated.
-  * stateComment `string`: Comments describing subscription state change by the administrator.
-  * userId `string`: User identifier path: /users/{uid}
-
-### SubscriptionUpdateParameters
-* SubscriptionUpdateParameters `object`: Subscription update details.
-  * properties [SubscriptionUpdateParameterProperties](#subscriptionupdateparameterproperties)
-
-
+*This integration has no definitions*

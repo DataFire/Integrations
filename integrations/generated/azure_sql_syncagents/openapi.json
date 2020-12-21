@@ -220,15 +220,9 @@
               "syncAgentName": "syncagentcrud-3187"
             },
             "responses": {
-              "200": {
-                "body": ""
-              },
-              "202": {
-                "body": ""
-              },
-              "204": {
-                "body": ""
-              }
+              "200": {},
+              "202": {},
+              "204": {}
             }
           }
         },
@@ -407,9 +401,7 @@
                   "type": "Microsoft.Sql/servers/syncAgents"
                 }
               },
-              "202": {
-                "body": ""
-              }
+              "202": {}
             }
           },
           "Update a sync agent": {
@@ -454,9 +446,7 @@
                   "type": "Microsoft.Sql/servers/syncAgents"
                 }
               },
-              "202": {
-                "body": ""
-              }
+              "202": {}
             }
           }
         },

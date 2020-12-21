@@ -1,0 +1,1469 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "contact": {
+      "email": "mike.ralphson@gmail.com",
+      "name": "Mike Ralphson",
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
+    },
+    "description": "<fullname>AWS IoT Secure Tunneling</fullname> <p>AWS IoT Secure Tunnling enables you to create remote connections to devices deployed in the field.</p> <p>For more information about how AWS IoT Secure Tunneling works, see <a href=\"https://docs.aws.amazon.com/iot/latest/developerguide/secure-tunneling.html\">AWS IoT Secure Tunneling</a>.</p>",
+    "license": {
+      "name": "Apache 2.0 License",
+      "url": "http://www.apache.org/licenses/"
+    },
+    "termsOfService": "https://aws.amazon.com/service-terms/",
+    "title": "AWS IoT Secure Tunneling",
+    "version": "2018-10-05",
+    "x-apiClientRegistration": {
+      "url": "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"
+    },
+    "x-apisguru-categories": [
+      "cloud"
+    ],
+    "x-logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"
+    },
+    "x-origin": [
+      {
+        "contentType": "application/json",
+        "converter": {
+          "url": "https://github.com/mermade/aws2openapi",
+          "version": "1.0.0"
+        },
+        "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/iotsecuretunneling-2018-10-05.normal.json",
+        "x-apisguru-driver": "external"
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "amazonaws.com",
+    "x-release": "v4",
+    "x-serviceName": "iotsecuretunneling",
+    "x-datafire": {
+      "name": "amazonaws_iotsecuretunneling",
+      "type": "openapi"
+    }
+  },
+  "host": "api.tunneling.iot.us-east-1.amazonaws.com",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/#X-Amz-Target=IoTSecuredTunneling.CloseTunnel": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "IoTSecuredTunneling.CloseTunnel"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CloseTunnelRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CloseTunnelResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        },
+        "description": "Closes a tunnel identified by the unique tunnel id. When a <code>CloseTunnel</code> request is received, we close the WebSocket connections between the client and proxy server so no data can be transmitted.",
+        "operationId": "CloseTunnel"
+      }
+    },
+    "/#X-Amz-Target=IoTSecuredTunneling.DescribeTunnel": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "IoTSecuredTunneling.DescribeTunnel"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeTunnelRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeTunnelResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        },
+        "description": "Gets information about a tunnel identified by the unique tunnel id.",
+        "operationId": "DescribeTunnel"
+      }
+    },
+    "/#X-Amz-Target=IoTSecuredTunneling.ListTagsForResource": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "IoTSecuredTunneling.ListTagsForResource"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListTagsForResourceRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListTagsForResourceResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        },
+        "description": "Lists the tags for the specified resource.",
+        "operationId": "ListTagsForResource"
+      }
+    },
+    "/#X-Amz-Target=IoTSecuredTunneling.ListTunnels": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "maxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "IoTSecuredTunneling.ListTunnels"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListTunnelsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListTunnelsResponse"
+            }
+          }
+        },
+        "description": "List all tunnels for an AWS account. Tunnels are listed by creation time in descending order, newer tunnels will be listed before older tunnels.",
+        "operationId": "ListTunnels"
+      }
+    },
+    "/#X-Amz-Target=IoTSecuredTunneling.OpenTunnel": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "IoTSecuredTunneling.OpenTunnel"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/OpenTunnelRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/OpenTunnelResponse"
+            }
+          },
+          "480": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          }
+        },
+        "description": "Creates a new tunnel, and returns two client access tokens for clients to use to connect to the AWS IoT Secure Tunneling proxy server.",
+        "operationId": "OpenTunnel"
+      }
+    },
+    "/#X-Amz-Target=IoTSecuredTunneling.TagResource": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "IoTSecuredTunneling.TagResource"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/TagResourceRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/TagResourceResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        },
+        "description": "A resource tag.",
+        "operationId": "TagResource"
+      }
+    },
+    "/#X-Amz-Target=IoTSecuredTunneling.UntagResource": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "IoTSecuredTunneling.UntagResource"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UntagResourceRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UntagResourceResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        },
+        "description": "Removes a tag from a resource.",
+        "operationId": "UntagResource"
+      }
+    }
+  },
+  "definitions": {
+    "AmazonResourceName": {
+      "maxLength": 1011,
+      "minLength": 1,
+      "type": "string"
+    },
+    "ClientAccessToken": {
+      "format": "password",
+      "type": "string"
+    },
+    "CloseTunnelRequest": {
+      "properties": {
+        "delete": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DeleteFlag"
+            },
+            {
+              "description": "When set to true, AWS IoT Secure Tunneling deletes the tunnel data immediately."
+            }
+          ]
+        },
+        "tunnelId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TunnelId"
+            },
+            {
+              "description": "The ID of the tunnel to close."
+            }
+          ]
+        }
+      },
+      "required": [
+        "tunnelId"
+      ],
+      "title": "CloseTunnelRequest",
+      "type": "object"
+    },
+    "CloseTunnelResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "ConnectionState": {
+      "description": "The state of a connection.",
+      "properties": {
+        "lastUpdatedAt": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DateType"
+            },
+            {
+              "description": "The last time the connection status was updated."
+            }
+          ]
+        },
+        "status": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ConnectionStatus"
+            },
+            {
+              "description": "The connection status of the tunnel. Valid values are <code>CONNECTED</code> and <code>DISCONNECTED</code>."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ConnectionStatus": {
+      "enum": [
+        "CONNECTED",
+        "DISCONNECTED"
+      ],
+      "type": "string"
+    },
+    "DateType": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "DeleteFlag": {
+      "type": "boolean"
+    },
+    "DescribeTunnelRequest": {
+      "properties": {
+        "tunnelId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TunnelId"
+            },
+            {
+              "description": "The tunnel to describe."
+            }
+          ]
+        }
+      },
+      "required": [
+        "tunnelId"
+      ],
+      "title": "DescribeTunnelRequest",
+      "type": "object"
+    },
+    "DescribeTunnelResponse": {
+      "properties": {
+        "tunnel": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Tunnel"
+            },
+            {
+              "description": "The tunnel being described."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "Description": {
+      "pattern": "[^\\p{C}]{1,2048}",
+      "type": "string"
+    },
+    "DestinationConfig": {
+      "description": "The destination configuration.",
+      "properties": {
+        "services": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ServiceList"
+            },
+            {
+              "description": "A list of service names that identity the target application. The AWS IoT client running on the destination device reads this value and uses it to look up a port or an IP address and a port. The AWS IoT client instantiates the local proxy which uses this information to connect to the destination application."
+            }
+          ]
+        },
+        "thingName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ThingName"
+            },
+            {
+              "description": "The name of the IoT thing to which you want to connect."
+            }
+          ]
+        }
+      },
+      "required": [
+        "services"
+      ],
+      "type": "object"
+    },
+    "LimitExceededException": {},
+    "ListTagsForResourceRequest": {
+      "properties": {
+        "resourceArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AmazonResourceName"
+            },
+            {
+              "description": "The resource ARN."
+            }
+          ]
+        }
+      },
+      "required": [
+        "resourceArn"
+      ],
+      "title": "ListTagsForResourceRequest",
+      "type": "object"
+    },
+    "ListTagsForResourceResponse": {
+      "properties": {
+        "tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagList"
+            },
+            {
+              "description": "The tags for the specified resource."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ListTunnelsRequest": {
+      "properties": {
+        "maxResults": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MaxResults"
+            },
+            {
+              "description": "The maximum number of results to return at once."
+            }
+          ]
+        },
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NextToken"
+            },
+            {
+              "description": "A token to retrieve the next set of results."
+            }
+          ]
+        },
+        "thingName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ThingName"
+            },
+            {
+              "description": "The name of the IoT thing associated with the destination device."
+            }
+          ]
+        }
+      },
+      "title": "ListTunnelsRequest",
+      "type": "object"
+    },
+    "ListTunnelsResponse": {
+      "properties": {
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NextToken"
+            },
+            {
+              "description": "A token to used to retrieve the next set of results."
+            }
+          ]
+        },
+        "tunnelSummaries": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TunnelSummaryList"
+            },
+            {
+              "description": "A short description of the tunnels in an AWS account."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "MaxResults": {
+      "maximum": 100,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "NextToken": {
+      "pattern": "[a-zA-Z0-9_=-]{1,4096}",
+      "type": "string"
+    },
+    "OpenTunnelRequest": {
+      "properties": {
+        "tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagList"
+            },
+            {
+              "description": "A collection of tag metadata."
+            }
+          ]
+        },
+        "description": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Description"
+            },
+            {
+              "description": "A short text description of the tunnel. "
+            }
+          ]
+        },
+        "destinationConfig": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DestinationConfig"
+            },
+            {
+              "description": "The destination configuration for the OpenTunnel request."
+            }
+          ]
+        },
+        "timeoutConfig": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TimeoutConfig"
+            },
+            {
+              "description": "Timeout configuration for a tunnel."
+            }
+          ]
+        }
+      },
+      "title": "OpenTunnelRequest",
+      "type": "object"
+    },
+    "OpenTunnelResponse": {
+      "properties": {
+        "destinationAccessToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ClientAccessToken"
+            },
+            {
+              "description": "The access token the destination local proxy uses to connect to AWS IoT Secure Tunneling."
+            }
+          ]
+        },
+        "sourceAccessToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ClientAccessToken"
+            },
+            {
+              "description": "The access token the source local proxy uses to connect to AWS IoT Secure Tunneling."
+            }
+          ]
+        },
+        "tunnelArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TunnelArn"
+            },
+            {
+              "description": "The Amazon Resource Name for the tunnel. The tunnel ARN format is <code>arn:aws:tunnel:&lt;region&gt;:&lt;account-id&gt;:tunnel/&lt;tunnel-id&gt;</code> "
+            }
+          ]
+        },
+        "tunnelId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TunnelId"
+            },
+            {
+              "description": "A unique alpha-numeric tunnel ID."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ResourceNotFoundException": {},
+    "Service": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "[a-zA-Z0-9:_-]+",
+      "type": "string"
+    },
+    "ServiceList": {
+      "items": {
+        "$ref": "#/definitions/Service"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "Tag": {
+      "description": "An arbitary key/value pair used to add searchable metadata to secure tunnel resources.",
+      "properties": {
+        "key": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagKey"
+            },
+            {
+              "description": "The key of the tag."
+            }
+          ]
+        },
+        "value": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagValue"
+            },
+            {
+              "description": "The value of the tag."
+            }
+          ]
+        }
+      },
+      "required": [
+        "key",
+        "value"
+      ],
+      "type": "object"
+    },
+    "TagKey": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
+      "type": "string"
+    },
+    "TagKeyList": {
+      "items": {
+        "$ref": "#/definitions/TagKey"
+      },
+      "maxItems": 200,
+      "minItems": 0,
+      "type": "array"
+    },
+    "TagList": {
+      "items": {
+        "$ref": "#/definitions/Tag"
+      },
+      "maxItems": 200,
+      "minItems": 1,
+      "type": "array"
+    },
+    "TagResourceRequest": {
+      "properties": {
+        "tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagList"
+            },
+            {
+              "description": "The tags for the resource."
+            }
+          ]
+        },
+        "resourceArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AmazonResourceName"
+            },
+            {
+              "description": "The ARN of the resource."
+            }
+          ]
+        }
+      },
+      "required": [
+        "resourceArn",
+        "tags"
+      ],
+      "title": "TagResourceRequest",
+      "type": "object"
+    },
+    "TagResourceResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "TagValue": {
+      "maxLength": 256,
+      "minLength": 0,
+      "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
+      "type": "string"
+    },
+    "ThingName": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "[a-zA-Z0-9:_-]+",
+      "type": "string"
+    },
+    "TimeoutConfig": {
+      "description": "Tunnel timeout configuration.",
+      "properties": {
+        "maxLifetimeTimeoutMinutes": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TimeoutInMin"
+            },
+            {
+              "description": "The maximum amount of time (in minutes) a tunnel can remain open. If not specified, maxLifetimeTimeoutMinutes defaults to 720 minutes. Valid values are from 1 minute to 12 hours (720 minutes) "
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "TimeoutInMin": {
+      "maximum": 720,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "Tunnel": {
+      "description": "A connection between a source computer and a destination device.",
+      "properties": {
+        "tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagList"
+            },
+            {
+              "description": "A list of tag metadata associated with the secure tunnel."
+            }
+          ]
+        },
+        "createdAt": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DateType"
+            },
+            {
+              "description": "The time when the tunnel was created."
+            }
+          ]
+        },
+        "description": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Description"
+            },
+            {
+              "description": "A description of the tunnel."
+            }
+          ]
+        },
+        "destinationConfig": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DestinationConfig"
+            },
+            {
+              "description": "The destination configuration that specifies the thing name of the destination device and a service name that the local proxy uses to connect to the destination application."
+            }
+          ]
+        },
+        "destinationConnectionState": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ConnectionState"
+            },
+            {
+              "description": "The connection state of the destination application."
+            }
+          ]
+        },
+        "lastUpdatedAt": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DateType"
+            },
+            {
+              "description": "The last time the tunnel was updated."
+            }
+          ]
+        },
+        "sourceConnectionState": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ConnectionState"
+            },
+            {
+              "description": "The connection state of the source application."
+            }
+          ]
+        },
+        "status": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TunnelStatus"
+            },
+            {
+              "description": "The status of a tunnel. Valid values are: Open and Closed."
+            }
+          ]
+        },
+        "timeoutConfig": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TimeoutConfig"
+            },
+            {
+              "description": "Timeout configuration for the tunnel."
+            }
+          ]
+        },
+        "tunnelArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TunnelArn"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of a tunnel. The tunnel ARN format is <code>arn:aws:tunnel:&lt;region&gt;:&lt;account-id&gt;:tunnel/&lt;tunnel-id&gt;</code> "
+            }
+          ]
+        },
+        "tunnelId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TunnelId"
+            },
+            {
+              "description": "A unique alpha-numeric ID that identifies a tunnel."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "TunnelArn": {
+      "maxLength": 1600,
+      "minLength": 1,
+      "type": "string"
+    },
+    "TunnelId": {
+      "pattern": "[a-zA-Z0-9_\\-+=:]{1,128}",
+      "type": "string"
+    },
+    "TunnelStatus": {
+      "enum": [
+        "OPEN",
+        "CLOSED"
+      ],
+      "type": "string"
+    },
+    "TunnelSummary": {
+      "description": "Information about the tunnel.",
+      "properties": {
+        "createdAt": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DateType"
+            },
+            {
+              "description": "The time the tunnel was created."
+            }
+          ]
+        },
+        "description": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Description"
+            },
+            {
+              "description": "A description of the tunnel."
+            }
+          ]
+        },
+        "lastUpdatedAt": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DateType"
+            },
+            {
+              "description": "The time the tunnel was last updated."
+            }
+          ]
+        },
+        "status": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TunnelStatus"
+            },
+            {
+              "description": "The status of a tunnel. Valid values are: Open and Closed."
+            }
+          ]
+        },
+        "tunnelArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TunnelArn"
+            },
+            {
+              "description": "The Amazon Resource Name of the tunnel. The tunnel ARN format is <code>arn:aws:tunnel:&lt;region&gt;:&lt;account-id&gt;:tunnel/&lt;tunnel-id&gt;</code> "
+            }
+          ]
+        },
+        "tunnelId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TunnelId"
+            },
+            {
+              "description": "The unique alpha-numeric identifier for the tunnel."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "TunnelSummaryList": {
+      "items": {
+        "$ref": "#/definitions/TunnelSummary"
+      },
+      "type": "array"
+    },
+    "UntagResourceRequest": {
+      "properties": {
+        "resourceArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AmazonResourceName"
+            },
+            {
+              "description": "The resource ARN."
+            }
+          ]
+        },
+        "tagKeys": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagKeyList"
+            },
+            {
+              "description": "The keys of the tags to remove."
+            }
+          ]
+        }
+      },
+      "required": [
+        "resourceArn",
+        "tagKeys"
+      ],
+      "title": "UntagResourceRequest",
+      "type": "object"
+    },
+    "UntagResourceResponse": {
+      "properties": {},
+      "type": "object"
+    }
+  },
+  "securityDefinitions": {
+    "hmac": {
+      "description": "Amazon Signature authorization v4",
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey",
+      "x-amazon-apigateway-authtype": "awsSigv4"
+    }
+  },
+  "security": [
+    {
+      "hmac": []
+    }
+  ],
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://docs.aws.amazon.com/iot/"
+  },
+  "x-components": {
+    "parameters": {
+      "X-Amz-Algorithm": {
+        "in": "header",
+        "name": "X-Amz-Algorithm",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Content-Sha256": {
+        "in": "header",
+        "name": "X-Amz-Content-Sha256",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Credential": {
+        "in": "header",
+        "name": "X-Amz-Credential",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Date": {
+        "in": "header",
+        "name": "X-Amz-Date",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Security-Token": {
+        "in": "header",
+        "name": "X-Amz-Security-Token",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Signature": {
+        "in": "header",
+        "name": "X-Amz-Signature",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-SignedHeaders": {
+        "in": "header",
+        "name": "X-Amz-SignedHeaders",
+        "required": false,
+        "type": "string"
+      }
+    }
+  },
+  "x-hasEquivalentPaths": true
+}

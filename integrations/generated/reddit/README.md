@@ -15,7 +15,7 @@ let reddit = require('@datafire/reddit').create({
   redirect_uri: ""
 });
 
-reddit.about.log.get({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

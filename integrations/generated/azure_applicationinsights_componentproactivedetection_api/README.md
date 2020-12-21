@@ -15,12 +15,7 @@ let azure_applicationinsights_componentproactivedetection_api = require('@datafi
   redirect_uri: ""
 });
 
-azure_applicationinsights_componentproactivedetection_api.ProactiveDetectionConfigurations_List({
-  "resourceGroupName": "",
-  "api-version": "",
-  "subscriptionId": "",
-  "resourceName": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -111,7 +106,19 @@ azure_applicationinsights_componentproactivedetection_api.ProactiveDetectionConf
 ## Definitions
 
 ### ApplicationInsightsComponentProactiveDetectionConfiguration
-* ApplicationInsightsComponentProactiveDetectionConfiguration `object`: Properties that define a ProactiveDetection configuration.
+* ApplicationInsightsComponentProactiveDetectionConfiguration `object`: A ProactiveDetection configuration definition.
+  * id `string`: Azure resource Id
+  * location `string`: Resource location
+  * name `string`: Azure resource name
+  * properties [ApplicationInsightsComponentProactiveDetectionConfigurationProperties](#applicationinsightscomponentproactivedetectionconfigurationproperties)
+  * type `string`: Azure resource type
+
+### ApplicationInsightsComponentProactiveDetectionConfigurationListResult
+* ApplicationInsightsComponentProactiveDetectionConfigurationListResult `array`: A list of ProactiveDetection configurations.
+  * items [ApplicationInsightsComponentProactiveDetectionConfiguration](#applicationinsightscomponentproactivedetectionconfiguration)
+
+### ApplicationInsightsComponentProactiveDetectionConfigurationProperties
+* ApplicationInsightsComponentProactiveDetectionConfigurationProperties `object`: Properties that define a ProactiveDetection configuration.
   * CustomEmails `array`: Custom email addresses for this rule notifications
     * items `string`
   * Enabled `boolean`: A flag that indicates whether this rule is enabled by the user
@@ -120,16 +127,12 @@ azure_applicationinsights_componentproactivedetection_api.ProactiveDetectionConf
   * RuleDefinitions `object`: Static definitions of the ProactiveDetection configuration rule (same values for all components).
     * Description `string`: The rule description
     * DisplayName `string`: The rule name as it is displayed in UI
-    * HelpUrl `string`: URL which displays aditional info about the proactive detection rule
+    * HelpUrl `string`: URL which displays additional info about the proactive detection rule
     * IsEnabledByDefault `boolean`: A flag indicating whether the rule is enabled by default
     * IsHidden `boolean`: A flag indicating whether the rule is hidden (from the UI)
     * IsInPreview `boolean`: A flag indicating whether the rule is in preview
     * Name `string`: The rule name
     * SupportsEmailNotifications `boolean`: A flag indicating whether email notifications are supported for detections for this rule
   * SendEmailsToSubscriptionOwners `boolean`: A flag that indicated whether notifications on this rule should be sent to subscription owners
-
-### ApplicationInsightsComponentProactiveDetectionConfigurationListResult
-* ApplicationInsightsComponentProactiveDetectionConfigurationListResult `array`: A list of ProactiveDetection configurations.
-  * items [ApplicationInsightsComponentProactiveDetectionConfiguration](#applicationinsightscomponentproactivedetectionconfiguration)
 
 

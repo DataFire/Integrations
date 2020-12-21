@@ -9,7 +9,7 @@ npm install --save @datafire/google_qpxexpress
 ```js
 let google_qpxexpress = require('@datafire/google_qpxexpress').create();
 
-google_qpxexpress.trips.search({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

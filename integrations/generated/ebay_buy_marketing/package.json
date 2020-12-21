@@ -1,8 +1,8 @@
 {
   "name": "@datafire/ebay_buy_marketing",
-  "version": "5.0.0",
+  "version": "6.0.0",
   "main": "index.js",
-  "description": "DataFire integration for Buy Marketing",
+  "description": "DataFire integration for Buy Marketing API",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DataFire/integrations.git"

@@ -119,7 +119,7 @@
             "type": "string"
           },
           {
-            "description": "number of entries you skip before returning results",
+            "description": "Number of entries you skip before returning results",
             "in": "query",
             "name": "$skip",
             "required": false,
@@ -137,117 +137,8 @@
           "200": {
             "description": "Return list of software update configurations runs.",
             "schema": {
-              "description": "result of listing all software update configuration runs",
-              "properties": {
-                "nextLink": {
-                  "description": "link to next page of results.",
-                  "type": "string"
-                },
-                "value": {
-                  "description": "outer object returned when listing all software update configuration runs",
-                  "items": {
-                    "description": "Software update configuration Run properties.",
-                    "properties": {
-                      "id": {
-                        "description": "Resource Id of the software update configuration run",
-                        "readOnly": true,
-                        "type": "string"
-                      },
-                      "name": {
-                        "description": "Name of the software update configuration run.",
-                        "readOnly": true,
-                        "type": "string"
-                      },
-                      "properties": {
-                        "description": "Software update configuration properties.",
-                        "properties": {
-                          "computerCount": {
-                            "description": "Number of computers in the software update configuration run.",
-                            "readOnly": true,
-                            "type": "integer"
-                          },
-                          "configuredDuration": {
-                            "description": "configured duration for the software update configuration run.",
-                            "readOnly": true,
-                            "type": "string"
-                          },
-                          "createdBy": {
-                            "description": "createdBy property, which only appears in the response.",
-                            "readOnly": true,
-                            "type": "string"
-                          },
-                          "creationTime": {
-                            "description": "Creation time of theresource, which only appears in the response.",
-                            "format": "date-time",
-                            "readOnly": true,
-                            "type": "string",
-                            "x-nullable": false
-                          },
-                          "endTime": {
-                            "description": "End time of the software update configuration run.",
-                            "format": "date-time",
-                            "readOnly": true,
-                            "type": "string",
-                            "x-nullable": true
-                          },
-                          "failedCount": {
-                            "description": "Number of computers with failed status.",
-                            "readOnly": true,
-                            "type": "integer"
-                          },
-                          "lastModifiedBy": {
-                            "description": "lastModifiedBy property, which only appears in the response.",
-                            "readOnly": true,
-                            "type": "string"
-                          },
-                          "lastModifiedTime": {
-                            "description": "Last time resource was modified, which only appears in the response.",
-                            "format": "date-time",
-                            "readOnly": true,
-                            "type": "string",
-                            "x-nullable": false
-                          },
-                          "osType": {
-                            "description": "Operating system target of the software update configuration triggered this run",
-                            "readOnly": true,
-                            "type": "string"
-                          },
-                          "softwareUpdateConfiguration": {
-                            "description": "Software update configuration Run Navigation model.",
-                            "properties": {
-                              "name": {
-                                "description": "Name of the software update configuration triggered the software update configuration run",
-                                "readOnly": true,
-                                "type": "string"
-                              }
-                            },
-                            "type": "object"
-                          },
-                          "startTime": {
-                            "description": "Etart time of the software update configuration run.",
-                            "format": "date-time",
-                            "readOnly": true,
-                            "type": "string",
-                            "x-nullable": false
-                          },
-                          "status": {
-                            "description": "Status of the software update configuration run.",
-                            "readOnly": true,
-                            "type": "string"
-                          }
-                        }
-                      }
-                    },
-                    "type": "object",
-                    "x-ms-azure-resource": false
-                  },
-                  "type": "array"
-                }
-              }
+              "$ref": "#/definitions/softwareUpdateConfigurationRunListResult"
             }
-          },
-          "404": {
-            "description": "Resource group, or account doesn't exist."
           },
           "default": {
             "description": "Automation error response describing why the operation failed.",
@@ -301,7 +192,15 @@
                           "name": "mypatch"
                         },
                         "startTime": "2017-10-23T02:30:36.2401233+00:00",
-                        "status": "Failed"
+                        "status": "Failed",
+                        "tasks": {
+                          "postTask": null,
+                          "preTask": {
+                            "jobId": "be430e9e-2290-462e-8f86-686407c35fab",
+                            "source": "preRunbook",
+                            "status": "Completed"
+                          }
+                        }
                       }
                     },
                     {
@@ -320,16 +219,20 @@
                           "name": "mypatch"
                         },
                         "startTime": "2017-10-23T01:33:01.8818952+00:00",
-                        "status": "Failed"
+                        "status": "Failed",
+                        "tasks": {
+                          "postTask": null,
+                          "preTask": {
+                            "jobId": "be430e9e-2290-462e-8f86-686407c35fab",
+                            "source": "preRunbook",
+                            "status": "Completed"
+                          }
+                        }
                       }
                     }
                   ]
                 },
                 "headers": {}
-              },
-              "404": {
-                "code": "NotFound",
-                "message": "{\"Message\":\"Could not find the account. SubscriptionId: 51766542-3ed7-4a72-a187-0c8ab644ddab AccountName: myaccount\"}"
               }
             }
           },
@@ -362,7 +265,15 @@
                           "name": "mypatch"
                         },
                         "startTime": "2017-10-23T02:30:36.2401233+00:00",
-                        "status": "Succeeded"
+                        "status": "Succeeded",
+                        "tasks": {
+                          "postTask": null,
+                          "preTask": {
+                            "jobId": "be430e9e-2290-462e-8f86-686407c35fab",
+                            "source": "preRunbook",
+                            "status": "Completed"
+                          }
+                        }
                       }
                     },
                     {
@@ -381,16 +292,20 @@
                           "name": "mypatch"
                         },
                         "startTime": "2017-10-23T01:33:01.8818952+00:00",
-                        "status": "Succeeded"
+                        "status": "Succeeded",
+                        "tasks": {
+                          "postTask": null,
+                          "preTask": {
+                            "jobId": "be430e9e-2290-462e-8f86-686407c35fab",
+                            "source": "preRunbook",
+                            "status": "Completed"
+                          }
+                        }
                       }
                     }
                   ]
                 },
                 "headers": {}
-              },
-              "404": {
-                "code": "NotFound",
-                "message": "{\"Message\":\"Could not find the account. SubscriptionId: 51766542-3ed7-4a72-a187-0c8ab644ddab AccountName: myaccount\"}"
               }
             }
           }
@@ -459,104 +374,8 @@
           "200": {
             "description": "A single software update configuration Run.",
             "schema": {
-              "description": "Software update configuration Run properties.",
-              "properties": {
-                "id": {
-                  "description": "Resource Id of the software update configuration run",
-                  "readOnly": true,
-                  "type": "string"
-                },
-                "name": {
-                  "description": "Name of the software update configuration run.",
-                  "readOnly": true,
-                  "type": "string"
-                },
-                "properties": {
-                  "description": "Software update configuration properties.",
-                  "properties": {
-                    "computerCount": {
-                      "description": "Number of computers in the software update configuration run.",
-                      "readOnly": true,
-                      "type": "integer"
-                    },
-                    "configuredDuration": {
-                      "description": "configured duration for the software update configuration run.",
-                      "readOnly": true,
-                      "type": "string"
-                    },
-                    "createdBy": {
-                      "description": "createdBy property, which only appears in the response.",
-                      "readOnly": true,
-                      "type": "string"
-                    },
-                    "creationTime": {
-                      "description": "Creation time of theresource, which only appears in the response.",
-                      "format": "date-time",
-                      "readOnly": true,
-                      "type": "string",
-                      "x-nullable": false
-                    },
-                    "endTime": {
-                      "description": "End time of the software update configuration run.",
-                      "format": "date-time",
-                      "readOnly": true,
-                      "type": "string",
-                      "x-nullable": true
-                    },
-                    "failedCount": {
-                      "description": "Number of computers with failed status.",
-                      "readOnly": true,
-                      "type": "integer"
-                    },
-                    "lastModifiedBy": {
-                      "description": "lastModifiedBy property, which only appears in the response.",
-                      "readOnly": true,
-                      "type": "string"
-                    },
-                    "lastModifiedTime": {
-                      "description": "Last time resource was modified, which only appears in the response.",
-                      "format": "date-time",
-                      "readOnly": true,
-                      "type": "string",
-                      "x-nullable": false
-                    },
-                    "osType": {
-                      "description": "Operating system target of the software update configuration triggered this run",
-                      "readOnly": true,
-                      "type": "string"
-                    },
-                    "softwareUpdateConfiguration": {
-                      "description": "Software update configuration Run Navigation model.",
-                      "properties": {
-                        "name": {
-                          "description": "Name of the software update configuration triggered the software update configuration run",
-                          "readOnly": true,
-                          "type": "string"
-                        }
-                      },
-                      "type": "object"
-                    },
-                    "startTime": {
-                      "description": "Etart time of the software update configuration run.",
-                      "format": "date-time",
-                      "readOnly": true,
-                      "type": "string",
-                      "x-nullable": false
-                    },
-                    "status": {
-                      "description": "Status of the software update configuration run.",
-                      "readOnly": true,
-                      "type": "string"
-                    }
-                  }
-                }
-              },
-              "type": "object",
-              "x-ms-azure-resource": false
+              "$ref": "#/definitions/softwareUpdateConfigurationRun"
             }
-          },
-          "404": {
-            "description": "Resource group, account, or software update configuration doesn't exist."
           },
           "default": {
             "description": "Automation error response describing why the operation failed.",
@@ -606,19 +425,182 @@
                       "name": "mypatch"
                     },
                     "startTime": "2017-10-23T02:30:36.2401233+00:00",
-                    "status": "Succeeded"
+                    "status": "Succeeded",
+                    "tasks": {
+                      "postTask": null,
+                      "preTask": {
+                        "jobId": "be430e9e-2290-462e-8f86-686407c35fab",
+                        "source": "preRunbook",
+                        "status": "Completed"
+                      }
+                    }
                   }
                 },
                 "headers": {}
-              },
-              "404": {
-                "code": "NotFound",
-                "message": "Software update configuration run not found"
               }
             }
           }
         }
       }
+    }
+  },
+  "definitions": {
+    "softareUpdateConfigurationRunTaskProperties": {
+      "description": "Task properties of the software update configuration.",
+      "properties": {
+        "jobId": {
+          "description": "The job id of the task.",
+          "type": "string"
+        },
+        "source": {
+          "description": "The name of the source of the task.",
+          "type": "string"
+        },
+        "status": {
+          "description": "The status of the task.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "softareUpdateConfigurationRunTasks": {
+      "description": "Software update configuration run tasks model.",
+      "properties": {
+        "postTask": {
+          "$ref": "#/definitions/softareUpdateConfigurationRunTaskProperties",
+          "description": "Post task properties."
+        },
+        "preTask": {
+          "$ref": "#/definitions/softareUpdateConfigurationRunTaskProperties",
+          "description": "Pre task properties."
+        }
+      },
+      "type": "object"
+    },
+    "softwareUpdateConfigurationRun": {
+      "description": "Software update configuration Run properties.",
+      "properties": {
+        "id": {
+          "description": "Resource Id of the software update configuration run",
+          "readOnly": true,
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of the software update configuration run.",
+          "readOnly": true,
+          "type": "string"
+        },
+        "properties": {
+          "$ref": "#/definitions/softwareUpdateConfigurationRunProperties",
+          "description": "Software update configuration Run properties.",
+          "x-ms-client-flatten": true
+        }
+      },
+      "type": "object",
+      "x-ms-azure-resource": false
+    },
+    "softwareUpdateConfigurationRunListResult": {
+      "description": "result of listing all software update configuration runs",
+      "properties": {
+        "nextLink": {
+          "description": "link to next page of results.",
+          "type": "string"
+        },
+        "value": {
+          "description": "outer object returned when listing all software update configuration runs",
+          "items": {
+            "$ref": "#/definitions/softwareUpdateConfigurationRun"
+          },
+          "type": "array"
+        }
+      }
+    },
+    "softwareUpdateConfigurationRunProperties": {
+      "description": "Software update configuration properties.",
+      "properties": {
+        "computerCount": {
+          "description": "Number of computers in the software update configuration run.",
+          "readOnly": true,
+          "type": "integer"
+        },
+        "configuredDuration": {
+          "description": "Configured duration for the software update configuration run.",
+          "readOnly": true,
+          "type": "string"
+        },
+        "createdBy": {
+          "description": "CreatedBy property, which only appears in the response.",
+          "readOnly": true,
+          "type": "string"
+        },
+        "creationTime": {
+          "description": "Creation time of the resource, which only appears in the response.",
+          "format": "date-time",
+          "readOnly": true,
+          "type": "string",
+          "x-nullable": false
+        },
+        "endTime": {
+          "description": "End time of the software update configuration run.",
+          "format": "date-time",
+          "readOnly": true,
+          "type": "string",
+          "x-nullable": true
+        },
+        "failedCount": {
+          "description": "Number of computers with failed status.",
+          "readOnly": true,
+          "type": "integer"
+        },
+        "lastModifiedBy": {
+          "description": "LastModifiedBy property, which only appears in the response.",
+          "readOnly": true,
+          "type": "string"
+        },
+        "lastModifiedTime": {
+          "description": "Last time resource was modified, which only appears in the response.",
+          "format": "date-time",
+          "readOnly": true,
+          "type": "string",
+          "x-nullable": false
+        },
+        "osType": {
+          "description": "Operating system target of the software update configuration triggered this run",
+          "readOnly": true,
+          "type": "string"
+        },
+        "softwareUpdateConfiguration": {
+          "$ref": "#/definitions/updateConfigurationNavigation",
+          "description": "software update configuration triggered this run"
+        },
+        "startTime": {
+          "description": "Start time of the software update configuration run.",
+          "format": "date-time",
+          "readOnly": true,
+          "type": "string",
+          "x-nullable": false
+        },
+        "status": {
+          "description": "Status of the software update configuration run.",
+          "readOnly": true,
+          "type": "string"
+        },
+        "tasks": {
+          "$ref": "#/definitions/softareUpdateConfigurationRunTasks",
+          "description": "Software update configuration tasks triggered in this run"
+        }
+      }
+    },
+    "updateConfigurationNavigation": {
+      "description": "Software update configuration Run Navigation model.",
+      "properties": {
+        "name": {
+          "description": "Name of the software update configuration triggered the software update configuration run",
+          "readOnly": true,
+          "type": "string"
+        }
+      },
+      "type": "object"
     }
   }
 }

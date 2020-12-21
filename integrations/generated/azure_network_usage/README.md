@@ -15,11 +15,7 @@ let azure_network_usage = require('@datafire/azure_network_usage').create({
   redirect_uri: ""
 });
 
-azure_network_usage.Usages_List({
-  "location": "",
-  "api-version": "",
-  "subscriptionId": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

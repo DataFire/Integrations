@@ -10,8 +10,8 @@
       "x-twitter": "thesmsworks"
     },
     "description": "The SMS Works provides a low-cost, reliable SMS API for developers. Pay only for delivered texts, all failed messages are refunded.",
-    "title": "The SMS Works",
-    "version": "1.0.0",
+    "title": "The SMS Works API",
+    "version": "1.4.0",
     "x-apisguru-categories": [
       "messaging"
     ],
@@ -48,11 +48,11 @@
   "paths": {
     "/auth/getApiKey": {
       "get": {
-        "description": "Generates an API Key/Secret pair",
+        "description": "Utility method. Please generate your API key by following the instructions on your account page at https://thesmsworks.co.uk/user/login",
         "operationId": "keySecret",
         "parameters": [
           {
-            "description": "The Customer ID",
+            "description": "Utility method. Please generate your API key by following the instructions on your account page at https://thesmsworks.co.uk/user/login",
             "in": "query",
             "name": "customerid",
             "required": true,
@@ -81,7 +81,7 @@
     },
     "/auth/token": {
       "post": {
-        "description": "Generates a Json Web Token",
+        "description": "Generates a JSON Web Token for including in the Authorization header of all your calls to the API. This only needs to be done once. Generate the customer ID, API Key & Secret required for this call from the API Key tab your account page.",
         "operationId": "login",
         "parameters": [
           {
@@ -211,7 +211,10 @@
           "200": {
             "description": "Success",
             "schema": {
-              "$ref": "#/definitions/MessagesResponse"
+              "items": {
+                "$ref": "#/definitions/MessageResponse"
+              },
+              "type": "array"
             }
           },
           "404": {
@@ -276,6 +279,81 @@
       },
       "x-swagger-router-controller": "smpp-client"
     },
+    "/credits/balance": {
+      "get": {
+        "description": "Returns the number of credits currently available on the account",
+        "operationId": "credits",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreditsResponse"
+            }
+          },
+          "default": {
+            "description": "Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorModel"
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "tags": [
+          "credits"
+        ]
+      },
+      "x-swagger-router-controller": "account-client"
+    },
+    "/message/flash": {
+      "post": {
+        "description": "Sends an SMS flash message, which appears on the recipients lock screen",
+        "operationId": "sendFlashMessage",
+        "parameters": [
+          {
+            "description": "Message properties",
+            "in": "body",
+            "name": "smsMessage",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Message"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/SendMessageResponse"
+            }
+          },
+          "402": {
+            "description": "Error",
+            "schema": {
+              "$ref": "#/definitions/ExtendedErrorModel"
+            }
+          },
+          "default": {
+            "description": "Error",
+            "schema": {
+              "$ref": "#/definitions/ExtendedErrorModel"
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "tags": [
+          "messages"
+        ]
+      },
+      "x-swagger-router-controller": "flash"
+    },
     "/message/schedule": {
       "post": {
         "description": "Schedules an SMS message to be sent at the date-time you specify",
@@ -319,7 +397,6 @@
     "/message/send": {
       "post": {
         "description": "Sends an SMS message",
-        "operationId": "sendMessage",
         "parameters": [
           {
             "description": "Message properties",
@@ -358,9 +435,9 @@
         ],
         "tags": [
           "messages"
-        ]
-      },
-      "x-swagger-router-controller": "smpp-client"
+        ],
+        "operationId": "message.send.post"
+      }
     },
     "/messages": {
       "post": {
@@ -380,7 +457,52 @@
           "200": {
             "description": "Success",
             "schema": {
-              "$ref": "#/definitions/MessagesResponse"
+              "items": {
+                "$ref": "#/definitions/MessageResponse"
+              },
+              "type": "array"
+            }
+          },
+          "default": {
+            "description": "Error",
+            "schema": {
+              "$ref": "#/definitions/ExtendedErrorModel"
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "tags": [
+          "messages"
+        ]
+      },
+      "x-swagger-router-controller": "message-client"
+    },
+    "/messages/failed": {
+      "post": {
+        "description": "Get failed messages matching your search criteria",
+        "operationId": "getFailedMessages",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "query",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Query"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/MessageResponse"
+              },
+              "type": "array"
             }
           },
           "default": {
@@ -419,7 +541,10 @@
           "200": {
             "description": "Success",
             "schema": {
-              "$ref": "#/definitions/MessagesResponse"
+              "items": {
+                "$ref": "#/definitions/MessageResponse"
+              },
+              "type": "array"
             }
           },
           "default": {
@@ -525,6 +650,33 @@
     "/swagger": {
       "x-swagger-pipe": "swagger_raw"
     },
+    "/utils/errors/{errorcode}": {
+      "get": {
+        "description": "Returns a sample error object for the given error code. Useful for designing code to react to errors when they occur for real.",
+        "operationId": "getError",
+        "parameters": [
+          {
+            "description": "The code of the error you would like returned",
+            "in": "path",
+            "name": "errorcode",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "Error",
+            "schema": {
+              "$ref": "#/definitions/ExtendedErrorModel"
+            }
+          }
+        },
+        "tags": [
+          "utils"
+        ]
+      },
+      "x-swagger-router-controller": "hello-world"
+    },
     "/utils/test": {
       "get": {
         "description": "Returns the customer ID to the caller",
@@ -547,7 +699,7 @@
           "utils"
         ]
       },
-      "x-swagger-router-controller": "hello_world"
+      "x-swagger-router-controller": "hello-world"
     }
   },
   "definitions": {
@@ -559,12 +711,17 @@
           "example": "My super awesome batch message",
           "type": "string"
         },
+        "deliveryreporturl": {
+          "description": "The url to which we should POST delivery reports to for this message. If none is specified, we'll use the global delivery report URL that you've configured on your account page.",
+          "example": "http://your.domain.com/delivery/report/path",
+          "type": "string"
+        },
         "destinations": {
           "description": "Telephone numbers of each of the recipients",
           "example": [
-            447777777777,
-            447777777778,
-            447777777779
+            "447777777777",
+            "447777777778",
+            "447777777779"
           ],
           "items": {
             "type": "string"
@@ -582,12 +739,12 @@
           "type": "string"
         },
         "tag": {
-          "description": "An identifying label for the message, which you can use to filter and report on messages you've sent later. Ideal for campaigns.",
+          "description": "An identifying label for the message, which you can use to filter and report on messages you've sent later. Ideal for campaigns. A maximum of 280 characters.",
           "example": "SummerSpecial",
           "type": "string"
         },
         "ttl": {
-          "description": "The number of minutes before the message is deleted. Optional. Omit to prevent delivery report deletion.",
+          "description": "The number of minutes before the message is deleted. Optional. Omit to prevent delivery report deletion. Integer.",
           "example": 10,
           "type": "number"
         }
@@ -595,8 +752,7 @@
       "required": [
         "sender",
         "destinations",
-        "content",
-        "schedule"
+        "content"
       ]
     },
     "BatchMessageResponse": {
@@ -631,6 +787,18 @@
         "status"
       ]
     },
+    "CreditsResponse": {
+      "properties": {
+        "credits": {
+          "description": "The number of remaining credits on your SMS Works account. Floating point number.",
+          "example": 180,
+          "type": "number"
+        }
+      },
+      "required": [
+        "credits"
+      ]
+    },
     "ErrorModel": {
       "properties": {
         "message": {
@@ -650,7 +818,11 @@
         {
           "properties": {
             "errorCode": {
+              "description": "Numeric code used to identify the error. Integer.",
               "type": "number"
+            },
+            "permanent": {
+              "type": "boolean"
             },
             "status": {
               "type": "string"
@@ -672,11 +844,11 @@
           "type": "string"
         },
         "key": {
-          "description": "API Key",
+          "description": "API Key, available from your account area at https://thesmsworks.co.uk/user/login",
           "type": "string"
         },
         "secret": {
-          "description": "API Secret",
+          "description": "API Secret, available from your account area at https://thesmsworks.co.uk/user/login",
           "type": "string"
         }
       }
@@ -685,18 +857,55 @@
       "description": "SMS message object",
       "properties": {
         "content": {
-          "description": "Message to send to the recipient. Content can be up to 640 characters in length. You will be charged 1 credit for each 160 characters, up to a maximum of 4 credits. Messages sent to numbers registered outside the UK will be charged double credits (i.e. 2 credits per 160 characters, up to maximum of 8 credits).",
+          "description": "Message to send to the recipient. Content can be up to 1280 characters in length. Messages of 160 characters or fewer are charged 1 credit. If your message is longer than 160 characters then it will be broken down in to chunks of 153 characters before being sent to the recipient's handset, and you will be charged 1 credit for each 153 characters. Messages sent to numbers registered outside the UK will be typically charged double credits, but for certain countries may be charged fractions of credits (e.g. 2.5). Please contact us for rates for each country.",
           "example": "Your super awesome message",
+          "type": "string"
+        },
+        "deliveryreporturl": {
+          "description": "The url to which we should POST delivery reports to for this message. If none is specified, we'll use the global delivery report URL that you've configured on your account page.",
+          "example": "http://your.domain.com/delivery/report/path",
           "type": "string"
         },
         "destination": {
           "description": "Telephone number of the recipient",
-          "example": 447777777777,
+          "example": "447777777777",
           "type": "string"
+        },
+        "metadata": {
+          "example": [
+            {
+              "key": "myKey1",
+              "value": "myValue1"
+            },
+            {
+              "key": "myKey2",
+              "value": "myValue2"
+            }
+          ],
+          "items": {
+            "type": "object"
+          },
+          "properties": {
+            "schema": {
+              "$ref": "#/definitions/MetaData"
+            }
+          },
+          "type": "array"
+        },
+        "responseemail": {
+          "description": "An optional list of email addresses to forward responses to this specific message to. An SMS Works Reply Number is required to use this feature.",
+          "example": [
+            "my.email@mycompany.co.uk",
+            "my.other.email@mycompany.co.uk"
+          ],
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
         },
         "schedule": {
           "description": "Date at which to send the message. This is only used by the message/schedule service and can be left empty for other services.",
-          "example": "Sun Sep 03 2017 15:34:23 GMT+0100 (BST)",
+          "example": "Sun Sep 03 2020 15:34:23 GMT+0100 (BST)",
           "type": "string"
         },
         "sender": {
@@ -705,12 +914,12 @@
           "type": "string"
         },
         "tag": {
-          "description": "An identifying label for the message, which you can use to filter and report on messages you've sent later. Ideal for campaigns.",
+          "description": "An identifying label for the message, which you can use to filter and report on messages you've sent later. Ideal for campaigns. A maximum of 280 characters.",
           "example": "SummerSpecial",
           "type": "string"
         },
         "ttl": {
-          "description": "The number of minutes before the message is deleted. Optional. Omit to prevent delivery report deletion.",
+          "description": "The optional number of minutes before the message is deleted. Optional. Omit to prevent delivery report deletion. Integer.",
           "example": 10,
           "type": "number"
         }
@@ -718,14 +927,13 @@
       "required": [
         "sender",
         "destination",
-        "content",
-        "schedule"
+        "content"
       ]
     },
     "MessageResponse": {
       "properties": {
         "batchid": {
-          "example": 2586749,
+          "example": "2586749",
           "type": "string"
         },
         "content": {
@@ -740,13 +948,18 @@
           "example": "0fca8c3c-6cbc-11e7-8154-a6006ad3dba0",
           "type": "string"
         },
+        "deliveryreporturl": {
+          "example": "https://your.domain.com/delivery/report/path",
+          "type": "string"
+        },
         "destination": {
-          "example": 447777777777,
+          "example": "447777777777",
           "type": "number"
         },
-        "failureReason": {
+        "failurereason": {
           "properties": {
             "code": {
+              "description": "Numeric code that defines the error. Integer.",
               "example": 34,
               "type": "number"
             },
@@ -765,8 +978,12 @@
           "example": 123456789,
           "type": "string"
         },
+        "identifier": {
+          "example": 7777777777,
+          "type": "string"
+        },
         "keyword": {
-          "example": "SOLO",
+          "example": "CALRISSIAN",
           "type": "string"
         },
         "messageid": {
@@ -795,12 +1012,10 @@
         }
       },
       "required": [
-        "batchid",
         "content",
         "created",
         "customerid",
         "destination",
-        "keyword",
         "messageid",
         "modified",
         "schedule",
@@ -809,30 +1024,32 @@
         "tag"
       ]
     },
-    "MessagesResponse": {
+    "MetaData": {
+      "description": "Key/value pair that will be returned to you in the API call response.",
       "properties": {
-        "messages": {
-          "items": {
-            "type": "object"
-          },
-          "properties": {
-            "schema": {
-              "$ref": "#/definitions/MessageResponse"
-            }
-          },
-          "type": "array"
+        "key": {
+          "description": "key of the key/value pair",
+          "example": "myKey",
+          "type": "string"
+        },
+        "value": {
+          "description": "value of the key/value pair",
+          "example": "myValue",
+          "type": "string"
         }
-      },
-      "required": [
-        "messages"
-      ]
+      }
     },
     "Query": {
       "description": "search parameters for querying the message database",
       "properties": {
+        "credits": {
+          "description": "The number of credits used on the message. Floating point number.",
+          "example": 2,
+          "type": "number"
+        },
         "destination": {
           "description": "The phone number of the recipient. Start UK numbers with 44 and drop the leading 0.",
-          "example": 447777777777,
+          "example": "447777777777",
           "type": "string"
         },
         "from": {
@@ -845,13 +1062,35 @@
           "example": "SKYWALKER",
           "type": "string"
         },
+        "metadata": {
+          "description": "An array of objects containing metadata key/value pairs that have been saved on messages.",
+          "example": [
+            {
+              "key": "myKey1",
+              "value": "myValue1"
+            },
+            {
+              "key": "myKey2",
+              "value": "myValue2"
+            }
+          ],
+          "items": {
+            "type": "object"
+          },
+          "properties": {
+            "schema": {
+              "$ref": "#/definitions/MetaData"
+            }
+          },
+          "type": "array"
+        },
         "sender": {
           "description": "The sender of the message (this can be the configured sender name for an outbound message or the senders phone number for an inbound message).",
           "example": "YourCompany",
           "type": "string"
         },
         "status": {
-          "description": "The status of the messages you would like returned (either 'SENT', 'DELIVERED', 'EXPIRED', 'DELETED', 'UNDELIVERABLE', 'ACCEPTED', 'UNKNOWN', 'REJECTED')",
+          "description": "The status of the messages you would like returned (either 'SENT', 'DELIVERED', 'EXPIRED', 'UNDELIVERABLE', 'REJECTED' or 'INCOMING')",
           "example": "SENT",
           "type": "string"
         },
@@ -859,6 +1098,10 @@
           "description": "The date-time to which you would like matching messages",
           "example": "Wed Jul 19 2017 20:26:28 GMT+0100 (BST)",
           "type": "string"
+        },
+        "unread": {
+          "description": "In queries for incoming messages ('status' is 'INCOMING'), specify whether you explicitly want unread messages (true) or read messages (false). Omit this parameter in other circumstances.",
+          "type": "boolean"
         }
       }
     },
@@ -897,8 +1140,14 @@
     "SendMessageResponse": {
       "properties": {
         "credits": {
+          "description": "The number of remaining credits on your SMS Works account. Floating point number.",
           "example": 180,
-          "type": "integer"
+          "type": "number"
+        },
+        "creditsUsed": {
+          "description": "The number of credits used to send the message. Floating point number.",
+          "example": 2,
+          "type": "number"
         },
         "messageid": {
           "example": 123456789,
@@ -912,7 +1161,8 @@
       "required": [
         "messageid",
         "status",
-        "credits"
+        "credits",
+        "creditsUsed"
       ]
     },
     "TestResponse": {

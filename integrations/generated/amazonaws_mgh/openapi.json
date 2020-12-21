@@ -1,12 +1,5 @@
 {
   "swagger": "2.0",
-  "schemes": [
-    "https",
-    "http"
-  ],
-  "host": "mgh.amazonaws.com",
-  "basePath": "/",
-  "x-hasEquivalentPaths": true,
   "info": {
     "contact": {
       "email": "mike.ralphson@gmail.com",
@@ -14,7 +7,7 @@
       "url": "https://github.com/mermade/aws2openapi",
       "x-twitter": "PermittedSoc"
     },
-    "description": "The AWS Migration Hub API methods help to obtain server and application migration status and integrate your resource-specific migration tool by providing a programmatic interface to Migration Hub. ",
+    "description": "<p>The AWS Migration Hub API methods help to obtain server and application migration status and integrate your resource-specific migration tool by providing a programmatic interface to Migration Hub.</p> <p>Remember that you must set your AWS Migration Hub home region before you call any of these APIs, or a <code>HomeRegionNotSetException</code> error will be returned. Also, you must make the API calls while in your home region.</p>",
     "license": {
       "name": "Apache 2.0 License",
       "url": "http://www.apache.org/licenses/"
@@ -30,7 +23,7 @@
     ],
     "x-logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.jpeg"
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"
     },
     "x-origin": [
       {
@@ -40,7 +33,7 @@
           "version": "1.0.0"
         },
         "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/AWSMigrationHub-2017-05-31.normal.json",
-        "x-apisguru-direct": true
+        "x-apisguru-driver": "external"
       }
     ],
     "x-preferred": true,
@@ -52,121 +45,74 @@
       "type": "openapi"
     }
   },
-  "externalDocs": {
-    "description": "Amazon Web Services documentation",
-    "url": "https://aws.amazon.com/mgh/"
-  },
-  "consumes": [
-    "application/json"
+  "host": "mgh.us-east-1.amazonaws.com",
+  "basePath": "/",
+  "schemes": [
+    "http"
   ],
-  "produces": [
-    "application/json"
-  ],
-  "securityDefinitions": {
-    "hmac": {
-      "description": "Amazon Signature authorization v4",
-      "in": "header",
-      "name": "Authorization",
-      "type": "apiKey",
-      "x-amazon-apigateway-authtype": "awsSigv4"
-    }
-  },
-  "security": [
-    {
-      "hmac": []
-    }
-  ],
-  "parameters": {
-    "Action": {
-      "in": "header",
-      "name": "Action",
-      "required": true,
-      "type": "string"
-    },
-    "Version": {
-      "in": "header",
-      "name": "Version",
-      "required": true,
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "in": "header",
-      "name": "X-Amz-Algorithm",
-      "required": false,
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "in": "header",
-      "name": "X-Amz-Content-Sha256",
-      "required": false,
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "in": "header",
-      "name": "X-Amz-Credential",
-      "required": false,
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "in": "header",
-      "name": "X-Amz-Date",
-      "required": false,
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "in": "header",
-      "name": "X-Amz-Security-Token",
-      "required": false,
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "in": "header",
-      "name": "X-Amz-Signature",
-      "required": false,
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "in": "header",
-      "name": "X-Amz-SignedHeaders",
-      "required": false,
-      "type": "string"
-    }
-  },
   "paths": {
-    "/": {
+    "/#X-Amz-Target=AWSMigrationHub.AssociateCreatedArtifact": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "<p>Associates a created artifact of an AWS cloud resource, the target receiving the migration, with the migration task performed by a migration tool. This API has the following traits:</p> <ul> <li> <p>Migration tools can call the <code>AssociateCreatedArtifact</code> operation to indicate which AWS artifact is associated with a migration task.</p> </li> <li> <p>The created artifact name must be provided in ARN (Amazon Resource Name) format which will contain information about type and region; for example: <code>arn:aws:ec2:us-east-1:488216288981:image/ami-6d0ba87b</code>.</p> </li> <li> <p>Examples of the AWS resource behind the created artifact are, AMI's, EC2 instance, or DMS endpoint, etc.</p> </li> </ul>",
-        "operationId": "AssociateCreatedArtifact",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "enum": [
+              "AWSMigrationHub.AssociateCreatedArtifact"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -190,78 +136,120 @@
             }
           },
           "481": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "482": {
             "description": "InternalServerError",
             "schema": {
               "$ref": "#/definitions/InternalServerError"
             }
           },
-          "482": {
+          "483": {
             "description": "ServiceUnavailableException",
             "schema": {
               "$ref": "#/definitions/ServiceUnavailableException"
             }
           },
-          "483": {
+          "484": {
             "description": "DryRunOperation",
             "schema": {
               "$ref": "#/definitions/DryRunOperation"
             }
           },
-          "484": {
+          "485": {
             "description": "UnauthorizedOperation",
             "schema": {
               "$ref": "#/definitions/UnauthorizedOperation"
             }
           },
-          "485": {
+          "486": {
             "description": "InvalidInputException",
             "schema": {
               "$ref": "#/definitions/InvalidInputException"
             }
           },
-          "486": {
+          "487": {
             "description": "ResourceNotFoundException",
             "schema": {
               "$ref": "#/definitions/ResourceNotFoundException"
             }
+          },
+          "488": {
+            "description": "HomeRegionNotSetException",
+            "schema": {
+              "$ref": "#/definitions/HomeRegionNotSetException"
+            }
           }
-        }
+        },
+        "description": "<p>Associates a created artifact of an AWS cloud resource, the target receiving the migration, with the migration task performed by a migration tool. This API has the following traits:</p> <ul> <li> <p>Migration tools can call the <code>AssociateCreatedArtifact</code> operation to indicate which AWS artifact is associated with a migration task.</p> </li> <li> <p>The created artifact name must be provided in ARN (Amazon Resource Name) format which will contain information about type and region; for example: <code>arn:aws:ec2:us-east-1:488216288981:image/ami-6d0ba87b</code>.</p> </li> <li> <p>Examples of the AWS resource behind the created artifact are, AMI's, EC2 instance, or DMS endpoint, etc.</p> </li> </ul>",
+        "operationId": "AssociateCreatedArtifact"
       }
     },
-    "/#AssociateDiscoveredResource": {
+    "/#X-Amz-Target=AWSMigrationHub.AssociateDiscoveredResource": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Associates a discovered resource ID from Application Discovery Service (ADS) with a migration task.",
-        "operationId": "AssociateDiscoveredResource",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "enum": [
+              "AWSMigrationHub.AssociateDiscoveredResource"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -285,84 +273,126 @@
             }
           },
           "481": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "482": {
             "description": "InternalServerError",
             "schema": {
               "$ref": "#/definitions/InternalServerError"
             }
           },
-          "482": {
+          "483": {
             "description": "ServiceUnavailableException",
             "schema": {
               "$ref": "#/definitions/ServiceUnavailableException"
             }
           },
-          "483": {
+          "484": {
             "description": "DryRunOperation",
             "schema": {
               "$ref": "#/definitions/DryRunOperation"
             }
           },
-          "484": {
+          "485": {
             "description": "UnauthorizedOperation",
             "schema": {
               "$ref": "#/definitions/UnauthorizedOperation"
             }
           },
-          "485": {
+          "486": {
             "description": "InvalidInputException",
             "schema": {
               "$ref": "#/definitions/InvalidInputException"
             }
           },
-          "486": {
+          "487": {
             "description": "PolicyErrorException",
             "schema": {
               "$ref": "#/definitions/PolicyErrorException"
             }
           },
-          "487": {
+          "488": {
             "description": "ResourceNotFoundException",
             "schema": {
               "$ref": "#/definitions/ResourceNotFoundException"
             }
+          },
+          "489": {
+            "description": "HomeRegionNotSetException",
+            "schema": {
+              "$ref": "#/definitions/HomeRegionNotSetException"
+            }
           }
-        }
+        },
+        "description": "Associates a discovered resource ID from Application Discovery Service with a migration task.",
+        "operationId": "AssociateDiscoveredResource"
       }
     },
-    "/#CreateProgressUpdateStream": {
+    "/#X-Amz-Target=AWSMigrationHub.CreateProgressUpdateStream": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Creates a progress update stream which is an AWS resource used for access control as well as a namespace for migration task names that is implicitly linked to your AWS account. It must uniquely identify the migration tool as it is used for all updates made by the tool; however, it does not need to be unique for each AWS account because it is scoped to the AWS account.",
-        "operationId": "CreateProgressUpdateStream",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "enum": [
+              "AWSMigrationHub.CreateProgressUpdateStream"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -386,72 +416,114 @@
             }
           },
           "481": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "482": {
             "description": "InternalServerError",
             "schema": {
               "$ref": "#/definitions/InternalServerError"
             }
           },
-          "482": {
+          "483": {
             "description": "ServiceUnavailableException",
             "schema": {
               "$ref": "#/definitions/ServiceUnavailableException"
             }
           },
-          "483": {
+          "484": {
             "description": "DryRunOperation",
             "schema": {
               "$ref": "#/definitions/DryRunOperation"
             }
           },
-          "484": {
+          "485": {
             "description": "UnauthorizedOperation",
             "schema": {
               "$ref": "#/definitions/UnauthorizedOperation"
             }
           },
-          "485": {
+          "486": {
             "description": "InvalidInputException",
             "schema": {
               "$ref": "#/definitions/InvalidInputException"
             }
+          },
+          "487": {
+            "description": "HomeRegionNotSetException",
+            "schema": {
+              "$ref": "#/definitions/HomeRegionNotSetException"
+            }
           }
-        }
+        },
+        "description": "Creates a progress update stream which is an AWS resource used for access control as well as a namespace for migration task names that is implicitly linked to your AWS account. It must uniquely identify the migration tool as it is used for all updates made by the tool; however, it does not need to be unique for each AWS account because it is scoped to the AWS account.",
+        "operationId": "CreateProgressUpdateStream"
       }
     },
-    "/#DeleteProgressUpdateStream": {
+    "/#X-Amz-Target=AWSMigrationHub.DeleteProgressUpdateStream": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "<p>Deletes a progress update stream, including all of its tasks, which was previously created as an AWS resource used for access control. This API has the following traits:</p> <ul> <li> <p>The only parameter needed for <code>DeleteProgressUpdateStream</code> is the stream name (same as a <code>CreateProgressUpdateStream</code> call).</p> </li> <li> <p>The call will return, and a background process will asynchronously delete the stream and all of its resources (tasks, associated resources, resource attributes, created artifacts).</p> </li> <li> <p>If the stream takes time to be deleted, it might still show up on a <code>ListProgressUpdateStreams</code> call.</p> </li> <li> <p> <code>CreateProgressUpdateStream</code>, <code>ImportMigrationTask</code>, <code>NotifyMigrationTaskState</code>, and all Associate[*] APIs realted to the tasks belonging to the stream will throw \"InvalidInputException\" if the stream of the same name is in the process of being deleted.</p> </li> <li> <p>Once the stream and all of its resources are deleted, <code>CreateProgressUpdateStream</code> for a stream of the same name will succeed, and that stream will be an entirely new logical resource (without any resources associated with the old stream).</p> </li> </ul>",
-        "operationId": "DeleteProgressUpdateStream",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "enum": [
+              "AWSMigrationHub.DeleteProgressUpdateStream"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -475,78 +547,120 @@
             }
           },
           "481": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "482": {
             "description": "InternalServerError",
             "schema": {
               "$ref": "#/definitions/InternalServerError"
             }
           },
-          "482": {
+          "483": {
             "description": "ServiceUnavailableException",
             "schema": {
               "$ref": "#/definitions/ServiceUnavailableException"
             }
           },
-          "483": {
+          "484": {
             "description": "DryRunOperation",
             "schema": {
               "$ref": "#/definitions/DryRunOperation"
             }
           },
-          "484": {
+          "485": {
             "description": "UnauthorizedOperation",
             "schema": {
               "$ref": "#/definitions/UnauthorizedOperation"
             }
           },
-          "485": {
+          "486": {
             "description": "InvalidInputException",
             "schema": {
               "$ref": "#/definitions/InvalidInputException"
             }
           },
-          "486": {
+          "487": {
             "description": "ResourceNotFoundException",
             "schema": {
               "$ref": "#/definitions/ResourceNotFoundException"
             }
+          },
+          "488": {
+            "description": "HomeRegionNotSetException",
+            "schema": {
+              "$ref": "#/definitions/HomeRegionNotSetException"
+            }
           }
-        }
+        },
+        "description": "<p>Deletes a progress update stream, including all of its tasks, which was previously created as an AWS resource used for access control. This API has the following traits:</p> <ul> <li> <p>The only parameter needed for <code>DeleteProgressUpdateStream</code> is the stream name (same as a <code>CreateProgressUpdateStream</code> call).</p> </li> <li> <p>The call will return, and a background process will asynchronously delete the stream and all of its resources (tasks, associated resources, resource attributes, created artifacts).</p> </li> <li> <p>If the stream takes time to be deleted, it might still show up on a <code>ListProgressUpdateStreams</code> call.</p> </li> <li> <p> <code>CreateProgressUpdateStream</code>, <code>ImportMigrationTask</code>, <code>NotifyMigrationTaskState</code>, and all Associate[*] APIs related to the tasks belonging to the stream will throw \"InvalidInputException\" if the stream of the same name is in the process of being deleted.</p> </li> <li> <p>Once the stream and all of its resources are deleted, <code>CreateProgressUpdateStream</code> for a stream of the same name will succeed, and that stream will be an entirely new logical resource (without any resources associated with the old stream).</p> </li> </ul>",
+        "operationId": "DeleteProgressUpdateStream"
       }
     },
-    "/#DescribeApplicationState": {
+    "/#X-Amz-Target=AWSMigrationHub.DescribeApplicationState": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Gets the migration status of an application.",
-        "operationId": "DescribeApplicationState",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "enum": [
+              "AWSMigrationHub.DescribeApplicationState"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -570,72 +684,114 @@
             }
           },
           "481": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "482": {
             "description": "InternalServerError",
             "schema": {
               "$ref": "#/definitions/InternalServerError"
             }
           },
-          "482": {
+          "483": {
             "description": "ServiceUnavailableException",
             "schema": {
               "$ref": "#/definitions/ServiceUnavailableException"
             }
           },
-          "483": {
+          "484": {
             "description": "InvalidInputException",
             "schema": {
               "$ref": "#/definitions/InvalidInputException"
             }
           },
-          "484": {
+          "485": {
             "description": "PolicyErrorException",
             "schema": {
               "$ref": "#/definitions/PolicyErrorException"
             }
           },
-          "485": {
+          "486": {
             "description": "ResourceNotFoundException",
             "schema": {
               "$ref": "#/definitions/ResourceNotFoundException"
             }
+          },
+          "487": {
+            "description": "HomeRegionNotSetException",
+            "schema": {
+              "$ref": "#/definitions/HomeRegionNotSetException"
+            }
           }
-        }
+        },
+        "description": "Gets the migration status of an application.",
+        "operationId": "DescribeApplicationState"
       }
     },
-    "/#DescribeMigrationTask": {
+    "/#X-Amz-Target=AWSMigrationHub.DescribeMigrationTask": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Retrieves a list of all attributes associated with a specific migration task.",
-        "operationId": "DescribeMigrationTask",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "enum": [
+              "AWSMigrationHub.DescribeMigrationTask"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -659,66 +815,108 @@
             }
           },
           "481": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "482": {
             "description": "InternalServerError",
             "schema": {
               "$ref": "#/definitions/InternalServerError"
             }
           },
-          "482": {
+          "483": {
             "description": "ServiceUnavailableException",
             "schema": {
               "$ref": "#/definitions/ServiceUnavailableException"
             }
           },
-          "483": {
+          "484": {
             "description": "InvalidInputException",
             "schema": {
               "$ref": "#/definitions/InvalidInputException"
             }
           },
-          "484": {
+          "485": {
             "description": "ResourceNotFoundException",
             "schema": {
               "$ref": "#/definitions/ResourceNotFoundException"
             }
+          },
+          "486": {
+            "description": "HomeRegionNotSetException",
+            "schema": {
+              "$ref": "#/definitions/HomeRegionNotSetException"
+            }
           }
-        }
+        },
+        "description": "Retrieves a list of all attributes associated with a specific migration task.",
+        "operationId": "DescribeMigrationTask"
       }
     },
-    "/#DisassociateCreatedArtifact": {
+    "/#X-Amz-Target=AWSMigrationHub.DisassociateCreatedArtifact": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "<p>Disassociates a created artifact of an AWS resource with a migration task performed by a migration tool that was previously associated. This API has the following traits:</p> <ul> <li> <p>A migration user can call the <code>DisassociateCreatedArtifacts</code> operation to disassociate a created AWS Artifact from a migration task.</p> </li> <li> <p>The created artifact name must be provided in ARN (Amazon Resource Name) format which will contain information about type and region; for example: <code>arn:aws:ec2:us-east-1:488216288981:image/ami-6d0ba87b</code>.</p> </li> <li> <p>Examples of the AWS resource behind the created artifact are, AMI's, EC2 instance, or RDS instance, etc.</p> </li> </ul>",
-        "operationId": "DisassociateCreatedArtifact",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "enum": [
+              "AWSMigrationHub.DisassociateCreatedArtifact"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -742,78 +940,120 @@
             }
           },
           "481": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "482": {
             "description": "InternalServerError",
             "schema": {
               "$ref": "#/definitions/InternalServerError"
             }
           },
-          "482": {
+          "483": {
             "description": "ServiceUnavailableException",
             "schema": {
               "$ref": "#/definitions/ServiceUnavailableException"
             }
           },
-          "483": {
+          "484": {
             "description": "DryRunOperation",
             "schema": {
               "$ref": "#/definitions/DryRunOperation"
             }
           },
-          "484": {
+          "485": {
             "description": "UnauthorizedOperation",
             "schema": {
               "$ref": "#/definitions/UnauthorizedOperation"
             }
           },
-          "485": {
+          "486": {
             "description": "InvalidInputException",
             "schema": {
               "$ref": "#/definitions/InvalidInputException"
             }
           },
-          "486": {
+          "487": {
             "description": "ResourceNotFoundException",
             "schema": {
               "$ref": "#/definitions/ResourceNotFoundException"
             }
+          },
+          "488": {
+            "description": "HomeRegionNotSetException",
+            "schema": {
+              "$ref": "#/definitions/HomeRegionNotSetException"
+            }
           }
-        }
+        },
+        "description": "<p>Disassociates a created artifact of an AWS resource with a migration task performed by a migration tool that was previously associated. This API has the following traits:</p> <ul> <li> <p>A migration user can call the <code>DisassociateCreatedArtifacts</code> operation to disassociate a created AWS Artifact from a migration task.</p> </li> <li> <p>The created artifact name must be provided in ARN (Amazon Resource Name) format which will contain information about type and region; for example: <code>arn:aws:ec2:us-east-1:488216288981:image/ami-6d0ba87b</code>.</p> </li> <li> <p>Examples of the AWS resource behind the created artifact are, AMI's, EC2 instance, or RDS instance, etc.</p> </li> </ul>",
+        "operationId": "DisassociateCreatedArtifact"
       }
     },
-    "/#DisassociateDiscoveredResource": {
+    "/#X-Amz-Target=AWSMigrationHub.DisassociateDiscoveredResource": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Disassociate an Application Discovery Service (ADS) discovered resource from a migration task.",
-        "operationId": "DisassociateDiscoveredResource",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "enum": [
+              "AWSMigrationHub.DisassociateDiscoveredResource"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -837,78 +1077,120 @@
             }
           },
           "481": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "482": {
             "description": "InternalServerError",
             "schema": {
               "$ref": "#/definitions/InternalServerError"
             }
           },
-          "482": {
+          "483": {
             "description": "ServiceUnavailableException",
             "schema": {
               "$ref": "#/definitions/ServiceUnavailableException"
             }
           },
-          "483": {
+          "484": {
             "description": "DryRunOperation",
             "schema": {
               "$ref": "#/definitions/DryRunOperation"
             }
           },
-          "484": {
+          "485": {
             "description": "UnauthorizedOperation",
             "schema": {
               "$ref": "#/definitions/UnauthorizedOperation"
             }
           },
-          "485": {
+          "486": {
             "description": "InvalidInputException",
             "schema": {
               "$ref": "#/definitions/InvalidInputException"
             }
           },
-          "486": {
+          "487": {
             "description": "ResourceNotFoundException",
             "schema": {
               "$ref": "#/definitions/ResourceNotFoundException"
             }
+          },
+          "488": {
+            "description": "HomeRegionNotSetException",
+            "schema": {
+              "$ref": "#/definitions/HomeRegionNotSetException"
+            }
           }
-        }
+        },
+        "description": "Disassociate an Application Discovery Service discovered resource from a migration task.",
+        "operationId": "DisassociateDiscoveredResource"
       }
     },
-    "/#ImportMigrationTask": {
+    "/#X-Amz-Target=AWSMigrationHub.ImportMigrationTask": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "<p>Registers a new migration task which represents a server, database, etc., being migrated to AWS by a migration tool.</p> <p>This API is a prerequisite to calling the <code>NotifyMigrationTaskState</code> API as the migration tool must first register the migration task with Migration Hub.</p>",
-        "operationId": "ImportMigrationTask",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "enum": [
+              "AWSMigrationHub.ImportMigrationTask"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -932,78 +1214,267 @@
             }
           },
           "481": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "482": {
             "description": "InternalServerError",
             "schema": {
               "$ref": "#/definitions/InternalServerError"
             }
           },
-          "482": {
+          "483": {
             "description": "ServiceUnavailableException",
             "schema": {
               "$ref": "#/definitions/ServiceUnavailableException"
             }
           },
-          "483": {
+          "484": {
             "description": "DryRunOperation",
             "schema": {
               "$ref": "#/definitions/DryRunOperation"
             }
           },
-          "484": {
+          "485": {
             "description": "UnauthorizedOperation",
             "schema": {
               "$ref": "#/definitions/UnauthorizedOperation"
             }
           },
-          "485": {
+          "486": {
             "description": "InvalidInputException",
             "schema": {
               "$ref": "#/definitions/InvalidInputException"
             }
           },
-          "486": {
+          "487": {
             "description": "ResourceNotFoundException",
             "schema": {
               "$ref": "#/definitions/ResourceNotFoundException"
             }
+          },
+          "488": {
+            "description": "HomeRegionNotSetException",
+            "schema": {
+              "$ref": "#/definitions/HomeRegionNotSetException"
+            }
           }
-        }
+        },
+        "description": "<p>Registers a new migration task which represents a server, database, etc., being migrated to AWS by a migration tool.</p> <p>This API is a prerequisite to calling the <code>NotifyMigrationTaskState</code> API as the migration tool must first register the migration task with Migration Hub.</p>",
+        "operationId": "ImportMigrationTask"
       }
     },
-    "/#ListCreatedArtifacts": {
+    "/#X-Amz-Target=AWSMigrationHub.ListApplicationStates": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "<p>Lists the created artifacts attached to a given migration task in an update stream. This API has the following traits:</p> <ul> <li> <p>Gets the list of the created artifacts while migration is taking place.</p> </li> <li> <p>Shows the artifacts created by the migration tool that was associated by the <code>AssociateCreatedArtifact</code> API. </p> </li> <li> <p>Lists created artifacts in a paginated interface. </p> </li> </ul>",
-        "operationId": "ListCreatedArtifacts",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "AWSMigrationHub.ListApplicationStates"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListApplicationStatesRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListApplicationStatesResult"
+            }
+          },
+          "480": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "481": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "482": {
+            "description": "InternalServerError",
+            "schema": {
+              "$ref": "#/definitions/InternalServerError"
+            }
+          },
+          "483": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "484": {
+            "description": "InvalidInputException",
+            "schema": {
+              "$ref": "#/definitions/InvalidInputException"
+            }
+          },
+          "485": {
+            "description": "HomeRegionNotSetException",
+            "schema": {
+              "$ref": "#/definitions/HomeRegionNotSetException"
+            }
+          }
+        },
+        "description": "Lists all the migration statuses for your applications. If you use the optional <code>ApplicationIds</code> parameter, only the migration statuses for those applications will be returned.",
+        "operationId": "ListApplicationStates"
+      }
+    },
+    "/#X-Amz-Target=AWSMigrationHub.ListCreatedArtifacts": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "AWSMigrationHub.ListCreatedArtifacts"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -1027,66 +1498,122 @@
             }
           },
           "481": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "482": {
             "description": "InternalServerError",
             "schema": {
               "$ref": "#/definitions/InternalServerError"
             }
           },
-          "482": {
+          "483": {
             "description": "ServiceUnavailableException",
             "schema": {
               "$ref": "#/definitions/ServiceUnavailableException"
             }
           },
-          "483": {
+          "484": {
             "description": "InvalidInputException",
             "schema": {
               "$ref": "#/definitions/InvalidInputException"
             }
           },
-          "484": {
+          "485": {
             "description": "ResourceNotFoundException",
             "schema": {
               "$ref": "#/definitions/ResourceNotFoundException"
             }
+          },
+          "486": {
+            "description": "HomeRegionNotSetException",
+            "schema": {
+              "$ref": "#/definitions/HomeRegionNotSetException"
+            }
           }
-        }
+        },
+        "description": "<p>Lists the created artifacts attached to a given migration task in an update stream. This API has the following traits:</p> <ul> <li> <p>Gets the list of the created artifacts while migration is taking place.</p> </li> <li> <p>Shows the artifacts created by the migration tool that was associated by the <code>AssociateCreatedArtifact</code> API. </p> </li> <li> <p>Lists created artifacts in a paginated interface. </p> </li> </ul>",
+        "operationId": "ListCreatedArtifacts"
       }
     },
-    "/#ListDiscoveredResources": {
+    "/#X-Amz-Target=AWSMigrationHub.ListDiscoveredResources": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Lists discovered resources associated with the given <code>MigrationTask</code>.",
-        "operationId": "ListDiscoveredResources",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "AWSMigrationHub.ListDiscoveredResources"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -1110,66 +1637,122 @@
             }
           },
           "481": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "482": {
             "description": "InternalServerError",
             "schema": {
               "$ref": "#/definitions/InternalServerError"
             }
           },
-          "482": {
+          "483": {
             "description": "ServiceUnavailableException",
             "schema": {
               "$ref": "#/definitions/ServiceUnavailableException"
             }
           },
-          "483": {
+          "484": {
             "description": "InvalidInputException",
             "schema": {
               "$ref": "#/definitions/InvalidInputException"
             }
           },
-          "484": {
+          "485": {
             "description": "ResourceNotFoundException",
             "schema": {
               "$ref": "#/definitions/ResourceNotFoundException"
             }
+          },
+          "486": {
+            "description": "HomeRegionNotSetException",
+            "schema": {
+              "$ref": "#/definitions/HomeRegionNotSetException"
+            }
           }
-        }
+        },
+        "description": "Lists discovered resources associated with the given <code>MigrationTask</code>.",
+        "operationId": "ListDiscoveredResources"
       }
     },
-    "/#ListMigrationTasks": {
+    "/#X-Amz-Target=AWSMigrationHub.ListMigrationTasks": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "<p>Lists all, or filtered by resource name, migration tasks associated with the user account making this call. This API has the following traits:</p> <ul> <li> <p>Can show a summary list of the most recent migration tasks.</p> </li> <li> <p>Can show a summary list of migration tasks associated with a given discovered resource.</p> </li> <li> <p>Lists migration tasks in a paginated interface.</p> </li> </ul>",
-        "operationId": "ListMigrationTasks",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "AWSMigrationHub.ListMigrationTasks"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -1193,72 +1776,128 @@
             }
           },
           "481": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "482": {
             "description": "InternalServerError",
             "schema": {
               "$ref": "#/definitions/InternalServerError"
             }
           },
-          "482": {
+          "483": {
             "description": "ServiceUnavailableException",
             "schema": {
               "$ref": "#/definitions/ServiceUnavailableException"
             }
           },
-          "483": {
+          "484": {
             "description": "InvalidInputException",
             "schema": {
               "$ref": "#/definitions/InvalidInputException"
             }
           },
-          "484": {
+          "485": {
             "description": "PolicyErrorException",
             "schema": {
               "$ref": "#/definitions/PolicyErrorException"
             }
           },
-          "485": {
+          "486": {
             "description": "ResourceNotFoundException",
             "schema": {
               "$ref": "#/definitions/ResourceNotFoundException"
             }
+          },
+          "487": {
+            "description": "HomeRegionNotSetException",
+            "schema": {
+              "$ref": "#/definitions/HomeRegionNotSetException"
+            }
           }
-        }
+        },
+        "description": "<p>Lists all, or filtered by resource name, migration tasks associated with the user account making this call. This API has the following traits:</p> <ul> <li> <p>Can show a summary list of the most recent migration tasks.</p> </li> <li> <p>Can show a summary list of migration tasks associated with a given discovered resource.</p> </li> <li> <p>Lists migration tasks in a paginated interface.</p> </li> </ul>",
+        "operationId": "ListMigrationTasks"
       }
     },
-    "/#ListProgressUpdateStreams": {
+    "/#X-Amz-Target=AWSMigrationHub.ListProgressUpdateStreams": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Lists progress update streams associated with the user account making this call.",
-        "operationId": "ListProgressUpdateStreams",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "AWSMigrationHub.ListProgressUpdateStreams"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -1282,60 +1921,102 @@
             }
           },
           "481": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "482": {
             "description": "InternalServerError",
             "schema": {
               "$ref": "#/definitions/InternalServerError"
             }
           },
-          "482": {
+          "483": {
             "description": "ServiceUnavailableException",
             "schema": {
               "$ref": "#/definitions/ServiceUnavailableException"
             }
           },
-          "483": {
+          "484": {
             "description": "InvalidInputException",
             "schema": {
               "$ref": "#/definitions/InvalidInputException"
             }
+          },
+          "485": {
+            "description": "HomeRegionNotSetException",
+            "schema": {
+              "$ref": "#/definitions/HomeRegionNotSetException"
+            }
           }
-        }
+        },
+        "description": "Lists progress update streams associated with the user account making this call.",
+        "operationId": "ListProgressUpdateStreams"
       }
     },
-    "/#NotifyApplicationState": {
+    "/#X-Amz-Target=AWSMigrationHub.NotifyApplicationState": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Sets the migration state of an application. For a given application identified by the value passed to <code>ApplicationId</code>, its status is set or updated by passing one of three values to <code>Status</code>: <code>NOT_STARTED | IN_PROGRESS | COMPLETED</code>.",
-        "operationId": "NotifyApplicationState",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "enum": [
+              "AWSMigrationHub.NotifyApplicationState"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -1359,84 +2040,126 @@
             }
           },
           "481": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "482": {
             "description": "InternalServerError",
             "schema": {
               "$ref": "#/definitions/InternalServerError"
             }
           },
-          "482": {
+          "483": {
             "description": "ServiceUnavailableException",
             "schema": {
               "$ref": "#/definitions/ServiceUnavailableException"
             }
           },
-          "483": {
+          "484": {
             "description": "DryRunOperation",
             "schema": {
               "$ref": "#/definitions/DryRunOperation"
             }
           },
-          "484": {
+          "485": {
             "description": "UnauthorizedOperation",
             "schema": {
               "$ref": "#/definitions/UnauthorizedOperation"
             }
           },
-          "485": {
+          "486": {
             "description": "InvalidInputException",
             "schema": {
               "$ref": "#/definitions/InvalidInputException"
             }
           },
-          "486": {
+          "487": {
             "description": "PolicyErrorException",
             "schema": {
               "$ref": "#/definitions/PolicyErrorException"
             }
           },
-          "487": {
+          "488": {
             "description": "ResourceNotFoundException",
             "schema": {
               "$ref": "#/definitions/ResourceNotFoundException"
             }
+          },
+          "489": {
+            "description": "HomeRegionNotSetException",
+            "schema": {
+              "$ref": "#/definitions/HomeRegionNotSetException"
+            }
           }
-        }
+        },
+        "description": "Sets the migration state of an application. For a given application identified by the value passed to <code>ApplicationId</code>, its status is set or updated by passing one of three values to <code>Status</code>: <code>NOT_STARTED | IN_PROGRESS | COMPLETED</code>.",
+        "operationId": "NotifyApplicationState"
       }
     },
-    "/#NotifyMigrationTaskState": {
+    "/#X-Amz-Target=AWSMigrationHub.NotifyMigrationTaskState": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "<p>Notifies Migration Hub of the current status, progress, or other detail regarding a migration task. This API has the following traits:</p> <ul> <li> <p>Migration tools will call the <code>NotifyMigrationTaskState</code> API to share the latest progress and status.</p> </li> <li> <p> <code>MigrationTaskName</code> is used for addressing updates to the correct target.</p> </li> <li> <p> <code>ProgressUpdateStream</code> is used for access control and to provide a namespace for each migration tool.</p> </li> </ul>",
-        "operationId": "NotifyMigrationTaskState",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "enum": [
+              "AWSMigrationHub.NotifyMigrationTaskState"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -1460,78 +2183,120 @@
             }
           },
           "481": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "482": {
             "description": "InternalServerError",
             "schema": {
               "$ref": "#/definitions/InternalServerError"
             }
           },
-          "482": {
+          "483": {
             "description": "ServiceUnavailableException",
             "schema": {
               "$ref": "#/definitions/ServiceUnavailableException"
             }
           },
-          "483": {
+          "484": {
             "description": "DryRunOperation",
             "schema": {
               "$ref": "#/definitions/DryRunOperation"
             }
           },
-          "484": {
+          "485": {
             "description": "UnauthorizedOperation",
             "schema": {
               "$ref": "#/definitions/UnauthorizedOperation"
             }
           },
-          "485": {
+          "486": {
             "description": "InvalidInputException",
             "schema": {
               "$ref": "#/definitions/InvalidInputException"
             }
           },
-          "486": {
+          "487": {
             "description": "ResourceNotFoundException",
             "schema": {
               "$ref": "#/definitions/ResourceNotFoundException"
             }
+          },
+          "488": {
+            "description": "HomeRegionNotSetException",
+            "schema": {
+              "$ref": "#/definitions/HomeRegionNotSetException"
+            }
           }
-        }
+        },
+        "description": "<p>Notifies Migration Hub of the current status, progress, or other detail regarding a migration task. This API has the following traits:</p> <ul> <li> <p>Migration tools will call the <code>NotifyMigrationTaskState</code> API to share the latest progress and status.</p> </li> <li> <p> <code>MigrationTaskName</code> is used for addressing updates to the correct target.</p> </li> <li> <p> <code>ProgressUpdateStream</code> is used for access control and to provide a namespace for each migration tool.</p> </li> </ul>",
+        "operationId": "NotifyMigrationTaskState"
       }
     },
-    "/#PutResourceAttributes": {
+    "/#X-Amz-Target=AWSMigrationHub.PutResourceAttributes": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "<p>Provides identifying details of the resource being migrated so that it can be associated in the Application Discovery Service (ADS)'s repository. This association occurs asynchronously after <code>PutResourceAttributes</code> returns.</p> <important> <ul> <li> <p>Keep in mind that subsequent calls to PutResourceAttributes will override previously stored attributes. For example, if it is first called with a MAC address, but later, it is desired to <i>add</i> an IP address, it will then be required to call it with <i>both</i> the IP and MAC addresses to prevent overiding the MAC address.</p> </li> <li> <p>Note the instructions regarding the special use case of the <a href=\"https://docs.aws.amazon.com/migrationhub/latest/ug/API_PutResourceAttributes.html#migrationhub-PutResourceAttributes-request-ResourceAttributeList\"> <code>ResourceAttributeList</code> </a> parameter when specifying any \"VM\" related value. </p> </li> </ul> </important> <note> <p>Because this is an asynchronous call, it will always return 200, whether an association occurs or not. To confirm if an association was found based on the provided details, call <code>ListDiscoveredResources</code>.</p> </note>",
-        "operationId": "PutResourceAttributes",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "enum": [
+              "AWSMigrationHub.PutResourceAttributes"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -1555,59 +2320,118 @@
             }
           },
           "481": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "482": {
             "description": "InternalServerError",
             "schema": {
               "$ref": "#/definitions/InternalServerError"
             }
           },
-          "482": {
+          "483": {
             "description": "ServiceUnavailableException",
             "schema": {
               "$ref": "#/definitions/ServiceUnavailableException"
             }
           },
-          "483": {
+          "484": {
             "description": "DryRunOperation",
             "schema": {
               "$ref": "#/definitions/DryRunOperation"
             }
           },
-          "484": {
+          "485": {
             "description": "UnauthorizedOperation",
             "schema": {
               "$ref": "#/definitions/UnauthorizedOperation"
             }
           },
-          "485": {
+          "486": {
             "description": "InvalidInputException",
             "schema": {
               "$ref": "#/definitions/InvalidInputException"
             }
           },
-          "486": {
+          "487": {
             "description": "ResourceNotFoundException",
             "schema": {
               "$ref": "#/definitions/ResourceNotFoundException"
             }
+          },
+          "488": {
+            "description": "HomeRegionNotSetException",
+            "schema": {
+              "$ref": "#/definitions/HomeRegionNotSetException"
+            }
           }
-        }
+        },
+        "description": "<p>Provides identifying details of the resource being migrated so that it can be associated in the Application Discovery Service repository. This association occurs asynchronously after <code>PutResourceAttributes</code> returns.</p> <important> <ul> <li> <p>Keep in mind that subsequent calls to PutResourceAttributes will override previously stored attributes. For example, if it is first called with a MAC address, but later, it is desired to <i>add</i> an IP address, it will then be required to call it with <i>both</i> the IP and MAC addresses to prevent overriding the MAC address.</p> </li> <li> <p>Note the instructions regarding the special use case of the <a href=\"https://docs.aws.amazon.com/migrationhub/latest/ug/API_PutResourceAttributes.html#migrationhub-PutResourceAttributes-request-ResourceAttributeList\"> <code>ResourceAttributeList</code> </a> parameter when specifying any \"VM\" related value.</p> </li> </ul> </important> <note> <p>Because this is an asynchronous call, it will always return 200, whether an association occurs or not. To confirm if an association was found based on the provided details, call <code>ListDiscoveredResources</code>.</p> </note>",
+        "operationId": "PutResourceAttributes"
       }
     }
   },
   "definitions": {
-    "AccessDeniedException": {
-      "description": "You do not have sufficient access to perform this action.",
+    "AccessDeniedException": {},
+    "ApplicationId": {
+      "maxLength": 1600,
+      "minLength": 1,
+      "pattern": "^.{1,1600}$",
+      "type": "string"
+    },
+    "ApplicationIds": {
+      "items": {
+        "$ref": "#/definitions/ApplicationId"
+      },
+      "maxItems": 100,
+      "minItems": 1,
+      "type": "array"
+    },
+    "ApplicationState": {
+      "description": "The state of an application discovered through Migration Hub import, the AWS Agentless Discovery Connector, or the AWS Application Discovery Agent.",
       "properties": {
-        "Message": {
-          "$ref": "#/definitions/ErrorMessage"
+        "ApplicationId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ApplicationId"
+            },
+            {
+              "description": "The configurationId from the Application Discovery Service that uniquely identifies an application."
+            }
+          ]
+        },
+        "ApplicationStatus": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ApplicationStatus"
+            },
+            {
+              "description": "The current status of an application."
+            }
+          ]
+        },
+        "LastUpdatedTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/UpdateDateTime"
+            },
+            {
+              "description": "The timestamp when the application status was last updated."
+            }
+          ]
         }
       },
       "type": "object"
     },
-    "ApplicationId": {
-      "maxLength": 1600,
-      "minLength": 1,
-      "type": "string"
+    "ApplicationStateList": {
+      "items": {
+        "$ref": "#/definitions/ApplicationState"
+      },
+      "maxItems": 1000,
+      "minItems": 0,
+      "type": "array"
     },
     "ApplicationStatus": {
       "enum": [
@@ -1620,20 +2444,44 @@
     "AssociateCreatedArtifactRequest": {
       "properties": {
         "CreatedArtifact": {
-          "$ref": "#/definitions/CreatedArtifact",
-          "description": "An ARN of the AWS resource related to the migration (e.g., AMI, EC2 instance, RDS instance, etc.) "
+          "allOf": [
+            {
+              "$ref": "#/definitions/CreatedArtifact"
+            },
+            {
+              "description": "An ARN of the AWS resource related to the migration (e.g., AMI, EC2 instance, RDS instance, etc.) "
+            }
+          ]
         },
         "DryRun": {
-          "$ref": "#/definitions/DryRun",
-          "description": "Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call."
+          "allOf": [
+            {
+              "$ref": "#/definitions/DryRun"
+            },
+            {
+              "description": "Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call."
+            }
+          ]
         },
         "MigrationTaskName": {
-          "$ref": "#/definitions/MigrationTaskName",
-          "description": "Unique identifier that references the migration task."
+          "allOf": [
+            {
+              "$ref": "#/definitions/MigrationTaskName"
+            },
+            {
+              "description": "Unique identifier that references the migration task. <i>Do not store personal data in this field.</i> "
+            }
+          ]
         },
         "ProgressUpdateStream": {
-          "$ref": "#/definitions/ProgressUpdateStream",
-          "description": "The name of the ProgressUpdateStream. "
+          "allOf": [
+            {
+              "$ref": "#/definitions/ProgressUpdateStream"
+            },
+            {
+              "description": "The name of the ProgressUpdateStream. "
+            }
+          ]
         }
       },
       "required": [
@@ -1641,6 +2489,7 @@
         "MigrationTaskName",
         "CreatedArtifact"
       ],
+      "title": "AssociateCreatedArtifactRequest",
       "type": "object"
     },
     "AssociateCreatedArtifactResult": {
@@ -1650,20 +2499,44 @@
     "AssociateDiscoveredResourceRequest": {
       "properties": {
         "DiscoveredResource": {
-          "$ref": "#/definitions/DiscoveredResource",
-          "description": "Object representing a Resource."
+          "allOf": [
+            {
+              "$ref": "#/definitions/DiscoveredResource"
+            },
+            {
+              "description": "Object representing a Resource."
+            }
+          ]
         },
         "DryRun": {
-          "$ref": "#/definitions/DryRun",
-          "description": "Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call."
+          "allOf": [
+            {
+              "$ref": "#/definitions/DryRun"
+            },
+            {
+              "description": "Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call."
+            }
+          ]
         },
         "MigrationTaskName": {
-          "$ref": "#/definitions/MigrationTaskName",
-          "description": "The identifier given to the MigrationTask."
+          "allOf": [
+            {
+              "$ref": "#/definitions/MigrationTaskName"
+            },
+            {
+              "description": "The identifier given to the MigrationTask. <i>Do not store personal data in this field.</i> "
+            }
+          ]
         },
         "ProgressUpdateStream": {
-          "$ref": "#/definitions/ProgressUpdateStream",
-          "description": "The name of the ProgressUpdateStream."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ProgressUpdateStream"
+            },
+            {
+              "description": "The name of the ProgressUpdateStream."
+            }
+          ]
         }
       },
       "required": [
@@ -1671,6 +2544,7 @@
         "MigrationTaskName",
         "DiscoveredResource"
       ],
+      "title": "AssociateDiscoveredResourceRequest",
       "type": "object"
     },
     "AssociateDiscoveredResourceResult": {
@@ -1678,23 +2552,38 @@
       "type": "object"
     },
     "ConfigurationId": {
+      "maxLength": 1600,
       "minLength": 1,
+      "pattern": "^.{1,1600}$",
       "type": "string"
     },
     "CreateProgressUpdateStreamRequest": {
       "properties": {
         "DryRun": {
-          "$ref": "#/definitions/DryRun",
-          "description": "Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call."
+          "allOf": [
+            {
+              "$ref": "#/definitions/DryRun"
+            },
+            {
+              "description": "Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call."
+            }
+          ]
         },
         "ProgressUpdateStreamName": {
-          "$ref": "#/definitions/ProgressUpdateStream",
-          "description": "The name of the ProgressUpdateStream. "
+          "allOf": [
+            {
+              "$ref": "#/definitions/ProgressUpdateStream"
+            },
+            {
+              "description": "The name of the ProgressUpdateStream. <i>Do not store personal data in this field.</i> "
+            }
+          ]
         }
       },
       "required": [
         "ProgressUpdateStreamName"
       ],
+      "title": "CreateProgressUpdateStreamRequest",
       "type": "object"
     },
     "CreateProgressUpdateStreamResult": {
@@ -1705,12 +2594,24 @@
       "description": "An ARN of the AWS cloud resource target receiving the migration (e.g., AMI, EC2 instance, RDS instance, etc.).",
       "properties": {
         "Description": {
-          "$ref": "#/definitions/CreatedArtifactDescription",
-          "description": "A description that can be free-form text to record additional detail about the artifact for clarity or for later reference."
+          "allOf": [
+            {
+              "$ref": "#/definitions/CreatedArtifactDescription"
+            },
+            {
+              "description": "A description that can be free-form text to record additional detail about the artifact for clarity or for later reference."
+            }
+          ]
         },
         "Name": {
-          "$ref": "#/definitions/CreatedArtifactName",
-          "description": "An ARN that uniquely identifies the result of a migration task."
+          "allOf": [
+            {
+              "$ref": "#/definitions/CreatedArtifactName"
+            },
+            {
+              "description": "An ARN that uniquely identifies the result of a migration task."
+            }
+          ]
         }
       },
       "required": [
@@ -1721,6 +2622,7 @@
     "CreatedArtifactDescription": {
       "maxLength": 500,
       "minLength": 0,
+      "pattern": "^.{0,500}$",
       "type": "string"
     },
     "CreatedArtifactList": {
@@ -1738,17 +2640,30 @@
     "DeleteProgressUpdateStreamRequest": {
       "properties": {
         "DryRun": {
-          "$ref": "#/definitions/DryRun",
-          "description": "Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call."
+          "allOf": [
+            {
+              "$ref": "#/definitions/DryRun"
+            },
+            {
+              "description": "Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call."
+            }
+          ]
         },
         "ProgressUpdateStreamName": {
-          "$ref": "#/definitions/ProgressUpdateStream",
-          "description": "The name of the ProgressUpdateStream. "
+          "allOf": [
+            {
+              "$ref": "#/definitions/ProgressUpdateStream"
+            },
+            {
+              "description": "The name of the ProgressUpdateStream. <i>Do not store personal data in this field.</i> "
+            }
+          ]
         }
       },
       "required": [
         "ProgressUpdateStreamName"
       ],
+      "title": "DeleteProgressUpdateStreamRequest",
       "type": "object"
     },
     "DeleteProgressUpdateStreamResult": {
@@ -1758,24 +2673,43 @@
     "DescribeApplicationStateRequest": {
       "properties": {
         "ApplicationId": {
-          "$ref": "#/definitions/ApplicationId",
-          "description": "The configurationId in ADS that uniquely identifies the grouped application."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ApplicationId"
+            },
+            {
+              "description": "The configurationId in Application Discovery Service that uniquely identifies the grouped application."
+            }
+          ]
         }
       },
       "required": [
         "ApplicationId"
       ],
+      "title": "DescribeApplicationStateRequest",
       "type": "object"
     },
     "DescribeApplicationStateResult": {
       "properties": {
         "ApplicationStatus": {
-          "$ref": "#/definitions/ApplicationStatus",
-          "description": "Status of the application - Not Started, In-Progress, Complete."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ApplicationStatus"
+            },
+            {
+              "description": "Status of the application - Not Started, In-Progress, Complete."
+            }
+          ]
         },
         "LastUpdatedTime": {
-          "$ref": "#/definitions/UpdateDateTime",
-          "description": "The timestamp when the application status was last updated."
+          "allOf": [
+            {
+              "$ref": "#/definitions/UpdateDateTime"
+            },
+            {
+              "description": "The timestamp when the application status was last updated."
+            }
+          ]
         }
       },
       "type": "object"
@@ -1783,25 +2717,44 @@
     "DescribeMigrationTaskRequest": {
       "properties": {
         "MigrationTaskName": {
-          "$ref": "#/definitions/MigrationTaskName",
-          "description": "The identifier given to the MigrationTask."
+          "allOf": [
+            {
+              "$ref": "#/definitions/MigrationTaskName"
+            },
+            {
+              "description": "The identifier given to the MigrationTask. <i>Do not store personal data in this field.</i> "
+            }
+          ]
         },
         "ProgressUpdateStream": {
-          "$ref": "#/definitions/ProgressUpdateStream",
-          "description": "The name of the ProgressUpdateStream. "
+          "allOf": [
+            {
+              "$ref": "#/definitions/ProgressUpdateStream"
+            },
+            {
+              "description": "The name of the ProgressUpdateStream. "
+            }
+          ]
         }
       },
       "required": [
         "ProgressUpdateStream",
         "MigrationTaskName"
       ],
+      "title": "DescribeMigrationTaskRequest",
       "type": "object"
     },
     "DescribeMigrationTaskResult": {
       "properties": {
         "MigrationTask": {
-          "$ref": "#/definitions/MigrationTask",
-          "description": "Object encapsulating information about the migration task."
+          "allOf": [
+            {
+              "$ref": "#/definitions/MigrationTask"
+            },
+            {
+              "description": "Object encapsulating information about the migration task."
+            }
+          ]
         }
       },
       "type": "object"
@@ -1809,20 +2762,44 @@
     "DisassociateCreatedArtifactRequest": {
       "properties": {
         "CreatedArtifactName": {
-          "$ref": "#/definitions/CreatedArtifactName",
-          "description": "An ARN of the AWS resource related to the migration (e.g., AMI, EC2 instance, RDS instance, etc.)"
+          "allOf": [
+            {
+              "$ref": "#/definitions/CreatedArtifactName"
+            },
+            {
+              "description": "An ARN of the AWS resource related to the migration (e.g., AMI, EC2 instance, RDS instance, etc.)"
+            }
+          ]
         },
         "DryRun": {
-          "$ref": "#/definitions/DryRun",
-          "description": "Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call."
+          "allOf": [
+            {
+              "$ref": "#/definitions/DryRun"
+            },
+            {
+              "description": "Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call."
+            }
+          ]
         },
         "MigrationTaskName": {
-          "$ref": "#/definitions/MigrationTaskName",
-          "description": "Unique identifier that references the migration task to be disassociated with the artifact."
+          "allOf": [
+            {
+              "$ref": "#/definitions/MigrationTaskName"
+            },
+            {
+              "description": "Unique identifier that references the migration task to be disassociated with the artifact. <i>Do not store personal data in this field.</i> "
+            }
+          ]
         },
         "ProgressUpdateStream": {
-          "$ref": "#/definitions/ProgressUpdateStream",
-          "description": "The name of the ProgressUpdateStream. "
+          "allOf": [
+            {
+              "$ref": "#/definitions/ProgressUpdateStream"
+            },
+            {
+              "description": "The name of the ProgressUpdateStream. "
+            }
+          ]
         }
       },
       "required": [
@@ -1830,6 +2807,7 @@
         "MigrationTaskName",
         "CreatedArtifactName"
       ],
+      "title": "DisassociateCreatedArtifactRequest",
       "type": "object"
     },
     "DisassociateCreatedArtifactResult": {
@@ -1839,20 +2817,44 @@
     "DisassociateDiscoveredResourceRequest": {
       "properties": {
         "ConfigurationId": {
-          "$ref": "#/definitions/ConfigurationId",
-          "description": "ConfigurationId of the ADS resource to be disassociated."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ConfigurationId"
+            },
+            {
+              "description": "ConfigurationId of the Application Discovery Service resource to be disassociated."
+            }
+          ]
         },
         "DryRun": {
-          "$ref": "#/definitions/DryRun",
-          "description": "Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call."
+          "allOf": [
+            {
+              "$ref": "#/definitions/DryRun"
+            },
+            {
+              "description": "Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call."
+            }
+          ]
         },
         "MigrationTaskName": {
-          "$ref": "#/definitions/MigrationTaskName",
-          "description": "The identifier given to the MigrationTask."
+          "allOf": [
+            {
+              "$ref": "#/definitions/MigrationTaskName"
+            },
+            {
+              "description": "The identifier given to the MigrationTask. <i>Do not store personal data in this field.</i> "
+            }
+          ]
         },
         "ProgressUpdateStream": {
-          "$ref": "#/definitions/ProgressUpdateStream",
-          "description": "The name of the ProgressUpdateStream."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ProgressUpdateStream"
+            },
+            {
+              "description": "The name of the ProgressUpdateStream."
+            }
+          ]
         }
       },
       "required": [
@@ -1860,6 +2862,7 @@
         "MigrationTaskName",
         "ConfigurationId"
       ],
+      "title": "DisassociateDiscoveredResourceRequest",
       "type": "object"
     },
     "DisassociateDiscoveredResourceResult": {
@@ -1870,12 +2873,24 @@
       "description": "Object representing the on-premises resource being migrated.",
       "properties": {
         "ConfigurationId": {
-          "$ref": "#/definitions/ConfigurationId",
-          "description": "The configurationId in ADS that uniquely identifies the on-premise resource."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ConfigurationId"
+            },
+            {
+              "description": "The configurationId in Application Discovery Service that uniquely identifies the on-premise resource."
+            }
+          ]
         },
         "Description": {
-          "$ref": "#/definitions/DiscoveredResourceDescription",
-          "description": "A description that can be free-form text to record additional detail about the discovered resource for clarity or later reference."
+          "allOf": [
+            {
+              "$ref": "#/definitions/DiscoveredResourceDescription"
+            },
+            {
+              "description": "A description that can be free-form text to record additional detail about the discovered resource for clarity or later reference."
+            }
+          ]
         }
       },
       "required": [
@@ -1886,6 +2901,7 @@
     "DiscoveredResourceDescription": {
       "maxLength": 500,
       "minLength": 0,
+      "pattern": "^.{0,500}$",
       "type": "string"
     },
     "DiscoveredResourceList": {
@@ -1897,61 +2913,54 @@
     "DryRun": {
       "type": "boolean"
     },
-    "DryRunOperation": {
-      "description": "Exception raised to indicate a successfully authorized action when the <code>DryRun</code> flag is set to \"true\".",
-      "properties": {
-        "Message": {
-          "$ref": "#/definitions/ErrorMessage"
-        }
-      },
-      "type": "object"
-    },
-    "ErrorMessage": {
-      "type": "string"
-    },
+    "DryRunOperation": {},
+    "HomeRegionNotSetException": {},
     "ImportMigrationTaskRequest": {
       "properties": {
         "DryRun": {
-          "$ref": "#/definitions/DryRun",
-          "description": "Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call."
+          "allOf": [
+            {
+              "$ref": "#/definitions/DryRun"
+            },
+            {
+              "description": "Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call."
+            }
+          ]
         },
         "MigrationTaskName": {
-          "$ref": "#/definitions/MigrationTaskName",
-          "description": "Unique identifier that references the migration task."
+          "allOf": [
+            {
+              "$ref": "#/definitions/MigrationTaskName"
+            },
+            {
+              "description": "Unique identifier that references the migration task. <i>Do not store personal data in this field.</i> "
+            }
+          ]
         },
         "ProgressUpdateStream": {
-          "$ref": "#/definitions/ProgressUpdateStream",
-          "description": "The name of the ProgressUpdateStream. "
+          "allOf": [
+            {
+              "$ref": "#/definitions/ProgressUpdateStream"
+            },
+            {
+              "description": "The name of the ProgressUpdateStream. &gt;"
+            }
+          ]
         }
       },
       "required": [
         "ProgressUpdateStream",
         "MigrationTaskName"
       ],
+      "title": "ImportMigrationTaskRequest",
       "type": "object"
     },
     "ImportMigrationTaskResult": {
       "properties": {},
       "type": "object"
     },
-    "InternalServerError": {
-      "description": "Exception raised when there is an internal, configuration, or dependency error encountered.",
-      "properties": {
-        "Message": {
-          "$ref": "#/definitions/ErrorMessage"
-        }
-      },
-      "type": "object"
-    },
-    "InvalidInputException": {
-      "description": "Exception raised when the provided input violates a policy constraint or is entered in the wrong format or data type.",
-      "properties": {
-        "Message": {
-          "$ref": "#/definitions/ErrorMessage"
-        }
-      },
-      "type": "object"
-    },
+    "InternalServerError": {},
+    "InvalidInputException": {},
     "LatestResourceAttributeList": {
       "items": {
         "$ref": "#/definitions/ResourceAttribute"
@@ -1960,40 +2969,138 @@
       "minItems": 0,
       "type": "array"
     },
+    "ListApplicationStatesRequest": {
+      "properties": {
+        "ApplicationIds": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ApplicationIds"
+            },
+            {
+              "description": "The configurationIds from the Application Discovery Service that uniquely identifies your applications."
+            }
+          ]
+        },
+        "MaxResults": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MaxResults"
+            },
+            {
+              "description": "Maximum number of results to be returned per page."
+            }
+          ]
+        },
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Token"
+            },
+            {
+              "description": "If a <code>NextToken</code> was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in <code>NextToken</code>."
+            }
+          ]
+        }
+      },
+      "title": "ListApplicationStatesRequest",
+      "type": "object"
+    },
+    "ListApplicationStatesResult": {
+      "properties": {
+        "ApplicationStateList": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ApplicationStateList"
+            },
+            {
+              "description": "A list of Applications that exist in Application Discovery Service."
+            }
+          ]
+        },
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Token"
+            },
+            {
+              "description": "If a <code>NextToken</code> was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in <code>NextToken</code>."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
     "ListCreatedArtifactsRequest": {
       "properties": {
         "MaxResults": {
-          "$ref": "#/definitions/MaxResultsCreatedArtifacts",
-          "description": "Maximum number of results to be returned per page."
+          "allOf": [
+            {
+              "$ref": "#/definitions/MaxResultsCreatedArtifacts"
+            },
+            {
+              "description": "Maximum number of results to be returned per page."
+            }
+          ]
         },
         "MigrationTaskName": {
-          "$ref": "#/definitions/MigrationTaskName",
-          "description": "Unique identifier that references the migration task."
+          "allOf": [
+            {
+              "$ref": "#/definitions/MigrationTaskName"
+            },
+            {
+              "description": "Unique identifier that references the migration task. <i>Do not store personal data in this field.</i> "
+            }
+          ]
         },
         "NextToken": {
-          "$ref": "#/definitions/Token",
-          "description": "If a <code>NextToken</code> was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in <code>NextToken</code>."
+          "allOf": [
+            {
+              "$ref": "#/definitions/Token"
+            },
+            {
+              "description": "If a <code>NextToken</code> was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in <code>NextToken</code>."
+            }
+          ]
         },
         "ProgressUpdateStream": {
-          "$ref": "#/definitions/ProgressUpdateStream",
-          "description": "The name of the ProgressUpdateStream. "
+          "allOf": [
+            {
+              "$ref": "#/definitions/ProgressUpdateStream"
+            },
+            {
+              "description": "The name of the ProgressUpdateStream. "
+            }
+          ]
         }
       },
       "required": [
         "ProgressUpdateStream",
         "MigrationTaskName"
       ],
+      "title": "ListCreatedArtifactsRequest",
       "type": "object"
     },
     "ListCreatedArtifactsResult": {
       "properties": {
         "CreatedArtifactList": {
-          "$ref": "#/definitions/CreatedArtifactList",
-          "description": "List of created artifacts up to the maximum number of results specified in the request."
+          "allOf": [
+            {
+              "$ref": "#/definitions/CreatedArtifactList"
+            },
+            {
+              "description": "List of created artifacts up to the maximum number of results specified in the request."
+            }
+          ]
         },
         "NextToken": {
-          "$ref": "#/definitions/Token",
-          "description": "If there are more created artifacts than the max result, return the next token to be passed to the next call as a bookmark of where to start from."
+          "allOf": [
+            {
+              "$ref": "#/definitions/Token"
+            },
+            {
+              "description": "If there are more created artifacts than the max result, return the next token to be passed to the next call as a bookmark of where to start from."
+            }
+          ]
         }
       },
       "type": "object"
@@ -2001,37 +3108,74 @@
     "ListDiscoveredResourcesRequest": {
       "properties": {
         "MaxResults": {
-          "$ref": "#/definitions/MaxResultsResources",
-          "description": "The maximum number of results returned per page."
+          "allOf": [
+            {
+              "$ref": "#/definitions/MaxResultsResources"
+            },
+            {
+              "description": "The maximum number of results returned per page."
+            }
+          ]
         },
         "MigrationTaskName": {
-          "$ref": "#/definitions/MigrationTaskName",
-          "description": "The name of the MigrationTask."
+          "allOf": [
+            {
+              "$ref": "#/definitions/MigrationTaskName"
+            },
+            {
+              "description": "The name of the MigrationTask. <i>Do not store personal data in this field.</i> "
+            }
+          ]
         },
         "NextToken": {
-          "$ref": "#/definitions/Token",
-          "description": "If a <code>NextToken</code> was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in <code>NextToken</code>."
+          "allOf": [
+            {
+              "$ref": "#/definitions/Token"
+            },
+            {
+              "description": "If a <code>NextToken</code> was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in <code>NextToken</code>."
+            }
+          ]
         },
         "ProgressUpdateStream": {
-          "$ref": "#/definitions/ProgressUpdateStream",
-          "description": "The name of the ProgressUpdateStream."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ProgressUpdateStream"
+            },
+            {
+              "description": "The name of the ProgressUpdateStream."
+            }
+          ]
         }
       },
       "required": [
         "ProgressUpdateStream",
         "MigrationTaskName"
       ],
+      "title": "ListDiscoveredResourcesRequest",
       "type": "object"
     },
     "ListDiscoveredResourcesResult": {
       "properties": {
         "DiscoveredResourceList": {
-          "$ref": "#/definitions/DiscoveredResourceList",
-          "description": "Returned list of discovered resources associated with the given MigrationTask."
+          "allOf": [
+            {
+              "$ref": "#/definitions/DiscoveredResourceList"
+            },
+            {
+              "description": "Returned list of discovered resources associated with the given MigrationTask."
+            }
+          ]
         },
         "NextToken": {
-          "$ref": "#/definitions/Token",
-          "description": "If there are more discovered resources than the max result, return the next token to be passed to the next call as a bookmark of where to start from."
+          "allOf": [
+            {
+              "$ref": "#/definitions/Token"
+            },
+            {
+              "description": "If there are more discovered resources than the max result, return the next token to be passed to the next call as a bookmark of where to start from."
+            }
+          ]
         }
       },
       "type": "object"
@@ -2039,29 +3183,60 @@
     "ListMigrationTasksRequest": {
       "properties": {
         "MaxResults": {
-          "$ref": "#/definitions/MaxResults",
-          "description": "Value to specify how many results are returned per page."
+          "allOf": [
+            {
+              "$ref": "#/definitions/MaxResults"
+            },
+            {
+              "description": "Value to specify how many results are returned per page."
+            }
+          ]
         },
         "NextToken": {
-          "$ref": "#/definitions/Token",
-          "description": "If a <code>NextToken</code> was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in <code>NextToken</code>."
+          "allOf": [
+            {
+              "$ref": "#/definitions/Token"
+            },
+            {
+              "description": "If a <code>NextToken</code> was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in <code>NextToken</code>."
+            }
+          ]
         },
         "ResourceName": {
-          "$ref": "#/definitions/ResourceName",
-          "description": "Filter migration tasks by discovered resource name."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceName"
+            },
+            {
+              "description": "Filter migration tasks by discovered resource name."
+            }
+          ]
         }
       },
+      "title": "ListMigrationTasksRequest",
       "type": "object"
     },
     "ListMigrationTasksResult": {
       "properties": {
         "MigrationTaskSummaryList": {
-          "$ref": "#/definitions/MigrationTaskSummaryList",
-          "description": "Lists the migration task's summary which includes: <code>MigrationTaskName</code>, <code>ProgressPercent</code>, <code>ProgressUpdateStream</code>, <code>Status</code>, and the <code>UpdateDateTime</code> for each task."
+          "allOf": [
+            {
+              "$ref": "#/definitions/MigrationTaskSummaryList"
+            },
+            {
+              "description": "Lists the migration task's summary which includes: <code>MigrationTaskName</code>, <code>ProgressPercent</code>, <code>ProgressUpdateStream</code>, <code>Status</code>, and the <code>UpdateDateTime</code> for each task."
+            }
+          ]
         },
         "NextToken": {
-          "$ref": "#/definitions/Token",
-          "description": "If there are more migration tasks than the max result, return the next token to be passed to the next call as a bookmark of where to start from."
+          "allOf": [
+            {
+              "$ref": "#/definitions/Token"
+            },
+            {
+              "description": "If there are more migration tasks than the max result, return the next token to be passed to the next call as a bookmark of where to start from."
+            }
+          ]
         }
       },
       "type": "object"
@@ -2069,25 +3244,50 @@
     "ListProgressUpdateStreamsRequest": {
       "properties": {
         "MaxResults": {
-          "$ref": "#/definitions/MaxResults",
-          "description": "Filter to limit the maximum number of results to list per page."
+          "allOf": [
+            {
+              "$ref": "#/definitions/MaxResults"
+            },
+            {
+              "description": "Filter to limit the maximum number of results to list per page."
+            }
+          ]
         },
         "NextToken": {
-          "$ref": "#/definitions/Token",
-          "description": "If a <code>NextToken</code> was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in <code>NextToken</code>."
+          "allOf": [
+            {
+              "$ref": "#/definitions/Token"
+            },
+            {
+              "description": "If a <code>NextToken</code> was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in <code>NextToken</code>."
+            }
+          ]
         }
       },
+      "title": "ListProgressUpdateStreamsRequest",
       "type": "object"
     },
     "ListProgressUpdateStreamsResult": {
       "properties": {
         "NextToken": {
-          "$ref": "#/definitions/Token",
-          "description": "If there are more streams created than the max result, return the next token to be passed to the next call as a bookmark of where to start from."
+          "allOf": [
+            {
+              "$ref": "#/definitions/Token"
+            },
+            {
+              "description": "If there are more streams created than the max result, return the next token to be passed to the next call as a bookmark of where to start from."
+            }
+          ]
         },
         "ProgressUpdateStreamSummaryList": {
-          "$ref": "#/definitions/ProgressUpdateStreamSummaryList",
-          "description": "List of progress update streams up to the max number of results passed in the input."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ProgressUpdateStreamSummaryList"
+            },
+            {
+              "description": "List of progress update streams up to the max number of results passed in the input."
+            }
+          ]
         }
       },
       "type": "object"
@@ -2111,24 +3311,54 @@
       "description": "Represents a migration task in a migration tool.",
       "properties": {
         "MigrationTaskName": {
-          "$ref": "#/definitions/MigrationTaskName",
-          "description": "Unique identifier that references the migration task."
+          "allOf": [
+            {
+              "$ref": "#/definitions/MigrationTaskName"
+            },
+            {
+              "description": "Unique identifier that references the migration task. <i>Do not store personal data in this field.</i> "
+            }
+          ]
         },
         "ProgressUpdateStream": {
-          "$ref": "#/definitions/ProgressUpdateStream",
-          "description": "A name that identifies the vendor of the migration tool being used."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ProgressUpdateStream"
+            },
+            {
+              "description": "A name that identifies the vendor of the migration tool being used."
+            }
+          ]
         },
         "ResourceAttributeList": {
-          "$ref": "#/definitions/LatestResourceAttributeList",
-          "description": "<p/>"
+          "allOf": [
+            {
+              "$ref": "#/definitions/LatestResourceAttributeList"
+            },
+            {
+              "description": "Information about the resource that is being migrated. This data will be used to map the task to a resource in the Application Discovery Service repository."
+            }
+          ]
         },
         "Task": {
-          "$ref": "#/definitions/Task",
-          "description": "Task object encapsulating task information."
+          "allOf": [
+            {
+              "$ref": "#/definitions/Task"
+            },
+            {
+              "description": "Task object encapsulating task information."
+            }
+          ]
         },
         "UpdateDateTime": {
-          "$ref": "#/definitions/UpdateDateTime",
-          "description": "The timestamp when the task was gathered."
+          "allOf": [
+            {
+              "$ref": "#/definitions/UpdateDateTime"
+            },
+            {
+              "description": "The timestamp when the task was gathered."
+            }
+          ]
         }
       },
       "type": "object"
@@ -2143,28 +3373,64 @@
       "description": "MigrationTaskSummary includes <code>MigrationTaskName</code>, <code>ProgressPercent</code>, <code>ProgressUpdateStream</code>, <code>Status</code>, and <code>UpdateDateTime</code> for each task.",
       "properties": {
         "MigrationTaskName": {
-          "$ref": "#/definitions/MigrationTaskName",
-          "description": "Unique identifier that references the migration task."
+          "allOf": [
+            {
+              "$ref": "#/definitions/MigrationTaskName"
+            },
+            {
+              "description": "Unique identifier that references the migration task. <i>Do not store personal data in this field.</i> "
+            }
+          ]
         },
         "ProgressPercent": {
-          "$ref": "#/definitions/ProgressPercent",
-          "description": "<p/>"
+          "allOf": [
+            {
+              "$ref": "#/definitions/ProgressPercent"
+            },
+            {
+              "description": "Indication of the percentage completion of the task."
+            }
+          ]
         },
         "ProgressUpdateStream": {
-          "$ref": "#/definitions/ProgressUpdateStream",
-          "description": "An AWS resource used for access control. It should uniquely identify the migration tool as it is used for all updates made by the tool."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ProgressUpdateStream"
+            },
+            {
+              "description": "An AWS resource used for access control. It should uniquely identify the migration tool as it is used for all updates made by the tool."
+            }
+          ]
         },
         "Status": {
-          "$ref": "#/definitions/Status",
-          "description": "Status of the task."
+          "allOf": [
+            {
+              "$ref": "#/definitions/Status"
+            },
+            {
+              "description": "Status of the task."
+            }
+          ]
         },
         "StatusDetail": {
-          "$ref": "#/definitions/StatusDetail",
-          "description": "Detail information of what is being done within the overall status state."
+          "allOf": [
+            {
+              "$ref": "#/definitions/StatusDetail"
+            },
+            {
+              "description": "Detail information of what is being done within the overall status state."
+            }
+          ]
         },
         "UpdateDateTime": {
-          "$ref": "#/definitions/UpdateDateTime",
-          "description": "The timestamp when the task was gathered."
+          "allOf": [
+            {
+              "$ref": "#/definitions/UpdateDateTime"
+            },
+            {
+              "description": "The timestamp when the task was gathered."
+            }
+          ]
         }
       },
       "type": "object"
@@ -2182,22 +3448,51 @@
     "NotifyApplicationStateRequest": {
       "properties": {
         "ApplicationId": {
-          "$ref": "#/definitions/ApplicationId",
-          "description": "The configurationId in ADS that uniquely identifies the grouped application."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ApplicationId"
+            },
+            {
+              "description": "The configurationId in Application Discovery Service that uniquely identifies the grouped application."
+            }
+          ]
         },
         "DryRun": {
-          "$ref": "#/definitions/DryRun",
-          "description": "Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call."
+          "allOf": [
+            {
+              "$ref": "#/definitions/DryRun"
+            },
+            {
+              "description": "Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call."
+            }
+          ]
         },
         "Status": {
-          "$ref": "#/definitions/ApplicationStatus",
-          "description": "Status of the application - Not Started, In-Progress, Complete."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ApplicationStatus"
+            },
+            {
+              "description": "Status of the application - Not Started, In-Progress, Complete."
+            }
+          ]
+        },
+        "UpdateDateTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/UpdateDateTime"
+            },
+            {
+              "description": "The timestamp when the application state changed."
+            }
+          ]
         }
       },
       "required": [
         "ApplicationId",
         "Status"
       ],
+      "title": "NotifyApplicationStateRequest",
       "type": "object"
     },
     "NotifyApplicationStateResult": {
@@ -2207,28 +3502,64 @@
     "NotifyMigrationTaskStateRequest": {
       "properties": {
         "DryRun": {
-          "$ref": "#/definitions/DryRun",
-          "description": "Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call."
+          "allOf": [
+            {
+              "$ref": "#/definitions/DryRun"
+            },
+            {
+              "description": "Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call."
+            }
+          ]
         },
         "MigrationTaskName": {
-          "$ref": "#/definitions/MigrationTaskName",
-          "description": "Unique identifier that references the migration task."
+          "allOf": [
+            {
+              "$ref": "#/definitions/MigrationTaskName"
+            },
+            {
+              "description": "Unique identifier that references the migration task. <i>Do not store personal data in this field.</i> "
+            }
+          ]
         },
         "NextUpdateSeconds": {
-          "$ref": "#/definitions/NextUpdateSeconds",
-          "description": "Number of seconds after the UpdateDateTime within which the Migration Hub can expect an update. If Migration Hub does not receive an update within the specified interval, then the migration task will be considered stale."
+          "allOf": [
+            {
+              "$ref": "#/definitions/NextUpdateSeconds"
+            },
+            {
+              "description": "Number of seconds after the UpdateDateTime within which the Migration Hub can expect an update. If Migration Hub does not receive an update within the specified interval, then the migration task will be considered stale."
+            }
+          ]
         },
         "ProgressUpdateStream": {
-          "$ref": "#/definitions/ProgressUpdateStream",
-          "description": "The name of the ProgressUpdateStream. "
+          "allOf": [
+            {
+              "$ref": "#/definitions/ProgressUpdateStream"
+            },
+            {
+              "description": "The name of the ProgressUpdateStream. "
+            }
+          ]
         },
         "Task": {
-          "$ref": "#/definitions/Task",
-          "description": "Information about the task's progress and status."
+          "allOf": [
+            {
+              "$ref": "#/definitions/Task"
+            },
+            {
+              "description": "Information about the task's progress and status."
+            }
+          ]
         },
         "UpdateDateTime": {
-          "$ref": "#/definitions/UpdateDateTime",
-          "description": "The timestamp when the task was gathered."
+          "allOf": [
+            {
+              "$ref": "#/definitions/UpdateDateTime"
+            },
+            {
+              "description": "The timestamp when the task was gathered."
+            }
+          ]
         }
       },
       "required": [
@@ -2238,21 +3569,14 @@
         "UpdateDateTime",
         "NextUpdateSeconds"
       ],
+      "title": "NotifyMigrationTaskStateRequest",
       "type": "object"
     },
     "NotifyMigrationTaskStateResult": {
       "properties": {},
       "type": "object"
     },
-    "PolicyErrorException": {
-      "description": "Exception raised when there are problems accessing ADS (Application Discovery Service); most likely due to a misconfigured policy or the <code>migrationhub-discovery</code> role is missing or not configured correctly.",
-      "properties": {
-        "Message": {
-          "$ref": "#/definitions/ErrorMessage"
-        }
-      },
-      "type": "object"
-    },
+    "PolicyErrorException": {},
     "ProgressPercent": {
       "maximum": 100,
       "minimum": 0,
@@ -2268,8 +3592,14 @@
       "description": "Summary of the AWS resource used for access control that is implicitly linked to your AWS account.",
       "properties": {
         "ProgressUpdateStreamName": {
-          "$ref": "#/definitions/ProgressUpdateStream",
-          "description": "The name of the ProgressUpdateStream. "
+          "allOf": [
+            {
+              "$ref": "#/definitions/ProgressUpdateStream"
+            },
+            {
+              "description": "The name of the ProgressUpdateStream. <i>Do not store personal data in this field.</i> "
+            }
+          ]
         }
       },
       "type": "object"
@@ -2283,20 +3613,44 @@
     "PutResourceAttributesRequest": {
       "properties": {
         "DryRun": {
-          "$ref": "#/definitions/DryRun",
-          "description": "Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call."
+          "allOf": [
+            {
+              "$ref": "#/definitions/DryRun"
+            },
+            {
+              "description": "Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call."
+            }
+          ]
         },
         "MigrationTaskName": {
-          "$ref": "#/definitions/MigrationTaskName",
-          "description": "Unique identifier that references the migration task."
+          "allOf": [
+            {
+              "$ref": "#/definitions/MigrationTaskName"
+            },
+            {
+              "description": "Unique identifier that references the migration task. <i>Do not store personal data in this field.</i> "
+            }
+          ]
         },
         "ProgressUpdateStream": {
-          "$ref": "#/definitions/ProgressUpdateStream",
-          "description": "The name of the ProgressUpdateStream. "
+          "allOf": [
+            {
+              "$ref": "#/definitions/ProgressUpdateStream"
+            },
+            {
+              "description": "The name of the ProgressUpdateStream. "
+            }
+          ]
         },
         "ResourceAttributeList": {
-          "$ref": "#/definitions/ResourceAttributeList",
-          "description": "<p>Information about the resource that is being migrated. This data will be used to map the task to a resource in the Application Discovery Service (ADS)'s repository.</p> <note> <p>Takes the object array of <code>ResourceAttribute</code> where the <code>Type</code> field is reserved for the following values: <code>IPV4_ADDRESS | IPV6_ADDRESS | MAC_ADDRESS | FQDN | VM_MANAGER_ID | VM_MANAGED_OBJECT_REFERENCE | VM_NAME | VM_PATH | BIOS_ID | MOTHERBOARD_SERIAL_NUMBER</code> where the identifying value can be a string up to 256 characters.</p> </note> <important> <ul> <li> <p>If any \"VM\" related value is set for a <code>ResourceAttribute</code> object, it is required that <code>VM_MANAGER_ID</code>, as a minimum, is always set. If <code>VM_MANAGER_ID</code> is not set, then all \"VM\" fields will be discarded and \"VM\" fields will not be used for matching the migration task to a server in Application Discovery Service (ADS)'s repository. See the <a href=\"https://docs.aws.amazon.com/migrationhub/latest/ug/API_PutResourceAttributes.html#API_PutResourceAttributes_Examples\">Example</a> section below for a use case of specifying \"VM\" related values.</p> </li> <li> <p> If a server you are trying to match has multiple IP or MAC addresses, you should provide as many as you know in separate type/value pairs passed to the <code>ResourceAttributeList</code> parameter to maximize the chances of matching.</p> </li> </ul> </important>"
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceAttributeList"
+            },
+            {
+              "description": "<p>Information about the resource that is being migrated. This data will be used to map the task to a resource in the Application Discovery Service repository.</p> <note> <p>Takes the object array of <code>ResourceAttribute</code> where the <code>Type</code> field is reserved for the following values: <code>IPV4_ADDRESS | IPV6_ADDRESS | MAC_ADDRESS | FQDN | VM_MANAGER_ID | VM_MANAGED_OBJECT_REFERENCE | VM_NAME | VM_PATH | BIOS_ID | MOTHERBOARD_SERIAL_NUMBER</code> where the identifying value can be a string up to 256 characters.</p> </note> <important> <ul> <li> <p>If any \"VM\" related value is set for a <code>ResourceAttribute</code> object, it is required that <code>VM_MANAGER_ID</code>, as a minimum, is always set. If <code>VM_MANAGER_ID</code> is not set, then all \"VM\" fields will be discarded and \"VM\" fields will not be used for matching the migration task to a server in Application Discovery Service repository. See the <a href=\"https://docs.aws.amazon.com/migrationhub/latest/ug/API_PutResourceAttributes.html#API_PutResourceAttributes_Examples\">Example</a> section below for a use case of specifying \"VM\" related values.</p> </li> <li> <p> If a server you are trying to match has multiple IP or MAC addresses, you should provide as many as you know in separate type/value pairs passed to the <code>ResourceAttributeList</code> parameter to maximize the chances of matching.</p> </li> </ul> </important>"
+            }
+          ]
         }
       },
       "required": [
@@ -2304,6 +3658,7 @@
         "MigrationTaskName",
         "ResourceAttributeList"
       ],
+      "title": "PutResourceAttributesRequest",
       "type": "object"
     },
     "PutResourceAttributesResult": {
@@ -2314,12 +3669,24 @@
       "description": "<p>Attribute associated with a resource.</p> <p>Note the corresponding format required per type listed below:</p> <dl> <dt>IPV4</dt> <dd> <p> <code>x.x.x.x</code> </p> <p> <i>where x is an integer in the range [0,255]</i> </p> </dd> <dt>IPV6</dt> <dd> <p> <code>y : y : y : y : y : y : y : y</code> </p> <p> <i>where y is a hexadecimal between 0 and FFFF. [0, FFFF]</i> </p> </dd> <dt>MAC_ADDRESS</dt> <dd> <p> <code>^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$</code> </p> </dd> <dt>FQDN</dt> <dd> <p> <code>^[^&lt;&gt;{}\\\\\\\\/?,=\\\\p{Cntrl}]{1,256}$</code> </p> </dd> </dl>",
       "properties": {
         "Type": {
-          "$ref": "#/definitions/ResourceAttributeType",
-          "description": "Type of resource."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceAttributeType"
+            },
+            {
+              "description": "Type of resource."
+            }
+          ]
         },
         "Value": {
-          "$ref": "#/definitions/ResourceAttributeValue",
-          "description": "Value of the resource type."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceAttributeValue"
+            },
+            {
+              "description": "Value of the resource type."
+            }
+          ]
         }
       },
       "required": [
@@ -2354,31 +3721,17 @@
     "ResourceAttributeValue": {
       "maxLength": 256,
       "minLength": 1,
+      "pattern": "^.{1,256}$",
       "type": "string"
     },
     "ResourceName": {
       "maxLength": 1600,
       "minLength": 1,
+      "pattern": "^.{1,1600}$",
       "type": "string"
     },
-    "ResourceNotFoundException": {
-      "description": "Exception raised when the request references a resource (ADS configuration, update stream, migration task, etc.) that does not exist in ADS (Application Discovery Service) or in Migration Hub's repository.",
-      "properties": {
-        "Message": {
-          "$ref": "#/definitions/ErrorMessage"
-        }
-      },
-      "type": "object"
-    },
-    "ServiceUnavailableException": {
-      "description": "Exception raised when there is an internal, configuration, or dependency error encountered.",
-      "properties": {
-        "Message": {
-          "$ref": "#/definitions/ErrorMessage"
-        }
-      },
-      "type": "object"
-    },
+    "ResourceNotFoundException": {},
+    "ServiceUnavailableException": {},
     "Status": {
       "enum": [
         "NOT_STARTED",
@@ -2391,22 +3744,41 @@
     "StatusDetail": {
       "maxLength": 500,
       "minLength": 0,
+      "pattern": "^.{0,500}$",
       "type": "string"
     },
     "Task": {
       "description": "Task object encapsulating task information.",
       "properties": {
         "ProgressPercent": {
-          "$ref": "#/definitions/ProgressPercent",
-          "description": "Indication of the percentage completion of the task."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ProgressPercent"
+            },
+            {
+              "description": "Indication of the percentage completion of the task."
+            }
+          ]
         },
         "Status": {
-          "$ref": "#/definitions/Status",
-          "description": "Status of the task - Not Started, In-Progress, Complete."
+          "allOf": [
+            {
+              "$ref": "#/definitions/Status"
+            },
+            {
+              "description": "Status of the task - Not Started, In-Progress, Complete."
+            }
+          ]
         },
         "StatusDetail": {
-          "$ref": "#/definitions/StatusDetail",
-          "description": "Details of task status as notified by a migration tool. A tool might use this field to provide clarifying information about the status that is unique to that tool or that explains an error state."
+          "allOf": [
+            {
+              "$ref": "#/definitions/StatusDetail"
+            },
+            {
+              "description": "Details of task status as notified by a migration tool. A tool might use this field to provide clarifying information about the status that is unique to that tool or that explains an error state."
+            }
+          ]
         }
       },
       "required": [
@@ -2414,21 +3786,82 @@
       ],
       "type": "object"
     },
+    "ThrottlingException": {},
     "Token": {
+      "maxLength": 2048,
+      "minLength": 0,
+      "pattern": "^[a-zA-Z0-9\\/\\+\\=]{0,2048}$",
       "type": "string"
     },
-    "UnauthorizedOperation": {
-      "description": "Exception raised to indicate a request was not authorized when the <code>DryRun</code> flag is set to \"true\".",
-      "properties": {
-        "Message": {
-          "$ref": "#/definitions/ErrorMessage"
-        }
-      },
-      "type": "object"
-    },
+    "UnauthorizedOperation": {},
     "UpdateDateTime": {
       "format": "date-time",
       "type": "string"
     }
-  }
+  },
+  "securityDefinitions": {
+    "hmac": {
+      "description": "Amazon Signature authorization v4",
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey",
+      "x-amazon-apigateway-authtype": "awsSigv4"
+    }
+  },
+  "security": [
+    {
+      "hmac": []
+    }
+  ],
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://docs.aws.amazon.com/mgh/"
+  },
+  "x-components": {
+    "parameters": {
+      "X-Amz-Algorithm": {
+        "in": "header",
+        "name": "X-Amz-Algorithm",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Content-Sha256": {
+        "in": "header",
+        "name": "X-Amz-Content-Sha256",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Credential": {
+        "in": "header",
+        "name": "X-Amz-Credential",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Date": {
+        "in": "header",
+        "name": "X-Amz-Date",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Security-Token": {
+        "in": "header",
+        "name": "X-Amz-Security-Token",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Signature": {
+        "in": "header",
+        "name": "X-Amz-Signature",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-SignedHeaders": {
+        "in": "header",
+        "name": "X-Amz-SignedHeaders",
+        "required": false,
+        "type": "string"
+      }
+    }
+  },
+  "x-hasEquivalentPaths": true
 }

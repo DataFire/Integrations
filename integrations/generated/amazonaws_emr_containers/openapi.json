@@ -1,0 +1,3231 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "contact": {
+      "email": "mike.ralphson@gmail.com",
+      "name": "Mike Ralphson",
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
+    },
+    "description": "<p>Amazon EMR on EKS provides a deployment option for Amazon EMR that allows you to run open-source big data frameworks on Amazon Elastic Kubernetes Service (Amazon EKS). With this deployment option, you can focus on running analytics workloads while Amazon EMR on EKS builds, configures, and manages containers for open-source applications. For more information about Amazon EMR on EKS concepts and tasks, see <a href=\"https://docs.aws.amazon.com/emr/latest/EMR-on-EKS-DevelopmentGuide/emr-eks.html\">What is Amazon EMR on EKS</a>.</p> <p> <i>Amazon EMR containers</i> is the API name for Amazon EMR on EKS. The <code>emr-containers</code> prefix is used in the following scenarios: </p> <ul> <li> <p>It is the prefix in the CLI commands for Amazon EMR on EKS. For example, <code>aws emr-containers start-job-run</code>.</p> </li> <li> <p>It is the prefix before IAM policy actions for Amazon EMR on EKS. For example, <code>\"Action\": [ \"emr-containers:StartJobRun\"]</code>. For more information, see <a href=\"https://docs.aws.amazon.com/emr/latest/EMR-on-EKS-DevelopmentGuide/security_iam_service-with-iam.html#security_iam_service-with-iam-id-based-policies-actions\">Policy actions for Amazon EMR on EKS</a>.</p> </li> <li> <p>It is the prefix used in Amazon EMR on EKS service endpoints. For example, <code>emr-containers.us-east-2.amazonaws.com</code>. For more information, see <a href=\"https://docs.aws.amazon.com/emr/latest/EMR-on-EKS-DevelopmentGuide/service-quotas.html#service-endpoints\">Amazon EMR on EKS Service Endpoints</a>.</p> </li> </ul>",
+    "license": {
+      "name": "Apache 2.0 License",
+      "url": "http://www.apache.org/licenses/"
+    },
+    "termsOfService": "https://aws.amazon.com/service-terms/",
+    "title": "Amazon EMR Containers",
+    "version": "2020-10-01",
+    "x-apiClientRegistration": {
+      "url": "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"
+    },
+    "x-apisguru-categories": [
+      "cloud"
+    ],
+    "x-logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"
+    },
+    "x-origin": [
+      {
+        "contentType": "application/json",
+        "converter": {
+          "url": "https://github.com/mermade/aws2openapi",
+          "version": "1.0.0"
+        },
+        "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/emr-containers-2020-10-01.normal.json",
+        "x-apisguru-driver": "external"
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "amazonaws.com",
+    "x-release": "v4",
+    "x-serviceName": "emr-containers",
+    "x-datafire": {
+      "name": "amazonaws_emr_containers",
+      "type": "openapi"
+    }
+  },
+  "host": "emr-containers.us-east-1.amazonaws.com",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/tags/{resourceArn}": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The ARN of tagged resources.",
+            "in": "path",
+            "maxLength": 500,
+            "minLength": 60,
+            "name": "resourceArn",
+            "pattern": "^arn:(aws[a-zA-Z0-9-]*):emr-containers:.+:(\\d{12}):/virtualclusters/.+$",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListTagsForResourceResponse"
+            }
+          },
+          "480": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "481": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        },
+        "description": "Lists the tags assigned to the resources.",
+        "operationId": "ListTagsForResource"
+      },
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The ARN of resources.",
+            "in": "path",
+            "maxLength": 500,
+            "minLength": 60,
+            "name": "resourceArn",
+            "pattern": "^arn:(aws[a-zA-Z0-9-]*):emr-containers:.+:(\\d{12}):/virtualclusters/.+$",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "tags": {
+                  "additionalProperties": {
+                    "$ref": "#/definitions/StringEmpty256"
+                  },
+                  "description": "The tags assigned to resources.",
+                  "maxProperties": 50,
+                  "minProperties": 0,
+                  "type": "object"
+                }
+              },
+              "required": [
+                "tags"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/TagResourceResponse"
+            }
+          },
+          "480": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "481": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        },
+        "description": "Assigns tags to resources. A tag is a label that you assign to an AWS resource. Each tag consists of a key and an optional value, both of which you define. Tags enable you to categorize your AWS resources by attributes such as purpose, owner, or environment. When you have many resources of the same type, you can quickly identify a specific resource based on the tags you've assigned to it. For example, you can define a set of tags for your Amazon EMR on EKS clusters to help you track each cluster's owner and stack level. We recommend that you devise a consistent set of tag keys for each resource type. You can then search and filter the resources based on the tags that you add.",
+        "operationId": "TagResource"
+      }
+    },
+    "/tags/{resourceArn}#tagKeys": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "delete": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The ARN of resources.",
+            "in": "path",
+            "maxLength": 500,
+            "minLength": 60,
+            "name": "resourceArn",
+            "pattern": "^arn:(aws[a-zA-Z0-9-]*):emr-containers:.+:(\\d{12}):/virtualclusters/.+$",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "collectionFormat": "multi",
+            "description": "The tag keys of the resources.",
+            "in": "query",
+            "items": {
+              "$ref": "#/definitions/String128"
+            },
+            "maxItems": 50,
+            "minItems": 0,
+            "name": "tagKeys",
+            "required": true,
+            "type": "array"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UntagResourceResponse"
+            }
+          },
+          "480": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "481": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        },
+        "description": "Removes tags from resources.",
+        "operationId": "UntagResource"
+      }
+    },
+    "/virtualclusters": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The container provider ID of the virtual cluster.",
+            "in": "query",
+            "maxLength": 1024,
+            "minLength": 1,
+            "name": "containerProviderId",
+            "pattern": ".*\\S.*",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "The container provider type of the virtual cluster. EKS is the only supported type as of now.",
+            "enum": [
+              "EKS"
+            ],
+            "in": "query",
+            "name": "containerProviderType",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "The date and time after which the virtual clusters are created.",
+            "format": "date-time",
+            "in": "query",
+            "name": "createdAfter",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "The date and time before which the virtual clusters are created.",
+            "format": "date-time",
+            "in": "query",
+            "name": "createdBefore",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "collectionFormat": "multi",
+            "description": "The states of the requested virtual clusters.",
+            "in": "query",
+            "items": {
+              "$ref": "#/definitions/VirtualClusterState"
+            },
+            "maxItems": 10,
+            "name": "states",
+            "required": false,
+            "type": "array"
+          },
+          {
+            "description": "The maximum number of virtual clusters that can be listed.",
+            "in": "query",
+            "name": "maxResults",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "The token for the next set of virtual clusters to return. ",
+            "in": "query",
+            "maxLength": 1024,
+            "minLength": 1,
+            "name": "nextToken",
+            "pattern": ".*\\S.*",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListVirtualClustersResponse"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Lists information about the specified virtual cluster. Virtual cluster is a managed entity on Amazon EMR on EKS. You can create, describe, list and delete virtual clusters. They do not consume any additional resource in your system. A single virtual cluster maps to a single Kubernetes namespace. Given this relationship, you can model virtual clusters the same way you model Kubernetes namespaces to meet your requirements.",
+        "operationId": "ListVirtualClusters"
+      },
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "tags": {
+                  "additionalProperties": {
+                    "$ref": "#/definitions/StringEmpty256"
+                  },
+                  "description": "The tags assigned to the virtual cluster.",
+                  "maxProperties": 50,
+                  "minProperties": 0,
+                  "type": "object"
+                },
+                "clientToken": {
+                  "description": "The client token of the virtual cluster.",
+                  "maxLength": 64,
+                  "minLength": 1,
+                  "pattern": ".*\\S.*",
+                  "type": "string"
+                },
+                "containerProvider": {
+                  "description": "The information about the container provider.",
+                  "properties": {
+                    "info": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/ContainerInfo"
+                        },
+                        {
+                          "description": "The information about the container cluster."
+                        }
+                      ]
+                    },
+                    "id": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/String256"
+                        },
+                        {
+                          "description": "The ID of the container cluster."
+                        }
+                      ]
+                    },
+                    "type": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/ContainerProviderType"
+                        },
+                        {
+                          "description": "The type of the container provider. EKS is the only supported type as of now."
+                        }
+                      ]
+                    }
+                  },
+                  "type": "object"
+                },
+                "name": {
+                  "description": "The specified name of the virtual cluster.",
+                  "maxLength": 64,
+                  "minLength": 1,
+                  "pattern": "[\\.\\-_/#A-Za-z0-9]+",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "name",
+                "containerProvider",
+                "clientToken"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateVirtualClusterResponse"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Creates a virtual cluster. Virtual cluster is a managed entity on Amazon EMR on EKS. You can create, describe, list and delete virtual clusters. They do not consume any additional resource in your system. A single virtual cluster maps to a single Kubernetes namespace. Given this relationship, you can model virtual clusters the same way you model Kubernetes namespaces to meet your requirements.",
+        "operationId": "CreateVirtualCluster"
+      }
+    },
+    "/virtualclusters/{virtualClusterId}": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "delete": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The ID of the virtual cluster that will be deleted.",
+            "in": "path",
+            "maxLength": 64,
+            "minLength": 1,
+            "name": "virtualClusterId",
+            "pattern": "[0-9a-z]+",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteVirtualClusterResponse"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Deletes a virtual cluster. Virtual cluster is a managed entity on Amazon EMR on EKS. You can create, describe, list and delete virtual clusters. They do not consume any additional resource in your system. A single virtual cluster maps to a single Kubernetes namespace. Given this relationship, you can model virtual clusters the same way you model Kubernetes namespaces to meet your requirements.",
+        "operationId": "DeleteVirtualCluster"
+      },
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The ID of the virtual cluster that will be described.",
+            "in": "path",
+            "maxLength": 64,
+            "minLength": 1,
+            "name": "virtualClusterId",
+            "pattern": "[0-9a-z]+",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeVirtualClusterResponse"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Displays detailed information about a specified virtual cluster. Virtual cluster is a managed entity on Amazon EMR on EKS. You can create, describe, list and delete virtual clusters. They do not consume any additional resource in your system. A single virtual cluster maps to a single Kubernetes namespace. Given this relationship, you can model virtual clusters the same way you model Kubernetes namespaces to meet your requirements.",
+        "operationId": "DescribeVirtualCluster"
+      }
+    },
+    "/virtualclusters/{virtualClusterId}/endpoints": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The ID of the virtual cluster.",
+            "in": "path",
+            "maxLength": 64,
+            "minLength": 1,
+            "name": "virtualClusterId",
+            "pattern": "[0-9a-z]+",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The date and time before which the endpoints are created.",
+            "format": "date-time",
+            "in": "query",
+            "name": "createdBefore",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": " The date and time after which the endpoints are created.",
+            "format": "date-time",
+            "in": "query",
+            "name": "createdAfter",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "collectionFormat": "multi",
+            "description": "The types of the managed endpoints.",
+            "in": "query",
+            "items": {
+              "$ref": "#/definitions/EndpointType"
+            },
+            "maxItems": 10,
+            "name": "types",
+            "required": false,
+            "type": "array"
+          },
+          {
+            "collectionFormat": "multi",
+            "description": "The states of the managed endpoints.",
+            "in": "query",
+            "items": {
+              "$ref": "#/definitions/EndpointState"
+            },
+            "maxItems": 10,
+            "name": "states",
+            "required": false,
+            "type": "array"
+          },
+          {
+            "description": "The maximum number of managed endpoints that can be listed.",
+            "in": "query",
+            "name": "maxResults",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": " The token for the next set of managed endpoints to return. ",
+            "in": "query",
+            "maxLength": 1024,
+            "minLength": 1,
+            "name": "nextToken",
+            "pattern": ".*\\S.*",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListManagedEndpointsResponse"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Lists managed endpoints based on a set of parameters. A managed endpoint is a gateway that connects EMR Studio to Amazon EMR on EKS so that EMR Studio can communicate with your virtual cluster.",
+        "operationId": "ListManagedEndpoints"
+      },
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The ID of the virtual cluster for which a managed endpoint is created.",
+            "in": "path",
+            "maxLength": 64,
+            "minLength": 1,
+            "name": "virtualClusterId",
+            "pattern": "[0-9a-z]+",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "tags": {
+                  "additionalProperties": {
+                    "$ref": "#/definitions/StringEmpty256"
+                  },
+                  "description": "The tags of the managed endpoint. ",
+                  "maxProperties": 50,
+                  "minProperties": 0,
+                  "type": "object"
+                },
+                "certificateArn": {
+                  "description": "The certificate ARN of the managed endpoint.",
+                  "maxLength": 2048,
+                  "minLength": 44,
+                  "pattern": "^arn:(aws[a-zA-Z0-9-]*):acm:.+:(\\d{12}):certificate/.+$",
+                  "type": "string"
+                },
+                "clientToken": {
+                  "description": "The client idempotency token for this create call.",
+                  "maxLength": 64,
+                  "minLength": 1,
+                  "pattern": ".*\\S.*",
+                  "type": "string"
+                },
+                "configurationOverrides": {
+                  "description": "A configuration specification to be used to override existing configurations.",
+                  "properties": {
+                    "applicationConfiguration": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/ConfigurationList"
+                        },
+                        {
+                          "description": "The configurations for the application running by the job run. "
+                        }
+                      ]
+                    },
+                    "monitoringConfiguration": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/MonitoringConfiguration"
+                        },
+                        {
+                          "description": "The configurations for monitoring."
+                        }
+                      ]
+                    }
+                  },
+                  "type": "object"
+                },
+                "executionRoleArn": {
+                  "description": "The ARN of the execution role.",
+                  "maxLength": 2048,
+                  "minLength": 20,
+                  "pattern": "^arn:(aws[a-zA-Z0-9-]*):iam::(\\d{12})?:(role((\\u002F)|(\\u002F[\\u0021-\\u007F]+\\u002F))[\\w+=,.@-]+)$",
+                  "type": "string"
+                },
+                "name": {
+                  "description": "The name of the managed endpoint.",
+                  "maxLength": 64,
+                  "minLength": 1,
+                  "pattern": "[\\.\\-_/#A-Za-z0-9]+",
+                  "type": "string"
+                },
+                "releaseLabel": {
+                  "description": "The Amazon EMR release version.",
+                  "maxLength": 64,
+                  "minLength": 1,
+                  "pattern": "[\\.\\-_/A-Za-z0-9]+",
+                  "type": "string"
+                },
+                "type": {
+                  "description": "The type of the managed endpoint.",
+                  "maxLength": 64,
+                  "minLength": 1,
+                  "pattern": ".*\\S.*",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "name",
+                "type",
+                "releaseLabel",
+                "executionRoleArn",
+                "certificateArn",
+                "clientToken"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateManagedEndpointResponse"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Creates a managed endpoint. A managed endpoint is a gateway that connects EMR Studio to Amazon EMR on EKS so that EMR Studio can communicate with your virtual cluster.",
+        "operationId": "CreateManagedEndpoint"
+      }
+    },
+    "/virtualclusters/{virtualClusterId}/endpoints/{endpointId}": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "delete": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The ID of the managed endpoint.",
+            "in": "path",
+            "maxLength": 64,
+            "minLength": 1,
+            "name": "endpointId",
+            "pattern": "[0-9a-z]+",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The ID of the endpoint's virtual cluster.",
+            "in": "path",
+            "maxLength": 64,
+            "minLength": 1,
+            "name": "virtualClusterId",
+            "pattern": "[0-9a-z]+",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteManagedEndpointResponse"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Deletes a managed endpoint. A managed endpoint is a gateway that connects EMR Studio to Amazon EMR on EKS so that EMR Studio can communicate with your virtual cluster.",
+        "operationId": "DeleteManagedEndpoint"
+      },
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "This output displays ID of the managed endpoint.",
+            "in": "path",
+            "maxLength": 64,
+            "minLength": 1,
+            "name": "endpointId",
+            "pattern": "[0-9a-z]+",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The ID of the endpoint's virtual cluster.",
+            "in": "path",
+            "maxLength": 64,
+            "minLength": 1,
+            "name": "virtualClusterId",
+            "pattern": "[0-9a-z]+",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeManagedEndpointResponse"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Displays detailed information about a managed endpoint. A managed endpoint is a gateway that connects EMR Studio to Amazon EMR on EKS so that EMR Studio can communicate with your virtual cluster.",
+        "operationId": "DescribeManagedEndpoint"
+      }
+    },
+    "/virtualclusters/{virtualClusterId}/jobruns": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The ID of the virtual cluster for which to list the job run. ",
+            "in": "path",
+            "maxLength": 64,
+            "minLength": 1,
+            "name": "virtualClusterId",
+            "pattern": "[0-9a-z]+",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The date and time before which the job runs were submitted.",
+            "format": "date-time",
+            "in": "query",
+            "name": "createdBefore",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "The date and time after which the job runs were submitted.",
+            "format": "date-time",
+            "in": "query",
+            "name": "createdAfter",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "The name of the job run.",
+            "in": "query",
+            "maxLength": 64,
+            "minLength": 1,
+            "name": "name",
+            "pattern": "[\\.\\-_/#A-Za-z0-9]+",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "collectionFormat": "multi",
+            "description": "The states of the job run.",
+            "in": "query",
+            "items": {
+              "$ref": "#/definitions/JobRunState"
+            },
+            "maxItems": 10,
+            "name": "states",
+            "required": false,
+            "type": "array"
+          },
+          {
+            "description": "The maximum number of job runs that can be listed.",
+            "in": "query",
+            "name": "maxResults",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "The token for the next set of job runs to return.",
+            "in": "query",
+            "maxLength": 1024,
+            "minLength": 1,
+            "name": "nextToken",
+            "pattern": ".*\\S.*",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListJobRunsResponse"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Lists job runs based on a set of parameters. A job run is a unit of work, such as a Spark jar, PySpark script, or SparkSQL query, that you submit to Amazon EMR on EKS.",
+        "operationId": "ListJobRuns"
+      },
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The virtual cluster ID for which the job run request is submitted.",
+            "in": "path",
+            "maxLength": 64,
+            "minLength": 1,
+            "name": "virtualClusterId",
+            "pattern": "[0-9a-z]+",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "tags": {
+                  "additionalProperties": {
+                    "$ref": "#/definitions/StringEmpty256"
+                  },
+                  "description": "The tags assigned to job runs.",
+                  "maxProperties": 50,
+                  "minProperties": 0,
+                  "type": "object"
+                },
+                "clientToken": {
+                  "description": "The client idempotency token of the job run request. ",
+                  "maxLength": 64,
+                  "minLength": 1,
+                  "pattern": ".*\\S.*",
+                  "type": "string"
+                },
+                "configurationOverrides": {
+                  "description": "A configuration specification to be used to override existing configurations.",
+                  "properties": {
+                    "applicationConfiguration": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/ConfigurationList"
+                        },
+                        {
+                          "description": "The configurations for the application running by the job run. "
+                        }
+                      ]
+                    },
+                    "monitoringConfiguration": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/MonitoringConfiguration"
+                        },
+                        {
+                          "description": "The configurations for monitoring."
+                        }
+                      ]
+                    }
+                  },
+                  "type": "object"
+                },
+                "executionRoleArn": {
+                  "description": "The execution role ARN for the job run.",
+                  "maxLength": 2048,
+                  "minLength": 20,
+                  "pattern": "^arn:(aws[a-zA-Z0-9-]*):iam::(\\d{12})?:(role((\\u002F)|(\\u002F[\\u0021-\\u007F]+\\u002F))[\\w+=,.@-]+)$",
+                  "type": "string"
+                },
+                "jobDriver": {
+                  "description": "Specify the driver that the job runs on.",
+                  "properties": {
+                    "sparkSubmitJobDriver": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/SparkSubmitJobDriver"
+                        },
+                        {
+                          "description": "The job driver parameters specified for spark submit."
+                        }
+                      ]
+                    }
+                  },
+                  "type": "object"
+                },
+                "name": {
+                  "description": "The name of the job run.",
+                  "maxLength": 64,
+                  "minLength": 1,
+                  "pattern": "[\\.\\-_/#A-Za-z0-9]+",
+                  "type": "string"
+                },
+                "releaseLabel": {
+                  "description": "The Amazon EMR release version to use for the job run.",
+                  "maxLength": 64,
+                  "minLength": 1,
+                  "pattern": "[\\.\\-_/A-Za-z0-9]+",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "clientToken",
+                "executionRoleArn",
+                "releaseLabel",
+                "jobDriver"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/StartJobRunResponse"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Starts a job run. A job run is a unit of work, such as a Spark jar, PySpark script, or SparkSQL query, that you submit to Amazon EMR on EKS.",
+        "operationId": "StartJobRun"
+      }
+    },
+    "/virtualclusters/{virtualClusterId}/jobruns/{jobRunId}": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "delete": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The ID of the job run to cancel.",
+            "in": "path",
+            "maxLength": 64,
+            "minLength": 1,
+            "name": "jobRunId",
+            "pattern": "[0-9a-z]+",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The ID of the virtual cluster for which the job run will be canceled.",
+            "in": "path",
+            "maxLength": 64,
+            "minLength": 1,
+            "name": "virtualClusterId",
+            "pattern": "[0-9a-z]+",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CancelJobRunResponse"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Cancels a job run. A job run is a unit of work, such as a Spark jar, PySpark script, or SparkSQL query, that you submit to Amazon EMR on EKS.",
+        "operationId": "CancelJobRun"
+      },
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The ID of the job run request. ",
+            "in": "path",
+            "maxLength": 64,
+            "minLength": 1,
+            "name": "jobRunId",
+            "pattern": "[0-9a-z]+",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The ID of the virtual cluster for which the job run is submitted.",
+            "in": "path",
+            "maxLength": 64,
+            "minLength": 1,
+            "name": "virtualClusterId",
+            "pattern": "[0-9a-z]+",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeJobRunResponse"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Displays detailed information about a job run. A job run is a unit of work, such as a Spark jar, PySpark script, or SparkSQL query, that you submit to Amazon EMR on EKS.",
+        "operationId": "DescribeJobRun"
+      }
+    }
+  },
+  "definitions": {
+    "ACMCertArn": {
+      "maxLength": 2048,
+      "minLength": 44,
+      "pattern": "^arn:(aws[a-zA-Z0-9-]*):acm:.+:(\\d{12}):certificate/.+$",
+      "type": "string"
+    },
+    "CancelJobRunRequest": {
+      "properties": {},
+      "title": "CancelJobRunRequest",
+      "type": "object"
+    },
+    "CancelJobRunResponse": {
+      "properties": {
+        "id": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceIdString"
+            },
+            {
+              "description": "The output contains the ID of the cancelled job run."
+            }
+          ]
+        },
+        "virtualClusterId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceIdString"
+            },
+            {
+              "description": "The output contains the virtual cluster ID for which the job run is cancelled."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ClientToken": {
+      "maxLength": 64,
+      "minLength": 1,
+      "pattern": ".*\\S.*",
+      "type": "string"
+    },
+    "CloudWatchMonitoringConfiguration": {
+      "description": "A configuration for CloudWatch monitoring. You can configure your jobs to send log information to CloudWatch Logs.",
+      "properties": {
+        "logGroupName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/LogGroupName"
+            },
+            {
+              "description": "The name of the log group for log publishing."
+            }
+          ]
+        },
+        "logStreamNamePrefix": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String256"
+            },
+            {
+              "description": "The specified name prefix for log streams."
+            }
+          ]
+        }
+      },
+      "required": [
+        "logGroupName"
+      ],
+      "type": "object"
+    },
+    "Configuration": {
+      "description": "A configuration specification to be used when provisioning virtual clusters, which can include configurations for applications and software bundled with Amazon EMR on EKS. A configuration consists of a classification, properties, and optional nested configurations. A classification refers to an application-specific configuration file. Properties are the settings you want to change in that file.",
+      "properties": {
+        "classification": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String1024"
+            },
+            {
+              "description": "The classification within a configuration."
+            }
+          ]
+        },
+        "configurations": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ConfigurationList"
+            },
+            {
+              "description": "A list of additional configurations to apply within a configuration object."
+            }
+          ]
+        },
+        "properties": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SensitivePropertiesMap"
+            },
+            {
+              "description": "A set of properties specified within a configuration classification."
+            }
+          ]
+        }
+      },
+      "required": [
+        "classification"
+      ],
+      "type": "object"
+    },
+    "ConfigurationList": {
+      "items": {
+        "$ref": "#/definitions/Configuration"
+      },
+      "maxItems": 100,
+      "type": "array"
+    },
+    "ConfigurationOverrides": {
+      "description": "A configuration specification to be used to override existing configurations.",
+      "properties": {
+        "applicationConfiguration": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ConfigurationList"
+            },
+            {
+              "description": "The configurations for the application running by the job run. "
+            }
+          ]
+        },
+        "monitoringConfiguration": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MonitoringConfiguration"
+            },
+            {
+              "description": "The configurations for monitoring."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ContainerInfo": {
+      "description": "The information about the container used for a job run or a managed endpoint.",
+      "properties": {
+        "eksInfo": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/EksInfo"
+            },
+            {
+              "description": "The information about the EKS cluster."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ContainerProvider": {
+      "description": "The information about the container provider.",
+      "properties": {
+        "info": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ContainerInfo"
+            },
+            {
+              "description": "The information about the container cluster."
+            }
+          ]
+        },
+        "id": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String256"
+            },
+            {
+              "description": "The ID of the container cluster."
+            }
+          ]
+        },
+        "type": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ContainerProviderType"
+            },
+            {
+              "description": "The type of the container provider. EKS is the only supported type as of now."
+            }
+          ]
+        }
+      },
+      "required": [
+        "type",
+        "id"
+      ],
+      "type": "object"
+    },
+    "ContainerProviderType": {
+      "enum": [
+        "EKS"
+      ],
+      "type": "string"
+    },
+    "CreateManagedEndpointRequest": {
+      "properties": {
+        "tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagMap"
+            },
+            {
+              "description": "The tags of the managed endpoint. "
+            }
+          ]
+        },
+        "certificateArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ACMCertArn"
+            },
+            {
+              "description": "The certificate ARN of the managed endpoint."
+            }
+          ]
+        },
+        "clientToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ClientToken"
+            },
+            {
+              "description": "The client idempotency token for this create call."
+            }
+          ]
+        },
+        "configurationOverrides": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ConfigurationOverrides"
+            },
+            {
+              "description": "The configuration settings that will be used to override existing configurations."
+            }
+          ]
+        },
+        "executionRoleArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/IAMRoleArn"
+            },
+            {
+              "description": "The ARN of the execution role."
+            }
+          ]
+        },
+        "name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceNameString"
+            },
+            {
+              "description": "The name of the managed endpoint."
+            }
+          ]
+        },
+        "releaseLabel": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ReleaseLabel"
+            },
+            {
+              "description": "The Amazon EMR release version."
+            }
+          ]
+        },
+        "type": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/EndpointType"
+            },
+            {
+              "description": "The type of the managed endpoint."
+            }
+          ]
+        }
+      },
+      "required": [
+        "name",
+        "type",
+        "releaseLabel",
+        "executionRoleArn",
+        "certificateArn",
+        "clientToken"
+      ],
+      "title": "CreateManagedEndpointRequest",
+      "type": "object"
+    },
+    "CreateManagedEndpointResponse": {
+      "properties": {
+        "arn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/EndpointArn"
+            },
+            {
+              "description": "The output contains the ARN of the managed endpoint."
+            }
+          ]
+        },
+        "id": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceIdString"
+            },
+            {
+              "description": "The output contains the ID of the managed endpoint."
+            }
+          ]
+        },
+        "name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceNameString"
+            },
+            {
+              "description": "The output contains the name of the managed endpoint."
+            }
+          ]
+        },
+        "virtualClusterId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceIdString"
+            },
+            {
+              "description": "The output contains the ID of the virtual cluster."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "CreateVirtualClusterRequest": {
+      "properties": {
+        "tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagMap"
+            },
+            {
+              "description": "The tags assigned to the virtual cluster."
+            }
+          ]
+        },
+        "clientToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ClientToken"
+            },
+            {
+              "description": "The client token of the virtual cluster."
+            }
+          ]
+        },
+        "containerProvider": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ContainerProvider"
+            },
+            {
+              "description": "The container provider of the virtual cluster."
+            }
+          ]
+        },
+        "name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceNameString"
+            },
+            {
+              "description": "The specified name of the virtual cluster."
+            }
+          ]
+        }
+      },
+      "required": [
+        "name",
+        "containerProvider",
+        "clientToken"
+      ],
+      "title": "CreateVirtualClusterRequest",
+      "type": "object"
+    },
+    "CreateVirtualClusterResponse": {
+      "properties": {
+        "arn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/VirtualClusterArn"
+            },
+            {
+              "description": "This output contains the ARN of virtual cluster."
+            }
+          ]
+        },
+        "id": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceIdString"
+            },
+            {
+              "description": "This output contains the virtual cluster ID."
+            }
+          ]
+        },
+        "name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceNameString"
+            },
+            {
+              "description": "This output contains the name of the virtual cluster."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "Date": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "DeleteManagedEndpointRequest": {
+      "properties": {},
+      "title": "DeleteManagedEndpointRequest",
+      "type": "object"
+    },
+    "DeleteManagedEndpointResponse": {
+      "properties": {
+        "id": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceIdString"
+            },
+            {
+              "description": "The output displays the ID of the managed endpoint."
+            }
+          ]
+        },
+        "virtualClusterId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceIdString"
+            },
+            {
+              "description": "The output displays the ID of the endpoint's virtual cluster."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DeleteVirtualClusterRequest": {
+      "properties": {},
+      "title": "DeleteVirtualClusterRequest",
+      "type": "object"
+    },
+    "DeleteVirtualClusterResponse": {
+      "properties": {
+        "id": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceIdString"
+            },
+            {
+              "description": "This output contains the ID of the virtual cluster that will be deleted. "
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DescribeJobRunRequest": {
+      "properties": {},
+      "title": "DescribeJobRunRequest",
+      "type": "object"
+    },
+    "DescribeJobRunResponse": {
+      "properties": {
+        "jobRun": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/JobRun"
+            },
+            {
+              "description": "The output displays information about a job run."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DescribeManagedEndpointRequest": {
+      "properties": {},
+      "title": "DescribeManagedEndpointRequest",
+      "type": "object"
+    },
+    "DescribeManagedEndpointResponse": {
+      "properties": {
+        "endpoint": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Endpoint"
+            },
+            {
+              "description": "This output displays information about a managed endpoint."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DescribeVirtualClusterRequest": {
+      "properties": {},
+      "title": "DescribeVirtualClusterRequest",
+      "type": "object"
+    },
+    "DescribeVirtualClusterResponse": {
+      "properties": {
+        "virtualCluster": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/VirtualCluster"
+            },
+            {
+              "description": "This output displays information about the specified virtual cluster."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "EksInfo": {
+      "description": "The information about the EKS cluster.",
+      "properties": {
+        "namespace": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String256"
+            },
+            {
+              "description": "The namespaces of the EKS cluster."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "Endpoint": {
+      "description": "This entity represents the endpoint that is managed by Amazon EMR on EKS.",
+      "properties": {
+        "tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagMap"
+            },
+            {
+              "description": "The tags of the endpoint. "
+            }
+          ]
+        },
+        "arn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/EndpointArn"
+            },
+            {
+              "description": "The ARN of the endpoint."
+            }
+          ]
+        },
+        "certificateArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ACMCertArn"
+            },
+            {
+              "description": "The certificate ARN of the endpoint."
+            }
+          ]
+        },
+        "configurationOverrides": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ConfigurationOverrides"
+            },
+            {
+              "description": "The configuration settings that are used to override existing configurations for endpoints."
+            }
+          ]
+        },
+        "createdAt": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Date"
+            },
+            {
+              "description": "The date and time when the endpoint was created."
+            }
+          ]
+        },
+        "executionRoleArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/IAMRoleArn"
+            },
+            {
+              "description": "The execution role ARN of the endpoint."
+            }
+          ]
+        },
+        "id": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceIdString"
+            },
+            {
+              "description": "The ID of the endpoint."
+            }
+          ]
+        },
+        "name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceNameString"
+            },
+            {
+              "description": "The name of the endpoint."
+            }
+          ]
+        },
+        "releaseLabel": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ReleaseLabel"
+            },
+            {
+              "description": "The EMR release version to be used for the endpoint."
+            }
+          ]
+        },
+        "securityGroup": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String256"
+            },
+            {
+              "description": "The security group configuration of the endpoint. "
+            }
+          ]
+        },
+        "serverUrl": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/UriString"
+            },
+            {
+              "description": "The server URL of the endpoint."
+            }
+          ]
+        },
+        "state": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/EndpointState"
+            },
+            {
+              "description": "The state of the endpoint."
+            }
+          ]
+        },
+        "subnetIds": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SubnetIds"
+            },
+            {
+              "description": "The subnet IDs of the endpoint. "
+            }
+          ]
+        },
+        "type": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/EndpointType"
+            },
+            {
+              "description": "The type of the endpoint."
+            }
+          ]
+        },
+        "virtualClusterId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceIdString"
+            },
+            {
+              "description": "The ID of the endpoint's virtual cluster."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "EndpointArn": {
+      "maxLength": 1024,
+      "minLength": 60,
+      "pattern": "^arn:(aws[a-zA-Z0-9-]*):emr-containers:.+:(\\d{12}):\\/virtualclusters\\/[0-9a-zA-Z]+\\/endpoints\\/[0-9a-zA-Z]+$",
+      "type": "string"
+    },
+    "EndpointState": {
+      "enum": [
+        "CREATING",
+        "ACTIVE",
+        "TERMINATING",
+        "TERMINATED",
+        "TERMINATED_WITH_ERRORS"
+      ],
+      "type": "string"
+    },
+    "EndpointStates": {
+      "items": {
+        "$ref": "#/definitions/EndpointState"
+      },
+      "maxItems": 10,
+      "type": "array"
+    },
+    "EndpointType": {
+      "maxLength": 64,
+      "minLength": 1,
+      "pattern": ".*\\S.*",
+      "type": "string"
+    },
+    "EndpointTypes": {
+      "items": {
+        "$ref": "#/definitions/EndpointType"
+      },
+      "maxItems": 10,
+      "type": "array"
+    },
+    "Endpoints": {
+      "items": {
+        "$ref": "#/definitions/Endpoint"
+      },
+      "type": "array"
+    },
+    "EntryPointArgument": {
+      "format": "password",
+      "maxLength": 10280,
+      "minLength": 1,
+      "pattern": "(?!\\s*$)(^[^';|\\u0026\\u003C\\u003E*?`$(){}\\[\\]!#\\\\]*$)",
+      "type": "string"
+    },
+    "EntryPointArguments": {
+      "items": {
+        "$ref": "#/definitions/EntryPointArgument"
+      },
+      "type": "array"
+    },
+    "EntryPointPath": {
+      "format": "password",
+      "maxLength": 256,
+      "minLength": 1,
+      "pattern": "(?!\\s*$)(^[^';|\\u0026\\u003C\\u003E*?`$(){}\\[\\]!#\\\\]*$)",
+      "type": "string"
+    },
+    "FailureReason": {
+      "enum": [
+        "INTERNAL_ERROR",
+        "USER_ERROR",
+        "VALIDATION_ERROR",
+        "CLUSTER_UNAVAILABLE"
+      ],
+      "type": "string"
+    },
+    "IAMRoleArn": {
+      "maxLength": 2048,
+      "minLength": 20,
+      "pattern": "^arn:(aws[a-zA-Z0-9-]*):iam::(\\d{12})?:(role((\\u002F)|(\\u002F[\\u0021-\\u007F]+\\u002F))[\\w+=,.@-]+)$",
+      "type": "string"
+    },
+    "InternalServerException": {},
+    "JavaInteger": {
+      "type": "integer"
+    },
+    "JobArn": {
+      "maxLength": 1024,
+      "minLength": 60,
+      "pattern": "^arn:(aws[a-zA-Z0-9-]*):emr-containers:.+:(\\d{12}):\\/virtualclusters\\/[0-9a-zA-Z]+\\/jobruns\\/[0-9a-zA-Z]+$",
+      "type": "string"
+    },
+    "JobDriver": {
+      "description": "Specify the driver that the job runs on.",
+      "properties": {
+        "sparkSubmitJobDriver": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SparkSubmitJobDriver"
+            },
+            {
+              "description": "The job driver parameters specified for spark submit."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "JobRun": {
+      "description": "This entity describes a job run. A job run is a unit of work, such as a Spark jar, PySpark script, or SparkSQL query, that you submit to Amazon EMR on EKS. ",
+      "properties": {
+        "tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagMap"
+            },
+            {
+              "description": "The assigned tags of the job run."
+            }
+          ]
+        },
+        "arn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/JobArn"
+            },
+            {
+              "description": "The ARN of job run."
+            }
+          ]
+        },
+        "clientToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ClientToken"
+            },
+            {
+              "description": "The client token used to start a job run."
+            }
+          ]
+        },
+        "configurationOverrides": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ConfigurationOverrides"
+            },
+            {
+              "description": "The configuration settings that are used to override default configuration."
+            }
+          ]
+        },
+        "createdAt": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Date"
+            },
+            {
+              "description": "The date and time when the job run was created."
+            }
+          ]
+        },
+        "createdBy": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RequestIdentityUserArn"
+            },
+            {
+              "description": "The user who created the job run."
+            }
+          ]
+        },
+        "executionRoleArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/IAMRoleArn"
+            },
+            {
+              "description": "The execution role ARN of the job run."
+            }
+          ]
+        },
+        "failureReason": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/FailureReason"
+            },
+            {
+              "description": "The reasons why the job run has failed."
+            }
+          ]
+        },
+        "finishedAt": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Date"
+            },
+            {
+              "description": "The date and time when the job run has finished."
+            }
+          ]
+        },
+        "id": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceIdString"
+            },
+            {
+              "description": "The ID of the job run."
+            }
+          ]
+        },
+        "jobDriver": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/JobDriver"
+            },
+            {
+              "description": "Parameters of job driver for the job run."
+            }
+          ]
+        },
+        "name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceNameString"
+            },
+            {
+              "description": "The name of the job run."
+            }
+          ]
+        },
+        "releaseLabel": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ReleaseLabel"
+            },
+            {
+              "description": "The release version of Amazon EMR."
+            }
+          ]
+        },
+        "state": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/JobRunState"
+            },
+            {
+              "description": "The state of the job run. "
+            }
+          ]
+        },
+        "stateDetails": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String256"
+            },
+            {
+              "description": "Additional details of the job run state."
+            }
+          ]
+        },
+        "virtualClusterId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceIdString"
+            },
+            {
+              "description": "The ID of the job run's virtual cluster."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "JobRunState": {
+      "enum": [
+        "PENDING",
+        "SUBMITTED",
+        "RUNNING",
+        "FAILED",
+        "CANCELLED",
+        "CANCEL_PENDING",
+        "COMPLETED"
+      ],
+      "type": "string"
+    },
+    "JobRunStates": {
+      "items": {
+        "$ref": "#/definitions/JobRunState"
+      },
+      "maxItems": 10,
+      "type": "array"
+    },
+    "JobRuns": {
+      "items": {
+        "$ref": "#/definitions/JobRun"
+      },
+      "type": "array"
+    },
+    "ListJobRunsRequest": {
+      "properties": {},
+      "title": "ListJobRunsRequest",
+      "type": "object"
+    },
+    "ListJobRunsResponse": {
+      "properties": {
+        "jobRuns": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/JobRuns"
+            },
+            {
+              "description": "This output lists information about the specified job runs."
+            }
+          ]
+        },
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NextToken"
+            },
+            {
+              "description": "This output displays the token for the next set of job runs."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ListManagedEndpointsRequest": {
+      "properties": {},
+      "title": "ListManagedEndpointsRequest",
+      "type": "object"
+    },
+    "ListManagedEndpointsResponse": {
+      "properties": {
+        "endpoints": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Endpoints"
+            },
+            {
+              "description": "The managed endpoints to be listed."
+            }
+          ]
+        },
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NextToken"
+            },
+            {
+              "description": " The token for the next set of endpoints to return. "
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ListTagsForResourceRequest": {
+      "properties": {},
+      "title": "ListTagsForResourceRequest",
+      "type": "object"
+    },
+    "ListTagsForResourceResponse": {
+      "properties": {
+        "tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagMap"
+            },
+            {
+              "description": "The tags assigned to resources."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ListVirtualClustersRequest": {
+      "properties": {},
+      "title": "ListVirtualClustersRequest",
+      "type": "object"
+    },
+    "ListVirtualClustersResponse": {
+      "properties": {
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NextToken"
+            },
+            {
+              "description": "This output displays the token for the next set of virtual clusters."
+            }
+          ]
+        },
+        "virtualClusters": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/VirtualClusters"
+            },
+            {
+              "description": "This output lists the specified virtual clusters."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "LogGroupName": {
+      "maxLength": 512,
+      "minLength": 1,
+      "pattern": "[\\.\\-_/#A-Za-z0-9]+",
+      "type": "string"
+    },
+    "MonitoringConfiguration": {
+      "description": "Configuration setting for monitoring.",
+      "properties": {
+        "cloudWatchMonitoringConfiguration": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CloudWatchMonitoringConfiguration"
+            },
+            {
+              "description": "Monitoring configurations for CloudWatch."
+            }
+          ]
+        },
+        "persistentAppUI": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PersistentAppUI"
+            },
+            {
+              "description": "Monitoring configurations for the persistent application UI. "
+            }
+          ]
+        },
+        "s3MonitoringConfiguration": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/S3MonitoringConfiguration"
+            },
+            {
+              "description": "Amazon S3 configuration for monitoring log publishing."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "NextToken": {
+      "maxLength": 1024,
+      "minLength": 1,
+      "pattern": ".*\\S.*",
+      "type": "string"
+    },
+    "PersistentAppUI": {
+      "enum": [
+        "ENABLED",
+        "DISABLED"
+      ],
+      "type": "string"
+    },
+    "ReleaseLabel": {
+      "maxLength": 64,
+      "minLength": 1,
+      "pattern": "[\\.\\-_/A-Za-z0-9]+",
+      "type": "string"
+    },
+    "RequestIdentityUserArn": {
+      "maxLength": 2048,
+      "minLength": 20,
+      "pattern": "^arn:(aws[a-zA-Z0-9-]*):(iam|sts)::(\\d{12})?:[\\w/+=,.@-]+$",
+      "type": "string"
+    },
+    "ResourceIdString": {
+      "maxLength": 64,
+      "minLength": 1,
+      "pattern": "[0-9a-z]+",
+      "type": "string"
+    },
+    "ResourceNameString": {
+      "maxLength": 64,
+      "minLength": 1,
+      "pattern": "[\\.\\-_/#A-Za-z0-9]+",
+      "type": "string"
+    },
+    "ResourceNotFoundException": {},
+    "RsiArn": {
+      "maxLength": 500,
+      "minLength": 60,
+      "pattern": "^arn:(aws[a-zA-Z0-9-]*):emr-containers:.+:(\\d{12}):/virtualclusters/.+$",
+      "type": "string"
+    },
+    "S3MonitoringConfiguration": {
+      "description": " Amazon S3 configuration for monitoring log publishing. You can configure your jobs to send log information to Amazon S3.",
+      "properties": {
+        "logUri": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/UriString"
+            },
+            {
+              "description": "Amazon S3 destination URI for log publishing."
+            }
+          ]
+        }
+      },
+      "required": [
+        "logUri"
+      ],
+      "type": "object"
+    },
+    "SensitivePropertiesMap": {
+      "additionalProperties": {
+        "$ref": "#/definitions/String1024"
+      },
+      "maxProperties": 100,
+      "type": "object"
+    },
+    "SparkSubmitJobDriver": {
+      "description": "The information about job driver for Spark submit.",
+      "properties": {
+        "entryPoint": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/EntryPointPath"
+            },
+            {
+              "description": "The entry point of job application."
+            }
+          ]
+        },
+        "entryPointArguments": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/EntryPointArguments"
+            },
+            {
+              "description": "The arguments for job application."
+            }
+          ]
+        },
+        "sparkSubmitParameters": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SparkSubmitParameters"
+            },
+            {
+              "description": "The Spark submit parameters that are used for job runs."
+            }
+          ]
+        }
+      },
+      "required": [
+        "entryPoint"
+      ],
+      "type": "object"
+    },
+    "SparkSubmitParameters": {
+      "format": "password",
+      "maxLength": 1024,
+      "minLength": 1,
+      "pattern": "(?!\\s*$)(^[^';|\\u0026\\u003C\\u003E*?`$(){}\\[\\]!#\\\\]*$)",
+      "type": "string"
+    },
+    "StartJobRunRequest": {
+      "properties": {
+        "tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagMap"
+            },
+            {
+              "description": "The tags assigned to job runs."
+            }
+          ]
+        },
+        "clientToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ClientToken"
+            },
+            {
+              "description": "The client idempotency token of the job run request. "
+            }
+          ]
+        },
+        "configurationOverrides": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ConfigurationOverrides"
+            },
+            {
+              "description": "The configuration overrides for the job run."
+            }
+          ]
+        },
+        "executionRoleArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/IAMRoleArn"
+            },
+            {
+              "description": "The execution role ARN for the job run."
+            }
+          ]
+        },
+        "jobDriver": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/JobDriver"
+            },
+            {
+              "description": "The job driver for the job run."
+            }
+          ]
+        },
+        "name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceNameString"
+            },
+            {
+              "description": "The name of the job run."
+            }
+          ]
+        },
+        "releaseLabel": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ReleaseLabel"
+            },
+            {
+              "description": "The Amazon EMR release version to use for the job run."
+            }
+          ]
+        }
+      },
+      "required": [
+        "clientToken",
+        "executionRoleArn",
+        "releaseLabel",
+        "jobDriver"
+      ],
+      "title": "StartJobRunRequest",
+      "type": "object"
+    },
+    "StartJobRunResponse": {
+      "properties": {
+        "arn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/JobArn"
+            },
+            {
+              "description": "This output lists the ARN of job run."
+            }
+          ]
+        },
+        "id": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceIdString"
+            },
+            {
+              "description": "This output displays the started job run ID."
+            }
+          ]
+        },
+        "name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceNameString"
+            },
+            {
+              "description": "This output displays the name of the started job run."
+            }
+          ]
+        },
+        "virtualClusterId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceIdString"
+            },
+            {
+              "description": "This output displays the virtual cluster ID for which the job run was submitted."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "String1024": {
+      "maxLength": 1024,
+      "minLength": 1,
+      "pattern": ".*\\S.*",
+      "type": "string"
+    },
+    "String128": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": ".*\\S.*",
+      "type": "string"
+    },
+    "String256": {
+      "maxLength": 256,
+      "minLength": 1,
+      "pattern": ".*\\S.*",
+      "type": "string"
+    },
+    "StringEmpty256": {
+      "maxLength": 256,
+      "minLength": 0,
+      "pattern": ".*\\S.*",
+      "type": "string"
+    },
+    "SubnetIds": {
+      "items": {
+        "$ref": "#/definitions/String256"
+      },
+      "type": "array"
+    },
+    "TagKeyList": {
+      "items": {
+        "$ref": "#/definitions/String128"
+      },
+      "maxItems": 50,
+      "minItems": 0,
+      "type": "array"
+    },
+    "TagMap": {
+      "additionalProperties": {
+        "$ref": "#/definitions/StringEmpty256"
+      },
+      "maxProperties": 50,
+      "minProperties": 0,
+      "type": "object"
+    },
+    "TagResourceRequest": {
+      "properties": {
+        "tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagMap"
+            },
+            {
+              "description": "The tags assigned to resources."
+            }
+          ]
+        }
+      },
+      "required": [
+        "tags"
+      ],
+      "title": "TagResourceRequest",
+      "type": "object"
+    },
+    "TagResourceResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "UntagResourceRequest": {
+      "properties": {},
+      "title": "UntagResourceRequest",
+      "type": "object"
+    },
+    "UntagResourceResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "UriString": {
+      "maxLength": 10280,
+      "minLength": 1,
+      "pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDBFF-\\uDC00\\uDFFF\\r\\n\\t]*",
+      "type": "string"
+    },
+    "ValidationException": {},
+    "VirtualCluster": {
+      "description": "This entity describes a virtual cluster. A virtual cluster is a Kubernetes namespace that Amazon EMR is registered with. Amazon EMR uses virtual clusters to run jobs and host endpoints. Multiple virtual clusters can be backed by the same physical cluster. However, each virtual cluster maps to one namespace on an EKS cluster. Virtual clusters do not create any active resources that contribute to your bill or that require lifecycle management outside the service.",
+      "properties": {
+        "tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagMap"
+            },
+            {
+              "description": "The assigned tags of the virtual cluster."
+            }
+          ]
+        },
+        "arn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/VirtualClusterArn"
+            },
+            {
+              "description": "The ARN of the virtual cluster."
+            }
+          ]
+        },
+        "containerProvider": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ContainerProvider"
+            },
+            {
+              "description": "The container provider of the virtual cluster."
+            }
+          ]
+        },
+        "createdAt": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Date"
+            },
+            {
+              "description": "The date and time when the virtual cluster is created."
+            }
+          ]
+        },
+        "id": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceIdString"
+            },
+            {
+              "description": "The ID of the virtual cluster."
+            }
+          ]
+        },
+        "name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceNameString"
+            },
+            {
+              "description": "The name of the virtual cluster."
+            }
+          ]
+        },
+        "state": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/VirtualClusterState"
+            },
+            {
+              "description": "The state of the virtual cluster."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "VirtualClusterArn": {
+      "maxLength": 1024,
+      "minLength": 60,
+      "pattern": "^arn:(aws[a-zA-Z0-9-]*):emr-containers:.+:(\\d{12}):\\/virtualclusters\\/[0-9a-zA-Z]+$",
+      "type": "string"
+    },
+    "VirtualClusterState": {
+      "enum": [
+        "RUNNING",
+        "TERMINATING",
+        "TERMINATED",
+        "ARRESTED"
+      ],
+      "type": "string"
+    },
+    "VirtualClusterStates": {
+      "items": {
+        "$ref": "#/definitions/VirtualClusterState"
+      },
+      "maxItems": 10,
+      "type": "array"
+    },
+    "VirtualClusters": {
+      "items": {
+        "$ref": "#/definitions/VirtualCluster"
+      },
+      "type": "array"
+    }
+  },
+  "securityDefinitions": {
+    "hmac": {
+      "description": "Amazon Signature authorization v4",
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey",
+      "x-amazon-apigateway-authtype": "awsSigv4"
+    }
+  },
+  "security": [
+    {
+      "hmac": []
+    }
+  ],
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://docs.aws.amazon.com/emr-containers/"
+  },
+  "x-components": {
+    "parameters": {
+      "X-Amz-Algorithm": {
+        "in": "header",
+        "name": "X-Amz-Algorithm",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Content-Sha256": {
+        "in": "header",
+        "name": "X-Amz-Content-Sha256",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Credential": {
+        "in": "header",
+        "name": "X-Amz-Credential",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Date": {
+        "in": "header",
+        "name": "X-Amz-Date",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Security-Token": {
+        "in": "header",
+        "name": "X-Amz-Security-Token",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Signature": {
+        "in": "header",
+        "name": "X-Amz-Signature",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-SignedHeaders": {
+        "in": "header",
+        "name": "X-Amz-SignedHeaders",
+        "required": false,
+        "type": "string"
+      }
+    }
+  },
+  "x-hasEquivalentPaths": true
+}

@@ -13,17 +13,14 @@ let amazonaws_acm = require('@datafire/amazonaws_acm').create({
   region: ""
 });
 
-amazonaws_acm.AddTagsToCertificate({
-  "CertificateArn": "",
-  "Tags": []
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
 
 ## Description
 
-<fullname>AWS Certificate Manager</fullname> <p>Welcome to the AWS Certificate Manager (ACM) API documentation.</p> <p>You can use ACM to manage SSL/TLS certificates for your AWS-based websites and applications. For general information about using ACM, see the <a href="http://docs.aws.amazon.com/acm/latest/userguide/"> <i>AWS Certificate Manager User Guide</i> </a>.</p>
+<fullname>AWS Certificate Manager</fullname> <p>Welcome to the AWS Certificate Manager (ACM) API documentation.</p> <p>You can use ACM to manage SSL/TLS certificates for your AWS-based websites and applications. For general information about using ACM, see the <a href="https://docs.aws.amazon.com/acm/latest/userguide/"> <i>AWS Certificate Manager User Guide</i> </a>.</p>
 
 ## Actions
 
@@ -33,15 +30,16 @@ amazonaws_acm.AddTagsToCertificate({
 
 ```js
 amazonaws_acm.AddTagsToCertificate({
-  "CertificateArn": "",
-  "Tags": []
+  "CertificateArn": null,
+  "Tags": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * CertificateArn **required** [Arn](#arn)
-  * Tags **required** [TagList](#taglist)
+  * CertificateArn **required**
+  * Tags **required**
+    * items [Tag](#tag)
 
 #### Output
 *Output schema unknown*
@@ -52,13 +50,13 @@ amazonaws_acm.AddTagsToCertificate({
 
 ```js
 amazonaws_acm.DeleteCertificate({
-  "CertificateArn": ""
+  "CertificateArn": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * CertificateArn **required** [Arn](#arn)
+  * CertificateArn **required**
 
 #### Output
 *Output schema unknown*
@@ -69,13 +67,13 @@ amazonaws_acm.DeleteCertificate({
 
 ```js
 amazonaws_acm.DescribeCertificate({
-  "CertificateArn": ""
+  "CertificateArn": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * CertificateArn **required** [Arn](#arn)
+  * CertificateArn **required**
 
 #### Output
 * output [DescribeCertificateResponse](#describecertificateresponse)
@@ -86,15 +84,15 @@ amazonaws_acm.DescribeCertificate({
 
 ```js
 amazonaws_acm.ExportCertificate({
-  "CertificateArn": "",
-  "Passphrase": ""
+  "CertificateArn": null,
+  "Passphrase": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * CertificateArn **required** [Arn](#arn)
-  * Passphrase **required** [PassphraseBlob](#passphraseblob)
+  * CertificateArn **required**
+  * Passphrase **required**
 
 #### Output
 * output [ExportCertificateResponse](#exportcertificateresponse)
@@ -105,13 +103,13 @@ amazonaws_acm.ExportCertificate({
 
 ```js
 amazonaws_acm.GetCertificate({
-  "CertificateArn": ""
+  "CertificateArn": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * CertificateArn **required** [Arn](#arn)
+  * CertificateArn **required**
 
 #### Output
 * output [GetCertificateResponse](#getcertificateresponse)
@@ -122,17 +120,19 @@ amazonaws_acm.GetCertificate({
 
 ```js
 amazonaws_acm.ImportCertificate({
-  "Certificate": "",
-  "PrivateKey": ""
+  "Certificate": null,
+  "PrivateKey": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Certificate **required** [CertificateBodyBlob](#certificatebodyblob)
-  * CertificateArn [Arn](#arn)
-  * CertificateChain [CertificateChainBlob](#certificatechainblob)
-  * PrivateKey **required** [PrivateKeyBlob](#privatekeyblob)
+  * Certificate **required**
+  * CertificateArn
+  * CertificateChain
+  * PrivateKey **required**
+  * Tags
+    * items [Tag](#tag)
 
 #### Output
 * output [ImportCertificateResponse](#importcertificateresponse)
@@ -149,10 +149,17 @@ amazonaws_acm.ListCertificates({}, context)
 * input `object`
   * MaxItems `string`
   * NextToken `string`
-  * CertificateStatuses [CertificateStatuses](#certificatestatuses)
-  * Includes [Filters](#filters)
-  * MaxItems [MaxItems](#maxitems)
-  * NextToken [NextToken](#nexttoken)
+  * CertificateStatuses
+    * items [CertificateStatus](#certificatestatus)
+  * Includes
+    * extendedKeyUsage
+      * items [ExtendedKeyUsageName](#extendedkeyusagename)
+    * keyTypes
+      * items [KeyAlgorithm](#keyalgorithm)
+    * keyUsage
+      * items [KeyUsageName](#keyusagename)
+  * MaxItems
+  * NextToken
 
 #### Output
 * output [ListCertificatesResponse](#listcertificatesresponse)
@@ -163,13 +170,13 @@ amazonaws_acm.ListCertificates({}, context)
 
 ```js
 amazonaws_acm.ListTagsForCertificate({
-  "CertificateArn": ""
+  "CertificateArn": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * CertificateArn **required** [Arn](#arn)
+  * CertificateArn **required**
 
 #### Output
 * output [ListTagsForCertificateResponse](#listtagsforcertificateresponse)
@@ -180,15 +187,33 @@ amazonaws_acm.ListTagsForCertificate({
 
 ```js
 amazonaws_acm.RemoveTagsFromCertificate({
-  "CertificateArn": "",
-  "Tags": []
+  "CertificateArn": null,
+  "Tags": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * CertificateArn **required** [Arn](#arn)
-  * Tags **required** [TagList](#taglist)
+  * CertificateArn **required**
+  * Tags **required**
+    * items [Tag](#tag)
+
+#### Output
+*Output schema unknown*
+
+### RenewCertificate
+
+
+
+```js
+amazonaws_acm.RenewCertificate({
+  "CertificateArn": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * CertificateArn **required**
 
 #### Output
 *Output schema unknown*
@@ -199,19 +224,24 @@ amazonaws_acm.RemoveTagsFromCertificate({
 
 ```js
 amazonaws_acm.RequestCertificate({
-  "DomainName": ""
+  "DomainName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * CertificateAuthorityArn [Arn](#arn)
-  * DomainName **required** [DomainNameString](#domainnamestring)
-  * DomainValidationOptions [DomainValidationOptionList](#domainvalidationoptionlist)
-  * IdempotencyToken [IdempotencyToken](#idempotencytoken)
-  * Options [CertificateOptions](#certificateoptions)
-  * SubjectAlternativeNames [DomainList](#domainlist)
-  * ValidationMethod [ValidationMethod](#validationmethod)
+  * CertificateAuthorityArn
+  * DomainName **required**
+  * DomainValidationOptions
+    * items [DomainValidationOption](#domainvalidationoption)
+  * IdempotencyToken
+  * Options
+    * CertificateTransparencyLoggingPreference
+  * SubjectAlternativeNames
+    * items [DomainNameString](#domainnamestring)
+  * Tags
+    * items [Tag](#tag)
+  * ValidationMethod
 
 #### Output
 * output [RequestCertificateResponse](#requestcertificateresponse)
@@ -222,17 +252,17 @@ amazonaws_acm.RequestCertificate({
 
 ```js
 amazonaws_acm.ResendValidationEmail({
-  "CertificateArn": "",
-  "Domain": "",
-  "ValidationDomain": ""
+  "CertificateArn": null,
+  "Domain": null,
+  "ValidationDomain": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * CertificateArn **required** [Arn](#arn)
-  * Domain **required** [DomainNameString](#domainnamestring)
-  * ValidationDomain **required** [DomainNameString](#domainnamestring)
+  * CertificateArn **required**
+  * Domain **required**
+  * ValidationDomain **required**
 
 #### Output
 *Output schema unknown*
@@ -243,15 +273,16 @@ amazonaws_acm.ResendValidationEmail({
 
 ```js
 amazonaws_acm.UpdateCertificateOptions({
-  "CertificateArn": "",
-  "Options": {}
+  "CertificateArn": null,
+  "Options": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * CertificateArn **required** [Arn](#arn)
-  * Options **required** [CertificateOptions](#certificateoptions)
+  * CertificateArn **required**
+  * Options **required**
+    * CertificateTransparencyLoggingPreference
 
 #### Output
 *Output schema unknown*
@@ -262,8 +293,9 @@ amazonaws_acm.UpdateCertificateOptions({
 
 ### AddTagsToCertificateRequest
 * AddTagsToCertificateRequest `object`
-  * CertificateArn **required** [Arn](#arn)
-  * Tags **required** [TagList](#taglist)
+  * CertificateArn **required**
+  * Tags **required**
+    * items [Tag](#tag)
 
 ### Arn
 * Arn `string`
@@ -282,36 +314,47 @@ amazonaws_acm.UpdateCertificateOptions({
 
 ### CertificateDetail
 * CertificateDetail `object`: Contains metadata about an ACM certificate. This structure is returned in the response to a <a>DescribeCertificate</a> request. 
-  * CertificateArn [Arn](#arn)
-  * CertificateAuthorityArn [Arn](#arn)
-  * CreatedAt [TStamp](#tstamp)
-  * DomainName [DomainNameString](#domainnamestring)
-  * DomainValidationOptions [DomainValidationList](#domainvalidationlist)
-  * ExtendedKeyUsages [ExtendedKeyUsageList](#extendedkeyusagelist)
-  * FailureReason [FailureReason](#failurereason)
-  * ImportedAt [TStamp](#tstamp)
-  * InUseBy [InUseList](#inuselist)
-  * IssuedAt [TStamp](#tstamp)
-  * Issuer [String](#string)
-  * KeyAlgorithm [KeyAlgorithm](#keyalgorithm)
-  * KeyUsages [KeyUsageList](#keyusagelist)
-  * NotAfter [TStamp](#tstamp)
-  * NotBefore [TStamp](#tstamp)
-  * Options [CertificateOptions](#certificateoptions)
-  * RenewalEligibility [RenewalEligibility](#renewaleligibility)
-  * RenewalSummary [RenewalSummary](#renewalsummary)
-  * RevocationReason [RevocationReason](#revocationreason)
-  * RevokedAt [TStamp](#tstamp)
-  * Serial [String](#string)
-  * SignatureAlgorithm [String](#string)
-  * Status [CertificateStatus](#certificatestatus)
-  * Subject [String](#string)
-  * SubjectAlternativeNames [DomainList](#domainlist)
-  * Type [CertificateType](#certificatetype)
+  * CertificateArn
+  * CertificateAuthorityArn
+  * CreatedAt
+  * DomainName
+  * DomainValidationOptions
+    * items [DomainValidation](#domainvalidation)
+  * ExtendedKeyUsages
+    * items [ExtendedKeyUsage](#extendedkeyusage)
+  * FailureReason
+  * ImportedAt
+  * InUseBy
+    * items [String](#string)
+  * IssuedAt
+  * Issuer
+  * KeyAlgorithm
+  * KeyUsages
+    * items [KeyUsage](#keyusage)
+  * NotAfter
+  * NotBefore
+  * Options
+    * CertificateTransparencyLoggingPreference
+  * RenewalEligibility
+  * RenewalSummary
+    * DomainValidationOptions **required**
+      * items [DomainValidation](#domainvalidation)
+    * RenewalStatus **required**
+    * RenewalStatusReason
+    * UpdatedAt **required**
+  * RevocationReason
+  * RevokedAt
+  * Serial
+  * SignatureAlgorithm
+  * Status
+  * Subject
+  * SubjectAlternativeNames
+    * items [DomainNameString](#domainnamestring)
+  * Type
 
 ### CertificateOptions
-* CertificateOptions `object`: Structure that contains options for your certificate. Currently, you can use this only to specify whether to opt in to or out of certificate transparency logging. Some browsers require that public certificates issued for your domain be recorded in a log. Certificates that are not logged typically generate a browser error. Transparency makes it possible for you to detect SSL/TLS certificates that have been mistakenly or maliciously issued for your domain. For general information, see <a href="http://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency">Certificate Transparency Logging</a>. 
-  * CertificateTransparencyLoggingPreference [CertificateTransparencyLoggingPreference](#certificatetransparencyloggingpreference)
+* CertificateOptions `object`: Structure that contains options for your certificate. Currently, you can use this only to specify whether to opt in to or out of certificate transparency logging. Some browsers require that public certificates issued for your domain be recorded in a log. Certificates that are not logged typically generate a browser error. Transparency makes it possible for you to detect SSL/TLS certificates that have been mistakenly or maliciously issued for your domain. For general information, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency">Certificate Transparency Logging</a>. 
+  * CertificateTransparencyLoggingPreference
 
 ### CertificateStatus
 * CertificateStatus `string` (values: PENDING_VALIDATION, ISSUED, INACTIVE, EXPIRED, VALIDATION_TIMED_OUT, REVOKED, FAILED)
@@ -322,8 +365,8 @@ amazonaws_acm.UpdateCertificateOptions({
 
 ### CertificateSummary
 * CertificateSummary `object`: This structure is returned in the response object of <a>ListCertificates</a> action. 
-  * CertificateArn [Arn](#arn)
-  * DomainName [DomainNameString](#domainnamestring)
+  * CertificateArn
+  * DomainName
 
 ### CertificateSummaryList
 * CertificateSummaryList `array`
@@ -337,15 +380,52 @@ amazonaws_acm.UpdateCertificateOptions({
 
 ### DeleteCertificateRequest
 * DeleteCertificateRequest `object`
-  * CertificateArn **required** [Arn](#arn)
+  * CertificateArn **required**
 
 ### DescribeCertificateRequest
 * DescribeCertificateRequest `object`
-  * CertificateArn **required** [Arn](#arn)
+  * CertificateArn **required**
 
 ### DescribeCertificateResponse
 * DescribeCertificateResponse `object`
-  * Certificate [CertificateDetail](#certificatedetail)
+  * Certificate
+    * CertificateArn
+    * CertificateAuthorityArn
+    * CreatedAt
+    * DomainName
+    * DomainValidationOptions
+      * items [DomainValidation](#domainvalidation)
+    * ExtendedKeyUsages
+      * items [ExtendedKeyUsage](#extendedkeyusage)
+    * FailureReason
+    * ImportedAt
+    * InUseBy
+      * items [String](#string)
+    * IssuedAt
+    * Issuer
+    * KeyAlgorithm
+    * KeyUsages
+      * items [KeyUsage](#keyusage)
+    * NotAfter
+    * NotBefore
+    * Options
+      * CertificateTransparencyLoggingPreference
+    * RenewalEligibility
+    * RenewalSummary
+      * DomainValidationOptions **required**
+        * items [DomainValidation](#domainvalidation)
+      * RenewalStatus **required**
+      * RenewalStatusReason
+      * UpdatedAt **required**
+    * RevocationReason
+    * RevokedAt
+    * Serial
+    * SignatureAlgorithm
+    * Status
+    * Subject
+    * SubjectAlternativeNames
+      * items [DomainNameString](#domainnamestring)
+    * Type
 
 ### DomainList
 * DomainList `array`
@@ -359,12 +439,16 @@ amazonaws_acm.UpdateCertificateOptions({
 
 ### DomainValidation
 * DomainValidation `object`: Contains information about the validation of each domain name in the certificate.
-  * DomainName **required** [DomainNameString](#domainnamestring)
-  * ResourceRecord [ResourceRecord](#resourcerecord)
-  * ValidationDomain [DomainNameString](#domainnamestring)
-  * ValidationEmails [ValidationEmailList](#validationemaillist)
-  * ValidationMethod [ValidationMethod](#validationmethod)
-  * ValidationStatus [DomainStatus](#domainstatus)
+  * DomainName **required**
+  * ResourceRecord
+    * Name **required**
+    * Type **required**
+    * Value **required**
+  * ValidationDomain
+  * ValidationEmails
+    * items [String](#string)
+  * ValidationMethod
+  * ValidationStatus
 
 ### DomainValidationList
 * DomainValidationList `array`
@@ -372,8 +456,8 @@ amazonaws_acm.UpdateCertificateOptions({
 
 ### DomainValidationOption
 * DomainValidationOption `object`: Contains information about the domain names that you want ACM to use to send you emails that enable you to validate domain ownership.
-  * DomainName **required** [DomainNameString](#domainnamestring)
-  * ValidationDomain **required** [DomainNameString](#domainnamestring)
+  * DomainName **required**
+  * ValidationDomain **required**
 
 ### DomainValidationOptionList
 * DomainValidationOptionList `array`
@@ -381,19 +465,19 @@ amazonaws_acm.UpdateCertificateOptions({
 
 ### ExportCertificateRequest
 * ExportCertificateRequest `object`
-  * CertificateArn **required** [Arn](#arn)
-  * Passphrase **required** [PassphraseBlob](#passphraseblob)
+  * CertificateArn **required**
+  * Passphrase **required**
 
 ### ExportCertificateResponse
 * ExportCertificateResponse `object`
-  * Certificate [CertificateBody](#certificatebody)
-  * CertificateChain [CertificateChain](#certificatechain)
-  * PrivateKey [PrivateKey](#privatekey)
+  * Certificate
+  * CertificateChain
+  * PrivateKey
 
 ### ExtendedKeyUsage
 * ExtendedKeyUsage `object`: The Extended Key Usage X.509 v3 extension defines one or more purposes for which the public key can be used. This is in addition to or in place of the basic purposes specified by the Key Usage extension. 
-  * Name [ExtendedKeyUsageName](#extendedkeyusagename)
-  * OID [String](#string)
+  * Name
+  * OID
 
 ### ExtendedKeyUsageFilterList
 * ExtendedKeyUsageFilterList `array`
@@ -407,56 +491,63 @@ amazonaws_acm.UpdateCertificateOptions({
 * ExtendedKeyUsageName `string` (values: TLS_WEB_SERVER_AUTHENTICATION, TLS_WEB_CLIENT_AUTHENTICATION, CODE_SIGNING, EMAIL_PROTECTION, TIME_STAMPING, OCSP_SIGNING, IPSEC_END_SYSTEM, IPSEC_TUNNEL, IPSEC_USER, ANY, NONE, CUSTOM)
 
 ### FailureReason
-* FailureReason `string` (values: NO_AVAILABLE_CONTACTS, ADDITIONAL_VERIFICATION_REQUIRED, DOMAIN_NOT_ALLOWED, INVALID_PUBLIC_DOMAIN, CAA_ERROR, PCA_LIMIT_EXCEEDED, PCA_INVALID_ARN, PCA_INVALID_STATE, PCA_REQUEST_FAILED, PCA_RESOURCE_NOT_FOUND, PCA_INVALID_ARGS, OTHER)
+* FailureReason `string` (values: NO_AVAILABLE_CONTACTS, ADDITIONAL_VERIFICATION_REQUIRED, DOMAIN_NOT_ALLOWED, INVALID_PUBLIC_DOMAIN, DOMAIN_VALIDATION_DENIED, CAA_ERROR, PCA_LIMIT_EXCEEDED, PCA_INVALID_ARN, PCA_INVALID_STATE, PCA_REQUEST_FAILED, PCA_NAME_CONSTRAINTS_VALIDATION, PCA_RESOURCE_NOT_FOUND, PCA_INVALID_ARGS, PCA_INVALID_DURATION, PCA_ACCESS_DENIED, SLR_NOT_FOUND, OTHER)
 
 ### Filters
 * Filters `object`: This structure can be used in the <a>ListCertificates</a> action to filter the output of the certificate list. 
-  * extendedKeyUsage [ExtendedKeyUsageFilterList](#extendedkeyusagefilterlist)
-  * keyTypes [KeyAlgorithmList](#keyalgorithmlist)
-  * keyUsage [KeyUsageFilterList](#keyusagefilterlist)
+  * extendedKeyUsage
+    * items [ExtendedKeyUsageName](#extendedkeyusagename)
+  * keyTypes
+    * items [KeyAlgorithm](#keyalgorithm)
+  * keyUsage
+    * items [KeyUsageName](#keyusagename)
 
 ### GetCertificateRequest
 * GetCertificateRequest `object`
-  * CertificateArn **required** [Arn](#arn)
+  * CertificateArn **required**
 
 ### GetCertificateResponse
 * GetCertificateResponse `object`
-  * Certificate [CertificateBody](#certificatebody)
-  * CertificateChain [CertificateChain](#certificatechain)
+  * Certificate
+  * CertificateChain
 
 ### IdempotencyToken
 * IdempotencyToken `string`
 
 ### ImportCertificateRequest
 * ImportCertificateRequest `object`
-  * Certificate **required** [CertificateBodyBlob](#certificatebodyblob)
-  * CertificateArn [Arn](#arn)
-  * CertificateChain [CertificateChainBlob](#certificatechainblob)
-  * PrivateKey **required** [PrivateKeyBlob](#privatekeyblob)
+  * Certificate **required**
+  * CertificateArn
+  * CertificateChain
+  * PrivateKey **required**
+  * Tags
+    * items [Tag](#tag)
 
 ### ImportCertificateResponse
 * ImportCertificateResponse `object`
-  * CertificateArn [Arn](#arn)
+  * CertificateArn
 
 ### InUseList
 * InUseList `array`
   * items [String](#string)
 
+### InvalidArgsException
+
+
 ### InvalidArnException
-* InvalidArnException `object`: The requested Amazon Resource Name (ARN) does not refer to an existing resource.
-  * message [String](#string)
+
 
 ### InvalidDomainValidationOptionsException
-* InvalidDomainValidationOptionsException `object`: One or more values in the <a>DomainValidationOption</a> structure is incorrect.
-  * message [String](#string)
+
+
+### InvalidParameterException
+
 
 ### InvalidStateException
-* InvalidStateException `object`: Processing has reached an invalid state.
-  * message [String](#string)
+
 
 ### InvalidTagException
-* InvalidTagException `object`: One or both of the values that make up the key-value pair is not valid. For example, you cannot specify a tag value that begins with <code>aws:</code>.
-  * message [String](#string)
+
 
 ### KeyAlgorithm
 * KeyAlgorithm `string` (values: RSA_2048, RSA_1024, RSA_4096, EC_prime256v1, EC_secp384r1, EC_secp521r1)
@@ -467,7 +558,7 @@ amazonaws_acm.UpdateCertificateOptions({
 
 ### KeyUsage
 * KeyUsage `object`: The Key Usage X.509 v3 extension defines the purpose of the public key contained in the certificate.
-  * Name [KeyUsageName](#keyusagename)
+  * Name
 
 ### KeyUsageFilterList
 * KeyUsageFilterList `array`
@@ -481,28 +572,36 @@ amazonaws_acm.UpdateCertificateOptions({
 * KeyUsageName `string` (values: DIGITAL_SIGNATURE, NON_REPUDIATION, KEY_ENCIPHERMENT, DATA_ENCIPHERMENT, KEY_AGREEMENT, CERTIFICATE_SIGNING, CRL_SIGNING, ENCIPHER_ONLY, DECIPHER_ONLY, ANY, CUSTOM)
 
 ### LimitExceededException
-* LimitExceededException `object`: An ACM limit has been exceeded.
-  * message [String](#string)
+
 
 ### ListCertificatesRequest
 * ListCertificatesRequest `object`
-  * CertificateStatuses [CertificateStatuses](#certificatestatuses)
-  * Includes [Filters](#filters)
-  * MaxItems [MaxItems](#maxitems)
-  * NextToken [NextToken](#nexttoken)
+  * CertificateStatuses
+    * items [CertificateStatus](#certificatestatus)
+  * Includes
+    * extendedKeyUsage
+      * items [ExtendedKeyUsageName](#extendedkeyusagename)
+    * keyTypes
+      * items [KeyAlgorithm](#keyalgorithm)
+    * keyUsage
+      * items [KeyUsageName](#keyusagename)
+  * MaxItems
+  * NextToken
 
 ### ListCertificatesResponse
 * ListCertificatesResponse `object`
-  * CertificateSummaryList [CertificateSummaryList](#certificatesummarylist)
-  * NextToken [NextToken](#nexttoken)
+  * CertificateSummaryList
+    * items [CertificateSummary](#certificatesummary)
+  * NextToken
 
 ### ListTagsForCertificateRequest
 * ListTagsForCertificateRequest `object`
-  * CertificateArn **required** [Arn](#arn)
+  * CertificateArn **required**
 
 ### ListTagsForCertificateResponse
 * ListTagsForCertificateResponse `object`
-  * Tags [TagList](#taglist)
+  * Tags
+    * items [Tag](#tag)
 
 ### MaxItems
 * MaxItems `integer`
@@ -524,8 +623,13 @@ amazonaws_acm.UpdateCertificateOptions({
 
 ### RemoveTagsFromCertificateRequest
 * RemoveTagsFromCertificateRequest `object`
-  * CertificateArn **required** [Arn](#arn)
-  * Tags **required** [TagList](#taglist)
+  * CertificateArn **required**
+  * Tags **required**
+    * items [Tag](#tag)
+
+### RenewCertificateRequest
+* RenewCertificateRequest `object`
+  * CertificateArn **required**
 
 ### RenewalEligibility
 * RenewalEligibility `string` (values: ELIGIBLE, INELIGIBLE)
@@ -534,47 +638,52 @@ amazonaws_acm.UpdateCertificateOptions({
 * RenewalStatus `string` (values: PENDING_AUTO_RENEWAL, PENDING_VALIDATION, SUCCESS, FAILED)
 
 ### RenewalSummary
-* RenewalSummary `object`: Contains information about the status of ACM's <a href="http://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html">managed renewal</a> for the certificate. This structure exists only when the certificate type is <code>AMAZON_ISSUED</code>.
-  * DomainValidationOptions **required** [DomainValidationList](#domainvalidationlist)
-  * RenewalStatus **required** [RenewalStatus](#renewalstatus)
+* RenewalSummary `object`: Contains information about the status of ACM's <a href="https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html">managed renewal</a> for the certificate. This structure exists only when the certificate type is <code>AMAZON_ISSUED</code>.
+  * DomainValidationOptions **required**
+    * items [DomainValidation](#domainvalidation)
+  * RenewalStatus **required**
+  * RenewalStatusReason
+  * UpdatedAt **required**
 
 ### RequestCertificateRequest
 * RequestCertificateRequest `object`
-  * CertificateAuthorityArn [Arn](#arn)
-  * DomainName **required** [DomainNameString](#domainnamestring)
-  * DomainValidationOptions [DomainValidationOptionList](#domainvalidationoptionlist)
-  * IdempotencyToken [IdempotencyToken](#idempotencytoken)
-  * Options [CertificateOptions](#certificateoptions)
-  * SubjectAlternativeNames [DomainList](#domainlist)
-  * ValidationMethod [ValidationMethod](#validationmethod)
+  * CertificateAuthorityArn
+  * DomainName **required**
+  * DomainValidationOptions
+    * items [DomainValidationOption](#domainvalidationoption)
+  * IdempotencyToken
+  * Options
+    * CertificateTransparencyLoggingPreference
+  * SubjectAlternativeNames
+    * items [DomainNameString](#domainnamestring)
+  * Tags
+    * items [Tag](#tag)
+  * ValidationMethod
 
 ### RequestCertificateResponse
 * RequestCertificateResponse `object`
-  * CertificateArn [Arn](#arn)
+  * CertificateArn
 
 ### RequestInProgressException
-* RequestInProgressException `object`: The certificate request is in process and the certificate in your account has not yet been issued.
-  * message [String](#string)
+
 
 ### ResendValidationEmailRequest
 * ResendValidationEmailRequest `object`
-  * CertificateArn **required** [Arn](#arn)
-  * Domain **required** [DomainNameString](#domainnamestring)
-  * ValidationDomain **required** [DomainNameString](#domainnamestring)
+  * CertificateArn **required**
+  * Domain **required**
+  * ValidationDomain **required**
 
 ### ResourceInUseException
-* ResourceInUseException `object`: The certificate is in use by another AWS service in the caller's account. Remove the association and try again.
-  * message [String](#string)
+
 
 ### ResourceNotFoundException
-* ResourceNotFoundException `object`: The specified certificate cannot be found in the caller's account or the caller's account cannot be found.
-  * message [String](#string)
+
 
 ### ResourceRecord
 * ResourceRecord `object`: Contains a DNS record value that you can use to can use to validate ownership or control of a domain. This is used by the <a>DescribeCertificate</a> action. 
-  * Name **required** [String](#string)
-  * Type **required** [RecordType](#recordtype)
-  * Value **required** [String](#string)
+  * Name **required**
+  * Type **required**
+  * Value **required**
 
 ### RevocationReason
 * RevocationReason `string` (values: UNSPECIFIED, KEY_COMPROMISE, CA_COMPROMISE, AFFILIATION_CHANGED, SUPERCEDED, CESSATION_OF_OPERATION, CERTIFICATE_HOLD, REMOVE_FROM_CRL, PRIVILEGE_WITHDRAWN, A_A_COMPROMISE)
@@ -587,8 +696,8 @@ amazonaws_acm.UpdateCertificateOptions({
 
 ### Tag
 * Tag `object`: A key-value pair that identifies or specifies metadata about an ACM resource.
-  * Key **required** [TagKey](#tagkey)
-  * Value [TagValue](#tagvalue)
+  * Key **required**
+  * Value
 
 ### TagKey
 * TagKey `string`
@@ -597,17 +706,20 @@ amazonaws_acm.UpdateCertificateOptions({
 * TagList `array`
   * items [Tag](#tag)
 
+### TagPolicyException
+
+
 ### TagValue
 * TagValue `string`
 
 ### TooManyTagsException
-* TooManyTagsException `object`: The request contains too many tags. Try the request again with fewer tags.
-  * message [String](#string)
+
 
 ### UpdateCertificateOptionsRequest
 * UpdateCertificateOptionsRequest `object`
-  * CertificateArn **required** [Arn](#arn)
-  * Options **required** [CertificateOptions](#certificateoptions)
+  * CertificateArn **required**
+  * Options **required**
+    * CertificateTransparencyLoggingPreference
 
 ### ValidationEmailList
 * ValidationEmailList `array`

@@ -13,7 +13,7 @@ let amazonaws_serverlessrepo = require('@datafire/amazonaws_serverlessrepo').cre
   region: ""
 });
 
-amazonaws_serverlessrepo.ListApplications({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -53,6 +53,8 @@ amazonaws_serverlessrepo.ListApplications({}, context)
 
 #### Input
 * input `object`
+  * maxItems `integer`
+  * nextToken `string`
   * MaxItems `string`
   * NextToken `string`
 
@@ -64,25 +66,31 @@ amazonaws_serverlessrepo.ListApplications({}, context)
 
 
 ```js
-amazonaws_serverlessrepo.CreateApplication({}, context)
+amazonaws_serverlessrepo.CreateApplication({
+  "author": "",
+  "description": "",
+  "name": ""
+}, context)
 ```
 
 #### Input
 * input `object`
-  * Author [__string](#__string)
-  * Description [__string](#__string)
-  * HomePageUrl [__string](#__string)
-  * Labels [__listOf__string](#__listof__string)
-  * LicenseBody [__string](#__string)
-  * LicenseUrl [__string](#__string)
-  * Name [__string](#__string)
-  * ReadmeBody [__string](#__string)
-  * ReadmeUrl [__string](#__string)
-  * SemanticVersion [__string](#__string)
-  * SourceCodeUrl [__string](#__string)
-  * SpdxLicenseId [__string](#__string)
-  * TemplateBody [__string](#__string)
-  * TemplateUrl [__string](#__string)
+  * author **required** `string`: <p>The name of the author publishing the app.</p><p>Minimum length=1. Maximum length=127.</p><p>Pattern "^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$";</p>
+  * description **required** `string`: <p>The description of the application.</p><p>Minimum length=1. Maximum length=256</p>
+  * homePageUrl `string`: A URL with more information about the application, for example the location of your GitHub repository for the application.
+  * labels `array`: <p>Labels to improve discovery of apps in search results.</p><p>Minimum length=1. Maximum length=127. Maximum number of labels: 10</p><p>Pattern: "^[a-zA-Z0-9+\\-_:\\/@]+$";</p>
+    * items [__string](#__string)
+  * licenseBody `string`: <p>A local text file that contains the license of the app that matches the spdxLicenseID value of your application.
+  * licenseUrl `string`: <p>A link to the S3 object that contains the license of the app that matches the spdxLicenseID value of your application.</p><p>Maximum size 5 MB</p><p>You can specify only one of licenseBody and licenseUrl; otherwise, an error results.</p>
+  * name **required** `string`: <p>The name of the application that you want to publish.</p><p>Minimum length=1. Maximum length=140</p><p>Pattern: "[a-zA-Z0-9\\-]+";</p>
+  * readmeBody `string`: <p>A local text readme file in Markdown language that contains a more detailed description of the application and how it works.
+  * readmeUrl `string`: <p>A link to the S3 object in Markdown language that contains a more detailed description of the application and how it works.</p><p>Maximum size 5 MB</p><p>You can specify only one of readmeBody and readmeUrl; otherwise, an error results.</p>
+  * semanticVersion `string`: <p>The semantic version of the application:</p><p>
+  * sourceCodeArchiveUrl `string`: <p>A link to the S3 object that contains the ZIP archive of the source code for this version of your application.</p><p>Maximum size 50 MB</p>
+  * sourceCodeUrl `string`: A link to a public repository for the source code of your application, for example the URL of a specific GitHub commit.
+  * spdxLicenseId `string`: A valid identifier from <a href="https://spdx.org/licenses/">https://spdx.org/licenses/</a>.
+  * templateBody `string`: <p>The local raw packaged AWS SAM template file of your application.
+  * templateUrl `string`: <p>A link to the S3 object containing the packaged AWS SAM template of your application.</p><p>You can specify only one of templateBody and templateUrl; otherwise an error results.</p>
 
 #### Output
 *Output schema unknown*
@@ -117,6 +125,7 @@ amazonaws_serverlessrepo.GetApplication({
 #### Input
 * input `object`
   * applicationId **required** `string`
+  * semanticVersion `string`
 
 #### Output
 * output [GetApplicationResponse](#getapplicationresponse)
@@ -134,12 +143,13 @@ amazonaws_serverlessrepo.UpdateApplication({
 #### Input
 * input `object`
   * applicationId **required** `string`
-  * Author [__string](#__string)
-  * Description [__string](#__string)
-  * HomePageUrl [__string](#__string)
-  * Labels [__listOf__string](#__listof__string)
-  * ReadmeBody [__string](#__string)
-  * ReadmeUrl [__string](#__string)
+  * author `string`: <p>The name of the author publishing the app.</p><p>Minimum length=1. Maximum length=127.</p><p>Pattern "^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$";</p>
+  * description `string`: <p>The description of the application.</p><p>Minimum length=1. Maximum length=256</p>
+  * homePageUrl `string`: A URL with more information about the application, for example the location of your GitHub repository for the application.
+  * labels `array`: <p>Labels to improve discovery of apps in search results.</p><p>Minimum length=1. Maximum length=127. Maximum number of labels: 10</p><p>Pattern: "^[a-zA-Z0-9+\\-_:\\/@]+$";</p>
+    * items [__string](#__string)
+  * readmeBody `string`: <p>A text readme file in Markdown language that contains a more detailed description of the application and how it works.</p><p>Maximum size 5 MB</p>
+  * readmeUrl `string`: <p>A link to the readme file in Markdown language that contains a more detailed description of the application and how it works.</p><p>Maximum size 5 MB</p>
 
 #### Output
 * output [UpdateApplicationResponse](#updateapplicationresponse)
@@ -150,6 +160,44 @@ amazonaws_serverlessrepo.UpdateApplication({
 
 ```js
 amazonaws_serverlessrepo.CreateCloudFormationChangeSet({
+  "applicationId": "",
+  "stackName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * applicationId **required** `string`
+  * tags `array`: This property corresponds to the parameter of the same name for the <i>AWS CloudFormation <a href="https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet">CreateChangeSet</a>
+    * items [Tag](#tag)
+  * capabilities `array`: <p>A list of values that you must specify before you can deploy certain applications.
+    * items [__string](#__string)
+  * changeSetName `string`: This property corresponds to the parameter of the same name for the <i>AWS CloudFormation <a href="https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet">CreateChangeSet</a>
+  * clientToken `string`: This property corresponds to the parameter of the same name for the <i>AWS CloudFormation <a href="https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet">CreateChangeSet</a>
+  * description `string`: This property corresponds to the parameter of the same name for the <i>AWS CloudFormation <a href="https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet">CreateChangeSet</a>
+  * notificationArns `array`: This property corresponds to the parameter of the same name for the <i>AWS CloudFormation <a href="https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet">CreateChangeSet</a>
+    * items [__string](#__string)
+  * parameterOverrides `array`: A list of parameter values for the parameters of the application.
+    * items [ParameterValue](#parametervalue)
+  * resourceTypes `array`: This property corresponds to the parameter of the same name for the <i>AWS CloudFormation <a href="https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet">CreateChangeSet</a>
+    * items [__string](#__string)
+  * rollbackConfiguration `object`: This property corresponds to the <i>AWS CloudFormation <a href="https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/RollbackConfiguration">RollbackConfiguration</a>
+    * MonitoringTimeInMinutes
+    * RollbackTriggers
+      * items [RollbackTrigger](#rollbacktrigger)
+  * semanticVersion `string`: <p>The semantic version of the application:</p><p>
+  * stackName **required** `string`: This property corresponds to the parameter of the same name for the <i>AWS CloudFormation <a href="https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet">CreateChangeSet</a>
+  * templateId `string`: <p>The UUID returned by CreateCloudFormationTemplate.</p><p>Pattern: [0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}</p>
+
+#### Output
+*Output schema unknown*
+
+### ListApplicationDependencies
+
+
+
+```js
+amazonaws_serverlessrepo.ListApplicationDependencies({
   "applicationId": ""
 }, context)
 ```
@@ -157,12 +205,14 @@ amazonaws_serverlessrepo.CreateCloudFormationChangeSet({
 #### Input
 * input `object`
   * applicationId **required** `string`
-  * ParameterOverrides [__listOfParameterValue](#__listofparametervalue)
-  * SemanticVersion [__string](#__string)
-  * StackName [__string](#__string)
+  * maxItems `integer`
+  * nextToken `string`
+  * semanticVersion `string`
+  * MaxItems `string`
+  * NextToken `string`
 
 #### Output
-*Output schema unknown*
+* output [ListApplicationDependenciesResponse](#listapplicationdependenciesresponse)
 
 ### GetApplicationPolicy
 
@@ -187,6 +237,26 @@ amazonaws_serverlessrepo.GetApplicationPolicy({
 
 ```js
 amazonaws_serverlessrepo.PutApplicationPolicy({
+  "applicationId": "",
+  "statements": []
+}, context)
+```
+
+#### Input
+* input `object`
+  * applicationId **required** `string`
+  * statements **required** `array`: An array of policy statements applied to the application.
+    * items [ApplicationPolicyStatement](#applicationpolicystatement)
+
+#### Output
+* output [PutApplicationPolicyResponse](#putapplicationpolicyresponse)
+
+### CreateCloudFormationTemplate
+
+
+
+```js
+amazonaws_serverlessrepo.CreateCloudFormationTemplate({
   "applicationId": ""
 }, context)
 ```
@@ -194,10 +264,48 @@ amazonaws_serverlessrepo.PutApplicationPolicy({
 #### Input
 * input `object`
   * applicationId **required** `string`
-  * Statements [__listOfApplicationPolicyStatement](#__listofapplicationpolicystatement)
+  * semanticVersion `string`: <p>The semantic version of the application:</p><p>
 
 #### Output
-* output [PutApplicationPolicyResponse](#putapplicationpolicyresponse)
+*Output schema unknown*
+
+### GetCloudFormationTemplate
+
+
+
+```js
+amazonaws_serverlessrepo.GetCloudFormationTemplate({
+  "applicationId": "",
+  "templateId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * applicationId **required** `string`
+  * templateId **required** `string`
+
+#### Output
+* output [GetCloudFormationTemplateResponse](#getcloudformationtemplateresponse)
+
+### UnshareApplication
+
+
+
+```js
+amazonaws_serverlessrepo.UnshareApplication({
+  "applicationId": "",
+  "organizationId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * applicationId **required** `string`
+  * organizationId **required** `string`: The AWS Organization ID to unshare the application from.
+
+#### Output
+*Output schema unknown*
 
 ### ListApplicationVersions
 
@@ -211,9 +319,11 @@ amazonaws_serverlessrepo.ListApplicationVersions({
 
 #### Input
 * input `object`
+  * applicationId **required** `string`
+  * maxItems `integer`
+  * nextToken `string`
   * MaxItems `string`
   * NextToken `string`
-  * applicationId **required** `string`
 
 #### Output
 * output [ListApplicationVersionsResponse](#listapplicationversionsresponse)
@@ -233,9 +343,10 @@ amazonaws_serverlessrepo.CreateApplicationVersion({
 * input `object`
   * applicationId **required** `string`
   * semanticVersion **required** `string`
-  * SourceCodeUrl [__string](#__string)
-  * TemplateBody [__string](#__string)
-  * TemplateUrl [__string](#__string)
+  * sourceCodeArchiveUrl `string`: <p>A link to the S3 object that contains the ZIP archive of the source code for this version of your application.</p><p>Maximum size 50 MB</p>
+  * sourceCodeUrl `string`: A link to a public repository for the source code of your application, for example the URL of a specific GitHub commit.
+  * templateBody `string`: The raw packaged AWS SAM template of your application.
+  * templateUrl `string`: A link to the packaged AWS SAM template of your application.
 
 #### Output
 *Output schema unknown*
@@ -244,307 +355,375 @@ amazonaws_serverlessrepo.CreateApplicationVersion({
 
 ## Definitions
 
-### Application
-* Application `object`: Details about the application.
-  * ApplicationId **required** [__string](#__string)
-  * Author **required** [__string](#__string)
-  * CreationTime [__string](#__string)
-  * Description **required** [__string](#__string)
-  * HomePageUrl [__string](#__string)
-  * Labels [__listOf__string](#__listof__string)
-  * LicenseUrl [__string](#__string)
-  * Name **required** [__string](#__string)
-  * ReadmeUrl [__string](#__string)
-  * SpdxLicenseId [__string](#__string)
-  * Version [Version](#version)
-
-### ApplicationPage
-* ApplicationPage `object`: List of application details.
-  * Applications **required** [__listOfApplicationSummary](#__listofapplicationsummary)
-  * NextToken [__string](#__string)
-
-### ApplicationPolicy
-* ApplicationPolicy `object`: Policy statements applied to the application.
-  * Statements **required** [__listOfApplicationPolicyStatement](#__listofapplicationpolicystatement)
+### ApplicationDependencySummary
+* ApplicationDependencySummary `object`: A nested application summary.
+  * ApplicationId **required**
+  * SemanticVersion **required**
 
 ### ApplicationPolicyStatement
 * ApplicationPolicyStatement `object`: Policy statement applied to the application.
-  * Actions **required** [__listOf__string](#__listof__string)
-  * Principals **required** [__listOf__string](#__listof__string)
-  * StatementId [__string](#__string)
+  * Actions **required**
+    * items [__string](#__string)
+  * PrincipalOrgIDs
+    * items [__string](#__string)
+  * Principals **required**
+    * items [__string](#__string)
+  * StatementId
 
 ### ApplicationSummary
 * ApplicationSummary `object`: Summary of details about the application.
-  * ApplicationId **required** [__string](#__string)
-  * Author **required** [__string](#__string)
-  * CreationTime [__string](#__string)
-  * Description **required** [__string](#__string)
-  * HomePageUrl [__string](#__string)
-  * Labels [__listOf__string](#__listof__string)
-  * Name **required** [__string](#__string)
-  * SpdxLicenseId [__string](#__string)
-
-### ApplicationVersionPage
-* ApplicationVersionPage `object`: List of version summaries for the application.
-  * NextToken [__string](#__string)
-  * Versions **required** [__listOfVersionSummary](#__listofversionsummary)
+  * ApplicationId **required**
+  * Author **required**
+  * CreationTime
+  * Description **required**
+  * HomePageUrl
+  * Labels
+    * items [__string](#__string)
+  * Name **required**
+  * SpdxLicenseId
 
 ### BadRequestException
-* BadRequestException `object`: One of the parameters in the request is invalid.
-  * ErrorCode [__string](#__string)
-  * Message [__string](#__string)
 
-### ChangeSetDetails
-* ChangeSetDetails `object`: Details of the change set.
-  * ApplicationId **required** [__string](#__string)
-  * ChangeSetId **required** [__string](#__string)
-  * SemanticVersion **required** [__string](#__string)
-  * StackId **required** [__string](#__string)
+
+### Capability
+* Capability `string` (values: CAPABILITY_IAM, CAPABILITY_NAMED_IAM, CAPABILITY_AUTO_EXPAND, CAPABILITY_RESOURCE_POLICY): Values that must be specified in order to deploy some applications.
 
 ### ConflictException
-* ConflictException `object`: The resource already exists.
-  * ErrorCode [__string](#__string)
-  * Message [__string](#__string)
 
-### CreateApplicationInput
-* CreateApplicationInput `object`: Create application request.
-  * Author **required** [__string](#__string)
-  * Description **required** [__string](#__string)
-  * HomePageUrl [__string](#__string)
-  * Labels [__listOf__string](#__listof__string)
-  * LicenseBody [__string](#__string)
-  * LicenseUrl [__string](#__string)
-  * Name **required** [__string](#__string)
-  * ReadmeBody [__string](#__string)
-  * ReadmeUrl [__string](#__string)
-  * SemanticVersion [__string](#__string)
-  * SourceCodeUrl [__string](#__string)
-  * SpdxLicenseId [__string](#__string)
-  * TemplateBody [__string](#__string)
-  * TemplateUrl [__string](#__string)
 
 ### CreateApplicationRequest
 * CreateApplicationRequest `object`
-  * Author [__string](#__string)
-  * Description [__string](#__string)
-  * HomePageUrl [__string](#__string)
-  * Labels [__listOf__string](#__listof__string)
-  * LicenseBody [__string](#__string)
-  * LicenseUrl [__string](#__string)
-  * Name [__string](#__string)
-  * ReadmeBody [__string](#__string)
-  * ReadmeUrl [__string](#__string)
-  * SemanticVersion [__string](#__string)
-  * SourceCodeUrl [__string](#__string)
-  * SpdxLicenseId [__string](#__string)
-  * TemplateBody [__string](#__string)
-  * TemplateUrl [__string](#__string)
+  * Author **required**
+  * Description **required**
+  * HomePageUrl
+  * Labels
+    * items [__string](#__string)
+  * LicenseBody
+  * LicenseUrl
+  * Name **required**
+  * ReadmeBody
+  * ReadmeUrl
+  * SemanticVersion
+  * SourceCodeArchiveUrl
+  * SourceCodeUrl
+  * SpdxLicenseId
+  * TemplateBody
+  * TemplateUrl
 
 ### CreateApplicationResponse
 * CreateApplicationResponse `object`
-  * ApplicationId [__string](#__string)
-  * Author [__string](#__string)
-  * CreationTime [__string](#__string)
-  * Description [__string](#__string)
-  * HomePageUrl [__string](#__string)
-  * Labels [__listOf__string](#__listof__string)
-  * LicenseUrl [__string](#__string)
-  * Name [__string](#__string)
-  * ReadmeUrl [__string](#__string)
-  * SpdxLicenseId [__string](#__string)
-  * Version [Version](#version)
-
-### CreateApplicationVersionInput
-* CreateApplicationVersionInput `object`: Create version request.
-  * SourceCodeUrl [__string](#__string)
-  * TemplateBody [__string](#__string)
-  * TemplateUrl [__string](#__string)
+  * ApplicationId
+  * Author
+  * CreationTime
+  * Description
+  * HomePageUrl
+  * IsVerifiedAuthor
+  * Labels
+    * items [__string](#__string)
+  * LicenseUrl
+  * Name
+  * ReadmeUrl
+  * SpdxLicenseId
+  * VerifiedAuthorUrl
+  * Version
+    * ApplicationId **required**
+    * CreationTime **required**
+    * ParameterDefinitions **required**
+      * items [ParameterDefinition](#parameterdefinition)
+    * RequiredCapabilities **required**
+      * items [Capability](#capability)
+    * ResourcesSupported **required**
+    * SemanticVersion **required**
+    * SourceCodeArchiveUrl
+    * SourceCodeUrl
+    * TemplateUrl **required**
 
 ### CreateApplicationVersionRequest
 * CreateApplicationVersionRequest `object`
-  * SourceCodeUrl [__string](#__string)
-  * TemplateBody [__string](#__string)
-  * TemplateUrl [__string](#__string)
+  * SourceCodeArchiveUrl
+  * SourceCodeUrl
+  * TemplateBody
+  * TemplateUrl
 
 ### CreateApplicationVersionResponse
 * CreateApplicationVersionResponse `object`
-  * ApplicationId [__string](#__string)
-  * CreationTime [__string](#__string)
-  * ParameterDefinitions [__listOfParameterDefinition](#__listofparameterdefinition)
-  * SemanticVersion [__string](#__string)
-  * SourceCodeUrl [__string](#__string)
-  * TemplateUrl [__string](#__string)
-
-### CreateCloudFormationChangeSetInput
-* CreateCloudFormationChangeSetInput `object`: Create application ChangeSet request.
-  * ParameterOverrides [__listOfParameterValue](#__listofparametervalue)
-  * SemanticVersion [__string](#__string)
-  * StackName **required** [__string](#__string)
+  * ApplicationId
+  * CreationTime
+  * ParameterDefinitions
+    * items [ParameterDefinition](#parameterdefinition)
+  * RequiredCapabilities
+    * items [Capability](#capability)
+  * ResourcesSupported
+  * SemanticVersion
+  * SourceCodeArchiveUrl
+  * SourceCodeUrl
+  * TemplateUrl
 
 ### CreateCloudFormationChangeSetRequest
 * CreateCloudFormationChangeSetRequest `object`
-  * ParameterOverrides [__listOfParameterValue](#__listofparametervalue)
-  * SemanticVersion [__string](#__string)
-  * StackName [__string](#__string)
+  * Capabilities
+    * items [__string](#__string)
+  * ChangeSetName
+  * ClientToken
+  * Description
+  * NotificationArns
+    * items [__string](#__string)
+  * ParameterOverrides
+    * items [ParameterValue](#parametervalue)
+  * ResourceTypes
+    * items [__string](#__string)
+  * RollbackConfiguration
+    * MonitoringTimeInMinutes
+    * RollbackTriggers
+      * items [RollbackTrigger](#rollbacktrigger)
+  * SemanticVersion
+  * StackName **required**
+  * Tags
+    * items [Tag](#tag)
+  * TemplateId
 
 ### CreateCloudFormationChangeSetResponse
 * CreateCloudFormationChangeSetResponse `object`
-  * ApplicationId [__string](#__string)
-  * ChangeSetId [__string](#__string)
-  * SemanticVersion [__string](#__string)
-  * StackId [__string](#__string)
+  * ApplicationId
+  * ChangeSetId
+  * SemanticVersion
+  * StackId
+
+### CreateCloudFormationTemplateRequest
+* CreateCloudFormationTemplateRequest `object`
+  * SemanticVersion
+
+### CreateCloudFormationTemplateResponse
+* CreateCloudFormationTemplateResponse `object`
+  * ApplicationId
+  * CreationTime
+  * ExpirationTime
+  * SemanticVersion
+  * Status
+  * TemplateId
+  * TemplateUrl
 
 ### DeleteApplicationRequest
 * DeleteApplicationRequest `object`
 
 ### ForbiddenException
-* ForbiddenException `object`: The client is not authenticated.
-  * ErrorCode [__string](#__string)
-  * Message [__string](#__string)
+
 
 ### GetApplicationPolicyRequest
 * GetApplicationPolicyRequest `object`
 
 ### GetApplicationPolicyResponse
 * GetApplicationPolicyResponse `object`
-  * Statements [__listOfApplicationPolicyStatement](#__listofapplicationpolicystatement)
+  * Statements
+    * items [ApplicationPolicyStatement](#applicationpolicystatement)
 
 ### GetApplicationRequest
 * GetApplicationRequest `object`
 
 ### GetApplicationResponse
 * GetApplicationResponse `object`
-  * ApplicationId [__string](#__string)
-  * Author [__string](#__string)
-  * CreationTime [__string](#__string)
-  * Description [__string](#__string)
-  * HomePageUrl [__string](#__string)
-  * Labels [__listOf__string](#__listof__string)
-  * LicenseUrl [__string](#__string)
-  * Name [__string](#__string)
-  * ReadmeUrl [__string](#__string)
-  * SpdxLicenseId [__string](#__string)
-  * Version [Version](#version)
+  * ApplicationId
+  * Author
+  * CreationTime
+  * Description
+  * HomePageUrl
+  * IsVerifiedAuthor
+  * Labels
+    * items [__string](#__string)
+  * LicenseUrl
+  * Name
+  * ReadmeUrl
+  * SpdxLicenseId
+  * VerifiedAuthorUrl
+  * Version
+    * ApplicationId **required**
+    * CreationTime **required**
+    * ParameterDefinitions **required**
+      * items [ParameterDefinition](#parameterdefinition)
+    * RequiredCapabilities **required**
+      * items [Capability](#capability)
+    * ResourcesSupported **required**
+    * SemanticVersion **required**
+    * SourceCodeArchiveUrl
+    * SourceCodeUrl
+    * TemplateUrl **required**
+
+### GetCloudFormationTemplateRequest
+* GetCloudFormationTemplateRequest `object`
+
+### GetCloudFormationTemplateResponse
+* GetCloudFormationTemplateResponse `object`
+  * ApplicationId
+  * CreationTime
+  * ExpirationTime
+  * SemanticVersion
+  * Status
+  * TemplateId
+  * TemplateUrl
 
 ### InternalServerErrorException
-* InternalServerErrorException `object`: The AWS Serverless Application Repository service encountered an internal error.
-  * ErrorCode [__string](#__string)
-  * Message [__string](#__string)
+
+
+### ListApplicationDependenciesRequest
+* ListApplicationDependenciesRequest `object`
+
+### ListApplicationDependenciesResponse
+* ListApplicationDependenciesResponse `object`
+  * Dependencies
+    * items [ApplicationDependencySummary](#applicationdependencysummary)
+  * NextToken
 
 ### ListApplicationVersionsRequest
 * ListApplicationVersionsRequest `object`
 
 ### ListApplicationVersionsResponse
 * ListApplicationVersionsResponse `object`
-  * NextToken [__string](#__string)
-  * Versions [__listOfVersionSummary](#__listofversionsummary)
+  * NextToken
+  * Versions
+    * items [VersionSummary](#versionsummary)
 
 ### ListApplicationsRequest
 * ListApplicationsRequest `object`
 
 ### ListApplicationsResponse
 * ListApplicationsResponse `object`
-  * Applications [__listOfApplicationSummary](#__listofapplicationsummary)
-  * NextToken [__string](#__string)
+  * Applications
+    * items [ApplicationSummary](#applicationsummary)
+  * NextToken
 
 ### MaxItems
 * MaxItems `integer`
 
 ### NotFoundException
-* NotFoundException `object`: The resource (for example, an access policy statement) specified in the request does not exist.
-  * ErrorCode [__string](#__string)
-  * Message [__string](#__string)
+
 
 ### ParameterDefinition
 * ParameterDefinition `object`: Parameters supported by the application.
-  * AllowedPattern [__string](#__string)
-  * AllowedValues [__listOf__string](#__listof__string)
-  * ConstraintDescription [__string](#__string)
-  * DefaultValue [__string](#__string)
-  * Description [__string](#__string)
-  * MaxLength [__integer](#__integer)
-  * MaxValue [__integer](#__integer)
-  * MinLength [__integer](#__integer)
-  * MinValue [__integer](#__integer)
-  * Name **required** [__string](#__string)
-  * NoEcho [__boolean](#__boolean)
-  * ReferencedByResources **required** [__listOf__string](#__listof__string)
-  * Type [__string](#__string)
+  * AllowedPattern
+  * AllowedValues
+    * items [__string](#__string)
+  * ConstraintDescription
+  * DefaultValue
+  * Description
+  * MaxLength
+  * MaxValue
+  * MinLength
+  * MinValue
+  * Name **required**
+  * NoEcho
+  * ReferencedByResources **required**
+    * items [__string](#__string)
+  * Type
 
 ### ParameterValue
 * ParameterValue `object`: Parameter value of the application.
-  * Name **required** [__string](#__string)
-  * Value **required** [__string](#__string)
+  * Name **required**
+  * Value **required**
 
 ### PutApplicationPolicyRequest
 * PutApplicationPolicyRequest `object`
-  * Statements [__listOfApplicationPolicyStatement](#__listofapplicationpolicystatement)
+  * Statements **required**
+    * items [ApplicationPolicyStatement](#applicationpolicystatement)
 
 ### PutApplicationPolicyResponse
 * PutApplicationPolicyResponse `object`
-  * Statements [__listOfApplicationPolicyStatement](#__listofapplicationpolicystatement)
+  * Statements
+    * items [ApplicationPolicyStatement](#applicationpolicystatement)
+
+### RollbackConfiguration
+* RollbackConfiguration `object`: This property corresponds to the <i>AWS CloudFormation <a href="https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/RollbackConfiguration">RollbackConfiguration</a>
+  * MonitoringTimeInMinutes
+  * RollbackTriggers
+    * items [RollbackTrigger](#rollbacktrigger)
+
+### RollbackTrigger
+* RollbackTrigger `object`: This property corresponds to the <i>AWS CloudFormation <a href="https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/RollbackTrigger">RollbackTrigger</a>
+  * Arn **required**
+  * Type **required**
+
+### Status
+* Status `string` (values: PREPARING, ACTIVE, EXPIRED)
+
+### Tag
+* Tag `object`: This property corresponds to the <i>AWS CloudFormation <a href="https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/Tag">Tag</a>
+  * Key **required**
+  * Value **required**
 
 ### TooManyRequestsException
-* TooManyRequestsException `object`: The client is sending more than the allowed number of requests per unit time.
-  * ErrorCode [__string](#__string)
-  * Message [__string](#__string)
 
-### UpdateApplicationInput
-* UpdateApplicationInput `object`: Update application request.
-  * Author [__string](#__string)
-  * Description [__string](#__string)
-  * HomePageUrl [__string](#__string)
-  * Labels [__listOf__string](#__listof__string)
-  * ReadmeBody [__string](#__string)
-  * ReadmeUrl [__string](#__string)
+
+### UnshareApplicationRequest
+* UnshareApplicationRequest `object`
+  * OrganizationId **required**
 
 ### UpdateApplicationRequest
 * UpdateApplicationRequest `object`
-  * Author [__string](#__string)
-  * Description [__string](#__string)
-  * HomePageUrl [__string](#__string)
-  * Labels [__listOf__string](#__listof__string)
-  * ReadmeBody [__string](#__string)
-  * ReadmeUrl [__string](#__string)
+  * Author
+  * Description
+  * HomePageUrl
+  * Labels
+    * items [__string](#__string)
+  * ReadmeBody
+  * ReadmeUrl
 
 ### UpdateApplicationResponse
 * UpdateApplicationResponse `object`
-  * ApplicationId [__string](#__string)
-  * Author [__string](#__string)
-  * CreationTime [__string](#__string)
-  * Description [__string](#__string)
-  * HomePageUrl [__string](#__string)
-  * Labels [__listOf__string](#__listof__string)
-  * LicenseUrl [__string](#__string)
-  * Name [__string](#__string)
-  * ReadmeUrl [__string](#__string)
-  * SpdxLicenseId [__string](#__string)
-  * Version [Version](#version)
+  * ApplicationId
+  * Author
+  * CreationTime
+  * Description
+  * HomePageUrl
+  * IsVerifiedAuthor
+  * Labels
+    * items [__string](#__string)
+  * LicenseUrl
+  * Name
+  * ReadmeUrl
+  * SpdxLicenseId
+  * VerifiedAuthorUrl
+  * Version
+    * ApplicationId **required**
+    * CreationTime **required**
+    * ParameterDefinitions **required**
+      * items [ParameterDefinition](#parameterdefinition)
+    * RequiredCapabilities **required**
+      * items [Capability](#capability)
+    * ResourcesSupported **required**
+    * SemanticVersion **required**
+    * SourceCodeArchiveUrl
+    * SourceCodeUrl
+    * TemplateUrl **required**
 
 ### Version
 * Version `object`: Application version details.
-  * ApplicationId **required** [__string](#__string)
-  * CreationTime **required** [__string](#__string)
-  * ParameterDefinitions **required** [__listOfParameterDefinition](#__listofparameterdefinition)
-  * SemanticVersion **required** [__string](#__string)
-  * SourceCodeUrl [__string](#__string)
-  * TemplateUrl **required** [__string](#__string)
+  * ApplicationId **required**
+  * CreationTime **required**
+  * ParameterDefinitions **required**
+    * items [ParameterDefinition](#parameterdefinition)
+  * RequiredCapabilities **required**
+    * items [Capability](#capability)
+  * ResourcesSupported **required**
+  * SemanticVersion **required**
+  * SourceCodeArchiveUrl
+  * SourceCodeUrl
+  * TemplateUrl **required**
 
 ### VersionSummary
-* VersionSummary `object`: Application version summary.
-  * ApplicationId **required** [__string](#__string)
-  * CreationTime **required** [__string](#__string)
-  * SemanticVersion **required** [__string](#__string)
-  * SourceCodeUrl [__string](#__string)
+* VersionSummary `object`: An application version summary.
+  * ApplicationId **required**
+  * CreationTime **required**
+  * SemanticVersion **required**
+  * SourceCodeUrl
 
 ### __boolean
 * __boolean `boolean`
 
-### __double
-* __double `number`
-
 ### __integer
 * __integer `integer`
+
+### __listOfApplicationDependencySummary
+* __listOfApplicationDependencySummary `array`
+  * items [ApplicationDependencySummary](#applicationdependencysummary)
 
 ### __listOfApplicationPolicyStatement
 * __listOfApplicationPolicyStatement `array`
@@ -554,6 +733,10 @@ amazonaws_serverlessrepo.CreateApplicationVersion({
 * __listOfApplicationSummary `array`
   * items [ApplicationSummary](#applicationsummary)
 
+### __listOfCapability
+* __listOfCapability `array`
+  * items [Capability](#capability)
+
 ### __listOfParameterDefinition
 * __listOfParameterDefinition `array`
   * items [ParameterDefinition](#parameterdefinition)
@@ -562,6 +745,14 @@ amazonaws_serverlessrepo.CreateApplicationVersion({
 * __listOfParameterValue `array`
   * items [ParameterValue](#parametervalue)
 
+### __listOfRollbackTrigger
+* __listOfRollbackTrigger `array`
+  * items [RollbackTrigger](#rollbacktrigger)
+
+### __listOfTag
+* __listOfTag `array`
+  * items [Tag](#tag)
+
 ### __listOfVersionSummary
 * __listOfVersionSummary `array`
   * items [VersionSummary](#versionsummary)
@@ -569,9 +760,6 @@ amazonaws_serverlessrepo.CreateApplicationVersion({
 ### __listOf__string
 * __listOf__string `array`
   * items [__string](#__string)
-
-### __long
-* __long `integer`
 
 ### __string
 * __string `string`

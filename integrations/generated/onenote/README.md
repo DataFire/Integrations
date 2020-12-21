@@ -9,7 +9,7 @@ npm install --save @datafire/onenote
 ```js
 let onenote = require('@datafire/onenote').create();
 
-onenote.pages.get({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

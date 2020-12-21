@@ -1,8 +1,8 @@
 {
   "name": "@datafire/who_hosts_this",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "main": "index.js",
-  "description": "DataFire integration for Who Hosts This",
+  "description": "DataFire integration for Who Hosts This API",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DataFire/integrations.git"

@@ -1,8 +1,8 @@
 {
   "name": "@datafire/traccar",
-  "version": "5.0.1",
+  "version": "6.0.0",
   "main": "index.js",
-  "description": "DataFire integration for traccar",
+  "description": "DataFire integration for Traccar",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DataFire/integrations.git"
@@ -14,8 +14,8 @@
   },
   "homepage": "https://github.com/DataFire/integrations#readme",
   "datafire": {
-    "origin": "https://api.apis.guru/v2/specs/traccar.org/3.17/swagger.json",
-    "type": "openapi"
+    "origin": "https://api.apis.guru/v2/specs/traccar.org/4.11/openapi.json",
+    "type": "openapi_3"
   },
   "dependencies": {
     "datafire": "^2.0.0"

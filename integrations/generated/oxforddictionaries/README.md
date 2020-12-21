@@ -9,12 +9,7 @@ npm install --save @datafire/oxforddictionaries
 ```js
 let oxforddictionaries = require('@datafire/oxforddictionaries').create();
 
-oxforddictionaries.domains.source_domains_language.target_domains_language.get({
-  "source_domains_language": "",
-  "target_domains_language": "",
-  "app_id": "",
-  "app_key": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -115,7 +110,7 @@ oxforddictionaries.entries.source_lang.word_id.get({
 
 #### Input
 * input `object`
-  * source_lang **required** `string` (values: en, es, lv, hi, sw, ta, gu): IANA language code
+  * source_lang **required** `string` (values: en, es, lv, hi, sw, ta, gu, fr): IANA language code
   * word_id **required** `string`: An Entry identifier. Case-sensitive.
   * app_id **required** `string`: App ID Authentication Parameter
   * app_key **required** `string`: App Key Authentication Parameter
@@ -243,7 +238,7 @@ Use filters to limit the [entry](documentation/glossary?term=entry) information 
 oxforddictionaries.entries.source_lang.word_id.filters.get({
   "source_lang": "",
   "word_id": "",
-  "filters": [],
+  "filters": "",
   "app_id": "",
   "app_key": ""
 }, context)
@@ -251,9 +246,9 @@ oxforddictionaries.entries.source_lang.word_id.filters.get({
 
 #### Input
 * input `object`
-  * source_lang **required** `string` (values: en, es, lv, hi, sw, ta, gu): IANA language code
+  * source_lang **required** `string` (values: en, es, lv, hi, sw, ta, gu, fr): IANA language code
   * word_id **required** `string`: An Entry identifier. Case-sensitive.
-  * filters **required** `array`: Separate filtering conditions using a semicolon. Conditions take values grammaticalFeatures and/or lexicalCategory and are case-sensitive. To list multiple values in single condition divide them with comma.
+  * filters **required** `string`: Separate filtering conditions using a semicolon. Conditions take values grammaticalFeatures and/or lexicalCategory and are case-sensitive. To list multiple values in single condition divide them with comma.
   * app_id **required** `string`: App ID Authentication Parameter
   * app_key **required** `string`: App Key Authentication Parameter
 
@@ -353,7 +348,7 @@ oxforddictionaries.grammaticalFeatures.source_language.get({
 #### Output
 * output [UtilityLabels](#utilitylabels)
 
-### inflections.source_lang.word_id.get
+### inflections.source_lang.word_id.filters.get
 
 Use this to check if a word exists in the dictionary, or what 'root' form it links to (e.g., swimming > swim). The response tells you the possible [lemmas](documentation/glossary?term=lemma) for a given [inflected](documentation/glossary?term=inflection) word. This can then be combined with other endpoints to retrieve more information.
 
@@ -362,37 +357,10 @@ Use this to check if a word exists in the dictionary, or what 'root' form it lin
 
 
 ```js
-oxforddictionaries.inflections.source_lang.word_id.get({
-  "source_lang": "",
-  "word_id": "",
-  "app_id": "",
-  "app_key": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * source_lang **required** `string` (values: en, es, hi, nso, tn, zu, de, pt): IANA language code
-  * word_id **required** `string`: The input word
-  * app_id **required** `string`: App ID Authentication Parameter
-  * app_key **required** `string`: App Key Authentication Parameter
-
-#### Output
-* output [Lemmatron](#lemmatron)
-
-### inflections.source_lang.word_id.filters.get
-
-Retrieve available [lemmas](documentation/glossary?term=lemma) for a given [inflected](documentation/glossary?term=inflection) wordform. Filter results by categories.  
-
-  <div id="lemmatron_filters"></div>
-
-
-
-```js
 oxforddictionaries.inflections.source_lang.word_id.filters.get({
   "source_lang": "",
+  "filters": "",
   "word_id": "",
-  "filters": [],
   "app_id": "",
   "app_key": ""
 }, context)
@@ -401,8 +369,8 @@ oxforddictionaries.inflections.source_lang.word_id.filters.get({
 #### Input
 * input `object`
   * source_lang **required** `string` (values: en, es, hi, nso, tn, zu, de, pt): IANA language code
+  * filters **required** `string`: Separate filtering conditions using a semicolon. Conditions take values grammaticalFeatures and/or lexicalCategory and are case-sensitive. To list multiple values in single condition divide them with comma.
   * word_id **required** `string`: The input word
-  * filters **required** `array`: Separate filtering conditions using a semicolon. Conditions take values grammaticalFeatures and/or lexicalCategory and are case-sensitive. To list multiple values in single condition divide them with comma.
   * app_id **required** `string`: App ID Authentication Parameter
   * app_key **required** `string`: App Key Authentication Parameter
 

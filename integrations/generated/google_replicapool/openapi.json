@@ -1,18 +1,18 @@
 {
   "swagger": "2.0",
-  "schemes": [
-    "https"
-  ],
-  "host": "www.googleapis.com",
-  "basePath": "/replicapool/v1beta2/projects",
   "info": {
     "contact": {
       "name": "Google",
       "url": "https://google.com"
     },
-    "description": "[Deprecated. Please use Instance Group Manager in Compute API] Provides groups of homogenous Compute Engine instances.",
-    "title": "Google Compute Engine Instance Group Manager",
-    "version": "v1beta2",
+    "description": "The Replica Pool API allows users to declaratively provision and manage groups of Google Compute Engine instances based on a common template.",
+    "license": {
+      "name": "Creative Commons Attribution 3.0",
+      "url": "http://creativecommons.org/licenses/by/3.0/"
+    },
+    "termsOfService": "https://developers.google.com/terms/",
+    "title": "Replica Pool",
+    "version": "v1beta1",
     "x-apiClientRegistration": {
       "url": "https://console.developers.google.com"
     },
@@ -26,10 +26,10 @@
       {
         "converter": {
           "url": "https://github.com/lucybot/api-spec-converter",
-          "version": "2.6.2"
+          "version": "2.7.31"
         },
         "format": "google",
-        "url": "https://www.googleapis.com/discovery/v1/apis/replicapool/v1beta2/rest",
+        "url": "https://www.googleapis.com/discovery/v1/apis/replicapool/v1beta1/rest",
         "version": "v1"
       }
     ],
@@ -41,132 +41,94 @@
       "type": "openapi"
     }
   },
-  "externalDocs": {
-    "url": "https://developers.google.com/compute/docs/instance-groups/manager/v1beta2"
-  },
-  "securityDefinitions": {
-    "Oauth2": {
-      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 authentication",
-      "flow": "implicit",
-      "scopes": {
-        "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services",
-        "https://www.googleapis.com/auth/cloud-platform.read-only": "View your data across Google Cloud Platform services",
-        "https://www.googleapis.com/auth/compute": "View and manage your Google Compute Engine resources",
-        "https://www.googleapis.com/auth/compute.readonly": "View your Google Compute Engine resources"
-      },
-      "type": "oauth2"
-    },
-    "offline": {
-      "type": "oauth2",
-      "flow": "accessCode",
-      "scopes": {
-        "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services",
-        "https://www.googleapis.com/auth/cloud-platform.read-only": "View your data across Google Cloud Platform services",
-        "https://www.googleapis.com/auth/compute": "View and manage your Google Compute Engine resources",
-        "https://www.googleapis.com/auth/compute.readonly": "View your Google Compute Engine resources"
-      },
-      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "tokenUrl": "https://www.googleapis.com/oauth2/v4/token",
-      "description": "Allows offline access using a refresh_token"
-    }
-  },
-  "parameters": {
-    "alt": {
-      "default": "json",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ],
-      "in": "query",
-      "name": "alt",
-      "type": "string"
-    },
-    "fields": {
-      "description": "Selector specifying which fields to include in a partial response.",
-      "in": "query",
-      "name": "fields",
-      "type": "string"
-    },
-    "key": {
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
-      "in": "query",
-      "name": "key",
-      "type": "string"
-    },
-    "oauth_token": {
-      "description": "OAuth 2.0 token for the current user.",
-      "in": "query",
-      "name": "oauth_token",
-      "type": "string"
-    },
-    "prettyPrint": {
-      "default": true,
-      "description": "Returns response with indentations and line breaks.",
-      "in": "query",
-      "name": "prettyPrint",
-      "type": "boolean"
-    },
-    "quotaUser": {
-      "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
-      "in": "query",
-      "name": "quotaUser",
-      "type": "string"
-    },
-    "userIp": {
-      "description": "Deprecated. Please use quotaUser instead.",
-      "in": "query",
-      "name": "userIp",
-      "type": "string"
-    }
-  },
-  "tags": [
-    {
-      "name": "instanceGroupManagers"
-    },
-    {
-      "name": "zoneOperations"
-    }
+  "host": "www.googleapis.com",
+  "basePath": "/replicapool/v1beta1/projects",
+  "schemes": [
+    "https"
   ],
   "paths": {
-    "/{project}/zones/{zone}/instanceGroupManagers": {
+    "/{projectName}/zones/{zone}/pools": {
+      "parameters": [
+        {
+          "default": "json",
+          "description": "Data format for the response.",
+          "enum": [
+            "json"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
+        },
+        {
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
+        },
+        {
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
+        },
+        {
+          "default": true,
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
+        },
+        {
+          "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
+        },
+        {
+          "description": "Deprecated. Please use quotaUser instead.",
+          "in": "query",
+          "name": "userIp",
+          "type": "string"
+        }
+      ],
       "get": {
-        "description": "Retrieves the list of Instance Group Manager resources contained within the specified zone.",
-        "operationId": "instanceGroupManagers.list",
+        "produces": [
+          "application/octet-stream"
+        ],
         "parameters": [
           {
-            "description": "Optional. Filter expression for filtering listed resources.",
-            "in": "query",
-            "name": "filter",
+            "description": "The project ID for this request.",
+            "in": "path",
+            "name": "projectName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The zone for this replica pool.",
+            "in": "path",
+            "name": "zone",
+            "required": true,
             "type": "string"
           },
           {
             "default": 500,
-            "description": "Optional. Maximum count of results to be returned. Maximum value is 500 and default value is 500.",
+            "description": "Maximum count of results to be returned. Acceptable values are 0 to 100, inclusive. (Default: 50)",
             "in": "query",
-            "maximum": 500,
+            "maximum": 1000,
             "minimum": 0,
             "name": "maxResults",
             "type": "integer"
           },
           {
-            "description": "Optional. Tag returned by a previous list request truncated by maxResults. Used to continue a previous list request.",
+            "description": "Set this to the nextPageToken value returned by a previous list request to obtain the next page of results from the previous list request.",
             "in": "query",
             "name": "pageToken",
-            "type": "string"
-          },
-          {
-            "description": "The Google Developers Console project name.",
-            "in": "path",
-            "name": "project",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The name of the zone in which the instance group manager resides.",
-            "in": "path",
-            "name": "zone",
-            "required": true,
             "type": "string"
           }
         ],
@@ -174,98 +136,101 @@
           "200": {
             "description": "Successful response",
             "schema": {
-              "$ref": "#/definitions/InstanceGroupManagerList"
+              "$ref": "#/definitions/PoolsListResponse"
             }
           }
         },
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform.read-only"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform.read-only"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/compute"
+              "https://www.googleapis.com/auth/ndev.cloudman"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/ndev.cloudman"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/compute.readonly"
+              "https://www.googleapis.com/auth/ndev.cloudman.readonly"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/ndev.cloudman.readonly"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/replicapool"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/replicapool"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/replicapool.readonly"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/replicapool.readonly"
             ]
           }
         ],
         "tags": [
-          "instanceGroupManagers"
-        ]
+          "pools"
+        ],
+        "description": "List all replica pools.",
+        "operationId": "replicapool.pools.list"
       },
-      "parameters": [
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/userIp"
-        }
-      ],
       "post": {
-        "description": "Creates an instance group manager, as well as the instance group and the specified number of instances.",
-        "operationId": "instanceGroupManagers.insert",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/octet-stream"
+        ],
         "parameters": [
+          {
+            "description": "The project ID for this replica pool.",
+            "in": "path",
+            "name": "projectName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The zone for this replica pool.",
+            "in": "path",
+            "name": "zone",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
             "schema": {
-              "$ref": "#/definitions/InstanceGroupManager"
+              "$ref": "#/definitions/Pool"
             }
-          },
-          {
-            "description": "The Google Developers Console project name.",
-            "in": "path",
-            "name": "project",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "Number of instances that should exist.",
-            "in": "query",
-            "minimum": 0,
-            "name": "size",
-            "required": true,
-            "type": "integer"
-          },
-          {
-            "description": "The name of the zone in which the instance group manager resides.",
-            "in": "path",
-            "name": "zone",
-            "required": true,
-            "type": "string"
           }
         ],
         "responses": {
           "200": {
             "description": "Successful response",
             "schema": {
-              "$ref": "#/definitions/Operation"
+              "$ref": "#/definitions/Pool"
             }
           }
         },
@@ -273,42 +238,108 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/compute"
+              "https://www.googleapis.com/auth/ndev.cloudman"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/ndev.cloudman"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/replicapool"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/replicapool"
             ]
           }
         ],
         "tags": [
-          "instanceGroupManagers"
-        ]
+          "pools"
+        ],
+        "description": "Inserts a new replica pool.",
+        "operationId": "replicapool.pools.insert"
       }
     },
-    "/{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}": {
-      "delete": {
-        "description": "Deletes the instance group manager and all instances contained within. If you'd like to delete the manager without deleting the instances, you must first abandon the instances to remove them from the group.",
-        "operationId": "instanceGroupManagers.delete",
+    "/{projectName}/zones/{zone}/pools/{poolName}": {
+      "parameters": [
+        {
+          "default": "json",
+          "description": "Data format for the response.",
+          "enum": [
+            "json"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
+        },
+        {
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
+        },
+        {
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
+        },
+        {
+          "default": true,
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
+        },
+        {
+          "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
+        },
+        {
+          "description": "Deprecated. Please use quotaUser instead.",
+          "in": "query",
+          "name": "userIp",
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/octet-stream"
+        ],
         "parameters": [
           {
-            "description": "Name of the Instance Group Manager resource to delete.",
+            "description": "The project ID for this replica pool.",
             "in": "path",
-            "name": "instanceGroupManager",
+            "name": "projectName",
             "required": true,
             "type": "string"
           },
           {
-            "description": "The Google Developers Console project name.",
-            "in": "path",
-            "name": "project",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The name of the zone in which the instance group manager resides.",
+            "description": "The zone for this replica pool.",
             "in": "path",
             "name": "zone",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The name of the replica pool for this request.",
+            "in": "path",
+            "name": "poolName",
             "required": true,
             "type": "string"
           }
@@ -317,7 +348,7 @@
           "200": {
             "description": "Successful response",
             "schema": {
-              "$ref": "#/definitions/Operation"
+              "$ref": "#/definitions/Pool"
             }
           }
         },
@@ -325,641 +356,227 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
-            ]
-          },
-          {
-            "Oauth2": [
-              "https://www.googleapis.com/auth/compute"
-            ]
-          }
-        ],
-        "tags": [
-          "instanceGroupManagers"
-        ]
-      },
-      "get": {
-        "description": "Returns the specified Instance Group Manager resource.",
-        "operationId": "instanceGroupManagers.get",
-        "parameters": [
-          {
-            "description": "Name of the instance resource to return.",
-            "in": "path",
-            "name": "instanceGroupManager",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The Google Developers Console project name.",
-            "in": "path",
-            "name": "project",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The name of the zone in which the instance group manager resides.",
-            "in": "path",
-            "name": "zone",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful response",
-            "schema": {
-              "$ref": "#/definitions/InstanceGroupManager"
-            }
-          }
-        },
-        "security": [
-          {
-            "Oauth2": [
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform.read-only"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform.read-only"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/compute"
+              "https://www.googleapis.com/auth/ndev.cloudman"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/ndev.cloudman"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/compute.readonly"
+              "https://www.googleapis.com/auth/ndev.cloudman.readonly"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/ndev.cloudman.readonly"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/replicapool"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/replicapool"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/replicapool.readonly"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/replicapool.readonly"
             ]
           }
         ],
         "tags": [
-          "instanceGroupManagers"
-        ]
+          "pools"
+        ],
+        "description": "Gets information about a single replica pool.",
+        "operationId": "replicapool.pools.get"
       },
-      "parameters": [
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/userIp"
-        }
-      ]
-    },
-    "/{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/abandonInstances": {
-      "parameters": [
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/userIp"
-        }
-      ],
       "post": {
-        "description": "Removes the specified instances from the managed instance group, and from any target pools of which they were members, without deleting the instances.",
-        "operationId": "instanceGroupManagers.abandonInstances",
+        "consumes": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "description": "The project ID for this replica pool.",
+            "in": "path",
+            "name": "projectName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The zone for this replica pool.",
+            "in": "path",
+            "name": "zone",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The name of the replica pool for this request.",
+            "in": "path",
+            "name": "poolName",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
             "schema": {
-              "$ref": "#/definitions/InstanceGroupManagersAbandonInstancesRequest"
+              "$ref": "#/definitions/PoolsDeleteRequest"
             }
-          },
-          {
-            "description": "The name of the instance group manager.",
-            "in": "path",
-            "name": "instanceGroupManager",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The Google Developers Console project name.",
-            "in": "path",
-            "name": "project",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The name of the zone in which the instance group manager resides.",
-            "in": "path",
-            "name": "zone",
-            "required": true,
-            "type": "string"
           }
         ],
         "responses": {
           "200": {
-            "description": "Successful response",
-            "schema": {
-              "$ref": "#/definitions/Operation"
-            }
+            "description": "Successful response"
           }
         },
         "security": [
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/compute"
+              "https://www.googleapis.com/auth/ndev.cloudman"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/ndev.cloudman"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/replicapool"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/replicapool"
             ]
           }
         ],
         "tags": [
-          "instanceGroupManagers"
-        ]
+          "pools"
+        ],
+        "description": "Deletes a replica pool.",
+        "operationId": "replicapool.pools.delete"
       }
     },
-    "/{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/deleteInstances": {
+    "/{projectName}/zones/{zone}/pools/{poolName}/replicas": {
       "parameters": [
         {
-          "$ref": "#/parameters/alt"
+          "default": "json",
+          "description": "Data format for the response.",
+          "enum": [
+            "json"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/fields"
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/key"
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/oauth_token"
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/prettyPrint"
+          "default": true,
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
         },
         {
-          "$ref": "#/parameters/quotaUser"
+          "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/userIp"
+          "description": "Deprecated. Please use quotaUser instead.",
+          "in": "query",
+          "name": "userIp",
+          "type": "string"
         }
       ],
-      "post": {
-        "description": "Deletes the specified instances. The instances are deleted, then removed from the instance group and any target pools of which they were a member. The targetSize of the instance group manager is reduced by the number of instances deleted.",
-        "operationId": "instanceGroupManagers.deleteInstances",
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/InstanceGroupManagersDeleteInstancesRequest"
-            }
-          },
-          {
-            "description": "The name of the instance group manager.",
-            "in": "path",
-            "name": "instanceGroupManager",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The Google Developers Console project name.",
-            "in": "path",
-            "name": "project",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The name of the zone in which the instance group manager resides.",
-            "in": "path",
-            "name": "zone",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful response",
-            "schema": {
-              "$ref": "#/definitions/Operation"
-            }
-          }
-        },
-        "security": [
-          {
-            "Oauth2": [
-              "https://www.googleapis.com/auth/cloud-platform"
-            ]
-          },
-          {
-            "Oauth2": [
-              "https://www.googleapis.com/auth/compute"
-            ]
-          }
-        ],
-        "tags": [
-          "instanceGroupManagers"
-        ]
-      }
-    },
-    "/{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/recreateInstances": {
-      "parameters": [
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/userIp"
-        }
-      ],
-      "post": {
-        "description": "Recreates the specified instances. The instances are deleted, then recreated using the instance group manager's current instance template.",
-        "operationId": "instanceGroupManagers.recreateInstances",
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/InstanceGroupManagersRecreateInstancesRequest"
-            }
-          },
-          {
-            "description": "The name of the instance group manager.",
-            "in": "path",
-            "name": "instanceGroupManager",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The Google Developers Console project name.",
-            "in": "path",
-            "name": "project",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The name of the zone in which the instance group manager resides.",
-            "in": "path",
-            "name": "zone",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful response",
-            "schema": {
-              "$ref": "#/definitions/Operation"
-            }
-          }
-        },
-        "security": [
-          {
-            "Oauth2": [
-              "https://www.googleapis.com/auth/cloud-platform"
-            ]
-          },
-          {
-            "Oauth2": [
-              "https://www.googleapis.com/auth/compute"
-            ]
-          }
-        ],
-        "tags": [
-          "instanceGroupManagers"
-        ]
-      }
-    },
-    "/{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/resize": {
-      "parameters": [
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/userIp"
-        }
-      ],
-      "post": {
-        "description": "Resizes the managed instance group up or down. If resized up, new instances are created using the current instance template. If resized down, instances are removed in the order outlined in Resizing a managed instance group.",
-        "operationId": "instanceGroupManagers.resize",
-        "parameters": [
-          {
-            "description": "The name of the instance group manager.",
-            "in": "path",
-            "name": "instanceGroupManager",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The Google Developers Console project name.",
-            "in": "path",
-            "name": "project",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "Number of instances that should exist in this Instance Group Manager.",
-            "in": "query",
-            "minimum": 0,
-            "name": "size",
-            "required": true,
-            "type": "integer"
-          },
-          {
-            "description": "The name of the zone in which the instance group manager resides.",
-            "in": "path",
-            "name": "zone",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful response",
-            "schema": {
-              "$ref": "#/definitions/Operation"
-            }
-          }
-        },
-        "security": [
-          {
-            "Oauth2": [
-              "https://www.googleapis.com/auth/cloud-platform"
-            ]
-          },
-          {
-            "Oauth2": [
-              "https://www.googleapis.com/auth/compute"
-            ]
-          }
-        ],
-        "tags": [
-          "instanceGroupManagers"
-        ]
-      }
-    },
-    "/{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/setInstanceTemplate": {
-      "parameters": [
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/userIp"
-        }
-      ],
-      "post": {
-        "description": "Sets the instance template to use when creating new instances in this group. Existing instances are not affected.",
-        "operationId": "instanceGroupManagers.setInstanceTemplate",
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/InstanceGroupManagersSetInstanceTemplateRequest"
-            }
-          },
-          {
-            "description": "The name of the instance group manager.",
-            "in": "path",
-            "name": "instanceGroupManager",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The Google Developers Console project name.",
-            "in": "path",
-            "name": "project",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The name of the zone in which the instance group manager resides.",
-            "in": "path",
-            "name": "zone",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful response",
-            "schema": {
-              "$ref": "#/definitions/Operation"
-            }
-          }
-        },
-        "security": [
-          {
-            "Oauth2": [
-              "https://www.googleapis.com/auth/cloud-platform"
-            ]
-          },
-          {
-            "Oauth2": [
-              "https://www.googleapis.com/auth/compute"
-            ]
-          }
-        ],
-        "tags": [
-          "instanceGroupManagers"
-        ]
-      }
-    },
-    "/{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/setTargetPools": {
-      "parameters": [
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/userIp"
-        }
-      ],
-      "post": {
-        "description": "Modifies the target pools to which all new instances in this group are assigned. Existing instances in the group are not affected.",
-        "operationId": "instanceGroupManagers.setTargetPools",
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/InstanceGroupManagersSetTargetPoolsRequest"
-            }
-          },
-          {
-            "description": "The name of the instance group manager.",
-            "in": "path",
-            "name": "instanceGroupManager",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The Google Developers Console project name.",
-            "in": "path",
-            "name": "project",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The name of the zone in which the instance group manager resides.",
-            "in": "path",
-            "name": "zone",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful response",
-            "schema": {
-              "$ref": "#/definitions/Operation"
-            }
-          }
-        },
-        "security": [
-          {
-            "Oauth2": [
-              "https://www.googleapis.com/auth/cloud-platform"
-            ]
-          },
-          {
-            "Oauth2": [
-              "https://www.googleapis.com/auth/compute"
-            ]
-          }
-        ],
-        "tags": [
-          "instanceGroupManagers"
-        ]
-      }
-    },
-    "/{project}/zones/{zone}/operations": {
       "get": {
-        "description": "Retrieves the list of operation resources contained within the specified zone.",
-        "operationId": "zoneOperations.list",
+        "produces": [
+          "application/octet-stream"
+        ],
         "parameters": [
           {
-            "description": "Optional. Filter expression for filtering listed resources.",
-            "in": "query",
-            "name": "filter",
+            "description": "The project ID for this request.",
+            "in": "path",
+            "name": "projectName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The zone where the replica pool lives.",
+            "in": "path",
+            "name": "zone",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The replica pool name for this request.",
+            "in": "path",
+            "name": "poolName",
+            "required": true,
             "type": "string"
           },
           {
             "default": 500,
-            "description": "Optional. Maximum count of results to be returned. Maximum value is 500 and default value is 500.",
+            "description": "Maximum count of results to be returned. Acceptable values are 0 to 100, inclusive. (Default: 50)",
             "in": "query",
-            "maximum": 500,
+            "maximum": 1000,
             "minimum": 0,
             "name": "maxResults",
             "type": "integer"
           },
           {
-            "description": "Optional. Tag returned by a previous list request truncated by maxResults. Used to continue a previous list request.",
+            "description": "Set this to the nextPageToken value returned by a previous list request to obtain the next page of results from the previous list request.",
             "in": "query",
             "name": "pageToken",
             "type": "string"
-          },
-          {
-            "description": "Name of the project scoping this request.",
-            "in": "path",
-            "name": "project",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "Name of the zone scoping this request.",
-            "in": "path",
-            "name": "zone",
-            "required": true,
-            "type": "string"
           }
         ],
         "responses": {
           "200": {
             "description": "Successful response",
             "schema": {
-              "$ref": "#/definitions/OperationList"
+              "$ref": "#/definitions/ReplicasListResponse"
             }
           }
         },
@@ -967,65 +584,139 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/compute"
+              "https://www.googleapis.com/auth/cloud-platform.read-only"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform.read-only"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/ndev.cloudman"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/ndev.cloudman"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/ndev.cloudman.readonly"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/ndev.cloudman.readonly"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/replicapool"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/replicapool"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/replicapool.readonly"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/replicapool.readonly"
             ]
           }
         ],
         "tags": [
-          "zoneOperations"
-        ]
-      },
+          "replicas"
+        ],
+        "description": "Lists all replicas in a pool.",
+        "operationId": "replicapool.replicas.list"
+      }
+    },
+    "/{projectName}/zones/{zone}/pools/{poolName}/replicas/{replicaName}": {
       "parameters": [
         {
-          "$ref": "#/parameters/alt"
+          "default": "json",
+          "description": "Data format for the response.",
+          "enum": [
+            "json"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/fields"
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/key"
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/oauth_token"
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/prettyPrint"
+          "default": true,
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
         },
         {
-          "$ref": "#/parameters/quotaUser"
+          "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/userIp"
+          "description": "Deprecated. Please use quotaUser instead.",
+          "in": "query",
+          "name": "userIp",
+          "type": "string"
         }
-      ]
-    },
-    "/{project}/zones/{zone}/operations/{operation}": {
+      ],
       "get": {
-        "description": "Retrieves the specified zone-specific operation resource.",
-        "operationId": "zoneOperations.get",
+        "produces": [
+          "application/octet-stream"
+        ],
         "parameters": [
           {
-            "description": "Name of the operation resource to return.",
+            "description": "The project ID for this request.",
             "in": "path",
-            "name": "operation",
+            "name": "projectName",
             "required": true,
             "type": "string"
           },
           {
-            "description": "Name of the project scoping this request.",
-            "in": "path",
-            "name": "project",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "Name of the zone scoping this request.",
+            "description": "The zone where the replica lives.",
             "in": "path",
             "name": "zone",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The replica pool name for this request.",
+            "in": "path",
+            "name": "poolName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The name of the replica for this request.",
+            "in": "path",
+            "name": "replicaName",
             "required": true,
             "type": "string"
           }
@@ -1034,7 +725,7 @@
           "200": {
             "description": "Successful response",
             "schema": {
-              "$ref": "#/definitions/Operation"
+              "$ref": "#/definitions/Replica"
             }
           }
         },
@@ -1042,200 +733,843 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/compute"
+              "https://www.googleapis.com/auth/cloud-platform.read-only"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform.read-only"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/ndev.cloudman"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/ndev.cloudman"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/ndev.cloudman.readonly"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/ndev.cloudman.readonly"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/replicapool"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/replicapool"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/replicapool.readonly"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/replicapool.readonly"
             ]
           }
         ],
         "tags": [
-          "zoneOperations"
-        ]
+          "replicas"
+        ],
+        "description": "Gets information about a specific replica.",
+        "operationId": "replicapool.replicas.get"
       },
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "description": "The project ID for this request.",
+            "in": "path",
+            "name": "projectName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The zone where the replica lives.",
+            "in": "path",
+            "name": "zone",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The replica pool name for this request.",
+            "in": "path",
+            "name": "poolName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The name of the replica for this request.",
+            "in": "path",
+            "name": "replicaName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/ReplicasDeleteRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/Replica"
+            }
+          }
+        },
+        "security": [
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/ndev.cloudman"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/ndev.cloudman"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/replicapool"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/replicapool"
+            ]
+          }
+        ],
+        "tags": [
+          "replicas"
+        ],
+        "description": "Deletes a replica from the pool.",
+        "operationId": "replicapool.replicas.delete"
+      }
+    },
+    "/{projectName}/zones/{zone}/pools/{poolName}/replicas/{replicaName}/restart": {
       "parameters": [
         {
-          "$ref": "#/parameters/alt"
+          "default": "json",
+          "description": "Data format for the response.",
+          "enum": [
+            "json"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/fields"
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/key"
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/oauth_token"
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/prettyPrint"
+          "default": true,
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
         },
         {
-          "$ref": "#/parameters/quotaUser"
+          "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/userIp"
+          "description": "Deprecated. Please use quotaUser instead.",
+          "in": "query",
+          "name": "userIp",
+          "type": "string"
         }
-      ]
+      ],
+      "post": {
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "description": "The project ID for this request.",
+            "in": "path",
+            "name": "projectName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The zone where the replica lives.",
+            "in": "path",
+            "name": "zone",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The replica pool name for this request.",
+            "in": "path",
+            "name": "poolName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The name of the replica for this request.",
+            "in": "path",
+            "name": "replicaName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/Replica"
+            }
+          }
+        },
+        "security": [
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/ndev.cloudman"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/ndev.cloudman"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/replicapool"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/replicapool"
+            ]
+          }
+        ],
+        "tags": [
+          "replicas"
+        ],
+        "description": "Restarts a replica in a pool.",
+        "operationId": "replicapool.replicas.restart"
+      }
+    },
+    "/{projectName}/zones/{zone}/pools/{poolName}/resize": {
+      "parameters": [
+        {
+          "default": "json",
+          "description": "Data format for the response.",
+          "enum": [
+            "json"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
+        },
+        {
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
+        },
+        {
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
+        },
+        {
+          "default": true,
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
+        },
+        {
+          "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
+        },
+        {
+          "description": "Deprecated. Please use quotaUser instead.",
+          "in": "query",
+          "name": "userIp",
+          "type": "string"
+        }
+      ],
+      "post": {
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "description": "The project ID for this replica pool.",
+            "in": "path",
+            "name": "projectName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The zone for this replica pool.",
+            "in": "path",
+            "name": "zone",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The name of the replica pool for this request.",
+            "in": "path",
+            "name": "poolName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The desired number of replicas to resize to. If this number is larger than the existing number of replicas, new replicas will be added. If the number is smaller, then existing replicas will be deleted.",
+            "in": "query",
+            "name": "numReplicas",
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/Pool"
+            }
+          }
+        },
+        "security": [
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/ndev.cloudman"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/ndev.cloudman"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/replicapool"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/replicapool"
+            ]
+          }
+        ],
+        "tags": [
+          "pools"
+        ],
+        "description": "Resize a pool. This is an asynchronous operation, and multiple overlapping resize requests can be made. Replica Pools will use the information from the last resize request.",
+        "operationId": "replicapool.pools.resize"
+      }
+    },
+    "/{projectName}/zones/{zone}/pools/{poolName}/updateTemplate": {
+      "parameters": [
+        {
+          "default": "json",
+          "description": "Data format for the response.",
+          "enum": [
+            "json"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
+        },
+        {
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
+        },
+        {
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
+        },
+        {
+          "default": true,
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
+        },
+        {
+          "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
+        },
+        {
+          "description": "Deprecated. Please use quotaUser instead.",
+          "in": "query",
+          "name": "userIp",
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The project ID for this replica pool.",
+            "in": "path",
+            "name": "projectName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The zone for this replica pool.",
+            "in": "path",
+            "name": "zone",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The name of the replica pool for this request.",
+            "in": "path",
+            "name": "poolName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Template"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        },
+        "security": [
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/ndev.cloudman"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/ndev.cloudman"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/replicapool"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/replicapool"
+            ]
+          }
+        ],
+        "tags": [
+          "pools"
+        ],
+        "description": "Update the template used by the pool.",
+        "operationId": "replicapool.pools.updatetemplate"
+      }
     }
   },
   "definitions": {
-    "InstanceGroupManager": {
-      "description": "An Instance Group Manager resource.",
+    "AccessConfig": {
+      "description": "A Compute Engine network accessConfig. Identical to the accessConfig on corresponding Compute Engine resource.",
       "properties": {
-        "autoHealingPolicies": {
-          "description": "The autohealing policy for this managed instance group. You can specify only one value.",
+        "name": {
+          "description": "Name of this access configuration.",
+          "type": "string"
+        },
+        "natIp": {
+          "description": "An external IP address associated with this instance.",
+          "type": "string"
+        },
+        "type": {
+          "description": "Type of this access configuration file. Currently only ONE_TO_ONE_NAT is supported.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Action": {
+      "description": "An action that gets executed during initialization of the replicas.",
+      "properties": {
+        "commands": {
+          "description": "A list of commands to run, one per line. If any command fails, the whole action is considered a failure and no further actions are run. This also marks the virtual machine or replica as a failure.",
           "items": {
-            "$ref": "#/definitions/ReplicaPoolAutoHealingPolicy"
+            "type": "string"
           },
           "type": "array"
         },
-        "baseInstanceName": {
-          "description": "The base instance name to use for instances in this group. The value must be a valid RFC1035 name. Supported characters are lowercase letters, numbers, and hyphens (-). Instances are named by appending a hyphen and a random four-character string to the base instance name.",
+        "envVariables": {
+          "description": "A list of environment variables to use for the commands in this action.",
+          "items": {
+            "$ref": "#/definitions/EnvVariable"
+          },
+          "type": "array"
+        },
+        "timeoutMilliSeconds": {
+          "description": "If an action's commands on a particular replica do not finish in the specified timeoutMilliSeconds, the replica is considered to be in a FAILING state. No efforts are made to stop any processes that were spawned or created as the result of running the action's commands. The default is the max allowed value, 1 hour (i.e. 3600000 milliseconds).",
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "DiskAttachment": {
+      "description": "Specifies how to attach a disk to a Replica.",
+      "properties": {
+        "deviceName": {
+          "description": "The device name of this disk.",
           "type": "string"
         },
-        "creationTimestamp": {
-          "description": "[Output only] The time the instance group manager was created, in RFC3339 text format.",
+        "index": {
+          "description": "A zero-based index to assign to this disk, where 0 is reserved for the boot disk. If not specified, this is assigned by the server.",
+          "format": "uint32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "EnvVariable": {
+      "description": "An environment variable to set for an action.",
+      "properties": {
+        "hidden": {
+          "description": "Deprecated, do not use.",
+          "type": "boolean"
+        },
+        "name": {
+          "description": "The name of the environment variable.",
           "type": "string"
         },
-        "currentSize": {
-          "description": "[Output only] The number of instances that currently exist and are a part of this group. This includes instances that are starting but are not yet RUNNING, and instances that are in the process of being deleted or abandoned.",
+        "value": {
+          "description": "The value of the variable.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "ExistingDisk": {
+      "description": "A pre-existing persistent disk that will be attached to every Replica in the Pool in READ_ONLY mode.",
+      "properties": {
+        "attachment": {
+          "$ref": "#/definitions/DiskAttachment",
+          "description": "How the disk will be attached to the Replica."
+        },
+        "source": {
+          "description": "The name of the Persistent Disk resource. The Persistent Disk resource must be in the same zone as the Pool.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "HealthCheck": {
+      "properties": {
+        "host": {
+          "description": "The value of the host header in the HTTP health check request. If left empty (default value), the localhost IP 127.0.0.1 will be used.",
+          "type": "string"
+        },
+        "checkIntervalSec": {
+          "description": "How often (in seconds) to make HTTP requests for this healthcheck. The default value is 5 seconds.",
           "format": "int32",
           "type": "integer"
         },
         "description": {
-          "description": "An optional textual description of the instance group manager.",
+          "description": "The description for this health check.",
           "type": "string"
         },
-        "fingerprint": {
-          "description": "[Output only] Fingerprint of the instance group manager. This field is used for optimistic locking. An up-to-date fingerprint must be provided in order to modify the Instance Group Manager resource.",
-          "format": "byte",
-          "type": "string"
-        },
-        "group": {
-          "description": "[Output only] The full URL of the instance group created by the manager. This group contains all of the instances being managed, and cannot contain non-managed instances.",
-          "type": "string"
-        },
-        "id": {
-          "description": "[Output only] A server-assigned unique identifier for the resource.",
-          "format": "uint64",
-          "type": "string"
-        },
-        "instanceTemplate": {
-          "description": "The full URL to an instance template from which all new instances will be created.",
-          "type": "string"
-        },
-        "kind": {
-          "default": "replicapool#instanceGroupManager",
-          "description": "[Output only] The resource type. Always replicapool#instanceGroupManager.",
-          "type": "string"
+        "healthyThreshold": {
+          "description": "The number of consecutive health check requests that need to succeed before the replica is considered healthy again. The default value is 2.",
+          "format": "int32",
+          "type": "integer"
         },
         "name": {
-          "description": "The name of the instance group manager. Must be 1-63 characters long and comply with RFC1035. Supported characters include lowercase letters, numbers, and hyphens.",
+          "description": "The name of this health check.",
           "type": "string"
         },
-        "selfLink": {
-          "description": "[Output only] The fully qualified URL for this resource.",
+        "path": {
+          "description": "The localhost request path to send this health check, in the format /path/to/use. For example, /healthcheck.",
           "type": "string"
         },
-        "targetPools": {
-          "description": "The full URL of all target pools to which new instances in the group are added. Updating the target pool values does not affect existing instances.",
-          "items": {
-            "type": "string"
-          },
-          "type": "array"
+        "port": {
+          "description": "The TCP port for the health check requests.",
+          "format": "int32",
+          "type": "integer"
         },
-        "targetSize": {
-          "description": "[Output only] The number of instances that the manager is attempting to maintain. Deleting or abandoning instances affects this number, as does resizing the group.",
+        "timeoutSec": {
+          "description": "How long (in seconds) to wait before a timeout failure for this healthcheck. The default value is 5 seconds.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "unhealthyThreshold": {
+          "description": "The number of consecutive health check requests that need to fail in order to consider the replica unhealthy. The default value is 2.",
           "format": "int32",
           "type": "integer"
         }
       },
       "type": "object"
     },
-    "InstanceGroupManagerList": {
+    "Label": {
+      "description": "A label to apply to this replica pool.",
       "properties": {
-        "id": {
-          "description": "Unique identifier for the resource; defined by the server (output only).",
+        "key": {
+          "description": "The key for this label.",
+          "type": "string"
+        },
+        "value": {
+          "description": "The value of this label.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Metadata": {
+      "description": "A Compute Engine metadata entry. Identical to the metadata on the corresponding Compute Engine resource.",
+      "properties": {
+        "fingerPrint": {
+          "description": "The fingerprint of the metadata. Required for updating the metadata entries for this instance.",
           "type": "string"
         },
         "items": {
-          "description": "A list of instance resources.",
+          "description": "A list of metadata items.",
           "items": {
-            "$ref": "#/definitions/InstanceGroupManager"
+            "$ref": "#/definitions/MetadataItem"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "MetadataItem": {
+      "description": "A Compute Engine metadata item, defined as a key:value pair. Identical to the metadata on the corresponding Compute Engine resource.",
+      "properties": {
+        "key": {
+          "description": "A metadata key.",
+          "type": "string"
+        },
+        "value": {
+          "description": "A metadata value.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "NetworkInterface": {
+      "description": "A Compute Engine NetworkInterface resource. Identical to the NetworkInterface on the corresponding Compute Engine resource.",
+      "properties": {
+        "accessConfigs": {
+          "description": "An array of configurations for this interface. This specifies how this interface is configured to interact with other network services.",
+          "items": {
+            "$ref": "#/definitions/AccessConfig"
           },
           "type": "array"
         },
-        "kind": {
-          "default": "replicapool#instanceGroupManagerList",
-          "description": "Type of resource.",
+        "network": {
+          "description": "Name the Network resource to which this interface applies.",
           "type": "string"
         },
-        "nextPageToken": {
-          "description": "A token used to continue a truncated list request (output only).",
+        "networkIp": {
+          "description": "An optional IPV4 internal network address to assign to the instance for this network interface.",
           "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "NewDisk": {
+      "description": "A Persistent Disk resource that will be created and attached to each Replica in the Pool. Each Replica will have a unique persistent disk that is created and attached to that Replica in READ_WRITE mode.",
+      "properties": {
+        "attachment": {
+          "$ref": "#/definitions/DiskAttachment",
+          "description": "How the disk will be attached to the Replica."
+        },
+        "autoDelete": {
+          "description": "If true, then this disk will be deleted when the instance is deleted. The default value is true.",
+          "type": "boolean"
+        },
+        "boot": {
+          "description": "If true, indicates that this is the root persistent disk.",
+          "type": "boolean"
+        },
+        "initializeParams": {
+          "$ref": "#/definitions/NewDiskInitializeParams",
+          "description": "Create the new disk using these parameters. The name of the disk will be <instance_name>-<four_random_charactersgt;."
+        }
+      },
+      "type": "object"
+    },
+    "NewDiskInitializeParams": {
+      "description": "Initialization parameters for creating a new disk.",
+      "properties": {
+        "diskSizeGb": {
+          "description": "The size of the created disk in gigabytes.",
+          "format": "int64",
+          "type": "string"
+        },
+        "diskType": {
+          "description": "Name of the disk type resource describing which disk type to use to create the disk. For example 'pd-ssd' or 'pd-standard'. Default is 'pd-standard'",
+          "type": "string"
+        },
+        "sourceImage": {
+          "description": "The name or fully-qualified URL of a source image to use to create this disk. If you provide a name of the source image, Replica Pool will look for an image with that name in your project. If you are specifying an image provided by Compute Engine, you will need to provide the full URL with the correct project, such as:\nhttp://www.googleapis.com/compute/v1/projects/debian-cloud/ global/images/debian-wheezy-7-vYYYYMMDD",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Pool": {
+      "properties": {
+        "autoRestart": {
+          "description": "Whether replicas in this pool should be restarted if they experience a failure. The default value is true.",
+          "type": "boolean"
+        },
+        "baseInstanceName": {
+          "description": "The base instance name to use for the replicas in this pool. This must match the regex [a-z]([-a-z0-9]*[a-z0-9])?. If specified, the instances in this replica pool will be named in the format <base-instance-name>-<ID>. The <ID> postfix will be a four character alphanumeric identifier generated by the service.\n\nIf this is not specified by the user, a random base instance name is generated by the service.",
+          "type": "string"
+        },
+        "currentNumReplicas": {
+          "description": "[Output Only] The current number of replicas in the pool.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "description": {
+          "description": "An optional description of the replica pool.",
+          "type": "string"
+        },
+        "healthChecks": {
+          "description": "Deprecated. Please use template[].healthChecks instead.",
+          "items": {
+            "$ref": "#/definitions/HealthCheck"
+          },
+          "type": "array"
+        },
+        "initialNumReplicas": {
+          "description": "The initial number of replicas this pool should have. You must provide a value greater than or equal to 0.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "labels": {
+          "description": "A list of labels to attach to this replica pool and all created virtual machines in this replica pool.",
+          "items": {
+            "$ref": "#/definitions/Label"
+          },
+          "type": "array"
+        },
+        "name": {
+          "description": "The name of the replica pool. Must follow the regex [a-z]([-a-z0-9]*[a-z0-9])? and be 1-28 characters long.",
+          "type": "string"
+        },
+        "numReplicas": {
+          "description": "Deprecated! Use initial_num_replicas instead.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "resourceViews": {
+          "description": "The list of resource views that should be updated with all the replicas that are managed by this pool.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
         },
         "selfLink": {
-          "description": "Server defined URL for this resource (output only).",
+          "description": "[Output Only] A self-link to the replica pool.",
           "type": "string"
-        }
-      },
-      "type": "object"
-    },
-    "InstanceGroupManagersAbandonInstancesRequest": {
-      "properties": {
-        "instances": {
-          "description": "The names of one or more instances to abandon. For example:\n{ 'instances': [ 'instance-c3po', 'instance-r2d2' ] }",
-          "items": {
-            "type": "string"
-          },
-          "type": "array"
-        }
-      },
-      "type": "object"
-    },
-    "InstanceGroupManagersDeleteInstancesRequest": {
-      "properties": {
-        "instances": {
-          "description": "Names of instances to delete.\n\nExample: 'instance-foo', 'instance-bar'",
-          "items": {
-            "type": "string"
-          },
-          "type": "array"
-        }
-      },
-      "type": "object"
-    },
-    "InstanceGroupManagersRecreateInstancesRequest": {
-      "properties": {
-        "instances": {
-          "description": "The names of one or more instances to recreate. For example:\n{ 'instances': [ 'instance-c3po', 'instance-r2d2' ] }",
-          "items": {
-            "type": "string"
-          },
-          "type": "array"
-        }
-      },
-      "type": "object"
-    },
-    "InstanceGroupManagersSetInstanceTemplateRequest": {
-      "properties": {
-        "instanceTemplate": {
-          "description": "The full URL to an Instance Template from which all new instances will be created.",
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
-    "InstanceGroupManagersSetTargetPoolsRequest": {
-      "properties": {
-        "fingerprint": {
-          "description": "The current fingerprint of the Instance Group Manager resource. If this does not match the server-side fingerprint of the resource, then the request will be rejected.",
-          "format": "byte",
+        },
+        "targetPool": {
+          "description": "Deprecated, please use target_pools instead.",
           "type": "string"
         },
         "targetPools": {
-          "description": "A list of fully-qualified URLs to existing Target Pool resources. New instances in the Instance Group Manager will be added to the specified target pools; existing instances are not affected.",
+          "description": "A list of target pools to update with the replicas that are managed by this pool. If specified, the replicas in this replica pool will be added to the specified target pools for load balancing purposes. The replica pool must live in the same region as the specified target pools. These values must be the target pool resource names, and not fully qualified URLs.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "template": {
+          "$ref": "#/definitions/Template",
+          "description": "The template to use when creating replicas in this pool. This template is used during initial instance creation of the pool, when growing the pool in size, or when a replica restarts."
+        },
+        "type": {
+          "description": "Deprecated! Do not set.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "PoolsDeleteRequest": {
+      "properties": {
+        "abandonInstances": {
+          "description": "If there are instances you would like to keep, you can specify them here. These instances won't be deleted, but the associated replica objects will be removed.",
           "items": {
             "type": "string"
           },
@@ -1244,223 +1578,299 @@
       },
       "type": "object"
     },
-    "Operation": {
-      "description": "An operation resource, used to manage asynchronous API requests.",
+    "PoolsListResponse": {
       "properties": {
-        "clientOperationId": {
-          "description": "[Output only] An optional identifier specified by the client when the mutation was initiated. Must be unique for all operation resources in the project.",
+        "nextPageToken": {
           "type": "string"
         },
-        "creationTimestamp": {
-          "description": "[Output Only] The time that this operation was requested, in RFC3339 text format.",
-          "type": "string"
-        },
-        "endTime": {
-          "description": "[Output Only] The time that this operation was completed, in RFC3339 text format.",
-          "type": "string"
-        },
-        "error": {
-          "description": "[Output Only] If errors occurred during processing of this operation, this field will be populated.",
-          "properties": {
-            "errors": {
-              "description": "[Output Only] The array of errors encountered while processing this operation.",
-              "items": {
-                "properties": {
-                  "code": {
-                    "description": "[Output Only] The error type identifier for this error.",
-                    "type": "string"
-                  },
-                  "location": {
-                    "description": "[Output Only] Indicates the field in the request which caused the error. This property is optional.",
-                    "type": "string"
-                  },
-                  "message": {
-                    "description": "[Output Only] An optional, human-readable error message.",
-                    "type": "string"
-                  }
-                },
-                "type": "object"
-              },
-              "type": "array"
-            }
+        "resources": {
+          "items": {
+            "$ref": "#/definitions/Pool"
           },
-          "type": "object"
-        },
-        "httpErrorMessage": {
-          "description": "[Output only] If operation fails, the HTTP error message returned.",
-          "type": "string"
-        },
-        "httpErrorStatusCode": {
-          "description": "[Output only] If operation fails, the HTTP error status code returned.",
-          "format": "int32",
-          "type": "integer"
-        },
-        "id": {
-          "description": "[Output Only] Unique identifier for the resource, generated by the server.",
-          "format": "uint64",
-          "type": "string"
-        },
-        "insertTime": {
-          "description": "[Output Only] The time that this operation was requested, in RFC3339 text format.",
-          "type": "string"
-        },
-        "kind": {
-          "default": "replicapool#operation",
-          "description": "[Output only] Type of the resource.",
-          "type": "string"
-        },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "Replica": {
+      "description": "An individual Replica within a Pool. Replicas are automatically created by the replica pool, using the template provided by the user. You cannot directly create replicas.",
+      "properties": {
         "name": {
-          "description": "[Output Only] Name of the resource.",
-          "type": "string"
-        },
-        "operationType": {
-          "description": "[Output only] Type of the operation. Operations include insert, update, and delete.",
-          "type": "string"
-        },
-        "progress": {
-          "description": "[Output only] An optional progress indicator that ranges from 0 to 100. There is no requirement that this be linear or support any granularity of operations. This should not be used to guess at when the operation will be complete. This number should be monotonically increasing as the operation progresses.",
-          "format": "int32",
-          "type": "integer"
-        },
-        "region": {
-          "description": "[Output Only] URL of the region where the operation resides. Only available when performing regional operations.",
+          "description": "[Output Only] The name of the Replica object.",
           "type": "string"
         },
         "selfLink": {
-          "description": "[Output Only] Server-defined fully-qualified URL for this resource.",
-          "type": "string"
-        },
-        "startTime": {
-          "description": "[Output Only] The time that this operation was started by the server, in RFC3339 text format.",
+          "description": "[Output Only] The self-link of the Replica.",
           "type": "string"
         },
         "status": {
-          "description": "[Output Only] Status of the operation.",
-          "enum": [
-            "DONE",
-            "PENDING",
-            "RUNNING"
-          ],
+          "$ref": "#/definitions/ReplicaStatus",
+          "description": "[Output Only] Last known status of the Replica."
+        }
+      },
+      "type": "object"
+    },
+    "ReplicaStatus": {
+      "description": "The current status of a Replica.",
+      "properties": {
+        "details": {
+          "description": "[Output Only] Human-readable details about the current state of the replica",
           "type": "string"
         },
-        "statusMessage": {
-          "description": "[Output Only] An optional textual description of the current status of the operation.",
+        "state": {
+          "description": "[Output Only] The state of the Replica.",
           "type": "string"
         },
-        "targetId": {
-          "description": "[Output Only] Unique target ID which identifies a particular incarnation of the target.",
-          "format": "uint64",
+        "templateVersion": {
+          "description": "[Output Only] The template used to build the replica.",
           "type": "string"
         },
-        "targetLink": {
-          "description": "[Output only] URL of the resource the operation is mutating.",
+        "vmLink": {
+          "description": "[Output Only] Link to the virtual machine that this Replica represents.",
           "type": "string"
         },
-        "user": {
-          "description": "[Output Only] User who requested the operation, for example: user@example.com.",
-          "type": "string"
-        },
-        "warnings": {
-          "description": "[Output Only] If there are issues with this operation, a warning is returned.",
-          "items": {
-            "properties": {
-              "code": {
-                "description": "[Output only] The warning type identifier for this warning.",
-                "enum": [
-                  "DEPRECATED_RESOURCE_USED",
-                  "DISK_SIZE_LARGER_THAN_IMAGE_SIZE",
-                  "INJECTED_KERNELS_DEPRECATED",
-                  "NEXT_HOP_ADDRESS_NOT_ASSIGNED",
-                  "NEXT_HOP_CANNOT_IP_FORWARD",
-                  "NEXT_HOP_INSTANCE_NOT_FOUND",
-                  "NEXT_HOP_INSTANCE_NOT_ON_NETWORK",
-                  "NEXT_HOP_NOT_RUNNING",
-                  "NO_RESULTS_ON_PAGE",
-                  "REQUIRED_TOS_AGREEMENT",
-                  "RESOURCE_NOT_DELETED",
-                  "SINGLE_INSTANCE_PROPERTY_TEMPLATE",
-                  "UNREACHABLE"
-                ],
-                "type": "string"
-              },
-              "data": {
-                "description": "[Output only] Metadata for this warning in key:value format.",
-                "items": {
-                  "properties": {
-                    "key": {
-                      "description": "[Output Only] Metadata key for this warning.",
-                      "type": "string"
-                    },
-                    "value": {
-                      "description": "[Output Only] Metadata value for this warning.",
-                      "type": "string"
-                    }
-                  },
-                  "type": "object"
-                },
-                "type": "array"
-              },
-              "message": {
-                "description": "[Output only] Optional human-readable details for this warning.",
-                "type": "string"
-              }
-            },
-            "type": "object"
-          },
-          "type": "array"
-        },
-        "zone": {
-          "description": "[Output Only] URL of the zone where the operation resides. Only available when performing per-zone operations.",
+        "vmStartTime": {
+          "description": "[Output Only] The time that this Replica got to the RUNNING state, in RFC 3339 format. If the start time is unknown, UNKNOWN is returned.",
           "type": "string"
         }
       },
       "type": "object"
     },
-    "OperationList": {
+    "ReplicasDeleteRequest": {
       "properties": {
-        "id": {
-          "description": "Unique identifier for the resource; defined by the server (output only).",
+        "abandonInstance": {
+          "description": "Whether the instance resource represented by this replica should be deleted or abandoned. If abandoned, the replica will be deleted but the virtual machine instance will remain. By default, this is set to false and the instance will be deleted along with the replica.",
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "ReplicasListResponse": {
+      "properties": {
+        "nextPageToken": {
+          "type": "string"
+        },
+        "resources": {
+          "items": {
+            "$ref": "#/definitions/Replica"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "ServiceAccount": {
+      "description": "A Compute Engine service account, identical to the Compute Engine resource.",
+      "properties": {
+        "email": {
+          "description": "The service account email address, for example: 123845678986@project.gserviceaccount.com",
+          "type": "string"
+        },
+        "scopes": {
+          "description": "The list of OAuth2 scopes to obtain for the service account, for example: https://www.googleapis.com/auth/devstorage.full_control",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "Tag": {
+      "description": "A Compute Engine Instance tag, identical to the tags on the corresponding Compute Engine Instance resource.",
+      "properties": {
+        "fingerPrint": {
+          "description": "The fingerprint of the tag. Required for updating the list of tags.",
           "type": "string"
         },
         "items": {
-          "description": "The operation resources.",
+          "description": "Items contained in this tag.",
           "items": {
-            "$ref": "#/definitions/Operation"
+            "type": "string"
           },
           "type": "array"
-        },
-        "kind": {
-          "default": "replicapool#operationList",
-          "description": "Type of resource.",
-          "type": "string"
-        },
-        "nextPageToken": {
-          "description": "A token used to continue a truncated list request (output only).",
-          "type": "string"
-        },
-        "selfLink": {
-          "description": "Server defined URL for this resource (output only).",
-          "type": "string"
         }
       },
       "type": "object"
     },
-    "ReplicaPoolAutoHealingPolicy": {
+    "Template": {
+      "description": "The template used for creating replicas in the pool.",
       "properties": {
-        "actionType": {
-          "description": "The action to perform when an instance becomes unhealthy. Possible values are RECREATE or REBOOT. RECREATE replaces an unhealthy instance with a new instance that is based on the instance template for this managed instance group. REBOOT performs a soft reboot on an instance. If the instance cannot reboot, the instance performs a hard restart.",
-          "enum": [
-            "REBOOT",
-            "RECREATE"
-          ],
+        "action": {
+          "$ref": "#/definitions/Action",
+          "description": "An action to run during initialization of your replicas. An action is run as shell commands which are executed one after the other in the same bash shell, so any state established by one command is inherited by later commands."
+        },
+        "healthChecks": {
+          "description": "A list of HTTP Health Checks to configure for this replica pool and all virtual machines in this replica pool.",
+          "items": {
+            "$ref": "#/definitions/HealthCheck"
+          },
+          "type": "array"
+        },
+        "version": {
+          "description": "A free-form string describing the version of this template. You can provide any versioning string you would like. For example, version1 or template-v1.",
           "type": "string"
         },
-        "healthCheck": {
-          "description": "The URL for the HealthCheck that signals autohealing.",
-          "type": "string"
+        "vmParams": {
+          "$ref": "#/definitions/VmParams",
+          "description": "The virtual machine parameters to use for creating replicas. You can define settings such as the machine type and the image of replicas in this pool. This is required if replica type is SMART_VM."
         }
       },
       "type": "object"
+    },
+    "VmParams": {
+      "description": "Parameters for creating a Compute Engine Instance resource. Most fields are identical to the corresponding Compute Engine resource.",
+      "properties": {
+        "tags": {
+          "$ref": "#/definitions/Tag",
+          "description": "A list of tags to apply to the Google Compute Engine instance to identify resources."
+        },
+        "baseInstanceName": {
+          "description": "Deprecated. Please use baseInstanceName instead.",
+          "type": "string"
+        },
+        "canIpForward": {
+          "description": "Enables IP Forwarding, which allows this instance to receive packets destined for a different IP address, and send packets with a different source IP. See IP Forwarding for more information.",
+          "type": "boolean"
+        },
+        "description": {
+          "description": "An optional textual description of the instance.",
+          "type": "string"
+        },
+        "disksToAttach": {
+          "description": "A list of existing Persistent Disk resources to attach to each replica in the pool. Each disk will be attached in read-only mode to every replica.",
+          "items": {
+            "$ref": "#/definitions/ExistingDisk"
+          },
+          "type": "array"
+        },
+        "disksToCreate": {
+          "description": "A list of Disk resources to create and attach to each Replica in the Pool. Currently, you can only define one disk and it must be a root persistent disk. Note that Replica Pool will create a root persistent disk for each replica.",
+          "items": {
+            "$ref": "#/definitions/NewDisk"
+          },
+          "type": "array"
+        },
+        "machineType": {
+          "description": "The machine type for this instance. The resource name (e.g. n1-standard-1).",
+          "type": "string"
+        },
+        "metadata": {
+          "$ref": "#/definitions/Metadata",
+          "description": "The metadata key/value pairs assigned to this instance."
+        },
+        "networkInterfaces": {
+          "description": "A list of network interfaces for the instance. Currently only one interface is supported by Google Compute Engine, ONE_TO_ONE_NAT.",
+          "items": {
+            "$ref": "#/definitions/NetworkInterface"
+          },
+          "type": "array"
+        },
+        "onHostMaintenance": {
+          "type": "string"
+        },
+        "serviceAccounts": {
+          "description": "A list of Service Accounts to enable for this instance.",
+          "items": {
+            "$ref": "#/definitions/ServiceAccount"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "securityDefinitions": {
+    "Oauth2": {
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+      "description": "Oauth 2.0 implicit authentication",
+      "flow": "implicit",
+      "scopes": {
+        "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services",
+        "https://www.googleapis.com/auth/cloud-platform.read-only": "View your data across Google Cloud Platform services",
+        "https://www.googleapis.com/auth/ndev.cloudman": "View and manage your Google Cloud Platform management resources and deployment status information",
+        "https://www.googleapis.com/auth/ndev.cloudman.readonly": "View your Google Cloud Platform management resources and deployment status information",
+        "https://www.googleapis.com/auth/replicapool": "View and manage replica pools",
+        "https://www.googleapis.com/auth/replicapool.readonly": "View replica pools"
+      },
+      "type": "oauth2"
+    },
+    "Oauth2c": {
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+      "description": "Oauth 2.0 accessCode authentication",
+      "flow": "accessCode",
+      "scopes": {
+        "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services",
+        "https://www.googleapis.com/auth/cloud-platform.read-only": "View your data across Google Cloud Platform services",
+        "https://www.googleapis.com/auth/ndev.cloudman": "View and manage your Google Cloud Platform management resources and deployment status information",
+        "https://www.googleapis.com/auth/ndev.cloudman.readonly": "View your Google Cloud Platform management resources and deployment status information",
+        "https://www.googleapis.com/auth/replicapool": "View and manage replica pools",
+        "https://www.googleapis.com/auth/replicapool.readonly": "View replica pools"
+      },
+      "tokenUrl": "https://accounts.google.com/o/oauth2/token",
+      "type": "oauth2"
+    }
+  },
+  "tags": [
+    {
+      "name": "pools"
+    },
+    {
+      "name": "replicas"
+    }
+  ],
+  "externalDocs": {
+    "url": "https://developers.google.com/compute/docs/replica-pool/"
+  },
+  "x-components": {
+    "parameters": {
+      "alt": {
+        "default": "json",
+        "description": "Data format for the response.",
+        "enum": [
+          "json"
+        ],
+        "in": "query",
+        "name": "alt",
+        "type": "string"
+      },
+      "fields": {
+        "description": "Selector specifying which fields to include in a partial response.",
+        "in": "query",
+        "name": "fields",
+        "type": "string"
+      },
+      "key": {
+        "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+        "in": "query",
+        "name": "key",
+        "type": "string"
+      },
+      "oauth_token": {
+        "description": "OAuth 2.0 token for the current user.",
+        "in": "query",
+        "name": "oauth_token",
+        "type": "string"
+      },
+      "prettyPrint": {
+        "default": true,
+        "description": "Returns response with indentations and line breaks.",
+        "in": "query",
+        "name": "prettyPrint",
+        "type": "boolean"
+      },
+      "quotaUser": {
+        "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
+        "in": "query",
+        "name": "quotaUser",
+        "type": "string"
+      },
+      "userIp": {
+        "description": "Deprecated. Please use quotaUser instead.",
+        "in": "query",
+        "name": "userIp",
+        "type": "string"
+      }
     }
   }
 }

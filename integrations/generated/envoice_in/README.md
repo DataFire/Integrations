@@ -12,10 +12,7 @@ let envoice_in = require('@datafire/envoice_in').create({
   "x-auth-secret": ""
 });
 
-envoice_in.ClientApi_All({
-  "x-auth-key": "",
-  "x-auth-secret": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -276,6 +273,26 @@ envoice_in.GeneralApi_Currencies({
 * output `array`
   * items [CurrencyDetailsApiModel](#currencydetailsapimodel)
 
+### GeneralApi_DateFormats
+Return all of the platform supported Date Formats
+
+
+```js
+envoice_in.GeneralApi_DateFormats({
+  "x-auth-key": "",
+  "x-auth-secret": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * x-auth-key **required** `string`
+  * x-auth-secret **required** `string`
+
+#### Output
+* output `array`
+  * items `string`
+
 ### GeneralApi_UiLanguages
 Return all of the platform supported UI languages
 
@@ -462,7 +479,7 @@ envoice_in.InvoiceApi_Status({
   * x-auth-secret **required** `string`
 
 #### Output
-* output `string` (values: Draft, Paid, Unpaid, Overdue)
+* output `string` (values: Draft, Paid, Unpaid, Overdue, Void)
 
 ### InvoiceApi_Update
 Update an existing invoice
@@ -975,6 +992,10 @@ envoice_in.WorkTypeApi_Update({
 
 ## Definitions
 
+### AdditionalClientEmailApiModel
+* AdditionalClientEmailApiModel `object`
+  * Email `string`: CC
+
 ### ChangeOrderStatusApiModel
 * ChangeOrderStatusApiModel `object`
   * Id `integer`: Order Id
@@ -984,14 +1005,16 @@ envoice_in.WorkTypeApi_Update({
 ### ChangeStatusApiModel
 * ChangeStatusApiModel `object`
   * Id `integer`: Invoice Id
-  * Status `string` (values: Draft, Paid, Unpaid, Overdue): New status of the invoice
+  * Status `string` (values: Draft, Paid, Unpaid, Overdue, Void): New status of the invoice
 
 ### ClientCreateApiModel
 * ClientCreateApiModel `object`
+  * AdditionalEmails `array`: Client additional emails contact for CC
+    * items [AdditionalClientEmailApiModel](#additionalclientemailapimodel)
   * Address `string`: Client business address
-  * CC `string`: Client additional email contact for CC
   * ClientCountryId `integer`: Indicates the country where the clients is from
   * ClientCurrencyId `integer`: Indicates the default system currency used by the user for the client
+  * CompanyRegistrationNumber `string`: Client's Company Registration Number
   * Email `string`: Client email
   * Name `string`: Name of the client
   * PhoneNumber `string`: Client phone numer
@@ -1004,10 +1027,12 @@ envoice_in.WorkTypeApi_Update({
 
 ### ClientDetailsApiModel
 * ClientDetailsApiModel `object`
+  * AdditionalEmails `array`: Client additional emails contact for CC
+    * items [AdditionalClientEmailApiModel](#additionalclientemailapimodel)
   * Address `string`: Client business address
-  * CC `string`: Client additional email contact for CC
   * ClientCountryId `integer`: Indicates the country where the clients is from
   * ClientCurrencyId `integer`: Indicates the default system currency used by the user for the client
+  * CompanyRegistrationNumber `string`: Client's Company Registration Number
   * CreatedOn `string`: Date of creation
   * Email `string`: Client email
   * Id `integer`: Entity id
@@ -1018,10 +1043,12 @@ envoice_in.WorkTypeApi_Update({
 
 ### ClientUpdateApiModel
 * ClientUpdateApiModel `object`
+  * AdditionalEmails `array`: Client additional emails contact for CC
+    * items [AdditionalClientEmailApiModel](#additionalclientemailapimodel)
   * Address `string`: Client business address
-  * CC `string`: Client additional email contact for CC
   * ClientCountryId `integer`: Indicates the country where the clients is from
   * ClientCurrencyId `integer`: Indicates the default system currency used by the user for the client
+  * CompanyRegistrationNumber `string`: Client's Company Registration Number
   * Email `string`: Client email
   * Id `integer`: Entity id
   * Name `string`: Name of the client
@@ -1061,7 +1088,7 @@ envoice_in.WorkTypeApi_Update({
   * InvoiceNumber `string`: Indicates to which invoice this activity refers to
   * Link `string`: Url which point out to a certain activity action. Ex: Click to view the payment
   * Message `string`: Message associated with the activity
-  * Type `string` (values: Created, Draft, Cloned, SentViaEmail, SentViaSms, SentReminderViaEmail, SentReminderViaSms, Opened, Viewed, Rejected, Updated, Paid, Unpaid, Overdue, NewManualPayment, NewPaymentWithPaypal, NewPaymentWithStripe, NewPaymentWithPayoneer, SentToAccountant, DownloadedAsPdf, MarkAsPaidByTheClient, OpenedAttachment, NewPaymentWithSquare, NewPaymentWithKlikAndPay, NewPaymentWithRazorpay, NewPaymentWithWepay, NewPaymentWithHalkbank, ChangeStatus, OrderUpdated, OrderCreated, NewPaymentWithTwoCheckout): Type of the activity
+  * Type `string` (values: Created, Draft, Cloned, SentViaEmail, SentViaSms, SentReminderViaEmail, SentReminderViaSms, Opened, Viewed, Rejected, Updated, Paid, Unpaid, Overdue, NewManualPayment, NewPaymentWithPaypal, NewPaymentWithStripe, NewPaymentWithPayoneer, SentToAccountant, DownloadedAsPdf, MarkAsPaidByTheClient, OpenedAttachment, NewPaymentWithSquare, NewPaymentWithKlikAndPay, NewPaymentWithRazorpay, NewPaymentWithWepay, NewPaymentWithHalkbank, ChangeStatus, OrderUpdated, OrderCreated, NewPaymentWithTwoCheckout, NewPaymentWithPaymentWall, NewPaymentWithBamboraEU, NewPaymentWithBamboraNA, Void): Type of the activity
 
 ### InvoiceAttachmentApiModel
 * InvoiceAttachmentApiModel `object`
@@ -1090,7 +1117,7 @@ envoice_in.WorkTypeApi_Update({
   * PoNumber `string`: Unique number generated by the buyer
   * RecurringProfile [InvoiceRecurringApiModel](#invoicerecurringapimodel)
   * RecurringProfileId `integer`: Hold the id of the recurring profile
-  * Status `string` (values: Draft, Paid, Unpaid, Overdue): Indicate the status of the invoice (paid/unpaid/overdue)
+  * Status `string` (values: Draft, Paid, Unpaid, Overdue, Void): Indicate the status of the invoice (paid/unpaid/overdue)
   * Terms `string`: Terms of agreement
 
 ### InvoiceCreateAttachmentApiModel
@@ -1131,7 +1158,7 @@ envoice_in.WorkTypeApi_Update({
   * PoNumber `string`: Unique number generated by the buyer
   * RecurringProfile [InvoiceRecurringApiModel](#invoicerecurringapimodel)
   * RecurringProfileId `integer`: Hold the id of the recurring profile
-  * Status `string` (values: Draft, Paid, Unpaid, Overdue): Indicate the status of the invoice (paid/unpaid/overdue)
+  * Status `string` (values: Draft, Paid, Unpaid, Overdue, Void): Indicate the status of the invoice (paid/unpaid/overdue)
   * SubTotalAmount `number`: Total amount of the invoice without tax
   * TaxAmount `number`: Amount that goes to the tax
   * Terms `string`: Terms of agreement
@@ -1163,7 +1190,7 @@ envoice_in.WorkTypeApi_Update({
   * PoNumber `string`: Unique number generated by the buyer
   * RecurringProfile [InvoiceRecurringApiModel](#invoicerecurringapimodel)
   * RecurringProfileId `integer`: Hold the id of the recurring profile
-  * Status `string` (values: Draft, Paid, Unpaid, Overdue): Indicate the status of the invoice (paid/unpaid/overdue)
+  * Status `string` (values: Draft, Paid, Unpaid, Overdue, Void): Indicate the status of the invoice (paid/unpaid/overdue)
   * SubTotalAmount `number`: Total amount of the invoice without tax
   * TaxAmount `number`: Amount that goes to the tax
   * Terms `string`: Terms of agreement
@@ -1196,7 +1223,7 @@ envoice_in.WorkTypeApi_Update({
   * Note `string`: Internal payment note
   * PaidOn `string`: When the payment was done by the client
   * ReferenceId `string`: Id of the payment
-  * Type `string` (values: Other, Paypal, Stripe, Payoneer, Bank, Cash, Cheque, Ach, Sepa, Square, KlikAndPay, Razorpay, Wepay, Halkbank, TwoCheckout): Type of payment
+  * Type `string` (values: Other, Paypal, Stripe, Payoneer, Bank, Cash, Cheque, Ach, Sepa, Square, KlikAndPay, Razorpay, Wepay, Halkbank, TwoCheckout, PaymentWall, BamboraEU, BamboraNA): Type of payment
 
 ### InvoiceRecurringApiModel
 * InvoiceRecurringApiModel `object`: Definition of invoice recurring profile
@@ -1230,7 +1257,7 @@ envoice_in.WorkTypeApi_Update({
   * PoNumber `string`: Unique number generated by the buyer
   * RecurringProfile [InvoiceRecurringApiModel](#invoicerecurringapimodel)
   * RecurringProfileId `integer`: Hold the id of the recurring profile
-  * Status `string` (values: Draft, Paid, Unpaid, Overdue): Indicate the status of the invoice (paid/unpaid/overdue)
+  * Status `string` (values: Draft, Paid, Unpaid, Overdue, Void): Indicate the status of the invoice (paid/unpaid/overdue)
   * Terms `string`: Terms of agreement
 
 ### InvoiceUpdateAttachmentApiModel

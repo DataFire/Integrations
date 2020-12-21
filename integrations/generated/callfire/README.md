@@ -1,6 +1,6 @@
 # @datafire/callfire
 
-Client library for CallFire
+Client library for CallFire API Documentation
 
 ## Installation and Usage
 ```bash
@@ -12,7 +12,7 @@ let callfire = require('@datafire/callfire').create({
   password: ""
 });
 
-callfire.findWebhookResources({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -150,7 +150,7 @@ callfire.updateCallBroadcast({
   * body [CallBroadcast](#callbroadcast)
 
 #### Output
-*Output schema unknown*
+* output [ErrorResponse](#errorresponse)
 
 ### archiveVoiceBroadcast
 Archives a voice broadcast (voice broadcast will be hidden in search results)
@@ -167,7 +167,7 @@ callfire.archiveVoiceBroadcast({
   * id **required** `integer`: An id of a voice broadcast to archive
 
 #### Output
-*Output schema unknown*
+* output [ErrorResponse](#errorresponse)
 
 ### getCallBroadcastBatches
 This endpoint will enable the user to page through all of the batches for a particular voice broadcast campaign
@@ -265,7 +265,7 @@ callfire.startVoiceBroadcast({
   * id **required** `integer`: An id of voice broadcast to start
 
 #### Output
-*Output schema unknown*
+* output [ErrorResponse](#errorresponse)
 
 ### getCallBroadcastStats
 Returns broadcast statistics like total number of sent/received actions, total cost, number of remaining outbound actions, error count, etc
@@ -302,7 +302,27 @@ callfire.stopVoiceBroadcast({
   * id **required** `integer`: An id of voice broadcast to stop
 
 #### Output
-*Output schema unknown*
+* output [ErrorResponse](#errorresponse)
+
+### toggleCallBroadcastRecipientsStatus
+This operation lets the user to disable/enable undialed recipients in created broadcast
+
+
+```js
+callfire.toggleCallBroadcastRecipientsStatus({
+  "id": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * id **required** `integer`: An id of a voice broadcast
+  * enable `boolean`: Flag which indicate what to do with calls (true will enable call in DISABLED status and vice versa)
+  * body `array`
+    * items [Recipient](#recipient)
+
+#### Output
+* output [ErrorResponse](#errorresponse)
 
 ### getCallRecording
 Returns metadata of recording of a particular call. Metadata contains a link to a MP3 recording
@@ -337,7 +357,7 @@ callfire.getCallRecordingMp3({
   * id **required** `integer`: An id of a call
 
 #### Output
-* output `file`
+* output [InputStream](#inputstream)
 
 ### getCall
 Returns a single Call instance for a given call id.
@@ -412,7 +432,7 @@ callfire.getCallRecordingMp3ByName({
   * name **required** `string`: A name of a recording
 
 #### Output
-* output `file`
+* output [InputStream](#inputstream)
 
 ### getCampaignBatch
 Returns a single Batch instance for a given batch id. This API is useful for determining the state of a validating batch
@@ -448,7 +468,7 @@ callfire.updateCampaignBatch({
   * body [Batch](#batch)
 
 #### Output
-*Output schema unknown*
+* output [ErrorResponse](#errorresponse)
 
 ### findCampaignSounds
 To find all campaign sounds which were created by user. Returns all sounds available to be used in campaigns
@@ -462,7 +482,7 @@ callfire.findCampaignSounds({}, context)
 * input `object`
   * limit `integer`: To set the maximum number of records to return in a paged list response. The default is 100
   * offset `integer`: Offset to the start of a given page. The default is 0. Check [pagination](https://developers.callfire.com/docs.html#pagination) page for more information about pagination in CallFire API.
-  * filter `string`: Name of a file to search for
+  * filter `string`: value to filter file names again; this value is used to check if the filename contains the filter value.
   * includeArchived `boolean`: Includes ARCHIVED sounds for "true" value
   * includePending `boolean`: Includes UPLOAD/RECORDING sounds for "true" value
   * includeScrubbed `boolean`: Includes SCRUBBED sounds for "true" value
@@ -541,7 +561,7 @@ callfire.deleteCampaignSound({
   * id **required** `integer`: An id of a campaign sound
 
 #### Output
-*Output schema unknown*
+* output [ErrorResponse](#errorresponse)
 
 ### getCampaignSound
 Returns a single CampaignSound instance for a given sound id in campaign. This is a meta data to the sounds. No audio data is returned from this API
@@ -576,7 +596,7 @@ callfire.getCampaignSoundDataMp3({
   * id **required** `integer`: An id of a campaign sound
 
 #### Output
-* output `file`
+* output [StreamingOutput](#streamingoutput)
 
 ### getCampaignSoundDataWav
 Download the WAV version of the hosted file. This is an audio data endpoint. Returns binary response of the 'audio/mpeg' content type
@@ -593,7 +613,7 @@ callfire.getCampaignSoundDataWav({
   * id **required** `integer`: An id of a campaign sound
 
 #### Output
-* output `file`
+* output [StreamingOutput](#streamingoutput)
 
 ### findContacts
 Find user's contacts by id, contact list, or on any property name. Returns a paged list of contacts
@@ -618,7 +638,7 @@ callfire.findContacts({}, context)
 * output [ContactPage](#contactpage)
 
 ### createContacts
-Creates contacts in CallFire system. These contacts are not validated on creation. They will be validated upon being added to a campaign
+Creates contacts in CallFire system. Only values from the next list can be used as external system parameter in contact creation: **NATION_BUILDER, SALES_FORCE_CONTACTS, SALES_FORCE_LEADS, SALES_FORCE_REPORTS, ZOHO, NETSUITE, MAIL_CHIMP**. See [contacts validation rules](https://www.callfire.com/help/docs/getting-started/managing-contacts/validating-contacts#section1)
 
 
 ```js
@@ -651,6 +671,8 @@ callfire.findDoNotContacts({}, context)
   * source `string`: A DNC source name to search for DNCs
   * call `boolean`: Show only Do-Not-Call numbers
   * text `boolean`: Show only Do-Not-Text numbers
+  * inboundCall `boolean`: ~
+  * inboundText `boolean`: ~
   * number `array`: ~
 
 #### Output
@@ -669,7 +691,7 @@ callfire.addDoNotContacts({}, context)
   * body [AddDoNotContactRequest](#adddonotcontactrequest)
 
 #### Output
-* output [JResponse](#jresponse)
+* output [ErrorResponse](#errorresponse)
 
 ### deleteDoNotContactsBySource
 Delete Do Not Contact (DNC) contact entries contained in source.
@@ -686,7 +708,7 @@ callfire.deleteDoNotContactsBySource({
   * source **required** `string`: Source associated with Do Not Contact (DNC) entry.
 
 #### Output
-*Output schema unknown*
+* output [ErrorResponse](#errorresponse)
 
 ### getUniversalDoNotContacts
 Searches for a UniversalDoNotContact object for a given phone number. Shows whether inbound/outbound actions are allowed for a given number
@@ -705,7 +727,7 @@ callfire.getUniversalDoNotContacts({
   * fields `string`: Limit fields received in response. E.g. fields: id, name or fields items (id, name), see more at [partial response](https://developers.callfire.com/docs.html#partial-response) page.
 
 #### Output
-* output [ItemList](#itemlist)
+* output [ItemListUniversalDoNotContact](#itemlistuniversaldonotcontact)
 
 ### deleteDoNotContact
 Delete a Do Not Contact (DNC) contact entry.
@@ -722,7 +744,7 @@ callfire.deleteDoNotContact({
   * number **required** `string`: Number associated with Do Not Contact (DNC) entry.
 
 #### Output
-*Output schema unknown*
+* output [ErrorResponse](#errorresponse)
 
 ### getDoNotContact
 Get Do Not Contact (DNC) object create by user. This DoNotContact entry only affects calls/texts/campaigns on this account.
@@ -757,7 +779,7 @@ callfire.updateDoNotContact({
   * body [DoNotContact](#donotcontact)
 
 #### Output
-*Output schema unknown*
+* output [ErrorResponse](#errorresponse)
 
 ### findContactLists
 Searches for all contact lists which are available for the current user. Returns a paged list of contact lists
@@ -773,6 +795,8 @@ callfire.findContactLists({}, context)
   * limit `integer`: To set the maximum number of records to return in a paged list response. The default is 100
   * offset `integer`: Offset to the start of a given page. The default is 0. Check [pagination](https://developers.callfire.com/docs.html#pagination) page for more information about pagination in CallFire API.
   * name `string`: A name or a partial name of a contact list
+  * contactCount `integer`: ~
+  * orderBy `string`: ~
 
 #### Output
 * output [ContactListPage](#contactlistpage)
@@ -788,9 +812,10 @@ callfire.createContactList({}, context)
 #### Input
 * input `object`
   * body [CreateContactListRequest](#createcontactlistrequest)
+  * fields `string`: Limit fields received in response. E.g. fields: id, name or fields items (id, name), see more at [partial response](https://developers.callfire.com/docs.html#partial-response) page.
 
 #### Output
-* output [ResourceId](#resourceid)
+* output [ContactList](#contactlist)
 
 ### createContactListFromFile
 Creates a contact list to be used with campaigns through uploading a .csv file. Returns the id of created list
@@ -830,7 +855,7 @@ callfire.deleteContactList({
   * id **required** `integer`: An id of the contact list to be deleted
 
 #### Output
-*Output schema unknown*
+* output [ErrorResponse](#errorresponse)
 
 ### getContactList
 Returns a single ContactList instance for a given contact list id
@@ -866,7 +891,7 @@ callfire.updateContactList({
   * body [UpdateContactListRequest](#updatecontactlistrequest)
 
 #### Output
-*Output schema unknown*
+* output [ErrorResponse](#errorresponse)
 
 ### removeContactListItems
 Deletes contacts from a contact list. List the contact ids in request to delete multiple contacts with one request.
@@ -884,7 +909,7 @@ callfire.removeContactListItems({
   * contactId `array`: An id of a contact entity in the CallFire system
 
 #### Output
-*Output schema unknown*
+* output [ErrorResponse](#errorresponse)
 
 ### getContactListItems
 Searches for all entries in a contact list with specified id. Returns a paged list of contact entries
@@ -922,7 +947,7 @@ callfire.addContactListItems({
   * body [AddContactListContactsRequest](#addcontactlistcontactsrequest)
 
 #### Output
-*Output schema unknown*
+* output [ErrorResponse](#errorresponse)
 
 ### removeContactListItem
 Deletes a single contact from a contact list
@@ -941,7 +966,7 @@ callfire.removeContactListItem({
   * contactId **required** `integer`: An id of a contact
 
 #### Output
-*Output schema unknown*
+* output [ErrorResponse](#errorresponse)
 
 ### deleteContact
 Deletes a contact instance from account
@@ -958,7 +983,7 @@ callfire.deleteContact({
   * id **required** `integer`: An Id of a contact
 
 #### Output
-*Output schema unknown*
+* output [ErrorResponse](#errorresponse)
 
 ### getContact
 Returns a Contact instance for a given contact id. Deleted contacts can be still retrieved but will be marked as deleted. Deleted contacts will not be shown in search request.
@@ -979,7 +1004,7 @@ callfire.getContact({
 * output [Contact](#contact)
 
 ### updateContact
-Updates a single contact instance with id specified
+Updates a single contact instance with id specified. See [contact validation rules](https://www.callfire.com/help/docs/getting-started/managing-contacts/validating-contacts#section1)
 
 
 ```js
@@ -994,7 +1019,7 @@ callfire.updateContact({
   * body [Contact](#contact)
 
 #### Output
-*Output schema unknown*
+* output [ErrorResponse](#errorresponse)
 
 ### getContactHistory
 Searches for all texts and calls attributed to a contact. Returns a list of calls and texts a contact has been involved with
@@ -1017,7 +1042,7 @@ callfire.getContactHistory({
 * output [ContactHistory](#contacthistory)
 
 ### findKeywords
-Searches for all keywords available for purchase on the CallFire platform. If a keyword appears in the response, it is available for purchase. List the 'keywords' in a query parameter to search for multiple keywords (at least one keyword should be sent in request)
+Searches for all keywords available for purchase on the CallFire platform. If a keyword appears in the response, it is available for purchase. List the 'keywords' in a query parameter to search for multiple keywords (at least one keyword should be sent in request). Keyword should only consist of uppercase and lowercase letters and numbers. Number of characters must be greater than 2, but less than 65.
 
 
 ```js
@@ -1043,10 +1068,85 @@ callfire.findKeywordLeases({}, context)
 * input `object`
   * limit `integer`: To set the maximum number of records to return in a paged list response. The default is 100
   * offset `integer`: Offset to the start of a given page. The default is 0. Check [pagination](https://developers.callfire.com/docs.html#pagination) page for more information about pagination in CallFire API.
+  * filter `string`: Filter by part of Keyword name or Label name of Keyword
+  * labelName `string`: An exact label name to search by
   * fields `string`: Limit fields received in response. E.g. fields: id, name or fields items (id, name), see more at [partial response](https://developers.callfire.com/docs.html#partial-response) page.
 
 #### Output
 * output [KeywordLeasePage](#keywordleasepage)
+
+### findKeywordLeaseConfigs
+Searches for all keyword lease configs for the user. Returns a paged list of KeywordConfig
+
+
+```js
+callfire.findKeywordLeaseConfigs({}, context)
+```
+
+#### Input
+* input `object`
+  * limit `integer`: To set the maximum number of records to return in a paged list response. The default is 100
+  * offset `integer`: Offset to the start of a given page. The default is 0. Check [pagination](https://developers.callfire.com/docs.html#pagination) page for more information about pagination in CallFire API.
+  * filter `string`: Filter by part of Keyword name or Label name of Keyword
+  * labelName `string`: An exact label name to search by
+  * fields `string`: Limit fields received in response. E.g. fields: id, name or fields items (id, name), see more at [partial response](https://developers.callfire.com/docs.html#partial-response) page.
+
+#### Output
+* output [Page](#page)
+
+### getKeywordLeaseConfig
+Returns a single KeywordConfig instance for a given keyword lease
+
+
+```js
+callfire.getKeywordLeaseConfig({
+  "keyword": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * keyword **required** `string`: A Keyword to get KeywordConfig by
+  * fields `string`: Limit fields received in response. E.g. fields: id, name or fields items (id, name), see more at [partial response](https://developers.callfire.com/docs.html#partial-response) page.
+
+#### Output
+* output [KeywordConfig](#keywordconfig)
+
+### updateKeywordLeaseConfig
+Updates a keyword lease configuration. Use this API endpoint to enable/disable inbound SMS forwarding, set forward number. Forward number must be in E.164 format)
+
+
+```js
+callfire.updateKeywordLeaseConfig({
+  "keyword": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * keyword **required** `string`: To update a keyword lease config
+  * body [KeywordConfig](#keywordconfig)
+
+#### Output
+* output [ErrorResponse](#errorresponse)
+
+### getKeywordLeaseById
+Get keyword by id
+
+
+```js
+callfire.getKeywordLeaseById({
+  "id": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * id **required** `integer`: ~
+  * fields `string`: Limit fields received in response. E.g. fields: id, name or fields items (id, name), see more at [partial response](https://developers.callfire.com/docs.html#partial-response) page.
+
+#### Output
+* output [KeywordLease](#keywordlease)
 
 ### getKeywordLease
 Searches for all keywords owned by user
@@ -1067,7 +1167,7 @@ callfire.getKeywordLease({
 * output [KeywordLease](#keywordlease)
 
 ### updateKeywordLease
-Updates a keyword lease. Turns the autoRenew on/off.
+Updates a keyword lease. Turns the autoRenew on/off. Configure double opt in feature. Add/remove contact list from keyword.
 
 
 ```js
@@ -1082,10 +1182,10 @@ callfire.updateKeywordLease({
   * body [KeywordLease](#keywordlease)
 
 #### Output
-*Output schema unknown*
+* output [ErrorResponse](#errorresponse)
 
 ### isKeywordAvailable
-Searches for the specific keyword to purchase on the CallFire platform. Returns 'true' if keyword is available.
+Searches for the specific keyword to purchase on the CallFire platform. Returns 'true' if keyword is available. Keyword should only consist of uppercase and lowercase letters and numbers. Number of characters must be greater than 2, but less than 65.
 
 
 ```js
@@ -1125,6 +1225,7 @@ callfire.findApiCredentials({}, context)
 
 #### Input
 * input `object`
+  * name `string`: Filter by name
   * fields `string`: Limit fields received in response. E.g. fields: id, name or fields items (id, name), see more at [partial response](https://developers.callfire.com/docs.html#partial-response) page.
   * limit `integer`: To set the maximum number of records to return in a paged list response. The default is 100
   * offset `integer`: Offset to the start of a given page. The default is 0. Check [pagination](https://developers.callfire.com/docs.html#pagination) page for more information about pagination in CallFire API.
@@ -1162,7 +1263,7 @@ callfire.deleteApiCredential({
   * id **required** `integer`: An id of an API credential
 
 #### Output
-*Output schema unknown*
+* output [ErrorResponse](#errorresponse)
 
 ### getApiCredential
 Returns an API credential instance for a given api credential id. Only ACCOUNT_HOLDER can invoke this API. For authentication use account credentials.
@@ -1181,6 +1282,40 @@ callfire.getApiCredential({
 
 #### Output
 * output [ApiCredential](#apicredential)
+
+### disableApiCredentials
+Disables a specified API credential. Currently, removes the ability to access the API. Only ACCOUNT_HOLDER can invoke this API. For authentication use account credentials.
+
+
+```js
+callfire.disableApiCredentials({
+  "id": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * id **required** `integer`: An id of an API credential
+
+#### Output
+* output [ErrorResponse](#errorresponse)
+
+### enableApiCredentials
+Enables a specified API credential. Currently, adds the ability to access the API. Only ACCOUNT_HOLDER can invoke this API. For authentication use account credentials.
+
+
+```js
+callfire.enableApiCredentials({
+  "id": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * id **required** `integer`: An id of an API credential
+
+#### Output
+* output [ErrorResponse](#errorresponse)
 
 ### getCreditUsage
 Find credit usage for the user. Returns credits usage for time period specified or if unspecified then total for all time. For authentication use api credentials.
@@ -1241,7 +1376,7 @@ callfire.sendVerificationCodeToCallerId({
   * callerid **required** `string`: A phone number in E.164 format (11-digit) which needs to be verified. Example: 12132000384
 
 #### Output
-*Output schema unknown*
+* output [ErrorResponse](#errorresponse)
 
 ### verifyCallerId
 With the verification code received from the Create caller id endpoint, a call to this endpoint is required to finish verification. For authentication use api credentials.
@@ -1260,6 +1395,24 @@ callfire.verifyCallerId({
 
 #### Output
 * output `boolean`
+
+### findMedia
+Find media files created by user
+
+
+```js
+callfire.findMedia({}, context)
+```
+
+#### Input
+* input `object`
+  * limit `integer`: To set the maximum number of records to return in a paged list response. The default is 100
+  * offset `integer`: Offset to the start of a given page. The default is 0. Check [pagination](https://developers.callfire.com/docs.html#pagination) page for more information about pagination in CallFire API.
+  * filter `string`: value to filter file names again; this value is used to check if the filename contains the filter value.
+  * fields `string`: Limit fields received in response. E.g. fields: id, name or fields items (id, name), see more at [partial response](https://developers.callfire.com/docs.html#partial-response) page.
+
+#### Output
+* output [MediaPage](#mediapage)
 
 ### createMedia
 Uploads media file to account, acceptable media formats: bmp, gif, jpg, m4a, mp3, mp4, png, wav
@@ -1300,7 +1453,7 @@ callfire.getMediaDataByKey({
   * extension **required** `string`: Media file type, available types: bmp, gif, jpg, m4a, mp3, mp4, png, wav
 
 #### Output
-* output `file`
+* output [InputStream](#inputstream)
 
 ### getMedia
 Get media resource by id
@@ -1337,7 +1490,7 @@ callfire.getMediaData({
   * extension **required** `string`: Media file type. Available types: bmp, gif, jpg, m4a, mp3, mp4, png, wav
 
 #### Output
-* output `file`
+* output [InputStream](#inputstream)
 
 ### getMediaDataBinary
 Download a MP3 media, endpoint returns application/binary content-type
@@ -1354,7 +1507,7 @@ callfire.getMediaDataBinary({
   * id **required** `integer`: An id of a media resource
 
 #### Output
-* output `file`
+* output [InputStream](#inputstream)
 
 ### findNumberLeases
 Searches for all numbers leased by account user. This API is useful for finding all numbers currently owned by the user. Returns a paged list of number leases.
@@ -1372,9 +1525,8 @@ callfire.findNumberLeases({}, context)
   * city `string`: A city name
   * state `string`: A two-letter state code. Example: CA, IL, etc.
   * zipcode `string`: A five-digit Zipcode
-  * lata `string`: A local access and transport area (LATA)
-  * rateCenter `string`: A rate center. A rate center is a geographical area used by a Local Exchange Carrier (LEC) to determine the boundaries for local calling, billing and allocation of phone numbers
   * labelName `string`: A label name
+  * tollFree `boolean`: ~
   * fields `string`: Limit fields received in response. E.g. fields: id, name or fields items (id, name), see more at [partial response](https://developers.callfire.com/docs.html#partial-response) page.
 
 #### Output
@@ -1396,8 +1548,6 @@ callfire.findNumberLeaseConfigs({}, context)
   * city `string`: A city name
   * state `string`: A two-letter state code. Example: CA, IL, etc.
   * zipcode `string`: A five-digit Zipcode
-  * lata `string`: A local access and transport area (LATA)
-  * rateCenter `string`: A rate center. A rate center is a geographical area used by a Local Exchange Carrier (LEC) to determine the boundaries for local calling, billing and assigning phone numbers
   * labelName `string`: A label name
   * fields `string`: Limit fields received in response. E.g. fields: id, name or fields items (id, name), see more at [partial response](https://developers.callfire.com/docs.html#partial-response) page.
 
@@ -1438,7 +1588,7 @@ callfire.updateNumberLeaseConfig({
   * body [NumberConfig](#numberconfig)
 
 #### Output
-*Output schema unknown*
+* output [ErrorResponse](#errorresponse)
 
 ### getNumberLease
 Returns a single NumberLease instance for a given number
@@ -1474,10 +1624,10 @@ callfire.updateNumberLease({
   * body [NumberLease](#numberlease)
 
 #### Output
-*Output schema unknown*
+* output [ErrorResponse](#errorresponse)
 
 ### findNumbersLocal
-Searches for numbers available for purchase in CallFire local numbers catalog . At least one additional parameter is required. User may filter local numbers by their region information.
+Searches for numbers available for purchase in CallFire local numbers catalog . At least one additional parameter is required. User may filter local numbers by their region information. If all numbers with desirable zip code is already busy search will return available numbers with nearest zip code.
 
 
 ```js
@@ -1491,8 +1641,6 @@ callfire.findNumbersLocal({}, context)
   * city `string`: A city name
   * state `string`: A two-letter state code. Example: CA, IL, etc.
   * zipcode `string`: A five-digit Zipcode
-  * lata `string`: A local access and transport area (LATA)
-  * rateCenter `string`: A rate center. A rate center is a geographical area used by a Local Exchange Carrier (LEC) to determine the boundaries for local calling, billing and assigning phone numbers.
   * fields `string`: Limit fields received in response. E.g. fields: id, name or fields items (id, name), see more at [partial response](https://developers.callfire.com/docs.html#partial-response) page.
 
 #### Output
@@ -1514,8 +1662,6 @@ callfire.findNumberRegions({}, context)
   * city `string`: A city name
   * state `string`: A two-letter state code. Example: CA, IL, etc.
   * zipcode `string`: A five-digit Zipcode
-  * lata `string`: A local access and transport area (LATA)
-  * rateCenter `string`: A rate center. A rate center is a geographical area used by a Local Exchange Carrier (LEC) to determine the boundaries for local calling, billing and assigning phone numbers.
   * fields `string`: Limit fields received in response. E.g. fields: id, name or fields items (id, name), see more at [partial response](https://developers.callfire.com/docs.html#partial-response) page.
 
 #### Output
@@ -1538,8 +1684,28 @@ callfire.findNumbersTollfree({}, context)
 #### Output
 * output [NumberList](#numberlist)
 
+### findOrders
+Searches for account orders
+
+
+```js
+callfire.findOrders({}, context)
+```
+
+#### Input
+* input `object`
+  * limit `integer`: To set the maximum number of records to return in a paged list response. The default is 100
+  * offset `integer`: Offset to the start of a given page. The default is 0. Check [pagination](https://developers.callfire.com/docs.html#pagination) page for more information about pagination in CallFire API.
+  * fields `string`: Limit fields received in response. E.g. fields: id, name or fields items (id, name), see more at [partial response](https://developers.callfire.com/docs.html#partial-response) page.
+  * status `array`: Filter by order status, accepts multiple values in comma separated string, available values: [PROCESSING, FINISHED, PAYMENT_ERROR, VOID, WAIT_FOR_PAYMENT, PARTIALLY_ADJUSTED, ADJUSTED]
+  * intervalBegin `integer`: Start of the find time interval, formatted in unix time milliseconds. Example: 1473781817000
+  * intervalEnd `integer`: End of the find time interval, formatted in unix time milliseconds. Example: 1473781817000
+
+#### Output
+* output [PageNumberOrder](#pagenumberorder)
+
 ### orderKeywords
-Purchase keywords. Send a list of available keywords into this API to purchase them using CallFire credits. Make sure the account has enough credits before trying to purchase the keywords
+Purchase keywords. Send a list of available keywords into this API to purchase them using CallFire credits. Make sure the account has enough credits before trying to purchase the keywords. Keyword should only consist of uppercase and lowercase letters and numbers. Number of characters must be greater than 2, but less than 65.
 
 
 ```js
@@ -1549,6 +1715,7 @@ callfire.orderKeywords({}, context)
 #### Input
 * input `object`
   * body [KeywordPurchaseRequest](#keywordpurchaserequest)
+  * fields `string`: Limit fields received in response. E.g. fields: id, name or fields items (id, name), see more at [partial response](https://developers.callfire.com/docs.html#partial-response) page.
 
 #### Output
 * output [ResourceId](#resourceid)
@@ -1564,6 +1731,7 @@ callfire.orderNumbers({}, context)
 #### Input
 * input `object`
   * body [NumberPurchaseRequest](#numberpurchaserequest)
+  * fields `string`: Limit fields received in response. E.g. fields: id, name or fields items (id, name), see more at [partial response](https://developers.callfire.com/docs.html#partial-response) page.
 
 #### Output
 * output [ResourceId](#resourceid)
@@ -1586,6 +1754,31 @@ callfire.getOrder({
 #### Output
 * output [NumberOrder](#numberorder)
 
+### getDeliveryReports
+Get delivery reports
+
+
+```js
+callfire.getDeliveryReports({}, context)
+```
+
+#### Input
+* input `object`
+  * startDate `string`: ~
+  * endDate `string`: ~
+  * limit `integer`: To set the maximum number of records to return in a paged list response. The default is 100
+  * offset `integer`: Offset to the start of a given page. The default is 0. Check [pagination](https://developers.callfire.com/docs.html#pagination) page for more information about pagination in CallFire API.
+  * campaignId `integer`: ~
+  * fromNumber `string`: ~
+  * toNumber `string`: ~
+  * deliveryCategory `string` (values: NO_DATA, OPTED_OUT, BOUNCED, NO_CREDITS, DELIVERED): ~
+  * deliveryState `string` (values: DELIVERED, UNSENT_OPTED_OUT_GLOBAL, UNSENT_OPTED_OUT_LOCAL, UNSENT_NO_CREDITS, GATEWAY_REJECTED, CARRIER_REJECTED, NOT_DELIVERED, UNSENT_BAD_DATA, UNSENT_NO_WIRELESS_CARRIER, UNSENT_MESSAGE_TOO_LONG, UNSENT_MESSAGE_BLOCKED, UNSENT_QUEUE_LIMIT_REACHED, SPAM_DETECTED, ORIGINATED, SUBMITTED, FORWARDED, NOT_GIVEN, UNKNOWN, RETRY_MMS_AS_SMS, QUEUED, QUEUED_TRANSCODE, ORIGINAL, DUPE, TRUNCATED, REQUEUED_RATE_LIMITED, BUFFERED, RATE_LIMIT_EXCEEDED, SERVICE_UNAVAILABLE, SEND_MMS_AS_SMS, REQUEUED_RECOVERABLE_ERROR, SEND_WITH_ADDITIONAL_SPID): ~
+  * carrier `string`: ~
+  * messageText `string`: ~
+
+#### Output
+* output [PageDeliveryReport](#pagedeliveryreport)
+
 ### findTexts
 Searches for texts sent or received by user. Use "campaignId=0" parameter to query for all texts sent through the POST /texts API. See [call states and results](https://developers.callfire.com/results-responses-errors.html)
 
@@ -1596,9 +1789,6 @@ callfire.findTexts({}, context)
 
 #### Input
 * input `object`
-  * fields `string`: Limit fields received in response. E.g. fields: id, name or fields items (id, name), see more at [partial response](https://developers.callfire.com/docs.html#partial-response) page.
-  * limit `integer`: To set the maximum number of records to return in a paged list response. The default is 100
-  * offset `integer`: Offset to the start of a given page. The default is 0. Check [pagination](https://developers.callfire.com/docs.html#pagination) page for more information about pagination in CallFire API.
   * id `array`: List of Text ids to search for, if ids specified other query params ignored
   * campaignId `integer`: An id of a campaign, queries for texts inside a particular campaign. Specify null to list texts of all campaigns or 0 for a default campaign
   * batchId `integer`: An Id of a contact batch, queries for texts which are used in the particular contact batch
@@ -1610,12 +1800,15 @@ callfire.findTexts({}, context)
   * inbound `boolean`: Specify true for inbound or false for outbounds. Do not specify this parameter if you need to get both inbound and outbound texts listed in response
   * intervalBegin `integer`: Start of the find time interval, formatted in unix time milliseconds. Example: 1473781817000
   * intervalEnd `integer`: End of the find time interval, formatted in unix time milliseconds. Example: 1473781817000
+  * limit `integer`: To set the maximum number of records to return in a paged list response. The default is 100
+  * offset `integer`: Offset to the start of a given page. The default is 0. Check [pagination](https://developers.callfire.com/docs.html#pagination) page for more information about pagination in CallFire API.
+  * fields `string`: Limit fields received in response. E.g. fields: id, name or fields items (id, name), see more at [partial response](https://developers.callfire.com/docs.html#partial-response) page.
 
 #### Output
 * output [TextPage](#textpage)
 
 ### sendTexts
-Use the /texts API to send individual texts quickly. By default all texts are going out from CallFire's dedicated short code 67076
+Use the /texts API to send individual texts quickly. By default all texts are going out from CallFire's dedicated short code. Example: 67076, 818818 etc
 
 
 ```js
@@ -1682,7 +1875,7 @@ callfire.deleteTextAutoReply({
   * id **required** `integer`: An id of a text auto reply
 
 #### Output
-*Output schema unknown*
+* output [ErrorResponse](#errorresponse)
 
 ### getTextAutoReply
 Returns a single TextAutoReply instance for a given text auto reply id
@@ -1712,15 +1905,15 @@ callfire.findTextBroadcasts({}, context)
 
 #### Input
 * input `object`
-  * fields `string`: Limit fields received in response. E.g. fields: id, name or fields items (id, name), see more at [partial response](https://developers.callfire.com/docs.html#partial-response) page.
-  * limit `integer`: To set the maximum number of records to return in a paged list response. The default is 100
-  * offset `integer`: Offset to the start of a given page. The default is 0. Check [pagination](https://developers.callfire.com/docs.html#pagination) page for more information about pagination in CallFire API.
-  * label `string`: A label of a text broadcast
   * name `string`: A name of text broadcast
+  * label `string`: A label of a text broadcast
   * running `boolean`: Returns broadcasts only in running state.
   * scheduled `boolean`: Specify whether the campaigns should be scheduled or not
   * intervalBegin `integer`: Start of the find time interval, formatted in unix time milliseconds. Example: 1473781817000 for Sat, 05 Jan 1985 14:03:37 GMT
   * intervalEnd `integer`: End of the find time interval, formatted in unix time milliseconds. Example: 1473781817000 for Sat, 05 Jan 1985 14:03:37 GMT
+  * limit `integer`: To set the maximum number of records to return in a paged list response. The default is 100
+  * offset `integer`: Offset to the start of a given page. The default is 0. Check [pagination](https://developers.callfire.com/docs.html#pagination) page for more information about pagination in CallFire API.
+  * fields `string`: Limit fields received in response. E.g. fields: id, name or fields items (id, name), see more at [partial response](https://developers.callfire.com/docs.html#partial-response) page.
 
 #### Output
 * output [TextBroadcastPage](#textbroadcastpage)
@@ -1777,7 +1970,7 @@ callfire.updateTextBroadcast({
   * body [TextBroadcast](#textbroadcast)
 
 #### Output
-*Output schema unknown*
+* output [TextBroadcastCreateResponse](#textbroadcastcreateresponse)
 
 ### archiveTextBroadcast
 Archives a text broadcast (and hides it in the search results)
@@ -1794,7 +1987,7 @@ callfire.archiveTextBroadcast({
   * id **required** `integer`: An id of a text broadcast to archive
 
 #### Output
-*Output schema unknown*
+* output [ErrorResponse](#errorresponse)
 
 ### getTextBroadcastBatches
 This endpoint will enable the user to page through all of the batches for a particular text broadcast campaign
@@ -1871,7 +2064,7 @@ callfire.startTextBroadcast({
   * id **required** `integer`: An id of a text broadcast to start
 
 #### Output
-*Output schema unknown*
+* output [ErrorResponse](#errorresponse)
 
 ### getTextBroadcastStats
 Returns the broadcast statistics. Example: total number of the sent/received actions, total cost, number of remaining outbound actions, error count, etc
@@ -1908,7 +2101,7 @@ callfire.stopTextBroadcast({
   * id **required** `integer`: An Id of a text broadcast. To stop the broadcast
 
 #### Output
-*Output schema unknown*
+* output [ErrorResponse](#errorresponse)
 
 ### getTextBroadcastTexts
 This endpoint will enable the user to page through all of the texts for a particular text broadcast campaign
@@ -1930,6 +2123,26 @@ callfire.getTextBroadcastTexts({
 
 #### Output
 * output [TextPage](#textpage)
+
+### toggleTextBroadcastRecipientsStatus
+This operation lets the user to disable/enable undialed contacts in created broadcast
+
+
+```js
+callfire.toggleTextBroadcastRecipientsStatus({
+  "id": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * id **required** `integer`: An id of a text broadcast
+  * enable `boolean`: Flag which indicate what to do with texts (true will enable texts in DISABLED status and vice versa)
+  * body `array`
+    * items [Recipient](#recipient)
+
+#### Output
+* output [ErrorResponse](#errorresponse)
 
 ### getText
 Returns a single Text instance for a given text id
@@ -1972,7 +2185,7 @@ callfire.findWebhooks({}, context)
 * output [WebhookPage](#webhookpage)
 
 ### createWebhook
-Create a Webhook for notification in the CallFire system. Use the webhooks API to receive notifications of important CallFire events. Select the resource to listen to, and then choose the resource events to receive notifications on. When an event triggers, a POST will be made to the callback URL with a payload of notification information. Available resources and their events include 'CccCampaign': ['started', 'stopped', 'finished'], 'CallBroadcast': ['started', 'stopped', 'finished'], 'TextBroadcast': ['started', 'stopped', 'finished'], 'OutboundCall': ['finished'], 'InboundCall': ['finished'], 'OutboundText': ['finished'], 'InboundText': ['finished'], 'ContactList': ['validationFinished', 'validationFailed']. Webhooks support secret token which is used as signing key to HmacSHA1 hash of json payload which is returned in 'X-CallFire-Signature' header. This header can be used to verify callback POST is coming from CallFire. See [security guide](https://developers.callfire.com/security-guide.html)
+Create a Webhook for notification in the CallFire system. Use the webhooks API to receive notifications of important CallFire events. Select the resource to listen to, and then choose the resource events to receive notifications on. When an event triggers, a POST will be made to the callback URL with a payload of notification information. Available resources and their events include 'CccCampaign': ['started', 'stopped', 'finished'], 'CallBroadcast': ['started', 'stopped', 'finished'], 'TextBroadcast': ['started', 'stopped', 'finished'], 'OutboundCall': ['finished'], 'InboundCall': ['finished'], 'OutboundText': ['finished'], 'InboundText': ['finished'], 'ContactList': ['validationFinished', 'validationFailed'], 'MonthlyRenewal': ['failed', 'finished'], 'LowBalance': ['failed', 'finished']. Webhooks support secret token which is used as signing key to HmacSHA1 hash of json payload which is returned in 'X-CallFire-Signature' header. This header can be used to verify callback POST is coming from CallFire. See [security guide](https://developers.callfire.com/security-guide.html)
 
 
 ```js
@@ -1987,7 +2200,7 @@ callfire.createWebhook({}, context)
 * output [ResourceId](#resourceid)
 
 ### findWebhookResources
-Searches for webhook resources. Available resources include 'CccCampaign': ['started', 'stopped', 'finished'], 'CallBroadcast': ['started', 'stopped', 'finished'], 'TextBroadcast': ['started', 'stopped', 'finished'], 'OutboundCall': ['finished'], 'InboundCall': ['finished'], 'OutboundText': ['finished'], 'InboundText': ['finished'], 'ContactList': ['validationFinished', 'validationFailed']
+Searches for webhook resources. Available resources include 'CccCampaign': ['started', 'stopped', 'finished'], 'CallBroadcast': ['started', 'stopped', 'finished'], 'TextBroadcast': ['started', 'stopped', 'finished'], 'OutboundCall': ['finished'], 'InboundCall': ['finished'], 'OutboundText': ['finished'], 'InboundText': ['finished'], 'ContactList': ['validationFinished', 'validationFailed'], 'MonthlyRenewal': ['failed', 'finished'], 'LowBalance': ['failed', 'finished']
 
 
 ```js
@@ -1999,7 +2212,7 @@ callfire.findWebhookResources({}, context)
   * fields `string`: Limit fields received in response. E.g. fields: id, name or fields items (id, name), see more at [partial response](https://developers.callfire.com/docs.html#partial-response) page.
 
 #### Output
-* output [ItemList](#itemlist)
+* output [ItemListWebhookResource](#itemlistwebhookresource)
 
 ### getWebhookResource
 Returns information about supported events for a given webhook resource
@@ -2013,7 +2226,7 @@ callfire.getWebhookResource({
 
 #### Input
 * input `object`
-  * resource **required** `string`: A name of a webhook resource. Available resources include 'CccCampaign': ['started', 'stopped', 'finished'], 'CallBroadcast': ['started', 'stopped', 'finished'], 'TextBroadcast': ['started', 'stopped', 'finished'], 'OutboundCall': ['finished'], 'InboundCall': ['finished'], 'OutboundText': ['finished'], 'InboundText': ['finished'], 'ContactList': ['validationFinished', 'validationFailed']
+  * resource **required** `string`: A name of a webhook resource. Available resources include 'CccCampaign': ['started', 'stopped', 'finished'], 'CallBroadcast': ['started', 'stopped', 'finished'], 'TextBroadcast': ['started', 'stopped', 'finished'], 'OutboundCall': ['finished'], 'InboundCall': ['finished'], 'OutboundText': ['finished'], 'InboundText': ['finished'], 'ContactList': ['validationFinished', 'validationFailed'], 'MonthlyRenewal': ['failed', 'finished'], 'LowBalance': ['failed', 'finished']
   * fields `string`: Limit fields received in response. E.g. fields: id, name or fields items (id, name), see more at [partial response](https://developers.callfire.com/docs.html#partial-response) page.
 
 #### Output
@@ -2034,7 +2247,7 @@ callfire.deleteWebhook({
   * id **required** `integer`: An Id of a webhook
 
 #### Output
-*Output schema unknown*
+* output [ErrorResponse](#errorresponse)
 
 ### getWebhook
 Returns a single Webhook instance for a given webhook id
@@ -2070,7 +2283,7 @@ callfire.updateWebhook({
   * body [Webhook](#webhook)
 
 #### Output
-*Output schema unknown*
+* output [ErrorResponse](#errorresponse)
 
 
 
@@ -2078,17 +2291,61 @@ callfire.updateWebhook({
 
 ### Account
 * Account `object`: Object represents user account in Callfire system
-  * email `string`: Email address associated with an account
-  * firstName `string`: First name of an account holder
+  * active `boolean`: ~
+  * age [Duration](#duration)
+  * agencyManagedAccounts `boolean`: ~
+  * agencyTeammateManager `boolean`: ~
+  * allowedToCreateCampaign `boolean`: ~
+  * apiCallLimit `integer`: ~
+  * autoAddDoNotContact `boolean`: ~
+  * brand `string` (values: EZTEXTING, CLUBTEXTING, GROUPTEXTING, TELLMYCELL, EZ, CALLFIRE, TESLA): ~
+  * canceled `boolean`: ~
+  * country `string` (values: US, CA): ~
+  * countryOrDefault `string` (values: US, CA): ~
+  * created `string`: ~
+  * dateTimeZone [DateTimeZone](#datetimezone)
+  * defaultNotificationTtlMillis `integer`: ~
+  * defaultNumberId `integer`: ~
+  * ez `boolean`: ~
+  * failedVerificationAttempts `integer`: ~
+  * fromNumberPool `string`: ~
   * id `integer`: An id of an account
-  * lastName `string`: Last name of an account holder
+  * industry `string` (values: UNKNOWN, ADVERTISING, AUTOMOTIVE, COLLECTIONS, CONSULTING, DECLINE, EDUCATION, EMERGENCY, ENTERTAINMENT, FINANCE, HOSPITALITY, HEALTHFITNESS, HEALTHCARE, INSURANCE, LEAD, OTHER, POLITICAL, REAL_ESTATE, RETAIL, SEARCH_MARKETING, TELECOM): ~
+  * industryName `string`: ~
+  * key `string`: ~
+  * localTimeZoneRestriction [LocalTimeZoneRestriction](#localtimezonerestriction)
+  * locale [Locale](#locale)
+  * maxAgents `integer`: ~
+  * messageClass `string`: ~
   * name `string`: Name associated with an account
-  * permissions `array`: User permissions (API, ACCOUNT_HOLDER, AGENT)
-    * items `string`
+  * outboundThreshold `integer`: ~
+  * receiverPeriodCall `integer`: ~
+  * receiverPeriodEnabled `boolean`: ~
+  * receiverPeriodGlobal `integer`: ~
+  * receiverPeriodText `integer`: ~
+  * receiverPeriodTimeUnit `string` (values: NANOSECONDS, MICROSECONDS, MILLISECONDS, SECONDS, MINUTES, HOURS, DAYS): ~
+  * retainOnlyMetadata `boolean`: ~
+  * retainOnlyMetadataLastDetailRecordId `integer`: ~
+  * retainOnlyMetadataLastModified `string`: ~
+  * scrub `boolean`: ~
+  * sharedShortCodeId `integer`: ~
+  * sharedShortCodeIdForce `integer`: ~
+  * soaAccount [Account](#account)
+  * startCapable `boolean`: ~
+  * status `string` (values: ACTIVE, PENDING_CANCELLED, CANCELLED): ~
+  * textOutboundThreshold `integer`: ~
+  * timeZone [TimeZone](#timezone)
+  * timeZoneId [ZoneId](#zoneid)
+  * trustLevel `string` (values: LOCKED, SUSPENDED, PROBATION, NORMAL, TRUSTED): ~
+  * tsrAgreement `string`: ~
+  * tsrInitials `string`: ~
+  * uiContext `string`: ~
+  * universal `boolean`: ~
+  * website `string`: ~
 
 ### AddContactListContactsRequest
 * AddContactListContactsRequest `object`: Request object for adding new contacts to an existing contact list
-  * contactIds `array`: A list of ids of existing contacts in Callfire system
+  * contactIds `array`: A list of ids of existing contacts in CallFire system
     * items `integer`
   * contactNumbers `array`: A phone number in E.164 format (11-digit). Examples: 12132000384
     * items `string`
@@ -2100,6 +2357,8 @@ callfire.updateWebhook({
 ### AddDoNotContactRequest
 * AddDoNotContactRequest `object`: Request object for adding new Do-Not-Contact records to account.
   * call `boolean`: If set to true add all given numbers to Do-Not-Call list. Default value: true
+  * inboundCall `boolean`: ~
+  * inboundText `boolean`: ~
   * numbers `array`: A list of phone numbers in E.164 format (11-digit), example: 12132000384, 14142777322
     * items `string`
   * source `string`: A list of new contact objects which need to be added. Default value: Api V2
@@ -2123,6 +2382,26 @@ callfire.updateWebhook({
   * items `array`
     * items [ApiCredential](#apicredential)
 
+### ApiExceptionHandler
+* ApiExceptionHandler `object`: ~
+
+### ApiValidator
+* ApiValidator `object`: ~
+  * exceptionHandler [ApiExceptionHandler](#apiexceptionhandler)
+
+### AuthController
+* AuthController `object`: ~
+  * authBrand `string` (values: EZTEXTING, CLUBTEXTING, GROUPTEXTING, TELLMYCELL, EZ, CALLFIRE, TESLA): ~
+  * authToken [AuthToken](#authtoken)
+
+### AuthToken
+* AuthToken `object`: ~
+  * accountId `integer`: ~
+  * adminToken [AuthToken](#authtoken)
+  * brand `string` (values: EZTEXTING, CLUBTEXTING, GROUPTEXTING, TELLMYCELL, EZ, CALLFIRE, TESLA): ~
+  * sessionId `string`: ~
+  * userId `integer`: ~
+
 ### Batch
 * Batch `object`: A batch represents a group of contacts which can be dialed or texted via call/text broadcast
   * broadcastId `integer`: An id of broadcast which batch belongs to
@@ -2132,7 +2411,7 @@ callfire.updateWebhook({
   * name `string`: A batch name
   * remaining `integer`: A number of contacts remaining undialed/untexted
   * size `integer`: A total number of contacts in batch
-  * status `string` (values: NEW, VALIDATING, ERRORS, SOURCE_ERROR, ACTIVE): A status of batch (NEW, VALIDATING, ERRORS, SOURCE_ERROR, ACTIVE). NEW - batch is queued for validation; VALIDATING - batch is currently validating; ERRORS - batch is processed, some validation errors occurred; SOURCE_ERROR - if contact source is contact list in Callfire system and it has an error; ACTIVE - batch is processed and ready
+  * status `string` (values: NEW, VALIDATING, ERRORS, SOURCE_ERROR, ACTIVE): A status of batch (NEW, VALIDATING, ERRORS, SOURCE_ERROR, ACTIVE). NEW - batch is queued for validation; VALIDATING - batch is currently validating; ERRORS - batch is processed, some validation errors occurred; SOURCE_ERROR - if contact source is contact list in CallFire system and it has an error; ACTIVE - batch is processed and ready
 
 ### BatchPage
 * BatchPage: ~
@@ -2161,7 +2440,7 @@ callfire.updateWebhook({
   * totalRemainingCredits `number`: Total number of remaining credits (remainingPlanCredits + remainingPayAsYouGoCredits)
 
 ### Call
-* Call `object`: Represents a call action sent or received by Callfire platform
+* Call `object`: Represents a call action sent or received by CallFire platform
   * agentCall `boolean`: An internal call to an agent
   * attributes `object`: Map of user-defined string attributes associated with an action
   * batchId `integer`: An id of contact batch associated with an action
@@ -2192,7 +2471,7 @@ callfire.updateWebhook({
     * items `string`
   * lastModified `integer`: The time when a given resource was updated, formatted in unix time milliseconds (read only). Example: 1473781817000 for Sat, 05 Jan 1985 14:03:37 GMT 
   * localTimeRestriction [LocalTimeRestriction](#localtimerestriction)
-  * maxActive `integer`: Sets a maximum number of calls to be dialed by Callfire at once
+  * maxActive `integer`: Sets a maximum number of calls to be dialed by CallFire at once
   * maxActiveTransfers `integer`: A maximum number of active transfers
   * name `string`: A name of a broadcast
   * recipients `array`: Recipients of a call broadcast, can be either existing contacts or a new ones
@@ -2202,7 +2481,7 @@ callfire.updateWebhook({
   * schedules `array`: A list of schedule objects which specifies a range of time when broadcast should be started and stopped. Supports the scheduling per day of week
     * items [Schedule](#schedule)
   * sounds [CallBroadcastSounds](#callbroadcastsounds)
-  * status `string` (values: TEST, SETUP, START_PENDING, RUNNING, SCHEDULED, STOPPED, SUSPENDED, FINISHED, ARCHIVED, VALIDATING_START, VALIDATING_EMAIL): A status of a broadcast (read only). SETUP - campaign isn't configured yet; START_PENDING - waiting for contact batch population; RUNNING - campaign is running; STOPPED - campaign is stopped; FINISHED - campaign is finished; ARCHIVED - campaign was archived
+  * status `string` (values: TEST, SETUP, START_PENDING, RUNNING, SCHEDULED, STOPPED, SUSPENDED, FINISHED, ARCHIVED, VALIDATING_START, VALIDATING_EMAIL, BLOCKED_SUSPICIOUS, DECLINED, APPROVED): A status of a broadcast (read only). SETUP - campaign isn't configured yet; START_PENDING - waiting for contact batch population; RUNNING - campaign is running; STOPPED - campaign is stopped; FINISHED - campaign is finished; ARCHIVED - campaign was archived
 
 ### CallBroadcastPage
 * CallBroadcastPage: ~
@@ -2307,7 +2586,7 @@ callfire.updateWebhook({
     * items `string`
   * notes `array`: Notes of call added by agent
     * items [Note](#note)
-  * originateTime `integer`: A date and time (timestamp) when call was originated by Callfire platform and went to downstream provider, formatted in unix time milliseconds (read only). Example: 1473781817000 
+  * originateTime `integer`: A date and time (timestamp) when call was originated by CallFire platform and went to downstream provider, formatted in unix time milliseconds (read only). Example: 1473781817000 
   * questionResponses `array`: Notes of call added by an agent
     * items [QuestionResponse](#questionresponse)
   * recordings `array`: A list of voice recordings of the call
@@ -2439,7 +2718,7 @@ callfire.updateWebhook({
 
 ### CreateContactListRequest
 * CreateContactListRequest `object`: A request object is used to create a contact list from one of available contact sources
-  * contactIds `array`: A list of ids of existing contacts in Callfire system
+  * contactIds `array`: A list of ids of existing contacts in CallFire system
     * items `integer`
   * contactNumbers `array`: List of numbers in E.164 format (11-digit). Example: 12132000384
     * items `string`
@@ -2457,6 +2736,22 @@ callfire.updateWebhook({
   * intervalEnd `integer`: End of usage period formatted in unix time milliseconds. Example: 1473781817000 for Sat, 05 Jan 1985 14:03:37 GMT
   * textsSent `integer`: Number of texts sent
 
+### DateTimeZone
+* DateTimeZone `object`: ~
+  * fixed `boolean`: ~
+  * id `string`: ~
+
+### DeliveryReport
+* DeliveryReport `object`: ~
+  * campaignId `integer`: ~
+  * carrier `string`: ~
+  * deliveryCategory `string` (values: NO_DATA, OPTED_OUT, BOUNCED, NO_CREDITS, DELIVERED): ~
+  * deliveryState `string` (values: DELIVERED, UNSENT_OPTED_OUT_GLOBAL, UNSENT_OPTED_OUT_LOCAL, UNSENT_NO_CREDITS, GATEWAY_REJECTED, CARRIER_REJECTED, NOT_DELIVERED, UNSENT_BAD_DATA, UNSENT_NO_WIRELESS_CARRIER, UNSENT_MESSAGE_TOO_LONG, UNSENT_MESSAGE_BLOCKED, UNSENT_QUEUE_LIMIT_REACHED, SPAM_DETECTED, ORIGINATED, SUBMITTED, FORWARDED, NOT_GIVEN, UNKNOWN, RETRY_MMS_AS_SMS, QUEUED, QUEUED_TRANSCODE, ORIGINAL, DUPE, TRUNCATED, REQUEUED_RATE_LIMITED, BUFFERED, RATE_LIMIT_EXCEEDED, SERVICE_UNAVAILABLE, SEND_MMS_AS_SMS, REQUEUED_RECOVERABLE_ERROR, SEND_WITH_ADDITIONAL_SPID): ~
+  * fromNumber `string`: ~
+  * messageText `string`: ~
+  * toNumber `string`: ~
+  * updated `string`: ~
+
 ### DncListDto
 * DncListDto: ~
   * items `array`: ~
@@ -2469,6 +2764,8 @@ callfire.updateWebhook({
   * call `boolean`: A number on Do-Not-Call list
   * campaignId `integer`: An Id of a campaign which was used to send a message to DNC number
   * created `integer`: A time when a given resource was created, formatted in unix time milliseconds (read only). Example: 1473781817000 for Sat, 05 Jan 1985 14:03:37 GMT
+  * inboundCall `boolean`: ~
+  * inboundText `boolean`: ~
   * number `string`: A single DNC number in E.164 format (11-digit). Example: 12132000384
   * source `string`: The name of DNC source (can be the name of DNC list that user uploads to CallFire)
   * text `boolean`: A number on Do-Not-Text list
@@ -2483,12 +2780,20 @@ callfire.updateWebhook({
   * items `array`
     * items [DoNotContact](#donotcontact)
 
+### Duration
+* Duration `object`: ~
+  * millis `integer`: ~
+  * standardDays `integer`: ~
+  * standardHours `integer`: ~
+  * standardMinutes `integer`: ~
+  * standardSeconds `integer`: ~
+
 ### ErrorResponse
 * ErrorResponse `object`: Error response containing error info
   * developerMessage `string`: ~
   * helpLink `string`: ~
   * httpStatusCode `integer`: ~
-  * internalCode `integer`: ~
+  * internalCode `string`: ~
   * message `string`: ~
 
 ### GoogleAnalytics
@@ -2505,29 +2810,41 @@ callfire.updateWebhook({
   * items `array`: ~
     * items `object`
 
+### ItemListUniversalDoNotContact
+* ItemListUniversalDoNotContact `object`: ~
+  * items `array`: ~
+    * items [UniversalDoNotContact](#universaldonotcontact)
+
+### ItemListWebhookResource
+* ItemListWebhookResource `object`: ~
+  * items `array`: ~
+    * items [WebhookResource](#webhookresource)
+
 ### IvrInboundConfig
 * IvrInboundConfig `object`: ~
   * dialplanXml `string`: ~
-
-### JResponse
-* JResponse `object`: ~
-  * entity `object`: ~
-  * metadata `object`: ~
-  * status `integer`: ~
-  * statusType [StatusType](#statustype)
-  * type [Type](#type)
 
 ### Keyword
 * Keyword `object`: ~
   * keyword `string`: ~
   * shortCode `string`: ~
 
+### KeywordConfig
+* KeywordConfig `object`: ~
+  * keyword `string`: ~
+  * textInboundConfig [TextInboundConfig](#textinboundconfig)
+
 ### KeywordLease
 * KeywordLease `object`: Represents a lease object for a given keyword
   * autoRenew `boolean`: Enables the auto renewal of a keyword lease at the end of each billing cycle
+  * contactListId `integer`: Existing contact list ID
+  * doubleOptInEnabled `boolean`: Enable/disable double opt in feature
   * keyword `string`: A text used as a keyword
+  * labels `array`: ~
+    * items `string`
   * leaseBegin `integer`: A time of a lease timestamp, formatted in unix time milliseconds (read only). Example: 1473781817000 for Sat, 05 Jan 1985 14:03:37 GMT
   * leaseEnd `integer`: A date and time when the keyword lease is finishes. Timestamp, formatted in unix time milliseconds (read only). Example: 1473781817000
+  * optInConfirmationMessage `string`: Opt in confirmation message
   * shortCode `string`: A short code assigned to keyword. Example: 67076
   * status `string` (values: PENDING, ACTIVE, RELEASED, UNAVAILABLE): A lease status. Available values: PENDING, ACTIVE, RELEASED, UNAVAILABLE
 
@@ -2563,15 +2880,42 @@ callfire.updateWebhook({
 * LocalTime `object`: Represents a time part of a given date
   * hour `integer`: An hour of the day. Available values: 0-23
   * minute `integer`: The minutes. Available values: 0-59
+  * nano `integer`: ~
   * second `integer`: The seconds.  Available values: 0-59
 
 ### LocalTimeRestriction
-* LocalTimeRestriction `object`: Represents a range of time during which Callfire will send a call or text to recipients. Timeframe uses the local timezone of recipient's number
+* LocalTimeRestriction `object`: Represents a range of time during which CallFire will send a call or text to recipients. Timeframe uses the local timezone of recipient's number
   * beginHour `integer`: An hour of restriction start
   * beginMinute `integer`: The minutes to start a restriction
   * enabled `boolean`: A restriction enabled
   * endHour `integer`: An hour of restriction end
   * endMinute `integer`: The minutes of restriction end
+
+### LocalTimeZoneRestriction
+* LocalTimeZoneRestriction `object`: ~
+  * enabled `boolean`: ~
+  * startTime `string`: ~
+  * stopTime `string`: ~
+
+### Locale
+* Locale `object`: ~
+  * country `string`: ~
+  * displayCountry `string`: ~
+  * displayLanguage `string`: ~
+  * displayName `string`: ~
+  * displayScript `string`: ~
+  * displayVariant `string`: ~
+  * extensionKeys `array`: ~
+    * items `string`
+  * iso3Country `string`: ~
+  * iso3Language `string`: ~
+  * language `string`: ~
+  * script `string`: ~
+  * unicodeLocaleAttributes `array`: ~
+    * items `string`
+  * unicodeLocaleKeys `array`: ~
+    * items `string`
+  * variant `string`: ~
 
 ### Media
 * Media `object`: Represents a media file which can be added to a text message
@@ -2582,6 +2926,29 @@ callfire.updateWebhook({
   * mediaType `string`: A MIME type of media file, ex: image/jpeg, image/png, video/mp4, audio/mp3, etc
   * name `string`: A name of a media file
   * publicUrl `string`: A public URL of a media file
+
+### MediaPage
+* MediaPage `object`: ~
+  * items `array`: ~
+    * items [Media](#media)
+  * limit `integer`: ~
+  * offset `integer`: ~
+  * totalCount `integer`: ~
+
+### MessageTemplateCategory
+* MessageTemplateCategory `object`: ~
+  * id `integer`: ~
+  * name `string`: ~
+
+### MessageTemplateCategoryPage
+* MessageTemplateCategoryPage: ~
+  * items `array`: A list of returned items
+    * items `object`
+  * limit `integer`: A maximum number of returned items. If items.size() < limit assume no more items
+  * offset `integer`: An offset from a start of paging source
+  * totalCount `integer`: Total count of available results. -1 if unknown
+  * items `array`
+    * items [MessageTemplateCategory](#messagetemplatecategory)
 
 ### Note
 * Note `object`: Represents a note which can be added to a call
@@ -2601,6 +2968,7 @@ callfire.updateWebhook({
   * configType `string` (values: IVR, TRACKING): A type of config. Available values: TRACKING, IVR
   * ivrInboundConfig [IvrInboundConfig](#ivrinboundconfig)
   * number `string`: Phone number in E.164 format (11-digit). Example: 12132000384
+  * textInboundConfig [TextInboundConfig](#textinboundconfig)
 
 ### NumberConfigPage
 * NumberConfigPage: ~
@@ -2650,7 +3018,7 @@ callfire.updateWebhook({
   * id `integer`: An id of an order
   * keywords [NumberOrderItem](#numberorderitem)
   * localNumbers [NumberOrderItem](#numberorderitem)
-  * status `string` (values: NEW, PROCESSING, FINISHED, ERRORED, VOID, WAIT_FOR_PAYMENT, ADJUSTED, APPROVE_TIER_ONE, APPROVE_TIER_TWO, REJECTED): A current status of an order. Available values: NEW, PROCESSING, FINISHED, ERRORED, VOID, WAIT_FOR_PAYMENT, REJECTED
+  * status `string` (values: PROCESSING, FINISHED, PAYMENT_ERROR, VOID, WAIT_FOR_PAYMENT, PARTIALLY_ADJUSTED, ADJUSTED, NEW, ERRORED, APPROVE_TIER_ONE, APPROVE_TIER_TWO, REJECTED): A current status of an order. Available values: NEW, PROCESSING, FINISHED, ERRORED, VOID, WAIT_FOR_PAYMENT, REJECTED
   * tollFreeNumbers [NumberOrderItem](#numberorderitem)
   * totalCost `number`: A total cost of an order
 
@@ -2664,12 +3032,11 @@ callfire.updateWebhook({
 ### NumberPurchaseRequest
 * NumberPurchaseRequest `object`: Request object is used to order a local or toll-free numbers
   * city `string`: City of requested numbers
-  * lata `string`: Local access and transport area of requested numbers 
   * localCount `integer`: Total count of local numbers requested
   * numbers `array`: A list of phone numbers in E.164 format (11-digit) to buy. Example: 12132000384
     * items `string`
   * prefix `string`: Country prefix of requested numbers
-  * rateCenter `string`: A rate center of requested numbers
+  * promo `string`: ~
   * state `string`: A two-letter state code of requested numbers
   * tollFreeCount `integer`: Total count of toll-free numbers requested
   * zipcode `string`: A five-digit Zip code of requested numbers
@@ -2681,6 +3048,30 @@ callfire.updateWebhook({
   * limit `integer`: A maximum number of returned items. If items.size() < limit assume no more items
   * offset `integer`: An offset from a start of paging source
   * totalCount `integer`: Total count of available results. -1 if unknown
+
+### PageDeliveryReport
+* PageDeliveryReport `object`: ~
+  * items `array`: ~
+    * items [DeliveryReport](#deliveryreport)
+  * limit `integer`: ~
+  * offset `integer`: ~
+  * totalCount `integer`: ~
+
+### PageNumberOrder
+* PageNumberOrder `object`: ~
+  * items `array`: ~
+    * items [NumberOrder](#numberorder)
+  * limit `integer`: ~
+  * offset `integer`: ~
+  * totalCount `integer`: ~
+
+### PageText
+* PageText `object`: ~
+  * items `array`: ~
+    * items [Text](#text)
+  * limit `integer`: ~
+  * offset `integer`: ~
+  * totalCount `integer`: ~
 
 ### QuestionResponse
 * QuestionResponse `object`: Object represents the question and client's answer, used in cloud call center / IVR campaign
@@ -2698,11 +3089,9 @@ callfire.updateWebhook({
 * Region `object`: Every local number associated with a region. You can query regions to use them in subsequent purchase requests
   * city `string`: A city of a region
   * country `string`: A country of a region
-  * lata `string`: A local access and transport area of region
   * latitude `number`: A latitude of a region
   * longitude `number`: A longitude of a region
   * prefix `string`: A country prefix of a region. 4-7 digit
-  * rateCenter `string`: A rate center of a region
   * state `string`: A two-letter state code of region
   * timeZone `string`: A timezone of a region
   * zipcode `string`: A five-digit zip code of a region
@@ -2749,12 +3138,6 @@ callfire.updateWebhook({
   * stopTimeOfDay [LocalTime](#localtime)
   * timeZone `string`: ~
 
-### StatusType
-* StatusType `object`: ~
-  * family `string` (values: INFORMATIONAL, SUCCESSFUL, REDIRECTION, CLIENT_ERROR, SERVER_ERROR, OTHER): Family
-  * reasonPhrase `string`: Reason phrase
-  * statusCode `integer`: Status code
-
 ### StreamingOutput
 * StreamingOutput `object`: ~
 
@@ -2765,8 +3148,15 @@ callfire.updateWebhook({
   * items `array`
     * items `string`
 
+### TemporalUnit
+* TemporalUnit `object`: ~
+  * dateBased `boolean`: ~
+  * duration [Duration](#duration)
+  * durationEstimated `boolean`: ~
+  * timeBased `boolean`: ~
+
 ### Text
-* Text `object`: Represents a text action sent or received by Callfire platform
+* Text `object`: Represents a text action sent or received by CallFire platform
   * attributes `object`: Map of user-defined string attributes associated with an action
   * batchId `integer`: An id of contact batch associated with an action
   * campaignId `integer`: An id of broadcast if given text was sent as a part of text broadcast
@@ -2814,7 +3204,7 @@ callfire.updateWebhook({
     * items `string`
   * lastModified `integer`: A time when the given resource was updated, formatted in unix time milliseconds (read only). Example: 1473781817000
   * localTimeRestriction [LocalTimeRestriction](#localtimerestriction)
-  * maxActive `integer`: A maximum number of calls that CallFire dials at once
+  * maxActive `integer`: A maximum number of texts that CallFire dials at once
   * media `array`: ~
     * items [Media](#media)
   * message `string`: A text message
@@ -2824,7 +3214,11 @@ callfire.updateWebhook({
   * resumeNextDay `boolean`: ~
   * schedules `array`: ~
     * items [Schedule](#schedule)
-  * status `string` (values: TEST, SETUP, START_PENDING, RUNNING, SCHEDULED, STOPPED, SUSPENDED, FINISHED, ARCHIVED, VALIDATING_START, VALIDATING_EMAIL): A status of a broadcast. SETUP - campaign isn't configured yet; START_PENDING - waiting for contact batch population; RUNNING - campaign is running; STOPPED - campaign is stopped; FINISHED - campaign is finished; ARCHIVED - campaign was archived
+  * status `string` (values: TEST, SETUP, START_PENDING, RUNNING, SCHEDULED, STOPPED, SUSPENDED, FINISHED, ARCHIVED, VALIDATING_START, VALIDATING_EMAIL, BLOCKED_SUSPICIOUS, DECLINED, APPROVED): A status of a broadcast. SETUP - campaign isn't configured yet; START_PENDING - waiting for contact batch population; RUNNING - campaign is running; STOPPED - campaign is stopped; FINISHED - campaign is finished; ARCHIVED - campaign was archived
+
+### TextBroadcastCreateResponse
+* TextBroadcastCreateResponse `object`: ~
+  * id `integer`: ~
 
 ### TextBroadcastPage
 * TextBroadcastPage: ~
@@ -2847,6 +3241,11 @@ callfire.updateWebhook({
   * tooBigCount `integer`: ~
   * totalOutboundCount `integer`: ~
   * unsentCount `integer`: ~
+
+### TextInboundConfig
+* TextInboundConfig `object`: ~
+  * forwardEnabled `boolean`: ~
+  * forwardNumber `string`: ~
 
 ### TextList
 * TextList: ~
@@ -2893,16 +3292,67 @@ callfire.updateWebhook({
   * message `string`: A text to be turned into sound
   * voice `string` (values: MALE1, FEMALE1, FEMALE2, SPANISH1, FRENCHCANADIAN1): A voice to be used. Available values: MALE1, FEMALE1 , FEMALE2, SPANISH1, FRENCHCANADIAN1
 
-### Type
-* Type `object`: ~
-  * typeName `string`: A name of a type
+### TimeZone
+* TimeZone `object`: ~
+  * displayName `string`: ~
+  * dstsavings `integer`: ~
+  * id `string`: ~
+  * rawOffset `integer`: ~
+
+### UniversalDoNotContact
+* UniversalDoNotContact `object`: Represents a Universal (platform-wide) Do-Not-Contact object for a given phone number. Shows whether inbound/outbound actions are allowed for a given number.
+  * fromNumber `string`: Optional source number in E.164 format (11-digit). Example: 12132000384
+  * inboundCall `boolean`: If toNumber can receive calls or If toNumber can call fromNumber.
+  * inboundText `boolean`: If toNumber can receive texts or If toNumber can text fromNumber.
+  * outboundCall `boolean`: If toNumber can send calls or If fromNumber can call toNumber.
+  * outboundText `boolean`: If toNumber can send texts or If fromNumber can text toNumber.
+  * toNumber `string`: destination DNC number in E.164 format (11-digit). Example: 12132000384
 
 ### UpdateContactListRequest
 * UpdateContactListRequest `object`: A request object which is used to update a contact list
   * name `string`: A name of a contact list
 
+### User
+* User `object`: ~
+  * account [Account](#account)
+  * accountHolder `boolean`: ~
+  * accountId `integer`: ~
+  * accountUser `boolean`: ~
+  * active `boolean`: ~
+  * apiPasswordLastFour `string`: ~
+  * brand `string` (values: EZTEXTING, CLUBTEXTING, GROUPTEXTING, TELLMYCELL, EZ, CALLFIRE, TESLA): ~
+  * cccAgent `boolean`: ~
+  * created `string`: ~
+  * dateOfBirth `string`: ~
+  * disabled `boolean`: ~
+  * firstName `string`: ~
+  * fullName `string`: ~
+  * id `integer`: ~
+  * industryName `string`: ~
+  * lastName `string`: ~
+  * musicOnHold `string` (values: DEFAULT, SILENCE, ALTERNATIVE, BLUES, CELTIC, CLASSICAL, COUNTRY, INSTRUMENTAL, JAZZ, NEOPUNK, NEW_AGE, POP, ROCK, SWING, TECHNO): ~
+  * notificationSoundEnabled `boolean`: ~
+  * optIn `boolean`: ~
+  * optInNumber `string`: ~
+  * permissions `array`: ~
+    * items `string`
+  * phoneNumber `string`: ~
+  * phoneNumberExtension `string`: ~
+  * phoneNumberExtensionDelaySec `integer`: ~
+  * phoneNumberForDisplay `string`: ~
+  * phoneNumberVerified `boolean`: ~
+  * profileEmail `string`: ~
+  * signupComplete `boolean`: ~
+  * soaUser [User](#user)
+  * userState `string` (values: ACTIVE, NEW_AUTH_INVITE, NEW_USER_INVITE, EXISTING_USER_INVITE): ~
+  * userStatePending `boolean`: ~
+  * visible `boolean`: ~
+
+### UserController
+* UserController `object`: ~
+
 ### Webhook
-* Webhook `object`: Webhook is a user-defined callback, which can be maintained via API. Callfire will send POST request to a client's endpoint defined in webhook once one of assigned events is triggered. See [webhooks guide](https://developers.callfire.com/webhooks-guide.html) for more information about CallFire Webhooks API.
+* Webhook `object`: Webhook is a user-defined callback, which can be maintained via API. CallFire will send POST request to a client's endpoint defined in webhook once one of assigned events is triggered. See [webhooks guide](https://developers.callfire.com/webhooks-guide.html) for more information about CallFire Webhooks API.
   * callback `string`: URL that webhook will send POST to on resource event trigger
   * createdAt `integer`: A time when the given resource was created, formatted in unix time milliseconds (read only). Example: 1473781817000
   * enabled `boolean`: A parameter which allows the webhook to send requests to unknown ssl endpoints (ssl certificate verification is disabled)
@@ -2929,7 +3379,7 @@ callfire.updateWebhook({
     * items [Webhook](#webhook)
 
 ### WebhookResource
-* WebhookResource `object`: WebhookResource describes a resource and a list of supported events, once event is triggered Callfire performs an HTTP POST request to a client's endpoint
+* WebhookResource `object`: WebhookResource describes a resource and a list of supported events, once event is triggered CallFire performs an HTTP POST request to a client's endpoint
   * resource `string`: A name of a webhook resource (ex: InboundCall, OutboundCall, InboundText, OutboundText, CallBroadcast, TextBroadcast, etc...)
   * supportedEvents `array`: A list of event names which are supported by webhook resource (ex: Started, Stopped, Finished, etc.)
     * items `string`
@@ -2941,5 +3391,47 @@ callfire.updateWebhook({
   * startTimeOfDay [LocalTime](#localtime)
   * stopTimeOfDay [LocalTime](#localtime)
   * timeZone `string`: A user's timezone
+
+### ZoneId
+* ZoneId `object`: ~
+  * id `string`: ~
+  * rules [ZoneRules](#zonerules)
+
+### ZoneOffset
+* ZoneOffset `object`: ~
+  * id `string`: ~
+  * rules [ZoneRules](#zonerules)
+  * totalSeconds `integer`: ~
+
+### ZoneOffsetTransition
+* ZoneOffsetTransition `object`: ~
+  * dateTimeAfter `string`: ~
+  * dateTimeBefore `string`: ~
+  * duration [Duration](#duration)
+  * gap `boolean`: ~
+  * instant `integer`: ~
+  * offsetAfter [ZoneOffset](#zoneoffset)
+  * offsetBefore [ZoneOffset](#zoneoffset)
+  * overlap `boolean`: ~
+
+### ZoneOffsetTransitionRule
+* ZoneOffsetTransitionRule `object`: ~
+  * dayOfMonthIndicator `integer`: ~
+  * dayOfWeek `string` (values: MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY): ~
+  * localTime [LocalTime](#localtime)
+  * midnightEndOfDay `boolean`: ~
+  * month `string` (values: JANUARY, FEBRUARY, MARCH, APRIL, MAY, JUNE, JULY, AUGUST, SEPTEMBER, OCTOBER, NOVEMBER, DECEMBER): ~
+  * offsetAfter [ZoneOffset](#zoneoffset)
+  * offsetBefore [ZoneOffset](#zoneoffset)
+  * standardOffset [ZoneOffset](#zoneoffset)
+  * timeDefinition `string` (values: UTC, WALL, STANDARD): ~
+
+### ZoneRules
+* ZoneRules `object`: ~
+  * fixedOffset `boolean`: ~
+  * transitionRules `array`: ~
+    * items [ZoneOffsetTransitionRule](#zoneoffsettransitionrule)
+  * transitions `array`: ~
+    * items [ZoneOffsetTransition](#zoneoffsettransition)
 
 

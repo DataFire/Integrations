@@ -12,10 +12,6 @@
     "x-apisguru-categories": [
       "ecommerce"
     ],
-    "x-logo": {
-      "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/http_dropx.io_images_dropx-logo.svg"
-    },
     "x-origin": [
       {
         "format": "swagger",

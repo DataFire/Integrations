@@ -1,6 +1,6 @@
 {
   "name": "@datafire/azure_service_map_arm_service_map",
-  "version": "4.0.0",
+  "version": "5.0.0",
   "main": "index.js",
   "description": "DataFire integration for Service Map",
   "repository": {

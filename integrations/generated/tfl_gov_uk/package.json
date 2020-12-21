@@ -1,6 +1,6 @@
 {
   "name": "@datafire/tfl_gov_uk",
-  "version": "5.0.0",
+  "version": "6.0.0",
   "main": "index.js",
   "description": "DataFire integration for Transport for London Unified",
   "repository": {

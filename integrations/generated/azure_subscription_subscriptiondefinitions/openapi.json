@@ -104,7 +104,6 @@
                   "value": [
                     {
                       "display": {
-                        "description": "Create an Azure subscription definition.",
                         "operation": "Create a subscription definition",
                         "provider": "Microsoft Subscription",
                         "resource": "Resources"
@@ -113,7 +112,6 @@
                     },
                     {
                       "display": {
-                        "description": "Get a subscription definition.",
                         "operation": "Get a subscription definition",
                         "provider": "Microsoft Subscription",
                         "resource": "Resources"
@@ -122,7 +120,6 @@
                     },
                     {
                       "display": {
-                        "description": "list your subscription definitions",
                         "operation": "List subscription definitions",
                         "provider": "Microsoft Subscription",
                         "resource": "Resources"
@@ -506,7 +503,7 @@
         },
         "properties": {
           "$ref": "#/definitions/SubscriptionDefinitionProperties",
-          "description": "the subscription definiton properties",
+          "description": "the subscription definition properties",
           "x-ms-client-flatten": true
         },
         "type": {

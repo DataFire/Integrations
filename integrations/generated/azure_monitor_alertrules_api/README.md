@@ -15,11 +15,7 @@ let azure_monitor_alertrules_api = require('@datafire/azure_monitor_alertrules_a
   redirect_uri: ""
 });
 
-azure_monitor_alertrules_api.AlertRules_ListByResourceGroup({
-  "resourceGroupName": "",
-  "api-version": "",
-  "subscriptionId": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -29,6 +25,25 @@ azure_monitor_alertrules_api.AlertRules_ListByResourceGroup({
 
 
 ## Actions
+
+### AlertRules_ListBySubscription
+List the alert rules within a subscription.
+
+
+```js
+azure_monitor_alertrules_api.AlertRules_ListBySubscription({
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * api-version **required** `string`: Client Api Version.
+  * subscriptionId **required** `string`: The Azure subscription Id.
+
+#### Output
+* output [AlertRuleResourceCollection](#alertruleresourcecollection)
 
 ### AlertRules_ListByResourceGroup
 List the alert rules within a resource group.

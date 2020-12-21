@@ -7,20 +7,20 @@
   "basePath": "/app/api/rest/v1",
   "info": {
     "description": "The world's greatest SMS API",
-    "title": "Zoom Connect",
+    "title": "www.zoomconnect.com",
     "version": "1",
     "x-apisguru-categories": [
       "messaging",
       "marketing"
     ],
     "x-logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/http_zoomconnect.com_assets_logo.png"
+      "url": "https://api.apis.guru/v2/cache/logo/https_zoomconnect.com_assets_logo.png"
     },
     "x-origin": [
       {
         "converter": {
           "url": "https://github.com/lucybot/api-spec-converter",
-          "version": "2.6.2"
+          "version": "2.7.31"
         },
         "format": "swagger",
         "url": "https://www.zoomconnect.com/zoom/api-docs",
@@ -62,10 +62,6 @@
     {
       "description": "Manage contacts",
       "name": "contacts"
-    },
-    {
-      "description": "Number context service",
-      "name": "context"
     },
     {
       "description": "Manage groups",
@@ -116,6 +112,84 @@
           }
         },
         "summary": "balance",
+        "tags": [
+          "account"
+        ]
+      }
+    },
+    "/account/statistics": {
+      "get": {
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
+        "deprecated": false,
+        "description": "Returns data from the statistics report. Note that by default the statistics shown are based on the number of messages, use the calculateCreditValue should you wish to calculate the statistics based on credit value.",
+        "operationId": "getStatistics",
+        "parameters": [
+          {
+            "description": "date format: dd-MM-yyyy",
+            "format": "date-time",
+            "in": "query",
+            "name": "from",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "date format: dd-MM-yyyy",
+            "format": "date-time",
+            "in": "query",
+            "name": "to",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "optional email address of user to return statistics for a single user, default is to return statistics for all users if administrator, or statistics for your own account if not an administrator",
+            "in": "query",
+            "name": "userEmailAddress",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "optional campaign name",
+            "in": "query",
+            "name": "campaign",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "optionally include refunded and optout counts, default is false",
+            "in": "query",
+            "name": "includeRefundedAndOptout",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "description": "optionally calculate using credit value rather than message count, default is false",
+            "in": "query",
+            "name": "calculateCreditValue",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/WebServiceAccountStatistics"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "summary": "statistics",
         "tags": [
           "account"
         ]
@@ -737,93 +811,6 @@
         "operationId": "contacts.contactId.addToGroup.groupId.post"
       }
     },
-    "/context/lookup": {
-      "get": {
-        "consumes": [
-          "application/json",
-          "application/xml"
-        ],
-        "deprecated": false,
-        "description": "Returns context information for a single provided",
-        "parameters": [
-          {
-            "description": "number",
-            "in": "body",
-            "name": "body",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "schema": {
-              "$ref": "#/definitions/WebServiceNumberContextLookupResponse"
-            }
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          },
-          "404": {
-            "description": "Not Found"
-          }
-        },
-        "summary": "lookup",
-        "tags": [
-          "context"
-        ],
-        "operationId": "context.lookup.get"
-      },
-      "post": {
-        "consumes": [
-          "application/json",
-          "application/xml"
-        ],
-        "deprecated": false,
-        "description": "Returns context information for a single provided",
-        "parameters": [
-          {
-            "description": "number",
-            "in": "body",
-            "name": "body",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "schema": {
-              "$ref": "#/definitions/WebServiceNumberContextLookupResponse"
-            }
-          },
-          "201": {
-            "description": "Created"
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          },
-          "404": {
-            "description": "Not Found"
-          }
-        },
-        "summary": "lookup",
-        "tags": [
-          "context"
-        ],
-        "operationId": "context.lookup.post"
-      }
-    },
     "/groups/all": {
       "get": {
         "consumes": [
@@ -1380,6 +1367,285 @@
           "messages"
         ],
         "operationId": "messages.all.get"
+      }
+    },
+    "/messages/analyse/full": {
+      "post": {
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
+        "deprecated": false,
+        "description": "Returns full analysis of message",
+        "operationId": "messages.analyse.full.post",
+        "parameters": [
+          {
+            "description": "request",
+            "in": "body",
+            "name": "body",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/WebServiceAnalyseMessageRequestMessageAndRecipientNumber"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Description was not specified",
+            "schema": {
+              "$ref": "#/definitions/WebServiceAnalyseMessageResponse"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "summary": "analyse-full",
+        "tags": [
+          "messages"
+        ]
+      }
+    },
+    "/messages/analyse/message-credit-cost": {
+      "post": {
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
+        "deprecated": false,
+        "description": "Returns the number of credit which would be required to send the request message to the requested recipient number",
+        "operationId": "messages.analyse.message_credit_cost.post",
+        "parameters": [
+          {
+            "description": "request",
+            "in": "body",
+            "name": "body",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/WebServiceAnalyseMessageRequestMessageAndRecipientNumber"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Description was not specified",
+            "schema": {
+              "format": "double",
+              "type": "number"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "summary": "analyse-message-credit-cost",
+        "tags": [
+          "messages"
+        ]
+      }
+    },
+    "/messages/analyse/message-encoding": {
+      "post": {
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
+        "deprecated": false,
+        "description": "Returns the message encoding that would be required to send the requested message",
+        "operationId": "messages.analyse.message_encoding.post",
+        "parameters": [
+          {
+            "description": "request",
+            "in": "body",
+            "name": "body",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/WebServiceAnalyseMessageRequestMessageOnly"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Description was not specified",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "summary": "analyse-message-encoding",
+        "tags": [
+          "messages"
+        ]
+      }
+    },
+    "/messages/analyse/message-length": {
+      "post": {
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
+        "deprecated": false,
+        "description": "Returns the number of characters the requested message consists of",
+        "operationId": "messages.analyse.message_length.post",
+        "parameters": [
+          {
+            "description": "request",
+            "in": "body",
+            "name": "body",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/WebServiceAnalyseMessageRequestMessageOnly"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Description was not specified",
+            "schema": {
+              "format": "int32",
+              "type": "integer"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "summary": "analyse-message-length",
+        "tags": [
+          "messages"
+        ]
+      }
+    },
+    "/messages/analyse/message-length-within-max-allowed": {
+      "post": {
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
+        "deprecated": false,
+        "description": "Returns details for a single message",
+        "operationId": "messages.analyse.message_length_within_max_allowed.post",
+        "parameters": [
+          {
+            "description": "request",
+            "in": "body",
+            "name": "body",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/WebServiceAnalyseMessageRequestMessageOnly"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Description was not specified",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "summary": "analyse-",
+        "tags": [
+          "messages"
+        ]
+      }
+    },
+    "/messages/analyse/number-of-messages": {
+      "post": {
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
+        "deprecated": false,
+        "description": "Returns the number of SMS parts which would be sent when sending the requested message",
+        "operationId": "messages.analyse.number_of_messages.post",
+        "parameters": [
+          {
+            "description": "request",
+            "in": "body",
+            "name": "body",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/WebServiceAnalyseMessageRequestMessageOnly"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Description was not specified",
+            "schema": {
+              "format": "int32",
+              "type": "integer"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "summary": "analyse-number-of-messages",
+        "tags": [
+          "messages"
+        ]
       }
     },
     "/messages/{messageId}": {
@@ -2578,6 +2844,94 @@
         }
       }
     },
+    "WebServiceAccountStatistics": {
+      "description": "WebServiceAccountStatistics",
+      "properties": {
+        "from": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "grandTotal": {
+          "$ref": "#/definitions/WebServiceStatistics"
+        },
+        "showingCreditValue": {
+          "type": "boolean"
+        },
+        "to": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "users": {
+          "items": {
+            "$ref": "#/definitions/WebServiceUserStatistics"
+          },
+          "type": "array"
+        }
+      }
+    },
+    "WebServiceAnalyseMessageRequestMessageAndRecipientNumber": {
+      "description": "WebServiceAnalyseMessageRequest",
+      "properties": {
+        "message": {
+          "type": "string"
+        },
+        "recipientNumber": {
+          "type": "string"
+        }
+      }
+    },
+    "WebServiceAnalyseMessageRequestMessageOnly": {
+      "description": "WebServiceAnalyseMessageRequest",
+      "properties": {
+        "message": {
+          "type": "string"
+        },
+        "recipientNumber": {
+          "type": "string"
+        }
+      }
+    },
+    "WebServiceAnalyseMessageResponse": {
+      "description": "WebServiceAnalyseMessageResponse",
+      "properties": {
+        "characterAnalysis": {
+          "items": {
+            "items": {},
+            "type": "array"
+          },
+          "type": "array"
+        },
+        "messageCreditCost": {
+          "format": "double",
+          "type": "number"
+        },
+        "messageEncoding": {
+          "type": "string"
+        },
+        "messageLength": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "messageLengthWithinMaximumAllowed": {
+          "type": "boolean"
+        },
+        "numberOfMessages": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "WebServiceCampaignStatistics": {
+      "description": "WebServiceCampaignStatistics",
+      "properties": {
+        "campaign": {
+          "type": "string"
+        },
+        "statistics": {
+          "$ref": "#/definitions/WebServiceStatistics"
+        }
+      }
+    },
     "WebServiceContact": {
       "description": "WebServiceContact",
       "properties": {
@@ -2787,40 +3141,6 @@
         }
       }
     },
-    "WebServiceNumberContextLookupRequest": {
-      "description": "WebServiceNumberContextLookupRequest",
-      "properties": {
-        "links": {
-          "items": {
-            "$ref": "#/definitions/Link"
-          },
-          "type": "array"
-        },
-        "numbers": {
-          "items": {
-            "type": "string"
-          },
-          "type": "array"
-        }
-      }
-    },
-    "WebServiceNumberContextLookupResponse": {
-      "description": "WebServiceNumberContextLookupResponse",
-      "properties": {
-        "links": {
-          "items": {
-            "$ref": "#/definitions/Link"
-          },
-          "type": "array"
-        },
-        "number": {
-          "type": "string"
-        },
-        "numberValid": {
-          "type": "boolean"
-        }
-      }
-    },
     "WebServiceSendSmsRequest": {
       "description": "WebServiceSendSmsRequest",
       "properties": {
@@ -2891,6 +3211,35 @@
         },
         "voiceMessageId": {
           "type": "string"
+        }
+      }
+    },
+    "WebServiceStatistics": {
+      "description": "WebServiceStatistics",
+      "properties": {
+        "delivered": {
+          "format": "double",
+          "type": "number"
+        },
+        "failed": {
+          "format": "double",
+          "type": "number"
+        },
+        "failedOptout": {
+          "format": "double",
+          "type": "number"
+        },
+        "failedRefunded": {
+          "format": "double",
+          "type": "number"
+        },
+        "sent": {
+          "format": "double",
+          "type": "number"
+        },
+        "total": {
+          "format": "double",
+          "type": "number"
         }
       }
     },
@@ -2975,6 +3324,23 @@
         "userId": {
           "format": "int64",
           "type": "integer"
+        }
+      }
+    },
+    "WebServiceUserStatistics": {
+      "description": "WebServiceUserStatistics",
+      "properties": {
+        "campaigns": {
+          "items": {
+            "$ref": "#/definitions/WebServiceCampaignStatistics"
+          },
+          "type": "array"
+        },
+        "total": {
+          "$ref": "#/definitions/WebServiceStatistics"
+        },
+        "user": {
+          "$ref": "#/definitions/WebServiceUser"
         }
       }
     },

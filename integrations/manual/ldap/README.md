@@ -13,10 +13,7 @@ let ldap = require('@datafire/ldap').create({
   password: ""
 });
 
-ldap.add({
-  "dn": "",
-  "entry": {}
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

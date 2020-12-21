@@ -65,7 +65,7 @@
       "type": "string"
     },
     "keyValFilters": {
-      "collectionFormat": "csv",
+      "default": "grammaticalFeatures=singular,past;lexicalCategory=noun",
       "description": "Separate filtering conditions using a semicolon. Conditions take values grammaticalFeatures and/or lexicalCategory and are case-sensitive. To list multiple values in single condition divide them with comma.",
       "in": "path",
       "items": {
@@ -74,7 +74,7 @@
       },
       "name": "filters",
       "required": true,
-      "type": "array"
+      "type": "string"
     },
     "monolingual-lemmatron-source_lang": {
       "description": "IANA language code",
@@ -102,7 +102,8 @@
         "hi",
         "sw",
         "ta",
-        "gu"
+        "gu",
+        "fr"
       ],
       "in": "path",
       "name": "source_lang",
@@ -274,7 +275,12 @@
             "type": "string"
           },
           {
-            "$ref": "#/parameters/entriesWordId"
+            "default": "ace",
+            "description": "An Entry identifier. Case-sensitive.",
+            "in": "path",
+            "name": "word_id",
+            "required": true,
+            "type": "string"
           },
           {
             "$ref": "#/parameters/appId"
@@ -314,10 +320,29 @@
         },
         "parameters": [
           {
-            "$ref": "#/parameters/monolingual-source_lang"
+            "description": "IANA language code",
+            "enum": [
+              "en",
+              "es",
+              "lv",
+              "hi",
+              "sw",
+              "ta",
+              "gu",
+              "fr"
+            ],
+            "in": "path",
+            "name": "source_lang",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/entriesWordId"
+            "default": "ace",
+            "description": "An Entry identifier. Case-sensitive.",
+            "in": "path",
+            "name": "word_id",
+            "required": true,
+            "type": "string"
           },
           {
             "$ref": "#/parameters/appId"
@@ -357,10 +382,22 @@
         },
         "parameters": [
           {
-            "$ref": "#/parameters/thesaurus-source_lang"
+            "description": "IANA language code",
+            "enum": [
+              "en"
+            ],
+            "in": "path",
+            "name": "source_lang",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/entriesWordId"
+            "default": "ace",
+            "description": "An Entry identifier. Case-sensitive.",
+            "in": "path",
+            "name": "word_id",
+            "required": true,
+            "type": "string"
           },
           {
             "$ref": "#/parameters/appId"
@@ -410,7 +447,12 @@
             "type": "string"
           },
           {
-            "$ref": "#/parameters/entriesWordId"
+            "default": "ace",
+            "description": "An Entry identifier. Case-sensitive.",
+            "in": "path",
+            "name": "word_id",
+            "required": true,
+            "type": "string"
           },
           {
             "description": "Region filter parameter. gb = Oxford Dictionary of English. us = New Oxford American Dictionary.",
@@ -461,10 +503,22 @@
         },
         "parameters": [
           {
-            "$ref": "#/parameters/thesaurus-source_lang"
+            "description": "IANA language code",
+            "enum": [
+              "en"
+            ],
+            "in": "path",
+            "name": "source_lang",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/entriesWordId"
+            "default": "ace",
+            "description": "An Entry identifier. Case-sensitive.",
+            "in": "path",
+            "name": "word_id",
+            "required": true,
+            "type": "string"
           },
           {
             "$ref": "#/parameters/appId"
@@ -504,10 +558,22 @@
         },
         "parameters": [
           {
-            "$ref": "#/parameters/thesaurus-source_lang"
+            "description": "IANA language code",
+            "enum": [
+              "en"
+            ],
+            "in": "path",
+            "name": "source_lang",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/entriesWordId"
+            "default": "ace",
+            "description": "An Entry identifier. Case-sensitive.",
+            "in": "path",
+            "name": "word_id",
+            "required": true,
+            "type": "string"
           },
           {
             "$ref": "#/parameters/appId"
@@ -543,13 +609,41 @@
         "description": "\nUse filters to limit the [entry](documentation/glossary?term=entry) information that is returned. For example, you may only require definitions and not everything else, or just [pronunciations](documentation/glossary?term=pronunciation). The full list of filters can be retrieved from the filters Utility endpoint. You can also specify values within the filter using '='. For example 'grammaticalFeatures=singular'. Filters can also be combined using a semicolon.\n\n  <div id=\"dictionary_entries_filters\"></div>\n",
         "parameters": [
           {
-            "$ref": "#/parameters/monolingual-source_lang"
+            "description": "IANA language code",
+            "enum": [
+              "en",
+              "es",
+              "lv",
+              "hi",
+              "sw",
+              "ta",
+              "gu",
+              "fr"
+            ],
+            "in": "path",
+            "name": "source_lang",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/entriesWordId"
+            "default": "ace",
+            "description": "An Entry identifier. Case-sensitive.",
+            "in": "path",
+            "name": "word_id",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/keyValFilters"
+            "default": "grammaticalFeatures=singular,past;lexicalCategory=noun",
+            "description": "Separate filtering conditions using a semicolon. Conditions take values grammaticalFeatures and/or lexicalCategory and are case-sensitive. To list multiple values in single condition divide them with comma.",
+            "in": "path",
+            "items": {
+              "pattern": "(lexicalCategory|grammaticalFeatures)=.+",
+              "type": "string"
+            },
+            "name": "filters",
+            "required": true,
+            "type": "string"
           },
           {
             "$ref": "#/parameters/appId"
@@ -789,12 +883,38 @@
         "operationId": "grammaticalFeatures.source_language.get"
       }
     },
-    "/inflections/{source_lang}/{word_id}": {
+    "/inflections/{source_lang}/{word_id}/{filters}": {
       "get": {
         "description": "\nUse this to check if a word exists in the dictionary, or what 'root' form it links to (e.g., swimming > swim). The response tells you the possible [lemmas](documentation/glossary?term=lemma) for a given [inflected](documentation/glossary?term=inflection) word. This can then be combined with other endpoints to retrieve more information.\n\n  <div id=\"lemmatron\"></div>\n",
         "parameters": [
           {
-            "$ref": "#/parameters/monolingual-lemmatron-source_lang"
+            "description": "IANA language code",
+            "enum": [
+              "en",
+              "es",
+              "hi",
+              "nso",
+              "tn",
+              "zu",
+              "de",
+              "pt"
+            ],
+            "in": "path",
+            "name": "source_lang",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": "grammaticalFeatures=singular,past;lexicalCategory=noun",
+            "description": "Separate filtering conditions using a semicolon. Conditions take values grammaticalFeatures and/or lexicalCategory and are case-sensitive. To list multiple values in single condition divide them with comma.",
+            "in": "path",
+            "items": {
+              "pattern": "(lexicalCategory|grammaticalFeatures)=.+",
+              "type": "string"
+            },
+            "name": "filters",
+            "required": true,
+            "type": "string"
           },
           {
             "default": "swimming",
@@ -824,50 +944,6 @@
           }
         },
         "summary": "Check a word exists in the dictionary and retrieve its root form",
-        "tags": [
-          "Lemmatron"
-        ],
-        "operationId": "inflections.source_lang.word_id.get"
-      }
-    },
-    "/inflections/{source_lang}/{word_id}/{filters}": {
-      "get": {
-        "description": "\nRetrieve available [lemmas](documentation/glossary?term=lemma) for a given [inflected](documentation/glossary?term=inflection) wordform. Filter results by categories.  \n\n  <div id=\"lemmatron_filters\"></div>\n",
-        "parameters": [
-          {
-            "$ref": "#/parameters/monolingual-lemmatron-source_lang"
-          },
-          {
-            "default": "change",
-            "description": "The input word",
-            "in": "path",
-            "name": "word_id",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "$ref": "#/parameters/keyValFilters"
-          },
-          {
-            "$ref": "#/parameters/appId"
-          },
-          {
-            "$ref": "#/parameters/appKey"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful response.",
-            "schema": {
-              "$ref": "#/definitions/Lemmatron",
-              "title": "InflectionsResults"
-            }
-          },
-          "500": {
-            "description": "Internal Error. An error occurred while processing the data.\n"
-          }
-        },
-        "summary": "Apply optional filters to Lemmatron response",
         "tags": [
           "Lemmatron"
         ],
@@ -1786,7 +1862,20 @@
         "description": "Use this to apply more complex filters to the [list of words](documentation/glossary?term=wordlist). For example, you may only want to filter out words for which all [senses](documentation/glossary?term=sense) match the filter, or only its 'prime sense'. You can also filter by word length or match by substring (prefix). \n\n  <div id=\"wordlist_advanced\"></div>\n",
         "parameters": [
           {
-            "$ref": "#/parameters/monolingual-wordlist-source_lang"
+            "description": "IANA language code",
+            "enum": [
+              "en",
+              "es",
+              "hi",
+              "lv",
+              "sw",
+              "ta",
+              "gu"
+            ],
+            "in": "path",
+            "name": "source_lang",
+            "required": true,
+            "type": "string"
           },
           {
             "default": "lexicalCategory=Noun;domains=sport",
@@ -1895,7 +1984,20 @@
         "description": "\nUse this to retrieve a [list of words](documentation/glossary?term=wordlist) for particular [domain](documentation/glossary?term=domain), [lexical category](documentation/glossary?term=lexicalcategory), [register](documentation/glossary?term=registers) and/or [region](documentation/glossary?term=regions). View the full list of possible filters using the filters Utility endpoint.  The response only includes [headwords](documentation/glossary?term=headword), not all their possible [inflections](documentation/glossary?term=inflection). If you require a full [wordlist](documentation/glossary?term=wordlist) including [inflected forms](documentation/glossary?term=inflection), contact us and we can help.\n\n  <div id=\"wordlist\"></div>\n",
         "parameters": [
           {
-            "$ref": "#/parameters/monolingual-wordlist-source_lang"
+            "description": "IANA language code",
+            "enum": [
+              "en",
+              "es",
+              "hi",
+              "lv",
+              "sw",
+              "ta",
+              "gu"
+            ],
+            "in": "path",
+            "name": "source_lang",
+            "required": true,
+            "type": "string"
           },
           {
             "default": "registers=Rare;domains=Art",

@@ -7,7 +7,7 @@
   "info": {
     "description": "Use these REST APIs for performing operations on Group entity in your Azure API Management deployment. Groups are used to manage the visibility of products to developers. Each API Management service instance comes with the following immutable system groups whose membership is automatically managed by API Management.  - **Administrators** - Azure subscription administrators are members of this group. - **Developers** - Authenticated developer portal users fall into this group. - **Guests** - Unauthenticated developer portal users are placed into this group. In addition to these system groups, administrators can create custom groups or [leverage external groups in associated Azure Active Directory tenants](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-aad#how-to-add-an-external-azure-active-directory-group). Custom and external groups can be used alongside system groups in giving developers visibility and access to API products. For example, you could create one custom group for developers affiliated with a specific partner organization and allow them access to the APIs from a product containing relevant APIs only. A user can be a member of more than one group.",
     "title": "ApiManagementClient",
-    "version": "2018-01-01",
+    "version": "2019-12-01-preview",
     "x-apisguru-categories": [
       "cloud"
     ],
@@ -17,7 +17,7 @@
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/apimanagement/resource-manager/Microsoft.ApiManagement/preview/2018-01-01/apimgroups.json",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/apimanagement/resource-manager/Microsoft.ApiManagement/preview/2019-12-01-preview/apimgroups.json",
         "version": "2.0"
       }
     ],
@@ -57,19 +57,7 @@
       ]
     }
   ],
-  "parameters": {
-    "GroupIdParameter": {
-      "description": "Group identifier. Must be unique in the current API Management service instance.",
-      "in": "path",
-      "maxLength": 80,
-      "minLength": 1,
-      "name": "groupId",
-      "pattern": "(^[\\w]+$)|(^[\\w][\\w\\-]+[\\w]$)",
-      "required": true,
-      "type": "string",
-      "x-ms-parameter-location": "method"
-    }
-  },
+  "parameters": {},
   "paths": {
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/groups": {
       "get": {
@@ -99,7 +87,7 @@
             "x-ms-parameter-location": "method"
           },
           {
-            "description": "| Field       | Supported operators    | Supported functions                         |\n|-------------|------------------------|---------------------------------------------|\n| id          | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |\n| name        | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |\n| description | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |\n| type        | eq, ne                 | N/A                                         |",
+            "description": "|   Field     |     Usage     |     Supported operators     |     Supported functions     |</br>|-------------|-------------|-------------|-------------|</br>| name | filter | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith | </br>| displayName | filter | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith | </br>| description | filter | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith | </br>| aadObjectId | filter | eq |     | </br>",
             "in": "query",
             "name": "$filter",
             "required": false,
@@ -144,17 +132,138 @@
           "200": {
             "description": "Lists a collection of Group entities.",
             "schema": {
-              "$ref": "#/definitions/GroupCollection"
+              "description": "Paged Group list representation.",
+              "properties": {
+                "nextLink": {
+                  "description": "Next page link if any.",
+                  "type": "string"
+                },
+                "value": {
+                  "description": "Page values.",
+                  "items": {
+                    "allOf": [
+                      {
+                        "description": "The Resource definition.",
+                        "properties": {
+                          "id": {
+                            "description": "Resource ID.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "name": {
+                            "description": "Resource name.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "type": {
+                            "description": "Resource type for API Management resource.",
+                            "readOnly": true,
+                            "type": "string"
+                          }
+                        },
+                        "x-ms-azure-resource": true
+                      }
+                    ],
+                    "description": "Contract details.",
+                    "properties": {
+                      "properties": {
+                        "description": "Group contract Properties.",
+                        "properties": {
+                          "builtIn": {
+                            "description": "true if the group is one of the three system groups (Administrators, Developers, or Guests); otherwise false.",
+                            "readOnly": true,
+                            "type": "boolean"
+                          },
+                          "description": {
+                            "description": "Group description. Can contain HTML formatting tags.",
+                            "maxLength": 1000,
+                            "type": "string"
+                          },
+                          "displayName": {
+                            "description": "Group name.",
+                            "maxLength": 300,
+                            "minLength": 1,
+                            "type": "string"
+                          },
+                          "externalId": {
+                            "description": "For external groups, this property contains the id of the group from the external identity provider, e.g. for Azure Active Directory `aad://<tenant>.onmicrosoft.com/groups/<group object id>`; otherwise the value is null.",
+                            "type": "string"
+                          },
+                          "type": {
+                            "description": "Group type.",
+                            "enum": [
+                              "custom",
+                              "system",
+                              "external"
+                            ],
+                            "type": "string",
+                            "x-ms-enum": {
+                              "modelAsString": false,
+                              "name": "GroupType"
+                            }
+                          }
+                        },
+                        "required": [
+                          "displayName"
+                        ]
+                      }
+                    }
+                  },
+                  "type": "array"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "description": "Error Response.",
+              "properties": {
+                "error": {
+                  "description": "Error Body contract.",
+                  "properties": {
+                    "code": {
+                      "description": "Service-defined error code. This code serves as a sub-status for the HTTP error code specified in the response.",
+                      "type": "string"
+                    },
+                    "details": {
+                      "description": "The list of invalid fields send in request, in case of validation error.",
+                      "items": {
+                        "description": "Error Field contract.",
+                        "properties": {
+                          "code": {
+                            "description": "Property level error code.",
+                            "type": "string"
+                          },
+                          "message": {
+                            "description": "Human-readable representation of property-level error.",
+                            "type": "string"
+                          },
+                          "target": {
+                            "description": "Property name.",
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "type": "array"
+                    },
+                    "message": {
+                      "description": "Human-readable representation of the error.",
+                      "type": "string"
+                    }
+                  }
+                }
+              }
             }
           }
         },
         "tags": [
-          "Groups"
+          "Group"
         ],
         "x-ms-examples": {
           "ApiManagementListGroups": {
             "parameters": {
-              "api-version": "2018-01-01",
+              "api-version": "2019-12-01-preview",
               "resourceGroupName": "rg1",
               "serviceName": "apimService1",
               "subscriptionId": "subid"
@@ -215,7 +324,7 @@
             }
           }
         },
-        "x-ms-odata": "#/definitions/GroupContract",
+        "x-ms-odata": "./definitions.json#/definitions/GroupContract",
         "x-ms-pageable": {
           "nextLinkName": "nextLink"
         }
@@ -246,7 +355,14 @@
             "x-ms-parameter-location": "method"
           },
           {
-            "$ref": "#/parameters/GroupIdParameter"
+            "description": "Group identifier. Must be unique in the current API Management service instance.",
+            "in": "path",
+            "maxLength": 256,
+            "minLength": 1,
+            "name": "groupId",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "ETag of the Entity. ETag should match the current entity state from the header response of the GET request or it should be * for unconditional update.",
@@ -322,13 +438,13 @@
           }
         },
         "tags": [
-          "Groups"
+          "Group"
         ],
         "x-ms-examples": {
           "ApiManagementDeleteGroup": {
             "parameters": {
               "If-Match": "*",
-              "api-version": "2018-01-01",
+              "api-version": "2019-12-01-preview",
               "groupId": "aadGroup",
               "resourceGroupName": "rg1",
               "serviceName": "apimService1",
@@ -365,7 +481,14 @@
             "x-ms-parameter-location": "method"
           },
           {
-            "$ref": "#/parameters/GroupIdParameter"
+            "description": "Group identifier. Must be unique in the current API Management service instance.",
+            "in": "path",
+            "maxLength": 256,
+            "minLength": 1,
+            "name": "groupId",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "Version of the API to be used with the client request.",
@@ -392,7 +515,73 @@
               }
             },
             "schema": {
-              "$ref": "#/definitions/GroupContract"
+              "allOf": [
+                {
+                  "description": "The Resource definition.",
+                  "properties": {
+                    "id": {
+                      "description": "Resource ID.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "name": {
+                      "description": "Resource name.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "type": {
+                      "description": "Resource type for API Management resource.",
+                      "readOnly": true,
+                      "type": "string"
+                    }
+                  },
+                  "x-ms-azure-resource": true
+                }
+              ],
+              "description": "Contract details.",
+              "properties": {
+                "properties": {
+                  "description": "Group contract Properties.",
+                  "properties": {
+                    "builtIn": {
+                      "description": "true if the group is one of the three system groups (Administrators, Developers, or Guests); otherwise false.",
+                      "readOnly": true,
+                      "type": "boolean"
+                    },
+                    "description": {
+                      "description": "Group description. Can contain HTML formatting tags.",
+                      "maxLength": 1000,
+                      "type": "string"
+                    },
+                    "displayName": {
+                      "description": "Group name.",
+                      "maxLength": 300,
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "externalId": {
+                      "description": "For external groups, this property contains the id of the group from the external identity provider, e.g. for Azure Active Directory `aad://<tenant>.onmicrosoft.com/groups/<group object id>`; otherwise the value is null.",
+                      "type": "string"
+                    },
+                    "type": {
+                      "description": "Group type.",
+                      "enum": [
+                        "custom",
+                        "system",
+                        "external"
+                      ],
+                      "type": "string",
+                      "x-ms-enum": {
+                        "modelAsString": false,
+                        "name": "GroupType"
+                      }
+                    }
+                  },
+                  "required": [
+                    "displayName"
+                  ]
+                }
+              }
             }
           },
           "default": {
@@ -439,12 +628,12 @@
           }
         },
         "tags": [
-          "Groups"
+          "Group"
         ],
         "x-ms-examples": {
           "ApiManagementGetGroup": {
             "parameters": {
-              "api-version": "2018-01-01",
+              "api-version": "2019-12-01-preview",
               "groupId": "59306a29e4bbd510dc24e5f9",
               "resourceGroupName": "rg1",
               "serviceName": "apimService1",
@@ -493,7 +682,14 @@
             "x-ms-parameter-location": "method"
           },
           {
-            "$ref": "#/parameters/GroupIdParameter"
+            "description": "Group identifier. Must be unique in the current API Management service instance.",
+            "in": "path",
+            "maxLength": 256,
+            "minLength": 1,
+            "name": "groupId",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "Version of the API to be used with the client request.",
@@ -564,12 +760,12 @@
           }
         },
         "tags": [
-          "Groups"
+          "Group"
         ],
         "x-ms-examples": {
           "ApiManagementHeadGroup": {
             "parameters": {
-              "api-version": "2018-01-01",
+              "api-version": "2019-12-01-preview",
               "groupId": "59306a29e4bbd510dc24e5f9",
               "resourceGroupName": "rg1",
               "serviceName": "apimService1",
@@ -609,7 +805,14 @@
             "x-ms-parameter-location": "method"
           },
           {
-            "$ref": "#/parameters/GroupIdParameter"
+            "description": "Group identifier. Must be unique in the current API Management service instance.",
+            "in": "path",
+            "maxLength": 256,
+            "minLength": 1,
+            "name": "groupId",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "Update parameters.",
@@ -617,7 +820,41 @@
             "name": "parameters",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/GroupUpdateParameters"
+              "description": "Parameters supplied to the Update Group operation.",
+              "properties": {
+                "properties": {
+                  "description": "Parameters supplied to the Update Group operation.",
+                  "properties": {
+                    "description": {
+                      "description": "Group description.",
+                      "type": "string"
+                    },
+                    "displayName": {
+                      "description": "Group name.",
+                      "maxLength": 300,
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "externalId": {
+                      "description": "Identifier of the external groups, this property contains the id of the group from the external identity provider, e.g. for Azure Active Directory `aad://<tenant>.onmicrosoft.com/groups/<group object id>`; otherwise the value is null.",
+                      "type": "string"
+                    },
+                    "type": {
+                      "description": "Group type.",
+                      "enum": [
+                        "custom",
+                        "system",
+                        "external"
+                      ],
+                      "type": "string",
+                      "x-ms-enum": {
+                        "modelAsString": false,
+                        "name": "GroupType"
+                      }
+                    }
+                  }
+                }
+              }
             }
           },
           {
@@ -691,13 +928,13 @@
           }
         },
         "tags": [
-          "Groups"
+          "Group"
         ],
         "x-ms-examples": {
           "ApiManagementUpdateGroup": {
             "parameters": {
               "If-Match": "*",
-              "api-version": "2018-01-01",
+              "api-version": "2019-12-01-preview",
               "groupId": "tempgroup",
               "parameters": {
                 "properties": {
@@ -738,7 +975,14 @@
             "x-ms-parameter-location": "method"
           },
           {
-            "$ref": "#/parameters/GroupIdParameter"
+            "description": "Group identifier. Must be unique in the current API Management service instance.",
+            "in": "path",
+            "maxLength": 256,
+            "minLength": 1,
+            "name": "groupId",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "Create parameters.",
@@ -746,7 +990,44 @@
             "name": "parameters",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/GroupCreateParameters"
+              "description": "Parameters supplied to the Create Group operation.",
+              "properties": {
+                "properties": {
+                  "description": "Parameters supplied to the Create Group operation.",
+                  "properties": {
+                    "description": {
+                      "description": "Group description.",
+                      "type": "string"
+                    },
+                    "displayName": {
+                      "description": "Group name.",
+                      "maxLength": 300,
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "externalId": {
+                      "description": "Identifier of the external groups, this property contains the id of the group from the external identity provider, e.g. for Azure Active Directory `aad://<tenant>.onmicrosoft.com/groups/<group object id>`; otherwise the value is null.",
+                      "type": "string"
+                    },
+                    "type": {
+                      "description": "Group type.",
+                      "enum": [
+                        "custom",
+                        "system",
+                        "external"
+                      ],
+                      "type": "string",
+                      "x-ms-enum": {
+                        "modelAsString": false,
+                        "name": "GroupType"
+                      }
+                    }
+                  },
+                  "required": [
+                    "displayName"
+                  ]
+                }
+              }
             }
           },
           {
@@ -775,14 +1056,158 @@
         "responses": {
           "200": {
             "description": "Group already exists.",
+            "headers": {
+              "ETag": {
+                "description": "Current entity state version. Should be treated as opaque and used to make conditional HTTP requests.",
+                "type": "string"
+              }
+            },
             "schema": {
-              "$ref": "#/definitions/GroupContract"
+              "allOf": [
+                {
+                  "description": "The Resource definition.",
+                  "properties": {
+                    "id": {
+                      "description": "Resource ID.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "name": {
+                      "description": "Resource name.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "type": {
+                      "description": "Resource type for API Management resource.",
+                      "readOnly": true,
+                      "type": "string"
+                    }
+                  },
+                  "x-ms-azure-resource": true
+                }
+              ],
+              "description": "Contract details.",
+              "properties": {
+                "properties": {
+                  "description": "Group contract Properties.",
+                  "properties": {
+                    "builtIn": {
+                      "description": "true if the group is one of the three system groups (Administrators, Developers, or Guests); otherwise false.",
+                      "readOnly": true,
+                      "type": "boolean"
+                    },
+                    "description": {
+                      "description": "Group description. Can contain HTML formatting tags.",
+                      "maxLength": 1000,
+                      "type": "string"
+                    },
+                    "displayName": {
+                      "description": "Group name.",
+                      "maxLength": 300,
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "externalId": {
+                      "description": "For external groups, this property contains the id of the group from the external identity provider, e.g. for Azure Active Directory `aad://<tenant>.onmicrosoft.com/groups/<group object id>`; otherwise the value is null.",
+                      "type": "string"
+                    },
+                    "type": {
+                      "description": "Group type.",
+                      "enum": [
+                        "custom",
+                        "system",
+                        "external"
+                      ],
+                      "type": "string",
+                      "x-ms-enum": {
+                        "modelAsString": false,
+                        "name": "GroupType"
+                      }
+                    }
+                  },
+                  "required": [
+                    "displayName"
+                  ]
+                }
+              }
             }
           },
           "201": {
-            "description": "Group was created succesfully.",
+            "description": "Group was created successfully.",
+            "headers": {
+              "ETag": {
+                "description": "Current entity state version. Should be treated as opaque and used to make conditional HTTP requests.",
+                "type": "string"
+              }
+            },
             "schema": {
-              "$ref": "#/definitions/GroupContract"
+              "allOf": [
+                {
+                  "description": "The Resource definition.",
+                  "properties": {
+                    "id": {
+                      "description": "Resource ID.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "name": {
+                      "description": "Resource name.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "type": {
+                      "description": "Resource type for API Management resource.",
+                      "readOnly": true,
+                      "type": "string"
+                    }
+                  },
+                  "x-ms-azure-resource": true
+                }
+              ],
+              "description": "Contract details.",
+              "properties": {
+                "properties": {
+                  "description": "Group contract Properties.",
+                  "properties": {
+                    "builtIn": {
+                      "description": "true if the group is one of the three system groups (Administrators, Developers, or Guests); otherwise false.",
+                      "readOnly": true,
+                      "type": "boolean"
+                    },
+                    "description": {
+                      "description": "Group description. Can contain HTML formatting tags.",
+                      "maxLength": 1000,
+                      "type": "string"
+                    },
+                    "displayName": {
+                      "description": "Group name.",
+                      "maxLength": 300,
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "externalId": {
+                      "description": "For external groups, this property contains the id of the group from the external identity provider, e.g. for Azure Active Directory `aad://<tenant>.onmicrosoft.com/groups/<group object id>`; otherwise the value is null.",
+                      "type": "string"
+                    },
+                    "type": {
+                      "description": "Group type.",
+                      "enum": [
+                        "custom",
+                        "system",
+                        "external"
+                      ],
+                      "type": "string",
+                      "x-ms-enum": {
+                        "modelAsString": false,
+                        "name": "GroupType"
+                      }
+                    }
+                  },
+                  "required": [
+                    "displayName"
+                  ]
+                }
+              }
             }
           },
           "default": {
@@ -829,12 +1254,12 @@
           }
         },
         "tags": [
-          "Groups"
+          "Group"
         ],
         "x-ms-examples": {
           "ApiManagementCreateGroup": {
             "parameters": {
-              "api-version": "2018-01-01",
+              "api-version": "2019-12-01-preview",
               "groupId": "tempgroup",
               "parameters": {
                 "properties": {
@@ -872,7 +1297,7 @@
           },
           "ApiManagementCreateGroupExternal": {
             "parameters": {
-              "api-version": "2018-01-01",
+              "api-version": "2019-12-01-preview",
               "groupId": "aadGroup",
               "parameters": {
                 "properties": {
@@ -920,7 +1345,7 @@
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/groups/{groupId}/users": {
       "get": {
-        "description": "Lists a collection of the members of the group, specified by its identifier.",
+        "description": "Lists a collection of user entities associated with the group.",
         "operationId": "GroupUser_List",
         "parameters": [
           {
@@ -943,10 +1368,17 @@
             "x-ms-parameter-location": "method"
           },
           {
-            "$ref": "#/parameters/GroupIdParameter"
+            "description": "Group identifier. Must be unique in the current API Management service instance.",
+            "in": "path",
+            "maxLength": 256,
+            "minLength": 1,
+            "name": "groupId",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
-            "description": "| Field            | Supported operators    | Supported functions               |\n|------------------|------------------------|-----------------------------------|\n| id               | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |\n| firstName        | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |\n| lastName         | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |\n| email            | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |\n| state            | eq                     | N/A                               |\n| registrationDate | ge, le, eq, ne, gt, lt | N/A                               |\n| note             | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |",
+            "description": "|   Field     |     Usage     |     Supported operators     |     Supported functions     |</br>|-------------|-------------|-------------|-------------|</br>| name | filter | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith | </br>| firstName | filter | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith | </br>| lastName | filter | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith | </br>| email | filter | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith | </br>| registrationDate | filter | ge, le, eq, ne, gt, lt |     | </br>| note | filter | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith | </br>",
             "in": "query",
             "name": "$filter",
             "required": false,
@@ -1045,7 +1477,6 @@
                                     }
                                   }
                                 },
-                                "readOnly": true,
                                 "type": "array"
                               },
                               "note": {
@@ -1120,7 +1551,7 @@
                                   "type": "string"
                                 },
                                 "externalId": {
-                                  "description": "For external groups, this property contains the id of the group from the external identity provider, e.g. for Azure Active Directory aad://<tenant>.onmicrosoft.com/groups/<group object id>; otherwise the value is null.",
+                                  "description": "For external groups, this property contains the id of the group from the external identity provider, e.g. for Azure Active Directory `aad://<tenant>.onmicrosoft.com/groups/<group object id>`; otherwise the value is null.",
                                   "type": "string"
                                 },
                                 "type": {
@@ -1206,12 +1637,12 @@
           }
         },
         "tags": [
-          "GroupUsers"
+          "GroupUser"
         ],
         "x-ms-examples": {
           "ApiManagementListGroupUsers": {
             "parameters": {
-              "api-version": "2018-01-01",
+              "api-version": "2019-12-01-preview",
               "groupId": "57d2ef278aa04f0888cba3f3",
               "resourceGroupName": "rg1",
               "serviceName": "apimService1",
@@ -1247,13 +1678,13 @@
             }
           }
         },
-        "x-ms-odata": "./apimusers.json#/definitions/UserContract",
+        "x-ms-odata": "./definitions.json#/definitions/UserContract",
         "x-ms-pageable": {
           "nextLinkName": "nextLink"
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/groups/{groupId}/users/{uid}": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/groups/{groupId}/users/{userId}": {
       "delete": {
         "description": "Remove existing user from existing group.",
         "operationId": "GroupUser_Delete",
@@ -1278,15 +1709,21 @@
             "x-ms-parameter-location": "method"
           },
           {
-            "$ref": "#/parameters/GroupIdParameter"
+            "description": "Group identifier. Must be unique in the current API Management service instance.",
+            "in": "path",
+            "maxLength": 256,
+            "minLength": 1,
+            "name": "groupId",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "User identifier. Must be unique in the current API Management service instance.",
             "in": "path",
             "maxLength": 80,
             "minLength": 1,
-            "name": "uid",
-            "pattern": "(^[\\w]+$)|(^[\\w][\\w\\-]+[\\w]$)",
+            "name": "userId",
             "required": true,
             "type": "string",
             "x-ms-parameter-location": "method"
@@ -1357,18 +1794,18 @@
           }
         },
         "tags": [
-          "GroupUsers"
+          "GroupUser"
         ],
         "x-ms-examples": {
           "ApiManagementDeleteGroupUser": {
             "parameters": {
               "If-Match": "*",
-              "api-version": "2018-01-01",
+              "api-version": "2019-12-01-preview",
               "groupId": "templategroup",
               "resourceGroupName": "rg1",
               "serviceName": "apimService1",
               "subscriptionId": "subid",
-              "uid": "59307d350af58404d8a26300"
+              "userId": "59307d350af58404d8a26300"
             },
             "responses": {
               "200": {},
@@ -1401,15 +1838,21 @@
             "x-ms-parameter-location": "method"
           },
           {
-            "$ref": "#/parameters/GroupIdParameter"
+            "description": "Group identifier. Must be unique in the current API Management service instance.",
+            "in": "path",
+            "maxLength": 256,
+            "minLength": 1,
+            "name": "groupId",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "User identifier. Must be unique in the current API Management service instance.",
             "in": "path",
             "maxLength": 80,
             "minLength": 1,
-            "name": "uid",
-            "pattern": "(^[\\w]+$)|(^[\\w][\\w\\-]+[\\w]$)",
+            "name": "userId",
             "required": true,
             "type": "string",
             "x-ms-parameter-location": "method"
@@ -1480,17 +1923,17 @@
           }
         },
         "tags": [
-          "GroupUsers"
+          "GroupUser"
         ],
         "x-ms-examples": {
           "ApiManagementHeadGroupUser": {
             "parameters": {
-              "api-version": "2018-01-01",
+              "api-version": "2019-12-01-preview",
               "groupId": "59306a29e4bbd510dc24e5f9",
               "resourceGroupName": "rg1",
               "serviceName": "apimService1",
               "subscriptionId": "subid",
-              "uid": "5931a75ae4bbd512a88c680b"
+              "userId": "5931a75ae4bbd512a88c680b"
             },
             "responses": {
               "204": {},
@@ -1500,7 +1943,7 @@
         }
       },
       "put": {
-        "description": "Adds a user to the specified group.",
+        "description": "Add existing user to existing group",
         "operationId": "GroupUser_Create",
         "parameters": [
           {
@@ -1523,15 +1966,21 @@
             "x-ms-parameter-location": "method"
           },
           {
-            "$ref": "#/parameters/GroupIdParameter"
+            "description": "Group identifier. Must be unique in the current API Management service instance.",
+            "in": "path",
+            "maxLength": 256,
+            "minLength": 1,
+            "name": "groupId",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "User identifier. Must be unique in the current API Management service instance.",
             "in": "path",
             "maxLength": 80,
             "minLength": 1,
-            "name": "uid",
-            "pattern": "(^[\\w]+$)|(^[\\w][\\w\\-]+[\\w]$)",
+            "name": "userId",
             "required": true,
             "type": "string",
             "x-ms-parameter-location": "method"
@@ -1600,7 +2049,6 @@
                               }
                             }
                           },
-                          "readOnly": true,
                           "type": "array"
                         },
                         "note": {
@@ -1675,7 +2123,7 @@
                             "type": "string"
                           },
                           "externalId": {
-                            "description": "For external groups, this property contains the id of the group from the external identity provider, e.g. for Azure Active Directory aad://<tenant>.onmicrosoft.com/groups/<group object id>; otherwise the value is null.",
+                            "description": "For external groups, this property contains the id of the group from the external identity provider, e.g. for Azure Active Directory `aad://<tenant>.onmicrosoft.com/groups/<group object id>`; otherwise the value is null.",
                             "type": "string"
                           },
                           "type": {
@@ -1761,7 +2209,6 @@
                               }
                             }
                           },
-                          "readOnly": true,
                           "type": "array"
                         },
                         "note": {
@@ -1836,7 +2283,7 @@
                             "type": "string"
                           },
                           "externalId": {
-                            "description": "For external groups, this property contains the id of the group from the external identity provider, e.g. for Azure Active Directory aad://<tenant>.onmicrosoft.com/groups/<group object id>; otherwise the value is null.",
+                            "description": "For external groups, this property contains the id of the group from the external identity provider, e.g. for Azure Active Directory `aad://<tenant>.onmicrosoft.com/groups/<group object id>`; otherwise the value is null.",
                             "type": "string"
                           },
                           "type": {
@@ -1918,17 +2365,17 @@
           }
         },
         "tags": [
-          "GroupUsers"
+          "GroupUser"
         ],
         "x-ms-examples": {
           "ApiManagementCreateGroupUser": {
             "parameters": {
-              "api-version": "2018-01-01",
+              "api-version": "2019-12-01-preview",
               "groupId": "tempgroup",
               "resourceGroupName": "rg1",
               "serviceName": "apimService1",
               "subscriptionId": "subid",
-              "uid": "59307d350af58404d8a26300"
+              "userId": "59307d350af58404d8a26300"
             },
             "responses": {
               "200": {
@@ -1969,183 +2416,5 @@
       }
     }
   },
-  "definitions": {
-    "GroupCollection": {
-      "description": "Paged Group list representation.",
-      "properties": {
-        "nextLink": {
-          "description": "Next page link if any.",
-          "type": "string"
-        },
-        "value": {
-          "description": "Page values.",
-          "items": {
-            "$ref": "#/definitions/GroupContract"
-          },
-          "type": "array"
-        }
-      }
-    },
-    "GroupContract": {
-      "allOf": [
-        {
-          "description": "The Resource definition.",
-          "properties": {
-            "id": {
-              "description": "Resource ID.",
-              "readOnly": true,
-              "type": "string"
-            },
-            "name": {
-              "description": "Resource name.",
-              "readOnly": true,
-              "type": "string"
-            },
-            "type": {
-              "description": "Resource type for API Management resource.",
-              "readOnly": true,
-              "type": "string"
-            }
-          },
-          "x-ms-azure-resource": true
-        }
-      ],
-      "description": "Contract details.",
-      "properties": {
-        "properties": {
-          "$ref": "#/definitions/GroupContractProperties",
-          "description": "Group entity contract properties.",
-          "x-ms-client-flatten": true
-        }
-      }
-    },
-    "GroupContractProperties": {
-      "description": "Group contract Properties.",
-      "properties": {
-        "builtIn": {
-          "description": "true if the group is one of the three system groups (Administrators, Developers, or Guests); otherwise false.",
-          "readOnly": true,
-          "type": "boolean"
-        },
-        "description": {
-          "description": "Group description. Can contain HTML formatting tags.",
-          "maxLength": 1000,
-          "type": "string"
-        },
-        "displayName": {
-          "description": "Group name.",
-          "maxLength": 300,
-          "minLength": 1,
-          "type": "string"
-        },
-        "externalId": {
-          "description": "For external groups, this property contains the id of the group from the external identity provider, e.g. for Azure Active Directory aad://<tenant>.onmicrosoft.com/groups/<group object id>; otherwise the value is null.",
-          "type": "string"
-        },
-        "type": {
-          "description": "Group type.",
-          "enum": [
-            "custom",
-            "system",
-            "external"
-          ],
-          "type": "string",
-          "x-ms-enum": {
-            "modelAsString": false,
-            "name": "GroupType"
-          }
-        }
-      },
-      "required": [
-        "displayName"
-      ]
-    },
-    "GroupCreateParameters": {
-      "description": "Parameters supplied to the Create Group operation.",
-      "properties": {
-        "properties": {
-          "$ref": "#/definitions/GroupCreateParametersProperties",
-          "description": "Properties supplied to Create Group operation.",
-          "x-ms-client-flatten": true
-        }
-      }
-    },
-    "GroupCreateParametersProperties": {
-      "description": "Parameters supplied to the Create Group operation.",
-      "properties": {
-        "description": {
-          "description": "Group description.",
-          "type": "string"
-        },
-        "displayName": {
-          "description": "Group name.",
-          "maxLength": 300,
-          "minLength": 1,
-          "type": "string"
-        },
-        "externalId": {
-          "description": "Identifier of the external groups, this property contains the id of the group from the external identity provider, e.g. for Azure Active Directory aad://<tenant>.onmicrosoft.com/groups/<group object id>; otherwise the value is null.",
-          "type": "string"
-        },
-        "type": {
-          "description": "Group type.",
-          "enum": [
-            "custom",
-            "system",
-            "external"
-          ],
-          "type": "string",
-          "x-ms-enum": {
-            "modelAsString": false,
-            "name": "GroupType"
-          }
-        }
-      },
-      "required": [
-        "displayName"
-      ]
-    },
-    "GroupUpdateParameters": {
-      "description": "Parameters supplied to the Update Group operation.",
-      "properties": {
-        "properties": {
-          "$ref": "#/definitions/GroupUpdateParametersProperties",
-          "description": "Group entity update contract properties.",
-          "x-ms-client-flatten": true
-        }
-      }
-    },
-    "GroupUpdateParametersProperties": {
-      "description": "Parameters supplied to the Update Group operation.",
-      "properties": {
-        "description": {
-          "description": "Group description.",
-          "type": "string"
-        },
-        "displayName": {
-          "description": "Group name.",
-          "maxLength": 300,
-          "minLength": 1,
-          "type": "string"
-        },
-        "externalId": {
-          "description": "Identifier of the external groups, this property contains the id of the group from the external identity provider, e.g. for Azure Active Directory aad://<tenant>.onmicrosoft.com/groups/<group object id>; otherwise the value is null.",
-          "type": "string"
-        },
-        "type": {
-          "description": "Group type.",
-          "enum": [
-            "custom",
-            "system",
-            "external"
-          ],
-          "type": "string",
-          "x-ms-enum": {
-            "modelAsString": false,
-            "name": "GroupType"
-          }
-        }
-      }
-    }
-  }
+  "definitions": {}
 }

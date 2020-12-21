@@ -15,12 +15,7 @@ let azure_sql_disasterrecoveryconfigurations = require('@datafire/azure_sql_disa
   redirect_uri: ""
 });
 
-azure_sql_disasterrecoveryconfigurations.DisasterRecoveryConfigurations_List({
-  "api-version": "",
-  "subscriptionId": "",
-  "resourceGroupName": "",
-  "serverName": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

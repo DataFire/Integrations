@@ -15,9 +15,7 @@ let azure_resources_policysetdefinitions = require('@datafire/azure_resources_po
   redirect_uri: ""
 });
 
-azure_resources_policysetdefinitions.PolicySetDefinitions_ListBuiltIn({
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -29,7 +27,7 @@ To manage and control access to your resources, you can define customized polici
 ## Actions
 
 ### PolicySetDefinitions_ListBuiltIn
-Gets all the built in policy set definitions.
+This operation retrieves a list of all the built-in policy set definitions.
 
 
 ```js
@@ -46,7 +44,7 @@ azure_resources_policysetdefinitions.PolicySetDefinitions_ListBuiltIn({
 * output [PolicySetDefinitionListResult](#policysetdefinitionlistresult)
 
 ### PolicySetDefinitions_GetBuiltIn
-Gets the built in policy set definition.
+This operation retrieves the built-in policy set definition with the given name.
 
 
 ```js
@@ -65,7 +63,7 @@ azure_resources_policysetdefinitions.PolicySetDefinitions_GetBuiltIn({
 * output [PolicySetDefinition](#policysetdefinition)
 
 ### PolicySetDefinitions_ListByManagementGroup
-Gets all the policy set definitions for a subscription at management group.
+This operation retrieves a list of all the a policy set definition in the given management group.
 
 
 ```js
@@ -84,7 +82,7 @@ azure_resources_policysetdefinitions.PolicySetDefinitions_ListByManagementGroup(
 * output [PolicySetDefinitionListResult](#policysetdefinitionlistresult)
 
 ### PolicySetDefinitions_DeleteAtManagementGroup
-Deletes a policy set definition at management group level.
+This operation deletes the policy set definition in the given management group with the given name.
 
 
 ```js
@@ -105,7 +103,7 @@ azure_resources_policysetdefinitions.PolicySetDefinitions_DeleteAtManagementGrou
 *Output schema unknown*
 
 ### PolicySetDefinitions_GetAtManagementGroup
-Gets the policy set definition at management group level.
+This operation retrieves the policy set definition in the given management group with the given name.
 
 
 ```js
@@ -126,7 +124,7 @@ azure_resources_policysetdefinitions.PolicySetDefinitions_GetAtManagementGroup({
 * output [PolicySetDefinition](#policysetdefinition)
 
 ### PolicySetDefinitions_CreateOrUpdateAtManagementGroup
-Creates or updates a policy set definition at management group level.
+This operation creates or updates a policy set definition in the given management group with the given name.
 
 
 ```js
@@ -149,7 +147,7 @@ azure_resources_policysetdefinitions.PolicySetDefinitions_CreateOrUpdateAtManage
 * output [PolicySetDefinition](#policysetdefinition)
 
 ### PolicySetDefinitions_List
-Gets all the policy set definitions for a subscription.
+This operation retrieves a list of all the policy set definitions in the given subscription.
 
 
 ```js
@@ -168,7 +166,7 @@ azure_resources_policysetdefinitions.PolicySetDefinitions_List({
 * output [PolicySetDefinitionListResult](#policysetdefinitionlistresult)
 
 ### PolicySetDefinitions_Delete
-Deletes a policy set definition.
+This operation deletes the policy set definition in the given subscription with the given name.
 
 
 ```js
@@ -189,7 +187,7 @@ azure_resources_policysetdefinitions.PolicySetDefinitions_Delete({
 *Output schema unknown*
 
 ### PolicySetDefinitions_Get
-Gets the policy set definition.
+This operation retrieves the policy set definition in the given subscription with the given name.
 
 
 ```js
@@ -210,7 +208,7 @@ azure_resources_policysetdefinitions.PolicySetDefinitions_Get({
 * output [PolicySetDefinition](#policysetdefinition)
 
 ### PolicySetDefinitions_CreateOrUpdate
-Creates or updates a policy set definition.
+This operation creates or updates a policy set definition in the given subscription with the given name.
 
 
 ```js
@@ -237,7 +235,7 @@ azure_resources_policysetdefinitions.PolicySetDefinitions_CreateOrUpdate({
 ## Definitions
 
 ### ErrorResponse
-* ErrorResponse `object`: Error reponse indicates ARM is not able to process the incoming request. The reason is provided in the error message.
+* ErrorResponse `object`: Error response indicates Azure Resource Manager is not able to process the incoming request. The reason is provided in the error message.
   * errorCode `string`: Error code.
   * errorMessage `string`: Error message indicating why the operation failed.
   * httpStatus `string`: Http status code.

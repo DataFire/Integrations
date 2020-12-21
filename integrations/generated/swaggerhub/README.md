@@ -1,6 +1,6 @@
 # @datafire/swaggerhub
 
-Client library for SwaggerHub Registry
+Client library for SwaggerHub Registry API
 
 ## Installation and Usage
 ```bash
@@ -11,7 +11,7 @@ let swaggerhub = require('@datafire/swaggerhub').create({
   TokenSecured: ""
 });
 
-swaggerhub.searchApisAndDomains({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -22,7 +22,7 @@ swaggerhub.searchApisAndDomains({}).then(data => {
 This is the registry API for SwaggerHub. It allows you to access, manage, and update your APIs and Domains in SwaggerHub bypassing the Web application.
 
 # Authentication
-Use your personal API Key: you may find it by visiting the   [API Key page](https://app.swaggerhub.com/settings/apiKey).
+Use your personal API Key: you can find it by visiting the [API Key page](https://app.swaggerhub.com/settings/apiKey).
 
 
 ## Actions
@@ -37,13 +37,13 @@ swaggerhub.searchApis({}, context)
 
 #### Input
 * input `object`
-  * query `string`: free text query to match
-  * state `string` (values: ALL, PUBLISHED, UNPUBLISHED): matches against published state of the spec
-  * tag `array`: matches against tags associated with an API
-  * page `integer`: page to return
-  * limit `integer`: number of results per page
-  * sort `string` (values: NAME, UPDATED, CREATED, OWNER): sort criteria or result set
-  * order `string` (values: ASC, DESC): sort order
+  * query `string`: Free text query to match
+  * state `string` (values: ALL, PUBLISHED, UNPUBLISHED): Matches against published state of the spec:
+  * tag `array`: Matches against tags associated with an API
+  * page `integer`: Page to return
+  * limit `integer`: Number of results per page
+  * sort `string` (values: NAME, UPDATED, CREATED, OWNER): Sort criteria or result set:
+  * order `string` (values: ASC, DESC): Sort order
 
 #### Output
 *Output schema unknown*
@@ -60,11 +60,11 @@ swaggerhub.getOwnerApis({
 
 #### Input
 * input `object`
-  * owner **required** `string`: API or Domaion owner identifier
-  * page `integer`: page to return
-  * limit `integer`: number of results per page
-  * sort `string` (values: NAME, UPDATED, CREATED, OWNER): sort criteria or result set
-  * order `string` (values: ASC, DESC): sort order
+  * owner **required** `string`: API owner (user or organization, case-sensitive)
+  * page `integer`: Page to return
+  * limit `integer`: Number of results per page
+  * sort `string` (values: NAME, UPDATED, CREATED, OWNER): Sort criteria or result set:
+  * order `string` (values: ASC, DESC): Sort order
 
 #### Output
 * output [ApisJson](#apisjson)
@@ -82,8 +82,8 @@ swaggerhub.deleteApi({
 
 #### Input
 * input `object`
-  * owner **required** `string`: API or Domaion owner identifier
-  * api **required** `string`: API identifier
+  * owner **required** `string`: API owner (user or organization, case-sensitive)
+  * api **required** `string`: API name (case-sensitive)
 
 #### Output
 *Output schema unknown*
@@ -101,14 +101,14 @@ swaggerhub.getApiVersions({
 
 #### Input
 * input `object`
-  * owner **required** `string`: API or Domaion owner identifier
-  * api **required** `string`: API identifier
+  * owner **required** `string`: API owner (user or organization, case-sensitive)
+  * api **required** `string`: API name (case-sensitive)
 
 #### Output
 * output [ApisJson](#apisjson)
 
 ### saveDefinition
-Saves the provided Swagger definition; the owner must match the token owner. The version will be extracted from the Swagger definitions itself.
+Saves the provided Swagger definition; the owner must match the token owner. The version will be extracted from the Swagger definition itself.
 
 
 ```js
@@ -121,12 +121,13 @@ swaggerhub.saveDefinition({
 
 #### Input
 * input `object`
-  * owner **required** `string`: API or Domaion owner identifier
-  * api **required** `string`: API identifier
+  * owner **required** `string`: API owner (user or organization, case-sensitive)
+  * api **required** `string`: API name (case-sensitive)
   * isPrivate `boolean`: Defines whether the API has to be private
-  * version `string`: api version
+  * version `string`: API version
+  * oas `string` (values: 2.0, 3.0.0, 3.0.1): The OpenApi Specification (OAS)
   * definition **required** `string`
-  * force `boolean`: force update
+  * force `boolean`: Force update
 
 #### Output
 *Output schema unknown*
@@ -144,8 +145,8 @@ swaggerhub.deleteCollaboration({
 
 #### Input
 * input `object`
-  * owner **required** `string`: API or Domaion owner identifier
-  * api **required** `string`: API identifier
+  * owner **required** `string`: API owner (user or organization, case-sensitive)
+  * api **required** `string`: API name (case-sensitive)
 
 #### Output
 *Output schema unknown*
@@ -163,8 +164,8 @@ swaggerhub.getCollaboration({
 
 #### Input
 * input `object`
-  * owner **required** `string`: API or Domaion owner identifier
-  * api **required** `string`: API identifier
+  * owner **required** `string`: API owner (user or organization, case-sensitive)
+  * api **required** `string`: API name (case-sensitive)
   * expandTeams `boolean`
 
 #### Output
@@ -183,8 +184,8 @@ swaggerhub.updateCollaboration({
 
 #### Input
 * input `object`
-  * owner **required** `string`: API or Domaion owner identifier
-  * api **required** `string`: API identifier
+  * owner **required** `string`: API owner (user or organization, case-sensitive)
+  * api **required** `string`: API name (case-sensitive)
   * body [Collaboration](#collaboration)
 
 #### Output
@@ -204,9 +205,9 @@ swaggerhub.deleteApiVersion({
 
 #### Input
 * input `object`
-  * owner **required** `string`: API or Domaion owner identifier
-  * api **required** `string`: API identifier
-  * version **required** `string`: version identifier
+  * owner **required** `string`: API owner (user or organization, case-sensitive)
+  * api **required** `string`: API name (case-sensitive)
+  * version **required** `string`: Version identifier (case-sensitive)
 
 #### Output
 *Output schema unknown*
@@ -225,12 +226,35 @@ swaggerhub.getDefinition({
 
 #### Input
 * input `object`
-  * owner **required** `string`: API or Domaion owner identifier
-  * api **required** `string`: API identifier
-  * version **required** `string`: version identifier
+  * owner **required** `string`: API owner (user or organization, case-sensitive)
+  * api **required** `string`: API name (case-sensitive)
+  * version **required** `string`: Version identifier (case-sensitive)
 
 #### Output
 * output `object`
+
+### getApiComments
+Returns all the comments and replies added by collaborators in the specified API version.
+
+
+
+```js
+swaggerhub.getApiComments({
+  "owner": "",
+  "api": "",
+  "version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * owner **required** `string`: API owner (user or organization, case-sensitive)
+  * api **required** `string`: API name (case-sensitive)
+  * version **required** `string`: Version identifier (case-sensitive)
+
+#### Output
+* output `array`
+  * items [ClosableComment](#closablecomment)
 
 ### getJsonDefinition
 Retrieves the Swagger definition for the specified API and version in JSON format
@@ -246,9 +270,9 @@ swaggerhub.getJsonDefinition({
 
 #### Input
 * input `object`
-  * owner **required** `string`: API or Domaion owner identifier
-  * api **required** `string`: API identifier
-  * version **required** `string`: version identifier
+  * owner **required** `string`: API owner (user or organization, case-sensitive)
+  * api **required** `string`: API name (case-sensitive)
+  * version **required** `string`: Version identifier (case-sensitive)
 
 #### Output
 * output `object`
@@ -267,9 +291,9 @@ swaggerhub.getYamlDefinition({
 
 #### Input
 * input `object`
-  * owner **required** `string`: API or Domaion owner identifier
-  * api **required** `string`: API identifier
-  * version **required** `string`: version identifier
+  * owner **required** `string`: API owner (user or organization, case-sensitive)
+  * api **required** `string`: API name (case-sensitive)
+  * version **required** `string`: Version identifier (case-sensitive)
 
 #### Output
 * output `object`
@@ -284,13 +308,13 @@ swaggerhub.searchDomains({}, context)
 
 #### Input
 * input `object`
-  * query `string`: free text query to match
-  * state `string` (values: ALL, PUBLISHED, UNPUBLISHED): matches against published state of the spec
-  * tag `array`: matches against tags associated with a domain
-  * page `integer`: page to return
-  * limit `integer`: number of results per page
-  * sort `string` (values: NAME, UPDATED, CREATED, OWNER): sort criteria or result set
-  * order `string` (values: ASC, DESC): sort order
+  * query `string`: Free text query to match
+  * state `string` (values: ALL, PUBLISHED, UNPUBLISHED): Matches against published state of the spec:
+  * tag `array`: Matches against tags associated with a domain
+  * page `integer`: Page to return
+  * limit `integer`: Number of results per page
+  * sort `string` (values: NAME, UPDATED, CREATED, OWNER): Sort criteria or result set:
+  * order `string` (values: ASC, DESC): Sort order
 
 #### Output
 *Output schema unknown*
@@ -307,11 +331,11 @@ swaggerhub.getOwnerDomains({
 
 #### Input
 * input `object`
-  * owner **required** `string`: API or Domaion owner identifier
-  * page `integer`: page to return
-  * limit `integer`: number of results per page
-  * sort `string` (values: NAME, UPDATED, CREATED, OWNER): sort criteria or result set
-  * order `string` (values: ASC, DESC): sort order
+  * owner **required** `string`: Domain owner (user or organization, case-sensitive)
+  * page `integer`: Page to return
+  * limit `integer`: Number of results per page
+  * sort `string` (values: NAME, UPDATED, CREATED, OWNER): Sort criteria or result set:
+  * order `string` (values: ASC, DESC): Sort order
 
 #### Output
 * output [ApisJson](#apisjson)
@@ -329,9 +353,9 @@ swaggerhub.deleteDomain({
 
 #### Input
 * input `object`
-  * owner **required** `string`: API or Domaion owner identifier
-  * domain **required** `string`: domain identifier
-  * force `boolean`: force update
+  * owner **required** `string`: Domain owner (user or organization, case-sensitive)
+  * domain **required** `string`: Domain name (case-sensitive)
+  * force `boolean`: Force update
 
 #### Output
 *Output schema unknown*
@@ -349,8 +373,8 @@ swaggerhub.getDomainVersions({
 
 #### Input
 * input `object`
-  * owner **required** `string`: API or Domaion owner identifier
-  * domain **required** `string`: domain identifier
+  * owner **required** `string`: Domain owner (user or organization, case-sensitive)
+  * domain **required** `string`: Domain name (case-sensitive)
 
 #### Output
 * output [ApisJson](#apisjson)
@@ -369,12 +393,12 @@ swaggerhub.saveDomainDefinition({
 
 #### Input
 * input `object`
-  * owner **required** `string`: API or Domaion owner identifier
-  * domain **required** `string`: domain identifier
-  * isPrivate `boolean`: Defines whether the API has to be private
-  * version **required** `string`: domain version
+  * owner **required** `string`: Domain owner (user or organization, case-sensitive)
+  * domain **required** `string`: Domain name (case-sensitive)
+  * isPrivate `boolean`: Specifies whether the domain has to be private
+  * version **required** `string`: Domain version
   * definition `string`
-  * force `boolean`: force update
+  * force `boolean`: Force update
 
 #### Output
 *Output schema unknown*
@@ -393,10 +417,10 @@ swaggerhub.deleteDomainVersion({
 
 #### Input
 * input `object`
-  * owner **required** `string`: API or Domaion owner identifier
-  * domain **required** `string`: domain identifier
-  * version **required** `string`: version identifier
-  * force `boolean`: force update
+  * owner **required** `string`: Domain owner (user or organization, case-sensitive)
+  * domain **required** `string`: Domain name (case-sensitive)
+  * version **required** `string`: Version identifier (case-sensitive)
+  * force `boolean`: Force update
 
 #### Output
 *Output schema unknown*
@@ -415,12 +439,35 @@ swaggerhub.getDomainDefinition({
 
 #### Input
 * input `object`
-  * owner **required** `string`: API or Domaion owner identifier
-  * domain **required** `string`: domain identifier
-  * version **required** `string`: version identifier
+  * owner **required** `string`: Domain owner (user or organization, case-sensitive)
+  * domain **required** `string`: Domain name (case-sensitive)
+  * version **required** `string`: Version identifier (case-sensitive)
 
 #### Output
 * output `object`
+
+### getDomainComments
+Returns all the comments and replies added by collaborators in the specified domain version.
+
+
+
+```js
+swaggerhub.getDomainComments({
+  "owner": "",
+  "domain": "",
+  "version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * owner **required** `string`: Domain owner (user or organization, case-sensitive)
+  * domain **required** `string`: Domain name (case-sensitive)
+  * version **required** `string`: Version identifier (case-sensitive)
+
+#### Output
+* output `array`
+  * items [ClosableComment](#closablecomment)
 
 ### getDomainJsonDefinition
 Retrieves the definition for the specified domain and version in JSON format
@@ -436,9 +483,9 @@ swaggerhub.getDomainJsonDefinition({
 
 #### Input
 * input `object`
-  * owner **required** `string`: API or Domaion owner identifier
-  * domain **required** `string`: domain identifier
-  * version **required** `string`: version identifier
+  * owner **required** `string`: Domain owner (user or organization, case-sensitive)
+  * domain **required** `string`: Domain name (case-sensitive)
+  * version **required** `string`: Version identifier (case-sensitive)
 
 #### Output
 * output `object`
@@ -457,9 +504,9 @@ swaggerhub.getDomainYamlDefinition({
 
 #### Input
 * input `object`
-  * owner **required** `string`: API or Domaion owner identifier
-  * domain **required** `string`: domain identifier
-  * version **required** `string`: version identifier
+  * owner **required** `string`: Domain owner (user or organization, case-sensitive)
+  * domain **required** `string`: Domain name (case-sensitive)
+  * version **required** `string`: Version identifier (case-sensitive)
 
 #### Output
 * output `object`
@@ -474,15 +521,15 @@ swaggerhub.searchApisAndDomains({}, context)
 
 #### Input
 * input `object`
-  * specType `string` (values: API, DOMAIN, ANY): Type of Swagger specs to search
-  * visibility `string` (values: PUBLIC, PRIVATE, ANY): The visibility of a spec in SwaggerHub
-  * state `string` (values: ALL, PUBLISHED, UNPUBLISHED): matches against published state of the spec
-  * owner `string`: API or Domaion owner identifier. Can be username or Organization name
-  * query `string`: free text query to match
-  * page `integer`: page to return
-  * limit `integer`: number of results per page
-  * sort `string` (values: NAME, UPDATED, CREATED, OWNER): sort criteria or result set
-  * order `string` (values: ASC, DESC): sort order
+  * specType `string` (values: API, DOMAIN, ANY): Type of Swagger specs to search:
+  * visibility `string` (values: PUBLIC, PRIVATE, ANY): The visibility of a spec in SwaggerHub:
+  * state `string` (values: ALL, PUBLISHED, UNPUBLISHED): Matches against published state of the spec:
+  * owner `string`: API or Domain owner identifier. Can be username or organization name
+  * query `string`: Free text query to match
+  * page `integer`: Page to return
+  * limit `integer`: Number of results per page
+  * sort `string` (values: NAME, UPDATED, CREATED, OWNER): Sort criteria or result set:
+  * order `string` (values: ASC, DESC): Sort order
 
 #### Output
 * output [ApisJson](#apisjson)
@@ -490,25 +537,6 @@ swaggerhub.searchApisAndDomains({}, context)
 
 
 ## Definitions
-
-### AccessToken
-* AccessToken `object`
-  * token `string`
-
-### ApiMetadata
-* ApiMetadata `object`
-  * categories **required** `array`
-    * items `string`
-  * defaultVersion `string`
-  * links `array`
-    * items [ApiMetadataLink](#apimetadatalink)
-  * tags **required** `array`
-    * items `string`
-
-### ApiMetadataLink
-* ApiMetadataLink `object`
-  * type **required** `string`
-  * url **required** `string`
 
 ### ApisJson
 * ApisJson `object`
@@ -536,42 +564,17 @@ swaggerhub.searchApisAndDomains({}, context)
 * ApisJsonProperty `object`: an API property
   * type `string`
 
-### ApisJsonUrlProperty
-* ApisJsonUrlProperty
-  * type `string`
-  * url `string`
-
-### ApisJsonValueProperty
-* ApisJsonValueProperty
-  * type `string`
-  * value `string`
-
 ### ClosableComment
 * ClosableComment
-  * body **required** `string`
-  * created **required** `string`
-  * id **required** `string`
-  * modified `string`
+  * body **required** `string`: Markdown contents of the comment
+  * created **required** `string`: The UTC date and time when the comment was added
+  * id **required** `string`: The unique ID of the comment
+  * modified `string`: The UTC date and time the when the comment was last edited
   * user **required** [User](#user)
-  * position `integer`
-  * replies `array`
+  * position `integer`: The line number (zero-based) the comment is associated with. For example, if the comment is on line 7 in the editor, `position`=6.
+  * replies `array`: A list of replies to this comment
     * items [Comment](#comment)
-  * status `string` (values: OPEN, RESOLVED)
-
-### ClosableCommentPatch
-* ClosableCommentPatch
-  * body `string`
-  * position `integer`
-
-### CodegenLanguage
-* CodegenLanguage `object`
-  * customValues `object`
-  * visible **required** `boolean`
-
-### CodegenSettings
-* CodegenSettings `object`
-  * client `object`
-  * server `object`
+  * status `string` (values: OPEN, RESOLVED): Comment status
 
 ### Collaboration
 * Collaboration `object`
@@ -608,19 +611,6 @@ swaggerhub.searchApisAndDomains({}, context)
   * roles **required** `array`
     * items `string` (values: EDIT, COMMENT, VIEW)
 
-### CollaborationMembershipList
-* CollaborationMembershipList `object`
-  * hint **required** [CollaborationHint](#collaborationhint)
-  * items `array`
-    * items [CollaborationMembership](#collaborationmembership)
-
-### CollaborationRoles
-* CollaborationRoles `object`
-  * api `string`
-  * owner `string`
-  * roles `array`
-    * items `string` (values: EDIT, COMMENT, VIEW)
-
 ### CollaborationTeamMembership
 * CollaborationTeamMembership
   * name **required** `string`
@@ -636,92 +626,11 @@ swaggerhub.searchApisAndDomains({}, context)
 
 ### Comment
 * Comment `object`
-  * body **required** `string`
-  * created **required** `string`
-  * id **required** `string`
-  * modified `string`
+  * body **required** `string`: Markdown contents of the comment
+  * created **required** `string`: The UTC date and time when the comment was added
+  * id **required** `string`: The unique ID of the comment
+  * modified `string`: The UTC date and time the when the comment was last edited
   * user **required** [User](#user)
-
-### CommentPatch
-* CommentPatch `object`
-  * body `string`
-
-### CommentsBatch
-* CommentsBatch `object`
-  * addComment `array`
-    * items [NewComment](#newcomment)
-  * addReply `object`
-  * deleteComment `array`
-    * items `string`
-  * deleteReply `object`
-  * updateComment `object`
-  * updateReply `object`
-  * updateStatus `object`
-
-### Comparison
-* Comparison `array`: a list of differences between two APIs
-  * items [ComparisonPart](#comparisonpart)
-
-### ComparisonDetail
-* ComparisonDetail `object`: details for one side of a ComparisonPart
-  * content **required** `string`: the content of the API definition between `startPosition` and `endPosition`
-  * endPosition **required** [Position](#position)
-  * path `string`: the path to the object (notation similar to JSONPath)
-  * startPosition **required** [Position](#position)
-
-### ComparisonPart
-* ComparisonPart `object`: a part of the API that was (or wasn't) changed
-  * base [ComparisonDetail](#comparisondetail)
-  * other [ComparisonDetail](#comparisondetail)
-  * type **required** `string` (values: UNMODIFIED, INSERTED, DELETED, CHANGED): the type of change that this part describes
-
-### EntryId
-* EntryId `object`
-  * name `string`
-  * owner `string`
-  * version `string`
-
-### GitHubExportSettings
-* GitHubExportSettings `object`
-  * branch **required** `string`
-  * notificationEmail **required** `string`
-  * owner **required** `string`
-  * path `string`
-  * repository **required** `string`
-  * token **required** `string`
-  * yamlPath `string`
-
-### LifecycleSettings
-* LifecycleSettings `object`
-  * published `boolean`
-
-### MissingSpecMembers
-* MissingSpecMembers `object`
-  * names `array`
-    * items `string`
-  * spec [SimpleSpec](#simplespec)
-
-### NewComment
-* NewComment `object`
-  * body **required** `string`
-  * position **required** `integer`
-  * replies `array`
-    * items [NewReply](#newreply)
-
-### NewReply
-* NewReply `object`
-  * body **required** `string`
-
-### NotCollaboratorProjectMembers
-* NotCollaboratorProjectMembers `object`
-  * missingApisMembers `array`
-    * items [MissingSpecMembers](#missingspecmembers)
-  * missingApisTeams `array`
-    * items [MissingSpecMembers](#missingspecmembers)
-  * missingDomainsMembers `array`
-    * items [MissingSpecMembers](#missingspecmembers)
-  * missingDomainsTeams `array`
-    * items [MissingSpecMembers](#missingspecmembers)
 
 ### Page
 * Page `object`
@@ -730,112 +639,9 @@ swaggerhub.searchApisAndDomains({}, context)
   * offset `integer`
   * total `integer`
 
-### PluginConfiguration
-* PluginConfiguration `object`
-  * configuration `object`
-  * definitionId **required** `string`
-  * draft `boolean`
-  * id `string`
-  * lifecycles **required** `array`
-    * items `string`
-  * name **required** `string`
-  * objectId **required** `string`
-  * ownerName **required** `string`
-  * path **required** `string`
-
-### PluginDefinition
-* PluginDefinition `object`
-  * configurationSchema **required** `object`
-  * createdBy **required** `string`
-  * createdOn **required** `string`
-  * enabled **required** `boolean`
-  * id `string`
-  * implementingClass **required** `string`
-  * limit `integer`: count of allowed configurations
-  * name **required** `string`
-  * version **required** `string`
-
-### Position
-* Position `object`: a position in a text document
-  * column **required** `integer`
-  * line **required** `integer`
-
-### Private
-* Private `object`
-  * private **required** `boolean`
-
-### ProjectEntry
-* ProjectEntry `object`
-  * apis `array`
-    * items [EntryId](#entryid)
-  * domains `array`
-    * items [EntryId](#entryid)
-  * groupId **required** `string`
-  * name **required** `string`
-  * projectId **required** `string`
-
-### ProjectMember
-* ProjectMember `object`
-  * name **required** `string`
-  * roles **required** `array`
-    * items `string`
-  * type **required** `string` (values: USER, TEAM)
-
-### ProjectMemberList
-* ProjectMemberList `object`
-  * members `array`
-    * items [ProjectMember](#projectmember)
-
-### ProjectsJson
-* ProjectsJson `object`
-  * offset `integer`
-  * projects `array`
-    * items [ProjectEntry](#projectentry)
-  * totalCount `integer`
-
-### SimpleSpec
-* SimpleSpec `object`
-  * name `string`
-  * owner `string`
-
-### SpecId
-* SpecId `object`
-  * name **required** `string`
-  * owner **required** `string`
-  * version **required** `string`
-
-### SystemPluginConfiguration
-* SystemPluginConfiguration `object`
-  * configuration `object`
-  * id `string`
-  * implementingClass **required** `string`
-  * lifecycles **required** `array`
-    * items `string`
-  * version **required** `string`
-
-### Template
-* Template `object`
-  * id **required** `string`
-  * title **required** `string`
-
-### TemplateCatalog
-* TemplateCatalog `object`
-  * default [Template](#template)
-  * templates `array`
-    * items [Template](#template)
-
 ### User
-* User `object`
-  * active `boolean`
-  * id `string`
-
-### UserCredentials
-* UserCredentials `object`
-  * password `string`
-  * username `string`
-
-### VersionMetadata
-* VersionMetadata `object`
-  * codegenSettings [CodegenSettings](#codegensettings)
+* User `object`: The user who added a comment
+  * active `boolean`: `true` means an existing user, `false` means the user is inactive (for example, deleted)
+  * id `string`: User name
 
 

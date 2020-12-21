@@ -1,6 +1,6 @@
 # @datafire/slicebox_local
 
-Client library for Slicebox
+Client library for Slicebox API
 
 ## Installation and Usage
 ```bash
@@ -9,7 +9,7 @@ npm install --save @datafire/slicebox_local
 ```js
 let slicebox_local = require('@datafire/slicebox_local').create();
 
-slicebox_local.users.get({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -58,6 +58,20 @@ slicebox_local.anonymization.keys.get({}, context)
 #### Output
 * output `array`
   * items [anonymizationKey](#anonymizationkey)
+
+### anonymization.keys.export.csv.get
+export all anonymization keys as a csv file
+
+
+```js
+slicebox_local.anonymization.keys.export.csv.get(null, context)
+```
+
+#### Input
+*This action has no parameters*
+
+#### Output
+* output `string`
 
 ### anonymization.keys.query.post
 submit a query for anonymization keys
@@ -115,12 +129,12 @@ slicebox_local.anonymization.keys.id.get({
 #### Output
 * output [anonymizationKey](#anonymizationkey)
 
-### anonymization.keys.id.images.get
+### anonymization.keys.id.keyvalues.get
 get pointers to the images corresponding to the anonymization key with the supplied ID
 
 
 ```js
-slicebox_local.anonymization.keys.id.images.get({
+slicebox_local.anonymization.keys.id.keyvalues.get({
   "id": 0
 }, context)
 ```
@@ -131,7 +145,22 @@ slicebox_local.anonymization.keys.id.images.get({
 
 #### Output
 * output `array`
-  * items [image](#image)
+  * items [anonymizationKeyValue](#anonymizationkeyvalue)
+
+### anonymization.options.get
+list all supported anonymization options defining an anonymization profile
+
+
+```js
+slicebox_local.anonymization.options.get(null, context)
+```
+
+#### Input
+*This action has no parameters*
+
+#### Output
+* output `array`
+  * items [confidentialityOption](#confidentialityoption)
 
 ### boxes.get
 get a list of box connections
@@ -173,13 +202,13 @@ create a new box connection where the supplied entity holds the remote box name.
 
 ```js
 slicebox_local.boxes.createconnection.post({
-  "remoteBoxName": {}
+  "remoteBoxConnectionData": {}
 }, context)
 ```
 
 #### Input
 * input `object`
-  * remoteBoxName **required** [remoteBoxName](#remoteboxname)
+  * remoteBoxConnectionData **required** [remoteBoxConnectionData](#remoteboxconnectiondata)
 
 #### Output
 * output [box](#box)
@@ -312,15 +341,14 @@ send images corresponding to the supplied image ids to the remote box with the s
 ```js
 slicebox_local.boxes.id.send.post({
   "id": 0,
-  "sequence of image tag values": []
+  "sequence of image tag values": {}
 }, context)
 ```
 
 #### Input
 * input `object`
   * id **required** `integer`: ID of box to send images to
-  * sequence of image tag values **required** `array`
-    * items [imageTagValues](#imagetagvalues)
+  * sequence of image tag values **required** [bulkAnonymizationData](#bulkanonymizationdata)
 
 #### Output
 *Output schema unknown*
@@ -385,6 +413,164 @@ slicebox_local.directorywatches.id.delete({
 #### Input
 * input `object`
   * id **required** `integer`: id of directory to stop watching
+
+#### Output
+*Output schema unknown*
+
+### filtering.associations.get
+Get a list of source to filter associations.
+
+
+```js
+slicebox_local.filtering.associations.get({}, context)
+```
+
+#### Input
+* input `object`
+  * startindex `integer`: start index of returned slice of source <-> filter associations
+  * count `integer`: size of returned slice of source <-> filter associations
+
+#### Output
+* output `array`
+  * items [sourceTagFilter](#sourcetagfilter)
+
+### filtering.associations.post
+Inserts or updates a source <-> filter associations. If the specified Source already  has an association this is updated, otherwise a new is inserted.
+
+
+```js
+slicebox_local.filtering.associations.post({
+  "sourcetagfilter": {}
+}, context)
+```
+
+#### Input
+* input `object`
+  * sourcetagfilter **required** [sourceTagFilter](#sourcetagfilter)
+
+#### Output
+*Output schema unknown*
+
+### filtering.associations.id.delete
+remove the source <-> filter association corresponding to the supplied ID
+
+
+```js
+slicebox_local.filtering.associations.id.delete({
+  "id": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * id **required** `integer`: id of source <-> filter association to remove
+
+#### Output
+*Output schema unknown*
+
+### filtering.filters.get
+List defined filters
+
+
+```js
+slicebox_local.filtering.filters.get({}, context)
+```
+
+#### Input
+* input `object`
+  * startindex `integer`: start index of returned slice of filters
+  * count `integer`: size of returned slice of filters
+
+#### Output
+* output `array`
+  * items [filter](#filter)
+
+### filtering.filters.post
+Inserts or updates a filter. If a filter with same name as supplied filter exists this filter is updated, otherwise a new filter is inserted.
+
+
+```js
+slicebox_local.filtering.filters.post({
+  "tagFilter": {}
+}, context)
+```
+
+#### Input
+* input `object`
+  * tagFilter **required** [filter](#filter)
+
+#### Output
+*Output schema unknown*
+
+### filtering.filters.id.delete
+remove the filter corresponding to the supplied ID
+
+
+```js
+slicebox_local.filtering.filters.id.delete({
+  "id": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * id **required** `integer`: id of filter to remove
+
+#### Output
+*Output schema unknown*
+
+### filtering.filters.id.tagpaths.get
+List tagpaths for the selected filter
+
+
+```js
+slicebox_local.filtering.filters.id.tagpaths.get({
+  "id": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * id **required** `integer`: id of filter
+
+#### Output
+* output `array`
+  * items [tagPathTag](#tagpathtag)
+
+### filtering.filters.id.tagpaths.post
+add a tagpath to a filter
+
+
+```js
+slicebox_local.filtering.filters.id.tagpaths.post({
+  "id": 0,
+  "tagpath": {}
+}, context)
+```
+
+#### Input
+* input `object`
+  * id **required** `integer`: id of filter to remove
+  * tagpath **required** [tagPathTag](#tagpathtag)
+
+#### Output
+*Output schema unknown*
+
+### filtering.filters.id.tagpaths.tagpathid.delete
+remove the tagpath corresponding to the supplied ID
+
+
+```js
+slicebox_local.filtering.filters.id.tagpaths.tagpathid.delete({
+  "id": 0,
+  "tagpathid": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * id **required** `integer`: id of filter
+  * tagpathid **required** `integer`: id of TagPath to remove
 
 #### Output
 *Output schema unknown*
@@ -572,15 +758,14 @@ delete the selected image and replace it with an anonymized version
 ```js
 slicebox_local.images.id.anonymize.put({
   "id": 0,
-  "tag values": []
+  "tag values": {}
 }, context)
 ```
 
 #### Input
 * input `object`
   * id **required** `integer`: ID of image to anonymize
-  * tag values **required** `array`
-    * items [tagValue](#tagvalue)
+  * tag values **required** [anonymizationData](#anonymizationdata)
 
 #### Output
 * output [image](#image)
@@ -592,15 +777,14 @@ get an anonymized version of the image with the supplied ID
 ```js
 slicebox_local.images.id.anonymized.post({
   "id": 0,
-  "tag values": []
+  "tag values": {}
 }, context)
 ```
 
 #### Input
 * input `object`
   * id **required** `integer`: ID of image for which to get anonymized dataset
-  * tag values **required** `array`
-    * items [tagValue](#tagvalue)
+  * tag values **required** [anonymizationData](#anonymizationdata)
 
 #### Output
 *Output schema unknown*
@@ -639,6 +823,26 @@ slicebox_local.images.id.imageinformation.get({
 
 #### Output
 * output [imageInformation](#imageinformation)
+
+### images.id.modify.put
+modify and/or insert image attributes according to the input tagpath-value mappings
+
+
+```js
+slicebox_local.images.id.modify.put({
+  "id": 0,
+  "tag path value mappings": []
+}, context)
+```
+
+#### Input
+* input `object`
+  * id **required** `integer`: ID of image to modify
+  * tag path value mappings **required** `array`
+    * items [tagMapping](#tagmapping)
+
+#### Output
+*Output schema unknown*
 
 ### images.id.png.get
 get a PNG image representation of the image corresponding to the supplied ID
@@ -769,6 +973,20 @@ slicebox_local.import.sessions.id.images.post({
 
 #### Output
 * output [image](#image)
+
+### log.delete
+delete all log messages
+
+
+```js
+slicebox_local.log.delete(null, context)
+```
+
+#### Input
+*This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### log.get
 get a list of slicebox log messages
@@ -1511,7 +1729,7 @@ slicebox_local.seriestypes.rules.updatestatus.get(null, context)
 *This action has no parameters*
 
 #### Output
-*Output schema unknown*
+* output [seriestypeupdatestatus](#seriestypeupdatestatus)
 
 ### seriestypes.rules.id.delete
 remove the series type rule corresponding to the supplied ID
@@ -1779,7 +1997,8 @@ slicebox_local.transactions.token.outgoing.poll.get({
   * token **required** `string`: authentication token identifying the current box-to-box connection
 
 #### Output
-* output [outgoingTransactionImage](#outgoingtransactionimage)
+* output `array`
+  * items [outgoingTransactionImage](#outgoingtransactionimage)
 
 ### transactions.token.status.get
 get the status of the remote incoming transaction with the supplied transaction ID
@@ -1921,25 +2140,26 @@ slicebox_local.users.id.delete({
 
 ## Definitions
 
+### anonymizationData
+* anonymizationData `object`
+  * profile [anonymizationProfile](#anonymizationprofile)
+  * tagValues `array`
+    * items [tagValue](#tagvalue)
+
 ### anonymizationKey
 * anonymizationKey `object`
-  * accessionNumber `string`
-  * anonFrameOfReferenceUID `string`
   * anonPatientID `string`
   * anonPatientName `string`
+  * anonSOPInstanceUID `string`
   * anonSeriesInstanceUID `string`
   * anonStudyInstanceUID `string`
   * created `integer`
-  * frameOfReferenceUID `string`
   * id `integer`
-  * patientBirthDate `string`
+  * imageId `integer`
   * patientID `string`
   * patientName `string`
-  * protocolName `string`
-  * seriesDescription `string`
   * seriesInstanceUID `string`
-  * studyDescription `string`
-  * studyID `string`
+  * sopInstanceUID `string`
   * studyInstanceUID `string`
 
 ### anonymizationKeyQuery
@@ -1950,14 +2170,41 @@ slicebox_local.users.id.delete({
     * items [queryProperty](#queryproperty)
   * startIndex **required** `integer`
 
+### anonymizationKeyValue
+* anonymizationKeyValue `object`
+  * anonymizationKeyId `integer`
+  * anonymizedValue `string`
+  * id `integer`
+  * tagPath [tagPathTag](#tagpathtag)
+  * value `string`
+
+### anonymizationProfile
+* anonymizationProfile `object`
+  * options `array`
+    * items [confidentialityOption](#confidentialityoption)
+
 ### box
 * box `object`
   * baseUrl `string`
   * id `integer`
   * name `string`
   * online `boolean`
+  * profile [anonymizationProfile](#anonymizationprofile)
   * sendMethod `string`
   * token `string`
+
+### bulkAnonymizationData
+* bulkAnonymizationData `object`
+  * imageTagValuesSet `array`
+    * items [imageTagValues](#imagetagvalues)
+  * profile [anonymizationProfile](#anonymizationprofile)
+
+### confidentialityOption
+* confidentialityOption `object`
+  * description `string`
+  * name `string`
+  * rank `integer`
+  * title `string`
 
 ### destination
 * destination `object`
@@ -1977,6 +2224,14 @@ slicebox_local.users.id.delete({
 * failedOutgoingTransactionImage `object`
   * message `string`
   * transactionImage [outgoingTransactionImage](#outgoingtransactionimage)
+
+### filter
+* filter `object`
+  * id `integer`
+  * name `string`
+  * tagFilterType `string`
+  * tags `array`
+    * items [tagPathTag](#tagpathtag)
 
 ### flatSeries
 * flatSeries `object`
@@ -2080,6 +2335,7 @@ slicebox_local.users.id.delete({
   * boxId `integer`
   * boxName `string`
   * id `integer`
+  * profile [anonymizationProfile](#anonymizationprofile)
   * sentImageCount `integer`
   * status `string`
   * totalImageCount `integer`
@@ -2130,11 +2386,13 @@ slicebox_local.users.id.delete({
 ### remoteBox
 * remoteBox `object`
   * baseUrl `string`
+  * defaultProfile [anonymizationProfile](#anonymizationprofile)
   * name `string`
 
-### remoteBoxName
-* remoteBoxName `object`
-  * value `string`
+### remoteBoxConnectionData
+* remoteBoxConnectionData `object`
+  * defaultProfile [anonymizationProfile](#anonymizationprofile)
+  * name `string`
 
 ### scp
 * scp `object`
@@ -2199,6 +2457,10 @@ slicebox_local.users.id.delete({
   * seriesTypeRuleId **required** `integer`
   * value **required** `string`
 
+### seriestypeupdatestatus
+* seriestypeupdatestatus `object`
+  * running **required** `boolean`
+
 ### source
 * source `object`
   * sourceId `integer`
@@ -2209,6 +2471,13 @@ slicebox_local.users.id.delete({
 * sourceRef `object`
   * sourceId `integer`
   * sourceType `string`
+
+### sourceTagFilter
+* sourceTagFilter `object`
+  * id `integer`
+  * sourceId `integer`
+  * sourceType `string`
+  * tagFilterId `integer`
 
 ### study
 * study `object`
@@ -2221,9 +2490,25 @@ slicebox_local.users.id.delete({
   * studyID [dicomPropertyValue](#dicompropertyvalue)
   * studyInstanceUID [dicomPropertyValue](#dicompropertyvalue)
 
+### tagMapping
+* tagMapping `object`
+  * tagPath [tagPathTag](#tagpathtag)
+  * value `string`
+
+### tagPathTag
+* tagPathTag `object`
+  * previous [tagPathTrunk](#tagpathtrunk)
+  * tag `integer`
+
+### tagPathTrunk
+* tagPathTrunk `object`
+  * item `string`
+  * previous [tagPathTrunk](#tagpathtrunk)
+  * tag `integer`
+
 ### tagValue
 * tagValue `object`
-  * tag `integer`
+  * tagPath [tagPathTag](#tagpathtag)
   * value `string`
 
 ### user

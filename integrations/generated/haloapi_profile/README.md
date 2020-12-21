@@ -12,9 +12,7 @@ let haloapi_profile = require('@datafire/haloapi_profile').create({
   apiKeyQuery: ""
 });
 
-haloapi_profile.5969689a2109180f287972a8({
-  "player": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -25,7 +23,7 @@ API that provides Profile information about Players.
 
 ## Actions
 
-### 5969689a2109180f287972a8
+### h5.profiles.player.appearance.get
 <p>This Endpoint retrieves appearance information for a player.</p>
 <p>If the player is a member of a Company, the Company's ID and Name will be provided. Additional Company information is available via the Stats API.</p>
 <br />
@@ -40,7 +38,7 @@ API that provides Profile information about Players.
 
 
 ```js
-haloapi_profile.5969689a2109180f287972a8({
+haloapi_profile.h5.profiles.player.appearance.get({
   "player": ""
 }, context)
 ```
@@ -52,15 +50,23 @@ haloapi_profile.5969689a2109180f287972a8({
 #### Output
 *Output schema unknown*
 
-### 58acdc2e2109180bdcacc404
+### h5.profiles.player.emblem.get
 <p>This Endpoint returns an HTTP Redirect (302 Found) response to the caller with the URL of an image of the Player's Emblem. The initial request to this API that returns the HTTP Redirect is throttled and requires a Subscription Key. However, the image itself (at hostname "image.halocdn.com") is not throttled and does not require a Subscription Key. Note that if the Player later changes their Emblem, the image itself is not refreshed and will need to be refreshed via a new request to this API.</p>
 <br />
 <h4>Changelog</h4>
+<div class="panel-body">
+    <p><strong>August 12, 2019:</strong></p>
+    <ul>
+        <li>Expanded documentation for the HTTP 400 response code to cover unsupported emblem component(s).</li>
+    </ul>
+</div>
 <div class="panel-body">
     <p><strong>July 14, 2017:</strong></p>
     <ul>
         <li>Renamed Endpoint from "Halo 5 - Emblem Image" to "Halo 5 - Player Emblem Image".</li>
     </ul>
+</div>
+<div class="panel-body">
     <p><strong>February 21, 2017:</strong></p>
     <ul>
         <li>Renamed Endpoint from "Emblem Image" to "Halo 5 - Emblem Image".</li>
@@ -71,7 +77,7 @@ haloapi_profile.5969689a2109180f287972a8({
 
 
 ```js
-haloapi_profile.58acdc2e2109180bdcacc404({
+haloapi_profile.h5.profiles.player.emblem.get({
   "player": ""
 }, context)
 ```
@@ -84,15 +90,23 @@ haloapi_profile.58acdc2e2109180bdcacc404({
 #### Output
 *Output schema unknown*
 
-### 58acdc2e2109180bdcacc405
+### h5.profiles.player.spartan.get
 <p>This Endpoint returns an HTTP Redirect (302 Found) response to the caller with the URL of an image of the Player's Spartan's appearance. The initial request to this API that returns the HTTP Redirect is throttled and requires a Subscription Key. However, the image itself (at hostname "image.halocdn.com") is not throttled and does not require a Subscription Key. Note that if the Player later changes their Spartan's appearance, the image itself is not refreshed and will need to be refreshed via a new request to this API.</p>
 <br />
 <h4>Changelog</h4>
+<div class="panel-body">
+    <p><strong>August 12, 2019:</strong></p>
+    <ul>
+        <li>Expanded documentation for the HTTP 400 response code to cover unsupported armor component(s).</li>
+    </ul>
+</div>
 <div class="panel-body">
     <p><strong>July 14, 2017:</strong></p>
     <ul>
         <li>Renamed Endpoint from "Halo 5 - Spartan Image" to "Halo 5 - Player Spartan Image".</li>
     </ul>
+</div>
+<div class="panel-body">
     <p><strong>February 21, 2017:</strong></p>
     <ul>
         <li>Renamed Endpoint from "Spartan Image" to "Halo 5 - Spartan Image".</li>
@@ -103,7 +117,7 @@ haloapi_profile.58acdc2e2109180bdcacc404({
 
 
 ```js
-haloapi_profile.58acdc2e2109180bdcacc405({
+haloapi_profile.h5.profiles.player.spartan.get({
   "player": ""
 }, context)
 ```

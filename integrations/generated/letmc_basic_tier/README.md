@@ -13,11 +13,7 @@ let letmc_basic_tier = require('@datafire/letmc_basic_tier').create({
   password: ""
 });
 
-letmc_basic_tier.v2.tier2.shortName.area.areas.get({
-  "shortName": "",
-  "offset": 0,
-  "count": 0
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

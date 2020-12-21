@@ -1,35 +1,33 @@
 {
   "swagger": "2.0",
-  "schemes": [
-    "https"
-  ],
-  "host": "www.googleapis.com",
-  "basePath": "/games/v1configuration",
   "info": {
     "contact": {
       "name": "Google",
-      "url": "https://google.com"
+      "url": "https://google.com",
+      "x-twitter": "youtube"
     },
-    "description": "The Publishing API for Google Play Game Services.",
-    "title": "Google Play Game Services Publishing",
+    "description": "The Google Play Game Services Publishing API allows developers to configure their games in Game Services.",
+    "license": {
+      "name": "Creative Commons Attribution 3.0",
+      "url": "http://creativecommons.org/licenses/by/3.0/"
+    },
+    "termsOfService": "https://developers.google.com/terms/",
+    "title": "Google Play Game Services Publishing API",
     "version": "v1configuration",
     "x-apiClientRegistration": {
       "url": "https://console.developers.google.com"
     },
     "x-apisguru-categories": [
-      "social"
+      "analytics",
+      "media"
     ],
     "x-logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.gstatic.com_images_icons_material_product_2x_play_games_64dp.png"
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
     },
     "x-origin": [
       {
-        "converter": {
-          "url": "https://github.com/lucybot/api-spec-converter",
-          "version": "2.6.2"
-        },
         "format": "google",
-        "url": "https://www.googleapis.com/discovery/v1/apis/gamesConfiguration/v1configuration/rest",
+        "url": "https://gamesconfiguration.googleapis.com/$discovery/rest?version=v1configuration",
         "version": "v1"
       }
     ],
@@ -41,95 +39,91 @@
       "type": "openapi"
     }
   },
-  "externalDocs": {
-    "url": "https://developers.google.com/games/services"
-  },
-  "securityDefinitions": {
-    "Oauth2": {
-      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 authentication",
-      "flow": "implicit",
-      "scopes": {
-        "https://www.googleapis.com/auth/androidpublisher": "View and manage your Google Play Developer account"
-      },
-      "type": "oauth2"
-    },
-    "offline": {
-      "type": "oauth2",
-      "flow": "accessCode",
-      "scopes": {
-        "https://www.googleapis.com/auth/androidpublisher": "View and manage your Google Play Developer account"
-      },
-      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "tokenUrl": "https://www.googleapis.com/oauth2/v4/token",
-      "description": "Allows offline access using a refresh_token"
-    }
-  },
-  "parameters": {
-    "alt": {
-      "default": "json",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ],
-      "in": "query",
-      "name": "alt",
-      "type": "string"
-    },
-    "fields": {
-      "description": "Selector specifying which fields to include in a partial response.",
-      "in": "query",
-      "name": "fields",
-      "type": "string"
-    },
-    "key": {
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
-      "in": "query",
-      "name": "key",
-      "type": "string"
-    },
-    "oauth_token": {
-      "description": "OAuth 2.0 token for the current user.",
-      "in": "query",
-      "name": "oauth_token",
-      "type": "string"
-    },
-    "prettyPrint": {
-      "default": true,
-      "description": "Returns response with indentations and line breaks.",
-      "in": "query",
-      "name": "prettyPrint",
-      "type": "boolean"
-    },
-    "quotaUser": {
-      "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
-      "in": "query",
-      "name": "quotaUser",
-      "type": "string"
-    },
-    "userIp": {
-      "description": "Deprecated. Please use quotaUser instead.",
-      "in": "query",
-      "name": "userIp",
-      "type": "string"
-    }
-  },
-  "tags": [
-    {
-      "name": "achievementConfigurations"
-    },
-    {
-      "name": "imageConfigurations"
-    },
-    {
-      "name": "leaderboardConfigurations"
-    }
+  "host": "gamesconfiguration.googleapis.com",
+  "basePath": "/",
+  "schemes": [
+    "https"
   ],
   "paths": {
-    "/achievements/{achievementId}": {
+    "/games/v1configuration/achievements/{achievementId}": {
+      "parameters": [
+        {
+          "description": "V1 error format.",
+          "enum": [
+            "1",
+            "2"
+          ],
+          "in": "query",
+          "name": "$.xgafv",
+          "type": "string"
+        },
+        {
+          "description": "OAuth access token.",
+          "in": "query",
+          "name": "access_token",
+          "type": "string"
+        },
+        {
+          "description": "Data format for response.",
+          "enum": [
+            "json",
+            "media",
+            "proto"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
+        },
+        {
+          "description": "JSONP",
+          "in": "query",
+          "name": "callback",
+          "type": "string"
+        },
+        {
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
+        },
+        {
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
+        },
+        {
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
+        },
+        {
+          "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
+        },
+        {
+          "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+          "in": "query",
+          "name": "upload_protocol",
+          "type": "string"
+        },
+        {
+          "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+          "in": "query",
+          "name": "uploadType",
+          "type": "string"
+        }
+      ],
       "delete": {
-        "description": "Delete the achievement configuration with the given ID.",
-        "operationId": "achievementConfigurations.delete",
         "parameters": [
           {
             "description": "The ID of the achievement used by this method.",
@@ -148,108 +142,62 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidpublisher"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
         ],
         "tags": [
           "achievementConfigurations"
-        ]
+        ],
+        "description": "Delete the achievement configuration with the given ID.",
+        "operationId": "gamesConfiguration.achievementConfigurations.delete"
       },
       "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The ID of the achievement used by this method.",
+            "in": "path",
+            "name": "achievementId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/AchievementConfiguration"
+            }
+          }
+        },
+        "security": [
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/androidpublisher"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/androidpublisher"
+            ]
+          }
+        ],
+        "tags": [
+          "achievementConfigurations"
+        ],
         "description": "Retrieves the metadata of the achievement configuration with the given ID.",
-        "operationId": "achievementConfigurations.get",
-        "parameters": [
-          {
-            "description": "The ID of the achievement used by this method.",
-            "in": "path",
-            "name": "achievementId",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful response",
-            "schema": {
-              "$ref": "#/definitions/AchievementConfiguration"
-            }
-          }
-        },
-        "security": [
-          {
-            "Oauth2": [
-              "https://www.googleapis.com/auth/androidpublisher"
-            ]
-          }
-        ],
-        "tags": [
-          "achievementConfigurations"
-        ]
-      },
-      "parameters": [
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/userIp"
-        }
-      ],
-      "patch": {
-        "description": "Update the metadata of the achievement configuration with the given ID. This method supports patch semantics.",
-        "operationId": "achievementConfigurations.patch",
-        "parameters": [
-          {
-            "description": "The ID of the achievement used by this method.",
-            "in": "path",
-            "name": "achievementId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/AchievementConfiguration"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful response",
-            "schema": {
-              "$ref": "#/definitions/AchievementConfiguration"
-            }
-          }
-        },
-        "security": [
-          {
-            "Oauth2": [
-              "https://www.googleapis.com/auth/androidpublisher"
-            ]
-          }
-        ],
-        "tags": [
-          "achievementConfigurations"
-        ]
+        "operationId": "gamesConfiguration.achievementConfigurations.get"
       },
       "put": {
-        "description": "Update the metadata of the achievement configuration with the given ID.",
-        "operationId": "achievementConfigurations.update",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "The ID of the achievement used by this method.",
@@ -278,18 +226,101 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidpublisher"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
         ],
         "tags": [
           "achievementConfigurations"
-        ]
+        ],
+        "description": "Update the metadata of the achievement configuration with the given ID.",
+        "operationId": "gamesConfiguration.achievementConfigurations.update"
       }
     },
-    "/applications/{applicationId}/achievements": {
+    "/games/v1configuration/applications/{applicationId}/achievements": {
+      "parameters": [
+        {
+          "description": "V1 error format.",
+          "enum": [
+            "1",
+            "2"
+          ],
+          "in": "query",
+          "name": "$.xgafv",
+          "type": "string"
+        },
+        {
+          "description": "OAuth access token.",
+          "in": "query",
+          "name": "access_token",
+          "type": "string"
+        },
+        {
+          "description": "Data format for response.",
+          "enum": [
+            "json",
+            "media",
+            "proto"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
+        },
+        {
+          "description": "JSONP",
+          "in": "query",
+          "name": "callback",
+          "type": "string"
+        },
+        {
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
+        },
+        {
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
+        },
+        {
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
+        },
+        {
+          "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
+        },
+        {
+          "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+          "in": "query",
+          "name": "upload_protocol",
+          "type": "string"
+        },
+        {
+          "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+          "in": "query",
+          "name": "uploadType",
+          "type": "string"
+        }
+      ],
       "get": {
-        "description": "Returns a list of the achievement configurations in this application.",
-        "operationId": "achievementConfigurations.list",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "The application ID from the Google Play developer console.",
@@ -299,10 +330,8 @@
             "type": "string"
           },
           {
-            "description": "The maximum number of resource configurations to return in the response, used for paging. For any response, the actual number of resources returned may be less than the specified maxResults.",
+            "description": "The maximum number of resource configurations to return in the response, used for paging. For any response, the actual number of resources returned may be less than the specified `maxResults`.",
             "in": "query",
-            "maximum": 200,
-            "minimum": 1,
             "name": "maxResults",
             "type": "integer"
           },
@@ -325,39 +354,25 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidpublisher"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
         ],
         "tags": [
           "achievementConfigurations"
-        ]
+        ],
+        "description": "Returns a list of the achievement configurations in this application.",
+        "operationId": "gamesConfiguration.achievementConfigurations.list"
       },
-      "parameters": [
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/userIp"
-        }
-      ],
       "post": {
-        "description": "Insert a new achievement configuration in this application.",
-        "operationId": "achievementConfigurations.insert",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "The application ID from the Google Play developer console.",
@@ -386,18 +401,101 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidpublisher"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
         ],
         "tags": [
           "achievementConfigurations"
-        ]
+        ],
+        "description": "Insert a new achievement configuration in this application.",
+        "operationId": "gamesConfiguration.achievementConfigurations.insert"
       }
     },
-    "/applications/{applicationId}/leaderboards": {
+    "/games/v1configuration/applications/{applicationId}/leaderboards": {
+      "parameters": [
+        {
+          "description": "V1 error format.",
+          "enum": [
+            "1",
+            "2"
+          ],
+          "in": "query",
+          "name": "$.xgafv",
+          "type": "string"
+        },
+        {
+          "description": "OAuth access token.",
+          "in": "query",
+          "name": "access_token",
+          "type": "string"
+        },
+        {
+          "description": "Data format for response.",
+          "enum": [
+            "json",
+            "media",
+            "proto"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
+        },
+        {
+          "description": "JSONP",
+          "in": "query",
+          "name": "callback",
+          "type": "string"
+        },
+        {
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
+        },
+        {
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
+        },
+        {
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
+        },
+        {
+          "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
+        },
+        {
+          "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+          "in": "query",
+          "name": "upload_protocol",
+          "type": "string"
+        },
+        {
+          "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+          "in": "query",
+          "name": "uploadType",
+          "type": "string"
+        }
+      ],
       "get": {
-        "description": "Returns a list of the leaderboard configurations in this application.",
-        "operationId": "leaderboardConfigurations.list",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "The application ID from the Google Play developer console.",
@@ -407,10 +505,8 @@
             "type": "string"
           },
           {
-            "description": "The maximum number of resource configurations to return in the response, used for paging. For any response, the actual number of resources returned may be less than the specified maxResults.",
+            "description": "The maximum number of resource configurations to return in the response, used for paging. For any response, the actual number of resources returned may be less than the specified `maxResults`.",
             "in": "query",
-            "maximum": 200,
-            "minimum": 1,
             "name": "maxResults",
             "type": "integer"
           },
@@ -433,39 +529,25 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidpublisher"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
         ],
         "tags": [
           "leaderboardConfigurations"
-        ]
+        ],
+        "description": "Returns a list of the leaderboard configurations in this application.",
+        "operationId": "gamesConfiguration.leaderboardConfigurations.list"
       },
-      "parameters": [
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/userIp"
-        }
-      ],
       "post": {
-        "description": "Insert a new leaderboard configuration in this application.",
-        "operationId": "leaderboardConfigurations.insert",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "The application ID from the Google Play developer console.",
@@ -494,137 +576,118 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidpublisher"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
         ],
         "tags": [
           "leaderboardConfigurations"
-        ]
+        ],
+        "description": "Insert a new leaderboard configuration in this application.",
+        "operationId": "gamesConfiguration.leaderboardConfigurations.insert"
       }
     },
-    "/images/{resourceId}/imageType/{imageType}": {
+    "/games/v1configuration/images/{resourceId}/imageType/{imageType}": {
       "parameters": [
         {
-          "$ref": "#/parameters/alt"
+          "description": "V1 error format.",
+          "enum": [
+            "1",
+            "2"
+          ],
+          "in": "query",
+          "name": "$.xgafv",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/fields"
+          "description": "OAuth access token.",
+          "in": "query",
+          "name": "access_token",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/key"
+          "description": "Data format for response.",
+          "enum": [
+            "json",
+            "media",
+            "proto"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/oauth_token"
+          "description": "JSONP",
+          "in": "query",
+          "name": "callback",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/prettyPrint"
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/quotaUser"
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/userIp"
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
+        },
+        {
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
+        },
+        {
+          "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
+        },
+        {
+          "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+          "in": "query",
+          "name": "upload_protocol",
+          "type": "string"
+        },
+        {
+          "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+          "in": "query",
+          "name": "uploadType",
+          "type": "string"
         }
       ],
       "post": {
-        "consumes": [
-          "image/apng",
-          "image/bmp",
-          "image/cgm",
-          "image/dicom-rle",
-          "image/emf",
-          "image/fits",
-          "image/g3fax",
-          "image/gif",
-          "image/ief",
-          "image/jls",
-          "image/jp2",
-          "image/jpeg",
-          "image/jpm",
-          "image/jpx",
-          "image/ktx",
-          "image/naplps",
-          "image/pjpeg",
-          "image/png",
-          "image/prs.btif",
-          "image/prs.pti",
-          "image/pwg-raster",
-          "image/sgi",
-          "image/svg+xml",
-          "image/t38",
-          "image/tiff",
-          "image/tiff-fx",
-          "image/vnd.adobe.photoshop",
-          "image/vnd.airzip.accelerator.azv",
-          "image/vnd.cns.inf2",
-          "image/vnd.dece.graphic",
-          "image/vnd.djvu",
-          "image/vnd.dvb.subtitle",
-          "image/vnd.dwg",
-          "image/vnd.dxf",
-          "image/vnd.fastbidsheet",
-          "image/vnd.fpx",
-          "image/vnd.fst",
-          "image/vnd.fujixerox.edmics-mmr",
-          "image/vnd.fujixerox.edmics-rlc",
-          "image/vnd.globalgraphics.pgb",
-          "image/vnd.microsoft.icon",
-          "image/vnd.mix",
-          "image/vnd.mozilla.apng",
-          "image/vnd.ms-modi",
-          "image/vnd.ms-photo",
-          "image/vnd.net-fpx",
-          "image/vnd.radiance",
-          "image/vnd.sealed.png",
-          "image/vnd.sealedmedia.softseal.gif",
-          "image/vnd.sealedmedia.softseal.jpg",
-          "image/vnd.svf",
-          "image/vnd.tencent.tap",
-          "image/vnd.valve.source.texture",
-          "image/vnd.wap.wbmp",
-          "image/vnd.xiff",
-          "image/vnd.zbrush.pcx",
-          "image/webp",
-          "image/wmf",
-          "image/x-3ds",
-          "image/x-cmu-raster",
-          "image/x-cmx",
-          "image/x-freehand",
-          "image/x-icon",
-          "image/x-jng",
-          "image/x-mrsid-image",
-          "image/x-ms-bmp",
-          "image/x-pcx",
-          "image/x-pict",
-          "image/x-portable-anymap",
-          "image/x-portable-bitmap",
-          "image/x-portable-graymap",
-          "image/x-portable-pixmap",
-          "image/x-rgb",
-          "image/x-tga",
-          "image/x-xbitmap",
-          "image/x-xcf",
-          "image/x-xpixmap",
-          "image/x-xwindowdump"
+        "produces": [
+          "application/json"
         ],
-        "description": "Uploads an image for a resource with the given ID and image type.",
-        "operationId": "imageConfigurations.upload",
         "parameters": [
+          {
+            "description": "The ID of the resource used by this method.",
+            "in": "path",
+            "name": "resourceId",
+            "required": true,
+            "type": "string"
+          },
           {
             "description": "Selects which image in a resource for this method.",
             "enum": [
+              "IMAGE_TYPE_UNSPECIFIED",
               "ACHIEVEMENT_ICON",
               "LEADERBOARD_ICON"
             ],
             "in": "path",
             "name": "imageType",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The ID of the resource used by this method.",
-            "in": "path",
-            "name": "resourceId",
             "required": true,
             "type": "string"
           }
@@ -641,18 +704,98 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidpublisher"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
         ],
         "tags": [
           "imageConfigurations"
-        ]
+        ],
+        "description": "Uploads an image for a resource with the given ID and image type.",
+        "operationId": "gamesConfiguration.imageConfigurations.upload"
       }
     },
-    "/leaderboards/{leaderboardId}": {
+    "/games/v1configuration/leaderboards/{leaderboardId}": {
+      "parameters": [
+        {
+          "description": "V1 error format.",
+          "enum": [
+            "1",
+            "2"
+          ],
+          "in": "query",
+          "name": "$.xgafv",
+          "type": "string"
+        },
+        {
+          "description": "OAuth access token.",
+          "in": "query",
+          "name": "access_token",
+          "type": "string"
+        },
+        {
+          "description": "Data format for response.",
+          "enum": [
+            "json",
+            "media",
+            "proto"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
+        },
+        {
+          "description": "JSONP",
+          "in": "query",
+          "name": "callback",
+          "type": "string"
+        },
+        {
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
+        },
+        {
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
+        },
+        {
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
+        },
+        {
+          "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
+        },
+        {
+          "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+          "in": "query",
+          "name": "upload_protocol",
+          "type": "string"
+        },
+        {
+          "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+          "in": "query",
+          "name": "uploadType",
+          "type": "string"
+        }
+      ],
       "delete": {
-        "description": "Delete the leaderboard configuration with the given ID.",
-        "operationId": "leaderboardConfigurations.delete",
         "parameters": [
           {
             "description": "The ID of the leaderboard.",
@@ -671,122 +814,76 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidpublisher"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
         ],
         "tags": [
           "leaderboardConfigurations"
-        ]
+        ],
+        "description": "Delete the leaderboard configuration with the given ID.",
+        "operationId": "gamesConfiguration.leaderboardConfigurations.delete"
       },
       "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The ID of the leaderboard.",
+            "in": "path",
+            "name": "leaderboardId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/LeaderboardConfiguration"
+            }
+          }
+        },
+        "security": [
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/androidpublisher"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/androidpublisher"
+            ]
+          }
+        ],
+        "tags": [
+          "leaderboardConfigurations"
+        ],
         "description": "Retrieves the metadata of the leaderboard configuration with the given ID.",
-        "operationId": "leaderboardConfigurations.get",
-        "parameters": [
-          {
-            "description": "The ID of the leaderboard.",
-            "in": "path",
-            "name": "leaderboardId",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful response",
-            "schema": {
-              "$ref": "#/definitions/LeaderboardConfiguration"
-            }
-          }
-        },
-        "security": [
-          {
-            "Oauth2": [
-              "https://www.googleapis.com/auth/androidpublisher"
-            ]
-          }
-        ],
-        "tags": [
-          "leaderboardConfigurations"
-        ]
-      },
-      "parameters": [
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/userIp"
-        }
-      ],
-      "patch": {
-        "description": "Update the metadata of the leaderboard configuration with the given ID. This method supports patch semantics.",
-        "operationId": "leaderboardConfigurations.patch",
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/LeaderboardConfiguration"
-            }
-          },
-          {
-            "description": "The ID of the leaderboard.",
-            "in": "path",
-            "name": "leaderboardId",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful response",
-            "schema": {
-              "$ref": "#/definitions/LeaderboardConfiguration"
-            }
-          }
-        },
-        "security": [
-          {
-            "Oauth2": [
-              "https://www.googleapis.com/auth/androidpublisher"
-            ]
-          }
-        ],
-        "tags": [
-          "leaderboardConfigurations"
-        ]
+        "operationId": "gamesConfiguration.leaderboardConfigurations.get"
       },
       "put": {
-        "description": "Update the metadata of the leaderboard configuration with the given ID.",
-        "operationId": "leaderboardConfigurations.update",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/LeaderboardConfiguration"
-            }
-          },
           {
             "description": "The ID of the leaderboard.",
             "in": "path",
             "name": "leaderboardId",
             "required": true,
             "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/LeaderboardConfiguration"
+            }
           }
         ],
         "responses": {
@@ -801,21 +898,31 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidpublisher"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
         ],
         "tags": [
           "leaderboardConfigurations"
-        ]
+        ],
+        "description": "Update the metadata of the leaderboard configuration with the given ID.",
+        "operationId": "gamesConfiguration.leaderboardConfigurations.update"
       }
     }
   },
   "definitions": {
     "AchievementConfiguration": {
-      "description": "This is a JSON template for an achievement configuration resource.",
+      "description": "An achievement configuration resource.",
       "properties": {
         "achievementType": {
-          "description": "The type of the achievement.\nPossible values are:  \n- \"STANDARD\" - Achievement is either locked or unlocked. \n- \"INCREMENTAL\" - Achievement is incremental.",
+          "description": "The type of the achievement.",
+          "enum": [
+            "ACHIEVEMENT_TYPE_UNSPECIFIED",
+            "STANDARD",
+            "INCREMENTAL"
+          ],
           "type": "string"
         },
         "draft": {
@@ -827,12 +934,16 @@
           "type": "string"
         },
         "initialState": {
-          "description": "The initial state of the achievement.\nPossible values are:  \n- \"HIDDEN\" - Achievement is hidden. \n- \"REVEALED\" - Achievement is revealed. \n- \"UNLOCKED\" - Achievement is unlocked.",
+          "description": "The initial state of the achievement.",
+          "enum": [
+            "INITIAL_STATE_UNSPECIFIED",
+            "HIDDEN",
+            "REVEALED"
+          ],
           "type": "string"
         },
         "kind": {
-          "default": "gamesConfiguration#achievementConfiguration",
-          "description": "Uniquely identifies the type of this resource. Value is always the fixed string gamesConfiguration#achievementConfiguration.",
+          "description": "Uniquely identifies the type of this resource. Value is always the fixed string `gamesConfiguration#achievementConfiguration`.",
           "type": "string"
         },
         "published": {
@@ -852,7 +963,7 @@
       "type": "object"
     },
     "AchievementConfigurationDetail": {
-      "description": "This is a JSON template for an achievement configuration detail.",
+      "description": "An achievement configuration detail.",
       "properties": {
         "description": {
           "$ref": "#/definitions/LocalizedStringBundle",
@@ -863,8 +974,7 @@
           "type": "string"
         },
         "kind": {
-          "default": "gamesConfiguration#achievementConfigurationDetail",
-          "description": "Uniquely identifies the type of this resource. Value is always the fixed string gamesConfiguration#achievementConfigurationDetail.",
+          "description": "Uniquely identifies the type of this resource. Value is always the fixed string `gamesConfiguration#achievementConfigurationDetail`.",
           "type": "string"
         },
         "name": {
@@ -885,7 +995,7 @@
       "type": "object"
     },
     "AchievementConfigurationListResponse": {
-      "description": "This is a JSON template for a ListConfigurations response.",
+      "description": "A ListConfigurations response.",
       "properties": {
         "items": {
           "description": "The achievement configurations.",
@@ -895,8 +1005,7 @@
           "type": "array"
         },
         "kind": {
-          "default": "gamesConfiguration#achievementConfigurationListResponse",
-          "description": "Uniquely identifies the type of this resource. Value is always the fixed string games#achievementConfigurationListResponse.",
+          "description": "Uniquely identifies the type of this resource. Value is always the fixed string `gamesConfiguration#achievementConfigurationListResponse`.",
           "type": "string"
         },
         "nextPageToken": {
@@ -907,7 +1016,7 @@
       "type": "object"
     },
     "GamesNumberAffixConfiguration": {
-      "description": "This is a JSON template for a number affix resource.",
+      "description": "A number affix resource.",
       "properties": {
         "few": {
           "$ref": "#/definitions/LocalizedStringBundle",
@@ -937,7 +1046,7 @@
       "type": "object"
     },
     "GamesNumberFormatConfiguration": {
-      "description": "This is a JSON template for a number format resource.",
+      "description": "A number format resource.",
       "properties": {
         "currencyCode": {
           "description": "The curreny code string. Only used for CURRENCY format type.",
@@ -949,26 +1058,36 @@
           "type": "integer"
         },
         "numberFormatType": {
-          "description": "The formatting for the number.\nPossible values are:  \n- \"NUMERIC\" - Numbers are formatted to have no digits or a fixed number of digits after the decimal point according to locale. An optional custom unit can be added.\n- \"TIME_DURATION\" - Numbers are formatted to hours, minutes and seconds.\n- \"CURRENCY\" - Numbers are formatted to currency according to locale.",
+          "description": "The formatting for the number.",
+          "enum": [
+            "NUMBER_FORMAT_TYPE_UNSPECIFIED",
+            "NUMERIC",
+            "TIME_DURATION",
+            "CURRENCY"
+          ],
           "type": "string"
         },
         "suffix": {
           "$ref": "#/definitions/GamesNumberAffixConfiguration",
-          "description": "An optional suffix for the NUMERIC format type. These strings follow the same  plural rules as all Android string resources."
+          "description": "An optional suffix for the NUMERIC format type. These strings follow the same plural rules as all Android string resources."
         }
       },
       "type": "object"
     },
     "ImageConfiguration": {
-      "description": "This is a JSON template for an image configuration resource.",
+      "description": "An image configuration resource.",
       "properties": {
         "imageType": {
           "description": "The image type for the image.",
+          "enum": [
+            "IMAGE_TYPE_UNSPECIFIED",
+            "ACHIEVEMENT_ICON",
+            "LEADERBOARD_ICON"
+          ],
           "type": "string"
         },
         "kind": {
-          "default": "gamesConfiguration#imageConfiguration",
-          "description": "Uniquely identifies the type of this resource. Value is always the fixed string gamesConfiguration#imageConfiguration.",
+          "description": "Uniquely identifies the type of this resource. Value is always the fixed string `gamesConfiguration#imageConfiguration`.",
           "type": "string"
         },
         "resourceId": {
@@ -983,7 +1102,7 @@
       "type": "object"
     },
     "LeaderboardConfiguration": {
-      "description": "This is a JSON template for an leaderboard configuration resource.",
+      "description": "An leaderboard configuration resource.",
       "properties": {
         "draft": {
           "$ref": "#/definitions/LeaderboardConfigurationDetail",
@@ -994,8 +1113,7 @@
           "type": "string"
         },
         "kind": {
-          "default": "gamesConfiguration#leaderboardConfiguration",
-          "description": "Uniquely identifies the type of this resource. Value is always the fixed string gamesConfiguration#leaderboardConfiguration.",
+          "description": "Uniquely identifies the type of this resource. Value is always the fixed string `gamesConfiguration#leaderboardConfiguration`.",
           "type": "string"
         },
         "published": {
@@ -1013,7 +1131,11 @@
           "type": "string"
         },
         "scoreOrder": {
-          "description": "The type of the leaderboard.\nPossible values are:  \n- \"LARGER_IS_BETTER\" - Larger scores posted are ranked higher. \n- \"SMALLER_IS_BETTER\" - Smaller scores posted are ranked higher.",
+          "enum": [
+            "SCORE_ORDER_UNSPECIFIED",
+            "LARGER_IS_BETTER",
+            "SMALLER_IS_BETTER"
+          ],
           "type": "string"
         },
         "token": {
@@ -1024,15 +1146,14 @@
       "type": "object"
     },
     "LeaderboardConfigurationDetail": {
-      "description": "This is a JSON template for a leaderboard configuration detail.",
+      "description": "A leaderboard configuration detail.",
       "properties": {
         "iconUrl": {
           "description": "The icon url of this leaderboard. Writes to this field are ignored.",
           "type": "string"
         },
         "kind": {
-          "default": "gamesConfiguration#leaderboardConfigurationDetail",
-          "description": "Uniquely identifies the type of this resource. Value is always the fixed string gamesConfiguration#leaderboardConfigurationDetail.",
+          "description": "Uniquely identifies the type of this resource. Value is always the fixed string `gamesConfiguration#leaderboardConfigurationDetail`.",
           "type": "string"
         },
         "name": {
@@ -1052,7 +1173,7 @@
       "type": "object"
     },
     "LeaderboardConfigurationListResponse": {
-      "description": "This is a JSON template for a ListConfigurations response.",
+      "description": "A ListConfigurations response.",
       "properties": {
         "items": {
           "description": "The leaderboard configurations.",
@@ -1062,8 +1183,7 @@
           "type": "array"
         },
         "kind": {
-          "default": "gamesConfiguration#leaderboardConfigurationListResponse",
-          "description": "Uniquely identifies the type of this resource. Value is always the fixed string games#leaderboardConfigurationListResponse.",
+          "description": "Uniquely identifies the type of this resource. Value is always the fixed string `gamesConfiguration#leaderboardConfigurationListResponse`.",
           "type": "string"
         },
         "nextPageToken": {
@@ -1074,11 +1194,10 @@
       "type": "object"
     },
     "LocalizedString": {
-      "description": "This is a JSON template for a localized string resource.",
+      "description": "A localized string resource.",
       "properties": {
         "kind": {
-          "default": "gamesConfiguration#localizedString",
-          "description": "Uniquely identifies the type of this resource. Value is always the fixed string gamesConfiguration#localizedString.",
+          "description": "Uniquely identifies the type of this resource. Value is always the fixed string `gamesConfiguration#localizedString`.",
           "type": "string"
         },
         "locale": {
@@ -1093,11 +1212,10 @@
       "type": "object"
     },
     "LocalizedStringBundle": {
-      "description": "This is a JSON template for a localized string bundle resource.",
+      "description": "A localized string bundle resource.",
       "properties": {
         "kind": {
-          "default": "gamesConfiguration#localizedStringBundle",
-          "description": "Uniquely identifies the type of this resource. Value is always the fixed string gamesConfiguration#localizedStringBundle.",
+          "description": "Uniquely identifies the type of this resource. Value is always the fixed string `gamesConfiguration#localizedStringBundle`.",
           "type": "string"
         },
         "translations": {
@@ -1109,6 +1227,120 @@
         }
       },
       "type": "object"
+    }
+  },
+  "securityDefinitions": {
+    "Oauth2": {
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+      "description": "Oauth 2.0 implicit authentication",
+      "flow": "implicit",
+      "scopes": {
+        "https://www.googleapis.com/auth/androidpublisher": "View and manage your Google Play Developer account"
+      },
+      "type": "oauth2"
+    },
+    "Oauth2c": {
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+      "description": "Oauth 2.0 authorizationCode authentication",
+      "flow": "accessCode",
+      "scopes": {
+        "https://www.googleapis.com/auth/androidpublisher": "View and manage your Google Play Developer account"
+      },
+      "tokenUrl": "https://accounts.google.com/o/oauth2/token",
+      "type": "oauth2"
+    }
+  },
+  "tags": [
+    {
+      "name": "achievementConfigurations"
+    },
+    {
+      "name": "imageConfigurations"
+    },
+    {
+      "name": "leaderboardConfigurations"
+    }
+  ],
+  "externalDocs": {
+    "url": "https://developers.google.com/games/"
+  },
+  "x-components": {
+    "parameters": {
+      "_.xgafv": {
+        "description": "V1 error format.",
+        "enum": [
+          "1",
+          "2"
+        ],
+        "in": "query",
+        "name": "$.xgafv",
+        "type": "string"
+      },
+      "access_token": {
+        "description": "OAuth access token.",
+        "in": "query",
+        "name": "access_token",
+        "type": "string"
+      },
+      "alt": {
+        "description": "Data format for response.",
+        "enum": [
+          "json",
+          "media",
+          "proto"
+        ],
+        "in": "query",
+        "name": "alt",
+        "type": "string"
+      },
+      "callback": {
+        "description": "JSONP",
+        "in": "query",
+        "name": "callback",
+        "type": "string"
+      },
+      "fields": {
+        "description": "Selector specifying which fields to include in a partial response.",
+        "in": "query",
+        "name": "fields",
+        "type": "string"
+      },
+      "key": {
+        "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+        "in": "query",
+        "name": "key",
+        "type": "string"
+      },
+      "oauth_token": {
+        "description": "OAuth 2.0 token for the current user.",
+        "in": "query",
+        "name": "oauth_token",
+        "type": "string"
+      },
+      "prettyPrint": {
+        "description": "Returns response with indentations and line breaks.",
+        "in": "query",
+        "name": "prettyPrint",
+        "type": "boolean"
+      },
+      "quotaUser": {
+        "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+        "in": "query",
+        "name": "quotaUser",
+        "type": "string"
+      },
+      "uploadType": {
+        "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+        "in": "query",
+        "name": "uploadType",
+        "type": "string"
+      },
+      "upload_protocol": {
+        "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+        "in": "query",
+        "name": "upload_protocol",
+        "type": "string"
+      }
     }
   }
 }

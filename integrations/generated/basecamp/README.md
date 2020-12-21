@@ -13,11 +13,10 @@ let basecamp = require('@datafire/basecamp').create({
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-  ApiKeyAuth: "",
-  account_id: ""
+  ApiKeyAuth: ""
 });
 
-basecamp.projects.json.get({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -561,6 +560,70 @@ basecamp.buckets.bucketId.questions.questionId.json.get({
   * inherits_status `boolean`
   * answers_count `integer`
 
+### buckets.bucketId.inboxes.inboxId.forwards.json.get
+
+
+
+```js
+basecamp.buckets.bucketId.inboxes.inboxId.forwards.json.get({
+  "bucketId": "",
+  "inboxId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * bucketId **required** `string`
+  * inboxId **required** `string`
+  * page `integer`
+
+#### Output
+* output `array`
+  * items `object`
+    * status `string`
+    * app_url `string`
+    * from `string`
+    * parent `object`
+      * url `string`
+      * app_url `string`
+      * type `string`
+      * id `integer`
+      * title `string`
+    * title `string`
+    * url `string`
+    * subscription_url `string`
+    * created_at `string`
+    * creator `object`
+      * attachable_sgid `string`
+      * bio `string`
+      * name `string`
+      * title `string`
+      * admin `boolean`
+      * created_at `string`
+      * updated_at `string`
+      * time_zone `string`
+      * company `object`
+        * id `integer`
+        * name `string`
+      * avatar_url `string`
+      * personable_type `string`
+      * owner `boolean`
+      * email_address `string`
+      * id `integer`
+    * bucket `object`
+      * type `string`
+      * id `integer`
+      * name `string`
+    * updated_at `string`
+    * id `integer`
+    * content `string`
+    * replies_url `string`
+    * replies_count `integer`
+    * type `string`
+    * inherits_status `boolean`
+    * bookmark_url `string`
+    * subject `string`
+
 ### buckets.bucketId.questionnaires.questionnaireId.json.get
 
 
@@ -721,165 +784,88 @@ basecamp.buckets.bucketId.todos.todoId.completion.json.delete({
 #### Output
 *Output schema unknown*
 
-### buckets.bucketId.recordings.recordingId.comments.json.post
+### buckets.bucketId.inbox_forwards.inbox_forwardId.replies.replyId.json.get
 
 
 
 ```js
-basecamp.buckets.bucketId.recordings.recordingId.comments.json.post({
+basecamp.buckets.bucketId.inbox_forwards.inbox_forwardId.replies.replyId.json.get({
   "bucketId": "",
-  "recordingId": ""
+  "inbox_forwardId": "",
+  "replyId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * content `string`: content as the body of the message. See our Rich text guide for what HTML tags are allowed.
-  * body `object`
-    * content `string`
   * bucketId **required** `string`
-  * recordingId **required** `string`
+  * inbox_forwardId **required** `string`
+  * replyId **required** `string`
 
 #### Output
 * output `object`
-  * content `string`
-
-### buckets.bucketId.recordings.recordingId.comments.json.get
-
-
-
-```js
-basecamp.buckets.bucketId.recordings.recordingId.comments.json.get({
-  "bucketId": "",
-  "recordingId": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * bucketId **required** `string`
-  * recordingId **required** `string`
-  * page `integer`
-
-#### Output
-* output `array`
-  * items `object`
-    * status `string`
-    * app_url `string`
-    * parent `object`
-      * url `string`
-      * app_url `string`
-      * type `string`
-      * id `integer`
-      * title `string`
-    * title `string`
+  * status `string`
+  * app_url `string`
+  * parent `object`
     * url `string`
-    * created_at `string`
-    * creator `object`
-      * attachable_sgid `string`
-      * bio `null`
-      * name `string`
-      * title `string`
-      * admin `boolean`
-      * created_at `string`
-      * updated_at `string`
-      * time_zone `string`
-      * avatar_url `string`
-      * personable_type `string`
-      * owner `boolean`
-      * email_address `string`
-      * id `integer`
-    * bucket `object`
-      * type `string`
-      * id `integer`
-      * name `string`
-    * updated_at `string`
-    * id `integer`
-    * content `string`
+    * app_url `string`
     * type `string`
-    * inherits_status `boolean`
-    * bookmark_url `string`
+    * id `integer`
+    * title `string`
+  * title `string`
+  * url `string`
+  * created_at `string`
+  * creator `object`
+    * attachable_sgid `string`
+    * bio `string`
+    * name `string`
+    * title `string`
+    * admin `boolean`
+    * created_at `string`
+    * updated_at `string`
+    * time_zone `string`
+    * company `object`
+      * id `integer`
+      * name `string`
+    * avatar_url `string`
+    * client `boolean`
+    * owner `boolean`
+    * email_address `string`
+    * id `integer`
+    * personable_type `string`
+  * bucket `object`
+    * type `string`
+    * id `integer`
+    * name `string`
+  * updated_at `string`
+  * content `string`
+  * inherits_status `boolean`
+  * visible_to_clients `boolean`
+  * type `string`
+  * id `integer`
+  * bookmark_url `string`
 
-### buckets.bucketId.chats.chatId.integrations.integrationId.json.put
+### buckets.bucketId.recordings.recordingId.client_visibility.json.put
 
 
 
 ```js
-basecamp.buckets.bucketId.chats.chatId.integrations.integrationId.json.put({
+basecamp.buckets.bucketId.recordings.recordingId.client_visibility.json.put({
   "bucketId": "",
-  "chatId": "",
-  "integrationId": ""
+  "recordingId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * service_name `string`: service_name for the chatbot name, which will be used to invoke queries and commands on interactive bots. No spaces, emoji or non-word characters are allowed, as you need to be able to call it like
-  * !tally myCommand `string`: !tally myCommand Optional parameters :
-  * command_url `string`: command_url for the HTTPS url that Basecamp should call when the bot is addressed.
   * body `object`
-    * service_name `string`
-    * command_url `string`
+    * visible_to_clients `boolean`
   * bucketId **required** `string`
-  * chatId **required** `string`
-  * integrationId **required** `string`
+  * recordingId **required** `string`
 
 #### Output
 * output `object`
-  * service_name `string`
-  * command_url `string`
-
-### buckets.bucketId.chats.chatId.integrations.integrationId.json.delete
-
-
-
-```js
-basecamp.buckets.bucketId.chats.chatId.integrations.integrationId.json.delete({
-  "bucketId": "",
-  "chatId": "",
-  "integrationId": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * bucketId **required** `string`
-  * chatId **required** `string`
-  * integrationId **required** `string`
-
-#### Output
-*Output schema unknown*
-
-### buckets.bucketId.chats.chatId.integrations.integrationId.json.get
-
-
-
-```js
-basecamp.buckets.bucketId.chats.chatId.integrations.integrationId.json.get({
-  "bucketId": "",
-  "chatId": "",
-  "integrationId": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * bucketId **required** `string`
-  * chatId **required** `string`
-  * integrationId **required** `string`
-  * page `integer`
-
-#### Output
-* output `array`
-  * items `object`
-    * app_url `string`
-    * url `string`
-    * service_name `string`
-    * created_at `string`
-    * updated_at `string`
-    * lines_url `string`
-    * command_url `string`
-    * id `integer`
+  * visible_to_clients `boolean`
 
 ### buckets.bucketId.recordings.recordingId.status.archived.json.put
 
@@ -963,10 +949,89 @@ basecamp.templates.templateId.project_constructions.project_constructionId.json.
 * input `object`
   * templateId **required** `string`
   * project_constructionId **required** `string`
-  * page `integer`
 
 #### Output
 *Output schema unknown*
+
+### buckets.bucketId.chats.chatId.integrations.integrationId.json.put
+
+
+
+```js
+basecamp.buckets.bucketId.chats.chatId.integrations.integrationId.json.put({
+  "bucketId": "",
+  "chatId": "",
+  "integrationId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * service_name `string`: service_name for the chatbot name, which will be used to invoke queries and commands on interactive bots. No spaces, emoji or non-word characters are allowed, as you need to be able to call it like
+  * !tally myCommand `string`: !tally myCommand Optional parameters :
+  * command_url `string`: command_url for the HTTPS url that Basecamp should call when the bot is addressed.
+  * body `object`
+    * service_name `string`
+    * command_url `string`
+  * bucketId **required** `string`
+  * chatId **required** `string`
+  * integrationId **required** `string`
+
+#### Output
+* output `object`
+  * service_name `string`
+  * command_url `string`
+
+### buckets.bucketId.chats.chatId.integrations.integrationId.json.delete
+
+
+
+```js
+basecamp.buckets.bucketId.chats.chatId.integrations.integrationId.json.delete({
+  "bucketId": "",
+  "chatId": "",
+  "integrationId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * bucketId **required** `string`
+  * chatId **required** `string`
+  * integrationId **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### buckets.bucketId.chats.chatId.integrations.integrationId.json.get
+
+
+
+```js
+basecamp.buckets.bucketId.chats.chatId.integrations.integrationId.json.get({
+  "bucketId": "",
+  "chatId": "",
+  "integrationId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * bucketId **required** `string`
+  * chatId **required** `string`
+  * integrationId **required** `string`
+
+#### Output
+* output `array`
+  * items `object`
+    * app_url `string`
+    * url `string`
+    * service_name `string`
+    * created_at `string`
+    * updated_at `string`
+    * lines_url `string`
+    * command_url `string`
+    * id `integer`
 
 ### buckets.bucketId.question_answers.question_answerId.json.get
 
@@ -1038,6 +1103,67 @@ basecamp.my.profile.json.get(null, context)
 
 #### Output
 *Output schema unknown*
+
+### buckets.bucketId.inbox_forwards.inbox_forwardId.replies.json.get
+
+
+
+```js
+basecamp.buckets.bucketId.inbox_forwards.inbox_forwardId.replies.json.get({
+  "bucketId": "",
+  "inbox_forwardId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * bucketId **required** `string`
+  * inbox_forwardId **required** `string`
+  * page `integer`
+
+#### Output
+* output `array`
+  * items `object`
+    * status `string`
+    * app_url `string`
+    * parent `object`
+      * url `string`
+      * app_url `string`
+      * type `string`
+      * id `integer`
+      * title `string`
+    * title `string`
+    * url `string`
+    * created_at `string`
+    * creator `object`
+      * attachable_sgid `string`
+      * bio `string`
+      * name `string`
+      * title `string`
+      * admin `boolean`
+      * created_at `string`
+      * updated_at `string`
+      * time_zone `string`
+      * company `object`
+        * id `integer`
+        * name `string`
+      * avatar_url `string`
+      * client `boolean`
+      * owner `boolean`
+      * email_address `string`
+      * id `integer`
+      * personable_type `string`
+    * bucket `object`
+      * type `string`
+      * id `integer`
+      * name `string`
+    * updated_at `string`
+    * content `string`
+    * inherits_status `boolean`
+    * visible_to_clients `boolean`
+    * type `string`
+    * id `integer`
+    * bookmark_url `string`
 
 ### buckets.bucketId.chats.chatId.lines.lineId.json.delete
 
@@ -1199,70 +1325,6 @@ basecamp.buckets.bucketId.recordings.recordingId.status.trashed.json.put({
 
 #### Output
 *Output schema unknown*
-
-### buckets.bucketId.inboxes.inboxeId.forwards.json.get
-
-
-
-```js
-basecamp.buckets.bucketId.inboxes.inboxeId.forwards.json.get({
-  "bucketId": "",
-  "inboxeId": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * bucketId **required** `string`
-  * inboxeId **required** `string`
-  * page `integer`
-
-#### Output
-* output `array`
-  * items `object`
-    * status `string`
-    * app_url `string`
-    * from `string`
-    * parent `object`
-      * url `string`
-      * app_url `string`
-      * type `string`
-      * id `integer`
-      * title `string`
-    * title `string`
-    * url `string`
-    * subscription_url `string`
-    * created_at `string`
-    * creator `object`
-      * attachable_sgid `string`
-      * bio `string`
-      * name `string`
-      * title `string`
-      * admin `boolean`
-      * created_at `string`
-      * updated_at `string`
-      * time_zone `string`
-      * company `object`
-        * id `integer`
-        * name `string`
-      * avatar_url `string`
-      * personable_type `string`
-      * owner `boolean`
-      * email_address `string`
-      * id `integer`
-    * bucket `object`
-      * type `string`
-      * id `integer`
-      * name `string`
-    * updated_at `string`
-    * id `integer`
-    * content `string`
-    * replies_url `string`
-    * replies_count `integer`
-    * type `string`
-    * inherits_status `boolean`
-    * bookmark_url `string`
-    * subject `string`
 
 ### projects.projectId.people.users.json.put
 
@@ -1577,61 +1639,31 @@ basecamp.circles.people.json.get({}, context)
 #### Output
 *Output schema unknown*
 
-### buckets.bucketId.schedule_entries.schedule_entrieId.json.put
+### buckets.bucketId.todosets.todosetId.json.get
 
 
 
 ```js
-basecamp.buckets.bucketId.schedule_entries.schedule_entrieId.json.put({
+basecamp.buckets.bucketId.todosets.todosetId.json.get({
   "bucketId": "",
-  "schedule_entrieId": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * body `object`
-    * starts_at `string`
-    * ends_at `string`
-    * all_day `boolean`
-    * summary `string`
-  * bucketId **required** `string`
-  * schedule_entrieId **required** `string`
-
-#### Output
-* output `object`
-  * starts_at `string`
-  * ends_at `string`
-  * all_day `boolean`
-  * summary `string`
-
-### buckets.bucketId.schedule_entries.schedule_entrieId.json.get
-
-
-
-```js
-basecamp.buckets.bucketId.schedule_entries.schedule_entrieId.json.get({
-  "bucketId": "",
-  "schedule_entrieId": ""
+  "todosetId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * bucketId **required** `string`
-  * schedule_entrieId **required** `string`
+  * todosetId **required** `string`
 
 #### Output
 * output `object`
   * status `string`
   * app_url `string`
-  * description `string`
-  * parent `object`
-    * url `string`
-    * app_url `string`
-    * type `string`
-    * id `integer`
-    * title `string`
+  * name `string`
+  * title `string`
+  * url `string`
+  * todolists_count `integer`
+  * inherits_status `boolean`
   * creator `object`
     * attachable_sgid `string`
     * bio `string`
@@ -1649,42 +1681,20 @@ basecamp.buckets.bucketId.schedule_entries.schedule_entrieId.json.get({
     * owner `boolean`
     * email_address `string`
     * id `integer`
-  * url `string`
   * bucket `object`
     * type `string`
     * id `integer`
     * name `string`
-  * created_at `string`
-  * comments_url `string`
   * updated_at `string`
+  * todolists_url `string`
+  * completed `boolean`
+  * completed_ratio `string`
+  * app_todoslists_url `string`
   * id `integer`
-  * summary `string`
-  * participants `array`
-    * items `object`
-      * attachable_sgid `string`
-      * bio `string`
-      * name `string`
-      * title `string`
-      * admin `boolean`
-      * created_at `string`
-      * updated_at `string`
-      * time_zone `string`
-      * company `object`
-        * id `integer`
-        * name `string`
-      * avatar_url `string`
-      * personable_type `string`
-      * owner `boolean`
-      * email_address `string`
-      * id `integer`
-  * comments_count `integer`
-  * subscription_url `string`
-  * starts_at `string`
-  * ends_at `string`
+  * position `integer`
   * type `string`
-  * inherits_status `boolean`
+  * created_at `string`
   * bookmark_url `string`
-  * all_day `boolean`
 
 ### projects.projectId.json.put
 
@@ -1759,21 +1769,21 @@ basecamp.projects.projectId.json.get({
   * bookmark_url `string`
   * name `string`
 
-### buckets.bucketId.inboxes.inboxeId.json.get
+### buckets.bucketId.inboxes.inboxId.json.get
 
 
 
 ```js
-basecamp.buckets.bucketId.inboxes.inboxeId.json.get({
+basecamp.buckets.bucketId.inboxes.inboxId.json.get({
   "bucketId": "",
-  "inboxeId": ""
+  "inboxId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * bucketId **required** `string`
-  * inboxeId **required** `string`
+  * inboxId **required** `string`
 
 #### Output
 * output `object`
@@ -1853,7 +1863,6 @@ basecamp.buckets.bucketId.todolists.todolistId.todos.json.get({
 #### Input
 * input `object`
   * bucketId **required** `string`
-  * completed `boolean`
   * todolistId **required** `string`
   * page `integer`
 
@@ -1967,94 +1976,91 @@ basecamp.buckets.bucketId.client.correspondences.correspondenceId.json.get({
   * bookmark_url `string`
   * subject `string`
 
-### buckets.bucketId.todolists.todolistId.groups.json.post
+### buckets.bucketId.message_boards.message_boardId.messages.json.post
 
 
 
 ```js
-basecamp.buckets.bucketId.todolists.todolistId.groups.json.post({
+basecamp.buckets.bucketId.message_boards.message_boardId.messages.json.post({
   "bucketId": "",
-  "todolistId": ""
+  "message_boardId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * name `string`: name of the to-do list group.
+  * subject `string`: subject as the title of the message, and
+  * status `string`: status , set to
+  * active `string`: active to publish immediately.
   * body `object`
-    * name `string`
+    * content `string`
+    * status `string`
+    * subject `string`
   * bucketId **required** `string`
-  * todolistId **required** `string`
+  * message_boardId **required** `string`
 
 #### Output
 * output `object`
-  * name `string`
+  * content `string`
+  * status `string`
+  * subject `string`
 
-### buckets.bucketId.todolists.todolistId.groups.json.get
+### buckets.bucketId.message_boards.message_boardId.messages.json.get
 
 
 
 ```js
-basecamp.buckets.bucketId.todolists.todolistId.groups.json.get({
+basecamp.buckets.bucketId.message_boards.message_boardId.messages.json.get({
   "bucketId": "",
-  "todolistId": ""
+  "message_boardId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * bucketId **required** `string`
-  * todolistId **required** `string`
+  * message_boardId **required** `string`
   * page `integer`
 
 #### Output
 * output `array`
   * items `object`
-    * creator `object`
-      * attachable_sgid `string`
-      * bio `null`
-      * name `string`
-      * title `string`
-      * admin `boolean`
-      * created_at `string`
-      * updated_at `string`
-      * time_zone `string`
-      * avatar_url `string`
-      * personable_type `string`
-      * owner `boolean`
-      * email_address `string`
-      * id `integer`
-    * subscription_url `string`
-    * updated_at `string`
-    * id `integer`
-    * app_url `string`
-    * title `string`
-    * app_todos_url `string`
-    * comments_count `integer`
-    * type `string`
     * status `string`
-    * description `string`
+    * app_url `string`
     * parent `object`
       * url `string`
       * app_url `string`
       * type `string`
       * id `integer`
       * title `string`
-    * todos_url `string`
-    * completed `boolean`
-    * comments_url `string`
-    * bookmark_url `string`
-    * group_position_url `string`
-    * name `string`
+    * creator `object`
+      * attachable_sgid `string`
+      * name `string`
+      * title `string`
+      * admin `boolean`
+      * created_at `string`
+      * updated_at `string`
+      * avatar_url `string`
+      * personable_type `string`
+      * owner `boolean`
+      * email_address `string`
+      * id `integer`
     * url `string`
-    * created_at `string`
     * bucket `object`
       * type `string`
       * id `integer`
       * name `string`
-    * completed_ratio `string`
-    * position `integer`
+    * created_at `string`
+    * comments_url `string`
+    * updated_at `string`
+    * id `integer`
+    * content `string`
+    * comments_count `integer`
+    * subscription_url `string`
+    * type `string`
     * inherits_status `boolean`
+    * bookmark_url `string`
+    * subject `string`
 
 ### buckets.bucketId.todolists.groups.groupId.position.json.put
 
@@ -2238,6 +2244,60 @@ basecamp.buckets.bucketId.chats.chatId.lines.json.get({
     * type `string`
     * inherits_status `boolean`
     * bookmark_url `string`
+
+### buckets.bucketId.webhooks.json.post
+
+
+
+```js
+basecamp.buckets.bucketId.webhooks.json.post({
+  "bucketId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * payload_url `string`: payload_url for the HTTPS url that Basecamp should call. Optional parameters :
+  * types `string`: types as an array of types, options given in the introduction.
+  * body `object`
+    * types `array`
+      * items `string`
+    * payload_url `string`
+  * bucketId **required** `string`
+
+#### Output
+* output `object`
+  * types `array`
+    * items `string`
+  * payload_url `string`
+
+### buckets.bucketId.webhooks.json.get
+
+
+
+```js
+basecamp.buckets.bucketId.webhooks.json.get({
+  "bucketId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * bucketId **required** `string`
+  * page `integer`
+
+#### Output
+* output `array`
+  * items `object`
+    * app_url `string`
+    * payload_url `string`
+    * url `string`
+    * created_at `string`
+    * updated_at `string`
+    * active `string`
+    * id `integer`
+    * types `array`
+      * items `string`
 
 ### chats.json.get
 
@@ -2782,6 +2842,85 @@ basecamp.projects.projectId.people.json.get({
 #### Output
 *Output schema unknown*
 
+### buckets.bucketId.recordings.recordingId.comments.json.post
+
+
+
+```js
+basecamp.buckets.bucketId.recordings.recordingId.comments.json.post({
+  "bucketId": "",
+  "recordingId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * content `string`: content as the body of the message. See our Rich text guide for what HTML tags are allowed.
+  * body `object`
+    * content `string`
+  * bucketId **required** `string`
+  * recordingId **required** `string`
+
+#### Output
+* output `object`
+  * content `string`
+
+### buckets.bucketId.recordings.recordingId.comments.json.get
+
+
+
+```js
+basecamp.buckets.bucketId.recordings.recordingId.comments.json.get({
+  "bucketId": "",
+  "recordingId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * bucketId **required** `string`
+  * recordingId **required** `string`
+  * page `integer`
+
+#### Output
+* output `array`
+  * items `object`
+    * status `string`
+    * app_url `string`
+    * parent `object`
+      * url `string`
+      * app_url `string`
+      * type `string`
+      * id `integer`
+      * title `string`
+    * title `string`
+    * url `string`
+    * created_at `string`
+    * creator `object`
+      * attachable_sgid `string`
+      * bio `null`
+      * name `string`
+      * title `string`
+      * admin `boolean`
+      * created_at `string`
+      * updated_at `string`
+      * time_zone `string`
+      * avatar_url `string`
+      * personable_type `string`
+      * owner `boolean`
+      * email_address `string`
+      * id `integer`
+    * bucket `object`
+      * type `string`
+      * id `integer`
+      * name `string`
+    * updated_at `string`
+    * id `integer`
+    * content `string`
+    * type `string`
+    * inherits_status `boolean`
+    * bookmark_url `string`
+
 ### buckets.bucketId.documents.documentId.json.put
 
 
@@ -2863,6 +3002,65 @@ basecamp.buckets.bucketId.documents.documentId.json.get({
   * inherits_status `boolean`
   * bookmark_url `string`
 
+### buckets.bucketId.client.recordings.recordingId.replies.replyId.json.get
+
+
+
+```js
+basecamp.buckets.bucketId.client.recordings.recordingId.replies.replyId.json.get({
+  "bucketId": "",
+  "recordingId": "",
+  "replyId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * bucketId **required** `string`
+  * recordingId **required** `string`
+  * replyId **required** `string`
+
+#### Output
+* output `object`
+  * status `string`
+  * app_url `string`
+  * parent `object`
+    * url `string`
+    * app_url `string`
+    * type `string`
+    * id `integer`
+    * title `string`
+  * title `string`
+  * url `string`
+  * created_at `string`
+  * creator `object`
+    * attachable_sgid `string`
+    * bio `string`
+    * name `string`
+    * title `string`
+    * admin `boolean`
+    * created_at `string`
+    * updated_at `string`
+    * time_zone `string`
+    * company `object`
+      * id `integer`
+      * name `string`
+    * avatar_url `string`
+    * personable_type `string`
+    * owner `boolean`
+    * email_address `string`
+    * id `integer`
+  * bucket `object`
+    * type `string`
+    * id `integer`
+    * name `string`
+  * updated_at `string`
+  * id `integer`
+  * content `string`
+  * type `string`
+  * inherits_status `boolean`
+  * bookmark_url `string`
+
 ### templates.templateId.json.put
 
 
@@ -2922,6 +3120,15 @@ basecamp.templates.templateId.json.get({
   * url `string`
   * created_at `string`
   * updated_at `string`
+  * dock `array`
+    * items `object`
+      * app_url `string`
+      * name `string`
+      * title `string`
+      * url `string`
+      * enabled `boolean`
+      * position `integer`
+      * id `integer`
   * id `integer`
   * name `string`
 
@@ -3068,62 +3275,94 @@ basecamp.buckets.bucketId.vaults.vaultId.uploads.json.get({
     * position `integer`
     * inherits_status `boolean`
 
-### buckets.bucketId.todosets.todosetId.json.get
+### buckets.bucketId.todolists.todolistId.groups.json.post
 
 
 
 ```js
-basecamp.buckets.bucketId.todosets.todosetId.json.get({
+basecamp.buckets.bucketId.todolists.todolistId.groups.json.post({
   "bucketId": "",
-  "todosetId": ""
+  "todolistId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * name `string`: name of the to-do list group.
+  * body `object`
+    * name `string`
+  * bucketId **required** `string`
+  * todolistId **required** `string`
+
+#### Output
+* output `object`
+  * name `string`
+
+### buckets.bucketId.todolists.todolistId.groups.json.get
+
+
+
+```js
+basecamp.buckets.bucketId.todolists.todolistId.groups.json.get({
+  "bucketId": "",
+  "todolistId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * bucketId **required** `string`
-  * todosetId **required** `string`
+  * todolistId **required** `string`
+  * page `integer`
 
 #### Output
-* output `object`
-  * status `string`
-  * app_url `string`
-  * name `string`
-  * title `string`
-  * url `string`
-  * todolists_count `integer`
-  * inherits_status `boolean`
-  * creator `object`
-    * attachable_sgid `string`
-    * bio `string`
-    * name `string`
-    * title `string`
-    * admin `boolean`
-    * created_at `string`
+* output `array`
+  * items `object`
+    * creator `object`
+      * attachable_sgid `string`
+      * bio `null`
+      * name `string`
+      * title `string`
+      * admin `boolean`
+      * created_at `string`
+      * updated_at `string`
+      * time_zone `string`
+      * avatar_url `string`
+      * personable_type `string`
+      * owner `boolean`
+      * email_address `string`
+      * id `integer`
+    * subscription_url `string`
     * updated_at `string`
-    * time_zone `string`
-    * company `object`
+    * id `integer`
+    * app_url `string`
+    * title `string`
+    * app_todos_url `string`
+    * comments_count `integer`
+    * type `string`
+    * status `string`
+    * description `string`
+    * parent `object`
+      * url `string`
+      * app_url `string`
+      * type `string`
+      * id `integer`
+      * title `string`
+    * todos_url `string`
+    * completed `boolean`
+    * comments_url `string`
+    * bookmark_url `string`
+    * group_position_url `string`
+    * name `string`
+    * url `string`
+    * created_at `string`
+    * bucket `object`
+      * type `string`
       * id `integer`
       * name `string`
-    * avatar_url `string`
-    * personable_type `string`
-    * owner `boolean`
-    * email_address `string`
-    * id `integer`
-  * bucket `object`
-    * type `string`
-    * id `integer`
-    * name `string`
-  * updated_at `string`
-  * todolists_url `string`
-  * completed `boolean`
-  * completed_ratio `string`
-  * app_todoslists_url `string`
-  * id `integer`
-  * position `integer`
-  * type `string`
-  * created_at `string`
-  * bookmark_url `string`
+    * completed_ratio `string`
+    * position `integer`
+    * inherits_status `boolean`
 
 ### buckets.bucketId.message_boards.message_boardId.json.get
 
@@ -3179,14 +3418,14 @@ basecamp.buckets.bucketId.message_boards.message_boardId.json.get({
   * inherits_status `boolean`
   * bookmark_url `string`
 
-### buckets.bucketId.categories.categorieId.json.put
+### buckets.bucketId.categories.categoryId.json.put
 
 
 
 ```js
-basecamp.buckets.bucketId.categories.categorieId.json.put({
+basecamp.buckets.bucketId.categories.categoryId.json.put({
   "bucketId": "",
-  "categorieId": ""
+  "categoryId": ""
 }, context)
 ```
 
@@ -3196,47 +3435,47 @@ basecamp.buckets.bucketId.categories.categorieId.json.put({
     * name `string`
     * icon `string`
   * bucketId **required** `string`
-  * categorieId **required** `string`
+  * categoryId **required** `string`
 
 #### Output
 * output `object`
   * name `string`
   * icon `string`
 
-### buckets.bucketId.categories.categorieId.json.delete
+### buckets.bucketId.categories.categoryId.json.delete
 
 
 
 ```js
-basecamp.buckets.bucketId.categories.categorieId.json.delete({
+basecamp.buckets.bucketId.categories.categoryId.json.delete({
   "bucketId": "",
-  "categorieId": ""
+  "categoryId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * bucketId **required** `string`
-  * categorieId **required** `string`
+  * categoryId **required** `string`
 
 #### Output
 *Output schema unknown*
 
-### buckets.bucketId.categories.categorieId.json.get
+### buckets.bucketId.categories.categoryId.json.get
 
 
 
 ```js
-basecamp.buckets.bucketId.categories.categorieId.json.get({
+basecamp.buckets.bucketId.categories.categoryId.json.get({
   "bucketId": "",
-  "categorieId": ""
+  "categoryId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * bucketId **required** `string`
-  * categorieId **required** `string`
+  * categoryId **required** `string`
 
 #### Output
 * output `object`
@@ -3245,60 +3484,6 @@ basecamp.buckets.bucketId.categories.categorieId.json.get({
   * id `integer`
   * name `string`
   * updated_at `string`
-
-### buckets.bucketId.webhooks.json.post
-
-
-
-```js
-basecamp.buckets.bucketId.webhooks.json.post({
-  "bucketId": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * payload_url `string`: payload_url for the HTTPS url that Basecamp should call. Optional parameters :
-  * types `string`: types as an array of types, options given in the introduction.
-  * body `object`
-    * types `array`
-      * items `string`
-    * payload_url `string`
-  * bucketId **required** `string`
-
-#### Output
-* output `object`
-  * types `array`
-    * items `string`
-  * payload_url `string`
-
-### buckets.bucketId.webhooks.json.get
-
-
-
-```js
-basecamp.buckets.bucketId.webhooks.json.get({
-  "bucketId": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * bucketId **required** `string`
-  * page `integer`
-
-#### Output
-* output `array`
-  * items `object`
-    * app_url `string`
-    * payload_url `string`
-    * url `string`
-    * created_at `string`
-    * updated_at `string`
-    * active `string`
-    * id `integer`
-    * types `array`
-      * items `string`
 
 ### buckets.bucketId.vaults.vaultId.vaults.json.post
 
@@ -3476,92 +3661,6 @@ basecamp.buckets.bucketId.messages.messageId.json.get({
   * bookmark_url `string`
   * subject `string`
 
-### buckets.bucketId.message_boards.message_boardId.messages.json.post
-
-
-
-```js
-basecamp.buckets.bucketId.message_boards.message_boardId.messages.json.post({
-  "bucketId": "",
-  "message_boardId": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * subject `string`: subject as the title of the message, and
-  * status `string`: status , set to
-  * active `string`: active to publish immediately.
-  * body `object`
-    * content `string`
-    * status `string`
-    * subject `string`
-  * bucketId **required** `string`
-  * message_boardId **required** `string`
-
-#### Output
-* output `object`
-  * content `string`
-  * status `string`
-  * subject `string`
-
-### buckets.bucketId.message_boards.message_boardId.messages.json.get
-
-
-
-```js
-basecamp.buckets.bucketId.message_boards.message_boardId.messages.json.get({
-  "bucketId": "",
-  "message_boardId": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * bucketId **required** `string`
-  * message_boardId **required** `string`
-  * page `integer`
-
-#### Output
-* output `array`
-  * items `object`
-    * status `string`
-    * app_url `string`
-    * parent `object`
-      * url `string`
-      * app_url `string`
-      * type `string`
-      * id `integer`
-      * title `string`
-    * creator `object`
-      * attachable_sgid `string`
-      * name `string`
-      * title `string`
-      * admin `boolean`
-      * created_at `string`
-      * updated_at `string`
-      * avatar_url `string`
-      * personable_type `string`
-      * owner `boolean`
-      * email_address `string`
-      * id `integer`
-    * url `string`
-    * bucket `object`
-      * type `string`
-      * id `integer`
-      * name `string`
-    * created_at `string`
-    * comments_url `string`
-    * updated_at `string`
-    * id `integer`
-    * content `string`
-    * comments_count `integer`
-    * subscription_url `string`
-    * type `string`
-    * inherits_status `boolean`
-    * bookmark_url `string`
-    * subject `string`
-
 ### buckets.bucketId.chats.chatId.json.get
 
 
@@ -3709,37 +3808,61 @@ basecamp.buckets.bucketId.todosets.todosetId.todolists.json.get({
     * position `integer`
     * inherits_status `boolean`
 
-### buckets.bucketId.client.recordings.recordingId.replies.replieId.json.get
+### buckets.bucketId.schedule_entries.schedule_entryId.json.put
 
 
 
 ```js
-basecamp.buckets.bucketId.client.recordings.recordingId.replies.replieId.json.get({
+basecamp.buckets.bucketId.schedule_entries.schedule_entryId.json.put({
   "bucketId": "",
-  "recordingId": "",
-  "replieId": ""
+  "schedule_entryId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * body `object`
+    * starts_at `string`
+    * ends_at `string`
+    * all_day `boolean`
+    * summary `string`
+  * bucketId **required** `string`
+  * schedule_entryId **required** `string`
+
+#### Output
+* output `object`
+  * starts_at `string`
+  * ends_at `string`
+  * all_day `boolean`
+  * summary `string`
+
+### buckets.bucketId.schedule_entries.schedule_entryId.json.get
+
+
+
+```js
+basecamp.buckets.bucketId.schedule_entries.schedule_entryId.json.get({
+  "bucketId": "",
+  "schedule_entryId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * bucketId **required** `string`
-  * recordingId **required** `string`
-  * replieId **required** `string`
+  * schedule_entryId **required** `string`
 
 #### Output
 * output `object`
   * status `string`
   * app_url `string`
+  * description `string`
   * parent `object`
     * url `string`
     * app_url `string`
     * type `string`
     * id `integer`
     * title `string`
-  * title `string`
-  * url `string`
-  * created_at `string`
   * creator `object`
     * attachable_sgid `string`
     * bio `string`
@@ -3757,16 +3880,42 @@ basecamp.buckets.bucketId.client.recordings.recordingId.replies.replieId.json.ge
     * owner `boolean`
     * email_address `string`
     * id `integer`
+  * url `string`
   * bucket `object`
     * type `string`
     * id `integer`
     * name `string`
+  * created_at `string`
+  * comments_url `string`
   * updated_at `string`
   * id `integer`
-  * content `string`
+  * summary `string`
+  * participants `array`
+    * items `object`
+      * attachable_sgid `string`
+      * bio `string`
+      * name `string`
+      * title `string`
+      * admin `boolean`
+      * created_at `string`
+      * updated_at `string`
+      * time_zone `string`
+      * company `object`
+        * id `integer`
+        * name `string`
+      * avatar_url `string`
+      * personable_type `string`
+      * owner `boolean`
+      * email_address `string`
+      * id `integer`
+  * comments_count `integer`
+  * subscription_url `string`
+  * starts_at `string`
+  * ends_at `string`
   * type `string`
   * inherits_status `boolean`
   * bookmark_url `string`
+  * all_day `boolean`
 
 ### buckets.bucketId.todos.todoId.position.json.put
 
@@ -4057,26 +4206,6 @@ basecamp.buckets.bucketId.webhooks.webhookId.json.get({
       * request `object`
         * body `object`
           * recording `object`
-            * status `string`
-            * app_url `string`
-            * parent `object`
-              * url `string`
-              * app_url `string`
-              * type `string`
-              * id `integer`
-              * title `string`
-            * title `string`
-            * url `string`
-            * created_at `string`
-            * bucket `object`
-              * type `string`
-              * id `integer`
-              * name `string`
-            * updated_at `string`
-            * id `integer`
-            * content `string`
-            * type `string`
-            * inherits_status `boolean`
           * created_at `string`
           * details `object`
           * kind `string`

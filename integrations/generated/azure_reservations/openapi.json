@@ -7,7 +7,7 @@
   "info": {
     "description": "This API describe Azure Reservation",
     "title": "Azure Reservation",
-    "version": "2017-11-01",
+    "version": "2019-04-01",
     "x-apisguru-categories": [
       "cloud"
     ],
@@ -17,7 +17,7 @@
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/reservations/resource-manager/Microsoft.Capacity/stable/2017-11-01/reservations.json",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/reservations/resource-manager/Microsoft.Capacity/preview/2019-04-01/reservations.json",
         "version": "2.0"
       }
     ],
@@ -52,11 +52,27 @@
   },
   "parameters": {
     "ApiVersionParameter": {
-      "description": "Supported version.",
+      "description": "Supported version for this document is 2019-04-01",
       "in": "query",
       "name": "api-version",
       "required": true,
       "type": "string"
+    },
+    "ExpandRenewPropertiesParameter": {
+      "description": "Supported value of this query is renewProperties",
+      "in": "query",
+      "name": "expand",
+      "required": false,
+      "type": "string",
+      "x-ms-parameter-location": "method"
+    },
+    "LocationIdParameter": {
+      "description": "Filters the skus based on the location specified in this parameter. This can be an azure region or global",
+      "in": "query",
+      "name": "location",
+      "required": false,
+      "type": "string",
+      "x-ms-parameter-location": "method"
     },
     "MergeParameter": {
       "description": "Information needed for commercial request for a reservation",
@@ -78,6 +94,16 @@
       },
       "x-ms-parameter-location": "method"
     },
+    "PurchaseParameter": {
+      "description": "Information needed for calculate or purchase reservation",
+      "in": "body",
+      "name": "body",
+      "required": true,
+      "schema": {
+        "$ref": "#/definitions/PurchaseRequest"
+      },
+      "x-ms-parameter-location": "method"
+    },
     "ReservationIdParameter": {
       "description": "Id of the Reservation Item",
       "in": "path",
@@ -87,11 +113,31 @@
       "x-ms-parameter-location": "method"
     },
     "ReservationOrderIdParameter": {
-      "description": "Order Id of the reservation\n",
+      "description": "Order Id of the reservation",
       "in": "path",
       "name": "reservationOrderId",
       "required": true,
       "type": "string",
+      "x-ms-parameter-location": "method"
+    },
+    "ReservedResourceTypeIdParameter": {
+      "description": "The type of the resource for which the skus should be provided.",
+      "in": "query",
+      "name": "reservedResourceType",
+      "required": true,
+      "type": "string",
+      "x-ms-parameter-location": "method"
+    },
+    "ScopeParameter": {
+      "in": "body",
+      "name": "body",
+      "required": true,
+      "schema": {
+        "items": {
+          "type": "string"
+        },
+        "type": "array"
+      },
       "x-ms-parameter-location": "method"
     },
     "SplitParameter": {
@@ -114,6 +160,110 @@
     }
   },
   "paths": {
+    "/providers/Microsoft.Capacity/calculatePrice": {
+      "post": {
+        "description": "Calculate price for placing a `ReservationOrder`.",
+        "operationId": "ReservationOrder_Calculate",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/PurchaseParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Detailed price info for purchasing `ReservationOrder`",
+            "schema": {
+              "$ref": "#/definitions/CalculatePriceResponse"
+            }
+          },
+          "default": {
+            "description": "Unexpected error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "summary": "Calculate price for a `ReservationOrder`.",
+        "tags": [
+          "Reservation, Calculate"
+        ],
+        "x-ms-examples": {
+          "Purchase": {
+            "parameters": {
+              "api-version": "2019-04-01",
+              "body": {
+                "location": "westus",
+                "properties": {
+                  "appliedScopeType": "Shared",
+                  "appliedScopes": null,
+                  "billingPlan": "Monthly",
+                  "billingScopeId": "/subscriptions/ed3a1871-612d-abcd-a849-c2542a68be83",
+                  "displayName": "TestReservationOrder",
+                  "quantity": "1",
+                  "reservedResourceProperties": {
+                    "instanceFlexibility": "On"
+                  },
+                  "reservedResourceType": "VirtualMachines",
+                  "term": "P1Y"
+                },
+                "sku": {
+                  "name": "standard_D1"
+                }
+              }
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "properties": {
+                    "billingCurrencyTotal": {
+                      "amount": 46,
+                      "currencyCode": "USD"
+                    },
+                    "paymentSchedule": [
+                      {
+                        "billingCurrencyTotal": {
+                          "amount": 40,
+                          "currencyCode": "EUR"
+                        },
+                        "dueDate": "2019-05-14",
+                        "pricingCurrencyTotal": {
+                          "amount": 46,
+                          "currencyCode": "USD"
+                        }
+                      },
+                      {
+                        "dueDate": "2019-06-14",
+                        "pricingCurrencyTotal": {
+                          "amount": 46,
+                          "currencyCode": "USD"
+                        }
+                      },
+                      {
+                        "dueDate": "2019-07-14",
+                        "pricingCurrencyTotal": {
+                          "amount": 46,
+                          "currencyCode": "USD"
+                        }
+                      }
+                    ],
+                    "pricingCurrencyTotal": {
+                      "amount": 46,
+                      "currencyCode": "USD"
+                    },
+                    "reservationOrderId": "6d9cec54-7de8-abcd-9de7-80f5d634f2d2",
+                    "skuDescription": "standard_D1",
+                    "skuTitle": "Reserved VM Instance, Standard_D1, US West, 1 Year"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/providers/Microsoft.Capacity/operations": {
       "get": {
         "description": "List all the operations.",
@@ -144,7 +294,7 @@
         "x-ms-examples": {
           "GetOperations": {
             "parameters": {
-              "api-version": "2017-11-01"
+              "api-version": "2019-04-01"
             },
             "responses": {
               "200": {
@@ -230,6 +380,15 @@
                         "resource": "Reservations"
                       },
                       "name": "Microsoft.Capacity/reservationorders/reservations/revisions/read"
+                    },
+                    {
+                      "display": {
+                        "description": "Registers the Capacity resource provider and enables the creation of Capacity resources.",
+                        "operation": "Registers the Capacity Resource Provider.",
+                        "provider": "Microsoft Capacity",
+                        "resource": "Reservations"
+                      },
+                      "name": "Microsoft.Capacity/register/action"
                     }
                   ]
                 }
@@ -272,7 +431,7 @@
         "x-ms-examples": {
           "ReservationOrderList": {
             "parameters": {
-              "api-version": "2017-11-01"
+              "api-version": "2019-04-01"
             },
             "responses": {
               "200": {
@@ -284,7 +443,10 @@
                       "id": "/providers/microsoft.capacity/reservationOrders/1e6407ba-37a5-499f-80ed-a3f0f338e443",
                       "name": "1e6407ba-37a5-499f-80ed-a3f0f338e443",
                       "properties": {
+                        "billingPlan": "Monthly",
                         "createdDateTime": "2017-08-29T21:22:56.8541664Z",
+                        "displayName": "cabri",
+                        "expiryDate": "2018-08-29",
                         "originalQuantity": 1,
                         "provisioningState": "Succeeded",
                         "requestDateTime": "2017-08-29T21:20:23.8134834Z",
@@ -302,7 +464,10 @@
                       "id": "/providers/microsoft.capacity/reservationOrders/1ea6e203-288e-4732-b9e1-da8bbe10c614",
                       "name": "1ea6e203-288e-4732-b9e1-da8bbe10c614",
                       "properties": {
+                        "billingPlan": "Monthly",
                         "createdDateTime": "2017-08-30T12:58:20.526Z",
+                        "displayName": "cabri",
+                        "expiryDate": "2018-08-30",
                         "originalQuantity": 9,
                         "provisioningState": "Succeeded",
                         "requestDateTime": "2017-08-30T12:55:40.2799114Z",
@@ -320,31 +485,16 @@
                       "id": "/providers/microsoft.capacity/reservationOrders/1f14354c-dc12-4c8d-8090-6f295a3a34aa",
                       "name": "1f14354c-dc12-4c8d-8090-6f295a3a34aa",
                       "properties": {
+                        "billingPlan": "Monthly",
                         "createdDateTime": "2017-08-30T03:51:49.8083758Z",
+                        "displayName": "cabri",
+                        "expiryDate": "2018-08-30",
                         "originalQuantity": 7,
                         "provisioningState": "Succeeded",
                         "requestDateTime": "2017-08-30T03:49:19.0252126Z",
                         "reservations": [
                           {
                             "id": "/providers/microsoft.capacity/reservationOrders/1f14354c-dc12-4c8d-8090-6f295a3a34aa/reservations/c8c926bd-fc5d-4e29-9d43-b68340ac23a6"
-                          }
-                        ],
-                        "term": "P1Y"
-                      },
-                      "type": "Microsoft.Capacity/reservationOrders"
-                    },
-                    {
-                      "etag": 7,
-                      "id": "/providers/microsoft.capacity/reservationOrders/1f97f9a3-eaec-4f19-ab76-ccb53307aa54",
-                      "name": "1f97f9a3-eaec-4f19-ab76-ccb53307aa54",
-                      "properties": {
-                        "createdDateTime": "2017-08-29T17:52:56.6426605Z",
-                        "originalQuantity": 10,
-                        "provisioningState": "Succeeded",
-                        "requestDateTime": "2017-08-29T17:50:22.0765208Z",
-                        "reservations": [
-                          {
-                            "id": "/providers/microsoft.capacity/reservationOrders/1f97f9a3-eaec-4f19-ab76-ccb53307aa54/reservations/ca542bc5-94cb-4d42-b63a-393ef4f507d9"
                           }
                         ],
                         "term": "P1Y"
@@ -372,6 +522,13 @@
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "description": "May be used to expand the planInformation.",
+            "in": "query",
+            "name": "$expand",
+            "required": false,
+            "type": "string"
           }
         ],
         "responses": {
@@ -395,7 +552,7 @@
         "x-ms-examples": {
           "GetReservation": {
             "parameters": {
-              "api-version": "2017-11-01",
+              "api-version": "2019-04-01",
               "reservationOrderId": "a075419f-44cc-497f-b68a-14ee811d48b9"
             },
             "responses": {
@@ -405,7 +562,255 @@
                   "id": "/providers/microsoft.capacity/reservationOrders/1f14354c-dc12-4c8d-8090-6f295a3a34aa",
                   "name": "1f14354c-dc12-4c8d-8090-6f295a3a34aa",
                   "properties": {
+                    "billingPlan": "Monthly",
                     "createdDateTime": "2017-08-30T03:51:49.8083758Z",
+                    "displayName": "cabri",
+                    "expiryDate": "2018-08-30",
+                    "originalQuantity": 7,
+                    "provisioningState": "Succeeded",
+                    "requestDateTime": "2017-08-30T03:49:19.0252126Z",
+                    "reservations": [
+                      {
+                        "id": "/providers/microsoft.capacity/reservationOrders/1f14354c-dc12-4c8d-8090-6f295a3a34aa/reservations/c8c926bd-fc5d-4e29-9d43-b68340ac23a6"
+                      }
+                    ],
+                    "term": "P1Y"
+                  },
+                  "type": "Microsoft.Capacity/reservationOrders"
+                }
+              }
+            }
+          },
+          "GetReservationWithExpandPayments": {
+            "parameters": {
+              "$expand": "schedule",
+              "api-version": "2019-04-01",
+              "reservationOrderId": "a075419f-44cc-497f-b68a-14ee811d48b9"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "etag": 7,
+                  "id": "/providers/microsoft.capacity/reservationOrders/1f14354c-dc12-4c8d-8090-6f295a3a34aa",
+                  "name": "1f14354c-dc12-4c8d-8090-6f295a3a34aa",
+                  "properties": {
+                    "billingPlan": "Monthly",
+                    "createdDateTime": "2019-08-30T03:51:49Z",
+                    "displayName": "cabri",
+                    "expiryDate": "2018-08-30",
+                    "originalQuantity": 7,
+                    "planInformation": {
+                      "nextPaymentDueDate": "2019-09-30",
+                      "pricingCurrencyTotal": {
+                        "amount": 466,
+                        "currencyCode": "USD"
+                      },
+                      "startDate": "2019-08-30",
+                      "transactions": [
+                        {
+                          "billingAccount": "23456",
+                          "billingCurrencyTotal": {
+                            "amount": 466,
+                            "currencyCode": "USD"
+                          },
+                          "dueDate": "2019-09-30",
+                          "paymentDate": "2019-09-30",
+                          "pricingCurrencyTotal": {
+                            "amount": 466,
+                            "currencyCode": "USD"
+                          },
+                          "status": "Succeeded"
+                        },
+                        {
+                          "billingAccount": "23456",
+                          "billingCurrencyTotal": {
+                            "amount": 466,
+                            "currencyCode": "USD"
+                          },
+                          "dueDate": "2019-10-30",
+                          "extendedStatusInfo": {
+                            "message": "Credit card charge failed.",
+                            "statusCode": "PaymentDeclined"
+                          },
+                          "paymentDate": "2019-10-30",
+                          "pricingCurrencyTotal": {
+                            "amount": 466,
+                            "currencyCode": "USD"
+                          },
+                          "status": "Failed"
+                        },
+                        {
+                          "billingAccount": "23456",
+                          "billingCurrencyTotal": {
+                            "amount": 466,
+                            "currencyCode": "USD"
+                          },
+                          "dueDate": "2019-10-31",
+                          "paymentDate": "2019-10-31",
+                          "pricingCurrencyTotal": {
+                            "amount": 466,
+                            "currencyCode": "USD"
+                          },
+                          "status": "Succeeded"
+                        },
+                        {
+                          "billingAccount": "23456",
+                          "billingCurrencyTotal": {
+                            "amount": 466,
+                            "currencyCode": "USD"
+                          },
+                          "dueDate": "2019-11-30",
+                          "paymentDate": "2019-11-30",
+                          "pricingCurrencyTotal": {
+                            "amount": 466,
+                            "currencyCode": "USD"
+                          },
+                          "status": "Succeeded"
+                        },
+                        {
+                          "billingAccount": "23456",
+                          "billingCurrencyTotal": {
+                            "amount": 466,
+                            "currencyCode": "USD"
+                          },
+                          "dueDate": "2019-07-14",
+                          "paymentDate": "2019-06-14",
+                          "pricingCurrencyTotal": {
+                            "amount": 466,
+                            "currencyCode": "USD"
+                          },
+                          "status": "Scheduled"
+                        },
+                        {
+                          "billingAccount": "23456",
+                          "billingCurrencyTotal": {
+                            "amount": 466,
+                            "currencyCode": "USD"
+                          },
+                          "dueDate": "2019-06-14",
+                          "paymentDate": "2019-08-14",
+                          "pricingCurrencyTotal": {
+                            "amount": 466,
+                            "currencyCode": "USD"
+                          },
+                          "status": "Scheduled"
+                        }
+                      ]
+                    },
+                    "provisioningState": "Succeeded",
+                    "requestDateTime": "2019-08-30T03:49:19Z",
+                    "reservations": [
+                      {
+                        "id": "/providers/microsoft.capacity/reservationOrders/1f14354c-dc12-4c8d-8090-6f295a3a34aa/reservations/c8c926bd-fc5d-4e29-9d43-b68340ac23a6"
+                      }
+                    ],
+                    "term": "P1Y"
+                  },
+                  "type": "Microsoft.Capacity/reservationOrders"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "description": "Purchase `ReservationOrder` and create resource under the specified URI.",
+        "operationId": "ReservationOrder_Purchase",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ReservationOrderIdParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/PurchaseParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The resource has been created",
+            "schema": {
+              "$ref": "#/definitions/ReservationOrderResponse"
+            }
+          },
+          "202": {
+            "description": "The request is accepted and is being processed. Operation result link is in location header.",
+            "schema": {
+              "$ref": "#/definitions/ReservationOrderResponse"
+            }
+          },
+          "default": {
+            "description": "Unexpected error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "summary": "Purchase `ReservationOrder`",
+        "tags": [
+          "Reservation, Purchase"
+        ],
+        "x-ms-examples": {
+          "Purchase": {
+            "parameters": {
+              "api-version": "2019-04-01",
+              "body": {
+                "location": "westus",
+                "properties": {
+                  "appliedScopeType": "Shared",
+                  "appliedScopes": null,
+                  "billingPlan": "Monthly",
+                  "billingScopeId": "/subscriptions/ed3a1871-612d-abcd-a849-c2542a68be83",
+                  "displayName": "TestReservationOrder",
+                  "quantity": "1",
+                  "renew": false,
+                  "reservedResourceProperties": {
+                    "instanceFlexibility": "On"
+                  },
+                  "reservedResourceType": "VirtualMachines",
+                  "term": "P1Y"
+                },
+                "sku": {
+                  "name": "standard_D1"
+                }
+              },
+              "reservationOrderId": "a075419f-44cc-497f-b68a-14ee811d48b9"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "etag": 7,
+                  "id": "/providers/microsoft.capacity/reservationOrders/1f14354c-dc12-4c8d-8090-6f295a3a34aa",
+                  "name": "1f14354c-dc12-4c8d-8090-6f295a3a34aa",
+                  "properties": {
+                    "billingPlan": "Monthly",
+                    "createdDateTime": "2017-08-30T03:51:49.8083758Z",
+                    "displayName": "cabri",
+                    "expiryDate": "2018-08-30",
+                    "originalQuantity": 7,
+                    "provisioningState": "Succeeded",
+                    "requestDateTime": "2017-08-30T03:49:19.0252126Z",
+                    "reservations": [
+                      {
+                        "id": "/providers/microsoft.capacity/reservationOrders/1f14354c-dc12-4c8d-8090-6f295a3a34aa/reservations/c8c926bd-fc5d-4e29-9d43-b68340ac23a6"
+                      }
+                    ],
+                    "term": "P1Y"
+                  },
+                  "type": "Microsoft.Capacity/reservationOrders"
+                }
+              },
+              "202": {
+                "body": {
+                  "etag": 7,
+                  "id": "/providers/microsoft.capacity/reservationOrders/1f14354c-dc12-4c8d-8090-6f295a3a34aa",
+                  "name": "1f14354c-dc12-4c8d-8090-6f295a3a34aa",
+                  "properties": {
+                    "billingPlan": "Monthly",
+                    "createdDateTime": "2017-08-30T03:51:49.8083758Z",
+                    "displayName": "cabri",
+                    "expiryDate": "2018-08-30",
                     "originalQuantity": 7,
                     "provisioningState": "Succeeded",
                     "requestDateTime": "2017-08-30T03:49:19.0252126Z",
@@ -421,6 +826,10 @@
               }
             }
           }
+        },
+        "x-ms-long-running-operation": true,
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "location"
         }
       }
     },
@@ -466,7 +875,7 @@
         "x-ms-examples": {
           "Merge": {
             "parameters": {
-              "api-version": "2017-11-01",
+              "api-version": "2019-04-01",
               "body": {
                 "properties": {
                   "sources": [
@@ -490,6 +899,8 @@
                       "appliedScopes": [
                         "/subscriptions/98df3792-7962-4f18-8be2-d5576f122de3"
                       ],
+                      "billingPlan": "Monthly",
+                      "billingScopeId": "/subscriptions/19376483-64b8-49e4-a931-d5248828720a",
                       "displayName": "cabri_test",
                       "effectiveDateTime": "2017-09-22T22:46:32.7632798Z",
                       "expiryDate": "2018-09-22",
@@ -497,12 +908,16 @@
                         "message": "This reservation was merged and is no longer active.",
                         "statusCode": "Merged"
                       },
+                      "instanceFlexibility": "Off",
                       "lastUpdatedDateTime": "2017-09-22T22:46:32.7632798Z",
                       "mergeProperties": {
                         "mergeDestination": "/providers/microsoft.capacity/reservationOrders/276e7ae4-84d0-4da6-ab4b-d6b94f3557da/reservations/6ef59113-3482-40da-8d79-787f823e34bc"
                       },
                       "provisioningState": "Cancelled",
                       "quantity": 1,
+                      "renew": false,
+                      "reservedResourceType": "VirtualMachines",
+                      "skuDescription": "D1 v2",
                       "splitProperties": {
                         "splitSource": "/providers/microsoft.capacity/reservationOrders/276e7ae4-84d0-4da6-ab4b-d6b94f3557da/reservations/bcae77cd-3119-4766-919f-b50d36c75c7a"
                       }
@@ -522,6 +937,8 @@
                       "appliedScopes": [
                         "/subscriptions/98df3792-7962-4f18-8be2-d5576f122de3"
                       ],
+                      "billingPlan": "Monthly",
+                      "billingScopeId": "/subscriptions/19376483-64b8-49e4-a931-d5248828720a",
                       "displayName": "cabri_test",
                       "effectiveDateTime": "2017-09-22T22:46:32.7632798Z",
                       "expiryDate": "2018-09-22",
@@ -529,12 +946,16 @@
                         "message": "This reservation was merged and is no longer active.",
                         "statusCode": "Merged"
                       },
+                      "instanceFlexibility": "Off",
                       "lastUpdatedDateTime": "2017-09-22T22:46:32.7632798Z",
                       "mergeProperties": {
                         "mergeDestination": "/providers/microsoft.capacity/reservationOrders/276e7ae4-84d0-4da6-ab4b-d6b94f3557da/reservations/6ef59113-3482-40da-8d79-787f823e34bc"
                       },
                       "provisioningState": "Cancelled",
                       "quantity": 2,
+                      "renew": false,
+                      "reservedResourceType": "VirtualMachines",
+                      "skuDescription": "D1 v2",
                       "splitProperties": {
                         "splitSource": "/providers/microsoft.capacity/reservationOrders/276e7ae4-84d0-4da6-ab4b-d6b94f3557da/reservations/bcae77cd-3119-4766-919f-b50d36c75c7a"
                       }
@@ -554,9 +975,12 @@
                       "appliedScopes": [
                         "/subscriptions/98df3792-7962-4f18-8be2-d5576f122de3"
                       ],
+                      "billingPlan": "Monthly",
+                      "billingScopeId": "/subscriptions/19376483-64b8-49e4-a931-d5248828720a",
                       "displayName": "cabri_test",
                       "effectiveDateTime": "2017-09-22T22:46:32.7632798Z",
                       "expiryDate": "2018-09-22",
+                      "instanceFlexibility": "Off",
                       "lastUpdatedDateTime": "2017-09-22T22:46:32.7632798Z",
                       "mergeProperties": {
                         "mergeSources": [
@@ -565,7 +989,10 @@
                         ]
                       },
                       "provisioningState": "Succeeded",
-                      "quantity": 3
+                      "quantity": 3,
+                      "renew": false,
+                      "reservedResourceType": "VirtualMachines",
+                      "skuDescription": "D1 v2"
                     },
                     "sku": {
                       "name": "Standard_DS1_v2"
@@ -574,13 +1001,14 @@
                   }
                 ]
               },
-              "202": {
-                "body": ""
-              }
+              "202": {}
             }
           }
         },
-        "x-ms-long-running-operation": true
+        "x-ms-long-running-operation": true,
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "location"
+        }
       }
     },
     "/providers/Microsoft.Capacity/reservationOrders/{reservationOrderId}/reservations": {
@@ -616,7 +1044,7 @@
         "x-ms-examples": {
           "ReservationList": {
             "parameters": {
-              "api-version": "2017-11-01",
+              "api-version": "2019-04-01",
               "reservationOrderId": "276e7ae4-84d0-4da6-ab4b-d6b94f3557da"
             },
             "responses": {
@@ -633,6 +1061,8 @@
                         "appliedScopes": [
                           "/subscriptions/98df3792-7962-4f18-8be2-d5576f122de3"
                         ],
+                        "billingPlan": "Monthly",
+                        "billingScopeId": "/subscriptions/19376483-64b8-49e4-a931-d5248828720a",
                         "displayName": "cabri_test",
                         "effectiveDateTime": "2017-09-22T01:00:30.9253826Z",
                         "expiryDate": "2018-09-22",
@@ -640,9 +1070,13 @@
                           "message": "This reservation was split and is no longer active.",
                           "statusCode": "Split"
                         },
+                        "instanceFlexibility": "On",
                         "lastUpdatedDateTime": "2017-09-22T01:00:36.3191627Z",
                         "provisioningState": "Cancelled",
                         "quantity": 3,
+                        "renew": false,
+                        "reservedResourceType": "VirtualMachines",
+                        "skuDescription": "D1 v2",
                         "splitProperties": {
                           "splitDestinations": [
                             "/providers/microsoft.capacity/reservationOrders/276e7ae4-84d0-4da6-ab4b-d6b94f3557da/reservations/00238563-7312-4c20-a134-8c030bf938a7",
@@ -665,6 +1099,8 @@
                         "appliedScopes": [
                           "/subscriptions/98df3792-7962-4f18-8be2-d5576f122de3"
                         ],
+                        "billingPlan": "Monthly",
+                        "billingScopeId": "/subscriptions/19376483-64b8-49e4-a931-d5248828720a",
                         "displayName": "cabri_test",
                         "effectiveDateTime": "2017-09-22T22:46:32.7632798Z",
                         "expiryDate": "2018-09-22",
@@ -672,12 +1108,16 @@
                           "message": "This reservation was merged and is no longer active.",
                           "statusCode": "Merged"
                         },
+                        "instanceFlexibility": "On",
                         "lastUpdatedDateTime": "2017-09-22T22:46:32.7632798Z",
                         "mergeProperties": {
                           "mergeDestination": "/providers/microsoft.capacity/reservationOrders/276e7ae4-84d0-4da6-ab4b-d6b94f3557da/reservations/6ef59113-3482-40da-8d79-787f823e34bc"
                         },
                         "provisioningState": "Cancelled",
                         "quantity": 1,
+                        "renew": false,
+                        "reservedResourceType": "VirtualMachines",
+                        "skuDescription": "D1 v2",
                         "splitProperties": {
                           "splitSource": "/providers/microsoft.capacity/reservationOrders/276e7ae4-84d0-4da6-ab4b-d6b94f3557da/reservations/bcae77cd-3119-4766-919f-b50d36c75c7a"
                         }
@@ -697,6 +1137,8 @@
                         "appliedScopes": [
                           "/subscriptions/98df3792-7962-4f18-8be2-d5576f122de3"
                         ],
+                        "billingPlan": "Monthly",
+                        "billingScopeId": "/subscriptions/19376483-64b8-49e4-a931-d5248828720a",
                         "displayName": "cabri_test",
                         "effectiveDateTime": "2017-09-22T22:46:32.7632798Z",
                         "expiryDate": "2018-09-22",
@@ -704,12 +1146,16 @@
                           "message": "This reservation was merged and is no longer active.",
                           "statusCode": "Merged"
                         },
+                        "instanceFlexibility": "On",
                         "lastUpdatedDateTime": "2017-09-22T22:46:32.7632798Z",
                         "mergeProperties": {
                           "mergeDestination": "/providers/microsoft.capacity/reservationOrders/276e7ae4-84d0-4da6-ab4b-d6b94f3557da/reservations/6ef59113-3482-40da-8d79-787f823e34bc"
                         },
                         "provisioningState": "Cancelled",
                         "quantity": 2,
+                        "renew": false,
+                        "reservedResourceType": "VirtualMachines",
+                        "skuDescription": "D1 v2",
                         "splitProperties": {
                           "splitSource": "/providers/microsoft.capacity/reservationOrders/276e7ae4-84d0-4da6-ab4b-d6b94f3557da/reservations/bcae77cd-3119-4766-919f-b50d36c75c7a"
                         }
@@ -729,9 +1175,12 @@
                         "appliedScopes": [
                           "/subscriptions/98df3792-7962-4f18-8be2-d5576f122de3"
                         ],
+                        "billingPlan": "Monthly",
+                        "billingScopeId": "/subscriptions/19376483-64b8-49e4-a931-d5248828720a",
                         "displayName": "cabri_test",
                         "effectiveDateTime": "2017-09-22T22:46:32.7632798Z",
                         "expiryDate": "2018-09-22",
+                        "instanceFlexibility": "On",
                         "lastUpdatedDateTime": "2017-09-22T22:46:32.7632798Z",
                         "mergeProperties": {
                           "mergeSources": [
@@ -740,7 +1189,10 @@
                           ]
                         },
                         "provisioningState": "Succeeded",
-                        "quantity": 3
+                        "quantity": 3,
+                        "renew": false,
+                        "reservedResourceType": "VirtualMachines",
+                        "skuDescription": "D1 v2"
                       },
                       "sku": {
                         "name": "Standard_DS1_v2"
@@ -771,6 +1223,9 @@
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/ExpandRenewPropertiesParameter"
           }
         ],
         "responses": {
@@ -794,7 +1249,8 @@
         "x-ms-examples": {
           "GetReservation": {
             "parameters": {
-              "api-version": "2017-11-01",
+              "api-version": "2019-04-01",
+              "expand": "renewProperties",
               "reservationId": "6ef59113-3482-40da-8d79-787f823e34bc",
               "reservationOrderId": "276e7ae4-84d0-4da6-ab4b-d6b94f3557da"
             },
@@ -810,9 +1266,12 @@
                     "appliedScopes": [
                       "/subscriptions/98df3792-7962-4f18-8be2-d5576f122de3"
                     ],
+                    "billingPlan": "Monthly",
+                    "billingScopeId": "/subscriptions/19376483-64b8-49e4-a931-d5248828720a",
                     "displayName": "cabri_test",
                     "effectiveDateTime": "2017-09-22T22:46:32.7632798Z",
                     "expiryDate": "2018-09-22",
+                    "instanceFlexibility": "Off",
                     "lastUpdatedDateTime": "2017-09-22T22:46:32.7632798Z",
                     "mergeProperties": {
                       "mergeSources": [
@@ -821,7 +1280,41 @@
                       ]
                     },
                     "provisioningState": "Succeeded",
-                    "quantity": 3
+                    "quantity": 3,
+                    "renew": false,
+                    "renewDestination": "/providers/microsoft.capacity/reservationOrders/276e7ae4-84d0-4da6-ab4b-d6b94f3557da/reservations/00238563-7312-4c20-a134-8c030bf938a7",
+                    "renewProperties": {
+                      "billingCurrencyTotal": {
+                        "amount": 466,
+                        "currencyCode": "USD"
+                      },
+                      "pricingCurrencyTotal": {
+                        "amount": 466,
+                        "currencyCode": "USD"
+                      },
+                      "purchaseProperties": {
+                        "location": "westus",
+                        "properties": {
+                          "appliedScopeType": "Shared",
+                          "billingScopeId": "/subscriptions/19376483-64b8-49e4-a931-d5248828720a",
+                          "displayName": "Renew_Test_0618",
+                          "quantity": 2,
+                          "renew": false,
+                          "reservedResourceProperties": {
+                            "instanceFlexibility": "On"
+                          },
+                          "reservedResourceType": "VirtualMachines",
+                          "term": "P1Y"
+                        },
+                        "sku": {
+                          "name": "Standard_D1"
+                        }
+                      }
+                    },
+                    "renewSource": "/providers/microsoft.capacity/reservationOrders/276e7ae4-84d0-4da6-ab4b-d6b94f3557da/reservations/00238563-7312-4c20-a134-8c030bf938a7",
+                    "reservedResourceType": "VirtualMachines",
+                    "skuDescription": "D1 v2",
+                    "term": "P1Y"
                   },
                   "sku": {
                     "name": "Standard_DS1_v2"
@@ -875,10 +1368,11 @@
         "x-ms-examples": {
           "PatchReservation": {
             "parameters": {
-              "api-version": "2017-11-01",
+              "api-version": "2019-04-01",
               "parameters": {
                 "properties": {
-                  "appliedScopeType": "Shared"
+                  "appliedScopeType": "Shared",
+                  "instanceFlexibility": "Off"
                 }
               },
               "reservationId": "6ef59113-3482-40da-8d79-787f823e34bc",
@@ -893,9 +1387,12 @@
                   "name": "276e7ae4-84d0-4da6-ab4b-d6b94f3557da/6ef59113-3482-40da-8d79-787f823e34bc",
                   "properties": {
                     "appliedScopeType": "Shared",
+                    "billingPlan": "Monthly",
+                    "billingScopeId": "/subscriptions/19376483-64b8-49e4-a931-d5248828720a",
                     "displayName": "cabri_test",
                     "effectiveDateTime": "2017-09-22T23:57:48.1891638Z",
                     "expiryDate": "2018-09-22",
+                    "instanceFlexibility": "Off",
                     "lastUpdatedDateTime": "2017-09-22T23:57:54.3768768Z",
                     "mergeProperties": {
                       "mergeSources": [
@@ -904,7 +1401,10 @@
                       ]
                     },
                     "provisioningState": "Succeeded",
-                    "quantity": 3
+                    "quantity": 3,
+                    "renew": false,
+                    "reservedResourceType": "VirtualMachines",
+                    "skuDescription": "D1 v2"
                   },
                   "sku": {
                     "name": "Standard_DS1_v2"
@@ -912,8 +1412,75 @@
                   "type": "Microsoft.Capacity/reservationOrders/reservations"
                 }
               },
-              "202": {
-                "body": ""
+              "202": {}
+            }
+          }
+        },
+        "x-ms-long-running-operation": true
+      }
+    },
+    "/providers/Microsoft.Capacity/reservationOrders/{reservationOrderId}/reservations/{reservationId}/availableScopes": {
+      "post": {
+        "description": "Get Available Scopes for `Reservation`.\n",
+        "operationId": "Reservation_AvailableScopes",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ReservationOrderIdParameter"
+          },
+          {
+            "$ref": "#/parameters/ReservationIdParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/ScopeParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of `Subscription`s created after the filter.",
+            "schema": {
+              "$ref": "#/definitions/Properties"
+            }
+          },
+          "default": {
+            "description": "Unexpected error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "summary": "Get Available Scopes for `Reservation`.",
+        "tags": [
+          "Reservation, AvailableScopes"
+        ],
+        "x-ms-examples": {
+          "AvailableScopes": {
+            "parameters": {
+              "api-version": "2019-04-01",
+              "body": {
+                "properties": {
+                  "scopes": [
+                    "/subscriptions/efc7c997-7700-4a74-b731-55aec16c15e9"
+                  ]
+                }
+              },
+              "reservationId": "356e7ae4-84d0-4da6-ab4b-d6b94f3557da",
+              "reservationOrderId": "276e7ae4-84d0-4da6-ab4b-d6b94f3557da"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "properties": {
+                    "scopes": [
+                      {
+                        "scope": "/subscriptions/efc7c997-7700-4a74-b731-55aec16c15e9",
+                        "valid": true
+                      }
+                    ]
+                  }
+                }
               }
             }
           }
@@ -923,7 +1490,7 @@
     },
     "/providers/Microsoft.Capacity/reservationOrders/{reservationOrderId}/reservations/{reservationId}/revisions": {
       "get": {
-        "description": "List of all the revisions for the `Reservation`.\n",
+        "description": "List of all the revisions for the `Reservation`.",
         "operationId": "Reservation_ListRevisions",
         "parameters": [
           {
@@ -957,7 +1524,7 @@
         "x-ms-examples": {
           "ReservationRevisions": {
             "parameters": {
-              "api-version": "2017-11-01",
+              "api-version": "2019-04-01",
               "reservationId": "6ef59113-3482-40da-8d79-787f823e34bc",
               "reservationOrderId": "276e7ae4-84d0-4da6-ab4b-d6b94f3557da"
             },
@@ -972,9 +1539,11 @@
                       "name": "276e7ae4-84d0-4da6-ab4b-d6b94f3557da/6ef59113-3482-40da-8d79-787f823e34bc/4",
                       "properties": {
                         "appliedScopeType": "Shared",
+                        "billingPlan": "Monthly",
                         "displayName": "cabri_test",
                         "effectiveDateTime": "2017-09-22T23:57:48.1891638Z",
                         "expiryDate": "2018-09-22",
+                        "instanceFlexibility": "On",
                         "lastUpdatedDateTime": "2017-09-22T23:57:54.3768768Z",
                         "mergeProperties": {
                           "mergeSources": [
@@ -983,7 +1552,9 @@
                           ]
                         },
                         "provisioningState": "Succeeded",
-                        "quantity": 3
+                        "quantity": 3,
+                        "reservedResourceType": "VirtualMachines",
+                        "skuDescription": "D1 v2"
                       },
                       "sku": {
                         "name": "Standard_DS1_v2"
@@ -1000,6 +1571,7 @@
                         "appliedScopes": [
                           "/subscriptions/98df3792-7962-4f18-8be2-d5576f122de3"
                         ],
+                        "billingPlan": "Monthly",
                         "displayName": "cabri_test",
                         "effectiveDateTime": "2017-09-22T22:46:32.7632798Z",
                         "expiryDate": "2018-09-22",
@@ -1007,6 +1579,7 @@
                           "message": "An operation is in progress on your reservation. Please wait for operation to complete before taking further action",
                           "statusCode": "Pending"
                         },
+                        "instanceFlexibility": "On",
                         "lastUpdatedDateTime": "2017-09-22T23:57:47.488284Z",
                         "mergeProperties": {
                           "mergeSources": [
@@ -1015,7 +1588,9 @@
                           ]
                         },
                         "provisioningState": "Succeeded",
-                        "quantity": 3
+                        "quantity": 3,
+                        "reservedResourceType": "VirtualMachines",
+                        "skuDescription": "D1 v2"
                       },
                       "sku": {
                         "name": "Standard_DS1_v2"
@@ -1032,9 +1607,11 @@
                         "appliedScopes": [
                           "/subscriptions/98df3792-7962-4f18-8be2-d5576f122de3"
                         ],
+                        "billingPlan": "Monthly",
                         "displayName": "cabri_test",
                         "effectiveDateTime": "2017-09-22T22:46:32.7632798Z",
                         "expiryDate": "2018-09-22",
+                        "instanceFlexibility": "On",
                         "lastUpdatedDateTime": "2017-09-22T22:46:32.7632798Z",
                         "mergeProperties": {
                           "mergeSources": [
@@ -1043,7 +1620,9 @@
                           ]
                         },
                         "provisioningState": "Succeeded",
-                        "quantity": 3
+                        "quantity": 3,
+                        "reservedResourceType": "VirtualMachines",
+                        "skuDescription": "D1 v2"
                       },
                       "sku": {
                         "name": "Standard_DS1_v2"
@@ -1063,6 +1642,7 @@
                         "displayName": "cabri_test",
                         "effectiveDateTime": "2017-09-22T22:46:27.3313607Z",
                         "expiryDate": "2018-09-22",
+                        "instanceFlexibility": "On",
                         "lastUpdatedDateTime": "2017-09-22T22:46:27.3313607Z",
                         "mergeProperties": {
                           "mergeSources": [
@@ -1071,7 +1651,9 @@
                           ]
                         },
                         "provisioningState": "Creating",
-                        "quantity": 3
+                        "quantity": 3,
+                        "reservedResourceType": "VirtualMachines",
+                        "skuDescription": "D1 v2"
                       },
                       "sku": {
                         "name": "Standard_DS1_v2"
@@ -1091,7 +1673,7 @@
     },
     "/providers/Microsoft.Capacity/reservationOrders/{reservationOrderId}/split": {
       "post": {
-        "description": "Split a `Reservation` into two `Reservation`s with specified quantity distribution.\n",
+        "description": "Split a `Reservation` into two `Reservation`s with specified quantity distribution.",
         "operationId": "Reservation_Split",
         "parameters": [
           {
@@ -1131,7 +1713,7 @@
         "x-ms-examples": {
           "Split": {
             "parameters": {
-              "api-version": "2017-11-01",
+              "api-version": "2019-04-01",
               "body": {
                 "properties": {
                   "quantities": [
@@ -1156,12 +1738,18 @@
                       "appliedScopes": [
                         "/subscriptions/98df3792-7962-4f18-8be2-d5576f122de3"
                       ],
+                      "billingPlan": "Monthly",
+                      "billingScopeId": "/subscriptions/19376483-64b8-49e4-a931-d5248828720a",
                       "displayName": "cabri_test",
                       "effectiveDateTime": "2017-09-22T01:00:30.9253826Z",
                       "expiryDate": "2018-09-22",
+                      "instanceFlexibility": "Off",
                       "lastUpdatedDateTime": "2017-09-22T01:00:36.3191627Z",
                       "provisioningState": "Succeeded",
                       "quantity": 1,
+                      "renew": false,
+                      "reservedResourceType": "VirtualMachines",
+                      "skuDescription": "D1 v2",
                       "splitProperties": {
                         "splitSource": "/providers/microsoft.capacity/reservationOrders/276e7ae4-84d0-4da6-ab4b-d6b94f3557da/reservations/bcae77cd-3119-4766-919f-b50d36c75c7a"
                       }
@@ -1181,12 +1769,18 @@
                       "appliedScopes": [
                         "/subscriptions/98df3792-7962-4f18-8be2-d5576f122de3"
                       ],
+                      "billingPlan": "Monthly",
+                      "billingScopeId": "/subscriptions/19376483-64b8-49e4-a931-d5248828720a",
                       "displayName": "cabri_test",
                       "effectiveDateTime": "2017-09-22T01:00:30.9253826Z",
                       "expiryDate": "2018-09-22",
+                      "instanceFlexibility": "Off",
                       "lastUpdatedDateTime": "2017-09-22T01:00:36.3191627Z",
                       "provisioningState": "Succeeded",
                       "quantity": 2,
+                      "renew": false,
+                      "reservedResourceType": "VirtualMachines",
+                      "skuDescription": "D1 v2",
                       "splitProperties": {
                         "splitSource": "/providers/microsoft.capacity/reservationOrders/276e7ae4-84d0-4da6-ab4b-d6b94f3557da/reservations/bcae77cd-3119-4766-919f-b50d36c75c7a"
                       }
@@ -1206,6 +1800,8 @@
                       "appliedScopes": [
                         "/subscriptions/98df3792-7962-4f18-8be2-d5576f122de3"
                       ],
+                      "billingPlan": "Monthly",
+                      "billingScopeId": "/subscriptions/19376483-64b8-49e4-a931-d5248828720a",
                       "displayName": "cabri_test",
                       "effectiveDateTime": "2017-09-22T01:00:30.9253826Z",
                       "expiryDate": "2018-09-22",
@@ -1213,9 +1809,13 @@
                         "message": "This reservation was split and is no longer active.",
                         "statusCode": "Split"
                       },
+                      "instanceFlexibility": "Off",
                       "lastUpdatedDateTime": "2017-09-22T01:00:36.3191627Z",
                       "provisioningState": "Cancelled",
                       "quantity": 3,
+                      "renew": false,
+                      "reservedResourceType": "VirtualMachines",
+                      "skuDescription": "D1 v2",
                       "splitProperties": {
                         "splitDestinations": [
                           "/providers/microsoft.capacity/reservationOrders/276e7ae4-84d0-4da6-ab4b-d6b94f3557da/reservations/00238563-7312-4c20-a134-8c030bf938a7",
@@ -1230,18 +1830,19 @@
                   }
                 ]
               },
-              "202": {
-                "body": ""
-              }
+              "202": {}
             }
           }
         },
-        "x-ms-long-running-operation": true
+        "x-ms-long-running-operation": true,
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "location"
+        }
       }
     },
     "/subscriptions/{subscriptionId}/providers/Microsoft.Capacity/appliedReservations": {
       "get": {
-        "description": "Get applicable `Reservation`s that are applied to this subscription.",
+        "description": "Get applicable `Reservation`s that are applied to this subscription or a resource group under this subscription.",
         "operationId": "GetAppliedReservationList",
         "parameters": [
           {
@@ -1272,7 +1873,7 @@
         "x-ms-examples": {
           "AppliedReservationList": {
             "parameters": {
-              "api-version": "2017-11-01",
+              "api-version": "2019-04-01",
               "subscriptionId": "23bc208b-083f-4901-ae85-4f98c0c3b4b6"
             },
             "responses": {
@@ -1316,6 +1917,12 @@
           },
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/ReservedResourceTypeIdParameter"
+          },
+          {
+            "$ref": "#/parameters/LocationIdParameter"
           }
         ],
         "responses": {
@@ -1342,32 +1949,78 @@
         "x-ms-examples": {
           "Catalog": {
             "parameters": {
-              "api-version": "2017-11-01",
-              "subscriptionId": "23bc208b-083f-4901-ae85-4f98c0c3b4b6 "
+              "api-version": "2019-04-01",
+              "location": "eastus",
+              "reservedResourceType": "VirtualMachines",
+              "subscriptionId": "23bc208b-083f-4901-ae85-4f98c0c3b4b6"
             },
             "responses": {
               "200": {
                 "body": [
                   {
+                    "billingPlans": {
+                      "P1Y": [
+                        "Upfront",
+                        "Monthly"
+                      ],
+                      "P3Y": [
+                        "Upfront",
+                        "Monthly"
+                      ]
+                    },
                     "locations": [
                       "eastus"
                     ],
-                    "name": "Standard_DS4_v2",
-                    "resourceType": "virtualMachines",
+                    "name": "Standard_DS5_v2",
+                    "resourceType": "VirtualMachines",
                     "restrictions": [],
-                    "size": "DS4_v2",
+                    "skuProperties": [
+                      {
+                        "name": "Cores",
+                        "value": "16"
+                      },
+                      {
+                        "name": "ProductTitle",
+                        "value": "DSv2 Series, DS5"
+                      },
+                      {
+                        "name": "ProductShortName",
+                        "value": "DSv2 Series"
+                      },
+                      {
+                        "name": "SKUName",
+                        "value": "DS5 v2"
+                      },
+                      {
+                        "name": "MeterId",
+                        "value": "12bc208b-083f-4901-ae85-4f98c0c3b4b8"
+                      }
+                    ],
                     "terms": [
                       "P1Y",
                       "P3Y"
-                    ],
-                    "tier": "Standard"
+                    ]
                   },
                   {
-                    "locations": [
-                      "CanadaCentral"
+                    "billingPlans": [
+                      {
+                        "P1Y": [
+                          "Upfront",
+                          "Monthly"
+                        ]
+                      },
+                      {
+                        "P3Y": [
+                          "Upfront",
+                          "Monthly"
+                        ]
+                      }
                     ],
-                    "name": "Standard_D14_v2_Promo",
-                    "resourceType": "virtualMachines",
+                    "locations": [
+                      "eastus"
+                    ],
+                    "name": "Standard_D1",
+                    "resourceType": "VirtualMachines",
                     "restrictions": [
                       {
                         "reasonCode": "NotAvailableForSubscription",
@@ -1384,40 +2037,88 @@
                         ]
                       }
                     ],
-                    "size": "D14_v2_Promo",
+                    "skuProperties": [
+                      {
+                        "name": "Cores",
+                        "value": "1"
+                      },
+                      {
+                        "name": "ProductTitle",
+                        "value": "D Series, D1"
+                      },
+                      {
+                        "name": "ProductShortName",
+                        "value": "D Series"
+                      },
+                      {
+                        "name": "SKUName",
+                        "value": "D1"
+                      },
+                      {
+                        "name": "MeterId",
+                        "value": "12bc208b-083f-4901-ae85-4f98c0c3b4b8"
+                      }
+                    ],
                     "terms": [
                       "P1Y",
                       "P3Y"
-                    ],
-                    "tier": "Standard"
+                    ]
                   },
                   {
+                    "billingPlans": [
+                      {
+                        "P1Y": [
+                          "Upfront",
+                          "Monthly"
+                        ]
+                      },
+                      {
+                        "P3Y": [
+                          "Upfront",
+                          "Monthly"
+                        ]
+                      }
+                    ],
                     "locations": [
                       "eastus"
                     ],
-                    "name": "Standard_DS2_v2",
-                    "resourceType": "virtualMachines",
-                    "restrictions": [],
-                    "size": "DS2_v2",
+                    "name": "Standard_F2",
+                    "resourceType": "VirtualMachines",
+                    "restrictions": [
+                      {
+                        "reasonCode": "NotAvailableForSubscription",
+                        "type": "Location",
+                        "values": [
+                          "eastus"
+                        ]
+                      }
+                    ],
+                    "skuProperties": [
+                      {
+                        "name": "Cores",
+                        "value": "2"
+                      },
+                      {
+                        "name": "ProductTitle",
+                        "value": "F Series, F2"
+                      },
+                      {
+                        "name": "ProductShortName",
+                        "value": "F Series"
+                      },
+                      {
+                        "name": "SKUName",
+                        "value": "F2"
+                      },
+                      {
+                        "name": "MeterId",
+                        "value": "12bc208b-083f-4901-ae85-4f98c0c3b4b8"
+                      }
+                    ],
                     "terms": [
                       "P1Y",
                       "P3Y"
-                    ],
-                    "tier": "Standard"
-                  },
-                  {
-                    "locations": [
-                      "eastus"
-                    ],
-                    "name": "Standard_DS1_v2",
-                    "resourceType": "virtualMachines",
-                    "restrictions": [],
-                    "size": "DS1_v2",
-                    "terms": [
-                      "P1Y",
-                      "P3Y"
-                    ],
-                    "tier": "Standard"
+                    ]
                   }
                 ]
               }
@@ -1482,7 +2183,11 @@
         "Single",
         "Shared"
       ],
-      "type": "string"
+      "type": "string",
+      "x-ms-enum": {
+        "modelAsString": true,
+        "name": "AppliedScopeType"
+      }
     },
     "AppliedScopes": {
       "description": "List of the subscriptions that the benefit will be applied. Do not specify if AppliedScopeType is Shared.",
@@ -1493,18 +2198,84 @@
       },
       "type": "array"
     },
+    "BillingScopeId": {
+      "description": "Subscription that will be charged for purchasing Reservation",
+      "type": "string"
+    },
+    "CalculatePriceResponse": {
+      "properties": {
+        "properties": {
+          "$ref": "#/definitions/CalculatePriceResponseProperties"
+        }
+      },
+      "type": "object"
+    },
+    "CalculatePriceResponseProperties": {
+      "properties": {
+        "billingCurrencyTotal": {
+          "description": "Currency and amount that customer will be charged in customer's local currency. Tax is not included.",
+          "properties": {
+            "amount": {
+              "type": "number"
+            },
+            "currencyCode": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "isBillingPartnerManaged": {
+          "description": "True if billing is managed by Microsoft Partner. Used only for CSP accounts.",
+          "type": "boolean"
+        },
+        "paymentSchedule": {
+          "items": {
+            "$ref": "#/definitions/PaymentDetail"
+          },
+          "type": "array"
+        },
+        "pricingCurrencyTotal": {
+          "description": "Amount that Microsoft uses for record. Used during refund for calculating refund limit. Tax is not included.",
+          "properties": {
+            "amount": {
+              "type": "number"
+            },
+            "currencyCode": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "reservationOrderId": {
+          "description": "GUID that represents reservation order that can be placed after calculating price.",
+          "type": "string"
+        },
+        "skuDescription": {
+          "description": "Description of SKU that is being purchased.",
+          "type": "string"
+        },
+        "skuTitle": {
+          "description": "Title of SKU that is being purchased.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "Catalog": {
       "properties": {
-        "capabilities": {
-          "items": {
-            "$ref": "#/definitions/SkuCapability"
+        "billingPlans": {
+          "additionalProperties": {
+            "items": {
+              "$ref": "#/definitions/ReservationBillingPlan"
+            },
+            "type": "array"
           },
-          "readOnly": true,
-          "type": "array"
+          "description": "The billing plan options available for this SKU.",
+          "type": "object"
         },
         "locations": {
           "items": {
-            "description": "The set of locations that the SKU is available.",
+            "description": "The set of locations that the SKU is available. If not specified, the SKU is available in all locations.",
             "type": "string"
           },
           "readOnly": true,
@@ -1527,10 +2298,12 @@
           "readOnly": true,
           "type": "array"
         },
-        "size": {
-          "description": "The size of this SKU",
+        "skuProperties": {
+          "items": {
+            "$ref": "#/definitions/SkuProperty"
+          },
           "readOnly": true,
-          "type": "string"
+          "type": "array"
         },
         "terms": {
           "description": "Available reservation terms for this resource",
@@ -1539,11 +2312,6 @@
           },
           "readOnly": true,
           "type": "array"
-        },
-        "tier": {
-          "description": "The tier of this SKU",
-          "readOnly": true,
-          "type": "string"
         }
       },
       "type": "object"
@@ -1582,7 +2350,7 @@
         "Forbidden",
         "BillingScopeIdCannotBeChanged",
         "AppliedScopesNotAssociatedWithCommerceAccount",
-        "AppliedScopesSameAsExisting",
+        "PatchValuesSameAsExisting",
         "RoleAssignmentCreationFailed",
         "ReservationOrderCreationFailed",
         "ReservationOrderNotEnabled",
@@ -1614,7 +2382,11 @@
         "FulfillmentError",
         "CalculatePriceFailed"
       ],
-      "type": "string"
+      "type": "string",
+      "x-ms-enum": {
+        "modelAsString": true,
+        "name": "ErrorResponseCode"
+      }
     },
     "ExtendedErrorInfo": {
       "properties": {
@@ -1639,35 +2411,17 @@
       },
       "type": "object"
     },
-    "Location": {
-      "description": "Location in which the Resources needs to be reserved. It cannot be changed after the resource has been created.",
+    "InstanceFlexibility": {
+      "description": "Turning this on will apply the reservation discount to other VMs in the same VM size group. Only specify for VirtualMachines reserved resource type.",
       "enum": [
-        "westus",
-        "eastus",
-        "eastus2",
-        "northcentralus",
-        "westus2",
-        "southcentralus",
-        "centralus",
-        "westeurope",
-        "northeurope",
-        "eastasia",
-        "southeastasia",
-        "japaneast",
-        "japanwest",
-        "brazilsouth",
-        "australiaeast",
-        "australiasoutheast",
-        "southindia",
-        "westindia",
-        "centralindia",
-        "canadacentral",
-        "canadaeast",
-        "uksouth",
-        "westcentralus",
-        "ukwest"
+        "On",
+        "Off"
       ],
-      "type": "string"
+      "type": "string",
+      "x-ms-enum": {
+        "modelAsString": true,
+        "name": "InstanceFlexibility"
+      }
     },
     "MergeProperties": {
       "properties": {
@@ -1752,28 +2506,203 @@
         },
         "appliedScopes": {
           "$ref": "#/definitions/AppliedScopes"
+        },
+        "instanceFlexibility": {
+          "$ref": "#/definitions/InstanceFlexibility"
+        },
+        "name": {
+          "description": "Name of the Reservation",
+          "type": "string"
+        },
+        "renew": {
+          "$ref": "#/definitions/Renew"
+        },
+        "renewProperties": {
+          "properties": {
+            "purchaseProperties": {
+              "$ref": "#/definitions/PurchaseRequest"
+            }
+          },
+          "type": "object"
         }
       },
       "type": "object"
     },
-    "ProvisioningState": {
-      "description": "Represent the current state of the Reservation.",
+    "PaymentDetail": {
+      "description": "Information about payment related to a reservation order.",
+      "properties": {
+        "billingAccount": {
+          "description": "Shows the Account that is charged for this payment.",
+          "type": "string"
+        },
+        "billingCurrencyTotal": {
+          "$ref": "#/definitions/Price",
+          "description": "Amount charged in Billing currency. Tax not included. Is null for future payments"
+        },
+        "dueDate": {
+          "description": "Date when the payment needs to be done.",
+          "format": "date",
+          "type": "string"
+        },
+        "extendedStatusInfo": {
+          "$ref": "#/definitions/ExtendedStatusInfo"
+        },
+        "paymentDate": {
+          "description": "Date when the transaction is completed. Is null when it is scheduled.",
+          "format": "date",
+          "type": "string"
+        },
+        "pricingCurrencyTotal": {
+          "$ref": "#/definitions/Price",
+          "description": "Amount in pricing currency. Tax not included."
+        },
+        "status": {
+          "$ref": "#/definitions/PaymentStatus"
+        }
+      },
+      "type": "object"
+    },
+    "PaymentStatus": {
+      "description": "Describes whether the payment is completed, failed, cancelled or scheduled in the future.",
       "enum": [
-        "Creating",
-        "PendingResourceHold",
-        "ConfirmedResourceHold",
-        "PendingBilling",
-        "ConfirmedBilling",
-        "Created",
         "Succeeded",
-        "Cancelled",
-        "Expired",
-        "BillingFailed",
         "Failed",
-        "Split",
-        "Merged"
+        "Scheduled",
+        "Cancelled"
       ],
-      "type": "string"
+      "type": "string",
+      "x-ms-enum": {
+        "modelAsString": true,
+        "name": "PaymentStatus"
+      }
+    },
+    "Price": {
+      "properties": {
+        "amount": {
+          "format": "double",
+          "type": "number"
+        },
+        "currencyCode": {
+          "description": "The ISO 4217 3-letter currency code for the currency used by this purchase record.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Properties": {
+      "properties": {
+        "properties": {
+          "$ref": "#/definitions/SubscriptionScopeProperties"
+        }
+      },
+      "type": "object"
+    },
+    "PurchaseRequest": {
+      "properties": {
+        "location": {
+          "description": "The Azure Region where the reserved resource lives.",
+          "type": "string"
+        },
+        "properties": {
+          "$ref": "#/definitions/PurchaseRequestProperties",
+          "x-ms-client-flatten": true
+        },
+        "sku": {
+          "$ref": "#/definitions/SkuName"
+        }
+      },
+      "type": "object"
+    },
+    "PurchaseRequestProperties": {
+      "properties": {
+        "appliedScopeType": {
+          "$ref": "#/definitions/AppliedScopeType"
+        },
+        "appliedScopes": {
+          "$ref": "#/definitions/AppliedScopes"
+        },
+        "billingPlan": {
+          "$ref": "#/definitions/ReservationBillingPlan"
+        },
+        "billingScopeId": {
+          "$ref": "#/definitions/BillingScopeId"
+        },
+        "displayName": {
+          "description": "Friendly name of the Reservation",
+          "type": "string"
+        },
+        "quantity": {
+          "$ref": "#/definitions/ReservationQuantity"
+        },
+        "renew": {
+          "$ref": "#/definitions/Renew"
+        },
+        "reservedResourceProperties": {
+          "description": "Properties specific to each reserved resource type. Not required if not applicable.",
+          "properties": {
+            "instanceFlexibility": {
+              "$ref": "#/definitions/InstanceFlexibility"
+            }
+          },
+          "type": "object"
+        },
+        "reservedResourceType": {
+          "$ref": "#/definitions/ReservedResourceType"
+        },
+        "term": {
+          "$ref": "#/definitions/ReservationTerm"
+        }
+      },
+      "type": "object"
+    },
+    "Renew": {
+      "default": false,
+      "description": "Setting this to true will automatically purchase a new reservation on the expiration date time.",
+      "type": "boolean"
+    },
+    "RenewPropertiesResponse": {
+      "properties": {
+        "billingCurrencyTotal": {
+          "description": "Currency and amount that customer will be charged in customer's local currency for renewal purchase. Tax is not included.",
+          "properties": {
+            "amount": {
+              "type": "number"
+            },
+            "currencyCode": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "pricingCurrencyTotal": {
+          "description": "Amount that Microsoft uses for record. Used during refund for calculating refund limit. Tax is not included. This is locked price 30 days before expiry.",
+          "properties": {
+            "amount": {
+              "type": "number"
+            },
+            "currencyCode": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "purchaseProperties": {
+          "$ref": "#/definitions/PurchaseRequest"
+        }
+      },
+      "type": "object"
+    },
+    "ReservationBillingPlan": {
+      "description": "Represent the billing plans.",
+      "enum": [
+        "Upfront",
+        "Monthly"
+      ],
+      "type": "string",
+      "x-ms-enum": {
+        "modelAsString": true,
+        "name": "ReservationBillingPlan"
+      }
     },
     "ReservationList": {
       "properties": {
@@ -1806,6 +2735,32 @@
       },
       "type": "object"
     },
+    "ReservationOrderBillingPlanInformation": {
+      "description": "Information describing the type of billing plan for this reservation.",
+      "properties": {
+        "nextPaymentDueDate": {
+          "description": "For recurring billing plans, indicates the date when next payment will be processed. Null when total is paid off.",
+          "format": "date",
+          "type": "string"
+        },
+        "pricingCurrencyTotal": {
+          "$ref": "#/definitions/Price",
+          "description": "Amount of money to be paid for the Order. Tax is not included."
+        },
+        "startDate": {
+          "description": "Date when the billing plan has started.",
+          "format": "date",
+          "type": "string"
+        },
+        "transactions": {
+          "items": {
+            "$ref": "#/definitions/PaymentDetail"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
     "ReservationOrderList": {
       "properties": {
         "nextLink": {
@@ -1823,6 +2778,9 @@
     },
     "ReservationOrderProperties": {
       "properties": {
+        "billingPlan": {
+          "$ref": "#/definitions/ReservationBillingPlan"
+        },
         "createdDateTime": {
           "description": "This is the DateTime when the reservation was created.",
           "format": "date-time",
@@ -1838,12 +2796,14 @@
           "type": "string"
         },
         "originalQuantity": {
-          "description": "Total Quantity of the SKUs purchased in the Reservation.",
-          "format": "int32",
-          "type": "integer"
+          "$ref": "#/definitions/ReservationQuantity"
+        },
+        "planInformation": {
+          "$ref": "#/definitions/ReservationOrderBillingPlanInformation"
         },
         "provisioningState": {
-          "$ref": "#/definitions/ProvisioningState"
+          "description": "Current state of the reservation.",
+          "type": "string"
         },
         "requestDateTime": {
           "description": "This is the DateTime when the reservation was initially requested for purchase.",
@@ -1898,6 +2858,12 @@
         "appliedScopes": {
           "$ref": "#/definitions/AppliedScopes"
         },
+        "billingPlan": {
+          "$ref": "#/definitions/ReservationBillingPlan"
+        },
+        "billingScopeId": {
+          "$ref": "#/definitions/BillingScopeId"
+        },
         "displayName": {
           "description": "Friendly name for user to easily identify the reservation",
           "type": "string"
@@ -1915,6 +2881,9 @@
         "extendedStatusInfo": {
           "$ref": "#/definitions/ExtendedStatusInfo"
         },
+        "instanceFlexibility": {
+          "$ref": "#/definitions/InstanceFlexibility"
+        },
         "lastUpdatedDateTime": {
           "description": "DateTime of the last time the Reservation was updated.",
           "format": "date-time",
@@ -1925,18 +2894,46 @@
           "$ref": "#/definitions/ReservationMergeProperties"
         },
         "provisioningState": {
-          "$ref": "#/definitions/ProvisioningState"
+          "description": "Current state of the reservation.",
+          "type": "string"
         },
         "quantity": {
-          "description": "Quantity of the SKUs that are part of the Reservation.",
-          "format": "int32",
-          "type": "integer"
+          "$ref": "#/definitions/ReservationQuantity"
+        },
+        "renew": {
+          "$ref": "#/definitions/Renew"
+        },
+        "renewDestination": {
+          "description": "Reservation Id of the reservation which is purchased because of renew. Format of the resource Id is /providers/Microsoft.Capacity/reservationOrders/{reservationOrderId}/reservations/{reservationId}.",
+          "type": "string"
+        },
+        "renewProperties": {
+          "$ref": "#/definitions/RenewPropertiesResponse"
+        },
+        "renewSource": {
+          "description": "Reservation Id of the reservation from which this reservation is renewed. Format of the resource Id is /providers/Microsoft.Capacity/reservationOrders/{reservationOrderId}/reservations/{reservationId}.",
+          "type": "string"
+        },
+        "reservedResourceType": {
+          "$ref": "#/definitions/ReservedResourceType"
+        },
+        "skuDescription": {
+          "description": "Description of the SKU in english.",
+          "type": "string"
         },
         "splitProperties": {
           "$ref": "#/definitions/ReservationSplitProperties"
+        },
+        "term": {
+          "$ref": "#/definitions/ReservationTerm"
         }
       },
       "type": "object"
+    },
+    "ReservationQuantity": {
+      "description": "Quantity of the SKUs that are part of the Reservation. Must be greater than zero.",
+      "format": "int32",
+      "type": "integer"
     },
     "ReservationResponse": {
       "properties": {
@@ -1948,19 +2945,10 @@
           "readOnly": true,
           "type": "string"
         },
-        "kind": {
-          "description": "Resource Provider type to be reserved.",
-          "enum": [
-            "Microsoft.Compute"
-          ],
-          "type": "string",
-          "x-ms-enum": {
-            "modelAsString": false,
-            "name": "Kind"
-          }
-        },
         "location": {
-          "$ref": "#/definitions/Location"
+          "description": "The Azure Region where the reserved resource lives.",
+          "readOnly": true,
+          "type": "string"
         },
         "name": {
           "description": "Name of the reservation",
@@ -2010,7 +2998,11 @@
         "Expired",
         "Succeeded"
       ],
-      "type": "string"
+      "type": "string",
+      "x-ms-enum": {
+        "modelAsString": true,
+        "name": "ReservationStatusCode"
+      }
     },
     "ReservationTerm": {
       "description": "Represent the term of Reservation.",
@@ -2018,17 +3010,37 @@
         "P1Y",
         "P3Y"
       ],
-      "type": "string"
+      "type": "string",
+      "x-ms-enum": {
+        "modelAsString": true,
+        "name": "ReservationTerm"
+      }
     },
-    "SkuCapability": {
+    "ReservedResourceType": {
+      "description": "The type of the resource that is being reserved.",
+      "enum": [
+        "VirtualMachines",
+        "SqlDatabases",
+        "SuseLinux",
+        "CosmosDb",
+        "RedHat",
+        "SqlDataWarehouse",
+        "VMwareCloudSimple",
+        "RedHatOsa"
+      ],
+      "type": "string",
+      "x-ms-enum": {
+        "modelAsString": true,
+        "name": "ReservedResourceType"
+      }
+    },
+    "ScopeProperties": {
       "properties": {
-        "name": {
-          "description": "An invariant to describe the feature.",
+        "scope": {
           "type": "string"
         },
-        "value": {
-          "description": "An invariant if the feature is measured by quantity.",
-          "type": "string"
+        "valid": {
+          "type": "boolean"
         }
       },
       "type": "object"
@@ -2036,6 +3048,19 @@
     "SkuName": {
       "properties": {
         "name": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "SkuProperty": {
+      "properties": {
+        "name": {
+          "description": "An invariant to describe the feature.",
+          "type": "string"
+        },
+        "value": {
+          "description": "An invariant if the feature is measured by quantity.",
           "type": "string"
         }
       },
@@ -2084,6 +3109,17 @@
         "properties": {
           "$ref": "#/definitions/SplitProperties",
           "x-ms-client-flatten": true
+        }
+      },
+      "type": "object"
+    },
+    "SubscriptionScopeProperties": {
+      "properties": {
+        "scopes": {
+          "items": {
+            "$ref": "#/definitions/ScopeProperties"
+          },
+          "type": "array"
         }
       },
       "type": "object"

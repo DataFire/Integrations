@@ -15,11 +15,7 @@ let azure_azsadmin_edgegatewaypool = require('@datafire/azure_azsadmin_edgegatew
   redirect_uri: ""
 });
 
-azure_azsadmin_edgegatewaypool.EdgeGatewayPools_List({
-  "subscriptionId": "",
-  "location": "",
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -31,12 +27,13 @@ Edge gateway pool operation endpoints and objects.
 ## Actions
 
 ### EdgeGatewayPools_List
-Get a list of all edge gateway pools at a location.
+Returns a list of all edge gateway pool objects at a location.
 
 
 ```js
 azure_azsadmin_edgegatewaypool.EdgeGatewayPools_List({
   "subscriptionId": "",
+  "resourceGroupName": "",
   "location": "",
   "api-version": ""
 }, context)
@@ -44,21 +41,23 @@ azure_azsadmin_edgegatewaypool.EdgeGatewayPools_List({
 
 #### Input
 * input `object`
-  * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription.The subscription ID forms part of the URI for every service call.
+  * subscriptionId **required** `string`: Subscription credentials that uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+  * resourceGroupName **required** `string`: Name of the resource group.
   * location **required** `string`: Location of the resource.
-  * api-version **required** `string`: Client Api Version.
+  * api-version **required** `string`: Client API Version.
   * $filter `string`: OData filter parameter.
 
 #### Output
 * output [EdgeGatewayPoolList](#edgegatewaypoollist)
 
 ### EdgeGatewayPools_Get
-Get an EdgeGatewayPool.
+Returns the requested edge gateway pool object.
 
 
 ```js
 azure_azsadmin_edgegatewaypool.EdgeGatewayPools_Get({
   "subscriptionId": "",
+  "resourceGroupName": "",
   "location": "",
   "edgeGatewayPool": "",
   "api-version": ""
@@ -67,10 +66,11 @@ azure_azsadmin_edgegatewaypool.EdgeGatewayPools_Get({
 
 #### Input
 * input `object`
-  * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription.The subscription ID forms part of the URI for every service call.
+  * subscriptionId **required** `string`: Subscription credentials that uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+  * resourceGroupName **required** `string`: Name of the resource group.
   * location **required** `string`: Location of the resource.
   * edgeGatewayPool **required** `string`: Name of the edge gateway pool.
-  * api-version **required** `string`: Client Api Version.
+  * api-version **required** `string`: Client API Version.
 
 #### Output
 * output [EdgeGatewayPool](#edgegatewaypool)
@@ -80,26 +80,26 @@ azure_azsadmin_edgegatewaypool.EdgeGatewayPools_Get({
 ## Definitions
 
 ### EdgeGatewayPool
-* EdgeGatewayPool `object`: This resource represents an edge gateway pool, which contains an array of gateways.
+* EdgeGatewayPool `object`: This object represents an edge gateway pool, which contains a list of gateways.
   * properties [EdgeGatewayPoolModel](#edgegatewaypoolmodel)
   * id `string`: URI of the resource.
-  * location `string`: Region Location of resource.
+  * location `string`: The region where the resource is located.
   * name `string`: Name of the resource.
-  * tags `object`: List of key value pairs.
+  * tags `object`: List of key-value pairs.
   * type `string`: Type of resource.
 
 ### EdgeGatewayPoolList
-* EdgeGatewayPoolList `object`: A pageable list of edge gateway pools.
+* EdgeGatewayPoolList `object`: A pageable list of edge gateway pools objects.
   * nextLink `string`: The URI to the next page.
-  * value `array`: The array of edge gateway pools in this page.
+  * value `array`: List of edge gateway pool objects.
     * items [EdgeGatewayPool](#edgegatewaypool)
 
 ### EdgeGatewayPoolModel
-* EdgeGatewayPoolModel `object`: A model holding all properties of an edge gateway pool.
-  * edgeGateways `array`: List of the edge gateways in this pool.
+* EdgeGatewayPoolModel `object`: An object that contains the properties of an edge gateway pool.
+  * edgeGateways `array`: List of the edge gateways in the pool.
     * items `string`
   * gatewayCapacityKiloBitsPerSecond `integer`: Gateway capacity in kilobits per second.
-  * gatewayType `string`: The gateway type (S2sIPsec, S2sGre, etc).
+  * gatewayType `string`: The gateway type, for example, S2sIPsec, S2sGre, and so on.
   * greVipSubnet `string`: The GRE VIP subnet.
   * numberOfGateways `integer`: The number of gateways in the pool.
   * publicIpAddress `string`: The public IP address.

@@ -1,0 +1,4134 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "contact": {
+      "email": "mike.ralphson@gmail.com",
+      "name": "Mike Ralphson",
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
+    },
+    "description": "AWS IoT Events monitors your equipment or device fleets for failures or changes in operation, and triggers actions when such events occur. You can use AWS IoT Events API operations to create, read, update, and delete inputs and detector models, and to list their versions.",
+    "license": {
+      "name": "Apache 2.0 License",
+      "url": "http://www.apache.org/licenses/"
+    },
+    "termsOfService": "https://aws.amazon.com/service-terms/",
+    "title": "AWS IoT Events",
+    "version": "2018-07-27",
+    "x-apiClientRegistration": {
+      "url": "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"
+    },
+    "x-apisguru-categories": [
+      "cloud"
+    ],
+    "x-logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"
+    },
+    "x-origin": [
+      {
+        "contentType": "application/json",
+        "converter": {
+          "url": "https://github.com/mermade/aws2openapi",
+          "version": "1.0.0"
+        },
+        "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/iotevents-2018-07-27.normal.json",
+        "x-apisguru-driver": "external"
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "amazonaws.com",
+    "x-release": "v4",
+    "x-serviceName": "iotevents",
+    "x-datafire": {
+      "name": "amazonaws_iotevents",
+      "type": "openapi"
+    }
+  },
+  "host": "iotevents.us-east-1.amazonaws.com",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/detector-models": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The token for the next set of results.",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "The maximum number of results to return at one time.",
+            "in": "query",
+            "maximum": 250,
+            "minimum": 1,
+            "name": "maxResults",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListDetectorModelsResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "482": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          },
+          "483": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          }
+        },
+        "description": "Lists the detector models you have created. Only the metadata associated with each detector model is returned.",
+        "operationId": "ListDetectorModels"
+      },
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "tags": {
+                  "description": "Metadata that can be used to manage the detector model.",
+                  "items": {
+                    "$ref": "#/definitions/Tag"
+                  },
+                  "type": "array"
+                },
+                "detectorModelDefinition": {
+                  "description": "Information that defines how a detector operates.",
+                  "properties": {
+                    "initialStateName": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/StateName"
+                        },
+                        {
+                          "description": "The state that is entered at the creation of each detector (instance)."
+                        }
+                      ]
+                    },
+                    "states": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/States"
+                        },
+                        {
+                          "description": "Information about the states of the detector."
+                        }
+                      ]
+                    }
+                  },
+                  "type": "object"
+                },
+                "detectorModelDescription": {
+                  "description": "A brief description of the detector model.",
+                  "maxLength": 128,
+                  "type": "string"
+                },
+                "detectorModelName": {
+                  "description": "The name of the detector model.",
+                  "maxLength": 128,
+                  "minLength": 1,
+                  "pattern": "^[a-zA-Z0-9_-]+$",
+                  "type": "string"
+                },
+                "evaluationMethod": {
+                  "description": "Information about the order in which events are evaluated and how actions are executed. ",
+                  "enum": [
+                    "BATCH",
+                    "SERIAL"
+                  ],
+                  "type": "string"
+                },
+                "key": {
+                  "description": "The input attribute key used to identify a device or system to create a detector (an instance of the detector model) and then to route each input received to the appropriate detector (instance). This parameter uses a JSON-path expression in the message payload of each input to specify the attribute-value pair that is used to identify the device associated with the input.",
+                  "maxLength": 128,
+                  "minLength": 1,
+                  "pattern": "^((`[\\w\\- ]+`)|([\\w\\-]+))(\\.((`[\\w- ]+`)|([\\w\\-]+)))*$",
+                  "type": "string"
+                },
+                "roleArn": {
+                  "description": "The ARN of the role that grants permission to AWS IoT Events to perform its operations.",
+                  "maxLength": 2048,
+                  "minLength": 1,
+                  "type": "string"
+                }
+              },
+              "required": [
+                "detectorModelName",
+                "detectorModelDefinition",
+                "roleArn"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateDetectorModelResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "ResourceInUseException",
+            "schema": {
+              "$ref": "#/definitions/ResourceInUseException"
+            }
+          },
+          "482": {
+            "description": "ResourceAlreadyExistsException",
+            "schema": {
+              "$ref": "#/definitions/ResourceAlreadyExistsException"
+            }
+          },
+          "483": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          },
+          "484": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "485": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          },
+          "486": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          }
+        },
+        "description": "Creates a detector model.",
+        "operationId": "CreateDetectorModel"
+      }
+    },
+    "/detector-models/{detectorModelName}": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "delete": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The name of the detector model to be deleted.",
+            "in": "path",
+            "maxLength": 128,
+            "minLength": 1,
+            "name": "detectorModelName",
+            "pattern": "^[a-zA-Z0-9_-]+$",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteDetectorModelResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "ResourceInUseException",
+            "schema": {
+              "$ref": "#/definitions/ResourceInUseException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "484": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          },
+          "485": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          }
+        },
+        "description": "Deletes a detector model. Any active instances of the detector model are also deleted.",
+        "operationId": "DeleteDetectorModel"
+      },
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The name of the detector model.",
+            "in": "path",
+            "maxLength": 128,
+            "minLength": 1,
+            "name": "detectorModelName",
+            "pattern": "^[a-zA-Z0-9_-]+$",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The version of the detector model.",
+            "in": "query",
+            "maxLength": 128,
+            "minLength": 1,
+            "name": "version",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeDetectorModelResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "483": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          },
+          "484": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          }
+        },
+        "description": "Describes a detector model. If the <code>version</code> parameter is not specified, information about the latest version is returned.",
+        "operationId": "DescribeDetectorModel"
+      },
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The name of the detector model that is updated.",
+            "in": "path",
+            "maxLength": 128,
+            "minLength": 1,
+            "name": "detectorModelName",
+            "pattern": "^[a-zA-Z0-9_-]+$",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "detectorModelDefinition": {
+                  "description": "Information that defines how a detector operates.",
+                  "properties": {
+                    "initialStateName": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/StateName"
+                        },
+                        {
+                          "description": "The state that is entered at the creation of each detector (instance)."
+                        }
+                      ]
+                    },
+                    "states": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/States"
+                        },
+                        {
+                          "description": "Information about the states of the detector."
+                        }
+                      ]
+                    }
+                  },
+                  "type": "object"
+                },
+                "detectorModelDescription": {
+                  "description": "A brief description of the detector model.",
+                  "maxLength": 128,
+                  "type": "string"
+                },
+                "evaluationMethod": {
+                  "description": "Information about the order in which events are evaluated and how actions are executed. ",
+                  "enum": [
+                    "BATCH",
+                    "SERIAL"
+                  ],
+                  "type": "string"
+                },
+                "roleArn": {
+                  "description": "The ARN of the role that grants permission to AWS IoT Events to perform its operations.",
+                  "maxLength": 2048,
+                  "minLength": 1,
+                  "type": "string"
+                }
+              },
+              "required": [
+                "detectorModelDefinition",
+                "roleArn"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UpdateDetectorModelResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "ResourceInUseException",
+            "schema": {
+              "$ref": "#/definitions/ResourceInUseException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "484": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          },
+          "485": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          }
+        },
+        "description": "Updates a detector model. Detectors (instances) spawned by the previous version are deleted and then re-created as new inputs arrive.",
+        "operationId": "UpdateDetectorModel"
+      }
+    },
+    "/detector-models/{detectorModelName}/versions": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The name of the detector model whose versions are returned.",
+            "in": "path",
+            "maxLength": 128,
+            "minLength": 1,
+            "name": "detectorModelName",
+            "pattern": "^[a-zA-Z0-9_-]+$",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The token for the next set of results.",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "The maximum number of results to return at one time.",
+            "in": "query",
+            "maximum": 250,
+            "minimum": 1,
+            "name": "maxResults",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListDetectorModelVersionsResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "483": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          },
+          "484": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          }
+        },
+        "description": "Lists all the versions of a detector model. Only the metadata associated with each detector model version is returned.",
+        "operationId": "ListDetectorModelVersions"
+      }
+    },
+    "/inputs": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The token for the next set of results.",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "The maximum number of results to return at one time.",
+            "in": "query",
+            "maximum": 250,
+            "minimum": 1,
+            "name": "maxResults",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListInputsResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "482": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          },
+          "483": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          }
+        },
+        "description": "Lists the inputs you have created.",
+        "operationId": "ListInputs"
+      },
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "tags": {
+                  "description": "Metadata that can be used to manage the input.",
+                  "items": {
+                    "$ref": "#/definitions/Tag"
+                  },
+                  "type": "array"
+                },
+                "inputDefinition": {
+                  "description": "The definition of the input.",
+                  "properties": {
+                    "attributes": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/Attributes"
+                        },
+                        {
+                          "description": "The attributes from the JSON payload that are made available by the input. Inputs are derived from messages sent to the AWS IoT Events system using <code>BatchPutMessage</code>. Each such message contains a JSON payload, and those attributes (and their paired values) specified here are available for use in the <code>condition</code> expressions used by detectors that monitor this input. "
+                        }
+                      ]
+                    }
+                  },
+                  "type": "object"
+                },
+                "inputDescription": {
+                  "description": "A brief description of the input.",
+                  "maxLength": 128,
+                  "type": "string"
+                },
+                "inputName": {
+                  "description": "The name you want to give to the input.",
+                  "maxLength": 128,
+                  "minLength": 1,
+                  "pattern": "^[a-zA-Z][a-zA-Z0-9_]*$",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "inputName",
+                "inputDefinition"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateInputResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "482": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          },
+          "483": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "484": {
+            "description": "ResourceAlreadyExistsException",
+            "schema": {
+              "$ref": "#/definitions/ResourceAlreadyExistsException"
+            }
+          }
+        },
+        "description": "Creates an input.",
+        "operationId": "CreateInput"
+      }
+    },
+    "/inputs/{inputName}": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "delete": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The name of the input to delete.",
+            "in": "path",
+            "maxLength": 128,
+            "minLength": 1,
+            "name": "inputName",
+            "pattern": "^[a-zA-Z][a-zA-Z0-9_]*$",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteInputResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "483": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          },
+          "484": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "485": {
+            "description": "ResourceInUseException",
+            "schema": {
+              "$ref": "#/definitions/ResourceInUseException"
+            }
+          }
+        },
+        "description": "Deletes an input.",
+        "operationId": "DeleteInput"
+      },
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The name of the input.",
+            "in": "path",
+            "maxLength": 128,
+            "minLength": 1,
+            "name": "inputName",
+            "pattern": "^[a-zA-Z][a-zA-Z0-9_]*$",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeInputResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "483": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          },
+          "484": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          }
+        },
+        "description": "Describes an input.",
+        "operationId": "DescribeInput"
+      },
+      "put": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The name of the input you want to update.",
+            "in": "path",
+            "maxLength": 128,
+            "minLength": 1,
+            "name": "inputName",
+            "pattern": "^[a-zA-Z][a-zA-Z0-9_]*$",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "inputDefinition": {
+                  "description": "The definition of the input.",
+                  "properties": {
+                    "attributes": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/Attributes"
+                        },
+                        {
+                          "description": "The attributes from the JSON payload that are made available by the input. Inputs are derived from messages sent to the AWS IoT Events system using <code>BatchPutMessage</code>. Each such message contains a JSON payload, and those attributes (and their paired values) specified here are available for use in the <code>condition</code> expressions used by detectors that monitor this input. "
+                        }
+                      ]
+                    }
+                  },
+                  "type": "object"
+                },
+                "inputDescription": {
+                  "description": "A brief description of the input.",
+                  "maxLength": 128,
+                  "type": "string"
+                }
+              },
+              "required": [
+                "inputDefinition"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UpdateInputResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          },
+          "484": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "485": {
+            "description": "ResourceInUseException",
+            "schema": {
+              "$ref": "#/definitions/ResourceInUseException"
+            }
+          }
+        },
+        "description": "Updates an input.",
+        "operationId": "UpdateInput"
+      }
+    },
+    "/logging": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeLoggingOptionsResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "482": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "484": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "485": {
+            "description": "UnsupportedOperationException",
+            "schema": {
+              "$ref": "#/definitions/UnsupportedOperationException"
+            }
+          }
+        },
+        "description": "Retrieves the current settings of the AWS IoT Events logging options.",
+        "operationId": "DescribeLoggingOptions"
+      },
+      "put": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "loggingOptions": {
+                  "description": "The values of the AWS IoT Events logging options.",
+                  "properties": {
+                    "detectorDebugOptions": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/DetectorDebugOptions"
+                        },
+                        {
+                          "description": "Information that identifies those detector models and their detectors (instances) for which the logging level is given."
+                        }
+                      ]
+                    },
+                    "enabled": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/LoggingEnabled"
+                        },
+                        {
+                          "description": "If TRUE, logging is enabled for AWS IoT Events."
+                        }
+                      ]
+                    },
+                    "level": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/LoggingLevel"
+                        },
+                        {
+                          "description": "The logging level."
+                        }
+                      ]
+                    },
+                    "roleArn": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/AmazonResourceName"
+                        },
+                        {
+                          "description": "The ARN of the role that grants permission to AWS IoT Events to perform logging."
+                        }
+                      ]
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "required": [
+                "loggingOptions"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "482": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          },
+          "483": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "484": {
+            "description": "UnsupportedOperationException",
+            "schema": {
+              "$ref": "#/definitions/UnsupportedOperationException"
+            }
+          },
+          "485": {
+            "description": "ResourceInUseException",
+            "schema": {
+              "$ref": "#/definitions/ResourceInUseException"
+            }
+          }
+        },
+        "description": "<p>Sets or updates the AWS IoT Events logging options.</p> <p>If you update the value of any <code>loggingOptions</code> field, it takes up to one minute for the change to take effect. If you change the policy attached to the role you specified in the <code>roleArn</code> field (for example, to correct an invalid policy), it takes up to five minutes for that change to take effect.</p>",
+        "operationId": "PutLoggingOptions"
+      }
+    },
+    "/tags#resourceArn": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The ARN of the resource.",
+            "in": "query",
+            "maxLength": 2048,
+            "minLength": 1,
+            "name": "resourceArn",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListTagsForResourceResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "ResourceInUseException",
+            "schema": {
+              "$ref": "#/definitions/ResourceInUseException"
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "484": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          }
+        },
+        "description": "Lists the tags (metadata) you have assigned to the resource.",
+        "operationId": "ListTagsForResource"
+      },
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The ARN of the resource.",
+            "in": "query",
+            "maxLength": 2048,
+            "minLength": 1,
+            "name": "resourceArn",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "tags": {
+                  "description": "The new or modified tags for the resource.",
+                  "items": {
+                    "$ref": "#/definitions/Tag"
+                  },
+                  "type": "array"
+                }
+              },
+              "required": [
+                "tags"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/TagResourceResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "ResourceInUseException",
+            "schema": {
+              "$ref": "#/definitions/ResourceInUseException"
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "484": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          },
+          "485": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          }
+        },
+        "description": "Adds to or modifies the tags of the given resource. Tags are metadata that can be used to manage a resource.",
+        "operationId": "TagResource"
+      }
+    },
+    "/tags#resourceArn&tagKeys": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "delete": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The ARN of the resource.",
+            "in": "query",
+            "maxLength": 2048,
+            "minLength": 1,
+            "name": "resourceArn",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "collectionFormat": "multi",
+            "description": "A list of the keys of the tags to be removed from the resource.",
+            "in": "query",
+            "items": {
+              "$ref": "#/definitions/TagKey"
+            },
+            "name": "tagKeys",
+            "required": true,
+            "type": "array"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UntagResourceResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "ResourceInUseException",
+            "schema": {
+              "$ref": "#/definitions/ResourceInUseException"
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "484": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          }
+        },
+        "description": "Removes the given tags (metadata) from the resource.",
+        "operationId": "UntagResource"
+      }
+    }
+  },
+  "definitions": {
+    "Action": {
+      "description": "An action to be performed when the <code>condition</code> is TRUE.",
+      "properties": {
+        "clearTimer": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ClearTimerAction"
+            },
+            {
+              "description": "Information needed to clear the timer."
+            }
+          ]
+        },
+        "dynamoDB": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DynamoDBAction"
+            },
+            {
+              "description": "Writes to the DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the detector model instance and the event that triggered the action. You can also customize the <a href=\"https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html\">payload</a>. One column of the DynamoDB table receives all attribute-value pairs in the payload that you specify. For more information, see <a href=\"https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-event-actions.html\">Actions</a> in <i>AWS IoT Events Developer Guide</i>."
+            }
+          ]
+        },
+        "dynamoDBv2": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DynamoDBv2Action"
+            },
+            {
+              "description": "Writes to the DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the detector model instance and the event that triggered the action. You can also customize the <a href=\"https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html\">payload</a>. A separate column of the DynamoDB table receives one attribute-value pair in the payload that you specify. For more information, see <a href=\"https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-event-actions.html\">Actions</a> in <i>AWS IoT Events Developer Guide</i>."
+            }
+          ]
+        },
+        "firehose": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/FirehoseAction"
+            },
+            {
+              "description": "Sends information about the detector model instance and the event that triggered the action to an Amazon Kinesis Data Firehose delivery stream."
+            }
+          ]
+        },
+        "iotEvents": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/IotEventsAction"
+            },
+            {
+              "description": "Sends AWS IoT Events input, which passes information about the detector model instance and the event that triggered the action."
+            }
+          ]
+        },
+        "iotSiteWise": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/IotSiteWiseAction"
+            },
+            {
+              "description": "Sends information about the detector model instance and the event that triggered the action to an asset property in AWS IoT SiteWise ."
+            }
+          ]
+        },
+        "iotTopicPublish": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/IotTopicPublishAction"
+            },
+            {
+              "description": "Publishes an MQTT message with the given topic to the AWS IoT message broker."
+            }
+          ]
+        },
+        "lambda": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/LambdaAction"
+            },
+            {
+              "description": "Calls a Lambda function, passing in information about the detector model instance and the event that triggered the action."
+            }
+          ]
+        },
+        "resetTimer": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResetTimerAction"
+            },
+            {
+              "description": "Information needed to reset the timer."
+            }
+          ]
+        },
+        "setTimer": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SetTimerAction"
+            },
+            {
+              "description": "Information needed to set the timer."
+            }
+          ]
+        },
+        "setVariable": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SetVariableAction"
+            },
+            {
+              "description": "Sets a variable to a specified value."
+            }
+          ]
+        },
+        "sns": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SNSTopicPublishAction"
+            },
+            {
+              "description": "Sends an Amazon SNS message."
+            }
+          ]
+        },
+        "sqs": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SqsAction"
+            },
+            {
+              "description": "Sends information about the detector model instance and the event that triggered the action to an Amazon SQS queue."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "Actions": {
+      "items": {
+        "$ref": "#/definitions/Action"
+      },
+      "type": "array"
+    },
+    "AmazonResourceName": {
+      "maxLength": 2048,
+      "minLength": 1,
+      "type": "string"
+    },
+    "AssetId": {
+      "type": "string"
+    },
+    "AssetPropertyAlias": {
+      "type": "string"
+    },
+    "AssetPropertyBooleanValue": {
+      "type": "string"
+    },
+    "AssetPropertyDoubleValue": {
+      "type": "string"
+    },
+    "AssetPropertyEntryId": {
+      "type": "string"
+    },
+    "AssetPropertyId": {
+      "type": "string"
+    },
+    "AssetPropertyIntegerValue": {
+      "type": "string"
+    },
+    "AssetPropertyOffsetInNanos": {
+      "type": "string"
+    },
+    "AssetPropertyQuality": {
+      "type": "string"
+    },
+    "AssetPropertyStringValue": {
+      "type": "string"
+    },
+    "AssetPropertyTimeInSeconds": {
+      "type": "string"
+    },
+    "AssetPropertyTimestamp": {
+      "description": "<p>A structure that contains timestamp information. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_TimeInNanos.html\">TimeInNanos</a> in the <i>AWS IoT SiteWise API Reference</i>.</p> <p>For parameters that are string data type, you can specify the following options:</p> <ul> <li> <p>Use a string. For example, the <code>timeInSeconds</code> value can be <code>'1586400675'</code>.</p> </li> <li> <p>Use an expression. For example, the <code>timeInSeconds</code> value can be <code>'${$input.TemperatureInput.sensorData.timestamp/1000}'</code>.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html\">Expressions</a> in the <i>AWS IoT Events Developer Guide</i>.</p> </li> </ul>",
+      "properties": {
+        "offsetInNanos": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AssetPropertyOffsetInNanos"
+            },
+            {
+              "description": "The nanosecond offset converted from <code>timeInSeconds</code>. The valid range is between 0-999999999. You can also specify an expression."
+            }
+          ]
+        },
+        "timeInSeconds": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AssetPropertyTimeInSeconds"
+            },
+            {
+              "description": "The timestamp, in seconds, in the Unix epoch format. The valid range is between 1-31556889864403199. You can also specify an expression."
+            }
+          ]
+        }
+      },
+      "required": [
+        "timeInSeconds"
+      ],
+      "type": "object"
+    },
+    "AssetPropertyValue": {
+      "description": "<p>A structure that contains value information. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_AssetPropertyValue.html\">AssetPropertyValue</a> in the <i>AWS IoT SiteWise API Reference</i>.</p> <p>For parameters that are string data type, you can specify the following options: </p> <ul> <li> <p>Use a string. For example, the <code>quality</code> value can be <code>'GOOD'</code>.</p> </li> <li> <p>Use an expression. For example, the <code>quality</code> value can be <code>$input.TemperatureInput.sensorData.quality</code> .</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html\">Expressions</a> in the <i>AWS IoT Events Developer Guide</i>.</p> </li> </ul>",
+      "properties": {
+        "quality": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AssetPropertyQuality"
+            },
+            {
+              "description": "The quality of the asset property value. The value must be <code>GOOD</code>, <code>BAD</code>, or <code>UNCERTAIN</code>. You can also specify an expression."
+            }
+          ]
+        },
+        "timestamp": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AssetPropertyTimestamp"
+            },
+            {
+              "description": "The timestamp associated with the asset property value. The default is the current event time."
+            }
+          ]
+        },
+        "value": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AssetPropertyVariant"
+            },
+            {
+              "description": "The value to send to an asset property."
+            }
+          ]
+        }
+      },
+      "required": [
+        "value"
+      ],
+      "type": "object"
+    },
+    "AssetPropertyVariant": {
+      "description": "<p>A structure that contains an asset property value. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_Variant.html\">Variant</a> in the <i>AWS IoT SiteWise API Reference</i>.</p> <important> <p>You must specify one of the following value types, depending on the <code>dataType</code> of the specified asset property. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_AssetProperty.html\">AssetProperty</a> in the <i>AWS IoT SiteWise API Reference</i>.</p> </important> <p>For parameters that are string data type, you can specify the following options:</p> <ul> <li> <p>Use a string. For example, the <code>doubleValue</code> value can be <code>'47.9'</code>.</p> </li> <li> <p>Use an expression. For example, the <code>doubleValue</code> value can be <code>$input.TemperatureInput.sensorData.temperature</code>.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html\">Expressions</a> in the <i>AWS IoT Events Developer Guide</i>.</p> </li> </ul>",
+      "properties": {
+        "booleanValue": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AssetPropertyBooleanValue"
+            },
+            {
+              "description": "The asset property value is a Boolean value that must be <code>TRUE</code> or <code>FALSE</code>. You can also specify an expression. If you use an expression, the evaluated result should be a Boolean value."
+            }
+          ]
+        },
+        "doubleValue": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AssetPropertyDoubleValue"
+            },
+            {
+              "description": "The asset property value is a double. You can also specify an expression. If you use an expression, the evaluated result should be a double."
+            }
+          ]
+        },
+        "integerValue": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AssetPropertyIntegerValue"
+            },
+            {
+              "description": "The asset property value is an integer. You can also specify an expression. If you use an expression, the evaluated result should be an integer."
+            }
+          ]
+        },
+        "stringValue": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AssetPropertyStringValue"
+            },
+            {
+              "description": "The asset property value is a string. You can also specify an expression. If you use an expression, the evaluated result should be a string."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "Attribute": {
+      "description": "The attributes from the JSON payload that are made available by the input. Inputs are derived from messages sent to the AWS IoT Events system using <code>BatchPutMessage</code>. Each such message contains a JSON payload. Those attributes (and their paired values) specified here are available for use in the <code>condition</code> expressions used by detectors. ",
+      "properties": {
+        "jsonPath": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AttributeJsonPath"
+            },
+            {
+              "description": "<p>An expression that specifies an attribute-value pair in a JSON structure. Use this to specify an attribute from the JSON payload that is made available by the input. Inputs are derived from messages sent to AWS IoT Events (<code>BatchPutMessage</code>). Each such message contains a JSON payload. The attribute (and its paired value) specified here are available for use in the <code>condition</code> expressions used by detectors. </p> <p>Syntax: <code>&lt;field-name&gt;.&lt;field-name&gt;...</code> </p>"
+            }
+          ]
+        }
+      },
+      "required": [
+        "jsonPath"
+      ],
+      "type": "object"
+    },
+    "AttributeJsonPath": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "^((`[\\w\\- ]+`)|([\\w\\-]+))(\\.((`[\\w- ]+`)|([\\w\\-]+)))*$",
+      "type": "string"
+    },
+    "Attributes": {
+      "items": {
+        "$ref": "#/definitions/Attribute"
+      },
+      "maxItems": 200,
+      "minItems": 1,
+      "type": "array"
+    },
+    "ClearTimerAction": {
+      "description": "Information needed to clear the timer.",
+      "properties": {
+        "timerName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TimerName"
+            },
+            {
+              "description": "The name of the timer to clear."
+            }
+          ]
+        }
+      },
+      "required": [
+        "timerName"
+      ],
+      "type": "object"
+    },
+    "Condition": {
+      "maxLength": 512,
+      "type": "string"
+    },
+    "ContentExpression": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "CreateDetectorModelRequest": {
+      "properties": {
+        "tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Tags"
+            },
+            {
+              "description": "Metadata that can be used to manage the detector model."
+            }
+          ]
+        },
+        "detectorModelDefinition": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DetectorModelDefinition"
+            },
+            {
+              "description": "Information that defines how the detectors operate."
+            }
+          ]
+        },
+        "detectorModelDescription": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DetectorModelDescription"
+            },
+            {
+              "description": "A brief description of the detector model."
+            }
+          ]
+        },
+        "detectorModelName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DetectorModelName"
+            },
+            {
+              "description": "The name of the detector model."
+            }
+          ]
+        },
+        "evaluationMethod": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/EvaluationMethod"
+            },
+            {
+              "description": "Information about the order in which events are evaluated and how actions are executed. "
+            }
+          ]
+        },
+        "key": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AttributeJsonPath"
+            },
+            {
+              "description": "The input attribute key used to identify a device or system to create a detector (an instance of the detector model) and then to route each input received to the appropriate detector (instance). This parameter uses a JSON-path expression in the message payload of each input to specify the attribute-value pair that is used to identify the device associated with the input."
+            }
+          ]
+        },
+        "roleArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AmazonResourceName"
+            },
+            {
+              "description": "The ARN of the role that grants permission to AWS IoT Events to perform its operations."
+            }
+          ]
+        }
+      },
+      "required": [
+        "detectorModelName",
+        "detectorModelDefinition",
+        "roleArn"
+      ],
+      "title": "CreateDetectorModelRequest",
+      "type": "object"
+    },
+    "CreateDetectorModelResponse": {
+      "properties": {
+        "detectorModelConfiguration": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DetectorModelConfiguration"
+            },
+            {
+              "description": "Information about how the detector model is configured."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "CreateInputRequest": {
+      "properties": {
+        "tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Tags"
+            },
+            {
+              "description": "Metadata that can be used to manage the input."
+            }
+          ]
+        },
+        "inputDefinition": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InputDefinition"
+            },
+            {
+              "description": "The definition of the input."
+            }
+          ]
+        },
+        "inputDescription": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InputDescription"
+            },
+            {
+              "description": "A brief description of the input."
+            }
+          ]
+        },
+        "inputName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InputName"
+            },
+            {
+              "description": "The name you want to give to the input."
+            }
+          ]
+        }
+      },
+      "required": [
+        "inputName",
+        "inputDefinition"
+      ],
+      "title": "CreateInputRequest",
+      "type": "object"
+    },
+    "CreateInputResponse": {
+      "properties": {
+        "inputConfiguration": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InputConfiguration"
+            },
+            {
+              "description": "Information about the configuration of the input."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DeleteDetectorModelRequest": {
+      "properties": {},
+      "title": "DeleteDetectorModelRequest",
+      "type": "object"
+    },
+    "DeleteDetectorModelResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "DeleteInputRequest": {
+      "properties": {},
+      "title": "DeleteInputRequest",
+      "type": "object"
+    },
+    "DeleteInputResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "DeliveryStreamName": {
+      "type": "string"
+    },
+    "DescribeDetectorModelRequest": {
+      "properties": {},
+      "title": "DescribeDetectorModelRequest",
+      "type": "object"
+    },
+    "DescribeDetectorModelResponse": {
+      "properties": {
+        "detectorModel": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DetectorModel"
+            },
+            {
+              "description": "Information about the detector model."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DescribeInputRequest": {
+      "properties": {},
+      "title": "DescribeInputRequest",
+      "type": "object"
+    },
+    "DescribeInputResponse": {
+      "properties": {
+        "input": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Input"
+            },
+            {
+              "description": "Information about the input."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DescribeLoggingOptionsRequest": {
+      "properties": {},
+      "title": "DescribeLoggingOptionsRequest",
+      "type": "object"
+    },
+    "DescribeLoggingOptionsResponse": {
+      "properties": {
+        "loggingOptions": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/LoggingOptions"
+            },
+            {
+              "description": "The current settings of the AWS IoT Events logging options."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DetectorDebugOption": {
+      "description": "The detector model and the specific detectors (instances) for which the logging level is given.",
+      "properties": {
+        "detectorModelName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DetectorModelName"
+            },
+            {
+              "description": "The name of the detector model."
+            }
+          ]
+        },
+        "keyValue": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/KeyValue"
+            },
+            {
+              "description": "The value of the input attribute key used to create the detector (the instance of the detector model)."
+            }
+          ]
+        }
+      },
+      "required": [
+        "detectorModelName"
+      ],
+      "type": "object"
+    },
+    "DetectorDebugOptions": {
+      "items": {
+        "$ref": "#/definitions/DetectorDebugOption"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "DetectorModel": {
+      "description": "Information about the detector model.",
+      "properties": {
+        "detectorModelConfiguration": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DetectorModelConfiguration"
+            },
+            {
+              "description": "Information about how the detector is configured."
+            }
+          ]
+        },
+        "detectorModelDefinition": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DetectorModelDefinition"
+            },
+            {
+              "description": "Information that defines how a detector operates."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DetectorModelArn": {
+      "type": "string"
+    },
+    "DetectorModelConfiguration": {
+      "description": "Information about how the detector model is configured.",
+      "properties": {
+        "creationTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "The time the detector model was created."
+            }
+          ]
+        },
+        "detectorModelArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DetectorModelArn"
+            },
+            {
+              "description": "The ARN of the detector model."
+            }
+          ]
+        },
+        "detectorModelDescription": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DetectorModelDescription"
+            },
+            {
+              "description": "A brief description of the detector model."
+            }
+          ]
+        },
+        "detectorModelName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DetectorModelName"
+            },
+            {
+              "description": "The name of the detector model."
+            }
+          ]
+        },
+        "detectorModelVersion": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DetectorModelVersion"
+            },
+            {
+              "description": "The version of the detector model."
+            }
+          ]
+        },
+        "evaluationMethod": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/EvaluationMethod"
+            },
+            {
+              "description": "Information about the order in which events are evaluated and how actions are executed. "
+            }
+          ]
+        },
+        "key": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AttributeJsonPath"
+            },
+            {
+              "description": "<p>The value used to identify a detector instance. When a device or system sends input, a new detector instance with a unique key value is created. AWS IoT Events can continue to route input to its corresponding detector instance based on this identifying information. </p> <p>This parameter uses a JSON-path expression to select the attribute-value pair in the message payload that is used for identification. To route the message to the correct detector instance, the device must send a message payload that contains the same attribute-value.</p>"
+            }
+          ]
+        },
+        "lastUpdateTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "The time the detector model was last updated."
+            }
+          ]
+        },
+        "roleArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AmazonResourceName"
+            },
+            {
+              "description": "The ARN of the role that grants permission to AWS IoT Events to perform its operations."
+            }
+          ]
+        },
+        "status": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DetectorModelVersionStatus"
+            },
+            {
+              "description": "The status of the detector model."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DetectorModelDefinition": {
+      "description": "Information that defines how a detector operates.",
+      "properties": {
+        "initialStateName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/StateName"
+            },
+            {
+              "description": "The state that is entered at the creation of each detector (instance)."
+            }
+          ]
+        },
+        "states": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/States"
+            },
+            {
+              "description": "Information about the states of the detector."
+            }
+          ]
+        }
+      },
+      "required": [
+        "states",
+        "initialStateName"
+      ],
+      "type": "object"
+    },
+    "DetectorModelDescription": {
+      "maxLength": 128,
+      "type": "string"
+    },
+    "DetectorModelName": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "^[a-zA-Z0-9_-]+$",
+      "type": "string"
+    },
+    "DetectorModelSummaries": {
+      "items": {
+        "$ref": "#/definitions/DetectorModelSummary"
+      },
+      "type": "array"
+    },
+    "DetectorModelSummary": {
+      "description": "Information about the detector model.",
+      "properties": {
+        "creationTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "The time the detector model was created."
+            }
+          ]
+        },
+        "detectorModelDescription": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DetectorModelDescription"
+            },
+            {
+              "description": "A brief description of the detector model."
+            }
+          ]
+        },
+        "detectorModelName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DetectorModelName"
+            },
+            {
+              "description": "The name of the detector model."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DetectorModelVersion": {
+      "maxLength": 128,
+      "minLength": 1,
+      "type": "string"
+    },
+    "DetectorModelVersionStatus": {
+      "enum": [
+        "ACTIVE",
+        "ACTIVATING",
+        "INACTIVE",
+        "DEPRECATED",
+        "DRAFT",
+        "PAUSED",
+        "FAILED"
+      ],
+      "type": "string"
+    },
+    "DetectorModelVersionSummaries": {
+      "items": {
+        "$ref": "#/definitions/DetectorModelVersionSummary"
+      },
+      "type": "array"
+    },
+    "DetectorModelVersionSummary": {
+      "description": "Information about the detector model version.",
+      "properties": {
+        "creationTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "The time the detector model version was created."
+            }
+          ]
+        },
+        "detectorModelArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DetectorModelArn"
+            },
+            {
+              "description": "The ARN of the detector model version."
+            }
+          ]
+        },
+        "detectorModelName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DetectorModelName"
+            },
+            {
+              "description": "The name of the detector model."
+            }
+          ]
+        },
+        "detectorModelVersion": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DetectorModelVersion"
+            },
+            {
+              "description": "The ID of the detector model version."
+            }
+          ]
+        },
+        "evaluationMethod": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/EvaluationMethod"
+            },
+            {
+              "description": "Information about the order in which events are evaluated and how actions are executed. "
+            }
+          ]
+        },
+        "lastUpdateTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "The last time the detector model version was updated."
+            }
+          ]
+        },
+        "roleArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AmazonResourceName"
+            },
+            {
+              "description": "The ARN of the role that grants the detector model permission to perform its tasks."
+            }
+          ]
+        },
+        "status": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DetectorModelVersionStatus"
+            },
+            {
+              "description": "The status of the detector model version."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DynamoDBAction": {
+      "description": "<p>Defines an action to write to the Amazon DynamoDB table that you created. The standard action payload contains all attribute-value pairs that have the information about the detector model instance and the event that triggered the action. You can also customize the <a href=\"https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html\">payload</a>. One column of the DynamoDB table receives all attribute-value pairs in the payload that you specify.</p> <p>The <code>tableName</code> and <code>hashKeyField</code> values must match the table name and the partition key of the DynamoDB table. </p> <note> <p>If the DynamoDB table also has a sort key, you must specify <code>rangeKeyField</code>. The <code>rangeKeyField</code> value must match the sort key.</p> </note> <p/> <p>The <code>hashKeyValue</code> and <code>rangeKeyValue</code> use substitution templates. These templates provide data at runtime. The syntax is <code>${sql-expression}</code>.</p> <p>You can use expressions for parameters that are string data type. For more information, see <a href=\"https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html\">Expressions</a> in the <i>AWS IoT Events Developer Guide</i>.</p> <note> <p>If the defined payload type is a string, <code>DynamoDBAction</code> writes non-JSON data to the DynamoDB table as binary data. The DynamoDB console displays the data as Base64-encoded text. The <code>payloadField</code> is <code>&lt;payload-field&gt;_raw</code>.</p> </note>",
+      "properties": {
+        "hashKeyField": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DynamoKeyField"
+            },
+            {
+              "description": "The name of the hash key (also called the partition key)."
+            }
+          ]
+        },
+        "hashKeyType": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DynamoKeyType"
+            },
+            {
+              "description": "<p>The data type for the hash key (also called the partition key). You can specify the following values:</p> <ul> <li> <p> <code>STRING</code> - The hash key is a string.</p> </li> <li> <p> <code>NUMBER</code> - The hash key is a number.</p> </li> </ul> <p>If you don't specify <code>hashKeyType</code>, the default value is <code>STRING</code>.</p>"
+            }
+          ]
+        },
+        "hashKeyValue": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DynamoKeyValue"
+            },
+            {
+              "description": "The value of the hash key (also called the partition key)."
+            }
+          ]
+        },
+        "operation": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DynamoOperation"
+            },
+            {
+              "description": "<p>The type of operation to perform. You can specify the following values: </p> <ul> <li> <p> <code>INSERT</code> - Insert data as a new item into the DynamoDB table. This item uses the specified hash key as a partition key. If you specified a range key, the item uses the range key as a sort key.</p> </li> <li> <p> <code>UPDATE</code> - Update an existing item of the DynamoDB table with new data. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.</p> </li> <li> <p> <code>DELETE</code> - Delete an existing item of the DynamoDB table. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.</p> </li> </ul> <p>If you don't specify this parameter, AWS IoT Events triggers the <code>INSERT</code> operation.</p>"
+            }
+          ]
+        },
+        "payload": {
+          "$ref": "#/definitions/Payload"
+        },
+        "payloadField": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DynamoKeyField"
+            },
+            {
+              "description": "<p>The name of the DynamoDB column that receives the action payload.</p> <p>If you don't specify this parameter, the name of the DynamoDB column is <code>payload</code>.</p>"
+            }
+          ]
+        },
+        "rangeKeyField": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DynamoKeyField"
+            },
+            {
+              "description": "The name of the range key (also called the sort key)."
+            }
+          ]
+        },
+        "rangeKeyType": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DynamoKeyType"
+            },
+            {
+              "description": "<p>The data type for the range key (also called the sort key), You can specify the following values:</p> <ul> <li> <p> <code>STRING</code> - The range key is a string.</p> </li> <li> <p> <code>NUMBER</code> - The range key is number.</p> </li> </ul> <p>If you don't specify <code>rangeKeyField</code>, the default value is <code>STRING</code>.</p>"
+            }
+          ]
+        },
+        "rangeKeyValue": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DynamoKeyValue"
+            },
+            {
+              "description": "The value of the range key (also called the sort key)."
+            }
+          ]
+        },
+        "tableName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DynamoTableName"
+            },
+            {
+              "description": "The name of the DynamoDB table."
+            }
+          ]
+        }
+      },
+      "required": [
+        "hashKeyField",
+        "hashKeyValue",
+        "tableName"
+      ],
+      "type": "object"
+    },
+    "DynamoDBv2Action": {
+      "description": "<p>Defines an action to write to the Amazon DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the detector model instance and the event that triggered the action. You can also customize the <a href=\"https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html\">payload</a>. A separate column of the DynamoDB table receives one attribute-value pair in the payload that you specify.</p> <important> <p>The <code>type</code> value for <code>Payload</code> must be <code>JSON</code>.</p> </important> <p>You can use expressions for parameters that are strings. For more information, see <a href=\"https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html\">Expressions</a> in the <i>AWS IoT Events Developer Guide</i>.</p>",
+      "properties": {
+        "payload": {
+          "$ref": "#/definitions/Payload"
+        },
+        "tableName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DynamoTableName"
+            },
+            {
+              "description": "The name of the DynamoDB table."
+            }
+          ]
+        }
+      },
+      "required": [
+        "tableName"
+      ],
+      "type": "object"
+    },
+    "DynamoKeyField": {
+      "type": "string"
+    },
+    "DynamoKeyType": {
+      "type": "string"
+    },
+    "DynamoKeyValue": {
+      "type": "string"
+    },
+    "DynamoOperation": {
+      "type": "string"
+    },
+    "DynamoTableName": {
+      "type": "string"
+    },
+    "EvaluationMethod": {
+      "enum": [
+        "BATCH",
+        "SERIAL"
+      ],
+      "type": "string"
+    },
+    "Event": {
+      "description": "Specifies the <code>actions</code> to be performed when the <code>condition</code> evaluates to TRUE.",
+      "properties": {
+        "actions": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Actions"
+            },
+            {
+              "description": "The actions to be performed."
+            }
+          ]
+        },
+        "condition": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Condition"
+            },
+            {
+              "description": "Optional. The Boolean expression that, when TRUE, causes the <code>actions</code> to be performed. If not present, the actions are performed (=TRUE). If the expression result is not a Boolean value, the actions are not performed (=FALSE)."
+            }
+          ]
+        },
+        "eventName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/EventName"
+            },
+            {
+              "description": "The name of the event."
+            }
+          ]
+        }
+      },
+      "required": [
+        "eventName"
+      ],
+      "type": "object"
+    },
+    "EventName": {
+      "maxLength": 128,
+      "type": "string"
+    },
+    "Events": {
+      "items": {
+        "$ref": "#/definitions/Event"
+      },
+      "type": "array"
+    },
+    "FirehoseAction": {
+      "description": "Sends information about the detector model instance and the event that triggered the action to an Amazon Kinesis Data Firehose delivery stream.",
+      "properties": {
+        "deliveryStreamName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DeliveryStreamName"
+            },
+            {
+              "description": "The name of the Kinesis Data Firehose delivery stream where the data is written."
+            }
+          ]
+        },
+        "payload": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Payload"
+            },
+            {
+              "description": "You can configure the action payload when you send a message to an Amazon Kinesis Data Firehose delivery stream."
+            }
+          ]
+        },
+        "separator": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/FirehoseSeparator"
+            },
+            {
+              "description": "A character separator that is used to separate records written to the Kinesis Data Firehose delivery stream. Valid values are: '\\n' (newline), '\\t' (tab), '\\r\\n' (Windows newline), ',' (comma)."
+            }
+          ]
+        }
+      },
+      "required": [
+        "deliveryStreamName"
+      ],
+      "type": "object"
+    },
+    "FirehoseSeparator": {
+      "pattern": "([\\n\\t])|(\\r\\n)|(,)",
+      "type": "string"
+    },
+    "Input": {
+      "description": "Information about the input.",
+      "properties": {
+        "inputConfiguration": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InputConfiguration"
+            },
+            {
+              "description": "Information about the configuration of an input."
+            }
+          ]
+        },
+        "inputDefinition": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InputDefinition"
+            },
+            {
+              "description": "The definition of the input."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "InputArn": {
+      "type": "string"
+    },
+    "InputConfiguration": {
+      "description": "Information about the configuration of an input.",
+      "properties": {
+        "creationTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "The time the input was created."
+            }
+          ]
+        },
+        "inputArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InputArn"
+            },
+            {
+              "description": "The ARN of the input."
+            }
+          ]
+        },
+        "inputDescription": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InputDescription"
+            },
+            {
+              "description": "A brief description of the input."
+            }
+          ]
+        },
+        "inputName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InputName"
+            },
+            {
+              "description": "The name of the input."
+            }
+          ]
+        },
+        "lastUpdateTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "The last time the input was updated."
+            }
+          ]
+        },
+        "status": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InputStatus"
+            },
+            {
+              "description": "The status of the input."
+            }
+          ]
+        }
+      },
+      "required": [
+        "inputName",
+        "inputArn",
+        "creationTime",
+        "lastUpdateTime",
+        "status"
+      ],
+      "type": "object"
+    },
+    "InputDefinition": {
+      "description": "The definition of the input.",
+      "properties": {
+        "attributes": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Attributes"
+            },
+            {
+              "description": "The attributes from the JSON payload that are made available by the input. Inputs are derived from messages sent to the AWS IoT Events system using <code>BatchPutMessage</code>. Each such message contains a JSON payload, and those attributes (and their paired values) specified here are available for use in the <code>condition</code> expressions used by detectors that monitor this input. "
+            }
+          ]
+        }
+      },
+      "required": [
+        "attributes"
+      ],
+      "type": "object"
+    },
+    "InputDescription": {
+      "maxLength": 128,
+      "type": "string"
+    },
+    "InputName": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "^[a-zA-Z][a-zA-Z0-9_]*$",
+      "type": "string"
+    },
+    "InputStatus": {
+      "enum": [
+        "CREATING",
+        "UPDATING",
+        "ACTIVE",
+        "DELETING"
+      ],
+      "type": "string"
+    },
+    "InputSummaries": {
+      "items": {
+        "$ref": "#/definitions/InputSummary"
+      },
+      "type": "array"
+    },
+    "InputSummary": {
+      "description": "Information about the input.",
+      "properties": {
+        "creationTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "The time the input was created."
+            }
+          ]
+        },
+        "inputArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InputArn"
+            },
+            {
+              "description": "The ARN of the input."
+            }
+          ]
+        },
+        "inputDescription": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InputDescription"
+            },
+            {
+              "description": "A brief description of the input."
+            }
+          ]
+        },
+        "inputName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InputName"
+            },
+            {
+              "description": "The name of the input."
+            }
+          ]
+        },
+        "lastUpdateTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "The last time the input was updated."
+            }
+          ]
+        },
+        "status": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InputStatus"
+            },
+            {
+              "description": "The status of the input."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "InternalFailureException": {},
+    "InvalidRequestException": {},
+    "IotEventsAction": {
+      "description": "Sends an AWS IoT Events input, passing in information about the detector model instance and the event that triggered the action.",
+      "properties": {
+        "inputName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InputName"
+            },
+            {
+              "description": "The name of the AWS IoT Events input where the data is sent."
+            }
+          ]
+        },
+        "payload": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Payload"
+            },
+            {
+              "description": "You can configure the action payload when you send a message to an AWS IoT Events input."
+            }
+          ]
+        }
+      },
+      "required": [
+        "inputName"
+      ],
+      "type": "object"
+    },
+    "IotSiteWiseAction": {
+      "description": "<p>Sends information about the detector model instance and the event that triggered the action to a specified asset property in AWS IoT SiteWise.</p> <important> <p>You must specify either <code>propertyAlias</code> or both <code>assetId</code> and <code>propertyId</code> to identify the target asset property in AWS IoT SiteWise.</p> </important> <p>For parameters that are string data type, you can specify the following options: </p> <ul> <li> <p>Use a string. For example, the <code>propertyAlias</code> value can be <code>'/company/windfarm/3/turbine/7/temperature'</code>.</p> </li> <li> <p>Use an expression. For example, the <code>propertyAlias</code> value can be <code>'company/windfarm/${$input.TemperatureInput.sensorData.windfarmID}/turbine/${$input.TemperatureInput.sensorData.turbineID}/temperature'</code>.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html\">Expressions</a> in the <i>AWS IoT Events Developer Guide</i>.</p> </li> </ul>",
+      "properties": {
+        "assetId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AssetId"
+            },
+            {
+              "description": "The ID of the asset that has the specified property. You can specify an expression."
+            }
+          ]
+        },
+        "entryId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AssetPropertyEntryId"
+            },
+            {
+              "description": "A unique identifier for this entry. You can use the entry ID to track which data entry causes an error in case of failure. The default is a new unique identifier. You can also specify an expression."
+            }
+          ]
+        },
+        "propertyAlias": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AssetPropertyAlias"
+            },
+            {
+              "description": "The alias of the asset property. You can also specify an expression."
+            }
+          ]
+        },
+        "propertyId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AssetPropertyId"
+            },
+            {
+              "description": "The ID of the asset property. You can specify an expression."
+            }
+          ]
+        },
+        "propertyValue": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AssetPropertyValue"
+            },
+            {
+              "description": "The value to send to the asset property. This value contains timestamp, quality, and value (TQV) information. "
+            }
+          ]
+        }
+      },
+      "required": [
+        "propertyValue"
+      ],
+      "type": "object"
+    },
+    "IotTopicPublishAction": {
+      "description": "Information required to publish the MQTT message through the AWS IoT message broker.",
+      "properties": {
+        "mqttTopic": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MQTTTopic"
+            },
+            {
+              "description": "The MQTT topic of the message. You can use a string expression that includes variables (<code>$variable.&lt;variable-name&gt;</code>) and input values (<code>$input.&lt;input-name&gt;.&lt;path-to-datum&gt;</code>) as the topic string."
+            }
+          ]
+        },
+        "payload": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Payload"
+            },
+            {
+              "description": "You can configure the action payload when you publish a message to an AWS IoT Core topic."
+            }
+          ]
+        }
+      },
+      "required": [
+        "mqttTopic"
+      ],
+      "type": "object"
+    },
+    "KeyValue": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "^[a-zA-Z0-9\\-_:]+$",
+      "type": "string"
+    },
+    "LambdaAction": {
+      "description": "Calls a Lambda function, passing in information about the detector model instance and the event that triggered the action.",
+      "properties": {
+        "functionArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AmazonResourceName"
+            },
+            {
+              "description": "The ARN of the Lambda function that is executed."
+            }
+          ]
+        },
+        "payload": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Payload"
+            },
+            {
+              "description": "You can configure the action payload when you send a message to a Lambda function."
+            }
+          ]
+        }
+      },
+      "required": [
+        "functionArn"
+      ],
+      "type": "object"
+    },
+    "LimitExceededException": {},
+    "ListDetectorModelVersionsRequest": {
+      "properties": {},
+      "title": "ListDetectorModelVersionsRequest",
+      "type": "object"
+    },
+    "ListDetectorModelVersionsResponse": {
+      "properties": {
+        "detectorModelVersionSummaries": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DetectorModelVersionSummaries"
+            },
+            {
+              "description": "Summary information about the detector model versions."
+            }
+          ]
+        },
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NextToken"
+            },
+            {
+              "description": "A token to retrieve the next set of results, or <code>null</code> if there are no additional results."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ListDetectorModelsRequest": {
+      "properties": {},
+      "title": "ListDetectorModelsRequest",
+      "type": "object"
+    },
+    "ListDetectorModelsResponse": {
+      "properties": {
+        "detectorModelSummaries": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DetectorModelSummaries"
+            },
+            {
+              "description": "Summary information about the detector models."
+            }
+          ]
+        },
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NextToken"
+            },
+            {
+              "description": "A token to retrieve the next set of results, or <code>null</code> if there are no additional results."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ListInputsRequest": {
+      "properties": {},
+      "title": "ListInputsRequest",
+      "type": "object"
+    },
+    "ListInputsResponse": {
+      "properties": {
+        "inputSummaries": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InputSummaries"
+            },
+            {
+              "description": "Summary information about the inputs."
+            }
+          ]
+        },
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NextToken"
+            },
+            {
+              "description": "A token to retrieve the next set of results, or <code>null</code> if there are no additional results."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ListTagsForResourceRequest": {
+      "properties": {},
+      "title": "ListTagsForResourceRequest",
+      "type": "object"
+    },
+    "ListTagsForResourceResponse": {
+      "properties": {
+        "tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Tags"
+            },
+            {
+              "description": "The list of tags assigned to the resource."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "LoggingEnabled": {
+      "type": "boolean"
+    },
+    "LoggingLevel": {
+      "enum": [
+        "ERROR",
+        "INFO",
+        "DEBUG"
+      ],
+      "type": "string"
+    },
+    "LoggingOptions": {
+      "description": "The values of the AWS IoT Events logging options.",
+      "properties": {
+        "detectorDebugOptions": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DetectorDebugOptions"
+            },
+            {
+              "description": "Information that identifies those detector models and their detectors (instances) for which the logging level is given."
+            }
+          ]
+        },
+        "enabled": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/LoggingEnabled"
+            },
+            {
+              "description": "If TRUE, logging is enabled for AWS IoT Events."
+            }
+          ]
+        },
+        "level": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/LoggingLevel"
+            },
+            {
+              "description": "The logging level."
+            }
+          ]
+        },
+        "roleArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AmazonResourceName"
+            },
+            {
+              "description": "The ARN of the role that grants permission to AWS IoT Events to perform logging."
+            }
+          ]
+        }
+      },
+      "required": [
+        "roleArn",
+        "level",
+        "enabled"
+      ],
+      "type": "object"
+    },
+    "MQTTTopic": {
+      "maxLength": 128,
+      "minLength": 1,
+      "type": "string"
+    },
+    "MaxResults": {
+      "maximum": 250,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "NextToken": {
+      "type": "string"
+    },
+    "OnEnterLifecycle": {
+      "description": "When entering this state, perform these <code>actions</code> if the <code>condition</code> is TRUE.",
+      "properties": {
+        "events": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Events"
+            },
+            {
+              "description": "Specifies the actions that are performed when the state is entered and the <code>condition</code> is <code>TRUE</code>."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "OnExitLifecycle": {
+      "description": "When exiting this state, perform these <code>actions</code> if the specified <code>condition</code> is <code>TRUE</code>.",
+      "properties": {
+        "events": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Events"
+            },
+            {
+              "description": "Specifies the <code>actions</code> that are performed when the state is exited and the <code>condition</code> is <code>TRUE</code>."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "OnInputLifecycle": {
+      "description": "Specifies the actions performed when the <code>condition</code> evaluates to TRUE.",
+      "properties": {
+        "events": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Events"
+            },
+            {
+              "description": "Specifies the actions performed when the <code>condition</code> evaluates to TRUE."
+            }
+          ]
+        },
+        "transitionEvents": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TransitionEvents"
+            },
+            {
+              "description": "Specifies the actions performed, and the next state entered, when a <code>condition</code> evaluates to TRUE."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "Payload": {
+      "description": "<p>Information needed to configure the payload.</p> <p>By default, AWS IoT Events generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use <code>contentExpression</code>.</p>",
+      "properties": {
+        "contentExpression": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ContentExpression"
+            },
+            {
+              "description": "The content of the payload. You can use a string expression that includes quoted strings (<code>'&lt;string&gt;'</code>), variables (<code>$variable.&lt;variable-name&gt;</code>), input values (<code>$input.&lt;input-name&gt;.&lt;path-to-datum&gt;</code>), string concatenations, and quoted strings that contain <code>${}</code> as the content. The recommended maximum size of a content expression is 1 KB."
+            }
+          ]
+        },
+        "type": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PayloadType"
+            },
+            {
+              "description": "The value of the payload type can be either <code>STRING</code> or <code>JSON</code>."
+            }
+          ]
+        }
+      },
+      "required": [
+        "contentExpression",
+        "type"
+      ],
+      "type": "object"
+    },
+    "PayloadType": {
+      "enum": [
+        "STRING",
+        "JSON"
+      ],
+      "type": "string"
+    },
+    "PutLoggingOptionsRequest": {
+      "properties": {
+        "loggingOptions": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/LoggingOptions"
+            },
+            {
+              "description": "The new values of the AWS IoT Events logging options."
+            }
+          ]
+        }
+      },
+      "required": [
+        "loggingOptions"
+      ],
+      "title": "PutLoggingOptionsRequest",
+      "type": "object"
+    },
+    "QueueUrl": {
+      "type": "string"
+    },
+    "ResetTimerAction": {
+      "description": "Information required to reset the timer. The timer is reset to the previously evaluated result of the duration. The duration expression isn't reevaluated when you reset the timer.",
+      "properties": {
+        "timerName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TimerName"
+            },
+            {
+              "description": "The name of the timer to reset."
+            }
+          ]
+        }
+      },
+      "required": [
+        "timerName"
+      ],
+      "type": "object"
+    },
+    "ResourceAlreadyExistsException": {},
+    "ResourceInUseException": {},
+    "ResourceNotFoundException": {},
+    "SNSTopicPublishAction": {
+      "description": "Information required to publish the Amazon SNS message.",
+      "properties": {
+        "payload": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Payload"
+            },
+            {
+              "description": "You can configure the action payload when you send a message as an Amazon SNS push notification."
+            }
+          ]
+        },
+        "targetArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AmazonResourceName"
+            },
+            {
+              "description": "The ARN of the Amazon SNS target where the message is sent."
+            }
+          ]
+        }
+      },
+      "required": [
+        "targetArn"
+      ],
+      "type": "object"
+    },
+    "Seconds": {
+      "maximum": 31622400,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "ServiceUnavailableException": {},
+    "SetTimerAction": {
+      "description": "Information needed to set the timer.",
+      "properties": {
+        "durationExpression": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/VariableValue"
+            },
+            {
+              "description": "The duration of the timer, in seconds. You can use a string expression that includes numbers, variables (<code>$variable.&lt;variable-name&gt;</code>), and input values (<code>$input.&lt;input-name&gt;.&lt;path-to-datum&gt;</code>) as the duration. The range of the duration is 1-31622400 seconds. To ensure accuracy, the minimum duration is 60 seconds. The evaluated result of the duration is rounded down to the nearest whole number. "
+            }
+          ]
+        },
+        "seconds": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Seconds"
+            },
+            {
+              "description": "The number of seconds until the timer expires. The minimum value is 60 seconds to ensure accuracy. The maximum value is 31622400 seconds. seconds is deprecated. You can use durationExpression for SetTimerAction. The value of seconds can be used as a string expression for durationExpression.",
+              "x-deprecated": true
+            }
+          ]
+        },
+        "timerName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TimerName"
+            },
+            {
+              "description": "The name of the timer."
+            }
+          ]
+        }
+      },
+      "required": [
+        "timerName"
+      ],
+      "type": "object"
+    },
+    "SetVariableAction": {
+      "description": "Information about the variable and its new value.",
+      "properties": {
+        "value": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/VariableValue"
+            },
+            {
+              "description": "The new value of the variable."
+            }
+          ]
+        },
+        "variableName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/VariableName"
+            },
+            {
+              "description": "The name of the variable."
+            }
+          ]
+        }
+      },
+      "required": [
+        "variableName",
+        "value"
+      ],
+      "type": "object"
+    },
+    "SqsAction": {
+      "description": "Sends information about the detector model instance and the event that triggered the action to an Amazon SQS queue.",
+      "properties": {
+        "payload": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Payload"
+            },
+            {
+              "description": "You can configure the action payload when you send a message to an Amazon SQS queue."
+            }
+          ]
+        },
+        "queueUrl": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/QueueUrl"
+            },
+            {
+              "description": "The URL of the SQS queue where the data is written."
+            }
+          ]
+        },
+        "useBase64": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/UseBase64"
+            },
+            {
+              "description": "Set this to TRUE if you want the data to be base-64 encoded before it is written to the queue. Otherwise, set this to FALSE."
+            }
+          ]
+        }
+      },
+      "required": [
+        "queueUrl"
+      ],
+      "type": "object"
+    },
+    "State": {
+      "description": "Information that defines a state of a detector.",
+      "properties": {
+        "onEnter": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/OnEnterLifecycle"
+            },
+            {
+              "description": "When entering this state, perform these <code>actions</code> if the <code>condition</code> is TRUE."
+            }
+          ]
+        },
+        "onExit": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/OnExitLifecycle"
+            },
+            {
+              "description": "When exiting this state, perform these <code>actions</code> if the specified <code>condition</code> is <code>TRUE</code>."
+            }
+          ]
+        },
+        "onInput": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/OnInputLifecycle"
+            },
+            {
+              "description": "When an input is received and the <code>condition</code> is TRUE, perform the specified <code>actions</code>."
+            }
+          ]
+        },
+        "stateName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/StateName"
+            },
+            {
+              "description": "The name of the state."
+            }
+          ]
+        }
+      },
+      "required": [
+        "stateName"
+      ],
+      "type": "object"
+    },
+    "StateName": {
+      "maxLength": 128,
+      "minLength": 1,
+      "type": "string"
+    },
+    "States": {
+      "items": {
+        "$ref": "#/definitions/State"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "Tag": {
+      "description": "Metadata that can be used to manage the resource.",
+      "properties": {
+        "key": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagKey"
+            },
+            {
+              "description": "The tag's key."
+            }
+          ]
+        },
+        "value": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagValue"
+            },
+            {
+              "description": "The tag's value."
+            }
+          ]
+        }
+      },
+      "required": [
+        "key",
+        "value"
+      ],
+      "type": "object"
+    },
+    "TagKey": {
+      "maxLength": 128,
+      "minLength": 1,
+      "type": "string"
+    },
+    "TagKeys": {
+      "items": {
+        "$ref": "#/definitions/TagKey"
+      },
+      "type": "array"
+    },
+    "TagResourceRequest": {
+      "properties": {
+        "tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Tags"
+            },
+            {
+              "description": "The new or modified tags for the resource."
+            }
+          ]
+        }
+      },
+      "required": [
+        "tags"
+      ],
+      "title": "TagResourceRequest",
+      "type": "object"
+    },
+    "TagResourceResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "TagValue": {
+      "maxLength": 256,
+      "minLength": 0,
+      "type": "string"
+    },
+    "Tags": {
+      "items": {
+        "$ref": "#/definitions/Tag"
+      },
+      "type": "array"
+    },
+    "ThrottlingException": {},
+    "TimerName": {
+      "maxLength": 128,
+      "minLength": 1,
+      "type": "string"
+    },
+    "Timestamp": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "TransitionEvent": {
+      "description": "Specifies the actions performed and the next state entered when a <code>condition</code> evaluates to TRUE.",
+      "properties": {
+        "actions": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Actions"
+            },
+            {
+              "description": "The actions to be performed."
+            }
+          ]
+        },
+        "condition": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Condition"
+            },
+            {
+              "description": "Required. A Boolean expression that when TRUE causes the actions to be performed and the <code>nextState</code> to be entered."
+            }
+          ]
+        },
+        "eventName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/EventName"
+            },
+            {
+              "description": "The name of the transition event."
+            }
+          ]
+        },
+        "nextState": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/StateName"
+            },
+            {
+              "description": "The next state to enter."
+            }
+          ]
+        }
+      },
+      "required": [
+        "eventName",
+        "condition",
+        "nextState"
+      ],
+      "type": "object"
+    },
+    "TransitionEvents": {
+      "items": {
+        "$ref": "#/definitions/TransitionEvent"
+      },
+      "type": "array"
+    },
+    "UnsupportedOperationException": {},
+    "UntagResourceRequest": {
+      "properties": {},
+      "title": "UntagResourceRequest",
+      "type": "object"
+    },
+    "UntagResourceResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "UpdateDetectorModelRequest": {
+      "properties": {
+        "detectorModelDefinition": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DetectorModelDefinition"
+            },
+            {
+              "description": "Information that defines how a detector operates."
+            }
+          ]
+        },
+        "detectorModelDescription": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DetectorModelDescription"
+            },
+            {
+              "description": "A brief description of the detector model."
+            }
+          ]
+        },
+        "evaluationMethod": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/EvaluationMethod"
+            },
+            {
+              "description": "Information about the order in which events are evaluated and how actions are executed. "
+            }
+          ]
+        },
+        "roleArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AmazonResourceName"
+            },
+            {
+              "description": "The ARN of the role that grants permission to AWS IoT Events to perform its operations."
+            }
+          ]
+        }
+      },
+      "required": [
+        "detectorModelDefinition",
+        "roleArn"
+      ],
+      "title": "UpdateDetectorModelRequest",
+      "type": "object"
+    },
+    "UpdateDetectorModelResponse": {
+      "properties": {
+        "detectorModelConfiguration": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DetectorModelConfiguration"
+            },
+            {
+              "description": "Information about how the detector model is configured."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "UpdateInputRequest": {
+      "properties": {
+        "inputDefinition": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InputDefinition"
+            },
+            {
+              "description": "The definition of the input."
+            }
+          ]
+        },
+        "inputDescription": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InputDescription"
+            },
+            {
+              "description": "A brief description of the input."
+            }
+          ]
+        }
+      },
+      "required": [
+        "inputDefinition"
+      ],
+      "title": "UpdateInputRequest",
+      "type": "object"
+    },
+    "UpdateInputResponse": {
+      "properties": {
+        "inputConfiguration": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InputConfiguration"
+            },
+            {
+              "description": "Information about the configuration of the input."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "UseBase64": {
+      "type": "boolean"
+    },
+    "VariableName": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "^[a-zA-Z][a-zA-Z0-9_]*$",
+      "type": "string"
+    },
+    "VariableValue": {
+      "maxLength": 1024,
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "securityDefinitions": {
+    "hmac": {
+      "description": "Amazon Signature authorization v4",
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey",
+      "x-amazon-apigateway-authtype": "awsSigv4"
+    }
+  },
+  "security": [
+    {
+      "hmac": []
+    }
+  ],
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://docs.aws.amazon.com/iotevents/"
+  },
+  "x-components": {
+    "parameters": {
+      "X-Amz-Algorithm": {
+        "in": "header",
+        "name": "X-Amz-Algorithm",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Content-Sha256": {
+        "in": "header",
+        "name": "X-Amz-Content-Sha256",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Credential": {
+        "in": "header",
+        "name": "X-Amz-Credential",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Date": {
+        "in": "header",
+        "name": "X-Amz-Date",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Security-Token": {
+        "in": "header",
+        "name": "X-Amz-Security-Token",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Signature": {
+        "in": "header",
+        "name": "X-Amz-Signature",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-SignedHeaders": {
+        "in": "header",
+        "name": "X-Amz-SignedHeaders",
+        "required": false,
+        "type": "string"
+      }
+    }
+  },
+  "x-hasEquivalentPaths": true
+}

@@ -359,6 +359,72 @@
           },
           {
             "in": "query",
+            "name": "source",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "target",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "statusCode",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "referrer",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "userAgent",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "userAgentType",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "simplifiedUserAgent",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "ruleId",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "instanceName",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "excludeUrls",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "excludeEmptyReferrer",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
             "name": "createdAt_gt",
             "required": false,
             "type": "string"
@@ -383,55 +449,25 @@
           },
           {
             "in": "query",
-            "name": "source",
+            "name": "statusCode_gt",
             "required": false,
             "type": "string"
           },
           {
             "in": "query",
-            "name": "target",
+            "name": "statusCode_gte",
             "required": false,
             "type": "string"
           },
           {
             "in": "query",
-            "name": "statusCode",
+            "name": "statusCode_lt",
             "required": false,
             "type": "string"
           },
           {
             "in": "query",
-            "name": "referer",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "in": "query",
-            "name": "simplifiedUserAgent",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "in": "query",
-            "name": "userAgent",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "in": "query",
-            "name": "ruleId",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "in": "query",
-            "name": "instanceName",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "in": "query",
-            "name": "excludeUrls",
+            "name": "statusCode_lte",
             "required": false,
             "type": "string"
           }
@@ -490,6 +526,256 @@
         "summary": "Retrieves a AggregateLog resource.",
         "tags": [
           "AggregateLog"
+        ]
+      }
+    },
+    "/crawl-urls": {
+      "get": {
+        "operationId": "getCrawlUrlCollection",
+        "parameters": [
+          {
+            "description": "The collection page number",
+            "in": "query",
+            "name": "page",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/ld+json",
+          "application/json",
+          "text/html",
+          "text/csv"
+        ],
+        "responses": {
+          "200": {
+            "description": "CrawlUrl collection response",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/CrawlUrl-Read"
+              },
+              "type": "array"
+            }
+          }
+        },
+        "summary": "Retrieves the collection of CrawlUrl resources.",
+        "tags": [
+          "CrawlUrl"
+        ]
+      }
+    },
+    "/crawl-urls/{id}": {
+      "get": {
+        "operationId": "getCrawlUrlItem",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/ld+json",
+          "application/json",
+          "text/html",
+          "text/csv"
+        ],
+        "responses": {
+          "200": {
+            "description": "CrawlUrl resource response",
+            "schema": {
+              "$ref": "#/definitions/CrawlUrl-Read"
+            }
+          },
+          "404": {
+            "description": "Resource not found"
+          }
+        },
+        "summary": "Retrieves a CrawlUrl resource.",
+        "tags": [
+          "CrawlUrl"
+        ]
+      }
+    },
+    "/crawls": {
+      "get": {
+        "operationId": "getCrawlCollection",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "projectId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "firstUrl",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "sort[createdAt]",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "The collection page number",
+            "in": "query",
+            "name": "page",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/ld+json",
+          "application/json",
+          "text/html",
+          "text/csv"
+        ],
+        "responses": {
+          "200": {
+            "description": "Crawl collection response",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/Crawl-Read"
+              },
+              "type": "array"
+            }
+          }
+        },
+        "summary": "Retrieves the collection of Crawl resources.",
+        "tags": [
+          "Crawl"
+        ]
+      },
+      "post": {
+        "consumes": [
+          "application/ld+json",
+          "application/json",
+          "text/html",
+          "text/csv"
+        ],
+        "operationId": "postCrawlCollection",
+        "parameters": [
+          {
+            "description": "The new Crawl resource",
+            "in": "body",
+            "name": "crawl",
+            "schema": {
+              "$ref": "#/definitions/Crawl-Write"
+            }
+          }
+        ],
+        "produces": [
+          "application/ld+json",
+          "application/json",
+          "text/html",
+          "text/csv"
+        ],
+        "responses": {
+          "201": {
+            "description": "Crawl resource created",
+            "schema": {
+              "$ref": "#/definitions/Crawl"
+            }
+          },
+          "400": {
+            "description": "Invalid input"
+          },
+          "404": {
+            "description": "Resource not found"
+          }
+        },
+        "summary": "Creates a Crawl resource.",
+        "tags": [
+          "Crawl"
+        ]
+      }
+    },
+    "/crawls/{id}": {
+      "get": {
+        "operationId": "getCrawlItem",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/ld+json",
+          "application/json",
+          "text/html",
+          "text/csv"
+        ],
+        "responses": {
+          "200": {
+            "description": "Crawl resource response",
+            "schema": {
+              "$ref": "#/definitions/Crawl-ReadDetails"
+            }
+          },
+          "404": {
+            "description": "Resource not found"
+          }
+        },
+        "summary": "Retrieves a Crawl resource.",
+        "tags": [
+          "Crawl"
+        ]
+      }
+    },
+    "/crawls/{id}/cancel": {
+      "post": {
+        "consumes": [
+          "application/ld+json",
+          "application/json",
+          "text/html",
+          "text/csv"
+        ],
+        "operationId": "cancelCrawlItem",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The new Crawl resource",
+            "in": "body",
+            "name": "crawl",
+            "schema": {
+              "$ref": "#/definitions/Crawl"
+            }
+          }
+        ],
+        "produces": [
+          "application/ld+json",
+          "application/json",
+          "text/html",
+          "text/csv"
+        ],
+        "responses": {
+          "201": {
+            "description": "Crawl resource created",
+            "schema": {
+              "$ref": "#/definitions/Crawl-ReadDetails"
+            }
+          },
+          "400": {
+            "description": "Invalid input"
+          },
+          "404": {
+            "description": "Resource not found"
+          }
+        },
+        "summary": "Creates a Crawl resource.",
+        "tags": [
+          "Crawl"
         ]
       }
     },
@@ -584,73 +870,13 @@
           },
           {
             "in": "query",
-            "name": "redirectCode",
-            "required": false,
-            "type": "integer"
-          },
-          {
-            "in": "query",
-            "name": "redirectCode[]",
-            "required": false,
-            "type": "integer"
-          },
-          {
-            "in": "query",
-            "name": "source.input",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "in": "query",
-            "name": "isEnabled",
-            "required": false,
-            "type": "boolean"
-          },
-          {
-            "in": "query",
-            "name": "isEnabled[]",
-            "required": false,
-            "type": "boolean"
-          },
-          {
-            "in": "query",
-            "name": "target",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "in": "query",
             "name": "sort[id]",
             "required": false,
             "type": "string"
           },
           {
             "in": "query",
-            "name": "sort[target]",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "in": "query",
             "name": "sort[viewCount]",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "in": "query",
-            "name": "sort[source.input]",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "in": "query",
-            "name": "sort[redirectCode]",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "in": "query",
-            "name": "sort[isEnabled]",
             "required": false,
             "type": "string"
           }
@@ -678,39 +904,7 @@
         ]
       }
     },
-    "/exports": {
-      "get": {
-        "operationId": "getExportCollection",
-        "parameters": [
-          {
-            "in": "query",
-            "name": "projectId",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "produces": [
-          "application/ld+json",
-          "application/json",
-          "text/html",
-          "text/csv"
-        ],
-        "responses": {
-          "200": {
-            "description": "Export collection response",
-            "schema": {
-              "items": {
-                "$ref": "#/definitions/Export-Read"
-              },
-              "type": "array"
-            }
-          }
-        },
-        "summary": "Retrieves the collection of Export resources.",
-        "tags": [
-          "Export"
-        ]
-      },
+    "/impact-rule-changes": {
       "post": {
         "consumes": [
           "application/ld+json",
@@ -718,14 +912,14 @@
           "text/html",
           "text/csv"
         ],
-        "operationId": "postExportCollection",
+        "operationId": "postImpactRuleChangeCollection",
         "parameters": [
           {
-            "description": "The new Export resource",
+            "description": "The new ImpactRuleChange resource",
             "in": "body",
-            "name": "export",
+            "name": "impactRuleChange",
             "schema": {
-              "$ref": "#/definitions/Export-Write"
+              "$ref": "#/definitions/ImpactRuleChange-Write"
             }
           }
         ],
@@ -737,9 +931,9 @@
         ],
         "responses": {
           "201": {
-            "description": "Export resource created",
+            "description": "ImpactRuleChange resource created",
             "schema": {
-              "$ref": "#/definitions/Export-Read"
+              "$ref": "#/definitions/ImpactRuleChange-Read"
             }
           },
           "400": {
@@ -749,15 +943,15 @@
             "description": "Resource not found"
           }
         },
-        "summary": "Creates a Export resource.",
+        "summary": "Creates a ImpactRuleChange resource.",
         "tags": [
-          "Export"
+          "ImpactRuleChange"
         ]
       }
     },
-    "/exports/{id}": {
+    "/impact-rule-changes/{id}": {
       "get": {
-        "operationId": "getExportItem",
+        "operationId": "getImpactRuleChangeItem",
         "parameters": [
           {
             "in": "path",
@@ -774,22 +968,22 @@
         ],
         "responses": {
           "200": {
-            "description": "Export resource response",
+            "description": "ImpactRuleChange resource response",
             "schema": {
-              "$ref": "#/definitions/Export-Read"
+              "$ref": "#/definitions/ImpactRuleChange-Read"
             }
           },
           "404": {
             "description": "Resource not found"
           }
         },
-        "summary": "Retrieves a Export resource.",
+        "summary": "Retrieves a ImpactRuleChange resource.",
         "tags": [
-          "Export"
+          "ImpactRuleChange"
         ]
       }
     },
-    "/impact-rule-actions": {
+    "/impact-smart-lists": {
       "post": {
         "consumes": [
           "application/ld+json",
@@ -797,14 +991,14 @@
           "text/html",
           "text/csv"
         ],
-        "operationId": "postImpactRuleActionCollection",
+        "operationId": "postImpactSmartListCollection",
         "parameters": [
           {
-            "description": "The new ImpactRuleAction resource",
+            "description": "The new ImpactSmartList resource",
             "in": "body",
-            "name": "impactRuleAction",
+            "name": "impactSmartList",
             "schema": {
-              "$ref": "#/definitions/ImpactRuleAction-Write"
+              "$ref": "#/definitions/ImpactSmartList-Write"
             }
           }
         ],
@@ -816,9 +1010,9 @@
         ],
         "responses": {
           "201": {
-            "description": "ImpactRuleAction resource created",
+            "description": "ImpactSmartList resource created",
             "schema": {
-              "$ref": "#/definitions/ImpactRuleAction-Read"
+              "$ref": "#/definitions/ImpactSmartList-Read"
             }
           },
           "400": {
@@ -828,15 +1022,15 @@
             "description": "Resource not found"
           }
         },
-        "summary": "Creates a ImpactRuleAction resource.",
+        "summary": "Creates a ImpactSmartList resource.",
         "tags": [
-          "ImpactRuleAction"
+          "ImpactSmartList"
         ]
       }
     },
-    "/impact-rule-actions/{id}": {
+    "/impact-smart-lists/{id}": {
       "get": {
-        "operationId": "getImpactRuleActionItem",
+        "operationId": "getImpactSmartListItem",
         "parameters": [
           {
             "in": "path",
@@ -853,18 +1047,18 @@
         ],
         "responses": {
           "200": {
-            "description": "ImpactRuleAction resource response",
+            "description": "ImpactSmartList resource response",
             "schema": {
-              "$ref": "#/definitions/ImpactRuleAction"
+              "$ref": "#/definitions/ImpactSmartList-Read"
             }
           },
           "404": {
             "description": "Resource not found"
           }
         },
-        "summary": "Retrieves a ImpactRuleAction resource.",
+        "summary": "Retrieves a ImpactSmartList resource.",
         "tags": [
-          "ImpactRuleAction"
+          "ImpactSmartList"
         ]
       }
     },
@@ -877,6 +1071,13 @@
             "name": "projectId",
             "required": true,
             "type": "string"
+          },
+          {
+            "description": "The collection page number",
+            "in": "query",
+            "name": "page",
+            "required": false,
+            "type": "integer"
           }
         ],
         "produces": [
@@ -982,6 +1183,14 @@
     "/instances": {
       "get": {
         "operationId": "getInstanceCollection",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "projectId",
+            "required": true,
+            "type": "string"
+          }
+        ],
         "produces": [
           "application/ld+json",
           "application/json",
@@ -1034,6 +1243,106 @@
           }
         },
         "summary": "Retrieves a Instance resource.",
+        "tags": [
+          "Instance"
+        ]
+      },
+      "put": {
+        "consumes": [
+          "application/ld+json",
+          "application/json",
+          "text/html",
+          "text/csv"
+        ],
+        "operationId": "loggingInstanceItem",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The updated Instance resource",
+            "in": "body",
+            "name": "instance",
+            "schema": {
+              "$ref": "#/definitions/Instance-Write"
+            }
+          }
+        ],
+        "produces": [
+          "application/ld+json",
+          "application/json",
+          "text/html",
+          "text/csv"
+        ],
+        "responses": {
+          "200": {
+            "description": "Instance resource updated",
+            "schema": {
+              "$ref": "#/definitions/Instance-Read"
+            }
+          },
+          "400": {
+            "description": "Invalid input"
+          },
+          "404": {
+            "description": "Resource not found"
+          }
+        },
+        "summary": "Replaces the Instance resource.",
+        "tags": [
+          "Instance"
+        ]
+      }
+    },
+    "/instances/{id}/live": {
+      "put": {
+        "consumes": [
+          "application/ld+json",
+          "application/json",
+          "text/html",
+          "text/csv"
+        ],
+        "operationId": "liveInstanceItem",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The updated Instance resource",
+            "in": "body",
+            "name": "instance",
+            "schema": {
+              "$ref": "#/definitions/Instance-Write"
+            }
+          }
+        ],
+        "produces": [
+          "application/ld+json",
+          "application/json",
+          "text/html",
+          "text/csv"
+        ],
+        "responses": {
+          "200": {
+            "description": "Instance resource updated",
+            "schema": {
+              "$ref": "#/definitions/Instance-Read"
+            }
+          },
+          "400": {
+            "description": "Invalid input"
+          },
+          "404": {
+            "description": "Resource not found"
+          }
+        },
+        "summary": "Replaces the Instance resource.",
         "tags": [
           "Instance"
         ]
@@ -1159,7 +1468,7 @@
           "201": {
             "description": "Invitation resource created",
             "schema": {
-              "$ref": "#/definitions/Invitation"
+              "$ref": "#/definitions/Invitation-Read"
             }
           },
           "400": {
@@ -1257,6 +1566,72 @@
           },
           {
             "in": "query",
+            "name": "source",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "target",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "statusCode",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "referrer",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "userAgent",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "userAgentType",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "simplifiedUserAgent",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "ruleId",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "instanceName",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "excludeUrls",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "excludeEmptyReferrer",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
             "name": "createdAt_gt",
             "required": false,
             "type": "string"
@@ -1281,55 +1656,25 @@
           },
           {
             "in": "query",
-            "name": "source",
+            "name": "statusCode_gt",
             "required": false,
             "type": "string"
           },
           {
             "in": "query",
-            "name": "target",
+            "name": "statusCode_gte",
             "required": false,
             "type": "string"
           },
           {
             "in": "query",
-            "name": "statusCode",
+            "name": "statusCode_lt",
             "required": false,
             "type": "string"
           },
           {
             "in": "query",
-            "name": "referer",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "in": "query",
-            "name": "simplifiedUserAgent",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "in": "query",
-            "name": "userAgent",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "in": "query",
-            "name": "ruleId",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "in": "query",
-            "name": "instanceName",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "in": "query",
-            "name": "excludeUrls",
+            "name": "statusCode_lte",
             "required": false,
             "type": "string"
           }
@@ -1542,9 +1887,62 @@
         ]
       }
     },
-    "/organizations": {
+    "/matching-urls": {
+      "post": {
+        "consumes": [
+          "application/ld+json",
+          "application/json",
+          "text/html",
+          "text/csv"
+        ],
+        "operationId": "postMatchingUrlCollection",
+        "parameters": [
+          {
+            "description": "The new MatchingUrl resource",
+            "in": "body",
+            "name": "matchingUrl",
+            "schema": {
+              "$ref": "#/definitions/MatchingUrl-Write"
+            }
+          }
+        ],
+        "produces": [
+          "application/ld+json",
+          "application/json",
+          "text/html",
+          "text/csv"
+        ],
+        "responses": {
+          "201": {
+            "description": "MatchingUrl resource created",
+            "schema": {
+              "$ref": "#/definitions/MatchingUrl-Read"
+            }
+          },
+          "400": {
+            "description": "Invalid input"
+          },
+          "404": {
+            "description": "Resource not found"
+          }
+        },
+        "summary": "Creates a MatchingUrl resource.",
+        "tags": [
+          "MatchingUrl"
+        ]
+      }
+    },
+    "/matching-urls/{id}": {
       "get": {
-        "operationId": "getOrganizationCollection",
+        "operationId": "getMatchingUrlItem",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
         "produces": [
           "application/ld+json",
           "application/json",
@@ -1553,20 +1951,91 @@
         ],
         "responses": {
           "200": {
-            "description": "Organization collection response",
+            "description": "MatchingUrl resource response",
+            "schema": {
+              "$ref": "#/definitions/MatchingUrl-Read"
+            }
+          },
+          "404": {
+            "description": "Resource not found"
+          }
+        },
+        "summary": "Retrieves a MatchingUrl resource.",
+        "tags": [
+          "MatchingUrl"
+        ]
+      }
+    },
+    "/notifications": {
+      "get": {
+        "operationId": "getNotificationCollection",
+        "parameters": [
+          {
+            "description": "The collection page number",
+            "in": "query",
+            "name": "page",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/ld+json",
+          "application/json",
+          "text/html",
+          "text/csv"
+        ],
+        "responses": {
+          "200": {
+            "description": "Notification collection response",
             "schema": {
               "items": {
-                "$ref": "#/definitions/Organization-List"
+                "$ref": "#/definitions/Notification-Read"
               },
               "type": "array"
             }
           }
         },
-        "summary": "Retrieves the collection of Organization resources.",
+        "summary": "Retrieves the collection of Notification resources.",
         "tags": [
-          "Organization"
+          "Notification"
         ]
-      },
+      }
+    },
+    "/notifications/{id}": {
+      "get": {
+        "operationId": "getNotificationItem",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/ld+json",
+          "application/json",
+          "text/html",
+          "text/csv"
+        ],
+        "responses": {
+          "200": {
+            "description": "Notification resource response",
+            "schema": {
+              "$ref": "#/definitions/Notification-Read"
+            }
+          },
+          "404": {
+            "description": "Resource not found"
+          }
+        },
+        "summary": "Retrieves a Notification resource.",
+        "tags": [
+          "Notification"
+        ]
+      }
+    },
+    "/organizations": {
       "post": {
         "consumes": [
           "application/ld+json",
@@ -1763,6 +2232,31 @@
       }
     },
     "/projects": {
+      "get": {
+        "operationId": "getProjectCollection",
+        "parameters": [],
+        "produces": [
+          "application/ld+json",
+          "application/json",
+          "text/html",
+          "text/csv"
+        ],
+        "responses": {
+          "200": {
+            "description": "Project collection response",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/Project-List"
+              },
+              "type": "array"
+            }
+          }
+        },
+        "summary": "Retrieves the collection of Project resources.",
+        "tags": [
+          "Project"
+        ]
+      },
       "post": {
         "consumes": [
           "application/ld+json",
@@ -1924,6 +2418,30 @@
             "type": "string"
           },
           {
+            "in": "query",
+            "name": "createdAt[before]",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "createdAt[strictly_before]",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "createdAt[after]",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "createdAt[strictly_after]",
+            "required": false,
+            "type": "string"
+          },
+          {
             "description": "The collection page number",
             "in": "query",
             "name": "page",
@@ -1975,7 +2493,7 @@
           "200": {
             "description": "PublishHistory resource response",
             "schema": {
-              "$ref": "#/definitions/PublishHistory"
+              "$ref": "#/definitions/PublishHistory-Read"
             }
           },
           "404": {
@@ -1988,9 +2506,9 @@
         ]
       }
     },
-    "/rule-actions": {
+    "/rule-changes": {
       "get": {
-        "operationId": "getRuleActionCollection",
+        "operationId": "getRuleChangeCollection",
         "parameters": [
           {
             "in": "query",
@@ -2014,18 +2532,18 @@
         ],
         "responses": {
           "200": {
-            "description": "RuleAction collection response",
+            "description": "RuleChange collection response",
             "schema": {
               "items": {
-                "$ref": "#/definitions/RuleAction-Read"
+                "$ref": "#/definitions/RuleChange-Read"
               },
               "type": "array"
             }
           }
         },
-        "summary": "Retrieves the collection of RuleAction resources.",
+        "summary": "Retrieves the collection of RuleChange resources.",
         "tags": [
-          "RuleAction"
+          "RuleChange"
         ]
       },
       "post": {
@@ -2035,14 +2553,14 @@
           "text/html",
           "text/csv"
         ],
-        "operationId": "postRuleActionCollection",
+        "operationId": "postRuleChangeCollection",
         "parameters": [
           {
-            "description": "The new RuleAction resource",
+            "description": "The new RuleChange resource",
             "in": "body",
-            "name": "ruleAction",
+            "name": "ruleChange",
             "schema": {
-              "$ref": "#/definitions/RuleAction-Write"
+              "$ref": "#/definitions/RuleChange-Write"
             }
           }
         ],
@@ -2054,9 +2572,9 @@
         ],
         "responses": {
           "201": {
-            "description": "RuleAction resource created",
+            "description": "RuleChange resource created",
             "schema": {
-              "$ref": "#/definitions/RuleAction-Read"
+              "$ref": "#/definitions/RuleChange-Read"
             }
           },
           "400": {
@@ -2066,15 +2584,15 @@
             "description": "Resource not found"
           }
         },
-        "summary": "Creates a RuleAction resource.",
+        "summary": "Creates a RuleChange resource.",
         "tags": [
-          "RuleAction"
+          "RuleChange"
         ]
       }
     },
-    "/rule-actions/{id}": {
+    "/rule-changes/{id}": {
       "delete": {
-        "operationId": "deleteRuleActionItem",
+        "operationId": "deleteRuleChangeItem",
         "parameters": [
           {
             "in": "path",
@@ -2085,19 +2603,19 @@
         ],
         "responses": {
           "204": {
-            "description": "RuleAction resource deleted"
+            "description": "RuleChange resource deleted"
           },
           "404": {
             "description": "Resource not found"
           }
         },
-        "summary": "Removes the RuleAction resource.",
+        "summary": "Removes the RuleChange resource.",
         "tags": [
-          "RuleAction"
+          "RuleChange"
         ]
       },
       "get": {
-        "operationId": "getRuleActionItem",
+        "operationId": "getRuleChangeItem",
         "parameters": [
           {
             "in": "path",
@@ -2114,18 +2632,18 @@
         ],
         "responses": {
           "200": {
-            "description": "RuleAction resource response",
+            "description": "RuleChange resource response",
             "schema": {
-              "$ref": "#/definitions/RuleAction-Read"
+              "$ref": "#/definitions/RuleChange-Read"
             }
           },
           "404": {
             "description": "Resource not found"
           }
         },
-        "summary": "Retrieves a RuleAction resource.",
+        "summary": "Retrieves a RuleChange resource.",
         "tags": [
-          "RuleAction"
+          "RuleChange"
         ]
       }
     },
@@ -2247,7 +2765,7 @@
           "201": {
             "description": "RuleSetVersion resource created",
             "schema": {
-              "$ref": "#/definitions/RuleSetVersion"
+              "$ref": "#/definitions/RuleSetVersion-Read"
             }
           },
           "400": {
@@ -2300,7 +2818,7 @@
           "201": {
             "description": "RuleSetVersion resource created",
             "schema": {
-              "$ref": "#/definitions/RuleSetVersion"
+              "$ref": "#/definitions/RuleSetVersion-Read"
             }
           },
           "400": {
@@ -2316,6 +2834,74 @@
         ]
       }
     },
+    "/rule-statistics": {
+      "get": {
+        "operationId": "getRuleStatisticCollection",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "projectId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/ld+json",
+          "application/json",
+          "text/html",
+          "text/csv"
+        ],
+        "responses": {
+          "200": {
+            "description": "RuleStatistic collection response",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/RuleStatistic"
+              },
+              "type": "array"
+            }
+          }
+        },
+        "summary": "Retrieves the collection of RuleStatistic resources.",
+        "tags": [
+          "RuleStatistic"
+        ]
+      }
+    },
+    "/rule-statistics/{id}": {
+      "get": {
+        "operationId": "getRuleStatisticItem",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/ld+json",
+          "application/json",
+          "text/html",
+          "text/csv"
+        ],
+        "responses": {
+          "200": {
+            "description": "RuleStatistic resource response",
+            "schema": {
+              "$ref": "#/definitions/RuleStatistic"
+            }
+          },
+          "404": {
+            "description": "Resource not found"
+          }
+        },
+        "summary": "Retrieves a RuleStatistic resource.",
+        "tags": [
+          "RuleStatistic"
+        ]
+      }
+    },
     "/rules": {
       "get": {
         "operationId": "getRuleCollection",
@@ -2328,73 +2914,13 @@
           },
           {
             "in": "query",
-            "name": "redirectCode",
-            "required": false,
-            "type": "integer"
-          },
-          {
-            "in": "query",
-            "name": "redirectCode[]",
-            "required": false,
-            "type": "integer"
-          },
-          {
-            "in": "query",
-            "name": "source.input",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "in": "query",
-            "name": "isEnabled",
-            "required": false,
-            "type": "boolean"
-          },
-          {
-            "in": "query",
-            "name": "isEnabled[]",
-            "required": false,
-            "type": "boolean"
-          },
-          {
-            "in": "query",
-            "name": "target",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "in": "query",
             "name": "sort[id]",
             "required": false,
             "type": "string"
           },
           {
             "in": "query",
-            "name": "sort[target]",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "in": "query",
             "name": "sort[viewCount]",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "in": "query",
-            "name": "sort[source.input]",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "in": "query",
-            "name": "sort[redirectCode]",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "in": "query",
-            "name": "sort[isEnabled]",
             "required": false,
             "type": "string"
           },
@@ -2460,6 +2986,67 @@
         "summary": "Retrieves a Rule resource.",
         "tags": [
           "Rule"
+        ]
+      }
+    },
+    "/smart-lists": {
+      "get": {
+        "operationId": "getSmartListCollection",
+        "parameters": [],
+        "produces": [
+          "application/ld+json",
+          "application/json",
+          "text/html",
+          "text/csv"
+        ],
+        "responses": {
+          "200": {
+            "description": "SmartList collection response",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/SmartList"
+              },
+              "type": "array"
+            }
+          }
+        },
+        "summary": "Retrieves the collection of SmartList resources.",
+        "tags": [
+          "SmartList"
+        ]
+      }
+    },
+    "/smart-lists/{id}": {
+      "get": {
+        "operationId": "getSmartListItem",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/ld+json",
+          "application/json",
+          "text/html",
+          "text/csv"
+        ],
+        "responses": {
+          "200": {
+            "description": "SmartList resource response",
+            "schema": {
+              "$ref": "#/definitions/SmartList"
+            }
+          },
+          "404": {
+            "description": "Resource not found"
+          }
+        },
+        "summary": "Retrieves a SmartList resource.",
+        "tags": [
+          "SmartList"
         ]
       }
     },
@@ -2979,6 +3566,29 @@
       }
     },
     "/users/{id}": {
+      "delete": {
+        "operationId": "deleteUserItem",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "User resource deleted"
+          },
+          "404": {
+            "description": "Resource not found"
+          }
+        },
+        "summary": "Removes the User resource.",
+        "tags": [
+          "User"
+        ]
+      },
       "get": {
         "operationId": "getUserItem",
         "parameters": [
@@ -3245,6 +3855,9 @@
     "AggregateLog-Read": {
       "description": "",
       "properties": {
+        "fixed": {
+          "type": "boolean"
+        },
         "id": {},
         "lastOccurrenceAt": {
           "format": "date-time",
@@ -3258,15 +3871,252 @@
           "type": "integer"
         },
         "target": {},
-        "viewCount": {}
+        "viewCount": {
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Crawl": {
+      "description": "",
+      "properties": {
+        "archived": {
+          "readOnly": true,
+          "type": "boolean"
+        },
+        "author": {
+          "$ref": "#/definitions/User"
+        },
+        "createdAt": {
+          "format": "date-time",
+          "readOnly": true,
+          "type": "string"
+        },
+        "currentConcurrency": {
+          "type": "integer"
+        },
+        "error": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "finishedAt": {
+          "format": "date-time",
+          "readOnly": true,
+          "type": "string"
+        },
+        "firstUrl": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "id": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "marking": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "stats": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "trigger": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "updatedAt": {
+          "format": "date-time",
+          "readOnly": true,
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Crawl-Read": {
+      "description": "",
+      "properties": {
+        "archived": {
+          "readOnly": true,
+          "type": "boolean"
+        },
+        "author": {
+          "$ref": "#/definitions/User-Read"
+        },
+        "createdAt": {
+          "format": "date-time",
+          "readOnly": true,
+          "type": "string"
+        },
+        "error": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "finishedAt": {
+          "format": "date-time",
+          "readOnly": true,
+          "type": "string"
+        },
+        "firstUrl": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "id": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "stats": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "trigger": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "updatedAt": {
+          "format": "date-time",
+          "readOnly": true,
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Crawl-ReadDetails": {
+      "description": "",
+      "properties": {
+        "archived": {
+          "readOnly": true,
+          "type": "boolean"
+        },
+        "author": {
+          "$ref": "#/definitions/User-ReadDetails"
+        },
+        "createdAt": {
+          "format": "date-time",
+          "readOnly": true,
+          "type": "string"
+        },
+        "error": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "finishedAt": {
+          "format": "date-time",
+          "readOnly": true,
+          "type": "string"
+        },
+        "firstUrl": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "id": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "stats": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "trigger": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "updatedAt": {
+          "format": "date-time",
+          "readOnly": true,
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Crawl-Write": {
+      "description": "",
+      "properties": {
+        "concurrency": {
+          "type": "integer"
+        },
+        "firstUrl": {},
+        "headers": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "httpBasicPassword": {},
+        "httpBasicUser": {},
+        "maxDepth": {
+          "type": "integer"
+        },
+        "maxDuration": {
+          "type": "integer"
+        },
+        "maxUrls": {
+          "type": "integer"
+        },
+        "otherDomains": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "project": {
+          "type": "string"
+        },
+        "sslCheckingDisabled": {
+          "type": "boolean"
+        },
+        "subdomainIncluded": {
+          "type": "boolean"
+        },
+        "userAgent": {}
+      },
+      "required": [
+        "project",
+        "firstUrl",
+        "concurrency",
+        "maxUrls",
+        "maxDepth",
+        "subdomainIncluded",
+        "sslCheckingDisabled",
+        "maxDuration"
+      ],
+      "type": "object"
+    },
+    "CrawlUrl-Read": {
+      "description": "",
+      "properties": {
+        "curlInfo": {},
+        "depth": {},
+        "description": {},
+        "error": {},
+        "id": {},
+        "redirectUrl": {},
+        "statusCode": {},
+        "title": {},
+        "url": {},
+        "urlsTo": {
+          "type": "string"
+        }
       },
       "type": "object"
     },
     "ExplainUrl": {
       "description": "",
       "properties": {
-        "explain": {},
-        "id": {},
+        "explain": {
+          "readOnly": true
+        },
+        "id": {
+          "readOnly": true,
+          "type": "string"
+        },
         "project": {
           "type": "string"
         },
@@ -3296,101 +4146,6 @@
       ],
       "type": "object"
     },
-    "Export-Read": {
-      "description": "",
-      "properties": {
-        "author": {
-          "type": "string"
-        },
-        "completedAt": {
-          "format": "date-time",
-          "type": "string"
-        },
-        "exportDuration": {
-          "type": "integer"
-        },
-        "filters": {
-          "items": {
-            "type": "string"
-          },
-          "type": "array"
-        },
-        "id": {
-          "readOnly": true,
-          "type": "string"
-        },
-        "itemsCount": {
-          "type": "integer"
-        },
-        "location": {
-          "type": "string"
-        },
-        "message": {
-          "type": "string"
-        },
-        "project": {
-          "type": "string"
-        },
-        "sort": {
-          "items": {
-            "type": "string"
-          },
-          "type": "array"
-        },
-        "startedAt": {
-          "format": "date-time",
-          "type": "string"
-        },
-        "status": {
-          "type": "integer"
-        },
-        "statusAsText": {
-          "readOnly": true,
-          "type": "string"
-        },
-        "typeAsText": {
-          "type": "string"
-        },
-        "updatedAt": {
-          "format": "date-time",
-          "type": "string"
-        }
-      },
-      "required": [
-        "project",
-        "author",
-        "typeAsText"
-      ],
-      "type": "object"
-    },
-    "Export-Write": {
-      "description": "",
-      "properties": {
-        "filters": {
-          "items": {
-            "type": "string"
-          },
-          "type": "array"
-        },
-        "project": {
-          "type": "string"
-        },
-        "sort": {
-          "items": {
-            "type": "string"
-          },
-          "type": "array"
-        },
-        "typeAsText": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "project",
-        "typeAsText"
-      ],
-      "type": "object"
-    },
     "ForgotPasswordRequest": {
       "description": "",
       "properties": {
@@ -3403,44 +4158,59 @@
       ],
       "type": "object"
     },
-    "ImpactRuleAction": {
+    "ImpactRuleChange-Read": {
       "description": "",
       "properties": {
-        "id": {},
-        "impact": {},
+        "impact": {
+          "readOnly": true
+        }
+      },
+      "type": "object"
+    },
+    "ImpactRuleChange-Write": {
+      "description": "",
+      "properties": {
         "project": {
           "type": "string"
         },
-        "ruleAction": {
+        "ruleChange": {
           "type": "string"
         }
       },
       "required": [
         "project",
-        "ruleAction"
+        "ruleChange"
       ],
       "type": "object"
     },
-    "ImpactRuleAction-Read": {
+    "ImpactSmartList-Read": {
       "description": "",
       "properties": {
-        "impact": {}
+        "impact": {
+          "readOnly": true
+        },
+        "smartList": {
+          "readOnly": true
+        }
       },
       "type": "object"
     },
-    "ImpactRuleAction-Write": {
+    "ImpactSmartList-Write": {
       "description": "",
       "properties": {
         "project": {
           "type": "string"
         },
-        "ruleAction": {
+        "smartListId": {
+          "type": "string"
+        },
+        "smartListVersion": {
           "type": "string"
         }
       },
       "required": [
         "project",
-        "ruleAction"
+        "smartListId"
       ],
       "type": "object"
     },
@@ -3448,13 +4218,16 @@
       "description": "",
       "properties": {
         "author": {
+          "readOnly": true,
           "type": "string"
         },
         "completedAt": {
           "format": "date-time",
+          "readOnly": true,
           "type": "string"
         },
         "errorCount": {
+          "readOnly": true,
           "type": "integer"
         },
         "id": {
@@ -3462,39 +4235,36 @@
           "type": "string"
         },
         "importDuration": {
+          "readOnly": true,
           "type": "integer"
         },
         "message": {
+          "readOnly": true,
           "type": "string"
         },
         "project": {
           "type": "string"
         },
-        "shouldEnable": {
-          "type": "boolean"
-        },
         "startedAt": {
           "format": "date-time",
+          "readOnly": true,
           "type": "string"
         },
         "statusAsText": {
           "readOnly": true
         },
         "successCount": {
+          "readOnly": true,
           "type": "integer"
-        },
-        "typeAsText": {
-          "type": "string"
         },
         "updatedAt": {
           "format": "date-time",
+          "readOnly": true,
           "type": "string"
         }
       },
       "required": [
-        "project",
-        "author",
-        "typeAsText"
+        "project"
       ],
       "type": "object"
     },
@@ -3504,18 +4274,11 @@
         "csvContent": {},
         "project": {
           "type": "string"
-        },
-        "shouldEnable": {
-          "type": "boolean"
-        },
-        "typeAsText": {
-          "type": "string"
         }
       },
       "required": [
         "project",
-        "csvContent",
-        "typeAsText"
+        "csvContent"
       ],
       "type": "object"
     },
@@ -3532,8 +4295,7 @@
           "readOnly": true,
           "type": "string"
         },
-        "aggregatedLogsLastFlushedAt": {
-          "format": "date-time",
+        "config": {
           "type": "string"
         },
         "createdAt": {
@@ -3556,6 +4318,9 @@
           "format": "date-time",
           "type": "string"
         },
+        "live": {
+          "type": "boolean"
+        },
         "logging": {
           "type": "boolean"
         },
@@ -3574,6 +4339,9 @@
         },
         "rulesCount": {
           "type": "integer"
+        },
+        "rulesHash": {
+          "type": "string"
         },
         "stale": {
           "readOnly": true,
@@ -3595,58 +4363,33 @@
     "Instance-Write": {
       "description": "",
       "properties": {
-        "agentVersion": {
+        "agentDuration": {
+          "type": "integer"
+        },
+        "message": {
           "type": "string"
         },
-        "misconfigured": {
-          "type": "boolean"
+        "rulesCount": {
+          "type": "integer"
         },
-        "name": {
+        "rulesHash": {
           "type": "string"
         }
       },
-      "required": [
-        "name"
-      ],
       "type": "object"
     },
     "Invitation": {
       "description": "",
       "properties": {
-        "accepted": {
-          "readOnly": true,
-          "type": "boolean"
-        },
         "createdAt": {
           "format": "date-time",
           "readOnly": true,
           "type": "string"
         },
         "email": {
-          "readOnly": true,
           "type": "string"
         },
         "id": {
-          "readOnly": true,
-          "type": "string"
-        },
-        "sender": {
-          "readOnly": true,
-          "type": "string"
-        },
-        "target": {
-          "readOnly": true,
-          "type": "string"
-        },
-        "targetId": {
-          "readOnly": true,
-          "type": "string"
-        },
-        "targetType": {
-          "readOnly": true,
-          "type": "string"
-        },
-        "token": {
           "readOnly": true,
           "type": "string"
         }
@@ -3655,6 +4398,20 @@
     },
     "Invitation-Read": {
       "description": "",
+      "properties": {
+        "createdAt": {
+          "format": "date-time",
+          "readOnly": true,
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "id": {
+          "readOnly": true,
+          "type": "string"
+        }
+      },
       "type": "object"
     },
     "Invitation-Write": {
@@ -3680,24 +4437,54 @@
           "format": "date-time",
           "type": "string"
         },
+        "fixed": {
+          "type": "boolean"
+        },
+        "fixedByVersions": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "fromSmartList": {
+          "readOnly": true,
+          "type": "boolean"
+        },
         "id": {},
         "instanceName": {},
+        "method": {},
+        "notFixedByVersions": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "proxy": {
+          "type": "string"
+        },
         "referrer": {},
         "ruleId": {
           "type": "string"
         },
         "simplifiedUserAgent": {},
+        "smartList": {
+          "readOnly": true,
+          "type": "string"
+        },
         "source": {},
         "statusCode": {},
         "target": {},
-        "userAgent": {}
+        "userAgent": {},
+        "userAgentType": {}
       },
       "type": "object"
     },
     "Marker": {
       "description": "",
       "properties": {
-        "id": {},
+        "id": {
+          "type": "string"
+        },
         "maximumOccurrence": {
           "type": "integer"
         },
@@ -3715,6 +4502,40 @@
         },
         "regex": {
           "type": "string"
+        },
+        "transformers": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "name"
+      ],
+      "type": "object"
+    },
+    "Marker-Read": {
+      "description": "",
+      "properties": {
+        "maximumOccurrence": {
+          "type": "integer"
+        },
+        "minimumOccurrence": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "options": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
         },
         "transformers": {
           "items": {
@@ -3766,7 +4587,51 @@
       ],
       "type": "object"
     },
-    "Organization-List": {
+    "MatchingUrl-Read": {
+      "description": "",
+      "properties": {
+        "matching": {
+          "readOnly": true
+        }
+      },
+      "type": "object"
+    },
+    "MatchingUrl-Write": {
+      "description": "",
+      "properties": {
+        "project": {
+          "type": "string"
+        },
+        "ruleChange": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Notification-Read": {
+      "description": "",
+      "properties": {
+        "createdAt": {
+          "format": "date-time",
+          "readOnly": true,
+          "type": "string"
+        },
+        "id": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "format": "date-time",
+          "readOnly": true,
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Organization": {
       "description": "",
       "properties": {
         "createdAt": {
@@ -3783,15 +4648,45 @@
         },
         "projects": {
           "items": {
-            "type": "string"
+            "$ref": "#/definitions/Project"
           },
+          "readOnly": true,
           "type": "array"
         },
         "slug": {
+          "readOnly": true,
           "type": "string"
         },
         "updatedAt": {
           "format": "date-time",
+          "readOnly": true,
+          "type": "string"
+        },
+        "userOrganizations": {
+          "items": {
+            "$ref": "#/definitions/UserOrganization"
+          },
+          "readOnly": true,
+          "type": "array"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "type": "object"
+    },
+    "Organization-CreationWrite": {
+      "description": "",
+      "type": "object"
+    },
+    "Organization-List": {
+      "description": "",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "slug": {
+          "readOnly": true,
           "type": "string"
         }
       },
@@ -3803,11 +4698,6 @@
     "Organization-Read": {
       "description": "",
       "properties": {
-        "createdAt": {
-          "format": "date-time",
-          "readOnly": true,
-          "type": "string"
-        },
         "id": {
           "readOnly": true,
           "type": "string"
@@ -3815,24 +4705,9 @@
         "name": {
           "type": "string"
         },
-        "projects": {
-          "items": {
-            "type": "string"
-          },
-          "type": "array"
-        },
         "slug": {
+          "readOnly": true,
           "type": "string"
-        },
-        "updatedAt": {
-          "format": "date-time",
-          "type": "string"
-        },
-        "userOrganizations": {
-          "items": {
-            "type": "string"
-          },
-          "type": "array"
         }
       },
       "required": [
@@ -3852,37 +4727,24 @@
       ],
       "type": "object"
     },
-    "Project-CreationWrite": {
-      "description": "",
-      "properties": {
-        "name": {
-          "type": "string"
-        },
-        "onboardingCompletedDemos": {
-          "items": {
-            "type": "string"
-          },
-          "type": "array"
-        },
-        "organization": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "name",
-        "organization"
-      ],
-      "type": "object"
-    },
-    "Project-Read": {
+    "Project": {
       "description": "",
       "properties": {
         "complexRulesCount": {
+          "readOnly": true,
           "type": "integer"
         },
         "complexRulesUpdatedAt": {
           "format": "date-time",
+          "readOnly": true,
           "type": "string"
+        },
+        "configuration": {
+          "items": {
+            "type": "string"
+          },
+          "readOnly": true,
+          "type": "array"
         },
         "createdAt": {
           "format": "date-time",
@@ -3890,10 +4752,22 @@
           "type": "string"
         },
         "currentVersion": {
-          "type": "string"
+          "$ref": "#/definitions/RuleSetVersion",
+          "readOnly": true
         },
         "id": {
+          "readOnly": true,
           "type": "string"
+        },
+        "ignoreProjectTypes": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "isPublishing": {
+          "readOnly": true,
+          "type": "boolean"
         },
         "name": {
           "type": "string"
@@ -3905,54 +4779,237 @@
           "type": "array"
         },
         "organization": {
-          "type": "string"
+          "$ref": "#/definitions/Organization",
+          "readOnly": true
         },
         "plan": {
+          "readOnly": true,
           "type": "integer"
         },
+        "rulesHash": {
+          "readOnly": true,
+          "type": "string"
+        },
         "slug": {
+          "readOnly": true,
           "type": "string"
         },
         "straightRulesCount": {
+          "readOnly": true,
           "type": "integer"
         },
         "straightRulesUpdatedAt": {
           "format": "date-time",
+          "readOnly": true,
           "type": "string"
         },
         "token": {
+          "readOnly": true,
           "type": "string"
         },
         "updatedAt": {
           "format": "date-time",
+          "readOnly": true,
           "type": "string"
         },
         "userProjects": {
           "items": {
-            "type": "string"
+            "$ref": "#/definitions/UserProject"
           },
+          "readOnly": true,
           "type": "array"
         },
         "usersFlattened": {
+          "items": {
+            "$ref": "#/definitions/UserProjectFlattened"
+          },
+          "readOnly": true,
+          "type": "array"
+        },
+        "workingVersion": {
+          "$ref": "#/definitions/RuleSetVersion",
+          "readOnly": true
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "type": "object"
+    },
+    "Project-CreationWrite": {
+      "description": "",
+      "properties": {
+        "ignoreProjectTypes": {
           "items": {
             "type": "string"
           },
           "type": "array"
         },
-        "workingVersion": {
+        "name": {
+          "type": "string"
+        },
+        "onboardingCompletedDemos": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "organization": {
+          "$ref": "#/definitions/Organization-CreationWrite",
+          "readOnly": true
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "type": "object"
+    },
+    "Project-List": {
+      "description": "",
+      "properties": {
+        "id": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "organization": {
+          "$ref": "#/definitions/Organization-List",
+          "readOnly": true
+        },
+        "slug": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "token": {
+          "readOnly": true,
           "type": "string"
         }
       },
       "required": [
-        "name",
-        "organization",
-        "plan"
+        "name"
+      ],
+      "type": "object"
+    },
+    "Project-Read": {
+      "description": "",
+      "properties": {
+        "complexRulesCount": {
+          "readOnly": true,
+          "type": "integer"
+        },
+        "complexRulesUpdatedAt": {
+          "format": "date-time",
+          "readOnly": true,
+          "type": "string"
+        },
+        "configuration": {
+          "items": {
+            "type": "string"
+          },
+          "readOnly": true,
+          "type": "array"
+        },
+        "createdAt": {
+          "format": "date-time",
+          "readOnly": true,
+          "type": "string"
+        },
+        "currentVersion": {
+          "$ref": "#/definitions/RuleSetVersion-Read",
+          "readOnly": true
+        },
+        "id": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "ignoreProjectTypes": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "isPublishing": {
+          "readOnly": true,
+          "type": "boolean"
+        },
+        "name": {
+          "type": "string"
+        },
+        "onboardingCompletedDemos": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "organization": {
+          "$ref": "#/definitions/Organization-Read",
+          "readOnly": true
+        },
+        "plan": {
+          "readOnly": true,
+          "type": "integer"
+        },
+        "rulesHash": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "slug": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "straightRulesCount": {
+          "readOnly": true,
+          "type": "integer"
+        },
+        "straightRulesUpdatedAt": {
+          "format": "date-time",
+          "readOnly": true,
+          "type": "string"
+        },
+        "token": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "updatedAt": {
+          "format": "date-time",
+          "readOnly": true,
+          "type": "string"
+        },
+        "userProjects": {
+          "items": {
+            "$ref": "#/definitions/UserProject-Read"
+          },
+          "readOnly": true,
+          "type": "array"
+        },
+        "usersFlattened": {
+          "items": {
+            "$ref": "#/definitions/UserProjectFlattened-Read"
+          },
+          "readOnly": true,
+          "type": "array"
+        },
+        "workingVersion": {
+          "$ref": "#/definitions/RuleSetVersion-Read",
+          "readOnly": true
+        }
+      },
+      "required": [
+        "name"
       ],
       "type": "object"
     },
     "Project-Write": {
       "description": "",
       "properties": {
+        "ignoreProjectTypes": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
         "name": {
           "type": "string"
         },
@@ -3968,45 +5025,6 @@
       ],
       "type": "object"
     },
-    "PublishHistory": {
-      "description": "",
-      "properties": {
-        "added": {
-          "type": "integer"
-        },
-        "author": {
-          "type": "string"
-        },
-        "createdAt": {
-          "format": "date-time",
-          "readOnly": true,
-          "type": "string"
-        },
-        "deleted": {
-          "type": "integer"
-        },
-        "id": {
-          "readOnly": true,
-          "type": "string"
-        },
-        "project": {
-          "type": "string"
-        },
-        "summary": {
-          "type": "string"
-        },
-        "type": {
-          "type": "string"
-        },
-        "updated": {
-          "type": "integer"
-        },
-        "version": {
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
     "PublishHistory-Read": {
       "description": "",
       "properties": {
@@ -4014,7 +5032,7 @@
           "type": "integer"
         },
         "author": {
-          "type": "string"
+          "$ref": "#/definitions/User-Read"
         },
         "createdAt": {
           "format": "date-time",
@@ -4038,7 +5056,7 @@
           "type": "integer"
         },
         "version": {
-          "type": "string"
+          "$ref": "#/definitions/RuleSetVersion-Read"
         }
       },
       "type": "object"
@@ -4052,31 +5070,40 @@
           },
           "type": "array"
         },
-        "currentAction": {
-          "type": "string"
+        "changes": {
+          "items": {
+            "$ref": "#/definitions/RuleChange-Read"
+          },
+          "type": "array"
         },
-        "id": {
-          "type": "string"
+        "currentChange": {
+          "$ref": "#/definitions/RuleChange-Read"
         },
-        "isEnabled": {
-          "type": "boolean"
-        },
-        "markers": {
+        "examples": {
           "items": {
             "type": "string"
           },
           "type": "array"
         },
+        "formattedSource": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "markers": {
+          "items": {
+            "$ref": "#/definitions/Marker-Read"
+          },
+          "type": "array"
+        },
+        "matchOnResponseStatus": {
+          "type": "integer"
+        },
         "rank": {
           "type": "integer"
         },
-        "redirectCode": {
-          "type": "integer"
-        },
         "source": {
-          "type": "string"
-        },
-        "target": {
           "type": "string"
         },
         "updatedAt": {
@@ -4089,32 +5116,48 @@
       },
       "type": "object"
     },
-    "RuleAction-Read": {
+    "RuleChange-Read": {
       "description": "",
       "properties": {
         "action": {
           "type": "string"
         },
+        "actions": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
         "author": {
-          "type": "string"
+          "$ref": "#/definitions/User-Read",
+          "readOnly": true
         },
         "createdAt": {
           "format": "date-time",
           "readOnly": true,
           "type": "string"
         },
-        "id": {
-          "readOnly": true,
-          "type": "string"
-        },
-        "isEnabled": {
-          "type": "boolean"
-        },
-        "markers": {
+        "examples": {
           "items": {
             "type": "string"
           },
           "type": "array"
+        },
+        "formattedSource": {
+          "type": "string"
+        },
+        "id": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "markers": {
+          "items": {
+            "$ref": "#/definitions/Marker-Read"
+          },
+          "type": "array"
+        },
+        "matchOnResponseStatus": {
+          "type": "integer"
         },
         "rank": {
           "type": "integer"
@@ -4124,37 +5167,44 @@
         },
         "source": {
           "type": "string"
-        },
-        "statusCode": {
-          "type": "integer"
-        },
-        "target": {
-          "type": "string"
         }
       },
       "required": [
         "action",
         "source",
-        "statusCode",
-        "isEnabled",
         "rank"
       ],
       "type": "object"
     },
-    "RuleAction-Write": {
+    "RuleChange-Write": {
       "description": "",
       "properties": {
         "action": {
           "type": "string"
         },
-        "isEnabled": {
-          "type": "boolean"
-        },
-        "markers": {
+        "actions": {
           "items": {
             "type": "string"
           },
           "type": "array"
+        },
+        "examples": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "formattedSource": {
+          "type": "string"
+        },
+        "markers": {
+          "items": {
+            "$ref": "#/definitions/Marker-Write"
+          },
+          "type": "array"
+        },
+        "matchOnResponseStatus": {
+          "type": "integer"
         },
         "rank": {
           "type": "integer"
@@ -4164,19 +5214,11 @@
         },
         "source": {
           "type": "string"
-        },
-        "statusCode": {
-          "type": "integer"
-        },
-        "target": {
-          "type": "string"
         }
       },
       "required": [
         "action",
         "source",
-        "statusCode",
-        "isEnabled",
         "rank"
       ],
       "type": "object"
@@ -4184,15 +5226,6 @@
     "RuleSetVersion": {
       "description": "",
       "properties": {
-        "actions": {
-          "items": {
-            "type": "string"
-          },
-          "type": "array"
-        },
-        "added": {
-          "type": "integer"
-        },
         "createdAt": {
           "format": "date-time",
           "readOnly": true,
@@ -4202,16 +5235,6 @@
           "readOnly": true,
           "type": "boolean"
         },
-        "deleted": {
-          "type": "integer"
-        },
-        "histories": {
-          "items": {
-            "type": "string"
-          },
-          "readOnly": true,
-          "type": "array"
-        },
         "id": {
           "readOnly": true,
           "type": "string"
@@ -4219,36 +5242,15 @@
         "isSnapshot": {
           "type": "boolean"
         },
-        "lastAction": {
-          "type": "string"
+        "mergedRulesCount": {
+          "type": "integer"
         },
         "name": {
-          "type": "string"
-        },
-        "nexts": {
-          "items": {
-            "type": "string"
-          },
-          "readOnly": true,
-          "type": "array"
-        },
-        "previous": {
-          "type": "string"
-        },
-        "project": {
-          "readOnly": true,
           "type": "string"
         },
         "publishedAt": {
           "format": "date-time",
           "type": "string"
-        },
-        "snapshot": {
-          "readOnly": true,
-          "type": "boolean"
-        },
-        "updated": {
-          "type": "integer"
         },
         "working": {
           "readOnly": true,
@@ -4276,6 +5278,9 @@
         "isSnapshot": {
           "type": "boolean"
         },
+        "mergedRulesCount": {
+          "type": "integer"
+        },
         "name": {
           "type": "string"
         },
@@ -4288,6 +5293,117 @@
           "type": "boolean"
         }
       },
+      "type": "object"
+    },
+    "RuleStatistic": {
+      "description": "",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "stats": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "SmartList": {
+      "description": "",
+      "properties": {
+        "defaultVersion": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "description": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "id": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "name": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "rules": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "versions": {
+          "items": {
+            "type": "string"
+          },
+          "readOnly": true,
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "User": {
+      "description": "",
+      "properties": {
+        "currentPassword": {},
+        "defaultOrganization": {
+          "$ref": "#/definitions/Organization"
+        },
+        "email": {
+          "type": "string"
+        },
+        "id": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "newEmail": {
+          "type": "string"
+        },
+        "newEmailToken": {
+          "type": "string"
+        },
+        "newEmailTokenExpiredAt": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "plainPassword": {
+          "type": "string"
+        },
+        "plainPasswordRepeat": {},
+        "projectsFlattened": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "superAdmin": {
+          "type": "boolean"
+        },
+        "updatedAt": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "userOrganizations": {
+          "items": {
+            "$ref": "#/definitions/UserOrganization"
+          },
+          "type": "array"
+        },
+        "userProjects": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "email",
+        "name"
+      ],
       "type": "object"
     },
     "User-CreationWrite": {
@@ -4351,29 +5467,51 @@
     "User-Read": {
       "description": "",
       "properties": {
-        "defaultOrganization": {
+        "name": {
           "type": "string"
-        },
-        "email": {
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "type": "object"
+    },
+    "User-ReadDetails": {
+      "description": "",
+      "properties": {
+        "name": {
           "type": "string"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "type": "object"
+    },
+    "UserOrganization": {
+      "description": "",
+      "properties": {
+        "functionalRoles": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
         },
         "id": {
           "readOnly": true,
           "type": "string"
         },
-        "name": {
+        "organization": {
+          "readOnly": true,
           "type": "string"
         },
-        "userOrganizations": {
-          "items": {
-            "type": "string"
-          },
-          "type": "array"
+        "user": {
+          "readOnly": true,
+          "type": "string"
         }
       },
       "required": [
-        "email",
-        "name"
+        "functionalRoles"
       ],
       "type": "object"
     },
@@ -4387,15 +5525,15 @@
           "type": "array"
         },
         "organization": {
+          "readOnly": true,
           "type": "string"
         },
         "user": {
+          "readOnly": true,
           "type": "string"
         }
       },
       "required": [
-        "user",
-        "organization",
         "functionalRoles"
       ],
       "type": "object"
@@ -4414,15 +5552,15 @@
           "type": "string"
         },
         "organization": {
+          "readOnly": true,
           "type": "string"
         },
         "user": {
+          "readOnly": true,
           "type": "string"
         }
       },
       "required": [
-        "user",
-        "organization",
         "functionalRoles"
       ],
       "type": "object"
@@ -4439,6 +5577,33 @@
       },
       "required": [
         "functionalRoles"
+      ],
+      "type": "object"
+    },
+    "UserProject": {
+      "description": "",
+      "properties": {
+        "functionalRoles": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "id": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "project": {
+          "type": "string"
+        },
+        "user": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "functionalRoles",
+        "user",
+        "project"
       ],
       "type": "object"
     },
@@ -4478,16 +5643,12 @@
           "readOnly": true,
           "type": "string"
         },
-        "project": {
-          "type": "string"
-        },
         "user": {
           "type": "string"
         }
       },
       "required": [
         "user",
-        "project",
         "functionalRoles"
       ],
       "type": "object"
@@ -4507,8 +5668,37 @@
       ],
       "type": "object"
     },
+    "UserProjectFlattened": {
+      "description": "",
+      "properties": {
+        "functionalRoles": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "project": {
+          "type": "string"
+        },
+        "user": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "UserProjectFlattened-Read": {
       "description": "",
+      "properties": {
+        "functionalRoles": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "user": {
+          "type": "string"
+        }
+      },
       "type": "object"
     }
   }

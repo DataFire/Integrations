@@ -1,6 +1,6 @@
 # @datafire/google_adexchangebuyer
 
-Client library for Ad Exchange Buyer
+Client library for Ad Exchange Buyer API
 
 ## Installation and Usage
 ```bash
@@ -15,7 +15,7 @@ let google_adexchangebuyer = require('@datafire/google_adexchangebuyer').create(
   redirect_uri: ""
 });
 
-google_adexchangebuyer.proposals.search({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -67,12 +67,12 @@ google_adexchangebuyer.oauthRefresh(null, context)
   * scope `string`
   * expiration `string`
 
-### accounts.list
+### adexchangebuyer.accounts.list
 Retrieves the authenticated user's list of accounts.
 
 
 ```js
-google_adexchangebuyer.accounts.list({}, context)
+google_adexchangebuyer.adexchangebuyer.accounts.list({}, context)
 ```
 
 #### Input
@@ -88,12 +88,12 @@ google_adexchangebuyer.accounts.list({}, context)
 #### Output
 * output [AccountsList](#accountslist)
 
-### accounts.get
+### adexchangebuyer.accounts.get
 Gets one account by ID.
 
 
 ```js
-google_adexchangebuyer.accounts.get({
+google_adexchangebuyer.adexchangebuyer.accounts.get({
   "id": 0
 }, context)
 ```
@@ -112,21 +112,21 @@ google_adexchangebuyer.accounts.get({
 #### Output
 * output [Account](#account)
 
-### accounts.patch
+### adexchangebuyer.accounts.patch
 Updates an existing account. This method supports patch semantics.
 
 
 ```js
-google_adexchangebuyer.accounts.patch({
+google_adexchangebuyer.adexchangebuyer.accounts.patch({
   "id": 0
 }, context)
 ```
 
 #### Input
 * input `object`
-  * body [Account](#account)
-  * confirmUnsafeAccountChange `boolean`: Confirmation for erasing bidder and cookie matching urls.
   * id **required** `integer`: The account id
+  * confirmUnsafeAccountChange `boolean`: Confirmation for erasing bidder and cookie matching urls.
+  * body [Account](#account)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -138,21 +138,21 @@ google_adexchangebuyer.accounts.patch({
 #### Output
 * output [Account](#account)
 
-### accounts.update
+### adexchangebuyer.accounts.update
 Updates an existing account.
 
 
 ```js
-google_adexchangebuyer.accounts.update({
+google_adexchangebuyer.adexchangebuyer.accounts.update({
   "id": 0
 }, context)
 ```
 
 #### Input
 * input `object`
-  * body [Account](#account)
-  * confirmUnsafeAccountChange `boolean`: Confirmation for erasing bidder and cookie matching urls.
   * id **required** `integer`: The account id
+  * confirmUnsafeAccountChange `boolean`: Confirmation for erasing bidder and cookie matching urls.
+  * body [Account](#account)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -164,12 +164,12 @@ google_adexchangebuyer.accounts.update({
 #### Output
 * output [Account](#account)
 
-### billingInfo.list
+### adexchangebuyer.billingInfo.list
 Retrieves a list of billing information for all accounts of the authenticated user.
 
 
 ```js
-google_adexchangebuyer.billingInfo.list({}, context)
+google_adexchangebuyer.adexchangebuyer.billingInfo.list({}, context)
 ```
 
 #### Input
@@ -185,12 +185,12 @@ google_adexchangebuyer.billingInfo.list({}, context)
 #### Output
 * output [BillingInfoList](#billinginfolist)
 
-### billingInfo.get
+### adexchangebuyer.billingInfo.get
 Returns the billing information for one account specified by account ID.
 
 
 ```js
-google_adexchangebuyer.billingInfo.get({
+google_adexchangebuyer.adexchangebuyer.billingInfo.get({
   "accountId": 0
 }, context)
 ```
@@ -209,12 +209,12 @@ google_adexchangebuyer.billingInfo.get({
 #### Output
 * output [BillingInfo](#billinginfo)
 
-### budget.get
+### adexchangebuyer.budget.get
 Returns the budget information for the adgroup specified by the accountId and billingId.
 
 
 ```js
-google_adexchangebuyer.budget.get({
+google_adexchangebuyer.adexchangebuyer.budget.get({
   "accountId": "",
   "billingId": ""
 }, context)
@@ -235,12 +235,12 @@ google_adexchangebuyer.budget.get({
 #### Output
 * output [Budget](#budget)
 
-### budget.patch
+### adexchangebuyer.budget.patch
 Updates the budget amount for the budget of the adgroup specified by the accountId and billingId, with the budget amount in the request. This method supports patch semantics.
 
 
 ```js
-google_adexchangebuyer.budget.patch({
+google_adexchangebuyer.adexchangebuyer.budget.patch({
   "accountId": "",
   "billingId": ""
 }, context)
@@ -262,12 +262,12 @@ google_adexchangebuyer.budget.patch({
 #### Output
 * output [Budget](#budget)
 
-### budget.update
+### adexchangebuyer.budget.update
 Updates the budget amount for the budget of the adgroup specified by the accountId and billingId, with the budget amount in the request.
 
 
 ```js
-google_adexchangebuyer.budget.update({
+google_adexchangebuyer.adexchangebuyer.budget.update({
   "accountId": "",
   "billingId": ""
 }, context)
@@ -289,12 +289,12 @@ google_adexchangebuyer.budget.update({
 #### Output
 * output [Budget](#budget)
 
-### creatives.list
+### adexchangebuyer.creatives.list
 Retrieves a list of the authenticated user's active creatives. A creative will be available 30-40 minutes after submission.
 
 
 ```js
-google_adexchangebuyer.creatives.list({}, context)
+google_adexchangebuyer.adexchangebuyer.creatives.list({}, context)
 ```
 
 #### Input
@@ -316,12 +316,12 @@ google_adexchangebuyer.creatives.list({}, context)
 #### Output
 * output [CreativesList](#creativeslist)
 
-### creatives.insert
+### adexchangebuyer.creatives.insert
 Submit a new creative.
 
 
 ```js
-google_adexchangebuyer.creatives.insert({}, context)
+google_adexchangebuyer.adexchangebuyer.creatives.insert({}, context)
 ```
 
 #### Input
@@ -338,12 +338,12 @@ google_adexchangebuyer.creatives.insert({}, context)
 #### Output
 * output [Creative](#creative)
 
-### creatives.get
+### adexchangebuyer.creatives.get
 Gets the status for a single creative. A creative will be available 30-40 minutes after submission.
 
 
 ```js
-google_adexchangebuyer.creatives.get({
+google_adexchangebuyer.adexchangebuyer.creatives.get({
   "accountId": 0,
   "buyerCreativeId": ""
 }, context)
@@ -364,12 +364,12 @@ google_adexchangebuyer.creatives.get({
 #### Output
 * output [Creative](#creative)
 
-### creatives.addDeal
+### adexchangebuyer.creatives.addDeal
 Add a deal id association for the creative.
 
 
 ```js
-google_adexchangebuyer.creatives.addDeal({
+google_adexchangebuyer.adexchangebuyer.creatives.addDeal({
   "accountId": 0,
   "buyerCreativeId": "",
   "dealId": ""
@@ -392,12 +392,12 @@ google_adexchangebuyer.creatives.addDeal({
 #### Output
 *Output schema unknown*
 
-### creatives.listDeals
+### adexchangebuyer.creatives.listDeals
 Lists the external deal ids associated with the creative.
 
 
 ```js
-google_adexchangebuyer.creatives.listDeals({
+google_adexchangebuyer.adexchangebuyer.creatives.listDeals({
   "accountId": 0,
   "buyerCreativeId": ""
 }, context)
@@ -418,12 +418,12 @@ google_adexchangebuyer.creatives.listDeals({
 #### Output
 * output [CreativeDealIds](#creativedealids)
 
-### creatives.removeDeal
+### adexchangebuyer.creatives.removeDeal
 Remove a deal id associated with the creative.
 
 
 ```js
-google_adexchangebuyer.creatives.removeDeal({
+google_adexchangebuyer.adexchangebuyer.creatives.removeDeal({
   "accountId": 0,
   "buyerCreativeId": "",
   "dealId": ""
@@ -446,12 +446,12 @@ google_adexchangebuyer.creatives.removeDeal({
 #### Output
 *Output schema unknown*
 
-### performanceReport.list
+### adexchangebuyer.performanceReport.list
 Retrieves the authenticated user's list of performance metrics.
 
 
 ```js
-google_adexchangebuyer.performanceReport.list({
+google_adexchangebuyer.adexchangebuyer.performanceReport.list({
   "accountId": "",
   "endDateTime": "",
   "startDateTime": ""
@@ -462,9 +462,9 @@ google_adexchangebuyer.performanceReport.list({
 * input `object`
   * accountId **required** `string`: The account id to get the reports.
   * endDateTime **required** `string`: The end time of the report in ISO 8601 timestamp format using UTC.
+  * startDateTime **required** `string`: The start time of the report in ISO 8601 timestamp format using UTC.
   * maxResults `integer`: Maximum number of entries returned on one result page. If not set, the default is 100. Optional.
   * pageToken `string`: A continuation token, used to page through performance reports. To retrieve the next page, set this parameter to the value of "nextPageToken" from the previous response. Optional.
-  * startDateTime **required** `string`: The start time of the report in ISO 8601 timestamp format using UTC.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -476,12 +476,12 @@ google_adexchangebuyer.performanceReport.list({
 #### Output
 * output [PerformanceReportList](#performancereportlist)
 
-### pretargetingConfig.list
+### adexchangebuyer.pretargetingConfig.list
 Retrieves a list of the authenticated user's pretargeting configurations.
 
 
 ```js
-google_adexchangebuyer.pretargetingConfig.list({
+google_adexchangebuyer.adexchangebuyer.pretargetingConfig.list({
   "accountId": ""
 }, context)
 ```
@@ -500,12 +500,12 @@ google_adexchangebuyer.pretargetingConfig.list({
 #### Output
 * output [PretargetingConfigList](#pretargetingconfiglist)
 
-### pretargetingConfig.insert
+### adexchangebuyer.pretargetingConfig.insert
 Inserts a new pretargeting configuration.
 
 
 ```js
-google_adexchangebuyer.pretargetingConfig.insert({
+google_adexchangebuyer.adexchangebuyer.pretargetingConfig.insert({
   "accountId": ""
 }, context)
 ```
@@ -525,12 +525,12 @@ google_adexchangebuyer.pretargetingConfig.insert({
 #### Output
 * output [PretargetingConfig](#pretargetingconfig)
 
-### pretargetingConfig.delete
+### adexchangebuyer.pretargetingConfig.delete
 Deletes an existing pretargeting config.
 
 
 ```js
-google_adexchangebuyer.pretargetingConfig.delete({
+google_adexchangebuyer.adexchangebuyer.pretargetingConfig.delete({
   "accountId": "",
   "configId": ""
 }, context)
@@ -551,12 +551,12 @@ google_adexchangebuyer.pretargetingConfig.delete({
 #### Output
 *Output schema unknown*
 
-### pretargetingConfig.get
+### adexchangebuyer.pretargetingConfig.get
 Gets a specific pretargeting configuration
 
 
 ```js
-google_adexchangebuyer.pretargetingConfig.get({
+google_adexchangebuyer.adexchangebuyer.pretargetingConfig.get({
   "accountId": "",
   "configId": ""
 }, context)
@@ -577,12 +577,12 @@ google_adexchangebuyer.pretargetingConfig.get({
 #### Output
 * output [PretargetingConfig](#pretargetingconfig)
 
-### pretargetingConfig.patch
+### adexchangebuyer.pretargetingConfig.patch
 Updates an existing pretargeting config. This method supports patch semantics.
 
 
 ```js
-google_adexchangebuyer.pretargetingConfig.patch({
+google_adexchangebuyer.adexchangebuyer.pretargetingConfig.patch({
   "accountId": "",
   "configId": ""
 }, context)
@@ -591,8 +591,8 @@ google_adexchangebuyer.pretargetingConfig.patch({
 #### Input
 * input `object`
   * accountId **required** `string`: The account id to update the pretargeting config for.
-  * body [PretargetingConfig](#pretargetingconfig)
   * configId **required** `string`: The specific id of the configuration to update.
+  * body [PretargetingConfig](#pretargetingconfig)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -604,12 +604,12 @@ google_adexchangebuyer.pretargetingConfig.patch({
 #### Output
 * output [PretargetingConfig](#pretargetingconfig)
 
-### pretargetingConfig.update
+### adexchangebuyer.pretargetingConfig.update
 Updates an existing pretargeting config.
 
 
 ```js
-google_adexchangebuyer.pretargetingConfig.update({
+google_adexchangebuyer.adexchangebuyer.pretargetingConfig.update({
   "accountId": "",
   "configId": ""
 }, context)
@@ -618,8 +618,8 @@ google_adexchangebuyer.pretargetingConfig.update({
 #### Input
 * input `object`
   * accountId **required** `string`: The account id to update the pretargeting config for.
-  * body [PretargetingConfig](#pretargetingconfig)
   * configId **required** `string`: The specific id of the configuration to update.
+  * body [PretargetingConfig](#pretargetingconfig)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -631,20 +631,20 @@ google_adexchangebuyer.pretargetingConfig.update({
 #### Output
 * output [PretargetingConfig](#pretargetingconfig)
 
-### marketplaceprivateauction.updateproposal
+### adexchangebuyer.marketplaceprivateauction.updateproposal
 Update a given private auction proposal
 
 
 ```js
-google_adexchangebuyer.marketplaceprivateauction.updateproposal({
+google_adexchangebuyer.adexchangebuyer.marketplaceprivateauction.updateproposal({
   "privateAuctionId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
+  * privateAuctionId **required** `string`: The private auction id to be updated.
   * body [UpdatePrivateAuctionProposalRequest](#updateprivateauctionproposalrequest)
-  * privateAuctionId **required** `string`
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -656,12 +656,12 @@ google_adexchangebuyer.marketplaceprivateauction.updateproposal({
 #### Output
 *Output schema unknown*
 
-### products.search
+### adexchangebuyer.products.search
 Gets the requested product.
 
 
 ```js
-google_adexchangebuyer.products.search({}, context)
+google_adexchangebuyer.adexchangebuyer.products.search({}, context)
 ```
 
 #### Input
@@ -678,12 +678,12 @@ google_adexchangebuyer.products.search({}, context)
 #### Output
 * output [GetOffersResponse](#getoffersresponse)
 
-### products.get
+### adexchangebuyer.products.get
 Gets the requested product by id.
 
 
 ```js
-google_adexchangebuyer.products.get({
+google_adexchangebuyer.adexchangebuyer.products.get({
   "productId": ""
 }, context)
 ```
@@ -702,12 +702,12 @@ google_adexchangebuyer.products.get({
 #### Output
 * output [Product](#product)
 
-### proposals.insert
+### adexchangebuyer.proposals.insert
 Create the given list of proposals
 
 
 ```js
-google_adexchangebuyer.proposals.insert({}, context)
+google_adexchangebuyer.adexchangebuyer.proposals.insert({}, context)
 ```
 
 #### Input
@@ -724,12 +724,12 @@ google_adexchangebuyer.proposals.insert({}, context)
 #### Output
 * output [CreateOrdersResponse](#createordersresponse)
 
-### proposals.search
+### adexchangebuyer.proposals.search
 Search for proposals using pql query
 
 
 ```js
-google_adexchangebuyer.proposals.search({}, context)
+google_adexchangebuyer.adexchangebuyer.proposals.search({}, context)
 ```
 
 #### Input
@@ -746,12 +746,12 @@ google_adexchangebuyer.proposals.search({}, context)
 #### Output
 * output [GetOrdersResponse](#getordersresponse)
 
-### proposals.get
+### adexchangebuyer.proposals.get
 Get a proposal given its id
 
 
 ```js
-google_adexchangebuyer.proposals.get({
+google_adexchangebuyer.adexchangebuyer.proposals.get({
   "proposalId": ""
 }, context)
 ```
@@ -770,20 +770,20 @@ google_adexchangebuyer.proposals.get({
 #### Output
 * output [Proposal](#proposal)
 
-### marketplacedeals.list
+### adexchangebuyer.marketplacedeals.list
 List all the deals for a given proposal
 
 
 ```js
-google_adexchangebuyer.marketplacedeals.list({
+google_adexchangebuyer.adexchangebuyer.marketplacedeals.list({
   "proposalId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * pqlQuery `string`: Query string to retrieve specific deals.
   * proposalId **required** `string`: The proposalId to get deals for. To search across all proposals specify order_id = '-' as part of the URL.
+  * pqlQuery `string`: Query string to retrieve specific deals.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -795,20 +795,20 @@ google_adexchangebuyer.marketplacedeals.list({
 #### Output
 * output [GetOrderDealsResponse](#getorderdealsresponse)
 
-### marketplacedeals.delete
+### adexchangebuyer.marketplacedeals.delete
 Delete the specified deals from the proposal
 
 
 ```js
-google_adexchangebuyer.marketplacedeals.delete({
+google_adexchangebuyer.adexchangebuyer.marketplacedeals.delete({
   "proposalId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * body [DeleteOrderDealsRequest](#deleteorderdealsrequest)
   * proposalId **required** `string`: The proposalId to delete deals from.
+  * body [DeleteOrderDealsRequest](#deleteorderdealsrequest)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -820,20 +820,20 @@ google_adexchangebuyer.marketplacedeals.delete({
 #### Output
 * output [DeleteOrderDealsResponse](#deleteorderdealsresponse)
 
-### marketplacedeals.insert
+### adexchangebuyer.marketplacedeals.insert
 Add new deals for the specified proposal
 
 
 ```js
-google_adexchangebuyer.marketplacedeals.insert({
+google_adexchangebuyer.adexchangebuyer.marketplacedeals.insert({
   "proposalId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * body [AddOrderDealsRequest](#addorderdealsrequest)
   * proposalId **required** `string`: proposalId for which deals need to be added.
+  * body [AddOrderDealsRequest](#addorderdealsrequest)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -845,20 +845,20 @@ google_adexchangebuyer.marketplacedeals.insert({
 #### Output
 * output [AddOrderDealsResponse](#addorderdealsresponse)
 
-### marketplacedeals.update
+### adexchangebuyer.marketplacedeals.update
 Replaces all the deals in the proposal with the passed in deals
 
 
 ```js
-google_adexchangebuyer.marketplacedeals.update({
+google_adexchangebuyer.adexchangebuyer.marketplacedeals.update({
   "proposalId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * body [EditAllOrderDealsRequest](#editallorderdealsrequest)
   * proposalId **required** `string`: The proposalId to edit deals on.
+  * body [EditAllOrderDealsRequest](#editallorderdealsrequest)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -870,20 +870,20 @@ google_adexchangebuyer.marketplacedeals.update({
 #### Output
 * output [EditAllOrderDealsResponse](#editallorderdealsresponse)
 
-### marketplacenotes.list
+### adexchangebuyer.marketplacenotes.list
 Get all the notes associated with a proposal
 
 
 ```js
-google_adexchangebuyer.marketplacenotes.list({
+google_adexchangebuyer.adexchangebuyer.marketplacenotes.list({
   "proposalId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * pqlQuery `string`: Query string to retrieve specific notes. To search the text contents of notes, please use syntax like "WHERE note.note = "foo" or "WHERE note.note LIKE "%bar%"
   * proposalId **required** `string`: The proposalId to get notes for. To search across all proposals specify order_id = '-' as part of the URL.
+  * pqlQuery `string`: Query string to retrieve specific notes. To search the text contents of notes, please use syntax like "WHERE note.note = "foo" or "WHERE note.note LIKE "%bar%"
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -895,20 +895,20 @@ google_adexchangebuyer.marketplacenotes.list({
 #### Output
 * output [GetOrderNotesResponse](#getordernotesresponse)
 
-### marketplacenotes.insert
+### adexchangebuyer.marketplacenotes.insert
 Add notes to the proposal
 
 
 ```js
-google_adexchangebuyer.marketplacenotes.insert({
+google_adexchangebuyer.adexchangebuyer.marketplacenotes.insert({
   "proposalId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * body [AddOrderNotesRequest](#addordernotesrequest)
   * proposalId **required** `string`: The proposalId to add notes for.
+  * body [AddOrderNotesRequest](#addordernotesrequest)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -920,12 +920,12 @@ google_adexchangebuyer.marketplacenotes.insert({
 #### Output
 * output [AddOrderNotesResponse](#addordernotesresponse)
 
-### proposals.setupcomplete
+### adexchangebuyer.proposals.setupcomplete
 Update the given proposal to indicate that setup has been completed.
 
 
 ```js
-google_adexchangebuyer.proposals.setupcomplete({
+google_adexchangebuyer.adexchangebuyer.proposals.setupcomplete({
   "proposalId": ""
 }, context)
 ```
@@ -944,12 +944,12 @@ google_adexchangebuyer.proposals.setupcomplete({
 #### Output
 *Output schema unknown*
 
-### proposals.patch
+### adexchangebuyer.proposals.patch
 Update the given proposal. This method supports patch semantics.
 
 
 ```js
-google_adexchangebuyer.proposals.patch({
+google_adexchangebuyer.adexchangebuyer.proposals.patch({
   "proposalId": "",
   "revisionNumber": "",
   "updateAction": ""
@@ -958,10 +958,10 @@ google_adexchangebuyer.proposals.patch({
 
 #### Input
 * input `object`
-  * body [Proposal](#proposal)
   * proposalId **required** `string`: The proposal id to update.
   * revisionNumber **required** `string`: The last known revision number to update. If the head revision in the marketplace database has since changed, an error will be thrown. The caller should then fetch the latest proposal at head revision and retry the update at that revision.
   * updateAction **required** `string` (values: accept, cancel, propose, proposeAndAccept, unknownAction, updateNonTerms): The proposed action to take on the proposal. This field is required and it must be set when updating a proposal.
+  * body [Proposal](#proposal)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -973,12 +973,12 @@ google_adexchangebuyer.proposals.patch({
 #### Output
 * output [Proposal](#proposal)
 
-### proposals.update
+### adexchangebuyer.proposals.update
 Update the given proposal
 
 
 ```js
-google_adexchangebuyer.proposals.update({
+google_adexchangebuyer.adexchangebuyer.proposals.update({
   "proposalId": "",
   "revisionNumber": "",
   "updateAction": ""
@@ -987,10 +987,10 @@ google_adexchangebuyer.proposals.update({
 
 #### Input
 * input `object`
-  * body [Proposal](#proposal)
   * proposalId **required** `string`: The proposal id to update.
   * revisionNumber **required** `string`: The last known revision number to update. If the head revision in the marketplace database has since changed, an error will be thrown. The caller should then fetch the latest proposal at head revision and retry the update at that revision.
   * updateAction **required** `string` (values: accept, cancel, propose, proposeAndAccept, unknownAction, updateNonTerms): The proposed action to take on the proposal. This field is required and it must be set when updating a proposal.
+  * body [Proposal](#proposal)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1002,12 +1002,12 @@ google_adexchangebuyer.proposals.update({
 #### Output
 * output [Proposal](#proposal)
 
-### pubprofiles.list
+### adexchangebuyer.pubprofiles.list
 Gets the requested publisher profile(s) by publisher accountId.
 
 
 ```js
-google_adexchangebuyer.pubprofiles.list({
+google_adexchangebuyer.adexchangebuyer.pubprofiles.list({
   "accountId": 0
 }, context)
 ```
@@ -1124,9 +1124,13 @@ google_adexchangebuyer.pubprofiles.list({
   * HTMLSnippet `string`: The HTML snippet that displays the ad when inserted in the web page. If set, videoURL, videoVastXML, and nativeAd should not be set.
   * accountId `integer`: Account id.
   * adChoicesDestinationUrl `string`: The link to the Ad Preferences page. This is only supported for native ads.
+  * adTechnologyProviders `object`
+    * detectedProviderIds `array`: The detected ad technology provider IDs for this creative. See https://storage.googleapis.com/adx-rtb-dictionaries/providers.csv for mapping of provider ID to provided name, a privacy policy URL, and a list of domains which can be attributed to the provider. If this creative contains provider IDs that are outside of those listed in the `BidRequest.adslot.consented_providers_settings.consented_providers` field on the  Authorized Buyers Real-Time Bidding protocol or the `BidRequest.user.ext.consented_providers_settings.consented_providers` field on the OpenRTB protocol, a bid submitted for a European Economic Area (EEA) user with this creative is not compliant with the GDPR policies as mentioned in the "Third-party Ad Technology Vendors" section of Authorized Buyers Program Guidelines.
+      * items `string`
+    * hasUnidentifiedProvider `boolean`: Whether the creative contains an unidentified ad technology provider. If true, a bid submitted for a European Economic Area (EEA) user with this creative is not compliant with the GDPR policies as mentioned in the "Third-party Ad Technology Vendors" section of Authorized Buyers Program Guidelines.
   * advertiserId `array`: Detected advertiser id, if any. Read-only. This field should not be set in requests.
     * items `string`
-  * advertiserName `string`: The name of the company being advertised in the creative. The value provided must exist in the advertisers.txt file.
+  * advertiserName `string`: The name of the company being advertised in the creative. A list of advertisers is provided in the advertisers.txt file.
   * agencyId `string`: The agency id for this creative.
   * apiUploadTimestamp `string`: The last upload timestamp of this creative if it was uploaded via API. Read-only. The value of this field is generated, and will be ignored for uploads. (formatted RFC 3339 timestamp).
   * attribute `array`: List of buyer selectable attributes for the ads that may be shown from this snippet. Each attribute is represented by an integer as defined in  buyer-declarable-creative-attributes.txt.
@@ -1139,15 +1143,13 @@ google_adexchangebuyer.pubprofiles.list({
       * contexts `array`: All known serving contexts containing serving status information.
         * items `object`
           * auctionType `array`: Only set when contextType=AUCTION_TYPE. Represents the auction types this correction applies to.
-            * items `string`
           * contextType `string`: The type of context (e.g., location, platform, auction type, SSL-ness).
           * geoCriteriaId `array`: Only set when contextType=LOCATION. Represents the geo criterias this correction applies to.
-            * items `integer`
           * platform `array`: Only set when contextType=PLATFORM. Represents the platforms this correction applies to.
-            * items `string`
       * details `array`: Additional details about the correction.
         * items `string`
       * reason `string`: The type of correction that was applied to the creative.
+  * creativeStatusIdentityType `string`: Creative status identity type that the creative item applies to. Ad Exchange real-time bidding is migrating to the sizeless creative verification. Originally, Ad Exchange assigned creative verification status to a unique combination of a buyer creative ID and creative dimensions. Post-migration, a single verification status will be assigned at the buyer creative ID level. This field allows to distinguish whether a given creative status applies to a unique combination of a buyer creative ID and creative dimensions, or to a buyer creative ID as a whole.
   * dealsStatus `string`: Top-level deals status. Read-only. This field should not be set in requests. If disapproved, an entry for auctionType=DIRECT_DEALS (or ALL) in servingRestrictions will also exist. Note that this may be nuanced with other contextual restrictions, in which case it may be preferable to read from servingRestrictions directly.
   * detectedDomains `array`: Detected domains for this creative. Read-only. This field should not be set in requests.
     * items `string`
@@ -1186,7 +1188,6 @@ google_adexchangebuyer.pubprofiles.list({
       * width `integer`
     * price `string`: The price of the promoted app including the currency info.
     * starRating `number`: The app rating in the app store. Must be in the range [0-5].
-    * store `string`: The URL to the app store to purchase/download the promoted app.
     * videoURL `string`: The URL of the XML VAST for a native ad. Note this is a separate field from resource.video_url.
   * openAuctionStatus `string`: Top-level open auction status. Read-only. This field should not be set in requests. If disapproved, an entry for auctionType=OPEN_AUCTION (or ALL) in servingRestrictions will also exist. Note that this may be nuanced with other contextual restrictions, in which case it may be preferable to read from ServingRestrictions directly.
   * productCategories `array`: Detected product categories, if any. Each category is represented by an integer as defined in  ad-product-categories.txt. Read-only. This field should not be set in requests.
@@ -1200,16 +1201,12 @@ google_adexchangebuyer.pubprofiles.list({
       * contexts `array`: All known contexts/restrictions.
         * items `object`
           * auctionType `array`: Only set when contextType=AUCTION_TYPE. Represents the auction types this restriction applies to.
-            * items `string`
           * contextType `string`: The type of context (e.g., location, platform, auction type, SSL-ness).
           * geoCriteriaId `array`: Only set when contextType=LOCATION. Represents the geo criterias this restriction applies to. Impressions are considered to match a context if either the user location or publisher location matches a given geoCriteriaId.
-            * items `integer`
           * platform `array`: Only set when contextType=PLATFORM. Represents the platforms this restriction applies to.
-            * items `string`
       * disapprovalReasons `array`: The reasons for disapproval within this restriction, if any. Note that not all disapproval reasons may be categorized, so it is possible for the creative to have a status of DISAPPROVED or CONDITIONALLY_APPROVED with an empty list for disapproval_reasons. In this case, please reach out to your TAM to help debug the issue.
         * items `object`
           * details `array`: Additional details about the reason for disapproval.
-            * items `string`
           * reason `string`: The categorized reason for disapproval.
       * reason `string`: Why the creative is ineligible to serve in this context (e.g., it has been explicitly disapproved or is pending review).
   * vendorType `array`: List of vendor types for the ads that may be shown from this snippet. Each vendor type is represented by an integer as defined in vendors.txt.
@@ -1250,7 +1247,7 @@ google_adexchangebuyer.pubprofiles.list({
 
 ### DealTerms
 * DealTerms `object`
-  * brandingType `string`: Visibilty of the URL in bid requests.
+  * brandingType `string`: Visibility of the URL in bid requests.
   * crossListedExternalDealIdType `string`: Indicates that this ExternalDealId exists under at least two different AdxInventoryDeals. Currently, the only case that the same ExternalDealId will exist is programmatic cross sell case.
   * description `string`: Description for the proposed terms of the deal.
   * estimatedGrossSpend [Price](#price)
@@ -1387,6 +1384,7 @@ google_adexchangebuyer.pubprofiles.list({
   * isSetupComplete `boolean`: True, if the buyside inventory setup is complete for this deal. (readonly, except via OrderSetupCompleted action)
   * kind `string`: Identifies what kind of resource this is. Value: the fixed string "adexchangebuyer#marketplaceDeal".
   * lastUpdateTimeMs `string`: The time (ms since epoch) when the deal was last updated. (readonly)
+  * makegoodRequestedReason `string`
   * name `string`: The name of the deal. (updatable)
   * productId `string`: The product-id from which this deal was created. (readonly, except on create)
   * productRevisionNumber `string`: The revision number of the product that the deal was created from (readonly, except on create)
@@ -1423,19 +1421,20 @@ google_adexchangebuyer.pubprofiles.list({
   * proposalRevisionNumber `string`: If the note is associated with a proposal revision number, then store that here. (readonly, except on create)
   * timestampMs `string`: The timestamp (ms since epoch) that this note was created. (readonly)
 
+### MobileApplication
+* MobileApplication `object`
+  * appStore `string`
+  * externalAppId `string`
+
 ### PerformanceReport
 * PerformanceReport `object`: The configuration data for an Ad Exchange performance report list.
   * bidRate `number`: The number of bid responses with an ad.
   * bidRequestRate `number`: The number of bid requests sent to your bidder.
   * calloutStatusRate `array`: Rate of various prefiltering statuses per match. Please refer to the callout-status-codes.txt file for different statuses.
-
   * cookieMatcherStatusRate `array`: Average QPS for cookie matcher operations.
-
   * creativeStatusRate `array`: Rate of ads with a given status. Please refer to the creative-status-codes.txt file for different statuses.
-
   * filteredBidRate `number`: The number of bid responses that were filtered due to a policy violation or other errors.
   * hostedMatchStatusRate `array`: Average QPS for hosted match operations.
-
   * inventoryMatchRate `number`: The number of potential queries based on your pretargeting settings.
   * kind `string`: Resource type.
   * latency50thPercentile `number`: The 50th percentile round trip latency(ms) as perceived from Google servers for the duration period covered by the report.
@@ -1487,6 +1486,7 @@ google_adexchangebuyer.pubprofiles.list({
   * kind `string`: The kind of the resource, i.e. "adexchangebuyer#pretargetingConfig".
   * languages `array`: Request containing any of these language codes will match.
     * items `string`
+  * maximumQps `string`: The maximum QPS allocated to this pretargeting configuration, used for pretargeting-level QPS limits. By default, this is not set, which indicates that there is no QPS limit at the configuration level (a global or account-level limit may still be imposed).
   * minimumViewabilityDecile `integer`: Requests where the predicted viewability is below the specified decile will not match. E.g. if the buyer sets this value to 5, requests from slots where the predicted viewability is below 50% will not match. If the predicted viewability is unknown this field will be ignored.
   * mobileCarriers `array`: Requests containing any of these mobile carrier ids will match. Values are from mobile-carriers.csv in the downloadable files section.
     * items `string`
@@ -1606,7 +1606,6 @@ google_adexchangebuyer.pubprofiles.list({
 
 ### PublisherProfileApiProto
 * PublisherProfileApiProto `object`
-  * accountId `string`: Deprecated: use the seller.account_id. The account id of the seller.
   * audience `string`: Publisher provided info on its audience.
   * buyerPitchStatement `string`: A pitch statement for the buyer
   * directContact `string`: Direct contact for the publisher profile.
@@ -1621,6 +1620,10 @@ google_adexchangebuyer.pubprofiles.list({
   * overview `string`: Publisher provided overview.
   * profileId `integer`: The pair of (seller.account_id, profile_id) uniquely identifies a publisher profile for a given publisher.
   * programmaticContact `string`: Programmatic contact for the publisher profile.
+  * publisherAppIds `array`: The list of app IDs represented in this pubisher profile. Empty if this is a parent profile. Deprecated in favor of publisher_app.
+    * items `string`
+  * publisherApps `array`: The list of apps represented in this pubisher profile. Empty if this is a parent profile.
+    * items [MobileApplication](#mobileapplication)
   * publisherDomains `array`: The list of domains represented in this publisher profile. Empty if this is a parent profile.
     * items `string`
   * publisherProfileId `string`: Unique Id for publisher profile.
@@ -1659,6 +1662,7 @@ google_adexchangebuyer.pubprofiles.list({
   * demogAgeCriteriaValue [TargetingValueDemogAgeCriteria](#targetingvaluedemogagecriteria)
   * demogGenderCriteriaValue [TargetingValueDemogGenderCriteria](#targetingvaluedemoggendercriteria)
   * longValue `string`: The long value to exclude/include.
+  * requestPlatformTargetingValue [TargetingValueRequestPlatformTargeting](#targetingvaluerequestplatformtargeting)
   * stringValue `string`: The string value to exclude/include.
 
 ### TargetingValueCreativeSize
@@ -1694,6 +1698,11 @@ google_adexchangebuyer.pubprofiles.list({
 ### TargetingValueDemogGenderCriteria
 * TargetingValueDemogGenderCriteria `object`
   * demogGenderCriteriaIds `array`
+    * items `string`
+
+### TargetingValueRequestPlatformTargeting
+* TargetingValueRequestPlatformTargeting `object`
+  * requestPlatforms `array`
     * items `string`
 
 ### TargetingValueSize

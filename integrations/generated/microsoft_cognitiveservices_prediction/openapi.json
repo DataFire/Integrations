@@ -1,27 +1,23 @@
 {
   "swagger": "2.0",
-  "schemes": [
-    "https"
-  ],
-  "host": "southcentralus.api.cognitive.microsoft.com",
-  "basePath": "/customvision/v1.1/Prediction",
   "info": {
     "contact": {
       "x-twitter": "microsoft"
     },
-    "title": "PredictionEndpoint",
-    "version": "1.1",
+    "title": "Custom Vision Prediction Client",
+    "version": "3.0",
     "x-apisguru-categories": [
+      "developer_tools",
       "cloud"
     ],
     "x-logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_microsoft_profile_image.jpeg"
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_microsoft_profile_image.png"
     },
     "x-origin": [
       {
-        "format": "swagger",
-        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/cognitiveservices/data-plane/CustomVision/Prediction/stable/v1.1/Prediction.json",
-        "version": "2.0"
+        "format": "openapi",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/cognitiveservices/data-plane/CustomVision/Prediction/stable/v3.0/Prediction.json",
+        "version": "3.0"
       }
     ],
     "x-preferred": true,
@@ -35,33 +31,30 @@
       "type": "openapi"
     }
   },
-  "produces": [
-    "application/json",
-    "text/json",
-    "application/xml",
-    "text/xml"
+  "host": "southcentralus.api.cognitive.microsoft.com",
+  "basePath": "/customvision/v3.0/prediction",
+  "schemes": [
+    "https"
   ],
-  "parameters": {
-    "ApiKey": {
-      "in": "header",
-      "name": "Prediction-Key",
-      "required": true,
-      "type": "string",
-      "x-ms-client-name": "ApiKey",
-      "x-ms-parameter-location": "client"
-    }
-  },
   "paths": {
-    "/{projectId}/image": {
+    "/{projectId}/classify/iterations/{publishedName}/image": {
       "post": {
         "consumes": [
-          "multipart/form-data",
-          "application/octet-stream"
+          "multipart/form-data"
         ],
-        "operationId": "PredictImage",
+        "produces": [
+          "application/json",
+          "application/xml",
+          "text/xml"
+        ],
         "parameters": [
           {
-            "description": "The project id",
+            "description": "The project id.",
+            "examples": {
+              "Successful ClassifyImage request": {
+                "value": "64b822c5-8082-4b36-a426-27225f4aa18c"
+              }
+            },
             "format": "uuid",
             "in": "path",
             "name": "projectId",
@@ -70,16 +63,19 @@
             "x-nullable": false
           },
           {
-            "description": "Optional. Specifies the id of a particular iteration to evaluate against.\r\n            The default iteration for the project will be used when not specified",
-            "format": "uuid",
-            "in": "query",
-            "name": "iterationId",
-            "required": false,
-            "type": "string",
-            "x-nullable": true
+            "description": "Specifies the name of the model to evaluate against.",
+            "examples": {
+              "Successful ClassifyImage request": {
+                "value": "MyModel1"
+              }
+            },
+            "in": "path",
+            "name": "publishedName",
+            "required": true,
+            "type": "string"
           },
           {
-            "description": "Optional. Specifies the name of application using the endpoint",
+            "description": "Optional. Specifies the name of application using the endpoint.",
             "in": "query",
             "name": "application",
             "required": false,
@@ -87,73 +83,53 @@
             "x-nullable": true
           },
           {
+            "description": "Binary image data. Supported formats are JPEG, GIF, PNG, and BMP. Supports images up to 4MB.",
+            "format": "binary",
             "in": "formData",
             "name": "imageData",
             "required": true,
-            "type": "file"
-          },
-          {
-            "$ref": "#/parameters/ApiKey"
+            "type": "string"
           }
         ],
         "responses": {
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/ImagePredictionResultModel"
+              "$ref": "#/definitions/ImagePrediction"
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "schema": {
+              "$ref": "#/definitions/CustomVisionError"
             }
           }
         },
-        "summary": "Predict an image and saves the result",
         "tags": [
           "ImagePredictionApi"
         ],
-        "x-ms-examples": {
-          "Successful Prediction with Image request": {
-            "parameters": {
-              "Content-Type": "application/json",
-              "Prediction-Key": "{API Key}",
-              "imageData": "multipart-form-data",
-              "iterationId": "fe1e83c4-6f50-4899-9544-6bb08cf0e15a",
-              "projectId": "64b822c5-8082-4b36-a426-27225f4aa18c"
-            },
-            "responses": {
-              "200": {
-                "body": {
-                  "Created": "2017-12-19T14:21:41.6789561Z",
-                  "Id": "951098b2-9b69-427b-bddb-d5cb618874e3",
-                  "Iteration": "fe1e83c4-6f50-4899-9544-6bb08cf0e15a",
-                  "Predictions": [
-                    {
-                      "Probability": 0.05149666,
-                      "Tag": "Hemlock",
-                      "TagId": "e31ff107-5505-4753-be42-b369b21b026c"
-                    },
-                    {
-                      "Probability": 0,
-                      "Tag": "Japanese Cherry",
-                      "TagId": "349d72ac-0948-4d51-b1e4-c14a1f9b848a"
-                    }
-                  ],
-                  "Project": "64b822c5-8082-4b36-a426-27225f4aa18c"
-                },
-                "headers": {}
-              }
-            }
-          }
-        }
+        "operationId": "ClassifyImage",
+        "summary": "Classify an image and saves the result."
       }
     },
-    "/{projectId}/image/nostore": {
+    "/{projectId}/classify/iterations/{publishedName}/image/nostore": {
       "post": {
         "consumes": [
-          "multipart/form-data",
-          "application/octet-stream"
+          "multipart/form-data"
         ],
-        "operationId": "PredictImageWithNoStore",
+        "produces": [
+          "application/json",
+          "application/xml",
+          "text/xml"
+        ],
         "parameters": [
           {
-            "description": "The project id",
+            "description": "The project id.",
+            "examples": {
+              "Successful ClassifyImageWithNoStore request": {
+                "value": "64b822c5-8082-4b36-a426-27225f4aa18c"
+              }
+            },
             "format": "uuid",
             "in": "path",
             "name": "projectId",
@@ -162,16 +138,19 @@
             "x-nullable": false
           },
           {
-            "description": "Optional. Specifies the id of a particular iteration to evaluate against.\r\n            The default iteration for the project will be used when not specified",
-            "format": "uuid",
-            "in": "query",
-            "name": "iterationId",
-            "required": false,
-            "type": "string",
-            "x-nullable": true
+            "description": "Specifies the name of the model to evaluate against.",
+            "examples": {
+              "Successful ClassifyImageWithNoStore request": {
+                "value": "MyModel1"
+              }
+            },
+            "in": "path",
+            "name": "publishedName",
+            "required": true,
+            "type": "string"
           },
           {
-            "description": "Optional. Specifies the name of application using the endpoint",
+            "description": "Optional. Specifies the name of application using the endpoint.",
             "in": "query",
             "name": "application",
             "required": false,
@@ -179,76 +158,56 @@
             "x-nullable": true
           },
           {
+            "description": "Binary image data. Supported formats are JPEG, GIF, PNG, and BMP. Supports images up to 0MB.",
+            "format": "binary",
             "in": "formData",
             "name": "imageData",
             "required": true,
-            "type": "file"
-          },
-          {
-            "$ref": "#/parameters/ApiKey"
+            "type": "string"
           }
         ],
         "responses": {
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/ImagePredictionResultModel"
+              "$ref": "#/definitions/ImagePrediction"
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "schema": {
+              "$ref": "#/definitions/CustomVisionError"
             }
           }
         },
-        "summary": "Predict an image without saving the result",
         "tags": [
           "ImagePredictionApi"
         ],
-        "x-ms-examples": {
-          "Successful Prediction with Image request": {
-            "parameters": {
-              "Content-Type": "application/json",
-              "Prediction-Key": "{API Key}",
-              "imageData": "multipart-form-data",
-              "iterationId": "fe1e83c4-6f50-4899-9544-6bb08cf0e15a",
-              "projectId": "64b822c5-8082-4b36-a426-27225f4aa18c"
-            },
-            "responses": {
-              "200": {
-                "body": {
-                  "Created": "2017-12-19T14:21:41.6789561Z",
-                  "Id": "951098b2-9b69-427b-bddb-d5cb618874e3",
-                  "Iteration": "fe1e83c4-6f50-4899-9544-6bb08cf0e15a",
-                  "Predictions": [
-                    {
-                      "Probability": 0.05149666,
-                      "Tag": "Hemlock",
-                      "TagId": "e31ff107-5505-4753-be42-b369b21b026c"
-                    },
-                    {
-                      "Probability": 0,
-                      "Tag": "Japanese Cherry",
-                      "TagId": "349d72ac-0948-4d51-b1e4-c14a1f9b848a"
-                    }
-                  ],
-                  "Project": "64b822c5-8082-4b36-a426-27225f4aa18c"
-                },
-                "headers": {}
-              }
-            }
-          }
-        }
+        "operationId": "ClassifyImageWithNoStore",
+        "summary": "Classify an image without saving the result."
       }
     },
-    "/{projectId}/url": {
+    "/{projectId}/classify/iterations/{publishedName}/url": {
       "post": {
         "consumes": [
           "application/json",
-          "text/json",
+          "application/x-www-form-urlencoded",
           "application/xml",
-          "text/xml",
-          "application/x-www-form-urlencoded"
+          "text/xml"
         ],
-        "operationId": "PredictImageUrl",
+        "produces": [
+          "application/json",
+          "application/xml",
+          "text/xml"
+        ],
         "parameters": [
           {
-            "description": "The project id",
+            "description": "The project id.",
+            "examples": {
+              "Successful ClassifyImageUrl request": {
+                "value": "64b822c5-8082-4b36-a426-27225f4aa18c"
+              }
+            },
             "format": "uuid",
             "in": "path",
             "name": "projectId",
@@ -257,98 +216,77 @@
             "x-nullable": false
           },
           {
-            "description": "An {Iris.Web.Api.Models.ImageUrl} that contains the url of the image to be evaluated",
+            "description": "Specifies the name of the model to evaluate against.",
+            "examples": {
+              "Successful ClassifyImageUrl request": {
+                "value": "MyModel1"
+              }
+            },
+            "in": "path",
+            "name": "publishedName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Optional. Specifies the name of application using the endpoint.",
+            "in": "query",
+            "name": "application",
+            "required": false,
+            "type": "string",
+            "x-nullable": true
+          },
+          {
+            "description": "An ImageUrl that contains the url of the image to be evaluated.",
             "in": "body",
-            "name": "imageUrl",
+            "name": "body",
             "required": true,
             "schema": {
               "$ref": "#/definitions/ImageUrl"
             }
-          },
-          {
-            "description": "Optional. Specifies the id of a particular iteration to evaluate against.\r\n            The default iteration for the project will be used when not specified",
-            "format": "uuid",
-            "in": "query",
-            "name": "iterationId",
-            "required": false,
-            "type": "string",
-            "x-nullable": true
-          },
-          {
-            "description": "Optional. Specifies the name of application using the endpoint",
-            "in": "query",
-            "name": "application",
-            "required": false,
-            "type": "string",
-            "x-nullable": true
-          },
-          {
-            "$ref": "#/parameters/ApiKey"
           }
         ],
         "responses": {
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/ImagePredictionResultModel"
+              "$ref": "#/definitions/ImagePrediction"
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "schema": {
+              "$ref": "#/definitions/CustomVisionError"
             }
           }
         },
-        "summary": "Predict an image url and saves the result",
         "tags": [
           "ImagePredictionApi"
         ],
-        "x-ms-examples": {
-          "Successful Prediction with Url request": {
-            "parameters": {
-              "Content-Type": "application/json",
-              "Prediction-Key": "{API Key}",
-              "imageUrl": {
-                "Url": "{Image URL}"
-              },
-              "iterationId": "fe1e83c4-6f50-4899-9544-6bb08cf0e15a",
-              "projectId": "64b822c5-8082-4b36-a426-27225f4aa18c"
-            },
-            "responses": {
-              "200": {
-                "body": {
-                  "Created": "2017-12-19T14:21:41.6789561Z",
-                  "Id": "951098b2-9b69-427b-bddb-d5cb618874e3",
-                  "Iteration": "fe1e83c4-6f50-4899-9544-6bb08cf0e15a",
-                  "Predictions": [
-                    {
-                      "Probability": 0.05149666,
-                      "Tag": "Hemlock",
-                      "TagId": "e31ff107-5505-4753-be42-b369b21b026c"
-                    },
-                    {
-                      "Probability": 0.000193528482,
-                      "Tag": "Japanese Cherry",
-                      "TagId": "349d72ac-0948-4d51-b1e4-c14a1f9b848a"
-                    }
-                  ],
-                  "Project": "64b822c5-8082-4b36-a426-27225f4aa18c"
-                },
-                "headers": {}
-              }
-            }
-          }
-        }
+        "operationId": "ClassifyImageUrl",
+        "summary": "Classify an image url and saves the result."
       }
     },
-    "/{projectId}/url/nostore": {
+    "/{projectId}/classify/iterations/{publishedName}/url/nostore": {
       "post": {
         "consumes": [
           "application/json",
-          "text/json",
+          "application/x-www-form-urlencoded",
           "application/xml",
-          "text/xml",
-          "application/x-www-form-urlencoded"
+          "text/xml"
         ],
-        "operationId": "PredictImageUrlWithNoStore",
+        "produces": [
+          "application/json",
+          "application/xml",
+          "text/xml"
+        ],
         "parameters": [
           {
-            "description": "The project id",
+            "description": "The project id.",
+            "examples": {
+              "Successful ClassifyImageUrlWithNoStore request": {
+                "value": "64b822c5-8082-4b36-a426-27225f4aa18c"
+              }
+            },
             "format": "uuid",
             "in": "path",
             "name": "projectId",
@@ -357,25 +295,19 @@
             "x-nullable": false
           },
           {
-            "description": "An {Iris.Web.Api.Models.ImageUrl} that contains the url of the image to be evaluated",
-            "in": "body",
-            "name": "imageUrl",
+            "description": "Specifies the name of the model to evaluate against.",
+            "examples": {
+              "Successful ClassifyImageUrlWithNoStore request": {
+                "value": "MyModel1"
+              }
+            },
+            "in": "path",
+            "name": "publishedName",
             "required": true,
-            "schema": {
-              "$ref": "#/definitions/ImageUrl"
-            }
+            "type": "string"
           },
           {
-            "description": "Optional. Specifies the id of a particular iteration to evaluate against.\r\n            The default iteration for the project will be used when not specified",
-            "format": "uuid",
-            "in": "query",
-            "name": "iterationId",
-            "required": false,
-            "type": "string",
-            "x-nullable": true
-          },
-          {
-            "description": "Optional. Specifies the name of application using the endpoint",
+            "description": "Optional. Specifies the name of application using the endpoint.",
             "in": "query",
             "name": "application",
             "required": false,
@@ -383,132 +315,937 @@
             "x-nullable": true
           },
           {
-            "$ref": "#/parameters/ApiKey"
+            "description": "An {Iris.Web.Api.Models.ImageUrl} that contains the url of the image to be evaluated.",
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ImageUrl"
+            }
           }
         ],
         "responses": {
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/ImagePredictionResultModel"
+              "$ref": "#/definitions/ImagePrediction"
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "schema": {
+              "$ref": "#/definitions/CustomVisionError"
             }
           }
         },
-        "summary": "Predict an image url without saving the result",
         "tags": [
           "ImagePredictionApi"
         ],
-        "x-ms-examples": {
-          "Successful Prediction with Url request": {
-            "parameters": {
-              "Content-Type": "application/json",
-              "Prediction-Key": "{API Key}",
-              "imageUrl": {
-                "Url": "{Image URL}"
-              },
-              "iterationId": "fe1e83c4-6f50-4899-9544-6bb08cf0e15a",
-              "projectId": "64b822c5-8082-4b36-a426-27225f4aa18c"
-            },
-            "responses": {
-              "200": {
-                "body": {
-                  "Created": "2017-12-19T14:21:41.6789561Z",
-                  "Id": "951098b2-9b69-427b-bddb-d5cb618874e3",
-                  "Iteration": "fe1e83c4-6f50-4899-9544-6bb08cf0e15a",
-                  "Predictions": [
-                    {
-                      "Probability": 0.05149666,
-                      "Tag": "Hemlock",
-                      "TagId": "e31ff107-5505-4753-be42-b369b21b026c"
-                    },
-                    {
-                      "Probability": 0.000193528482,
-                      "Tag": "Japanese Cherry",
-                      "TagId": "349d72ac-0948-4d51-b1e4-c14a1f9b848a"
-                    }
-                  ],
-                  "Project": "64b822c5-8082-4b36-a426-27225f4aa18c"
-                },
-                "headers": {}
+        "operationId": "ClassifyImageUrlWithNoStore",
+        "summary": "Classify an image url without saving the result."
+      }
+    },
+    "/{projectId}/detect/iterations/{publishedName}/image": {
+      "post": {
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "description": "The project id.",
+            "examples": {
+              "Successful DetectImage request": {
+                "value": "64b822c5-8082-4b36-a426-27225f4aa18c"
               }
+            },
+            "format": "uuid",
+            "in": "path",
+            "name": "projectId",
+            "required": true,
+            "type": "string",
+            "x-nullable": false
+          },
+          {
+            "description": "Specifies the name of the model to evaluate against.",
+            "examples": {
+              "Successful DetectImage request": {
+                "value": "MyModel1"
+              }
+            },
+            "in": "path",
+            "name": "publishedName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Optional. Specifies the name of application using the endpoint.",
+            "in": "query",
+            "name": "application",
+            "required": false,
+            "type": "string",
+            "x-nullable": true
+          },
+          {
+            "description": "Binary image data. Supported formats are JPEG, GIF, PNG, and BMP. Supports images up to 4MB.",
+            "format": "binary",
+            "in": "formData",
+            "name": "imageData",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ImagePrediction"
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "schema": {
+              "$ref": "#/definitions/CustomVisionError"
             }
           }
-        }
+        },
+        "tags": [
+          "ImagePredictionApi"
+        ],
+        "operationId": "DetectImage",
+        "summary": "Detect objects in an image and saves the result."
+      }
+    },
+    "/{projectId}/detect/iterations/{publishedName}/image/nostore": {
+      "post": {
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "description": "The project id.",
+            "examples": {
+              "Successful DetectImageWithNoStore request": {
+                "value": "64b822c5-8082-4b36-a426-27225f4aa18c"
+              }
+            },
+            "format": "uuid",
+            "in": "path",
+            "name": "projectId",
+            "required": true,
+            "type": "string",
+            "x-nullable": false
+          },
+          {
+            "description": "Specifies the name of the model to evaluate against.",
+            "examples": {
+              "Successful DetectImageWithNoStore request": {
+                "value": "MyModel1"
+              }
+            },
+            "in": "path",
+            "name": "publishedName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Optional. Specifies the name of application using the endpoint.",
+            "in": "query",
+            "name": "application",
+            "required": false,
+            "type": "string",
+            "x-nullable": true
+          },
+          {
+            "description": "Binary image data. Supported formats are JPEG, GIF, PNG, and BMP. Supports images up to 0MB.",
+            "format": "binary",
+            "in": "formData",
+            "name": "imageData",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ImagePrediction"
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "schema": {
+              "$ref": "#/definitions/CustomVisionError"
+            }
+          }
+        },
+        "tags": [
+          "ImagePredictionApi"
+        ],
+        "operationId": "DetectImageWithNoStore",
+        "summary": "Detect objects in an image without saving the result."
+      }
+    },
+    "/{projectId}/detect/iterations/{publishedName}/url": {
+      "post": {
+        "consumes": [
+          "application/json",
+          "application/x-www-form-urlencoded",
+          "application/xml",
+          "text/xml"
+        ],
+        "produces": [
+          "application/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "description": "The project id.",
+            "examples": {
+              "Successful DetectImageUrl request": {
+                "value": "64b822c5-8082-4b36-a426-27225f4aa18c"
+              }
+            },
+            "format": "uuid",
+            "in": "path",
+            "name": "projectId",
+            "required": true,
+            "type": "string",
+            "x-nullable": false
+          },
+          {
+            "description": "Specifies the name of the model to evaluate against.",
+            "examples": {
+              "Successful DetectImageUrl request": {
+                "value": "MyModel1"
+              }
+            },
+            "in": "path",
+            "name": "publishedName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Optional. Specifies the name of application using the endpoint.",
+            "in": "query",
+            "name": "application",
+            "required": false,
+            "type": "string",
+            "x-nullable": true
+          },
+          {
+            "description": "An ImageUrl that contains the url of the image to be evaluated.",
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ImageUrl"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ImagePrediction"
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "schema": {
+              "$ref": "#/definitions/CustomVisionError"
+            }
+          }
+        },
+        "tags": [
+          "ImagePredictionApi"
+        ],
+        "operationId": "DetectImageUrl",
+        "summary": "Detect objects in an image url and saves the result."
+      }
+    },
+    "/{projectId}/detect/iterations/{publishedName}/url/nostore": {
+      "post": {
+        "consumes": [
+          "application/json",
+          "application/x-www-form-urlencoded",
+          "application/xml",
+          "text/xml"
+        ],
+        "produces": [
+          "application/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "description": "The project id.",
+            "examples": {
+              "Successful DetectImageUrlWithNoStore request": {
+                "value": "64b822c5-8082-4b36-a426-27225f4aa18c"
+              }
+            },
+            "format": "uuid",
+            "in": "path",
+            "name": "projectId",
+            "required": true,
+            "type": "string",
+            "x-nullable": false
+          },
+          {
+            "description": "Specifies the name of the model to evaluate against.",
+            "examples": {
+              "Successful DetectImageUrlWithNoStore request": {
+                "value": "MyModel1"
+              }
+            },
+            "in": "path",
+            "name": "publishedName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Optional. Specifies the name of application using the endpoint.",
+            "in": "query",
+            "name": "application",
+            "required": false,
+            "type": "string",
+            "x-nullable": true
+          },
+          {
+            "description": "An {Iris.Web.Api.Models.ImageUrl} that contains the url of the image to be evaluated.",
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ImageUrl"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ImagePrediction"
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "schema": {
+              "$ref": "#/definitions/CustomVisionError"
+            }
+          }
+        },
+        "tags": [
+          "ImagePredictionApi"
+        ],
+        "operationId": "DetectImageUrlWithNoStore",
+        "summary": "Detect objects in an image url without saving the result."
       }
     }
   },
   "definitions": {
-    "ImagePredictionResultModel": {
-      "description": "result of an image prediction request",
+    "BoundingBox": {
+      "description": "Bounding box that defines a region of an image.",
       "properties": {
-        "Created": {
+        "height": {
+          "description": "Height.",
+          "format": "float",
+          "nullable": false,
+          "readOnly": false,
+          "type": "number"
+        },
+        "left": {
+          "description": "Coordinate of the left boundary.",
+          "format": "float",
+          "nullable": false,
+          "readOnly": false,
+          "type": "number"
+        },
+        "top": {
+          "description": "Coordinate of the top boundary.",
+          "format": "float",
+          "nullable": false,
+          "readOnly": false,
+          "type": "number"
+        },
+        "width": {
+          "description": "Width.",
+          "format": "float",
+          "nullable": false,
+          "readOnly": false,
+          "type": "number"
+        }
+      },
+      "required": [
+        "left",
+        "top",
+        "width",
+        "height"
+      ],
+      "type": "object"
+    },
+    "CustomVisionError": {
+      "properties": {
+        "code": {
+          "description": "The error code.",
+          "enum": [
+            "NoError",
+            "BadRequest",
+            "BadRequestExceededBatchSize",
+            "BadRequestNotSupported",
+            "BadRequestInvalidIds",
+            "BadRequestProjectName",
+            "BadRequestProjectNameNotUnique",
+            "BadRequestProjectDescription",
+            "BadRequestProjectUnknownDomain",
+            "BadRequestProjectUnknownClassification",
+            "BadRequestProjectUnsupportedDomainTypeChange",
+            "BadRequestProjectUnsupportedExportPlatform",
+            "BadRequestIterationName",
+            "BadRequestIterationNameNotUnique",
+            "BadRequestIterationDescription",
+            "BadRequestIterationIsNotTrained",
+            "BadRequestWorkspaceCannotBeModified",
+            "BadRequestWorkspaceNotDeletable",
+            "BadRequestTagName",
+            "BadRequestTagNameNotUnique",
+            "BadRequestTagDescription",
+            "BadRequestTagType",
+            "BadRequestMultipleNegativeTag",
+            "BadRequestImageTags",
+            "BadRequestImageRegions",
+            "BadRequestNegativeAndRegularTagOnSameImage",
+            "BadRequestRequiredParamIsNull",
+            "BadRequestIterationIsPublished",
+            "BadRequestInvalidPublishName",
+            "BadRequestInvalidPublishTarget",
+            "BadRequestUnpublishFailed",
+            "BadRequestSubscriptionApi",
+            "BadRequestExceedProjectLimit",
+            "BadRequestExceedIterationPerProjectLimit",
+            "BadRequestExceedTagPerProjectLimit",
+            "BadRequestExceedTagPerImageLimit",
+            "BadRequestExceededQuota",
+            "BadRequestCannotMigrateProjectWithName",
+            "BadRequestNotLimitedTrial",
+            "BadRequestImageBatch",
+            "BadRequestImageStream",
+            "BadRequestImageUrl",
+            "BadRequestImageFormat",
+            "BadRequestImageSizeBytes",
+            "BadRequestImageExceededCount",
+            "BadRequestTrainingNotNeeded",
+            "BadRequestTrainingNotNeededButTrainingPipelineUpdated",
+            "BadRequestTrainingValidationFailed",
+            "BadRequestClassificationTrainingValidationFailed",
+            "BadRequestMultiClassClassificationTrainingValidationFailed",
+            "BadRequestMultiLabelClassificationTrainingValidationFailed",
+            "BadRequestDetectionTrainingValidationFailed",
+            "BadRequestTrainingAlreadyInProgress",
+            "BadRequestDetectionTrainingNotAllowNegativeTag",
+            "BadRequestInvalidEmailAddress",
+            "BadRequestDomainNotSupportedForAdvancedTraining",
+            "BadRequestExportPlatformNotSupportedForAdvancedTraining",
+            "BadRequestReservedBudgetInHoursNotEnoughForAdvancedTraining",
+            "BadRequestExportValidationFailed",
+            "BadRequestExportAlreadyInProgress",
+            "BadRequestPredictionIdsMissing",
+            "BadRequestPredictionIdsExceededCount",
+            "BadRequestPredictionTagsExceededCount",
+            "BadRequestPredictionResultsExceededCount",
+            "BadRequestPredictionInvalidApplicationName",
+            "BadRequestPredictionInvalidQueryParameters",
+            "BadRequestInvalid",
+            "UnsupportedMediaType",
+            "Forbidden",
+            "ForbiddenUser",
+            "ForbiddenUserResource",
+            "ForbiddenUserSignupDisabled",
+            "ForbiddenUserSignupAllowanceExceeded",
+            "ForbiddenUserDoesNotExist",
+            "ForbiddenUserDisabled",
+            "ForbiddenUserInsufficientCapability",
+            "ForbiddenDRModeEnabled",
+            "ForbiddenInvalid",
+            "NotFound",
+            "NotFoundProject",
+            "NotFoundProjectDefaultIteration",
+            "NotFoundIteration",
+            "NotFoundIterationPerformance",
+            "NotFoundTag",
+            "NotFoundImage",
+            "NotFoundDomain",
+            "NotFoundApimSubscription",
+            "NotFoundInvalid",
+            "Conflict",
+            "ConflictInvalid",
+            "ErrorUnknown",
+            "ErrorProjectInvalidWorkspace",
+            "ErrorProjectInvalidPipelineConfiguration",
+            "ErrorProjectInvalidDomain",
+            "ErrorProjectTrainingRequestFailed",
+            "ErrorProjectExportRequestFailed",
+            "ErrorFeaturizationServiceUnavailable",
+            "ErrorFeaturizationQueueTimeout",
+            "ErrorFeaturizationInvalidFeaturizer",
+            "ErrorFeaturizationAugmentationUnavailable",
+            "ErrorFeaturizationUnrecognizedJob",
+            "ErrorFeaturizationAugmentationError",
+            "ErrorExporterInvalidPlatform",
+            "ErrorExporterInvalidFeaturizer",
+            "ErrorExporterInvalidClassifier",
+            "ErrorPredictionServiceUnavailable",
+            "ErrorPredictionModelNotFound",
+            "ErrorPredictionModelNotCached",
+            "ErrorPrediction",
+            "ErrorPredictionStorage",
+            "ErrorRegionProposal",
+            "ErrorInvalid"
+          ],
+          "type": "string",
+          "x-ms-enum": {
+            "modelAsString": true,
+            "name": "CustomVisionErrorCodes"
+          }
+        },
+        "message": {
+          "description": "A message explaining the error reported by the service.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "code",
+        "message"
+      ],
+      "type": "object"
+    },
+    "ImagePrediction": {
+      "description": "Result of an image prediction request.",
+      "properties": {
+        "created": {
+          "description": "Date this prediction was created.",
           "format": "date-time",
+          "nullable": false,
           "readOnly": true,
-          "type": "string",
-          "x-nullable": false
+          "type": "string"
         },
-        "Id": {
+        "id": {
+          "description": "Prediction Id.",
           "format": "uuid",
+          "nullable": false,
           "readOnly": true,
-          "type": "string",
-          "x-nullable": false
+          "type": "string"
         },
-        "Iteration": {
+        "iteration": {
+          "description": "Iteration Id.",
           "format": "uuid",
+          "nullable": false,
           "readOnly": true,
-          "type": "string",
-          "x-nullable": false
+          "type": "string"
         },
-        "Predictions": {
+        "predictions": {
+          "description": "List of predictions.",
           "items": {
-            "$ref": "#/definitions/ImageTagPredictionModel"
+            "$ref": "#/definitions/Prediction"
           },
           "readOnly": true,
-          "type": "array",
-          "x-nullable": true
+          "type": "array"
         },
-        "Project": {
+        "project": {
+          "description": "Project Id.",
           "format": "uuid",
+          "nullable": false,
           "readOnly": true,
-          "type": "string",
-          "x-nullable": false
+          "type": "string"
         }
       },
-      "type": "object",
-      "x-nullable": true
-    },
-    "ImageTagPredictionModel": {
-      "properties": {
-        "Probability": {
-          "format": "float",
-          "readOnly": true,
-          "type": "number",
-          "x-nullable": false
-        },
-        "Tag": {
-          "readOnly": true,
-          "type": "string",
-          "x-nullable": true
-        },
-        "TagId": {
-          "format": "uuid",
-          "readOnly": true,
-          "type": "string",
-          "x-nullable": false
-        }
-      },
-      "type": "object",
-      "x-nullable": true
+      "type": "object"
     },
     "ImageUrl": {
+      "description": "Image url.",
       "properties": {
-        "Url": {
+        "url": {
+          "description": "Url of the image.",
+          "nullable": false,
+          "readOnly": false,
+          "type": "string"
+        }
+      },
+      "required": [
+        "url"
+      ],
+      "type": "object"
+    },
+    "Prediction": {
+      "description": "Prediction result.",
+      "properties": {
+        "boundingBox": {
+          "$ref": "#/definitions/BoundingBox"
+        },
+        "probability": {
+          "description": "Probability of the tag.",
+          "format": "float",
+          "nullable": false,
+          "readOnly": true,
+          "type": "number"
+        },
+        "tagId": {
+          "description": "Id of the predicted tag.",
+          "format": "uuid",
+          "nullable": false,
+          "readOnly": true,
+          "type": "string"
+        },
+        "tagName": {
+          "description": "Name of the predicted tag.",
+          "readOnly": true,
           "type": "string",
           "x-nullable": true
         }
       },
-      "type": "object",
-      "x-nullable": true
+      "type": "object"
+    }
+  },
+  "securityDefinitions": {
+    "apim_key": {
+      "in": "header",
+      "name": "Prediction-Key",
+      "type": "apiKey"
+    }
+  },
+  "security": [
+    {
+      "apim_key": []
+    }
+  ],
+  "x-components": {
+    "parameters": {
+      "Endpoint": {
+        "description": "Supported Cognitive Services endpoints.",
+        "in": "path",
+        "name": "Endpoint",
+        "required": true,
+        "schema": {
+          "type": "string"
+        },
+        "x-ms-parameter-location": "client",
+        "x-ms-skip-url-encoding": true
+      }
+    },
+    "examples": {
+      "Successful_ClassifyImageUrlWithNoStore_request": {
+        "value": {
+          "created": "2019-03-06T02:15:00Z",
+          "id": "951098b2-9b69-427b-bddb-d5cb618874e3",
+          "iteration": "fe1e83c4-6f50-4899-9544-6bb08cf0e15a",
+          "predictions": [
+            {
+              "probability": 0.05149666,
+              "tagId": "e31ff107-5505-4753-be42-b369b21b026c",
+              "tagName": "Hemlock"
+            },
+            {
+              "probability": 0.000193528482,
+              "tagId": "349d72ac-0948-4d51-b1e4-c14a1f9b848a",
+              "tagName": "Japanese Cherry"
+            }
+          ],
+          "project": "64b822c5-8082-4b36-a426-27225f4aa18c"
+        }
+      },
+      "Successful_ClassifyImageUrl_request": {
+        "value": {
+          "created": "2019-03-06T02:15:00Z",
+          "id": "951098b2-9b69-427b-bddb-d5cb618874e3",
+          "iteration": "fe1e83c4-6f50-4899-9544-6bb08cf0e15a",
+          "predictions": [
+            {
+              "probability": 0.05149666,
+              "tagId": "e31ff107-5505-4753-be42-b369b21b026c",
+              "tagName": "Hemlock"
+            },
+            {
+              "probability": 0.000193528482,
+              "tagId": "349d72ac-0948-4d51-b1e4-c14a1f9b848a",
+              "tagName": "Japanese Cherry"
+            }
+          ],
+          "project": "64b822c5-8082-4b36-a426-27225f4aa18c"
+        }
+      },
+      "Successful_ClassifyImageWithNoStore_request": {
+        "value": {
+          "created": "2019-03-06T02:15:00Z",
+          "id": "951098b2-9b69-427b-bddb-d5cb618874e3",
+          "iteration": "fe1e83c4-6f50-4899-9544-6bb08cf0e15a",
+          "predictions": [
+            {
+              "probability": 0.05149666,
+              "tagId": "e31ff107-5505-4753-be42-b369b21b026c",
+              "tagName": "Hemlock"
+            },
+            {
+              "probability": 0.000193528482,
+              "tagId": "349d72ac-0948-4d51-b1e4-c14a1f9b848a",
+              "tagName": "Japanese Cherry"
+            }
+          ],
+          "project": "64b822c5-8082-4b36-a426-27225f4aa18c"
+        }
+      },
+      "Successful_ClassifyImage_request": {
+        "value": {
+          "created": "2019-03-06T02:15:00Z",
+          "id": "951098b2-9b69-427b-bddb-d5cb618874e3",
+          "iteration": "fe1e83c4-6f50-4899-9544-6bb08cf0e15a",
+          "predictions": [
+            {
+              "probability": 0.05149666,
+              "tagId": "e31ff107-5505-4753-be42-b369b21b026c",
+              "tagName": "Hemlock"
+            },
+            {
+              "probability": 0.000193528482,
+              "tagId": "349d72ac-0948-4d51-b1e4-c14a1f9b848a",
+              "tagName": "Japanese Cherry"
+            }
+          ],
+          "project": "64b822c5-8082-4b36-a426-27225f4aa18c"
+        }
+      },
+      "Successful_DetectImageUrlWithNoStore_request": {
+        "value": {
+          "created": "2019-03-10T06:10:28Z",
+          "id": "64615ba1-b53f-e911-b05b-f8633f7a2ef1",
+          "iteration": "45c79472-7198-46e1-8ed7-bad2ca111957",
+          "predictions": [
+            {
+              "boundingBox": {
+                "height": 0.156851858,
+                "left": 0.955476165,
+                "top": 0,
+                "width": 0.0412225723
+              },
+              "probability": 0.05149666,
+              "tagId": "7e703b80-3c7a-4c3c-bf48-9673c6891a75",
+              "tagName": "Tag 1"
+            },
+            {
+              "boundingBox": {
+                "height": 0.6830492,
+                "left": 0.062178582,
+                "top": 0,
+                "width": 0.9378114
+              },
+              "probability": 0.000193528482,
+              "tagId": "a0d06a54-18e4-4787-a9f9-27a9c13a91e8",
+              "tagName": "Tag 2"
+            }
+          ],
+          "project": "fb5bc587-b53f-e911-b05b-f8633f7a2ef1"
+        }
+      },
+      "Successful_DetectImageUrl_request": {
+        "value": {
+          "created": "2019-03-10T06:10:28Z",
+          "id": "64615ba1-b53f-e911-b05b-f8633f7a2ef1",
+          "iteration": "45c79472-7198-46e1-8ed7-bad2ca111957",
+          "predictions": [
+            {
+              "boundingBox": {
+                "height": 0.156851858,
+                "left": 0.955476165,
+                "top": 0,
+                "width": 0.0412225723
+              },
+              "probability": 0.05149666,
+              "tagId": "7e703b80-3c7a-4c3c-bf48-9673c6891a75",
+              "tagName": "Tag 1"
+            },
+            {
+              "boundingBox": {
+                "height": 0.6830492,
+                "left": 0.062178582,
+                "top": 0,
+                "width": 0.9378114
+              },
+              "probability": 0.000193528482,
+              "tagId": "a0d06a54-18e4-4787-a9f9-27a9c13a91e8",
+              "tagName": "Tag 2"
+            }
+          ],
+          "project": "fb5bc587-b53f-e911-b05b-f8633f7a2ef1"
+        }
+      },
+      "Successful_DetectImageWithNoStore_request": {
+        "value": {
+          "created": "2019-03-10T06:10:28Z",
+          "id": "64615ba1-b53f-e911-b05b-f8633f7a2ef1",
+          "iteration": "45c79472-7198-46e1-8ed7-bad2ca111957",
+          "predictions": [
+            {
+              "boundingBox": {
+                "height": 0.156851858,
+                "left": 0.955476165,
+                "top": 0,
+                "width": 0.0412225723
+              },
+              "probability": 0.05149666,
+              "tagId": "7e703b80-3c7a-4c3c-bf48-9673c6891a75",
+              "tagName": "Tag 1"
+            },
+            {
+              "boundingBox": {
+                "height": 0.6830492,
+                "left": 0.062178582,
+                "top": 0,
+                "width": 0.9378114
+              },
+              "probability": 0.000193528482,
+              "tagId": "a0d06a54-18e4-4787-a9f9-27a9c13a91e8",
+              "tagName": "Tag 2"
+            }
+          ],
+          "project": "fb5bc587-b53f-e911-b05b-f8633f7a2ef1"
+        }
+      },
+      "Successful_DetectImage_request": {
+        "value": {
+          "created": "2019-03-10T06:10:28Z",
+          "id": "64615ba1-b53f-e911-b05b-f8633f7a2ef1",
+          "iteration": "45c79472-7198-46e1-8ed7-bad2ca111957",
+          "predictions": [
+            {
+              "boundingBox": {
+                "height": 0.156851858,
+                "left": 0.955476165,
+                "top": 0,
+                "width": 0.0412225723
+              },
+              "probability": 0.05149666,
+              "tagId": "7e703b80-3c7a-4c3c-bf48-9673c6891a75",
+              "tagName": "Tag 1"
+            },
+            {
+              "boundingBox": {
+                "height": 0.6830492,
+                "left": 0.062178582,
+                "top": 0,
+                "width": 0.9378114
+              },
+              "probability": 0.000193528482,
+              "tagId": "a0d06a54-18e4-4787-a9f9-27a9c13a91e8",
+              "tagName": "Tag 2"
+            }
+          ],
+          "project": "fb5bc587-b53f-e911-b05b-f8633f7a2ef1"
+        }
+      }
+    },
+    "requestBodies": {
+      "ClassifyImage": {
+        "content": {
+          "multipart/form-data": {
+            "schema": {
+              "properties": {
+                "imageData": {
+                  "description": "Binary image data. Supported formats are JPEG, GIF, PNG, and BMP. Supports images up to 4MB.",
+                  "format": "binary",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "imageData"
+              ],
+              "type": "object"
+            }
+          }
+        },
+        "required": true
+      },
+      "ClassifyImageWithNoStore": {
+        "content": {
+          "multipart/form-data": {
+            "schema": {
+              "properties": {
+                "imageData": {
+                  "description": "Binary image data. Supported formats are JPEG, GIF, PNG, and BMP. Supports images up to 0MB.",
+                  "format": "binary",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "imageData"
+              ],
+              "type": "object"
+            }
+          }
+        },
+        "required": true
+      },
+      "ImageUrl": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/definitions/ImageUrl"
+            }
+          },
+          "application/x-www-form-urlencoded": {
+            "schema": {
+              "$ref": "#/definitions/ImageUrl"
+            }
+          },
+          "application/xml": {
+            "schema": {
+              "$ref": "#/definitions/ImageUrl"
+            }
+          },
+          "text/xml": {
+            "schema": {
+              "$ref": "#/definitions/ImageUrl"
+            }
+          }
+        },
+        "description": "An {Iris.Web.Api.Models.ImageUrl} that contains the url of the image to be evaluated.",
+        "required": true
+      },
+      "ImageUrl2": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/definitions/ImageUrl"
+            }
+          },
+          "application/x-www-form-urlencoded": {
+            "schema": {
+              "$ref": "#/definitions/ImageUrl"
+            }
+          },
+          "application/xml": {
+            "schema": {
+              "$ref": "#/definitions/ImageUrl"
+            }
+          },
+          "text/xml": {
+            "schema": {
+              "$ref": "#/definitions/ImageUrl"
+            }
+          }
+        },
+        "description": "An ImageUrl that contains the url of the image to be evaluated.",
+        "required": true
+      }
     }
   }
 }

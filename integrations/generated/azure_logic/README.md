@@ -15,9 +15,7 @@ let azure_logic = require('@datafire/azure_logic').create({
   redirect_uri: ""
 });
 
-azure_logic.ListOperations({
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -28,12 +26,12 @@ REST API for Azure Logic Apps.
 
 ## Actions
 
-### ListOperations
+### Operations_List
 Lists all of the available Logic REST API operations.
 
 
 ```js
-azure_logic.ListOperations({
+azure_logic.Operations_List({
   "api-version": ""
 }, context)
 ```
@@ -65,6 +63,26 @@ azure_logic.IntegrationAccounts_ListBySubscription({
 #### Output
 * output [IntegrationAccountListResult](#integrationaccountlistresult)
 
+### IntegrationServiceEnvironments_ListBySubscription
+Gets a list of integration service environments by subscription.
+
+
+```js
+azure_logic.IntegrationServiceEnvironments_ListBySubscription({
+  "subscriptionId": "",
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: The subscription id.
+  * api-version **required** `string`: The API version.
+  * $top `integer`: The number of items to be included in the result.
+
+#### Output
+* output [IntegrationServiceEnvironmentListResult](#integrationserviceenvironmentlistresult)
+
 ### Workflows_ListBySubscription
 Gets a list of workflows by subscription.
 
@@ -81,7 +99,7 @@ azure_logic.Workflows_ListBySubscription({
   * subscriptionId **required** `string`: The subscription id.
   * api-version **required** `string`: The API version.
   * $top `integer`: The number of items to be included in the result.
-  * $filter `string`: The filter to apply on the operation.
+  * $filter `string`: The filter to apply on the operation. Options for filters include: State, Trigger, and ReferencedResourceId.
 
 #### Output
 * output [WorkflowListResult](#workflowlistresult)
@@ -204,12 +222,12 @@ azure_logic.IntegrationAccounts_CreateOrUpdate({
 #### Output
 * output [IntegrationAccount](#integrationaccount)
 
-### Agreements_ListByIntegrationAccounts
+### IntegrationAccountAgreements_List
 Gets a list of integration account agreements.
 
 
 ```js
-azure_logic.Agreements_ListByIntegrationAccounts({
+azure_logic.IntegrationAccountAgreements_List({
   "subscriptionId": "",
   "resourceGroupName": "",
   "integrationAccountName": "",
@@ -224,17 +242,17 @@ azure_logic.Agreements_ListByIntegrationAccounts({
   * integrationAccountName **required** `string`: The integration account name.
   * api-version **required** `string`: The API version.
   * $top `integer`: The number of items to be included in the result.
-  * $filter `string`: The filter to apply on the operation.
+  * $filter `string`: The filter to apply on the operation. Options for filters include: AgreementType.
 
 #### Output
 * output [IntegrationAccountAgreementListResult](#integrationaccountagreementlistresult)
 
-### Agreements_Delete
+### IntegrationAccountAgreements_Delete
 Deletes an integration account agreement.
 
 
 ```js
-azure_logic.Agreements_Delete({
+azure_logic.IntegrationAccountAgreements_Delete({
   "subscriptionId": "",
   "resourceGroupName": "",
   "integrationAccountName": "",
@@ -254,12 +272,12 @@ azure_logic.Agreements_Delete({
 #### Output
 *Output schema unknown*
 
-### Agreements_Get
+### IntegrationAccountAgreements_Get
 Gets an integration account agreement.
 
 
 ```js
-azure_logic.Agreements_Get({
+azure_logic.IntegrationAccountAgreements_Get({
   "subscriptionId": "",
   "resourceGroupName": "",
   "integrationAccountName": "",
@@ -279,12 +297,12 @@ azure_logic.Agreements_Get({
 #### Output
 * output [IntegrationAccountAgreement](#integrationaccountagreement)
 
-### Agreements_CreateOrUpdate
+### IntegrationAccountAgreements_CreateOrUpdate
 Creates or updates an integration account agreement.
 
 
 ```js
-azure_logic.Agreements_CreateOrUpdate({
+azure_logic.IntegrationAccountAgreements_CreateOrUpdate({
   "subscriptionId": "",
   "resourceGroupName": "",
   "integrationAccountName": "",
@@ -321,12 +339,12 @@ azure_logic.Agreements_CreateOrUpdate({
 #### Output
 * output [IntegrationAccountAgreement](#integrationaccountagreement)
 
-### Agreements_ListContentCallbackUrl
+### IntegrationAccountAgreements_ListContentCallbackUrl
 Get the content callback url.
 
 
 ```js
-azure_logic.Agreements_ListContentCallbackUrl({
+azure_logic.IntegrationAccountAgreements_ListContentCallbackUrl({
   "subscriptionId": "",
   "resourceGroupName": "",
   "integrationAccountName": "",
@@ -582,12 +600,12 @@ azure_logic.IntegrationAccountBatchConfigurations_CreateOrUpdate({
 #### Output
 * output [BatchConfiguration](#batchconfiguration)
 
-### Certificates_ListByIntegrationAccounts
+### IntegrationAccountCertificates_List
 Gets a list of integration account certificates.
 
 
 ```js
-azure_logic.Certificates_ListByIntegrationAccounts({
+azure_logic.IntegrationAccountCertificates_List({
   "subscriptionId": "",
   "resourceGroupName": "",
   "integrationAccountName": "",
@@ -606,12 +624,12 @@ azure_logic.Certificates_ListByIntegrationAccounts({
 #### Output
 * output [IntegrationAccountCertificateListResult](#integrationaccountcertificatelistresult)
 
-### Certificates_Delete
+### IntegrationAccountCertificates_Delete
 Deletes an integration account certificate.
 
 
 ```js
-azure_logic.Certificates_Delete({
+azure_logic.IntegrationAccountCertificates_Delete({
   "subscriptionId": "",
   "resourceGroupName": "",
   "integrationAccountName": "",
@@ -631,12 +649,12 @@ azure_logic.Certificates_Delete({
 #### Output
 *Output schema unknown*
 
-### Certificates_Get
+### IntegrationAccountCertificates_Get
 Gets an integration account certificate.
 
 
 ```js
-azure_logic.Certificates_Get({
+azure_logic.IntegrationAccountCertificates_Get({
   "subscriptionId": "",
   "resourceGroupName": "",
   "integrationAccountName": "",
@@ -656,12 +674,12 @@ azure_logic.Certificates_Get({
 #### Output
 * output [IntegrationAccountCertificate](#integrationaccountcertificate)
 
-### Certificates_CreateOrUpdate
+### IntegrationAccountCertificates_CreateOrUpdate
 Creates or updates an integration account certificate.
 
 
 ```js
-azure_logic.Certificates_CreateOrUpdate({
+azure_logic.IntegrationAccountCertificates_CreateOrUpdate({
   "subscriptionId": "",
   "resourceGroupName": "",
   "integrationAccountName": "",
@@ -685,12 +703,12 @@ azure_logic.Certificates_CreateOrUpdate({
 #### Output
 * output [IntegrationAccountCertificate](#integrationaccountcertificate)
 
-### IntegrationAccounts_GetCallbackUrl
+### IntegrationAccounts_ListCallbackUrl
 Gets the integration account callback URL.
 
 
 ```js
-azure_logic.IntegrationAccounts_GetCallbackUrl({
+azure_logic.IntegrationAccounts_ListCallbackUrl({
   "subscriptionId": "",
   "resourceGroupName": "",
   "integrationAccountName": "",
@@ -765,12 +783,12 @@ azure_logic.IntegrationAccounts_LogTrackingEvents({
 #### Output
 *Output schema unknown*
 
-### Maps_ListByIntegrationAccounts
+### IntegrationAccountMaps_List
 Gets a list of integration account maps.
 
 
 ```js
-azure_logic.Maps_ListByIntegrationAccounts({
+azure_logic.IntegrationAccountMaps_List({
   "subscriptionId": "",
   "resourceGroupName": "",
   "integrationAccountName": "",
@@ -785,17 +803,17 @@ azure_logic.Maps_ListByIntegrationAccounts({
   * integrationAccountName **required** `string`: The integration account name.
   * api-version **required** `string`: The API version.
   * $top `integer`: The number of items to be included in the result.
-  * $filter `string`: The filter to apply on the operation.
+  * $filter `string`: The filter to apply on the operation. Options for filters include: MapType.
 
 #### Output
 * output [IntegrationAccountMapListResult](#integrationaccountmaplistresult)
 
-### Maps_Delete
+### IntegrationAccountMaps_Delete
 Deletes an integration account map.
 
 
 ```js
-azure_logic.Maps_Delete({
+azure_logic.IntegrationAccountMaps_Delete({
   "subscriptionId": "",
   "resourceGroupName": "",
   "integrationAccountName": "",
@@ -815,12 +833,12 @@ azure_logic.Maps_Delete({
 #### Output
 *Output schema unknown*
 
-### Maps_Get
+### IntegrationAccountMaps_Get
 Gets an integration account map.
 
 
 ```js
-azure_logic.Maps_Get({
+azure_logic.IntegrationAccountMaps_Get({
   "subscriptionId": "",
   "resourceGroupName": "",
   "integrationAccountName": "",
@@ -840,12 +858,12 @@ azure_logic.Maps_Get({
 #### Output
 * output [IntegrationAccountMap](#integrationaccountmap)
 
-### Maps_CreateOrUpdate
+### IntegrationAccountMaps_CreateOrUpdate
 Creates or updates an integration account map.
 
 
 ```js
-azure_logic.Maps_CreateOrUpdate({
+azure_logic.IntegrationAccountMaps_CreateOrUpdate({
   "subscriptionId": "",
   "resourceGroupName": "",
   "integrationAccountName": "",
@@ -871,12 +889,12 @@ azure_logic.Maps_CreateOrUpdate({
 #### Output
 * output [IntegrationAccountMap](#integrationaccountmap)
 
-### Maps_ListContentCallbackUrl
+### IntegrationAccountMaps_ListContentCallbackUrl
 Get the content callback url.
 
 
 ```js
-azure_logic.Maps_ListContentCallbackUrl({
+azure_logic.IntegrationAccountMaps_ListContentCallbackUrl({
   "subscriptionId": "",
   "resourceGroupName": "",
   "integrationAccountName": "",
@@ -898,12 +916,12 @@ azure_logic.Maps_ListContentCallbackUrl({
 #### Output
 * output [WorkflowTriggerCallbackUrl](#workflowtriggercallbackurl)
 
-### Partners_ListByIntegrationAccounts
+### IntegrationAccountPartners_List
 Gets a list of integration account partners.
 
 
 ```js
-azure_logic.Partners_ListByIntegrationAccounts({
+azure_logic.IntegrationAccountPartners_List({
   "subscriptionId": "",
   "resourceGroupName": "",
   "integrationAccountName": "",
@@ -918,17 +936,17 @@ azure_logic.Partners_ListByIntegrationAccounts({
   * integrationAccountName **required** `string`: The integration account name.
   * api-version **required** `string`: The API version.
   * $top `integer`: The number of items to be included in the result.
-  * $filter `string`: The filter to apply on the operation.
+  * $filter `string`: The filter to apply on the operation. Options for filters include: PartnerType.
 
 #### Output
 * output [IntegrationAccountPartnerListResult](#integrationaccountpartnerlistresult)
 
-### Partners_Delete
+### IntegrationAccountPartners_Delete
 Deletes an integration account partner.
 
 
 ```js
-azure_logic.Partners_Delete({
+azure_logic.IntegrationAccountPartners_Delete({
   "subscriptionId": "",
   "resourceGroupName": "",
   "integrationAccountName": "",
@@ -948,12 +966,12 @@ azure_logic.Partners_Delete({
 #### Output
 *Output schema unknown*
 
-### Partners_Get
+### IntegrationAccountPartners_Get
 Gets an integration account partner.
 
 
 ```js
-azure_logic.Partners_Get({
+azure_logic.IntegrationAccountPartners_Get({
   "subscriptionId": "",
   "resourceGroupName": "",
   "integrationAccountName": "",
@@ -973,12 +991,12 @@ azure_logic.Partners_Get({
 #### Output
 * output [IntegrationAccountPartner](#integrationaccountpartner)
 
-### Partners_CreateOrUpdate
+### IntegrationAccountPartners_CreateOrUpdate
 Creates or updates an integration account partner.
 
 
 ```js
-azure_logic.Partners_CreateOrUpdate({
+azure_logic.IntegrationAccountPartners_CreateOrUpdate({
   "subscriptionId": "",
   "resourceGroupName": "",
   "integrationAccountName": "",
@@ -1005,12 +1023,12 @@ azure_logic.Partners_CreateOrUpdate({
 #### Output
 * output [IntegrationAccountPartner](#integrationaccountpartner)
 
-### Partners_ListContentCallbackUrl
+### IntegrationAccountPartners_ListContentCallbackUrl
 Get the content callback url.
 
 
 ```js
-azure_logic.Partners_ListContentCallbackUrl({
+azure_logic.IntegrationAccountPartners_ListContentCallbackUrl({
   "subscriptionId": "",
   "resourceGroupName": "",
   "integrationAccountName": "",
@@ -1057,12 +1075,12 @@ azure_logic.IntegrationAccounts_RegenerateAccessKey({
 #### Output
 * output [IntegrationAccount](#integrationaccount)
 
-### Schemas_ListByIntegrationAccounts
+### IntegrationAccountSchemas_List
 Gets a list of integration account schemas.
 
 
 ```js
-azure_logic.Schemas_ListByIntegrationAccounts({
+azure_logic.IntegrationAccountSchemas_List({
   "subscriptionId": "",
   "resourceGroupName": "",
   "integrationAccountName": "",
@@ -1077,17 +1095,17 @@ azure_logic.Schemas_ListByIntegrationAccounts({
   * integrationAccountName **required** `string`: The integration account name.
   * api-version **required** `string`: The API version.
   * $top `integer`: The number of items to be included in the result.
-  * $filter `string`: The filter to apply on the operation.
+  * $filter `string`: The filter to apply on the operation. Options for filters include: SchemaType.
 
 #### Output
 * output [IntegrationAccountSchemaListResult](#integrationaccountschemalistresult)
 
-### Schemas_Delete
+### IntegrationAccountSchemas_Delete
 Deletes an integration account schema.
 
 
 ```js
-azure_logic.Schemas_Delete({
+azure_logic.IntegrationAccountSchemas_Delete({
   "subscriptionId": "",
   "resourceGroupName": "",
   "integrationAccountName": "",
@@ -1107,12 +1125,12 @@ azure_logic.Schemas_Delete({
 #### Output
 *Output schema unknown*
 
-### Schemas_Get
+### IntegrationAccountSchemas_Get
 Gets an integration account schema.
 
 
 ```js
-azure_logic.Schemas_Get({
+azure_logic.IntegrationAccountSchemas_Get({
   "subscriptionId": "",
   "resourceGroupName": "",
   "integrationAccountName": "",
@@ -1132,12 +1150,12 @@ azure_logic.Schemas_Get({
 #### Output
 * output [IntegrationAccountSchema](#integrationaccountschema)
 
-### Schemas_CreateOrUpdate
+### IntegrationAccountSchemas_CreateOrUpdate
 Creates or updates an integration account schema.
 
 
 ```js
-azure_logic.Schemas_CreateOrUpdate({
+azure_logic.IntegrationAccountSchemas_CreateOrUpdate({
   "subscriptionId": "",
   "resourceGroupName": "",
   "integrationAccountName": "",
@@ -1163,12 +1181,12 @@ azure_logic.Schemas_CreateOrUpdate({
 #### Output
 * output [IntegrationAccountSchema](#integrationaccountschema)
 
-### Schemas_ListContentCallbackUrl
+### IntegrationAccountSchemas_ListContentCallbackUrl
 Get the content callback url.
 
 
 ```js
-azure_logic.Schemas_ListContentCallbackUrl({
+azure_logic.IntegrationAccountSchemas_ListContentCallbackUrl({
   "subscriptionId": "",
   "resourceGroupName": "",
   "integrationAccountName": "",
@@ -1190,12 +1208,12 @@ azure_logic.Schemas_ListContentCallbackUrl({
 #### Output
 * output [WorkflowTriggerCallbackUrl](#workflowtriggercallbackurl)
 
-### Sessions_ListByIntegrationAccounts
+### IntegrationAccountSessions_List
 Gets a list of integration account sessions.
 
 
 ```js
-azure_logic.Sessions_ListByIntegrationAccounts({
+azure_logic.IntegrationAccountSessions_List({
   "subscriptionId": "",
   "resourceGroupName": "",
   "integrationAccountName": "",
@@ -1210,17 +1228,17 @@ azure_logic.Sessions_ListByIntegrationAccounts({
   * integrationAccountName **required** `string`: The integration account name.
   * api-version **required** `string`: The API version.
   * $top `integer`: The number of items to be included in the result.
-  * $filter `string`: The filter to apply on the operation.
+  * $filter `string`: The filter to apply on the operation. Options for filters include: ChangedTime.
 
 #### Output
 * output [IntegrationAccountSessionListResult](#integrationaccountsessionlistresult)
 
-### Sessions_Delete
+### IntegrationAccountSessions_Delete
 Deletes an integration account session.
 
 
 ```js
-azure_logic.Sessions_Delete({
+azure_logic.IntegrationAccountSessions_Delete({
   "subscriptionId": "",
   "resourceGroupName": "",
   "integrationAccountName": "",
@@ -1240,12 +1258,12 @@ azure_logic.Sessions_Delete({
 #### Output
 *Output schema unknown*
 
-### Sessions_Get
+### IntegrationAccountSessions_Get
 Gets an integration account session.
 
 
 ```js
-azure_logic.Sessions_Get({
+azure_logic.IntegrationAccountSessions_Get({
   "subscriptionId": "",
   "resourceGroupName": "",
   "integrationAccountName": "",
@@ -1265,12 +1283,12 @@ azure_logic.Sessions_Get({
 #### Output
 * output [IntegrationAccountSession](#integrationaccountsession)
 
-### Sessions_CreateOrUpdate
+### IntegrationAccountSessions_CreateOrUpdate
 Creates or updates an integration account session.
 
 
 ```js
-azure_logic.Sessions_CreateOrUpdate({
+azure_logic.IntegrationAccountSessions_CreateOrUpdate({
   "subscriptionId": "",
   "resourceGroupName": "",
   "integrationAccountName": "",
@@ -1294,18 +1312,17 @@ azure_logic.Sessions_CreateOrUpdate({
 #### Output
 * output [IntegrationAccountSession](#integrationaccountsession)
 
-### Workflows_Validate
+### Workflows_ValidateByLocation
 Validates the workflow definition.
 
 
 ```js
-azure_logic.Workflows_Validate({
+azure_logic.Workflows_ValidateByLocation({
   "subscriptionId": "",
   "resourceGroupName": "",
   "location": "",
   "workflowName": "",
-  "api-version": "",
-  "workflow": {}
+  "api-version": ""
 }, context)
 ```
 
@@ -1316,7 +1333,6 @@ azure_logic.Workflows_Validate({
   * location **required** `string`: The workflow location.
   * workflowName **required** `string`: The workflow name.
   * api-version **required** `string`: The API version.
-  * workflow **required** [Workflow](#workflow)
 
 #### Output
 *Output schema unknown*
@@ -1339,7 +1355,7 @@ azure_logic.Workflows_ListByResourceGroup({
   * resourceGroupName **required** `string`: The resource group name.
   * api-version **required** `string`: The API version.
   * $top `integer`: The number of items to be included in the result.
-  * $filter `string`: The filter to apply on the operation.
+  * $filter `string`: The filter to apply on the operation. Options for filters include: State, Trigger, and ReferencedResourceId.
 
 #### Output
 * output [WorkflowListResult](#workflowlistresult)
@@ -1629,7 +1645,7 @@ azure_logic.WorkflowRuns_List({
   * workflowName **required** `string`: The workflow name.
   * api-version **required** `string`: The API version.
   * $top `integer`: The number of items to be included in the result.
-  * $filter `string`: The filter to apply on the operation.
+  * $filter `string`: The filter to apply on the operation. Options for filters include: Status, StartTime, and ClientTrackingId.
 
 #### Output
 * output [WorkflowRunListResult](#workflowrunlistresult)
@@ -1681,7 +1697,7 @@ azure_logic.WorkflowRunActions_List({
   * runName **required** `string`: The workflow run name.
   * api-version **required** `string`: The API version.
   * $top `integer`: The number of items to be included in the result.
-  * $filter `string`: The filter to apply on the operation.
+  * $filter `string`: The filter to apply on the operation. Options for filters include: Status.
 
 #### Output
 * output [WorkflowRunActionListResult](#workflowrunactionlistresult)
@@ -1825,12 +1841,128 @@ azure_logic.WorkflowRunActionRepetitions_ListExpressionTraces({
 #### Output
 * output [ExpressionTraces](#expressiontraces)
 
-### WorkflowRunActionScopedRepetitions_List
+### WorkflowRunActionRepetitionsRequestHistories_List
+List a workflow run repetition request history.
+
+
+```js
+azure_logic.WorkflowRunActionRepetitionsRequestHistories_List({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "workflowName": "",
+  "runName": "",
+  "actionName": "",
+  "repetitionName": "",
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: The subscription id.
+  * resourceGroupName **required** `string`: The resource group name.
+  * workflowName **required** `string`: The workflow name.
+  * runName **required** `string`: The workflow run name.
+  * actionName **required** `string`: The workflow action name.
+  * repetitionName **required** `string`: The workflow repetition.
+  * api-version **required** `string`: The API version.
+
+#### Output
+* output [RequestHistoryListResult](#requesthistorylistresult)
+
+### WorkflowRunActionRepetitionsRequestHistories_Get
+Gets a workflow run repetition request history.
+
+
+```js
+azure_logic.WorkflowRunActionRepetitionsRequestHistories_Get({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "workflowName": "",
+  "runName": "",
+  "actionName": "",
+  "repetitionName": "",
+  "requestHistoryName": "",
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: The subscription id.
+  * resourceGroupName **required** `string`: The resource group name.
+  * workflowName **required** `string`: The workflow name.
+  * runName **required** `string`: The workflow run name.
+  * actionName **required** `string`: The workflow action name.
+  * repetitionName **required** `string`: The workflow repetition.
+  * requestHistoryName **required** `string`: The request history name.
+  * api-version **required** `string`: The API version.
+
+#### Output
+* output [RequestHistory](#requesthistory)
+
+### WorkflowRunActionRequestHistories_List
+List a workflow run request history.
+
+
+```js
+azure_logic.WorkflowRunActionRequestHistories_List({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "workflowName": "",
+  "runName": "",
+  "actionName": "",
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: The subscription id.
+  * resourceGroupName **required** `string`: The resource group name.
+  * workflowName **required** `string`: The workflow name.
+  * runName **required** `string`: The workflow run name.
+  * actionName **required** `string`: The workflow action name.
+  * api-version **required** `string`: The API version.
+
+#### Output
+* output [RequestHistoryListResult](#requesthistorylistresult)
+
+### WorkflowRunActionRequestHistories_Get
+Gets a workflow run request history.
+
+
+```js
+azure_logic.WorkflowRunActionRequestHistories_Get({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "workflowName": "",
+  "runName": "",
+  "actionName": "",
+  "requestHistoryName": "",
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: The subscription id.
+  * resourceGroupName **required** `string`: The resource group name.
+  * workflowName **required** `string`: The workflow name.
+  * runName **required** `string`: The workflow run name.
+  * actionName **required** `string`: The workflow action name.
+  * requestHistoryName **required** `string`: The request history name.
+  * api-version **required** `string`: The API version.
+
+#### Output
+* output [RequestHistory](#requesthistory)
+
+### WorkflowRunActionScopeRepetitions_List
 List the workflow run action scoped repetitions.
 
 
 ```js
-azure_logic.WorkflowRunActionScopedRepetitions_List({
+azure_logic.WorkflowRunActionScopeRepetitions_List({
   "subscriptionId": "",
   "resourceGroupName": "",
   "workflowName": "",
@@ -1852,12 +1984,12 @@ azure_logic.WorkflowRunActionScopedRepetitions_List({
 #### Output
 * output [WorkflowRunActionRepetitionDefinitionCollection](#workflowrunactionrepetitiondefinitioncollection)
 
-### WorkflowRunActionScopedRepetitions_Get
+### WorkflowRunActionScopeRepetitions_Get
 Get a workflow run action scoped repetition.
 
 
 ```js
-azure_logic.WorkflowRunActionScopedRepetitions_Get({
+azure_logic.WorkflowRunActionScopeRepetitions_Get({
   "subscriptionId": "",
   "resourceGroupName": "",
   "workflowName": "",
@@ -2005,7 +2137,7 @@ azure_logic.WorkflowTriggerHistories_List({
   * triggerName **required** `string`: The workflow trigger name.
   * api-version **required** `string`: The API version.
   * $top `integer`: The number of items to be included in the result.
-  * $filter `string`: The filter to apply on the operation.
+  * $filter `string`: The filter to apply on the operation. Options for filters include: Status, StartTime, and ClientTrackingId.
 
 #### Output
 * output [WorkflowTriggerHistoryListResult](#workflowtriggerhistorylistresult)
@@ -2193,12 +2325,12 @@ azure_logic.WorkflowTriggers_SetState({
 #### Output
 *Output schema unknown*
 
-### Workflows_ValidateWorkflow
+### Workflows_ValidateByResourceGroup
 Validates the workflow.
 
 
 ```js
-azure_logic.Workflows_ValidateWorkflow({
+azure_logic.Workflows_ValidateByResourceGroup({
   "subscriptionId": "",
   "resourceGroupName": "",
   "workflowName": "",
@@ -2267,12 +2399,12 @@ azure_logic.WorkflowVersions_Get({
 #### Output
 * output [WorkflowVersion](#workflowversion)
 
-### WorkflowVersions_ListCallbackUrl
+### WorkflowVersionTriggers_ListCallbackUrl
 Get the callback url for a trigger of a workflow version.
 
 
 ```js
-azure_logic.WorkflowVersions_ListCallbackUrl({
+azure_logic.WorkflowVersionTriggers_ListCallbackUrl({
   "subscriptionId": "",
   "resourceGroupName": "",
   "workflowName": "",
@@ -2295,16 +2427,326 @@ azure_logic.WorkflowVersions_ListCallbackUrl({
 #### Output
 * output [WorkflowTriggerCallbackUrl](#workflowtriggercallbackurl)
 
+### IntegrationServiceEnvironments_ListByResourceGroup
+Gets a list of integration service environments by resource group.
+
+
+```js
+azure_logic.IntegrationServiceEnvironments_ListByResourceGroup({
+  "subscriptionId": "",
+  "resourceGroup": "",
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: The subscription id.
+  * resourceGroup **required** `string`: The resource group.
+  * api-version **required** `string`: The API version.
+  * $top `integer`: The number of items to be included in the result.
+
+#### Output
+* output [IntegrationServiceEnvironmentListResult](#integrationserviceenvironmentlistresult)
+
+### IntegrationServiceEnvironments_Delete
+Deletes an integration service environment.
+
+
+```js
+azure_logic.IntegrationServiceEnvironments_Delete({
+  "subscriptionId": "",
+  "resourceGroup": "",
+  "integrationServiceEnvironmentName": "",
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: The subscription id.
+  * resourceGroup **required** `string`: The resource group.
+  * integrationServiceEnvironmentName **required** `string`: The integration service environment name.
+  * api-version **required** `string`: The API version.
+
+#### Output
+*Output schema unknown*
+
+### IntegrationServiceEnvironments_Get
+Gets an integration service environment.
+
+
+```js
+azure_logic.IntegrationServiceEnvironments_Get({
+  "subscriptionId": "",
+  "resourceGroup": "",
+  "integrationServiceEnvironmentName": "",
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: The subscription id.
+  * resourceGroup **required** `string`: The resource group.
+  * integrationServiceEnvironmentName **required** `string`: The integration service environment name.
+  * api-version **required** `string`: The API version.
+
+#### Output
+* output [IntegrationServiceEnvironment](#integrationserviceenvironment)
+
+### IntegrationServiceEnvironments_Update
+Updates an integration service environment.
+
+
+```js
+azure_logic.IntegrationServiceEnvironments_Update({
+  "subscriptionId": "",
+  "resourceGroup": "",
+  "integrationServiceEnvironmentName": "",
+  "api-version": "",
+  "integrationServiceEnvironment": {}
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: The subscription id.
+  * resourceGroup **required** `string`: The resource group.
+  * integrationServiceEnvironmentName **required** `string`: The integration service environment name.
+  * api-version **required** `string`: The API version.
+  * integrationServiceEnvironment **required** [IntegrationServiceEnvironment](#integrationserviceenvironment)
+
+#### Output
+* output [IntegrationServiceEnvironment](#integrationserviceenvironment)
+
+### IntegrationServiceEnvironments_CreateOrUpdate
+Creates or updates an integration service environment.
+
+
+```js
+azure_logic.IntegrationServiceEnvironments_CreateOrUpdate({
+  "subscriptionId": "",
+  "resourceGroup": "",
+  "integrationServiceEnvironmentName": "",
+  "api-version": "",
+  "integrationServiceEnvironment": {}
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: The subscription id.
+  * resourceGroup **required** `string`: The resource group.
+  * integrationServiceEnvironmentName **required** `string`: The integration service environment name.
+  * api-version **required** `string`: The API version.
+  * integrationServiceEnvironment **required** [IntegrationServiceEnvironment](#integrationserviceenvironment)
+
+#### Output
+* output [IntegrationServiceEnvironment](#integrationserviceenvironment)
+
+### IntegrationServiceEnvironmentNetworkHealth_Get
+Gets the integration service environment network health.
+
+
+```js
+azure_logic.IntegrationServiceEnvironmentNetworkHealth_Get({
+  "subscriptionId": "",
+  "resourceGroup": "",
+  "integrationServiceEnvironmentName": "",
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: The subscription id.
+  * resourceGroup **required** `string`: The resource group.
+  * integrationServiceEnvironmentName **required** `string`: The integration service environment name.
+  * api-version **required** `string`: The API version.
+
+#### Output
+* output [IntegrationServiceEnvironmentNetworkHealth](#integrationserviceenvironmentnetworkhealth)
+
+### IntegrationServiceEnvironmentManagedApis_List
+Gets the integration service environment managed Apis.
+
+
+```js
+azure_logic.IntegrationServiceEnvironmentManagedApis_List({
+  "subscriptionId": "",
+  "resourceGroup": "",
+  "integrationServiceEnvironmentName": "",
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: The subscription id.
+  * resourceGroup **required** `string`: The resource group.
+  * integrationServiceEnvironmentName **required** `string`: The integration service environment name.
+  * api-version **required** `string`: The API version.
+
+#### Output
+* output [ManagedApiListResult](#managedapilistresult)
+
+### IntegrationServiceEnvironmentManagedApis_Delete
+Deletes the integration service environment managed Api.
+
+
+```js
+azure_logic.IntegrationServiceEnvironmentManagedApis_Delete({
+  "subscriptionId": "",
+  "resourceGroup": "",
+  "integrationServiceEnvironmentName": "",
+  "apiName": "",
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: The subscription id.
+  * resourceGroup **required** `string`: The resource group.
+  * integrationServiceEnvironmentName **required** `string`: The integration service environment name.
+  * apiName **required** `string`: The api name.
+  * api-version **required** `string`: The API version.
+
+#### Output
+*Output schema unknown*
+
+### IntegrationServiceEnvironmentManagedApis_Get
+Gets the integration service environment managed Api.
+
+
+```js
+azure_logic.IntegrationServiceEnvironmentManagedApis_Get({
+  "subscriptionId": "",
+  "resourceGroup": "",
+  "integrationServiceEnvironmentName": "",
+  "apiName": "",
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: The subscription id.
+  * resourceGroup **required** `string`: The resource group name.
+  * integrationServiceEnvironmentName **required** `string`: The integration service environment name.
+  * apiName **required** `string`: The api name.
+  * api-version **required** `string`: The API version.
+
+#### Output
+* output [ManagedApi](#managedapi)
+
+### IntegrationServiceEnvironmentManagedApis_Put
+Puts the integration service environment managed Api.
+
+
+```js
+azure_logic.IntegrationServiceEnvironmentManagedApis_Put({
+  "subscriptionId": "",
+  "resourceGroup": "",
+  "integrationServiceEnvironmentName": "",
+  "apiName": "",
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: The subscription id.
+  * resourceGroup **required** `string`: The resource group name.
+  * integrationServiceEnvironmentName **required** `string`: The integration service environment name.
+  * apiName **required** `string`: The api name.
+  * api-version **required** `string`: The API version.
+
+#### Output
+* output [ManagedApi](#managedapi)
+
+### IntegrationServiceEnvironmentManagedApiOperations_List
+Gets the managed Api operations.
+
+
+```js
+azure_logic.IntegrationServiceEnvironmentManagedApiOperations_List({
+  "subscriptionId": "",
+  "resourceGroup": "",
+  "integrationServiceEnvironmentName": "",
+  "apiName": "",
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: The subscription id.
+  * resourceGroup **required** `string`: The resource group.
+  * integrationServiceEnvironmentName **required** `string`: The integration service environment name.
+  * apiName **required** `string`: The api name.
+  * api-version **required** `string`: The API version.
+
+#### Output
+* output [ApiOperationListResult](#apioperationlistresult)
+
+### IntegrationServiceEnvironments_Restart
+Restarts an integration service environment.
+
+
+```js
+azure_logic.IntegrationServiceEnvironments_Restart({
+  "subscriptionId": "",
+  "resourceGroup": "",
+  "integrationServiceEnvironmentName": "",
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: The subscription id.
+  * resourceGroup **required** `string`: The resource group.
+  * integrationServiceEnvironmentName **required** `string`: The integration service environment name.
+  * api-version **required** `string`: The API version.
+
+#### Output
+*Output schema unknown*
+
+### IntegrationServiceEnvironmentSkus_List
+Gets a list of integration service environment Skus.
+
+
+```js
+azure_logic.IntegrationServiceEnvironmentSkus_List({
+  "subscriptionId": "",
+  "resourceGroup": "",
+  "integrationServiceEnvironmentName": "",
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: The subscription id.
+  * resourceGroup **required** `string`: The resource group.
+  * integrationServiceEnvironmentName **required** `string`: The integration service environment name.
+  * api-version **required** `string`: The API version.
+
+#### Output
+* output [IntegrationServiceEnvironmentSkuList](#integrationserviceenvironmentskulist)
+
 
 
 ## Definitions
 
 ### AS2AcknowledgementConnectionSettings
 * AS2AcknowledgementConnectionSettings `object`: The AS2 agreement acknowledgement connection settings.
-  * ignoreCertificateNameMismatch **required** `boolean`: The value indicating whether to ignore mismatch in certificate name.
-  * keepHttpConnectionAlive **required** `boolean`: The value indicating whether to keep the connection alive.
-  * supportHttpStatusCodeContinue **required** `boolean`: The value indicating whether to support HTTP status code 'CONTINUE'.
-  * unfoldHttpHeaders **required** `boolean`: The value indicating whether to unfold the HTTP headers.
+  * ignoreCertificateNameMismatch **required** `boolean`: Indicates whether to ignore mismatch in certificate name.
+  * keepHttpConnectionAlive **required** `boolean`: Indicates whether to keep the connection alive.
+  * supportHttpStatusCodeContinue **required** `boolean`: Indicates whether to support HTTP status code 'CONTINUE'.
+  * unfoldHttpHeaders **required** `boolean`: Indicates whether to unfold the HTTP headers.
 
 ### AS2AgreementContent
 * AS2AgreementContent `object`: The integration account AS2 agreement content.
@@ -2321,7 +2763,7 @@ azure_logic.WorkflowVersions_ListCallbackUrl({
 
 ### AS2ErrorSettings
 * AS2ErrorSettings `object`: The AS2 agreement error settings.
-  * resendIfMdnNotReceived **required** `boolean`: The value indicating whether to resend message If MDN is not received.
+  * resendIfMDNNotReceived **required** `boolean`: The value indicating whether to resend message If MDN is not received.
   * suspendDuplicateMessage **required** `boolean`: The value indicating whether to suspend duplicate message.
 
 ### AS2MdnSettings
@@ -2329,12 +2771,12 @@ azure_logic.WorkflowVersions_ListCallbackUrl({
   * dispositionNotificationTo `string`: The disposition notification to header value.
   * mdnText `string`: The MDN text.
   * micHashingAlgorithm **required** [HashingAlgorithm](#hashingalgorithm)
-  * needMdn **required** `boolean`: The value indicating whether to send or request a MDN.
+  * needMDN **required** `boolean`: The value indicating whether to send or request a MDN.
   * receiptDeliveryUrl `string`: The receipt delivery URL.
-  * sendInboundMdnToMessageBox **required** `boolean`: The value indicating whether to send inbound MDN to message box.
-  * sendMdnAsynchronously **required** `boolean`: The value indicating whether to send the asynchronous MDN.
-  * signMdn **required** `boolean`: The value indicating whether the MDN needs to be signed or not.
-  * signOutboundMdnIfOptional **required** `boolean`: The value indicating whether to sign the outbound MDN if optional.
+  * sendInboundMDNToMessageBox **required** `boolean`: The value indicating whether to send inbound MDN to message box.
+  * sendMDNAsynchronously **required** `boolean`: The value indicating whether to send the asynchronous MDN.
+  * signMDN **required** `boolean`: The value indicating whether the MDN needs to be signed or not.
+  * signOutboundMDNIfOptional **required** `boolean`: The value indicating whether to sign the outbound MDN if optional.
 
 ### AS2MessageConnectionSettings
 * AS2MessageConnectionSettings `object`: The AS2 agreement message connection settings.
@@ -2361,12 +2803,12 @@ azure_logic.WorkflowVersions_ListCallbackUrl({
 
 ### AS2SecuritySettings
 * AS2SecuritySettings `object`: The AS2 agreement security settings.
-  * enableNrrForInboundDecodedMessages **required** `boolean`: The value indicating whether to enable NRR for inbound decoded messages.
-  * enableNrrForInboundEncodedMessages **required** `boolean`: The value indicating whether to enable NRR for inbound encoded messages.
-  * enableNrrForInboundMdn **required** `boolean`: The value indicating whether to enable NRR for inbound MDN.
-  * enableNrrForOutboundDecodedMessages **required** `boolean`: The value indicating whether to enable NRR for outbound decoded messages.
-  * enableNrrForOutboundEncodedMessages **required** `boolean`: The value indicating whether to enable NRR for outbound encoded messages.
-  * enableNrrForOutboundMdn **required** `boolean`: The value indicating whether to enable NRR for outbound MDN.
+  * enableNRRForInboundDecodedMessages **required** `boolean`: The value indicating whether to enable NRR for inbound decoded messages.
+  * enableNRRForInboundEncodedMessages **required** `boolean`: The value indicating whether to enable NRR for inbound encoded messages.
+  * enableNRRForInboundMDN **required** `boolean`: The value indicating whether to enable NRR for inbound MDN.
+  * enableNRRForOutboundDecodedMessages **required** `boolean`: The value indicating whether to enable NRR for outbound decoded messages.
+  * enableNRRForOutboundEncodedMessages **required** `boolean`: The value indicating whether to enable NRR for outbound encoded messages.
+  * enableNRRForOutboundMDN **required** `boolean`: The value indicating whether to enable NRR for outbound MDN.
   * encryptionCertificateName `string`: The name of the encryption certificate.
   * overrideGroupSigningCertificate **required** `boolean`: The value indicating whether to send or request a MDN.
   * sha2AlgorithmFormat `string`: The Sha2 algorithm format. Valid values are Sha2, ShaHashSize, ShaHyphenHashSize, Sha2UnderscoreHashSize.
@@ -2385,13 +2827,6 @@ azure_logic.WorkflowVersions_ListCallbackUrl({
   * signMessage **required** `boolean`: The value indicating whether the message has to be signed.
   * signingAlgorithm [SigningAlgorithm](#signingalgorithm)
 
-### AccessKeyRegenerateActionDefinition
-* AccessKeyRegenerateActionDefinition `object`
-  * keyType **required** [AccessKeyType](#accesskeytype)
-
-### AccessKeyType
-* AccessKeyType `string` (values: NotSpecified, Primary, Secondary): The access key type.
-
 ### AgreementContent
 * AgreementContent `object`: The integration account agreement content.
   * aS2 [AS2AgreementContent](#as2agreementcontent)
@@ -2399,7 +2834,132 @@ azure_logic.WorkflowVersions_ListCallbackUrl({
   * x12 [X12AgreementContent](#x12agreementcontent)
 
 ### AgreementType
-* AgreementType `string` (values: NotSpecified, AS2, X12, Edifact)
+* AgreementType `string` (values: NotSpecified, AS2, X12, Edifact): The agreement type.
+
+### ApiDeploymentParameterMetadata
+* ApiDeploymentParameterMetadata `object`: The API deployment parameter metadata.
+  * description `string`: The description.
+  * displayName `string`: The display name.
+  * isRequired `boolean`: Indicates whether its required.
+  * type `string`: The type.
+  * visibility [ApiDeploymentParameterVisibility](#apideploymentparametervisibility)
+
+### ApiDeploymentParameterMetadataSet
+* ApiDeploymentParameterMetadataSet `object`: The API deployment parameters metadata.
+  * packageContentLink [ApiDeploymentParameterMetadata](#apideploymentparametermetadata)
+  * redisCacheConnectionString [ApiDeploymentParameterMetadata](#apideploymentparametermetadata)
+
+### ApiDeploymentParameterVisibility
+* ApiDeploymentParameterVisibility `string` (values: NotSpecified, Default, Internal): The Api deployment parameter visibility.
+
+### ApiOperation
+* ApiOperation `object`: The api operation.
+  * properties [ApiOperationPropertiesDefinition](#apioperationpropertiesdefinition)
+  * id `string`: The resource id.
+  * location `string`: The resource location.
+  * name `string`: Gets the resource name.
+  * tags `object`: The resource tags.
+  * type `string`: Gets the resource type.
+
+### ApiOperationAnnotation
+* ApiOperationAnnotation `object`: The Api Operation Annotation.
+  * family `string`: The family.
+  * revision `integer`: The revision.
+  * status [StatusAnnotation](#statusannotation)
+
+### ApiOperationListResult
+* ApiOperationListResult `object`: The list of managed API operations.
+  * nextLink `string`: The URL to get the next set of results.
+  * value `array`: The api operation definitions for an API.
+    * items [ApiOperation](#apioperation)
+
+### ApiOperationPropertiesDefinition
+* ApiOperationPropertiesDefinition `object`: The api operations properties
+  * annotation [ApiOperationAnnotation](#apioperationannotation)
+  * api [ApiReference](#apireference)
+  * description `string`: The description of the api operation.
+  * inputsDefinition [SwaggerSchema](#swaggerschema)
+  * isNotification `boolean`: Indicates whether the API operation is notification or not.
+  * isWebhook `boolean`: Indicates whether the API operation is webhook or not.
+  * pageable `boolean`: Indicates whether the api operation is pageable.
+  * responsesDefinition `object`: The operation responses definition schemas.
+  * summary `string`: The summary of the api operation.
+  * trigger `string`: The trigger type of api operation.
+  * triggerHint `string`: The trigger hint for the api operation.
+  * visibility `string`: The visibility of the api operation.
+
+### ApiReference
+* ApiReference `object`: The Api reference.
+  * brandColor `string`: The brand color of the api.
+  * category [ApiTier](#apitier)
+  * description `string`: The description of the api.
+  * displayName `string`: The display name of the api.
+  * iconUri `string`: The icon uri of the api.
+  * integrationServiceEnvironment [ResourceReference](#resourcereference)
+  * swagger [Object](#object)
+  * id `string`: The resource id.
+  * name `string`: Gets the resource name.
+  * type `string`: Gets the resource type.
+
+### ApiResourceBackendService
+* ApiResourceBackendService `object`: The API backend service.
+  * serviceUrl `string`: The service URL.
+
+### ApiResourceDefinitions
+* ApiResourceDefinitions `object`: The Api resource definition.
+  * modifiedSwaggerUrl `string`: The modified swagger url.
+  * originalSwaggerUrl `string`: The original swagger url.
+
+### ApiResourceGeneralInformation
+* ApiResourceGeneralInformation `object`: The API general information.
+  * description `string`: The description.
+  * displayName `string`: The display name.
+  * iconUrl `string`: The icon url.
+  * releaseTag `string`: The release tag.
+  * termsOfUseUrl `string`: The terms of use url.
+  * tier [ApiTier](#apitier)
+
+### ApiResourceMetadata
+* ApiResourceMetadata `object`: The api resource metadata.
+  * ApiType [ApiType](#apitype)
+  * brandColor `string`: The brand color.
+  * connectionType `string`: The connection type.
+  * deploymentParameters [ApiDeploymentParameterMetadataSet](#apideploymentparametermetadataset)
+  * hideKey `string`: The hide key.
+  * provisioningState [WorkflowProvisioningState](#workflowprovisioningstate)
+  * source `string`: The source.
+  * tags `object`: The tags.
+  * wsdlImportMethod [WsdlImportMethod](#wsdlimportmethod)
+  * wsdlService [WsdlService](#wsdlservice)
+
+### ApiResourcePolicies
+* ApiResourcePolicies `object`: The API resource policies.
+  * content `string`: The API level only policies XML as embedded content.
+  * contentLink `string`: The content link to the policies.
+
+### ApiResourceProperties
+* ApiResourceProperties `object`: The API resource properties.
+  * apiDefinitionUrl `string`: The API definition.
+  * apiDefinitions [ApiResourceDefinitions](#apiresourcedefinitions)
+  * backendService [ApiResourceBackendService](#apiresourcebackendservice)
+  * capabilities `array`: The capabilities.
+    * items `string`
+  * category [ApiTier](#apitier)
+  * connectionParameters `object`: The connection parameters.
+  * generalInformation [ApiResourceGeneralInformation](#apiresourcegeneralinformation)
+  * integrationServiceEnvironment [ResourceReference](#resourcereference)
+  * metadata [ApiResourceMetadata](#apiresourcemetadata)
+  * name `string`: The name
+  * policies [ApiResourcePolicies](#apiresourcepolicies)
+  * provisioningState [WorkflowProvisioningState](#workflowprovisioningstate)
+  * runtimeUrls `array`: The runtime urls.
+    * items `string`
+
+### ApiTier
+* ApiTier `string` (values: NotSpecified, Enterprise, Standard, Premium): The Api tier.
+
+### ApiType
+* ApiType `string` (values: NotSpecified, Rest, Soap)
 
 ### ArtifactContentPropertiesDefinition
 * ArtifactContentPropertiesDefinition `object`: The artifact content properties definition.
@@ -2437,6 +2997,9 @@ azure_logic.WorkflowVersions_ListCallbackUrl({
   * contentType `string`: The content type.
   * changedTime `string`: The artifact changed time.
   * createdTime `string`: The artifact creation time.
+
+### AzureAsyncOperationState
+* AzureAsyncOperationState `string` (values: Failed, Succeeded, Pending, Canceled): The Azure async operation state.
 
 ### AzureResourceErrorInfo
 * AzureResourceErrorInfo `object`: The azure resource error info.
@@ -2506,7 +3069,7 @@ azure_logic.WorkflowVersions_ListCallbackUrl({
   * clientTrackingId `string`: The client tracking id.
 
 ### DayOfWeek
-* DayOfWeek `string` (values: Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday)
+* DayOfWeek `string` (values: Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday): The day of the week.
 
 ### EdifactAcknowledgementSettings
 * EdifactAcknowledgementSettings `object`: The Edifact agreement acknowledgement settings.
@@ -2528,10 +3091,10 @@ azure_logic.WorkflowVersions_ListCallbackUrl({
   * sendAgreement **required** [EdifactOneWayAgreement](#edifactonewayagreement)
 
 ### EdifactCharacterSet
-* EdifactCharacterSet `string` (values: NotSpecified, UNOB, UNOA, UNOC, UNOD, UNOE, UNOF, UNOG, UNOH, UNOI, UNOJ, UNOK, UNOX, UNOY, KECA)
+* EdifactCharacterSet `string` (values: NotSpecified, UNOB, UNOA, UNOC, UNOD, UNOE, UNOF, UNOG, UNOH, UNOI, UNOJ, UNOK, UNOX, UNOY, KECA): The edifact character set.
 
 ### EdifactDecimalIndicator
-* EdifactDecimalIndicator `string` (values: NotSpecified, Comma, Decimal)
+* EdifactDecimalIndicator `string` (values: NotSpecified, Comma, Decimal): The edifact decimal indicator.
 
 ### EdifactDelimiterOverride
 * EdifactDelimiterOverride `object`: The Edifact delimiter override settings.
@@ -2682,8 +3245,8 @@ azure_logic.WorkflowVersions_ListCallbackUrl({
   * messageId **required** `string`: The message id on which the validation settings has to be applied.
   * trailingSeparatorPolicy **required** [TrailingSeparatorPolicy](#trailingseparatorpolicy)
   * trimLeadingAndTrailingSpacesAndZeroes **required** `boolean`: The value indicating whether to trim leading and trailing spaces and zeroes.
-  * validateEdiTypes **required** `boolean`: The value indicating whether to validate EDI types.
-  * validateXsdTypes **required** `boolean`: The value indicating whether to validate XSD types.
+  * validateEDITypes **required** `boolean`: The value indicating whether to validate EDI types.
+  * validateXSDTypes **required** `boolean`: The value indicating whether to validate XSD types.
 
 ### EdifactValidationSettings
 * EdifactValidationSettings `object`: The Edifact agreement validation settings.
@@ -2695,11 +3258,11 @@ azure_logic.WorkflowVersions_ListCallbackUrl({
   * trailingSeparatorPolicy **required** [TrailingSeparatorPolicy](#trailingseparatorpolicy)
   * trimLeadingAndTrailingSpacesAndZeroes **required** `boolean`: The value indicating whether to trim leading and trailing spaces and zeroes.
   * validateCharacterSet **required** `boolean`: The value indicating whether to validate character set in the message.
-  * validateEdiTypes **required** `boolean`: The value indicating whether to Whether to validate EDI types.
-  * validateXsdTypes **required** `boolean`: The value indicating whether to Whether to validate XSD types.
+  * validateEDITypes **required** `boolean`: The value indicating whether to Whether to validate EDI types.
+  * validateXSDTypes **required** `boolean`: The value indicating whether to Whether to validate XSD types.
 
 ### EncryptionAlgorithm
-* EncryptionAlgorithm `string` (values: NotSpecified, None, DES3, RC2, AES128, AES192, AES256)
+* EncryptionAlgorithm `string` (values: NotSpecified, None, DES3, RC2, AES128, AES192, AES256): The encryption algorithm.
 
 ### ErrorInfo
 * ErrorInfo `object`: The error info.
@@ -2714,28 +3277,51 @@ azure_logic.WorkflowVersions_ListCallbackUrl({
 * ErrorResponse `object`: Error response indicates Logic service is not able to process the incoming request. The error property contains the error details.
   * error [ErrorProperties](#errorproperties)
 
+### ErrorResponseCode
+* ErrorResponseCode `string` (values: NotSpecified, IntegrationServiceEnvironmentNotFound, InternalServerError, InvalidOperationId): The error response code.
+
 ### EventLevel
 * EventLevel `string` (values: LogAlways, Critical, Error, Warning, Informational, Verbose): The event level.
 
 ### Expression
-* Expression `object`
+* Expression `object`: The expression.
   * error [AzureResourceErrorInfo](#azureresourceerrorinfo)
-  * subexpressions `array`
+  * subexpressions `array`: The sub expressions.
     * items [Expression](#expression)
-  * text `string`
+  * text `string`: The text.
 
 ### ExpressionRoot
-* ExpressionRoot `object`
+* ExpressionRoot `object`: The expression root.
   * path `string`: The path.
   * error [AzureResourceErrorInfo](#azureresourceerrorinfo)
-  * subexpressions `array`
+  * subexpressions `array`: The sub expressions.
     * items [Expression](#expression)
-  * text `string`
+  * text `string`: The text.
 
 ### ExpressionTraces
-* ExpressionTraces `object`
+* ExpressionTraces `object`: The expression traces.
   * inputs `array`
     * items [ExpressionRoot](#expressionroot)
+
+### ExtendedErrorInfo
+* ExtendedErrorInfo `object`: The extended error info.
+  * code **required** [ErrorResponseCode](#errorresponsecode)
+  * details `array`: The error message details.
+    * items [ExtendedErrorInfo](#extendederrorinfo)
+  * innerError [Object](#object)
+  * message **required** `string`: The error message.
+
+### FlowEndpoints
+* FlowEndpoints `object`: The flow endpoints configuration.
+  * accessEndpointIpAddresses `array`: The access endpoint ip address.
+    * items [IpAddress](#ipaddress)
+  * outgoingIpAddresses `array`: The outgoing ip address.
+    * items [IpAddress](#ipaddress)
+
+### FlowEndpointsConfiguration
+* FlowEndpointsConfiguration `object`: The endpoints configuration.
+  * connector [FlowEndpoints](#flowendpoints)
+  * workflow [FlowEndpoints](#flowendpoints)
 
 ### GenerateUpgradedDefinitionParameters
 * GenerateUpgradedDefinitionParameters `object`: The parameters to generate upgraded definition.
@@ -2747,7 +3333,7 @@ azure_logic.WorkflowVersions_ListCallbackUrl({
   * notAfter `string`: The expiry time.
 
 ### HashingAlgorithm
-* HashingAlgorithm `string` (values: NotSpecified, None, MD5, SHA1, SHA2256, SHA2384, SHA2512)
+* HashingAlgorithm `string` (values: NotSpecified, None, MD5, SHA1, SHA2256, SHA2384, SHA2512): The signing or hashing algorithm.
 
 ### IntegrationAccount
 * IntegrationAccount `object`: The integration account.
@@ -2878,7 +3464,9 @@ azure_logic.WorkflowVersions_ListCallbackUrl({
   * partnerType **required** [PartnerType](#partnertype)
 
 ### IntegrationAccountProperties
-* IntegrationAccountProperties `object`
+* IntegrationAccountProperties `object`: The integration account properties.
+  * integrationServiceEnvironment [IntegrationServiceEnvironment](#integrationserviceenvironment)
+  * state [WorkflowState](#workflowstate)
 
 ### IntegrationAccountSchema
 * IntegrationAccountSchema `object`: The integration account schema.
@@ -2942,7 +3530,112 @@ azure_logic.WorkflowVersions_ListCallbackUrl({
   * name **required** [IntegrationAccountSkuName](#integrationaccountskuname)
 
 ### IntegrationAccountSkuName
-* IntegrationAccountSkuName `string` (values: NotSpecified, Free, Standard)
+* IntegrationAccountSkuName `string` (values: NotSpecified, Free, Basic, Standard): The integration account sku name.
+
+### IntegrationServiceEnvironment
+* IntegrationServiceEnvironment `object`: The integration service environment.
+  * properties [IntegrationServiceEnvironmentProperties](#integrationserviceenvironmentproperties)
+  * sku [IntegrationServiceEnvironmentSku](#integrationserviceenvironmentsku)
+  * id `string`: The resource id.
+  * location `string`: The resource location.
+  * name `string`: Gets the resource name.
+  * tags `object`: The resource tags.
+  * type `string`: Gets the resource type.
+
+### IntegrationServiceEnvironmentAccessEndpoint
+* IntegrationServiceEnvironmentAccessEndpoint `object`: The integration service environment access endpoint.
+  * type [IntegrationServiceEnvironmentAccessEndpointType](#integrationserviceenvironmentaccessendpointtype)
+
+### IntegrationServiceEnvironmentAccessEndpointType
+* IntegrationServiceEnvironmentAccessEndpointType `string` (values: NotSpecified, External, Internal): The integration service environment access endpoint type.
+
+### IntegrationServiceEnvironmentListResult
+* IntegrationServiceEnvironmentListResult `object`: The list of integration service environments.
+  * nextLink `string`: The URL to get the next set of results.
+  * value `array`
+    * items [IntegrationServiceEnvironment](#integrationserviceenvironment)
+
+### IntegrationServiceEnvironmentNetworkDependency
+* IntegrationServiceEnvironmentNetworkDependency `object`: The azure async operation resource.
+  * category [IntegrationServiceEnvironmentNetworkDependencyCategoryType](#integrationserviceenvironmentnetworkdependencycategorytype)
+  * displayName `string`: The display name.
+  * endpoints `array`: The endpoints.
+    * items [IntegrationServiceEnvironmentNetworkEndpoint](#integrationserviceenvironmentnetworkendpoint)
+
+### IntegrationServiceEnvironmentNetworkDependencyCategoryType
+* IntegrationServiceEnvironmentNetworkDependencyCategoryType `string` (values: NotSpecified, AzureStorage, AzureManagement, AzureActiveDirectory, SSLCertificateVerification, DiagnosticLogsAndMetrics, IntegrationServiceEnvironmentConnectors, RedisCache, AccessEndpoints, RecoveryService, SQL, RegionalService): The integration service environment network dependency category type.
+
+### IntegrationServiceEnvironmentNetworkDependencyHealth
+* IntegrationServiceEnvironmentNetworkDependencyHealth `object`: The integration service environment subnet network health.
+  * error [ExtendedErrorInfo](#extendederrorinfo)
+  * state [IntegrationServiceEnvironmentNetworkDependencyHealthState](#integrationserviceenvironmentnetworkdependencyhealthstate)
+
+### IntegrationServiceEnvironmentNetworkDependencyHealthState
+* IntegrationServiceEnvironmentNetworkDependencyHealthState `string` (values: NotSpecified, Healthy, Unhealthy, Unknown): The integration service environment network dependency health state.
+
+### IntegrationServiceEnvironmentNetworkEndPointAccessibilityState
+* IntegrationServiceEnvironmentNetworkEndPointAccessibilityState `string` (values: NotSpecified, Unknown, Available, NotAvailable): The integration service environment network endpoint accessibility state.
+
+### IntegrationServiceEnvironmentNetworkEndpoint
+* IntegrationServiceEnvironmentNetworkEndpoint `object`: The network endpoint.
+  * accessibility [IntegrationServiceEnvironmentNetworkEndPointAccessibilityState](#integrationserviceenvironmentnetworkendpointaccessibilitystate)
+  * domainName `string`: The domain name.
+  * ports `array`: The ports.
+    * items `string`
+
+### IntegrationServiceEnvironmentNetworkHealth
+* IntegrationServiceEnvironmentNetworkHealth `object`: The integration service environment network health of all the subnets.
+
+### IntegrationServiceEnvironmentProperties
+* IntegrationServiceEnvironmentProperties `object`: The integration service environment properties.
+  * endpointsConfiguration [FlowEndpointsConfiguration](#flowendpointsconfiguration)
+  * integrationServiceEnvironmentId `string`: Gets the tracking id.
+  * networkConfiguration [NetworkConfiguration](#networkconfiguration)
+  * provisioningState [WorkflowProvisioningState](#workflowprovisioningstate)
+  * state [WorkflowState](#workflowstate)
+
+### IntegrationServiceEnvironmentSku
+* IntegrationServiceEnvironmentSku `object`: The integration service environment sku.
+  * capacity `integer`: The sku capacity.
+  * name [IntegrationServiceEnvironmentSkuName](#integrationserviceenvironmentskuname)
+
+### IntegrationServiceEnvironmentSkuCapacity
+* IntegrationServiceEnvironmentSkuCapacity `object`: The integration service environment sku capacity.
+  * default `integer`: The default capacity.
+  * maximum `integer`: The maximum capacity.
+  * minimum `integer`: The minimum capacity.
+  * scaleType [IntegrationServiceEnvironmentSkuScaleType](#integrationserviceenvironmentskuscaletype)
+
+### IntegrationServiceEnvironmentSkuDefinition
+* IntegrationServiceEnvironmentSkuDefinition `object`: The integration service environment sku definition.
+  * capacity [IntegrationServiceEnvironmentSkuCapacity](#integrationserviceenvironmentskucapacity)
+  * resourceType `string`: The resource type.
+  * sku `object`: The sku.
+    * name [IntegrationServiceEnvironmentSkuName](#integrationserviceenvironmentskuname)
+    * tier `string`: The sku tier.
+
+### IntegrationServiceEnvironmentSkuList
+* IntegrationServiceEnvironmentSkuList `object`: The list of integration service environment skus.
+  * nextLink `string`: The URL to get the next set of results.
+  * value `array`: The list of integration service environment skus.
+    * items [IntegrationServiceEnvironmentSkuDefinition](#integrationserviceenvironmentskudefinition)
+
+### IntegrationServiceEnvironmentSkuName
+* IntegrationServiceEnvironmentSkuName `string` (values: NotSpecified, Premium, Developer): The integration service environment sku name.
+
+### IntegrationServiceEnvironmentSkuScaleType
+* IntegrationServiceEnvironmentSkuScaleType `string` (values: Manual, Automatic, None): The integration service environment sku scale type.
+
+### IntegrationServiceEnvironmentSubnetNetworkHealth
+* IntegrationServiceEnvironmentSubnetNetworkHealth `object`: The integration service environment subnet network health.
+  * networkDependencyHealthState **required** [IntegrationServiceEnvironmentNetworkEndPointAccessibilityState](#integrationserviceenvironmentnetworkendpointaccessibilitystate)
+  * outboundNetworkDependencies `array`: The outbound network dependencies.
+    * items [IntegrationServiceEnvironmentNetworkDependency](#integrationserviceenvironmentnetworkdependency)
+  * outboundNetworkHealth [IntegrationServiceEnvironmentNetworkDependencyHealth](#integrationserviceenvironmentnetworkdependencyhealth)
+
+### IpAddress
+* IpAddress `object`: The ip address.
+  * address `string`: The address.
 
 ### JsonSchema
 * JsonSchema `object`: The JSON schema.
@@ -2950,7 +3643,7 @@ azure_logic.WorkflowVersions_ListCallbackUrl({
   * title `string`: The JSON title.
 
 ### KeyType
-* KeyType `string` (values: NotSpecified, Primary, Secondary)
+* KeyType `string` (values: NotSpecified, Primary, Secondary): The key type.
 
 ### KeyVaultKey
 * KeyVaultKey `object`: The key vault key.
@@ -2987,11 +3680,33 @@ azure_logic.WorkflowVersions_ListCallbackUrl({
   * keyVault **required** [KeyVaultReference](#keyvaultreference)
   * skipToken `string`: The skip token.
 
+### ManagedApi
+* ManagedApi `object`: The managed api definition.
+  * properties [ApiResourceProperties](#apiresourceproperties)
+  * id `string`: The resource id.
+  * location `string`: The resource location.
+  * name `string`: Gets the resource name.
+  * tags `object`: The resource tags.
+  * type `string`: Gets the resource type.
+
+### ManagedApiListResult
+* ManagedApiListResult `object`: The list of managed APIs.
+  * nextLink `string`: The URL to get the next set of results.
+  * value `array`: The managed APIs.
+    * items [ManagedApi](#managedapi)
+
 ### MapType
-* MapType `string` (values: NotSpecified, Xslt)
+* MapType `string` (values: NotSpecified, Xslt, Xslt20, Xslt30, Liquid): The map type.
 
 ### MessageFilterType
-* MessageFilterType `string` (values: NotSpecified, Include, Exclude)
+* MessageFilterType `string` (values: NotSpecified, Include, Exclude): The message filter type.
+
+### NetworkConfiguration
+* NetworkConfiguration `object`: The network configuration.
+  * accessEndpoint [IntegrationServiceEnvironmentAccessEndpoint](#integrationserviceenvironmentaccessendpoint)
+  * subnets `array`: The subnets.
+    * items [ResourceReference](#resourcereference)
+  * virtualNetworkAddressSpace `string`: Gets the virtual network address space.
 
 ### Object
 * Object `object`
@@ -3036,17 +3751,17 @@ azure_logic.WorkflowVersions_ListCallbackUrl({
   * status [WorkflowStatus](#workflowstatus)
 
 ### ParameterType
-* ParameterType `string` (values: NotSpecified, String, SecureString, Int, Float, Bool, Array, Object, SecureObject)
+* ParameterType `string` (values: NotSpecified, String, SecureString, Int, Float, Bool, Array, Object, SecureObject): The parameter type.
 
 ### PartnerContent
 * PartnerContent `object`: The integration account partner content.
   * b2b [B2BPartnerContent](#b2bpartnercontent)
 
 ### PartnerType
-* PartnerType `string` (values: NotSpecified, B2B)
+* PartnerType `string` (values: NotSpecified, B2B): The partner type.
 
 ### RecurrenceFrequency
-* RecurrenceFrequency `string` (values: NotSpecified, Second, Minute, Hour, Day, Week, Month, Year)
+* RecurrenceFrequency `string` (values: NotSpecified, Second, Minute, Hour, Day, Week, Month, Year): The recurrence frequency.
 
 ### RecurrenceSchedule
 * RecurrenceSchedule `object`: The recurrence schedule.
@@ -3075,6 +3790,34 @@ azure_logic.WorkflowVersions_ListCallbackUrl({
   * itemIndex **required** `integer`: The index.
   * scopeName `string`: The scope.
 
+### Request
+* Request `object`: A request.
+  * headers [Object](#object)
+  * method `string`: The HTTP method used for the request.
+  * uri `string`: The destination for the request.
+
+### RequestHistory
+* RequestHistory `object`: The request history.
+  * properties [RequestHistoryProperties](#requesthistoryproperties)
+  * id `string`: The resource id.
+  * location `string`: The resource location.
+  * name `string`: Gets the resource name.
+  * tags `object`: The resource tags.
+  * type `string`: Gets the resource type.
+
+### RequestHistoryListResult
+* RequestHistoryListResult `object`: The list of workflow request histories.
+  * nextLink `string`: The URL to get the next set of results.
+  * value `array`: A list of workflow request histories.
+    * items [RequestHistory](#requesthistory)
+
+### RequestHistoryProperties
+* RequestHistoryProperties `object`: The request history.
+  * endTime `string`: The time the request ended.
+  * request [Request](#request)
+  * response [Response](#response)
+  * startTime `string`: The time the request started.
+
 ### Resource
 * Resource `object`: The base resource type.
   * id `string`: The resource id.
@@ -3088,6 +3831,12 @@ azure_logic.WorkflowVersions_ListCallbackUrl({
   * id `string`: The resource id.
   * name `string`: Gets the resource name.
   * type `string`: Gets the resource type.
+
+### Response
+* Response `object`: A response.
+  * bodyLink [ContentLink](#contentlink)
+  * headers [Object](#object)
+  * statusCode `integer`: The status code of the response.
 
 ### RetryHistory
 * RetryHistory `object`: The retry history.
@@ -3112,17 +3861,17 @@ azure_logic.WorkflowVersions_ListCallbackUrl({
   * clientTrackingId `string`: The client tracking identifier.
 
 ### SchemaType
-* SchemaType `string` (values: NotSpecified, Xml)
+* SchemaType `string` (values: NotSpecified, Xml): The schema type.
 
 ### SegmentTerminatorSuffix
-* SegmentTerminatorSuffix `string` (values: NotSpecified, None, CR, LF, CRLF)
+* SegmentTerminatorSuffix `string` (values: NotSpecified, None, CR, LF, CRLF): The segment terminator suffix.
 
 ### SetTriggerStateActionDefinition
-* SetTriggerStateActionDefinition `object`
+* SetTriggerStateActionDefinition `object`: The set trigger state action definition.
   * source **required** [WorkflowTrigger](#workflowtrigger)
 
 ### SigningAlgorithm
-* SigningAlgorithm `string` (values: NotSpecified, Default, SHA1, SHA2256, SHA2384, SHA2512)
+* SigningAlgorithm `string` (values: NotSpecified, Default, SHA1, SHA2256, SHA2384, SHA2512): The signing or hashing algorithm.
 
 ### Sku
 * Sku `object`: The sku type.
@@ -3132,40 +3881,136 @@ azure_logic.WorkflowVersions_ListCallbackUrl({
 ### SkuName
 * SkuName `string` (values: NotSpecified, Free, Shared, Basic, Standard, Premium): The sku name.
 
+### StatusAnnotation
+* StatusAnnotation `string` (values: NotSpecified, Preview, Production): The status annotation.
+
 ### SubResource
 * SubResource `object`: The sub resource type.
   * id `string`: The resource id.
+
+### SwaggerCustomDynamicList
+* SwaggerCustomDynamicList `object`: The swagger custom dynamic list.
+  * builtInOperation `string`: The built in operation.
+  * itemTitlePath `string`: The path to an item property which defines the display name of the item.
+  * itemValuePath `string`: The path to a property which defines the value which should be used.
+  * itemsPath `string`: The path to a response property (relative to the response object, not the response body) which contains an array of dynamic value items.
+  * operationId `string`: The operation id to fetch dynamic schema.
+  * parameters `object`: The parameters.
+
+### SwaggerCustomDynamicProperties
+* SwaggerCustomDynamicProperties `object`: The swagger custom dynamic properties.
+  * operationId `string`: The operation id to fetch dynamic schema.
+  * parameters `object`: The operation parameters.
+  * valuePath `string`: Json pointer to the dynamic schema on the response body.
+
+### SwaggerCustomDynamicSchema
+* SwaggerCustomDynamicSchema `object`: The swagger custom dynamic schema.
+  * operationId `string`: The operation id to fetch dynamic schema.
+  * parameters `object`: The operation parameters.
+  * valuePath `string`: Json pointer to the dynamic schema on the response body.
+
+### SwaggerCustomDynamicTree
+* SwaggerCustomDynamicTree `object`: The swagger custom dynamic tree.
+  * browse [SwaggerCustomDynamicTreeCommand](#swaggercustomdynamictreecommand)
+  * open [SwaggerCustomDynamicTreeCommand](#swaggercustomdynamictreecommand)
+  * settings [SwaggerCustomDynamicTreeSettings](#swaggercustomdynamictreesettings)
+
+### SwaggerCustomDynamicTreeCommand
+* SwaggerCustomDynamicTreeCommand `object`: The swagger tree command.
+  * itemFullTitlePath `string`: The path to an item property which defines the display name of the item.
+  * itemIsParent `string`: The path to an item property which defines the display name of the item.
+  * itemTitlePath `string`: The path to an item property which defines the display name of the item.
+  * itemValuePath `string`: The path to an item property which defines the display name of the item.
+  * itemsPath `string`: The path to an item property which defines the display name of the item.
+  * operationId `string`: The path to an item property which defines the display name of the item.
+  * parameters `object`
+  * selectableFilter `string`: The path to an item property which defines the display name of the item.
+
+### SwaggerCustomDynamicTreeParameter
+* SwaggerCustomDynamicTreeParameter `object`: The swagger custom dynamic tree parameter.
+  * parameterReference `string`: The parameter reference.
+  * required `boolean`: Indicates whether the parameter is required.
+  * selectedItemValuePath `string`: Gets or sets a path to a property in the currently selected item to pass as a value to a parameter for the given operation.
+  * value [Object](#object)
+
+### SwaggerCustomDynamicTreeSettings
+* SwaggerCustomDynamicTreeSettings `object`: The swagger custom dynamic tree settings.
+  * CanSelectLeafNodes `boolean`: Indicates whether leaf nodes can be selected.
+  * CanSelectParentNodes `boolean`: Indicates whether parent nodes can be selected.
+
+### SwaggerExternalDocumentation
+* SwaggerExternalDocumentation `object`: The swagger external documentation
+  * description `string`: The document description.
+  * extensions `object`: The vendor extensions.
+  * uri `string`: The documentation Uri.
+
+### SwaggerSchema
+* SwaggerSchema `object`: The swagger schema.
+  * additionalProperties [Object](#object)
+  * allOf `array`: The schemas which must pass validation when this schema is used.
+    * items [SwaggerSchema](#swaggerschema)
+  * discriminator `string`: The discriminator.
+  * dynamicListNew [SwaggerCustomDynamicList](#swaggercustomdynamiclist)
+  * dynamicSchemaNew [SwaggerCustomDynamicProperties](#swaggercustomdynamicproperties)
+  * dynamicSchemaOld [SwaggerCustomDynamicSchema](#swaggercustomdynamicschema)
+  * dynamicTree [SwaggerCustomDynamicTree](#swaggercustomdynamictree)
+  * example [Object](#object)
+  * externalDocs [SwaggerExternalDocumentation](#swaggerexternaldocumentation)
+  * items [SwaggerSchema](#swaggerschema)
+  * maxProperties `integer`: The maximum number of allowed properties.
+  * minProperties `integer`: The minimum number of allowed properties.
+  * notificationUrlExtension `boolean`: Indicates the notification url extension. If this is set, the property's value should be a callback url for a webhook.
+  * properties `object`: The object properties
+  * readOnly `boolean`: Indicates whether this property must be present in the a request.
+  * ref `string`: The reference.
+  * required `array`: The object required properties.
+    * items `string`
+  * title `string`: The title.
+  * type [SwaggerSchemaType](#swaggerschematype)
+  * xml [SwaggerXml](#swaggerxml)
+
+### SwaggerSchemaType
+* SwaggerSchemaType `string` (values: String, Number, Integer, Boolean, Array, File, Object, Null): The swagger schema type.
+
+### SwaggerXml
+* SwaggerXml `object`: The Swagger XML.
+  * attribute `boolean`: Indicates whether the property should be an attribute instead of an element.
+  * extensions `object`: The vendor extensions.
+  * name `string`: The xml element or attribute name.
+  * namespace `string`: The xml namespace.
+  * prefix `string`: The name prefix.
+  * wrapped `boolean`: Indicates whether the array elements are wrapped in a container element.
 
 ### TrackEventsOperationOptions
 * TrackEventsOperationOptions `string` (values: None, DisableSourceInfoEnrich): The track events operation options.
 
 ### TrackingEvent
-* TrackingEvent `object`
+* TrackingEvent `object`: The tracking event.
   * error [TrackingEventErrorInfo](#trackingeventerrorinfo)
   * eventLevel **required** [EventLevel](#eventlevel)
-  * eventTime **required** `string`
+  * eventTime **required** `string`: The event time.
   * recordType **required** [TrackingRecordType](#trackingrecordtype)
 
 ### TrackingEventErrorInfo
-* TrackingEventErrorInfo `object`
-  * code `string`
-  * message `string`
+* TrackingEventErrorInfo `object`: The tracking event error info.
+  * code `string`: The code.
+  * message `string`: The message.
 
 ### TrackingEventsDefinition
-* TrackingEventsDefinition `object`
-  * events **required** `array`
+* TrackingEventsDefinition `object`: The tracking events definition.
+  * events **required** `array`: The events.
     * items [TrackingEvent](#trackingevent)
-  * sourceType **required** `string`
+  * sourceType **required** `string`: The source type.
   * trackEventsOptions [TrackEventsOperationOptions](#trackeventsoperationoptions)
 
 ### TrackingRecordType
 * TrackingRecordType `string` (values: NotSpecified, Custom, AS2Message, AS2MDN, X12Interchange, X12FunctionalGroup, X12TransactionSet, X12InterchangeAcknowledgment, X12FunctionalGroupAcknowledgment, X12TransactionSetAcknowledgment, EdifactInterchange, EdifactFunctionalGroup, EdifactTransactionSet, EdifactInterchangeAcknowledgment, EdifactFunctionalGroupAcknowledgment, EdifactTransactionSetAcknowledgment): The tracking record type.
 
 ### TrailingSeparatorPolicy
-* TrailingSeparatorPolicy `string` (values: NotSpecified, NotAllowed, Optional, Mandatory)
+* TrailingSeparatorPolicy `string` (values: NotSpecified, NotAllowed, Optional, Mandatory): The trailing separator policy.
 
 ### UsageIndicator
-* UsageIndicator `string` (values: NotSpecified, Test, Information, Production)
+* UsageIndicator `string` (values: NotSpecified, Test, Information, Production): The usage indicator.
 
 ### Workflow
 * Workflow `object`: The workflow type.
@@ -3207,7 +4052,9 @@ azure_logic.WorkflowVersions_ListCallbackUrl({
   * changedTime `string`: Gets the changed time.
   * createdTime `string`: Gets the created time.
   * definition [Object](#object)
+  * endpointsConfiguration [FlowEndpointsConfiguration](#flowendpointsconfiguration)
   * integrationAccount [ResourceReference](#resourcereference)
+  * integrationServiceEnvironment [ResourceReference](#resourcereference)
   * parameters `object`: The parameters.
   * provisioningState [WorkflowProvisioningState](#workflowprovisioningstate)
   * sku [Sku](#sku)
@@ -3215,7 +4062,7 @@ azure_logic.WorkflowVersions_ListCallbackUrl({
   * version `string`: Gets the version.
 
 ### WorkflowProvisioningState
-* WorkflowProvisioningState `string` (values: NotSpecified, Accepted, Running, Ready, Creating, Created, Deleting, Deleted, Canceled, Failed, Succeeded, Moving, Updating, Registering, Registered, Unregistering, Unregistered, Completed)
+* WorkflowProvisioningState `string` (values: NotSpecified, Accepted, Running, Ready, Creating, Created, Deleting, Deleted, Canceled, Failed, Succeeded, Moving, Updating, Registering, Registered, Unregistering, Unregistered, Completed): The workflow provisioning state.
 
 ### WorkflowRun
 * WorkflowRun `object`: The workflow run.
@@ -3267,6 +4114,7 @@ azure_logic.WorkflowVersions_ListCallbackUrl({
 
 ### WorkflowRunActionRepetitionDefinitionCollection
 * WorkflowRunActionRepetitionDefinitionCollection `object`: A collection of workflow run action repetitions.
+  * nextLink `string`: The link used to get the next page of recommendations.
   * value `array`
     * items [WorkflowRunActionRepetitionDefinition](#workflowrunactionrepetitiondefinition)
 
@@ -3332,10 +4180,10 @@ azure_logic.WorkflowVersions_ListCallbackUrl({
   * trackingId `string`: Gets the tracking id.
 
 ### WorkflowState
-* WorkflowState `string` (values: NotSpecified, Completed, Enabled, Disabled, Deleted, Suspended)
+* WorkflowState `string` (values: NotSpecified, Completed, Enabled, Disabled, Deleted, Suspended): The workflow state.
 
 ### WorkflowStatus
-* WorkflowStatus `string` (values: NotSpecified, Paused, Running, Waiting, Succeeded, Skipped, Suspended, Cancelled, Failed, Faulted, TimedOut, Aborted, Ignored)
+* WorkflowStatus `string` (values: NotSpecified, Paused, Running, Waiting, Succeeded, Skipped, Suspended, Cancelled, Failed, Faulted, TimedOut, Aborted, Ignored): The workflow status.
 
 ### WorkflowTrigger
 * WorkflowTrigger `object`: The workflow trigger.
@@ -3381,7 +4229,7 @@ azure_logic.WorkflowVersions_ListCallbackUrl({
   * correlation [Correlation](#correlation)
   * endTime `string`: Gets the end time.
   * error [Object](#object)
-  * fired `boolean`: Gets a value indicating whether trigger was fired.
+  * fired `boolean`: The value indicating whether trigger was fired.
   * inputsLink [ContentLink](#contentlink)
   * outputsLink [ContentLink](#contentlink)
   * run [ResourceReference](#resourcereference)
@@ -3416,7 +4264,7 @@ azure_logic.WorkflowVersions_ListCallbackUrl({
   * workflow [ResourceReference](#resourcereference)
 
 ### WorkflowTriggerProvisioningState
-* WorkflowTriggerProvisioningState `string` (values: NotSpecified, Accepted, Running, Ready, Creating, Created, Deleting, Deleted, Canceled, Failed, Succeeded, Moving, Updating, Registering, Registered, Unregistering, Unregistered, Completed)
+* WorkflowTriggerProvisioningState `string` (values: NotSpecified, Accepted, Running, Ready, Creating, Created, Deleting, Deleted, Canceled, Failed, Succeeded, Moving, Updating, Registering, Registered, Unregistering, Unregistered, Completed): The workflow trigger provisioning state.
 
 ### WorkflowTriggerRecurrence
 * WorkflowTriggerRecurrence `object`: The workflow trigger recurrence.
@@ -3454,6 +4302,15 @@ azure_logic.WorkflowVersions_ListCallbackUrl({
   * state [WorkflowState](#workflowstate)
   * version `string`: Gets the version.
 
+### WsdlImportMethod
+* WsdlImportMethod `string` (values: NotSpecified, SoapToRest, SoapPassThrough): The WSDL import method.
+
+### WsdlService
+* WsdlService `object`: The WSDL service.
+  * EndpointQualifiedNames `array`: The list of endpoints' qualified names.
+    * items `string`
+  * qualifiedName `string`: The qualified name.
+
 ### X12AcknowledgementSettings
 * X12AcknowledgementSettings `object`: The X12 agreement acknowledgement settings.
   * acknowledgementControlNumberLowerBound **required** `integer`: The acknowledgement control number lower bound.
@@ -3478,10 +4335,10 @@ azure_logic.WorkflowVersions_ListCallbackUrl({
   * sendAgreement **required** [X12OneWayAgreement](#x12onewayagreement)
 
 ### X12CharacterSet
-* X12CharacterSet `string` (values: NotSpecified, Basic, Extended, UTF8)
+* X12CharacterSet `string` (values: NotSpecified, Basic, Extended, UTF8): The X12 character set.
 
 ### X12DateFormat
-* X12DateFormat `string` (values: NotSpecified, CCYYMMDD, YYMMDD)
+* X12DateFormat `string` (values: NotSpecified, CCYYMMDD, YYMMDD): The x12 date format.
 
 ### X12DelimiterOverrides
 * X12DelimiterOverrides `object`: The X12 delimiter override settings.
@@ -3603,7 +4460,7 @@ azure_logic.WorkflowVersions_ListCallbackUrl({
   * securityQualifier **required** `string`: The security qualifier.
 
 ### X12TimeFormat
-* X12TimeFormat `string` (values: NotSpecified, HHMM, HHMMSS, HHMMSSdd, HHMMSSd)
+* X12TimeFormat `string` (values: NotSpecified, HHMM, HHMMSS, HHMMSSdd, HHMMSSd): The x12 time format.
 
 ### X12ValidationOverride
 * X12ValidationOverride `object`: The X12 validation override settings.
@@ -3612,8 +4469,8 @@ azure_logic.WorkflowVersions_ListCallbackUrl({
   * trailingSeparatorPolicy **required** [TrailingSeparatorPolicy](#trailingseparatorpolicy)
   * trimLeadingAndTrailingSpacesAndZeroes **required** `boolean`: The value indicating whether to trim leading and trailing spaces and zeroes.
   * validateCharacterSet **required** `boolean`: The value indicating whether to validate character Set.
-  * validateEdiTypes **required** `boolean`: The value indicating whether to validate EDI types.
-  * validateXsdTypes **required** `boolean`: The value indicating whether to validate XSD types.
+  * validateEDITypes **required** `boolean`: The value indicating whether to validate EDI types.
+  * validateXSDTypes **required** `boolean`: The value indicating whether to validate XSD types.
 
 ### X12ValidationSettings
 * X12ValidationSettings `object`: The X12 agreement validation settings.
@@ -3625,7 +4482,7 @@ azure_logic.WorkflowVersions_ListCallbackUrl({
   * trailingSeparatorPolicy **required** [TrailingSeparatorPolicy](#trailingseparatorpolicy)
   * trimLeadingAndTrailingSpacesAndZeroes **required** `boolean`: The value indicating whether to trim leading and trailing spaces and zeroes.
   * validateCharacterSet **required** `boolean`: The value indicating whether to validate character set in the message.
-  * validateEdiTypes **required** `boolean`: The value indicating whether to Whether to validate EDI types.
-  * validateXsdTypes **required** `boolean`: The value indicating whether to Whether to validate XSD types.
+  * validateEDITypes **required** `boolean`: The value indicating whether to Whether to validate EDI types.
+  * validateXSDTypes **required** `boolean`: The value indicating whether to Whether to validate XSD types.
 
 

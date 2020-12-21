@@ -1,6 +1,6 @@
 # @datafire/circleci
 
-Client library for CircleCI
+Client library for CircleCI REST API
 
 ## Installation and Usage
 ```bash
@@ -11,7 +11,7 @@ let circleci = require('@datafire/circleci').create({
   apikey: ""
 });
 
-circleci.recent_builds.get({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -144,7 +144,7 @@ circleci.project.username.project.checkout_key.post({
 
 #### Input
 * input `object`
-  * type `string` (values: deploy-key, github-user-key)
+  * body `string` (values: deploy-key, github-user-key)
   * username **required** `string`: XXXXXXXXX
   * project **required** `string`: XXXXXXXXX
 
@@ -542,7 +542,6 @@ circleci.user.heroku_key.post(null, context)
   * all_commit_details [CommitDetails](#commitdetails)
   * compare `string`
   * job_name `string`
-  * node `null`
   * previous_successful_build [PreviousBuild](#previousbuild)
   * retries `boolean`
   * ssh_enabled `boolean`

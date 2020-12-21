@@ -1,31 +1,25 @@
 {
   "swagger": "2.0",
-  "schemes": [
-    "http",
-    "https"
-  ],
-  "host": "api.nytimes.com",
-  "basePath": "/svc/search/v2",
   "info": {
     "description": "With the Article Search API, you can search New York Times articles from Sept. 18, 1851 to today, retrieving headlines, abstracts, lead paragraphs, links to associated multimedia and other article metadata.  \n\n Note: In URI examples and field names, italics indicate placeholders for variables or values. Brackets [ ] indicate optional items. Parentheses ( ) are not a convention — when URIs include parentheses, interpret them literally.",
     "termsOfService": "http://developer.nytimes.com/tou",
-    "title": "Article Search",
+    "title": "Article Search API",
     "version": "1.0.0",
     "x-apiClientRegistration": {
       "url": "http://developer.nytimes.com/signup"
     },
     "x-apisguru-categories": [
       "media",
-      "search"
+      "open_data"
     ],
     "x-logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_static01.nyt.com_images_icons_t_logo_291_black.png"
     },
     "x-origin": [
       {
-        "format": "swagger",
-        "url": "https://raw.githubusercontent.com/NYTimes/public_api_specs/master/article_search/article_search_v2.json",
-        "version": "2.0"
+        "format": "openapi",
+        "url": "https://raw.githubusercontent.com/nytimes/public_api_specs/master/article_search/article_search_v2.json",
+        "version": "3.0"
       }
     ],
     "x-preferred": true,
@@ -36,28 +30,17 @@
       "type": "openapi"
     }
   },
-  "externalDocs": {
-    "url": "http://developer.nytimes.com/"
-  },
-  "produces": [
-    "application/json"
-  ],
-  "securityDefinitions": {
-    "apikey": {
-      "in": "query",
-      "name": "api-key",
-      "type": "apiKey"
-    }
-  },
-  "security": [
-    {
-      "apikey": []
-    }
+  "host": "api.nytimes.com",
+  "basePath": "/svc/search/v2",
+  "schemes": [
+    "http"
   ],
   "paths": {
     "/articlesearch.json": {
       "get": {
-        "description": "Article Search requests use the following URI structure:\n",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Search query term. Search is performed on the article body, headline and byline.\n",
@@ -174,11 +157,11 @@
             }
           }
         },
-        "summary": "Article Search",
         "tags": [
           "Stories"
         ],
-        "operationId": "articlesearch.json.get"
+        "description": "Article Search requests use the following URI structure:\n",
+        "summary": "Article Search"
       }
     }
   },
@@ -273,7 +256,7 @@
           },
           "type": "array"
         },
-        "news_desK": {
+        "news_desk": {
           "type": "string"
         },
         "print_page": {
@@ -309,5 +292,21 @@
       },
       "type": "object"
     }
-  }
+  },
+  "securityDefinitions": {
+    "apikey": {
+      "in": "query",
+      "name": "api-key",
+      "type": "apiKey"
+    }
+  },
+  "security": [
+    {
+      "apikey": []
+    }
+  ],
+  "externalDocs": {
+    "url": "http://developer.nytimes.com/"
+  },
+  "x-components": {}
 }

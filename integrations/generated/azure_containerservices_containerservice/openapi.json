@@ -94,6 +94,7 @@
   "paths": {
     "/subscriptions/{subscriptionId}/providers/Microsoft.ContainerService/containerServices": {
       "get": {
+        "deprecated": true,
         "description": "Gets a list of container services in the specified subscription. The operation returns properties of each container service including state, orchestrator, number of masters and agents, and FQDNs of masters and agents.",
         "operationId": "ContainerServices_List",
         "parameters": [
@@ -224,6 +225,7 @@
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/containerServices": {
       "get": {
+        "deprecated": true,
         "description": "Gets a list of container services in the specified subscription and resource group. The operation returns properties of each container service including state, orchestrator, number of masters and agents, and FQDNs of masters and agents.",
         "operationId": "ContainerServices_ListByResourceGroup",
         "parameters": [
@@ -358,6 +360,7 @@
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/containerServices/{containerServiceName}": {
       "delete": {
+        "deprecated": true,
         "description": "Deletes the specified container service in the specified subscription and resource group. The operation does not delete other resources created as part of creating a container service, including storage accounts, VMs, and availability sets. All the other resources created with the container service are part of the same resource group and can be deleted individually.",
         "operationId": "ContainerServices_Delete",
         "parameters": [
@@ -407,6 +410,7 @@
         "x-ms-long-running-operation": true
       },
       "get": {
+        "deprecated": true,
         "description": "Gets the properties of the specified container service in the specified subscription and resource group. The operation returns the properties including state, orchestrator, number of masters and agents, and FQDNs of masters and agents. ",
         "operationId": "ContainerServices_Get",
         "parameters": [
@@ -499,6 +503,7 @@
         }
       },
       "put": {
+        "deprecated": true,
         "description": "Creates or updates a container service with the specified configuration of orchestrator, masters, and agents.",
         "operationId": "ContainerServices_CreateOrUpdate",
         "parameters": [
@@ -743,7 +748,7 @@
           "type": "string"
         },
         "fqdn": {
-          "description": "FDQN for the agent pool.",
+          "description": "FQDN for the agent pool.",
           "readOnly": true,
           "type": "string"
         },
@@ -756,16 +761,8 @@
           "description": "OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified."
         },
         "osType": {
-          "default": "Linux",
-          "description": "OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.",
-          "enum": [
-            "Linux",
-            "Windows"
-          ],
-          "type": "string",
-          "x-ms-enum": {
-            "name": "OSType"
-          }
+          "$ref": "#/definitions/OSType",
+          "description": "OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux."
         },
         "ports": {
           "description": "Ports number array used to expose on this agent pool. The default opened ports are different based on your choice of orchestrator.",
@@ -786,7 +783,7 @@
         },
         "vnetSubnetID": {
           "$ref": "#/definitions/ContainerServiceVnetSubnetID",
-          "description": "VNet SubnetID specifies the vnet's subnet identifier. If you specify either master VNet Subnet, or agent VNet Subnet, you need to specify both. And they have to be in the same VNet."
+          "description": "VNet SubnetID specifies the VNet's subnet identifier."
         }
       },
       "required": [
@@ -823,7 +820,7 @@
       "properties": {
         "adminUsername": {
           "description": "The administrator username to use for Linux VMs.",
-          "pattern": "^[a-z][a-z0-9_-]*$",
+          "pattern": "^[A-Za-z][-A-Za-z0-9_]*$",
           "type": "string"
         },
         "ssh": {
@@ -881,7 +878,7 @@
           "type": "string"
         },
         "fqdn": {
-          "description": "FDQN for the master pool.",
+          "description": "FQDN for the master pool.",
           "readOnly": true,
           "type": "string"
         },
@@ -899,7 +896,7 @@
         },
         "vnetSubnetID": {
           "$ref": "#/definitions/ContainerServiceVnetSubnetID",
-          "description": "VNet SubnetID specifies the vnet's subnet identifier. If you specify either master VNet Subnet, or agent VNet Subnet, you need to specify both. And they have to be in the same VNet."
+          "description": "VNet SubnetID specifies the VNet's subnet identifier."
         }
       },
       "required": [
@@ -1252,7 +1249,7 @@
       }
     },
     "ContainerServiceVnetSubnetID": {
-      "description": "VNet SubnetID specifies the vnet's subnet identifier. If you specify either master VNet Subnet, or agent VNet Subnet, you need to specify both. And they have to be in the same VNet.",
+      "description": "VNet SubnetID specifies the VNet's subnet identifier.",
       "type": "string"
     },
     "ContainerServiceWindowsProfile": {
@@ -1294,6 +1291,19 @@
         "vaultID",
         "secretName"
       ]
+    },
+    "OSType": {
+      "default": "Linux",
+      "description": "OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.",
+      "enum": [
+        "Linux",
+        "Windows"
+      ],
+      "type": "string",
+      "x-ms-enum": {
+        "modelAsString": true,
+        "name": "OSType"
+      }
     },
     "Resource": {
       "description": "The Resource model definition.",

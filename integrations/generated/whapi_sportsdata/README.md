@@ -1,6 +1,6 @@
 # @datafire/whapi_sportsdata
 
-Client library for SportsData
+Client library for SportsData API
 
 ## Installation and Usage
 ```bash
@@ -9,10 +9,7 @@ npm install --save @datafire/whapi_sportsdata
 ```js
 let whapi_sportsdata = require('@datafire/whapi_sportsdata').create();
 
-whapi_sportsdata.getCompetitionsForClass({
-  "apiKey": "",
-  "classId": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -93,7 +90,7 @@ whapi_sportsdata.getEventsForClass({
   * marketStatus `string`: Specify a status to filter results by. This is currently A (active) or S (suspended)
   * marketDisplayed `string`: Specify whether to return displayed entities or not
   * marketChannel `string`: Specify a channel filter and only results from that channel will be returned
-  * marketSort `string`: Filter by market sort  (e.g. MR (match result) -- (Outright)).
+  * marketSort `string`: Filter by market sort (e.g. MR (match result) -- (Outright)).
   * marketEW `string`: Specify whether to return markets with each way betting or those without
   * selectionStatus `string`: Specify a status to filter results by. This is currently A (active) or S (suspended)
   * selectionChannel `string`: Specify a channel filter and only results from that channel will be returned
@@ -166,7 +163,7 @@ whapi_sportsdata.getEventsForCompetition({
   * marketStatus `string`: Specify a status to filter results by. This is currently A (active) or S (suspended)
   * marketDisplayed `string`: Specify whether to return displayed entities or not
   * marketChannel `string`: Specify a channel filter and only results from that channel will be returned
-  * marketSort `string`: Filter by market sort  (e.g. MR (match result) -- (Outright)).
+  * marketSort `string`: Filter by market sort (e.g. MR (match result) -- (Outright)).
   * marketEW `string`: Specify whether to return markets with each way betting or those without
   * selectionStatus `string`: Specify a status to filter results by. This is currently A (active) or S (suspended)
   * selectionChannel `string`: Specify a channel filter and only results from that channel will be returned
@@ -198,6 +195,32 @@ whapi_sportsdata.getMarketGroupsForCompetition({
   * limit `integer`: Specify the number of results to return
   * culture `string`: Code used to return responses in language other than English, acceptable values are de-DE|es-ES|fr-FR|nn-NO|fi-FI|ru-RU|pt-PT|hu-HU|sl-SL|ga-IE|en-CA|sr-Latn|sv-SE|el=GR|zh-CHS|it-IT|zh-CHT|cs-CZ|de-AT|ja-JP|pl-PL|da-DK|ro-RO|nl-NL|tr-TR
   * name `string`: Filter by market group name
+
+#### Output
+* output [marketGroupsWrapper](#marketgroupswrapper)
+
+### getMarketsByGroupId
+Retrieves a list of events/markets/selections where markets within said event match selected sort/groupId
+
+
+```js
+whapi_sportsdata.getMarketsByGroupId({
+  "apiKey": "",
+  "competitionId": "",
+  "marketSort": "",
+  "marketGroupId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * apiKey **required** `string`: Your API Key available from your developer portal
+  * competitionId **required** `string`: The competition id to retrieve information for.
+  * fields `array`: Specify an absolute field list to return (Comma-Separated List)
+  * include `array`: Specify fields in addition to the default to return (Comma-Separated List)
+  * exclude `array`: Specify fields from the default to exclude (Comma-Separated List)
+  * marketSort **required** `string`: Filter by market sort (e.g. MR (match result) -- (Outright)).
+  * marketGroupId **required** `string`: Filter by marketGroupId (e.g. OB_MG1276585).
 
 #### Output
 * output [marketGroupsWrapper](#marketgroupswrapper)
@@ -235,7 +258,7 @@ whapi_sportsdata.getEvents({
   * marketStatus `string`: Specify a status to filter results by. This is currently A (active) or S (suspended)
   * marketDisplayed `string`: Specify whether to return displayed entities or not
   * marketChannel `string`: Specify a channel filter and only results from that channel will be returned
-  * marketSort `string`: Filter by market sort  (e.g. MR (match result) -- (Outright)).
+  * marketSort `string`: Filter by market sort (e.g. MR (match result) -- (Outright)).
   * marketEW `string`: Specify whether to return markets with each way betting or those without
   * selectionStatus `string`: Specify a status to filter results by. This is currently A (active) or S (suspended)
   * selectionChannel `string`: Specify a channel filter and only results from that channel will be returned
@@ -272,7 +295,7 @@ whapi_sportsdata.getEvent({
   * marketStatus `string`: Specify a status to filter results by. This is currently A (active) or S (suspended)
   * marketDisplayed `string`: Specify whether to return displayed entities or not
   * marketChannel `string`: Specify a channel filter and only results from that channel will be returned
-  * marketSort `string`: Filter by market sort  (e.g. MR (match result) -- (Outright)).
+  * marketSort `string`: Filter by market sort (e.g. MR (match result) -- (Outright)).
   * marketEW `string`: Specify whether to return markets with each way betting or those without
   * selectionStatus `string`: Specify a status to filter results by. This is currently A (active) or S (suspended)
   * selectionChannel `string`: Specify a channel filter and only results from that channel will be returned
@@ -280,6 +303,28 @@ whapi_sportsdata.getEvent({
 
 #### Output
 * output [eventsWrapper](#eventswrapper)
+
+### getEventCompetitors
+Retrieves competitors for a single event by ID.
+
+
+```js
+whapi_sportsdata.getEventCompetitors({
+  "apiKey": "",
+  "eventId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * apiKey **required** `string`: Your API Key available from your developer portal
+  * eventId **required** `string`: The event ID to retrieve information for.
+  * fields `array`: Specify an absolute field list to return (Comma-Separated List)
+  * include `array`: Specify fields in addition to the default to return (Comma-Separated List)
+  * exclude `array`: Specify fields from the default to exclude (Comma-Separated List)
+
+#### Output
+* output [eventCompetitorsWrapper](#eventcompetitorswrapper)
 
 ### getMarkets
 Retrieves one or more specific markets. Markets with Live at the end are always In-Play markets. However, not ALL In-Play markets have Live at the end of the market name.
@@ -307,7 +352,7 @@ whapi_sportsdata.getMarkets({
   * marketStatus `string`: Specify a status to filter results by. This is currently A (active) or S (suspended)
   * marketDisplayed `string`: Specify whether to return displayed entities or not
   * marketChannel `string`: Specify a channel filter and only results from that channel will be returned
-  * marketSort `string`: Filter by market sort  (e.g. MR (match result) -- (Outright)).
+  * marketSort `string`: Filter by market sort (e.g. MR (match result) -- (Outright)).
   * marketEW `string`: Specify whether to return markets with each way betting or those without
   * selectionStatus `string`: Specify a status to filter results by. This is currently A (active) or S (suspended)
   * selectionChannel `string`: Specify a channel filter and only results from that channel will be returned
@@ -452,7 +497,7 @@ whapi_sportsdata.getTopBets({
   * param_topBetEventId `string`: The event ID to retrieve top bet information for. Multiple events up to 5 may be used
   * sortName `string`: The market sort code used to further filter event results. Please note this can only be used with event id(s).
   * culture `string`: Code used to return responses in language other than English, acceptable values are de-DE|es-ES|fr-FR|nn-NO|fi-FI|ru-RU|pt-PT|hu-HU|sl-SL|ga-IE|en-CA|sr-Latn|sv-SE|el=GR|zh-CHS|it-IT|zh-CHT|cs-CZ|de-AT|ja-JP|pl-PL|da-DK|ro-RO|nl-NL|tr-TR
-  * Locale `string`: Code used to select a set of top bets settings, default is "whapi" which allows events set in far future to be included, setting the value to "en-GB" will activate english sportsbook settings, mirroring top bets on the website, which restricts events returned to those taking place in next 36 hours.  Acceptable values (not all heve their own settings - if none currently available for that locale - en-GB will be used) are  de-DE|whapi|en-GB|es-ES|fr-FR|nn-NO|fi-FI|ru-RU|pt-PT|hu-HU|sl-SL|ga-IE|en-CA|sr-Latn|sv-SE|el=GR|zh-CHS|it-IT|zh-CHT|cs-CZ|de-AT|ja-JP|pl-PL|da-DK|ro-RO|nl-NL|tr-TR
+  * Locale `string`: Code used to select a set of top bets settings, default is "whapi" which allows events set in far future to be included, setting the value to "en-GB" will activate english sportsbook settings, mirroring top bets on the website, which restricts events returned to those taking place in next 36 hours. Acceptable values (not all heve their own settings - if none currently available for that locale - en-GB will be used) are de-DE|whapi|en-GB|es-ES|fr-FR|nn-NO|fi-FI|ru-RU|pt-PT|hu-HU|sl-SL|ga-IE|en-CA|sr-Latn|sv-SE|el=GR|zh-CHS|it-IT|zh-CHT|cs-CZ|de-AT|ja-JP|pl-PL|da-DK|ro-RO|nl-NL|tr-TR
 
 #### Output
 * output [topBetsWrapper](#topbetswrapper)
@@ -495,6 +540,23 @@ whapi_sportsdata.getTopBets({
 * competitionsWrapper `object`
   * competitions `array`
     * items [competition](#competition)
+
+### competitor
+* competitor `object`
+  * age `number`: The age of the horse
+  * colour `string`: The colour of the horse (There are 5 colours. b = Bay. bl = Black. br = Brown. ch = Chestnut. gr = Grey)
+  * drawNumber `number`: The stall number that the horse is allocated and will start from
+  * formGuide `string`: The form of a horse is a record of significant events, mainly its performance in previous races. For example: The value 874-1 means that the horse finished 8th, then 7th in the next race, then 4th, hyphen here means he did not finish in the race, and was 1st in the last race he was running in.
+  * id **required** `number`: Unique identifier of the competitor in the event
+  * jockeyName `string`: The name of the Jockey who's riding the horse
+  * name `string`: The name of competitor that the information is being given for
+  * overview `string`: Additional information about the horse's performance
+  * ownerName `string`: The name of the horses owner(s)
+  * rating `string`: The rating of the horse which is defined by a rating provider. It represents the horse's performance (the higher the rating, the better the horse is)
+  * sex `string`: The sex of the horse (F|M)
+  * silkImageUrl **required** `string`: The URL for the image that represents the 'silk' (Coathing pattern) worn by the jockey.
+  * trainerName `string`: The name of the horses trainer
+  * weightPounds `string`: The rider weight (in pounds)
 
 ### error
 * error `object`
@@ -541,6 +603,11 @@ whapi_sportsdata.getTopBets({
   * startDateTime **required** `string`: The start date and time of the event
   * status **required** `string`: Status of the event (A for Active, S for Suspended)
 
+### eventCompetitorsWrapper
+* eventCompetitorsWrapper `object`
+  * competitors `array`
+    * items [competitor](#competitor)
+
 ### eventsWrapper
 * eventsWrapper `object`
   * events `array`
@@ -559,6 +626,7 @@ whapi_sportsdata.getTopBets({
   * eachWayFactorNum `number`: Where each way terms are stored with the bet, this holds the numerator for the each way
   * eachWayPlaces `number`: Where each way terms are stored with the bet, this holds the number of places paid. For
   * earlyPriceAvailable `boolean`: Early Pricing Active
+  * fcAvailable `boolean`: Is tricast betting available
   * firstFourAvailable `boolean`: Is firstFour betting available
   * firstPriceAvailable `boolean`: Is firstPrice betting available
   * flags `string`: Flags for the market
@@ -582,6 +650,7 @@ whapi_sportsdata.getTopBets({
   * settled `boolean`: Whether the market is settled or not
   * startingPriceAvailable `boolean`: Starting Price Available
   * status **required** `string`: Indicates the status of the Market (A = Active/S = Suspended)
+  * tcAvailable `boolean`: Is forecast betting available
 
 ### marketGroupsWrapper
 * marketGroupsWrapper `object`
@@ -593,6 +662,7 @@ whapi_sportsdata.getTopBets({
   * collectionId `string`: The collectionId of the Market Group, If it has one
   * competitionId `string`: The CompetitionId of the Market Group
   * id **required** `string`: The Id of the Market Group
+  * marketSort `string`: The market sort of this group
   * name **required** `string`: The Name of the Market Group
 
 ### marketsWrapper

@@ -15,11 +15,7 @@ let azure_sql_checknameavailability = require('@datafire/azure_sql_checknameavai
   redirect_uri: ""
 });
 
-azure_sql_checknameavailability.Servers_CheckNameAvailability({
-  "api-version": "",
-  "subscriptionId": "",
-  "parameters": null
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

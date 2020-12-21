@@ -1,6 +1,6 @@
 # @datafire/opendatanetwork
 
-Client library for ODN
+Client library for ODN API
 
 ## Installation and Usage
 ```bash
@@ -9,7 +9,7 @@ npm install --save @datafire/opendatanetwork
 ```js
 let opendatanetwork = require('@datafire/opendatanetwork').create();
 
-opendatanetwork.search.v1.dataset.get({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -64,6 +64,7 @@ opendatanetwork.data.v1.availability.get({
 * input `object`
   * entity_id **required** `string`: Comma separated list of entity IDs.
   * app_token `string`: The [Socrata App Token](https://dev.socrata.com/docs/app-tokens.html) to be
+  * X-App-Token `string`: e.g. cQovpGcdUT1CSzgYk0KPYdAI0
 
 #### Output
 *Output schema unknown*
@@ -86,6 +87,7 @@ opendatanetwork.data.v1.constraint.variable.get({
   * entity_id **required** `string`: Comma separated list of entity IDs.
   * constraint **required** `string`: Constraint to use.
   * app_token `string`: The [Socrata App Token](https://dev.socrata.com/docs/app-tokens.html) to be
+  * X-App-Token `string`: e.g. cQovpGcdUT1CSzgYk0KPYdAI0
 
 #### Output
 *Output schema unknown*
@@ -107,6 +109,7 @@ opendatanetwork.data.v1.map.new.get({
   * entity_id **required** `string`: A comma separated list of entity IDs.
   * constraint `string`: Values must be specified for each constraint in the dataset.
   * app_token `string`: The [Socrata App Token](https://dev.socrata.com/docs/app-tokens.html) to be
+  * X-App-Token `string`: e.g. cQovpGcdUT1CSzgYk0KPYdAI0
 
 #### Output
 *Output schema unknown*
@@ -129,6 +132,7 @@ opendatanetwork.data.v1.values.get({
   * describe `boolean`: Whether or not to produce a description of the data.
   * format `string` (values: google): If format is set to `google`, the data frame will be formatted
   * app_token `string`: The [Socrata App Token](https://dev.socrata.com/docs/app-tokens.html) to be
+  * X-App-Token `string`: e.g. cQovpGcdUT1CSzgYk0KPYdAI0
 
 #### Output
 *Output schema unknown*
@@ -147,6 +151,7 @@ opendatanetwork.entity.v1.get({}, context)
   * entity_name `string`: Name of the entity.
   * entity_type `string`: Type of the entity.
   * app_token `string`: The [Socrata App Token](https://dev.socrata.com/docs/app-tokens.html) to be
+  * X-App-Token `string`: e.g. cQovpGcdUT1CSzgYk0KPYdAI0
 
 #### Output
 *Output schema unknown*
@@ -169,6 +174,7 @@ opendatanetwork.entity.v1.relation.get({
   * variable_id `string`: If this parameter is included, only entities with data for the given
   * limit `number`: Maximum number of entities in each group.
   * app_token `string`: The [Socrata App Token](https://dev.socrata.com/docs/app-tokens.html) to be
+  * X-App-Token `string`: e.g. cQovpGcdUT1CSzgYk0KPYdAI0
 
 #### Output
 *Output schema unknown*
@@ -188,6 +194,7 @@ opendatanetwork.search.v1.dataset.get({}, context)
   * limit `number`: Maximum number of results to return.
   * offset `number`: Number of results to skip.
   * app_token `string`: The [Socrata App Token](https://dev.socrata.com/docs/app-tokens.html) to be
+  * X-App-Token `string`: e.g. cQovpGcdUT1CSzgYk0KPYdAI0
 
 #### Output
 *Output schema unknown*
@@ -208,6 +215,7 @@ opendatanetwork.search.v1.question.get({
   * limit `number`: Maximum number of results to return.
   * offset `number`: Number of results to skip.
   * app_token `string`: The [Socrata App Token](https://dev.socrata.com/docs/app-tokens.html) to be
+  * X-App-Token `string`: e.g. cQovpGcdUT1CSzgYk0KPYdAI0
 
 #### Output
 *Output schema unknown*
@@ -230,6 +238,7 @@ opendatanetwork.suggest.v1.type.get({
   * limit `number`: Maximum number of results to return.
   * variable_id `string`: This parameter is only available when suggesting entities with `type=entity`.
   * app_token `string`: The [Socrata App Token](https://dev.socrata.com/docs/app-tokens.html) to be
+  * X-App-Token `string`: e.g. cQovpGcdUT1CSzgYk0KPYdAI0
 
 #### Output
 *Output schema unknown*

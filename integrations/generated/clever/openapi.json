@@ -1,16 +1,11 @@
 {
   "swagger": "2.0",
-  "schemes": [
-    "https"
-  ],
-  "host": "api.clever.com",
-  "basePath": "/v1.2",
   "info": {
     "contact": {
       "x-twitter": "clever"
     },
     "description": "Serves the Clever Data API",
-    "title": "Data",
+    "title": "Data API",
     "version": "1.2.0",
     "x-apisguru-categories": [
       "education"
@@ -20,9 +15,9 @@
     },
     "x-origin": [
       {
-        "format": "swagger",
+        "format": "openapi",
         "url": "https://raw.githubusercontent.com/Clever/swagger-api/master/v1.2.yml",
-        "version": "2.0"
+        "version": "3.0"
       }
     ],
     "x-preferred": true,
@@ -32,48 +27,17 @@
       "type": "openapi"
     }
   },
-  "produces": [
-    "application/json"
+  "host": "api.clever.com",
+  "basePath": "/v1.2",
+  "schemes": [
+    "https"
   ],
-  "securityDefinitions": {
-    "oauth": {
-      "authorizationUrl": "https://clever.com/oauth/authorize",
-      "flow": "accessCode",
-      "tokenUrl": "https://clever.com/oauth/tokens",
-      "type": "oauth2",
-      "x-default": "TEST_TOKEN"
-    }
-  },
-  "security": [
-    {
-      "oauth": []
-    }
-  ],
-  "responses": {
-    "BadRequest": {
-      "description": "Bad Request",
-      "schema": {
-        "$ref": "#/definitions/BadRequest"
-      }
-    },
-    "InternalError": {
-      "description": "Internal Error",
-      "schema": {
-        "$ref": "#/definitions/InternalError"
-      }
-    },
-    "NotFound": {
-      "description": "Entity Not Found",
-      "schema": {
-        "$ref": "#/definitions/NotFound"
-      }
-    }
-  },
   "paths": {
     "/contacts": {
       "get": {
-        "description": "Returns a list of student contacts",
-        "operationId": "getContacts",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "in": "query",
@@ -101,13 +65,16 @@
         },
         "tags": [
           "Contacts"
-        ]
+        ],
+        "description": "Returns a list of student contacts",
+        "operationId": "getContacts"
       }
     },
     "/contacts/{id}": {
       "get": {
-        "description": "Returns a specific student contact",
-        "operationId": "getContact",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "in": "path",
@@ -124,18 +91,24 @@
             }
           },
           "404": {
-            "$ref": "#/responses/NotFound"
+            "description": "Entity Not Found",
+            "schema": {
+              "$ref": "#/definitions/NotFound"
+            }
           }
         },
         "tags": [
           "Contacts"
-        ]
+        ],
+        "description": "Returns a specific student contact",
+        "operationId": "getContact"
       }
     },
     "/contacts/{id}/district": {
       "get": {
-        "description": "Returns the district for a student contact",
-        "operationId": "getDistrictForStudentContact",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "in": "path",
@@ -152,18 +125,24 @@
             }
           },
           "404": {
-            "$ref": "#/responses/NotFound"
+            "description": "Entity Not Found",
+            "schema": {
+              "$ref": "#/definitions/NotFound"
+            }
           }
         },
         "tags": [
           "Contacts"
-        ]
+        ],
+        "description": "Returns the district for a student contact",
+        "operationId": "getDistrictForStudentContact"
       }
     },
     "/contacts/{id}/student": {
       "get": {
-        "description": "Returns the student for a student contact",
-        "operationId": "getStudentForContact",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "in": "path",
@@ -180,18 +159,24 @@
             }
           },
           "404": {
-            "$ref": "#/responses/NotFound"
+            "description": "Entity Not Found",
+            "schema": {
+              "$ref": "#/definitions/NotFound"
+            }
           }
         },
         "tags": [
           "Contacts"
-        ]
+        ],
+        "description": "Returns the student for a student contact",
+        "operationId": "getStudentForContact"
       }
     },
     "/district_admins": {
       "get": {
-        "description": "Returns a list of district admins",
-        "operationId": "getDistrictAdmins",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "in": "query",
@@ -219,13 +204,16 @@
         },
         "tags": [
           "District Admins"
-        ]
+        ],
+        "description": "Returns a list of district admins",
+        "operationId": "getDistrictAdmins"
       }
     },
     "/district_admins/{id}": {
       "get": {
-        "description": "Returns a specific district admin",
-        "operationId": "getDistrictAdmin",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "in": "path",
@@ -242,18 +230,25 @@
             }
           },
           "404": {
-            "$ref": "#/responses/NotFound"
+            "description": "Entity Not Found",
+            "schema": {
+              "$ref": "#/definitions/NotFound"
+            }
           }
         },
         "tags": [
           "District Admins"
-        ]
+        ],
+        "description": "Returns a specific district admin",
+        "operationId": "getDistrictAdmin"
       }
     },
     "/districts": {
       "get": {
-        "description": "Returns a list of districts",
-        "operationId": "getDistricts",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": "OK Response",
@@ -264,13 +259,16 @@
         },
         "tags": [
           "Districts"
-        ]
+        ],
+        "description": "Returns a list of districts",
+        "operationId": "getDistricts"
       }
     },
     "/districts/{id}": {
       "get": {
-        "description": "Returns a specific district",
-        "operationId": "getDistrict",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "in": "path",
@@ -292,18 +290,24 @@
             }
           },
           "404": {
-            "$ref": "#/responses/NotFound"
+            "description": "Entity Not Found",
+            "schema": {
+              "$ref": "#/definitions/NotFound"
+            }
           }
         },
         "tags": [
           "Districts"
-        ]
+        ],
+        "description": "Returns a specific district",
+        "operationId": "getDistrict"
       }
     },
     "/districts/{id}/admins": {
       "get": {
-        "description": "Returns the admins for a district",
-        "operationId": "getAdminsForDistrict",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "in": "path",
@@ -320,18 +324,24 @@
             }
           },
           "404": {
-            "$ref": "#/responses/NotFound"
+            "description": "Entity Not Found",
+            "schema": {
+              "$ref": "#/definitions/NotFound"
+            }
           }
         },
         "tags": [
           "Districts"
-        ]
+        ],
+        "description": "Returns the admins for a district",
+        "operationId": "getAdminsForDistrict"
       }
     },
     "/districts/{id}/schools": {
       "get": {
-        "description": "Returns the schools for a district",
-        "operationId": "getSchoolsForDistrict",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "in": "path",
@@ -368,18 +378,24 @@
             }
           },
           "404": {
-            "$ref": "#/responses/NotFound"
+            "description": "Entity Not Found",
+            "schema": {
+              "$ref": "#/definitions/NotFound"
+            }
           }
         },
         "tags": [
           "Districts"
-        ]
+        ],
+        "description": "Returns the schools for a district",
+        "operationId": "getSchoolsForDistrict"
       }
     },
     "/districts/{id}/sections": {
       "get": {
-        "description": "Returns the sections for a district",
-        "operationId": "getSectionsForDistrict",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "in": "path",
@@ -416,18 +432,24 @@
             }
           },
           "404": {
-            "$ref": "#/responses/NotFound"
+            "description": "Entity Not Found",
+            "schema": {
+              "$ref": "#/definitions/NotFound"
+            }
           }
         },
         "tags": [
           "Districts"
-        ]
+        ],
+        "description": "Returns the sections for a district",
+        "operationId": "getSectionsForDistrict"
       }
     },
     "/districts/{id}/status": {
       "get": {
-        "description": "Returns the status of the district",
-        "operationId": "getDistrictStatus",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "in": "path",
@@ -444,18 +466,24 @@
             }
           },
           "404": {
-            "$ref": "#/responses/NotFound"
+            "description": "Entity Not Found",
+            "schema": {
+              "$ref": "#/definitions/NotFound"
+            }
           }
         },
         "tags": [
           "Districts"
-        ]
+        ],
+        "description": "Returns the status of the district",
+        "operationId": "getDistrictStatus"
       }
     },
     "/districts/{id}/students": {
       "get": {
-        "description": "Returns the students for a district",
-        "operationId": "getStudentsForDistrict",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "in": "path",
@@ -492,18 +520,24 @@
             }
           },
           "404": {
-            "$ref": "#/responses/NotFound"
+            "description": "Entity Not Found",
+            "schema": {
+              "$ref": "#/definitions/NotFound"
+            }
           }
         },
         "tags": [
           "Districts"
-        ]
+        ],
+        "description": "Returns the students for a district",
+        "operationId": "getStudentsForDistrict"
       }
     },
     "/districts/{id}/teachers": {
       "get": {
-        "description": "Returns the teachers for a district",
-        "operationId": "getTeachersForDistrict",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "in": "path",
@@ -540,18 +574,24 @@
             }
           },
           "404": {
-            "$ref": "#/responses/NotFound"
+            "description": "Entity Not Found",
+            "schema": {
+              "$ref": "#/definitions/NotFound"
+            }
           }
         },
         "tags": [
           "Districts"
-        ]
+        ],
+        "description": "Returns the teachers for a district",
+        "operationId": "getTeachersForDistrict"
       }
     },
     "/school_admins": {
       "get": {
-        "description": "Returns a list of school admins",
-        "operationId": "getSchoolAdmins",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "in": "query",
@@ -584,13 +624,16 @@
         },
         "tags": [
           "School Admins"
-        ]
+        ],
+        "description": "Returns a list of school admins",
+        "operationId": "getSchoolAdmins"
       }
     },
     "/school_admins/{id}": {
       "get": {
-        "description": "Returns a specific school admin",
-        "operationId": "getSchoolAdmin",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "in": "path",
@@ -612,18 +655,24 @@
             }
           },
           "404": {
-            "$ref": "#/responses/NotFound"
+            "description": "Entity Not Found",
+            "schema": {
+              "$ref": "#/definitions/NotFound"
+            }
           }
         },
         "tags": [
           "School Admins"
-        ]
+        ],
+        "description": "Returns a specific school admin",
+        "operationId": "getSchoolAdmin"
       }
     },
     "/school_admins/{id}/schools": {
       "get": {
-        "description": "Returns the schools for a school admin",
-        "operationId": "getSchoolsForSchoolAdmin",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "in": "path",
@@ -655,18 +704,24 @@
             }
           },
           "404": {
-            "$ref": "#/responses/NotFound"
+            "description": "Entity Not Found",
+            "schema": {
+              "$ref": "#/definitions/NotFound"
+            }
           }
         },
         "tags": [
           "School Admins"
-        ]
+        ],
+        "description": "Returns the schools for a school admin",
+        "operationId": "getSchoolsForSchoolAdmin"
       }
     },
     "/schools": {
       "get": {
-        "description": "Returns a list of schools",
-        "operationId": "getSchools",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "in": "query",
@@ -699,13 +754,16 @@
         },
         "tags": [
           "Schools"
-        ]
+        ],
+        "description": "Returns a list of schools",
+        "operationId": "getSchools"
       }
     },
     "/schools/{id}": {
       "get": {
-        "description": "Returns a specific school",
-        "operationId": "getSchool",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "in": "path",
@@ -722,18 +780,24 @@
             }
           },
           "404": {
-            "$ref": "#/responses/NotFound"
+            "description": "Entity Not Found",
+            "schema": {
+              "$ref": "#/definitions/NotFound"
+            }
           }
         },
         "tags": [
           "Schools"
-        ]
+        ],
+        "description": "Returns a specific school",
+        "operationId": "getSchool"
       }
     },
     "/schools/{id}/district": {
       "get": {
-        "description": "Returns the district for a school",
-        "operationId": "getDistrictForSchool",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "in": "path",
@@ -750,18 +814,24 @@
             }
           },
           "404": {
-            "$ref": "#/responses/NotFound"
+            "description": "Entity Not Found",
+            "schema": {
+              "$ref": "#/definitions/NotFound"
+            }
           }
         },
         "tags": [
           "Schools"
-        ]
+        ],
+        "description": "Returns the district for a school",
+        "operationId": "getDistrictForSchool"
       }
     },
     "/schools/{id}/sections": {
       "get": {
-        "description": "Returns the sections for a school",
-        "operationId": "getSectionsForSchool",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "in": "path",
@@ -798,18 +868,24 @@
             }
           },
           "404": {
-            "$ref": "#/responses/NotFound"
+            "description": "Entity Not Found",
+            "schema": {
+              "$ref": "#/definitions/NotFound"
+            }
           }
         },
         "tags": [
           "Schools"
-        ]
+        ],
+        "description": "Returns the sections for a school",
+        "operationId": "getSectionsForSchool"
       }
     },
     "/schools/{id}/students": {
       "get": {
-        "description": "Returns the students for a school",
-        "operationId": "getStudentsForSchool",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "in": "path",
@@ -846,18 +922,24 @@
             }
           },
           "404": {
-            "$ref": "#/responses/NotFound"
+            "description": "Entity Not Found",
+            "schema": {
+              "$ref": "#/definitions/NotFound"
+            }
           }
         },
         "tags": [
           "Schools"
-        ]
+        ],
+        "description": "Returns the students for a school",
+        "operationId": "getStudentsForSchool"
       }
     },
     "/schools/{id}/teachers": {
       "get": {
-        "description": "Returns the teachers for a school",
-        "operationId": "getTeachersForSchool",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "in": "path",
@@ -894,18 +976,24 @@
             }
           },
           "404": {
-            "$ref": "#/responses/NotFound"
+            "description": "Entity Not Found",
+            "schema": {
+              "$ref": "#/definitions/NotFound"
+            }
           }
         },
         "tags": [
           "Schools"
-        ]
+        ],
+        "description": "Returns the teachers for a school",
+        "operationId": "getTeachersForSchool"
       }
     },
     "/sections": {
       "get": {
-        "description": "Returns a list of sections",
-        "operationId": "getSections",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "in": "query",
@@ -938,13 +1026,16 @@
         },
         "tags": [
           "Sections"
-        ]
+        ],
+        "description": "Returns a list of sections",
+        "operationId": "getSections"
       }
     },
     "/sections/{id}": {
       "get": {
-        "description": "Returns a specific section",
-        "operationId": "getSection",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "in": "path",
@@ -961,18 +1052,24 @@
             }
           },
           "404": {
-            "$ref": "#/responses/NotFound"
+            "description": "Entity Not Found",
+            "schema": {
+              "$ref": "#/definitions/NotFound"
+            }
           }
         },
         "tags": [
           "Sections"
-        ]
+        ],
+        "description": "Returns a specific section",
+        "operationId": "getSection"
       }
     },
     "/sections/{id}/district": {
       "get": {
-        "description": "Returns the district for a section",
-        "operationId": "getDistrictForSection",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "in": "path",
@@ -989,18 +1086,24 @@
             }
           },
           "404": {
-            "$ref": "#/responses/NotFound"
+            "description": "Entity Not Found",
+            "schema": {
+              "$ref": "#/definitions/NotFound"
+            }
           }
         },
         "tags": [
           "Sections"
-        ]
+        ],
+        "description": "Returns the district for a section",
+        "operationId": "getDistrictForSection"
       }
     },
     "/sections/{id}/school": {
       "get": {
-        "description": "Returns the school for a section",
-        "operationId": "getSchoolForSection",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "in": "path",
@@ -1017,18 +1120,24 @@
             }
           },
           "404": {
-            "$ref": "#/responses/NotFound"
+            "description": "Entity Not Found",
+            "schema": {
+              "$ref": "#/definitions/NotFound"
+            }
           }
         },
         "tags": [
           "Sections"
-        ]
+        ],
+        "description": "Returns the school for a section",
+        "operationId": "getSchoolForSection"
       }
     },
     "/sections/{id}/students": {
       "get": {
-        "description": "Returns the students for a section",
-        "operationId": "getStudentsForSection",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "in": "path",
@@ -1060,18 +1169,24 @@
             }
           },
           "404": {
-            "$ref": "#/responses/NotFound"
+            "description": "Entity Not Found",
+            "schema": {
+              "$ref": "#/definitions/NotFound"
+            }
           }
         },
         "tags": [
           "Sections"
-        ]
+        ],
+        "description": "Returns the students for a section",
+        "operationId": "getStudentsForSection"
       }
     },
     "/sections/{id}/teacher": {
       "get": {
-        "description": "Returns the primary teacher for a section",
-        "operationId": "getTeacherForSection",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "in": "path",
@@ -1088,18 +1203,24 @@
             }
           },
           "404": {
-            "$ref": "#/responses/NotFound"
+            "description": "Entity Not Found",
+            "schema": {
+              "$ref": "#/definitions/NotFound"
+            }
           }
         },
         "tags": [
           "Sections"
-        ]
+        ],
+        "description": "Returns the primary teacher for a section",
+        "operationId": "getTeacherForSection"
       }
     },
     "/sections/{id}/teachers": {
       "get": {
-        "description": "Returns the teachers for a section",
-        "operationId": "getTeachersForSection",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "in": "path",
@@ -1131,18 +1252,24 @@
             }
           },
           "404": {
-            "$ref": "#/responses/NotFound"
+            "description": "Entity Not Found",
+            "schema": {
+              "$ref": "#/definitions/NotFound"
+            }
           }
         },
         "tags": [
           "Sections"
-        ]
+        ],
+        "description": "Returns the teachers for a section",
+        "operationId": "getTeachersForSection"
       }
     },
     "/students": {
       "get": {
-        "description": "Returns a list of students",
-        "operationId": "getStudents",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "in": "query",
@@ -1175,13 +1302,16 @@
         },
         "tags": [
           "Students"
-        ]
+        ],
+        "description": "Returns a list of students",
+        "operationId": "getStudents"
       }
     },
     "/students/{id}": {
       "get": {
-        "description": "Returns a specific student",
-        "operationId": "getStudent",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "in": "path",
@@ -1203,18 +1333,24 @@
             }
           },
           "404": {
-            "$ref": "#/responses/NotFound"
+            "description": "Entity Not Found",
+            "schema": {
+              "$ref": "#/definitions/NotFound"
+            }
           }
         },
         "tags": [
           "Students"
-        ]
+        ],
+        "description": "Returns a specific student",
+        "operationId": "getStudent"
       }
     },
     "/students/{id}/contacts": {
       "get": {
-        "description": "Returns the contacts for a student",
-        "operationId": "getContactsForStudent",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "in": "path",
@@ -1236,18 +1372,24 @@
             }
           },
           "404": {
-            "$ref": "#/responses/NotFound"
+            "description": "Entity Not Found",
+            "schema": {
+              "$ref": "#/definitions/NotFound"
+            }
           }
         },
         "tags": [
           "Students"
-        ]
+        ],
+        "description": "Returns the contacts for a student",
+        "operationId": "getContactsForStudent"
       }
     },
     "/students/{id}/district": {
       "get": {
-        "description": "Returns the district for a student",
-        "operationId": "getDistrictForStudent",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "in": "path",
@@ -1264,18 +1406,24 @@
             }
           },
           "404": {
-            "$ref": "#/responses/NotFound"
+            "description": "Entity Not Found",
+            "schema": {
+              "$ref": "#/definitions/NotFound"
+            }
           }
         },
         "tags": [
           "Students"
-        ]
+        ],
+        "description": "Returns the district for a student",
+        "operationId": "getDistrictForStudent"
       }
     },
     "/students/{id}/school": {
       "get": {
-        "description": "Returns the primary school for a student",
-        "operationId": "getSchoolForStudent",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "in": "path",
@@ -1292,18 +1440,24 @@
             }
           },
           "404": {
-            "$ref": "#/responses/NotFound"
+            "description": "Entity Not Found",
+            "schema": {
+              "$ref": "#/definitions/NotFound"
+            }
           }
         },
         "tags": [
           "Students"
-        ]
+        ],
+        "description": "Returns the primary school for a student",
+        "operationId": "getSchoolForStudent"
       }
     },
     "/students/{id}/sections": {
       "get": {
-        "description": "Returns the sections for a student",
-        "operationId": "getSectionsForStudent",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "in": "path",
@@ -1335,18 +1489,24 @@
             }
           },
           "404": {
-            "$ref": "#/responses/NotFound"
+            "description": "Entity Not Found",
+            "schema": {
+              "$ref": "#/definitions/NotFound"
+            }
           }
         },
         "tags": [
           "Students"
-        ]
+        ],
+        "description": "Returns the sections for a student",
+        "operationId": "getSectionsForStudent"
       }
     },
     "/students/{id}/teachers": {
       "get": {
-        "description": "Returns the teachers for a student",
-        "operationId": "getTeachersForStudent",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "in": "path",
@@ -1378,18 +1538,24 @@
             }
           },
           "404": {
-            "$ref": "#/responses/NotFound"
+            "description": "Entity Not Found",
+            "schema": {
+              "$ref": "#/definitions/NotFound"
+            }
           }
         },
         "tags": [
           "Students"
-        ]
+        ],
+        "description": "Returns the teachers for a student",
+        "operationId": "getTeachersForStudent"
       }
     },
     "/teachers": {
       "get": {
-        "description": "Returns a list of teachers",
-        "operationId": "getTeachers",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "in": "query",
@@ -1422,13 +1588,16 @@
         },
         "tags": [
           "Teachers"
-        ]
+        ],
+        "description": "Returns a list of teachers",
+        "operationId": "getTeachers"
       }
     },
     "/teachers/{id}": {
       "get": {
-        "description": "Returns a specific teacher",
-        "operationId": "getTeacher",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "in": "path",
@@ -1450,18 +1619,24 @@
             }
           },
           "404": {
-            "$ref": "#/responses/NotFound"
+            "description": "Entity Not Found",
+            "schema": {
+              "$ref": "#/definitions/NotFound"
+            }
           }
         },
         "tags": [
           "Teachers"
-        ]
+        ],
+        "description": "Returns a specific teacher",
+        "operationId": "getTeacher"
       }
     },
     "/teachers/{id}/district": {
       "get": {
-        "description": "Returns the district for a teacher",
-        "operationId": "getDistrictForTeacher",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "in": "path",
@@ -1478,18 +1653,24 @@
             }
           },
           "404": {
-            "$ref": "#/responses/NotFound"
+            "description": "Entity Not Found",
+            "schema": {
+              "$ref": "#/definitions/NotFound"
+            }
           }
         },
         "tags": [
           "Teachers"
-        ]
+        ],
+        "description": "Returns the district for a teacher",
+        "operationId": "getDistrictForTeacher"
       }
     },
     "/teachers/{id}/grade_levels": {
       "get": {
-        "description": "Returns the grade levels for sections a teacher teaches",
-        "operationId": "getGradeLevelsForTeacher",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "in": "path",
@@ -1506,18 +1687,24 @@
             }
           },
           "404": {
-            "$ref": "#/responses/NotFound"
+            "description": "Entity Not Found",
+            "schema": {
+              "$ref": "#/definitions/NotFound"
+            }
           }
         },
         "tags": [
           "Teachers"
-        ]
+        ],
+        "description": "Returns the grade levels for sections a teacher teaches",
+        "operationId": "getGradeLevelsForTeacher"
       }
     },
     "/teachers/{id}/school": {
       "get": {
-        "description": "Retrieves school info for a teacher.",
-        "operationId": "getSchoolForTeacher",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "in": "path",
@@ -1534,18 +1721,24 @@
             }
           },
           "404": {
-            "$ref": "#/responses/NotFound"
+            "description": "Entity Not Found",
+            "schema": {
+              "$ref": "#/definitions/NotFound"
+            }
           }
         },
         "tags": [
           "Teachers"
-        ]
+        ],
+        "description": "Retrieves school info for a teacher.",
+        "operationId": "getSchoolForTeacher"
       }
     },
     "/teachers/{id}/sections": {
       "get": {
-        "description": "Returns the sections for a teacher",
-        "operationId": "getSectionsForTeacher",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "in": "path",
@@ -1577,18 +1770,24 @@
             }
           },
           "404": {
-            "$ref": "#/responses/NotFound"
+            "description": "Entity Not Found",
+            "schema": {
+              "$ref": "#/definitions/NotFound"
+            }
           }
         },
         "tags": [
           "Teachers"
-        ]
+        ],
+        "description": "Returns the sections for a teacher",
+        "operationId": "getSectionsForTeacher"
       }
     },
     "/teachers/{id}/students": {
       "get": {
-        "description": "Returns the students for a teacher",
-        "operationId": "getStudentsForTeacher",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "in": "path",
@@ -1620,12 +1819,17 @@
             }
           },
           "404": {
-            "$ref": "#/responses/NotFound"
+            "description": "Entity Not Found",
+            "schema": {
+              "$ref": "#/definitions/NotFound"
+            }
           }
         },
         "tags": [
           "Teachers"
-        ]
+        ],
+        "description": "Returns the students for a teacher",
+        "operationId": "getStudentsForTeacher"
       }
     }
   },
@@ -1676,8 +1880,7 @@
           "x-validation": true
         },
         "name": {
-          "$ref": "#/definitions/Name",
-          "x-nullable": true
+          "$ref": "#/definitions/Name"
         },
         "title": {
           "type": "string",
@@ -1925,8 +2128,7 @@
           "x-validation": true
         },
         "location": {
-          "$ref": "#/definitions/Location",
-          "x-nullable": true
+          "$ref": "#/definitions/Location"
         },
         "low_grade": {
           "enum": [
@@ -2166,8 +2368,7 @@
           "x-validation": true
         },
         "term": {
-          "$ref": "#/definitions/Term",
-          "x-nullable": true
+          "$ref": "#/definitions/Term"
         }
       },
       "type": "object"
@@ -2283,8 +2484,7 @@
           "x-validation": true
         },
         "location": {
-          "$ref": "#/definitions/Location",
-          "x-nullable": true
+          "$ref": "#/definitions/Location"
         },
         "name": {
           "$ref": "#/definitions/Name"
@@ -2429,8 +2629,7 @@
           "x-validation": true
         },
         "credentials": {
-          "$ref": "#/definitions/Credentials",
-          "x-nullable": true
+          "$ref": "#/definitions/Credentials"
         },
         "district": {
           "type": "string",
@@ -2520,6 +2719,54 @@
         }
       },
       "type": "object"
+    }
+  },
+  "securityDefinitions": {
+    "oauth": {
+      "authorizationUrl": "https://clever.com/oauth/authorize",
+      "flow": "accessCode",
+      "scopes": {},
+      "tokenUrl": "https://clever.com/oauth/tokens",
+      "type": "oauth2"
+    }
+  },
+  "security": [
+    {
+      "oauth": []
+    }
+  ],
+  "x-components": {
+    "responses": {
+      "BadRequest": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/definitions/BadRequest"
+            }
+          }
+        },
+        "description": "Bad Request"
+      },
+      "InternalError": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/definitions/InternalError"
+            }
+          }
+        },
+        "description": "Internal Error"
+      },
+      "NotFound": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/definitions/NotFound"
+            }
+          }
+        },
+        "description": "Entity Not Found"
+      }
     }
   },
   "x-samples-languages": [

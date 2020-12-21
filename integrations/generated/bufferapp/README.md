@@ -15,7 +15,7 @@ let bufferapp = require('@datafire/bufferapp').create({
   redirect_uri: ""
 });
 
-bufferapp.info.configuration.json.get(null).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -398,14 +398,10 @@ bufferapp.user.json.get(null, context)
         * profile `object`
           * character_limit `number`
           * icons `object`
-            * 16 `string`
-            * 32 `string`
-            * 64 `string`
           * link_attachments `boolean`
           * name `string`
           * schedule_limit `number`
           * supported_interactions `array`
-
       * urls `object`
         * hashtag `string`
         * user `string`
@@ -414,36 +410,24 @@ bufferapp.user.json.get(null, context)
         * group `object`
           * character_limit `number`
           * icons `object`
-            * 16 `string`
-            * 32 `string`
-            * 64 `string`
           * link_attachments `boolean`
           * name `string`
           * schedule_limit `number`
           * supported_interactions `array`
-            * items `string`
         * page `object`
           * character_limit `number`
           * icons `object`
-            * 16 `string`
-            * 32 `string`
-            * 64 `string`
           * link_attachments `boolean`
           * name `string`
           * schedule_limit `number`
           * supported_interactions `array`
-            * items `string`
         * profile `object`
           * character_limit `number`
           * icons `object`
-            * 16 `string`
-            * 32 `string`
-            * 64 `string`
           * link_attachments `boolean`
           * name `string`
           * schedule_limit `number`
           * supported_interactions `array`
-            * items `string`
       * urls `object`
         * user `string`
     * google `object`
@@ -451,25 +435,17 @@ bufferapp.user.json.get(null, context)
         * page `object`
           * character_limit `number`
           * icons `object`
-            * 16 `string`
-            * 32 `string`
-            * 64 `string`
           * link_attachments `boolean`
           * name `string`
           * schedule_limit `number`
           * supported_interactions `array`
-            * items `string`
         * profile `object`
           * character_limit `number`
           * icons `object`
-            * 16 `string`
-            * 32 `string`
-            * 64 `string`
           * link_attachments `boolean`
           * name `string`
           * schedule_limit `number`
           * supported_interactions `array`
-            * items `string`
       * urls `object`
         * user `string`
     * linkedin `object`
@@ -477,36 +453,24 @@ bufferapp.user.json.get(null, context)
         * group `object`
           * character_limit `number`
           * icons `object`
-            * 16 `string`
-            * 32 `string`
-            * 64 `string`
           * link_attachments `boolean`
           * name `string`
           * schedule_limit `number`
           * supported_interactions `array`
-            * items `string`
         * page `object`
           * character_limit `number`
           * icons `object`
-            * 16 `string`
-            * 32 `string`
-            * 64 `string`
           * link_attachments `boolean`
           * name `string`
           * schedule_limit `number`
           * supported_interactions `array`
-            * items `string`
         * profile `object`
           * character_limit `number`
           * icons `object`
-            * 16 `string`
-            * 32 `string`
-            * 64 `string`
           * link_attachments `boolean`
           * name `string`
           * schedule_limit `number`
           * supported_interactions `array`
-            * items `string`
       * urls `object`
         * user `string`
     * twitter `object`
@@ -514,14 +478,10 @@ bufferapp.user.json.get(null, context)
         * profile `object`
           * character_limit `number`
           * icons `object`
-            * 16 `string`
-            * 32 `string`
-            * 64 `string`
           * link_attachments `boolean`
           * name `string`
           * schedule_limit `number`
           * supported_interactions `array`
-            * items `string`
       * urls `object`
         * cashtag `string`
         * hashtag `string`
@@ -629,7 +589,6 @@ bufferapp.user.json.get(null, context)
     * cover_photo `string`
     * default `boolean`
     * disabled_features `array`
-
     * disconnected `string`
     * formatted_service `string`
     * formatted_username `string`
@@ -640,7 +599,6 @@ bufferapp.user.json.get(null, context)
         * days `array`
           * items `string`
         * times `array`
-
     * service `string`
     * service_id `string`
     * service_type `string`

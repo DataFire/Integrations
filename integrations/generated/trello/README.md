@@ -12,7 +12,7 @@ let trello = require('@datafire/trello').create({
   api_token: ""
 });
 
-trello.getTokensMemberByToken({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

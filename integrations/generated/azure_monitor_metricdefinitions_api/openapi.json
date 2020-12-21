@@ -6,7 +6,7 @@
   "host": "management.azure.com",
   "info": {
     "title": "MonitorManagementClient",
-    "version": "2017-05-01-preview",
+    "version": "2018-01-01",
     "x-apisguru-categories": [
       "cloud"
     ],
@@ -19,7 +19,7 @@
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/monitor/resource-manager/microsoft.insights/preview/2017-05-01-preview/metricDefinitions_API.json",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/monitor/resource-manager/Microsoft.Insights/stable/2018-01-01/metricDefinitions_API.json",
         "version": "2.0"
       }
     ],
@@ -67,6 +67,14 @@
       "required": true,
       "type": "string"
     },
+    "MetricNamespaceParameter": {
+      "description": "Metric namespace to query metric definitions for.",
+      "in": "query",
+      "name": "metricnamespace",
+      "required": false,
+      "type": "string",
+      "x-ms-parameter-location": "method"
+    },
     "ResourceUriParameter": {
       "description": "The identifier of the resource.",
       "in": "path",
@@ -88,98 +96,14 @@
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/MetricNamespaceParameter"
           }
         ],
         "responses": {
           "200": {
             "description": "Successful request to get the list of metric definitions",
-            "examples": {
-              "application/json": {
-                "value": [
-                  {
-                    "dimensions": [
-                      {
-                        "localizedValue": "Instance",
-                        "value": "Instance"
-                      }
-                    ],
-                    "id": "/subscriptions/07c0b09d-9f69-4e6e-8d05-f59f67299cb2/resourceGroups/Rac46PostSwapRG/providers/Microsoft.Web/sites/alertruleTest/providers/microsoft.insights/metricdefinitions/CpuTime",
-                    "isDimensionRequired": false,
-                    "metricAvailabilities": [
-                      {
-                        "retention": "P30D",
-                        "timeGrain": "PT1M"
-                      },
-                      {
-                        "retention": "P30D",
-                        "timeGrain": "PT1H"
-                      }
-                    ],
-                    "name": {
-                      "localizedValue": "CPU Time",
-                      "value": "CpuTime"
-                    },
-                    "primaryAggregationType": "Total",
-                    "resourceId": "/subscriptions/07c0b09d-9f69-4e6e-8d05-f59f67299cb2/resourceGroups/Rac46PostSwapRG/providers/Microsoft.Web/sites/alertruleTest",
-                    "unit": "Seconds"
-                  },
-                  {
-                    "dimensions": [
-                      {
-                        "localizedValue": "Instance",
-                        "value": "Instance"
-                      }
-                    ],
-                    "id": "/subscriptions/07c0b09d-9f69-4e6e-8d05-f59f67299cb2/resourceGroups/Rac46PostSwapRG/providers/Microsoft.Web/sites/alertruleTest/providers/microsoft.insights/metricdefinitions/MemoryWorkingSet",
-                    "isDimensionRequired": false,
-                    "metricAvailabilities": [
-                      {
-                        "retention": "P30D",
-                        "timeGrain": "PT1M"
-                      },
-                      {
-                        "retention": "P30D",
-                        "timeGrain": "PT1H"
-                      }
-                    ],
-                    "name": {
-                      "localizedValue": "Memory working set",
-                      "value": "MemoryWorkingSet"
-                    },
-                    "primaryAggregationType": "Average",
-                    "resourceId": "/subscriptions/07c0b09d-9f69-4e6e-8d05-f59f67299cb2/resourceGroups/Rac46PostSwapRG/providers/Microsoft.Web/sites/alertruleTest",
-                    "unit": "Bytes"
-                  },
-                  {
-                    "dimensions": [
-                      {
-                        "localizedValue": "Instance",
-                        "value": "Instance"
-                      }
-                    ],
-                    "id": "/subscriptions/07c0b09d-9f69-4e6e-8d05-f59f67299cb2/resourceGroups/Rac46PostSwapRG/providers/Microsoft.Web/sites/alertruleTest/providers/microsoft.insights/metricdefinitions/AverageMemoryWorkingSet",
-                    "isDimensionRequired": false,
-                    "metricAvailabilities": [
-                      {
-                        "retention": "P30D",
-                        "timeGrain": "PT1M"
-                      },
-                      {
-                        "retention": "P30D",
-                        "timeGrain": "PT1H"
-                      }
-                    ],
-                    "name": {
-                      "localizedValue": "Average memory working set",
-                      "value": "AverageMemoryWorkingSet"
-                    },
-                    "primaryAggregationType": "Average",
-                    "resourceId": "/subscriptions/07c0b09d-9f69-4e6e-8d05-f59f67299cb2/resourceGroups/Rac46PostSwapRG/providers/Microsoft.Web/sites/alertruleTest",
-                    "unit": "Bytes"
-                  }
-                ]
-              }
-            },
             "schema": {
               "$ref": "#/definitions/MetricDefinitionCollection"
             }
@@ -197,7 +121,8 @@
         "x-ms-examples": {
           "Get Metric Definitions without filter": {
             "parameters": {
-              "api-version": "2017-05-01-preview",
+              "api-version": "2018-01-01",
+              "metricnamespace": "Microsoft.Web/sites",
               "resourceUri": "subscriptions/07c0b09d-9f69-4e6e-8d05-f59f67299cb2/resourceGroups/Rac46PostSwapRG/providers/Microsoft.Web/sites/alertruleTest/providers/microsoft.insights/metricDefinitions"
             },
             "responses": {
@@ -215,20 +140,53 @@
                       "isDimensionRequired": false,
                       "metricAvailabilities": [
                         {
-                          "retention": "P30D",
+                          "retention": "P93D",
                           "timeGrain": "PT1M"
                         },
                         {
-                          "retention": "P30D",
+                          "retention": "P93D",
+                          "timeGrain": "PT5M"
+                        },
+                        {
+                          "retention": "P93D",
+                          "timeGrain": "PT15M"
+                        },
+                        {
+                          "retention": "P93D",
+                          "timeGrain": "PT30M"
+                        },
+                        {
+                          "retention": "P93D",
                           "timeGrain": "PT1H"
+                        },
+                        {
+                          "retention": "P93D",
+                          "timeGrain": "PT6H"
+                        },
+                        {
+                          "retention": "P93D",
+                          "timeGrain": "PT12H"
+                        },
+                        {
+                          "retention": "P93D",
+                          "timeGrain": "P1D"
                         }
                       ],
                       "name": {
                         "localizedValue": "CPU Time",
                         "value": "CpuTime"
                       },
+                      "namespace": "Microsoft.Web/sites",
                       "primaryAggregationType": "Total",
                       "resourceId": "/subscriptions/07c0b09d-9f69-4e6e-8d05-f59f67299cb2/resourceGroups/Rac46PostSwapRG/providers/Microsoft.Web/sites/alertruleTest",
+                      "supportedAggregationTypes": [
+                        "None",
+                        "Average",
+                        "Minimum",
+                        "Maximum",
+                        "Total",
+                        "Count"
+                      ],
                       "unit": "Seconds"
                     },
                     {
@@ -242,20 +200,53 @@
                       "isDimensionRequired": false,
                       "metricAvailabilities": [
                         {
-                          "retention": "P30D",
+                          "retention": "P93D",
                           "timeGrain": "PT1M"
                         },
                         {
-                          "retention": "P30D",
+                          "retention": "P93D",
+                          "timeGrain": "PT5M"
+                        },
+                        {
+                          "retention": "P93D",
+                          "timeGrain": "PT15M"
+                        },
+                        {
+                          "retention": "P93D",
+                          "timeGrain": "PT30M"
+                        },
+                        {
+                          "retention": "P93D",
                           "timeGrain": "PT1H"
+                        },
+                        {
+                          "retention": "P93D",
+                          "timeGrain": "PT6H"
+                        },
+                        {
+                          "retention": "P93D",
+                          "timeGrain": "PT12H"
+                        },
+                        {
+                          "retention": "P93D",
+                          "timeGrain": "P1D"
                         }
                       ],
                       "name": {
                         "localizedValue": "Requests",
                         "value": "Requests"
                       },
+                      "namespace": "Microsoft.Web/sites",
                       "primaryAggregationType": "Total",
                       "resourceId": "/subscriptions/07c0b09d-9f69-4e6e-8d05-f59f67299cb2/resourceGroups/Rac46PostSwapRG/providers/Microsoft.Web/sites/alertruleTest",
+                      "supportedAggregationTypes": [
+                        "None",
+                        "Average",
+                        "Minimum",
+                        "Maximum",
+                        "Total",
+                        "Count"
+                      ],
                       "unit": "Count"
                     },
                     {
@@ -269,20 +260,53 @@
                       "isDimensionRequired": false,
                       "metricAvailabilities": [
                         {
-                          "retention": "P30D",
+                          "retention": "P93D",
                           "timeGrain": "PT1M"
                         },
                         {
-                          "retention": "P30D",
+                          "retention": "P93D",
+                          "timeGrain": "PT5M"
+                        },
+                        {
+                          "retention": "P93D",
+                          "timeGrain": "PT15M"
+                        },
+                        {
+                          "retention": "P93D",
+                          "timeGrain": "PT30M"
+                        },
+                        {
+                          "retention": "P93D",
                           "timeGrain": "PT1H"
+                        },
+                        {
+                          "retention": "P93D",
+                          "timeGrain": "PT6H"
+                        },
+                        {
+                          "retention": "P93D",
+                          "timeGrain": "PT12H"
+                        },
+                        {
+                          "retention": "P93D",
+                          "timeGrain": "P1D"
                         }
                       ],
                       "name": {
                         "localizedValue": "Data In",
                         "value": "BytesReceived"
                       },
+                      "namespace": "Microsoft.Web/sites",
                       "primaryAggregationType": "Total",
                       "resourceId": "/subscriptions/07c0b09d-9f69-4e6e-8d05-f59f67299cb2/resourceGroups/Rac46PostSwapRG/providers/Microsoft.Web/sites/alertruleTest",
+                      "supportedAggregationTypes": [
+                        "None",
+                        "Average",
+                        "Minimum",
+                        "Maximum",
+                        "Total",
+                        "Count"
+                      ],
                       "unit": "Bytes"
                     },
                     {
@@ -296,20 +320,53 @@
                       "isDimensionRequired": false,
                       "metricAvailabilities": [
                         {
-                          "retention": "P30D",
+                          "retention": "P93D",
                           "timeGrain": "PT1M"
                         },
                         {
-                          "retention": "P30D",
+                          "retention": "P93D",
+                          "timeGrain": "PT5M"
+                        },
+                        {
+                          "retention": "P93D",
+                          "timeGrain": "PT15M"
+                        },
+                        {
+                          "retention": "P93D",
+                          "timeGrain": "PT30M"
+                        },
+                        {
+                          "retention": "P93D",
                           "timeGrain": "PT1H"
+                        },
+                        {
+                          "retention": "P93D",
+                          "timeGrain": "PT6H"
+                        },
+                        {
+                          "retention": "P93D",
+                          "timeGrain": "PT12H"
+                        },
+                        {
+                          "retention": "P93D",
+                          "timeGrain": "P1D"
                         }
                       ],
                       "name": {
                         "localizedValue": "Data Out",
                         "value": "BytesSent"
                       },
+                      "namespace": "Microsoft.Web/sites",
                       "primaryAggregationType": "Total",
                       "resourceId": "/subscriptions/07c0b09d-9f69-4e6e-8d05-f59f67299cb2/resourceGroups/Rac46PostSwapRG/providers/Microsoft.Web/sites/alertruleTest",
+                      "supportedAggregationTypes": [
+                        "None",
+                        "Average",
+                        "Minimum",
+                        "Maximum",
+                        "Total",
+                        "Count"
+                      ],
                       "unit": "Bytes"
                     },
                     {
@@ -323,20 +380,53 @@
                       "isDimensionRequired": false,
                       "metricAvailabilities": [
                         {
-                          "retention": "P30D",
+                          "retention": "P93D",
                           "timeGrain": "PT1M"
                         },
                         {
-                          "retention": "P30D",
+                          "retention": "P93D",
+                          "timeGrain": "PT5M"
+                        },
+                        {
+                          "retention": "P93D",
+                          "timeGrain": "PT15M"
+                        },
+                        {
+                          "retention": "P93D",
+                          "timeGrain": "PT30M"
+                        },
+                        {
+                          "retention": "P93D",
                           "timeGrain": "PT1H"
+                        },
+                        {
+                          "retention": "P93D",
+                          "timeGrain": "PT6H"
+                        },
+                        {
+                          "retention": "P93D",
+                          "timeGrain": "PT12H"
+                        },
+                        {
+                          "retention": "P93D",
+                          "timeGrain": "P1D"
                         }
                       ],
                       "name": {
                         "localizedValue": "Http 101",
                         "value": "Http101"
                       },
+                      "namespace": "Microsoft.Web/sites",
                       "primaryAggregationType": "Total",
                       "resourceId": "/subscriptions/07c0b09d-9f69-4e6e-8d05-f59f67299cb2/resourceGroups/Rac46PostSwapRG/providers/Microsoft.Web/sites/alertruleTest",
+                      "supportedAggregationTypes": [
+                        "None",
+                        "Average",
+                        "Minimum",
+                        "Maximum",
+                        "Total",
+                        "Count"
+                      ],
                       "unit": "Count"
                     },
                     {
@@ -350,20 +440,53 @@
                       "isDimensionRequired": false,
                       "metricAvailabilities": [
                         {
-                          "retention": "P30D",
+                          "retention": "P93D",
                           "timeGrain": "PT1M"
                         },
                         {
-                          "retention": "P30D",
+                          "retention": "P93D",
+                          "timeGrain": "PT5M"
+                        },
+                        {
+                          "retention": "P93D",
+                          "timeGrain": "PT15M"
+                        },
+                        {
+                          "retention": "P93D",
+                          "timeGrain": "PT30M"
+                        },
+                        {
+                          "retention": "P93D",
                           "timeGrain": "PT1H"
+                        },
+                        {
+                          "retention": "P93D",
+                          "timeGrain": "PT6H"
+                        },
+                        {
+                          "retention": "P93D",
+                          "timeGrain": "PT12H"
+                        },
+                        {
+                          "retention": "P93D",
+                          "timeGrain": "P1D"
                         }
                       ],
                       "name": {
                         "localizedValue": "Http 2xx",
                         "value": "Http2xx"
                       },
+                      "namespace": "Microsoft.Web/sites",
                       "primaryAggregationType": "Total",
                       "resourceId": "/subscriptions/07c0b09d-9f69-4e6e-8d05-f59f67299cb2/resourceGroups/Rac46PostSwapRG/providers/Microsoft.Web/sites/alertruleTest",
+                      "supportedAggregationTypes": [
+                        "None",
+                        "Average",
+                        "Minimum",
+                        "Maximum",
+                        "Total",
+                        "Count"
+                      ],
                       "unit": "Count"
                     },
                     {
@@ -377,20 +500,53 @@
                       "isDimensionRequired": false,
                       "metricAvailabilities": [
                         {
-                          "retention": "P30D",
+                          "retention": "P93D",
                           "timeGrain": "PT1M"
                         },
                         {
-                          "retention": "P30D",
+                          "retention": "P93D",
+                          "timeGrain": "PT5M"
+                        },
+                        {
+                          "retention": "P93D",
+                          "timeGrain": "PT15M"
+                        },
+                        {
+                          "retention": "P93D",
+                          "timeGrain": "PT30M"
+                        },
+                        {
+                          "retention": "P93D",
                           "timeGrain": "PT1H"
+                        },
+                        {
+                          "retention": "P93D",
+                          "timeGrain": "PT6H"
+                        },
+                        {
+                          "retention": "P93D",
+                          "timeGrain": "PT12H"
+                        },
+                        {
+                          "retention": "P93D",
+                          "timeGrain": "P1D"
                         }
                       ],
                       "name": {
                         "localizedValue": "Http 3xx",
                         "value": "Http3xx"
                       },
+                      "namespace": "Microsoft.Web/sites",
                       "primaryAggregationType": "Total",
                       "resourceId": "/subscriptions/07c0b09d-9f69-4e6e-8d05-f59f67299cb2/resourceGroups/Rac46PostSwapRG/providers/Microsoft.Web/sites/alertruleTest",
+                      "supportedAggregationTypes": [
+                        "None",
+                        "Average",
+                        "Minimum",
+                        "Maximum",
+                        "Total",
+                        "Count"
+                      ],
                       "unit": "Count"
                     },
                     {
@@ -404,20 +560,53 @@
                       "isDimensionRequired": false,
                       "metricAvailabilities": [
                         {
-                          "retention": "P30D",
+                          "retention": "P93D",
                           "timeGrain": "PT1M"
                         },
                         {
-                          "retention": "P30D",
+                          "retention": "P93D",
+                          "timeGrain": "PT5M"
+                        },
+                        {
+                          "retention": "P93D",
+                          "timeGrain": "PT15M"
+                        },
+                        {
+                          "retention": "P93D",
+                          "timeGrain": "PT30M"
+                        },
+                        {
+                          "retention": "P93D",
                           "timeGrain": "PT1H"
+                        },
+                        {
+                          "retention": "P93D",
+                          "timeGrain": "PT6H"
+                        },
+                        {
+                          "retention": "P93D",
+                          "timeGrain": "PT12H"
+                        },
+                        {
+                          "retention": "P93D",
+                          "timeGrain": "P1D"
                         }
                       ],
                       "name": {
                         "localizedValue": "Http 401",
                         "value": "Http401"
                       },
+                      "namespace": "Microsoft.Web/sites",
                       "primaryAggregationType": "Total",
                       "resourceId": "/subscriptions/07c0b09d-9f69-4e6e-8d05-f59f67299cb2/resourceGroups/Rac46PostSwapRG/providers/Microsoft.Web/sites/alertruleTest",
+                      "supportedAggregationTypes": [
+                        "None",
+                        "Average",
+                        "Minimum",
+                        "Maximum",
+                        "Total",
+                        "Count"
+                      ],
                       "unit": "Count"
                     },
                     {
@@ -431,20 +620,53 @@
                       "isDimensionRequired": false,
                       "metricAvailabilities": [
                         {
-                          "retention": "P30D",
+                          "retention": "P93D",
                           "timeGrain": "PT1M"
                         },
                         {
-                          "retention": "P30D",
+                          "retention": "P93D",
+                          "timeGrain": "PT5M"
+                        },
+                        {
+                          "retention": "P93D",
+                          "timeGrain": "PT15M"
+                        },
+                        {
+                          "retention": "P93D",
+                          "timeGrain": "PT30M"
+                        },
+                        {
+                          "retention": "P93D",
                           "timeGrain": "PT1H"
+                        },
+                        {
+                          "retention": "P93D",
+                          "timeGrain": "PT6H"
+                        },
+                        {
+                          "retention": "P93D",
+                          "timeGrain": "PT12H"
+                        },
+                        {
+                          "retention": "P93D",
+                          "timeGrain": "P1D"
                         }
                       ],
                       "name": {
                         "localizedValue": "Http 403",
                         "value": "Http403"
                       },
+                      "namespace": "Microsoft.Web/sites",
                       "primaryAggregationType": "Total",
                       "resourceId": "/subscriptions/07c0b09d-9f69-4e6e-8d05-f59f67299cb2/resourceGroups/Rac46PostSwapRG/providers/Microsoft.Web/sites/alertruleTest",
+                      "supportedAggregationTypes": [
+                        "None",
+                        "Average",
+                        "Minimum",
+                        "Maximum",
+                        "Total",
+                        "Count"
+                      ],
                       "unit": "Count"
                     },
                     {
@@ -458,20 +680,53 @@
                       "isDimensionRequired": false,
                       "metricAvailabilities": [
                         {
-                          "retention": "P30D",
+                          "retention": "P93D",
                           "timeGrain": "PT1M"
                         },
                         {
-                          "retention": "P30D",
+                          "retention": "P93D",
+                          "timeGrain": "PT5M"
+                        },
+                        {
+                          "retention": "P93D",
+                          "timeGrain": "PT15M"
+                        },
+                        {
+                          "retention": "P93D",
+                          "timeGrain": "PT30M"
+                        },
+                        {
+                          "retention": "P93D",
                           "timeGrain": "PT1H"
+                        },
+                        {
+                          "retention": "P93D",
+                          "timeGrain": "PT6H"
+                        },
+                        {
+                          "retention": "P93D",
+                          "timeGrain": "PT12H"
+                        },
+                        {
+                          "retention": "P93D",
+                          "timeGrain": "P1D"
                         }
                       ],
                       "name": {
                         "localizedValue": "Http 404",
                         "value": "Http404"
                       },
+                      "namespace": "Microsoft.Web/sites",
                       "primaryAggregationType": "Total",
                       "resourceId": "/subscriptions/07c0b09d-9f69-4e6e-8d05-f59f67299cb2/resourceGroups/Rac46PostSwapRG/providers/Microsoft.Web/sites/alertruleTest",
+                      "supportedAggregationTypes": [
+                        "None",
+                        "Average",
+                        "Minimum",
+                        "Maximum",
+                        "Total",
+                        "Count"
+                      ],
                       "unit": "Count"
                     },
                     {
@@ -485,20 +740,53 @@
                       "isDimensionRequired": false,
                       "metricAvailabilities": [
                         {
-                          "retention": "P30D",
+                          "retention": "P93D",
                           "timeGrain": "PT1M"
                         },
                         {
-                          "retention": "P30D",
+                          "retention": "P93D",
+                          "timeGrain": "PT5M"
+                        },
+                        {
+                          "retention": "P93D",
+                          "timeGrain": "PT15M"
+                        },
+                        {
+                          "retention": "P93D",
+                          "timeGrain": "PT30M"
+                        },
+                        {
+                          "retention": "P93D",
                           "timeGrain": "PT1H"
+                        },
+                        {
+                          "retention": "P93D",
+                          "timeGrain": "PT6H"
+                        },
+                        {
+                          "retention": "P93D",
+                          "timeGrain": "PT12H"
+                        },
+                        {
+                          "retention": "P93D",
+                          "timeGrain": "P1D"
                         }
                       ],
                       "name": {
                         "localizedValue": "Http 406",
                         "value": "Http406"
                       },
+                      "namespace": "Microsoft.Web/sites",
                       "primaryAggregationType": "Total",
                       "resourceId": "/subscriptions/07c0b09d-9f69-4e6e-8d05-f59f67299cb2/resourceGroups/Rac46PostSwapRG/providers/Microsoft.Web/sites/alertruleTest",
+                      "supportedAggregationTypes": [
+                        "None",
+                        "Average",
+                        "Minimum",
+                        "Maximum",
+                        "Total",
+                        "Count"
+                      ],
                       "unit": "Count"
                     },
                     {
@@ -512,20 +800,53 @@
                       "isDimensionRequired": false,
                       "metricAvailabilities": [
                         {
-                          "retention": "P30D",
+                          "retention": "P93D",
                           "timeGrain": "PT1M"
                         },
                         {
-                          "retention": "P30D",
+                          "retention": "P93D",
+                          "timeGrain": "PT5M"
+                        },
+                        {
+                          "retention": "P93D",
+                          "timeGrain": "PT15M"
+                        },
+                        {
+                          "retention": "P93D",
+                          "timeGrain": "PT30M"
+                        },
+                        {
+                          "retention": "P93D",
                           "timeGrain": "PT1H"
+                        },
+                        {
+                          "retention": "P93D",
+                          "timeGrain": "PT6H"
+                        },
+                        {
+                          "retention": "P93D",
+                          "timeGrain": "PT12H"
+                        },
+                        {
+                          "retention": "P93D",
+                          "timeGrain": "P1D"
                         }
                       ],
                       "name": {
                         "localizedValue": "Http 4xx",
                         "value": "Http4xx"
                       },
+                      "namespace": "Microsoft.Web/sites",
                       "primaryAggregationType": "Total",
                       "resourceId": "/subscriptions/07c0b09d-9f69-4e6e-8d05-f59f67299cb2/resourceGroups/Rac46PostSwapRG/providers/Microsoft.Web/sites/alertruleTest",
+                      "supportedAggregationTypes": [
+                        "None",
+                        "Average",
+                        "Minimum",
+                        "Maximum",
+                        "Total",
+                        "Count"
+                      ],
                       "unit": "Count"
                     },
                     {
@@ -539,20 +860,53 @@
                       "isDimensionRequired": false,
                       "metricAvailabilities": [
                         {
-                          "retention": "P30D",
+                          "retention": "P93D",
                           "timeGrain": "PT1M"
                         },
                         {
-                          "retention": "P30D",
+                          "retention": "P93D",
+                          "timeGrain": "PT5M"
+                        },
+                        {
+                          "retention": "P93D",
+                          "timeGrain": "PT15M"
+                        },
+                        {
+                          "retention": "P93D",
+                          "timeGrain": "PT30M"
+                        },
+                        {
+                          "retention": "P93D",
                           "timeGrain": "PT1H"
+                        },
+                        {
+                          "retention": "P93D",
+                          "timeGrain": "PT6H"
+                        },
+                        {
+                          "retention": "P93D",
+                          "timeGrain": "PT12H"
+                        },
+                        {
+                          "retention": "P93D",
+                          "timeGrain": "P1D"
                         }
                       ],
                       "name": {
                         "localizedValue": "Http Server Errors",
                         "value": "Http5xx"
                       },
+                      "namespace": "Microsoft.Web/sites",
                       "primaryAggregationType": "Total",
                       "resourceId": "/subscriptions/07c0b09d-9f69-4e6e-8d05-f59f67299cb2/resourceGroups/Rac46PostSwapRG/providers/Microsoft.Web/sites/alertruleTest",
+                      "supportedAggregationTypes": [
+                        "None",
+                        "Average",
+                        "Minimum",
+                        "Maximum",
+                        "Total",
+                        "Count"
+                      ],
                       "unit": "Count"
                     },
                     {
@@ -566,20 +920,53 @@
                       "isDimensionRequired": false,
                       "metricAvailabilities": [
                         {
-                          "retention": "P30D",
+                          "retention": "P93D",
                           "timeGrain": "PT1M"
                         },
                         {
-                          "retention": "P30D",
+                          "retention": "P93D",
+                          "timeGrain": "PT5M"
+                        },
+                        {
+                          "retention": "P93D",
+                          "timeGrain": "PT15M"
+                        },
+                        {
+                          "retention": "P93D",
+                          "timeGrain": "PT30M"
+                        },
+                        {
+                          "retention": "P93D",
                           "timeGrain": "PT1H"
+                        },
+                        {
+                          "retention": "P93D",
+                          "timeGrain": "PT6H"
+                        },
+                        {
+                          "retention": "P93D",
+                          "timeGrain": "PT12H"
+                        },
+                        {
+                          "retention": "P93D",
+                          "timeGrain": "P1D"
                         }
                       ],
                       "name": {
                         "localizedValue": "Memory working set",
                         "value": "MemoryWorkingSet"
                       },
+                      "namespace": "Microsoft.Web/sites",
                       "primaryAggregationType": "Average",
                       "resourceId": "/subscriptions/07c0b09d-9f69-4e6e-8d05-f59f67299cb2/resourceGroups/Rac46PostSwapRG/providers/Microsoft.Web/sites/alertruleTest",
+                      "supportedAggregationTypes": [
+                        "None",
+                        "Average",
+                        "Minimum",
+                        "Maximum",
+                        "Total",
+                        "Count"
+                      ],
                       "unit": "Bytes"
                     },
                     {
@@ -593,20 +980,53 @@
                       "isDimensionRequired": false,
                       "metricAvailabilities": [
                         {
-                          "retention": "P30D",
+                          "retention": "P93D",
                           "timeGrain": "PT1M"
                         },
                         {
-                          "retention": "P30D",
+                          "retention": "P93D",
+                          "timeGrain": "PT5M"
+                        },
+                        {
+                          "retention": "P93D",
+                          "timeGrain": "PT15M"
+                        },
+                        {
+                          "retention": "P93D",
+                          "timeGrain": "PT30M"
+                        },
+                        {
+                          "retention": "P93D",
                           "timeGrain": "PT1H"
+                        },
+                        {
+                          "retention": "P93D",
+                          "timeGrain": "PT6H"
+                        },
+                        {
+                          "retention": "P93D",
+                          "timeGrain": "PT12H"
+                        },
+                        {
+                          "retention": "P93D",
+                          "timeGrain": "P1D"
                         }
                       ],
                       "name": {
                         "localizedValue": "Average memory working set",
                         "value": "AverageMemoryWorkingSet"
                       },
+                      "namespace": "Microsoft.Web/sites",
                       "primaryAggregationType": "Average",
                       "resourceId": "/subscriptions/07c0b09d-9f69-4e6e-8d05-f59f67299cb2/resourceGroups/Rac46PostSwapRG/providers/Microsoft.Web/sites/alertruleTest",
+                      "supportedAggregationTypes": [
+                        "None",
+                        "Average",
+                        "Minimum",
+                        "Maximum",
+                        "Total",
+                        "Count"
+                      ],
                       "unit": "Bytes"
                     },
                     {
@@ -620,20 +1040,53 @@
                       "isDimensionRequired": false,
                       "metricAvailabilities": [
                         {
-                          "retention": "P30D",
+                          "retention": "P93D",
                           "timeGrain": "PT1M"
                         },
                         {
-                          "retention": "P30D",
+                          "retention": "P93D",
+                          "timeGrain": "PT5M"
+                        },
+                        {
+                          "retention": "P93D",
+                          "timeGrain": "PT15M"
+                        },
+                        {
+                          "retention": "P93D",
+                          "timeGrain": "PT30M"
+                        },
+                        {
+                          "retention": "P93D",
                           "timeGrain": "PT1H"
+                        },
+                        {
+                          "retention": "P93D",
+                          "timeGrain": "PT6H"
+                        },
+                        {
+                          "retention": "P93D",
+                          "timeGrain": "PT12H"
+                        },
+                        {
+                          "retention": "P93D",
+                          "timeGrain": "P1D"
                         }
                       ],
                       "name": {
                         "localizedValue": "Average Response Time",
                         "value": "AverageResponseTime"
                       },
+                      "namespace": "Microsoft.Web/sites",
                       "primaryAggregationType": "Average",
                       "resourceId": "/subscriptions/07c0b09d-9f69-4e6e-8d05-f59f67299cb2/resourceGroups/Rac46PostSwapRG/providers/Microsoft.Web/sites/alertruleTest",
+                      "supportedAggregationTypes": [
+                        "None",
+                        "Average",
+                        "Minimum",
+                        "Maximum",
+                        "Total",
+                        "Count"
+                      ],
                       "unit": "Seconds"
                     }
                   ]
@@ -642,11 +1095,29 @@
             }
           }
         },
-        "x-ms-pageable": {}
+        "x-ms-pageable": {
+          "nextLinkName": null
+        }
       }
     }
   },
   "definitions": {
+    "AggregationType": {
+      "description": "the aggregation type of the metric.",
+      "enum": [
+        "None",
+        "Average",
+        "Count",
+        "Minimum",
+        "Maximum",
+        "Total"
+      ],
+      "type": "string",
+      "x-ms-enum": {
+        "modelAsString": false,
+        "name": "AggregationType"
+      }
+    },
     "ErrorResponse": {
       "description": "Describes the format of Error response.",
       "properties": {
@@ -721,25 +1192,24 @@
           "$ref": "#/definitions/LocalizableString",
           "description": "the name and the display name of the metric, i.e. it is a localizable string."
         },
+        "namespace": {
+          "description": "the namespace the metric belongs to.",
+          "type": "string"
+        },
         "primaryAggregationType": {
-          "description": "the primary aggregation type value defining how to use the values for display.",
-          "enum": [
-            "None",
-            "Average",
-            "Count",
-            "Minimum",
-            "Maximum",
-            "Total"
-          ],
-          "type": "string",
-          "x-ms-enum": {
-            "modelAsString": false,
-            "name": "AggregationType"
-          }
+          "$ref": "#/definitions/AggregationType",
+          "description": "the primary aggregation type value defining how to use the values for display."
         },
         "resourceId": {
           "description": "the resource identifier of the resource that emitted the metric.",
           "type": "string"
+        },
+        "supportedAggregationTypes": {
+          "description": "the collection of what aggregation types are supported.",
+          "items": {
+            "$ref": "#/definitions/AggregationType"
+          },
+          "type": "array"
         },
         "unit": {
           "$ref": "#/definitions/Unit",
@@ -773,7 +1243,11 @@
         "Percent",
         "MilliSeconds",
         "ByteSeconds",
-        "Unspecified"
+        "Unspecified",
+        "Cores",
+        "MilliCores",
+        "NanoCores",
+        "BitsPerSecond"
       ],
       "type": "string",
       "x-ms-enum": {

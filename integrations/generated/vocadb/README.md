@@ -9,7 +9,7 @@ npm install --save @datafire/vocadb
 ```js
 let vocadb = require('@datafire/vocadb').create();
 
-vocadb.UserApi_GetNames({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -35,11 +35,13 @@ vocadb.ActivityEntryApi_GetList({}, context)
   * since `string`: Filter to return activity entries only after this date. Optional, by default no filter.
   * userId `integer`: Filter by user Id. Optional, by default no filter.
   * editEvent `string` (values: Created, Updated, Deleted, Restored): Filter by entry edit event (either Created or Updated). Optional, by default no filter.
+  * entryType `string` (values: Undefined, Album, Artist, DiscussionTopic, PV, ReleaseEvent, ReleaseEventSeries, Song, SongList, Tag, User, Venue): Entry type. Optional.
   * maxResults `integer`: Maximum number of results to return. Default 50. Maximum value 500.
   * getTotalCount `boolean`: Whether to load total number of items (optional, default to false).
   * fields `string` (values: None, ArchivedVersion, Entry): Optional fields.
   * entryFields `string` (values: None, AdditionalNames, Description, MainPicture, Names, PVs, Tags, WebLinks): Optional fields for entries.
-  * lang `string` (values: Default, Japanese, Romaji, English): Content language preference.
+  * lang `string` (values: Default, Japanese, Romaji, English): Content language preference. Optional.
+  * sortRule `string` (values: CreateDateDescending, CreateDate): Sort rule. Optional.
 
 #### Output
 * output [PartialFindResult[ActivityEntryForApiContract]](#partialfindresult[activityentryforapicontract])
@@ -73,7 +75,7 @@ vocadb.AlbumApi_GetList({}, context)
   * getTotalCount `boolean`: Whether to load total number of items (optional, default to false).
   * sort `string` (values: None, Name, ReleaseDate, ReleaseDateWithNulls, AdditionDate, RatingAverage, RatingTotal, NameThenReleaseDate, CollectionCount): Sort rule (optional, defaults to Name). 
   * preferAccurateMatches `boolean`: Whether the search should prefer accurate matches. 
-  * deleted `boolean`: Whether to search for deleted entries. If this is true, only deleted entries will be returned.
+  * deleted `boolean`: Whether to search for deleted entries.
   * nameMatchMode `string` (values: Auto, Partial, StartsWith, Exact, Words): Match mode for artist name (optional, defaults to Exact).
   * fields `string` (values: None, AdditionalNames, Artists, Description, Discs, Identifiers, MainPicture, Names, PVs, ReleaseEvent, Tags, Tracks, WebLinks): Optional fields (optional). Possible values are artists, names, pvs, tags, tracks, webLinks.
   * lang `string` (values: Default, Japanese, Romaji, English): Content language preference (optional).
@@ -159,15 +161,12 @@ Output is cached for 1 hour.
 
 
 ```js
-vocadb.AlbumApi_GetTopAlbums({
-  "ignoreIds": []
-}, context)
+vocadb.AlbumApi_GetTopAlbums({}, context)
 ```
 
 #### Input
 * input `object`
-  * ignoreIds **required** `array`
-    * items `integer`
+  * ignoreIds `array`
   * languagePreference `string` (values: Default, Japanese, Romaji, English)
   * fields `string` (values: None, AdditionalNames, Artists, Description, Discs, Identifiers, MainPicture, Names, PVs, ReleaseEvent, Tags, Tracks, WebLinks)
 
@@ -250,6 +249,63 @@ vocadb.AlbumApi_PostNewComment({
 #### Output
 * output [CommentForApiContract](#commentforapicontract)
 
+### AlbumApi_GetReviews
+
+
+
+```js
+vocadb.AlbumApi_GetReviews({
+  "id": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * id **required** `integer`
+  * languageCode `string`
+
+#### Output
+* output `array`
+  * items [AlbumReviewContract](#albumreviewcontract)
+
+### AlbumApi_PostReview
+
+
+
+```js
+vocadb.AlbumApi_PostReview({
+  "id": 0,
+  "reviewContract": {}
+}, context)
+```
+
+#### Input
+* input `object`
+  * id **required** `integer`
+  * reviewContract **required** [AlbumReviewContract](#albumreviewcontract)
+
+#### Output
+* output [AlbumReviewContract](#albumreviewcontract)
+
+### AlbumApi_DeleteReview
+
+
+
+```js
+vocadb.AlbumApi_DeleteReview({
+  "reviewId": 0,
+  "id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * reviewId **required** `integer`
+  * id **required** `string`
+
+#### Output
+*Output schema unknown*
+
 ### AlbumApi_GetTracks
 Gets tracks for an album.
 
@@ -270,25 +326,45 @@ vocadb.AlbumApi_GetTracks({
 * output `array`
   * items [SongInAlbumForApiContract](#songinalbumforapicontract)
 
-### AlbumApi_GetTracksFormatted
-Gets tracks for an album formatted using the CSV format string.
+### AlbumApi_GetTracksFields
+
 
 
 ```js
-vocadb.AlbumApi_GetTracksFormatted({
+vocadb.AlbumApi_GetTracksFields({
   "id": 0
 }, context)
 ```
 
 #### Input
 * input `object`
-  * id **required** `integer`: Album ID.
-  * field `array`: Field to be included, for example "featvocalists" or "url". Can be specified multiple times.
-  * lang `string` (values: Default, Japanese, Romaji, English): Language preference.
+  * id **required** `integer`
+  * field `array`
+  * discNumber `integer`
+  * lang `string` (values: Default, Japanese, Romaji, English)
 
 #### Output
 * output `array`
   * items `object`
+
+### AlbumApi_GetUserCollections
+
+
+
+```js
+vocadb.AlbumApi_GetUserCollections({
+  "id": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * id **required** `integer`
+  * languagePreference `string` (values: Default, Japanese, Romaji, English)
+
+#### Output
+* output `array`
+  * items [AlbumForUserForApiContract](#albumforuserforapicontract)
 
 ### ArtistApi_GetList
 Find artists.
@@ -465,7 +541,7 @@ vocadb.CommentApi_GetComments({
 
 #### Input
 * input `object`
-  * entryType **required** `string` (values: Undefined, Album, Artist, DiscussionTopic, PV, ReleaseEvent, ReleaseEventSeries, Song, SongList, Tag, User)
+  * entryType **required** `string` (values: Undefined, Album, Artist, DiscussionTopic, PV, ReleaseEvent, ReleaseEventSeries, Song, SongList, Tag, User, Venue): Entry type.
   * entryId **required** `integer`: ID of the entry whose comments to load.
 
 #### Output
@@ -484,7 +560,7 @@ vocadb.CommentApi_PostNewComment({
 
 #### Input
 * input `object`
-  * entryType **required** `string` (values: Undefined, Album, Artist, DiscussionTopic, PV, ReleaseEvent, ReleaseEventSeries, Song, SongList, Tag, User)
+  * entryType **required** `string` (values: Undefined, Album, Artist, DiscussionTopic, PV, ReleaseEvent, ReleaseEventSeries, Song, SongList, Tag, User, Venue): Entry type.
   * contract **required** [CommentForApiContract](#commentforapicontract)
 
 #### Output
@@ -504,7 +580,7 @@ vocadb.CommentApi_DeleteComment({
 
 #### Input
 * input `object`
-  * entryType **required** `string` (values: Undefined, Album, Artist, DiscussionTopic, PV, ReleaseEvent, ReleaseEventSeries, Song, SongList, Tag, User)
+  * entryType **required** `string` (values: Undefined, Album, Artist, DiscussionTopic, PV, ReleaseEvent, ReleaseEventSeries, Song, SongList, Tag, User, Venue): Entry type.
   * commentId **required** `integer`: ID of the comment to be deleted.
 
 #### Output
@@ -525,7 +601,7 @@ vocadb.CommentApi_PostEditComment({
 
 #### Input
 * input `object`
-  * entryType **required** `string` (values: Undefined, Album, Artist, DiscussionTopic, PV, ReleaseEvent, ReleaseEventSeries, Song, SongList, Tag, User)
+  * entryType **required** `string` (values: Undefined, Album, Artist, DiscussionTopic, PV, ReleaseEvent, ReleaseEventSeries, Song, SongList, Tag, User, Venue): Entry type.
   * commentId **required** `integer`: ID of the comment to be edited.
   * contract **required** [CommentForApiContract](#commentforapicontract)
 
@@ -746,6 +822,7 @@ vocadb.EntryApi_GetList({}, context)
   * tagName `array`: Filter by tag name (optional).
   * tagId `array`: Filter by tag Id (optional).
   * childTags `boolean`: Include child tags, if the tags being filtered by have any.
+  * entryTypes `string` (values: Nothing, Album, Artist, DiscussionTopic, PV, ReleaseEvent, ReleaseEventSeries, Song, SongList, Tag, User, Venue): Included entry types (optional).
   * status `string` (values: Draft, Finished, Approved, Locked): Filter by entry status (optional).
   * start `integer`: First item to be retrieved (optional, defaults to 0).
   * maxResults `integer`: Maximum number of results to be loaded (optional, defaults to 10, maximum of 30).
@@ -776,6 +853,26 @@ vocadb.EntryApi_GetNames({}, context)
 * output `array`
   * items `string`
 
+### EntryTypesApi_GetMappedTag
+
+
+
+```js
+vocadb.EntryTypesApi_GetMappedTag({
+  "entryType": "",
+  "subType": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * entryType **required** `string` (values: Undefined, Album, Artist, DiscussionTopic, PV, ReleaseEvent, ReleaseEventSeries, Song, SongList, Tag, User, Venue)
+  * subType **required** `string`
+  * fields `string` (values: None, AdditionalNames, AliasedTo, Description, MainPicture, Names, Parent, RelatedTags, TranslatedDescription, WebLinks)
+
+#### Output
+* output [TagForApiContract](#tagforapicontract)
+
 ### PVApi_GetList
 Gets a list of PVs for songs.
 
@@ -786,7 +883,9 @@ vocadb.PVApi_GetList({}, context)
 
 #### Input
 * input `object`
+  * name `string`: PV title (optional).
   * author `string`: Uploader name (optional).
+  * service `string` (values: NicoNicoDouga, Youtube, SoundCloud, Vimeo, Piapro, Bilibili, File, LocalFile, Creofuga, Bandcamp): PV service (optional).
   * maxResults `integer`: Maximum number of results.
   * getTotalCount `boolean`: Whether to load total number of items (optional, default to false).
   * lang `string` (values: Default, Japanese, Romaji, English): Content language preference (optional).
@@ -805,6 +904,7 @@ vocadb.ReleaseEventSeriesApi_GetList({}, context)
 #### Input
 * input `object`
   * query `string`: Text query.
+  * fields `string` (values: None, AdditionalNames, Description, Events, MainPicture, Names, WebLinks): Optional fields to include.
   * start `integer`: First item to be retrieved (optional).
   * maxResults `integer`: Maximum number of results to be loaded (optional).
   * getTotalCount `boolean`: Whether to load total number of items (optional).
@@ -812,7 +912,7 @@ vocadb.ReleaseEventSeriesApi_GetList({}, context)
   * lang `string` (values: Default, Japanese, Romaji, English): Content language preference (optional).
 
 #### Output
-* output [PartialFindResult[ReleaseEventSeriesContract]](#partialfindresult[releaseeventseriescontract])
+* output [PartialFindResult[ReleaseEventSeriesForApiContract]](#partialfindresult[releaseeventseriesforapicontract])
 
 ### ReleaseEventSeriesApi_Delete
 Deletes an event series.
@@ -832,6 +932,25 @@ vocadb.ReleaseEventSeriesApi_Delete({
 
 #### Output
 *Output schema unknown*
+
+### ReleaseEventSeriesApi_GetOne
+Gets single event series by ID.
+
+
+```js
+vocadb.ReleaseEventSeriesApi_GetOne({
+  "id": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * id **required** `integer`
+  * fields `string` (values: None, AdditionalNames, Description, Events, MainPicture, Names, WebLinks)
+  * lang `string` (values: Default, Japanese, Romaji, English)
+
+#### Output
+* output [ReleaseEventSeriesForApiContract](#releaseeventseriesforapicontract)
 
 ### ReleaseEventApi_GetList
 Gets a page of events.
@@ -859,8 +978,8 @@ vocadb.ReleaseEventApi_GetList({}, context)
   * start `integer`: First item to be retrieved (optional, defaults to 0).
   * maxResults `integer`: Maximum number of results to be loaded (optional, defaults to 10).
   * getTotalCount `boolean`: Whether to load total number of items (optional, default to false).
-  * sort `string` (values: None, Name, Date, AdditionDate, SeriesName): Sort rule (optional, defaults to Name). 
-  * fields `string` (values: None, AdditionalNames, Artists, Description, MainPicture, Names, Series, SongList, WebLinks): Optional fields (optional). Possible values are Description, Series.
+  * sort `string` (values: None, Name, Date, AdditionDate, SeriesName, VenueName): Sort rule (optional, defaults to Name). 
+  * fields `string` (values: None, AdditionalNames, Artists, Description, MainPicture, Names, Series, SongList, Tags, Venue, WebLinks): Optional fields (optional). Possible values are Description, Series.
   * lang `string` (values: Default, Japanese, Romaji, English): Content language preference.
 
 #### Output
@@ -980,7 +1099,7 @@ vocadb.ReleaseEventApi_GetOne({
 #### Input
 * input `object`
   * id **required** `integer`
-  * fields `string` (values: None, AdditionalNames, Artists, Description, MainPicture, Names, Series, SongList, WebLinks)
+  * fields `string` (values: None, AdditionalNames, Artists, Description, MainPicture, Names, Series, SongList, Tags, Venue, WebLinks)
   * lang `string` (values: Default, Japanese, Romaji, English)
 
 #### Output
@@ -1071,12 +1190,16 @@ vocadb.SongListApi_GetFeaturedLists({}, context)
 #### Input
 * input `object`
   * query `string`: Song list name query (optional).
+  * tagId `array`: Filter by one or more tag Ids (optional).
+  * childTags `boolean`: Include child tags, if the tags being filtered by have any.
   * nameMatchMode `string` (values: Auto, Partial, StartsWith, Exact, Words): Match mode for list name (optional, defaults to Auto).
   * featuredCategory `string` (values: Nothing, Concerts, VocaloidRanking, Pools, Other): Filter by a specific featured category. If empty, all categories are returned.
   * start `integer`: First item to be retrieved (optional, defaults to 0).
   * maxResults `integer`: Maximum number of results to be loaded (optional, defaults to 10, maximum of 50).
   * getTotalCount `boolean`: Whether to load total number of items (optional, default to false).
   * sort `string` (values: None, Name, Date, CreateDate): List sort rule. Possible values are Nothing, Date, CreateDate, Name.
+  * fields `string` (values: None, Description, Events, MainPicture, Tags): List of optional fields (optional).
+  * lang `string` (values: Default, Japanese, Romaji, English): Content language preference (optional).
 
 #### Output
 * output [PartialFindResult[SongListForApiContract]](#partialfindresult[songlistforapicontract])
@@ -1170,7 +1293,7 @@ vocadb.SongListApi_GetSongs({
   * listId **required** `integer`: ID of the song list.
   * query `string`: Song name query (optional).
   * songTypes `string`: Filtered song types (optional).
-  * pvServices `string` (values: Nothing, NicoNicoDouga, Youtube, SoundCloud, Vimeo, Piapro, Bilibili, File, LocalFile, Creofuga): Filter by one or more PV services (separated by commas). The song will pass the filter if it has a PV for any of the matched services.
+  * pvServices `string` (values: Nothing, NicoNicoDouga, Youtube, SoundCloud, Vimeo, Piapro, Bilibili, File, LocalFile, Creofuga, Bandcamp): Filter by one or more PV services (separated by commas). The song will pass the filter if it has a PV for any of the matched services.
   * tagId `array`: Filter by one or more tag Ids (optional).
   * artistId `array`: Filter by artist Id.
   * childVoicebanks `boolean`: Include child voicebanks, if the artist being filtered by has any.
@@ -1178,7 +1301,7 @@ vocadb.SongListApi_GetSongs({
   * start `integer`: First item to be retrieved (optional, defaults to 0).
   * maxResults `integer`: Maximum number of results to be loaded (optional, defaults to 10, maximum of 50).
   * getTotalCount `boolean`: Whether to load total number of items (optional, default to false).
-  * sort `string` (values: None, Name, AdditionDate, PublishDate, FavoritedTimes, RatingScore): Song sort rule (optional, by default songs are sorted by song list order).
+  * sort `string` (values: None, Name, AdditionDate, PublishDate, FavoritedTimes, RatingScore, TagUsageCount): Song sort rule (optional, by default songs are sorted by song list order).
   * nameMatchMode `string` (values: Auto, Partial, StartsWith, Exact, Words): Match mode for song name (optional, defaults to Auto).
   * fields `string` (values: None, AdditionalNames, Albums, Artists, Lyrics, MainPicture, Names, PVs, ReleaseEvent, Tags, ThumbUrl, WebLinks): List of optional fields (optional). Possible values are Albums, Artists, Names, PVs, Tags, ThumbUrl, WebLinks.
   * lang `string` (values: Default, Japanese, Romaji, English): Content language preference (optional).
@@ -1198,25 +1321,29 @@ vocadb.SongApi_GetList({}, context)
 * input `object`
   * query `string`: Song name query (optional).
   * songTypes `string`: Filtered song types (optional). 
+  * afterDate `string`: Filter by songs published after this date (inclusive).
+  * beforeDate `string`: Filter by songs published before this date (exclusive).
   * tagName `array`: Filter by one or more tag names (optional).
   * tagId `array`: Filter by one or more tag Ids (optional).
   * childTags `boolean`: Include child tags, if the tags being filtered by have any.
+  * unifyTypesAndTags `boolean`: When searching by song type, search by associated tag as well, and vice versa.
   * artistId `array`: Filter by artist Id.
   * artistParticipationStatus `string` (values: Everything, OnlyMainAlbums, OnlyCollaborations): Filter by artist participation status. Only valid if artistId is specified.
   * childVoicebanks `boolean`: Include child voicebanks, if the artist being filtered by has any.
   * includeMembers `boolean`: Include members of groups. This applies if {artistId} is a group.
   * onlyWithPvs `boolean`: Whether to only include songs with at least one PV.
-  * pvServices `string` (values: Nothing, NicoNicoDouga, Youtube, SoundCloud, Vimeo, Piapro, Bilibili, File, LocalFile, Creofuga): Filter by one or more PV services (separated by commas). The song will pass the filter if it has a PV for any of the matched services.
+  * pvServices `string` (values: Nothing, NicoNicoDouga, Youtube, SoundCloud, Vimeo, Piapro, Bilibili, File, LocalFile, Creofuga, Bandcamp): Filter by one or more PV services (separated by commas). The song will pass the filter if it has a PV for any of the matched services.
   * since `integer`: Allow only entries that have been created at most this many hours ago. By default there is no filtering.
   * minScore `integer`: Minimum rating score. Optional.
   * userCollectionId `integer`: Filter by user's rated songs. By default there is no filtering.
   * releaseEventId `integer`: Filter by release event. By default there is no filtering.
+  * parentSongId `integer`: Filter by parent song. By default there is no filtering.
   * status `string` (values: Draft, Finished, Approved, Locked): Filter by entry status (optional).
   * advancedFilters `array`: List of advanced filters (optional).
   * start `integer`: First item to be retrieved (optional, defaults to 0).
   * maxResults `integer`: Maximum number of results to be loaded (optional, defaults to 10, maximum of 50).
   * getTotalCount `boolean`: Whether to load total number of items (optional, default to false).
-  * sort `string` (values: None, Name, AdditionDate, PublishDate, FavoritedTimes, RatingScore): Sort rule (optional, defaults to Name). Possible values are None, Name, AdditionDate, FavoritedTimes, RatingScore.
+  * sort `string` (values: None, Name, AdditionDate, PublishDate, FavoritedTimes, RatingScore, TagUsageCount): Sort rule (optional, defaults to Name). Possible values are None, Name, AdditionDate, FavoritedTimes, RatingScore.
   * preferAccurateMatches `boolean`: Whether the search should prefer accurate matches. 
   * nameMatchMode `string` (values: Auto, Partial, StartsWith, Exact, Words): Match mode for song name (optional, defaults to Exact).
   * fields `string` (values: None, AdditionalNames, Albums, Artists, Lyrics, MainPicture, Names, PVs, ReleaseEvent, Tags, ThumbUrl, WebLinks): List of optional fields (optional). Possible values are Albums, Artists, Names, PVs, Tags, ThumbUrl, WebLinks.
@@ -1238,7 +1365,7 @@ vocadb.SongApi_GetByPV({
 
 #### Input
 * input `object`
-  * pvService **required** `string` (values: NicoNicoDouga, Youtube, SoundCloud, Vimeo, Piapro, Bilibili, File, LocalFile, Creofuga): PV service (required). Possible values are NicoNicoDouga, Youtube, SoundCloud, Vimeo, Piapro, Bilibili.
+  * pvService **required** `string` (values: NicoNicoDouga, Youtube, SoundCloud, Vimeo, Piapro, Bilibili, File, LocalFile, Creofuga, Bandcamp): PV service (required). Possible values are NicoNicoDouga, Youtube, SoundCloud, Vimeo, Piapro, Bilibili.
   * pvId **required** `string`: PV Id (required). For example sm123456.
   * fields `string` (values: None, AdditionalNames, Albums, Artists, Lyrics, MainPicture, Names, PVs, ReleaseEvent, Tags, ThumbUrl, WebLinks): List of optional fields (optional). Possible values are Albums, Artists, Names, PVs, Tags, ThumbUrl, WebLinks.
   * lang `string` (values: Default, Japanese, Romaji, English): Content language preference (optional).
@@ -1664,6 +1791,7 @@ vocadb.TagApi_GetTopTags({}, context)
 #### Input
 * input `object`
   * categoryName `string`: Tag category, for example "Genres". Optional - if not specified, no filtering is done.
+  * entryType `string` (values: Undefined, Album, Artist, DiscussionTopic, PV, ReleaseEvent, ReleaseEventSeries, Song, SongList, Tag, User, Venue): Tag usage entry type. Optional - if not specified, all entry types are included.
   * maxResults `integer`: Maximum number of tags to return.
   * lang `string` (values: Default, Japanese, Romaji, English): Content language preference (optional).
 
@@ -1921,7 +2049,7 @@ vocadb.UserApi_PostRefreshEntryEdit({
 
 #### Input
 * input `object`
-  * entryType **required** `string` (values: Undefined, Album, Artist, DiscussionTopic, PV, ReleaseEvent, ReleaseEventSeries, Song, SongList, Tag, User): Type of entry.
+  * entryType **required** `string` (values: Undefined, Album, Artist, DiscussionTopic, PV, ReleaseEvent, ReleaseEventSeries, Song, SongList, Tag, User, Venue): Type of entry.
   * entryId **required** `integer`: Entry ID.
 
 #### Output
@@ -2109,6 +2237,7 @@ vocadb.UserApi_GetFollowedArtists({
 * input `object`
   * id **required** `integer`: ID of the user whose followed artists are to be browsed.
   * query `string`: Artist name query (optional).
+  * tagId `array`: Filter by tag Id (optional). This filter can be specified multiple times.
   * artistType `string` (values: Unknown, Circle, Label, Producer, Animator, Illustrator, Lyricist, Vocaloid, UTAU, CeVIO, OtherVoiceSynthesizer, OtherVocalist, OtherGroup, OtherIndividual, Utaite, Band, Vocalist, Character): Filter by artist type.
   * start `integer`: First item to be retrieved (optional, defaults to 0).
   * maxResults `integer`: Maximum number of results to be loaded (optional, defaults to 10, maximum of 50).
@@ -2239,10 +2368,11 @@ vocadb.UserApi_GetRatedSongs({
   * tagId `array`: Filter by tag Id (optional). This filter can be specified multiple times.
   * artistId `array`: Filter by song artist (optional).
   * childVoicebanks `boolean`: Include child voicebanks, if the artist being filtered by has any.
+  * artistGrouping `string` (values: And, Or): Logical grouping for artists.
   * rating `string` (values: Nothing, Dislike, Like, Favorite): Filter songs by given rating (optional).
   * songListId `integer`: Filter songs by song list (optional).
   * groupByRating `boolean`: Group results by rating so that highest rated are first.
-  * pvServices `string` (values: Nothing, NicoNicoDouga, Youtube, SoundCloud, Vimeo, Piapro, Bilibili, File, LocalFile, Creofuga): Filter by one or more PV services (separated by commas). The song will pass the filter if it has a PV for any of the matched services.
+  * pvServices `string` (values: Nothing, NicoNicoDouga, Youtube, SoundCloud, Vimeo, Piapro, Bilibili, File, LocalFile, Creofuga, Bandcamp): Filter by one or more PV services (separated by commas). The song will pass the filter if it has a PV for any of the matched services.
   * advancedFilters `array`: List of advanced filters (optional).
   * start `integer`: First item to be retrieved (optional, defaults to 0).
   * maxResults `integer`: Maximum number of results to be loaded (optional, defaults to 10, maximum of 50).
@@ -2274,6 +2404,25 @@ vocadb.UserApi_GetSongRating({
 #### Output
 * output `string` (values: Nothing, Dislike, Like, Favorite)
 
+### UserApi_PostReport
+
+
+
+```js
+vocadb.UserApi_PostReport({
+  "id": 0,
+  "model": {}
+}, context)
+```
+
+#### Input
+* input `object`
+  * id **required** `integer`
+  * model **required** [CreateReportModel](#createreportmodel)
+
+#### Output
+* output `boolean`
+
 ### UserApi_PostSetting
 Updates user setting.
 
@@ -2296,7 +2445,7 @@ vocadb.UserApi_PostSetting({
 *Output schema unknown*
 
 ### UserApi_GetSongLists
-Gets a list of song lists for a user.
+
 
 
 ```js
@@ -2307,17 +2456,87 @@ vocadb.UserApi_GetSongLists({
 
 #### Input
 * input `object`
-  * id **required** `integer`: User whose song lists are to be loaded.
-  * query `string`: Song list name query (optional).
-  * nameMatchMode `string` (values: Auto, Partial, StartsWith, Exact, Words): Match mode for song name (optional, defaults to Auto).
-  * start `integer`: First item to be retrieved (optional, defaults to 0).
-  * maxResults `integer`: Maximum number of results to be loaded (optional, defaults to 10, maximum of 50).
-  * getTotalCount `boolean`: Whether to load total number of items (optional, default to false).
-  * sort `string` (values: None, Name, Date, CreateDate): Sort option for the song lists. Possible values are None, Name, Date, CreateDate. Default is Name.
-  * fields `string` (values: None, Description, MainPicture): List of optional fields.
+  * id **required** `integer`
+  * query `string`
+  * tagId `array`
+  * childTags `boolean`
+  * nameMatchMode `string` (values: Auto, Partial, StartsWith, Exact, Words)
+  * start `integer`
+  * maxResults `integer`
+  * getTotalCount `boolean`
+  * sort `string` (values: None, Name, Date, CreateDate)
+  * fields `string` (values: None, Description, Events, MainPicture, Tags)
 
 #### Output
 * output [PartialFindResult[SongListForApiContract]](#partialfindresult[songlistforapicontract])
+
+### VenueApi_GetList
+Gets a page of event venue.
+
+
+```js
+vocadb.VenueApi_GetList({}, context)
+```
+
+#### Input
+* input `object`
+  * query `string`: Text query.
+  * fields `string` (values: None, AdditionalNames, Description, Events, Names, WebLinks): Optional fields to include.
+  * start `integer`: First item to be retrieved (optional).
+  * maxResults `integer`: Maximum number of results to be loaded (optional).
+  * getTotalCount `boolean`: Whether to load total number of items (optional).
+  * nameMatchMode `string` (values: Auto, Partial, StartsWith, Exact, Words): Match mode for event name (optional).
+  * lang `string` (values: Default, Japanese, Romaji, English): Content language preference (optional).
+  * sortRule `string` (values: None, Name, Distance): Sort rule (optional, defaults to Name). Possible values are None, Name, Distance.
+  * latitude `number`: Latitude (optional).
+  * longitude `number`: Longitude (optional).
+  * radius `number`: Radius (optional).
+  * distanceUnit `string` (values: Kilometers, Miles): Unit of length (optional). Possible values are Kilometers, Miles.
+
+#### Output
+* output [PartialFindResult[VenueForApiContract]](#partialfindresult[venueforapicontract])
+
+### VenueApi_Delete
+Deletes a venue.
+
+
+```js
+vocadb.VenueApi_Delete({
+  "id": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * id **required** `integer`: ID of the venue to be deleted.
+  * notes `string`: Notes.
+  * hardDelete `boolean`: If true, the entry is hard deleted. Hard deleted entries cannot be restored normally, but they will be moved to trash.
+
+#### Output
+*Output schema unknown*
+
+### VenueApi_PostReport
+Creates a new report.
+
+
+```js
+vocadb.VenueApi_PostReport({
+  "id": 0,
+  "reportType": "",
+  "notes": "",
+  "versionNumber": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * id **required** `integer`: Venue to be reported.
+  * reportType **required** `string` (values: InvalidInfo, Duplicate, Inappropriate, Other): Report type.
+  * notes **required** `string`: Notes. Optional.
+  * versionNumber **required** `integer`: Version to be reported. Optional.
+
+#### Output
+*Output schema unknown*
 
 
 
@@ -2406,10 +2625,21 @@ vocadb.UserApi_GetSongLists({
   * mediaType `string` (values: PhysicalDisc, DigitalDownload, Other)
   * purchaseStatus `string` (values: Nothing, Wishlisted, Ordered, Owned)
   * rating `integer`
+  * user [UserForApiContract](#userforapicontract)
 
 ### AlbumIdentifierContract
 * AlbumIdentifierContract `object`
   * value `string`
+
+### AlbumReviewContract
+* AlbumReviewContract `object`
+  * albumId `integer`
+  * date `string`
+  * id `integer`
+  * languageCode `string`
+  * text `string`
+  * title `string`
+  * user [UserForApiContract](#userforapicontract)
 
 ### ArchivedObjectVersionForApiContract
 * ArchivedObjectVersionForApiContract `object`
@@ -2423,6 +2653,7 @@ vocadb.UserApi_GetSongLists({
 * ArchivedWebLinkContract `object`
   * category `string` (values: Official, Commercial, Reference, Other)
   * description `string`
+  * disabled `boolean`
   * url `string`
 
 ### ArtistContract
@@ -2458,6 +2689,7 @@ vocadb.UserApi_GetSongLists({
   * createDate `string`
   * defaultName `string`
   * defaultNameLanguage `string` (values: Unspecified, Japanese, Romaji, English)
+  * deleted `boolean`
   * description `string`
   * id `integer`
   * mainPicture [EntryThumbForApiContract](#entrythumbforapicontract)
@@ -2525,6 +2757,11 @@ vocadb.UserApi_GetSongLists({
   * id `integer`
   * message `string`
 
+### CreateReportModel
+* CreateReportModel `object`
+  * reason `string`
+  * reportType `string` (values: MaliciousIP, Spamming, RemovePermissions, Other)
+
 ### DiscussionFolderContract
 * DiscussionFolderContract `object`
   * description `string`
@@ -2564,7 +2801,7 @@ vocadb.UserApi_GetSongLists({
   * defaultNameLanguage `string` (values: Unspecified, Japanese, Romaji, English)
   * description `string`
   * discType `string` (values: Unknown, Album, Single, EP, SplitAlbum, Compilation, Video, Artbook, Game, Fanmade, Instrumental, Other)
-  * entryType `string` (values: Undefined, Album, Artist, DiscussionTopic, PV, ReleaseEvent, ReleaseEventSeries, Song, SongList, Tag, User)
+  * entryType `string` (values: Undefined, Album, Artist, DiscussionTopic, PV, ReleaseEvent, ReleaseEventSeries, Song, SongList, Tag, User, Venue)
   * eventCategory `string` (values: Unspecified, AlbumRelease, Anniversary, Club, Concert, Contest, Convention, Other)
   * id `integer`
   * mainPicture [EntryThumbForApiContract](#entrythumbforapicontract)
@@ -2587,12 +2824,12 @@ vocadb.UserApi_GetSongLists({
 
 ### EntryRefContract
 * EntryRefContract `object`
-  * entryType `string` (values: Undefined, Album, Artist, DiscussionTopic, PV, ReleaseEvent, ReleaseEventSeries, Song, SongList, Tag, User)
+  * entryType `string` (values: Undefined, Album, Artist, DiscussionTopic, PV, ReleaseEvent, ReleaseEventSeries, Song, SongList, Tag, User, Venue)
   * id `integer`
 
 ### EntryThumbContract
 * EntryThumbContract `object`
-  * entryType `string` (values: Undefined, Album, Artist, DiscussionTopic, PV, ReleaseEvent, ReleaseEventSeries, Song, SongList, Tag, User)
+  * entryType `string` (values: Undefined, Album, Artist, DiscussionTopic, PV, ReleaseEvent, ReleaseEventSeries, Song, SongList, Tag, User, Venue)
   * id `integer`
   * mime `string`
   * version `integer`
@@ -2600,6 +2837,7 @@ vocadb.UserApi_GetSongLists({
 ### EntryThumbForApiContract
 * EntryThumbForApiContract `object`
   * mime `string`
+  * urlOriginal `string`
   * urlSmallThumb `string`
   * urlThumb `string`
   * urlTinyThumb `string`
@@ -2637,6 +2875,13 @@ vocadb.UserApi_GetSongLists({
   * month `integer`
   * year `integer`
 
+### OptionalGeoPointContract
+* OptionalGeoPointContract `object`
+  * formatted `string`
+  * hasValue `boolean`
+  * latitude `number`
+  * longitude `number`
+
 ### PVContract
 * PVContract `object`
   * author `string`
@@ -2649,7 +2894,7 @@ vocadb.UserApi_GetSongLists({
   * publishDate `string`
   * pvId `string`
   * pvType `string` (values: Original, Reprint, Other)
-  * service `string` (values: NicoNicoDouga, Youtube, SoundCloud, Vimeo, Piapro, Bilibili, File, LocalFile, Creofuga)
+  * service `string` (values: NicoNicoDouga, Youtube, SoundCloud, Vimeo, Piapro, Bilibili, File, LocalFile, Creofuga, Bandcamp)
   * thumbUrl `string`
   * url `string`
 
@@ -2669,7 +2914,7 @@ vocadb.UserApi_GetSongLists({
   * publishDate `string`
   * pvId `string`
   * pvType `string` (values: Original, Reprint, Other)
-  * service `string` (values: NicoNicoDouga, Youtube, SoundCloud, Vimeo, Piapro, Bilibili, File, LocalFile, Creofuga)
+  * service `string` (values: NicoNicoDouga, Youtube, SoundCloud, Vimeo, Piapro, Bilibili, File, LocalFile, Creofuga, Bandcamp)
   * song [SongContract](#songcontract)
   * thumbUrl `string`
   * url `string`
@@ -2751,10 +2996,10 @@ vocadb.UserApi_GetSongLists({
   * term `string`
   * totalCount `integer`
 
-### PartialFindResult[ReleaseEventSeriesContract]
-* PartialFindResult[ReleaseEventSeriesContract] `object`
+### PartialFindResult[ReleaseEventSeriesForApiContract]
+* PartialFindResult[ReleaseEventSeriesForApiContract] `object`
   * items `array`
-    * items [ReleaseEventSeriesContract](#releaseeventseriescontract)
+    * items [ReleaseEventSeriesForApiContract](#releaseeventseriesforapicontract)
   * term `string`
   * totalCount `integer`
 
@@ -2800,6 +3045,13 @@ vocadb.UserApi_GetSongLists({
   * term `string`
   * totalCount `integer`
 
+### PartialFindResult[VenueForApiContract]
+* PartialFindResult[VenueForApiContract] `object`
+  * items `array`
+    * items [VenueForApiContract](#venueforapicontract)
+  * term `string`
+  * totalCount `integer`
+
 ### RatedSongForUserForApiContract
 * RatedSongForUserForApiContract `object`
   * date `string`
@@ -2815,6 +3067,28 @@ vocadb.UserApi_GetSongLists({
     * items [SongForApiContract](#songforapicontract)
   * tagMatches `array`
     * items [SongForApiContract](#songforapicontract)
+
+### ReleaseEventContract
+* ReleaseEventContract `object`
+  * additionalNames `string`
+  * category `string` (values: Unspecified, AlbumRelease, Anniversary, Club, Concert, Contest, Convention, Other)
+  * customName `boolean`
+  * date `string`
+  * deleted `boolean`
+  * description `string`
+  * endDate `string`
+  * hasVenueOrVenueName `boolean`
+  * id `integer`
+  * inheritedCategory `string` (values: Unspecified, AlbumRelease, Anniversary, Club, Concert, Contest, Convention, Other)
+  * name `string`
+  * pictureMime `string`
+  * series [ReleaseEventSeriesContract](#releaseeventseriescontract)
+  * songList [SongListBaseContract](#songlistbasecontract)
+  * status `string` (values: Draft, Finished, Approved, Locked)
+  * urlSlug `string`
+  * venue [VenueContract](#venuecontract)
+  * venueName `string`
+  * version `integer`
 
 ### ReleaseEventForApiContract
 * ReleaseEventForApiContract `object`
@@ -2836,7 +3110,10 @@ vocadb.UserApi_GetSongLists({
   * seriesSuffix `string`
   * songList [SongListBaseContract](#songlistbasecontract)
   * status `string` (values: Draft, Finished, Approved, Locked)
+  * tags `array`
+    * items [TagUsageForApiContract](#tagusageforapicontract)
   * urlSlug `string`
+  * venue [VenueForApiContract](#venueforapicontract)
   * venueName `string`
   * version `integer`
   * webLinks `array`
@@ -2857,6 +3134,24 @@ vocadb.UserApi_GetSongLists({
   * webLinks `array`
     * items [WebLinkContract](#weblinkcontract)
 
+### ReleaseEventSeriesForApiContract
+* ReleaseEventSeriesForApiContract `object`
+  * additionalNames `string`
+  * category `string` (values: Unspecified, AlbumRelease, Anniversary, Club, Concert, Contest, Convention, Other)
+  * description `string`
+  * events `array`
+    * items [ReleaseEventForApiContract](#releaseeventforapicontract)
+  * id `integer`
+  * mainPicture [EntryThumbForApiContract](#entrythumbforapicontract)
+  * name `string`
+  * names `array`
+    * items [LocalizedStringContract](#localizedstringcontract)
+  * status `string` (values: Draft, Finished, Approved, Locked)
+  * urlSlug `string`
+  * version `integer`
+  * webLinks `array`
+    * items [WebLinkForApiContract](#weblinkforapicontract)
+
 ### SongContract
 * SongContract `object`
   * additionalNames `string`
@@ -2869,7 +3164,7 @@ vocadb.UserApi_GetSongLists({
   * name `string`
   * nicoId `string`
   * publishDate `string`
-  * pvServices `string` (values: Nothing, NicoNicoDouga, Youtube, SoundCloud, Vimeo, Piapro, Bilibili, File, LocalFile, Creofuga)
+  * pvServices `string` (values: Nothing, NicoNicoDouga, Youtube, SoundCloud, Vimeo, Piapro, Bilibili, File, LocalFile, Creofuga, Bandcamp)
   * ratingScore `integer`
   * songType `string` (values: Unspecified, Original, Remaster, Remix, Cover, Arrangement, Instrumental, Mashup, MusicPV, DramaPV, Live, Illustration, Other)
   * status `string` (values: Draft, Finished, Approved, Locked)
@@ -2887,6 +3182,7 @@ vocadb.UserApi_GetSongLists({
   * createDate `string`
   * defaultName `string`
   * defaultNameLanguage `string` (values: Unspecified, Japanese, Romaji, English)
+  * deleted `boolean`
   * favoritedTimes `integer`
   * id `integer`
   * lengthSeconds `integer`
@@ -2899,7 +3195,7 @@ vocadb.UserApi_GetSongLists({
     * items [LocalizedStringContract](#localizedstringcontract)
   * originalVersionId `integer`
   * publishDate `string`
-  * pvServices `string` (values: Nothing, NicoNicoDouga, Youtube, SoundCloud, Vimeo, Piapro, Bilibili, File, LocalFile, Creofuga)
+  * pvServices `string` (values: Nothing, NicoNicoDouga, Youtube, SoundCloud, Vimeo, Piapro, Bilibili, File, LocalFile, Creofuga, Bandcamp)
   * pvs `array`
     * items [PVContract](#pvcontract)
   * ratingScore `integer`
@@ -2943,11 +3239,20 @@ vocadb.UserApi_GetSongLists({
 ### SongListForApiContract
 * SongListForApiContract `object`
   * author [UserForApiContract](#userforapicontract)
+  * deleted `boolean`
+  * description `string`
   * eventDate `string`
+  * events `array`
+    * items [ReleaseEventForApiContract](#releaseeventforapicontract)
   * featuredCategory `string` (values: Nothing, Concerts, VocaloidRanking, Pools, Other)
   * id `integer`
+  * latestComments `array`
+    * items [CommentForApiContract](#commentforapicontract)
   * mainPicture [EntryThumbForApiContract](#entrythumbforapicontract)
   * name `string`
+  * status `string` (values: Draft, Finished, Approved, Locked)
+  * tags `array`
+    * items [TagUsageForApiContract](#tagusageforapicontract)
 
 ### SongListForEditContract
 * SongListForEditContract `object`
@@ -3045,11 +3350,45 @@ vocadb.UserApi_GetSongLists({
   * id `integer`
   * name `string`
 
+### VenueContract
+* VenueContract `object`
+  * additionalNames `string`
+  * address `string`
+  * addressCountryCode `string`
+  * coordinates [OptionalGeoPointContract](#optionalgeopointcontract)
+  * deleted `boolean`
+  * description `string`
+  * id `integer`
+  * name `string`
+  * status `string` (values: Draft, Finished, Approved, Locked)
+  * version `integer`
+  * webLinks `array`
+    * items [WebLinkContract](#weblinkcontract)
+
+### VenueForApiContract
+* VenueForApiContract `object`
+  * additionalNames `string`
+  * address `string`
+  * addressCountryCode `string`
+  * coordinates [OptionalGeoPointContract](#optionalgeopointcontract)
+  * description `string`
+  * events `array`
+    * items [ReleaseEventContract](#releaseeventcontract)
+  * id `integer`
+  * name `string`
+  * names `array`
+    * items [LocalizedStringContract](#localizedstringcontract)
+  * status `string` (values: Draft, Finished, Approved, Locked)
+  * version `integer`
+  * webLinks `array`
+    * items [WebLinkForApiContract](#weblinkforapicontract)
+
 ### WebLinkContract
 * WebLinkContract `object`
   * category `string` (values: Official, Commercial, Reference, Other)
   * description `string`
   * descriptionOrUrl `string`
+  * disabled `boolean`
   * id `integer`
   * url `string`
 
@@ -3057,6 +3396,8 @@ vocadb.UserApi_GetSongLists({
 * WebLinkForApiContract `object`
   * category `string` (values: Official, Commercial, Reference, Other)
   * description `string`
+  * descriptionOrUrl `string`
+  * disabled `boolean`
   * id `integer`
   * url `string`
 

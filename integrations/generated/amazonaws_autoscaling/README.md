@@ -13,16 +13,14 @@ let amazonaws_autoscaling = require('@datafire/amazonaws_autoscaling').create({
   region: ""
 });
 
-amazonaws_autoscaling.AttachInstances({
-  "AutoScalingGroupName": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
 
 ## Description
 
-<fullname>Amazon EC2 Auto Scaling</fullname> <p>Amazon EC2 Auto Scaling is designed to automatically launch or terminate EC2 instances based on user-defined policies, schedules, and health checks. Use this service in conjunction with the AWS Auto Scaling, Amazon CloudWatch, and Elastic Load Balancing services.</p>
+<fullname>Amazon EC2 Auto Scaling</fullname> <p>Amazon EC2 Auto Scaling is designed to automatically launch or terminate EC2 instances based on user-defined scaling policies, scheduled actions, and health checks. Use this service with AWS Auto Scaling, Amazon CloudWatch, and Elastic Load Balancing.</p> <p>For more information, including information about granting IAM users required permissions for Amazon EC2 Auto Scaling actions, see the <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.html">Amazon EC2 Auto Scaling User Guide</a>.</p>
 
 ## Actions
 
@@ -38,8 +36,27 @@ amazonaws_autoscaling.AttachInstances({
 
 #### Input
 * input `object`
-  * AutoScalingGroupName **required** [ResourceName](#resourcename)
-  * InstanceIds [InstanceIds](#instanceids)
+  * InstanceIds `array`
+  * AutoScalingGroupName **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### AttachInstances
+
+
+
+```js
+amazonaws_autoscaling.AttachInstances({
+  "AutoScalingGroupName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * AutoScalingGroupName **required**
+  * InstanceIds
+    * items [XmlStringMaxLen19](#xmlstringmaxlen19)
 
 #### Output
 *Output schema unknown*
@@ -57,8 +74,28 @@ amazonaws_autoscaling.AttachLoadBalancerTargetGroups({
 
 #### Input
 * input `object`
-  * AutoScalingGroupName **required** [ResourceName](#resourcename)
-  * TargetGroupARNs **required** [TargetGroupARNs](#targetgrouparns)
+  * AutoScalingGroupName **required** `string`
+  * TargetGroupARNs **required** `array`
+
+#### Output
+* output [AttachLoadBalancerTargetGroupsResultType](#attachloadbalancertargetgroupsresulttype)
+
+### AttachLoadBalancerTargetGroups
+
+
+
+```js
+amazonaws_autoscaling.AttachLoadBalancerTargetGroups({
+  "AutoScalingGroupName": null,
+  "TargetGroupARNs": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * AutoScalingGroupName **required**
+  * TargetGroupARNs **required**
+    * items [XmlStringMaxLen511](#xmlstringmaxlen511)
 
 #### Output
 * output [AttachLoadBalancerTargetGroupsResultType](#attachloadbalancertargetgroupsresulttype)
@@ -76,11 +113,143 @@ amazonaws_autoscaling.AttachLoadBalancers({
 
 #### Input
 * input `object`
-  * AutoScalingGroupName **required** [ResourceName](#resourcename)
-  * LoadBalancerNames **required** [LoadBalancerNames](#loadbalancernames)
+  * AutoScalingGroupName **required** `string`
+  * LoadBalancerNames **required** `array`
 
 #### Output
 * output [AttachLoadBalancersResultType](#attachloadbalancersresulttype)
+
+### AttachLoadBalancers
+
+
+
+```js
+amazonaws_autoscaling.AttachLoadBalancers({
+  "AutoScalingGroupName": null,
+  "LoadBalancerNames": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * AutoScalingGroupName **required**
+  * LoadBalancerNames **required**
+    * items [XmlStringMaxLen255](#xmlstringmaxlen255)
+
+#### Output
+* output [AttachLoadBalancersResultType](#attachloadbalancersresulttype)
+
+### BatchDeleteScheduledAction
+
+
+
+```js
+amazonaws_autoscaling.BatchDeleteScheduledAction({
+  "AutoScalingGroupName": "",
+  "ScheduledActionNames": []
+}, context)
+```
+
+#### Input
+* input `object`
+  * AutoScalingGroupName **required** `string`
+  * ScheduledActionNames **required** `array`
+
+#### Output
+* output [BatchDeleteScheduledActionAnswer](#batchdeletescheduledactionanswer)
+
+### BatchDeleteScheduledAction
+
+
+
+```js
+amazonaws_autoscaling.BatchDeleteScheduledAction({
+  "AutoScalingGroupName": null,
+  "ScheduledActionNames": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * AutoScalingGroupName **required**
+  * ScheduledActionNames **required**
+    * items [XmlStringMaxLen255](#xmlstringmaxlen255)
+
+#### Output
+* output [BatchDeleteScheduledActionAnswer](#batchdeletescheduledactionanswer)
+
+### BatchPutScheduledUpdateGroupAction
+
+
+
+```js
+amazonaws_autoscaling.BatchPutScheduledUpdateGroupAction({
+  "AutoScalingGroupName": "",
+  "ScheduledUpdateGroupActions": []
+}, context)
+```
+
+#### Input
+* input `object`
+  * AutoScalingGroupName **required** `string`
+  * ScheduledUpdateGroupActions **required** `array`
+
+#### Output
+* output [BatchPutScheduledUpdateGroupActionAnswer](#batchputscheduledupdategroupactionanswer)
+
+### BatchPutScheduledUpdateGroupAction
+
+
+
+```js
+amazonaws_autoscaling.BatchPutScheduledUpdateGroupAction({
+  "AutoScalingGroupName": null,
+  "ScheduledUpdateGroupActions": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * AutoScalingGroupName **required**
+  * ScheduledUpdateGroupActions **required**
+    * items [ScheduledUpdateGroupActionRequest](#scheduledupdategroupactionrequest)
+
+#### Output
+* output [BatchPutScheduledUpdateGroupActionAnswer](#batchputscheduledupdategroupactionanswer)
+
+### CancelInstanceRefresh
+
+
+
+```js
+amazonaws_autoscaling.CancelInstanceRefresh({
+  "AutoScalingGroupName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * AutoScalingGroupName **required** `string`
+
+#### Output
+* output [CancelInstanceRefreshAnswer](#cancelinstancerefreshanswer)
+
+### CancelInstanceRefresh
+
+
+
+```js
+amazonaws_autoscaling.CancelInstanceRefresh({
+  "AutoScalingGroupName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * AutoScalingGroupName **required**
+
+#### Output
+* output [CancelInstanceRefreshAnswer](#cancelinstancerefreshanswer)
 
 ### CompleteLifecycleAction
 
@@ -96,11 +265,34 @@ amazonaws_autoscaling.CompleteLifecycleAction({
 
 #### Input
 * input `object`
-  * AutoScalingGroupName **required** [ResourceName](#resourcename)
-  * InstanceId [XmlStringMaxLen19](#xmlstringmaxlen19)
-  * LifecycleActionResult **required** [LifecycleActionResult](#lifecycleactionresult)
-  * LifecycleActionToken [LifecycleActionToken](#lifecycleactiontoken)
-  * LifecycleHookName **required** [AsciiStringMaxLen255](#asciistringmaxlen255)
+  * LifecycleHookName **required** `string`
+  * AutoScalingGroupName **required** `string`
+  * LifecycleActionToken `string`
+  * LifecycleActionResult **required** `string`
+  * InstanceId `string`
+
+#### Output
+* output [CompleteLifecycleActionAnswer](#completelifecycleactionanswer)
+
+### CompleteLifecycleAction
+
+
+
+```js
+amazonaws_autoscaling.CompleteLifecycleAction({
+  "LifecycleHookName": null,
+  "AutoScalingGroupName": null,
+  "LifecycleActionResult": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * AutoScalingGroupName **required**
+  * InstanceId
+  * LifecycleActionResult **required**
+  * LifecycleActionToken
+  * LifecycleHookName **required**
 
 #### Output
 * output [CompleteLifecycleActionAnswer](#completelifecycleactionanswer)
@@ -119,26 +311,93 @@ amazonaws_autoscaling.CreateAutoScalingGroup({
 
 #### Input
 * input `object`
-  * AutoScalingGroupName **required** [XmlStringMaxLen255](#xmlstringmaxlen255)
-  * AvailabilityZones [AvailabilityZones](#availabilityzones)
-  * DefaultCooldown [Cooldown](#cooldown)
-  * DesiredCapacity [AutoScalingGroupDesiredCapacity](#autoscalinggroupdesiredcapacity)
-  * HealthCheckGracePeriod [HealthCheckGracePeriod](#healthcheckgraceperiod)
-  * HealthCheckType [XmlStringMaxLen32](#xmlstringmaxlen32)
-  * InstanceId [XmlStringMaxLen19](#xmlstringmaxlen19)
-  * LaunchConfigurationName [ResourceName](#resourcename)
-  * LaunchTemplate [LaunchTemplateSpecification](#launchtemplatespecification)
-  * LifecycleHookSpecificationList [LifecycleHookSpecifications](#lifecyclehookspecifications)
-  * LoadBalancerNames [LoadBalancerNames](#loadbalancernames)
-  * MaxSize **required** [AutoScalingGroupMaxSize](#autoscalinggroupmaxsize)
-  * MinSize **required** [AutoScalingGroupMinSize](#autoscalinggroupminsize)
-  * NewInstancesProtectedFromScaleIn [InstanceProtected](#instanceprotected)
-  * PlacementGroup [XmlStringMaxLen255](#xmlstringmaxlen255)
-  * ServiceLinkedRoleARN [ResourceName](#resourcename)
-  * Tags [Tags](#tags)
-  * TargetGroupARNs [TargetGroupARNs](#targetgrouparns)
-  * TerminationPolicies [TerminationPolicies](#terminationpolicies)
-  * VPCZoneIdentifier [XmlStringMaxLen2047](#xmlstringmaxlen2047)
+  * AutoScalingGroupName **required** `string`
+  * LaunchConfigurationName `string`
+  * LaunchTemplate `object`
+  * MixedInstancesPolicy `object`
+  * InstanceId `string`
+  * MinSize **required** `integer`
+  * MaxSize **required** `integer`
+  * DesiredCapacity `integer`
+  * DefaultCooldown `integer`
+  * AvailabilityZones `array`
+  * LoadBalancerNames `array`
+  * TargetGroupARNs `array`
+  * HealthCheckType `string`
+  * HealthCheckGracePeriod `integer`
+  * PlacementGroup `string`
+  * VPCZoneIdentifier `string`
+  * TerminationPolicies `array`
+  * NewInstancesProtectedFromScaleIn `boolean`
+  * CapacityRebalance `boolean`
+  * LifecycleHookSpecificationList `array`
+  * Tags `array`
+  * ServiceLinkedRoleARN `string`
+  * MaxInstanceLifetime `integer`
+
+#### Output
+*Output schema unknown*
+
+### CreateAutoScalingGroup
+
+
+
+```js
+amazonaws_autoscaling.CreateAutoScalingGroup({
+  "AutoScalingGroupName": null,
+  "MinSize": null,
+  "MaxSize": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * AutoScalingGroupName **required**
+  * AvailabilityZones
+    * items [XmlStringMaxLen255](#xmlstringmaxlen255)
+  * CapacityRebalance
+  * DefaultCooldown
+  * DesiredCapacity
+  * HealthCheckGracePeriod
+  * HealthCheckType
+  * InstanceId
+  * LaunchConfigurationName
+  * LaunchTemplate
+    * LaunchTemplateId
+    * LaunchTemplateName
+    * Version
+  * LifecycleHookSpecificationList
+    * items [LifecycleHookSpecification](#lifecyclehookspecification)
+  * LoadBalancerNames
+    * items [XmlStringMaxLen255](#xmlstringmaxlen255)
+  * MaxInstanceLifetime
+  * MaxSize **required**
+  * MinSize **required**
+  * MixedInstancesPolicy
+    * InstancesDistribution
+      * OnDemandAllocationStrategy
+      * OnDemandBaseCapacity
+      * OnDemandPercentageAboveBaseCapacity
+      * SpotAllocationStrategy
+      * SpotInstancePools
+      * SpotMaxPrice
+    * LaunchTemplate
+      * LaunchTemplateSpecification
+        * LaunchTemplateId
+        * LaunchTemplateName
+        * Version
+      * Overrides
+        * items [LaunchTemplateOverrides](#launchtemplateoverrides)
+  * NewInstancesProtectedFromScaleIn
+  * PlacementGroup
+  * ServiceLinkedRoleARN
+  * Tags
+    * items [Tag](#tag)
+  * TargetGroupARNs
+    * items [XmlStringMaxLen511](#xmlstringmaxlen511)
+  * TerminationPolicies
+    * items [XmlStringMaxLen1600](#xmlstringmaxlen1600)
+  * VPCZoneIdentifier
 
 #### Output
 *Output schema unknown*
@@ -155,24 +414,67 @@ amazonaws_autoscaling.CreateLaunchConfiguration({
 
 #### Input
 * input `object`
-  * AssociatePublicIpAddress [AssociatePublicIpAddress](#associatepublicipaddress)
-  * BlockDeviceMappings [BlockDeviceMappings](#blockdevicemappings)
-  * ClassicLinkVPCId [XmlStringMaxLen255](#xmlstringmaxlen255)
-  * ClassicLinkVPCSecurityGroups [ClassicLinkVPCSecurityGroups](#classiclinkvpcsecuritygroups)
-  * EbsOptimized [EbsOptimized](#ebsoptimized)
-  * IamInstanceProfile [XmlStringMaxLen1600](#xmlstringmaxlen1600)
-  * ImageId [XmlStringMaxLen255](#xmlstringmaxlen255)
-  * InstanceId [XmlStringMaxLen19](#xmlstringmaxlen19)
-  * InstanceMonitoring [InstanceMonitoring](#instancemonitoring)
-  * InstanceType [XmlStringMaxLen255](#xmlstringmaxlen255)
-  * KernelId [XmlStringMaxLen255](#xmlstringmaxlen255)
-  * KeyName [XmlStringMaxLen255](#xmlstringmaxlen255)
-  * LaunchConfigurationName **required** [XmlStringMaxLen255](#xmlstringmaxlen255)
-  * PlacementTenancy [XmlStringMaxLen64](#xmlstringmaxlen64)
-  * RamdiskId [XmlStringMaxLen255](#xmlstringmaxlen255)
-  * SecurityGroups [SecurityGroups](#securitygroups)
-  * SpotPrice [SpotPrice](#spotprice)
-  * UserData [XmlStringUserData](#xmlstringuserdata)
+  * LaunchConfigurationName **required** `string`
+  * ImageId `string`
+  * KeyName `string`
+  * SecurityGroups `array`
+  * ClassicLinkVPCId `string`
+  * ClassicLinkVPCSecurityGroups `array`
+  * UserData `string`
+  * InstanceId `string`
+  * InstanceType `string`
+  * KernelId `string`
+  * RamdiskId `string`
+  * BlockDeviceMappings `array`
+  * InstanceMonitoring `object`
+  * SpotPrice `string`
+  * IamInstanceProfile `string`
+  * EbsOptimized `boolean`
+  * AssociatePublicIpAddress `boolean`
+  * PlacementTenancy `string`
+  * MetadataOptions `object`
+
+#### Output
+*Output schema unknown*
+
+### CreateLaunchConfiguration
+
+
+
+```js
+amazonaws_autoscaling.CreateLaunchConfiguration({
+  "LaunchConfigurationName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * AssociatePublicIpAddress
+  * BlockDeviceMappings
+    * items [BlockDeviceMapping](#blockdevicemapping)
+  * ClassicLinkVPCId
+  * ClassicLinkVPCSecurityGroups
+    * items [XmlStringMaxLen255](#xmlstringmaxlen255)
+  * EbsOptimized
+  * IamInstanceProfile
+  * ImageId
+  * InstanceId
+  * InstanceMonitoring
+    * Enabled
+  * InstanceType
+  * KernelId
+  * KeyName
+  * LaunchConfigurationName **required**
+  * MetadataOptions
+    * HttpEndpoint
+    * HttpPutResponseHopLimit
+    * HttpTokens
+  * PlacementTenancy
+  * RamdiskId
+  * SecurityGroups
+    * items [XmlString](#xmlstring)
+  * SpotPrice
+  * UserData
 
 #### Output
 *Output schema unknown*
@@ -189,7 +491,25 @@ amazonaws_autoscaling.CreateOrUpdateTags({
 
 #### Input
 * input `object`
-  * Tags **required** [Tags](#tags)
+  * Tags **required** `array`
+
+#### Output
+*Output schema unknown*
+
+### CreateOrUpdateTags
+
+
+
+```js
+amazonaws_autoscaling.CreateOrUpdateTags({
+  "Tags": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * Tags **required**
+    * items [Tag](#tag)
 
 #### Output
 *Output schema unknown*
@@ -206,8 +526,26 @@ amazonaws_autoscaling.DeleteAutoScalingGroup({
 
 #### Input
 * input `object`
-  * AutoScalingGroupName **required** [ResourceName](#resourcename)
-  * ForceDelete [ForceDelete](#forcedelete)
+  * AutoScalingGroupName **required** `string`
+  * ForceDelete `boolean`
+
+#### Output
+*Output schema unknown*
+
+### DeleteAutoScalingGroup
+
+
+
+```js
+amazonaws_autoscaling.DeleteAutoScalingGroup({
+  "AutoScalingGroupName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * AutoScalingGroupName **required**
+  * ForceDelete
 
 #### Output
 *Output schema unknown*
@@ -224,7 +562,24 @@ amazonaws_autoscaling.DeleteLaunchConfiguration({
 
 #### Input
 * input `object`
-  * LaunchConfigurationName **required** [ResourceName](#resourcename)
+  * LaunchConfigurationName **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### DeleteLaunchConfiguration
+
+
+
+```js
+amazonaws_autoscaling.DeleteLaunchConfiguration({
+  "LaunchConfigurationName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * LaunchConfigurationName **required**
 
 #### Output
 *Output schema unknown*
@@ -242,8 +597,27 @@ amazonaws_autoscaling.DeleteLifecycleHook({
 
 #### Input
 * input `object`
-  * AutoScalingGroupName **required** [ResourceName](#resourcename)
-  * LifecycleHookName **required** [AsciiStringMaxLen255](#asciistringmaxlen255)
+  * LifecycleHookName **required** `string`
+  * AutoScalingGroupName **required** `string`
+
+#### Output
+* output [DeleteLifecycleHookAnswer](#deletelifecyclehookanswer)
+
+### DeleteLifecycleHook
+
+
+
+```js
+amazonaws_autoscaling.DeleteLifecycleHook({
+  "LifecycleHookName": null,
+  "AutoScalingGroupName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * AutoScalingGroupName **required**
+  * LifecycleHookName **required**
 
 #### Output
 * output [DeleteLifecycleHookAnswer](#deletelifecyclehookanswer)
@@ -261,8 +635,27 @@ amazonaws_autoscaling.DeleteNotificationConfiguration({
 
 #### Input
 * input `object`
-  * AutoScalingGroupName **required** [ResourceName](#resourcename)
-  * TopicARN **required** [ResourceName](#resourcename)
+  * AutoScalingGroupName **required** `string`
+  * TopicARN **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### DeleteNotificationConfiguration
+
+
+
+```js
+amazonaws_autoscaling.DeleteNotificationConfiguration({
+  "AutoScalingGroupName": null,
+  "TopicARN": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * AutoScalingGroupName **required**
+  * TopicARN **required**
 
 #### Output
 *Output schema unknown*
@@ -279,8 +672,26 @@ amazonaws_autoscaling.DeletePolicy({
 
 #### Input
 * input `object`
-  * AutoScalingGroupName [ResourceName](#resourcename)
-  * PolicyName **required** [ResourceName](#resourcename)
+  * AutoScalingGroupName `string`
+  * PolicyName **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### DeletePolicy
+
+
+
+```js
+amazonaws_autoscaling.DeletePolicy({
+  "PolicyName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * AutoScalingGroupName
+  * PolicyName **required**
 
 #### Output
 *Output schema unknown*
@@ -298,8 +709,27 @@ amazonaws_autoscaling.DeleteScheduledAction({
 
 #### Input
 * input `object`
-  * AutoScalingGroupName **required** [ResourceName](#resourcename)
-  * ScheduledActionName **required** [ResourceName](#resourcename)
+  * AutoScalingGroupName **required** `string`
+  * ScheduledActionName **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### DeleteScheduledAction
+
+
+
+```js
+amazonaws_autoscaling.DeleteScheduledAction({
+  "AutoScalingGroupName": null,
+  "ScheduledActionName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * AutoScalingGroupName **required**
+  * ScheduledActionName **required**
 
 #### Output
 *Output schema unknown*
@@ -316,10 +746,42 @@ amazonaws_autoscaling.DeleteTags({
 
 #### Input
 * input `object`
-  * Tags **required** [Tags](#tags)
+  * Tags **required** `array`
 
 #### Output
 *Output schema unknown*
+
+### DeleteTags
+
+
+
+```js
+amazonaws_autoscaling.DeleteTags({
+  "Tags": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * Tags **required**
+    * items [Tag](#tag)
+
+#### Output
+*Output schema unknown*
+
+### DescribeAccountLimits
+
+
+
+```js
+amazonaws_autoscaling.DescribeAccountLimits({}, context)
+```
+
+#### Input
+* input `object`
+
+#### Output
+* output [DescribeAccountLimitsAnswer](#describeaccountlimitsanswer)
 
 ### DescribeAccountLimits
 
@@ -349,6 +811,37 @@ amazonaws_autoscaling.DescribeAdjustmentTypes({}, context)
 #### Output
 * output [DescribeAdjustmentTypesAnswer](#describeadjustmenttypesanswer)
 
+### DescribeAdjustmentTypes
+
+
+
+```js
+amazonaws_autoscaling.DescribeAdjustmentTypes({}, context)
+```
+
+#### Input
+* input `object`
+
+#### Output
+* output [DescribeAdjustmentTypesAnswer](#describeadjustmenttypesanswer)
+
+### DescribeAutoScalingGroups
+
+
+
+```js
+amazonaws_autoscaling.DescribeAutoScalingGroups({}, context)
+```
+
+#### Input
+* input `object`
+  * AutoScalingGroupNames `array`
+  * NextToken `string`
+  * MaxRecords `integer`
+
+#### Output
+* output [AutoScalingGroupsType](#autoscalinggroupstype)
+
 ### DescribeAutoScalingGroups
 
 
@@ -361,9 +854,10 @@ amazonaws_autoscaling.DescribeAutoScalingGroups({}, context)
 * input `object`
   * MaxRecords `string`
   * NextToken `string`
-  * AutoScalingGroupNames [AutoScalingGroupNames](#autoscalinggroupnames)
-  * MaxRecords [MaxRecords](#maxrecords)
-  * NextToken [XmlString](#xmlstring)
+  * AutoScalingGroupNames
+    * items [XmlStringMaxLen255](#xmlstringmaxlen255)
+  * MaxRecords
+  * NextToken
 
 #### Output
 * output [AutoScalingGroupsType](#autoscalinggroupstype)
@@ -378,11 +872,29 @@ amazonaws_autoscaling.DescribeAutoScalingInstances({}, context)
 
 #### Input
 * input `object`
+  * InstanceIds `array`
+  * MaxRecords `integer`
+  * NextToken `string`
+
+#### Output
+* output [AutoScalingInstancesType](#autoscalinginstancestype)
+
+### DescribeAutoScalingInstances
+
+
+
+```js
+amazonaws_autoscaling.DescribeAutoScalingInstances({}, context)
+```
+
+#### Input
+* input `object`
   * MaxRecords `string`
   * NextToken `string`
-  * InstanceIds [InstanceIds](#instanceids)
-  * MaxRecords [MaxRecords](#maxrecords)
-  * NextToken [XmlString](#xmlstring)
+  * InstanceIds
+    * items [XmlStringMaxLen19](#xmlstringmaxlen19)
+  * MaxRecords
+  * NextToken
 
 #### Output
 * output [AutoScalingInstancesType](#autoscalinginstancestype)
@@ -401,6 +913,78 @@ amazonaws_autoscaling.DescribeAutoScalingNotificationTypes({}, context)
 #### Output
 * output [DescribeAutoScalingNotificationTypesAnswer](#describeautoscalingnotificationtypesanswer)
 
+### DescribeAutoScalingNotificationTypes
+
+
+
+```js
+amazonaws_autoscaling.DescribeAutoScalingNotificationTypes({}, context)
+```
+
+#### Input
+* input `object`
+
+#### Output
+* output [DescribeAutoScalingNotificationTypesAnswer](#describeautoscalingnotificationtypesanswer)
+
+### DescribeInstanceRefreshes
+
+
+
+```js
+amazonaws_autoscaling.DescribeInstanceRefreshes({
+  "AutoScalingGroupName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * AutoScalingGroupName **required** `string`
+  * InstanceRefreshIds `array`
+  * NextToken `string`
+  * MaxRecords `integer`
+
+#### Output
+* output [DescribeInstanceRefreshesAnswer](#describeinstancerefreshesanswer)
+
+### DescribeInstanceRefreshes
+
+
+
+```js
+amazonaws_autoscaling.DescribeInstanceRefreshes({
+  "AutoScalingGroupName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * AutoScalingGroupName **required**
+  * InstanceRefreshIds
+    * items [XmlStringMaxLen255](#xmlstringmaxlen255)
+  * MaxRecords
+  * NextToken
+
+#### Output
+* output [DescribeInstanceRefreshesAnswer](#describeinstancerefreshesanswer)
+
+### DescribeLaunchConfigurations
+
+
+
+```js
+amazonaws_autoscaling.DescribeLaunchConfigurations({}, context)
+```
+
+#### Input
+* input `object`
+  * LaunchConfigurationNames `array`
+  * NextToken `string`
+  * MaxRecords `integer`
+
+#### Output
+* output [LaunchConfigurationsType](#launchconfigurationstype)
+
 ### DescribeLaunchConfigurations
 
 
@@ -413,12 +997,27 @@ amazonaws_autoscaling.DescribeLaunchConfigurations({}, context)
 * input `object`
   * MaxRecords `string`
   * NextToken `string`
-  * LaunchConfigurationNames [LaunchConfigurationNames](#launchconfigurationnames)
-  * MaxRecords [MaxRecords](#maxrecords)
-  * NextToken [XmlString](#xmlstring)
+  * LaunchConfigurationNames
+    * items [XmlStringMaxLen255](#xmlstringmaxlen255)
+  * MaxRecords
+  * NextToken
 
 #### Output
 * output [LaunchConfigurationsType](#launchconfigurationstype)
+
+### DescribeLifecycleHookTypes
+
+
+
+```js
+amazonaws_autoscaling.DescribeLifecycleHookTypes({}, context)
+```
+
+#### Input
+* input `object`
+
+#### Output
+* output [DescribeLifecycleHookTypesAnswer](#describelifecyclehooktypesanswer)
 
 ### DescribeLifecycleHookTypes
 
@@ -446,8 +1045,27 @@ amazonaws_autoscaling.DescribeLifecycleHooks({
 
 #### Input
 * input `object`
-  * AutoScalingGroupName **required** [ResourceName](#resourcename)
-  * LifecycleHookNames [LifecycleHookNames](#lifecyclehooknames)
+  * AutoScalingGroupName **required** `string`
+  * LifecycleHookNames `array`
+
+#### Output
+* output [DescribeLifecycleHooksAnswer](#describelifecyclehooksanswer)
+
+### DescribeLifecycleHooks
+
+
+
+```js
+amazonaws_autoscaling.DescribeLifecycleHooks({
+  "AutoScalingGroupName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * AutoScalingGroupName **required**
+  * LifecycleHookNames
+    * items [AsciiStringMaxLen255](#asciistringmaxlen255)
 
 #### Output
 * output [DescribeLifecycleHooksAnswer](#describelifecyclehooksanswer)
@@ -464,9 +1082,28 @@ amazonaws_autoscaling.DescribeLoadBalancerTargetGroups({
 
 #### Input
 * input `object`
-  * AutoScalingGroupName **required** [ResourceName](#resourcename)
-  * MaxRecords [MaxRecords](#maxrecords)
-  * NextToken [XmlString](#xmlstring)
+  * AutoScalingGroupName **required** `string`
+  * NextToken `string`
+  * MaxRecords `integer`
+
+#### Output
+* output [DescribeLoadBalancerTargetGroupsResponse](#describeloadbalancertargetgroupsresponse)
+
+### DescribeLoadBalancerTargetGroups
+
+
+
+```js
+amazonaws_autoscaling.DescribeLoadBalancerTargetGroups({
+  "AutoScalingGroupName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * AutoScalingGroupName **required**
+  * MaxRecords
+  * NextToken
 
 #### Output
 * output [DescribeLoadBalancerTargetGroupsResponse](#describeloadbalancertargetgroupsresponse)
@@ -483,12 +1120,45 @@ amazonaws_autoscaling.DescribeLoadBalancers({
 
 #### Input
 * input `object`
-  * AutoScalingGroupName **required** [ResourceName](#resourcename)
-  * MaxRecords [MaxRecords](#maxrecords)
-  * NextToken [XmlString](#xmlstring)
+  * AutoScalingGroupName **required** `string`
+  * NextToken `string`
+  * MaxRecords `integer`
 
 #### Output
 * output [DescribeLoadBalancersResponse](#describeloadbalancersresponse)
+
+### DescribeLoadBalancers
+
+
+
+```js
+amazonaws_autoscaling.DescribeLoadBalancers({
+  "AutoScalingGroupName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * AutoScalingGroupName **required**
+  * MaxRecords
+  * NextToken
+
+#### Output
+* output [DescribeLoadBalancersResponse](#describeloadbalancersresponse)
+
+### DescribeMetricCollectionTypes
+
+
+
+```js
+amazonaws_autoscaling.DescribeMetricCollectionTypes({}, context)
+```
+
+#### Input
+* input `object`
+
+#### Output
+* output [DescribeMetricCollectionTypesAnswer](#describemetriccollectiontypesanswer)
 
 ### DescribeMetricCollectionTypes
 
@@ -514,11 +1184,29 @@ amazonaws_autoscaling.DescribeNotificationConfigurations({}, context)
 
 #### Input
 * input `object`
+  * AutoScalingGroupNames `array`
+  * NextToken `string`
+  * MaxRecords `integer`
+
+#### Output
+* output [DescribeNotificationConfigurationsAnswer](#describenotificationconfigurationsanswer)
+
+### DescribeNotificationConfigurations
+
+
+
+```js
+amazonaws_autoscaling.DescribeNotificationConfigurations({}, context)
+```
+
+#### Input
+* input `object`
   * MaxRecords `string`
   * NextToken `string`
-  * AutoScalingGroupNames [AutoScalingGroupNames](#autoscalinggroupnames)
-  * MaxRecords [MaxRecords](#maxrecords)
-  * NextToken [XmlString](#xmlstring)
+  * AutoScalingGroupNames
+    * items [XmlStringMaxLen255](#xmlstringmaxlen255)
+  * MaxRecords
+  * NextToken
 
 #### Output
 * output [DescribeNotificationConfigurationsAnswer](#describenotificationconfigurationsanswer)
@@ -533,13 +1221,34 @@ amazonaws_autoscaling.DescribePolicies({}, context)
 
 #### Input
 * input `object`
+  * AutoScalingGroupName `string`
+  * PolicyNames `array`
+  * PolicyTypes `array`
+  * NextToken `string`
+  * MaxRecords `integer`
+
+#### Output
+* output [PoliciesType](#policiestype)
+
+### DescribePolicies
+
+
+
+```js
+amazonaws_autoscaling.DescribePolicies({}, context)
+```
+
+#### Input
+* input `object`
   * MaxRecords `string`
   * NextToken `string`
-  * AutoScalingGroupName [ResourceName](#resourcename)
-  * MaxRecords [MaxRecords](#maxrecords)
-  * NextToken [XmlString](#xmlstring)
-  * PolicyNames [PolicyNames](#policynames)
-  * PolicyTypes [PolicyTypes](#policytypes)
+  * AutoScalingGroupName
+  * MaxRecords
+  * NextToken
+  * PolicyNames
+    * items [ResourceName](#resourcename)
+  * PolicyTypes
+    * items [XmlStringMaxLen64](#xmlstringmaxlen64)
 
 #### Output
 * output [PoliciesType](#policiestype)
@@ -554,15 +1263,48 @@ amazonaws_autoscaling.DescribeScalingActivities({}, context)
 
 #### Input
 * input `object`
-  * MaxRecords `string`
+  * ActivityIds `array`
+  * AutoScalingGroupName `string`
+  * MaxRecords `integer`
   * NextToken `string`
-  * ActivityIds [ActivityIds](#activityids)
-  * AutoScalingGroupName [ResourceName](#resourcename)
-  * MaxRecords [MaxRecords](#maxrecords)
-  * NextToken [XmlString](#xmlstring)
 
 #### Output
 * output [ActivitiesType](#activitiestype)
+
+### DescribeScalingActivities
+
+
+
+```js
+amazonaws_autoscaling.DescribeScalingActivities({}, context)
+```
+
+#### Input
+* input `object`
+  * MaxRecords `string`
+  * NextToken `string`
+  * ActivityIds
+    * items [XmlString](#xmlstring)
+  * AutoScalingGroupName
+  * MaxRecords
+  * NextToken
+
+#### Output
+* output [ActivitiesType](#activitiestype)
+
+### DescribeScalingProcessTypes
+
+
+
+```js
+amazonaws_autoscaling.DescribeScalingProcessTypes({}, context)
+```
+
+#### Input
+* input `object`
+
+#### Output
+* output [ProcessesType](#processestype)
 
 ### DescribeScalingProcessTypes
 
@@ -588,14 +1330,35 @@ amazonaws_autoscaling.DescribeScheduledActions({}, context)
 
 #### Input
 * input `object`
+  * AutoScalingGroupName `string`
+  * ScheduledActionNames `array`
+  * StartTime `string`
+  * EndTime `string`
+  * NextToken `string`
+  * MaxRecords `integer`
+
+#### Output
+* output [ScheduledActionsType](#scheduledactionstype)
+
+### DescribeScheduledActions
+
+
+
+```js
+amazonaws_autoscaling.DescribeScheduledActions({}, context)
+```
+
+#### Input
+* input `object`
   * MaxRecords `string`
   * NextToken `string`
-  * AutoScalingGroupName [ResourceName](#resourcename)
-  * EndTime [TimestampType](#timestamptype)
-  * MaxRecords [MaxRecords](#maxrecords)
-  * NextToken [XmlString](#xmlstring)
-  * ScheduledActionNames [ScheduledActionNames](#scheduledactionnames)
-  * StartTime [TimestampType](#timestamptype)
+  * AutoScalingGroupName
+  * EndTime
+  * MaxRecords
+  * NextToken
+  * ScheduledActionNames
+    * items [XmlStringMaxLen255](#xmlstringmaxlen255)
+  * StartTime
 
 #### Output
 * output [ScheduledActionsType](#scheduledactionstype)
@@ -610,14 +1373,46 @@ amazonaws_autoscaling.DescribeTags({}, context)
 
 #### Input
 * input `object`
-  * MaxRecords `string`
+  * Filters `array`
   * NextToken `string`
-  * Filters [Filters](#filters)
-  * MaxRecords [MaxRecords](#maxrecords)
-  * NextToken [XmlString](#xmlstring)
+  * MaxRecords `integer`
 
 #### Output
 * output [TagsType](#tagstype)
+
+### DescribeTags
+
+
+
+```js
+amazonaws_autoscaling.DescribeTags({}, context)
+```
+
+#### Input
+* input `object`
+  * MaxRecords `string`
+  * NextToken `string`
+  * Filters
+    * items [Filter](#filter)
+  * MaxRecords
+  * NextToken
+
+#### Output
+* output [TagsType](#tagstype)
+
+### DescribeTerminationPolicyTypes
+
+
+
+```js
+amazonaws_autoscaling.DescribeTerminationPolicyTypes({}, context)
+```
+
+#### Input
+* input `object`
+
+#### Output
+* output [DescribeTerminationPolicyTypesAnswer](#describeterminationpolicytypesanswer)
 
 ### DescribeTerminationPolicyTypes
 
@@ -646,9 +1441,30 @@ amazonaws_autoscaling.DetachInstances({
 
 #### Input
 * input `object`
-  * AutoScalingGroupName **required** [ResourceName](#resourcename)
-  * InstanceIds [InstanceIds](#instanceids)
-  * ShouldDecrementDesiredCapacity **required** [ShouldDecrementDesiredCapacity](#shoulddecrementdesiredcapacity)
+  * InstanceIds `array`
+  * AutoScalingGroupName **required** `string`
+  * ShouldDecrementDesiredCapacity **required** `boolean`
+
+#### Output
+* output [DetachInstancesAnswer](#detachinstancesanswer)
+
+### DetachInstances
+
+
+
+```js
+amazonaws_autoscaling.DetachInstances({
+  "AutoScalingGroupName": null,
+  "ShouldDecrementDesiredCapacity": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * AutoScalingGroupName **required**
+  * InstanceIds
+    * items [XmlStringMaxLen19](#xmlstringmaxlen19)
+  * ShouldDecrementDesiredCapacity **required**
 
 #### Output
 * output [DetachInstancesAnswer](#detachinstancesanswer)
@@ -666,8 +1482,28 @@ amazonaws_autoscaling.DetachLoadBalancerTargetGroups({
 
 #### Input
 * input `object`
-  * AutoScalingGroupName **required** [ResourceName](#resourcename)
-  * TargetGroupARNs **required** [TargetGroupARNs](#targetgrouparns)
+  * AutoScalingGroupName **required** `string`
+  * TargetGroupARNs **required** `array`
+
+#### Output
+* output [DetachLoadBalancerTargetGroupsResultType](#detachloadbalancertargetgroupsresulttype)
+
+### DetachLoadBalancerTargetGroups
+
+
+
+```js
+amazonaws_autoscaling.DetachLoadBalancerTargetGroups({
+  "AutoScalingGroupName": null,
+  "TargetGroupARNs": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * AutoScalingGroupName **required**
+  * TargetGroupARNs **required**
+    * items [XmlStringMaxLen511](#xmlstringmaxlen511)
 
 #### Output
 * output [DetachLoadBalancerTargetGroupsResultType](#detachloadbalancertargetgroupsresulttype)
@@ -685,8 +1521,28 @@ amazonaws_autoscaling.DetachLoadBalancers({
 
 #### Input
 * input `object`
-  * AutoScalingGroupName **required** [ResourceName](#resourcename)
-  * LoadBalancerNames **required** [LoadBalancerNames](#loadbalancernames)
+  * AutoScalingGroupName **required** `string`
+  * LoadBalancerNames **required** `array`
+
+#### Output
+* output [DetachLoadBalancersResultType](#detachloadbalancersresulttype)
+
+### DetachLoadBalancers
+
+
+
+```js
+amazonaws_autoscaling.DetachLoadBalancers({
+  "AutoScalingGroupName": null,
+  "LoadBalancerNames": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * AutoScalingGroupName **required**
+  * LoadBalancerNames **required**
+    * items [XmlStringMaxLen255](#xmlstringmaxlen255)
 
 #### Output
 * output [DetachLoadBalancersResultType](#detachloadbalancersresulttype)
@@ -703,8 +1559,27 @@ amazonaws_autoscaling.DisableMetricsCollection({
 
 #### Input
 * input `object`
-  * AutoScalingGroupName **required** [ResourceName](#resourcename)
-  * Metrics [Metrics](#metrics)
+  * AutoScalingGroupName **required** `string`
+  * Metrics `array`
+
+#### Output
+*Output schema unknown*
+
+### DisableMetricsCollection
+
+
+
+```js
+amazonaws_autoscaling.DisableMetricsCollection({
+  "AutoScalingGroupName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * AutoScalingGroupName **required**
+  * Metrics
+    * items [XmlStringMaxLen255](#xmlstringmaxlen255)
 
 #### Output
 *Output schema unknown*
@@ -722,9 +1597,30 @@ amazonaws_autoscaling.EnableMetricsCollection({
 
 #### Input
 * input `object`
-  * AutoScalingGroupName **required** [ResourceName](#resourcename)
-  * Granularity **required** [XmlStringMaxLen255](#xmlstringmaxlen255)
-  * Metrics [Metrics](#metrics)
+  * AutoScalingGroupName **required** `string`
+  * Metrics `array`
+  * Granularity **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### EnableMetricsCollection
+
+
+
+```js
+amazonaws_autoscaling.EnableMetricsCollection({
+  "AutoScalingGroupName": null,
+  "Granularity": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * AutoScalingGroupName **required**
+  * Granularity **required**
+  * Metrics
+    * items [XmlStringMaxLen255](#xmlstringmaxlen255)
 
 #### Output
 *Output schema unknown*
@@ -742,9 +1638,30 @@ amazonaws_autoscaling.EnterStandby({
 
 #### Input
 * input `object`
-  * AutoScalingGroupName **required** [ResourceName](#resourcename)
-  * InstanceIds [InstanceIds](#instanceids)
-  * ShouldDecrementDesiredCapacity **required** [ShouldDecrementDesiredCapacity](#shoulddecrementdesiredcapacity)
+  * InstanceIds `array`
+  * AutoScalingGroupName **required** `string`
+  * ShouldDecrementDesiredCapacity **required** `boolean`
+
+#### Output
+* output [EnterStandbyAnswer](#enterstandbyanswer)
+
+### EnterStandby
+
+
+
+```js
+amazonaws_autoscaling.EnterStandby({
+  "AutoScalingGroupName": null,
+  "ShouldDecrementDesiredCapacity": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * AutoScalingGroupName **required**
+  * InstanceIds
+    * items [XmlStringMaxLen19](#xmlstringmaxlen19)
+  * ShouldDecrementDesiredCapacity **required**
 
 #### Output
 * output [EnterStandbyAnswer](#enterstandbyanswer)
@@ -761,11 +1678,32 @@ amazonaws_autoscaling.ExecutePolicy({
 
 #### Input
 * input `object`
-  * AutoScalingGroupName [ResourceName](#resourcename)
-  * BreachThreshold [MetricScale](#metricscale)
-  * HonorCooldown [HonorCooldown](#honorcooldown)
-  * MetricValue [MetricScale](#metricscale)
-  * PolicyName **required** [ResourceName](#resourcename)
+  * AutoScalingGroupName `string`
+  * PolicyName **required** `string`
+  * HonorCooldown `boolean`
+  * MetricValue `number`
+  * BreachThreshold `number`
+
+#### Output
+*Output schema unknown*
+
+### ExecutePolicy
+
+
+
+```js
+amazonaws_autoscaling.ExecutePolicy({
+  "PolicyName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * AutoScalingGroupName
+  * BreachThreshold
+  * HonorCooldown
+  * MetricValue
+  * PolicyName **required**
 
 #### Output
 *Output schema unknown*
@@ -782,8 +1720,27 @@ amazonaws_autoscaling.ExitStandby({
 
 #### Input
 * input `object`
-  * AutoScalingGroupName **required** [ResourceName](#resourcename)
-  * InstanceIds [InstanceIds](#instanceids)
+  * InstanceIds `array`
+  * AutoScalingGroupName **required** `string`
+
+#### Output
+* output [ExitStandbyAnswer](#exitstandbyanswer)
+
+### ExitStandby
+
+
+
+```js
+amazonaws_autoscaling.ExitStandby({
+  "AutoScalingGroupName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * AutoScalingGroupName **required**
+  * InstanceIds
+    * items [XmlStringMaxLen19](#xmlstringmaxlen19)
 
 #### Output
 * output [ExitStandbyAnswer](#exitstandbyanswer)
@@ -801,14 +1758,39 @@ amazonaws_autoscaling.PutLifecycleHook({
 
 #### Input
 * input `object`
-  * AutoScalingGroupName **required** [ResourceName](#resourcename)
-  * DefaultResult [LifecycleActionResult](#lifecycleactionresult)
-  * HeartbeatTimeout [HeartbeatTimeout](#heartbeattimeout)
-  * LifecycleHookName **required** [AsciiStringMaxLen255](#asciistringmaxlen255)
-  * LifecycleTransition [LifecycleTransition](#lifecycletransition)
-  * NotificationMetadata [XmlStringMaxLen1023](#xmlstringmaxlen1023)
-  * NotificationTargetARN [NotificationTargetResourceName](#notificationtargetresourcename)
-  * RoleARN [ResourceName](#resourcename)
+  * LifecycleHookName **required** `string`
+  * AutoScalingGroupName **required** `string`
+  * LifecycleTransition `string`
+  * RoleARN `string`
+  * NotificationTargetARN `string`
+  * NotificationMetadata `string`
+  * HeartbeatTimeout `integer`
+  * DefaultResult `string`
+
+#### Output
+* output [PutLifecycleHookAnswer](#putlifecyclehookanswer)
+
+### PutLifecycleHook
+
+
+
+```js
+amazonaws_autoscaling.PutLifecycleHook({
+  "LifecycleHookName": null,
+  "AutoScalingGroupName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * AutoScalingGroupName **required**
+  * DefaultResult
+  * HeartbeatTimeout
+  * LifecycleHookName **required**
+  * LifecycleTransition
+  * NotificationMetadata
+  * NotificationTargetARN
+  * RoleARN
 
 #### Output
 * output [PutLifecycleHookAnswer](#putlifecyclehookanswer)
@@ -827,9 +1809,31 @@ amazonaws_autoscaling.PutNotificationConfiguration({
 
 #### Input
 * input `object`
-  * AutoScalingGroupName **required** [ResourceName](#resourcename)
-  * NotificationTypes **required** [AutoScalingNotificationTypes](#autoscalingnotificationtypes)
-  * TopicARN **required** [ResourceName](#resourcename)
+  * AutoScalingGroupName **required** `string`
+  * TopicARN **required** `string`
+  * NotificationTypes **required** `array`
+
+#### Output
+*Output schema unknown*
+
+### PutNotificationConfiguration
+
+
+
+```js
+amazonaws_autoscaling.PutNotificationConfiguration({
+  "AutoScalingGroupName": null,
+  "TopicARN": null,
+  "NotificationTypes": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * AutoScalingGroupName **required**
+  * NotificationTypes **required**
+    * items [XmlStringMaxLen255](#xmlstringmaxlen255)
+  * TopicARN **required**
 
 #### Output
 *Output schema unknown*
@@ -847,18 +1851,62 @@ amazonaws_autoscaling.PutScalingPolicy({
 
 #### Input
 * input `object`
-  * AdjustmentType [XmlStringMaxLen255](#xmlstringmaxlen255)
-  * AutoScalingGroupName **required** [ResourceName](#resourcename)
-  * Cooldown [Cooldown](#cooldown)
-  * EstimatedInstanceWarmup [EstimatedInstanceWarmup](#estimatedinstancewarmup)
-  * MetricAggregationType [XmlStringMaxLen32](#xmlstringmaxlen32)
-  * MinAdjustmentMagnitude [MinAdjustmentMagnitude](#minadjustmentmagnitude)
-  * MinAdjustmentStep [MinAdjustmentStep](#minadjustmentstep)
-  * PolicyName **required** [XmlStringMaxLen255](#xmlstringmaxlen255)
-  * PolicyType [XmlStringMaxLen64](#xmlstringmaxlen64)
-  * ScalingAdjustment [PolicyIncrement](#policyincrement)
-  * StepAdjustments [StepAdjustments](#stepadjustments)
-  * TargetTrackingConfiguration [TargetTrackingConfiguration](#targettrackingconfiguration)
+  * AutoScalingGroupName **required** `string`
+  * PolicyName **required** `string`
+  * PolicyType `string`
+  * AdjustmentType `string`
+  * MinAdjustmentStep `integer`
+  * MinAdjustmentMagnitude `integer`
+  * ScalingAdjustment `integer`
+  * Cooldown `integer`
+  * MetricAggregationType `string`
+  * StepAdjustments `array`
+  * EstimatedInstanceWarmup `integer`
+  * TargetTrackingConfiguration `object`
+  * Enabled `boolean`
+
+#### Output
+* output [PolicyARNType](#policyarntype)
+
+### PutScalingPolicy
+
+
+
+```js
+amazonaws_autoscaling.PutScalingPolicy({
+  "AutoScalingGroupName": null,
+  "PolicyName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * AdjustmentType
+  * AutoScalingGroupName **required**
+  * Cooldown
+  * Enabled
+  * EstimatedInstanceWarmup
+  * MetricAggregationType
+  * MinAdjustmentMagnitude
+  * MinAdjustmentStep
+  * PolicyName **required**
+  * PolicyType
+  * ScalingAdjustment
+  * StepAdjustments
+    * items [StepAdjustment](#stepadjustment)
+  * TargetTrackingConfiguration
+    * CustomizedMetricSpecification
+      * Dimensions
+        * items [MetricDimension](#metricdimension)
+      * MetricName **required**
+      * Namespace **required**
+      * Statistic **required**
+      * Unit
+    * DisableScaleIn
+    * PredefinedMetricSpecification
+      * PredefinedMetricType **required**
+      * ResourceLabel
+    * TargetValue **required**
 
 #### Output
 * output [PolicyARNType](#policyarntype)
@@ -876,15 +1924,41 @@ amazonaws_autoscaling.PutScheduledUpdateGroupAction({
 
 #### Input
 * input `object`
-  * AutoScalingGroupName **required** [ResourceName](#resourcename)
-  * DesiredCapacity [AutoScalingGroupDesiredCapacity](#autoscalinggroupdesiredcapacity)
-  * EndTime [TimestampType](#timestamptype)
-  * MaxSize [AutoScalingGroupMaxSize](#autoscalinggroupmaxsize)
-  * MinSize [AutoScalingGroupMinSize](#autoscalinggroupminsize)
-  * Recurrence [XmlStringMaxLen255](#xmlstringmaxlen255)
-  * ScheduledActionName **required** [XmlStringMaxLen255](#xmlstringmaxlen255)
-  * StartTime [TimestampType](#timestamptype)
-  * Time [TimestampType](#timestamptype)
+  * AutoScalingGroupName **required** `string`
+  * ScheduledActionName **required** `string`
+  * Time `string`
+  * StartTime `string`
+  * EndTime `string`
+  * Recurrence `string`
+  * MinSize `integer`
+  * MaxSize `integer`
+  * DesiredCapacity `integer`
+
+#### Output
+*Output schema unknown*
+
+### PutScheduledUpdateGroupAction
+
+
+
+```js
+amazonaws_autoscaling.PutScheduledUpdateGroupAction({
+  "AutoScalingGroupName": null,
+  "ScheduledActionName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * AutoScalingGroupName **required**
+  * DesiredCapacity
+  * EndTime
+  * MaxSize
+  * MinSize
+  * Recurrence
+  * ScheduledActionName **required**
+  * StartTime
+  * Time
 
 #### Output
 *Output schema unknown*
@@ -902,10 +1976,31 @@ amazonaws_autoscaling.RecordLifecycleActionHeartbeat({
 
 #### Input
 * input `object`
-  * AutoScalingGroupName **required** [ResourceName](#resourcename)
-  * InstanceId [XmlStringMaxLen19](#xmlstringmaxlen19)
-  * LifecycleActionToken [LifecycleActionToken](#lifecycleactiontoken)
-  * LifecycleHookName **required** [AsciiStringMaxLen255](#asciistringmaxlen255)
+  * LifecycleHookName **required** `string`
+  * AutoScalingGroupName **required** `string`
+  * LifecycleActionToken `string`
+  * InstanceId `string`
+
+#### Output
+* output [RecordLifecycleActionHeartbeatAnswer](#recordlifecycleactionheartbeatanswer)
+
+### RecordLifecycleActionHeartbeat
+
+
+
+```js
+amazonaws_autoscaling.RecordLifecycleActionHeartbeat({
+  "LifecycleHookName": null,
+  "AutoScalingGroupName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * AutoScalingGroupName **required**
+  * InstanceId
+  * LifecycleActionToken
+  * LifecycleHookName **required**
 
 #### Output
 * output [RecordLifecycleActionHeartbeatAnswer](#recordlifecycleactionheartbeatanswer)
@@ -922,8 +2017,27 @@ amazonaws_autoscaling.ResumeProcesses({
 
 #### Input
 * input `object`
-  * AutoScalingGroupName **required** [ResourceName](#resourcename)
-  * ScalingProcesses [ProcessNames](#processnames)
+  * AutoScalingGroupName **required** `string`
+  * ScalingProcesses `array`
+
+#### Output
+*Output schema unknown*
+
+### ResumeProcesses
+
+
+
+```js
+amazonaws_autoscaling.ResumeProcesses({
+  "AutoScalingGroupName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * AutoScalingGroupName **required**
+  * ScalingProcesses
+    * items [XmlStringMaxLen255](#xmlstringmaxlen255)
 
 #### Output
 *Output schema unknown*
@@ -941,9 +2055,29 @@ amazonaws_autoscaling.SetDesiredCapacity({
 
 #### Input
 * input `object`
-  * AutoScalingGroupName **required** [ResourceName](#resourcename)
-  * DesiredCapacity **required** [AutoScalingGroupDesiredCapacity](#autoscalinggroupdesiredcapacity)
-  * HonorCooldown [HonorCooldown](#honorcooldown)
+  * AutoScalingGroupName **required** `string`
+  * DesiredCapacity **required** `integer`
+  * HonorCooldown `boolean`
+
+#### Output
+*Output schema unknown*
+
+### SetDesiredCapacity
+
+
+
+```js
+amazonaws_autoscaling.SetDesiredCapacity({
+  "AutoScalingGroupName": null,
+  "DesiredCapacity": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * AutoScalingGroupName **required**
+  * DesiredCapacity **required**
+  * HonorCooldown
 
 #### Output
 *Output schema unknown*
@@ -961,9 +2095,29 @@ amazonaws_autoscaling.SetInstanceHealth({
 
 #### Input
 * input `object`
-  * HealthStatus **required** [XmlStringMaxLen32](#xmlstringmaxlen32)
-  * InstanceId **required** [XmlStringMaxLen19](#xmlstringmaxlen19)
-  * ShouldRespectGracePeriod [ShouldRespectGracePeriod](#shouldrespectgraceperiod)
+  * InstanceId **required** `string`
+  * HealthStatus **required** `string`
+  * ShouldRespectGracePeriod `boolean`
+
+#### Output
+*Output schema unknown*
+
+### SetInstanceHealth
+
+
+
+```js
+amazonaws_autoscaling.SetInstanceHealth({
+  "InstanceId": null,
+  "HealthStatus": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * HealthStatus **required**
+  * InstanceId **required**
+  * ShouldRespectGracePeriod
 
 #### Output
 *Output schema unknown*
@@ -982,12 +2136,74 @@ amazonaws_autoscaling.SetInstanceProtection({
 
 #### Input
 * input `object`
-  * AutoScalingGroupName **required** [ResourceName](#resourcename)
-  * InstanceIds **required** [InstanceIds](#instanceids)
-  * ProtectedFromScaleIn **required** [ProtectedFromScaleIn](#protectedfromscalein)
+  * InstanceIds **required** `array`
+  * AutoScalingGroupName **required** `string`
+  * ProtectedFromScaleIn **required** `boolean`
 
 #### Output
 * output [SetInstanceProtectionAnswer](#setinstanceprotectionanswer)
+
+### SetInstanceProtection
+
+
+
+```js
+amazonaws_autoscaling.SetInstanceProtection({
+  "InstanceIds": null,
+  "AutoScalingGroupName": null,
+  "ProtectedFromScaleIn": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * AutoScalingGroupName **required**
+  * InstanceIds **required**
+    * items [XmlStringMaxLen19](#xmlstringmaxlen19)
+  * ProtectedFromScaleIn **required**
+
+#### Output
+* output [SetInstanceProtectionAnswer](#setinstanceprotectionanswer)
+
+### StartInstanceRefresh
+
+
+
+```js
+amazonaws_autoscaling.StartInstanceRefresh({
+  "AutoScalingGroupName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * AutoScalingGroupName **required** `string`
+  * Strategy `string`
+  * Preferences `object`
+
+#### Output
+* output [StartInstanceRefreshAnswer](#startinstancerefreshanswer)
+
+### StartInstanceRefresh
+
+
+
+```js
+amazonaws_autoscaling.StartInstanceRefresh({
+  "AutoScalingGroupName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * AutoScalingGroupName **required**
+  * Preferences
+    * InstanceWarmup
+    * MinHealthyPercentage
+  * Strategy
+
+#### Output
+* output [StartInstanceRefreshAnswer](#startinstancerefreshanswer)
 
 ### SuspendProcesses
 
@@ -1001,8 +2217,27 @@ amazonaws_autoscaling.SuspendProcesses({
 
 #### Input
 * input `object`
-  * AutoScalingGroupName **required** [ResourceName](#resourcename)
-  * ScalingProcesses [ProcessNames](#processnames)
+  * AutoScalingGroupName **required** `string`
+  * ScalingProcesses `array`
+
+#### Output
+*Output schema unknown*
+
+### SuspendProcesses
+
+
+
+```js
+amazonaws_autoscaling.SuspendProcesses({
+  "AutoScalingGroupName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * AutoScalingGroupName **required**
+  * ScalingProcesses
+    * items [XmlStringMaxLen255](#xmlstringmaxlen255)
 
 #### Output
 *Output schema unknown*
@@ -1020,8 +2255,27 @@ amazonaws_autoscaling.TerminateInstanceInAutoScalingGroup({
 
 #### Input
 * input `object`
-  * InstanceId **required** [XmlStringMaxLen19](#xmlstringmaxlen19)
-  * ShouldDecrementDesiredCapacity **required** [ShouldDecrementDesiredCapacity](#shoulddecrementdesiredcapacity)
+  * InstanceId **required** `string`
+  * ShouldDecrementDesiredCapacity **required** `boolean`
+
+#### Output
+* output [ActivityType](#activitytype)
+
+### TerminateInstanceInAutoScalingGroup
+
+
+
+```js
+amazonaws_autoscaling.TerminateInstanceInAutoScalingGroup({
+  "InstanceId": null,
+  "ShouldDecrementDesiredCapacity": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * InstanceId **required**
+  * ShouldDecrementDesiredCapacity **required**
 
 #### Output
 * output [ActivityType](#activitytype)
@@ -1038,21 +2292,77 @@ amazonaws_autoscaling.UpdateAutoScalingGroup({
 
 #### Input
 * input `object`
-  * AutoScalingGroupName **required** [ResourceName](#resourcename)
-  * AvailabilityZones [AvailabilityZones](#availabilityzones)
-  * DefaultCooldown [Cooldown](#cooldown)
-  * DesiredCapacity [AutoScalingGroupDesiredCapacity](#autoscalinggroupdesiredcapacity)
-  * HealthCheckGracePeriod [HealthCheckGracePeriod](#healthcheckgraceperiod)
-  * HealthCheckType [XmlStringMaxLen32](#xmlstringmaxlen32)
-  * LaunchConfigurationName [ResourceName](#resourcename)
-  * LaunchTemplate [LaunchTemplateSpecification](#launchtemplatespecification)
-  * MaxSize [AutoScalingGroupMaxSize](#autoscalinggroupmaxsize)
-  * MinSize [AutoScalingGroupMinSize](#autoscalinggroupminsize)
-  * NewInstancesProtectedFromScaleIn [InstanceProtected](#instanceprotected)
-  * PlacementGroup [XmlStringMaxLen255](#xmlstringmaxlen255)
-  * ServiceLinkedRoleARN [ResourceName](#resourcename)
-  * TerminationPolicies [TerminationPolicies](#terminationpolicies)
-  * VPCZoneIdentifier [XmlStringMaxLen2047](#xmlstringmaxlen2047)
+  * AutoScalingGroupName **required** `string`
+  * LaunchConfigurationName `string`
+  * LaunchTemplate `object`
+  * MixedInstancesPolicy `object`
+  * MinSize `integer`
+  * MaxSize `integer`
+  * DesiredCapacity `integer`
+  * DefaultCooldown `integer`
+  * AvailabilityZones `array`
+  * HealthCheckType `string`
+  * HealthCheckGracePeriod `integer`
+  * PlacementGroup `string`
+  * VPCZoneIdentifier `string`
+  * TerminationPolicies `array`
+  * NewInstancesProtectedFromScaleIn `boolean`
+  * ServiceLinkedRoleARN `string`
+  * MaxInstanceLifetime `integer`
+  * CapacityRebalance `boolean`
+
+#### Output
+*Output schema unknown*
+
+### UpdateAutoScalingGroup
+
+
+
+```js
+amazonaws_autoscaling.UpdateAutoScalingGroup({
+  "AutoScalingGroupName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * AutoScalingGroupName **required**
+  * AvailabilityZones
+    * items [XmlStringMaxLen255](#xmlstringmaxlen255)
+  * CapacityRebalance
+  * DefaultCooldown
+  * DesiredCapacity
+  * HealthCheckGracePeriod
+  * HealthCheckType
+  * LaunchConfigurationName
+  * LaunchTemplate
+    * LaunchTemplateId
+    * LaunchTemplateName
+    * Version
+  * MaxInstanceLifetime
+  * MaxSize
+  * MinSize
+  * MixedInstancesPolicy
+    * InstancesDistribution
+      * OnDemandAllocationStrategy
+      * OnDemandBaseCapacity
+      * OnDemandPercentageAboveBaseCapacity
+      * SpotAllocationStrategy
+      * SpotInstancePools
+      * SpotMaxPrice
+    * LaunchTemplate
+      * LaunchTemplateSpecification
+        * LaunchTemplateId
+        * LaunchTemplateName
+        * Version
+      * Overrides
+        * items [LaunchTemplateOverrides](#launchtemplateoverrides)
+  * NewInstancesProtectedFromScaleIn
+  * PlacementGroup
+  * ServiceLinkedRoleARN
+  * TerminationPolicies
+    * items [XmlStringMaxLen1600](#xmlstringmaxlen1600)
+  * VPCZoneIdentifier
 
 #### Output
 *Output schema unknown*
@@ -1061,27 +2371,31 @@ amazonaws_autoscaling.UpdateAutoScalingGroup({
 
 ## Definitions
 
+### ActiveInstanceRefreshNotFoundFault
+
+
 ### Activities
 * Activities `array`
   * items [Activity](#activity)
 
 ### ActivitiesType
 * ActivitiesType `object`
-  * Activities **required** [Activities](#activities)
-  * NextToken [XmlString](#xmlstring)
+  * Activities **required**
+    * items [Activity](#activity)
+  * NextToken
 
 ### Activity
 * Activity `object`: Describes scaling activity, which is a long-running process that represents a change to your Auto Scaling group, such as changing its size or replacing an instance.
-  * ActivityId **required** [XmlString](#xmlstring)
-  * AutoScalingGroupName **required** [XmlStringMaxLen255](#xmlstringmaxlen255)
-  * Cause **required** [XmlStringMaxLen1023](#xmlstringmaxlen1023)
-  * Description [XmlString](#xmlstring)
-  * Details [XmlString](#xmlstring)
-  * EndTime [TimestampType](#timestamptype)
-  * Progress [Progress](#progress)
-  * StartTime **required** [TimestampType](#timestamptype)
-  * StatusCode **required** [ScalingActivityStatusCode](#scalingactivitystatuscode)
-  * StatusMessage [XmlStringMaxLen255](#xmlstringmaxlen255)
+  * ActivityId **required**
+  * AutoScalingGroupName **required**
+  * Cause **required**
+  * Description
+  * Details
+  * EndTime
+  * Progress
+  * StartTime **required**
+  * StatusCode **required**
+  * StatusMessage
 
 ### ActivityIds
 * ActivityIds `array`
@@ -1089,11 +2403,21 @@ amazonaws_autoscaling.UpdateAutoScalingGroup({
 
 ### ActivityType
 * ActivityType `object`
-  * Activity [Activity](#activity)
+  * Activity
+    * ActivityId **required**
+    * AutoScalingGroupName **required**
+    * Cause **required**
+    * Description
+    * Details
+    * EndTime
+    * Progress
+    * StartTime **required**
+    * StatusCode **required**
+    * StatusMessage
 
 ### AdjustmentType
-* AdjustmentType `object`: <p>Describes a policy adjustment type.</p> <p>For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/as-scale-based-on-demand.html">Dynamic Scaling</a> in the <i>Auto Scaling User Guide</i>.</p>
-  * AdjustmentType [XmlStringMaxLen255](#xmlstringmaxlen255)
+* AdjustmentType `object`: Describes a policy adjustment type.
+  * AdjustmentType
 
 ### AdjustmentTypes
 * AdjustmentTypes `array`
@@ -1101,16 +2425,15 @@ amazonaws_autoscaling.UpdateAutoScalingGroup({
 
 ### Alarm
 * Alarm `object`: Describes an alarm.
-  * AlarmARN [ResourceName](#resourcename)
-  * AlarmName [XmlStringMaxLen255](#xmlstringmaxlen255)
+  * AlarmARN
+  * AlarmName
 
 ### Alarms
 * Alarms `array`
   * items [Alarm](#alarm)
 
 ### AlreadyExistsFault
-* AlreadyExistsFault `object`: You already have an Auto Scaling group or launch configuration with this name.
-  * message [XmlStringMaxLen255](#xmlstringmaxlen255)
+
 
 ### AsciiStringMaxLen255
 * AsciiStringMaxLen255 `string`
@@ -1120,51 +2443,82 @@ amazonaws_autoscaling.UpdateAutoScalingGroup({
 
 ### AttachInstancesQuery
 * AttachInstancesQuery `object`
-  * AutoScalingGroupName **required** [ResourceName](#resourcename)
-  * InstanceIds [InstanceIds](#instanceids)
+  * AutoScalingGroupName **required**
+  * InstanceIds
+    * items [XmlStringMaxLen19](#xmlstringmaxlen19)
 
 ### AttachLoadBalancerTargetGroupsResultType
 * AttachLoadBalancerTargetGroupsResultType `object`
 
 ### AttachLoadBalancerTargetGroupsType
 * AttachLoadBalancerTargetGroupsType `object`
-  * AutoScalingGroupName **required** [ResourceName](#resourcename)
-  * TargetGroupARNs **required** [TargetGroupARNs](#targetgrouparns)
+  * AutoScalingGroupName **required**
+  * TargetGroupARNs **required**
+    * items [XmlStringMaxLen511](#xmlstringmaxlen511)
 
 ### AttachLoadBalancersResultType
 * AttachLoadBalancersResultType `object`
 
 ### AttachLoadBalancersType
 * AttachLoadBalancersType `object`
-  * AutoScalingGroupName **required** [ResourceName](#resourcename)
-  * LoadBalancerNames **required** [LoadBalancerNames](#loadbalancernames)
+  * AutoScalingGroupName **required**
+  * LoadBalancerNames **required**
+    * items [XmlStringMaxLen255](#xmlstringmaxlen255)
 
 ### AutoScalingGroup
 * AutoScalingGroup `object`: Describes an Auto Scaling group.
-  * AutoScalingGroupARN [ResourceName](#resourcename)
-  * AutoScalingGroupName **required** [XmlStringMaxLen255](#xmlstringmaxlen255)
-  * AvailabilityZones **required** [AvailabilityZones](#availabilityzones)
-  * CreatedTime **required** [TimestampType](#timestamptype)
-  * DefaultCooldown **required** [Cooldown](#cooldown)
-  * DesiredCapacity **required** [AutoScalingGroupDesiredCapacity](#autoscalinggroupdesiredcapacity)
-  * EnabledMetrics [EnabledMetrics](#enabledmetrics)
-  * HealthCheckGracePeriod [HealthCheckGracePeriod](#healthcheckgraceperiod)
-  * HealthCheckType **required** [XmlStringMaxLen32](#xmlstringmaxlen32)
-  * Instances [Instances](#instances)
-  * LaunchConfigurationName [XmlStringMaxLen255](#xmlstringmaxlen255)
-  * LaunchTemplate [LaunchTemplateSpecification](#launchtemplatespecification)
-  * LoadBalancerNames [LoadBalancerNames](#loadbalancernames)
-  * MaxSize **required** [AutoScalingGroupMaxSize](#autoscalinggroupmaxsize)
-  * MinSize **required** [AutoScalingGroupMinSize](#autoscalinggroupminsize)
-  * NewInstancesProtectedFromScaleIn [InstanceProtected](#instanceprotected)
-  * PlacementGroup [XmlStringMaxLen255](#xmlstringmaxlen255)
-  * ServiceLinkedRoleARN [ResourceName](#resourcename)
-  * Status [XmlStringMaxLen255](#xmlstringmaxlen255)
-  * SuspendedProcesses [SuspendedProcesses](#suspendedprocesses)
-  * Tags [TagDescriptionList](#tagdescriptionlist)
-  * TargetGroupARNs [TargetGroupARNs](#targetgrouparns)
-  * TerminationPolicies [TerminationPolicies](#terminationpolicies)
-  * VPCZoneIdentifier [XmlStringMaxLen2047](#xmlstringmaxlen2047)
+  * AutoScalingGroupARN
+  * AutoScalingGroupName **required**
+  * AvailabilityZones **required**
+    * items [XmlStringMaxLen255](#xmlstringmaxlen255)
+  * CapacityRebalance
+  * CreatedTime **required**
+  * DefaultCooldown **required**
+  * DesiredCapacity **required**
+  * EnabledMetrics
+    * items [EnabledMetric](#enabledmetric)
+  * HealthCheckGracePeriod
+  * HealthCheckType **required**
+  * Instances
+    * items [Instance](#instance)
+  * LaunchConfigurationName
+  * LaunchTemplate
+    * LaunchTemplateId
+    * LaunchTemplateName
+    * Version
+  * LoadBalancerNames
+    * items [XmlStringMaxLen255](#xmlstringmaxlen255)
+  * MaxInstanceLifetime
+  * MaxSize **required**
+  * MinSize **required**
+  * MixedInstancesPolicy
+    * InstancesDistribution
+      * OnDemandAllocationStrategy
+      * OnDemandBaseCapacity
+      * OnDemandPercentageAboveBaseCapacity
+      * SpotAllocationStrategy
+      * SpotInstancePools
+      * SpotMaxPrice
+    * LaunchTemplate
+      * LaunchTemplateSpecification
+        * LaunchTemplateId
+        * LaunchTemplateName
+        * Version
+      * Overrides
+        * items [LaunchTemplateOverrides](#launchtemplateoverrides)
+  * NewInstancesProtectedFromScaleIn
+  * PlacementGroup
+  * ServiceLinkedRoleARN
+  * Status
+  * SuspendedProcesses
+    * items [SuspendedProcess](#suspendedprocess)
+  * Tags
+    * items [TagDescription](#tagdescription)
+  * TargetGroupARNs
+    * items [XmlStringMaxLen511](#xmlstringmaxlen511)
+  * TerminationPolicies
+    * items [XmlStringMaxLen1600](#xmlstringmaxlen1600)
+  * VPCZoneIdentifier
 
 ### AutoScalingGroupDesiredCapacity
 * AutoScalingGroupDesiredCapacity `integer`
@@ -1177,13 +2531,14 @@ amazonaws_autoscaling.UpdateAutoScalingGroup({
 
 ### AutoScalingGroupNames
 * AutoScalingGroupNames `array`
-  * items [ResourceName](#resourcename)
+  * items [XmlStringMaxLen255](#xmlstringmaxlen255)
 
 ### AutoScalingGroupNamesType
 * AutoScalingGroupNamesType `object`
-  * AutoScalingGroupNames [AutoScalingGroupNames](#autoscalinggroupnames)
-  * MaxRecords [MaxRecords](#maxrecords)
-  * NextToken [XmlString](#xmlstring)
+  * AutoScalingGroupNames
+    * items [XmlStringMaxLen255](#xmlstringmaxlen255)
+  * MaxRecords
+  * NextToken
 
 ### AutoScalingGroups
 * AutoScalingGroups `array`
@@ -1191,19 +2546,25 @@ amazonaws_autoscaling.UpdateAutoScalingGroup({
 
 ### AutoScalingGroupsType
 * AutoScalingGroupsType `object`
-  * AutoScalingGroups **required** [AutoScalingGroups](#autoscalinggroups)
-  * NextToken [XmlString](#xmlstring)
+  * AutoScalingGroups **required**
+    * items [AutoScalingGroup](#autoscalinggroup)
+  * NextToken
 
 ### AutoScalingInstanceDetails
 * AutoScalingInstanceDetails `object`: Describes an EC2 instance associated with an Auto Scaling group.
-  * AutoScalingGroupName **required** [XmlStringMaxLen255](#xmlstringmaxlen255)
-  * AvailabilityZone **required** [XmlStringMaxLen255](#xmlstringmaxlen255)
-  * HealthStatus **required** [XmlStringMaxLen32](#xmlstringmaxlen32)
-  * InstanceId **required** [XmlStringMaxLen19](#xmlstringmaxlen19)
-  * LaunchConfigurationName [XmlStringMaxLen255](#xmlstringmaxlen255)
-  * LaunchTemplate [LaunchTemplateSpecification](#launchtemplatespecification)
-  * LifecycleState **required** [XmlStringMaxLen32](#xmlstringmaxlen32)
-  * ProtectedFromScaleIn **required** [InstanceProtected](#instanceprotected)
+  * AutoScalingGroupName **required**
+  * AvailabilityZone **required**
+  * HealthStatus **required**
+  * InstanceId **required**
+  * InstanceType
+  * LaunchConfigurationName
+  * LaunchTemplate
+    * LaunchTemplateId
+    * LaunchTemplateName
+    * Version
+  * LifecycleState **required**
+  * ProtectedFromScaleIn **required**
+  * WeightedCapacity
 
 ### AutoScalingInstances
 * AutoScalingInstances `array`
@@ -1211,8 +2572,9 @@ amazonaws_autoscaling.UpdateAutoScalingGroup({
 
 ### AutoScalingInstancesType
 * AutoScalingInstancesType `object`
-  * AutoScalingInstances [AutoScalingInstances](#autoscalinginstances)
-  * NextToken [XmlString](#xmlstring)
+  * AutoScalingInstances
+    * items [AutoScalingInstanceDetails](#autoscalinginstancedetails)
+  * NextToken
 
 ### AutoScalingNotificationTypes
 * AutoScalingNotificationTypes `array`
@@ -1221,6 +2583,28 @@ amazonaws_autoscaling.UpdateAutoScalingGroup({
 ### AvailabilityZones
 * AvailabilityZones `array`
   * items [XmlStringMaxLen255](#xmlstringmaxlen255)
+
+### BatchDeleteScheduledActionAnswer
+* BatchDeleteScheduledActionAnswer `object`
+  * FailedScheduledActions
+    * items [FailedScheduledUpdateGroupActionRequest](#failedscheduledupdategroupactionrequest)
+
+### BatchDeleteScheduledActionType
+* BatchDeleteScheduledActionType `object`
+  * AutoScalingGroupName **required**
+  * ScheduledActionNames **required**
+    * items [XmlStringMaxLen255](#xmlstringmaxlen255)
+
+### BatchPutScheduledUpdateGroupActionAnswer
+* BatchPutScheduledUpdateGroupActionAnswer `object`
+  * FailedScheduledUpdateGroupActions
+    * items [FailedScheduledUpdateGroupActionRequest](#failedscheduledupdategroupactionrequest)
+
+### BatchPutScheduledUpdateGroupActionType
+* BatchPutScheduledUpdateGroupActionType `object`
+  * AutoScalingGroupName **required**
+  * ScheduledUpdateGroupActions **required**
+    * items [ScheduledUpdateGroupActionRequest](#scheduledupdategroupactionrequest)
 
 ### BlockDeviceEbsDeleteOnTermination
 * BlockDeviceEbsDeleteOnTermination `boolean`
@@ -1239,14 +2623,31 @@ amazonaws_autoscaling.UpdateAutoScalingGroup({
 
 ### BlockDeviceMapping
 * BlockDeviceMapping `object`: Describes a block device mapping.
-  * DeviceName **required** [XmlStringMaxLen255](#xmlstringmaxlen255)
-  * Ebs [Ebs](#ebs)
-  * NoDevice [NoDevice](#nodevice)
-  * VirtualName [XmlStringMaxLen255](#xmlstringmaxlen255)
+  * DeviceName **required**
+  * Ebs
+    * DeleteOnTermination
+    * Encrypted
+    * Iops
+    * SnapshotId
+    * VolumeSize
+    * VolumeType
+  * NoDevice
+  * VirtualName
 
 ### BlockDeviceMappings
 * BlockDeviceMappings `array`
   * items [BlockDeviceMapping](#blockdevicemapping)
+
+### CancelInstanceRefreshAnswer
+* CancelInstanceRefreshAnswer `object`
+  * InstanceRefreshId
+
+### CancelInstanceRefreshType
+* CancelInstanceRefreshType `object`
+  * AutoScalingGroupName **required**
+
+### CapacityRebalanceEnabled
+* CapacityRebalanceEnabled `boolean`
 
 ### ClassicLinkVPCSecurityGroups
 * ClassicLinkVPCSecurityGroups `array`
@@ -1257,265 +2658,340 @@ amazonaws_autoscaling.UpdateAutoScalingGroup({
 
 ### CompleteLifecycleActionType
 * CompleteLifecycleActionType `object`
-  * AutoScalingGroupName **required** [ResourceName](#resourcename)
-  * InstanceId [XmlStringMaxLen19](#xmlstringmaxlen19)
-  * LifecycleActionResult **required** [LifecycleActionResult](#lifecycleactionresult)
-  * LifecycleActionToken [LifecycleActionToken](#lifecycleactiontoken)
-  * LifecycleHookName **required** [AsciiStringMaxLen255](#asciistringmaxlen255)
+  * AutoScalingGroupName **required**
+  * InstanceId
+  * LifecycleActionResult **required**
+  * LifecycleActionToken
+  * LifecycleHookName **required**
 
 ### Cooldown
 * Cooldown `integer`
 
 ### CreateAutoScalingGroupType
 * CreateAutoScalingGroupType `object`
-  * AutoScalingGroupName **required** [XmlStringMaxLen255](#xmlstringmaxlen255)
-  * AvailabilityZones [AvailabilityZones](#availabilityzones)
-  * DefaultCooldown [Cooldown](#cooldown)
-  * DesiredCapacity [AutoScalingGroupDesiredCapacity](#autoscalinggroupdesiredcapacity)
-  * HealthCheckGracePeriod [HealthCheckGracePeriod](#healthcheckgraceperiod)
-  * HealthCheckType [XmlStringMaxLen32](#xmlstringmaxlen32)
-  * InstanceId [XmlStringMaxLen19](#xmlstringmaxlen19)
-  * LaunchConfigurationName [ResourceName](#resourcename)
-  * LaunchTemplate [LaunchTemplateSpecification](#launchtemplatespecification)
-  * LifecycleHookSpecificationList [LifecycleHookSpecifications](#lifecyclehookspecifications)
-  * LoadBalancerNames [LoadBalancerNames](#loadbalancernames)
-  * MaxSize **required** [AutoScalingGroupMaxSize](#autoscalinggroupmaxsize)
-  * MinSize **required** [AutoScalingGroupMinSize](#autoscalinggroupminsize)
-  * NewInstancesProtectedFromScaleIn [InstanceProtected](#instanceprotected)
-  * PlacementGroup [XmlStringMaxLen255](#xmlstringmaxlen255)
-  * ServiceLinkedRoleARN [ResourceName](#resourcename)
-  * Tags [Tags](#tags)
-  * TargetGroupARNs [TargetGroupARNs](#targetgrouparns)
-  * TerminationPolicies [TerminationPolicies](#terminationpolicies)
-  * VPCZoneIdentifier [XmlStringMaxLen2047](#xmlstringmaxlen2047)
+  * AutoScalingGroupName **required**
+  * AvailabilityZones
+    * items [XmlStringMaxLen255](#xmlstringmaxlen255)
+  * CapacityRebalance
+  * DefaultCooldown
+  * DesiredCapacity
+  * HealthCheckGracePeriod
+  * HealthCheckType
+  * InstanceId
+  * LaunchConfigurationName
+  * LaunchTemplate
+    * LaunchTemplateId
+    * LaunchTemplateName
+    * Version
+  * LifecycleHookSpecificationList
+    * items [LifecycleHookSpecification](#lifecyclehookspecification)
+  * LoadBalancerNames
+    * items [XmlStringMaxLen255](#xmlstringmaxlen255)
+  * MaxInstanceLifetime
+  * MaxSize **required**
+  * MinSize **required**
+  * MixedInstancesPolicy
+    * InstancesDistribution
+      * OnDemandAllocationStrategy
+      * OnDemandBaseCapacity
+      * OnDemandPercentageAboveBaseCapacity
+      * SpotAllocationStrategy
+      * SpotInstancePools
+      * SpotMaxPrice
+    * LaunchTemplate
+      * LaunchTemplateSpecification
+        * LaunchTemplateId
+        * LaunchTemplateName
+        * Version
+      * Overrides
+        * items [LaunchTemplateOverrides](#launchtemplateoverrides)
+  * NewInstancesProtectedFromScaleIn
+  * PlacementGroup
+  * ServiceLinkedRoleARN
+  * Tags
+    * items [Tag](#tag)
+  * TargetGroupARNs
+    * items [XmlStringMaxLen511](#xmlstringmaxlen511)
+  * TerminationPolicies
+    * items [XmlStringMaxLen1600](#xmlstringmaxlen1600)
+  * VPCZoneIdentifier
 
 ### CreateLaunchConfigurationType
 * CreateLaunchConfigurationType `object`
-  * AssociatePublicIpAddress [AssociatePublicIpAddress](#associatepublicipaddress)
-  * BlockDeviceMappings [BlockDeviceMappings](#blockdevicemappings)
-  * ClassicLinkVPCId [XmlStringMaxLen255](#xmlstringmaxlen255)
-  * ClassicLinkVPCSecurityGroups [ClassicLinkVPCSecurityGroups](#classiclinkvpcsecuritygroups)
-  * EbsOptimized [EbsOptimized](#ebsoptimized)
-  * IamInstanceProfile [XmlStringMaxLen1600](#xmlstringmaxlen1600)
-  * ImageId [XmlStringMaxLen255](#xmlstringmaxlen255)
-  * InstanceId [XmlStringMaxLen19](#xmlstringmaxlen19)
-  * InstanceMonitoring [InstanceMonitoring](#instancemonitoring)
-  * InstanceType [XmlStringMaxLen255](#xmlstringmaxlen255)
-  * KernelId [XmlStringMaxLen255](#xmlstringmaxlen255)
-  * KeyName [XmlStringMaxLen255](#xmlstringmaxlen255)
-  * LaunchConfigurationName **required** [XmlStringMaxLen255](#xmlstringmaxlen255)
-  * PlacementTenancy [XmlStringMaxLen64](#xmlstringmaxlen64)
-  * RamdiskId [XmlStringMaxLen255](#xmlstringmaxlen255)
-  * SecurityGroups [SecurityGroups](#securitygroups)
-  * SpotPrice [SpotPrice](#spotprice)
-  * UserData [XmlStringUserData](#xmlstringuserdata)
+  * AssociatePublicIpAddress
+  * BlockDeviceMappings
+    * items [BlockDeviceMapping](#blockdevicemapping)
+  * ClassicLinkVPCId
+  * ClassicLinkVPCSecurityGroups
+    * items [XmlStringMaxLen255](#xmlstringmaxlen255)
+  * EbsOptimized
+  * IamInstanceProfile
+  * ImageId
+  * InstanceId
+  * InstanceMonitoring
+    * Enabled
+  * InstanceType
+  * KernelId
+  * KeyName
+  * LaunchConfigurationName **required**
+  * MetadataOptions
+    * HttpEndpoint
+    * HttpPutResponseHopLimit
+    * HttpTokens
+  * PlacementTenancy
+  * RamdiskId
+  * SecurityGroups
+    * items [XmlString](#xmlstring)
+  * SpotPrice
+  * UserData
 
 ### CreateOrUpdateTagsType
 * CreateOrUpdateTagsType `object`
-  * Tags **required** [Tags](#tags)
+  * Tags **required**
+    * items [Tag](#tag)
 
 ### CustomizedMetricSpecification
-* CustomizedMetricSpecification `object`: Configures a customized metric for a target tracking policy.
-  * Dimensions [MetricDimensions](#metricdimensions)
-  * MetricName **required** [MetricName](#metricname)
-  * Namespace **required** [MetricNamespace](#metricnamespace)
-  * Statistic **required** [MetricStatistic](#metricstatistic)
-  * Unit [MetricUnit](#metricunit)
+* CustomizedMetricSpecification `object`: <p>Represents a CloudWatch metric of your choosing for a target tracking scaling policy to use with Amazon EC2 Auto Scaling.</p> <p>To create your customized metric specification:</p> <ul> <li> <p>Add values for each required parameter from CloudWatch. You can use an existing metric, or a new metric that you create. To use your own metric, you must first publish the metric to CloudWatch. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/publishingMetrics.html">Publish Custom Metrics</a> in the <i>Amazon CloudWatch User Guide</i>.</p> </li> <li> <p>Choose a metric that changes proportionally with capacity. The value of the metric should increase or decrease in inverse proportion to the number of capacity units. That is, the value of the metric should decrease when capacity increases.</p> </li> </ul> <p>For more information about CloudWatch, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html">Amazon CloudWatch Concepts</a>.</p>
+  * Dimensions
+    * items [MetricDimension](#metricdimension)
+  * MetricName **required**
+  * Namespace **required**
+  * Statistic **required**
+  * Unit
 
 ### DeleteAutoScalingGroupType
 * DeleteAutoScalingGroupType `object`
-  * AutoScalingGroupName **required** [ResourceName](#resourcename)
-  * ForceDelete [ForceDelete](#forcedelete)
+  * AutoScalingGroupName **required**
+  * ForceDelete
 
 ### DeleteLifecycleHookAnswer
 * DeleteLifecycleHookAnswer `object`
 
 ### DeleteLifecycleHookType
 * DeleteLifecycleHookType `object`
-  * AutoScalingGroupName **required** [ResourceName](#resourcename)
-  * LifecycleHookName **required** [AsciiStringMaxLen255](#asciistringmaxlen255)
+  * AutoScalingGroupName **required**
+  * LifecycleHookName **required**
 
 ### DeleteNotificationConfigurationType
 * DeleteNotificationConfigurationType `object`
-  * AutoScalingGroupName **required** [ResourceName](#resourcename)
-  * TopicARN **required** [ResourceName](#resourcename)
+  * AutoScalingGroupName **required**
+  * TopicARN **required**
 
 ### DeletePolicyType
 * DeletePolicyType `object`
-  * AutoScalingGroupName [ResourceName](#resourcename)
-  * PolicyName **required** [ResourceName](#resourcename)
+  * AutoScalingGroupName
+  * PolicyName **required**
 
 ### DeleteScheduledActionType
 * DeleteScheduledActionType `object`
-  * AutoScalingGroupName **required** [ResourceName](#resourcename)
-  * ScheduledActionName **required** [ResourceName](#resourcename)
+  * AutoScalingGroupName **required**
+  * ScheduledActionName **required**
 
 ### DeleteTagsType
 * DeleteTagsType `object`
-  * Tags **required** [Tags](#tags)
+  * Tags **required**
+    * items [Tag](#tag)
 
 ### DescribeAccountLimitsAnswer
 * DescribeAccountLimitsAnswer `object`
-  * MaxNumberOfAutoScalingGroups [MaxNumberOfAutoScalingGroups](#maxnumberofautoscalinggroups)
-  * MaxNumberOfLaunchConfigurations [MaxNumberOfLaunchConfigurations](#maxnumberoflaunchconfigurations)
-  * NumberOfAutoScalingGroups [NumberOfAutoScalingGroups](#numberofautoscalinggroups)
-  * NumberOfLaunchConfigurations [NumberOfLaunchConfigurations](#numberoflaunchconfigurations)
+  * MaxNumberOfAutoScalingGroups
+  * MaxNumberOfLaunchConfigurations
+  * NumberOfAutoScalingGroups
+  * NumberOfLaunchConfigurations
 
 ### DescribeAdjustmentTypesAnswer
 * DescribeAdjustmentTypesAnswer `object`
-  * AdjustmentTypes [AdjustmentTypes](#adjustmenttypes)
+  * AdjustmentTypes
+    * items [AdjustmentType](#adjustmenttype)
 
 ### DescribeAutoScalingInstancesType
 * DescribeAutoScalingInstancesType `object`
-  * InstanceIds [InstanceIds](#instanceids)
-  * MaxRecords [MaxRecords](#maxrecords)
-  * NextToken [XmlString](#xmlstring)
+  * InstanceIds
+    * items [XmlStringMaxLen19](#xmlstringmaxlen19)
+  * MaxRecords
+  * NextToken
 
 ### DescribeAutoScalingNotificationTypesAnswer
 * DescribeAutoScalingNotificationTypesAnswer `object`
-  * AutoScalingNotificationTypes [AutoScalingNotificationTypes](#autoscalingnotificationtypes)
+  * AutoScalingNotificationTypes
+    * items [XmlStringMaxLen255](#xmlstringmaxlen255)
+
+### DescribeInstanceRefreshesAnswer
+* DescribeInstanceRefreshesAnswer `object`
+  * InstanceRefreshes
+    * items [InstanceRefresh](#instancerefresh)
+  * NextToken
+
+### DescribeInstanceRefreshesType
+* DescribeInstanceRefreshesType `object`
+  * AutoScalingGroupName **required**
+  * InstanceRefreshIds
+    * items [XmlStringMaxLen255](#xmlstringmaxlen255)
+  * MaxRecords
+  * NextToken
 
 ### DescribeLifecycleHookTypesAnswer
 * DescribeLifecycleHookTypesAnswer `object`
-  * LifecycleHookTypes [AutoScalingNotificationTypes](#autoscalingnotificationtypes)
+  * LifecycleHookTypes
+    * items [XmlStringMaxLen255](#xmlstringmaxlen255)
 
 ### DescribeLifecycleHooksAnswer
 * DescribeLifecycleHooksAnswer `object`
-  * LifecycleHooks [LifecycleHooks](#lifecyclehooks)
+  * LifecycleHooks
+    * items [LifecycleHook](#lifecyclehook)
 
 ### DescribeLifecycleHooksType
 * DescribeLifecycleHooksType `object`
-  * AutoScalingGroupName **required** [ResourceName](#resourcename)
-  * LifecycleHookNames [LifecycleHookNames](#lifecyclehooknames)
+  * AutoScalingGroupName **required**
+  * LifecycleHookNames
+    * items [AsciiStringMaxLen255](#asciistringmaxlen255)
 
 ### DescribeLoadBalancerTargetGroupsRequest
 * DescribeLoadBalancerTargetGroupsRequest `object`
-  * AutoScalingGroupName **required** [ResourceName](#resourcename)
-  * MaxRecords [MaxRecords](#maxrecords)
-  * NextToken [XmlString](#xmlstring)
+  * AutoScalingGroupName **required**
+  * MaxRecords
+  * NextToken
 
 ### DescribeLoadBalancerTargetGroupsResponse
 * DescribeLoadBalancerTargetGroupsResponse `object`
-  * LoadBalancerTargetGroups [LoadBalancerTargetGroupStates](#loadbalancertargetgroupstates)
-  * NextToken [XmlString](#xmlstring)
+  * LoadBalancerTargetGroups
+    * items [LoadBalancerTargetGroupState](#loadbalancertargetgroupstate)
+  * NextToken
 
 ### DescribeLoadBalancersRequest
 * DescribeLoadBalancersRequest `object`
-  * AutoScalingGroupName **required** [ResourceName](#resourcename)
-  * MaxRecords [MaxRecords](#maxrecords)
-  * NextToken [XmlString](#xmlstring)
+  * AutoScalingGroupName **required**
+  * MaxRecords
+  * NextToken
 
 ### DescribeLoadBalancersResponse
 * DescribeLoadBalancersResponse `object`
-  * LoadBalancers [LoadBalancerStates](#loadbalancerstates)
-  * NextToken [XmlString](#xmlstring)
+  * LoadBalancers
+    * items [LoadBalancerState](#loadbalancerstate)
+  * NextToken
 
 ### DescribeMetricCollectionTypesAnswer
 * DescribeMetricCollectionTypesAnswer `object`
-  * Granularities [MetricGranularityTypes](#metricgranularitytypes)
-  * Metrics [MetricCollectionTypes](#metriccollectiontypes)
+  * Granularities
+    * items [MetricGranularityType](#metricgranularitytype)
+  * Metrics
+    * items [MetricCollectionType](#metriccollectiontype)
 
 ### DescribeNotificationConfigurationsAnswer
 * DescribeNotificationConfigurationsAnswer `object`
-  * NextToken [XmlString](#xmlstring)
-  * NotificationConfigurations **required** [NotificationConfigurations](#notificationconfigurations)
+  * NextToken
+  * NotificationConfigurations **required**
+    * items [NotificationConfiguration](#notificationconfiguration)
 
 ### DescribeNotificationConfigurationsType
 * DescribeNotificationConfigurationsType `object`
-  * AutoScalingGroupNames [AutoScalingGroupNames](#autoscalinggroupnames)
-  * MaxRecords [MaxRecords](#maxrecords)
-  * NextToken [XmlString](#xmlstring)
+  * AutoScalingGroupNames
+    * items [XmlStringMaxLen255](#xmlstringmaxlen255)
+  * MaxRecords
+  * NextToken
 
 ### DescribePoliciesType
 * DescribePoliciesType `object`
-  * AutoScalingGroupName [ResourceName](#resourcename)
-  * MaxRecords [MaxRecords](#maxrecords)
-  * NextToken [XmlString](#xmlstring)
-  * PolicyNames [PolicyNames](#policynames)
-  * PolicyTypes [PolicyTypes](#policytypes)
+  * AutoScalingGroupName
+  * MaxRecords
+  * NextToken
+  * PolicyNames
+    * items [ResourceName](#resourcename)
+  * PolicyTypes
+    * items [XmlStringMaxLen64](#xmlstringmaxlen64)
 
 ### DescribeScalingActivitiesType
 * DescribeScalingActivitiesType `object`
-  * ActivityIds [ActivityIds](#activityids)
-  * AutoScalingGroupName [ResourceName](#resourcename)
-  * MaxRecords [MaxRecords](#maxrecords)
-  * NextToken [XmlString](#xmlstring)
+  * ActivityIds
+    * items [XmlString](#xmlstring)
+  * AutoScalingGroupName
+  * MaxRecords
+  * NextToken
 
 ### DescribeScheduledActionsType
 * DescribeScheduledActionsType `object`
-  * AutoScalingGroupName [ResourceName](#resourcename)
-  * EndTime [TimestampType](#timestamptype)
-  * MaxRecords [MaxRecords](#maxrecords)
-  * NextToken [XmlString](#xmlstring)
-  * ScheduledActionNames [ScheduledActionNames](#scheduledactionnames)
-  * StartTime [TimestampType](#timestamptype)
+  * AutoScalingGroupName
+  * EndTime
+  * MaxRecords
+  * NextToken
+  * ScheduledActionNames
+    * items [XmlStringMaxLen255](#xmlstringmaxlen255)
+  * StartTime
 
 ### DescribeTagsType
 * DescribeTagsType `object`
-  * Filters [Filters](#filters)
-  * MaxRecords [MaxRecords](#maxrecords)
-  * NextToken [XmlString](#xmlstring)
+  * Filters
+    * items [Filter](#filter)
+  * MaxRecords
+  * NextToken
 
 ### DescribeTerminationPolicyTypesAnswer
 * DescribeTerminationPolicyTypesAnswer `object`
-  * TerminationPolicyTypes [TerminationPolicies](#terminationpolicies)
+  * TerminationPolicyTypes
+    * items [XmlStringMaxLen1600](#xmlstringmaxlen1600)
 
 ### DetachInstancesAnswer
 * DetachInstancesAnswer `object`
-  * Activities [Activities](#activities)
+  * Activities
+    * items [Activity](#activity)
 
 ### DetachInstancesQuery
 * DetachInstancesQuery `object`
-  * AutoScalingGroupName **required** [ResourceName](#resourcename)
-  * InstanceIds [InstanceIds](#instanceids)
-  * ShouldDecrementDesiredCapacity **required** [ShouldDecrementDesiredCapacity](#shoulddecrementdesiredcapacity)
+  * AutoScalingGroupName **required**
+  * InstanceIds
+    * items [XmlStringMaxLen19](#xmlstringmaxlen19)
+  * ShouldDecrementDesiredCapacity **required**
 
 ### DetachLoadBalancerTargetGroupsResultType
 * DetachLoadBalancerTargetGroupsResultType `object`
 
 ### DetachLoadBalancerTargetGroupsType
 * DetachLoadBalancerTargetGroupsType `object`
-  * AutoScalingGroupName **required** [ResourceName](#resourcename)
-  * TargetGroupARNs **required** [TargetGroupARNs](#targetgrouparns)
+  * AutoScalingGroupName **required**
+  * TargetGroupARNs **required**
+    * items [XmlStringMaxLen511](#xmlstringmaxlen511)
 
 ### DetachLoadBalancersResultType
 * DetachLoadBalancersResultType `object`
 
 ### DetachLoadBalancersType
 * DetachLoadBalancersType `object`
-  * AutoScalingGroupName **required** [ResourceName](#resourcename)
-  * LoadBalancerNames **required** [LoadBalancerNames](#loadbalancernames)
+  * AutoScalingGroupName **required**
+  * LoadBalancerNames **required**
+    * items [XmlStringMaxLen255](#xmlstringmaxlen255)
 
 ### DisableMetricsCollectionQuery
 * DisableMetricsCollectionQuery `object`
-  * AutoScalingGroupName **required** [ResourceName](#resourcename)
-  * Metrics [Metrics](#metrics)
+  * AutoScalingGroupName **required**
+  * Metrics
+    * items [XmlStringMaxLen255](#xmlstringmaxlen255)
 
 ### DisableScaleIn
 * DisableScaleIn `boolean`
 
 ### Ebs
-* Ebs `object`: Describes an Amazon EBS volume.
-  * DeleteOnTermination [BlockDeviceEbsDeleteOnTermination](#blockdeviceebsdeleteontermination)
-  * Encrypted [BlockDeviceEbsEncrypted](#blockdeviceebsencrypted)
-  * Iops [BlockDeviceEbsIops](#blockdeviceebsiops)
-  * SnapshotId [XmlStringMaxLen255](#xmlstringmaxlen255)
-  * VolumeSize [BlockDeviceEbsVolumeSize](#blockdeviceebsvolumesize)
-  * VolumeType [BlockDeviceEbsVolumeType](#blockdeviceebsvolumetype)
+* Ebs `object`: Describes information used to set up an Amazon EBS volume specified in a block device mapping.
+  * DeleteOnTermination
+  * Encrypted
+  * Iops
+  * SnapshotId
+  * VolumeSize
+  * VolumeType
 
 ### EbsOptimized
 * EbsOptimized `boolean`
 
 ### EnableMetricsCollectionQuery
 * EnableMetricsCollectionQuery `object`
-  * AutoScalingGroupName **required** [ResourceName](#resourcename)
-  * Granularity **required** [XmlStringMaxLen255](#xmlstringmaxlen255)
-  * Metrics [Metrics](#metrics)
+  * AutoScalingGroupName **required**
+  * Granularity **required**
+  * Metrics
+    * items [XmlStringMaxLen255](#xmlstringmaxlen255)
 
 ### EnabledMetric
 * EnabledMetric `object`: Describes an enabled metric.
-  * Granularity [XmlStringMaxLen255](#xmlstringmaxlen255)
-  * Metric [XmlStringMaxLen255](#xmlstringmaxlen255)
+  * Granularity
+  * Metric
 
 ### EnabledMetrics
 * EnabledMetrics `array`
@@ -1523,38 +2999,53 @@ amazonaws_autoscaling.UpdateAutoScalingGroup({
 
 ### EnterStandbyAnswer
 * EnterStandbyAnswer `object`
-  * Activities [Activities](#activities)
+  * Activities
+    * items [Activity](#activity)
 
 ### EnterStandbyQuery
 * EnterStandbyQuery `object`
-  * AutoScalingGroupName **required** [ResourceName](#resourcename)
-  * InstanceIds [InstanceIds](#instanceids)
-  * ShouldDecrementDesiredCapacity **required** [ShouldDecrementDesiredCapacity](#shoulddecrementdesiredcapacity)
+  * AutoScalingGroupName **required**
+  * InstanceIds
+    * items [XmlStringMaxLen19](#xmlstringmaxlen19)
+  * ShouldDecrementDesiredCapacity **required**
 
 ### EstimatedInstanceWarmup
 * EstimatedInstanceWarmup `integer`
 
 ### ExecutePolicyType
 * ExecutePolicyType `object`
-  * AutoScalingGroupName [ResourceName](#resourcename)
-  * BreachThreshold [MetricScale](#metricscale)
-  * HonorCooldown [HonorCooldown](#honorcooldown)
-  * MetricValue [MetricScale](#metricscale)
-  * PolicyName **required** [ResourceName](#resourcename)
+  * AutoScalingGroupName
+  * BreachThreshold
+  * HonorCooldown
+  * MetricValue
+  * PolicyName **required**
 
 ### ExitStandbyAnswer
 * ExitStandbyAnswer `object`
-  * Activities [Activities](#activities)
+  * Activities
+    * items [Activity](#activity)
 
 ### ExitStandbyQuery
 * ExitStandbyQuery `object`
-  * AutoScalingGroupName **required** [ResourceName](#resourcename)
-  * InstanceIds [InstanceIds](#instanceids)
+  * AutoScalingGroupName **required**
+  * InstanceIds
+    * items [XmlStringMaxLen19](#xmlstringmaxlen19)
+
+### FailedScheduledUpdateGroupActionRequest
+* FailedScheduledUpdateGroupActionRequest `object`: Describes a scheduled action that could not be created, updated, or deleted.
+  * ErrorCode
+  * ErrorMessage
+  * ScheduledActionName **required**
+
+### FailedScheduledUpdateGroupActionRequests
+* FailedScheduledUpdateGroupActionRequests `array`
+  * items [FailedScheduledUpdateGroupActionRequest](#failedscheduledupdategroupactionrequest)
 
 ### Filter
-* Filter `object`: Describes a filter.
-  * Name [XmlString](#xmlstring)
-  * Values [Values](#values)
+* Filter `object`: <p>Describes a filter that is used to return a more specific list of results when describing tags.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-tagging.html">Tagging Auto Scaling groups and instances</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+  * Name
+  * Values
+    * items [XmlString](#xmlstring)
 
 ### Filters
 * Filters `array`
@@ -1577,68 +3068,136 @@ amazonaws_autoscaling.UpdateAutoScalingGroup({
 
 ### Instance
 * Instance `object`: Describes an EC2 instance.
-  * AvailabilityZone **required** [XmlStringMaxLen255](#xmlstringmaxlen255)
-  * HealthStatus **required** [XmlStringMaxLen32](#xmlstringmaxlen32)
-  * InstanceId **required** [XmlStringMaxLen19](#xmlstringmaxlen19)
-  * LaunchConfigurationName [XmlStringMaxLen255](#xmlstringmaxlen255)
-  * LaunchTemplate [LaunchTemplateSpecification](#launchtemplatespecification)
-  * LifecycleState **required** [LifecycleState](#lifecyclestate)
-  * ProtectedFromScaleIn **required** [InstanceProtected](#instanceprotected)
+  * AvailabilityZone **required**
+  * HealthStatus **required**
+  * InstanceId **required**
+  * InstanceType
+  * LaunchConfigurationName
+  * LaunchTemplate
+    * LaunchTemplateId
+    * LaunchTemplateName
+    * Version
+  * LifecycleState **required**
+  * ProtectedFromScaleIn **required**
+  * WeightedCapacity
 
 ### InstanceIds
 * InstanceIds `array`
   * items [XmlStringMaxLen19](#xmlstringmaxlen19)
 
+### InstanceMetadataEndpointState
+* InstanceMetadataEndpointState `string` (values: disabled, enabled)
+
+### InstanceMetadataHttpPutResponseHopLimit
+* InstanceMetadataHttpPutResponseHopLimit `integer`
+
+### InstanceMetadataHttpTokensState
+* InstanceMetadataHttpTokensState `string` (values: optional, required)
+
+### InstanceMetadataOptions
+* InstanceMetadataOptions `object`: The metadata options for the instances. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-launch-config.html#launch-configurations-imds">Configuring the Instance Metadata Options</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
+  * HttpEndpoint
+  * HttpPutResponseHopLimit
+  * HttpTokens
+
 ### InstanceMonitoring
 * InstanceMonitoring `object`: Describes whether detailed monitoring is enabled for the Auto Scaling instances.
-  * Enabled [MonitoringEnabled](#monitoringenabled)
+  * Enabled
 
 ### InstanceProtected
 * InstanceProtected `boolean`
+
+### InstanceRefresh
+* InstanceRefresh `object`: Describes an instance refresh for an Auto Scaling group. 
+  * AutoScalingGroupName
+  * EndTime
+  * InstanceRefreshId
+  * InstancesToUpdate
+  * PercentageComplete
+  * StartTime
+  * Status
+  * StatusReason
+
+### InstanceRefreshIds
+* InstanceRefreshIds `array`
+  * items [XmlStringMaxLen255](#xmlstringmaxlen255)
+
+### InstanceRefreshInProgressFault
+
+
+### InstanceRefreshStatus
+* InstanceRefreshStatus `string` (values: Pending, InProgress, Successful, Failed, Cancelling, Cancelled)
+
+### InstanceRefreshes
+* InstanceRefreshes `array`
+  * items [InstanceRefresh](#instancerefresh)
 
 ### Instances
 * Instances `array`
   * items [Instance](#instance)
 
+### InstancesDistribution
+* InstancesDistribution `object`: <p>Describes an instances distribution for an Auto Scaling group with a <a>MixedInstancesPolicy</a>.</p> <p>The instances distribution specifies the distribution of On-Demand Instances and Spot Instances, the maximum price to pay for Spot Instances, and how the Auto Scaling group allocates instance types to fulfill On-Demand and Spot capacities.</p> <p>When you update <code>SpotAllocationStrategy</code>, <code>SpotInstancePools</code>, or <code>SpotMaxPrice</code>, this update action does not deploy any changes across the running Amazon EC2 instances in the group. Your existing Spot Instances continue to run as long as the maximum price for those instances is higher than the current Spot price. When scale out occurs, Amazon EC2 Auto Scaling launches instances based on the new settings. When scale in occurs, Amazon EC2 Auto Scaling terminates instances according to the group's termination policies.</p>
+  * OnDemandAllocationStrategy
+  * OnDemandBaseCapacity
+  * OnDemandPercentageAboveBaseCapacity
+  * SpotAllocationStrategy
+  * SpotInstancePools
+  * SpotMaxPrice
+
+### InstancesToUpdate
+* InstancesToUpdate `integer`
+
+### IntPercent
+* IntPercent `integer`
+
 ### InvalidNextToken
-* InvalidNextToken `object`: The <code>NextToken</code> value is not valid.
-  * message [XmlStringMaxLen255](#xmlstringmaxlen255)
+
 
 ### LaunchConfiguration
 * LaunchConfiguration `object`: Describes a launch configuration.
-  * AssociatePublicIpAddress [AssociatePublicIpAddress](#associatepublicipaddress)
-  * BlockDeviceMappings [BlockDeviceMappings](#blockdevicemappings)
-  * ClassicLinkVPCId [XmlStringMaxLen255](#xmlstringmaxlen255)
-  * ClassicLinkVPCSecurityGroups [ClassicLinkVPCSecurityGroups](#classiclinkvpcsecuritygroups)
-  * CreatedTime **required** [TimestampType](#timestamptype)
-  * EbsOptimized [EbsOptimized](#ebsoptimized)
-  * IamInstanceProfile [XmlStringMaxLen1600](#xmlstringmaxlen1600)
-  * ImageId **required** [XmlStringMaxLen255](#xmlstringmaxlen255)
-  * InstanceMonitoring [InstanceMonitoring](#instancemonitoring)
-  * InstanceType **required** [XmlStringMaxLen255](#xmlstringmaxlen255)
-  * KernelId [XmlStringMaxLen255](#xmlstringmaxlen255)
-  * KeyName [XmlStringMaxLen255](#xmlstringmaxlen255)
-  * LaunchConfigurationARN [ResourceName](#resourcename)
-  * LaunchConfigurationName **required** [XmlStringMaxLen255](#xmlstringmaxlen255)
-  * PlacementTenancy [XmlStringMaxLen64](#xmlstringmaxlen64)
-  * RamdiskId [XmlStringMaxLen255](#xmlstringmaxlen255)
-  * SecurityGroups [SecurityGroups](#securitygroups)
-  * SpotPrice [SpotPrice](#spotprice)
-  * UserData [XmlStringUserData](#xmlstringuserdata)
+  * AssociatePublicIpAddress
+  * BlockDeviceMappings
+    * items [BlockDeviceMapping](#blockdevicemapping)
+  * ClassicLinkVPCId
+  * ClassicLinkVPCSecurityGroups
+    * items [XmlStringMaxLen255](#xmlstringmaxlen255)
+  * CreatedTime **required**
+  * EbsOptimized
+  * IamInstanceProfile
+  * ImageId **required**
+  * InstanceMonitoring
+    * Enabled
+  * InstanceType **required**
+  * KernelId
+  * KeyName
+  * LaunchConfigurationARN
+  * LaunchConfigurationName **required**
+  * MetadataOptions
+    * HttpEndpoint
+    * HttpPutResponseHopLimit
+    * HttpTokens
+  * PlacementTenancy
+  * RamdiskId
+  * SecurityGroups
+    * items [XmlString](#xmlstring)
+  * SpotPrice
+  * UserData
 
 ### LaunchConfigurationNameType
 * LaunchConfigurationNameType `object`
-  * LaunchConfigurationName **required** [ResourceName](#resourcename)
+  * LaunchConfigurationName **required**
 
 ### LaunchConfigurationNames
 * LaunchConfigurationNames `array`
-  * items [ResourceName](#resourcename)
+  * items [XmlStringMaxLen255](#xmlstringmaxlen255)
 
 ### LaunchConfigurationNamesType
 * LaunchConfigurationNamesType `object`
-  * LaunchConfigurationNames [LaunchConfigurationNames](#launchconfigurationnames)
-  * MaxRecords [MaxRecords](#maxrecords)
-  * NextToken [XmlString](#xmlstring)
+  * LaunchConfigurationNames
+    * items [XmlStringMaxLen255](#xmlstringmaxlen255)
+  * MaxRecords
+  * NextToken
 
 ### LaunchConfigurations
 * LaunchConfigurations `array`
@@ -1646,17 +3205,36 @@ amazonaws_autoscaling.UpdateAutoScalingGroup({
 
 ### LaunchConfigurationsType
 * LaunchConfigurationsType `object`
-  * LaunchConfigurations **required** [LaunchConfigurations](#launchconfigurations)
-  * NextToken [XmlString](#xmlstring)
+  * LaunchConfigurations **required**
+    * items [LaunchConfiguration](#launchconfiguration)
+  * NextToken
+
+### LaunchTemplate
+* LaunchTemplate `object`: <p>Describes a launch template and overrides. </p> <p>You specify these parameters as part of a mixed instances policy. </p> <p>When you update the launch template or overrides, existing Amazon EC2 instances continue to run. When scale out occurs, Amazon EC2 Auto Scaling launches instances to match the new settings. When scale in occurs, Amazon EC2 Auto Scaling terminates instances according to the group's termination policies.</p>
+  * LaunchTemplateSpecification
+    * LaunchTemplateId
+    * LaunchTemplateName
+    * Version
+  * Overrides
+    * items [LaunchTemplateOverrides](#launchtemplateoverrides)
 
 ### LaunchTemplateName
 * LaunchTemplateName `string`
 
+### LaunchTemplateOverrides
+* LaunchTemplateOverrides `object`: Describes an override for a launch template. The maximum number of instance types that can be associated with an Auto Scaling group is 20. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-override-options.html">Configuring overrides</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. 
+  * InstanceType
+  * LaunchTemplateSpecification
+    * LaunchTemplateId
+    * LaunchTemplateName
+    * Version
+  * WeightedCapacity
+
 ### LaunchTemplateSpecification
-* LaunchTemplateSpecification `object`: Describes a launch template.
-  * LaunchTemplateId [XmlStringMaxLen255](#xmlstringmaxlen255)
-  * LaunchTemplateName [LaunchTemplateName](#launchtemplatename)
-  * Version [XmlStringMaxLen255](#xmlstringmaxlen255)
+* LaunchTemplateSpecification `object`: <p>Describes the Amazon EC2 launch template and the launch template version that can be used by an Auto Scaling group to configure Amazon EC2 instances.</p> <p>The launch template that is specified must be configured for use with an Auto Scaling group. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-launch-template.html">Creating a launch template for an Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+  * LaunchTemplateId
+  * LaunchTemplateName
+  * Version
 
 ### LifecycleActionResult
 * LifecycleActionResult `string`
@@ -1665,30 +3243,30 @@ amazonaws_autoscaling.UpdateAutoScalingGroup({
 * LifecycleActionToken `string`
 
 ### LifecycleHook
-* LifecycleHook `object`: <p>Describes a lifecycle hook, which tells Auto Scaling that you want to perform an action whenever it launches instances or whenever it terminates instances.</p> <p>For more information, see <a href="http://docs.aws.amazon.com/autoscaling/latest/userguide/lifecycle-hooks.html">Auto Scaling Lifecycle Hooks</a> in the <i>Auto Scaling User Guide</i>.</p>
-  * AutoScalingGroupName [ResourceName](#resourcename)
-  * DefaultResult [LifecycleActionResult](#lifecycleactionresult)
-  * GlobalTimeout [GlobalTimeout](#globaltimeout)
-  * HeartbeatTimeout [HeartbeatTimeout](#heartbeattimeout)
-  * LifecycleHookName [AsciiStringMaxLen255](#asciistringmaxlen255)
-  * LifecycleTransition [LifecycleTransition](#lifecycletransition)
-  * NotificationMetadata [XmlStringMaxLen1023](#xmlstringmaxlen1023)
-  * NotificationTargetARN [ResourceName](#resourcename)
-  * RoleARN [ResourceName](#resourcename)
+* LifecycleHook `object`: Describes a lifecycle hook, which tells Amazon EC2 Auto Scaling that you want to perform an action whenever it launches instances or terminates instances.
+  * AutoScalingGroupName
+  * DefaultResult
+  * GlobalTimeout
+  * HeartbeatTimeout
+  * LifecycleHookName
+  * LifecycleTransition
+  * NotificationMetadata
+  * NotificationTargetARN
+  * RoleARN
 
 ### LifecycleHookNames
 * LifecycleHookNames `array`
   * items [AsciiStringMaxLen255](#asciistringmaxlen255)
 
 ### LifecycleHookSpecification
-* LifecycleHookSpecification `object`: <p>Describes a lifecycle hook, which tells Auto Scaling that you want to perform an action whenever it launches instances or whenever it terminates instances.</p> <p>For more information, see <a href="http://docs.aws.amazon.com/autoscaling/latest/userguide/lifecycle-hooks.html">Auto Scaling Lifecycle Hooks</a> in the <i>Auto Scaling User Guide</i>.</p>
-  * DefaultResult [LifecycleActionResult](#lifecycleactionresult)
-  * HeartbeatTimeout [HeartbeatTimeout](#heartbeattimeout)
-  * LifecycleHookName **required** [AsciiStringMaxLen255](#asciistringmaxlen255)
-  * LifecycleTransition **required** [LifecycleTransition](#lifecycletransition)
-  * NotificationMetadata [XmlStringMaxLen1023](#xmlstringmaxlen1023)
-  * NotificationTargetARN [NotificationTargetResourceName](#notificationtargetresourcename)
-  * RoleARN [ResourceName](#resourcename)
+* LifecycleHookSpecification `object`: <p>Describes information used to specify a lifecycle hook for an Auto Scaling group.</p> <p>A lifecycle hook tells Amazon EC2 Auto Scaling to perform an action on an instance when the instance launches (before it is put into service) or as the instance terminates (before it is fully terminated).</p> <p>This step is a part of the procedure for creating a lifecycle hook for an Auto Scaling group:</p> <ol> <li> <p>(Optional) Create a Lambda function and a rule that allows CloudWatch Events to invoke your Lambda function when Amazon EC2 Auto Scaling launches or terminates instances.</p> </li> <li> <p>(Optional) Create a notification target and an IAM role. The target can be either an Amazon SQS queue or an Amazon SNS topic. The role allows Amazon EC2 Auto Scaling to publish lifecycle notifications to the target.</p> </li> <li> <p> <b>Create the lifecycle hook. Specify whether the hook is used when the instances launch or terminate.</b> </p> </li> <li> <p>If you need more time, record the lifecycle action heartbeat to keep the instance in a pending state.</p> </li> <li> <p>If you finish before the timeout period ends, complete the lifecycle action.</p> </li> </ol> <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/lifecycle-hooks.html">Amazon EC2 Auto Scaling lifecycle hooks</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+  * DefaultResult
+  * HeartbeatTimeout
+  * LifecycleHookName **required**
+  * LifecycleTransition **required**
+  * NotificationMetadata
+  * NotificationTargetARN
+  * RoleARN
 
 ### LifecycleHookSpecifications
 * LifecycleHookSpecifications `array`
@@ -1705,30 +3283,32 @@ amazonaws_autoscaling.UpdateAutoScalingGroup({
 * LifecycleTransition `string`
 
 ### LimitExceededFault
-* LimitExceededFault `object`: You have already reached a limit for your Auto Scaling resources (for example, groups, launch configurations, or lifecycle hooks). For more information, see <a>DescribeAccountLimits</a>.
-  * message [XmlStringMaxLen255](#xmlstringmaxlen255)
+
 
 ### LoadBalancerNames
 * LoadBalancerNames `array`
   * items [XmlStringMaxLen255](#xmlstringmaxlen255)
 
 ### LoadBalancerState
-* LoadBalancerState `object`: <p>Describes the state of a Classic Load Balancer.</p> <p>If you specify a load balancer when creating the Auto Scaling group, the state of the load balancer is <code>InService</code>.</p> <p>If you attach a load balancer to an existing Auto Scaling group, the initial state is <code>Adding</code>. The state transitions to <code>Added</code> after all instances in the group are registered with the load balancer. If ELB health checks are enabled for the load balancer, the state transitions to <code>InService</code> after at least one instance in the group passes the health check. If EC2 health checks are enabled instead, the load balancer remains in the <code>Added</code> state.</p>
-  * LoadBalancerName [XmlStringMaxLen255](#xmlstringmaxlen255)
-  * State [XmlStringMaxLen255](#xmlstringmaxlen255)
+* LoadBalancerState `object`: <p>Describes the state of a Classic Load Balancer.</p> <p>If you specify a load balancer when creating the Auto Scaling group, the state of the load balancer is <code>InService</code>.</p> <p>If you attach a load balancer to an existing Auto Scaling group, the initial state is <code>Adding</code>. The state transitions to <code>Added</code> after all instances in the group are registered with the load balancer. If Elastic Load Balancing health checks are enabled for the load balancer, the state transitions to <code>InService</code> after at least one instance in the group passes the health check. If EC2 health checks are enabled instead, the load balancer remains in the <code>Added</code> state.</p>
+  * LoadBalancerName
+  * State
 
 ### LoadBalancerStates
 * LoadBalancerStates `array`
   * items [LoadBalancerState](#loadbalancerstate)
 
 ### LoadBalancerTargetGroupState
-* LoadBalancerTargetGroupState `object`: <p>Describes the state of a target group.</p> <p>If you attach a target group to an existing Auto Scaling group, the initial state is <code>Adding</code>. The state transitions to <code>Added</code> after all Auto Scaling instances are registered with the target group. If ELB health checks are enabled, the state transitions to <code>InService</code> after at least one Auto Scaling instance passes the health check. If EC2 health checks are enabled instead, the target group remains in the <code>Added</code> state.</p>
-  * LoadBalancerTargetGroupARN [XmlStringMaxLen511](#xmlstringmaxlen511)
-  * State [XmlStringMaxLen255](#xmlstringmaxlen255)
+* LoadBalancerTargetGroupState `object`: <p>Describes the state of a target group.</p> <p>If you attach a target group to an existing Auto Scaling group, the initial state is <code>Adding</code>. The state transitions to <code>Added</code> after all Auto Scaling instances are registered with the target group. If Elastic Load Balancing health checks are enabled, the state transitions to <code>InService</code> after at least one Auto Scaling instance passes the health check. If EC2 health checks are enabled instead, the target group remains in the <code>Added</code> state.</p>
+  * LoadBalancerTargetGroupARN
+  * State
 
 ### LoadBalancerTargetGroupStates
 * LoadBalancerTargetGroupStates `array`
   * items [LoadBalancerTargetGroupState](#loadbalancertargetgroupstate)
+
+### MaxInstanceLifetime
+* MaxInstanceLifetime `integer`
 
 ### MaxNumberOfAutoScalingGroups
 * MaxNumberOfAutoScalingGroups `integer`
@@ -1741,7 +3321,7 @@ amazonaws_autoscaling.UpdateAutoScalingGroup({
 
 ### MetricCollectionType
 * MetricCollectionType `object`: Describes a metric.
-  * Metric [XmlStringMaxLen255](#xmlstringmaxlen255)
+  * Metric
 
 ### MetricCollectionTypes
 * MetricCollectionTypes `array`
@@ -1749,8 +3329,8 @@ amazonaws_autoscaling.UpdateAutoScalingGroup({
 
 ### MetricDimension
 * MetricDimension `object`: Describes the dimension of a metric.
-  * Name **required** [MetricDimensionName](#metricdimensionname)
-  * Value **required** [MetricDimensionValue](#metricdimensionvalue)
+  * Name **required**
+  * Value **required**
 
 ### MetricDimensionName
 * MetricDimensionName `string`
@@ -1764,7 +3344,7 @@ amazonaws_autoscaling.UpdateAutoScalingGroup({
 
 ### MetricGranularityType
 * MetricGranularityType `object`: Describes a granularity of a metric.
-  * Granularity [XmlStringMaxLen255](#xmlstringmaxlen255)
+  * Granularity
 
 ### MetricGranularityTypes
 * MetricGranularityTypes `array`
@@ -1798,6 +3378,26 @@ amazonaws_autoscaling.UpdateAutoScalingGroup({
 ### MinAdjustmentStep
 * MinAdjustmentStep `integer`
 
+### MixedInstanceSpotPrice
+* MixedInstanceSpotPrice `string`
+
+### MixedInstancesPolicy
+* MixedInstancesPolicy `object`: <p>Describes a mixed instances policy for an Auto Scaling group. With mixed instances, your Auto Scaling group can provision a combination of On-Demand Instances and Spot Instances across multiple instance types. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-purchase-options.html">Auto Scaling groups with multiple instance types and purchase options</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <p>You can create a mixed instances policy for a new Auto Scaling group, or you can create it for an existing group by updating the group to specify <code>MixedInstancesPolicy</code> as the top-level parameter instead of a launch configuration or launch template.</p>
+  * InstancesDistribution
+    * OnDemandAllocationStrategy
+    * OnDemandBaseCapacity
+    * OnDemandPercentageAboveBaseCapacity
+    * SpotAllocationStrategy
+    * SpotInstancePools
+    * SpotMaxPrice
+  * LaunchTemplate
+    * LaunchTemplateSpecification
+      * LaunchTemplateId
+      * LaunchTemplateName
+      * Version
+    * Overrides
+      * items [LaunchTemplateOverrides](#launchtemplateoverrides)
+
 ### MonitoringEnabled
 * MonitoringEnabled `boolean`
 
@@ -1806,9 +3406,9 @@ amazonaws_autoscaling.UpdateAutoScalingGroup({
 
 ### NotificationConfiguration
 * NotificationConfiguration `object`: Describes a notification.
-  * AutoScalingGroupName [ResourceName](#resourcename)
-  * NotificationType [XmlStringMaxLen255](#xmlstringmaxlen255)
-  * TopicARN [ResourceName](#resourcename)
+  * AutoScalingGroupName
+  * NotificationType
+  * TopicARN
 
 ### NotificationConfigurations
 * NotificationConfigurations `array`
@@ -1823,15 +3423,27 @@ amazonaws_autoscaling.UpdateAutoScalingGroup({
 ### NumberOfLaunchConfigurations
 * NumberOfLaunchConfigurations `integer`
 
+### OnDemandBaseCapacity
+* OnDemandBaseCapacity `integer`
+
+### OnDemandPercentageAboveBaseCapacity
+* OnDemandPercentageAboveBaseCapacity `integer`
+
+### Overrides
+* Overrides `array`
+  * items [LaunchTemplateOverrides](#launchtemplateoverrides)
+
 ### PoliciesType
 * PoliciesType `object`
-  * NextToken [XmlString](#xmlstring)
-  * ScalingPolicies [ScalingPolicies](#scalingpolicies)
+  * NextToken
+  * ScalingPolicies
+    * items [ScalingPolicy](#scalingpolicy)
 
 ### PolicyARNType
 * PolicyARNType `object`: Contains the output of PutScalingPolicy.
-  * Alarms [Alarms](#alarms)
-  * PolicyARN [ResourceName](#resourcename)
+  * Alarms
+    * items [Alarm](#alarm)
+  * PolicyARN
 
 ### PolicyIncrement
 * PolicyIncrement `integer`
@@ -1845,17 +3457,17 @@ amazonaws_autoscaling.UpdateAutoScalingGroup({
   * items [XmlStringMaxLen64](#xmlstringmaxlen64)
 
 ### PredefinedMetricSpecification
-* PredefinedMetricSpecification `object`: Configures a predefined metric for a target tracking policy.
-  * PredefinedMetricType **required** [MetricType](#metrictype)
-  * ResourceLabel [XmlStringMaxLen1023](#xmlstringmaxlen1023)
+* PredefinedMetricSpecification `object`: Represents a predefined metric for a target tracking scaling policy to use with Amazon EC2 Auto Scaling.
+  * PredefinedMetricType **required**
+  * ResourceLabel
 
 ### ProcessNames
 * ProcessNames `array`
   * items [XmlStringMaxLen255](#xmlstringmaxlen255)
 
 ### ProcessType
-* ProcessType `object`: <p>Describes a process type.</p> <p>For more information, see <a href="http://docs.aws.amazon.com/autoscaling/latest/userguide/as-suspend-resume-processes.html#process-types">Auto Scaling Processes</a> in the <i>Auto Scaling User Guide</i>.</p>
-  * ProcessName **required** [XmlStringMaxLen255](#xmlstringmaxlen255)
+* ProcessType `object`: <p>Describes a process type.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-suspend-resume-processes.html#process-types">Scaling processes</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+  * ProcessName **required**
 
 ### Processes
 * Processes `array`
@@ -1863,7 +3475,8 @@ amazonaws_autoscaling.UpdateAutoScalingGroup({
 
 ### ProcessesType
 * ProcessesType `object`
-  * Processes [Processes](#processes)
+  * Processes
+    * items [ProcessType](#processtype)
 
 ### Progress
 * Progress `integer`
@@ -1879,72 +3492,95 @@ amazonaws_autoscaling.UpdateAutoScalingGroup({
 
 ### PutLifecycleHookType
 * PutLifecycleHookType `object`
-  * AutoScalingGroupName **required** [ResourceName](#resourcename)
-  * DefaultResult [LifecycleActionResult](#lifecycleactionresult)
-  * HeartbeatTimeout [HeartbeatTimeout](#heartbeattimeout)
-  * LifecycleHookName **required** [AsciiStringMaxLen255](#asciistringmaxlen255)
-  * LifecycleTransition [LifecycleTransition](#lifecycletransition)
-  * NotificationMetadata [XmlStringMaxLen1023](#xmlstringmaxlen1023)
-  * NotificationTargetARN [NotificationTargetResourceName](#notificationtargetresourcename)
-  * RoleARN [ResourceName](#resourcename)
+  * AutoScalingGroupName **required**
+  * DefaultResult
+  * HeartbeatTimeout
+  * LifecycleHookName **required**
+  * LifecycleTransition
+  * NotificationMetadata
+  * NotificationTargetARN
+  * RoleARN
 
 ### PutNotificationConfigurationType
 * PutNotificationConfigurationType `object`
-  * AutoScalingGroupName **required** [ResourceName](#resourcename)
-  * NotificationTypes **required** [AutoScalingNotificationTypes](#autoscalingnotificationtypes)
-  * TopicARN **required** [ResourceName](#resourcename)
+  * AutoScalingGroupName **required**
+  * NotificationTypes **required**
+    * items [XmlStringMaxLen255](#xmlstringmaxlen255)
+  * TopicARN **required**
 
 ### PutScalingPolicyType
 * PutScalingPolicyType `object`
-  * AdjustmentType [XmlStringMaxLen255](#xmlstringmaxlen255)
-  * AutoScalingGroupName **required** [ResourceName](#resourcename)
-  * Cooldown [Cooldown](#cooldown)
-  * EstimatedInstanceWarmup [EstimatedInstanceWarmup](#estimatedinstancewarmup)
-  * MetricAggregationType [XmlStringMaxLen32](#xmlstringmaxlen32)
-  * MinAdjustmentMagnitude [MinAdjustmentMagnitude](#minadjustmentmagnitude)
-  * MinAdjustmentStep [MinAdjustmentStep](#minadjustmentstep)
-  * PolicyName **required** [XmlStringMaxLen255](#xmlstringmaxlen255)
-  * PolicyType [XmlStringMaxLen64](#xmlstringmaxlen64)
-  * ScalingAdjustment [PolicyIncrement](#policyincrement)
-  * StepAdjustments [StepAdjustments](#stepadjustments)
-  * TargetTrackingConfiguration [TargetTrackingConfiguration](#targettrackingconfiguration)
+  * AdjustmentType
+  * AutoScalingGroupName **required**
+  * Cooldown
+  * Enabled
+  * EstimatedInstanceWarmup
+  * MetricAggregationType
+  * MinAdjustmentMagnitude
+  * MinAdjustmentStep
+  * PolicyName **required**
+  * PolicyType
+  * ScalingAdjustment
+  * StepAdjustments
+    * items [StepAdjustment](#stepadjustment)
+  * TargetTrackingConfiguration
+    * CustomizedMetricSpecification
+      * Dimensions
+        * items [MetricDimension](#metricdimension)
+      * MetricName **required**
+      * Namespace **required**
+      * Statistic **required**
+      * Unit
+    * DisableScaleIn
+    * PredefinedMetricSpecification
+      * PredefinedMetricType **required**
+      * ResourceLabel
+    * TargetValue **required**
 
 ### PutScheduledUpdateGroupActionType
 * PutScheduledUpdateGroupActionType `object`
-  * AutoScalingGroupName **required** [ResourceName](#resourcename)
-  * DesiredCapacity [AutoScalingGroupDesiredCapacity](#autoscalinggroupdesiredcapacity)
-  * EndTime [TimestampType](#timestamptype)
-  * MaxSize [AutoScalingGroupMaxSize](#autoscalinggroupmaxsize)
-  * MinSize [AutoScalingGroupMinSize](#autoscalinggroupminsize)
-  * Recurrence [XmlStringMaxLen255](#xmlstringmaxlen255)
-  * ScheduledActionName **required** [XmlStringMaxLen255](#xmlstringmaxlen255)
-  * StartTime [TimestampType](#timestamptype)
-  * Time [TimestampType](#timestamptype)
+  * AutoScalingGroupName **required**
+  * DesiredCapacity
+  * EndTime
+  * MaxSize
+  * MinSize
+  * Recurrence
+  * ScheduledActionName **required**
+  * StartTime
+  * Time
 
 ### RecordLifecycleActionHeartbeatAnswer
 * RecordLifecycleActionHeartbeatAnswer `object`
 
 ### RecordLifecycleActionHeartbeatType
 * RecordLifecycleActionHeartbeatType `object`
-  * AutoScalingGroupName **required** [ResourceName](#resourcename)
-  * InstanceId [XmlStringMaxLen19](#xmlstringmaxlen19)
-  * LifecycleActionToken [LifecycleActionToken](#lifecycleactiontoken)
-  * LifecycleHookName **required** [AsciiStringMaxLen255](#asciistringmaxlen255)
+  * AutoScalingGroupName **required**
+  * InstanceId
+  * LifecycleActionToken
+  * LifecycleHookName **required**
+
+### RefreshInstanceWarmup
+* RefreshInstanceWarmup `integer`
+
+### RefreshPreferences
+* RefreshPreferences `object`: Describes information used to start an instance refresh. 
+  * InstanceWarmup
+  * MinHealthyPercentage
+
+### RefreshStrategy
+* RefreshStrategy `string` (values: Rolling)
 
 ### ResourceContentionFault
-* ResourceContentionFault `object`: You already have a pending update to an Auto Scaling resource (for example, a group, instance, or load balancer).
-  * message [XmlStringMaxLen255](#xmlstringmaxlen255)
+
 
 ### ResourceInUseFault
-* ResourceInUseFault `object`: The operation can't be performed because the resource is in use.
-  * message [XmlStringMaxLen255](#xmlstringmaxlen255)
+
 
 ### ResourceName
 * ResourceName `string`
 
 ### ScalingActivityInProgressFault
-* ScalingActivityInProgressFault `object`: The operation can't be performed because there are scaling activities in progress.
-  * message [XmlStringMaxLen255](#xmlstringmaxlen255)
+
 
 ### ScalingActivityStatusCode
 * ScalingActivityStatusCode `string` (values: PendingSpotBidPlacement, WaitingForSpotInstanceRequestId, WaitingForSpotInstanceId, WaitingForInstanceId, PreInService, InProgress, WaitingForELBConnectionDraining, MidLifecycleAction, WaitingForInstanceWarmup, Successful, Failed, Cancelled)
@@ -1955,47 +3591,81 @@ amazonaws_autoscaling.UpdateAutoScalingGroup({
 
 ### ScalingPolicy
 * ScalingPolicy `object`: Describes a scaling policy.
-  * AdjustmentType [XmlStringMaxLen255](#xmlstringmaxlen255)
-  * Alarms [Alarms](#alarms)
-  * AutoScalingGroupName [XmlStringMaxLen255](#xmlstringmaxlen255)
-  * Cooldown [Cooldown](#cooldown)
-  * EstimatedInstanceWarmup [EstimatedInstanceWarmup](#estimatedinstancewarmup)
-  * MetricAggregationType [XmlStringMaxLen32](#xmlstringmaxlen32)
-  * MinAdjustmentMagnitude [MinAdjustmentMagnitude](#minadjustmentmagnitude)
-  * MinAdjustmentStep [MinAdjustmentStep](#minadjustmentstep)
-  * PolicyARN [ResourceName](#resourcename)
-  * PolicyName [XmlStringMaxLen255](#xmlstringmaxlen255)
-  * PolicyType [XmlStringMaxLen64](#xmlstringmaxlen64)
-  * ScalingAdjustment [PolicyIncrement](#policyincrement)
-  * StepAdjustments [StepAdjustments](#stepadjustments)
-  * TargetTrackingConfiguration [TargetTrackingConfiguration](#targettrackingconfiguration)
+  * AdjustmentType
+  * Alarms
+    * items [Alarm](#alarm)
+  * AutoScalingGroupName
+  * Cooldown
+  * Enabled
+  * EstimatedInstanceWarmup
+  * MetricAggregationType
+  * MinAdjustmentMagnitude
+  * MinAdjustmentStep
+  * PolicyARN
+  * PolicyName
+  * PolicyType
+  * ScalingAdjustment
+  * StepAdjustments
+    * items [StepAdjustment](#stepadjustment)
+  * TargetTrackingConfiguration
+    * CustomizedMetricSpecification
+      * Dimensions
+        * items [MetricDimension](#metricdimension)
+      * MetricName **required**
+      * Namespace **required**
+      * Statistic **required**
+      * Unit
+    * DisableScaleIn
+    * PredefinedMetricSpecification
+      * PredefinedMetricType **required**
+      * ResourceLabel
+    * TargetValue **required**
+
+### ScalingPolicyEnabled
+* ScalingPolicyEnabled `boolean`
 
 ### ScalingProcessQuery
 * ScalingProcessQuery `object`
-  * AutoScalingGroupName **required** [ResourceName](#resourcename)
-  * ScalingProcesses [ProcessNames](#processnames)
+  * AutoScalingGroupName **required**
+  * ScalingProcesses
+    * items [XmlStringMaxLen255](#xmlstringmaxlen255)
 
 ### ScheduledActionNames
 * ScheduledActionNames `array`
-  * items [ResourceName](#resourcename)
+  * items [XmlStringMaxLen255](#xmlstringmaxlen255)
 
 ### ScheduledActionsType
 * ScheduledActionsType `object`
-  * NextToken [XmlString](#xmlstring)
-  * ScheduledUpdateGroupActions [ScheduledUpdateGroupActions](#scheduledupdategroupactions)
+  * NextToken
+  * ScheduledUpdateGroupActions
+    * items [ScheduledUpdateGroupAction](#scheduledupdategroupaction)
 
 ### ScheduledUpdateGroupAction
-* ScheduledUpdateGroupAction `object`: Describes a scheduled update to an Auto Scaling group.
-  * AutoScalingGroupName [XmlStringMaxLen255](#xmlstringmaxlen255)
-  * DesiredCapacity [AutoScalingGroupDesiredCapacity](#autoscalinggroupdesiredcapacity)
-  * EndTime [TimestampType](#timestamptype)
-  * MaxSize [AutoScalingGroupMaxSize](#autoscalinggroupmaxsize)
-  * MinSize [AutoScalingGroupMinSize](#autoscalinggroupminsize)
-  * Recurrence [XmlStringMaxLen255](#xmlstringmaxlen255)
-  * ScheduledActionARN [ResourceName](#resourcename)
-  * ScheduledActionName [XmlStringMaxLen255](#xmlstringmaxlen255)
-  * StartTime [TimestampType](#timestamptype)
-  * Time [TimestampType](#timestamptype)
+* ScheduledUpdateGroupAction `object`: Describes a scheduled scaling action.
+  * AutoScalingGroupName
+  * DesiredCapacity
+  * EndTime
+  * MaxSize
+  * MinSize
+  * Recurrence
+  * ScheduledActionARN
+  * ScheduledActionName
+  * StartTime
+  * Time
+
+### ScheduledUpdateGroupActionRequest
+* ScheduledUpdateGroupActionRequest `object`: <p>Describes information used for one or more scheduled scaling action updates in a <a>BatchPutScheduledUpdateGroupAction</a> operation.</p> <p>When updating a scheduled scaling action, all optional parameters are left unchanged if not specified.</p>
+  * DesiredCapacity
+  * EndTime
+  * MaxSize
+  * MinSize
+  * Recurrence
+  * ScheduledActionName **required**
+  * StartTime
+
+### ScheduledUpdateGroupActionRequests
+* ScheduledUpdateGroupActionRequests `array`
+  * items [ScheduledUpdateGroupActionRequest](#scheduledupdategroupactionrequest)
 
 ### ScheduledUpdateGroupActions
 * ScheduledUpdateGroupActions `array`
@@ -2006,29 +3676,29 @@ amazonaws_autoscaling.UpdateAutoScalingGroup({
   * items [XmlString](#xmlstring)
 
 ### ServiceLinkedRoleFailure
-* ServiceLinkedRoleFailure `object`: The service-linked role is not yet ready for use.
-  * message [XmlStringMaxLen255](#xmlstringmaxlen255)
+
 
 ### SetDesiredCapacityType
 * SetDesiredCapacityType `object`
-  * AutoScalingGroupName **required** [ResourceName](#resourcename)
-  * DesiredCapacity **required** [AutoScalingGroupDesiredCapacity](#autoscalinggroupdesiredcapacity)
-  * HonorCooldown [HonorCooldown](#honorcooldown)
+  * AutoScalingGroupName **required**
+  * DesiredCapacity **required**
+  * HonorCooldown
 
 ### SetInstanceHealthQuery
 * SetInstanceHealthQuery `object`
-  * HealthStatus **required** [XmlStringMaxLen32](#xmlstringmaxlen32)
-  * InstanceId **required** [XmlStringMaxLen19](#xmlstringmaxlen19)
-  * ShouldRespectGracePeriod [ShouldRespectGracePeriod](#shouldrespectgraceperiod)
+  * HealthStatus **required**
+  * InstanceId **required**
+  * ShouldRespectGracePeriod
 
 ### SetInstanceProtectionAnswer
 * SetInstanceProtectionAnswer `object`
 
 ### SetInstanceProtectionQuery
 * SetInstanceProtectionQuery `object`
-  * AutoScalingGroupName **required** [ResourceName](#resourcename)
-  * InstanceIds **required** [InstanceIds](#instanceids)
-  * ProtectedFromScaleIn **required** [ProtectedFromScaleIn](#protectedfromscalein)
+  * AutoScalingGroupName **required**
+  * InstanceIds **required**
+    * items [XmlStringMaxLen19](#xmlstringmaxlen19)
+  * ProtectedFromScaleIn **required**
 
 ### ShouldDecrementDesiredCapacity
 * ShouldDecrementDesiredCapacity `boolean`
@@ -2036,23 +3706,38 @@ amazonaws_autoscaling.UpdateAutoScalingGroup({
 ### ShouldRespectGracePeriod
 * ShouldRespectGracePeriod `boolean`
 
+### SpotInstancePools
+* SpotInstancePools `integer`
+
 ### SpotPrice
 * SpotPrice `string`
 
+### StartInstanceRefreshAnswer
+* StartInstanceRefreshAnswer `object`
+  * InstanceRefreshId
+
+### StartInstanceRefreshType
+* StartInstanceRefreshType `object`
+  * AutoScalingGroupName **required**
+  * Preferences
+    * InstanceWarmup
+    * MinHealthyPercentage
+  * Strategy
+
 ### StepAdjustment
-* StepAdjustment `object`: <p>Describes an adjustment based on the difference between the value of the aggregated CloudWatch metric and the breach threshold that you've defined for the alarm.</p> <p>For the following examples, suppose that you have an alarm with a breach threshold of 50:</p> <ul> <li> <p>If you want the adjustment to be triggered when the metric is greater than or equal to 50 and less than 60, specify a lower bound of 0 and an upper bound of 10.</p> </li> <li> <p>If you want the adjustment to be triggered when the metric is greater than 40 and less than or equal to 50, specify a lower bound of -10 and an upper bound of 0.</p> </li> </ul> <p>There are a few rules for the step adjustments for your step policy:</p> <ul> <li> <p>The ranges of your step adjustments can't overlap or have a gap.</p> </li> <li> <p>At most one step adjustment can have a null lower bound. If one step adjustment has a negative lower bound, then there must be a step adjustment with a null lower bound.</p> </li> <li> <p>At most one step adjustment can have a null upper bound. If one step adjustment has a positive upper bound, then there must be a step adjustment with a null upper bound.</p> </li> <li> <p>The upper and lower bound can't be null in the same step adjustment.</p> </li> </ul>
-  * MetricIntervalLowerBound [MetricScale](#metricscale)
-  * MetricIntervalUpperBound [MetricScale](#metricscale)
-  * ScalingAdjustment **required** [PolicyIncrement](#policyincrement)
+* StepAdjustment `object`: <p>Describes information used to create a step adjustment for a step scaling policy.</p> <p>For the following examples, suppose that you have an alarm with a breach threshold of 50:</p> <ul> <li> <p>To trigger the adjustment when the metric is greater than or equal to 50 and less than 60, specify a lower bound of 0 and an upper bound of 10.</p> </li> <li> <p>To trigger the adjustment when the metric is greater than 40 and less than or equal to 50, specify a lower bound of -10 and an upper bound of 0.</p> </li> </ul> <p>There are a few rules for the step adjustments for your step policy:</p> <ul> <li> <p>The ranges of your step adjustments can't overlap or have a gap.</p> </li> <li> <p>At most, one step adjustment can have a null lower bound. If one step adjustment has a negative lower bound, then there must be a step adjustment with a null lower bound.</p> </li> <li> <p>At most, one step adjustment can have a null upper bound. If one step adjustment has a positive upper bound, then there must be a step adjustment with a null upper bound.</p> </li> <li> <p>The upper and lower bound can't be null in the same step adjustment.</p> </li> </ul> <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html#as-scaling-steps">Step adjustments</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+  * MetricIntervalLowerBound
+  * MetricIntervalUpperBound
+  * ScalingAdjustment **required**
 
 ### StepAdjustments
 * StepAdjustments `array`
   * items [StepAdjustment](#stepadjustment)
 
 ### SuspendedProcess
-* SuspendedProcess `object`: Describes an Auto Scaling process that has been suspended. For more information, see <a>ProcessType</a>.
-  * ProcessName [XmlStringMaxLen255](#xmlstringmaxlen255)
-  * SuspensionReason [XmlStringMaxLen255](#xmlstringmaxlen255)
+* SuspendedProcess `object`: <p>Describes an auto scaling process that has been suspended.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-suspend-resume-processes.html#process-types">Scaling processes</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+  * ProcessName
+  * SuspensionReason
 
 ### SuspendedProcesses
 * SuspendedProcesses `array`
@@ -2060,19 +3745,19 @@ amazonaws_autoscaling.UpdateAutoScalingGroup({
 
 ### Tag
 * Tag `object`: Describes a tag for an Auto Scaling group.
-  * Key **required** [TagKey](#tagkey)
-  * PropagateAtLaunch [PropagateAtLaunch](#propagateatlaunch)
-  * ResourceId [XmlString](#xmlstring)
-  * ResourceType [XmlString](#xmlstring)
-  * Value [TagValue](#tagvalue)
+  * Key **required**
+  * PropagateAtLaunch
+  * ResourceId
+  * ResourceType
+  * Value
 
 ### TagDescription
 * TagDescription `object`: Describes a tag for an Auto Scaling group.
-  * Key [TagKey](#tagkey)
-  * PropagateAtLaunch [PropagateAtLaunch](#propagateatlaunch)
-  * ResourceId [XmlString](#xmlstring)
-  * ResourceType [XmlString](#xmlstring)
-  * Value [TagValue](#tagvalue)
+  * Key
+  * PropagateAtLaunch
+  * ResourceId
+  * ResourceType
+  * Value
 
 ### TagDescriptionList
 * TagDescriptionList `array`
@@ -2090,24 +3775,33 @@ amazonaws_autoscaling.UpdateAutoScalingGroup({
 
 ### TagsType
 * TagsType `object`
-  * NextToken [XmlString](#xmlstring)
-  * Tags [TagDescriptionList](#tagdescriptionlist)
+  * NextToken
+  * Tags
+    * items [TagDescription](#tagdescription)
 
 ### TargetGroupARNs
 * TargetGroupARNs `array`
   * items [XmlStringMaxLen511](#xmlstringmaxlen511)
 
 ### TargetTrackingConfiguration
-* TargetTrackingConfiguration `object`: Represents a target tracking policy configuration.
-  * CustomizedMetricSpecification [CustomizedMetricSpecification](#customizedmetricspecification)
-  * DisableScaleIn [DisableScaleIn](#disablescalein)
-  * PredefinedMetricSpecification [PredefinedMetricSpecification](#predefinedmetricspecification)
-  * TargetValue **required** [MetricScale](#metricscale)
+* TargetTrackingConfiguration `object`: Represents a target tracking scaling policy configuration to use with Amazon EC2 Auto Scaling.
+  * CustomizedMetricSpecification
+    * Dimensions
+      * items [MetricDimension](#metricdimension)
+    * MetricName **required**
+    * Namespace **required**
+    * Statistic **required**
+    * Unit
+  * DisableScaleIn
+  * PredefinedMetricSpecification
+    * PredefinedMetricType **required**
+    * ResourceLabel
+  * TargetValue **required**
 
 ### TerminateInstanceInAutoScalingGroupType
 * TerminateInstanceInAutoScalingGroupType `object`
-  * InstanceId **required** [XmlStringMaxLen19](#xmlstringmaxlen19)
-  * ShouldDecrementDesiredCapacity **required** [ShouldDecrementDesiredCapacity](#shoulddecrementdesiredcapacity)
+  * InstanceId **required**
+  * ShouldDecrementDesiredCapacity **required**
 
 ### TerminationPolicies
 * TerminationPolicies `array`
@@ -2118,21 +3812,43 @@ amazonaws_autoscaling.UpdateAutoScalingGroup({
 
 ### UpdateAutoScalingGroupType
 * UpdateAutoScalingGroupType `object`
-  * AutoScalingGroupName **required** [ResourceName](#resourcename)
-  * AvailabilityZones [AvailabilityZones](#availabilityzones)
-  * DefaultCooldown [Cooldown](#cooldown)
-  * DesiredCapacity [AutoScalingGroupDesiredCapacity](#autoscalinggroupdesiredcapacity)
-  * HealthCheckGracePeriod [HealthCheckGracePeriod](#healthcheckgraceperiod)
-  * HealthCheckType [XmlStringMaxLen32](#xmlstringmaxlen32)
-  * LaunchConfigurationName [ResourceName](#resourcename)
-  * LaunchTemplate [LaunchTemplateSpecification](#launchtemplatespecification)
-  * MaxSize [AutoScalingGroupMaxSize](#autoscalinggroupmaxsize)
-  * MinSize [AutoScalingGroupMinSize](#autoscalinggroupminsize)
-  * NewInstancesProtectedFromScaleIn [InstanceProtected](#instanceprotected)
-  * PlacementGroup [XmlStringMaxLen255](#xmlstringmaxlen255)
-  * ServiceLinkedRoleARN [ResourceName](#resourcename)
-  * TerminationPolicies [TerminationPolicies](#terminationpolicies)
-  * VPCZoneIdentifier [XmlStringMaxLen2047](#xmlstringmaxlen2047)
+  * AutoScalingGroupName **required**
+  * AvailabilityZones
+    * items [XmlStringMaxLen255](#xmlstringmaxlen255)
+  * CapacityRebalance
+  * DefaultCooldown
+  * DesiredCapacity
+  * HealthCheckGracePeriod
+  * HealthCheckType
+  * LaunchConfigurationName
+  * LaunchTemplate
+    * LaunchTemplateId
+    * LaunchTemplateName
+    * Version
+  * MaxInstanceLifetime
+  * MaxSize
+  * MinSize
+  * MixedInstancesPolicy
+    * InstancesDistribution
+      * OnDemandAllocationStrategy
+      * OnDemandBaseCapacity
+      * OnDemandPercentageAboveBaseCapacity
+      * SpotAllocationStrategy
+      * SpotInstancePools
+      * SpotMaxPrice
+    * LaunchTemplate
+      * LaunchTemplateSpecification
+        * LaunchTemplateId
+        * LaunchTemplateName
+        * Version
+      * Overrides
+        * items [LaunchTemplateOverrides](#launchtemplateoverrides)
+  * NewInstancesProtectedFromScaleIn
+  * PlacementGroup
+  * ServiceLinkedRoleARN
+  * TerminationPolicies
+    * items [XmlStringMaxLen1600](#xmlstringmaxlen1600)
+  * VPCZoneIdentifier
 
 ### Values
 * Values `array`

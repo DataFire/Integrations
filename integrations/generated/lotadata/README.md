@@ -11,9 +11,7 @@ let lotadata = require('@datafire/lotadata').create({
   api_key: ""
 });
 
-lotadata.events.get({
-  "fieldset": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

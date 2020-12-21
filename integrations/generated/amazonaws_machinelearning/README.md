@@ -13,11 +13,7 @@ let amazonaws_machinelearning = require('@datafire/amazonaws_machinelearning').c
   region: ""
 });
 
-amazonaws_machinelearning.AddTags({
-  "Tags": [],
-  "ResourceId": "",
-  "ResourceType": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -34,17 +30,18 @@ Definition of the public APIs exposed by Amazon Machine Learning
 
 ```js
 amazonaws_machinelearning.AddTags({
-  "Tags": [],
-  "ResourceId": "",
-  "ResourceType": ""
+  "Tags": null,
+  "ResourceId": null,
+  "ResourceType": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ResourceId **required** [EntityId](#entityid)
-  * ResourceType **required** [TaggableResourceType](#taggableresourcetype)
-  * Tags **required** [TagList](#taglist)
+  * ResourceId **required**
+  * ResourceType **required**
+  * Tags **required**
+    * items [Tag](#tag)
 
 #### Output
 * output [AddTagsOutput](#addtagsoutput)
@@ -55,20 +52,20 @@ amazonaws_machinelearning.AddTags({
 
 ```js
 amazonaws_machinelearning.CreateBatchPrediction({
-  "BatchPredictionId": "",
-  "MLModelId": "",
-  "BatchPredictionDataSourceId": "",
-  "OutputUri": ""
+  "BatchPredictionId": null,
+  "MLModelId": null,
+  "BatchPredictionDataSourceId": null,
+  "OutputUri": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * BatchPredictionDataSourceId **required** [EntityId](#entityid)
-  * BatchPredictionId **required** [EntityId](#entityid)
-  * BatchPredictionName [EntityName](#entityname)
-  * MLModelId **required** [EntityId](#entityid)
-  * OutputUri **required** [S3Url](#s3url)
+  * BatchPredictionDataSourceId **required**
+  * BatchPredictionId **required**
+  * BatchPredictionName
+  * MLModelId **required**
+  * OutputUri **required**
 
 #### Output
 * output [CreateBatchPredictionOutput](#createbatchpredictionoutput)
@@ -79,34 +76,35 @@ amazonaws_machinelearning.CreateBatchPrediction({
 
 ```js
 amazonaws_machinelearning.CreateDataSourceFromRDS({
-  "DataSourceId": "",
-  "RDSData": {
-    "DatabaseInformation": {
-      "InstanceIdentifier": "",
-      "DatabaseName": ""
-    },
-    "SelectSqlQuery": "",
-    "DatabaseCredentials": {
-      "Username": "",
-      "Password": ""
-    },
-    "S3StagingLocation": "",
-    "ResourceRole": "",
-    "ServiceRole": "",
-    "SubnetId": "",
-    "SecurityGroupIds": []
-  },
-  "RoleARN": ""
+  "DataSourceId": null,
+  "RDSData": null,
+  "RoleARN": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ComputeStatistics [ComputeStatistics](#computestatistics)
-  * DataSourceId **required** [EntityId](#entityid)
-  * DataSourceName [EntityName](#entityname)
-  * RDSData **required** [RDSDataSpec](#rdsdataspec)
-  * RoleARN **required** [RoleARN](#rolearn)
+  * ComputeStatistics
+  * DataSourceId **required**
+  * DataSourceName
+  * RDSData **required**
+    * DataRearrangement
+    * DataSchema
+    * DataSchemaUri
+    * DatabaseCredentials **required**
+      * Password **required** [RDSDatabasePassword](#rdsdatabasepassword)
+      * Username **required** [RDSDatabaseUsername](#rdsdatabaseusername)
+    * DatabaseInformation **required**
+      * DatabaseName **required** [RDSDatabaseName](#rdsdatabasename)
+      * InstanceIdentifier **required**
+    * ResourceRole **required**
+    * S3StagingLocation **required**
+    * SecurityGroupIds **required**
+      * items [EDPSecurityGroupId](#edpsecuritygroupid)
+    * SelectSqlQuery **required**
+    * ServiceRole **required**
+    * SubnetId **required**
+  * RoleARN **required**
 
 #### Output
 * output [CreateDataSourceFromRDSOutput](#createdatasourcefromrdsoutput)
@@ -117,30 +115,30 @@ amazonaws_machinelearning.CreateDataSourceFromRDS({
 
 ```js
 amazonaws_machinelearning.CreateDataSourceFromRedshift({
-  "DataSourceId": "",
-  "DataSpec": {
-    "DatabaseInformation": {
-      "DatabaseName": "",
-      "ClusterIdentifier": ""
-    },
-    "SelectSqlQuery": "",
-    "DatabaseCredentials": {
-      "Username": "",
-      "Password": ""
-    },
-    "S3StagingLocation": ""
-  },
-  "RoleARN": ""
+  "DataSourceId": null,
+  "DataSpec": null,
+  "RoleARN": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ComputeStatistics [ComputeStatistics](#computestatistics)
-  * DataSourceId **required** [EntityId](#entityid)
-  * DataSourceName [EntityName](#entityname)
-  * DataSpec **required** [RedshiftDataSpec](#redshiftdataspec)
-  * RoleARN **required** [RoleARN](#rolearn)
+  * ComputeStatistics
+  * DataSourceId **required**
+  * DataSourceName
+  * DataSpec **required**
+    * DataRearrangement
+    * DataSchema
+    * DataSchemaUri
+    * DatabaseCredentials **required**
+      * Password **required** [RedshiftDatabasePassword](#redshiftdatabasepassword)
+      * Username **required** [RedshiftDatabaseUsername](#redshiftdatabaseusername)
+    * DatabaseInformation **required**
+      * ClusterIdentifier **required** [RedshiftClusterIdentifier](#redshiftclusteridentifier)
+      * DatabaseName **required** [RedshiftDatabaseName](#redshiftdatabasename)
+    * S3StagingLocation **required**
+    * SelectSqlQuery **required**
+  * RoleARN **required**
 
 #### Output
 * output [CreateDataSourceFromRedshiftOutput](#createdatasourcefromredshiftoutput)
@@ -151,19 +149,21 @@ amazonaws_machinelearning.CreateDataSourceFromRedshift({
 
 ```js
 amazonaws_machinelearning.CreateDataSourceFromS3({
-  "DataSourceId": "",
-  "DataSpec": {
-    "DataLocationS3": ""
-  }
+  "DataSourceId": null,
+  "DataSpec": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ComputeStatistics [ComputeStatistics](#computestatistics)
-  * DataSourceId **required** [EntityId](#entityid)
-  * DataSourceName [EntityName](#entityname)
-  * DataSpec **required** [S3DataSpec](#s3dataspec)
+  * ComputeStatistics
+  * DataSourceId **required**
+  * DataSourceName
+  * DataSpec **required**
+    * DataLocationS3 **required**
+    * DataRearrangement
+    * DataSchema
+    * DataSchemaLocationS3
 
 #### Output
 * output [CreateDataSourceFromS3Output](#createdatasourcefroms3output)
@@ -174,18 +174,18 @@ amazonaws_machinelearning.CreateDataSourceFromS3({
 
 ```js
 amazonaws_machinelearning.CreateEvaluation({
-  "EvaluationId": "",
-  "MLModelId": "",
-  "EvaluationDataSourceId": ""
+  "EvaluationId": null,
+  "MLModelId": null,
+  "EvaluationDataSourceId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * EvaluationDataSourceId **required** [EntityId](#entityid)
-  * EvaluationId **required** [EntityId](#entityid)
-  * EvaluationName [EntityName](#entityname)
-  * MLModelId **required** [EntityId](#entityid)
+  * EvaluationDataSourceId **required**
+  * EvaluationId **required**
+  * EvaluationName
+  * MLModelId **required**
 
 #### Output
 * output [CreateEvaluationOutput](#createevaluationoutput)
@@ -196,21 +196,21 @@ amazonaws_machinelearning.CreateEvaluation({
 
 ```js
 amazonaws_machinelearning.CreateMLModel({
-  "MLModelId": "",
-  "MLModelType": "",
-  "TrainingDataSourceId": ""
+  "MLModelId": null,
+  "MLModelType": null,
+  "TrainingDataSourceId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * MLModelId **required** [EntityId](#entityid)
-  * MLModelName [EntityName](#entityname)
-  * MLModelType **required** [MLModelType](#mlmodeltype)
-  * Parameters [TrainingParameters](#trainingparameters)
-  * Recipe [Recipe](#recipe)
-  * RecipeUri [S3Url](#s3url)
-  * TrainingDataSourceId **required** [EntityId](#entityid)
+  * MLModelId **required**
+  * MLModelName
+  * MLModelType **required**
+  * Parameters
+  * Recipe
+  * RecipeUri
+  * TrainingDataSourceId **required**
 
 #### Output
 * output [CreateMLModelOutput](#createmlmodeloutput)
@@ -221,13 +221,13 @@ amazonaws_machinelearning.CreateMLModel({
 
 ```js
 amazonaws_machinelearning.CreateRealtimeEndpoint({
-  "MLModelId": ""
+  "MLModelId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * MLModelId **required** [EntityId](#entityid)
+  * MLModelId **required**
 
 #### Output
 * output [CreateRealtimeEndpointOutput](#createrealtimeendpointoutput)
@@ -238,13 +238,13 @@ amazonaws_machinelearning.CreateRealtimeEndpoint({
 
 ```js
 amazonaws_machinelearning.DeleteBatchPrediction({
-  "BatchPredictionId": ""
+  "BatchPredictionId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * BatchPredictionId **required** [EntityId](#entityid)
+  * BatchPredictionId **required**
 
 #### Output
 * output [DeleteBatchPredictionOutput](#deletebatchpredictionoutput)
@@ -255,13 +255,13 @@ amazonaws_machinelearning.DeleteBatchPrediction({
 
 ```js
 amazonaws_machinelearning.DeleteDataSource({
-  "DataSourceId": ""
+  "DataSourceId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * DataSourceId **required** [EntityId](#entityid)
+  * DataSourceId **required**
 
 #### Output
 * output [DeleteDataSourceOutput](#deletedatasourceoutput)
@@ -272,13 +272,13 @@ amazonaws_machinelearning.DeleteDataSource({
 
 ```js
 amazonaws_machinelearning.DeleteEvaluation({
-  "EvaluationId": ""
+  "EvaluationId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * EvaluationId **required** [EntityId](#entityid)
+  * EvaluationId **required**
 
 #### Output
 * output [DeleteEvaluationOutput](#deleteevaluationoutput)
@@ -289,13 +289,13 @@ amazonaws_machinelearning.DeleteEvaluation({
 
 ```js
 amazonaws_machinelearning.DeleteMLModel({
-  "MLModelId": ""
+  "MLModelId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * MLModelId **required** [EntityId](#entityid)
+  * MLModelId **required**
 
 #### Output
 * output [DeleteMLModelOutput](#deletemlmodeloutput)
@@ -306,13 +306,13 @@ amazonaws_machinelearning.DeleteMLModel({
 
 ```js
 amazonaws_machinelearning.DeleteRealtimeEndpoint({
-  "MLModelId": ""
+  "MLModelId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * MLModelId **required** [EntityId](#entityid)
+  * MLModelId **required**
 
 #### Output
 * output [DeleteRealtimeEndpointOutput](#deleterealtimeendpointoutput)
@@ -323,17 +323,18 @@ amazonaws_machinelearning.DeleteRealtimeEndpoint({
 
 ```js
 amazonaws_machinelearning.DeleteTags({
-  "TagKeys": [],
-  "ResourceId": "",
-  "ResourceType": ""
+  "TagKeys": null,
+  "ResourceId": null,
+  "ResourceType": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ResourceId **required** [EntityId](#entityid)
-  * ResourceType **required** [TaggableResourceType](#taggableresourcetype)
-  * TagKeys **required** [TagKeyList](#tagkeylist)
+  * ResourceId **required**
+  * ResourceType **required**
+  * TagKeys **required**
+    * items [TagKey](#tagkey)
 
 #### Output
 * output [DeleteTagsOutput](#deletetagsoutput)
@@ -350,17 +351,17 @@ amazonaws_machinelearning.DescribeBatchPredictions({}, context)
 * input `object`
   * Limit `string`
   * NextToken `string`
-  * EQ [ComparatorValue](#comparatorvalue)
-  * FilterVariable [BatchPredictionFilterVariable](#batchpredictionfiltervariable)
-  * GE [ComparatorValue](#comparatorvalue)
-  * GT [ComparatorValue](#comparatorvalue)
-  * LE [ComparatorValue](#comparatorvalue)
-  * LT [ComparatorValue](#comparatorvalue)
-  * Limit [PageLimit](#pagelimit)
-  * NE [ComparatorValue](#comparatorvalue)
-  * NextToken [StringType](#stringtype)
-  * Prefix [ComparatorValue](#comparatorvalue)
-  * SortOrder [SortOrder](#sortorder)
+  * EQ
+  * FilterVariable
+  * GE
+  * GT
+  * LE
+  * LT
+  * Limit
+  * NE
+  * NextToken
+  * Prefix
+  * SortOrder
 
 #### Output
 * output [DescribeBatchPredictionsOutput](#describebatchpredictionsoutput)
@@ -377,17 +378,17 @@ amazonaws_machinelearning.DescribeDataSources({}, context)
 * input `object`
   * Limit `string`
   * NextToken `string`
-  * EQ [ComparatorValue](#comparatorvalue)
-  * FilterVariable [DataSourceFilterVariable](#datasourcefiltervariable)
-  * GE [ComparatorValue](#comparatorvalue)
-  * GT [ComparatorValue](#comparatorvalue)
-  * LE [ComparatorValue](#comparatorvalue)
-  * LT [ComparatorValue](#comparatorvalue)
-  * Limit [PageLimit](#pagelimit)
-  * NE [ComparatorValue](#comparatorvalue)
-  * NextToken [StringType](#stringtype)
-  * Prefix [ComparatorValue](#comparatorvalue)
-  * SortOrder [SortOrder](#sortorder)
+  * EQ
+  * FilterVariable
+  * GE
+  * GT
+  * LE
+  * LT
+  * Limit
+  * NE
+  * NextToken
+  * Prefix
+  * SortOrder
 
 #### Output
 * output [DescribeDataSourcesOutput](#describedatasourcesoutput)
@@ -404,17 +405,17 @@ amazonaws_machinelearning.DescribeEvaluations({}, context)
 * input `object`
   * Limit `string`
   * NextToken `string`
-  * EQ [ComparatorValue](#comparatorvalue)
-  * FilterVariable [EvaluationFilterVariable](#evaluationfiltervariable)
-  * GE [ComparatorValue](#comparatorvalue)
-  * GT [ComparatorValue](#comparatorvalue)
-  * LE [ComparatorValue](#comparatorvalue)
-  * LT [ComparatorValue](#comparatorvalue)
-  * Limit [PageLimit](#pagelimit)
-  * NE [ComparatorValue](#comparatorvalue)
-  * NextToken [StringType](#stringtype)
-  * Prefix [ComparatorValue](#comparatorvalue)
-  * SortOrder [SortOrder](#sortorder)
+  * EQ
+  * FilterVariable
+  * GE
+  * GT
+  * LE
+  * LT
+  * Limit
+  * NE
+  * NextToken
+  * Prefix
+  * SortOrder
 
 #### Output
 * output [DescribeEvaluationsOutput](#describeevaluationsoutput)
@@ -431,17 +432,17 @@ amazonaws_machinelearning.DescribeMLModels({}, context)
 * input `object`
   * Limit `string`
   * NextToken `string`
-  * EQ [ComparatorValue](#comparatorvalue)
-  * FilterVariable [MLModelFilterVariable](#mlmodelfiltervariable)
-  * GE [ComparatorValue](#comparatorvalue)
-  * GT [ComparatorValue](#comparatorvalue)
-  * LE [ComparatorValue](#comparatorvalue)
-  * LT [ComparatorValue](#comparatorvalue)
-  * Limit [PageLimit](#pagelimit)
-  * NE [ComparatorValue](#comparatorvalue)
-  * NextToken [StringType](#stringtype)
-  * Prefix [ComparatorValue](#comparatorvalue)
-  * SortOrder [SortOrder](#sortorder)
+  * EQ
+  * FilterVariable
+  * GE
+  * GT
+  * LE
+  * LT
+  * Limit
+  * NE
+  * NextToken
+  * Prefix
+  * SortOrder
 
 #### Output
 * output [DescribeMLModelsOutput](#describemlmodelsoutput)
@@ -452,15 +453,15 @@ amazonaws_machinelearning.DescribeMLModels({}, context)
 
 ```js
 amazonaws_machinelearning.DescribeTags({
-  "ResourceId": "",
-  "ResourceType": ""
+  "ResourceId": null,
+  "ResourceType": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ResourceId **required** [EntityId](#entityid)
-  * ResourceType **required** [TaggableResourceType](#taggableresourcetype)
+  * ResourceId **required**
+  * ResourceType **required**
 
 #### Output
 * output [DescribeTagsOutput](#describetagsoutput)
@@ -471,13 +472,13 @@ amazonaws_machinelearning.DescribeTags({
 
 ```js
 amazonaws_machinelearning.GetBatchPrediction({
-  "BatchPredictionId": ""
+  "BatchPredictionId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * BatchPredictionId **required** [EntityId](#entityid)
+  * BatchPredictionId **required**
 
 #### Output
 * output [GetBatchPredictionOutput](#getbatchpredictionoutput)
@@ -488,14 +489,14 @@ amazonaws_machinelearning.GetBatchPrediction({
 
 ```js
 amazonaws_machinelearning.GetDataSource({
-  "DataSourceId": ""
+  "DataSourceId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * DataSourceId **required** [EntityId](#entityid)
-  * Verbose [Verbose](#verbose)
+  * DataSourceId **required**
+  * Verbose
 
 #### Output
 * output [GetDataSourceOutput](#getdatasourceoutput)
@@ -506,13 +507,13 @@ amazonaws_machinelearning.GetDataSource({
 
 ```js
 amazonaws_machinelearning.GetEvaluation({
-  "EvaluationId": ""
+  "EvaluationId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * EvaluationId **required** [EntityId](#entityid)
+  * EvaluationId **required**
 
 #### Output
 * output [GetEvaluationOutput](#getevaluationoutput)
@@ -523,14 +524,14 @@ amazonaws_machinelearning.GetEvaluation({
 
 ```js
 amazonaws_machinelearning.GetMLModel({
-  "MLModelId": ""
+  "MLModelId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * MLModelId **required** [EntityId](#entityid)
-  * Verbose [Verbose](#verbose)
+  * MLModelId **required**
+  * Verbose
 
 #### Output
 * output [GetMLModelOutput](#getmlmodeloutput)
@@ -541,15 +542,15 @@ amazonaws_machinelearning.GetMLModel({
 
 ```js
 amazonaws_machinelearning.Predict({
-  "MLModelId": "",
-  "Record": [],
+  "MLModelId": null,
+  "Record": {},
   "PredictEndpoint": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * MLModelId **required** [EntityId](#entityid)
+  * MLModelId **required**
   * PredictEndpoint **required** [VipURL](#vipurl)
   * Record **required** [Record](#record)
 
@@ -562,15 +563,15 @@ amazonaws_machinelearning.Predict({
 
 ```js
 amazonaws_machinelearning.UpdateBatchPrediction({
-  "BatchPredictionId": "",
-  "BatchPredictionName": ""
+  "BatchPredictionId": null,
+  "BatchPredictionName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * BatchPredictionId **required** [EntityId](#entityid)
-  * BatchPredictionName **required** [EntityName](#entityname)
+  * BatchPredictionId **required**
+  * BatchPredictionName **required**
 
 #### Output
 * output [UpdateBatchPredictionOutput](#updatebatchpredictionoutput)
@@ -581,15 +582,15 @@ amazonaws_machinelearning.UpdateBatchPrediction({
 
 ```js
 amazonaws_machinelearning.UpdateDataSource({
-  "DataSourceId": "",
-  "DataSourceName": ""
+  "DataSourceId": null,
+  "DataSourceName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * DataSourceId **required** [EntityId](#entityid)
-  * DataSourceName **required** [EntityName](#entityname)
+  * DataSourceId **required**
+  * DataSourceName **required**
 
 #### Output
 * output [UpdateDataSourceOutput](#updatedatasourceoutput)
@@ -600,15 +601,15 @@ amazonaws_machinelearning.UpdateDataSource({
 
 ```js
 amazonaws_machinelearning.UpdateEvaluation({
-  "EvaluationId": "",
-  "EvaluationName": ""
+  "EvaluationId": null,
+  "EvaluationName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * EvaluationId **required** [EntityId](#entityid)
-  * EvaluationName **required** [EntityName](#entityname)
+  * EvaluationId **required**
+  * EvaluationName **required**
 
 #### Output
 * output [UpdateEvaluationOutput](#updateevaluationoutput)
@@ -619,15 +620,15 @@ amazonaws_machinelearning.UpdateEvaluation({
 
 ```js
 amazonaws_machinelearning.UpdateMLModel({
-  "MLModelId": ""
+  "MLModelId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * MLModelId **required** [EntityId](#entityid)
-  * MLModelName [EntityName](#entityname)
-  * ScoreThreshold [ScoreThreshold](#scorethreshold)
+  * MLModelId **required**
+  * MLModelName
+  * ScoreThreshold
 
 #### Output
 * output [UpdateMLModelOutput](#updatemlmodeloutput)
@@ -638,14 +639,15 @@ amazonaws_machinelearning.UpdateMLModel({
 
 ### AddTagsInput
 * AddTagsInput `object`
-  * ResourceId **required** [EntityId](#entityid)
-  * ResourceType **required** [TaggableResourceType](#taggableresourcetype)
-  * Tags **required** [TagList](#taglist)
+  * ResourceId **required**
+  * ResourceType **required**
+  * Tags **required**
+    * items [Tag](#tag)
 
 ### AddTagsOutput
 * AddTagsOutput `object`: Amazon ML returns the following elements. 
-  * ResourceId [EntityId](#entityid)
-  * ResourceType [TaggableResourceType](#taggableresourcetype)
+  * ResourceId
+  * ResourceType
 
 ### Algorithm
 * Algorithm `string` (values: sgd): <p>The function used to train an <code>MLModel</code>. Training choices supported by Amazon ML include the following:</p> <ul> <li> <code>SGD</code> - Stochastic Gradient Descent.</li> <li> <code>RandomForest</code> - Random forest of decision trees.</li> </ul>
@@ -655,21 +657,21 @@ amazonaws_machinelearning.UpdateMLModel({
 
 ### BatchPrediction
 * BatchPrediction `object`: <p> Represents the output of a <code>GetBatchPrediction</code> operation.</p> <p> The content consists of the detailed metadata, the status, and the data file information of a <code>Batch Prediction</code>.</p>
-  * BatchPredictionDataSourceId [EntityId](#entityid)
-  * BatchPredictionId [EntityId](#entityid)
+  * BatchPredictionDataSourceId
+  * BatchPredictionId
   * ComputeTime [LongType](#longtype)
-  * CreatedAt [EpochTime](#epochtime)
-  * CreatedByIamUser [AwsUserArn](#awsuserarn)
+  * CreatedAt
+  * CreatedByIamUser
   * FinishedAt [EpochTime](#epochtime)
-  * InputDataLocationS3 [S3Url](#s3url)
+  * InputDataLocationS3
   * InvalidRecordCount [LongType](#longtype)
-  * LastUpdatedAt [EpochTime](#epochtime)
-  * MLModelId [EntityId](#entityid)
-  * Message [Message](#message)
-  * Name [EntityName](#entityname)
-  * OutputUri [S3Url](#s3url)
+  * LastUpdatedAt
+  * MLModelId
+  * Message
+  * Name
+  * OutputUri
   * StartedAt [EpochTime](#epochtime)
-  * Status [EntityStatus](#entitystatus)
+  * Status
   * TotalRecordCount [LongType](#longtype)
 
 ### BatchPredictionFilterVariable
@@ -687,84 +689,119 @@ amazonaws_machinelearning.UpdateMLModel({
 
 ### CreateBatchPredictionInput
 * CreateBatchPredictionInput `object`
-  * BatchPredictionDataSourceId **required** [EntityId](#entityid)
-  * BatchPredictionId **required** [EntityId](#entityid)
-  * BatchPredictionName [EntityName](#entityname)
-  * MLModelId **required** [EntityId](#entityid)
-  * OutputUri **required** [S3Url](#s3url)
+  * BatchPredictionDataSourceId **required**
+  * BatchPredictionId **required**
+  * BatchPredictionName
+  * MLModelId **required**
+  * OutputUri **required**
 
 ### CreateBatchPredictionOutput
 * CreateBatchPredictionOutput `object`: <p> Represents the output of a <code>CreateBatchPrediction</code> operation, and is an acknowledgement that Amazon ML received the request.</p> <p>The <code>CreateBatchPrediction</code> operation is asynchronous. You can poll for status updates by using the <code>&gt;GetBatchPrediction</code> operation and checking the <code>Status</code> parameter of the result. </p>
-  * BatchPredictionId [EntityId](#entityid)
+  * BatchPredictionId
 
 ### CreateDataSourceFromRDSInput
 * CreateDataSourceFromRDSInput `object`
-  * ComputeStatistics [ComputeStatistics](#computestatistics)
-  * DataSourceId **required** [EntityId](#entityid)
-  * DataSourceName [EntityName](#entityname)
-  * RDSData **required** [RDSDataSpec](#rdsdataspec)
-  * RoleARN **required** [RoleARN](#rolearn)
+  * ComputeStatistics
+  * DataSourceId **required**
+  * DataSourceName
+  * RDSData **required**
+    * DataRearrangement
+    * DataSchema
+    * DataSchemaUri
+    * DatabaseCredentials **required**
+      * Password **required** [RDSDatabasePassword](#rdsdatabasepassword)
+      * Username **required** [RDSDatabaseUsername](#rdsdatabaseusername)
+    * DatabaseInformation **required**
+      * DatabaseName **required** [RDSDatabaseName](#rdsdatabasename)
+      * InstanceIdentifier **required**
+    * ResourceRole **required**
+    * S3StagingLocation **required**
+    * SecurityGroupIds **required**
+      * items [EDPSecurityGroupId](#edpsecuritygroupid)
+    * SelectSqlQuery **required**
+    * ServiceRole **required**
+    * SubnetId **required**
+  * RoleARN **required**
 
 ### CreateDataSourceFromRDSOutput
 * CreateDataSourceFromRDSOutput `object`: <p> Represents the output of a <code>CreateDataSourceFromRDS</code> operation, and is an acknowledgement that Amazon ML received the request.</p> <p>The <code>CreateDataSourceFromRDS</code>&gt; operation is asynchronous. You can poll for updates by using the <code>GetBatchPrediction</code> operation and checking the <code>Status</code> parameter. You can inspect the <code>Message</code> when <code>Status</code> shows up as <code>FAILED</code>. You can also check the progress of the copy operation by going to the <code>DataPipeline</code> console and looking up the pipeline using the <code>pipelineId </code> from the describe call.</p>
-  * DataSourceId [EntityId](#entityid)
+  * DataSourceId
 
 ### CreateDataSourceFromRedshiftInput
 * CreateDataSourceFromRedshiftInput `object`
-  * ComputeStatistics [ComputeStatistics](#computestatistics)
-  * DataSourceId **required** [EntityId](#entityid)
-  * DataSourceName [EntityName](#entityname)
-  * DataSpec **required** [RedshiftDataSpec](#redshiftdataspec)
-  * RoleARN **required** [RoleARN](#rolearn)
+  * ComputeStatistics
+  * DataSourceId **required**
+  * DataSourceName
+  * DataSpec **required**
+    * DataRearrangement
+    * DataSchema
+    * DataSchemaUri
+    * DatabaseCredentials **required**
+      * Password **required** [RedshiftDatabasePassword](#redshiftdatabasepassword)
+      * Username **required** [RedshiftDatabaseUsername](#redshiftdatabaseusername)
+    * DatabaseInformation **required**
+      * ClusterIdentifier **required** [RedshiftClusterIdentifier](#redshiftclusteridentifier)
+      * DatabaseName **required** [RedshiftDatabaseName](#redshiftdatabasename)
+    * S3StagingLocation **required**
+    * SelectSqlQuery **required**
+  * RoleARN **required**
 
 ### CreateDataSourceFromRedshiftOutput
 * CreateDataSourceFromRedshiftOutput `object`: <p> Represents the output of a <code>CreateDataSourceFromRedshift</code> operation, and is an acknowledgement that Amazon ML received the request.</p> <p>The <code>CreateDataSourceFromRedshift</code> operation is asynchronous. You can poll for updates by using the <code>GetBatchPrediction</code> operation and checking the <code>Status</code> parameter. </p>
-  * DataSourceId [EntityId](#entityid)
+  * DataSourceId
 
 ### CreateDataSourceFromS3Input
 * CreateDataSourceFromS3Input `object`
-  * ComputeStatistics [ComputeStatistics](#computestatistics)
-  * DataSourceId **required** [EntityId](#entityid)
-  * DataSourceName [EntityName](#entityname)
-  * DataSpec **required** [S3DataSpec](#s3dataspec)
+  * ComputeStatistics
+  * DataSourceId **required**
+  * DataSourceName
+  * DataSpec **required**
+    * DataLocationS3 **required**
+    * DataRearrangement
+    * DataSchema
+    * DataSchemaLocationS3
 
 ### CreateDataSourceFromS3Output
 * CreateDataSourceFromS3Output `object`: <p> Represents the output of a <code>CreateDataSourceFromS3</code> operation, and is an acknowledgement that Amazon ML received the request.</p> <p>The <code>CreateDataSourceFromS3</code> operation is asynchronous. You can poll for updates by using the <code>GetBatchPrediction</code> operation and checking the <code>Status</code> parameter. </p>
-  * DataSourceId [EntityId](#entityid)
+  * DataSourceId
 
 ### CreateEvaluationInput
 * CreateEvaluationInput `object`
-  * EvaluationDataSourceId **required** [EntityId](#entityid)
-  * EvaluationId **required** [EntityId](#entityid)
-  * EvaluationName [EntityName](#entityname)
-  * MLModelId **required** [EntityId](#entityid)
+  * EvaluationDataSourceId **required**
+  * EvaluationId **required**
+  * EvaluationName
+  * MLModelId **required**
 
 ### CreateEvaluationOutput
 * CreateEvaluationOutput `object`: <p> Represents the output of a <code>CreateEvaluation</code> operation, and is an acknowledgement that Amazon ML received the request.</p> <p><code>CreateEvaluation</code> operation is asynchronous. You can poll for status updates by using the <code>GetEvcaluation</code> operation and checking the <code>Status</code> parameter. </p>
-  * EvaluationId [EntityId](#entityid)
+  * EvaluationId
 
 ### CreateMLModelInput
 * CreateMLModelInput `object`
-  * MLModelId **required** [EntityId](#entityid)
-  * MLModelName [EntityName](#entityname)
-  * MLModelType **required** [MLModelType](#mlmodeltype)
-  * Parameters [TrainingParameters](#trainingparameters)
-  * Recipe [Recipe](#recipe)
-  * RecipeUri [S3Url](#s3url)
-  * TrainingDataSourceId **required** [EntityId](#entityid)
+  * MLModelId **required**
+  * MLModelName
+  * MLModelType **required**
+  * Parameters
+  * Recipe
+  * RecipeUri
+  * TrainingDataSourceId **required**
 
 ### CreateMLModelOutput
 * CreateMLModelOutput `object`: <p> Represents the output of a <code>CreateMLModel</code> operation, and is an acknowledgement that Amazon ML received the request.</p> <p>The <code>CreateMLModel</code> operation is asynchronous. You can poll for status updates by using the <code>GetMLModel</code> operation and checking the <code>Status</code> parameter. </p>
-  * MLModelId [EntityId](#entityid)
+  * MLModelId
 
 ### CreateRealtimeEndpointInput
 * CreateRealtimeEndpointInput `object`
-  * MLModelId **required** [EntityId](#entityid)
+  * MLModelId **required**
 
 ### CreateRealtimeEndpointOutput
 * CreateRealtimeEndpointOutput `object`: <p>Represents the output of an <code>CreateRealtimeEndpoint</code> operation.</p> <p>The result contains the <code>MLModelId</code> and the endpoint information for the <code>MLModel</code>.</p> <note> <p>The endpoint information includes the URI of the <code>MLModel</code>; that is, the location to send online prediction requests for the specified <code>MLModel</code>.</p> </note>
-  * MLModelId [EntityId](#entityid)
-  * RealtimeEndpointInfo [RealtimeEndpointInfo](#realtimeendpointinfo)
+  * MLModelId
+  * RealtimeEndpointInfo
+    * CreatedAt
+    * EndpointStatus
+    * EndpointUrl
+    * PeakRequestsPerSecond
 
 ### DataRearrangement
 * DataRearrangement `string`
@@ -774,24 +811,24 @@ amazonaws_machinelearning.UpdateMLModel({
 
 ### DataSource
 * DataSource `object`: <p> Represents the output of the <code>GetDataSource</code> operation. </p> <p> The content consists of the detailed metadata and data file information and the current status of the <code>DataSource</code>. </p>
-  * ComputeStatistics [ComputeStatistics](#computestatistics)
+  * ComputeStatistics
   * ComputeTime [LongType](#longtype)
-  * CreatedAt [EpochTime](#epochtime)
-  * CreatedByIamUser [AwsUserArn](#awsuserarn)
-  * DataLocationS3 [S3Url](#s3url)
-  * DataRearrangement [DataRearrangement](#datarearrangement)
-  * DataSizeInBytes [LongType](#longtype)
-  * DataSourceId [EntityId](#entityid)
+  * CreatedAt
+  * CreatedByIamUser
+  * DataLocationS3
+  * DataRearrangement
+  * DataSizeInBytes
+  * DataSourceId
   * FinishedAt [EpochTime](#epochtime)
-  * LastUpdatedAt [EpochTime](#epochtime)
-  * Message [Message](#message)
-  * Name [EntityName](#entityname)
-  * NumberOfFiles [LongType](#longtype)
+  * LastUpdatedAt
+  * Message
+  * Name
+  * NumberOfFiles
   * RDSMetadata [RDSMetadata](#rdsmetadata)
   * RedshiftMetadata [RedshiftMetadata](#redshiftmetadata)
   * RoleARN [RoleARN](#rolearn)
   * StartedAt [EpochTime](#epochtime)
-  * Status [EntityStatus](#entitystatus)
+  * Status
 
 ### DataSourceFilterVariable
 * DataSourceFilterVariable `string` (values: CreatedAt, LastUpdatedAt, Status, Name, DataLocationS3, IAMUser): <p>A list of the variables to use in searching or filtering <code>DataSource</code>.</p> <ul> <li> <code>CreatedAt</code> - Sets the search criteria to <code>DataSource</code> creation date.</li> <li> <code>Status</code> - Sets the search criteria to <code>DataSource</code> status.</li> <li> <code>Name</code> - Sets the search criteria to the contents of <code>DataSource</code> <b> </b> <code>Name</code>.</li> <li> <code>DataUri</code> - Sets the search criteria to the URI of data files used to create the <code>DataSource</code>. The URI can identify either a file or an Amazon Simple Storage Service (Amazon S3) bucket or directory.</li> <li> <code>IAMUser</code> - Sets the search criteria to the user account that invoked the <code>DataSource</code> creation.</li> </ul> <note><title>Note</title> <p>The variable names should match the variable names in the <code>DataSource</code>.</p> </note>
@@ -802,151 +839,158 @@ amazonaws_machinelearning.UpdateMLModel({
 
 ### DeleteBatchPredictionInput
 * DeleteBatchPredictionInput `object`
-  * BatchPredictionId **required** [EntityId](#entityid)
+  * BatchPredictionId **required**
 
 ### DeleteBatchPredictionOutput
 * DeleteBatchPredictionOutput `object`: <p> Represents the output of a <code>DeleteBatchPrediction</code> operation.</p> <p>You can use the <code>GetBatchPrediction</code> operation and check the value of the <code>Status</code> parameter to see whether a <code>BatchPrediction</code> is marked as <code>DELETED</code>.</p>
-  * BatchPredictionId [EntityId](#entityid)
+  * BatchPredictionId
 
 ### DeleteDataSourceInput
 * DeleteDataSourceInput `object`
-  * DataSourceId **required** [EntityId](#entityid)
+  * DataSourceId **required**
 
 ### DeleteDataSourceOutput
 * DeleteDataSourceOutput `object`:  Represents the output of a <code>DeleteDataSource</code> operation.
-  * DataSourceId [EntityId](#entityid)
+  * DataSourceId
 
 ### DeleteEvaluationInput
 * DeleteEvaluationInput `object`
-  * EvaluationId **required** [EntityId](#entityid)
+  * EvaluationId **required**
 
 ### DeleteEvaluationOutput
 * DeleteEvaluationOutput `object`: <p> Represents the output of a <code>DeleteEvaluation</code> operation. The output indicates that Amazon Machine Learning (Amazon ML) received the request.</p> <p>You can use the <code>GetEvaluation</code> operation and check the value of the <code>Status</code> parameter to see whether an <code>Evaluation</code> is marked as <code>DELETED</code>.</p>
-  * EvaluationId [EntityId](#entityid)
+  * EvaluationId
 
 ### DeleteMLModelInput
 * DeleteMLModelInput `object`
-  * MLModelId **required** [EntityId](#entityid)
+  * MLModelId **required**
 
 ### DeleteMLModelOutput
 * DeleteMLModelOutput `object`: <p>Represents the output of a <code>DeleteMLModel</code> operation.</p> <p>You can use the <code>GetMLModel</code> operation and check the value of the <code>Status</code> parameter to see whether an <code>MLModel</code> is marked as <code>DELETED</code>.</p>
-  * MLModelId [EntityId](#entityid)
+  * MLModelId
 
 ### DeleteRealtimeEndpointInput
 * DeleteRealtimeEndpointInput `object`
-  * MLModelId **required** [EntityId](#entityid)
+  * MLModelId **required**
 
 ### DeleteRealtimeEndpointOutput
 * DeleteRealtimeEndpointOutput `object`: <p>Represents the output of an <code>DeleteRealtimeEndpoint</code> operation.</p> <p>The result contains the <code>MLModelId</code> and the endpoint information for the <code>MLModel</code>. </p>
-  * MLModelId [EntityId](#entityid)
-  * RealtimeEndpointInfo [RealtimeEndpointInfo](#realtimeendpointinfo)
+  * MLModelId
+  * RealtimeEndpointInfo
+    * CreatedAt
+    * EndpointStatus
+    * EndpointUrl
+    * PeakRequestsPerSecond
 
 ### DeleteTagsInput
 * DeleteTagsInput `object`
-  * ResourceId **required** [EntityId](#entityid)
-  * ResourceType **required** [TaggableResourceType](#taggableresourcetype)
-  * TagKeys **required** [TagKeyList](#tagkeylist)
+  * ResourceId **required**
+  * ResourceType **required**
+  * TagKeys **required**
+    * items [TagKey](#tagkey)
 
 ### DeleteTagsOutput
 * DeleteTagsOutput `object`: Amazon ML returns the following elements. 
-  * ResourceId [EntityId](#entityid)
-  * ResourceType [TaggableResourceType](#taggableresourcetype)
+  * ResourceId
+  * ResourceType
 
 ### DescribeBatchPredictionsInput
 * DescribeBatchPredictionsInput `object`
-  * EQ [ComparatorValue](#comparatorvalue)
-  * FilterVariable [BatchPredictionFilterVariable](#batchpredictionfiltervariable)
-  * GE [ComparatorValue](#comparatorvalue)
-  * GT [ComparatorValue](#comparatorvalue)
-  * LE [ComparatorValue](#comparatorvalue)
-  * LT [ComparatorValue](#comparatorvalue)
-  * Limit [PageLimit](#pagelimit)
-  * NE [ComparatorValue](#comparatorvalue)
-  * NextToken [StringType](#stringtype)
-  * Prefix [ComparatorValue](#comparatorvalue)
-  * SortOrder [SortOrder](#sortorder)
+  * EQ
+  * FilterVariable
+  * GE
+  * GT
+  * LE
+  * LT
+  * Limit
+  * NE
+  * NextToken
+  * Prefix
+  * SortOrder
 
 ### DescribeBatchPredictionsOutput
 * DescribeBatchPredictionsOutput `object`: Represents the output of a <code>DescribeBatchPredictions</code> operation. The content is essentially a list of <code>BatchPrediction</code>s.
-  * NextToken [StringType](#stringtype)
-  * Results [BatchPredictions](#batchpredictions)
+  * NextToken
+  * Results
+    * items [BatchPrediction](#batchprediction)
 
 ### DescribeDataSourcesInput
 * DescribeDataSourcesInput `object`
-  * EQ [ComparatorValue](#comparatorvalue)
-  * FilterVariable [DataSourceFilterVariable](#datasourcefiltervariable)
-  * GE [ComparatorValue](#comparatorvalue)
-  * GT [ComparatorValue](#comparatorvalue)
-  * LE [ComparatorValue](#comparatorvalue)
-  * LT [ComparatorValue](#comparatorvalue)
-  * Limit [PageLimit](#pagelimit)
-  * NE [ComparatorValue](#comparatorvalue)
-  * NextToken [StringType](#stringtype)
-  * Prefix [ComparatorValue](#comparatorvalue)
-  * SortOrder [SortOrder](#sortorder)
+  * EQ
+  * FilterVariable
+  * GE
+  * GT
+  * LE
+  * LT
+  * Limit
+  * NE
+  * NextToken
+  * Prefix
+  * SortOrder
 
 ### DescribeDataSourcesOutput
 * DescribeDataSourcesOutput `object`: Represents the query results from a <a>DescribeDataSources</a> operation. The content is essentially a list of <code>DataSource</code>.
-  * NextToken [StringType](#stringtype)
-  * Results [DataSources](#datasources)
+  * NextToken
+  * Results
+    * items [DataSource](#datasource)
 
 ### DescribeEvaluationsInput
 * DescribeEvaluationsInput `object`
-  * EQ [ComparatorValue](#comparatorvalue)
-  * FilterVariable [EvaluationFilterVariable](#evaluationfiltervariable)
-  * GE [ComparatorValue](#comparatorvalue)
-  * GT [ComparatorValue](#comparatorvalue)
-  * LE [ComparatorValue](#comparatorvalue)
-  * LT [ComparatorValue](#comparatorvalue)
-  * Limit [PageLimit](#pagelimit)
-  * NE [ComparatorValue](#comparatorvalue)
-  * NextToken [StringType](#stringtype)
-  * Prefix [ComparatorValue](#comparatorvalue)
-  * SortOrder [SortOrder](#sortorder)
+  * EQ
+  * FilterVariable
+  * GE
+  * GT
+  * LE
+  * LT
+  * Limit
+  * NE
+  * NextToken
+  * Prefix
+  * SortOrder
 
 ### DescribeEvaluationsOutput
 * DescribeEvaluationsOutput `object`: Represents the query results from a <code>DescribeEvaluations</code> operation. The content is essentially a list of <code>Evaluation</code>.
-  * NextToken [StringType](#stringtype)
-  * Results [Evaluations](#evaluations)
+  * NextToken
+  * Results
+    * items [Evaluation](#evaluation)
 
 ### DescribeMLModelsInput
 * DescribeMLModelsInput `object`
-  * EQ [ComparatorValue](#comparatorvalue)
-  * FilterVariable [MLModelFilterVariable](#mlmodelfiltervariable)
-  * GE [ComparatorValue](#comparatorvalue)
-  * GT [ComparatorValue](#comparatorvalue)
-  * LE [ComparatorValue](#comparatorvalue)
-  * LT [ComparatorValue](#comparatorvalue)
-  * Limit [PageLimit](#pagelimit)
-  * NE [ComparatorValue](#comparatorvalue)
-  * NextToken [StringType](#stringtype)
-  * Prefix [ComparatorValue](#comparatorvalue)
-  * SortOrder [SortOrder](#sortorder)
+  * EQ
+  * FilterVariable
+  * GE
+  * GT
+  * LE
+  * LT
+  * Limit
+  * NE
+  * NextToken
+  * Prefix
+  * SortOrder
 
 ### DescribeMLModelsOutput
 * DescribeMLModelsOutput `object`: Represents the output of a <code>DescribeMLModels</code> operation. The content is essentially a list of <code>MLModel</code>.
-  * NextToken [StringType](#stringtype)
-  * Results [MLModels](#mlmodels)
+  * NextToken
+  * Results
+    * items [MLModel](#mlmodel)
 
 ### DescribeTagsInput
 * DescribeTagsInput `object`
-  * ResourceId **required** [EntityId](#entityid)
-  * ResourceType **required** [TaggableResourceType](#taggableresourcetype)
+  * ResourceId **required**
+  * ResourceType **required**
 
 ### DescribeTagsOutput
 * DescribeTagsOutput `object`: Amazon ML returns the following elements. 
-  * ResourceId [EntityId](#entityid)
-  * ResourceType [TaggableResourceType](#taggableresourcetype)
-  * Tags [TagList](#taglist)
+  * ResourceId
+  * ResourceType
+  * Tags
+    * items [Tag](#tag)
 
 ### DetailsAttributes
 * DetailsAttributes `string` (values: PredictiveModelType, Algorithm): Contains the key values of <code>DetailsMap</code>: <code>PredictiveModelType</code> - Indicates the type of the <code>MLModel</code>. <code>Algorithm</code> - Indicates the algorithm that was used for the <code>MLModel</code>.
 
 ### DetailsMap
-* DetailsMap `array`: Provides any additional details regarding the prediction.
-  * items `object`
-    * key [DetailsAttributes](#detailsattributes)
-    * value [DetailsValue](#detailsvalue)
+* DetailsMap `object`: Provides any additional details regarding the prediction.
 
 ### DetailsValue
 * DetailsValue `string`
@@ -991,19 +1035,20 @@ amazonaws_machinelearning.UpdateMLModel({
 ### Evaluation
 * Evaluation `object`: <p> Represents the output of <code>GetEvaluation</code> operation. </p> <p>The content consists of the detailed metadata and data file information and the current status of the <code>Evaluation</code>.</p>
   * ComputeTime [LongType](#longtype)
-  * CreatedAt [EpochTime](#epochtime)
-  * CreatedByIamUser [AwsUserArn](#awsuserarn)
-  * EvaluationDataSourceId [EntityId](#entityid)
-  * EvaluationId [EntityId](#entityid)
+  * CreatedAt
+  * CreatedByIamUser
+  * EvaluationDataSourceId
+  * EvaluationId
   * FinishedAt [EpochTime](#epochtime)
-  * InputDataLocationS3 [S3Url](#s3url)
-  * LastUpdatedAt [EpochTime](#epochtime)
-  * MLModelId [EntityId](#entityid)
-  * Message [Message](#message)
-  * Name [EntityName](#entityname)
-  * PerformanceMetrics [PerformanceMetrics](#performancemetrics)
+  * InputDataLocationS3
+  * LastUpdatedAt
+  * MLModelId
+  * Message
+  * Name
+  * PerformanceMetrics
+    * Properties [PerformanceMetricsProperties](#performancemetricsproperties)
   * StartedAt [EpochTime](#epochtime)
-  * Status [EntityStatus](#entitystatus)
+  * Status
 
 ### EvaluationFilterVariable
 * EvaluationFilterVariable `string` (values: CreatedAt, LastUpdatedAt, Status, Name, IAMUser, MLModelId, DataSourceId, DataURI): <p>A list of the variables to use in searching or filtering <code>Evaluation</code>.</p> <ul> <li> <code>CreatedAt</code> - Sets the search criteria to <code>Evaluation</code> creation date.</li> <li> <code>Status</code> - Sets the search criteria to <code>Evaluation</code> status.</li> <li> <code>Name</code> - Sets the search criteria to the contents of <code>Evaluation</code> <b> </b> <code>Name</code>.</li> <li> <code>IAMUser</code> - Sets the search criteria to the user account that invoked an evaluation.</li> <li> <code>MLModelId</code> - Sets the search criteria to the <code>Predictor</code> that was evaluated.</li> <li> <code>DataSourceId</code> - Sets the search criteria to the <code>DataSource</code> used in evaluation.</li> <li> <code>DataUri</code> - Sets the search criteria to the data file(s) used in evaluation. The URL can identify either a file or an Amazon Simple Storage Service (Amazon S3) bucket or directory.</li> </ul>
@@ -1014,106 +1059,111 @@ amazonaws_machinelearning.UpdateMLModel({
 
 ### GetBatchPredictionInput
 * GetBatchPredictionInput `object`
-  * BatchPredictionId **required** [EntityId](#entityid)
+  * BatchPredictionId **required**
 
 ### GetBatchPredictionOutput
 * GetBatchPredictionOutput `object`: Represents the output of a <code>GetBatchPrediction</code> operation and describes a <code>BatchPrediction</code>.
-  * BatchPredictionDataSourceId [EntityId](#entityid)
-  * BatchPredictionId [EntityId](#entityid)
-  * ComputeTime [LongType](#longtype)
-  * CreatedAt [EpochTime](#epochtime)
-  * CreatedByIamUser [AwsUserArn](#awsuserarn)
-  * FinishedAt [EpochTime](#epochtime)
-  * InputDataLocationS3 [S3Url](#s3url)
-  * InvalidRecordCount [LongType](#longtype)
-  * LastUpdatedAt [EpochTime](#epochtime)
-  * LogUri [PresignedS3Url](#presigneds3url)
-  * MLModelId [EntityId](#entityid)
-  * Message [Message](#message)
-  * Name [EntityName](#entityname)
-  * OutputUri [S3Url](#s3url)
-  * StartedAt [EpochTime](#epochtime)
-  * Status [EntityStatus](#entitystatus)
-  * TotalRecordCount [LongType](#longtype)
+  * BatchPredictionDataSourceId
+  * BatchPredictionId
+  * ComputeTime
+  * CreatedAt
+  * CreatedByIamUser
+  * FinishedAt
+  * InputDataLocationS3
+  * InvalidRecordCount
+  * LastUpdatedAt
+  * LogUri
+  * MLModelId
+  * Message
+  * Name
+  * OutputUri
+  * StartedAt
+  * Status
+  * TotalRecordCount
 
 ### GetDataSourceInput
 * GetDataSourceInput `object`
-  * DataSourceId **required** [EntityId](#entityid)
-  * Verbose [Verbose](#verbose)
+  * DataSourceId **required**
+  * Verbose
 
 ### GetDataSourceOutput
 * GetDataSourceOutput `object`: Represents the output of a <code>GetDataSource</code> operation and describes a <code>DataSource</code>.
-  * ComputeStatistics [ComputeStatistics](#computestatistics)
-  * ComputeTime [LongType](#longtype)
-  * CreatedAt [EpochTime](#epochtime)
-  * CreatedByIamUser [AwsUserArn](#awsuserarn)
-  * DataLocationS3 [S3Url](#s3url)
-  * DataRearrangement [DataRearrangement](#datarearrangement)
-  * DataSizeInBytes [LongType](#longtype)
-  * DataSourceId [EntityId](#entityid)
-  * DataSourceSchema [DataSchema](#dataschema)
-  * FinishedAt [EpochTime](#epochtime)
-  * LastUpdatedAt [EpochTime](#epochtime)
-  * LogUri [PresignedS3Url](#presigneds3url)
-  * Message [Message](#message)
-  * Name [EntityName](#entityname)
-  * NumberOfFiles [LongType](#longtype)
+  * ComputeStatistics
+  * ComputeTime
+  * CreatedAt
+  * CreatedByIamUser
+  * DataLocationS3
+  * DataRearrangement
+  * DataSizeInBytes
+  * DataSourceId
+  * DataSourceSchema
+  * FinishedAt
+  * LastUpdatedAt
+  * LogUri
+  * Message
+  * Name
+  * NumberOfFiles
   * RDSMetadata [RDSMetadata](#rdsmetadata)
   * RedshiftMetadata [RedshiftMetadata](#redshiftmetadata)
   * RoleARN [RoleARN](#rolearn)
-  * StartedAt [EpochTime](#epochtime)
-  * Status [EntityStatus](#entitystatus)
+  * StartedAt
+  * Status
 
 ### GetEvaluationInput
 * GetEvaluationInput `object`
-  * EvaluationId **required** [EntityId](#entityid)
+  * EvaluationId **required**
 
 ### GetEvaluationOutput
 * GetEvaluationOutput `object`: Represents the output of a <code>GetEvaluation</code> operation and describes an <code>Evaluation</code>.
-  * ComputeTime [LongType](#longtype)
-  * CreatedAt [EpochTime](#epochtime)
-  * CreatedByIamUser [AwsUserArn](#awsuserarn)
-  * EvaluationDataSourceId [EntityId](#entityid)
-  * EvaluationId [EntityId](#entityid)
-  * FinishedAt [EpochTime](#epochtime)
-  * InputDataLocationS3 [S3Url](#s3url)
-  * LastUpdatedAt [EpochTime](#epochtime)
-  * LogUri [PresignedS3Url](#presigneds3url)
-  * MLModelId [EntityId](#entityid)
-  * Message [Message](#message)
-  * Name [EntityName](#entityname)
-  * PerformanceMetrics [PerformanceMetrics](#performancemetrics)
-  * StartedAt [EpochTime](#epochtime)
-  * Status [EntityStatus](#entitystatus)
+  * ComputeTime
+  * CreatedAt
+  * CreatedByIamUser
+  * EvaluationDataSourceId
+  * EvaluationId
+  * FinishedAt
+  * InputDataLocationS3
+  * LastUpdatedAt
+  * LogUri
+  * MLModelId
+  * Message
+  * Name
+  * PerformanceMetrics
+    * Properties [PerformanceMetricsProperties](#performancemetricsproperties)
+  * StartedAt
+  * Status
 
 ### GetMLModelInput
 * GetMLModelInput `object`
-  * MLModelId **required** [EntityId](#entityid)
-  * Verbose [Verbose](#verbose)
+  * MLModelId **required**
+  * Verbose
 
 ### GetMLModelOutput
 * GetMLModelOutput `object`: Represents the output of a <code>GetMLModel</code> operation, and provides detailed information about a <code>MLModel</code>.
-  * ComputeTime [LongType](#longtype)
-  * CreatedAt [EpochTime](#epochtime)
-  * CreatedByIamUser [AwsUserArn](#awsuserarn)
-  * EndpointInfo [RealtimeEndpointInfo](#realtimeendpointinfo)
-  * FinishedAt [EpochTime](#epochtime)
-  * InputDataLocationS3 [S3Url](#s3url)
-  * LastUpdatedAt [EpochTime](#epochtime)
-  * LogUri [PresignedS3Url](#presigneds3url)
-  * MLModelId [EntityId](#entityid)
-  * MLModelType [MLModelType](#mlmodeltype)
-  * Message [Message](#message)
-  * Name [MLModelName](#mlmodelname)
-  * Recipe [Recipe](#recipe)
-  * Schema [DataSchema](#dataschema)
-  * ScoreThreshold [ScoreThreshold](#scorethreshold)
-  * ScoreThresholdLastUpdatedAt [EpochTime](#epochtime)
+  * ComputeTime
+  * CreatedAt
+  * CreatedByIamUser
+  * EndpointInfo
+    * CreatedAt
+    * EndpointStatus
+    * EndpointUrl
+    * PeakRequestsPerSecond
+  * FinishedAt
+  * InputDataLocationS3
+  * LastUpdatedAt
+  * LogUri
+  * MLModelId
+  * MLModelType
+  * Message
+  * Name
+  * Recipe
+  * Schema
+  * ScoreThreshold
+  * ScoreThresholdLastUpdatedAt
   * SizeInBytes [LongType](#longtype)
-  * StartedAt [EpochTime](#epochtime)
-  * Status [EntityStatus](#entitystatus)
-  * TrainingDataSourceId [EntityId](#entityid)
-  * TrainingParameters [TrainingParameters](#trainingparameters)
+  * StartedAt
+  * Status
+  * TrainingDataSourceId
+  * TrainingParameters
 
 ### IdempotentParameterMismatchException
 * IdempotentParameterMismatchException `object`: A second request to use or change an object was not allowed. This can result from retrying a request using a parameter that was not present in the original request.
@@ -1150,25 +1200,29 @@ amazonaws_machinelearning.UpdateMLModel({
 
 ### MLModel
 * MLModel `object`: <p> Represents the output of a <code>GetMLModel</code> operation. </p> <p>The content consists of the detailed metadata and the current status of the <code>MLModel</code>.</p>
-  * Algorithm [Algorithm](#algorithm)
+  * Algorithm
   * ComputeTime [LongType](#longtype)
-  * CreatedAt [EpochTime](#epochtime)
-  * CreatedByIamUser [AwsUserArn](#awsuserarn)
-  * EndpointInfo [RealtimeEndpointInfo](#realtimeendpointinfo)
+  * CreatedAt
+  * CreatedByIamUser
+  * EndpointInfo
+    * CreatedAt
+    * EndpointStatus
+    * EndpointUrl
+    * PeakRequestsPerSecond
   * FinishedAt [EpochTime](#epochtime)
-  * InputDataLocationS3 [S3Url](#s3url)
-  * LastUpdatedAt [EpochTime](#epochtime)
-  * MLModelId [EntityId](#entityid)
-  * MLModelType [MLModelType](#mlmodeltype)
-  * Message [Message](#message)
-  * Name [MLModelName](#mlmodelname)
+  * InputDataLocationS3
+  * LastUpdatedAt
+  * MLModelId
+  * MLModelType
+  * Message
+  * Name
   * ScoreThreshold [ScoreThreshold](#scorethreshold)
-  * ScoreThresholdLastUpdatedAt [EpochTime](#epochtime)
+  * ScoreThresholdLastUpdatedAt
   * SizeInBytes [LongType](#longtype)
   * StartedAt [EpochTime](#epochtime)
-  * Status [EntityStatus](#entitystatus)
-  * TrainingDataSourceId [EntityId](#entityid)
-  * TrainingParameters [TrainingParameters](#trainingparameters)
+  * Status
+  * TrainingDataSourceId
+  * TrainingParameters
 
 ### MLModelFilterVariable
 * MLModelFilterVariable `string` (values: CreatedAt, LastUpdatedAt, Status, Name, IAMUser, TrainingDataSourceId, RealtimeEndpointStatus, MLModelType, Algorithm, TrainingDataURI)
@@ -1194,10 +1248,7 @@ amazonaws_machinelearning.UpdateMLModel({
   * Properties [PerformanceMetricsProperties](#performancemetricsproperties)
 
 ### PerformanceMetricsProperties
-* PerformanceMetricsProperties `array`
-  * items `object`
-    * key [PerformanceMetricsPropertyKey](#performancemetricspropertykey)
-    * value [PerformanceMetricsPropertyValue](#performancemetricspropertyvalue)
+* PerformanceMetricsProperties `object`
 
 ### PerformanceMetricsPropertyKey
 * PerformanceMetricsPropertyKey `string`
@@ -1207,7 +1258,7 @@ amazonaws_machinelearning.UpdateMLModel({
 
 ### PredictInput
 * PredictInput `object`
-  * MLModelId **required** [EntityId](#entityid)
+  * MLModelId **required**
   * PredictEndpoint **required** [VipURL](#vipurl)
   * Record **required** [Record](#record)
 
@@ -1218,9 +1269,9 @@ amazonaws_machinelearning.UpdateMLModel({
 ### Prediction
 * Prediction `object`: <p>The output from a <code>Predict</code> operation: </p> <ul> <li> <p> <code>Details</code> - Contains the following attributes: <code>DetailsAttributes.PREDICTIVE_MODEL_TYPE - REGRESSION | BINARY | MULTICLASS</code> <code>DetailsAttributes.ALGORITHM - SGD</code> </p> </li> <li> <p> <code>PredictedLabel</code> - Present for either a <code>BINARY</code> or <code>MULTICLASS</code> <code>MLModel</code> request. </p> </li> <li> <p> <code>PredictedScores</code> - Contains the raw classification score corresponding to each label. </p> </li> <li> <p> <code>PredictedValue</code> - Present for a <code>REGRESSION</code> <code>MLModel</code> request. </p> </li> </ul>
   * details [DetailsMap](#detailsmap)
-  * predictedLabel [Label](#label)
+  * predictedLabel
   * predictedScores [ScoreValuePerLabelMap](#scorevalueperlabelmap)
-  * predictedValue [floatLabel](#floatlabel)
+  * predictedValue
 
 ### PredictorNotMountedException
 * PredictorNotMountedException `object`: The exception is thrown when a predict request is made to an unmounted <code>MLModel</code>.
@@ -1231,22 +1282,27 @@ amazonaws_machinelearning.UpdateMLModel({
 
 ### RDSDataSpec
 * RDSDataSpec `object`: The data specification of an Amazon Relational Database Service (Amazon RDS) <code>DataSource</code>.
-  * DataRearrangement [DataRearrangement](#datarearrangement)
-  * DataSchema [DataSchema](#dataschema)
-  * DataSchemaUri [S3Url](#s3url)
-  * DatabaseCredentials **required** [RDSDatabaseCredentials](#rdsdatabasecredentials)
-  * DatabaseInformation **required** [RDSDatabase](#rdsdatabase)
-  * ResourceRole **required** [EDPResourceRole](#edpresourcerole)
-  * S3StagingLocation **required** [S3Url](#s3url)
-  * SecurityGroupIds **required** [EDPSecurityGroupIds](#edpsecuritygroupids)
-  * SelectSqlQuery **required** [RDSSelectSqlQuery](#rdsselectsqlquery)
-  * ServiceRole **required** [EDPServiceRole](#edpservicerole)
-  * SubnetId **required** [EDPSubnetId](#edpsubnetid)
+  * DataRearrangement
+  * DataSchema
+  * DataSchemaUri
+  * DatabaseCredentials **required**
+    * Password **required** [RDSDatabasePassword](#rdsdatabasepassword)
+    * Username **required** [RDSDatabaseUsername](#rdsdatabaseusername)
+  * DatabaseInformation **required**
+    * DatabaseName **required** [RDSDatabaseName](#rdsdatabasename)
+    * InstanceIdentifier **required**
+  * ResourceRole **required**
+  * S3StagingLocation **required**
+  * SecurityGroupIds **required**
+    * items [EDPSecurityGroupId](#edpsecuritygroupid)
+  * SelectSqlQuery **required**
+  * ServiceRole **required**
+  * SubnetId **required**
 
 ### RDSDatabase
 * RDSDatabase `object`: The database details of an Amazon RDS database.
   * DatabaseName **required** [RDSDatabaseName](#rdsdatabasename)
-  * InstanceIdentifier **required** [RDSInstanceIdentifier](#rdsinstanceidentifier)
+  * InstanceIdentifier **required**
 
 ### RDSDatabaseCredentials
 * RDSDatabaseCredentials `object`: The database credentials to connect to a database on an RDS DB instance.
@@ -1267,22 +1323,24 @@ amazonaws_machinelearning.UpdateMLModel({
 
 ### RDSMetadata
 * RDSMetadata `object`: The datasource details that are specific to Amazon RDS.
-  * DataPipelineId [EDPPipelineId](#edppipelineid)
-  * Database [RDSDatabase](#rdsdatabase)
+  * DataPipelineId
+  * Database
+    * DatabaseName **required** [RDSDatabaseName](#rdsdatabasename)
+    * InstanceIdentifier **required**
   * DatabaseUserName [RDSDatabaseUsername](#rdsdatabaseusername)
-  * ResourceRole [EDPResourceRole](#edpresourcerole)
-  * SelectSqlQuery [RDSSelectSqlQuery](#rdsselectsqlquery)
-  * ServiceRole [EDPServiceRole](#edpservicerole)
+  * ResourceRole
+  * SelectSqlQuery
+  * ServiceRole
 
 ### RDSSelectSqlQuery
 * RDSSelectSqlQuery `string`: The SQL query to be executed against the Amazon RDS database. The SQL query should be valid for the Amazon RDS type being used. 
 
 ### RealtimeEndpointInfo
 * RealtimeEndpointInfo `object`:  Describes the real-time endpoint information for an <code>MLModel</code>.
-  * CreatedAt [EpochTime](#epochtime)
-  * EndpointStatus [RealtimeEndpointStatus](#realtimeendpointstatus)
-  * EndpointUrl [VipURL](#vipurl)
-  * PeakRequestsPerSecond [IntegerType](#integertype)
+  * CreatedAt
+  * EndpointStatus
+  * EndpointUrl
+  * PeakRequestsPerSecond
 
 ### RealtimeEndpointStatus
 * RealtimeEndpointStatus `string` (values: NONE, READY, UPDATING, FAILED)
@@ -1291,23 +1349,24 @@ amazonaws_machinelearning.UpdateMLModel({
 * Recipe `string`
 
 ### Record
-* Record `array`: A map of variable name-value pairs that represent an observation.
-  * items `object`
-    * key [VariableName](#variablename)
-    * value [VariableValue](#variablevalue)
+* Record `object`: A map of variable name-value pairs that represent an observation.
 
 ### RedshiftClusterIdentifier
 * RedshiftClusterIdentifier `string`: The ID of an Amazon Redshift cluster.
 
 ### RedshiftDataSpec
 * RedshiftDataSpec `object`: Describes the data specification of an Amazon Redshift <code>DataSource</code>.
-  * DataRearrangement [DataRearrangement](#datarearrangement)
-  * DataSchema [DataSchema](#dataschema)
-  * DataSchemaUri [S3Url](#s3url)
-  * DatabaseCredentials **required** [RedshiftDatabaseCredentials](#redshiftdatabasecredentials)
-  * DatabaseInformation **required** [RedshiftDatabase](#redshiftdatabase)
-  * S3StagingLocation **required** [S3Url](#s3url)
-  * SelectSqlQuery **required** [RedshiftSelectSqlQuery](#redshiftselectsqlquery)
+  * DataRearrangement
+  * DataSchema
+  * DataSchemaUri
+  * DatabaseCredentials **required**
+    * Password **required** [RedshiftDatabasePassword](#redshiftdatabasepassword)
+    * Username **required** [RedshiftDatabaseUsername](#redshiftdatabaseusername)
+  * DatabaseInformation **required**
+    * ClusterIdentifier **required** [RedshiftClusterIdentifier](#redshiftclusteridentifier)
+    * DatabaseName **required** [RedshiftDatabaseName](#redshiftdatabasename)
+  * S3StagingLocation **required**
+  * SelectSqlQuery **required**
 
 ### RedshiftDatabase
 * RedshiftDatabase `object`: Describes the database details required to connect to an Amazon Redshift database.
@@ -1332,7 +1391,7 @@ amazonaws_machinelearning.UpdateMLModel({
 * RedshiftMetadata `object`: Describes the <code>DataSource</code> details specific to Amazon Redshift.
   * DatabaseUserName [RedshiftDatabaseUsername](#redshiftdatabaseusername)
   * RedshiftDatabase [RedshiftDatabase](#redshiftdatabase)
-  * SelectSqlQuery [RedshiftSelectSqlQuery](#redshiftselectsqlquery)
+  * SelectSqlQuery
 
 ### RedshiftSelectSqlQuery
 * RedshiftSelectSqlQuery `string`:  Describes the SQL query to execute on the Amazon Redshift database. The SQL query should be valid for an Amazon Redshift <a href="http://docs.aws.amazon.com/redshift/latest/dg/r_SELECT_synopsis.html">SELECT</a>. 
@@ -1347,10 +1406,10 @@ amazonaws_machinelearning.UpdateMLModel({
 
 ### S3DataSpec
 * S3DataSpec `object`:  Describes the data specification of a <code>DataSource</code>.
-  * DataLocationS3 **required** [S3Url](#s3url)
-  * DataRearrangement [DataRearrangement](#datarearrangement)
-  * DataSchema [DataSchema](#dataschema)
-  * DataSchemaLocationS3 [S3Url](#s3url)
+  * DataLocationS3 **required**
+  * DataRearrangement
+  * DataSchema
+  * DataSchemaLocationS3
 
 ### S3Url
 * S3Url `string`: A reference to a file or bucket on Amazon Simple Storage Service (Amazon S3).
@@ -1362,10 +1421,7 @@ amazonaws_machinelearning.UpdateMLModel({
 * ScoreValue `number`
 
 ### ScoreValuePerLabelMap
-* ScoreValuePerLabelMap `array`: Provides the raw classification score corresponding to each label.
-  * items `object`
-    * key [Label](#label)
-    * value [ScoreValue](#scorevalue)
+* ScoreValuePerLabelMap `object`: Provides the raw classification score corresponding to each label.
 
 ### SortOrder
 * SortOrder `string` (values: asc, dsc): <p>The sort order specified in a listing condition. Possible values include the following:</p> <ul> <li> <code>asc</code> - Present the information in ascending order (from A-Z).</li> <li> <code>dsc</code> - Present the information in descending order (from Z-A).</li> </ul>
@@ -1375,8 +1431,8 @@ amazonaws_machinelearning.UpdateMLModel({
 
 ### Tag
 * Tag `object`: A custom key-value pair associated with an ML object, such as an ML model.
-  * Key [TagKey](#tagkey)
-  * Value [TagValue](#tagvalue)
+  * Key
+  * Value
 
 ### TagKey
 * TagKey `string`
@@ -1400,47 +1456,44 @@ amazonaws_machinelearning.UpdateMLModel({
 * TaggableResourceType `string` (values: BatchPrediction, DataSource, Evaluation, MLModel)
 
 ### TrainingParameters
-* TrainingParameters `array`
-  * items `object`
-    * key [StringType](#stringtype)
-    * value [StringType](#stringtype)
+* TrainingParameters `object`
 
 ### UpdateBatchPredictionInput
 * UpdateBatchPredictionInput `object`
-  * BatchPredictionId **required** [EntityId](#entityid)
-  * BatchPredictionName **required** [EntityName](#entityname)
+  * BatchPredictionId **required**
+  * BatchPredictionName **required**
 
 ### UpdateBatchPredictionOutput
 * UpdateBatchPredictionOutput `object`: <p>Represents the output of an <code>UpdateBatchPrediction</code> operation.</p> <p>You can see the updated content by using the <code>GetBatchPrediction</code> operation.</p>
-  * BatchPredictionId [EntityId](#entityid)
+  * BatchPredictionId
 
 ### UpdateDataSourceInput
 * UpdateDataSourceInput `object`
-  * DataSourceId **required** [EntityId](#entityid)
-  * DataSourceName **required** [EntityName](#entityname)
+  * DataSourceId **required**
+  * DataSourceName **required**
 
 ### UpdateDataSourceOutput
 * UpdateDataSourceOutput `object`: <p>Represents the output of an <code>UpdateDataSource</code> operation.</p> <p>You can see the updated content by using the <code>GetBatchPrediction</code> operation.</p>
-  * DataSourceId [EntityId](#entityid)
+  * DataSourceId
 
 ### UpdateEvaluationInput
 * UpdateEvaluationInput `object`
-  * EvaluationId **required** [EntityId](#entityid)
-  * EvaluationName **required** [EntityName](#entityname)
+  * EvaluationId **required**
+  * EvaluationName **required**
 
 ### UpdateEvaluationOutput
 * UpdateEvaluationOutput `object`: <p>Represents the output of an <code>UpdateEvaluation</code> operation.</p> <p>You can see the updated content by using the <code>GetEvaluation</code> operation.</p>
-  * EvaluationId [EntityId](#entityid)
+  * EvaluationId
 
 ### UpdateMLModelInput
 * UpdateMLModelInput `object`
-  * MLModelId **required** [EntityId](#entityid)
-  * MLModelName [EntityName](#entityname)
-  * ScoreThreshold [ScoreThreshold](#scorethreshold)
+  * MLModelId **required**
+  * MLModelName
+  * ScoreThreshold
 
 ### UpdateMLModelOutput
 * UpdateMLModelOutput `object`: <p>Represents the output of an <code>UpdateMLModel</code> operation.</p> <p>You can see the updated content by using the <code>GetMLModel</code> operation.</p>
-  * MLModelId [EntityId](#entityid)
+  * MLModelId
 
 ### VariableName
 * VariableName `string`: The name of a variable. Currently it's used to specify the name of the target value, label, weight, and tags.

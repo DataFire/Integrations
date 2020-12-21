@@ -1,6 +1,6 @@
 # @datafire/zappiti
 
-Client library for Zappiti Player
+Client library for Zappiti Player API
 
 ## Installation and Usage
 ```bash
@@ -9,9 +9,7 @@ npm install --save @datafire/zappiti
 ```js
 let zappiti = require('@datafire/zappiti').create();
 
-zappiti.CheckZappitiService.post({
-  "body": {}
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

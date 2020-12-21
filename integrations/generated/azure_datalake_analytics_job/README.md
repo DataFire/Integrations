@@ -9,10 +9,7 @@ npm install --save @datafire/azure_datalake_analytics_job
 ```js
 let azure_datalake_analytics_job = require('@datafire/azure_datalake_analytics_job').create();
 
-azure_datalake_analytics_job.Job_Build({
-  "parameters": null,
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -298,7 +295,8 @@ azure_datalake_analytics_job.Recurrence_Get({
 
 ### CreateJobParameters
 * CreateJobParameters `object`: The parameters used to submit a new Data Lake Analytics job.
-  * degreeOfParallelism `integer`: The degree of parallelism to use for this job. This must be greater than 0, if set to less than 0 it will default to 1.
+  * degreeOfParallelism `integer`: The degree of parallelism to use for this job. At most one of degreeOfParallelism and degreeOfParallelismPercent should be specified. If none, a default value of 1 will be used for degreeOfParallelism.
+  * degreeOfParallelismPercent `number`: the degree of parallelism in percentage used for this job. At most one of degreeOfParallelism and degreeOfParallelismPercent should be specified. If none, a default value of 1 will be used for degreeOfParallelism.
   * logFilePatterns `array`: The list of log file name patterns to find in the logFolder. '*' is the only matching character allowed. Example format: jobExecution*.log or *mylog*.txt
     * items `string`
   * name **required** `string`: The friendly name of the job to submit.
@@ -316,7 +314,8 @@ azure_datalake_analytics_job.Recurrence_Get({
 ### CreateScopeJobParameters
 * CreateScopeJobParameters `object`: The parameters used to submit a new Data Lake Analytics Scope job. (Only for use internally with Scope job type.)
   * tags `object`: The key-value pairs used to add additional metadata to the job information.
-  * degreeOfParallelism `integer`: The degree of parallelism to use for this job. This must be greater than 0, if set to less than 0 it will default to 1.
+  * degreeOfParallelism `integer`: The degree of parallelism to use for this job. At most one of degreeOfParallelism and degreeOfParallelismPercent should be specified. If none, a default value of 1 will be used for degreeOfParallelism.
+  * degreeOfParallelismPercent `number`: the degree of parallelism in percentage used for this job. At most one of degreeOfParallelism and degreeOfParallelismPercent should be specified. If none, a default value of 1 will be used for degreeOfParallelism.
   * logFilePatterns `array`: The list of log file name patterns to find in the logFolder. '*' is the only matching character allowed. Example format: jobExecution*.log or *mylog*.txt
     * items `string`
   * name **required** `string`: The friendly name of the job to submit.
@@ -343,9 +342,9 @@ azure_datalake_analytics_job.Recurrence_Get({
 
 ### Diagnostics
 * Diagnostics `object`: Error diagnostic information for failed jobs.
-  * columnNumber `integer`: The column where the error occured.
+  * columnNumber `integer`: The column where the error occurred.
   * end `integer`: The ending index of the error.
-  * lineNumber `integer`: The line number the error occured on.
+  * lineNumber `integer`: The line number the error occurred on.
   * message `string`: The error message.
   * severity `string` (values: Warning, Error, Info, SevereWarning, Deprecated, UserWarning): The severity of the error.
   * start `integer`: The starting index of the error.
@@ -377,7 +376,7 @@ azure_datalake_analytics_job.Recurrence_Get({
   * helpLink `string`: The link to MSDN or Azure help for this type of error, if any.
   * innerError [JobInnerError](#jobinnererror)
   * internalDiagnostics `string`: The internal diagnostic stack trace if the user requesting the job error details has sufficient permissions it will be retrieved, otherwise it will be empty.
-  * lineNumber `integer`: The specific line number in the job where the error occured.
+  * lineNumber `integer`: The specific line number in the job where the error occurred.
   * message `string`: The user friendly error message for the failure.
   * resolution `string`: The recommended resolution for the failure, if any.
   * severity `string` (values: Warning, Error, Info, SevereWarning, Deprecated, UserWarning): The severity level of the failure.
@@ -397,8 +396,10 @@ azure_datalake_analytics_job.Recurrence_Get({
   * properties **required** [JobProperties](#jobproperties)
   * stateAuditRecords `array`: The job state audit records, indicating when various operations have been performed on this job.
     * items [JobStateAuditRecord](#jobstateauditrecord)
-  * degreeOfParallelism `integer`: The degree of parallelism used for this job. This must be greater than 0, if set to less than 0 it will default to 1.
+  * degreeOfParallelism `integer`: The degree of parallelism used for this job.
+  * degreeOfParallelismPercent `number`: the degree of parallelism in percentage used for this job.
   * endTime `string`: The completion time of the job.
+  * hierarchyQueueNode `string`: the name of hierarchy queue node this job is assigned to, Null if job has not been assigned yet or the account doesn't have hierarchy queue.
   * jobId `string`: The job's unique identifier (a GUID).
   * logFilePatterns `array`: The list of log file name patterns to find in the logFolder. '*' is the only matching character allowed. Example format: jobExecution*.log or *mylog*.txt
     * items `string`
@@ -408,7 +409,7 @@ azure_datalake_analytics_job.Recurrence_Get({
   * related [JobRelationshipProperties](#jobrelationshipproperties)
   * result `string` (values: None, Succeeded, Cancelled, Failed): The result of job execution or the current result of the running job.
   * startTime `string`: The start time of the job.
-  * state `string` (values: Accepted, Compiling, Ended, New, Queued, Running, Scheduling, Starting, Paused, WaitingForCapacity): The job state. When the job is in the Ended state, refer to Result and ErrorMessage for details.
+  * state `string` (values: Accepted, Compiling, Ended, New, Queued, Running, Scheduling, Starting, Paused, WaitingForCapacity, Yielded, Finalizing): The job state. When the job is in the Ended state, refer to Result and ErrorMessage for details.
   * submitTime `string`: The time the job was submitted to the service.
   * submitter `string`: The user or account that submitted the job.
   * tags `object`: The key-value pairs used to add additional metadata to the job information. (Only for use internally with Scope job type.)
@@ -416,8 +417,10 @@ azure_datalake_analytics_job.Recurrence_Get({
 
 ### JobInformationBasic
 * JobInformationBasic `object`: The common Data Lake Analytics job information properties.
-  * degreeOfParallelism `integer`: The degree of parallelism used for this job. This must be greater than 0, if set to less than 0 it will default to 1.
+  * degreeOfParallelism `integer`: The degree of parallelism used for this job.
+  * degreeOfParallelismPercent `number`: the degree of parallelism in percentage used for this job.
   * endTime `string`: The completion time of the job.
+  * hierarchyQueueNode `string`: the name of hierarchy queue node this job is assigned to, Null if job has not been assigned yet or the account doesn't have hierarchy queue.
   * jobId `string`: The job's unique identifier (a GUID).
   * logFilePatterns `array`: The list of log file name patterns to find in the logFolder. '*' is the only matching character allowed. Example format: jobExecution*.log or *mylog*.txt
     * items `string`
@@ -427,7 +430,7 @@ azure_datalake_analytics_job.Recurrence_Get({
   * related [JobRelationshipProperties](#jobrelationshipproperties)
   * result `string` (values: None, Succeeded, Cancelled, Failed): The result of job execution or the current result of the running job.
   * startTime `string`: The start time of the job.
-  * state `string` (values: Accepted, Compiling, Ended, New, Queued, Running, Scheduling, Starting, Paused, WaitingForCapacity): The job state. When the job is in the Ended state, refer to Result and ErrorMessage for details.
+  * state `string` (values: Accepted, Compiling, Ended, New, Queued, Running, Scheduling, Starting, Paused, WaitingForCapacity, Yielded, Finalizing): The job state. When the job is in the Ended state, refer to Result and ErrorMessage for details.
   * submitTime `string`: The time the job was submitted to the service.
   * submitter `string`: The user or account that submitted the job.
   * tags `object`: The key-value pairs used to add additional metadata to the job information. (Only for use internally with Scope job type.)
@@ -550,7 +553,7 @@ azure_datalake_analytics_job.Recurrence_Get({
   * estimatedVertexCpuCoreCount `integer`: The estimated vertex CPU core count.
   * estimatedVertexMemSize `integer`: The estimated vertex memory size, in bytes.
   * estimatedVertexPeakCpuCoreCount `integer`: The estimated vertex peak CPU core count.
-  * failedCount `integer`: The number of failures that occured in this stage.
+  * failedCount `integer`: The number of failures that occurred in this stage.
   * maxDataReadVertex [JobStatisticsVertex](#jobstatisticsvertex)
   * maxExecutionTimeVertex [JobStatisticsVertex](#jobstatisticsvertex)
   * maxPeakMemUsageVertex [JobStatisticsVertex](#jobstatisticsvertex)
@@ -622,7 +625,8 @@ azure_datalake_analytics_job.Recurrence_Get({
 
 ### UpdateJobParameters
 * UpdateJobParameters `object`: The parameters that can be used to update existing Data Lake Analytics job information properties. (Only for use internally with Scope job type.)
-  * degreeOfParallelism `integer`: The degree of parallelism used for this job. This must be greater than 0, if set to less than 0 it will default to 1.
+  * degreeOfParallelism `integer`: The degree of parallelism used for this job.
+  * degreeOfParallelismPercent `number`: the degree of parallelism in percentage used for this job.
   * priority `integer`: The priority value for the current job. Lower numbers have a higher priority. By default, a job has a priority of 1000. This must be greater than 0.
   * tags `object`: The key-value pairs used to add additional metadata to the job information.
 

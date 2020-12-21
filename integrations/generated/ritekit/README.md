@@ -1,6 +1,6 @@
 # @datafire/ritekit
 
-Client library for RiteKit
+Client library for RiteKit API
 
 ## Installation and Usage
 ```bash
@@ -9,7 +9,7 @@ npm install --save @datafire/ritekit
 ```js
 let ritekit = require('@datafire/ritekit').create();
 
-ritekit.v1.search.trending.get({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -28,89 +28,15 @@ Authentication uses standard OAuth 2.0 process
 
 1. Click "Create a token" button to get your **Client ID** and **Client secret**
 
-1. Study the documentation below (for more info on oAuth go to http://oauth.net/)
-
 1. When you reach your free limit of calls per month, [upgrade to paid tiers](https://ritekit.com/developer/)
 
 ## Options for authorizing API Calls
 
-#### A) Using Client ID directly
+#### Using Client ID directly
 
 You can directly connect to our API using your **client ID** by sending it as a GET query parameter. This option is simple (no need for oAuth) but it should be used only in case the Client ID is not exposed publicly.
 
 GET  https://api.ritekit.com/v1/stats/multiple-hashtags?tags=php&client_id=292c6912e7710c838347ae178b4a
-
-#### B) Using Access token (oAuth 2.0)
-
-Once you have valid Access token, you can access our API by sending the token in the Authorization header bearer or as a query Access token. See the oAuth 2.0 section to learn how to get Access token and keep refreshing it.
-
-Authorization: Bearer xxxx
-
-Or
-
-GET  https://api.ritekit.com/v1/stats/multiple-hashtags?tags=php&access_token=292c6912e7710c838347ae178b4a
-
-## oAuth 2.0
-
-![oauthschema](https://cdn.ritekit.com/assets/media/1/oauth-simple.png)
-
-### Get Access Token
-
-Use your Client Credentials to get the token.
-
-POST   https://ritekit.com/oauth/token
-
-           grant_type=client_credentials
-           &client_id=CLIENT_ID
-           &client_secret=CLIENT_SECRET
-           &scope=data
-
-- [required] grant_type - client_credentials
-
-- [required] client_id (CLIENT ID)
-
-- [required] client_secret (CLIENT SECRET)
-
-- [required] (always use scope=data)
-
-#### Response
-
-{
-        "access_token":292c6912e7710c838347ae178b4a,
-        "token_type":"bearer",
-        "expires_in": 3600,
-        "refresh_token":292c6912e7710c838347ae178b4a,
-    }
-
-### Refresh token
-
-Every Access token has a lifetime. You can use Refresh token to request a new Access Token.
-
-POST   https://ritekit.com/oauth/token
-
-           grant_type=refresh_token
-           &refresh_token=REFRESH_TOKEN
-           &client_id=CLIENT_ID
-           &scope=data
-
-- [required] grant_type - refresh_token
-
-- [required] refresh_token - (REFRESH TOKEN) the refresh token you got from the expired token
-
-- [required] client_id (CLIENT ID)
-
-- [required] client_secret (CLIENT SECRET)
-
-- [required] scope (always use scope=data)
-
-#### Response
-
-{
-        "access_token":292c6912e7710c838347ae178b4a,
-        "token_type":"bearer",
-        "expires_in": 3600,
-        "refresh_token":292c6912e7710c838347ae178b4a,
-    }
 
 ## Actions
 
@@ -170,6 +96,8 @@ ritekit.v1.images.animate.get({
 ### v1.images.logo.get
 Returns a company logo based on website domain. If the logo is not in our database yet, it will be extracted from the site on the fly. White logo background is automatically removed to make the logo look better on color backgrounds.
 
+Note: It is not possible to access our company logo API publicly without authentication. If you wish to do so, you have to create proxy on your own server that calls our API from the server side.
+
 
 ```js
 ritekit.v1.images.logo.get({
@@ -228,23 +156,6 @@ ritekit.v1.images.quote.get({
   * brandLogo **required** `string`: URL of the brand logo
   * animation **required** `string`: Animation type: none, rays, glint, circle
   * showQuoteMark `integer`: showing/hiding quote mark
-
-#### Output
-*Output schema unknown*
-
-### v1.influencers.hashtag.hashtag.get
-Returns list of Twitter influencers for a given hashtag
-
-
-```js
-ritekit.v1.influencers.hashtag.hashtag.get({
-  "hashtag": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * hashtag **required** `string`: Hashtag without # mark
 
 #### Output
 *Output schema unknown*
@@ -396,9 +307,6 @@ ritekit.v2.instagram.hashtags_cleaner.get({
 
 
 ### Images
-
-
-### Influencers
 
 
 ### Instagram

@@ -1,6 +1,6 @@
 # @datafire/google_replicapool
 
-Client library for Google Compute Engine Instance Group Manager
+Client library for Replica Pool
 
 ## Installation and Usage
 ```bash
@@ -15,17 +15,14 @@ let google_replicapool = require('@datafire/google_replicapool').create({
   redirect_uri: ""
 });
 
-google_replicapool.instanceGroupManagers.list({
-  "project": "",
-  "zone": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
 
 ## Description
 
-[Deprecated. Please use Instance Group Manager in Compute API] Provides groups of homogenous Compute Engine instances.
+The Replica Pool API allows users to declaratively provision and manage groups of Google Compute Engine instances based on a common template.
 
 ## Actions
 
@@ -70,24 +67,23 @@ google_replicapool.oauthRefresh(null, context)
   * scope `string`
   * expiration `string`
 
-### instanceGroupManagers.list
-Retrieves the list of Instance Group Manager resources contained within the specified zone.
+### replicapool.pools.list
+List all replica pools.
 
 
 ```js
-google_replicapool.instanceGroupManagers.list({
-  "project": "",
+google_replicapool.replicapool.pools.list({
+  "projectName": "",
   "zone": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * filter `string`: Optional. Filter expression for filtering listed resources.
-  * maxResults `integer`: Optional. Maximum count of results to be returned. Maximum value is 500 and default value is 500.
-  * pageToken `string`: Optional. Tag returned by a previous list request truncated by maxResults. Used to continue a previous list request.
-  * project **required** `string`: The Google Developers Console project name.
-  * zone **required** `string`: The name of the zone in which the instance group manager resides.
+  * projectName **required** `string`: The project ID for this request.
+  * zone **required** `string`: The zone for this replica pool.
+  * maxResults `integer`: Maximum count of results to be returned. Acceptable values are 0 to 100, inclusive. (Default: 50)
+  * pageToken `string`: Set this to the nextPageToken value returned by a previous list request to obtain the next page of results from the previous list request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -97,26 +93,24 @@ google_replicapool.instanceGroupManagers.list({
   * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
-* output [InstanceGroupManagerList](#instancegroupmanagerlist)
+* output [PoolsListResponse](#poolslistresponse)
 
-### instanceGroupManagers.insert
-Creates an instance group manager, as well as the instance group and the specified number of instances.
+### replicapool.pools.insert
+Inserts a new replica pool.
 
 
 ```js
-google_replicapool.instanceGroupManagers.insert({
-  "project": "",
-  "size": 0,
+google_replicapool.replicapool.pools.insert({
+  "projectName": "",
   "zone": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * body [InstanceGroupManager](#instancegroupmanager)
-  * project **required** `string`: The Google Developers Console project name.
-  * size **required** `integer`: Number of instances that should exist.
-  * zone **required** `string`: The name of the zone in which the instance group manager resides.
+  * projectName **required** `string`: The project ID for this replica pool.
+  * zone **required** `string`: The zone for this replica pool.
+  * body [Pool](#pool)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -126,25 +120,25 @@ google_replicapool.instanceGroupManagers.insert({
   * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
-* output [Operation](#operation)
+* output [Pool](#pool)
 
-### instanceGroupManagers.delete
-Deletes the instance group manager and all instances contained within. If you'd like to delete the manager without deleting the instances, you must first abandon the instances to remove them from the group.
+### replicapool.pools.get
+Gets information about a single replica pool.
 
 
 ```js
-google_replicapool.instanceGroupManagers.delete({
-  "instanceGroupManager": "",
-  "project": "",
-  "zone": ""
+google_replicapool.replicapool.pools.get({
+  "projectName": "",
+  "zone": "",
+  "poolName": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * instanceGroupManager **required** `string`: Name of the Instance Group Manager resource to delete.
-  * project **required** `string`: The Google Developers Console project name.
-  * zone **required** `string`: The name of the zone in which the instance group manager resides.
+  * projectName **required** `string`: The project ID for this replica pool.
+  * zone **required** `string`: The zone for this replica pool.
+  * poolName **required** `string`: The name of the replica pool for this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -154,25 +148,26 @@ google_replicapool.instanceGroupManagers.delete({
   * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
-* output [Operation](#operation)
+* output [Pool](#pool)
 
-### instanceGroupManagers.get
-Returns the specified Instance Group Manager resource.
+### replicapool.pools.delete
+Deletes a replica pool.
 
 
 ```js
-google_replicapool.instanceGroupManagers.get({
-  "instanceGroupManager": "",
-  "project": "",
-  "zone": ""
+google_replicapool.replicapool.pools.delete({
+  "projectName": "",
+  "zone": "",
+  "poolName": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * instanceGroupManager **required** `string`: Name of the instance resource to return.
-  * project **required** `string`: The Google Developers Console project name.
-  * zone **required** `string`: The name of the zone in which the instance group manager resides.
+  * projectName **required** `string`: The project ID for this replica pool.
+  * zone **required** `string`: The zone for this replica pool.
+  * poolName **required** `string`: The name of the replica pool for this request.
+  * body [PoolsDeleteRequest](#poolsdeleterequest)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -182,26 +177,27 @@ google_replicapool.instanceGroupManagers.get({
   * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
-* output [InstanceGroupManager](#instancegroupmanager)
+*Output schema unknown*
 
-### instanceGroupManagers.abandonInstances
-Removes the specified instances from the managed instance group, and from any target pools of which they were members, without deleting the instances.
+### replicapool.replicas.list
+Lists all replicas in a pool.
 
 
 ```js
-google_replicapool.instanceGroupManagers.abandonInstances({
-  "instanceGroupManager": "",
-  "project": "",
-  "zone": ""
+google_replicapool.replicapool.replicas.list({
+  "projectName": "",
+  "zone": "",
+  "poolName": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * body [InstanceGroupManagersAbandonInstancesRequest](#instancegroupmanagersabandoninstancesrequest)
-  * instanceGroupManager **required** `string`: The name of the instance group manager.
-  * project **required** `string`: The Google Developers Console project name.
-  * zone **required** `string`: The name of the zone in which the instance group manager resides.
+  * projectName **required** `string`: The project ID for this request.
+  * zone **required** `string`: The zone where the replica pool lives.
+  * poolName **required** `string`: The replica pool name for this request.
+  * maxResults `integer`: Maximum count of results to be returned. Acceptable values are 0 to 100, inclusive. (Default: 50)
+  * pageToken `string`: Set this to the nextPageToken value returned by a previous list request to obtain the next page of results from the previous list request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -211,26 +207,27 @@ google_replicapool.instanceGroupManagers.abandonInstances({
   * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
-* output [Operation](#operation)
+* output [ReplicasListResponse](#replicaslistresponse)
 
-### instanceGroupManagers.deleteInstances
-Deletes the specified instances. The instances are deleted, then removed from the instance group and any target pools of which they were a member. The targetSize of the instance group manager is reduced by the number of instances deleted.
+### replicapool.replicas.get
+Gets information about a specific replica.
 
 
 ```js
-google_replicapool.instanceGroupManagers.deleteInstances({
-  "instanceGroupManager": "",
-  "project": "",
-  "zone": ""
+google_replicapool.replicapool.replicas.get({
+  "projectName": "",
+  "zone": "",
+  "poolName": "",
+  "replicaName": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * body [InstanceGroupManagersDeleteInstancesRequest](#instancegroupmanagersdeleteinstancesrequest)
-  * instanceGroupManager **required** `string`: The name of the instance group manager.
-  * project **required** `string`: The Google Developers Console project name.
-  * zone **required** `string`: The name of the zone in which the instance group manager resides.
+  * projectName **required** `string`: The project ID for this request.
+  * zone **required** `string`: The zone where the replica lives.
+  * poolName **required** `string`: The replica pool name for this request.
+  * replicaName **required** `string`: The name of the replica for this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -240,26 +237,28 @@ google_replicapool.instanceGroupManagers.deleteInstances({
   * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
-* output [Operation](#operation)
+* output [Replica](#replica)
 
-### instanceGroupManagers.recreateInstances
-Recreates the specified instances. The instances are deleted, then recreated using the instance group manager's current instance template.
+### replicapool.replicas.delete
+Deletes a replica from the pool.
 
 
 ```js
-google_replicapool.instanceGroupManagers.recreateInstances({
-  "instanceGroupManager": "",
-  "project": "",
-  "zone": ""
+google_replicapool.replicapool.replicas.delete({
+  "projectName": "",
+  "zone": "",
+  "poolName": "",
+  "replicaName": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * body [InstanceGroupManagersRecreateInstancesRequest](#instancegroupmanagersrecreateinstancesrequest)
-  * instanceGroupManager **required** `string`: The name of the instance group manager.
-  * project **required** `string`: The Google Developers Console project name.
-  * zone **required** `string`: The name of the zone in which the instance group manager resides.
+  * projectName **required** `string`: The project ID for this request.
+  * zone **required** `string`: The zone where the replica lives.
+  * poolName **required** `string`: The replica pool name for this request.
+  * replicaName **required** `string`: The name of the replica for this request.
+  * body [ReplicasDeleteRequest](#replicasdeleterequest)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -269,27 +268,27 @@ google_replicapool.instanceGroupManagers.recreateInstances({
   * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
-* output [Operation](#operation)
+* output [Replica](#replica)
 
-### instanceGroupManagers.resize
-Resizes the managed instance group up or down. If resized up, new instances are created using the current instance template. If resized down, instances are removed in the order outlined in Resizing a managed instance group.
+### replicapool.replicas.restart
+Restarts a replica in a pool.
 
 
 ```js
-google_replicapool.instanceGroupManagers.resize({
-  "instanceGroupManager": "",
-  "project": "",
-  "size": 0,
-  "zone": ""
+google_replicapool.replicapool.replicas.restart({
+  "projectName": "",
+  "zone": "",
+  "poolName": "",
+  "replicaName": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * instanceGroupManager **required** `string`: The name of the instance group manager.
-  * project **required** `string`: The Google Developers Console project name.
-  * size **required** `integer`: Number of instances that should exist in this Instance Group Manager.
-  * zone **required** `string`: The name of the zone in which the instance group manager resides.
+  * projectName **required** `string`: The project ID for this request.
+  * zone **required** `string`: The zone where the replica lives.
+  * poolName **required** `string`: The replica pool name for this request.
+  * replicaName **required** `string`: The name of the replica for this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -299,26 +298,26 @@ google_replicapool.instanceGroupManagers.resize({
   * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
-* output [Operation](#operation)
+* output [Replica](#replica)
 
-### instanceGroupManagers.setInstanceTemplate
-Sets the instance template to use when creating new instances in this group. Existing instances are not affected.
+### replicapool.pools.resize
+Resize a pool. This is an asynchronous operation, and multiple overlapping resize requests can be made. Replica Pools will use the information from the last resize request.
 
 
 ```js
-google_replicapool.instanceGroupManagers.setInstanceTemplate({
-  "instanceGroupManager": "",
-  "project": "",
-  "zone": ""
+google_replicapool.replicapool.pools.resize({
+  "projectName": "",
+  "zone": "",
+  "poolName": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * body [InstanceGroupManagersSetInstanceTemplateRequest](#instancegroupmanagerssetinstancetemplaterequest)
-  * instanceGroupManager **required** `string`: The name of the instance group manager.
-  * project **required** `string`: The Google Developers Console project name.
-  * zone **required** `string`: The name of the zone in which the instance group manager resides.
+  * projectName **required** `string`: The project ID for this replica pool.
+  * zone **required** `string`: The zone for this replica pool.
+  * poolName **required** `string`: The name of the replica pool for this request.
+  * numReplicas `integer`: The desired number of replicas to resize to. If this number is larger than the existing number of replicas, new replicas will be added. If the number is smaller, then existing replicas will be deleted.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -328,26 +327,26 @@ google_replicapool.instanceGroupManagers.setInstanceTemplate({
   * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
-* output [Operation](#operation)
+* output [Pool](#pool)
 
-### instanceGroupManagers.setTargetPools
-Modifies the target pools to which all new instances in this group are assigned. Existing instances in the group are not affected.
+### replicapool.pools.updatetemplate
+Update the template used by the pool.
 
 
 ```js
-google_replicapool.instanceGroupManagers.setTargetPools({
-  "instanceGroupManager": "",
-  "project": "",
-  "zone": ""
+google_replicapool.replicapool.pools.updatetemplate({
+  "projectName": "",
+  "zone": "",
+  "poolName": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * body [InstanceGroupManagersSetTargetPoolsRequest](#instancegroupmanagerssettargetpoolsrequest)
-  * instanceGroupManager **required** `string`: The name of the instance group manager.
-  * project **required** `string`: The Google Developers Console project name.
-  * zone **required** `string`: The name of the zone in which the instance group manager resides.
+  * projectName **required** `string`: The project ID for this replica pool.
+  * zone **required** `string`: The zone for this replica pool.
+  * poolName **required** `string`: The name of the replica pool for this request.
+  * body [Template](#template)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -357,171 +356,183 @@ google_replicapool.instanceGroupManagers.setTargetPools({
   * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
-* output [Operation](#operation)
-
-### zoneOperations.list
-Retrieves the list of operation resources contained within the specified zone.
-
-
-```js
-google_replicapool.zoneOperations.list({
-  "project": "",
-  "zone": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * filter `string`: Optional. Filter expression for filtering listed resources.
-  * maxResults `integer`: Optional. Maximum count of results to be returned. Maximum value is 500 and default value is 500.
-  * pageToken `string`: Optional. Tag returned by a previous list request truncated by maxResults. Used to continue a previous list request.
-  * project **required** `string`: Name of the project scoping this request.
-  * zone **required** `string`: Name of the zone scoping this request.
-  * alt `string` (values: json): Data format for the response.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
-
-#### Output
-* output [OperationList](#operationlist)
-
-### zoneOperations.get
-Retrieves the specified zone-specific operation resource.
-
-
-```js
-google_replicapool.zoneOperations.get({
-  "operation": "",
-  "project": "",
-  "zone": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * operation **required** `string`: Name of the operation resource to return.
-  * project **required** `string`: Name of the project scoping this request.
-  * zone **required** `string`: Name of the zone scoping this request.
-  * alt `string` (values: json): Data format for the response.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
-
-#### Output
-* output [Operation](#operation)
+*Output schema unknown*
 
 
 
 ## Definitions
 
-### InstanceGroupManager
-* InstanceGroupManager `object`: An Instance Group Manager resource.
-  * autoHealingPolicies `array`: The autohealing policy for this managed instance group. You can specify only one value.
-    * items [ReplicaPoolAutoHealingPolicy](#replicapoolautohealingpolicy)
-  * baseInstanceName `string`: The base instance name to use for instances in this group. The value must be a valid RFC1035 name. Supported characters are lowercase letters, numbers, and hyphens (-). Instances are named by appending a hyphen and a random four-character string to the base instance name.
-  * creationTimestamp `string`: [Output only] The time the instance group manager was created, in RFC3339 text format.
-  * currentSize `integer`: [Output only] The number of instances that currently exist and are a part of this group. This includes instances that are starting but are not yet RUNNING, and instances that are in the process of being deleted or abandoned.
-  * description `string`: An optional textual description of the instance group manager.
-  * fingerprint `string`: [Output only] Fingerprint of the instance group manager. This field is used for optimistic locking. An up-to-date fingerprint must be provided in order to modify the Instance Group Manager resource.
-  * group `string`: [Output only] The full URL of the instance group created by the manager. This group contains all of the instances being managed, and cannot contain non-managed instances.
-  * id `string`: [Output only] A server-assigned unique identifier for the resource.
-  * instanceTemplate `string`: The full URL to an instance template from which all new instances will be created.
-  * kind `string`: [Output only] The resource type. Always replicapool#instanceGroupManager.
-  * name `string`: The name of the instance group manager. Must be 1-63 characters long and comply with RFC1035. Supported characters include lowercase letters, numbers, and hyphens.
-  * selfLink `string`: [Output only] The fully qualified URL for this resource.
-  * targetPools `array`: The full URL of all target pools to which new instances in the group are added. Updating the target pool values does not affect existing instances.
+### AccessConfig
+* AccessConfig `object`: A Compute Engine network accessConfig. Identical to the accessConfig on corresponding Compute Engine resource.
+  * name `string`: Name of this access configuration.
+  * natIp `string`: An external IP address associated with this instance.
+  * type `string`: Type of this access configuration file. Currently only ONE_TO_ONE_NAT is supported.
+
+### Action
+* Action `object`: An action that gets executed during initialization of the replicas.
+  * commands `array`: A list of commands to run, one per line. If any command fails, the whole action is considered a failure and no further actions are run. This also marks the virtual machine or replica as a failure.
     * items `string`
-  * targetSize `integer`: [Output only] The number of instances that the manager is attempting to maintain. Deleting or abandoning instances affects this number, as does resizing the group.
+  * envVariables `array`: A list of environment variables to use for the commands in this action.
+    * items [EnvVariable](#envvariable)
+  * timeoutMilliSeconds `integer`: If an action's commands on a particular replica do not finish in the specified timeoutMilliSeconds, the replica is considered to be in a FAILING state. No efforts are made to stop any processes that were spawned or created as the result of running the action's commands. The default is the max allowed value, 1 hour (i.e. 3600000 milliseconds).
 
-### InstanceGroupManagerList
-* InstanceGroupManagerList `object`
-  * id `string`: Unique identifier for the resource; defined by the server (output only).
-  * items `array`: A list of instance resources.
-    * items [InstanceGroupManager](#instancegroupmanager)
-  * kind `string`: Type of resource.
-  * nextPageToken `string`: A token used to continue a truncated list request (output only).
-  * selfLink `string`: Server defined URL for this resource (output only).
+### DiskAttachment
+* DiskAttachment `object`: Specifies how to attach a disk to a Replica.
+  * deviceName `string`: The device name of this disk.
+  * index `integer`: A zero-based index to assign to this disk, where 0 is reserved for the boot disk. If not specified, this is assigned by the server.
 
-### InstanceGroupManagersAbandonInstancesRequest
-* InstanceGroupManagersAbandonInstancesRequest `object`
-  * instances `array`: The names of one or more instances to abandon. For example:
+### EnvVariable
+* EnvVariable `object`: An environment variable to set for an action.
+  * hidden `boolean`: Deprecated, do not use.
+  * name `string`: The name of the environment variable.
+  * value `string`: The value of the variable.
+
+### ExistingDisk
+* ExistingDisk `object`: A pre-existing persistent disk that will be attached to every Replica in the Pool in READ_ONLY mode.
+  * attachment [DiskAttachment](#diskattachment)
+  * source `string`: The name of the Persistent Disk resource. The Persistent Disk resource must be in the same zone as the Pool.
+
+### HealthCheck
+* HealthCheck `object`
+  * host `string`: The value of the host header in the HTTP health check request. If left empty (default value), the localhost IP 127.0.0.1 will be used.
+  * checkIntervalSec `integer`: How often (in seconds) to make HTTP requests for this healthcheck. The default value is 5 seconds.
+  * description `string`: The description for this health check.
+  * healthyThreshold `integer`: The number of consecutive health check requests that need to succeed before the replica is considered healthy again. The default value is 2.
+  * name `string`: The name of this health check.
+  * path `string`: The localhost request path to send this health check, in the format /path/to/use. For example, /healthcheck.
+  * port `integer`: The TCP port for the health check requests.
+  * timeoutSec `integer`: How long (in seconds) to wait before a timeout failure for this healthcheck. The default value is 5 seconds.
+  * unhealthyThreshold `integer`: The number of consecutive health check requests that need to fail in order to consider the replica unhealthy. The default value is 2.
+
+### Label
+* Label `object`: A label to apply to this replica pool.
+  * key `string`: The key for this label.
+  * value `string`: The value of this label.
+
+### Metadata
+* Metadata `object`: A Compute Engine metadata entry. Identical to the metadata on the corresponding Compute Engine resource.
+  * fingerPrint `string`: The fingerprint of the metadata. Required for updating the metadata entries for this instance.
+  * items `array`: A list of metadata items.
+    * items [MetadataItem](#metadataitem)
+
+### MetadataItem
+* MetadataItem `object`: A Compute Engine metadata item, defined as a key:value pair. Identical to the metadata on the corresponding Compute Engine resource.
+  * key `string`: A metadata key.
+  * value `string`: A metadata value.
+
+### NetworkInterface
+* NetworkInterface `object`: A Compute Engine NetworkInterface resource. Identical to the NetworkInterface on the corresponding Compute Engine resource.
+  * accessConfigs `array`: An array of configurations for this interface. This specifies how this interface is configured to interact with other network services.
+    * items [AccessConfig](#accessconfig)
+  * network `string`: Name the Network resource to which this interface applies.
+  * networkIp `string`: An optional IPV4 internal network address to assign to the instance for this network interface.
+
+### NewDisk
+* NewDisk `object`: A Persistent Disk resource that will be created and attached to each Replica in the Pool. Each Replica will have a unique persistent disk that is created and attached to that Replica in READ_WRITE mode.
+  * attachment [DiskAttachment](#diskattachment)
+  * autoDelete `boolean`: If true, then this disk will be deleted when the instance is deleted. The default value is true.
+  * boot `boolean`: If true, indicates that this is the root persistent disk.
+  * initializeParams [NewDiskInitializeParams](#newdiskinitializeparams)
+
+### NewDiskInitializeParams
+* NewDiskInitializeParams `object`: Initialization parameters for creating a new disk.
+  * diskSizeGb `string`: The size of the created disk in gigabytes.
+  * diskType `string`: Name of the disk type resource describing which disk type to use to create the disk. For example 'pd-ssd' or 'pd-standard'. Default is 'pd-standard'
+  * sourceImage `string`: The name or fully-qualified URL of a source image to use to create this disk. If you provide a name of the source image, Replica Pool will look for an image with that name in your project. If you are specifying an image provided by Compute Engine, you will need to provide the full URL with the correct project, such as:
+
+### Pool
+* Pool `object`
+  * autoRestart `boolean`: Whether replicas in this pool should be restarted if they experience a failure. The default value is true.
+  * baseInstanceName `string`: The base instance name to use for the replicas in this pool. This must match the regex [a-z]([-a-z0-9]*[a-z0-9])?. If specified, the instances in this replica pool will be named in the format <base-instance-name>-<ID>. The <ID> postfix will be a four character alphanumeric identifier generated by the service.
+  * currentNumReplicas `integer`: [Output Only] The current number of replicas in the pool.
+  * description `string`: An optional description of the replica pool.
+  * healthChecks `array`: Deprecated. Please use template[].healthChecks instead.
+    * items [HealthCheck](#healthcheck)
+  * initialNumReplicas `integer`: The initial number of replicas this pool should have. You must provide a value greater than or equal to 0.
+  * labels `array`: A list of labels to attach to this replica pool and all created virtual machines in this replica pool.
+    * items [Label](#label)
+  * name `string`: The name of the replica pool. Must follow the regex [a-z]([-a-z0-9]*[a-z0-9])? and be 1-28 characters long.
+  * numReplicas `integer`: Deprecated! Use initial_num_replicas instead.
+  * resourceViews `array`: The list of resource views that should be updated with all the replicas that are managed by this pool.
+    * items `string`
+  * selfLink `string`: [Output Only] A self-link to the replica pool.
+  * targetPool `string`: Deprecated, please use target_pools instead.
+  * targetPools `array`: A list of target pools to update with the replicas that are managed by this pool. If specified, the replicas in this replica pool will be added to the specified target pools for load balancing purposes. The replica pool must live in the same region as the specified target pools. These values must be the target pool resource names, and not fully qualified URLs.
+    * items `string`
+  * template [Template](#template)
+  * type `string`: Deprecated! Do not set.
+
+### PoolsDeleteRequest
+* PoolsDeleteRequest `object`
+  * abandonInstances `array`: If there are instances you would like to keep, you can specify them here. These instances won't be deleted, but the associated replica objects will be removed.
     * items `string`
 
-### InstanceGroupManagersDeleteInstancesRequest
-* InstanceGroupManagersDeleteInstancesRequest `object`
-  * instances `array`: Names of instances to delete.
+### PoolsListResponse
+* PoolsListResponse `object`
+  * nextPageToken `string`
+  * resources `array`
+    * items [Pool](#pool)
+
+### Replica
+* Replica `object`: An individual Replica within a Pool. Replicas are automatically created by the replica pool, using the template provided by the user. You cannot directly create replicas.
+  * name `string`: [Output Only] The name of the Replica object.
+  * selfLink `string`: [Output Only] The self-link of the Replica.
+  * status [ReplicaStatus](#replicastatus)
+
+### ReplicaStatus
+* ReplicaStatus `object`: The current status of a Replica.
+  * details `string`: [Output Only] Human-readable details about the current state of the replica
+  * state `string`: [Output Only] The state of the Replica.
+  * templateVersion `string`: [Output Only] The template used to build the replica.
+  * vmLink `string`: [Output Only] Link to the virtual machine that this Replica represents.
+  * vmStartTime `string`: [Output Only] The time that this Replica got to the RUNNING state, in RFC 3339 format. If the start time is unknown, UNKNOWN is returned.
+
+### ReplicasDeleteRequest
+* ReplicasDeleteRequest `object`
+  * abandonInstance `boolean`: Whether the instance resource represented by this replica should be deleted or abandoned. If abandoned, the replica will be deleted but the virtual machine instance will remain. By default, this is set to false and the instance will be deleted along with the replica.
+
+### ReplicasListResponse
+* ReplicasListResponse `object`
+  * nextPageToken `string`
+  * resources `array`
+    * items [Replica](#replica)
+
+### ServiceAccount
+* ServiceAccount `object`: A Compute Engine service account, identical to the Compute Engine resource.
+  * email `string`: The service account email address, for example: 123845678986@project.gserviceaccount.com
+  * scopes `array`: The list of OAuth2 scopes to obtain for the service account, for example: https://www.googleapis.com/auth/devstorage.full_control
     * items `string`
 
-### InstanceGroupManagersRecreateInstancesRequest
-* InstanceGroupManagersRecreateInstancesRequest `object`
-  * instances `array`: The names of one or more instances to recreate. For example:
+### Tag
+* Tag `object`: A Compute Engine Instance tag, identical to the tags on the corresponding Compute Engine Instance resource.
+  * fingerPrint `string`: The fingerprint of the tag. Required for updating the list of tags.
+  * items `array`: Items contained in this tag.
     * items `string`
 
-### InstanceGroupManagersSetInstanceTemplateRequest
-* InstanceGroupManagersSetInstanceTemplateRequest `object`
-  * instanceTemplate `string`: The full URL to an Instance Template from which all new instances will be created.
+### Template
+* Template `object`: The template used for creating replicas in the pool.
+  * action [Action](#action)
+  * healthChecks `array`: A list of HTTP Health Checks to configure for this replica pool and all virtual machines in this replica pool.
+    * items [HealthCheck](#healthcheck)
+  * version `string`: A free-form string describing the version of this template. You can provide any versioning string you would like. For example, version1 or template-v1.
+  * vmParams [VmParams](#vmparams)
 
-### InstanceGroupManagersSetTargetPoolsRequest
-* InstanceGroupManagersSetTargetPoolsRequest `object`
-  * fingerprint `string`: The current fingerprint of the Instance Group Manager resource. If this does not match the server-side fingerprint of the resource, then the request will be rejected.
-  * targetPools `array`: A list of fully-qualified URLs to existing Target Pool resources. New instances in the Instance Group Manager will be added to the specified target pools; existing instances are not affected.
-    * items `string`
-
-### Operation
-* Operation `object`: An operation resource, used to manage asynchronous API requests.
-  * clientOperationId `string`: [Output only] An optional identifier specified by the client when the mutation was initiated. Must be unique for all operation resources in the project.
-  * creationTimestamp `string`: [Output Only] The time that this operation was requested, in RFC3339 text format.
-  * endTime `string`: [Output Only] The time that this operation was completed, in RFC3339 text format.
-  * error `object`: [Output Only] If errors occurred during processing of this operation, this field will be populated.
-    * errors `array`: [Output Only] The array of errors encountered while processing this operation.
-      * items `object`
-        * code `string`: [Output Only] The error type identifier for this error.
-        * location `string`: [Output Only] Indicates the field in the request which caused the error. This property is optional.
-        * message `string`: [Output Only] An optional, human-readable error message.
-  * httpErrorMessage `string`: [Output only] If operation fails, the HTTP error message returned.
-  * httpErrorStatusCode `integer`: [Output only] If operation fails, the HTTP error status code returned.
-  * id `string`: [Output Only] Unique identifier for the resource, generated by the server.
-  * insertTime `string`: [Output Only] The time that this operation was requested, in RFC3339 text format.
-  * kind `string`: [Output only] Type of the resource.
-  * name `string`: [Output Only] Name of the resource.
-  * operationType `string`: [Output only] Type of the operation. Operations include insert, update, and delete.
-  * progress `integer`: [Output only] An optional progress indicator that ranges from 0 to 100. There is no requirement that this be linear or support any granularity of operations. This should not be used to guess at when the operation will be complete. This number should be monotonically increasing as the operation progresses.
-  * region `string`: [Output Only] URL of the region where the operation resides. Only available when performing regional operations.
-  * selfLink `string`: [Output Only] Server-defined fully-qualified URL for this resource.
-  * startTime `string`: [Output Only] The time that this operation was started by the server, in RFC3339 text format.
-  * status `string` (values: DONE, PENDING, RUNNING): [Output Only] Status of the operation.
-  * statusMessage `string`: [Output Only] An optional textual description of the current status of the operation.
-  * targetId `string`: [Output Only] Unique target ID which identifies a particular incarnation of the target.
-  * targetLink `string`: [Output only] URL of the resource the operation is mutating.
-  * user `string`: [Output Only] User who requested the operation, for example: user@example.com.
-  * warnings `array`: [Output Only] If there are issues with this operation, a warning is returned.
-    * items `object`
-      * code `string` (values: DEPRECATED_RESOURCE_USED, DISK_SIZE_LARGER_THAN_IMAGE_SIZE, INJECTED_KERNELS_DEPRECATED, NEXT_HOP_ADDRESS_NOT_ASSIGNED, NEXT_HOP_CANNOT_IP_FORWARD, NEXT_HOP_INSTANCE_NOT_FOUND, NEXT_HOP_INSTANCE_NOT_ON_NETWORK, NEXT_HOP_NOT_RUNNING, NO_RESULTS_ON_PAGE, REQUIRED_TOS_AGREEMENT, RESOURCE_NOT_DELETED, SINGLE_INSTANCE_PROPERTY_TEMPLATE, UNREACHABLE): [Output only] The warning type identifier for this warning.
-      * data `array`: [Output only] Metadata for this warning in key:value format.
-        * items `object`
-          * key `string`: [Output Only] Metadata key for this warning.
-          * value `string`: [Output Only] Metadata value for this warning.
-      * message `string`: [Output only] Optional human-readable details for this warning.
-  * zone `string`: [Output Only] URL of the zone where the operation resides. Only available when performing per-zone operations.
-
-### OperationList
-* OperationList `object`
-  * id `string`: Unique identifier for the resource; defined by the server (output only).
-  * items `array`: The operation resources.
-    * items [Operation](#operation)
-  * kind `string`: Type of resource.
-  * nextPageToken `string`: A token used to continue a truncated list request (output only).
-  * selfLink `string`: Server defined URL for this resource (output only).
-
-### ReplicaPoolAutoHealingPolicy
-* ReplicaPoolAutoHealingPolicy `object`
-  * actionType `string` (values: REBOOT, RECREATE): The action to perform when an instance becomes unhealthy. Possible values are RECREATE or REBOOT. RECREATE replaces an unhealthy instance with a new instance that is based on the instance template for this managed instance group. REBOOT performs a soft reboot on an instance. If the instance cannot reboot, the instance performs a hard restart.
-  * healthCheck `string`: The URL for the HealthCheck that signals autohealing.
+### VmParams
+* VmParams `object`: Parameters for creating a Compute Engine Instance resource. Most fields are identical to the corresponding Compute Engine resource.
+  * tags [Tag](#tag)
+  * baseInstanceName `string`: Deprecated. Please use baseInstanceName instead.
+  * canIpForward `boolean`: Enables IP Forwarding, which allows this instance to receive packets destined for a different IP address, and send packets with a different source IP. See IP Forwarding for more information.
+  * description `string`: An optional textual description of the instance.
+  * disksToAttach `array`: A list of existing Persistent Disk resources to attach to each replica in the pool. Each disk will be attached in read-only mode to every replica.
+    * items [ExistingDisk](#existingdisk)
+  * disksToCreate `array`: A list of Disk resources to create and attach to each Replica in the Pool. Currently, you can only define one disk and it must be a root persistent disk. Note that Replica Pool will create a root persistent disk for each replica.
+    * items [NewDisk](#newdisk)
+  * machineType `string`: The machine type for this instance. The resource name (e.g. n1-standard-1).
+  * metadata [Metadata](#metadata)
+  * networkInterfaces `array`: A list of network interfaces for the instance. Currently only one interface is supported by Google Compute Engine, ONE_TO_ONE_NAT.
+    * items [NetworkInterface](#networkinterface)
+  * onHostMaintenance `string`
+  * serviceAccounts `array`: A list of Service Accounts to enable for this instance.
+    * items [ServiceAccount](#serviceaccount)
 
 

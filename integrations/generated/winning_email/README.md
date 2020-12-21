@@ -11,7 +11,7 @@ let winning_email = require('@datafire/winning_email').create({
   internalApiKey: ""
 });
 
-winning_email.emailBooster({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -101,24 +101,17 @@ winning_email.status(null, context)
     * imageReport `object`
       * imagesNeedOptimization `integer`
       * imagesNoAlt `array`
-
       * optimization `array`
-
       * score `number`
     * linkReport `object`
       * errors `array`
-
       * score `number`
     * markupReport `object`
       * response `object`
         * errors `array`
-
         * groupedErrors `array`
-
         * tripleTree `array`
-
         * warnings `array`
-
       * score `number`
     * spamassassinReport `object`
       * baseSpamScore `number`
@@ -134,15 +127,11 @@ winning_email.status(null, context)
           * score `number`
     * spellReport `object`
       * html `array`
-
       * score `number`
       * subject `array`
-
       * text `array`
-
     * subjectReport `object`
       * openrates `array`
-
       * overallOpenRate `string`
       * score `number`
       * subject `string`

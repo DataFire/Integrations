@@ -1,12 +1,5 @@
 {
   "swagger": "2.0",
-  "schemes": [
-    "https",
-    "http"
-  ],
-  "host": "cloudhsmv2.amazonaws.com",
-  "basePath": "/",
-  "x-hasEquivalentPaths": true,
   "info": {
     "contact": {
       "email": "mike.ralphson@gmail.com",
@@ -14,7 +7,7 @@
       "url": "https://github.com/mermade/aws2openapi",
       "x-twitter": "PermittedSoc"
     },
-    "description": "For more information about AWS CloudHSM, see <a href=\"http://aws.amazon.com/cloudhsm/\">AWS CloudHSM</a> and the <a href=\"http://docs.aws.amazon.com/cloudhsm/latest/userguide/\">AWS CloudHSM User Guide</a>.",
+    "description": "For more information about AWS CloudHSM, see <a href=\"http://aws.amazon.com/cloudhsm/\">AWS CloudHSM</a> and the <a href=\"https://docs.aws.amazon.com/cloudhsm/latest/userguide/\">AWS CloudHSM User Guide</a>.",
     "license": {
       "name": "Apache 2.0 License",
       "url": "http://www.apache.org/licenses/"
@@ -30,7 +23,7 @@
     ],
     "x-logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.jpeg"
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"
     },
     "x-origin": [
       {
@@ -40,7 +33,7 @@
           "version": "1.0.0"
         },
         "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/cloudhsmv2-2017-04-28.normal.json",
-        "x-apisguru-direct": true
+        "x-apisguru-driver": "external"
       }
     ],
     "x-preferred": true,
@@ -52,121 +45,193 @@
       "type": "openapi"
     }
   },
-  "externalDocs": {
-    "description": "Amazon Web Services documentation",
-    "url": "https://aws.amazon.com/cloudhsmv2/"
-  },
-  "consumes": [
-    "application/json"
+  "host": "cloudhsmv2.us-east-1.amazonaws.com",
+  "basePath": "/",
+  "schemes": [
+    "http"
   ],
-  "produces": [
-    "application/json"
-  ],
-  "securityDefinitions": {
-    "hmac": {
-      "description": "Amazon Signature authorization v4",
-      "in": "header",
-      "name": "Authorization",
-      "type": "apiKey",
-      "x-amazon-apigateway-authtype": "awsSigv4"
-    }
-  },
-  "security": [
-    {
-      "hmac": []
-    }
-  ],
-  "parameters": {
-    "Action": {
-      "in": "header",
-      "name": "Action",
-      "required": true,
-      "type": "string"
-    },
-    "Version": {
-      "in": "header",
-      "name": "Version",
-      "required": true,
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "in": "header",
-      "name": "X-Amz-Algorithm",
-      "required": false,
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "in": "header",
-      "name": "X-Amz-Content-Sha256",
-      "required": false,
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "in": "header",
-      "name": "X-Amz-Credential",
-      "required": false,
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "in": "header",
-      "name": "X-Amz-Date",
-      "required": false,
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "in": "header",
-      "name": "X-Amz-Security-Token",
-      "required": false,
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "in": "header",
-      "name": "X-Amz-Signature",
-      "required": false,
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "in": "header",
-      "name": "X-Amz-SignedHeaders",
-      "required": false,
-      "type": "string"
-    }
-  },
   "paths": {
-    "/": {
+    "/#X-Amz-Target=BaldrApiService.CopyBackupToRegion": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Creates a new AWS CloudHSM cluster.",
-        "operationId": "CreateCluster",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "enum": [
+              "BaldrApiService.CopyBackupToRegion"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CopyBackupToRegionRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CopyBackupToRegionResponse"
+            }
+          },
+          "480": {
+            "description": "CloudHsmAccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/CloudHsmAccessDeniedException"
+            }
+          },
+          "481": {
+            "description": "CloudHsmInternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/CloudHsmInternalFailureException"
+            }
+          },
+          "482": {
+            "description": "CloudHsmInvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/CloudHsmInvalidRequestException"
+            }
+          },
+          "483": {
+            "description": "CloudHsmResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/CloudHsmResourceNotFoundException"
+            }
+          },
+          "484": {
+            "description": "CloudHsmServiceException",
+            "schema": {
+              "$ref": "#/definitions/CloudHsmServiceException"
+            }
+          },
+          "485": {
+            "description": "CloudHsmTagException",
+            "schema": {
+              "$ref": "#/definitions/CloudHsmTagException"
+            }
+          }
+        },
+        "description": "Copy an AWS CloudHSM cluster backup to a different region.",
+        "operationId": "CopyBackupToRegion"
+      }
+    },
+    "/#X-Amz-Target=BaldrApiService.CreateCluster": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "BaldrApiService.CreateCluster"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -184,72 +249,108 @@
             }
           },
           "480": {
+            "description": "CloudHsmAccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/CloudHsmAccessDeniedException"
+            }
+          },
+          "481": {
             "description": "CloudHsmInternalFailureException",
             "schema": {
               "$ref": "#/definitions/CloudHsmInternalFailureException"
             }
           },
-          "481": {
-            "description": "CloudHsmServiceException",
-            "schema": {
-              "$ref": "#/definitions/CloudHsmServiceException"
-            }
-          },
           "482": {
-            "description": "CloudHsmResourceNotFoundException",
-            "schema": {
-              "$ref": "#/definitions/CloudHsmResourceNotFoundException"
-            }
-          },
-          "483": {
             "description": "CloudHsmInvalidRequestException",
             "schema": {
               "$ref": "#/definitions/CloudHsmInvalidRequestException"
             }
           },
-          "484": {
-            "description": "CloudHsmAccessDeniedException",
+          "483": {
+            "description": "CloudHsmResourceNotFoundException",
             "schema": {
-              "$ref": "#/definitions/CloudHsmAccessDeniedException"
+              "$ref": "#/definitions/CloudHsmResourceNotFoundException"
+            }
+          },
+          "484": {
+            "description": "CloudHsmServiceException",
+            "schema": {
+              "$ref": "#/definitions/CloudHsmServiceException"
+            }
+          },
+          "485": {
+            "description": "CloudHsmTagException",
+            "schema": {
+              "$ref": "#/definitions/CloudHsmTagException"
             }
           }
-        }
+        },
+        "description": "Creates a new AWS CloudHSM cluster.",
+        "operationId": "CreateCluster"
       }
     },
-    "/#CreateHsm": {
+    "/#X-Amz-Target=BaldrApiService.CreateHsm": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Creates a new hardware security module (HSM) in the specified AWS CloudHSM cluster.",
-        "operationId": "CreateHsm",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "enum": [
+              "BaldrApiService.CreateHsm"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -296,43 +397,186 @@
               "$ref": "#/definitions/CloudHsmAccessDeniedException"
             }
           }
-        }
+        },
+        "description": "Creates a new hardware security module (HSM) in the specified AWS CloudHSM cluster.",
+        "operationId": "CreateHsm"
       }
     },
-    "/#DeleteCluster": {
+    "/#X-Amz-Target=BaldrApiService.DeleteBackup": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Deletes the specified AWS CloudHSM cluster. Before you can delete a cluster, you must delete all HSMs in the cluster. To see if the cluster contains any HSMs, use <a>DescribeClusters</a>. To delete an HSM, use <a>DeleteHsm</a>.",
-        "operationId": "DeleteCluster",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "enum": [
+              "BaldrApiService.DeleteBackup"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteBackupRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteBackupResponse"
+            }
+          },
+          "480": {
+            "description": "CloudHsmAccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/CloudHsmAccessDeniedException"
+            }
+          },
+          "481": {
+            "description": "CloudHsmInternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/CloudHsmInternalFailureException"
+            }
+          },
+          "482": {
+            "description": "CloudHsmInvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/CloudHsmInvalidRequestException"
+            }
+          },
+          "483": {
+            "description": "CloudHsmResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/CloudHsmResourceNotFoundException"
+            }
+          },
+          "484": {
+            "description": "CloudHsmServiceException",
+            "schema": {
+              "$ref": "#/definitions/CloudHsmServiceException"
+            }
+          }
+        },
+        "description": "Deletes a specified AWS CloudHSM backup. A backup can be restored up to 7 days after the DeleteBackup request is made. For more information on restoring a backup, see <a>RestoreBackup</a>.",
+        "operationId": "DeleteBackup"
+      }
+    },
+    "/#X-Amz-Target=BaldrApiService.DeleteCluster": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "BaldrApiService.DeleteCluster"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -350,72 +594,108 @@
             }
           },
           "480": {
+            "description": "CloudHsmAccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/CloudHsmAccessDeniedException"
+            }
+          },
+          "481": {
             "description": "CloudHsmInternalFailureException",
             "schema": {
               "$ref": "#/definitions/CloudHsmInternalFailureException"
             }
           },
-          "481": {
-            "description": "CloudHsmServiceException",
-            "schema": {
-              "$ref": "#/definitions/CloudHsmServiceException"
-            }
-          },
           "482": {
-            "description": "CloudHsmResourceNotFoundException",
-            "schema": {
-              "$ref": "#/definitions/CloudHsmResourceNotFoundException"
-            }
-          },
-          "483": {
             "description": "CloudHsmInvalidRequestException",
             "schema": {
               "$ref": "#/definitions/CloudHsmInvalidRequestException"
             }
           },
-          "484": {
-            "description": "CloudHsmAccessDeniedException",
+          "483": {
+            "description": "CloudHsmResourceNotFoundException",
             "schema": {
-              "$ref": "#/definitions/CloudHsmAccessDeniedException"
+              "$ref": "#/definitions/CloudHsmResourceNotFoundException"
+            }
+          },
+          "484": {
+            "description": "CloudHsmServiceException",
+            "schema": {
+              "$ref": "#/definitions/CloudHsmServiceException"
+            }
+          },
+          "485": {
+            "description": "CloudHsmTagException",
+            "schema": {
+              "$ref": "#/definitions/CloudHsmTagException"
             }
           }
-        }
+        },
+        "description": "Deletes the specified AWS CloudHSM cluster. Before you can delete a cluster, you must delete all HSMs in the cluster. To see if the cluster contains any HSMs, use <a>DescribeClusters</a>. To delete an HSM, use <a>DeleteHsm</a>.",
+        "operationId": "DeleteCluster"
       }
     },
-    "/#DeleteHsm": {
+    "/#X-Amz-Target=BaldrApiService.DeleteHsm": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Deletes the specified HSM. To specify an HSM, you can use its identifier (ID), the IP address of the HSM's elastic network interface (ENI), or the ID of the HSM's ENI. You need to specify only one of these values. To find these values, use <a>DescribeClusters</a>.",
-        "operationId": "DeleteHsm",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "enum": [
+              "BaldrApiService.DeleteHsm"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -462,51 +742,64 @@
               "$ref": "#/definitions/CloudHsmAccessDeniedException"
             }
           }
-        }
+        },
+        "description": "Deletes the specified HSM. To specify an HSM, you can use its identifier (ID), the IP address of the HSM's elastic network interface (ENI), or the ID of the HSM's ENI. You need to specify only one of these values. To find these values, use <a>DescribeClusters</a>.",
+        "operationId": "DeleteHsm"
       }
     },
-    "/#DescribeBackups": {
+    "/#X-Amz-Target=BaldrApiService.DescribeBackups": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "<p>Gets information about backups of AWS CloudHSM clusters.</p> <p>This is a paginated operation, which means that each response might contain only a subset of all the backups. When the response contains only a subset of backups, it includes a <code>NextToken</code> value. Use this value in a subsequent <code>DescribeBackups</code> request to get more backups. When you receive a response with no <code>NextToken</code> (or an empty or null value), that means there are no more backups to get.</p>",
-        "operationId": "DescribeBackups",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/DescribeBackupsRequest"
-            }
-          },
           {
             "description": "Pagination limit",
             "in": "query",
@@ -520,6 +813,23 @@
             "name": "NextToken",
             "required": false,
             "type": "string"
+          },
+          {
+            "enum": [
+              "BaldrApiService.DescribeBackups"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeBackupsRequest"
+            }
           }
         ],
         "responses": {
@@ -530,80 +840,99 @@
             }
           },
           "480": {
+            "description": "CloudHsmAccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/CloudHsmAccessDeniedException"
+            }
+          },
+          "481": {
             "description": "CloudHsmInternalFailureException",
             "schema": {
               "$ref": "#/definitions/CloudHsmInternalFailureException"
             }
           },
-          "481": {
-            "description": "CloudHsmServiceException",
-            "schema": {
-              "$ref": "#/definitions/CloudHsmServiceException"
-            }
-          },
           "482": {
-            "description": "CloudHsmResourceNotFoundException",
-            "schema": {
-              "$ref": "#/definitions/CloudHsmResourceNotFoundException"
-            }
-          },
-          "483": {
             "description": "CloudHsmInvalidRequestException",
             "schema": {
               "$ref": "#/definitions/CloudHsmInvalidRequestException"
             }
           },
-          "484": {
-            "description": "CloudHsmAccessDeniedException",
+          "483": {
+            "description": "CloudHsmResourceNotFoundException",
             "schema": {
-              "$ref": "#/definitions/CloudHsmAccessDeniedException"
+              "$ref": "#/definitions/CloudHsmResourceNotFoundException"
+            }
+          },
+          "484": {
+            "description": "CloudHsmServiceException",
+            "schema": {
+              "$ref": "#/definitions/CloudHsmServiceException"
+            }
+          },
+          "485": {
+            "description": "CloudHsmTagException",
+            "schema": {
+              "$ref": "#/definitions/CloudHsmTagException"
             }
           }
-        }
+        },
+        "description": "<p>Gets information about backups of AWS CloudHSM clusters.</p> <p>This is a paginated operation, which means that each response might contain only a subset of all the backups. When the response contains only a subset of backups, it includes a <code>NextToken</code> value. Use this value in a subsequent <code>DescribeBackups</code> request to get more backups. When you receive a response with no <code>NextToken</code> (or an empty or null value), that means there are no more backups to get.</p>",
+        "operationId": "DescribeBackups"
       }
     },
-    "/#DescribeClusters": {
+    "/#X-Amz-Target=BaldrApiService.DescribeClusters": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "<p>Gets information about AWS CloudHSM clusters.</p> <p>This is a paginated operation, which means that each response might contain only a subset of all the clusters. When the response contains only a subset of clusters, it includes a <code>NextToken</code> value. Use this value in a subsequent <code>DescribeClusters</code> request to get more clusters. When you receive a response with no <code>NextToken</code> (or an empty or null value), that means there are no more clusters to get.</p>",
-        "operationId": "DescribeClusters",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/DescribeClustersRequest"
-            }
-          },
           {
             "description": "Pagination limit",
             "in": "query",
@@ -617,6 +946,23 @@
             "name": "NextToken",
             "required": false,
             "type": "string"
+          },
+          {
+            "enum": [
+              "BaldrApiService.DescribeClusters"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeClustersRequest"
+            }
           }
         ],
         "responses": {
@@ -627,15 +973,15 @@
             }
           },
           "480": {
-            "description": "CloudHsmInternalFailureException",
+            "description": "CloudHsmAccessDeniedException",
             "schema": {
-              "$ref": "#/definitions/CloudHsmInternalFailureException"
+              "$ref": "#/definitions/CloudHsmAccessDeniedException"
             }
           },
           "481": {
-            "description": "CloudHsmServiceException",
+            "description": "CloudHsmInternalFailureException",
             "schema": {
-              "$ref": "#/definitions/CloudHsmServiceException"
+              "$ref": "#/definitions/CloudHsmInternalFailureException"
             }
           },
           "482": {
@@ -645,48 +991,84 @@
             }
           },
           "483": {
-            "description": "CloudHsmAccessDeniedException",
+            "description": "CloudHsmServiceException",
             "schema": {
-              "$ref": "#/definitions/CloudHsmAccessDeniedException"
+              "$ref": "#/definitions/CloudHsmServiceException"
+            }
+          },
+          "484": {
+            "description": "CloudHsmTagException",
+            "schema": {
+              "$ref": "#/definitions/CloudHsmTagException"
             }
           }
-        }
+        },
+        "description": "<p>Gets information about AWS CloudHSM clusters.</p> <p>This is a paginated operation, which means that each response might contain only a subset of all the clusters. When the response contains only a subset of clusters, it includes a <code>NextToken</code> value. Use this value in a subsequent <code>DescribeClusters</code> request to get more clusters. When you receive a response with no <code>NextToken</code> (or an empty or null value), that means there are no more clusters to get.</p>",
+        "operationId": "DescribeClusters"
       }
     },
-    "/#InitializeCluster": {
+    "/#X-Amz-Target=BaldrApiService.InitializeCluster": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Claims an AWS CloudHSM cluster by submitting the cluster certificate issued by your issuing certificate authority (CA) and the CA's root certificate. Before you can claim a cluster, you must sign the cluster's certificate signing request (CSR) with your issuing CA. To get the cluster's CSR, use <a>DescribeClusters</a>.",
-        "operationId": "InitializeCluster",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "enum": [
+              "BaldrApiService.InitializeCluster"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -704,80 +1086,93 @@
             }
           },
           "480": {
+            "description": "CloudHsmAccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/CloudHsmAccessDeniedException"
+            }
+          },
+          "481": {
             "description": "CloudHsmInternalFailureException",
             "schema": {
               "$ref": "#/definitions/CloudHsmInternalFailureException"
             }
           },
-          "481": {
-            "description": "CloudHsmServiceException",
-            "schema": {
-              "$ref": "#/definitions/CloudHsmServiceException"
-            }
-          },
           "482": {
-            "description": "CloudHsmResourceNotFoundException",
-            "schema": {
-              "$ref": "#/definitions/CloudHsmResourceNotFoundException"
-            }
-          },
-          "483": {
             "description": "CloudHsmInvalidRequestException",
             "schema": {
               "$ref": "#/definitions/CloudHsmInvalidRequestException"
             }
           },
-          "484": {
-            "description": "CloudHsmAccessDeniedException",
+          "483": {
+            "description": "CloudHsmResourceNotFoundException",
             "schema": {
-              "$ref": "#/definitions/CloudHsmAccessDeniedException"
+              "$ref": "#/definitions/CloudHsmResourceNotFoundException"
+            }
+          },
+          "484": {
+            "description": "CloudHsmServiceException",
+            "schema": {
+              "$ref": "#/definitions/CloudHsmServiceException"
             }
           }
-        }
+        },
+        "description": "Claims an AWS CloudHSM cluster by submitting the cluster certificate issued by your issuing certificate authority (CA) and the CA's root certificate. Before you can claim a cluster, you must sign the cluster's certificate signing request (CSR) with your issuing CA. To get the cluster's CSR, use <a>DescribeClusters</a>.",
+        "operationId": "InitializeCluster"
       }
     },
-    "/#ListTags": {
+    "/#X-Amz-Target=BaldrApiService.ListTags": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "<p>Gets a list of tags for the specified AWS CloudHSM cluster.</p> <p>This is a paginated operation, which means that each response might contain only a subset of all the tags. When the response contains only a subset of tags, it includes a <code>NextToken</code> value. Use this value in a subsequent <code>ListTags</code> request to get more tags. When you receive a response with no <code>NextToken</code> (or an empty or null value), that means there are no more tags to get.</p>",
-        "operationId": "ListTags",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/ListTagsRequest"
-            }
-          },
           {
             "description": "Pagination limit",
             "in": "query",
@@ -791,6 +1186,23 @@
             "name": "NextToken",
             "required": false,
             "type": "string"
+          },
+          {
+            "enum": [
+              "BaldrApiService.ListTags"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListTagsRequest"
+            }
           }
         ],
         "responses": {
@@ -801,72 +1213,447 @@
             }
           },
           "480": {
+            "description": "CloudHsmAccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/CloudHsmAccessDeniedException"
+            }
+          },
+          "481": {
             "description": "CloudHsmInternalFailureException",
             "schema": {
               "$ref": "#/definitions/CloudHsmInternalFailureException"
             }
           },
-          "481": {
-            "description": "CloudHsmServiceException",
-            "schema": {
-              "$ref": "#/definitions/CloudHsmServiceException"
-            }
-          },
           "482": {
-            "description": "CloudHsmResourceNotFoundException",
-            "schema": {
-              "$ref": "#/definitions/CloudHsmResourceNotFoundException"
-            }
-          },
-          "483": {
             "description": "CloudHsmInvalidRequestException",
             "schema": {
               "$ref": "#/definitions/CloudHsmInvalidRequestException"
             }
           },
+          "483": {
+            "description": "CloudHsmResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/CloudHsmResourceNotFoundException"
+            }
+          },
           "484": {
+            "description": "CloudHsmServiceException",
+            "schema": {
+              "$ref": "#/definitions/CloudHsmServiceException"
+            }
+          },
+          "485": {
+            "description": "CloudHsmTagException",
+            "schema": {
+              "$ref": "#/definitions/CloudHsmTagException"
+            }
+          }
+        },
+        "description": "<p>Gets a list of tags for the specified AWS CloudHSM cluster.</p> <p>This is a paginated operation, which means that each response might contain only a subset of all the tags. When the response contains only a subset of tags, it includes a <code>NextToken</code> value. Use this value in a subsequent <code>ListTags</code> request to get more tags. When you receive a response with no <code>NextToken</code> (or an empty or null value), that means there are no more tags to get.</p>",
+        "operationId": "ListTags"
+      }
+    },
+    "/#X-Amz-Target=BaldrApiService.ModifyBackupAttributes": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "BaldrApiService.ModifyBackupAttributes"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ModifyBackupAttributesRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ModifyBackupAttributesResponse"
+            }
+          },
+          "480": {
             "description": "CloudHsmAccessDeniedException",
             "schema": {
               "$ref": "#/definitions/CloudHsmAccessDeniedException"
             }
+          },
+          "481": {
+            "description": "CloudHsmInternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/CloudHsmInternalFailureException"
+            }
+          },
+          "482": {
+            "description": "CloudHsmInvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/CloudHsmInvalidRequestException"
+            }
+          },
+          "483": {
+            "description": "CloudHsmResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/CloudHsmResourceNotFoundException"
+            }
+          },
+          "484": {
+            "description": "CloudHsmServiceException",
+            "schema": {
+              "$ref": "#/definitions/CloudHsmServiceException"
+            }
           }
-        }
+        },
+        "description": "Modifies attributes for AWS CloudHSM backup.",
+        "operationId": "ModifyBackupAttributes"
       }
     },
-    "/#TagResource": {
+    "/#X-Amz-Target=BaldrApiService.ModifyCluster": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Adds or overwrites one or more tags for the specified AWS CloudHSM cluster.",
-        "operationId": "TagResource",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "enum": [
+              "BaldrApiService.ModifyCluster"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ModifyClusterRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ModifyClusterResponse"
+            }
+          },
+          "480": {
+            "description": "CloudHsmAccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/CloudHsmAccessDeniedException"
+            }
+          },
+          "481": {
+            "description": "CloudHsmInternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/CloudHsmInternalFailureException"
+            }
+          },
+          "482": {
+            "description": "CloudHsmInvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/CloudHsmInvalidRequestException"
+            }
+          },
+          "483": {
+            "description": "CloudHsmResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/CloudHsmResourceNotFoundException"
+            }
+          },
+          "484": {
+            "description": "CloudHsmServiceException",
+            "schema": {
+              "$ref": "#/definitions/CloudHsmServiceException"
+            }
+          }
+        },
+        "description": "Modifies AWS CloudHSM cluster.",
+        "operationId": "ModifyCluster"
+      }
+    },
+    "/#X-Amz-Target=BaldrApiService.RestoreBackup": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "BaldrApiService.RestoreBackup"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RestoreBackupRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/RestoreBackupResponse"
+            }
+          },
+          "480": {
+            "description": "CloudHsmAccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/CloudHsmAccessDeniedException"
+            }
+          },
+          "481": {
+            "description": "CloudHsmInternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/CloudHsmInternalFailureException"
+            }
+          },
+          "482": {
+            "description": "CloudHsmInvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/CloudHsmInvalidRequestException"
+            }
+          },
+          "483": {
+            "description": "CloudHsmResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/CloudHsmResourceNotFoundException"
+            }
+          },
+          "484": {
+            "description": "CloudHsmServiceException",
+            "schema": {
+              "$ref": "#/definitions/CloudHsmServiceException"
+            }
+          }
+        },
+        "description": "Restores a specified AWS CloudHSM backup that is in the <code>PENDING_DELETION</code> state. For mor information on deleting a backup, see <a>DeleteBackup</a>.",
+        "operationId": "RestoreBackup"
+      }
+    },
+    "/#X-Amz-Target=BaldrApiService.TagResource": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "BaldrApiService.TagResource"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -884,72 +1671,108 @@
             }
           },
           "480": {
+            "description": "CloudHsmAccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/CloudHsmAccessDeniedException"
+            }
+          },
+          "481": {
             "description": "CloudHsmInternalFailureException",
             "schema": {
               "$ref": "#/definitions/CloudHsmInternalFailureException"
             }
           },
-          "481": {
-            "description": "CloudHsmServiceException",
-            "schema": {
-              "$ref": "#/definitions/CloudHsmServiceException"
-            }
-          },
           "482": {
-            "description": "CloudHsmResourceNotFoundException",
-            "schema": {
-              "$ref": "#/definitions/CloudHsmResourceNotFoundException"
-            }
-          },
-          "483": {
             "description": "CloudHsmInvalidRequestException",
             "schema": {
               "$ref": "#/definitions/CloudHsmInvalidRequestException"
             }
           },
-          "484": {
-            "description": "CloudHsmAccessDeniedException",
+          "483": {
+            "description": "CloudHsmResourceNotFoundException",
             "schema": {
-              "$ref": "#/definitions/CloudHsmAccessDeniedException"
+              "$ref": "#/definitions/CloudHsmResourceNotFoundException"
+            }
+          },
+          "484": {
+            "description": "CloudHsmServiceException",
+            "schema": {
+              "$ref": "#/definitions/CloudHsmServiceException"
+            }
+          },
+          "485": {
+            "description": "CloudHsmTagException",
+            "schema": {
+              "$ref": "#/definitions/CloudHsmTagException"
             }
           }
-        }
+        },
+        "description": "Adds or overwrites one or more tags for the specified AWS CloudHSM cluster.",
+        "operationId": "TagResource"
       }
     },
-    "/#UntagResource": {
+    "/#X-Amz-Target=BaldrApiService.UntagResource": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Removes the specified tag or tags from the specified AWS CloudHSM cluster.",
-        "operationId": "UntagResource",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "enum": [
+              "BaldrApiService.UntagResource"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -967,58 +1790,160 @@
             }
           },
           "480": {
+            "description": "CloudHsmAccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/CloudHsmAccessDeniedException"
+            }
+          },
+          "481": {
             "description": "CloudHsmInternalFailureException",
             "schema": {
               "$ref": "#/definitions/CloudHsmInternalFailureException"
             }
           },
-          "481": {
-            "description": "CloudHsmServiceException",
-            "schema": {
-              "$ref": "#/definitions/CloudHsmServiceException"
-            }
-          },
           "482": {
-            "description": "CloudHsmResourceNotFoundException",
-            "schema": {
-              "$ref": "#/definitions/CloudHsmResourceNotFoundException"
-            }
-          },
-          "483": {
             "description": "CloudHsmInvalidRequestException",
             "schema": {
               "$ref": "#/definitions/CloudHsmInvalidRequestException"
             }
           },
-          "484": {
-            "description": "CloudHsmAccessDeniedException",
+          "483": {
+            "description": "CloudHsmResourceNotFoundException",
             "schema": {
-              "$ref": "#/definitions/CloudHsmAccessDeniedException"
+              "$ref": "#/definitions/CloudHsmResourceNotFoundException"
+            }
+          },
+          "484": {
+            "description": "CloudHsmServiceException",
+            "schema": {
+              "$ref": "#/definitions/CloudHsmServiceException"
+            }
+          },
+          "485": {
+            "description": "CloudHsmTagException",
+            "schema": {
+              "$ref": "#/definitions/CloudHsmTagException"
             }
           }
-        }
+        },
+        "description": "Removes the specified tag or tags from the specified AWS CloudHSM cluster.",
+        "operationId": "UntagResource"
       }
     }
   },
   "definitions": {
     "Backup": {
-      "description": "Contains information about a backup of an AWS CloudHSM cluster.",
+      "description": "Contains information about a backup of an AWS CloudHSM cluster. All backup objects contain the <code>BackupId</code>, <code>BackupState</code>, <code>ClusterId</code>, and <code>CreateTimestamp</code> parameters. Backups that were copied into a destination region additionally contain the <code>CopyTimestamp</code>, <code>SourceBackup</code>, <code>SourceCluster</code>, and <code>SourceRegion</code> parameters. A backup that is pending deletion will include the <code>DeleteTimestamp</code> parameter.",
       "properties": {
         "BackupId": {
-          "$ref": "#/definitions/BackupId",
-          "description": "The identifier (ID) of the backup."
+          "allOf": [
+            {
+              "$ref": "#/definitions/BackupId"
+            },
+            {
+              "description": "The identifier (ID) of the backup."
+            }
+          ]
         },
         "BackupState": {
-          "$ref": "#/definitions/BackupState",
-          "description": "The state of the backup."
+          "allOf": [
+            {
+              "$ref": "#/definitions/BackupState"
+            },
+            {
+              "description": "The state of the backup."
+            }
+          ]
         },
         "ClusterId": {
-          "$ref": "#/definitions/ClusterId",
-          "description": "The identifier (ID) of the cluster that was backed up."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ClusterId"
+            },
+            {
+              "description": "The identifier (ID) of the cluster that was backed up."
+            }
+          ]
+        },
+        "CopyTimestamp": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "The date and time when the backup was copied from a source backup."
+            }
+          ]
         },
         "CreateTimestamp": {
-          "$ref": "#/definitions/Timestamp",
-          "description": "The date and time when the backup was created."
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "The date and time when the backup was created."
+            }
+          ]
+        },
+        "DeleteTimestamp": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "The date and time when the backup will be permanently deleted."
+            }
+          ]
+        },
+        "NeverExpires": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Boolean"
+            },
+            {
+              "description": "Specifies whether the service should exempt a backup from the retention policy for the cluster. <code>True</code> exempts a backup from the retention policy. <code>False</code> means the service applies the backup retention policy defined at the cluster."
+            }
+          ]
+        },
+        "SourceBackup": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/BackupId"
+            },
+            {
+              "description": "The identifier (ID) of the source backup from which the new backup was copied."
+            }
+          ]
+        },
+        "SourceCluster": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ClusterId"
+            },
+            {
+              "description": "The identifier (ID) of the cluster containing the source backup from which the new backup was copied."
+            }
+          ]
+        },
+        "SourceRegion": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Region"
+            },
+            {
+              "description": "The AWS Region that contains the source backup from which the new backup was copied."
+            }
+          ]
+        },
+        "TagList": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagList"
+            },
+            {
+              "description": "The list of tags for the backup."
+            }
+          ]
         }
       },
       "required": [
@@ -1036,11 +1961,50 @@
       ],
       "type": "string"
     },
+    "BackupRetentionPolicy": {
+      "description": "A policy that defines the number of days to retain backups.",
+      "properties": {
+        "Type": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/BackupRetentionType"
+            },
+            {
+              "description": "The type of backup retention policy. For the <code>DAYS</code> type, the value is the number of days to retain backups."
+            }
+          ]
+        },
+        "Value": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/BackupRetentionValue"
+            },
+            {
+              "description": "Use a value between 7 - 379."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "BackupRetentionType": {
+      "enum": [
+        "DAYS"
+      ],
+      "type": "string"
+    },
+    "BackupRetentionValue": {
+      "maxLength": 3,
+      "minLength": 1,
+      "pattern": "[0-9]+",
+      "type": "string"
+    },
     "BackupState": {
       "enum": [
         "CREATE_IN_PROGRESS",
         "READY",
-        "DELETED"
+        "DELETED",
+        "PENDING_DELETION"
       ],
       "type": "string"
     },
@@ -1049,6 +2013,14 @@
         "$ref": "#/definitions/Backup"
       },
       "type": "array"
+    },
+    "BackupsMaxSize": {
+      "maximum": 50,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "Boolean": {
+      "type": "boolean"
     },
     "Cert": {
       "maxLength": 5000,
@@ -1059,127 +2031,216 @@
       "description": "Contains one or more certificates or a certificate signing request (CSR).",
       "properties": {
         "AwsHardwareCertificate": {
-          "$ref": "#/definitions/Cert",
-          "description": "The HSM hardware certificate issued (signed) by AWS CloudHSM."
+          "allOf": [
+            {
+              "$ref": "#/definitions/Cert"
+            },
+            {
+              "description": "The HSM hardware certificate issued (signed) by AWS CloudHSM."
+            }
+          ]
         },
         "ClusterCertificate": {
-          "$ref": "#/definitions/Cert",
-          "description": "The cluster certificate issued (signed) by the issuing certificate authority (CA) of the cluster's owner."
+          "allOf": [
+            {
+              "$ref": "#/definitions/Cert"
+            },
+            {
+              "description": "The cluster certificate issued (signed) by the issuing certificate authority (CA) of the cluster's owner."
+            }
+          ]
         },
         "ClusterCsr": {
-          "$ref": "#/definitions/Cert",
-          "description": "The cluster's certificate signing request (CSR). The CSR exists only when the cluster's state is <code>UNINITIALIZED</code>."
+          "allOf": [
+            {
+              "$ref": "#/definitions/Cert"
+            },
+            {
+              "description": "The cluster's certificate signing request (CSR). The CSR exists only when the cluster's state is <code>UNINITIALIZED</code>."
+            }
+          ]
         },
         "HsmCertificate": {
-          "$ref": "#/definitions/Cert",
-          "description": "The HSM certificate issued (signed) by the HSM hardware."
+          "allOf": [
+            {
+              "$ref": "#/definitions/Cert"
+            },
+            {
+              "description": "The HSM certificate issued (signed) by the HSM hardware."
+            }
+          ]
         },
         "ManufacturerHardwareCertificate": {
-          "$ref": "#/definitions/Cert",
-          "description": "The HSM hardware certificate issued (signed) by the hardware manufacturer."
+          "allOf": [
+            {
+              "$ref": "#/definitions/Cert"
+            },
+            {
+              "description": "The HSM hardware certificate issued (signed) by the hardware manufacturer."
+            }
+          ]
         }
       },
       "type": "object"
     },
-    "CloudHsmAccessDeniedException": {
-      "description": "The request was rejected because the requester does not have permission to perform the requested operation.",
-      "properties": {
-        "Message": {
-          "$ref": "#/definitions/errorMessage"
-        }
-      },
-      "type": "object"
-    },
-    "CloudHsmInternalFailureException": {
-      "description": "The request was rejected because of an AWS CloudHSM internal failure. The request can be retried.",
-      "properties": {
-        "Message": {
-          "$ref": "#/definitions/errorMessage"
-        }
-      },
-      "type": "object"
-    },
-    "CloudHsmInvalidRequestException": {
-      "description": "The request was rejected because it is not a valid request.",
-      "properties": {
-        "Message": {
-          "$ref": "#/definitions/errorMessage"
-        }
-      },
-      "type": "object"
-    },
-    "CloudHsmResourceNotFoundException": {
-      "description": "The request was rejected because it refers to a resource that cannot be found.",
-      "properties": {
-        "Message": {
-          "$ref": "#/definitions/errorMessage"
-        }
-      },
-      "type": "object"
-    },
-    "CloudHsmServiceException": {
-      "description": "The request was rejected because an error occurred.",
-      "properties": {
-        "Message": {
-          "$ref": "#/definitions/errorMessage"
-        }
-      },
-      "type": "object"
-    },
+    "CloudHsmAccessDeniedException": {},
+    "CloudHsmInternalFailureException": {},
+    "CloudHsmInvalidRequestException": {},
+    "CloudHsmResourceNotFoundException": {},
+    "CloudHsmServiceException": {},
+    "CloudHsmTagException": {},
     "Cluster": {
       "description": "Contains information about an AWS CloudHSM cluster.",
       "properties": {
         "BackupPolicy": {
-          "$ref": "#/definitions/BackupPolicy",
-          "description": "The cluster's backup policy."
+          "allOf": [
+            {
+              "$ref": "#/definitions/BackupPolicy"
+            },
+            {
+              "description": "The cluster's backup policy."
+            }
+          ]
+        },
+        "BackupRetentionPolicy": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/BackupRetentionPolicy"
+            },
+            {
+              "description": "A policy that defines how the service retains backups."
+            }
+          ]
         },
         "Certificates": {
-          "$ref": "#/definitions/Certificates",
-          "description": "Contains one or more certificates or a certificate signing request (CSR)."
+          "allOf": [
+            {
+              "$ref": "#/definitions/Certificates"
+            },
+            {
+              "description": "Contains one or more certificates or a certificate signing request (CSR)."
+            }
+          ]
         },
         "ClusterId": {
-          "$ref": "#/definitions/ClusterId",
-          "description": "The cluster's identifier (ID)."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ClusterId"
+            },
+            {
+              "description": "The cluster's identifier (ID)."
+            }
+          ]
         },
         "CreateTimestamp": {
-          "$ref": "#/definitions/Timestamp",
-          "description": "The date and time when the cluster was created."
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "The date and time when the cluster was created."
+            }
+          ]
         },
         "HsmType": {
-          "$ref": "#/definitions/HsmType",
-          "description": "The type of HSM that the cluster contains."
+          "allOf": [
+            {
+              "$ref": "#/definitions/HsmType"
+            },
+            {
+              "description": "The type of HSM that the cluster contains."
+            }
+          ]
         },
         "Hsms": {
-          "$ref": "#/definitions/Hsms",
-          "description": "Contains information about the HSMs in the cluster."
+          "allOf": [
+            {
+              "$ref": "#/definitions/Hsms"
+            },
+            {
+              "description": "Contains information about the HSMs in the cluster."
+            }
+          ]
         },
         "PreCoPassword": {
-          "$ref": "#/definitions/PreCoPassword",
-          "description": "The default password for the cluster's Pre-Crypto Officer (PRECO) user."
+          "allOf": [
+            {
+              "$ref": "#/definitions/PreCoPassword"
+            },
+            {
+              "description": "The default password for the cluster's Pre-Crypto Officer (PRECO) user."
+            }
+          ]
         },
         "SecurityGroup": {
-          "$ref": "#/definitions/SecurityGroup",
-          "description": "The identifier (ID) of the cluster's security group."
+          "allOf": [
+            {
+              "$ref": "#/definitions/SecurityGroup"
+            },
+            {
+              "description": "The identifier (ID) of the cluster's security group."
+            }
+          ]
         },
         "SourceBackupId": {
-          "$ref": "#/definitions/BackupId",
-          "description": "The identifier (ID) of the backup used to create the cluster. This value exists only when the cluster was created from a backup."
+          "allOf": [
+            {
+              "$ref": "#/definitions/BackupId"
+            },
+            {
+              "description": "The identifier (ID) of the backup used to create the cluster. This value exists only when the cluster was created from a backup."
+            }
+          ]
         },
         "State": {
-          "$ref": "#/definitions/ClusterState",
-          "description": "The cluster's state."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ClusterState"
+            },
+            {
+              "description": "The cluster's state."
+            }
+          ]
         },
         "StateMessage": {
-          "$ref": "#/definitions/StateMessage",
-          "description": "A description of the cluster's state."
+          "allOf": [
+            {
+              "$ref": "#/definitions/StateMessage"
+            },
+            {
+              "description": "A description of the cluster's state."
+            }
+          ]
         },
         "SubnetMapping": {
-          "$ref": "#/definitions/ExternalSubnetMapping",
-          "description": "A map of the cluster's subnets and their corresponding Availability Zones."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ExternalSubnetMapping"
+            },
+            {
+              "description": "A map from availability zone to the cluster’s subnet in that availability zone."
+            }
+          ]
+        },
+        "TagList": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagList"
+            },
+            {
+              "description": "The list of tags for the cluster."
+            }
+          ]
         },
         "VpcId": {
-          "$ref": "#/definitions/VpcId",
-          "description": "The identifier (ID) of the virtual private cloud (VPC) that contains the cluster."
+          "allOf": [
+            {
+              "$ref": "#/definitions/VpcId"
+            },
+            {
+              "description": "The identifier (ID) of the virtual private cloud (VPC) that contains the cluster."
+            }
+          ]
         }
       },
       "type": "object"
@@ -1208,32 +2269,137 @@
       },
       "type": "array"
     },
-    "CreateClusterRequest": {
+    "ClustersMaxSize": {
+      "maximum": 25,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "CopyBackupToRegionRequest": {
       "properties": {
-        "HsmType": {
-          "$ref": "#/definitions/HsmType",
-          "description": "The type of HSM to use in the cluster. Currently the only allowed value is <code>hsm1.medium</code>."
+        "BackupId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/BackupId"
+            },
+            {
+              "description": "The ID of the backup that will be copied to the destination region. "
+            }
+          ]
         },
-        "SourceBackupId": {
-          "$ref": "#/definitions/BackupId",
-          "description": "The identifier (ID) of the cluster backup to restore. Use this value to restore the cluster from a backup instead of creating a new cluster. To find the backup ID, use <a>DescribeBackups</a>."
+        "DestinationRegion": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Region"
+            },
+            {
+              "description": "The AWS region that will contain your copied CloudHSM cluster backup."
+            }
+          ]
         },
-        "SubnetIds": {
-          "$ref": "#/definitions/SubnetIds",
-          "description": "<p>The identifiers (IDs) of the subnets where you are creating the cluster. You must specify at least one subnet. If you specify multiple subnets, they must meet the following criteria:</p> <ul> <li> <p>All subnets must be in the same virtual private cloud (VPC).</p> </li> <li> <p>You can specify only one subnet per Availability Zone.</p> </li> </ul>"
+        "TagList": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagList"
+            },
+            {
+              "description": "Tags to apply to the destination backup during creation. If you specify tags, only these tags will be applied to the destination backup. If you do not specify tags, the service copies tags from the source backup to the destination backup."
+            }
+          ]
         }
       },
       "required": [
-        "SubnetIds",
-        "HsmType"
+        "DestinationRegion",
+        "BackupId"
       ],
+      "title": "CopyBackupToRegionRequest",
+      "type": "object"
+    },
+    "CopyBackupToRegionResponse": {
+      "properties": {
+        "DestinationBackup": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DestinationBackup"
+            },
+            {
+              "description": "<p>Information on the backup that will be copied to the destination region, including CreateTimestamp, SourceBackup, SourceCluster, and Source Region. CreateTimestamp of the destination backup will be the same as that of the source backup.</p> <p>You will need to use the <code>sourceBackupID</code> returned in this operation to use the <a>DescribeBackups</a> operation on the backup that will be copied to the destination region.</p>"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "CreateClusterRequest": {
+      "properties": {
+        "BackupRetentionPolicy": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/BackupRetentionPolicy"
+            },
+            {
+              "description": "A policy that defines how the service retains backups."
+            }
+          ]
+        },
+        "HsmType": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/HsmType"
+            },
+            {
+              "description": "The type of HSM to use in the cluster. Currently the only allowed value is <code>hsm1.medium</code>."
+            }
+          ]
+        },
+        "SourceBackupId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/BackupId"
+            },
+            {
+              "description": "The identifier (ID) of the cluster backup to restore. Use this value to restore the cluster from a backup instead of creating a new cluster. To find the backup ID, use <a>DescribeBackups</a>."
+            }
+          ]
+        },
+        "SubnetIds": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SubnetIds"
+            },
+            {
+              "description": "<p>The identifiers (IDs) of the subnets where you are creating the cluster. You must specify at least one subnet. If you specify multiple subnets, they must meet the following criteria:</p> <ul> <li> <p>All subnets must be in the same virtual private cloud (VPC).</p> </li> <li> <p>You can specify only one subnet per Availability Zone.</p> </li> </ul>"
+            }
+          ]
+        },
+        "TagList": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagList"
+            },
+            {
+              "description": "Tags to apply to the CloudHSM cluster during creation."
+            }
+          ]
+        }
+      },
+      "required": [
+        "HsmType",
+        "SubnetIds"
+      ],
+      "title": "CreateClusterRequest",
       "type": "object"
     },
     "CreateClusterResponse": {
       "properties": {
         "Cluster": {
-          "$ref": "#/definitions/Cluster",
-          "description": "Information about the cluster that was created."
+          "allOf": [
+            {
+              "$ref": "#/definitions/Cluster"
+            },
+            {
+              "description": "Information about the cluster that was created."
+            }
+          ]
         }
       },
       "type": "object"
@@ -1241,29 +2407,88 @@
     "CreateHsmRequest": {
       "properties": {
         "AvailabilityZone": {
-          "$ref": "#/definitions/ExternalAz",
-          "description": "The Availability Zone where you are creating the HSM. To find the cluster's Availability Zones, use <a>DescribeClusters</a>."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ExternalAz"
+            },
+            {
+              "description": "The Availability Zone where you are creating the HSM. To find the cluster's Availability Zones, use <a>DescribeClusters</a>."
+            }
+          ]
         },
         "ClusterId": {
-          "$ref": "#/definitions/ClusterId",
-          "description": "The identifier (ID) of the HSM's cluster. To find the cluster ID, use <a>DescribeClusters</a>."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ClusterId"
+            },
+            {
+              "description": "The identifier (ID) of the HSM's cluster. To find the cluster ID, use <a>DescribeClusters</a>."
+            }
+          ]
         },
         "IpAddress": {
-          "$ref": "#/definitions/IpAddress",
-          "description": "The HSM's IP address. If you specify an IP address, use an available address from the subnet that maps to the Availability Zone where you are creating the HSM. If you don't specify an IP address, one is chosen for you from that subnet."
+          "allOf": [
+            {
+              "$ref": "#/definitions/IpAddress"
+            },
+            {
+              "description": "The HSM's IP address. If you specify an IP address, use an available address from the subnet that maps to the Availability Zone where you are creating the HSM. If you don't specify an IP address, one is chosen for you from that subnet."
+            }
+          ]
         }
       },
       "required": [
         "ClusterId",
         "AvailabilityZone"
       ],
+      "title": "CreateHsmRequest",
       "type": "object"
     },
     "CreateHsmResponse": {
       "properties": {
         "Hsm": {
-          "$ref": "#/definitions/Hsm",
-          "description": "Information about the HSM that was created."
+          "allOf": [
+            {
+              "$ref": "#/definitions/Hsm"
+            },
+            {
+              "description": "Information about the HSM that was created."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DeleteBackupRequest": {
+      "properties": {
+        "BackupId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/BackupId"
+            },
+            {
+              "description": "The ID of the backup to be deleted. To find the ID of a backup, use the <a>DescribeBackups</a> operation."
+            }
+          ]
+        }
+      },
+      "required": [
+        "BackupId"
+      ],
+      "title": "DeleteBackupRequest",
+      "type": "object"
+    },
+    "DeleteBackupResponse": {
+      "properties": {
+        "Backup": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Backup"
+            },
+            {
+              "description": "Information on the <code>Backup</code> object deleted."
+            }
+          ]
         }
       },
       "type": "object"
@@ -1271,20 +2496,33 @@
     "DeleteClusterRequest": {
       "properties": {
         "ClusterId": {
-          "$ref": "#/definitions/ClusterId",
-          "description": "The identifier (ID) of the cluster that you are deleting. To find the cluster ID, use <a>DescribeClusters</a>."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ClusterId"
+            },
+            {
+              "description": "The identifier (ID) of the cluster that you are deleting. To find the cluster ID, use <a>DescribeClusters</a>."
+            }
+          ]
         }
       },
       "required": [
         "ClusterId"
       ],
+      "title": "DeleteClusterRequest",
       "type": "object"
     },
     "DeleteClusterResponse": {
       "properties": {
         "Cluster": {
-          "$ref": "#/definitions/Cluster",
-          "description": "Information about the cluster that was deleted."
+          "allOf": [
+            {
+              "$ref": "#/definitions/Cluster"
+            },
+            {
+              "description": "Information about the cluster that was deleted."
+            }
+          ]
         }
       },
       "type": "object"
@@ -1292,32 +2530,63 @@
     "DeleteHsmRequest": {
       "properties": {
         "ClusterId": {
-          "$ref": "#/definitions/ClusterId",
-          "description": "The identifier (ID) of the cluster that contains the HSM that you are deleting."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ClusterId"
+            },
+            {
+              "description": "The identifier (ID) of the cluster that contains the HSM that you are deleting."
+            }
+          ]
         },
         "EniId": {
-          "$ref": "#/definitions/EniId",
-          "description": "The identifier (ID) of the elastic network interface (ENI) of the HSM that you are deleting."
+          "allOf": [
+            {
+              "$ref": "#/definitions/EniId"
+            },
+            {
+              "description": "The identifier (ID) of the elastic network interface (ENI) of the HSM that you are deleting."
+            }
+          ]
         },
         "EniIp": {
-          "$ref": "#/definitions/IpAddress",
-          "description": "The IP address of the elastic network interface (ENI) of the HSM that you are deleting."
+          "allOf": [
+            {
+              "$ref": "#/definitions/IpAddress"
+            },
+            {
+              "description": "The IP address of the elastic network interface (ENI) of the HSM that you are deleting."
+            }
+          ]
         },
         "HsmId": {
-          "$ref": "#/definitions/HsmId",
-          "description": "The identifier (ID) of the HSM that you are deleting."
+          "allOf": [
+            {
+              "$ref": "#/definitions/HsmId"
+            },
+            {
+              "description": "The identifier (ID) of the HSM that you are deleting."
+            }
+          ]
         }
       },
       "required": [
         "ClusterId"
       ],
+      "title": "DeleteHsmRequest",
       "type": "object"
     },
     "DeleteHsmResponse": {
       "properties": {
         "HsmId": {
-          "$ref": "#/definitions/HsmId",
-          "description": "The identifier (ID) of the HSM that was deleted."
+          "allOf": [
+            {
+              "$ref": "#/definitions/HsmId"
+            },
+            {
+              "description": "The identifier (ID) of the HSM that was deleted."
+            }
+          ]
         }
       },
       "type": "object"
@@ -1325,29 +2594,70 @@
     "DescribeBackupsRequest": {
       "properties": {
         "Filters": {
-          "$ref": "#/definitions/Filters",
-          "description": "<p>One or more filters to limit the items returned in the response.</p> <p>Use the <code>backupIds</code> filter to return only the specified backups. Specify backups by their backup identifier (ID).</p> <p>Use the <code>clusterIds</code> filter to return only the backups for the specified clusters. Specify clusters by their cluster identifier (ID).</p> <p>Use the <code>states</code> filter to return only backups that match the specified state.</p>"
+          "allOf": [
+            {
+              "$ref": "#/definitions/Filters"
+            },
+            {
+              "description": "<p>One or more filters to limit the items returned in the response.</p> <p>Use the <code>backupIds</code> filter to return only the specified backups. Specify backups by their backup identifier (ID).</p> <p>Use the <code>sourceBackupIds</code> filter to return only the backups created from a source backup. The <code>sourceBackupID</code> of a source backup is returned by the <a>CopyBackupToRegion</a> operation.</p> <p>Use the <code>clusterIds</code> filter to return only the backups for the specified clusters. Specify clusters by their cluster identifier (ID).</p> <p>Use the <code>states</code> filter to return only backups that match the specified state.</p> <p>Use the <code>neverExpires</code> filter to return backups filtered by the value in the <code>neverExpires</code> parameter. <code>True</code> returns all backups exempt from the backup retention policy. <code>False</code> returns all backups with a backup retention policy defined at the cluster.</p>"
+            }
+          ]
         },
         "MaxResults": {
-          "$ref": "#/definitions/MaxSize",
-          "description": "The maximum number of backups to return in the response. When there are more backups than the number you specify, the response contains a <code>NextToken</code> value."
+          "allOf": [
+            {
+              "$ref": "#/definitions/BackupsMaxSize"
+            },
+            {
+              "description": "The maximum number of backups to return in the response. When there are more backups than the number you specify, the response contains a <code>NextToken</code> value."
+            }
+          ]
         },
         "NextToken": {
-          "$ref": "#/definitions/NextToken",
-          "description": "The <code>NextToken</code> value that you received in the previous response. Use this value to get more backups."
+          "allOf": [
+            {
+              "$ref": "#/definitions/NextToken"
+            },
+            {
+              "description": "The <code>NextToken</code> value that you received in the previous response. Use this value to get more backups."
+            }
+          ]
+        },
+        "SortAscending": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Boolean"
+            },
+            {
+              "description": "Designates whether or not to sort the return backups by ascending chronological order of generation."
+            }
+          ]
         }
       },
+      "title": "DescribeBackupsRequest",
       "type": "object"
     },
     "DescribeBackupsResponse": {
       "properties": {
         "Backups": {
-          "$ref": "#/definitions/Backups",
-          "description": "A list of backups."
+          "allOf": [
+            {
+              "$ref": "#/definitions/Backups"
+            },
+            {
+              "description": "A list of backups."
+            }
+          ]
         },
         "NextToken": {
-          "$ref": "#/definitions/NextToken",
-          "description": "An opaque string that indicates that the response contains only a subset of backups. Use this value in a subsequent <code>DescribeBackups</code> request to get more backups."
+          "allOf": [
+            {
+              "$ref": "#/definitions/NextToken"
+            },
+            {
+              "description": "An opaque string that indicates that the response contains only a subset of backups. Use this value in a subsequent <code>DescribeBackups</code> request to get more backups."
+            }
+          ]
         }
       },
       "type": "object"
@@ -1355,29 +2665,106 @@
     "DescribeClustersRequest": {
       "properties": {
         "Filters": {
-          "$ref": "#/definitions/Filters",
-          "description": "<p>One or more filters to limit the items returned in the response.</p> <p>Use the <code>clusterIds</code> filter to return only the specified clusters. Specify clusters by their cluster identifier (ID).</p> <p>Use the <code>vpcIds</code> filter to return only the clusters in the specified virtual private clouds (VPCs). Specify VPCs by their VPC identifier (ID).</p> <p>Use the <code>states</code> filter to return only clusters that match the specified state.</p>"
+          "allOf": [
+            {
+              "$ref": "#/definitions/Filters"
+            },
+            {
+              "description": "<p>One or more filters to limit the items returned in the response.</p> <p>Use the <code>clusterIds</code> filter to return only the specified clusters. Specify clusters by their cluster identifier (ID).</p> <p>Use the <code>vpcIds</code> filter to return only the clusters in the specified virtual private clouds (VPCs). Specify VPCs by their VPC identifier (ID).</p> <p>Use the <code>states</code> filter to return only clusters that match the specified state.</p>"
+            }
+          ]
         },
         "MaxResults": {
-          "$ref": "#/definitions/MaxSize",
-          "description": "The maximum number of clusters to return in the response. When there are more clusters than the number you specify, the response contains a <code>NextToken</code> value."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ClustersMaxSize"
+            },
+            {
+              "description": "The maximum number of clusters to return in the response. When there are more clusters than the number you specify, the response contains a <code>NextToken</code> value."
+            }
+          ]
         },
         "NextToken": {
-          "$ref": "#/definitions/NextToken",
-          "description": "The <code>NextToken</code> value that you received in the previous response. Use this value to get more clusters."
+          "allOf": [
+            {
+              "$ref": "#/definitions/NextToken"
+            },
+            {
+              "description": "The <code>NextToken</code> value that you received in the previous response. Use this value to get more clusters."
+            }
+          ]
         }
       },
+      "title": "DescribeClustersRequest",
       "type": "object"
     },
     "DescribeClustersResponse": {
       "properties": {
         "Clusters": {
-          "$ref": "#/definitions/Clusters",
-          "description": "A list of clusters."
+          "allOf": [
+            {
+              "$ref": "#/definitions/Clusters"
+            },
+            {
+              "description": "A list of clusters."
+            }
+          ]
         },
         "NextToken": {
-          "$ref": "#/definitions/NextToken",
-          "description": "An opaque string that indicates that the response contains only a subset of clusters. Use this value in a subsequent <code>DescribeClusters</code> request to get more clusters."
+          "allOf": [
+            {
+              "$ref": "#/definitions/NextToken"
+            },
+            {
+              "description": "An opaque string that indicates that the response contains only a subset of clusters. Use this value in a subsequent <code>DescribeClusters</code> request to get more clusters."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DestinationBackup": {
+      "description": "Contains information about the backup that will be copied and created by the <a>CopyBackupToRegion</a> operation.",
+      "properties": {
+        "CreateTimestamp": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "The date and time when both the source backup was created."
+            }
+          ]
+        },
+        "SourceBackup": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/BackupId"
+            },
+            {
+              "description": "The identifier (ID) of the source backup from which the new backup was copied."
+            }
+          ]
+        },
+        "SourceCluster": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ClusterId"
+            },
+            {
+              "description": "The identifier (ID) of the cluster containing the source backup from which the new backup was copied."
+            }
+          ]
+        },
+        "SourceRegion": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Region"
+            },
+            {
+              "description": "The AWS region that contains the source backup from which the new backup was copied."
+            }
+          ]
         }
       },
       "type": "object"
@@ -1387,75 +2774,107 @@
       "type": "string"
     },
     "ExternalAz": {
-      "pattern": "[a-z]{2}(-(gov|isob|iso))?-(east|west|north|south|central){1,2}-\\d[a-z]",
+      "pattern": "[a-z]{2}(-(gov))?-(east|west|north|south|central){1,2}-\\d[a-z]",
       "type": "string"
     },
     "ExternalSubnetMapping": {
-      "items": {
-        "properties": {
-          "key": {
-            "$ref": "#/definitions/ExternalAz"
-          },
-          "value": {
-            "$ref": "#/definitions/SubnetId"
-          }
-        },
-        "type": "object"
+      "additionalProperties": {
+        "$ref": "#/definitions/SubnetId"
       },
-      "type": "array"
+      "type": "object"
     },
     "Field": {
       "pattern": "[a-zA-Z0-9_-]+",
       "type": "string"
     },
     "Filters": {
-      "items": {
-        "properties": {
-          "key": {
-            "$ref": "#/definitions/Field"
-          },
-          "value": {
-            "$ref": "#/definitions/Strings"
-          }
-        },
-        "type": "object"
+      "additionalProperties": {
+        "$ref": "#/definitions/Strings"
       },
-      "type": "array"
+      "type": "object"
     },
     "Hsm": {
       "description": "Contains information about a hardware security module (HSM) in an AWS CloudHSM cluster.",
       "properties": {
         "AvailabilityZone": {
-          "$ref": "#/definitions/ExternalAz",
-          "description": "The Availability Zone that contains the HSM."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ExternalAz"
+            },
+            {
+              "description": "The Availability Zone that contains the HSM."
+            }
+          ]
         },
         "ClusterId": {
-          "$ref": "#/definitions/ClusterId",
-          "description": "The identifier (ID) of the cluster that contains the HSM."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ClusterId"
+            },
+            {
+              "description": "The identifier (ID) of the cluster that contains the HSM."
+            }
+          ]
         },
         "EniId": {
-          "$ref": "#/definitions/EniId",
-          "description": "The identifier (ID) of the HSM's elastic network interface (ENI)."
+          "allOf": [
+            {
+              "$ref": "#/definitions/EniId"
+            },
+            {
+              "description": "The identifier (ID) of the HSM's elastic network interface (ENI)."
+            }
+          ]
         },
         "EniIp": {
-          "$ref": "#/definitions/IpAddress",
-          "description": "The IP address of the HSM's elastic network interface (ENI)."
+          "allOf": [
+            {
+              "$ref": "#/definitions/IpAddress"
+            },
+            {
+              "description": "The IP address of the HSM's elastic network interface (ENI)."
+            }
+          ]
         },
         "HsmId": {
-          "$ref": "#/definitions/HsmId",
-          "description": "The HSM's identifier (ID)."
+          "allOf": [
+            {
+              "$ref": "#/definitions/HsmId"
+            },
+            {
+              "description": "The HSM's identifier (ID)."
+            }
+          ]
         },
         "State": {
-          "$ref": "#/definitions/HsmState",
-          "description": "The HSM's state."
+          "allOf": [
+            {
+              "$ref": "#/definitions/HsmState"
+            },
+            {
+              "description": "The HSM's state."
+            }
+          ]
         },
         "StateMessage": {
-          "$ref": "#/definitions/String",
-          "description": "A description of the HSM's state."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "A description of the HSM's state."
+            }
+          ]
         },
         "SubnetId": {
-          "$ref": "#/definitions/SubnetId",
-          "description": "The subnet that contains the HSM's elastic network interface (ENI)."
+          "allOf": [
+            {
+              "$ref": "#/definitions/SubnetId"
+            },
+            {
+              "description": "The subnet that contains the HSM's elastic network interface (ENI)."
+            }
+          ]
         }
       },
       "required": [
@@ -1490,16 +2909,34 @@
     "InitializeClusterRequest": {
       "properties": {
         "ClusterId": {
-          "$ref": "#/definitions/ClusterId",
-          "description": "The identifier (ID) of the cluster that you are claiming. To find the cluster ID, use <a>DescribeClusters</a>."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ClusterId"
+            },
+            {
+              "description": "The identifier (ID) of the cluster that you are claiming. To find the cluster ID, use <a>DescribeClusters</a>."
+            }
+          ]
         },
         "SignedCert": {
-          "$ref": "#/definitions/Cert",
-          "description": "The cluster certificate issued (signed) by your issuing certificate authority (CA). The certificate must be in PEM format and can contain a maximum of 5000 characters."
+          "allOf": [
+            {
+              "$ref": "#/definitions/Cert"
+            },
+            {
+              "description": "The cluster certificate issued (signed) by your issuing certificate authority (CA). The certificate must be in PEM format and can contain a maximum of 5000 characters."
+            }
+          ]
         },
         "TrustAnchor": {
-          "$ref": "#/definitions/Cert",
-          "description": "The issuing certificate of the issuing certificate authority (CA) that issued (signed) the cluster certificate. This can be a root (self-signed) certificate or a certificate chain that begins with the certificate that issued the cluster certificate and ends with a root certificate. The certificate or certificate chain must be in PEM format and can contain a maximum of 5000 characters."
+          "allOf": [
+            {
+              "$ref": "#/definitions/Cert"
+            },
+            {
+              "description": "The issuing certificate of the issuing certificate authority (CA) that issued (signed) the cluster certificate. You must use a self-signed certificate. The certificate used to sign the HSM CSR must be directly available, and thus must be the root certificate. The certificate must be in PEM format and can contain a maximum of 5000 characters."
+            }
+          ]
         }
       },
       "required": [
@@ -1507,17 +2944,30 @@
         "SignedCert",
         "TrustAnchor"
       ],
+      "title": "InitializeClusterRequest",
       "type": "object"
     },
     "InitializeClusterResponse": {
       "properties": {
         "State": {
-          "$ref": "#/definitions/ClusterState",
-          "description": "The cluster's state."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ClusterState"
+            },
+            {
+              "description": "The cluster's state."
+            }
+          ]
         },
         "StateMessage": {
-          "$ref": "#/definitions/StateMessage",
-          "description": "A description of the cluster's state."
+          "allOf": [
+            {
+              "$ref": "#/definitions/StateMessage"
+            },
+            {
+              "description": "A description of the cluster's state."
+            }
+          ]
         }
       },
       "type": "object"
@@ -1529,32 +2979,63 @@
     "ListTagsRequest": {
       "properties": {
         "MaxResults": {
-          "$ref": "#/definitions/MaxSize",
-          "description": "The maximum number of tags to return in the response. When there are more tags than the number you specify, the response contains a <code>NextToken</code> value."
+          "allOf": [
+            {
+              "$ref": "#/definitions/MaxSize"
+            },
+            {
+              "description": "The maximum number of tags to return in the response. When there are more tags than the number you specify, the response contains a <code>NextToken</code> value."
+            }
+          ]
         },
         "NextToken": {
-          "$ref": "#/definitions/NextToken",
-          "description": "The <code>NextToken</code> value that you received in the previous response. Use this value to get more tags."
+          "allOf": [
+            {
+              "$ref": "#/definitions/NextToken"
+            },
+            {
+              "description": "The <code>NextToken</code> value that you received in the previous response. Use this value to get more tags."
+            }
+          ]
         },
         "ResourceId": {
-          "$ref": "#/definitions/ClusterId",
-          "description": "The cluster identifier (ID) for the cluster whose tags you are getting. To find the cluster ID, use <a>DescribeClusters</a>."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceId"
+            },
+            {
+              "description": "The cluster identifier (ID) for the cluster whose tags you are getting. To find the cluster ID, use <a>DescribeClusters</a>."
+            }
+          ]
         }
       },
       "required": [
         "ResourceId"
       ],
+      "title": "ListTagsRequest",
       "type": "object"
     },
     "ListTagsResponse": {
       "properties": {
         "NextToken": {
-          "$ref": "#/definitions/NextToken",
-          "description": "An opaque string that indicates that the response contains only a subset of tags. Use this value in a subsequent <code>ListTags</code> request to get more tags."
+          "allOf": [
+            {
+              "$ref": "#/definitions/NextToken"
+            },
+            {
+              "description": "An opaque string that indicates that the response contains only a subset of tags. Use this value in a subsequent <code>ListTags</code> request to get more tags."
+            }
+          ]
         },
         "TagList": {
-          "$ref": "#/definitions/TagList",
-          "description": "A list of tags."
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagList"
+            },
+            {
+              "description": "A list of tags."
+            }
+          ]
         }
       },
       "required": [
@@ -1567,6 +3048,82 @@
       "minimum": 1,
       "type": "integer"
     },
+    "ModifyBackupAttributesRequest": {
+      "properties": {
+        "BackupId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/BackupId"
+            },
+            {
+              "description": "The identifier (ID) of the backup to modify. To find the ID of a backup, use the <a>DescribeBackups</a> operation."
+            }
+          ]
+        },
+        "NeverExpires": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Boolean"
+            },
+            {
+              "description": "Specifies whether the service should exempt a backup from the retention policy for the cluster. <code>True</code> exempts a backup from the retention policy. <code>False</code> means the service applies the backup retention policy defined at the cluster."
+            }
+          ]
+        }
+      },
+      "required": [
+        "BackupId",
+        "NeverExpires"
+      ],
+      "title": "ModifyBackupAttributesRequest",
+      "type": "object"
+    },
+    "ModifyBackupAttributesResponse": {
+      "properties": {
+        "Backup": {
+          "$ref": "#/definitions/Backup"
+        }
+      },
+      "type": "object"
+    },
+    "ModifyClusterRequest": {
+      "properties": {
+        "BackupRetentionPolicy": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/BackupRetentionPolicy"
+            },
+            {
+              "description": "A policy that defines how the service retains backups."
+            }
+          ]
+        },
+        "ClusterId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ClusterId"
+            },
+            {
+              "description": "The identifier (ID) of the cluster that you want to modify. To find the cluster ID, use <a>DescribeClusters</a>."
+            }
+          ]
+        }
+      },
+      "required": [
+        "BackupRetentionPolicy",
+        "ClusterId"
+      ],
+      "title": "ModifyClusterRequest",
+      "type": "object"
+    },
+    "ModifyClusterResponse": {
+      "properties": {
+        "Cluster": {
+          "$ref": "#/definitions/Cluster"
+        }
+      },
+      "type": "object"
+    },
     "NextToken": {
       "maxLength": 256,
       "pattern": ".*",
@@ -1577,8 +3134,50 @@
       "minLength": 7,
       "type": "string"
     },
+    "Region": {
+      "pattern": "[a-z]{2}(-(gov))?-(east|west|north|south|central){1,2}-\\d",
+      "type": "string"
+    },
+    "ResourceId": {
+      "pattern": "(?:cluster|backup)-[2-7a-zA-Z]{11,16}",
+      "type": "string"
+    },
+    "RestoreBackupRequest": {
+      "properties": {
+        "BackupId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/BackupId"
+            },
+            {
+              "description": "The ID of the backup to be restored. To find the ID of a backup, use the <a>DescribeBackups</a> operation."
+            }
+          ]
+        }
+      },
+      "required": [
+        "BackupId"
+      ],
+      "title": "RestoreBackupRequest",
+      "type": "object"
+    },
+    "RestoreBackupResponse": {
+      "properties": {
+        "Backup": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Backup"
+            },
+            {
+              "description": "Information on the <code>Backup</code> object created."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
     "SecurityGroup": {
-      "pattern": "sg-[0-9a-fA-F]",
+      "pattern": "sg-[0-9a-fA-F]{8,17}",
       "type": "string"
     },
     "StateMessage": {
@@ -1611,12 +3210,24 @@
       "description": "Contains a tag. A tag is a key-value pair.",
       "properties": {
         "Key": {
-          "$ref": "#/definitions/TagKey",
-          "description": "The key of the tag."
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagKey"
+            },
+            {
+              "description": "The key of the tag."
+            }
+          ]
         },
         "Value": {
-          "$ref": "#/definitions/TagValue",
-          "description": "The value of the tag."
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagValue"
+            },
+            {
+              "description": "The value of the tag."
+            }
+          ]
         }
       },
       "required": [
@@ -1650,18 +3261,31 @@
     "TagResourceRequest": {
       "properties": {
         "ResourceId": {
-          "$ref": "#/definitions/ClusterId",
-          "description": "The cluster identifier (ID) for the cluster that you are tagging. To find the cluster ID, use <a>DescribeClusters</a>."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceId"
+            },
+            {
+              "description": "The cluster identifier (ID) for the cluster that you are tagging. To find the cluster ID, use <a>DescribeClusters</a>."
+            }
+          ]
         },
         "TagList": {
-          "$ref": "#/definitions/TagList",
-          "description": "A list of one or more tags."
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagList"
+            },
+            {
+              "description": "A list of one or more tags."
+            }
+          ]
         }
       },
       "required": [
         "ResourceId",
         "TagList"
       ],
+      "title": "TagResourceRequest",
       "type": "object"
     },
     "TagResourceResponse": {
@@ -1681,18 +3305,31 @@
     "UntagResourceRequest": {
       "properties": {
         "ResourceId": {
-          "$ref": "#/definitions/ClusterId",
-          "description": "The cluster identifier (ID) for the cluster whose tags you are removing. To find the cluster ID, use <a>DescribeClusters</a>."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceId"
+            },
+            {
+              "description": "The cluster identifier (ID) for the cluster whose tags you are removing. To find the cluster ID, use <a>DescribeClusters</a>."
+            }
+          ]
         },
         "TagKeyList": {
-          "$ref": "#/definitions/TagKeyList",
-          "description": "A list of one or more tag keys for the tags that you are removing. Specify only the tag keys, not the tag values."
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagKeyList"
+            },
+            {
+              "description": "A list of one or more tag keys for the tags that you are removing. Specify only the tag keys, not the tag values."
+            }
+          ]
         }
       },
       "required": [
         "ResourceId",
         "TagKeyList"
       ],
+      "title": "UntagResourceRequest",
       "type": "object"
     },
     "UntagResourceResponse": {
@@ -1702,9 +3339,71 @@
     "VpcId": {
       "pattern": "vpc-[0-9a-fA-F]",
       "type": "string"
-    },
-    "errorMessage": {
-      "type": "string"
     }
-  }
+  },
+  "securityDefinitions": {
+    "hmac": {
+      "description": "Amazon Signature authorization v4",
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey",
+      "x-amazon-apigateway-authtype": "awsSigv4"
+    }
+  },
+  "security": [
+    {
+      "hmac": []
+    }
+  ],
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://docs.aws.amazon.com/cloudhsmv2/"
+  },
+  "x-components": {
+    "parameters": {
+      "X-Amz-Algorithm": {
+        "in": "header",
+        "name": "X-Amz-Algorithm",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Content-Sha256": {
+        "in": "header",
+        "name": "X-Amz-Content-Sha256",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Credential": {
+        "in": "header",
+        "name": "X-Amz-Credential",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Date": {
+        "in": "header",
+        "name": "X-Amz-Date",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Security-Token": {
+        "in": "header",
+        "name": "X-Amz-Security-Token",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Signature": {
+        "in": "header",
+        "name": "X-Amz-Signature",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-SignedHeaders": {
+        "in": "header",
+        "name": "X-Amz-SignedHeaders",
+        "required": false,
+        "type": "string"
+      }
+    }
+  },
+  "x-hasEquivalentPaths": true
 }

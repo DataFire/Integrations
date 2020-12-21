@@ -15,9 +15,7 @@ let azure_machinelearning_webservices = require('@datafire/azure_machinelearning
   redirect_uri: ""
 });
 
-azure_machinelearning_webservices.Operations_List({
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -142,11 +140,7 @@ Modifies an existing web service resource. The PATCH API call is an asynchronous
 azure_machinelearning_webservices.WebServices_Patch({
   "resourceGroupName": "",
   "webServiceName": "",
-  "patchPayload": {
-    "properties": {
-      "packageType": ""
-    }
-  },
+  "patchPayload": {},
   "api-version": "",
   "subscriptionId": ""
 }, context)
@@ -156,7 +150,7 @@ azure_machinelearning_webservices.WebServices_Patch({
 * input `object`
   * resourceGroupName **required** `string`: Name of the resource group in which the web service is located.
   * webServiceName **required** `string`: The name of the web service.
-  * patchPayload **required** [WebService](#webservice)
+  * patchPayload **required** [PatchedWebService](#patchedwebservice)
   * api-version **required** `string`: The version of the Microsoft.MachineLearning resource provider API to use.
   * subscriptionId **required** `string`: The Azure subscription ID.
 
@@ -381,6 +375,23 @@ azure_machinelearning_webservices.WebServices_ListKeys({
   * nextLink `string`: A continuation link (absolute URI) to the next page of results in the list.
   * value `array`: An array of web service objects.
     * items [WebService](#webservice)
+
+### PatchedResource
+* PatchedResource `object`: Azure resource.
+  * id `string`: Specifies the resource ID.
+  * location `string`: Specifies the location of the resource.
+  * name `string`: Specifies the name of the resource.
+  * tags `object`: Contains resource tags defined as key/value pairs.
+  * type `string`: Specifies the type of the resource.
+
+### PatchedWebService
+* PatchedWebService `object`: Instance of an Patched Azure ML web service resource.
+  * properties [WebServiceProperties](#webserviceproperties)
+  * id `string`: Specifies the resource ID.
+  * location `string`: Specifies the location of the resource.
+  * name `string`: Specifies the name of the resource.
+  * tags `object`: Contains resource tags defined as key/value pairs.
+  * type `string`: Specifies the type of the resource.
 
 ### RealtimeConfiguration
 * RealtimeConfiguration `object`: Holds the available configuration options for an Azure ML web service endpoint.

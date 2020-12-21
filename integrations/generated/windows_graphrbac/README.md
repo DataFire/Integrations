@@ -15,10 +15,7 @@ let windows_graphrbac = require('@datafire/windows_graphrbac').create({
   redirect_uri: ""
 });
 
-windows_graphrbac.Applications_List({
-  "api-version": "",
-  "tenantID": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -56,9 +53,7 @@ Create a new application.
 ```js
 windows_graphrbac.Applications_Create({
   "parameters": {
-    "availableToOtherTenants": true,
-    "displayName": "",
-    "identifierUris": []
+    "displayName": ""
   },
   "api-version": "",
   "tenantID": ""
@@ -157,7 +152,30 @@ windows_graphrbac.Applications_AddOwner({
 #### Input
 * input `object`
   * applicationObjectId **required** `string`: The object ID of the application to which to add the owner.
-  * parameters **required** [ApplicationAddOwnerParameters](#applicationaddownerparameters)
+  * parameters **required** [AddOwnerParameters](#addownerparameters)
+  * api-version **required** `string`: Client API version.
+  * tenantID **required** `string`: The tenant ID.
+
+#### Output
+*Output schema unknown*
+
+### Applications_RemoveOwner
+Remove a member from owners.
+
+
+```js
+windows_graphrbac.Applications_RemoveOwner({
+  "applicationObjectId": "",
+  "ownerObjectId": "",
+  "api-version": "",
+  "tenantID": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * applicationObjectId **required** `string`: The object ID of the application from which to remove the owner.
+  * ownerObjectId **required** `string`: Owner object id
   * api-version **required** `string`: Client API version.
   * tenantID **required** `string`: The tenant ID.
 
@@ -277,6 +295,68 @@ windows_graphrbac.Applications_UpdatePasswordCredentials({
 #### Output
 *Output schema unknown*
 
+### DeletedApplications_List
+Gets a list of deleted applications in the directory.
+
+
+```js
+windows_graphrbac.DeletedApplications_List({
+  "api-version": "",
+  "tenantID": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * $filter `string`: The filter to apply to the operation.
+  * api-version **required** `string`: Client API version.
+  * tenantID **required** `string`: The tenant ID.
+
+#### Output
+* output [ApplicationListResult](#applicationlistresult)
+
+### DeletedApplications_HardDelete
+Hard-delete an application.
+
+
+```js
+windows_graphrbac.DeletedApplications_HardDelete({
+  "applicationObjectId": "",
+  "api-version": "",
+  "tenantID": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * applicationObjectId **required** `string`: Application object ID.
+  * api-version **required** `string`: Client API version.
+  * tenantID **required** `string`: The tenant ID.
+
+#### Output
+*Output schema unknown*
+
+### DeletedApplications_Restore
+Restores the deleted application in the directory.
+
+
+```js
+windows_graphrbac.DeletedApplications_Restore({
+  "objectId": "",
+  "api-version": "",
+  "tenantID": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * objectId **required** `string`: Application object ID.
+  * api-version **required** `string`: Client API version.
+  * tenantID **required** `string`: The tenant ID.
+
+#### Output
+* output [Application](#application)
+
 ### Domains_List
 Gets a list of domains for the current tenant.
 
@@ -319,14 +399,12 @@ windows_graphrbac.Domains_Get({
 * output [Domain](#domain)
 
 ### Objects_GetObjectsByObjectIds
-Gets AD group membership for the specified AD object IDs.
+Gets the directory objects specified in a list of object IDs. You can also specify which resource collections (users, groups, etc.) should be searched by specifying the optional types parameter.
 
 
 ```js
 windows_graphrbac.Objects_GetObjectsByObjectIds({
-  "parameters": {
-    "includeDirectoryObjectReferences": true
-  },
+  "parameters": {},
   "api-version": "",
   "tenantID": ""
 }, context)
@@ -339,7 +417,7 @@ windows_graphrbac.Objects_GetObjectsByObjectIds({
   * tenantID **required** `string`: The tenant ID.
 
 #### Output
-* output [GetObjectsResult](#getobjectsresult)
+* output [DirectoryObjectListResult](#directoryobjectlistresult)
 
 ### Groups_List
 Gets list of groups for the current tenant.
@@ -477,6 +555,54 @@ windows_graphrbac.Groups_Get({
 #### Output
 * output [ADGroup](#adgroup)
 
+### Groups_AddOwner
+Add an owner to a group.
+
+
+```js
+windows_graphrbac.Groups_AddOwner({
+  "objectId": "",
+  "parameters": {
+    "url": ""
+  },
+  "api-version": "",
+  "tenantID": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * objectId **required** `string`: The object ID of the application to which to add the owner.
+  * parameters **required** [AddOwnerParameters](#addownerparameters)
+  * api-version **required** `string`: Client API version.
+  * tenantID **required** `string`: The tenant ID.
+
+#### Output
+*Output schema unknown*
+
+### Groups_RemoveOwner
+Remove a member from owners.
+
+
+```js
+windows_graphrbac.Groups_RemoveOwner({
+  "objectId": "",
+  "ownerObjectId": "",
+  "api-version": "",
+  "tenantID": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * objectId **required** `string`: The object ID of the group from which to remove the owner.
+  * ownerObjectId **required** `string`: Owner object id
+  * api-version **required** `string`: Client API version.
+  * tenantID **required** `string`: The tenant ID.
+
+#### Output
+*Output schema unknown*
+
 ### Groups_GetMemberGroups
 Gets a collection of object IDs of groups of which the specified group is a member.
 
@@ -521,7 +647,28 @@ windows_graphrbac.Groups_GetGroupMembers({
   * tenantID **required** `string`: The tenant ID.
 
 #### Output
-* output [GetObjectsResult](#getobjectsresult)
+* output [DirectoryObjectListResult](#directoryobjectlistresult)
+
+### Groups_ListOwners
+The owners are a set of non-admin users who are allowed to modify this object.
+
+
+```js
+windows_graphrbac.Groups_ListOwners({
+  "objectId": "",
+  "api-version": "",
+  "tenantID": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * objectId **required** `string`: The object ID of the group for which to get owners.
+  * api-version **required** `string`: Client API version.
+  * tenantID **required** `string`: The tenant ID.
+
+#### Output
+* output [DirectoryObjectListResult](#directoryobjectlistresult)
 
 ### Groups_IsMemberOf
 Checks whether the specified user, group, contact, or service principal is a direct or transitive member of the specified group.
@@ -547,12 +694,12 @@ windows_graphrbac.Groups_IsMemberOf({
 #### Output
 * output [CheckGroupMembershipResult](#checkgroupmembershipresult)
 
-### Objects_GetCurrentUser
+### SignedInUser_Get
 Gets the details for the currently logged-in user.
 
 
 ```js
-windows_graphrbac.Objects_GetCurrentUser({
+windows_graphrbac.SignedInUser_Get({
   "api-version": "",
   "tenantID": ""
 }, context)
@@ -564,7 +711,87 @@ windows_graphrbac.Objects_GetCurrentUser({
   * tenantID **required** `string`: The tenant ID.
 
 #### Output
-* output [AADObject](#aadobject)
+* output [User](#user)
+
+### SignedInUser_ListOwnedObjects
+Get the list of directory objects that are owned by the user.
+
+
+```js
+windows_graphrbac.SignedInUser_ListOwnedObjects({
+  "api-version": "",
+  "tenantID": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * api-version **required** `string`: Client API version.
+  * tenantID **required** `string`: The tenant ID.
+
+#### Output
+* output [DirectoryObjectListResult](#directoryobjectlistresult)
+
+### OAuth2PermissionGrant_List
+Queries OAuth2 permissions grants for the relevant SP ObjectId of an app.
+
+
+```js
+windows_graphrbac.OAuth2PermissionGrant_List({
+  "api-version": "",
+  "tenantID": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * $filter `string`: This is the Service Principal ObjectId associated with the app
+  * api-version **required** `string`: Client API version.
+  * tenantID **required** `string`: The tenant ID.
+
+#### Output
+* output [OAuth2PermissionGrantListResult](#oauth2permissiongrantlistresult)
+
+### OAuth2PermissionGrant_Create
+Grants OAuth2 permissions for the relevant resource Ids of an app.
+
+
+```js
+windows_graphrbac.OAuth2PermissionGrant_Create({
+  "api-version": "",
+  "tenantID": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * body [OAuth2PermissionGrant](#oauth2permissiongrant)
+  * api-version **required** `string`: Client API version.
+  * tenantID **required** `string`: The tenant ID.
+
+#### Output
+* output [OAuth2PermissionGrant](#oauth2permissiongrant)
+
+### OAuth2PermissionGrant_Delete
+Delete a OAuth2 permission grant for the relevant resource Ids of an app.
+
+
+```js
+windows_graphrbac.OAuth2PermissionGrant_Delete({
+  "objectId": "",
+  "api-version": "",
+  "tenantID": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * objectId **required** `string`: The object ID of a permission grant.
+  * api-version **required** `string`: Client API version.
+  * tenantID **required** `string`: The tenant ID.
+
+#### Output
+*Output schema unknown*
 
 ### ServicePrincipals_List
 Gets a list of service principals from the current tenant.
@@ -593,8 +820,7 @@ Creates a service principal in the directory.
 ```js
 windows_graphrbac.ServicePrincipals_Create({
   "parameters": {
-    "appId": "",
-    "accountEnabled": true
+    "appId": ""
   },
   "api-version": "",
   "tenantID": ""
@@ -632,7 +858,7 @@ windows_graphrbac.ServicePrincipals_Delete({
 *Output schema unknown*
 
 ### ServicePrincipals_Get
-Gets service principal information from the directory.
+Gets service principal information from the directory. Query by objectId or pass a filter to query by appId
 
 
 ```js
@@ -651,6 +877,29 @@ windows_graphrbac.ServicePrincipals_Get({
 
 #### Output
 * output [ServicePrincipal](#serviceprincipal)
+
+### ServicePrincipals_Update
+Updates a service principal in the directory.
+
+
+```js
+windows_graphrbac.ServicePrincipals_Update({
+  "objectId": "",
+  "parameters": {},
+  "api-version": "",
+  "tenantID": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * objectId **required** `string`: The object ID of the service principal to delete.
+  * parameters **required** [ServicePrincipalUpdateParameters](#serviceprincipalupdateparameters)
+  * api-version **required** `string`: Client API version.
+  * tenantID **required** `string`: The tenant ID.
+
+#### Output
+*Output schema unknown*
 
 ### ServicePrincipals_ListKeyCredentials
 Get the keyCredentials associated with the specified service principal.
@@ -765,6 +1014,27 @@ windows_graphrbac.ServicePrincipals_UpdatePasswordCredentials({
 #### Output
 *Output schema unknown*
 
+### Applications_GetServicePrincipalsIdByAppId
+Gets an object id for a given application id from the current tenant.
+
+
+```js
+windows_graphrbac.Applications_GetServicePrincipalsIdByAppId({
+  "api-version": "",
+  "tenantID": "",
+  "applicationID": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * api-version **required** `string`: Client API version.
+  * tenantID **required** `string`: The tenant ID.
+  * applicationID **required** `string`: The application ID.
+
+#### Output
+* output [ServicePrincipalObjectResult](#serviceprincipalobjectresult)
+
 ### Users_List
 Gets list of users for the current tenant.
 
@@ -779,6 +1049,7 @@ windows_graphrbac.Users_List({
 #### Input
 * input `object`
   * $filter `string`: The filter to apply to the operation.
+  * $expand `string`: The expand value for the operation result.
   * api-version **required** `string`: Client API version.
   * tenantID **required** `string`: The tenant ID.
 
@@ -908,77 +1179,166 @@ windows_graphrbac.Users_Update({
 
 ## Definitions
 
-### AADObject
-* AADObject `object`: The properties of an Active Directory object.
-  * appId `string`: The application ID.
-  * appPermissions `array`: The application permissions.
-    * items `string`
-  * availableToOtherTenants `boolean`: Whether the application is be available to other tenants.
-  * displayName `string`: The display name of the object.
-  * homepage `string`: The home page of the application.
-  * identifierUris `array`: A collection of URIs for the application.
-    * items `string`
-  * mail `string`: The primary email address of the object.
-  * mailEnabled `boolean`: Whether the AAD object is mail-enabled.
-  * mailNickname `string`: The mail alias for the user.
-  * objectId `string`: The ID of the object.
-  * objectType `string`: The type of AAD object.
-  * replyUrls `array`: A collection of reply URLs for the application.
-    * items `string`
-  * securityEnabled `boolean`: Whether the AAD object is security-enabled.
-  * servicePrincipalNames `array`: A collection of service principal names associated with the object.
-    * items `string`
-  * signInName `string`: The sign-in name of the object.
-  * usageLocation `string`: A two letter country code (ISO standard 3166). Required for users that will be assigned licenses due to legal requirement to check for availability of services in countries. Examples include: "US", "JP", and "GB".
-  * userPrincipalName `string`: The principal name of the object.
-  * userType `string`: The user type of the object.
-
 ### ADGroup
 * ADGroup `object`: Active Directory group information.
   * displayName `string`: The display name of the group.
   * mail `string`: The primary email address of the group.
+  * mailEnabled `boolean`: Whether the group is mail-enabled. Must be false. This is because only pure security groups can be created using the Graph API.
+  * mailNickname `string`: The mail alias for the group. 
   * securityEnabled `boolean`: Whether the group is security-enable.
   * deletionTimestamp `string`: The time at which the directory object was deleted.
   * objectId `string`: The object ID.
-  * objectType `string`: The object type.
+  * objectType **required** `string`: The object type.
+
+### AddOwnerParameters
+* AddOwnerParameters `object`: Request parameters for adding a owner to an application.
+  * url **required** `string`: A owner object URL, such as "https://graph.windows.net/0b1f9851-1bf0-433f-aec3-cb9272f093dc/directoryObjects/f260bbc4-c254-447b-94cf-293b5ec434dd", where "0b1f9851-1bf0-433f-aec3-cb9272f093dc" is the tenantId and "f260bbc4-c254-447b-94cf-293b5ec434dd" is the objectId of the owner (user, application, servicePrincipal, group) to be added.
+
+### AppRole
+* AppRole `object`
+  * allowedMemberTypes `array`: Specifies whether this app role definition can be assigned to users and groups by setting to 'User', or to other applications (that are accessing this application in daemon service scenarios) by setting to 'Application', or to both. 
+    * items `string`
+  * description `string`: Permission help text that appears in the admin app assignment and consent experiences.
+  * displayName `string`: Display name for the permission that appears in the admin consent and app assignment experiences.
+  * id `string`: Unique role identifier inside the appRoles collection.
+  * isEnabled `boolean`: When creating or updating a role definition, this must be set to true (which is the default). To delete a role, this must first be set to false. At that point, in a subsequent call, this role may be removed.
+  * value `string`: Specifies the value of the roles claim that the application should expect in the authentication and access tokens.
 
 ### Application
 * Application `object`: Active Directory application information.
+  * allowGuestsSignIn `boolean`: A property on the application to indicate if the application accepts other IDPs or not or partially accepts.
+  * allowPassthroughUsers `boolean`: Indicates that the application supports pass through users who have no presence in the resource tenant.
   * appId `string`: The application ID.
+  * appLogoUrl `string`: The url for the application logo image stored in a CDN.
   * appPermissions `array`: The application permissions.
     * items `string`
-  * availableToOtherTenants `boolean`: Whether the application is be available to other tenants.
+  * appRoles `array`: The collection of application roles that an application may declare. These roles can be assigned to users, groups or service principals.
+    * items [AppRole](#approle)
+  * availableToOtherTenants `boolean`: Whether the application is available to other tenants.
   * displayName `string`: The display name of the application.
+  * errorUrl `string`: A URL provided by the author of the application to report errors when using the application.
+  * groupMembershipClaims [GroupMembershipClaims](#groupmembershipclaims)
   * homepage `string`: The home page of the application.
   * identifierUris `array`: A collection of URIs for the application.
     * items `string`
-  * oauth2AllowImplicitFlow `boolean`: Whether to allow implicit grant flow for OAuth2
-  * replyUrls `array`: A collection of reply URLs for the application.
-    * items `string`
-  * deletionTimestamp `string`: The time at which the directory object was deleted.
-  * objectId `string`: The object ID.
-  * objectType `string`: The object type.
-
-### ApplicationAddOwnerParameters
-* ApplicationAddOwnerParameters `object`: Request parameters for adding a owner to an application.
-  * url **required** `string`: A owner object URL, such as "https://graph.windows.net/0b1f9851-1bf0-433f-aec3-cb9272f093dc/directoryObjects/f260bbc4-c254-447b-94cf-293b5ec434dd", where "0b1f9851-1bf0-433f-aec3-cb9272f093dc" is the tenantId and "f260bbc4-c254-447b-94cf-293b5ec434dd" is the objectId of the owner (user, application, servicePrincipal, group) to be added.
-
-### ApplicationCreateParameters
-* ApplicationCreateParameters `object`: Request parameters for creating a new application.
-  * availableToOtherTenants **required** `boolean`: Whether the application is available to other tenants.
-  * displayName **required** `string`: The display name of the application.
-  * homepage `string`: The home page of the application.
-  * identifierUris **required** `array`: A collection of URIs for the application.
-    * items `string`
-  * keyCredentials `array`: The list of KeyCredential objects.
+  * informationalUrls [InformationalUrl](#informationalurl)
+  * isDeviceOnlyAuthSupported `boolean`: Specifies whether this application supports device authentication without a user. The default is false.
+  * keyCredentials `array`: A collection of KeyCredential objects.
     * items [KeyCredential](#keycredential)
+  * knownClientApplications `array`: Client applications that are tied to this resource application. Consent to any of the known client applications will result in implicit consent to the resource application through a combined consent dialog (showing the OAuth permission scopes required by the client and the resource).
+    * items `string`
+  * logoutUrl `string`: the url of the logout page
   * oauth2AllowImplicitFlow `boolean`: Whether to allow implicit grant flow for OAuth2
-  * passwordCredentials `array`: The list of PasswordCredential objects.
+  * oauth2AllowUrlPathMatching `boolean`: Specifies whether during a token Request Azure AD will allow path matching of the redirect URI against the applications collection of replyURLs. The default is false.
+  * oauth2Permissions `array`: The collection of OAuth 2.0 permission scopes that the web API (resource) application exposes to client applications. These permission scopes may be granted to client applications during consent.
+    * items [OAuth2Permission](#oauth2permission)
+  * oauth2RequirePostResponse `boolean`: Specifies whether, as part of OAuth 2.0 token requests, Azure AD will allow POST requests, as opposed to GET requests. The default is false, which specifies that only GET requests will be allowed.
+  * optionalClaims [OptionalClaims](#optionalclaims)
+  * orgRestrictions `array`: A list of tenants allowed to access application.
+    * items `string`
+  * passwordCredentials `array`: A collection of PasswordCredential objects
     * items [PasswordCredential](#passwordcredential)
+  * preAuthorizedApplications `array`: list of pre-authorized applications.
+    * items [PreAuthorizedApplication](#preauthorizedapplication)
+  * publicClient `boolean`: Specifies whether this application is a public client (such as an installed application running on a mobile device). Default is false.
+  * publisherDomain `string`: Reliable domain which can be used to identify an application.
   * replyUrls `array`: A collection of reply URLs for the application.
     * items `string`
   * requiredResourceAccess `array`: Specifies resources that this application requires access to and the set of OAuth permission scopes and application roles that it needs under each of those resources. This pre-configuration of required resource access drives the consent experience.
     * items [RequiredResourceAccess](#requiredresourceaccess)
+  * samlMetadataUrl `string`: The URL to the SAML metadata for the application.
+  * signInAudience `string`: Audience for signing in to the application (AzureADMyOrganization, AzureADAllOrganizations, AzureADAndMicrosoftAccounts).
+  * wwwHomepage `string`: The primary Web page.
+  * deletionTimestamp `string`: The time at which the directory object was deleted.
+  * objectId `string`: The object ID.
+  * objectType **required** `string`: The object type.
+
+### ApplicationBase
+* ApplicationBase `object`: Active Directive Application common properties shared among GET, POST and PATCH
+  * allowGuestsSignIn `boolean`: A property on the application to indicate if the application accepts other IDPs or not or partially accepts.
+  * allowPassthroughUsers `boolean`: Indicates that the application supports pass through users who have no presence in the resource tenant.
+  * appLogoUrl `string`: The url for the application logo image stored in a CDN.
+  * appPermissions `array`: The application permissions.
+    * items `string`
+  * appRoles `array`: The collection of application roles that an application may declare. These roles can be assigned to users, groups or service principals.
+    * items [AppRole](#approle)
+  * availableToOtherTenants `boolean`: Whether the application is available to other tenants.
+  * errorUrl `string`: A URL provided by the author of the application to report errors when using the application.
+  * groupMembershipClaims [GroupMembershipClaims](#groupmembershipclaims)
+  * homepage `string`: The home page of the application.
+  * informationalUrls [InformationalUrl](#informationalurl)
+  * isDeviceOnlyAuthSupported `boolean`: Specifies whether this application supports device authentication without a user. The default is false.
+  * keyCredentials `array`: A collection of KeyCredential objects.
+    * items [KeyCredential](#keycredential)
+  * knownClientApplications `array`: Client applications that are tied to this resource application. Consent to any of the known client applications will result in implicit consent to the resource application through a combined consent dialog (showing the OAuth permission scopes required by the client and the resource).
+    * items `string`
+  * logoutUrl `string`: the url of the logout page
+  * oauth2AllowImplicitFlow `boolean`: Whether to allow implicit grant flow for OAuth2
+  * oauth2AllowUrlPathMatching `boolean`: Specifies whether during a token Request Azure AD will allow path matching of the redirect URI against the applications collection of replyURLs. The default is false.
+  * oauth2Permissions `array`: The collection of OAuth 2.0 permission scopes that the web API (resource) application exposes to client applications. These permission scopes may be granted to client applications during consent.
+    * items [OAuth2Permission](#oauth2permission)
+  * oauth2RequirePostResponse `boolean`: Specifies whether, as part of OAuth 2.0 token requests, Azure AD will allow POST requests, as opposed to GET requests. The default is false, which specifies that only GET requests will be allowed.
+  * optionalClaims [OptionalClaims](#optionalclaims)
+  * orgRestrictions `array`: A list of tenants allowed to access application.
+    * items `string`
+  * passwordCredentials `array`: A collection of PasswordCredential objects
+    * items [PasswordCredential](#passwordcredential)
+  * preAuthorizedApplications `array`: list of pre-authorized applications.
+    * items [PreAuthorizedApplication](#preauthorizedapplication)
+  * publicClient `boolean`: Specifies whether this application is a public client (such as an installed application running on a mobile device). Default is false.
+  * publisherDomain `string`: Reliable domain which can be used to identify an application.
+  * replyUrls `array`: A collection of reply URLs for the application.
+    * items `string`
+  * requiredResourceAccess `array`: Specifies resources that this application requires access to and the set of OAuth permission scopes and application roles that it needs under each of those resources. This pre-configuration of required resource access drives the consent experience.
+    * items [RequiredResourceAccess](#requiredresourceaccess)
+  * samlMetadataUrl `string`: The URL to the SAML metadata for the application.
+  * signInAudience `string`: Audience for signing in to the application (AzureADMyOrganization, AzureADAllOrganizations, AzureADAndMicrosoftAccounts).
+  * wwwHomepage `string`: The primary Web page.
+
+### ApplicationCreateParameters
+* ApplicationCreateParameters `object`: Request parameters for creating a new application.
+  * displayName **required** `string`: The display name of the application.
+  * identifierUris `array`: A collection of URIs for the application.
+    * items `string`
+  * allowGuestsSignIn `boolean`: A property on the application to indicate if the application accepts other IDPs or not or partially accepts.
+  * allowPassthroughUsers `boolean`: Indicates that the application supports pass through users who have no presence in the resource tenant.
+  * appLogoUrl `string`: The url for the application logo image stored in a CDN.
+  * appPermissions `array`: The application permissions.
+    * items `string`
+  * appRoles `array`: The collection of application roles that an application may declare. These roles can be assigned to users, groups or service principals.
+    * items [AppRole](#approle)
+  * availableToOtherTenants `boolean`: Whether the application is available to other tenants.
+  * errorUrl `string`: A URL provided by the author of the application to report errors when using the application.
+  * groupMembershipClaims [GroupMembershipClaims](#groupmembershipclaims)
+  * homepage `string`: The home page of the application.
+  * informationalUrls [InformationalUrl](#informationalurl)
+  * isDeviceOnlyAuthSupported `boolean`: Specifies whether this application supports device authentication without a user. The default is false.
+  * keyCredentials `array`: A collection of KeyCredential objects.
+    * items [KeyCredential](#keycredential)
+  * knownClientApplications `array`: Client applications that are tied to this resource application. Consent to any of the known client applications will result in implicit consent to the resource application through a combined consent dialog (showing the OAuth permission scopes required by the client and the resource).
+    * items `string`
+  * logoutUrl `string`: the url of the logout page
+  * oauth2AllowImplicitFlow `boolean`: Whether to allow implicit grant flow for OAuth2
+  * oauth2AllowUrlPathMatching `boolean`: Specifies whether during a token Request Azure AD will allow path matching of the redirect URI against the applications collection of replyURLs. The default is false.
+  * oauth2Permissions `array`: The collection of OAuth 2.0 permission scopes that the web API (resource) application exposes to client applications. These permission scopes may be granted to client applications during consent.
+    * items [OAuth2Permission](#oauth2permission)
+  * oauth2RequirePostResponse `boolean`: Specifies whether, as part of OAuth 2.0 token requests, Azure AD will allow POST requests, as opposed to GET requests. The default is false, which specifies that only GET requests will be allowed.
+  * optionalClaims [OptionalClaims](#optionalclaims)
+  * orgRestrictions `array`: A list of tenants allowed to access application.
+    * items `string`
+  * passwordCredentials `array`: A collection of PasswordCredential objects
+    * items [PasswordCredential](#passwordcredential)
+  * preAuthorizedApplications `array`: list of pre-authorized applications.
+    * items [PreAuthorizedApplication](#preauthorizedapplication)
+  * publicClient `boolean`: Specifies whether this application is a public client (such as an installed application running on a mobile device). Default is false.
+  * publisherDomain `string`: Reliable domain which can be used to identify an application.
+  * replyUrls `array`: A collection of reply URLs for the application.
+    * items `string`
+  * requiredResourceAccess `array`: Specifies resources that this application requires access to and the set of OAuth permission scopes and application roles that it needs under each of those resources. This pre-configuration of required resource access drives the consent experience.
+    * items [RequiredResourceAccess](#requiredresourceaccess)
+  * samlMetadataUrl `string`: The URL to the SAML metadata for the application.
+  * signInAudience `string`: Audience for signing in to the application (AzureADMyOrganization, AzureADAllOrganizations, AzureADAndMicrosoftAccounts).
+  * wwwHomepage `string`: The primary Web page.
 
 ### ApplicationListResult
 * ApplicationListResult `object`: Application list operation result.
@@ -987,21 +1347,49 @@ windows_graphrbac.Users_Update({
     * items [Application](#application)
 
 ### ApplicationUpdateParameters
-* ApplicationUpdateParameters `object`: Request parameters for updating an existing application.
-  * availableToOtherTenants `boolean`: Whether the application is available to other tenants
+* ApplicationUpdateParameters `object`: Request parameters for updating a new application.
   * displayName `string`: The display name of the application.
-  * homepage `string`: The home page of the application.
   * identifierUris `array`: A collection of URIs for the application.
     * items `string`
-  * keyCredentials `array`: The list of KeyCredential objects.
+  * allowGuestsSignIn `boolean`: A property on the application to indicate if the application accepts other IDPs or not or partially accepts.
+  * allowPassthroughUsers `boolean`: Indicates that the application supports pass through users who have no presence in the resource tenant.
+  * appLogoUrl `string`: The url for the application logo image stored in a CDN.
+  * appPermissions `array`: The application permissions.
+    * items `string`
+  * appRoles `array`: The collection of application roles that an application may declare. These roles can be assigned to users, groups or service principals.
+    * items [AppRole](#approle)
+  * availableToOtherTenants `boolean`: Whether the application is available to other tenants.
+  * errorUrl `string`: A URL provided by the author of the application to report errors when using the application.
+  * groupMembershipClaims [GroupMembershipClaims](#groupmembershipclaims)
+  * homepage `string`: The home page of the application.
+  * informationalUrls [InformationalUrl](#informationalurl)
+  * isDeviceOnlyAuthSupported `boolean`: Specifies whether this application supports device authentication without a user. The default is false.
+  * keyCredentials `array`: A collection of KeyCredential objects.
     * items [KeyCredential](#keycredential)
+  * knownClientApplications `array`: Client applications that are tied to this resource application. Consent to any of the known client applications will result in implicit consent to the resource application through a combined consent dialog (showing the OAuth permission scopes required by the client and the resource).
+    * items `string`
+  * logoutUrl `string`: the url of the logout page
   * oauth2AllowImplicitFlow `boolean`: Whether to allow implicit grant flow for OAuth2
-  * passwordCredentials `array`: The list of PasswordCredential objects.
+  * oauth2AllowUrlPathMatching `boolean`: Specifies whether during a token Request Azure AD will allow path matching of the redirect URI against the applications collection of replyURLs. The default is false.
+  * oauth2Permissions `array`: The collection of OAuth 2.0 permission scopes that the web API (resource) application exposes to client applications. These permission scopes may be granted to client applications during consent.
+    * items [OAuth2Permission](#oauth2permission)
+  * oauth2RequirePostResponse `boolean`: Specifies whether, as part of OAuth 2.0 token requests, Azure AD will allow POST requests, as opposed to GET requests. The default is false, which specifies that only GET requests will be allowed.
+  * optionalClaims [OptionalClaims](#optionalclaims)
+  * orgRestrictions `array`: A list of tenants allowed to access application.
+    * items `string`
+  * passwordCredentials `array`: A collection of PasswordCredential objects
     * items [PasswordCredential](#passwordcredential)
+  * preAuthorizedApplications `array`: list of pre-authorized applications.
+    * items [PreAuthorizedApplication](#preauthorizedapplication)
+  * publicClient `boolean`: Specifies whether this application is a public client (such as an installed application running on a mobile device). Default is false.
+  * publisherDomain `string`: Reliable domain which can be used to identify an application.
   * replyUrls `array`: A collection of reply URLs for the application.
     * items `string`
   * requiredResourceAccess `array`: Specifies resources that this application requires access to and the set of OAuth permission scopes and application roles that it needs under each of those resources. This pre-configuration of required resource access drives the consent experience.
     * items [RequiredResourceAccess](#requiredresourceaccess)
+  * samlMetadataUrl `string`: The URL to the SAML metadata for the application.
+  * signInAudience `string`: Audience for signing in to the application (AzureADMyOrganization, AzureADAllOrganizations, AzureADAndMicrosoftAccounts).
+  * wwwHomepage `string`: The primary Web page.
 
 ### CheckGroupMembershipParameters
 * CheckGroupMembershipParameters `object`: Request parameters for IsMemberOf API call.
@@ -1016,10 +1404,11 @@ windows_graphrbac.Users_Update({
 * DirectoryObject `object`: Represents an Azure Active Directory object.
   * deletionTimestamp `string`: The time at which the directory object was deleted.
   * objectId `string`: The object ID.
-  * objectType `string`: The object type.
+  * objectType **required** `string`: The object type.
 
 ### DirectoryObjectListResult
 * DirectoryObjectListResult `object`: DirectoryObject list operation result.
+  * odata.nextLink `string`: The URL to get the next set of results.
   * value `array`: A collection of DirectoryObject.
     * items [DirectoryObject](#directoryobject)
 
@@ -1041,17 +1430,11 @@ windows_graphrbac.Users_Update({
 
 ### GetObjectsParameters
 * GetObjectsParameters `object`: Request parameters for the GetObjectsByObjectIds API.
-  * includeDirectoryObjectReferences **required** `boolean`: If true, also searches for object IDs in the partner tenant.
+  * includeDirectoryObjectReferences `boolean`: If true, also searches for object IDs in the partner tenant.
   * objectIds `array`: The requested object IDs.
     * items `string`
   * types `array`: The requested object types.
     * items `string`
-
-### GetObjectsResult
-* GetObjectsResult `object`: The response to an Active Directory object inquiry API request.
-  * odata.nextLink `string`: The URL to get the next set of results.
-  * value `array`: A collection of Active Directory objects.
-    * items [AADObject](#aadobject)
 
 ### GraphError
 * GraphError `object`: Active Directory error information.
@@ -1083,6 +1466,16 @@ windows_graphrbac.Users_Update({
   * value `array`: A collection of Active Directory groups.
     * items [ADGroup](#adgroup)
 
+### GroupMembershipClaims
+* GroupMembershipClaims `string` (values: None, SecurityGroup, All): Configures the groups claim issued in a user or OAuth 2.0 access token that the app expects.
+
+### InformationalUrl
+* InformationalUrl `object`: Represents a group of URIs that provide terms of service, marketing, support and privacy policy information about an application. The default value for each string is null.
+  * marketing `string`: The marketing URI
+  * privacy `string`: The privacy policy URI
+  * support `string`: The support URI
+  * termsOfService `string`: The terms of service URI
+
 ### KeyCredential
 * KeyCredential `object`: Active Directory Key Credential information.
   * customKeyIdentifier `string`: Custom Key Identifier
@@ -1103,13 +1496,59 @@ windows_graphrbac.Users_Update({
   * value **required** `array`: A collection of KeyCredentials.
     * items [KeyCredential](#keycredential)
 
+### OAuth2Permission
+* OAuth2Permission `object`: Represents an OAuth 2.0 delegated permission scope. The specified OAuth 2.0 delegated permission scopes may be requested by client applications (through the requiredResourceAccess collection on the Application object) when calling a resource application. The oauth2Permissions property of the ServicePrincipal entity and of the Application entity is a collection of OAuth2Permission.
+  * adminConsentDescription `string`: Permission help text that appears in the admin consent and app assignment experiences.
+  * adminConsentDisplayName `string`: Display name for the permission that appears in the admin consent and app assignment experiences.
+  * id `string`: Unique scope permission identifier inside the oauth2Permissions collection.
+  * isEnabled `boolean`: When creating or updating a permission, this property must be set to true (which is the default). To delete a permission, this property must first be set to false. At that point, in a subsequent call, the permission may be removed. 
+  * type `string`: Specifies whether this scope permission can be consented to by an end user, or whether it is a tenant-wide permission that must be consented to by a Company Administrator. Possible values are "User" or "Admin".
+  * userConsentDescription `string`: Permission help text that appears in the end user consent experience.
+  * userConsentDisplayName `string`: Display name for the permission that appears in the end user consent experience.
+  * value `string`: The value of the scope claim that the resource application should expect in the OAuth 2.0 access token.
+
+### OAuth2PermissionGrant
+* OAuth2PermissionGrant `object`
+  * clientId `string`: The id of the resource's service principal granted consent to impersonate the user when accessing the resource (represented by the resourceId property).
+  * consentType `string` (values: AllPrincipals, Principal): Indicates if consent was provided by the administrator (on behalf of the organization) or by an individual.
+  * expiryTime `string`: Expiry time for TTL
+  * objectId `string`: The id of the permission grant
+  * odata.type `string`: Microsoft.DirectoryServices.OAuth2PermissionGrant
+  * principalId `string`: When consent type is Principal, this property specifies the id of the user that granted consent and applies only for that user.
+  * resourceId `string`: Object Id of the resource you want to grant
+  * scope `string`: Specifies the value of the scope claim that the resource application should expect in the OAuth 2.0 access token. For example, User.Read
+  * startTime `string`: Start time for TTL
+
+### OAuth2PermissionGrantListResult
+* OAuth2PermissionGrantListResult `object`: Server response for get oauth2 permissions grants
+  * odata.nextLink `string`: the URL to get the next set of results.
+  * value `array`: the list of oauth2 permissions grants
+    * items [OAuth2PermissionGrant](#oauth2permissiongrant)
+
 ### OdataError
 * OdataError `object`: Active Directory OData error information.
   * code `string`: Error code.
   * message [ErrorMessage](#errormessage)
 
+### OptionalClaim
+* OptionalClaim `object`: Specifying the claims to be included in a token.
+  * additionalProperties `object`
+  * essential `boolean`: Is this a required claim.
+  * name `string`: Claim name.
+  * source `string`: Claim source.
+
+### OptionalClaims
+* OptionalClaims `object`: Specifying the claims to be included in the token.
+  * accessToken `array`: Optional claims requested to be included in the access token.
+    * items [OptionalClaim](#optionalclaim)
+  * idToken `array`: Optional claims requested to be included in the id token.
+    * items [OptionalClaim](#optionalclaim)
+  * samlToken `array`: Optional claims requested to be included in the saml token.
+    * items [OptionalClaim](#optionalclaim)
+
 ### PasswordCredential
 * PasswordCredential `object`: Active Directory Password Credential information.
+  * customKeyIdentifier `string`: Custom Key Identifier
   * endDate `string`: End date.
   * keyId `string`: Key ID.
   * startDate `string`: Start date.
@@ -1130,8 +1569,27 @@ windows_graphrbac.Users_Update({
   * forceChangePasswordNextLogin `boolean`: Whether to force a password change on next login.
   * password **required** `string`: Password
 
+### PreAuthorizedApplication
+* PreAuthorizedApplication `object`: Contains information about pre authorized client application.
+  * appId `string`: Represents the application id.
+  * extensions `array`: Collection of extensions from the resource application.
+    * items [PreAuthorizedApplicationExtension](#preauthorizedapplicationextension)
+  * permissions `array`: Collection of required app permissions/entitlements from the resource application.
+    * items [PreAuthorizedApplicationPermission](#preauthorizedapplicationpermission)
+
+### PreAuthorizedApplicationExtension
+* PreAuthorizedApplicationExtension `object`: Representation of an app PreAuthorizedApplicationExtension required by a pre authorized client app.
+  * conditions `array`: The extension's conditions.
+    * items `string`
+
+### PreAuthorizedApplicationPermission
+* PreAuthorizedApplicationPermission `object`: Contains information about the pre-authorized permissions.
+  * accessGrants `array`: The list of permissions.
+    * items `string`
+  * directAccessGrant `boolean`: Indicates whether the permission set is DirectAccess or impersonation.
+
 ### RequiredResourceAccess
-* RequiredResourceAccess `object`: Specifies the set of OAuth 2.0 permission scopes and app roles under the specified resource that an application requires access to. The specified OAuth 2.0 permission scopes may be requested by client applications (through the requiredResourceAccess collection) when calling a resource application. The requiredResourceAccess property of the Application entity is a collection of ReqiredResourceAccess.
+* RequiredResourceAccess `object`: Specifies the set of OAuth 2.0 permission scopes and app roles under the specified resource that an application requires access to. The specified OAuth 2.0 permission scopes may be requested by client applications (through the requiredResourceAccess collection) when calling a resource application. The requiredResourceAccess property of the Application entity is a collection of RequiredResourceAccess.
   * resourceAccess **required** `array`: The list of OAuth2.0 permission scopes and app roles that the application requires from the specified resource.
     * items [ResourceAccess](#resourceaccess)
   * resourceAppId `string`: The unique identifier for the resource that the application requires access to. This should be equal to the appId declared on the target resource application.
@@ -1143,28 +1601,86 @@ windows_graphrbac.Users_Update({
 
 ### ServicePrincipal
 * ServicePrincipal `object`: Active Directory service principal information.
+  * accountEnabled `boolean`: whether or not the service principal account is enabled
+  * alternativeNames `array`: alternative names
+    * items `string`
+  * appDisplayName `string`: The display name exposed by the associated application.
   * appId `string`: The application ID.
+  * appOwnerTenantId `string`
+  * appRoleAssignmentRequired `boolean`: Specifies whether an AppRoleAssignment to a user or group is required before Azure AD will issue a user or access token to the application.
+  * appRoles `array`: The collection of application roles that an application may declare. These roles can be assigned to users, groups or service principals.
+    * items [AppRole](#approle)
   * displayName `string`: The display name of the service principal.
+  * errorUrl `string`: A URL provided by the author of the associated application to report errors when using the application.
+  * homepage `string`: The URL to the homepage of the associated application.
+  * keyCredentials `array`: The collection of key credentials associated with the service principal.
+    * items [KeyCredential](#keycredential)
+  * logoutUrl `string`: A URL provided by the author of the associated application to logout
+  * oauth2Permissions `array`: The OAuth 2.0 permissions exposed by the associated application.
+    * items [OAuth2Permission](#oauth2permission)
+  * passwordCredentials `array`: The collection of password credentials associated with the service principal.
+    * items [PasswordCredential](#passwordcredential)
+  * preferredTokenSigningKeyThumbprint `string`: The thumbprint of preferred certificate to sign the token
+  * publisherName `string`: The publisher's name of the associated application
+  * replyUrls `array`: The URLs that user tokens are sent to for sign in with the associated application.  The redirect URIs that the oAuth 2.0 authorization code and access tokens are sent to for the associated application.
+    * items `string`
+  * samlMetadataUrl `string`: The URL to the SAML metadata of the associated application
   * servicePrincipalNames `array`: A collection of service principal names.
+    * items `string`
+  * servicePrincipalType `string`: the type of the service principal
+  * tags `array`: Optional list of tags that you can apply to your service principals. Not nullable.
     * items `string`
   * deletionTimestamp `string`: The time at which the directory object was deleted.
   * objectId `string`: The object ID.
-  * objectType `string`: The object type.
+  * objectType **required** `string`: The object type.
+
+### ServicePrincipalBase
+* ServicePrincipalBase `object`: Active Directory service principal common properties shared among GET, POST and PATCH
+  * accountEnabled `boolean`: whether or not the service principal account is enabled
+  * appRoleAssignmentRequired `boolean`: Specifies whether an AppRoleAssignment to a user or group is required before Azure AD will issue a user or access token to the application.
+  * keyCredentials `array`: The collection of key credentials associated with the service principal.
+    * items [KeyCredential](#keycredential)
+  * passwordCredentials `array`: The collection of password credentials associated with the service principal.
+    * items [PasswordCredential](#passwordcredential)
+  * servicePrincipalType `string`: the type of the service principal
+  * tags `array`: Optional list of tags that you can apply to your service principals. Not nullable.
+    * items `string`
 
 ### ServicePrincipalCreateParameters
 * ServicePrincipalCreateParameters `object`: Request parameters for creating a new service principal.
-  * accountEnabled **required** `boolean`: Whether the account is enabled
-  * appId **required** `string`: application Id
-  * keyCredentials `array`: A collection of KeyCredential objects.
+  * appId **required** `string`: The application ID.
+  * accountEnabled `boolean`: whether or not the service principal account is enabled
+  * appRoleAssignmentRequired `boolean`: Specifies whether an AppRoleAssignment to a user or group is required before Azure AD will issue a user or access token to the application.
+  * keyCredentials `array`: The collection of key credentials associated with the service principal.
     * items [KeyCredential](#keycredential)
-  * passwordCredentials `array`: A collection of PasswordCredential objects
+  * passwordCredentials `array`: The collection of password credentials associated with the service principal.
     * items [PasswordCredential](#passwordcredential)
+  * servicePrincipalType `string`: the type of the service principal
+  * tags `array`: Optional list of tags that you can apply to your service principals. Not nullable.
+    * items `string`
 
 ### ServicePrincipalListResult
 * ServicePrincipalListResult `object`: Server response for get tenant service principals API call.
   * odata.nextLink `string`: the URL to get the next set of results.
   * value `array`: the list of service principals.
     * items [ServicePrincipal](#serviceprincipal)
+
+### ServicePrincipalObjectResult
+* ServicePrincipalObjectResult `object`: Service Principal Object Result.
+  * odata.metadata `string`: The URL representing edm equivalent.
+  * value `string`: The Object ID of the service principal with the specified application ID.
+
+### ServicePrincipalUpdateParameters
+* ServicePrincipalUpdateParameters `object`: Request parameters for update an existing service principal.
+  * accountEnabled `boolean`: whether or not the service principal account is enabled
+  * appRoleAssignmentRequired `boolean`: Specifies whether an AppRoleAssignment to a user or group is required before Azure AD will issue a user or access token to the application.
+  * keyCredentials `array`: The collection of key credentials associated with the service principal.
+    * items [KeyCredential](#keycredential)
+  * passwordCredentials `array`: The collection of password credentials associated with the service principal.
+    * items [PasswordCredential](#passwordcredential)
+  * servicePrincipalType `string`: the type of the service principal
+  * tags `array`: Optional list of tags that you can apply to your service principals. Not nullable.
+    * items `string`
 
 ### SignInName
 * SignInName `object`: Contains information about a sign-in name of a local account user in an Azure Active Directory B2C tenant.
@@ -1187,7 +1703,7 @@ windows_graphrbac.Users_Update({
   * userType `string` (values: Member, Guest): A string value that can be used to classify user types in your directory, such as 'Member' and 'Guest'.
   * deletionTimestamp `string`: The time at which the directory object was deleted.
   * objectId `string`: The object ID.
-  * objectType `string`: The object type.
+  * objectType **required** `string`: The object type.
 
 ### UserBase
 * UserBase `object`

@@ -11,7 +11,7 @@ let geneea = require('@datafire/geneea').create({
   user_key: ""
 });
 
-geneea.topicPost({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

@@ -110,9 +110,10 @@
     },
     "ServiceLanguage": {
       "default": "en",
-      "description": "The desired language for output generation. If this parameter is not specified, the default value is &quot;en&quot;.Supported languages:en - English, Default.ja - Japanese pt - Portuguese zh - Simplified Chinese.",
+      "description": "The desired language for output generation. If this parameter is not specified, the default value is &quot;en&quot;.Supported languages:en - English, Default. es - Spanish, ja - Japanese, pt - Portuguese, zh - Simplified Chinese.",
       "enum": [
         "en",
+        "es",
         "ja",
         "pt",
         "zh"
@@ -610,19 +611,13 @@
         "parameters": [
           {
             "description": "The domain-specific content to recognize.",
-            "enum": [
-              "Celebrities",
-              "Landmarks"
-            ],
             "in": "path",
             "name": "model",
             "required": true,
-            "type": "string",
-            "x-ms-enum": {
-              "modelAsString": false,
-              "name": "DomainModels"
-            },
-            "x-nullable": false
+            "type": "string"
+          },
+          {
+            "$ref": "#/parameters/ServiceLanguage"
           },
           {
             "description": "A JSON document with a URL pointing to the image that is to be analyzed.",
@@ -1409,6 +1404,25 @@
       },
       "type": "object"
     },
+    "CelebrityResults": {
+      "description": "List of celebrities recognized in the image.",
+      "properties": {
+        "celebrities": {
+          "items": {
+            "$ref": "#/definitions/CelebritiesModel"
+          },
+          "type": "array"
+        },
+        "metadata": {
+          "$ref": "#/definitions/ImageMetadata"
+        },
+        "requestId": {
+          "description": "Id of the REST API request.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "ColorInfo": {
       "description": "An object providing additional metadata describing color attributes.",
       "properties": {
@@ -1478,18 +1492,6 @@
       ],
       "type": "object"
     },
-    "DomainModelResult": {
-      "properties": {
-        "celebrities": {
-          "description": "An array of possible celebritied identified in the image.",
-          "items": {
-            "$ref": "#/definitions/CelebritiesModel"
-          },
-          "type": "array"
-        }
-      },
-      "type": "object"
-    },
     "DomainModelResults": {
       "description": "Result of image analysis using a specific domain model including additional metadata.",
       "properties": {
@@ -1501,7 +1503,8 @@
           "type": "string"
         },
         "result": {
-          "$ref": "#/definitions/DomainModelResult",
+          "description": "Model-specific response",
+          "type": "object",
           "x-ms-client-flatten": true
         }
       },
@@ -1701,6 +1704,37 @@
       },
       "type": "object"
     },
+    "LandmarkResults": {
+      "description": "List of landmarks recognized in the image.",
+      "properties": {
+        "landmarks": {
+          "items": {
+            "description": "A landmark recognized in the image",
+            "properties": {
+              "confidence": {
+                "description": "Confidence level for the landmark recognition.",
+                "format": "double",
+                "type": "number"
+              },
+              "name": {
+                "description": "Name of the landmark.",
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "metadata": {
+          "$ref": "#/definitions/ImageMetadata"
+        },
+        "requestId": {
+          "description": "Id of the REST API request.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "Line": {
       "properties": {
         "boundingBox": {
@@ -1783,7 +1817,8 @@
     "OcrResult": {
       "properties": {
         "language": {
-          "$ref": "#/definitions/OcrResult"
+          "description": "The BCP-47 language code of the text in the image.",
+          "type": "string"
         },
         "orientation": {
           "description": "Orientation of the text recognized in the image. The value (up,down,left, or right) refers to the direction that the top of the recognized text is facing, after the image has been rotated around its center according to the detected text angle (see textAngle property).",
@@ -1904,7 +1939,11 @@
           "northeurope",
           "eastasia",
           "australiaeast",
-          "brazilsouth"
+          "brazilsouth",
+          "canadacentral",
+          "centralindia",
+          "uksouth",
+          "japaneast"
         ],
         "in": "path",
         "name": "AzureRegion",
@@ -2294,6 +2333,9 @@
             "type": "string"
           },
           {
+            "$ref": "#/parameters/ServiceLanguage"
+          },
+          {
             "description": "An image stream.",
             "in": "body",
             "name": "Image",
@@ -2556,6 +2598,9 @@
         "description": "This operation generates a list of words, or tags, that are relevant to the content of the supplied image. The Computer Vision API can return tags based on objects, living beings, scenery or actions found in images. Unlike categories, tags are not organized according to a hierarchical classification system, but correspond to image content. Tags may contain hints to avoid ambiguity or provide context, for example the tag 'cello' may be accompanied by the hint 'musical instrument'. All tags are in English.",
         "operationId": "TagImageInStream",
         "parameters": [
+          {
+            "$ref": "#/parameters/ServiceLanguage"
+          },
           {
             "description": "An image stream.",
             "in": "body",

@@ -1,6 +1,6 @@
 # @datafire/nytimes_most_popular_api
 
-Client library for Most Popular
+Client library for Most Popular API
 
 ## Installation and Usage
 ```bash
@@ -11,10 +11,7 @@ let nytimes_most_popular_api = require('@datafire/nytimes_most_popular_api').cre
   "api-key": ""
 });
 
-nytimes_most_popular_api.mostemailed.section.time_period.json.get({
-  "section": "",
-  "time-period": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -108,8 +105,7 @@ nytimes_most_popular_api.mostviewed.section.time_period.json.get({
   * column `string`
   * des_facet [DesFacet](#desfacet)
   * geo_facet [GeoFacet](#geofacet)
-  * media `array`, `string`
-
+  * media
   * org_facet [OrgFacet](#orgfacet)
   * per_facet [PerFacet](#perfacet)
   * published_date `string`
@@ -146,19 +142,15 @@ nytimes_most_popular_api.mostviewed.section.time_period.json.get({
   * url `string`
 
 ### DesFacet
-* DesFacet `array`, `string`
-
+* DesFacet
 
 ### GeoFacet
-* GeoFacet `array`, `string` (values: )
-
+* GeoFacet `string` (values: )
 
 ### OrgFacet
 * OrgFacet `array`
 
-
 ### PerFacet
 * PerFacet `array`
-
 
 

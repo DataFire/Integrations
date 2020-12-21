@@ -16,7 +16,7 @@ let caldav = require('@datafire/caldav').create({
   principalPath: ""
 });
 
-caldav.listCalendars({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

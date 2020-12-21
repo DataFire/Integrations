@@ -15,10 +15,7 @@ let azure_monitor_diagnosticssettings_api = require('@datafire/azure_monitor_dia
   redirect_uri: ""
 });
 
-azure_monitor_diagnosticssettings_api.DiagnosticSettings_List({
-  "resourceUri": "",
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -121,12 +118,14 @@ azure_monitor_diagnosticssettings_api.DiagnosticSettings_CreateOrUpdate({
 * DiagnosticSettings `object`: The diagnostic settings.
   * eventHubAuthorizationRuleId `string`: The resource Id for the event hub authorization rule.
   * eventHubName `string`: The name of the event hub. If none is specified, the default event hub will be selected.
-  * logs `array`: the list of logs settings.
+  * logAnalyticsDestinationType `string`: A string indicating whether the export to Log Analytics should use the default destination type, i.e. AzureDiagnostics, or use a destination type constructed as follows: <normalized service identity>_<normalized category name>. Possible values are: Dedicated and null (null is default.)
+  * logs `array`: The list of logs settings.
     * items [LogSettings](#logsettings)
-  * metrics `array`: the list of metric settings.
+  * metrics `array`: The list of metric settings.
     * items [MetricSettings](#metricsettings)
+  * serviceBusRuleId `string`: The service bus rule Id of the diagnostic setting. This is here to maintain backwards compatibility.
   * storageAccountId `string`: The resource ID of the storage account to which you would like to send Diagnostic Logs.
-  * workspaceId `string`: The workspace ID (resource ID of a Log Analytics workspace) for a Log Analytics workspace to which you would like to send Diagnostic Logs. Example: /subscriptions/4b9e8510-67ab-4e9a-95a9-e2f1e570ea9c/resourceGroups/insights-integration/providers/Microsoft.OperationalInsights/workspaces/viruela2
+  * workspaceId `string`: The full ARM resource ID of the Log Analytics workspace to which you would like to send Diagnostic Logs. Example: /subscriptions/4b9e8510-67ab-4e9a-95a9-e2f1e570ea9c/resourceGroups/insights-integration/providers/Microsoft.OperationalInsights/workspaces/viruela2
 
 ### DiagnosticSettingsResource
 * DiagnosticSettingsResource `object`: The diagnostic setting resource.

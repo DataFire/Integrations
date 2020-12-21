@@ -7,7 +7,7 @@
   "info": {
     "description": "The Compute Management Client.",
     "title": "ComputeManagementClient",
-    "version": "2017-09-01",
+    "version": "2019-04-01",
     "x-apisguru-categories": [
       "cloud"
     ],
@@ -17,7 +17,7 @@
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/compute/resource-manager/Microsoft.Compute/stable/2017-09-01/skus.json",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/compute/resource-manager/Microsoft.Compute/stable/2019-04-01/skus.json",
         "version": "2.0"
       }
     ],
@@ -84,6 +84,13 @@
           },
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "description": "The filter to apply on the operation.",
+            "in": "query",
+            "name": "$filter",
+            "required": false,
+            "type": "string"
           }
         ],
         "responses": {
@@ -98,6 +105,387 @@
           "Skus",
           "AvailabilitySets"
         ],
+        "x-ms-examples": {
+          "Lists all available Resource SKUs": {
+            "parameters": {
+              "api-version": "2019-04-01",
+              "subscriptionId": "{subscription-id}"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "nextLink": null,
+                  "value": [
+                    {
+                      "capabilities": [
+                        {
+                          "name": "MaxResourceVolumeMB",
+                          "value": "20480"
+                        },
+                        {
+                          "name": "OSVhdSizeMB",
+                          "value": "1047552"
+                        },
+                        {
+                          "name": "vCPUs",
+                          "value": "1"
+                        },
+                        {
+                          "name": "HyperVGenerations",
+                          "value": "V1"
+                        },
+                        {
+                          "name": "MemoryGB",
+                          "value": "0.75"
+                        },
+                        {
+                          "name": "MaxDataDiskCount",
+                          "value": "1"
+                        },
+                        {
+                          "name": "LowPriorityCapable",
+                          "value": "False"
+                        },
+                        {
+                          "name": "PremiumIO",
+                          "value": "False"
+                        },
+                        {
+                          "name": "vCPUsAvailable",
+                          "value": "1"
+                        },
+                        {
+                          "name": "ACUs",
+                          "value": "50"
+                        },
+                        {
+                          "name": "vCPUsPerCore",
+                          "value": "1"
+                        },
+                        {
+                          "name": "EphemeralOSDiskSupported",
+                          "value": "False"
+                        },
+                        {
+                          "name": "AcceleratedNetworkingEnabled",
+                          "value": "False"
+                        },
+                        {
+                          "name": "RdmaEnabled",
+                          "value": "False"
+                        },
+                        {
+                          "name": "MaxNetworkInterfaces",
+                          "value": "2"
+                        }
+                      ],
+                      "family": "standardA0_A7Family",
+                      "locationInfo": [
+                        {
+                          "location": "westus",
+                          "zoneDetails": [
+                            {
+                              "capabilities": [
+                                {
+                                  "name": "UltraSSDAvailable",
+                                  "value": "True"
+                                }
+                              ],
+                              "name": [
+                                "westus-AZ01"
+                              ]
+                            }
+                          ],
+                          "zones": [
+                            "westus-AZ01"
+                          ]
+                        }
+                      ],
+                      "locations": [
+                        "westus"
+                      ],
+                      "name": "Standard_A0",
+                      "resourceType": "virtualMachines",
+                      "size": "A0",
+                      "tier": "Standard"
+                    },
+                    {
+                      "capabilities": [
+                        {
+                          "name": "MaxResourceVolumeMB",
+                          "value": "71680"
+                        },
+                        {
+                          "name": "OSVhdSizeMB",
+                          "value": "1047552"
+                        },
+                        {
+                          "name": "vCPUs",
+                          "value": "1"
+                        },
+                        {
+                          "name": "HyperVGenerations",
+                          "value": "V1"
+                        },
+                        {
+                          "name": "MemoryGB",
+                          "value": "1.75"
+                        },
+                        {
+                          "name": "MaxDataDiskCount",
+                          "value": "2"
+                        },
+                        {
+                          "name": "LowPriorityCapable",
+                          "value": "True"
+                        },
+                        {
+                          "name": "PremiumIO",
+                          "value": "False"
+                        },
+                        {
+                          "name": "vCPUsAvailable",
+                          "value": "1"
+                        },
+                        {
+                          "name": "ACUs",
+                          "value": "100"
+                        },
+                        {
+                          "name": "vCPUsPerCore",
+                          "value": "1"
+                        },
+                        {
+                          "name": "EphemeralOSDiskSupported",
+                          "value": "False"
+                        },
+                        {
+                          "name": "AcceleratedNetworkingEnabled",
+                          "value": "False"
+                        },
+                        {
+                          "name": "RdmaEnabled",
+                          "value": "False"
+                        },
+                        {
+                          "name": "MaxNetworkInterfaces",
+                          "value": "2"
+                        }
+                      ],
+                      "family": "standardA0_A7Family",
+                      "locationInfo": [
+                        {
+                          "location": "westus",
+                          "zones": [
+                            "westus-AZ02",
+                            "westus-AZ01"
+                          ]
+                        }
+                      ],
+                      "locations": [
+                        "westus"
+                      ],
+                      "name": "Standard_A1",
+                      "resourceType": "virtualMachines",
+                      "size": "A1",
+                      "tier": "Standard"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "Lists all available Resource SKUs for the specified region": {
+            "parameters": {
+              "$filter": "location eq 'westus'",
+              "api-version": "2019-04-01",
+              "subscriptionId": "{subscription-id}"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "nextLink": null,
+                  "value": [
+                    {
+                      "capabilities": [
+                        {
+                          "name": "MaxResourceVolumeMB",
+                          "value": "20480"
+                        },
+                        {
+                          "name": "OSVhdSizeMB",
+                          "value": "1047552"
+                        },
+                        {
+                          "name": "vCPUs",
+                          "value": "1"
+                        },
+                        {
+                          "name": "HyperVGenerations",
+                          "value": "V1"
+                        },
+                        {
+                          "name": "MemoryGB",
+                          "value": "0.75"
+                        },
+                        {
+                          "name": "MaxDataDiskCount",
+                          "value": "1"
+                        },
+                        {
+                          "name": "LowPriorityCapable",
+                          "value": "False"
+                        },
+                        {
+                          "name": "PremiumIO",
+                          "value": "False"
+                        },
+                        {
+                          "name": "vCPUsAvailable",
+                          "value": "1"
+                        },
+                        {
+                          "name": "ACUs",
+                          "value": "50"
+                        },
+                        {
+                          "name": "vCPUsPerCore",
+                          "value": "1"
+                        },
+                        {
+                          "name": "EphemeralOSDiskSupported",
+                          "value": "False"
+                        },
+                        {
+                          "name": "AcceleratedNetworkingEnabled",
+                          "value": "False"
+                        },
+                        {
+                          "name": "RdmaEnabled",
+                          "value": "False"
+                        },
+                        {
+                          "name": "MaxNetworkInterfaces",
+                          "value": "2"
+                        }
+                      ],
+                      "family": "standardA0_A7Family",
+                      "locationInfo": [
+                        {
+                          "location": "westus",
+                          "zoneDetails": [
+                            {
+                              "capabilities": [
+                                {
+                                  "name": "UltraSSDAvailable",
+                                  "value": "True"
+                                }
+                              ],
+                              "name": [
+                                "westus-AZ01"
+                              ]
+                            }
+                          ],
+                          "zones": [
+                            "westus-AZ01"
+                          ]
+                        }
+                      ],
+                      "locations": [
+                        "westus"
+                      ],
+                      "name": "Standard_A0",
+                      "resourceType": "virtualMachines",
+                      "size": "A0",
+                      "tier": "Standard"
+                    },
+                    {
+                      "capabilities": [
+                        {
+                          "name": "MaxResourceVolumeMB",
+                          "value": "71680"
+                        },
+                        {
+                          "name": "OSVhdSizeMB",
+                          "value": "1047552"
+                        },
+                        {
+                          "name": "vCPUs",
+                          "value": "1"
+                        },
+                        {
+                          "name": "HyperVGenerations",
+                          "value": "V1"
+                        },
+                        {
+                          "name": "MemoryGB",
+                          "value": "1.75"
+                        },
+                        {
+                          "name": "MaxDataDiskCount",
+                          "value": "2"
+                        },
+                        {
+                          "name": "LowPriorityCapable",
+                          "value": "True"
+                        },
+                        {
+                          "name": "PremiumIO",
+                          "value": "False"
+                        },
+                        {
+                          "name": "vCPUsAvailable",
+                          "value": "1"
+                        },
+                        {
+                          "name": "ACUs",
+                          "value": "100"
+                        },
+                        {
+                          "name": "vCPUsPerCore",
+                          "value": "1"
+                        },
+                        {
+                          "name": "EphemeralOSDiskSupported",
+                          "value": "False"
+                        },
+                        {
+                          "name": "AcceleratedNetworkingEnabled",
+                          "value": "False"
+                        },
+                        {
+                          "name": "RdmaEnabled",
+                          "value": "False"
+                        },
+                        {
+                          "name": "MaxNetworkInterfaces",
+                          "value": "2"
+                        }
+                      ],
+                      "family": "standardA0_A7Family",
+                      "locationInfo": [
+                        {
+                          "location": "westus",
+                          "zones": [
+                            "westus-AZ02",
+                            "westus-AZ01"
+                          ]
+                        }
+                      ],
+                      "locations": [
+                        "westus"
+                      ],
+                      "name": "Standard_A1",
+                      "resourceType": "virtualMachines",
+                      "size": "A1",
+                      "tier": "Standard"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
         "x-ms-pageable": {
           "nextLinkName": "nextLink"
         }
@@ -194,7 +582,7 @@
       }
     },
     "ResourceSkuCapabilities": {
-      "description": "Describes The SKU capabilites object.",
+      "description": "Describes The SKU capabilities object.",
       "properties": {
         "name": {
           "description": "An invariant to describe the feature.",
@@ -273,6 +661,14 @@
           "readOnly": true,
           "type": "string"
         },
+        "zoneDetails": {
+          "description": "Details of capabilities available to a SKU in specific zones.",
+          "items": {
+            "$ref": "#/definitions/ResourceSkuZoneDetails"
+          },
+          "readOnly": true,
+          "type": "array"
+        },
         "zones": {
           "description": "List of availability zones where the SKU is supported.",
           "items": {
@@ -347,11 +743,32 @@
         }
       }
     },
+    "ResourceSkuZoneDetails": {
+      "description": "Describes The zonal capabilities of a SKU.",
+      "properties": {
+        "capabilities": {
+          "description": "A list of capabilities that are available for the SKU in the specified list of zones.",
+          "items": {
+            "$ref": "#/definitions/ResourceSkuCapabilities"
+          },
+          "readOnly": true,
+          "type": "array"
+        },
+        "name": {
+          "description": "The set of zones that the SKU is available in with the specified capabilities.",
+          "items": {
+            "type": "string"
+          },
+          "readOnly": true,
+          "type": "array"
+        }
+      }
+    },
     "ResourceSkusResult": {
-      "description": "The Compute List Skus operation response.",
+      "description": "The List Resource Skus operation response.",
       "properties": {
         "nextLink": {
-          "description": "The uri to fetch the next page of Compute Skus. Call ListNext() with this to fetch the next page of VMSS Skus.",
+          "description": "The URI to fetch the next page of Resource Skus. Call ListNext() with this URI to fetch the next page of Resource Skus",
           "type": "string"
         },
         "value": {

@@ -119,137 +119,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "description": "The response model for the list job operation.",
-              "properties": {
-                "nextLink": {
-                  "description": "The  link to the next page.",
-                  "readOnly": true,
-                  "type": "string"
-                },
-                "value": {
-                  "description": "List of jobs.",
-                  "items": {
-                    "allOf": [
-                      {
-                        "allOf": [
-                          {
-                            "description": "The core properties of ARM resources",
-                            "properties": {
-                              "id": {
-                                "description": "Fully qualified resource Id for the resource",
-                                "readOnly": true,
-                                "type": "string"
-                              },
-                              "name": {
-                                "description": "The name of the resource",
-                                "readOnly": true,
-                                "type": "string"
-                              },
-                              "type": {
-                                "description": "The type of the resource.",
-                                "readOnly": true,
-                                "type": "string"
-                              }
-                            },
-                            "x-ms-azure-resource": true
-                          }
-                        ],
-                        "description": "The resource model definition for a ARM proxy resource. It will have everything other than required location and tags"
-                      }
-                    ],
-                    "description": "Job collection item properties.",
-                    "properties": {
-                      "properties": {
-                        "description": "Job collection item properties.",
-                        "properties": {
-                          "creationTime": {
-                            "description": "The creation time of the job.",
-                            "format": "date-time",
-                            "readOnly": true,
-                            "type": "string",
-                            "x-nullable": false
-                          },
-                          "endTime": {
-                            "description": "The end time of the job.",
-                            "format": "date-time",
-                            "readOnly": true,
-                            "type": "string",
-                            "x-nullable": true
-                          },
-                          "jobId": {
-                            "description": "The id of the job.",
-                            "format": "uuid",
-                            "readOnly": true,
-                            "type": "string",
-                            "x-nullable": false
-                          },
-                          "lastModifiedTime": {
-                            "description": "The last modified time of the job.",
-                            "format": "date-time",
-                            "readOnly": true,
-                            "type": "string",
-                            "x-nullable": true
-                          },
-                          "provisioningState": {
-                            "description": "The provisioning state of a resource.",
-                            "readOnly": true,
-                            "type": "string"
-                          },
-                          "runOn": {
-                            "description": "Specifies the runOn group name where the job was executed.",
-                            "type": "string"
-                          },
-                          "runbook": {
-                            "description": "The runbook property associated with the entity.",
-                            "properties": {
-                              "name": {
-                                "description": "Gets or sets the name of the runbook.",
-                                "type": "string"
-                              }
-                            }
-                          },
-                          "startTime": {
-                            "description": "The start time of the job.",
-                            "format": "date-time",
-                            "readOnly": true,
-                            "type": "string",
-                            "x-nullable": true
-                          },
-                          "status": {
-                            "description": "The status of the job.",
-                            "enum": [
-                              "New",
-                              "Activating",
-                              "Running",
-                              "Completed",
-                              "Failed",
-                              "Stopped",
-                              "Blocked",
-                              "Suspended",
-                              "Disconnected",
-                              "Suspending",
-                              "Stopping",
-                              "Resuming",
-                              "Removing"
-                            ],
-                            "readOnly": true,
-                            "type": "string",
-                            "x-ms-enum": {
-                              "modelAsString": true,
-                              "name": "JobStatus"
-                            }
-                          }
-                        }
-                      }
-                    },
-                    "required": [
-                      "properties"
-                    ],
-                    "type": "object"
-                  },
-                  "type": "array"
-                }
-              }
+              "$ref": "#/definitions/JobListResultV2"
             }
           },
           "default": {
@@ -285,7 +155,7 @@
             "responses": {
               "200": {
                 "body": {
-                  "nextLink": "",
+                  "nextLink": null,
                   "value": [
                     {
                       "id": "/subscriptions/51766542-3ed7-4a72-a187-0c8ab644ddab/resourceGroups/mygroup/providers/Microsoft.Automation/automationAccounts/ContoseAutomationAccount/jobs/job1",
@@ -328,7 +198,7 @@
             }
           }
         },
-        "x-ms-odata": "./definitions.json#/definitions/JobCollectionItem",
+        "x-ms-odata": "#/definitions/JobCollectionItem",
         "x-ms-pageable": {
           "nextLinkName": "nextLink"
         }
@@ -395,142 +265,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "allOf": [
-                {
-                  "allOf": [
-                    {
-                      "description": "The core properties of ARM resources",
-                      "properties": {
-                        "id": {
-                          "description": "Fully qualified resource Id for the resource",
-                          "readOnly": true,
-                          "type": "string"
-                        },
-                        "name": {
-                          "description": "The name of the resource",
-                          "readOnly": true,
-                          "type": "string"
-                        },
-                        "type": {
-                          "description": "The type of the resource.",
-                          "readOnly": true,
-                          "type": "string"
-                        }
-                      },
-                      "x-ms-azure-resource": true
-                    }
-                  ],
-                  "description": "The resource model definition for a ARM proxy resource. It will have everything other than required location and tags"
-                }
-              ],
-              "description": "Definition of the job.",
-              "properties": {
-                "properties": {
-                  "description": "Definition of job properties.",
-                  "properties": {
-                    "creationTime": {
-                      "description": "Gets or sets the creation time of the job.",
-                      "format": "date-time",
-                      "type": "string",
-                      "x-nullable": false
-                    },
-                    "endTime": {
-                      "description": "Gets or sets the end time of the job.",
-                      "format": "date-time",
-                      "type": "string",
-                      "x-nullable": true
-                    },
-                    "exception": {
-                      "description": "Gets or sets the exception of the job.",
-                      "type": "string"
-                    },
-                    "jobId": {
-                      "description": "Gets or sets the id of the job.",
-                      "format": "uuid",
-                      "type": "string",
-                      "x-nullable": false
-                    },
-                    "lastModifiedTime": {
-                      "description": "Gets or sets the last modified time of the job.",
-                      "format": "date-time",
-                      "type": "string",
-                      "x-nullable": true
-                    },
-                    "lastStatusModifiedTime": {
-                      "description": "Gets or sets the last status modified time of the job.",
-                      "format": "date-time",
-                      "type": "string",
-                      "x-nullable": true
-                    },
-                    "parameters": {
-                      "additionalProperties": {
-                        "type": "string"
-                      },
-                      "description": "Gets or sets the parameters of the job.",
-                      "type": "object"
-                    },
-                    "provisioningState": {
-                      "description": "The provisioning state of a resource.",
-                      "readOnly": true,
-                      "type": "string"
-                    },
-                    "runOn": {
-                      "description": "Gets or sets the runOn which specifies the group name where the job is to be executed.",
-                      "type": "string"
-                    },
-                    "runbook": {
-                      "description": "The runbook property associated with the entity.",
-                      "properties": {
-                        "name": {
-                          "description": "Gets or sets the name of the runbook.",
-                          "type": "string"
-                        }
-                      }
-                    },
-                    "startTime": {
-                      "description": "Gets or sets the start time of the job.",
-                      "format": "date-time",
-                      "type": "string",
-                      "x-nullable": true
-                    },
-                    "startedBy": {
-                      "description": "Gets or sets the job started by.",
-                      "type": "string"
-                    },
-                    "status": {
-                      "description": "Gets or sets the status of the job.",
-                      "enum": [
-                        "New",
-                        "Activating",
-                        "Running",
-                        "Completed",
-                        "Failed",
-                        "Stopped",
-                        "Blocked",
-                        "Suspended",
-                        "Disconnected",
-                        "Suspending",
-                        "Stopping",
-                        "Resuming",
-                        "Removing"
-                      ],
-                      "type": "string",
-                      "x-ms-enum": {
-                        "modelAsString": true,
-                        "name": "JobStatus"
-                      }
-                    },
-                    "statusDetails": {
-                      "description": "Gets or sets the status details of the job.",
-                      "type": "string"
-                    }
-                  }
-                }
-              },
-              "x-ms-mutability": [
-                "read",
-                "create"
-              ]
+              "$ref": "#/definitions/Job"
             }
           },
           "default": {
@@ -642,36 +377,7 @@
             "name": "parameters",
             "required": true,
             "schema": {
-              "description": "The parameters supplied to the create job operation.",
-              "properties": {
-                "properties": {
-                  "properties": {
-                    "parameters": {
-                      "additionalProperties": {
-                        "type": "string"
-                      },
-                      "description": "Gets or sets the parameters of the job.",
-                      "type": "object"
-                    },
-                    "runOn": {
-                      "description": "Gets or sets the runOn which specifies the group name where the job is to be executed.",
-                      "type": "string"
-                    },
-                    "runbook": {
-                      "description": "The runbook property associated with the entity.",
-                      "properties": {
-                        "name": {
-                          "description": "Gets or sets the name of the runbook.",
-                          "type": "string"
-                        }
-                      }
-                    }
-                  }
-                }
-              },
-              "required": [
-                "properties"
-              ]
+              "$ref": "#/definitions/JobCreateParameters"
             }
           },
           {
@@ -694,142 +400,7 @@
           "201": {
             "description": "Created",
             "schema": {
-              "allOf": [
-                {
-                  "allOf": [
-                    {
-                      "description": "The core properties of ARM resources",
-                      "properties": {
-                        "id": {
-                          "description": "Fully qualified resource Id for the resource",
-                          "readOnly": true,
-                          "type": "string"
-                        },
-                        "name": {
-                          "description": "The name of the resource",
-                          "readOnly": true,
-                          "type": "string"
-                        },
-                        "type": {
-                          "description": "The type of the resource.",
-                          "readOnly": true,
-                          "type": "string"
-                        }
-                      },
-                      "x-ms-azure-resource": true
-                    }
-                  ],
-                  "description": "The resource model definition for a ARM proxy resource. It will have everything other than required location and tags"
-                }
-              ],
-              "description": "Definition of the job.",
-              "properties": {
-                "properties": {
-                  "description": "Definition of job properties.",
-                  "properties": {
-                    "creationTime": {
-                      "description": "Gets or sets the creation time of the job.",
-                      "format": "date-time",
-                      "type": "string",
-                      "x-nullable": false
-                    },
-                    "endTime": {
-                      "description": "Gets or sets the end time of the job.",
-                      "format": "date-time",
-                      "type": "string",
-                      "x-nullable": true
-                    },
-                    "exception": {
-                      "description": "Gets or sets the exception of the job.",
-                      "type": "string"
-                    },
-                    "jobId": {
-                      "description": "Gets or sets the id of the job.",
-                      "format": "uuid",
-                      "type": "string",
-                      "x-nullable": false
-                    },
-                    "lastModifiedTime": {
-                      "description": "Gets or sets the last modified time of the job.",
-                      "format": "date-time",
-                      "type": "string",
-                      "x-nullable": true
-                    },
-                    "lastStatusModifiedTime": {
-                      "description": "Gets or sets the last status modified time of the job.",
-                      "format": "date-time",
-                      "type": "string",
-                      "x-nullable": true
-                    },
-                    "parameters": {
-                      "additionalProperties": {
-                        "type": "string"
-                      },
-                      "description": "Gets or sets the parameters of the job.",
-                      "type": "object"
-                    },
-                    "provisioningState": {
-                      "description": "The provisioning state of a resource.",
-                      "readOnly": true,
-                      "type": "string"
-                    },
-                    "runOn": {
-                      "description": "Gets or sets the runOn which specifies the group name where the job is to be executed.",
-                      "type": "string"
-                    },
-                    "runbook": {
-                      "description": "The runbook property associated with the entity.",
-                      "properties": {
-                        "name": {
-                          "description": "Gets or sets the name of the runbook.",
-                          "type": "string"
-                        }
-                      }
-                    },
-                    "startTime": {
-                      "description": "Gets or sets the start time of the job.",
-                      "format": "date-time",
-                      "type": "string",
-                      "x-nullable": true
-                    },
-                    "startedBy": {
-                      "description": "Gets or sets the job started by.",
-                      "type": "string"
-                    },
-                    "status": {
-                      "description": "Gets or sets the status of the job.",
-                      "enum": [
-                        "New",
-                        "Activating",
-                        "Running",
-                        "Completed",
-                        "Failed",
-                        "Stopped",
-                        "Blocked",
-                        "Suspended",
-                        "Disconnected",
-                        "Suspending",
-                        "Stopping",
-                        "Resuming",
-                        "Removing"
-                      ],
-                      "type": "string",
-                      "x-ms-enum": {
-                        "modelAsString": true,
-                        "name": "JobStatus"
-                      }
-                    },
-                    "statusDetails": {
-                      "description": "Gets or sets the status details of the job.",
-                      "type": "string"
-                    }
-                  }
-                }
-              },
-              "x-ms-mutability": [
-                "read",
-                "create"
-              ]
+              "$ref": "#/definitions/Job"
             }
           },
           "default": {
@@ -972,7 +543,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "type": "string"
+              "type": "file"
             }
           },
           "default": {
@@ -1172,14 +743,11 @@
             "x-ms-parameter-location": "method"
           }
         ],
-        "produces": [
-          "text/powershell"
-        ],
         "responses": {
           "200": {
             "description": "OK",
             "schema": {
-              "type": "string"
+              "type": "file"
             }
           },
           "default": {
@@ -1390,73 +958,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "description": "The response model for the list job stream operation.",
-              "properties": {
-                "nextLink": {
-                  "description": "Gets or sets the next link.",
-                  "type": "string"
-                },
-                "value": {
-                  "description": "A list of job streams.",
-                  "items": {
-                    "description": "Definition of the job stream.",
-                    "properties": {
-                      "id": {
-                        "description": "Gets or sets the id of the resource.",
-                        "type": "string"
-                      },
-                      "properties": {
-                        "description": "Definition of the job stream.",
-                        "properties": {
-                          "jobStreamId": {
-                            "description": "Gets or sets the id of the job stream.",
-                            "type": "string"
-                          },
-                          "streamText": {
-                            "description": "Gets or sets the stream text.",
-                            "type": "string"
-                          },
-                          "streamType": {
-                            "description": "Gets or sets the stream type.",
-                            "enum": [
-                              "Progress",
-                              "Output",
-                              "Warning",
-                              "Error",
-                              "Debug",
-                              "Verbose",
-                              "Any"
-                            ],
-                            "type": "string",
-                            "x-ms-enum": {
-                              "modelAsString": true,
-                              "name": "JobStreamType"
-                            }
-                          },
-                          "summary": {
-                            "description": "Gets or sets the summary.",
-                            "type": "string"
-                          },
-                          "time": {
-                            "description": "Gets or sets the creation time of the job.",
-                            "format": "date-time",
-                            "type": "string",
-                            "x-nullable": false
-                          },
-                          "value": {
-                            "additionalProperties": {
-                              "type": "object"
-                            },
-                            "description": "Gets or sets the values of the job stream.",
-                            "type": "object"
-                          }
-                        }
-                      }
-                    }
-                  },
-                  "type": "array"
-                }
-              }
+              "$ref": "#/definitions/JobStreamListResult"
             }
           },
           "default": {
@@ -1492,7 +994,7 @@
             "responses": {
               "200": {
                 "body": {
-                  "nextLink": "",
+                  "nextLink": null,
                   "value": [
                     {
                       "id": "/subscriptions/51766542-3ed7-4a72-a187-0c8ab644ddab/resourcegroups/mygroup/providers/Microsoft.Automation/automationAccounts/ContoseAutomationAccount/jobs/jobName/streams/24456a8a-2857-4af6-932c-3455f38bd05e_00636535675981232703_00000000000000000001",
@@ -1592,60 +1094,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "description": "Definition of the job stream.",
-              "properties": {
-                "id": {
-                  "description": "Gets or sets the id of the resource.",
-                  "type": "string"
-                },
-                "properties": {
-                  "description": "Definition of the job stream.",
-                  "properties": {
-                    "jobStreamId": {
-                      "description": "Gets or sets the id of the job stream.",
-                      "type": "string"
-                    },
-                    "streamText": {
-                      "description": "Gets or sets the stream text.",
-                      "type": "string"
-                    },
-                    "streamType": {
-                      "description": "Gets or sets the stream type.",
-                      "enum": [
-                        "Progress",
-                        "Output",
-                        "Warning",
-                        "Error",
-                        "Debug",
-                        "Verbose",
-                        "Any"
-                      ],
-                      "type": "string",
-                      "x-ms-enum": {
-                        "modelAsString": true,
-                        "name": "JobStreamType"
-                      }
-                    },
-                    "summary": {
-                      "description": "Gets or sets the summary.",
-                      "type": "string"
-                    },
-                    "time": {
-                      "description": "Gets or sets the creation time of the job.",
-                      "format": "date-time",
-                      "type": "string",
-                      "x-nullable": false
-                    },
-                    "value": {
-                      "additionalProperties": {
-                        "type": "object"
-                      },
-                      "description": "Gets or sets the values of the job stream.",
-                      "type": "object"
-                    }
-                  }
-                }
-              }
+              "$ref": "#/definitions/JobStream"
             }
           },
           "default": {
@@ -1798,5 +1247,421 @@
       }
     }
   },
-  "definitions": {}
+  "definitions": {
+    "Job": {
+      "allOf": [
+        {
+          "allOf": [
+            {
+              "description": "The core properties of ARM resources",
+              "properties": {
+                "id": {
+                  "description": "Fully qualified resource Id for the resource",
+                  "readOnly": true,
+                  "type": "string"
+                },
+                "name": {
+                  "description": "The name of the resource",
+                  "readOnly": true,
+                  "type": "string"
+                },
+                "type": {
+                  "description": "The type of the resource.",
+                  "readOnly": true,
+                  "type": "string"
+                }
+              },
+              "type": "object",
+              "x-ms-azure-resource": true
+            }
+          ],
+          "description": "ARM proxy resource.",
+          "properties": {},
+          "type": "object"
+        }
+      ],
+      "description": "Definition of the job.",
+      "properties": {
+        "properties": {
+          "$ref": "#/definitions/JobProperties",
+          "description": "The properties of the job.",
+          "x-ms-client-flatten": true
+        }
+      },
+      "x-ms-mutability": [
+        "read",
+        "create"
+      ]
+    },
+    "JobCollectionItem": {
+      "allOf": [
+        {
+          "allOf": [
+            {
+              "description": "The core properties of ARM resources",
+              "properties": {
+                "id": {
+                  "description": "Fully qualified resource Id for the resource",
+                  "readOnly": true,
+                  "type": "string"
+                },
+                "name": {
+                  "description": "The name of the resource",
+                  "readOnly": true,
+                  "type": "string"
+                },
+                "type": {
+                  "description": "The type of the resource.",
+                  "readOnly": true,
+                  "type": "string"
+                }
+              },
+              "type": "object",
+              "x-ms-azure-resource": true
+            }
+          ],
+          "description": "ARM proxy resource.",
+          "properties": {},
+          "type": "object"
+        }
+      ],
+      "description": "Job collection item properties.",
+      "properties": {
+        "properties": {
+          "$ref": "#/definitions/JobCollectionItemProperties",
+          "description": "Job properties.",
+          "x-ms-client-flatten": true
+        }
+      },
+      "required": [
+        "properties"
+      ],
+      "type": "object"
+    },
+    "JobCollectionItemProperties": {
+      "description": "Job collection item properties.",
+      "properties": {
+        "creationTime": {
+          "description": "The creation time of the job.",
+          "format": "date-time",
+          "readOnly": true,
+          "type": "string",
+          "x-nullable": false
+        },
+        "endTime": {
+          "description": "The end time of the job.",
+          "format": "date-time",
+          "readOnly": true,
+          "type": "string",
+          "x-nullable": true
+        },
+        "jobId": {
+          "description": "The id of the job.",
+          "format": "uuid",
+          "readOnly": true,
+          "type": "string",
+          "x-nullable": false
+        },
+        "lastModifiedTime": {
+          "description": "The last modified time of the job.",
+          "format": "date-time",
+          "readOnly": true,
+          "type": "string",
+          "x-nullable": true
+        },
+        "provisioningState": {
+          "description": "The provisioning state of a resource.",
+          "readOnly": true,
+          "type": "string"
+        },
+        "runOn": {
+          "description": "Specifies the runOn group name where the job was executed.",
+          "type": "string"
+        },
+        "runbook": {
+          "$ref": "#/definitions/RunbookAssociationProperty",
+          "description": "The runbook association.",
+          "readOnly": true
+        },
+        "startTime": {
+          "description": "The start time of the job.",
+          "format": "date-time",
+          "readOnly": true,
+          "type": "string",
+          "x-nullable": true
+        },
+        "status": {
+          "description": "The status of the job.",
+          "enum": [
+            "New",
+            "Activating",
+            "Running",
+            "Completed",
+            "Failed",
+            "Stopped",
+            "Blocked",
+            "Suspended",
+            "Disconnected",
+            "Suspending",
+            "Stopping",
+            "Resuming",
+            "Removing"
+          ],
+          "readOnly": true,
+          "type": "string",
+          "x-ms-enum": {
+            "modelAsString": true,
+            "name": "JobStatus"
+          }
+        }
+      }
+    },
+    "JobCreateParameters": {
+      "description": "The parameters supplied to the create job operation.",
+      "properties": {
+        "properties": {
+          "$ref": "#/definitions/JobCreateProperties",
+          "description": "Gets or sets the list of job properties.",
+          "x-ms-client-flatten": true
+        }
+      },
+      "required": [
+        "properties"
+      ]
+    },
+    "JobCreateProperties": {
+      "properties": {
+        "parameters": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "Gets or sets the parameters of the job.",
+          "type": "object"
+        },
+        "runOn": {
+          "description": "Gets or sets the runOn which specifies the group name where the job is to be executed.",
+          "type": "string"
+        },
+        "runbook": {
+          "$ref": "#/definitions/RunbookAssociationProperty",
+          "description": "Gets or sets the runbook."
+        }
+      }
+    },
+    "JobListResultV2": {
+      "description": "The response model for the list job operation.",
+      "properties": {
+        "nextLink": {
+          "description": "The  link to the next page.",
+          "readOnly": true,
+          "type": "string"
+        },
+        "value": {
+          "description": "List of jobs.",
+          "items": {
+            "$ref": "#/definitions/JobCollectionItem",
+            "readOnly": true
+          },
+          "type": "array"
+        }
+      }
+    },
+    "JobProperties": {
+      "description": "Definition of job properties.",
+      "properties": {
+        "creationTime": {
+          "description": "Gets or sets the creation time of the job.",
+          "format": "date-time",
+          "type": "string",
+          "x-nullable": false
+        },
+        "endTime": {
+          "description": "Gets or sets the end time of the job.",
+          "format": "date-time",
+          "type": "string",
+          "x-nullable": true
+        },
+        "exception": {
+          "description": "Gets or sets the exception of the job.",
+          "type": "string"
+        },
+        "jobId": {
+          "description": "Gets or sets the id of the job.",
+          "format": "uuid",
+          "type": "string",
+          "x-nullable": false
+        },
+        "lastModifiedTime": {
+          "description": "Gets or sets the last modified time of the job.",
+          "format": "date-time",
+          "type": "string",
+          "x-nullable": true
+        },
+        "lastStatusModifiedTime": {
+          "description": "Gets or sets the last status modified time of the job.",
+          "format": "date-time",
+          "type": "string",
+          "x-nullable": true
+        },
+        "parameters": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "Gets or sets the parameters of the job.",
+          "type": "object"
+        },
+        "provisioningState": {
+          "$ref": "#/definitions/JobProvisioningStateProperty",
+          "description": "The current provisioning state of the job."
+        },
+        "runOn": {
+          "description": "Gets or sets the runOn which specifies the group name where the job is to be executed.",
+          "type": "string"
+        },
+        "runbook": {
+          "$ref": "#/definitions/RunbookAssociationProperty",
+          "description": "Gets or sets the runbook."
+        },
+        "startTime": {
+          "description": "Gets or sets the start time of the job.",
+          "format": "date-time",
+          "type": "string",
+          "x-nullable": true
+        },
+        "startedBy": {
+          "description": "Gets or sets the job started by.",
+          "type": "string"
+        },
+        "status": {
+          "description": "Gets or sets the status of the job.",
+          "enum": [
+            "New",
+            "Activating",
+            "Running",
+            "Completed",
+            "Failed",
+            "Stopped",
+            "Blocked",
+            "Suspended",
+            "Disconnected",
+            "Suspending",
+            "Stopping",
+            "Resuming",
+            "Removing"
+          ],
+          "type": "string",
+          "x-ms-enum": {
+            "modelAsString": true,
+            "name": "JobStatus"
+          }
+        },
+        "statusDetails": {
+          "description": "Gets or sets the status details of the job.",
+          "type": "string"
+        }
+      }
+    },
+    "JobProvisioningStateProperty": {
+      "description": "The provisioning state of the resource.",
+      "enum": [
+        "Failed",
+        "Succeeded",
+        "Suspended",
+        "Processing"
+      ],
+      "readOnly": true,
+      "type": "string",
+      "x-ms-enum": {
+        "modelAsString": true,
+        "name": "JobProvisioningState"
+      }
+    },
+    "JobStream": {
+      "description": "Definition of the job stream.",
+      "properties": {
+        "id": {
+          "description": "Gets or sets the id of the resource.",
+          "type": "string"
+        },
+        "properties": {
+          "$ref": "#/definitions/JobStreamProperties",
+          "description": "Gets or sets the id of the job stream.",
+          "x-ms-client-flatten": true
+        }
+      }
+    },
+    "JobStreamListResult": {
+      "description": "The response model for the list job stream operation.",
+      "properties": {
+        "nextLink": {
+          "description": "Gets or sets the next link.",
+          "type": "string"
+        },
+        "value": {
+          "description": "A list of job streams.",
+          "items": {
+            "$ref": "#/definitions/JobStream"
+          },
+          "type": "array"
+        }
+      }
+    },
+    "JobStreamProperties": {
+      "description": "Definition of the job stream.",
+      "properties": {
+        "jobStreamId": {
+          "description": "Gets or sets the id of the job stream.",
+          "type": "string"
+        },
+        "streamText": {
+          "description": "Gets or sets the stream text.",
+          "type": "string"
+        },
+        "streamType": {
+          "description": "Gets or sets the stream type.",
+          "enum": [
+            "Progress",
+            "Output",
+            "Warning",
+            "Error",
+            "Debug",
+            "Verbose",
+            "Any"
+          ],
+          "type": "string",
+          "x-ms-enum": {
+            "modelAsString": true,
+            "name": "JobStreamType"
+          }
+        },
+        "summary": {
+          "description": "Gets or sets the summary.",
+          "type": "string"
+        },
+        "time": {
+          "description": "Gets or sets the creation time of the job.",
+          "format": "date-time",
+          "type": "string",
+          "x-nullable": false
+        },
+        "value": {
+          "additionalProperties": {
+            "type": "object"
+          },
+          "description": "Gets or sets the values of the job stream.",
+          "type": "object"
+        }
+      },
+      "x-ms-client-flatten": true
+    },
+    "RunbookAssociationProperty": {
+      "description": "The runbook property associated with the entity.",
+      "properties": {
+        "name": {
+          "description": "Gets or sets the name of the runbook.",
+          "type": "string"
+        }
+      }
+    }
+  }
 }

@@ -13,12 +13,7 @@ let amazonaws_dax = require('@datafire/amazonaws_dax').create({
   region: ""
 });
 
-amazonaws_dax.CreateCluster({
-  "ClusterName": "",
-  "NodeType": "",
-  "ReplicationFactor": 0,
-  "IamRoleArn": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -35,27 +30,32 @@ DAX is a managed caching service engineered for Amazon DynamoDB. DAX dramaticall
 
 ```js
 amazonaws_dax.CreateCluster({
-  "ClusterName": "",
-  "NodeType": "",
-  "ReplicationFactor": 0,
-  "IamRoleArn": ""
+  "ClusterName": null,
+  "NodeType": null,
+  "ReplicationFactor": null,
+  "IamRoleArn": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * AvailabilityZones [AvailabilityZoneList](#availabilityzonelist)
-  * ClusterName **required** [String](#string)
-  * Description [String](#string)
-  * IamRoleArn **required** [String](#string)
-  * NodeType **required** [String](#string)
-  * NotificationTopicArn [String](#string)
-  * ParameterGroupName [String](#string)
-  * PreferredMaintenanceWindow [String](#string)
-  * ReplicationFactor **required** [Integer](#integer)
-  * SecurityGroupIds [SecurityGroupIdentifierList](#securitygroupidentifierlist)
-  * SubnetGroupName [String](#string)
-  * Tags [TagList](#taglist)
+  * AvailabilityZones
+    * items [String](#string)
+  * ClusterName **required**
+  * Description
+  * IamRoleArn **required**
+  * NodeType **required**
+  * NotificationTopicArn
+  * ParameterGroupName
+  * PreferredMaintenanceWindow
+  * ReplicationFactor **required**
+  * SSESpecification
+    * Enabled **required**
+  * SecurityGroupIds
+    * items [String](#string)
+  * SubnetGroupName
+  * Tags
+    * items [Tag](#tag)
 
 #### Output
 * output [CreateClusterResponse](#createclusterresponse)
@@ -66,14 +66,14 @@ amazonaws_dax.CreateCluster({
 
 ```js
 amazonaws_dax.CreateParameterGroup({
-  "ParameterGroupName": ""
+  "ParameterGroupName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Description [String](#string)
-  * ParameterGroupName **required** [String](#string)
+  * Description
+  * ParameterGroupName **required**
 
 #### Output
 * output [CreateParameterGroupResponse](#createparametergroupresponse)
@@ -84,16 +84,17 @@ amazonaws_dax.CreateParameterGroup({
 
 ```js
 amazonaws_dax.CreateSubnetGroup({
-  "SubnetGroupName": "",
-  "SubnetIds": []
+  "SubnetGroupName": null,
+  "SubnetIds": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Description [String](#string)
-  * SubnetGroupName **required** [String](#string)
-  * SubnetIds **required** [SubnetIdentifierList](#subnetidentifierlist)
+  * Description
+  * SubnetGroupName **required**
+  * SubnetIds **required**
+    * items [String](#string)
 
 #### Output
 * output [CreateSubnetGroupResponse](#createsubnetgroupresponse)
@@ -104,17 +105,19 @@ amazonaws_dax.CreateSubnetGroup({
 
 ```js
 amazonaws_dax.DecreaseReplicationFactor({
-  "ClusterName": "",
-  "NewReplicationFactor": 0
+  "ClusterName": null,
+  "NewReplicationFactor": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * AvailabilityZones [AvailabilityZoneList](#availabilityzonelist)
-  * ClusterName **required** [String](#string)
-  * NewReplicationFactor **required** [Integer](#integer)
-  * NodeIdsToRemove [NodeIdentifierList](#nodeidentifierlist)
+  * AvailabilityZones
+    * items [String](#string)
+  * ClusterName **required**
+  * NewReplicationFactor **required**
+  * NodeIdsToRemove
+    * items [String](#string)
 
 #### Output
 * output [DecreaseReplicationFactorResponse](#decreasereplicationfactorresponse)
@@ -125,13 +128,13 @@ amazonaws_dax.DecreaseReplicationFactor({
 
 ```js
 amazonaws_dax.DeleteCluster({
-  "ClusterName": ""
+  "ClusterName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ClusterName **required** [String](#string)
+  * ClusterName **required**
 
 #### Output
 * output [DeleteClusterResponse](#deleteclusterresponse)
@@ -142,13 +145,13 @@ amazonaws_dax.DeleteCluster({
 
 ```js
 amazonaws_dax.DeleteParameterGroup({
-  "ParameterGroupName": ""
+  "ParameterGroupName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ParameterGroupName **required** [String](#string)
+  * ParameterGroupName **required**
 
 #### Output
 * output [DeleteParameterGroupResponse](#deleteparametergroupresponse)
@@ -159,13 +162,13 @@ amazonaws_dax.DeleteParameterGroup({
 
 ```js
 amazonaws_dax.DeleteSubnetGroup({
-  "SubnetGroupName": ""
+  "SubnetGroupName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * SubnetGroupName **required** [String](#string)
+  * SubnetGroupName **required**
 
 #### Output
 * output [DeleteSubnetGroupResponse](#deletesubnetgroupresponse)
@@ -180,9 +183,10 @@ amazonaws_dax.DescribeClusters({}, context)
 
 #### Input
 * input `object`
-  * ClusterNames [ClusterNameList](#clusternamelist)
-  * MaxResults [IntegerOptional](#integeroptional)
-  * NextToken [String](#string)
+  * ClusterNames
+    * items [String](#string)
+  * MaxResults
+  * NextToken
 
 #### Output
 * output [DescribeClustersResponse](#describeclustersresponse)
@@ -197,8 +201,8 @@ amazonaws_dax.DescribeDefaultParameters({}, context)
 
 #### Input
 * input `object`
-  * MaxResults [IntegerOptional](#integeroptional)
-  * NextToken [String](#string)
+  * MaxResults
+  * NextToken
 
 #### Output
 * output [DescribeDefaultParametersResponse](#describedefaultparametersresponse)
@@ -213,13 +217,13 @@ amazonaws_dax.DescribeEvents({}, context)
 
 #### Input
 * input `object`
-  * Duration [IntegerOptional](#integeroptional)
-  * EndTime [TStamp](#tstamp)
-  * MaxResults [IntegerOptional](#integeroptional)
-  * NextToken [String](#string)
-  * SourceName [String](#string)
-  * SourceType [SourceType](#sourcetype)
-  * StartTime [TStamp](#tstamp)
+  * Duration
+  * EndTime
+  * MaxResults
+  * NextToken
+  * SourceName
+  * SourceType
+  * StartTime
 
 #### Output
 * output [DescribeEventsResponse](#describeeventsresponse)
@@ -234,9 +238,10 @@ amazonaws_dax.DescribeParameterGroups({}, context)
 
 #### Input
 * input `object`
-  * MaxResults [IntegerOptional](#integeroptional)
-  * NextToken [String](#string)
-  * ParameterGroupNames [ParameterGroupNameList](#parametergroupnamelist)
+  * MaxResults
+  * NextToken
+  * ParameterGroupNames
+    * items [String](#string)
 
 #### Output
 * output [DescribeParameterGroupsResponse](#describeparametergroupsresponse)
@@ -247,16 +252,16 @@ amazonaws_dax.DescribeParameterGroups({}, context)
 
 ```js
 amazonaws_dax.DescribeParameters({
-  "ParameterGroupName": ""
+  "ParameterGroupName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * MaxResults [IntegerOptional](#integeroptional)
-  * NextToken [String](#string)
-  * ParameterGroupName **required** [String](#string)
-  * Source [String](#string)
+  * MaxResults
+  * NextToken
+  * ParameterGroupName **required**
+  * Source
 
 #### Output
 * output [DescribeParametersResponse](#describeparametersresponse)
@@ -271,9 +276,10 @@ amazonaws_dax.DescribeSubnetGroups({}, context)
 
 #### Input
 * input `object`
-  * MaxResults [IntegerOptional](#integeroptional)
-  * NextToken [String](#string)
-  * SubnetGroupNames [SubnetGroupNameList](#subnetgroupnamelist)
+  * MaxResults
+  * NextToken
+  * SubnetGroupNames
+    * items [String](#string)
 
 #### Output
 * output [DescribeSubnetGroupsResponse](#describesubnetgroupsresponse)
@@ -284,16 +290,17 @@ amazonaws_dax.DescribeSubnetGroups({}, context)
 
 ```js
 amazonaws_dax.IncreaseReplicationFactor({
-  "ClusterName": "",
-  "NewReplicationFactor": 0
+  "ClusterName": null,
+  "NewReplicationFactor": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * AvailabilityZones [AvailabilityZoneList](#availabilityzonelist)
-  * ClusterName **required** [String](#string)
-  * NewReplicationFactor **required** [Integer](#integer)
+  * AvailabilityZones
+    * items [String](#string)
+  * ClusterName **required**
+  * NewReplicationFactor **required**
 
 #### Output
 * output [IncreaseReplicationFactorResponse](#increasereplicationfactorresponse)
@@ -304,14 +311,14 @@ amazonaws_dax.IncreaseReplicationFactor({
 
 ```js
 amazonaws_dax.ListTags({
-  "ResourceName": ""
+  "ResourceName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * NextToken [String](#string)
-  * ResourceName **required** [String](#string)
+  * NextToken
+  * ResourceName **required**
 
 #### Output
 * output [ListTagsResponse](#listtagsresponse)
@@ -322,15 +329,15 @@ amazonaws_dax.ListTags({
 
 ```js
 amazonaws_dax.RebootNode({
-  "ClusterName": "",
-  "NodeId": ""
+  "ClusterName": null,
+  "NodeId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ClusterName **required** [String](#string)
-  * NodeId **required** [String](#string)
+  * ClusterName **required**
+  * NodeId **required**
 
 #### Output
 * output [RebootNodeResponse](#rebootnoderesponse)
@@ -341,15 +348,16 @@ amazonaws_dax.RebootNode({
 
 ```js
 amazonaws_dax.TagResource({
-  "ResourceName": "",
-  "Tags": []
+  "ResourceName": null,
+  "Tags": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ResourceName **required** [String](#string)
-  * Tags **required** [TagList](#taglist)
+  * ResourceName **required**
+  * Tags **required**
+    * items [Tag](#tag)
 
 #### Output
 * output [TagResourceResponse](#tagresourceresponse)
@@ -360,15 +368,16 @@ amazonaws_dax.TagResource({
 
 ```js
 amazonaws_dax.UntagResource({
-  "ResourceName": "",
-  "TagKeys": []
+  "ResourceName": null,
+  "TagKeys": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ResourceName **required** [String](#string)
-  * TagKeys **required** [KeyList](#keylist)
+  * ResourceName **required**
+  * TagKeys **required**
+    * items [String](#string)
 
 #### Output
 * output [UntagResourceResponse](#untagresourceresponse)
@@ -379,19 +388,20 @@ amazonaws_dax.UntagResource({
 
 ```js
 amazonaws_dax.UpdateCluster({
-  "ClusterName": ""
+  "ClusterName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ClusterName **required** [String](#string)
-  * Description [String](#string)
-  * NotificationTopicArn [String](#string)
-  * NotificationTopicStatus [String](#string)
-  * ParameterGroupName [String](#string)
-  * PreferredMaintenanceWindow [String](#string)
-  * SecurityGroupIds [SecurityGroupIdentifierList](#securitygroupidentifierlist)
+  * ClusterName **required**
+  * Description
+  * NotificationTopicArn
+  * NotificationTopicStatus
+  * ParameterGroupName
+  * PreferredMaintenanceWindow
+  * SecurityGroupIds
+    * items [String](#string)
 
 #### Output
 * output [UpdateClusterResponse](#updateclusterresponse)
@@ -402,15 +412,16 @@ amazonaws_dax.UpdateCluster({
 
 ```js
 amazonaws_dax.UpdateParameterGroup({
-  "ParameterGroupName": "",
-  "ParameterNameValues": []
+  "ParameterGroupName": null,
+  "ParameterNameValues": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ParameterGroupName **required** [String](#string)
-  * ParameterNameValues **required** [ParameterNameValueList](#parameternamevaluelist)
+  * ParameterGroupName **required**
+  * ParameterNameValues **required**
+    * items [ParameterNameValue](#parameternamevalue)
 
 #### Output
 * output [UpdateParameterGroupResponse](#updateparametergroupresponse)
@@ -421,15 +432,16 @@ amazonaws_dax.UpdateParameterGroup({
 
 ```js
 amazonaws_dax.UpdateSubnetGroup({
-  "SubnetGroupName": ""
+  "SubnetGroupName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Description [String](#string)
-  * SubnetGroupName **required** [String](#string)
-  * SubnetIds [SubnetIdentifierList](#subnetidentifierlist)
+  * Description
+  * SubnetGroupName **required**
+  * SubnetIds
+    * items [String](#string)
 
 #### Output
 * output [UpdateSubnetGroupResponse](#updatesubnetgroupresponse)
@@ -442,33 +454,43 @@ amazonaws_dax.UpdateSubnetGroup({
 * AvailabilityZoneList `array`
   * items [String](#string)
 
-### AwsQueryErrorMessage
-* AwsQueryErrorMessage `string`
-
 ### ChangeType
 * ChangeType `string` (values: IMMEDIATE, REQUIRES_REBOOT)
 
 ### Cluster
 * Cluster `object`: Contains all of the attributes of a specific DAX cluster.
-  * ActiveNodes [IntegerOptional](#integeroptional)
-  * ClusterArn [String](#string)
-  * ClusterDiscoveryEndpoint [Endpoint](#endpoint)
-  * ClusterName [String](#string)
-  * Description [String](#string)
-  * IamRoleArn [String](#string)
-  * NodeIdsToRemove [NodeIdentifierList](#nodeidentifierlist)
-  * NodeType [String](#string)
-  * Nodes [NodeList](#nodelist)
-  * NotificationConfiguration [NotificationConfiguration](#notificationconfiguration)
-  * ParameterGroup [ParameterGroupStatus](#parametergroupstatus)
-  * PreferredMaintenanceWindow [String](#string)
-  * SecurityGroups [SecurityGroupMembershipList](#securitygroupmembershiplist)
-  * Status [String](#string)
-  * SubnetGroup [String](#string)
-  * TotalNodes [IntegerOptional](#integeroptional)
+  * ActiveNodes
+  * ClusterArn
+  * ClusterDiscoveryEndpoint
+    * Address
+    * Port
+  * ClusterName
+  * Description
+  * IamRoleArn
+  * NodeIdsToRemove
+    * items [String](#string)
+  * NodeType
+  * Nodes
+    * items [Node](#node)
+  * NotificationConfiguration
+    * TopicArn
+    * TopicStatus
+  * ParameterGroup
+    * NodeIdsToReboot
+      * items [String](#string)
+    * ParameterApplyStatus
+    * ParameterGroupName
+  * PreferredMaintenanceWindow
+  * SSEDescription
+    * Status
+  * SecurityGroups
+    * items [SecurityGroupMembership](#securitygroupmembership)
+  * Status
+  * SubnetGroup
+  * TotalNodes
 
 ### ClusterAlreadyExistsFault
-* ClusterAlreadyExistsFault `object`: You already have a DAX cluster with the given identifier.
+
 
 ### ClusterList
 * ClusterList `array`
@@ -479,165 +501,276 @@ amazonaws_dax.UpdateSubnetGroup({
   * items [String](#string)
 
 ### ClusterNotFoundFault
-* ClusterNotFoundFault `object`: The requested cluster ID does not refer to an existing DAX cluster.
+
 
 ### ClusterQuotaForCustomerExceededFault
-* ClusterQuotaForCustomerExceededFault `object`: You have attempted to exceed the maximum number of DAX clusters for your AWS account.
+
 
 ### CreateClusterRequest
 * CreateClusterRequest `object`
-  * AvailabilityZones [AvailabilityZoneList](#availabilityzonelist)
-  * ClusterName **required** [String](#string)
-  * Description [String](#string)
-  * IamRoleArn **required** [String](#string)
-  * NodeType **required** [String](#string)
-  * NotificationTopicArn [String](#string)
-  * ParameterGroupName [String](#string)
-  * PreferredMaintenanceWindow [String](#string)
-  * ReplicationFactor **required** [Integer](#integer)
-  * SecurityGroupIds [SecurityGroupIdentifierList](#securitygroupidentifierlist)
-  * SubnetGroupName [String](#string)
-  * Tags [TagList](#taglist)
+  * AvailabilityZones
+    * items [String](#string)
+  * ClusterName **required**
+  * Description
+  * IamRoleArn **required**
+  * NodeType **required**
+  * NotificationTopicArn
+  * ParameterGroupName
+  * PreferredMaintenanceWindow
+  * ReplicationFactor **required**
+  * SSESpecification
+    * Enabled **required**
+  * SecurityGroupIds
+    * items [String](#string)
+  * SubnetGroupName
+  * Tags
+    * items [Tag](#tag)
 
 ### CreateClusterResponse
 * CreateClusterResponse `object`
-  * Cluster [Cluster](#cluster)
+  * Cluster
+    * ActiveNodes
+    * ClusterArn
+    * ClusterDiscoveryEndpoint
+      * Address
+      * Port
+    * ClusterName
+    * Description
+    * IamRoleArn
+    * NodeIdsToRemove
+      * items [String](#string)
+    * NodeType
+    * Nodes
+      * items [Node](#node)
+    * NotificationConfiguration
+      * TopicArn
+      * TopicStatus
+    * ParameterGroup
+      * NodeIdsToReboot
+        * items [String](#string)
+      * ParameterApplyStatus
+      * ParameterGroupName
+    * PreferredMaintenanceWindow
+    * SSEDescription
+      * Status
+    * SecurityGroups
+      * items [SecurityGroupMembership](#securitygroupmembership)
+    * Status
+    * SubnetGroup
+    * TotalNodes
 
 ### CreateParameterGroupRequest
 * CreateParameterGroupRequest `object`
-  * Description [String](#string)
-  * ParameterGroupName **required** [String](#string)
+  * Description
+  * ParameterGroupName **required**
 
 ### CreateParameterGroupResponse
 * CreateParameterGroupResponse `object`
-  * ParameterGroup [ParameterGroup](#parametergroup)
+  * ParameterGroup
+    * Description
+    * ParameterGroupName
 
 ### CreateSubnetGroupRequest
 * CreateSubnetGroupRequest `object`
-  * Description [String](#string)
-  * SubnetGroupName **required** [String](#string)
-  * SubnetIds **required** [SubnetIdentifierList](#subnetidentifierlist)
+  * Description
+  * SubnetGroupName **required**
+  * SubnetIds **required**
+    * items [String](#string)
 
 ### CreateSubnetGroupResponse
 * CreateSubnetGroupResponse `object`
-  * SubnetGroup [SubnetGroup](#subnetgroup)
+  * SubnetGroup
+    * Description
+    * SubnetGroupName
+    * Subnets
+      * items [Subnet](#subnet)
+    * VpcId
 
 ### DecreaseReplicationFactorRequest
 * DecreaseReplicationFactorRequest `object`
-  * AvailabilityZones [AvailabilityZoneList](#availabilityzonelist)
-  * ClusterName **required** [String](#string)
-  * NewReplicationFactor **required** [Integer](#integer)
-  * NodeIdsToRemove [NodeIdentifierList](#nodeidentifierlist)
+  * AvailabilityZones
+    * items [String](#string)
+  * ClusterName **required**
+  * NewReplicationFactor **required**
+  * NodeIdsToRemove
+    * items [String](#string)
 
 ### DecreaseReplicationFactorResponse
 * DecreaseReplicationFactorResponse `object`
-  * Cluster [Cluster](#cluster)
+  * Cluster
+    * ActiveNodes
+    * ClusterArn
+    * ClusterDiscoveryEndpoint
+      * Address
+      * Port
+    * ClusterName
+    * Description
+    * IamRoleArn
+    * NodeIdsToRemove
+      * items [String](#string)
+    * NodeType
+    * Nodes
+      * items [Node](#node)
+    * NotificationConfiguration
+      * TopicArn
+      * TopicStatus
+    * ParameterGroup
+      * NodeIdsToReboot
+        * items [String](#string)
+      * ParameterApplyStatus
+      * ParameterGroupName
+    * PreferredMaintenanceWindow
+    * SSEDescription
+      * Status
+    * SecurityGroups
+      * items [SecurityGroupMembership](#securitygroupmembership)
+    * Status
+    * SubnetGroup
+    * TotalNodes
 
 ### DeleteClusterRequest
 * DeleteClusterRequest `object`
-  * ClusterName **required** [String](#string)
+  * ClusterName **required**
 
 ### DeleteClusterResponse
 * DeleteClusterResponse `object`
-  * Cluster [Cluster](#cluster)
+  * Cluster
+    * ActiveNodes
+    * ClusterArn
+    * ClusterDiscoveryEndpoint
+      * Address
+      * Port
+    * ClusterName
+    * Description
+    * IamRoleArn
+    * NodeIdsToRemove
+      * items [String](#string)
+    * NodeType
+    * Nodes
+      * items [Node](#node)
+    * NotificationConfiguration
+      * TopicArn
+      * TopicStatus
+    * ParameterGroup
+      * NodeIdsToReboot
+        * items [String](#string)
+      * ParameterApplyStatus
+      * ParameterGroupName
+    * PreferredMaintenanceWindow
+    * SSEDescription
+      * Status
+    * SecurityGroups
+      * items [SecurityGroupMembership](#securitygroupmembership)
+    * Status
+    * SubnetGroup
+    * TotalNodes
 
 ### DeleteParameterGroupRequest
 * DeleteParameterGroupRequest `object`
-  * ParameterGroupName **required** [String](#string)
+  * ParameterGroupName **required**
 
 ### DeleteParameterGroupResponse
 * DeleteParameterGroupResponse `object`
-  * DeletionMessage [String](#string)
+  * DeletionMessage
 
 ### DeleteSubnetGroupRequest
 * DeleteSubnetGroupRequest `object`
-  * SubnetGroupName **required** [String](#string)
+  * SubnetGroupName **required**
 
 ### DeleteSubnetGroupResponse
 * DeleteSubnetGroupResponse `object`
-  * DeletionMessage [String](#string)
+  * DeletionMessage
 
 ### DescribeClustersRequest
 * DescribeClustersRequest `object`
-  * ClusterNames [ClusterNameList](#clusternamelist)
-  * MaxResults [IntegerOptional](#integeroptional)
-  * NextToken [String](#string)
+  * ClusterNames
+    * items [String](#string)
+  * MaxResults
+  * NextToken
 
 ### DescribeClustersResponse
 * DescribeClustersResponse `object`
-  * Clusters [ClusterList](#clusterlist)
-  * NextToken [String](#string)
+  * Clusters
+    * items [Cluster](#cluster)
+  * NextToken
 
 ### DescribeDefaultParametersRequest
 * DescribeDefaultParametersRequest `object`
-  * MaxResults [IntegerOptional](#integeroptional)
-  * NextToken [String](#string)
+  * MaxResults
+  * NextToken
 
 ### DescribeDefaultParametersResponse
 * DescribeDefaultParametersResponse `object`
-  * NextToken [String](#string)
-  * Parameters [ParameterList](#parameterlist)
+  * NextToken
+  * Parameters
+    * items [Parameter](#parameter)
 
 ### DescribeEventsRequest
 * DescribeEventsRequest `object`
-  * Duration [IntegerOptional](#integeroptional)
-  * EndTime [TStamp](#tstamp)
-  * MaxResults [IntegerOptional](#integeroptional)
-  * NextToken [String](#string)
-  * SourceName [String](#string)
-  * SourceType [SourceType](#sourcetype)
-  * StartTime [TStamp](#tstamp)
+  * Duration
+  * EndTime
+  * MaxResults
+  * NextToken
+  * SourceName
+  * SourceType
+  * StartTime
 
 ### DescribeEventsResponse
 * DescribeEventsResponse `object`
-  * Events [EventList](#eventlist)
-  * NextToken [String](#string)
+  * Events
+    * items [Event](#event)
+  * NextToken
 
 ### DescribeParameterGroupsRequest
 * DescribeParameterGroupsRequest `object`
-  * MaxResults [IntegerOptional](#integeroptional)
-  * NextToken [String](#string)
-  * ParameterGroupNames [ParameterGroupNameList](#parametergroupnamelist)
+  * MaxResults
+  * NextToken
+  * ParameterGroupNames
+    * items [String](#string)
 
 ### DescribeParameterGroupsResponse
 * DescribeParameterGroupsResponse `object`
-  * NextToken [String](#string)
-  * ParameterGroups [ParameterGroupList](#parametergrouplist)
+  * NextToken
+  * ParameterGroups
+    * items [ParameterGroup](#parametergroup)
 
 ### DescribeParametersRequest
 * DescribeParametersRequest `object`
-  * MaxResults [IntegerOptional](#integeroptional)
-  * NextToken [String](#string)
-  * ParameterGroupName **required** [String](#string)
-  * Source [String](#string)
+  * MaxResults
+  * NextToken
+  * ParameterGroupName **required**
+  * Source
 
 ### DescribeParametersResponse
 * DescribeParametersResponse `object`
-  * NextToken [String](#string)
-  * Parameters [ParameterList](#parameterlist)
+  * NextToken
+  * Parameters
+    * items [Parameter](#parameter)
 
 ### DescribeSubnetGroupsRequest
 * DescribeSubnetGroupsRequest `object`
-  * MaxResults [IntegerOptional](#integeroptional)
-  * NextToken [String](#string)
-  * SubnetGroupNames [SubnetGroupNameList](#subnetgroupnamelist)
+  * MaxResults
+  * NextToken
+  * SubnetGroupNames
+    * items [String](#string)
 
 ### DescribeSubnetGroupsResponse
 * DescribeSubnetGroupsResponse `object`
-  * NextToken [String](#string)
-  * SubnetGroups [SubnetGroupList](#subnetgrouplist)
+  * NextToken
+  * SubnetGroups
+    * items [SubnetGroup](#subnetgroup)
 
 ### Endpoint
 * Endpoint `object`: Represents the information required for client programs to connect to the configuration endpoint for a DAX cluster, or to an individual node within the cluster.
-  * Address [String](#string)
-  * Port [Integer](#integer)
+  * Address
+  * Port
 
 ### Event
 * Event `object`: Represents a single occurrence of something interesting within the system. Some examples of events are creating a DAX cluster, adding or removing a node, or rebooting a node.
-  * Date [TStamp](#tstamp)
-  * Message [String](#string)
-  * SourceName [String](#string)
-  * SourceType [SourceType](#sourcetype)
+  * Date
+  * Message
+  * SourceName
+  * SourceType
 
 ### EventList
 * EventList `array`
@@ -645,16 +778,46 @@ amazonaws_dax.UpdateSubnetGroup({
 
 ### IncreaseReplicationFactorRequest
 * IncreaseReplicationFactorRequest `object`
-  * AvailabilityZones [AvailabilityZoneList](#availabilityzonelist)
-  * ClusterName **required** [String](#string)
-  * NewReplicationFactor **required** [Integer](#integer)
+  * AvailabilityZones
+    * items [String](#string)
+  * ClusterName **required**
+  * NewReplicationFactor **required**
 
 ### IncreaseReplicationFactorResponse
 * IncreaseReplicationFactorResponse `object`
-  * Cluster [Cluster](#cluster)
+  * Cluster
+    * ActiveNodes
+    * ClusterArn
+    * ClusterDiscoveryEndpoint
+      * Address
+      * Port
+    * ClusterName
+    * Description
+    * IamRoleArn
+    * NodeIdsToRemove
+      * items [String](#string)
+    * NodeType
+    * Nodes
+      * items [Node](#node)
+    * NotificationConfiguration
+      * TopicArn
+      * TopicStatus
+    * ParameterGroup
+      * NodeIdsToReboot
+        * items [String](#string)
+      * ParameterApplyStatus
+      * ParameterGroupName
+    * PreferredMaintenanceWindow
+    * SSEDescription
+      * Status
+    * SecurityGroups
+      * items [SecurityGroupMembership](#securitygroupmembership)
+    * Status
+    * SubnetGroup
+    * TotalNodes
 
 ### InsufficientClusterCapacityFault
-* InsufficientClusterCapacityFault `object`: There are not enough system resources to create the cluster you requested (or to resize an already-existing cluster). 
+
 
 ### Integer
 * Integer `integer`
@@ -663,27 +826,25 @@ amazonaws_dax.UpdateSubnetGroup({
 * IntegerOptional `integer`
 
 ### InvalidARNFault
-* InvalidARNFault `object`: The Amazon Resource Name (ARN) supplied in the request is not valid.
+
 
 ### InvalidClusterStateFault
-* InvalidClusterStateFault `object`: The requested DAX cluster is not in the <i>available</i> state.
+
 
 ### InvalidParameterCombinationException
-* InvalidParameterCombinationException `object`: Two or more incompatible parameters were specified.
-  * message [AwsQueryErrorMessage](#awsqueryerrormessage)
+
 
 ### InvalidParameterGroupStateFault
-* InvalidParameterGroupStateFault `object`: One or more parameters in a parameter group are in an invalid state.
+
 
 ### InvalidParameterValueException
-* InvalidParameterValueException `object`: The value for a parameter is invalid.
-  * message [AwsQueryErrorMessage](#awsqueryerrormessage)
+
 
 ### InvalidSubnet
-* InvalidSubnet `object`: An invalid subnet identifier was specified.
+
 
 ### InvalidVPCNetworkStateFault
-* InvalidVPCNetworkStateFault `object`: The VPC network is in an invalid state.
+
 
 ### IsModifiable
 * IsModifiable `string` (values: TRUE, FALSE, CONDITIONAL)
@@ -694,22 +855,25 @@ amazonaws_dax.UpdateSubnetGroup({
 
 ### ListTagsRequest
 * ListTagsRequest `object`
-  * NextToken [String](#string)
-  * ResourceName **required** [String](#string)
+  * NextToken
+  * ResourceName **required**
 
 ### ListTagsResponse
 * ListTagsResponse `object`
-  * NextToken [String](#string)
-  * Tags [TagList](#taglist)
+  * NextToken
+  * Tags
+    * items [Tag](#tag)
 
 ### Node
 * Node `object`: Represents an individual node within a DAX cluster.
-  * AvailabilityZone [String](#string)
-  * Endpoint [Endpoint](#endpoint)
-  * NodeCreateTime [TStamp](#tstamp)
-  * NodeId [String](#string)
-  * NodeStatus [String](#string)
-  * ParameterGroupStatus [String](#string)
+  * AvailabilityZone
+  * Endpoint
+    * Address
+    * Port
+  * NodeCreateTime
+  * NodeId
+  * NodeStatus
+  * ParameterGroupStatus
 
 ### NodeIdentifierList
 * NodeIdentifierList `array`
@@ -720,18 +884,18 @@ amazonaws_dax.UpdateSubnetGroup({
   * items [Node](#node)
 
 ### NodeNotFoundFault
-* NodeNotFoundFault `object`: None of the nodes in the cluster have the given node ID.
+
 
 ### NodeQuotaForClusterExceededFault
-* NodeQuotaForClusterExceededFault `object`: You have attempted to exceed the maximum number of nodes for a DAX cluster.
+
 
 ### NodeQuotaForCustomerExceededFault
-* NodeQuotaForCustomerExceededFault `object`: You have attempted to exceed the maximum number of nodes for your AWS account.
+
 
 ### NodeTypeSpecificValue
 * NodeTypeSpecificValue `object`: Represents a parameter value that is applicable to a particular node type.
-  * NodeType [String](#string)
-  * Value [String](#string)
+  * NodeType
+  * Value
 
 ### NodeTypeSpecificValueList
 * NodeTypeSpecificValueList `array`
@@ -739,29 +903,30 @@ amazonaws_dax.UpdateSubnetGroup({
 
 ### NotificationConfiguration
 * NotificationConfiguration `object`: Describes a notification topic and its status. Notification topics are used for publishing DAX events to subscribers using Amazon Simple Notification Service (SNS).
-  * TopicArn [String](#string)
-  * TopicStatus [String](#string)
+  * TopicArn
+  * TopicStatus
 
 ### Parameter
 * Parameter `object`: Describes an individual setting that controls some aspect of DAX behavior.
-  * AllowedValues [String](#string)
-  * ChangeType [ChangeType](#changetype)
-  * DataType [String](#string)
-  * Description [String](#string)
-  * IsModifiable [IsModifiable](#ismodifiable)
-  * NodeTypeSpecificValues [NodeTypeSpecificValueList](#nodetypespecificvaluelist)
-  * ParameterName [String](#string)
-  * ParameterType [ParameterType](#parametertype)
-  * ParameterValue [String](#string)
-  * Source [String](#string)
+  * AllowedValues
+  * ChangeType
+  * DataType
+  * Description
+  * IsModifiable
+  * NodeTypeSpecificValues
+    * items [NodeTypeSpecificValue](#nodetypespecificvalue)
+  * ParameterName
+  * ParameterType
+  * ParameterValue
+  * Source
 
 ### ParameterGroup
 * ParameterGroup `object`: A named set of parameters that are applied to all of the nodes in a DAX cluster.
-  * Description [String](#string)
-  * ParameterGroupName [String](#string)
+  * Description
+  * ParameterGroupName
 
 ### ParameterGroupAlreadyExistsFault
-* ParameterGroupAlreadyExistsFault `object`: The specified parameter group already exists.
+
 
 ### ParameterGroupList
 * ParameterGroupList `array`
@@ -772,16 +937,17 @@ amazonaws_dax.UpdateSubnetGroup({
   * items [String](#string)
 
 ### ParameterGroupNotFoundFault
-* ParameterGroupNotFoundFault `object`: The specified parameter group does not exist.
+
 
 ### ParameterGroupQuotaExceededFault
-* ParameterGroupQuotaExceededFault `object`: You have attempted to exceed the maximum number of parameter groups.
+
 
 ### ParameterGroupStatus
 * ParameterGroupStatus `object`: The status of a parameter group.
-  * NodeIdsToReboot [NodeIdentifierList](#nodeidentifierlist)
-  * ParameterApplyStatus [String](#string)
-  * ParameterGroupName [String](#string)
+  * NodeIdsToReboot
+    * items [String](#string)
+  * ParameterApplyStatus
+  * ParameterGroupName
 
 ### ParameterList
 * ParameterList `array`
@@ -789,8 +955,8 @@ amazonaws_dax.UpdateSubnetGroup({
 
 ### ParameterNameValue
 * ParameterNameValue `object`: An individual DAX parameter.
-  * ParameterName [String](#string)
-  * ParameterValue [String](#string)
+  * ParameterName
+  * ParameterValue
 
 ### ParameterNameValueList
 * ParameterNameValueList `array`
@@ -801,12 +967,55 @@ amazonaws_dax.UpdateSubnetGroup({
 
 ### RebootNodeRequest
 * RebootNodeRequest `object`
-  * ClusterName **required** [String](#string)
-  * NodeId **required** [String](#string)
+  * ClusterName **required**
+  * NodeId **required**
 
 ### RebootNodeResponse
 * RebootNodeResponse `object`
-  * Cluster [Cluster](#cluster)
+  * Cluster
+    * ActiveNodes
+    * ClusterArn
+    * ClusterDiscoveryEndpoint
+      * Address
+      * Port
+    * ClusterName
+    * Description
+    * IamRoleArn
+    * NodeIdsToRemove
+      * items [String](#string)
+    * NodeType
+    * Nodes
+      * items [Node](#node)
+    * NotificationConfiguration
+      * TopicArn
+      * TopicStatus
+    * ParameterGroup
+      * NodeIdsToReboot
+        * items [String](#string)
+      * ParameterApplyStatus
+      * ParameterGroupName
+    * PreferredMaintenanceWindow
+    * SSEDescription
+      * Status
+    * SecurityGroups
+      * items [SecurityGroupMembership](#securitygroupmembership)
+    * Status
+    * SubnetGroup
+    * TotalNodes
+
+### SSEDescription
+* SSEDescription `object`: The description of the server-side encryption status on the specified DAX cluster.
+  * Status
+
+### SSEEnabled
+* SSEEnabled `boolean`
+
+### SSESpecification
+* SSESpecification `object`: Represents the settings used to enable server-side encryption.
+  * Enabled **required**
+
+### SSEStatus
+* SSEStatus `string` (values: ENABLING, ENABLED, DISABLING, DISABLED)
 
 ### SecurityGroupIdentifierList
 * SecurityGroupIdentifierList `array`
@@ -814,12 +1023,15 @@ amazonaws_dax.UpdateSubnetGroup({
 
 ### SecurityGroupMembership
 * SecurityGroupMembership `object`: An individual VPC security group and its status.
-  * SecurityGroupIdentifier [String](#string)
-  * Status [String](#string)
+  * SecurityGroupIdentifier
+  * Status
 
 ### SecurityGroupMembershipList
 * SecurityGroupMembershipList `array`
   * items [SecurityGroupMembership](#securitygroupmembership)
+
+### ServiceLinkedRoleNotFoundFault
+
 
 ### SourceType
 * SourceType `string` (values: CLUSTER, PARAMETER_GROUP, SUBNET_GROUP)
@@ -829,21 +1041,22 @@ amazonaws_dax.UpdateSubnetGroup({
 
 ### Subnet
 * Subnet `object`: Represents the subnet associated with a DAX cluster. This parameter refers to subnets defined in Amazon Virtual Private Cloud (Amazon VPC) and used with DAX.
-  * SubnetAvailabilityZone [String](#string)
-  * SubnetIdentifier [String](#string)
+  * SubnetAvailabilityZone
+  * SubnetIdentifier
 
 ### SubnetGroup
 * SubnetGroup `object`: <p>Represents the output of one of the following actions:</p> <ul> <li> <p> <i>CreateSubnetGroup</i> </p> </li> <li> <p> <i>ModifySubnetGroup</i> </p> </li> </ul>
-  * Description [String](#string)
-  * SubnetGroupName [String](#string)
-  * Subnets [SubnetList](#subnetlist)
-  * VpcId [String](#string)
+  * Description
+  * SubnetGroupName
+  * Subnets
+    * items [Subnet](#subnet)
+  * VpcId
 
 ### SubnetGroupAlreadyExistsFault
-* SubnetGroupAlreadyExistsFault `object`: The specified subnet group already exists.
+
 
 ### SubnetGroupInUseFault
-* SubnetGroupInUseFault `object`: The specified subnet group is currently in use.
+
 
 ### SubnetGroupList
 * SubnetGroupList `array`
@@ -854,92 +1067,135 @@ amazonaws_dax.UpdateSubnetGroup({
   * items [String](#string)
 
 ### SubnetGroupNotFoundFault
-* SubnetGroupNotFoundFault `object`: The requested subnet group name does not refer to an existing subnet group.
+
 
 ### SubnetGroupQuotaExceededFault
-* SubnetGroupQuotaExceededFault `object`: The request cannot be processed because it would exceed the allowed number of subnets in a subnet group.
+
 
 ### SubnetIdentifierList
 * SubnetIdentifierList `array`
   * items [String](#string)
 
 ### SubnetInUse
-* SubnetInUse `object`: The requested subnet is being used by another subnet group.
+
 
 ### SubnetList
 * SubnetList `array`
   * items [Subnet](#subnet)
 
 ### SubnetQuotaExceededFault
-* SubnetQuotaExceededFault `object`: The request cannot be processed because it would exceed the allowed number of subnets in a subnet group.
+
 
 ### TStamp
 * TStamp `string`
 
 ### Tag
 * Tag `object`: <p>A description of a tag. Every tag is a key-value pair. You can add up to 50 tags to a single DAX cluster.</p> <p>AWS-assigned tag names and values are automatically assigned the <code>aws:</code> prefix, which the user cannot assign. AWS-assigned tag names do not count towards the tag limit of 50. User-assigned tag names have the prefix <code>user:</code>.</p> <p>You cannot backdate the application of a tag.</p>
-  * Key [String](#string)
-  * Value [String](#string)
+  * Key
+  * Value
 
 ### TagList
 * TagList `array`
   * items [Tag](#tag)
 
 ### TagNotFoundFault
-* TagNotFoundFault `object`: The tag does not exist.
+
 
 ### TagQuotaPerResourceExceeded
-* TagQuotaPerResourceExceeded `object`: You have exceeded the maximum number of tags for this DAX cluster.
+
 
 ### TagResourceRequest
 * TagResourceRequest `object`
-  * ResourceName **required** [String](#string)
-  * Tags **required** [TagList](#taglist)
+  * ResourceName **required**
+  * Tags **required**
+    * items [Tag](#tag)
 
 ### TagResourceResponse
 * TagResourceResponse `object`
-  * Tags [TagList](#taglist)
+  * Tags
+    * items [Tag](#tag)
 
 ### UntagResourceRequest
 * UntagResourceRequest `object`
-  * ResourceName **required** [String](#string)
-  * TagKeys **required** [KeyList](#keylist)
+  * ResourceName **required**
+  * TagKeys **required**
+    * items [String](#string)
 
 ### UntagResourceResponse
 * UntagResourceResponse `object`
-  * Tags [TagList](#taglist)
+  * Tags
+    * items [Tag](#tag)
 
 ### UpdateClusterRequest
 * UpdateClusterRequest `object`
-  * ClusterName **required** [String](#string)
-  * Description [String](#string)
-  * NotificationTopicArn [String](#string)
-  * NotificationTopicStatus [String](#string)
-  * ParameterGroupName [String](#string)
-  * PreferredMaintenanceWindow [String](#string)
-  * SecurityGroupIds [SecurityGroupIdentifierList](#securitygroupidentifierlist)
+  * ClusterName **required**
+  * Description
+  * NotificationTopicArn
+  * NotificationTopicStatus
+  * ParameterGroupName
+  * PreferredMaintenanceWindow
+  * SecurityGroupIds
+    * items [String](#string)
 
 ### UpdateClusterResponse
 * UpdateClusterResponse `object`
-  * Cluster [Cluster](#cluster)
+  * Cluster
+    * ActiveNodes
+    * ClusterArn
+    * ClusterDiscoveryEndpoint
+      * Address
+      * Port
+    * ClusterName
+    * Description
+    * IamRoleArn
+    * NodeIdsToRemove
+      * items [String](#string)
+    * NodeType
+    * Nodes
+      * items [Node](#node)
+    * NotificationConfiguration
+      * TopicArn
+      * TopicStatus
+    * ParameterGroup
+      * NodeIdsToReboot
+        * items [String](#string)
+      * ParameterApplyStatus
+      * ParameterGroupName
+    * PreferredMaintenanceWindow
+    * SSEDescription
+      * Status
+    * SecurityGroups
+      * items [SecurityGroupMembership](#securitygroupmembership)
+    * Status
+    * SubnetGroup
+    * TotalNodes
 
 ### UpdateParameterGroupRequest
 * UpdateParameterGroupRequest `object`
-  * ParameterGroupName **required** [String](#string)
-  * ParameterNameValues **required** [ParameterNameValueList](#parameternamevaluelist)
+  * ParameterGroupName **required**
+  * ParameterNameValues **required**
+    * items [ParameterNameValue](#parameternamevalue)
 
 ### UpdateParameterGroupResponse
 * UpdateParameterGroupResponse `object`
-  * ParameterGroup [ParameterGroup](#parametergroup)
+  * ParameterGroup
+    * Description
+    * ParameterGroupName
 
 ### UpdateSubnetGroupRequest
 * UpdateSubnetGroupRequest `object`
-  * Description [String](#string)
-  * SubnetGroupName **required** [String](#string)
-  * SubnetIds [SubnetIdentifierList](#subnetidentifierlist)
+  * Description
+  * SubnetGroupName **required**
+  * SubnetIds
+    * items [String](#string)
 
 ### UpdateSubnetGroupResponse
 * UpdateSubnetGroupResponse `object`
-  * SubnetGroup [SubnetGroup](#subnetgroup)
+  * SubnetGroup
+    * Description
+    * SubnetGroupName
+    * Subnets
+      * items [Subnet](#subnet)
+    * VpcId
 
 

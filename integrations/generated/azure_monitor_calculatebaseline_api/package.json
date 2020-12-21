@@ -1,6 +1,6 @@
 {
   "name": "@datafire/azure_monitor_calculatebaseline_api",
-  "version": "4.0.0",
+  "version": "5.0.0",
   "main": "index.js",
   "description": "DataFire integration for MonitorManagementClient",
   "repository": {
@@ -14,7 +14,7 @@
   },
   "homepage": "https://github.com/DataFire/integrations#readme",
   "datafire": {
-    "origin": "https://api.apis.guru/v2/specs/azure.com/monitor-calculateBaseline_API/2017-11-01-preview/swagger.json",
+    "origin": "https://api.apis.guru/v2/specs/azure.com/monitor-calculateBaseline_API/2018-09-01/swagger.json",
     "type": "openapi"
   },
   "peerDependencies": {

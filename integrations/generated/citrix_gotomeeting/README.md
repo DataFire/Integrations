@@ -9,9 +9,7 @@ npm install --save @datafire/citrix_gotomeeting
 ```js
 let citrix_gotomeeting = require('@datafire/citrix_gotomeeting').create();
 
-citrix_gotomeeting.groups.get({
-  "Authorization": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

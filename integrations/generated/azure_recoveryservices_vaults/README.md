@@ -15,9 +15,7 @@ let azure_recoveryservices_vaults = require('@datafire/azure_recoveryservices_va
   redirect_uri: ""
 });
 
-azure_recoveryservices_vaults.Operations_List({
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -63,6 +61,33 @@ azure_recoveryservices_vaults.Vaults_ListBySubscriptionId({
 
 #### Output
 * output [VaultList](#vaultlist)
+
+### RecoveryServices_CheckNameAvailability
+API to check for resource name availability.
+A name is available if no other resource exists that has the same SubscriptionId, Resource Name and Type
+or if one or more such resources exist, each of these must be GC'd and their time of deletion be more than 24 Hours Ago
+
+
+```js
+azure_recoveryservices_vaults.RecoveryServices_CheckNameAvailability({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "api-version": "",
+  "location": "",
+  "input": {}
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: The subscription Id.
+  * resourceGroupName **required** `string`: The name of the resource group where the recovery services vault is present.
+  * api-version **required** `string`: Client Api Version.
+  * location **required** `string`: Location of the resource
+  * input **required** [CheckNameAvailabilityParameters](#checknameavailabilityparameters)
+
+#### Output
+* output [CheckNameAvailabilityResultResource](#checknameavailabilityresultresource)
 
 ### Vaults_ListByResourceGroup
 Retrieve a list of Vaults.
@@ -260,6 +285,25 @@ azure_recoveryservices_vaults.VaultExtendedInfo_CreateOrUpdate({
 
 ## Definitions
 
+### CheckNameAvailabilityParameters
+* CheckNameAvailabilityParameters `object`: Resource Name availability input parameters - Resource type and resource name
+  * name `string`: Resource name for which availability needs to be checked
+  * type `string`: Describes the Resource type: Microsoft.RecoveryServices/Vaults
+
+### CheckNameAvailabilityResult
+* CheckNameAvailabilityResult `object`: Response for check name availability API. Resource provider will set availability as true | false.
+  * message `string`
+  * nameAvailable `boolean`
+  * reason `string`
+
+### CheckNameAvailabilityResultResource
+* CheckNameAvailabilityResultResource `object`: Response for check name availability API. Resource provider will set availability as true | false.
+  * properties [CheckNameAvailabilityResult](#checknameavailabilityresult)
+  * eTag `string`: Optional ETag.
+  * id `string`: Resource Id represents the complete path to the resource.
+  * name `string`: Resource name associated with the resource.
+  * type `string`: Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
+
 ### ClientDiscoveryDisplay
 * ClientDiscoveryDisplay `object`: Localized display information of an operation.
   * description `string`: Description of the operation having details of what operation is about.
@@ -285,7 +329,7 @@ azure_recoveryservices_vaults.VaultExtendedInfo_CreateOrUpdate({
 ### ClientDiscoveryResponse
 * ClientDiscoveryResponse `object`: Operations List response which contains list of available APIs.
   * nextLink `string`: Link to the next chunk of the response
-  * value `array`: List of available operationss.
+  * value `array`: List of available operations.
     * items [ClientDiscoveryValueForSingleApi](#clientdiscoveryvalueforsingleapi)
 
 ### ClientDiscoveryValueForSingleApi
@@ -344,7 +388,7 @@ azure_recoveryservices_vaults.VaultExtendedInfo_CreateOrUpdate({
   * previousResourceId `string`: Resource ID of the vault before the upgrade.
   * startTimeUtc `string`: UTC time at which the upgrade operation has started.
   * status `string` (values: Unknown, InProgress, Upgraded, Failed): Status of the vault upgrade operation.
-  * triggerType `string` (values: UserTriggered, ForcedUpgrade): The way the vault upgradation was triggered.
+  * triggerType `string` (values: UserTriggered, ForcedUpgrade): The way the vault upgrade was triggered.
   * upgradedResourceId `string`: Resource ID of the upgraded vault.
 
 ### Vault

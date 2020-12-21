@@ -78,11 +78,12 @@
             "x-ms-parameter-location": "method"
           },
           {
-            "description": "The automation account name.",
+            "description": "The name of the automation account.",
             "in": "path",
             "name": "automationAccountName",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "The filter to apply on the operation.",
@@ -110,116 +111,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "description": "The response model for the list webhook operation.",
-              "properties": {
-                "nextLink": {
-                  "description": "Gets or sets the next link.",
-                  "type": "string"
-                },
-                "value": {
-                  "description": "Gets or sets a list of webhooks.",
-                  "items": {
-                    "allOf": [
-                      {
-                        "allOf": [
-                          {
-                            "description": "The core properties of ARM resources",
-                            "properties": {
-                              "id": {
-                                "description": "Fully qualified resource Id for the resource",
-                                "readOnly": true,
-                                "type": "string"
-                              },
-                              "name": {
-                                "description": "The name of the resource",
-                                "readOnly": true,
-                                "type": "string"
-                              },
-                              "type": {
-                                "description": "The type of the resource.",
-                                "readOnly": true,
-                                "type": "string"
-                              }
-                            },
-                            "x-ms-azure-resource": true
-                          }
-                        ],
-                        "description": "The resource model definition for a ARM proxy resource. It will have everything other than required location and tags"
-                      }
-                    ],
-                    "description": "Definition of the webhook type.",
-                    "properties": {
-                      "properties": {
-                        "description": "Definition of the webhook properties",
-                        "properties": {
-                          "creationTime": {
-                            "description": "Gets or sets the creation time.",
-                            "format": "date-time",
-                            "type": "string",
-                            "x-nullable": false
-                          },
-                          "description": {
-                            "description": "Gets or sets the description.",
-                            "type": "string"
-                          },
-                          "expiryTime": {
-                            "description": "Gets or sets the expiry time.",
-                            "format": "date-time",
-                            "type": "string",
-                            "x-nullable": false
-                          },
-                          "isEnabled": {
-                            "default": false,
-                            "description": "Gets or sets the value of the enabled flag of the webhook.",
-                            "type": "boolean"
-                          },
-                          "lastInvokedTime": {
-                            "description": "Gets or sets the last invoked time.",
-                            "format": "date-time",
-                            "type": "string",
-                            "x-nullable": true
-                          },
-                          "lastModifiedBy": {
-                            "description": "Details of the user who last modified the Webhook",
-                            "type": "string"
-                          },
-                          "lastModifiedTime": {
-                            "description": "Gets or sets the last modified time.",
-                            "format": "date-time",
-                            "type": "string",
-                            "x-nullable": false
-                          },
-                          "parameters": {
-                            "additionalProperties": {
-                              "type": "string"
-                            },
-                            "description": "Gets or sets the parameters of the job that is created when the webhook calls the runbook it is associated with.",
-                            "type": "object"
-                          },
-                          "runOn": {
-                            "description": "Gets or sets the name of the hybrid worker group the webhook job will run on.",
-                            "type": "string"
-                          },
-                          "runbook": {
-                            "description": "The runbook property associated with the entity.",
-                            "properties": {
-                              "name": {
-                                "description": "Gets or sets the name of the runbook.",
-                                "type": "string"
-                              }
-                            }
-                          },
-                          "uri": {
-                            "description": "Gets or sets the webhook uri.",
-                            "type": "string"
-                          }
-                        }
-                      }
-                    }
-                  },
-                  "type": "array"
-                }
-              }
+              "$ref": "#/definitions/WebhookListResult"
             }
           },
           "default": {
@@ -280,7 +172,7 @@
             }
           }
         },
-        "x-ms-odata": "./definitions.json#/definitions/Webhook",
+        "x-ms-odata": "#/definitions/Webhook",
         "x-ms-pageable": {
           "nextLinkName": "nextLink"
         }
@@ -306,11 +198,12 @@
             "x-ms-parameter-location": "method"
           },
           {
-            "description": "The automation account name.",
+            "description": "The name of the automation account.",
             "in": "path",
             "name": "automationAccountName",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
@@ -393,11 +286,12 @@
             "x-ms-parameter-location": "method"
           },
           {
-            "description": "The automation account name.",
+            "description": "The name of the automation account.",
             "in": "path",
             "name": "automationAccountName",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "The webhook name.",
@@ -480,11 +374,12 @@
             "x-ms-parameter-location": "method"
           },
           {
-            "description": "The automation account name.",
+            "description": "The name of the automation account.",
             "in": "path",
             "name": "automationAccountName",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "The webhook name.",
@@ -512,103 +407,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "allOf": [
-                {
-                  "allOf": [
-                    {
-                      "description": "The core properties of ARM resources",
-                      "properties": {
-                        "id": {
-                          "description": "Fully qualified resource Id for the resource",
-                          "readOnly": true,
-                          "type": "string"
-                        },
-                        "name": {
-                          "description": "The name of the resource",
-                          "readOnly": true,
-                          "type": "string"
-                        },
-                        "type": {
-                          "description": "The type of the resource.",
-                          "readOnly": true,
-                          "type": "string"
-                        }
-                      },
-                      "x-ms-azure-resource": true
-                    }
-                  ],
-                  "description": "The resource model definition for a ARM proxy resource. It will have everything other than required location and tags"
-                }
-              ],
-              "description": "Definition of the webhook type.",
-              "properties": {
-                "properties": {
-                  "description": "Definition of the webhook properties",
-                  "properties": {
-                    "creationTime": {
-                      "description": "Gets or sets the creation time.",
-                      "format": "date-time",
-                      "type": "string",
-                      "x-nullable": false
-                    },
-                    "description": {
-                      "description": "Gets or sets the description.",
-                      "type": "string"
-                    },
-                    "expiryTime": {
-                      "description": "Gets or sets the expiry time.",
-                      "format": "date-time",
-                      "type": "string",
-                      "x-nullable": false
-                    },
-                    "isEnabled": {
-                      "default": false,
-                      "description": "Gets or sets the value of the enabled flag of the webhook.",
-                      "type": "boolean"
-                    },
-                    "lastInvokedTime": {
-                      "description": "Gets or sets the last invoked time.",
-                      "format": "date-time",
-                      "type": "string",
-                      "x-nullable": true
-                    },
-                    "lastModifiedBy": {
-                      "description": "Details of the user who last modified the Webhook",
-                      "type": "string"
-                    },
-                    "lastModifiedTime": {
-                      "description": "Gets or sets the last modified time.",
-                      "format": "date-time",
-                      "type": "string",
-                      "x-nullable": false
-                    },
-                    "parameters": {
-                      "additionalProperties": {
-                        "type": "string"
-                      },
-                      "description": "Gets or sets the parameters of the job that is created when the webhook calls the runbook it is associated with.",
-                      "type": "object"
-                    },
-                    "runOn": {
-                      "description": "Gets or sets the name of the hybrid worker group the webhook job will run on.",
-                      "type": "string"
-                    },
-                    "runbook": {
-                      "description": "The runbook property associated with the entity.",
-                      "properties": {
-                        "name": {
-                          "description": "Gets or sets the name of the runbook.",
-                          "type": "string"
-                        }
-                      }
-                    },
-                    "uri": {
-                      "description": "Gets or sets the webhook uri.",
-                      "type": "string"
-                    }
-                  }
-                }
-              }
+              "$ref": "#/definitions/Webhook"
             }
           },
           "default": {
@@ -686,11 +485,12 @@
             "x-ms-parameter-location": "method"
           },
           {
-            "description": "The automation account name.",
+            "description": "The name of the automation account.",
             "in": "path",
             "name": "automationAccountName",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "The webhook name.",
@@ -705,37 +505,7 @@
             "name": "parameters",
             "required": true,
             "schema": {
-              "description": "The parameters supplied to the update webhook operation.",
-              "properties": {
-                "name": {
-                  "description": "Gets or sets the name of the webhook.",
-                  "type": "string"
-                },
-                "properties": {
-                  "description": "The properties of the update webhook.",
-                  "properties": {
-                    "description": {
-                      "description": "Gets or sets the description of the webhook.",
-                      "type": "string"
-                    },
-                    "isEnabled": {
-                      "description": "Gets or sets the value of the enabled flag of webhook.",
-                      "type": "boolean"
-                    },
-                    "parameters": {
-                      "additionalProperties": {
-                        "type": "string"
-                      },
-                      "description": "Gets or sets the parameters of the job.",
-                      "type": "object"
-                    },
-                    "runOn": {
-                      "description": "Gets or sets the name of the hybrid worker group the webhook job will run on.",
-                      "type": "string"
-                    }
-                  }
-                }
-              }
+              "$ref": "#/definitions/WebhookUpdateParameters"
             }
           },
           {
@@ -757,103 +527,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "allOf": [
-                {
-                  "allOf": [
-                    {
-                      "description": "The core properties of ARM resources",
-                      "properties": {
-                        "id": {
-                          "description": "Fully qualified resource Id for the resource",
-                          "readOnly": true,
-                          "type": "string"
-                        },
-                        "name": {
-                          "description": "The name of the resource",
-                          "readOnly": true,
-                          "type": "string"
-                        },
-                        "type": {
-                          "description": "The type of the resource.",
-                          "readOnly": true,
-                          "type": "string"
-                        }
-                      },
-                      "x-ms-azure-resource": true
-                    }
-                  ],
-                  "description": "The resource model definition for a ARM proxy resource. It will have everything other than required location and tags"
-                }
-              ],
-              "description": "Definition of the webhook type.",
-              "properties": {
-                "properties": {
-                  "description": "Definition of the webhook properties",
-                  "properties": {
-                    "creationTime": {
-                      "description": "Gets or sets the creation time.",
-                      "format": "date-time",
-                      "type": "string",
-                      "x-nullable": false
-                    },
-                    "description": {
-                      "description": "Gets or sets the description.",
-                      "type": "string"
-                    },
-                    "expiryTime": {
-                      "description": "Gets or sets the expiry time.",
-                      "format": "date-time",
-                      "type": "string",
-                      "x-nullable": false
-                    },
-                    "isEnabled": {
-                      "default": false,
-                      "description": "Gets or sets the value of the enabled flag of the webhook.",
-                      "type": "boolean"
-                    },
-                    "lastInvokedTime": {
-                      "description": "Gets or sets the last invoked time.",
-                      "format": "date-time",
-                      "type": "string",
-                      "x-nullable": true
-                    },
-                    "lastModifiedBy": {
-                      "description": "Details of the user who last modified the Webhook",
-                      "type": "string"
-                    },
-                    "lastModifiedTime": {
-                      "description": "Gets or sets the last modified time.",
-                      "format": "date-time",
-                      "type": "string",
-                      "x-nullable": false
-                    },
-                    "parameters": {
-                      "additionalProperties": {
-                        "type": "string"
-                      },
-                      "description": "Gets or sets the parameters of the job that is created when the webhook calls the runbook it is associated with.",
-                      "type": "object"
-                    },
-                    "runOn": {
-                      "description": "Gets or sets the name of the hybrid worker group the webhook job will run on.",
-                      "type": "string"
-                    },
-                    "runbook": {
-                      "description": "The runbook property associated with the entity.",
-                      "properties": {
-                        "name": {
-                          "description": "Gets or sets the name of the runbook.",
-                          "type": "string"
-                        }
-                      }
-                    },
-                    "uri": {
-                      "description": "Gets or sets the webhook uri.",
-                      "type": "string"
-                    }
-                  }
-                }
-              }
+              "$ref": "#/definitions/Webhook"
             }
           },
           "default": {
@@ -938,11 +612,12 @@
             "x-ms-parameter-location": "method"
           },
           {
-            "description": "The automation account name.",
+            "description": "The name of the automation account.",
             "in": "path",
             "name": "automationAccountName",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "The webhook name.",
@@ -957,56 +632,7 @@
             "name": "parameters",
             "required": true,
             "schema": {
-              "description": "The parameters supplied to the create or update webhook operation.",
-              "properties": {
-                "name": {
-                  "description": "Gets or sets the name of the webhook.",
-                  "type": "string"
-                },
-                "properties": {
-                  "description": "The properties of the create webhook operation.",
-                  "properties": {
-                    "expiryTime": {
-                      "description": "Gets or sets the expiry time.",
-                      "format": "date-time",
-                      "type": "string",
-                      "x-nullable": false
-                    },
-                    "isEnabled": {
-                      "description": "Gets or sets the value of the enabled flag of webhook.",
-                      "type": "boolean"
-                    },
-                    "parameters": {
-                      "additionalProperties": {
-                        "type": "string"
-                      },
-                      "description": "Gets or sets the parameters of the job.",
-                      "type": "object"
-                    },
-                    "runOn": {
-                      "description": "Gets or sets the name of the hybrid worker group the webhook job will run on.",
-                      "type": "string"
-                    },
-                    "runbook": {
-                      "description": "The runbook property associated with the entity.",
-                      "properties": {
-                        "name": {
-                          "description": "Gets or sets the name of the runbook.",
-                          "type": "string"
-                        }
-                      }
-                    },
-                    "uri": {
-                      "description": "Gets or sets the uri.",
-                      "type": "string"
-                    }
-                  }
-                }
-              },
-              "required": [
-                "name",
-                "properties"
-              ]
+              "$ref": "#/definitions/WebhookCreateOrUpdateParameters"
             }
           },
           {
@@ -1028,205 +654,13 @@
           "200": {
             "description": "OK",
             "schema": {
-              "allOf": [
-                {
-                  "allOf": [
-                    {
-                      "description": "The core properties of ARM resources",
-                      "properties": {
-                        "id": {
-                          "description": "Fully qualified resource Id for the resource",
-                          "readOnly": true,
-                          "type": "string"
-                        },
-                        "name": {
-                          "description": "The name of the resource",
-                          "readOnly": true,
-                          "type": "string"
-                        },
-                        "type": {
-                          "description": "The type of the resource.",
-                          "readOnly": true,
-                          "type": "string"
-                        }
-                      },
-                      "x-ms-azure-resource": true
-                    }
-                  ],
-                  "description": "The resource model definition for a ARM proxy resource. It will have everything other than required location and tags"
-                }
-              ],
-              "description": "Definition of the webhook type.",
-              "properties": {
-                "properties": {
-                  "description": "Definition of the webhook properties",
-                  "properties": {
-                    "creationTime": {
-                      "description": "Gets or sets the creation time.",
-                      "format": "date-time",
-                      "type": "string",
-                      "x-nullable": false
-                    },
-                    "description": {
-                      "description": "Gets or sets the description.",
-                      "type": "string"
-                    },
-                    "expiryTime": {
-                      "description": "Gets or sets the expiry time.",
-                      "format": "date-time",
-                      "type": "string",
-                      "x-nullable": false
-                    },
-                    "isEnabled": {
-                      "default": false,
-                      "description": "Gets or sets the value of the enabled flag of the webhook.",
-                      "type": "boolean"
-                    },
-                    "lastInvokedTime": {
-                      "description": "Gets or sets the last invoked time.",
-                      "format": "date-time",
-                      "type": "string",
-                      "x-nullable": true
-                    },
-                    "lastModifiedBy": {
-                      "description": "Details of the user who last modified the Webhook",
-                      "type": "string"
-                    },
-                    "lastModifiedTime": {
-                      "description": "Gets or sets the last modified time.",
-                      "format": "date-time",
-                      "type": "string",
-                      "x-nullable": false
-                    },
-                    "parameters": {
-                      "additionalProperties": {
-                        "type": "string"
-                      },
-                      "description": "Gets or sets the parameters of the job that is created when the webhook calls the runbook it is associated with.",
-                      "type": "object"
-                    },
-                    "runOn": {
-                      "description": "Gets or sets the name of the hybrid worker group the webhook job will run on.",
-                      "type": "string"
-                    },
-                    "runbook": {
-                      "description": "The runbook property associated with the entity.",
-                      "properties": {
-                        "name": {
-                          "description": "Gets or sets the name of the runbook.",
-                          "type": "string"
-                        }
-                      }
-                    },
-                    "uri": {
-                      "description": "Gets or sets the webhook uri.",
-                      "type": "string"
-                    }
-                  }
-                }
-              }
+              "$ref": "#/definitions/Webhook"
             }
           },
           "201": {
             "description": "Created",
             "schema": {
-              "allOf": [
-                {
-                  "allOf": [
-                    {
-                      "description": "The core properties of ARM resources",
-                      "properties": {
-                        "id": {
-                          "description": "Fully qualified resource Id for the resource",
-                          "readOnly": true,
-                          "type": "string"
-                        },
-                        "name": {
-                          "description": "The name of the resource",
-                          "readOnly": true,
-                          "type": "string"
-                        },
-                        "type": {
-                          "description": "The type of the resource.",
-                          "readOnly": true,
-                          "type": "string"
-                        }
-                      },
-                      "x-ms-azure-resource": true
-                    }
-                  ],
-                  "description": "The resource model definition for a ARM proxy resource. It will have everything other than required location and tags"
-                }
-              ],
-              "description": "Definition of the webhook type.",
-              "properties": {
-                "properties": {
-                  "description": "Definition of the webhook properties",
-                  "properties": {
-                    "creationTime": {
-                      "description": "Gets or sets the creation time.",
-                      "format": "date-time",
-                      "type": "string",
-                      "x-nullable": false
-                    },
-                    "description": {
-                      "description": "Gets or sets the description.",
-                      "type": "string"
-                    },
-                    "expiryTime": {
-                      "description": "Gets or sets the expiry time.",
-                      "format": "date-time",
-                      "type": "string",
-                      "x-nullable": false
-                    },
-                    "isEnabled": {
-                      "default": false,
-                      "description": "Gets or sets the value of the enabled flag of the webhook.",
-                      "type": "boolean"
-                    },
-                    "lastInvokedTime": {
-                      "description": "Gets or sets the last invoked time.",
-                      "format": "date-time",
-                      "type": "string",
-                      "x-nullable": true
-                    },
-                    "lastModifiedBy": {
-                      "description": "Details of the user who last modified the Webhook",
-                      "type": "string"
-                    },
-                    "lastModifiedTime": {
-                      "description": "Gets or sets the last modified time.",
-                      "format": "date-time",
-                      "type": "string",
-                      "x-nullable": false
-                    },
-                    "parameters": {
-                      "additionalProperties": {
-                        "type": "string"
-                      },
-                      "description": "Gets or sets the parameters of the job that is created when the webhook calls the runbook it is associated with.",
-                      "type": "object"
-                    },
-                    "runOn": {
-                      "description": "Gets or sets the name of the hybrid worker group the webhook job will run on.",
-                      "type": "string"
-                    },
-                    "runbook": {
-                      "description": "The runbook property associated with the entity.",
-                      "properties": {
-                        "name": {
-                          "description": "Gets or sets the name of the runbook.",
-                          "type": "string"
-                        }
-                      }
-                    },
-                    "uri": {
-                      "description": "Gets or sets the webhook uri.",
-                      "type": "string"
-                    }
-                  }
-                }
-              }
+              "$ref": "#/definitions/Webhook"
             }
           },
           "default": {
@@ -1321,5 +755,223 @@
       }
     }
   },
-  "definitions": {}
+  "definitions": {
+    "RunbookAssociationProperty": {
+      "description": "The runbook property associated with the entity.",
+      "properties": {
+        "name": {
+          "description": "Gets or sets the name of the runbook.",
+          "type": "string"
+        }
+      }
+    },
+    "Webhook": {
+      "allOf": [
+        {
+          "allOf": [
+            {
+              "description": "The core properties of ARM resources",
+              "properties": {
+                "id": {
+                  "description": "Fully qualified resource Id for the resource",
+                  "readOnly": true,
+                  "type": "string"
+                },
+                "name": {
+                  "description": "The name of the resource",
+                  "readOnly": true,
+                  "type": "string"
+                },
+                "type": {
+                  "description": "The type of the resource.",
+                  "readOnly": true,
+                  "type": "string"
+                }
+              },
+              "type": "object",
+              "x-ms-azure-resource": true
+            }
+          ],
+          "description": "ARM proxy resource.",
+          "properties": {},
+          "type": "object"
+        }
+      ],
+      "description": "Definition of the webhook type.",
+      "properties": {
+        "properties": {
+          "$ref": "#/definitions/WebhookProperties",
+          "description": "Gets or sets the webhook properties.",
+          "x-ms-client-flatten": true
+        }
+      }
+    },
+    "WebhookCreateOrUpdateParameters": {
+      "description": "The parameters supplied to the create or update webhook operation.",
+      "properties": {
+        "name": {
+          "description": "Gets or sets the name of the webhook.",
+          "type": "string"
+        },
+        "properties": {
+          "$ref": "#/definitions/WebhookCreateOrUpdateProperties",
+          "description": "Gets or sets the properties of the webhook.",
+          "x-ms-client-flatten": true
+        }
+      },
+      "required": [
+        "name",
+        "properties"
+      ]
+    },
+    "WebhookCreateOrUpdateProperties": {
+      "description": "The properties of the create webhook operation.",
+      "properties": {
+        "expiryTime": {
+          "description": "Gets or sets the expiry time.",
+          "format": "date-time",
+          "type": "string",
+          "x-nullable": false
+        },
+        "isEnabled": {
+          "description": "Gets or sets the value of the enabled flag of webhook.",
+          "type": "boolean"
+        },
+        "parameters": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "Gets or sets the parameters of the job.",
+          "type": "object"
+        },
+        "runOn": {
+          "description": "Gets or sets the name of the hybrid worker group the webhook job will run on.",
+          "type": "string"
+        },
+        "runbook": {
+          "$ref": "#/definitions/RunbookAssociationProperty",
+          "description": "Gets or sets the runbook."
+        },
+        "uri": {
+          "description": "Gets or sets the uri.",
+          "type": "string"
+        }
+      }
+    },
+    "WebhookListResult": {
+      "description": "The response model for the list webhook operation.",
+      "properties": {
+        "nextLink": {
+          "description": "Gets or sets the next link.",
+          "type": "string"
+        },
+        "value": {
+          "description": "Gets or sets a list of webhooks.",
+          "items": {
+            "$ref": "#/definitions/Webhook"
+          },
+          "type": "array"
+        }
+      }
+    },
+    "WebhookProperties": {
+      "description": "Definition of the webhook properties",
+      "properties": {
+        "creationTime": {
+          "description": "Gets or sets the creation time.",
+          "format": "date-time",
+          "type": "string",
+          "x-nullable": false
+        },
+        "description": {
+          "description": "Gets or sets the description.",
+          "type": "string"
+        },
+        "expiryTime": {
+          "description": "Gets or sets the expiry time.",
+          "format": "date-time",
+          "type": "string",
+          "x-nullable": false
+        },
+        "isEnabled": {
+          "default": false,
+          "description": "Gets or sets the value of the enabled flag of the webhook.",
+          "type": "boolean"
+        },
+        "lastInvokedTime": {
+          "description": "Gets or sets the last invoked time.",
+          "format": "date-time",
+          "type": "string",
+          "x-nullable": true
+        },
+        "lastModifiedBy": {
+          "description": "Details of the user who last modified the Webhook",
+          "type": "string"
+        },
+        "lastModifiedTime": {
+          "description": "Gets or sets the last modified time.",
+          "format": "date-time",
+          "type": "string",
+          "x-nullable": false
+        },
+        "parameters": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "Gets or sets the parameters of the job that is created when the webhook calls the runbook it is associated with.",
+          "type": "object"
+        },
+        "runOn": {
+          "description": "Gets or sets the name of the hybrid worker group the webhook job will run on.",
+          "type": "string"
+        },
+        "runbook": {
+          "$ref": "#/definitions/RunbookAssociationProperty",
+          "description": "Gets or sets the runbook the webhook is associated with."
+        },
+        "uri": {
+          "description": "Gets or sets the webhook uri.",
+          "type": "string"
+        }
+      }
+    },
+    "WebhookUpdateParameters": {
+      "description": "The parameters supplied to the update webhook operation.",
+      "properties": {
+        "name": {
+          "description": "Gets or sets the name of the webhook.",
+          "type": "string"
+        },
+        "properties": {
+          "$ref": "#/definitions/WebhookUpdateProperties",
+          "description": "Gets or sets the value of the webhook.",
+          "x-ms-client-flatten": true
+        }
+      }
+    },
+    "WebhookUpdateProperties": {
+      "description": "The properties of the update webhook.",
+      "properties": {
+        "description": {
+          "description": "Gets or sets the description of the webhook.",
+          "type": "string"
+        },
+        "isEnabled": {
+          "description": "Gets or sets the value of the enabled flag of webhook.",
+          "type": "boolean"
+        },
+        "parameters": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "Gets or sets the parameters of the job.",
+          "type": "object"
+        },
+        "runOn": {
+          "description": "Gets or sets the name of the hybrid worker group the webhook job will run on.",
+          "type": "string"
+        }
+      }
+    }
+  }
 }

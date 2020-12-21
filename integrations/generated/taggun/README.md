@@ -1,28 +1,42 @@
 # @datafire/taggun
 
-Client library for taggun.io
+Client library for TAGGUN Receipt OCR Scanning API
 
 ## Installation and Usage
 ```bash
 npm install --save @datafire/taggun
 ```
 ```js
-let taggun = require('@datafire/taggun').create({
-  apikey: ""
-});
+let taggun = require('@datafire/taggun').create();
 
-taggun.postApiAccountV1MerchantnameAdd({
-  "apikey": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
 
 ## Description
 
-Expects only running software, real reactions, and beautifully crafted APIs to serve your every desire to transcript a piece of paper to digital form.
+Expects only running software, real reactions, and beautifully crafted APIs to serve your every desire to transcribe a piece of paper to digital form.
 
 ## Actions
+
+### postApiAccountV1Feedback
+Add manually verified receipt data to a given receipt for feedback and training purposes
+
+
+```js
+taggun.postApiAccountV1Feedback({
+  "apikey": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * apikey **required** `string`: API authentication key.
+  * body [receiptFeedbackAddPayload](#receiptfeedbackaddpayload)
+
+#### Output
+* output [Result](#result)
 
 ### postApiAccountV1MerchantnameAdd
 add a keyword to your account's model to predict merchant name
@@ -37,36 +51,10 @@ taggun.postApiAccountV1MerchantnameAdd({
 #### Input
 * input `object`
   * apikey **required** `string`: API authentication key.
-  * body [Model%201](#model%201)
+  * body [merchantNameAddPayload](#merchantnameaddpayload)
 
 #### Output
 * output [Result](#result)
-
-### postApiArticleV1VerboseFile
-transcribe an article by uploading an image file and return detailed result
-
-
-```js
-taggun.postApiArticleV1VerboseFile({
-  "apikey": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * apikey **required** `string`: API authentication key.
-  * file `string`, `object`: file less than 20MB. Accepted file types: PDF, JPG, PNG, GIF
-    * content `string`
-    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
-    * contentType `string`
-    * filename `string`
-  * refresh `boolean`: Set true to force re-process image transcription if the receipt is already in storage
-  * incognito `boolean`: Set true to avoid saving the receipt in storage
-  * ipAddress `string`: IP Address of the end user
-  * language `string` (values: en, es, fr, jp, he, iw, et, lv, lt, fi, el): Set language as a hint. Leave empty for auto detect. Supported languages: , en, es, fr, jp, he, iw, et, lv, lt, fi, el 
-
-#### Output
-* output [Model%203](#model%203)
 
 ### postApiReceiptV1MatchFile
 detect and match a receipt against keywords and metadata by uploading an image file
@@ -92,10 +80,10 @@ taggun.postApiReceiptV1MatchFile({
   * primaryKeywords `array`: An array of primary keywords to match
   * secondaryKeywords `array`: An array of secondary keywords to match (lower confidence level than primaryKeywords)
   * stopWords `array`: An array of stop words that negate the result to be UNLIKELY
-  * language `string` (values: en, es, fr, jp, he, iw, et, lv, lt, fi, el): Set language as a hint. Leave empty for auto detect. Supported languages: , en, es, fr, jp, he, iw, et, lv, lt, fi, el 
+  * language `string` (values: en, es, fr, jp, he, iw, et, lv, lt, fi, el, zh): Set language as a hint. Leave empty for auto detect. Supported languages: , en, es, fr, jp, he, iw, et, lv, lt, fi, el, zh 
 
 #### Output
-* output [Model%204](#model%204)
+* output [receiptMatchResult](#receiptmatchresult)
 
 ### postApiReceiptV1SimpleEncoded
 transcribe a receipt using base64 encoded image in json payload
@@ -110,10 +98,10 @@ taggun.postApiReceiptV1SimpleEncoded({
 #### Input
 * input `object`
   * apikey **required** `string`: API authentication key.
-  * body [Model%205](#model%205)
+  * body [jsonPayload](#jsonpayload)
 
 #### Output
-* output [Model%207](#model%207)
+* output [receiptResult](#receiptresult)
 
 ### postApiReceiptV1SimpleFile
 transcribe a receipt by uploading an image file
@@ -136,10 +124,15 @@ taggun.postApiReceiptV1SimpleFile({
   * refresh `boolean`: Set true to force re-process image transcription if the receipt is already in storage
   * incognito `boolean`: Set true to avoid saving the receipt in storage
   * ipAddress `string`: IP Address of the end user
-  * language `string` (values: en, es, fr, jp, he, iw, et, lv, lt, fi, el): Set language as a hint. Leave empty for auto detect. Supported languages: , en, es, fr, jp, he, iw, et, lv, lt, fi, el 
+  * near `string`: A geo location to search for merchant. Typically in the format of city, state, country.
+  * ignoreMerchantName `string`: Ignore this merchant name if detected on the receipt. Use this field to avoid detecting the customer name as the merchant name.
+  * language `string` (values: en, es, fr, jp, he, iw, et, lv, lt, fi, el, zh): Set language as a hint. Leave empty for auto detect. Supported languages: , en, es, fr, jp, he, iw, et, lv, lt, fi, el, zh 
+  * extractTime `boolean`: Set true to return time if found on the receipt. Otherwise, the time is always set to 12:00:00.000.
+  * subAccountId `string`: Tag a request with sub-account ID for billing purposes
+  * referenceId `string`: Tag a request with a unique reference ID for feedback and training purposes
 
 #### Output
-* output [Model%207](#model%207)
+* output [receiptResult](#receiptresult)
 
 ### postApiReceiptV1SimpleStorage
 transcribe a receipt in storage
@@ -154,10 +147,10 @@ taggun.postApiReceiptV1SimpleStorage({
 #### Input
 * input `object`
   * apikey **required** `string`: API authentication key.
-  * body [Model%208](#model%208)
+  * body [storagePayload](#storagepayload)
 
 #### Output
-* output [Model%207](#model%207)
+* output [receiptResult](#receiptresult)
 
 ### postApiReceiptV1SimpleUrl
 transcribe a receipt from URL
@@ -172,10 +165,10 @@ taggun.postApiReceiptV1SimpleUrl({
 #### Input
 * input `object`
   * apikey **required** `string`: API authentication key.
-  * body [Model%209](#model%209)
+  * body [urlPayload](#urlpayload)
 
 #### Output
-* output [Model%207](#model%207)
+* output [receiptResult](#receiptresult)
 
 ### postApiReceiptV1VerboseEncoded
 transcribe a receipt using base64 encoded image in json payload and return detailed result
@@ -190,10 +183,10 @@ taggun.postApiReceiptV1VerboseEncoded({
 #### Input
 * input `object`
   * apikey **required** `string`: API authentication key.
-  * body [Model%205](#model%205)
+  * body [jsonPayload](#jsonpayload)
 
 #### Output
-* output [Model%2017](#model%2017)
+* output [receiptVerboseResult](#receiptverboseresult)
 
 ### postApiReceiptV1VerboseFile
 transcribe a receipt by uploading an image file and return detailed result
@@ -216,10 +209,15 @@ taggun.postApiReceiptV1VerboseFile({
   * refresh `boolean`: Set true to force re-process image transcription if the receipt is already in storage
   * incognito `boolean`: Set true to avoid saving the receipt in storage
   * ipAddress `string`: IP Address of the end user
-  * language `string` (values: en, es, fr, jp, he, iw, et, lv, lt, fi, el): Set language as a hint. Leave empty for auto detect. Supported languages: , en, es, fr, jp, he, iw, et, lv, lt, fi, el 
+  * near `string`: A geo location to search for merchant. Typically in the format of city, state, country.
+  * ignoreMerchantName `string`: Ignore this merchant name if detected on the receipt. Use this field to avoid detecting the customer name as the merchant name.
+  * language `string` (values: en, es, fr, jp, he, iw, et, lv, lt, fi, el, zh): Set language as a hint. Leave empty for auto detect. Supported languages: , en, es, fr, jp, he, iw, et, lv, lt, fi, el, zh 
+  * extractTime `boolean`: Set true to return time if found on the receipt. Otherwise, the time is always set to 12:00:00.000.
+  * subAccountId `string`: Tag a request with sub-account ID for billing purposes
+  * referenceId `string`: Tag a request with a unique reference ID for feedback and training purposes
 
 #### Output
-* output [Model%2017](#model%2017)
+* output [receiptVerboseResult](#receiptverboseresult)
 
 ### postApiReceiptV1VerboseStorage
 transcribe a receipt in storage and return detailed result
@@ -234,10 +232,10 @@ taggun.postApiReceiptV1VerboseStorage({
 #### Input
 * input `object`
   * apikey **required** `string`: API authentication key.
-  * body [Model%208](#model%208)
+  * body [storagePayload](#storagepayload)
 
 #### Output
-* output [Model%2017](#model%2017)
+* output [receiptVerboseResult](#receiptverboseresult)
 
 ### postApiReceiptV1VerboseUrl
 transcribe a receipt from URL and return detailed result
@@ -252,18 +250,21 @@ taggun.postApiReceiptV1VerboseUrl({
 #### Input
 * input `object`
   * apikey **required** `string`: API authentication key.
-  * body [Model%209](#model%209)
+  * body [urlPayload](#urlpayload)
 
 #### Output
-* output [Model%2017](#model%2017)
+* output [receiptVerboseResult](#receiptverboseresult)
 
 
 
 ## Definitions
 
-### Error
-* Error `object`
-  * error [error](#error)
+### ABN
+* ABN `object`
+  * confidenceLevel `number`
+  * data `string`
+  * keyword `string`
+  * text `string`
 
 ### IBAN
 * IBAN `object`
@@ -272,224 +273,85 @@ taggun.postApiReceiptV1VerboseUrl({
   * keyword `string`
   * text `string`
 
-### Model 1
-
-
-### Model 10
-
-
-### Model 11
-
-
-### Model 12
-
-
-### Model 13
-
-
-### Model 14
-
-
-### Model 15
-
-
-### Model 16
-
-
-### Model 17
-
-
-### Model 2
-
-
-### Model 3
-
-
-### Model 4
-
-
-### Model 5
-
-
-### Model 6
-
-
-### Model 7
-
-
-### Model 8
-
-
-### Model 9
-
-
-### Model_1
-* Model_1 `object`
-  * merchantName **required** `string`
-
-### Model_10
-* Model_10 `object`
-  * confidenceLevel `number`
-  * data `number`
-  * index `number`
-  * keyword `string`
-  * regions [regions](#regions)
-  * text `string`
-
-### Model_11
-* Model_11 `object`
-  * confidenceLevel `number`
-  * data `number`
-  * index `number`
-  * keyword `string`
-  * regions [regions](#regions)
-  * text `string`
-
-### Model_12
-* Model_12 `object`
-  * confidenceLevel `number`
-  * data `string`
-  * index `number`
-  * regions [regions](#regions)
-  * text `string`
-
-### Model_13
-* Model_13 `object`
-  * confidenceLevel `number`
-  * data `string`
-  * index `number`
-  * regions [regions](#regions)
-  * text `string`
-
-### Model_14
-* Model_14 `object`
-  * confidenceLevel `number`
-  * data `string`
-  * index `number`
-  * regions [regions](#regions)
-  * text `string`
-
-### Model_15
-* Model_15 `object`
-  * confidenceLevel `number`
-  * data [data](#data)
-  * index `number`
-  * regions [regions](#regions)
-  * text `string`
-
-### Model_16
-* Model_16 `object`
-  * confidenceLevel `number`
-  * data `string`
-  * keyword `string`
-  * text `string`
-
-### Model_17
-* Model_17 `object`
-  * amounts [amounts](#amounts)
-  * confidenceLevel `number`
-  * currency [Model%2012](#model%2012)
-  * date [date](#date)
-  * elapsed `number`
-  * entities [entities](#entities)
-  * error `string`
-  * lineAmounts [amounts](#amounts)
-  * location [Model%202](#model%202)
-  * merchantAddress [Model%2014](#model%2014)
-  * merchantName [Model%2013](#model%2013)
-  * merchantTypes [Model%2015](#model%2015)
-  * numbers [amounts](#amounts)
-  * taxAmount [Model%2011](#model%2011)
-  * text [text](#text)
-  * totalAmount [Model%2010](#model%2010)
-
-### Model_2
-* Model_2 `object`
+### LocationResult
+* LocationResult `object`
   * location [location](#location)
 
-### Model_3
-* Model_3 `object`
-  * amounts [amounts](#amounts)
-  * dates [amounts](#amounts)
-  * elapsed `number`
-  * error `string`
-  * lines [amounts](#amounts)
-  * location [Model%202](#model%202)
-  * numbers [amounts](#amounts)
-  * text [text](#text)
+### Model1
+* Model1 `object`
+  * x `number`
+  * y `number`
 
-### Model_4
-* Model_4 `object`
-  * confidenceLevel `number`
-  * date [date](#date)
-  * error `string`
-  * match [match](#match)
+### Model2
+* Model2 `array`
+  * items [Model1](#model1)
 
-### Model_5
-* Model_5 `object`
-  * contentType **required** `string`
-  * filename **required** `string`
-  * image **required** `string`
-  * incognito `boolean`: Set true to avoid saving the receipt in storage
-  * ipAddress `string`: IP Address of the end user
-  * language `string` (values: en, es, fr, jp, he, iw, et, lv, lt, fi, el): Set language as a hint. Leave empty for auto detect. Supported languages: , en, es, fr, jp, he, iw, et, lv, lt, fi, el 
-  * refresh `boolean`: Set true to force re-process image transcription if the receipt is already in storage
-
-### Model_6
-* Model_6 `object`
+### Model3
+* Model3 `object`
   * confidenceLevel `number`
   * data `string`
+  * keyword `string`
+  * text `string`
 
-### Model_7
-* Model_7 `object`
-  * confidenceLevel `number`: Overall confidence level
-  * currency [currency](#currency)
-  * date [Model%206](#model%206)
-  * error `string`
-  * merchantAddress [merchantAddress](#merchantaddress)
-  * merchantName [merchantName](#merchantname)
-  * merchantTypes [merchantTypes](#merchanttypes)
-  * taxAmount [taxAmount](#taxamount)
-  * totalAmount [totalAmount](#totalamount)
+### Model4
+* Model4 `object`
+  * confidenceLevel `number`
+  * data `number`
+  * keyword `string`
+  * text `string`
 
-### Model_8
-* Model_8 `object`
-  * contentType **required** `string`
-  * ipAddress `string`: IP Address of the end user
-  * language `string` (values: en, es, fr, jp, he, iw, et, lv, lt, fi, el): Set language as a hint. Leave empty for auto detect. Supported languages: , en, es, fr, jp, he, iw, et, lv, lt, fi, el 
-  * md5 **required** `string`: MD5 hash of the receipt
-  * refresh `boolean`: Refresh cache if exists
+### Model5
+* Model5 `object`
+  * productName [productName](#productname)
+  * quantity [quantity](#quantity)
+  * unitPrice [unitPrice](#unitprice)
+  * wineVarietal [wineVarietal](#winevarietal)
 
-### Model_9
-* Model_9 `object`
-  * headers [headers](#headers)
-  * incognito `boolean`: Set true to avoid saving the receipt in storage
-  * ipAddress `string`: IP Address of the end user
-  * language `string` (values: en, es, fr, jp, he, iw, et, lv, lt, fi, el): Set language as a hint. Leave empty for auto detect. Supported languages: , en, es, fr, jp, he, iw, et, lv, lt, fi, el 
-  * refresh `boolean`: Set true to force re-process image transcription if the receipt is already in storage
-  * url **required** `string`: The target URL that contains a receipt file
+### Model6
+* Model6 `object`
+  * confidenceLevel `number`
+  * data [data1](#data1)
+  * index `number`
+  * regions [regions](#regions)
+  * text `string`
+
+### Model7
+* Model7 `object`
+  * confidenceLevel `number`
+  * data `number`
+  * keyword `string`
+  * text `string`
 
 ### Result
 * Result `object`
-  * error `string`
   * result `string`
 
-### amounts
-* amounts `array`
-  * items `string`
+### badRequestError
+* badRequestError `object`
+  * error `string`
+  * message `string`
+  * statusCode `number`
 
 ### belgiumVATNumbers
 * belgiumVATNumbers `array`
-  * items [Model%2016](#model%2016)
-
-### currency
-* currency `object`
-  * confidenceLevel `number`
-  * data `string`
+  * items [Model3](#model3)
 
 ### data
 * data `array`
   * items `string`
+
+### data1
+* data1 `object`
+  * metadata_type [metadata_type](#metadata_type)
+  * quantity [quantity](#quantity)
+  * unitPrice [unitPrice1](#unitprice1)
+
+### data2
+* data2 `object`
+  * countryCode `string`
+  * vatNo `string`
+  * verificationId `string`
+  * vies [vies](#vies)
 
 ### date
 * date `object`
@@ -499,16 +361,65 @@ taggun.postApiReceiptV1VerboseUrl({
   * regions [regions](#regions)
   * text `string`
 
+### date1
+* date1 `object`
+  * confidenceLevel `number`
+  * data `string`
+
 ### entities
 * entities `object`
+  * ABN [ABN](#abn)
   * IBAN [IBAN](#iban)
   * belgiumVATNumbers [belgiumVATNumbers](#belgiumvatnumbers)
+  * excludeItems [excludeItems](#excludeitems)
+  * fapiaoInvoice [fapiaoInvoice](#fapiaoinvoice)
+  * fapiaoInvoiceCode [fapiaoInvoiceCode](#fapiaoinvoicecode)
+  * fapiaoInvoiceNumber [fapiaoInvoiceNumber](#fapiaoinvoicenumber)
+  * fapiaoMerchantTaxId [fapiaoMerchantTaxId](#fapiaomerchanttaxid)
+  * geoNames [geoNames](#geonames)
   * invoiceNumber [invoiceNumber](#invoicenumber)
+  * lineItems [lineItems](#lineitems)
+  * merchantVerification [merchantVerification](#merchantverification)
+  * qrCodeData [qrCodeData](#qrcodedata)
+  * receiptNumber [receiptNumber](#receiptnumber)
+  * shoppingMallName [shoppingMallName](#shoppingmallname)
+  * wineListItems [wineListItems](#winelistitems)
 
-### error
-* error `object`
-  * msg `string`: Human readable error
-  * type `string`: Type of error
+### excludeItems
+* excludeItems `array`
+  * items [Model4](#model4)
+
+### fapiaoInvoice
+* fapiaoInvoice `object`
+  * confidenceLevel `number`
+  * data `boolean`
+  * keyword `string`
+  * text `string`
+
+### fapiaoInvoiceCode
+* fapiaoInvoiceCode `object`
+  * confidenceLevel `number`
+  * data `string`
+  * keyword `string`
+  * text `string`
+
+### fapiaoInvoiceNumber
+* fapiaoInvoiceNumber `object`
+  * confidenceLevel `number`
+  * data `string`
+  * keyword `string`
+  * text `string`
+
+### fapiaoMerchantTaxId
+* fapiaoMerchantTaxId `object`
+  * confidenceLevel `number`
+  * data `string`
+  * keyword `string`
+  * text `string`
+
+### geoNames
+* geoNames `array`
+  * items [Model7](#model7)
 
 ### headers
 * headers `object`: Custom http headers can be set to forward to the target URL.
@@ -520,6 +431,34 @@ taggun.postApiReceiptV1VerboseUrl({
   * data `string`
   * keyword `string`
   * text `string`
+
+### itemsCount
+* itemsCount `object`
+  * confidenceLevel `number`
+  * data `number`
+
+### jsonPayload
+* jsonPayload `object`
+  * contentType **required** `string`
+  * extractTime `boolean`: Set true to return time if found on the receipt. Otherwise, the time is always set to 12:00:00.000.
+  * filename **required** `string`
+  * ignoreMerchantName `string`: Ignore this merchant name if detected on the receipt. Use this field to avoid detecting the customer name as the merchant name.
+  * image **required** `string`
+  * incognito `boolean`: Set true to avoid saving the receipt in storage
+  * ipAddress `string`: IP Address of the end user
+  * language `string` (values: en, es, fr, jp, he, iw, et, lv, lt, fi, el, zh): Set language as a hint. Leave empty for auto detect. Supported languages: , en, es, fr, jp, he, iw, et, lv, lt, fi, el, zh 
+  * near `string`: A geo location to search for merchant. Typically in the format of city, state, country.
+  * referenceId `string`: Tag a request with a unique reference ID for feedback and training purposes
+  * refresh `boolean`: Set true to force re-process image transcription if the receipt is already in storage
+  * subAccountId `string`: Tag a request with sub-account ID for billing purposes
+
+### lineAmounts
+* lineAmounts `array`
+  * items `string`
+
+### lineItems
+* lineItems `array`
+  * items [Model6](#model6)
 
 ### location
 * location `object`
@@ -538,33 +477,295 @@ taggun.postApiReceiptV1VerboseUrl({
   * confidenceLevel `number`
   * data `string`
 
+### merchantAddress1
+* merchantAddress1 `object`
+  * confidenceLevel `number`
+  * data `string`
+  * index `number`
+  * regions [regions](#regions)
+  * text `string`
+
+### merchantCity
+* merchantCity `object`
+  * confidenceLevel `number`
+  * data `string`
+
+### merchantCity1
+* merchantCity1 `object`
+  * confidenceLevel `number`
+  * data `string`
+  * index `number`
+  * regions [regions](#regions)
+  * text `string`
+
+### merchantCountryCode
+* merchantCountryCode `object`
+  * confidenceLevel `number`
+  * data `string`
+
+### merchantCountryCode1
+* merchantCountryCode1 `object`
+  * confidenceLevel `number`
+  * data `string`
+  * index `number`
+  * regions [regions](#regions)
+  * text `string`
+
 ### merchantName
 * merchantName `object`
   * confidenceLevel `number`
   * data `string`
+
+### merchantName1
+* merchantName1 `object`
+  * confidenceLevel `number`
+  * data `string`
+  * index `number`
+  * regions [regions](#regions)
+  * text `string`
+
+### merchantNameAddPayload
+* merchantNameAddPayload `object`
+  * merchantName **required** `string`
+
+### merchantPostalCode
+* merchantPostalCode `object`
+  * confidenceLevel `number`
+  * data `string`
+
+### merchantPostalCode1
+* merchantPostalCode1 `object`
+  * confidenceLevel `number`
+  * data `string`
+  * index `number`
+  * regions [regions](#regions)
+  * text `string`
+
+### merchantState
+* merchantState `object`
+  * confidenceLevel `number`
+  * data `string`
+  * index `number`
+  * regions [regions](#regions)
+  * text `string`
 
 ### merchantTypes
 * merchantTypes `object`
   * confidenceLevel `number`
   * data [data](#data)
 
+### merchantTypes1
+* merchantTypes1 `object`
+  * confidenceLevel `number`
+  * data [data](#data)
+  * index `number`
+  * regions [regions](#regions)
+  * text `string`
+
+### merchantVerification
+* merchantVerification `object`
+  * confidenceLevel `number`
+  * data [data2](#data2)
+  * index `number`
+  * regions [regions](#regions)
+  * text `string`
+
+### metadata_type
+* metadata_type `object`
+  * data `string`
+  * text `string`
+
+### paymentType
+* paymentType `object`
+  * confidenceLevel `number`
+  * data `string`
+  * index `number`
+  * regions [regions](#regions)
+  * text `string`
+
+### productName
+* productName `object`
+  * confidenceLevel `number`
+  * keyword `string`
+  * text `string`
+
+### qrCodeData
+* qrCodeData `object`
+  * confidenceLevel `number`
+  * data `string`
+  * keyword `string`
+  * text `string`
+
+### quantity
+* quantity `object`
+  * data `number`
+  * text `string`
+
+### receiptFeedbackAddPayload
+* receiptFeedbackAddPayload `object`
+  * currencyCode `string`
+  * date `string`
+  * merchantName `string`
+  * referenceId **required** `string`
+  * taxAmount `number`
+  * totalAmount `number`
+
+### receiptMatchResult
+* receiptMatchResult `object`
+  * confidenceLevel `number`
+  * date [date](#date)
+  * error `string`
+  * match [match](#match)
+
+### receiptNumber
+* receiptNumber `object`
+  * confidenceLevel `number`
+  * data `string`
+  * index `number`
+  * keyword `string`
+  * regions [regions](#regions)
+  * text `string`
+
+### receiptResult
+* receiptResult `object`
+  * confidenceLevel `number`: Overall confidence level
+  * date [date1](#date1)
+  * error `string`
+  * merchantAddress [merchantAddress](#merchantaddress)
+  * merchantCity [merchantCity](#merchantcity)
+  * merchantCountryCode [merchantCountryCode](#merchantcountrycode)
+  * merchantName [merchantName](#merchantname)
+  * merchantPostalCode [merchantPostalCode](#merchantpostalcode)
+  * merchantState [merchantCity](#merchantcity)
+  * merchantTypes [merchantTypes](#merchanttypes)
+  * taxAmount [taxAmount](#taxamount)
+  * totalAmount [totalAmount](#totalamount)
+
+### receiptVerboseResult
+* receiptVerboseResult `object`
+  * amounts [lineAmounts](#lineamounts)
+  * confidenceLevel `number`
+  * date [date](#date)
+  * elapsed `number`
+  * entities [entities](#entities)
+  * error `string`
+  * itemsCount [itemsCount](#itemscount)
+  * lineAmounts [lineAmounts](#lineamounts)
+  * location [LocationResult](#locationresult)
+  * merchantAddress [merchantAddress1](#merchantaddress1)
+  * merchantCity [merchantCity1](#merchantcity1)
+  * merchantCountryCode [merchantCountryCode1](#merchantcountrycode1)
+  * merchantName [merchantName1](#merchantname1)
+  * merchantPostalCode [merchantPostalCode1](#merchantpostalcode1)
+  * merchantState [merchantState](#merchantstate)
+  * merchantTypes [merchantTypes1](#merchanttypes1)
+  * numbers [lineAmounts](#lineamounts)
+  * paymentType [paymentType](#paymenttype)
+  * taxAmount [taxAmount1](#taxamount1)
+  * text [text](#text)
+  * totalAmount [totalAmount1](#totalamount1)
+
 ### regions
 * regions `array`
-  * items `string`
+  * items [Model2](#model2)
+
+### shoppingMallName
+* shoppingMallName `object`
+  * confidenceLevel `number`
+  * data `string`
+  * index `number`
+  * regions [regions](#regions)
+  * text `string`
+
+### storagePayload
+* storagePayload `object`
+  * contentType **required** `string`
+  * extractTime `boolean`: Set true to return time if found on the receipt. Otherwise, the time is always set to 12:00:00.000.
+  * ignoreMerchantName `string`: Ignore this merchant name if detected on the receipt. Use this field to avoid detecting the customer name as the merchant name.
+  * ipAddress `string`: IP Address of the end user
+  * language `string` (values: en, es, fr, jp, he, iw, et, lv, lt, fi, el, zh): Set language as a hint. Leave empty for auto detect. Supported languages: , en, es, fr, jp, he, iw, et, lv, lt, fi, el, zh 
+  * md5 **required** `string`: MD5 hash of the receipt
+  * near `string`: A geo location to search for merchant. Typically in the format of city, state, country.
+  * referenceId `string`: Tag a request with a unique reference ID for feedback and training purposes
+  * refresh `boolean`: Refresh cache if exists
+  * subAccountId `string`: Tag a request with sub-account ID for billing purposes
 
 ### taxAmount
 * taxAmount `object`
   * confidenceLevel `number`
   * data `number`
 
+### taxAmount1
+* taxAmount1 `object`
+  * confidenceLevel `number`
+  * currencyCode `string`
+  * data `number`
+  * index `number`
+  * keyword `string`
+  * regions [regions](#regions)
+  * text `string`
+
 ### text
 * text `object`
-  * regions [regions](#regions)
+  * regions [lineAmounts](#lineamounts)
   * text `string`
 
 ### totalAmount
 * totalAmount `object`
   * confidenceLevel `number`
   * data `number`
+
+### totalAmount1
+* totalAmount1 `object`
+  * confidenceLevel `number`
+  * currencyCode `string`
+  * data `number`
+  * index `number`
+  * keyword `string`
+  * regions [regions](#regions)
+  * text `string`
+
+### unitPrice
+* unitPrice `object`
+  * data `number`
+  * text `string`
+
+### unitPrice1
+* unitPrice1 `object`
+  * data `number`
+  * text `string`
+
+### urlPayload
+* urlPayload `object`
+  * extractTime `boolean`: Set true to return time if found on the receipt. Otherwise, the time is always set to 12:00:00.000.
+  * headers [headers](#headers)
+  * ignoreMerchantName `string`: Ignore this merchant name if detected on the receipt. Use this field to avoid detecting the customer name as the merchant name.
+  * incognito `boolean`: Set true to avoid saving the receipt in storage
+  * ipAddress `string`: IP Address of the end user
+  * language `string` (values: en, es, fr, jp, he, iw, et, lv, lt, fi, el, zh): Set language as a hint. Leave empty for auto detect. Supported languages: , en, es, fr, jp, he, iw, et, lv, lt, fi, el, zh 
+  * near `string`: A geo location to search for merchant. Typically in the format of city, state, country.
+  * referenceId `string`: Tag a request with a unique reference ID for feedback and training purposes
+  * refresh `boolean`: Set true to force re-process image transcription if the receipt is already in storage
+  * subAccountId `string`: Tag a request with sub-account ID for billing purposes
+  * url **required** `string`: The target URL that contains a receipt file
+
+### vies
+* vies `object`
+  * address `string`
+  * countryCode `string`
+  * error `string`
+  * name `string`
+  * valid `boolean`
+  * vatNumber `string`
+
+### wineListItems
+* wineListItems `array`
+  * items [Model5](#model5)
+
+### wineVarietal
+* wineVarietal `object`
+  * confidenceLevel `number`
+  * keyword `string`
+  * text `string`
 
 

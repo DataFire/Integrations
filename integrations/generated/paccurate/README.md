@@ -9,7 +9,7 @@ npm install --save @datafire/paccurate
 ```js
 let paccurate = require('@datafire/paccurate').create();
 
-paccurate..post({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

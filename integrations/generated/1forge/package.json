@@ -1,6 +1,6 @@
 {
   "name": "@datafire/1forge",
-  "version": "5.0.0",
+  "version": "6.0.0",
   "main": "index.js",
   "description": "DataFire integration for 1Forge Finance APIs",
   "repository": {

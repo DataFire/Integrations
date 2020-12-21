@@ -1,6 +1,6 @@
 {
   "name": "@datafire/azure_recoveryservicesbackup_bms",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "main": "index.js",
   "description": "DataFire integration for RecoveryServicesBackupClient",
   "repository": {

@@ -11,11 +11,7 @@ let pandorabots = require('@datafire/pandorabots').create({
   user_key: ""
 });
 
-pandorabots.atalkBot({
-  "app_id": "",
-  "botname": "",
-  "input": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

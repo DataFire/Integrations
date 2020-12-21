@@ -15,13 +15,7 @@ let azure_sql_queries = require('@datafire/azure_sql_queries').create({
   redirect_uri: ""
 });
 
-azure_sql_queries.Queries_ListByDatabase({
-  "api-version": "",
-  "subscriptionId": "",
-  "resourceGroupName": "",
-  "serverName": "",
-  "databaseName": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

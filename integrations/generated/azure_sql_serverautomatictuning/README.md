@@ -15,12 +15,7 @@ let azure_sql_serverautomatictuning = require('@datafire/azure_sql_serverautomat
   redirect_uri: ""
 });
 
-azure_sql_serverautomatictuning.ServerAutomaticTuning_Get({
-  "resourceGroupName": "",
-  "serverName": "",
-  "subscriptionId": "",
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

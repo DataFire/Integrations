@@ -1,8 +1,8 @@
 {
   "name": "@datafire/payments_service_gov_uk_payments",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "main": "index.js",
-  "description": "DataFire integration for GOV.UK Pay Api",
+  "description": "DataFire integration for GOV.UK Pay API",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DataFire/integrations.git"
@@ -14,7 +14,7 @@
   },
   "homepage": "https://github.com/DataFire/integrations#readme",
   "datafire": {
-    "origin": "https://api.apis.guru/v2/specs/payments.service.gov.uk/payments/1.0.0/swagger.json",
+    "origin": "https://api.apis.guru/v2/specs/payments.service.gov.uk/payments/1.0.3/swagger.json",
     "type": "openapi"
   },
   "peerDependencies": {

@@ -1,11 +1,5 @@
 {
   "swagger": "2.0",
-  "schemes": [
-    "https",
-    "http"
-  ],
-  "host": "runtime.sagemaker.amazonaws.com",
-  "basePath": "/",
   "info": {
     "contact": {
       "email": "mike.ralphson@gmail.com",
@@ -13,7 +7,7 @@
       "url": "https://github.com/mermade/aws2openapi",
       "x-twitter": "PermittedSoc"
     },
-    "description": " Amazon SageMaker runtime API. ",
+    "description": " The Amazon SageMaker runtime API. ",
     "license": {
       "name": "Apache 2.0 License",
       "url": "http://www.apache.org/licenses/"
@@ -29,7 +23,7 @@
     ],
     "x-logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.jpeg"
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"
     },
     "x-origin": [
       {
@@ -39,7 +33,7 @@
           "version": "1.0.0"
         },
         "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/runtime.sagemaker-2017-05-13.normal.json",
-        "x-apisguru-direct": true
+        "x-apisguru-driver": "external"
       }
     ],
     "x-preferred": true,
@@ -51,134 +45,149 @@
       "type": "openapi"
     }
   },
-  "externalDocs": {
-    "description": "Amazon Web Services documentation",
-    "url": "https://aws.amazon.com/sagemaker/"
-  },
-  "consumes": [
-    "application/json"
+  "host": "runtime.sagemaker.us-east-1.amazonaws.com",
+  "basePath": "/",
+  "schemes": [
+    "http"
   ],
-  "produces": [
-    "application/json"
-  ],
-  "securityDefinitions": {
-    "hmac": {
-      "description": "Amazon Signature authorization v4",
-      "in": "header",
-      "name": "Authorization",
-      "type": "apiKey",
-      "x-amazon-apigateway-authtype": "awsSigv4"
-    }
-  },
-  "security": [
-    {
-      "hmac": []
-    }
-  ],
-  "parameters": {
-    "Action": {
-      "in": "header",
-      "name": "Action",
-      "required": true,
-      "type": "string"
-    },
-    "Version": {
-      "in": "header",
-      "name": "Version",
-      "required": true,
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "in": "header",
-      "name": "X-Amz-Algorithm",
-      "required": false,
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "in": "header",
-      "name": "X-Amz-Content-Sha256",
-      "required": false,
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "in": "header",
-      "name": "X-Amz-Credential",
-      "required": false,
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "in": "header",
-      "name": "X-Amz-Date",
-      "required": false,
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "in": "header",
-      "name": "X-Amz-Security-Token",
-      "required": false,
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "in": "header",
-      "name": "X-Amz-Signature",
-      "required": false,
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "in": "header",
-      "name": "X-Amz-SignedHeaders",
-      "required": false,
-      "type": "string"
-    }
-  },
   "paths": {
     "/endpoints/{EndpointName}/invocations": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "<p>After you deploy a model into production using Amazon SageMaker hosting services, your client applications use this API to get inferences from the model hosted at the specified endpoint. </p> <p>For an overview of Amazon SageMaker, see <a href=\"http://docs.aws.amazon.com/sagemaker/latest/dg/how-it-works.html\">How It Works</a> </p> <p> Amazon SageMaker strips all POST headers except those supported by the API. Amazon SageMaker might add additional headers. You should not rely on the behavior of headers outside those enumerated in the request syntax. </p>",
-        "operationId": "InvokeEndpoint",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "description": "The name of the endpoint that you specified when you created the endpoint using the <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateEndpoint.html\">CreateEndpoint</a> API. ",
+            "in": "path",
+            "maxLength": 63,
+            "name": "EndpointName",
+            "pattern": "^[a-zA-Z0-9](-*[a-zA-Z0-9])*",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The MIME type of the input data in the request body.",
+            "in": "header",
+            "maxLength": 1024,
+            "name": "Content-Type",
+            "pattern": "\\p{ASCII}*",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "The desired MIME type of the inference in the response.",
+            "in": "header",
+            "maxLength": 1024,
+            "name": "Accept",
+            "pattern": "\\p{ASCII}*",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "<p>Provides additional information about a request for an inference submitted to a model hosted at an Amazon SageMaker endpoint. The information is an opaque value that is forwarded verbatim. You could use this value, for example, to provide an ID that you can use to track a request or to provide other metadata that a service endpoint was programmed to process. The value must consist of no more than 1024 visible US-ASCII characters as specified in <a href=\"https://tools.ietf.org/html/rfc7230#section-3.2.6\">Section 3.3.6. Field Value Components</a> of the Hypertext Transfer Protocol (HTTP/1.1). </p> <p>The code in your model is responsible for setting or updating any custom attributes in the response. If your code does not set this value in the response, an empty value is returned. For example, if a custom attribute represents the trace ID, your model can prepend the custom attribute with <code>Trace ID:</code> in your post-processing function.</p> <p>This feature is currently supported in the AWS SDKs but not in the Amazon SageMaker Python SDK.</p>",
+            "format": "password",
+            "in": "header",
+            "maxLength": 1024,
+            "name": "X-Amzn-SageMaker-Custom-Attributes",
+            "pattern": "\\p{ASCII}*",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "The model to request for inference when invoking a multi-model endpoint.",
+            "in": "header",
+            "maxLength": 1024,
+            "minLength": 1,
+            "name": "X-Amzn-SageMaker-Target-Model",
+            "pattern": "\\A\\S[\\p{Print}]*\\z",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "<p>Specify the production variant to send the inference request to when invoking an endpoint that is running two or more variants. Note that this parameter overrides the default behavior for the endpoint, which is to distribute the invocation traffic based on the variant weights.</p> <p>For information about how to use variant targeting to perform a/b testing, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/model-ab-testing.html\">Test models in production</a> </p>",
+            "in": "header",
+            "maxLength": 63,
+            "name": "X-Amzn-SageMaker-Target-Variant",
+            "pattern": "^[a-zA-Z0-9](-*[a-zA-Z0-9])*",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "If you provide a value, it is added to the captured data when you enable data capture on the endpoint. For information about data capture, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor-data-capture.html\">Capture Data</a>.",
+            "in": "header",
+            "maxLength": 64,
+            "minLength": 1,
+            "name": "X-Amzn-SageMaker-Inference-Id",
+            "pattern": "\\A\\S[\\p{Print}]*\\z",
+            "required": false,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/InvokeEndpointInput"
+              "properties": {
+                "Body": {
+                  "description": "<p>Provides input data, in the format specified in the <code>ContentType</code> request header. Amazon SageMaker passes all of the data in the body to the model. </p> <p>For information about the format of the request body, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/cdf-inference.html\">Common Data Formats-Inference</a>.</p>",
+                  "format": "password",
+                  "maxLength": 6291456,
+                  "type": "string"
+                }
+              },
+              "required": [
+                "Body"
+              ],
+              "type": "object"
             }
-          },
-          {
-            "in": "path",
-            "name": "EndpointName",
-            "required": true,
-            "type": "string"
           }
         ],
         "responses": {
@@ -212,14 +221,22 @@
               "$ref": "#/definitions/ModelError"
             }
           }
-        }
+        },
+        "description": "<p>After you deploy a model into production using Amazon SageMaker hosting services, your client applications use this API to get inferences from the model hosted at the specified endpoint. </p> <p>For an overview of Amazon SageMaker, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/how-it-works.html\">How It Works</a>. </p> <p>Amazon SageMaker strips all POST headers except those supported by the API. Amazon SageMaker might add additional headers. You should not rely on the behavior of headers outside those enumerated in the request syntax. </p> <p>Calls to <code>InvokeEndpoint</code> are authenticated by using AWS Signature Version 4. For information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html\">Authenticating Requests (AWS Signature Version 4)</a> in the <i>Amazon S3 API Reference</i>.</p> <p>A customer's model containers must respond to requests within 60 seconds. The model itself can have a maximum processing time of 60 seconds before responding to invocations. If your model is going to take 50-60 seconds of processing time, the SDK socket timeout should be set to be 70 seconds.</p> <note> <p>Endpoints are scoped to an individual account, and are not public. The URL does not contain the account ID, but Amazon SageMaker determines the account ID from the authentication token that is supplied by the caller.</p> </note>",
+        "operationId": "InvokeEndpoint"
       }
     }
   },
   "definitions": {
     "BodyBlob": {
       "format": "password",
-      "maxLength": 5242880,
+      "maxLength": 6291456,
+      "type": "string"
+    },
+    "CustomAttributesHeader": {
+      "format": "password",
+      "maxLength": 1024,
+      "pattern": "\\p{ASCII}*",
       "type": "string"
     },
     "EndpointName": {
@@ -229,34 +246,46 @@
     },
     "Header": {
       "maxLength": 1024,
+      "pattern": "\\p{ASCII}*",
       "type": "string"
     },
-    "InternalFailure": {
-      "description": " Internal failure occurred. ",
-      "properties": {
-        "Message": {
-          "$ref": "#/definitions/Message"
-        }
-      },
-      "type": "object"
+    "InferenceId": {
+      "maxLength": 64,
+      "minLength": 1,
+      "pattern": "\\A\\S[\\p{Print}]*\\z",
+      "type": "string"
     },
+    "InternalFailure": {},
     "InvokeEndpointInput": {
       "properties": {
         "Body": {
-          "$ref": "#/definitions/BodyBlob",
-          "description": "Provides input data, in the format specified in the <code>ContentType</code> request header. Amazon SageMaker passes all of the data in the body to the model. "
+          "allOf": [
+            {
+              "$ref": "#/definitions/BodyBlob"
+            },
+            {
+              "description": "<p>Provides input data, in the format specified in the <code>ContentType</code> request header. Amazon SageMaker passes all of the data in the body to the model. </p> <p>For information about the format of the request body, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/cdf-inference.html\">Common Data Formats-Inference</a>.</p>"
+            }
+          ]
         }
       },
       "required": [
         "Body"
       ],
+      "title": "InvokeEndpointInput",
       "type": "object"
     },
     "InvokeEndpointOutput": {
       "properties": {
         "Body": {
-          "$ref": "#/definitions/BodyBlob",
-          "description": "Includes the inference provided by the model."
+          "allOf": [
+            {
+              "$ref": "#/definitions/BodyBlob"
+            },
+            {
+              "description": "<p>Includes the inference provided by the model.</p> <p>For information about the format of the response body, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/cdf-inference.html\">Common Data Formats-Inference</a>.</p>"
+            }
+          ]
         }
       },
       "required": [
@@ -264,54 +293,83 @@
       ],
       "type": "object"
     },
-    "LogStreamArn": {
+    "ModelError": {},
+    "ServiceUnavailable": {},
+    "TargetModelHeader": {
+      "maxLength": 1024,
+      "minLength": 1,
+      "pattern": "\\A\\S[\\p{Print}]*\\z",
       "type": "string"
     },
-    "Message": {
-      "maxLength": 2048,
+    "TargetVariantHeader": {
+      "maxLength": 63,
+      "pattern": "^[a-zA-Z0-9](-*[a-zA-Z0-9])*",
       "type": "string"
     },
-    "ModelError": {
-      "description": " Model (owned by the customer in the container) returned an error 500. ",
-      "properties": {
-        "LogStreamArn": {
-          "$ref": "#/definitions/LogStreamArn",
-          "description": " Amazon Resource Name (ARN) of the log stream. "
-        },
-        "Message": {
-          "$ref": "#/definitions/Message"
-        },
-        "OriginalMessage": {
-          "$ref": "#/definitions/Message",
-          "description": " Original message. "
-        },
-        "OriginalStatusCode": {
-          "$ref": "#/definitions/StatusCode",
-          "description": " Original status code. "
-        }
+    "ValidationError": {}
+  },
+  "securityDefinitions": {
+    "hmac": {
+      "description": "Amazon Signature authorization v4",
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey",
+      "x-amazon-apigateway-authtype": "awsSigv4"
+    }
+  },
+  "security": [
+    {
+      "hmac": []
+    }
+  ],
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://docs.aws.amazon.com/sagemaker/"
+  },
+  "x-components": {
+    "parameters": {
+      "X-Amz-Algorithm": {
+        "in": "header",
+        "name": "X-Amz-Algorithm",
+        "required": false,
+        "type": "string"
       },
-      "type": "object"
-    },
-    "ServiceUnavailable": {
-      "description": " Service is unavailable. Try your call again. ",
-      "properties": {
-        "Message": {
-          "$ref": "#/definitions/Message"
-        }
+      "X-Amz-Content-Sha256": {
+        "in": "header",
+        "name": "X-Amz-Content-Sha256",
+        "required": false,
+        "type": "string"
       },
-      "type": "object"
-    },
-    "StatusCode": {
-      "type": "integer"
-    },
-    "ValidationError": {
-      "description": " Inspect your request and try again. ",
-      "properties": {
-        "Message": {
-          "$ref": "#/definitions/Message"
-        }
+      "X-Amz-Credential": {
+        "in": "header",
+        "name": "X-Amz-Credential",
+        "required": false,
+        "type": "string"
       },
-      "type": "object"
+      "X-Amz-Date": {
+        "in": "header",
+        "name": "X-Amz-Date",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Security-Token": {
+        "in": "header",
+        "name": "X-Amz-Security-Token",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Signature": {
+        "in": "header",
+        "name": "X-Amz-Signature",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-SignedHeaders": {
+        "in": "header",
+        "name": "X-Amz-SignedHeaders",
+        "required": false,
+        "type": "string"
+      }
     }
   }
 }

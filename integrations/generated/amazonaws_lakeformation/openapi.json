@@ -1,0 +1,2909 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "contact": {
+      "email": "mike.ralphson@gmail.com",
+      "name": "Mike Ralphson",
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
+    },
+    "description": "<fullname>AWS Lake Formation</fullname> <p>Defines the public endpoint for the AWS Lake Formation service.</p>",
+    "license": {
+      "name": "Apache 2.0 License",
+      "url": "http://www.apache.org/licenses/"
+    },
+    "termsOfService": "https://aws.amazon.com/service-terms/",
+    "title": "AWS Lake Formation",
+    "version": "2017-03-31",
+    "x-apiClientRegistration": {
+      "url": "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"
+    },
+    "x-apisguru-categories": [
+      "cloud"
+    ],
+    "x-logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"
+    },
+    "x-origin": [
+      {
+        "contentType": "application/json",
+        "converter": {
+          "url": "https://github.com/mermade/aws2openapi",
+          "version": "1.0.0"
+        },
+        "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/lakeformation-2017-03-31.normal.json",
+        "x-apisguru-driver": "external"
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "amazonaws.com",
+    "x-release": "v4",
+    "x-serviceName": "lakeformation",
+    "x-datafire": {
+      "name": "amazonaws_lakeformation",
+      "type": "openapi"
+    }
+  },
+  "host": "lakeformation.us-east-1.amazonaws.com",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/#X-Amz-Target=AWSLakeFormation.BatchGrantPermissions": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "AWSLakeFormation.BatchGrantPermissions"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/BatchGrantPermissionsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/BatchGrantPermissionsResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidInputException",
+            "schema": {
+              "$ref": "#/definitions/InvalidInputException"
+            }
+          },
+          "481": {
+            "description": "OperationTimeoutException",
+            "schema": {
+              "$ref": "#/definitions/OperationTimeoutException"
+            }
+          }
+        },
+        "description": "Batch operation to grant permissions to the principal.",
+        "operationId": "BatchGrantPermissions"
+      }
+    },
+    "/#X-Amz-Target=AWSLakeFormation.BatchRevokePermissions": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "AWSLakeFormation.BatchRevokePermissions"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/BatchRevokePermissionsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/BatchRevokePermissionsResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidInputException",
+            "schema": {
+              "$ref": "#/definitions/InvalidInputException"
+            }
+          },
+          "481": {
+            "description": "OperationTimeoutException",
+            "schema": {
+              "$ref": "#/definitions/OperationTimeoutException"
+            }
+          }
+        },
+        "description": "Batch operation to revoke permissions from the principal.",
+        "operationId": "BatchRevokePermissions"
+      }
+    },
+    "/#X-Amz-Target=AWSLakeFormation.DeregisterResource": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "AWSLakeFormation.DeregisterResource"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeregisterResourceRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeregisterResourceResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidInputException",
+            "schema": {
+              "$ref": "#/definitions/InvalidInputException"
+            }
+          },
+          "481": {
+            "description": "InternalServiceException",
+            "schema": {
+              "$ref": "#/definitions/InternalServiceException"
+            }
+          },
+          "482": {
+            "description": "OperationTimeoutException",
+            "schema": {
+              "$ref": "#/definitions/OperationTimeoutException"
+            }
+          },
+          "483": {
+            "description": "EntityNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/EntityNotFoundException"
+            }
+          }
+        },
+        "description": "<p>Deregisters the resource as managed by the Data Catalog.</p> <p>When you deregister a path, Lake Formation removes the path from the inline policy attached to your service-linked role.</p>",
+        "operationId": "DeregisterResource"
+      }
+    },
+    "/#X-Amz-Target=AWSLakeFormation.DescribeResource": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "AWSLakeFormation.DescribeResource"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeResourceRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeResourceResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidInputException",
+            "schema": {
+              "$ref": "#/definitions/InvalidInputException"
+            }
+          },
+          "481": {
+            "description": "InternalServiceException",
+            "schema": {
+              "$ref": "#/definitions/InternalServiceException"
+            }
+          },
+          "482": {
+            "description": "OperationTimeoutException",
+            "schema": {
+              "$ref": "#/definitions/OperationTimeoutException"
+            }
+          },
+          "483": {
+            "description": "EntityNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/EntityNotFoundException"
+            }
+          }
+        },
+        "description": "Retrieves the current data access role for the given resource registered in AWS Lake Formation.",
+        "operationId": "DescribeResource"
+      }
+    },
+    "/#X-Amz-Target=AWSLakeFormation.GetDataLakeSettings": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "AWSLakeFormation.GetDataLakeSettings"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetDataLakeSettingsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetDataLakeSettingsResponse"
+            }
+          },
+          "480": {
+            "description": "InternalServiceException",
+            "schema": {
+              "$ref": "#/definitions/InternalServiceException"
+            }
+          },
+          "481": {
+            "description": "InvalidInputException",
+            "schema": {
+              "$ref": "#/definitions/InvalidInputException"
+            }
+          },
+          "482": {
+            "description": "EntityNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/EntityNotFoundException"
+            }
+          }
+        },
+        "description": "Retrieves the list of the data lake administrators of a Lake Formation-managed data lake. ",
+        "operationId": "GetDataLakeSettings"
+      }
+    },
+    "/#X-Amz-Target=AWSLakeFormation.GetEffectivePermissionsForPath": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "AWSLakeFormation.GetEffectivePermissionsForPath"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetEffectivePermissionsForPathRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetEffectivePermissionsForPathResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidInputException",
+            "schema": {
+              "$ref": "#/definitions/InvalidInputException"
+            }
+          },
+          "481": {
+            "description": "EntityNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/EntityNotFoundException"
+            }
+          },
+          "482": {
+            "description": "OperationTimeoutException",
+            "schema": {
+              "$ref": "#/definitions/OperationTimeoutException"
+            }
+          },
+          "483": {
+            "description": "InternalServiceException",
+            "schema": {
+              "$ref": "#/definitions/InternalServiceException"
+            }
+          }
+        },
+        "description": "Returns the Lake Formation permissions for a specified table or database resource located at a path in Amazon S3. <code>GetEffectivePermissionsForPath</code> will not return databases and tables if the catalog is encrypted.",
+        "operationId": "GetEffectivePermissionsForPath"
+      }
+    },
+    "/#X-Amz-Target=AWSLakeFormation.GrantPermissions": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "AWSLakeFormation.GrantPermissions"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GrantPermissionsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GrantPermissionsResponse"
+            }
+          },
+          "480": {
+            "description": "ConcurrentModificationException",
+            "schema": {
+              "$ref": "#/definitions/ConcurrentModificationException"
+            }
+          },
+          "481": {
+            "description": "EntityNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/EntityNotFoundException"
+            }
+          },
+          "482": {
+            "description": "InvalidInputException",
+            "schema": {
+              "$ref": "#/definitions/InvalidInputException"
+            }
+          }
+        },
+        "description": "<p>Grants permissions to the principal to access metadata in the Data Catalog and data organized in underlying data storage such as Amazon S3.</p> <p>For information about permissions, see <a href=\"https://docs-aws.amazon.com/lake-formation/latest/dg/security-data-access.html\">Security and Access Control to Metadata and Data</a>.</p>",
+        "operationId": "GrantPermissions"
+      }
+    },
+    "/#X-Amz-Target=AWSLakeFormation.ListPermissions": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "AWSLakeFormation.ListPermissions"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListPermissionsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListPermissionsResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidInputException",
+            "schema": {
+              "$ref": "#/definitions/InvalidInputException"
+            }
+          },
+          "481": {
+            "description": "OperationTimeoutException",
+            "schema": {
+              "$ref": "#/definitions/OperationTimeoutException"
+            }
+          },
+          "482": {
+            "description": "InternalServiceException",
+            "schema": {
+              "$ref": "#/definitions/InternalServiceException"
+            }
+          }
+        },
+        "description": "<p>Returns a list of the principal permissions on the resource, filtered by the permissions of the caller. For example, if you are granted an ALTER permission, you are able to see only the principal permissions for ALTER.</p> <p>This operation returns only those permissions that have been explicitly granted.</p> <p>For information about permissions, see <a href=\"https://docs-aws.amazon.com/lake-formation/latest/dg/security-data-access.html\">Security and Access Control to Metadata and Data</a>.</p>",
+        "operationId": "ListPermissions"
+      }
+    },
+    "/#X-Amz-Target=AWSLakeFormation.ListResources": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "AWSLakeFormation.ListResources"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListResourcesRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListResourcesResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidInputException",
+            "schema": {
+              "$ref": "#/definitions/InvalidInputException"
+            }
+          },
+          "481": {
+            "description": "InternalServiceException",
+            "schema": {
+              "$ref": "#/definitions/InternalServiceException"
+            }
+          },
+          "482": {
+            "description": "OperationTimeoutException",
+            "schema": {
+              "$ref": "#/definitions/OperationTimeoutException"
+            }
+          }
+        },
+        "description": "Lists the resources registered to be managed by the Data Catalog.",
+        "operationId": "ListResources"
+      }
+    },
+    "/#X-Amz-Target=AWSLakeFormation.PutDataLakeSettings": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "AWSLakeFormation.PutDataLakeSettings"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PutDataLakeSettingsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/PutDataLakeSettingsResponse"
+            }
+          },
+          "480": {
+            "description": "InternalServiceException",
+            "schema": {
+              "$ref": "#/definitions/InternalServiceException"
+            }
+          },
+          "481": {
+            "description": "InvalidInputException",
+            "schema": {
+              "$ref": "#/definitions/InvalidInputException"
+            }
+          }
+        },
+        "description": "<p>Sets the list of data lake administrators who have admin privileges on all resources managed by Lake Formation. For more information on admin privileges, see <a href=\"https://docs.aws.amazon.com/lake-formation/latest/dg/lake-formation-permissions.html\">Granting Lake Formation Permissions</a>.</p> <p>This API replaces the current list of data lake admins with the new list being passed. To add an admin, fetch the current list and add the new admin to that list and pass that list in this API.</p>",
+        "operationId": "PutDataLakeSettings"
+      }
+    },
+    "/#X-Amz-Target=AWSLakeFormation.RegisterResource": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "AWSLakeFormation.RegisterResource"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RegisterResourceRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/RegisterResourceResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidInputException",
+            "schema": {
+              "$ref": "#/definitions/InvalidInputException"
+            }
+          },
+          "481": {
+            "description": "InternalServiceException",
+            "schema": {
+              "$ref": "#/definitions/InternalServiceException"
+            }
+          },
+          "482": {
+            "description": "OperationTimeoutException",
+            "schema": {
+              "$ref": "#/definitions/OperationTimeoutException"
+            }
+          },
+          "483": {
+            "description": "AlreadyExistsException",
+            "schema": {
+              "$ref": "#/definitions/AlreadyExistsException"
+            }
+          }
+        },
+        "description": "<p>Registers the resource as managed by the Data Catalog.</p> <p>To add or update data, Lake Formation needs read/write access to the chosen Amazon S3 path. Choose a role that you know has permission to do this, or choose the AWSServiceRoleForLakeFormationDataAccess service-linked role. When you register the first Amazon S3 path, the service-linked role and a new inline policy are created on your behalf. Lake Formation adds the first path to the inline policy and attaches it to the service-linked role. When you register subsequent paths, Lake Formation adds the path to the existing policy.</p> <p>The following request registers a new location and gives AWS Lake Formation permission to use the service-linked role to access that location.</p> <p> <code>ResourceArn = arn:aws:s3:::my-bucket UseServiceLinkedRole = true</code> </p> <p>If <code>UseServiceLinkedRole</code> is not set to true, you must provide or set the <code>RoleArn</code>:</p> <p> <code>arn:aws:iam::12345:role/my-data-access-role</code> </p>",
+        "operationId": "RegisterResource"
+      }
+    },
+    "/#X-Amz-Target=AWSLakeFormation.RevokePermissions": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "AWSLakeFormation.RevokePermissions"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RevokePermissionsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/RevokePermissionsResponse"
+            }
+          },
+          "480": {
+            "description": "ConcurrentModificationException",
+            "schema": {
+              "$ref": "#/definitions/ConcurrentModificationException"
+            }
+          },
+          "481": {
+            "description": "EntityNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/EntityNotFoundException"
+            }
+          },
+          "482": {
+            "description": "InvalidInputException",
+            "schema": {
+              "$ref": "#/definitions/InvalidInputException"
+            }
+          }
+        },
+        "description": "Revokes permissions to the principal to access metadata in the Data Catalog and data organized in underlying data storage such as Amazon S3.",
+        "operationId": "RevokePermissions"
+      }
+    },
+    "/#X-Amz-Target=AWSLakeFormation.UpdateResource": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "AWSLakeFormation.UpdateResource"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateResourceRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UpdateResourceResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidInputException",
+            "schema": {
+              "$ref": "#/definitions/InvalidInputException"
+            }
+          },
+          "481": {
+            "description": "InternalServiceException",
+            "schema": {
+              "$ref": "#/definitions/InternalServiceException"
+            }
+          },
+          "482": {
+            "description": "OperationTimeoutException",
+            "schema": {
+              "$ref": "#/definitions/OperationTimeoutException"
+            }
+          },
+          "483": {
+            "description": "EntityNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/EntityNotFoundException"
+            }
+          }
+        },
+        "description": "Updates the data access role used for vending access to the given (registered) resource in AWS Lake Formation. ",
+        "operationId": "UpdateResource"
+      }
+    }
+  },
+  "definitions": {
+    "AlreadyExistsException": {},
+    "BatchGrantPermissionsRequest": {
+      "properties": {
+        "CatalogId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CatalogIdString"
+            },
+            {
+              "description": "The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your AWS Lake Formation environment. "
+            }
+          ]
+        },
+        "Entries": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/BatchPermissionsRequestEntryList"
+            },
+            {
+              "description": "A list of up to 20 entries for resource permissions to be granted by batch operation to the principal."
+            }
+          ]
+        }
+      },
+      "required": [
+        "Entries"
+      ],
+      "title": "BatchGrantPermissionsRequest",
+      "type": "object"
+    },
+    "BatchGrantPermissionsResponse": {
+      "properties": {
+        "Failures": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/BatchPermissionsFailureList"
+            },
+            {
+              "description": "A list of failures to grant permissions to the resources."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "BatchPermissionsFailureEntry": {
+      "description": "A list of failures when performing a batch grant or batch revoke operation.",
+      "properties": {
+        "Error": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ErrorDetail"
+            },
+            {
+              "description": "An error message that applies to the failure of the entry."
+            }
+          ]
+        },
+        "RequestEntry": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/BatchPermissionsRequestEntry"
+            },
+            {
+              "description": "An identifier for an entry of the batch request."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "BatchPermissionsFailureList": {
+      "items": {
+        "$ref": "#/definitions/BatchPermissionsFailureEntry"
+      },
+      "type": "array"
+    },
+    "BatchPermissionsRequestEntry": {
+      "description": "A permission to a resource granted by batch operation to the principal.",
+      "properties": {
+        "Id": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Identifier"
+            },
+            {
+              "description": "A unique identifier for the batch permissions request entry."
+            }
+          ]
+        },
+        "Permissions": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PermissionList"
+            },
+            {
+              "description": "The permissions to be granted."
+            }
+          ]
+        },
+        "PermissionsWithGrantOption": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PermissionList"
+            },
+            {
+              "description": "Indicates if the option to pass permissions is granted."
+            }
+          ]
+        },
+        "Principal": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DataLakePrincipal"
+            },
+            {
+              "description": "The principal to be granted a permission."
+            }
+          ]
+        },
+        "Resource": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Resource"
+            },
+            {
+              "description": "The resource to which the principal is to be granted a permission."
+            }
+          ]
+        }
+      },
+      "required": [
+        "Id"
+      ],
+      "type": "object"
+    },
+    "BatchPermissionsRequestEntryList": {
+      "items": {
+        "$ref": "#/definitions/BatchPermissionsRequestEntry"
+      },
+      "type": "array"
+    },
+    "BatchRevokePermissionsRequest": {
+      "properties": {
+        "CatalogId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CatalogIdString"
+            },
+            {
+              "description": "The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your AWS Lake Formation environment. "
+            }
+          ]
+        },
+        "Entries": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/BatchPermissionsRequestEntryList"
+            },
+            {
+              "description": "A list of up to 20 entries for resource permissions to be revoked by batch operation to the principal."
+            }
+          ]
+        }
+      },
+      "required": [
+        "Entries"
+      ],
+      "title": "BatchRevokePermissionsRequest",
+      "type": "object"
+    },
+    "BatchRevokePermissionsResponse": {
+      "properties": {
+        "Failures": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/BatchPermissionsFailureList"
+            },
+            {
+              "description": "A list of failures to revoke permissions to the resources."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "CatalogIdString": {
+      "maxLength": 255,
+      "minLength": 1,
+      "type": "string",
+      "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\t]*"
+    },
+    "CatalogResource": {
+      "description": "A structure for the catalog object.",
+      "properties": {},
+      "type": "object"
+    },
+    "ColumnNames": {
+      "items": {
+        "$ref": "#/definitions/NameString"
+      },
+      "type": "array"
+    },
+    "ColumnWildcard": {
+      "description": "A wildcard object, consisting of an optional list of excluded column names or indexes.",
+      "properties": {
+        "ExcludedColumnNames": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ColumnNames"
+            },
+            {
+              "description": "Excludes column names. Any column with this name will be excluded."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ComparisonOperator": {
+      "enum": [
+        "EQ",
+        "NE",
+        "LE",
+        "LT",
+        "GE",
+        "GT",
+        "CONTAINS",
+        "NOT_CONTAINS",
+        "BEGINS_WITH",
+        "IN",
+        "BETWEEN"
+      ],
+      "type": "string"
+    },
+    "ConcurrentModificationException": {},
+    "DataLakePrincipal": {
+      "description": "The AWS Lake Formation principal. Supported principals are IAM users or IAM roles.",
+      "properties": {
+        "DataLakePrincipalIdentifier": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DataLakePrincipalString"
+            },
+            {
+              "description": "An identifier for the AWS Lake Formation principal."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DataLakePrincipalList": {
+      "items": {
+        "$ref": "#/definitions/DataLakePrincipal"
+      },
+      "maxItems": 10,
+      "minItems": 0,
+      "type": "array"
+    },
+    "DataLakePrincipalString": {
+      "maxLength": 255,
+      "minLength": 1,
+      "type": "string"
+    },
+    "DataLakeResourceType": {
+      "enum": [
+        "CATALOG",
+        "DATABASE",
+        "TABLE",
+        "DATA_LOCATION"
+      ],
+      "type": "string"
+    },
+    "DataLakeSettings": {
+      "description": "A structure representing a list of AWS Lake Formation principals designated as data lake administrators and lists of principal permission entries for default create database and default create table permissions.",
+      "properties": {
+        "CreateDatabaseDefaultPermissions": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PrincipalPermissionsList"
+            },
+            {
+              "description": "A structure representing a list of up to three principal permissions entries for default create database permissions."
+            }
+          ]
+        },
+        "CreateTableDefaultPermissions": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PrincipalPermissionsList"
+            },
+            {
+              "description": "A structure representing a list of up to three principal permissions entries for default create table permissions."
+            }
+          ]
+        },
+        "DataLakeAdmins": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DataLakePrincipalList"
+            },
+            {
+              "description": "A list of AWS Lake Formation principals. Supported principals are IAM users or IAM roles."
+            }
+          ]
+        },
+        "TrustedResourceOwners": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TrustedResourceOwners"
+            },
+            {
+              "description": "<p>A list of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs). The user ARNs can be logged in the resource owner's AWS CloudTrail log.</p> <p>You may want to specify this property when you are in a high-trust boundary, such as the same team or company. </p>"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DataLocationResource": {
+      "description": "A structure for a data location object where permissions are granted or revoked. ",
+      "properties": {
+        "CatalogId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CatalogIdString"
+            },
+            {
+              "description": "The identifier for the Data Catalog where the location is registered with AWS Lake Formation. By default, it is the account ID of the caller."
+            }
+          ]
+        },
+        "ResourceArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceArnString"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) that uniquely identifies the data location resource."
+            }
+          ]
+        }
+      },
+      "required": [
+        "ResourceArn"
+      ],
+      "type": "object"
+    },
+    "DatabaseResource": {
+      "description": "A structure for the database object.",
+      "properties": {
+        "CatalogId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CatalogIdString"
+            },
+            {
+              "description": "The identifier for the Data Catalog. By default, it is the account ID of the caller."
+            }
+          ]
+        },
+        "Name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NameString"
+            },
+            {
+              "description": "The name of the database resource. Unique to the Data Catalog."
+            }
+          ]
+        }
+      },
+      "required": [
+        "Name"
+      ],
+      "type": "object"
+    },
+    "DeregisterResourceRequest": {
+      "properties": {
+        "ResourceArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceArnString"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the resource that you want to deregister."
+            }
+          ]
+        }
+      },
+      "required": [
+        "ResourceArn"
+      ],
+      "title": "DeregisterResourceRequest",
+      "type": "object"
+    },
+    "DeregisterResourceResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "DescribeResourceRequest": {
+      "properties": {
+        "ResourceArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceArnString"
+            },
+            {
+              "description": "The resource ARN."
+            }
+          ]
+        }
+      },
+      "required": [
+        "ResourceArn"
+      ],
+      "title": "DescribeResourceRequest",
+      "type": "object"
+    },
+    "DescribeResourceResponse": {
+      "properties": {
+        "ResourceInfo": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceInfo"
+            },
+            {
+              "description": "A structure containing information about an AWS Lake Formation resource."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DescriptionString": {
+      "maxLength": 2048,
+      "minLength": 0,
+      "type": "string",
+      "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*"
+    },
+    "DetailsMap": {
+      "description": "<p>A structure containing the additional details to be returned in the <code>AdditionalDetails</code> attribute of <code>PrincipalResourcePermissions</code>.</p> <p>If a catalog resource is shared through AWS Resource Access Manager (AWS RAM), then there will exist a corresponding RAM share resource ARN.</p>",
+      "properties": {
+        "ResourceShare": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceShareList"
+            },
+            {
+              "description": "A share resource ARN for a catalog resource shared through AWS Resource Access Manager (AWS RAM)."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "EntityNotFoundException": {},
+    "ErrorDetail": {
+      "description": "Contains details about an error.",
+      "properties": {
+        "ErrorCode": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NameString"
+            },
+            {
+              "description": "The code associated with this error."
+            }
+          ]
+        },
+        "ErrorMessage": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DescriptionString"
+            },
+            {
+              "description": "A message describing the error."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "FieldNameString": {
+      "enum": [
+        "RESOURCE_ARN",
+        "ROLE_ARN",
+        "LAST_MODIFIED"
+      ],
+      "type": "string"
+    },
+    "FilterCondition": {
+      "description": "This structure describes the filtering of columns in a table based on a filter condition.",
+      "properties": {
+        "ComparisonOperator": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ComparisonOperator"
+            },
+            {
+              "description": "The comparison operator used in the filter condition."
+            }
+          ]
+        },
+        "Field": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/FieldNameString"
+            },
+            {
+              "description": "The field to filter in the filter condition."
+            }
+          ]
+        },
+        "StringValueList": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/StringValueList"
+            },
+            {
+              "description": "A string with values used in evaluating the filter condition."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "FilterConditionList": {
+      "items": {
+        "$ref": "#/definitions/FilterCondition"
+      },
+      "maxItems": 20,
+      "minItems": 1,
+      "type": "array"
+    },
+    "GetDataLakeSettingsRequest": {
+      "properties": {
+        "CatalogId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CatalogIdString"
+            },
+            {
+              "description": "The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your AWS Lake Formation environment. "
+            }
+          ]
+        }
+      },
+      "title": "GetDataLakeSettingsRequest",
+      "type": "object"
+    },
+    "GetDataLakeSettingsResponse": {
+      "properties": {
+        "DataLakeSettings": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DataLakeSettings"
+            },
+            {
+              "description": "A structure representing a list of AWS Lake Formation principals designated as data lake administrators."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "GetEffectivePermissionsForPathRequest": {
+      "properties": {
+        "CatalogId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CatalogIdString"
+            },
+            {
+              "description": "The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your AWS Lake Formation environment. "
+            }
+          ]
+        },
+        "MaxResults": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PageSize"
+            },
+            {
+              "description": "The maximum number of results to return."
+            }
+          ]
+        },
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Token"
+            },
+            {
+              "description": "A continuation token, if this is not the first call to retrieve this list."
+            }
+          ]
+        },
+        "ResourceArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceArnString"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the resource for which you want to get permissions."
+            }
+          ]
+        }
+      },
+      "required": [
+        "ResourceArn"
+      ],
+      "title": "GetEffectivePermissionsForPathRequest",
+      "type": "object"
+    },
+    "GetEffectivePermissionsForPathResponse": {
+      "properties": {
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Token"
+            },
+            {
+              "description": "A continuation token, if this is not the first call to retrieve this list."
+            }
+          ]
+        },
+        "Permissions": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PrincipalResourcePermissionsList"
+            },
+            {
+              "description": "A list of the permissions for the specified table or database resource located at the path in Amazon S3."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "GrantPermissionsRequest": {
+      "properties": {
+        "CatalogId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CatalogIdString"
+            },
+            {
+              "description": "The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your AWS Lake Formation environment. "
+            }
+          ]
+        },
+        "Permissions": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PermissionList"
+            },
+            {
+              "description": "The permissions granted to the principal on the resource. AWS Lake Formation defines privileges to grant and revoke access to metadata in the Data Catalog and data organized in underlying data storage such as Amazon S3. AWS Lake Formation requires that each principal be authorized to perform a specific task on AWS Lake Formation resources. "
+            }
+          ]
+        },
+        "PermissionsWithGrantOption": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PermissionList"
+            },
+            {
+              "description": "Indicates a list of the granted permissions that the principal may pass to other users. These permissions may only be a subset of the permissions granted in the <code>Privileges</code>."
+            }
+          ]
+        },
+        "Principal": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DataLakePrincipal"
+            },
+            {
+              "description": "<p>The principal to be granted the permissions on the resource. Supported principals are IAM users or IAM roles, and they are defined by their principal type and their ARN.</p> <p>Note that if you define a resource with a particular ARN, then later delete, and recreate a resource with that same ARN, the resource maintains the permissions already granted. </p>"
+            }
+          ]
+        },
+        "Resource": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Resource"
+            },
+            {
+              "description": "The resource to which permissions are to be granted. Resources in AWS Lake Formation are the Data Catalog, databases, and tables."
+            }
+          ]
+        }
+      },
+      "required": [
+        "Principal",
+        "Resource",
+        "Permissions"
+      ],
+      "title": "GrantPermissionsRequest",
+      "type": "object"
+    },
+    "GrantPermissionsResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "IAMRoleArn": {
+      "pattern": "arn:aws:iam::[0-9]*:role/.*",
+      "type": "string"
+    },
+    "Identifier": {
+      "maxLength": 255,
+      "minLength": 1,
+      "type": "string"
+    },
+    "InternalServiceException": {},
+    "InvalidInputException": {},
+    "LastModifiedTimestamp": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "ListPermissionsRequest": {
+      "properties": {
+        "CatalogId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CatalogIdString"
+            },
+            {
+              "description": "The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your AWS Lake Formation environment. "
+            }
+          ]
+        },
+        "MaxResults": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PageSize"
+            },
+            {
+              "description": "The maximum number of results to return."
+            }
+          ]
+        },
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Token"
+            },
+            {
+              "description": "A continuation token, if this is not the first call to retrieve this list."
+            }
+          ]
+        },
+        "Principal": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DataLakePrincipal"
+            },
+            {
+              "description": "Specifies a principal to filter the permissions returned."
+            }
+          ]
+        },
+        "Resource": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Resource"
+            },
+            {
+              "description": "<p>A resource where you will get a list of the principal permissions.</p> <p>This operation does not support getting privileges on a table with columns. Instead, call this operation on the table, and the operation returns the table and the table w columns.</p>"
+            }
+          ]
+        },
+        "ResourceType": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DataLakeResourceType"
+            },
+            {
+              "description": "Specifies a resource type to filter the permissions returned."
+            }
+          ]
+        }
+      },
+      "title": "ListPermissionsRequest",
+      "type": "object"
+    },
+    "ListPermissionsResponse": {
+      "properties": {
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Token"
+            },
+            {
+              "description": "A continuation token, if this is not the first call to retrieve this list."
+            }
+          ]
+        },
+        "PrincipalResourcePermissions": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PrincipalResourcePermissionsList"
+            },
+            {
+              "description": "A list of principals and their permissions on the resource for the specified principal and resource types."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ListResourcesRequest": {
+      "properties": {
+        "FilterConditionList": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/FilterConditionList"
+            },
+            {
+              "description": "Any applicable row-level and/or column-level filtering conditions for the resources."
+            }
+          ]
+        },
+        "MaxResults": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PageSize"
+            },
+            {
+              "description": "The maximum number of resource results."
+            }
+          ]
+        },
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Token"
+            },
+            {
+              "description": "A continuation token, if this is not the first call to retrieve these resources."
+            }
+          ]
+        }
+      },
+      "title": "ListResourcesRequest",
+      "type": "object"
+    },
+    "ListResourcesResponse": {
+      "properties": {
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Token"
+            },
+            {
+              "description": "A continuation token, if this is not the first call to retrieve these resources."
+            }
+          ]
+        },
+        "ResourceInfoList": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceInfoList"
+            },
+            {
+              "description": "A summary of the data lake resources."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "NameString": {
+      "maxLength": 255,
+      "minLength": 1,
+      "type": "string",
+      "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\t]*"
+    },
+    "NullableBoolean": {
+      "type": "boolean"
+    },
+    "OperationTimeoutException": {},
+    "PageSize": {
+      "maximum": 1000,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "Permission": {
+      "enum": [
+        "ALL",
+        "SELECT",
+        "ALTER",
+        "DROP",
+        "DELETE",
+        "INSERT",
+        "DESCRIBE",
+        "CREATE_DATABASE",
+        "CREATE_TABLE",
+        "DATA_LOCATION_ACCESS"
+      ],
+      "type": "string"
+    },
+    "PermissionList": {
+      "items": {
+        "$ref": "#/definitions/Permission"
+      },
+      "type": "array"
+    },
+    "PrincipalPermissions": {
+      "description": "Permissions granted to a principal.",
+      "properties": {
+        "Permissions": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PermissionList"
+            },
+            {
+              "description": "The permissions that are granted to the principal."
+            }
+          ]
+        },
+        "Principal": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DataLakePrincipal"
+            },
+            {
+              "description": "The principal who is granted permissions."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "PrincipalPermissionsList": {
+      "items": {
+        "$ref": "#/definitions/PrincipalPermissions"
+      },
+      "type": "array"
+    },
+    "PrincipalResourcePermissions": {
+      "description": "The permissions granted or revoked on a resource.",
+      "properties": {
+        "AdditionalDetails": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DetailsMap"
+            },
+            {
+              "description": "This attribute can be used to return any additional details of <code>PrincipalResourcePermissions</code>. Currently returns only as a RAM share resource ARN."
+            }
+          ]
+        },
+        "Permissions": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PermissionList"
+            },
+            {
+              "description": "The permissions to be granted or revoked on the resource."
+            }
+          ]
+        },
+        "PermissionsWithGrantOption": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PermissionList"
+            },
+            {
+              "description": "Indicates whether to grant the ability to grant permissions (as a subset of permissions granted)."
+            }
+          ]
+        },
+        "Principal": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DataLakePrincipal"
+            },
+            {
+              "description": "The Data Lake principal to be granted or revoked permissions."
+            }
+          ]
+        },
+        "Resource": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Resource"
+            },
+            {
+              "description": "The resource where permissions are to be granted or revoked."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "PrincipalResourcePermissionsList": {
+      "items": {
+        "$ref": "#/definitions/PrincipalResourcePermissions"
+      },
+      "type": "array"
+    },
+    "PutDataLakeSettingsRequest": {
+      "properties": {
+        "CatalogId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CatalogIdString"
+            },
+            {
+              "description": "The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your AWS Lake Formation environment. "
+            }
+          ]
+        },
+        "DataLakeSettings": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DataLakeSettings"
+            },
+            {
+              "description": "A structure representing a list of AWS Lake Formation principals designated as data lake administrators."
+            }
+          ]
+        }
+      },
+      "required": [
+        "DataLakeSettings"
+      ],
+      "title": "PutDataLakeSettingsRequest",
+      "type": "object"
+    },
+    "PutDataLakeSettingsResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "RAMResourceShareArn": {
+      "type": "string"
+    },
+    "RegisterResourceRequest": {
+      "properties": {
+        "ResourceArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceArnString"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the resource that you want to register."
+            }
+          ]
+        },
+        "RoleArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/IAMRoleArn"
+            },
+            {
+              "description": "The identifier for the role that registers the resource."
+            }
+          ]
+        },
+        "UseServiceLinkedRole": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NullableBoolean"
+            },
+            {
+              "description": "<p>Designates an AWS Identity and Access Management (IAM) service-linked role by registering this role with the Data Catalog. A service-linked role is a unique type of IAM role that is linked directly to Lake Formation.</p> <p>For more information, see <a href=\"https://docs-aws.amazon.com/lake-formation/latest/dg/service-linked-roles.html\">Using Service-Linked Roles for Lake Formation</a>.</p>"
+            }
+          ]
+        }
+      },
+      "required": [
+        "ResourceArn"
+      ],
+      "title": "RegisterResourceRequest",
+      "type": "object"
+    },
+    "RegisterResourceResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "Resource": {
+      "description": "A structure for the resource.",
+      "properties": {
+        "Catalog": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CatalogResource"
+            },
+            {
+              "description": "The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your AWS Lake Formation environment. "
+            }
+          ]
+        },
+        "DataLocation": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DataLocationResource"
+            },
+            {
+              "description": "The location of an Amazon S3 path where permissions are granted or revoked. "
+            }
+          ]
+        },
+        "Database": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DatabaseResource"
+            },
+            {
+              "description": "The database for the resource. Unique to the Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database permissions to a principal. "
+            }
+          ]
+        },
+        "Table": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TableResource"
+            },
+            {
+              "description": "The table for the resource. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal. "
+            }
+          ]
+        },
+        "TableWithColumns": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TableWithColumnsResource"
+            },
+            {
+              "description": "The table with columns for the resource. A principal with permissions to this resource can select metadata from the columns of a table in the Data Catalog and the underlying data in Amazon S3."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ResourceArnString": {
+      "type": "string"
+    },
+    "ResourceInfo": {
+      "description": "A structure containing information about an AWS Lake Formation resource.",
+      "properties": {
+        "LastModified": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/LastModifiedTimestamp"
+            },
+            {
+              "description": "The date and time the resource was last modified."
+            }
+          ]
+        },
+        "ResourceArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceArnString"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the resource."
+            }
+          ]
+        },
+        "RoleArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/IAMRoleArn"
+            },
+            {
+              "description": "The IAM role that registered a resource."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ResourceInfoList": {
+      "items": {
+        "$ref": "#/definitions/ResourceInfo"
+      },
+      "type": "array"
+    },
+    "ResourceShareList": {
+      "items": {
+        "$ref": "#/definitions/RAMResourceShareArn"
+      },
+      "type": "array"
+    },
+    "RevokePermissionsRequest": {
+      "properties": {
+        "CatalogId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CatalogIdString"
+            },
+            {
+              "description": "The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your AWS Lake Formation environment. "
+            }
+          ]
+        },
+        "Permissions": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PermissionList"
+            },
+            {
+              "description": "The permissions revoked to the principal on the resource. For information about permissions, see <a href=\"https://docs-aws.amazon.com/lake-formation/latest/dg/security-data-access.html\">Security and Access Control to Metadata and Data</a>."
+            }
+          ]
+        },
+        "PermissionsWithGrantOption": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PermissionList"
+            },
+            {
+              "description": "Indicates a list of permissions for which to revoke the grant option allowing the principal to pass permissions to other principals."
+            }
+          ]
+        },
+        "Principal": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DataLakePrincipal"
+            },
+            {
+              "description": "The principal to be revoked permissions on the resource."
+            }
+          ]
+        },
+        "Resource": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Resource"
+            },
+            {
+              "description": "The resource to which permissions are to be revoked."
+            }
+          ]
+        }
+      },
+      "required": [
+        "Principal",
+        "Resource",
+        "Permissions"
+      ],
+      "title": "RevokePermissionsRequest",
+      "type": "object"
+    },
+    "RevokePermissionsResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "StringValue": {
+      "type": "string"
+    },
+    "StringValueList": {
+      "items": {
+        "$ref": "#/definitions/StringValue"
+      },
+      "type": "array"
+    },
+    "TableResource": {
+      "description": "A structure for the table object. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal. ",
+      "properties": {
+        "CatalogId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CatalogIdString"
+            },
+            {
+              "description": "The identifier for the Data Catalog. By default, it is the account ID of the caller."
+            }
+          ]
+        },
+        "DatabaseName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NameString"
+            },
+            {
+              "description": "The name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal. "
+            }
+          ]
+        },
+        "Name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NameString"
+            },
+            {
+              "description": "The name of the table."
+            }
+          ]
+        },
+        "TableWildcard": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TableWildcard"
+            },
+            {
+              "description": "<p>A wildcard object representing every table under a database.</p> <p>At least one of <code>TableResource$Name</code> or <code>TableResource$TableWildcard</code> is required.</p>"
+            }
+          ]
+        }
+      },
+      "required": [
+        "DatabaseName"
+      ],
+      "type": "object"
+    },
+    "TableWildcard": {
+      "description": "A wildcard object representing every table under a database.",
+      "properties": {},
+      "type": "object"
+    },
+    "TableWithColumnsResource": {
+      "description": "<p>A structure for a table with columns object. This object is only used when granting a SELECT permission.</p> <p>This object must take a value for at least one of <code>ColumnsNames</code>, <code>ColumnsIndexes</code>, or <code>ColumnsWildcard</code>.</p>",
+      "properties": {
+        "CatalogId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CatalogIdString"
+            },
+            {
+              "description": "The identifier for the Data Catalog. By default, it is the account ID of the caller."
+            }
+          ]
+        },
+        "ColumnNames": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ColumnNames"
+            },
+            {
+              "description": "The list of column names for the table. At least one of <code>ColumnNames</code> or <code>ColumnWildcard</code> is required."
+            }
+          ]
+        },
+        "ColumnWildcard": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ColumnWildcard"
+            },
+            {
+              "description": "A wildcard specified by a <code>ColumnWildcard</code> object. At least one of <code>ColumnNames</code> or <code>ColumnWildcard</code> is required."
+            }
+          ]
+        },
+        "DatabaseName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NameString"
+            },
+            {
+              "description": "The name of the database for the table with columns resource. Unique to the Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal. "
+            }
+          ]
+        },
+        "Name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NameString"
+            },
+            {
+              "description": "The name of the table resource. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal. "
+            }
+          ]
+        }
+      },
+      "required": [
+        "DatabaseName",
+        "Name"
+      ],
+      "type": "object"
+    },
+    "Token": {
+      "type": "string"
+    },
+    "TrustedResourceOwners": {
+      "items": {
+        "$ref": "#/definitions/CatalogIdString"
+      },
+      "type": "array"
+    },
+    "UpdateResourceRequest": {
+      "properties": {
+        "ResourceArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceArnString"
+            },
+            {
+              "description": "The resource ARN."
+            }
+          ]
+        },
+        "RoleArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/IAMRoleArn"
+            },
+            {
+              "description": "The new role to use for the given resource registered in AWS Lake Formation."
+            }
+          ]
+        }
+      },
+      "required": [
+        "RoleArn",
+        "ResourceArn"
+      ],
+      "title": "UpdateResourceRequest",
+      "type": "object"
+    },
+    "UpdateResourceResponse": {
+      "properties": {},
+      "type": "object"
+    }
+  },
+  "securityDefinitions": {
+    "hmac": {
+      "description": "Amazon Signature authorization v4",
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey",
+      "x-amazon-apigateway-authtype": "awsSigv4"
+    }
+  },
+  "security": [
+    {
+      "hmac": []
+    }
+  ],
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://docs.aws.amazon.com/lakeformation/"
+  },
+  "x-components": {
+    "parameters": {
+      "X-Amz-Algorithm": {
+        "in": "header",
+        "name": "X-Amz-Algorithm",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Content-Sha256": {
+        "in": "header",
+        "name": "X-Amz-Content-Sha256",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Credential": {
+        "in": "header",
+        "name": "X-Amz-Credential",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Date": {
+        "in": "header",
+        "name": "X-Amz-Date",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Security-Token": {
+        "in": "header",
+        "name": "X-Amz-Security-Token",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Signature": {
+        "in": "header",
+        "name": "X-Amz-Signature",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-SignedHeaders": {
+        "in": "header",
+        "name": "X-Amz-SignedHeaders",
+        "required": false,
+        "type": "string"
+      }
+    }
+  },
+  "x-hasEquivalentPaths": true
+}

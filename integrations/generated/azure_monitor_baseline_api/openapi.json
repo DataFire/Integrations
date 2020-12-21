@@ -6,7 +6,7 @@
   "host": "management.azure.com",
   "info": {
     "title": "MonitorManagementClient",
-    "version": "2017-11-01-preview",
+    "version": "2018-09-01",
     "x-apisguru-categories": [
       "cloud"
     ],
@@ -19,7 +19,7 @@
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/monitor/resource-manager/microsoft.insights/preview/2017-11-01-preview/baseline_API.json",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/monitor/resource-manager/Microsoft.Insights/stable/2018-09-01/baseline_API.json",
         "version": "2.0"
       }
     ],
@@ -117,6 +117,22 @@
       "type": "string",
       "x-ms-parameter-location": "method"
     },
+    "MetricNamesParameter": {
+      "description": "The names of the metrics (comma separated) to retrieve.",
+      "in": "query",
+      "name": "metricnames",
+      "required": false,
+      "type": "string",
+      "x-ms-parameter-location": "method"
+    },
+    "MetricNamespaceParameter": {
+      "description": "Metric namespace to query metric definitions for.",
+      "in": "query",
+      "name": "metricnamespace",
+      "required": false,
+      "type": "string",
+      "x-ms-parameter-location": "method"
+    },
     "SensitivitiesParameter": {
       "description": "The list of sensitivities (comma separated) to retrieve.",
       "in": "query",
@@ -135,6 +151,122 @@
     }
   },
   "paths": {
+    "/{resourceUri}/providers/microsoft.insights/baseline": {
+      "get": {
+        "description": "**Gets the baseline values for a resource**.",
+        "operationId": "Baseline_Get",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ExtendedResourceUriParameter"
+          },
+          {
+            "$ref": "#/parameters/MetricNamesParameter"
+          },
+          {
+            "$ref": "#/parameters/TimespanParameter"
+          },
+          {
+            "$ref": "#/parameters/IntervalParameter"
+          },
+          {
+            "$ref": "#/parameters/AggregationParameter"
+          },
+          {
+            "$ref": "#/parameters/SensitivitiesParameter"
+          },
+          {
+            "$ref": "#/parameters/BaselineResultTypeParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/MetricNamespaceParameter"
+          },
+          {
+            "description": "The **$filter** is used to describe a set of dimensions with their concrete values which produce a specific metric's time series, in which a baseline is requested for.",
+            "in": "query",
+            "name": "$filter",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful request to get the list of metric values.",
+            "schema": {
+              "$ref": "#/definitions/BaselineResponse"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "tags": [
+          "Baseline"
+        ],
+        "x-ms-examples": {
+          "Get Metric for data": {
+            "parameters": {
+              "aggregation": "Average",
+              "api-version": "2018-09-01",
+              "interval": "PT1H",
+              "metricName": "PercentageCpu",
+              "resourceUri": "subscriptions/b368ca2f-e298-46b7-b0ab-012281956afa/resourceGroups/vms/providers/Microsoft.Compute/virtualMachines/vm1",
+              "sensitivities": "Low,Medium",
+              "timespan": "2017-04-14T02:20:00Z/2017-04-14T04:20:00Z"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "id": "/subscriptions/b368ca2f-e298-46b7-b0ab-012281956afa/resourceGroups/vms/providers/Microsoft.Compute/virtualMachines/vm1/providers/Microsoft.Insights/baseline/PercentageCpu",
+                  "name": {
+                    "value": "PercentageCpu"
+                  },
+                  "properties": {
+                    "aggregation": "Average",
+                    "baseline": [
+                      {
+                        "highThresholds": [
+                          90.3453,
+                          91.3453
+                        ],
+                        "lowThresholds": [
+                          30,
+                          31.1
+                        ],
+                        "sensitivity": "Low"
+                      },
+                      {
+                        "highThresholds": [
+                          70.3453,
+                          71.3453
+                        ],
+                        "lowThresholds": [
+                          50,
+                          51.1
+                        ],
+                        "sensitivity": "Medium"
+                      }
+                    ],
+                    "interval": "PT1H",
+                    "timespan": "2017-04-14T02:20:00Z/2017-04-14T04:20:00Z",
+                    "timestamps": [
+                      "2017-04-14T02:20:00Z",
+                      "2017-04-14T03:20:00Z"
+                    ]
+                  },
+                  "type": "Microsoft.Insights/baseline"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/{resourceUri}/providers/microsoft.insights/baseline/{metricName}": {
       "get": {
         "description": "**Gets the baseline values for a specific metric**.",
@@ -163,53 +295,21 @@
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/MetricNamespaceParameter"
+          },
+          {
+            "description": "The **$filter** is used to describe a set of dimensions with their concrete values which produce a specific metric's time series, in which a baseline is requested for.",
+            "in": "query",
+            "name": "$filter",
+            "required": false,
+            "type": "string"
           }
         ],
         "responses": {
           "200": {
             "description": "Successful request to get the list of metric values.",
-            "examples": {
-              "application/json": {
-                "id": "/subscriptions/b368ca2f-e298-46b7-b0ab-012281956afa/resourceGroups/vms/providers/Microsoft.Compute/virtualMachines/vm1/providers/Microsoft.Insights/baseline/PercentageCpu",
-                "name": {
-                  "value": "PercentageCpu"
-                },
-                "properties": {
-                  "aggregation": "Average",
-                  "baseline": [
-                    {
-                      "highThresholds": [
-                        90.3453,
-                        91.3453
-                      ],
-                      "lowThresholds": [
-                        30,
-                        31.1
-                      ],
-                      "sensitivity": "Low"
-                    },
-                    {
-                      "highThresholds": [
-                        70.3453,
-                        71.3453
-                      ],
-                      "lowThresholds": [
-                        50,
-                        51.1
-                      ],
-                      "sensitivity": "Medium"
-                    }
-                  ],
-                  "interval": "PT1H",
-                  "timespan": "2017-04-14T02:20:00Z/2017-04-14T04:20:00Z",
-                  "timestamps": [
-                    "2017-04-14T02:20:00Z",
-                    "2017-04-14T03:20:00Z"
-                  ]
-                },
-                "type": "Microsoft.Insights/baseline"
-              }
-            },
             "schema": {
               "$ref": "#/definitions/BaselineResponse"
             }
@@ -228,7 +328,7 @@
           "Get Metric for data": {
             "parameters": {
               "aggregation": "Average",
-              "api-version": "2017-11-01-preview",
+              "api-version": "2018-09-01",
               "interval": "PT1H",
               "metricName": "PercentageCpu",
               "resourceUri": "subscriptions/b368ca2f-e298-46b7-b0ab-012281956afa/resourceGroups/vms/providers/Microsoft.Compute/virtualMachines/vm1",
@@ -283,7 +383,7 @@
           "Get Metric for metadata": {
             "parameters": {
               "aggregation": "Average",
-              "api-version": "2017-11-01-preview",
+              "api-version": "2018-09-01",
               "interval": "PT1H",
               "metricName": "PercentageCpu",
               "resourceUri": "subscriptions/b368ca2f-e298-46b7-b0ab-012281956afa/resourceGroups/vms/providers/Microsoft.Compute/virtualMachines/vm1",
@@ -344,7 +444,7 @@
           "type": "array"
         },
         "sensitivity": {
-          "description": "the sensitivity of the baseline.",
+          "description": "The sensitivity of the baseline.",
           "enum": [
             "Low",
             "Medium",
@@ -369,10 +469,10 @@
       "properties": {
         "name": {
           "$ref": "#/definitions/LocalizableString",
-          "description": "the name of the metadata."
+          "description": "The name of the metadata."
         },
         "value": {
-          "description": "the value of the metadata.",
+          "description": "The value of the metadata.",
           "type": "string"
         }
       }
@@ -385,7 +485,7 @@
           "type": "string"
         },
         "baseline": {
-          "description": "the baseline values for each sensitivity.",
+          "description": "The baseline values for each sensitivity.",
           "items": {
             "$ref": "#/definitions/Baseline"
           },
@@ -397,20 +497,20 @@
           "type": "string"
         },
         "metadata": {
-          "description": "the baseline metadata values.",
+          "description": "The baseline metadata values.",
           "items": {
             "$ref": "#/definitions/BaselineMetadataValue"
           },
           "type": "array"
         },
         "timespan": {
-          "description": "The timespan for which the data was retrieved. Its value consists of two datatimes concatenated, separated by '/'.  This may be adjusted in the future and returned back from what was originally requested.",
+          "description": "The timespan for which the data was retrieved. Its value consists of two datetimes concatenated, separated by '/'.  This may be adjusted in the future and returned back from what was originally requested.",
           "type": "string"
         },
         "timestamps": {
-          "description": "the array of timestamps of the baselines.",
+          "description": "The array of timestamps of the baselines.",
           "items": {
-            "description": "the timestamp for the baseline value in ISO 8601 format.",
+            "description": "The timestamp for the baseline value in ISO 8601 format.",
             "format": "date-time",
             "type": "string"
           },
@@ -422,22 +522,22 @@
       "description": "The response to a baseline query.",
       "properties": {
         "id": {
-          "description": "the metric baseline Id.",
+          "description": "The metric baseline ID.",
           "readOnly": true,
           "type": "string"
         },
         "name": {
           "$ref": "#/definitions/LocalizableString",
-          "description": "the name and the display name of the metric, i.e. it is localizable string.",
+          "description": "The name and the display name of the metric, i.e. it is localizable string.",
           "readOnly": true
         },
         "properties": {
           "$ref": "#/definitions/BaselineProperties",
-          "description": "the properties of the baseline.",
+          "description": "The properties of the baseline.",
           "x-ms-client-flatten": true
         },
         "type": {
-          "description": "the resource type of the baseline resource.",
+          "description": "The resource type of the baseline resource.",
           "readOnly": true,
           "type": "string"
         }
@@ -462,11 +562,11 @@
       "description": "The localizable string class.",
       "properties": {
         "localizedValue": {
-          "description": "the locale specific value.",
+          "description": "The locale specific value.",
           "type": "string"
         },
         "value": {
-          "description": "the invariant value.",
+          "description": "The invariant value.",
           "type": "string"
         }
       },

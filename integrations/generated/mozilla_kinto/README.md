@@ -1,18 +1,15 @@
 # @datafire/mozilla_kinto
 
-Client library for kinto
+Client library for Remote Settings
 
 ## Installation and Usage
 ```bash
 npm install --save @datafire/mozilla_kinto
 ```
 ```js
-let mozilla_kinto = require('@datafire/mozilla_kinto').create({
-  username: "",
-  password: ""
-});
+let mozilla_kinto = require('@datafire/mozilla_kinto').create();
 
-mozilla_kinto.get_changess({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -155,6 +152,9 @@ mozilla_kinto.get_buckets({}, context)
 * output `object`
   * data `array`
     * items `object`
+      * collection:schema `object`
+      * group:schema `object`
+      * record:schema `object`
 
 ### get_changess
 
@@ -280,6 +280,48 @@ mozilla_kinto.get_record({
     * write `array`
       * items `string`
 
+### delete_attachment
+
+
+
+```js
+mozilla_kinto.delete_attachment({
+  "bucket_id": "",
+  "collection_id": "",
+  "id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * bucket_id **required** `string`
+  * collection_id **required** `string`
+  * id **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### create_attachment
+
+
+
+```js
+mozilla_kinto.create_attachment({
+  "bucket_id": "",
+  "collection_id": "",
+  "id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * bucket_id **required** `string`
+  * collection_id **required** `string`
+  * id **required** `string`
+
+#### Output
+*Output schema unknown*
+
 ### get_collection
 
 
@@ -394,6 +436,9 @@ mozilla_kinto.get_bucket({
 #### Output
 * output `object`
   * data `object`
+    * collection:schema `object`
+    * group:schema `object`
+    * record:schema `object`
   * permissions `object`
     * collection:create `array`
       * items `string`

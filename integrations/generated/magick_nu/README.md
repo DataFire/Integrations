@@ -9,9 +9,7 @@ npm install --save @datafire/magick_nu
 ```js
 let magick_nu = require('@datafire/magick_nu').create();
 
-magick_nu.getStrategiesStrategyIdStrategyId({
-  "strategyId": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

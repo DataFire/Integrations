@@ -16,7 +16,7 @@ let hubspot = require('@datafire/hubspot').create({
   redirect_uri: ""
 });
 
-hubspot.getRecentlyModifiedContacts({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

@@ -1,6 +1,6 @@
 # @datafire/medium
 
-Client library for Medium.com
+Client library for Medium.com - Unofficial API Spec
 
 ## Installation and Usage
 ```bash
@@ -16,7 +16,7 @@ let medium = require('@datafire/medium').create({
   redirect_uri: ""
 });
 
-medium.me.get(null).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

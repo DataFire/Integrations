@@ -12,9 +12,7 @@ let fantasydata_nba_v3_rotoballer_premium_news = require('@datafire/fantasydata_
   apiKeyQuery: ""
 });
 
-fantasydata_nba_v3_rotoballer_premium_news.PremiumNews({
-  "format": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

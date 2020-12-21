@@ -1,29 +1,34 @@
 {
   "swagger": "2.0",
-  "schemes": [
-    "https"
-  ],
-  "host": "www.googleapis.com",
-  "basePath": "/adexchangebuyer/v1.4",
   "info": {
     "contact": {
       "name": "Google",
-      "url": "https://google.com"
+      "url": "https://google.com",
+      "x-twitter": "youtube"
     },
     "description": "Accesses your bidding-account information, submits creatives for validation, finds available direct deals, and retrieves performance reports.",
-    "title": "Ad Exchange Buyer",
+    "license": {
+      "name": "Creative Commons Attribution 3.0",
+      "url": "http://creativecommons.org/licenses/by/3.0/"
+    },
+    "termsOfService": "https://developers.google.com/terms/",
+    "title": "Ad Exchange Buyer API",
     "version": "v1.4",
     "x-apiClientRegistration": {
       "url": "https://console.developers.google.com"
     },
+    "x-apisguru-categories": [
+      "analytics",
+      "media"
+    ],
     "x-logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.doubleclickbygoogle.com_static_core_img_doubleclick-google-logo-wide.svg"
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
     },
     "x-origin": [
       {
         "converter": {
           "url": "https://github.com/lucybot/api-spec-converter",
-          "version": "2.6.2"
+          "version": "2.7.31"
         },
         "format": "google",
         "url": "https://www.googleapis.com/discovery/v1/apis/adexchangebuyer/v1.4/rest",
@@ -38,122 +43,65 @@
       "type": "openapi"
     }
   },
-  "externalDocs": {
-    "url": "https://developers.google.com/ad-exchange/buyer-rest"
-  },
-  "securityDefinitions": {
-    "Oauth2": {
-      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 authentication",
-      "flow": "implicit",
-      "scopes": {
-        "https://www.googleapis.com/auth/adexchange.buyer": "Manage your Ad Exchange buyer account configuration"
-      },
-      "type": "oauth2"
-    },
-    "offline": {
-      "type": "oauth2",
-      "flow": "accessCode",
-      "scopes": {
-        "https://www.googleapis.com/auth/adexchange.buyer": "Manage your Ad Exchange buyer account configuration"
-      },
-      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "tokenUrl": "https://www.googleapis.com/oauth2/v4/token",
-      "description": "Allows offline access using a refresh_token"
-    }
-  },
-  "parameters": {
-    "alt": {
-      "default": "json",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ],
-      "in": "query",
-      "name": "alt",
-      "type": "string"
-    },
-    "fields": {
-      "description": "Selector specifying which fields to include in a partial response.",
-      "in": "query",
-      "name": "fields",
-      "type": "string"
-    },
-    "key": {
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
-      "in": "query",
-      "name": "key",
-      "type": "string"
-    },
-    "oauth_token": {
-      "description": "OAuth 2.0 token for the current user.",
-      "in": "query",
-      "name": "oauth_token",
-      "type": "string"
-    },
-    "prettyPrint": {
-      "default": true,
-      "description": "Returns response with indentations and line breaks.",
-      "in": "query",
-      "name": "prettyPrint",
-      "type": "boolean"
-    },
-    "quotaUser": {
-      "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
-      "in": "query",
-      "name": "quotaUser",
-      "type": "string"
-    },
-    "userIp": {
-      "description": "Deprecated. Please use quotaUser instead.",
-      "in": "query",
-      "name": "userIp",
-      "type": "string"
-    }
-  },
-  "tags": [
-    {
-      "name": "accounts"
-    },
-    {
-      "name": "billingInfo"
-    },
-    {
-      "name": "budget"
-    },
-    {
-      "name": "creatives"
-    },
-    {
-      "name": "marketplacedeals"
-    },
-    {
-      "name": "marketplacenotes"
-    },
-    {
-      "name": "marketplaceprivateauction"
-    },
-    {
-      "name": "performanceReport"
-    },
-    {
-      "name": "pretargetingConfig"
-    },
-    {
-      "name": "products"
-    },
-    {
-      "name": "proposals"
-    },
-    {
-      "name": "pubprofiles"
-    }
+  "host": "www.googleapis.com",
+  "basePath": "/adexchangebuyer/v1.4",
+  "schemes": [
+    "https"
   ],
   "paths": {
     "/accounts": {
+      "parameters": [
+        {
+          "description": "Data format for the response.",
+          "enum": [
+            "json"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
+        },
+        {
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
+        },
+        {
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
+        },
+        {
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
+        },
+        {
+          "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
+        },
+        {
+          "description": "Deprecated. Please use quotaUser instead.",
+          "in": "query",
+          "name": "userIp",
+          "type": "string"
+        }
+      ],
       "get": {
-        "description": "Retrieves the authenticated user's list of accounts.",
-        "operationId": "accounts.list",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -166,109 +114,72 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adexchange.buyer"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
         ],
         "tags": [
           "accounts"
-        ]
-      },
-      "parameters": [
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/userIp"
-        }
-      ]
+        ],
+        "description": "Retrieves the authenticated user's list of accounts.",
+        "operationId": "adexchangebuyer.accounts.list"
+      }
     },
     "/accounts/{id}": {
-      "get": {
-        "description": "Gets one account by ID.",
-        "operationId": "accounts.get",
-        "parameters": [
-          {
-            "description": "The account id",
-            "in": "path",
-            "name": "id",
-            "required": true,
-            "type": "integer"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful response",
-            "schema": {
-              "$ref": "#/definitions/Account"
-            }
-          }
-        },
-        "security": [
-          {
-            "Oauth2": [
-              "https://www.googleapis.com/auth/adexchange.buyer"
-            ]
-          }
-        ],
-        "tags": [
-          "accounts"
-        ]
-      },
       "parameters": [
         {
-          "$ref": "#/parameters/alt"
+          "description": "Data format for the response.",
+          "enum": [
+            "json"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/fields"
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/key"
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/oauth_token"
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/prettyPrint"
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
         },
         {
-          "$ref": "#/parameters/quotaUser"
+          "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/userIp"
+          "description": "Deprecated. Please use quotaUser instead.",
+          "in": "query",
+          "name": "userIp",
+          "type": "string"
         }
       ],
-      "patch": {
-        "description": "Updates an existing account. This method supports patch semantics.",
-        "operationId": "accounts.patch",
+      "get": {
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Account"
-            }
-          },
-          {
-            "description": "Confirmation for erasing bidder and cookie matching urls.",
-            "in": "query",
-            "name": "confirmUnsafeAccountChange",
-            "type": "boolean"
-          },
           {
             "description": "The account id",
             "in": "path",
@@ -289,23 +200,85 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adexchange.buyer"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
         ],
         "tags": [
           "accounts"
-        ]
+        ],
+        "description": "Gets one account by ID.",
+        "operationId": "adexchangebuyer.accounts.get"
+      },
+      "patch": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The account id",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Confirmation for erasing bidder and cookie matching urls.",
+            "in": "query",
+            "name": "confirmUnsafeAccountChange",
+            "type": "boolean"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Account"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/Account"
+            }
+          }
+        },
+        "security": [
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/adexchange.buyer"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/adexchange.buyer"
+            ]
+          }
+        ],
+        "tags": [
+          "accounts"
+        ],
+        "description": "Updates an existing account. This method supports patch semantics.",
+        "operationId": "adexchangebuyer.accounts.patch"
       },
       "put": {
-        "description": "Updates an existing account.",
-        "operationId": "accounts.update",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Account"
-            }
+            "description": "The account id",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
           },
           {
             "description": "Confirmation for erasing bidder and cookie matching urls.",
@@ -314,11 +287,11 @@
             "type": "boolean"
           },
           {
-            "description": "The account id",
-            "in": "path",
-            "name": "id",
-            "required": true,
-            "type": "integer"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Account"
+            }
           }
         ],
         "responses": {
@@ -333,18 +306,72 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adexchange.buyer"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
         ],
         "tags": [
           "accounts"
-        ]
+        ],
+        "description": "Updates an existing account.",
+        "operationId": "adexchangebuyer.accounts.update"
       }
     },
     "/billinginfo": {
+      "parameters": [
+        {
+          "description": "Data format for the response.",
+          "enum": [
+            "json"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
+        },
+        {
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
+        },
+        {
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
+        },
+        {
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
+        },
+        {
+          "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
+        },
+        {
+          "description": "Deprecated. Please use quotaUser instead.",
+          "in": "query",
+          "name": "userIp",
+          "type": "string"
+        }
+      ],
       "get": {
-        "description": "Retrieves a list of billing information for all accounts of the authenticated user.",
-        "operationId": "billingInfo.list",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -357,41 +384,71 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adexchange.buyer"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
         ],
         "tags": [
           "billingInfo"
-        ]
-      },
-      "parameters": [
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/userIp"
-        }
-      ]
+        ],
+        "description": "Retrieves a list of billing information for all accounts of the authenticated user.",
+        "operationId": "adexchangebuyer.billingInfo.list"
+      }
     },
     "/billinginfo/{accountId}": {
+      "parameters": [
+        {
+          "description": "Data format for the response.",
+          "enum": [
+            "json"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
+        },
+        {
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
+        },
+        {
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
+        },
+        {
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
+        },
+        {
+          "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
+        },
+        {
+          "description": "Deprecated. Please use quotaUser instead.",
+          "in": "query",
+          "name": "userIp",
+          "type": "string"
+        }
+      ],
       "get": {
-        "description": "Returns the billing information for one account specified by account ID.",
-        "operationId": "billingInfo.get",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "The account id.",
@@ -413,41 +470,71 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adexchange.buyer"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
         ],
         "tags": [
           "billingInfo"
-        ]
-      },
-      "parameters": [
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/userIp"
-        }
-      ]
+        ],
+        "description": "Returns the billing information for one account specified by account ID.",
+        "operationId": "adexchangebuyer.billingInfo.get"
+      }
     },
     "/billinginfo/{accountId}/{billingId}": {
+      "parameters": [
+        {
+          "description": "Data format for the response.",
+          "enum": [
+            "json"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
+        },
+        {
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
+        },
+        {
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
+        },
+        {
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
+        },
+        {
+          "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
+        },
+        {
+          "description": "Deprecated. Please use quotaUser instead.",
+          "in": "query",
+          "name": "userIp",
+          "type": "string"
+        }
+      ],
       "get": {
-        "description": "Returns the budget information for the adgroup specified by the accountId and billingId.",
-        "operationId": "budget.get",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "The account id to get the budget information for.",
@@ -476,39 +563,25 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adexchange.buyer"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
         ],
         "tags": [
           "budget"
-        ]
+        ],
+        "description": "Returns the budget information for the adgroup specified by the accountId and billingId.",
+        "operationId": "adexchangebuyer.budget.get"
       },
-      "parameters": [
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/userIp"
-        }
-      ],
       "patch": {
-        "description": "Updates the budget amount for the budget of the adgroup specified by the accountId and billingId, with the budget amount in the request. This method supports patch semantics.",
-        "operationId": "budget.patch",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "The account id associated with the budget being updated.",
@@ -544,16 +617,25 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adexchange.buyer"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
         ],
         "tags": [
           "budget"
-        ]
+        ],
+        "description": "Updates the budget amount for the budget of the adgroup specified by the accountId and billingId, with the budget amount in the request. This method supports patch semantics.",
+        "operationId": "adexchangebuyer.budget.patch"
       },
       "put": {
-        "description": "Updates the budget amount for the budget of the adgroup specified by the accountId and billingId, with the budget amount in the request.",
-        "operationId": "budget.update",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "The account id associated with the budget being updated.",
@@ -589,18 +671,71 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adexchange.buyer"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
         ],
         "tags": [
           "budget"
-        ]
+        ],
+        "description": "Updates the budget amount for the budget of the adgroup specified by the accountId and billingId, with the budget amount in the request.",
+        "operationId": "adexchangebuyer.budget.update"
       }
     },
     "/creatives": {
+      "parameters": [
+        {
+          "description": "Data format for the response.",
+          "enum": [
+            "json"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
+        },
+        {
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
+        },
+        {
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
+        },
+        {
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
+        },
+        {
+          "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
+        },
+        {
+          "description": "Deprecated. Please use quotaUser instead.",
+          "in": "query",
+          "name": "userIp",
+          "type": "string"
+        }
+      ],
       "get": {
-        "description": "Retrieves a list of the authenticated user's active creatives. A creative will be available 30-40 minutes after submission.",
-        "operationId": "creatives.list",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "collectionFormat": "multi",
@@ -673,39 +808,25 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adexchange.buyer"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
         ],
         "tags": [
           "creatives"
-        ]
+        ],
+        "description": "Retrieves a list of the authenticated user's active creatives. A creative will be available 30-40 minutes after submission.",
+        "operationId": "adexchangebuyer.creatives.list"
       },
-      "parameters": [
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/userIp"
-        }
-      ],
       "post": {
-        "description": "Submit a new creative.",
-        "operationId": "creatives.insert",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "in": "body",
@@ -727,18 +848,71 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adexchange.buyer"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
         ],
         "tags": [
           "creatives"
-        ]
+        ],
+        "description": "Submit a new creative.",
+        "operationId": "adexchangebuyer.creatives.insert"
       }
     },
     "/creatives/{accountId}/{buyerCreativeId}": {
+      "parameters": [
+        {
+          "description": "Data format for the response.",
+          "enum": [
+            "json"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
+        },
+        {
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
+        },
+        {
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
+        },
+        {
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
+        },
+        {
+          "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
+        },
+        {
+          "description": "Deprecated. Please use quotaUser instead.",
+          "in": "query",
+          "name": "userIp",
+          "type": "string"
+        }
+      ],
       "get": {
-        "description": "Gets the status for a single creative. A creative will be available 30-40 minutes after submission.",
-        "operationId": "creatives.get",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "The id for the account that will serve this creative.",
@@ -767,64 +941,68 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adexchange.buyer"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
         ],
         "tags": [
           "creatives"
-        ]
-      },
-      "parameters": [
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/userIp"
-        }
-      ]
+        ],
+        "description": "Gets the status for a single creative. A creative will be available 30-40 minutes after submission.",
+        "operationId": "adexchangebuyer.creatives.get"
+      }
     },
     "/creatives/{accountId}/{buyerCreativeId}/addDeal/{dealId}": {
       "parameters": [
         {
-          "$ref": "#/parameters/alt"
+          "description": "Data format for the response.",
+          "enum": [
+            "json"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/fields"
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/key"
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/oauth_token"
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/prettyPrint"
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
         },
         {
-          "$ref": "#/parameters/quotaUser"
+          "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/userIp"
+          "description": "Deprecated. Please use quotaUser instead.",
+          "in": "query",
+          "name": "userIp",
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Add a deal id association for the creative.",
-        "operationId": "creatives.addDeal",
         "parameters": [
           {
             "description": "The id for the account that will serve this creative.",
@@ -857,18 +1035,71 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adexchange.buyer"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
         ],
         "tags": [
           "creatives"
-        ]
+        ],
+        "description": "Add a deal id association for the creative.",
+        "operationId": "adexchangebuyer.creatives.addDeal"
       }
     },
     "/creatives/{accountId}/{buyerCreativeId}/listDeals": {
+      "parameters": [
+        {
+          "description": "Data format for the response.",
+          "enum": [
+            "json"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
+        },
+        {
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
+        },
+        {
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
+        },
+        {
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
+        },
+        {
+          "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
+        },
+        {
+          "description": "Deprecated. Please use quotaUser instead.",
+          "in": "query",
+          "name": "userIp",
+          "type": "string"
+        }
+      ],
       "get": {
-        "description": "Lists the external deal ids associated with the creative.",
-        "operationId": "creatives.listDeals",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "The id for the account that will serve this creative.",
@@ -897,64 +1128,68 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adexchange.buyer"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
         ],
         "tags": [
           "creatives"
-        ]
-      },
-      "parameters": [
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/userIp"
-        }
-      ]
+        ],
+        "description": "Lists the external deal ids associated with the creative.",
+        "operationId": "adexchangebuyer.creatives.listDeals"
+      }
     },
     "/creatives/{accountId}/{buyerCreativeId}/removeDeal/{dealId}": {
       "parameters": [
         {
-          "$ref": "#/parameters/alt"
+          "description": "Data format for the response.",
+          "enum": [
+            "json"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/fields"
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/key"
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/oauth_token"
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/prettyPrint"
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
         },
         {
-          "$ref": "#/parameters/quotaUser"
+          "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/userIp"
+          "description": "Deprecated. Please use quotaUser instead.",
+          "in": "query",
+          "name": "userIp",
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Remove a deal id associated with the creative.",
-        "operationId": "creatives.removeDeal",
         "parameters": [
           {
             "description": "The id for the account that will serve this creative.",
@@ -987,18 +1222,71 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adexchange.buyer"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
         ],
         "tags": [
           "creatives"
-        ]
+        ],
+        "description": "Remove a deal id associated with the creative.",
+        "operationId": "adexchangebuyer.creatives.removeDeal"
       }
     },
     "/performancereport": {
+      "parameters": [
+        {
+          "description": "Data format for the response.",
+          "enum": [
+            "json"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
+        },
+        {
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
+        },
+        {
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
+        },
+        {
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
+        },
+        {
+          "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
+        },
+        {
+          "description": "Deprecated. Please use quotaUser instead.",
+          "in": "query",
+          "name": "userIp",
+          "type": "string"
+        }
+      ],
       "get": {
-        "description": "Retrieves the authenticated user's list of performance metrics.",
-        "operationId": "performanceReport.list",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "The account id to get the reports.",
@@ -1015,6 +1303,13 @@
             "type": "string"
           },
           {
+            "description": "The start time of the report in ISO 8601 timestamp format using UTC.",
+            "in": "query",
+            "name": "startDateTime",
+            "required": true,
+            "type": "string"
+          },
+          {
             "description": "Maximum number of entries returned on one result page. If not set, the default is 100. Optional.",
             "in": "query",
             "maximum": 1000,
@@ -1026,13 +1321,6 @@
             "description": "A continuation token, used to page through performance reports. To retrieve the next page, set this parameter to the value of \"nextPageToken\" from the previous response. Optional.",
             "in": "query",
             "name": "pageToken",
-            "type": "string"
-          },
-          {
-            "description": "The start time of the report in ISO 8601 timestamp format using UTC.",
-            "in": "query",
-            "name": "startDateTime",
-            "required": true,
             "type": "string"
           }
         ],
@@ -1048,41 +1336,71 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adexchange.buyer"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
         ],
         "tags": [
           "performanceReport"
-        ]
-      },
-      "parameters": [
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/userIp"
-        }
-      ]
+        ],
+        "description": "Retrieves the authenticated user's list of performance metrics.",
+        "operationId": "adexchangebuyer.performanceReport.list"
+      }
     },
     "/pretargetingconfigs/{accountId}": {
+      "parameters": [
+        {
+          "description": "Data format for the response.",
+          "enum": [
+            "json"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
+        },
+        {
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
+        },
+        {
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
+        },
+        {
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
+        },
+        {
+          "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
+        },
+        {
+          "description": "Deprecated. Please use quotaUser instead.",
+          "in": "query",
+          "name": "userIp",
+          "type": "string"
+        }
+      ],
       "get": {
-        "description": "Retrieves a list of the authenticated user's pretargeting configurations.",
-        "operationId": "pretargetingConfig.list",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "The account id to get the pretargeting configs for.",
@@ -1104,39 +1422,25 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adexchange.buyer"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
         ],
         "tags": [
           "pretargetingConfig"
-        ]
+        ],
+        "description": "Retrieves a list of the authenticated user's pretargeting configurations.",
+        "operationId": "adexchangebuyer.pretargetingConfig.list"
       },
-      "parameters": [
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/userIp"
-        }
-      ],
       "post": {
-        "description": "Inserts a new pretargeting configuration.",
-        "operationId": "pretargetingConfig.insert",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "The account id to insert the pretargeting config for.",
@@ -1165,18 +1469,68 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adexchange.buyer"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
         ],
         "tags": [
           "pretargetingConfig"
-        ]
+        ],
+        "description": "Inserts a new pretargeting configuration.",
+        "operationId": "adexchangebuyer.pretargetingConfig.insert"
       }
     },
     "/pretargetingconfigs/{accountId}/{configId}": {
+      "parameters": [
+        {
+          "description": "Data format for the response.",
+          "enum": [
+            "json"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
+        },
+        {
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
+        },
+        {
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
+        },
+        {
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
+        },
+        {
+          "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
+        },
+        {
+          "description": "Deprecated. Please use quotaUser instead.",
+          "in": "query",
+          "name": "userIp",
+          "type": "string"
+        }
+      ],
       "delete": {
-        "description": "Deletes an existing pretargeting config.",
-        "operationId": "pretargetingConfig.delete",
         "parameters": [
           {
             "description": "The account id to delete the pretargeting config for.",
@@ -1202,16 +1556,22 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adexchange.buyer"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
         ],
         "tags": [
           "pretargetingConfig"
-        ]
+        ],
+        "description": "Deletes an existing pretargeting config.",
+        "operationId": "adexchangebuyer.pretargetingConfig.delete"
       },
       "get": {
-        "description": "Gets a specific pretargeting configuration",
-        "operationId": "pretargetingConfig.get",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "The account id to get the pretargeting config for.",
@@ -1240,39 +1600,25 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adexchange.buyer"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
         ],
         "tags": [
           "pretargetingConfig"
-        ]
+        ],
+        "description": "Gets a specific pretargeting configuration",
+        "operationId": "adexchangebuyer.pretargetingConfig.get"
       },
-      "parameters": [
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/userIp"
-        }
-      ],
       "patch": {
-        "description": "Updates an existing pretargeting config. This method supports patch semantics.",
-        "operationId": "pretargetingConfig.patch",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "The account id to update the pretargeting config for.",
@@ -1282,18 +1628,18 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/PretargetingConfig"
-            }
-          },
-          {
             "description": "The specific id of the configuration to update.",
             "in": "path",
             "name": "configId",
             "required": true,
             "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/PretargetingConfig"
+            }
           }
         ],
         "responses": {
@@ -1308,16 +1654,25 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adexchange.buyer"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
         ],
         "tags": [
           "pretargetingConfig"
-        ]
+        ],
+        "description": "Updates an existing pretargeting config. This method supports patch semantics.",
+        "operationId": "adexchangebuyer.pretargetingConfig.patch"
       },
       "put": {
-        "description": "Updates an existing pretargeting config.",
-        "operationId": "pretargetingConfig.update",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "The account id to update the pretargeting config for.",
@@ -1327,18 +1682,18 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/PretargetingConfig"
-            }
-          },
-          {
             "description": "The specific id of the configuration to update.",
             "in": "path",
             "name": "configId",
             "required": true,
             "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/PretargetingConfig"
+            }
           }
         ],
         "responses": {
@@ -1353,54 +1708,85 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adexchange.buyer"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
         ],
         "tags": [
           "pretargetingConfig"
-        ]
+        ],
+        "description": "Updates an existing pretargeting config.",
+        "operationId": "adexchangebuyer.pretargetingConfig.update"
       }
     },
     "/privateauction/{privateAuctionId}/updateproposal": {
       "parameters": [
         {
-          "$ref": "#/parameters/alt"
+          "description": "Data format for the response.",
+          "enum": [
+            "json"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/fields"
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/key"
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/oauth_token"
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/prettyPrint"
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
         },
         {
-          "$ref": "#/parameters/quotaUser"
+          "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/userIp"
+          "description": "Deprecated. Please use quotaUser instead.",
+          "in": "query",
+          "name": "userIp",
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Update a given private auction proposal",
-        "operationId": "marketplaceprivateauction.updateproposal",
+        "consumes": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "description": "The private auction id to be updated.",
+            "in": "path",
+            "name": "privateAuctionId",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
             "schema": {
               "$ref": "#/definitions/UpdatePrivateAuctionProposalRequest"
             }
-          },
-          {
-            "in": "path",
-            "name": "privateAuctionId",
-            "required": true,
-            "type": "string"
           }
         ],
         "responses": {
@@ -1412,18 +1798,71 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adexchange.buyer"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
         ],
         "tags": [
           "marketplaceprivateauction"
-        ]
+        ],
+        "description": "Update a given private auction proposal",
+        "operationId": "adexchangebuyer.marketplaceprivateauction.updateproposal"
       }
     },
     "/products/search": {
+      "parameters": [
+        {
+          "description": "Data format for the response.",
+          "enum": [
+            "json"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
+        },
+        {
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
+        },
+        {
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
+        },
+        {
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
+        },
+        {
+          "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
+        },
+        {
+          "description": "Deprecated. Please use quotaUser instead.",
+          "in": "query",
+          "name": "userIp",
+          "type": "string"
+        }
+      ],
       "get": {
-        "description": "Gets the requested product.",
-        "operationId": "products.search",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "The pql query used to query for products.",
@@ -1444,41 +1883,71 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adexchange.buyer"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
         ],
         "tags": [
           "products"
-        ]
-      },
-      "parameters": [
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/userIp"
-        }
-      ]
+        ],
+        "description": "Gets the requested product.",
+        "operationId": "adexchangebuyer.products.search"
+      }
     },
     "/products/{productId}": {
+      "parameters": [
+        {
+          "description": "Data format for the response.",
+          "enum": [
+            "json"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
+        },
+        {
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
+        },
+        {
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
+        },
+        {
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
+        },
+        {
+          "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
+        },
+        {
+          "description": "Deprecated. Please use quotaUser instead.",
+          "in": "query",
+          "name": "userIp",
+          "type": "string"
+        }
+      ],
       "get": {
-        "description": "Gets the requested product by id.",
-        "operationId": "products.get",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "The id for the product to get the head revision for.",
@@ -1500,64 +1969,74 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adexchange.buyer"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
         ],
         "tags": [
           "products"
-        ]
-      },
-      "parameters": [
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/userIp"
-        }
-      ]
+        ],
+        "description": "Gets the requested product by id.",
+        "operationId": "adexchangebuyer.products.get"
+      }
     },
     "/proposals/insert": {
       "parameters": [
         {
-          "$ref": "#/parameters/alt"
+          "description": "Data format for the response.",
+          "enum": [
+            "json"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/fields"
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/key"
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/oauth_token"
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/prettyPrint"
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
         },
         {
-          "$ref": "#/parameters/quotaUser"
+          "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/userIp"
+          "description": "Deprecated. Please use quotaUser instead.",
+          "in": "query",
+          "name": "userIp",
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Create the given list of proposals",
-        "operationId": "proposals.insert",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "in": "body",
@@ -1579,18 +2058,71 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adexchange.buyer"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
         ],
         "tags": [
           "proposals"
-        ]
+        ],
+        "description": "Create the given list of proposals",
+        "operationId": "adexchangebuyer.proposals.insert"
       }
     },
     "/proposals/search": {
+      "parameters": [
+        {
+          "description": "Data format for the response.",
+          "enum": [
+            "json"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
+        },
+        {
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
+        },
+        {
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
+        },
+        {
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
+        },
+        {
+          "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
+        },
+        {
+          "description": "Deprecated. Please use quotaUser instead.",
+          "in": "query",
+          "name": "userIp",
+          "type": "string"
+        }
+      ],
       "get": {
-        "description": "Search for proposals using pql query",
-        "operationId": "proposals.search",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Query string to retrieve specific proposals.",
@@ -1611,41 +2143,71 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adexchange.buyer"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
         ],
         "tags": [
           "proposals"
-        ]
-      },
-      "parameters": [
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/userIp"
-        }
-      ]
+        ],
+        "description": "Search for proposals using pql query",
+        "operationId": "adexchangebuyer.proposals.search"
+      }
     },
     "/proposals/{proposalId}": {
+      "parameters": [
+        {
+          "description": "Data format for the response.",
+          "enum": [
+            "json"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
+        },
+        {
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
+        },
+        {
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
+        },
+        {
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
+        },
+        {
+          "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
+        },
+        {
+          "description": "Deprecated. Please use quotaUser instead.",
+          "in": "query",
+          "name": "userIp",
+          "type": "string"
+        }
+      ],
       "get": {
-        "description": "Get a proposal given its id",
-        "operationId": "proposals.get",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Id of the proposal to retrieve.",
@@ -1667,53 +2229,83 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adexchange.buyer"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
         ],
         "tags": [
           "proposals"
-        ]
-      },
-      "parameters": [
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/userIp"
-        }
-      ]
+        ],
+        "description": "Get a proposal given its id",
+        "operationId": "adexchangebuyer.proposals.get"
+      }
     },
     "/proposals/{proposalId}/deals": {
+      "parameters": [
+        {
+          "description": "Data format for the response.",
+          "enum": [
+            "json"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
+        },
+        {
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
+        },
+        {
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
+        },
+        {
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
+        },
+        {
+          "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
+        },
+        {
+          "description": "Deprecated. Please use quotaUser instead.",
+          "in": "query",
+          "name": "userIp",
+          "type": "string"
+        }
+      ],
       "get": {
-        "description": "List all the deals for a given proposal",
-        "operationId": "marketplacedeals.list",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
-          {
-            "description": "Query string to retrieve specific deals.",
-            "in": "query",
-            "name": "pqlQuery",
-            "type": "string"
-          },
           {
             "description": "The proposalId to get deals for. To search across all proposals specify order_id = '-' as part of the URL.",
             "in": "path",
             "name": "proposalId",
             "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Query string to retrieve specific deals.",
+            "in": "query",
+            "name": "pqlQuery",
             "type": "string"
           }
         ],
@@ -1729,78 +2321,88 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adexchange.buyer"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
         ],
         "tags": [
           "marketplacedeals"
-        ]
-      },
-      "parameters": [
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/userIp"
-        }
-      ]
+        ],
+        "description": "List all the deals for a given proposal",
+        "operationId": "adexchangebuyer.marketplacedeals.list"
+      }
     },
     "/proposals/{proposalId}/deals/delete": {
       "parameters": [
         {
-          "$ref": "#/parameters/alt"
+          "description": "Data format for the response.",
+          "enum": [
+            "json"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/fields"
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/key"
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/oauth_token"
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/prettyPrint"
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
         },
         {
-          "$ref": "#/parameters/quotaUser"
+          "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/userIp"
+          "description": "Deprecated. Please use quotaUser instead.",
+          "in": "query",
+          "name": "userIp",
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Delete the specified deals from the proposal",
-        "operationId": "marketplacedeals.delete",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/DeleteOrderDealsRequest"
-            }
-          },
           {
             "description": "The proposalId to delete deals from.",
             "in": "path",
             "name": "proposalId",
             "required": true,
             "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/DeleteOrderDealsRequest"
+            }
           }
         ],
         "responses": {
@@ -1815,55 +2417,88 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adexchange.buyer"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
         ],
         "tags": [
           "marketplacedeals"
-        ]
+        ],
+        "description": "Delete the specified deals from the proposal",
+        "operationId": "adexchangebuyer.marketplacedeals.delete"
       }
     },
     "/proposals/{proposalId}/deals/insert": {
       "parameters": [
         {
-          "$ref": "#/parameters/alt"
+          "description": "Data format for the response.",
+          "enum": [
+            "json"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/fields"
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/key"
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/oauth_token"
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/prettyPrint"
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
         },
         {
-          "$ref": "#/parameters/quotaUser"
+          "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/userIp"
+          "description": "Deprecated. Please use quotaUser instead.",
+          "in": "query",
+          "name": "userIp",
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Add new deals for the specified proposal",
-        "operationId": "marketplacedeals.insert",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/AddOrderDealsRequest"
-            }
-          },
           {
             "description": "proposalId for which deals need to be added.",
             "in": "path",
             "name": "proposalId",
             "required": true,
             "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/AddOrderDealsRequest"
+            }
           }
         ],
         "responses": {
@@ -1878,55 +2513,88 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adexchange.buyer"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
         ],
         "tags": [
           "marketplacedeals"
-        ]
+        ],
+        "description": "Add new deals for the specified proposal",
+        "operationId": "adexchangebuyer.marketplacedeals.insert"
       }
     },
     "/proposals/{proposalId}/deals/update": {
       "parameters": [
         {
-          "$ref": "#/parameters/alt"
+          "description": "Data format for the response.",
+          "enum": [
+            "json"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/fields"
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/key"
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/oauth_token"
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/prettyPrint"
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
         },
         {
-          "$ref": "#/parameters/quotaUser"
+          "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/userIp"
+          "description": "Deprecated. Please use quotaUser instead.",
+          "in": "query",
+          "name": "userIp",
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Replaces all the deals in the proposal with the passed in deals",
-        "operationId": "marketplacedeals.update",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/EditAllOrderDealsRequest"
-            }
-          },
           {
             "description": "The proposalId to edit deals on.",
             "in": "path",
             "name": "proposalId",
             "required": true,
             "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/EditAllOrderDealsRequest"
+            }
           }
         ],
         "responses": {
@@ -1941,30 +2609,83 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adexchange.buyer"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
         ],
         "tags": [
           "marketplacedeals"
-        ]
+        ],
+        "description": "Replaces all the deals in the proposal with the passed in deals",
+        "operationId": "adexchangebuyer.marketplacedeals.update"
       }
     },
     "/proposals/{proposalId}/notes": {
+      "parameters": [
+        {
+          "description": "Data format for the response.",
+          "enum": [
+            "json"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
+        },
+        {
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
+        },
+        {
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
+        },
+        {
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
+        },
+        {
+          "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
+        },
+        {
+          "description": "Deprecated. Please use quotaUser instead.",
+          "in": "query",
+          "name": "userIp",
+          "type": "string"
+        }
+      ],
       "get": {
-        "description": "Get all the notes associated with a proposal",
-        "operationId": "marketplacenotes.list",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
-          {
-            "description": "Query string to retrieve specific notes. To search the text contents of notes, please use syntax like \"WHERE note.note = \"foo\" or \"WHERE note.note LIKE \"%bar%\"",
-            "in": "query",
-            "name": "pqlQuery",
-            "type": "string"
-          },
           {
             "description": "The proposalId to get notes for. To search across all proposals specify order_id = '-' as part of the URL.",
             "in": "path",
             "name": "proposalId",
             "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Query string to retrieve specific notes. To search the text contents of notes, please use syntax like \"WHERE note.note = \"foo\" or \"WHERE note.note LIKE \"%bar%\"",
+            "in": "query",
+            "name": "pqlQuery",
             "type": "string"
           }
         ],
@@ -1980,78 +2701,88 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adexchange.buyer"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
         ],
         "tags": [
           "marketplacenotes"
-        ]
-      },
-      "parameters": [
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/userIp"
-        }
-      ]
+        ],
+        "description": "Get all the notes associated with a proposal",
+        "operationId": "adexchangebuyer.marketplacenotes.list"
+      }
     },
     "/proposals/{proposalId}/notes/insert": {
       "parameters": [
         {
-          "$ref": "#/parameters/alt"
+          "description": "Data format for the response.",
+          "enum": [
+            "json"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/fields"
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/key"
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/oauth_token"
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/prettyPrint"
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
         },
         {
-          "$ref": "#/parameters/quotaUser"
+          "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/userIp"
+          "description": "Deprecated. Please use quotaUser instead.",
+          "in": "query",
+          "name": "userIp",
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Add notes to the proposal",
-        "operationId": "marketplacenotes.insert",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/AddOrderNotesRequest"
-            }
-          },
           {
             "description": "The proposalId to add notes for.",
             "in": "path",
             "name": "proposalId",
             "required": true,
             "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/AddOrderNotesRequest"
+            }
           }
         ],
         "responses": {
@@ -2066,41 +2797,68 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adexchange.buyer"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
         ],
         "tags": [
           "marketplacenotes"
-        ]
+        ],
+        "description": "Add notes to the proposal",
+        "operationId": "adexchangebuyer.marketplacenotes.insert"
       }
     },
     "/proposals/{proposalId}/setupcomplete": {
       "parameters": [
         {
-          "$ref": "#/parameters/alt"
+          "description": "Data format for the response.",
+          "enum": [
+            "json"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/fields"
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/key"
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/oauth_token"
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/prettyPrint"
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
         },
         {
-          "$ref": "#/parameters/quotaUser"
+          "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/userIp"
+          "description": "Deprecated. Please use quotaUser instead.",
+          "in": "query",
+          "name": "userIp",
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Update the given proposal to indicate that setup has been completed.",
-        "operationId": "proposals.setupcomplete",
         "parameters": [
           {
             "description": "The proposal id for which the setup is complete",
@@ -2119,49 +2877,75 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adexchange.buyer"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
         ],
         "tags": [
           "proposals"
-        ]
+        ],
+        "description": "Update the given proposal to indicate that setup has been completed.",
+        "operationId": "adexchangebuyer.proposals.setupcomplete"
       }
     },
     "/proposals/{proposalId}/{revisionNumber}/{updateAction}": {
       "parameters": [
         {
-          "$ref": "#/parameters/alt"
+          "description": "Data format for the response.",
+          "enum": [
+            "json"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/fields"
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/key"
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/oauth_token"
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/prettyPrint"
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
         },
         {
-          "$ref": "#/parameters/quotaUser"
+          "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/userIp"
+          "description": "Deprecated. Please use quotaUser instead.",
+          "in": "query",
+          "name": "userIp",
+          "type": "string"
         }
       ],
       "patch": {
-        "description": "Update the given proposal. This method supports patch semantics.",
-        "operationId": "proposals.patch",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Proposal"
-            }
-          },
           {
             "description": "The proposal id to update.",
             "in": "path",
@@ -2190,6 +2974,13 @@
             "name": "updateAction",
             "required": true,
             "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Proposal"
+            }
           }
         ],
         "responses": {
@@ -2204,24 +2995,26 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adexchange.buyer"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
         ],
         "tags": [
           "proposals"
-        ]
+        ],
+        "description": "Update the given proposal. This method supports patch semantics.",
+        "operationId": "adexchangebuyer.proposals.patch"
       },
       "put": {
-        "description": "Update the given proposal",
-        "operationId": "proposals.update",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Proposal"
-            }
-          },
           {
             "description": "The proposal id to update.",
             "in": "path",
@@ -2250,6 +3043,13 @@
             "name": "updateAction",
             "required": true,
             "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Proposal"
+            }
           }
         ],
         "responses": {
@@ -2264,18 +3064,71 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adexchange.buyer"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
         ],
         "tags": [
           "proposals"
-        ]
+        ],
+        "description": "Update the given proposal",
+        "operationId": "adexchangebuyer.proposals.update"
       }
     },
     "/publisher/{accountId}/profiles": {
+      "parameters": [
+        {
+          "description": "Data format for the response.",
+          "enum": [
+            "json"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
+        },
+        {
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
+        },
+        {
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
+        },
+        {
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
+        },
+        {
+          "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
+        },
+        {
+          "description": "Deprecated. Please use quotaUser instead.",
+          "in": "query",
+          "name": "userIp",
+          "type": "string"
+        }
+      ],
       "get": {
-        "description": "Gets the requested publisher profile(s) by publisher accountId.",
-        "operationId": "pubprofiles.list",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "The accountId of the publisher to get profiles for.",
@@ -2297,36 +3150,18 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adexchange.buyer"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
         ],
         "tags": [
           "pubprofiles"
-        ]
-      },
-      "parameters": [
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/userIp"
-        }
-      ]
+        ],
+        "description": "Gets the requested publisher profile(s) by publisher accountId.",
+        "operationId": "adexchangebuyer.pubprofiles.list"
+      }
     }
   },
   "definitions": {
@@ -2623,6 +3458,23 @@
           "description": "The link to the Ad Preferences page. This is only supported for native ads.",
           "type": "string"
         },
+        "adTechnologyProviders": {
+          "properties": {
+            "detectedProviderIds": {
+              "description": "The detected ad technology provider IDs for this creative. See https://storage.googleapis.com/adx-rtb-dictionaries/providers.csv for mapping of provider ID to provided name, a privacy policy URL, and a list of domains which can be attributed to the provider. If this creative contains provider IDs that are outside of those listed in the `BidRequest.adslot.consented_providers_settings.consented_providers` field on the  Authorized Buyers Real-Time Bidding protocol or the `BidRequest.user.ext.consented_providers_settings.consented_providers` field on the OpenRTB protocol, a bid submitted for a European Economic Area (EEA) user with this creative is not compliant with the GDPR policies as mentioned in the \"Third-party Ad Technology Vendors\" section of Authorized Buyers Program Guidelines.",
+              "items": {
+                "format": "int64",
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "hasUnidentifiedProvider": {
+              "description": "Whether the creative contains an unidentified ad technology provider. If true, a bid submitted for a European Economic Area (EEA) user with this creative is not compliant with the GDPR policies as mentioned in the \"Third-party Ad Technology Vendors\" section of Authorized Buyers Program Guidelines.",
+              "type": "boolean"
+            }
+          },
+          "type": "object"
+        },
         "advertiserId": {
           "description": "Detected advertiser id, if any. Read-only. This field should not be set in requests.",
           "items": {
@@ -2632,7 +3484,7 @@
           "type": "array"
         },
         "advertiserName": {
-          "description": "The name of the company being advertised in the creative. The value provided must exist in the advertisers.txt file.",
+          "description": "The name of the company being advertised in the creative. A list of advertisers is provided in the advertisers.txt file.",
           "type": "string"
         },
         "agencyId": {
@@ -2718,6 +3570,10 @@
             "type": "object"
           },
           "type": "array"
+        },
+        "creativeStatusIdentityType": {
+          "description": "Creative status identity type that the creative item applies to. Ad Exchange real-time bidding is migrating to the sizeless creative verification. Originally, Ad Exchange assigned creative verification status to a unique combination of a buyer creative ID and creative dimensions. Post-migration, a single verification status will be assigned at the buyer creative ID level. This field allows to distinguish whether a given creative status applies to a unique combination of a buyer creative ID and creative dimensions, or to a buyer creative ID as a whole.",
+          "type": "string"
         },
         "dealsStatus": {
           "description": "Top-level deals status. Read-only. This field should not be set in requests. If disapproved, an entry for auctionType=DIRECT_DEALS (or ALL) in servingRestrictions will also exist. Note that this may be nuanced with other contextual restrictions, in which case it may be preferable to read from servingRestrictions directly.",
@@ -2875,10 +3731,6 @@
               "description": "The app rating in the app store. Must be in the range [0-5].",
               "format": "double",
               "type": "number"
-            },
-            "store": {
-              "description": "The URL to the app store to purchase/download the promoted app.",
-              "type": "string"
             },
             "videoURL": {
               "description": "The URL of the XML VAST for a native ad. Note this is a separate field from resource.video_url.",
@@ -3106,7 +3958,7 @@
     "DealTerms": {
       "properties": {
         "brandingType": {
-          "description": "Visibilty of the URL in bid requests.",
+          "description": "Visibility of the URL in bid requests.",
           "type": "string"
         },
         "crossListedExternalDealIdType": {
@@ -3521,6 +4373,9 @@
           "format": "int64",
           "type": "string"
         },
+        "makegoodRequestedReason": {
+          "type": "string"
+        },
         "name": {
           "description": "The name of the deal. (updatable)",
           "type": "string"
@@ -3640,6 +4495,17 @@
         "timestampMs": {
           "description": "The timestamp (ms since epoch) that this note was created. (readonly)",
           "format": "int64",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "MobileApplication": {
+      "properties": {
+        "appStore": {
+          "type": "string"
+        },
+        "externalAppId": {
           "type": "string"
         }
       },
@@ -3892,6 +4758,11 @@
             "type": "string"
           },
           "type": "array"
+        },
+        "maximumQps": {
+          "description": "The maximum QPS allocated to this pretargeting configuration, used for pretargeting-level QPS limits. By default, this is not set, which indicates that there is no QPS limit at the configuration level (a global or account-level limit may still be imposed).",
+          "format": "int64",
+          "type": "string"
         },
         "minimumViewabilityDecile": {
           "description": "Requests where the predicted viewability is below the specified decile will not match. E.g. if the buyer sets this value to 5, requests from slots where the predicted viewability is below 50% will not match. If the predicted viewability is unknown this field will be ignored.",
@@ -4329,10 +5200,6 @@
     },
     "PublisherProfileApiProto": {
       "properties": {
-        "accountId": {
-          "description": "Deprecated: use the seller.account_id. The account id of the seller.",
-          "type": "string"
-        },
         "audience": {
           "description": "Publisher provided info on its audience.",
           "type": "string"
@@ -4389,6 +5256,21 @@
         "programmaticContact": {
           "description": "Programmatic contact for the publisher profile.",
           "type": "string"
+        },
+        "publisherAppIds": {
+          "description": "The list of app IDs represented in this pubisher profile. Empty if this is a parent profile. Deprecated in favor of publisher_app.",
+          "items": {
+            "format": "int64",
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "publisherApps": {
+          "description": "The list of apps represented in this pubisher profile. Empty if this is a parent profile.",
+          "items": {
+            "$ref": "#/definitions/MobileApplication"
+          },
+          "type": "array"
         },
         "publisherDomains": {
           "description": "The list of domains represented in this publisher profile. Empty if this is a parent profile.",
@@ -4511,6 +5393,9 @@
           "format": "int64",
           "type": "string"
         },
+        "requestPlatformTargetingValue": {
+          "$ref": "#/definitions/TargetingValueRequestPlatformTargeting"
+        },
         "stringValue": {
           "description": "The string value to exclude/include.",
           "type": "string"
@@ -4614,6 +5499,17 @@
       },
       "type": "object"
     },
+    "TargetingValueRequestPlatformTargeting": {
+      "properties": {
+        "requestPlatforms": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
     "TargetingValueSize": {
       "properties": {
         "height": {
@@ -4650,6 +5546,117 @@
         }
       },
       "type": "object"
+    }
+  },
+  "securityDefinitions": {
+    "Oauth2": {
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+      "description": "Oauth 2.0 implicit authentication",
+      "flow": "implicit",
+      "scopes": {
+        "https://www.googleapis.com/auth/adexchange.buyer": "Manage your Ad Exchange buyer account configuration"
+      },
+      "type": "oauth2"
+    },
+    "Oauth2c": {
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+      "description": "Oauth 2.0 authorizationCode authentication",
+      "flow": "accessCode",
+      "scopes": {
+        "https://www.googleapis.com/auth/adexchange.buyer": "Manage your Ad Exchange buyer account configuration"
+      },
+      "tokenUrl": "https://accounts.google.com/o/oauth2/token",
+      "type": "oauth2"
+    }
+  },
+  "tags": [
+    {
+      "name": "accounts"
+    },
+    {
+      "name": "billingInfo"
+    },
+    {
+      "name": "budget"
+    },
+    {
+      "name": "creatives"
+    },
+    {
+      "name": "marketplacedeals"
+    },
+    {
+      "name": "marketplacenotes"
+    },
+    {
+      "name": "marketplaceprivateauction"
+    },
+    {
+      "name": "performanceReport"
+    },
+    {
+      "name": "pretargetingConfig"
+    },
+    {
+      "name": "products"
+    },
+    {
+      "name": "proposals"
+    },
+    {
+      "name": "pubprofiles"
+    }
+  ],
+  "externalDocs": {
+    "url": "https://developers.google.com/ad-exchange/buyer-rest"
+  },
+  "x-components": {
+    "parameters": {
+      "alt": {
+        "description": "Data format for the response.",
+        "enum": [
+          "json"
+        ],
+        "in": "query",
+        "name": "alt",
+        "type": "string"
+      },
+      "fields": {
+        "description": "Selector specifying which fields to include in a partial response.",
+        "in": "query",
+        "name": "fields",
+        "type": "string"
+      },
+      "key": {
+        "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+        "in": "query",
+        "name": "key",
+        "type": "string"
+      },
+      "oauth_token": {
+        "description": "OAuth 2.0 token for the current user.",
+        "in": "query",
+        "name": "oauth_token",
+        "type": "string"
+      },
+      "prettyPrint": {
+        "description": "Returns response with indentations and line breaks.",
+        "in": "query",
+        "name": "prettyPrint",
+        "type": "boolean"
+      },
+      "quotaUser": {
+        "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
+        "in": "query",
+        "name": "quotaUser",
+        "type": "string"
+      },
+      "userIp": {
+        "description": "Deprecated. Please use quotaUser instead.",
+        "in": "query",
+        "name": "userIp",
+        "type": "string"
+      }
     }
   }
 }

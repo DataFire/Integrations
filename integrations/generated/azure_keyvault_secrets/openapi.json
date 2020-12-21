@@ -7,7 +7,7 @@
   "info": {
     "description": "The Azure management API provides a RESTful set of web services that interact with Azure Key Vault.",
     "title": "KeyVaultManagementClient",
-    "version": "2016-10-01",
+    "version": "2018-02-14-preview",
     "x-apisguru-categories": [
       "cloud"
     ],
@@ -17,7 +17,7 @@
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/keyvault/resource-manager/Microsoft.KeyVault/stable/2016-10-01/secrets.json",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/keyvault/resource-manager/Microsoft.KeyVault/preview/2018-02-14-preview/secrets.json",
         "version": "2.0"
       }
     ],
@@ -114,7 +114,7 @@
         "x-ms-examples": {
           "List secrets in the vault": {
             "parameters": {
-              "api-version": "2016-10-01",
+              "api-version": "2018-02-14-preview",
               "resourceGroupName": "sample-group",
               "subscriptionId": "00000000-0000-0000-0000-000000000000",
               "vaultName": "sample-vault"
@@ -211,7 +211,7 @@
         "x-ms-examples": {
           "Get a secret": {
             "parameters": {
-              "api-version": "2016-10-01",
+              "api-version": "2018-02-14-preview",
               "resourceGroupName": "sample-group",
               "secretName": "secret-name",
               "subscriptionId": "00000000-0000-0000-0000-000000000000",
@@ -302,7 +302,7 @@
         "x-ms-examples": {
           "Update a secret": {
             "parameters": {
-              "api-version": "2016-10-01",
+              "api-version": "2018-02-14-preview",
               "parameters": {
                 "properties": {
                   "value": "secret-value2"
@@ -415,7 +415,7 @@
         "x-ms-examples": {
           "Create a secret": {
             "parameters": {
-              "api-version": "2016-10-01",
+              "api-version": "2018-02-14-preview",
               "parameters": {
                 "properties": {
                   "value": "secret-value"
@@ -472,7 +472,7 @@
       "description": "The object attributes managed by the KeyVault service.",
       "properties": {
         "created": {
-          "description": "Creation time in UTC.",
+          "description": "Creation time in seconds since 1970-01-01T00:00:00Z.",
           "format": "unixtime",
           "readOnly": true,
           "type": "integer"
@@ -482,19 +482,19 @@
           "type": "boolean"
         },
         "exp": {
-          "description": "Expiry date in UTC.",
+          "description": "Expiry date in seconds since 1970-01-01T00:00:00Z.",
           "format": "unixtime",
           "type": "integer",
           "x-ms-client-name": "Expires"
         },
         "nbf": {
-          "description": "Not before date in UTC.",
+          "description": "Not before date in seconds since 1970-01-01T00:00:00Z.",
           "format": "unixtime",
           "type": "integer",
           "x-ms-client-name": "NotBefore"
         },
         "updated": {
-          "description": "Last updated time in UTC.",
+          "description": "Last updated time in seconds since 1970-01-01T00:00:00Z.",
           "format": "unixtime",
           "readOnly": true,
           "type": "integer"

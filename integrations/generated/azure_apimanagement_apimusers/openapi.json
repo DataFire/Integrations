@@ -7,7 +7,7 @@
   "info": {
     "description": "Use these REST APIs for performing operations on User entity in Azure API Management deployment. The User entity in API Management represents the developers that call the APIs of the products to which they are subscribed.",
     "title": "ApiManagementClient",
-    "version": "2018-01-01",
+    "version": "2019-12-01-preview",
     "x-apisguru-categories": [
       "cloud"
     ],
@@ -17,7 +17,7 @@
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/apimanagement/resource-manager/Microsoft.ApiManagement/preview/2018-01-01/apimusers.json",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/apimanagement/resource-manager/Microsoft.ApiManagement/preview/2019-12-01-preview/apimusers.json",
         "version": "2.0"
       }
     ],
@@ -57,19 +57,7 @@
       ]
     }
   ],
-  "parameters": {
-    "UserIdParameter": {
-      "description": "User identifier. Must be unique in the current API Management service instance.",
-      "in": "path",
-      "maxLength": 80,
-      "minLength": 1,
-      "name": "uid",
-      "pattern": "(^[\\w]+$)|(^[\\w][\\w\\-]+[\\w]$)",
-      "required": true,
-      "type": "string",
-      "x-ms-parameter-location": "method"
-    }
-  },
+  "parameters": {},
   "paths": {
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/users": {
       "get": {
@@ -96,7 +84,7 @@
             "x-ms-parameter-location": "method"
           },
           {
-            "description": "| Field            | Supported operators    | Supported functions               |\n|------------------|------------------------|-----------------------------------|\n| id               | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |\n| firstName        | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |\n| lastName         | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |\n| email            | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |\n| state            | eq                     | N/A                               |\n| registrationDate | ge, le, eq, ne, gt, lt | N/A                               |\n| note             | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |",
+            "description": "|   Field     |     Usage     |     Supported operators     |     Supported functions     |</br>|-------------|-------------|-------------|-------------|</br>| name | filter | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith | </br>| firstName | filter | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith | </br>| lastName | filter | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith | </br>| email | filter | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith | </br>| state | filter | eq |     | </br>| registrationDate | filter | ge, le, eq, ne, gt, lt |     | </br>| note | filter | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith | </br>| groups | expand |     |     | </br>",
             "in": "query",
             "name": "$filter",
             "required": false,
@@ -123,6 +111,12 @@
             "x-ms-parameter-location": "method"
           },
           {
+            "description": "Detailed Group in response.",
+            "in": "query",
+            "name": "expandGroups",
+            "type": "boolean"
+          },
+          {
             "description": "Version of the API to be used with the client request.",
             "in": "query",
             "name": "api-version",
@@ -141,7 +135,174 @@
           "200": {
             "description": "Lists a collection of User entities.",
             "schema": {
-              "$ref": "#/definitions/UserCollection"
+              "description": "Paged Users list representation.",
+              "properties": {
+                "nextLink": {
+                  "description": "Next page link if any.",
+                  "type": "string"
+                },
+                "value": {
+                  "description": "Page values.",
+                  "items": {
+                    "allOf": [
+                      {
+                        "description": "The Resource definition.",
+                        "properties": {
+                          "id": {
+                            "description": "Resource ID.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "name": {
+                            "description": "Resource name.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "type": {
+                            "description": "Resource type for API Management resource.",
+                            "readOnly": true,
+                            "type": "string"
+                          }
+                        },
+                        "x-ms-azure-resource": true
+                      }
+                    ],
+                    "description": "User details.",
+                    "properties": {
+                      "properties": {
+                        "allOf": [
+                          {
+                            "description": "User Entity Base Parameters set.",
+                            "properties": {
+                              "identities": {
+                                "description": "Collection of user identities.",
+                                "items": {
+                                  "description": "User identity details.",
+                                  "properties": {
+                                    "id": {
+                                      "description": "Identifier value within provider.",
+                                      "type": "string"
+                                    },
+                                    "provider": {
+                                      "description": "Identity provider name.",
+                                      "type": "string"
+                                    }
+                                  }
+                                },
+                                "type": "array"
+                              },
+                              "note": {
+                                "description": "Optional note about a user set by the administrator.",
+                                "type": "string"
+                              },
+                              "state": {
+                                "default": "active",
+                                "description": "Account state. Specifies whether the user is active or not. Blocked users are unable to sign into the developer portal or call any APIs of subscribed products. Default state is Active.",
+                                "enum": [
+                                  "active",
+                                  "blocked",
+                                  "pending",
+                                  "deleted"
+                                ],
+                                "type": "string",
+                                "x-ms-enum": {
+                                  "modelAsString": true,
+                                  "name": "UserState",
+                                  "values": [
+                                    {
+                                      "description": "User state is active.",
+                                      "value": "active"
+                                    },
+                                    {
+                                      "description": "User is blocked. Blocked users cannot authenticate at developer portal or call API.",
+                                      "value": "blocked"
+                                    },
+                                    {
+                                      "description": "User account is pending. Requires identity confirmation before it can be made active.",
+                                      "value": "pending"
+                                    },
+                                    {
+                                      "description": "User account is closed. All identities and related entities are removed.",
+                                      "value": "deleted"
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          }
+                        ],
+                        "description": "User profile.",
+                        "properties": {
+                          "email": {
+                            "description": "Email address.",
+                            "type": "string"
+                          },
+                          "firstName": {
+                            "description": "First name.",
+                            "type": "string"
+                          },
+                          "groups": {
+                            "description": "Collection of groups user is part of.",
+                            "items": {
+                              "description": "Group contract Properties.",
+                              "properties": {
+                                "builtIn": {
+                                  "description": "true if the group is one of the three system groups (Administrators, Developers, or Guests); otherwise false.",
+                                  "readOnly": true,
+                                  "type": "boolean"
+                                },
+                                "description": {
+                                  "description": "Group description. Can contain HTML formatting tags.",
+                                  "maxLength": 1000,
+                                  "type": "string"
+                                },
+                                "displayName": {
+                                  "description": "Group name.",
+                                  "maxLength": 300,
+                                  "minLength": 1,
+                                  "type": "string"
+                                },
+                                "externalId": {
+                                  "description": "For external groups, this property contains the id of the group from the external identity provider, e.g. for Azure Active Directory `aad://<tenant>.onmicrosoft.com/groups/<group object id>`; otherwise the value is null.",
+                                  "type": "string"
+                                },
+                                "type": {
+                                  "description": "Group type.",
+                                  "enum": [
+                                    "custom",
+                                    "system",
+                                    "external"
+                                  ],
+                                  "type": "string",
+                                  "x-ms-enum": {
+                                    "modelAsString": false,
+                                    "name": "GroupType"
+                                  }
+                                }
+                              },
+                              "required": [
+                                "displayName"
+                              ]
+                            },
+                            "readOnly": true,
+                            "type": "array"
+                          },
+                          "lastName": {
+                            "description": "Last name.",
+                            "type": "string"
+                          },
+                          "registrationDate": {
+                            "description": "Date of user registration. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.\n",
+                            "format": "date-time",
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "type": "array"
+                }
+              }
             }
           },
           "default": {
@@ -188,12 +349,12 @@
           }
         },
         "tags": [
-          "Users"
+          "User"
         ],
         "x-ms-examples": {
           "ApiManagementListUsers": {
             "parameters": {
-              "api-version": "2018-01-01",
+              "api-version": "2019-12-01-preview",
               "resourceGroupName": "rg1",
               "serviceName": "apimService1",
               "subscriptionId": "subid"
@@ -263,13 +424,13 @@
             }
           }
         },
-        "x-ms-odata": "#/definitions/UserContract",
+        "x-ms-odata": "./definitions.json#/definitions/UserContract",
         "x-ms-pageable": {
           "nextLinkName": "nextLink"
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/users/{uid}": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/users/{userId}": {
       "delete": {
         "description": "Deletes specific user.",
         "operationId": "User_Delete",
@@ -294,7 +455,14 @@
             "x-ms-parameter-location": "method"
           },
           {
-            "$ref": "#/parameters/UserIdParameter"
+            "description": "User identifier. Must be unique in the current API Management service instance.",
+            "in": "path",
+            "maxLength": 80,
+            "minLength": 1,
+            "name": "userId",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "Whether to delete user's subscription or not.",
@@ -384,17 +552,17 @@
           }
         },
         "tags": [
-          "Users"
+          "User"
         ],
         "x-ms-examples": {
           "ApiManagementDeleteUser": {
             "parameters": {
               "If-Match": "*",
-              "api-version": "2018-01-01",
+              "api-version": "2019-12-01-preview",
               "resourceGroupName": "rg1",
               "serviceName": "apimService1",
               "subscriptionId": "subid",
-              "uid": "5931a75ae4bbd512288c680b"
+              "userId": "5931a75ae4bbd512288c680b"
             },
             "responses": {
               "200": {},
@@ -427,7 +595,14 @@
             "x-ms-parameter-location": "method"
           },
           {
-            "$ref": "#/parameters/UserIdParameter"
+            "description": "User identifier. Must be unique in the current API Management service instance.",
+            "in": "path",
+            "maxLength": 80,
+            "minLength": 1,
+            "name": "userId",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "Version of the API to be used with the client request.",
@@ -454,7 +629,161 @@
               }
             },
             "schema": {
-              "$ref": "#/definitions/UserContract"
+              "allOf": [
+                {
+                  "description": "The Resource definition.",
+                  "properties": {
+                    "id": {
+                      "description": "Resource ID.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "name": {
+                      "description": "Resource name.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "type": {
+                      "description": "Resource type for API Management resource.",
+                      "readOnly": true,
+                      "type": "string"
+                    }
+                  },
+                  "x-ms-azure-resource": true
+                }
+              ],
+              "description": "User details.",
+              "properties": {
+                "properties": {
+                  "allOf": [
+                    {
+                      "description": "User Entity Base Parameters set.",
+                      "properties": {
+                        "identities": {
+                          "description": "Collection of user identities.",
+                          "items": {
+                            "description": "User identity details.",
+                            "properties": {
+                              "id": {
+                                "description": "Identifier value within provider.",
+                                "type": "string"
+                              },
+                              "provider": {
+                                "description": "Identity provider name.",
+                                "type": "string"
+                              }
+                            }
+                          },
+                          "type": "array"
+                        },
+                        "note": {
+                          "description": "Optional note about a user set by the administrator.",
+                          "type": "string"
+                        },
+                        "state": {
+                          "default": "active",
+                          "description": "Account state. Specifies whether the user is active or not. Blocked users are unable to sign into the developer portal or call any APIs of subscribed products. Default state is Active.",
+                          "enum": [
+                            "active",
+                            "blocked",
+                            "pending",
+                            "deleted"
+                          ],
+                          "type": "string",
+                          "x-ms-enum": {
+                            "modelAsString": true,
+                            "name": "UserState",
+                            "values": [
+                              {
+                                "description": "User state is active.",
+                                "value": "active"
+                              },
+                              {
+                                "description": "User is blocked. Blocked users cannot authenticate at developer portal or call API.",
+                                "value": "blocked"
+                              },
+                              {
+                                "description": "User account is pending. Requires identity confirmation before it can be made active.",
+                                "value": "pending"
+                              },
+                              {
+                                "description": "User account is closed. All identities and related entities are removed.",
+                                "value": "deleted"
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "description": "User profile.",
+                  "properties": {
+                    "email": {
+                      "description": "Email address.",
+                      "type": "string"
+                    },
+                    "firstName": {
+                      "description": "First name.",
+                      "type": "string"
+                    },
+                    "groups": {
+                      "description": "Collection of groups user is part of.",
+                      "items": {
+                        "description": "Group contract Properties.",
+                        "properties": {
+                          "builtIn": {
+                            "description": "true if the group is one of the three system groups (Administrators, Developers, or Guests); otherwise false.",
+                            "readOnly": true,
+                            "type": "boolean"
+                          },
+                          "description": {
+                            "description": "Group description. Can contain HTML formatting tags.",
+                            "maxLength": 1000,
+                            "type": "string"
+                          },
+                          "displayName": {
+                            "description": "Group name.",
+                            "maxLength": 300,
+                            "minLength": 1,
+                            "type": "string"
+                          },
+                          "externalId": {
+                            "description": "For external groups, this property contains the id of the group from the external identity provider, e.g. for Azure Active Directory `aad://<tenant>.onmicrosoft.com/groups/<group object id>`; otherwise the value is null.",
+                            "type": "string"
+                          },
+                          "type": {
+                            "description": "Group type.",
+                            "enum": [
+                              "custom",
+                              "system",
+                              "external"
+                            ],
+                            "type": "string",
+                            "x-ms-enum": {
+                              "modelAsString": false,
+                              "name": "GroupType"
+                            }
+                          }
+                        },
+                        "required": [
+                          "displayName"
+                        ]
+                      },
+                      "readOnly": true,
+                      "type": "array"
+                    },
+                    "lastName": {
+                      "description": "Last name.",
+                      "type": "string"
+                    },
+                    "registrationDate": {
+                      "description": "Date of user registration. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.\n",
+                      "format": "date-time",
+                      "type": "string"
+                    }
+                  }
+                }
+              }
             }
           },
           "default": {
@@ -501,16 +830,16 @@
           }
         },
         "tags": [
-          "Users"
+          "User"
         ],
         "x-ms-examples": {
           "ApiManagementGetUser": {
             "parameters": {
-              "api-version": "2018-01-01",
+              "api-version": "2019-12-01-preview",
               "resourceGroupName": "rg1",
               "serviceName": "apimService1",
               "subscriptionId": "subid",
-              "uid": "5931a75ae4bbd512a88c680b"
+              "userId": "5931a75ae4bbd512a88c680b"
             },
             "responses": {
               "200": {
@@ -561,7 +890,14 @@
             "x-ms-parameter-location": "method"
           },
           {
-            "$ref": "#/parameters/UserIdParameter"
+            "description": "User identifier. Must be unique in the current API Management service instance.",
+            "in": "path",
+            "maxLength": 80,
+            "minLength": 1,
+            "name": "userId",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "Version of the API to be used with the client request.",
@@ -632,16 +968,16 @@
           }
         },
         "tags": [
-          "Users"
+          "User"
         ],
         "x-ms-examples": {
           "ApiManagementHeadUser": {
             "parameters": {
-              "api-version": "2018-01-01",
+              "api-version": "2019-12-01-preview",
               "resourceGroupName": "rg1",
               "serviceName": "apimService1",
               "subscriptionId": "subid",
-              "uid": "5931a75ae4bbd512a88c680b"
+              "userId": "5931a75ae4bbd512a88c680b"
             },
             "responses": {
               "200": {
@@ -677,7 +1013,14 @@
             "x-ms-parameter-location": "method"
           },
           {
-            "$ref": "#/parameters/UserIdParameter"
+            "description": "User identifier. Must be unique in the current API Management service instance.",
+            "in": "path",
+            "maxLength": 80,
+            "minLength": 1,
+            "name": "userId",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "Update parameters.",
@@ -685,7 +1028,97 @@
             "name": "parameters",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/UserUpdateParameters"
+              "description": "User update parameters.",
+              "properties": {
+                "properties": {
+                  "allOf": [
+                    {
+                      "description": "User Entity Base Parameters set.",
+                      "properties": {
+                        "identities": {
+                          "description": "Collection of user identities.",
+                          "items": {
+                            "description": "User identity details.",
+                            "properties": {
+                              "id": {
+                                "description": "Identifier value within provider.",
+                                "type": "string"
+                              },
+                              "provider": {
+                                "description": "Identity provider name.",
+                                "type": "string"
+                              }
+                            }
+                          },
+                          "type": "array"
+                        },
+                        "note": {
+                          "description": "Optional note about a user set by the administrator.",
+                          "type": "string"
+                        },
+                        "state": {
+                          "default": "active",
+                          "description": "Account state. Specifies whether the user is active or not. Blocked users are unable to sign into the developer portal or call any APIs of subscribed products. Default state is Active.",
+                          "enum": [
+                            "active",
+                            "blocked",
+                            "pending",
+                            "deleted"
+                          ],
+                          "type": "string",
+                          "x-ms-enum": {
+                            "modelAsString": true,
+                            "name": "UserState",
+                            "values": [
+                              {
+                                "description": "User state is active.",
+                                "value": "active"
+                              },
+                              {
+                                "description": "User is blocked. Blocked users cannot authenticate at developer portal or call API.",
+                                "value": "blocked"
+                              },
+                              {
+                                "description": "User account is pending. Requires identity confirmation before it can be made active.",
+                                "value": "pending"
+                              },
+                              {
+                                "description": "User account is closed. All identities and related entities are removed.",
+                                "value": "deleted"
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "description": "Parameters supplied to the Update User operation.",
+                  "properties": {
+                    "email": {
+                      "description": "Email address. Must not be empty and must be unique within the service instance.",
+                      "maxLength": 254,
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "firstName": {
+                      "description": "First name.",
+                      "maxLength": 100,
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "lastName": {
+                      "description": "Last name.",
+                      "maxLength": 100,
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "password": {
+                      "description": "User Password.",
+                      "type": "string"
+                    }
+                  }
+                }
+              }
             }
           },
           {
@@ -716,7 +1149,7 @@
             "description": "The user details were successfully updated."
           },
           "default": {
-            "description": "*** Error Responses: ***\n\n * 405 Administrator user cannot be modified\n\n * 4XX Error response giving details why the operation failed.",
+            "description": "Error response describing why the operation failed.",
             "schema": {
               "description": "Error Response.",
               "properties": {
@@ -759,13 +1192,13 @@
           }
         },
         "tags": [
-          "Users"
+          "User"
         ],
         "x-ms-examples": {
-          "ApiManagementUpdateUserBasic": {
+          "ApiManagementUpdateUser": {
             "parameters": {
               "If-Match": "*",
-              "api-version": "2018-01-01",
+              "api-version": "2019-12-01-preview",
               "parameters": {
                 "properties": {
                   "email": "foobar@outlook.com",
@@ -776,7 +1209,7 @@
               "resourceGroupName": "rg1",
               "serviceName": "apimService1",
               "subscriptionId": "subid",
-              "uid": "5931a75ae4bbd512288c680b"
+              "userId": "5931a75ae4bbd512288c680b"
             },
             "responses": {
               "204": {}
@@ -808,7 +1241,14 @@
             "x-ms-parameter-location": "method"
           },
           {
-            "$ref": "#/parameters/UserIdParameter"
+            "description": "User identifier. Must be unique in the current API Management service instance.",
+            "in": "path",
+            "maxLength": 80,
+            "minLength": 1,
+            "name": "userId",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "Create or update parameters.",
@@ -816,7 +1256,141 @@
             "name": "parameters",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/UserCreateParameters"
+              "description": "User create details.",
+              "properties": {
+                "properties": {
+                  "allOf": [
+                    {
+                      "description": "User Entity Base Parameters set.",
+                      "properties": {
+                        "identities": {
+                          "description": "Collection of user identities.",
+                          "items": {
+                            "description": "User identity details.",
+                            "properties": {
+                              "id": {
+                                "description": "Identifier value within provider.",
+                                "type": "string"
+                              },
+                              "provider": {
+                                "description": "Identity provider name.",
+                                "type": "string"
+                              }
+                            }
+                          },
+                          "type": "array"
+                        },
+                        "note": {
+                          "description": "Optional note about a user set by the administrator.",
+                          "type": "string"
+                        },
+                        "state": {
+                          "default": "active",
+                          "description": "Account state. Specifies whether the user is active or not. Blocked users are unable to sign into the developer portal or call any APIs of subscribed products. Default state is Active.",
+                          "enum": [
+                            "active",
+                            "blocked",
+                            "pending",
+                            "deleted"
+                          ],
+                          "type": "string",
+                          "x-ms-enum": {
+                            "modelAsString": true,
+                            "name": "UserState",
+                            "values": [
+                              {
+                                "description": "User state is active.",
+                                "value": "active"
+                              },
+                              {
+                                "description": "User is blocked. Blocked users cannot authenticate at developer portal or call API.",
+                                "value": "blocked"
+                              },
+                              {
+                                "description": "User account is pending. Requires identity confirmation before it can be made active.",
+                                "value": "pending"
+                              },
+                              {
+                                "description": "User account is closed. All identities and related entities are removed.",
+                                "value": "deleted"
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "description": "Parameters supplied to the Create User operation.",
+                  "properties": {
+                    "appType": {
+                      "description": "Determines the type of application which send the create user request. Default is old publisher portal.",
+                      "enum": [
+                        "developerPortal"
+                      ],
+                      "type": "string",
+                      "x-ms-enum": {
+                        "modelAsString": true,
+                        "name": "AppType",
+                        "values": [
+                          {
+                            "description": "User create request was sent by new developer portal.",
+                            "value": "developerPortal"
+                          }
+                        ]
+                      }
+                    },
+                    "confirmation": {
+                      "description": "Determines the type of confirmation e-mail that will be sent to the newly created user.",
+                      "enum": [
+                        "signup",
+                        "invite"
+                      ],
+                      "type": "string",
+                      "x-ms-enum": {
+                        "modelAsString": true,
+                        "name": "Confirmation",
+                        "values": [
+                          {
+                            "description": "Send an e-mail to the user confirming they have successfully signed up.",
+                            "value": "signup"
+                          },
+                          {
+                            "description": "Send an e-mail inviting the user to sign-up and complete registration.",
+                            "value": "invite"
+                          }
+                        ]
+                      }
+                    },
+                    "email": {
+                      "description": "Email address. Must not be empty and must be unique within the service instance.",
+                      "maxLength": 254,
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "firstName": {
+                      "description": "First name.",
+                      "maxLength": 100,
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "lastName": {
+                      "description": "Last name.",
+                      "maxLength": 100,
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "password": {
+                      "description": "User Password. If no value is provided, a default password is generated.",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "email",
+                    "firstName",
+                    "lastName"
+                  ]
+                }
+              }
             }
           },
           {
@@ -845,14 +1419,334 @@
         "responses": {
           "200": {
             "description": "User was successfully updated.",
+            "headers": {
+              "ETag": {
+                "description": "Current entity state version. Should be treated as opaque and used to make conditional HTTP requests.",
+                "type": "string"
+              }
+            },
             "schema": {
-              "$ref": "#/definitions/UserContract"
+              "allOf": [
+                {
+                  "description": "The Resource definition.",
+                  "properties": {
+                    "id": {
+                      "description": "Resource ID.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "name": {
+                      "description": "Resource name.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "type": {
+                      "description": "Resource type for API Management resource.",
+                      "readOnly": true,
+                      "type": "string"
+                    }
+                  },
+                  "x-ms-azure-resource": true
+                }
+              ],
+              "description": "User details.",
+              "properties": {
+                "properties": {
+                  "allOf": [
+                    {
+                      "description": "User Entity Base Parameters set.",
+                      "properties": {
+                        "identities": {
+                          "description": "Collection of user identities.",
+                          "items": {
+                            "description": "User identity details.",
+                            "properties": {
+                              "id": {
+                                "description": "Identifier value within provider.",
+                                "type": "string"
+                              },
+                              "provider": {
+                                "description": "Identity provider name.",
+                                "type": "string"
+                              }
+                            }
+                          },
+                          "type": "array"
+                        },
+                        "note": {
+                          "description": "Optional note about a user set by the administrator.",
+                          "type": "string"
+                        },
+                        "state": {
+                          "default": "active",
+                          "description": "Account state. Specifies whether the user is active or not. Blocked users are unable to sign into the developer portal or call any APIs of subscribed products. Default state is Active.",
+                          "enum": [
+                            "active",
+                            "blocked",
+                            "pending",
+                            "deleted"
+                          ],
+                          "type": "string",
+                          "x-ms-enum": {
+                            "modelAsString": true,
+                            "name": "UserState",
+                            "values": [
+                              {
+                                "description": "User state is active.",
+                                "value": "active"
+                              },
+                              {
+                                "description": "User is blocked. Blocked users cannot authenticate at developer portal or call API.",
+                                "value": "blocked"
+                              },
+                              {
+                                "description": "User account is pending. Requires identity confirmation before it can be made active.",
+                                "value": "pending"
+                              },
+                              {
+                                "description": "User account is closed. All identities and related entities are removed.",
+                                "value": "deleted"
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "description": "User profile.",
+                  "properties": {
+                    "email": {
+                      "description": "Email address.",
+                      "type": "string"
+                    },
+                    "firstName": {
+                      "description": "First name.",
+                      "type": "string"
+                    },
+                    "groups": {
+                      "description": "Collection of groups user is part of.",
+                      "items": {
+                        "description": "Group contract Properties.",
+                        "properties": {
+                          "builtIn": {
+                            "description": "true if the group is one of the three system groups (Administrators, Developers, or Guests); otherwise false.",
+                            "readOnly": true,
+                            "type": "boolean"
+                          },
+                          "description": {
+                            "description": "Group description. Can contain HTML formatting tags.",
+                            "maxLength": 1000,
+                            "type": "string"
+                          },
+                          "displayName": {
+                            "description": "Group name.",
+                            "maxLength": 300,
+                            "minLength": 1,
+                            "type": "string"
+                          },
+                          "externalId": {
+                            "description": "For external groups, this property contains the id of the group from the external identity provider, e.g. for Azure Active Directory `aad://<tenant>.onmicrosoft.com/groups/<group object id>`; otherwise the value is null.",
+                            "type": "string"
+                          },
+                          "type": {
+                            "description": "Group type.",
+                            "enum": [
+                              "custom",
+                              "system",
+                              "external"
+                            ],
+                            "type": "string",
+                            "x-ms-enum": {
+                              "modelAsString": false,
+                              "name": "GroupType"
+                            }
+                          }
+                        },
+                        "required": [
+                          "displayName"
+                        ]
+                      },
+                      "readOnly": true,
+                      "type": "array"
+                    },
+                    "lastName": {
+                      "description": "Last name.",
+                      "type": "string"
+                    },
+                    "registrationDate": {
+                      "description": "Date of user registration. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.\n",
+                      "format": "date-time",
+                      "type": "string"
+                    }
+                  }
+                }
+              }
             }
           },
           "201": {
             "description": "User was successfully created.",
+            "headers": {
+              "ETag": {
+                "description": "Current entity state version. Should be treated as opaque and used to make conditional HTTP requests.",
+                "type": "string"
+              }
+            },
             "schema": {
-              "$ref": "#/definitions/UserContract"
+              "allOf": [
+                {
+                  "description": "The Resource definition.",
+                  "properties": {
+                    "id": {
+                      "description": "Resource ID.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "name": {
+                      "description": "Resource name.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "type": {
+                      "description": "Resource type for API Management resource.",
+                      "readOnly": true,
+                      "type": "string"
+                    }
+                  },
+                  "x-ms-azure-resource": true
+                }
+              ],
+              "description": "User details.",
+              "properties": {
+                "properties": {
+                  "allOf": [
+                    {
+                      "description": "User Entity Base Parameters set.",
+                      "properties": {
+                        "identities": {
+                          "description": "Collection of user identities.",
+                          "items": {
+                            "description": "User identity details.",
+                            "properties": {
+                              "id": {
+                                "description": "Identifier value within provider.",
+                                "type": "string"
+                              },
+                              "provider": {
+                                "description": "Identity provider name.",
+                                "type": "string"
+                              }
+                            }
+                          },
+                          "type": "array"
+                        },
+                        "note": {
+                          "description": "Optional note about a user set by the administrator.",
+                          "type": "string"
+                        },
+                        "state": {
+                          "default": "active",
+                          "description": "Account state. Specifies whether the user is active or not. Blocked users are unable to sign into the developer portal or call any APIs of subscribed products. Default state is Active.",
+                          "enum": [
+                            "active",
+                            "blocked",
+                            "pending",
+                            "deleted"
+                          ],
+                          "type": "string",
+                          "x-ms-enum": {
+                            "modelAsString": true,
+                            "name": "UserState",
+                            "values": [
+                              {
+                                "description": "User state is active.",
+                                "value": "active"
+                              },
+                              {
+                                "description": "User is blocked. Blocked users cannot authenticate at developer portal or call API.",
+                                "value": "blocked"
+                              },
+                              {
+                                "description": "User account is pending. Requires identity confirmation before it can be made active.",
+                                "value": "pending"
+                              },
+                              {
+                                "description": "User account is closed. All identities and related entities are removed.",
+                                "value": "deleted"
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "description": "User profile.",
+                  "properties": {
+                    "email": {
+                      "description": "Email address.",
+                      "type": "string"
+                    },
+                    "firstName": {
+                      "description": "First name.",
+                      "type": "string"
+                    },
+                    "groups": {
+                      "description": "Collection of groups user is part of.",
+                      "items": {
+                        "description": "Group contract Properties.",
+                        "properties": {
+                          "builtIn": {
+                            "description": "true if the group is one of the three system groups (Administrators, Developers, or Guests); otherwise false.",
+                            "readOnly": true,
+                            "type": "boolean"
+                          },
+                          "description": {
+                            "description": "Group description. Can contain HTML formatting tags.",
+                            "maxLength": 1000,
+                            "type": "string"
+                          },
+                          "displayName": {
+                            "description": "Group name.",
+                            "maxLength": 300,
+                            "minLength": 1,
+                            "type": "string"
+                          },
+                          "externalId": {
+                            "description": "For external groups, this property contains the id of the group from the external identity provider, e.g. for Azure Active Directory `aad://<tenant>.onmicrosoft.com/groups/<group object id>`; otherwise the value is null.",
+                            "type": "string"
+                          },
+                          "type": {
+                            "description": "Group type.",
+                            "enum": [
+                              "custom",
+                              "system",
+                              "external"
+                            ],
+                            "type": "string",
+                            "x-ms-enum": {
+                              "modelAsString": false,
+                              "name": "GroupType"
+                            }
+                          }
+                        },
+                        "required": [
+                          "displayName"
+                        ]
+                      },
+                      "readOnly": true,
+                      "type": "array"
+                    },
+                    "lastName": {
+                      "description": "Last name.",
+                      "type": "string"
+                    },
+                    "registrationDate": {
+                      "description": "Date of user registration. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.\n",
+                      "format": "date-time",
+                      "type": "string"
+                    }
+                  }
+                }
+              }
             }
           },
           "default": {
@@ -899,12 +1793,12 @@
           }
         },
         "tags": [
-          "Users"
+          "User"
         ],
         "x-ms-examples": {
-          "ApiManagementCreateUserBasic": {
+          "ApiManagementCreateUser": {
             "parameters": {
-              "api-version": "2018-01-01",
+              "api-version": "2019-12-01-preview",
               "parameters": {
                 "properties": {
                   "confirmation": "signup",
@@ -916,7 +1810,7 @@
               "resourceGroupName": "rg1",
               "serviceName": "apimService1",
               "subscriptionId": "subid",
-              "uid": "5931a75ae4bbd512288c680b"
+              "userId": "5931a75ae4bbd512288c680b"
             },
             "responses": {
               "200": {
@@ -966,7 +1860,122 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/users/{uid}/generateSsoUrl": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/users/{userId}/confirmations/password/send": {
+      "post": {
+        "description": "Sends confirmation",
+        "operationId": "UserConfirmationPassword_Send",
+        "parameters": [
+          {
+            "description": "The name of the resource group.",
+            "in": "path",
+            "name": "resourceGroupName",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
+          },
+          {
+            "description": "The name of the API Management service.",
+            "in": "path",
+            "maxLength": 50,
+            "minLength": 1,
+            "name": "serviceName",
+            "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
+          },
+          {
+            "description": "User identifier. Must be unique in the current API Management service instance.",
+            "in": "path",
+            "maxLength": 80,
+            "minLength": 1,
+            "name": "userId",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
+          },
+          {
+            "description": "Version of the API to be used with the client request.",
+            "in": "query",
+            "name": "api-version",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Notification successfully sent"
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "description": "Error Response.",
+              "properties": {
+                "error": {
+                  "description": "Error Body contract.",
+                  "properties": {
+                    "code": {
+                      "description": "Service-defined error code. This code serves as a sub-status for the HTTP error code specified in the response.",
+                      "type": "string"
+                    },
+                    "details": {
+                      "description": "The list of invalid fields send in request, in case of validation error.",
+                      "items": {
+                        "description": "Error Field contract.",
+                        "properties": {
+                          "code": {
+                            "description": "Property level error code.",
+                            "type": "string"
+                          },
+                          "message": {
+                            "description": "Human-readable representation of property-level error.",
+                            "type": "string"
+                          },
+                          "target": {
+                            "description": "Property name.",
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "type": "array"
+                    },
+                    "message": {
+                      "description": "Human-readable representation of the error.",
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "UserConfirmationPasswordSend"
+        ],
+        "x-ms-examples": {
+          "ApiManagementUserConfirmationPasswordSend": {
+            "parameters": {
+              "api-version": "2019-12-01-preview",
+              "resourceGroupName": "rg1",
+              "serviceName": "apimService1",
+              "subscriptionId": "subid",
+              "userId": "57127d485157a511ace86ae7"
+            },
+            "responses": {
+              "204": {}
+            }
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/users/{userId}/generateSsoUrl": {
       "post": {
         "description": "Retrieves a redirection URL containing an authentication token for signing a given user into the developer portal.",
         "operationId": "User_GenerateSsoUrl",
@@ -991,7 +2000,14 @@
             "x-ms-parameter-location": "method"
           },
           {
-            "$ref": "#/parameters/UserIdParameter"
+            "description": "User identifier. Must be unique in the current API Management service instance.",
+            "in": "path",
+            "maxLength": 80,
+            "minLength": 1,
+            "name": "userId",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "Version of the API to be used with the client request.",
@@ -1012,8 +2028,13 @@
           "200": {
             "description": "The response body contains the single sign-on URL.",
             "schema": {
-              "$ref": "#/definitions/GenerateSsoUrlResult",
-              "x-ms-client-flatten": true
+              "description": "Generate SSO Url operations response details.",
+              "properties": {
+                "value": {
+                  "description": "Redirect Url containing the SSO URL value.",
+                  "type": "string"
+                }
+              }
             }
           },
           "default": {
@@ -1063,13 +2084,13 @@
           "Users"
         ],
         "x-ms-examples": {
-          "ApiManagementUsersGenerateSsoUrl": {
+          "ApiManagementUserGenerateSsoUrl": {
             "parameters": {
-              "api-version": "2018-01-01",
+              "api-version": "2019-12-01-preview",
               "resourceGroupName": "rg1",
               "serviceName": "apimService1",
               "subscriptionId": "subid",
-              "uid": "57127d485157a511ace86ae7"
+              "userId": "57127d485157a511ace86ae7"
             },
             "responses": {
               "200": {
@@ -1082,7 +2103,7 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/users/{uid}/groups": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/users/{userId}/groups": {
       "get": {
         "description": "Lists all user groups.",
         "operationId": "UserGroup_List",
@@ -1107,10 +2128,17 @@
             "x-ms-parameter-location": "method"
           },
           {
-            "$ref": "#/parameters/UserIdParameter"
+            "description": "User identifier. Must be unique in the current API Management service instance.",
+            "in": "path",
+            "maxLength": 80,
+            "minLength": 1,
+            "name": "userId",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
-            "description": "| Field       | Supported operators    | Supported functions                         |\n|-------------|------------------------|---------------------------------------------|\n| id          | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |\n| name        | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |\n| description | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |",
+            "description": "|   Field     |     Usage     |     Supported operators     |     Supported functions     |</br>|-------------|-------------|-------------|-------------|</br>| name | filter | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith | </br>| displayName | filter | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith | </br>| description | filter | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith | </br>",
             "in": "query",
             "name": "$filter",
             "required": false,
@@ -1209,7 +2237,7 @@
                             "type": "string"
                           },
                           "externalId": {
-                            "description": "For external groups, this property contains the id of the group from the external identity provider, e.g. for Azure Active Directory aad://<tenant>.onmicrosoft.com/groups/<group object id>; otherwise the value is null.",
+                            "description": "For external groups, this property contains the id of the group from the external identity provider, e.g. for Azure Active Directory `aad://<tenant>.onmicrosoft.com/groups/<group object id>`; otherwise the value is null.",
                             "type": "string"
                           },
                           "type": {
@@ -1281,16 +2309,16 @@
           }
         },
         "tags": [
-          "UserGroups"
+          "UserGroup"
         ],
         "x-ms-examples": {
           "ApiManagementListUserGroups": {
             "parameters": {
-              "api-version": "2018-01-01",
+              "api-version": "2019-12-01-preview",
               "resourceGroupName": "rg1",
               "serviceName": "apimService1",
               "subscriptionId": "subid",
-              "uid": "57681833a40f7eb6c49f6acf"
+              "userId": "57681833a40f7eb6c49f6acf"
             },
             "responses": {
               "200": {
@@ -1314,15 +2342,15 @@
             }
           }
         },
-        "x-ms-odata": "./apimgroups.json#/definitions/GroupContract",
+        "x-ms-odata": "./definitions.json#/definitions/GroupContract",
         "x-ms-pageable": {
           "nextLinkName": "nextLink"
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/users/{uid}/identities": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/users/{userId}/identities": {
       "get": {
-        "description": "Lists all user identities.",
+        "description": "List of all user identities.",
         "operationId": "UserIdentities_List",
         "parameters": [
           {
@@ -1345,7 +2373,14 @@
             "x-ms-parameter-location": "method"
           },
           {
-            "$ref": "#/parameters/UserIdParameter"
+            "description": "User identifier. Must be unique in the current API Management service instance.",
+            "in": "path",
+            "maxLength": 80,
+            "minLength": 1,
+            "name": "userId",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "Version of the API to be used with the client request.",
@@ -1366,7 +2401,35 @@
           "200": {
             "description": "Lists of User Identities.",
             "schema": {
-              "$ref": "#/definitions/UserIdentityCollection"
+              "description": "List of Users Identity list representation.",
+              "properties": {
+                "count": {
+                  "description": "Total record count number across all pages.",
+                  "format": "int64",
+                  "type": "integer"
+                },
+                "nextLink": {
+                  "description": "Next page link if any.",
+                  "type": "string"
+                },
+                "value": {
+                  "description": "User Identity values.",
+                  "items": {
+                    "description": "User identity details.",
+                    "properties": {
+                      "id": {
+                        "description": "Identifier value within provider.",
+                        "type": "string"
+                      },
+                      "provider": {
+                        "description": "Identity provider name.",
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "type": "array"
+                }
+              }
             }
           },
           "default": {
@@ -1413,21 +2476,20 @@
           }
         },
         "tags": [
-          "UserIdentities"
+          "UserIdentity"
         ],
         "x-ms-examples": {
-          "ApiManagementListUsersIdentities": {
+          "ApiManagementListUserIdentities": {
             "parameters": {
-              "api-version": "2018-01-01",
+              "api-version": "2019-12-01-preview",
               "resourceGroupName": "rg1",
               "serviceName": "apimService1",
               "subscriptionId": "subid",
-              "uid": "57f2af53bb17172280f44057"
+              "userId": "57f2af53bb17172280f44057"
             },
             "responses": {
               "200": {
                 "body": {
-                  "count": 1,
                   "nextLink": "",
                   "value": [
                     {
@@ -1445,7 +2507,7 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/users/{uid}/subscriptions": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/users/{userId}/subscriptions": {
       "get": {
         "description": "Lists the collection of subscriptions of the specified user.",
         "operationId": "UserSubscription_List",
@@ -1470,10 +2532,17 @@
             "x-ms-parameter-location": "method"
           },
           {
-            "$ref": "#/parameters/UserIdParameter"
+            "description": "User identifier. Must be unique in the current API Management service instance.",
+            "in": "path",
+            "maxLength": 80,
+            "minLength": 1,
+            "name": "userId",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
-            "description": "| Field        | Supported operators    | Supported functions                         |\n|--------------|------------------------|---------------------------------------------|\n| id           | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |\n| name         | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |\n| stateComment | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |\n| userId       | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |\n| productId    | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |\n| state        | eq                     |                                             |",
+            "description": "|   Field     |     Usage     |     Supported operators     |     Supported functions     |</br>|-------------|-------------|-------------|-------------|</br>| name | filter | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith | </br>| displayName | filter | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith | </br>| stateComment | filter | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith | </br>| ownerId | filter | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith | </br>| scope | filter | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith | </br>| userId | filter | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith | </br>| productId | filter | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith | </br>",
             "in": "query",
             "name": "$filter",
             "required": false,
@@ -1555,6 +2624,11 @@
                       "properties": {
                         "description": "Subscription details.",
                         "properties": {
+                          "allowTracing": {
+                            "description": "Determines whether tracing is enabled",
+                            "type": "boolean",
+                            "x-apim-code-nillable": true
+                          },
                           "createdDate": {
                             "description": "Subscription creation date. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.\n",
                             "format": "date-time",
@@ -1582,21 +2656,27 @@
                             "format": "date-time",
                             "type": "string"
                           },
-                          "primaryKey": {
-                            "description": "Subscription primary key.",
-                            "maxLength": 256,
-                            "minLength": 1,
+                          "ownerId": {
+                            "description": "The user resource identifier of the subscription owner. The value is a valid relative URL in the format of /users/{userId} where {userId} is a user identifier.",
                             "type": "string"
                           },
-                          "productId": {
-                            "description": "The product resource identifier of the subscribed product. The value is a valid relative URL in the format of /products/{productId} where {productId} is a product identifier.",
+                          "primaryKey": {
+                            "description": "Subscription primary key. This property will not be filled on 'GET' operations! Use '/listSecrets' POST request to get the value.",
+                            "maxLength": 256,
+                            "minLength": 1,
+                            "type": "string",
+                            "x-ms-secret": true
+                          },
+                          "scope": {
+                            "description": "Scope like /products/{productId} or /apis or /apis/{apiId}.",
                             "type": "string"
                           },
                           "secondaryKey": {
-                            "description": "Subscription secondary key.",
+                            "description": "Subscription secondary key. This property will not be filled on 'GET' operations! Use '/listSecrets' POST request to get the value.",
                             "maxLength": 256,
                             "minLength": 1,
-                            "type": "string"
+                            "type": "string",
+                            "x-ms-secret": true
                           },
                           "startDate": {
                             "description": "Subscription activation date. The setting is for audit purposes only and the subscription is not automatically activated. The subscription lifecycle can be managed by using the `state` property. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.\n",
@@ -1622,18 +2702,11 @@
                           "stateComment": {
                             "description": "Optional subscription comment added by an administrator.",
                             "type": "string"
-                          },
-                          "userId": {
-                            "description": "The user resource identifier of the subscription owner. The value is a valid relative URL in the format of /users/{uid} where {uid} is a user identifier.",
-                            "type": "string"
                           }
                         },
                         "required": [
-                          "userId",
-                          "productId",
-                          "state",
-                          "primaryKey",
-                          "secondaryKey"
+                          "scope",
+                          "state"
                         ]
                       }
                     }
@@ -1687,16 +2760,16 @@
           }
         },
         "tags": [
-          "UserSubscriptions"
+          "UserSubscription"
         ],
         "x-ms-examples": {
           "ApiManagementListUserSubscriptions": {
             "parameters": {
-              "api-version": "2018-01-01",
+              "api-version": "2019-12-01-preview",
               "resourceGroupName": "rg1",
               "serviceName": "apimService1",
               "subscriptionId": "subid",
-              "uid": "57681833a40f7eb6c49f6acf"
+              "userId": "57681833a40f7eb6c49f6acf"
             },
             "responses": {
               "200": {
@@ -1709,12 +2782,10 @@
                       "properties": {
                         "createdDate": "2016-06-20T16:22:39.547Z",
                         "displayName": "57681850a40f7eb6c49f6ae5",
-                        "primaryKey": "57681850a40f7eb6c49f6ae4",
-                        "productId": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/products/5768181ea40f7eb6c49f6ac7",
-                        "secondaryKey": "bbd884a96b3c41b49f34422dac74b345",
+                        "ownerId": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/users/57681833a40f7eb6c49f6acf",
+                        "scope": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/products/5768181ea40f7eb6c49f6ac7",
                         "startDate": "2016-06-20T00:00:00Z",
-                        "state": "active",
-                        "userId": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/users/57681833a40f7eb6c49f6acf"
+                        "state": "active"
                       },
                       "type": "Microsoft.ApiManagement/service/users/subscriptions"
                     },
@@ -1724,12 +2795,10 @@
                       "properties": {
                         "createdDate": "2016-06-20T16:22:41.103Z",
                         "displayName": "57681850a40f7eb6c49f6b2d",
-                        "primaryKey": "57681850a40f7eb6c49f6b2c",
-                        "productId": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/products/5768181ea40f7eb6c49f6ac7",
-                        "secondaryKey": "125f565d276647dc825d7f25ea40ee57",
+                        "ownerId": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/users/57681833a40f7eb6c49f6acf",
+                        "scope": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/products/5768181ea40f7eb6c49f6ac7",
                         "startDate": "2016-06-20T00:00:00Z",
-                        "state": "active",
-                        "userId": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/users/57681833a40f7eb6c49f6acf"
+                        "state": "active"
                       },
                       "type": "Microsoft.ApiManagement/service/users/subscriptions"
                     }
@@ -1739,13 +2808,13 @@
             }
           }
         },
-        "x-ms-odata": "./apimsubscriptions.json#/definitions/SubscriptionContract",
+        "x-ms-odata": "./definitions.json#/definitions/SubscriptionContract",
         "x-ms-pageable": {
           "nextLinkName": "nextLink"
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/users/{uid}/token": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/users/{userId}/token": {
       "post": {
         "description": "Gets the Shared Access Authorization Token for the User.",
         "operationId": "User_GetSharedAccessToken",
@@ -1770,7 +2839,14 @@
             "x-ms-parameter-location": "method"
           },
           {
-            "$ref": "#/parameters/UserIdParameter"
+            "description": "User identifier. Must be unique in the current API Management service instance.",
+            "in": "path",
+            "maxLength": 80,
+            "minLength": 1,
+            "name": "userId",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "Create Authorization Token parameters.",
@@ -1778,7 +2854,36 @@
             "name": "parameters",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/UserTokenParameters"
+              "description": "Get User Token parameters.",
+              "properties": {
+                "properties": {
+                  "description": "Parameters supplied to the Get User Token operation.",
+                  "properties": {
+                    "expiry": {
+                      "description": "The Expiry time of the Token. Maximum token expiry time is set to 30 days. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.\n",
+                      "format": "date-time",
+                      "type": "string"
+                    },
+                    "keyType": {
+                      "default": "primary",
+                      "description": "The Key to be used to generate token for user.",
+                      "enum": [
+                        "primary",
+                        "secondary"
+                      ],
+                      "type": "string",
+                      "x-ms-enum": {
+                        "modelAsString": false,
+                        "name": "KeyType"
+                      }
+                    }
+                  },
+                  "required": [
+                    "keyType",
+                    "expiry"
+                  ]
+                }
+              }
             }
           },
           {
@@ -1800,8 +2905,13 @@
           "200": {
             "description": "The response body contains the authorization token for the user.",
             "schema": {
-              "$ref": "#/definitions/UserTokenResult",
-              "x-ms-client-flatten": true
+              "description": "Get User Token response details.",
+              "properties": {
+                "value": {
+                  "description": "Shared Access Authorization token for the User.",
+                  "type": "string"
+                }
+              }
             }
           },
           "default": {
@@ -1848,25 +2958,27 @@
           }
         },
         "tags": [
-          "Users"
+          "UserToken"
         ],
         "x-ms-examples": {
-          "ApiManagementUsersGetToken": {
+          "ApiManagementUserToken": {
             "parameters": {
-              "api-version": "2018-01-01",
+              "api-version": "2019-12-01-preview",
               "parameters": {
-                "expiry": "2017-05-13T10:39:35Z",
-                "keyType": "primary"
+                "properties": {
+                  "expiry": "2019-04-21T00:44:24.2845269Z",
+                  "keyType": "primary"
+                }
               },
               "resourceGroupName": "rg1",
               "serviceName": "apimService1",
               "subscriptionId": "subid",
-              "uid": "57f2af53bb17172280f44057"
+              "userId": "userId1718"
             },
             "responses": {
               "200": {
                 "body": {
-                  "value": "57f2af53bb17172280f44057&201705131039&***************************/tJVExvjA=="
+                  "value": "userId1718&201904210044&9A1GR1f5WIhFvFmzQG+xxxxxxxxxxx/kBeu87DWad3tkasUXuvPL+MgzlwUHyg=="
                 }
               }
             }
@@ -1875,368 +2987,5 @@
       }
     }
   },
-  "definitions": {
-    "GenerateSsoUrlResult": {
-      "description": "Generate SSO Url operations response details.",
-      "properties": {
-        "value": {
-          "description": "Redirect Url containing the SSO URL value.",
-          "type": "string"
-        }
-      }
-    },
-    "UserCollection": {
-      "description": "Paged Users list representation.",
-      "properties": {
-        "nextLink": {
-          "description": "Next page link if any.",
-          "type": "string"
-        },
-        "value": {
-          "description": "Page values.",
-          "items": {
-            "$ref": "#/definitions/UserContract"
-          },
-          "type": "array"
-        }
-      }
-    },
-    "UserContract": {
-      "allOf": [
-        {
-          "description": "The Resource definition.",
-          "properties": {
-            "id": {
-              "description": "Resource ID.",
-              "readOnly": true,
-              "type": "string"
-            },
-            "name": {
-              "description": "Resource name.",
-              "readOnly": true,
-              "type": "string"
-            },
-            "type": {
-              "description": "Resource type for API Management resource.",
-              "readOnly": true,
-              "type": "string"
-            }
-          },
-          "x-ms-azure-resource": true
-        }
-      ],
-      "description": "User details.",
-      "properties": {
-        "properties": {
-          "$ref": "#/definitions/UserContractProperties",
-          "description": "User entity contract properties.",
-          "x-ms-client-flatten": true
-        }
-      }
-    },
-    "UserContractProperties": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/UserEntityBaseParameters"
-        }
-      ],
-      "description": "User profile.",
-      "properties": {
-        "email": {
-          "description": "Email address.",
-          "type": "string"
-        },
-        "firstName": {
-          "description": "First name.",
-          "type": "string"
-        },
-        "groups": {
-          "description": "Collection of groups user is part of.",
-          "items": {
-            "description": "Group contract Properties.",
-            "properties": {
-              "builtIn": {
-                "description": "true if the group is one of the three system groups (Administrators, Developers, or Guests); otherwise false.",
-                "readOnly": true,
-                "type": "boolean"
-              },
-              "description": {
-                "description": "Group description. Can contain HTML formatting tags.",
-                "maxLength": 1000,
-                "type": "string"
-              },
-              "displayName": {
-                "description": "Group name.",
-                "maxLength": 300,
-                "minLength": 1,
-                "type": "string"
-              },
-              "externalId": {
-                "description": "For external groups, this property contains the id of the group from the external identity provider, e.g. for Azure Active Directory aad://<tenant>.onmicrosoft.com/groups/<group object id>; otherwise the value is null.",
-                "type": "string"
-              },
-              "type": {
-                "description": "Group type.",
-                "enum": [
-                  "custom",
-                  "system",
-                  "external"
-                ],
-                "type": "string",
-                "x-ms-enum": {
-                  "modelAsString": false,
-                  "name": "GroupType"
-                }
-              }
-            },
-            "required": [
-              "displayName"
-            ]
-          },
-          "readOnly": true,
-          "type": "array"
-        },
-        "lastName": {
-          "description": "Last name.",
-          "type": "string"
-        },
-        "registrationDate": {
-          "description": "Date of user registration. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.\n",
-          "format": "date-time",
-          "type": "string"
-        }
-      }
-    },
-    "UserCreateParameterProperties": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/UserEntityBaseParameters"
-        }
-      ],
-      "description": "Parameters supplied to the Create User operation.",
-      "properties": {
-        "confirmation": {
-          "description": "Determines the type of confirmation e-mail that will be sent to the newly created user.",
-          "enum": [
-            "signup",
-            "invite"
-          ],
-          "type": "string",
-          "x-ms-enum": {
-            "modelAsString": true,
-            "name": "Confirmation",
-            "values": [
-              {
-                "description": "Send an e-mail to the user confirming they have successfully signed up.",
-                "value": "signup"
-              },
-              {
-                "description": "Send an e-mail inviting the user to sign-up and complete registration.",
-                "value": "invite"
-              }
-            ]
-          }
-        },
-        "email": {
-          "description": "Email address. Must not be empty and must be unique within the service instance.",
-          "maxLength": 254,
-          "minLength": 1,
-          "type": "string"
-        },
-        "firstName": {
-          "description": "First name.",
-          "maxLength": 100,
-          "minLength": 1,
-          "type": "string"
-        },
-        "lastName": {
-          "description": "Last name.",
-          "maxLength": 100,
-          "minLength": 1,
-          "type": "string"
-        },
-        "password": {
-          "description": "User Password. If no value is provided, a default password is generated.",
-          "type": "string"
-        }
-      },
-      "required": [
-        "email",
-        "firstName",
-        "lastName"
-      ]
-    },
-    "UserCreateParameters": {
-      "description": "User create details.",
-      "properties": {
-        "properties": {
-          "$ref": "#/definitions/UserCreateParameterProperties",
-          "description": "User entity create contract properties.",
-          "x-ms-client-flatten": true
-        }
-      }
-    },
-    "UserEntityBaseParameters": {
-      "description": "User Entity Base Parameters set.",
-      "properties": {
-        "identities": {
-          "description": "Collection of user identities.",
-          "items": {
-            "$ref": "#/definitions/UserIdentityContract"
-          },
-          "readOnly": true,
-          "type": "array"
-        },
-        "note": {
-          "description": "Optional note about a user set by the administrator.",
-          "type": "string"
-        },
-        "state": {
-          "default": "active",
-          "description": "Account state. Specifies whether the user is active or not. Blocked users are unable to sign into the developer portal or call any APIs of subscribed products. Default state is Active.",
-          "enum": [
-            "active",
-            "blocked",
-            "pending",
-            "deleted"
-          ],
-          "type": "string",
-          "x-ms-enum": {
-            "modelAsString": true,
-            "name": "UserState",
-            "values": [
-              {
-                "description": "User state is active.",
-                "value": "active"
-              },
-              {
-                "description": "User is blocked. Blocked users cannot authenticate at developer portal or call API.",
-                "value": "blocked"
-              },
-              {
-                "description": "User account is pending. Requires identity confirmation before it can be made active.",
-                "value": "pending"
-              },
-              {
-                "description": "User account is closed. All identities and related entities are removed.",
-                "value": "deleted"
-              }
-            ]
-          }
-        }
-      }
-    },
-    "UserIdentityCollection": {
-      "description": "List of Users Identity list representation.",
-      "properties": {
-        "count": {
-          "description": "Total record count number across all pages.",
-          "format": "int64",
-          "type": "integer"
-        },
-        "nextLink": {
-          "description": "Next page link if any.",
-          "type": "string"
-        },
-        "value": {
-          "description": "User Identity values.",
-          "items": {
-            "$ref": "#/definitions/UserIdentityContract"
-          },
-          "type": "array"
-        }
-      }
-    },
-    "UserIdentityContract": {
-      "description": "User identity details.",
-      "properties": {
-        "id": {
-          "description": "Identifier value within provider.",
-          "type": "string"
-        },
-        "provider": {
-          "description": "Identity provider name.",
-          "type": "string"
-        }
-      }
-    },
-    "UserTokenParameters": {
-      "description": "Parameters supplied to the Get User Token operation.",
-      "properties": {
-        "expiry": {
-          "description": "The Expiry time of the Token. Maximum token expiry time is set to 30 days. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.\n",
-          "format": "date-time",
-          "type": "string"
-        },
-        "keyType": {
-          "default": "primary",
-          "description": "The Key to be used to generate token for user.",
-          "enum": [
-            "primary",
-            "secondary"
-          ],
-          "type": "string",
-          "x-ms-enum": {
-            "modelAsString": false,
-            "name": "KeyType"
-          }
-        }
-      },
-      "required": [
-        "keyType",
-        "expiry"
-      ]
-    },
-    "UserTokenResult": {
-      "description": "Get User Token response details.",
-      "properties": {
-        "value": {
-          "description": "Shared Access Authorization token for the User.",
-          "type": "string"
-        }
-      }
-    },
-    "UserUpdateParameters": {
-      "description": "User update parameters.",
-      "properties": {
-        "properties": {
-          "$ref": "#/definitions/UserUpdateParametersProperties",
-          "description": "User entity update contract properties.",
-          "x-ms-client-flatten": true
-        }
-      }
-    },
-    "UserUpdateParametersProperties": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/UserEntityBaseParameters"
-        }
-      ],
-      "description": "Parameters supplied to the Update User operation.",
-      "properties": {
-        "email": {
-          "description": "Email address. Must not be empty and must be unique within the service instance.",
-          "maxLength": 254,
-          "minLength": 1,
-          "type": "string"
-        },
-        "firstName": {
-          "description": "First name.",
-          "maxLength": 100,
-          "minLength": 1,
-          "type": "string"
-        },
-        "lastName": {
-          "description": "Last name.",
-          "maxLength": 100,
-          "minLength": 1,
-          "type": "string"
-        },
-        "password": {
-          "description": "User Password.",
-          "type": "string"
-        }
-      }
-    }
-  }
+  "definitions": {}
 }

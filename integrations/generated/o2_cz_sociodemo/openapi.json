@@ -11,11 +11,11 @@
     },
     "description": "Socio-demo API can be used to obtain time-aggregated data representing groups of people on the given location in the Czech Republic. Having a location, the API can return count of people belonging to age group or gender aggregated by hours. The socio-demo data is based on presence of mobile stations in O2 mobile network.",
     "license": {
-      "name": "O2 Czech Republic",
+      "name": "O2 Czech Republic a.s.",
       "url": "https://developer.o2.cz/portal/vop"
     },
-    "title": "Socio-demo",
-    "version": "1.0",
+    "title": "Socio-demo API",
+    "version": "1.2.0",
     "x-apisguru-categories": [
       "telecom"
     ],
@@ -38,9 +38,6 @@
       "type": "openapi"
     }
   },
-  "produces": [
-    "application/json"
-  ],
   "tags": [
     {
       "name": "info"
@@ -87,6 +84,9 @@
             "type": "string",
             "x-example": "10"
           }
+        ],
+        "produces": [
+          "application/json"
         ],
         "responses": {
           "200": {
@@ -155,6 +155,9 @@
             "x-example": "10"
           }
         ],
+        "produces": [
+          "application/json"
+        ],
         "responses": {
           "200": {
             "description": "Response with the requested content.",
@@ -192,6 +195,9 @@
         "description": "",
         "operationId": "getInfo",
         "parameters": [],
+        "produces": [
+          "application/json"
+        ],
         "responses": {
           "200": {
             "description": "Response with the requested content.",

@@ -1,6 +1,6 @@
 {
   "name": "@datafire/azure_servicefabric",
-  "version": "4.0.0",
+  "version": "5.0.0",
   "main": "index.js",
   "description": "DataFire integration for Service Fabric Client APIs",
   "repository": {
@@ -14,7 +14,7 @@
   },
   "homepage": "https://github.com/DataFire/integrations#readme",
   "datafire": {
-    "origin": "https://api.apis.guru/v2/specs/azure.com/servicefabric/5.6/swagger.json",
+    "origin": "https://api.apis.guru/v2/specs/azure.com/servicefabric/6.5.0.36/swagger.json",
     "type": "openapi"
   },
   "peerDependencies": {

@@ -7,23 +7,16 @@ Client library for nFusion Solutions Market Data API v1
 npm install --save @datafire/nfusionsolutions_biz
 ```
 ```js
-let nfusionsolutions_biz = require('@datafire/nfusionsolutions_biz').create({
-  token: ""
-});
+let nfusionsolutions_biz = require('@datafire/nfusionsolutions_biz').create();
 
-nfusionsolutions_biz.api.vversion.Currencies.history.get({
-  "token": "",
-  "pairs": "",
-  "start": "",
-  "version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
 
 ## Description
 
-nFusion Solutions provides REST and streaming APIs that deliver enterprise-grade financial data. Data sets include real-time and historical pricing for Spot prices of precious metals such as Gold, Silver, Platinum, and Palladium, exchange rates for major currency pairs, exchange rates for Crypto Currencies such as BTC, ETH, and LTC. All API access requires authentication. In order to be issued access credentials you must first enter into a service agreement with nFusion Solutions and acquire a commercial license. For information on how to obtain a licence contact sales@nfusionsolutions.com.
+[nFusion Solutions](https://nfusionsolutions.com) provides [REST APIs](https://nfusionsolutions.com/data-feeds/) that deliver enterprise-grade financial data. Data sets include real-time and historical pricing for Spot prices of precious metals such as Gold, Silver, Platinum, and Palladium, exchange rates for major currency pairs, exchange rates for Crypto Currencies such as BTC, ETH, and LTC. All API access requires authentication. In order to be issued access credentials you must first enter into a service agreement with nFusion Solutions and acquire a commercial license. For information on how to obtain a licence [take a tour of our products](https://nfusionsolutions.com/nfusion-solutions-metals-gold-price-feed-tour/) or email sales@nfusionsolutions.com.
 
 ## Actions
 
@@ -50,12 +43,12 @@ nfusionsolutions_biz.api.vversion.Currencies.history.get({
   * start **required** `string`: start date of time period. format is <i>yyyy-mm-dd</i>
   * end `string`: end date of time period. format is <i>yyyy-mm-dd</i>. Default is current date.
   * interval `string`: aggregation interval. Composed of an optional integer value (which defaults to 1 when not specified), 
-  * format `string`: to override content negotiation specify a value of json or xml
+  * format `string` (values: json, xml): to override content negotiation specify a value of json or xml
   * version **required** `string`: The requested API version
 
 #### Output
 * output `array`
-  * items [Response[IntervalCollection]](#response[intervalcollection])
+  * items [IntervalCollectionResponse](#intervalcollectionresponse)
 
 ### api.vversion.Currencies.history.supported.get
 Only the currency pairs in the direction noted can be used with the history endpoint.
@@ -72,7 +65,7 @@ nfusionsolutions_biz.api.vversion.Currencies.history.supported.get({
 #### Input
 * input `object`
   * token **required** `string`: auth token
-  * format `string`: to override content negotiation specify a value of json or xml
+  * format `string` (values: json, xml): to override content negotiation specify a value of json or xml
   * version **required** `string`: The requested API version
 
 #### Output
@@ -95,12 +88,12 @@ nfusionsolutions_biz.api.vversion.Currencies.rate.get({
 * input `object`
   * token **required** `string`: auth token
   * pairs **required** `string`: comma separated list of currency pairs. For example: USD/CAD,USD/EUR,USD/AUD
-  * format `string`: to override content negotiation specify a value of json or xml
+  * format `string` (values: json, xml): to override content negotiation specify a value of json or xml
   * version **required** `string`: The requested API version
 
 #### Output
 * output `array`
-  * items [Response[Rate]](#response[rate])
+  * items [RateResponse](#rateresponse)
 
 ### api.vversion.Currencies.rate.supported.get
 Any of the currencies in this list can be paired with any other currency in this list when supplied to the Rate endpoint.
@@ -117,7 +110,7 @@ nfusionsolutions_biz.api.vversion.Currencies.rate.supported.get({
 #### Input
 * input `object`
   * token **required** `string`: auth token
-  * format `string`: to override content negotiation specify a value of json or xml
+  * format `string` (values: json, xml): to override content negotiation specify a value of json or xml
   * version **required** `string`: The requested API version
 
 #### Output
@@ -140,12 +133,12 @@ nfusionsolutions_biz.api.vversion.Currencies.summary.get({
 * input `object`
   * token **required** `string`: auth token
   * pairs **required** `string`: comma separated list of currency pairs. For example: USD/CAD,USD/EUR,USD/AUD
-  * format `string`: to override content negotiation specify a value of json or xml
+  * format `string` (values: json, xml): to override content negotiation specify a value of json or xml
   * version **required** `string`: The requested API version
 
 #### Output
 * output `array`
-  * items [Response[Summary]](#response[summary])
+  * items [SummaryResponse](#summaryresponse)
 
 ### api.vversion.Currencies.summary.supported.get
 Only the currency pairs in the direction noted can be used with the Summary endpoint.
@@ -162,7 +155,7 @@ nfusionsolutions_biz.api.vversion.Currencies.summary.supported.get({
 #### Input
 * input `object`
   * token **required** `string`: auth token
-  * format `string`: to override content negotiation specify a value of json or xml
+  * format `string` (values: json, xml): to override content negotiation specify a value of json or xml
   * version **required** `string`: The requested API version
 
 #### Output
@@ -194,15 +187,15 @@ nfusionsolutions_biz.api.vversion.Metals.benchmark.history.get({
   * start **required** `string`: start date of time period. format is <i>yyyy-mm-dd</i>
   * end `string`: end date of time period. format is <i>yyyy-mm-dd</i>. Default is current date.
   * interval `string`: aggregation interval. Composed of an optional integer value (which defaults to 1 when not specified), 
-  * historicalfx `boolean`: if true use historical currency rates otherwise current currency rates. Defaults to false.
-  * currency `string`: currency for pricing, defaults to USD
-  * unitofmeasure `string`: unit of meaure, defaults to troy ounces. allowed values are:
-  * format `string`: to override content negotiation specify a value of json or xml
+  * historicalfx `boolean`: if true use historical currency rates otherwise current currency rates. Defaults to true.
+  * currency `string`: comma separated list of conversion currencies, defaults to USD
+  * unitofmeasure `string` (values: mg, g, kg, gr, oz, toz, ct, dwt): unit of meaure, defaults to troy ounces. allowed values are:
+  * format `string` (values: json, xml): to override content negotiation specify a value of json or xml
   * version **required** `string`: The requested API version
 
 #### Output
 * output `array`
-  * items [Response[IntervalCollection]](#response[intervalcollection])
+  * items [IntervalCollectionResponse](#intervalcollectionresponse)
 
 ### api.vversion.Metals.benchmark.summary.get
 Benchmark price information
@@ -220,14 +213,14 @@ nfusionsolutions_biz.api.vversion.Metals.benchmark.summary.get({
 * input `object`
   * token **required** `string`: auth token
   * metals **required** `string`: comma separated list of metals
-  * currency `string`: currency for pricing, defaults to USD
-  * unitofmeasure `string`: unit of meaure, defaults to troy ounces. allowed values are:
-  * format `string`: to override content negotiation specify a value of json or xml
+  * currency `string`: comma separated list of conversion currencies, defaults to USD
+  * unitofmeasure `string` (values: mg, g, kg, gr, oz, toz, ct, dwt): unit of meaure, defaults to troy ounces. allowed values are:
+  * format `string` (values: json, xml): to override content negotiation specify a value of json or xml
   * version **required** `string`: The requested API version
 
 #### Output
 * output `array`
-  * items [Response[Summary]](#response[summary])
+  * items [SummaryResponse](#summaryresponse)
 
 ### api.vversion.Metals.benchmark.supported.get
 Get list of symbols supported by the benchmark endpoints
@@ -243,7 +236,7 @@ nfusionsolutions_biz.api.vversion.Metals.benchmark.supported.get({
 #### Input
 * input `object`
   * token **required** `string`: auth token
-  * format `string`: to override content negotiation specify a value of json or xml
+  * format `string` (values: json, xml): to override content negotiation specify a value of json or xml
   * version **required** `string`: The requested API version
 
 #### Output
@@ -275,15 +268,119 @@ nfusionsolutions_biz.api.vversion.Metals.spot.history.get({
   * start **required** `string`: start date of time period. format is <i>yyyy-mm-dd</i>
   * end `string`: end date of time period. format is <i>yyyy-mm-dd</i>. Default is current date.
   * interval `string`: aggregation interval. Composed of an optional integer value (which defaults to 1 when not specified), 
-  * historicalfx `boolean`: if true use historical currency rates otherwise current currency rates. Defaults to false.
-  * currency `string`: currency for pricing, defaults to USD
-  * unitofmeasure `string`: unit of meaure, defaults to troy ounces. allowed values are:
-  * format `string`: to override content negotiation specify a value of json or xml
+  * historicalfx `boolean`: if true use historical currency rates otherwise current currency rates. Defaults to true.
+  * currency `string`: comma separated list of conversion currencies, defaults to USD
+  * unitofmeasure `string` (values: mg, g, kg, gr, oz, toz, ct, dwt): unit of meaure, defaults to troy ounces. allowed values are:
+  * format `string` (values: json, xml): to override content negotiation specify a value of json or xml
   * version **required** `string`: The requested API version
 
 #### Output
 * output `array`
-  * items [Response[IntervalCollection]](#response[intervalcollection])
+  * items [IntervalCollectionResponse](#intervalcollectionresponse)
+
+### api.vversion.Metals.spot.performance.get
+Historical Performance information
+
+
+```js
+nfusionsolutions_biz.api.vversion.Metals.spot.performance.get({
+  "token": "",
+  "metals": "",
+  "version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * token **required** `string`: auth token
+  * metals **required** `string`: comma separated list of metals
+  * currency `string`: comma separated list of conversion currencies, defaults to USD
+  * unitofmeasure `string` (values: mg, g, kg, gr, oz, toz, ct, dwt): unit of meaure, defaults to troy ounces. allowed values are:
+  * format `string` (values: json, xml): to override content negotiation specify a value of json or xml
+  * version **required** `string`: The requested API version
+
+#### Output
+* output `array`
+  * items [IntervalCollectionResponse](#intervalcollectionresponse)
+
+### api.vversion.Metals.spot.performance.annual.get
+Annual Historical Performance information
+
+
+```js
+nfusionsolutions_biz.api.vversion.Metals.spot.performance.annual.get({
+  "token": "",
+  "metals": "",
+  "version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * token **required** `string`: auth token
+  * metals **required** `string`: comma separated list of metals
+  * currency `string`: comma separated list of conversion currencies, defaults to USD
+  * unitofmeasure `string` (values: mg, g, kg, gr, oz, toz, ct, dwt): unit of meaure, defaults to troy ounces. allowed values are:
+  * format `string` (values: json, xml): to override content negotiation specify a value of json or xml
+  * years `integer`: Number of years of history to return. Defaults to 10.
+  * version **required** `string`: The requested API version
+
+#### Output
+* output `array`
+  * items [IntervalCollectionResponse](#intervalcollectionresponse)
+
+### api.vversion.Metals.spot.ratio.history.get
+Historical data for the specified period and interval size
+
+The combination of the interval parameter and start and end dates can result in results
+being truncated to conform to result size limits. See comments on interval parameter for details on valid interval values.
+
+
+```js
+nfusionsolutions_biz.api.vversion.Metals.spot.ratio.history.get({
+  "token": "",
+  "pairs": "",
+  "start": "",
+  "version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * token **required** `string`: auth token
+  * pairs **required** `string`: comma separated list of metals
+  * start **required** `string`: start date of time period. format is <i>yyyy-mm-dd</i>
+  * end `string`: end date of time period. format is <i>yyyy-mm-dd</i>. Default is current date.
+  * interval `string`: aggregation interval. Composed of an optional integer value (which defaults to 1 when not specified), 
+  * format `string` (values: json, xml): to override content negotiation specify a value of json or xml
+  * version **required** `string`: The requested API version
+
+#### Output
+* output `array`
+  * items [IntervalCollectionResponse](#intervalcollectionresponse)
+
+### api.vversion.Metals.spot.ratio.summary.get
+Ratios between prices of two metals
+
+
+```js
+nfusionsolutions_biz.api.vversion.Metals.spot.ratio.summary.get({
+  "token": "",
+  "pairs": "",
+  "version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * token **required** `string`: auth token
+  * pairs **required** `string`: comma separated list of metal pairs. For example: gold/silver,gold/platinum,silver/palladium
+  * format `string` (values: json, xml): to override content negotiation specify a value of json or xml
+  * version **required** `string`: The requested API version
+
+#### Output
+* output `array`
+  * items [SummaryResponse](#summaryresponse)
 
 ### api.vversion.Metals.spot.summary.get
 Current and daily summary information combined into a single quote
@@ -301,15 +398,14 @@ nfusionsolutions_biz.api.vversion.Metals.spot.summary.get({
 * input `object`
   * token **required** `string`: auth token
   * metals **required** `string`: comma separated list of metals
-  * currency `string`: currency for pricing, defaults to USD
-  * unitofmeasure `string`: unit of meaure, defaults to troy ounces. allowed values are:
-  * format `string`: to override content negotiation specify a value of json or xml
-  * adjust `boolean`: apply global and per-tenant spot price adjustments. Defaults to true.
+  * currency `string`: comma separated list of conversion currencies, defaults to USD
+  * unitofmeasure `string` (values: mg, g, kg, gr, oz, toz, ct, dwt): unit of meaure, defaults to troy ounces. allowed values are:
+  * format `string` (values: json, xml): to override content negotiation specify a value of json or xml
   * version **required** `string`: The requested API version
 
 #### Output
 * output `array`
-  * items [Response[Summary]](#response[summary])
+  * items [SummaryResponse](#summaryresponse)
 
 ### api.vversion.Metals.spot.supported.get
 Get list of symbols supported by the spot endpoints
@@ -325,7 +421,7 @@ nfusionsolutions_biz.api.vversion.Metals.spot.supported.get({
 #### Input
 * input `object`
   * token **required** `string`: auth token
-  * format `string`: to override content negotiation specify a value of json or xml
+  * format `string` (values: json, xml): to override content negotiation specify a value of json or xml
   * version **required** `string`: The requested API version
 
 #### Output
@@ -346,7 +442,7 @@ nfusionsolutions_biz.api.vversion.Metals.supported.currency.get({
 #### Input
 * input `object`
   * token **required** `string`: auth token
-  * format `string`: to override content negotiation specify a value of json or xml
+  * format `string` (values: json, xml): to override content negotiation specify a value of json or xml
   * version **required** `string`: The requested API version
 
 #### Output
@@ -359,6 +455,8 @@ nfusionsolutions_biz.api.vversion.Metals.supported.currency.get({
 
 ### Interval
 * Interval `object`
+  * change `number`
+  * changePercent `number`
   * end `string`
   * high `number`
   * last `number`
@@ -374,41 +472,50 @@ nfusionsolutions_biz.api.vversion.Metals.supported.currency.get({
   * name `string`
   * symbol `string`
 
+### IntervalCollectionResponse
+* IntervalCollectionResponse `object`
+  * data [IntervalCollection](#intervalcollection)
+  * error `string`
+  * requestedCurrency `string`
+  * requestedSymbol `string`
+  * requestedUnitOfMeasure `string`
+  * success `boolean`
+
+### ProblemDetails
+* ProblemDetails `object`
+  * detail `string`
+  * instance `string`
+  * status `integer`
+  * title `string`
+  * type `string`
+
 ### Rate
 * Rate `object`
   * symbol `string`
   * timestamp `string`
   * value `number`
 
-### Response[IntervalCollection]
-* Response[IntervalCollection] `object`
-  * data [IntervalCollection](#intervalcollection)
-  * error `string`
-  * requestedCurrency `string`
-  * requestedSymbol `string`
-  * success `boolean`
-
-### Response[Rate]
-* Response[Rate] `object`
+### RateResponse
+* RateResponse `object`
   * data [Rate](#rate)
   * error `string`
   * requestedCurrency `string`
   * requestedSymbol `string`
+  * requestedUnitOfMeasure `string`
   * success `boolean`
 
-### Response[Summary]
-* Response[Summary] `object`
-  * data [Summary](#summary)
-  * error `string`
-  * requestedCurrency `string`
-  * requestedSymbol `string`
-  * success `boolean`
+### ResponseFormat
+* ResponseFormat `string` (values: json, xml)
 
 ### Summary
 * Summary `object`
   * ask `number`
   * baseCurrency `string`
   * bid `number`
+  * fiftyTwoWeekHigh `number`
+  * fiftyTwoWeekLow `number`
+  * fiftyTwoWeekPercentChange `number`
+  * fourWeekPercentChange `number`
   * high `number`
   * last `number`
   * low `number`
@@ -418,5 +525,19 @@ nfusionsolutions_biz.api.vversion.Metals.supported.currency.get({
   * open `number`
   * symbol `string`
   * timeStamp `string`
+  * twelveWeekPercentChange `number`
+  * yearToDatePercentChange `number`
+
+### SummaryResponse
+* SummaryResponse `object`
+  * data [Summary](#summary)
+  * error `string`
+  * requestedCurrency `string`
+  * requestedSymbol `string`
+  * requestedUnitOfMeasure `string`
+  * success `boolean`
+
+### UnitOfMeasure
+* UnitOfMeasure `string` (values: mg, g, kg, gr, oz, toz, ct, dwt)
 
 

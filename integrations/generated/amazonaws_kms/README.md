@@ -13,16 +13,14 @@ let amazonaws_kms = require('@datafire/amazonaws_kms').create({
   region: ""
 });
 
-amazonaws_kms.CancelKeyDeletion({
-  "KeyId": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
 
 ## Description
 
-<fullname>AWS Key Management Service</fullname> <p>AWS Key Management Service (AWS KMS) is an encryption and key management web service. This guide describes the AWS KMS operations that you can call programmatically. For general information about AWS KMS, see the <a href="http://docs.aws.amazon.com/kms/latest/developerguide/">AWS Key Management Service Developer Guide</a>.</p> <note> <p>AWS provides SDKs that consist of libraries and sample code for various programming languages and platforms (Java, Ruby, .Net, iOS, Android, etc.). The SDKs provide a convenient way to create programmatic access to AWS KMS and other AWS services. For example, the SDKs take care of tasks such as signing requests (see below), managing errors, and retrying requests automatically. For more information about the AWS SDKs, including how to download and install them, see <a href="http://aws.amazon.com/tools/">Tools for Amazon Web Services</a>.</p> </note> <p>We recommend that you use the AWS SDKs to make programmatic API calls to AWS KMS.</p> <p>Clients must support TLS (Transport Layer Security) 1.0. We recommend TLS 1.2. Clients must also support cipher suites with Perfect Forward Secrecy (PFS) such as Ephemeral Diffie-Hellman (DHE) or Elliptic Curve Ephemeral Diffie-Hellman (ECDHE). Most modern systems such as Java 7 and later support these modes.</p> <p> <b>Signing Requests</b> </p> <p>Requests must be signed by using an access key ID and a secret access key. We strongly recommend that you <i>do not</i> use your AWS account (root) access key ID and secret key for everyday work with AWS KMS. Instead, use the access key ID and secret access key for an IAM user, or you can use the AWS Security Token Service to generate temporary security credentials that you can use to sign requests.</p> <p>All AWS KMS operations require <a href="http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4</a>.</p> <p> <b>Logging API Requests</b> </p> <p>AWS KMS supports AWS CloudTrail, a service that logs AWS API calls and related events for your AWS account and delivers them to an Amazon S3 bucket that you specify. By using the information collected by CloudTrail, you can determine what requests were made to AWS KMS, who made the request, when it was made, and so on. To learn more about CloudTrail, including how to turn it on and find your log files, see the <a href="http://docs.aws.amazon.com/awscloudtrail/latest/userguide/">AWS CloudTrail User Guide</a>.</p> <p> <b>Additional Resources</b> </p> <p>For more information about credentials and request signing, see the following:</p> <ul> <li> <p> <a href="http://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html">AWS Security Credentials</a> - This topic provides general information about the types of credentials used for accessing AWS.</p> </li> <li> <p> <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html">Temporary Security Credentials</a> - This section of the <i>IAM User Guide</i> describes how to create and use temporary security credentials.</p> </li> <li> <p> <a href="http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4 Signing Process</a> - This set of topics walks you through the process of signing a request using an access key ID and a secret access key.</p> </li> </ul> <p> <b>Commonly Used APIs</b> </p> <p>Of the APIs discussed in this guide, the following will prove the most useful for most applications. You will likely perform actions other than these, such as creating keys and assigning policies, by using the console.</p> <ul> <li> <p> <a>Encrypt</a> </p> </li> <li> <p> <a>Decrypt</a> </p> </li> <li> <p> <a>GenerateDataKey</a> </p> </li> <li> <p> <a>GenerateDataKeyWithoutPlaintext</a> </p> </li> </ul>
+<fullname>AWS Key Management Service</fullname> <p>AWS Key Management Service (AWS KMS) is an encryption and key management web service. This guide describes the AWS KMS operations that you can call programmatically. For general information about AWS KMS, see the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/"> <i>AWS Key Management Service Developer Guide</i> </a>.</p> <note> <p>AWS provides SDKs that consist of libraries and sample code for various programming languages and platforms (Java, Ruby, .Net, macOS, Android, etc.). The SDKs provide a convenient way to create programmatic access to AWS KMS and other AWS services. For example, the SDKs take care of tasks such as signing requests (see below), managing errors, and retrying requests automatically. For more information about the AWS SDKs, including how to download and install them, see <a href="http://aws.amazon.com/tools/">Tools for Amazon Web Services</a>.</p> </note> <p>We recommend that you use the AWS SDKs to make programmatic API calls to AWS KMS.</p> <p>Clients must support TLS (Transport Layer Security) 1.0. We recommend TLS 1.2. Clients must also support cipher suites with Perfect Forward Secrecy (PFS) such as Ephemeral Diffie-Hellman (DHE) or Elliptic Curve Ephemeral Diffie-Hellman (ECDHE). Most modern systems such as Java 7 and later support these modes.</p> <p> <b>Signing Requests</b> </p> <p>Requests must be signed by using an access key ID and a secret access key. We strongly recommend that you <i>do not</i> use your AWS account (root) access key ID and secret key for everyday work with AWS KMS. Instead, use the access key ID and secret access key for an IAM user. You can also use the AWS Security Token Service to generate temporary security credentials that you can use to sign requests.</p> <p>All AWS KMS operations require <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4</a>.</p> <p> <b>Logging API Requests</b> </p> <p>AWS KMS supports AWS CloudTrail, a service that logs AWS API calls and related events for your AWS account and delivers them to an Amazon S3 bucket that you specify. By using the information collected by CloudTrail, you can determine what requests were made to AWS KMS, who made the request, when it was made, and so on. To learn more about CloudTrail, including how to turn it on and find your log files, see the <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/">AWS CloudTrail User Guide</a>.</p> <p> <b>Additional Resources</b> </p> <p>For more information about credentials and request signing, see the following:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html">AWS Security Credentials</a> - This topic provides general information about the types of credentials used for accessing AWS.</p> </li> <li> <p> <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html">Temporary Security Credentials</a> - This section of the <i>IAM User Guide</i> describes how to create and use temporary security credentials.</p> </li> <li> <p> <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4 Signing Process</a> - This set of topics walks you through the process of signing a request using an access key ID and a secret access key.</p> </li> </ul> <p> <b>Commonly Used API Operations</b> </p> <p>Of the API operations discussed in this guide, the following will prove the most useful for most applications. You will likely perform operations other than these, such as creating keys and assigning policies, by using the console.</p> <ul> <li> <p> <a>Encrypt</a> </p> </li> <li> <p> <a>Decrypt</a> </p> </li> <li> <p> <a>GenerateDataKey</a> </p> </li> <li> <p> <a>GenerateDataKeyWithoutPlaintext</a> </p> </li> </ul>
 
 ## Actions
 
@@ -32,16 +30,33 @@ amazonaws_kms.CancelKeyDeletion({
 
 ```js
 amazonaws_kms.CancelKeyDeletion({
-  "KeyId": ""
+  "KeyId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * KeyId **required** [KeyIdType](#keyidtype)
+  * KeyId **required**
 
 #### Output
 * output [CancelKeyDeletionResponse](#cancelkeydeletionresponse)
+
+### ConnectCustomKeyStore
+
+
+
+```js
+amazonaws_kms.ConnectCustomKeyStore({
+  "CustomKeyStoreId": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * CustomKeyStoreId **required**
+
+#### Output
+* output [ConnectCustomKeyStoreResponse](#connectcustomkeystoreresponse)
 
 ### CreateAlias
 
@@ -49,18 +64,41 @@ amazonaws_kms.CancelKeyDeletion({
 
 ```js
 amazonaws_kms.CreateAlias({
-  "AliasName": "",
-  "TargetKeyId": ""
+  "AliasName": null,
+  "TargetKeyId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * AliasName **required** [AliasNameType](#aliasnametype)
-  * TargetKeyId **required** [KeyIdType](#keyidtype)
+  * AliasName **required**
+  * TargetKeyId **required**
 
 #### Output
 *Output schema unknown*
+
+### CreateCustomKeyStore
+
+
+
+```js
+amazonaws_kms.CreateCustomKeyStore({
+  "CustomKeyStoreName": null,
+  "CloudHsmClusterId": null,
+  "TrustAnchorCertificate": null,
+  "KeyStorePassword": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * CloudHsmClusterId **required**
+  * CustomKeyStoreName **required**
+  * KeyStorePassword **required**
+  * TrustAnchorCertificate **required**
+
+#### Output
+* output [CreateCustomKeyStoreResponse](#createcustomkeystoreresponse)
 
 ### CreateGrant
 
@@ -68,21 +106,25 @@ amazonaws_kms.CreateAlias({
 
 ```js
 amazonaws_kms.CreateGrant({
-  "KeyId": "",
-  "GranteePrincipal": "",
-  "Operations": []
+  "KeyId": null,
+  "GranteePrincipal": null,
+  "Operations": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Constraints [GrantConstraints](#grantconstraints)
-  * GrantTokens [GrantTokenList](#granttokenlist)
-  * GranteePrincipal **required** [PrincipalIdType](#principalidtype)
-  * KeyId **required** [KeyIdType](#keyidtype)
-  * Name [GrantNameType](#grantnametype)
-  * Operations **required** [GrantOperationList](#grantoperationlist)
-  * RetiringPrincipal [PrincipalIdType](#principalidtype)
+  * Constraints
+    * EncryptionContextEquals
+    * EncryptionContextSubset
+  * GrantTokens
+    * items [GrantTokenType](#granttokentype)
+  * GranteePrincipal **required**
+  * KeyId **required**
+  * Name
+  * Operations **required**
+    * items [GrantOperation](#grantoperation)
+  * RetiringPrincipal
 
 #### Output
 * output [CreateGrantResponse](#creategrantresponse)
@@ -97,12 +139,15 @@ amazonaws_kms.CreateKey({}, context)
 
 #### Input
 * input `object`
-  * BypassPolicyLockoutSafetyCheck [BooleanType](#booleantype)
-  * Description [DescriptionType](#descriptiontype)
-  * KeyUsage [KeyUsageType](#keyusagetype)
-  * Origin [OriginType](#origintype)
-  * Policy [PolicyType](#policytype)
-  * Tags [TagList](#taglist)
+  * BypassPolicyLockoutSafetyCheck
+  * CustomKeyStoreId
+  * CustomerMasterKeySpec
+  * Description
+  * KeyUsage
+  * Origin
+  * Policy
+  * Tags
+    * items [Tag](#tag)
 
 #### Output
 * output [CreateKeyResponse](#createkeyresponse)
@@ -113,15 +158,18 @@ amazonaws_kms.CreateKey({}, context)
 
 ```js
 amazonaws_kms.Decrypt({
-  "CiphertextBlob": ""
+  "CiphertextBlob": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * CiphertextBlob **required** [CiphertextType](#ciphertexttype)
-  * EncryptionContext [EncryptionContextType](#encryptioncontexttype)
-  * GrantTokens [GrantTokenList](#granttokenlist)
+  * CiphertextBlob **required**
+  * EncryptionAlgorithm
+  * EncryptionContext
+  * GrantTokens
+    * items [GrantTokenType](#granttokentype)
+  * KeyId
 
 #### Output
 * output [DecryptResponse](#decryptresponse)
@@ -132,16 +180,33 @@ amazonaws_kms.Decrypt({
 
 ```js
 amazonaws_kms.DeleteAlias({
-  "AliasName": ""
+  "AliasName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * AliasName **required** [AliasNameType](#aliasnametype)
+  * AliasName **required**
 
 #### Output
 *Output schema unknown*
+
+### DeleteCustomKeyStore
+
+
+
+```js
+amazonaws_kms.DeleteCustomKeyStore({
+  "CustomKeyStoreId": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * CustomKeyStoreId **required**
+
+#### Output
+* output [DeleteCustomKeyStoreResponse](#deletecustomkeystoreresponse)
 
 ### DeleteImportedKeyMaterial
 
@@ -149,16 +214,34 @@ amazonaws_kms.DeleteAlias({
 
 ```js
 amazonaws_kms.DeleteImportedKeyMaterial({
-  "KeyId": ""
+  "KeyId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * KeyId **required** [KeyIdType](#keyidtype)
+  * KeyId **required**
 
 #### Output
 *Output schema unknown*
+
+### DescribeCustomKeyStores
+
+
+
+```js
+amazonaws_kms.DescribeCustomKeyStores({}, context)
+```
+
+#### Input
+* input `object`
+  * CustomKeyStoreId
+  * CustomKeyStoreName
+  * Limit
+  * Marker
+
+#### Output
+* output [DescribeCustomKeyStoresResponse](#describecustomkeystoresresponse)
 
 ### DescribeKey
 
@@ -166,14 +249,15 @@ amazonaws_kms.DeleteImportedKeyMaterial({
 
 ```js
 amazonaws_kms.DescribeKey({
-  "KeyId": ""
+  "KeyId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * GrantTokens [GrantTokenList](#granttokenlist)
-  * KeyId **required** [KeyIdType](#keyidtype)
+  * GrantTokens
+    * items [GrantTokenType](#granttokentype)
+  * KeyId **required**
 
 #### Output
 * output [DescribeKeyResponse](#describekeyresponse)
@@ -184,13 +268,13 @@ amazonaws_kms.DescribeKey({
 
 ```js
 amazonaws_kms.DisableKey({
-  "KeyId": ""
+  "KeyId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * KeyId **required** [KeyIdType](#keyidtype)
+  * KeyId **required**
 
 #### Output
 *Output schema unknown*
@@ -201,16 +285,33 @@ amazonaws_kms.DisableKey({
 
 ```js
 amazonaws_kms.DisableKeyRotation({
-  "KeyId": ""
+  "KeyId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * KeyId **required** [KeyIdType](#keyidtype)
+  * KeyId **required**
 
 #### Output
 *Output schema unknown*
+
+### DisconnectCustomKeyStore
+
+
+
+```js
+amazonaws_kms.DisconnectCustomKeyStore({
+  "CustomKeyStoreId": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * CustomKeyStoreId **required**
+
+#### Output
+* output [DisconnectCustomKeyStoreResponse](#disconnectcustomkeystoreresponse)
 
 ### EnableKey
 
@@ -218,13 +319,13 @@ amazonaws_kms.DisableKeyRotation({
 
 ```js
 amazonaws_kms.EnableKey({
-  "KeyId": ""
+  "KeyId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * KeyId **required** [KeyIdType](#keyidtype)
+  * KeyId **required**
 
 #### Output
 *Output schema unknown*
@@ -235,13 +336,13 @@ amazonaws_kms.EnableKey({
 
 ```js
 amazonaws_kms.EnableKeyRotation({
-  "KeyId": ""
+  "KeyId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * KeyId **required** [KeyIdType](#keyidtype)
+  * KeyId **required**
 
 #### Output
 *Output schema unknown*
@@ -252,17 +353,19 @@ amazonaws_kms.EnableKeyRotation({
 
 ```js
 amazonaws_kms.Encrypt({
-  "KeyId": "",
-  "Plaintext": ""
+  "KeyId": null,
+  "Plaintext": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * EncryptionContext [EncryptionContextType](#encryptioncontexttype)
-  * GrantTokens [GrantTokenList](#granttokenlist)
-  * KeyId **required** [KeyIdType](#keyidtype)
-  * Plaintext **required** [PlaintextType](#plaintexttype)
+  * EncryptionAlgorithm
+  * EncryptionContext
+  * GrantTokens
+    * items [GrantTokenType](#granttokentype)
+  * KeyId **required**
+  * Plaintext **required**
 
 #### Output
 * output [EncryptResponse](#encryptresponse)
@@ -273,20 +376,65 @@ amazonaws_kms.Encrypt({
 
 ```js
 amazonaws_kms.GenerateDataKey({
-  "KeyId": ""
+  "KeyId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * EncryptionContext [EncryptionContextType](#encryptioncontexttype)
-  * GrantTokens [GrantTokenList](#granttokenlist)
-  * KeyId **required** [KeyIdType](#keyidtype)
-  * KeySpec [DataKeySpec](#datakeyspec)
-  * NumberOfBytes [NumberOfBytesType](#numberofbytestype)
+  * EncryptionContext
+  * GrantTokens
+    * items [GrantTokenType](#granttokentype)
+  * KeyId **required**
+  * KeySpec
+  * NumberOfBytes
 
 #### Output
 * output [GenerateDataKeyResponse](#generatedatakeyresponse)
+
+### GenerateDataKeyPair
+
+
+
+```js
+amazonaws_kms.GenerateDataKeyPair({
+  "KeyId": null,
+  "KeyPairSpec": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * EncryptionContext
+  * GrantTokens
+    * items [GrantTokenType](#granttokentype)
+  * KeyId **required**
+  * KeyPairSpec **required**
+
+#### Output
+* output [GenerateDataKeyPairResponse](#generatedatakeypairresponse)
+
+### GenerateDataKeyPairWithoutPlaintext
+
+
+
+```js
+amazonaws_kms.GenerateDataKeyPairWithoutPlaintext({
+  "KeyId": null,
+  "KeyPairSpec": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * EncryptionContext
+  * GrantTokens
+    * items [GrantTokenType](#granttokentype)
+  * KeyId **required**
+  * KeyPairSpec **required**
+
+#### Output
+* output [GenerateDataKeyPairWithoutPlaintextResponse](#generatedatakeypairwithoutplaintextresponse)
 
 ### GenerateDataKeyWithoutPlaintext
 
@@ -294,17 +442,18 @@ amazonaws_kms.GenerateDataKey({
 
 ```js
 amazonaws_kms.GenerateDataKeyWithoutPlaintext({
-  "KeyId": ""
+  "KeyId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * EncryptionContext [EncryptionContextType](#encryptioncontexttype)
-  * GrantTokens [GrantTokenList](#granttokenlist)
-  * KeyId **required** [KeyIdType](#keyidtype)
-  * KeySpec [DataKeySpec](#datakeyspec)
-  * NumberOfBytes [NumberOfBytesType](#numberofbytestype)
+  * EncryptionContext
+  * GrantTokens
+    * items [GrantTokenType](#granttokentype)
+  * KeyId **required**
+  * KeySpec
+  * NumberOfBytes
 
 #### Output
 * output [GenerateDataKeyWithoutPlaintextResponse](#generatedatakeywithoutplaintextresponse)
@@ -319,7 +468,8 @@ amazonaws_kms.GenerateRandom({}, context)
 
 #### Input
 * input `object`
-  * NumberOfBytes [NumberOfBytesType](#numberofbytestype)
+  * CustomKeyStoreId
+  * NumberOfBytes
 
 #### Output
 * output [GenerateRandomResponse](#generaterandomresponse)
@@ -330,15 +480,15 @@ amazonaws_kms.GenerateRandom({}, context)
 
 ```js
 amazonaws_kms.GetKeyPolicy({
-  "KeyId": "",
-  "PolicyName": ""
+  "KeyId": null,
+  "PolicyName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * KeyId **required** [KeyIdType](#keyidtype)
-  * PolicyName **required** [PolicyNameType](#policynametype)
+  * KeyId **required**
+  * PolicyName **required**
 
 #### Output
 * output [GetKeyPolicyResponse](#getkeypolicyresponse)
@@ -349,13 +499,13 @@ amazonaws_kms.GetKeyPolicy({
 
 ```js
 amazonaws_kms.GetKeyRotationStatus({
-  "KeyId": ""
+  "KeyId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * KeyId **required** [KeyIdType](#keyidtype)
+  * KeyId **required**
 
 #### Output
 * output [GetKeyRotationStatusResponse](#getkeyrotationstatusresponse)
@@ -366,20 +516,39 @@ amazonaws_kms.GetKeyRotationStatus({
 
 ```js
 amazonaws_kms.GetParametersForImport({
-  "KeyId": "",
-  "WrappingAlgorithm": "",
-  "WrappingKeySpec": ""
+  "KeyId": null,
+  "WrappingAlgorithm": null,
+  "WrappingKeySpec": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * KeyId **required** [KeyIdType](#keyidtype)
-  * WrappingAlgorithm **required** [AlgorithmSpec](#algorithmspec)
-  * WrappingKeySpec **required** [WrappingKeySpec](#wrappingkeyspec)
+  * KeyId **required**
+  * WrappingAlgorithm **required**
+  * WrappingKeySpec **required**
 
 #### Output
 * output [GetParametersForImportResponse](#getparametersforimportresponse)
+
+### GetPublicKey
+
+
+
+```js
+amazonaws_kms.GetPublicKey({
+  "KeyId": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * GrantTokens
+    * items [GrantTokenType](#granttokentype)
+  * KeyId **required**
+
+#### Output
+* output [GetPublicKeyResponse](#getpublickeyresponse)
 
 ### ImportKeyMaterial
 
@@ -387,19 +556,19 @@ amazonaws_kms.GetParametersForImport({
 
 ```js
 amazonaws_kms.ImportKeyMaterial({
-  "KeyId": "",
-  "ImportToken": "",
-  "EncryptedKeyMaterial": ""
+  "KeyId": null,
+  "ImportToken": null,
+  "EncryptedKeyMaterial": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * EncryptedKeyMaterial **required** [CiphertextType](#ciphertexttype)
-  * ExpirationModel [ExpirationModelType](#expirationmodeltype)
-  * ImportToken **required** [CiphertextType](#ciphertexttype)
-  * KeyId **required** [KeyIdType](#keyidtype)
-  * ValidTo [DateType](#datetype)
+  * EncryptedKeyMaterial **required**
+  * ExpirationModel
+  * ImportToken **required**
+  * KeyId **required**
+  * ValidTo
 
 #### Output
 * output [ImportKeyMaterialResponse](#importkeymaterialresponse)
@@ -416,8 +585,9 @@ amazonaws_kms.ListAliases({}, context)
 * input `object`
   * Limit `string`
   * Marker `string`
-  * Limit [LimitType](#limittype)
-  * Marker [MarkerType](#markertype)
+  * KeyId
+  * Limit
+  * Marker
 
 #### Output
 * output [ListAliasesResponse](#listaliasesresponse)
@@ -428,7 +598,7 @@ amazonaws_kms.ListAliases({}, context)
 
 ```js
 amazonaws_kms.ListGrants({
-  "KeyId": ""
+  "KeyId": null
 }, context)
 ```
 
@@ -436,9 +606,9 @@ amazonaws_kms.ListGrants({
 * input `object`
   * Limit `string`
   * Marker `string`
-  * KeyId **required** [KeyIdType](#keyidtype)
-  * Limit [LimitType](#limittype)
-  * Marker [MarkerType](#markertype)
+  * KeyId **required**
+  * Limit
+  * Marker
 
 #### Output
 * output [ListGrantsResponse](#listgrantsresponse)
@@ -449,7 +619,7 @@ amazonaws_kms.ListGrants({
 
 ```js
 amazonaws_kms.ListKeyPolicies({
-  "KeyId": ""
+  "KeyId": null
 }, context)
 ```
 
@@ -457,9 +627,9 @@ amazonaws_kms.ListKeyPolicies({
 * input `object`
   * Limit `string`
   * Marker `string`
-  * KeyId **required** [KeyIdType](#keyidtype)
-  * Limit [LimitType](#limittype)
-  * Marker [MarkerType](#markertype)
+  * KeyId **required**
+  * Limit
+  * Marker
 
 #### Output
 * output [ListKeyPoliciesResponse](#listkeypoliciesresponse)
@@ -476,8 +646,8 @@ amazonaws_kms.ListKeys({}, context)
 * input `object`
   * Limit `string`
   * Marker `string`
-  * Limit [LimitType](#limittype)
-  * Marker [MarkerType](#markertype)
+  * Limit
+  * Marker
 
 #### Output
 * output [ListKeysResponse](#listkeysresponse)
@@ -488,15 +658,15 @@ amazonaws_kms.ListKeys({}, context)
 
 ```js
 amazonaws_kms.ListResourceTags({
-  "KeyId": ""
+  "KeyId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * KeyId **required** [KeyIdType](#keyidtype)
-  * Limit [LimitType](#limittype)
-  * Marker [MarkerType](#markertype)
+  * KeyId **required**
+  * Limit
+  * Marker
 
 #### Output
 * output [ListResourceTagsResponse](#listresourcetagsresponse)
@@ -507,15 +677,15 @@ amazonaws_kms.ListResourceTags({
 
 ```js
 amazonaws_kms.ListRetirableGrants({
-  "RetiringPrincipal": ""
+  "RetiringPrincipal": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Limit [LimitType](#limittype)
-  * Marker [MarkerType](#markertype)
-  * RetiringPrincipal **required** [PrincipalIdType](#principalidtype)
+  * Limit
+  * Marker
+  * RetiringPrincipal **required**
 
 #### Output
 * output [ListGrantsResponse](#listgrantsresponse)
@@ -526,18 +696,18 @@ amazonaws_kms.ListRetirableGrants({
 
 ```js
 amazonaws_kms.PutKeyPolicy({
-  "KeyId": "",
-  "PolicyName": "",
-  "Policy": ""
+  "KeyId": null,
+  "PolicyName": null,
+  "Policy": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * BypassPolicyLockoutSafetyCheck [BooleanType](#booleantype)
-  * KeyId **required** [KeyIdType](#keyidtype)
-  * Policy **required** [PolicyType](#policytype)
-  * PolicyName **required** [PolicyNameType](#policynametype)
+  * BypassPolicyLockoutSafetyCheck
+  * KeyId **required**
+  * Policy **required**
+  * PolicyName **required**
 
 #### Output
 *Output schema unknown*
@@ -548,18 +718,22 @@ amazonaws_kms.PutKeyPolicy({
 
 ```js
 amazonaws_kms.ReEncrypt({
-  "CiphertextBlob": "",
-  "DestinationKeyId": ""
+  "CiphertextBlob": null,
+  "DestinationKeyId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * CiphertextBlob **required** [CiphertextType](#ciphertexttype)
-  * DestinationEncryptionContext [EncryptionContextType](#encryptioncontexttype)
-  * DestinationKeyId **required** [KeyIdType](#keyidtype)
-  * GrantTokens [GrantTokenList](#granttokenlist)
-  * SourceEncryptionContext [EncryptionContextType](#encryptioncontexttype)
+  * CiphertextBlob **required**
+  * DestinationEncryptionAlgorithm
+  * DestinationEncryptionContext
+  * DestinationKeyId **required**
+  * GrantTokens
+    * items [GrantTokenType](#granttokentype)
+  * SourceEncryptionAlgorithm
+  * SourceEncryptionContext
+  * SourceKeyId
 
 #### Output
 * output [ReEncryptResponse](#reencryptresponse)
@@ -574,9 +748,9 @@ amazonaws_kms.RetireGrant({}, context)
 
 #### Input
 * input `object`
-  * GrantId [GrantIdType](#grantidtype)
-  * GrantToken [GrantTokenType](#granttokentype)
-  * KeyId [KeyIdType](#keyidtype)
+  * GrantId
+  * GrantToken
+  * KeyId
 
 #### Output
 *Output schema unknown*
@@ -587,15 +761,15 @@ amazonaws_kms.RetireGrant({}, context)
 
 ```js
 amazonaws_kms.RevokeGrant({
-  "KeyId": "",
-  "GrantId": ""
+  "KeyId": null,
+  "GrantId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * GrantId **required** [GrantIdType](#grantidtype)
-  * KeyId **required** [KeyIdType](#keyidtype)
+  * GrantId **required**
+  * KeyId **required**
 
 #### Output
 *Output schema unknown*
@@ -606,17 +780,41 @@ amazonaws_kms.RevokeGrant({
 
 ```js
 amazonaws_kms.ScheduleKeyDeletion({
-  "KeyId": ""
+  "KeyId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * KeyId **required** [KeyIdType](#keyidtype)
-  * PendingWindowInDays [PendingWindowInDaysType](#pendingwindowindaystype)
+  * KeyId **required**
+  * PendingWindowInDays
 
 #### Output
 * output [ScheduleKeyDeletionResponse](#schedulekeydeletionresponse)
+
+### Sign
+
+
+
+```js
+amazonaws_kms.Sign({
+  "KeyId": null,
+  "Message": null,
+  "SigningAlgorithm": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * GrantTokens
+    * items [GrantTokenType](#granttokentype)
+  * KeyId **required**
+  * Message **required**
+  * MessageType
+  * SigningAlgorithm **required**
+
+#### Output
+* output [SignResponse](#signresponse)
 
 ### TagResource
 
@@ -624,15 +822,16 @@ amazonaws_kms.ScheduleKeyDeletion({
 
 ```js
 amazonaws_kms.TagResource({
-  "KeyId": "",
-  "Tags": []
+  "KeyId": null,
+  "Tags": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * KeyId **required** [KeyIdType](#keyidtype)
-  * Tags **required** [TagList](#taglist)
+  * KeyId **required**
+  * Tags **required**
+    * items [Tag](#tag)
 
 #### Output
 *Output schema unknown*
@@ -643,15 +842,16 @@ amazonaws_kms.TagResource({
 
 ```js
 amazonaws_kms.UntagResource({
-  "KeyId": "",
-  "TagKeys": []
+  "KeyId": null,
+  "TagKeys": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * KeyId **required** [KeyIdType](#keyidtype)
-  * TagKeys **required** [TagKeyList](#tagkeylist)
+  * KeyId **required**
+  * TagKeys **required**
+    * items [TagKeyType](#tagkeytype)
 
 #### Output
 *Output schema unknown*
@@ -662,18 +862,38 @@ amazonaws_kms.UntagResource({
 
 ```js
 amazonaws_kms.UpdateAlias({
-  "AliasName": "",
-  "TargetKeyId": ""
+  "AliasName": null,
+  "TargetKeyId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * AliasName **required** [AliasNameType](#aliasnametype)
-  * TargetKeyId **required** [KeyIdType](#keyidtype)
+  * AliasName **required**
+  * TargetKeyId **required**
 
 #### Output
 *Output schema unknown*
+
+### UpdateCustomKeyStore
+
+
+
+```js
+amazonaws_kms.UpdateCustomKeyStore({
+  "CustomKeyStoreId": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * CloudHsmClusterId
+  * CustomKeyStoreId **required**
+  * KeyStorePassword
+  * NewCustomKeyStoreName
+
+#### Output
+* output [UpdateCustomKeyStoreResponse](#updatecustomkeystoreresponse)
 
 ### UpdateKeyDescription
 
@@ -681,18 +901,44 @@ amazonaws_kms.UpdateAlias({
 
 ```js
 amazonaws_kms.UpdateKeyDescription({
-  "KeyId": "",
-  "Description": ""
+  "KeyId": null,
+  "Description": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Description **required** [DescriptionType](#descriptiontype)
-  * KeyId **required** [KeyIdType](#keyidtype)
+  * Description **required**
+  * KeyId **required**
 
 #### Output
 *Output schema unknown*
+
+### Verify
+
+
+
+```js
+amazonaws_kms.Verify({
+  "KeyId": null,
+  "Message": null,
+  "Signature": null,
+  "SigningAlgorithm": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * GrantTokens
+    * items [GrantTokenType](#granttokentype)
+  * KeyId **required**
+  * Message **required**
+  * MessageType
+  * Signature **required**
+  * SigningAlgorithm **required**
+
+#### Output
+* output [VerifyResponse](#verifyresponse)
 
 
 
@@ -710,16 +956,17 @@ amazonaws_kms.UpdateKeyDescription({
 
 ### AliasListEntry
 * AliasListEntry `object`: Contains information about an alias.
-  * AliasArn [ArnType](#arntype)
-  * AliasName [AliasNameType](#aliasnametype)
-  * TargetKeyId [KeyIdType](#keyidtype)
+  * AliasArn
+  * AliasName
+  * CreationDate
+  * LastUpdatedDate
+  * TargetKeyId
 
 ### AliasNameType
 * AliasNameType `string`
 
 ### AlreadyExistsException
-* AlreadyExistsException `object`: The request was rejected because it attempted to create a resource that already exists.
-  * message [ErrorMessageType](#errormessagetype)
+
 
 ### ArnType
 * ArnType `string`
@@ -729,47 +976,154 @@ amazonaws_kms.UpdateKeyDescription({
 
 ### CancelKeyDeletionRequest
 * CancelKeyDeletionRequest `object`
-  * KeyId **required** [KeyIdType](#keyidtype)
+  * KeyId **required**
 
 ### CancelKeyDeletionResponse
 * CancelKeyDeletionResponse `object`
-  * KeyId [KeyIdType](#keyidtype)
+  * KeyId
 
 ### CiphertextType
 * CiphertextType `string`
 
+### CloudHsmClusterIdType
+* CloudHsmClusterIdType `string`
+
+### CloudHsmClusterInUseException
+
+
+### CloudHsmClusterInvalidConfigurationException
+
+
+### CloudHsmClusterNotActiveException
+
+
+### CloudHsmClusterNotFoundException
+
+
+### CloudHsmClusterNotRelatedException
+
+
+### ConnectCustomKeyStoreRequest
+* ConnectCustomKeyStoreRequest `object`
+  * CustomKeyStoreId **required**
+
+### ConnectCustomKeyStoreResponse
+* ConnectCustomKeyStoreResponse `object`
+
+### ConnectionErrorCodeType
+* ConnectionErrorCodeType `string` (values: INVALID_CREDENTIALS, CLUSTER_NOT_FOUND, NETWORK_ERRORS, INTERNAL_ERROR, INSUFFICIENT_CLOUDHSM_HSMS, USER_LOCKED_OUT, USER_NOT_FOUND, USER_LOGGED_IN, SUBNET_NOT_FOUND)
+
+### ConnectionStateType
+* ConnectionStateType `string` (values: CONNECTED, CONNECTING, FAILED, DISCONNECTED, DISCONNECTING)
+
 ### CreateAliasRequest
 * CreateAliasRequest `object`
-  * AliasName **required** [AliasNameType](#aliasnametype)
-  * TargetKeyId **required** [KeyIdType](#keyidtype)
+  * AliasName **required**
+  * TargetKeyId **required**
+
+### CreateCustomKeyStoreRequest
+* CreateCustomKeyStoreRequest `object`
+  * CloudHsmClusterId **required**
+  * CustomKeyStoreName **required**
+  * KeyStorePassword **required**
+  * TrustAnchorCertificate **required**
+
+### CreateCustomKeyStoreResponse
+* CreateCustomKeyStoreResponse `object`
+  * CustomKeyStoreId
 
 ### CreateGrantRequest
 * CreateGrantRequest `object`
-  * Constraints [GrantConstraints](#grantconstraints)
-  * GrantTokens [GrantTokenList](#granttokenlist)
-  * GranteePrincipal **required** [PrincipalIdType](#principalidtype)
-  * KeyId **required** [KeyIdType](#keyidtype)
-  * Name [GrantNameType](#grantnametype)
-  * Operations **required** [GrantOperationList](#grantoperationlist)
-  * RetiringPrincipal [PrincipalIdType](#principalidtype)
+  * Constraints
+    * EncryptionContextEquals
+    * EncryptionContextSubset
+  * GrantTokens
+    * items [GrantTokenType](#granttokentype)
+  * GranteePrincipal **required**
+  * KeyId **required**
+  * Name
+  * Operations **required**
+    * items [GrantOperation](#grantoperation)
+  * RetiringPrincipal
 
 ### CreateGrantResponse
 * CreateGrantResponse `object`
-  * GrantId [GrantIdType](#grantidtype)
-  * GrantToken [GrantTokenType](#granttokentype)
+  * GrantId
+  * GrantToken
 
 ### CreateKeyRequest
 * CreateKeyRequest `object`
-  * BypassPolicyLockoutSafetyCheck [BooleanType](#booleantype)
-  * Description [DescriptionType](#descriptiontype)
-  * KeyUsage [KeyUsageType](#keyusagetype)
-  * Origin [OriginType](#origintype)
-  * Policy [PolicyType](#policytype)
-  * Tags [TagList](#taglist)
+  * BypassPolicyLockoutSafetyCheck
+  * CustomKeyStoreId
+  * CustomerMasterKeySpec
+  * Description
+  * KeyUsage
+  * Origin
+  * Policy
+  * Tags
+    * items [Tag](#tag)
 
 ### CreateKeyResponse
 * CreateKeyResponse `object`
-  * KeyMetadata [KeyMetadata](#keymetadata)
+  * KeyMetadata
+    * AWSAccountId
+    * Arn
+    * CloudHsmClusterId
+    * CreationDate
+    * CustomKeyStoreId
+    * CustomerMasterKeySpec
+    * DeletionDate
+    * Description
+    * Enabled
+    * EncryptionAlgorithms
+      * items [EncryptionAlgorithmSpec](#encryptionalgorithmspec)
+    * ExpirationModel
+    * KeyId **required**
+    * KeyManager
+    * KeyState
+    * KeyUsage
+    * Origin
+    * SigningAlgorithms
+      * items [SigningAlgorithmSpec](#signingalgorithmspec)
+    * ValidTo
+
+### CustomKeyStoreHasCMKsException
+
+
+### CustomKeyStoreIdType
+* CustomKeyStoreIdType `string`
+
+### CustomKeyStoreInvalidStateException
+
+
+### CustomKeyStoreNameInUseException
+
+
+### CustomKeyStoreNameType
+* CustomKeyStoreNameType `string`
+
+### CustomKeyStoreNotFoundException
+
+
+### CustomKeyStoresList
+* CustomKeyStoresList `array`
+  * items [CustomKeyStoresListEntry](#customkeystoreslistentry)
+
+### CustomKeyStoresListEntry
+* CustomKeyStoresListEntry `object`: Contains information about each custom key store in the custom key store list.
+  * CloudHsmClusterId
+  * ConnectionErrorCode
+  * ConnectionState
+  * CreationDate
+  * CustomKeyStoreId
+  * CustomKeyStoreName
+  * TrustAnchorCertificate
+
+### CustomerMasterKeySpec
+* CustomerMasterKeySpec `string` (values: RSA_2048, RSA_3072, RSA_4096, ECC_NIST_P256, ECC_NIST_P384, ECC_NIST_P521, ECC_SECG_P256K1, SYMMETRIC_DEFAULT)
+
+### DataKeyPairSpec
+* DataKeyPairSpec `string` (values: RSA_2048, RSA_3072, RSA_4096, ECC_NIST_P256, ECC_NIST_P384, ECC_NIST_P521, ECC_SECG_P256K1)
 
 ### DataKeySpec
 * DataKeySpec `string` (values: AES_256, AES_128)
@@ -779,162 +1133,267 @@ amazonaws_kms.UpdateKeyDescription({
 
 ### DecryptRequest
 * DecryptRequest `object`
-  * CiphertextBlob **required** [CiphertextType](#ciphertexttype)
-  * EncryptionContext [EncryptionContextType](#encryptioncontexttype)
-  * GrantTokens [GrantTokenList](#granttokenlist)
+  * CiphertextBlob **required**
+  * EncryptionAlgorithm
+  * EncryptionContext
+  * GrantTokens
+    * items [GrantTokenType](#granttokentype)
+  * KeyId
 
 ### DecryptResponse
 * DecryptResponse `object`
-  * KeyId [KeyIdType](#keyidtype)
-  * Plaintext [PlaintextType](#plaintexttype)
+  * EncryptionAlgorithm
+  * KeyId
+  * Plaintext
 
 ### DeleteAliasRequest
 * DeleteAliasRequest `object`
-  * AliasName **required** [AliasNameType](#aliasnametype)
+  * AliasName **required**
+
+### DeleteCustomKeyStoreRequest
+* DeleteCustomKeyStoreRequest `object`
+  * CustomKeyStoreId **required**
+
+### DeleteCustomKeyStoreResponse
+* DeleteCustomKeyStoreResponse `object`
 
 ### DeleteImportedKeyMaterialRequest
 * DeleteImportedKeyMaterialRequest `object`
-  * KeyId **required** [KeyIdType](#keyidtype)
+  * KeyId **required**
 
 ### DependencyTimeoutException
-* DependencyTimeoutException `object`: The system timed out while trying to fulfill the request. The request can be retried.
-  * message [ErrorMessageType](#errormessagetype)
+
+
+### DescribeCustomKeyStoresRequest
+* DescribeCustomKeyStoresRequest `object`
+  * CustomKeyStoreId
+  * CustomKeyStoreName
+  * Limit
+  * Marker
+
+### DescribeCustomKeyStoresResponse
+* DescribeCustomKeyStoresResponse `object`
+  * CustomKeyStores
+    * items [CustomKeyStoresListEntry](#customkeystoreslistentry)
+  * NextMarker
+  * Truncated
 
 ### DescribeKeyRequest
 * DescribeKeyRequest `object`
-  * GrantTokens [GrantTokenList](#granttokenlist)
-  * KeyId **required** [KeyIdType](#keyidtype)
+  * GrantTokens
+    * items [GrantTokenType](#granttokentype)
+  * KeyId **required**
 
 ### DescribeKeyResponse
 * DescribeKeyResponse `object`
-  * KeyMetadata [KeyMetadata](#keymetadata)
+  * KeyMetadata
+    * AWSAccountId
+    * Arn
+    * CloudHsmClusterId
+    * CreationDate
+    * CustomKeyStoreId
+    * CustomerMasterKeySpec
+    * DeletionDate
+    * Description
+    * Enabled
+    * EncryptionAlgorithms
+      * items [EncryptionAlgorithmSpec](#encryptionalgorithmspec)
+    * ExpirationModel
+    * KeyId **required**
+    * KeyManager
+    * KeyState
+    * KeyUsage
+    * Origin
+    * SigningAlgorithms
+      * items [SigningAlgorithmSpec](#signingalgorithmspec)
+    * ValidTo
 
 ### DescriptionType
 * DescriptionType `string`
 
 ### DisableKeyRequest
 * DisableKeyRequest `object`
-  * KeyId **required** [KeyIdType](#keyidtype)
+  * KeyId **required**
 
 ### DisableKeyRotationRequest
 * DisableKeyRotationRequest `object`
-  * KeyId **required** [KeyIdType](#keyidtype)
+  * KeyId **required**
 
 ### DisabledException
-* DisabledException `object`: The request was rejected because the specified CMK is not enabled.
-  * message [ErrorMessageType](#errormessagetype)
+
+
+### DisconnectCustomKeyStoreRequest
+* DisconnectCustomKeyStoreRequest `object`
+  * CustomKeyStoreId **required**
+
+### DisconnectCustomKeyStoreResponse
+* DisconnectCustomKeyStoreResponse `object`
 
 ### EnableKeyRequest
 * EnableKeyRequest `object`
-  * KeyId **required** [KeyIdType](#keyidtype)
+  * KeyId **required**
 
 ### EnableKeyRotationRequest
 * EnableKeyRotationRequest `object`
-  * KeyId **required** [KeyIdType](#keyidtype)
+  * KeyId **required**
 
 ### EncryptRequest
 * EncryptRequest `object`
-  * EncryptionContext [EncryptionContextType](#encryptioncontexttype)
-  * GrantTokens [GrantTokenList](#granttokenlist)
-  * KeyId **required** [KeyIdType](#keyidtype)
-  * Plaintext **required** [PlaintextType](#plaintexttype)
+  * EncryptionAlgorithm
+  * EncryptionContext
+  * GrantTokens
+    * items [GrantTokenType](#granttokentype)
+  * KeyId **required**
+  * Plaintext **required**
 
 ### EncryptResponse
 * EncryptResponse `object`
-  * CiphertextBlob [CiphertextType](#ciphertexttype)
-  * KeyId [KeyIdType](#keyidtype)
+  * CiphertextBlob
+  * EncryptionAlgorithm
+  * KeyId
+
+### EncryptionAlgorithmSpec
+* EncryptionAlgorithmSpec `string` (values: SYMMETRIC_DEFAULT, RSAES_OAEP_SHA_1, RSAES_OAEP_SHA_256)
+
+### EncryptionAlgorithmSpecList
+* EncryptionAlgorithmSpecList `array`
+  * items [EncryptionAlgorithmSpec](#encryptionalgorithmspec)
 
 ### EncryptionContextKey
 * EncryptionContextKey `string`
 
 ### EncryptionContextType
-* EncryptionContextType `array`
-  * items `object`
-    * key [EncryptionContextKey](#encryptioncontextkey)
-    * value [EncryptionContextValue](#encryptioncontextvalue)
+* EncryptionContextType `object`
 
 ### EncryptionContextValue
 * EncryptionContextValue `string`
-
-### ErrorMessageType
-* ErrorMessageType `string`
 
 ### ExpirationModelType
 * ExpirationModelType `string` (values: KEY_MATERIAL_EXPIRES, KEY_MATERIAL_DOES_NOT_EXPIRE)
 
 ### ExpiredImportTokenException
-* ExpiredImportTokenException `object`: The request was rejected because the provided import token is expired. Use <a>GetParametersForImport</a> to get a new import token and public key, use the new public key to encrypt the key material, and then try the request again.
-  * message [ErrorMessageType](#errormessagetype)
+
+
+### GenerateDataKeyPairRequest
+* GenerateDataKeyPairRequest `object`
+  * EncryptionContext
+  * GrantTokens
+    * items [GrantTokenType](#granttokentype)
+  * KeyId **required**
+  * KeyPairSpec **required**
+
+### GenerateDataKeyPairResponse
+* GenerateDataKeyPairResponse `object`
+  * KeyId
+  * KeyPairSpec
+  * PrivateKeyCiphertextBlob
+  * PrivateKeyPlaintext
+  * PublicKey
+
+### GenerateDataKeyPairWithoutPlaintextRequest
+* GenerateDataKeyPairWithoutPlaintextRequest `object`
+  * EncryptionContext
+  * GrantTokens
+    * items [GrantTokenType](#granttokentype)
+  * KeyId **required**
+  * KeyPairSpec **required**
+
+### GenerateDataKeyPairWithoutPlaintextResponse
+* GenerateDataKeyPairWithoutPlaintextResponse `object`
+  * KeyId
+  * KeyPairSpec
+  * PrivateKeyCiphertextBlob
+  * PublicKey
 
 ### GenerateDataKeyRequest
 * GenerateDataKeyRequest `object`
-  * EncryptionContext [EncryptionContextType](#encryptioncontexttype)
-  * GrantTokens [GrantTokenList](#granttokenlist)
-  * KeyId **required** [KeyIdType](#keyidtype)
-  * KeySpec [DataKeySpec](#datakeyspec)
-  * NumberOfBytes [NumberOfBytesType](#numberofbytestype)
+  * EncryptionContext
+  * GrantTokens
+    * items [GrantTokenType](#granttokentype)
+  * KeyId **required**
+  * KeySpec
+  * NumberOfBytes
 
 ### GenerateDataKeyResponse
 * GenerateDataKeyResponse `object`
-  * CiphertextBlob [CiphertextType](#ciphertexttype)
-  * KeyId [KeyIdType](#keyidtype)
-  * Plaintext [PlaintextType](#plaintexttype)
+  * CiphertextBlob
+  * KeyId
+  * Plaintext
 
 ### GenerateDataKeyWithoutPlaintextRequest
 * GenerateDataKeyWithoutPlaintextRequest `object`
-  * EncryptionContext [EncryptionContextType](#encryptioncontexttype)
-  * GrantTokens [GrantTokenList](#granttokenlist)
-  * KeyId **required** [KeyIdType](#keyidtype)
-  * KeySpec [DataKeySpec](#datakeyspec)
-  * NumberOfBytes [NumberOfBytesType](#numberofbytestype)
+  * EncryptionContext
+  * GrantTokens
+    * items [GrantTokenType](#granttokentype)
+  * KeyId **required**
+  * KeySpec
+  * NumberOfBytes
 
 ### GenerateDataKeyWithoutPlaintextResponse
 * GenerateDataKeyWithoutPlaintextResponse `object`
-  * CiphertextBlob [CiphertextType](#ciphertexttype)
-  * KeyId [KeyIdType](#keyidtype)
+  * CiphertextBlob
+  * KeyId
 
 ### GenerateRandomRequest
 * GenerateRandomRequest `object`
-  * NumberOfBytes [NumberOfBytesType](#numberofbytestype)
+  * CustomKeyStoreId
+  * NumberOfBytes
 
 ### GenerateRandomResponse
 * GenerateRandomResponse `object`
-  * Plaintext [PlaintextType](#plaintexttype)
+  * Plaintext
 
 ### GetKeyPolicyRequest
 * GetKeyPolicyRequest `object`
-  * KeyId **required** [KeyIdType](#keyidtype)
-  * PolicyName **required** [PolicyNameType](#policynametype)
+  * KeyId **required**
+  * PolicyName **required**
 
 ### GetKeyPolicyResponse
 * GetKeyPolicyResponse `object`
-  * Policy [PolicyType](#policytype)
+  * Policy
 
 ### GetKeyRotationStatusRequest
 * GetKeyRotationStatusRequest `object`
-  * KeyId **required** [KeyIdType](#keyidtype)
+  * KeyId **required**
 
 ### GetKeyRotationStatusResponse
 * GetKeyRotationStatusResponse `object`
-  * KeyRotationEnabled [BooleanType](#booleantype)
+  * KeyRotationEnabled
 
 ### GetParametersForImportRequest
 * GetParametersForImportRequest `object`
-  * KeyId **required** [KeyIdType](#keyidtype)
-  * WrappingAlgorithm **required** [AlgorithmSpec](#algorithmspec)
-  * WrappingKeySpec **required** [WrappingKeySpec](#wrappingkeyspec)
+  * KeyId **required**
+  * WrappingAlgorithm **required**
+  * WrappingKeySpec **required**
 
 ### GetParametersForImportResponse
 * GetParametersForImportResponse `object`
-  * ImportToken [CiphertextType](#ciphertexttype)
-  * KeyId [KeyIdType](#keyidtype)
-  * ParametersValidTo [DateType](#datetype)
-  * PublicKey [PlaintextType](#plaintexttype)
+  * ImportToken
+  * KeyId
+  * ParametersValidTo
+  * PublicKey
+
+### GetPublicKeyRequest
+* GetPublicKeyRequest `object`
+  * GrantTokens
+    * items [GrantTokenType](#granttokentype)
+  * KeyId **required**
+
+### GetPublicKeyResponse
+* GetPublicKeyResponse `object`
+  * CustomerMasterKeySpec
+  * EncryptionAlgorithms
+    * items [EncryptionAlgorithmSpec](#encryptionalgorithmspec)
+  * KeyId
+  * KeyUsage
+  * PublicKey
+  * SigningAlgorithms
+    * items [SigningAlgorithmSpec](#signingalgorithmspec)
 
 ### GrantConstraints
-* GrantConstraints `object`: <p>A structure that you can use to allow certain operations in the grant only when the desired encryption context is present. For more information about encryption context, see <a href="http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html">Encryption Context</a> in the <i>AWS Key Management Service Developer Guide</i>.</p> <p>Grant constraints apply only to operations that accept encryption context as input. For example, the <code> <a>DescribeKey</a> </code> operation does not accept encryption context as input. A grant that allows the <code>DescribeKey</code> operation does so regardless of the grant constraints. In constrast, the <code> <a>Encrypt</a> </code> operation accepts encryption context as input. A grant that allows the <code>Encrypt</code> operation does so only when the encryption context of the <code>Encrypt</code> operation satisfies the grant constraints.</p>
-  * EncryptionContextEquals [EncryptionContextType](#encryptioncontexttype)
-  * EncryptionContextSubset [EncryptionContextType](#encryptioncontexttype)
+* GrantConstraints `object`: <p>Use this structure to allow <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">cryptographic operations</a> in the grant only when the operation request includes the specified <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">encryption context</a>. </p> <p>AWS KMS applies the grant constraints only to cryptographic operations that support an encryption context, that is, all cryptographic operations with a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-concepts.html#symmetric-cmks">symmetric CMK</a>. Grant constraints are not applied to operations that do not support an encryption context, such as cryptographic operations with asymmetric CMKs and management operations, such as <a>DescribeKey</a> or <a>RetireGrant</a>.</p> <important> <p>In a cryptographic operation, the encryption context in the decryption operation must be an exact, case-sensitive match for the keys and values in the encryption context of the encryption operation. Only the order of the pairs can vary.</p> <p>However, in a grant constraint, the key in each key-value pair is not case sensitive, but the value is case sensitive.</p> <p>To avoid confusion, do not use multiple encryption context pairs that differ only by case. To require a fully case-sensitive encryption context, use the <code>kms:EncryptionContext:</code> and <code>kms:EncryptionContextKeys</code> conditions in an IAM or key policy. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms-encryption-context">kms:EncryptionContext:</a> in the <i> <i>AWS Key Management Service Developer Guide</i> </i>.</p> </important>
+  * EncryptionContextEquals
+  * EncryptionContextSubset
 
 ### GrantIdType
 * GrantIdType `string`
@@ -944,22 +1403,25 @@ amazonaws_kms.UpdateKeyDescription({
   * items [GrantListEntry](#grantlistentry)
 
 ### GrantListEntry
-* GrantListEntry `object`: Contains information about an entry in a list of grants.
-  * Constraints [GrantConstraints](#grantconstraints)
-  * CreationDate [DateType](#datetype)
-  * GrantId [GrantIdType](#grantidtype)
-  * GranteePrincipal [PrincipalIdType](#principalidtype)
-  * IssuingAccount [PrincipalIdType](#principalidtype)
-  * KeyId [KeyIdType](#keyidtype)
-  * Name [GrantNameType](#grantnametype)
-  * Operations [GrantOperationList](#grantoperationlist)
-  * RetiringPrincipal [PrincipalIdType](#principalidtype)
+* GrantListEntry `object`: Contains information about a grant.
+  * Constraints
+    * EncryptionContextEquals
+    * EncryptionContextSubset
+  * CreationDate
+  * GrantId
+  * GranteePrincipal
+  * IssuingAccount
+  * KeyId
+  * Name
+  * Operations
+    * items [GrantOperation](#grantoperation)
+  * RetiringPrincipal
 
 ### GrantNameType
 * GrantNameType `string`
 
 ### GrantOperation
-* GrantOperation `string` (values: Decrypt, Encrypt, GenerateDataKey, GenerateDataKeyWithoutPlaintext, ReEncryptFrom, ReEncryptTo, CreateGrant, RetireGrant, DescribeKey)
+* GrantOperation `string` (values: Decrypt, Encrypt, GenerateDataKey, GenerateDataKeyWithoutPlaintext, ReEncryptFrom, ReEncryptTo, Sign, Verify, GetPublicKey, CreateGrant, RetireGrant, DescribeKey, GenerateDataKeyPair, GenerateDataKeyPairWithoutPlaintext)
 
 ### GrantOperationList
 * GrantOperationList `array`
@@ -974,58 +1436,56 @@ amazonaws_kms.UpdateKeyDescription({
 
 ### ImportKeyMaterialRequest
 * ImportKeyMaterialRequest `object`
-  * EncryptedKeyMaterial **required** [CiphertextType](#ciphertexttype)
-  * ExpirationModel [ExpirationModelType](#expirationmodeltype)
-  * ImportToken **required** [CiphertextType](#ciphertexttype)
-  * KeyId **required** [KeyIdType](#keyidtype)
-  * ValidTo [DateType](#datetype)
+  * EncryptedKeyMaterial **required**
+  * ExpirationModel
+  * ImportToken **required**
+  * KeyId **required**
+  * ValidTo
 
 ### ImportKeyMaterialResponse
 * ImportKeyMaterialResponse `object`
 
+### IncorrectKeyException
+
+
 ### IncorrectKeyMaterialException
-* IncorrectKeyMaterialException `object`: The request was rejected because the provided key material is invalid or is not the same key material that was previously imported into this customer master key (CMK).
-  * message [ErrorMessageType](#errormessagetype)
+
+
+### IncorrectTrustAnchorException
+
 
 ### InvalidAliasNameException
-* InvalidAliasNameException `object`: The request was rejected because the specified alias name is not valid.
-  * message [ErrorMessageType](#errormessagetype)
+
 
 ### InvalidArnException
-* InvalidArnException `object`: The request was rejected because a specified ARN was not valid.
-  * message [ErrorMessageType](#errormessagetype)
+
 
 ### InvalidCiphertextException
-* InvalidCiphertextException `object`: The request was rejected because the specified ciphertext, or additional authenticated data incorporated into the ciphertext, such as the encryption context, is corrupted, missing, or otherwise invalid.
-  * message [ErrorMessageType](#errormessagetype)
+
 
 ### InvalidGrantIdException
-* InvalidGrantIdException `object`: The request was rejected because the specified <code>GrantId</code> is not valid.
-  * message [ErrorMessageType](#errormessagetype)
+
 
 ### InvalidGrantTokenException
-* InvalidGrantTokenException `object`: The request was rejected because the specified grant token is not valid.
-  * message [ErrorMessageType](#errormessagetype)
+
 
 ### InvalidImportTokenException
-* InvalidImportTokenException `object`: The request was rejected because the provided import token is invalid or is associated with a different customer master key (CMK).
-  * message [ErrorMessageType](#errormessagetype)
+
 
 ### InvalidKeyUsageException
-* InvalidKeyUsageException `object`: The request was rejected because the specified <code>KeySpec</code> value is not valid.
-  * message [ErrorMessageType](#errormessagetype)
+
 
 ### InvalidMarkerException
-* InvalidMarkerException `object`: The request was rejected because the marker that specifies where pagination should next begin is not valid.
-  * message [ErrorMessageType](#errormessagetype)
+
 
 ### KMSInternalException
-* KMSInternalException `object`: The request was rejected because an internal exception occurred. The request can be retried.
-  * message [ErrorMessageType](#errormessagetype)
+
+
+### KMSInvalidSignatureException
+
 
 ### KMSInvalidStateException
-* KMSInvalidStateException `object`: <p>The request was rejected because the state of the specified resource is not valid for this request.</p> <p>For more information about how key state affects the use of a CMK, see <a href="http://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How Key State Affects Use of a Customer Master Key</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
-  * message [ErrorMessageType](#errormessagetype)
+
 
 ### KeyIdType
 * KeyIdType `string`
@@ -1036,125 +1496,140 @@ amazonaws_kms.UpdateKeyDescription({
 
 ### KeyListEntry
 * KeyListEntry `object`: Contains information about each entry in the key list.
-  * KeyArn [ArnType](#arntype)
-  * KeyId [KeyIdType](#keyidtype)
+  * KeyArn
+  * KeyId
 
 ### KeyManagerType
 * KeyManagerType `string` (values: AWS, CUSTOMER)
 
 ### KeyMetadata
 * KeyMetadata `object`: <p>Contains metadata about a customer master key (CMK).</p> <p>This data type is used as a response element for the <a>CreateKey</a> and <a>DescribeKey</a> operations.</p>
-  * AWSAccountId [AWSAccountIdType](#awsaccountidtype)
-  * Arn [ArnType](#arntype)
-  * CreationDate [DateType](#datetype)
-  * DeletionDate [DateType](#datetype)
-  * Description [DescriptionType](#descriptiontype)
-  * Enabled [BooleanType](#booleantype)
-  * ExpirationModel [ExpirationModelType](#expirationmodeltype)
-  * KeyId **required** [KeyIdType](#keyidtype)
-  * KeyManager [KeyManagerType](#keymanagertype)
-  * KeyState [KeyState](#keystate)
-  * KeyUsage [KeyUsageType](#keyusagetype)
-  * Origin [OriginType](#origintype)
-  * ValidTo [DateType](#datetype)
+  * AWSAccountId
+  * Arn
+  * CloudHsmClusterId
+  * CreationDate
+  * CustomKeyStoreId
+  * CustomerMasterKeySpec
+  * DeletionDate
+  * Description
+  * Enabled
+  * EncryptionAlgorithms
+    * items [EncryptionAlgorithmSpec](#encryptionalgorithmspec)
+  * ExpirationModel
+  * KeyId **required**
+  * KeyManager
+  * KeyState
+  * KeyUsage
+  * Origin
+  * SigningAlgorithms
+    * items [SigningAlgorithmSpec](#signingalgorithmspec)
+  * ValidTo
 
 ### KeyState
-* KeyState `string` (values: Enabled, Disabled, PendingDeletion, PendingImport)
+* KeyState `string` (values: Enabled, Disabled, PendingDeletion, PendingImport, Unavailable)
+
+### KeyStorePasswordType
+* KeyStorePasswordType `string`
 
 ### KeyUnavailableException
-* KeyUnavailableException `object`: The request was rejected because the specified CMK was not available. The request can be retried.
-  * message [ErrorMessageType](#errormessagetype)
+
 
 ### KeyUsageType
-* KeyUsageType `string` (values: ENCRYPT_DECRYPT)
+* KeyUsageType `string` (values: SIGN_VERIFY, ENCRYPT_DECRYPT)
 
 ### LimitExceededException
-* LimitExceededException `object`: The request was rejected because a limit was exceeded. For more information, see <a href="http://docs.aws.amazon.com/kms/latest/developerguide/limits.html">Limits</a> in the <i>AWS Key Management Service Developer Guide</i>.
-  * message [ErrorMessageType](#errormessagetype)
+
 
 ### LimitType
 * LimitType `integer`
 
 ### ListAliasesRequest
 * ListAliasesRequest `object`
-  * Limit [LimitType](#limittype)
-  * Marker [MarkerType](#markertype)
+  * KeyId
+  * Limit
+  * Marker
 
 ### ListAliasesResponse
 * ListAliasesResponse `object`
-  * Aliases [AliasList](#aliaslist)
-  * NextMarker [MarkerType](#markertype)
-  * Truncated [BooleanType](#booleantype)
+  * Aliases
+    * items [AliasListEntry](#aliaslistentry)
+  * NextMarker
+  * Truncated
 
 ### ListGrantsRequest
 * ListGrantsRequest `object`
-  * KeyId **required** [KeyIdType](#keyidtype)
-  * Limit [LimitType](#limittype)
-  * Marker [MarkerType](#markertype)
+  * KeyId **required**
+  * Limit
+  * Marker
 
 ### ListGrantsResponse
 * ListGrantsResponse `object`
-  * Grants [GrantList](#grantlist)
-  * NextMarker [MarkerType](#markertype)
-  * Truncated [BooleanType](#booleantype)
+  * Grants
+    * items [GrantListEntry](#grantlistentry)
+  * NextMarker
+  * Truncated
 
 ### ListKeyPoliciesRequest
 * ListKeyPoliciesRequest `object`
-  * KeyId **required** [KeyIdType](#keyidtype)
-  * Limit [LimitType](#limittype)
-  * Marker [MarkerType](#markertype)
+  * KeyId **required**
+  * Limit
+  * Marker
 
 ### ListKeyPoliciesResponse
 * ListKeyPoliciesResponse `object`
-  * NextMarker [MarkerType](#markertype)
-  * PolicyNames [PolicyNameList](#policynamelist)
-  * Truncated [BooleanType](#booleantype)
+  * NextMarker
+  * PolicyNames
+    * items [PolicyNameType](#policynametype)
+  * Truncated
 
 ### ListKeysRequest
 * ListKeysRequest `object`
-  * Limit [LimitType](#limittype)
-  * Marker [MarkerType](#markertype)
+  * Limit
+  * Marker
 
 ### ListKeysResponse
 * ListKeysResponse `object`
-  * Keys [KeyList](#keylist)
-  * NextMarker [MarkerType](#markertype)
-  * Truncated [BooleanType](#booleantype)
+  * Keys
+    * items [KeyListEntry](#keylistentry)
+  * NextMarker
+  * Truncated
 
 ### ListResourceTagsRequest
 * ListResourceTagsRequest `object`
-  * KeyId **required** [KeyIdType](#keyidtype)
-  * Limit [LimitType](#limittype)
-  * Marker [MarkerType](#markertype)
+  * KeyId **required**
+  * Limit
+  * Marker
 
 ### ListResourceTagsResponse
 * ListResourceTagsResponse `object`
-  * NextMarker [MarkerType](#markertype)
-  * Tags [TagList](#taglist)
-  * Truncated [BooleanType](#booleantype)
+  * NextMarker
+  * Tags
+    * items [Tag](#tag)
+  * Truncated
 
 ### ListRetirableGrantsRequest
 * ListRetirableGrantsRequest `object`
-  * Limit [LimitType](#limittype)
-  * Marker [MarkerType](#markertype)
-  * RetiringPrincipal **required** [PrincipalIdType](#principalidtype)
+  * Limit
+  * Marker
+  * RetiringPrincipal **required**
 
 ### MalformedPolicyDocumentException
-* MalformedPolicyDocumentException `object`: The request was rejected because the specified policy is not syntactically or semantically correct.
-  * message [ErrorMessageType](#errormessagetype)
+
 
 ### MarkerType
 * MarkerType `string`
 
+### MessageType
+* MessageType `string` (values: RAW, DIGEST)
+
 ### NotFoundException
-* NotFoundException `object`: The request was rejected because the specified entity or resource could not be found.
-  * message [ErrorMessageType](#errormessagetype)
+
 
 ### NumberOfBytesType
 * NumberOfBytesType `integer`
 
 ### OriginType
-* OriginType `string` (values: AWS_KMS, EXTERNAL)
+* OriginType `string` (values: AWS_KMS, EXTERNAL, AWS_CLOUDHSM)
 
 ### PendingWindowInDaysType
 * PendingWindowInDaysType `integer`
@@ -1175,56 +1650,86 @@ amazonaws_kms.UpdateKeyDescription({
 ### PrincipalIdType
 * PrincipalIdType `string`
 
+### PublicKeyType
+* PublicKeyType `string`
+
 ### PutKeyPolicyRequest
 * PutKeyPolicyRequest `object`
-  * BypassPolicyLockoutSafetyCheck [BooleanType](#booleantype)
-  * KeyId **required** [KeyIdType](#keyidtype)
-  * Policy **required** [PolicyType](#policytype)
-  * PolicyName **required** [PolicyNameType](#policynametype)
+  * BypassPolicyLockoutSafetyCheck
+  * KeyId **required**
+  * Policy **required**
+  * PolicyName **required**
 
 ### ReEncryptRequest
 * ReEncryptRequest `object`
-  * CiphertextBlob **required** [CiphertextType](#ciphertexttype)
-  * DestinationEncryptionContext [EncryptionContextType](#encryptioncontexttype)
-  * DestinationKeyId **required** [KeyIdType](#keyidtype)
-  * GrantTokens [GrantTokenList](#granttokenlist)
-  * SourceEncryptionContext [EncryptionContextType](#encryptioncontexttype)
+  * CiphertextBlob **required**
+  * DestinationEncryptionAlgorithm
+  * DestinationEncryptionContext
+  * DestinationKeyId **required**
+  * GrantTokens
+    * items [GrantTokenType](#granttokentype)
+  * SourceEncryptionAlgorithm
+  * SourceEncryptionContext
+  * SourceKeyId
 
 ### ReEncryptResponse
 * ReEncryptResponse `object`
-  * CiphertextBlob [CiphertextType](#ciphertexttype)
-  * KeyId [KeyIdType](#keyidtype)
-  * SourceKeyId [KeyIdType](#keyidtype)
+  * CiphertextBlob
+  * DestinationEncryptionAlgorithm
+  * KeyId
+  * SourceEncryptionAlgorithm
+  * SourceKeyId
 
 ### RetireGrantRequest
 * RetireGrantRequest `object`
-  * GrantId [GrantIdType](#grantidtype)
-  * GrantToken [GrantTokenType](#granttokentype)
-  * KeyId [KeyIdType](#keyidtype)
+  * GrantId
+  * GrantToken
+  * KeyId
 
 ### RevokeGrantRequest
 * RevokeGrantRequest `object`
-  * GrantId **required** [GrantIdType](#grantidtype)
-  * KeyId **required** [KeyIdType](#keyidtype)
+  * GrantId **required**
+  * KeyId **required**
 
 ### ScheduleKeyDeletionRequest
 * ScheduleKeyDeletionRequest `object`
-  * KeyId **required** [KeyIdType](#keyidtype)
-  * PendingWindowInDays [PendingWindowInDaysType](#pendingwindowindaystype)
+  * KeyId **required**
+  * PendingWindowInDays
 
 ### ScheduleKeyDeletionResponse
 * ScheduleKeyDeletionResponse `object`
-  * DeletionDate [DateType](#datetype)
-  * KeyId [KeyIdType](#keyidtype)
+  * DeletionDate
+  * KeyId
+
+### SignRequest
+* SignRequest `object`
+  * GrantTokens
+    * items [GrantTokenType](#granttokentype)
+  * KeyId **required**
+  * Message **required**
+  * MessageType
+  * SigningAlgorithm **required**
+
+### SignResponse
+* SignResponse `object`
+  * KeyId
+  * Signature
+  * SigningAlgorithm
+
+### SigningAlgorithmSpec
+* SigningAlgorithmSpec `string` (values: RSASSA_PSS_SHA_256, RSASSA_PSS_SHA_384, RSASSA_PSS_SHA_512, RSASSA_PKCS1_V1_5_SHA_256, RSASSA_PKCS1_V1_5_SHA_384, RSASSA_PKCS1_V1_5_SHA_512, ECDSA_SHA_256, ECDSA_SHA_384, ECDSA_SHA_512)
+
+### SigningAlgorithmSpecList
+* SigningAlgorithmSpecList `array`
+  * items [SigningAlgorithmSpec](#signingalgorithmspec)
 
 ### Tag
-* Tag `object`: <p>A key-value pair. A tag consists of a tag key and a tag value. Tag keys and tag values are both required, but tag values can be empty (null) strings.</p> <p>For information about the rules that apply to tag keys and tag values, see <a href="http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/allocation-tag-restrictions.html">User-Defined Tag Restrictions</a> in the <i>AWS Billing and Cost Management User Guide</i>.</p>
-  * TagKey **required** [TagKeyType](#tagkeytype)
-  * TagValue **required** [TagValueType](#tagvaluetype)
+* Tag `object`: <p>A key-value pair. A tag consists of a tag key and a tag value. Tag keys and tag values are both required, but tag values can be empty (null) strings.</p> <p>For information about the rules that apply to tag keys and tag values, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/allocation-tag-restrictions.html">User-Defined Tag Restrictions</a> in the <i>AWS Billing and Cost Management User Guide</i>.</p>
+  * TagKey **required**
+  * TagValue **required**
 
 ### TagException
-* TagException `object`: The request was rejected because one or more tags are not valid.
-  * message [ErrorMessageType](#errormessagetype)
+
 
 ### TagKeyList
 * TagKeyList `array`
@@ -1239,30 +1744,60 @@ amazonaws_kms.UpdateKeyDescription({
 
 ### TagResourceRequest
 * TagResourceRequest `object`
-  * KeyId **required** [KeyIdType](#keyidtype)
-  * Tags **required** [TagList](#taglist)
+  * KeyId **required**
+  * Tags **required**
+    * items [Tag](#tag)
 
 ### TagValueType
 * TagValueType `string`
 
+### TrustAnchorCertificateType
+* TrustAnchorCertificateType `string`
+
 ### UnsupportedOperationException
-* UnsupportedOperationException `object`: The request was rejected because a specified parameter is not supported or a specified resource is not valid for this operation.
-  * message [ErrorMessageType](#errormessagetype)
+
 
 ### UntagResourceRequest
 * UntagResourceRequest `object`
-  * KeyId **required** [KeyIdType](#keyidtype)
-  * TagKeys **required** [TagKeyList](#tagkeylist)
+  * KeyId **required**
+  * TagKeys **required**
+    * items [TagKeyType](#tagkeytype)
 
 ### UpdateAliasRequest
 * UpdateAliasRequest `object`
-  * AliasName **required** [AliasNameType](#aliasnametype)
-  * TargetKeyId **required** [KeyIdType](#keyidtype)
+  * AliasName **required**
+  * TargetKeyId **required**
+
+### UpdateCustomKeyStoreRequest
+* UpdateCustomKeyStoreRequest `object`
+  * CloudHsmClusterId
+  * CustomKeyStoreId **required**
+  * KeyStorePassword
+  * NewCustomKeyStoreName
+
+### UpdateCustomKeyStoreResponse
+* UpdateCustomKeyStoreResponse `object`
 
 ### UpdateKeyDescriptionRequest
 * UpdateKeyDescriptionRequest `object`
-  * Description **required** [DescriptionType](#descriptiontype)
-  * KeyId **required** [KeyIdType](#keyidtype)
+  * Description **required**
+  * KeyId **required**
+
+### VerifyRequest
+* VerifyRequest `object`
+  * GrantTokens
+    * items [GrantTokenType](#granttokentype)
+  * KeyId **required**
+  * Message **required**
+  * MessageType
+  * Signature **required**
+  * SigningAlgorithm **required**
+
+### VerifyResponse
+* VerifyResponse `object`
+  * KeyId
+  * SignatureValid
+  * SigningAlgorithm
 
 ### WrappingKeySpec
 * WrappingKeySpec `string` (values: RSA_2048)

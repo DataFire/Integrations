@@ -1,6 +1,6 @@
 # @datafire/lufthansa_public
 
-Client library for LH Public
+Client library for LH Public API
 
 ## Installation and Usage
 ```bash
@@ -15,13 +15,7 @@ let lufthansa_public = require('@datafire/lufthansa_public').create({
   redirect_uri: ""
 });
 
-lufthansa_public.CargoGetRouteFromDateProductCodeByOriginAndDestinationGet({
-  "origin": "",
-  "destination": "",
-  "fromDate": "",
-  "productCode": "",
-  "Accept": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

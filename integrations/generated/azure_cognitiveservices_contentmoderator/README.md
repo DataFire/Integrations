@@ -11,7 +11,7 @@ let azure_cognitiveservices_contentmoderator = require('@datafire/azure_cognitiv
   apim_key: ""
 });
 
-azure_cognitiveservices_contentmoderator.ImageModeration_Match({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -23,14 +23,6 @@ You use the API to scan your content as it is generated. Content Moderator then 
 When using the API, images need to have a minimum of 128 pixels and a maximum file size of 4MB. 
 Text can be at most 1024 characters long. 
 If the content passed to the text API or the image API exceeds the size limits, the API will return an error code that informs about the issue.
-
-This API is currently available in:
-
-* West US - westus.api.cognitive.microsoft.com
-* East US 2 - eastus2.api.cognitive.microsoft.com
-* West Central US - westcentralus.api.cognitive.microsoft.com
-* West Europe - westeurope.api.cognitive.microsoft.com
-* Southeast Asia - southeastasia.api.cognitive.microsoft.com .
 
 ## Actions
 
@@ -65,8 +57,6 @@ azure_cognitiveservices_contentmoderator.ListManagementImageLists_Create({
   * body **required** `object`
     * Description `string`: Description of the list.
     * Metadata `object`: Metadata of the list.
-      * Key One `string`: Optional key value pair to describe your list.
-      * Key Two `string`: Optional key value pair to describe your list.
     * Name `string`: Name of the list.
 
 #### Output
@@ -125,8 +115,6 @@ azure_cognitiveservices_contentmoderator.ListManagementImageLists_Update({
   * body **required** `object`
     * Description `string`: Description of the list.
     * Metadata `object`: Metadata of the list.
-      * Key One `string`: Optional key value pair to describe your list.
-      * Key Two `string`: Optional key value pair to describe your list.
     * Name `string`: Name of the list.
 
 #### Output
@@ -252,8 +240,6 @@ azure_cognitiveservices_contentmoderator.ListManagementTermLists_Create({
   * body **required** `object`
     * Description `string`: Description of the list.
     * Metadata `object`: Metadata of the list.
-      * Key One `string`: Optional key value pair to describe your list.
-      * Key Two `string`: Optional key value pair to describe your list.
     * Name `string`: Name of the list.
 
 #### Output
@@ -312,8 +298,6 @@ azure_cognitiveservices_contentmoderator.ListManagementTermLists_Update({
   * body **required** `object`
     * Description `string`: Description of the list.
     * Metadata `object`: Metadata of the list.
-      * Key One `string`: Optional key value pair to describe your list.
-      * Key Two `string`: Optional key value pair to describe your list.
     * Name `string`: Name of the list.
 
 #### Output
@@ -922,7 +906,7 @@ azure_cognitiveservices_contentmoderator.Reviews_AddVideoTranscriptModerationRes
   * CacheID `string`: The cache id.
   * IsImageAdultClassified `boolean`: Indicates if an image is classified as adult.
   * IsImageRacyClassified `boolean`: Indicates if the image is classified as racy.
-  * RacyClassificationScore `number`: The racy classication score.
+  * RacyClassificationScore `number`: The racy classification score.
   * Result `boolean`: Evaluate result.
   * Status [Status](#status)
   * TrackingId `string`: The tracking id.
@@ -990,8 +974,6 @@ azure_cognitiveservices_contentmoderator.Reviews_AddVideoTranscriptModerationRes
   * Description `string`: Description for image list.
   * Id `integer`: Image List Id.
   * Metadata `object`: Image List Metadata.
-    * Key One `string`: Optional Key value pair to describe your list.
-    * Key Two `string`: Optional Key value pair to describe your list.
   * Name `string`: Image List Name.
 
 ### ImageLists
@@ -1084,8 +1066,6 @@ azure_cognitiveservices_contentmoderator.Reviews_AddVideoTranscriptModerationRes
 * RefreshIndex `object`: Refresh Index Response.
   * AdvancedInfo `array`: Advanced info list.
     * items `object`
-      * Key One `string`: Key parameter to describe advanced info.
-      * Key Two `string`: Key parameter to describe advanced info.
   * ContentSourceId `string`: Content source Id.
   * IsUpdateSuccess `boolean`: Update success status.
   * Status [Status](#status)
@@ -1146,8 +1126,6 @@ azure_cognitiveservices_contentmoderator.Reviews_AddVideoTranscriptModerationRes
   * Description `string`: Description for term list.
   * Id `integer`: Term list Id.
   * Metadata `object`: Term list metadata.
-    * Key One `string`: Optional Key value pair to describe your list.
-    * Key Two `string`: Optional Key value pair to describe your list.
   * Name `string`: Term list name.
 
 ### TermLists

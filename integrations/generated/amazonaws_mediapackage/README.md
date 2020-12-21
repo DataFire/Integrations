@@ -13,7 +13,7 @@ let amazonaws_mediapackage = require('@datafire/amazonaws_mediapackage').create(
   region: ""
 });
 
-amazonaws_mediapackage.ListChannels({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -34,6 +34,8 @@ amazonaws_mediapackage.ListChannels({}, context)
 
 #### Input
 * input `object`
+  * maxResults `integer`
+  * nextToken `string`
   * MaxResults `string`
   * NextToken `string`
 
@@ -46,14 +48,15 @@ amazonaws_mediapackage.ListChannels({}, context)
 
 ```js
 amazonaws_mediapackage.CreateChannel({
-  "Id": ""
+  "id": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Description [__string](#__string)
-  * Id **required** [__string](#__string)
+  * tags `object`: A collection of tags associated with a resource
+  * description `string`: A short text description of the Channel.
+  * id **required** `string`: The ID of the Channel. The ID must be unique within the region and it
 
 #### Output
 * output [CreateChannelResponse](#createchannelresponse)
@@ -105,10 +108,31 @@ amazonaws_mediapackage.UpdateChannel({
 #### Input
 * input `object`
   * id **required** `string`
-  * Description [__string](#__string)
+  * description `string`: A short text description of the Channel.
 
 #### Output
 * output [UpdateChannelResponse](#updatechannelresponse)
+
+### ConfigureLogs
+
+
+
+```js
+amazonaws_mediapackage.ConfigureLogs({
+  "id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * id **required** `string`
+  * egressAccessLogs `object`: Configure egress access logging.
+    * LogGroupName
+  * ingressAccessLogs `object`: Configure ingress access logging.
+    * LogGroupName
+
+#### Output
+* output [ConfigureLogsResponse](#configurelogsresponse)
 
 ### RotateChannelCredentials
 
@@ -127,6 +151,89 @@ amazonaws_mediapackage.RotateChannelCredentials({
 #### Output
 * output [RotateChannelCredentialsResponse](#rotatechannelcredentialsresponse)
 
+### RotateIngestEndpointCredentials
+
+
+
+```js
+amazonaws_mediapackage.RotateIngestEndpointCredentials({
+  "id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * id **required** `string`
+  * ingestEndpointId `string`
+
+#### Output
+* output [RotateIngestEndpointCredentialsResponse](#rotateingestendpointcredentialsresponse)
+
+### ListHarvestJobs
+
+
+
+```js
+amazonaws_mediapackage.ListHarvestJobs({}, context)
+```
+
+#### Input
+* input `object`
+  * includeChannelId `string`
+  * includeStatus `string`
+  * maxResults `integer`
+  * nextToken `string`
+  * MaxResults `string`
+  * NextToken `string`
+
+#### Output
+* output [ListHarvestJobsResponse](#listharvestjobsresponse)
+
+### CreateHarvestJob
+
+
+
+```js
+amazonaws_mediapackage.CreateHarvestJob({
+  "endTime": "",
+  "id": "",
+  "originEndpointId": "",
+  "s3Destination": {},
+  "startTime": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * endTime **required** `string`: The end of the time-window which will be harvested
+  * id **required** `string`: The ID of the HarvestJob. The ID must be unique within the region
+  * originEndpointId **required** `string`: The ID of the OriginEndpoint that the HarvestJob will harvest from.
+  * s3Destination **required** `object`: Configuration parameters for where in an S3 bucket to place the harvested content
+    * BucketName
+    * ManifestKey
+    * RoleArn
+  * startTime **required** `string`: The start of the time-window which will be harvested
+
+#### Output
+* output [CreateHarvestJobResponse](#createharvestjobresponse)
+
+### DescribeHarvestJob
+
+
+
+```js
+amazonaws_mediapackage.DescribeHarvestJob({
+  "id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * id **required** `string`
+
+#### Output
+* output [DescribeHarvestJobResponse](#describeharvestjobresponse)
+
 ### ListOriginEndpoints
 
 
@@ -137,6 +244,9 @@ amazonaws_mediapackage.ListOriginEndpoints({}, context)
 
 #### Input
 * input `object`
+  * channelId `string`
+  * maxResults `integer`
+  * nextToken `string`
   * MaxResults `string`
   * NextToken `string`
 
@@ -149,24 +259,115 @@ amazonaws_mediapackage.ListOriginEndpoints({}, context)
 
 ```js
 amazonaws_mediapackage.CreateOriginEndpoint({
-  "ChannelId": "",
-  "Id": ""
+  "channelId": "",
+  "id": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ChannelId **required** [__string](#__string)
-  * CmafPackage [CmafPackageCreateOrUpdateParameters](#cmafpackagecreateorupdateparameters)
-  * DashPackage [DashPackage](#dashpackage)
-  * Description [__string](#__string)
-  * HlsPackage [HlsPackage](#hlspackage)
-  * Id **required** [__string](#__string)
-  * ManifestName [__string](#__string)
-  * MssPackage [MssPackage](#msspackage)
-  * StartoverWindowSeconds [__integer](#__integer)
-  * TimeDelaySeconds [__integer](#__integer)
-  * Whitelist [__listOf__string](#__listof__string)
+  * tags `object`: A collection of tags associated with a resource
+  * authorization `object`: CDN Authorization credentials
+    * CdnIdentifierSecret
+    * SecretsRoleArn
+  * channelId **required** `string`: The ID of the Channel that the OriginEndpoint will be associated with.
+  * cmafPackage `object`: A Common Media Application Format (CMAF) packaging configuration.
+    * Encryption
+      * KeyRotationIntervalSeconds
+      * SpekeKeyProvider **required**
+        * CertificateArn
+        * ResourceId **required**
+        * RoleArn **required**
+        * SystemIds **required**
+          * items [__string](#__string)
+        * Url **required**
+    * HlsManifests
+      * items [HlsManifestCreateOrUpdateParameters](#hlsmanifestcreateorupdateparameters)
+    * SegmentDurationSeconds
+    * SegmentPrefix
+    * StreamSelection
+      * MaxVideoBitsPerSecond
+      * MinVideoBitsPerSecond
+      * StreamOrder
+  * dashPackage `object`: A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.
+    * AdTriggers
+      * items [__AdTriggersElement](#__adtriggerselement)
+    * AdsOnDeliveryRestrictions
+    * Encryption
+      * KeyRotationIntervalSeconds
+      * SpekeKeyProvider **required**
+        * CertificateArn
+        * ResourceId **required**
+        * RoleArn **required**
+        * SystemIds **required**
+          * items [__string](#__string)
+        * Url **required**
+    * ManifestLayout
+    * ManifestWindowSeconds
+    * MinBufferTimeSeconds
+    * MinUpdatePeriodSeconds
+    * PeriodTriggers
+      * items [__PeriodTriggersElement](#__periodtriggerselement)
+    * Profile
+    * SegmentDurationSeconds
+    * SegmentTemplateFormat
+    * StreamSelection
+      * MaxVideoBitsPerSecond
+      * MinVideoBitsPerSecond
+      * StreamOrder
+    * SuggestedPresentationDelaySeconds
+    * UtcTiming
+    * UtcTimingUri
+  * description `string`: A short text description of the OriginEndpoint.
+  * hlsPackage `object`: An HTTP Live Streaming (HLS) packaging configuration.
+    * AdMarkers
+    * AdTriggers
+      * items [__AdTriggersElement](#__adtriggerselement)
+    * AdsOnDeliveryRestrictions
+    * Encryption
+      * ConstantInitializationVector
+      * EncryptionMethod
+      * KeyRotationIntervalSeconds
+      * RepeatExtXKey
+      * SpekeKeyProvider **required**
+        * CertificateArn
+        * ResourceId **required**
+        * RoleArn **required**
+        * SystemIds **required**
+          * items [__string](#__string)
+        * Url **required**
+    * IncludeIframeOnlyStream
+    * PlaylistType
+    * PlaylistWindowSeconds
+    * ProgramDateTimeIntervalSeconds
+    * SegmentDurationSeconds
+    * StreamSelection
+      * MaxVideoBitsPerSecond
+      * MinVideoBitsPerSecond
+      * StreamOrder
+    * UseAudioRenditionGroup
+  * id **required** `string`: The ID of the OriginEndpoint.  The ID must be unique within the region
+  * manifestName `string`: A short string that will be used as the filename of the OriginEndpoint URL (defaults to "index").
+  * mssPackage `object`: A Microsoft Smooth Streaming (MSS) packaging configuration.
+    * Encryption
+      * SpekeKeyProvider **required**
+        * CertificateArn
+        * ResourceId **required**
+        * RoleArn **required**
+        * SystemIds **required**
+          * items [__string](#__string)
+        * Url **required**
+    * ManifestWindowSeconds
+    * SegmentDurationSeconds
+    * StreamSelection
+      * MaxVideoBitsPerSecond
+      * MinVideoBitsPerSecond
+      * StreamOrder
+  * origination `string` (values: ALLOW, DENY): Control whether origination of video is allowed for this OriginEndpoint. If set to ALLOW, the OriginEndpoint
+  * startoverWindowSeconds `integer`: Maximum duration (seconds) of content to retain for startover playback.
+  * timeDelaySeconds `integer`: Amount of delay (seconds) to enforce on the playback of live content.
+  * whitelist `array`: A list of source IP CIDR blocks that will be allowed to access the OriginEndpoint.
+    * items [__string](#__string)
 
 #### Output
 * output [CreateOriginEndpointResponse](#createoriginendpointresponse)
@@ -218,125 +419,568 @@ amazonaws_mediapackage.UpdateOriginEndpoint({
 #### Input
 * input `object`
   * id **required** `string`
-  * CmafPackage [CmafPackageCreateOrUpdateParameters](#cmafpackagecreateorupdateparameters)
-  * DashPackage [DashPackage](#dashpackage)
-  * Description [__string](#__string)
-  * HlsPackage [HlsPackage](#hlspackage)
-  * ManifestName [__string](#__string)
-  * MssPackage [MssPackage](#msspackage)
-  * StartoverWindowSeconds [__integer](#__integer)
-  * TimeDelaySeconds [__integer](#__integer)
-  * Whitelist [__listOf__string](#__listof__string)
+  * authorization `object`: CDN Authorization credentials
+    * CdnIdentifierSecret
+    * SecretsRoleArn
+  * cmafPackage `object`: A Common Media Application Format (CMAF) packaging configuration.
+    * Encryption
+      * KeyRotationIntervalSeconds
+      * SpekeKeyProvider **required**
+        * CertificateArn
+        * ResourceId **required**
+        * RoleArn **required**
+        * SystemIds **required**
+          * items [__string](#__string)
+        * Url **required**
+    * HlsManifests
+      * items [HlsManifestCreateOrUpdateParameters](#hlsmanifestcreateorupdateparameters)
+    * SegmentDurationSeconds
+    * SegmentPrefix
+    * StreamSelection
+      * MaxVideoBitsPerSecond
+      * MinVideoBitsPerSecond
+      * StreamOrder
+  * dashPackage `object`: A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.
+    * AdTriggers
+      * items [__AdTriggersElement](#__adtriggerselement)
+    * AdsOnDeliveryRestrictions
+    * Encryption
+      * KeyRotationIntervalSeconds
+      * SpekeKeyProvider **required**
+        * CertificateArn
+        * ResourceId **required**
+        * RoleArn **required**
+        * SystemIds **required**
+          * items [__string](#__string)
+        * Url **required**
+    * ManifestLayout
+    * ManifestWindowSeconds
+    * MinBufferTimeSeconds
+    * MinUpdatePeriodSeconds
+    * PeriodTriggers
+      * items [__PeriodTriggersElement](#__periodtriggerselement)
+    * Profile
+    * SegmentDurationSeconds
+    * SegmentTemplateFormat
+    * StreamSelection
+      * MaxVideoBitsPerSecond
+      * MinVideoBitsPerSecond
+      * StreamOrder
+    * SuggestedPresentationDelaySeconds
+    * UtcTiming
+    * UtcTimingUri
+  * description `string`: A short text description of the OriginEndpoint.
+  * hlsPackage `object`: An HTTP Live Streaming (HLS) packaging configuration.
+    * AdMarkers
+    * AdTriggers
+      * items [__AdTriggersElement](#__adtriggerselement)
+    * AdsOnDeliveryRestrictions
+    * Encryption
+      * ConstantInitializationVector
+      * EncryptionMethod
+      * KeyRotationIntervalSeconds
+      * RepeatExtXKey
+      * SpekeKeyProvider **required**
+        * CertificateArn
+        * ResourceId **required**
+        * RoleArn **required**
+        * SystemIds **required**
+          * items [__string](#__string)
+        * Url **required**
+    * IncludeIframeOnlyStream
+    * PlaylistType
+    * PlaylistWindowSeconds
+    * ProgramDateTimeIntervalSeconds
+    * SegmentDurationSeconds
+    * StreamSelection
+      * MaxVideoBitsPerSecond
+      * MinVideoBitsPerSecond
+      * StreamOrder
+    * UseAudioRenditionGroup
+  * manifestName `string`: A short string that will be appended to the end of the Endpoint URL.
+  * mssPackage `object`: A Microsoft Smooth Streaming (MSS) packaging configuration.
+    * Encryption
+      * SpekeKeyProvider **required**
+        * CertificateArn
+        * ResourceId **required**
+        * RoleArn **required**
+        * SystemIds **required**
+          * items [__string](#__string)
+        * Url **required**
+    * ManifestWindowSeconds
+    * SegmentDurationSeconds
+    * StreamSelection
+      * MaxVideoBitsPerSecond
+      * MinVideoBitsPerSecond
+      * StreamOrder
+  * origination `string` (values: ALLOW, DENY): Control whether origination of video is allowed for this OriginEndpoint. If set to ALLOW, the OriginEndpoint
+  * startoverWindowSeconds `integer`: Maximum duration (in seconds) of content to retain for startover playback.
+  * timeDelaySeconds `integer`: Amount of delay (in seconds) to enforce on the playback of live content.
+  * whitelist `array`: A list of source IP CIDR blocks that will be allowed to access the OriginEndpoint.
+    * items [__string](#__string)
 
 #### Output
 * output [UpdateOriginEndpointResponse](#updateoriginendpointresponse)
+
+### ListTagsForResource
+
+
+
+```js
+amazonaws_mediapackage.ListTagsForResource({
+  "resource-arn": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * resource-arn **required** `string`
+
+#### Output
+* output [ListTagsForResourceResponse](#listtagsforresourceresponse)
+
+### TagResource
+
+
+
+```js
+amazonaws_mediapackage.TagResource({
+  "resource-arn": "",
+  "tags": {}
+}, context)
+```
+
+#### Input
+* input `object`
+  * resource-arn **required** `string`
+  * tags **required** `object`
+
+#### Output
+*Output schema unknown*
+
+### UntagResource
+
+
+
+```js
+amazonaws_mediapackage.UntagResource({
+  "resource-arn": "",
+  "tagKeys": []
+}, context)
+```
+
+#### Input
+* input `object`
+  * resource-arn **required** `string`
+  * tagKeys **required** `array`
+
+#### Output
+*Output schema unknown*
 
 
 
 ## Definitions
 
 ### AdMarkers
-* AdMarkers `string` (values: NONE, SCTE35_ENHANCED, PASSTHROUGH)
+* AdMarkers `string` (values: NONE, SCTE35_ENHANCED, PASSTHROUGH, DATERANGE)
+
+### AdTriggers
+* AdTriggers `array`: A list of SCTE-35 message types that are treated as ad markers in the output.  If empty, no
+  * items [__AdTriggersElement](#__adtriggerselement)
+
+### AdsOnDeliveryRestrictions
+* AdsOnDeliveryRestrictions `string` (values: NONE, RESTRICTED, UNRESTRICTED, BOTH): This setting allows the delivery restriction flags on SCTE-35 segmentation descriptors to
+
+### Authorization
+* Authorization `object`: CDN Authorization credentials
+  * CdnIdentifierSecret **required**
+  * SecretsRoleArn **required**
 
 ### Channel
 * Channel `object`: A Channel resource configuration.
-  * Arn [__string](#__string)
-  * Description [__string](#__string)
-  * HlsIngest [HlsIngest](#hlsingest)
-  * Id [__string](#__string)
-
-### ChannelCreateParameters
-* ChannelCreateParameters `object`: Configuration parameters for a new Channel.
-  * Description [__string](#__string)
-  * Id **required** [__string](#__string)
-
-### ChannelList
-* ChannelList `object`: A collection of Channel records.
-  * Channels [__listOfChannel](#__listofchannel)
-  * NextToken [__string](#__string)
-
-### ChannelUpdateParameters
-* ChannelUpdateParameters `object`: Configuration parameters for updating an existing Channel.
-  * Description [__string](#__string)
+  * Arn
+  * Description
+  * EgressAccessLogs
+    * LogGroupName
+  * HlsIngest
+    * IngestEndpoints
+      * items [IngestEndpoint](#ingestendpoint)
+  * Id
+  * IngressAccessLogs
+    * LogGroupName
+  * Tags
 
 ### CmafEncryption
 * CmafEncryption `object`: A Common Media Application Format (CMAF) encryption configuration.
-  * KeyRotationIntervalSeconds [__integer](#__integer)
-  * SpekeKeyProvider **required** [SpekeKeyProvider](#spekekeyprovider)
+  * KeyRotationIntervalSeconds
+  * SpekeKeyProvider **required**
+    * CertificateArn
+    * ResourceId **required**
+    * RoleArn **required**
+    * SystemIds **required**
+      * items [__string](#__string)
+    * Url **required**
 
 ### CmafPackage
 * CmafPackage `object`: A Common Media Application Format (CMAF) packaging configuration.
-  * Encryption [CmafEncryption](#cmafencryption)
-  * HlsManifests [__listOfHlsManifest](#__listofhlsmanifest)
-  * SegmentDurationSeconds [__integer](#__integer)
-  * SegmentPrefix [__string](#__string)
-  * StreamSelection [StreamSelection](#streamselection)
+  * Encryption
+    * KeyRotationIntervalSeconds
+    * SpekeKeyProvider **required**
+      * CertificateArn
+      * ResourceId **required**
+      * RoleArn **required**
+      * SystemIds **required**
+        * items [__string](#__string)
+      * Url **required**
+  * HlsManifests
+    * items [HlsManifest](#hlsmanifest)
+  * SegmentDurationSeconds
+  * SegmentPrefix
+  * StreamSelection
+    * MaxVideoBitsPerSecond
+    * MinVideoBitsPerSecond
+    * StreamOrder
 
 ### CmafPackageCreateOrUpdateParameters
 * CmafPackageCreateOrUpdateParameters `object`: A Common Media Application Format (CMAF) packaging configuration.
-  * Encryption [CmafEncryption](#cmafencryption)
-  * HlsManifests [__listOfHlsManifestCreateOrUpdateParameters](#__listofhlsmanifestcreateorupdateparameters)
-  * SegmentDurationSeconds [__integer](#__integer)
-  * SegmentPrefix [__string](#__string)
-  * StreamSelection [StreamSelection](#streamselection)
+  * Encryption
+    * KeyRotationIntervalSeconds
+    * SpekeKeyProvider **required**
+      * CertificateArn
+      * ResourceId **required**
+      * RoleArn **required**
+      * SystemIds **required**
+        * items [__string](#__string)
+      * Url **required**
+  * HlsManifests
+    * items [HlsManifestCreateOrUpdateParameters](#hlsmanifestcreateorupdateparameters)
+  * SegmentDurationSeconds
+  * SegmentPrefix
+  * StreamSelection
+    * MaxVideoBitsPerSecond
+    * MinVideoBitsPerSecond
+    * StreamOrder
+
+### ConfigureLogsRequest
+* ConfigureLogsRequest `object`: the option to configure log subscription.
+  * EgressAccessLogs
+    * LogGroupName
+  * IngressAccessLogs
+    * LogGroupName
+
+### ConfigureLogsResponse
+* ConfigureLogsResponse `object`
+  * Arn
+  * Description
+  * EgressAccessLogs
+    * LogGroupName
+  * HlsIngest
+    * IngestEndpoints
+      * items [IngestEndpoint](#ingestendpoint)
+  * Id
+  * IngressAccessLogs
+    * LogGroupName
+  * Tags
 
 ### CreateChannelRequest
 * CreateChannelRequest `object`: A new Channel configuration.
-  * Description [__string](#__string)
-  * Id **required** [__string](#__string)
+  * Description
+  * Id **required**
+  * Tags
 
 ### CreateChannelResponse
 * CreateChannelResponse `object`
-  * Arn [__string](#__string)
-  * Description [__string](#__string)
-  * HlsIngest [HlsIngest](#hlsingest)
-  * Id [__string](#__string)
+  * Arn
+  * Description
+  * EgressAccessLogs
+    * LogGroupName
+  * HlsIngest
+    * IngestEndpoints
+      * items [IngestEndpoint](#ingestendpoint)
+  * Id
+  * IngressAccessLogs
+    * LogGroupName
+  * Tags
+
+### CreateHarvestJobRequest
+* CreateHarvestJobRequest `object`: Configuration parameters used to create a new HarvestJob.
+  * EndTime **required**
+  * Id **required**
+  * OriginEndpointId **required**
+  * S3Destination **required**
+    * BucketName **required**
+    * ManifestKey **required**
+    * RoleArn **required**
+  * StartTime **required**
+
+### CreateHarvestJobResponse
+* CreateHarvestJobResponse `object`
+  * Arn
+  * ChannelId
+  * CreatedAt
+  * EndTime
+  * Id
+  * OriginEndpointId
+  * S3Destination
+    * BucketName **required**
+    * ManifestKey **required**
+    * RoleArn **required**
+  * StartTime
+  * Status
 
 ### CreateOriginEndpointRequest
 * CreateOriginEndpointRequest `object`: Configuration parameters used to create a new OriginEndpoint.
-  * ChannelId **required** [__string](#__string)
-  * CmafPackage [CmafPackageCreateOrUpdateParameters](#cmafpackagecreateorupdateparameters)
-  * DashPackage [DashPackage](#dashpackage)
-  * Description [__string](#__string)
-  * HlsPackage [HlsPackage](#hlspackage)
-  * Id **required** [__string](#__string)
-  * ManifestName [__string](#__string)
-  * MssPackage [MssPackage](#msspackage)
-  * StartoverWindowSeconds [__integer](#__integer)
-  * TimeDelaySeconds [__integer](#__integer)
-  * Whitelist [__listOf__string](#__listof__string)
+  * Authorization
+    * CdnIdentifierSecret **required**
+    * SecretsRoleArn **required**
+  * ChannelId **required**
+  * CmafPackage
+    * Encryption
+      * KeyRotationIntervalSeconds
+      * SpekeKeyProvider **required**
+        * CertificateArn
+        * ResourceId **required**
+        * RoleArn **required**
+        * SystemIds **required**
+          * items [__string](#__string)
+        * Url **required**
+    * HlsManifests
+      * items [HlsManifestCreateOrUpdateParameters](#hlsmanifestcreateorupdateparameters)
+    * SegmentDurationSeconds
+    * SegmentPrefix
+    * StreamSelection
+      * MaxVideoBitsPerSecond
+      * MinVideoBitsPerSecond
+      * StreamOrder
+  * DashPackage
+    * AdTriggers
+      * items [__AdTriggersElement](#__adtriggerselement)
+    * AdsOnDeliveryRestrictions
+    * Encryption
+      * KeyRotationIntervalSeconds
+      * SpekeKeyProvider **required**
+        * CertificateArn
+        * ResourceId **required**
+        * RoleArn **required**
+        * SystemIds **required**
+          * items [__string](#__string)
+        * Url **required**
+    * ManifestLayout
+    * ManifestWindowSeconds
+    * MinBufferTimeSeconds
+    * MinUpdatePeriodSeconds
+    * PeriodTriggers
+      * items [__PeriodTriggersElement](#__periodtriggerselement)
+    * Profile
+    * SegmentDurationSeconds
+    * SegmentTemplateFormat
+    * StreamSelection
+      * MaxVideoBitsPerSecond
+      * MinVideoBitsPerSecond
+      * StreamOrder
+    * SuggestedPresentationDelaySeconds
+    * UtcTiming
+    * UtcTimingUri
+  * Description
+  * HlsPackage
+    * AdMarkers
+    * AdTriggers
+      * items [__AdTriggersElement](#__adtriggerselement)
+    * AdsOnDeliveryRestrictions
+    * Encryption
+      * ConstantInitializationVector
+      * EncryptionMethod
+      * KeyRotationIntervalSeconds
+      * RepeatExtXKey
+      * SpekeKeyProvider **required**
+        * CertificateArn
+        * ResourceId **required**
+        * RoleArn **required**
+        * SystemIds **required**
+          * items [__string](#__string)
+        * Url **required**
+    * IncludeIframeOnlyStream
+    * PlaylistType
+    * PlaylistWindowSeconds
+    * ProgramDateTimeIntervalSeconds
+    * SegmentDurationSeconds
+    * StreamSelection
+      * MaxVideoBitsPerSecond
+      * MinVideoBitsPerSecond
+      * StreamOrder
+    * UseAudioRenditionGroup
+  * Id **required**
+  * ManifestName
+  * MssPackage
+    * Encryption
+      * SpekeKeyProvider **required**
+        * CertificateArn
+        * ResourceId **required**
+        * RoleArn **required**
+        * SystemIds **required**
+          * items [__string](#__string)
+        * Url **required**
+    * ManifestWindowSeconds
+    * SegmentDurationSeconds
+    * StreamSelection
+      * MaxVideoBitsPerSecond
+      * MinVideoBitsPerSecond
+      * StreamOrder
+  * Origination
+  * StartoverWindowSeconds
+  * Tags
+  * TimeDelaySeconds
+  * Whitelist
+    * items [__string](#__string)
 
 ### CreateOriginEndpointResponse
 * CreateOriginEndpointResponse `object`
-  * Arn [__string](#__string)
-  * ChannelId [__string](#__string)
-  * CmafPackage [CmafPackage](#cmafpackage)
-  * DashPackage [DashPackage](#dashpackage)
-  * Description [__string](#__string)
-  * HlsPackage [HlsPackage](#hlspackage)
-  * Id [__string](#__string)
-  * ManifestName [__string](#__string)
-  * MssPackage [MssPackage](#msspackage)
-  * StartoverWindowSeconds [__integer](#__integer)
-  * TimeDelaySeconds [__integer](#__integer)
-  * Url [__string](#__string)
-  * Whitelist [__listOf__string](#__listof__string)
+  * Arn
+  * Authorization
+    * CdnIdentifierSecret **required**
+    * SecretsRoleArn **required**
+  * ChannelId
+  * CmafPackage
+    * Encryption
+      * KeyRotationIntervalSeconds
+      * SpekeKeyProvider **required**
+        * CertificateArn
+        * ResourceId **required**
+        * RoleArn **required**
+        * SystemIds **required**
+          * items [__string](#__string)
+        * Url **required**
+    * HlsManifests
+      * items [HlsManifest](#hlsmanifest)
+    * SegmentDurationSeconds
+    * SegmentPrefix
+    * StreamSelection
+      * MaxVideoBitsPerSecond
+      * MinVideoBitsPerSecond
+      * StreamOrder
+  * DashPackage
+    * AdTriggers
+      * items [__AdTriggersElement](#__adtriggerselement)
+    * AdsOnDeliveryRestrictions
+    * Encryption
+      * KeyRotationIntervalSeconds
+      * SpekeKeyProvider **required**
+        * CertificateArn
+        * ResourceId **required**
+        * RoleArn **required**
+        * SystemIds **required**
+          * items [__string](#__string)
+        * Url **required**
+    * ManifestLayout
+    * ManifestWindowSeconds
+    * MinBufferTimeSeconds
+    * MinUpdatePeriodSeconds
+    * PeriodTriggers
+      * items [__PeriodTriggersElement](#__periodtriggerselement)
+    * Profile
+    * SegmentDurationSeconds
+    * SegmentTemplateFormat
+    * StreamSelection
+      * MaxVideoBitsPerSecond
+      * MinVideoBitsPerSecond
+      * StreamOrder
+    * SuggestedPresentationDelaySeconds
+    * UtcTiming
+    * UtcTimingUri
+  * Description
+  * HlsPackage
+    * AdMarkers
+    * AdTriggers
+      * items [__AdTriggersElement](#__adtriggerselement)
+    * AdsOnDeliveryRestrictions
+    * Encryption
+      * ConstantInitializationVector
+      * EncryptionMethod
+      * KeyRotationIntervalSeconds
+      * RepeatExtXKey
+      * SpekeKeyProvider **required**
+        * CertificateArn
+        * ResourceId **required**
+        * RoleArn **required**
+        * SystemIds **required**
+          * items [__string](#__string)
+        * Url **required**
+    * IncludeIframeOnlyStream
+    * PlaylistType
+    * PlaylistWindowSeconds
+    * ProgramDateTimeIntervalSeconds
+    * SegmentDurationSeconds
+    * StreamSelection
+      * MaxVideoBitsPerSecond
+      * MinVideoBitsPerSecond
+      * StreamOrder
+    * UseAudioRenditionGroup
+  * Id
+  * ManifestName
+  * MssPackage
+    * Encryption
+      * SpekeKeyProvider **required**
+        * CertificateArn
+        * ResourceId **required**
+        * RoleArn **required**
+        * SystemIds **required**
+          * items [__string](#__string)
+        * Url **required**
+    * ManifestWindowSeconds
+    * SegmentDurationSeconds
+    * StreamSelection
+      * MaxVideoBitsPerSecond
+      * MinVideoBitsPerSecond
+      * StreamOrder
+  * Origination
+  * StartoverWindowSeconds
+  * Tags
+  * TimeDelaySeconds
+  * Url
+  * Whitelist
+    * items [__string](#__string)
 
 ### DashEncryption
 * DashEncryption `object`: A Dynamic Adaptive Streaming over HTTP (DASH) encryption configuration.
-  * KeyRotationIntervalSeconds [__integer](#__integer)
-  * SpekeKeyProvider **required** [SpekeKeyProvider](#spekekeyprovider)
+  * KeyRotationIntervalSeconds
+  * SpekeKeyProvider **required**
+    * CertificateArn
+    * ResourceId **required**
+    * RoleArn **required**
+    * SystemIds **required**
+      * items [__string](#__string)
+    * Url **required**
 
 ### DashPackage
 * DashPackage `object`: A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.
-  * Encryption [DashEncryption](#dashencryption)
-  * ManifestWindowSeconds [__integer](#__integer)
-  * MinBufferTimeSeconds [__integer](#__integer)
-  * MinUpdatePeriodSeconds [__integer](#__integer)
-  * Profile [Profile](#profile)
-  * SegmentDurationSeconds [__integer](#__integer)
-  * StreamSelection [StreamSelection](#streamselection)
-  * SuggestedPresentationDelaySeconds [__integer](#__integer)
+  * AdTriggers
+    * items [__AdTriggersElement](#__adtriggerselement)
+  * AdsOnDeliveryRestrictions
+  * Encryption
+    * KeyRotationIntervalSeconds
+    * SpekeKeyProvider **required**
+      * CertificateArn
+      * ResourceId **required**
+      * RoleArn **required**
+      * SystemIds **required**
+        * items [__string](#__string)
+      * Url **required**
+  * ManifestLayout
+  * ManifestWindowSeconds
+  * MinBufferTimeSeconds
+  * MinUpdatePeriodSeconds
+  * PeriodTriggers
+    * items [__PeriodTriggersElement](#__periodtriggerselement)
+  * Profile
+  * SegmentDurationSeconds
+  * SegmentTemplateFormat
+  * StreamSelection
+    * MaxVideoBitsPerSecond
+    * MinVideoBitsPerSecond
+    * StreamOrder
+  * SuggestedPresentationDelaySeconds
+  * UtcTiming
+  * UtcTimingUri
 
 ### DeleteChannelRequest
 * DeleteChannelRequest `object`
@@ -355,172 +999,436 @@ amazonaws_mediapackage.UpdateOriginEndpoint({
 
 ### DescribeChannelResponse
 * DescribeChannelResponse `object`
-  * Arn [__string](#__string)
-  * Description [__string](#__string)
-  * HlsIngest [HlsIngest](#hlsingest)
-  * Id [__string](#__string)
+  * Arn
+  * Description
+  * EgressAccessLogs
+    * LogGroupName
+  * HlsIngest
+    * IngestEndpoints
+      * items [IngestEndpoint](#ingestendpoint)
+  * Id
+  * IngressAccessLogs
+    * LogGroupName
+  * Tags
+
+### DescribeHarvestJobRequest
+* DescribeHarvestJobRequest `object`
+
+### DescribeHarvestJobResponse
+* DescribeHarvestJobResponse `object`
+  * Arn
+  * ChannelId
+  * CreatedAt
+  * EndTime
+  * Id
+  * OriginEndpointId
+  * S3Destination
+    * BucketName **required**
+    * ManifestKey **required**
+    * RoleArn **required**
+  * StartTime
+  * Status
 
 ### DescribeOriginEndpointRequest
 * DescribeOriginEndpointRequest `object`
 
 ### DescribeOriginEndpointResponse
 * DescribeOriginEndpointResponse `object`
-  * Arn [__string](#__string)
-  * ChannelId [__string](#__string)
-  * CmafPackage [CmafPackage](#cmafpackage)
-  * DashPackage [DashPackage](#dashpackage)
-  * Description [__string](#__string)
-  * HlsPackage [HlsPackage](#hlspackage)
-  * Id [__string](#__string)
-  * ManifestName [__string](#__string)
-  * MssPackage [MssPackage](#msspackage)
-  * StartoverWindowSeconds [__integer](#__integer)
-  * TimeDelaySeconds [__integer](#__integer)
-  * Url [__string](#__string)
-  * Whitelist [__listOf__string](#__listof__string)
+  * Arn
+  * Authorization
+    * CdnIdentifierSecret **required**
+    * SecretsRoleArn **required**
+  * ChannelId
+  * CmafPackage
+    * Encryption
+      * KeyRotationIntervalSeconds
+      * SpekeKeyProvider **required**
+        * CertificateArn
+        * ResourceId **required**
+        * RoleArn **required**
+        * SystemIds **required**
+          * items [__string](#__string)
+        * Url **required**
+    * HlsManifests
+      * items [HlsManifest](#hlsmanifest)
+    * SegmentDurationSeconds
+    * SegmentPrefix
+    * StreamSelection
+      * MaxVideoBitsPerSecond
+      * MinVideoBitsPerSecond
+      * StreamOrder
+  * DashPackage
+    * AdTriggers
+      * items [__AdTriggersElement](#__adtriggerselement)
+    * AdsOnDeliveryRestrictions
+    * Encryption
+      * KeyRotationIntervalSeconds
+      * SpekeKeyProvider **required**
+        * CertificateArn
+        * ResourceId **required**
+        * RoleArn **required**
+        * SystemIds **required**
+          * items [__string](#__string)
+        * Url **required**
+    * ManifestLayout
+    * ManifestWindowSeconds
+    * MinBufferTimeSeconds
+    * MinUpdatePeriodSeconds
+    * PeriodTriggers
+      * items [__PeriodTriggersElement](#__periodtriggerselement)
+    * Profile
+    * SegmentDurationSeconds
+    * SegmentTemplateFormat
+    * StreamSelection
+      * MaxVideoBitsPerSecond
+      * MinVideoBitsPerSecond
+      * StreamOrder
+    * SuggestedPresentationDelaySeconds
+    * UtcTiming
+    * UtcTimingUri
+  * Description
+  * HlsPackage
+    * AdMarkers
+    * AdTriggers
+      * items [__AdTriggersElement](#__adtriggerselement)
+    * AdsOnDeliveryRestrictions
+    * Encryption
+      * ConstantInitializationVector
+      * EncryptionMethod
+      * KeyRotationIntervalSeconds
+      * RepeatExtXKey
+      * SpekeKeyProvider **required**
+        * CertificateArn
+        * ResourceId **required**
+        * RoleArn **required**
+        * SystemIds **required**
+          * items [__string](#__string)
+        * Url **required**
+    * IncludeIframeOnlyStream
+    * PlaylistType
+    * PlaylistWindowSeconds
+    * ProgramDateTimeIntervalSeconds
+    * SegmentDurationSeconds
+    * StreamSelection
+      * MaxVideoBitsPerSecond
+      * MinVideoBitsPerSecond
+      * StreamOrder
+    * UseAudioRenditionGroup
+  * Id
+  * ManifestName
+  * MssPackage
+    * Encryption
+      * SpekeKeyProvider **required**
+        * CertificateArn
+        * ResourceId **required**
+        * RoleArn **required**
+        * SystemIds **required**
+          * items [__string](#__string)
+        * Url **required**
+    * ManifestWindowSeconds
+    * SegmentDurationSeconds
+    * StreamSelection
+      * MaxVideoBitsPerSecond
+      * MinVideoBitsPerSecond
+      * StreamOrder
+  * Origination
+  * StartoverWindowSeconds
+  * Tags
+  * TimeDelaySeconds
+  * Url
+  * Whitelist
+    * items [__string](#__string)
+
+### EgressAccessLogs
+* EgressAccessLogs `object`: Configure egress access logging.
+  * LogGroupName
 
 ### EncryptionMethod
 * EncryptionMethod `string` (values: AES_128, SAMPLE_AES)
 
 ### ForbiddenException
-* ForbiddenException `object`: The client is not authorized to access the requested resource.
-  * Message [__string](#__string)
+
+
+### HarvestJob
+* HarvestJob `object`: A HarvestJob resource configuration
+  * Arn
+  * ChannelId
+  * CreatedAt
+  * EndTime
+  * Id
+  * OriginEndpointId
+  * S3Destination
+    * BucketName **required**
+    * ManifestKey **required**
+    * RoleArn **required**
+  * StartTime
+  * Status
 
 ### HlsEncryption
 * HlsEncryption `object`: An HTTP Live Streaming (HLS) encryption configuration.
-  * ConstantInitializationVector [__string](#__string)
-  * EncryptionMethod [EncryptionMethod](#encryptionmethod)
-  * KeyRotationIntervalSeconds [__integer](#__integer)
-  * RepeatExtXKey [__boolean](#__boolean)
-  * SpekeKeyProvider **required** [SpekeKeyProvider](#spekekeyprovider)
+  * ConstantInitializationVector
+  * EncryptionMethod
+  * KeyRotationIntervalSeconds
+  * RepeatExtXKey
+  * SpekeKeyProvider **required**
+    * CertificateArn
+    * ResourceId **required**
+    * RoleArn **required**
+    * SystemIds **required**
+      * items [__string](#__string)
+    * Url **required**
 
 ### HlsIngest
 * HlsIngest `object`: An HTTP Live Streaming (HLS) ingest resource configuration.
-  * IngestEndpoints [__listOfIngestEndpoint](#__listofingestendpoint)
+  * IngestEndpoints
+    * items [IngestEndpoint](#ingestendpoint)
 
 ### HlsManifest
 * HlsManifest `object`: A HTTP Live Streaming (HLS) manifest configuration.
-  * AdMarkers [AdMarkers](#admarkers)
-  * Id **required** [__string](#__string)
-  * IncludeIframeOnlyStream [__boolean](#__boolean)
-  * ManifestName [__string](#__string)
-  * PlaylistType [PlaylistType](#playlisttype)
-  * PlaylistWindowSeconds [__integer](#__integer)
-  * ProgramDateTimeIntervalSeconds [__integer](#__integer)
-  * Url [__string](#__string)
+  * AdMarkers
+  * Id **required**
+  * IncludeIframeOnlyStream
+  * ManifestName
+  * PlaylistType
+  * PlaylistWindowSeconds
+  * ProgramDateTimeIntervalSeconds
+  * Url
 
 ### HlsManifestCreateOrUpdateParameters
 * HlsManifestCreateOrUpdateParameters `object`: A HTTP Live Streaming (HLS) manifest configuration.
-  * AdMarkers [AdMarkers](#admarkers)
-  * Id **required** [__string](#__string)
-  * IncludeIframeOnlyStream [__boolean](#__boolean)
-  * ManifestName [__string](#__string)
-  * PlaylistType [PlaylistType](#playlisttype)
-  * PlaylistWindowSeconds [__integer](#__integer)
-  * ProgramDateTimeIntervalSeconds [__integer](#__integer)
+  * AdMarkers
+  * AdTriggers
+    * items [__AdTriggersElement](#__adtriggerselement)
+  * AdsOnDeliveryRestrictions
+  * Id **required**
+  * IncludeIframeOnlyStream
+  * ManifestName
+  * PlaylistType
+  * PlaylistWindowSeconds
+  * ProgramDateTimeIntervalSeconds
 
 ### HlsPackage
 * HlsPackage `object`: An HTTP Live Streaming (HLS) packaging configuration.
-  * AdMarkers [AdMarkers](#admarkers)
-  * Encryption [HlsEncryption](#hlsencryption)
-  * IncludeIframeOnlyStream [__boolean](#__boolean)
-  * PlaylistType [PlaylistType](#playlisttype)
-  * PlaylistWindowSeconds [__integer](#__integer)
-  * ProgramDateTimeIntervalSeconds [__integer](#__integer)
-  * SegmentDurationSeconds [__integer](#__integer)
-  * StreamSelection [StreamSelection](#streamselection)
-  * UseAudioRenditionGroup [__boolean](#__boolean)
+  * AdMarkers
+  * AdTriggers
+    * items [__AdTriggersElement](#__adtriggerselement)
+  * AdsOnDeliveryRestrictions
+  * Encryption
+    * ConstantInitializationVector
+    * EncryptionMethod
+    * KeyRotationIntervalSeconds
+    * RepeatExtXKey
+    * SpekeKeyProvider **required**
+      * CertificateArn
+      * ResourceId **required**
+      * RoleArn **required**
+      * SystemIds **required**
+        * items [__string](#__string)
+      * Url **required**
+  * IncludeIframeOnlyStream
+  * PlaylistType
+  * PlaylistWindowSeconds
+  * ProgramDateTimeIntervalSeconds
+  * SegmentDurationSeconds
+  * StreamSelection
+    * MaxVideoBitsPerSecond
+    * MinVideoBitsPerSecond
+    * StreamOrder
+  * UseAudioRenditionGroup
 
 ### IngestEndpoint
 * IngestEndpoint `object`: An endpoint for ingesting source content for a Channel.
-  * Password [__string](#__string)
-  * Url [__string](#__string)
-  * Username [__string](#__string)
+  * Id
+  * Password
+  * Url
+  * Username
+
+### IngressAccessLogs
+* IngressAccessLogs `object`: Configure ingress access logging.
+  * LogGroupName
 
 ### InternalServerErrorException
-* InternalServerErrorException `object`: An unexpected error occurred.
-  * Message [__string](#__string)
+
 
 ### ListChannelsRequest
 * ListChannelsRequest `object`
 
 ### ListChannelsResponse
 * ListChannelsResponse `object`
-  * Channels [__listOfChannel](#__listofchannel)
-  * NextToken [__string](#__string)
+  * Channels
+    * items [Channel](#channel)
+  * NextToken
+
+### ListHarvestJobsRequest
+* ListHarvestJobsRequest `object`
+
+### ListHarvestJobsResponse
+* ListHarvestJobsResponse `object`
+  * HarvestJobs
+    * items [HarvestJob](#harvestjob)
+  * NextToken
 
 ### ListOriginEndpointsRequest
 * ListOriginEndpointsRequest `object`
 
 ### ListOriginEndpointsResponse
 * ListOriginEndpointsResponse `object`
-  * NextToken [__string](#__string)
-  * OriginEndpoints [__listOfOriginEndpoint](#__listoforiginendpoint)
+  * NextToken
+  * OriginEndpoints
+    * items [OriginEndpoint](#originendpoint)
+
+### ListTagsForResourceRequest
+* ListTagsForResourceRequest `object`
+
+### ListTagsForResourceResponse
+* ListTagsForResourceResponse `object`
+  * Tags
+
+### ManifestLayout
+* ManifestLayout `string` (values: FULL, COMPACT)
 
 ### MaxResults
 * MaxResults `integer`
 
 ### MssEncryption
 * MssEncryption `object`: A Microsoft Smooth Streaming (MSS) encryption configuration.
-  * SpekeKeyProvider **required** [SpekeKeyProvider](#spekekeyprovider)
+  * SpekeKeyProvider **required**
+    * CertificateArn
+    * ResourceId **required**
+    * RoleArn **required**
+    * SystemIds **required**
+      * items [__string](#__string)
+    * Url **required**
 
 ### MssPackage
 * MssPackage `object`: A Microsoft Smooth Streaming (MSS) packaging configuration.
-  * Encryption [MssEncryption](#mssencryption)
-  * ManifestWindowSeconds [__integer](#__integer)
-  * SegmentDurationSeconds [__integer](#__integer)
-  * StreamSelection [StreamSelection](#streamselection)
+  * Encryption
+    * SpekeKeyProvider **required**
+      * CertificateArn
+      * ResourceId **required**
+      * RoleArn **required**
+      * SystemIds **required**
+        * items [__string](#__string)
+      * Url **required**
+  * ManifestWindowSeconds
+  * SegmentDurationSeconds
+  * StreamSelection
+    * MaxVideoBitsPerSecond
+    * MinVideoBitsPerSecond
+    * StreamOrder
 
 ### NotFoundException
-* NotFoundException `object`: The requested resource does not exist.
-  * Message [__string](#__string)
+
 
 ### OriginEndpoint
 * OriginEndpoint `object`: An OriginEndpoint resource configuration.
-  * Arn [__string](#__string)
-  * ChannelId [__string](#__string)
-  * CmafPackage [CmafPackage](#cmafpackage)
-  * DashPackage [DashPackage](#dashpackage)
-  * Description [__string](#__string)
-  * HlsPackage [HlsPackage](#hlspackage)
-  * Id [__string](#__string)
-  * ManifestName [__string](#__string)
-  * MssPackage [MssPackage](#msspackage)
-  * StartoverWindowSeconds [__integer](#__integer)
-  * TimeDelaySeconds [__integer](#__integer)
-  * Url [__string](#__string)
-  * Whitelist [__listOf__string](#__listof__string)
+  * Arn
+  * Authorization
+    * CdnIdentifierSecret **required**
+    * SecretsRoleArn **required**
+  * ChannelId
+  * CmafPackage
+    * Encryption
+      * KeyRotationIntervalSeconds
+      * SpekeKeyProvider **required**
+        * CertificateArn
+        * ResourceId **required**
+        * RoleArn **required**
+        * SystemIds **required**
+          * items [__string](#__string)
+        * Url **required**
+    * HlsManifests
+      * items [HlsManifest](#hlsmanifest)
+    * SegmentDurationSeconds
+    * SegmentPrefix
+    * StreamSelection
+      * MaxVideoBitsPerSecond
+      * MinVideoBitsPerSecond
+      * StreamOrder
+  * DashPackage
+    * AdTriggers
+      * items [__AdTriggersElement](#__adtriggerselement)
+    * AdsOnDeliveryRestrictions
+    * Encryption
+      * KeyRotationIntervalSeconds
+      * SpekeKeyProvider **required**
+        * CertificateArn
+        * ResourceId **required**
+        * RoleArn **required**
+        * SystemIds **required**
+          * items [__string](#__string)
+        * Url **required**
+    * ManifestLayout
+    * ManifestWindowSeconds
+    * MinBufferTimeSeconds
+    * MinUpdatePeriodSeconds
+    * PeriodTriggers
+      * items [__PeriodTriggersElement](#__periodtriggerselement)
+    * Profile
+    * SegmentDurationSeconds
+    * SegmentTemplateFormat
+    * StreamSelection
+      * MaxVideoBitsPerSecond
+      * MinVideoBitsPerSecond
+      * StreamOrder
+    * SuggestedPresentationDelaySeconds
+    * UtcTiming
+    * UtcTimingUri
+  * Description
+  * HlsPackage
+    * AdMarkers
+    * AdTriggers
+      * items [__AdTriggersElement](#__adtriggerselement)
+    * AdsOnDeliveryRestrictions
+    * Encryption
+      * ConstantInitializationVector
+      * EncryptionMethod
+      * KeyRotationIntervalSeconds
+      * RepeatExtXKey
+      * SpekeKeyProvider **required**
+        * CertificateArn
+        * ResourceId **required**
+        * RoleArn **required**
+        * SystemIds **required**
+          * items [__string](#__string)
+        * Url **required**
+    * IncludeIframeOnlyStream
+    * PlaylistType
+    * PlaylistWindowSeconds
+    * ProgramDateTimeIntervalSeconds
+    * SegmentDurationSeconds
+    * StreamSelection
+      * MaxVideoBitsPerSecond
+      * MinVideoBitsPerSecond
+      * StreamOrder
+    * UseAudioRenditionGroup
+  * Id
+  * ManifestName
+  * MssPackage
+    * Encryption
+      * SpekeKeyProvider **required**
+        * CertificateArn
+        * ResourceId **required**
+        * RoleArn **required**
+        * SystemIds **required**
+          * items [__string](#__string)
+        * Url **required**
+    * ManifestWindowSeconds
+    * SegmentDurationSeconds
+    * StreamSelection
+      * MaxVideoBitsPerSecond
+      * MinVideoBitsPerSecond
+      * StreamOrder
+  * Origination
+  * StartoverWindowSeconds
+  * Tags
+  * TimeDelaySeconds
+  * Url
+  * Whitelist
+    * items [__string](#__string)
 
-### OriginEndpointCreateParameters
-* OriginEndpointCreateParameters `object`: Configuration parameters for a new OriginEndpoint.
-  * ChannelId **required** [__string](#__string)
-  * CmafPackage [CmafPackageCreateOrUpdateParameters](#cmafpackagecreateorupdateparameters)
-  * DashPackage [DashPackage](#dashpackage)
-  * Description [__string](#__string)
-  * HlsPackage [HlsPackage](#hlspackage)
-  * Id **required** [__string](#__string)
-  * ManifestName [__string](#__string)
-  * MssPackage [MssPackage](#msspackage)
-  * StartoverWindowSeconds [__integer](#__integer)
-  * TimeDelaySeconds [__integer](#__integer)
-  * Whitelist [__listOf__string](#__listof__string)
-
-### OriginEndpointList
-* OriginEndpointList `object`: A collection of OriginEndpoint records.
-  * NextToken [__string](#__string)
-  * OriginEndpoints [__listOfOriginEndpoint](#__listoforiginendpoint)
-
-### OriginEndpointUpdateParameters
-* OriginEndpointUpdateParameters `object`: Configuration parameters for updating an existing OriginEndpoint.
-  * CmafPackage [CmafPackageCreateOrUpdateParameters](#cmafpackagecreateorupdateparameters)
-  * DashPackage [DashPackage](#dashpackage)
-  * Description [__string](#__string)
-  * HlsPackage [HlsPackage](#hlspackage)
-  * ManifestName [__string](#__string)
-  * MssPackage [MssPackage](#msspackage)
-  * StartoverWindowSeconds [__integer](#__integer)
-  * TimeDelaySeconds [__integer](#__integer)
-  * Whitelist [__listOf__string](#__listof__string)
+### Origination
+* Origination `string` (values: ALLOW, DENY)
 
 ### PlaylistType
 * PlaylistType `string` (values: NONE, EVENT, VOD)
@@ -533,83 +1441,322 @@ amazonaws_mediapackage.UpdateOriginEndpoint({
 
 ### RotateChannelCredentialsResponse
 * RotateChannelCredentialsResponse `object`
-  * Arn [__string](#__string)
-  * Description [__string](#__string)
-  * HlsIngest [HlsIngest](#hlsingest)
-  * Id [__string](#__string)
+  * Arn
+  * Description
+  * EgressAccessLogs
+    * LogGroupName
+  * HlsIngest
+    * IngestEndpoints
+      * items [IngestEndpoint](#ingestendpoint)
+  * Id
+  * IngressAccessLogs
+    * LogGroupName
+  * Tags
+
+### RotateIngestEndpointCredentialsRequest
+* RotateIngestEndpointCredentialsRequest `object`
+
+### RotateIngestEndpointCredentialsResponse
+* RotateIngestEndpointCredentialsResponse `object`
+  * Arn
+  * Description
+  * EgressAccessLogs
+    * LogGroupName
+  * HlsIngest
+    * IngestEndpoints
+      * items [IngestEndpoint](#ingestendpoint)
+  * Id
+  * IngressAccessLogs
+    * LogGroupName
+  * Tags
+
+### S3Destination
+* S3Destination `object`: Configuration parameters for where in an S3 bucket to place the harvested content
+  * BucketName **required**
+  * ManifestKey **required**
+  * RoleArn **required**
+
+### SegmentTemplateFormat
+* SegmentTemplateFormat `string` (values: NUMBER_WITH_TIMELINE, TIME_WITH_TIMELINE, NUMBER_WITH_DURATION)
 
 ### ServiceUnavailableException
-* ServiceUnavailableException `object`: An unexpected error occurred.
-  * Message [__string](#__string)
+
 
 ### SpekeKeyProvider
 * SpekeKeyProvider `object`: A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that will provide encryption keys.
-  * ResourceId **required** [__string](#__string)
-  * RoleArn **required** [__string](#__string)
-  * SystemIds **required** [__listOf__string](#__listof__string)
-  * Url **required** [__string](#__string)
+  * CertificateArn
+  * ResourceId **required**
+  * RoleArn **required**
+  * SystemIds **required**
+    * items [__string](#__string)
+  * Url **required**
+
+### Status
+* Status `string` (values: IN_PROGRESS, SUCCEEDED, FAILED)
 
 ### StreamOrder
 * StreamOrder `string` (values: ORIGINAL, VIDEO_BITRATE_ASCENDING, VIDEO_BITRATE_DESCENDING)
 
 ### StreamSelection
 * StreamSelection `object`: A StreamSelection configuration.
-  * MaxVideoBitsPerSecond [__integer](#__integer)
-  * MinVideoBitsPerSecond [__integer](#__integer)
-  * StreamOrder [StreamOrder](#streamorder)
+  * MaxVideoBitsPerSecond
+  * MinVideoBitsPerSecond
+  * StreamOrder
+
+### TagResourceRequest
+* TagResourceRequest `object`
+  * Tags **required**
+
+### Tags
+* Tags `object`: A collection of tags associated with a resource
 
 ### TooManyRequestsException
-* TooManyRequestsException `object`: The client has exceeded their resource or throttling limits.
-  * Message [__string](#__string)
+
 
 ### UnprocessableEntityException
-* UnprocessableEntityException `object`: The parameters sent in the request are not valid.
-  * Message [__string](#__string)
+
+
+### UntagResourceRequest
+* UntagResourceRequest `object`
 
 ### UpdateChannelRequest
 * UpdateChannelRequest `object`: Configuration parameters used to update the Channel.
-  * Description [__string](#__string)
+  * Description
 
 ### UpdateChannelResponse
 * UpdateChannelResponse `object`
-  * Arn [__string](#__string)
-  * Description [__string](#__string)
-  * HlsIngest [HlsIngest](#hlsingest)
-  * Id [__string](#__string)
+  * Arn
+  * Description
+  * EgressAccessLogs
+    * LogGroupName
+  * HlsIngest
+    * IngestEndpoints
+      * items [IngestEndpoint](#ingestendpoint)
+  * Id
+  * IngressAccessLogs
+    * LogGroupName
+  * Tags
 
 ### UpdateOriginEndpointRequest
 * UpdateOriginEndpointRequest `object`: Configuration parameters used to update an existing OriginEndpoint.
-  * CmafPackage [CmafPackageCreateOrUpdateParameters](#cmafpackagecreateorupdateparameters)
-  * DashPackage [DashPackage](#dashpackage)
-  * Description [__string](#__string)
-  * HlsPackage [HlsPackage](#hlspackage)
-  * ManifestName [__string](#__string)
-  * MssPackage [MssPackage](#msspackage)
-  * StartoverWindowSeconds [__integer](#__integer)
-  * TimeDelaySeconds [__integer](#__integer)
-  * Whitelist [__listOf__string](#__listof__string)
+  * Authorization
+    * CdnIdentifierSecret **required**
+    * SecretsRoleArn **required**
+  * CmafPackage
+    * Encryption
+      * KeyRotationIntervalSeconds
+      * SpekeKeyProvider **required**
+        * CertificateArn
+        * ResourceId **required**
+        * RoleArn **required**
+        * SystemIds **required**
+          * items [__string](#__string)
+        * Url **required**
+    * HlsManifests
+      * items [HlsManifestCreateOrUpdateParameters](#hlsmanifestcreateorupdateparameters)
+    * SegmentDurationSeconds
+    * SegmentPrefix
+    * StreamSelection
+      * MaxVideoBitsPerSecond
+      * MinVideoBitsPerSecond
+      * StreamOrder
+  * DashPackage
+    * AdTriggers
+      * items [__AdTriggersElement](#__adtriggerselement)
+    * AdsOnDeliveryRestrictions
+    * Encryption
+      * KeyRotationIntervalSeconds
+      * SpekeKeyProvider **required**
+        * CertificateArn
+        * ResourceId **required**
+        * RoleArn **required**
+        * SystemIds **required**
+          * items [__string](#__string)
+        * Url **required**
+    * ManifestLayout
+    * ManifestWindowSeconds
+    * MinBufferTimeSeconds
+    * MinUpdatePeriodSeconds
+    * PeriodTriggers
+      * items [__PeriodTriggersElement](#__periodtriggerselement)
+    * Profile
+    * SegmentDurationSeconds
+    * SegmentTemplateFormat
+    * StreamSelection
+      * MaxVideoBitsPerSecond
+      * MinVideoBitsPerSecond
+      * StreamOrder
+    * SuggestedPresentationDelaySeconds
+    * UtcTiming
+    * UtcTimingUri
+  * Description
+  * HlsPackage
+    * AdMarkers
+    * AdTriggers
+      * items [__AdTriggersElement](#__adtriggerselement)
+    * AdsOnDeliveryRestrictions
+    * Encryption
+      * ConstantInitializationVector
+      * EncryptionMethod
+      * KeyRotationIntervalSeconds
+      * RepeatExtXKey
+      * SpekeKeyProvider **required**
+        * CertificateArn
+        * ResourceId **required**
+        * RoleArn **required**
+        * SystemIds **required**
+          * items [__string](#__string)
+        * Url **required**
+    * IncludeIframeOnlyStream
+    * PlaylistType
+    * PlaylistWindowSeconds
+    * ProgramDateTimeIntervalSeconds
+    * SegmentDurationSeconds
+    * StreamSelection
+      * MaxVideoBitsPerSecond
+      * MinVideoBitsPerSecond
+      * StreamOrder
+    * UseAudioRenditionGroup
+  * ManifestName
+  * MssPackage
+    * Encryption
+      * SpekeKeyProvider **required**
+        * CertificateArn
+        * ResourceId **required**
+        * RoleArn **required**
+        * SystemIds **required**
+          * items [__string](#__string)
+        * Url **required**
+    * ManifestWindowSeconds
+    * SegmentDurationSeconds
+    * StreamSelection
+      * MaxVideoBitsPerSecond
+      * MinVideoBitsPerSecond
+      * StreamOrder
+  * Origination
+  * StartoverWindowSeconds
+  * TimeDelaySeconds
+  * Whitelist
+    * items [__string](#__string)
 
 ### UpdateOriginEndpointResponse
 * UpdateOriginEndpointResponse `object`
-  * Arn [__string](#__string)
-  * ChannelId [__string](#__string)
-  * CmafPackage [CmafPackage](#cmafpackage)
-  * DashPackage [DashPackage](#dashpackage)
-  * Description [__string](#__string)
-  * HlsPackage [HlsPackage](#hlspackage)
-  * Id [__string](#__string)
-  * ManifestName [__string](#__string)
-  * MssPackage [MssPackage](#msspackage)
-  * StartoverWindowSeconds [__integer](#__integer)
-  * TimeDelaySeconds [__integer](#__integer)
-  * Url [__string](#__string)
-  * Whitelist [__listOf__string](#__listof__string)
+  * Arn
+  * Authorization
+    * CdnIdentifierSecret **required**
+    * SecretsRoleArn **required**
+  * ChannelId
+  * CmafPackage
+    * Encryption
+      * KeyRotationIntervalSeconds
+      * SpekeKeyProvider **required**
+        * CertificateArn
+        * ResourceId **required**
+        * RoleArn **required**
+        * SystemIds **required**
+          * items [__string](#__string)
+        * Url **required**
+    * HlsManifests
+      * items [HlsManifest](#hlsmanifest)
+    * SegmentDurationSeconds
+    * SegmentPrefix
+    * StreamSelection
+      * MaxVideoBitsPerSecond
+      * MinVideoBitsPerSecond
+      * StreamOrder
+  * DashPackage
+    * AdTriggers
+      * items [__AdTriggersElement](#__adtriggerselement)
+    * AdsOnDeliveryRestrictions
+    * Encryption
+      * KeyRotationIntervalSeconds
+      * SpekeKeyProvider **required**
+        * CertificateArn
+        * ResourceId **required**
+        * RoleArn **required**
+        * SystemIds **required**
+          * items [__string](#__string)
+        * Url **required**
+    * ManifestLayout
+    * ManifestWindowSeconds
+    * MinBufferTimeSeconds
+    * MinUpdatePeriodSeconds
+    * PeriodTriggers
+      * items [__PeriodTriggersElement](#__periodtriggerselement)
+    * Profile
+    * SegmentDurationSeconds
+    * SegmentTemplateFormat
+    * StreamSelection
+      * MaxVideoBitsPerSecond
+      * MinVideoBitsPerSecond
+      * StreamOrder
+    * SuggestedPresentationDelaySeconds
+    * UtcTiming
+    * UtcTimingUri
+  * Description
+  * HlsPackage
+    * AdMarkers
+    * AdTriggers
+      * items [__AdTriggersElement](#__adtriggerselement)
+    * AdsOnDeliveryRestrictions
+    * Encryption
+      * ConstantInitializationVector
+      * EncryptionMethod
+      * KeyRotationIntervalSeconds
+      * RepeatExtXKey
+      * SpekeKeyProvider **required**
+        * CertificateArn
+        * ResourceId **required**
+        * RoleArn **required**
+        * SystemIds **required**
+          * items [__string](#__string)
+        * Url **required**
+    * IncludeIframeOnlyStream
+    * PlaylistType
+    * PlaylistWindowSeconds
+    * ProgramDateTimeIntervalSeconds
+    * SegmentDurationSeconds
+    * StreamSelection
+      * MaxVideoBitsPerSecond
+      * MinVideoBitsPerSecond
+      * StreamOrder
+    * UseAudioRenditionGroup
+  * Id
+  * ManifestName
+  * MssPackage
+    * Encryption
+      * SpekeKeyProvider **required**
+        * CertificateArn
+        * ResourceId **required**
+        * RoleArn **required**
+        * SystemIds **required**
+          * items [__string](#__string)
+        * Url **required**
+    * ManifestWindowSeconds
+    * SegmentDurationSeconds
+    * StreamSelection
+      * MaxVideoBitsPerSecond
+      * MinVideoBitsPerSecond
+      * StreamOrder
+  * Origination
+  * StartoverWindowSeconds
+  * Tags
+  * TimeDelaySeconds
+  * Url
+  * Whitelist
+    * items [__string](#__string)
+
+### UtcTiming
+* UtcTiming `string` (values: NONE, HTTP-HEAD, HTTP-ISO)
+
+### __AdTriggersElement
+* __AdTriggersElement `string` (values: SPLICE_INSERT, BREAK, PROVIDER_ADVERTISEMENT, DISTRIBUTOR_ADVERTISEMENT, PROVIDER_PLACEMENT_OPPORTUNITY, DISTRIBUTOR_PLACEMENT_OPPORTUNITY, PROVIDER_OVERLAY_PLACEMENT_OPPORTUNITY, DISTRIBUTOR_OVERLAY_PLACEMENT_OPPORTUNITY)
+
+### __PeriodTriggersElement
+* __PeriodTriggersElement `string` (values: ADS)
 
 ### __boolean
 * __boolean `boolean`
-
-### __double
-* __double `number`
 
 ### __integer
 * __integer `integer`
@@ -617,6 +1764,10 @@ amazonaws_mediapackage.UpdateOriginEndpoint({
 ### __listOfChannel
 * __listOfChannel `array`
   * items [Channel](#channel)
+
+### __listOfHarvestJob
+* __listOfHarvestJob `array`
+  * items [HarvestJob](#harvestjob)
 
 ### __listOfHlsManifest
 * __listOfHlsManifest `array`
@@ -634,12 +1785,16 @@ amazonaws_mediapackage.UpdateOriginEndpoint({
 * __listOfOriginEndpoint `array`
   * items [OriginEndpoint](#originendpoint)
 
+### __listOf__PeriodTriggersElement
+* __listOf__PeriodTriggersElement `array`
+  * items [__PeriodTriggersElement](#__periodtriggerselement)
+
 ### __listOf__string
 * __listOf__string `array`
   * items [__string](#__string)
 
-### __long
-* __long `integer`
+### __mapOf__string
+* __mapOf__string `object`
 
 ### __string
 * __string `string`

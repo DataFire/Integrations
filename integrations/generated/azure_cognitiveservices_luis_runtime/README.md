@@ -11,10 +11,7 @@ let azure_cognitiveservices_luis_runtime = require('@datafire/azure_cognitiveser
   apiKeyHeader: ""
 });
 
-azure_cognitiveservices_luis_runtime.Prediction_Resolve2({
-  "appId": "",
-  "q": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

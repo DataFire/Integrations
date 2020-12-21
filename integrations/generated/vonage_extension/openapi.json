@@ -1,0 +1,442 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "contact": {
+      "name": "Vonage Business Cloud Support",
+      "url": "https://businesssupport.vonage.com/contactus"
+    },
+    "description": "The Vonage Business Cloud Extension API enables you to retrieve information about extensions.\n\nYour application must subscribe to the Provisioning API suite to use this API.\n",
+    "termsOfService": "https://www.vonage.com/business/legal-policy-center/business-cloud/tos",
+    "title": "Extension API",
+    "version": "1.11.8",
+    "x-origin": [
+      {
+        "format": "openapi",
+        "url": "https://raw.githubusercontent.com/nexmo/api-specification/master/definitions/vonage-business-cloud/extension.yml",
+        "version": "3.0"
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "vonage.com",
+    "x-serviceName": "extension",
+    "x-datafire": {
+      "name": "vonage_extension",
+      "type": "openapi"
+    }
+  },
+  "host": "api.vonage.com",
+  "basePath": "/t/vbc.prod/provisioning",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/api/accounts/{account_id}/extensions": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The Vonage Business Cloud account ID",
+            "in": "path",
+            "name": "account_id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Number of records per page",
+            "in": "query",
+            "name": "page_size",
+            "required": false,
+            "type": "number",
+            "x-example": 10
+          },
+          {
+            "description": "Current page number",
+            "in": "query",
+            "name": "page",
+            "required": false,
+            "type": "number",
+            "x-example": 10
+          },
+          {
+            "description": "Filter by location id",
+            "in": "query",
+            "name": "location_id",
+            "required": false,
+            "type": "number",
+            "x-example": 145214
+          },
+          {
+            "description": "Filter by phone number",
+            "in": "query",
+            "name": "phone_number",
+            "required": false,
+            "type": "string",
+            "x-example": "14155550100"
+          },
+          {
+            "description": "Filter by login name",
+            "in": "query",
+            "name": "login_name",
+            "required": false,
+            "type": "string",
+            "x-example": "jsmith"
+          },
+          {
+            "description": "Filter by email address",
+            "in": "query",
+            "name": "email",
+            "required": false,
+            "type": "string",
+            "x-example": "john.smith@example.com"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/EndUserRouteHalResponse"
+            }
+          },
+          "400": {
+            "description": "Invalid parameters given",
+            "schema": {
+              "$ref": "#/definitions/ValidationErrorsResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "operationId": "ExtensionCtrl.getAccountExtensions",
+        "summary": "Get account extensions data by account ID"
+      }
+    },
+    "/api/accounts/{account_id}/extensions/{extension_number}": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The Vonage Business Cloud account ID",
+            "in": "path",
+            "name": "account_id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The extension number",
+            "in": "path",
+            "name": "extension_number",
+            "required": true,
+            "type": "number",
+            "x-example": 789
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/EndUserRouteHalResponse"
+            }
+          },
+          "404": {
+            "description": "Extension not found",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "operationId": "ExtensionCtrl.getAccountExtensionByID",
+        "summary": "Get extension data by account ID and extension number"
+      }
+    }
+  },
+  "definitions": {
+    "BasicUser": {
+      "properties": {
+        "email": {
+          "description": "Email address of the user",
+          "example": "john.smith@example.com",
+          "type": "string"
+        },
+        "first_name": {
+          "description": "First name of the user",
+          "example": "John",
+          "type": "string"
+        },
+        "last_name": {
+          "description": "Last name of the user",
+          "example": "Smith",
+          "type": "string"
+        },
+        "login_name": {
+          "description": "Login name of the user",
+          "example": "jsmith",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "DID": {
+      "properties": {
+        "custom_tag": {
+          "description": "Custom tag associated with the phone number",
+          "example": "My Tag",
+          "type": "string"
+        },
+        "phone_number": {
+          "description": "Phone number",
+          "example": "14155550100",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "DetailedInvalidParam": {
+      "properties": {
+        "name": {
+          "description": "Invalid property name",
+          "type": "string"
+        },
+        "reason": {
+          "description": "Invalid property reason",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "EndUserRoute": {
+      "properties": {
+        "block_caller_id": {
+          "description": "Block Caller ID status of the extension",
+          "example": false,
+          "type": "boolean"
+        },
+        "caller_id": {
+          "description": "Caller ID of the extension",
+          "example": "John Smith",
+          "type": "string"
+        },
+        "dids": {
+          "description": "Collection of phone numbers assigned to the extension",
+          "items": {
+            "$ref": "#/definitions/DID"
+          },
+          "type": "array"
+        },
+        "dnd_enabled": {
+          "description": "Do Not Disturb status of the extension",
+          "example": false,
+          "type": "boolean"
+        },
+        "extension_handsets": {
+          "description": "Collection of handsets assigned to the extension",
+          "items": {
+            "$ref": "#/definitions/Line"
+          },
+          "type": "array"
+        },
+        "extension_number": {
+          "description": "Extension number",
+          "example": "789",
+          "type": "string"
+        },
+        "location_id": {
+          "description": "Unique identifier of the assigned location",
+          "example": 145214,
+          "type": "number"
+        },
+        "user": {
+          "$ref": "#/definitions/BasicUser"
+        },
+        "vtt_enabled": {
+          "description": "Voicemail transcription status of the location",
+          "example": true,
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "EndUserRouteEmbeddedObject": {
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/EndUserRoute"
+        }
+      },
+      "type": "object"
+    },
+    "EndUserRouteHalResponse": {
+      "properties": {
+        "_embedded": {
+          "$ref": "#/definitions/EndUserRouteEmbeddedObject"
+        },
+        "_links": {
+          "$ref": "#/definitions/Links"
+        },
+        "page": {
+          "description": "Current page number",
+          "example": 1,
+          "type": "number"
+        },
+        "page_size": {
+          "description": "Number of records per page",
+          "example": 10,
+          "type": "number"
+        },
+        "total_items": {
+          "description": "Total number of records",
+          "example": 100,
+          "type": "number"
+        },
+        "total_pages": {
+          "description": "Total number of pages",
+          "example": 10,
+          "type": "number"
+        }
+      },
+      "type": "object"
+    },
+    "ErrorResponse": {
+      "properties": {
+        "msg": {
+          "description": "Error message",
+          "type": "string"
+        },
+        "status": {
+          "description": "Http Response Code",
+          "type": "number"
+        }
+      },
+      "type": "object"
+    },
+    "FirstHref": {
+      "description": "URL to the first page of records",
+      "properties": {
+        "href": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "LastHref": {
+      "description": "URL to the last page of records",
+      "properties": {
+        "href": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Line": {
+      "properties": {
+        "handset_name": {
+          "description": "Name of the handset",
+          "example": "line1-VH6370927",
+          "type": "string"
+        },
+        "sip_id": {
+          "description": "SIP identifier of the handset",
+          "example": "VH16370927",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Links": {
+      "properties": {
+        "first": {
+          "$ref": "#/definitions/FirstHref"
+        },
+        "next": {
+          "$ref": "#/definitions/NextHref"
+        },
+        "prev": {
+          "$ref": "#/definitions/PrevHref"
+        },
+        "self": {
+          "$ref": "#/definitions/SelfHref"
+        }
+      },
+      "type": "object"
+    },
+    "NextHref": {
+      "description": "URL to the next page of records",
+      "properties": {
+        "href": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "PrevHref": {
+      "description": "URL to the previous page of records",
+      "properties": {
+        "href": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "SelfHref": {
+      "description": "URL to the current page of records",
+      "properties": {
+        "href": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "ValidationErrorsResponse": {
+      "properties": {
+        "instance": {
+          "description": "Error Track ID",
+          "type": "string"
+        },
+        "invalid_parameters": {
+          "description": "Invalid parameters and their reason for failing",
+          "items": {
+            "$ref": "#/definitions/DetailedInvalidParam"
+          },
+          "type": "array"
+        },
+        "status": {
+          "description": "Error status code",
+          "type": "number"
+        },
+        "title": {
+          "description": "Error title",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "securityDefinitions": {
+    "bearerAuth": {
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey"
+    }
+  },
+  "x-components": {
+    "parameters": {
+      "AccountID": {
+        "description": "The Vonage Business Cloud account ID",
+        "in": "path",
+        "name": "account_id",
+        "required": true,
+        "type": "string"
+      }
+    }
+  }
+}

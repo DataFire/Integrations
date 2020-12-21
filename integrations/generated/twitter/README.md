@@ -14,7 +14,7 @@ let twitter = require('@datafire/twitter').create({
   token_secret: ""
 });
 
-twitter.users.suggestions({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

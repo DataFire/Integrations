@@ -1,6 +1,6 @@
 # @datafire/adobe_aem
 
-Client library for Adobe Experience Manager (AEM)
+Client library for Adobe Experience Manager (AEM) API
 
 ## Installation and Usage
 ```bash
@@ -12,7 +12,7 @@ let adobe_aem = require('@datafire/adobe_aem').create({
   password: ""
 });
 
-adobe_aem.getAemHealthCheck({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -42,19 +42,78 @@ adobe_aem.postCqActions({
 #### Output
 *Output schema unknown*
 
+### postConfigAdobeGraniteSamlAuthenticationHandler
+
+
+
+```js
+adobe_aem.postConfigAdobeGraniteSamlAuthenticationHandler({}, context)
+```
+
+#### Input
+* input `object`
+  * keyStorePassword `string`
+  * keyStorePassword@TypeHint `string`
+  * service.ranking `integer`
+  * service.ranking@TypeHint `string`
+  * idpHttpRedirect `boolean`
+  * idpHttpRedirect@TypeHint `string`
+  * createUser `boolean`
+  * createUser@TypeHint `string`
+  * defaultRedirectUrl `string`
+  * defaultRedirectUrl@TypeHint `string`
+  * userIDAttribute `string`
+  * userIDAttribute@TypeHint `string`
+  * defaultGroups `array`
+  * defaultGroups@TypeHint `string`
+  * idpCertAlias `string`
+  * idpCertAlias@TypeHint `string`
+  * addGroupMemberships `boolean`
+  * addGroupMemberships@TypeHint `string`
+  * path `array`
+  * path@TypeHint `string`
+  * synchronizeAttributes `array`
+  * synchronizeAttributes@TypeHint `string`
+  * clockTolerance `integer`
+  * clockTolerance@TypeHint `string`
+  * groupMembershipAttribute `string`
+  * groupMembershipAttribute@TypeHint `string`
+  * idpUrl `string`
+  * idpUrl@TypeHint `string`
+  * logoutUrl `string`
+  * logoutUrl@TypeHint `string`
+  * serviceProviderEntityId `string`
+  * serviceProviderEntityId@TypeHint `string`
+  * assertionConsumerServiceURL `string`
+  * assertionConsumerServiceURL@TypeHint `string`
+  * handleLogout `boolean`
+  * handleLogout@TypeHint `string`
+  * spPrivateKeyAlias `string`
+  * spPrivateKeyAlias@TypeHint `string`
+  * useEncryption `boolean`
+  * useEncryption@TypeHint `string`
+  * nameIdFormat `string`
+  * nameIdFormat@TypeHint `string`
+  * digestMethod `string`
+  * digestMethod@TypeHint `string`
+  * signatureMethod `string`
+  * signatureMethod@TypeHint `string`
+  * userIntermediatePath `string`
+  * userIntermediatePath@TypeHint `string`
+
+#### Output
+*Output schema unknown*
+
 ### postConfigAemPasswordReset
 
 
 
 ```js
-adobe_aem.postConfigAemPasswordReset({
-  "runmode": ""
-}, context)
+adobe_aem.postConfigAemPasswordReset({}, context)
 ```
 
 #### Input
 * input `object`
-  * runmode **required** `string`
   * pwdreset.authorizables `array`
   * pwdreset.authorizables@TypeHint `string`
 
@@ -66,14 +125,11 @@ adobe_aem.postConfigAemPasswordReset({
 
 
 ```js
-adobe_aem.postConfigAemHealthCheckServlet({
-  "runmode": ""
-}, context)
+adobe_aem.postConfigAemHealthCheckServlet({}, context)
 ```
 
 #### Input
 * input `object`
-  * runmode **required** `string`
   * bundles.ignored `array`
   * bundles.ignored@TypeHint `string`
 
@@ -85,14 +141,11 @@ adobe_aem.postConfigAemHealthCheckServlet({
 
 
 ```js
-adobe_aem.postConfigApacheFelixJettyBasedHttpService({
-  "runmode": ""
-}, context)
+adobe_aem.postConfigApacheFelixJettyBasedHttpService({}, context)
 ```
 
 #### Input
 * input `object`
-  * runmode **required** `string`
   * org.apache.felix.https.nio `boolean`
   * org.apache.felix.https.nio@TypeHint `string`
   * org.apache.felix.https.keystore `string`
@@ -117,19 +170,42 @@ adobe_aem.postConfigApacheFelixJettyBasedHttpService({
 #### Output
 *Output schema unknown*
 
+### postConfigApacheHttpComponentsProxyConfiguration
+
+
+
+```js
+adobe_aem.postConfigApacheHttpComponentsProxyConfiguration({}, context)
+```
+
+#### Input
+* input `object`
+  * proxy.host `string`
+  * proxy.host@TypeHint `string`
+  * proxy.port `integer`
+  * proxy.port@TypeHint `string`
+  * proxy.exceptions `array`
+  * proxy.exceptions@TypeHint `string`
+  * proxy.enabled `boolean`
+  * proxy.enabled@TypeHint `string`
+  * proxy.user `string`
+  * proxy.user@TypeHint `string`
+  * proxy.password `string`
+  * proxy.password@TypeHint `string`
+
+#### Output
+*Output schema unknown*
+
 ### postConfigApacheSlingDavExServlet
 
 
 
 ```js
-adobe_aem.postConfigApacheSlingDavExServlet({
-  "runmode": ""
-}, context)
+adobe_aem.postConfigApacheSlingDavExServlet({}, context)
 ```
 
 #### Input
 * input `object`
-  * runmode **required** `string`
   * alias `string`
   * alias@TypeHint `string`
   * dav.create-absolute-uri `boolean`
@@ -143,20 +219,19 @@ adobe_aem.postConfigApacheSlingDavExServlet({
 
 
 ```js
-adobe_aem.postConfigApacheSlingReferrerFilter({
-  "runmode": ""
-}, context)
+adobe_aem.postConfigApacheSlingReferrerFilter({}, context)
 ```
 
 #### Input
 * input `object`
-  * runmode **required** `string`
   * allow.empty `boolean`
   * allow.empty@TypeHint `string`
   * allow.hosts `string`
   * allow.hosts@TypeHint `string`
   * allow.hosts.regexp `string`
   * allow.hosts.regexp@TypeHint `string`
+  * filter.methods `string`
+  * filter.methods@TypeHint `string`
 
 #### Output
 *Output schema unknown*
@@ -166,14 +241,11 @@ adobe_aem.postConfigApacheSlingReferrerFilter({
 
 
 ```js
-adobe_aem.postConfigApacheSlingGetServlet({
-  "runmode": ""
-}, context)
+adobe_aem.postConfigApacheSlingGetServlet({}, context)
 ```
 
 #### Input
 * input `object`
-  * runmode **required** `string`
   * json.maximumresults `string`
   * json.maximumresults@TypeHint `string`
   * enable.html `boolean`
@@ -182,6 +254,23 @@ adobe_aem.postConfigApacheSlingGetServlet({
   * enable.txt@TypeHint `string`
   * enable.xml `boolean`
   * enable.xml@TypeHint `string`
+
+#### Output
+*Output schema unknown*
+
+### postConfigProperty
+
+
+
+```js
+adobe_aem.postConfigProperty({
+  "configNodeName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * configNodeName **required** `string`
 
 #### Output
 *Output schema unknown*
@@ -305,11 +394,21 @@ adobe_aem.postPackageServiceJson({
   * _charset_ `string`
   * force `boolean`
   * recursive `boolean`
-  * package `string`, `object`
-    * content `string`
-    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
-    * contentType `string`
-    * filename `string`
+  * package `string`
+
+#### Output
+* output `string`
+
+### getPackageManagerServlet
+
+
+
+```js
+adobe_aem.getPackageManagerServlet(null, context)
+```
+
+#### Input
+*This action has no parameters*
 
 #### Output
 * output `string`
@@ -372,7 +471,7 @@ adobe_aem.getPackage({
   * version **required** `string`
 
 #### Output
-* output `file`
+* output `string`
 
 ### getPackageFilter
 
@@ -540,6 +639,35 @@ adobe_aem.postTreeActivation({
 #### Output
 *Output schema unknown*
 
+### postTruststorePKCS12
+
+
+
+```js
+adobe_aem.postTruststorePKCS12({}, context)
+```
+
+#### Input
+* input `object`
+  * truststore.p12 `string`
+
+#### Output
+* output `string`
+
+### getTruststore
+
+
+
+```js
+adobe_aem.getTruststore(null, context)
+```
+
+#### Input
+*This action has no parameters*
+
+#### Output
+* output `string`
+
 ### getLoginPage
 
 
@@ -577,6 +705,69 @@ adobe_aem.postAuthorizables({
 #### Output
 * output `string`
 
+### sslSetup
+
+
+
+```js
+adobe_aem.sslSetup({
+  "keystorePassword": "",
+  "keystorePasswordConfirm": "",
+  "truststorePassword": "",
+  "truststorePasswordConfirm": "",
+  "httpsHostname": "",
+  "httpsPort": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * keystorePassword **required** `string`
+  * keystorePasswordConfirm **required** `string`
+  * truststorePassword **required** `string`
+  * truststorePasswordConfirm **required** `string`
+  * httpsHostname **required** `string`
+  * httpsPort **required** `string`
+  * certificateFile `string`
+  * privatekeyFile `string`
+
+#### Output
+* output `string`
+
+### postTruststore
+
+
+
+```js
+adobe_aem.postTruststore({}, context)
+```
+
+#### Input
+* input `object`
+  * :operation `string`
+  * newPassword `string`
+  * rePassword `string`
+  * keyStoreType `string`
+  * removeAlias `string`
+  * certificate `string`
+
+#### Output
+* output `string`
+
+### getTruststoreInfo
+
+
+
+```js
+adobe_aem.getTruststoreInfo(null, context)
+```
+
+#### Input
+*This action has no parameters*
+
+#### Output
+* output [TruststoreInfo](#truststoreinfo)
+
 ### postBundle
 
 
@@ -596,6 +787,64 @@ adobe_aem.postBundle({
 #### Output
 *Output schema unknown*
 
+### getConfigMgr
+
+
+
+```js
+adobe_aem.getConfigMgr(null, context)
+```
+
+#### Input
+*This action has no parameters*
+
+#### Output
+* output `string`
+
+### postSamlConfiguration
+
+
+
+```js
+adobe_aem.postSamlConfiguration({}, context)
+```
+
+#### Input
+* input `object`
+  * post `boolean`
+  * apply `boolean`
+  * delete `boolean`
+  * action `string`
+  * $location `string`
+  * path `array`
+  * service.ranking `integer`
+  * idpUrl `string`
+  * idpCertAlias `string`
+  * idpHttpRedirect `boolean`
+  * serviceProviderEntityId `string`
+  * assertionConsumerServiceURL `string`
+  * spPrivateKeyAlias `string`
+  * keyStorePassword `string`
+  * defaultRedirectUrl `string`
+  * userIDAttribute `string`
+  * useEncryption `boolean`
+  * createUser `boolean`
+  * addGroupMemberships `boolean`
+  * groupMembershipAttribute `string`
+  * defaultGroups `array`
+  * nameIdFormat `string`
+  * synchronizeAttributes `array`
+  * handleLogout `boolean`
+  * logoutUrl `string`
+  * clockTolerance `integer`
+  * digestMethod `string`
+  * signatureMethod `string`
+  * userIntermediatePath `string`
+  * propertylist `array`
+
+#### Output
+* output [SamlConfigurationInfo](#samlconfigurationinfo)
+
 ### postJmxRepository
 
 
@@ -613,6 +862,21 @@ adobe_aem.postJmxRepository({
 #### Output
 *Output schema unknown*
 
+### getAemProductInfo
+
+
+
+```js
+adobe_aem.getAemProductInfo(null, context)
+```
+
+#### Input
+*This action has no parameters*
+
+#### Output
+* output `array`
+  * items `string`
+
 ### getAemHealthCheck
 
 
@@ -625,6 +889,75 @@ adobe_aem.getAemHealthCheck({}, context)
 * input `object`
   * tags `string`
   * combineTagsOr `boolean`
+
+#### Output
+* output `string`
+
+### postAuthorizableKeystore
+
+
+
+```js
+adobe_aem.postAuthorizableKeystore({
+  "intermediatePath": "",
+  "authorizableId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * intermediatePath **required** `string`
+  * authorizableId **required** `string`
+  * :operation `string`
+  * currentPassword `string`
+  * newPassword `string`
+  * rePassword `string`
+  * keyPassword `string`
+  * keyStorePass `string`
+  * alias `string`
+  * newAlias `string`
+  * removeAlias `string`
+  * cert-chain `string`
+  * keyStore `string`
+  * pk `string`
+
+#### Output
+* output [KeystoreInfo](#keystoreinfo)
+
+### getAuthorizableKeystore
+
+
+
+```js
+adobe_aem.getAuthorizableKeystore({
+  "intermediatePath": "",
+  "authorizableId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * intermediatePath **required** `string`
+  * authorizableId **required** `string`
+
+#### Output
+* output [KeystoreInfo](#keystoreinfo)
+
+### getKeystore
+
+
+
+```js
+adobe_aem.getKeystore({
+  "intermediatePath": "",
+  "authorizableId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * intermediatePath **required** `string`
+  * authorizableId **required** `string`
 
 #### Output
 * output `string`
@@ -688,6 +1021,28 @@ adobe_aem.getNode({
 #### Output
 *Output schema unknown*
 
+### postNode
+
+
+
+```js
+adobe_aem.postNode({
+  "path": "",
+  "name": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * path **required** `string`
+  * name **required** `string`
+  * :operation `string`
+  * deleteAuthorizable `string`
+  * file `string`
+
+#### Output
+*Output schema unknown*
+
 ### postNodeRw
 
 
@@ -717,5 +1072,117 @@ adobe_aem.postNodeRw({
   * status `object`
     * finished `boolean`
     * itemCount `integer`
+
+### KeystoreChainItems
+* KeystoreChainItems `object`
+  * issuer `string`: e.g. "CN=Admin"
+  * notAfter `string`: e.g. "Sun Jun 30 23:59:50 AEST 2019"
+  * notBefore `string`: e.g. "Sun Jul 01 12:00:00 AEST 2018"
+  * serialNumber `integer`: 18165099476682912368
+  * subject `string`: e.g. "CN=localhost"
+
+### KeystoreInfo
+* KeystoreInfo `object`
+  * aliases `array`
+    * items [KeystoreItems](#keystoreitems)
+  * exists `boolean`: False if truststore don't exist
+
+### KeystoreItems
+* KeystoreItems `object`
+  * algorithm `string`: e.g. "RSA"
+  * alias `string`: Keystore alias name
+  * chain `array`
+    * items [KeystoreChainItems](#keystorechainitems)
+  * entryType `string`: e.g. "privateKey"
+  * format `string`: e.g. "PKCS#8"
+
+### SamlConfigurationInfo
+* SamlConfigurationInfo `object`
+  * bundle_location `string`: needed for configuration binding
+  * description `string`: Title
+  * pid `string`: Persistent Identity (PID)
+  * properties [SamlConfigurationProperties](#samlconfigurationproperties)
+  * service_location `string`: needed for configuraiton binding
+  * title `string`: Title
+
+### SamlConfigurationProperties
+* SamlConfigurationProperties `object`
+  * addGroupMemberships [SamlConfigurationPropertyItemsBoolean](#samlconfigurationpropertyitemsboolean)
+  * assertionConsumerServiceURL [SamlConfigurationPropertyItemsString](#samlconfigurationpropertyitemsstring)
+  * clockTolerance [SamlConfigurationPropertyItemsLong](#samlconfigurationpropertyitemslong)
+  * createUser [SamlConfigurationPropertyItemsBoolean](#samlconfigurationpropertyitemsboolean)
+  * defaultGroups [SamlConfigurationPropertyItemsArray](#samlconfigurationpropertyitemsarray)
+  * defaultRedirectUrl [SamlConfigurationPropertyItemsString](#samlconfigurationpropertyitemsstring)
+  * digestMethod [SamlConfigurationPropertyItemsString](#samlconfigurationpropertyitemsstring)
+  * groupMembershipAttribute [SamlConfigurationPropertyItemsString](#samlconfigurationpropertyitemsstring)
+  * handleLogout [SamlConfigurationPropertyItemsBoolean](#samlconfigurationpropertyitemsboolean)
+  * idpCertAlias [SamlConfigurationPropertyItemsString](#samlconfigurationpropertyitemsstring)
+  * idpHttpRedirect [SamlConfigurationPropertyItemsBoolean](#samlconfigurationpropertyitemsboolean)
+  * idpUrl [SamlConfigurationPropertyItemsString](#samlconfigurationpropertyitemsstring)
+  * keyStorePassword [SamlConfigurationPropertyItemsString](#samlconfigurationpropertyitemsstring)
+  * logoutUrl [SamlConfigurationPropertyItemsString](#samlconfigurationpropertyitemsstring)
+  * nameIdFormat [SamlConfigurationPropertyItemsString](#samlconfigurationpropertyitemsstring)
+  * path [SamlConfigurationPropertyItemsArray](#samlconfigurationpropertyitemsarray)
+  * service.ranking [SamlConfigurationPropertyItemsLong](#samlconfigurationpropertyitemslong)
+  * serviceProviderEntityId [SamlConfigurationPropertyItemsString](#samlconfigurationpropertyitemsstring)
+  * signatureMethod [SamlConfigurationPropertyItemsString](#samlconfigurationpropertyitemsstring)
+  * spPrivateKeyAlias [SamlConfigurationPropertyItemsString](#samlconfigurationpropertyitemsstring)
+  * synchronizeAttributes [SamlConfigurationPropertyItemsArray](#samlconfigurationpropertyitemsarray)
+  * useEncryption [SamlConfigurationPropertyItemsBoolean](#samlconfigurationpropertyitemsboolean)
+  * userIDAttribute [SamlConfigurationPropertyItemsString](#samlconfigurationpropertyitemsstring)
+  * userIntermediatePath [SamlConfigurationPropertyItemsString](#samlconfigurationpropertyitemsstring)
+
+### SamlConfigurationPropertyItemsArray
+* SamlConfigurationPropertyItemsArray `object`
+  * description `string`: Property description
+  * is_set `boolean`: True if property is set
+  * name `string`: property name
+  * optional `boolean`: True if optional
+  * type `integer`: Property type, 1=String, 3=long, 11=boolean, 12=Password
+  * values `array`: Property value
+    * items `string`
+
+### SamlConfigurationPropertyItemsBoolean
+* SamlConfigurationPropertyItemsBoolean `object`
+  * description `string`: Property description
+  * is_set `boolean`: True if property is set
+  * name `string`: property name
+  * optional `boolean`: True if optional
+  * type `integer`: Property type, 1=String, 3=long, 11=boolean, 12=Password
+  * value `boolean`: Property value
+
+### SamlConfigurationPropertyItemsLong
+* SamlConfigurationPropertyItemsLong `object`
+  * description `string`: Property description
+  * is_set `boolean`: True if property is set
+  * name `string`: property name
+  * optional `boolean`: True if optional
+  * type `integer`: Property type, 1=String, 3=long, 11=boolean, 12=Password
+  * value `integer`: Property value
+
+### SamlConfigurationPropertyItemsString
+* SamlConfigurationPropertyItemsString `object`
+  * description `string`: Property description
+  * is_set `boolean`: True if property is set
+  * name `string`: property name
+  * optional `boolean`: True if optional
+  * type `integer`: Property type, 1=String, 3=long, 11=boolean, 12=Password
+  * value `string`: Property value
+
+### TruststoreInfo
+* TruststoreInfo `object`
+  * aliases `array`
+    * items [TruststoreItems](#truststoreitems)
+  * exists `boolean`: False if truststore don't exist
+
+### TruststoreItems
+* TruststoreItems `object`
+  * alias `string`: Truststore alias name
+  * entryType `string`
+  * issuer `string`: e.g. "CN=Admin"
+  * notAfter `string`: e.g. "Sun Jun 30 23:59:50 AEST 2019"
+  * notBefore `string`: e.g. "Sun Jul 01 12:00:00 AEST 2018"
+  * serialNumber `integer`: 18165099476682912368
+  * subject `string`: e.g. "CN=localhost"
 
 

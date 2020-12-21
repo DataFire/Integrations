@@ -51,26 +51,11 @@
     }
   },
   "parameters": {
-    "ApiVersionParameter": {
-      "description": "The API version to use for the request.",
-      "in": "query",
-      "name": "api-version",
-      "required": true,
-      "type": "string"
-    },
     "DatabaseExpandParameter": {
       "description": "A comma separated list of child objects to expand in the response. Possible properties: serviceTierAdvisors, transparentDataEncryption.",
       "in": "query",
       "name": "$expand",
       "required": false,
-      "type": "string",
-      "x-ms-parameter-location": "method"
-    },
-    "ResourceGroupParameter": {
-      "description": "The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.",
-      "in": "path",
-      "name": "resourceGroupName",
-      "required": true,
       "type": "string",
       "x-ms-parameter-location": "method"
     },
@@ -81,13 +66,6 @@
       "required": true,
       "type": "string",
       "x-ms-parameter-location": "method"
-    },
-    "SubscriptionIdParameter": {
-      "description": "The subscription ID that identifies an Azure subscription.",
-      "in": "path",
-      "name": "subscriptionId",
-      "required": true,
-      "type": "string"
     },
     "TransparentDataEncryptionNameParameter": {
       "description": "The name of the transparent data encryption configuration.",
@@ -112,13 +90,28 @@
         "operationId": "ServiceTierAdvisors_ListByDatabase",
         "parameters": [
           {
-            "$ref": "#/parameters/ApiVersionParameter"
+            "description": "The API version to use for the request.",
+            "in": "query",
+            "name": "api-version",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "client"
           },
           {
-            "$ref": "#/parameters/SubscriptionIdParameter"
+            "description": "The subscription ID that identifies an Azure subscription.",
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "client"
           },
           {
-            "$ref": "#/parameters/ResourceGroupParameter"
+            "description": "The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.",
+            "in": "path",
+            "name": "resourceGroupName",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "$ref": "#/parameters/ServerNameParameter"
@@ -153,45 +146,49 @@
             },
             "responses": {
               "200": {
-                "value": [
-                  {
-                    "id": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/sqlcrudtest-6852/providers/Microsoft.Sql/servers/sqlcrudtest-2080/databases/sqlcrudtest-9187/serviceTierAdvisors/Current",
-                    "name": "Current",
-                    "properties": {
-                      "activeTimeRatio": 0,
-                      "avgDtu": 0,
-                      "confidence": 1,
-                      "currentServiceLevelObjective": "S0",
-                      "currentServiceLevelObjectiveId": "f1173c43-91bd-4aaa-973c-54e79e15235b",
-                      "databaseSizeBasedRecommendationServiceLevelObjective": null,
-                      "databaseSizeBasedRecommendationServiceLevelObjectiveId": null,
-                      "disasterPlanBasedRecommendationServiceLevelObjective": null,
-                      "disasterPlanBasedRecommendationServiceLevelObjectiveId": null,
-                      "maxDtu": 0,
-                      "maxSizeInGB": 0.0234375,
-                      "minDtu": 0,
-                      "observationPeriodEnd": "2017-07-26T13:00:00Z",
-                      "observationPeriodStart": "2017-07-12T12:00:00Z",
-                      "overallRecommendationServiceLevelObjective": null,
-                      "overallRecommendationServiceLevelObjectiveId": null,
-                      "serviceLevelObjectiveUsageMetrics": [
-                        {
-                          "inRangeTimeRatio": 1,
-                          "serviceLevelObjective": "Basic",
-                          "serviceLevelObjectiveId": "dd6d99bb-f193-4ec1-86f2-43d3bccbc49c"
-                        }
-                      ],
-                      "usageBasedRecommendationServiceLevelObjective": null,
-                      "usageBasedRecommendationServiceLevelObjectiveId": null
-                    },
-                    "type": "Microsoft.Sql/servers/databases/serviceTierAdvisors"
-                  }
-                ]
+                "body": {
+                  "value": [
+                    {
+                      "id": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/sqlcrudtest-6852/providers/Microsoft.Sql/servers/sqlcrudtest-2080/databases/sqlcrudtest-9187/serviceTierAdvisors/Current",
+                      "name": "Current",
+                      "properties": {
+                        "activeTimeRatio": 0,
+                        "avgDtu": 0,
+                        "confidence": 1,
+                        "currentServiceLevelObjective": "S0",
+                        "currentServiceLevelObjectiveId": "f1173c43-91bd-4aaa-973c-54e79e15235b",
+                        "databaseSizeBasedRecommendationServiceLevelObjective": null,
+                        "databaseSizeBasedRecommendationServiceLevelObjectiveId": null,
+                        "disasterPlanBasedRecommendationServiceLevelObjective": null,
+                        "disasterPlanBasedRecommendationServiceLevelObjectiveId": null,
+                        "maxDtu": 0,
+                        "maxSizeInGB": 0.0234375,
+                        "minDtu": 0,
+                        "observationPeriodEnd": "2017-07-26T13:00:00Z",
+                        "observationPeriodStart": "2017-07-12T12:00:00Z",
+                        "overallRecommendationServiceLevelObjective": null,
+                        "overallRecommendationServiceLevelObjectiveId": null,
+                        "serviceLevelObjectiveUsageMetrics": [
+                          {
+                            "inRangeTimeRatio": 1,
+                            "serviceLevelObjective": "Basic",
+                            "serviceLevelObjectiveId": "dd6d99bb-f193-4ec1-86f2-43d3bccbc49c"
+                          }
+                        ],
+                        "usageBasedRecommendationServiceLevelObjective": null,
+                        "usageBasedRecommendationServiceLevelObjectiveId": null
+                      },
+                      "type": "Microsoft.Sql/servers/databases/serviceTierAdvisors"
+                    }
+                  ]
+                }
               }
             }
           }
         },
-        "x-ms-pageable": {}
+        "x-ms-pageable": {
+          "nextLinkName": null
+        }
       }
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/databases/{databaseName}/serviceTierAdvisors/{serviceTierAdvisorName}": {
@@ -200,13 +197,28 @@
         "operationId": "ServiceTierAdvisors_Get",
         "parameters": [
           {
-            "$ref": "#/parameters/ApiVersionParameter"
+            "description": "The API version to use for the request.",
+            "in": "query",
+            "name": "api-version",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "client"
           },
           {
-            "$ref": "#/parameters/SubscriptionIdParameter"
+            "description": "The subscription ID that identifies an Azure subscription.",
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "client"
           },
           {
-            "$ref": "#/parameters/ResourceGroupParameter"
+            "description": "The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.",
+            "in": "path",
+            "name": "resourceGroupName",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "$ref": "#/parameters/ServerNameParameter"
@@ -293,13 +305,28 @@
         "operationId": "TransparentDataEncryptions_Get",
         "parameters": [
           {
-            "$ref": "#/parameters/ApiVersionParameter"
+            "description": "The API version to use for the request.",
+            "in": "query",
+            "name": "api-version",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "client"
           },
           {
-            "$ref": "#/parameters/SubscriptionIdParameter"
+            "description": "The subscription ID that identifies an Azure subscription.",
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "client"
           },
           {
-            "$ref": "#/parameters/ResourceGroupParameter"
+            "description": "The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.",
+            "in": "path",
+            "name": "resourceGroupName",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "$ref": "#/parameters/ServerNameParameter"
@@ -357,13 +384,28 @@
         "operationId": "TransparentDataEncryptions_CreateOrUpdate",
         "parameters": [
           {
-            "$ref": "#/parameters/ApiVersionParameter"
+            "description": "The API version to use for the request.",
+            "in": "query",
+            "name": "api-version",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "client"
           },
           {
-            "$ref": "#/parameters/SubscriptionIdParameter"
+            "description": "The subscription ID that identifies an Azure subscription.",
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "client"
           },
           {
-            "$ref": "#/parameters/ResourceGroupParameter"
+            "description": "The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.",
+            "in": "path",
+            "name": "resourceGroupName",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "$ref": "#/parameters/ServerNameParameter"
@@ -454,13 +496,28 @@
         "operationId": "TransparentDataEncryptionActivities_ListByConfiguration",
         "parameters": [
           {
-            "$ref": "#/parameters/ApiVersionParameter"
+            "description": "The API version to use for the request.",
+            "in": "query",
+            "name": "api-version",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "client"
           },
           {
-            "$ref": "#/parameters/SubscriptionIdParameter"
+            "description": "The subscription ID that identifies an Azure subscription.",
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "client"
           },
           {
-            "$ref": "#/parameters/ResourceGroupParameter"
+            "description": "The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.",
+            "in": "path",
+            "name": "resourceGroupName",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "$ref": "#/parameters/ServerNameParameter"
@@ -517,7 +574,9 @@
             }
           }
         },
-        "x-ms-pageable": {}
+        "x-ms-pageable": {
+          "nextLinkName": null
+        }
       }
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/elasticPools/{elasticPoolName}/elasticPoolActivity": {
@@ -526,13 +585,28 @@
         "operationId": "ElasticPoolActivities_ListByElasticPool",
         "parameters": [
           {
-            "$ref": "#/parameters/ApiVersionParameter"
+            "description": "The API version to use for the request.",
+            "in": "query",
+            "name": "api-version",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "client"
           },
           {
-            "$ref": "#/parameters/SubscriptionIdParameter"
+            "description": "The subscription ID that identifies an Azure subscription.",
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "client"
           },
           {
-            "$ref": "#/parameters/ResourceGroupParameter"
+            "description": "The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.",
+            "in": "path",
+            "name": "resourceGroupName",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "$ref": "#/parameters/ServerNameParameter"
@@ -600,7 +674,9 @@
             }
           }
         },
-        "x-ms-pageable": {}
+        "x-ms-pageable": {
+          "nextLinkName": null
+        }
       }
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/elasticPools/{elasticPoolName}/elasticPoolDatabaseActivity": {
@@ -609,13 +685,28 @@
         "operationId": "ElasticPoolDatabaseActivities_ListByElasticPool",
         "parameters": [
           {
-            "$ref": "#/parameters/ApiVersionParameter"
+            "description": "The API version to use for the request.",
+            "in": "query",
+            "name": "api-version",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "client"
           },
           {
-            "$ref": "#/parameters/SubscriptionIdParameter"
+            "description": "The subscription ID that identifies an Azure subscription.",
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "client"
           },
           {
-            "$ref": "#/parameters/ResourceGroupParameter"
+            "description": "The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.",
+            "in": "path",
+            "name": "resourceGroupName",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "$ref": "#/parameters/ServerNameParameter"
@@ -704,7 +795,9 @@
             }
           }
         },
-        "x-ms-pageable": {}
+        "x-ms-pageable": {
+          "nextLinkName": null
+        }
       }
     }
   },
@@ -1261,7 +1354,7 @@
       "properties": {
         "properties": {
           "$ref": "#/definitions/ServiceTierAdvisorProperties",
-          "description": "The properites representing the resource.",
+          "description": "The properties representing the resource.",
           "readOnly": true,
           "x-ms-client-flatten": true
         }

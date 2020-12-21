@@ -11,7 +11,7 @@ let clickmeter = require('@datafire/clickmeter').create({
   api_key: ""
 });
 
-clickmeter.tags.count.get({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

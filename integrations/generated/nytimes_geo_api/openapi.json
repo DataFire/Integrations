@@ -1,15 +1,9 @@
 {
   "swagger": "2.0",
-  "schemes": [
-    "http",
-    "https"
-  ],
-  "host": "api.nytimes.com",
-  "basePath": "/svc/semantic/v2/geocodes",
   "info": {
     "description": "The Geographic API extends the Semantic API, using a linked data approach to enhance location concepts used in The New York Times' controlled vocabulary and data resources which combine them with the GeoNames database, an authoritative and free to use database of global geographical places, names and features.\n",
     "termsOfService": "http://developer.nytimes.com/tou",
-    "title": "Geographic",
+    "title": "Geographic API",
     "version": "1.0.0",
     "x-apiClientRegistration": {
       "url": "http://developer.nytimes.com/signup"
@@ -23,9 +17,9 @@
     },
     "x-origin": [
       {
-        "format": "swagger",
-        "url": "https://raw.githubusercontent.com/NYTimes/public_api_specs/master/geo_api/geo_api_v2.json",
-        "version": "2.0"
+        "format": "openapi",
+        "url": "https://raw.githubusercontent.com/nytimes/public_api_specs/master/geo_api/geo_api_v2.json",
+        "version": "3.0"
       }
     ],
     "x-preferred": true,
@@ -36,28 +30,17 @@
       "type": "openapi"
     }
   },
-  "externalDocs": {
-    "url": "http://developer.nytimes.com/"
-  },
-  "produces": [
-    "application/json"
-  ],
-  "securityDefinitions": {
-    "apikey": {
-      "in": "query",
-      "name": "api-key",
-      "type": "apiKey"
-    }
-  },
-  "security": [
-    {
-      "apikey": []
-    }
+  "host": "api.nytimes.com",
+  "basePath": "/svc/semantic/v2/geocodes",
+  "schemes": [
+    "http"
   ],
   "paths": {
     "/query.json": {
       "get": {
-        "description": "Geographic API",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "A displayable name for the specified place.",
@@ -161,11 +144,11 @@
             }
           }
         },
-        "summary": "Geographic API",
         "tags": [
           "Events"
         ],
-        "operationId": "query.json.get"
+        "description": "Geographic API",
+        "summary": "Geographic API"
       }
     }
   },
@@ -235,5 +218,21 @@
       },
       "type": "object"
     }
-  }
+  },
+  "securityDefinitions": {
+    "apikey": {
+      "in": "query",
+      "name": "api-key",
+      "type": "apiKey"
+    }
+  },
+  "security": [
+    {
+      "apikey": []
+    }
+  ],
+  "externalDocs": {
+    "url": "http://developer.nytimes.com/"
+  },
+  "x-components": {}
 }

@@ -22,6 +22,11 @@
         "format": "swagger",
         "url": "http://public.opendatasoft.com/api/v2/swagger.json",
         "version": "2.0"
+      },
+      {
+        "format": "swagger",
+        "url": "http://public.opendatasoft.com/api/v2/swagger.json",
+        "version": "2.0"
       }
     ],
     "x-preferred": true,
@@ -66,6 +71,27 @@
       "required": true,
       "type": "string"
     },
+    "exclude": {
+      "collectionFormat": "multi",
+      "description": "An array of facet filters. For example **city:Paris** or **modified:2019/12**.\nThe request will exclude the defined facet value.\n\nRead [filtering with facets value](https://help.opendatasoft.com/apis/ods-search-v2/#filtering-with-facets-values) for more details.\n\n*Not to be confused with a where filter. Excluding a facet value is equivalent to removing an entry in the left navigation panel.*\n\n*exclude is not available for monitoring sources*\n",
+      "in": "query",
+      "items": {
+        "type": "string"
+      },
+      "name": "exclude",
+      "required": false,
+      "type": "array"
+    },
+    "facet": {
+      "collectionFormat": "multi",
+      "description": "A facet is a field used for simple filtering (through the parameters refine and exclude) or exploration (with the endpoint `/facets`).\n\nFacets can be configured in the back-office or with this parameter.\n\nRead [the facets documentation](https://help.opendatasoft.com/apis/ods-search-v2/#facets) for more details.\n",
+      "in": "query",
+      "items": {
+        "type": "string"
+      },
+      "name": "facet",
+      "type": "array"
+    },
     "file_id": {
       "in": "path",
       "name": "file_id",
@@ -85,6 +111,25 @@
       "in": "query",
       "name": "include_app_metas",
       "type": "boolean"
+    },
+    "limit": {
+      "default": 10,
+      "description": "Number of items to return.\n\nTo use in conjonction with offset to implement pagination.\n\nLimit maximum value is 100. To retrive more data use export entry points.\nThe default value is 10.\n",
+      "in": "query",
+      "maximum": 100,
+      "minimum": -1,
+      "name": "limit",
+      "required": false,
+      "type": "integer"
+    },
+    "limit_export": {
+      "default": -1,
+      "description": "Number of items to return in export.\n\nUse -1 (default) to retrieve all records\n",
+      "in": "query",
+      "minimum": -1,
+      "name": "limit",
+      "required": false,
+      "type": "integer"
     },
     "metadata_template_name": {
       "in": "path",
@@ -111,6 +156,26 @@
       "required": false,
       "type": "string"
     },
+    "offset": {
+      "default": 0,
+      "description": "Index of the first item to return (starting at 0).\n\nTo use in conjonction with limit to implement pagination.\n",
+      "in": "query",
+      "minimum": 0,
+      "name": "offset",
+      "required": false,
+      "type": "integer"
+    },
+    "order_by": {
+      "description": "A list of field names or aggregation, followed by an order (asc | desc).\n\nexample: **sum(age) desc, name asc**\n",
+      "in": "query",
+      "items": {
+        "collectionFormat": "csv",
+        "type": "string"
+      },
+      "name": "order_by",
+      "required": false,
+      "type": "array"
+    },
     "pretty": {
       "default": false,
       "description": "Activate pretty print",
@@ -124,30 +189,22 @@
       "required": true,
       "type": "string"
     },
+    "refine": {
+      "collectionFormat": "multi",
+      "description": "An array of facet filters. For example **city:Paris** or **modified:2019/12**.\nThe request will only include the selected facet value.\n\nRead [filtering with facets value](https://help.opendatasoft.com/apis/ods-search-v2/#filtering-with-facets-values) for more details.\n\n*Not to be confused with a where filter. Refining with a facet is equivalent to selecting an entry in the left navigation panel.*\n\n*refine is not available for monitoring sources*\n",
+      "in": "query",
+      "items": {
+        "type": "string"
+      },
+      "name": "refine",
+      "required": false,
+      "type": "array"
+    },
     "reuse_id": {
       "in": "path",
       "name": "reuse_id",
       "required": true,
       "type": "string"
-    },
-    "rows": {
-      "default": 10,
-      "description": "Number of items to return.\n\nTo use in conjonction with start to implement pagination.\n\nRows maximum value is 100. To retrive more data use export entry points.\n",
-      "in": "query",
-      "maximum": 100,
-      "minimum": -1,
-      "name": "rows",
-      "required": false,
-      "type": "integer"
-    },
-    "rows_export": {
-      "default": -1,
-      "description": "Number of items to return in export.\n\nUse -1 to retrieve all records\n",
-      "in": "query",
-      "minimum": -1,
-      "name": "rows",
-      "required": false,
-      "type": "integer"
     },
     "search": {
       "collectionFormat": "multi",
@@ -181,7 +238,7 @@
       "type": "string"
     },
     "sort": {
-      "description": "A list of field names, each possibly prefixed with a minus (-).\n\nMay also be 'random(seed)', where seed can be omitted but if specified must be an int. This allows to keep\nrelative ordering during pagination.\n\nSorts results according to the specified fields' values. By default, the sort is ascending (from the highest\nvalue to the smallest value). A minus sign (‘-‘) may be used to perform a descending sort. Sorting is only\navailable on numeric fields (int, double, date and datetime) and on text fields which have the sortable\nannotation.\n",
+      "description": "A list of field names, each possibly prefixed with a minus (-).\n\nMay also be 'random(seed)', where seed can be omitted but if specified must be an int. This allows to keep\nrelative ordering during pagination.\n\nSorts results according to the specified fields' values. By default, the sort is ascending (from the smallest\nvalue to the biggest value). A minus sign (‘-‘) may be used to perform a descending sort. Sorting is only\navailable on numeric fields (int, double, date and datetime) and on text fields which have the sortable\nannotation.\n",
       "in": "query",
       "items": {
         "collectionFormat": "csv",
@@ -193,7 +250,7 @@
     },
     "source": {
       "default": "catalog",
-      "description": "Each source represents a different catalog of datasets you'll be able to query.\n\nThere are 2 sources available:\n\n* catalog: the catalog of datasets on your portal\n* opendatasoft: OpenDataSoft's repository of public datasets, also available at\n  [data.opendatasoft.com](https://data.opendatasoft.com/page/home/)\n",
+      "description": "Each source represents a different catalog of datasets you'll be able to query.\n\nThere are 2 sources available:\n\n* catalog: the catalog of datasets on your portal\n* opendatasoft: Opendatasoft's repository of public datasets, also available at\n  [data.opendatasoft.com](https://data.opendatasoft.com/page/home/)\n",
       "enum": [
         "catalog",
         "opendatasoft",
@@ -203,15 +260,6 @@
       "name": "source",
       "required": true,
       "type": "string"
-    },
-    "start": {
-      "default": 0,
-      "description": "Index of the first item to return (starting at 0).\n\nTo use in conjonction with rows to implement pagination.\n",
-      "in": "query",
-      "minimum": 0,
-      "name": "start",
-      "required": false,
-      "type": "integer"
     },
     "thumbnail_size": {
       "description": "Set the size of the thumbnail representing the resource (attachment, image or file)",
@@ -228,7 +276,7 @@
     },
     "where": {
       "collectionFormat": "multi",
-      "description": "An array of filters.\n\nA filter is a text expression performing a simple full-text search that can also include logical operations\n(NOT, AND, OR...) as well as lots of other functions, thus performing more complex and more precise searches.\nSee [the query language reference](http://docs.opendatasoft.com/en/using_api/v2/query_language.html) for more details.\n",
+      "description": "An array of filters.\n\nA filter is a text expression performing a simple full-text search that can also include logical operations\n(NOT, AND, OR...) as well as lots of other functions, thus performing more complex and more precise searches.\n\nRead [the query language reference](https://docs.opendatasoft.com/api/explore/v2.html#where-clause) for more details.\n",
       "in": "query",
       "items": {
         "type": "string"
@@ -261,7 +309,7 @@
   "paths": {
     "/": {
       "get": {
-        "description": "API entry point\n\nProvides links for:\n* catalog, your domain's list of datasets\n* opendatasoft, all datasets on the OpenDataSoft network\n",
+        "description": "API entry point\n\nProvides links for:\n* catalog, your domain's list of datasets\n* opendatasoft, all datasets on the Opendatasoft network\n",
         "operationId": "getRoot",
         "responses": {
           "200": {
@@ -405,6 +453,24 @@
           },
           {
             "$ref": "#/parameters/where"
+          },
+          {
+            "$ref": "#/parameters/facet"
+          },
+          {
+            "$ref": "#/parameters/refine"
+          },
+          {
+            "$ref": "#/parameters/exclude"
+          },
+          {
+            "$ref": "#/parameters/order_by"
+          },
+          {
+            "$ref": "#/parameters/offset"
+          },
+          {
+            "$ref": "#/parameters/limit"
           }
         ],
         "responses": {
@@ -451,10 +517,19 @@
             "$ref": "#/parameters/search"
           },
           {
-            "$ref": "#/parameters/rows"
+            "$ref": "#/parameters/facet"
           },
           {
-            "$ref": "#/parameters/start"
+            "$ref": "#/parameters/refine"
+          },
+          {
+            "$ref": "#/parameters/exclude"
+          },
+          {
+            "$ref": "#/parameters/limit"
+          },
+          {
+            "$ref": "#/parameters/offset"
           },
           {
             "$ref": "#/parameters/sort"
@@ -577,6 +652,24 @@
           },
           {
             "$ref": "#/parameters/where"
+          },
+          {
+            "$ref": "#/parameters/facet"
+          },
+          {
+            "$ref": "#/parameters/refine"
+          },
+          {
+            "$ref": "#/parameters/exclude"
+          },
+          {
+            "$ref": "#/parameters/order_by"
+          },
+          {
+            "$ref": "#/parameters/limit"
+          },
+          {
+            "$ref": "#/parameters/offset"
           }
         ],
         "responses": {
@@ -687,13 +780,25 @@
             "$ref": "#/parameters/where"
           },
           {
+            "$ref": "#/parameters/facet"
+          },
+          {
+            "$ref": "#/parameters/refine"
+          },
+          {
+            "$ref": "#/parameters/exclude"
+          },
+          {
+            "$ref": "#/parameters/limit_export"
+          },
+          {
+            "$ref": "#/parameters/offset"
+          },
+          {
+            "$ref": "#/parameters/sort"
+          },
+          {
             "$ref": "#/parameters/select"
-          },
-          {
-            "$ref": "#/parameters/rows_export"
-          },
-          {
-            "$ref": "#/parameters/start"
           },
           {
             "$ref": "#/parameters/timezone"
@@ -747,10 +852,25 @@
             "$ref": "#/parameters/search"
           },
           {
-            "$ref": "#/parameters/rows_export"
+            "$ref": "#/parameters/facet"
           },
           {
-            "$ref": "#/parameters/start"
+            "$ref": "#/parameters/refine"
+          },
+          {
+            "$ref": "#/parameters/exclude"
+          },
+          {
+            "$ref": "#/parameters/limit_export"
+          },
+          {
+            "$ref": "#/parameters/offset"
+          },
+          {
+            "$ref": "#/parameters/sort"
+          },
+          {
+            "$ref": "#/parameters/select"
           },
           {
             "$ref": "#/parameters/timezone"
@@ -758,6 +878,9 @@
           {
             "$ref": "#/parameters/pretty"
           }
+        ],
+        "produces": [
+          "application/json"
         ],
         "responses": {
           "200": {
@@ -791,14 +914,32 @@
             "$ref": "#/parameters/search"
           },
           {
-            "$ref": "#/parameters/rows_export"
+            "$ref": "#/parameters/facet"
           },
           {
-            "$ref": "#/parameters/start"
+            "$ref": "#/parameters/refine"
+          },
+          {
+            "$ref": "#/parameters/exclude"
+          },
+          {
+            "$ref": "#/parameters/limit_export"
+          },
+          {
+            "$ref": "#/parameters/offset"
+          },
+          {
+            "$ref": "#/parameters/sort"
+          },
+          {
+            "$ref": "#/parameters/select"
           },
           {
             "$ref": "#/parameters/timezone"
           }
+        ],
+        "produces": [
+          "application/json"
         ],
         "responses": {
           "200": {
@@ -832,10 +973,25 @@
             "$ref": "#/parameters/search"
           },
           {
-            "$ref": "#/parameters/rows_export"
+            "$ref": "#/parameters/facet"
           },
           {
-            "$ref": "#/parameters/start"
+            "$ref": "#/parameters/refine"
+          },
+          {
+            "$ref": "#/parameters/exclude"
+          },
+          {
+            "$ref": "#/parameters/limit_export"
+          },
+          {
+            "$ref": "#/parameters/offset"
+          },
+          {
+            "$ref": "#/parameters/sort"
+          },
+          {
+            "$ref": "#/parameters/select"
           },
           {
             "$ref": "#/parameters/pretty"
@@ -843,6 +999,9 @@
           {
             "$ref": "#/parameters/timezone"
           }
+        ],
+        "produces": [
+          "application/json"
         ],
         "responses": {
           "200": {
@@ -876,10 +1035,25 @@
             "$ref": "#/parameters/search"
           },
           {
-            "$ref": "#/parameters/rows_export"
+            "$ref": "#/parameters/facet"
           },
           {
-            "$ref": "#/parameters/start"
+            "$ref": "#/parameters/refine"
+          },
+          {
+            "$ref": "#/parameters/exclude"
+          },
+          {
+            "$ref": "#/parameters/limit_export"
+          },
+          {
+            "$ref": "#/parameters/offset"
+          },
+          {
+            "$ref": "#/parameters/sort"
+          },
+          {
+            "$ref": "#/parameters/select"
           },
           {
             "$ref": "#/parameters/timezone"
@@ -920,10 +1094,25 @@
             "$ref": "#/parameters/search"
           },
           {
-            "$ref": "#/parameters/rows_export"
+            "$ref": "#/parameters/facet"
           },
           {
-            "$ref": "#/parameters/start"
+            "$ref": "#/parameters/refine"
+          },
+          {
+            "$ref": "#/parameters/exclude"
+          },
+          {
+            "$ref": "#/parameters/limit_export"
+          },
+          {
+            "$ref": "#/parameters/offset"
+          },
+          {
+            "$ref": "#/parameters/sort"
+          },
+          {
+            "$ref": "#/parameters/select"
           },
           {
             "$ref": "#/parameters/timezone"
@@ -964,17 +1153,32 @@
             "$ref": "#/parameters/search"
           },
           {
-            "$ref": "#/parameters/rows_export"
+            "$ref": "#/parameters/facet"
           },
           {
-            "$ref": "#/parameters/start"
+            "$ref": "#/parameters/refine"
+          },
+          {
+            "$ref": "#/parameters/exclude"
+          },
+          {
+            "$ref": "#/parameters/limit_export"
+          },
+          {
+            "$ref": "#/parameters/offset"
+          },
+          {
+            "$ref": "#/parameters/sort"
+          },
+          {
+            "$ref": "#/parameters/select"
           },
           {
             "$ref": "#/parameters/timezone"
           }
         ],
         "produces": [
-          "application/vnd.ms-excel"
+          "xls"
         ],
         "responses": {
           "200": {
@@ -986,6 +1190,59 @@
         },
         "tags": [
           "export dataset",
+          "ods"
+        ]
+      }
+    },
+    "/{source}/datasets/{dataset_id}/facets": {
+      "get": {
+        "description": "Enumerate facets values for records and return a list of values for each facet.\nCan be used to implement guided navigation in large result sets.\n\nRead [the facets documentation](https://help.opendatasoft.com/apis/ods-search-v2/#enumerating-facets-values) for more details.\n",
+        "operationId": "getRecordsFacets",
+        "parameters": [
+          {
+            "$ref": "#/parameters/source"
+          },
+          {
+            "$ref": "#/parameters/dataset_id"
+          },
+          {
+            "$ref": "#/parameters/facet"
+          },
+          {
+            "$ref": "#/parameters/refine"
+          },
+          {
+            "$ref": "#/parameters/exclude"
+          },
+          {
+            "$ref": "#/parameters/where"
+          },
+          {
+            "$ref": "#/parameters/search"
+          },
+          {
+            "$ref": "#/parameters/timezone"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Facets enumeration",
+            "schema": {
+              "properties": {
+                "facets": {
+                  "items": {
+                    "$ref": "#/definitions/facet_enumeration"
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            }
+          }
+        },
+        "tags": [
+          "dataset",
+          "facet",
           "ods"
         ]
       }
@@ -1085,10 +1342,19 @@
             "$ref": "#/parameters/search"
           },
           {
-            "$ref": "#/parameters/rows"
+            "$ref": "#/parameters/facet"
           },
           {
-            "$ref": "#/parameters/start"
+            "$ref": "#/parameters/refine"
+          },
+          {
+            "$ref": "#/parameters/exclude"
+          },
+          {
+            "$ref": "#/parameters/limit"
+          },
+          {
+            "$ref": "#/parameters/offset"
           },
           {
             "$ref": "#/parameters/sort"
@@ -1204,10 +1470,10 @@
             "$ref": "#/parameters/dataset_id"
           },
           {
-            "$ref": "#/parameters/start"
+            "$ref": "#/parameters/offset"
           },
           {
-            "$ref": "#/parameters/rows"
+            "$ref": "#/parameters/limit"
           },
           {
             "$ref": "#/parameters/timezone"
@@ -1368,10 +1634,19 @@
             "$ref": "#/parameters/search"
           },
           {
-            "$ref": "#/parameters/rows"
+            "$ref": "#/parameters/facet"
           },
           {
-            "$ref": "#/parameters/start"
+            "$ref": "#/parameters/refine"
+          },
+          {
+            "$ref": "#/parameters/exclude"
+          },
+          {
+            "$ref": "#/parameters/limit"
+          },
+          {
+            "$ref": "#/parameters/offset"
           },
           {
             "$ref": "#/parameters/timezone"
@@ -1425,10 +1700,19 @@
             "$ref": "#/parameters/search"
           },
           {
-            "$ref": "#/parameters/rows"
+            "$ref": "#/parameters/facet"
           },
           {
-            "$ref": "#/parameters/start"
+            "$ref": "#/parameters/refine"
+          },
+          {
+            "$ref": "#/parameters/exclude"
+          },
+          {
+            "$ref": "#/parameters/limit"
+          },
+          {
+            "$ref": "#/parameters/offset"
           },
           {
             "$ref": "#/parameters/pretty"
@@ -1439,6 +1723,9 @@
           {
             "$ref": "#/parameters/include_app_metas"
           }
+        ],
+        "produces": [
+          "application/json"
         ],
         "responses": {
           "200": {
@@ -1469,10 +1756,19 @@
             "$ref": "#/parameters/search"
           },
           {
-            "$ref": "#/parameters/rows"
+            "$ref": "#/parameters/facet"
           },
           {
-            "$ref": "#/parameters/start"
+            "$ref": "#/parameters/refine"
+          },
+          {
+            "$ref": "#/parameters/exclude"
+          },
+          {
+            "$ref": "#/parameters/limit"
+          },
+          {
+            "$ref": "#/parameters/offset"
           },
           {
             "$ref": "#/parameters/timezone"
@@ -1513,10 +1809,19 @@
             "$ref": "#/parameters/search"
           },
           {
-            "$ref": "#/parameters/rows"
+            "$ref": "#/parameters/facet"
           },
           {
-            "$ref": "#/parameters/start"
+            "$ref": "#/parameters/refine"
+          },
+          {
+            "$ref": "#/parameters/exclude"
+          },
+          {
+            "$ref": "#/parameters/limit"
+          },
+          {
+            "$ref": "#/parameters/offset"
           },
           {
             "$ref": "#/parameters/timezone"
@@ -1557,10 +1862,19 @@
             "$ref": "#/parameters/search"
           },
           {
-            "$ref": "#/parameters/rows"
+            "$ref": "#/parameters/facet"
           },
           {
-            "$ref": "#/parameters/start"
+            "$ref": "#/parameters/refine"
+          },
+          {
+            "$ref": "#/parameters/exclude"
+          },
+          {
+            "$ref": "#/parameters/limit"
+          },
+          {
+            "$ref": "#/parameters/offset"
           },
           {
             "$ref": "#/parameters/timezone"
@@ -1601,10 +1915,19 @@
             "$ref": "#/parameters/search"
           },
           {
-            "$ref": "#/parameters/rows"
+            "$ref": "#/parameters/facet"
           },
           {
-            "$ref": "#/parameters/start"
+            "$ref": "#/parameters/refine"
+          },
+          {
+            "$ref": "#/parameters/exclude"
+          },
+          {
+            "$ref": "#/parameters/limit"
+          },
+          {
+            "$ref": "#/parameters/offset"
           },
           {
             "$ref": "#/parameters/timezone"
@@ -1614,7 +1937,7 @@
           }
         ],
         "produces": [
-          "application/vnd.ms-excel"
+          "xls"
         ],
         "responses": {
           "200": {
@@ -1626,6 +1949,56 @@
         },
         "tags": [
           "export catalog",
+          "ods"
+        ]
+      }
+    },
+    "/{source}/facets": {
+      "get": {
+        "description": "Enumerate facets values for datasets and return a list of values for each facet.\nCan be used to implement guided navigation in large result sets.\n\nRead [the facets documentation](https://help.opendatasoft.com/apis/ods-search-v2/#enumerating-facets-values) for more details.\n",
+        "operationId": "getDatasetsFacets",
+        "parameters": [
+          {
+            "$ref": "#/parameters/source"
+          },
+          {
+            "$ref": "#/parameters/facet"
+          },
+          {
+            "$ref": "#/parameters/refine"
+          },
+          {
+            "$ref": "#/parameters/exclude"
+          },
+          {
+            "$ref": "#/parameters/where"
+          },
+          {
+            "$ref": "#/parameters/search"
+          },
+          {
+            "$ref": "#/parameters/timezone"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Facets enumeration",
+            "schema": {
+              "properties": {
+                "facets": {
+                  "items": {
+                    "$ref": "#/definitions/facet_enumeration"
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            }
+          }
+        },
+        "tags": [
+          "catalog",
+          "facet",
           "ods"
         ]
       }
@@ -1827,6 +2200,40 @@
         "$ref": "#/definitions/dataset"
       },
       "type": "array"
+    },
+    "facet_enumeration": {
+      "properties": {
+        "facets": {
+          "items": {
+            "$ref": "#/definitions/facet_value_enumeration"
+          },
+          "type": "array"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "facet_value_enumeration": {
+      "properties": {
+        "count": {
+          "type": "integer"
+        },
+        "facets": {
+          "items": {
+            "$ref": "#/definitions/facet_value_enumeration"
+          },
+          "type": "array"
+        },
+        "name": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "type": "object"
     },
     "link": {
       "properties": {

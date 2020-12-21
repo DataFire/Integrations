@@ -15,9 +15,7 @@ let azure_servicebus = require('@datafire/azure_servicebus').create({
   redirect_uri: ""
 });
 
-azure_servicebus.Operations_List({
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -283,7 +281,7 @@ azure_servicebus.Namespaces_DeleteAuthorizationRule({
 * input `object`
   * resourceGroupName **required** `string`: Name of the Resource group within the Azure subscription.
   * namespaceName **required** `string`: The namespace name
-  * authorizationRuleName **required** `string`: The authorizationrule name.
+  * authorizationRuleName **required** `string`: The authorization rule name.
   * api-version **required** `string`: Client API version.
   * subscriptionId **required** `string`: Subscription credentials that uniquely identify a Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
@@ -308,7 +306,7 @@ azure_servicebus.Namespaces_GetAuthorizationRule({
 * input `object`
   * resourceGroupName **required** `string`: Name of the Resource group within the Azure subscription.
   * namespaceName **required** `string`: The namespace name
-  * authorizationRuleName **required** `string`: The authorizationrule name.
+  * authorizationRuleName **required** `string`: The authorization rule name.
   * api-version **required** `string`: Client API version.
   * subscriptionId **required** `string`: Subscription credentials that uniquely identify a Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
@@ -334,7 +332,7 @@ azure_servicebus.Namespaces_CreateOrUpdateAuthorizationRule({
 * input `object`
   * resourceGroupName **required** `string`: Name of the Resource group within the Azure subscription.
   * namespaceName **required** `string`: The namespace name
-  * authorizationRuleName **required** `string`: The authorizationrule name.
+  * authorizationRuleName **required** `string`: The authorization rule name.
   * parameters **required** [SBAuthorizationRule](#sbauthorizationrule)
   * api-version **required** `string`: Client API version.
   * subscriptionId **required** `string`: Subscription credentials that uniquely identify a Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
@@ -360,7 +358,7 @@ azure_servicebus.Namespaces_ListKeys({
 * input `object`
   * resourceGroupName **required** `string`: Name of the Resource group within the Azure subscription.
   * namespaceName **required** `string`: The namespace name
-  * authorizationRuleName **required** `string`: The authorizationrule name.
+  * authorizationRuleName **required** `string`: The authorization rule name.
   * api-version **required** `string`: Client API version.
   * subscriptionId **required** `string`: Subscription credentials that uniquely identify a Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
@@ -386,7 +384,7 @@ azure_servicebus.Namespaces_RegenerateKeys({
 * input `object`
   * resourceGroupName **required** `string`: Name of the Resource group within the Azure subscription.
   * namespaceName **required** `string`: The namespace name
-  * authorizationRuleName **required** `string`: The authorizationrule name.
+  * authorizationRuleName **required** `string`: The authorization rule name.
   * parameters **required** [RegenerateAccessKeyParameters](#regenerateaccesskeyparameters)
   * api-version **required** `string`: Client API version.
   * subscriptionId **required** `string`: Subscription credentials that uniquely identify a Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
@@ -564,7 +562,7 @@ azure_servicebus.DisasterRecoveryConfigs_GetAuthorizationRule({
   * resourceGroupName **required** `string`: Name of the Resource group within the Azure subscription.
   * namespaceName **required** `string`: The namespace name
   * alias **required** `string`: The Disaster Recovery configuration name
-  * authorizationRuleName **required** `string`: The authorizationrule name.
+  * authorizationRuleName **required** `string`: The authorization rule name.
   * api-version **required** `string`: Client API version.
   * subscriptionId **required** `string`: Subscription credentials that uniquely identify a Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
@@ -591,7 +589,7 @@ azure_servicebus.DisasterRecoveryConfigs_ListKeys({
   * resourceGroupName **required** `string`: Name of the Resource group within the Azure subscription.
   * namespaceName **required** `string`: The namespace name
   * alias **required** `string`: The Disaster Recovery configuration name
-  * authorizationRuleName **required** `string`: The authorizationrule name.
+  * authorizationRuleName **required** `string`: The authorization rule name.
   * api-version **required** `string`: Client API version.
   * subscriptionId **required** `string`: Subscription credentials that uniquely identify a Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
@@ -624,7 +622,7 @@ azure_servicebus.DisasterRecoveryConfigs_BreakPairing({
 *Output schema unknown*
 
 ### DisasterRecoveryConfigs_FailOver
-envokes GEO DR failover and reconfigure the alias to point to the secondary namespace
+Invokes GEO DR failover and reconfigure the alias to point to the secondary namespace
 
 
 ```js
@@ -670,6 +668,33 @@ azure_servicebus.EventHubs_ListByNamespace({
 
 #### Output
 * output [EventHubListResult](#eventhublistresult)
+
+### Namespaces_Migrate
+This operation Migrate the given namespace to provided name type
+
+
+```js
+azure_servicebus.Namespaces_Migrate({
+  "resourceGroupName": "",
+  "namespaceName": "",
+  "api-version": "",
+  "subscriptionId": "",
+  "parameters": {
+    "targetNamespaceType": ""
+  }
+}, context)
+```
+
+#### Input
+* input `object`
+  * resourceGroupName **required** `string`: Name of the Resource group within the Azure subscription.
+  * namespaceName **required** `string`: The namespace name
+  * api-version **required** `string`: Client API version.
+  * subscriptionId **required** `string`: Subscription credentials that uniquely identify a Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+  * parameters **required** [SBNamespaceMigrate](#sbnamespacemigrate)
+
+#### Output
+*Output schema unknown*
 
 ### MigrationConfigs_List
 Gets all migrationConfigurations
@@ -745,7 +770,7 @@ azure_servicebus.MigrationConfigs_Get({
 * output [MigrationConfigProperties](#migrationconfigproperties)
 
 ### MigrationConfigs_CreateAndStartMigration
-Creates Migration configuration and starts migration of enties from Standard to Premium namespace
+Creates Migration configuration and starts migration of entities from Standard to Premium namespace
 
 
 ```js
@@ -797,7 +822,7 @@ azure_servicebus.MigrationConfigs_Revert({
 *Output schema unknown*
 
 ### MigrationConfigs_CompleteMigration
-This operation Completes Migration of entities by pointing the connection strings to Premium namespace and any enties created after the operation will be under Premium Namespace. CompleteMigration operation will fail when entity migration is in-progress.
+This operation Completes Migration of entities by pointing the connection strings to Premium namespace and any entities created after the operation will be under Premium Namespace. CompleteMigration operation will fail when entity migration is in-progress.
 
 
 ```js
@@ -820,6 +845,77 @@ azure_servicebus.MigrationConfigs_CompleteMigration({
 
 #### Output
 *Output schema unknown*
+
+### Namespaces_ListNetworkRuleSets
+Gets list of NetworkRuleSet for a Namespace.
+
+
+```js
+azure_servicebus.Namespaces_ListNetworkRuleSets({
+  "resourceGroupName": "",
+  "namespaceName": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * resourceGroupName **required** `string`: Name of the Resource group within the Azure subscription.
+  * namespaceName **required** `string`: The namespace name
+  * api-version **required** `string`: Client API version.
+  * subscriptionId **required** `string`: Subscription credentials that uniquely identify a Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+#### Output
+* output [NetworkRuleSetListResult](#networkrulesetlistresult)
+
+### Namespaces_GetNetworkRuleSet
+Gets NetworkRuleSet for a Namespace.
+
+
+```js
+azure_servicebus.Namespaces_GetNetworkRuleSet({
+  "resourceGroupName": "",
+  "namespaceName": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * resourceGroupName **required** `string`: Name of the Resource group within the Azure subscription.
+  * namespaceName **required** `string`: The namespace name
+  * api-version **required** `string`: Client API version.
+  * subscriptionId **required** `string`: Subscription credentials that uniquely identify a Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+#### Output
+* output [NetworkRuleSet](#networkruleset)
+
+### Namespaces_CreateOrUpdateNetworkRuleSet
+Create or update NetworkRuleSet for a Namespace.
+
+
+```js
+azure_servicebus.Namespaces_CreateOrUpdateNetworkRuleSet({
+  "resourceGroupName": "",
+  "namespaceName": "",
+  "api-version": "",
+  "subscriptionId": "",
+  "parameters": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * resourceGroupName **required** `string`: Name of the Resource group within the Azure subscription.
+  * namespaceName **required** `string`: The namespace name
+  * api-version **required** `string`: Client API version.
+  * subscriptionId **required** `string`: Subscription credentials that uniquely identify a Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+  * parameters **required** [NetworkRuleSet](#networkruleset)
+
+#### Output
+* output [NetworkRuleSet](#networkruleset)
 
 ### Queues_ListByNamespace
 Gets the queues within a namespace.
@@ -968,7 +1064,7 @@ azure_servicebus.Queues_DeleteAuthorizationRule({
   * resourceGroupName **required** `string`: Name of the Resource group within the Azure subscription.
   * namespaceName **required** `string`: The namespace name
   * queueName **required** `string`: The queue name.
-  * authorizationRuleName **required** `string`: The authorizationrule name.
+  * authorizationRuleName **required** `string`: The authorization rule name.
   * api-version **required** `string`: Client API version.
   * subscriptionId **required** `string`: Subscription credentials that uniquely identify a Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
@@ -995,7 +1091,7 @@ azure_servicebus.Queues_GetAuthorizationRule({
   * resourceGroupName **required** `string`: Name of the Resource group within the Azure subscription.
   * namespaceName **required** `string`: The namespace name
   * queueName **required** `string`: The queue name.
-  * authorizationRuleName **required** `string`: The authorizationrule name.
+  * authorizationRuleName **required** `string`: The authorization rule name.
   * api-version **required** `string`: Client API version.
   * subscriptionId **required** `string`: Subscription credentials that uniquely identify a Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
@@ -1023,7 +1119,7 @@ azure_servicebus.Queues_CreateOrUpdateAuthorizationRule({
   * resourceGroupName **required** `string`: Name of the Resource group within the Azure subscription.
   * namespaceName **required** `string`: The namespace name
   * queueName **required** `string`: The queue name.
-  * authorizationRuleName **required** `string`: The authorizationrule name.
+  * authorizationRuleName **required** `string`: The authorization rule name.
   * parameters **required** [SBAuthorizationRule](#sbauthorizationrule)
   * api-version **required** `string`: Client API version.
   * subscriptionId **required** `string`: Subscription credentials that uniquely identify a Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
@@ -1051,7 +1147,7 @@ azure_servicebus.Queues_ListKeys({
   * resourceGroupName **required** `string`: Name of the Resource group within the Azure subscription.
   * namespaceName **required** `string`: The namespace name
   * queueName **required** `string`: The queue name.
-  * authorizationRuleName **required** `string`: The authorizationrule name.
+  * authorizationRuleName **required** `string`: The authorization rule name.
   * api-version **required** `string`: Client API version.
   * subscriptionId **required** `string`: Subscription credentials that uniquely identify a Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
@@ -1079,7 +1175,7 @@ azure_servicebus.Queues_RegenerateKeys({
   * resourceGroupName **required** `string`: Name of the Resource group within the Azure subscription.
   * namespaceName **required** `string`: The namespace name
   * queueName **required** `string`: The queue name.
-  * authorizationRuleName **required** `string`: The authorizationrule name.
+  * authorizationRuleName **required** `string`: The authorization rule name.
   * parameters **required** [RegenerateAccessKeyParameters](#regenerateaccesskeyparameters)
   * api-version **required** `string`: Client API version.
   * subscriptionId **required** `string`: Subscription credentials that uniquely identify a Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
@@ -1234,7 +1330,7 @@ azure_servicebus.Topics_DeleteAuthorizationRule({
   * resourceGroupName **required** `string`: Name of the Resource group within the Azure subscription.
   * namespaceName **required** `string`: The namespace name
   * topicName **required** `string`: The topic name.
-  * authorizationRuleName **required** `string`: The authorizationrule name.
+  * authorizationRuleName **required** `string`: The authorization rule name.
   * api-version **required** `string`: Client API version.
   * subscriptionId **required** `string`: Subscription credentials that uniquely identify a Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
@@ -1261,7 +1357,7 @@ azure_servicebus.Topics_GetAuthorizationRule({
   * resourceGroupName **required** `string`: Name of the Resource group within the Azure subscription.
   * namespaceName **required** `string`: The namespace name
   * topicName **required** `string`: The topic name.
-  * authorizationRuleName **required** `string`: The authorizationrule name.
+  * authorizationRuleName **required** `string`: The authorization rule name.
   * api-version **required** `string`: Client API version.
   * subscriptionId **required** `string`: Subscription credentials that uniquely identify a Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
@@ -1269,7 +1365,7 @@ azure_servicebus.Topics_GetAuthorizationRule({
 * output [SBAuthorizationRule](#sbauthorizationrule)
 
 ### Topics_CreateOrUpdateAuthorizationRule
-Creates an authorizatio rule for the specified topic.
+Creates an authorization rule for the specified topic.
 
 
 ```js
@@ -1289,7 +1385,7 @@ azure_servicebus.Topics_CreateOrUpdateAuthorizationRule({
   * resourceGroupName **required** `string`: Name of the Resource group within the Azure subscription.
   * namespaceName **required** `string`: The namespace name
   * topicName **required** `string`: The topic name.
-  * authorizationRuleName **required** `string`: The authorizationrule name.
+  * authorizationRuleName **required** `string`: The authorization rule name.
   * parameters **required** [SBAuthorizationRule](#sbauthorizationrule)
   * api-version **required** `string`: Client API version.
   * subscriptionId **required** `string`: Subscription credentials that uniquely identify a Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
@@ -1317,7 +1413,7 @@ azure_servicebus.Topics_ListKeys({
   * resourceGroupName **required** `string`: Name of the Resource group within the Azure subscription.
   * namespaceName **required** `string`: The namespace name
   * topicName **required** `string`: The topic name.
-  * authorizationRuleName **required** `string`: The authorizationrule name.
+  * authorizationRuleName **required** `string`: The authorization rule name.
   * api-version **required** `string`: Client API version.
   * subscriptionId **required** `string`: Subscription credentials that uniquely identify a Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
@@ -1345,7 +1441,7 @@ azure_servicebus.Topics_RegenerateKeys({
   * resourceGroupName **required** `string`: Name of the Resource group within the Azure subscription.
   * namespaceName **required** `string`: The namespace name
   * topicName **required** `string`: The topic name.
-  * authorizationRuleName **required** `string`: The authorizationrule name.
+  * authorizationRuleName **required** `string`: The authorization rule name.
   * parameters **required** [RegenerateAccessKeyParameters](#regenerateaccesskeyparameters)
   * api-version **required** `string`: Client API version.
   * subscriptionId **required** `string`: Subscription credentials that uniquely identify a Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
@@ -1604,8 +1700,9 @@ azure_servicebus.Rules_CreateOrUpdate({
 ### ArmDisasterRecovery
 * ArmDisasterRecovery `object`: Single item in List or Get Alias(Disaster Recovery configuration) operation
   * properties `object`: Properties required to the Create Or Update Alias(Disaster Recovery configurations)
-    * alternateName `string`: Primary/Secondary eventhub namespace name, which is part of GEO DR pairning
-    * partnerNamespace `string`: ARM Id of the Primary/Secondary eventhub namespace name, which is part of GEO DR pairning
+    * alternateName `string`: Primary/Secondary eventhub namespace name, which is part of GEO DR pairing
+    * partnerNamespace `string`: ARM Id of the Primary/Secondary eventhub namespace name, which is part of GEO DR pairing
+    * pendingReplicationOperationsCount `integer`: Number of entities pending to be replicated.
     * provisioningState `string` (values: Accepted, Succeeded, Failed): Provisioning state of the Alias(Disaster Recovery configuration) - possible values 'Accepted' or 'Succeeded' or 'Failed'
     * role `string` (values: Primary, PrimaryNotReplicating, Secondary): role of namespace in GEO DR - possible values 'Primary' or 'PrimaryNotReplicating' or 'Secondary'
   * id `string`: Resource Id
@@ -1633,7 +1730,7 @@ azure_servicebus.Rules_CreateOrUpdate({
 
 ### CheckNameAvailability
 * CheckNameAvailability `object`: Description of a Check Name availability request properties.
-  * name **required** `string`: The Name to check the namespce name availability and The namespace name can contain only letters, numbers, and hyphens. The namespace must start with a letter, and it must end with a letter or number.
+  * name **required** `string`: The Name to check the namespace name availability and The namespace name can contain only letters, numbers, and hyphens. The namespace must start with a letter, and it must end with a letter or number.
 
 ### CheckNameAvailabilityResult
 * CheckNameAvailabilityResult `object`: Description of a Check Name availability request properties.
@@ -1657,7 +1754,7 @@ azure_servicebus.Rules_CreateOrUpdate({
 ### Destination
 * Destination `object`: Capture storage details for capture description
   * name `string`: Name for capture destination
-  * properties `object`: Properties describing the storage account, blob container and acrchive name format for capture destination
+  * properties `object`: Properties describing the storage account, blob container and archive name format for capture destination
     * archiveNameFormat `string`: Blob naming convention for archive, e.g. {Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}. Here all the parameters (Namespace,EventHub .. etc) are mandatory irrespective of order
     * blobContainer `string`: Blob container Name
     * storageAccountResourceId `string`: Resource id of the storage account to be used to create the blobs
@@ -1666,7 +1763,7 @@ azure_servicebus.Rules_CreateOrUpdate({
 * EntityStatus `string` (values: Active, Disabled, Restoring, SendDisabled, ReceiveDisabled, Creating, Deleting, Renaming, Unknown): Entity status.
 
 ### ErrorResponse
-* ErrorResponse `object`: Error reponse indicates ServiceBus service is not able to process the incoming request. The reason is provided in the error message.
+* ErrorResponse `object`: Error response indicates ServiceBus service is not able to process the incoming request. The reason is provided in the error message.
   * code `string`: Error code.
   * message `string`: Error message indicating why the operation failed.
 
@@ -1711,12 +1808,42 @@ azure_servicebus.Rules_CreateOrUpdate({
 ### MigrationConfigProperties
 * MigrationConfigProperties `object`: Single item in List or Get Migration Config operation
   * properties `object`: Properties required to the Create Migration Configuration
+    * migrationState `string`: State in which Standard to Premium Migration is, possible values : Unknown, Reverting, Completing, Initiating, Syncing, Active
+    * pendingReplicationOperationsCount `integer`: Number of entities pending to be replicated.
     * postMigrationName **required** `string`: Name to access Standard Namespace after migration
     * provisioningState `string`: Provisioning state of Migration Configuration 
     * targetNamespace **required** `string`: Existing premium Namespace ARM Id name which has no entities, will be used for migration
   * id `string`: Resource Id
   * name `string`: Resource name
   * type `string`: Resource type
+
+### NWRuleSetIpRules
+* NWRuleSetIpRules `object`: Description of NetWorkRuleSet - IpRules resource.
+  * action `string` (values: Allow): The IP Filter Action
+  * ipMask `string`: IP Mask
+
+### NWRuleSetVirtualNetworkRules
+* NWRuleSetVirtualNetworkRules `object`: Description of VirtualNetworkRules - NetworkRules resource.
+  * ignoreMissingVnetServiceEndpoint `boolean`: Value that indicates whether to ignore missing VNet Service Endpoint
+  * subnet [Subnet](#subnet)
+
+### NetworkRuleSet
+* NetworkRuleSet `object`: Description of NetworkRuleSet resource.
+  * properties `object`: NetworkRuleSet properties
+    * defaultAction `string` (values: Allow, Deny): Default Action for Network Rule Set
+    * ipRules `array`: List of IpRules
+      * items [NWRuleSetIpRules](#nwrulesetiprules)
+    * virtualNetworkRules `array`: List VirtualNetwork Rules
+      * items [NWRuleSetVirtualNetworkRules](#nwrulesetvirtualnetworkrules)
+  * id `string`: Resource Id
+  * name `string`: Resource name
+  * type `string`: Resource type
+
+### NetworkRuleSetListResult
+* NetworkRuleSetListResult `object`: The response of the List NetworkRuleSet operation.
+  * nextLink `string`: Link to the next set of results. Not empty if Value contains incomplete list of NetworkRuleSet.
+  * value `array`: Result of the List NetworkRuleSet operation.
+    * items [NetworkRuleSet](#networkruleset)
 
 ### Operation
 * Operation `object`: A ServiceBus REST API operation
@@ -1750,7 +1877,7 @@ azure_servicebus.Rules_CreateOrUpdate({
     * items [PremiumMessagingRegions](#premiummessagingregions)
 
 ### RegenerateAccessKeyParameters
-* RegenerateAccessKeyParameters `object`: Parameters supplied to the Regenerate Authorization Rule operation, specifies which key neeeds to be reset.
+* RegenerateAccessKeyParameters `object`: Parameters supplied to the Regenerate Authorization Rule operation, specifies which key needs to be reset.
   * key `string`: Optional, if the key value provided, is reset for KeyType value or autogenerate Key value set for keyType
   * keyType **required** `string` (values: PrimaryKey, SecondaryKey): The access key to regenerate.
 
@@ -1818,6 +1945,10 @@ azure_servicebus.Rules_CreateOrUpdate({
   * nextLink `string`: Link to the next set of results. Not empty if Value contains incomplete list of Namespaces.
   * value `array`: Result of the List Namespace operation.
     * items [SBNamespace](#sbnamespace)
+
+### SBNamespaceMigrate
+* SBNamespaceMigrate `object`: Namespace Migrate Object
+  * targetNamespaceType **required** `string` (values: Messaging, NotificationHub, Mixed, EventHub, Relay): Type of namespaces
 
 ### SBNamespaceProperties
 * SBNamespaceProperties `object`: Properties of the namespace.
@@ -1927,7 +2058,7 @@ azure_servicebus.Rules_CreateOrUpdate({
     * items [SBTopic](#sbtopic)
 
 ### SBTopicProperties
-* SBTopicProperties `object`: The Tpoic Properties definition.
+* SBTopicProperties `object`: The Topic Properties definition.
   * accessedAt `string`: Last time the message was sent, or a request was received, for this topic.
   * autoDeleteOnIdle `string`: ISO 8601 timespan idle interval after which the topic is automatically deleted. The minimum duration is 5 minutes.
   * countDetails [MessageCountDetails](#messagecountdetails)
@@ -1959,6 +2090,10 @@ azure_servicebus.Rules_CreateOrUpdate({
   * compatibilityLevel `integer`: This property is reserved for future use. An integer value showing the compatibility level, currently hard-coded to 20.
   * requiresPreprocessing `boolean`: Value that indicates whether the rule action requires preprocessing.
   * sqlExpression `string`: SQL expression. e.g. MyProperty='ABC'
+
+### Subnet
+* Subnet `object`: Properties supplied for Subnet
+  * id **required** `string`: Resource ID of Virtual Network Subnet
 
 ### TrackedResource
 * TrackedResource `object`: The Resource definition.

@@ -1,0 +1,1671 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "contact": {
+      "email": "mike.ralphson@gmail.com",
+      "name": "Mike Ralphson",
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
+    },
+    "description": "<p>You can use the Amazon Elastic Block Store (Amazon EBS) direct APIs to create EBS snapshots, write data directly to your snapshots, read data on your snapshots, and identify the differences or changes between two snapshots. If you’re an independent software vendor (ISV) who offers backup services for Amazon EBS, the EBS direct APIs make it more efficient and cost-effective to track incremental changes on your EBS volumes through snapshots. This can be done without having to create new volumes from snapshots, and then use Amazon Elastic Compute Cloud (Amazon EC2) instances to compare the differences.</p> <p>You can create incremental snapshots directly from data on-premises into EBS volumes and the cloud to use for quick disaster recovery. With the ability to write and read snapshots, you can write your on-premises data to an EBS snapshot during a disaster. Then after recovery, you can restore it back to AWS or on-premises from the snapshot. You no longer need to build and maintain complex mechanisms to copy data to and from Amazon EBS.</p> <p>This API reference provides detailed information about the actions, data types, parameters, and errors of the EBS direct APIs. For more information about the elements that make up the EBS direct APIs, and examples of how to use them effectively, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-accessing-snapshot.html\">Accessing the Contents of an EBS Snapshot</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>. For more information about the supported AWS Regions, endpoints, and service quotas for the EBS direct APIs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/ebs-service.html\">Amazon Elastic Block Store Endpoints and Quotas</a> in the <i>AWS General Reference</i>.</p>",
+    "license": {
+      "name": "Apache 2.0 License",
+      "url": "http://www.apache.org/licenses/"
+    },
+    "termsOfService": "https://aws.amazon.com/service-terms/",
+    "title": "Amazon Elastic Block Store",
+    "version": "2019-11-02",
+    "x-apiClientRegistration": {
+      "url": "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"
+    },
+    "x-apisguru-categories": [
+      "cloud"
+    ],
+    "x-logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"
+    },
+    "x-origin": [
+      {
+        "contentType": "application/json",
+        "converter": {
+          "url": "https://github.com/mermade/aws2openapi",
+          "version": "1.0.0"
+        },
+        "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/ebs-2019-11-02.normal.json",
+        "x-apisguru-driver": "external"
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "amazonaws.com",
+    "x-release": "v4",
+    "x-serviceName": "ebs",
+    "x-datafire": {
+      "name": "amazonaws_ebs",
+      "type": "openapi"
+    }
+  },
+  "host": "ebs.us-east-1.amazonaws.com",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/snapshots": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "ClientToken": {
+                  "description": "<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Idempotency ensures that an API request completes only once. With an idempotent request, if the original request completes successfully. The subsequent retries with the same client token return the result from the original successful request and they have no additional effect.</p> <p>If you do not specify a client token, one is automatically generated by the AWS SDK.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-direct-api-idempotency.html\"> Idempotency for StartSnapshot API</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>",
+                  "maxLength": 255,
+                  "pattern": "^[\\S]+$",
+                  "type": "string"
+                },
+                "Description": {
+                  "description": "A description for the snapshot.",
+                  "maxLength": 255,
+                  "pattern": "^[\\S\\s]+$",
+                  "type": "string"
+                },
+                "Encrypted": {
+                  "description": "<p>Indicates whether to encrypt the snapshot. To create an encrypted snapshot, specify <code>true</code>. To create an unencrypted snapshot, omit this parameter.</p> <p>If you specify a value for <b>ParentSnapshotId</b>, omit this parameter.</p> <p>If you specify <code>true</code>, the snapshot is encrypted using the CMK specified using the <b>KmsKeyArn</b> parameter. If no value is specified for <b>KmsKeyArn</b>, the default CMK for your account is used. If no default CMK has been specified for your account, the AWS managed CMK is used. To set a default CMK for your account, use <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyEbsDefaultKmsKeyId.html\"> ModifyEbsDefaultKmsKeyId</a>.</p> <p>If your account is enabled for encryption by default, you cannot set this parameter to <code>false</code>. In this case, you can omit this parameter.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-accessing-snapshot.html#ebsapis-using-encryption\"> Using encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>",
+                  "type": "boolean"
+                },
+                "KmsKeyArn": {
+                  "description": "<p>The Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS) customer master key (CMK) to be used to encrypt the snapshot. If you do not specify a CMK, the default AWS managed CMK is used.</p> <p>If you specify a <b>ParentSnapshotId</b>, omit this parameter; the snapshot will be encrypted using the same CMK that was used to encrypt the parent snapshot.</p> <p>If <b>Encrypted</b> is set to <code>true</code>, you must specify a CMK ARN. </p>",
+                  "format": "password",
+                  "maxLength": 2048,
+                  "minLength": 1,
+                  "pattern": "arn:aws[a-z\\-]*:kms:.*:[0-9]{12}:key/.*",
+                  "type": "string"
+                },
+                "ParentSnapshotId": {
+                  "description": "<p>The ID of the parent snapshot. If there is no parent snapshot, or if you are creating the first snapshot for an on-premises volume, omit this parameter.</p> <p>If your account is enabled for encryption by default, you cannot use an unencrypted snapshot as a parent snapshot. You must first create an encrypted copy of the parent snapshot using <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CopySnapshot.html\">CopySnapshot</a>.</p>",
+                  "maxLength": 64,
+                  "minLength": 1,
+                  "pattern": "^snap-[0-9a-f]+$",
+                  "type": "string"
+                },
+                "Tags": {
+                  "description": "The tags to apply to the snapshot.",
+                  "items": {
+                    "$ref": "#/definitions/Tag"
+                  },
+                  "type": "array"
+                },
+                "Timeout": {
+                  "description": "<p>The amount of time (in minutes) after which the snapshot is automatically cancelled if:</p> <ul> <li> <p>No blocks are written to the snapshot.</p> </li> <li> <p>The snapshot is not completed after writing the last block of data.</p> </li> </ul> <p>If no value is specified, the timeout defaults to <code>60</code> minutes.</p>",
+                  "maximum": 60,
+                  "minimum": 10,
+                  "type": "integer"
+                },
+                "VolumeSize": {
+                  "description": "The size of the volume, in GiB. The maximum size is <code>16384</code> GiB (16 TiB).",
+                  "minimum": 1,
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "VolumeSize"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/StartSnapshotResponse"
+            }
+          },
+          "480": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "481": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "482": {
+            "description": "RequestThrottledException",
+            "schema": {
+              "$ref": "#/definitions/RequestThrottledException"
+            }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "484": {
+            "description": "ServiceQuotaExceededException",
+            "schema": {
+              "$ref": "#/definitions/ServiceQuotaExceededException"
+            }
+          },
+          "485": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "486": {
+            "description": "ConcurrentLimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/ConcurrentLimitExceededException"
+            }
+          },
+          "487": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          }
+        },
+        "description": "<p>Creates a new Amazon EBS snapshot. The new snapshot enters the <code>pending</code> state after the request completes. </p> <p>After creating the snapshot, use <a href=\"https://docs.aws.amazon.com/ebs/latest/APIReference/API_PutSnapshotBlock.html\"> PutSnapshotBlock</a> to write blocks of data to the snapshot.</p>",
+        "operationId": "StartSnapshot"
+      }
+    },
+    "/snapshots/completion/{snapshotId}#x-amz-ChangedBlocksCount": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The ID of the snapshot.",
+            "in": "path",
+            "maxLength": 64,
+            "minLength": 1,
+            "name": "snapshotId",
+            "pattern": "^snap-[0-9a-f]+$",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The number of blocks that were written to the snapshot.",
+            "in": "header",
+            "minimum": 0,
+            "name": "x-amz-ChangedBlocksCount",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "<p>An aggregated Base-64 SHA256 checksum based on the checksums of each written block.</p> <p>To generate the aggregated checksum using the linear aggregation method, arrange the checksums for each written block in ascending order of their block index, concatenate them to form a single string, and then generate the checksum on the entire string using the SHA256 algorithm.</p>",
+            "in": "header",
+            "maxLength": 64,
+            "name": "x-amz-Checksum",
+            "pattern": "^[A-Za-z0-9+/=]+$",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "The algorithm used to generate the checksum. Currently, the only supported algorithm is <code>SHA256</code>.",
+            "enum": [
+              "SHA256"
+            ],
+            "in": "header",
+            "maxLength": 32,
+            "name": "x-amz-Checksum-Algorithm",
+            "pattern": "^[A-Za-z0-9]+$",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "The aggregation method used to generate the checksum. Currently, the only supported aggregation method is <code>LINEAR</code>.",
+            "enum": [
+              "LINEAR"
+            ],
+            "in": "header",
+            "maxLength": 32,
+            "name": "x-amz-Checksum-Aggregation-Method",
+            "pattern": "^[A-Za-z0-9]+$",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CompleteSnapshotResponse"
+            }
+          },
+          "480": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "481": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "RequestThrottledException",
+            "schema": {
+              "$ref": "#/definitions/RequestThrottledException"
+            }
+          },
+          "484": {
+            "description": "ServiceQuotaExceededException",
+            "schema": {
+              "$ref": "#/definitions/ServiceQuotaExceededException"
+            }
+          },
+          "485": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Seals and completes the snapshot after all of the required blocks of data have been written to it. Completing the snapshot changes the status to <code>completed</code>. You cannot write new blocks to a snapshot after it has been completed.",
+        "operationId": "CompleteSnapshot"
+      }
+    },
+    "/snapshots/{secondSnapshotId}/changedblocks": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "<p>The ID of the first snapshot to use for the comparison.</p> <important> <p>The <code>FirstSnapshotID</code> parameter must be specified with a <code>SecondSnapshotId</code> parameter; otherwise, an error occurs.</p> </important>",
+            "in": "query",
+            "maxLength": 64,
+            "minLength": 1,
+            "name": "firstSnapshotId",
+            "pattern": "^snap-[0-9a-f]+$",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "<p>The ID of the second snapshot to use for the comparison.</p> <important> <p>The <code>SecondSnapshotId</code> parameter must be specified with a <code>FirstSnapshotID</code> parameter; otherwise, an error occurs.</p> </important>",
+            "in": "path",
+            "maxLength": 64,
+            "minLength": 1,
+            "name": "secondSnapshotId",
+            "pattern": "^snap-[0-9a-f]+$",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The token to request the next page of results.",
+            "in": "query",
+            "maxLength": 256,
+            "name": "pageToken",
+            "pattern": "^[A-Za-z0-9+/=]+$",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "The number of results to return.",
+            "in": "query",
+            "maximum": 10000,
+            "minimum": 100,
+            "name": "maxResults",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "<p>The block index from which the comparison should start.</p> <p>The list in the response will start from this block index or the next valid block index in the snapshots.</p>",
+            "in": "query",
+            "minimum": 0,
+            "name": "startingBlockIndex",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListChangedBlocksResponse"
+            }
+          },
+          "480": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "481": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "RequestThrottledException",
+            "schema": {
+              "$ref": "#/definitions/RequestThrottledException"
+            }
+          },
+          "484": {
+            "description": "ServiceQuotaExceededException",
+            "schema": {
+              "$ref": "#/definitions/ServiceQuotaExceededException"
+            }
+          },
+          "485": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Returns information about the blocks that are different between two Amazon Elastic Block Store snapshots of the same volume/snapshot lineage.",
+        "operationId": "ListChangedBlocks"
+      }
+    },
+    "/snapshots/{snapshotId}/blocks": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The ID of the snapshot from which to get block indexes and block tokens.",
+            "in": "path",
+            "maxLength": 64,
+            "minLength": 1,
+            "name": "snapshotId",
+            "pattern": "^snap-[0-9a-f]+$",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The token to request the next page of results.",
+            "in": "query",
+            "maxLength": 256,
+            "name": "pageToken",
+            "pattern": "^[A-Za-z0-9+/=]+$",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "The number of results to return.",
+            "in": "query",
+            "maximum": 10000,
+            "minimum": 100,
+            "name": "maxResults",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "The block index from which the list should start. The list in the response will start from this block index or the next valid block index in the snapshot.",
+            "in": "query",
+            "minimum": 0,
+            "name": "startingBlockIndex",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListSnapshotBlocksResponse"
+            }
+          },
+          "480": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "481": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "RequestThrottledException",
+            "schema": {
+              "$ref": "#/definitions/RequestThrottledException"
+            }
+          },
+          "484": {
+            "description": "ServiceQuotaExceededException",
+            "schema": {
+              "$ref": "#/definitions/ServiceQuotaExceededException"
+            }
+          },
+          "485": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Returns information about the blocks in an Amazon Elastic Block Store snapshot.",
+        "operationId": "ListSnapshotBlocks"
+      }
+    },
+    "/snapshots/{snapshotId}/blocks/{blockIndex}#blockToken": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The ID of the snapshot containing the block from which to get data.",
+            "in": "path",
+            "maxLength": 64,
+            "minLength": 1,
+            "name": "snapshotId",
+            "pattern": "^snap-[0-9a-f]+$",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "<p>The block index of the block from which to get data.</p> <p>Obtain the <code>BlockIndex</code> by running the <code>ListChangedBlocks</code> or <code>ListSnapshotBlocks</code> operations.</p>",
+            "in": "path",
+            "minimum": 0,
+            "name": "blockIndex",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "<p>The block token of the block from which to get data.</p> <p>Obtain the <code>BlockToken</code> by running the <code>ListChangedBlocks</code> or <code>ListSnapshotBlocks</code> operations.</p>",
+            "in": "query",
+            "maxLength": 256,
+            "name": "blockToken",
+            "pattern": "^[A-Za-z0-9+/=]+$",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetSnapshotBlockResponse"
+            }
+          },
+          "480": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "481": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "RequestThrottledException",
+            "schema": {
+              "$ref": "#/definitions/RequestThrottledException"
+            }
+          },
+          "484": {
+            "description": "ServiceQuotaExceededException",
+            "schema": {
+              "$ref": "#/definitions/ServiceQuotaExceededException"
+            }
+          },
+          "485": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Returns the data in a block in an Amazon Elastic Block Store snapshot.",
+        "operationId": "GetSnapshotBlock"
+      }
+    },
+    "/snapshots/{snapshotId}/blocks/{blockIndex}#x-amz-Data-Length&x-amz-Checksum&x-amz-Checksum-Algorithm": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "put": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The ID of the snapshot.",
+            "in": "path",
+            "maxLength": 64,
+            "minLength": 1,
+            "name": "snapshotId",
+            "pattern": "^snap-[0-9a-f]+$",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The block index of the block in which to write the data. A block index is a logical index in units of <code>512</code> KiB blocks. To identify the block index, divide the logical offset of the data in the logical volume by the block size (logical offset of data/<code>524288</code>). The logical offset of the data must be <code>512</code> KiB aligned.",
+            "in": "path",
+            "minimum": 0,
+            "name": "blockIndex",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "<p>The size of the data to write to the block, in bytes. Currently, the only supported size is <code>524288</code>.</p> <p>Valid values: <code>524288</code> </p>",
+            "in": "header",
+            "name": "x-amz-Data-Length",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "The progress of the write process, as a percentage.",
+            "in": "header",
+            "maximum": 100,
+            "minimum": 0,
+            "name": "x-amz-Progress",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "A Base64-encoded SHA256 checksum of the data. Only SHA256 checksums are supported.",
+            "in": "header",
+            "maxLength": 64,
+            "name": "x-amz-Checksum",
+            "pattern": "^[A-Za-z0-9+/=]+$",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The algorithm used to generate the checksum. Currently, the only supported algorithm is <code>SHA256</code>.",
+            "enum": [
+              "SHA256"
+            ],
+            "in": "header",
+            "maxLength": 32,
+            "name": "x-amz-Checksum-Algorithm",
+            "pattern": "^[A-Za-z0-9]+$",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "BlockData": {
+                  "description": "<p>The data to write to the block.</p> <p>The block data is not signed as part of the Signature Version 4 signing process. As a result, you must generate and provide a Base64-encoded SHA256 checksum for the block data using the <b>x-amz-Checksum</b> header. Also, you must specify the checksum algorithm using the <b>x-amz-Checksum-Algorithm</b> header. The checksum that you provide is part of the Signature Version 4 signing process. It is validated against a checksum generated by Amazon EBS to ensure the validity and authenticity of the data. If the checksums do not correspond, the request fails. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-accessing-snapshot.html#ebsapis-using-checksums\"> Using checksums with the EBS direct APIs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>",
+                  "format": "password",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "BlockData"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/PutSnapshotBlockResponse"
+            }
+          },
+          "480": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "481": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "RequestThrottledException",
+            "schema": {
+              "$ref": "#/definitions/RequestThrottledException"
+            }
+          },
+          "484": {
+            "description": "ServiceQuotaExceededException",
+            "schema": {
+              "$ref": "#/definitions/ServiceQuotaExceededException"
+            }
+          },
+          "485": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "<p>Writes a block of data to a snapshot. If the specified block contains data, the existing data is overwritten. The target snapshot must be in the <code>pending</code> state.</p> <p>Data written to a snapshot must be aligned with 512-byte sectors.</p>",
+        "operationId": "PutSnapshotBlock"
+      }
+    }
+  },
+  "definitions": {
+    "AccessDeniedException": {},
+    "Block": {
+      "description": "A block of data in an Amazon Elastic Block Store snapshot.",
+      "properties": {
+        "BlockIndex": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/BlockIndex"
+            },
+            {
+              "description": "The block index."
+            }
+          ]
+        },
+        "BlockToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/BlockToken"
+            },
+            {
+              "description": "The block token for the block index."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "BlockData": {
+      "format": "password",
+      "type": "string"
+    },
+    "BlockIndex": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "BlockSize": {
+      "type": "integer"
+    },
+    "BlockToken": {
+      "maxLength": 256,
+      "pattern": "^[A-Za-z0-9+/=]+$",
+      "type": "string"
+    },
+    "Blocks": {
+      "items": {
+        "$ref": "#/definitions/Block"
+      },
+      "type": "array"
+    },
+    "Boolean": {
+      "type": "boolean"
+    },
+    "ChangedBlock": {
+      "description": "A block of data in an Amazon Elastic Block Store snapshot that is different from another snapshot of the same volume/snapshot lineage.",
+      "properties": {
+        "BlockIndex": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/BlockIndex"
+            },
+            {
+              "description": "The block index."
+            }
+          ]
+        },
+        "FirstBlockToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/BlockToken"
+            },
+            {
+              "description": "The block token for the block index of the <code>FirstSnapshotId</code> specified in the <code>ListChangedBlocks</code> operation. This value is absent if the first snapshot does not have the changed block that is on the second snapshot."
+            }
+          ]
+        },
+        "SecondBlockToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/BlockToken"
+            },
+            {
+              "description": "The block token for the block index of the <code>SecondSnapshotId</code> specified in the <code>ListChangedBlocks</code> operation."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ChangedBlocks": {
+      "items": {
+        "$ref": "#/definitions/ChangedBlock"
+      },
+      "type": "array"
+    },
+    "ChangedBlocksCount": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "Checksum": {
+      "maxLength": 64,
+      "pattern": "^[A-Za-z0-9+/=]+$",
+      "type": "string"
+    },
+    "ChecksumAggregationMethod": {
+      "enum": [
+        "LINEAR"
+      ],
+      "maxLength": 32,
+      "pattern": "^[A-Za-z0-9]+$",
+      "type": "string"
+    },
+    "ChecksumAlgorithm": {
+      "enum": [
+        "SHA256"
+      ],
+      "maxLength": 32,
+      "pattern": "^[A-Za-z0-9]+$",
+      "type": "string"
+    },
+    "CompleteSnapshotRequest": {
+      "properties": {},
+      "title": "CompleteSnapshotRequest",
+      "type": "object"
+    },
+    "CompleteSnapshotResponse": {
+      "properties": {
+        "Status": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Status"
+            },
+            {
+              "description": "The status of the snapshot."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ConcurrentLimitExceededException": {},
+    "ConflictException": {},
+    "DataLength": {
+      "type": "integer"
+    },
+    "Description": {
+      "maxLength": 255,
+      "pattern": "^[\\S\\s]+$",
+      "type": "string"
+    },
+    "GetSnapshotBlockRequest": {
+      "properties": {},
+      "title": "GetSnapshotBlockRequest",
+      "type": "object"
+    },
+    "GetSnapshotBlockResponse": {
+      "properties": {
+        "BlockData": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/BlockData"
+            },
+            {
+              "description": "The data content of the block."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "IdempotencyToken": {
+      "maxLength": 255,
+      "pattern": "^[\\S]+$",
+      "type": "string"
+    },
+    "InternalServerException": {},
+    "KmsKeyArn": {
+      "format": "password",
+      "maxLength": 2048,
+      "minLength": 1,
+      "pattern": "arn:aws[a-z\\-]*:kms:.*:[0-9]{12}:key/.*",
+      "type": "string"
+    },
+    "ListChangedBlocksRequest": {
+      "properties": {},
+      "title": "ListChangedBlocksRequest",
+      "type": "object"
+    },
+    "ListChangedBlocksResponse": {
+      "properties": {
+        "BlockSize": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/BlockSize"
+            },
+            {
+              "description": "The size of the block."
+            }
+          ]
+        },
+        "ChangedBlocks": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ChangedBlocks"
+            },
+            {
+              "description": "An array of objects containing information about the changed blocks."
+            }
+          ]
+        },
+        "ExpiryTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TimeStamp"
+            },
+            {
+              "description": "The time when the <code>BlockToken</code> expires."
+            }
+          ]
+        },
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PageToken"
+            },
+            {
+              "description": "The token to use to retrieve the next page of results. This value is null when there are no more results to return."
+            }
+          ]
+        },
+        "VolumeSize": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/VolumeSize"
+            },
+            {
+              "description": "The size of the volume in GB."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ListSnapshotBlocksRequest": {
+      "properties": {},
+      "title": "ListSnapshotBlocksRequest",
+      "type": "object"
+    },
+    "ListSnapshotBlocksResponse": {
+      "properties": {
+        "BlockSize": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/BlockSize"
+            },
+            {
+              "description": "The size of the block."
+            }
+          ]
+        },
+        "Blocks": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Blocks"
+            },
+            {
+              "description": "An array of objects containing information about the blocks."
+            }
+          ]
+        },
+        "ExpiryTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TimeStamp"
+            },
+            {
+              "description": "The time when the <code>BlockToken</code> expires."
+            }
+          ]
+        },
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PageToken"
+            },
+            {
+              "description": "The token to use to retrieve the next page of results. This value is null when there are no more results to return."
+            }
+          ]
+        },
+        "VolumeSize": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/VolumeSize"
+            },
+            {
+              "description": "The size of the volume in GB."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "MaxResults": {
+      "maximum": 10000,
+      "minimum": 100,
+      "type": "integer"
+    },
+    "OwnerId": {
+      "maxLength": 24,
+      "minLength": 1,
+      "pattern": "\\S+",
+      "type": "string"
+    },
+    "PageToken": {
+      "maxLength": 256,
+      "pattern": "^[A-Za-z0-9+/=]+$",
+      "type": "string"
+    },
+    "Progress": {
+      "maximum": 100,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "PutSnapshotBlockRequest": {
+      "properties": {
+        "BlockData": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/BlockData"
+            },
+            {
+              "description": "<p>The data to write to the block.</p> <p>The block data is not signed as part of the Signature Version 4 signing process. As a result, you must generate and provide a Base64-encoded SHA256 checksum for the block data using the <b>x-amz-Checksum</b> header. Also, you must specify the checksum algorithm using the <b>x-amz-Checksum-Algorithm</b> header. The checksum that you provide is part of the Signature Version 4 signing process. It is validated against a checksum generated by Amazon EBS to ensure the validity and authenticity of the data. If the checksums do not correspond, the request fails. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-accessing-snapshot.html#ebsapis-using-checksums\"> Using checksums with the EBS direct APIs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>"
+            }
+          ]
+        }
+      },
+      "required": [
+        "BlockData"
+      ],
+      "title": "PutSnapshotBlockRequest",
+      "type": "object"
+    },
+    "PutSnapshotBlockResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "RequestThrottledException": {},
+    "ResourceNotFoundException": {},
+    "ServiceQuotaExceededException": {},
+    "SnapshotId": {
+      "maxLength": 64,
+      "minLength": 1,
+      "pattern": "^snap-[0-9a-f]+$",
+      "type": "string"
+    },
+    "StartSnapshotRequest": {
+      "properties": {
+        "ClientToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/IdempotencyToken"
+            },
+            {
+              "description": "<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Idempotency ensures that an API request completes only once. With an idempotent request, if the original request completes successfully. The subsequent retries with the same client token return the result from the original successful request and they have no additional effect.</p> <p>If you do not specify a client token, one is automatically generated by the AWS SDK.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-direct-api-idempotency.html\"> Idempotency for StartSnapshot API</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>"
+            }
+          ]
+        },
+        "Description": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Description"
+            },
+            {
+              "description": "A description for the snapshot."
+            }
+          ]
+        },
+        "Encrypted": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Boolean"
+            },
+            {
+              "description": "<p>Indicates whether to encrypt the snapshot. To create an encrypted snapshot, specify <code>true</code>. To create an unencrypted snapshot, omit this parameter.</p> <p>If you specify a value for <b>ParentSnapshotId</b>, omit this parameter.</p> <p>If you specify <code>true</code>, the snapshot is encrypted using the CMK specified using the <b>KmsKeyArn</b> parameter. If no value is specified for <b>KmsKeyArn</b>, the default CMK for your account is used. If no default CMK has been specified for your account, the AWS managed CMK is used. To set a default CMK for your account, use <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyEbsDefaultKmsKeyId.html\"> ModifyEbsDefaultKmsKeyId</a>.</p> <p>If your account is enabled for encryption by default, you cannot set this parameter to <code>false</code>. In this case, you can omit this parameter.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-accessing-snapshot.html#ebsapis-using-encryption\"> Using encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>"
+            }
+          ]
+        },
+        "KmsKeyArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/KmsKeyArn"
+            },
+            {
+              "description": "<p>The Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS) customer master key (CMK) to be used to encrypt the snapshot. If you do not specify a CMK, the default AWS managed CMK is used.</p> <p>If you specify a <b>ParentSnapshotId</b>, omit this parameter; the snapshot will be encrypted using the same CMK that was used to encrypt the parent snapshot.</p> <p>If <b>Encrypted</b> is set to <code>true</code>, you must specify a CMK ARN. </p>"
+            }
+          ]
+        },
+        "ParentSnapshotId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SnapshotId"
+            },
+            {
+              "description": "<p>The ID of the parent snapshot. If there is no parent snapshot, or if you are creating the first snapshot for an on-premises volume, omit this parameter.</p> <p>If your account is enabled for encryption by default, you cannot use an unencrypted snapshot as a parent snapshot. You must first create an encrypted copy of the parent snapshot using <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CopySnapshot.html\">CopySnapshot</a>.</p>"
+            }
+          ]
+        },
+        "Tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Tags"
+            },
+            {
+              "description": "The tags to apply to the snapshot."
+            }
+          ]
+        },
+        "Timeout": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timeout"
+            },
+            {
+              "description": "<p>The amount of time (in minutes) after which the snapshot is automatically cancelled if:</p> <ul> <li> <p>No blocks are written to the snapshot.</p> </li> <li> <p>The snapshot is not completed after writing the last block of data.</p> </li> </ul> <p>If no value is specified, the timeout defaults to <code>60</code> minutes.</p>"
+            }
+          ]
+        },
+        "VolumeSize": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/VolumeSize"
+            },
+            {
+              "description": "The size of the volume, in GiB. The maximum size is <code>16384</code> GiB (16 TiB)."
+            }
+          ]
+        }
+      },
+      "required": [
+        "VolumeSize"
+      ],
+      "title": "StartSnapshotRequest",
+      "type": "object"
+    },
+    "StartSnapshotResponse": {
+      "properties": {
+        "BlockSize": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/BlockSize"
+            },
+            {
+              "description": "The size of the blocks in the snapshot, in bytes."
+            }
+          ]
+        },
+        "Description": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Description"
+            },
+            {
+              "description": "The description of the snapshot."
+            }
+          ]
+        },
+        "KmsKeyArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/KmsKeyArn"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS) customer master key (CMK) used to encrypt the snapshot."
+            }
+          ]
+        },
+        "OwnerId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/OwnerId"
+            },
+            {
+              "description": "The AWS account ID of the snapshot owner."
+            }
+          ]
+        },
+        "ParentSnapshotId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SnapshotId"
+            },
+            {
+              "description": "The ID of the parent snapshot."
+            }
+          ]
+        },
+        "SnapshotId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SnapshotId"
+            },
+            {
+              "description": "The ID of the snapshot."
+            }
+          ]
+        },
+        "StartTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TimeStamp"
+            },
+            {
+              "description": "The timestamp when the snapshot was created."
+            }
+          ]
+        },
+        "Status": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Status"
+            },
+            {
+              "description": "The status of the snapshot."
+            }
+          ]
+        },
+        "Tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Tags"
+            },
+            {
+              "description": "The tags applied to the snapshot. You can specify up to 50 tags per snapshot. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html\"> Tagging your Amazon EC2 resources</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>."
+            }
+          ]
+        },
+        "VolumeSize": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/VolumeSize"
+            },
+            {
+              "description": "The size of the volume, in GiB."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "Status": {
+      "enum": [
+        "completed",
+        "pending",
+        "error"
+      ],
+      "maxLength": 32,
+      "type": "string"
+    },
+    "Tag": {
+      "description": "Describes a tag.",
+      "properties": {
+        "Key": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagKey"
+            },
+            {
+              "description": "The key of the tag."
+            }
+          ]
+        },
+        "Value": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagValue"
+            },
+            {
+              "description": "The value of the tag."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "TagKey": {
+      "maxLength": 127,
+      "pattern": "^[\\S\\s]+$",
+      "type": "string"
+    },
+    "TagValue": {
+      "maxLength": 255,
+      "pattern": "^[\\S\\s]+$",
+      "type": "string"
+    },
+    "Tags": {
+      "items": {
+        "$ref": "#/definitions/Tag"
+      },
+      "type": "array"
+    },
+    "TimeStamp": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "Timeout": {
+      "maximum": 60,
+      "minimum": 10,
+      "type": "integer"
+    },
+    "ValidationException": {},
+    "VolumeSize": {
+      "minimum": 1,
+      "type": "integer"
+    }
+  },
+  "securityDefinitions": {
+    "hmac": {
+      "description": "Amazon Signature authorization v4",
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey",
+      "x-amazon-apigateway-authtype": "awsSigv4"
+    }
+  },
+  "security": [
+    {
+      "hmac": []
+    }
+  ],
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://docs.aws.amazon.com/ebs/"
+  },
+  "x-components": {
+    "parameters": {
+      "X-Amz-Algorithm": {
+        "in": "header",
+        "name": "X-Amz-Algorithm",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Content-Sha256": {
+        "in": "header",
+        "name": "X-Amz-Content-Sha256",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Credential": {
+        "in": "header",
+        "name": "X-Amz-Credential",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Date": {
+        "in": "header",
+        "name": "X-Amz-Date",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Security-Token": {
+        "in": "header",
+        "name": "X-Amz-Security-Token",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Signature": {
+        "in": "header",
+        "name": "X-Amz-Signature",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-SignedHeaders": {
+        "in": "header",
+        "name": "X-Amz-SignedHeaders",
+        "required": false,
+        "type": "string"
+      }
+    }
+  },
+  "x-hasEquivalentPaths": true
+}

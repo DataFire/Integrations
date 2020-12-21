@@ -3,8 +3,8 @@
   "schemes": [
     "https"
   ],
-  "host": "moderatecontent.com",
-  "basePath": "/api",
+  "host": "api.moderatecontent.com",
+  "basePath": "/moderate/",
   "info": {
     "contact": {
       "email": "info@moderatecontent.com"
@@ -18,7 +18,7 @@
     ],
     "x-logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.moderatecontent.com_img_moderate_content_com_logo.png"
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.moderatecontent.com_img_mdr8_logo-light.png"
     },
     "x-origin": [
       {
@@ -38,12 +38,6 @@
     "description": "Find out more about ModerateContent.com",
     "url": "https://www.moderatecontent.com"
   },
-  "consumes": [
-    "application/json"
-  ],
-  "produces": [
-    "application/json"
-  ],
   "tags": [
     {
       "description": "FREE API blocks images with nudity",
@@ -55,8 +49,11 @@
     }
   ],
   "paths": {
-    "/v2": {
+    "/": {
       "get": {
+        "consumes": [
+          "application/json"
+        ],
         "description": "",
         "parameters": [
           {
@@ -67,6 +64,9 @@
             "type": "string"
           }
         ],
+        "produces": [
+          "application/json"
+        ],
         "responses": {
           "200": {
             "description": "Success"
@@ -76,7 +76,7 @@
         "tags": [
           "Inappropriate Content"
         ],
-        "operationId": "v2.get"
+        "operationId": ".get"
       }
     }
   }

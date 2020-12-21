@@ -1,6 +1,6 @@
 {
   "name": "@datafire/azure_batchai_batchai",
-  "version": "4.0.0",
+  "version": "5.0.0",
   "main": "index.js",
   "description": "DataFire integration for BatchAI",
   "repository": {
@@ -14,7 +14,7 @@
   },
   "homepage": "https://github.com/DataFire/integrations#readme",
   "datafire": {
-    "origin": "https://api.apis.guru/v2/specs/azure.com/batchai-BatchAI/2017-09-01-preview/swagger.json",
+    "origin": "https://api.apis.guru/v2/specs/azure.com/batchai-BatchAI/2018-05-01/swagger.json",
     "type": "openapi"
   },
   "peerDependencies": {

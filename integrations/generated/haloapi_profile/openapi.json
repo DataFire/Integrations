@@ -16,9 +16,14 @@
       "entertainment"
     ],
     "x-logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_halo_profile_image.jpeg"
+      "url": "https://api.apis.guru/v2/cache/logo/https_upload.wikimedia.org_wikipedia_commons_d_d7_Halo_(series)_logo.svg"
     },
     "x-origin": [
+      {
+        "format": "swagger",
+        "url": "https://developer.haloapi.com/docs/services/58acdc2e21091812784ce8c2/export?DocumentFormat=Swagger",
+        "version": "2.0"
+      },
       {
         "format": "swagger",
         "url": "https://developer.haloapi.com/docs/services/58acdc2e21091812784ce8c2/export?DocumentFormat=Swagger",
@@ -53,11 +58,12 @@
       "apiKeyQuery": []
     }
   ],
+  "tags": [],
   "paths": {
     "/h5/profiles/{player}/appearance": {
       "get": {
         "description": "<p>This Endpoint retrieves appearance information for a player.</p>\n<p>If the player is a member of a Company, the Company's ID and Name will be provided. Additional Company information is available via the Stats API.</p>\n<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>July 14, 2017:</strong></p>\n    <ul>\n        <li>Added Endpoint.</li>\n    </ul>\n</div>\n",
-        "operationId": "5969689a2109180f287972a8",
+        "operationId": "h5.profiles.player.appearance.get",
         "parameters": [
           {
             "description": "The Player's Gamertag",
@@ -102,8 +108,8 @@
     },
     "/h5/profiles/{player}/emblem": {
       "get": {
-        "description": "<p>This Endpoint returns an HTTP Redirect (302 Found) response to the caller with the URL of an image of the Player's Emblem. The initial request to this API that returns the HTTP Redirect is throttled and requires a Subscription Key. However, the image itself (at hostname \"image.halocdn.com\") is not throttled and does not require a Subscription Key. Note that if the Player later changes their Emblem, the image itself is not refreshed and will need to be refreshed via a new request to this API.</p>\n<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>July 14, 2017:</strong></p>\n    <ul>\n        <li>Renamed Endpoint from \"Halo 5 - Emblem Image\" to \"Halo 5 - Player Emblem Image\".</li>\n    </ul>\n    <p><strong>February 21, 2017:</strong></p>\n    <ul>\n        <li>Renamed Endpoint from \"Emblem Image\" to \"Halo 5 - Emblem Image\".</li>\n        <li>Removed \"{title}\" Request Parameter.</li>\n    </ul>\n</div>\n",
-        "operationId": "58acdc2e2109180bdcacc404",
+        "description": "<p>This Endpoint returns an HTTP Redirect (302 Found) response to the caller with the URL of an image of the Player's Emblem. The initial request to this API that returns the HTTP Redirect is throttled and requires a Subscription Key. However, the image itself (at hostname \"image.halocdn.com\") is not throttled and does not require a Subscription Key. Note that if the Player later changes their Emblem, the image itself is not refreshed and will need to be refreshed via a new request to this API.</p>\n<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>August 12, 2019:</strong></p>\n    <ul>\n        <li>Expanded documentation for the HTTP 400 response code to cover unsupported emblem component(s).</li>\n    </ul>\n</div>\n<div class=\"panel-body\">\n    <p><strong>July 14, 2017:</strong></p>\n    <ul>\n        <li>Renamed Endpoint from \"Halo 5 - Emblem Image\" to \"Halo 5 - Player Emblem Image\".</li>\n    </ul>\n</div>\n<div class=\"panel-body\">\n    <p><strong>February 21, 2017:</strong></p>\n    <ul>\n        <li>Renamed Endpoint from \"Emblem Image\" to \"Halo 5 - Emblem Image\".</li>\n        <li>Removed \"{title}\" Request Parameter.</li>\n    </ul>\n</div>\n",
+        "operationId": "h5.profiles.player.emblem.get",
         "parameters": [
           {
             "description": "The Player's Gamertag.",
@@ -127,7 +133,7 @@
             "description": "Golden Path. The Location header should point at the corresponding Emblem image."
           },
           "400": {
-            "description": "An unsupported value was provided for a query string parameter."
+            "description": "An unsupported value was provided for a query string parameter or the Player's Emblem contains unsupported component(s) and cannot be rendered at this time."
           },
           "404": {
             "description": "Specified Player was not found."
@@ -141,8 +147,8 @@
     },
     "/h5/profiles/{player}/spartan": {
       "get": {
-        "description": "<p>This Endpoint returns an HTTP Redirect (302 Found) response to the caller with the URL of an image of the Player's Spartan's appearance. The initial request to this API that returns the HTTP Redirect is throttled and requires a Subscription Key. However, the image itself (at hostname \"image.halocdn.com\") is not throttled and does not require a Subscription Key. Note that if the Player later changes their Spartan's appearance, the image itself is not refreshed and will need to be refreshed via a new request to this API.</p>\n<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>July 14, 2017:</strong></p>\n    <ul>\n        <li>Renamed Endpoint from \"Halo 5 - Spartan Image\" to \"Halo 5 - Player Spartan Image\".</li>\n    </ul>\n    <p><strong>February 21, 2017:</strong></p>\n    <ul>\n        <li>Renamed Endpoint from \"Spartan Image\" to \"Halo 5 - Spartan Image\".</li>\n        <li>Removed \"{title}\" Request Parameter.</li>\n    </ul>\n</div>\n",
-        "operationId": "58acdc2e2109180bdcacc405",
+        "description": "<p>This Endpoint returns an HTTP Redirect (302 Found) response to the caller with the URL of an image of the Player's Spartan's appearance. The initial request to this API that returns the HTTP Redirect is throttled and requires a Subscription Key. However, the image itself (at hostname \"image.halocdn.com\") is not throttled and does not require a Subscription Key. Note that if the Player later changes their Spartan's appearance, the image itself is not refreshed and will need to be refreshed via a new request to this API.</p>\n<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>August 12, 2019:</strong></p>\n    <ul>\n        <li>Expanded documentation for the HTTP 400 response code to cover unsupported armor component(s).</li>\n    </ul>\n</div>\n<div class=\"panel-body\">\n    <p><strong>July 14, 2017:</strong></p>\n    <ul>\n        <li>Renamed Endpoint from \"Halo 5 - Spartan Image\" to \"Halo 5 - Player Spartan Image\".</li>\n    </ul>\n</div>\n<div class=\"panel-body\">\n    <p><strong>February 21, 2017:</strong></p>\n    <ul>\n        <li>Renamed Endpoint from \"Spartan Image\" to \"Halo 5 - Spartan Image\".</li>\n        <li>Removed \"{title}\" Request Parameter.</li>\n    </ul>\n</div>\n",
+        "operationId": "h5.profiles.player.spartan.get",
         "parameters": [
           {
             "description": "The Player's Gamertag.",
@@ -172,7 +178,7 @@
             "description": "Golden Path. The Location header should point at the corresponding Spartan image."
           },
           "400": {
-            "description": "An unsupported value was provided for a query string parameter."
+            "description": "An unsupported value was provided for a query string parameter or the Player's Spartan is equipped with unsupported component(s) and cannot be rendered at this time."
           },
           "404": {
             "description": "Specified Player was not found."

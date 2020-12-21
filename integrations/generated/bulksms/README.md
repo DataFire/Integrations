@@ -12,7 +12,7 @@ let bulksms = require('@datafire/bulksms').create({
   password: ""
 });
 
-bulksms.messages.get({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -25,9 +25,85 @@ The JSON REST API allows you to submit and receive [BulkSMS](https://www.bulksms
 
 The base URL to use for this service is `https://api.bulksms.com/v1`.  The base URL cannot be used on its own; you must append a path that identifies an operation and you may have to specify some path parameters as well.
 
-**The insecure base URL `http://api.bulksms.com/v1` is deprecated** and may in future result in a `301` redirect response, or insecure requests may be rejected outright. Please use the secure (`https`) URI above.
-
 [Click here](/) to go to the main BulkSMS developer site.
+
+In order to give you an idea on how the API can be used, some JSON snippets are provided below.  Have a look at the [messages section](#tag/Message) for more information.
+
+Probably the most simple example
+
+```
+{
+    "to": "+27001234567",
+    "body": "Hello World!"
+}
+```
+
+
+You can send unicode automatically using the `auto-unicode` query parameter. 
+Alternatively, you can specify UNICODE in the request body. Here is an example that sets the `encoding` explicitly
+
+```
+{
+  "to": "+27001234567",
+  "body": "Dobrá práce! Jak se máš?",
+  "encoding": "UNICODE"
+}
+```
+
+You can also specify a from number
+
+```
+{
+    "from": "+27007654321",
+    "to": "+27001234567",
+    "body": "Hello World!"
+}
+```
+
+Similar to above, but repliable
+
+```
+{
+    "from": { "type": "REPLIABLE" },
+    "to": "+27001234567",
+    "body": "Hello World!"
+}
+```
+
+A message to a group called Everyone
+
+```
+{
+    "to": { "type": "GROUP", "name": "Everyone" },
+    "body": "Hello World!"
+}
+```
+
+A message to multiple recipients
+
+```
+{
+    "to": ["+27001234567", "+27002345678", "+27003456789"],
+    "body": "Happy Holidays!"
+}
+```
+
+Sending more than one message in the same request
+
+```
+[
+    {
+        "to": "+27001234567",
+        "body": "Hello World!"
+    },
+    {
+        "to": "+27002345678",
+        "body": "Hello Universe!"
+    }
+]
+```
+
+**The insecure base URL `http://api.bulksms.com/v1` is deprecated** and may in future result in a `301` redirect response, or insecure requests may be rejected outright. Please use the secure (`https`) URI above.
 
 ### HTTP Content Type
 
@@ -121,66 +197,58 @@ bulksms.messages.get({}, context)
 ### messages.post
 Send messages to one or more recipients.
 
-Probably the most simple example
+#### Repliability
 
-```json
+When a sent message is _repliable_,  the BulkSMS system can process an SMS response sent by your recipient.
+
+The message sent by your customer is called a mobile originating (MO) message and would be available under `RECEIVED` messages. 
+You can obtain a list of MOs using the [retrieve messages API call](#tag/Message%2Fpaths%2F~1messages%2Fget).
+In addition you can also get a list of the MOs that are associated with a specific sent message (see the [list related messages API call](#tag/Message%2Fpaths%2F~1messages~1%7Bid%7D~1relatedReceivedMessages%2Fget)).
+
+If you use a specific _sender id_ in the `from` property of the send message, the message will not be repliable.
+If you want a message to be repliable, you need to specify `REPLIABLE` in the `from.type` property.
+
+If you do not set the `from` property, your account settings are considered to determine whether or not the message is repliable.
+If the _default repliable_ setting on your account is _yes_ then the message will be repliable. 
+If this setting is _no_, the message will not be repliable.
+
+
+#### Body templates
+
+When sending a message you can use template fields to customise the message text.
+
+*Field based templates* allow you to create a message with place-holders for custom fields.  Fields are identified by a zero based index; the first field is `F0`, the second is `F1` and so on.  
+
+For example, let's say you want to send a daily SMS message to all your clients that tell them what their current balance is.  The `body` of the message could look something like this 
+
+```
+Good morning {F0######}, your balance is {F1######}
+```
+
+In this message, the first field, `F0`, is the name  of the customer and he second field `F1` is the balance for that customer.  The `#` used to specify the maximum length  of the field.  Note that the maximum length allowed for the value includes the space taken by the braces, template name and hash symbol.  For example, the value `{F0#}` specifies a maximum length of `5`.  If the data is longer than this length, the data will be truncated when the message body is constructed.
+
+The data fields are provided in the property named `fields` in the `to` element.  Here is a complete example of how this might look
+
+```
 {
-    "to": "+27001234567",
-    "body": "Hello World!"
+  "body": "Good morning {F0######}, your balance is {F1######}",
+  "to":  [
+      {"address": "27456789","fields": ["Harry", "$1345.23"] },
+      {"address": "27456785","fields": ["Sally", "$2345.58"] }
+  ]
 }
 ```
 
-Similar to above, but sent from a specific number
+If you are sending to contacts (or to groups) in your phonebook, you can use the *Phonebook based templates*.  These are similar to the templates described above, but they have specific names. The template for the contact's first name is identified by `fn` and the template for the contact's surname is identified by `sn`.  Below in an example that will work if the numbers are registered in your phonebook. 
 
-```json
-{
-    "from": "+27007654321",
-    "to": "+27001234567",
-    "body": "Hello World!"
-}
 ```
-
-Similar to above, but repliable
-
-```json
 {
-    "from": { "type": "REPLIABLE" },
-    "to": "+27001234567",
-    "body": "Hello World!"
+  "body": "Hi {fn######} {sn######}, have a great day!",
+  "to":  [
+      {"address": "27456789" },
+      {"address": "27456785" }
+  ]
 }
-```
-
-A message to a group called Everyone
-
-```json
-{
-    "to": { "type": "GROUP", "name": "Everyone" },
-    "body": "Hello World!"
-}
-```
-
-A message, to multiple recipients, scheduled to be sent at a specific time
-
-```json
-{
-    "to": ["+27001234567", "+27002345678", "+27003456789"],
-    "body": "Happy Holidays!"
-}
-```
-
-Sending more than one message in the same request
-
-```json
-[
-    {
-        "to": "+27001234567",
-        "body": "Hello World!"
-    },
-    {
-        "to": "+27002345678",
-        "body": "Hello Universe!"
-    }
-]
 ```
 
 
@@ -454,7 +522,7 @@ bulksms.webhooks.id.post({
   * protocolId `integer`: See the `protocolId` field for more information.
   * relatedSentMessageId `string`: This field has a value only if the type is RECEIVED.
   * status **required** `object`: The status of the message
-    * id **required** `string`: A unique identifier for the status
+    * id **required** `string`: A concatenated value A.B where A is the `status.type` and B is the `status.subtype`.  
     * subtype `string` (values: EXPIRED, HANDSET_ERROR, BLOCKED, NOT_SENT): Has a value only if the `type` is FAILED.
     * type **required** `string` (values: ACCEPTED, SCHEDULED, SENT, DELIVERED, UNKNOWN, FAILED): 
   * submission `object`: Identifies the submission.
@@ -495,7 +563,7 @@ bulksms.webhooks.id.post({
 
 ### SubmissionEntry
 * SubmissionEntry `object`: An object that you use when posting messages.
-  * body **required** `string`: The message content as described in the `encoding`.
+  * body **required** `string`: The message content as described in the `encoding`. If the `encoding` is BINARY, the body must contain only hexadecimal digits where one byte is represented as two digits. For example, if you want to send two bytes '0x05' and '0x1F', the message body must contain the text '051F'.
   * deliveryReports `string` (values: ALL, ERRORS, NONE): The type of delivery reports to request from the delivering network.
   * encoding `string` (values: TEXT, UNICODE, BINARY): Describes the content of the message body.
   * from `object`: Identifies the sender.
@@ -508,6 +576,8 @@ bulksms.webhooks.id.post({
   * to **required** `array`: Identifies the recipients
     * items `object`
       * address `string`: The phone number of the recipient.  It must be supplied if the `type` is INTERNATIONAL
+      * fields `array`: Custom fields that can be used in the message body. A value can be given if the `type` is INTERNATIONAL
+        * items `string`
       * id `string`: The id of a group in your phonebook.  A value can be given if the `type` is GROUP.
       * name `string`: The name of a group in your phonebook. A value can be given if the `type` is GROUP.
       * type `string` (values: INTERNATIONAL, GROUP): Type of the recipient. The default value is INTERNATIONAL.
@@ -527,10 +597,9 @@ bulksms.webhooks.id.post({
 * WebhookEntry `object`
   * active `boolean`: Indicates whether you want the webhook activated.
   * contactEmailAddress `string`: The email address to which emails will be sent if there are problem with invoking the webhook.
-  * lastUpdated `number`: Indicates when the webhook information has been created or updated.
   * name **required** `string`: A text identifier for the webhook.
   * onWebApp `boolean`: Indicates whether you want to show this webhook on the Web App.
-  * triggerScope **required** `string` (values: SENT, RECEIVED): Specifies when the webhook will be triggered.
+  * triggerScope **required** `string` (values: SENT, RECEIVED): Specifies when the webhook will be triggered.  
   * url **required** `string`: The location of the webhook.
 
 

@@ -1,8 +1,8 @@
 {
   "name": "@datafire/zoomconnect",
-  "version": "5.0.0",
+  "version": "6.0.0",
   "main": "index.js",
-  "description": "DataFire integration for Zoom Connect",
+  "description": "DataFire integration for www.zoomconnect.com",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DataFire/integrations.git"

@@ -12,9 +12,7 @@ let fantasydata_nba_v3_scores = require('@datafire/fantasydata_nba_v3_scores').c
   apiKeyQuery: ""
 });
 
-fantasydata_nba_v3_scores.TeamsAll({
-  "format": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

@@ -15,12 +15,7 @@ let azure_sql_serverazureadadministrators = require('@datafire/azure_sql_servera
   redirect_uri: ""
 });
 
-azure_sql_serverazureadadministrators.ServerAzureADAdministrators_ListByServer({
-  "api-version": "",
-  "subscriptionId": "",
-  "resourceGroupName": "",
-  "serverName": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

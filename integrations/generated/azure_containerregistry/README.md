@@ -1,6 +1,6 @@
 # @datafire/azure_containerregistry
 
-Client library for ContainerRegistryManagementClient
+Client library for Azure Container Registry
 
 ## Installation and Usage
 ```bash
@@ -8,922 +8,783 @@ npm install --save @datafire/azure_containerregistry
 ```
 ```js
 let azure_containerregistry = require('@datafire/azure_containerregistry').create({
-  access_token: "",
-  refresh_token: "",
-  client_id: "",
-  client_secret: "",
-  redirect_uri: ""
+  username: "",
+  password: "",
+  registry_oauth2: ""
 });
 
-azure_containerregistry.Operations_List({
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
 
 ## Description
 
-
+Metadata API definition for the Azure Container Registry runtime
 
 ## Actions
 
-### Operations_List
-Lists all of the available Azure Container Registry REST API operations.
+### Repository_GetList
+List repositories
 
 
 ```js
-azure_containerregistry.Operations_List({
-  "api-version": ""
-}, context)
+azure_containerregistry.Repository_GetList({}, context)
 ```
 
 #### Input
 * input `object`
-  * api-version **required** `string`: The client API version.
+  * last `string`: Query parameter for the last item in previous query. Result set will include values lexically after last.
+  * n `integer`: query parameter for max number of items
 
 #### Output
-* output [OperationListResult](#operationlistresult)
+* output [Repositories](#repositories)
 
-### Registries_CheckNameAvailability
-Checks whether the container registry name is available for use. The name must contain only alphanumeric characters, be globally unique, and between 5 and 50 characters in length.
+### Repository_Delete
+Delete the repository identified by `name`
 
 
 ```js
-azure_containerregistry.Registries_CheckNameAvailability({
-  "api-version": "",
-  "subscriptionId": "",
-  "registryNameCheckRequest": {
-    "name": "",
-    "type": ""
-  }
+azure_containerregistry.Repository_Delete({
+  "name": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * api-version **required** `string`: The client API version.
-  * subscriptionId **required** `string`: The Microsoft Azure subscription ID.
-  * registryNameCheckRequest **required** [RegistryNameCheckRequest](#registrynamecheckrequest)
+  * name **required** `string`: Name of the image (including the namespace)
 
 #### Output
-* output [RegistryNameStatus](#registrynamestatus)
+* output [DeletedRepository](#deletedrepository)
 
-### Registries_List
-Lists all the container registries under the specified subscription.
+### Repository_GetAttributes
+Get repository attributes
 
 
 ```js
-azure_containerregistry.Registries_List({
-  "api-version": "",
-  "subscriptionId": ""
+azure_containerregistry.Repository_GetAttributes({
+  "name": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * api-version **required** `string`: The client API version.
-  * subscriptionId **required** `string`: The Microsoft Azure subscription ID.
+  * name **required** `string`: Name of the image (including the namespace)
 
 #### Output
-* output [RegistryListResult](#registrylistresult)
+* output [RepositoryAttributes](#repositoryattributes)
 
-### Registries_ListByResourceGroup
-Lists all the container registries under the specified resource group.
+### Repository_UpdateAttributes
+Update the attribute identified by `name` where `reference` is the name of the repository.
 
 
 ```js
-azure_containerregistry.Registries_ListByResourceGroup({
-  "api-version": "",
-  "subscriptionId": "",
-  "resourceGroupName": ""
+azure_containerregistry.Repository_UpdateAttributes({
+  "name": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * api-version **required** `string`: The client API version.
-  * subscriptionId **required** `string`: The Microsoft Azure subscription ID.
-  * resourceGroupName **required** `string`: The name of the resource group to which the container registry belongs.
-
-#### Output
-* output [RegistryListResult](#registrylistresult)
-
-### Registries_Delete
-Deletes a container registry.
-
-
-```js
-azure_containerregistry.Registries_Delete({
-  "api-version": "",
-  "subscriptionId": "",
-  "resourceGroupName": "",
-  "registryName": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * api-version **required** `string`: The client API version.
-  * subscriptionId **required** `string`: The Microsoft Azure subscription ID.
-  * resourceGroupName **required** `string`: The name of the resource group to which the container registry belongs.
-  * registryName **required** `string`: The name of the container registry.
+  * name **required** `string`: Name of the image (including the namespace)
+  * value [ChangeableAttributes](#changeableattributes)
 
 #### Output
 *Output schema unknown*
 
-### Registries_Get
-Gets the properties of the specified container registry.
+### Manifests_GetList
+List manifests of a repository
 
 
 ```js
-azure_containerregistry.Registries_Get({
-  "api-version": "",
-  "subscriptionId": "",
-  "resourceGroupName": "",
-  "registryName": ""
+azure_containerregistry.Manifests_GetList({
+  "name": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * api-version **required** `string`: The client API version.
-  * subscriptionId **required** `string`: The Microsoft Azure subscription ID.
-  * resourceGroupName **required** `string`: The name of the resource group to which the container registry belongs.
-  * registryName **required** `string`: The name of the container registry.
+  * name **required** `string`: Name of the image (including the namespace)
+  * last `string`: Query parameter for the last item in previous query. Result set will include values lexically after last.
+  * n `integer`: query parameter for max number of items
+  * orderby `string`: orderby query parameter
 
 #### Output
-* output [Registry](#registry)
+* output [AcrManifests](#acrmanifests)
 
-### Registries_Update
-Updates a container registry with the specified parameters.
+### Manifests_GetAttributes
+Get manifest attributes
 
 
 ```js
-azure_containerregistry.Registries_Update({
-  "api-version": "",
-  "subscriptionId": "",
-  "resourceGroupName": "",
-  "registryName": "",
-  "registryUpdateParameters": {}
+azure_containerregistry.Manifests_GetAttributes({
+  "name": "",
+  "reference": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * api-version **required** `string`: The client API version.
-  * subscriptionId **required** `string`: The Microsoft Azure subscription ID.
-  * resourceGroupName **required** `string`: The name of the resource group to which the container registry belongs.
-  * registryName **required** `string`: The name of the container registry.
-  * registryUpdateParameters **required** [RegistryUpdateParameters](#registryupdateparameters)
+  * name **required** `string`: Name of the image (including the namespace)
+  * reference **required** `string`: A tag or a digest, pointing to a specific image
 
 #### Output
-* output [Registry](#registry)
+* output [ManifestAttributes](#manifestattributes)
 
-### Registries_Create
-Creates a container registry with the specified parameters.
+### Manifests_UpdateAttributes
+Update attributes of a manifest
 
 
 ```js
-azure_containerregistry.Registries_Create({
-  "api-version": "",
-  "subscriptionId": "",
-  "resourceGroupName": "",
-  "registryName": "",
-  "registry": {
-    "sku": {
-      "name": ""
-    }
-  }
+azure_containerregistry.Manifests_UpdateAttributes({
+  "name": "",
+  "reference": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * api-version **required** `string`: The client API version.
-  * subscriptionId **required** `string`: The Microsoft Azure subscription ID.
-  * resourceGroupName **required** `string`: The name of the resource group to which the container registry belongs.
-  * registryName **required** `string`: The name of the container registry.
-  * registry **required** [Registry](#registry)
-
-#### Output
-* output [Registry](#registry)
-
-### Registries_ImportImage
-Copies an image to this container registry from the specified container registry.
-
-
-```js
-azure_containerregistry.Registries_ImportImage({
-  "api-version": "",
-  "subscriptionId": "",
-  "resourceGroupName": "",
-  "registryName": "",
-  "parameters": {
-    "source": {
-      "resourceId": "",
-      "sourceImage": ""
-    }
-  }
-}, context)
-```
-
-#### Input
-* input `object`
-  * api-version **required** `string`: The client API version.
-  * subscriptionId **required** `string`: The Microsoft Azure subscription ID.
-  * resourceGroupName **required** `string`: The name of the resource group to which the container registry belongs.
-  * registryName **required** `string`: The name of the container registry.
-  * parameters **required** [ImportImageParameters](#importimageparameters)
+  * name **required** `string`: Name of the image (including the namespace)
+  * reference **required** `string`: A tag or a digest, pointing to a specific image
+  * value [ChangeableAttributes](#changeableattributes)
 
 #### Output
 *Output schema unknown*
 
-### Registries_ListCredentials
-Lists the login credentials for the specified container registry.
+### Tag_GetList
+List tags of a repository
 
 
 ```js
-azure_containerregistry.Registries_ListCredentials({
-  "api-version": "",
-  "subscriptionId": "",
-  "resourceGroupName": "",
-  "registryName": ""
+azure_containerregistry.Tag_GetList({
+  "name": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * api-version **required** `string`: The client API version.
-  * subscriptionId **required** `string`: The Microsoft Azure subscription ID.
-  * resourceGroupName **required** `string`: The name of the resource group to which the container registry belongs.
-  * registryName **required** `string`: The name of the container registry.
+  * name **required** `string`: Name of the image (including the namespace)
+  * last `string`: Query parameter for the last item in previous query. Result set will include values lexically after last.
+  * n `integer`: query parameter for max number of items
+  * orderby `string`: orderby query parameter
+  * digest `string`: filter by digest
 
 #### Output
-* output [RegistryListCredentialsResult](#registrylistcredentialsresult)
+* output [TagList](#taglist)
 
-### Registries_ListUsages
-Gets the quota usages for the specified container registry.
+### Tag_Delete
+Delete tag
 
 
 ```js
-azure_containerregistry.Registries_ListUsages({
-  "api-version": "",
-  "subscriptionId": "",
-  "resourceGroupName": "",
-  "registryName": ""
+azure_containerregistry.Tag_Delete({
+  "name": "",
+  "reference": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * api-version **required** `string`: The client API version.
-  * subscriptionId **required** `string`: The Microsoft Azure subscription ID.
-  * resourceGroupName **required** `string`: The name of the resource group to which the container registry belongs.
-  * registryName **required** `string`: The name of the container registry.
-
-#### Output
-* output [RegistryUsageListResult](#registryusagelistresult)
-
-### Registries_RegenerateCredential
-Regenerates one of the login credentials for the specified container registry.
-
-
-```js
-azure_containerregistry.Registries_RegenerateCredential({
-  "api-version": "",
-  "subscriptionId": "",
-  "resourceGroupName": "",
-  "registryName": "",
-  "regenerateCredentialParameters": {
-    "name": ""
-  }
-}, context)
-```
-
-#### Input
-* input `object`
-  * api-version **required** `string`: The client API version.
-  * subscriptionId **required** `string`: The Microsoft Azure subscription ID.
-  * resourceGroupName **required** `string`: The name of the resource group to which the container registry belongs.
-  * registryName **required** `string`: The name of the container registry.
-  * regenerateCredentialParameters **required** [RegenerateCredentialParameters](#regeneratecredentialparameters)
-
-#### Output
-* output [RegistryListCredentialsResult](#registrylistcredentialsresult)
-
-### Replications_List
-Lists all the replications for the specified container registry.
-
-
-```js
-azure_containerregistry.Replications_List({
-  "api-version": "",
-  "subscriptionId": "",
-  "resourceGroupName": "",
-  "registryName": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * api-version **required** `string`: The client API version.
-  * subscriptionId **required** `string`: The Microsoft Azure subscription ID.
-  * resourceGroupName **required** `string`: The name of the resource group to which the container registry belongs.
-  * registryName **required** `string`: The name of the container registry.
-
-#### Output
-* output [ReplicationListResult](#replicationlistresult)
-
-### Replications_Delete
-Deletes a replication from a container registry.
-
-
-```js
-azure_containerregistry.Replications_Delete({
-  "api-version": "",
-  "subscriptionId": "",
-  "resourceGroupName": "",
-  "registryName": "",
-  "replicationName": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * api-version **required** `string`: The client API version.
-  * subscriptionId **required** `string`: The Microsoft Azure subscription ID.
-  * resourceGroupName **required** `string`: The name of the resource group to which the container registry belongs.
-  * registryName **required** `string`: The name of the container registry.
-  * replicationName **required** `string`: The name of the replication.
+  * name **required** `string`: Name of the image (including the namespace)
+  * reference **required** `string`: Tag name
 
 #### Output
 *Output schema unknown*
 
-### Replications_Get
-Gets the properties of the specified replication.
+### Tag_GetAttributes
+Get tag attributes by tag
 
 
 ```js
-azure_containerregistry.Replications_Get({
-  "api-version": "",
-  "subscriptionId": "",
-  "resourceGroupName": "",
-  "registryName": "",
-  "replicationName": ""
+azure_containerregistry.Tag_GetAttributes({
+  "name": "",
+  "reference": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * api-version **required** `string`: The client API version.
-  * subscriptionId **required** `string`: The Microsoft Azure subscription ID.
-  * resourceGroupName **required** `string`: The name of the resource group to which the container registry belongs.
-  * registryName **required** `string`: The name of the container registry.
-  * replicationName **required** `string`: The name of the replication.
+  * name **required** `string`: Name of the image (including the namespace)
+  * reference **required** `string`: Tag name
 
 #### Output
-* output [Replication](#replication)
+* output [TagAttributes](#tagattributes)
 
-### Replications_Update
-Updates a replication for a container registry with the specified parameters.
+### Tag_UpdateAttributes
+Update tag attributes
 
 
 ```js
-azure_containerregistry.Replications_Update({
-  "api-version": "",
-  "subscriptionId": "",
-  "resourceGroupName": "",
-  "registryName": "",
-  "replicationName": "",
-  "replicationUpdateParameters": {}
+azure_containerregistry.Tag_UpdateAttributes({
+  "name": "",
+  "reference": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * api-version **required** `string`: The client API version.
-  * subscriptionId **required** `string`: The Microsoft Azure subscription ID.
-  * resourceGroupName **required** `string`: The name of the resource group to which the container registry belongs.
-  * registryName **required** `string`: The name of the container registry.
-  * replicationName **required** `string`: The name of the replication.
-  * replicationUpdateParameters **required** [ReplicationUpdateParameters](#replicationupdateparameters)
-
-#### Output
-* output [Replication](#replication)
-
-### Replications_Create
-Creates a replication for a container registry with the specified parameters.
-
-
-```js
-azure_containerregistry.Replications_Create({
-  "api-version": "",
-  "subscriptionId": "",
-  "resourceGroupName": "",
-  "registryName": "",
-  "replicationName": "",
-  "replication": {}
-}, context)
-```
-
-#### Input
-* input `object`
-  * api-version **required** `string`: The client API version.
-  * subscriptionId **required** `string`: The Microsoft Azure subscription ID.
-  * resourceGroupName **required** `string`: The name of the resource group to which the container registry belongs.
-  * registryName **required** `string`: The name of the container registry.
-  * replicationName **required** `string`: The name of the replication.
-  * replication **required** [Replication](#replication)
-
-#### Output
-* output [Replication](#replication)
-
-### Webhooks_List
-Lists all the webhooks for the specified container registry.
-
-
-```js
-azure_containerregistry.Webhooks_List({
-  "api-version": "",
-  "subscriptionId": "",
-  "resourceGroupName": "",
-  "registryName": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * api-version **required** `string`: The client API version.
-  * subscriptionId **required** `string`: The Microsoft Azure subscription ID.
-  * resourceGroupName **required** `string`: The name of the resource group to which the container registry belongs.
-  * registryName **required** `string`: The name of the container registry.
-
-#### Output
-* output [WebhookListResult](#webhooklistresult)
-
-### Webhooks_Delete
-Deletes a webhook from a container registry.
-
-
-```js
-azure_containerregistry.Webhooks_Delete({
-  "api-version": "",
-  "subscriptionId": "",
-  "resourceGroupName": "",
-  "registryName": "",
-  "webhookName": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * api-version **required** `string`: The client API version.
-  * subscriptionId **required** `string`: The Microsoft Azure subscription ID.
-  * resourceGroupName **required** `string`: The name of the resource group to which the container registry belongs.
-  * registryName **required** `string`: The name of the container registry.
-  * webhookName **required** `string`: The name of the webhook.
+  * name **required** `string`: Name of the image (including the namespace)
+  * reference **required** `string`: Tag name
+  * value [ChangeableAttributes](#changeableattributes)
 
 #### Output
 *Output schema unknown*
 
-### Webhooks_Get
-Gets the properties of the specified webhook.
+### RefreshTokens_GetFromExchange
+Exchange AAD tokens for an ACR refresh Token
 
 
 ```js
-azure_containerregistry.Webhooks_Get({
-  "api-version": "",
-  "subscriptionId": "",
-  "resourceGroupName": "",
-  "registryName": "",
-  "webhookName": ""
+azure_containerregistry.RefreshTokens_GetFromExchange({
+  "grant_type": "",
+  "service": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * api-version **required** `string`: The client API version.
-  * subscriptionId **required** `string`: The Microsoft Azure subscription ID.
-  * resourceGroupName **required** `string`: The name of the resource group to which the container registry belongs.
-  * registryName **required** `string`: The name of the container registry.
-  * webhookName **required** `string`: The name of the webhook.
+  * grant_type **required** `string` (values: access_token_refresh_token, access_token, refresh_token): Can take a value of access_token_refresh_token, or access_token, or refresh_token
+  * service **required** `string`: Indicates the name of your Azure container registry.
+  * tenant `string`: AAD tenant associated to the AAD credentials.
+  * refresh_token `string`: AAD refresh token, mandatory when grant_type is access_token_refresh_token or refresh_token
+  * access_token `string`: AAD access token, mandatory when grant_type is access_token_refresh_token or access_token.
 
 #### Output
-* output [Webhook](#webhook)
+* output [RefreshToken](#refreshtoken)
 
-### Webhooks_Update
-Updates a webhook with the specified parameters.
+### AccessTokens_GetFromLogin
+Exchange Username, Password and Scope an ACR Access Token
 
 
 ```js
-azure_containerregistry.Webhooks_Update({
-  "api-version": "",
-  "subscriptionId": "",
-  "resourceGroupName": "",
-  "registryName": "",
-  "webhookName": "",
-  "webhookUpdateParameters": {}
+azure_containerregistry.AccessTokens_GetFromLogin({
+  "service": "",
+  "scope": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * api-version **required** `string`: The client API version.
-  * subscriptionId **required** `string`: The Microsoft Azure subscription ID.
-  * resourceGroupName **required** `string`: The name of the resource group to which the container registry belongs.
-  * registryName **required** `string`: The name of the container registry.
-  * webhookName **required** `string`: The name of the webhook.
-  * webhookUpdateParameters **required** [WebhookUpdateParameters](#webhookupdateparameters)
+  * service **required** `string`: Indicates the name of your Azure container registry.
+  * scope **required** `string`: Expected to be a valid scope, and can be specified more than once for multiple scope requests. You can obtain this from the Www-Authenticate response header from the challenge.
 
 #### Output
-* output [Webhook](#webhook)
+* output [AccessToken](#accesstoken)
 
-### Webhooks_Create
-Creates a webhook for a container registry with the specified parameters.
+### AccessTokens_Get
+Exchange ACR Refresh token for an ACR Access Token
 
 
 ```js
-azure_containerregistry.Webhooks_Create({
-  "api-version": "",
-  "subscriptionId": "",
-  "resourceGroupName": "",
-  "registryName": "",
-  "webhookName": "",
-  "webhookCreateParameters": {
-    "location": ""
-  }
+azure_containerregistry.AccessTokens_Get({
+  "grant_type": "",
+  "service": "",
+  "scope": "",
+  "refresh_token": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * api-version **required** `string`: The client API version.
-  * subscriptionId **required** `string`: The Microsoft Azure subscription ID.
-  * resourceGroupName **required** `string`: The name of the resource group to which the container registry belongs.
-  * registryName **required** `string`: The name of the container registry.
-  * webhookName **required** `string`: The name of the webhook.
-  * webhookCreateParameters **required** [WebhookCreateParameters](#webhookcreateparameters)
+  * grant_type **required** `string` (values: refresh_token): Grant type is expected to be refresh_token
+  * service **required** `string`: Indicates the name of your Azure container registry.
+  * scope **required** `string`: Which is expected to be a valid scope, and can be specified more than once for multiple scope requests. You obtained this from the Www-Authenticate response header from the challenge.
+  * refresh_token **required** `string`: Must be a valid ACR refresh token
 
 #### Output
-* output [Webhook](#webhook)
+* output [AccessToken](#accesstoken)
 
-### Webhooks_GetCallbackConfig
-Gets the configuration of service URI and custom headers for the webhook.
+### V2Support_Check
+Tells whether this Docker Registry instance supports Docker Registry HTTP API v2
 
 
 ```js
-azure_containerregistry.Webhooks_GetCallbackConfig({
-  "api-version": "",
-  "subscriptionId": "",
-  "resourceGroupName": "",
-  "registryName": "",
-  "webhookName": ""
+azure_containerregistry.V2Support_Check(null, context)
+```
+
+#### Input
+*This action has no parameters*
+
+#### Output
+*Output schema unknown*
+
+### Blob_Mount
+Mount a blob identified by the `mount` parameter from another repository.
+
+
+```js
+azure_containerregistry.Blob_Mount({
+  "name": "",
+  "from": "",
+  "mount": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * api-version **required** `string`: The client API version.
-  * subscriptionId **required** `string`: The Microsoft Azure subscription ID.
-  * resourceGroupName **required** `string`: The name of the resource group to which the container registry belongs.
-  * registryName **required** `string`: The name of the container registry.
-  * webhookName **required** `string`: The name of the webhook.
+  * name **required** `string`: Name of the image (including the namespace)
+  * from **required** `string`: Name of the source repository.
+  * mount **required** `string`: Digest of blob to mount from the source repository.
 
 #### Output
-* output [CallbackConfig](#callbackconfig)
+*Output schema unknown*
 
-### Webhooks_ListEvents
-Lists recent events for the specified webhook.
+### Blob_Delete
+Removes an already uploaded blob.
 
 
 ```js
-azure_containerregistry.Webhooks_ListEvents({
-  "api-version": "",
-  "subscriptionId": "",
-  "resourceGroupName": "",
-  "registryName": "",
-  "webhookName": ""
+azure_containerregistry.Blob_Delete({
+  "name": "",
+  "digest": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * api-version **required** `string`: The client API version.
-  * subscriptionId **required** `string`: The Microsoft Azure subscription ID.
-  * resourceGroupName **required** `string`: The name of the resource group to which the container registry belongs.
-  * registryName **required** `string`: The name of the container registry.
-  * webhookName **required** `string`: The name of the webhook.
+  * name **required** `string`: Name of the image (including the namespace)
+  * digest **required** `string`: Digest of a BLOB
 
 #### Output
-* output [EventListResult](#eventlistresult)
+* output `file`: blob binary data
 
-### Webhooks_Ping
-Triggers a ping event to be sent to the webhook.
+### Blob_Get
+Retrieve the blob from the registry identified by digest.
 
 
 ```js
-azure_containerregistry.Webhooks_Ping({
-  "api-version": "",
-  "subscriptionId": "",
-  "resourceGroupName": "",
-  "registryName": "",
-  "webhookName": ""
+azure_containerregistry.Blob_Get({
+  "name": "",
+  "digest": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * api-version **required** `string`: The client API version.
-  * subscriptionId **required** `string`: The Microsoft Azure subscription ID.
-  * resourceGroupName **required** `string`: The name of the resource group to which the container registry belongs.
-  * registryName **required** `string`: The name of the container registry.
-  * webhookName **required** `string`: The name of the webhook.
+  * name **required** `string`: Name of the image (including the namespace)
+  * digest **required** `string`: Digest of a BLOB
 
 #### Output
-* output [EventInfo](#eventinfo)
+* output `file`: blob binary data
+
+### Blob_Check
+Same as GET, except only the headers are returned.
+
+
+```js
+azure_containerregistry.Blob_Check({
+  "name": "",
+  "digest": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * name **required** `string`: Name of the image (including the namespace)
+  * digest **required** `string`: Digest of a BLOB
+
+#### Output
+*Output schema unknown*
+
+### Manifests_Delete
+Delete the manifest identified by `name` and `reference`. Note that a manifest can _only_ be deleted by `digest`.
+
+
+```js
+azure_containerregistry.Manifests_Delete({
+  "name": "",
+  "reference": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * name **required** `string`: Name of the image (including the namespace)
+  * reference **required** `string`: A tag or a digest, pointing to a specific image
+
+#### Output
+*Output schema unknown*
+
+### Manifests_Get
+Get the manifest identified by `name` and `reference` where `reference` can be a tag or digest.
+
+
+```js
+azure_containerregistry.Manifests_Get({
+  "name": "",
+  "reference": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * name **required** `string`: Name of the image (including the namespace)
+  * reference **required** `string`: A tag or a digest, pointing to a specific image
+  * accept `string`: Accept header string delimited by comma. For example, application/vnd.docker.distribution.manifest.v2+json
+
+#### Output
+* output [ManifestWrapper](#manifestwrapper)
+
+### Manifests_Create
+Put the manifest identified by `name` and `reference` where `reference` can be a tag or digest.
+
+
+```js
+azure_containerregistry.Manifests_Create({
+  "name": "",
+  "reference": "",
+  "payload": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * name **required** `string`: Name of the image (including the namespace)
+  * reference **required** `string`: A tag or a digest, pointing to a specific image
+  * payload **required** [Manifest](#manifest)
+
+#### Output
+*Output schema unknown*
+
+### Blob_CancelUpload
+Cancel outstanding upload processes, releasing associated resources. If this is not called, the unfinished uploads will eventually timeout.
+
+
+```js
+azure_containerregistry.Blob_CancelUpload({
+  "nextBlobUuidLink": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * nextBlobUuidLink **required** `string`: Link acquired from upload start or previous chunk. Note, do not include initial / (must do substring(1) )
+
+#### Output
+*Output schema unknown*
+
+### Blob_GetStatus
+Retrieve status of upload identified by uuid. The primary purpose of this endpoint is to resolve the current status of a resumable upload.
+
+
+```js
+azure_containerregistry.Blob_GetStatus({
+  "nextBlobUuidLink": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * nextBlobUuidLink **required** `string`: Link acquired from upload start or previous chunk. Note, do not include initial / (must do substring(1) )
+
+#### Output
+*Output schema unknown*
+
+### Blob_Upload
+Upload a stream of data without completing the upload.
+
+
+```js
+azure_containerregistry.Blob_Upload({
+  "value": {},
+  "nextBlobUuidLink": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * value **required** `object`
+  * nextBlobUuidLink **required** `string`: Link acquired from upload start or previous chunk. Note, do not include initial / (must do substring(1) )
+
+#### Output
+*Output schema unknown*
+
+### Blob_EndUpload
+Complete the upload, providing all the data in the body, if necessary. A request without a body will just complete the upload with previously uploaded content.
+
+
+```js
+azure_containerregistry.Blob_EndUpload({
+  "digest": "",
+  "nextBlobUuidLink": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * digest **required** `string`: Digest of a BLOB
+  * value `object`
+  * nextBlobUuidLink **required** `string`: Link acquired from upload start or previous chunk. Note, do not include initial / (must do substring(1) )
+
+#### Output
+*Output schema unknown*
 
 
 
 ## Definitions
 
-### Actor
-* Actor `object`: The agent that initiated the event. For most situations, this could be from the authorization context of the request.
-  * name `string`: The subject or username associated with the request context that generated the event.
+### AccessToken
+* AccessToken `object`
+  * access_token `string`: The access token for performing authenticated requests
 
-### CallbackConfig
-* CallbackConfig `object`: The configuration of service URI and custom headers for the webhook.
-  * customHeaders `object`: Custom headers that will be added to the webhook notifications.
-  * serviceUri **required** `string`: The service URI for the webhook to post notifications.
+### AcrErrorInfo
+* AcrErrorInfo `object`: Error information
+  * code `string`: Error code
+  * detail `object`: Error details
+  * message `string`: Error message
 
-### Event
-* Event `object`: The event for a webhook.
-  * eventRequestMessage [EventRequestMessage](#eventrequestmessage)
-  * eventResponseMessage [EventResponseMessage](#eventresponsemessage)
-  * id `string`: The event ID.
+### AcrErrors
+* AcrErrors `object`: Acr error response describing why the operation failed
+  * errors `array`: Array of detailed error
+    * items [AcrErrorInfo](#acrerrorinfo)
 
-### EventContent
-* EventContent `object`: The content of the event request message.
-  * action `string`: The action that encompasses the provided event.
-  * actor [Actor](#actor)
-  * id `string`: The event ID.
-  * request [Request](#request)
-  * source [Source](#source)
-  * target [Target](#target)
-  * timestamp `string`: The time at which the event occurred.
+### AcrManifests
+* AcrManifests `object`: Manifest attributes
+  * imageName `string`: Image name
+  * manifests `array`: List of manifests
+    * items [ManifestAttributesBase](#manifestattributesbase)
+  * registry `string`: Registry name
 
-### EventInfo
-* EventInfo `object`: The basic information of an event.
-  * id `string`: The event ID.
+### Annotations
+* Annotations `object`: Additional information provided through arbitrary metadata.
+  * org.opencontainers.image.authors `string`: Contact details of the people or organization responsible for the image.
+  * org.opencontainers.image.created `string`: Date and time on which the image was built (string, date-time as defined by https://tools.ietf.org/html/rfc3339#section-5.6)
+  * org.opencontainers.image.description `string`: Human-readable description of the software packaged in the image
+  * org.opencontainers.image.documentation `string`: URL to get documentation on the image.
+  * org.opencontainers.image.licenses `string`: License(s) under which contained software is distributed as an SPDX License Expression.
+  * org.opencontainers.image.ref.name `string`: Name of the reference for a target.
+  * org.opencontainers.image.revision `string`: Source control revision identifier for the packaged software.
+  * org.opencontainers.image.source `string`: URL to get source code for building the image.
+  * org.opencontainers.image.title `string`: Human-readable title of the image
+  * org.opencontainers.image.url `string`: URL to find more information on the image.
+  * org.opencontainers.image.vendor `string`: Name of the distributing entity, organization or individual.
+  * org.opencontainers.image.version `string`: Version of the packaged software. The version MAY match a label or tag in the source code repository, may also be Semantic versioning-compatible
 
-### EventListResult
-* EventListResult `object`: The result of a request to list events for a webhook.
-  * nextLink `string`: The URI that can be used to request the next list of events.
-  * value `array`: The list of events. Since this list may be incomplete, the nextLink field should be used to request the next list of events.
-    * items [Event](#event)
+### ChangeableAttributes
+* ChangeableAttributes `object`
+  * deleteEnabled `boolean`: Delete enabled
+  * listEnabled `boolean`: List enabled
+  * readEnabled `boolean`: Read enabled
+  * writeEnabled `boolean`: Write enabled
 
-### EventRequestMessage
-* EventRequestMessage `object`: The event request message sent to the service URI.
-  * content [EventContent](#eventcontent)
-  * headers `object`: The headers of the event request message.
-  * method `string`: The HTTP method used to send the event request message.
-  * requestUri `string`: The URI used to send the event request message.
-  * version `string`: The HTTP message version.
-
-### EventResponseMessage
-* EventResponseMessage `object`: The event response message received from the service URI.
-  * content `string`: The content of the event response message.
-  * headers `object`: The headers of the event response message.
-  * reasonPhrase `string`: The reason phrase of the event response message.
-  * statusCode `string`: The status code of the event response message.
-  * version `string`: The HTTP message version.
-
-### ImportImageParameters
-* ImportImageParameters `object`
-  * mode `string` (values: NoForce, Force): When Force, any existing target tags will be overwritten. When NoForce, any existing target tags will fail the operation before any copying begins.
-  * source **required** [ImportSource](#importsource)
-  * targetTags `array`: List of strings of the form repo[:tag]. When tag is omitted the source will be used (or 'latest' if source tag is also omitted).
+### DeletedRepository
+* DeletedRepository `object`: Deleted repository
+  * manifestsDeleted `array`: SHA of the deleted image
     * items `string`
-  * untaggedTargetRepositories `array`: List of strings of repository names to do a manifest only copy. No tag will be created.
+  * tagsDeleted `array`: Tag of the deleted image
     * items `string`
 
-### ImportSource
-* ImportSource `object`
-  * resourceId **required** `string`: The resource identifier of the target Azure Container Registry.
-  * sourceImage **required** `string`: Repository name of the source image.
+### Descriptor
+* Descriptor `object`: Docker V2 image layer descriptor including config and layers
+  * annotations [Annotations](#annotations)
+  * digest `string`: Layer digest
+  * mediaType `string`: Layer media type
+  * size `integer`: Layer size
+  * urls `array`: Specifies a list of URIs from which this object may be downloaded.
+    * items `string`: Must conform to RFC 3986. Entries should use the http and https schemes, as defined in RFC 7230.
 
-### OperationDefinition
-* OperationDefinition `object`: The definition of a container registry operation.
-  * display [OperationDisplayDefinition](#operationdisplaydefinition)
-  * name `string`: Operation name: {provider}/{resource}/{operation}.
+### FsLayer
+* FsLayer `object`: Image layer information
+  * blobSum `string`: SHA of an image layer
 
-### OperationDisplayDefinition
-* OperationDisplayDefinition `object`: The display information for a container registry operation.
-  * description `string`: The description for the operation.
-  * operation `string`: The operation that users can perform.
-  * provider `string`: The resource provider name: Microsoft.ContainerRegistry.
-  * resource `string`: The resource on which the operation is performed.
+### History
+* History `object`: A list of unstructured historical data for v1 compatibility
+  * v1Compatibility `string`: The raw v1 compatibility information
 
-### OperationListResult
-* OperationListResult `object`: The result of a request to list container registry operations.
-  * nextLink `string`: The URI that can be used to request the next list of container registry operations.
-  * value `array`: The list of container registry operations. Since this list may be incomplete, the nextLink field should be used to request the next list of operations.
-    * items [OperationDefinition](#operationdefinition)
+### ImageSignature
+* ImageSignature `object`: Signature of a signed manifest
+  * header [JWK](#jwk)
+  * protected `string`: The signed protected header
+  * signature `string`: A signature for the image manifest, signed by a libtrust private key
 
-### RegenerateCredentialParameters
-* RegenerateCredentialParameters `object`: The parameters used to regenerate the login credential.
-  * name **required** `string` (values: password, password2): Specifies name of the password which should be regenerated -- password or password2.
+### JWK
+* JWK `object`: A JSON web signature
+  * alg `string`: The algorithm used to sign or encrypt the JWT
+  * jwk [JWKHeader](#jwkheader)
 
-### Registry
-* Registry `object`: An object that represents a container registry.
-  * properties [RegistryProperties](#registryproperties)
-  * sku **required** [Sku](#sku)
-  * id `string`: The resource ID.
-  * location **required** `string`: The location of the resource. This cannot be changed after the resource is created.
-  * name `string`: The name of the resource.
-  * tags `object`: The tags of the resource.
-  * type `string`: The type of the resource.
+### JWKHeader
+* JWKHeader `object`: JSON web key parameter
+  * crv `string`: crv value
+  * kid `string`: kid value
+  * kty `string`: kty value
+  * x `string`: x value
+  * y `string`: y value
 
-### RegistryListCredentialsResult
-* RegistryListCredentialsResult `object`: The response from the ListCredentials operation.
-  * passwords `array`: The list of passwords for a container registry.
-    * items [RegistryPassword](#registrypassword)
-  * username `string`: The username for a container registry.
+### Manifest
+* Manifest `object`: Returns the requested manifest file
+  * schemaVersion `integer`: Schema version
 
-### RegistryListResult
-* RegistryListResult `object`: The result of a request to list container registries.
-  * nextLink `string`: The URI that can be used to request the next list of container registries.
-  * value `array`: The list of container registries. Since this list may be incomplete, the nextLink field should be used to request the next list of container registries.
-    * items [Registry](#registry)
+### ManifestAttributes
+* ManifestAttributes `object`: Manifest attributes details
+  * imageName `string`: Image name
+  * manifest [ManifestAttributesBase](#manifestattributesbase)
+  * registry `string`: Registry name
 
-### RegistryNameCheckRequest
-* RegistryNameCheckRequest `object`: A request to check whether a container registry name is available.
-  * name **required** `string`: The name of the container registry.
-  * type **required** `string` (values: Microsoft.ContainerRegistry/registries): The resource type of the container registry. This field must be set to 'Microsoft.ContainerRegistry/registries'.
+### ManifestAttributesBase
+* ManifestAttributesBase `object`: Manifest details
+  * architecture `string`: CPU architecture
+  * changeableAttributes [ChangeableAttributes](#changeableattributes)
+  * configMediaType `string`: Config blob media type
+  * createdTime `string`: Created time
+  * digest `string`: Manifest
+  * imageSize `integer`: Image size
+  * lastUpdateTime `string`: Last update time
+  * mediaType `string`: Media type
+  * os `string`: Operating system
+  * tags `array`: List of tags
+    * items `string`: Tag name
 
-### RegistryNameStatus
-* RegistryNameStatus `object`: The result of a request to check the availability of a container registry name.
-  * message `string`: If any, the error message that provides more detail for the reason that the name is not available.
-  * nameAvailable `boolean`: The value that indicates whether the name is available.
-  * reason `string`: If any, the reason that the name is not available.
+### ManifestAttributes_manifest
+* ManifestAttributes_manifest `object`: List of manifest attributes
+  * quarantineTag `string`: Quarantine tag name
+  * references `array`: List of manifest attributes details
+    * items [ManifestAttributes_manifest_references](#manifestattributes_manifest_references)
 
-### RegistryPassword
-* RegistryPassword `object`: The login password for the container registry.
-  * name `string` (values: password, password2): The password name.
-  * value `string`: The password value.
+### ManifestAttributes_manifest_references
+* ManifestAttributes_manifest_references `object`: Manifest attributes details
+  * architecture `string`: CPU architecture
+  * digest `string`: Manifest digest
+  * os `string`: Operating system
 
-### RegistryProperties
-* RegistryProperties `object`: The properties of a container registry.
-  * adminUserEnabled `boolean`: The value that indicates whether the admin user is enabled.
-  * creationDate `string`: The creation date of the container registry in ISO8601 format.
-  * loginServer `string`: The URL that can be used to log into the container registry.
-  * provisioningState `string` (values: Creating, Updating, Deleting, Succeeded, Failed, Canceled): The provisioning state of the container registry at the time the operation was called.
-  * status [Status](#status)
-  * storageAccount [StorageAccountProperties](#storageaccountproperties)
+### ManifestChangeableAttributes
+* ManifestChangeableAttributes `object`: Changeable attributes
+  * deleteEnabled `boolean`: Delete enabled
+  * listEnabled `boolean`: List enabled
+  * quarantineDetails `string`: Quarantine details
+  * quarantineState `string`: Quarantine state
+  * readEnabled `boolean`: Read enabled
+  * writeEnabled `boolean`: Write enabled
 
-### RegistryPropertiesUpdateParameters
-* RegistryPropertiesUpdateParameters `object`: The parameters for updating the properties of a container registry.
-  * adminUserEnabled `boolean`: The value that indicates whether the admin user is enabled.
-  * storageAccount [StorageAccountProperties](#storageaccountproperties)
+### ManifestList
+* ManifestList `object`: Returns the requested Docker multi-arch-manifest file
+  * manifests `array`: List of V2 image layer information
+    * items [ManifestListAttributes](#manifestlistattributes)
+  * mediaType `string`: Media type for this Manifest
+  * schemaVersion `integer`: Schema version
 
-### RegistryUpdateParameters
-* RegistryUpdateParameters `object`: The parameters for updating a container registry.
-  * properties [RegistryPropertiesUpdateParameters](#registrypropertiesupdateparameters)
-  * sku [Sku](#sku)
-  * tags `object`: The tags for the container registry.
+### ManifestListAttributes
+* ManifestListAttributes `object`
+  * digest `string`: The digest of the content, as defined by the Registry V2 HTTP API Specification
+  * mediaType `string`: The MIME type of the referenced object. This will generally be application/vnd.docker.image.manifest.v2+json, but it could also be application/vnd.docker.image.manifest.v1+json
+  * platform [Platform](#platform)
+  * size `integer`: The size in bytes of the object
 
-### RegistryUsage
-* RegistryUsage `object`: The quota usage for a container registry.
-  * currentValue `integer`: The current value of the usage.
-  * limit `integer`: The limit of the usage.
-  * name `string`: The name of the usage.
-  * unit `string` (values: Count, Bytes): The unit of measurement.
+### ManifestWrapper
+* ManifestWrapper `object`: Returns the requested manifest file
+  * annotations [Annotations](#annotations)
+  * architecture `string`: (V1) CPU architecture
+  * config [Descriptor](#descriptor)
+  * fsLayers `array`: (V1) List of layer information
+    * items [FsLayer](#fslayer)
+  * history `array`: (V1) Image history
+    * items [History](#history)
+  * layers `array`: (V2, OCI) List of V2 image layer information
+    * items [Descriptor](#descriptor)
+  * manifests `array`: (ManifestList, OCIIndex) List of V2 image layer information
+    * items [ManifestListAttributes](#manifestlistattributes)
+  * mediaType `string`: Media type for this Manifest
+  * name `string`: (V1) Image name
+  * signatures `array`: (V1) Image signature
+    * items [ImageSignature](#imagesignature)
+  * tag `string`: (V1) Image tag
+  * schemaVersion `integer`: Schema version
 
-### RegistryUsageListResult
-* RegistryUsageListResult `object`: The result of a request to get container registry quota usages.
-  * value `array`: The list of container registry quota usages.
-    * items [RegistryUsage](#registryusage)
+### OCIIndex
+* OCIIndex `object`: Returns the requested OCI index file
+  * annotations [Annotations](#annotations)
+  * manifests `array`: List of OCI image layer information
+    * items [ManifestListAttributes](#manifestlistattributes)
+  * schemaVersion `integer`: Schema version
 
-### Replication
-* Replication `object`: An object that represents a replication for a container registry.
-  * properties [ReplicationProperties](#replicationproperties)
-  * id `string`: The resource ID.
-  * location **required** `string`: The location of the resource. This cannot be changed after the resource is created.
-  * name `string`: The name of the resource.
-  * tags `object`: The tags of the resource.
-  * type `string`: The type of the resource.
+### OCIManifest
+* OCIManifest `object`: Returns the requested OCI Manifest file
+  * annotations [Annotations](#annotations)
+  * config [Descriptor](#descriptor)
+  * layers `array`: List of V2 image layer information
+    * items [Descriptor](#descriptor)
+  * schemaVersion `integer`: Schema version
 
-### ReplicationListResult
-* ReplicationListResult `object`: The result of a request to list replications for a container registry.
-  * nextLink `string`: The URI that can be used to request the next list of replications.
-  * value `array`: The list of replications. Since this list may be incomplete, the nextLink field should be used to request the next list of replications.
-    * items [Replication](#replication)
+### Platform
+* Platform `object`: The platform object describes the platform which the image in the manifest runs on. A full list of valid operating system and architecture values are listed in the Go language documentation for $GOOS and $GOARCH
+  * architecture `string`: Specifies the CPU architecture, for example amd64 or ppc64le.
+  * features `array`: The optional features field specifies an array of strings, each listing a required CPU feature (for example sse4 or aes
+    * items `string`
+  * os `string`: The os field specifies the operating system, for example linux or windows.
+  * os.features `array`: The optional os.features field specifies an array of strings, each listing a required OS feature (for example on Windows win32k
+    * items `string`
+  * os.version `string`: The optional os.version field specifies the operating system version, for example 10.0.10586.
+  * variant `string`: The optional variant field specifies a variant of the CPU, for example armv6l to specify a particular CPU variant of the ARM CPU.
 
-### ReplicationProperties
-* ReplicationProperties `object`: The properties of a replication.
-  * provisioningState `string` (values: Creating, Updating, Deleting, Succeeded, Failed, Canceled): The provisioning state of the replication at the time the operation was called.
-  * status [Status](#status)
+### RefreshToken
+* RefreshToken `object`
+  * refresh_token `string`: The refresh token to be used for generating access tokens
 
-### ReplicationUpdateParameters
-* ReplicationUpdateParameters `object`: The parameters for updating a replication.
-  * tags `object`: The tags for the replication.
+### Repositories
+* Repositories `object`: List of repositories
+  * repositories `array`: Repository names
+    * items `string`
 
-### Request
-* Request `object`: The request that generated the event.
-  * addr `string`: The IP or hostname and possibly port of the client connection that initiated the event. This is the RemoteAddr from the standard http request.
-  * host `string`: The externally accessible hostname of the registry instance, as specified by the http host header on incoming requests.
-  * id `string`: The ID of the request that initiated the event.
-  * method `string`: The request method that generated the event.
-  * useragent `string`: The user agent header of the request.
+### RepositoryAttributes
+* RepositoryAttributes `object`: Repository attributes
+  * changeableAttributes [ChangeableAttributes](#changeableattributes)
+  * createdTime `string`: Image created time
+  * imageName `string`: Image name
+  * lastUpdateTime `string`: Image last update time
+  * manifestCount `integer`: Number of the manifests
+  * registry `string`: Registry name
+  * tagCount `integer`: Number of the tags
 
-### Resource
-* Resource `object`: An Azure resource.
-  * id `string`: The resource ID.
-  * location **required** `string`: The location of the resource. This cannot be changed after the resource is created.
-  * name `string`: The name of the resource.
-  * tags `object`: The tags of the resource.
-  * type `string`: The type of the resource.
+### RepositoryTags
+* RepositoryTags `object`: Result of the request to list tags of the image
+  * name `string`: Name of the image
+  * tags `array`: List of tags
+    * items `string`: Tag name
 
-### Sku
-* Sku `object`: The SKU of a container registry.
-  * name **required** `string` (values: Classic, Basic, Standard, Premium): The SKU name of the container registry. Required for registry creation.
-  * tier `string` (values: Classic, Basic, Standard, Premium): The SKU tier based on the SKU name.
+### TagAttributes
+* TagAttributes `object`: Tag attributes
+  * imageName `string`: Image name
+  * registry `string`: Registry name
+  * tag [TagAttributesBase](#tagattributesbase)
 
-### Source
-* Source `object`: The registry node that generated the event. Put differently, while the actor initiates the event, the source generates it.
-  * addr `string`: The IP or hostname and the port of the registry node that generated the event. Generally, this will be resolved by os.Hostname() along with the running port.
-  * instanceID `string`: The running instance of an application. Changes after each restart.
+### TagAttributesBase
+* TagAttributesBase `object`: Tag attribute details
+  * changeableAttributes [ChangeableAttributes](#changeableattributes)
+  * createdTime `string`: Tag created time
+  * digest `string`: Tag digest
+  * lastUpdateTime `string`: Tag last update time
+  * name `string`: Tag name
+  * signed `boolean`: Is signed
 
-### Status
-* Status `object`: The status of an Azure resource at the time the operation was called.
-  * displayStatus `string`: The short label for the status.
-  * message `string`: The detailed message for the status, including alerts and error messages.
-  * timestamp `string`: The timestamp when the status was changed to the current value.
+### TagAttributes_tag
+* TagAttributes_tag `object`: Tag
+  * signatureRecord `string`: SignatureRecord value
 
-### StorageAccountProperties
-* StorageAccountProperties `object`: The properties of a storage account for a container registry. Only applicable to Classic SKU.
-  * id **required** `string`: The resource ID of the storage account.
+### TagList
+* TagList `object`: List of tag details
+  * imageName `string`: Image name
+  * registry `string`: Registry name
+  * tags `array`: List of tag attribute details
+    * items [TagAttributesBase](#tagattributesbase)
 
-### Target
-* Target `object`: The target of the event.
-  * digest `string`: The digest of the content, as defined by the Registry V2 HTTP API Specification.
-  * length `integer`: The number of bytes of the content. Same as Size field.
-  * mediaType `string`: The MIME type of the referenced object.
-  * repository `string`: The repository name.
-  * size `integer`: The number of bytes of the content. Same as Length field.
-  * tag `string`: The tag name.
-  * url `string`: The direct URL to the content.
+### V1Manifest
+* V1Manifest `object`: Returns the requested V1 manifest file
+  * architecture `string`: CPU architecture
+  * fsLayers `array`: List of layer information
+    * items [FsLayer](#fslayer)
+  * history `array`: Image history
+    * items [History](#history)
+  * name `string`: Image name
+  * signatures `array`: Image signature
+    * items [ImageSignature](#imagesignature)
+  * tag `string`: Image tag
+  * schemaVersion `integer`: Schema version
 
-### Webhook
-* Webhook `object`: An object that represents a webhook for a container registry.
-  * properties [WebhookProperties](#webhookproperties)
-  * id `string`: The resource ID.
-  * location **required** `string`: The location of the resource. This cannot be changed after the resource is created.
-  * name `string`: The name of the resource.
-  * tags `object`: The tags of the resource.
-  * type `string`: The type of the resource.
-
-### WebhookCreateParameters
-* WebhookCreateParameters `object`: The parameters for creating a webhook.
-  * location **required** `string`: The location of the webhook. This cannot be changed after the resource is created.
-  * properties [WebhookPropertiesCreateParameters](#webhookpropertiescreateparameters)
-  * tags `object`: The tags for the webhook.
-
-### WebhookListResult
-* WebhookListResult `object`: The result of a request to list webhooks for a container registry.
-  * nextLink `string`: The URI that can be used to request the next list of webhooks.
-  * value `array`: The list of webhooks. Since this list may be incomplete, the nextLink field should be used to request the next list of webhooks.
-    * items [Webhook](#webhook)
-
-### WebhookProperties
-* WebhookProperties `object`: The properties of a webhook.
-  * actions **required** `array`: The list of actions that trigger the webhook to post notifications.
-    * items `string` (values: push, delete)
-  * provisioningState `string` (values: Creating, Updating, Deleting, Succeeded, Failed, Canceled): The provisioning state of the webhook at the time the operation was called.
-  * scope `string`: The scope of repositories where the event can be triggered. For example, 'foo:*' means events for all tags under repository 'foo'. 'foo:bar' means events for 'foo:bar' only. 'foo' is equivalent to 'foo:latest'. Empty means all events.
-  * status `string` (values: enabled, disabled): The status of the webhook at the time the operation was called.
-
-### WebhookPropertiesCreateParameters
-* WebhookPropertiesCreateParameters `object`: The parameters for creating the properties of a webhook.
-  * actions **required** `array`: The list of actions that trigger the webhook to post notifications.
-    * items `string` (values: push, delete)
-  * customHeaders `object`: Custom headers that will be added to the webhook notifications.
-  * scope `string`: The scope of repositories where the event can be triggered. For example, 'foo:*' means events for all tags under repository 'foo'. 'foo:bar' means events for 'foo:bar' only. 'foo' is equivalent to 'foo:latest'. Empty means all events.
-  * serviceUri **required** `string`: The service URI for the webhook to post notifications.
-  * status `string` (values: enabled, disabled): The status of the webhook at the time the operation was called.
-
-### WebhookPropertiesUpdateParameters
-* WebhookPropertiesUpdateParameters `object`: The parameters for updating the properties of a webhook.
-  * actions `array`: The list of actions that trigger the webhook to post notifications.
-    * items `string` (values: push, delete)
-  * customHeaders `object`: Custom headers that will be added to the webhook notifications.
-  * scope `string`: The scope of repositories where the event can be triggered. For example, 'foo:*' means events for all tags under repository 'foo'. 'foo:bar' means events for 'foo:bar' only. 'foo' is equivalent to 'foo:latest'. Empty means all events.
-  * serviceUri `string`: The service URI for the webhook to post notifications.
-  * status `string` (values: enabled, disabled): The status of the webhook at the time the operation was called.
-
-### WebhookUpdateParameters
-* WebhookUpdateParameters `object`: The parameters for updating a webhook.
-  * properties [WebhookPropertiesUpdateParameters](#webhookpropertiesupdateparameters)
-  * tags `object`: The tags for the webhook.
+### V2Manifest
+* V2Manifest `object`: Returns the requested Docker V2 Manifest file
+  * config [Descriptor](#descriptor)
+  * layers `array`: List of V2 image layer information
+    * items [Descriptor](#descriptor)
+  * mediaType `string`: Media type for this Manifest
+  * schemaVersion `integer`: Schema version
 
 

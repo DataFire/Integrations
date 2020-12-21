@@ -12,7 +12,7 @@ let wmata_rail_station = require('@datafire/wmata_rail_station').create({
   apiKeyQuery: ""
 });
 
-wmata_rail_station.5476364f031f5909e4fe3311({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -244,7 +244,7 @@ Array containing station to station information (<a href=
 <tr>
 <td>CompositeMiles</td>
 
-<td>Distance in miles from the source to destination station.</td>
+<td>Average of distance traveled between two stations and straight-line distance (as used for WMATA fare calculations).  For more details, please refer to WMATA's <a href="https://www.wmata.com/about/records/public_docs/upload/Tariff-on-Fares-Annotated-2-12-18.pdf#page=6" target="_blank" rel="noopener noreferrer">Tariff on Fares</a>.</td>
 </tr>
 
 <tr>
@@ -265,7 +265,8 @@ Structure containing <a href="#RailFare">fare</a> information.
 <tr>
 <td>RailTime</td>
 
-<td>Estimated travel time (schedule time) in minutes between the source and destination station. This is not correlated to minutes <span class="text-info">(Min)</span> in Real-Time Rail Predictions.</td>
+<td>Estimated travel time (schedule time) in minutes between the source and
+destination station. This is not correlated to minutes <span class="text-info">(Min)</span> in Real-Time Rail Predictions.</td>
 </tr>
 
 <tr>
@@ -1254,7 +1255,7 @@ Array containing station to station information (<a href=
 <tr>
 <td>CompositeMiles</td>
 
-<td>Distance in miles from the source to destination station.</td>
+<td>Average of distance traveled between two stations and straight-line distance (as used for WMATA fare calculations).  For more details, please refer to WMATA's <a href="https://www.wmata.com/about/records/public_docs/upload/Tariff-on-Fares-Annotated-2-12-18.pdf#page=6" target="_blank" rel="noopener noreferrer">Tariff on Fares</a>.</td>
 </tr>
 
 <tr>

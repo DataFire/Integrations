@@ -15,11 +15,7 @@ let azure_azsadmin_slbmuxinstance = require('@datafire/azure_azsadmin_slbmuxinst
   redirect_uri: ""
 });
 
-azure_azsadmin_slbmuxinstance.SlbMuxInstances_List({
-  "subscriptionId": "",
-  "location": "",
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -31,12 +27,13 @@ Software load balancer multiplexer operation endpoints and objects.
 ## Actions
 
 ### SlbMuxInstances_List
-Get a list of all software load balancer instances at a location.
+Returns a list of all software load balancer instances at a location.
 
 
 ```js
 azure_azsadmin_slbmuxinstance.SlbMuxInstances_List({
   "subscriptionId": "",
+  "resourceGroupName": "",
   "location": "",
   "api-version": ""
 }, context)
@@ -44,21 +41,23 @@ azure_azsadmin_slbmuxinstance.SlbMuxInstances_List({
 
 #### Input
 * input `object`
-  * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription.The subscription ID forms part of the URI for every service call.
+  * subscriptionId **required** `string`: Subscription credentials that uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+  * resourceGroupName **required** `string`: Name of the resource group.
   * location **required** `string`: Location of the resource.
-  * api-version **required** `string`: Client Api Version.
+  * api-version **required** `string`: Client API Version.
   * $filter `string`: OData filter parameter.
 
 #### Output
 * output [SlbMuxInstanceList](#slbmuxinstancelist)
 
 ### SlbMuxInstances_Get
-Get a software load balancer multiplexer instance.
+Returns the requested software load balancer multiplexer instance.
 
 
 ```js
 azure_azsadmin_slbmuxinstance.SlbMuxInstances_Get({
   "subscriptionId": "",
+  "resourceGroupName": "",
   "location": "",
   "slbMuxInstance": "",
   "api-version": ""
@@ -67,10 +66,11 @@ azure_azsadmin_slbmuxinstance.SlbMuxInstances_Get({
 
 #### Input
 * input `object`
-  * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription.The subscription ID forms part of the URI for every service call.
+  * subscriptionId **required** `string`: Subscription credentials that uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+  * resourceGroupName **required** `string`: Name of the resource group.
   * location **required** `string`: Location of the resource.
-  * slbMuxInstance **required** `string`: Name of a SLB Mux instance.
-  * api-version **required** `string`: Client Api Version.
+  * slbMuxInstance **required** `string`: Name of a SLB MUX instance.
+  * api-version **required** `string`: Client API Version.
 
 #### Output
 * output [SlbMuxInstance](#slbmuxinstance)
@@ -83,19 +83,19 @@ azure_azsadmin_slbmuxinstance.SlbMuxInstances_Get({
 * SlbMuxInstance `object`: This resource represents an SLB MUX (software load balancing multiplexer, which distributes the tenant and tenant customer network traffic).
   * properties [SlbMuxInstanceModel](#slbmuxinstancemodel)
   * id `string`: URI of the resource.
-  * location `string`: Region Location of resource.
+  * location `string`: The region where the resource is located.
   * name `string`: Name of the resource.
-  * tags `object`: List of key value pairs.
+  * tags `object`: List of key-value pairs.
   * type `string`: Type of resource.
 
 ### SlbMuxInstanceList
-* SlbMuxInstanceList `object`: A pageable list of SLB Mux instances.
+* SlbMuxInstanceList `object`: A pageable list of SLB MUX instances.
   * nextLink `string`: URI to the next page.
-  * value `array`: List of SLB Mux instances on this page.
+  * value `array`: List of SLB MUX instances.
     * items [SlbMuxInstance](#slbmuxinstance)
 
 ### SlbMuxInstanceModel
-* SlbMuxInstanceModel `object`: Properties of a SLB MUX
+* SlbMuxInstanceModel `object`: Properties of a SLB MUX.
   * bgpPeers `array`: List of BGP peers.
     * items `string`
   * configurationState `string`: Configuration state.

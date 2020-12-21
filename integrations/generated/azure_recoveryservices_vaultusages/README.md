@@ -15,12 +15,7 @@ let azure_recoveryservices_vaultusages = require('@datafire/azure_recoveryservic
   redirect_uri: ""
 });
 
-azure_recoveryservices_vaultusages.Usages_ListByVaults({
-  "subscriptionId": "",
-  "api-version": "",
-  "resourceGroupName": "",
-  "vaultName": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

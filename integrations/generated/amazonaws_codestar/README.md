@@ -13,11 +13,7 @@ let amazonaws_codestar = require('@datafire/amazonaws_codestar').create({
   region: ""
 });
 
-amazonaws_codestar.AssociateTeamMember({
-  "projectId": "",
-  "userArn": "",
-  "projectRole": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -34,19 +30,19 @@ amazonaws_codestar.AssociateTeamMember({
 
 ```js
 amazonaws_codestar.AssociateTeamMember({
-  "projectId": "",
-  "userArn": "",
-  "projectRole": ""
+  "projectId": null,
+  "userArn": null,
+  "projectRole": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * clientRequestToken [ClientRequestToken](#clientrequesttoken)
-  * projectId **required** [ProjectId](#projectid)
-  * projectRole **required** [Role](#role)
-  * remoteAccessAllowed [RemoteAccessAllowed](#remoteaccessallowed)
-  * userArn **required** [UserArn](#userarn)
+  * clientRequestToken
+  * projectId **required**
+  * projectRole **required**
+  * remoteAccessAllowed
+  * userArn **required**
 
 #### Output
 * output [AssociateTeamMemberResult](#associateteammemberresult)
@@ -57,17 +53,27 @@ amazonaws_codestar.AssociateTeamMember({
 
 ```js
 amazonaws_codestar.CreateProject({
-  "name": "",
-  "id": ""
+  "name": null,
+  "id": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * clientRequestToken [ClientRequestToken](#clientrequesttoken)
-  * description [ProjectDescription](#projectdescription)
-  * id **required** [ProjectId](#projectid)
-  * name **required** [ProjectName](#projectname)
+  * tags
+  * clientRequestToken
+  * description
+  * id **required**
+  * name **required**
+  * sourceCode
+    * items [Code](#code)
+  * toolchain
+    * roleArn
+    * source **required**
+      * s3 **required**
+        * bucketKey
+        * bucketName
+    * stackParameters
 
 #### Output
 * output [CreateProjectResult](#createprojectresult)
@@ -78,18 +84,18 @@ amazonaws_codestar.CreateProject({
 
 ```js
 amazonaws_codestar.CreateUserProfile({
-  "userArn": "",
-  "displayName": "",
-  "emailAddress": ""
+  "userArn": null,
+  "displayName": null,
+  "emailAddress": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * displayName **required** [UserProfileDisplayName](#userprofiledisplayname)
-  * emailAddress **required** [Email](#email)
-  * sshPublicKey [SshPublicKey](#sshpublickey)
-  * userArn **required** [UserArn](#userarn)
+  * displayName **required**
+  * emailAddress **required**
+  * sshPublicKey
+  * userArn **required**
 
 #### Output
 * output [CreateUserProfileResult](#createuserprofileresult)
@@ -100,15 +106,15 @@ amazonaws_codestar.CreateUserProfile({
 
 ```js
 amazonaws_codestar.DeleteProject({
-  "id": ""
+  "id": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * clientRequestToken [ClientRequestToken](#clientrequesttoken)
-  * deleteStack [DeleteStack](#deletestack)
-  * id **required** [ProjectId](#projectid)
+  * clientRequestToken
+  * deleteStack
+  * id **required**
 
 #### Output
 * output [DeleteProjectResult](#deleteprojectresult)
@@ -119,13 +125,13 @@ amazonaws_codestar.DeleteProject({
 
 ```js
 amazonaws_codestar.DeleteUserProfile({
-  "userArn": ""
+  "userArn": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * userArn **required** [UserArn](#userarn)
+  * userArn **required**
 
 #### Output
 * output [DeleteUserProfileResult](#deleteuserprofileresult)
@@ -136,13 +142,13 @@ amazonaws_codestar.DeleteUserProfile({
 
 ```js
 amazonaws_codestar.DescribeProject({
-  "id": ""
+  "id": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * id **required** [ProjectId](#projectid)
+  * id **required**
 
 #### Output
 * output [DescribeProjectResult](#describeprojectresult)
@@ -153,13 +159,13 @@ amazonaws_codestar.DescribeProject({
 
 ```js
 amazonaws_codestar.DescribeUserProfile({
-  "userArn": ""
+  "userArn": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * userArn **required** [UserArn](#userarn)
+  * userArn **required**
 
 #### Output
 * output [DescribeUserProfileResult](#describeuserprofileresult)
@@ -170,15 +176,15 @@ amazonaws_codestar.DescribeUserProfile({
 
 ```js
 amazonaws_codestar.DisassociateTeamMember({
-  "projectId": "",
-  "userArn": ""
+  "projectId": null,
+  "userArn": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * projectId **required** [ProjectId](#projectid)
-  * userArn **required** [UserArn](#userarn)
+  * projectId **required**
+  * userArn **required**
 
 #### Output
 * output [DisassociateTeamMemberResult](#disassociateteammemberresult)
@@ -193,8 +199,8 @@ amazonaws_codestar.ListProjects({}, context)
 
 #### Input
 * input `object`
-  * maxResults [MaxResults](#maxresults)
-  * nextToken [PaginationToken](#paginationtoken)
+  * maxResults
+  * nextToken
 
 #### Output
 * output [ListProjectsResult](#listprojectsresult)
@@ -205,15 +211,15 @@ amazonaws_codestar.ListProjects({}, context)
 
 ```js
 amazonaws_codestar.ListResources({
-  "projectId": ""
+  "projectId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * maxResults [MaxResults](#maxresults)
-  * nextToken [PaginationToken](#paginationtoken)
-  * projectId **required** [ProjectId](#projectid)
+  * maxResults
+  * nextToken
+  * projectId **required**
 
 #### Output
 * output [ListResourcesResult](#listresourcesresult)
@@ -224,15 +230,15 @@ amazonaws_codestar.ListResources({
 
 ```js
 amazonaws_codestar.ListTagsForProject({
-  "id": ""
+  "id": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * id **required** [ProjectId](#projectid)
-  * maxResults [MaxResults](#maxresults)
-  * nextToken [PaginationToken](#paginationtoken)
+  * id **required**
+  * maxResults
+  * nextToken
 
 #### Output
 * output [ListTagsForProjectResult](#listtagsforprojectresult)
@@ -243,15 +249,15 @@ amazonaws_codestar.ListTagsForProject({
 
 ```js
 amazonaws_codestar.ListTeamMembers({
-  "projectId": ""
+  "projectId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * maxResults [MaxResults](#maxresults)
-  * nextToken [PaginationToken](#paginationtoken)
-  * projectId **required** [ProjectId](#projectid)
+  * maxResults
+  * nextToken
+  * projectId **required**
 
 #### Output
 * output [ListTeamMembersResult](#listteammembersresult)
@@ -266,8 +272,8 @@ amazonaws_codestar.ListUserProfiles({}, context)
 
 #### Input
 * input `object`
-  * maxResults [MaxResults](#maxresults)
-  * nextToken [PaginationToken](#paginationtoken)
+  * maxResults
+  * nextToken
 
 #### Output
 * output [ListUserProfilesResult](#listuserprofilesresult)
@@ -278,15 +284,15 @@ amazonaws_codestar.ListUserProfiles({}, context)
 
 ```js
 amazonaws_codestar.TagProject({
-  "id": "",
-  "tags": []
+  "id": null,
+  "tags": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * id **required** [ProjectId](#projectid)
-  * tags **required** [Tags](#tags)
+  * tags **required**
+  * id **required**
 
 #### Output
 * output [TagProjectResult](#tagprojectresult)
@@ -297,15 +303,16 @@ amazonaws_codestar.TagProject({
 
 ```js
 amazonaws_codestar.UntagProject({
-  "id": "",
-  "tags": []
+  "id": null,
+  "tags": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * id **required** [ProjectId](#projectid)
-  * tags **required** [TagKeys](#tagkeys)
+  * tags **required**
+    * items [TagKey](#tagkey)
+  * id **required**
 
 #### Output
 * output [UntagProjectResult](#untagprojectresult)
@@ -316,15 +323,15 @@ amazonaws_codestar.UntagProject({
 
 ```js
 amazonaws_codestar.UpdateProject({
-  "id": ""
+  "id": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * description [ProjectDescription](#projectdescription)
-  * id **required** [ProjectId](#projectid)
-  * name [ProjectName](#projectname)
+  * description
+  * id **required**
+  * name
 
 #### Output
 * output [UpdateProjectResult](#updateprojectresult)
@@ -335,17 +342,17 @@ amazonaws_codestar.UpdateProject({
 
 ```js
 amazonaws_codestar.UpdateTeamMember({
-  "projectId": "",
-  "userArn": ""
+  "projectId": null,
+  "userArn": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * projectId **required** [ProjectId](#projectid)
-  * projectRole [Role](#role)
-  * remoteAccessAllowed [RemoteAccessAllowed](#remoteaccessallowed)
-  * userArn **required** [UserArn](#userarn)
+  * projectId **required**
+  * projectRole
+  * remoteAccessAllowed
+  * userArn **required**
 
 #### Output
 * output [UpdateTeamMemberResult](#updateteammemberresult)
@@ -356,16 +363,16 @@ amazonaws_codestar.UpdateTeamMember({
 
 ```js
 amazonaws_codestar.UpdateUserProfile({
-  "userArn": ""
+  "userArn": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * displayName [UserProfileDisplayName](#userprofiledisplayname)
-  * emailAddress [Email](#email)
-  * sshPublicKey [SshPublicKey](#sshpublickey)
-  * userArn **required** [UserArn](#userarn)
+  * displayName
+  * emailAddress
+  * sshPublicKey
+  * userArn **required**
 
 #### Output
 * output [UpdateUserProfileResult](#updateuserprofileresult)
@@ -376,109 +383,169 @@ amazonaws_codestar.UpdateUserProfile({
 
 ### AssociateTeamMemberRequest
 * AssociateTeamMemberRequest `object`
-  * clientRequestToken [ClientRequestToken](#clientrequesttoken)
-  * projectId **required** [ProjectId](#projectid)
-  * projectRole **required** [Role](#role)
-  * remoteAccessAllowed [RemoteAccessAllowed](#remoteaccessallowed)
-  * userArn **required** [UserArn](#userarn)
+  * clientRequestToken
+  * projectId **required**
+  * projectRole **required**
+  * remoteAccessAllowed
+  * userArn **required**
 
 ### AssociateTeamMemberResult
 * AssociateTeamMemberResult `object`
-  * clientRequestToken [ClientRequestToken](#clientrequesttoken)
+  * clientRequestToken
+
+### BucketKey
+* BucketKey `string`
+
+### BucketName
+* BucketName `string`
 
 ### ClientRequestToken
 * ClientRequestToken `string`
 
+### Code
+* Code `object`: Location and destination information about the source code files provided with the project request. The source code is uploaded to the new project source repository after project creation.
+  * destination **required**
+    * codeCommit
+      * name **required**
+    * gitHub
+      * description
+      * issuesEnabled **required**
+      * name **required**
+      * owner **required**
+      * privateRepository **required**
+      * token **required**
+      * type **required**
+  * source **required**
+    * s3 **required**
+      * bucketKey
+      * bucketName
+
+### CodeCommitCodeDestination
+* CodeCommitCodeDestination `object`: Information about the AWS CodeCommit repository to be created in AWS CodeStar. This is where the source code files provided with the project request will be uploaded after project creation.
+  * name **required**
+
+### CodeDestination
+* CodeDestination `object`: The repository to be created in AWS CodeStar. Valid values are AWS CodeCommit or GitHub. After AWS CodeStar provisions the new repository, the source code files provided with the project request are placed in the repository.
+  * codeCommit
+    * name **required**
+  * gitHub
+    * description
+    * issuesEnabled **required**
+    * name **required**
+    * owner **required**
+    * privateRepository **required**
+    * token **required**
+    * type **required**
+
+### CodeSource
+* CodeSource `object`: The location where the source code files provided with the project request are stored. AWS CodeStar retrieves the files during project creation.
+  * s3 **required**
+    * bucketKey
+    * bucketName
+
 ### ConcurrentModificationException
-* ConcurrentModificationException `object`: Another modification is being made. That modification must complete before you can make your change.
+
 
 ### CreateProjectRequest
 * CreateProjectRequest `object`
-  * clientRequestToken [ClientRequestToken](#clientrequesttoken)
-  * description [ProjectDescription](#projectdescription)
-  * id **required** [ProjectId](#projectid)
-  * name **required** [ProjectName](#projectname)
+  * tags
+  * clientRequestToken
+  * description
+  * id **required**
+  * name **required**
+  * sourceCode
+    * items [Code](#code)
+  * toolchain
+    * roleArn
+    * source **required**
+      * s3 **required**
+        * bucketKey
+        * bucketName
+    * stackParameters
 
 ### CreateProjectResult
 * CreateProjectResult `object`
-  * arn **required** [ProjectArn](#projectarn)
-  * clientRequestToken [ClientRequestToken](#clientrequesttoken)
-  * id **required** [ProjectId](#projectid)
-  * projectTemplateId [ProjectTemplateId](#projecttemplateid)
+  * arn **required**
+  * clientRequestToken
+  * id **required**
+  * projectTemplateId
 
 ### CreateUserProfileRequest
 * CreateUserProfileRequest `object`
-  * displayName **required** [UserProfileDisplayName](#userprofiledisplayname)
-  * emailAddress **required** [Email](#email)
-  * sshPublicKey [SshPublicKey](#sshpublickey)
-  * userArn **required** [UserArn](#userarn)
+  * displayName **required**
+  * emailAddress **required**
+  * sshPublicKey
+  * userArn **required**
 
 ### CreateUserProfileResult
 * CreateUserProfileResult `object`
-  * createdTimestamp [CreatedTimestamp](#createdtimestamp)
-  * displayName [UserProfileDisplayName](#userprofiledisplayname)
-  * emailAddress [Email](#email)
-  * lastModifiedTimestamp [LastModifiedTimestamp](#lastmodifiedtimestamp)
-  * sshPublicKey [SshPublicKey](#sshpublickey)
-  * userArn **required** [UserArn](#userarn)
+  * createdTimestamp
+  * displayName
+  * emailAddress
+  * lastModifiedTimestamp
+  * sshPublicKey
+  * userArn **required**
 
 ### CreatedTimestamp
 * CreatedTimestamp `string`
 
 ### DeleteProjectRequest
 * DeleteProjectRequest `object`
-  * clientRequestToken [ClientRequestToken](#clientrequesttoken)
-  * deleteStack [DeleteStack](#deletestack)
-  * id **required** [ProjectId](#projectid)
+  * clientRequestToken
+  * deleteStack
+  * id **required**
 
 ### DeleteProjectResult
 * DeleteProjectResult `object`
-  * projectArn [ProjectArn](#projectarn)
-  * stackId [StackId](#stackid)
+  * projectArn
+  * stackId
 
 ### DeleteStack
 * DeleteStack `boolean`
 
 ### DeleteUserProfileRequest
 * DeleteUserProfileRequest `object`
-  * userArn **required** [UserArn](#userarn)
+  * userArn **required**
 
 ### DeleteUserProfileResult
 * DeleteUserProfileResult `object`
-  * userArn **required** [UserArn](#userarn)
+  * userArn **required**
 
 ### DescribeProjectRequest
 * DescribeProjectRequest `object`
-  * id **required** [ProjectId](#projectid)
+  * id **required**
 
 ### DescribeProjectResult
 * DescribeProjectResult `object`
-  * arn [ProjectArn](#projectarn)
-  * clientRequestToken [ClientRequestToken](#clientrequesttoken)
-  * createdTimeStamp [CreatedTimestamp](#createdtimestamp)
-  * description [ProjectDescription](#projectdescription)
-  * id [ProjectId](#projectid)
-  * name [ProjectName](#projectname)
-  * projectTemplateId [ProjectTemplateId](#projecttemplateid)
-  * stackId [StackId](#stackid)
+  * arn
+  * clientRequestToken
+  * createdTimeStamp
+  * description
+  * id
+  * name
+  * projectTemplateId
+  * stackId
+  * status
+    * reason
+    * state **required**
 
 ### DescribeUserProfileRequest
 * DescribeUserProfileRequest `object`
-  * userArn **required** [UserArn](#userarn)
+  * userArn **required**
 
 ### DescribeUserProfileResult
 * DescribeUserProfileResult `object`
-  * createdTimestamp **required** [CreatedTimestamp](#createdtimestamp)
-  * displayName [UserProfileDisplayName](#userprofiledisplayname)
-  * emailAddress [Email](#email)
-  * lastModifiedTimestamp **required** [LastModifiedTimestamp](#lastmodifiedtimestamp)
-  * sshPublicKey [SshPublicKey](#sshpublickey)
-  * userArn **required** [UserArn](#userarn)
+  * createdTimestamp **required**
+  * displayName
+  * emailAddress
+  * lastModifiedTimestamp **required**
+  * sshPublicKey
+  * userArn **required**
 
 ### DisassociateTeamMemberRequest
 * DisassociateTeamMemberRequest `object`
-  * projectId **required** [ProjectId](#projectid)
-  * userArn **required** [UserArn](#userarn)
+  * projectId **required**
+  * userArn **required**
 
 ### DisassociateTeamMemberResult
 * DisassociateTeamMemberResult `object`
@@ -486,70 +553,87 @@ amazonaws_codestar.UpdateUserProfile({
 ### Email
 * Email `string`
 
+### GitHubCodeDestination
+* GitHubCodeDestination `object`: Information about the GitHub repository to be created in AWS CodeStar. This is where the source code files provided with the project request will be uploaded after project creation.
+  * description
+  * issuesEnabled **required**
+  * name **required**
+  * owner **required**
+  * privateRepository **required**
+  * token **required**
+  * type **required**
+
+### GitHubPersonalToken
+* GitHubPersonalToken `string`
+
 ### InvalidNextTokenException
-* InvalidNextTokenException `object`: The next token is not valid.
+
 
 ### InvalidServiceRoleException
-* InvalidServiceRoleException `object`: The service role is not valid.
+
 
 ### LastModifiedTimestamp
 * LastModifiedTimestamp `string`
 
 ### LimitExceededException
-* LimitExceededException `object`: A resource limit has been exceeded.
+
 
 ### ListProjectsRequest
 * ListProjectsRequest `object`
-  * maxResults [MaxResults](#maxresults)
-  * nextToken [PaginationToken](#paginationtoken)
+  * maxResults
+  * nextToken
 
 ### ListProjectsResult
 * ListProjectsResult `object`
-  * nextToken [PaginationToken](#paginationtoken)
-  * projects **required** [ProjectsList](#projectslist)
+  * nextToken
+  * projects **required**
+    * items [ProjectSummary](#projectsummary)
 
 ### ListResourcesRequest
 * ListResourcesRequest `object`
-  * maxResults [MaxResults](#maxresults)
-  * nextToken [PaginationToken](#paginationtoken)
-  * projectId **required** [ProjectId](#projectid)
+  * maxResults
+  * nextToken
+  * projectId **required**
 
 ### ListResourcesResult
 * ListResourcesResult `object`
-  * nextToken [PaginationToken](#paginationtoken)
-  * resources [ResourcesResult](#resourcesresult)
+  * nextToken
+  * resources
+    * items [Resource](#resource)
 
 ### ListTagsForProjectRequest
 * ListTagsForProjectRequest `object`
-  * id **required** [ProjectId](#projectid)
-  * maxResults [MaxResults](#maxresults)
-  * nextToken [PaginationToken](#paginationtoken)
+  * id **required**
+  * maxResults
+  * nextToken
 
 ### ListTagsForProjectResult
 * ListTagsForProjectResult `object`
-  * nextToken [PaginationToken](#paginationtoken)
-  * tags [Tags](#tags)
+  * tags
+  * nextToken
 
 ### ListTeamMembersRequest
 * ListTeamMembersRequest `object`
-  * maxResults [MaxResults](#maxresults)
-  * nextToken [PaginationToken](#paginationtoken)
-  * projectId **required** [ProjectId](#projectid)
+  * maxResults
+  * nextToken
+  * projectId **required**
 
 ### ListTeamMembersResult
 * ListTeamMembersResult `object`
-  * nextToken [PaginationToken](#paginationtoken)
-  * teamMembers **required** [TeamMemberResult](#teammemberresult)
+  * nextToken
+  * teamMembers **required**
+    * items [TeamMember](#teammember)
 
 ### ListUserProfilesRequest
 * ListUserProfilesRequest `object`
-  * maxResults [MaxResults](#maxresults)
-  * nextToken [PaginationToken](#paginationtoken)
+  * maxResults
+  * nextToken
 
 ### ListUserProfilesResult
 * ListUserProfilesResult `object`
-  * nextToken [PaginationToken](#paginationtoken)
-  * userProfiles **required** [UserProfilesList](#userprofileslist)
+  * nextToken
+  * userProfiles **required**
+    * items [UserProfileSummary](#userprofilesummary)
 
 ### MaxResults
 * MaxResults `integer`
@@ -558,16 +642,16 @@ amazonaws_codestar.UpdateUserProfile({
 * PaginationToken `string`
 
 ### ProjectAlreadyExistsException
-* ProjectAlreadyExistsException `object`: An AWS CodeStar project with the same ID already exists in this region for the AWS account. AWS CodeStar project IDs must be unique within a region for the AWS account.
+
 
 ### ProjectArn
 * ProjectArn `string`
 
 ### ProjectConfigurationException
-* ProjectConfigurationException `object`: Project configuration information is required but not specified.
+
 
 ### ProjectCreationFailedException
-* ProjectCreationFailedException `object`: The project creation request was valid, but a nonspecific exception or error occurred during project creation. The project could not be created in AWS CodeStar.
+
 
 ### ProjectDescription
 * ProjectDescription `string`
@@ -579,12 +663,17 @@ amazonaws_codestar.UpdateUserProfile({
 * ProjectName `string`
 
 ### ProjectNotFoundException
-* ProjectNotFoundException `object`: The specified AWS CodeStar project was not found.
+
+
+### ProjectStatus
+* ProjectStatus `object`: An indication of whether a project creation or deletion is failed or successful.
+  * reason
+  * state **required**
 
 ### ProjectSummary
 * ProjectSummary `object`: Information about the metadata for a project.
-  * projectArn [ProjectArn](#projectarn)
-  * projectId [ProjectId](#projectid)
+  * projectArn
+  * projectId
 
 ### ProjectTemplateId
 * ProjectTemplateId `string`
@@ -593,12 +682,33 @@ amazonaws_codestar.UpdateUserProfile({
 * ProjectsList `array`
   * items [ProjectSummary](#projectsummary)
 
+### Reason
+* Reason `string`
+
 ### RemoteAccessAllowed
 * RemoteAccessAllowed `boolean`
 
+### RepositoryDescription
+* RepositoryDescription `string`
+
+### RepositoryEnableIssues
+* RepositoryEnableIssues `boolean`
+
+### RepositoryIsPrivate
+* RepositoryIsPrivate `boolean`
+
+### RepositoryName
+* RepositoryName `string`
+
+### RepositoryOwner
+* RepositoryOwner `string`
+
+### RepositoryType
+* RepositoryType `string`
+
 ### Resource
 * Resource `object`: Information about a resource for a project.
-  * id **required** [ResourceId](#resourceid)
+  * id **required**
 
 ### ResourceId
 * ResourceId `string`
@@ -610,11 +720,26 @@ amazonaws_codestar.UpdateUserProfile({
 ### Role
 * Role `string`
 
+### RoleArn
+* RoleArn `string`
+
+### S3Location
+* S3Location `object`: The Amazon S3 location where the source code files provided with the project request are stored.
+  * bucketKey
+  * bucketName
+
+### SourceCode
+* SourceCode `array`
+  * items [Code](#code)
+
 ### SshPublicKey
 * SshPublicKey `string`
 
 ### StackId
 * StackId `string`
+
+### State
+* State `string`
 
 ### TagKey
 * TagKey `string`
@@ -625,108 +750,130 @@ amazonaws_codestar.UpdateUserProfile({
 
 ### TagProjectRequest
 * TagProjectRequest `object`
-  * id **required** [ProjectId](#projectid)
-  * tags **required** [Tags](#tags)
+  * tags **required**
+  * id **required**
 
 ### TagProjectResult
 * TagProjectResult `object`
-  * tags [Tags](#tags)
+  * tags
 
 ### TagValue
 * TagValue `string`
 
 ### Tags
-* Tags `array`
-  * items `object`
-    * key [TagKey](#tagkey)
-    * value [TagValue](#tagvalue)
+* Tags `object`
 
 ### TeamMember
 * TeamMember `object`: Information about a team member in a project.
-  * projectRole **required** [Role](#role)
-  * remoteAccessAllowed [RemoteAccessAllowed](#remoteaccessallowed)
-  * userArn **required** [UserArn](#userarn)
+  * projectRole **required**
+  * remoteAccessAllowed
+  * userArn **required**
 
 ### TeamMemberAlreadyAssociatedException
-* TeamMemberAlreadyAssociatedException `object`: The team member is already associated with a role in this project.
+
 
 ### TeamMemberNotFoundException
-* TeamMemberNotFoundException `object`: The specified team member was not found.
+
 
 ### TeamMemberResult
 * TeamMemberResult `array`
   * items [TeamMember](#teammember)
 
+### TemplateParameterKey
+* TemplateParameterKey `string`
+
+### TemplateParameterMap
+* TemplateParameterMap `object`
+
+### TemplateParameterValue
+* TemplateParameterValue `string`
+
+### Toolchain
+* Toolchain `object`: The toolchain template file provided with the project request. AWS CodeStar uses the template to provision the toolchain stack in AWS CloudFormation.
+  * roleArn
+  * source **required**
+    * s3 **required**
+      * bucketKey
+      * bucketName
+  * stackParameters
+
+### ToolchainSource
+* ToolchainSource `object`: The Amazon S3 location where the toolchain template file provided with the project request is stored. AWS CodeStar retrieves the file during project creation.
+  * s3 **required**
+    * bucketKey
+    * bucketName
+
 ### UntagProjectRequest
 * UntagProjectRequest `object`
-  * id **required** [ProjectId](#projectid)
-  * tags **required** [TagKeys](#tagkeys)
+  * tags **required**
+    * items [TagKey](#tagkey)
+  * id **required**
 
 ### UntagProjectResult
 * UntagProjectResult `object`
 
 ### UpdateProjectRequest
 * UpdateProjectRequest `object`
-  * description [ProjectDescription](#projectdescription)
-  * id **required** [ProjectId](#projectid)
-  * name [ProjectName](#projectname)
+  * description
+  * id **required**
+  * name
 
 ### UpdateProjectResult
 * UpdateProjectResult `object`
 
 ### UpdateTeamMemberRequest
 * UpdateTeamMemberRequest `object`
-  * projectId **required** [ProjectId](#projectid)
-  * projectRole [Role](#role)
-  * remoteAccessAllowed [RemoteAccessAllowed](#remoteaccessallowed)
-  * userArn **required** [UserArn](#userarn)
+  * projectId **required**
+  * projectRole
+  * remoteAccessAllowed
+  * userArn **required**
 
 ### UpdateTeamMemberResult
 * UpdateTeamMemberResult `object`
-  * projectRole [Role](#role)
-  * remoteAccessAllowed [RemoteAccessAllowed](#remoteaccessallowed)
-  * userArn [UserArn](#userarn)
+  * projectRole
+  * remoteAccessAllowed
+  * userArn
 
 ### UpdateUserProfileRequest
 * UpdateUserProfileRequest `object`
-  * displayName [UserProfileDisplayName](#userprofiledisplayname)
-  * emailAddress [Email](#email)
-  * sshPublicKey [SshPublicKey](#sshpublickey)
-  * userArn **required** [UserArn](#userarn)
+  * displayName
+  * emailAddress
+  * sshPublicKey
+  * userArn **required**
 
 ### UpdateUserProfileResult
 * UpdateUserProfileResult `object`
-  * createdTimestamp [CreatedTimestamp](#createdtimestamp)
-  * displayName [UserProfileDisplayName](#userprofiledisplayname)
-  * emailAddress [Email](#email)
-  * lastModifiedTimestamp [LastModifiedTimestamp](#lastmodifiedtimestamp)
-  * sshPublicKey [SshPublicKey](#sshpublickey)
-  * userArn **required** [UserArn](#userarn)
+  * createdTimestamp
+  * displayName
+  * emailAddress
+  * lastModifiedTimestamp
+  * sshPublicKey
+  * userArn **required**
 
 ### UserArn
 * UserArn `string`
 
 ### UserProfileAlreadyExistsException
-* UserProfileAlreadyExistsException `object`: A user profile with that name already exists in this region for the AWS account. AWS CodeStar user profile names must be unique within a region for the AWS account. 
+
 
 ### UserProfileDisplayName
 * UserProfileDisplayName `string`
 
 ### UserProfileNotFoundException
-* UserProfileNotFoundException `object`: The user profile was not found.
+
 
 ### UserProfileSummary
 * UserProfileSummary `object`: Information about a user's profile in AWS CodeStar.
-  * displayName [UserProfileDisplayName](#userprofiledisplayname)
-  * emailAddress [Email](#email)
-  * sshPublicKey [SshPublicKey](#sshpublickey)
-  * userArn [UserArn](#userarn)
+  * displayName
+  * emailAddress
+  * sshPublicKey
+  * userArn
 
 ### UserProfilesList
 * UserProfilesList `array`
   * items [UserProfileSummary](#userprofilesummary)
 
 ### ValidationException
-* ValidationException `object`: The specified input is either not valid, or it could not be validated.
+
 
 

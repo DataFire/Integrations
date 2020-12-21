@@ -1,11 +1,7 @@
 {
   "swagger": "2.0",
-  "schemes": [
-    "http"
-  ],
-  "host": "bhagavadgita.io",
   "info": {
-    "title": "Bhagavad Gita",
+    "title": "Bhagavad Gita API",
     "version": "1.0",
     "x-apisguru-categories": [
       "open_data"
@@ -19,6 +15,11 @@
         "format": "swagger",
         "url": "http://bhagavadgita.io/apispec_1.json",
         "version": "2.0"
+      },
+      {
+        "format": "openapi",
+        "url": "http://bhagavadgita.io/apispec_1.json",
+        "version": "3.0"
       }
     ],
     "x-preferred": true,
@@ -28,16 +29,12 @@
       "type": "openapi"
     }
   },
-  "produces": [
-    "application/json"
-  ],
   "paths": {
     "/api/v1/chapters": {
       "get": {
-        "consumes": [
+        "produces": [
           "application/json"
         ],
-        "description": "Get a list of all the 18 Chapters of the Bhagavad Gita.",
         "parameters": [
           {
             "description": "Your app's access token.",
@@ -59,9 +56,6 @@
         "responses": {
           "200": {
             "description": "Success: Everything worked as expected.",
-            "examples": {
-              "application/json": "{\n  \"chapters\": [\n    {\n      \"chapter_number\": 1, \n      \"name\": \"u'अर्जुनविषादयोग'\", \n      \"name_english\": \"u'Arjuna Dilemma'\", \n      \"name_transliterated\": \"u'Arjun Viṣhād Yog'\", \n      \"name_transliterated_simple\": \"u'Arjuna Visada Yoga'\", \n      \"verses_count\": 47\n    }, \n    {\n      \"chapter_number\": 2, \n      \"name\": \"u'सांख्ययोग'\", \n      \"name_english\": \"u'Transcendental Knowledge'\", \n      \"name_transliterated\": \"u'Sānkhya Yog'\", \n      \"name_transliterated_simple\": \"u'Sankhya Yoga'\", \n      \"verses_count\": 72\n    }\n  ]\n}"
-            },
             "schema": {
               "$ref": "#/definitions/ChapterSchema"
             }
@@ -79,19 +73,18 @@
             "description": "Server Error: Something went wrong on our end."
           }
         },
-        "summary": "Get all the 18 Chapters of the Bhagavad Gita.",
         "tags": [
           "chapter"
         ],
-        "operationId": "api.v1.chapters.get"
+        "description": "Get a list of all the 18 Chapters of the Bhagavad Gita.<br/>",
+        "summary": "Get all the 18 Chapters of the Bhagavad Gita."
       }
     },
     "/api/v1/chapters/{chapter_number}": {
       "get": {
-        "consumes": [
+        "produces": [
           "application/json"
         ],
-        "description": "Get information about a specific chapter from the Bhagavad Gita.",
         "parameters": [
           {
             "description": "Your app's access token.",
@@ -126,9 +119,6 @@
         "responses": {
           "200": {
             "description": "Success: Everything worked as expected.",
-            "examples": {
-              "application/json": "{\n  \"chapter_number\": 1, \n  \"name\": \"u'अर्जुनविषादयोग'\", \n  \"name_english\": \"u'Arjuna Dilemma'\", \n  \"name_transliterated\": \"u'Arjun Viṣhād Yog'\", \n  \"name_transliterated_simple\": \"u'Arjuna Visada Yoga'\", \n  \"verses_count\": 47\n}"
-            },
             "schema": {
               "$ref": "#/definitions/ChapterSchema"
             }
@@ -149,19 +139,18 @@
             "description": "Server Error: Something went wrong on our end."
           }
         },
-        "summary": "Get a specific chapter from the Bhagavad Gita.",
         "tags": [
           "chapter"
         ],
-        "operationId": "api.v1.chapters.chapter_number.get"
+        "description": "Get information about a specific chapter from the Bhagavad Gita.<br/>",
+        "summary": "Get a specific chapter from the Bhagavad Gita."
       }
     },
     "/api/v1/chapters/{chapter_number}/verses": {
       "get": {
-        "consumes": [
+        "produces": [
           "application/json"
         ],
-        "description": "Get a list of all Verses from a particular Chapter.",
         "parameters": [
           {
             "description": "Your app's access token.",
@@ -196,9 +185,6 @@
         "responses": {
           "200": {
             "description": "Success: Everything worked as expected.",
-            "examples": {
-              "application/json": "{\n  \"verses\": [\n    {\n      \"chapter_number\": 1,\n      \"meaning\": \"Dhritarashtra said: O Sanjay, after gathering on the holy field of Kurukshetra, and desiring to fight, what did my sons and the sons of Pandu do?\",\n      \"text\": \"धृतराष्ट्र उवाच | धर्मक्षेत्रे कुरुक्षेत्रे समवेता युयुत्सवः | मामकाः पाण्डवाश्चैव किमकुर्वत सञ्जय |||1||\",\n      \"transliteration\": \"dhṛitarāśhtra uvācha dharma-kṣhetre kuru-kṣhetre samavetā yuyutsavaḥ māmakāḥ pāṇḍavāśhchaiva kimakurvata sañjaya\",\n      \"verse_number\": 1,\n      \"word_meanings\": \"dhṛitarāśhtraḥ uvācha—Dhritarashtra said; dharma-kṣhetre—the land of dharma; kuru-kṣhetre—at Kurukshetra; samavetāḥ—having gathered; yuyutsavaḥ—desiring to fight; māmakāḥ—my sons; pāṇḍavāḥ—the sons of Pandu; cha—and; eva—certainly; kim—what; akurvata—did they do; sañjaya—Sanjay\"\n    }, \n    {\n      \"chapter_number\": 1,\n      \"meaning\": \"Sanjay said: On observing the Pandava army standing in military formation, King Duryodhan approached his teacher Dronacharya, and said the following words.\",\n      \"text\": \"सञ्जय उवाच | दृष्ट्वा तु पाण्डवानीकं व्यूढं दुर्योधनस्तदा | आचार्यमुपसङ्गम्य राजा वचनमब्रवीत् | ||2||\",\n      \"transliteration\": \"sañjaya uvācha dṛiṣhṭvā tu pāṇḍavānīkaṁ vyūḍhaṁ duryodhanastadā āchāryamupasaṅgamya rājā vachanamabravīt\",\n      \"verse_number\": 2,\n      \"word_meanings\": \"sanjayaḥ uvācha—Sanjay said; dṛiṣhṭvā—on observing; tu—but; pāṇḍava-anīkam—the Pandava army; vyūḍham—standing in a military formation; duryodhanaḥ—King Duryodhan; tadā—then; āchāryam—teacher; upasaṅgamya—approached; rājā—the king; vachanam—words; abravīt—spoke\"\n    }\n  ]\n}"
-            },
             "schema": {
               "$ref": "#/definitions/VerseSchema"
             }
@@ -219,19 +205,18 @@
             "description": "Server Error: Something went wrong on our end."
           }
         },
-        "summary": "Get all the Verses from a Chapter.",
         "tags": [
           "verse"
         ],
-        "operationId": "api.v1.chapters.chapter_number.verses.get"
+        "description": "Get a list of all Verses from a particular Chapter.<br/>",
+        "summary": "Get all the Verses from a Chapter."
       }
     },
     "/api/v1/chapters/{chapter_number}/verses/{verse_number}": {
       "get": {
-        "consumes": [
+        "produces": [
           "application/json"
         ],
-        "description": "Get a specific verse from a specific chapter.",
         "parameters": [
           {
             "description": "Your app's access token.",
@@ -254,6 +239,7 @@
             "type": "integer"
           },
           {
+            "default": 1,
             "description": "Which Verse Number to filter?",
             "enum": [
               1,
@@ -278,9 +264,6 @@
         "responses": {
           "200": {
             "description": "Success: Everything worked as expected.",
-            "examples": {
-              "application/json": "{\n  \"chapter_number\": 1,\n  \"meaning\": \"Dhritarashtra said: O Sanjay, after gathering on the holy field of Kurukshetra, and desiring to fight, what did my sons and the sons of Pandu do?\",\n  \"text\": \"धृतराष्ट्र उवाच | धर्मक्षेत्रे कुरुक्षेत्रे समवेता युयुत्सवः | मामकाः पाण्डवाश्चैव किमकुर्वत सञ्जय |||1||\",\n  \"transliteration\": \"dhṛitarāśhtra uvācha dharma-kṣhetre kuru-kṣhetre samavetā yuyutsavaḥ māmakāḥ pāṇḍavāśhchaiva kimakurvata sañjaya\",\n  \"verse_number\": 1,\n  \"word_meanings\": \"dhṛitarāśhtraḥ uvācha—Dhritarashtra said; dharma-kṣhetre—the land of dharma; kuru-kṣhetre—at Kurukshetra; samavetāḥ—having gathered; yuyutsavaḥ—desiring to fight; māmakāḥ—my sons; pāṇḍavāḥ—the sons of Pandu; cha—and; eva—certainly; kim—what; akurvata—did they do; sañjaya—Sanjay\"\n}         "
-            },
             "schema": {
               "$ref": "#/definitions/VerseSchema"
             }
@@ -301,19 +284,18 @@
             "description": "Server Error: Something went wrong on our end."
           }
         },
-        "summary": "Get a particular verse from a chapter.",
         "tags": [
           "verse"
         ],
-        "operationId": "api.v1.chapters.chapter_number.verses.verse_number.get"
+        "description": "Get a specific verse from a specific chapter.<br/>",
+        "summary": "Get a particular verse from a chapter."
       }
     },
     "/api/v1/verses": {
       "get": {
-        "consumes": [
+        "produces": [
           "application/json"
         ],
-        "description": "Get a list of all Verses.",
         "parameters": [
           {
             "description": "Your app's access token.",
@@ -335,9 +317,6 @@
         "responses": {
           "200": {
             "description": "Success: Everything worked as expected.",
-            "examples": {
-              "application/json": "{\n  \"verses\": [\n    {\n      \"chapter_number\": 1,\n      \"meaning\": \"Dhritarashtra said: O Sanjay, after gathering on the holy field of Kurukshetra, and desiring to fight, what did my sons and the sons of Pandu do?\",\n      \"text\": \"धृतराष्ट्र उवाच | धर्मक्षेत्रे कुरुक्षेत्रे समवेता युयुत्सवः | मामकाः पाण्डवाश्चैव किमकुर्वत सञ्जय |||1||\",\n      \"transliteration\": \"dhṛitarāśhtra uvācha dharma-kṣhetre kuru-kṣhetre samavetā yuyutsavaḥ māmakāḥ pāṇḍavāśhchaiva kimakurvata sañjaya\",\n      \"verse_number\": 1,\n      \"word_meanings\": \"dhṛitarāśhtraḥ uvācha—Dhritarashtra said; dharma-kṣhetre—the land of dharma; kuru-kṣhetre—at Kurukshetra; samavetāḥ—having gathered; yuyutsavaḥ—desiring to fight; māmakāḥ—my sons; pāṇḍavāḥ—the sons of Pandu; cha—and; eva—certainly; kim—what; akurvata—did they do; sañjaya—Sanjay\"\n    }, \n    {\n      \"chapter_number\": 1,\n      \"meaning\": \"Sanjay said: On observing the Pandava army standing in military formation, King Duryodhan approached his teacher Dronacharya, and said the following words.\",\n      \"text\": \"सञ्जय उवाच | दृष्ट्वा तु पाण्डवानीकं व्यूढं दुर्योधनस्तदा | आचार्यमुपसङ्गम्य राजा वचनमब्रवीत् | ||2||\",\n      \"transliteration\": \"sañjaya uvācha dṛiṣhṭvā tu pāṇḍavānīkaṁ vyūḍhaṁ duryodhanastadā āchāryamupasaṅgamya rājā vachanamabravīt\",\n      \"verse_number\": 2,\n      \"word_meanings\": \"sanjayaḥ uvācha—Sanjay said; dṛiṣhṭvā—on observing; tu—but; pāṇḍava-anīkam—the Pandava army; vyūḍham—standing in a military formation; duryodhanaḥ—King Duryodhan; tadā—then; āchāryam—teacher; upasaṅgamya—approached; rājā—the king; vachanam—words; abravīt—spoke\"\n    }\n  ]\n}"
-            },
             "schema": {
               "$ref": "#/definitions/VerseSchema"
             }
@@ -355,17 +334,20 @@
             "description": "Server Error: Something went wrong on our end."
           }
         },
-        "summary": "Get all the Verses.",
         "tags": [
           "verse"
         ],
-        "operationId": "api.v1.verses.get"
+        "description": "Get a list of all Verses.<br/>",
+        "summary": "Get all the Verses."
       }
     },
     "/auth/oauth/token": {
       "post": {
         "consumes": [
           "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json"
         ],
         "parameters": [
           {
@@ -401,10 +383,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Success: Everything worked as expected.",
-            "examples": {
-              "application/json": "{\n  access_token: \"cN31b7gClnImuQg8OeMGsUWYGsA0we\"\n  token_type: \"Bearer\"\n  scope: \"email\"\n}"
-            }
+            "description": "Success: Everything worked as expected."
           },
           "400": {
             "description": "Bad Request: The request was unacceptable due to wrong parameter(s)."
@@ -419,11 +398,10 @@
             "description": "Server Error: Something went wrong on our end."
           }
         },
-        "summary": "Send client credentials and get an access token.",
         "tags": [
           "auth"
         ],
-        "operationId": "auth.oauth.token.post"
+        "summary": "Send client credentials and get an access token."
       }
     }
   },
@@ -469,10 +447,6 @@
           "type": "string",
           "x-nullable": true
         },
-        "meaning_large": {
-          "type": "string",
-          "x-nullable": true
-        },
         "text": {
           "type": "string",
           "x-nullable": true
@@ -492,5 +466,6 @@
       },
       "type": "object"
     }
-  }
+  },
+  "x-components": {}
 }

@@ -1,12 +1,5 @@
 {
   "swagger": "2.0",
-  "schemes": [
-    "https",
-    "http"
-  ],
-  "host": "shield.amazonaws.com",
-  "basePath": "/",
-  "x-hasEquivalentPaths": true,
   "info": {
     "contact": {
       "email": "mike.ralphson@gmail.com",
@@ -14,7 +7,7 @@
       "url": "https://github.com/mermade/aws2openapi",
       "x-twitter": "PermittedSoc"
     },
-    "description": "<fullname>AWS Shield Advanced</fullname> <p>This is the <i>AWS Shield Advanced API Reference</i>. This guide is for developers who need detailed information about the AWS Shield Advanced API actions, data types, and errors. For detailed information about AWS WAF and AWS Shield Advanced features and an overview of how to use the AWS WAF and AWS Shield Advanced APIs, see the <a href=\"http://docs.aws.amazon.com/waf/latest/developerguide/\">AWS WAF and AWS Shield Developer Guide</a>.</p>",
+    "description": "<fullname>AWS Shield Advanced</fullname> <p>This is the <i>AWS Shield Advanced API Reference</i>. This guide is for developers who need detailed information about the AWS Shield Advanced API actions, data types, and errors. For detailed information about AWS WAF and AWS Shield Advanced features and an overview of how to use the AWS WAF and AWS Shield Advanced APIs, see the <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/\">AWS WAF and AWS Shield Developer Guide</a>.</p>",
     "license": {
       "name": "Apache 2.0 License",
       "url": "http://www.apache.org/licenses/"
@@ -30,7 +23,7 @@
     ],
     "x-logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.jpeg"
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"
     },
     "x-origin": [
       {
@@ -40,7 +33,7 @@
           "version": "1.0.0"
         },
         "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/shield-2016-06-02.normal.json",
-        "x-apisguru-direct": true
+        "x-apisguru-driver": "external"
       }
     ],
     "x-preferred": true,
@@ -52,121 +45,74 @@
       "type": "openapi"
     }
   },
-  "externalDocs": {
-    "description": "Amazon Web Services documentation",
-    "url": "https://aws.amazon.com/shield/"
-  },
-  "consumes": [
-    "application/json"
+  "host": "shield.us-east-1.amazonaws.com",
+  "basePath": "/",
+  "schemes": [
+    "http"
   ],
-  "produces": [
-    "application/json"
-  ],
-  "securityDefinitions": {
-    "hmac": {
-      "description": "Amazon Signature authorization v4",
-      "in": "header",
-      "name": "Authorization",
-      "type": "apiKey",
-      "x-amazon-apigateway-authtype": "awsSigv4"
-    }
-  },
-  "security": [
-    {
-      "hmac": []
-    }
-  ],
-  "parameters": {
-    "Action": {
-      "in": "header",
-      "name": "Action",
-      "required": true,
-      "type": "string"
-    },
-    "Version": {
-      "in": "header",
-      "name": "Version",
-      "required": true,
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "in": "header",
-      "name": "X-Amz-Algorithm",
-      "required": false,
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "in": "header",
-      "name": "X-Amz-Content-Sha256",
-      "required": false,
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "in": "header",
-      "name": "X-Amz-Credential",
-      "required": false,
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "in": "header",
-      "name": "X-Amz-Date",
-      "required": false,
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "in": "header",
-      "name": "X-Amz-Security-Token",
-      "required": false,
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "in": "header",
-      "name": "X-Amz-Signature",
-      "required": false,
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "in": "header",
-      "name": "X-Amz-SignedHeaders",
-      "required": false,
-      "type": "string"
-    }
-  },
   "paths": {
-    "/": {
+    "/#X-Amz-Target=AWSShield_20160616.AssociateDRTLogBucket": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "<p>Authorizes the DDoS Response team (DRT) to access the specified Amazon S3 bucket containing your flow logs. You can associate up to 10 Amazon S3 buckets with your subscription.</p> <p>To use the services of the DRT and make an <code>AssociateDRTLogBucket</code> request, you must be subscribed to the <a href=\"https://aws.amazon.com/premiumsupport/business-support/\">Business Support plan</a> or the <a href=\"https://aws.amazon.com/premiumsupport/enterprise-support/\">Enterprise Support plan</a>.</p>",
-        "operationId": "AssociateDRTLogBucket",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "enum": [
+              "AWSShield_20160616.AssociateDRTLogBucket"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -231,43 +177,73 @@
               "$ref": "#/definitions/ResourceNotFoundException"
             }
           }
-        }
+        },
+        "description": "<p>Authorizes the DDoS Response Team (DRT) to access the specified Amazon S3 bucket containing your AWS WAF logs. You can associate up to 10 Amazon S3 buckets with your subscription.</p> <p>To use the services of the DRT and make an <code>AssociateDRTLogBucket</code> request, you must be subscribed to the <a href=\"https://aws.amazon.com/premiumsupport/business-support/\">Business Support plan</a> or the <a href=\"https://aws.amazon.com/premiumsupport/enterprise-support/\">Enterprise Support plan</a>.</p>",
+        "operationId": "AssociateDRTLogBucket"
       }
     },
-    "/#AssociateDRTRole": {
+    "/#X-Amz-Target=AWSShield_20160616.AssociateDRTRole": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "<p>Authorizes the DDoS Response team (DRT), using the specified role, to access your AWS account to assist with DDoS attack mitigation during potential attacks. This enables the DRT to inspect your AWS WAF configuration and create or update AWS WAF rules and web ACLs.</p> <p>You can associate only one <code>RoleArn</code> with your subscription. If you submit an <code>AssociateDRTRole</code> request for an account that already has an associated role, the new <code>RoleArn</code> will replace the existing <code>RoleArn</code>. </p> <p>Prior to making the <code>AssociateDRTRole</code> request, you must attach the <a href=\"https://console.aws.amazon.com/iam/home?#/policies/arn:aws:iam::aws:policy/service-role/AWSShieldDRTAccessPolicy\">AWSShieldDRTAccessPolicy</a> managed policy to the role you will specify in the request. For more information see <a href=\" https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-attach-detach.html\">Attaching and Detaching IAM Policies</a>. The role must also trust the service principal <code> drt.shield.amazonaws.com</code>. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html\">IAM JSON Policy Elements: Principal</a>.</p> <p>The DRT will have access only to your AWS WAF and Shield resources. By submitting this request, you authorize the DRT to inspect your AWS WAF and Shield configuration and create and update AWS WAF rules and web ACLs on your behalf. The DRT takes these actions only if explicitly authorized by you.</p> <p>You must have the <code>iam:PassRole</code> permission to make an <code>AssociateDRTRole</code> request. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html\">Granting a User Permissions to Pass a Role to an AWS Service</a>. </p> <p>To use the services of the DRT and make an <code>AssociateDRTRole</code> request, you must be subscribed to the <a href=\"https://aws.amazon.com/premiumsupport/business-support/\">Business Support plan</a> or the <a href=\"https://aws.amazon.com/premiumsupport/enterprise-support/\">Enterprise Support plan</a>.</p>",
-        "operationId": "AssociateDRTRole",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "enum": [
+              "AWSShield_20160616.AssociateDRTRole"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -320,43 +296,299 @@
               "$ref": "#/definitions/ResourceNotFoundException"
             }
           }
-        }
+        },
+        "description": "<p>Authorizes the DDoS Response Team (DRT), using the specified role, to access your AWS account to assist with DDoS attack mitigation during potential attacks. This enables the DRT to inspect your AWS WAF configuration and create or update AWS WAF rules and web ACLs.</p> <p>You can associate only one <code>RoleArn</code> with your subscription. If you submit an <code>AssociateDRTRole</code> request for an account that already has an associated role, the new <code>RoleArn</code> will replace the existing <code>RoleArn</code>. </p> <p>Prior to making the <code>AssociateDRTRole</code> request, you must attach the <a href=\"https://console.aws.amazon.com/iam/home?#/policies/arn:aws:iam::aws:policy/service-role/AWSShieldDRTAccessPolicy\">AWSShieldDRTAccessPolicy</a> managed policy to the role you will specify in the request. For more information see <a href=\" https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-attach-detach.html\">Attaching and Detaching IAM Policies</a>. The role must also trust the service principal <code> drt.shield.amazonaws.com</code>. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html\">IAM JSON Policy Elements: Principal</a>.</p> <p>The DRT will have access only to your AWS WAF and Shield resources. By submitting this request, you authorize the DRT to inspect your AWS WAF and Shield configuration and create and update AWS WAF rules and web ACLs on your behalf. The DRT takes these actions only if explicitly authorized by you.</p> <p>You must have the <code>iam:PassRole</code> permission to make an <code>AssociateDRTRole</code> request. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html\">Granting a User Permissions to Pass a Role to an AWS Service</a>. </p> <p>To use the services of the DRT and make an <code>AssociateDRTRole</code> request, you must be subscribed to the <a href=\"https://aws.amazon.com/premiumsupport/business-support/\">Business Support plan</a> or the <a href=\"https://aws.amazon.com/premiumsupport/enterprise-support/\">Enterprise Support plan</a>.</p>",
+        "operationId": "AssociateDRTRole"
       }
     },
-    "/#CreateProtection": {
+    "/#X-Amz-Target=AWSShield_20160616.AssociateHealthCheck": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "<p>Enables AWS Shield Advanced for a specific AWS resource. The resource can be an Amazon CloudFront distribution, Elastic Load Balancing load balancer, Elastic IP Address, or an Amazon Route 53 hosted zone.</p> <p>You can add protection to only a single resource with each CreateProtection request. If you want to add protection to multiple resources at once, use the <a href=\"https://console.aws.amazon.com/waf/\">AWS WAF console</a>. For more information see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/getting-started-ddos.html\">Getting Started with AWS Shield Advanced</a> and <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/configure-new-protection.html\">Add AWS Shield Advanced Protection to more AWS Resources</a>.</p>",
-        "operationId": "CreateProtection",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "enum": [
+              "AWSShield_20160616.AssociateHealthCheck"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AssociateHealthCheckRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/AssociateHealthCheckResponse"
+            }
+          },
+          "480": {
+            "description": "InternalErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalErrorException"
+            }
+          },
+          "481": {
+            "description": "LimitsExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitsExceededException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "484": {
+            "description": "OptimisticLockException",
+            "schema": {
+              "$ref": "#/definitions/OptimisticLockException"
+            }
+          }
+        },
+        "description": "<p>Adds health-based detection to the Shield Advanced protection for a resource. Shield Advanced health-based detection uses the health of your AWS resource to improve responsiveness and accuracy in attack detection and mitigation. </p> <p>You define the health check in Route 53 and then associate it with your Shield Advanced protection. For more information, see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/ddos-overview.html#ddos-advanced-health-check-option\">Shield Advanced Health-Based Detection</a> in the <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/\">AWS WAF and AWS Shield Developer Guide</a>. </p>",
+        "operationId": "AssociateHealthCheck"
+      }
+    },
+    "/#X-Amz-Target=AWSShield_20160616.AssociateProactiveEngagementDetails": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "AWSShield_20160616.AssociateProactiveEngagementDetails"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AssociateProactiveEngagementDetailsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/AssociateProactiveEngagementDetailsResponse"
+            }
+          },
+          "480": {
+            "description": "InternalErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalErrorException"
+            }
+          },
+          "481": {
+            "description": "InvalidOperationException",
+            "schema": {
+              "$ref": "#/definitions/InvalidOperationException"
+            }
+          },
+          "482": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "484": {
+            "description": "OptimisticLockException",
+            "schema": {
+              "$ref": "#/definitions/OptimisticLockException"
+            }
+          }
+        },
+        "description": "<p>Initializes proactive engagement and sets the list of contacts for the DDoS Response Team (DRT) to use. You must provide at least one phone number in the emergency contact list. </p> <p>After you have initialized proactive engagement using this call, to disable or enable proactive engagement, use the calls <code>DisableProactiveEngagement</code> and <code>EnableProactiveEngagement</code>. </p> <note> <p>This call defines the list of email addresses and phone numbers that the DDoS Response Team (DRT) can use to contact you for escalations to the DRT and to initiate proactive customer support.</p> <p>The contacts that you provide in the request replace any contacts that were already defined. If you already have contacts defined and want to use them, retrieve the list using <code>DescribeEmergencyContactSettings</code> and then provide it to this call. </p> </note>",
+        "operationId": "AssociateProactiveEngagementDetails"
+      }
+    },
+    "/#X-Amz-Target=AWSShield_20160616.CreateProtection": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "AWSShield_20160616.CreateProtection"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -415,43 +647,192 @@
               "$ref": "#/definitions/ResourceNotFoundException"
             }
           }
-        }
+        },
+        "description": "<p>Enables AWS Shield Advanced for a specific AWS resource. The resource can be an Amazon CloudFront distribution, Elastic Load Balancing load balancer, AWS Global Accelerator accelerator, Elastic IP Address, or an Amazon Route 53 hosted zone.</p> <p>You can add protection to only a single resource with each CreateProtection request. If you want to add protection to multiple resources at once, use the <a href=\"https://console.aws.amazon.com/waf/\">AWS WAF console</a>. For more information see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/getting-started-ddos.html\">Getting Started with AWS Shield Advanced</a> and <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/configure-new-protection.html\">Add AWS Shield Advanced Protection to more AWS Resources</a>.</p>",
+        "operationId": "CreateProtection"
       }
     },
-    "/#CreateSubscription": {
+    "/#X-Amz-Target=AWSShield_20160616.CreateProtectionGroup": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "<p>Activates AWS Shield Advanced for an account.</p> <p>As part of this request you can specify <code>EmergencySettings</code> that automaticaly grant the DDoS response team (DRT) needed permissions to assist you during a suspected DDoS attack. For more information see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/authorize-DRT.html\">Authorize the DDoS Response Team to Create Rules and Web ACLs on Your Behalf</a>.</p> <p>When you initally create a subscription, your subscription is set to be automatically renewed at the end of the existing subscription period. You can change this by submitting an <code>UpdateSubscription</code> request. </p>",
-        "operationId": "CreateSubscription",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "enum": [
+              "AWSShield_20160616.CreateProtectionGroup"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateProtectionGroupRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateProtectionGroupResponse"
+            }
+          },
+          "480": {
+            "description": "InternalErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalErrorException"
+            }
+          },
+          "481": {
+            "description": "ResourceAlreadyExistsException",
+            "schema": {
+              "$ref": "#/definitions/ResourceAlreadyExistsException"
+            }
+          },
+          "482": {
+            "description": "OptimisticLockException",
+            "schema": {
+              "$ref": "#/definitions/OptimisticLockException"
+            }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "484": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "485": {
+            "description": "LimitsExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitsExceededException"
+            }
+          }
+        },
+        "description": "Creates a grouping of protected resources so they can be handled as a collective. This resource grouping improves the accuracy of detection and reduces false positives. ",
+        "operationId": "CreateProtectionGroup"
+      }
+    },
+    "/#X-Amz-Target=AWSShield_20160616.CreateSubscription": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "AWSShield_20160616.CreateSubscription"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -480,43 +861,73 @@
               "$ref": "#/definitions/ResourceAlreadyExistsException"
             }
           }
-        }
+        },
+        "description": "<p>Activates AWS Shield Advanced for an account.</p> <p>When you initally create a subscription, your subscription is set to be automatically renewed at the end of the existing subscription period. You can change this by submitting an <code>UpdateSubscription</code> request. </p>",
+        "operationId": "CreateSubscription"
       }
     },
-    "/#DeleteProtection": {
+    "/#X-Amz-Target=AWSShield_20160616.DeleteProtection": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Deletes an AWS Shield Advanced <a>Protection</a>.",
-        "operationId": "DeleteProtection",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "enum": [
+              "AWSShield_20160616.DeleteProtection"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -551,43 +962,174 @@
               "$ref": "#/definitions/OptimisticLockException"
             }
           }
-        }
+        },
+        "description": "Deletes an AWS Shield Advanced <a>Protection</a>.",
+        "operationId": "DeleteProtection"
       }
     },
-    "/#DeleteSubscription": {
+    "/#X-Amz-Target=AWSShield_20160616.DeleteProtectionGroup": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Removes AWS Shield Advanced from an account. AWS Shield Advanced requires a 1-year subscription commitment. You cannot delete a subscription prior to the completion of that commitment. ",
-        "operationId": "DeleteSubscription",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "enum": [
+              "AWSShield_20160616.DeleteProtectionGroup"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteProtectionGroupRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteProtectionGroupResponse"
+            }
+          },
+          "480": {
+            "description": "InternalErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalErrorException"
+            }
+          },
+          "481": {
+            "description": "OptimisticLockException",
+            "schema": {
+              "$ref": "#/definitions/OptimisticLockException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        },
+        "description": "Removes the specified protection group.",
+        "operationId": "DeleteProtectionGroup"
+      }
+    },
+    "/#X-Amz-Target=AWSShield_20160616.DeleteSubscription": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "AWSShield_20160616.DeleteSubscription"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -622,43 +1164,74 @@
               "$ref": "#/definitions/ResourceNotFoundException"
             }
           }
-        }
+        },
+        "deprecated": true,
+        "description": "Removes AWS Shield Advanced from an account. AWS Shield Advanced requires a 1-year subscription commitment. You cannot delete a subscription prior to the completion of that commitment. ",
+        "operationId": "DeleteSubscription"
       }
     },
-    "/#DescribeAttack": {
+    "/#X-Amz-Target=AWSShield_20160616.DescribeAttack": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Describes the details of a DDoS attack. ",
-        "operationId": "DescribeAttack",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "enum": [
+              "AWSShield_20160616.DescribeAttack"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -682,48 +1255,167 @@
             }
           },
           "481": {
-            "description": "InvalidParameterException",
+            "description": "AccessDeniedException",
             "schema": {
-              "$ref": "#/definitions/InvalidParameterException"
+              "$ref": "#/definitions/AccessDeniedException"
             }
           }
-        }
+        },
+        "description": "Describes the details of a DDoS attack. ",
+        "operationId": "DescribeAttack"
       }
     },
-    "/#DescribeDRTAccess": {
+    "/#X-Amz-Target=AWSShield_20160616.DescribeAttackStatistics": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Returns the current role and list of Amazon S3 log buckets used by the DDoS Response team (DRT) to access your AWS account while assisting with attack mitigation.",
-        "operationId": "DescribeDRTAccess",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "enum": [
+              "AWSShield_20160616.DescribeAttackStatistics"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeAttackStatisticsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeAttackStatisticsResponse"
+            }
+          },
+          "480": {
+            "description": "InternalErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalErrorException"
+            }
+          }
+        },
+        "description": "<p>Provides information about the number and type of attacks AWS Shield has detected in the last year for all resources that belong to your account, regardless of whether you've defined Shield protections for them. This operation is available to Shield customers as well as to Shield Advanced customers.</p> <p>The operation returns data for the time range of midnight UTC, one year ago, to midnight UTC, today. For example, if the current time is <code>2020-10-26 15:39:32 PDT</code>, equal to <code>2020-10-26 22:39:32 UTC</code>, then the time range for the attack data returned is from <code>2019-10-26 00:00:00 UTC</code> to <code>2020-10-26 00:00:00 UTC</code>. </p> <p>The time range indicates the period covered by the attack statistics data items.</p>",
+        "operationId": "DescribeAttackStatistics"
+      }
+    },
+    "/#X-Amz-Target=AWSShield_20160616.DescribeDRTAccess": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "AWSShield_20160616.DescribeDRTAccess"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -752,43 +1444,73 @@
               "$ref": "#/definitions/ResourceNotFoundException"
             }
           }
-        }
+        },
+        "description": "Returns the current role and list of Amazon S3 log buckets used by the DDoS Response Team (DRT) to access your AWS account while assisting with attack mitigation.",
+        "operationId": "DescribeDRTAccess"
       }
     },
-    "/#DescribeEmergencyContactSettings": {
+    "/#X-Amz-Target=AWSShield_20160616.DescribeEmergencyContactSettings": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Lists the email addresses that the DRT can use to contact you during a suspected attack.",
-        "operationId": "DescribeEmergencyContactSettings",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "enum": [
+              "AWSShield_20160616.DescribeEmergencyContactSettings"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -817,43 +1539,73 @@
               "$ref": "#/definitions/ResourceNotFoundException"
             }
           }
-        }
+        },
+        "description": "A list of email addresses and phone numbers that the DDoS Response Team (DRT) can use to contact you if you have proactive engagement enabled, for escalations to the DRT and to initiate proactive customer support.",
+        "operationId": "DescribeEmergencyContactSettings"
       }
     },
-    "/#DescribeProtection": {
+    "/#X-Amz-Target=AWSShield_20160616.DescribeProtection": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Lists the details of a <a>Protection</a> object.",
-        "operationId": "DescribeProtection",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "enum": [
+              "AWSShield_20160616.DescribeProtection"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -877,48 +1629,179 @@
             }
           },
           "481": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "482": {
             "description": "ResourceNotFoundException",
             "schema": {
               "$ref": "#/definitions/ResourceNotFoundException"
             }
           }
-        }
+        },
+        "description": "Lists the details of a <a>Protection</a> object.",
+        "operationId": "DescribeProtection"
       }
     },
-    "/#DescribeSubscription": {
+    "/#X-Amz-Target=AWSShield_20160616.DescribeProtectionGroup": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Provides details about the AWS Shield Advanced subscription for an account.",
-        "operationId": "DescribeSubscription",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "enum": [
+              "AWSShield_20160616.DescribeProtectionGroup"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeProtectionGroupRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeProtectionGroupResponse"
+            }
+          },
+          "480": {
+            "description": "InternalErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalErrorException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        },
+        "description": "Returns the specification for the specified protection group.",
+        "operationId": "DescribeProtectionGroup"
+      }
+    },
+    "/#X-Amz-Target=AWSShield_20160616.DescribeSubscription": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "AWSShield_20160616.DescribeSubscription"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -947,43 +1830,186 @@
               "$ref": "#/definitions/ResourceNotFoundException"
             }
           }
-        }
+        },
+        "description": "Provides details about the AWS Shield Advanced subscription for an account.",
+        "operationId": "DescribeSubscription"
       }
     },
-    "/#DisassociateDRTLogBucket": {
+    "/#X-Amz-Target=AWSShield_20160616.DisableProactiveEngagement": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "<p>Removes the DDoS Response team's (DRT) access to the specified Amazon S3 bucket containing your flow logs.</p> <p>To make a <code>DisassociateDRTLogBucket</code> request, you must be subscribed to the <a href=\"https://aws.amazon.com/premiumsupport/business-support/\">Business Support plan</a> or the <a href=\"https://aws.amazon.com/premiumsupport/enterprise-support/\">Enterprise Support plan</a>. However, if you are not subscribed to one of these support plans, but had been previously and had granted the DRT access to your account, you can submit a <code>DisassociateDRTLogBucket</code> request to remove this access.</p>",
-        "operationId": "DisassociateDRTLogBucket",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "enum": [
+              "AWSShield_20160616.DisableProactiveEngagement"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DisableProactiveEngagementRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DisableProactiveEngagementResponse"
+            }
+          },
+          "480": {
+            "description": "InternalErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalErrorException"
+            }
+          },
+          "481": {
+            "description": "InvalidOperationException",
+            "schema": {
+              "$ref": "#/definitions/InvalidOperationException"
+            }
+          },
+          "482": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "484": {
+            "description": "OptimisticLockException",
+            "schema": {
+              "$ref": "#/definitions/OptimisticLockException"
+            }
+          }
+        },
+        "description": "Removes authorization from the DDoS Response Team (DRT) to notify contacts about escalations to the DRT and to initiate proactive customer support.",
+        "operationId": "DisableProactiveEngagement"
+      }
+    },
+    "/#X-Amz-Target=AWSShield_20160616.DisassociateDRTLogBucket": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "AWSShield_20160616.DisassociateDRTLogBucket"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -1036,43 +2062,73 @@
               "$ref": "#/definitions/ResourceNotFoundException"
             }
           }
-        }
+        },
+        "description": "<p>Removes the DDoS Response Team's (DRT) access to the specified Amazon S3 bucket containing your AWS WAF logs.</p> <p>To make a <code>DisassociateDRTLogBucket</code> request, you must be subscribed to the <a href=\"https://aws.amazon.com/premiumsupport/business-support/\">Business Support plan</a> or the <a href=\"https://aws.amazon.com/premiumsupport/enterprise-support/\">Enterprise Support plan</a>. However, if you are not subscribed to one of these support plans, but had been previously and had granted the DRT access to your account, you can submit a <code>DisassociateDRTLogBucket</code> request to remove this access.</p>",
+        "operationId": "DisassociateDRTLogBucket"
       }
     },
-    "/#DisassociateDRTRole": {
+    "/#X-Amz-Target=AWSShield_20160616.DisassociateDRTRole": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "<p>Removes the DDoS Response team's (DRT) access to your AWS account.</p> <p>To make a <code>DisassociateDRTRole</code> request, you must be subscribed to the <a href=\"https://aws.amazon.com/premiumsupport/business-support/\">Business Support plan</a> or the <a href=\"https://aws.amazon.com/premiumsupport/enterprise-support/\">Enterprise Support plan</a>. However, if you are not subscribed to one of these support plans, but had been previously and had granted the DRT access to your account, you can submit a <code>DisassociateDRTRole</code> request to remove this access.</p>",
-        "operationId": "DisassociateDRTRole",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "enum": [
+              "AWSShield_20160616.DisassociateDRTRole"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -1113,43 +2169,293 @@
               "$ref": "#/definitions/ResourceNotFoundException"
             }
           }
-        }
+        },
+        "description": "<p>Removes the DDoS Response Team's (DRT) access to your AWS account.</p> <p>To make a <code>DisassociateDRTRole</code> request, you must be subscribed to the <a href=\"https://aws.amazon.com/premiumsupport/business-support/\">Business Support plan</a> or the <a href=\"https://aws.amazon.com/premiumsupport/enterprise-support/\">Enterprise Support plan</a>. However, if you are not subscribed to one of these support plans, but had been previously and had granted the DRT access to your account, you can submit a <code>DisassociateDRTRole</code> request to remove this access.</p>",
+        "operationId": "DisassociateDRTRole"
       }
     },
-    "/#GetSubscriptionState": {
+    "/#X-Amz-Target=AWSShield_20160616.DisassociateHealthCheck": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Returns the <code>SubscriptionState</code>, either <code>Active</code> or <code>Inactive</code>.",
-        "operationId": "GetSubscriptionState",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "enum": [
+              "AWSShield_20160616.DisassociateHealthCheck"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DisassociateHealthCheckRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DisassociateHealthCheckResponse"
+            }
+          },
+          "480": {
+            "description": "InternalErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalErrorException"
+            }
+          },
+          "481": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "OptimisticLockException",
+            "schema": {
+              "$ref": "#/definitions/OptimisticLockException"
+            }
+          }
+        },
+        "description": "<p>Removes health-based detection from the Shield Advanced protection for a resource. Shield Advanced health-based detection uses the health of your AWS resource to improve responsiveness and accuracy in attack detection and mitigation. </p> <p>You define the health check in Route 53 and then associate or disassociate it with your Shield Advanced protection. For more information, see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/ddos-overview.html#ddos-advanced-health-check-option\">Shield Advanced Health-Based Detection</a> in the <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/\">AWS WAF and AWS Shield Developer Guide</a>. </p>",
+        "operationId": "DisassociateHealthCheck"
+      }
+    },
+    "/#X-Amz-Target=AWSShield_20160616.EnableProactiveEngagement": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "AWSShield_20160616.EnableProactiveEngagement"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/EnableProactiveEngagementRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/EnableProactiveEngagementResponse"
+            }
+          },
+          "480": {
+            "description": "InternalErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalErrorException"
+            }
+          },
+          "481": {
+            "description": "InvalidOperationException",
+            "schema": {
+              "$ref": "#/definitions/InvalidOperationException"
+            }
+          },
+          "482": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "484": {
+            "description": "OptimisticLockException",
+            "schema": {
+              "$ref": "#/definitions/OptimisticLockException"
+            }
+          }
+        },
+        "description": "Authorizes the DDoS Response Team (DRT) to use email and phone to notify contacts about escalations to the DRT and to initiate proactive customer support.",
+        "operationId": "EnableProactiveEngagement"
+      }
+    },
+    "/#X-Amz-Target=AWSShield_20160616.GetSubscriptionState": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "AWSShield_20160616.GetSubscriptionState"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -1172,43 +2478,87 @@
               "$ref": "#/definitions/InternalErrorException"
             }
           }
-        }
+        },
+        "description": "Returns the <code>SubscriptionState</code>, either <code>Active</code> or <code>Inactive</code>.",
+        "operationId": "GetSubscriptionState"
       }
     },
-    "/#ListAttacks": {
+    "/#X-Amz-Target=AWSShield_20160616.ListAttacks": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Returns all ongoing DDoS attacks or all DDoS attacks during a specified time period.",
-        "operationId": "ListAttacks",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "AWSShield_20160616.ListAttacks"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -1243,43 +2593,202 @@
               "$ref": "#/definitions/InvalidOperationException"
             }
           }
-        }
+        },
+        "description": "Returns all ongoing DDoS attacks or all DDoS attacks during a specified time period.",
+        "operationId": "ListAttacks"
       }
     },
-    "/#ListProtections": {
+    "/#X-Amz-Target=AWSShield_20160616.ListProtectionGroups": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Lists all <a>Protection</a> objects for the account.",
-        "operationId": "ListProtections",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "AWSShield_20160616.ListProtectionGroups"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListProtectionGroupsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListProtectionGroupsResponse"
+            }
+          },
+          "480": {
+            "description": "InternalErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalErrorException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "InvalidPaginationTokenException",
+            "schema": {
+              "$ref": "#/definitions/InvalidPaginationTokenException"
+            }
+          }
+        },
+        "description": "Retrieves the <a>ProtectionGroup</a> objects for the account.",
+        "operationId": "ListProtectionGroups"
+      }
+    },
+    "/#X-Amz-Target=AWSShield_20160616.ListProtections": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "AWSShield_20160616.ListProtections"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -1314,43 +2823,188 @@
               "$ref": "#/definitions/InvalidPaginationTokenException"
             }
           }
-        }
+        },
+        "description": "Lists all <a>Protection</a> objects for the account.",
+        "operationId": "ListProtections"
       }
     },
-    "/#UpdateEmergencyContactSettings": {
+    "/#X-Amz-Target=AWSShield_20160616.ListResourcesInProtectionGroup": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Updates the details of the list of email addresses that the DRT can use to contact you during a suspected attack.",
-        "operationId": "UpdateEmergencyContactSettings",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "AWSShield_20160616.ListResourcesInProtectionGroup"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListResourcesInProtectionGroupRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListResourcesInProtectionGroupResponse"
+            }
+          },
+          "480": {
+            "description": "InternalErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalErrorException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "InvalidPaginationTokenException",
+            "schema": {
+              "$ref": "#/definitions/InvalidPaginationTokenException"
+            }
+          }
+        },
+        "description": "Retrieves the resources that are included in the protection group. ",
+        "operationId": "ListResourcesInProtectionGroup"
+      }
+    },
+    "/#X-Amz-Target=AWSShield_20160616.UpdateEmergencyContactSettings": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "AWSShield_20160616.UpdateEmergencyContactSettings"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -1391,43 +3045,180 @@
               "$ref": "#/definitions/ResourceNotFoundException"
             }
           }
-        }
+        },
+        "description": "Updates the details of the list of email addresses and phone numbers that the DDoS Response Team (DRT) can use to contact you if you have proactive engagement enabled, for escalations to the DRT and to initiate proactive customer support.",
+        "operationId": "UpdateEmergencyContactSettings"
       }
     },
-    "/#UpdateSubscription": {
+    "/#X-Amz-Target=AWSShield_20160616.UpdateProtectionGroup": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Updates the details of an existing subscription. Only enter values for parameters you want to change. Empty parameters are not updated.",
-        "operationId": "UpdateSubscription",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "enum": [
+              "AWSShield_20160616.UpdateProtectionGroup"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateProtectionGroupRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UpdateProtectionGroupResponse"
+            }
+          },
+          "480": {
+            "description": "InternalErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalErrorException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "OptimisticLockException",
+            "schema": {
+              "$ref": "#/definitions/OptimisticLockException"
+            }
+          },
+          "483": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          }
+        },
+        "description": "Updates an existing protection group. A protection group is a grouping of protected resources so they can be handled as a collective. This resource grouping improves the accuracy of detection and reduces false positives. ",
+        "operationId": "UpdateProtectionGroup"
+      }
+    },
+    "/#X-Amz-Target=AWSShield_20160616.UpdateSubscription": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "AWSShield_20160616.UpdateSubscription"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -1474,30 +3265,32 @@
               "$ref": "#/definitions/OptimisticLockException"
             }
           }
-        }
+        },
+        "description": "Updates the details of an existing subscription. Only enter values for parameters you want to change. Empty parameters are not updated.",
+        "operationId": "UpdateSubscription"
       }
     }
   },
   "definitions": {
-    "AccessDeniedForDependencyException": {
-      "description": "In order to grant the necessary access to the DDoS Response Team, the user submitting <code>AssociateDRTRole</code> must have the <code>iam:PassRole</code> permission. This error indicates the user did not have the appropriate permissions. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html\">Granting a User Permissions to Pass a Role to an AWS Service</a>. ",
-      "properties": {
-        "message": {
-          "$ref": "#/definitions/errorMessage"
-        }
-      },
-      "type": "object"
-    },
+    "AccessDeniedException": {},
+    "AccessDeniedForDependencyException": {},
     "AssociateDRTLogBucketRequest": {
       "properties": {
         "LogBucket": {
-          "$ref": "#/definitions/LogBucket",
-          "description": "The Amazon S3 bucket that contains your flow logs."
+          "allOf": [
+            {
+              "$ref": "#/definitions/LogBucket"
+            },
+            {
+              "description": "The Amazon S3 bucket that contains your AWS WAF logs."
+            }
+          ]
         }
       },
       "required": [
         "LogBucket"
       ],
+      "title": "AssociateDRTLogBucketRequest",
       "type": "object"
     },
     "AssociateDRTLogBucketResponse": {
@@ -1507,16 +3300,80 @@
     "AssociateDRTRoleRequest": {
       "properties": {
         "RoleArn": {
-          "$ref": "#/definitions/RoleArn",
-          "description": "<p>The Amazon Resource Name (ARN) of the role the DRT will use to access your AWS account.</p> <p>Prior to making the <code>AssociateDRTRole</code> request, you must attach the <a href=\"https://console.aws.amazon.com/iam/home?#/policies/arn:aws:iam::aws:policy/service-role/AWSShieldDRTAccessPolicy\">AWSShieldDRTAccessPolicy</a> managed policy to this role. For more information see <a href=\" https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-attach-detach.html\">Attaching and Detaching IAM Policies</a>.</p>"
+          "allOf": [
+            {
+              "$ref": "#/definitions/RoleArn"
+            },
+            {
+              "description": "<p>The Amazon Resource Name (ARN) of the role the DRT will use to access your AWS account.</p> <p>Prior to making the <code>AssociateDRTRole</code> request, you must attach the <a href=\"https://console.aws.amazon.com/iam/home?#/policies/arn:aws:iam::aws:policy/service-role/AWSShieldDRTAccessPolicy\">AWSShieldDRTAccessPolicy</a> managed policy to this role. For more information see <a href=\" https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-attach-detach.html\">Attaching and Detaching IAM Policies</a>.</p>"
+            }
+          ]
         }
       },
       "required": [
         "RoleArn"
       ],
+      "title": "AssociateDRTRoleRequest",
       "type": "object"
     },
     "AssociateDRTRoleResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "AssociateHealthCheckRequest": {
+      "properties": {
+        "HealthCheckArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/HealthCheckArn"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the health check to associate with the protection."
+            }
+          ]
+        },
+        "ProtectionId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ProtectionId"
+            },
+            {
+              "description": "The unique identifier (ID) for the <a>Protection</a> object to add the health check association to. "
+            }
+          ]
+        }
+      },
+      "required": [
+        "ProtectionId",
+        "HealthCheckArn"
+      ],
+      "title": "AssociateHealthCheckRequest",
+      "type": "object"
+    },
+    "AssociateHealthCheckResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "AssociateProactiveEngagementDetailsRequest": {
+      "properties": {
+        "EmergencyContactList": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/EmergencyContactList"
+            },
+            {
+              "description": "<p>A list of email addresses and phone numbers that the DDoS Response Team (DRT) can use to contact you for escalations to the DRT and to initiate proactive customer support. </p> <p>To enable proactive engagement, the contact list must include at least one phone number.</p> <note> <p>The contacts that you provide here replace any contacts that were already defined. If you already have contacts defined and want to use them, retrieve the list using <code>DescribeEmergencyContactSettings</code> and then provide it here. </p> </note>"
+            }
+          ]
+        }
+      },
+      "required": [
+        "EmergencyContactList"
+      ],
+      "title": "AssociateProactiveEngagementDetailsRequest",
+      "type": "object"
+    },
+    "AssociateProactiveEngagementDetailsResponse": {
       "properties": {},
       "type": "object"
     },
@@ -1524,36 +3381,84 @@
       "description": "The details of a DDoS attack.",
       "properties": {
         "AttackCounters": {
-          "$ref": "#/definitions/SummarizedCounterList",
-          "description": "List of counters that describe the attack for the specified time period."
+          "allOf": [
+            {
+              "$ref": "#/definitions/SummarizedCounterList"
+            },
+            {
+              "description": "List of counters that describe the attack for the specified time period."
+            }
+          ]
         },
         "AttackId": {
-          "$ref": "#/definitions/AttackId",
-          "description": "The unique identifier (ID) of the attack."
+          "allOf": [
+            {
+              "$ref": "#/definitions/AttackId"
+            },
+            {
+              "description": "The unique identifier (ID) of the attack."
+            }
+          ]
         },
         "AttackProperties": {
-          "$ref": "#/definitions/AttackProperties",
-          "description": "The array of <a>AttackProperty</a> objects."
+          "allOf": [
+            {
+              "$ref": "#/definitions/AttackProperties"
+            },
+            {
+              "description": "The array of <a>AttackProperty</a> objects."
+            }
+          ]
         },
         "EndTime": {
-          "$ref": "#/definitions/AttackTimestamp",
-          "description": "The time the attack ended, in Unix time in seconds. For more information see <a href=\"http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types\">timestamp</a>."
+          "allOf": [
+            {
+              "$ref": "#/definitions/AttackTimestamp"
+            },
+            {
+              "description": "The time the attack ended, in Unix time in seconds. For more information see <a href=\"http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types\">timestamp</a>."
+            }
+          ]
         },
         "Mitigations": {
-          "$ref": "#/definitions/MitigationList",
-          "description": "List of mitigation actions taken for the attack."
+          "allOf": [
+            {
+              "$ref": "#/definitions/MitigationList"
+            },
+            {
+              "description": "List of mitigation actions taken for the attack."
+            }
+          ]
         },
         "ResourceArn": {
-          "$ref": "#/definitions/ResourceArn",
-          "description": "The ARN (Amazon Resource Name) of the resource that was attacked."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceArn"
+            },
+            {
+              "description": "The ARN (Amazon Resource Name) of the resource that was attacked."
+            }
+          ]
         },
         "StartTime": {
-          "$ref": "#/definitions/AttackTimestamp",
-          "description": "The time the attack started, in Unix time in seconds. For more information see <a href=\"http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types\">timestamp</a>."
+          "allOf": [
+            {
+              "$ref": "#/definitions/AttackTimestamp"
+            },
+            {
+              "description": "The time the attack started, in Unix time in seconds. For more information see <a href=\"http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types\">timestamp</a>."
+            }
+          ]
         },
         "SubResources": {
-          "$ref": "#/definitions/SubResourceSummaryList",
-          "description": "If applicable, additional detail about the resource being attacked, for example, IP address or URL."
+          "allOf": [
+            {
+              "$ref": "#/definitions/SubResourceSummaryList"
+            },
+            {
+              "description": "If applicable, additional detail about the resource being attacked, for example, IP address or URL."
+            }
+          ]
         }
       },
       "type": "object"
@@ -1581,24 +3486,54 @@
       "description": "Details of the described attack.",
       "properties": {
         "AttackLayer": {
-          "$ref": "#/definitions/AttackLayer",
-          "description": "The type of DDoS event that was observed. <code>NETWORK</code> indicates layer 3 and layer 4 events and <code>APPLICATION</code> indicates layer 7 events."
+          "allOf": [
+            {
+              "$ref": "#/definitions/AttackLayer"
+            },
+            {
+              "description": "The type of distributed denial of service (DDoS) event that was observed. <code>NETWORK</code> indicates layer 3 and layer 4 events and <code>APPLICATION</code> indicates layer 7 events."
+            }
+          ]
         },
         "AttackPropertyIdentifier": {
-          "$ref": "#/definitions/AttackPropertyIdentifier",
-          "description": "Defines the DDoS attack property information that is provided."
+          "allOf": [
+            {
+              "$ref": "#/definitions/AttackPropertyIdentifier"
+            },
+            {
+              "description": "Defines the DDoS attack property information that is provided. The <code>WORDPRESS_PINGBACK_REFLECTOR</code> and <code>WORDPRESS_PINGBACK_SOURCE</code> values are valid only for WordPress reflective pingback DDoS attacks."
+            }
+          ]
         },
         "TopContributors": {
-          "$ref": "#/definitions/TopContributors",
-          "description": "The array of <a>Contributor</a> objects that includes the top five contributors to an attack. "
+          "allOf": [
+            {
+              "$ref": "#/definitions/TopContributors"
+            },
+            {
+              "description": "The array of contributor objects that includes the top five contributors to an attack. "
+            }
+          ]
         },
         "Total": {
-          "$ref": "#/definitions/Long",
-          "description": "The total contributions made to this attack by all contributors, not just the five listed in the <code>TopContributors</code> list."
+          "allOf": [
+            {
+              "$ref": "#/definitions/Long"
+            },
+            {
+              "description": "The total contributions made to this attack by all contributors, not just the five listed in the <code>TopContributors</code> list."
+            }
+          ]
         },
         "Unit": {
-          "$ref": "#/definitions/Unit",
-          "description": "The unit of the <code>Value</code> of the contributions."
+          "allOf": [
+            {
+              "$ref": "#/definitions/Unit"
+            },
+            {
+              "description": "The unit of the <code>Value</code> of the contributions."
+            }
+          ]
         }
       },
       "type": "object"
@@ -1610,9 +3545,46 @@
         "SOURCE_ASN",
         "SOURCE_COUNTRY",
         "SOURCE_IP_ADDRESS",
-        "SOURCE_USER_AGENT"
+        "SOURCE_USER_AGENT",
+        "WORDPRESS_PINGBACK_REFLECTOR",
+        "WORDPRESS_PINGBACK_SOURCE"
       ],
       "type": "string"
+    },
+    "AttackStatisticsDataItem": {
+      "description": "A single attack statistics data record. This is returned by <a>DescribeAttackStatistics</a> along with a time range indicating the time period that the attack statistics apply to. ",
+      "properties": {
+        "AttackCount": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Long"
+            },
+            {
+              "description": "The number of attacks detected during the time period. This is always present, but might be zero. "
+            }
+          ]
+        },
+        "AttackVolume": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AttackVolume"
+            },
+            {
+              "description": "Information about the volume of attacks during the time period. If the accompanying <code>AttackCount</code> is zero, this setting might be empty."
+            }
+          ]
+        }
+      },
+      "required": [
+        "AttackCount"
+      ],
+      "type": "object"
+    },
+    "AttackStatisticsDataList": {
+      "items": {
+        "$ref": "#/definitions/AttackStatisticsDataItem"
+      },
+      "type": "array"
     },
     "AttackSummaries": {
       "items": {
@@ -1624,24 +3596,54 @@
       "description": "Summarizes all DDoS attacks for a specified time period.",
       "properties": {
         "AttackId": {
-          "$ref": "#/definitions/String",
-          "description": "The unique identifier (ID) of the attack."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The unique identifier (ID) of the attack."
+            }
+          ]
         },
         "AttackVectors": {
-          "$ref": "#/definitions/AttackVectorDescriptionList",
-          "description": "The list of attacks for a specified time period."
+          "allOf": [
+            {
+              "$ref": "#/definitions/AttackVectorDescriptionList"
+            },
+            {
+              "description": "The list of attacks for a specified time period."
+            }
+          ]
         },
         "EndTime": {
-          "$ref": "#/definitions/AttackTimestamp",
-          "description": "The end time of the attack, in Unix time in seconds. For more information see <a href=\"http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types\">timestamp</a>."
+          "allOf": [
+            {
+              "$ref": "#/definitions/AttackTimestamp"
+            },
+            {
+              "description": "The end time of the attack, in Unix time in seconds. For more information see <a href=\"http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types\">timestamp</a>."
+            }
+          ]
         },
         "ResourceArn": {
-          "$ref": "#/definitions/String",
-          "description": "The ARN (Amazon Resource Name) of the resource that was attacked."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The ARN (Amazon Resource Name) of the resource that was attacked."
+            }
+          ]
         },
         "StartTime": {
-          "$ref": "#/definitions/AttackTimestamp",
-          "description": "The start time of the attack, in Unix time in seconds. For more information see <a href=\"http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types\">timestamp</a>."
+          "allOf": [
+            {
+              "$ref": "#/definitions/AttackTimestamp"
+            },
+            {
+              "description": "The start time of the attack, in Unix time in seconds. For more information see <a href=\"http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types\">timestamp</a>."
+            }
+          ]
         }
       },
       "type": "object"
@@ -1654,8 +3656,14 @@
       "description": "Describes the attack.",
       "properties": {
         "VectorType": {
-          "$ref": "#/definitions/String",
-          "description": "<p>The attack type. Valid values:</p> <ul> <li> <p>UDP_TRAFFIC</p> </li> <li> <p>UDP_FRAGMENT</p> </li> <li> <p>GENERIC_UDP_REFLECTION</p> </li> <li> <p>DNS_REFLECTION</p> </li> <li> <p>NTP_REFLECTION</p> </li> <li> <p>CHARGEN_REFLECTION</p> </li> <li> <p>SSDP_REFLECTION</p> </li> <li> <p>PORT_MAPPER</p> </li> <li> <p>RIP_REFLECTION</p> </li> <li> <p>SNMP_REFLECTION</p> </li> <li> <p>MSSQL_REFLECTION</p> </li> <li> <p>NET_BIOS_REFLECTION</p> </li> <li> <p>SYN_FLOOD</p> </li> <li> <p>ACK_FLOOD</p> </li> <li> <p>REQUEST_FLOOD</p> </li> </ul>"
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "<p>The attack type. Valid values:</p> <ul> <li> <p>UDP_TRAFFIC</p> </li> <li> <p>UDP_FRAGMENT</p> </li> <li> <p>GENERIC_UDP_REFLECTION</p> </li> <li> <p>DNS_REFLECTION</p> </li> <li> <p>NTP_REFLECTION</p> </li> <li> <p>CHARGEN_REFLECTION</p> </li> <li> <p>SSDP_REFLECTION</p> </li> <li> <p>PORT_MAPPER</p> </li> <li> <p>RIP_REFLECTION</p> </li> <li> <p>SNMP_REFLECTION</p> </li> <li> <p>MSSQL_REFLECTION</p> </li> <li> <p>NET_BIOS_REFLECTION</p> </li> <li> <p>SYN_FLOOD</p> </li> <li> <p>ACK_FLOOD</p> </li> <li> <p>REQUEST_FLOOD</p> </li> <li> <p>HTTP_REFLECTION</p> </li> <li> <p>UDS_REFLECTION</p> </li> <li> <p>MEMCACHED_REFLECTION</p> </li> </ul>"
+            }
+          ]
         }
       },
       "required": [
@@ -1669,6 +3677,61 @@
       },
       "type": "array"
     },
+    "AttackVolume": {
+      "description": "Information about the volume of attacks during the time period, included in an <a>AttackStatisticsDataItem</a>. If the accompanying <code>AttackCount</code> in the statistics object is zero, this setting might be empty.",
+      "properties": {
+        "BitsPerSecond": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AttackVolumeStatistics"
+            },
+            {
+              "description": "A statistics object that uses bits per second as the unit. This is included for network level attacks. "
+            }
+          ]
+        },
+        "PacketsPerSecond": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AttackVolumeStatistics"
+            },
+            {
+              "description": "A statistics object that uses packets per second as the unit. This is included for network level attacks. "
+            }
+          ]
+        },
+        "RequestsPerSecond": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AttackVolumeStatistics"
+            },
+            {
+              "description": "A statistics object that uses requests per second as the unit. This is included for application level attacks, and is only available for accounts that are subscribed to Shield Advanced."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "AttackVolumeStatistics": {
+      "description": "Statistics objects for the various data types in <a>AttackVolume</a>. ",
+      "properties": {
+        "Max": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Double"
+            },
+            {
+              "description": "The maximum attack volume observed for the given unit."
+            }
+          ]
+        }
+      },
+      "required": [
+        "Max"
+      ],
+      "type": "object"
+    },
     "AutoRenew": {
       "enum": [
         "ENABLED",
@@ -1676,64 +3739,197 @@
       ],
       "type": "string"
     },
+    "ContactNotes": {
+      "maxLength": 1024,
+      "minLength": 1,
+      "pattern": "^[\\w\\s\\.\\-,:/()+@]*$",
+      "type": "string"
+    },
     "Contributor": {
       "description": "A contributor to the attack and their contribution.",
       "properties": {
         "Name": {
-          "$ref": "#/definitions/String",
-          "description": "The name of the contributor. This is dependent on the <code>AttackPropertyIdentifier</code>. For example, if the <code>AttackPropertyIdentifier</code> is <code>SOURCE_COUNTRY</code>, the <code>Name</code> could be <code>United States</code>."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The name of the contributor. This is dependent on the <code>AttackPropertyIdentifier</code>. For example, if the <code>AttackPropertyIdentifier</code> is <code>SOURCE_COUNTRY</code>, the <code>Name</code> could be <code>United States</code>."
+            }
+          ]
         },
         "Value": {
-          "$ref": "#/definitions/Long",
-          "description": "The contribution of this contributor expressed in <a>Protection</a> units. For example <code>10,000</code>."
+          "allOf": [
+            {
+              "$ref": "#/definitions/Long"
+            },
+            {
+              "description": "The contribution of this contributor expressed in <a>Protection</a> units. For example <code>10,000</code>."
+            }
+          ]
         }
       },
+      "type": "object"
+    },
+    "CreateProtectionGroupRequest": {
+      "properties": {
+        "Aggregation": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ProtectionGroupAggregation"
+            },
+            {
+              "description": "<p>Defines how AWS Shield combines resource data for the group in order to detect, mitigate, and report events.</p> <ul> <li> <p>Sum - Use the total traffic across the group. This is a good choice for most cases. Examples include Elastic IP addresses for EC2 instances that scale manually or automatically.</p> </li> <li> <p>Mean - Use the average of the traffic across the group. This is a good choice for resources that share traffic uniformly. Examples include accelerators and load balancers.</p> </li> <li> <p>Max - Use the highest traffic from each resource. This is useful for resources that don't share traffic and for resources that share that traffic in a non-uniform way. Examples include CloudFront distributions and origin resources for CloudFront distributions.</p> </li> </ul>"
+            }
+          ]
+        },
+        "Members": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ProtectionGroupMembers"
+            },
+            {
+              "description": "The Amazon Resource Names (ARNs) of the resources to include in the protection group. You must set this when you set <code>Pattern</code> to <code>ARBITRARY</code> and you must not set it for any other <code>Pattern</code> setting. "
+            }
+          ]
+        },
+        "Pattern": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ProtectionGroupPattern"
+            },
+            {
+              "description": "The criteria to use to choose the protected resources for inclusion in the group. You can include all resources that have protections, provide a list of resource Amazon Resource Names (ARNs), or include all resources of a specified resource type. "
+            }
+          ]
+        },
+        "ProtectionGroupId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ProtectionGroupId"
+            },
+            {
+              "description": "The name of the protection group. You use this to identify the protection group in lists and to manage the protection group, for example to update, delete, or describe it. "
+            }
+          ]
+        },
+        "ResourceType": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ProtectedResourceType"
+            },
+            {
+              "description": "The resource type to include in the protection group. All protected resources of this type are included in the protection group. Newly protected resources of this type are automatically added to the group. You must set this when you set <code>Pattern</code> to <code>BY_RESOURCE_TYPE</code> and you must not set it for any other <code>Pattern</code> setting. "
+            }
+          ]
+        }
+      },
+      "required": [
+        "ProtectionGroupId",
+        "Aggregation",
+        "Pattern"
+      ],
+      "title": "CreateProtectionGroupRequest",
+      "type": "object"
+    },
+    "CreateProtectionGroupResponse": {
+      "properties": {},
       "type": "object"
     },
     "CreateProtectionRequest": {
       "properties": {
         "Name": {
-          "$ref": "#/definitions/ProtectionName",
-          "description": "Friendly name for the <code>Protection</code> you are creating."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ProtectionName"
+            },
+            {
+              "description": "Friendly name for the <code>Protection</code> you are creating."
+            }
+          ]
         },
         "ResourceArn": {
-          "$ref": "#/definitions/ResourceArn",
-          "description": "<p>The ARN (Amazon Resource Name) of the resource to be protected.</p> <p>The ARN should be in one of the following formats:</p> <ul> <li> <p>For an Application Load Balancer: <code>arn:aws:elasticloadbalancing:<i>region</i>:<i>account-id</i>:loadbalancer/app/<i>load-balancer-name</i>/<i>load-balancer-id</i> </code> </p> </li> <li> <p>For an Elastic Load Balancer (Classic Load Balancer): <code>arn:aws:elasticloadbalancing:<i>region</i>:<i>account-id</i>:loadbalancer/<i>load-balancer-name</i> </code> </p> </li> <li> <p>For AWS CloudFront distribution: <code>arn:aws:cloudfront::<i>account-id</i>:distribution/<i>distribution-id</i> </code> </p> </li> <li> <p>For Amazon Route 53: <code>arn:aws:route53::<i>account-id</i>:hostedzone/<i>hosted-zone-id</i> </code> </p> </li> <li> <p>For an Elastic IP address: <code>arn:aws:ec2:<i>region</i>:<i>account-id</i>:eip-allocation/<i>allocation-id</i> </code> </p> </li> </ul>"
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceArn"
+            },
+            {
+              "description": "<p>The ARN (Amazon Resource Name) of the resource to be protected.</p> <p>The ARN should be in one of the following formats:</p> <ul> <li> <p>For an Application Load Balancer: <code>arn:aws:elasticloadbalancing:<i>region</i>:<i>account-id</i>:loadbalancer/app/<i>load-balancer-name</i>/<i>load-balancer-id</i> </code> </p> </li> <li> <p>For an Elastic Load Balancer (Classic Load Balancer): <code>arn:aws:elasticloadbalancing:<i>region</i>:<i>account-id</i>:loadbalancer/<i>load-balancer-name</i> </code> </p> </li> <li> <p>For an AWS CloudFront distribution: <code>arn:aws:cloudfront::<i>account-id</i>:distribution/<i>distribution-id</i> </code> </p> </li> <li> <p>For an AWS Global Accelerator accelerator: <code>arn:aws:globalaccelerator::<i>account-id</i>:accelerator/<i>accelerator-id</i> </code> </p> </li> <li> <p>For Amazon Route 53: <code>arn:aws:route53:::hostedzone/<i>hosted-zone-id</i> </code> </p> </li> <li> <p>For an Elastic IP address: <code>arn:aws:ec2:<i>region</i>:<i>account-id</i>:eip-allocation/<i>allocation-id</i> </code> </p> </li> </ul>"
+            }
+          ]
         }
       },
       "required": [
         "Name",
         "ResourceArn"
       ],
+      "title": "CreateProtectionRequest",
       "type": "object"
     },
     "CreateProtectionResponse": {
       "properties": {
         "ProtectionId": {
-          "$ref": "#/definitions/ProtectionId",
-          "description": "The unique identifier (ID) for the <a>Protection</a> object that is created."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ProtectionId"
+            },
+            {
+              "description": "The unique identifier (ID) for the <a>Protection</a> object that is created."
+            }
+          ]
         }
       },
       "type": "object"
     },
     "CreateSubscriptionRequest": {
       "properties": {},
+      "title": "CreateSubscriptionRequest",
       "type": "object"
     },
     "CreateSubscriptionResponse": {
       "properties": {},
       "type": "object"
     },
+    "DeleteProtectionGroupRequest": {
+      "properties": {
+        "ProtectionGroupId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ProtectionGroupId"
+            },
+            {
+              "description": "The name of the protection group. You use this to identify the protection group in lists and to manage the protection group, for example to update, delete, or describe it. "
+            }
+          ]
+        }
+      },
+      "required": [
+        "ProtectionGroupId"
+      ],
+      "title": "DeleteProtectionGroupRequest",
+      "type": "object"
+    },
+    "DeleteProtectionGroupResponse": {
+      "properties": {},
+      "type": "object"
+    },
     "DeleteProtectionRequest": {
       "properties": {
         "ProtectionId": {
-          "$ref": "#/definitions/ProtectionId",
-          "description": "The unique identifier (ID) for the <a>Protection</a> object to be deleted."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ProtectionId"
+            },
+            {
+              "description": "The unique identifier (ID) for the <a>Protection</a> object to be deleted."
+            }
+          ]
         }
       },
       "required": [
         "ProtectionId"
       ],
+      "title": "DeleteProtectionRequest",
       "type": "object"
     },
     "DeleteProtectionResponse": {
@@ -1742,107 +3938,250 @@
     },
     "DeleteSubscriptionRequest": {
       "properties": {},
-      "type": "object"
+      "title": "DeleteSubscriptionRequest",
+      "type": "object",
+      "x-deprecated": true
     },
     "DeleteSubscriptionResponse": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "x-deprecated": true
     },
     "DescribeAttackRequest": {
       "properties": {
         "AttackId": {
-          "$ref": "#/definitions/AttackId",
-          "description": "The unique identifier (ID) for the attack that to be described."
+          "allOf": [
+            {
+              "$ref": "#/definitions/AttackId"
+            },
+            {
+              "description": "The unique identifier (ID) for the attack that to be described."
+            }
+          ]
         }
       },
       "required": [
         "AttackId"
       ],
+      "title": "DescribeAttackRequest",
       "type": "object"
     },
     "DescribeAttackResponse": {
       "properties": {
         "Attack": {
-          "$ref": "#/definitions/AttackDetail",
-          "description": "The attack that is described."
+          "allOf": [
+            {
+              "$ref": "#/definitions/AttackDetail"
+            },
+            {
+              "description": "The attack that is described."
+            }
+          ]
         }
       },
       "type": "object"
     },
+    "DescribeAttackStatisticsRequest": {
+      "properties": {},
+      "title": "DescribeAttackStatisticsRequest",
+      "type": "object"
+    },
+    "DescribeAttackStatisticsResponse": {
+      "properties": {
+        "DataItems": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AttackStatisticsDataList"
+            },
+            {
+              "description": "The data that describes the attacks detected during the time period."
+            }
+          ]
+        },
+        "TimeRange": {
+          "$ref": "#/definitions/TimeRange"
+        }
+      },
+      "required": [
+        "TimeRange",
+        "DataItems"
+      ],
+      "type": "object"
+    },
     "DescribeDRTAccessRequest": {
       "properties": {},
+      "title": "DescribeDRTAccessRequest",
       "type": "object"
     },
     "DescribeDRTAccessResponse": {
       "properties": {
         "LogBucketList": {
-          "$ref": "#/definitions/LogBucketList",
-          "description": "The list of Amazon S3 buckets accessed by the DRT."
+          "allOf": [
+            {
+              "$ref": "#/definitions/LogBucketList"
+            },
+            {
+              "description": "The list of Amazon S3 buckets accessed by the DRT."
+            }
+          ]
         },
         "RoleArn": {
-          "$ref": "#/definitions/RoleArn",
-          "description": "The Amazon Resource Name (ARN) of the role the DRT used to access your AWS account."
+          "allOf": [
+            {
+              "$ref": "#/definitions/RoleArn"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the role the DRT used to access your AWS account."
+            }
+          ]
         }
       },
       "type": "object"
     },
     "DescribeEmergencyContactSettingsRequest": {
       "properties": {},
+      "title": "DescribeEmergencyContactSettingsRequest",
       "type": "object"
     },
     "DescribeEmergencyContactSettingsResponse": {
       "properties": {
         "EmergencyContactList": {
-          "$ref": "#/definitions/EmergencyContactList",
-          "description": "A list of email addresses that the DRT can use to contact you during a suspected attack."
+          "allOf": [
+            {
+              "$ref": "#/definitions/EmergencyContactList"
+            },
+            {
+              "description": "A list of email addresses and phone numbers that the DDoS Response Team (DRT) can use to contact you if you have proactive engagement enabled, for escalations to the DRT and to initiate proactive customer support."
+            }
+          ]
         }
       },
+      "type": "object"
+    },
+    "DescribeProtectionGroupRequest": {
+      "properties": {
+        "ProtectionGroupId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ProtectionGroupId"
+            },
+            {
+              "description": "The name of the protection group. You use this to identify the protection group in lists and to manage the protection group, for example to update, delete, or describe it. "
+            }
+          ]
+        }
+      },
+      "required": [
+        "ProtectionGroupId"
+      ],
+      "title": "DescribeProtectionGroupRequest",
+      "type": "object"
+    },
+    "DescribeProtectionGroupResponse": {
+      "properties": {
+        "ProtectionGroup": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ProtectionGroup"
+            },
+            {
+              "description": "A grouping of protected resources that you and AWS Shield Advanced can monitor as a collective. This resource grouping improves the accuracy of detection and reduces false positives. "
+            }
+          ]
+        }
+      },
+      "required": [
+        "ProtectionGroup"
+      ],
       "type": "object"
     },
     "DescribeProtectionRequest": {
       "properties": {
         "ProtectionId": {
-          "$ref": "#/definitions/ProtectionId",
-          "description": "The unique identifier (ID) for the <a>Protection</a> object that is described."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ProtectionId"
+            },
+            {
+              "description": "The unique identifier (ID) for the <a>Protection</a> object that is described. When submitting the <code>DescribeProtection</code> request you must provide either the <code>ResourceArn</code> or the <code>ProtectionID</code>, but not both."
+            }
+          ]
+        },
+        "ResourceArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceArn"
+            },
+            {
+              "description": "The ARN (Amazon Resource Name) of the AWS resource for the <a>Protection</a> object that is described. When submitting the <code>DescribeProtection</code> request you must provide either the <code>ResourceArn</code> or the <code>ProtectionID</code>, but not both."
+            }
+          ]
         }
       },
-      "required": [
-        "ProtectionId"
-      ],
+      "title": "DescribeProtectionRequest",
       "type": "object"
     },
     "DescribeProtectionResponse": {
       "properties": {
         "Protection": {
-          "$ref": "#/definitions/Protection",
-          "description": "The <a>Protection</a> object that is described."
+          "allOf": [
+            {
+              "$ref": "#/definitions/Protection"
+            },
+            {
+              "description": "The <a>Protection</a> object that is described."
+            }
+          ]
         }
       },
       "type": "object"
     },
     "DescribeSubscriptionRequest": {
       "properties": {},
+      "title": "DescribeSubscriptionRequest",
       "type": "object"
     },
     "DescribeSubscriptionResponse": {
       "properties": {
         "Subscription": {
-          "$ref": "#/definitions/Subscription",
-          "description": "The AWS Shield Advanced subscription details for an account."
+          "allOf": [
+            {
+              "$ref": "#/definitions/Subscription"
+            },
+            {
+              "description": "The AWS Shield Advanced subscription details for an account."
+            }
+          ]
         }
       },
+      "type": "object"
+    },
+    "DisableProactiveEngagementRequest": {
+      "properties": {},
+      "title": "DisableProactiveEngagementRequest",
+      "type": "object"
+    },
+    "DisableProactiveEngagementResponse": {
+      "properties": {},
       "type": "object"
     },
     "DisassociateDRTLogBucketRequest": {
       "properties": {
         "LogBucket": {
-          "$ref": "#/definitions/LogBucket",
-          "description": "The Amazon S3 bucket that contains your flow logs."
+          "allOf": [
+            {
+              "$ref": "#/definitions/LogBucket"
+            },
+            {
+              "description": "The Amazon S3 bucket that contains your AWS WAF logs."
+            }
+          ]
         }
       },
       "required": [
         "LogBucket"
       ],
+      "title": "DisassociateDRTLogBucketRequest",
       "type": "object"
     },
     "DisassociateDRTLogBucketResponse": {
@@ -1851,9 +4190,44 @@
     },
     "DisassociateDRTRoleRequest": {
       "properties": {},
+      "title": "DisassociateDRTRoleRequest",
       "type": "object"
     },
     "DisassociateDRTRoleResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "DisassociateHealthCheckRequest": {
+      "properties": {
+        "HealthCheckArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/HealthCheckArn"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the health check that is associated with the protection."
+            }
+          ]
+        },
+        "ProtectionId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ProtectionId"
+            },
+            {
+              "description": "The unique identifier (ID) for the <a>Protection</a> object to remove the health check association from. "
+            }
+          ]
+        }
+      },
+      "required": [
+        "ProtectionId",
+        "HealthCheckArn"
+      ],
+      "title": "DisassociateHealthCheckRequest",
+      "type": "object"
+    },
+    "DisassociateHealthCheckResponse": {
       "properties": {},
       "type": "object"
     },
@@ -1866,15 +4240,43 @@
       "type": "integer"
     },
     "EmailAddress": {
+      "maxLength": 150,
+      "minLength": 1,
       "pattern": "^\\S+@\\S+\\.\\S+$",
       "type": "string"
     },
     "EmergencyContact": {
-      "description": "Contact information that the DRT can use to contact you during a suspected attack.",
+      "description": "Contact information that the DRT can use to contact you if you have proactive engagement enabled, for escalations to the DRT and to initiate proactive customer support.",
       "properties": {
+        "ContactNotes": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ContactNotes"
+            },
+            {
+              "description": "Additional notes regarding the contact. "
+            }
+          ]
+        },
         "EmailAddress": {
-          "$ref": "#/definitions/EmailAddress",
-          "description": "An email address that the DRT can use to contact you during a suspected attack."
+          "allOf": [
+            {
+              "$ref": "#/definitions/EmailAddress"
+            },
+            {
+              "description": "The email address for the contact."
+            }
+          ]
+        },
+        "PhoneNumber": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PhoneNumber"
+            },
+            {
+              "description": "The phone number for the contact."
+            }
+          ]
         }
       },
       "required": [
@@ -1890,15 +4292,31 @@
       "minItems": 0,
       "type": "array"
     },
+    "EnableProactiveEngagementRequest": {
+      "properties": {},
+      "title": "EnableProactiveEngagementRequest",
+      "type": "object"
+    },
+    "EnableProactiveEngagementResponse": {
+      "properties": {},
+      "type": "object"
+    },
     "GetSubscriptionStateRequest": {
       "properties": {},
+      "title": "GetSubscriptionStateRequest",
       "type": "object"
     },
     "GetSubscriptionStateResponse": {
       "properties": {
         "SubscriptionState": {
-          "$ref": "#/definitions/SubscriptionState",
-          "description": "The status of the subscription."
+          "allOf": [
+            {
+              "$ref": "#/definitions/SubscriptionState"
+            },
+            {
+              "description": "The status of the subscription."
+            }
+          ]
         }
       },
       "required": [
@@ -1906,73 +4324,54 @@
       ],
       "type": "object"
     },
+    "HealthCheckArn": {
+      "maxLength": 2048,
+      "minLength": 1,
+      "pattern": "^arn:aws:route53:::healthcheck/\\S{36}$",
+      "type": "string"
+    },
+    "HealthCheckId": {
+      "type": "string"
+    },
+    "HealthCheckIds": {
+      "items": {
+        "$ref": "#/definitions/HealthCheckId"
+      },
+      "type": "array"
+    },
     "Integer": {
       "type": "integer"
     },
-    "InternalErrorException": {
-      "description": "Exception that indicates that a problem occurred with the service infrastructure. You can retry the request.",
-      "properties": {
-        "message": {
-          "$ref": "#/definitions/errorMessage"
-        }
-      },
-      "type": "object"
-    },
-    "InvalidOperationException": {
-      "description": "Exception that indicates that the operation would not cause any change to occur.",
-      "properties": {
-        "message": {
-          "$ref": "#/definitions/errorMessage"
-        }
-      },
-      "type": "object"
-    },
-    "InvalidPaginationTokenException": {
-      "description": "Exception that indicates that the NextToken specified in the request is invalid. Submit the request using the NextToken value that was returned in the response.",
-      "properties": {
-        "message": {
-          "$ref": "#/definitions/errorMessage"
-        }
-      },
-      "type": "object"
-    },
-    "InvalidParameterException": {
-      "description": "Exception that indicates that the parameters passed to the API are invalid. ",
-      "properties": {
-        "message": {
-          "$ref": "#/definitions/errorMessage"
-        }
-      },
-      "type": "object"
-    },
-    "InvalidResourceException": {
-      "description": "Exception that indicates that the resource is invalid. You might not have access to the resource, or the resource might not exist.",
-      "properties": {
-        "message": {
-          "$ref": "#/definitions/errorMessage"
-        }
-      },
-      "type": "object"
-    },
+    "InternalErrorException": {},
+    "InvalidOperationException": {},
+    "InvalidPaginationTokenException": {},
+    "InvalidParameterException": {},
+    "InvalidResourceException": {},
     "Limit": {
       "description": "Specifies how many protections of a given type you can create.",
       "properties": {
         "Max": {
-          "$ref": "#/definitions/Long",
-          "description": "The maximum number of protections that can be created for the specified <code>Type</code>."
+          "allOf": [
+            {
+              "$ref": "#/definitions/Long"
+            },
+            {
+              "description": "The maximum number of protections that can be created for the specified <code>Type</code>."
+            }
+          ]
         },
         "Type": {
-          "$ref": "#/definitions/String",
-          "description": "The type of protection."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The type of protection."
+            }
+          ]
         }
       },
       "type": "object"
-    },
-    "LimitNumber": {
-      "type": "integer"
-    },
-    "LimitType": {
-      "type": "string"
     },
     "Limits": {
       "items": {
@@ -1980,94 +4379,261 @@
       },
       "type": "array"
     },
-    "LimitsExceededException": {
-      "description": "<p>Exception that indicates that the operation would exceed a limit.</p> <p> <code>Type</code> is the type of limit that would be exceeded.</p> <p> <code>Limit</code> is the threshold that would be exceeded.</p>",
-      "properties": {
-        "Limit": {
-          "$ref": "#/definitions/LimitNumber"
-        },
-        "Type": {
-          "$ref": "#/definitions/LimitType"
-        },
-        "message": {
-          "$ref": "#/definitions/errorMessage"
-        }
-      },
-      "type": "object"
-    },
+    "LimitsExceededException": {},
     "ListAttacksRequest": {
       "properties": {
         "EndTime": {
-          "$ref": "#/definitions/TimeRange",
-          "description": "The end of the time period for the attacks. This is a <code>timestamp</code> type. The sample request above indicates a <code>number</code> type because the default used by WAF is Unix time in seconds. However any valid <a href=\"http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types\">timestamp format</a> is allowed. "
+          "allOf": [
+            {
+              "$ref": "#/definitions/TimeRange"
+            },
+            {
+              "description": "The end of the time period for the attacks. This is a <code>timestamp</code> type. The sample request above indicates a <code>number</code> type because the default used by WAF is Unix time in seconds. However any valid <a href=\"http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types\">timestamp format</a> is allowed. "
+            }
+          ]
         },
         "MaxResults": {
-          "$ref": "#/definitions/MaxResults",
-          "description": "The maximum number of <a>AttackSummary</a> objects to be returned. If this is left blank, the first 20 results will be returned."
+          "allOf": [
+            {
+              "$ref": "#/definitions/MaxResults"
+            },
+            {
+              "description": "<p>The maximum number of <a>AttackSummary</a> objects to return. If you leave this blank, Shield Advanced returns the first 20 results.</p> <p>This is a maximum value. Shield Advanced might return the results in smaller batches. That is, the number of objects returned could be less than <code>MaxResults</code>, even if there are still more objects yet to return. If there are more objects to return, Shield Advanced returns a value in <code>NextToken</code> that you can use in your next request, to get the next batch of objects.</p>"
+            }
+          ]
         },
         "NextToken": {
-          "$ref": "#/definitions/Token",
-          "description": "The <code>ListAttacksRequest.NextMarker</code> value from a previous call to <code>ListAttacksRequest</code>. Pass null if this is the first call."
+          "allOf": [
+            {
+              "$ref": "#/definitions/Token"
+            },
+            {
+              "description": "The <code>ListAttacksRequest.NextMarker</code> value from a previous call to <code>ListAttacksRequest</code>. Pass null if this is the first call."
+            }
+          ]
         },
         "ResourceArns": {
-          "$ref": "#/definitions/ResourceArnFilterList",
-          "description": "The ARN (Amazon Resource Name) of the resource that was attacked. If this is left blank, all applicable resources for this account will be included."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceArnFilterList"
+            },
+            {
+              "description": "The ARN (Amazon Resource Name) of the resource that was attacked. If this is left blank, all applicable resources for this account will be included."
+            }
+          ]
         },
         "StartTime": {
-          "$ref": "#/definitions/TimeRange",
-          "description": "The start of the time period for the attacks. This is a <code>timestamp</code> type. The sample request above indicates a <code>number</code> type because the default used by WAF is Unix time in seconds. However any valid <a href=\"http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types\">timestamp format</a> is allowed. "
+          "allOf": [
+            {
+              "$ref": "#/definitions/TimeRange"
+            },
+            {
+              "description": "The start of the time period for the attacks. This is a <code>timestamp</code> type. The sample request above indicates a <code>number</code> type because the default used by WAF is Unix time in seconds. However any valid <a href=\"http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types\">timestamp format</a> is allowed. "
+            }
+          ]
         }
       },
+      "title": "ListAttacksRequest",
       "type": "object"
     },
     "ListAttacksResponse": {
       "properties": {
         "AttackSummaries": {
-          "$ref": "#/definitions/AttackSummaries",
-          "description": "The attack information for the specified time range."
+          "allOf": [
+            {
+              "$ref": "#/definitions/AttackSummaries"
+            },
+            {
+              "description": "The attack information for the specified time range."
+            }
+          ]
         },
         "NextToken": {
-          "$ref": "#/definitions/Token",
-          "description": "The token returned by a previous call to indicate that there is more data available. If not null, more results are available. Pass this value for the <code>NextMarker</code> parameter in a subsequent call to <code>ListAttacks</code> to retrieve the next set of items."
+          "allOf": [
+            {
+              "$ref": "#/definitions/Token"
+            },
+            {
+              "description": "<p>The token returned by a previous call to indicate that there is more data available. If not null, more results are available. Pass this value for the <code>NextMarker</code> parameter in a subsequent call to <code>ListAttacks</code> to retrieve the next set of items.</p> <p>Shield Advanced might return the list of <a>AttackSummary</a> objects in batches smaller than the number specified by MaxResults. If there are more attack summary objects to return, Shield Advanced will always also return a <code>NextToken</code>.</p>"
+            }
+          ]
         }
       },
+      "type": "object"
+    },
+    "ListProtectionGroupsRequest": {
+      "properties": {
+        "MaxResults": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MaxResults"
+            },
+            {
+              "description": "<p>The maximum number of <a>ProtectionGroup</a> objects to return. If you leave this blank, Shield Advanced returns the first 20 results.</p> <p>This is a maximum value. Shield Advanced might return the results in smaller batches. That is, the number of objects returned could be less than <code>MaxResults</code>, even if there are still more objects yet to return. If there are more objects to return, Shield Advanced returns a value in <code>NextToken</code> that you can use in your next request, to get the next batch of objects.</p>"
+            }
+          ]
+        },
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Token"
+            },
+            {
+              "description": "The next token value from a previous call to <code>ListProtectionGroups</code>. Pass null if this is the first call."
+            }
+          ]
+        }
+      },
+      "title": "ListProtectionGroupsRequest",
+      "type": "object"
+    },
+    "ListProtectionGroupsResponse": {
+      "properties": {
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Token"
+            },
+            {
+              "description": "If you specify a value for <code>MaxResults</code> and you have more protection groups than the value of MaxResults, AWS Shield Advanced returns this token that you can use in your next request, to get the next batch of objects. "
+            }
+          ]
+        },
+        "ProtectionGroups": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ProtectionGroups"
+            },
+            {
+              "description": "<p/>"
+            }
+          ]
+        }
+      },
+      "required": [
+        "ProtectionGroups"
+      ],
       "type": "object"
     },
     "ListProtectionsRequest": {
       "properties": {
         "MaxResults": {
-          "$ref": "#/definitions/MaxResults",
-          "description": "The maximum number of <a>Protection</a> objects to be returned. If this is left blank the first 20 results will be returned."
+          "allOf": [
+            {
+              "$ref": "#/definitions/MaxResults"
+            },
+            {
+              "description": "<p>The maximum number of <a>Protection</a> objects to return. If you leave this blank, Shield Advanced returns the first 20 results.</p> <p>This is a maximum value. Shield Advanced might return the results in smaller batches. That is, the number of objects returned could be less than <code>MaxResults</code>, even if there are still more objects yet to return. If there are more objects to return, Shield Advanced returns a value in <code>NextToken</code> that you can use in your next request, to get the next batch of objects.</p>"
+            }
+          ]
         },
         "NextToken": {
-          "$ref": "#/definitions/Token",
-          "description": "The <code>ListProtectionsRequest.NextToken</code> value from a previous call to <code>ListProtections</code>. Pass null if this is the first call."
+          "allOf": [
+            {
+              "$ref": "#/definitions/Token"
+            },
+            {
+              "description": "The <code>ListProtectionsRequest.NextToken</code> value from a previous call to <code>ListProtections</code>. Pass null if this is the first call."
+            }
+          ]
         }
       },
+      "title": "ListProtectionsRequest",
       "type": "object"
     },
     "ListProtectionsResponse": {
       "properties": {
         "NextToken": {
-          "$ref": "#/definitions/Token",
-          "description": "If you specify a value for <code>MaxResults</code> and you have more Protections than the value of MaxResults, AWS Shield Advanced returns a NextToken value in the response that allows you to list another group of Protections. For the second and subsequent ListProtections requests, specify the value of NextToken from the previous response to get information about another batch of Protections."
+          "allOf": [
+            {
+              "$ref": "#/definitions/Token"
+            },
+            {
+              "description": "<p>If you specify a value for <code>MaxResults</code> and you have more Protections than the value of MaxResults, AWS Shield Advanced returns a NextToken value in the response that allows you to list another group of Protections. For the second and subsequent ListProtections requests, specify the value of NextToken from the previous response to get information about another batch of Protections.</p> <p>Shield Advanced might return the list of <a>Protection</a> objects in batches smaller than the number specified by MaxResults. If there are more <a>Protection</a> objects to return, Shield Advanced will always also return a <code>NextToken</code>.</p>"
+            }
+          ]
         },
         "Protections": {
-          "$ref": "#/definitions/Protections",
-          "description": "The array of enabled <a>Protection</a> objects."
+          "allOf": [
+            {
+              "$ref": "#/definitions/Protections"
+            },
+            {
+              "description": "The array of enabled <a>Protection</a> objects."
+            }
+          ]
         }
       },
       "type": "object"
     },
-    "LockedSubscriptionException": {
-      "description": "You are trying to update a subscription that has not yet completed the 1-year commitment. You can change the <code>AutoRenew</code> parameter during the last 30 days of your subscription. This exception indicates that you are attempting to change <code>AutoRenew</code> prior to that period.",
+    "ListResourcesInProtectionGroupRequest": {
       "properties": {
-        "message": {
-          "$ref": "#/definitions/errorMessage"
+        "MaxResults": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MaxResults"
+            },
+            {
+              "description": "<p>The maximum number of resource ARN objects to return. If you leave this blank, Shield Advanced returns the first 20 results.</p> <p>This is a maximum value. Shield Advanced might return the results in smaller batches. That is, the number of objects returned could be less than <code>MaxResults</code>, even if there are still more objects yet to return. If there are more objects to return, Shield Advanced returns a value in <code>NextToken</code> that you can use in your next request, to get the next batch of objects.</p>"
+            }
+          ]
+        },
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Token"
+            },
+            {
+              "description": "The next token value from a previous call to <code>ListResourcesInProtectionGroup</code>. Pass null if this is the first call."
+            }
+          ]
+        },
+        "ProtectionGroupId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ProtectionGroupId"
+            },
+            {
+              "description": "The name of the protection group. You use this to identify the protection group in lists and to manage the protection group, for example to update, delete, or describe it. "
+            }
+          ]
         }
       },
+      "required": [
+        "ProtectionGroupId"
+      ],
+      "title": "ListResourcesInProtectionGroupRequest",
       "type": "object"
     },
+    "ListResourcesInProtectionGroupResponse": {
+      "properties": {
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Token"
+            },
+            {
+              "description": "If you specify a value for <code>MaxResults</code> and you have more resources in the protection group than the value of MaxResults, AWS Shield Advanced returns this token that you can use in your next request, to get the next batch of objects. "
+            }
+          ]
+        },
+        "ResourceArns": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceArnList"
+            },
+            {
+              "description": "The Amazon Resource Names (ARNs) of the resources that are included in the protection group."
+            }
+          ]
+        }
+      },
+      "required": [
+        "ResourceArns"
+      ],
+      "type": "object"
+    },
+    "LockedSubscriptionException": {},
     "LogBucket": {
       "maxLength": 63,
       "minLength": 3,
@@ -2094,8 +4660,14 @@
       "description": "The mitigation applied to a DDoS attack.",
       "properties": {
         "MitigationName": {
-          "$ref": "#/definitions/String",
-          "description": "The name of the mitigation taken for this attack."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The name of the mitigation taken for this attack."
+            }
+          ]
         }
       },
       "type": "object"
@@ -2106,47 +4678,269 @@
       },
       "type": "array"
     },
-    "NoAssociatedRoleException": {
-      "description": "The ARN of the role that you specifed does not exist.",
-      "properties": {
-        "message": {
-          "$ref": "#/definitions/errorMessage"
-        }
-      },
-      "type": "object"
+    "NoAssociatedRoleException": {},
+    "OptimisticLockException": {},
+    "PhoneNumber": {
+      "maxLength": 16,
+      "minLength": 1,
+      "pattern": "^\\+[1-9]\\d{1,14}$",
+      "type": "string"
     },
-    "OptimisticLockException": {
-      "description": "Exception that indicates that the protection state has been modified by another client. You can retry the request.",
-      "properties": {
-        "message": {
-          "$ref": "#/definitions/errorMessage"
-        }
-      },
-      "type": "object"
+    "ProactiveEngagementStatus": {
+      "enum": [
+        "ENABLED",
+        "DISABLED",
+        "PENDING"
+      ],
+      "type": "string"
+    },
+    "ProtectedResourceType": {
+      "enum": [
+        "CLOUDFRONT_DISTRIBUTION",
+        "ROUTE_53_HOSTED_ZONE",
+        "ELASTIC_IP_ALLOCATION",
+        "CLASSIC_LOAD_BALANCER",
+        "APPLICATION_LOAD_BALANCER",
+        "GLOBAL_ACCELERATOR"
+      ],
+      "type": "string"
     },
     "Protection": {
       "description": "An object that represents a resource that is under DDoS protection.",
       "properties": {
+        "HealthCheckIds": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/HealthCheckIds"
+            },
+            {
+              "description": "The unique identifier (ID) for the Route 53 health check that's associated with the protection. "
+            }
+          ]
+        },
         "Id": {
-          "$ref": "#/definitions/ProtectionId",
-          "description": "The unique identifier (ID) of the protection."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ProtectionId"
+            },
+            {
+              "description": "The unique identifier (ID) of the protection."
+            }
+          ]
         },
         "Name": {
-          "$ref": "#/definitions/ProtectionName",
-          "description": "The friendly name of the protection. For example, <code>My CloudFront distributions</code>."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ProtectionName"
+            },
+            {
+              "description": "The name of the protection. For example, <code>My CloudFront distributions</code>."
+            }
+          ]
         },
         "ResourceArn": {
-          "$ref": "#/definitions/ResourceArn",
-          "description": "The ARN (Amazon Resource Name) of the AWS resource that is protected."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceArn"
+            },
+            {
+              "description": "The ARN (Amazon Resource Name) of the AWS resource that is protected."
+            }
+          ]
         }
       },
       "type": "object"
+    },
+    "ProtectionGroup": {
+      "description": "A grouping of protected resources that you and AWS Shield Advanced can monitor as a collective. This resource grouping improves the accuracy of detection and reduces false positives. ",
+      "properties": {
+        "Aggregation": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ProtectionGroupAggregation"
+            },
+            {
+              "description": "<p>Defines how AWS Shield combines resource data for the group in order to detect, mitigate, and report events.</p> <ul> <li> <p>Sum - Use the total traffic across the group. This is a good choice for most cases. Examples include Elastic IP addresses for EC2 instances that scale manually or automatically.</p> </li> <li> <p>Mean - Use the average of the traffic across the group. This is a good choice for resources that share traffic uniformly. Examples include accelerators and load balancers.</p> </li> <li> <p>Max - Use the highest traffic from each resource. This is useful for resources that don't share traffic and for resources that share that traffic in a non-uniform way. Examples include CloudFront distributions and origin resources for CloudFront distributions.</p> </li> </ul>"
+            }
+          ]
+        },
+        "Members": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ProtectionGroupMembers"
+            },
+            {
+              "description": "The Amazon Resource Names (ARNs) of the resources to include in the protection group. You must set this when you set <code>Pattern</code> to <code>ARBITRARY</code> and you must not set it for any other <code>Pattern</code> setting. "
+            }
+          ]
+        },
+        "Pattern": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ProtectionGroupPattern"
+            },
+            {
+              "description": "The criteria to use to choose the protected resources for inclusion in the group. You can include all resources that have protections, provide a list of resource Amazon Resource Names (ARNs), or include all resources of a specified resource type."
+            }
+          ]
+        },
+        "ProtectionGroupId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ProtectionGroupId"
+            },
+            {
+              "description": "The name of the protection group. You use this to identify the protection group in lists and to manage the protection group, for example to update, delete, or describe it. "
+            }
+          ]
+        },
+        "ResourceType": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ProtectedResourceType"
+            },
+            {
+              "description": "The resource type to include in the protection group. All protected resources of this type are included in the protection group. You must set this when you set <code>Pattern</code> to <code>BY_RESOURCE_TYPE</code> and you must not set it for any other <code>Pattern</code> setting. "
+            }
+          ]
+        }
+      },
+      "required": [
+        "ProtectionGroupId",
+        "Aggregation",
+        "Pattern",
+        "Members"
+      ],
+      "type": "object"
+    },
+    "ProtectionGroupAggregation": {
+      "enum": [
+        "SUM",
+        "MEAN",
+        "MAX"
+      ],
+      "type": "string"
+    },
+    "ProtectionGroupArbitraryPatternLimits": {
+      "description": "Limits settings on protection groups with arbitrary pattern type. ",
+      "properties": {
+        "MaxMembers": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Long"
+            },
+            {
+              "description": "The maximum number of resources you can specify for a single arbitrary pattern in a protection group."
+            }
+          ]
+        }
+      },
+      "required": [
+        "MaxMembers"
+      ],
+      "type": "object"
+    },
+    "ProtectionGroupId": {
+      "maxLength": 36,
+      "minLength": 1,
+      "pattern": "[a-zA-Z0-9\\\\-]*",
+      "type": "string"
+    },
+    "ProtectionGroupLimits": {
+      "description": "Limits settings on protection groups for your subscription. ",
+      "properties": {
+        "MaxProtectionGroups": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Long"
+            },
+            {
+              "description": "The maximum number of protection groups that you can have at one time. "
+            }
+          ]
+        },
+        "PatternTypeLimits": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ProtectionGroupPatternTypeLimits"
+            },
+            {
+              "description": "Limits settings by pattern type in the protection groups for your subscription. "
+            }
+          ]
+        }
+      },
+      "required": [
+        "MaxProtectionGroups",
+        "PatternTypeLimits"
+      ],
+      "type": "object"
+    },
+    "ProtectionGroupMembers": {
+      "items": {
+        "$ref": "#/definitions/ResourceArn"
+      },
+      "maxItems": 10000,
+      "minItems": 0,
+      "type": "array"
+    },
+    "ProtectionGroupPattern": {
+      "enum": [
+        "ALL",
+        "ARBITRARY",
+        "BY_RESOURCE_TYPE"
+      ],
+      "type": "string"
+    },
+    "ProtectionGroupPatternTypeLimits": {
+      "description": "Limits settings by pattern type in the protection groups for your subscription. ",
+      "properties": {
+        "ArbitraryPatternLimits": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ProtectionGroupArbitraryPatternLimits"
+            },
+            {
+              "description": "Limits settings on protection groups with arbitrary pattern type. "
+            }
+          ]
+        }
+      },
+      "required": [
+        "ArbitraryPatternLimits"
+      ],
+      "type": "object"
+    },
+    "ProtectionGroups": {
+      "items": {
+        "$ref": "#/definitions/ProtectionGroup"
+      },
+      "type": "array"
     },
     "ProtectionId": {
       "maxLength": 36,
       "minLength": 1,
       "pattern": "[a-zA-Z0-9\\\\-]*",
       "type": "string"
+    },
+    "ProtectionLimits": {
+      "description": "Limits settings on protections for your subscription. ",
+      "properties": {
+        "ProtectedResourceTypeLimits": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Limits"
+            },
+            {
+              "description": "The maximum number of resource types that you can specify in a protection."
+            }
+          ]
+        }
+      },
+      "required": [
+        "ProtectedResourceTypeLimits"
+      ],
+      "type": "object"
     },
     "ProtectionName": {
       "maxLength": 128,
@@ -2160,17 +4954,11 @@
       },
       "type": "array"
     },
-    "ResourceAlreadyExistsException": {
-      "description": "Exception indicating the specified resource already exists.",
-      "properties": {
-        "message": {
-          "$ref": "#/definitions/errorMessage"
-        }
-      },
-      "type": "object"
-    },
+    "ResourceAlreadyExistsException": {},
     "ResourceArn": {
+      "maxLength": 2048,
       "minLength": 1,
+      "pattern": "^arn:aws.*",
       "type": "string"
     },
     "ResourceArnFilterList": {
@@ -2179,17 +4967,16 @@
       },
       "type": "array"
     },
-    "ResourceNotFoundException": {
-      "description": "Exception indicating the specified resource does not exist.",
-      "properties": {
-        "message": {
-          "$ref": "#/definitions/errorMessage"
-        }
+    "ResourceArnList": {
+      "items": {
+        "$ref": "#/definitions/ResourceArn"
       },
-      "type": "object"
+      "type": "array"
     },
+    "ResourceNotFoundException": {},
     "RoleArn": {
-      "maxLength": 96,
+      "maxLength": 2048,
+      "minLength": 1,
       "pattern": "^arn:aws:iam::\\d{12}:role/?[a-zA-Z_0-9+=,.@\\-_/]+",
       "type": "string"
     },
@@ -2200,20 +4987,44 @@
       "description": "The attack information for the specified SubResource.",
       "properties": {
         "AttackVectors": {
-          "$ref": "#/definitions/SummarizedAttackVectorList",
-          "description": "The list of attack types and associated counters."
+          "allOf": [
+            {
+              "$ref": "#/definitions/SummarizedAttackVectorList"
+            },
+            {
+              "description": "The list of attack types and associated counters."
+            }
+          ]
         },
         "Counters": {
-          "$ref": "#/definitions/SummarizedCounterList",
-          "description": "The counters that describe the details of the attack."
+          "allOf": [
+            {
+              "$ref": "#/definitions/SummarizedCounterList"
+            },
+            {
+              "description": "The counters that describe the details of the attack."
+            }
+          ]
         },
         "Id": {
-          "$ref": "#/definitions/String",
-          "description": "The unique identifier (ID) of the <code>SubResource</code>."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The unique identifier (ID) of the <code>SubResource</code>."
+            }
+          ]
         },
         "Type": {
-          "$ref": "#/definitions/SubResourceType",
-          "description": "The <code>SubResource</code> type."
+          "allOf": [
+            {
+              "$ref": "#/definitions/SubResourceType"
+            },
+            {
+              "description": "The <code>SubResource</code> type."
+            }
+          ]
         }
       },
       "type": "object"
@@ -2235,26 +5046,109 @@
       "description": "Information about the AWS Shield Advanced subscription for an account.",
       "properties": {
         "AutoRenew": {
-          "$ref": "#/definitions/AutoRenew",
-          "description": "<p>If <code>ENABLED</code>, the subscription will be automatically renewed at the end of the existing subscription period.</p> <p>When you initally create a subscription, <code>AutoRenew</code> is set to <code>ENABLED</code>. You can change this by submitting an <code>UpdateSubscription</code> request. If the <code>UpdateSubscription</code> request does not included a value for <code>AutoRenew</code>, the existing value for <code>AutoRenew</code> remains unchanged.</p>"
+          "allOf": [
+            {
+              "$ref": "#/definitions/AutoRenew"
+            },
+            {
+              "description": "<p>If <code>ENABLED</code>, the subscription will be automatically renewed at the end of the existing subscription period.</p> <p>When you initally create a subscription, <code>AutoRenew</code> is set to <code>ENABLED</code>. You can change this by submitting an <code>UpdateSubscription</code> request. If the <code>UpdateSubscription</code> request does not included a value for <code>AutoRenew</code>, the existing value for <code>AutoRenew</code> remains unchanged.</p>"
+            }
+          ]
         },
         "EndTime": {
-          "$ref": "#/definitions/Timestamp",
-          "description": "The date and time your subscription will end."
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "The date and time your subscription will end."
+            }
+          ]
         },
         "Limits": {
-          "$ref": "#/definitions/Limits",
-          "description": "Specifies how many protections of a given type you can create."
+          "allOf": [
+            {
+              "$ref": "#/definitions/Limits"
+            },
+            {
+              "description": "Specifies how many protections of a given type you can create."
+            }
+          ]
+        },
+        "ProactiveEngagementStatus": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ProactiveEngagementStatus"
+            },
+            {
+              "description": "<p>If <code>ENABLED</code>, the DDoS Response Team (DRT) will use email and phone to notify contacts about escalations to the DRT and to initiate proactive customer support.</p> <p>If <code>PENDING</code>, you have requested proactive engagement and the request is pending. The status changes to <code>ENABLED</code> when your request is fully processed.</p> <p>If <code>DISABLED</code>, the DRT will not proactively notify contacts about escalations or to initiate proactive customer support. </p>"
+            }
+          ]
         },
         "StartTime": {
-          "$ref": "#/definitions/Timestamp",
-          "description": "The start time of the subscription, in Unix time in seconds. For more information see <a href=\"http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types\">timestamp</a>."
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "The start time of the subscription, in Unix time in seconds. For more information see <a href=\"http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types\">timestamp</a>."
+            }
+          ]
+        },
+        "SubscriptionLimits": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SubscriptionLimits"
+            },
+            {
+              "description": "Limits settings for your subscription. "
+            }
+          ]
         },
         "TimeCommitmentInSeconds": {
-          "$ref": "#/definitions/DurationInSeconds",
-          "description": "The length, in seconds, of the AWS Shield Advanced subscription for the account."
+          "allOf": [
+            {
+              "$ref": "#/definitions/DurationInSeconds"
+            },
+            {
+              "description": "The length, in seconds, of the AWS Shield Advanced subscription for the account."
+            }
+          ]
         }
       },
+      "required": [
+        "SubscriptionLimits"
+      ],
+      "type": "object"
+    },
+    "SubscriptionLimits": {
+      "description": "Limits settings for your subscription. ",
+      "properties": {
+        "ProtectionGroupLimits": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ProtectionGroupLimits"
+            },
+            {
+              "description": "Limits settings on protection groups for your subscription. "
+            }
+          ]
+        },
+        "ProtectionLimits": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ProtectionLimits"
+            },
+            {
+              "description": "Limits settings on protections for your subscription. "
+            }
+          ]
+        }
+      },
+      "required": [
+        "ProtectionLimits",
+        "ProtectionGroupLimits"
+      ],
       "type": "object"
     },
     "SubscriptionState": {
@@ -2268,12 +5162,24 @@
       "description": "A summary of information about the attack.",
       "properties": {
         "VectorCounters": {
-          "$ref": "#/definitions/SummarizedCounterList",
-          "description": "The list of counters that describe the details of the attack."
+          "allOf": [
+            {
+              "$ref": "#/definitions/SummarizedCounterList"
+            },
+            {
+              "description": "The list of counters that describe the details of the attack."
+            }
+          ]
         },
         "VectorType": {
-          "$ref": "#/definitions/String",
-          "description": "The attack type, for example, SNMP reflection or SYN flood."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The attack type, for example, SNMP reflection or SYN flood."
+            }
+          ]
         }
       },
       "required": [
@@ -2291,28 +5197,64 @@
       "description": "The counter that describes a DDoS attack.",
       "properties": {
         "Average": {
-          "$ref": "#/definitions/Double",
-          "description": "The average value of the counter for a specified time period."
+          "allOf": [
+            {
+              "$ref": "#/definitions/Double"
+            },
+            {
+              "description": "The average value of the counter for a specified time period."
+            }
+          ]
         },
         "Max": {
-          "$ref": "#/definitions/Double",
-          "description": "The maximum value of the counter for a specified time period."
+          "allOf": [
+            {
+              "$ref": "#/definitions/Double"
+            },
+            {
+              "description": "The maximum value of the counter for a specified time period."
+            }
+          ]
         },
         "N": {
-          "$ref": "#/definitions/Integer",
-          "description": "The number of counters for a specified time period."
+          "allOf": [
+            {
+              "$ref": "#/definitions/Integer"
+            },
+            {
+              "description": "The number of counters for a specified time period."
+            }
+          ]
         },
         "Name": {
-          "$ref": "#/definitions/String",
-          "description": "The counter name."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The counter name."
+            }
+          ]
         },
         "Sum": {
-          "$ref": "#/definitions/Double",
-          "description": "The total of counter values for a specified time period."
+          "allOf": [
+            {
+              "$ref": "#/definitions/Double"
+            },
+            {
+              "description": "The total of counter values for a specified time period."
+            }
+          ]
         },
         "Unit": {
-          "$ref": "#/definitions/String",
-          "description": "The unit of the counters."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The unit of the counters."
+            }
+          ]
         }
       },
       "type": "object"
@@ -2324,15 +5266,27 @@
       "type": "array"
     },
     "TimeRange": {
-      "description": "The time range.",
+      "description": "The time range. ",
       "properties": {
         "FromInclusive": {
-          "$ref": "#/definitions/AttackTimestamp",
-          "description": "The start time, in Unix time in seconds. For more information see <a href=\"http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types\">timestamp</a>."
+          "allOf": [
+            {
+              "$ref": "#/definitions/AttackTimestamp"
+            },
+            {
+              "description": "The start time, in Unix time in seconds. For more information see <a href=\"http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types\">timestamp</a>."
+            }
+          ]
         },
         "ToExclusive": {
-          "$ref": "#/definitions/AttackTimestamp",
-          "description": "The end time, in Unix time in seconds. For more information see <a href=\"http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types\">timestamp</a>."
+          "allOf": [
+            {
+              "$ref": "#/definitions/AttackTimestamp"
+            },
+            {
+              "description": "The end time, in Unix time in seconds. For more information see <a href=\"http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types\">timestamp</a>."
+            }
+          ]
         }
       },
       "type": "object"
@@ -2342,7 +5296,9 @@
       "type": "string"
     },
     "Token": {
+      "maxLength": 4096,
       "minLength": 1,
+      "pattern": "^.*$",
       "type": "string"
     },
     "TopContributors": {
@@ -2363,31 +5319,172 @@
     "UpdateEmergencyContactSettingsRequest": {
       "properties": {
         "EmergencyContactList": {
-          "$ref": "#/definitions/EmergencyContactList",
-          "description": "A list of email addresses that the DRT can use to contact you during a suspected attack."
+          "allOf": [
+            {
+              "$ref": "#/definitions/EmergencyContactList"
+            },
+            {
+              "description": "<p>A list of email addresses and phone numbers that the DDoS Response Team (DRT) can use to contact you if you have proactive engagement enabled, for escalations to the DRT and to initiate proactive customer support.</p> <p>If you have proactive engagement enabled, the contact list must include at least one phone number.</p>"
+            }
+          ]
         }
       },
+      "title": "UpdateEmergencyContactSettingsRequest",
       "type": "object"
     },
     "UpdateEmergencyContactSettingsResponse": {
       "properties": {},
       "type": "object"
     },
+    "UpdateProtectionGroupRequest": {
+      "properties": {
+        "Aggregation": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ProtectionGroupAggregation"
+            },
+            {
+              "description": "<p>Defines how AWS Shield combines resource data for the group in order to detect, mitigate, and report events.</p> <ul> <li> <p>Sum - Use the total traffic across the group. This is a good choice for most cases. Examples include Elastic IP addresses for EC2 instances that scale manually or automatically.</p> </li> <li> <p>Mean - Use the average of the traffic across the group. This is a good choice for resources that share traffic uniformly. Examples include accelerators and load balancers.</p> </li> <li> <p>Max - Use the highest traffic from each resource. This is useful for resources that don't share traffic and for resources that share that traffic in a non-uniform way. Examples include CloudFront distributions and origin resources for CloudFront distributions.</p> </li> </ul>"
+            }
+          ]
+        },
+        "Members": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ProtectionGroupMembers"
+            },
+            {
+              "description": "The Amazon Resource Names (ARNs) of the resources to include in the protection group. You must set this when you set <code>Pattern</code> to <code>ARBITRARY</code> and you must not set it for any other <code>Pattern</code> setting. "
+            }
+          ]
+        },
+        "Pattern": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ProtectionGroupPattern"
+            },
+            {
+              "description": "The criteria to use to choose the protected resources for inclusion in the group. You can include all resources that have protections, provide a list of resource Amazon Resource Names (ARNs), or include all resources of a specified resource type."
+            }
+          ]
+        },
+        "ProtectionGroupId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ProtectionGroupId"
+            },
+            {
+              "description": "The name of the protection group. You use this to identify the protection group in lists and to manage the protection group, for example to update, delete, or describe it. "
+            }
+          ]
+        },
+        "ResourceType": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ProtectedResourceType"
+            },
+            {
+              "description": "The resource type to include in the protection group. All protected resources of this type are included in the protection group. You must set this when you set <code>Pattern</code> to <code>BY_RESOURCE_TYPE</code> and you must not set it for any other <code>Pattern</code> setting. "
+            }
+          ]
+        }
+      },
+      "required": [
+        "ProtectionGroupId",
+        "Aggregation",
+        "Pattern"
+      ],
+      "title": "UpdateProtectionGroupRequest",
+      "type": "object"
+    },
+    "UpdateProtectionGroupResponse": {
+      "properties": {},
+      "type": "object"
+    },
     "UpdateSubscriptionRequest": {
       "properties": {
         "AutoRenew": {
-          "$ref": "#/definitions/AutoRenew",
-          "description": "When you initally create a subscription, <code>AutoRenew</code> is set to <code>ENABLED</code>. If <code>ENABLED</code>, the subscription will be automatically renewed at the end of the existing subscription period. You can change this by submitting an <code>UpdateSubscription</code> request. If the <code>UpdateSubscription</code> request does not included a value for <code>AutoRenew</code>, the existing value for <code>AutoRenew</code> remains unchanged."
+          "allOf": [
+            {
+              "$ref": "#/definitions/AutoRenew"
+            },
+            {
+              "description": "When you initally create a subscription, <code>AutoRenew</code> is set to <code>ENABLED</code>. If <code>ENABLED</code>, the subscription will be automatically renewed at the end of the existing subscription period. You can change this by submitting an <code>UpdateSubscription</code> request. If the <code>UpdateSubscription</code> request does not included a value for <code>AutoRenew</code>, the existing value for <code>AutoRenew</code> remains unchanged."
+            }
+          ]
         }
       },
+      "title": "UpdateSubscriptionRequest",
       "type": "object"
     },
     "UpdateSubscriptionResponse": {
       "properties": {},
       "type": "object"
-    },
-    "errorMessage": {
-      "type": "string"
     }
-  }
+  },
+  "securityDefinitions": {
+    "hmac": {
+      "description": "Amazon Signature authorization v4",
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey",
+      "x-amazon-apigateway-authtype": "awsSigv4"
+    }
+  },
+  "security": [
+    {
+      "hmac": []
+    }
+  ],
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://docs.aws.amazon.com/shield/"
+  },
+  "x-components": {
+    "parameters": {
+      "X-Amz-Algorithm": {
+        "in": "header",
+        "name": "X-Amz-Algorithm",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Content-Sha256": {
+        "in": "header",
+        "name": "X-Amz-Content-Sha256",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Credential": {
+        "in": "header",
+        "name": "X-Amz-Credential",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Date": {
+        "in": "header",
+        "name": "X-Amz-Date",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Security-Token": {
+        "in": "header",
+        "name": "X-Amz-Security-Token",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Signature": {
+        "in": "header",
+        "name": "X-Amz-Signature",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-SignedHeaders": {
+        "in": "header",
+        "name": "X-Amz-SignedHeaders",
+        "required": false,
+        "type": "string"
+      }
+    }
+  },
+  "x-hasEquivalentPaths": true
 }

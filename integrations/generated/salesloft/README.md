@@ -15,7 +15,7 @@ let salesloft = require('@datafire/salesloft').create({
   redirect_uri: ""
 });
 
-salesloft.v2.team_templates.json.get({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

@@ -15,10 +15,7 @@ let azure_web_deletedwebapps = require('@datafire/azure_web_deletedwebapps').cre
   redirect_uri: ""
 });
 
-azure_web_deletedwebapps.DeletedWebApps_List({
-  "subscriptionId": "",
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -48,23 +45,84 @@ azure_web_deletedwebapps.DeletedWebApps_List({
 #### Output
 * output [DeletedWebAppCollection](#deletedwebappcollection)
 
+### DeletedWebApps_ListByLocation
+Get all deleted apps for a subscription at location
+
+
+```js
+azure_web_deletedwebapps.DeletedWebApps_ListByLocation({
+  "location": "",
+  "subscriptionId": "",
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * location **required** `string`
+  * subscriptionId **required** `string`: Your Azure subscription ID. This is a GUID-formatted string (e.g. 00000000-0000-0000-0000-000000000000).
+  * api-version **required** `string`: API Version
+
+#### Output
+* output [DeletedWebAppCollection](#deletedwebappcollection)
+
+### DeletedWebApps_GetDeletedWebAppByLocation
+Get deleted app for a subscription at location.
+
+
+```js
+azure_web_deletedwebapps.DeletedWebApps_GetDeletedWebAppByLocation({
+  "location": "",
+  "deletedSiteId": "",
+  "subscriptionId": "",
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * location **required** `string`
+  * deletedSiteId **required** `string`: The numeric ID of the deleted app, e.g. 12345
+  * subscriptionId **required** `string`: Your Azure subscription ID. This is a GUID-formatted string (e.g. 00000000-0000-0000-0000-000000000000).
+  * api-version **required** `string`: API Version
+
+#### Output
+* output `object`: A deleted app.
+  * properties `object`: DeletedSite resource specific properties
+    * deletedSiteId `integer`: Numeric id for the deleted site
+    * deletedSiteName `string`: Name of the deleted site
+    * deletedTimestamp `string`: Time in UTC when the app was deleted.
+    * geoRegionName `string`: Geo Region of the deleted site
+    * kind `string`: Kind of site that was deleted
+    * resourceGroup `string`: ResourceGroup that contained the deleted site
+    * slot `string`: Slot of the deleted site
+    * subscription `string`: Subscription containing the deleted site
+  * id `string`: Resource Id.
+  * kind `string`: Kind of resource.
+  * name `string`: Resource Name.
+  * type `string`: Resource type.
+
 
 
 ## Definitions
-
-### DeletedSite
-* DeletedSite `object`: A deleted app.
-  * deletedTimestamp `string`: Time in UTC when the app was deleted.
-  * id `integer`: Numeric id for the deleted site
-  * name `string`: Name of the deleted site
-  * resourceGroup `string`: ResourceGroup that contained the deleted site
-  * slot `string`: Slot of the deleted site
-  * subscription `string`: Subscription containing the deleted site
 
 ### DeletedWebAppCollection
 * DeletedWebAppCollection `object`: Collection of deleted apps.
   * nextLink `string`: Link to next page of resources.
   * value **required** `array`: Collection of resources.
-    * items [DeletedSite](#deletedsite)
+    * items `object`: A deleted app.
+      * properties `object`: DeletedSite resource specific properties
+        * deletedSiteId `integer`: Numeric id for the deleted site
+        * deletedSiteName `string`: Name of the deleted site
+        * deletedTimestamp `string`: Time in UTC when the app was deleted.
+        * geoRegionName `string`: Geo Region of the deleted site
+        * kind `string`: Kind of site that was deleted
+        * resourceGroup `string`: ResourceGroup that contained the deleted site
+        * slot `string`: Slot of the deleted site
+        * subscription `string`: Subscription containing the deleted site
+      * id `string`: Resource Id.
+      * kind `string`: Kind of resource.
+      * name `string`: Resource Name.
+      * type `string`: Resource type.
 
 

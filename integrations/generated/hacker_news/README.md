@@ -9,7 +9,7 @@ npm install --save @datafire/hacker_news
 ```js
 let hacker_news = require('@datafire/hacker_news').create();
 
-hacker_news.getStories({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

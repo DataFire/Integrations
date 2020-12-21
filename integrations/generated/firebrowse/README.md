@@ -9,7 +9,7 @@ npm install --save @datafire/firebrowse
 ```js
 let firebrowse = require('@datafire/firebrowse').create();
 
-firebrowse.miRSeq({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

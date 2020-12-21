@@ -1,6 +1,6 @@
 {
   "name": "@datafire/azure_domainservices",
-  "version": "4.0.0",
+  "version": "5.0.0",
   "main": "index.js",
   "description": "DataFire integration for Domain Services Resource Provider",
   "repository": {

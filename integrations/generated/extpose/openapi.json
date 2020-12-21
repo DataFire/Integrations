@@ -1,0 +1,144 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "contact": {
+      "email": "info@extpose.com"
+    },
+    "description": "Extpose — in‑store performance analytics and optimization tool for Chrome extensions. [https://extpose.com](https://extpose.com)",
+    "termsOfService": "https://extpose.com/privacy-policy",
+    "title": "Extpose",
+    "version": "1.0.0",
+    "x-apisguru-categories": [
+      "developer_tools"
+    ],
+    "x-origin": [
+      {
+        "converter": {
+          "url": "https://github.com/lucybot/api-spec-converter",
+          "version": "2.7.31"
+        },
+        "format": "openapi",
+        "url": "https://extpose.com/openapi.yaml",
+        "version": "3.0"
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "extpose.com",
+    "x-datafire": {
+      "name": "extpose",
+      "type": "openapi"
+    }
+  },
+  "host": "extpose.com",
+  "basePath": "/api/v1",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/user-extensions": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/Extension"
+              },
+              "type": "array"
+            }
+          },
+          "400": {
+            "description": "Invalid status value"
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          }
+        ],
+        "tags": [
+          "user"
+        ],
+        "description": "This endpoint allows you to get list of your extensions including extensions from the watchlist.",
+        "operationId": "getUserExtensions",
+        "summary": "Get User Extensions"
+      }
+    }
+  },
+  "definitions": {
+    "Extension": {
+      "example": {
+        "avg_rating": 4.5,
+        "extension_id": 4186,
+        "install_count": 2333,
+        "prev_avg_rating": 4.57142857142857,
+        "prev_install_count": 1225,
+        "prev_rating_count": 7,
+        "rating_count": 10,
+        "update_ts": "Tue, 24 Sep 2019 22:16:41 GMT",
+        "url": "https://chrome.google.com/webstore/detail/bitcoin-price-ticker/bgddejjmhilkdllbakkgddjodommlimc"
+      },
+      "properties": {
+        "avg_rating": {
+          "format": "float",
+          "type": "number"
+        },
+        "extension_id": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "install_count": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "prev_avg_rating": {
+          "format": "float",
+          "type": "number"
+        },
+        "prev_install_count": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "prev_rating_count": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "rating_count": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "update_ts": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "url": {
+          "format": "uri",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "securityDefinitions": {
+    "api_key": {
+      "in": "header",
+      "name": "X-API-Key",
+      "type": "apiKey"
+    }
+  },
+  "tags": [
+    {
+      "description": "user-specific methods",
+      "name": "user"
+    }
+  ],
+  "externalDocs": {
+    "description": "Find out more about Extpose",
+    "url": "https://extpose.com"
+  },
+  "x-components": {}
+}

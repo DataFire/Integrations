@@ -13,7 +13,7 @@ let bigoven = require('@datafire/bigoven').create({
   password: ""
 });
 
-bigoven.Recipe_RecentViews({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -167,7 +167,7 @@ bigoven.Glossary_Get({
 
 #### Input
 * input `object`
-  * id **required** `integer`: identifier of article to retrieve
+  * id **required** `integer`: identifier of  article to retrieve
 
 #### Output
 *Output schema unknown*
@@ -574,6 +574,46 @@ bigoven.Recipe_Categories(null, context)
 * output `array`
   * items [BigOven.Model.RecipeCategory](#bigoven.model.recipecategory)
 
+### Recipe_GetStep
+Gets recipe single step as text
+
+
+```js
+bigoven.Recipe_GetStep({
+  "userName": "",
+  "recipeId": 0,
+  "stepId": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * userName **required** `string`
+  * recipeId **required** `integer`
+  * stepId **required** `integer`
+
+#### Output
+* output `string`
+
+### Recipe_GetStepNumber
+Returns stored step number and number of steps in recipe
+
+
+```js
+bigoven.Recipe_GetStepNumber({
+  "userName": "",
+  "recipeId": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * userName **required** `string`
+  * recipeId **required** `integer`
+
+#### Output
+* output [System.Web.Mvc.JsonResult](#system.web.mvc.jsonresult)
+
 ### Images_GetPendingByUser
 Gets the pending by user.
 
@@ -587,6 +627,27 @@ bigoven.Images_GetPendingByUser(null, context)
 
 #### Output
 * output [API2.Controllers.ImagesController.RecipePhotosResponse](#api2.controllers.imagescontroller.recipephotosresponse)
+
+### Recipe_GetSteps
+Stores recipe step number
+
+
+```js
+bigoven.Recipe_GetSteps({
+  "userName": "",
+  "recipeId": 0,
+  "stepId": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * userName **required** `string`
+  * recipeId **required** `integer`
+  * stepId **required** `integer`
+
+#### Output
+* output [System.Web.Mvc.JsonResult](#system.web.mvc.jsonresult)
 
 ### Review_DeleteReply
 DELETE a reply to a given review. Authenticated user must be the one who originally posted the reply.
@@ -726,6 +787,24 @@ bigoven.Recipe_Scan({}, context)
 
 #### Output
 *Output schema unknown*
+
+### Recipe_GetRecipeWithSteps
+Return full Recipe detail with steps. Returns 403 if the recipe is owned by someone else.
+
+
+```js
+bigoven.Recipe_GetRecipeWithSteps({
+  "id": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * id **required** `integer`: the Recipe ID to retrieve
+  * prefetch `boolean`
+
+#### Output
+* output [BigOven.Model.API2.Recipe](#bigoven.model.api2.recipe)
 
 ### Recipe_Delete
 Delete a Recipe (you must be authenticated as an owner of the recipe)
@@ -1239,6 +1318,73 @@ bigoven.Recipe_RecentViews({}, context)
 * output `array`
   * items [BigOven.Model.RecipeInfoDateTuple2](#bigoven.model.recipeinfodatetuple2)
 
+### Recipe_RecipeSearchRandom
+Search for recipes. There are many parameters that you can apply. Starting with the most common, use title_kw to search within a title.
+            Use any_kw to search across the entire recipe.
+            If you'd like to limit by course, set the parameter "include_primarycat" to one of (appetizers,bread,breakfast,dessert,drinks,maindish,salad,sidedish,soup,marinades,other).
+            If you'd like to exclude a category, set exclude_cat to one or more (comma-separated) list of those categories to exclude.
+            If you'd like to include a category, set include_cat to one or more (comma-separated) of those categories to include.
+            To explicitly include an ingredient in your search, set the parameter "include_ing" to a CSV of up to three ingredients, e.g.:include_ing=mustard,chicken,beef%20tips
+            To explicitly exclude an ingredient in your search, set the parameter "exclude_ing" to a CSV of up to three ingredients.
+            All searches must contain the paging parameters pg and rpp, which are integers, and represent the page number (1-based) and results per page (rpp).
+            So, to get the third page of a result set paged with 25 recipes per page, you'd pass pg=3&amp;rpp=25
+            If you'd like to target searches to just a single target user's recipes, set userId=the target userId (number).
+            Or, you can set username=theirusername
+            vtn;vgn;chs;glf;ntf;dyf;sff;slf;tnf;wmf;rmf;cps
+            cuisine
+            photos
+            filter=added,try,favorites,myrecipes\r\n\r\n
+            folder=FolderNameCaseSensitive
+            coll=ID of Collection
+
+
+```js
+bigoven.Recipe_RecipeSearchRandom({}, context)
+```
+
+#### Input
+* input `object`
+  * any_kw `string`: Search anywhere in the recipe for the keyword
+  * folder `string`: Search in a specific folder name for the authenticated user
+  * coll `integer`: Limit to a collection ID number
+  * filter `string`: optionally set to either "myrecipes", "try", "favorites","added" to filter to just the authenticated user's recipe set
+  * title_kw `string`: Search just in the recipe title for the keyword
+  * userId `integer`: Set the target userid to search their public recipes
+  * username `string`: Set the target username to search their public recipes
+  * token `string`
+  * photos `boolean`: if set to true, limit search results to photos only
+  * boostmine `boolean`: if set to true, boost my own recipes in my folders so they show up high in the list (at the expense of other sort orders)
+  * include_cat `string`: integer of the subcategory you'd like to limit searches to (see the /recipe/categories endpoint for available id numbers). For instance, 58 is "Main Dish &gt; Casseroles".
+  * exclude_cat `string`: like include_cat, set this to an integer to exclude a specific category
+  * include_primarycat `string`: csv indicating up to three top-level categories -- valid values are [appetizers,bread,breakfast,desserts,drinks,maindish,salads,sidedish,soups,marinades,other]
+  * exclude_primarycat `string`: csv indicating integer values for up to 3 top-level categories -- valid values are 1...11 [appetizers,bread,breakfast,desserts,drinks,maindish,salads,sidedish,soups,marinades,other]
+  * include_ing `string`: A CSV representing up to 3 ingredients to include, e.g., tomatoes,corn%20%starch,chicken
+  * exclude_ing `string`: A CSV representing up to 3 ingredients to exclude  (Powersearch-capable plan required)
+  * cuisine `string`: Limit to a specific cuisine. Cooks can enter anything free-form, but the few dozen preconfigured values are Afghan,African,American,American-South,Asian,Australian,Brazilian,Cajun,Canadian,Caribbean,Chinese,Croatian,Cuban,Dessert,Eastern European,English,French,German,Greek,Hawaiian,Hungarian,India,Indian,Irish,Italian,Japanese,Jewish,Korean,Latin,Mediterranean,Mexican,Middle Eastern,Moroccan,Polish,Russian,Scandanavian,Seafood,Southern,Southwestern,Spanish,Tex-Mex,Thai,Vegan,Vegetarian,Vietnamese
+  * db `string`
+  * userset `string`: If set to a given username, it'll force the search to filter to just that username
+  * servingsMin `number`: Limit to yield of a given number size or greater. Note that cooks usually enter recipes by Servings, but sometimes they are posted by "dozen", etc. This parameter simply specifies the minimum number for that value entered in "yield."
+  * totalMins `integer`: Optional. If supplied, will restrict results to recipes that can be made in {totalMins} or less. (Convert "1 hour, 15 minutes" to 75 before passing in.)
+  * maxIngredients `integer`: Optional. If supplied, will restrict results to recipes that can be made with {maxIngredients} ingredients or less
+  * minIngredients `integer`: Optional. If supplied, will restrict results to recipes that have at least {minIngredients}
+  * vtn `integer`: when set to 1, limit to vegetarian (Powersearch-capable plan required)
+  * vgn `integer`: when set to 1, limit to vegan (Powersearch-capable plan required)
+  * chs `integer`: when set to 1, limit to contains-cheese (Powersearch-capable plan required)
+  * glf `integer`: when set to 1, limit to gluten-free (Powersearch-capable plan required)
+  * ntf `integer`: when set to 1, limit to nut-free (Powersearch-capable plan required)
+  * dyf `integer`: when set to 1, limit to dairy-free (Powersearch-capable plan required)
+  * sff `integer`: when set to 1, limit to seafood-free (Powersearch-capable plan required)
+  * slf `integer`: when set to 1, limit to shellfish-free (Powersearch-capable plan required)
+  * tnf `integer`: when set to 1, limit to tree-nut free (Powersearch-capable plan required)
+  * wmf `integer`: when set to 1, limit to white-meat free (Powersearch-capable plan required)
+  * rmf `integer`: when set to 1, limit to red-meat free (Powersearch-capable plan required)
+  * cps `integer`: when set to 1, recipe contains pasta, set to 0 means contains no pasta (Powersearch-capable plan required)
+  * champion `integer`: optional. When set to 1, this will limit search results to "best of" recipes as determined by various internal editorial and programmatic algorithms. For the most comprehensive results, don't include this parameter.
+  * synonyms `boolean`: optional, default is false. When set to true, BigOven will attempt to apply synonyms in search (e.g., excluding pork will also exclude bacon)
+
+#### Output
+* output [BigOven.Model.API2.RecipeSearchResult](#bigoven.model.api2.recipesearchresult)
+
 
 
 ## Definitions
@@ -1720,6 +1866,8 @@ bigoven.Recipe_RecentViews({}, context)
   * RecipeID `integer`
   * ReviewCount `integer`
   * StarRating `number`
+  * Steps `array`
+    * items [BigOven.Model.InstructionStep](#bigoven.model.instructionstep)
   * Subcategory `string`
   * Title `string`
   * TotalMinutes `integer`
@@ -1813,6 +1961,12 @@ bigoven.Recipe_RecentViews({}, context)
   * Caption `string`
   * PhotoUrl `string`
 
+### BigOven.Model.InstructionStep
+* BigOven.Model.InstructionStep `object`
+  * EndGantt `integer`
+  * StartGantt `integer`
+  * Text `string`
+
 ### BigOven.Model.RecipeCategory
 * BigOven.Model.RecipeCategory `object`
   * Category `string`
@@ -1865,5 +2019,39 @@ bigoven.Recipe_RecentViews({}, context)
 
 ### System.Object
 * System.Object `object`
+
+### System.Text.DecoderFallback
+* System.Text.DecoderFallback `object`
+  * MaxCharCount `integer`
+
+### System.Text.EncoderFallback
+* System.Text.EncoderFallback `object`
+  * MaxCharCount `integer`
+
+### System.Text.Encoding
+* System.Text.Encoding `object`
+  * BodyName `string`
+  * CodePage `integer`
+  * DecoderFallback [System.Text.DecoderFallback](#system.text.decoderfallback)
+  * EncoderFallback [System.Text.EncoderFallback](#system.text.encoderfallback)
+  * EncodingName `string`
+  * HeaderName `string`
+  * IsBrowserDisplay `boolean`
+  * IsBrowserSave `boolean`
+  * IsMailNewsDisplay `boolean`
+  * IsMailNewsSave `boolean`
+  * IsReadOnly `boolean`
+  * IsSingleByte `boolean`
+  * WebName `string`
+  * WindowsCodePage `integer`
+
+### System.Web.Mvc.JsonResult
+* System.Web.Mvc.JsonResult `object`
+  * ContentEncoding [System.Text.Encoding](#system.text.encoding)
+  * ContentType `string`
+  * Data [System.Object](#system.object)
+  * JsonRequestBehavior `integer` (values: 0, 1)
+  * MaxJsonLength `integer`
+  * RecursionLimit `integer`
 
 

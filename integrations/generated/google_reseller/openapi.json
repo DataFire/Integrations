@@ -1,35 +1,33 @@
 {
   "swagger": "2.0",
-  "schemes": [
-    "https"
-  ],
-  "host": "www.googleapis.com",
-  "basePath": "/apps/reseller/v1",
   "info": {
     "contact": {
       "name": "Google",
-      "url": "https://google.com"
+      "url": "https://google.com",
+      "x-twitter": "youtube"
     },
-    "description": "Creates and manages your customers and their subscriptions.",
-    "title": "Enterprise Apps Reseller",
+    "description": "Perform common functions that are available on the Channel Services console at scale, like placing orders and viewing customer information",
+    "license": {
+      "name": "Creative Commons Attribution 3.0",
+      "url": "http://creativecommons.org/licenses/by/3.0/"
+    },
+    "termsOfService": "https://developers.google.com/terms/",
+    "title": "Google Workspace Reseller API",
     "version": "v1",
     "x-apiClientRegistration": {
       "url": "https://console.developers.google.com"
     },
     "x-apisguru-categories": [
-      "enterprise"
+      "analytics",
+      "media"
     ],
     "x-logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.gstatic.com_images_icons_material_product_2x_admin_64dp.png"
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
     },
     "x-origin": [
       {
-        "converter": {
-          "url": "https://github.com/lucybot/api-spec-converter",
-          "version": "2.6.2"
-        },
         "format": "google",
-        "url": "https://www.googleapis.com/discovery/v1/apis/reseller/v1/rest",
+        "url": "https://reseller.googleapis.com/$discovery/rest?version=v1",
         "version": "v1"
       }
     ],
@@ -41,133 +39,110 @@
       "type": "openapi"
     }
   },
-  "externalDocs": {
-    "url": "https://developers.google.com/google-apps/reseller/"
-  },
-  "securityDefinitions": {
-    "Oauth2": {
-      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 authentication",
-      "flow": "implicit",
-      "scopes": {
-        "https://www.googleapis.com/auth/apps.order": "Manage users on your domain",
-        "https://www.googleapis.com/auth/apps.order.readonly": "Manage users on your domain"
-      },
-      "type": "oauth2"
-    },
-    "offline": {
-      "type": "oauth2",
-      "flow": "accessCode",
-      "scopes": {
-        "https://www.googleapis.com/auth/apps.order": "Manage users on your domain",
-        "https://www.googleapis.com/auth/apps.order.readonly": "Manage users on your domain"
-      },
-      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "tokenUrl": "https://www.googleapis.com/oauth2/v4/token",
-      "description": "Allows offline access using a refresh_token"
-    }
-  },
-  "parameters": {
-    "alt": {
-      "default": "json",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ],
-      "in": "query",
-      "name": "alt",
-      "type": "string"
-    },
-    "fields": {
-      "description": "Selector specifying which fields to include in a partial response.",
-      "in": "query",
-      "name": "fields",
-      "type": "string"
-    },
-    "key": {
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
-      "in": "query",
-      "name": "key",
-      "type": "string"
-    },
-    "oauth_token": {
-      "description": "OAuth 2.0 token for the current user.",
-      "in": "query",
-      "name": "oauth_token",
-      "type": "string"
-    },
-    "prettyPrint": {
-      "default": true,
-      "description": "Returns response with indentations and line breaks.",
-      "in": "query",
-      "name": "prettyPrint",
-      "type": "boolean"
-    },
-    "quotaUser": {
-      "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
-      "in": "query",
-      "name": "quotaUser",
-      "type": "string"
-    },
-    "userIp": {
-      "description": "Deprecated. Please use quotaUser instead.",
-      "in": "query",
-      "name": "userIp",
-      "type": "string"
-    }
-  },
-  "tags": [
-    {
-      "name": "customers"
-    },
-    {
-      "name": "resellernotify"
-    },
-    {
-      "name": "subscriptions"
-    }
+  "host": "reseller.googleapis.com",
+  "basePath": "/",
+  "schemes": [
+    "https"
   ],
   "paths": {
-    "/customers": {
+    "/apps/reseller/v1/customers": {
       "parameters": [
         {
-          "$ref": "#/parameters/alt"
+          "description": "V1 error format.",
+          "enum": [
+            "1",
+            "2"
+          ],
+          "in": "query",
+          "name": "$.xgafv",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/fields"
+          "description": "OAuth access token.",
+          "in": "query",
+          "name": "access_token",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/key"
+          "description": "Data format for response.",
+          "enum": [
+            "json",
+            "media",
+            "proto"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/oauth_token"
+          "description": "JSONP",
+          "in": "query",
+          "name": "callback",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/prettyPrint"
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/quotaUser"
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/userIp"
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
+        },
+        {
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
+        },
+        {
+          "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
+        },
+        {
+          "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+          "in": "query",
+          "name": "upload_protocol",
+          "type": "string"
+        },
+        {
+          "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+          "in": "query",
+          "name": "uploadType",
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Order a new customer's account.",
-        "operationId": "customers.insert",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "description": "The customerAuthToken query string is required when creating a resold account that transfers a direct customer's subscription or transfers another reseller customer's subscription to your reseller management. This is a hexadecimal authentication token needed to complete the subscription transfer. For more information, see the administrator help center.",
+            "in": "query",
+            "name": "customerAuthToken",
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
             "schema": {
               "$ref": "#/definitions/Customer"
             }
-          },
-          {
-            "description": "The customerAuthToken query string is required when creating a resold account that transfers a direct customer's subscription or transfers another reseller customer's subscription to your reseller management. This is a hexadecimal authentication token needed to complete the subscription transfer. For more information, see the administrator help center.",
-            "in": "query",
-            "name": "customerAuthToken",
-            "type": "string"
           }
         ],
         "responses": {
@@ -182,18 +157,101 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/apps.order"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/apps.order"
             ]
           }
         ],
         "tags": [
           "customers"
-        ]
+        ],
+        "description": "Order a new customer's account.",
+        "operationId": "reseller.customers.insert"
       }
     },
-    "/customers/{customerId}": {
+    "/apps/reseller/v1/customers/{customerId}": {
+      "parameters": [
+        {
+          "description": "V1 error format.",
+          "enum": [
+            "1",
+            "2"
+          ],
+          "in": "query",
+          "name": "$.xgafv",
+          "type": "string"
+        },
+        {
+          "description": "OAuth access token.",
+          "in": "query",
+          "name": "access_token",
+          "type": "string"
+        },
+        {
+          "description": "Data format for response.",
+          "enum": [
+            "json",
+            "media",
+            "proto"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
+        },
+        {
+          "description": "JSONP",
+          "in": "query",
+          "name": "callback",
+          "type": "string"
+        },
+        {
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
+        },
+        {
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
+        },
+        {
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
+        },
+        {
+          "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
+        },
+        {
+          "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+          "in": "query",
+          "name": "upload_protocol",
+          "type": "string"
+        },
+        {
+          "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+          "in": "query",
+          "name": "uploadType",
+          "type": "string"
+        }
+      ],
       "get": {
-        "description": "Get a customer account.",
-        "operationId": "customers.get",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Either the customer's primary domain name or the customer's unique identifier. If using the domain name, we do not recommend using a customerId as a key for persistent data. If the domain name for a customerId is changed, the Google system automatically updates.",
@@ -214,59 +272,48 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/apps.order"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/apps.order"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/apps.order.readonly"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/apps.order.readonly"
             ]
           }
         ],
         "tags": [
           "customers"
-        ]
+        ],
+        "description": "Get a customer account.",
+        "operationId": "reseller.customers.get"
       },
-      "parameters": [
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/userIp"
-        }
-      ],
       "patch": {
-        "description": "Update a customer account's settings. This method supports patch semantics.",
-        "operationId": "customers.patch",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Customer"
-            }
-          },
           {
             "description": "Either the customer's primary domain name or the customer's unique identifier. If using the domain name, we do not recommend using a customerId as a key for persistent data. If the domain name for a customerId is changed, the Google system automatically updates.",
             "in": "path",
             "name": "customerId",
             "required": true,
             "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Customer"
+            }
           }
         ],
         "responses": {
@@ -281,30 +328,39 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/apps.order"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/apps.order"
             ]
           }
         ],
         "tags": [
           "customers"
-        ]
+        ],
+        "description": "Patch a customer account's settings via Apiary Patch Orchestration",
+        "operationId": "reseller.customers.patch"
       },
       "put": {
-        "description": "Update a customer account's settings.",
-        "operationId": "customers.update",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Customer"
-            }
-          },
           {
             "description": "Either the customer's primary domain name or the customer's unique identifier. If using the domain name, we do not recommend using a customerId as a key for persistent data. If the domain name for a customerId is changed, the Google system automatically updates.",
             "in": "path",
             "name": "customerId",
             "required": true,
             "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Customer"
+            }
           }
         ],
         "responses": {
@@ -319,48 +375,111 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/apps.order"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/apps.order"
             ]
           }
         ],
         "tags": [
           "customers"
-        ]
+        ],
+        "description": "Update a customer account's settings.",
+        "operationId": "reseller.customers.update"
       }
     },
-    "/customers/{customerId}/subscriptions": {
+    "/apps/reseller/v1/customers/{customerId}/subscriptions": {
       "parameters": [
         {
-          "$ref": "#/parameters/alt"
+          "description": "V1 error format.",
+          "enum": [
+            "1",
+            "2"
+          ],
+          "in": "query",
+          "name": "$.xgafv",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/fields"
+          "description": "OAuth access token.",
+          "in": "query",
+          "name": "access_token",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/key"
+          "description": "Data format for response.",
+          "enum": [
+            "json",
+            "media",
+            "proto"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/oauth_token"
+          "description": "JSONP",
+          "in": "query",
+          "name": "callback",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/prettyPrint"
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/quotaUser"
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/userIp"
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
+        },
+        {
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
+        },
+        {
+          "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
+        },
+        {
+          "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+          "in": "query",
+          "name": "upload_protocol",
+          "type": "string"
+        },
+        {
+          "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+          "in": "query",
+          "name": "uploadType",
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Create or transfer a subscription.",
-        "operationId": "subscriptions.insert",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Subscription"
-            }
+            "description": "Either the customer's primary domain name or the customer's unique identifier. If using the domain name, we do not recommend using a customerId as a key for persistent data. If the domain name for a customerId is changed, the Google system automatically updates.",
+            "in": "path",
+            "name": "customerId",
+            "required": true,
+            "type": "string"
           },
           {
             "description": "The customerAuthToken query string is required when creating a resold account that transfers a direct customer's subscription or transfers another reseller customer's subscription to your reseller management. This is a hexadecimal authentication token needed to complete the subscription transfer. For more information, see the administrator help center.",
@@ -369,11 +488,11 @@
             "type": "string"
           },
           {
-            "description": "Either the customer's primary domain name or the customer's unique identifier. If using the domain name, we do not recommend using a customerId as a key for persistent data. If the domain name for a customerId is changed, the Google system automatically updates.",
-            "in": "path",
-            "name": "customerId",
-            "required": true,
-            "type": "string"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Subscription"
+            }
           }
         ],
         "responses": {
@@ -388,36 +507,103 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/apps.order"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/apps.order"
             ]
           }
         ],
         "tags": [
           "subscriptions"
-        ]
+        ],
+        "description": "Create or transfer a subscription.",
+        "operationId": "reseller.subscriptions.insert"
       }
     },
-    "/customers/{customerId}/subscriptions/{subscriptionId}": {
+    "/apps/reseller/v1/customers/{customerId}/subscriptions/{subscriptionId}": {
+      "parameters": [
+        {
+          "description": "V1 error format.",
+          "enum": [
+            "1",
+            "2"
+          ],
+          "in": "query",
+          "name": "$.xgafv",
+          "type": "string"
+        },
+        {
+          "description": "OAuth access token.",
+          "in": "query",
+          "name": "access_token",
+          "type": "string"
+        },
+        {
+          "description": "Data format for response.",
+          "enum": [
+            "json",
+            "media",
+            "proto"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
+        },
+        {
+          "description": "JSONP",
+          "in": "query",
+          "name": "callback",
+          "type": "string"
+        },
+        {
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
+        },
+        {
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
+        },
+        {
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
+        },
+        {
+          "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
+        },
+        {
+          "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+          "in": "query",
+          "name": "upload_protocol",
+          "type": "string"
+        },
+        {
+          "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+          "in": "query",
+          "name": "uploadType",
+          "type": "string"
+        }
+      ],
       "delete": {
-        "description": "Cancel, suspend or transfer a subscription to direct.",
-        "operationId": "subscriptions.delete",
         "parameters": [
           {
             "description": "Either the customer's primary domain name or the customer's unique identifier. If using the domain name, we do not recommend using a customerId as a key for persistent data. If the domain name for a customerId is changed, the Google system automatically updates.",
             "in": "path",
             "name": "customerId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The deletionType query string enables the cancellation, downgrade, or suspension of a subscription.",
-            "enum": [
-              "cancel",
-              "downgrade",
-              "suspend",
-              "transfer_to_direct"
-            ],
-            "in": "query",
-            "name": "deletionType",
             "required": true,
             "type": "string"
           },
@@ -425,6 +611,18 @@
             "description": "This is a required property. The subscriptionId is the subscription identifier and is unique for each customer. Since a subscriptionId changes when a subscription is updated, we recommend to not use this ID as a key for persistent data. And the subscriptionId can be found using the retrieve all reseller subscriptions method.",
             "in": "path",
             "name": "subscriptionId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The deletionType query string enables the cancellation, downgrade, or suspension of a subscription.",
+            "enum": [
+              "deletion_type_undefined",
+              "cancel",
+              "transfer_to_direct"
+            ],
+            "in": "query",
+            "name": "deletionType",
             "required": true,
             "type": "string"
           }
@@ -438,16 +636,22 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/apps.order"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/apps.order"
             ]
           }
         ],
         "tags": [
           "subscriptions"
-        ]
+        ],
+        "description": "Cancel, suspend, or transfer a subscription to direct.",
+        "operationId": "reseller.subscriptions.delete"
       },
       "get": {
-        "description": "Get a specific subscription.",
-        "operationId": "subscriptions.get",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Either the customer's primary domain name or the customer's unique identifier. If using the domain name, we do not recommend using a customerId as a key for persistent data. If the domain name for a customerId is changed, the Google system automatically updates.",
@@ -475,70 +679,110 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/apps.order"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/apps.order"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/apps.order.readonly"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/apps.order.readonly"
             ]
           }
         ],
         "tags": [
           "subscriptions"
-        ]
-      },
-      "parameters": [
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/userIp"
-        }
-      ]
+        ],
+        "description": "Get a specific subscription.",
+        "operationId": "reseller.subscriptions.get"
+      }
     },
-    "/customers/{customerId}/subscriptions/{subscriptionId}/activate": {
+    "/apps/reseller/v1/customers/{customerId}/subscriptions/{subscriptionId}/activate": {
       "parameters": [
         {
-          "$ref": "#/parameters/alt"
+          "description": "V1 error format.",
+          "enum": [
+            "1",
+            "2"
+          ],
+          "in": "query",
+          "name": "$.xgafv",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/fields"
+          "description": "OAuth access token.",
+          "in": "query",
+          "name": "access_token",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/key"
+          "description": "Data format for response.",
+          "enum": [
+            "json",
+            "media",
+            "proto"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/oauth_token"
+          "description": "JSONP",
+          "in": "query",
+          "name": "callback",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/prettyPrint"
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/quotaUser"
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/userIp"
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
+        },
+        {
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
+        },
+        {
+          "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
+        },
+        {
+          "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+          "in": "query",
+          "name": "upload_protocol",
+          "type": "string"
+        },
+        {
+          "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+          "in": "query",
+          "name": "uploadType",
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Activates a subscription previously suspended by the reseller",
-        "operationId": "subscriptions.activate",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Either the customer's primary domain name or the customer's unique identifier. If using the domain name, we do not recommend using a customerId as a key for persistent data. If the domain name for a customerId is changed, the Google system automatically updates.",
@@ -567,62 +811,125 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/apps.order"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/apps.order"
             ]
           }
         ],
         "tags": [
           "subscriptions"
-        ]
+        ],
+        "description": "Activates a subscription previously suspended by the reseller",
+        "operationId": "reseller.subscriptions.activate"
       }
     },
-    "/customers/{customerId}/subscriptions/{subscriptionId}/changePlan": {
+    "/apps/reseller/v1/customers/{customerId}/subscriptions/{subscriptionId}/changePlan": {
       "parameters": [
         {
-          "$ref": "#/parameters/alt"
+          "description": "V1 error format.",
+          "enum": [
+            "1",
+            "2"
+          ],
+          "in": "query",
+          "name": "$.xgafv",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/fields"
+          "description": "OAuth access token.",
+          "in": "query",
+          "name": "access_token",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/key"
+          "description": "Data format for response.",
+          "enum": [
+            "json",
+            "media",
+            "proto"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/oauth_token"
+          "description": "JSONP",
+          "in": "query",
+          "name": "callback",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/prettyPrint"
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/quotaUser"
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/userIp"
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
+        },
+        {
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
+        },
+        {
+          "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
+        },
+        {
+          "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+          "in": "query",
+          "name": "upload_protocol",
+          "type": "string"
+        },
+        {
+          "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+          "in": "query",
+          "name": "uploadType",
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Update a subscription plan. Use this method to update a plan for a 30-day trial or a flexible plan subscription to an annual commitment plan with monthly or yearly payments.",
-        "operationId": "subscriptions.changePlan",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "description": "Either the customer's primary domain name or the customer's unique identifier. If using the domain name, we do not recommend using a customerId as a key for persistent data. If the domain name for a customerId is changed, the Google system automatically updates.",
+            "in": "path",
+            "name": "customerId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "This is a required property. The subscriptionId is the subscription identifier and is unique for each customer. Since a subscriptionId changes when a subscription is updated, we recommend to not use this ID as a key for persistent data. And the subscriptionId can be found using the retrieve all reseller subscriptions method.",
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
             "schema": {
               "$ref": "#/definitions/ChangePlanRequest"
             }
-          },
-          {
-            "description": "Either the customer's primary domain name or the customer's unique identifier. If using the domain name, we do not recommend using a customerId as a key for persistent data. If the domain name for a customerId is changed, the Google system automatically updates.",
-            "in": "path",
-            "name": "customerId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "This is a required property. The subscriptionId is the subscription identifier and is unique for each customer. Since a subscriptionId changes when a subscription is updated, we recommend to not use this ID as a key for persistent data. And the subscriptionId can be found using the retrieve all reseller subscriptions method.",
-            "in": "path",
-            "name": "subscriptionId",
-            "required": true,
-            "type": "string"
           }
         ],
         "responses": {
@@ -637,62 +944,125 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/apps.order"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/apps.order"
             ]
           }
         ],
         "tags": [
           "subscriptions"
-        ]
+        ],
+        "description": "Update a subscription plan. Use this method to update a plan for a 30-day trial or a flexible plan subscription to an annual commitment plan with monthly or yearly payments.",
+        "operationId": "reseller.subscriptions.changePlan"
       }
     },
-    "/customers/{customerId}/subscriptions/{subscriptionId}/changeRenewalSettings": {
+    "/apps/reseller/v1/customers/{customerId}/subscriptions/{subscriptionId}/changeRenewalSettings": {
       "parameters": [
         {
-          "$ref": "#/parameters/alt"
+          "description": "V1 error format.",
+          "enum": [
+            "1",
+            "2"
+          ],
+          "in": "query",
+          "name": "$.xgafv",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/fields"
+          "description": "OAuth access token.",
+          "in": "query",
+          "name": "access_token",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/key"
+          "description": "Data format for response.",
+          "enum": [
+            "json",
+            "media",
+            "proto"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/oauth_token"
+          "description": "JSONP",
+          "in": "query",
+          "name": "callback",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/prettyPrint"
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/quotaUser"
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/userIp"
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
+        },
+        {
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
+        },
+        {
+          "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
+        },
+        {
+          "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+          "in": "query",
+          "name": "upload_protocol",
+          "type": "string"
+        },
+        {
+          "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+          "in": "query",
+          "name": "uploadType",
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Update a user license's renewal settings. This is applicable for accounts with annual commitment plans only.",
-        "operationId": "subscriptions.changeRenewalSettings",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "description": "Either the customer's primary domain name or the customer's unique identifier. If using the domain name, we do not recommend using a customerId as a key for persistent data. If the domain name for a customerId is changed, the Google system automatically updates.",
+            "in": "path",
+            "name": "customerId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "This is a required property. The subscriptionId is the subscription identifier and is unique for each customer. Since a subscriptionId changes when a subscription is updated, we recommend to not use this ID as a key for persistent data. And the subscriptionId can be found using the retrieve all reseller subscriptions method.",
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
             "schema": {
               "$ref": "#/definitions/RenewalSettings"
             }
-          },
-          {
-            "description": "Either the customer's primary domain name or the customer's unique identifier. If using the domain name, we do not recommend using a customerId as a key for persistent data. If the domain name for a customerId is changed, the Google system automatically updates.",
-            "in": "path",
-            "name": "customerId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "This is a required property. The subscriptionId is the subscription identifier and is unique for each customer. Since a subscriptionId changes when a subscription is updated, we recommend to not use this ID as a key for persistent data. And the subscriptionId can be found using the retrieve all reseller subscriptions method.",
-            "in": "path",
-            "name": "subscriptionId",
-            "required": true,
-            "type": "string"
           }
         ],
         "responses": {
@@ -707,49 +1077,235 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/apps.order"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/apps.order"
             ]
           }
         ],
         "tags": [
           "subscriptions"
-        ]
+        ],
+        "description": "Update a user license's renewal settings. This is applicable for accounts with annual commitment plans only.",
+        "operationId": "reseller.subscriptions.changeRenewalSettings"
       }
     },
-    "/customers/{customerId}/subscriptions/{subscriptionId}/changeSeats": {
+    "/apps/reseller/v1/customers/{customerId}/subscriptions/{subscriptionId}/changeSeats": {
       "parameters": [
         {
-          "$ref": "#/parameters/alt"
+          "description": "V1 error format.",
+          "enum": [
+            "1",
+            "2"
+          ],
+          "in": "query",
+          "name": "$.xgafv",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/fields"
+          "description": "OAuth access token.",
+          "in": "query",
+          "name": "access_token",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/key"
+          "description": "Data format for response.",
+          "enum": [
+            "json",
+            "media",
+            "proto"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/oauth_token"
+          "description": "JSONP",
+          "in": "query",
+          "name": "callback",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/prettyPrint"
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/quotaUser"
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/userIp"
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
+        },
+        {
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
+        },
+        {
+          "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
+        },
+        {
+          "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+          "in": "query",
+          "name": "upload_protocol",
+          "type": "string"
+        },
+        {
+          "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+          "in": "query",
+          "name": "uploadType",
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Update a subscription's user license settings.",
-        "operationId": "subscriptions.changeSeats",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "description": "Either the customer's primary domain name or the customer's unique identifier. If using the domain name, we do not recommend using a customerId as a key for persistent data. If the domain name for a customerId is changed, the Google system automatically updates.",
+            "in": "path",
+            "name": "customerId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "This is a required property. The subscriptionId is the subscription identifier and is unique for each customer. Since a subscriptionId changes when a subscription is updated, we recommend to not use this ID as a key for persistent data. And the subscriptionId can be found using the retrieve all reseller subscriptions method.",
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
             "schema": {
               "$ref": "#/definitions/Seats"
             }
-          },
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/Subscription"
+            }
+          }
+        },
+        "security": [
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/apps.order"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/apps.order"
+            ]
+          }
+        ],
+        "tags": [
+          "subscriptions"
+        ],
+        "description": "Update a subscription's user license settings.",
+        "operationId": "reseller.subscriptions.changeSeats"
+      }
+    },
+    "/apps/reseller/v1/customers/{customerId}/subscriptions/{subscriptionId}/startPaidService": {
+      "parameters": [
+        {
+          "description": "V1 error format.",
+          "enum": [
+            "1",
+            "2"
+          ],
+          "in": "query",
+          "name": "$.xgafv",
+          "type": "string"
+        },
+        {
+          "description": "OAuth access token.",
+          "in": "query",
+          "name": "access_token",
+          "type": "string"
+        },
+        {
+          "description": "Data format for response.",
+          "enum": [
+            "json",
+            "media",
+            "proto"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
+        },
+        {
+          "description": "JSONP",
+          "in": "query",
+          "name": "callback",
+          "type": "string"
+        },
+        {
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
+        },
+        {
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
+        },
+        {
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
+        },
+        {
+          "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
+        },
+        {
+          "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+          "in": "query",
+          "name": "upload_protocol",
+          "type": "string"
+        },
+        {
+          "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+          "in": "query",
+          "name": "uploadType",
+          "type": "string"
+        }
+      ],
+      "post": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
           {
             "description": "Either the customer's primary domain name or the customer's unique identifier. If using the domain name, we do not recommend using a customerId as a key for persistent data. If the domain name for a customerId is changed, the Google system automatically updates.",
             "in": "path",
@@ -777,104 +1333,101 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/apps.order"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/apps.order"
             ]
           }
         ],
         "tags": [
           "subscriptions"
-        ]
-      }
-    },
-    "/customers/{customerId}/subscriptions/{subscriptionId}/startPaidService": {
-      "parameters": [
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/userIp"
-        }
-      ],
-      "post": {
+        ],
         "description": "Immediately move a 30-day free trial subscription to a paid service subscription.",
-        "operationId": "subscriptions.startPaidService",
-        "parameters": [
-          {
-            "description": "Either the customer's primary domain name or the customer's unique identifier. If using the domain name, we do not recommend using a customerId as a key for persistent data. If the domain name for a customerId is changed, the Google system automatically updates.",
-            "in": "path",
-            "name": "customerId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "This is a required property. The subscriptionId is the subscription identifier and is unique for each customer. Since a subscriptionId changes when a subscription is updated, we recommend to not use this ID as a key for persistent data. And the subscriptionId can be found using the retrieve all reseller subscriptions method.",
-            "in": "path",
-            "name": "subscriptionId",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful response",
-            "schema": {
-              "$ref": "#/definitions/Subscription"
-            }
-          }
-        },
-        "security": [
-          {
-            "Oauth2": [
-              "https://www.googleapis.com/auth/apps.order"
-            ]
-          }
-        ],
-        "tags": [
-          "subscriptions"
-        ]
+        "operationId": "reseller.subscriptions.startPaidService"
       }
     },
-    "/customers/{customerId}/subscriptions/{subscriptionId}/suspend": {
+    "/apps/reseller/v1/customers/{customerId}/subscriptions/{subscriptionId}/suspend": {
       "parameters": [
         {
-          "$ref": "#/parameters/alt"
+          "description": "V1 error format.",
+          "enum": [
+            "1",
+            "2"
+          ],
+          "in": "query",
+          "name": "$.xgafv",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/fields"
+          "description": "OAuth access token.",
+          "in": "query",
+          "name": "access_token",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/key"
+          "description": "Data format for response.",
+          "enum": [
+            "json",
+            "media",
+            "proto"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/oauth_token"
+          "description": "JSONP",
+          "in": "query",
+          "name": "callback",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/prettyPrint"
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/quotaUser"
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/userIp"
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
+        },
+        {
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
+        },
+        {
+          "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
+        },
+        {
+          "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+          "in": "query",
+          "name": "upload_protocol",
+          "type": "string"
+        },
+        {
+          "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+          "in": "query",
+          "name": "uploadType",
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Suspends an active subscription.",
-        "operationId": "subscriptions.suspend",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Either the customer's primary domain name or the customer's unique identifier. If using the domain name, we do not recommend using a customerId as a key for persistent data. If the domain name for a customerId is changed, the Google system automatically updates.",
@@ -903,18 +1456,102 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/apps.order"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/apps.order"
             ]
           }
         ],
         "tags": [
           "subscriptions"
-        ]
+        ],
+        "description": "Suspends an active subscription.",
+        "operationId": "reseller.subscriptions.suspend"
       }
     },
-    "/resellernotify/getwatchdetails": {
+    "/apps/reseller/v1/resellernotify/getwatchdetails": {
+      "parameters": [
+        {
+          "description": "V1 error format.",
+          "enum": [
+            "1",
+            "2"
+          ],
+          "in": "query",
+          "name": "$.xgafv",
+          "type": "string"
+        },
+        {
+          "description": "OAuth access token.",
+          "in": "query",
+          "name": "access_token",
+          "type": "string"
+        },
+        {
+          "description": "Data format for response.",
+          "enum": [
+            "json",
+            "media",
+            "proto"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
+        },
+        {
+          "description": "JSONP",
+          "in": "query",
+          "name": "callback",
+          "type": "string"
+        },
+        {
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
+        },
+        {
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
+        },
+        {
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
+        },
+        {
+          "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
+        },
+        {
+          "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+          "in": "query",
+          "name": "upload_protocol",
+          "type": "string"
+        },
+        {
+          "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+          "in": "query",
+          "name": "uploadType",
+          "type": "string"
+        }
+      ],
       "get": {
-        "description": "Returns all the details of the watch corresponding to the reseller.",
-        "operationId": "resellernotify.getwatchdetails",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -927,69 +1564,109 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/apps.order"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/apps.order"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/apps.order.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/apps.order.readonly"
             ]
           }
         ],
         "tags": [
           "resellernotify"
-        ]
-      },
-      "parameters": [
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/userIp"
-        }
-      ]
+        ],
+        "description": "Returns all the details of the watch corresponding to the reseller.",
+        "operationId": "reseller.resellernotify.getwatchdetails"
+      }
     },
-    "/resellernotify/register": {
+    "/apps/reseller/v1/resellernotify/register": {
       "parameters": [
         {
-          "$ref": "#/parameters/alt"
+          "description": "V1 error format.",
+          "enum": [
+            "1",
+            "2"
+          ],
+          "in": "query",
+          "name": "$.xgafv",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/fields"
+          "description": "OAuth access token.",
+          "in": "query",
+          "name": "access_token",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/key"
+          "description": "Data format for response.",
+          "enum": [
+            "json",
+            "media",
+            "proto"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/oauth_token"
+          "description": "JSONP",
+          "in": "query",
+          "name": "callback",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/prettyPrint"
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/quotaUser"
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/userIp"
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
+        },
+        {
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
+        },
+        {
+          "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
+        },
+        {
+          "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+          "in": "query",
+          "name": "upload_protocol",
+          "type": "string"
+        },
+        {
+          "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+          "in": "query",
+          "name": "uploadType",
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Registers a Reseller for receiving notifications.",
-        "operationId": "resellernotify.register",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "The service account which will own the created Cloud-PubSub topic.",
@@ -1010,41 +1687,101 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/apps.order"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/apps.order"
             ]
           }
         ],
         "tags": [
           "resellernotify"
-        ]
+        ],
+        "description": "Registers a Reseller for receiving notifications.",
+        "operationId": "reseller.resellernotify.register"
       }
     },
-    "/resellernotify/unregister": {
+    "/apps/reseller/v1/resellernotify/unregister": {
       "parameters": [
         {
-          "$ref": "#/parameters/alt"
+          "description": "V1 error format.",
+          "enum": [
+            "1",
+            "2"
+          ],
+          "in": "query",
+          "name": "$.xgafv",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/fields"
+          "description": "OAuth access token.",
+          "in": "query",
+          "name": "access_token",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/key"
+          "description": "Data format for response.",
+          "enum": [
+            "json",
+            "media",
+            "proto"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/oauth_token"
+          "description": "JSONP",
+          "in": "query",
+          "name": "callback",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/prettyPrint"
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/quotaUser"
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/userIp"
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
+        },
+        {
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
+        },
+        {
+          "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
+        },
+        {
+          "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+          "in": "query",
+          "name": "upload_protocol",
+          "type": "string"
+        },
+        {
+          "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+          "in": "query",
+          "name": "uploadType",
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Unregisters a Reseller for receiving notifications.",
-        "operationId": "resellernotify.unregister",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "The service account which owns the Cloud-PubSub topic.",
@@ -1065,18 +1802,101 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/apps.order"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/apps.order"
             ]
           }
         ],
         "tags": [
           "resellernotify"
-        ]
+        ],
+        "description": "Unregisters a Reseller for receiving notifications.",
+        "operationId": "reseller.resellernotify.unregister"
       }
     },
-    "/subscriptions": {
+    "/apps/reseller/v1/subscriptions": {
+      "parameters": [
+        {
+          "description": "V1 error format.",
+          "enum": [
+            "1",
+            "2"
+          ],
+          "in": "query",
+          "name": "$.xgafv",
+          "type": "string"
+        },
+        {
+          "description": "OAuth access token.",
+          "in": "query",
+          "name": "access_token",
+          "type": "string"
+        },
+        {
+          "description": "Data format for response.",
+          "enum": [
+            "json",
+            "media",
+            "proto"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
+        },
+        {
+          "description": "JSONP",
+          "in": "query",
+          "name": "callback",
+          "type": "string"
+        },
+        {
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
+        },
+        {
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
+        },
+        {
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
+        },
+        {
+          "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
+        },
+        {
+          "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+          "in": "query",
+          "name": "upload_protocol",
+          "type": "string"
+        },
+        {
+          "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+          "in": "query",
+          "name": "uploadType",
+          "type": "string"
+        }
+      ],
       "get": {
-        "description": "List of subscriptions managed by the reseller. The list can be all subscriptions, all of a customer's subscriptions, or all of a customer's transferable subscriptions.",
-        "operationId": "subscriptions.list",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "The customerAuthToken query string is required when creating a resold account that transfers a direct customer's subscription or transfers another reseller customer's subscription to your reseller management. This is a hexadecimal authentication token needed to complete the subscription transfer. For more information, see the administrator help center.",
@@ -1091,7 +1911,7 @@
             "type": "string"
           },
           {
-            "description": "When retrieving all of your subscriptions and filtering for specific customers, you can enter a prefix for a customer name. Using an example customer group that includes exam.com, example20.com and example.com:  \n- exa -- Returns all customer names that start with 'exa' which could include exam.com, example20.com, and example.com. A name prefix is similar to using a regular expression's asterisk, exa*. \n- example -- Returns example20.com and example.com.",
+            "description": "When retrieving all of your subscriptions and filtering for specific customers, you can enter a prefix for a customer name. Using an example customer group that includes exam.com, example20.com and example.com: - exa -- Returns all customer names that start with 'exa' which could include exam.com, example20.com, and example.com. A name prefix is similar to using a regular expression's asterisk, exa*. - example -- Returns example20.com and example.com. ",
             "in": "query",
             "name": "customerNamePrefix",
             "type": "string"
@@ -1123,41 +1943,26 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/apps.order"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/apps.order"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/apps.order.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/apps.order.readonly"
             ]
           }
         ],
         "tags": [
           "subscriptions"
-        ]
-      },
-      "parameters": [
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/userIp"
-        }
-      ]
+        ],
+        "description": "List of subscriptions managed by the reseller. The list can be all subscriptions, all of a customer's subscriptions, or all of a customer's transferable subscriptions.",
+        "operationId": "reseller.subscriptions.list"
+      }
     }
   },
   "definitions": {
@@ -1221,7 +2026,7 @@
           "type": "string"
         },
         "planName": {
-          "description": "The planName property is required. This is the name of the subscription's payment plan. For more information about the Google payment plans, see API concepts.\n\nPossible values are:  \n- ANNUAL_MONTHLY_PAY - The annual commitment plan with monthly payments  \n- ANNUAL_YEARLY_PAY - The annual commitment plan with yearly payments  \n- FLEXIBLE - The flexible plan  \n- TRIAL - The 30-day free trial plan",
+          "description": "The planName property is required. This is the name of the subscription's payment plan. For more information about the Google payment plans, see API concepts. Possible values are: - ANNUAL_MONTHLY_PAY - The annual commitment plan with monthly payments *Caution: *ANNUAL_MONTHLY_PAY is returned as ANNUAL in all API responses. - ANNUAL_YEARLY_PAY - The annual commitment plan with yearly payments - FLEXIBLE - The flexible plan - TRIAL - The 30-day free trial plan ",
           "type": "string"
         },
         "purchaseOrderId": {
@@ -1239,7 +2044,7 @@
       "description": "JSON template for a customer.",
       "properties": {
         "alternateEmail": {
-          "description": "Like the \"Customer email\" in the reseller tools, this email is the secondary contact used if something happens to the customer's service such as service outage or a security issue. This property is required when creating a new customer and should not use the same domain as customerDomain.",
+          "description": "Like the \"Customer email\" in the reseller tools, this email is the secondary contact used if something happens to the customer's service such as service outage or a security issue. This property is required when creating a new customer and should not use the same domain as customerDomain .",
           "type": "string"
         },
         "customerDomain": {
@@ -1260,7 +2065,7 @@
           "type": "string"
         },
         "phoneNumber": {
-          "description": "Customer contact phone number. This can be continuous numbers, with spaces, etc. But it must be a real phone number and not, for example, \"123\". See phone  local format conventions.",
+          "description": "Customer contact phone number. Must start with \"+\" followed by the country code. The rest of the number can be contiguous numbers or respect the phone local format conventions, but it must be a real phone number and not, for example, \"123\". This field is silently ignored if invalid.",
           "type": "string"
         },
         "postalAddress": {
@@ -1321,21 +2126,21 @@
       "properties": {
         "kind": {
           "default": "subscriptions#seats",
-          "description": "Identifies the resource as a subscription change plan request. Value: subscriptions#seats",
+          "description": "Identifies the resource as a subscription seat setting. Value: subscriptions#seats",
           "type": "string"
         },
         "licensedNumberOfSeats": {
-          "description": "Read-only field containing the current number of licensed seats for FLEXIBLE Google-Apps subscriptions and secondary subscriptions such as Google-Vault and Drive-storage.",
+          "description": "Read-only field containing the current number of users that are assigned a license for the product defined in skuId. This field's value is equivalent to the numerical count of users returned by the Enterprise License Manager API method: listForProductAndSku",
           "format": "int32",
           "type": "integer"
         },
         "maximumNumberOfSeats": {
-          "description": "The maximumNumberOfSeats property is the maximum number of licenses that the customer can purchase. This property applies to plans other than the annual commitment plan. How a user's licenses are managed depends on the subscription's payment plan:  \n- annual commitment plan (with monthly or yearly payments) — For this plan, a reseller is invoiced on the number of user licenses in the numberOfSeats property. The maximumNumberOfSeats property is a read-only property in the API's response.  \n- flexible plan — For this plan, a reseller is invoiced on the actual number of users which is capped by the maximumNumberOfSeats. This is the maximum number of user licenses a customer has for user license provisioning. This quantity can be increased up to the maximum limit defined in the reseller's contract. And the minimum quantity is the current number of users in the customer account.  \n- 30-day free trial plan — A subscription in a 30-day free trial is restricted to maximum 10 seats.",
+          "description": "This is a required property and is exclusive to subscriptions with FLEXIBLE or TRIAL plans. This property sets the maximum number of licensed users allowed on a subscription. This quantity can be increased up to the maximum limit defined in the reseller's contract. The minimum quantity is the current number of users in the customer account. *Note: *G Suite subscriptions automatically assign a license to every user.",
           "format": "int32",
           "type": "integer"
         },
         "numberOfSeats": {
-          "description": "The numberOfSeats property holds the customer's number of user licenses. How a user's licenses are managed depends on the subscription's plan:  \n- annual commitment plan (with monthly or yearly pay) — For this plan, a reseller is invoiced on the number of user licenses in the numberOfSeats property. This is the maximum number of user licenses that a reseller's customer can create. The reseller can add more licenses, but once set, the numberOfSeats can not be reduced until renewal. The reseller is invoiced based on the numberOfSeats value regardless of how many of these user licenses are provisioned users.  \n- flexible plan — For this plan, a reseller is invoiced on the actual number of users which is capped by the maximumNumberOfSeats. The numberOfSeats property is not used in the request or response for flexible plan customers.  \n- 30-day free trial plan — The numberOfSeats property is not used in the request or response for an account in a 30-day trial.",
+          "description": "This is a required property and is exclusive to subscriptions with ANNUAL_MONTHLY_PAY and ANNUAL_YEARLY_PAY plans. This property sets the maximum number of licenses assignable to users on a subscription. The reseller can add more licenses, but once set, the numberOfSeats cannot be reduced until renewal. The reseller is invoiced based on the numberOfSeats value regardless of how many of these user licenses are assigned. *Note: *G Suite subscriptions automatically assign a license to every user.",
           "format": "int32",
           "type": "integer"
         }
@@ -1375,7 +2180,7 @@
           "description": "The plan property is required. In this version of the API, the G Suite plans are the flexible plan, annual commitment plan, and the 30-day free trial plan. For more information about the API\"s payment plans, see the API concepts.",
           "properties": {
             "commitmentInterval": {
-              "description": "In this version of the API, annual commitment plan's interval is one year.",
+              "description": "In this version of the API, annual commitment plan's interval is one year. *Note: *When billingMethod value is OFFLINE, the subscription property object plan.commitmentInterval is omitted in all API responses. ",
               "properties": {
                 "endTime": {
                   "description": "An annual commitment plan's interval's endTime in milliseconds using the UNIX Epoch format. See an example Epoch converter.",
@@ -1391,11 +2196,11 @@
               "type": "object"
             },
             "isCommitmentPlan": {
-              "description": "The isCommitmentPlan property's boolean value identifies the plan as an annual commitment plan:\n- true — The subscription's plan is an annual commitment plan.\n- false — The plan is not an annual commitment plan.",
+              "description": "The isCommitmentPlan property's boolean value identifies the plan as an annual commitment plan: - true — The subscription's plan is an annual commitment plan. - false — The plan is not an annual commitment plan. ",
               "type": "boolean"
             },
             "planName": {
-              "description": "The planName property is required. This is the name of the subscription's plan. For more information about the Google payment plans, see the API concepts.\n\nPossible values are:  \n- ANNUAL_MONTHLY_PAY — The annual commitment plan with monthly payments  \n- ANNUAL_YEARLY_PAY — The annual commitment plan with yearly payments  \n- FLEXIBLE — The flexible plan  \n- TRIAL — The 30-day free trial plan. A subscription in trial will be suspended after the 30th free day if no payment plan is assigned. Calling changePlan will assign a payment plan to a trial but will not activate the plan. A trial will automatically begin its assigned payment plan after its 30th free day or immediately after calling startPaidService.",
+              "description": "The planName property is required. This is the name of the subscription's plan. For more information about the Google payment plans, see the API concepts. Possible values are: - ANNUAL_MONTHLY_PAY — The annual commitment plan with monthly payments. *Caution: *ANNUAL_MONTHLY_PAY is returned as ANNUAL in all API responses. - ANNUAL_YEARLY_PAY — The annual commitment plan with yearly payments - FLEXIBLE — The flexible plan - TRIAL — The 30-day free trial plan. A subscription in trial will be suspended after the 30th free day if no payment plan is assigned. Calling changePlan will assign a payment plan to a trial but will not activate the plan. A trial will automatically begin its assigned payment plan after its 30th free day or immediately after calling startPaidService. - FREE — The free plan is exclusive to the Cloud Identity SKU and does not incur any billing. ",
               "type": "string"
             }
           },
@@ -1418,11 +2223,11 @@
           "description": "This is a required property. The number and limit of user seat licenses in the plan."
         },
         "skuId": {
-          "description": "A required property. The skuId is a unique system identifier for a product's SKU assigned to a customer in the subscription. For products and SKUs available in this version of the API, see  Product and SKU IDs.",
+          "description": "A required property. The skuId is a unique system identifier for a product's SKU assigned to a customer in the subscription. For products and SKUs available in this version of the API, see Product and SKU IDs.",
           "type": "string"
         },
         "skuName": {
-          "description": "Read-only external display name for a product's SKU assigned to a customer in the subscription. SKU names are subject to change at Google's discretion. For products and SKUs available in this version of the API, see  Product and SKU IDs.",
+          "description": "Read-only external display name for a product's SKU assigned to a customer in the subscription. SKU names are subject to change at Google's discretion. For products and SKUs available in this version of the API, see Product and SKU IDs.",
           "type": "string"
         },
         "status": {
@@ -1434,7 +2239,7 @@
           "type": "string"
         },
         "suspensionReasons": {
-          "description": "Read-only field containing an enumerable of all the current suspension reasons for a subscription. It is possible for a subscription to have many concurrent, overlapping suspension reasons. A subscription's STATUS is SUSPENDED until all pending suspensions are removed.\n\nPossible options include:  \n- PENDING_TOS_ACCEPTANCE - The customer has not logged in and accepted the G Suite Resold Terms of Services.  \n- RENEWAL_WITH_TYPE_CANCEL - The customer's commitment ended and their service was cancelled at the end of their term.  \n- RESELLER_INITIATED - A manual suspension invoked by a Reseller.  \n- TRIAL_ENDED - The customer's trial expired without a plan selected.  \n- OTHER - The customer is suspended for an internal Google reason (e.g. abuse or otherwise).",
+          "description": "Read-only field containing an enumerable of all the current suspension reasons for a subscription. It is possible for a subscription to have many concurrent, overlapping suspension reasons. A subscription's STATUS is SUSPENDED until all pending suspensions are removed. Possible options include: - PENDING_TOS_ACCEPTANCE - The customer has not logged in and accepted the G Suite Resold Terms of Services. - RENEWAL_WITH_TYPE_CANCEL - The customer's commitment ended and their service was cancelled at the end of their term. - RESELLER_INITIATED - A manual suspension invoked by a Reseller. - TRIAL_ENDED - The customer's trial expired without a plan selected. - OTHER - The customer is suspended for an internal Google reason (e.g. abuse or otherwise). ",
           "items": {
             "type": "string"
           },
@@ -1460,7 +2265,7 @@
           "description": "The G Suite annual commitment and flexible payment plans can be in a 30-day free trial. For more information, see the API concepts.",
           "properties": {
             "isInTrial": {
-              "description": "Determines if a subscription's plan is in a 30-day free trial or not:\n- true — The plan is in trial.\n- false — The plan is not in trial.",
+              "description": "Determines if a subscription's plan is in a 30-day free trial or not: - true — The plan is in trial. - false — The plan is not in trial. ",
               "type": "boolean"
             },
             "trialEndTime": {
@@ -1495,6 +2300,122 @@
         }
       },
       "type": "object"
+    }
+  },
+  "securityDefinitions": {
+    "Oauth2": {
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+      "description": "Oauth 2.0 implicit authentication",
+      "flow": "implicit",
+      "scopes": {
+        "https://www.googleapis.com/auth/apps.order": "Manage users on your domain",
+        "https://www.googleapis.com/auth/apps.order.readonly": "Manage users on your domain"
+      },
+      "type": "oauth2"
+    },
+    "Oauth2c": {
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+      "description": "Oauth 2.0 authorizationCode authentication",
+      "flow": "accessCode",
+      "scopes": {
+        "https://www.googleapis.com/auth/apps.order": "Manage users on your domain",
+        "https://www.googleapis.com/auth/apps.order.readonly": "Manage users on your domain"
+      },
+      "tokenUrl": "https://accounts.google.com/o/oauth2/token",
+      "type": "oauth2"
+    }
+  },
+  "tags": [
+    {
+      "name": "customers"
+    },
+    {
+      "name": "resellernotify"
+    },
+    {
+      "name": "subscriptions"
+    }
+  ],
+  "externalDocs": {
+    "url": "https://developers.google.com/google-apps/reseller/"
+  },
+  "x-components": {
+    "parameters": {
+      "_.xgafv": {
+        "description": "V1 error format.",
+        "enum": [
+          "1",
+          "2"
+        ],
+        "in": "query",
+        "name": "$.xgafv",
+        "type": "string"
+      },
+      "access_token": {
+        "description": "OAuth access token.",
+        "in": "query",
+        "name": "access_token",
+        "type": "string"
+      },
+      "alt": {
+        "description": "Data format for response.",
+        "enum": [
+          "json",
+          "media",
+          "proto"
+        ],
+        "in": "query",
+        "name": "alt",
+        "type": "string"
+      },
+      "callback": {
+        "description": "JSONP",
+        "in": "query",
+        "name": "callback",
+        "type": "string"
+      },
+      "fields": {
+        "description": "Selector specifying which fields to include in a partial response.",
+        "in": "query",
+        "name": "fields",
+        "type": "string"
+      },
+      "key": {
+        "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+        "in": "query",
+        "name": "key",
+        "type": "string"
+      },
+      "oauth_token": {
+        "description": "OAuth 2.0 token for the current user.",
+        "in": "query",
+        "name": "oauth_token",
+        "type": "string"
+      },
+      "prettyPrint": {
+        "description": "Returns response with indentations and line breaks.",
+        "in": "query",
+        "name": "prettyPrint",
+        "type": "boolean"
+      },
+      "quotaUser": {
+        "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+        "in": "query",
+        "name": "quotaUser",
+        "type": "string"
+      },
+      "uploadType": {
+        "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+        "in": "query",
+        "name": "uploadType",
+        "type": "string"
+      },
+      "upload_protocol": {
+        "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+        "in": "query",
+        "name": "upload_protocol",
+        "type": "string"
+      }
     }
   }
 }

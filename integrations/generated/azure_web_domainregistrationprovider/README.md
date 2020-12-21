@@ -15,9 +15,7 @@ let azure_web_domainregistrationprovider = require('@datafire/azure_web_domainre
   redirect_uri: ""
 });
 
-azure_web_domainregistrationprovider.DomainRegistrationProvider_ListOperations({
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -56,31 +54,8 @@ azure_web_domainregistrationprovider.DomainRegistrationProvider_ListOperations({
       * origin `string`
       * properties `object`: Properties available for a Microsoft.Web resource provider operation.
         * serviceSpecification `object`: Resource metrics service provided by Microsoft.Insights resource provider.
+          * logSpecifications `array`
           * metricSpecifications `array`
-            * items `object`: Definition of a single resource metric.
-              * aggregationType `string`
-              * availabilities `array`
-                * items `object`: Retention policy of a resource metric.
-                  * blobDuration `string`
-                  * timeGrain `string`
-              * category `string`
-              * dimensions `array`
-                * items `object`: Dimension of a resource metric. For e.g. instance specific HTTP requests for a web app, 
-                  * displayName `string`
-                  * internalName `string`
-                  * name `string`
-                  * toBeExportedForShoebox `boolean`
-              * displayDescription `string`
-              * displayName `string`
-              * enableRegionalMdmAccount `boolean`
-              * fillGapWithZero `boolean`
-              * isInternal `boolean`
-              * metricFilterPattern `string`
-              * name `string`
-              * sourceMdmAccount `string`
-              * sourceMdmNamespace `string`
-              * supportsInstanceLevelAggregation `boolean`
-              * unit `string`
 
 
 

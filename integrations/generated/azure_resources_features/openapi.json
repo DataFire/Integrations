@@ -76,6 +76,63 @@
     }
   },
   "paths": {
+    "/providers/Microsoft.Features/operations": {
+      "get": {
+        "description": "Lists all of the available Microsoft.Features REST API operations.",
+        "operationId": "ListOperations",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK. The request has succeeded.",
+            "schema": {
+              "$ref": "#/definitions/OperationListResult"
+            }
+          }
+        },
+        "tags": [
+          "Operations"
+        ],
+        "x-ms-examples": {
+          "List Features operations": {
+            "parameters": {
+              "api-version": "2015-12-01"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "value": [
+                    {
+                      "display": {
+                        "operation": "Read",
+                        "provider": "Microsoft.ResourceProvider",
+                        "resource": "Resource1"
+                      },
+                      "name": "FeaturesOpeartion1"
+                    },
+                    {
+                      "display": {
+                        "operation": "Write",
+                        "provider": "Microsoft.ResourceProvider",
+                        "resource": "Resource2"
+                      },
+                      "name": "FeaturesOpeartion2"
+                    }
+                  ]
+                },
+                "headers": {}
+              }
+            }
+          }
+        },
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        }
+      }
+    },
     "/subscriptions/{subscriptionId}/providers/Microsoft.Features/features": {
       "get": {
         "description": "Gets all the preview features that are available through AFEC for the subscription.",
@@ -99,6 +156,39 @@
         "tags": [
           "Features"
         ],
+        "x-ms-examples": {
+          "List subscription Features": {
+            "parameters": {
+              "api-version": "2015-12-01",
+              "subscriptionId": "subid"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "value": [
+                    {
+                      "id": "feature_id1",
+                      "name": "Feature1",
+                      "properties": {
+                        "state": "registered"
+                      },
+                      "type": "type1"
+                    },
+                    {
+                      "id": "feature_id2",
+                      "name": "Feature2",
+                      "properties": {
+                        "state": "unregistered"
+                      },
+                      "type": "type2"
+                    }
+                  ]
+                },
+                "headers": {}
+              }
+            }
+          }
+        },
         "x-ms-pageable": {
           "nextLinkName": "nextLink"
         }
@@ -134,6 +224,40 @@
         "tags": [
           "Features"
         ],
+        "x-ms-examples": {
+          "List provider Features": {
+            "parameters": {
+              "api-version": "2015-12-01",
+              "resourceProviderNamespace": "Resource Provider Namespace",
+              "subscriptionId": "subid"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "value": [
+                    {
+                      "id": "feature_id1",
+                      "name": "Feature1",
+                      "properties": {
+                        "state": "registered"
+                      },
+                      "type": "type1"
+                    },
+                    {
+                      "id": "feature_id2",
+                      "name": "Feature2",
+                      "properties": {
+                        "state": "unregistered"
+                      },
+                      "type": "type2"
+                    }
+                  ]
+                },
+                "headers": {}
+              }
+            }
+          }
+        },
         "x-ms-pageable": {
           "nextLinkName": "nextLink"
         }
@@ -175,7 +299,30 @@
         },
         "tags": [
           "Features"
-        ]
+        ],
+        "x-ms-examples": {
+          "Get feature": {
+            "parameters": {
+              "api-version": "2015-12-01",
+              "featureName": "feature",
+              "resourceProviderNamespace": "Resource Provider Namespace",
+              "subscriptionId": "subid"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "id": "feature_id1",
+                  "name": "Feature1",
+                  "properties": {
+                    "state": "registered"
+                  },
+                  "type": "type1"
+                },
+                "headers": {}
+              }
+            }
+          }
+        }
       }
     },
     "/subscriptions/{subscriptionId}/providers/Microsoft.Features/providers/{resourceProviderNamespace}/features/{featureName}/register": {
@@ -206,7 +353,7 @@
         ],
         "responses": {
           "200": {
-            "description": "OK - Returns metadata about the registerd feature. The metadata includes the name of the feature, the registration state, the resource ID, and resource type.",
+            "description": "OK - Returns metadata about the registered feature. The metadata includes the name of the feature, the registration state, the resource ID, and resource type.",
             "schema": {
               "$ref": "#/definitions/FeatureResult"
             }
@@ -214,7 +361,30 @@
         },
         "tags": [
           "Features"
-        ]
+        ],
+        "x-ms-examples": {
+          "Register feature": {
+            "parameters": {
+              "api-version": "2015-12-01",
+              "featureName": "feature",
+              "resourceProviderNamespace": "Resource Provider Namespace",
+              "subscriptionId": "subid"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "id": "feature_id1",
+                  "name": "Feature1",
+                  "properties": {
+                    "state": "registered"
+                  },
+                  "type": "type1"
+                },
+                "headers": {}
+              }
+            }
+          }
+        }
       }
     }
   },
@@ -262,6 +432,49 @@
         "type": {
           "description": "The resource type of the feature.",
           "type": "string"
+        }
+      }
+    },
+    "Operation": {
+      "description": "Microsoft.Features operation",
+      "properties": {
+        "display": {
+          "description": "The object that represents the operation.",
+          "properties": {
+            "operation": {
+              "description": "Operation type: Read, write, delete, etc.",
+              "type": "string"
+            },
+            "provider": {
+              "description": "Service provider: Microsoft.Features",
+              "type": "string"
+            },
+            "resource": {
+              "description": "Resource on which the operation is performed: Profile, endpoint, etc.",
+              "type": "string"
+            }
+          }
+        },
+        "name": {
+          "description": "Operation name: {provider}/{resource}/{operation}",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "OperationListResult": {
+      "description": "Result of the request to list Microsoft.Features operations. It contains a list of operations and a URL link to get the next set of results.",
+      "properties": {
+        "nextLink": {
+          "description": "URL to get the next set of operation list results if there are any.",
+          "type": "string"
+        },
+        "value": {
+          "description": "List of Microsoft.Features operations.",
+          "items": {
+            "$ref": "#/definitions/Operation"
+          },
+          "type": "array"
         }
       }
     }

@@ -15,11 +15,7 @@ let azure_network_virtualnetworkgateway = require('@datafire/azure_network_virtu
   redirect_uri: ""
 });
 
-azure_network_virtualnetworkgateway.VirtualNetworkGatewayConnections_List({
-  "resourceGroupName": "",
-  "api-version": "",
-  "subscriptionId": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -121,7 +117,7 @@ azure_network_virtualnetworkgateway.VirtualNetworkGatewayConnections_UpdateTags(
   * subscriptionId **required** `string`: The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
 #### Output
-* output [VirtualNetworkGatewayConnectionListEntity](#virtualnetworkgatewayconnectionlistentity)
+* output [VirtualNetworkGatewayConnection](#virtualnetworkgatewayconnection)
 
 ### VirtualNetworkGatewayConnections_CreateOrUpdate
 Creates or updates a virtual network gateway connection in the specified resource group.
@@ -220,6 +216,55 @@ azure_network_virtualnetworkgateway.VirtualNetworkGatewayConnections_ResetShared
 
 #### Output
 * output [ConnectionResetSharedKey](#connectionresetsharedkey)
+
+### VirtualNetworkGatewayConnections_StartPacketCapture
+Starts packet capture on virtual network gateway connection in the specified resource group.
+
+
+```js
+azure_network_virtualnetworkgateway.VirtualNetworkGatewayConnections_StartPacketCapture({
+  "resourceGroupName": "",
+  "virtualNetworkGatewayConnectionName": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * resourceGroupName **required** `string`: The name of the resource group.
+  * virtualNetworkGatewayConnectionName **required** `string`: The name of the virtual network gateway connection.
+  * parameters [VpnPacketCaptureStartParameters](#vpnpacketcapturestartparameters)
+  * api-version **required** `string`: Client API version.
+  * subscriptionId **required** `string`: The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+#### Output
+* output `string`
+
+### VirtualNetworkGatewayConnections_StopPacketCapture
+Stops packet capture on virtual network gateway connection in the specified resource group.
+
+
+```js
+azure_network_virtualnetworkgateway.VirtualNetworkGatewayConnections_StopPacketCapture({
+  "resourceGroupName": "",
+  "virtualNetworkGatewayConnectionName": "",
+  "parameters": null,
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * resourceGroupName **required** `string`: The name of the resource group.
+  * virtualNetworkGatewayConnectionName **required** `string`: The name of the virtual network gateway Connection.
+  * parameters **required** [VpnPacketCaptureStopParameters](#vpnpacketcapturestopparameters)
+  * api-version **required** `string`: Client API version.
+  * subscriptionId **required** `string`: The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+#### Output
+* output `string`
 
 ### VirtualNetworkGateways_VpnDeviceConfigurationScript
 Gets a xml format representation for vpn device configuration script.
@@ -573,7 +618,7 @@ azure_network_virtualnetworkgateway.VirtualNetworkGateways_GetAdvertisedRoutes({
 * input `object`
   * resourceGroupName **required** `string`: The name of the resource group.
   * virtualNetworkGatewayName **required** `string`: The name of the virtual network gateway.
-  * peer **required** `string`: The IP address of the peer
+  * peer **required** `string`: The IP address of the peer.
   * api-version **required** `string`: Client API version.
   * subscriptionId **required** `string`: The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
@@ -627,6 +672,52 @@ azure_network_virtualnetworkgateway.VirtualNetworkGateways_GetLearnedRoutes({
 #### Output
 * output [GatewayRouteListResult](#gatewayroutelistresult)
 
+### VirtualNetworkGateways_GetVpnclientConnectionHealth
+Get VPN client connection health detail per P2S client connection of the virtual network gateway in the specified resource group.
+
+
+```js
+azure_network_virtualnetworkgateway.VirtualNetworkGateways_GetVpnclientConnectionHealth({
+  "resourceGroupName": "",
+  "virtualNetworkGatewayName": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * resourceGroupName **required** `string`: The name of the resource group.
+  * virtualNetworkGatewayName **required** `string`: The name of the virtual network gateway.
+  * api-version **required** `string`: Client API version.
+  * subscriptionId **required** `string`: The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+#### Output
+* output [VpnClientConnectionHealthDetailListResult](#vpnclientconnectionhealthdetaillistresult)
+
+### VirtualNetworkGateways_GetVpnclientIpsecParameters
+The Get VpnclientIpsecParameters operation retrieves information about the vpnclient ipsec policy for P2S client of virtual network gateway in the specified resource group through Network resource provider.
+
+
+```js
+azure_network_virtualnetworkgateway.VirtualNetworkGateways_GetVpnclientIpsecParameters({
+  "resourceGroupName": "",
+  "virtualNetworkGatewayName": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * resourceGroupName **required** `string`: The name of the resource group.
+  * virtualNetworkGatewayName **required** `string`: The virtual network gateway name.
+  * api-version **required** `string`: Client API version.
+  * subscriptionId **required** `string`: The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+#### Output
+* output [VpnClientIPsecParameters](#vpnclientipsecparameters)
+
 ### VirtualNetworkGateways_GetVpnProfilePackageUrl
 Gets pre-generated VPN profile for P2S client of the virtual network gateway in the specified resource group. The profile needs to be generated first using generateVpnProfile.
 
@@ -674,6 +765,103 @@ azure_network_virtualnetworkgateway.VirtualNetworkGateways_Reset({
 #### Output
 * output [VirtualNetworkGateway](#virtualnetworkgateway)
 
+### VirtualNetworkGateways_ResetVpnClientSharedKey
+Resets the VPN client shared key of the virtual network gateway in the specified resource group.
+
+
+```js
+azure_network_virtualnetworkgateway.VirtualNetworkGateways_ResetVpnClientSharedKey({
+  "resourceGroupName": "",
+  "virtualNetworkGatewayName": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * resourceGroupName **required** `string`: The name of the resource group.
+  * virtualNetworkGatewayName **required** `string`: The name of the virtual network gateway.
+  * api-version **required** `string`: Client API version.
+  * subscriptionId **required** `string`: The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+#### Output
+*Output schema unknown*
+
+### VirtualNetworkGateways_SetVpnclientIpsecParameters
+The Set VpnclientIpsecParameters operation sets the vpnclient ipsec policy for P2S client of virtual network gateway in the specified resource group through Network resource provider.
+
+
+```js
+azure_network_virtualnetworkgateway.VirtualNetworkGateways_SetVpnclientIpsecParameters({
+  "resourceGroupName": "",
+  "virtualNetworkGatewayName": "",
+  "vpnclientIpsecParams": null,
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * resourceGroupName **required** `string`: The name of the resource group.
+  * virtualNetworkGatewayName **required** `string`: The name of the virtual network gateway.
+  * vpnclientIpsecParams **required** [VpnClientIPsecParameters](#vpnclientipsecparameters)
+  * api-version **required** `string`: Client API version.
+  * subscriptionId **required** `string`: The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+#### Output
+* output [VpnClientIPsecParameters](#vpnclientipsecparameters)
+
+### VirtualNetworkGateways_StartPacketCapture
+Starts packet capture on virtual network gateway in the specified resource group.
+
+
+```js
+azure_network_virtualnetworkgateway.VirtualNetworkGateways_StartPacketCapture({
+  "resourceGroupName": "",
+  "virtualNetworkGatewayName": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * resourceGroupName **required** `string`: The name of the resource group.
+  * virtualNetworkGatewayName **required** `string`: The name of the virtual network gateway.
+  * parameters [VpnPacketCaptureStartParameters](#vpnpacketcapturestartparameters)
+  * api-version **required** `string`: Client API version.
+  * subscriptionId **required** `string`: The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+#### Output
+* output `string`
+
+### VirtualNetworkGateways_StopPacketCapture
+Stops packet capture on virtual network gateway in the specified resource group.
+
+
+```js
+azure_network_virtualnetworkgateway.VirtualNetworkGateways_StopPacketCapture({
+  "resourceGroupName": "",
+  "virtualNetworkGatewayName": "",
+  "parameters": null,
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * resourceGroupName **required** `string`: The name of the resource group.
+  * virtualNetworkGatewayName **required** `string`: The name of the virtual network gateway.
+  * parameters **required** [VpnPacketCaptureStopParameters](#vpnpacketcapturestopparameters)
+  * api-version **required** `string`: Client API version.
+  * subscriptionId **required** `string`: The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+#### Output
+* output `string`
+
 ### VirtualNetworkGateways_SupportedVpnDevices
 Gets a xml format representation for supported vpn devices.
 
@@ -702,63 +890,82 @@ azure_network_virtualnetworkgateway.VirtualNetworkGateways_SupportedVpnDevices({
 ## Definitions
 
 ### BgpPeerStatus
-* BgpPeerStatus `object`: BGP peer status details
-  * asn `integer`: The autonomous system number of the remote BGP peer
-  * connectedDuration `string`: For how long the peering has been up
-  * localAddress `string`: The virtual network gateway's local address
-  * messagesReceived `integer`: The number of BGP messages received
-  * messagesSent `integer`: The number of BGP messages sent
-  * neighbor `string`: The remote BGP peer
-  * routesReceived `integer`: The number of routes learned from this peer
-  * state `string` (values: Unknown, Stopped, Idle, Connecting, Connected): The BGP peer state
+* BgpPeerStatus `object`: BGP peer status details.
+  * asn `integer`: The autonomous system number of the remote BGP peer.
+  * connectedDuration `string`: For how long the peering has been up.
+  * localAddress `string`: The virtual network gateway's local address.
+  * messagesReceived `integer`: The number of BGP messages received.
+  * messagesSent `integer`: The number of BGP messages sent.
+  * neighbor `string`: The remote BGP peer.
+  * routesReceived `integer`: The number of routes learned from this peer.
+  * state `string` (values: Unknown, Stopped, Idle, Connecting, Connected): The BGP peer state.
 
 ### BgpPeerStatusListResult
-* BgpPeerStatusListResult `object`: Response for list BGP peer status API service call
-  * value `array`: List of BGP peers
+* BgpPeerStatusListResult `object`: Response for list BGP peer status API service call.
+  * value `array`: List of BGP peers.
     * items [BgpPeerStatus](#bgppeerstatus)
 
 ### BgpSettings
-* BgpSettings `object`: BGP settings details
+* BgpSettings `object`: BGP settings details.
   * asn `integer`: The BGP speaker's ASN.
   * bgpPeeringAddress `string`: The BGP peering address and BGP identifier of this BGP speaker.
   * peerWeight `integer`: The weight added to routes learned from this BGP speaker.
 
+### ConnectionProtocol
+* ConnectionProtocol `string` (values: IKEv2, IKEv1): Gateway connection protocol.
+
 ### ConnectionResetSharedKey
-* ConnectionResetSharedKey `object`: The virtual network connection reset shared key
+* ConnectionResetSharedKey `object`: The virtual network connection reset shared key.
   * keyLength **required** `integer`: The virtual network connection reset shared key length, should between 1 and 128.
 
 ### ConnectionSharedKey
-* ConnectionSharedKey `object`: Response for GetConnectionSharedKey API service call
+* ConnectionSharedKey `object`: Response for GetConnectionSharedKey API service call.
   * value **required** `string`: The virtual network connection shared key value.
+  * id `string`: Resource ID.
+
+### DhGroup
+* DhGroup `string` (values: None, DHGroup1, DHGroup2, DHGroup14, DHGroup2048, ECP256, ECP384, DHGroup24): The DH Groups used in IKE Phase 1 for initial SA.
 
 ### GatewayRoute
-* GatewayRoute `object`: Gateway routing details
-  * asPath `string`: The route's AS path sequence
-  * localAddress `string`: The gateway's local address
-  * network `string`: The route's network prefix
-  * nextHop `string`: The route's next hop
-  * origin `string`: The source this route was learned from
-  * sourcePeer `string`: The peer this route was learned from
-  * weight `integer`: The route's weight
+* GatewayRoute `object`: Gateway routing details.
+  * asPath `string`: The route's AS path sequence.
+  * localAddress `string`: The gateway's local address.
+  * network `string`: The route's network prefix.
+  * nextHop `string`: The route's next hop.
+  * origin `string`: The source this route was learned from.
+  * sourcePeer `string`: The peer this route was learned from.
+  * weight `integer`: The route's weight.
 
 ### GatewayRouteListResult
-* GatewayRouteListResult `object`: List of virtual network gateway routes
-  * value `array`: List of gateway routes
+* GatewayRouteListResult `object`: List of virtual network gateway routes.
+  * value `array`: List of gateway routes.
     * items [GatewayRoute](#gatewayroute)
 
+### IkeEncryption
+* IkeEncryption `string` (values: DES, DES3, AES128, AES192, AES256, GCMAES256, GCMAES128): The IKE encryption algorithm (IKE phase 2).
+
+### IkeIntegrity
+* IkeIntegrity `string` (values: MD5, SHA1, SHA256, SHA384, GCMAES256, GCMAES128): The IKE integrity algorithm (IKE phase 2).
+
+### IpsecEncryption
+* IpsecEncryption `string` (values: None, DES, DES3, AES128, AES192, AES256, GCMAES128, GCMAES192, GCMAES256): The IPSec encryption algorithm (IKE phase 1).
+
+### IpsecIntegrity
+* IpsecIntegrity `string` (values: MD5, SHA1, SHA256, GCMAES128, GCMAES192, GCMAES256): The IPSec integrity algorithm (IKE phase 1).
+
 ### IpsecPolicy
-* IpsecPolicy `object`: An IPSec Policy configuration for a virtual network gateway connection
-  * dhGroup **required** `string` (values: None, DHGroup1, DHGroup2, DHGroup14, DHGroup2048, ECP256, ECP384, DHGroup24): The DH Groups used in IKE Phase 1 for initial SA.
-  * ikeEncryption **required** `string` (values: DES, DES3, AES128, AES192, AES256): The IKE encryption algorithm (IKE phase 2).
-  * ikeIntegrity **required** `string` (values: MD5, SHA1, SHA256, SHA384): The IKE integrity algorithm (IKE phase 2).
-  * ipsecEncryption **required** `string` (values: None, DES, DES3, AES128, AES192, AES256, GCMAES128, GCMAES192, GCMAES256): The IPSec encryption algorithm (IKE phase 1).
-  * ipsecIntegrity **required** `string` (values: MD5, SHA1, SHA256, GCMAES128, GCMAES192, GCMAES256): The IPSec integrity algorithm (IKE phase 1).
-  * pfsGroup **required** `string` (values: None, PFS1, PFS2, PFS2048, ECP256, ECP384, PFS24): The DH Groups used in IKE Phase 2 for new child SA.
+* IpsecPolicy `object`: An IPSec Policy configuration for a virtual network gateway connection.
+  * dhGroup **required** [DhGroup](#dhgroup)
+  * ikeEncryption **required** [IkeEncryption](#ikeencryption)
+  * ikeIntegrity **required** [IkeIntegrity](#ikeintegrity)
+  * ipsecEncryption **required** [IpsecEncryption](#ipsecencryption)
+  * ipsecIntegrity **required** [IpsecIntegrity](#ipsecintegrity)
+  * pfsGroup **required** [PfsGroup](#pfsgroup)
   * saDataSizeKilobytes **required** `integer`: The IPSec Security Association (also called Quick Mode or Phase 2 SA) payload size in KB for a site to site VPN tunnel.
   * saLifeTimeSeconds **required** `integer`: The IPSec Security Association (also called Quick Mode or Phase 2 SA) lifetime in seconds for a site to site VPN tunnel.
 
 ### LocalNetworkGateway
-* LocalNetworkGateway `object`: A common class for general resource information
+* LocalNetworkGateway `object`: A common class for general resource information.
   * etag `string`: A unique read-only string that changes whenever the resource is updated.
   * properties **required** [LocalNetworkGatewayPropertiesFormat](#localnetworkgatewaypropertiesformat)
   * id `string`: Resource ID.
@@ -774,26 +981,40 @@ azure_network_virtualnetworkgateway.VirtualNetworkGateways_SupportedVpnDevices({
     * items [LocalNetworkGateway](#localnetworkgateway)
 
 ### LocalNetworkGatewayPropertiesFormat
-* LocalNetworkGatewayPropertiesFormat `object`: LocalNetworkGateway properties
+* LocalNetworkGatewayPropertiesFormat `object`: LocalNetworkGateway properties.
   * bgpSettings [BgpSettings](#bgpsettings)
   * gatewayIpAddress `string`: IP address of local network gateway.
   * localNetworkAddressSpace `object`: AddressSpace contains an array of IP address ranges that can be used by subnets of the virtual network.
     * addressPrefixes `array`: A list of address blocks reserved for this virtual network in CIDR notation.
       * items `string`
-  * provisioningState `string`: The provisioning state of the LocalNetworkGateway resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-  * resourceGuid `string`: The resource GUID property of the LocalNetworkGateway resource.
+  * provisioningState `string` (values: Succeeded, Updating, Deleting, Failed): The current provisioning state.
+  * resourceGuid `string`: The resource GUID property of the local network gateway resource.
+
+### PfsGroup
+* PfsGroup `string` (values: None, PFS1, PFS2, PFS2048, ECP256, ECP384, PFS24, PFS14, PFSMM): The Pfs Groups used in IKE Phase 2 for new child SA.
+
+### TrafficSelectorPolicy
+* TrafficSelectorPolicy `object`: An traffic selector policy for a virtual network gateway connection.
+  * localAddressRanges **required** `array`: A collection of local address spaces in CIDR format
+    * items `string`
+  * remoteAddressRanges **required** `array`: A collection of remote address spaces in CIDR format
+    * items `string`
 
 ### TunnelConnectionHealth
-* TunnelConnectionHealth `object`: VirtualNetworkGatewayConnection properties
-  * connectionStatus `string` (values: Unknown, Connecting, Connected, NotConnected): Virtual network Gateway connection status
-  * egressBytesTransferred `integer`: The Egress Bytes Transferred in this connection
-  * ingressBytesTransferred `integer`: The Ingress Bytes Transferred in this connection
+* TunnelConnectionHealth `object`: VirtualNetworkGatewayConnection properties.
+  * connectionStatus [VirtualNetworkGatewayConnectionStatus](#virtualnetworkgatewayconnectionstatus)
+  * egressBytesTransferred `integer`: The Egress Bytes Transferred in this connection.
+  * ingressBytesTransferred `integer`: The Ingress Bytes Transferred in this connection.
   * lastConnectionEstablishedUtcTime `string`: The time at which connection was established in Utc format.
   * tunnel `string`: Tunnel name.
 
+### VirtualNetworkConnectionGatewayReference
+* VirtualNetworkConnectionGatewayReference `object`: A reference to VirtualNetworkGateway or LocalNetworkGateway resource.
+  * id **required** `string`: The ID of VirtualNetworkGateway or LocalNetworkGateway resource.
+
 ### VirtualNetworkGateway
-* VirtualNetworkGateway `object`: A common class for general resource information
-  * etag `string`: Gets a unique read-only string that changes whenever the resource is updated.
+* VirtualNetworkGateway `object`: A common class for general resource information.
+  * etag `string`: A unique read-only string that changes whenever the resource is updated.
   * properties **required** [VirtualNetworkGatewayPropertiesFormat](#virtualnetworkgatewaypropertiesformat)
   * id `string`: Resource ID.
   * location `string`: Resource location.
@@ -802,8 +1023,8 @@ azure_network_virtualnetworkgateway.VirtualNetworkGateways_SupportedVpnDevices({
   * type `string`: Resource type.
 
 ### VirtualNetworkGatewayConnection
-* VirtualNetworkGatewayConnection `object`: A common class for general resource information
-  * etag `string`: Gets a unique read-only string that changes whenever the resource is updated.
+* VirtualNetworkGatewayConnection `object`: A common class for general resource information.
+  * etag `string`: A unique read-only string that changes whenever the resource is updated.
   * properties **required** [VirtualNetworkGatewayConnectionPropertiesFormat](#virtualnetworkgatewayconnectionpropertiesformat)
   * id `string`: Resource ID.
   * location `string`: Resource location.
@@ -812,8 +1033,8 @@ azure_network_virtualnetworkgateway.VirtualNetworkGateways_SupportedVpnDevices({
   * type `string`: Resource type.
 
 ### VirtualNetworkGatewayConnectionListEntity
-* VirtualNetworkGatewayConnectionListEntity `object`: A common class for general resource information
-  * etag `string`: Gets a unique read-only string that changes whenever the resource is updated.
+* VirtualNetworkGatewayConnectionListEntity `object`: A common class for general resource information.
+  * etag `string`: A unique read-only string that changes whenever the resource is updated.
   * properties **required** [VirtualNetworkGatewayConnectionListEntityPropertiesFormat](#virtualnetworkgatewayconnectionlistentitypropertiesformat)
   * id `string`: Resource ID.
   * location `string`: Resource location.
@@ -822,127 +1043,181 @@ azure_network_virtualnetworkgateway.VirtualNetworkGateways_SupportedVpnDevices({
   * type `string`: Resource type.
 
 ### VirtualNetworkGatewayConnectionListEntityPropertiesFormat
-* VirtualNetworkGatewayConnectionListEntityPropertiesFormat `object`: VirtualNetworkGatewayConnection properties
+* VirtualNetworkGatewayConnectionListEntityPropertiesFormat `object`: VirtualNetworkGatewayConnection properties.
   * authorizationKey `string`: The authorizationKey.
-  * connectionStatus `string` (values: Unknown, Connecting, Connected, NotConnected): Virtual network Gateway connection status. Possible values are 'Unknown', 'Connecting', 'Connected' and 'NotConnected'.
-  * connectionType **required** `string` (values: IPsec, Vnet2Vnet, ExpressRoute, VPNClient): Gateway connection type. Possible values are: 'Ipsec','Vnet2Vnet','ExpressRoute', and 'VPNClient.
+  * connectionProtocol [ConnectionProtocol](#connectionprotocol)
+  * connectionStatus [VirtualNetworkGatewayConnectionStatus](#virtualnetworkgatewayconnectionstatus)
+  * connectionType **required** [VirtualNetworkGatewayConnectionType](#virtualnetworkgatewayconnectiontype)
   * egressBytesTransferred `integer`: The egress bytes transferred in this connection.
-  * enableBgp `boolean`: EnableBgp flag
+  * enableBgp `boolean`: EnableBgp flag.
+  * expressRouteGatewayBypass `boolean`: Bypass ExpressRoute Gateway for data forwarding.
   * ingressBytesTransferred `integer`: The ingress bytes transferred in this connection.
   * ipsecPolicies `array`: The IPSec Policies to be considered by this connection.
     * items [IpsecPolicy](#ipsecpolicy)
-  * localNetworkGateway2 [virtualNetworkConnectionGatewayReference](#virtualnetworkconnectiongatewayreference)
+  * localNetworkGateway2 [VirtualNetworkConnectionGatewayReference](#virtualnetworkconnectiongatewayreference)
   * peer `object`: Reference to another subresource.
     * id `string`: Resource ID.
-  * provisioningState `string`: The provisioning state of the VirtualNetworkGatewayConnection resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-  * resourceGuid `string`: The resource GUID property of the VirtualNetworkGatewayConnection resource.
+  * provisioningState `string` (values: Succeeded, Updating, Deleting, Failed): The current provisioning state.
+  * resourceGuid `string`: The resource GUID property of the virtual network gateway connection resource.
   * routingWeight `integer`: The routing weight.
   * sharedKey `string`: The IPSec shared key.
+  * trafficSelectorPolicies `array`: The Traffic Selector Policies to be considered by this connection.
+    * items [TrafficSelectorPolicy](#trafficselectorpolicy)
   * tunnelConnectionStatus `array`: Collection of all tunnels' connection health status.
     * items [TunnelConnectionHealth](#tunnelconnectionhealth)
   * usePolicyBasedTrafficSelectors `boolean`: Enable policy-based traffic selectors.
-  * virtualNetworkGateway1 **required** [virtualNetworkConnectionGatewayReference](#virtualnetworkconnectiongatewayreference)
-  * virtualNetworkGateway2 [virtualNetworkConnectionGatewayReference](#virtualnetworkconnectiongatewayreference)
+  * virtualNetworkGateway1 **required** [VirtualNetworkConnectionGatewayReference](#virtualnetworkconnectiongatewayreference)
+  * virtualNetworkGateway2 [VirtualNetworkConnectionGatewayReference](#virtualnetworkconnectiongatewayreference)
 
 ### VirtualNetworkGatewayConnectionListResult
-* VirtualNetworkGatewayConnectionListResult `object`: Response for the ListVirtualNetworkGatewayConnections API service call
+* VirtualNetworkGatewayConnectionListResult `object`: Response for the ListVirtualNetworkGatewayConnections API service call.
   * nextLink `string`: The URL to get the next set of results.
-  * value `array`: Gets a list of VirtualNetworkGatewayConnection resources that exists in a resource group.
+  * value `array`: A list of VirtualNetworkGatewayConnection resources that exists in a resource group.
     * items [VirtualNetworkGatewayConnection](#virtualnetworkgatewayconnection)
 
 ### VirtualNetworkGatewayConnectionPropertiesFormat
-* VirtualNetworkGatewayConnectionPropertiesFormat `object`: VirtualNetworkGatewayConnection properties
+* VirtualNetworkGatewayConnectionPropertiesFormat `object`: VirtualNetworkGatewayConnection properties.
   * authorizationKey `string`: The authorizationKey.
-  * connectionStatus `string` (values: Unknown, Connecting, Connected, NotConnected): Virtual network Gateway connection status. Possible values are 'Unknown', 'Connecting', 'Connected' and 'NotConnected'.
-  * connectionType **required** `string` (values: IPsec, Vnet2Vnet, ExpressRoute, VPNClient): Gateway connection type. Possible values are: 'Ipsec','Vnet2Vnet','ExpressRoute', and 'VPNClient.
+  * connectionProtocol [ConnectionProtocol](#connectionprotocol)
+  * connectionStatus [VirtualNetworkGatewayConnectionStatus](#virtualnetworkgatewayconnectionstatus)
+  * connectionType **required** [VirtualNetworkGatewayConnectionType](#virtualnetworkgatewayconnectiontype)
   * egressBytesTransferred `integer`: The egress bytes transferred in this connection.
-  * enableBgp `boolean`: EnableBgp flag
+  * enableBgp `boolean`: EnableBgp flag.
+  * expressRouteGatewayBypass `boolean`: Bypass ExpressRoute Gateway for data forwarding.
   * ingressBytesTransferred `integer`: The ingress bytes transferred in this connection.
   * ipsecPolicies `array`: The IPSec Policies to be considered by this connection.
     * items [IpsecPolicy](#ipsecpolicy)
   * localNetworkGateway2 [LocalNetworkGateway](#localnetworkgateway)
   * peer `object`: Reference to another subresource.
     * id `string`: Resource ID.
-  * provisioningState `string`: The provisioning state of the VirtualNetworkGatewayConnection resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-  * resourceGuid `string`: The resource GUID property of the VirtualNetworkGatewayConnection resource.
+  * provisioningState `string` (values: Succeeded, Updating, Deleting, Failed): The current provisioning state.
+  * resourceGuid `string`: The resource GUID property of the virtual network gateway connection resource.
   * routingWeight `integer`: The routing weight.
   * sharedKey `string`: The IPSec shared key.
+  * trafficSelectorPolicies `array`: The Traffic Selector Policies to be considered by this connection.
+    * items [TrafficSelectorPolicy](#trafficselectorpolicy)
   * tunnelConnectionStatus `array`: Collection of all tunnels' connection health status.
     * items [TunnelConnectionHealth](#tunnelconnectionhealth)
   * usePolicyBasedTrafficSelectors `boolean`: Enable policy-based traffic selectors.
   * virtualNetworkGateway1 **required** [VirtualNetworkGateway](#virtualnetworkgateway)
   * virtualNetworkGateway2 [VirtualNetworkGateway](#virtualnetworkgateway)
 
+### VirtualNetworkGatewayConnectionStatus
+* VirtualNetworkGatewayConnectionStatus `string` (values: Unknown, Connecting, Connected, NotConnected): Virtual Network Gateway connection status.
+
+### VirtualNetworkGatewayConnectionType
+* VirtualNetworkGatewayConnectionType `string` (values: IPsec, Vnet2Vnet, ExpressRoute, VPNClient): Gateway connection type.
+
 ### VirtualNetworkGatewayIPConfiguration
-* VirtualNetworkGatewayIPConfiguration `object`: IP configuration for virtual network gateway
+* VirtualNetworkGatewayIPConfiguration `object`: IP configuration for virtual network gateway.
   * etag `string`: A unique read-only string that changes whenever the resource is updated.
   * name `string`: The name of the resource that is unique within a resource group. This name can be used to access the resource.
   * properties [VirtualNetworkGatewayIPConfigurationPropertiesFormat](#virtualnetworkgatewayipconfigurationpropertiesformat)
   * id `string`: Resource ID.
 
 ### VirtualNetworkGatewayIPConfigurationPropertiesFormat
-* VirtualNetworkGatewayIPConfigurationPropertiesFormat `object`: Properties of VirtualNetworkGatewayIPConfiguration
-  * privateIPAllocationMethod `string` (values: Static, Dynamic): The private IP allocation method. Possible values are: 'Static' and 'Dynamic'.
-  * provisioningState `string`: The provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+* VirtualNetworkGatewayIPConfigurationPropertiesFormat `object`: Properties of VirtualNetworkGatewayIPConfiguration.
+  * privateIPAllocationMethod `string` (values: Static, Dynamic): IP address allocation method.
+  * provisioningState `string` (values: Succeeded, Updating, Deleting, Failed): The current provisioning state.
   * publicIPAddress `object`: Reference to another subresource.
     * id `string`: Resource ID.
   * subnet `object`: Reference to another subresource.
     * id `string`: Resource ID.
 
 ### VirtualNetworkGatewayListConnectionsResult
-* VirtualNetworkGatewayListConnectionsResult `object`: Response for the VirtualNetworkGatewayListConnections API service call
+* VirtualNetworkGatewayListConnectionsResult `object`: Response for the VirtualNetworkGatewayListConnections API service call.
   * nextLink `string`: The URL to get the next set of results.
-  * value `array`: Gets a list of VirtualNetworkGatewayConnection resources that exists in a resource group.
+  * value `array`: A list of VirtualNetworkGatewayConnection resources that exists in a resource group.
     * items [VirtualNetworkGatewayConnectionListEntity](#virtualnetworkgatewayconnectionlistentity)
 
 ### VirtualNetworkGatewayListResult
 * VirtualNetworkGatewayListResult `object`: Response for the ListVirtualNetworkGateways API service call.
   * nextLink `string`: The URL to get the next set of results.
-  * value `array`: Gets a list of VirtualNetworkGateway resources that exists in a resource group.
+  * value `array`: A list of VirtualNetworkGateway resources that exists in a resource group.
     * items [VirtualNetworkGateway](#virtualnetworkgateway)
 
 ### VirtualNetworkGatewayPropertiesFormat
-* VirtualNetworkGatewayPropertiesFormat `object`: VirtualNetworkGateway properties
-  * activeActive `boolean`: ActiveActive flag
+* VirtualNetworkGatewayPropertiesFormat `object`: VirtualNetworkGateway properties.
+  * activeActive `boolean`: ActiveActive flag.
   * bgpSettings [BgpSettings](#bgpsettings)
+  * customRoutes `object`: AddressSpace contains an array of IP address ranges that can be used by subnets of the virtual network.
+    * addressPrefixes `array`: A list of address blocks reserved for this virtual network in CIDR notation.
+      * items `string`
   * enableBgp `boolean`: Whether BGP is enabled for this virtual network gateway or not.
   * gatewayDefaultSite `object`: Reference to another subresource.
     * id `string`: Resource ID.
-  * gatewayType `string` (values: Vpn, ExpressRoute): The type of this virtual network gateway. Possible values are: 'Vpn' and 'ExpressRoute'.
+  * gatewayType `string` (values: Vpn, ExpressRoute): The type of this virtual network gateway.
   * ipConfigurations `array`: IP configurations for virtual network gateway.
     * items [VirtualNetworkGatewayIPConfiguration](#virtualnetworkgatewayipconfiguration)
-  * provisioningState `string`: The provisioning state of the VirtualNetworkGateway resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-  * resourceGuid `string`: The resource GUID property of the VirtualNetworkGateway resource.
+  * provisioningState `string` (values: Succeeded, Updating, Deleting, Failed): The current provisioning state.
+  * resourceGuid `string`: The resource GUID property of the virtual network gateway resource.
   * sku [VirtualNetworkGatewaySku](#virtualnetworkgatewaysku)
   * vpnClientConfiguration [VpnClientConfiguration](#vpnclientconfiguration)
-  * vpnType `string` (values: PolicyBased, RouteBased): The type of this virtual network gateway. Possible values are: 'PolicyBased' and 'RouteBased'.
+  * vpnGatewayGeneration `string` (values: None, Generation1, Generation2): The generation for this VirtualNetworkGateway. Must be None if gatewayType is not VPN.
+  * vpnType `string` (values: PolicyBased, RouteBased): The type of this virtual network gateway.
 
 ### VirtualNetworkGatewaySku
-* VirtualNetworkGatewaySku `object`: VirtualNetworkGatewaySku details
+* VirtualNetworkGatewaySku `object`: VirtualNetworkGatewaySku details.
   * capacity `integer`: The capacity.
-  * name `string` (values: Basic, HighPerformance, Standard, UltraPerformance, VpnGw1, VpnGw2, VpnGw3): Gateway SKU name.
-  * tier `string` (values: Basic, HighPerformance, Standard, UltraPerformance, VpnGw1, VpnGw2, VpnGw3): Gateway SKU tier.
+  * name `string` (values: Basic, HighPerformance, Standard, UltraPerformance, VpnGw1, VpnGw2, VpnGw3, VpnGw4, VpnGw5, VpnGw1AZ, VpnGw2AZ, VpnGw3AZ, VpnGw4AZ, VpnGw5AZ, ErGw1AZ, ErGw2AZ, ErGw3AZ): Gateway SKU name.
+  * tier `string` (values: Basic, HighPerformance, Standard, UltraPerformance, VpnGw1, VpnGw2, VpnGw3, VpnGw4, VpnGw5, VpnGw1AZ, VpnGw2AZ, VpnGw3AZ, VpnGw4AZ, VpnGw5AZ, ErGw1AZ, ErGw2AZ, ErGw3AZ): Gateway SKU tier.
 
 ### VpnClientConfiguration
 * VpnClientConfiguration `object`: VpnClientConfiguration for P2S client.
+  * aadAudience `string`: The AADAudience property of the VirtualNetworkGateway resource for vpn client connection used for AAD authentication.
+  * aadIssuer `string`: The AADIssuer property of the VirtualNetworkGateway resource for vpn client connection used for AAD authentication.
+  * aadTenant `string`: The AADTenant property of the VirtualNetworkGateway resource for vpn client connection used for AAD authentication.
   * radiusServerAddress `string`: The radius server address property of the VirtualNetworkGateway resource for vpn client connection.
   * radiusServerSecret `string`: The radius secret property of the VirtualNetworkGateway resource for vpn client connection.
   * vpnClientAddressPool `object`: AddressSpace contains an array of IP address ranges that can be used by subnets of the virtual network.
     * addressPrefixes `array`: A list of address blocks reserved for this virtual network in CIDR notation.
       * items `string`
+  * vpnClientIpsecPolicies `array`: VpnClientIpsecPolicies for virtual network gateway P2S client.
+    * items [IpsecPolicy](#ipsecpolicy)
   * vpnClientProtocols `array`: VpnClientProtocols for Virtual network gateway.
-    * items `string` (values: IkeV2, SSTP): VPN client protocol enabled for the virtual network gateway.
+    * items `string` (values: IkeV2, SSTP, OpenVPN): VPN client protocol enabled for the virtual network gateway.
   * vpnClientRevokedCertificates `array`: VpnClientRevokedCertificate for Virtual network gateway.
     * items [VpnClientRevokedCertificate](#vpnclientrevokedcertificate)
   * vpnClientRootCertificates `array`: VpnClientRootCertificate for virtual network gateway.
     * items [VpnClientRootCertificate](#vpnclientrootcertificate)
 
+### VpnClientConnectionHealthDetail
+* VpnClientConnectionHealthDetail `object`: VPN client connection health detail.
+  * egressBytesTransferred `integer`: The egress bytes per second.
+  * egressPacketsTransferred `integer`: The egress packets per second.
+  * ingressBytesTransferred `integer`: The ingress bytes per second.
+  * ingressPacketsTransferred `integer`: The ingress packets per second.
+  * maxBandwidth `integer`: The max band width.
+  * maxPacketsPerSecond `integer`: The max packets transferred per second.
+  * privateIpAddress `string`: The assigned private Ip of a connected vpn client.
+  * publicIpAddress `string`: The public Ip of a connected vpn client.
+  * vpnConnectionDuration `integer`: The duration time of a connected vpn client.
+  * vpnConnectionId `string`: The vpn client Id.
+  * vpnConnectionTime `string`: The start time of a connected vpn client.
+  * vpnUserName `string`: The user name of a connected vpn client.
+
+### VpnClientConnectionHealthDetailListResult
+* VpnClientConnectionHealthDetailListResult `object`: List of virtual network gateway vpn client connection health.
+  * value `array`: List of vpn client connection health.
+    * items [VpnClientConnectionHealthDetail](#vpnclientconnectionhealthdetail)
+
+### VpnClientIPsecParameters
+* VpnClientIPsecParameters `object`: An IPSec parameters for a virtual network gateway P2S connection.
+  * dhGroup **required** [DhGroup](#dhgroup)
+  * ikeEncryption **required** [IkeEncryption](#ikeencryption)
+  * ikeIntegrity **required** [IkeIntegrity](#ikeintegrity)
+  * ipsecEncryption **required** [IpsecEncryption](#ipsecencryption)
+  * ipsecIntegrity **required** [IpsecIntegrity](#ipsecintegrity)
+  * pfsGroup **required** [PfsGroup](#pfsgroup)
+  * saDataSizeKilobytes **required** `integer`: The IPSec Security Association (also called Quick Mode or Phase 2 SA) payload size in KB for P2S client..
+  * saLifeTimeSeconds **required** `integer`: The IPSec Security Association (also called Quick Mode or Phase 2 SA) lifetime in seconds for P2S client.
+
 ### VpnClientParameters
-* VpnClientParameters `object`: Vpn Client Parameters for package generation
-  * authenticationMethod `string` (values: EAPTLS, EAPMSCHAPv2): VPN client Authentication Method. Possible values are: 'EAPTLS' and 'EAPMSCHAPv2'.
+* VpnClientParameters `object`: Vpn Client Parameters for package generation.
+  * authenticationMethod `string` (values: EAPTLS, EAPMSCHAPv2): VPN client authentication method.
   * clientRootCertificates `array`: A list of client root certificates public certificate data encoded as Base-64 strings. Optional parameter for external radius based authentication with EAPTLS.
     * items `string`
-  * processorArchitecture `string` (values: Amd64, X86): VPN client Processor Architecture. Possible values are: 'AMD64' and 'X86'.
+  * processorArchitecture `string` (values: Amd64, X86): VPN client Processor Architecture.
   * radiusServerAuthCertificate `string`: The public certificate data for the radius server authentication certificate as a Base-64 encoded string. Required only if external radius authentication has been configured with EAPTLS authentication.
 
 ### VpnClientRevokedCertificate
@@ -954,29 +1229,33 @@ azure_network_virtualnetworkgateway.VirtualNetworkGateways_SupportedVpnDevices({
 
 ### VpnClientRevokedCertificatePropertiesFormat
 * VpnClientRevokedCertificatePropertiesFormat `object`: Properties of the revoked VPN client certificate of virtual network gateway.
-  * provisioningState `string`: The provisioning state of the VPN client revoked certificate resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+  * provisioningState `string` (values: Succeeded, Updating, Deleting, Failed): The current provisioning state.
   * thumbprint `string`: The revoked VPN client certificate thumbprint.
 
 ### VpnClientRootCertificate
-* VpnClientRootCertificate `object`: VPN client root certificate of virtual network gateway
+* VpnClientRootCertificate `object`: VPN client root certificate of virtual network gateway.
   * etag `string`: A unique read-only string that changes whenever the resource is updated.
   * name `string`: The name of the resource that is unique within a resource group. This name can be used to access the resource.
   * properties **required** [VpnClientRootCertificatePropertiesFormat](#vpnclientrootcertificatepropertiesformat)
   * id `string`: Resource ID.
 
 ### VpnClientRootCertificatePropertiesFormat
-* VpnClientRootCertificatePropertiesFormat `object`: Properties of SSL certificates of application gateway
-  * provisioningState `string`: The provisioning state of the VPN client root certificate resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+* VpnClientRootCertificatePropertiesFormat `object`: Properties of SSL certificates of application gateway.
+  * provisioningState `string` (values: Succeeded, Updating, Deleting, Failed): The current provisioning state.
   * publicCertData **required** `string`: The certificate public data.
 
 ### VpnDeviceScriptParameters
-* VpnDeviceScriptParameters `object`: Vpn device configuration script generation parameters
+* VpnDeviceScriptParameters `object`: Vpn device configuration script generation parameters.
   * deviceFamily `string`: The device family for the vpn device.
   * firmwareVersion `string`: The firmware version for the vpn device.
   * vendor `string`: The vendor for the vpn device.
 
-### virtualNetworkConnectionGatewayReference
-* virtualNetworkConnectionGatewayReference `object`: A reference to VirtualNetworkGateway or LocalNetworkGateway resource.
-  * id **required** `string`: The ID of VirtualNetworkGateway or LocalNetworkGateway resource.
+### VpnPacketCaptureStartParameters
+* VpnPacketCaptureStartParameters `object`: Start packet capture parameters on virtual network gateway.
+  * filterData `string`: Start Packet capture parameters.
+
+### VpnPacketCaptureStopParameters
+* VpnPacketCaptureStopParameters `object`: Stop packet capture parameters.
+  * sasUrl `string`: SAS url for packet capture on virtual network gateway.
 
 

@@ -9,21 +9,19 @@ npm install --save @datafire/azure_search_searchservice
 ```js
 let azure_search_searchservice = require('@datafire/azure_search_searchservice').create();
 
-azure_search_searchservice.DataSources_List({
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
 
 ## Description
 
-Client that can be used to manage and query indexes and documents, as well as manage other resources, on an Azure Search service.
+Client that can be used to manage and query indexes and documents, as well as manage other resources, on a search service.
 
 ## Actions
 
 ### DataSources_List
-Lists all datasources available for an Azure Search service.
+Lists all datasources available for a search service.
 
 
 ```js
@@ -34,6 +32,7 @@ azure_search_searchservice.DataSources_List({
 
 #### Input
 * input `object`
+  * $select `string`: Selects which top-level properties of the data sources to retrieve. Specified as a comma-separated list of JSON property names, or '*' for all properties. The default is all properties.
   * client-request-id `string`: The tracking ID sent with the request to help with debugging.
   * api-version **required** `string`: Client Api Version.
 
@@ -41,7 +40,7 @@ azure_search_searchservice.DataSources_List({
 * output [DataSourceListResult](#datasourcelistresult)
 
 ### DataSources_Create
-Creates a new Azure Search datasource.
+Creates a new datasource.
 
 
 ```js
@@ -61,7 +60,7 @@ azure_search_searchservice.DataSources_Create({
 * output [DataSource](#datasource)
 
 ### DataSources_Delete
-Deletes an Azure Search datasource.
+Deletes a datasource.
 
 
 ```js
@@ -83,7 +82,7 @@ azure_search_searchservice.DataSources_Delete({
 *Output schema unknown*
 
 ### DataSources_Get
-Retrieves a datasource definition from Azure Search.
+Retrieves a datasource definition.
 
 
 ```js
@@ -103,7 +102,7 @@ azure_search_searchservice.DataSources_Get({
 * output [DataSource](#datasource)
 
 ### DataSources_CreateOrUpdate
-Creates a new Azure Search datasource or updates a datasource if it already exists.
+Creates a new datasource or updates a datasource if it already exists.
 
 
 ```js
@@ -129,7 +128,7 @@ azure_search_searchservice.DataSources_CreateOrUpdate({
 * output [DataSource](#datasource)
 
 ### Indexers_List
-Lists all indexers available for an Azure Search service.
+Lists all indexers available for a search service.
 
 
 ```js
@@ -140,6 +139,7 @@ azure_search_searchservice.Indexers_List({
 
 #### Input
 * input `object`
+  * $select `string`: Selects which top-level properties of the indexers to retrieve. Specified as a comma-separated list of JSON property names, or '*' for all properties. The default is all properties.
   * client-request-id `string`: The tracking ID sent with the request to help with debugging.
   * api-version **required** `string`: Client Api Version.
 
@@ -147,7 +147,7 @@ azure_search_searchservice.Indexers_List({
 * output [IndexerListResult](#indexerlistresult)
 
 ### Indexers_Create
-Creates a new Azure Search indexer.
+Creates a new indexer.
 
 
 ```js
@@ -167,7 +167,7 @@ azure_search_searchservice.Indexers_Create({
 * output [Indexer](#indexer)
 
 ### Indexers_Delete
-Deletes an Azure Search indexer.
+Deletes an indexer.
 
 
 ```js
@@ -189,7 +189,7 @@ azure_search_searchservice.Indexers_Delete({
 *Output schema unknown*
 
 ### Indexers_Get
-Retrieves an indexer definition from Azure Search.
+Retrieves an indexer definition.
 
 
 ```js
@@ -209,7 +209,7 @@ azure_search_searchservice.Indexers_Get({
 * output [Indexer](#indexer)
 
 ### Indexers_CreateOrUpdate
-Creates a new Azure Search indexer or updates an indexer if it already exists.
+Creates a new indexer or updates an indexer if it already exists.
 
 
 ```js
@@ -235,7 +235,7 @@ azure_search_searchservice.Indexers_CreateOrUpdate({
 * output [Indexer](#indexer)
 
 ### Indexers_Reset
-Resets the change tracking state associated with an Azure Search indexer.
+Resets the change tracking state associated with an indexer.
 
 
 ```js
@@ -255,7 +255,7 @@ azure_search_searchservice.Indexers_Reset({
 *Output schema unknown*
 
 ### Indexers_Run
-Runs an Azure Search indexer on-demand.
+Runs an indexer on-demand.
 
 
 ```js
@@ -295,7 +295,7 @@ azure_search_searchservice.Indexers_GetStatus({
 * output [IndexerExecutionInfo](#indexerexecutioninfo)
 
 ### Indexes_List
-Lists all indexes available for an Azure Search service.
+Lists all indexes available for a search service.
 
 
 ```js
@@ -306,7 +306,7 @@ azure_search_searchservice.Indexes_List({
 
 #### Input
 * input `object`
-  * $select `string`: Selects which properties of the index definitions to retrieve. Specified as a comma-separated list of JSON property names, or '*' for all properties. The default is all properties.
+  * $select `string`: Selects which top-level properties of the index definitions to retrieve. Specified as a comma-separated list of JSON property names, or '*' for all properties. The default is all properties.
   * client-request-id `string`: The tracking ID sent with the request to help with debugging.
   * api-version **required** `string`: Client Api Version.
 
@@ -314,7 +314,7 @@ azure_search_searchservice.Indexes_List({
 * output [IndexListResult](#indexlistresult)
 
 ### Indexes_Create
-Creates a new Azure Search index.
+Creates a new search index.
 
 
 ```js
@@ -334,7 +334,7 @@ azure_search_searchservice.Indexes_Create({
 * output [Index](#index)
 
 ### Indexes_Delete
-Deletes an Azure Search index and all the documents it contains.
+Deletes a search index and all the documents it contains.
 
 
 ```js
@@ -356,7 +356,7 @@ azure_search_searchservice.Indexes_Delete({
 *Output schema unknown*
 
 ### Indexes_Get
-Retrieves an index definition from Azure Search.
+Retrieves an index definition.
 
 
 ```js
@@ -376,7 +376,7 @@ azure_search_searchservice.Indexes_Get({
 * output [Index](#index)
 
 ### Indexes_CreateOrUpdate
-Creates a new Azure Search index or updates an index if it already exists.
+Creates a new search index or updates an index if it already exists.
 
 
 ```js
@@ -445,7 +445,7 @@ azure_search_searchservice.Indexes_GetStatistics({
 * output [IndexGetStatisticsResult](#indexgetstatisticsresult)
 
 ### GetServiceStatistics
-Gets service level statistics for an Azure Search service.
+Gets service level statistics for a search service.
 
 
 ```js
@@ -462,8 +462,115 @@ azure_search_searchservice.GetServiceStatistics({
 #### Output
 * output [ServiceStatistics](#servicestatistics)
 
+### Skillsets_List
+List all skillsets in a search service.
+
+
+```js
+azure_search_searchservice.Skillsets_List({
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * $select `string`: Selects which top-level properties of the skillsets to retrieve. Specified as a comma-separated list of JSON property names, or '*' for all properties. The default is all properties.
+  * client-request-id `string`: The tracking ID sent with the request to help with debugging.
+  * api-version **required** `string`: Client Api Version.
+
+#### Output
+* output [SkillsetListResult](#skillsetlistresult)
+
+### Skillsets_Create
+Creates a new skillset in a search service.
+
+
+```js
+azure_search_searchservice.Skillsets_Create({
+  "skillset": null,
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * skillset **required** [Skillset](#skillset)
+  * client-request-id `string`: The tracking ID sent with the request to help with debugging.
+  * api-version **required** `string`: Client Api Version.
+
+#### Output
+* output [Skillset](#skillset)
+
+### Skillsets_Delete
+Deletes a skillset in a search service.
+
+
+```js
+azure_search_searchservice.Skillsets_Delete({
+  "skillsetName": "",
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * skillsetName **required** `string`: The name of the skillset to delete.
+  * client-request-id `string`: The tracking ID sent with the request to help with debugging.
+  * If-Match `string`: Defines the If-Match condition. The operation will be performed only if the ETag on the server matches this value.
+  * If-None-Match `string`: Defines the If-None-Match condition. The operation will be performed only if the ETag on the server does not match this value.
+  * api-version **required** `string`: Client Api Version.
+
+#### Output
+*Output schema unknown*
+
+### Skillsets_Get
+Retrieves a skillset in a search service.
+
+
+```js
+azure_search_searchservice.Skillsets_Get({
+  "skillsetName": "",
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * skillsetName **required** `string`: The name of the skillset to retrieve.
+  * client-request-id `string`: The tracking ID sent with the request to help with debugging.
+  * api-version **required** `string`: Client Api Version.
+
+#### Output
+* output [Skillset](#skillset)
+
+### Skillsets_CreateOrUpdate
+Creates a new skillset in a search service or updates the skillset if it already exists.
+
+
+```js
+azure_search_searchservice.Skillsets_CreateOrUpdate({
+  "skillsetName": "",
+  "skillset": null,
+  "Prefer": "",
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * skillsetName **required** `string`: The name of the skillset to create or update.
+  * skillset **required** [Skillset](#skillset)
+  * client-request-id `string`: The tracking ID sent with the request to help with debugging.
+  * If-Match `string`: Defines the If-Match condition. The operation will be performed only if the ETag on the server matches this value.
+  * If-None-Match `string`: Defines the If-None-Match condition. The operation will be performed only if the ETag on the server does not match this value.
+  * Prefer **required** `string` (values: return=representation): For HTTP PUT requests, instructs the service to return the created/updated resource on success.
+  * api-version **required** `string`: Client Api Version.
+
+#### Output
+* output [Skillset](#skillset)
+
 ### SynonymMaps_List
-Lists all synonym maps available for an Azure Search service.
+Lists all synonym maps available for a search service.
 
 
 ```js
@@ -474,6 +581,7 @@ azure_search_searchservice.SynonymMaps_List({
 
 #### Input
 * input `object`
+  * $select `string`: Selects which top-level properties of the synonym maps to retrieve. Specified as a comma-separated list of JSON property names, or '*' for all properties. The default is all properties.
   * client-request-id `string`: The tracking ID sent with the request to help with debugging.
   * api-version **required** `string`: Client Api Version.
 
@@ -481,7 +589,7 @@ azure_search_searchservice.SynonymMaps_List({
 * output [SynonymMapListResult](#synonymmaplistresult)
 
 ### SynonymMaps_Create
-Creates a new Azure Search synonym map.
+Creates a new synonym map.
 
 
 ```js
@@ -501,7 +609,7 @@ azure_search_searchservice.SynonymMaps_Create({
 * output [SynonymMap](#synonymmap)
 
 ### SynonymMaps_Delete
-Deletes an Azure Search synonym map.
+Deletes a synonym map.
 
 
 ```js
@@ -523,7 +631,7 @@ azure_search_searchservice.SynonymMaps_Delete({
 *Output schema unknown*
 
 ### SynonymMaps_Get
-Retrieves a synonym map definition from Azure Search.
+Retrieves a synonym map definition.
 
 
 ```js
@@ -543,7 +651,7 @@ azure_search_searchservice.SynonymMaps_Get({
 * output [SynonymMap](#synonymmap)
 
 ### SynonymMaps_CreateOrUpdate
-Creates a new Azure Search synonym map or updates a synonym map if it already exists.
+Creates a new synonym map or updates a synonym map if it already exists.
 
 
 ```js
@@ -593,8 +701,7 @@ azure_search_searchservice.SynonymMaps_CreateOrUpdate({
   * name **required** `string`: The name of the analyzer. It must only contain letters, digits, spaces, dashes or underscores, can only start and end with alphanumeric characters, and is limited to 128 characters.
 
 ### AnalyzerName
-* AnalyzerName `object`: Defines the names of all text analyzers supported by Azure Search.
-  * name `string`
+* AnalyzerName `string` (values: ar.microsoft, ar.lucene, hy.lucene, bn.microsoft, eu.lucene, bg.microsoft, bg.lucene, ca.microsoft, ca.lucene, zh-Hans.microsoft, zh-Hans.lucene, zh-Hant.microsoft, zh-Hant.lucene, hr.microsoft, cs.microsoft, cs.lucene, da.microsoft, da.lucene, nl.microsoft, nl.lucene, en.microsoft, en.lucene, et.microsoft, fi.microsoft, fi.lucene, fr.microsoft, fr.lucene, gl.lucene, de.microsoft, de.lucene, el.microsoft, el.lucene, gu.microsoft, he.microsoft, hi.microsoft, hi.lucene, hu.microsoft, hu.lucene, is.microsoft, id.microsoft, id.lucene, ga.lucene, it.microsoft, it.lucene, ja.microsoft, ja.lucene, kn.microsoft, ko.microsoft, ko.lucene, lv.microsoft, lv.lucene, lt.microsoft, ml.microsoft, ms.microsoft, mr.microsoft, nb.microsoft, no.lucene, fa.lucene, pl.microsoft, pl.lucene, pt-BR.microsoft, pt-BR.lucene, pt-PT.microsoft, pt-PT.lucene, pa.microsoft, ro.microsoft, ro.lucene, ru.microsoft, ru.lucene, sr-cyrillic.microsoft, sr-latin.microsoft, sk.microsoft, sl.microsoft, es.microsoft, es.lucene, sv.microsoft, sv.lucene, ta.microsoft, te.microsoft, th.microsoft, th.lucene, tr.microsoft, tr.lucene, uk.microsoft, ur.microsoft, vi.microsoft, standard.lucene, standardasciifolding.lucene, keyword, pattern, simple, stop, whitespace): Defines the names of all text analyzers supported by Azure Cognitive Search.
 
 ### AsciiFoldingTokenFilter
 * AsciiFoldingTokenFilter `object`: Converts alphabetic, numeric, and symbolic Unicode characters which are not in the first 127 ASCII characters (the "Basic Latin" Unicode block) into their ASCII equivalents, if such equivalents exist. This token filter is implemented using Apache Lucene.
@@ -602,14 +709,18 @@ azure_search_searchservice.SynonymMaps_CreateOrUpdate({
   * @odata.type **required** `string`
   * name **required** `string`: The name of the token filter. It must only contain letters, digits, spaces, dashes or underscores, can only start and end with alphanumeric characters, and is limited to 128 characters.
 
+### AzureActiveDirectoryApplicationCredentials
+* AzureActiveDirectoryApplicationCredentials `object`: Credentials of a registered application created for your search service, used for authenticated access to the encryption keys stored in Azure Key Vault.
+  * applicationId **required** `string`: An AAD Application ID that was granted the required access permissions to the Azure Key Vault that is to be used when encrypting your data at rest. The Application ID should not be confused with the Object ID for your AAD Application.
+  * applicationSecret `string`: The authentication key of the specified AAD application.
+
 ### CharFilter
 * CharFilter `object`: Abstract base class for character filters.
   * @odata.type **required** `string`
   * name **required** `string`: The name of the char filter. It must only contain letters, digits, spaces, dashes or underscores, can only start and end with alphanumeric characters, and is limited to 128 characters.
 
 ### CharFilterName
-* CharFilterName `object`: Defines the names of all character filters supported by Azure Search.
-  * name `string`
+* CharFilterName `string` (values: html_strip): Defines the names of all character filters supported by Azure Cognitive Search.
 
 ### CjkBigramTokenFilter
 * CjkBigramTokenFilter `object`: Forms bigrams of CJK terms that are generated from StandardTokenizer. This token filter is implemented using Apache Lucene.
@@ -628,6 +739,17 @@ azure_search_searchservice.SynonymMaps_CreateOrUpdate({
   * @odata.type **required** `string`
   * name **required** `string`: The name of the tokenizer. It must only contain letters, digits, spaces, dashes or underscores, can only start and end with alphanumeric characters, and is limited to 128 characters.
 
+### CognitiveServices
+* CognitiveServices `object`: Abstract base class for describing any cognitive service resource attached to the skillset.
+  * @odata.type **required** `string`
+  * description `string`
+
+### CognitiveServicesByKey
+* CognitiveServicesByKey `object`: A cognitive service resource provisioned with a key that is attached to a skillset.
+  * key **required** `string`
+  * @odata.type **required** `string`
+  * description `string`
+
 ### CommonGramTokenFilter
 * CommonGramTokenFilter `object`: Construct bigrams for frequently occurring terms while indexing. Single terms are still indexed too, with bigrams overlaid. This token filter is implemented using Apache Lucene.
   * commonWords **required** `array`: The set of common words.
@@ -637,11 +759,22 @@ azure_search_searchservice.SynonymMaps_CreateOrUpdate({
   * @odata.type **required** `string`
   * name **required** `string`: The name of the token filter. It must only contain letters, digits, spaces, dashes or underscores, can only start and end with alphanumeric characters, and is limited to 128 characters.
 
+### ConditionalSkill
+* ConditionalSkill: A skill that enables scenarios that require a Boolean operation to determine the data to assign to an output.
+  * @odata.type **required** `string`
+  * context `string`: Represents the level at which operations take place, such as the document root or document content (for example, /document or /document/content). The default is /document.
+  * description `string`: The description of the skill which describes the inputs, outputs, and usage of the skill.
+  * inputs **required** `array`: Inputs of the skills could be a column in the source data set, or the output of an upstream skill.
+    * items [InputFieldMappingEntry](#inputfieldmappingentry)
+  * name `string`: The name of the skill which uniquely identifies it within the skillset. A skill with no name defined will be given a default name of its 1-based index in the skills array, prefixed with the character '#'.
+  * outputs **required** `array`: The output of a skill is either a field in a search index, or a value that can be consumed as an input by another skill.
+    * items [OutputFieldMappingEntry](#outputfieldmappingentry)
+
 ### CorsOptions
 * CorsOptions `object`: Defines options to control Cross-Origin Resource Sharing (CORS) for an index.
   * allowedOrigins **required** `array`: The list of origins from which JavaScript code will be granted access to your index. Can contain a list of hosts of the form {protocol}://{fully-qualified-domain-name}[:{port#}], or a single '*' to allow all origins (not recommended).
     * items `string`
-  * maxAgeInSeconds `integer`: The duration for which browsers should cache CORS preflight responses. Defaults to 5 mintues.
+  * maxAgeInSeconds `integer`: The duration for which browsers should cache CORS preflight responses. Defaults to 5 minutes.
 
 ### CustomAnalyzer
 * CustomAnalyzer `object`: Allows you to take control over the process of converting text into indexable/searchable tokens. It's a user-defined configuration consisting of a single predefined tokenizer and one or more filters. The tokenizer is responsible for breaking text into tokens, and the filters for modifying tokens emitted by the tokenizer.
@@ -658,8 +791,8 @@ azure_search_searchservice.SynonymMaps_CreateOrUpdate({
   * @odata.type **required** `string`
 
 ### DataContainer
-* DataContainer `object`: Represents information about the entity (such as Azure SQL table or DocumentDb collection) that will be indexed.
-  * name **required** `string`: The name of the table or view (for Azure SQL data source) or collection (for DocumentDB data source) that will be indexed.
+* DataContainer `object`: Represents information about the entity (such as Azure SQL table or CosmosDB collection) that will be indexed.
+  * name **required** `string`: The name of the table or view (for Azure SQL data source) or collection (for CosmosDB data source) that will be indexed.
   * query `string`: A query that is applied to this data container. The syntax and meaning of this parameter is datasource-specific. Not supported by Azure SQL datasources.
 
 ### DataDeletionDetectionPolicy
@@ -667,7 +800,7 @@ azure_search_searchservice.SynonymMaps_CreateOrUpdate({
   * @odata.type **required** `string`
 
 ### DataSource
-* DataSource `object`: Represents a datasource definition in Azure Search, which can be used to configure an indexer.
+* DataSource `object`: Represents a datasource definition, which can be used to configure an indexer.
   * @odata.etag `string`: The ETag of the DataSource.
   * container **required** [DataContainer](#datacontainer)
   * credentials **required** [DataSourceCredentials](#datasourcecredentials)
@@ -679,7 +812,7 @@ azure_search_searchservice.SynonymMaps_CreateOrUpdate({
 
 ### DataSourceCredentials
 * DataSourceCredentials `object`: Represents credentials that can be used to connect to a datasource.
-  * connectionString **required** `string`: The connection string for the datasource.
+  * connectionString `string`: The connection string for the datasource.
 
 ### DataSourceListResult
 * DataSourceListResult `object`: Response from a List Datasources request. If successful, it includes the full definitions of all datasources.
@@ -687,12 +820,15 @@ azure_search_searchservice.SynonymMaps_CreateOrUpdate({
     * items [DataSource](#datasource)
 
 ### DataSourceType
-* DataSourceType `object`: Defines the type of an Azure Search datasource.
-  * name `string`
+* DataSourceType `string` (values: azuresql, cosmosdb, azureblob, azuretable, mysql): Defines the type of a datasource.
 
 ### DataType
-* DataType `object`: Defines the data type of a field in an Azure Search index.
-  * name `string`
+* DataType `string` (values: Edm.String, Edm.Int32, Edm.Int64, Edm.Double, Edm.Boolean, Edm.DateTimeOffset, Edm.GeographyPoint, Edm.ComplexType): Defines the data type of a field in a search index.
+
+### DefaultCognitiveServices
+* DefaultCognitiveServices: An empty object that represents the default cognitive service resource for a skillset.
+  * @odata.type **required** `string`
+  * description `string`
 
 ### DictionaryDecompounderTokenFilter
 * DictionaryDecompounderTokenFilter `object`: Decomposes compound words found in many Germanic languages. This token filter is implemented using Apache Lucene.
@@ -753,19 +889,50 @@ azure_search_searchservice.SynonymMaps_CreateOrUpdate({
   * @odata.type **required** `string`
   * name **required** `string`: The name of the token filter. It must only contain letters, digits, spaces, dashes or underscores, can only start and end with alphanumeric characters, and is limited to 128 characters.
 
+### EncryptionKey
+* EncryptionKey `object`: A customer-managed encryption key in Azure Key Vault. Keys that you create and manage can be used to encrypt or decrypt data-at-rest in Azure Cognitive Search, such as indexes and synonym maps.
+  * accessCredentials [AzureActiveDirectoryApplicationCredentials](#azureactivedirectoryapplicationcredentials)
+  * keyVaultKeyName **required** `string`: The name of your Azure Key Vault key to be used to encrypt your data at rest.
+  * keyVaultKeyVersion **required** `string`: The version of your Azure Key Vault key to be used to encrypt your data at rest.
+  * keyVaultUri **required** `string`: The URI of your Azure Key Vault, also referred to as DNS name, that contains the key to be used to encrypt your data at rest. An example URI might be https://my-keyvault-name.vault.azure.net.
+
+### EntityCategory
+* EntityCategory `string` (values: location, organization, person, quantity, datetime, url, email): A string indicating what entity categories to return.
+
+### EntityRecognitionSkill
+* EntityRecognitionSkill `object`: Text analytics entity recognition.
+  * categories `array`: A list of entity categories that should be extracted.
+    * items [EntityCategory](#entitycategory)
+  * defaultLanguageCode [EntityRecognitionSkillLanguage](#entityrecognitionskilllanguage)
+  * includeTypelessEntities `boolean`: Determines whether or not to include entities which are well known but don't conform to a pre-defined type. If this configuration is not set (default), set to null or set to false, entities which don't conform to one of the pre-defined types will not be surfaced.
+  * minimumPrecision `number`: A value between 0 and 1 that be used to only include entities whose confidence score is greater than the value specified. If not set (default), or if explicitly set to null, all entities will be included.
+  * @odata.type **required** `string`
+  * context `string`: Represents the level at which operations take place, such as the document root or document content (for example, /document or /document/content). The default is /document.
+  * description `string`: The description of the skill which describes the inputs, outputs, and usage of the skill.
+  * inputs **required** `array`: Inputs of the skills could be a column in the source data set, or the output of an upstream skill.
+    * items [InputFieldMappingEntry](#inputfieldmappingentry)
+  * name `string`: The name of the skill which uniquely identifies it within the skillset. A skill with no name defined will be given a default name of its 1-based index in the skills array, prefixed with the character '#'.
+  * outputs **required** `array`: The output of a skill is either a field in a search index, or a value that can be consumed as an input by another skill.
+    * items [OutputFieldMappingEntry](#outputfieldmappingentry)
+
+### EntityRecognitionSkillLanguage
+* EntityRecognitionSkillLanguage `string` (values: ar, cs, zh-Hans, zh-Hant, da, nl, en, fi, fr, de, el, hu, it, ja, ko, no, pl, pt-PT, pt-BR, ru, es, sv, tr): The language codes supported for input text by EntityRecognitionSkill.
+
 ### Field
-* Field `object`: Represents a field in an index definition in Azure Search, which describes the name, data type, and search behavior of a field.
+* Field `object`: Represents a field in an index definition, which describes the name, data type, and search behavior of a field.
   * analyzer [AnalyzerName](#analyzername)
-  * facetable `boolean`: A value indicating whether it is possible to facet on this field. Not valid for geo-point fields. Default is false.
-  * filterable `boolean`: A value indicating whether the field can be used in filter expressions. Default is false.
+  * facetable `boolean`: A value indicating whether to enable the field to be referenced in facet queries. Typically used in a presentation of search results that includes hit count by category (for example, search for digital cameras and see hits by brand, by megapixels, by price, and so on). This property must be null for complex fields. Fields of type Edm.GeographyPoint or Collection(Edm.GeographyPoint) cannot be facetable. Default is true for all other simple fields.
+  * fields `array`: A list of sub-fields if this is a field of type Edm.ComplexType or Collection(Edm.ComplexType). Must be null or empty for simple fields.
+    * items [Field](#field)
+  * filterable `boolean`: A value indicating whether to enable the field to be referenced in $filter queries. filterable differs from searchable in how strings are handled. Fields of type Edm.String or Collection(Edm.String) that are filterable do not undergo word-breaking, so comparisons are for exact matches only. For example, if you set such a field f to "sunny day", $filter=f eq 'sunny' will find no matches, but $filter=f eq 'sunny day' will. This property must be null for complex fields. Default is true for simple fields and null for complex fields.
   * indexAnalyzer [AnalyzerName](#analyzername)
-  * key `boolean`: A value indicating whether the field is the key of the index. Valid only for string fields. Every index must have exactly one key field.
-  * name **required** `string`: The name of the field.
-  * retrievable `boolean`: A value indicating whether the field can be returned in a search result. Default is true.
+  * key `boolean`: A value indicating whether the field uniquely identifies documents in the index. Exactly one top-level field in each index must be chosen as the key field and it must be of type Edm.String. Key fields can be used to look up documents directly and update or delete specific documents. Default is false for simple fields and null for complex fields.
+  * name **required** `string`: The name of the field, which must be unique within the fields collection of the index or parent field.
+  * retrievable `boolean`: A value indicating whether the field can be returned in a search result. You can disable this option if you want to use a field (for example, margin) as a filter, sorting, or scoring mechanism but do not want the field to be visible to the end user. This property must be true for key fields, and it must be null for complex fields. This property can be changed on existing fields. Enabling this property does not cause any increase in index storage requirements. Default is true for simple fields and null for complex fields.
   * searchAnalyzer [AnalyzerName](#analyzername)
-  * searchable `boolean`: A value indicating whether the field is included in full-text searches. Valid only forstring or string collection fields. Default is false.
-  * sortable `boolean`: A value indicating whether the field can be used in orderby expressions. Not valid for string collection fields. Default is false.
-  * synonymMaps `array`: A list of synonym maps to apply in query expansion. Only one synonym map is allowed in the list currently. Synonym maps must be uploaded first to be referenced. This option can be used only with searchable fields.
+  * searchable `boolean`: A value indicating whether the field is full-text searchable. This means it will undergo analysis such as word-breaking during indexing. If you set a searchable field to a value like "sunny day", internally it will be split into the individual tokens "sunny" and "day". This enables full-text searches for these terms. Fields of type Edm.String or Collection(Edm.String) are searchable by default. This property must be false for simple fields of other non-string data types, and it must be null for complex fields. Note: searchable fields consume extra space in your index since Azure Cognitive Search will store an additional tokenized version of the field value for full-text searches. If you want to save space in your index and you don't need a field to be included in searches, set searchable to false.
+  * sortable `boolean`: A value indicating whether to enable the field to be referenced in $orderby expressions. By default Azure Cognitive Search sorts results by score, but in many experiences users will want to sort by fields in the documents. A simple field can be sortable only if it is single-valued (it has a single value in the scope of the parent document). Simple collection fields cannot be sortable, since they are multi-valued. Simple sub-fields of complex collections are also multi-valued, and therefore cannot be sortable. This is true whether it's an immediate parent field, or an ancestor field, that's the complex collection. Complex fields cannot be sortable and the sortable property must be null for such fields. The default for sortable is true for single-valued simple fields, false for multi-valued simple fields, and null for complex fields.
+  * synonymMaps `array`: A list of the names of synonym maps to associate with this field. This option can be used only with searchable fields. Currently only one synonym map per field is supported. Assigning a synonym map to a field ensures that query terms targeting that field are expanded at query-time using the rules in the synonym map. This attribute can be changed on existing fields. Must be null or an empty collection for complex fields.
     * items `string`
   * type **required** [DataType](#datatype)
 
@@ -797,8 +964,30 @@ azure_search_searchservice.SynonymMaps_CreateOrUpdate({
   * highWaterMarkColumnName **required** `string`: The name of the high water mark column.
   * @odata.type **required** `string`
 
+### ImageAnalysisSkill
+* ImageAnalysisSkill `object`: A skill that analyzes image files. It extracts a rich set of visual features based on the image content.
+  * defaultLanguageCode [ImageAnalysisSkillLanguage](#imageanalysisskilllanguage)
+  * details `array`: A string indicating which domain-specific details to return.
+    * items [ImageDetail](#imagedetail)
+  * visualFeatures `array`: A list of visual features.
+    * items [VisualFeature](#visualfeature)
+  * @odata.type **required** `string`
+  * context `string`: Represents the level at which operations take place, such as the document root or document content (for example, /document or /document/content). The default is /document.
+  * description `string`: The description of the skill which describes the inputs, outputs, and usage of the skill.
+  * inputs **required** `array`: Inputs of the skills could be a column in the source data set, or the output of an upstream skill.
+    * items [InputFieldMappingEntry](#inputfieldmappingentry)
+  * name `string`: The name of the skill which uniquely identifies it within the skillset. A skill with no name defined will be given a default name of its 1-based index in the skills array, prefixed with the character '#'.
+  * outputs **required** `array`: The output of a skill is either a field in a search index, or a value that can be consumed as an input by another skill.
+    * items [OutputFieldMappingEntry](#outputfieldmappingentry)
+
+### ImageAnalysisSkillLanguage
+* ImageAnalysisSkillLanguage `string` (values: en, zh): The language codes supported for input by ImageAnalysisSkill.
+
+### ImageDetail
+* ImageDetail `string` (values: celebrities, landmarks): A string indicating which domain-specific details to return.
+
 ### Index
-* Index `object`: Represents an index definition in Azure Search, which describes the fields and search behavior of an index.
+* Index `object`: Represents a search index definition, which describes the fields and search behavior of an index.
   * @odata.etag `string`: The ETag of the index.
   * analyzers `array`: The analyzers for the index.
     * items [Analyzer](#analyzer)
@@ -806,6 +995,7 @@ azure_search_searchservice.SynonymMaps_CreateOrUpdate({
     * items [CharFilter](#charfilter)
   * corsOptions [CorsOptions](#corsoptions)
   * defaultScoringProfile `string`: The name of the scoring profile to use if none is specified in the query. If this property is not set and no scoring profile is specified in the query, then default scoring (tf-idf) will be used.
+  * encryptionKey [EncryptionKey](#encryptionkey)
   * fields **required** `array`: The fields of the index.
     * items [Field](#field)
   * name **required** `string`: The name of the index.
@@ -829,7 +1019,7 @@ azure_search_searchservice.SynonymMaps_CreateOrUpdate({
     * items [Index](#index)
 
 ### Indexer
-* Indexer `object`: Represents an Azure Search indexer.
+* Indexer `object`: Represents an indexer.
   * @odata.etag `string`: The ETag of the Indexer.
   * dataSourceName **required** `string`: The name of the datasource from which this indexer reads data.
   * description `string`: The description of the indexer.
@@ -837,8 +1027,11 @@ azure_search_searchservice.SynonymMaps_CreateOrUpdate({
   * fieldMappings `array`: Defines mappings between fields in the data source and corresponding target fields in the index.
     * items [FieldMapping](#fieldmapping)
   * name **required** `string`: The name of the indexer.
+  * outputFieldMappings `array`: Output field mappings are applied after enrichment and immediately before indexing.
+    * items [FieldMapping](#fieldmapping)
   * parameters [IndexingParameters](#indexingparameters)
   * schedule [IndexingSchedule](#indexingschedule)
+  * skillsetName `string`: The name of the skillset executing with this indexer.
   * targetIndexName **required** `string`: The name of the index to which this indexer writes data.
 
 ### IndexerExecutionInfo
@@ -846,6 +1039,7 @@ azure_search_searchservice.SynonymMaps_CreateOrUpdate({
   * executionHistory `array`: History of the recent indexer executions, sorted in reverse chronological order.
     * items [IndexerExecutionResult](#indexerexecutionresult)
   * lastResult [IndexerExecutionResult](#indexerexecutionresult)
+  * limits [IndexerLimits](#indexerlimits)
   * status [IndexerStatus](#indexerstatus)
 
 ### IndexerExecutionResult
@@ -865,6 +1059,12 @@ azure_search_searchservice.SynonymMaps_CreateOrUpdate({
 
 ### IndexerExecutionStatus
 * IndexerExecutionStatus `string` (values: transientFailure, success, inProgress, reset): Represents the status of an individual indexer execution.
+
+### IndexerLimits
+* IndexerLimits `object`
+  * maxDocumentContentCharactersToExtract `number`: The maximum number of characters that will be extracted from a document picked up for indexing.
+  * maxDocumentExtractionSize `number`: The maximum size of a document, in bytes, which will be considered valid for indexing.
+  * maxRunTime `string`: The maximum duration that the indexer is permitted to run for one execution.
 
 ### IndexerListResult
 * IndexerListResult `object`: Response from a List Indexers request. If successful, it includes the full definitions of all indexers.
@@ -887,15 +1087,30 @@ azure_search_searchservice.SynonymMaps_CreateOrUpdate({
   * interval **required** `string`: The interval of time between indexer executions.
   * startTime `string`: The time when an indexer should start running.
 
+### InputFieldMappingEntry
+* InputFieldMappingEntry `object`: Input field mapping for a skill.
+  * inputs `array`: The recursive inputs used when creating a complex type.
+    * items [InputFieldMappingEntry](#inputfieldmappingentry)
+  * name **required** `string`: The name of the input.
+  * source `string`: The source of the input.
+  * sourceContext `string`: The source context used for selecting recursive inputs.
+
 ### ItemError
 * ItemError `object`: Represents an item- or document-level indexing error.
+  * details `string`: Additional, verbose details about the error to assist in debugging the indexer. This may not be always available.
+  * documentationLink `string`: A link to a troubleshooting guide for these classes of errors. This may not be always available.
   * errorMessage `string`: The message describing the error that occurred while processing the item.
   * key `string`: The key of the item for which indexing failed.
+  * name `string`: The name of the source at which the error originated. For example, this could refer to a particular skill in the attached skillset. This may not be always available.
+  * statusCode `integer`: The status code indicating why the indexing operation failed. Possible values include: 400 for a malformed input document, 404 for document not found, 409 for a version conflict, 422 when the index is temporarily unavailable, or 503 for when the service is too busy.
 
 ### ItemWarning
 * ItemWarning `object`: Represents an item-level warning.
+  * details `string`: Additional, verbose details about the warning to assist in debugging the indexer. This may not be always available.
+  * documentationLink `string`: A link to a troubleshooting guide for these classes of warnings. This may not be always available.
   * key `string`: The key of the item which generated a warning.
   * message `string`: The message describing the warning that occurred while processing the item.
+  * name `string`: The name of the source at which the warning originated. For example, this could refer to a particular skill in the attached skillset. This may not be always available.
 
 ### KeepTokenFilter
 * KeepTokenFilter `object`: A token filter that only keeps tokens with text contained in a specified list of words. This token filter is implemented using Apache Lucene.
@@ -904,6 +1119,22 @@ azure_search_searchservice.SynonymMaps_CreateOrUpdate({
   * keepWordsCase `boolean`: A value indicating whether to lower case all words first. Default is false.
   * @odata.type **required** `string`
   * name **required** `string`: The name of the token filter. It must only contain letters, digits, spaces, dashes or underscores, can only start and end with alphanumeric characters, and is limited to 128 characters.
+
+### KeyPhraseExtractionSkill
+* KeyPhraseExtractionSkill `object`: A skill that uses text analytics for key phrase extraction.
+  * defaultLanguageCode [KeyPhraseExtractionSkillLanguage](#keyphraseextractionskilllanguage)
+  * maxKeyPhraseCount `integer`: A number indicating how many key phrases to return. If absent, all identified key phrases will be returned.
+  * @odata.type **required** `string`
+  * context `string`: Represents the level at which operations take place, such as the document root or document content (for example, /document or /document/content). The default is /document.
+  * description `string`: The description of the skill which describes the inputs, outputs, and usage of the skill.
+  * inputs **required** `array`: Inputs of the skills could be a column in the source data set, or the output of an upstream skill.
+    * items [InputFieldMappingEntry](#inputfieldmappingentry)
+  * name `string`: The name of the skill which uniquely identifies it within the skillset. A skill with no name defined will be given a default name of its 1-based index in the skills array, prefixed with the character '#'.
+  * outputs **required** `array`: The output of a skill is either a field in a search index, or a value that can be consumed as an input by another skill.
+    * items [OutputFieldMappingEntry](#outputfieldmappingentry)
+
+### KeyPhraseExtractionSkillLanguage
+* KeyPhraseExtractionSkillLanguage `string` (values: da, nl, en, fi, fr, de, it, ja, ko, no, pl, pt-PT, pt-BR, ru, es, sv): The language codes supported for input text by KeyPhraseExtractionSkill.
 
 ### KeywordMarkerTokenFilter
 * KeywordMarkerTokenFilter `object`: Marks terms as keywords. This token filter is implemented using Apache Lucene.
@@ -924,6 +1155,17 @@ azure_search_searchservice.SynonymMaps_CreateOrUpdate({
   * maxTokenLength `integer`: The maximum token length. Default is 256. Tokens longer than the maximum length are split. The maximum token length that can be used is 300 characters.
   * @odata.type **required** `string`
   * name **required** `string`: The name of the tokenizer. It must only contain letters, digits, spaces, dashes or underscores, can only start and end with alphanumeric characters, and is limited to 128 characters.
+
+### LanguageDetectionSkill
+* LanguageDetectionSkill: A skill that detects the language of input text and reports a single language code for every document submitted on the request. The language code is paired with a score indicating the confidence of the analysis.
+  * @odata.type **required** `string`
+  * context `string`: Represents the level at which operations take place, such as the document root or document content (for example, /document or /document/content). The default is /document.
+  * description `string`: The description of the skill which describes the inputs, outputs, and usage of the skill.
+  * inputs **required** `array`: Inputs of the skills could be a column in the source data set, or the output of an upstream skill.
+    * items [InputFieldMappingEntry](#inputfieldmappingentry)
+  * name `string`: The name of the skill which uniquely identifies it within the skillset. A skill with no name defined will be given a default name of its 1-based index in the skills array, prefixed with the character '#'.
+  * outputs **required** `array`: The output of a skill is either a field in a search index, or a value that can be consumed as an input by another skill.
+    * items [OutputFieldMappingEntry](#outputfieldmappingentry)
 
 ### LengthTokenFilter
 * LengthTokenFilter `object`: Removes words that are too long or too short. This token filter is implemented using Apache Lucene.
@@ -959,6 +1201,19 @@ azure_search_searchservice.SynonymMaps_CreateOrUpdate({
     * items `string`
   * @odata.type **required** `string`
   * name **required** `string`: The name of the char filter. It must only contain letters, digits, spaces, dashes or underscores, can only start and end with alphanumeric characters, and is limited to 128 characters.
+
+### MergeSkill
+* MergeSkill `object`: A skill for merging two or more strings into a single unified string, with an optional user-defined delimiter separating each component part.
+  * insertPostTag `string`: The tag indicates the end of the merged text. By default, the tag is an empty space.
+  * insertPreTag `string`: The tag indicates the start of the merged text. By default, the tag is an empty space.
+  * @odata.type **required** `string`
+  * context `string`: Represents the level at which operations take place, such as the document root or document content (for example, /document or /document/content). The default is /document.
+  * description `string`: The description of the skill which describes the inputs, outputs, and usage of the skill.
+  * inputs **required** `array`: Inputs of the skills could be a column in the source data set, or the output of an upstream skill.
+    * items [InputFieldMappingEntry](#inputfieldmappingentry)
+  * name `string`: The name of the skill which uniquely identifies it within the skillset. A skill with no name defined will be given a default name of its 1-based index in the skills array, prefixed with the character '#'.
+  * outputs **required** `array`: The output of a skill is either a field in a search index, or a value that can be consumed as an input by another skill.
+    * items [OutputFieldMappingEntry](#outputfieldmappingentry)
 
 ### MicrosoftLanguageStemmingTokenizer
 * MicrosoftLanguageStemmingTokenizer `object`: Divides text using language-specific rules and reduces words to their base forms.
@@ -1004,6 +1259,28 @@ azure_search_searchservice.SynonymMaps_CreateOrUpdate({
     * items [TokenCharacterKind](#tokencharacterkind)
   * @odata.type **required** `string`
   * name **required** `string`: The name of the tokenizer. It must only contain letters, digits, spaces, dashes or underscores, can only start and end with alphanumeric characters, and is limited to 128 characters.
+
+### OcrSkill
+* OcrSkill `object`: A skill that extracts text from image files.
+  * defaultLanguageCode [OcrSkillLanguage](#ocrskilllanguage)
+  * detectOrientation `boolean`: A value indicating to turn orientation detection on or not. Default is false.
+  * textExtractionAlgorithm [TextExtractionAlgorithm](#textextractionalgorithm)
+  * @odata.type **required** `string`
+  * context `string`: Represents the level at which operations take place, such as the document root or document content (for example, /document or /document/content). The default is /document.
+  * description `string`: The description of the skill which describes the inputs, outputs, and usage of the skill.
+  * inputs **required** `array`: Inputs of the skills could be a column in the source data set, or the output of an upstream skill.
+    * items [InputFieldMappingEntry](#inputfieldmappingentry)
+  * name `string`: The name of the skill which uniquely identifies it within the skillset. A skill with no name defined will be given a default name of its 1-based index in the skills array, prefixed with the character '#'.
+  * outputs **required** `array`: The output of a skill is either a field in a search index, or a value that can be consumed as an input by another skill.
+    * items [OutputFieldMappingEntry](#outputfieldmappingentry)
+
+### OcrSkillLanguage
+* OcrSkillLanguage `string` (values: zh-Hans, zh-Hant, cs, da, nl, en, fi, fr, de, el, hu, it, ja, ko, nb, pl, pt, ru, es, sv, tr, ar, ro, sr-Cyrl, sr-Latn, sk): The language codes supported for input by OcrSkill.
+
+### OutputFieldMappingEntry
+* OutputFieldMappingEntry `object`: Output field mapping for a skill.
+  * name **required** `string`: The name of the output defined by the skill.
+  * targetName `string`: The target name of the output. It is optional and default to name.
 
 ### PathHierarchyTokenizer
 * PathHierarchyTokenizer `object`: Tokenizer for path-like hierarchies. This tokenizer is implemented using Apache Lucene.
@@ -1076,8 +1353,7 @@ azure_search_searchservice.SynonymMaps_CreateOrUpdate({
   * name **required** `string`: The name of the token filter. It must only contain letters, digits, spaces, dashes or underscores, can only start and end with alphanumeric characters, and is limited to 128 characters.
 
 ### RegexFlags
-* RegexFlags `object`: Defines flags that can be combined to control how regular expressions are used in the pattern analyzer and pattern tokenizer.
-  * name `string`
+* RegexFlags `string` (values: CANON_EQ, CASE_INSENSITIVE, COMMENTS, DOTALL, LITERAL, MULTILINE, UNICODE_CASE, UNIX_LINES): Defines flags that can be combined to control how regular expressions are used in the pattern analyzer and pattern tokenizer.
 
 ### ResourceCounter
 * ResourceCounter `object`: Represents a resource's usage and quota.
@@ -1098,12 +1374,27 @@ azure_search_searchservice.SynonymMaps_CreateOrUpdate({
 * ScoringFunctionInterpolation `string` (values: linear, constant, quadratic, logarithmic): Defines the function used to interpolate score boosting across a range of documents.
 
 ### ScoringProfile
-* ScoringProfile `object`: Defines parameters for an Azure Search index that influence scoring in search queries.
+* ScoringProfile `object`: Defines parameters for a search index that influence scoring in search queries.
   * functionAggregation [ScoringFunctionAggregation](#scoringfunctionaggregation)
   * functions `array`: The collection of functions that influence the scoring of documents.
     * items [ScoringFunction](#scoringfunction)
   * name **required** `string`: The name of the scoring profile.
   * text [TextWeights](#textweights)
+
+### SentimentSkill
+* SentimentSkill `object`: Text analytics positive-negative sentiment analysis, scored as a floating point value in a range of zero to 1.
+  * defaultLanguageCode [SentimentSkillLanguage](#sentimentskilllanguage)
+  * @odata.type **required** `string`
+  * context `string`: Represents the level at which operations take place, such as the document root or document content (for example, /document or /document/content). The default is /document.
+  * description `string`: The description of the skill which describes the inputs, outputs, and usage of the skill.
+  * inputs **required** `array`: Inputs of the skills could be a column in the source data set, or the output of an upstream skill.
+    * items [InputFieldMappingEntry](#inputfieldmappingentry)
+  * name `string`: The name of the skill which uniquely identifies it within the skillset. A skill with no name defined will be given a default name of its 1-based index in the skills array, prefixed with the character '#'.
+  * outputs **required** `array`: The output of a skill is either a field in a search index, or a value that can be consumed as an input by another skill.
+    * items [OutputFieldMappingEntry](#outputfieldmappingentry)
+
+### SentimentSkillLanguage
+* SentimentSkillLanguage `string` (values: da, nl, en, fi, fr, de, el, it, no, pl, pt-PT, ru, es, sv, tr): The language codes supported for input text by SentimentSkill.
 
 ### ServiceCounters
 * ServiceCounters `object`: Represents service-level resource counters and quotas.
@@ -1117,6 +1408,7 @@ azure_search_searchservice.SynonymMaps_CreateOrUpdate({
 ### ServiceLimits
 * ServiceLimits `object`: Represents various service level limits.
   * maxComplexCollectionFieldsPerIndex `integer`: The maximum number of fields of type Collection(Edm.ComplexType) allowed in an index.
+  * maxComplexObjectsInCollectionsPerDocument `integer`: The maximum number of objects in complex collections allowed per document.
   * maxFieldNestingDepthPerIndex `integer`: The maximum depth which you can nest sub-fields in an index, including the top-level complex field. For example, a/b/c has a nesting depth of 3.
   * maxFieldsPerIndex `integer`: The maximum allowed fields per index.
 
@@ -1124,6 +1416,17 @@ azure_search_searchservice.SynonymMaps_CreateOrUpdate({
 * ServiceStatistics `object`: Response from a get service statistics request. If successful, it includes service level counters and limits.
   * counters [ServiceCounters](#servicecounters)
   * limits [ServiceLimits](#servicelimits)
+
+### ShaperSkill
+* ShaperSkill: A skill for reshaping the outputs. It creates a complex type to support composite fields (also known as multipart fields).
+  * @odata.type **required** `string`
+  * context `string`: Represents the level at which operations take place, such as the document root or document content (for example, /document or /document/content). The default is /document.
+  * description `string`: The description of the skill which describes the inputs, outputs, and usage of the skill.
+  * inputs **required** `array`: Inputs of the skills could be a column in the source data set, or the output of an upstream skill.
+    * items [InputFieldMappingEntry](#inputfieldmappingentry)
+  * name `string`: The name of the skill which uniquely identifies it within the skillset. A skill with no name defined will be given a default name of its 1-based index in the skills array, prefixed with the character '#'.
+  * outputs **required** `array`: The output of a skill is either a field in a search index, or a value that can be consumed as an input by another skill.
+    * items [OutputFieldMappingEntry](#outputfieldmappingentry)
 
 ### ShingleTokenFilter
 * ShingleTokenFilter `object`: Creates combinations of tokens as a single token. This token filter is implemented using Apache Lucene.
@@ -1135,6 +1438,31 @@ azure_search_searchservice.SynonymMaps_CreateOrUpdate({
   * tokenSeparator `string`: The string to use when joining adjacent tokens to form a shingle. Default is a single space (" ").
   * @odata.type **required** `string`
   * name **required** `string`: The name of the token filter. It must only contain letters, digits, spaces, dashes or underscores, can only start and end with alphanumeric characters, and is limited to 128 characters.
+
+### Skill
+* Skill `object`: Abstract base class for skills.
+  * @odata.type **required** `string`
+  * context `string`: Represents the level at which operations take place, such as the document root or document content (for example, /document or /document/content). The default is /document.
+  * description `string`: The description of the skill which describes the inputs, outputs, and usage of the skill.
+  * inputs **required** `array`: Inputs of the skills could be a column in the source data set, or the output of an upstream skill.
+    * items [InputFieldMappingEntry](#inputfieldmappingentry)
+  * name `string`: The name of the skill which uniquely identifies it within the skillset. A skill with no name defined will be given a default name of its 1-based index in the skills array, prefixed with the character '#'.
+  * outputs **required** `array`: The output of a skill is either a field in a search index, or a value that can be consumed as an input by another skill.
+    * items [OutputFieldMappingEntry](#outputfieldmappingentry)
+
+### Skillset
+* Skillset `object`: A list of skills.
+  * @odata.etag `string`: The ETag of the skillset.
+  * cognitiveServices [CognitiveServices](#cognitiveservices)
+  * description **required** `string`: The description of the skillset.
+  * name **required** `string`: The name of the skillset.
+  * skills **required** `array`: A list of skills in the skillset.
+    * items [Skill](#skill)
+
+### SkillsetListResult
+* SkillsetListResult `object`: Response from a list Skillset request. If successful, it includes the full definitions of all skillsets.
+  * value `array`: The skillsets defined in the Search service.
+    * items [Skillset](#skillset)
 
 ### SnowballTokenFilter
 * SnowballTokenFilter `object`: A filter that stems words using a Snowball-generated stemmer. This token filter is implemented using Apache Lucene.
@@ -1148,8 +1476,25 @@ azure_search_searchservice.SynonymMaps_CreateOrUpdate({
 ### SoftDeleteColumnDeletionDetectionPolicy
 * SoftDeleteColumnDeletionDetectionPolicy `object`: Defines a data deletion detection policy that implements a soft-deletion strategy. It determines whether an item should be deleted based on the value of a designated 'soft delete' column.
   * softDeleteColumnName `string`: The name of the column to use for soft-deletion detection.
-  * softDeleteMarkerValue `string`: The marker value that indentifies an item as deleted.
+  * softDeleteMarkerValue `string`: The marker value that identifies an item as deleted.
   * @odata.type **required** `string`
+
+### SplitSkill
+* SplitSkill `object`: A skill to split a string into chunks of text.
+  * defaultLanguageCode [SplitSkillLanguage](#splitskilllanguage)
+  * maximumPageLength `integer`: The desired maximum page length. Default is 10000.
+  * textSplitMode [TextSplitMode](#textsplitmode)
+  * @odata.type **required** `string`
+  * context `string`: Represents the level at which operations take place, such as the document root or document content (for example, /document or /document/content). The default is /document.
+  * description `string`: The description of the skill which describes the inputs, outputs, and usage of the skill.
+  * inputs **required** `array`: Inputs of the skills could be a column in the source data set, or the output of an upstream skill.
+    * items [InputFieldMappingEntry](#inputfieldmappingentry)
+  * name `string`: The name of the skill which uniquely identifies it within the skillset. A skill with no name defined will be given a default name of its 1-based index in the skills array, prefixed with the character '#'.
+  * outputs **required** `array`: The output of a skill is either a field in a search index, or a value that can be consumed as an input by another skill.
+    * items [OutputFieldMappingEntry](#outputfieldmappingentry)
+
+### SplitSkillLanguage
+* SplitSkillLanguage `string` (values: da, de, en, es, fi, fr, it, ko, pt): The language codes supported for input text by SplitSkill.
 
 ### SqlIntegratedChangeTrackingPolicy
 * SqlIntegratedChangeTrackingPolicy: Defines a data change detection policy that captures changes using the Integrated Change Tracking feature of Azure SQL Database.
@@ -1219,15 +1564,12 @@ azure_search_searchservice.SynonymMaps_CreateOrUpdate({
     * items `string`
 
 ### SynonymMap
-* SynonymMap `object`: Represents a synonym map definition in Azure Search.
+* SynonymMap `object`: Represents a synonym map definition.
   * @odata.etag `string`: The ETag of the synonym map.
-  * format **required** [SynonymMapFormat](#synonymmapformat)
+  * encryptionKey [EncryptionKey](#encryptionkey)
+  * format **required** `string` (values: solr): The format of the synonym map. Only the 'solr' format is currently supported.
   * name **required** `string`: The name of the synonym map.
   * synonyms **required** `string`: A series of synonym rules in the specified synonym map format. The rules must be separated by newlines.
-
-### SynonymMapFormat
-* SynonymMapFormat `object`: The format of the synonym map. Only the 'solr' format is currently supported.
-  * name `string`
 
 ### SynonymMapListResult
 * SynonymMapListResult `object`: Response from a List SynonymMaps request. If successful, it includes the full definitions of all synonym maps.
@@ -1255,6 +1597,29 @@ azure_search_searchservice.SynonymMaps_CreateOrUpdate({
 * TagScoringParameters `object`: Provides parameter values to a tag scoring function.
   * tagsParameter **required** `string`: The name of the parameter passed in search queries to specify the list of tags to compare against the target field.
 
+### TextExtractionAlgorithm
+* TextExtractionAlgorithm `string` (values: printed, handwritten): A value indicating which algorithm to use. Default is printed.
+
+### TextSplitMode
+* TextSplitMode `string` (values: pages, sentences): A value indicating which split mode to perform.
+
+### TextTranslationSkill
+* TextTranslationSkill `object`: A skill to translate text from one language to another.
+  * defaultFromLanguageCode [TextTranslationSkillLanguage](#texttranslationskilllanguage)
+  * defaultToLanguageCode **required** [TextTranslationSkillLanguage](#texttranslationskilllanguage)
+  * suggestedFrom [TextTranslationSkillLanguage](#texttranslationskilllanguage)
+  * @odata.type **required** `string`
+  * context `string`: Represents the level at which operations take place, such as the document root or document content (for example, /document or /document/content). The default is /document.
+  * description `string`: The description of the skill which describes the inputs, outputs, and usage of the skill.
+  * inputs **required** `array`: Inputs of the skills could be a column in the source data set, or the output of an upstream skill.
+    * items [InputFieldMappingEntry](#inputfieldmappingentry)
+  * name `string`: The name of the skill which uniquely identifies it within the skillset. A skill with no name defined will be given a default name of its 1-based index in the skills array, prefixed with the character '#'.
+  * outputs **required** `array`: The output of a skill is either a field in a search index, or a value that can be consumed as an input by another skill.
+    * items [OutputFieldMappingEntry](#outputfieldmappingentry)
+
+### TextTranslationSkillLanguage
+* TextTranslationSkillLanguage `string` (values: af, ar, bn, bs, bg, yue, ca, zh-Hans, zh-Hant, hr, cs, da, nl, en, et, fj, fil, fi, fr, de, el, ht, he, hi, mww, hu, is, id, it, ja, sw, tlh, ko, lv, lt, mg, ms, mt, nb, fa, pl, pt, otq, ro, ru, sm, sr-Cyrl, sr-Latn, sk, sl, es, sv, ty, ta, te, th, to, tr, uk, ur, vi, cy, yua): The language codes supported for input text by TextTranslationSkill.
+
 ### TextWeights
 * TextWeights `object`: Defines weights on index fields for which matches should boost scoring in search queries.
   * weights **required** `object`: The dictionary of per-field weights to boost document scoring. The keys are field names and the values are the weights for each field.
@@ -1268,8 +1633,7 @@ azure_search_searchservice.SynonymMaps_CreateOrUpdate({
   * name **required** `string`: The name of the token filter. It must only contain letters, digits, spaces, dashes or underscores, can only start and end with alphanumeric characters, and is limited to 128 characters.
 
 ### TokenFilterName
-* TokenFilterName `object`: Defines the names of all token filters supported by Azure Search.
-  * name `string`
+* TokenFilterName `string` (values: arabic_normalization, apostrophe, asciifolding, cjk_bigram, cjk_width, classic, common_grams, edgeNGram_v2, elision, german_normalization, hindi_normalization, indic_normalization, keyword_repeat, kstem, length, limit, lowercase, nGram_v2, persian_normalization, phonetic, porter_stem, reverse, scandinavian_normalization, scandinavian_folding, shingle, snowball, sorani_normalization, stemmer, stopwords, trim, truncate, unique, uppercase, word_delimiter): Defines the names of all token filters supported by Azure Cognitive Search.
 
 ### TokenInfo
 * TokenInfo `object`: Information about a token returned by an analyzer.
@@ -1284,8 +1648,7 @@ azure_search_searchservice.SynonymMaps_CreateOrUpdate({
   * name **required** `string`: The name of the tokenizer. It must only contain letters, digits, spaces, dashes or underscores, can only start and end with alphanumeric characters, and is limited to 128 characters.
 
 ### TokenizerName
-* TokenizerName `object`: Defines the names of all tokenizers supported by Azure Search.
-  * name `string`
+* TokenizerName `string` (values: classic, edgeNGram, keyword_v2, letter, lowercase, microsoft_language_tokenizer, microsoft_language_stemming_tokenizer, nGram, path_hierarchy_v2, pattern, standard_v2, uax_url_email, whitespace): Defines the names of all tokenizers supported by Azure Cognitive Search.
 
 ### TruncateTokenFilter
 * TruncateTokenFilter `object`: Truncates the terms to a specific length. This token filter is implemented using Apache Lucene.
@@ -1304,6 +1667,29 @@ azure_search_searchservice.SynonymMaps_CreateOrUpdate({
   * onlyOnSamePosition `boolean`: A value indicating whether to remove duplicates only at the same position. Default is false.
   * @odata.type **required** `string`
   * name **required** `string`: The name of the token filter. It must only contain letters, digits, spaces, dashes or underscores, can only start and end with alphanumeric characters, and is limited to 128 characters.
+
+### VisualFeature
+* VisualFeature `string` (values: categories, tags, description, faces, imageType, color): The strings indicating what visual feature types to return.
+
+### WebApiHttpHeaders
+* WebApiHttpHeaders `object`: A dictionary of http request headers.
+
+### WebApiSkill
+* WebApiSkill `object`: A skill that can call a Web API endpoint, allowing you to extend a skillset by having it call your custom code.
+  * batchSize `integer`: The desired batch size which indicates number of documents.
+  * degreeOfParallelism `integer`: If set, the number of parallel calls that can be made to the Web API.
+  * httpHeaders [WebApiHttpHeaders](#webapihttpheaders)
+  * httpMethod `string`: The method for the http request.
+  * timeout `string`: The desired timeout for the request. Default is 30 seconds.
+  * uri **required** `string`: The url for the Web API.
+  * @odata.type **required** `string`
+  * context `string`: Represents the level at which operations take place, such as the document root or document content (for example, /document or /document/content). The default is /document.
+  * description `string`: The description of the skill which describes the inputs, outputs, and usage of the skill.
+  * inputs **required** `array`: Inputs of the skills could be a column in the source data set, or the output of an upstream skill.
+    * items [InputFieldMappingEntry](#inputfieldmappingentry)
+  * name `string`: The name of the skill which uniquely identifies it within the skillset. A skill with no name defined will be given a default name of its 1-based index in the skills array, prefixed with the character '#'.
+  * outputs **required** `array`: The output of a skill is either a field in a search index, or a value that can be consumed as an input by another skill.
+    * items [OutputFieldMappingEntry](#outputfieldmappingentry)
 
 ### WordDelimiterTokenFilter
 * WordDelimiterTokenFilter `object`: Splits words into subwords and performs optional transformations on subword groups. This token filter is implemented using Apache Lucene.

@@ -1,8 +1,8 @@
 {
   "name": "@datafire/walmart_price",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "main": "index.js",
-  "description": "DataFire integration for Price",
+  "description": "DataFire integration for Price API",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DataFire/integrations.git"

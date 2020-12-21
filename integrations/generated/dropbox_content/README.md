@@ -15,7 +15,7 @@ let dropbox_content = require('@datafire/dropbox_content').create({
   redirect_uri: ""
 });
 
-dropbox_content.paper.docs.update.post({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -94,8 +94,6 @@ dropbox_content.files.download_zip.post({}, context)
       * items `object`
         * fields **required** `array`
           * items `object`
-            * name **required** `string`
-            * value **required** `string`
         * template_id **required** `string`
     * id **required** `string`
 

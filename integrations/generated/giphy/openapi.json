@@ -1,29 +1,24 @@
 {
   "swagger": "2.0",
-  "schemes": [
-    "https"
-  ],
-  "host": "api.giphy.com",
-  "basePath": "/v1",
   "info": {
     "contact": {
       "email": "support@giphy.com"
     },
     "description": "Giphy API",
     "termsOfService": "https://developers.giphy.com/",
-    "title": "Giphy",
+    "title": "Giphy API",
     "version": "1.0",
     "x-apisguru-categories": [
       "media"
     ],
     "x-logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_GIPHY_profile_image.jpeg"
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_GIPHY_profile_image.png"
     },
     "x-origin": [
       {
-        "format": "swagger",
+        "format": "openapi",
         "url": "https://raw.githubusercontent.com/faragorn/open-api-specs/master/specs/giphy_api/1.0/index.yml",
-        "version": "2.0"
+        "version": "3.0"
       }
     ],
     "x-preferred": true,
@@ -33,122 +28,23 @@
       "type": "openapi"
     }
   },
-  "externalDocs": {
-    "description": "Official Giphy Documentation",
-    "url": "https://developers.giphy.com/docs/"
-  },
-  "consumes": [
-    "application/json"
-  ],
-  "produces": [
-    "application/json"
-  ],
-  "securityDefinitions": {
-    "api_key": {
-      "in": "query",
-      "name": "api_key",
-      "type": "apiKey"
-    }
-  },
-  "security": [
-    {
-      "api_key": []
-    }
-  ],
-  "parameters": {
-    "gifId": {
-      "description": "Filters results by specified GIF ID.",
-      "format": "int32",
-      "in": "path",
-      "name": "gifId",
-      "required": true,
-      "type": "integer"
-    },
-    "gifIds": {
-      "description": "Filters results by specified GIF IDs, separated by commas.",
-      "in": "query",
-      "name": "ids",
-      "type": "string"
-    },
-    "lang": {
-      "description": "Specify default language for regional content; use a 2-letter ISO 639-1 language code.",
-      "in": "query",
-      "name": "lang",
-      "type": "string"
-    },
-    "limit": {
-      "default": 25,
-      "description": "The maximum number of records to return.",
-      "format": "int32",
-      "in": "query",
-      "name": "limit",
-      "type": "integer"
-    },
-    "offset": {
-      "default": 0,
-      "description": "An optional results offset.",
-      "format": "int32",
-      "in": "query",
-      "name": "offset",
-      "type": "integer"
-    },
-    "query": {
-      "description": "Search query term or prhase.",
-      "in": "query",
-      "name": "q",
-      "required": true,
-      "type": "string"
-    },
-    "rating": {
-      "description": "Filters results by specified rating.",
-      "in": "query",
-      "name": "rating",
-      "type": "string"
-    },
-    "tag": {
-      "description": "Filters results by specified tag.",
-      "in": "query",
-      "name": "tag",
-      "type": "string"
-    },
-    "term": {
-      "description": "Search term.",
-      "in": "query",
-      "name": "s",
-      "required": true,
-      "type": "string"
-    }
-  },
-  "responses": {
-    "BadRequest": {
-      "description": "Your request was formatted incorrectly or missing required parameters."
-    },
-    "Forbidden": {
-      "description": "You weren't authorized to make your request; most likely this indicates an issue with your API Key."
-    },
-    "NotFound": {
-      "description": "The particular GIF you are requesting was not found. This occurs, for example, if you request a GIF by an id that does not exist."
-    },
-    "TooManyRequests": {
-      "description": "Your API Key is making too many requests. Read about [requesting a Production Key](https://developers.giphy.com/docs/#access) to upgrade your API Key rate limits.\n"
-    }
-  },
-  "tags": [
-    {
-      "name": "gifs"
-    },
-    {
-      "name": "stickers"
-    }
+  "host": "api.giphy.com",
+  "basePath": "/v1",
+  "schemes": [
+    "https"
   ],
   "paths": {
     "/gifs": {
       "get": {
-        "description": "A multiget version of the get GIF by ID endpoint.\n",
-        "operationId": "getGifsById",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "$ref": "#/parameters/gifIds"
+            "description": "Filters results by specified GIF IDs, separated by commas.",
+            "in": "query",
+            "name": "ids",
+            "type": "string"
           }
         ],
         "responses": {
@@ -173,34 +69,43 @@
             }
           },
           "400": {
-            "$ref": "#/responses/BadRequest"
+            "description": "Your request was formatted incorrectly or missing required parameters."
           },
           "403": {
-            "$ref": "#/responses/Forbidden"
+            "description": "You weren't authorized to make your request; most likely this indicates an issue with your API Key."
           },
           "404": {
-            "$ref": "#/responses/NotFound"
+            "description": "The particular GIF you are requesting was not found. This occurs, for example, if you request a GIF by an id that does not exist."
           },
           "429": {
-            "$ref": "#/responses/TooManyRequests"
+            "description": "Your API Key is making too many requests. Read about [requesting a Production Key](https://developers.giphy.com/docs/#access) to upgrade your API Key rate limits.\n"
           }
         },
-        "summary": "Get GIFs by ID",
         "tags": [
           "gifs"
-        ]
+        ],
+        "description": "A multiget version of the get GIF by ID endpoint.\n",
+        "operationId": "getGifsById",
+        "summary": "Get GIFs by ID"
       }
     },
     "/gifs/random": {
       "get": {
-        "description": "Returns a random GIF, limited by tag. Excluding the tag parameter will return a random GIF from the GIPHY catalog.\n",
-        "operationId": "randomGif",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "$ref": "#/parameters/tag"
+            "description": "Filters results by specified tag.",
+            "in": "query",
+            "name": "tag",
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/rating"
+            "description": "Filters results by specified rating.",
+            "in": "query",
+            "name": "rating",
+            "type": "string"
           }
         ],
         "responses": {
@@ -219,43 +124,66 @@
             }
           },
           "400": {
-            "$ref": "#/responses/BadRequest"
+            "description": "Your request was formatted incorrectly or missing required parameters."
           },
           "403": {
-            "$ref": "#/responses/Forbidden"
+            "description": "You weren't authorized to make your request; most likely this indicates an issue with your API Key."
           },
           "404": {
-            "$ref": "#/responses/NotFound"
+            "description": "The particular GIF you are requesting was not found. This occurs, for example, if you request a GIF by an id that does not exist."
           },
           "429": {
-            "$ref": "#/responses/TooManyRequests"
+            "description": "Your API Key is making too many requests. Read about [requesting a Production Key](https://developers.giphy.com/docs/#access) to upgrade your API Key rate limits.\n"
           }
         },
-        "summary": "Random GIF",
         "tags": [
           "gifs"
-        ]
+        ],
+        "description": "Returns a random GIF, limited by tag. Excluding the tag parameter will return a random GIF from the GIPHY catalog.\n",
+        "operationId": "randomGif",
+        "summary": "Random GIF"
       }
     },
     "/gifs/search": {
       "get": {
-        "description": "Search all GIPHY GIFs for a word or phrase. Punctuation will be stripped and ignored.  Use a plus or url encode for phrases. Example paul+rudd, ryan+gosling or american+psycho.\n",
-        "operationId": "searchGifs",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "$ref": "#/parameters/query"
+            "description": "Search query term or prhase.",
+            "in": "query",
+            "name": "q",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/limit"
+            "default": 25,
+            "description": "The maximum number of records to return.",
+            "format": "int32",
+            "in": "query",
+            "name": "limit",
+            "type": "integer"
           },
           {
-            "$ref": "#/parameters/offset"
+            "default": 0,
+            "description": "An optional results offset.",
+            "format": "int32",
+            "in": "query",
+            "name": "offset",
+            "type": "integer"
           },
           {
-            "$ref": "#/parameters/rating"
+            "description": "Filters results by specified rating.",
+            "in": "query",
+            "name": "rating",
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/lang"
+            "description": "Specify default language for regional content; use a 2-letter ISO 639-1 language code.",
+            "in": "query",
+            "name": "lang",
+            "type": "string"
           }
         ],
         "responses": {
@@ -280,31 +208,38 @@
             }
           },
           "400": {
-            "$ref": "#/responses/BadRequest"
+            "description": "Your request was formatted incorrectly or missing required parameters."
           },
           "403": {
-            "$ref": "#/responses/Forbidden"
+            "description": "You weren't authorized to make your request; most likely this indicates an issue with your API Key."
           },
           "404": {
-            "$ref": "#/responses/NotFound"
+            "description": "The particular GIF you are requesting was not found. This occurs, for example, if you request a GIF by an id that does not exist."
           },
           "429": {
-            "$ref": "#/responses/TooManyRequests"
+            "description": "Your API Key is making too many requests. Read about [requesting a Production Key](https://developers.giphy.com/docs/#access) to upgrade your API Key rate limits.\n"
           }
         },
-        "summary": "Search GIFs",
         "tags": [
           "gifs"
-        ]
+        ],
+        "description": "Search all GIPHY GIFs for a word or phrase. Punctuation will be stripped and ignored.  Use a plus or url encode for phrases. Example paul+rudd, ryan+gosling or american+psycho.\n",
+        "operationId": "searchGifs",
+        "summary": "Search GIFs"
       }
     },
     "/gifs/translate": {
       "get": {
-        "description": "The translate API draws on search, but uses the GIPHY `special sauce` to handle translating from one vocabulary to another. In this case, words and phrases to GIF\n",
-        "operationId": "translateGif",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "$ref": "#/parameters/term"
+            "description": "Search term.",
+            "in": "query",
+            "name": "s",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -323,37 +258,53 @@
             }
           },
           "400": {
-            "$ref": "#/responses/BadRequest"
+            "description": "Your request was formatted incorrectly or missing required parameters."
           },
           "403": {
-            "$ref": "#/responses/Forbidden"
+            "description": "You weren't authorized to make your request; most likely this indicates an issue with your API Key."
           },
           "404": {
-            "$ref": "#/responses/NotFound"
+            "description": "The particular GIF you are requesting was not found. This occurs, for example, if you request a GIF by an id that does not exist."
           },
           "429": {
-            "$ref": "#/responses/TooManyRequests"
+            "description": "Your API Key is making too many requests. Read about [requesting a Production Key](https://developers.giphy.com/docs/#access) to upgrade your API Key rate limits.\n"
           }
         },
-        "summary": "Translate phrase to GIF",
         "tags": [
           "gifs"
-        ]
+        ],
+        "description": "The translate API draws on search, but uses the GIPHY `special sauce` to handle translating from one vocabulary to another. In this case, words and phrases to GIF\n",
+        "operationId": "translateGif",
+        "summary": "Translate phrase to GIF"
       }
     },
     "/gifs/trending": {
       "get": {
-        "description": "Fetch GIFs currently trending online. Hand curated by the GIPHY editorial team.  The data returned mirrors the GIFs showcased on the GIPHY homepage. Returns 25 results by default.\n",
-        "operationId": "trendingGifs",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "$ref": "#/parameters/limit"
+            "default": 25,
+            "description": "The maximum number of records to return.",
+            "format": "int32",
+            "in": "query",
+            "name": "limit",
+            "type": "integer"
           },
           {
-            "$ref": "#/parameters/offset"
+            "default": 0,
+            "description": "An optional results offset.",
+            "format": "int32",
+            "in": "query",
+            "name": "offset",
+            "type": "integer"
           },
           {
-            "$ref": "#/parameters/rating"
+            "description": "Filters results by specified rating.",
+            "in": "query",
+            "name": "rating",
+            "type": "string"
           }
         ],
         "responses": {
@@ -378,31 +329,39 @@
             }
           },
           "400": {
-            "$ref": "#/responses/BadRequest"
+            "description": "Your request was formatted incorrectly or missing required parameters."
           },
           "403": {
-            "$ref": "#/responses/Forbidden"
+            "description": "You weren't authorized to make your request; most likely this indicates an issue with your API Key."
           },
           "404": {
-            "$ref": "#/responses/NotFound"
+            "description": "The particular GIF you are requesting was not found. This occurs, for example, if you request a GIF by an id that does not exist."
           },
           "429": {
-            "$ref": "#/responses/TooManyRequests"
+            "description": "Your API Key is making too many requests. Read about [requesting a Production Key](https://developers.giphy.com/docs/#access) to upgrade your API Key rate limits.\n"
           }
         },
-        "summary": "Trending GIFs",
         "tags": [
           "gifs"
-        ]
+        ],
+        "description": "Fetch GIFs currently trending online. Hand curated by the GIPHY editorial team.  The data returned mirrors the GIFs showcased on the GIPHY homepage. Returns 25 results by default.\n",
+        "operationId": "trendingGifs",
+        "summary": "Trending GIFs"
       }
     },
     "/gifs/{gifId}": {
       "get": {
-        "description": "Returns a GIF given that GIF's unique ID\n",
-        "operationId": "getGifById",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "$ref": "#/parameters/gifId"
+            "description": "Filters results by specified GIF ID.",
+            "format": "int32",
+            "in": "path",
+            "name": "gifId",
+            "required": true,
+            "type": "integer"
           }
         ],
         "responses": {
@@ -421,34 +380,43 @@
             }
           },
           "400": {
-            "$ref": "#/responses/BadRequest"
+            "description": "Your request was formatted incorrectly or missing required parameters."
           },
           "403": {
-            "$ref": "#/responses/Forbidden"
+            "description": "You weren't authorized to make your request; most likely this indicates an issue with your API Key."
           },
           "404": {
-            "$ref": "#/responses/NotFound"
+            "description": "The particular GIF you are requesting was not found. This occurs, for example, if you request a GIF by an id that does not exist."
           },
           "429": {
-            "$ref": "#/responses/TooManyRequests"
+            "description": "Your API Key is making too many requests. Read about [requesting a Production Key](https://developers.giphy.com/docs/#access) to upgrade your API Key rate limits.\n"
           }
         },
-        "summary": "Get GIF by Id",
         "tags": [
           "gifs"
-        ]
+        ],
+        "description": "Returns a GIF given that GIF's unique ID\n",
+        "operationId": "getGifById",
+        "summary": "Get GIF by Id"
       }
     },
     "/stickers/random": {
       "get": {
-        "description": "Returns a random GIF, limited by tag. Excluding the tag parameter will return a random GIF from the GIPHY catalog.\n",
-        "operationId": "randomSticker",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "$ref": "#/parameters/tag"
+            "description": "Filters results by specified tag.",
+            "in": "query",
+            "name": "tag",
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/rating"
+            "description": "Filters results by specified rating.",
+            "in": "query",
+            "name": "rating",
+            "type": "string"
           }
         ],
         "responses": {
@@ -467,43 +435,66 @@
             }
           },
           "400": {
-            "$ref": "#/responses/BadRequest"
+            "description": "Your request was formatted incorrectly or missing required parameters."
           },
           "403": {
-            "$ref": "#/responses/Forbidden"
+            "description": "You weren't authorized to make your request; most likely this indicates an issue with your API Key."
           },
           "404": {
-            "$ref": "#/responses/NotFound"
+            "description": "The particular GIF you are requesting was not found. This occurs, for example, if you request a GIF by an id that does not exist."
           },
           "429": {
-            "$ref": "#/responses/TooManyRequests"
+            "description": "Your API Key is making too many requests. Read about [requesting a Production Key](https://developers.giphy.com/docs/#access) to upgrade your API Key rate limits.\n"
           }
         },
-        "summary": "Random Sticker",
         "tags": [
           "stickers"
-        ]
+        ],
+        "description": "Returns a random GIF, limited by tag. Excluding the tag parameter will return a random GIF from the GIPHY catalog.\n",
+        "operationId": "randomSticker",
+        "summary": "Random Sticker"
       }
     },
     "/stickers/search": {
       "get": {
-        "description": "Replicates the functionality and requirements of the classic GIPHY search, but returns animated stickers rather than GIFs.\n",
-        "operationId": "searchStickers",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "$ref": "#/parameters/query"
+            "description": "Search query term or prhase.",
+            "in": "query",
+            "name": "q",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/limit"
+            "default": 25,
+            "description": "The maximum number of records to return.",
+            "format": "int32",
+            "in": "query",
+            "name": "limit",
+            "type": "integer"
           },
           {
-            "$ref": "#/parameters/offset"
+            "default": 0,
+            "description": "An optional results offset.",
+            "format": "int32",
+            "in": "query",
+            "name": "offset",
+            "type": "integer"
           },
           {
-            "$ref": "#/parameters/rating"
+            "description": "Filters results by specified rating.",
+            "in": "query",
+            "name": "rating",
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/lang"
+            "description": "Specify default language for regional content; use a 2-letter ISO 639-1 language code.",
+            "in": "query",
+            "name": "lang",
+            "type": "string"
           }
         ],
         "responses": {
@@ -528,31 +519,38 @@
             }
           },
           "400": {
-            "$ref": "#/responses/BadRequest"
+            "description": "Your request was formatted incorrectly or missing required parameters."
           },
           "403": {
-            "$ref": "#/responses/Forbidden"
+            "description": "You weren't authorized to make your request; most likely this indicates an issue with your API Key."
           },
           "404": {
-            "$ref": "#/responses/NotFound"
+            "description": "The particular GIF you are requesting was not found. This occurs, for example, if you request a GIF by an id that does not exist."
           },
           "429": {
-            "$ref": "#/responses/TooManyRequests"
+            "description": "Your API Key is making too many requests. Read about [requesting a Production Key](https://developers.giphy.com/docs/#access) to upgrade your API Key rate limits.\n"
           }
         },
-        "summary": "Search Stickers",
         "tags": [
           "stickers"
-        ]
+        ],
+        "description": "Replicates the functionality and requirements of the classic GIPHY search, but returns animated stickers rather than GIFs.\n",
+        "operationId": "searchStickers",
+        "summary": "Search Stickers"
       }
     },
     "/stickers/translate": {
       "get": {
-        "description": "The translate API draws on search, but uses the GIPHY `special sauce` to handle translating from one vocabulary to another. In this case, words and phrases to GIFs.\n",
-        "operationId": "translateSticker",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "$ref": "#/parameters/term"
+            "description": "Search term.",
+            "in": "query",
+            "name": "s",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -571,37 +569,53 @@
             }
           },
           "400": {
-            "$ref": "#/responses/BadRequest"
+            "description": "Your request was formatted incorrectly or missing required parameters."
           },
           "403": {
-            "$ref": "#/responses/Forbidden"
+            "description": "You weren't authorized to make your request; most likely this indicates an issue with your API Key."
           },
           "404": {
-            "$ref": "#/responses/NotFound"
+            "description": "The particular GIF you are requesting was not found. This occurs, for example, if you request a GIF by an id that does not exist."
           },
           "429": {
-            "$ref": "#/responses/TooManyRequests"
+            "description": "Your API Key is making too many requests. Read about [requesting a Production Key](https://developers.giphy.com/docs/#access) to upgrade your API Key rate limits.\n"
           }
         },
-        "summary": "Translate phrase to Sticker",
         "tags": [
           "stickers"
-        ]
+        ],
+        "description": "The translate API draws on search, but uses the GIPHY `special sauce` to handle translating from one vocabulary to another. In this case, words and phrases to GIFs.\n",
+        "operationId": "translateSticker",
+        "summary": "Translate phrase to Sticker"
       }
     },
     "/stickers/trending": {
       "get": {
-        "description": "Fetch Stickers currently trending online. Hand curated by the GIPHY editorial team. Returns 25 results by default.\n",
-        "operationId": "trendingStickers",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "$ref": "#/parameters/limit"
+            "default": 25,
+            "description": "The maximum number of records to return.",
+            "format": "int32",
+            "in": "query",
+            "name": "limit",
+            "type": "integer"
           },
           {
-            "$ref": "#/parameters/offset"
+            "default": 0,
+            "description": "An optional results offset.",
+            "format": "int32",
+            "in": "query",
+            "name": "offset",
+            "type": "integer"
           },
           {
-            "$ref": "#/parameters/rating"
+            "description": "Filters results by specified rating.",
+            "in": "query",
+            "name": "rating",
+            "type": "string"
           }
         ],
         "responses": {
@@ -626,28 +640,38 @@
             }
           },
           "400": {
-            "$ref": "#/responses/BadRequest"
+            "description": "Your request was formatted incorrectly or missing required parameters."
           },
           "403": {
-            "$ref": "#/responses/Forbidden"
+            "description": "You weren't authorized to make your request; most likely this indicates an issue with your API Key."
           },
           "404": {
-            "$ref": "#/responses/NotFound"
+            "description": "The particular GIF you are requesting was not found. This occurs, for example, if you request a GIF by an id that does not exist."
           },
           "429": {
-            "$ref": "#/responses/TooManyRequests"
+            "description": "Your API Key is making too many requests. Read about [requesting a Production Key](https://developers.giphy.com/docs/#access) to upgrade your API Key rate limits.\n"
           }
         },
-        "summary": "Trending Stickers",
         "tags": [
           "stickers"
-        ]
+        ],
+        "description": "Fetch Stickers currently trending online. Hand curated by the GIPHY editorial team. Returns 25 results by default.\n",
+        "operationId": "trendingStickers",
+        "summary": "Trending Stickers"
       }
     }
   },
   "definitions": {
     "Gif": {
       "properties": {
+        "tags": {
+          "description": "An array of tags for this GIF (Note: Not available when using the Public Beta Key)\n",
+          "items": {
+            "description": "Tag name",
+            "type": "string"
+          },
+          "type": "array"
+        },
         "bitly_url": {
           "description": "The unique bit.ly URL for this GIF",
           "example": "http://gph.is/1gsWDcL",
@@ -918,14 +942,6 @@
           "example": "cheezburger.com",
           "type": "string"
         },
-        "tags": {
-          "description": "An array of tags for this GIF (Note: Not available when using the Public Beta Key)\n",
-          "items": {
-            "description": "Tag name",
-            "type": "string"
-          },
-          "type": "array"
-        },
         "trending_datetime": {
           "description": "The date on which this gif was marked trending, if applicable.",
           "example": "2013-08-01 12:41:48",
@@ -1093,6 +1109,110 @@
         }
       },
       "type": "object"
+    }
+  },
+  "securityDefinitions": {
+    "api_key": {
+      "in": "query",
+      "name": "api_key",
+      "type": "apiKey"
+    }
+  },
+  "security": [
+    {
+      "api_key": []
+    }
+  ],
+  "tags": [
+    {
+      "name": "gifs"
+    },
+    {
+      "name": "stickers"
+    }
+  ],
+  "externalDocs": {
+    "description": "Official Giphy Documentation",
+    "url": "https://developers.giphy.com/docs/"
+  },
+  "x-components": {
+    "parameters": {
+      "gifId": {
+        "description": "Filters results by specified GIF ID.",
+        "format": "int32",
+        "in": "path",
+        "name": "gifId",
+        "required": true,
+        "type": "integer"
+      },
+      "gifIds": {
+        "description": "Filters results by specified GIF IDs, separated by commas.",
+        "in": "query",
+        "name": "ids",
+        "type": "string"
+      },
+      "lang": {
+        "description": "Specify default language for regional content; use a 2-letter ISO 639-1 language code.",
+        "in": "query",
+        "name": "lang",
+        "type": "string"
+      },
+      "limit": {
+        "default": 25,
+        "description": "The maximum number of records to return.",
+        "format": "int32",
+        "in": "query",
+        "name": "limit",
+        "type": "integer"
+      },
+      "offset": {
+        "default": 0,
+        "description": "An optional results offset.",
+        "format": "int32",
+        "in": "query",
+        "name": "offset",
+        "type": "integer"
+      },
+      "query": {
+        "description": "Search query term or prhase.",
+        "in": "query",
+        "name": "q",
+        "required": true,
+        "type": "string"
+      },
+      "rating": {
+        "description": "Filters results by specified rating.",
+        "in": "query",
+        "name": "rating",
+        "type": "string"
+      },
+      "tag": {
+        "description": "Filters results by specified tag.",
+        "in": "query",
+        "name": "tag",
+        "type": "string"
+      },
+      "term": {
+        "description": "Search term.",
+        "in": "query",
+        "name": "s",
+        "required": true,
+        "type": "string"
+      }
+    },
+    "responses": {
+      "BadRequest": {
+        "description": "Your request was formatted incorrectly or missing required parameters."
+      },
+      "Forbidden": {
+        "description": "You weren't authorized to make your request; most likely this indicates an issue with your API Key."
+      },
+      "NotFound": {
+        "description": "The particular GIF you are requesting was not found. This occurs, for example, if you request a GIF by an id that does not exist."
+      },
+      "TooManyRequests": {
+        "description": "Your API Key is making too many requests. Read about [requesting a Production Key](https://developers.giphy.com/docs/#access) to upgrade your API Key rate limits.\n"
+      }
     }
   }
 }

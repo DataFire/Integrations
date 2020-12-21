@@ -15,12 +15,7 @@ let azure_azurestack_customersubscription = require('@datafire/azure_azurestack_
   redirect_uri: ""
 });
 
-azure_azurestack_customersubscription.CustomerSubscriptions_List({
-  "subscriptionId": "",
-  "resourceGroup": "",
-  "registrationName": "",
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -115,9 +110,7 @@ azure_azurestack_customersubscription.CustomerSubscriptions_Create({
   "registrationName": "",
   "customerSubscriptionName": "",
   "api-version": "",
-  "customerCreationParameters": {
-    "location": ""
-  }
+  "customerCreationParameters": {}
 }, context)
 ```
 
@@ -138,13 +131,11 @@ azure_azurestack_customersubscription.CustomerSubscriptions_Create({
 ## Definitions
 
 ### CustomerSubscription
-* CustomerSubscription `object`: Customer subcription.
+* CustomerSubscription `object`: Customer subscription.
   * properties [CustomerSubscriptionProperties](#customersubscriptionproperties)
-  * etag `string`: The entity tag used for optimistic concurency when modifying the resource.
+  * etag `string`: The entity tag used for optimistic concurrency when modifying the resource.
   * id `string`: ID of the resource.
-  * location **required** `string` (values: global): Location of the resource.
   * name `string`: Name of the resource.
-  * tags `object`: Custom tags for the resource.
   * type `string`: Type of Resource.
 
 ### CustomerSubscriptionList

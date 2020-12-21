@@ -1,10 +1,5 @@
 {
   "swagger": "2.0",
-  "schemes": [
-    "https"
-  ],
-  "host": "www.patientview.org",
-  "basePath": "/",
   "info": {
     "description": "The recommended REST API endpoints to be used when integrating with PatientView",
     "termsOfService": "https://www.patientview.org/#/terms",
@@ -17,7 +12,7 @@
       {
         "converter": {
           "url": "https://github.com/lucybot/api-spec-converter",
-          "version": "2.6.2"
+          "version": "2.7.31"
         },
         "format": "swagger",
         "url": "https://www.patientview.org/api/api-docs",
@@ -31,50 +26,29 @@
       "type": "openapi"
     }
   },
-  "consumes": [
-    "application/json"
-  ],
-  "tags": [
-    {
-      "description": "Auth Controller",
-      "name": "auth-controller"
-    },
-    {
-      "description": "Observation Controller",
-      "name": "observation-controller"
-    },
-    {
-      "description": "Observation Heading Controller",
-      "name": "observation-heading-controller"
-    },
-    {
-      "description": "Patient Controller",
-      "name": "patient-controller"
-    },
-    {
-      "description": "Patient Management Controller",
-      "name": "patient-management-controller"
-    }
+  "host": "www.patientview.org",
+  "basePath": "/",
+  "schemes": [
+    "https"
   ],
   "paths": {
     "/auth/login": {
       "post": {
-        "deprecated": false,
-        "description": "Authenticate using username and password, returns token, which must be added to X-Auth-Token in header of all future requests",
-        "operationId": "logIn",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/octet-stream"
+        ],
         "parameters": [
           {
             "description": "credentials",
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/Credentials"
             }
           }
-        ],
-        "produces": [
-          "*/*"
         ],
         "responses": {
           "200": {
@@ -96,17 +70,17 @@
             "description": "Not Found"
           }
         },
-        "summary": "Log In",
         "tags": [
           "auth-controller"
-        ]
+        ],
+        "deprecated": false,
+        "description": "Authenticate using username and password, returns token, which must be added to X-Auth-Token in header of all future requests",
+        "operationId": "logIn",
+        "summary": "Log In"
       }
     },
     "/auth/logout/{token}": {
       "delete": {
-        "deprecated": false,
-        "description": "Log Out",
-        "operationId": "logOut",
         "parameters": [
           {
             "description": "token",
@@ -115,9 +89,6 @@
             "required": true,
             "type": "string"
           }
-        ],
-        "produces": [
-          "*/*"
         ],
         "responses": {
           "200": {
@@ -133,17 +104,20 @@
             "description": "Forbidden"
           }
         },
-        "summary": "Log Out",
         "tags": [
           "auth-controller"
-        ]
+        ],
+        "deprecated": false,
+        "description": "Log Out",
+        "operationId": "logOut",
+        "summary": "Log Out"
       }
     },
     "/auth/{token}/basicuserinformation": {
       "get": {
-        "deprecated": false,
-        "description": "Once logged in and have a token, get basic user information including group role membership",
-        "operationId": "getBasicUserInformation",
+        "produces": [
+          "application/octet-stream"
+        ],
         "parameters": [
           {
             "description": "token",
@@ -152,9 +126,6 @@
             "required": true,
             "type": "string"
           }
-        ],
-        "produces": [
-          "*/*"
         ],
         "responses": {
           "200": {
@@ -173,17 +144,20 @@
             "description": "Not Found"
           }
         },
-        "summary": "Get Basic User Information",
         "tags": [
           "auth-controller"
-        ]
+        ],
+        "deprecated": false,
+        "description": "Once logged in and have a token, get basic user information including group role membership",
+        "operationId": "getBasicUserInformation",
+        "summary": "Get Basic User Information"
       }
     },
     "/patient/{userId}/basic": {
       "get": {
-        "deprecated": false,
-        "description": "Given a User ID, get basic patient information for a user from clinical data stored in FHIR",
-        "operationId": "getBasicPatientDetails",
+        "produces": [
+          "application/octet-stream"
+        ],
         "parameters": [
           {
             "description": "userId",
@@ -193,9 +167,6 @@
             "required": true,
             "type": "integer"
           }
-        ],
-        "produces": [
-          "*/*"
         ],
         "responses": {
           "200": {
@@ -218,20 +189,21 @@
             "description": "Not Found"
           }
         },
-        "summary": "Get Basic Patient Information",
         "tags": [
           "patient-controller"
-        ]
+        ],
+        "deprecated": false,
+        "description": "Given a User ID, get basic patient information for a user from clinical data stored in FHIR",
+        "operationId": "getBasicPatientDetails",
+        "summary": "Get Basic Patient Information"
       }
     },
     "/patientmanagement/diagnoses": {
       "get": {
-        "deprecated": false,
-        "description": "getPatientManagementDiagnoses",
-        "operationId": "getPatientManagementDiagnoses",
         "produces": [
           "application/json"
         ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": "OK",
@@ -253,20 +225,21 @@
             "description": "Not Found"
           }
         },
-        "summary": "getPatientManagementDiagnoses",
         "tags": [
           "patient-management-controller"
-        ]
+        ],
+        "deprecated": false,
+        "description": "getPatientManagementDiagnoses",
+        "operationId": "getPatientManagementDiagnoses",
+        "summary": "getPatientManagementDiagnoses"
       }
     },
     "/patientmanagement/lookuptypes": {
       "get": {
-        "deprecated": false,
-        "description": "getPatientManagementLookupTypes",
-        "operationId": "getPatientManagementLookupTypes",
         "produces": [
           "application/json"
         ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": "OK",
@@ -288,30 +261,29 @@
             "description": "Not Found"
           }
         },
-        "summary": "getPatientManagementLookupTypes",
         "tags": [
           "patient-management-controller"
-        ]
+        ],
+        "deprecated": false,
+        "description": "getPatientManagementLookupTypes",
+        "operationId": "getPatientManagementLookupTypes",
+        "summary": "getPatientManagementLookupTypes"
       }
     },
     "/patientmanagement/validate": {
       "post": {
-        "deprecated": false,
-        "description": "validatePatientManagement",
-        "operationId": "validatePatientManagement",
+        "consumes": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "patientManagement",
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/PatientManagement"
             }
           }
-        ],
-        "produces": [
-          "application/json"
         ],
         "responses": {
           "200": {
@@ -330,17 +302,20 @@
             "description": "Not Found"
           }
         },
-        "summary": "validatePatientManagement",
         "tags": [
           "patient-management-controller"
-        ]
+        ],
+        "deprecated": false,
+        "description": "validatePatientManagement",
+        "operationId": "validatePatientManagement",
+        "summary": "validatePatientManagement"
       }
     },
     "/patientmanagement/{userId}/group/{groupId}/identifier/{identifierId}": {
       "get": {
-        "deprecated": false,
-        "description": "getPatientManagement",
-        "operationId": "getPatientManagement",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "userId",
@@ -366,9 +341,6 @@
             "required": true,
             "type": "integer"
           }
-        ],
-        "produces": [
-          "application/json"
         ],
         "responses": {
           "200": {
@@ -387,15 +359,18 @@
             "description": "Not Found"
           }
         },
-        "summary": "getPatientManagement",
         "tags": [
           "patient-management-controller"
-        ]
+        ],
+        "deprecated": false,
+        "description": "getPatientManagement",
+        "operationId": "getPatientManagement",
+        "summary": "getPatientManagement"
       },
       "post": {
-        "deprecated": false,
-        "description": "savePatientManagement",
-        "operationId": "savePatientManagement",
+        "consumes": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "userId",
@@ -425,14 +400,10 @@
             "description": "patientManagement",
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/PatientManagement"
             }
           }
-        ],
-        "produces": [
-          "application/json"
         ],
         "responses": {
           "200": {
@@ -451,17 +422,20 @@
             "description": "Not Found"
           }
         },
-        "summary": "savePatientManagement",
         "tags": [
           "patient-management-controller"
-        ]
+        ],
+        "deprecated": false,
+        "description": "savePatientManagement",
+        "operationId": "savePatientManagement",
+        "summary": "savePatientManagement"
       }
     },
     "/patientmanagement/{userId}/group/{groupId}/identifier/{identifierId}/surgeries": {
       "post": {
-        "deprecated": false,
-        "description": "savePatientManagementSurgeries",
-        "operationId": "savePatientManagementSurgeries",
+        "consumes": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "userId",
@@ -491,14 +465,10 @@
             "description": "patientManagement",
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/PatientManagement"
             }
           }
-        ],
-        "produces": [
-          "application/json"
         ],
         "responses": {
           "200": {
@@ -517,17 +487,20 @@
             "description": "Not Found"
           }
         },
-        "summary": "savePatientManagementSurgeries",
         "tags": [
           "patient-management-controller"
-        ]
+        ],
+        "deprecated": false,
+        "description": "savePatientManagementSurgeries",
+        "operationId": "savePatientManagementSurgeries",
+        "summary": "savePatientManagementSurgeries"
       }
     },
     "/user/{userId}/availableobservationheadings": {
       "get": {
-        "deprecated": false,
-        "description": "Given a User ID retrieve a list of available observation types for that user (where they have observation data).",
-        "operationId": "getAvailableObservationHeadings",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "userId",
@@ -537,9 +510,6 @@
             "required": true,
             "type": "integer"
           }
-        ],
-        "produces": [
-          "application/json"
         ],
         "responses": {
           "200": {
@@ -562,17 +532,20 @@
             "description": "Not Found"
           }
         },
-        "summary": "Get Available Observations Types For a User",
         "tags": [
           "observation-heading-controller"
-        ]
+        ],
+        "deprecated": false,
+        "description": "Given a User ID retrieve a list of available observation types for that user (where they have observation data).",
+        "operationId": "getAvailableObservationHeadings",
+        "summary": "Get Available Observations Types For a User"
       }
     },
     "/user/{userId}/observations": {
       "get": {
-        "deprecated": false,
-        "description": "Given a User ID and search parameters, retrieve a page of observations.",
-        "operationId": "getObservationsByCodes",
+        "produces": [
+          "application/octet-stream"
+        ],
         "parameters": [
           {
             "description": "userId",
@@ -583,6 +556,7 @@
             "type": "integer"
           },
           {
+            "collectionFormat": "multi",
             "description": "code",
             "in": "query",
             "items": {
@@ -617,9 +591,6 @@
             "type": "string"
           }
         ],
-        "produces": [
-          "*/*"
-        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -637,17 +608,20 @@
             "description": "Not Found"
           }
         },
-        "summary": "Get Observations of Multiple Types For a User",
         "tags": [
           "observation-controller"
-        ]
+        ],
+        "deprecated": false,
+        "description": "Given a User ID and search parameters, retrieve a page of observations.",
+        "operationId": "getObservationsByCodes",
+        "summary": "Get Observations of Multiple Types For a User"
       }
     },
     "/user/{userId}/observations/{code}": {
       "get": {
-        "deprecated": false,
-        "description": "Given a User ID and observation code, retrieve all observations.",
-        "operationId": "getObservationsByCode",
+        "produces": [
+          "application/octet-stream"
+        ],
         "parameters": [
           {
             "description": "userId",
@@ -664,9 +638,6 @@
             "required": true,
             "type": "string"
           }
-        ],
-        "produces": [
-          "*/*"
         ],
         "responses": {
           "200": {
@@ -689,17 +660,20 @@
             "description": "Not Found"
           }
         },
-        "summary": "Get Observations of a Certain Type For a User",
         "tags": [
           "observation-controller"
-        ]
+        ],
+        "deprecated": false,
+        "description": "Given a User ID and observation code, retrieve all observations.",
+        "operationId": "getObservationsByCode",
+        "summary": "Get Observations of a Certain Type For a User"
       }
     },
     "/user/{userId}/observations/{code}/patiententered": {
       "get": {
-        "deprecated": false,
-        "description": "Given a User ID and observation code, retrieve patient entered observations.",
-        "operationId": "getPatientEnteredObservationsByCode",
+        "produces": [
+          "application/octet-stream"
+        ],
         "parameters": [
           {
             "description": "userId",
@@ -716,9 +690,6 @@
             "required": true,
             "type": "string"
           }
-        ],
-        "produces": [
-          "*/*"
         ],
         "responses": {
           "200": {
@@ -741,17 +712,20 @@
             "description": "Not Found"
           }
         },
-        "summary": "Get patient entered Observations of a Certain Type For a User",
         "tags": [
           "observation-controller"
-        ]
+        ],
+        "deprecated": false,
+        "description": "Given a User ID and observation code, retrieve patient entered observations.",
+        "operationId": "getPatientEnteredObservationsByCode",
+        "summary": "Get patient entered Observations of a Certain Type For a User"
       }
     },
     "/user/{userId}/patiententeredobservationheadings": {
       "get": {
-        "deprecated": false,
-        "description": "Given a User ID retrieve a list of available observation types for that user (where they have patient entered observation data).",
-        "operationId": "getPatientEnteredObservationHeadings",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "userId",
@@ -761,9 +735,6 @@
             "required": true,
             "type": "integer"
           }
-        ],
-        "produces": [
-          "application/json"
         ],
         "responses": {
           "200": {
@@ -786,10 +757,13 @@
             "description": "Not Found"
           }
         },
-        "summary": "Get Available Patient Entered Observations Types For a User",
         "tags": [
           "observation-heading-controller"
-        ]
+        ],
+        "deprecated": false,
+        "description": "Given a User ID retrieve a list of available observation types for that user (where they have patient entered observation data).",
+        "operationId": "getPatientEnteredObservationHeadings",
+        "summary": "Get Available Patient Entered Observations Types For a User"
       }
     }
   },
@@ -806,7 +780,8 @@
         "key": {
           "type": "string"
         }
-      }
+      },
+      "type": "object"
     },
     "BaseGroup": {
       "properties": {
@@ -842,7 +817,8 @@
         "visibleToJoin": {
           "type": "boolean"
         }
-      }
+      },
+      "type": "object"
     },
     "Category": {
       "properties": {
@@ -863,7 +839,8 @@
           "format": "int32",
           "type": "integer"
         }
-      }
+      },
+      "type": "object"
     },
     "Code": {
       "properties": {
@@ -935,7 +912,8 @@
         "standardType": {
           "$ref": "#/definitions/Lookup"
         }
-      }
+      },
+      "type": "object"
     },
     "CodeCategory": {
       "properties": {
@@ -946,7 +924,8 @@
           "format": "int64",
           "type": "integer"
         }
-      }
+      },
+      "type": "object"
     },
     "CodeExternalStandard": {
       "properties": {
@@ -960,7 +939,8 @@
           "format": "int64",
           "type": "integer"
         }
-      }
+      },
+      "type": "object"
     },
     "ContactPoint": {
       "properties": {
@@ -982,7 +962,8 @@
           "format": "date-time",
           "type": "string"
         }
-      }
+      },
+      "type": "object"
     },
     "ContactPointType": {
       "properties": {
@@ -1011,7 +992,8 @@
           ],
           "type": "string"
         }
-      }
+      },
+      "type": "object"
     },
     "Credentials": {
       "properties": {
@@ -1024,19 +1006,21 @@
         "username": {
           "type": "string"
         }
-      }
+      },
+      "type": "object"
     },
-    "Entry«long,Map«string,List«FhirObservation»»»": {
+    "Entry_long_Map_string_List_FhirObservation_": {
       "properties": {
         "key": {
           "items": {
-            "$ref": "#/definitions/Entry«string,List«FhirObservation»»"
+            "$ref": "#/definitions/Entry_string_List_FhirObservation_"
           },
           "type": "array"
         }
-      }
+      },
+      "type": "object"
     },
-    "Entry«string,List«FhirObservation»»": {
+    "Entry_string_List_FhirObservation_": {
       "properties": {
         "key": {
           "items": {
@@ -1044,7 +1028,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "type": "object"
     },
     "ExternalStandard": {
       "properties": {
@@ -1058,7 +1043,8 @@
         "name": {
           "type": "string"
         }
-      }
+      },
+      "type": "object"
     },
     "Feature": {
       "properties": {
@@ -1080,7 +1066,8 @@
         "name": {
           "type": "string"
         }
-      }
+      },
+      "type": "object"
     },
     "FhirAllergy": {
       "properties": {
@@ -1116,7 +1103,8 @@
         "type": {
           "type": "string"
         }
-      }
+      },
+      "type": "object"
     },
     "FhirCondition": {
       "properties": {
@@ -1165,7 +1153,8 @@
         "status": {
           "type": "string"
         }
-      }
+      },
+      "type": "object"
     },
     "FhirContact": {
       "properties": {
@@ -1182,7 +1171,8 @@
         "value": {
           "type": "string"
         }
-      }
+      },
+      "type": "object"
     },
     "FhirEncounter": {
       "properties": {
@@ -1227,7 +1217,8 @@
         "status": {
           "type": "string"
         }
-      }
+      },
+      "type": "object"
     },
     "FhirIdentifier": {
       "properties": {
@@ -1241,7 +1232,8 @@
         "value": {
           "type": "string"
         }
-      }
+      },
+      "type": "object"
     },
     "FhirObservation": {
       "properties": {
@@ -1286,13 +1278,14 @@
         "value": {
           "type": "string"
         }
-      }
+      },
+      "type": "object"
     },
     "FhirObservationPage": {
       "properties": {
         "data": {
           "items": {
-            "$ref": "#/definitions/Entry«long,Map«string,List«FhirObservation»»»"
+            "$ref": "#/definitions/Entry_long_Map_string_List_FhirObservation_"
           },
           "type": "array"
         },
@@ -1304,7 +1297,8 @@
           "format": "int64",
           "type": "integer"
         }
-      }
+      },
+      "type": "object"
     },
     "FhirPatient": {
       "properties": {
@@ -1366,7 +1360,8 @@
         "surname": {
           "type": "string"
         }
-      }
+      },
+      "type": "object"
     },
     "FhirPractitioner": {
       "properties": {
@@ -1413,7 +1408,8 @@
         "role": {
           "type": "string"
         }
-      }
+      },
+      "type": "object"
     },
     "FhirProcedure": {
       "properties": {
@@ -1427,7 +1423,8 @@
         "type": {
           "type": "string"
         }
-      }
+      },
+      "type": "object"
     },
     "Group": {
       "properties": {
@@ -1524,7 +1521,8 @@
         "visibleToJoin": {
           "type": "boolean"
         }
-      }
+      },
+      "type": "object"
     },
     "GroupFeature": {
       "properties": {
@@ -1543,7 +1541,8 @@
           "format": "date-time",
           "type": "string"
         }
-      }
+      },
+      "type": "object"
     },
     "GroupRole": {
       "properties": {
@@ -1557,7 +1556,8 @@
         "role": {
           "$ref": "#/definitions/Role"
         }
-      }
+      },
+      "type": "object"
     },
     "Link": {
       "properties": {
@@ -1586,7 +1586,8 @@
         "name": {
           "type": "string"
         }
-      }
+      },
+      "type": "object"
     },
     "Location": {
       "properties": {
@@ -1620,7 +1621,8 @@
         "web": {
           "type": "string"
         }
-      }
+      },
+      "type": "object"
     },
     "Lookup": {
       "properties": {
@@ -1652,7 +1654,8 @@
         "value": {
           "type": "string"
         }
-      }
+      },
+      "type": "object"
     },
     "LookupType": {
       "properties": {
@@ -1698,7 +1701,8 @@
           ],
           "type": "string"
         }
-      }
+      },
+      "type": "object"
     },
     "ObservationHeading": {
       "properties": {
@@ -1759,7 +1763,8 @@
         "units": {
           "type": "string"
         }
-      }
+      },
+      "type": "object"
     },
     "ObservationHeadingGroup": {
       "properties": {
@@ -1782,7 +1787,8 @@
           "format": "int64",
           "type": "integer"
         }
-      }
+      },
+      "type": "object"
     },
     "Patient": {
       "properties": {
@@ -1832,7 +1838,8 @@
           "format": "int64",
           "type": "integer"
         }
-      }
+      },
+      "type": "object"
     },
     "PatientManagement": {
       "properties": {
@@ -1866,7 +1873,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "type": "object"
     },
     "Role": {
       "properties": {
@@ -1896,7 +1904,8 @@
         "visible": {
           "type": "boolean"
         }
-      }
+      },
+      "type": "object"
     },
     "Route": {
       "properties": {
@@ -1927,7 +1936,8 @@
         "url": {
           "type": "string"
         }
-      }
+      },
+      "type": "object"
     },
     "UUID": {},
     "User": {
@@ -2034,7 +2044,8 @@
         "username": {
           "type": "string"
         }
-      }
+      },
+      "type": "object"
     },
     "UserFeature": {
       "properties": {
@@ -2066,7 +2077,8 @@
         "optOutHidden": {
           "type": "boolean"
         }
-      }
+      },
+      "type": "object"
     },
     "UserToken": {
       "properties": {
@@ -2142,6 +2154,9 @@
           },
           "type": "array"
         },
+        "secretWordSalt": {
+          "type": "string"
+        },
         "secretWordToken": {
           "type": "string"
         },
@@ -2184,6 +2199,43 @@
           },
           "type": "array"
         }
+      },
+      "type": "object"
+    }
+  },
+  "tags": [
+    {
+      "description": "Auth Controller",
+      "name": "auth-controller"
+    },
+    {
+      "description": "Observation Controller",
+      "name": "observation-controller"
+    },
+    {
+      "description": "Observation Heading Controller",
+      "name": "observation-heading-controller"
+    },
+    {
+      "description": "Patient Controller",
+      "name": "patient-controller"
+    },
+    {
+      "description": "Patient Management Controller",
+      "name": "patient-management-controller"
+    }
+  ],
+  "x-components": {
+    "requestBodies": {
+      "PatientManagement": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/definitions/PatientManagement"
+            }
+          }
+        },
+        "description": "patientManagement"
       }
     }
   }

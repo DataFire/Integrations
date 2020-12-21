@@ -12,9 +12,7 @@ let fantasydata_soccer_v3_scores = require('@datafire/fantasydata_soccer_v3_scor
   apiKeyQuery: ""
 });
 
-fantasydata_soccer_v3_scores.MembershipsActive({
-  "format": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

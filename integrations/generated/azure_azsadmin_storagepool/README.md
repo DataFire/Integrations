@@ -15,12 +15,7 @@ let azure_azsadmin_storagepool = require('@datafire/azure_azsadmin_storagepool')
   redirect_uri: ""
 });
 
-azure_azsadmin_storagepool.StoragePools_List({
-  "subscriptionId": "",
-  "location": "",
-  "storageSubSystem": "",
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -32,12 +27,13 @@ Storage pool operation endpoints and objects.
 ## Actions
 
 ### StoragePools_List
-Get a list of all storage pools for a location.
+Returns a list of all storage pools for a location.
 
 
 ```js
 azure_azsadmin_storagepool.StoragePools_List({
   "subscriptionId": "",
+  "resourceGroupName": "",
   "location": "",
   "storageSubSystem": "",
   "api-version": ""
@@ -46,22 +42,24 @@ azure_azsadmin_storagepool.StoragePools_List({
 
 #### Input
 * input `object`
-  * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription.The subscription ID forms part of the URI for every service call.
+  * subscriptionId **required** `string`: Subscription credentials that uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+  * resourceGroupName **required** `string`: Name of the resource group.
   * location **required** `string`: Location of the resource.
   * storageSubSystem **required** `string`: Name of the storage system.
-  * api-version **required** `string`: Client Api Version.
+  * api-version **required** `string`: Client API Version.
   * $filter `string`: OData filter parameter.
 
 #### Output
 * output [StoragePoolList](#storagepoollist)
 
 ### StoragePools_Get
-Get a storage pool.
+Return the requested a storage pool.
 
 
 ```js
 azure_azsadmin_storagepool.StoragePools_Get({
   "subscriptionId": "",
+  "resourceGroupName": "",
   "location": "",
   "storageSubSystem": "",
   "storagePool": "",
@@ -71,11 +69,12 @@ azure_azsadmin_storagepool.StoragePools_Get({
 
 #### Input
 * input `object`
-  * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription.The subscription ID forms part of the URI for every service call.
+  * subscriptionId **required** `string`: Subscription credentials that uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+  * resourceGroupName **required** `string`: Name of the resource group.
   * location **required** `string`: Location of the resource.
   * storageSubSystem **required** `string`: Name of the storage system.
   * storagePool **required** `string`: Storage pool name.
-  * api-version **required** `string`: Client Api Version.
+  * api-version **required** `string`: Client API Version.
 
 #### Output
 * output [StoragePool](#storagepool)
@@ -88,15 +87,15 @@ azure_azsadmin_storagepool.StoragePools_Get({
 * StoragePool `object`: Representation of a storage pool resource.
   * properties [StoragePoolModel](#storagepoolmodel)
   * id `string`: URI of the resource.
-  * location `string`: Region Location of resource.
+  * location `string`: The region where the resource is located.
   * name `string`: Name of the resource.
-  * tags `object`: List of key value pairs.
+  * tags `object`: List of key-value pairs.
   * type `string`: Type of resource.
 
 ### StoragePoolList
 * StoragePoolList `object`: Pageable list of storage pools.
   * nextLink `string`: URI to the next page.
-  * value `array`: List of storage pools on this page.
+  * value `array`: List of storage pools.
     * items [StoragePool](#storagepool)
 
 ### StoragePoolModel

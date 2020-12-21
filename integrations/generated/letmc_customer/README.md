@@ -13,10 +13,7 @@ let letmc_customer = require('@datafire/letmc_customer').create({
   password: ""
 });
 
-letmc_customer.LandlordController_GetAccounts({
-  "shortName": "",
-  "token": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -26,6 +23,46 @@ letmc_customer.LandlordController_GetAccounts({
 
 
 ## Actions
+
+### v2.customer.shortName.branch.branches.get
+All branches defined for a company
+
+
+```js
+letmc_customer.v2.customer.shortName.branch.branches.get({
+  "shortName": "",
+  "offset": 0,
+  "count": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * shortName **required** `string`: The unique client short-name
+  * offset **required** `integer`: The index of the first item to return
+  * count **required** `integer`: The maximum number of items to return (up to 1000 per request)
+
+#### Output
+* output [BranchModelResults](#branchmodelresults)
+
+### v2.customer.shortName.branch.branches.branchID.get
+Get a specific branch given its unique Object ID (OID)
+
+
+```js
+letmc_customer.v2.customer.shortName.branch.branches.branchID.get({
+  "shortName": "",
+  "branchID": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * shortName **required** `string`: The unique client short-name
+  * branchID **required** `string`: The unique ID of the Branch
+
+#### Output
+* output [BranchModel](#branchmodel)
 
 ### LandlordController_GetAccounts
 Get the accounting details for the landlord.
@@ -108,6 +145,26 @@ letmc_customer.LandlordController_GetInvoice({
 
 #### Output
 * output [Object](#object)
+
+### LandlordController_GetLandlordCrmEntries
+Retrieve landlord's CRM ID
+
+
+```js
+letmc_customer.LandlordController_GetLandlordCrmEntries({
+  "shortName": "",
+  "token": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * shortName **required** `string`: The unique client short-name
+  * token **required** `string`: The login token returned from the /session POST call
+
+#### Output
+* output `array`
+  * items [LandlordCrmEntry](#landlordcrmentry)
 
 ### LandlordController_GetMaintenanceJobs
 Get Active maintenance jobs.
@@ -450,6 +507,29 @@ letmc_customer.SessionController_ResetPassword({
 
 ## Definitions
 
+### BranchModel
+* BranchModel `object`: Defines a single branch of a client.
+  * Address1 `string`: Branch address line 1.
+  * Address2 `string`: Branch address line 2.
+  * Address3 `string`: Branch address line 3.
+  * Address4 `string`: Branch address line 4.
+  * CompanyName `string`: The relevant company name, if not the one specified on the branch then the one on company.
+  * County `string`: County
+  * EMailAddress `string`: Branch email address.
+  * ETag `string`: A unique identifier defining the object and change revision.
+  * FaxPhone `string`: Branch fax phone number.
+  * LandPhone `string`: Branch land phone number.
+  * Name `string`: The branch name.
+  * OID `string`: The unique Object ID (OID).
+  * Postcode `string`: Branch address postcode.
+  * WebAddress `string`: Branch web address.
+
+### BranchModelResults
+* BranchModelResults `object`: Holds results from a paged query returning BranchModel values
+  * Count `integer`: The total number of results available for all pages
+  * Data `array`: The resulting data returned from the paged query range
+    * items [BranchModel](#branchmodel)
+
 ### KeyValuePair[String,String]
 * KeyValuePair[String,String] `object`
   * key `string`
@@ -483,6 +563,13 @@ letmc_customer.SessionController_ResetPassword({
   * Note `string`: Note.
   * NoteType `string`: Note Type
   * TenantID `string`: Tenant
+
+### LandlordCrmEntry
+* LandlordCrmEntry `object`: Class for Landlord CRM Entries
+  * BranchID `string`
+  * GlobalReference `string`
+  * Name `string`
+  * OID `string`
 
 ### LandlordDetailsModel
 * LandlordDetailsModel `object`: Landlord Details

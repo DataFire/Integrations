@@ -1,6 +1,6 @@
 # @datafire/google_oauth2
 
-Client library for Google OAuth2
+Client library for Google OAuth2 API
 
 ## Installation and Usage
 ```bash
@@ -15,7 +15,7 @@ let google_oauth2 = require('@datafire/google_oauth2').create({
   redirect_uri: ""
 });
 
-google_oauth2.userinfo.v2.me.get({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -67,40 +67,18 @@ google_oauth2.oauthRefresh(null, context)
   * scope `string`
   * expiration `string`
 
-### getCertForOpenIdConnect
+### oauth2.tokeninfo
 
 
 
 ```js
-google_oauth2.getCertForOpenIdConnect({}, context)
-```
-
-#### Input
-* input `object`
-  * alt `string` (values: json): Data format for the response.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
-
-#### Output
-* output [Jwk](#jwk)
-
-### tokeninfo
-
-
-
-```js
-google_oauth2.tokeninfo({}, context)
+google_oauth2.oauth2.tokeninfo({}, context)
 ```
 
 #### Input
 * input `object`
   * access_token `string`
   * id_token `string`
-  * token_handle `string`
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -112,12 +90,12 @@ google_oauth2.tokeninfo({}, context)
 #### Output
 * output [Tokeninfo](#tokeninfo)
 
-### userinfo.get
+### oauth2.userinfo.get
 
 
 
 ```js
-google_oauth2.userinfo.get({}, context)
+google_oauth2.oauth2.userinfo.get({}, context)
 ```
 
 #### Input
@@ -131,14 +109,14 @@ google_oauth2.userinfo.get({}, context)
   * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
-* output [Userinfoplus](#userinfoplus)
+* output [Userinfo](#userinfo)
 
-### userinfo.v2.me.get
+### oauth2.userinfo.v2.me.get
 
 
 
 ```js
-google_oauth2.userinfo.v2.me.get({}, context)
+google_oauth2.oauth2.userinfo.v2.me.get({}, context)
 ```
 
 #### Input
@@ -152,37 +130,24 @@ google_oauth2.userinfo.v2.me.get({}, context)
   * userIp `string`: Deprecated. Please use quotaUser instead.
 
 #### Output
-* output [Userinfoplus](#userinfoplus)
+* output [Userinfo](#userinfo)
 
 
 
 ## Definitions
 
-### Jwk
-* Jwk `object`
-  * keys `array`
-    * items `object`
-      * alg `string`
-      * e `string`
-      * kid `string`
-      * kty `string`
-      * n `string`
-      * use `string`
-
 ### Tokeninfo
 * Tokeninfo `object`
-  * access_type `string`: The access type granted with this token. It can be offline or online.
   * audience `string`: Who is the intended audience for this token. In general the same as issued_to.
   * email `string`: The email address of the user. Present only if the email scope is present in the request.
   * expires_in `integer`: The expiry time of the token, as number of seconds left until expiry.
   * issued_to `string`: To whom was the token issued to. In general the same as audience.
   * scope `string`: The space separated list of scopes granted to this token.
-  * token_handle `string`: The token handle associated with this token.
   * user_id `string`: The obfuscated user id.
   * verified_email `boolean`: Boolean flag which is true if the email address is verified. Present only if the email scope is present in the request.
 
-### Userinfoplus
-* Userinfoplus `object`
+### Userinfo
+* Userinfo `object`
   * email `string`: The user's email address.
   * family_name `string`: The user's last name.
   * gender `string`: The user's gender.

@@ -13,17 +13,14 @@ let amazonaws_ecr = require('@datafire/amazonaws_ecr').create({
   region: ""
 });
 
-amazonaws_ecr.BatchCheckLayerAvailability({
-  "repositoryName": "",
-  "layerDigests": []
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
 
 ## Description
 
-Amazon Elastic Container Registry (Amazon ECR) is a managed Docker registry service. Customers can use the familiar Docker CLI to push, pull, and manage images. Amazon ECR provides a secure, scalable, and reliable registry. Amazon ECR supports private Docker repositories with resource-based permissions using IAM so that specific users or Amazon EC2 instances can access repositories and images. Developers can use the Docker CLI to author and manage images.
+<fullname>Amazon Elastic Container Registry</fullname> <p>Amazon Elastic Container Registry (Amazon ECR) is a managed container image registry service. Customers can use the familiar Docker CLI, or their preferred client, to push, pull, and manage images. Amazon ECR provides a secure, scalable, and reliable registry for your Docker or Open Container Initiative (OCI) images. Amazon ECR supports private repositories with resource-based permissions using IAM so that specific users or Amazon EC2 instances can access repositories and images.</p>
 
 ## Actions
 
@@ -33,16 +30,17 @@ Amazon Elastic Container Registry (Amazon ECR) is a managed Docker registry serv
 
 ```js
 amazonaws_ecr.BatchCheckLayerAvailability({
-  "repositoryName": "",
-  "layerDigests": []
+  "repositoryName": null,
+  "layerDigests": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * layerDigests **required** [BatchedOperationLayerDigestList](#batchedoperationlayerdigestlist)
-  * registryId [RegistryId](#registryid)
-  * repositoryName **required** [RepositoryName](#repositoryname)
+  * layerDigests **required**
+    * items [BatchedOperationLayerDigest](#batchedoperationlayerdigest)
+  * registryId
+  * repositoryName **required**
 
 #### Output
 * output [BatchCheckLayerAvailabilityResponse](#batchchecklayeravailabilityresponse)
@@ -53,16 +51,17 @@ amazonaws_ecr.BatchCheckLayerAvailability({
 
 ```js
 amazonaws_ecr.BatchDeleteImage({
-  "repositoryName": "",
-  "imageIds": []
+  "repositoryName": null,
+  "imageIds": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * imageIds **required** [ImageIdentifierList](#imageidentifierlist)
-  * registryId [RegistryId](#registryid)
-  * repositoryName **required** [RepositoryName](#repositoryname)
+  * imageIds **required**
+    * items [ImageIdentifier](#imageidentifier)
+  * registryId
+  * repositoryName **required**
 
 #### Output
 * output [BatchDeleteImageResponse](#batchdeleteimageresponse)
@@ -73,17 +72,19 @@ amazonaws_ecr.BatchDeleteImage({
 
 ```js
 amazonaws_ecr.BatchGetImage({
-  "repositoryName": "",
-  "imageIds": []
+  "repositoryName": null,
+  "imageIds": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * acceptedMediaTypes [MediaTypeList](#mediatypelist)
-  * imageIds **required** [ImageIdentifierList](#imageidentifierlist)
-  * registryId [RegistryId](#registryid)
-  * repositoryName **required** [RepositoryName](#repositoryname)
+  * acceptedMediaTypes
+    * items [MediaType](#mediatype)
+  * imageIds **required**
+    * items [ImageIdentifier](#imageidentifier)
+  * registryId
+  * repositoryName **required**
 
 #### Output
 * output [BatchGetImageResponse](#batchgetimageresponse)
@@ -94,18 +95,19 @@ amazonaws_ecr.BatchGetImage({
 
 ```js
 amazonaws_ecr.CompleteLayerUpload({
-  "repositoryName": "",
-  "uploadId": "",
-  "layerDigests": []
+  "repositoryName": null,
+  "uploadId": null,
+  "layerDigests": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * layerDigests **required** [LayerDigestList](#layerdigestlist)
-  * registryId [RegistryId](#registryid)
-  * repositoryName **required** [RepositoryName](#repositoryname)
-  * uploadId **required** [UploadId](#uploadid)
+  * layerDigests **required**
+    * items [LayerDigest](#layerdigest)
+  * registryId
+  * repositoryName **required**
+  * uploadId **required**
 
 #### Output
 * output [CompleteLayerUploadResponse](#completelayeruploadresponse)
@@ -116,13 +118,21 @@ amazonaws_ecr.CompleteLayerUpload({
 
 ```js
 amazonaws_ecr.CreateRepository({
-  "repositoryName": ""
+  "repositoryName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * repositoryName **required** [RepositoryName](#repositoryname)
+  * tags
+    * items [Tag](#tag)
+  * encryptionConfiguration
+    * encryptionType **required**
+    * kmsKey
+  * imageScanningConfiguration
+    * scanOnPush
+  * imageTagMutability
+  * repositoryName **required**
 
 #### Output
 * output [CreateRepositoryResponse](#createrepositoryresponse)
@@ -133,17 +143,31 @@ amazonaws_ecr.CreateRepository({
 
 ```js
 amazonaws_ecr.DeleteLifecyclePolicy({
-  "repositoryName": ""
+  "repositoryName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * registryId [RegistryId](#registryid)
-  * repositoryName **required** [RepositoryName](#repositoryname)
+  * registryId
+  * repositoryName **required**
 
 #### Output
 * output [DeleteLifecyclePolicyResponse](#deletelifecyclepolicyresponse)
+
+### DeleteRegistryPolicy
+
+
+
+```js
+amazonaws_ecr.DeleteRegistryPolicy({}, context)
+```
+
+#### Input
+* input `object`
+
+#### Output
+* output [DeleteRegistryPolicyResponse](#deleteregistrypolicyresponse)
 
 ### DeleteRepository
 
@@ -151,15 +175,15 @@ amazonaws_ecr.DeleteLifecyclePolicy({
 
 ```js
 amazonaws_ecr.DeleteRepository({
-  "repositoryName": ""
+  "repositoryName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * force [ForceFlag](#forceflag)
-  * registryId [RegistryId](#registryid)
-  * repositoryName **required** [RepositoryName](#repositoryname)
+  * force
+  * registryId
+  * repositoryName **required**
 
 #### Output
 * output [DeleteRepositoryResponse](#deleterepositoryresponse)
@@ -170,25 +194,26 @@ amazonaws_ecr.DeleteRepository({
 
 ```js
 amazonaws_ecr.DeleteRepositoryPolicy({
-  "repositoryName": ""
+  "repositoryName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * registryId [RegistryId](#registryid)
-  * repositoryName **required** [RepositoryName](#repositoryname)
+  * registryId
+  * repositoryName **required**
 
 #### Output
 * output [DeleteRepositoryPolicyResponse](#deleterepositorypolicyresponse)
 
-### DescribeImages
+### DescribeImageScanFindings
 
 
 
 ```js
-amazonaws_ecr.DescribeImages({
-  "repositoryName": ""
+amazonaws_ecr.DescribeImageScanFindings({
+  "repositoryName": null,
+  "imageId": {}
 }, context)
 ```
 
@@ -196,15 +221,54 @@ amazonaws_ecr.DescribeImages({
 * input `object`
   * maxResults `string`
   * nextToken `string`
-  * filter [DescribeImagesFilter](#describeimagesfilter)
-  * imageIds [ImageIdentifierList](#imageidentifierlist)
-  * maxResults [MaxResults](#maxresults)
-  * nextToken [NextToken](#nexttoken)
-  * registryId [RegistryId](#registryid)
-  * repositoryName **required** [RepositoryName](#repositoryname)
+  * imageId **required** [ImageIdentifier](#imageidentifier)
+  * maxResults
+  * nextToken
+  * registryId
+  * repositoryName **required**
+
+#### Output
+* output [DescribeImageScanFindingsResponse](#describeimagescanfindingsresponse)
+
+### DescribeImages
+
+
+
+```js
+amazonaws_ecr.DescribeImages({
+  "repositoryName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * maxResults `string`
+  * nextToken `string`
+  * filter
+    * tagStatus
+  * imageIds
+    * items [ImageIdentifier](#imageidentifier)
+  * maxResults
+  * nextToken
+  * registryId
+  * repositoryName **required**
 
 #### Output
 * output [DescribeImagesResponse](#describeimagesresponse)
+
+### DescribeRegistry
+
+
+
+```js
+amazonaws_ecr.DescribeRegistry({}, context)
+```
+
+#### Input
+* input `object`
+
+#### Output
+* output [DescribeRegistryResponse](#describeregistryresponse)
 
 ### DescribeRepositories
 
@@ -218,10 +282,11 @@ amazonaws_ecr.DescribeRepositories({}, context)
 * input `object`
   * maxResults `string`
   * nextToken `string`
-  * maxResults [MaxResults](#maxresults)
-  * nextToken [NextToken](#nexttoken)
-  * registryId [RegistryId](#registryid)
-  * repositoryNames [RepositoryNameList](#repositorynamelist)
+  * maxResults
+  * nextToken
+  * registryId
+  * repositoryNames
+    * items [RepositoryName](#repositoryname)
 
 #### Output
 * output [DescribeRepositoriesResponse](#describerepositoriesresponse)
@@ -236,7 +301,8 @@ amazonaws_ecr.GetAuthorizationToken({}, context)
 
 #### Input
 * input `object`
-  * registryIds [GetAuthorizationTokenRegistryIdList](#getauthorizationtokenregistryidlist)
+  * registryIds
+    * items [RegistryId](#registryid)
 
 #### Output
 * output [GetAuthorizationTokenResponse](#getauthorizationtokenresponse)
@@ -247,16 +313,16 @@ amazonaws_ecr.GetAuthorizationToken({}, context)
 
 ```js
 amazonaws_ecr.GetDownloadUrlForLayer({
-  "repositoryName": "",
-  "layerDigest": ""
+  "repositoryName": null,
+  "layerDigest": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * layerDigest **required** [LayerDigest](#layerdigest)
-  * registryId [RegistryId](#registryid)
-  * repositoryName **required** [RepositoryName](#repositoryname)
+  * layerDigest **required**
+  * registryId
+  * repositoryName **required**
 
 #### Output
 * output [GetDownloadUrlForLayerResponse](#getdownloadurlforlayerresponse)
@@ -267,14 +333,14 @@ amazonaws_ecr.GetDownloadUrlForLayer({
 
 ```js
 amazonaws_ecr.GetLifecyclePolicy({
-  "repositoryName": ""
+  "repositoryName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * registryId [RegistryId](#registryid)
-  * repositoryName **required** [RepositoryName](#repositoryname)
+  * registryId
+  * repositoryName **required**
 
 #### Output
 * output [GetLifecyclePolicyResponse](#getlifecyclepolicyresponse)
@@ -285,21 +351,39 @@ amazonaws_ecr.GetLifecyclePolicy({
 
 ```js
 amazonaws_ecr.GetLifecyclePolicyPreview({
-  "repositoryName": ""
+  "repositoryName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * filter [LifecyclePolicyPreviewFilter](#lifecyclepolicypreviewfilter)
-  * imageIds [ImageIdentifierList](#imageidentifierlist)
-  * maxResults [MaxResults](#maxresults)
-  * nextToken [NextToken](#nexttoken)
-  * registryId [RegistryId](#registryid)
-  * repositoryName **required** [RepositoryName](#repositoryname)
+  * maxResults `string`
+  * nextToken `string`
+  * filter
+    * tagStatus
+  * imageIds
+    * items [ImageIdentifier](#imageidentifier)
+  * maxResults
+  * nextToken
+  * registryId
+  * repositoryName **required**
 
 #### Output
 * output [GetLifecyclePolicyPreviewResponse](#getlifecyclepolicypreviewresponse)
+
+### GetRegistryPolicy
+
+
+
+```js
+amazonaws_ecr.GetRegistryPolicy({}, context)
+```
+
+#### Input
+* input `object`
+
+#### Output
+* output [GetRegistryPolicyResponse](#getregistrypolicyresponse)
 
 ### GetRepositoryPolicy
 
@@ -307,14 +391,14 @@ amazonaws_ecr.GetLifecyclePolicyPreview({
 
 ```js
 amazonaws_ecr.GetRepositoryPolicy({
-  "repositoryName": ""
+  "repositoryName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * registryId [RegistryId](#registryid)
-  * repositoryName **required** [RepositoryName](#repositoryname)
+  * registryId
+  * repositoryName **required**
 
 #### Output
 * output [GetRepositoryPolicyResponse](#getrepositorypolicyresponse)
@@ -325,14 +409,14 @@ amazonaws_ecr.GetRepositoryPolicy({
 
 ```js
 amazonaws_ecr.InitiateLayerUpload({
-  "repositoryName": ""
+  "repositoryName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * registryId [RegistryId](#registryid)
-  * repositoryName **required** [RepositoryName](#repositoryname)
+  * registryId
+  * repositoryName **required**
 
 #### Output
 * output [InitiateLayerUploadResponse](#initiatelayeruploadresponse)
@@ -343,7 +427,7 @@ amazonaws_ecr.InitiateLayerUpload({
 
 ```js
 amazonaws_ecr.ListImages({
-  "repositoryName": ""
+  "repositoryName": null
 }, context)
 ```
 
@@ -351,14 +435,32 @@ amazonaws_ecr.ListImages({
 * input `object`
   * maxResults `string`
   * nextToken `string`
-  * filter [ListImagesFilter](#listimagesfilter)
-  * maxResults [MaxResults](#maxresults)
-  * nextToken [NextToken](#nexttoken)
-  * registryId [RegistryId](#registryid)
-  * repositoryName **required** [RepositoryName](#repositoryname)
+  * filter
+    * tagStatus
+  * maxResults
+  * nextToken
+  * registryId
+  * repositoryName **required**
 
 #### Output
 * output [ListImagesResponse](#listimagesresponse)
+
+### ListTagsForResource
+
+
+
+```js
+amazonaws_ecr.ListTagsForResource({
+  "resourceArn": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * resourceArn **required**
+
+#### Output
+* output [ListTagsForResourceResponse](#listtagsforresourceresponse)
 
 ### PutImage
 
@@ -366,20 +468,63 @@ amazonaws_ecr.ListImages({
 
 ```js
 amazonaws_ecr.PutImage({
-  "repositoryName": "",
-  "imageManifest": ""
+  "repositoryName": null,
+  "imageManifest": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * imageManifest **required** [ImageManifest](#imagemanifest)
-  * imageTag [ImageTag](#imagetag)
-  * registryId [RegistryId](#registryid)
-  * repositoryName **required** [RepositoryName](#repositoryname)
+  * imageDigest
+  * imageManifest **required**
+  * imageManifestMediaType
+  * imageTag
+  * registryId
+  * repositoryName **required**
 
 #### Output
 * output [PutImageResponse](#putimageresponse)
+
+### PutImageScanningConfiguration
+
+
+
+```js
+amazonaws_ecr.PutImageScanningConfiguration({
+  "repositoryName": null,
+  "imageScanningConfiguration": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * imageScanningConfiguration **required**
+    * scanOnPush
+  * registryId
+  * repositoryName **required**
+
+#### Output
+* output [PutImageScanningConfigurationResponse](#putimagescanningconfigurationresponse)
+
+### PutImageTagMutability
+
+
+
+```js
+amazonaws_ecr.PutImageTagMutability({
+  "repositoryName": null,
+  "imageTagMutability": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * imageTagMutability **required**
+  * registryId
+  * repositoryName **required**
+
+#### Output
+* output [PutImageTagMutabilityResponse](#putimagetagmutabilityresponse)
 
 ### PutLifecyclePolicy
 
@@ -387,19 +532,55 @@ amazonaws_ecr.PutImage({
 
 ```js
 amazonaws_ecr.PutLifecyclePolicy({
-  "repositoryName": "",
-  "lifecyclePolicyText": ""
+  "repositoryName": null,
+  "lifecyclePolicyText": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * lifecyclePolicyText **required** [LifecyclePolicyText](#lifecyclepolicytext)
-  * registryId [RegistryId](#registryid)
-  * repositoryName **required** [RepositoryName](#repositoryname)
+  * lifecyclePolicyText **required**
+  * registryId
+  * repositoryName **required**
 
 #### Output
 * output [PutLifecyclePolicyResponse](#putlifecyclepolicyresponse)
+
+### PutRegistryPolicy
+
+
+
+```js
+amazonaws_ecr.PutRegistryPolicy({
+  "policyText": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * policyText **required**
+
+#### Output
+* output [PutRegistryPolicyResponse](#putregistrypolicyresponse)
+
+### PutReplicationConfiguration
+
+
+
+```js
+amazonaws_ecr.PutReplicationConfiguration({
+  "replicationConfiguration": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * replicationConfiguration **required**
+    * rules **required**
+      * items [ReplicationRule](#replicationrule)
+
+#### Output
+* output [PutReplicationConfigurationResponse](#putreplicationconfigurationresponse)
 
 ### SetRepositoryPolicy
 
@@ -407,20 +588,40 @@ amazonaws_ecr.PutLifecyclePolicy({
 
 ```js
 amazonaws_ecr.SetRepositoryPolicy({
-  "repositoryName": "",
-  "policyText": ""
+  "repositoryName": null,
+  "policyText": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * force [ForceFlag](#forceflag)
-  * policyText **required** [RepositoryPolicyText](#repositorypolicytext)
-  * registryId [RegistryId](#registryid)
-  * repositoryName **required** [RepositoryName](#repositoryname)
+  * force
+  * policyText **required**
+  * registryId
+  * repositoryName **required**
 
 #### Output
 * output [SetRepositoryPolicyResponse](#setrepositorypolicyresponse)
+
+### StartImageScan
+
+
+
+```js
+amazonaws_ecr.StartImageScan({
+  "repositoryName": null,
+  "imageId": {}
+}, context)
+```
+
+#### Input
+* input `object`
+  * imageId **required** [ImageIdentifier](#imageidentifier)
+  * registryId
+  * repositoryName **required**
+
+#### Output
+* output [StartImageScanResponse](#startimagescanresponse)
 
 ### StartLifecyclePolicyPreview
 
@@ -428,18 +629,58 @@ amazonaws_ecr.SetRepositoryPolicy({
 
 ```js
 amazonaws_ecr.StartLifecyclePolicyPreview({
-  "repositoryName": ""
+  "repositoryName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * lifecyclePolicyText [LifecyclePolicyText](#lifecyclepolicytext)
-  * registryId [RegistryId](#registryid)
-  * repositoryName **required** [RepositoryName](#repositoryname)
+  * lifecyclePolicyText
+  * registryId
+  * repositoryName **required**
 
 #### Output
 * output [StartLifecyclePolicyPreviewResponse](#startlifecyclepolicypreviewresponse)
+
+### TagResource
+
+
+
+```js
+amazonaws_ecr.TagResource({
+  "resourceArn": null,
+  "tags": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * tags **required**
+    * items [Tag](#tag)
+  * resourceArn **required**
+
+#### Output
+* output [TagResourceResponse](#tagresourceresponse)
+
+### UntagResource
+
+
+
+```js
+amazonaws_ecr.UntagResource({
+  "resourceArn": null,
+  "tagKeys": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * resourceArn **required**
+  * tagKeys **required**
+    * items [TagKey](#tagkey)
+
+#### Output
+* output [UntagResourceResponse](#untagresourceresponse)
 
 ### UploadLayerPart
 
@@ -447,22 +688,22 @@ amazonaws_ecr.StartLifecyclePolicyPreview({
 
 ```js
 amazonaws_ecr.UploadLayerPart({
-  "repositoryName": "",
-  "uploadId": "",
-  "partFirstByte": 0,
-  "partLastByte": 0,
-  "layerPartBlob": ""
+  "repositoryName": null,
+  "uploadId": null,
+  "partFirstByte": null,
+  "partLastByte": null,
+  "layerPartBlob": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * layerPartBlob **required** [LayerPartBlob](#layerpartblob)
-  * partFirstByte **required** [PartSize](#partsize)
-  * partLastByte **required** [PartSize](#partsize)
-  * registryId [RegistryId](#registryid)
-  * repositoryName **required** [RepositoryName](#repositoryname)
-  * uploadId **required** [UploadId](#uploadid)
+  * layerPartBlob **required**
+  * partFirstByte **required**
+  * partLastByte **required**
+  * registryId
+  * repositoryName **required**
+  * uploadId **required**
 
 #### Output
 * output [UploadLayerPartResponse](#uploadlayerpartresponse)
@@ -474,11 +715,26 @@ amazonaws_ecr.UploadLayerPart({
 ### Arn
 * Arn `string`
 
+### Attribute
+* Attribute `object`: This data type is used in the <a>ImageScanFinding</a> data type.
+  * key **required**
+  * value
+
+### AttributeKey
+* AttributeKey `string`
+
+### AttributeList
+* AttributeList `array`
+  * items [Attribute](#attribute)
+
+### AttributeValue
+* AttributeValue `string`
+
 ### AuthorizationData
 * AuthorizationData `object`: An object representing authorization data for an Amazon ECR registry.
-  * authorizationToken [Base64](#base64)
-  * expiresAt [ExpirationTimestamp](#expirationtimestamp)
-  * proxyEndpoint [ProxyEndpoint](#proxyendpoint)
+  * authorizationToken
+  * expiresAt
+  * proxyEndpoint
 
 ### AuthorizationDataList
 * AuthorizationDataList `array`
@@ -489,37 +745,47 @@ amazonaws_ecr.UploadLayerPart({
 
 ### BatchCheckLayerAvailabilityRequest
 * BatchCheckLayerAvailabilityRequest `object`
-  * layerDigests **required** [BatchedOperationLayerDigestList](#batchedoperationlayerdigestlist)
-  * registryId [RegistryId](#registryid)
-  * repositoryName **required** [RepositoryName](#repositoryname)
+  * layerDigests **required**
+    * items [BatchedOperationLayerDigest](#batchedoperationlayerdigest)
+  * registryId
+  * repositoryName **required**
 
 ### BatchCheckLayerAvailabilityResponse
 * BatchCheckLayerAvailabilityResponse `object`
-  * failures [LayerFailureList](#layerfailurelist)
-  * layers [LayerList](#layerlist)
+  * failures
+    * items [LayerFailure](#layerfailure)
+  * layers
+    * items [Layer](#layer)
 
 ### BatchDeleteImageRequest
 * BatchDeleteImageRequest `object`: Deletes specified images within a specified repository. Images are specified with either the <code>imageTag</code> or <code>imageDigest</code>.
-  * imageIds **required** [ImageIdentifierList](#imageidentifierlist)
-  * registryId [RegistryId](#registryid)
-  * repositoryName **required** [RepositoryName](#repositoryname)
+  * imageIds **required**
+    * items [ImageIdentifier](#imageidentifier)
+  * registryId
+  * repositoryName **required**
 
 ### BatchDeleteImageResponse
 * BatchDeleteImageResponse `object`
-  * failures [ImageFailureList](#imagefailurelist)
-  * imageIds [ImageIdentifierList](#imageidentifierlist)
+  * failures
+    * items [ImageFailure](#imagefailure)
+  * imageIds
+    * items [ImageIdentifier](#imageidentifier)
 
 ### BatchGetImageRequest
 * BatchGetImageRequest `object`
-  * acceptedMediaTypes [MediaTypeList](#mediatypelist)
-  * imageIds **required** [ImageIdentifierList](#imageidentifierlist)
-  * registryId [RegistryId](#registryid)
-  * repositoryName **required** [RepositoryName](#repositoryname)
+  * acceptedMediaTypes
+    * items [MediaType](#mediatype)
+  * imageIds **required**
+    * items [ImageIdentifier](#imageidentifier)
+  * registryId
+  * repositoryName **required**
 
 ### BatchGetImageResponse
 * BatchGetImageResponse `object`
-  * failures [ImageFailureList](#imagefailurelist)
-  * images [ImageList](#imagelist)
+  * failures
+    * items [ImageFailure](#imagefailure)
+  * images
+    * items [Image](#image)
 
 ### BatchedOperationLayerDigest
 * BatchedOperationLayerDigest `string`
@@ -530,104 +796,196 @@ amazonaws_ecr.UploadLayerPart({
 
 ### CompleteLayerUploadRequest
 * CompleteLayerUploadRequest `object`
-  * layerDigests **required** [LayerDigestList](#layerdigestlist)
-  * registryId [RegistryId](#registryid)
-  * repositoryName **required** [RepositoryName](#repositoryname)
-  * uploadId **required** [UploadId](#uploadid)
+  * layerDigests **required**
+    * items [LayerDigest](#layerdigest)
+  * registryId
+  * repositoryName **required**
+  * uploadId **required**
 
 ### CompleteLayerUploadResponse
 * CompleteLayerUploadResponse `object`
-  * layerDigest [LayerDigest](#layerdigest)
-  * registryId [RegistryId](#registryid)
-  * repositoryName [RepositoryName](#repositoryname)
-  * uploadId [UploadId](#uploadid)
+  * layerDigest
+  * registryId
+  * repositoryName
+  * uploadId
 
 ### CreateRepositoryRequest
 * CreateRepositoryRequest `object`
-  * repositoryName **required** [RepositoryName](#repositoryname)
+  * tags
+    * items [Tag](#tag)
+  * encryptionConfiguration
+    * encryptionType **required**
+    * kmsKey
+  * imageScanningConfiguration
+    * scanOnPush
+  * imageTagMutability
+  * repositoryName **required**
 
 ### CreateRepositoryResponse
 * CreateRepositoryResponse `object`
-  * repository [Repository](#repository)
+  * repository
+    * createdAt
+    * encryptionConfiguration
+      * encryptionType **required**
+      * kmsKey
+    * imageScanningConfiguration [ImageScanningConfiguration](#imagescanningconfiguration)
+    * imageTagMutability
+    * registryId
+    * repositoryArn
+    * repositoryName
+    * repositoryUri
 
 ### CreationTimestamp
 * CreationTimestamp `string`
 
 ### DeleteLifecyclePolicyRequest
 * DeleteLifecyclePolicyRequest `object`
-  * registryId [RegistryId](#registryid)
-  * repositoryName **required** [RepositoryName](#repositoryname)
+  * registryId
+  * repositoryName **required**
 
 ### DeleteLifecyclePolicyResponse
 * DeleteLifecyclePolicyResponse `object`
-  * lastEvaluatedAt [EvaluationTimestamp](#evaluationtimestamp)
-  * lifecyclePolicyText [LifecyclePolicyText](#lifecyclepolicytext)
-  * registryId [RegistryId](#registryid)
-  * repositoryName [RepositoryName](#repositoryname)
+  * lastEvaluatedAt
+  * lifecyclePolicyText
+  * registryId
+  * repositoryName
+
+### DeleteRegistryPolicyRequest
+* DeleteRegistryPolicyRequest `object`
+
+### DeleteRegistryPolicyResponse
+* DeleteRegistryPolicyResponse `object`
+  * policyText
+  * registryId
 
 ### DeleteRepositoryPolicyRequest
 * DeleteRepositoryPolicyRequest `object`
-  * registryId [RegistryId](#registryid)
-  * repositoryName **required** [RepositoryName](#repositoryname)
+  * registryId
+  * repositoryName **required**
 
 ### DeleteRepositoryPolicyResponse
 * DeleteRepositoryPolicyResponse `object`
-  * policyText [RepositoryPolicyText](#repositorypolicytext)
-  * registryId [RegistryId](#registryid)
-  * repositoryName [RepositoryName](#repositoryname)
+  * policyText
+  * registryId
+  * repositoryName
 
 ### DeleteRepositoryRequest
 * DeleteRepositoryRequest `object`
-  * force [ForceFlag](#forceflag)
-  * registryId [RegistryId](#registryid)
-  * repositoryName **required** [RepositoryName](#repositoryname)
+  * force
+  * registryId
+  * repositoryName **required**
 
 ### DeleteRepositoryResponse
 * DeleteRepositoryResponse `object`
-  * repository [Repository](#repository)
+  * repository
+    * createdAt
+    * encryptionConfiguration
+      * encryptionType **required**
+      * kmsKey
+    * imageScanningConfiguration [ImageScanningConfiguration](#imagescanningconfiguration)
+    * imageTagMutability
+    * registryId
+    * repositoryArn
+    * repositoryName
+    * repositoryUri
+
+### DescribeImageScanFindingsRequest
+* DescribeImageScanFindingsRequest `object`
+  * imageId **required** [ImageIdentifier](#imageidentifier)
+  * maxResults
+  * nextToken
+  * registryId
+  * repositoryName **required**
+
+### DescribeImageScanFindingsResponse
+* DescribeImageScanFindingsResponse `object`
+  * imageId [ImageIdentifier](#imageidentifier)
+  * imageScanFindings
+    * findingSeverityCounts
+    * findings
+      * items [ImageScanFinding](#imagescanfinding)
+    * imageScanCompletedAt
+    * vulnerabilitySourceUpdatedAt
+  * imageScanStatus
+    * description
+    * status
+  * nextToken
+  * registryId
+  * repositoryName
 
 ### DescribeImagesFilter
 * DescribeImagesFilter `object`: An object representing a filter on a <a>DescribeImages</a> operation.
-  * tagStatus [TagStatus](#tagstatus)
+  * tagStatus
 
 ### DescribeImagesRequest
 * DescribeImagesRequest `object`
-  * filter [DescribeImagesFilter](#describeimagesfilter)
-  * imageIds [ImageIdentifierList](#imageidentifierlist)
-  * maxResults [MaxResults](#maxresults)
-  * nextToken [NextToken](#nexttoken)
-  * registryId [RegistryId](#registryid)
-  * repositoryName **required** [RepositoryName](#repositoryname)
+  * filter
+    * tagStatus
+  * imageIds
+    * items [ImageIdentifier](#imageidentifier)
+  * maxResults
+  * nextToken
+  * registryId
+  * repositoryName **required**
 
 ### DescribeImagesResponse
 * DescribeImagesResponse `object`
-  * imageDetails [ImageDetailList](#imagedetaillist)
-  * nextToken [NextToken](#nexttoken)
+  * imageDetails
+    * items [ImageDetail](#imagedetail)
+  * nextToken
+
+### DescribeRegistryRequest
+* DescribeRegistryRequest `object`
+
+### DescribeRegistryResponse
+* DescribeRegistryResponse `object`
+  * registryId
+  * replicationConfiguration
+    * rules **required**
+      * items [ReplicationRule](#replicationrule)
 
 ### DescribeRepositoriesRequest
 * DescribeRepositoriesRequest `object`
-  * maxResults [MaxResults](#maxresults)
-  * nextToken [NextToken](#nexttoken)
-  * registryId [RegistryId](#registryid)
-  * repositoryNames [RepositoryNameList](#repositorynamelist)
+  * maxResults
+  * nextToken
+  * registryId
+  * repositoryNames
+    * items [RepositoryName](#repositoryname)
 
 ### DescribeRepositoriesResponse
 * DescribeRepositoriesResponse `object`
-  * nextToken [NextToken](#nexttoken)
-  * repositories [RepositoryList](#repositorylist)
+  * nextToken
+  * repositories
+    * items [Repository](#repository)
 
 ### EmptyUploadException
-* EmptyUploadException `object`: The specified layer upload does not contain any layer parts.
-  * message [ExceptionMessage](#exceptionmessage)
+
+
+### EncryptionConfiguration
+* EncryptionConfiguration `object`: <p>The encryption configuration for the repository. This determines how the contents of your repository are encrypted at rest.</p> <p>By default, when no encryption configuration is set or the <code>AES256</code> encryption type is used, Amazon ECR uses server-side encryption with Amazon S3-managed encryption keys which encrypts your data at rest using an AES-256 encryption algorithm. This does not require any action on your part.</p> <p>For more control over the encryption of the contents of your repository, you can use server-side encryption with customer master keys (CMKs) stored in AWS Key Management Service (AWS KMS) to encrypt your images. For more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/encryption-at-rest.html">Amazon ECR encryption at rest</a> in the <i>Amazon Elastic Container Registry User Guide</i>.</p>
+  * encryptionType **required**
+  * kmsKey
+
+### EncryptionType
+* EncryptionType `string` (values: AES256, KMS)
 
 ### EvaluationTimestamp
 * EvaluationTimestamp `string`
 
-### ExceptionMessage
-* ExceptionMessage `string`
-
 ### ExpirationTimestamp
 * ExpirationTimestamp `string`
+
+### FindingDescription
+* FindingDescription `string`
+
+### FindingName
+* FindingName `string`
+
+### FindingSeverity
+* FindingSeverity `string` (values: INFORMATIONAL, LOW, MEDIUM, HIGH, CRITICAL, UNDEFINED)
+
+### FindingSeverityCounts
+* FindingSeverityCounts `object`
 
 ### ForceFlag
 * ForceFlag `boolean`
@@ -638,90 +996,116 @@ amazonaws_ecr.UploadLayerPart({
 
 ### GetAuthorizationTokenRequest
 * GetAuthorizationTokenRequest `object`
-  * registryIds [GetAuthorizationTokenRegistryIdList](#getauthorizationtokenregistryidlist)
+  * registryIds
+    * items [RegistryId](#registryid)
 
 ### GetAuthorizationTokenResponse
 * GetAuthorizationTokenResponse `object`
-  * authorizationData [AuthorizationDataList](#authorizationdatalist)
+  * authorizationData
+    * items [AuthorizationData](#authorizationdata)
 
 ### GetDownloadUrlForLayerRequest
 * GetDownloadUrlForLayerRequest `object`
-  * layerDigest **required** [LayerDigest](#layerdigest)
-  * registryId [RegistryId](#registryid)
-  * repositoryName **required** [RepositoryName](#repositoryname)
+  * layerDigest **required**
+  * registryId
+  * repositoryName **required**
 
 ### GetDownloadUrlForLayerResponse
 * GetDownloadUrlForLayerResponse `object`
-  * downloadUrl [Url](#url)
-  * layerDigest [LayerDigest](#layerdigest)
+  * downloadUrl
+  * layerDigest
 
 ### GetLifecyclePolicyPreviewRequest
 * GetLifecyclePolicyPreviewRequest `object`
-  * filter [LifecyclePolicyPreviewFilter](#lifecyclepolicypreviewfilter)
-  * imageIds [ImageIdentifierList](#imageidentifierlist)
-  * maxResults [MaxResults](#maxresults)
-  * nextToken [NextToken](#nexttoken)
-  * registryId [RegistryId](#registryid)
-  * repositoryName **required** [RepositoryName](#repositoryname)
+  * filter
+    * tagStatus
+  * imageIds
+    * items [ImageIdentifier](#imageidentifier)
+  * maxResults
+  * nextToken
+  * registryId
+  * repositoryName **required**
 
 ### GetLifecyclePolicyPreviewResponse
 * GetLifecyclePolicyPreviewResponse `object`
-  * lifecyclePolicyText [LifecyclePolicyText](#lifecyclepolicytext)
-  * nextToken [NextToken](#nexttoken)
-  * previewResults [LifecyclePolicyPreviewResultList](#lifecyclepolicypreviewresultlist)
-  * registryId [RegistryId](#registryid)
-  * repositoryName [RepositoryName](#repositoryname)
-  * status [LifecyclePolicyPreviewStatus](#lifecyclepolicypreviewstatus)
-  * summary [LifecyclePolicyPreviewSummary](#lifecyclepolicypreviewsummary)
+  * lifecyclePolicyText
+  * nextToken
+  * previewResults
+    * items [LifecyclePolicyPreviewResult](#lifecyclepolicypreviewresult)
+  * registryId
+  * repositoryName
+  * status
+  * summary
+    * expiringImageTotalCount
 
 ### GetLifecyclePolicyRequest
 * GetLifecyclePolicyRequest `object`
-  * registryId [RegistryId](#registryid)
-  * repositoryName **required** [RepositoryName](#repositoryname)
+  * registryId
+  * repositoryName **required**
 
 ### GetLifecyclePolicyResponse
 * GetLifecyclePolicyResponse `object`
-  * lastEvaluatedAt [EvaluationTimestamp](#evaluationtimestamp)
-  * lifecyclePolicyText [LifecyclePolicyText](#lifecyclepolicytext)
-  * registryId [RegistryId](#registryid)
-  * repositoryName [RepositoryName](#repositoryname)
+  * lastEvaluatedAt
+  * lifecyclePolicyText
+  * registryId
+  * repositoryName
+
+### GetRegistryPolicyRequest
+* GetRegistryPolicyRequest `object`
+
+### GetRegistryPolicyResponse
+* GetRegistryPolicyResponse `object`
+  * policyText
+  * registryId
 
 ### GetRepositoryPolicyRequest
 * GetRepositoryPolicyRequest `object`
-  * registryId [RegistryId](#registryid)
-  * repositoryName **required** [RepositoryName](#repositoryname)
+  * registryId
+  * repositoryName **required**
 
 ### GetRepositoryPolicyResponse
 * GetRepositoryPolicyResponse `object`
-  * policyText [RepositoryPolicyText](#repositorypolicytext)
-  * registryId [RegistryId](#registryid)
-  * repositoryName [RepositoryName](#repositoryname)
+  * policyText
+  * registryId
+  * repositoryName
 
 ### Image
 * Image `object`: An object representing an Amazon ECR image.
-  * imageId [ImageIdentifier](#imageidentifier)
-  * imageManifest [ImageManifest](#imagemanifest)
-  * registryId [RegistryId](#registryid)
-  * repositoryName [RepositoryName](#repositoryname)
+  * imageId
+    * imageDigest
+    * imageTag
+  * imageManifest
+  * imageManifestMediaType
+  * registryId
+  * repositoryName
 
 ### ImageActionType
 * ImageActionType `string` (values: EXPIRE)
 
 ### ImageAlreadyExistsException
-* ImageAlreadyExistsException `object`: The specified image has already been pushed, and there were no changes to the manifest or image tag after the last push.
-  * message [ExceptionMessage](#exceptionmessage)
+
 
 ### ImageCount
 * ImageCount `integer`
 
 ### ImageDetail
 * ImageDetail `object`: An object that describes an image returned by a <a>DescribeImages</a> operation.
-  * imageDigest [ImageDigest](#imagedigest)
-  * imagePushedAt [PushTimestamp](#pushtimestamp)
-  * imageSizeInBytes [ImageSizeInBytes](#imagesizeinbytes)
-  * imageTags [ImageTagList](#imagetaglist)
-  * registryId [RegistryId](#registryid)
-  * repositoryName [RepositoryName](#repositoryname)
+  * artifactMediaType
+  * imageDigest
+  * imageManifestMediaType
+  * imagePushedAt
+  * imageScanFindingsSummary
+    * findingSeverityCounts
+    * imageScanCompletedAt
+    * vulnerabilitySourceUpdatedAt
+  * imageScanStatus
+    * description
+    * status
+  * imageSizeInBytes
+  * imageTags
+    * items [ImageTag](#imagetag)
+  * registryId
+  * repositoryName
 
 ### ImageDetailList
 * ImageDetailList `array`
@@ -730,14 +1114,19 @@ amazonaws_ecr.UploadLayerPart({
 ### ImageDigest
 * ImageDigest `string`
 
+### ImageDigestDoesNotMatchException
+
+
 ### ImageFailure
 * ImageFailure `object`: An object representing an Amazon ECR image failure.
-  * failureCode [ImageFailureCode](#imagefailurecode)
-  * failureReason [ImageFailureReason](#imagefailurereason)
-  * imageId [ImageIdentifier](#imageidentifier)
+  * failureCode
+  * failureReason
+  * imageId
+    * imageDigest
+    * imageTag
 
 ### ImageFailureCode
-* ImageFailureCode `string` (values: InvalidImageDigest, InvalidImageTag, ImageTagDoesNotMatchDigest, ImageNotFound, MissingDigestAndTag)
+* ImageFailureCode `string` (values: InvalidImageDigest, InvalidImageTag, ImageTagDoesNotMatchDigest, ImageNotFound, MissingDigestAndTag, ImageReferencedByManifestList, KmsError)
 
 ### ImageFailureList
 * ImageFailureList `array`
@@ -748,8 +1137,8 @@ amazonaws_ecr.UploadLayerPart({
 
 ### ImageIdentifier
 * ImageIdentifier `object`: An object with identifying information for an Amazon ECR image.
-  * imageDigest [ImageDigest](#imagedigest)
-  * imageTag [ImageTag](#imagetag)
+  * imageDigest
+  * imageTag
 
 ### ImageIdentifierList
 * ImageIdentifierList `array`
@@ -763,8 +1152,43 @@ amazonaws_ecr.UploadLayerPart({
 * ImageManifest `string`
 
 ### ImageNotFoundException
-* ImageNotFoundException `object`: The image requested does not exist in the specified repository.
-  * message [ExceptionMessage](#exceptionmessage)
+
+
+### ImageScanFinding
+* ImageScanFinding `object`: Contains information about an image scan finding.
+  * attributes
+    * items [Attribute](#attribute)
+  * description
+  * name
+  * severity
+  * uri
+
+### ImageScanFindingList
+* ImageScanFindingList `array`
+  * items [ImageScanFinding](#imagescanfinding)
+
+### ImageScanFindings
+* ImageScanFindings `object`: The details of an image scan.
+  * findingSeverityCounts
+  * findings
+    * items [ImageScanFinding](#imagescanfinding)
+  * imageScanCompletedAt
+  * vulnerabilitySourceUpdatedAt
+
+### ImageScanFindingsSummary
+* ImageScanFindingsSummary `object`: A summary of the last completed image scan.
+  * findingSeverityCounts
+  * imageScanCompletedAt
+  * vulnerabilitySourceUpdatedAt
+
+### ImageScanStatus
+* ImageScanStatus `object`: The current status of an image scan.
+  * description
+  * status
+
+### ImageScanningConfiguration
+* ImageScanningConfiguration `object`: The image scanning configuration for a repository.
+  * scanOnPush
 
 ### ImageSizeInBytes
 * ImageSizeInBytes `integer`
@@ -772,46 +1196,53 @@ amazonaws_ecr.UploadLayerPart({
 ### ImageTag
 * ImageTag `string`
 
+### ImageTagAlreadyExistsException
+
+
 ### ImageTagList
 * ImageTagList `array`
   * items [ImageTag](#imagetag)
 
+### ImageTagMutability
+* ImageTagMutability `string` (values: MUTABLE, IMMUTABLE)
+
 ### InitiateLayerUploadRequest
 * InitiateLayerUploadRequest `object`
-  * registryId [RegistryId](#registryid)
-  * repositoryName **required** [RepositoryName](#repositoryname)
+  * registryId
+  * repositoryName **required**
 
 ### InitiateLayerUploadResponse
 * InitiateLayerUploadResponse `object`
-  * partSize [PartSize](#partsize)
-  * uploadId [UploadId](#uploadid)
+  * partSize
+  * uploadId
 
 ### InvalidLayerException
-* InvalidLayerException `object`: The layer digest calculation performed by Amazon ECR upon receipt of the image layer does not match the digest specified.
-  * message [ExceptionMessage](#exceptionmessage)
+
 
 ### InvalidLayerPartException
-* InvalidLayerPartException `object`: The layer part size is not valid, or the first byte specified is not consecutive to the last byte of a previous layer part upload.
-  * lastValidByteReceived [PartSize](#partsize)
-  * message [ExceptionMessage](#exceptionmessage)
-  * registryId [RegistryId](#registryid)
-  * repositoryName [RepositoryName](#repositoryname)
-  * uploadId [UploadId](#uploadid)
+
 
 ### InvalidParameterException
-* InvalidParameterException `object`: The specified parameter is invalid. Review the available parameters for the API request.
-  * message [ExceptionMessage](#exceptionmessage)
+
+
+### InvalidTagParameterException
+
+
+### KmsException
+
+
+### KmsKey
+* KmsKey `string`
 
 ### Layer
 * Layer `object`: An object representing an Amazon ECR image layer.
-  * layerAvailability [LayerAvailability](#layeravailability)
-  * layerDigest [LayerDigest](#layerdigest)
-  * layerSize [LayerSizeInBytes](#layersizeinbytes)
-  * mediaType [MediaType](#mediatype)
+  * layerAvailability
+  * layerDigest
+  * layerSize
+  * mediaType
 
 ### LayerAlreadyExistsException
-* LayerAlreadyExistsException `object`: The image layer already exists in the associated repository.
-  * message [ExceptionMessage](#exceptionmessage)
+
 
 ### LayerAvailability
 * LayerAvailability `string` (values: AVAILABLE, UNAVAILABLE)
@@ -825,9 +1256,9 @@ amazonaws_ecr.UploadLayerPart({
 
 ### LayerFailure
 * LayerFailure `object`: An object representing an Amazon ECR image layer failure.
-  * failureCode [LayerFailureCode](#layerfailurecode)
-  * failureReason [LayerFailureReason](#layerfailurereason)
-  * layerDigest [BatchedOperationLayerDigest](#batchedoperationlayerdigest)
+  * failureCode
+  * failureReason
+  * layerDigest
 
 ### LayerFailureCode
 * LayerFailureCode `string` (values: InvalidLayerDigest, MissingLayerDigest)
@@ -840,8 +1271,7 @@ amazonaws_ecr.UploadLayerPart({
 * LayerFailureReason `string`
 
 ### LayerInaccessibleException
-* LayerInaccessibleException `object`: The specified layer is not available because it is not associated with an image. Unassociated image layers may be cleaned up at any time.
-  * message [ExceptionMessage](#exceptionmessage)
+
 
 ### LayerList
 * LayerList `array`
@@ -851,39 +1281,36 @@ amazonaws_ecr.UploadLayerPart({
 * LayerPartBlob `string`
 
 ### LayerPartTooSmallException
-* LayerPartTooSmallException `object`: Layer parts must be at least 5 MiB in size.
-  * message [ExceptionMessage](#exceptionmessage)
+
 
 ### LayerSizeInBytes
 * LayerSizeInBytes `integer`
 
 ### LayersNotFoundException
-* LayersNotFoundException `object`: The specified layers could not be found, or the specified layer is not valid for this repository.
-  * message [ExceptionMessage](#exceptionmessage)
+
 
 ### LifecyclePolicyNotFoundException
-* LifecyclePolicyNotFoundException `object`: The lifecycle policy could not be found, and no policy is set to the repository.
-  * message [ExceptionMessage](#exceptionmessage)
+
 
 ### LifecyclePolicyPreviewFilter
 * LifecyclePolicyPreviewFilter `object`: The filter for the lifecycle policy preview.
-  * tagStatus [TagStatus](#tagstatus)
+  * tagStatus
 
 ### LifecyclePolicyPreviewInProgressException
-* LifecyclePolicyPreviewInProgressException `object`: The previous lifecycle policy preview request has not completed. Please try again later.
-  * message [ExceptionMessage](#exceptionmessage)
+
 
 ### LifecyclePolicyPreviewNotFoundException
-* LifecyclePolicyPreviewNotFoundException `object`: There is no dry run for this repository.
-  * message [ExceptionMessage](#exceptionmessage)
+
 
 ### LifecyclePolicyPreviewResult
 * LifecyclePolicyPreviewResult `object`: The result of the lifecycle policy preview.
-  * action [LifecyclePolicyRuleAction](#lifecyclepolicyruleaction)
-  * appliedRulePriority [LifecyclePolicyRulePriority](#lifecyclepolicyrulepriority)
-  * imageDigest [ImageDigest](#imagedigest)
-  * imagePushedAt [PushTimestamp](#pushtimestamp)
-  * imageTags [ImageTagList](#imagetaglist)
+  * action
+    * type
+  * appliedRulePriority
+  * imageDigest
+  * imagePushedAt
+  * imageTags
+    * items [ImageTag](#imagetag)
 
 ### LifecyclePolicyPreviewResultList
 * LifecyclePolicyPreviewResultList `array`
@@ -894,11 +1321,11 @@ amazonaws_ecr.UploadLayerPart({
 
 ### LifecyclePolicyPreviewSummary
 * LifecyclePolicyPreviewSummary `object`: The summary of the lifecycle policy preview request.
-  * expiringImageTotalCount [ImageCount](#imagecount)
+  * expiringImageTotalCount
 
 ### LifecyclePolicyRuleAction
 * LifecyclePolicyRuleAction `object`: The type of action to be taken.
-  * type [ImageActionType](#imageactiontype)
+  * type
 
 ### LifecyclePolicyRulePriority
 * LifecyclePolicyRulePriority `integer`
@@ -906,26 +1333,39 @@ amazonaws_ecr.UploadLayerPart({
 ### LifecyclePolicyText
 * LifecyclePolicyText `string`
 
+### LifecyclePreviewMaxResults
+* LifecyclePreviewMaxResults `integer`
+
 ### LimitExceededException
-* LimitExceededException `object`: The operation did not succeed because it would have exceeded a service limit for your account. For more information, see <a href="http://docs.aws.amazon.com/AmazonECR/latest/userguide/service_limits.html">Amazon ECR Default Service Limits</a> in the Amazon Elastic Container Registry User Guide.
-  * message [ExceptionMessage](#exceptionmessage)
+
 
 ### ListImagesFilter
 * ListImagesFilter `object`: An object representing a filter on a <a>ListImages</a> operation.
-  * tagStatus [TagStatus](#tagstatus)
+  * tagStatus
 
 ### ListImagesRequest
 * ListImagesRequest `object`
-  * filter [ListImagesFilter](#listimagesfilter)
-  * maxResults [MaxResults](#maxresults)
-  * nextToken [NextToken](#nexttoken)
-  * registryId [RegistryId](#registryid)
-  * repositoryName **required** [RepositoryName](#repositoryname)
+  * filter
+    * tagStatus
+  * maxResults
+  * nextToken
+  * registryId
+  * repositoryName **required**
 
 ### ListImagesResponse
 * ListImagesResponse `object`
-  * imageIds [ImageIdentifierList](#imageidentifierlist)
-  * nextToken [NextToken](#nexttoken)
+  * imageIds
+    * items [ImageIdentifier](#imageidentifier)
+  * nextToken
+
+### ListTagsForResourceRequest
+* ListTagsForResourceRequest `object`
+  * resourceArn **required**
+
+### ListTagsForResourceResponse
+* ListTagsForResourceResponse `object`
+  * tags
+    * items [Tag](#tag)
 
 ### MaxResults
 * MaxResults `integer`
@@ -951,41 +1391,136 @@ amazonaws_ecr.UploadLayerPart({
 
 ### PutImageRequest
 * PutImageRequest `object`
-  * imageManifest **required** [ImageManifest](#imagemanifest)
-  * imageTag [ImageTag](#imagetag)
-  * registryId [RegistryId](#registryid)
-  * repositoryName **required** [RepositoryName](#repositoryname)
+  * imageDigest
+  * imageManifest **required**
+  * imageManifestMediaType
+  * imageTag
+  * registryId
+  * repositoryName **required**
 
 ### PutImageResponse
 * PutImageResponse `object`
-  * image [Image](#image)
+  * image
+    * imageId
+      * imageDigest
+      * imageTag
+    * imageManifest
+    * imageManifestMediaType
+    * registryId
+    * repositoryName
+
+### PutImageScanningConfigurationRequest
+* PutImageScanningConfigurationRequest `object`
+  * imageScanningConfiguration **required**
+    * scanOnPush
+  * registryId
+  * repositoryName **required**
+
+### PutImageScanningConfigurationResponse
+* PutImageScanningConfigurationResponse `object`
+  * imageScanningConfiguration
+    * scanOnPush
+  * registryId
+  * repositoryName
+
+### PutImageTagMutabilityRequest
+* PutImageTagMutabilityRequest `object`
+  * imageTagMutability **required**
+  * registryId
+  * repositoryName **required**
+
+### PutImageTagMutabilityResponse
+* PutImageTagMutabilityResponse `object`
+  * imageTagMutability
+  * registryId
+  * repositoryName
 
 ### PutLifecyclePolicyRequest
 * PutLifecyclePolicyRequest `object`
-  * lifecyclePolicyText **required** [LifecyclePolicyText](#lifecyclepolicytext)
-  * registryId [RegistryId](#registryid)
-  * repositoryName **required** [RepositoryName](#repositoryname)
+  * lifecyclePolicyText **required**
+  * registryId
+  * repositoryName **required**
 
 ### PutLifecyclePolicyResponse
 * PutLifecyclePolicyResponse `object`
-  * lifecyclePolicyText [LifecyclePolicyText](#lifecyclepolicytext)
-  * registryId [RegistryId](#registryid)
-  * repositoryName [RepositoryName](#repositoryname)
+  * lifecyclePolicyText
+  * registryId
+  * repositoryName
+
+### PutRegistryPolicyRequest
+* PutRegistryPolicyRequest `object`
+  * policyText **required**
+
+### PutRegistryPolicyResponse
+* PutRegistryPolicyResponse `object`
+  * policyText
+  * registryId
+
+### PutReplicationConfigurationRequest
+* PutReplicationConfigurationRequest `object`
+  * replicationConfiguration **required**
+    * rules **required**
+      * items [ReplicationRule](#replicationrule)
+
+### PutReplicationConfigurationResponse
+* PutReplicationConfigurationResponse `object`
+  * replicationConfiguration
+    * rules **required**
+      * items [ReplicationRule](#replicationrule)
+
+### ReferencedImagesNotFoundException
+
+
+### Region
+* Region `string`
 
 ### RegistryId
 * RegistryId `string`
 
+### RegistryPolicyNotFoundException
+
+
+### RegistryPolicyText
+* RegistryPolicyText `string`
+
+### ReplicationConfiguration
+* ReplicationConfiguration `object`: The replication configuration for a registry.
+  * rules **required**
+    * items [ReplicationRule](#replicationrule)
+
+### ReplicationDestination
+* ReplicationDestination `object`: An array of objects representing the details of a replication destination.
+  * region **required**
+  * registryId **required**
+
+### ReplicationDestinationList
+* ReplicationDestinationList `array`
+  * items [ReplicationDestination](#replicationdestination)
+
+### ReplicationRule
+* ReplicationRule `object`: An array of objects representing the replication destinations for a replication configuration. A replication configuration may contain only one replication rule but the rule may contain one or more replication destinations.
+  * destinations **required**
+    * items [ReplicationDestination](#replicationdestination)
+
+### ReplicationRuleList
+* ReplicationRuleList `array`
+  * items [ReplicationRule](#replicationrule)
+
 ### Repository
 * Repository `object`: An object representing a repository.
-  * createdAt [CreationTimestamp](#creationtimestamp)
-  * registryId [RegistryId](#registryid)
-  * repositoryArn [Arn](#arn)
-  * repositoryName [RepositoryName](#repositoryname)
-  * repositoryUri [Url](#url)
+  * createdAt
+  * encryptionConfiguration
+    * encryptionType **required**
+    * kmsKey
+  * imageScanningConfiguration [ImageScanningConfiguration](#imagescanningconfiguration)
+  * imageTagMutability
+  * registryId
+  * repositoryArn
+  * repositoryName
+  * repositoryUri
 
 ### RepositoryAlreadyExistsException
-* RepositoryAlreadyExistsException `object`: The specified repository already exists in the specified registry.
-  * message [ExceptionMessage](#exceptionmessage)
+
 
 ### RepositoryList
 * RepositoryList `array`
@@ -999,77 +1534,154 @@ amazonaws_ecr.UploadLayerPart({
   * items [RepositoryName](#repositoryname)
 
 ### RepositoryNotEmptyException
-* RepositoryNotEmptyException `object`: The specified repository contains images. To delete a repository that contains images, you must force the deletion with the <code>force</code> parameter.
-  * message [ExceptionMessage](#exceptionmessage)
+
 
 ### RepositoryNotFoundException
-* RepositoryNotFoundException `object`: The specified repository could not be found. Check the spelling of the specified repository and ensure that you are performing operations on the correct registry.
-  * message [ExceptionMessage](#exceptionmessage)
+
 
 ### RepositoryPolicyNotFoundException
-* RepositoryPolicyNotFoundException `object`: The specified repository and registry combination does not have an associated repository policy.
-  * message [ExceptionMessage](#exceptionmessage)
+
 
 ### RepositoryPolicyText
 * RepositoryPolicyText `string`
 
+### ScanNotFoundException
+
+
+### ScanOnPushFlag
+* ScanOnPushFlag `boolean`
+
+### ScanStatus
+* ScanStatus `string` (values: IN_PROGRESS, COMPLETE, FAILED)
+
+### ScanStatusDescription
+* ScanStatusDescription `string`
+
+### ScanTimestamp
+* ScanTimestamp `string`
+
 ### ServerException
-* ServerException `object`: These errors are usually caused by a server-side issue.
-  * message [ExceptionMessage](#exceptionmessage)
+
 
 ### SetRepositoryPolicyRequest
 * SetRepositoryPolicyRequest `object`
-  * force [ForceFlag](#forceflag)
-  * policyText **required** [RepositoryPolicyText](#repositorypolicytext)
-  * registryId [RegistryId](#registryid)
-  * repositoryName **required** [RepositoryName](#repositoryname)
+  * force
+  * policyText **required**
+  * registryId
+  * repositoryName **required**
 
 ### SetRepositoryPolicyResponse
 * SetRepositoryPolicyResponse `object`
-  * policyText [RepositoryPolicyText](#repositorypolicytext)
-  * registryId [RegistryId](#registryid)
-  * repositoryName [RepositoryName](#repositoryname)
+  * policyText
+  * registryId
+  * repositoryName
+
+### SeverityCount
+* SeverityCount `integer`
+
+### StartImageScanRequest
+* StartImageScanRequest `object`
+  * imageId **required** [ImageIdentifier](#imageidentifier)
+  * registryId
+  * repositoryName **required**
+
+### StartImageScanResponse
+* StartImageScanResponse `object`
+  * imageId [ImageIdentifier](#imageidentifier)
+  * imageScanStatus
+    * description
+    * status
+  * registryId
+  * repositoryName
 
 ### StartLifecyclePolicyPreviewRequest
 * StartLifecyclePolicyPreviewRequest `object`
-  * lifecyclePolicyText [LifecyclePolicyText](#lifecyclepolicytext)
-  * registryId [RegistryId](#registryid)
-  * repositoryName **required** [RepositoryName](#repositoryname)
+  * lifecyclePolicyText
+  * registryId
+  * repositoryName **required**
 
 ### StartLifecyclePolicyPreviewResponse
 * StartLifecyclePolicyPreviewResponse `object`
-  * lifecyclePolicyText [LifecyclePolicyText](#lifecyclepolicytext)
-  * registryId [RegistryId](#registryid)
-  * repositoryName [RepositoryName](#repositoryname)
-  * status [LifecyclePolicyPreviewStatus](#lifecyclepolicypreviewstatus)
+  * lifecyclePolicyText
+  * registryId
+  * repositoryName
+  * status
+
+### Tag
+* Tag `object`: The metadata that you apply to a resource to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
+  * Key
+  * Value
+
+### TagKey
+* TagKey `string`
+
+### TagKeyList
+* TagKeyList `array`
+  * items [TagKey](#tagkey)
+
+### TagList
+* TagList `array`
+  * items [Tag](#tag)
+
+### TagResourceRequest
+* TagResourceRequest `object`
+  * tags **required**
+    * items [Tag](#tag)
+  * resourceArn **required**
+
+### TagResourceResponse
+* TagResourceResponse `object`
 
 ### TagStatus
-* TagStatus `string` (values: TAGGED, UNTAGGED)
+* TagStatus `string` (values: TAGGED, UNTAGGED, ANY)
+
+### TagValue
+* TagValue `string`
+
+### TooManyTagsException
+
+
+### UnsupportedImageTypeException
+
+
+### UntagResourceRequest
+* UntagResourceRequest `object`
+  * resourceArn **required**
+  * tagKeys **required**
+    * items [TagKey](#tagkey)
+
+### UntagResourceResponse
+* UntagResourceResponse `object`
 
 ### UploadId
 * UploadId `string`
 
 ### UploadLayerPartRequest
 * UploadLayerPartRequest `object`
-  * layerPartBlob **required** [LayerPartBlob](#layerpartblob)
-  * partFirstByte **required** [PartSize](#partsize)
-  * partLastByte **required** [PartSize](#partsize)
-  * registryId [RegistryId](#registryid)
-  * repositoryName **required** [RepositoryName](#repositoryname)
-  * uploadId **required** [UploadId](#uploadid)
+  * layerPartBlob **required**
+  * partFirstByte **required**
+  * partLastByte **required**
+  * registryId
+  * repositoryName **required**
+  * uploadId **required**
 
 ### UploadLayerPartResponse
 * UploadLayerPartResponse `object`
-  * lastByteReceived [PartSize](#partsize)
-  * registryId [RegistryId](#registryid)
-  * repositoryName [RepositoryName](#repositoryname)
-  * uploadId [UploadId](#uploadid)
+  * lastByteReceived
+  * registryId
+  * repositoryName
+  * uploadId
 
 ### UploadNotFoundException
-* UploadNotFoundException `object`: The upload could not be found, or the specified upload id is not valid for this repository.
-  * message [ExceptionMessage](#exceptionmessage)
+
 
 ### Url
 * Url `string`
+
+### ValidationException
+
+
+### VulnerabilitySourceUpdateTimestamp
+* VulnerabilitySourceUpdateTimestamp `string`
 
 

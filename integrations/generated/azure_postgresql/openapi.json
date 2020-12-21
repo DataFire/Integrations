@@ -5,7 +5,7 @@
   ],
   "host": "management.azure.com",
   "info": {
-    "description": "The Microsoft Azure management API provides create, read, update, and delete functionality for Azure PostgreSQL resources including servers, databases, firewall rules, log files and configurations with new business model.",
+    "description": "The Microsoft Azure management API provides create, read, update, and delete functionality for Azure PostgreSQL resources including servers, databases, firewall rules, VNET rules, security alert policies, log files and configurations with new business model.",
     "title": "PostgreSQLManagementClient",
     "version": "2017-12-01-preview",
     "x-apisguru-categories": [
@@ -105,6 +105,17 @@
       "type": "string",
       "x-ms-parameter-location": "method"
     },
+    "SecurityAlertPolicyNameParameter": {
+      "description": "The name of the security alert policy.",
+      "enum": [
+        "default"
+      ],
+      "in": "path",
+      "name": "securityAlertPolicyName",
+      "required": true,
+      "type": "string",
+      "x-ms-parameter-location": "method"
+    },
     "ServerNameParameter": {
       "description": "The name of the server.",
       "in": "path",
@@ -119,6 +130,14 @@
       "name": "subscriptionId",
       "required": true,
       "type": "string"
+    },
+    "virtualNetworkRuleNameParameter": {
+      "description": "The name of the virtual network rule.",
+      "in": "path",
+      "name": "virtualNetworkRuleName",
+      "required": true,
+      "type": "string",
+      "x-ms-parameter-location": "method"
     }
   },
   "paths": {
@@ -434,141 +453,80 @@
                   "value": [
                     {
                       "id": "Basic",
-                      "maxBackupRetentionDays": 35,
-                      "maxStorageMB": 1048576,
-                      "minBackupRetentionDays": 7,
-                      "minStorageMB": 5120,
                       "serviceLevelObjectives": [
                         {
                           "edition": "Basic",
                           "hardwareGeneration": "Gen4",
                           "id": "B_Gen4_1",
+                          "maxBackupRetentionDays": 35,
+                          "maxStorageMB": 1048576,
+                          "minBackupRetentionDays": 7,
+                          "minStorageMB": 5120,
                           "vCore": 1
                         },
                         {
                           "edition": "Basic",
                           "hardwareGeneration": "Gen4",
                           "id": "B_Gen4_2",
-                          "vCore": 2
-                        },
-                        {
-                          "edition": "Basic",
-                          "hardwareGeneration": "Gen5",
-                          "id": "B_Gen5_1",
-                          "vCore": 1
-                        },
-                        {
-                          "edition": "Basic",
-                          "hardwareGeneration": "Gen5",
-                          "id": "B_Gen5_2",
+                          "maxBackupRetentionDays": 35,
+                          "maxStorageMB": 1048576,
+                          "minBackupRetentionDays": 7,
+                          "minStorageMB": 5120,
                           "vCore": 2
                         }
                       ]
                     },
                     {
                       "id": "GeneralPurpose",
-                      "maxBackupRetentionDays": 35,
-                      "maxStorageMB": 2097152,
-                      "minBackupRetentionDays": 7,
-                      "minStorageMB": 5120,
                       "serviceLevelObjectives": [
                         {
                           "edition": "GeneralPurpose",
                           "hardwareGeneration": "Gen4",
                           "id": "GP_Gen4_2",
+                          "maxBackupRetentionDays": 35,
+                          "maxStorageMB": 2097152,
+                          "minBackupRetentionDays": 7,
+                          "minStorageMB": 5120,
                           "vCore": 2
                         },
                         {
                           "edition": "GeneralPurpose",
                           "hardwareGeneration": "Gen4",
                           "id": "GP_Gen4_4",
+                          "maxBackupRetentionDays": 35,
+                          "maxStorageMB": 2097152,
+                          "minBackupRetentionDays": 7,
+                          "minStorageMB": 5120,
                           "vCore": 4
                         },
                         {
                           "edition": "GeneralPurpose",
                           "hardwareGeneration": "Gen4",
                           "id": "GP_Gen4_8",
+                          "maxBackupRetentionDays": 35,
+                          "maxStorageMB": 2097152,
+                          "minBackupRetentionDays": 7,
+                          "minStorageMB": 5120,
                           "vCore": 8
                         },
                         {
                           "edition": "GeneralPurpose",
                           "hardwareGeneration": "Gen4",
                           "id": "GP_Gen4_16",
+                          "maxBackupRetentionDays": 35,
+                          "maxStorageMB": 2097152,
+                          "minBackupRetentionDays": 7,
+                          "minStorageMB": 5120,
                           "vCore": 16
                         },
                         {
                           "edition": "GeneralPurpose",
                           "hardwareGeneration": "Gen4",
                           "id": "GP_Gen4_32",
-                          "vCore": 32
-                        },
-                        {
-                          "edition": "GeneralPurpose",
-                          "hardwareGeneration": "Gen5",
-                          "id": "GP_Gen5_2",
-                          "vCore": 2
-                        },
-                        {
-                          "edition": "GeneralPurpose",
-                          "hardwareGeneration": "Gen5",
-                          "id": "GP_Gen5_4",
-                          "vCore": 4
-                        },
-                        {
-                          "edition": "GeneralPurpose",
-                          "hardwareGeneration": "Gen5",
-                          "id": "GP_Gen5_8",
-                          "vCore": 8
-                        },
-                        {
-                          "edition": "GeneralPurpose",
-                          "hardwareGeneration": "Gen5",
-                          "id": "GP_Gen5_16",
-                          "vCore": 16
-                        },
-                        {
-                          "edition": "GeneralPurpose",
-                          "hardwareGeneration": "Gen5",
-                          "id": "GP_Gen5_32",
-                          "vCore": 32
-                        }
-                      ]
-                    },
-                    {
-                      "id": "MemoryOptimized",
-                      "maxBackupRetentionDays": 35,
-                      "maxStorageMB": 2097152,
-                      "minBackupRetentionDays": 7,
-                      "minStorageMB": 5120,
-                      "serviceLevelObjectives": [
-                        {
-                          "edition": "MemoryOptimized",
-                          "hardwareGeneration": "Gen5",
-                          "id": "MO_Gen5_2",
-                          "vCore": 2
-                        },
-                        {
-                          "edition": "MemoryOptimized",
-                          "hardwareGeneration": "Gen5",
-                          "id": "MO_Gen5_4",
-                          "vCore": 4
-                        },
-                        {
-                          "edition": "MemoryOptimized",
-                          "hardwareGeneration": "Gen5",
-                          "id": "MO_Gen5_8",
-                          "vCore": 8
-                        },
-                        {
-                          "edition": "MemoryOptimized",
-                          "hardwareGeneration": "Gen5",
-                          "id": "MO_Gen5_16",
-                          "vCore": 16
-                        },
-                        {
-                          "edition": "MemoryOptimized",
-                          "hardwareGeneration": "Gen5",
-                          "id": "MO_Gen5_32",
+                          "maxBackupRetentionDays": 35,
+                          "maxStorageMB": 2097152,
+                          "minBackupRetentionDays": 7,
+                          "minStorageMB": 5120,
                           "vCore": 32
                         }
                       ]
@@ -579,7 +537,9 @@
             }
           }
         },
-        "x-ms-pageable": {}
+        "x-ms-pageable": {
+          "nextLinkName": null
+        }
       }
     },
     "/subscriptions/{subscriptionId}/providers/Microsoft.DBforPostgreSQL/servers": {
@@ -616,45 +576,43 @@
                 "body": {
                   "value": [
                     {
-                      "id": "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestGroup/providers/Microsoft.DBforPostgreSQL/servers/testserver",
-                      "location": "onebox",
-                      "name": "testserver",
+                      "id": "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.DBforPostgreSQL/servers/pgtestsvc1",
+                      "location": "westus",
+                      "name": "pgtestsvc1",
                       "properties": {
-                        "administratorLogin": "cloudsa",
-                        "fullyQualifiedDomainName": "testserver.test-vm1.onebox.xdb.mscds.com",
+                        "administratorLogin": "testuser",
+                        "earliestRestoreDate": "2018-03-04T21:01:55.1498475+00:00",
+                        "fullyQualifiedDomainName": "pgtestsvc1.postgres.database.azure.com",
                         "sslEnforcement": "Enabled",
                         "storageProfile": {
-                          "backupRetentionDays": 7,
-                          "geoRedundantBackup": "Enabled",
-                          "storageMB": 128000
+                          "backupRetentionDays": 10,
+                          "geoRedundantBackup": "Disabled",
+                          "storageMB": 5120
                         },
                         "userVisibleState": "Ready",
-                        "version": "9.6"
+                        "version": "9.5"
                       },
                       "sku": {
-                        "capacity": 2,
+                        "capacity": 1,
                         "family": "Gen4",
-                        "name": "PGSQL_B_Gen4_2",
-                        "size": null,
+                        "name": "B_Gen4_1",
                         "tier": "Basic"
-                      },
-                      "tags": {
-                        "elasticServer": "1"
                       },
                       "type": "Microsoft.DBforPostgreSQL/servers"
                     },
                     {
-                      "id": "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestGroup/providers/Microsoft.DBforPostgreSQL/servers/testserver1",
-                      "location": "onebox",
-                      "name": "testserver1",
+                      "id": "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.DBforPostgreSQL/servers/pgtestsvc2",
+                      "location": "westus",
+                      "name": "pgtestsvc2",
                       "properties": {
-                        "administratorLogin": "cloudsa",
-                        "fullyQualifiedDomainName": "testserver.test-vm1.onebox.xdb.mscds.com",
+                        "administratorLogin": "testuser",
+                        "earliestRestoreDate": "2018-03-07T21:01:55.1498475+00:00",
+                        "fullyQualifiedDomainName": "pgtestsvc2.postgres.database.azure.com",
                         "sslEnforcement": "Enabled",
                         "storageProfile": {
                           "backupRetentionDays": 7,
-                          "geoRedundantBackup": "Enabled",
-                          "storageMB": 128000
+                          "geoRedundantBackup": "Disabled",
+                          "storageMB": 5120
                         },
                         "userVisibleState": "Ready",
                         "version": "9.6"
@@ -662,26 +620,48 @@
                       "sku": {
                         "capacity": 2,
                         "family": "Gen4",
-                        "name": "PGSQL_B_Gen4_2",
-                        "size": null,
-                        "tier": "Basic"
-                      },
-                      "tags": {
-                        "elasticServer": "1"
+                        "name": "GP_Gen4_2",
+                        "tier": "GeneralPurpose"
                       },
                       "type": "Microsoft.DBforPostgreSQL/servers"
                     },
                     {
-                      "id": "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestGroup/providers/Microsoft.DBforPostgreSQL/servers/testserver2",
-                      "location": "onebox",
-                      "name": "testserver2",
+                      "id": "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg1/providers/Microsoft.DBforPostgreSQL/servers/pgtestsvc3",
+                      "location": "westus",
+                      "name": "pgtestsvc3",
+                      "properties": {
+                        "administratorLogin": "testuser",
+                        "earliestRestoreDate": "2018-03-01T00:11:08.55+00:00",
+                        "fullyQualifiedDomainName": "pgtestsvc3.postgres.database.azure.com",
+                        "sslEnforcement": "Enabled",
+                        "storageProfile": {
+                          "backupRetentionDays": 35,
+                          "geoRedundantBackup": "Enabled",
+                          "storageMB": 204800
+                        },
+                        "userVisibleState": "Ready",
+                        "version": "9.6"
+                      },
+                      "sku": {
+                        "capacity": 4,
+                        "family": "Gen4",
+                        "name": "GP_Gen4_4",
+                        "tier": "GeneralPurpose"
+                      },
+                      "type": "Microsoft.DBforPostgreSQL/servers"
+                    },
+                    {
+                      "id": "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.DBforPostgreSQL/servers/pgtestsvc4",
+                      "location": "westus",
+                      "name": "pgtestsvc4",
                       "properties": {
                         "administratorLogin": "cloudsa",
-                        "fullyQualifiedDomainName": "testserver.test-vm1.onebox.xdb.mscds.com",
+                        "earliestRestoreDate": "2018-03-14T21:08:24.637+00:00",
+                        "fullyQualifiedDomainName": "pgtestsvc4.postgres.database.azure.com",
                         "sslEnforcement": "Enabled",
                         "storageProfile": {
                           "backupRetentionDays": 7,
-                          "geoRedundantBackup": "Enabled",
+                          "geoRedundantBackup": "Disabled",
                           "storageMB": 128000
                         },
                         "userVisibleState": "Ready",
@@ -690,12 +670,11 @@
                       "sku": {
                         "capacity": 2,
                         "family": "Gen4",
-                        "name": "PGSQL_B_Gen4_2",
-                        "size": null,
+                        "name": "B_Gen4_2",
                         "tier": "Basic"
                       },
                       "tags": {
-                        "elasticServer": "1"
+                        "ElasticServer": "1"
                       },
                       "type": "Microsoft.DBforPostgreSQL/servers"
                     }
@@ -705,7 +684,9 @@
             }
           }
         },
-        "x-ms-pageable": {}
+        "x-ms-pageable": {
+          "nextLinkName": null
+        }
       }
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/servers": {
@@ -746,45 +727,43 @@
                 "body": {
                   "value": [
                     {
-                      "id": "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestGroup/providers/Microsoft.DBforPostgreSQL/servers/testserver",
-                      "location": "onebox",
-                      "name": "testserver",
+                      "id": "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.DBforPostgreSQL/servers/pgtestsvc1",
+                      "location": "westus",
+                      "name": "pgtestsvc1",
                       "properties": {
-                        "administratorLogin": "cloudsa",
-                        "fullyQualifiedDomainName": "testserver.test-vm1.onebox.xdb.mscds.com",
+                        "administratorLogin": "testuser",
+                        "earliestRestoreDate": "2018-03-04T21:01:55.1498475+00:00",
+                        "fullyQualifiedDomainName": "pgtestsvc1.postgres.database.azure.com",
                         "sslEnforcement": "Enabled",
                         "storageProfile": {
-                          "backupRetentionDays": 7,
-                          "geoRedundantBackup": "Enabled",
-                          "storageMB": 128000
+                          "backupRetentionDays": 10,
+                          "geoRedundantBackup": "Disabled",
+                          "storageMB": 5120
                         },
                         "userVisibleState": "Ready",
-                        "version": "9.6"
+                        "version": "9.5"
                       },
                       "sku": {
-                        "capacity": 2,
+                        "capacity": 1,
                         "family": "Gen4",
-                        "name": "PGSQL_B_Gen4_2",
-                        "size": null,
+                        "name": "B_Gen4_1",
                         "tier": "Basic"
-                      },
-                      "tags": {
-                        "elasticServer": "1"
                       },
                       "type": "Microsoft.DBforPostgreSQL/servers"
                     },
                     {
-                      "id": "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestGroup/providers/Microsoft.DBforPostgreSQL/servers/testserver1",
-                      "location": "onebox",
-                      "name": "testserver1",
+                      "id": "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.DBforPostgreSQL/servers/pgtestsvc2",
+                      "location": "westus",
+                      "name": "pgtestsvc2",
                       "properties": {
-                        "administratorLogin": "cloudsa",
-                        "fullyQualifiedDomainName": "testserver.test-vm1.onebox.xdb.mscds.com",
+                        "administratorLogin": "testuser",
+                        "earliestRestoreDate": "2018-03-07T21:01:55.1498475+00:00",
+                        "fullyQualifiedDomainName": "pgtestsvc2.postgres.database.azure.com",
                         "sslEnforcement": "Enabled",
                         "storageProfile": {
                           "backupRetentionDays": 7,
-                          "geoRedundantBackup": "Enabled",
-                          "storageMB": 128000
+                          "geoRedundantBackup": "Disabled",
+                          "storageMB": 5120
                         },
                         "userVisibleState": "Ready",
                         "version": "9.6"
@@ -792,26 +771,23 @@
                       "sku": {
                         "capacity": 2,
                         "family": "Gen4",
-                        "name": "PGSQL_B_Gen4_2",
-                        "size": null,
-                        "tier": "Basic"
-                      },
-                      "tags": {
-                        "elasticServer": "1"
+                        "name": "GP_Gen4_2",
+                        "tier": "GeneralPurpose"
                       },
                       "type": "Microsoft.DBforPostgreSQL/servers"
                     },
                     {
-                      "id": "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestGroup/providers/Microsoft.DBforPostgreSQL/servers/testserver2",
-                      "location": "onebox",
-                      "name": "testserver2",
+                      "id": "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.DBforPostgreSQL/servers/pgtestsvc4",
+                      "location": "westus",
+                      "name": "pgtestsvc4",
                       "properties": {
                         "administratorLogin": "cloudsa",
-                        "fullyQualifiedDomainName": "testserver.test-vm1.onebox.xdb.mscds.com",
+                        "earliestRestoreDate": "2018-03-14T21:08:24.637+00:00",
+                        "fullyQualifiedDomainName": "pgtestsvc4.postgres.database.azure.com",
                         "sslEnforcement": "Enabled",
                         "storageProfile": {
                           "backupRetentionDays": 7,
-                          "geoRedundantBackup": "Enabled",
+                          "geoRedundantBackup": "Disabled",
                           "storageMB": 128000
                         },
                         "userVisibleState": "Ready",
@@ -820,12 +796,11 @@
                       "sku": {
                         "capacity": 2,
                         "family": "Gen4",
-                        "name": "PGSQL_B_Gen4_2",
-                        "size": null,
+                        "name": "B_Gen4_2",
                         "tier": "Basic"
                       },
                       "tags": {
-                        "elasticServer": "1"
+                        "ElasticServer": "1"
                       },
                       "type": "Microsoft.DBforPostgreSQL/servers"
                     }
@@ -835,7 +810,9 @@
             }
           }
         },
-        "x-ms-pageable": {}
+        "x-ms-pageable": {
+          "nextLinkName": null
+        }
       }
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/servers/{serverName}": {
@@ -919,37 +896,36 @@
           "ServerGet": {
             "parameters": {
               "api-version": "2017-12-01-preview",
-              "resourceGroupName": "TestGroup",
-              "serverName": "testserver",
+              "resourceGroupName": "testrg",
+              "serverName": "pgtestsvc1",
               "subscriptionId": "ffffffff-ffff-ffff-ffff-ffffffffffff"
             },
             "responses": {
               "200": {
                 "body": {
-                  "id": "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestGroup/providers/Microsoft.DBforPostgreSQL/servers/testserver",
-                  "location": "onebox",
-                  "name": "testserver",
+                  "id": "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.DBforPostgreSQL/servers/pgtestsvc1",
+                  "location": "westus",
+                  "name": "pgtestsvc1",
                   "properties": {
-                    "administratorLogin": "cloudsa",
-                    "fullyQualifiedDomainName": "testserver.test-vm1.onebox.xdb.mscds.com",
+                    "administratorLogin": "testuser",
+                    "earliestRestoreDate": "2018-03-04T21:00:58.9243541+00:00",
+                    "fullyQualifiedDomainName": "pgtestsvc1.postgres.database.azure.com",
+                    "masterServerId": "",
+                    "replicationRole": "",
                     "sslEnforcement": "Enabled",
                     "storageProfile": {
-                      "backupRetentionDays": 7,
-                      "geoRedundantBackup": "Enabled",
-                      "storageMB": 128000
+                      "backupRetentionDays": 10,
+                      "geoRedundantBackup": "Disabled",
+                      "storageMB": 5120
                     },
                     "userVisibleState": "Ready",
-                    "version": "9.6"
+                    "version": "9.5"
                   },
                   "sku": {
-                    "capacity": 2,
+                    "capacity": 1,
                     "family": "Gen4",
-                    "name": "PGSQL_B_Gen4_2",
-                    "size": null,
+                    "name": "B_Gen4_1",
                     "tier": "Basic"
-                  },
-                  "tags": {
-                    "elasticServer": "1"
                   },
                   "type": "Microsoft.DBforPostgreSQL/servers"
                 }
@@ -1008,36 +984,37 @@
                   "sslEnforcement": "Disabled"
                 }
               },
-              "resourceGroupName": "TestGroup",
-              "serverName": "testserver",
+              "resourceGroupName": "testrg",
+              "serverName": "pgtestsvc4",
               "subscriptionId": "ffffffff-ffff-ffff-ffff-ffffffffffff"
             },
             "responses": {
               "200": {
                 "body": {
-                  "id": "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestGroup/providers/Microsoft.DBforPostgreSQL/servers/testserver",
-                  "location": "onebox",
-                  "name": "testserver",
+                  "id": "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.DBforPostgreSQL/servers/pgtestsvc4",
+                  "location": "westus",
+                  "name": "pgtestsvc4",
                   "properties": {
                     "administratorLogin": "cloudsa",
-                    "fullyQualifiedDomainName": "testserver.test-vm1.onebox.xdb.mscds.com",
-                    "sslEnforcement": "Disabled",
+                    "earliestRestoreDate": "2018-03-14T21:08:24.637+00:00",
+                    "fullyQualifiedDomainName": "pgtestsvc4.postgres.database.azure.com",
+                    "sslEnforcement": "Enabled",
                     "storageProfile": {
                       "backupRetentionDays": 7,
-                      "geoRedundantBackup": "Enabled",
+                      "geoRedundantBackup": "Disabled",
                       "storageMB": 128000
                     },
-                    "userVisibleState": "Ready"
+                    "userVisibleState": "Ready",
+                    "version": "9.6"
                   },
                   "sku": {
                     "capacity": 2,
                     "family": "Gen4",
                     "name": "B_Gen4_2",
-                    "size": null,
                     "tier": "Basic"
                   },
                   "tags": {
-                    "elasticServer": "1"
+                    "ElasticServer": "1"
                   },
                   "type": "Microsoft.DBforPostgreSQL/servers"
                 }
@@ -1095,11 +1072,99 @@
           "Servers"
         ],
         "x-ms-examples": {
-          "ServerCreate": {
+          "Create a database as a point in time restore": {
             "parameters": {
               "api-version": "2017-12-01-preview",
               "parameters": {
-                "location": "OneBox",
+                "location": "brazilsouth",
+                "properties": {
+                  "createMode": "PointInTimeRestore",
+                  "restorePointInTime": "2017-12-14T00:00:37.467Z",
+                  "sourceServerId": "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/SourceResourceGroup/providers/Microsoft.DBforPostgreSQL/servers/sourceserver"
+                },
+                "sku": {
+                  "capacity": 2,
+                  "family": "Gen4",
+                  "name": "B_Gen4_2",
+                  "tier": "Basic"
+                },
+                "tags": {
+                  "ElasticServer": "1"
+                }
+              },
+              "resourceGroupName": "TargetResourceGroup",
+              "serverName": "targetserver",
+              "subscriptionId": "ffffffff-ffff-ffff-ffff-ffffffffffff"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "id": "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.DBforPostgreSQL/servers/targetserver",
+                  "location": "brazilsouth",
+                  "name": "targetserver",
+                  "properties": {
+                    "administratorLogin": "cloudsa",
+                    "earliestRestoreDate": "2017-12-14T21:08:24.637+00:00",
+                    "fullyQualifiedDomainName": "targetserver.postgres.database.azure.com",
+                    "sslEnforcement": "Enabled",
+                    "storageProfile": {
+                      "backupRetentionDays": 7,
+                      "geoRedundantBackup": "Disabled",
+                      "storageMB": 128000
+                    },
+                    "userVisibleState": "Ready",
+                    "version": "9.6"
+                  },
+                  "sku": {
+                    "capacity": 2,
+                    "family": "Gen4",
+                    "name": "B_Gen4_2",
+                    "tier": "Basic"
+                  },
+                  "tags": {
+                    "ElasticServer": "1"
+                  },
+                  "type": "Microsoft.DBforPostgreSQL/servers"
+                }
+              },
+              "201": {
+                "body": {
+                  "id": "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.DBforPostgreSQL/servers/targetserver",
+                  "location": "brazilsouth",
+                  "name": "targetserver",
+                  "properties": {
+                    "administratorLogin": "cloudsa",
+                    "earliestRestoreDate": "2017-12-14T21:08:24.637+00:00",
+                    "fullyQualifiedDomainName": "targetserver.postgres.database.azure.com",
+                    "sslEnforcement": "Enabled",
+                    "storageProfile": {
+                      "backupRetentionDays": 7,
+                      "geoRedundantBackup": "Disabled",
+                      "storageMB": 128000
+                    },
+                    "userVisibleState": "Ready",
+                    "version": "9.6"
+                  },
+                  "sku": {
+                    "capacity": 2,
+                    "family": "Gen4",
+                    "name": "B_Gen4_2",
+                    "tier": "Basic"
+                  },
+                  "tags": {
+                    "ElasticServer": "1"
+                  },
+                  "type": "Microsoft.DBforPostgreSQL/servers"
+                }
+              },
+              "202": {}
+            }
+          },
+          "Create a new server": {
+            "parameters": {
+              "api-version": "2017-12-01-preview",
+              "parameters": {
+                "location": "westus",
                 "properties": {
                   "administratorLogin": "cloudsa",
                   "administratorLoginPassword": "password",
@@ -1113,8 +1178,8 @@
                 },
                 "sku": {
                   "capacity": 2,
-                  "family": "Gen4",
-                  "name": "SkuName",
+                  "family": "Gen5",
+                  "name": "B_Gen5_2",
                   "tier": "Basic"
                 },
                 "tags": {
@@ -1122,66 +1187,237 @@
                 }
               },
               "resourceGroupName": "TestGroup",
-              "serverName": "testserver",
+              "serverName": "pgtestsvc4",
               "subscriptionId": "ffffffff-ffff-ffff-ffff-ffffffffffff"
             },
             "responses": {
               "200": {
                 "body": {
-                  "id": "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestGroup/providers/Microsoft.DBforPostgreSQL/servers/testserver",
-                  "location": "onebox",
-                  "name": "testserver",
+                  "id": "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.DBforPostgreSQL/servers/pgtestsvc4",
+                  "location": "westus",
+                  "name": "pgtestsvc4",
                   "properties": {
                     "administratorLogin": "cloudsa",
-                    "earliestRestoreDate": "2018-02-07T16:47:04.027+00:00",
-                    "fullyQualifiedDomainName": "testserver.test-vm1.onebox.xdb.mscds.com",
+                    "earliestRestoreDate": "2018-03-14T21:08:24.637+00:00",
+                    "fullyQualifiedDomainName": "pgtestsvc4.postgres.database.azure.com",
                     "sslEnforcement": "Enabled",
                     "storageProfile": {
                       "backupRetentionDays": 7,
                       "geoRedundantBackup": "Enabled",
                       "storageMB": 128000
                     },
-                    "userVisibleState": "Ready"
+                    "userVisibleState": "Ready",
+                    "version": "9.6"
                   },
                   "sku": {
                     "capacity": 2,
-                    "family": "Gen4",
-                    "name": "PGSQL_B_Gen4_2",
-                    "size": null,
+                    "family": "Gen5",
+                    "name": "B_Gen5_2",
                     "tier": "Basic"
                   },
                   "tags": {
-                    "elasticServer": "1"
+                    "ElasticServer": "1"
                   },
                   "type": "Microsoft.DBforPostgreSQL/servers"
                 }
               },
               "201": {
                 "body": {
-                  "id": "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestGroup/providers/Microsoft.DBforPostgreSQL/servers/testserver",
-                  "location": "onebox",
-                  "name": "testserver",
+                  "id": "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.DBforPostgreSQL/servers/pgtestsvc4",
+                  "location": "westus",
+                  "name": "pgtestsvc4",
                   "properties": {
                     "administratorLogin": "cloudsa",
-                    "earliestRestoreDate": "2018-02-07T16:47:04.027+00:00",
-                    "fullyQualifiedDomainName": "testserver.test-vm1.onebox.xdb.mscds.com",
+                    "earliestRestoreDate": "2018-03-14T21:08:24.637+00:00",
+                    "fullyQualifiedDomainName": "pgtestsvc4.postgres.database.azure.com",
                     "sslEnforcement": "Enabled",
                     "storageProfile": {
                       "backupRetentionDays": 7,
                       "geoRedundantBackup": "Enabled",
                       "storageMB": 128000
                     },
-                    "userVisibleState": "Ready"
+                    "userVisibleState": "Ready",
+                    "version": "9.6"
+                  },
+                  "sku": {
+                    "capacity": 2,
+                    "family": "Gen5",
+                    "name": "B_Gen5_2",
+                    "tier": "Basic"
+                  },
+                  "tags": {
+                    "ElasticServer": "1"
+                  },
+                  "type": "Microsoft.DBforPostgreSQL/servers"
+                }
+              },
+              "202": {}
+            }
+          },
+          "Create a replica server": {
+            "parameters": {
+              "api-version": "2017-12-01-preview",
+              "parameters": {
+                "location": "westcentralus",
+                "properties": {
+                  "createMode": "Replica",
+                  "sourceServerId": "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestGroup_WestCentralUS/providers/Microsoft.DBforPostgreSQL/servers/testserver-master"
+                },
+                "sku": {
+                  "capacity": 2,
+                  "family": "Gen5",
+                  "name": "GP_Gen5_2",
+                  "tier": "GeneralPurpose"
+                }
+              },
+              "resourceGroupName": "TestGroup_WestCentralUS",
+              "serverName": "testserver-replica1",
+              "subscriptionId": "ffffffff-ffff-ffff-ffff-ffffffffffff"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "id": "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestGroup_WestCentralUS/providers/Microsoft.DBforPostgreSQL/servers/testserver-replica1",
+                  "location": "westcentralus",
+                  "name": "testserver-replica1",
+                  "properties": {
+                    "administratorLogin": "postgres",
+                    "earliestRestoreDate": "2018-06-20T00:17:56.677+00:00",
+                    "fullyQualifiedDomainName": "testserver-replica1.postgres.database.azure.com",
+                    "masterServerId": "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestGroup_WestCentralUS/providers/Microsoft.DBforPostgreSQL/servers/testserver-master",
+                    "replicaCapacity": 0,
+                    "replicationRole": "Replica",
+                    "sslEnforcement": "Disabled",
+                    "storageProfile": {
+                      "backupRetentionDays": 7,
+                      "geoRedundantBackup": "Disabled",
+                      "storageMB": 2048000
+                    },
+                    "userVisibleState": "Ready",
+                    "version": "9.6"
                   },
                   "sku": {
                     "capacity": 2,
                     "family": "Gen4",
-                    "name": "PGSQL_B_Gen4_2",
-                    "size": null,
-                    "tier": "Basic"
+                    "name": "GP_Gen5_2",
+                    "tier": "GeneralPurpose"
+                  },
+                  "type": "Microsoft.DBforPostgreSQL/servers"
+                }
+              },
+              "201": {
+                "body": {
+                  "id": "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestGroup_WestCentralUS/providers/Microsoft.DBforPostgreSQL/servers/testserver-replica1",
+                  "location": "westcentralus",
+                  "name": "testserver-replica1",
+                  "properties": {
+                    "administratorLogin": "postgres",
+                    "earliestRestoreDate": "2018-06-20T00:17:56.677+00:00",
+                    "fullyQualifiedDomainName": "testserver-replica1.postgres.database.azure.com",
+                    "masterServerId": "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestGroup_WestCentralUS/providers/Microsoft.DBforPostgreSQL/servers/testserver-master",
+                    "replicaCapacity": 0,
+                    "replicationRole": "Replica",
+                    "sslEnforcement": "Disabled",
+                    "storageProfile": {
+                      "backupRetentionDays": 7,
+                      "geoRedundantBackup": "Disabled",
+                      "storageMB": 2048000
+                    },
+                    "userVisibleState": "Ready",
+                    "version": "9.6"
+                  },
+                  "sku": {
+                    "capacity": 2,
+                    "family": "Gen5",
+                    "name": "GP_Gen5_2",
+                    "tier": "GeneralPurpose"
+                  },
+                  "type": "Microsoft.DBforPostgreSQL/servers"
+                }
+              },
+              "202": {}
+            }
+          },
+          "Create a server as a geo restore ": {
+            "parameters": {
+              "api-version": "2017-12-01",
+              "parameters": {
+                "location": "Japan West",
+                "properties": {
+                  "createMode": "GeoRestore",
+                  "sourceServerId": "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/SourceResourceGroup/providers/Microsoft.DBforPostgreSQL/servers/sourceserver"
+                },
+                "sku": {
+                  "capacity": 2,
+                  "family": "Gen4",
+                  "name": "GP_Gen4_2",
+                  "tier": "GeneralPurpose"
+                },
+                "tags": {
+                  "ElasticServer": "1"
+                }
+              },
+              "resourceGroupName": "TargetResourceGroup",
+              "serverName": "targetserver",
+              "subscriptionId": "ffffffff-ffff-ffff-ffff-ffffffffffff"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "id": "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.DBforPostgreSQL/servers/targetserver",
+                  "location": "westus",
+                  "name": "targetserver",
+                  "properties": {
+                    "administratorLogin": "cloudsa",
+                    "earliestRestoreDate": "2018-03-14T21:08:24.637+00:00",
+                    "fullyQualifiedDomainName": "targetserver.postgres.database.azure.com",
+                    "sslEnforcement": "Enabled",
+                    "storageProfile": {
+                      "backupRetentionDays": 7,
+                      "geoRedundantBackup": "Disabled",
+                      "storageMB": 128000
+                    },
+                    "userVisibleState": "Ready",
+                    "version": "9.6"
+                  },
+                  "sku": {
+                    "capacity": 2,
+                    "family": "Gen4",
+                    "name": "GP_Gen4_2",
+                    "tier": "GeneralPurpose"
                   },
                   "tags": {
-                    "elasticServer": "1"
+                    "ElasticServer": "1"
+                  },
+                  "type": "Microsoft.DBforPostgreSQL/servers"
+                }
+              },
+              "201": {
+                "body": {
+                  "id": "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.DBforPostgreSQL/servers/targetserver",
+                  "location": "westus",
+                  "name": "targetserver",
+                  "properties": {
+                    "administratorLogin": "cloudsa",
+                    "earliestRestoreDate": "2018-03-14T21:08:24.637+00:00",
+                    "fullyQualifiedDomainName": "targetserver.postgres.database.azure.com",
+                    "sslEnforcement": "Enabled",
+                    "storageProfile": {
+                      "backupRetentionDays": 7,
+                      "geoRedundantBackup": "Disabled",
+                      "storageMB": 128000
+                    },
+                    "userVisibleState": "Ready",
+                    "version": "9.6"
+                  },
+                  "sku": {
+                    "capacity": 2,
+                    "family": "Gen4",
+                    "name": "GP_Gen4_2",
+                    "tier": "GeneralPurpose"
+                  },
+                  "tags": {
+                    "ElasticServer": "1"
                   },
                   "type": "Microsoft.DBforPostgreSQL/servers"
                 }
@@ -1191,6 +1427,488 @@
           }
         },
         "x-ms-long-running-operation": true
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/servers/{serverName}/Administrators/activeDirectory": {
+      "delete": {
+        "description": "Deletes AAD Administrator.",
+        "operationId": "ServerAdministrators_Delete",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/ResourceGroupParameter"
+          },
+          {
+            "$ref": "#/parameters/ServerNameParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ServerAdministratorResource"
+            }
+          },
+          "202": {
+            "description": "Accepted",
+            "schema": {
+              "$ref": "#/definitions/ServerAdministratorResource"
+            }
+          },
+          "204": {
+            "description": "NoContent",
+            "schema": {
+              "$ref": "#/definitions/ServerAdministratorResource"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
+          }
+        },
+        "tags": [
+          "ServerAdministrators"
+        ],
+        "x-ms-examples": {
+          "ServerAdministratorsDelete": {
+            "parameters": {
+              "administratorName": "activeDirectory",
+              "api-version": "2017-12-01-preview",
+              "resourceGroupName": "testrg",
+              "serverName": "pgtestsvc4",
+              "subscriptionId": "ffffffff-ffff-ffff-ffff-ffffffffffff"
+            },
+            "responses": {
+              "200": {
+                "body": "OK"
+              },
+              "202": {
+                "body": "Accepted"
+              },
+              "204": {
+                "body": "No Content"
+              }
+            }
+          }
+        },
+        "x-ms-long-running-operation": true
+      },
+      "get": {
+        "description": "Gets information about a AAD server administrator.",
+        "operationId": "ServerAdministrators_Get",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/ResourceGroupParameter"
+          },
+          {
+            "$ref": "#/parameters/ServerNameParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ServerAdministratorResource"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
+          }
+        },
+        "tags": [
+          "ServerAdministrators"
+        ],
+        "x-ms-examples": {
+          "ServerAdministratorGet": {
+            "parameters": {
+              "administratorName": "activeDirectory",
+              "api-version": "2017-12-01-preview",
+              "resourceGroupName": "testrg",
+              "serverName": "pgtestsvc4",
+              "subscriptionId": "ffffffff-ffff-ffff-ffff-ffffffffffff"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "id": "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.DBforPostgreSQL/servers/pgtestsvc4/administrators/activeDirectory",
+                  "name": "activeDirectory",
+                  "properties": {
+                    "administratorType": "ActiveDirectory",
+                    "login": "bob@contoso.com",
+                    "sid": "c6b82b90-a647-49cb-8a62-0d2d3cb7ac7c",
+                    "tenantId": "c6b82b90-a647-49cb-8a62-0d2d3cb7ac7c"
+                  },
+                  "type": "Microsoft.DBforPostgreSQL/servers/administrators"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "description": "Creates or update active directory administrator on an existing server. The update action will overwrite the existing administrator.",
+        "operationId": "ServerAdministrators_CreateOrUpdate",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/ResourceGroupParameter"
+          },
+          {
+            "$ref": "#/parameters/ServerNameParameter"
+          },
+          {
+            "description": "The required parameters for creating or updating an AAD server administrator.",
+            "in": "body",
+            "name": "properties",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ServerAdministratorResource"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ServerAdministratorResource"
+            }
+          },
+          "202": {
+            "description": "Accepted",
+            "schema": {
+              "$ref": "#/definitions/ServerAdministratorResource"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
+          }
+        },
+        "tags": [
+          "ServerAdministrators"
+        ],
+        "x-ms-examples": {
+          "ServerAdministratorCreate": {
+            "parameters": {
+              "administratorName": "activeDirectory",
+              "api-version": "2017-12-01-preview",
+              "properties": {
+                "properties": {
+                  "administratorType": "ActiveDirectory",
+                  "login": "bob@contoso.com",
+                  "sid": "c6b82b90-a647-49cb-8a62-0d2d3cb7ac7c",
+                  "tenantId": "c6b82b90-a647-49cb-8a62-0d2d3cb7ac7c"
+                }
+              },
+              "resourceGroupName": "testrg",
+              "serverName": "pgtestsvc4",
+              "subscriptionId": "ffffffff-ffff-ffff-ffff-ffffffffffff"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "id": "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.DBforPostgreSQL/servers/pgtestsvc4/administrators/activeDirectory",
+                  "name": "activeDirectory",
+                  "properties": {
+                    "administratorType": "ActiveDirectory",
+                    "login": "bob@contoso.com",
+                    "sid": "c6b82b90-a647-49cb-8a62-0d2d3cb7ac7c",
+                    "tenantId": "c6b82b90-a647-49cb-8a62-0d2d3cb7ac7c"
+                  },
+                  "type": "Microsoft.DBforPostgreSQL/servers/administrators"
+                }
+              },
+              "202": {
+                "body": "Accepted"
+              }
+            }
+          }
+        },
+        "x-ms-long-running-operation": true
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/servers/{serverName}/Replicas": {
+      "get": {
+        "description": "List all the replicas for a given server.",
+        "operationId": "Replicas_ListByServer",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/ResourceGroupParameter"
+          },
+          {
+            "$ref": "#/parameters/ServerNameParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ServerListResult"
+            }
+          }
+        },
+        "tags": [
+          "Replicas"
+        ],
+        "x-ms-examples": {
+          "ReplicasListByServer": {
+            "parameters": {
+              "api-version": "2017-12-01-preview",
+              "resourceGroupName": "TestGroup_WestCentralUS",
+              "serverName": "testserver-master",
+              "subscriptionId": "ffffffff-ffff-ffff-ffff-ffffffffffff"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "value": [
+                    {
+                      "id": "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestGroup_WestCentralUS/providers/Microsoft.DBforPostgreSQL/servers/testserver-replica1",
+                      "location": "westcentralus",
+                      "name": "testserver-replica1",
+                      "properties": {
+                        "administratorLogin": "postgres",
+                        "earliestRestoreDate": "2018-06-12T00:05:03.2695756+00:00",
+                        "fullyQualifiedDomainName": "testserver-replica1.postgres.database.azure.com",
+                        "masterServerId": "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestGroup_WestCentralUS/providers/Microsoft.DBforPostgreSQL/servers/testserver-master",
+                        "replicaCapacity": 0,
+                        "replicationRole": "Replica",
+                        "sslEnforcement": "Disabled",
+                        "storageProfile": {
+                          "backupRetentionDays": 7,
+                          "geoRedundantBackup": "Disabled",
+                          "storageMB": 2048000
+                        },
+                        "userVisibleState": "Ready",
+                        "version": "9.6"
+                      },
+                      "sku": {
+                        "capacity": 16,
+                        "family": "Gen4",
+                        "name": "GP_Gen4_16",
+                        "tier": "GeneralPurpose"
+                      },
+                      "type": "Microsoft.DBforPostgreSQL/servers"
+                    },
+                    {
+                      "id": "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestGroup_WestCentralUS/providers/Microsoft.DBforPostgreSQL/servers/testserver-replica2",
+                      "location": "westcentralus",
+                      "name": "testserver-replica2",
+                      "properties": {
+                        "administratorLogin": "postgres",
+                        "earliestRestoreDate": "2018-06-12T00:05:03.2695756+00:00",
+                        "fullyQualifiedDomainName": "testserver-replica2.postgres.database.azure.com",
+                        "masterServerId": "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestGroup_WestCentralUS/providers/Microsoft.DBforPostgreSQL/servers/testserver-master",
+                        "replicaCapacity": 0,
+                        "replicationRole": "Replica",
+                        "sslEnforcement": "Disabled",
+                        "storageProfile": {
+                          "backupRetentionDays": 7,
+                          "geoRedundantBackup": "Disabled",
+                          "storageMB": 2048000
+                        },
+                        "userVisibleState": "Ready",
+                        "version": "9.6"
+                      },
+                      "sku": {
+                        "capacity": 16,
+                        "family": "Gen4",
+                        "name": "GP_Gen4_16",
+                        "tier": "GeneralPurpose"
+                      },
+                      "type": "Microsoft.DBforPostgreSQL/servers"
+                    },
+                    {
+                      "id": "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestGroup_WestCentralUS/providers/Microsoft.DBforPostgreSQL/servers/testserver-replica3",
+                      "location": "westcentralus",
+                      "name": "testserver-replica3",
+                      "properties": {
+                        "administratorLogin": "postgres",
+                        "earliestRestoreDate": "2018-06-12T00:05:03.2695756+00:00",
+                        "fullyQualifiedDomainName": "testserver-replica3.postgres.database.azure.com",
+                        "masterServerId": "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestGroup_WestCentralUS/providers/Microsoft.DBforPostgreSQL/servers/testserver-master",
+                        "replicaCapacity": 0,
+                        "replicationRole": "Replica",
+                        "sslEnforcement": "Disabled",
+                        "storageProfile": {
+                          "backupRetentionDays": 7,
+                          "geoRedundantBackup": "Disabled",
+                          "storageMB": 2048000
+                        },
+                        "userVisibleState": "Ready",
+                        "version": "9.6"
+                      },
+                      "sku": {
+                        "capacity": 16,
+                        "family": "Gen4",
+                        "name": "GP_Gen4_16",
+                        "tier": "GeneralPurpose"
+                      },
+                      "type": "Microsoft.DBforPostgreSQL/servers"
+                    },
+                    {
+                      "id": "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestGroup_WestCentralUS/providers/Microsoft.DBforPostgreSQL/servers/testserver-replica4",
+                      "location": "westcentralus",
+                      "name": "testserver-replica4",
+                      "properties": {
+                        "administratorLogin": "postgres",
+                        "earliestRestoreDate": "2018-06-12T00:05:03.2695756+00:00",
+                        "fullyQualifiedDomainName": "testserver-replica4.postgres.database.azure.com",
+                        "masterServerId": "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestGroup_WestCentralUS/providers/Microsoft.DBforPostgreSQL/servers/testserver-master",
+                        "replicaCapacity": 0,
+                        "replicationRole": "Replica",
+                        "sslEnforcement": "Disabled",
+                        "storageProfile": {
+                          "backupRetentionDays": 7,
+                          "geoRedundantBackup": "Disabled",
+                          "storageMB": 2048000
+                        },
+                        "userVisibleState": "Ready",
+                        "version": "9.6"
+                      },
+                      "sku": {
+                        "capacity": 16,
+                        "family": "Gen4",
+                        "name": "GP_Gen4_16",
+                        "tier": "GeneralPurpose"
+                      },
+                      "type": "Microsoft.DBforPostgreSQL/servers"
+                    },
+                    {
+                      "id": "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestGroup_WestCentralUS/providers/Microsoft.DBforPostgreSQL/servers/testserver-replica5",
+                      "location": "westcentralus",
+                      "name": "testserver-replica5",
+                      "properties": {
+                        "administratorLogin": "postgres",
+                        "earliestRestoreDate": "2018-06-12T00:05:03.2695756+00:00",
+                        "fullyQualifiedDomainName": "testserver-replica5.postgres.database.azure.com",
+                        "masterServerId": "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestGroup_WestCentralUS/providers/Microsoft.DBforPostgreSQL/servers/testserver-master",
+                        "replicaCapacity": 0,
+                        "replicationRole": "Replica",
+                        "sslEnforcement": "Disabled",
+                        "storageProfile": {
+                          "backupRetentionDays": 7,
+                          "geoRedundantBackup": "Disabled",
+                          "storageMB": 2048000
+                        },
+                        "userVisibleState": "Ready",
+                        "version": "9.6"
+                      },
+                      "sku": {
+                        "capacity": 16,
+                        "family": "Gen4",
+                        "name": "GP_Gen4_16",
+                        "tier": "GeneralPurpose"
+                      },
+                      "type": "Microsoft.DBforPostgreSQL/servers"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "x-ms-pageable": {
+          "nextLinkName": null
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/servers/{serverName}/administrators": {
+      "get": {
+        "description": "Returns a list of server Administrators.",
+        "operationId": "ServerAdministrators_ListByServer",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/ResourceGroupParameter"
+          },
+          {
+            "$ref": "#/parameters/ServerNameParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ServerAdministratorResourceListResult"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
+          }
+        },
+        "tags": [
+          "ServerAdministrators"
+        ],
+        "x-ms-examples": {
+          "get a list of server administrators": {
+            "parameters": {
+              "api-version": "2017-12-01-preview",
+              "resourceGroupName": "testrg",
+              "serverName": "pgtestsvc4",
+              "subscriptionId": "ffffffff-ffff-ffff-ffff-ffffffffffff"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "value": [
+                    {
+                      "id": "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.DBforPostgreSQL/servers/pgtestsvc4/administrators/activeDirectory",
+                      "name": "ActiveDirectory",
+                      "properties": {
+                        "administratorType": "ActiveDirectory",
+                        "login": "bob@contoso.com",
+                        "sid": "c6b82b90-a647-49cb-8a62-0d2d3cb7ac7c",
+                        "tenantId": "c6b82b90-a647-49cb-8a62-0d2d3cb7ac7c"
+                      },
+                      "type": "Microsoft.DBforPostgreSQL/servers/administrators"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "x-ms-pageable": {
+          "nextLinkName": null
+        }
       }
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/servers/{serverName}/configurations": {
@@ -2280,7 +2998,9 @@
             }
           }
         },
-        "x-ms-pageable": {}
+        "x-ms-pageable": {
+          "nextLinkName": null
+        }
       }
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/servers/{serverName}/configurations/{configurationName}": {
@@ -2490,7 +3210,9 @@
             }
           }
         },
-        "x-ms-pageable": {}
+        "x-ms-pageable": {
+          "nextLinkName": null
+        }
       }
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/servers/{serverName}/databases/{databaseName}": {
@@ -2761,7 +3483,9 @@
             }
           }
         },
-        "x-ms-pageable": {}
+        "x-ms-pageable": {
+          "nextLinkName": null
+        }
       }
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/servers/{serverName}/firewallRules/{firewallRuleName}": {
@@ -3014,7 +3738,6 @@
                       "properties": {
                         "createdTime": "0001-01-01T00:00:00+00:00",
                         "lastModifiedTime": "2017-06-22T01:59:36+00:00",
-                        "name": "postgresql-2017-06-22_010000.log",
                         "sizeInKB": 4,
                         "type": "text",
                         "url": "https://wasd2stageneu1btlm4.file.core.windows.net/42679871f6cc4302b39ab9c2e3044df3/pg_log/postgresql-2017-06-22_010000.log?sv=2015-04-05&sr=f&sig=gqIQsa6VyGyUNpzYYPWLP5gM%2BeF1so9GYbHKu6Zs0DM%3D&se=2017-06-22T03%3A21%3A09Z&sp=r"
@@ -3027,7 +3750,6 @@
                       "properties": {
                         "createdTime": "0001-01-01T00:00:00+00:00",
                         "lastModifiedTime": "2017-06-22T02:19:36+00:00",
-                        "name": "postgresql-2017-06-22_020000.log",
                         "sizeInKB": 1,
                         "type": "text",
                         "url": "https://wasd2stageneu1btlm4.file.core.windows.net/42679871f6cc4302b39ab9c2e3044df3/pg_log/postgresql-2017-06-22_020000.log?sv=2015-04-05&sr=f&sig=i99UWBlYfR0tKaxix8yHAOnfym4HV9Auto6BbZogyRs%3D&se=2017-06-22T03%3A21%3A09Z&sp=r"
@@ -3040,11 +3762,614 @@
             }
           }
         },
-        "x-ms-pageable": {}
+        "x-ms-pageable": {
+          "nextLinkName": null
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/servers/{serverName}/restart": {
+      "post": {
+        "description": "Restarts a server.",
+        "operationId": "Servers_Restart",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/ResourceGroupParameter"
+          },
+          {
+            "$ref": "#/parameters/ServerNameParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "202": {
+            "description": "Accepted"
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
+          }
+        },
+        "tags": [
+          "ServerRestart"
+        ],
+        "x-ms-examples": {
+          "ServerRestart": {
+            "parameters": {
+              "api-version": "2017-12-01-preview",
+              "resourceGroupName": "TestGroup",
+              "serverName": "testserver",
+              "subscriptionId": "ffffffff-ffff-ffff-ffff-ffffffffffff"
+            },
+            "responses": {
+              "200": {},
+              "202": {}
+            }
+          }
+        },
+        "x-ms-long-running-operation": true
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/servers/{serverName}/securityAlertPolicies/{securityAlertPolicyName}": {
+      "get": {
+        "description": "Get a server's security alert policy.",
+        "operationId": "ServerSecurityAlertPolicies_Get",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ResourceGroupParameter"
+          },
+          {
+            "$ref": "#/parameters/ServerNameParameter"
+          },
+          {
+            "description": "The name of the security alert policy.",
+            "enum": [
+              "Default"
+            ],
+            "in": "path",
+            "name": "securityAlertPolicyName",
+            "required": true,
+            "type": "string",
+            "x-ms-enum": {
+              "modelAsString": true,
+              "name": "SecurityAlertPolicyName"
+            }
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the server threat detection policy.",
+            "schema": {
+              "$ref": "#/definitions/ServerSecurityAlertPolicy"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation of getting security alert policies failed."
+          }
+        },
+        "tags": [
+          "ServerSecurityAlertPolicies"
+        ],
+        "x-ms-examples": {
+          "Get a server's threat detection policy": {
+            "parameters": {
+              "api-version": "2017-03-01-preview",
+              "resourceGroupName": "securityalert-4799",
+              "securityAlertPolicyName": "Default",
+              "serverName": "securityalert-6440",
+              "subscriptionId": "00000000-1111-2222-3333-444444444444"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "id": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/securityalert-4799/providers/Microsoft.DBforPostgreSQL/servers/securityalert-6440/securityAlertPolicies/default",
+                  "name": "Default",
+                  "properties": {
+                    "disabledAlerts": [
+                      "Access_Anomaly"
+                    ],
+                    "emailAccountAdmins": true,
+                    "emailAddresses": [
+                      "test@microsoft.com;user@microsoft.com"
+                    ],
+                    "retentionDays": 0,
+                    "state": "Disabled",
+                    "storageEndpoint": "https://mystorage.blob.core.windows.net"
+                  },
+                  "type": "Microsoft.DBforPostgreSQL/servers/securityAlertPolicies"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "description": "Creates or updates a threat detection policy.",
+        "operationId": "ServerSecurityAlertPolicies_CreateOrUpdate",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ResourceGroupParameter"
+          },
+          {
+            "$ref": "#/parameters/ServerNameParameter"
+          },
+          {
+            "description": "The name of the threat detection policy.",
+            "enum": [
+              "Default"
+            ],
+            "in": "path",
+            "name": "securityAlertPolicyName",
+            "required": true,
+            "type": "string",
+            "x-ms-enum": {
+              "modelAsString": true,
+              "name": "SecurityAlertPolicyName"
+            }
+          },
+          {
+            "description": "The server security alert policy.",
+            "in": "body",
+            "name": "parameters",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ServerSecurityAlertPolicy"
+            }
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully updated the threat detection policy.",
+            "schema": {
+              "$ref": "#/definitions/ServerSecurityAlertPolicy"
+            }
+          },
+          "202": {
+            "description": "Created request to set the server threat detection policy."
+          },
+          "default": {
+            "description": "Error response describing why the operation of setting security alert policies failed."
+          }
+        },
+        "tags": [
+          "ServerSecurityAlertPolicies"
+        ],
+        "x-ms-examples": {
+          "Update a server's threat detection policy with all parameters": {
+            "parameters": {
+              "api-version": "2017-12-01-preview",
+              "parameters": {
+                "properties": {
+                  "disabledAlerts": [
+                    "Access_Anomaly",
+                    "Usage_Anomaly"
+                  ],
+                  "emailAccountAdmins": true,
+                  "emailAddresses": [
+                    "testSecurityAlert@microsoft.com"
+                  ],
+                  "retentionDays": 5,
+                  "state": "Enabled",
+                  "storageAccountAccessKey": "sdlfkjabc+sdlfkjsdlkfsjdfLDKFTERLKFDFKLjsdfksjdflsdkfD2342309432849328476458/3RSD==",
+                  "storageEndpoint": "https://mystorage.blob.core.windows.net"
+                }
+              },
+              "resourceGroupName": "securityalert-4799",
+              "securityAlertPolicyName": "Default",
+              "serverName": "securityalert-6440",
+              "subscriptionId": "00000000-1111-2222-3333-444444444444"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "id": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/securityalert-4799/providers/Microsoft.DBforPostgreSQL/servers/securityalert-6440/securityAlertPolicies/default",
+                  "name": "Default",
+                  "properties": {
+                    "disabledAlerts": [
+                      "Access_Anomaly",
+                      "Usage_Anomaly"
+                    ],
+                    "emailAccountAdmins": true,
+                    "emailAddresses": [
+                      "testSecurityAlert@microsoft.com"
+                    ],
+                    "retentionDays": 5,
+                    "state": "Enabled",
+                    "storageEndpoint": "https://mystorage.blob.core.windows.net"
+                  },
+                  "type": "Microsoft.DBforPostgreSQL/servers/securityAlertPolicies"
+                }
+              },
+              "202": {}
+            }
+          },
+          "Update a server's threat detection policy with minimal parameters": {
+            "parameters": {
+              "api-version": "2017-12-01-preview",
+              "parameters": {
+                "properties": {
+                  "emailAccountAdmins": true,
+                  "state": "Disabled"
+                }
+              },
+              "resourceGroupName": "securityalert-4799",
+              "securityAlertPolicyName": "Default",
+              "serverName": "securityalert-6440",
+              "subscriptionId": "00000000-1111-2222-3333-444444444444"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "id": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/securityalert-4799/providers/Microsoft.DBforPostgreSQL/servers/securityalert-6440/securityAlertPolicies/default",
+                  "name": "Default",
+                  "properties": {
+                    "disabledAlerts": [
+                      ""
+                    ],
+                    "emailAccountAdmins": true,
+                    "emailAddresses": [
+                      ""
+                    ],
+                    "retentionDays": 0,
+                    "state": "Enabled",
+                    "storageEndpoint": ""
+                  },
+                  "type": "Microsoft.DBforPostgreSQL/servers/securityAlertPolicies"
+                }
+              },
+              "202": {}
+            }
+          }
+        },
+        "x-ms-long-running-operation": true
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/servers/{serverName}/virtualNetworkRules": {
+      "get": {
+        "description": "Gets a list of virtual network rules in a server.",
+        "operationId": "VirtualNetworkRules_ListByServer",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ResourceGroupParameter"
+          },
+          {
+            "$ref": "#/parameters/ServerNameParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the list of virtual network rules.",
+            "schema": {
+              "$ref": "#/definitions/VirtualNetworkRuleListResult"
+            }
+          },
+          "default": {
+            "description": "*** Error Responses: ***\n\n * 404 SubscriptionDoesNotHaveServer - The requested server was not found\n\n * 404 ResourceNotFound - The requested resource was not found."
+          }
+        },
+        "tags": [
+          "VirtualNetworkRules"
+        ],
+        "x-ms-examples": {
+          "List virtual network rules": {
+            "parameters": {
+              "api-version": "2017-12-01-preview",
+              "resourceGroupName": "TestGroup",
+              "serverName": "vnet-test-svr",
+              "subscriptionId": "ffffffff-ffff-ffff-ffff-ffffffffffff",
+              "virtualNetworkRuleName": "vnet-firewall-rule"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "value": [
+                    {
+                      "id": "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestGroup/providers/Microsoft.DBforPostgreSQL/servers/vnet-test-svr/virtualNetworkRules/vnet-firewall-rule",
+                      "name": "vnet-firewall-rule",
+                      "properties": {
+                        "ignoreMissingVnetServiceEndpoint": false,
+                        "state": "Ready",
+                        "virtualNetworkSubnetId": "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestGroup/providers/Microsoft.Network/virtualNetworks/testvnet/subnets/testsubnet"
+                      },
+                      "type": "Microsoft.DBforPostgreSQL/servers/virtualNetworkRules"
+                    },
+                    {
+                      "id": "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestGroup/providers/Microsoft.DBforPostgreSQL/servers/vnet-test-svr/virtualNetworkRules/vnet-firewall-rule",
+                      "name": "vnet-firewall-rule",
+                      "properties": {
+                        "ignoreMissingVnetServiceEndpoint": false,
+                        "state": "Ready",
+                        "virtualNetworkSubnetId": "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestGroup/providers/Microsoft.Network/virtualNetworks/testvnet/subnets/testsubnet"
+                      },
+                      "type": "Microsoft.DBforPostgreSQL/servers/virtualNetworkRules"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/servers/{serverName}/virtualNetworkRules/{virtualNetworkRuleName}": {
+      "delete": {
+        "description": "Deletes the virtual network rule with the given name.",
+        "operationId": "VirtualNetworkRules_Delete",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ResourceGroupParameter"
+          },
+          {
+            "$ref": "#/parameters/ServerNameParameter"
+          },
+          {
+            "$ref": "#/parameters/virtualNetworkRuleNameParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully deleted the virtual network rule."
+          },
+          "202": {
+            "description": "Accepted"
+          },
+          "204": {
+            "description": "The specified virtual network rule does not exist."
+          },
+          "default": {
+            "description": "*** Error Responses: ***\n\n * 400 InvalidResourceId - Invalid resource identifier.\n\n * 400 MismatchingSubscriptionWithUrl - The provided subscription did not match the subscription in the Url.\n\n * 400 MismatchingResourceGroupNameWithUrl - The provided resource group name did not match the name in the Url.\n\n * 400 MismatchingServerNameWithUrl - The provided server name did not match the name in the Url.\n\n * 400 NullVirtualNetworkRequest - Virtual Network Request is Null\n\n * 400 NullVirtualNetworkRequestParameters - Virtual Network Request Parameters are Null\n\n * 404 SubscriptionDoesNotHaveServer - The requested server was not found\n\n * 404 OperationIdNotFound - The operation with Id does not exist.\n\n * 409 OperationCancelled - The operation has been cancelled by user.\n\n * 409 OperationInterrupted - The operation on the resource could not be completed because it was interrupted by another operation on the same resource.\n\n * 500 OperationTimedOut - The operation timed out and automatically rolled back. Please retry the operation."
+          }
+        },
+        "tags": [
+          "VirtualNetworkRules"
+        ],
+        "x-ms-examples": {
+          "Delete a virtual network rule": {
+            "parameters": {
+              "api-version": "2017-12-01-preview",
+              "resourceGroupName": "TestGroup",
+              "serverName": "vnet-test-svr",
+              "subscriptionId": "ffffffff-ffff-ffff-ffff-ffffffffffff",
+              "virtualNetworkRuleName": "vnet-firewall-rule"
+            },
+            "responses": {
+              "200": {},
+              "202": {},
+              "204": {}
+            }
+          }
+        },
+        "x-ms-long-running-operation": true
+      },
+      "get": {
+        "description": "Gets a virtual network rule.",
+        "operationId": "VirtualNetworkRules_Get",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ResourceGroupParameter"
+          },
+          {
+            "$ref": "#/parameters/ServerNameParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/virtualNetworkRuleNameParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved a specified virtual network rule.",
+            "schema": {
+              "$ref": "#/definitions/VirtualNetworkRule"
+            }
+          },
+          "default": {
+            "description": "*** Error Responses: ***\n\n * 404 SubscriptionDoesNotHaveServer - The requested server was not found\n\n * 404 ResourceNotFound - The requested resource was not found."
+          }
+        },
+        "tags": [
+          "VirtualNetworkRules"
+        ],
+        "x-ms-examples": {
+          "Gets a virtual network rule": {
+            "parameters": {
+              "api-version": "2017-12-01-preview",
+              "resourceGroupName": "TestGroup",
+              "serverName": "vnet-test-svr",
+              "subscriptionId": "ffffffff-ffff-ffff-ffff-ffffffffffff",
+              "virtualNetworkRuleName": "vnet-firewall-rule"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "id": "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestGroup/providers/Microsoft.DBforPostgreSQL/servers/vnet-test-svr/virtualNetworkRules/vnet-firewall-rule",
+                  "name": "vnet-firewall-rule",
+                  "properties": {
+                    "ignoreMissingVnetServiceEndpoint": false,
+                    "state": "Ready",
+                    "virtualNetworkSubnetId": "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestGroup/providers/Microsoft.Network/virtualNetworks/testvnet/subnets/testsubnet"
+                  },
+                  "type": "Microsoft.DBforPostgreSQL/servers/virtualNetworkRules"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "description": "Creates or updates an existing virtual network rule.",
+        "operationId": "VirtualNetworkRules_CreateOrUpdate",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ResourceGroupParameter"
+          },
+          {
+            "$ref": "#/parameters/ServerNameParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/virtualNetworkRuleNameParameter"
+          },
+          {
+            "description": "The requested virtual Network Rule Resource state.",
+            "in": "body",
+            "name": "parameters",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/VirtualNetworkRule"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully updated a virtual network rule.",
+            "schema": {
+              "$ref": "#/definitions/VirtualNetworkRule"
+            }
+          },
+          "201": {
+            "description": "Successfully created a virtual network rule.",
+            "schema": {
+              "$ref": "#/definitions/VirtualNetworkRule"
+            }
+          },
+          "202": {
+            "description": "Accepted"
+          },
+          "default": {
+            "description": "*** Error Responses: ***\n\n * 400 InvalidResourceId - Invalid resource identifier.\n\n * 400 MismatchingSubscriptionWithUrl - The provided subscription did not match the subscription in the Url.\n\n * 400 MismatchingResourceGroupNameWithUrl - The provided resource group name did not match the name in the Url.\n\n * 400 MismatchingServerNameWithUrl - The provided server name did not match the name in the Url.\n\n * 400 NullVirtualNetworkRequest - Virtual Network Request is Null\n\n * 400 NullVirtualNetworkRequestParameters - Virtual Network Request Parameters are Null\n\n * 400 NullVirtualNetworkSubnetId - The Virtual Network Subnet Id is null\n\n * 404 SubscriptionDoesNotHaveServer - The requested server was not found\n\n * 404 VirtualNetworkRuleNotEnabled - Azure SQL Server Virtual Network Rule feature is not enabled\n\n * 404 OperationIdNotFound - The operation with Id does not exist.\n\n * 409 OperationCancelled - The operation has been cancelled by user.\n\n * 409 OperationInterrupted - The operation on the resource could not be completed because it was interrupted by another operation on the same resource.\n\n * 500 OperationTimedOut - The operation timed out and automatically rolled back. Please retry the operation."
+          }
+        },
+        "tags": [
+          "VirtualNetworkRules"
+        ],
+        "x-ms-examples": {
+          "Create or update a virtual network rule": {
+            "parameters": {
+              "api-version": "2017-12-01-preview",
+              "parameters": {
+                "properties": {
+                  "ignoreMissingVnetServiceEndpoint": false,
+                  "virtualNetworkSubnetId": "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestGroup/providers/Microsoft.Network/virtualNetworks/testvnet/subnets/testsubnet"
+                }
+              },
+              "resourceGroupName": "TestGroup",
+              "serverName": "vnet-test-svr",
+              "subscriptionId": "ffffffff-ffff-ffff-ffff-ffffffffffff",
+              "virtualNetworkRuleName": "vnet-firewall-rule"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "id": "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestGroup/providers/Microsoft.DBforPostgreSQL/servers/vnet-test-svr/virtualNetworkRules/vnet-firewall-rule",
+                  "name": "vnet-firewall-rule",
+                  "properties": {
+                    "ignoreMissingVnetServiceEndpoint": false,
+                    "virtualNetworkSubnetId": "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestGroup/providers/Microsoft.Network/virtualNetworks/testvnet/subnets/testsubnet"
+                  },
+                  "type": "Microsoft.DBforPostgreSQL/servers/virtualNetworkRules"
+                }
+              },
+              "201": {
+                "body": {
+                  "id": "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestGroup/providers/Microsoft.DBforPostgreSQL/servers/vnet-test-svr/virtualNetworkRules/vnet-firewall-rule",
+                  "name": "vnet-firewall-rule",
+                  "properties": {
+                    "ignoreMissingVnetServiceEndpoint": false,
+                    "virtualNetworkSubnetId": "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestGroup/providers/Microsoft.Network/virtualNetworks/testvnet/subnets/testsubnet"
+                  },
+                  "type": "Microsoft.DBforPostgreSQL/servers/virtualNetworkRules"
+                }
+              },
+              "202": {}
+            }
+          }
+        },
+        "x-ms-long-running-operation": true
       }
     }
   },
   "definitions": {
+    "CloudError": {
+      "description": "An error response from the Batch service.",
+      "properties": {
+        "error": {
+          "$ref": "#/definitions/CloudErrorBody"
+        }
+      },
+      "x-ms-external": true
+    },
+    "CloudErrorBody": {
+      "description": "An error response from the Batch service.",
+      "properties": {
+        "code": {
+          "description": "An identifier for the error. Codes are invariant and are intended to be consumed programmatically.",
+          "type": "string"
+        },
+        "details": {
+          "description": "A list of additional details about the error.",
+          "items": {
+            "$ref": "#/definitions/CloudErrorBody"
+          },
+          "type": "array"
+        },
+        "message": {
+          "description": "A message describing the error, intended to be suitable for display in a user interface.",
+          "type": "string"
+        },
+        "target": {
+          "description": "The target of the particular error. For example, the name of the property in error.",
+          "type": "string"
+        }
+      },
+      "x-ms-external": true
+    },
     "Configuration": {
       "allOf": [
         {
@@ -3240,10 +4565,6 @@
           "readOnly": true,
           "type": "string"
         },
-        "name": {
-          "description": "Log file name.",
-          "type": "string"
-        },
         "sizeInKB": {
           "description": "Size of the log file.",
           "format": "int64",
@@ -3386,24 +4707,6 @@
           "description": "ID of the performance tier.",
           "type": "string"
         },
-        "maxBackupRetentionDays": {
-          "description": "Maximum Backup retention in days for the performance tier edition",
-          "type": "integer"
-        },
-        "maxStorageMB": {
-          "description": "Max storage allowed for a server.",
-          "format": "int32",
-          "type": "integer"
-        },
-        "minBackupRetentionDays": {
-          "description": "Minimum Backup retention in days for the performance tier edition",
-          "type": "integer"
-        },
-        "minStorageMB": {
-          "description": "Max storage allowed for a server.",
-          "format": "int32",
-          "type": "integer"
-        },
         "serviceLevelObjectives": {
           "description": "Service level objectives associated with the performance tier",
           "items": {
@@ -3427,6 +4730,24 @@
         "id": {
           "description": "ID for the service level objective.",
           "type": "string"
+        },
+        "maxBackupRetentionDays": {
+          "description": "Maximum Backup retention in days for the performance tier edition",
+          "type": "integer"
+        },
+        "maxStorageMB": {
+          "description": "Max storage allowed for a server.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "minBackupRetentionDays": {
+          "description": "Minimum Backup retention in days for the performance tier edition",
+          "type": "integer"
+        },
+        "minStorageMB": {
+          "description": "Max storage allowed for a server.",
+          "format": "int32",
+          "type": "integer"
         },
         "vCore": {
           "description": "vCore associated with the service level objective",
@@ -3455,6 +4776,87 @@
       },
       "x-ms-azure-resource": true
     },
+    "ResourceIdentity": {
+      "description": "Azure Active Directory identity configuration for a resource.",
+      "properties": {
+        "principalId": {
+          "description": "The Azure Active Directory principal id.",
+          "format": "uuid",
+          "readOnly": true,
+          "type": "string"
+        },
+        "tenantId": {
+          "description": "The Azure Active Directory tenant id.",
+          "format": "uuid",
+          "readOnly": true,
+          "type": "string"
+        },
+        "type": {
+          "description": "The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.",
+          "enum": [
+            "SystemAssigned"
+          ],
+          "type": "string",
+          "x-ms-enum": {
+            "modelAsString": true,
+            "name": "IdentityType"
+          }
+        }
+      },
+      "type": "object"
+    },
+    "SecurityAlertPolicyProperties": {
+      "description": "Properties of a security alert policy.",
+      "properties": {
+        "disabledAlerts": {
+          "description": "Specifies an array of alerts that are disabled. Allowed values are: Sql_Injection, Sql_Injection_Vulnerability, Access_Anomaly",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "emailAccountAdmins": {
+          "description": "Specifies that the alert is sent to the account administrators.",
+          "type": "boolean"
+        },
+        "emailAddresses": {
+          "description": "Specifies an array of e-mail addresses to which the alert is sent.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "retentionDays": {
+          "description": "Specifies the number of days to keep in the Threat Detection audit logs.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "state": {
+          "description": "Specifies the state of the policy, whether it is enabled or disabled.",
+          "enum": [
+            "Enabled",
+            "Disabled"
+          ],
+          "type": "string",
+          "x-ms-enum": {
+            "modelAsString": false,
+            "name": "ServerSecurityAlertPolicyState"
+          }
+        },
+        "storageAccountAccessKey": {
+          "description": "Specifies the identifier key of the Threat Detection audit storage account.",
+          "type": "string"
+        },
+        "storageEndpoint": {
+          "description": "Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "state"
+      ],
+      "type": "object"
+    },
     "Server": {
       "allOf": [
         {
@@ -3463,6 +4865,10 @@
       ],
       "description": "Represents a server.",
       "properties": {
+        "identity": {
+          "$ref": "#/definitions/ResourceIdentity",
+          "description": "The Azure Active Directory identity of the server."
+        },
         "properties": {
           "$ref": "#/definitions/ServerProperties",
           "description": "Properties of the server.",
@@ -3471,6 +4877,68 @@
         "sku": {
           "$ref": "#/definitions/Sku",
           "description": "The SKU (pricing tier) of the server."
+        }
+      }
+    },
+    "ServerAdministratorProperties": {
+      "description": "The properties of an server Administrator.",
+      "properties": {
+        "administratorType": {
+          "description": "The type of administrator.",
+          "enum": [
+            "ActiveDirectory"
+          ],
+          "type": "string",
+          "x-ms-enum": {
+            "name": "AdministratorType"
+          }
+        },
+        "login": {
+          "description": "The server administrator login value.",
+          "type": "string"
+        },
+        "sid": {
+          "description": "The server administrator Sid (Secure ID).",
+          "format": "uuid",
+          "type": "string"
+        },
+        "tenantId": {
+          "description": "The server Active Directory Administrator tenant id.",
+          "format": "uuid",
+          "type": "string"
+        }
+      },
+      "required": [
+        "tenantId",
+        "administratorType",
+        "login",
+        "sid"
+      ]
+    },
+    "ServerAdministratorResource": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/ProxyResource"
+        }
+      ],
+      "description": "Represents a and external administrator to be created.",
+      "properties": {
+        "properties": {
+          "$ref": "#/definitions/ServerAdministratorProperties",
+          "description": "Properties of the server AAD administrator.",
+          "x-ms-client-flatten": true
+        }
+      }
+    },
+    "ServerAdministratorResourceListResult": {
+      "description": "The response to a list Active Directory Administrators request.",
+      "properties": {
+        "value": {
+          "description": "The list of server Active Directory Administrators for the server.",
+          "items": {
+            "$ref": "#/definitions/ServerAdministratorResource"
+          },
+          "type": "array"
         }
       }
     },
@@ -3531,6 +4999,20 @@
           "description": "The fully qualified domain name of a server.",
           "type": "string"
         },
+        "masterServerId": {
+          "description": "The master server id of a replica server.",
+          "type": "string"
+        },
+        "replicaCapacity": {
+          "description": "The maximum number of replicas that a master server can have.",
+          "format": "int32",
+          "minimum": 0,
+          "type": "integer"
+        },
+        "replicationRole": {
+          "description": "The replication role of the server.",
+          "type": "string"
+        },
         "sslEnforcement": {
           "$ref": "#/definitions/SslEnforcement",
           "description": "Enable ssl enforcement or not when connect to server."
@@ -3566,7 +5048,9 @@
           "description": "The mode to create a new server.",
           "enum": [
             "Default",
-            "PointInTimeRestore"
+            "PointInTimeRestore",
+            "GeoRestore",
+            "Replica"
           ],
           "type": "string",
           "x-ms-enum": {
@@ -3615,13 +5099,49 @@
       ],
       "x-ms-discriminator-value": "Default"
     },
+    "ServerPropertiesForGeoRestore": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/ServerPropertiesForCreate"
+        }
+      ],
+      "description": "The properties used to create a new server by restoring to a different region from a geo replicated backup.",
+      "properties": {
+        "sourceServerId": {
+          "description": "The source server id to restore from.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "sourceServerId"
+      ],
+      "x-ms-discriminator-value": "GeoRestore"
+    },
+    "ServerPropertiesForReplica": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/ServerPropertiesForCreate"
+        }
+      ],
+      "description": "The properties to create a new replica.",
+      "properties": {
+        "sourceServerId": {
+          "description": "The master server id to create replica from.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "sourceServerId"
+      ],
+      "x-ms-discriminator-value": "Replica"
+    },
     "ServerPropertiesForRestore": {
       "allOf": [
         {
           "$ref": "#/definitions/ServerPropertiesForCreate"
         }
       ],
-      "description": "The properties to a new server by restoring from a backup.",
+      "description": "The properties used to create a new server by restoring from a backup.",
       "properties": {
         "restorePointInTime": {
           "description": "Restore point creation time (ISO8601 format), specifying the time to restore from.",
@@ -3639,8 +5159,24 @@
       ],
       "x-ms-discriminator-value": "PointInTimeRestore"
     },
+    "ServerSecurityAlertPolicy": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/ProxyResource"
+        }
+      ],
+      "description": "A server security alert policy.",
+      "properties": {
+        "properties": {
+          "$ref": "#/definitions/SecurityAlertPolicyProperties",
+          "description": "Resource properties.",
+          "x-ms-client-flatten": true
+        }
+      },
+      "type": "object"
+    },
     "ServerUpdateParameters": {
-      "description": "Parameters allowd to update for a server.",
+      "description": "Parameters allowed to update for a server.",
       "properties": {
         "properties": {
           "description": "The properties that can be updated for a server.",
@@ -3648,6 +5184,10 @@
             "administratorLoginPassword": {
               "description": "The password of the administrator login.",
               "format": "password",
+              "type": "string"
+            },
+            "replicationRole": {
+              "description": "The replication role of the server.",
               "type": "string"
             },
             "sslEnforcement": {
@@ -3682,7 +5222,11 @@
       "description": "The version of a server.",
       "enum": [
         "9.5",
-        "9.6"
+        "9.6",
+        "10",
+        "10.0",
+        "10.2",
+        "11"
       ],
       "type": "string",
       "x-ms-enum": {
@@ -3757,6 +5301,18 @@
             "name": "GeoRedundantBackup"
           }
         },
+        "storageAutogrow": {
+          "description": "Enable Storage Auto Grow.",
+          "enum": [
+            "Enabled",
+            "Disabled"
+          ],
+          "type": "string",
+          "x-ms-enum": {
+            "modelAsString": true,
+            "name": "StorageAutogrow"
+          }
+        },
         "storageMB": {
           "description": "Max storage allowed for a server.",
           "format": "int32",
@@ -3787,6 +5343,74 @@
       "required": [
         "location"
       ]
+    },
+    "VirtualNetworkRule": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/ProxyResource"
+        }
+      ],
+      "description": "A virtual network rule.",
+      "properties": {
+        "properties": {
+          "$ref": "#/definitions/VirtualNetworkRuleProperties",
+          "description": "Resource properties.",
+          "x-ms-client-flatten": true
+        }
+      },
+      "type": "object"
+    },
+    "VirtualNetworkRuleListResult": {
+      "description": "A list of virtual network rules.",
+      "properties": {
+        "nextLink": {
+          "description": "Link to retrieve next page of results.",
+          "readOnly": true,
+          "type": "string"
+        },
+        "value": {
+          "description": "Array of results.",
+          "items": {
+            "$ref": "#/definitions/VirtualNetworkRule"
+          },
+          "readOnly": true,
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "VirtualNetworkRuleProperties": {
+      "description": "Properties of a virtual network rule.",
+      "properties": {
+        "ignoreMissingVnetServiceEndpoint": {
+          "description": "Create firewall rule before the virtual network has vnet service endpoint enabled.",
+          "type": "boolean"
+        },
+        "state": {
+          "description": "Virtual Network Rule State",
+          "enum": [
+            "Initializing",
+            "InProgress",
+            "Ready",
+            "Deleting",
+            "Unknown"
+          ],
+          "readOnly": true,
+          "type": "string",
+          "x-ms-enum": {
+            "modelAsString": true,
+            "name": "VirtualNetworkRuleState"
+          }
+        },
+        "virtualNetworkSubnetId": {
+          "description": "The ARM resource id of the virtual network subnet.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "virtualNetworkSubnetId"
+      ],
+      "type": "object"
     }
   }
 }

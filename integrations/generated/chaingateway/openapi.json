@@ -1,0 +1,2488 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "contact": {},
+    "description": "# Chaingateway.io\n\nREST API to build the bridge between Ethereum and the real world\n\nPlease check out our [website](https://chaingateway.io?utm_source=postman) for detailed information about this API.\n\nTo use our API, you need an API Key (Described as Authorization header in the examples below).\nTo get one, please create an account on our [website](https://chaingateway.io/register?utm_source=postman).\n\nFor our internal documentation, please check out our [Docs Site](https://chaingateway.io/docs?utm_source=postman).\n\nIf you need help with integrating our API in your application, you can reach us via [email](mailto:support@chaingateway.io) or join our official [Telegram](https://t.me/chaingateway) group.",
+    "title": "Chaingateway.io",
+    "version": "1.0",
+    "x-apisguru-categories": [
+      "financial"
+    ],
+    "x-origin": [
+      {
+        "format": "openapi",
+        "url": "https://chaingateway.io/downloads/openapiv3.json",
+        "version": "3.0"
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "chaingateway.io",
+    "x-datafire": {
+      "name": "chaingateway",
+      "type": "openapi"
+    }
+  },
+  "host": "eu.eth.chaingateway.io",
+  "basePath": "/v1",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/clearAddress": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "API Key",
+            "in": "header",
+            "name": "Authorization",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/clearAddressRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "examples": {
+              "application/json": {
+                "amount": 0.02300916225,
+                "ethereumaddress": "0x3a32c4c31fe8d2a89976af5d284a94a040b44aa8",
+                "gas": 0.0025199999999999997,
+                "newaddress": "0xef4943d727e34280a2efa0b3352dfd61f508ee48",
+                "ok": true,
+                "total": "0.025529162250000000",
+                "txid": "0xcff06775098019d18f7bab6a350c18e86f89399db63cbce5269104e6c9a79499"
+              }
+            },
+            "headers": {},
+            "schema": {
+              "$ref": "#/definitions/clearAddress"
+            }
+          }
+        },
+        "security": [],
+        "tags": [
+          "Transaction Requests"
+        ],
+        "deprecated": false,
+        "description": "Sends all available ethereum funds of an address to a specified receiver address.",
+        "operationId": "clearAddress",
+        "summary": "clearAddress"
+      }
+    },
+    "/deleteAddress": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "API Key",
+            "in": "header",
+            "name": "Authorization",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/deleteAddressRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "examples": {
+              "application/json": {
+                "deleted": true,
+                "ethereumaddress": "0x71892889ed4d79d88ab6ea3783b571b8ece9bef4",
+                "ok": true
+              }
+            },
+            "headers": {},
+            "schema": {
+              "$ref": "#/definitions/deleteAddress"
+            }
+          }
+        },
+        "security": [],
+        "tags": [
+          "Address Requests"
+        ],
+        "deprecated": false,
+        "description": "Deletes an existing ethereum address. Be careful when using this function.",
+        "operationId": "deleteAddress",
+        "summary": "deleteAddress"
+      }
+    },
+    "/exportAddress": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "API Key",
+            "in": "header",
+            "name": "Authorization",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/exportAddressRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "examples": {
+              "application/json": {
+                "content": "{'version':3,'id':'85b790ff-408e-42b8-b123-bec9523964dc','address':'71892889ed4d79d88ab6ea3783b571b8ece9bef4','crypto':{'ciphertext':'9d74262517b984f9b0560b8f23b5e3340f7be0f56b70cd91ff445dcaf5b1968f','cipherparams':{'iv':'76e6f2497b9f2a8e024fc752a5418a6d'},'cipher':'aes-128-ctr','kdf':'scrypt','kdfparams':{'dklen':32,'salt':'d11d996a7cc4bfad730d4c9b9057eff2c0fb3940b5bfc59db62ae218c14a54f4','n':131072,'r':8,'p':1},'mac':'dcc342bbbbb8eea97c89b47bafc23de568fc1a48e0bd21ae8d776a95c4704ac9'}}",
+                "filename": "UTC--2020-09-19T10-42-26.196Z--71892889ed4d79d88ab6ea3783b571b8ece9bef4",
+                "ok": true
+              }
+            },
+            "headers": {},
+            "schema": {
+              "$ref": "#/definitions/exportAddress"
+            }
+          }
+        },
+        "security": [],
+        "tags": [
+          "Address Requests"
+        ],
+        "deprecated": false,
+        "description": "Returns all ethereum addresses created with an account.",
+        "operationId": "exportAddress",
+        "summary": "exportAddress"
+      }
+    },
+    "/getBlock": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "API Key",
+            "in": "header",
+            "name": "Authorization",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/getBlockRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "examples": {
+              "application/json": {
+                "block_number": "5000000",
+                "difficulty": "2546613975853490",
+                "gas_limit": "8000029",
+                "gas_used": "7994053",
+                "hash": "0x7d5a4369273c723454ac137f48a4f142b097aa2779464e6505f1b1c5e37b5382",
+                "miner": "0xb2930B35844a230f00E51431aCAe96Fe543a0347",
+                "ok": true,
+                "parent_hash": "0xcae4df80f5862e4321690857eded0d8a40136dafb8155453920bade5bd0c46c0",
+                "size_in_bytes": "24017",
+                "time_stamp": "2018-01-30 14:41:33",
+                "transactions_count": "109"
+              }
+            },
+            "headers": {},
+            "schema": {
+              "$ref": "#/definitions/getBlock"
+            }
+          }
+        },
+        "security": [],
+        "tags": [
+          "Info Requests"
+        ],
+        "deprecated": false,
+        "description": "Returns information of an ethereum block with or without transactions",
+        "operationId": "getBlock",
+        "summary": "getBlock"
+      }
+    },
+    "/getEthereumBalance": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "API Key",
+            "in": "header",
+            "name": "Authorization",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/getEthereumBalanceRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "examples": {
+              "application/json": {
+                "balance": 0.009956019840987648,
+                "ethereumaddress": "0xa1f36016221d48ce7f15cde7b826a4fbe09bacce",
+                "ok": true
+              }
+            },
+            "headers": {},
+            "schema": {
+              "$ref": "#/definitions/getEthereumBalance"
+            }
+          }
+        },
+        "security": [],
+        "tags": [
+          "Info Requests"
+        ],
+        "deprecated": false,
+        "description": "Returns the ethereum balance of a given address.",
+        "operationId": "getEthereumBalance",
+        "summary": "getEthereumBalance"
+      }
+    },
+    "/getExchangeRate": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "API Key",
+            "in": "header",
+            "name": "Authorization",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/getExchangeRateRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "examples": {
+              "application/json": {
+                "currency": "eur",
+                "ok": true,
+                "rate": 321.2
+              }
+            },
+            "headers": {},
+            "schema": {
+              "$ref": "#/definitions/getExchangeRate"
+            }
+          }
+        },
+        "security": [],
+        "tags": [
+          "Info Requests"
+        ],
+        "deprecated": false,
+        "description": "Returns the current Ethereum price in Euro or US Dollar.",
+        "operationId": "getExchangeRate",
+        "summary": "getExchangeRate"
+      }
+    },
+    "/getGasPrice": {
+      "post": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Content-Type",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "API Key",
+            "in": "header",
+            "name": "Authorization",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "examples": {
+              "application/json": {
+                "gasprice": 70,
+                "ok": true
+              }
+            },
+            "headers": {},
+            "schema": {
+              "$ref": "#/definitions/getGasPrice"
+            }
+          }
+        },
+        "security": [],
+        "tags": [
+          "Info Requests"
+        ],
+        "deprecated": false,
+        "description": "Returns the current gas price in GWEI.",
+        "operationId": "getGasPrice",
+        "summary": "getGasPrice"
+      }
+    },
+    "/getLastBlockNumber": {
+      "post": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Content-Type",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "API Key",
+            "in": "header",
+            "name": "Authorization",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "examples": {
+              "application/json": {
+                "blocknumber": 10892021,
+                "ok": true
+              }
+            },
+            "headers": {},
+            "schema": {
+              "$ref": "#/definitions/getLastBlockNumber"
+            }
+          }
+        },
+        "security": [],
+        "tags": [
+          "Info Requests"
+        ],
+        "deprecated": false,
+        "description": "Returns the block number of the last mined ethereum block.",
+        "operationId": "getLastBlockNumber",
+        "summary": "getLastBlockNumber"
+      }
+    },
+    "/getToken": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "API Key",
+            "in": "header",
+            "name": "Authorization",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/getTokenRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "examples": {
+              "application/json": {
+                "contractaddress": "0x5b86a33f0c232fe909eb4602a9d039072869d915",
+                "decimals": 2,
+                "name": "Bitfranken",
+                "ok": true,
+                "supply": 76507131570,
+                "symbol": "BIFRA"
+              }
+            },
+            "headers": {},
+            "schema": {
+              "$ref": "#/definitions/getToken"
+            }
+          }
+        },
+        "security": [],
+        "tags": [
+          "Info Requests"
+        ],
+        "deprecated": false,
+        "description": "Returns information about a specific ERC20 token like name, symbol, decimal places and total supply.",
+        "operationId": "getToken",
+        "summary": "getToken"
+      }
+    },
+    "/getTokenBalance": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "API Key",
+            "in": "header",
+            "name": "Authorization",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/getTokenBalanceRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "examples": {
+              "application/json": {
+                "balance": 9980,
+                "contractaddress": "0x5b86a33f0c232fe909eb4602a9d039072869d915",
+                "ethereumaddress": "0xa1f36016221d48ce7f15cde7b826a4fbe09bacce",
+                "ok": true
+              }
+            },
+            "headers": {},
+            "schema": {
+              "$ref": "#/definitions/getTokenBalance"
+            }
+          }
+        },
+        "security": [],
+        "tags": [
+          "Info Requests"
+        ],
+        "deprecated": false,
+        "description": "Returns the token balance of a given address.",
+        "operationId": "getTokenBalance",
+        "summary": "getTokenBalance"
+      }
+    },
+    "/getTransactions": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "API Key",
+            "in": "header",
+            "name": "Authorization",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/getTransactionsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "examples": {
+              "application/json": {
+                "ok": true,
+                "transactions": [
+                  {
+                    "amount": "10",
+                    "block_number": "6432816",
+                    "contract_address": "0x9E2B71e87d9304c4773674584EB9D0c838643568",
+                    "from": "0x8dF9654c7D81c850FDd35D93292B2fC60e666bF0",
+                    "gas": "90000",
+                    "gas_price": "9",
+                    "to": "0xbee9422f1b65687d0cb923bbd1fc5ccb9307e861",
+                    "token_decimals": "18",
+                    "token_name": "Shopiblock",
+                    "token_supply": "1000000000",
+                    "token_symbol": "SHB",
+                    "txid": "0x8ab5543bc103bdd908681da501d03c2c495afd7fde5ed104935ba97b1550d65b",
+                    "type": "ERC20"
+                  }
+                ]
+              }
+            },
+            "headers": {},
+            "schema": {
+              "$ref": "#/definitions/getTransactions"
+            }
+          }
+        },
+        "security": [],
+        "tags": [
+          "Info Requests"
+        ],
+        "deprecated": false,
+        "description": "Returns information like confirmations, token contract address, amount, gas price and more of a given transaction.",
+        "operationId": "getTransactions",
+        "summary": "getTransactions"
+      }
+    },
+    "/importAddress": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "API Key",
+            "in": "header",
+            "name": "Authorization",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/importAddressRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "examples": {
+              "application/json": {
+                "ethaddress": "0x71892889ed4d79d88ab6ea3783b571b8ece9bef4",
+                "filename": "UTC--2020-09-19T10-42-26.196Z--71892889ed4d79d88ab6ea3783b571b8ece9bef4",
+                "ok": true
+              }
+            },
+            "headers": {},
+            "schema": {
+              "$ref": "#/definitions/importAddress"
+            }
+          }
+        },
+        "security": [],
+        "tags": [
+          "Address Requests"
+        ],
+        "deprecated": false,
+        "description": "Returns all ethereum addresses created with an account.",
+        "operationId": "importAddress",
+        "summary": "importAddress"
+      }
+    },
+    "/listAddresses": {
+      "post": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Content-Type",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "API Key",
+            "in": "header",
+            "name": "Authorization",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "examples": {
+              "application/json": {
+                "addresses": [
+                  {
+                    "ethereumaddress": "0x71892889ed4d79d88ab6ea3783b571b8ece9bef4"
+                  }
+                ],
+                "ok": true
+              }
+            },
+            "headers": {},
+            "schema": {
+              "$ref": "#/definitions/listAddresses"
+            }
+          }
+        },
+        "security": [],
+        "tags": [
+          "Address Requests"
+        ],
+        "deprecated": false,
+        "description": "Returns all ethereum addresses created with an account.",
+        "operationId": "listAddresses",
+        "summary": "listAddresses"
+      }
+    },
+    "/listFailedIPNs": {
+      "post": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Content-Type",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "API Key",
+            "in": "header",
+            "name": "Authorization",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "examples": {
+              "application/json": {
+                "failed_ipns": [
+                  {
+                    "action": "deposit",
+                    "amount": "496588.7771277759",
+                    "contractaddress": "0x514910771af9ca656af840dff83e8264ecf986ca",
+                    "ethereumaddress": "0xa2107fa5b38d9bbd2c461d6edf11b11a50f6b974",
+                    "id": "17766",
+                    "timestamp": "2020-09-19 14:33:01",
+                    "url": "https://yoururl.com/ipnreceiver.php"
+                  }
+                ],
+                "ok": true
+              }
+            },
+            "headers": {},
+            "schema": {
+              "$ref": "#/definitions/listFailedIPNs"
+            }
+          }
+        },
+        "security": [],
+        "tags": [
+          "Subscription/IPN Requests"
+        ],
+        "deprecated": false,
+        "description": "Returns all subscriptions/IPNs created with an account.",
+        "operationId": "listFailedIPNs",
+        "summary": "listFailedIPNs"
+      }
+    },
+    "/listSubscribedAddresses": {
+      "post": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Content-Type",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "API Key",
+            "in": "header",
+            "name": "Authorization",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "examples": {
+              "application/json": {
+                "ipns": [
+                  {
+                    "contractaddress": "0x514910771af9ca656af840dff83e8264ecf986ca",
+                    "ethereumaddress": "0xa2107fa5b38d9bbd2c461d6edf11b11a50f6b974",
+                    "url": "https://yoururl.com/ipnreceiver.php"
+                  }
+                ],
+                "ok": true
+              }
+            },
+            "headers": {},
+            "schema": {
+              "$ref": "#/definitions/listSubscribedAddresses"
+            }
+          }
+        },
+        "security": [],
+        "tags": [
+          "Subscription/IPN Requests"
+        ],
+        "deprecated": false,
+        "description": "Returns all subscriptions/IPNs created with an account.",
+        "operationId": "listSubscribedAddresses",
+        "summary": "listSubscribedAddresses"
+      }
+    },
+    "/newAddress": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "API Key",
+            "in": "header",
+            "name": "Authorization",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/newAddressRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "examples": {
+              "application/json": {
+                "ethereumaddress": "0x71892889ed4d79d88ab6ea3783b571b8ece9bef4",
+                "ok": true,
+                "password": "padN39QkRA2hJ"
+              }
+            },
+            "headers": {},
+            "schema": {
+              "$ref": "#/definitions/newAddress"
+            }
+          }
+        },
+        "security": [],
+        "tags": [
+          "Address Requests"
+        ],
+        "deprecated": false,
+        "description": "Generates a new ethereum addresses you can use to send or receive funds. Do not lose the password! We can't restore access to an address if you lose it.",
+        "operationId": "newAddress",
+        "summary": "newAddress"
+      }
+    },
+    "/resendFailedIPN": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "API Key",
+            "in": "header",
+            "name": "Authorization",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/resendFailedIPNRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "examples": {
+              "application/json": {
+                "id": 17766,
+                "ok": true
+              }
+            },
+            "headers": {},
+            "schema": {
+              "$ref": "#/definitions/resendFailedIPN"
+            }
+          }
+        },
+        "security": [],
+        "tags": [
+          "Subscription/IPN Requests"
+        ],
+        "deprecated": false,
+        "description": "Returns all subscriptions/IPNs created with an account.",
+        "operationId": "resendFailedIPN",
+        "summary": "resendFailedIPN"
+      }
+    },
+    "/sendEthereum": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "API Key",
+            "in": "header",
+            "name": "Authorization",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/sendEthereumRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "examples": {
+              "application/json": {
+                "amount": "0.010000000000000000",
+                "from": "0x3a32c4c31fe8d2a89976af5d284a94a040b44aa8",
+                "ok": true,
+                "to": "0xef4943d727e34280a2efa0b3352dfd61f508ee48",
+                "txid": "0xcff06775098019d18f7bab6a350c18e86f89399db63cbce5269104e6c9a79499"
+              }
+            },
+            "headers": {},
+            "schema": {
+              "$ref": "#/definitions/sendEthereum"
+            }
+          }
+        },
+        "security": [],
+        "tags": [
+          "Transaction Requests"
+        ],
+        "deprecated": false,
+        "description": "Sends ethereum from an address controlled by the account to a specified receiver address.",
+        "operationId": "sendEthereum",
+        "summary": "sendEthereum"
+      }
+    },
+    "/sendToken": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "API Key",
+            "in": "header",
+            "name": "Authorization",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/sendTokenRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "examples": {
+              "application/json": {
+                "amount": 5,
+                "contractaddress": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+                "from": "0x3a32c4c31fe8d2a89976af5d284a94a040b44aa8",
+                "identifier": "CN562",
+                "ok": true,
+                "to": "0xef4943d727e34280a2efa0b3352dfd61f508ee48",
+                "txid": "0xcff06775098019d18f7bab6a350c18e86f89399db63cbce5269104e6c9a79499"
+              }
+            },
+            "headers": {},
+            "schema": {
+              "$ref": "#/definitions/sendToken"
+            }
+          }
+        },
+        "security": [],
+        "tags": [
+          "Transaction Requests"
+        ],
+        "deprecated": false,
+        "description": "Sends ERC20 tokens from an address controlled by the account to a specified receiver address. The token contract address is needed to specify the token. The use of the identifier parameter is recommend and awaits an unique string. Whenever a transaction is beeing sent, the identifier is checked and the transaction gets dropped if there is one with that identifier already.",
+        "operationId": "sendToken",
+        "summary": "sendToken"
+      }
+    },
+    "/subscribeAddress": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "API Key",
+            "in": "header",
+            "name": "Authorization",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/subscribeAddressRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "examples": {
+              "application/json": {
+                "contractaddress": "0x514910771af9ca656af840dff83e8264ecf986ca",
+                "ethereumaddress": "0xa2107fa5b38d9bbd2c461d6edf11b11a50f6b974",
+                "ok": true,
+                "url": "https://yoururl.com/ipnreceiver.php"
+              }
+            },
+            "headers": {},
+            "schema": {
+              "$ref": "#/definitions/subscribeAddress"
+            }
+          }
+        },
+        "security": [],
+        "tags": [
+          "Subscription/IPN Requests"
+        ],
+        "deprecated": false,
+        "description": "Creates a new subscription/IPN for the given address (and contractaddress). You will receive a notification to the given url every time a deposit is received. Unsubscribe the address before sending tokens/ETH from it or you won't get reliable notifications anymore.\r\n",
+        "operationId": "subscribeAddress",
+        "summary": "subscribeAddress"
+      }
+    },
+    "/unsubscribeAddress": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "API Key",
+            "in": "header",
+            "name": "Authorization",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/unsubscribeAddressRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "examples": {
+              "application/json": {
+                "contractaddress": "0x514910771af9ca656af840dff83e8264ecf986ca",
+                "deleted": true,
+                "ethereumaddress": "0xa2107fa5b38d9bbd2c461d6edf11b11a50f6b974",
+                "ok": true,
+                "url": "https://yoururl.com/ipnreceiver.php"
+              }
+            },
+            "headers": {},
+            "schema": {
+              "$ref": "#/definitions/unsubscribeAddress"
+            }
+          }
+        },
+        "security": [],
+        "tags": [
+          "Subscription/IPN Requests"
+        ],
+        "deprecated": false,
+        "description": "Deletes an existing subscription/IPN for the given address (and contractaddress).",
+        "operationId": "unsubscribeAddress",
+        "summary": "unsubscribeAddress"
+      }
+    }
+  },
+  "definitions": {
+    "Address": {
+      "example": {
+        "ethereumaddress": "0x71892889ed4d79d88ab6ea3783b571b8ece9bef4"
+      },
+      "properties": {
+        "ethereumaddress": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "ethereumaddress"
+      ],
+      "title": "Address",
+      "type": "object"
+    },
+    "Cipherparams": {
+      "example": {
+        "iv": "76e6f2497b9f2a8e024fc752a5418a6d"
+      },
+      "properties": {
+        "iv": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "iv"
+      ],
+      "title": "Cipherparams",
+      "type": "object"
+    },
+    "Content": {
+      "example": {
+        "address": "71892889ed4d79d88ab6ea3783b571b8ece9bef4",
+        "crypto": {
+          "cipher": "aes-128-ctr",
+          "cipherparams": {
+            "iv": "76e6f2497b9f2a8e024fc752a5418a6d"
+          },
+          "ciphertext": "9d74262517b984f9b0560b8f23b5e3340f7be0f56b70cd91ff445dcaf5b1968f",
+          "kdf": "scrypt",
+          "kdfparams": {
+            "dklen": 32,
+            "n": 131072,
+            "p": 1,
+            "r": 8,
+            "salt": "d11d996a7cc4bfad730d4c9b9057eff2c0fb3940b5bfc59db62ae218c14a54f4"
+          },
+          "mac": "dcc342bbbbb8eea97c89b47bafc23de568fc1a48e0bd21ae8d776a95c4704ac9"
+        },
+        "id": "85b790ff-408e-42b8-b123-bec9523964dc",
+        "version": 3
+      },
+      "properties": {
+        "address": {
+          "type": "string"
+        },
+        "crypto": {
+          "$ref": "#/definitions/Crypto"
+        },
+        "id": {
+          "type": "string"
+        },
+        "version": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "version",
+        "id",
+        "address",
+        "crypto"
+      ],
+      "title": "Content",
+      "type": "object"
+    },
+    "Crypto": {
+      "example": {
+        "cipher": "aes-128-ctr",
+        "cipherparams": {
+          "iv": "76e6f2497b9f2a8e024fc752a5418a6d"
+        },
+        "ciphertext": "9d74262517b984f9b0560b8f23b5e3340f7be0f56b70cd91ff445dcaf5b1968f",
+        "kdf": "scrypt",
+        "kdfparams": {
+          "dklen": 32,
+          "n": 131072,
+          "p": 1,
+          "r": 8,
+          "salt": "d11d996a7cc4bfad730d4c9b9057eff2c0fb3940b5bfc59db62ae218c14a54f4"
+        },
+        "mac": "dcc342bbbbb8eea97c89b47bafc23de568fc1a48e0bd21ae8d776a95c4704ac9"
+      },
+      "properties": {
+        "cipher": {
+          "type": "string"
+        },
+        "cipherparams": {
+          "$ref": "#/definitions/Cipherparams"
+        },
+        "ciphertext": {
+          "type": "string"
+        },
+        "kdf": {
+          "type": "string"
+        },
+        "kdfparams": {
+          "$ref": "#/definitions/Kdfparams"
+        },
+        "mac": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "ciphertext",
+        "cipherparams",
+        "cipher",
+        "kdf",
+        "kdfparams",
+        "mac"
+      ],
+      "title": "Crypto",
+      "type": "object"
+    },
+    "FailedIpn": {
+      "example": {
+        "action": "deposit",
+        "amount": "496588.7771277759",
+        "contractaddress": "0x514910771af9ca656af840dff83e8264ecf986ca",
+        "ethereumaddress": "0xa2107fa5b38d9bbd2c461d6edf11b11a50f6b974",
+        "id": "17766",
+        "timestamp": "2020-09-19 14:33:01",
+        "url": "https://yoururl.com/ipnreceiver.php"
+      },
+      "properties": {
+        "action": {
+          "type": "string"
+        },
+        "amount": {
+          "type": "string"
+        },
+        "contractaddress": {
+          "type": "string"
+        },
+        "ethereumaddress": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "timestamp": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "timestamp",
+        "ethereumaddress",
+        "contractaddress",
+        "amount",
+        "url",
+        "action"
+      ],
+      "title": "FailedIpn",
+      "type": "object"
+    },
+    "Ipn": {
+      "example": {
+        "contractaddress": "0x514910771af9ca656af840dff83e8264ecf986ca",
+        "ethereumaddress": "0xa2107fa5b38d9bbd2c461d6edf11b11a50f6b974",
+        "url": "https://yoururl.com/ipnreceiver.php"
+      },
+      "properties": {
+        "contractaddress": {
+          "type": "string"
+        },
+        "ethereumaddress": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "ethereumaddress",
+        "contractaddress",
+        "url"
+      ],
+      "title": "Ipn",
+      "type": "object"
+    },
+    "Kdfparams": {
+      "example": {
+        "dklen": 32,
+        "n": 131072,
+        "p": 1,
+        "r": 8,
+        "salt": "d11d996a7cc4bfad730d4c9b9057eff2c0fb3940b5bfc59db62ae218c14a54f4"
+      },
+      "properties": {
+        "dklen": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "n": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "p": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "r": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "salt": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "dklen",
+        "salt",
+        "n",
+        "r",
+        "p"
+      ],
+      "title": "Kdfparams",
+      "type": "object"
+    },
+    "Transaction": {
+      "example": {
+        "amount": "10",
+        "block_number": "6432816",
+        "contract_address": "0x9E2B71e87d9304c4773674584EB9D0c838643568",
+        "from": "0x8dF9654c7D81c850FDd35D93292B2fC60e666bF0",
+        "gas": "90000",
+        "gas_price": "9",
+        "to": "0xbee9422f1b65687d0cb923bbd1fc5ccb9307e861",
+        "token_decimals": "18",
+        "token_name": "Shopiblock",
+        "token_supply": "1000000000",
+        "token_symbol": "SHB",
+        "txid": "0x8ab5543bc103bdd908681da501d03c2c495afd7fde5ed104935ba97b1550d65b",
+        "type": "ERC20"
+      },
+      "properties": {
+        "amount": {
+          "type": "string"
+        },
+        "block_number": {
+          "type": "string"
+        },
+        "contract_address": {
+          "type": "string"
+        },
+        "from": {
+          "type": "string"
+        },
+        "gas": {
+          "type": "string"
+        },
+        "gas_price": {
+          "type": "string"
+        },
+        "to": {
+          "type": "string"
+        },
+        "token_decimals": {
+          "type": "string"
+        },
+        "token_name": {
+          "type": "string"
+        },
+        "token_supply": {
+          "type": "string"
+        },
+        "token_symbol": {
+          "type": "string"
+        },
+        "txid": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "txid",
+        "block_number",
+        "contract_address",
+        "type",
+        "token_name",
+        "token_symbol",
+        "token_decimals",
+        "token_supply",
+        "gas",
+        "gas_price",
+        "from",
+        "to",
+        "amount"
+      ],
+      "title": "Transaction",
+      "type": "object"
+    },
+    "clearAddress": {
+      "example": {
+        "amount": 0.02300916225,
+        "ethereumaddress": "0x3a32c4c31fe8d2a89976af5d284a94a040b44aa8",
+        "gas": 0.0025199999999999997,
+        "newaddress": "0xef4943d727e34280a2efa0b3352dfd61f508ee48",
+        "ok": true,
+        "total": "0.025529162250000000",
+        "txid": "0xcff06775098019d18f7bab6a350c18e86f89399db63cbce5269104e6c9a79499"
+      },
+      "properties": {
+        "amount": {
+          "type": "number"
+        },
+        "ethereumaddress": {
+          "type": "string"
+        },
+        "gas": {
+          "type": "number"
+        },
+        "newaddress": {
+          "type": "string"
+        },
+        "ok": {
+          "type": "boolean"
+        },
+        "total": {
+          "type": "string"
+        },
+        "txid": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "ok",
+        "txid",
+        "ethereumaddress",
+        "newaddress",
+        "amount",
+        "gas",
+        "total"
+      ],
+      "title": "clearAddress",
+      "type": "object"
+    },
+    "clearAddressRequest": {
+      "example": {
+        "ethereumaddress": "0x3a32c4c31fe8d2a89976af5d284a94a040b44aa8",
+        "newaddress": "0xef4943d727e34280a2efa0b3352dfd61f508ee48",
+        "password": "padN39QkRA2hJ"
+      },
+      "properties": {
+        "ethereumaddress": {
+          "type": "string"
+        },
+        "newaddress": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "ethereumaddress",
+        "newaddress",
+        "password"
+      ],
+      "title": "clearAddressRequest",
+      "type": "object"
+    },
+    "deleteAddress": {
+      "example": {
+        "deleted": true,
+        "ethereumaddress": "0x71892889ed4d79d88ab6ea3783b571b8ece9bef4",
+        "ok": true
+      },
+      "properties": {
+        "deleted": {
+          "type": "boolean"
+        },
+        "ethereumaddress": {
+          "type": "string"
+        },
+        "ok": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "ok",
+        "ethereumaddress",
+        "deleted"
+      ],
+      "title": "deleteAddress",
+      "type": "object"
+    },
+    "deleteAddressRequest": {
+      "example": {
+        "ethereumaddress": "0x71892689ed0d79d88ab6ea3783b571b8ece9bee3",
+        "password": "padN39QkRA2hJ"
+      },
+      "properties": {
+        "ethereumaddress": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "ethereumaddress",
+        "password"
+      ],
+      "title": "deleteAddressRequest",
+      "type": "object"
+    },
+    "exportAddress": {
+      "example": {
+        "content": "{'version':3,'id':'85b790ff-408e-42b8-b123-bec9523964dc','address':'71892889ed4d79d88ab6ea3783b571b8ece9bef4','crypto':{'ciphertext':'9d74262517b984f9b0560b8f23b5e3340f7be0f56b70cd91ff445dcaf5b1968f','cipherparams':{'iv':'76e6f2497b9f2a8e024fc752a5418a6d'},'cipher':'aes-128-ctr','kdf':'scrypt','kdfparams':{'dklen':32,'salt':'d11d996a7cc4bfad730d4c9b9057eff2c0fb3940b5bfc59db62ae218c14a54f4','n':131072,'r':8,'p':1},'mac':'dcc342bbbbb8eea97c89b47bafc23de568fc1a48e0bd21ae8d776a95c4704ac9'}}",
+        "filename": "UTC--2020-09-19T10-42-26.196Z--71892889ed4d79d88ab6ea3783b571b8ece9bef4",
+        "ok": true
+      },
+      "properties": {
+        "content": {
+          "type": "string"
+        },
+        "filename": {
+          "type": "string"
+        },
+        "ok": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "ok",
+        "filename",
+        "content"
+      ],
+      "title": "exportAddress",
+      "type": "object"
+    },
+    "exportAddressRequest": {
+      "example": {
+        "ethaddress": "0x71892889ed4d79d88ab6ea3783b571b8ece9bef4",
+        "password": "padN39QkRA2hJ"
+      },
+      "properties": {
+        "ethaddress": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "ethaddress",
+        "password"
+      ],
+      "title": "exportAddressRequest",
+      "type": "object"
+    },
+    "getBlock": {
+      "example": {
+        "block_number": "5000000",
+        "difficulty": "2546613975853490",
+        "gas_limit": "8000029",
+        "gas_used": "7994053",
+        "hash": "0x7d5a4369273c723454ac137f48a4f142b097aa2779464e6505f1b1c5e37b5382",
+        "miner": "0xb2930B35844a230f00E51431aCAe96Fe543a0347",
+        "ok": true,
+        "parent_hash": "0xcae4df80f5862e4321690857eded0d8a40136dafb8155453920bade5bd0c46c0",
+        "size_in_bytes": "24017",
+        "time_stamp": "2018-01-30 14:41:33",
+        "transactions_count": "109"
+      },
+      "properties": {
+        "block_number": {
+          "type": "string"
+        },
+        "difficulty": {
+          "type": "string"
+        },
+        "gas_limit": {
+          "type": "string"
+        },
+        "gas_used": {
+          "type": "string"
+        },
+        "hash": {
+          "type": "string"
+        },
+        "miner": {
+          "type": "string"
+        },
+        "ok": {
+          "type": "boolean"
+        },
+        "parent_hash": {
+          "type": "string"
+        },
+        "size_in_bytes": {
+          "type": "string"
+        },
+        "time_stamp": {
+          "type": "string"
+        },
+        "transactions_count": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "ok",
+        "hash",
+        "block_number",
+        "parent_hash",
+        "miner",
+        "difficulty",
+        "size_in_bytes",
+        "gas_limit",
+        "gas_used",
+        "time_stamp",
+        "transactions_count"
+      ],
+      "title": "getBlock",
+      "type": "object"
+    },
+    "getBlockRequest": {
+      "example": {
+        "block": "5000000"
+      },
+      "properties": {
+        "block": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "block"
+      ],
+      "title": "getBlockRequest",
+      "type": "object"
+    },
+    "getEthereumBalance": {
+      "example": {
+        "balance": 0.009956019840987648,
+        "ethereumaddress": "0xa1f36016221d48ce7f15cde7b826a4fbe09bacce",
+        "ok": true
+      },
+      "properties": {
+        "balance": {
+          "type": "number"
+        },
+        "ethereumaddress": {
+          "type": "string"
+        },
+        "ok": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "ok",
+        "ethereumaddress",
+        "balance"
+      ],
+      "title": "getEthereumBalance",
+      "type": "object"
+    },
+    "getEthereumBalanceRequest": {
+      "example": {
+        "ethereumaddress": "0xa1f36016221d48ce7f15cde7b826a4fbe09bacce"
+      },
+      "properties": {
+        "ethereumaddress": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "ethereumaddress"
+      ],
+      "title": "getEthereumBalanceRequest",
+      "type": "object"
+    },
+    "getExchangeRate": {
+      "example": {
+        "currency": "eur",
+        "ok": true,
+        "rate": 321.2
+      },
+      "properties": {
+        "currency": {
+          "type": "string"
+        },
+        "ok": {
+          "type": "boolean"
+        },
+        "rate": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "ok",
+        "currency",
+        "rate"
+      ],
+      "title": "getExchangeRate",
+      "type": "object"
+    },
+    "getExchangeRateRequest": {
+      "example": {
+        "currency": "eur"
+      },
+      "properties": {
+        "currency": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "currency"
+      ],
+      "title": "getExchangeRateRequest",
+      "type": "object"
+    },
+    "getGasPrice": {
+      "example": {
+        "gasprice": 70,
+        "ok": true
+      },
+      "properties": {
+        "gasprice": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "ok": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "ok",
+        "gasprice"
+      ],
+      "title": "getGasPrice",
+      "type": "object"
+    },
+    "getLastBlockNumber": {
+      "example": {
+        "blocknumber": 10892021,
+        "ok": true
+      },
+      "properties": {
+        "blocknumber": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "ok": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "ok",
+        "blocknumber"
+      ],
+      "title": "getLastBlockNumber",
+      "type": "object"
+    },
+    "getToken": {
+      "example": {
+        "contractaddress": "0x5b86a33f0c232fe909eb4602a9d039072869d915",
+        "decimals": 2,
+        "name": "Bitfranken",
+        "ok": true,
+        "supply": 76507131570,
+        "symbol": "BIFRA"
+      },
+      "properties": {
+        "contractaddress": {
+          "type": "string"
+        },
+        "decimals": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "ok": {
+          "type": "boolean"
+        },
+        "supply": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "symbol": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "ok",
+        "contractaddress",
+        "name",
+        "symbol",
+        "decimals",
+        "supply"
+      ],
+      "title": "getToken",
+      "type": "object"
+    },
+    "getTokenBalance": {
+      "example": {
+        "balance": 9980,
+        "contractaddress": "0x5b86a33f0c232fe909eb4602a9d039072869d915",
+        "ethereumaddress": "0xa1f36016221d48ce7f15cde7b826a4fbe09bacce",
+        "ok": true
+      },
+      "properties": {
+        "balance": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "contractaddress": {
+          "type": "string"
+        },
+        "ethereumaddress": {
+          "type": "string"
+        },
+        "ok": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "ok",
+        "contractaddress",
+        "ethereumaddress",
+        "balance"
+      ],
+      "title": "getTokenBalance",
+      "type": "object"
+    },
+    "getTokenBalanceRequest": {
+      "example": {
+        "contractaddress": "0x5b86a33f0c232fe909eb4602a9d039072869d915",
+        "ethereumaddress": "0xa1f36016221d48ce7f15cde7b826a4fbe09bacce"
+      },
+      "properties": {
+        "contractaddress": {
+          "type": "string"
+        },
+        "ethereumaddress": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "contractaddress",
+        "ethereumaddress"
+      ],
+      "title": "getTokenBalanceRequest",
+      "type": "object"
+    },
+    "getTokenRequest": {
+      "example": {
+        "contractaddress": "0x5b86a33f0c232fe909eb4602a9d039072869d915"
+      },
+      "properties": {
+        "contractaddress": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "contractaddress"
+      ],
+      "title": "getTokenRequest",
+      "type": "object"
+    },
+    "getTransactions": {
+      "example": {
+        "ok": true,
+        "transactions": [
+          {
+            "amount": "10",
+            "block_number": "6432816",
+            "contract_address": "0x9E2B71e87d9304c4773674584EB9D0c838643568",
+            "from": "0x8dF9654c7D81c850FDd35D93292B2fC60e666bF0",
+            "gas": "90000",
+            "gas_price": "9",
+            "to": "0xbee9422f1b65687d0cb923bbd1fc5ccb9307e861",
+            "token_decimals": "18",
+            "token_name": "Shopiblock",
+            "token_supply": "1000000000",
+            "token_symbol": "SHB",
+            "txid": "0x8ab5543bc103bdd908681da501d03c2c495afd7fde5ed104935ba97b1550d65b",
+            "type": "ERC20"
+          }
+        ]
+      },
+      "properties": {
+        "ok": {
+          "type": "boolean"
+        },
+        "transactions": {
+          "items": {
+            "$ref": "#/definitions/Transaction"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "ok",
+        "transactions"
+      ],
+      "title": "getTransactions",
+      "type": "object"
+    },
+    "getTransactionsRequest": {
+      "example": {
+        "txid": "0x8ab5543bc103bdd908681da501d03c2c495afd7fde5ed104935ba97b1550d65b"
+      },
+      "properties": {
+        "txid": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "txid"
+      ],
+      "title": "getTransactionsRequest",
+      "type": "object"
+    },
+    "importAddress": {
+      "example": {
+        "ethaddress": "0x71892889ed4d79d88ab6ea3783b571b8ece9bef4",
+        "filename": "UTC--2020-09-19T10-42-26.196Z--71892889ed4d79d88ab6ea3783b571b8ece9bef4",
+        "ok": true
+      },
+      "properties": {
+        "ethaddress": {
+          "type": "string"
+        },
+        "filename": {
+          "type": "string"
+        },
+        "ok": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "ok",
+        "ethaddress",
+        "filename"
+      ],
+      "title": "importAddress",
+      "type": "object"
+    },
+    "importAddressRequest": {
+      "example": {
+        "content": {
+          "address": "71892889ed4d79d88ab6ea3783b571b8ece9bef4",
+          "crypto": {
+            "cipher": "aes-128-ctr",
+            "cipherparams": {
+              "iv": "76e6f2497b9f2a8e024fc752a5418a6d"
+            },
+            "ciphertext": "9d74262517b984f9b0560b8f23b5e3340f7be0f56b70cd91ff445dcaf5b1968f",
+            "kdf": "scrypt",
+            "kdfparams": {
+              "dklen": 32,
+              "n": 131072,
+              "p": 1,
+              "r": 8,
+              "salt": "d11d996a7cc4bfad730d4c9b9057eff2c0fb3940b5bfc59db62ae218c14a54f4"
+            },
+            "mac": "dcc342bbbbb8eea97c89b47bafc23de568fc1a48e0bd21ae8d776a95c4704ac9"
+          },
+          "id": "85b790ff-408e-42b8-b123-bec9523964dc",
+          "version": 3
+        },
+        "filename": "UTC--2020-09-19T10-42-26.196Z--71892889ed4d79d88ab6ea3783b571b8ece9bef4",
+        "password": "padN39QkRA2hJ"
+      },
+      "properties": {
+        "content": {
+          "$ref": "#/definitions/Content"
+        },
+        "filename": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "filename",
+        "content",
+        "password"
+      ],
+      "title": "importAddressRequest",
+      "type": "object"
+    },
+    "listAddresses": {
+      "example": {
+        "addresses": [
+          {
+            "ethereumaddress": "0x71892889ed4d79d88ab6ea3783b571b8ece9bef4"
+          }
+        ],
+        "ok": true
+      },
+      "properties": {
+        "addresses": {
+          "items": {
+            "$ref": "#/definitions/Address"
+          },
+          "type": "array"
+        },
+        "ok": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "ok",
+        "addresses"
+      ],
+      "title": "listAddresses",
+      "type": "object"
+    },
+    "listFailedIPNs": {
+      "example": {
+        "failed_ipns": [
+          {
+            "action": "deposit",
+            "amount": "496588.7771277759",
+            "contractaddress": "0x514910771af9ca656af840dff83e8264ecf986ca",
+            "ethereumaddress": "0xa2107fa5b38d9bbd2c461d6edf11b11a50f6b974",
+            "id": "17766",
+            "timestamp": "2020-09-19 14:33:01",
+            "url": "https://yoururl.com/ipnreceiver.php"
+          }
+        ],
+        "ok": true
+      },
+      "properties": {
+        "failed_ipns": {
+          "items": {
+            "$ref": "#/definitions/FailedIpn"
+          },
+          "type": "array"
+        },
+        "ok": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "ok",
+        "failed_ipns"
+      ],
+      "title": "listFailedIPNs",
+      "type": "object"
+    },
+    "listSubscribedAddresses": {
+      "example": {
+        "ipns": [
+          {
+            "contractaddress": "0x514910771af9ca656af840dff83e8264ecf986ca",
+            "ethereumaddress": "0xa2107fa5b38d9bbd2c461d6edf11b11a50f6b974",
+            "url": "https://yoururl.com/ipnreceiver.php"
+          }
+        ],
+        "ok": true
+      },
+      "properties": {
+        "ipns": {
+          "items": {
+            "$ref": "#/definitions/Ipn"
+          },
+          "type": "array"
+        },
+        "ok": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "ok",
+        "ipns"
+      ],
+      "title": "listSubscribedAddresses",
+      "type": "object"
+    },
+    "newAddress": {
+      "example": {
+        "ethereumaddress": "0x71892889ed4d79d88ab6ea3783b571b8ece9bef4",
+        "ok": true,
+        "password": "padN39QkRA2hJ"
+      },
+      "properties": {
+        "ethereumaddress": {
+          "type": "string"
+        },
+        "ok": {
+          "type": "boolean"
+        },
+        "password": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "ok",
+        "ethereumaddress",
+        "password"
+      ],
+      "title": "newAddress",
+      "type": "object"
+    },
+    "newAddressRequest": {
+      "example": {
+        "password": "padN39QkRA2hJ"
+      },
+      "properties": {
+        "password": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "password"
+      ],
+      "title": "newAddressRequest",
+      "type": "object"
+    },
+    "resendFailedIPN": {
+      "example": {
+        "id": 17766,
+        "ok": true
+      },
+      "properties": {
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "ok": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "ok",
+        "id"
+      ],
+      "title": "resendFailedIPN",
+      "type": "object"
+    },
+    "resendFailedIPNRequest": {
+      "example": {
+        "id": 17766
+      },
+      "properties": {
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "title": "resendFailedIPNRequest",
+      "type": "object"
+    },
+    "sendEthereum": {
+      "example": {
+        "amount": "0.010000000000000000",
+        "from": "0x3a32c4c31fe8d2a89976af5d284a94a040b44aa8",
+        "ok": true,
+        "to": "0xef4943d727e34280a2efa0b3352dfd61f508ee48",
+        "txid": "0xcff06775098019d18f7bab6a350c18e86f89399db63cbce5269104e6c9a79499"
+      },
+      "properties": {
+        "amount": {
+          "type": "string"
+        },
+        "from": {
+          "type": "string"
+        },
+        "ok": {
+          "type": "boolean"
+        },
+        "to": {
+          "type": "string"
+        },
+        "txid": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "ok",
+        "txid",
+        "from",
+        "to",
+        "amount"
+      ],
+      "title": "sendEthereum",
+      "type": "object"
+    },
+    "sendEthereumRequest": {
+      "example": {
+        "amount": 0.01,
+        "from": "0x3a32c4c31fe8d2a89976af5d284a94a040b44aa8",
+        "password": "padN39QkRA2hJ",
+        "to": "0xef4943d727e34280a2efa0b3352dfd61f508ee48"
+      },
+      "properties": {
+        "amount": {
+          "type": "number"
+        },
+        "from": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "to": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "from",
+        "to",
+        "password",
+        "amount"
+      ],
+      "title": "sendEthereumRequest",
+      "type": "object"
+    },
+    "sendToken": {
+      "example": {
+        "amount": 5,
+        "contractaddress": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+        "from": "0x3a32c4c31fe8d2a89976af5d284a94a040b44aa8",
+        "identifier": "CN562",
+        "ok": true,
+        "to": "0xef4943d727e34280a2efa0b3352dfd61f508ee48",
+        "txid": "0xcff06775098019d18f7bab6a350c18e86f89399db63cbce5269104e6c9a79499"
+      },
+      "properties": {
+        "amount": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "contractaddress": {
+          "type": "string"
+        },
+        "from": {
+          "type": "string"
+        },
+        "identifier": {
+          "type": "string"
+        },
+        "ok": {
+          "type": "boolean"
+        },
+        "to": {
+          "type": "string"
+        },
+        "txid": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "ok",
+        "identifier",
+        "txid",
+        "contractaddress",
+        "from",
+        "to",
+        "amount"
+      ],
+      "title": "sendToken",
+      "type": "object"
+    },
+    "sendTokenRequest": {
+      "example": {
+        "amount": 5,
+        "contractaddress": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+        "from": "0x3a32c4c31fe8d2a89976af5d284a94a040b44aa8",
+        "identifier": "CN562",
+        "password": "padN39QkRA2hJ",
+        "to": "0xef4943d727e34280a2efa0b3352dfd61f508ee48"
+      },
+      "properties": {
+        "amount": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "contractaddress": {
+          "type": "string"
+        },
+        "from": {
+          "type": "string"
+        },
+        "identifier": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "to": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "contractaddress",
+        "from",
+        "to",
+        "password",
+        "amount",
+        "identifier"
+      ],
+      "title": "sendTokenRequest",
+      "type": "object"
+    },
+    "subscribeAddress": {
+      "example": {
+        "contractaddress": "0x514910771af9ca656af840dff83e8264ecf986ca",
+        "ethereumaddress": "0xa2107fa5b38d9bbd2c461d6edf11b11a50f6b974",
+        "ok": true,
+        "url": "https://yoururl.com/ipnreceiver.php"
+      },
+      "properties": {
+        "contractaddress": {
+          "type": "string"
+        },
+        "ethereumaddress": {
+          "type": "string"
+        },
+        "ok": {
+          "type": "boolean"
+        },
+        "url": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "ok",
+        "ethereumaddress",
+        "contractaddress",
+        "url"
+      ],
+      "title": "subscribeAddress",
+      "type": "object"
+    },
+    "subscribeAddressRequest": {
+      "example": {
+        "contractaddress": "0x514910771af9ca656af840dff83e8264ecf986ca",
+        "ethereumaddress": "0xa2107fa5b38d9bbd2c461d6edf11b11a50f6b974",
+        "url": "https://yoururl.com/ipnreceiver.php"
+      },
+      "properties": {
+        "contractaddress": {
+          "type": "string"
+        },
+        "ethereumaddress": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "ethereumaddress",
+        "contractaddress",
+        "url"
+      ],
+      "title": "subscribeAddressRequest",
+      "type": "object"
+    },
+    "unsubscribeAddress": {
+      "example": {
+        "contractaddress": "0x514910771af9ca656af840dff83e8264ecf986ca",
+        "deleted": true,
+        "ethereumaddress": "0xa2107fa5b38d9bbd2c461d6edf11b11a50f6b974",
+        "ok": true,
+        "url": "https://yoururl.com/ipnreceiver.php"
+      },
+      "properties": {
+        "contractaddress": {
+          "type": "string"
+        },
+        "deleted": {
+          "type": "boolean"
+        },
+        "ethereumaddress": {
+          "type": "string"
+        },
+        "ok": {
+          "type": "boolean"
+        },
+        "url": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "ok",
+        "ethereumaddress",
+        "contractaddress",
+        "url",
+        "deleted"
+      ],
+      "title": "unsubscribeAddress",
+      "type": "object"
+    },
+    "unsubscribeAddressRequest": {
+      "example": {
+        "contractaddress": "0x514910771af9ca656af840dff83e8264ecf986ca",
+        "ethereumaddress": "0xa2107fa5b38d9bbd2c461d6edf11b11a50f6b974",
+        "url": "https://yoururl.com/ipnreceiver.php"
+      },
+      "properties": {
+        "contractaddress": {
+          "type": "string"
+        },
+        "ethereumaddress": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "ethereumaddress",
+        "contractaddress",
+        "url"
+      ],
+      "title": "unsubscribeAddressRequest",
+      "type": "object"
+    }
+  },
+  "tags": [
+    {
+      "description": "Requests that return information on balances, transactions, gas price, exchange rates, ...",
+      "name": "Info Requests"
+    },
+    {
+      "description": "Requests to create, list and delete addresses",
+      "name": "Address Requests"
+    },
+    {
+      "description": "Requests for creating, deleting and listing existing subscriptions",
+      "name": "Subscription/IPN Requests"
+    },
+    {
+      "description": "Requests to send Tokens, Ethereum and clear addresses",
+      "name": "Transaction Requests"
+    }
+  ],
+  "x-components": {}
+}

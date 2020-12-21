@@ -1,6 +1,6 @@
 # @datafire/evemarketer
 
-Client library for EVEMarketer Marketstat
+Client library for EVEMarketer Marketstat API
 
 ## Installation and Usage
 ```bash
@@ -9,9 +9,7 @@ npm install --save @datafire/evemarketer
 ```js
 let evemarketer = require('@datafire/evemarketer').create();
 
-evemarketer.marketstat.get({
-  "typeid": []
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

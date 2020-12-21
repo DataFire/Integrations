@@ -22,8 +22,8 @@
           "version": "2.6.2"
         },
         "format": "swagger",
-        "url": "http://developer.wordnik.com/v4/resources.json",
-        "version": "1.1"
+        "url": "https://developer.wordnik.com/api-docs/swagger.json",
+        "version": "2.0"
       }
     ],
     "x-preferred": true,

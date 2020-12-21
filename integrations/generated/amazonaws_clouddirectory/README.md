@@ -13,16 +13,14 @@ let amazonaws_clouddirectory = require('@datafire/amazonaws_clouddirectory').cre
   region: ""
 });
 
-amazonaws_clouddirectory.BatchRead({
-  "Operations": []
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
 
 ## Description
 
-<fullname>Amazon Cloud Directory</fullname> <p>Amazon Cloud Directory is a component of the AWS Directory Service that simplifies the development and management of cloud-scale web, mobile, and IoT applications. This guide describes the Cloud Directory operations that you can call programmatically and includes detailed information on data types and errors. For information about AWS Directory Services features, see <a href="https://aws.amazon.com/directoryservice/">AWS Directory Service</a> and the <a href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/what_is.html">AWS Directory Service Administration Guide</a>.</p>
+<fullname>Amazon Cloud Directory</fullname> <p>Amazon Cloud Directory is a component of the AWS Directory Service that simplifies the development and management of cloud-scale web, mobile, and IoT applications. This guide describes the Cloud Directory operations that you can call programmatically and includes detailed information on data types and errors. For information about Cloud Directory features, see <a href="https://aws.amazon.com/directoryservice/">AWS Directory Service</a> and the <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/what_is_cloud_directory.html">Amazon Cloud Directory Developer Guide</a>.</p>
 
 ## Actions
 
@@ -32,13 +30,17 @@ amazonaws_clouddirectory.BatchRead({
 
 ```js
 amazonaws_clouddirectory.BatchRead({
+  "x-amz-data-partition": "",
   "Operations": []
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Operations **required** [BatchReadOperationList](#batchreadoperationlist)
+  * x-amz-data-partition **required** `string`
+  * x-amz-consistency-level `string`
+  * Operations **required** `array`: A list of operations that are part of the batch.
+    * items [BatchReadOperation](#batchreadoperation)
 
 #### Output
 * output [BatchReadResponse](#batchreadresponse)
@@ -49,13 +51,16 @@ amazonaws_clouddirectory.BatchRead({
 
 ```js
 amazonaws_clouddirectory.BatchWrite({
+  "x-amz-data-partition": "",
   "Operations": []
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Operations **required** [BatchWriteOperationList](#batchwriteoperationlist)
+  * x-amz-data-partition **required** `string`
+  * Operations **required** `array`: A list of operations that are part of the batch.
+    * items [BatchWriteOperation](#batchwriteoperation)
 
 #### Output
 * output [BatchWriteResponse](#batchwriteresponse)
@@ -65,11 +70,14 @@ amazonaws_clouddirectory.BatchWrite({
 
 
 ```js
-amazonaws_clouddirectory.DeleteDirectory({}, context)
+amazonaws_clouddirectory.DeleteDirectory({
+  "x-amz-data-partition": ""
+}, context)
 ```
 
 #### Input
 * input `object`
+  * x-amz-data-partition **required** `string`
 
 #### Output
 * output [DeleteDirectoryResponse](#deletedirectoryresponse)
@@ -80,13 +88,15 @@ amazonaws_clouddirectory.DeleteDirectory({}, context)
 
 ```js
 amazonaws_clouddirectory.CreateDirectory({
+  "x-amz-data-partition": "",
   "Name": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Name **required** [DirectoryName](#directoryname)
+  * x-amz-data-partition **required** `string`
+  * Name **required** `string`: The name of the <a>Directory</a>. Should be unique per account, per region.
 
 #### Output
 * output [CreateDirectoryResponse](#createdirectoryresponse)
@@ -96,11 +106,14 @@ amazonaws_clouddirectory.CreateDirectory({
 
 
 ```js
-amazonaws_clouddirectory.DisableDirectory({}, context)
+amazonaws_clouddirectory.DisableDirectory({
+  "x-amz-data-partition": ""
+}, context)
 ```
 
 #### Input
 * input `object`
+  * x-amz-data-partition **required** `string`
 
 #### Output
 * output [DisableDirectoryResponse](#disabledirectoryresponse)
@@ -110,11 +123,14 @@ amazonaws_clouddirectory.DisableDirectory({}, context)
 
 
 ```js
-amazonaws_clouddirectory.EnableDirectory({}, context)
+amazonaws_clouddirectory.EnableDirectory({
+  "x-amz-data-partition": ""
+}, context)
 ```
 
 #### Input
 * input `object`
+  * x-amz-data-partition **required** `string`
 
 #### Output
 * output [EnableDirectoryResponse](#enabledirectoryresponse)
@@ -124,11 +140,14 @@ amazonaws_clouddirectory.EnableDirectory({}, context)
 
 
 ```js
-amazonaws_clouddirectory.GetDirectory({}, context)
+amazonaws_clouddirectory.GetDirectory({
+  "x-amz-data-partition": ""
+}, context)
 ```
 
 #### Input
 * input `object`
+  * x-amz-data-partition **required** `string`
 
 #### Output
 * output [GetDirectoryResponse](#getdirectoryresponse)
@@ -145,9 +164,9 @@ amazonaws_clouddirectory.ListDirectories({}, context)
 * input `object`
   * MaxResults `string`
   * NextToken `string`
-  * MaxResults [NumberResults](#numberresults)
-  * NextToken [NextToken](#nexttoken)
-  * state [DirectoryState](#directorystate)
+  * MaxResults `integer`: The maximum number of results to retrieve.
+  * NextToken `string`: The pagination token.
+  * state `string` (values: ENABLED, DISABLED, DELETED): The state of the directories in the list. Can be either Enabled, Disabled, or Deleted.
 
 #### Output
 * output [ListDirectoriesResponse](#listdirectoriesresponse)
@@ -158,13 +177,15 @@ amazonaws_clouddirectory.ListDirectories({}, context)
 
 ```js
 amazonaws_clouddirectory.GetFacet({
+  "x-amz-data-partition": "",
   "Name": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Name **required** [FacetName](#facetname)
+  * x-amz-data-partition **required** `string`
+  * Name **required** `string`: The name of the facet to retrieve.
 
 #### Output
 * output [GetFacetResponse](#getfacetresponse)
@@ -175,15 +196,18 @@ amazonaws_clouddirectory.GetFacet({
 
 ```js
 amazonaws_clouddirectory.UpdateFacet({
+  "x-amz-data-partition": "",
   "Name": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * AttributeUpdates [FacetAttributeUpdateList](#facetattributeupdatelist)
-  * Name **required** [FacetName](#facetname)
-  * ObjectType [ObjectType](#objecttype)
+  * x-amz-data-partition **required** `string`
+  * AttributeUpdates `array`: List of attributes that need to be updated in a given schema <a>Facet</a>. Each attribute is followed by <code>AttributeAction</code>, which specifies the type of update operation to perform. 
+    * items [FacetAttributeUpdate](#facetattributeupdate)
+  * Name **required** `string`: The name of the facet.
+  * ObjectType `string` (values: NODE, LEAF_NODE, POLICY, INDEX): The object type that is associated with the facet. See <a>CreateFacetRequest$ObjectType</a> for more details.
 
 #### Output
 * output [UpdateFacetResponse](#updatefacetresponse)
@@ -194,17 +218,19 @@ amazonaws_clouddirectory.UpdateFacet({
 
 ```js
 amazonaws_clouddirectory.ListFacetAttributes({
+  "x-amz-data-partition": "",
   "Name": ""
 }, context)
 ```
 
 #### Input
 * input `object`
+  * x-amz-data-partition **required** `string`
   * MaxResults `string`
   * NextToken `string`
-  * MaxResults [NumberResults](#numberresults)
-  * Name **required** [FacetName](#facetname)
-  * NextToken [NextToken](#nexttoken)
+  * MaxResults `integer`: The maximum number of results to retrieve.
+  * Name **required** `string`: The name of the facet whose attributes will be retrieved.
+  * NextToken `string`: The pagination token.
 
 #### Output
 * output [ListFacetAttributesResponse](#listfacetattributesresponse)
@@ -215,16 +241,19 @@ amazonaws_clouddirectory.ListFacetAttributes({
 
 ```js
 amazonaws_clouddirectory.CreateFacet({
-  "Name": "",
-  "ObjectType": ""
+  "x-amz-data-partition": "",
+  "Name": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Attributes [FacetAttributeList](#facetattributelist)
-  * Name **required** [FacetName](#facetname)
-  * ObjectType **required** [ObjectType](#objecttype)
+  * x-amz-data-partition **required** `string`
+  * Attributes `array`: The attributes that are associated with the <a>Facet</a>.
+    * items [FacetAttribute](#facetattribute)
+  * FacetStyle `string` (values: STATIC, DYNAMIC): There are two different styles that you can define on any given facet, <code>Static</code> and <code>Dynamic</code>. For static facets, all attributes must be defined in the schema. For dynamic facets, attributes can be defined during data plane operations.
+  * Name **required** `string`: The name of the <a>Facet</a>, which is unique for a given schema.
+  * ObjectType `string` (values: NODE, LEAF_NODE, POLICY, INDEX): <p>Specifies whether a given object created from this facet is of type node, leaf node, policy or index.</p> <ul> <li> <p>Node: Can have multiple children but one parent.</p> </li> </ul> <ul> <li> <p>Leaf node: Cannot have children but can have multiple parents.</p> </li> </ul> <ul> <li> <p>Policy: Allows you to store a policy document and policy type. For more information, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/key_concepts_directory.html#key_concepts_policies">Policies</a>.</p> </li> </ul> <ul> <li> <p>Index: Can be created with the Index API.</p> </li> </ul>
 
 #### Output
 * output [CreateFacetResponse](#createfacetresponse)
@@ -235,13 +264,15 @@ amazonaws_clouddirectory.CreateFacet({
 
 ```js
 amazonaws_clouddirectory.DeleteFacet({
+  "x-amz-data-partition": "",
   "Name": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Name **required** [FacetName](#facetname)
+  * x-amz-data-partition **required** `string`
+  * Name **required** `string`: The name of the facet to delete.
 
 #### Output
 * output [DeleteFacetResponse](#deletefacetresponse)
@@ -251,15 +282,18 @@ amazonaws_clouddirectory.DeleteFacet({
 
 
 ```js
-amazonaws_clouddirectory.ListFacetNames({}, context)
+amazonaws_clouddirectory.ListFacetNames({
+  "x-amz-data-partition": ""
+}, context)
 ```
 
 #### Input
 * input `object`
+  * x-amz-data-partition **required** `string`
   * MaxResults `string`
   * NextToken `string`
-  * MaxResults [NumberResults](#numberresults)
-  * NextToken [NextToken](#nexttoken)
+  * MaxResults `integer`: The maximum number of results to retrieve.
+  * NextToken `string`: The pagination token.
 
 #### Output
 * output [ListFacetNamesResponse](#listfacetnamesresponse)
@@ -270,6 +304,7 @@ amazonaws_clouddirectory.ListFacetNames({}, context)
 
 ```js
 amazonaws_clouddirectory.CreateIndex({
+  "x-amz-data-partition": "",
   "OrderedIndexedAttributeList": [],
   "IsUnique": true
 }, context)
@@ -277,10 +312,13 @@ amazonaws_clouddirectory.CreateIndex({
 
 #### Input
 * input `object`
-  * IsUnique **required** [Bool](#bool)
-  * LinkName [LinkName](#linkname)
-  * OrderedIndexedAttributeList **required** [AttributeKeyList](#attributekeylist)
-  * ParentReference [ObjectReference](#objectreference)
+  * x-amz-data-partition **required** `string`
+  * IsUnique **required** `boolean`: Indicates whether the attribute that is being indexed has unique values or not.
+  * LinkName `string`: The name of the link between the parent object and the index object.
+  * OrderedIndexedAttributeList **required** `array`: Specifies the attributes that should be indexed on. Currently only a single attribute is supported.
+    * items [AttributeKey](#attributekey)
+  * ParentReference `object`: The reference that identifies an object.
+    * Selector
 
 #### Output
 * output [CreateIndexResponse](#createindexresponse)
@@ -291,6 +329,7 @@ amazonaws_clouddirectory.CreateIndex({
 
 ```js
 amazonaws_clouddirectory.AttachToIndex({
+  "x-amz-data-partition": "",
   "IndexReference": {},
   "TargetReference": {}
 }, context)
@@ -298,8 +337,11 @@ amazonaws_clouddirectory.AttachToIndex({
 
 #### Input
 * input `object`
-  * IndexReference **required** [ObjectReference](#objectreference)
-  * TargetReference **required** [ObjectReference](#objectreference)
+  * x-amz-data-partition **required** `string`
+  * IndexReference **required** `object`: The reference that identifies an object.
+    * Selector
+  * TargetReference **required** `object`: The reference that identifies an object.
+    * Selector
 
 #### Output
 * output [AttachToIndexResponse](#attachtoindexresponse)
@@ -310,6 +352,7 @@ amazonaws_clouddirectory.AttachToIndex({
 
 ```js
 amazonaws_clouddirectory.DetachFromIndex({
+  "x-amz-data-partition": "",
   "IndexReference": {},
   "TargetReference": {}
 }, context)
@@ -317,8 +360,11 @@ amazonaws_clouddirectory.DetachFromIndex({
 
 #### Input
 * input `object`
-  * IndexReference **required** [ObjectReference](#objectreference)
-  * TargetReference **required** [ObjectReference](#objectreference)
+  * x-amz-data-partition **required** `string`
+  * IndexReference **required** `object`: The reference that identifies an object.
+    * Selector
+  * TargetReference **required** `object`: The reference that identifies an object.
+    * Selector
 
 #### Output
 * output [DetachFromIndexResponse](#detachfromindexresponse)
@@ -329,18 +375,23 @@ amazonaws_clouddirectory.DetachFromIndex({
 
 ```js
 amazonaws_clouddirectory.ListIndex({
+  "x-amz-data-partition": "",
   "IndexReference": {}
 }, context)
 ```
 
 #### Input
 * input `object`
+  * x-amz-data-partition **required** `string`
+  * x-amz-consistency-level `string`
   * MaxResults `string`
   * NextToken `string`
-  * IndexReference **required** [ObjectReference](#objectreference)
-  * MaxResults [NumberResults](#numberresults)
-  * NextToken [NextToken](#nexttoken)
-  * RangesOnIndexedValues [ObjectAttributeRangeList](#objectattributerangelist)
+  * IndexReference **required** `object`: The reference that identifies an object.
+    * Selector
+  * MaxResults `integer`: The maximum number of objects in a single page to retrieve from the index during a request. For more information, see <a href="http://docs.aws.amazon.com/clouddirectory/latest/developerguide/limits.html">Amazon Cloud Directory Limits</a>.
+  * NextToken `string`: The pagination token.
+  * RangesOnIndexedValues `array`: Specifies the ranges of indexed values that you want to query.
+    * items [ObjectAttributeRange](#objectattributerange)
 
 #### Output
 * output [ListIndexResponse](#listindexresponse)
@@ -351,16 +402,21 @@ amazonaws_clouddirectory.ListIndex({
 
 ```js
 amazonaws_clouddirectory.CreateObject({
+  "x-amz-data-partition": "",
   "SchemaFacets": []
 }, context)
 ```
 
 #### Input
 * input `object`
-  * LinkName [LinkName](#linkname)
-  * ObjectAttributeList [AttributeKeyAndValueList](#attributekeyandvaluelist)
-  * ParentReference [ObjectReference](#objectreference)
-  * SchemaFacets **required** [SchemaFacetList](#schemafacetlist)
+  * x-amz-data-partition **required** `string`
+  * LinkName `string`: The name of link that is used to attach this object to a parent.
+  * ObjectAttributeList `array`: The attribute map whose attribute ARN contains the key and attribute value as the map value.
+    * items [AttributeKeyAndValue](#attributekeyandvalue)
+  * ParentReference `object`: The reference that identifies an object.
+    * Selector
+  * SchemaFacets **required** `array`: A list of schema facets to be associated with the object. Do not provide minor version components. See <a>SchemaFacet</a> for details.
+    * items [SchemaFacet](#schemafacet)
 
 #### Output
 * output [CreateObjectResponse](#createobjectresponse)
@@ -371,6 +427,7 @@ amazonaws_clouddirectory.CreateObject({
 
 ```js
 amazonaws_clouddirectory.AttachObject({
+  "x-amz-data-partition": "",
   "ParentReference": {},
   "ChildReference": {},
   "LinkName": ""
@@ -379,9 +436,12 @@ amazonaws_clouddirectory.AttachObject({
 
 #### Input
 * input `object`
-  * ChildReference **required** [ObjectReference](#objectreference)
-  * LinkName **required** [LinkName](#linkname)
-  * ParentReference **required** [ObjectReference](#objectreference)
+  * x-amz-data-partition **required** `string`
+  * ChildReference **required** `object`: The reference that identifies an object.
+    * Selector
+  * LinkName **required** `string`: The link name with which the child object is attached to the parent.
+  * ParentReference **required** `object`: The reference that identifies an object.
+    * Selector
 
 #### Output
 * output [AttachObjectResponse](#attachobjectresponse)
@@ -392,18 +452,24 @@ amazonaws_clouddirectory.AttachObject({
 
 ```js
 amazonaws_clouddirectory.ListObjectAttributes({
+  "x-amz-data-partition": "",
   "ObjectReference": {}
 }, context)
 ```
 
 #### Input
 * input `object`
+  * x-amz-data-partition **required** `string`
+  * x-amz-consistency-level `string`
   * MaxResults `string`
   * NextToken `string`
-  * FacetFilter [SchemaFacet](#schemafacet)
-  * MaxResults [NumberResults](#numberresults)
-  * NextToken [NextToken](#nexttoken)
-  * ObjectReference **required** [ObjectReference](#objectreference)
+  * FacetFilter `object`: A facet.
+    * FacetName
+    * SchemaArn
+  * MaxResults `integer`: The maximum number of items to be retrieved in a single call. This is an approximate number.
+  * NextToken `string`: The pagination token.
+  * ObjectReference **required** `object`: The reference that identifies an object.
+    * Selector
 
 #### Output
 * output [ListObjectAttributesResponse](#listobjectattributesresponse)
@@ -414,6 +480,7 @@ amazonaws_clouddirectory.ListObjectAttributes({
 
 ```js
 amazonaws_clouddirectory.GetObjectAttributes({
+  "x-amz-data-partition": "",
   "ObjectReference": {},
   "SchemaFacet": {},
   "AttributeNames": []
@@ -422,9 +489,15 @@ amazonaws_clouddirectory.GetObjectAttributes({
 
 #### Input
 * input `object`
-  * AttributeNames **required** [AttributeNameList](#attributenamelist)
-  * ObjectReference **required** [ObjectReference](#objectreference)
-  * SchemaFacet **required** [SchemaFacet](#schemafacet)
+  * x-amz-data-partition **required** `string`
+  * x-amz-consistency-level `string`
+  * AttributeNames **required** `array`: List of attribute names whose values will be retrieved.
+    * items [AttributeName](#attributename)
+  * ObjectReference **required** `object`: The reference that identifies an object.
+    * Selector
+  * SchemaFacet **required** `object`: A facet.
+    * FacetName
+    * SchemaArn
 
 #### Output
 * output [GetObjectAttributesResponse](#getobjectattributesresponse)
@@ -435,17 +508,21 @@ amazonaws_clouddirectory.GetObjectAttributes({
 
 ```js
 amazonaws_clouddirectory.ListObjectChildren({
+  "x-amz-data-partition": "",
   "ObjectReference": {}
 }, context)
 ```
 
 #### Input
 * input `object`
+  * x-amz-data-partition **required** `string`
+  * x-amz-consistency-level `string`
   * MaxResults `string`
   * NextToken `string`
-  * MaxResults [NumberResults](#numberresults)
-  * NextToken [NextToken](#nexttoken)
-  * ObjectReference **required** [ObjectReference](#objectreference)
+  * MaxResults `integer`: The maximum number of items to be retrieved in a single call. This is an approximate number.
+  * NextToken `string`: The pagination token.
+  * ObjectReference **required** `object`: The reference that identifies an object.
+    * Selector
 
 #### Output
 * output [ListObjectChildrenResponse](#listobjectchildrenresponse)
@@ -456,13 +533,16 @@ amazonaws_clouddirectory.ListObjectChildren({
 
 ```js
 amazonaws_clouddirectory.DeleteObject({
+  "x-amz-data-partition": "",
   "ObjectReference": {}
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ObjectReference **required** [ObjectReference](#objectreference)
+  * x-amz-data-partition **required** `string`
+  * ObjectReference **required** `object`: The reference that identifies an object.
+    * Selector
 
 #### Output
 * output [DeleteObjectResponse](#deleteobjectresponse)
@@ -473,6 +553,7 @@ amazonaws_clouddirectory.DeleteObject({
 
 ```js
 amazonaws_clouddirectory.DetachObject({
+  "x-amz-data-partition": "",
   "ParentReference": {},
   "LinkName": ""
 }, context)
@@ -480,8 +561,10 @@ amazonaws_clouddirectory.DetachObject({
 
 #### Input
 * input `object`
-  * LinkName **required** [LinkName](#linkname)
-  * ParentReference **required** [ObjectReference](#objectreference)
+  * x-amz-data-partition **required** `string`
+  * LinkName **required** `string`: The link name associated with the object that needs to be detached.
+  * ParentReference **required** `object`: The reference that identifies an object.
+    * Selector
 
 #### Output
 * output [DetachObjectResponse](#detachobjectresponse)
@@ -492,6 +575,7 @@ amazonaws_clouddirectory.DetachObject({
 
 ```js
 amazonaws_clouddirectory.AddFacetToObject({
+  "x-amz-data-partition": "",
   "SchemaFacet": {},
   "ObjectReference": {}
 }, context)
@@ -499,9 +583,14 @@ amazonaws_clouddirectory.AddFacetToObject({
 
 #### Input
 * input `object`
-  * ObjectAttributeList [AttributeKeyAndValueList](#attributekeyandvaluelist)
-  * ObjectReference **required** [ObjectReference](#objectreference)
-  * SchemaFacet **required** [SchemaFacet](#schemafacet)
+  * x-amz-data-partition **required** `string`
+  * ObjectAttributeList `array`: Attributes on the facet that you are adding to the object.
+    * items [AttributeKeyAndValue](#attributekeyandvalue)
+  * ObjectReference **required** `object`: The reference that identifies an object.
+    * Selector
+  * SchemaFacet **required** `object`: A facet.
+    * FacetName
+    * SchemaArn
 
 #### Output
 * output [AddFacetToObjectResponse](#addfacettoobjectresponse)
@@ -512,6 +601,7 @@ amazonaws_clouddirectory.AddFacetToObject({
 
 ```js
 amazonaws_clouddirectory.RemoveFacetFromObject({
+  "x-amz-data-partition": "",
   "SchemaFacet": {},
   "ObjectReference": {}
 }, context)
@@ -519,8 +609,12 @@ amazonaws_clouddirectory.RemoveFacetFromObject({
 
 #### Input
 * input `object`
-  * ObjectReference **required** [ObjectReference](#objectreference)
-  * SchemaFacet **required** [SchemaFacet](#schemafacet)
+  * x-amz-data-partition **required** `string`
+  * ObjectReference **required** `object`: The reference that identifies an object.
+    * Selector
+  * SchemaFacet **required** `object`: A facet.
+    * FacetName
+    * SchemaArn
 
 #### Output
 * output [RemoveFacetFromObjectResponse](#removefacetfromobjectresponse)
@@ -531,17 +625,21 @@ amazonaws_clouddirectory.RemoveFacetFromObject({
 
 ```js
 amazonaws_clouddirectory.ListAttachedIndices({
+  "x-amz-data-partition": "",
   "TargetReference": {}
 }, context)
 ```
 
 #### Input
 * input `object`
+  * x-amz-data-partition **required** `string`
+  * x-amz-consistency-level `string`
   * MaxResults `string`
   * NextToken `string`
-  * MaxResults [NumberResults](#numberresults)
-  * NextToken [NextToken](#nexttoken)
-  * TargetReference **required** [ObjectReference](#objectreference)
+  * MaxResults `integer`: The maximum number of results to retrieve.
+  * NextToken `string`: The pagination token.
+  * TargetReference **required** `object`: The reference that identifies an object.
+    * Selector
 
 #### Output
 * output [ListAttachedIndicesResponse](#listattachedindicesresponse)
@@ -552,13 +650,17 @@ amazonaws_clouddirectory.ListAttachedIndices({
 
 ```js
 amazonaws_clouddirectory.GetObjectInformation({
+  "x-amz-data-partition": "",
   "ObjectReference": {}
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ObjectReference **required** [ObjectReference](#objectreference)
+  * x-amz-data-partition **required** `string`
+  * x-amz-consistency-level `string`
+  * ObjectReference **required** `object`: The reference that identifies an object.
+    * Selector
 
 #### Output
 * output [GetObjectInformationResponse](#getobjectinformationresponse)
@@ -569,17 +671,22 @@ amazonaws_clouddirectory.GetObjectInformation({
 
 ```js
 amazonaws_clouddirectory.ListObjectParents({
+  "x-amz-data-partition": "",
   "ObjectReference": {}
 }, context)
 ```
 
 #### Input
 * input `object`
+  * x-amz-data-partition **required** `string`
+  * x-amz-consistency-level `string`
   * MaxResults `string`
   * NextToken `string`
-  * MaxResults [NumberResults](#numberresults)
-  * NextToken [NextToken](#nexttoken)
-  * ObjectReference **required** [ObjectReference](#objectreference)
+  * IncludeAllLinksToEachParent `boolean`: When set to True, returns all <a>ListObjectParentsResponse$ParentLinks</a>. There could be multiple links between a parent-child pair.
+  * MaxResults `integer`: The maximum number of items to be retrieved in a single call. This is an approximate number.
+  * NextToken `string`: The pagination token.
+  * ObjectReference **required** `object`: The reference that identifies an object.
+    * Selector
 
 #### Output
 * output [ListObjectParentsResponse](#listobjectparentsresponse)
@@ -590,17 +697,20 @@ amazonaws_clouddirectory.ListObjectParents({
 
 ```js
 amazonaws_clouddirectory.ListObjectParentPaths({
+  "x-amz-data-partition": "",
   "ObjectReference": {}
 }, context)
 ```
 
 #### Input
 * input `object`
+  * x-amz-data-partition **required** `string`
   * MaxResults `string`
   * NextToken `string`
-  * MaxResults [NumberResults](#numberresults)
-  * NextToken [NextToken](#nexttoken)
-  * ObjectReference **required** [ObjectReference](#objectreference)
+  * MaxResults `integer`: The maximum number of items to be retrieved in a single call. This is an approximate number.
+  * NextToken `string`: The pagination token.
+  * ObjectReference **required** `object`: The reference that identifies an object.
+    * Selector
 
 #### Output
 * output [ListObjectParentPathsResponse](#listobjectparentpathsresponse)
@@ -611,17 +721,21 @@ amazonaws_clouddirectory.ListObjectParentPaths({
 
 ```js
 amazonaws_clouddirectory.ListObjectPolicies({
+  "x-amz-data-partition": "",
   "ObjectReference": {}
 }, context)
 ```
 
 #### Input
 * input `object`
+  * x-amz-data-partition **required** `string`
+  * x-amz-consistency-level `string`
   * MaxResults `string`
   * NextToken `string`
-  * MaxResults [NumberResults](#numberresults)
-  * NextToken [NextToken](#nexttoken)
-  * ObjectReference **required** [ObjectReference](#objectreference)
+  * MaxResults `integer`: The maximum number of items to be retrieved in a single call. This is an approximate number.
+  * NextToken `string`: The pagination token.
+  * ObjectReference **required** `object`: The reference that identifies an object.
+    * Selector
 
 #### Output
 * output [ListObjectPoliciesResponse](#listobjectpoliciesresponse)
@@ -632,6 +746,7 @@ amazonaws_clouddirectory.ListObjectPolicies({
 
 ```js
 amazonaws_clouddirectory.UpdateObjectAttributes({
+  "x-amz-data-partition": "",
   "ObjectReference": {},
   "AttributeUpdates": []
 }, context)
@@ -639,8 +754,11 @@ amazonaws_clouddirectory.UpdateObjectAttributes({
 
 #### Input
 * input `object`
-  * AttributeUpdates **required** [ObjectAttributeUpdateList](#objectattributeupdatelist)
-  * ObjectReference **required** [ObjectReference](#objectreference)
+  * x-amz-data-partition **required** `string`
+  * AttributeUpdates **required** `array`: The attributes update structure.
+    * items [ObjectAttributeUpdate](#objectattributeupdate)
+  * ObjectReference **required** `object`: The reference that identifies an object.
+    * Selector
 
 #### Output
 * output [UpdateObjectAttributesResponse](#updateobjectattributesresponse)
@@ -651,6 +769,7 @@ amazonaws_clouddirectory.UpdateObjectAttributes({
 
 ```js
 amazonaws_clouddirectory.AttachPolicy({
+  "x-amz-data-partition": "",
   "PolicyReference": {},
   "ObjectReference": {}
 }, context)
@@ -658,8 +777,11 @@ amazonaws_clouddirectory.AttachPolicy({
 
 #### Input
 * input `object`
-  * ObjectReference **required** [ObjectReference](#objectreference)
-  * PolicyReference **required** [ObjectReference](#objectreference)
+  * x-amz-data-partition **required** `string`
+  * ObjectReference **required** `object`: The reference that identifies an object.
+    * Selector
+  * PolicyReference **required** `object`: The reference that identifies an object.
+    * Selector
 
 #### Output
 * output [AttachPolicyResponse](#attachpolicyresponse)
@@ -670,17 +792,21 @@ amazonaws_clouddirectory.AttachPolicy({
 
 ```js
 amazonaws_clouddirectory.ListPolicyAttachments({
+  "x-amz-data-partition": "",
   "PolicyReference": {}
 }, context)
 ```
 
 #### Input
 * input `object`
+  * x-amz-data-partition **required** `string`
+  * x-amz-consistency-level `string`
   * MaxResults `string`
   * NextToken `string`
-  * MaxResults [NumberResults](#numberresults)
-  * NextToken [NextToken](#nexttoken)
-  * PolicyReference **required** [ObjectReference](#objectreference)
+  * MaxResults `integer`: The maximum number of items to be retrieved in a single call. This is an approximate number.
+  * NextToken `string`: The pagination token.
+  * PolicyReference **required** `object`: The reference that identifies an object.
+    * Selector
 
 #### Output
 * output [ListPolicyAttachmentsResponse](#listpolicyattachmentsresponse)
@@ -691,6 +817,7 @@ amazonaws_clouddirectory.ListPolicyAttachments({
 
 ```js
 amazonaws_clouddirectory.DetachPolicy({
+  "x-amz-data-partition": "",
   "PolicyReference": {},
   "ObjectReference": {}
 }, context)
@@ -698,8 +825,11 @@ amazonaws_clouddirectory.DetachPolicy({
 
 #### Input
 * input `object`
-  * ObjectReference **required** [ObjectReference](#objectreference)
-  * PolicyReference **required** [ObjectReference](#objectreference)
+  * x-amz-data-partition **required** `string`
+  * ObjectReference **required** `object`: The reference that identifies an object.
+    * Selector
+  * PolicyReference **required** `object`: The reference that identifies an object.
+    * Selector
 
 #### Output
 * output [DetachPolicyResponse](#detachpolicyresponse)
@@ -710,17 +840,20 @@ amazonaws_clouddirectory.DetachPolicy({
 
 ```js
 amazonaws_clouddirectory.LookupPolicy({
+  "x-amz-data-partition": "",
   "ObjectReference": {}
 }, context)
 ```
 
 #### Input
 * input `object`
+  * x-amz-data-partition **required** `string`
   * MaxResults `string`
   * NextToken `string`
-  * MaxResults [NumberResults](#numberresults)
-  * NextToken [NextToken](#nexttoken)
-  * ObjectReference **required** [ObjectReference](#objectreference)
+  * MaxResults `integer`: The maximum number of items to be retrieved in a single call. This is an approximate number.
+  * NextToken `string`: The token to request the next page of results.
+  * ObjectReference **required** `object`: The reference that identifies an object.
+    * Selector
 
 #### Output
 * output [LookupPolicyResponse](#lookuppolicyresponse)
@@ -730,11 +863,14 @@ amazonaws_clouddirectory.LookupPolicy({
 
 
 ```js
-amazonaws_clouddirectory.DeleteSchema({}, context)
+amazonaws_clouddirectory.DeleteSchema({
+  "x-amz-data-partition": ""
+}, context)
 ```
 
 #### Input
 * input `object`
+  * x-amz-data-partition **required** `string`
 
 #### Output
 * output [DeleteSchemaResponse](#deleteschemaresponse)
@@ -753,10 +889,10 @@ amazonaws_clouddirectory.ListAppliedSchemaArns({
 * input `object`
   * MaxResults `string`
   * NextToken `string`
-  * DirectoryArn **required** [Arn](#arn)
-  * MaxResults [NumberResults](#numberresults)
-  * NextToken [NextToken](#nexttoken)
-  * SchemaArn [Arn](#arn)
+  * DirectoryArn **required** `string`: The ARN of the directory you are listing.
+  * MaxResults `integer`: The maximum number of results to retrieve.
+  * NextToken `string`: The pagination token.
+  * SchemaArn `string`: The response for <code>ListAppliedSchemaArns</code> when this parameter is used will list all minor version ARNs for a major version.
 
 #### Output
 * output [ListAppliedSchemaArnsResponse](#listappliedschemaarnsresponse)
@@ -767,13 +903,15 @@ amazonaws_clouddirectory.ListAppliedSchemaArns({
 
 ```js
 amazonaws_clouddirectory.ApplySchema({
+  "x-amz-data-partition": "",
   "PublishedSchemaArn": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * PublishedSchemaArn **required** [Arn](#arn)
+  * x-amz-data-partition **required** `string`
+  * PublishedSchemaArn **required** `string`: Published schema Amazon Resource Name (ARN) that needs to be copied. For more information, see <a>arns</a>.
 
 #### Output
 * output [ApplySchemaResponse](#applyschemaresponse)
@@ -790,7 +928,7 @@ amazonaws_clouddirectory.CreateSchema({
 
 #### Input
 * input `object`
-  * Name **required** [SchemaName](#schemaname)
+  * Name **required** `string`: The name that is associated with the schema. This is unique to each account and in each region.
 
 #### Output
 * output [CreateSchemaResponse](#createschemaresponse)
@@ -807,8 +945,8 @@ amazonaws_clouddirectory.ListDevelopmentSchemaArns({}, context)
 * input `object`
   * MaxResults `string`
   * NextToken `string`
-  * MaxResults [NumberResults](#numberresults)
-  * NextToken [NextToken](#nexttoken)
+  * MaxResults `integer`: The maximum number of results to retrieve.
+  * NextToken `string`: The pagination token.
 
 #### Output
 * output [ListDevelopmentSchemaArnsResponse](#listdevelopmentschemaarnsresponse)
@@ -825,7 +963,7 @@ amazonaws_clouddirectory.GetAppliedSchemaVersion({
 
 #### Input
 * input `object`
-  * SchemaArn **required** [Arn](#arn)
+  * SchemaArn **required** `string`: The ARN of the applied schema.
 
 #### Output
 * output [GetAppliedSchemaVersionResponse](#getappliedschemaversionresponse)
@@ -835,11 +973,14 @@ amazonaws_clouddirectory.GetAppliedSchemaVersion({
 
 
 ```js
-amazonaws_clouddirectory.GetSchemaAsJson({}, context)
+amazonaws_clouddirectory.GetSchemaAsJson({
+  "x-amz-data-partition": ""
+}, context)
 ```
 
 #### Input
 * input `object`
+  * x-amz-data-partition **required** `string`
 
 #### Output
 * output [GetSchemaAsJsonResponse](#getschemaasjsonresponse)
@@ -850,16 +991,37 @@ amazonaws_clouddirectory.GetSchemaAsJson({}, context)
 
 ```js
 amazonaws_clouddirectory.PutSchemaFromJson({
+  "x-amz-data-partition": "",
   "Document": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Document **required** [SchemaJsonDocument](#schemajsondocument)
+  * x-amz-data-partition **required** `string`
+  * Document **required** `string`: The replacement JSON schema.
 
 #### Output
 * output [PutSchemaFromJsonResponse](#putschemafromjsonresponse)
+
+### ListManagedSchemaArns
+
+
+
+```js
+amazonaws_clouddirectory.ListManagedSchemaArns({}, context)
+```
+
+#### Input
+* input `object`
+  * MaxResults `string`
+  * NextToken `string`
+  * MaxResults `integer`: The maximum number of results to retrieve.
+  * NextToken `string`: The pagination token.
+  * SchemaArn `string`: The response for ListManagedSchemaArns. When this parameter is used, all minor version ARNs for a major version are listed.
+
+#### Output
+* output [ListManagedSchemaArnsResponse](#listmanagedschemaarnsresponse)
 
 ### PublishSchema
 
@@ -867,15 +1029,17 @@ amazonaws_clouddirectory.PutSchemaFromJson({
 
 ```js
 amazonaws_clouddirectory.PublishSchema({
+  "x-amz-data-partition": "",
   "Version": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * MinorVersion [Version](#version)
-  * Name [SchemaName](#schemaname)
-  * Version **required** [Version](#version)
+  * x-amz-data-partition **required** `string`
+  * MinorVersion `string`: The minor version under which the schema will be published. This parameter is recommended. Schemas have both a major and minor version associated with them.
+  * Name `string`: The new name under which the schema will be published. If this is not provided, the development schema is considered.
+  * Version **required** `string`: The major version under which the schema will be published. Schemas have both a major and minor version associated with them.
 
 #### Output
 * output [PublishSchemaResponse](#publishschemaresponse)
@@ -892,9 +1056,9 @@ amazonaws_clouddirectory.ListPublishedSchemaArns({}, context)
 * input `object`
   * MaxResults `string`
   * NextToken `string`
-  * MaxResults [NumberResults](#numberresults)
-  * NextToken [NextToken](#nexttoken)
-  * SchemaArn [Arn](#arn)
+  * MaxResults `integer`: The maximum number of results to retrieve.
+  * NextToken `string`: The pagination token.
+  * SchemaArn `string`: The response for <code>ListPublishedSchemaArns</code> when this parameter is used will list all minor version ARNs for a major version.
 
 #### Output
 * output [ListPublishedSchemaArnsResponse](#listpublishedschemaarnsresponse)
@@ -905,13 +1069,15 @@ amazonaws_clouddirectory.ListPublishedSchemaArns({}, context)
 
 ```js
 amazonaws_clouddirectory.UpdateSchema({
+  "x-amz-data-partition": "",
   "Name": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Name **required** [SchemaName](#schemaname)
+  * x-amz-data-partition **required** `string`
+  * Name **required** `string`: The name of the schema.
 
 #### Output
 * output [UpdateSchemaResponse](#updateschemaresponse)
@@ -929,9 +1095,9 @@ amazonaws_clouddirectory.UpgradeAppliedSchema({
 
 #### Input
 * input `object`
-  * DirectoryArn **required** [Arn](#arn)
-  * DryRun [Bool](#bool)
-  * PublishedSchemaArn **required** [Arn](#arn)
+  * DirectoryArn **required** `string`: The ARN for the directory to which the upgraded schema will be applied.
+  * DryRun `boolean`: Used for testing whether the major version schemas are backward compatible or not. If schema compatibility fails, an exception would be thrown else the call would succeed but no changes will be saved. This parameter is optional.
+  * PublishedSchemaArn **required** `string`: The revision of the published schema to upgrade the directory to.
 
 #### Output
 * output [UpgradeAppliedSchemaResponse](#upgradeappliedschemaresponse)
@@ -950,10 +1116,10 @@ amazonaws_clouddirectory.UpgradePublishedSchema({
 
 #### Input
 * input `object`
-  * DevelopmentSchemaArn **required** [Arn](#arn)
-  * DryRun [Bool](#bool)
-  * MinorVersion **required** [Version](#version)
-  * PublishedSchemaArn **required** [Arn](#arn)
+  * DevelopmentSchemaArn **required** `string`: The ARN of the development schema with the changes used for the upgrade.
+  * DryRun `boolean`: Used for testing whether the Development schema provided is backwards compatible, or not, with the publish schema provided by the user to be upgraded. If schema compatibility fails, an exception would be thrown else the call would succeed. This parameter is optional and defaults to false.
+  * MinorVersion **required** `string`: Identifies the minor version of the published schema that will be created. This parameter is NOT optional.
+  * PublishedSchemaArn **required** `string`: The ARN of the published schema to be upgraded.
 
 #### Output
 * output [UpgradePublishedSchemaResponse](#upgradepublishedschemaresponse)
@@ -972,9 +1138,9 @@ amazonaws_clouddirectory.ListTagsForResource({
 * input `object`
   * MaxResults `string`
   * NextToken `string`
-  * MaxResults [TagsNumberResults](#tagsnumberresults)
-  * NextToken [NextToken](#nexttoken)
-  * ResourceArn **required** [Arn](#arn)
+  * MaxResults `integer`: The <code>MaxResults</code> parameter sets the maximum number of results returned in a single page. This is for future use and is not supported currently.
+  * NextToken `string`: The pagination token. This is for future use. Currently pagination is not supported for tagging.
+  * ResourceArn **required** `string`: The Amazon Resource Name (ARN) of the resource. Tagging is only supported for directories.
 
 #### Output
 * output [ListTagsForResourceResponse](#listtagsforresourceresponse)
@@ -992,8 +1158,9 @@ amazonaws_clouddirectory.TagResource({
 
 #### Input
 * input `object`
-  * ResourceArn **required** [Arn](#arn)
-  * Tags **required** [TagList](#taglist)
+  * ResourceArn **required** `string`: The Amazon Resource Name (ARN) of the resource. Tagging is only supported for directories.
+  * Tags **required** `array`: A list of tag key-value pairs.
+    * items [Tag](#tag)
 
 #### Output
 * output [TagResourceResponse](#tagresourceresponse)
@@ -1011,8 +1178,9 @@ amazonaws_clouddirectory.UntagResource({
 
 #### Input
 * input `object`
-  * ResourceArn **required** [Arn](#arn)
-  * TagKeys **required** [TagKeyList](#tagkeylist)
+  * ResourceArn **required** `string`: The Amazon Resource Name (ARN) of the resource. Tagging is only supported for directories.
+  * TagKeys **required** `array`: Keys of the tag that need to be removed from the resource.
+    * items [TagKey](#tagkey)
 
 #### Output
 * output [UntagResourceResponse](#untagresourceresponse)
@@ -1023,22 +1191,26 @@ amazonaws_clouddirectory.UntagResource({
 
 ```js
 amazonaws_clouddirectory.AttachTypedLink({
+  "x-amz-data-partition": "",
   "SourceObjectReference": {},
   "TargetObjectReference": {},
-  "TypedLinkFacet": {
-    "SchemaArn": "",
-    "TypedLinkName": ""
-  },
+  "TypedLinkFacet": {},
   "Attributes": []
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Attributes **required** [AttributeNameAndValueList](#attributenameandvaluelist)
-  * SourceObjectReference **required** [ObjectReference](#objectreference)
-  * TargetObjectReference **required** [ObjectReference](#objectreference)
-  * TypedLinkFacet **required** [TypedLinkSchemaAndFacetName](#typedlinkschemaandfacetname)
+  * x-amz-data-partition **required** `string`
+  * Attributes **required** `array`: A set of attributes that are associated with the typed link.
+    * items [AttributeNameAndValue](#attributenameandvalue)
+  * SourceObjectReference **required** `object`: The reference that identifies an object.
+    * Selector
+  * TargetObjectReference **required** `object`: The reference that identifies an object.
+    * Selector
+  * TypedLinkFacet **required** `object`: Identifies the schema Amazon Resource Name (ARN) and facet name for the typed link.
+    * SchemaArn
+    * TypedLinkName
 
 #### Output
 * output [AttachTypedLinkResponse](#attachtypedlinkresponse)
@@ -1049,24 +1221,28 @@ amazonaws_clouddirectory.AttachTypedLink({
 
 ```js
 amazonaws_clouddirectory.GetLinkAttributes({
-  "TypedLinkSpecifier": {
-    "TypedLinkFacet": {
-      "SchemaArn": "",
-      "TypedLinkName": ""
-    },
-    "SourceObjectReference": {},
-    "TargetObjectReference": {},
-    "IdentityAttributeValues": []
-  },
+  "x-amz-data-partition": "",
+  "TypedLinkSpecifier": {},
   "AttributeNames": []
 }, context)
 ```
 
 #### Input
 * input `object`
-  * AttributeNames **required** [AttributeNameList](#attributenamelist)
-  * ConsistencyLevel [ConsistencyLevel](#consistencylevel)
-  * TypedLinkSpecifier **required** [TypedLinkSpecifier](#typedlinkspecifier)
+  * x-amz-data-partition **required** `string`
+  * AttributeNames **required** `array`: A list of attribute names whose values will be retrieved.
+    * items [AttributeName](#attributename)
+  * ConsistencyLevel `string` (values: SERIALIZABLE, EVENTUAL): The consistency level at which to retrieve the attributes on a typed link.
+  * TypedLinkSpecifier **required** `object`: Contains all the information that is used to uniquely identify a typed link. The parameters discussed in this topic are used to uniquely specify the typed link being operated on. The <a>AttachTypedLink</a> API returns a typed link specifier while the <a>DetachTypedLink</a> API accepts one as input. Similarly, the <a>ListIncomingTypedLinks</a> and <a>ListOutgoingTypedLinks</a> API operations provide typed link specifiers as output. You can also construct a typed link specifier from scratch.
+    * IdentityAttributeValues
+      * items [AttributeNameAndValue](#attributenameandvalue)
+    * SourceObjectReference
+      * Selector
+    * TargetObjectReference
+      * Selector
+    * TypedLinkFacet
+      * SchemaArn **required**
+      * TypedLinkName **required**
 
 #### Output
 * output [GetLinkAttributesResponse](#getlinkattributesresponse)
@@ -1077,23 +1253,27 @@ amazonaws_clouddirectory.GetLinkAttributes({
 
 ```js
 amazonaws_clouddirectory.UpdateLinkAttributes({
-  "TypedLinkSpecifier": {
-    "TypedLinkFacet": {
-      "SchemaArn": "",
-      "TypedLinkName": ""
-    },
-    "SourceObjectReference": {},
-    "TargetObjectReference": {},
-    "IdentityAttributeValues": []
-  },
+  "x-amz-data-partition": "",
+  "TypedLinkSpecifier": {},
   "AttributeUpdates": []
 }, context)
 ```
 
 #### Input
 * input `object`
-  * AttributeUpdates **required** [LinkAttributeUpdateList](#linkattributeupdatelist)
-  * TypedLinkSpecifier **required** [TypedLinkSpecifier](#typedlinkspecifier)
+  * x-amz-data-partition **required** `string`
+  * AttributeUpdates **required** `array`: The attributes update structure.
+    * items [LinkAttributeUpdate](#linkattributeupdate)
+  * TypedLinkSpecifier **required** `object`: Contains all the information that is used to uniquely identify a typed link. The parameters discussed in this topic are used to uniquely specify the typed link being operated on. The <a>AttachTypedLink</a> API returns a typed link specifier while the <a>DetachTypedLink</a> API accepts one as input. Similarly, the <a>ListIncomingTypedLinks</a> and <a>ListOutgoingTypedLinks</a> API operations provide typed link specifiers as output. You can also construct a typed link specifier from scratch.
+    * IdentityAttributeValues
+      * items [AttributeNameAndValue](#attributenameandvalue)
+    * SourceObjectReference
+      * Selector
+    * TargetObjectReference
+      * Selector
+    * TypedLinkFacet
+      * SchemaArn **required**
+      * TypedLinkName **required**
 
 #### Output
 * output [UpdateLinkAttributesResponse](#updatelinkattributesresponse)
@@ -1104,21 +1284,24 @@ amazonaws_clouddirectory.UpdateLinkAttributes({
 
 ```js
 amazonaws_clouddirectory.DetachTypedLink({
-  "TypedLinkSpecifier": {
-    "TypedLinkFacet": {
-      "SchemaArn": "",
-      "TypedLinkName": ""
-    },
-    "SourceObjectReference": {},
-    "TargetObjectReference": {},
-    "IdentityAttributeValues": []
-  }
+  "x-amz-data-partition": "",
+  "TypedLinkSpecifier": {}
 }, context)
 ```
 
 #### Input
 * input `object`
-  * TypedLinkSpecifier **required** [TypedLinkSpecifier](#typedlinkspecifier)
+  * x-amz-data-partition **required** `string`
+  * TypedLinkSpecifier **required** `object`: Contains all the information that is used to uniquely identify a typed link. The parameters discussed in this topic are used to uniquely specify the typed link being operated on. The <a>AttachTypedLink</a> API returns a typed link specifier while the <a>DetachTypedLink</a> API accepts one as input. Similarly, the <a>ListIncomingTypedLinks</a> and <a>ListOutgoingTypedLinks</a> API operations provide typed link specifiers as output. You can also construct a typed link specifier from scratch.
+    * IdentityAttributeValues
+      * items [AttributeNameAndValue](#attributenameandvalue)
+    * SourceObjectReference
+      * Selector
+    * TargetObjectReference
+      * Selector
+    * TypedLinkFacet
+      * SchemaArn **required**
+      * TypedLinkName **required**
 
 #### Output
 *Output schema unknown*
@@ -1129,6 +1312,7 @@ amazonaws_clouddirectory.DetachTypedLink({
 
 ```js
 amazonaws_clouddirectory.UpdateTypedLinkFacet({
+  "x-amz-data-partition": "",
   "Name": "",
   "AttributeUpdates": [],
   "IdentityAttributeOrder": []
@@ -1137,9 +1321,12 @@ amazonaws_clouddirectory.UpdateTypedLinkFacet({
 
 #### Input
 * input `object`
-  * AttributeUpdates **required** [TypedLinkFacetAttributeUpdateList](#typedlinkfacetattributeupdatelist)
-  * IdentityAttributeOrder **required** [AttributeNameList](#attributenamelist)
-  * Name **required** [TypedLinkName](#typedlinkname)
+  * x-amz-data-partition **required** `string`
+  * AttributeUpdates **required** `array`: Attributes update structure.
+    * items [TypedLinkFacetAttributeUpdate](#typedlinkfacetattributeupdate)
+  * IdentityAttributeOrder **required** `array`: The order of identity attributes for the facet, from most significant to least significant. The ability to filter typed links considers the order that the attributes are defined on the typed link facet. When providing ranges to a typed link selection, any inexact ranges must be specified at the end. Any attributes that do not have a range specified are presumed to match the entire range. Filters are interpreted in the order of the attributes on the typed link facet, not the order in which they are supplied to any API calls. For more information about identity attributes, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink">Typed Links</a>.
+    * items [AttributeName](#attributename)
+  * Name **required** `string`: The unique name of the typed link facet.
 
 #### Output
 * output [UpdateTypedLinkFacetResponse](#updatetypedlinkfacetresponse)
@@ -1150,17 +1337,19 @@ amazonaws_clouddirectory.UpdateTypedLinkFacet({
 
 ```js
 amazonaws_clouddirectory.ListTypedLinkFacetAttributes({
+  "x-amz-data-partition": "",
   "Name": ""
 }, context)
 ```
 
 #### Input
 * input `object`
+  * x-amz-data-partition **required** `string`
   * MaxResults `string`
   * NextToken `string`
-  * MaxResults [NumberResults](#numberresults)
-  * Name **required** [TypedLinkName](#typedlinkname)
-  * NextToken [NextToken](#nexttoken)
+  * MaxResults `integer`: The maximum number of results to retrieve.
+  * Name **required** `string`: The unique name of the typed link facet.
+  * NextToken `string`: The pagination token.
 
 #### Output
 * output [ListTypedLinkFacetAttributesResponse](#listtypedlinkfacetattributesresponse)
@@ -1171,17 +1360,20 @@ amazonaws_clouddirectory.ListTypedLinkFacetAttributes({
 
 ```js
 amazonaws_clouddirectory.CreateTypedLinkFacet({
-  "Facet": {
-    "Name": "",
-    "Attributes": [],
-    "IdentityAttributeOrder": []
-  }
+  "x-amz-data-partition": "",
+  "Facet": {}
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Facet **required** [TypedLinkFacet](#typedlinkfacet)
+  * x-amz-data-partition **required** `string`
+  * Facet **required** `object`: Defines the typed links structure and its attributes. To create a typed link facet, use the <a>CreateTypedLinkFacet</a> API.
+    * Attributes
+      * items [TypedLinkAttributeDefinition](#typedlinkattributedefinition)
+    * IdentityAttributeOrder
+      * items [AttributeName](#attributename)
+    * Name
 
 #### Output
 * output [CreateTypedLinkFacetResponse](#createtypedlinkfacetresponse)
@@ -1192,13 +1384,15 @@ amazonaws_clouddirectory.CreateTypedLinkFacet({
 
 ```js
 amazonaws_clouddirectory.DeleteTypedLinkFacet({
+  "x-amz-data-partition": "",
   "Name": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Name **required** [TypedLinkName](#typedlinkname)
+  * x-amz-data-partition **required** `string`
+  * Name **required** `string`: The unique name of the typed link facet.
 
 #### Output
 * output [DeleteTypedLinkFacetResponse](#deletetypedlinkfacetresponse)
@@ -1209,13 +1403,15 @@ amazonaws_clouddirectory.DeleteTypedLinkFacet({
 
 ```js
 amazonaws_clouddirectory.GetTypedLinkFacetInformation({
+  "x-amz-data-partition": "",
   "Name": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Name **required** [TypedLinkName](#typedlinkname)
+  * x-amz-data-partition **required** `string`
+  * Name **required** `string`: The unique name of the typed link facet.
 
 #### Output
 * output [GetTypedLinkFacetInformationResponse](#gettypedlinkfacetinformationresponse)
@@ -1225,15 +1421,18 @@ amazonaws_clouddirectory.GetTypedLinkFacetInformation({
 
 
 ```js
-amazonaws_clouddirectory.ListTypedLinkFacetNames({}, context)
+amazonaws_clouddirectory.ListTypedLinkFacetNames({
+  "x-amz-data-partition": ""
+}, context)
 ```
 
 #### Input
 * input `object`
+  * x-amz-data-partition **required** `string`
   * MaxResults `string`
   * NextToken `string`
-  * MaxResults [NumberResults](#numberresults)
-  * NextToken [NextToken](#nexttoken)
+  * MaxResults `integer`: The maximum number of results to retrieve.
+  * NextToken `string`: The pagination token.
 
 #### Output
 * output [ListTypedLinkFacetNamesResponse](#listtypedlinkfacetnamesresponse)
@@ -1244,18 +1443,24 @@ amazonaws_clouddirectory.ListTypedLinkFacetNames({}, context)
 
 ```js
 amazonaws_clouddirectory.ListIncomingTypedLinks({
+  "x-amz-data-partition": "",
   "ObjectReference": {}
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ConsistencyLevel [ConsistencyLevel](#consistencylevel)
-  * FilterAttributeRanges [TypedLinkAttributeRangeList](#typedlinkattributerangelist)
-  * FilterTypedLink [TypedLinkSchemaAndFacetName](#typedlinkschemaandfacetname)
-  * MaxResults [NumberResults](#numberresults)
-  * NextToken [NextToken](#nexttoken)
-  * ObjectReference **required** [ObjectReference](#objectreference)
+  * x-amz-data-partition **required** `string`
+  * ConsistencyLevel `string` (values: SERIALIZABLE, EVENTUAL): The consistency level to execute the request at.
+  * FilterAttributeRanges `array`: Provides range filters for multiple attributes. When providing ranges to typed link selection, any inexact ranges must be specified at the end. Any attributes that do not have a range specified are presumed to match the entire range.
+    * items [TypedLinkAttributeRange](#typedlinkattributerange)
+  * FilterTypedLink `object`: Identifies the schema Amazon Resource Name (ARN) and facet name for the typed link.
+    * SchemaArn
+    * TypedLinkName
+  * MaxResults `integer`: The maximum number of results to retrieve.
+  * NextToken `string`: The pagination token.
+  * ObjectReference **required** `object`: The reference that identifies an object.
+    * Selector
 
 #### Output
 * output [ListIncomingTypedLinksResponse](#listincomingtypedlinksresponse)
@@ -1266,18 +1471,24 @@ amazonaws_clouddirectory.ListIncomingTypedLinks({
 
 ```js
 amazonaws_clouddirectory.ListOutgoingTypedLinks({
+  "x-amz-data-partition": "",
   "ObjectReference": {}
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ConsistencyLevel [ConsistencyLevel](#consistencylevel)
-  * FilterAttributeRanges [TypedLinkAttributeRangeList](#typedlinkattributerangelist)
-  * FilterTypedLink [TypedLinkSchemaAndFacetName](#typedlinkschemaandfacetname)
-  * MaxResults [NumberResults](#numberresults)
-  * NextToken [NextToken](#nexttoken)
-  * ObjectReference **required** [ObjectReference](#objectreference)
+  * x-amz-data-partition **required** `string`
+  * ConsistencyLevel `string` (values: SERIALIZABLE, EVENTUAL): The consistency level to execute the request at.
+  * FilterAttributeRanges `array`: Provides range filters for multiple attributes. When providing ranges to typed link selection, any inexact ranges must be specified at the end. Any attributes that do not have a range specified are presumed to match the entire range.
+    * items [TypedLinkAttributeRange](#typedlinkattributerange)
+  * FilterTypedLink `object`: Identifies the schema Amazon Resource Name (ARN) and facet name for the typed link.
+    * SchemaArn
+    * TypedLinkName
+  * MaxResults `integer`: The maximum number of results to retrieve.
+  * NextToken `string`: The pagination token.
+  * ObjectReference **required** `object`: The reference that identifies an object.
+    * Selector
 
 #### Output
 * output [ListOutgoingTypedLinksResponse](#listoutgoingtypedlinksresponse)
@@ -1287,26 +1498,29 @@ amazonaws_clouddirectory.ListOutgoingTypedLinks({
 ## Definitions
 
 ### AccessDeniedException
-* AccessDeniedException `object`: Access denied. Check your permissions.
-  * Message [ExceptionMessage](#exceptionmessage)
+
 
 ### AddFacetToObjectRequest
 * AddFacetToObjectRequest `object`
-  * ObjectAttributeList [AttributeKeyAndValueList](#attributekeyandvaluelist)
-  * ObjectReference **required** [ObjectReference](#objectreference)
-  * SchemaFacet **required** [SchemaFacet](#schemafacet)
+  * ObjectAttributeList
+    * items [AttributeKeyAndValue](#attributekeyandvalue)
+  * ObjectReference **required**
+    * Selector
+  * SchemaFacet **required**
+    * FacetName
+    * SchemaArn
 
 ### AddFacetToObjectResponse
 * AddFacetToObjectResponse `object`
 
 ### ApplySchemaRequest
 * ApplySchemaRequest `object`
-  * PublishedSchemaArn **required** [Arn](#arn)
+  * PublishedSchemaArn **required**
 
 ### ApplySchemaResponse
 * ApplySchemaResponse `object`
-  * AppliedSchemaArn [Arn](#arn)
-  * DirectoryArn [Arn](#arn)
+  * AppliedSchemaArn
+  * DirectoryArn
 
 ### Arn
 * Arn `string`
@@ -1317,52 +1531,80 @@ amazonaws_clouddirectory.ListOutgoingTypedLinks({
 
 ### AttachObjectRequest
 * AttachObjectRequest `object`
-  * ChildReference **required** [ObjectReference](#objectreference)
-  * LinkName **required** [LinkName](#linkname)
-  * ParentReference **required** [ObjectReference](#objectreference)
+  * ChildReference **required**
+    * Selector
+  * LinkName **required**
+  * ParentReference **required**
+    * Selector
 
 ### AttachObjectResponse
 * AttachObjectResponse `object`
-  * AttachedObjectIdentifier [ObjectIdentifier](#objectidentifier)
+  * AttachedObjectIdentifier
 
 ### AttachPolicyRequest
 * AttachPolicyRequest `object`
-  * ObjectReference **required** [ObjectReference](#objectreference)
-  * PolicyReference **required** [ObjectReference](#objectreference)
+  * ObjectReference **required**
+    * Selector
+  * PolicyReference **required**
+    * Selector
 
 ### AttachPolicyResponse
 * AttachPolicyResponse `object`
 
 ### AttachToIndexRequest
 * AttachToIndexRequest `object`
-  * IndexReference **required** [ObjectReference](#objectreference)
-  * TargetReference **required** [ObjectReference](#objectreference)
+  * IndexReference **required**
+    * Selector
+  * TargetReference **required**
+    * Selector
 
 ### AttachToIndexResponse
 * AttachToIndexResponse `object`
-  * AttachedObjectIdentifier [ObjectIdentifier](#objectidentifier)
+  * AttachedObjectIdentifier
 
 ### AttachTypedLinkRequest
 * AttachTypedLinkRequest `object`
-  * Attributes **required** [AttributeNameAndValueList](#attributenameandvaluelist)
-  * SourceObjectReference **required** [ObjectReference](#objectreference)
-  * TargetObjectReference **required** [ObjectReference](#objectreference)
-  * TypedLinkFacet **required** [TypedLinkSchemaAndFacetName](#typedlinkschemaandfacetname)
+  * Attributes **required**
+    * items [AttributeNameAndValue](#attributenameandvalue)
+  * SourceObjectReference **required**
+    * Selector
+  * TargetObjectReference **required**
+    * Selector
+  * TypedLinkFacet **required**
+    * SchemaArn **required**
+    * TypedLinkName **required**
 
 ### AttachTypedLinkResponse
 * AttachTypedLinkResponse `object`
-  * TypedLinkSpecifier [TypedLinkSpecifier](#typedlinkspecifier)
+  * TypedLinkSpecifier
+    * IdentityAttributeValues **required**
+      * items [AttributeNameAndValue](#attributenameandvalue)
+    * SourceObjectReference **required**
+      * Selector
+    * TargetObjectReference **required**
+      * Selector
+    * TypedLinkFacet **required**
+      * SchemaArn **required**
+      * TypedLinkName **required**
 
 ### AttributeKey
 * AttributeKey `object`: A unique identifier for an attribute.
-  * FacetName **required** [FacetName](#facetname)
-  * Name **required** [AttributeName](#attributename)
-  * SchemaArn **required** [Arn](#arn)
+  * FacetName **required**
+  * Name **required**
+  * SchemaArn **required**
 
 ### AttributeKeyAndValue
 * AttributeKeyAndValue `object`: The combination of an attribute key and an attribute value.
-  * Key **required** [AttributeKey](#attributekey)
-  * Value **required** [TypedAttributeValue](#typedattributevalue)
+  * Key **required**
+    * FacetName **required**
+    * Name **required**
+    * SchemaArn **required**
+  * Value **required**
+    * BinaryValue
+    * BooleanValue
+    * DatetimeValue
+    * NumberValue
+    * StringValue
 
 ### AttributeKeyAndValueList
 * AttributeKeyAndValueList `array`
@@ -1377,8 +1619,13 @@ amazonaws_clouddirectory.ListOutgoingTypedLinks({
 
 ### AttributeNameAndValue
 * AttributeNameAndValue `object`: Identifies the attribute name and value for a typed link.
-  * AttributeName **required** [AttributeName](#attributename)
-  * Value **required** [TypedAttributeValue](#typedattributevalue)
+  * AttributeName **required**
+  * Value **required**
+    * BinaryValue
+    * BooleanValue
+    * DatetimeValue
+    * NumberValue
+    * StringValue
 
 ### AttributeNameAndValueList
 * AttributeNameAndValueList `array`
@@ -1390,286 +1637,461 @@ amazonaws_clouddirectory.ListOutgoingTypedLinks({
 
 ### BatchAddFacetToObject
 * BatchAddFacetToObject `object`: Represents the output of a batch add facet to object operation.
-  * ObjectAttributeList **required** [AttributeKeyAndValueList](#attributekeyandvaluelist)
-  * ObjectReference **required** [ObjectReference](#objectreference)
-  * SchemaFacet **required** [SchemaFacet](#schemafacet)
+  * ObjectAttributeList **required**
+    * items [AttributeKeyAndValue](#attributekeyandvalue)
+  * ObjectReference **required**
+    * Selector
+  * SchemaFacet **required**
+    * FacetName
+    * SchemaArn
 
 ### BatchAddFacetToObjectResponse
 * BatchAddFacetToObjectResponse `object`: The result of a batch add facet to object operation.
 
 ### BatchAttachObject
 * BatchAttachObject `object`: Represents the output of an <a>AttachObject</a> operation.
-  * ChildReference **required** [ObjectReference](#objectreference)
-  * LinkName **required** [LinkName](#linkname)
-  * ParentReference **required** [ObjectReference](#objectreference)
+  * ChildReference **required**
+    * Selector
+  * LinkName **required**
+  * ParentReference **required**
+    * Selector
 
 ### BatchAttachObjectResponse
 * BatchAttachObjectResponse `object`: Represents the output batch <a>AttachObject</a> response operation.
-  * attachedObjectIdentifier [ObjectIdentifier](#objectidentifier)
+  * attachedObjectIdentifier
 
 ### BatchAttachPolicy
 * BatchAttachPolicy `object`: Attaches a policy object to a regular object inside a <a>BatchRead</a> operation. For more information, see <a>AttachPolicy</a> and <a>BatchReadRequest$Operations</a>.
-  * ObjectReference **required** [ObjectReference](#objectreference)
-  * PolicyReference **required** [ObjectReference](#objectreference)
+  * ObjectReference **required**
+    * Selector
+  * PolicyReference **required**
+    * Selector
 
 ### BatchAttachPolicyResponse
 * BatchAttachPolicyResponse `object`: Represents the output of an <a>AttachPolicy</a> response operation.
 
 ### BatchAttachToIndex
 * BatchAttachToIndex `object`: Attaches the specified object to the specified index inside a <a>BatchRead</a> operation. For more information, see <a>AttachToIndex</a> and <a>BatchReadRequest$Operations</a>.
-  * IndexReference **required** [ObjectReference](#objectreference)
-  * TargetReference **required** [ObjectReference](#objectreference)
+  * IndexReference **required**
+    * Selector
+  * TargetReference **required**
+    * Selector
 
 ### BatchAttachToIndexResponse
 * BatchAttachToIndexResponse `object`: Represents the output of a <a>AttachToIndex</a> response operation.
-  * AttachedObjectIdentifier [ObjectIdentifier](#objectidentifier)
+  * AttachedObjectIdentifier
 
 ### BatchAttachTypedLink
 * BatchAttachTypedLink `object`: Attaches a typed link to a specified source and target object inside a <a>BatchRead</a> operation. For more information, see <a>AttachTypedLink</a> and <a>BatchReadRequest$Operations</a>.
-  * Attributes **required** [AttributeNameAndValueList](#attributenameandvaluelist)
-  * SourceObjectReference **required** [ObjectReference](#objectreference)
-  * TargetObjectReference **required** [ObjectReference](#objectreference)
-  * TypedLinkFacet **required** [TypedLinkSchemaAndFacetName](#typedlinkschemaandfacetname)
+  * Attributes **required**
+    * items [AttributeNameAndValue](#attributenameandvalue)
+  * SourceObjectReference **required**
+    * Selector
+  * TargetObjectReference **required**
+    * Selector
+  * TypedLinkFacet **required**
+    * SchemaArn **required**
+    * TypedLinkName **required**
 
 ### BatchAttachTypedLinkResponse
 * BatchAttachTypedLinkResponse `object`: Represents the output of a <a>AttachTypedLink</a> response operation.
-  * TypedLinkSpecifier [TypedLinkSpecifier](#typedlinkspecifier)
+  * TypedLinkSpecifier
+    * IdentityAttributeValues **required**
+      * items [AttributeNameAndValue](#attributenameandvalue)
+    * SourceObjectReference **required**
+      * Selector
+    * TargetObjectReference **required**
+      * Selector
+    * TypedLinkFacet **required**
+      * SchemaArn **required**
+      * TypedLinkName **required**
 
 ### BatchCreateIndex
 * BatchCreateIndex `object`: Creates an index object inside of a <a>BatchRead</a> operation. For more information, see <a>CreateIndex</a> and <a>BatchReadRequest$Operations</a>.
-  * BatchReferenceName [BatchReferenceName](#batchreferencename)
-  * IsUnique **required** [Bool](#bool)
-  * LinkName [LinkName](#linkname)
-  * OrderedIndexedAttributeList **required** [AttributeKeyList](#attributekeylist)
-  * ParentReference [ObjectReference](#objectreference)
+  * BatchReferenceName
+  * IsUnique **required**
+  * LinkName
+  * OrderedIndexedAttributeList **required**
+    * items [AttributeKey](#attributekey)
+  * ParentReference
+    * Selector
 
 ### BatchCreateIndexResponse
 * BatchCreateIndexResponse `object`: Represents the output of a <a>CreateIndex</a> response operation.
-  * ObjectIdentifier [ObjectIdentifier](#objectidentifier)
+  * ObjectIdentifier
 
 ### BatchCreateObject
 * BatchCreateObject `object`: Represents the output of a <a>CreateObject</a> operation.
-  * BatchReferenceName [BatchReferenceName](#batchreferencename)
-  * LinkName [LinkName](#linkname)
-  * ObjectAttributeList **required** [AttributeKeyAndValueList](#attributekeyandvaluelist)
-  * ParentReference [ObjectReference](#objectreference)
-  * SchemaFacet **required** [SchemaFacetList](#schemafacetlist)
+  * BatchReferenceName
+  * LinkName
+  * ObjectAttributeList **required**
+    * items [AttributeKeyAndValue](#attributekeyandvalue)
+  * ParentReference
+    * Selector
+  * SchemaFacet **required**
+    * items [SchemaFacet](#schemafacet)
 
 ### BatchCreateObjectResponse
 * BatchCreateObjectResponse `object`: Represents the output of a <a>CreateObject</a> response operation.
-  * ObjectIdentifier [ObjectIdentifier](#objectidentifier)
+  * ObjectIdentifier
 
 ### BatchDeleteObject
 * BatchDeleteObject `object`: Represents the output of a <a>DeleteObject</a> operation.
-  * ObjectReference **required** [ObjectReference](#objectreference)
+  * ObjectReference **required**
+    * Selector
 
 ### BatchDeleteObjectResponse
 * BatchDeleteObjectResponse `object`: Represents the output of a <a>DeleteObject</a> response operation.
 
 ### BatchDetachFromIndex
 * BatchDetachFromIndex `object`: Detaches the specified object from the specified index inside a <a>BatchRead</a> operation. For more information, see <a>DetachFromIndex</a> and <a>BatchReadRequest$Operations</a>.
-  * IndexReference **required** [ObjectReference](#objectreference)
-  * TargetReference **required** [ObjectReference](#objectreference)
+  * IndexReference **required**
+    * Selector
+  * TargetReference **required**
+    * Selector
 
 ### BatchDetachFromIndexResponse
 * BatchDetachFromIndexResponse `object`: Represents the output of a <a>DetachFromIndex</a> response operation.
-  * DetachedObjectIdentifier [ObjectIdentifier](#objectidentifier)
+  * DetachedObjectIdentifier
 
 ### BatchDetachObject
 * BatchDetachObject `object`: Represents the output of a <a>DetachObject</a> operation.
-  * BatchReferenceName [BatchReferenceName](#batchreferencename)
-  * LinkName **required** [LinkName](#linkname)
-  * ParentReference **required** [ObjectReference](#objectreference)
+  * BatchReferenceName
+  * LinkName **required**
+  * ParentReference **required**
+    * Selector
 
 ### BatchDetachObjectResponse
 * BatchDetachObjectResponse `object`: Represents the output of a <a>DetachObject</a> response operation.
-  * detachedObjectIdentifier [ObjectIdentifier](#objectidentifier)
+  * detachedObjectIdentifier
 
 ### BatchDetachPolicy
 * BatchDetachPolicy `object`: Detaches the specified policy from the specified directory inside a <a>BatchWrite</a> operation. For more information, see <a>DetachPolicy</a> and <a>BatchWriteRequest$Operations</a>.
-  * ObjectReference **required** [ObjectReference](#objectreference)
-  * PolicyReference **required** [ObjectReference](#objectreference)
+  * ObjectReference **required**
+    * Selector
+  * PolicyReference **required**
+    * Selector
 
 ### BatchDetachPolicyResponse
 * BatchDetachPolicyResponse `object`: Represents the output of a <a>DetachPolicy</a> response operation.
 
 ### BatchDetachTypedLink
 * BatchDetachTypedLink `object`: Detaches a typed link from a specified source and target object inside a <a>BatchRead</a> operation. For more information, see <a>DetachTypedLink</a> and <a>BatchReadRequest$Operations</a>.
-  * TypedLinkSpecifier **required** [TypedLinkSpecifier](#typedlinkspecifier)
+  * TypedLinkSpecifier **required**
+    * IdentityAttributeValues **required**
+      * items [AttributeNameAndValue](#attributenameandvalue)
+    * SourceObjectReference **required**
+      * Selector
+    * TargetObjectReference **required**
+      * Selector
+    * TypedLinkFacet **required**
+      * SchemaArn **required**
+      * TypedLinkName **required**
 
 ### BatchDetachTypedLinkResponse
 * BatchDetachTypedLinkResponse `object`: Represents the output of a <a>DetachTypedLink</a> response operation.
 
 ### BatchGetLinkAttributes
 * BatchGetLinkAttributes `object`: Retrieves attributes that are associated with a typed link inside a <a>BatchRead</a> operation. For more information, see <a>GetLinkAttributes</a> and <a>BatchReadRequest$Operations</a>.
-  * AttributeNames **required** [AttributeNameList](#attributenamelist)
-  * TypedLinkSpecifier **required** [TypedLinkSpecifier](#typedlinkspecifier)
+  * AttributeNames **required**
+    * items [AttributeName](#attributename)
+  * TypedLinkSpecifier **required**
+    * IdentityAttributeValues **required**
+      * items [AttributeNameAndValue](#attributenameandvalue)
+    * SourceObjectReference **required**
+      * Selector
+    * TargetObjectReference **required**
+      * Selector
+    * TypedLinkFacet **required**
+      * SchemaArn **required**
+      * TypedLinkName **required**
 
 ### BatchGetLinkAttributesResponse
 * BatchGetLinkAttributesResponse `object`: Represents the output of a <a>GetLinkAttributes</a> response operation.
-  * Attributes [AttributeKeyAndValueList](#attributekeyandvaluelist)
+  * Attributes
+    * items [AttributeKeyAndValue](#attributekeyandvalue)
 
 ### BatchGetObjectAttributes
 * BatchGetObjectAttributes `object`: Retrieves attributes within a facet that are associated with an object inside an <a>BatchRead</a> operation. For more information, see <a>GetObjectAttributes</a> and <a>BatchReadRequest$Operations</a>.
-  * AttributeNames **required** [AttributeNameList](#attributenamelist)
-  * ObjectReference **required** [ObjectReference](#objectreference)
-  * SchemaFacet **required** [SchemaFacet](#schemafacet)
+  * AttributeNames **required**
+    * items [AttributeName](#attributename)
+  * ObjectReference **required**
+    * Selector
+  * SchemaFacet **required**
+    * FacetName
+    * SchemaArn
 
 ### BatchGetObjectAttributesResponse
 * BatchGetObjectAttributesResponse `object`: Represents the output of a <a>GetObjectAttributes</a> response operation.
-  * Attributes [AttributeKeyAndValueList](#attributekeyandvaluelist)
+  * Attributes
+    * items [AttributeKeyAndValue](#attributekeyandvalue)
 
 ### BatchGetObjectInformation
 * BatchGetObjectInformation `object`: Retrieves metadata about an object inside a <a>BatchRead</a> operation. For more information, see <a>GetObjectInformation</a> and <a>BatchReadRequest$Operations</a>.
-  * ObjectReference **required** [ObjectReference](#objectreference)
+  * ObjectReference **required**
+    * Selector
 
 ### BatchGetObjectInformationResponse
 * BatchGetObjectInformationResponse `object`: Represents the output of a <a>GetObjectInformation</a> response operation.
-  * ObjectIdentifier [ObjectIdentifier](#objectidentifier)
-  * SchemaFacets [SchemaFacetList](#schemafacetlist)
+  * ObjectIdentifier
+  * SchemaFacets
+    * items [SchemaFacet](#schemafacet)
 
 ### BatchListAttachedIndices
 * BatchListAttachedIndices `object`: Lists indices attached to an object inside a <a>BatchRead</a> operation. For more information, see <a>ListAttachedIndices</a> and <a>BatchReadRequest$Operations</a>.
-  * MaxResults [NumberResults](#numberresults)
-  * NextToken [NextToken](#nexttoken)
-  * TargetReference **required** [ObjectReference](#objectreference)
+  * MaxResults
+  * NextToken
+  * TargetReference **required**
+    * Selector
 
 ### BatchListAttachedIndicesResponse
 * BatchListAttachedIndicesResponse `object`: Represents the output of a <a>ListAttachedIndices</a> response operation.
-  * IndexAttachments [IndexAttachmentList](#indexattachmentlist)
-  * NextToken [NextToken](#nexttoken)
+  * IndexAttachments
+    * items [IndexAttachment](#indexattachment)
+  * NextToken
 
 ### BatchListIncomingTypedLinks
 * BatchListIncomingTypedLinks `object`: Returns a paginated list of all the incoming <a>TypedLinkSpecifier</a> information for an object inside a <a>BatchRead</a> operation. For more information, see <a>ListIncomingTypedLinks</a> and <a>BatchReadRequest$Operations</a>.
-  * FilterAttributeRanges [TypedLinkAttributeRangeList](#typedlinkattributerangelist)
-  * FilterTypedLink [TypedLinkSchemaAndFacetName](#typedlinkschemaandfacetname)
-  * MaxResults [NumberResults](#numberresults)
-  * NextToken [NextToken](#nexttoken)
-  * ObjectReference **required** [ObjectReference](#objectreference)
+  * FilterAttributeRanges
+    * items [TypedLinkAttributeRange](#typedlinkattributerange)
+  * FilterTypedLink
+    * SchemaArn **required**
+    * TypedLinkName **required**
+  * MaxResults
+  * NextToken
+  * ObjectReference **required**
+    * Selector
 
 ### BatchListIncomingTypedLinksResponse
 * BatchListIncomingTypedLinksResponse `object`: Represents the output of a <a>ListIncomingTypedLinks</a> response operation.
-  * LinkSpecifiers [TypedLinkSpecifierList](#typedlinkspecifierlist)
-  * NextToken [NextToken](#nexttoken)
+  * LinkSpecifiers
+    * items [TypedLinkSpecifier](#typedlinkspecifier)
+  * NextToken
 
 ### BatchListIndex
 * BatchListIndex `object`: Lists objects attached to the specified index inside a <a>BatchRead</a> operation. For more information, see <a>ListIndex</a> and <a>BatchReadRequest$Operations</a>.
-  * IndexReference **required** [ObjectReference](#objectreference)
-  * MaxResults [NumberResults](#numberresults)
-  * NextToken [NextToken](#nexttoken)
-  * RangesOnIndexedValues [ObjectAttributeRangeList](#objectattributerangelist)
+  * IndexReference **required**
+    * Selector
+  * MaxResults
+  * NextToken
+  * RangesOnIndexedValues
+    * items [ObjectAttributeRange](#objectattributerange)
 
 ### BatchListIndexResponse
 * BatchListIndexResponse `object`: Represents the output of a <a>ListIndex</a> response operation.
-  * IndexAttachments [IndexAttachmentList](#indexattachmentlist)
-  * NextToken [NextToken](#nexttoken)
+  * IndexAttachments
+    * items [IndexAttachment](#indexattachment)
+  * NextToken
 
 ### BatchListObjectAttributes
 * BatchListObjectAttributes `object`: Represents the output of a <a>ListObjectAttributes</a> operation.
-  * FacetFilter [SchemaFacet](#schemafacet)
-  * MaxResults [NumberResults](#numberresults)
-  * NextToken [NextToken](#nexttoken)
-  * ObjectReference **required** [ObjectReference](#objectreference)
+  * FacetFilter
+    * FacetName
+    * SchemaArn
+  * MaxResults
+  * NextToken
+  * ObjectReference **required**
+    * Selector
 
 ### BatchListObjectAttributesResponse
 * BatchListObjectAttributesResponse `object`: Represents the output of a <a>ListObjectAttributes</a> response operation.
-  * Attributes [AttributeKeyAndValueList](#attributekeyandvaluelist)
-  * NextToken [NextToken](#nexttoken)
+  * Attributes
+    * items [AttributeKeyAndValue](#attributekeyandvalue)
+  * NextToken
 
 ### BatchListObjectChildren
 * BatchListObjectChildren `object`: Represents the output of a <a>ListObjectChildren</a> operation.
-  * MaxResults [NumberResults](#numberresults)
-  * NextToken [NextToken](#nexttoken)
-  * ObjectReference **required** [ObjectReference](#objectreference)
+  * MaxResults
+  * NextToken
+  * ObjectReference **required**
+    * Selector
 
 ### BatchListObjectChildrenResponse
 * BatchListObjectChildrenResponse `object`: Represents the output of a <a>ListObjectChildren</a> response operation.
-  * Children [LinkNameToObjectIdentifierMap](#linknametoobjectidentifiermap)
-  * NextToken [NextToken](#nexttoken)
+  * Children
+  * NextToken
 
 ### BatchListObjectParentPaths
 * BatchListObjectParentPaths `object`: Retrieves all available parent paths for any object type such as node, leaf node, policy node, and index node objects inside a <a>BatchRead</a> operation. For more information, see <a>ListObjectParentPaths</a> and <a>BatchReadRequest$Operations</a>.
-  * MaxResults [NumberResults](#numberresults)
-  * NextToken [NextToken](#nexttoken)
-  * ObjectReference **required** [ObjectReference](#objectreference)
+  * MaxResults
+  * NextToken
+  * ObjectReference **required**
+    * Selector
 
 ### BatchListObjectParentPathsResponse
 * BatchListObjectParentPathsResponse `object`: Represents the output of a <a>ListObjectParentPaths</a> response operation.
+  * NextToken
+  * PathToObjectIdentifiersList
+    * items [PathToObjectIdentifiers](#pathtoobjectidentifiers)
+
+### BatchListObjectParents
+* BatchListObjectParents `object`
+  * MaxResults [NumberResults](#numberresults)
   * NextToken [NextToken](#nexttoken)
-  * PathToObjectIdentifiersList [PathToObjectIdentifiersList](#pathtoobjectidentifierslist)
+  * ObjectReference **required** [ObjectReference](#objectreference)
+
+### BatchListObjectParentsResponse
+* BatchListObjectParentsResponse `object`
+  * NextToken [NextToken](#nexttoken)
+  * ParentLinks [ObjectIdentifierAndLinkNameList](#objectidentifierandlinknamelist)
 
 ### BatchListObjectPolicies
 * BatchListObjectPolicies `object`: Returns policies attached to an object in pagination fashion inside a <a>BatchRead</a> operation. For more information, see <a>ListObjectPolicies</a> and <a>BatchReadRequest$Operations</a>.
-  * MaxResults [NumberResults](#numberresults)
-  * NextToken [NextToken](#nexttoken)
-  * ObjectReference **required** [ObjectReference](#objectreference)
+  * MaxResults
+  * NextToken
+  * ObjectReference **required**
+    * Selector
 
 ### BatchListObjectPoliciesResponse
 * BatchListObjectPoliciesResponse `object`: Represents the output of a <a>ListObjectPolicies</a> response operation.
-  * AttachedPolicyIds [ObjectIdentifierList](#objectidentifierlist)
-  * NextToken [NextToken](#nexttoken)
+  * AttachedPolicyIds
+    * items [ObjectIdentifier](#objectidentifier)
+  * NextToken
 
 ### BatchListOutgoingTypedLinks
 * BatchListOutgoingTypedLinks `object`: Returns a paginated list of all the outgoing <a>TypedLinkSpecifier</a> information for an object inside a <a>BatchRead</a> operation. For more information, see <a>ListOutgoingTypedLinks</a> and <a>BatchReadRequest$Operations</a>.
-  * FilterAttributeRanges [TypedLinkAttributeRangeList](#typedlinkattributerangelist)
-  * FilterTypedLink [TypedLinkSchemaAndFacetName](#typedlinkschemaandfacetname)
-  * MaxResults [NumberResults](#numberresults)
-  * NextToken [NextToken](#nexttoken)
-  * ObjectReference **required** [ObjectReference](#objectreference)
+  * FilterAttributeRanges
+    * items [TypedLinkAttributeRange](#typedlinkattributerange)
+  * FilterTypedLink
+    * SchemaArn **required**
+    * TypedLinkName **required**
+  * MaxResults
+  * NextToken
+  * ObjectReference **required**
+    * Selector
 
 ### BatchListOutgoingTypedLinksResponse
 * BatchListOutgoingTypedLinksResponse `object`: Represents the output of a <a>ListOutgoingTypedLinks</a> response operation.
-  * NextToken [NextToken](#nexttoken)
-  * TypedLinkSpecifiers [TypedLinkSpecifierList](#typedlinkspecifierlist)
+  * NextToken
+  * TypedLinkSpecifiers
+    * items [TypedLinkSpecifier](#typedlinkspecifier)
 
 ### BatchListPolicyAttachments
 * BatchListPolicyAttachments `object`: Returns all of the <code>ObjectIdentifiers</code> to which a given policy is attached inside a <a>BatchRead</a> operation. For more information, see <a>ListPolicyAttachments</a> and <a>BatchReadRequest$Operations</a>.
-  * MaxResults [NumberResults](#numberresults)
-  * NextToken [NextToken](#nexttoken)
-  * PolicyReference **required** [ObjectReference](#objectreference)
+  * MaxResults
+  * NextToken
+  * PolicyReference **required**
+    * Selector
 
 ### BatchListPolicyAttachmentsResponse
 * BatchListPolicyAttachmentsResponse `object`: Represents the output of a <a>ListPolicyAttachments</a> response operation.
-  * NextToken [NextToken](#nexttoken)
-  * ObjectIdentifiers [ObjectIdentifierList](#objectidentifierlist)
+  * NextToken
+  * ObjectIdentifiers
+    * items [ObjectIdentifier](#objectidentifier)
 
 ### BatchLookupPolicy
 * BatchLookupPolicy `object`: Lists all policies from the root of the Directory to the object specified inside a <a>BatchRead</a> operation. For more information, see <a>LookupPolicy</a> and <a>BatchReadRequest$Operations</a>.
-  * MaxResults [NumberResults](#numberresults)
-  * NextToken [NextToken](#nexttoken)
-  * ObjectReference **required** [ObjectReference](#objectreference)
+  * MaxResults
+  * NextToken
+  * ObjectReference **required**
+    * Selector
 
 ### BatchLookupPolicyResponse
 * BatchLookupPolicyResponse `object`: Represents the output of a <a>LookupPolicy</a> response operation.
-  * NextToken [NextToken](#nexttoken)
-  * PolicyToPathList [PolicyToPathList](#policytopathlist)
-
-### BatchOperationIndex
-* BatchOperationIndex `integer`
+  * NextToken
+  * PolicyToPathList
+    * items [PolicyToPath](#policytopath)
 
 ### BatchReadException
 * BatchReadException `object`: The batch read exception structure, which contains the exception type and message.
-  * Message [ExceptionMessage](#exceptionmessage)
-  * Type [BatchReadExceptionType](#batchreadexceptiontype)
+  * Message
+  * Type
 
 ### BatchReadExceptionType
 * BatchReadExceptionType `string` (values: ValidationException, InvalidArnException, ResourceNotFoundException, InvalidNextTokenException, AccessDeniedException, NotNodeException, FacetValidationException, CannotListParentOfRootException, NotIndexException, NotPolicyException, DirectoryNotEnabledException, LimitExceededException, InternalServiceException)
 
 ### BatchReadOperation
 * BatchReadOperation `object`: Represents the output of a <code>BatchRead</code> operation.
-  * GetLinkAttributes [BatchGetLinkAttributes](#batchgetlinkattributes)
-  * GetObjectAttributes [BatchGetObjectAttributes](#batchgetobjectattributes)
-  * GetObjectInformation [BatchGetObjectInformation](#batchgetobjectinformation)
-  * ListAttachedIndices [BatchListAttachedIndices](#batchlistattachedindices)
-  * ListIncomingTypedLinks [BatchListIncomingTypedLinks](#batchlistincomingtypedlinks)
-  * ListIndex [BatchListIndex](#batchlistindex)
-  * ListObjectAttributes [BatchListObjectAttributes](#batchlistobjectattributes)
-  * ListObjectChildren [BatchListObjectChildren](#batchlistobjectchildren)
-  * ListObjectParentPaths [BatchListObjectParentPaths](#batchlistobjectparentpaths)
-  * ListObjectPolicies [BatchListObjectPolicies](#batchlistobjectpolicies)
-  * ListOutgoingTypedLinks [BatchListOutgoingTypedLinks](#batchlistoutgoingtypedlinks)
-  * ListPolicyAttachments [BatchListPolicyAttachments](#batchlistpolicyattachments)
-  * LookupPolicy [BatchLookupPolicy](#batchlookuppolicy)
+  * GetLinkAttributes
+    * AttributeNames **required**
+      * items [AttributeName](#attributename)
+    * TypedLinkSpecifier **required**
+      * IdentityAttributeValues **required**
+        * items [AttributeNameAndValue](#attributenameandvalue)
+      * SourceObjectReference **required**
+        * Selector
+      * TargetObjectReference **required**
+        * Selector
+      * TypedLinkFacet **required**
+        * SchemaArn **required**
+        * TypedLinkName **required**
+  * GetObjectAttributes
+    * AttributeNames **required**
+      * items [AttributeName](#attributename)
+    * ObjectReference **required**
+      * Selector
+    * SchemaFacet **required**
+      * FacetName
+      * SchemaArn
+  * GetObjectInformation
+    * ObjectReference **required**
+      * Selector
+  * ListAttachedIndices
+    * MaxResults
+    * NextToken
+    * TargetReference **required**
+      * Selector
+  * ListIncomingTypedLinks
+    * FilterAttributeRanges
+      * items [TypedLinkAttributeRange](#typedlinkattributerange)
+    * FilterTypedLink
+      * SchemaArn **required**
+      * TypedLinkName **required**
+    * MaxResults
+    * NextToken
+    * ObjectReference **required**
+      * Selector
+  * ListIndex
+    * IndexReference **required**
+      * Selector
+    * MaxResults
+    * NextToken
+    * RangesOnIndexedValues
+      * items [ObjectAttributeRange](#objectattributerange)
+  * ListObjectAttributes
+    * FacetFilter
+      * FacetName
+      * SchemaArn
+    * MaxResults
+    * NextToken
+    * ObjectReference **required**
+      * Selector
+  * ListObjectChildren
+    * MaxResults
+    * NextToken
+    * ObjectReference **required**
+      * Selector
+  * ListObjectParentPaths
+    * MaxResults
+    * NextToken
+    * ObjectReference **required**
+      * Selector
+  * ListObjectParents [BatchListObjectParents](#batchlistobjectparents)
+  * ListObjectPolicies
+    * MaxResults
+    * NextToken
+    * ObjectReference **required**
+      * Selector
+  * ListOutgoingTypedLinks
+    * FilterAttributeRanges
+      * items [TypedLinkAttributeRange](#typedlinkattributerange)
+    * FilterTypedLink
+      * SchemaArn **required**
+      * TypedLinkName **required**
+    * MaxResults
+    * NextToken
+    * ObjectReference **required**
+      * Selector
+  * ListPolicyAttachments
+    * MaxResults
+    * NextToken
+    * PolicyReference **required**
+      * Selector
+  * LookupPolicy
+    * MaxResults
+    * NextToken
+    * ObjectReference **required**
+      * Selector
 
 ### BatchReadOperationList
 * BatchReadOperationList `array`
@@ -1677,8 +2099,60 @@ amazonaws_clouddirectory.ListOutgoingTypedLinks({
 
 ### BatchReadOperationResponse
 * BatchReadOperationResponse `object`: Represents the output of a <code>BatchRead</code> response operation.
-  * ExceptionResponse [BatchReadException](#batchreadexception)
-  * SuccessfulResponse [BatchReadSuccessfulResponse](#batchreadsuccessfulresponse)
+  * ExceptionResponse
+    * Message
+    * Type
+  * SuccessfulResponse
+    * GetLinkAttributes
+      * Attributes
+        * items [AttributeKeyAndValue](#attributekeyandvalue)
+    * GetObjectAttributes
+      * Attributes
+        * items [AttributeKeyAndValue](#attributekeyandvalue)
+    * GetObjectInformation
+      * ObjectIdentifier
+      * SchemaFacets
+        * items [SchemaFacet](#schemafacet)
+    * ListAttachedIndices
+      * IndexAttachments
+        * items [IndexAttachment](#indexattachment)
+      * NextToken
+    * ListIncomingTypedLinks
+      * LinkSpecifiers
+        * items [TypedLinkSpecifier](#typedlinkspecifier)
+      * NextToken
+    * ListIndex
+      * IndexAttachments
+        * items [IndexAttachment](#indexattachment)
+      * NextToken
+    * ListObjectAttributes
+      * Attributes
+        * items [AttributeKeyAndValue](#attributekeyandvalue)
+      * NextToken
+    * ListObjectChildren
+      * Children
+      * NextToken
+    * ListObjectParentPaths
+      * NextToken
+      * PathToObjectIdentifiersList
+        * items [PathToObjectIdentifiers](#pathtoobjectidentifiers)
+    * ListObjectParents [BatchListObjectParentsResponse](#batchlistobjectparentsresponse)
+    * ListObjectPolicies
+      * AttachedPolicyIds
+        * items [ObjectIdentifier](#objectidentifier)
+      * NextToken
+    * ListOutgoingTypedLinks
+      * NextToken
+      * TypedLinkSpecifiers
+        * items [TypedLinkSpecifier](#typedlinkspecifier)
+    * ListPolicyAttachments
+      * NextToken
+      * ObjectIdentifiers
+        * items [ObjectIdentifier](#objectidentifier)
+    * LookupPolicy
+      * NextToken
+      * PolicyToPathList
+        * items [PolicyToPath](#policytopath)
 
 ### BatchReadOperationResponseList
 * BatchReadOperationResponseList `array`
@@ -1686,82 +2160,219 @@ amazonaws_clouddirectory.ListOutgoingTypedLinks({
 
 ### BatchReadRequest
 * BatchReadRequest `object`
-  * Operations **required** [BatchReadOperationList](#batchreadoperationlist)
+  * Operations **required**
+    * items [BatchReadOperation](#batchreadoperation)
 
 ### BatchReadResponse
 * BatchReadResponse `object`
-  * Responses [BatchReadOperationResponseList](#batchreadoperationresponselist)
+  * Responses
+    * items [BatchReadOperationResponse](#batchreadoperationresponse)
 
 ### BatchReadSuccessfulResponse
 * BatchReadSuccessfulResponse `object`: Represents the output of a <code>BatchRead</code> success response operation.
-  * GetLinkAttributes [BatchGetLinkAttributesResponse](#batchgetlinkattributesresponse)
-  * GetObjectAttributes [BatchGetObjectAttributesResponse](#batchgetobjectattributesresponse)
-  * GetObjectInformation [BatchGetObjectInformationResponse](#batchgetobjectinformationresponse)
-  * ListAttachedIndices [BatchListAttachedIndicesResponse](#batchlistattachedindicesresponse)
-  * ListIncomingTypedLinks [BatchListIncomingTypedLinksResponse](#batchlistincomingtypedlinksresponse)
-  * ListIndex [BatchListIndexResponse](#batchlistindexresponse)
-  * ListObjectAttributes [BatchListObjectAttributesResponse](#batchlistobjectattributesresponse)
-  * ListObjectChildren [BatchListObjectChildrenResponse](#batchlistobjectchildrenresponse)
-  * ListObjectParentPaths [BatchListObjectParentPathsResponse](#batchlistobjectparentpathsresponse)
-  * ListObjectPolicies [BatchListObjectPoliciesResponse](#batchlistobjectpoliciesresponse)
-  * ListOutgoingTypedLinks [BatchListOutgoingTypedLinksResponse](#batchlistoutgoingtypedlinksresponse)
-  * ListPolicyAttachments [BatchListPolicyAttachmentsResponse](#batchlistpolicyattachmentsresponse)
-  * LookupPolicy [BatchLookupPolicyResponse](#batchlookuppolicyresponse)
+  * GetLinkAttributes
+    * Attributes
+      * items [AttributeKeyAndValue](#attributekeyandvalue)
+  * GetObjectAttributes
+    * Attributes
+      * items [AttributeKeyAndValue](#attributekeyandvalue)
+  * GetObjectInformation
+    * ObjectIdentifier
+    * SchemaFacets
+      * items [SchemaFacet](#schemafacet)
+  * ListAttachedIndices
+    * IndexAttachments
+      * items [IndexAttachment](#indexattachment)
+    * NextToken
+  * ListIncomingTypedLinks
+    * LinkSpecifiers
+      * items [TypedLinkSpecifier](#typedlinkspecifier)
+    * NextToken
+  * ListIndex
+    * IndexAttachments
+      * items [IndexAttachment](#indexattachment)
+    * NextToken
+  * ListObjectAttributes
+    * Attributes
+      * items [AttributeKeyAndValue](#attributekeyandvalue)
+    * NextToken
+  * ListObjectChildren
+    * Children
+    * NextToken
+  * ListObjectParentPaths
+    * NextToken
+    * PathToObjectIdentifiersList
+      * items [PathToObjectIdentifiers](#pathtoobjectidentifiers)
+  * ListObjectParents [BatchListObjectParentsResponse](#batchlistobjectparentsresponse)
+  * ListObjectPolicies
+    * AttachedPolicyIds
+      * items [ObjectIdentifier](#objectidentifier)
+    * NextToken
+  * ListOutgoingTypedLinks
+    * NextToken
+    * TypedLinkSpecifiers
+      * items [TypedLinkSpecifier](#typedlinkspecifier)
+  * ListPolicyAttachments
+    * NextToken
+    * ObjectIdentifiers
+      * items [ObjectIdentifier](#objectidentifier)
+  * LookupPolicy
+    * NextToken
+    * PolicyToPathList
+      * items [PolicyToPath](#policytopath)
 
 ### BatchReferenceName
 * BatchReferenceName `string`
 
 ### BatchRemoveFacetFromObject
 * BatchRemoveFacetFromObject `object`: A batch operation to remove a facet from an object.
-  * ObjectReference **required** [ObjectReference](#objectreference)
-  * SchemaFacet **required** [SchemaFacet](#schemafacet)
+  * ObjectReference **required**
+    * Selector
+  * SchemaFacet **required**
+    * FacetName
+    * SchemaArn
 
 ### BatchRemoveFacetFromObjectResponse
 * BatchRemoveFacetFromObjectResponse `object`: An empty result that represents success.
 
 ### BatchUpdateLinkAttributes
 * BatchUpdateLinkAttributes `object`: Updates a given typed link’s attributes inside a <a>BatchRead</a> operation. Attributes to be updated must not contribute to the typed link’s identity, as defined by its <code>IdentityAttributeOrder</code>. For more information, see <a>UpdateLinkAttributes</a> and <a>BatchReadRequest$Operations</a>.
-  * AttributeUpdates **required** [LinkAttributeUpdateList](#linkattributeupdatelist)
-  * TypedLinkSpecifier **required** [TypedLinkSpecifier](#typedlinkspecifier)
+  * AttributeUpdates **required**
+    * items [LinkAttributeUpdate](#linkattributeupdate)
+  * TypedLinkSpecifier **required**
+    * IdentityAttributeValues **required**
+      * items [AttributeNameAndValue](#attributenameandvalue)
+    * SourceObjectReference **required**
+      * Selector
+    * TargetObjectReference **required**
+      * Selector
+    * TypedLinkFacet **required**
+      * SchemaArn **required**
+      * TypedLinkName **required**
 
 ### BatchUpdateLinkAttributesResponse
 * BatchUpdateLinkAttributesResponse `object`: Represents the output of a <a>UpdateLinkAttributes</a> response operation.
 
 ### BatchUpdateObjectAttributes
 * BatchUpdateObjectAttributes `object`: Represents the output of a <code>BatchUpdate</code> operation. 
-  * AttributeUpdates **required** [ObjectAttributeUpdateList](#objectattributeupdatelist)
-  * ObjectReference **required** [ObjectReference](#objectreference)
+  * AttributeUpdates **required**
+    * items [ObjectAttributeUpdate](#objectattributeupdate)
+  * ObjectReference **required**
+    * Selector
 
 ### BatchUpdateObjectAttributesResponse
 * BatchUpdateObjectAttributesResponse `object`: Represents the output of a <code>BatchUpdate</code> response operation.
-  * ObjectIdentifier [ObjectIdentifier](#objectidentifier)
+  * ObjectIdentifier
 
 ### BatchWriteException
-* BatchWriteException `object`: A <code>BatchWrite</code> exception has occurred.
-  * Index [BatchOperationIndex](#batchoperationindex)
-  * Message [ExceptionMessage](#exceptionmessage)
-  * Type [BatchWriteExceptionType](#batchwriteexceptiontype)
 
-### BatchWriteExceptionType
-* BatchWriteExceptionType `string` (values: InternalServiceException, ValidationException, InvalidArnException, LinkNameAlreadyInUseException, StillContainsLinksException, FacetValidationException, ObjectNotDetachedException, ResourceNotFoundException, AccessDeniedException, InvalidAttachmentException, NotIndexException, NotNodeException, IndexedAttributeMissingException, ObjectAlreadyDetachedException, NotPolicyException, DirectoryNotEnabledException, LimitExceededException, UnsupportedIndexTypeException)
 
 ### BatchWriteOperation
 * BatchWriteOperation `object`: Represents the output of a <code>BatchWrite</code> operation. 
-  * AddFacetToObject [BatchAddFacetToObject](#batchaddfacettoobject)
-  * AttachObject [BatchAttachObject](#batchattachobject)
-  * AttachPolicy [BatchAttachPolicy](#batchattachpolicy)
-  * AttachToIndex [BatchAttachToIndex](#batchattachtoindex)
-  * AttachTypedLink [BatchAttachTypedLink](#batchattachtypedlink)
-  * CreateIndex [BatchCreateIndex](#batchcreateindex)
-  * CreateObject [BatchCreateObject](#batchcreateobject)
-  * DeleteObject [BatchDeleteObject](#batchdeleteobject)
-  * DetachFromIndex [BatchDetachFromIndex](#batchdetachfromindex)
-  * DetachObject [BatchDetachObject](#batchdetachobject)
-  * DetachPolicy [BatchDetachPolicy](#batchdetachpolicy)
-  * DetachTypedLink [BatchDetachTypedLink](#batchdetachtypedlink)
-  * RemoveFacetFromObject [BatchRemoveFacetFromObject](#batchremovefacetfromobject)
-  * UpdateLinkAttributes [BatchUpdateLinkAttributes](#batchupdatelinkattributes)
-  * UpdateObjectAttributes [BatchUpdateObjectAttributes](#batchupdateobjectattributes)
+  * AddFacetToObject
+    * ObjectAttributeList **required**
+      * items [AttributeKeyAndValue](#attributekeyandvalue)
+    * ObjectReference **required**
+      * Selector
+    * SchemaFacet **required**
+      * FacetName
+      * SchemaArn
+  * AttachObject
+    * ChildReference **required**
+      * Selector
+    * LinkName **required**
+    * ParentReference **required**
+      * Selector
+  * AttachPolicy
+    * ObjectReference **required**
+      * Selector
+    * PolicyReference **required**
+      * Selector
+  * AttachToIndex
+    * IndexReference **required**
+      * Selector
+    * TargetReference **required**
+      * Selector
+  * AttachTypedLink
+    * Attributes **required**
+      * items [AttributeNameAndValue](#attributenameandvalue)
+    * SourceObjectReference **required**
+      * Selector
+    * TargetObjectReference **required**
+      * Selector
+    * TypedLinkFacet **required**
+      * SchemaArn **required**
+      * TypedLinkName **required**
+  * CreateIndex
+    * BatchReferenceName
+    * IsUnique **required**
+    * LinkName
+    * OrderedIndexedAttributeList **required**
+      * items [AttributeKey](#attributekey)
+    * ParentReference
+      * Selector
+  * CreateObject
+    * BatchReferenceName
+    * LinkName
+    * ObjectAttributeList **required**
+      * items [AttributeKeyAndValue](#attributekeyandvalue)
+    * ParentReference
+      * Selector
+    * SchemaFacet **required**
+      * items [SchemaFacet](#schemafacet)
+  * DeleteObject
+    * ObjectReference **required**
+      * Selector
+  * DetachFromIndex
+    * IndexReference **required**
+      * Selector
+    * TargetReference **required**
+      * Selector
+  * DetachObject
+    * BatchReferenceName
+    * LinkName **required**
+    * ParentReference **required**
+      * Selector
+  * DetachPolicy
+    * ObjectReference **required**
+      * Selector
+    * PolicyReference **required**
+      * Selector
+  * DetachTypedLink
+    * TypedLinkSpecifier **required**
+      * IdentityAttributeValues **required**
+        * items [AttributeNameAndValue](#attributenameandvalue)
+      * SourceObjectReference **required**
+        * Selector
+      * TargetObjectReference **required**
+        * Selector
+      * TypedLinkFacet **required**
+        * SchemaArn **required**
+        * TypedLinkName **required**
+  * RemoveFacetFromObject
+    * ObjectReference **required**
+      * Selector
+    * SchemaFacet **required**
+      * FacetName
+      * SchemaArn
+  * UpdateLinkAttributes
+    * AttributeUpdates **required**
+      * items [LinkAttributeUpdate](#linkattributeupdate)
+    * TypedLinkSpecifier **required**
+      * IdentityAttributeValues **required**
+        * items [AttributeNameAndValue](#attributenameandvalue)
+      * SourceObjectReference **required**
+        * Selector
+      * TargetObjectReference **required**
+        * Selector
+      * TypedLinkFacet **required**
+        * SchemaArn **required**
+        * TypedLinkName **required**
+  * UpdateObjectAttributes
+    * AttributeUpdates **required**
+      * items [ObjectAttributeUpdate](#objectattributeupdate)
+    * ObjectReference **required**
+      * Selector
 
 ### BatchWriteOperationList
 * BatchWriteOperationList `array`
@@ -1769,21 +2380,38 @@ amazonaws_clouddirectory.ListOutgoingTypedLinks({
 
 ### BatchWriteOperationResponse
 * BatchWriteOperationResponse `object`: Represents the output of a <code>BatchWrite</code> response operation.
-  * AddFacetToObject [BatchAddFacetToObjectResponse](#batchaddfacettoobjectresponse)
-  * AttachObject [BatchAttachObjectResponse](#batchattachobjectresponse)
-  * AttachPolicy [BatchAttachPolicyResponse](#batchattachpolicyresponse)
-  * AttachToIndex [BatchAttachToIndexResponse](#batchattachtoindexresponse)
-  * AttachTypedLink [BatchAttachTypedLinkResponse](#batchattachtypedlinkresponse)
-  * CreateIndex [BatchCreateIndexResponse](#batchcreateindexresponse)
-  * CreateObject [BatchCreateObjectResponse](#batchcreateobjectresponse)
-  * DeleteObject [BatchDeleteObjectResponse](#batchdeleteobjectresponse)
-  * DetachFromIndex [BatchDetachFromIndexResponse](#batchdetachfromindexresponse)
-  * DetachObject [BatchDetachObjectResponse](#batchdetachobjectresponse)
-  * DetachPolicy [BatchDetachPolicyResponse](#batchdetachpolicyresponse)
-  * DetachTypedLink [BatchDetachTypedLinkResponse](#batchdetachtypedlinkresponse)
-  * RemoveFacetFromObject [BatchRemoveFacetFromObjectResponse](#batchremovefacetfromobjectresponse)
-  * UpdateLinkAttributes [BatchUpdateLinkAttributesResponse](#batchupdatelinkattributesresponse)
-  * UpdateObjectAttributes [BatchUpdateObjectAttributesResponse](#batchupdateobjectattributesresponse)
+  * AddFacetToObject
+  * AttachObject
+    * attachedObjectIdentifier
+  * AttachPolicy
+  * AttachToIndex
+    * AttachedObjectIdentifier
+  * AttachTypedLink
+    * TypedLinkSpecifier
+      * IdentityAttributeValues **required**
+        * items [AttributeNameAndValue](#attributenameandvalue)
+      * SourceObjectReference **required**
+        * Selector
+      * TargetObjectReference **required**
+        * Selector
+      * TypedLinkFacet **required**
+        * SchemaArn **required**
+        * TypedLinkName **required**
+  * CreateIndex
+    * ObjectIdentifier
+  * CreateObject
+    * ObjectIdentifier
+  * DeleteObject
+  * DetachFromIndex
+    * DetachedObjectIdentifier
+  * DetachObject
+    * detachedObjectIdentifier
+  * DetachPolicy
+  * DetachTypedLink
+  * RemoveFacetFromObject
+  * UpdateLinkAttributes
+  * UpdateObjectAttributes
+    * ObjectIdentifier
 
 ### BatchWriteOperationResponseList
 * BatchWriteOperationResponseList `array`
@@ -1791,11 +2419,13 @@ amazonaws_clouddirectory.ListOutgoingTypedLinks({
 
 ### BatchWriteRequest
 * BatchWriteRequest `object`
-  * Operations **required** [BatchWriteOperationList](#batchwriteoperationlist)
+  * Operations **required**
+    * items [BatchWriteOperation](#batchwriteoperation)
 
 ### BatchWriteResponse
 * BatchWriteResponse `object`
-  * Responses [BatchWriteOperationResponseList](#batchwriteoperationresponselist)
+  * Responses
+    * items [BatchWriteOperationResponse](#batchwriteoperationresponse)
 
 ### BinaryAttributeValue
 * BinaryAttributeValue `string`
@@ -1807,65 +2437,76 @@ amazonaws_clouddirectory.ListOutgoingTypedLinks({
 * BooleanAttributeValue `boolean`
 
 ### CannotListParentOfRootException
-* CannotListParentOfRootException `object`: Cannot list the parents of a <a>Directory</a> root.
-  * Message [ExceptionMessage](#exceptionmessage)
+
 
 ### ConsistencyLevel
 * ConsistencyLevel `string` (values: SERIALIZABLE, EVENTUAL)
 
 ### CreateDirectoryRequest
 * CreateDirectoryRequest `object`
-  * Name **required** [DirectoryName](#directoryname)
+  * Name **required**
 
 ### CreateDirectoryResponse
 * CreateDirectoryResponse `object`
-  * AppliedSchemaArn **required** [Arn](#arn)
-  * DirectoryArn **required** [DirectoryArn](#directoryarn)
-  * Name **required** [DirectoryName](#directoryname)
-  * ObjectIdentifier **required** [ObjectIdentifier](#objectidentifier)
+  * AppliedSchemaArn **required**
+  * DirectoryArn **required**
+  * Name **required**
+  * ObjectIdentifier **required**
 
 ### CreateFacetRequest
 * CreateFacetRequest `object`
-  * Attributes [FacetAttributeList](#facetattributelist)
-  * Name **required** [FacetName](#facetname)
-  * ObjectType **required** [ObjectType](#objecttype)
+  * Attributes
+    * items [FacetAttribute](#facetattribute)
+  * FacetStyle
+  * Name **required**
+  * ObjectType
 
 ### CreateFacetResponse
 * CreateFacetResponse `object`
 
 ### CreateIndexRequest
 * CreateIndexRequest `object`
-  * IsUnique **required** [Bool](#bool)
-  * LinkName [LinkName](#linkname)
-  * OrderedIndexedAttributeList **required** [AttributeKeyList](#attributekeylist)
-  * ParentReference [ObjectReference](#objectreference)
+  * IsUnique **required**
+  * LinkName
+  * OrderedIndexedAttributeList **required**
+    * items [AttributeKey](#attributekey)
+  * ParentReference
+    * Selector
 
 ### CreateIndexResponse
 * CreateIndexResponse `object`
-  * ObjectIdentifier [ObjectIdentifier](#objectidentifier)
+  * ObjectIdentifier
 
 ### CreateObjectRequest
 * CreateObjectRequest `object`
-  * LinkName [LinkName](#linkname)
-  * ObjectAttributeList [AttributeKeyAndValueList](#attributekeyandvaluelist)
-  * ParentReference [ObjectReference](#objectreference)
-  * SchemaFacets **required** [SchemaFacetList](#schemafacetlist)
+  * LinkName
+  * ObjectAttributeList
+    * items [AttributeKeyAndValue](#attributekeyandvalue)
+  * ParentReference
+    * Selector
+  * SchemaFacets **required**
+    * items [SchemaFacet](#schemafacet)
 
 ### CreateObjectResponse
 * CreateObjectResponse `object`
-  * ObjectIdentifier [ObjectIdentifier](#objectidentifier)
+  * ObjectIdentifier
 
 ### CreateSchemaRequest
 * CreateSchemaRequest `object`
-  * Name **required** [SchemaName](#schemaname)
+  * Name **required**
 
 ### CreateSchemaResponse
 * CreateSchemaResponse `object`
-  * SchemaArn [Arn](#arn)
+  * SchemaArn
 
 ### CreateTypedLinkFacetRequest
 * CreateTypedLinkFacetRequest `object`
-  * Facet **required** [TypedLinkFacet](#typedlinkfacet)
+  * Facet **required**
+    * Attributes **required**
+      * items [TypedLinkAttributeDefinition](#typedlinkattributedefinition)
+    * IdentityAttributeOrder **required**
+      * items [AttributeName](#attributename)
+    * Name **required**
 
 ### CreateTypedLinkFacetResponse
 * CreateTypedLinkFacetResponse `object`
@@ -1881,18 +2522,19 @@ amazonaws_clouddirectory.ListOutgoingTypedLinks({
 
 ### DeleteDirectoryResponse
 * DeleteDirectoryResponse `object`
-  * DirectoryArn **required** [Arn](#arn)
+  * DirectoryArn **required**
 
 ### DeleteFacetRequest
 * DeleteFacetRequest `object`
-  * Name **required** [FacetName](#facetname)
+  * Name **required**
 
 ### DeleteFacetResponse
 * DeleteFacetResponse `object`
 
 ### DeleteObjectRequest
 * DeleteObjectRequest `object`
-  * ObjectReference **required** [ObjectReference](#objectreference)
+  * ObjectReference **required**
+    * Selector
 
 ### DeleteObjectResponse
 * DeleteObjectResponse `object`
@@ -1902,62 +2544,74 @@ amazonaws_clouddirectory.ListOutgoingTypedLinks({
 
 ### DeleteSchemaResponse
 * DeleteSchemaResponse `object`
-  * SchemaArn [Arn](#arn)
+  * SchemaArn
 
 ### DeleteTypedLinkFacetRequest
 * DeleteTypedLinkFacetRequest `object`
-  * Name **required** [TypedLinkName](#typedlinkname)
+  * Name **required**
 
 ### DeleteTypedLinkFacetResponse
 * DeleteTypedLinkFacetResponse `object`
 
 ### DetachFromIndexRequest
 * DetachFromIndexRequest `object`
-  * IndexReference **required** [ObjectReference](#objectreference)
-  * TargetReference **required** [ObjectReference](#objectreference)
+  * IndexReference **required**
+    * Selector
+  * TargetReference **required**
+    * Selector
 
 ### DetachFromIndexResponse
 * DetachFromIndexResponse `object`
-  * DetachedObjectIdentifier [ObjectIdentifier](#objectidentifier)
+  * DetachedObjectIdentifier
 
 ### DetachObjectRequest
 * DetachObjectRequest `object`
-  * LinkName **required** [LinkName](#linkname)
-  * ParentReference **required** [ObjectReference](#objectreference)
+  * LinkName **required**
+  * ParentReference **required**
+    * Selector
 
 ### DetachObjectResponse
 * DetachObjectResponse `object`
-  * DetachedObjectIdentifier [ObjectIdentifier](#objectidentifier)
+  * DetachedObjectIdentifier
 
 ### DetachPolicyRequest
 * DetachPolicyRequest `object`
-  * ObjectReference **required** [ObjectReference](#objectreference)
-  * PolicyReference **required** [ObjectReference](#objectreference)
+  * ObjectReference **required**
+    * Selector
+  * PolicyReference **required**
+    * Selector
 
 ### DetachPolicyResponse
 * DetachPolicyResponse `object`
 
 ### DetachTypedLinkRequest
 * DetachTypedLinkRequest `object`
-  * TypedLinkSpecifier **required** [TypedLinkSpecifier](#typedlinkspecifier)
+  * TypedLinkSpecifier **required**
+    * IdentityAttributeValues **required**
+      * items [AttributeNameAndValue](#attributenameandvalue)
+    * SourceObjectReference **required**
+      * Selector
+    * TargetObjectReference **required**
+      * Selector
+    * TypedLinkFacet **required**
+      * SchemaArn **required**
+      * TypedLinkName **required**
 
 ### Directory
 * Directory `object`: Directory structure that includes the directory name and directory ARN.
-  * CreationDateTime [Date](#date)
-  * DirectoryArn [DirectoryArn](#directoryarn)
-  * Name [DirectoryName](#directoryname)
-  * State [DirectoryState](#directorystate)
+  * CreationDateTime
+  * DirectoryArn
+  * Name
+  * State
 
 ### DirectoryAlreadyExistsException
-* DirectoryAlreadyExistsException `object`: Indicates that a <a>Directory</a> could not be created due to a naming conflict. Choose a different name and try again.
-  * Message [ExceptionMessage](#exceptionmessage)
+
 
 ### DirectoryArn
 * DirectoryArn `string`
 
 ### DirectoryDeletedException
-* DirectoryDeletedException `object`: A directory that has been deleted and to which access has been attempted. Note: The requested resource will eventually cease to exist.
-  * Message [ExceptionMessage](#exceptionmessage)
+
 
 ### DirectoryList
 * DirectoryList `array`
@@ -1967,12 +2621,10 @@ amazonaws_clouddirectory.ListOutgoingTypedLinks({
 * DirectoryName `string`
 
 ### DirectoryNotDisabledException
-* DirectoryNotDisabledException `object`: An operation can only operate on a disabled directory.
-  * Message [ExceptionMessage](#exceptionmessage)
+
 
 ### DirectoryNotEnabledException
-* DirectoryNotEnabledException `object`: Operations are only permitted on enabled directories.
-  * Message [ExceptionMessage](#exceptionmessage)
+
 
 ### DirectoryState
 * DirectoryState `string` (values: ENABLED, DISABLED, DELETED)
@@ -1982,40 +2634,56 @@ amazonaws_clouddirectory.ListOutgoingTypedLinks({
 
 ### DisableDirectoryResponse
 * DisableDirectoryResponse `object`
-  * DirectoryArn **required** [Arn](#arn)
+  * DirectoryArn **required**
 
 ### EnableDirectoryRequest
 * EnableDirectoryRequest `object`
 
 ### EnableDirectoryResponse
 * EnableDirectoryResponse `object`
-  * DirectoryArn **required** [Arn](#arn)
+  * DirectoryArn **required**
 
 ### ExceptionMessage
 * ExceptionMessage `string`
 
 ### Facet
-* Facet `object`: A structure that contains <code>Name</code>, <code>ARN</code>, <code>Attributes</code>, <code> <a>Rule</a>s</code>, and <code>ObjectTypes</code>. See <a href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/whatarefacets.html">Facets</a> for more information.
-  * Name [FacetName](#facetname)
-  * ObjectType [ObjectType](#objecttype)
+* Facet `object`: A structure that contains <code>Name</code>, <code>ARN</code>, <code>Attributes</code>, <code> <a>Rule</a>s</code>, and <code>ObjectTypes</code>. See <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_whatarefacets.html">Facets</a> for more information.
+  * FacetStyle
+  * Name
+  * ObjectType
 
 ### FacetAlreadyExistsException
-* FacetAlreadyExistsException `object`: A facet with the same name already exists.
-  * Message [ExceptionMessage](#exceptionmessage)
+
 
 ### FacetAttribute
 * FacetAttribute `object`: An attribute that is associated with the <a>Facet</a>.
-  * AttributeDefinition [FacetAttributeDefinition](#facetattributedefinition)
-  * AttributeReference [FacetAttributeReference](#facetattributereference)
-  * Name **required** [AttributeName](#attributename)
-  * RequiredBehavior [RequiredAttributeBehavior](#requiredattributebehavior)
+  * AttributeDefinition
+    * DefaultValue
+      * BinaryValue
+      * BooleanValue
+      * DatetimeValue
+      * NumberValue
+      * StringValue
+    * IsImmutable
+    * Rules
+    * Type **required**
+  * AttributeReference
+    * TargetAttributeName **required**
+    * TargetFacetName **required**
+  * Name **required**
+  * RequiredBehavior
 
 ### FacetAttributeDefinition
-* FacetAttributeDefinition `object`: A facet attribute definition. See <a href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/cd_advanced.html#attributereferences">Attribute References</a> for more information.
-  * DefaultValue [TypedAttributeValue](#typedattributevalue)
-  * IsImmutable [Bool](#bool)
-  * Rules [RuleMap](#rulemap)
-  * Type **required** [FacetAttributeType](#facetattributetype)
+* FacetAttributeDefinition `object`: A facet attribute definition. See <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_attributereferences.html">Attribute References</a> for more information.
+  * DefaultValue
+    * BinaryValue
+    * BooleanValue
+    * DatetimeValue
+    * NumberValue
+    * StringValue
+  * IsImmutable
+  * Rules
+  * Type **required**
 
 ### FacetAttributeList
 * FacetAttributeList `array`
@@ -2023,24 +2691,38 @@ amazonaws_clouddirectory.ListOutgoingTypedLinks({
 
 ### FacetAttributeReference
 * FacetAttributeReference `object`: The facet attribute reference that specifies the attribute definition that contains the attribute facet name and attribute name.
-  * TargetAttributeName **required** [AttributeName](#attributename)
-  * TargetFacetName **required** [FacetName](#facetname)
+  * TargetAttributeName **required**
+  * TargetFacetName **required**
 
 ### FacetAttributeType
-* FacetAttributeType `string` (values: STRING, BINARY, BOOLEAN, NUMBER, DATETIME)
+* FacetAttributeType `string` (values: STRING, BINARY, BOOLEAN, NUMBER, DATETIME, VARIANT)
 
 ### FacetAttributeUpdate
 * FacetAttributeUpdate `object`: A structure that contains information used to update an attribute.
-  * Action [UpdateActionType](#updateactiontype)
-  * Attribute [FacetAttribute](#facetattribute)
+  * Action
+  * Attribute
+    * AttributeDefinition
+      * DefaultValue
+        * BinaryValue
+        * BooleanValue
+        * DatetimeValue
+        * NumberValue
+        * StringValue
+      * IsImmutable
+      * Rules
+      * Type **required**
+    * AttributeReference
+      * TargetAttributeName **required**
+      * TargetFacetName **required**
+    * Name **required**
+    * RequiredBehavior
 
 ### FacetAttributeUpdateList
 * FacetAttributeUpdateList `array`
   * items [FacetAttributeUpdate](#facetattributeupdate)
 
 ### FacetInUseException
-* FacetInUseException `object`: Occurs when deleting a facet that contains an attribute that is a target to an attribute reference in a different facet.
-  * Message [ExceptionMessage](#exceptionmessage)
+
 
 ### FacetName
 * FacetName `string`
@@ -2050,143 +2732,175 @@ amazonaws_clouddirectory.ListOutgoingTypedLinks({
   * items [FacetName](#facetname)
 
 ### FacetNotFoundException
-* FacetNotFoundException `object`: The specified <a>Facet</a> could not be found.
-  * Message [ExceptionMessage](#exceptionmessage)
+
+
+### FacetStyle
+* FacetStyle `string` (values: STATIC, DYNAMIC)
 
 ### FacetValidationException
-* FacetValidationException `object`: The <a>Facet</a> that you provided was not well formed or could not be validated with the schema.
-  * Message [ExceptionMessage](#exceptionmessage)
+
 
 ### GetAppliedSchemaVersionRequest
 * GetAppliedSchemaVersionRequest `object`
-  * SchemaArn **required** [Arn](#arn)
+  * SchemaArn **required**
 
 ### GetAppliedSchemaVersionResponse
 * GetAppliedSchemaVersionResponse `object`
-  * AppliedSchemaArn [Arn](#arn)
+  * AppliedSchemaArn
 
 ### GetDirectoryRequest
 * GetDirectoryRequest `object`
 
 ### GetDirectoryResponse
 * GetDirectoryResponse `object`
-  * Directory **required** [Directory](#directory)
+  * Directory **required**
+    * CreationDateTime
+    * DirectoryArn
+    * Name
+    * State
 
 ### GetFacetRequest
 * GetFacetRequest `object`
-  * Name **required** [FacetName](#facetname)
+  * Name **required**
 
 ### GetFacetResponse
 * GetFacetResponse `object`
-  * Facet [Facet](#facet)
+  * Facet
+    * FacetStyle
+    * Name
+    * ObjectType
 
 ### GetLinkAttributesRequest
 * GetLinkAttributesRequest `object`
-  * AttributeNames **required** [AttributeNameList](#attributenamelist)
-  * ConsistencyLevel [ConsistencyLevel](#consistencylevel)
-  * TypedLinkSpecifier **required** [TypedLinkSpecifier](#typedlinkspecifier)
+  * AttributeNames **required**
+    * items [AttributeName](#attributename)
+  * ConsistencyLevel
+  * TypedLinkSpecifier **required**
+    * IdentityAttributeValues **required**
+      * items [AttributeNameAndValue](#attributenameandvalue)
+    * SourceObjectReference **required**
+      * Selector
+    * TargetObjectReference **required**
+      * Selector
+    * TypedLinkFacet **required**
+      * SchemaArn **required**
+      * TypedLinkName **required**
 
 ### GetLinkAttributesResponse
 * GetLinkAttributesResponse `object`
-  * Attributes [AttributeKeyAndValueList](#attributekeyandvaluelist)
+  * Attributes
+    * items [AttributeKeyAndValue](#attributekeyandvalue)
 
 ### GetObjectAttributesRequest
 * GetObjectAttributesRequest `object`
-  * AttributeNames **required** [AttributeNameList](#attributenamelist)
-  * ObjectReference **required** [ObjectReference](#objectreference)
-  * SchemaFacet **required** [SchemaFacet](#schemafacet)
+  * AttributeNames **required**
+    * items [AttributeName](#attributename)
+  * ObjectReference **required**
+    * Selector
+  * SchemaFacet **required**
+    * FacetName
+    * SchemaArn
 
 ### GetObjectAttributesResponse
 * GetObjectAttributesResponse `object`
-  * Attributes [AttributeKeyAndValueList](#attributekeyandvaluelist)
+  * Attributes
+    * items [AttributeKeyAndValue](#attributekeyandvalue)
 
 ### GetObjectInformationRequest
 * GetObjectInformationRequest `object`
-  * ObjectReference **required** [ObjectReference](#objectreference)
+  * ObjectReference **required**
+    * Selector
 
 ### GetObjectInformationResponse
 * GetObjectInformationResponse `object`
-  * ObjectIdentifier [ObjectIdentifier](#objectidentifier)
-  * SchemaFacets [SchemaFacetList](#schemafacetlist)
+  * ObjectIdentifier
+  * SchemaFacets
+    * items [SchemaFacet](#schemafacet)
 
 ### GetSchemaAsJsonRequest
 * GetSchemaAsJsonRequest `object`
 
 ### GetSchemaAsJsonResponse
 * GetSchemaAsJsonResponse `object`
-  * Document [SchemaJsonDocument](#schemajsondocument)
-  * Name [SchemaName](#schemaname)
+  * Document
+  * Name
 
 ### GetTypedLinkFacetInformationRequest
 * GetTypedLinkFacetInformationRequest `object`
-  * Name **required** [TypedLinkName](#typedlinkname)
+  * Name **required**
 
 ### GetTypedLinkFacetInformationResponse
 * GetTypedLinkFacetInformationResponse `object`
-  * IdentityAttributeOrder [AttributeNameList](#attributenamelist)
+  * IdentityAttributeOrder
+    * items [AttributeName](#attributename)
 
 ### IncompatibleSchemaException
-* IncompatibleSchemaException `object`: Indicates a failure occurred while performing a check for backward compatibility between the specified schema and the schema that is currently applied to the directory.
-  * Message [ExceptionMessage](#exceptionmessage)
+
 
 ### IndexAttachment
 * IndexAttachment `object`: Represents an index and an attached object.
-  * IndexedAttributes [AttributeKeyAndValueList](#attributekeyandvaluelist)
-  * ObjectIdentifier [ObjectIdentifier](#objectidentifier)
+  * IndexedAttributes
+    * items [AttributeKeyAndValue](#attributekeyandvalue)
+  * ObjectIdentifier
 
 ### IndexAttachmentList
 * IndexAttachmentList `array`
   * items [IndexAttachment](#indexattachment)
 
 ### IndexedAttributeMissingException
-* IndexedAttributeMissingException `object`: An object has been attempted to be attached to an object that does not have the appropriate attribute value.
-  * Message [ExceptionMessage](#exceptionmessage)
+
 
 ### InternalServiceException
-* InternalServiceException `object`: Indicates a problem that must be resolved by Amazon Web Services. This might be a transient error in which case you can retry your request until it succeeds. Otherwise, go to the <a href="http://status.aws.amazon.com/">AWS Service Health Dashboard</a> site to see if there are any operational issues with the service.
-  * Message [ExceptionMessage](#exceptionmessage)
+
 
 ### InvalidArnException
-* InvalidArnException `object`: Indicates that the provided ARN value is not valid.
-  * Message [ExceptionMessage](#exceptionmessage)
+
 
 ### InvalidAttachmentException
-* InvalidAttachmentException `object`: Indicates that an attempt to attach an object with the same link name or to apply a schema with the same name has occurred. Rename the link or the schema and then try again.
-  * Message [ExceptionMessage](#exceptionmessage)
+
 
 ### InvalidFacetUpdateException
-* InvalidFacetUpdateException `object`: An attempt to modify a <a>Facet</a> resulted in an invalid schema exception.
-  * Message [ExceptionMessage](#exceptionmessage)
+
 
 ### InvalidNextTokenException
-* InvalidNextTokenException `object`: Indicates that the <code>NextToken</code> value is not valid.
-  * Message [ExceptionMessage](#exceptionmessage)
+
 
 ### InvalidRuleException
-* InvalidRuleException `object`: Occurs when any of the rule parameter keys or values are invalid.
-  * Message [ExceptionMessage](#exceptionmessage)
+
 
 ### InvalidSchemaDocException
-* InvalidSchemaDocException `object`: Indicates that the provided <code>SchemaDoc</code> value is not valid.
-  * Message [ExceptionMessage](#exceptionmessage)
+
 
 ### InvalidTaggingRequestException
-* InvalidTaggingRequestException `object`: Can occur for multiple reasons such as when you tag a resource that doesn’t exist or if you specify a higher number of tags for a resource than the allowed limit. Allowed limit is 50 tags per resource.
-  * Message [ExceptionMessage](#exceptionmessage)
+
 
 ### LimitExceededException
-* LimitExceededException `object`: Indicates that limits are exceeded. See <a href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/limits.html">Limits</a> for more information.
-  * Message [ExceptionMessage](#exceptionmessage)
+
 
 ### LinkAttributeAction
 * LinkAttributeAction `object`: The action to take on a typed link attribute value. Updates are only supported for attributes which don’t contribute to link identity.
-  * AttributeActionType [UpdateActionType](#updateactiontype)
-  * AttributeUpdateValue [TypedAttributeValue](#typedattributevalue)
+  * AttributeActionType
+  * AttributeUpdateValue
+    * BinaryValue
+    * BooleanValue
+    * DatetimeValue
+    * NumberValue
+    * StringValue
 
 ### LinkAttributeUpdate
 * LinkAttributeUpdate `object`: Structure that contains attribute update information.
-  * AttributeAction [LinkAttributeAction](#linkattributeaction)
-  * AttributeKey [AttributeKey](#attributekey)
+  * AttributeAction
+    * AttributeActionType
+    * AttributeUpdateValue
+      * BinaryValue
+      * BooleanValue
+      * DatetimeValue
+      * NumberValue
+      * StringValue
+  * AttributeKey
+    * FacetName **required**
+    * Name **required**
+    * SchemaArn **required**
 
 ### LinkAttributeUpdateList
 * LinkAttributeUpdateList `array`
@@ -2196,255 +2910,301 @@ amazonaws_clouddirectory.ListOutgoingTypedLinks({
 * LinkName `string`
 
 ### LinkNameAlreadyInUseException
-* LinkNameAlreadyInUseException `object`: Indicates that a link could not be created due to a naming conflict. Choose a different name and then try again.
-  * Message [ExceptionMessage](#exceptionmessage)
+
 
 ### LinkNameToObjectIdentifierMap
-* LinkNameToObjectIdentifierMap `array`
-  * items `object`
-    * key [LinkName](#linkname)
-    * value [ObjectIdentifier](#objectidentifier)
+* LinkNameToObjectIdentifierMap `object`
 
 ### ListAppliedSchemaArnsRequest
 * ListAppliedSchemaArnsRequest `object`
-  * DirectoryArn **required** [Arn](#arn)
-  * MaxResults [NumberResults](#numberresults)
-  * NextToken [NextToken](#nexttoken)
-  * SchemaArn [Arn](#arn)
+  * DirectoryArn **required**
+  * MaxResults
+  * NextToken
+  * SchemaArn
 
 ### ListAppliedSchemaArnsResponse
 * ListAppliedSchemaArnsResponse `object`
-  * NextToken [NextToken](#nexttoken)
-  * SchemaArns [Arns](#arns)
+  * NextToken
+  * SchemaArns
+    * items [Arn](#arn)
 
 ### ListAttachedIndicesRequest
 * ListAttachedIndicesRequest `object`
-  * MaxResults [NumberResults](#numberresults)
-  * NextToken [NextToken](#nexttoken)
-  * TargetReference **required** [ObjectReference](#objectreference)
+  * MaxResults
+  * NextToken
+  * TargetReference **required**
+    * Selector
 
 ### ListAttachedIndicesResponse
 * ListAttachedIndicesResponse `object`
-  * IndexAttachments [IndexAttachmentList](#indexattachmentlist)
-  * NextToken [NextToken](#nexttoken)
+  * IndexAttachments
+    * items [IndexAttachment](#indexattachment)
+  * NextToken
 
 ### ListDevelopmentSchemaArnsRequest
 * ListDevelopmentSchemaArnsRequest `object`
-  * MaxResults [NumberResults](#numberresults)
-  * NextToken [NextToken](#nexttoken)
+  * MaxResults
+  * NextToken
 
 ### ListDevelopmentSchemaArnsResponse
 * ListDevelopmentSchemaArnsResponse `object`
-  * NextToken [NextToken](#nexttoken)
-  * SchemaArns [Arns](#arns)
+  * NextToken
+  * SchemaArns
+    * items [Arn](#arn)
 
 ### ListDirectoriesRequest
 * ListDirectoriesRequest `object`
-  * MaxResults [NumberResults](#numberresults)
-  * NextToken [NextToken](#nexttoken)
-  * state [DirectoryState](#directorystate)
+  * MaxResults
+  * NextToken
+  * state
 
 ### ListDirectoriesResponse
 * ListDirectoriesResponse `object`
-  * Directories **required** [DirectoryList](#directorylist)
-  * NextToken [NextToken](#nexttoken)
+  * Directories **required**
+    * items [Directory](#directory)
+  * NextToken
 
 ### ListFacetAttributesRequest
 * ListFacetAttributesRequest `object`
-  * MaxResults [NumberResults](#numberresults)
-  * Name **required** [FacetName](#facetname)
-  * NextToken [NextToken](#nexttoken)
+  * MaxResults
+  * Name **required**
+  * NextToken
 
 ### ListFacetAttributesResponse
 * ListFacetAttributesResponse `object`
-  * Attributes [FacetAttributeList](#facetattributelist)
-  * NextToken [NextToken](#nexttoken)
+  * Attributes
+    * items [FacetAttribute](#facetattribute)
+  * NextToken
 
 ### ListFacetNamesRequest
 * ListFacetNamesRequest `object`
-  * MaxResults [NumberResults](#numberresults)
-  * NextToken [NextToken](#nexttoken)
+  * MaxResults
+  * NextToken
 
 ### ListFacetNamesResponse
 * ListFacetNamesResponse `object`
-  * FacetNames [FacetNameList](#facetnamelist)
-  * NextToken [NextToken](#nexttoken)
+  * FacetNames
+    * items [FacetName](#facetname)
+  * NextToken
 
 ### ListIncomingTypedLinksRequest
 * ListIncomingTypedLinksRequest `object`
-  * ConsistencyLevel [ConsistencyLevel](#consistencylevel)
-  * FilterAttributeRanges [TypedLinkAttributeRangeList](#typedlinkattributerangelist)
-  * FilterTypedLink [TypedLinkSchemaAndFacetName](#typedlinkschemaandfacetname)
-  * MaxResults [NumberResults](#numberresults)
-  * NextToken [NextToken](#nexttoken)
-  * ObjectReference **required** [ObjectReference](#objectreference)
+  * ConsistencyLevel
+  * FilterAttributeRanges
+    * items [TypedLinkAttributeRange](#typedlinkattributerange)
+  * FilterTypedLink
+    * SchemaArn **required**
+    * TypedLinkName **required**
+  * MaxResults
+  * NextToken
+  * ObjectReference **required**
+    * Selector
 
 ### ListIncomingTypedLinksResponse
 * ListIncomingTypedLinksResponse `object`
-  * LinkSpecifiers [TypedLinkSpecifierList](#typedlinkspecifierlist)
-  * NextToken [NextToken](#nexttoken)
+  * LinkSpecifiers
+    * items [TypedLinkSpecifier](#typedlinkspecifier)
+  * NextToken
 
 ### ListIndexRequest
 * ListIndexRequest `object`
-  * IndexReference **required** [ObjectReference](#objectreference)
-  * MaxResults [NumberResults](#numberresults)
-  * NextToken [NextToken](#nexttoken)
-  * RangesOnIndexedValues [ObjectAttributeRangeList](#objectattributerangelist)
+  * IndexReference **required**
+    * Selector
+  * MaxResults
+  * NextToken
+  * RangesOnIndexedValues
+    * items [ObjectAttributeRange](#objectattributerange)
 
 ### ListIndexResponse
 * ListIndexResponse `object`
-  * IndexAttachments [IndexAttachmentList](#indexattachmentlist)
-  * NextToken [NextToken](#nexttoken)
+  * IndexAttachments
+    * items [IndexAttachment](#indexattachment)
+  * NextToken
+
+### ListManagedSchemaArnsRequest
+* ListManagedSchemaArnsRequest `object`
+  * MaxResults
+  * NextToken
+  * SchemaArn
+
+### ListManagedSchemaArnsResponse
+* ListManagedSchemaArnsResponse `object`
+  * NextToken
+  * SchemaArns
+    * items [Arn](#arn)
 
 ### ListObjectAttributesRequest
 * ListObjectAttributesRequest `object`
-  * FacetFilter [SchemaFacet](#schemafacet)
-  * MaxResults [NumberResults](#numberresults)
-  * NextToken [NextToken](#nexttoken)
-  * ObjectReference **required** [ObjectReference](#objectreference)
+  * FacetFilter
+    * FacetName
+    * SchemaArn
+  * MaxResults
+  * NextToken
+  * ObjectReference **required**
+    * Selector
 
 ### ListObjectAttributesResponse
 * ListObjectAttributesResponse `object`
-  * Attributes [AttributeKeyAndValueList](#attributekeyandvaluelist)
-  * NextToken [NextToken](#nexttoken)
+  * Attributes
+    * items [AttributeKeyAndValue](#attributekeyandvalue)
+  * NextToken
 
 ### ListObjectChildrenRequest
 * ListObjectChildrenRequest `object`
-  * MaxResults [NumberResults](#numberresults)
-  * NextToken [NextToken](#nexttoken)
-  * ObjectReference **required** [ObjectReference](#objectreference)
+  * MaxResults
+  * NextToken
+  * ObjectReference **required**
+    * Selector
 
 ### ListObjectChildrenResponse
 * ListObjectChildrenResponse `object`
-  * Children [LinkNameToObjectIdentifierMap](#linknametoobjectidentifiermap)
-  * NextToken [NextToken](#nexttoken)
+  * Children
+  * NextToken
 
 ### ListObjectParentPathsRequest
 * ListObjectParentPathsRequest `object`
-  * MaxResults [NumberResults](#numberresults)
-  * NextToken [NextToken](#nexttoken)
-  * ObjectReference **required** [ObjectReference](#objectreference)
+  * MaxResults
+  * NextToken
+  * ObjectReference **required**
+    * Selector
 
 ### ListObjectParentPathsResponse
 * ListObjectParentPathsResponse `object`
-  * NextToken [NextToken](#nexttoken)
-  * PathToObjectIdentifiersList [PathToObjectIdentifiersList](#pathtoobjectidentifierslist)
+  * NextToken
+  * PathToObjectIdentifiersList
+    * items [PathToObjectIdentifiers](#pathtoobjectidentifiers)
 
 ### ListObjectParentsRequest
 * ListObjectParentsRequest `object`
-  * MaxResults [NumberResults](#numberresults)
-  * NextToken [NextToken](#nexttoken)
-  * ObjectReference **required** [ObjectReference](#objectreference)
+  * IncludeAllLinksToEachParent
+  * MaxResults
+  * NextToken
+  * ObjectReference **required**
+    * Selector
 
 ### ListObjectParentsResponse
 * ListObjectParentsResponse `object`
-  * NextToken [NextToken](#nexttoken)
-  * Parents [ObjectIdentifierToLinkNameMap](#objectidentifiertolinknamemap)
+  * NextToken
+  * ParentLinks
+    * items [ObjectIdentifierAndLinkNameTuple](#objectidentifierandlinknametuple)
+  * Parents
 
 ### ListObjectPoliciesRequest
 * ListObjectPoliciesRequest `object`
-  * MaxResults [NumberResults](#numberresults)
-  * NextToken [NextToken](#nexttoken)
-  * ObjectReference **required** [ObjectReference](#objectreference)
+  * MaxResults
+  * NextToken
+  * ObjectReference **required**
+    * Selector
 
 ### ListObjectPoliciesResponse
 * ListObjectPoliciesResponse `object`
-  * AttachedPolicyIds [ObjectIdentifierList](#objectidentifierlist)
-  * NextToken [NextToken](#nexttoken)
+  * AttachedPolicyIds
+    * items [ObjectIdentifier](#objectidentifier)
+  * NextToken
 
 ### ListOutgoingTypedLinksRequest
 * ListOutgoingTypedLinksRequest `object`
-  * ConsistencyLevel [ConsistencyLevel](#consistencylevel)
-  * FilterAttributeRanges [TypedLinkAttributeRangeList](#typedlinkattributerangelist)
-  * FilterTypedLink [TypedLinkSchemaAndFacetName](#typedlinkschemaandfacetname)
-  * MaxResults [NumberResults](#numberresults)
-  * NextToken [NextToken](#nexttoken)
-  * ObjectReference **required** [ObjectReference](#objectreference)
+  * ConsistencyLevel
+  * FilterAttributeRanges
+    * items [TypedLinkAttributeRange](#typedlinkattributerange)
+  * FilterTypedLink
+    * SchemaArn **required**
+    * TypedLinkName **required**
+  * MaxResults
+  * NextToken
+  * ObjectReference **required**
+    * Selector
 
 ### ListOutgoingTypedLinksResponse
 * ListOutgoingTypedLinksResponse `object`
-  * NextToken [NextToken](#nexttoken)
-  * TypedLinkSpecifiers [TypedLinkSpecifierList](#typedlinkspecifierlist)
+  * NextToken
+  * TypedLinkSpecifiers
+    * items [TypedLinkSpecifier](#typedlinkspecifier)
 
 ### ListPolicyAttachmentsRequest
 * ListPolicyAttachmentsRequest `object`
-  * MaxResults [NumberResults](#numberresults)
-  * NextToken [NextToken](#nexttoken)
-  * PolicyReference **required** [ObjectReference](#objectreference)
+  * MaxResults
+  * NextToken
+  * PolicyReference **required**
+    * Selector
 
 ### ListPolicyAttachmentsResponse
 * ListPolicyAttachmentsResponse `object`
-  * NextToken [NextToken](#nexttoken)
-  * ObjectIdentifiers [ObjectIdentifierList](#objectidentifierlist)
+  * NextToken
+  * ObjectIdentifiers
+    * items [ObjectIdentifier](#objectidentifier)
 
 ### ListPublishedSchemaArnsRequest
 * ListPublishedSchemaArnsRequest `object`
-  * MaxResults [NumberResults](#numberresults)
-  * NextToken [NextToken](#nexttoken)
-  * SchemaArn [Arn](#arn)
+  * MaxResults
+  * NextToken
+  * SchemaArn
 
 ### ListPublishedSchemaArnsResponse
 * ListPublishedSchemaArnsResponse `object`
-  * NextToken [NextToken](#nexttoken)
-  * SchemaArns [Arns](#arns)
+  * NextToken
+  * SchemaArns
+    * items [Arn](#arn)
 
 ### ListTagsForResourceRequest
 * ListTagsForResourceRequest `object`
-  * MaxResults [TagsNumberResults](#tagsnumberresults)
-  * NextToken [NextToken](#nexttoken)
-  * ResourceArn **required** [Arn](#arn)
+  * MaxResults
+  * NextToken
+  * ResourceArn **required**
 
 ### ListTagsForResourceResponse
 * ListTagsForResourceResponse `object`
-  * NextToken [NextToken](#nexttoken)
-  * Tags [TagList](#taglist)
+  * NextToken
+  * Tags
+    * items [Tag](#tag)
 
 ### ListTypedLinkFacetAttributesRequest
 * ListTypedLinkFacetAttributesRequest `object`
-  * MaxResults [NumberResults](#numberresults)
-  * Name **required** [TypedLinkName](#typedlinkname)
-  * NextToken [NextToken](#nexttoken)
+  * MaxResults
+  * Name **required**
+  * NextToken
 
 ### ListTypedLinkFacetAttributesResponse
 * ListTypedLinkFacetAttributesResponse `object`
-  * Attributes [TypedLinkAttributeDefinitionList](#typedlinkattributedefinitionlist)
-  * NextToken [NextToken](#nexttoken)
+  * Attributes
+    * items [TypedLinkAttributeDefinition](#typedlinkattributedefinition)
+  * NextToken
 
 ### ListTypedLinkFacetNamesRequest
 * ListTypedLinkFacetNamesRequest `object`
-  * MaxResults [NumberResults](#numberresults)
-  * NextToken [NextToken](#nexttoken)
+  * MaxResults
+  * NextToken
 
 ### ListTypedLinkFacetNamesResponse
 * ListTypedLinkFacetNamesResponse `object`
-  * FacetNames [TypedLinkNameList](#typedlinknamelist)
-  * NextToken [NextToken](#nexttoken)
+  * FacetNames
+    * items [TypedLinkName](#typedlinkname)
+  * NextToken
 
 ### LookupPolicyRequest
 * LookupPolicyRequest `object`
-  * MaxResults [NumberResults](#numberresults)
-  * NextToken [NextToken](#nexttoken)
-  * ObjectReference **required** [ObjectReference](#objectreference)
+  * MaxResults
+  * NextToken
+  * ObjectReference **required**
+    * Selector
 
 ### LookupPolicyResponse
 * LookupPolicyResponse `object`
-  * NextToken [NextToken](#nexttoken)
-  * PolicyToPathList [PolicyToPathList](#policytopathlist)
+  * NextToken
+  * PolicyToPathList
+    * items [PolicyToPath](#policytopath)
 
 ### NextToken
 * NextToken `string`
 
 ### NotIndexException
-* NotIndexException `object`: Indicates that the requested operation can only operate on index objects.
-  * Message [ExceptionMessage](#exceptionmessage)
+
 
 ### NotNodeException
-* NotNodeException `object`: Occurs when any invalid operations are performed on an object that is not a node, such as calling <code>ListObjectChildren</code> for a leaf node object.
-  * Message [ExceptionMessage](#exceptionmessage)
+
 
 ### NotPolicyException
-* NotPolicyException `object`: Indicates that the requested operation can only operate on policy objects.
-  * Message [ExceptionMessage](#exceptionmessage)
+
 
 ### NumberAttributeValue
 * NumberAttributeValue `string`
@@ -2453,18 +3213,39 @@ amazonaws_clouddirectory.ListOutgoingTypedLinks({
 * NumberResults `integer`
 
 ### ObjectAlreadyDetachedException
-* ObjectAlreadyDetachedException `object`: Indicates that the object is not attached to the index.
-  * Message [ExceptionMessage](#exceptionmessage)
+
 
 ### ObjectAttributeAction
 * ObjectAttributeAction `object`: The action to take on the object attribute.
-  * ObjectAttributeActionType [UpdateActionType](#updateactiontype)
-  * ObjectAttributeUpdateValue [TypedAttributeValue](#typedattributevalue)
+  * ObjectAttributeActionType
+  * ObjectAttributeUpdateValue
+    * BinaryValue
+    * BooleanValue
+    * DatetimeValue
+    * NumberValue
+    * StringValue
 
 ### ObjectAttributeRange
 * ObjectAttributeRange `object`: A range of attributes.
-  * AttributeKey [AttributeKey](#attributekey)
-  * Range [TypedAttributeValueRange](#typedattributevaluerange)
+  * AttributeKey
+    * FacetName **required**
+    * Name **required**
+    * SchemaArn **required**
+  * Range
+    * EndMode **required**
+    * EndValue
+      * BinaryValue
+      * BooleanValue
+      * DatetimeValue
+      * NumberValue
+      * StringValue
+    * StartMode **required**
+    * StartValue
+      * BinaryValue
+      * BooleanValue
+      * DatetimeValue
+      * NumberValue
+      * StringValue
 
 ### ObjectAttributeRangeList
 * ObjectAttributeRangeList `array`
@@ -2472,8 +3253,18 @@ amazonaws_clouddirectory.ListOutgoingTypedLinks({
 
 ### ObjectAttributeUpdate
 * ObjectAttributeUpdate `object`: Structure that contains attribute update information.
-  * ObjectAttributeAction [ObjectAttributeAction](#objectattributeaction)
-  * ObjectAttributeKey [AttributeKey](#attributekey)
+  * ObjectAttributeAction
+    * ObjectAttributeActionType
+    * ObjectAttributeUpdateValue
+      * BinaryValue
+      * BooleanValue
+      * DatetimeValue
+      * NumberValue
+      * StringValue
+  * ObjectAttributeKey
+    * FacetName **required**
+    * Name **required**
+    * SchemaArn **required**
 
 ### ObjectAttributeUpdateList
 * ObjectAttributeUpdateList `array`
@@ -2482,23 +3273,28 @@ amazonaws_clouddirectory.ListOutgoingTypedLinks({
 ### ObjectIdentifier
 * ObjectIdentifier `string`
 
+### ObjectIdentifierAndLinkNameList
+* ObjectIdentifierAndLinkNameList `array`
+  * items [ObjectIdentifierAndLinkNameTuple](#objectidentifierandlinknametuple)
+
+### ObjectIdentifierAndLinkNameTuple
+* ObjectIdentifierAndLinkNameTuple `object`: A pair of ObjectIdentifier and LinkName.
+  * LinkName
+  * ObjectIdentifier
+
 ### ObjectIdentifierList
 * ObjectIdentifierList `array`
   * items [ObjectIdentifier](#objectidentifier)
 
 ### ObjectIdentifierToLinkNameMap
-* ObjectIdentifierToLinkNameMap `array`
-  * items `object`
-    * key [ObjectIdentifier](#objectidentifier)
-    * value [LinkName](#linkname)
+* ObjectIdentifierToLinkNameMap `object`
 
 ### ObjectNotDetachedException
-* ObjectNotDetachedException `object`: Indicates that the requested operation cannot be completed because the object has not been detached from the tree.
-  * Message [ExceptionMessage](#exceptionmessage)
+
 
 ### ObjectReference
 * ObjectReference `object`: The reference that identifies an object.
-  * Selector [SelectorObjectReference](#selectorobjectreference)
+  * Selector
 
 ### ObjectType
 * ObjectType `string` (values: NODE, LEAF_NODE, POLICY, INDEX)
@@ -2508,18 +3304,19 @@ amazonaws_clouddirectory.ListOutgoingTypedLinks({
 
 ### PathToObjectIdentifiers
 * PathToObjectIdentifiers `object`: Returns the path to the <code>ObjectIdentifiers</code> that is associated with the directory.
-  * ObjectIdentifiers [ObjectIdentifierList](#objectidentifierlist)
-  * Path [PathString](#pathstring)
+  * ObjectIdentifiers
+    * items [ObjectIdentifier](#objectidentifier)
+  * Path
 
 ### PathToObjectIdentifiersList
 * PathToObjectIdentifiersList `array`
   * items [PathToObjectIdentifiers](#pathtoobjectidentifiers)
 
 ### PolicyAttachment
-* PolicyAttachment `object`: Contains the <code>PolicyType</code>, <code>PolicyId</code>, and the <code>ObjectIdentifier</code> to which it is attached. For more information, see <a href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/cd_key_concepts.html#policies">Policies</a>.
-  * ObjectIdentifier [ObjectIdentifier](#objectidentifier)
-  * PolicyId [ObjectIdentifier](#objectidentifier)
-  * PolicyType [PolicyType](#policytype)
+* PolicyAttachment `object`: Contains the <code>PolicyType</code>, <code>PolicyId</code>, and the <code>ObjectIdentifier</code> to which it is attached. For more information, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/key_concepts_directory.html#key_concepts_policies">Policies</a>.
+  * ObjectIdentifier
+  * PolicyId
+  * PolicyType
 
 ### PolicyAttachmentList
 * PolicyAttachmentList `array`
@@ -2527,8 +3324,9 @@ amazonaws_clouddirectory.ListOutgoingTypedLinks({
 
 ### PolicyToPath
 * PolicyToPath `object`: Used when a regular object exists in a <a>Directory</a> and you want to find all of the policies that are associated with that object and the parent to that object.
-  * Path [PathString](#pathstring)
-  * Policies [PolicyAttachmentList](#policyattachmentlist)
+  * Path
+  * Policies
+    * items [PolicyAttachment](#policyattachment)
 
 ### PolicyToPathList
 * PolicyToPathList `array`
@@ -2539,29 +3337,32 @@ amazonaws_clouddirectory.ListOutgoingTypedLinks({
 
 ### PublishSchemaRequest
 * PublishSchemaRequest `object`
-  * MinorVersion [Version](#version)
-  * Name [SchemaName](#schemaname)
-  * Version **required** [Version](#version)
+  * MinorVersion
+  * Name
+  * Version **required**
 
 ### PublishSchemaResponse
 * PublishSchemaResponse `object`
-  * PublishedSchemaArn [Arn](#arn)
+  * PublishedSchemaArn
 
 ### PutSchemaFromJsonRequest
 * PutSchemaFromJsonRequest `object`
-  * Document **required** [SchemaJsonDocument](#schemajsondocument)
+  * Document **required**
 
 ### PutSchemaFromJsonResponse
 * PutSchemaFromJsonResponse `object`
-  * Arn [Arn](#arn)
+  * Arn
 
 ### RangeMode
 * RangeMode `string` (values: FIRST, LAST, LAST_BEFORE_MISSING_VALUES, INCLUSIVE, EXCLUSIVE)
 
 ### RemoveFacetFromObjectRequest
 * RemoveFacetFromObjectRequest `object`
-  * ObjectReference **required** [ObjectReference](#objectreference)
-  * SchemaFacet **required** [SchemaFacet](#schemafacet)
+  * ObjectReference **required**
+    * Selector
+  * SchemaFacet **required**
+    * FacetName
+    * SchemaArn
 
 ### RemoveFacetFromObjectResponse
 * RemoveFacetFromObjectResponse `object`
@@ -2570,35 +3371,27 @@ amazonaws_clouddirectory.ListOutgoingTypedLinks({
 * RequiredAttributeBehavior `string` (values: REQUIRED_ALWAYS, NOT_REQUIRED)
 
 ### ResourceNotFoundException
-* ResourceNotFoundException `object`: The specified resource could not be found.
-  * Message [ExceptionMessage](#exceptionmessage)
+
 
 ### RetryableConflictException
-* RetryableConflictException `object`: Occurs when a conflict with a previous successful write is detected. For example, if a write operation occurs on an object and then an attempt is made to read the object using “SERIALIZABLE” consistency, this exception may result. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.
-  * Message [ExceptionMessage](#exceptionmessage)
+
 
 ### Rule
 * Rule `object`: Contains an Amazon Resource Name (ARN) and parameters that are associated with the rule.
-  * Parameters [RuleParameterMap](#ruleparametermap)
-  * Type [RuleType](#ruletype)
+  * Parameters
+  * Type
 
 ### RuleKey
 * RuleKey `string`
 
 ### RuleMap
-* RuleMap `array`
-  * items `object`
-    * key [RuleKey](#rulekey)
-    * value [Rule](#rule)
+* RuleMap `object`
 
 ### RuleParameterKey
 * RuleParameterKey `string`
 
 ### RuleParameterMap
-* RuleParameterMap `array`
-  * items `object`
-    * key [RuleParameterKey](#ruleparameterkey)
-    * value [RuleParameterValue](#ruleparametervalue)
+* RuleParameterMap `object`
 
 ### RuleParameterValue
 * RuleParameterValue `string`
@@ -2607,17 +3400,15 @@ amazonaws_clouddirectory.ListOutgoingTypedLinks({
 * RuleType `string` (values: BINARY_LENGTH, NUMBER_COMPARISON, STRING_FROM_SET, STRING_LENGTH)
 
 ### SchemaAlreadyExistsException
-* SchemaAlreadyExistsException `object`: Indicates that a schema could not be created due to a naming conflict. Please select a different name and then try again.
-  * Message [ExceptionMessage](#exceptionmessage)
+
 
 ### SchemaAlreadyPublishedException
-* SchemaAlreadyPublishedException `object`: Indicates that a schema is already published.
-  * Message [ExceptionMessage](#exceptionmessage)
+
 
 ### SchemaFacet
 * SchemaFacet `object`: A facet.
-  * FacetName [FacetName](#facetname)
-  * SchemaArn [Arn](#arn)
+  * FacetName
+  * SchemaArn
 
 ### SchemaFacetList
 * SchemaFacetList `array`
@@ -2633,16 +3424,15 @@ amazonaws_clouddirectory.ListOutgoingTypedLinks({
 * SelectorObjectReference `string`
 
 ### StillContainsLinksException
-* StillContainsLinksException `object`: The object could not be deleted because links still exist. Remove the links and then try the operation again.
-  * Message [ExceptionMessage](#exceptionmessage)
+
 
 ### StringAttributeValue
 * StringAttributeValue `string`
 
 ### Tag
 * Tag `object`: The tag structure that contains a tag key and value.
-  * Key [TagKey](#tagkey)
-  * Value [TagValue](#tagvalue)
+  * Key
+  * Value
 
 ### TagKey
 * TagKey `string`
@@ -2657,8 +3447,9 @@ amazonaws_clouddirectory.ListOutgoingTypedLinks({
 
 ### TagResourceRequest
 * TagResourceRequest `object`
-  * ResourceArn **required** [Arn](#arn)
-  * Tags **required** [TagList](#taglist)
+  * ResourceArn **required**
+  * Tags **required**
+    * items [Tag](#tag)
 
 ### TagResourceResponse
 * TagResourceResponse `object`
@@ -2671,27 +3462,42 @@ amazonaws_clouddirectory.ListOutgoingTypedLinks({
 
 ### TypedAttributeValue
 * TypedAttributeValue `object`: Represents the data for a typed attribute. You can set one, and only one, of the elements. Each attribute in an item is a name-value pair. Attributes have a single value.
-  * BinaryValue [BinaryAttributeValue](#binaryattributevalue)
-  * BooleanValue [BooleanAttributeValue](#booleanattributevalue)
-  * DatetimeValue [DatetimeAttributeValue](#datetimeattributevalue)
-  * NumberValue [NumberAttributeValue](#numberattributevalue)
-  * StringValue [StringAttributeValue](#stringattributevalue)
+  * BinaryValue
+  * BooleanValue
+  * DatetimeValue
+  * NumberValue
+  * StringValue
 
 ### TypedAttributeValueRange
-* TypedAttributeValueRange `object`: A range of attribute values. For more information, see <a href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/objectsandlinks.html#rangefilters">Range Filters</a>.
-  * EndMode **required** [RangeMode](#rangemode)
-  * EndValue [TypedAttributeValue](#typedattributevalue)
-  * StartMode **required** [RangeMode](#rangemode)
-  * StartValue [TypedAttributeValue](#typedattributevalue)
+* TypedAttributeValueRange `object`: A range of attribute values. For more information, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_range_filters.html">Range Filters</a>.
+  * EndMode **required**
+  * EndValue
+    * BinaryValue
+    * BooleanValue
+    * DatetimeValue
+    * NumberValue
+    * StringValue
+  * StartMode **required**
+  * StartValue
+    * BinaryValue
+    * BooleanValue
+    * DatetimeValue
+    * NumberValue
+    * StringValue
 
 ### TypedLinkAttributeDefinition
 * TypedLinkAttributeDefinition `object`: A typed link attribute definition.
-  * DefaultValue [TypedAttributeValue](#typedattributevalue)
-  * IsImmutable [Bool](#bool)
-  * Name **required** [AttributeName](#attributename)
-  * RequiredBehavior **required** [RequiredAttributeBehavior](#requiredattributebehavior)
-  * Rules [RuleMap](#rulemap)
-  * Type **required** [FacetAttributeType](#facetattributetype)
+  * DefaultValue
+    * BinaryValue
+    * BooleanValue
+    * DatetimeValue
+    * NumberValue
+    * StringValue
+  * IsImmutable
+  * Name **required**
+  * RequiredBehavior **required**
+  * Rules
+  * Type **required**
 
 ### TypedLinkAttributeDefinitionList
 * TypedLinkAttributeDefinitionList `array`
@@ -2699,8 +3505,22 @@ amazonaws_clouddirectory.ListOutgoingTypedLinks({
 
 ### TypedLinkAttributeRange
 * TypedLinkAttributeRange `object`: Identifies the range of attributes that are used by a specified filter.
-  * AttributeName [AttributeName](#attributename)
-  * Range **required** [TypedAttributeValueRange](#typedattributevaluerange)
+  * AttributeName
+  * Range **required**
+    * EndMode **required**
+    * EndValue
+      * BinaryValue
+      * BooleanValue
+      * DatetimeValue
+      * NumberValue
+      * StringValue
+    * StartMode **required**
+    * StartValue
+      * BinaryValue
+      * BooleanValue
+      * DatetimeValue
+      * NumberValue
+      * StringValue
 
 ### TypedLinkAttributeRangeList
 * TypedLinkAttributeRangeList `array`
@@ -2708,14 +3528,27 @@ amazonaws_clouddirectory.ListOutgoingTypedLinks({
 
 ### TypedLinkFacet
 * TypedLinkFacet `object`: Defines the typed links structure and its attributes. To create a typed link facet, use the <a>CreateTypedLinkFacet</a> API.
-  * Attributes **required** [TypedLinkAttributeDefinitionList](#typedlinkattributedefinitionlist)
-  * IdentityAttributeOrder **required** [AttributeNameList](#attributenamelist)
-  * Name **required** [TypedLinkName](#typedlinkname)
+  * Attributes **required**
+    * items [TypedLinkAttributeDefinition](#typedlinkattributedefinition)
+  * IdentityAttributeOrder **required**
+    * items [AttributeName](#attributename)
+  * Name **required**
 
 ### TypedLinkFacetAttributeUpdate
 * TypedLinkFacetAttributeUpdate `object`: A typed link facet attribute update.
-  * Action **required** [UpdateActionType](#updateactiontype)
-  * Attribute **required** [TypedLinkAttributeDefinition](#typedlinkattributedefinition)
+  * Action **required**
+  * Attribute **required**
+    * DefaultValue
+      * BinaryValue
+      * BooleanValue
+      * DatetimeValue
+      * NumberValue
+      * StringValue
+    * IsImmutable
+    * Name **required**
+    * RequiredBehavior **required**
+    * Rules
+    * Type **required**
 
 ### TypedLinkFacetAttributeUpdateList
 * TypedLinkFacetAttributeUpdateList `array`
@@ -2730,28 +3563,33 @@ amazonaws_clouddirectory.ListOutgoingTypedLinks({
 
 ### TypedLinkSchemaAndFacetName
 * TypedLinkSchemaAndFacetName `object`: Identifies the schema Amazon Resource Name (ARN) and facet name for the typed link.
-  * SchemaArn **required** [Arn](#arn)
-  * TypedLinkName **required** [TypedLinkName](#typedlinkname)
+  * SchemaArn **required**
+  * TypedLinkName **required**
 
 ### TypedLinkSpecifier
 * TypedLinkSpecifier `object`: Contains all the information that is used to uniquely identify a typed link. The parameters discussed in this topic are used to uniquely specify the typed link being operated on. The <a>AttachTypedLink</a> API returns a typed link specifier while the <a>DetachTypedLink</a> API accepts one as input. Similarly, the <a>ListIncomingTypedLinks</a> and <a>ListOutgoingTypedLinks</a> API operations provide typed link specifiers as output. You can also construct a typed link specifier from scratch.
-  * IdentityAttributeValues **required** [AttributeNameAndValueList](#attributenameandvaluelist)
-  * SourceObjectReference **required** [ObjectReference](#objectreference)
-  * TargetObjectReference **required** [ObjectReference](#objectreference)
-  * TypedLinkFacet **required** [TypedLinkSchemaAndFacetName](#typedlinkschemaandfacetname)
+  * IdentityAttributeValues **required**
+    * items [AttributeNameAndValue](#attributenameandvalue)
+  * SourceObjectReference **required**
+    * Selector
+  * TargetObjectReference **required**
+    * Selector
+  * TypedLinkFacet **required**
+    * SchemaArn **required**
+    * TypedLinkName **required**
 
 ### TypedLinkSpecifierList
 * TypedLinkSpecifierList `array`
   * items [TypedLinkSpecifier](#typedlinkspecifier)
 
 ### UnsupportedIndexTypeException
-* UnsupportedIndexTypeException `object`: Indicates that the requested index type is not supported.
-  * Message [ExceptionMessage](#exceptionmessage)
+
 
 ### UntagResourceRequest
 * UntagResourceRequest `object`
-  * ResourceArn **required** [Arn](#arn)
-  * TagKeys **required** [TagKeyList](#tagkeylist)
+  * ResourceArn **required**
+  * TagKeys **required**
+    * items [TagKey](#tagkey)
 
 ### UntagResourceResponse
 * UntagResourceResponse `object`
@@ -2761,72 +3599,86 @@ amazonaws_clouddirectory.ListOutgoingTypedLinks({
 
 ### UpdateFacetRequest
 * UpdateFacetRequest `object`
-  * AttributeUpdates [FacetAttributeUpdateList](#facetattributeupdatelist)
-  * Name **required** [FacetName](#facetname)
-  * ObjectType [ObjectType](#objecttype)
+  * AttributeUpdates
+    * items [FacetAttributeUpdate](#facetattributeupdate)
+  * Name **required**
+  * ObjectType
 
 ### UpdateFacetResponse
 * UpdateFacetResponse `object`
 
 ### UpdateLinkAttributesRequest
 * UpdateLinkAttributesRequest `object`
-  * AttributeUpdates **required** [LinkAttributeUpdateList](#linkattributeupdatelist)
-  * TypedLinkSpecifier **required** [TypedLinkSpecifier](#typedlinkspecifier)
+  * AttributeUpdates **required**
+    * items [LinkAttributeUpdate](#linkattributeupdate)
+  * TypedLinkSpecifier **required**
+    * IdentityAttributeValues **required**
+      * items [AttributeNameAndValue](#attributenameandvalue)
+    * SourceObjectReference **required**
+      * Selector
+    * TargetObjectReference **required**
+      * Selector
+    * TypedLinkFacet **required**
+      * SchemaArn **required**
+      * TypedLinkName **required**
 
 ### UpdateLinkAttributesResponse
 * UpdateLinkAttributesResponse `object`
 
 ### UpdateObjectAttributesRequest
 * UpdateObjectAttributesRequest `object`
-  * AttributeUpdates **required** [ObjectAttributeUpdateList](#objectattributeupdatelist)
-  * ObjectReference **required** [ObjectReference](#objectreference)
+  * AttributeUpdates **required**
+    * items [ObjectAttributeUpdate](#objectattributeupdate)
+  * ObjectReference **required**
+    * Selector
 
 ### UpdateObjectAttributesResponse
 * UpdateObjectAttributesResponse `object`
-  * ObjectIdentifier [ObjectIdentifier](#objectidentifier)
+  * ObjectIdentifier
 
 ### UpdateSchemaRequest
 * UpdateSchemaRequest `object`
-  * Name **required** [SchemaName](#schemaname)
+  * Name **required**
 
 ### UpdateSchemaResponse
 * UpdateSchemaResponse `object`
-  * SchemaArn [Arn](#arn)
+  * SchemaArn
 
 ### UpdateTypedLinkFacetRequest
 * UpdateTypedLinkFacetRequest `object`
-  * AttributeUpdates **required** [TypedLinkFacetAttributeUpdateList](#typedlinkfacetattributeupdatelist)
-  * IdentityAttributeOrder **required** [AttributeNameList](#attributenamelist)
-  * Name **required** [TypedLinkName](#typedlinkname)
+  * AttributeUpdates **required**
+    * items [TypedLinkFacetAttributeUpdate](#typedlinkfacetattributeupdate)
+  * IdentityAttributeOrder **required**
+    * items [AttributeName](#attributename)
+  * Name **required**
 
 ### UpdateTypedLinkFacetResponse
 * UpdateTypedLinkFacetResponse `object`
 
 ### UpgradeAppliedSchemaRequest
 * UpgradeAppliedSchemaRequest `object`
-  * DirectoryArn **required** [Arn](#arn)
-  * DryRun [Bool](#bool)
-  * PublishedSchemaArn **required** [Arn](#arn)
+  * DirectoryArn **required**
+  * DryRun
+  * PublishedSchemaArn **required**
 
 ### UpgradeAppliedSchemaResponse
 * UpgradeAppliedSchemaResponse `object`
-  * DirectoryArn [Arn](#arn)
-  * UpgradedSchemaArn [Arn](#arn)
+  * DirectoryArn
+  * UpgradedSchemaArn
 
 ### UpgradePublishedSchemaRequest
 * UpgradePublishedSchemaRequest `object`
-  * DevelopmentSchemaArn **required** [Arn](#arn)
-  * DryRun [Bool](#bool)
-  * MinorVersion **required** [Version](#version)
-  * PublishedSchemaArn **required** [Arn](#arn)
+  * DevelopmentSchemaArn **required**
+  * DryRun
+  * MinorVersion **required**
+  * PublishedSchemaArn **required**
 
 ### UpgradePublishedSchemaResponse
 * UpgradePublishedSchemaResponse `object`
-  * UpgradedSchemaArn [Arn](#arn)
+  * UpgradedSchemaArn
 
 ### ValidationException
-* ValidationException `object`: Indicates that your request is malformed in some manner. See the exception message.
-  * Message [ExceptionMessage](#exceptionmessage)
+
 
 ### Version
 * Version `string`

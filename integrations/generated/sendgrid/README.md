@@ -1,6 +1,6 @@
 # @datafire/sendgrid
 
-Client library for SendGrid v3
+Client library for SendGrid v3 API Documentation
 
 ## Installation and Usage
 ```bash
@@ -11,7 +11,7 @@ let sendgrid = require('@datafire/sendgrid').create({
   Authorization: ""
 });
 
-sendgrid.whitelabel.links.default.get({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -74,10 +74,10 @@ sendgrid.access_settings.whitelist.delete({}, context)
 
 #### Input
 * input `object`
+  * on-behalf-of `string`
   * body `object`
     * ids `array`: An array of the IDs of the IP address that you want to remove from your whitelist.
       * items `integer`
-  * on-behalf-of `string`
 
 #### Output
 * output `object`
@@ -123,11 +123,11 @@ sendgrid.access_settings.whitelist.post({}, context)
 
 #### Input
 * input `object`
+  * on-behalf-of `string`
   * body `object`
     * ips **required** `array`: An array containing the IP(s) you want to whitelist.
       * items `object`
         * ip **required** `string`: An IP address that you want to whitelist.
-  * on-behalf-of `string`
 
 #### Output
 * output `object`
@@ -156,7 +156,6 @@ sendgrid.access_settings.whitelist.rule_id.delete({
 
 #### Input
 * input `object`
-  * body `null`
   * on-behalf-of `string`
   * rule_id **required** `string`: The ID of the whitelisted IP address that you want to retrieve.
 
@@ -207,7 +206,6 @@ sendgrid.GET_alerts({}, context)
 
 #### Input
 * input `object`
-  * body `null`
   * Authorization `string`
   * on-behalf-of `string`
 
@@ -239,13 +237,13 @@ sendgrid.POST_alerts({}, context)
 
 #### Input
 * input `object`
+  * Authorization `string`
+  * on-behalf-of `string`
   * body `object`
     * email_to **required** `string`: The email address the alert will be sent to.
     * frequency `string`: Required for stats_notification. How frequently the alert will be sent.
     * percentage `integer`: Required for usage_alert. When this usage threshold is reached, the alert will be sent.
     * type **required** `string` (values: stats_notification, usage_limit): The type of alert you want to create. Can be either usage_limit or stats_notification.
-  * Authorization `string`
-  * on-behalf-of `string`
 
 #### Output
 * output `object`
@@ -331,11 +329,11 @@ sendgrid.alerts.alert_id.patch({
 
 #### Input
 * input `object`
+  * on-behalf-of `string`
   * body `object`
     * email_to `string`: The new email address you want your alert to be sent to.
     * frequency `string`: The new frequency at which to send the stats_notification alert.
     * percentage `integer`: The new percentage threshold at which the usage_limit alert will be sent.
-  * on-behalf-of `string`
   * alert_id **required** `integer`: The ID of the alert you would like to retrieve.
 
 #### Output
@@ -386,12 +384,12 @@ sendgrid.api_keys.post({}, context)
 
 #### Input
 * input `object`
+  * on-behalf-of `string`
   * body `object`
     * name **required** `string`: The name you will use to describe this API Key.
     * sample `string`
     * scopes `array`: The individual permissions that you are giving to this API Key.
       * items `string`
-  * on-behalf-of `string`
 
 #### Output
 * output `object`
@@ -427,7 +425,7 @@ sendgrid.api_keys.api_key_id.delete({
   * api_key_id **required** `string`: The ID of the API Key for which you are requesting information.
 
 #### Output
-* output `null`
+*Output schema unknown*
 
 ### api_keys.api_key_id.get
 **This endpoint allows you to retrieve a single api key.**
@@ -473,9 +471,9 @@ sendgrid.api_keys.api_key_id.patch({
 
 #### Input
 * input `object`
+  * on-behalf-of `string`
   * body `object`
     * name `string`: The new name of the API Key.
-  * on-behalf-of `string`
   * api_key_id **required** `string`: The ID of the API Key for which you are requesting information.
 
 #### Output
@@ -498,11 +496,11 @@ sendgrid.api_keys.api_key_id.put({
 
 #### Input
 * input `object`
+  * on-behalf-of `string`
   * body `object`
     * name `string`
     * scopes `array`
       * items `string`
-  * on-behalf-of `string`
   * api_key_id **required** `string`: The ID of the API Key for which you are requesting information.
 
 #### Output
@@ -547,11 +545,11 @@ sendgrid.asm.groups.post({}, context)
 
 #### Input
 * input `object`
+  * on-behalf-of `string`
   * body `object`
     * description **required** `string`: A brief description of your new suppression group.
     * is_default `boolean`: Indicates if you would like this to be your default suppression group.
     * name **required** `string`: The name that you would like to use for your new suppression group.
-  * on-behalf-of `string`
 
 #### Output
 * output `object`
@@ -580,7 +578,6 @@ sendgrid.asm.groups.group_id.delete({
 
 #### Input
 * input `object`
-  * body `null`
   * on-behalf-of `string`
   * group_id **required** `string`: The ID of the suppression group you would like to retrieve.
 
@@ -613,7 +610,6 @@ sendgrid.asm.groups.group_id.get({
   * description `string`: The description of the suppression group.
   * id `integer`: The ID of the suppression group.
   * is_default `boolean`: Indicates if this is the default suppression group.
-  * last_email_sent_at `null`: A unix timestamp indicating the last time this group was assigned to an email.
   * name `string`: The name of the suppression group.
   * unsubscribes `integer`: The number of unsubscribes, or suppressions, in this group.
 
@@ -636,13 +632,13 @@ sendgrid.asm.groups.group_id.patch({
 
 #### Input
 * input `object`
+  * Authorization **required** `string`
+  * on-behalf-of `string`
   * body `object`
     * description `string`: The description of the suppression group.
     * id `integer`: The id of the suppression group.
     * is_default `boolean`: Indicates if the suppression group is set as the default group.
     * name **required** `string`: The name of the suppression group. Each group created by a user must have a unique name.
-  * Authorization **required** `string`
-  * on-behalf-of `string`
   * group_id **required** `string`: The ID of the suppression group you would like to retrieve.
 
 #### Output
@@ -685,10 +681,10 @@ sendgrid.asm.groups.group_id.suppressions.post({
 
 #### Input
 * input `object`
+  * on-behalf-of `string`
   * body `object`
     * recipient_emails **required** `array`: The email address that you want to add to the unsubscribe group.
       * items `string`
-  * on-behalf-of `string`
   * group_id **required** `string`: The id of the unsubscribe group that you are adding suppressions to.
 
 #### Output
@@ -712,10 +708,10 @@ sendgrid.asm.groups.group_id.suppressions.search.post({
 
 #### Input
 * input `object`
+  * on-behalf-of `string`
   * body `object`
     * recipient_emails **required** `array`: The list of email address that you want to search the suppression group for.
       * items `string`
-  * on-behalf-of `string`
   * group_id **required** `string`: The ID of the suppression group that you would like to search.
 
 #### Output
@@ -738,13 +734,12 @@ sendgrid.asm.groups.group_id.suppressions.email.delete({
 
 #### Input
 * input `object`
-  * body `null`
   * on-behalf-of `string`
   * group_id **required** `string`: The id of the suppression group that you are removing an email address from.
   * email **required** `string`: The email address that you want to remove from the suppression group.
 
 #### Output
-* output `null`
+*Output schema unknown*
 
 ### asm.suppressions.get
 **This endpoint allows you to retrieve a list of all suppressions.**
@@ -780,10 +775,10 @@ sendgrid.asm.suppressions.global.post({}, context)
 
 #### Input
 * input `object`
+  * on-behalf-of `string`
   * body `object`
     * recipient_emails `array`: The email address, or addresses, that you want to add to the global suppressions group.
       * items `string`
-  * on-behalf-of `string`
 
 #### Output
 * output `object`
@@ -804,7 +799,6 @@ sendgrid.asm.suppressions.global.email.delete({
 
 #### Input
 * input `object`
-  * body `null`
   * on-behalf-of `string`
   * email **required** `string`: The email address of the global suppression you want to retrieve. Or, if you want to check if an email address is on the global suppressions list, enter that email address here.
 
@@ -972,11 +966,10 @@ sendgrid.campaigns.campaign_id.delete({
 
 #### Input
 * input `object`
-  * body `null`
   * campaign_id **required** `integer`: The id of the campaign you would like to retrieve.
 
 #### Output
-* output `null`
+*Output schema unknown*
 
 ### campaigns.campaign_id.get
 **This endpoint allows you to retrieve a specific campaign.**
@@ -1064,11 +1057,10 @@ sendgrid.campaigns.campaign_id.schedules.delete({
 
 #### Input
 * input `object`
-  * body `null`
   * campaign_id **required** `integer`
 
 #### Output
-* output `null`
+*Output schema unknown*
 
 ### campaigns.campaign_id.schedules.get
 **This endpoint allows you to retrieve the date and time that the given campaign has been scheduled to be sent.**
@@ -1162,7 +1154,6 @@ sendgrid.campaigns.campaign_id.schedules.now.post({
 
 #### Input
 * input `object`
-  * body `null`
   * campaign_id **required** `integer`
 
 #### Output
@@ -1364,10 +1355,10 @@ sendgrid.contactdb.custom_fields.post({}, context)
 
 #### Input
 * input `object`
+  * on-behalf-of `string`
   * body `object`
     * name `string`
     * type `string`
-  * on-behalf-of `string`
 
 #### Output
 * output `object`
@@ -1389,12 +1380,11 @@ sendgrid.contactdb.custom_fields.custom_field_id.delete({
 
 #### Input
 * input `object`
-  * body `null`
   * on-behalf-of `string`
   * custom_field_id **required** `integer`: The ID of the custom field that you want to retrieve.
 
 #### Output
-* output [global:ErrorResponse](#global:errorresponse)
+* output [global_ErrorResponse](#global_errorresponse)
 
 ### contactdb.custom_fields.custom_field_id.get
 **This endpoint allows you to retrieve a custom field by ID.**
@@ -1428,12 +1418,12 @@ sendgrid.contactdb.lists.delete({}, context)
 
 #### Input
 * input `object`
+  * on-behalf-of `string`
   * body `array`
     * items `integer`
-  * on-behalf-of `string`
 
 #### Output
-* output `null`
+*Output schema unknown*
 
 ### contactdb.lists.get
 **This endpoint allows you to retrieve all of your recipient lists. If you don't have any lists, an empty array will be returned.**
@@ -1466,9 +1456,9 @@ sendgrid.contactdb.lists.post({}, context)
 
 #### Input
 * input `object`
+  * on-behalf-of `string`
   * body `object`
     * name **required** `string`
-  * on-behalf-of `string`
 
 #### Output
 * output [contactdb_list](#contactdb_list)
@@ -1488,12 +1478,11 @@ sendgrid.contactdb.lists.list_id.delete({
 #### Input
 * input `object`
   * delete_contacts `boolean` (values: true, false): Adds the ability to delete all contacts on the list in addition to deleting the list.
-  * body `null`
   * on-behalf-of `string`
   * list_id **required** `string`
 
 #### Output
-* output `null`
+*Output schema unknown*
 
 ### contactdb.lists.list_id.get
 This endpoint allows you to retrieve a single recipient list.
@@ -1533,9 +1522,9 @@ sendgrid.contactdb.lists.list_id.patch({
 #### Input
 * input `object`
   * list_id **required** `integer`: The ID of the list you are updating.
+  * on-behalf-of `string`
   * body `object`
     * name **required** `string`: The new name for your list. 
-  * on-behalf-of `string`
   * list_id_path **required** `string`
 
 #### Output
@@ -1586,13 +1575,13 @@ sendgrid.contactdb.lists.list_id.recipients.post({
 
 #### Input
 * input `object`
+  * on-behalf-of `string`
   * body `array`
     * items `string`
-  * on-behalf-of `string`
   * list_id **required** `integer`: The id of the list of recipients you want to retrieve.
 
 #### Output
-* output `null`
+*Output schema unknown*
 
 ### contactdb.lists.list_id.recipients.recipient_id.delete
 **This endpoint allows you to delete a single recipient from a list.**
@@ -1613,13 +1602,12 @@ sendgrid.contactdb.lists.list_id.recipients.recipient_id.delete({
 * input `object`
   * list_id **required** `integer`: The ID of the list you are taking this recipient away from.
   * recipient_id **required** `integer`: The ID of the recipient to take off the list.
-  * body `null`
   * on-behalf-of `string`
   * list_id_path **required** `integer`: The ID of the list that you want to add the recipient to.
   * recipient_id_path **required** `string`: The ID of the recipient you are adding to the list.
 
 #### Output
-* output `null`
+*Output schema unknown*
 
 ### contactdb.lists.list_id.recipients.recipient_id.post
 **This endpoint allows you to add a single recipient to a list.**
@@ -1636,13 +1624,12 @@ sendgrid.contactdb.lists.list_id.recipients.recipient_id.post({
 
 #### Input
 * input `object`
-  * body `null`
   * on-behalf-of `string`
   * list_id **required** `integer`: The ID of the list that you want to add the recipient to.
   * recipient_id **required** `string`: The ID of the recipient you are adding to the list.
 
 #### Output
-* output `null`
+*Output schema unknown*
 
 ### contactdb.recipients.delete
 **This endpoint allows you to deletes one or more recipients.**
@@ -1658,9 +1645,9 @@ sendgrid.contactdb.recipients.delete({}, context)
 
 #### Input
 * input `object`
+  * on-behalf-of `string`
   * body `array`
     * items `string`
-  * on-behalf-of `string`
 
 #### Output
 * output `object`
@@ -1705,12 +1692,12 @@ sendgrid.contactdb.recipients.patch({}, context)
 
 #### Input
 * input `object`
+  * on-behalf-of `string`
   * body `array`
     * items `object`
       * email **required** `string`
       * first_name `string`: The first name of the recipient. This is one of the default custom fields.
       * last_name `string`: The last name of the recipient. This is one of the default custom fields.
-  * on-behalf-of `string`
 
 #### Output
 * output [contactdb_recipient_response](#contactdb_recipient_response)
@@ -1729,13 +1716,13 @@ sendgrid.contactdb.recipients.post({}, context)
 
 #### Input
 * input `object`
+  * on-behalf-of `string`
   * body `array`
     * items `object`
       * age `integer`
       * email **required** `string`: The email address of the recipient.
       * first_name `string`: The first name of the recipient.
       * last_name `string`: The last name of the recipient.
-  * on-behalf-of `string`
 
 #### Output
 * output [contactdb_recipient_response](#contactdb_recipient_response)
@@ -1819,7 +1806,6 @@ sendgrid.contactdb.recipients.recipient_id.delete({
 
 #### Input
 * input `object`
-  * body `null`
   * on-behalf-of `string`
   * recipient_id **required** `string`: The ID of the recipient that you want to retrieve.
 
@@ -1942,8 +1928,8 @@ sendgrid.contactdb.segments.post({}, context)
 
 #### Input
 * input `object`
-  * body [contactdb_segments](#contactdb_segments)
   * on-behalf-of `string`
+  * body [contactdb_segments](#contactdb_segments)
 
 #### Output
 * output [contactdb_segments_with_id](#contactdb_segments_with_id)
@@ -1967,12 +1953,11 @@ sendgrid.contactdb.segments.segment_id.delete({
 #### Input
 * input `object`
   * delete_contacts `boolean`: True to delete all contacts matching the segment in addition to deleting the segment
-  * body `null`
   * on-behalf-of `string`
   * segment_id **required** `string`
 
 #### Output
-* output `null`
+*Output schema unknown*
 
 ### contactdb.segments.segment_id.get
 **This endpoint allows you to retrieve a single segment with the given ID.**
@@ -2015,12 +2000,12 @@ sendgrid.contactdb.segments.segment_id.patch({
 #### Input
 * input `object`
   * segment_id_query `string`: The ID of the segment you are updating.
+  * on-behalf-of `string`
   * body `object`
     * conditions `array`: The conditions by which this segment should be created.
       * items [contactdb_segments_conditions](#contactdb_segments_conditions)
     * list_id `number`: The list ID you would like this segment to be built from.
     * name **required** `string`
-  * on-behalf-of `string`
   * segment_id **required** `string`
 
 #### Output
@@ -2286,7 +2271,6 @@ sendgrid.ips.pools.pool_name.delete({
 
 #### Input
 * input `object`
-  * body `null`
   * pool_name **required** `string`: The name of the IP pool that you want to retrieve the IP addresses from.
 
 #### Output
@@ -2388,7 +2372,6 @@ sendgrid.ips.pools.pool_name.ips.ip.delete({
 
 #### Input
 * input `object`
-  * body `null`
   * pool_name **required** `string`: The name of the IP pool that you are removing the IP address from.
   * ip **required** `string`: The IP address that you are removing.
 
@@ -2447,9 +2430,9 @@ sendgrid.ips.warmup.post({}, context)
 
 #### Input
 * input `object`
+  * on-behalf-of `string`
   * body `object`
     * ip `string`: The IP address that you want to begin warming up.
-  * on-behalf-of `string`
 
 #### Output
 * output [ip_warmup_response](#ip_warmup_response)
@@ -2470,7 +2453,6 @@ sendgrid.ips.warmup.ip_address.delete({
 
 #### Input
 * input `object`
-  * body `null`
   * on-behalf-of `string`
   * ip_address **required** `string`: The IP address that you want to retrieve the warmup status for.
 
@@ -2545,7 +2527,6 @@ sendgrid.mail.batch.post({}, context)
 
 #### Input
 * input `object`
-  * body `null`
 
 #### Output
 * output [mail_batch_id](#mail_batch_id)
@@ -2669,7 +2650,7 @@ sendgrid.mail.send.post({}, context)
         * text `string`: Text to be appended to the email, with the subscription tracking link. You may control where the link is by using the tag <% %>
 
 #### Output
-* output `null`
+*Output schema unknown*
 
 ### GET_mail_settings
 **This endpoint allows you to retrieve a list of all mail settings.**
@@ -2729,11 +2710,11 @@ sendgrid.mail_settings.address_whitelist.patch({}, context)
 
 #### Input
 * input `object`
+  * on-behalf-of `string`
   * body `object`
     * enabled `boolean`: Indicates if your email address whitelist is enabled.
     * list `array`: Either a single email address that you want whitelisted or a domain, for which all email addresses belonging to this domain will be whitelisted.
       * items `string`
-  * on-behalf-of `string`
 
 #### Output
 * output [mail_settings_address_whitelabel](#mail_settings_address_whitelabel)
@@ -2771,8 +2752,8 @@ sendgrid.mail_settings.bcc.patch({}, context)
 
 #### Input
 * input `object`
-  * body [mail_settings_patch](#mail_settings_patch)
   * on-behalf-of `string`
+  * body [mail_settings_patch](#mail_settings_patch)
 
 #### Output
 * output [mail_settings_patch](#mail_settings_patch)
@@ -2810,8 +2791,8 @@ sendgrid.mail_settings.bounce_purge.patch({}, context)
 
 #### Input
 * input `object`
-  * body [mail_settings_bounce_purge](#mail_settings_bounce_purge)
   * on-behalf-of `string`
+  * body [mail_settings_bounce_purge](#mail_settings_bounce_purge)
 
 #### Output
 * output [mail_settings_bounce_purge](#mail_settings_bounce_purge)
@@ -2849,8 +2830,8 @@ sendgrid.mail_settings.footer.patch({}, context)
 
 #### Input
 * input `object`
-  * body [mail_settings_footer](#mail_settings_footer)
   * on-behalf-of `string`
+  * body [mail_settings_footer](#mail_settings_footer)
 
 #### Output
 * output [mail_settings_footer](#mail_settings_footer)
@@ -2888,8 +2869,8 @@ sendgrid.mail_settings.forward_bounce.patch({}, context)
 
 #### Input
 * input `object`
-  * body [mail_settings_forward_bounce](#mail_settings_forward_bounce)
   * on-behalf-of `string`
+  * body [mail_settings_forward_bounce](#mail_settings_forward_bounce)
 
 #### Output
 * output [mail_settings_forward_bounce](#mail_settings_forward_bounce)
@@ -2927,8 +2908,8 @@ sendgrid.mail_settings.forward_spam.patch({}, context)
 
 #### Input
 * input `object`
-  * body [mail_settings_forward_spam](#mail_settings_forward_spam)
   * on-behalf-of `string`
+  * body [mail_settings_forward_spam](#mail_settings_forward_spam)
 
 #### Output
 * output [mail_settings_forward_spam](#mail_settings_forward_spam)
@@ -2967,9 +2948,9 @@ sendgrid.mail_settings.plain_content.patch({}, context)
 
 #### Input
 * input `object`
+  * on-behalf-of `string`
   * body `object`
     * enabled `boolean`: The new setting you would like to use for your Plain Content mail setting.
-  * on-behalf-of `string`
 
 #### Output
 * output `object`
@@ -3008,11 +2989,11 @@ sendgrid.mail_settings.spam_check.patch({}, context)
 
 #### Input
 * input `object`
+  * on-behalf-of `string`
   * body `object`
     * enabled `boolean`: Indicates if you want the spam check mail setting to be enabled or not.
     * max_score `integer`: The new max score, or spam threshold that you would like to set for the spam checker.
     * url `string`: The Inbound Parse URL where you would like your spam reports to be sent to.
-  * on-behalf-of `string`
 
 #### Output
 * output [mail_settings_spam_check](#mail_settings_spam_check)
@@ -3054,10 +3035,10 @@ sendgrid.mail_settings.template.patch({}, context)
 
 #### Input
 * input `object`
+  * on-behalf-of `string`
   * body `object`
     * enabled `boolean`: Indicates if you want to enable the legacy email template mail setting.
     * html_content `string`: The new HTML content for your legacy email template.
-  * on-behalf-of `string`
 
 #### Output
 * output `object`
@@ -3274,6 +3255,7 @@ sendgrid.POST_senders({}, context)
 
 #### Input
 * input `object`
+  * on-behalf-of `string`
   * body `object`
     * address **required** `string`: The physical address of the sender identity.
     * address_2 `string`: Additional sender identity address information.
@@ -3288,7 +3270,6 @@ sendgrid.POST_senders({}, context)
       * name `string`: This is the name appended to the reply to email field. IE - Your name or company name.
     * state `string`: The state of the sender identity.
     * zip `string`: The zipcode of the sender identity.
-  * on-behalf-of `string`
 
 #### Output
 * output [senderID](#senderid)
@@ -3349,6 +3330,7 @@ sendgrid.senders.sender_id.patch({
 
 #### Input
 * input `object`
+  * on-behalf-of `string`
   * body `object`
     * address `string`: The physical address of the sender identity.
     * address_2 `string`: Additional sender identity address information.
@@ -3363,7 +3345,6 @@ sendgrid.senders.sender_id.patch({
       * name `string`: This is the name appended to the reply to email field. IE - Your name or company name.
     * state `string`: The state of the sender identity.
     * zip `string`: The zipcode of the sender identity.
-  * on-behalf-of `string`
   * sender_id **required** `integer`: The ID of the sender identity that you want to update.
 
 #### Output
@@ -3605,7 +3586,6 @@ sendgrid.subusers.subuser_name.delete({
 
 #### Input
 * input `object`
-  * body `null`
   * subuser_name **required** `string`
 
 #### Output
@@ -3653,9 +3633,9 @@ sendgrid.subusers.subuser_name.ips.put({
 
 #### Input
 * input `object`
+  * Authorization **required** `string`
   * body `array`: The IP addresses you would like to assign to the subuser.
     * items `string`
-  * Authorization **required** `string`
   * subuser_name **required** `string`
 
 #### Output
@@ -3676,7 +3656,6 @@ sendgrid.subusers.subuser_name.monitor.delete({
 
 #### Input
 * input `object`
-  * body `null`
   * Authorization **required** `string`
   * subuser_name **required** `string`: The name of the subuser for which to retrieve monitor settings.
 
@@ -3785,11 +3764,11 @@ sendgrid.suppression.blocks.delete({}, context)
 
 #### Input
 * input `object`
+  * on-behalf-of `string`
   * body `object`
     * delete_all `boolean`: Indicates if you want to delete all blocked email addresses.
     * emails `array`: The specific blocked email addresses that you want to delete.
       * items `string`
-  * on-behalf-of `string`
 
 #### Output
 * output `object`
@@ -3839,7 +3818,6 @@ sendgrid.suppression.blocks.email.delete({
 
 #### Input
 * input `object`
-  * body `null`
   * Authorization **required** `string`
   * on-behalf-of `string`
   * email **required** `string`: The email address of the specific block.
@@ -3894,14 +3872,14 @@ sendgrid.suppression.bounces.delete({}, context)
 
 #### Input
 * input `object`
+  * on-behalf-of `string`
   * body `object`
     * delete_all `boolean`: This parameter allows you to delete **every** email in your bounce list. This should not be used with the emails parameter.
     * emails `array`: Delete multiple emails from your bounce list at the same time. This should not be used with the delete_all parameter.
       * items `string`
-  * on-behalf-of `string`
 
 #### Output
-* output `null`
+*Output schema unknown*
 
 ### suppression.bounces.get
 **This endpoint allows you to retrieve all of your bounces.**
@@ -3957,7 +3935,6 @@ sendgrid.suppression.bounces.email.delete({
 #### Input
 * input `object`
   * email_address **required** `string`: The email address you would like to remove from the bounce list.
-  * body `null`
   * on-behalf-of `string`
   * email **required** `string`
 
@@ -4016,11 +3993,11 @@ sendgrid.suppression.invalid_emails.delete({}, context)
 
 #### Input
 * input `object`
+  * on-behalf-of `string`
   * body `object`
     * delete_all `boolean`: Indicates if you want to remove all email address from the invalid emails list.
     * emails `array`: The list of specific email addresses that you want to remove.
       * items `string`
-  * on-behalf-of `string`
 
 #### Output
 * output `object`
@@ -4073,7 +4050,6 @@ sendgrid.suppression.invalid_emails.email.delete({
 
 #### Input
 * input `object`
-  * body `null`
   * Authorization **required** `string`
   * on-behalf-of `string`
   * email **required** `string`: The specific email address of the invalid email entry that you want to retrieve.
@@ -4130,11 +4106,11 @@ sendgrid.suppression.spam_reports.delete({}, context)
 
 #### Input
 * input `object`
+  * on-behalf-of `string`
   * body `object`
     * delete_all `boolean`: Indicates if you want to delete all email addresses on the spam report list.
     * emails `array`: A list of specific email addresses that you want to remove from the spam report list.
       * items `string`
-  * on-behalf-of `string`
 
 #### Output
 * output `object`
@@ -4182,7 +4158,6 @@ sendgrid.suppression.spam_reports.email.delete({
 
 #### Input
 * input `object`
-  * body `null`
   * on-behalf-of `string`
   * email **required** `string`: The email address of a specific spam report that you want to retrieve.
 
@@ -4300,7 +4275,6 @@ sendgrid.teammates.post({}, context)
   * email `string`: Teammate's email address
   * is_admin `boolean`: Set to true if teammate should have admin privileges
   * scopes `array`: Initial set of permissions to give to teammate if they accept the invite
-
   * token `string`: Token to identify invite
 
 ### teammates.pending.get
@@ -4417,7 +4391,6 @@ sendgrid.teammates.username.get({
   * last_name `string`: Teammate's last name
   * phone `string`: (optional) Teammate's phone number
   * scopes `array`: Scopes associated to teammate
-
   * state `string`: (optional) Teammate's state
   * user_type `string` (values: admin, owner, teammate): Indicate the type of user: account owner, teammate admin user, or normal teammate
   * username `string`: Teammate's username
@@ -4501,9 +4474,9 @@ sendgrid.POST_templates({}, context)
 
 #### Input
 * input `object`
+  * on-behalf-of `string`
   * body `object`
     * name **required** `string`: The name for the new transactional template.
-  * on-behalf-of `string`
 
 #### Output
 * output [transactional_template](#transactional_template)
@@ -4524,7 +4497,6 @@ sendgrid.templates.template_id.delete({
 
 #### Input
 * input `object`
-  * body `null`
   * on-behalf-of `string`
   * template_id **required** `string`: The id of the transactional template you want to retrieve.
 
@@ -4569,9 +4541,9 @@ sendgrid.templates.template_id.patch({
 
 #### Input
 * input `object`
+  * on-behalf-of `string`
   * body `object`
     * name `string`: The name of the transactional template.
-  * on-behalf-of `string`
   * template_id **required** `string`: The id of the transactional template you want to retrieve.
 
 #### Output
@@ -4593,8 +4565,8 @@ sendgrid.templates.template_id.versions.post({
 
 #### Input
 * input `object`
-  * body [transactional_template_version](#transactional_template_version)
   * on-behalf-of `string`
+  * body [transactional_template_version](#transactional_template_version)
   * template_id **required** `string`
 
 #### Output
@@ -4626,13 +4598,12 @@ sendgrid.templates.template_id.versions.version_id.delete({
 
 #### Input
 * input `object`
-  * body `null`
   * on-behalf-of `string`
   * template_id **required** `string`
   * version_id **required** `string`
 
 #### Output
-* output `null`
+*Output schema unknown*
 
 ### templates.template_id.versions.version_id.get
 **This endpoint allows you to retrieve a specific version of a template.**
@@ -4690,13 +4661,13 @@ sendgrid.templates.template_id.versions.version_id.patch({
 
 #### Input
 * input `object`
+  * on-behalf-of `string`
   * body `object`
     * active `integer`: Indicates if the template version is active.
     * html_content `string`: The HTML content of the template version.
     * name `string`: The name of the template version.
     * plain_content `string`: The text/plain content of the template version.
     * subject `string`: The subject of the template version.
-  * on-behalf-of `string`
   * template_id **required** `string`
   * version_id **required** `string`
 
@@ -4730,7 +4701,6 @@ sendgrid.templates.template_id.versions.version_id.activate.post({
 
 #### Input
 * input `object`
-  * body `null`
   * on-behalf-of `string`
   * template_id **required** `string`
   * version_id **required** `string`
@@ -4803,9 +4773,9 @@ sendgrid.tracking_settings.click.patch({}, context)
 
 #### Input
 * input `object`
+  * on-behalf-of `string`
   * body `object`
     * enabled `boolean`: The setting you want to use for click tracking.
-  * on-behalf-of `string`
 
 #### Output
 * output `object`
@@ -4853,8 +4823,8 @@ sendgrid.tracking_settings.google_analytics.patch({}, context)
 
 #### Input
 * input `object`
-  * body [google_analytics_settings](#google_analytics_settings)
   * on-behalf-of `string`
+  * body [google_analytics_settings](#google_analytics_settings)
 
 #### Output
 * output [google_analytics_settings](#google_analytics_settings)
@@ -4897,9 +4867,9 @@ sendgrid.tracking_settings.open.patch({}, context)
 
 #### Input
 * input `object`
+  * on-behalf-of `string`
   * body `object`
     * enabled `boolean`: The new status that you want to set for open tracking.
-  * on-behalf-of `string`
 
 #### Output
 * output `object`
@@ -4942,8 +4912,8 @@ sendgrid.tracking_settings.subscription.patch({}, context)
 
 #### Input
 * input `object`
-  * body [subscription_tracking_settings](#subscription_tracking_settings)
   * on-behalf-of `string`
+  * body [subscription_tracking_settings](#subscription_tracking_settings)
 
 #### Output
 * output [subscription_tracking_settings](#subscription_tracking_settings)
@@ -5035,9 +5005,9 @@ sendgrid.user.email.put({}, context)
 
 #### Input
 * input `object`
+  * on-behalf-of `string`
   * body `object`
     * email `string`: The new email address that you would like to use for your account.
-  * on-behalf-of `string`
 
 #### Output
 * output `object`
@@ -5059,10 +5029,10 @@ sendgrid.user.password.put({}, context)
 
 #### Input
 * input `object`
+  * on-behalf-of `string`
   * body `object`
     * new_password **required** `string`: The new password you would like to use for your account.
     * old_password **required** `string`: The old password for your account.
-  * on-behalf-of `string`
 
 #### Output
 * output `object`
@@ -5115,8 +5085,8 @@ sendgrid.user.profile.patch({}, context)
 
 #### Input
 * input `object`
-  * body [user_profile](#user_profile)
   * on-behalf-of `string`
+  * body [user_profile](#user_profile)
 
 #### Output
 * output [user_profile](#user_profile)
@@ -5174,11 +5144,10 @@ sendgrid.user.scheduled_sends.batch_id.delete({
 
 #### Input
 * input `object`
-  * body `null`
   * batch_id **required** `string`
 
 #### Output
-* output `null`
+*Output schema unknown*
 
 ### user.scheduled_sends.batch_id.get
 **This endpoint allows you to retrieve the cancel/paused scheduled send information for a specific `batch_id`.**
@@ -5219,7 +5188,7 @@ sendgrid.user.scheduled_sends.batch_id.patch({
   * batch_id **required** `string`
 
 #### Output
-* output `null`
+*Output schema unknown*
 
 ### user.settings.enforced_tls.get
 **This endpoint allows you to retrieve your current Enforced TLS settings.**
@@ -5256,10 +5225,10 @@ sendgrid.user.settings.enforced_tls.patch({}, context)
 
 #### Input
 * input `object`
+  * on-behalf-of `string`
   * body `object`
     * require_tls `boolean`: Indicates if you want to require your recipients to support TLS. 
     * require_valid_cert `boolean`: Indicates if you want to require your recipients to have a valid certificate.
-  * on-behalf-of `string`
 
 #### Output
 * output `object`
@@ -5305,9 +5274,9 @@ sendgrid.user.username.put({}, context)
 
 #### Input
 * input `object`
+  * on-behalf-of `string`
   * body `object`
     * username `string`: The new username you would like to use for your account.
-  * on-behalf-of `string`
 
 #### Output
 * output `object`
@@ -5350,8 +5319,8 @@ sendgrid.user.webhooks.event.settings.patch({}, context)
 
 #### Input
 * input `object`
-  * body [event_webhook_settings](#event_webhook_settings)
   * on-behalf-of `string`
+  * body [event_webhook_settings](#event_webhook_settings)
 
 #### Output
 * output [event_webhook_settings](#event_webhook_settings)
@@ -5370,9 +5339,9 @@ sendgrid.user.webhooks.event.test.post({}, context)
 
 #### Input
 * input `object`
+  * on-behalf-of `string`
   * body `object`
     * url `string`: The URL where you would like the test notification to be sent.
-  * on-behalf-of `string`
 
 #### Output
 * output `object`
@@ -5408,8 +5377,8 @@ sendgrid.user.webhooks.parse.settings.post({}, context)
 
 #### Input
 * input `object`
-  * body [parse-setting](#parse-setting)
   * on-behalf-of `string`
+  * body [parse-setting](#parse-setting)
 
 #### Output
 * output [parse-setting](#parse-setting)
@@ -5468,8 +5437,8 @@ sendgrid.user.webhooks.parse.settings.hostname.patch({
 
 #### Input
 * input `object`
-  * body [parse-setting](#parse-setting)
   * on-behalf-of `string`
+  * body [parse-setting](#parse-setting)
   * hostname **required** `string`: The hostname associated with the inbound parse setting that you would like to retrieve.
 
 #### Output
@@ -5536,18 +5505,18 @@ sendgrid.whitelabel.domains.get({}, context)
     * default **required** `boolean`: Indicates if this whitelabel has been set as the default whitelabel.
     * dns **required** `object`: The DNS records for this whitelabel that are used for authenticating the sending domain.
       * dkim `object`: The DNS record used when creating the DKIM signature.
-        * data `string`: The DNS record.
         * host `string`: The domain that these DNS records will be applied to.
+        * data `string`: The DNS record.
         * type `string` (values: cname, mx, txt): The type of DNS record.
         * valid `boolean`: Indicates if this DNS record is valid.
       * mail_server `object`: Designates which mail server is responsible for accepting messages from a domain.
-        * data `string`: The mail server responsible for accepting messages.
         * host `string`: The domain sending the messages.
+        * data `string`: The mail server responsible for accepting messages.
         * type `string`: The type of DNS record.
         * valid `boolean`: Indicates if this is a valid DNS record with no conflicts.
       * subdomain_spf `object`: The SPF record for the subdomain used to create this whitelabel.
-        * data `string`: The SPF record.
         * host `string`: The domain that this SPF record will be used to authenticate.
+        * data `string`: The SPF record.
         * type `string`: The type of data in the SPF record.
         * valid `boolean`: Indicates if the SPF record is valid.
     * domain **required** `string`: The domain that this whitelabel was created for.
@@ -5578,6 +5547,7 @@ sendgrid.whitelabel.domains.post({}, context)
 
 #### Input
 * input `object`
+  * on-behalf-of `string`
   * body `object`
     * automatic_security `boolean`: Whether to allow SendGrid to manage your SPF records, DKIM keys, and DKIM key rotation.
     * custom_spf `boolean`: Specify whether to use a custom SPF or allow SendGrid to manage your SPF. This option is only available to domain whitelabels setup for manual security.
@@ -5587,10 +5557,9 @@ sendgrid.whitelabel.domains.post({}, context)
       * items `string`
     * subdomain **required** `string`: The subdomain to use for this domain whitelabel.
     * username `string`: The username that this whitelabel will be associated with.
-  * on-behalf-of `string`
 
 #### Output
-* output [whitelabel::domain](#whitelabel::domain)
+* output [whitelabel_domain](#whitelabel_domain)
 
 ### whitelabel.domains.default.get
 **This endpoint allows you to retrieve the default whitelabel for a domain.**
@@ -5614,7 +5583,7 @@ sendgrid.whitelabel.domains.default.get({}, context)
   * on-behalf-of `string`
 
 #### Output
-* output [whitelabel:domain_spf](#whitelabel:domain_spf)
+* output [whitelabel_domain_spf](#whitelabel_domain_spf)
 
 ### whitelabel.domains.subuser.delete
 **This endpoint allows you to disassociate a specific whitelabel from a subuser.**
@@ -5637,7 +5606,6 @@ sendgrid.whitelabel.domains.subuser.delete({}, context)
 
 #### Input
 * input `object`
-  * body `null`
   * on-behalf-of `string`
 
 #### Output
@@ -5667,7 +5635,7 @@ sendgrid.whitelabel.domains.subuser.get({}, context)
   * on-behalf-of `string`
 
 #### Output
-* output [whitelabel:domain_spf](#whitelabel:domain_spf)
+* output [whitelabel_domain_spf](#whitelabel_domain_spf)
 
 ### whitelabel.domains.domain_id.delete
 **This endpoint allows you to delete a domain whitelabel.**
@@ -5685,7 +5653,6 @@ sendgrid.whitelabel.domains.domain_id.delete({
 
 #### Input
 * input `object`
-  * body `null`
   * on-behalf-of `string`
   * domain_id **required** `string`
 
@@ -5712,7 +5679,7 @@ sendgrid.whitelabel.domains.domain_id.get({
   * domain_id **required** `string`
 
 #### Output
-* output [whitelabel::domain](#whitelabel::domain)
+* output [whitelabel_domain](#whitelabel_domain)
 
 ### whitelabel.domains.domain_id.patch
 **This endpoint allows you to update the settings for a domain whitelabel.**
@@ -5730,10 +5697,10 @@ sendgrid.whitelabel.domains.domain_id.patch({
 
 #### Input
 * input `object`
+  * on-behalf-of `string`
   * body `object`
     * custom_spf `boolean`: Indicates whether to generate a custom SPF record for manual security.
     * default `boolean`: Indicates whether this domain whitelabel should be considered the default.
-  * on-behalf-of `string`
   * domain_id **required** `string`
 
 #### Output
@@ -5764,13 +5731,13 @@ sendgrid.whitelabel.domains.domain_id.subuser.post({
 
 #### Input
 * input `object`
+  * on-behalf-of `string`
   * body `object`
     * username **required** `string`: Username to associate with the domain whitelabel.
-  * on-behalf-of `string`
   * domain_id **required** `string`
 
 #### Output
-* output [whitelabel:domain_spf](#whitelabel:domain_spf)
+* output [whitelabel_domain_spf](#whitelabel_domain_spf)
 
 ### whitelabel.domains.id.ips.post
 **This endpoint allows you to add an IP address to a domain whitelabel.**
@@ -5793,13 +5760,13 @@ sendgrid.whitelabel.domains.id.ips.post({
 
 #### Input
 * input `object`
+  * on-behalf-of `string`
   * body `object`
     * ip **required** `string`: IP to associate with the domain. Used for manually specifying IPs for custom SPF.
-  * on-behalf-of `string`
   * id **required** `string`
 
 #### Output
-* output [whitelabel:domain_spf](#whitelabel:domain_spf)
+* output [whitelabel_domain_spf](#whitelabel_domain_spf)
 
 ### whitelabel.domains.id.ips.ip.delete
 **This endpoint allows you to remove a domain's IP address from that domain's whitelabel.**
@@ -5824,13 +5791,12 @@ sendgrid.whitelabel.domains.id.ips.ip.delete({
 
 #### Input
 * input `object`
-  * body `null`
   * on-behalf-of `string`
   * id **required** `string`
   * ip **required** `string`
 
 #### Output
-* output [whitelabel:domain_spf](#whitelabel:domain_spf)
+* output [whitelabel_domain_spf](#whitelabel_domain_spf)
 
 ### whitelabel.domains.id.validate.post
 **This endpoint allows you to validate a domain whitelabel. If it fails, it will return an error message describing why the whitelabel could not be validated.**
@@ -5853,7 +5819,6 @@ sendgrid.whitelabel.domains.id.validate.post({
 
 #### Input
 * input `object`
-  * body `null`
   * on-behalf-of `string`
   * id **required** `string`
 
@@ -5861,18 +5826,15 @@ sendgrid.whitelabel.domains.id.validate.post({
 * output `object`
   * id `integer`: The ID of the domain whitelabel.
   * valid `boolean`: Indicates if this is a valid whitelabel.
-  * validation_resuts `object`: The individual DNS records that are checked when validating, including the reason for any invalid DNS records.
+  * validation_results `object`: The individual DNS records that are checked when validating, including the reason for any invalid DNS records.
     * dkim1 `object`: A DNS record for this domain whitelabel.
-      * reason `null`
       * valid `boolean`: Indicates if the DNS record is valid.
     * dkim2 `object`: A DNS record for this whitelabel.
-      * reason `null`
       * valid `boolean`: Indicates if the DNS record is valid.
     * mail_cname `object`: The CNAME record for the domain whitelabel.
       * reason `string`: The reason this record is invalid.
       * valid `boolean`: Indicates if this DNS record is valid.
     * spf `object`: The SPF record for the whitelabel.
-      * reason `null`
       * valid `boolean`: Indicates if the SPF record is valid.
 
 ### whitelabel.ips.get
@@ -5916,11 +5878,11 @@ sendgrid.whitelabel.ips.post({}, context)
 
 #### Input
 * input `object`
+  * on-behalf-of `string`
   * body `object`
     * domain **required** `string`: The root, or sending, domain that will be used to send message from the IP.
     * ip **required** `string`: The IP address that you want to whitelabel.
     * subdomain **required** `string`: The subdomain that will be used to send emails from the IP. Should be the same as the subdomain used for your domain whitelabel.
-  * on-behalf-of `string`
 
 #### Output
 * output [ip_whitelabel](#ip_whitelabel)
@@ -5941,7 +5903,6 @@ sendgrid.whitelabel.ips.id.delete({
 
 #### Input
 * input `object`
-  * body `null`
   * on-behalf-of `string`
   * id **required** `string`: The id of the IP whitelabel that you would like to retrieve.
 
@@ -5986,7 +5947,6 @@ sendgrid.whitelabel.ips.id.validate.post({
 
 #### Input
 * input `object`
-  * body `null`
   * on-behalf-of `string`
   * id **required** `integer`
 
@@ -6036,11 +5996,11 @@ sendgrid.whitelabel.links.post({}, context)
 * input `object`
   * limit `integer`: Number of domains to return.
   * offset `integer`: Paging offset.
+  * on-behalf-of `string`
   * body `object`
     * default `boolean` (values: true, false): Indicates if you want to use this link whitelabel as the fallback, or default, whitelabel.
     * domain **required** `string`: The root domain for your subdomain that you are creating the whitelabel for. This should match your FROM email address.
     * subdomain **required** `string`: The subdomain to create the link whitelabel for. Must be different from the subdomain you used for a domain whitelabel.
-  * on-behalf-of `string`
 
 #### Output
 * output [link_whitelabel](#link_whitelabel)
@@ -6093,7 +6053,6 @@ sendgrid.whitelabel.links.subuser.delete({
 #### Input
 * input `object`
   * username **required** `string`: The username of the subuser account that you want to disassociate a link whitelabel from.
-  * body `null`
   * on-behalf-of `string`
 
 #### Output
@@ -6141,7 +6100,6 @@ sendgrid.whitelabel.links.id.delete({
 
 #### Input
 * input `object`
-  * body `null`
   * on-behalf-of `string`
   * id **required** `integer`: The id of the link whitelabel you want to retrieve.
 
@@ -6186,9 +6144,9 @@ sendgrid.whitelabel.links.id.patch({
 
 #### Input
 * input `object`
+  * on-behalf-of `string`
   * body `object`
     * default `boolean` (values: true, false): Indicates if the link whitelabel is set as the default, or fallback, whitelabel.
-  * on-behalf-of `string`
   * id **required** `integer`: The id of the link whitelabel you want to retrieve.
 
 #### Output
@@ -6210,7 +6168,6 @@ sendgrid.whitelabel.links.id.validate.post({
 
 #### Input
 * input `object`
-  * body `null`
   * on-behalf-of `string`
   * id **required** `integer`: The id of the link whitelabel that you want to validate.
 
@@ -6246,9 +6203,9 @@ sendgrid.whitelabel.links.link_id.subuser.post({
 
 #### Input
 * input `object`
+  * on-behalf-of `string`
   * body `object`
     * username `string`: The username of the subuser account that you want to associate the link whitelabel with.
-  * on-behalf-of `string`
   * link_id **required** `integer`: The id of the link whitelabel you want to associate.
 
 #### Output
@@ -6518,17 +6475,17 @@ sendgrid.whitelabel.links.link_id.subuser.post({
   * unsubscribe **required** `boolean`: Recipient clicked on message's subscription management link. You need to enable Subscription Tracking for getting this type of event.
   * url **required** `string`: The URL that you want the event webhook to POST to.
 
-### global:ErrorResponse
+### global_ErrorResponse
 * Global: Error Response `object`
   * errors `array`
     * items `object`
       * field `string`: The field that generated the error.
       * message **required** `string`: The error message.
 
-### global:empty_request
-* Global: Request Empty Body `null`
+### global_empty_request
 
-### global:id
+
+### global_id
 * Global: ID `integer`
 
 ### google_analytics_settings
@@ -6553,8 +6510,8 @@ sendgrid.whitelabel.links.link_id.subuser.post({
 ### ip_whitelabel
 * Whitelabel - IPs `object`
   * a_record **required** `object`
-    * data **required** `string`: The IP address being whitelabeled.
     * host **required** `string`: This is the web address that will be mapped to the IP address.
+    * data **required** `string`: The IP address being whitelabeled.
     * type **required** `string`: The type of DNS record.
     * valid **required** `boolean`: Indicates if the a_record is valid.
   * domain **required** `string`: The root, or sending, domain.
@@ -6574,13 +6531,13 @@ sendgrid.whitelabel.links.link_id.subuser.post({
   * default **required** `boolean` (values: true, false): Indicates if this is the default link whitelabel.
   * dns **required** `object`: The DNS records generated for this link whitelabel.
     * domain_cname **required** `object`: The DNS record generated to point to your link whitelabel subdomain.
-      * data **required** `string`: The domain that the DNS record points to.
       * host **required** `string`: The domain that this whitelabel will use when whitelabeling the links in your email.
+      * data **required** `string`: The domain that the DNS record points to.
       * type **required** `string` (values: cname, txt, mx): The type of DNS record that was generate.
       * valid **required** `boolean` (values: true, false): Indicates if the DNS record is valid.
     * owner_cname `object`: The DNS record generated to verify who created the link whitelabel.
-      * data **required** `string`: The domain that the DNS record points to.
       * host **required** `string`: Used to verify the link whitelabel. The subdomain of this domain is the user id of the user who created the link whitelabel.
+      * data **required** `string`: The domain that the DNS record points to.
       * type `string` (values: cname, txt, mx): The type of DNS record generated.
       * valid **required** `boolean` (values: true, false): Indicates if the DNS record is valid.
   * domain **required** `string`: The root domain for this link whitelabel.
@@ -6774,7 +6731,6 @@ sendgrid.whitelabel.links.link_id.subuser.post({
   * description **required** `string`: A description of the suppression group.
   * id **required** `number`: The id of the suppression group.
   * is_default `boolean`: Indicates if this is the default suppression group.
-  * last_email_sent_at `null`
   * name **required** `string`: The name of the suppression group. Each group created by a user must have a unique name.
 
 ### suppression_group_unsubscribes
@@ -6782,7 +6738,6 @@ sendgrid.whitelabel.links.link_id.subuser.post({
   * description **required** `string`: A description of the suppression group.
   * id **required** `number`: The id of the suppression group.
   * is_default `boolean`: Indicates if this is the default suppression group.
-  * last_email_sent_at `null`
   * name **required** `string`: The name of the suppression group. Each group created by a user must have a unique name.
   * unsubscribes **required** `integer`: The unsubscribes associated with this group.
 
@@ -6821,25 +6776,25 @@ sendgrid.whitelabel.links.link_id.subuser.post({
   * batch_id **required** `string`
   * status **required** `string` (values: cancel, pause): The status of the scheduled send.
 
-### whitelabel::domain
+### whitelabel_domain
 * Whitelabel - Domain `object`
   * automatic_security **required** `boolean`: Indicates if this domain whitelabel uses automated security.
   * custom_spf **required** `boolean`: Indicates whether this domain whitelabel will use custom SPF.
   * default **required** `boolean`: Indicates if this domain whitelabel is the default whitelabel.
   * dns **required** `object`: The DNS records for this whitelabel that are used to authenticate the sending domain.
     * dkim1 **required** `object`: A DNS record.
-      * data **required** `string`: The DNS record.
       * host **required** `string`: The domain that this DNS record was created for.
+      * data **required** `string`: The DNS record.
       * type **required** `string`: The type of DNS record.
       * valid **required** `boolean`: Indicates if this is a valid DNS record.
     * dkim2 **required** `object`: A DNS record.
-      * data **required** `string`: The DNS record.
       * host **required** `string`: The domain that this DNS record was created for.
+      * data **required** `string`: The DNS record.
       * type **required** `string`: The type of DNS record.
       * valid **required** `boolean`: Indicates if this is a valid DNS record.
     * mail_cname **required** `object`: The CNAME for your sending domain that points to sendgrid.net.
-      * data **required** `string`: The CNAME record.
       * host **required** `string`: The domain that this CNAME is created for.
+      * data **required** `string`: The CNAME record.
       * type **required** `string`: The type of DNS record.
       * valid **required** `boolean`: Indicates if this is a valid CNAME.
   * domain **required** `string`: The domain that this whitelabel is being created for.
@@ -6852,36 +6807,35 @@ sendgrid.whitelabel.links.link_id.subuser.post({
   * username **required** `string`: The username that this whitelabel will be associated with.
   * valid **required** `boolean`: Indicates if this is a valid whitelabel.
 
-### whitelabel:domain_spf
+### whitelabel_domain_spf
 * Whitelabel - Domain `object`
   * automatic_security **required** `boolean`: Indicates if this whitelabel uses automated security.
   * custom_spf **required** `boolean`: Indicates if this whitelabel uses custom SPF.
   * default **required** `boolean`: Indicates if this is the default whitelabel.
   * dns **required** `object`: The DNS records for this whitelabel.
     * dkim **required** `object`: The DKIM record for messages sent using this whitelabel.
-      * data **required** `string`: The DKIM record.
       * host **required** `string`: The DNS labels for the DKIM signature.
+      * data **required** `string`: The DKIM record.
       * type **required** `string`: The type of data in the DKIM record.
       * valid **required** `boolean`: Indicates if the DKIM record is valid.
     * domain_spf **required** `object`: The SPF record for the root domain.
-      * data **required** `string`: The SPF record.
       * host **required** `string`: The root domain that this SPF record will be used to authenticate.
+      * data **required** `string`: The SPF record.
       * type **required** `string`: The type of data in the SPF record.
       * valid **required** `boolean`: Indicates if the SPF record is valid.
     * mail_server **required** `object`: Designates which mail server is responsible for accepting messages from a domain.
-      * data **required** `string`: The mail server responsible for accepting messages from the sending domain.
       * host **required** `string`: The domain sending the messages.
+      * data **required** `string`: The mail server responsible for accepting messages from the sending domain.
       * type **required** `string`: They type of DNS record.
       * valid **required** `boolean`: Indicates if this is a valid DNS record.
     * subdomain_spf **required** `object`: The SPF record for the subdomain used to create this whitelabel.
-      * data **required** `string`: The SPF record.
       * host **required** `string`: The domain that this SPF record will be used to authenticate.
+      * data **required** `string`: The SPF record.
       * type **required** `string`: The type of data in the SPF record.
       * valid **required** `boolean`: Indicates if this is a valid SPF record.
   * domain **required** `string`: The domain that this whitelabel was created for.
   * id **required** `integer`: The ID of the domain whitelabel.
   * ips **required** `array`: The IP addresses that are included in the SPF record for this whitelabel.
-
   * legacy **required** `boolean`: Indicates if this whitelabel was created using the legacy whitelabel tool.
   * subdomain **required** `string`: The subdomain that was used to create this whitelabel.
   * user_id **required** `integer`: The user_id of the account that this whitelabel is associated with.

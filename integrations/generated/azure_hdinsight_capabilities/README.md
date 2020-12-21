@@ -15,11 +15,7 @@ let azure_hdinsight_capabilities = require('@datafire/azure_hdinsight_capabiliti
   redirect_uri: ""
 });
 
-azure_hdinsight_capabilities.Location_GetCapabilities({
-  "location": "",
-  "api-version": "",
-  "subscriptionId": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

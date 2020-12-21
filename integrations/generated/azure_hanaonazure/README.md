@@ -15,9 +15,7 @@ let azure_hanaonazure = require('@datafire/azure_hanaonazure').create({
   redirect_uri: ""
 });
 
-azure_hanaonazure.Operations_List({
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -64,6 +62,25 @@ azure_hanaonazure.HanaInstances_List({
 #### Output
 * output [HanaInstancesListResult](#hanainstanceslistresult)
 
+### SapMonitors_List
+Gets a list of SAP monitors in the specified subscription. The operations returns various properties of each SAP monitor.
+
+
+```js
+azure_hanaonazure.SapMonitors_List({
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * api-version **required** `string`: Client API version.
+  * subscriptionId **required** `string`: Subscription ID which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+#### Output
+* output [SapMonitorListResult](#sapmonitorlistresult)
+
 ### HanaInstances_ListByResourceGroup
 Gets a list of SAP HANA instances in the specified subscription and the resource group. The operations returns various properties of each SAP HANA on Azure instance.
 
@@ -84,6 +101,29 @@ azure_hanaonazure.HanaInstances_ListByResourceGroup({
 
 #### Output
 * output [HanaInstancesListResult](#hanainstanceslistresult)
+
+### HanaInstances_Delete
+Deletes a SAP HANA instance with the specified subscription, resource group, and instance name.
+
+
+```js
+azure_hanaonazure.HanaInstances_Delete({
+  "api-version": "",
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "hanaInstanceName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * api-version **required** `string`: Client API version.
+  * subscriptionId **required** `string`: Subscription ID which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+  * resourceGroupName **required** `string`: Name of the resource group.
+  * hanaInstanceName **required** `string`: Name of the SAP HANA on Azure instance.
+
+#### Output
+*Output schema unknown*
 
 ### HanaInstances_Get
 Gets properties of a SAP HANA instance for the specified subscription, resource group, and instance name.
@@ -108,6 +148,221 @@ azure_hanaonazure.HanaInstances_Get({
 #### Output
 * output [HanaInstance](#hanainstance)
 
+### HanaInstances_Update
+Patches the Tags field of a SAP HANA instance for the specified subscription, resource group, and instance name.
+
+
+```js
+azure_hanaonazure.HanaInstances_Update({
+  "api-version": "",
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "hanaInstanceName": "",
+  "tagsParameter": {}
+}, context)
+```
+
+#### Input
+* input `object`
+  * api-version **required** `string`: Client API version.
+  * subscriptionId **required** `string`: Subscription ID which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+  * resourceGroupName **required** `string`: Name of the resource group.
+  * hanaInstanceName **required** `string`: Name of the SAP HANA on Azure instance.
+  * tagsParameter **required** [Tags](#tags)
+
+#### Output
+* output [HanaInstance](#hanainstance)
+
+### HanaInstances_Create
+Creates a SAP HANA instance for the specified subscription, resource group, and instance name.
+
+
+```js
+azure_hanaonazure.HanaInstances_Create({
+  "api-version": "",
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "hanaInstanceName": "",
+  "hanaInstanceParameter": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * api-version **required** `string`: Client API version.
+  * subscriptionId **required** `string`: Subscription ID which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+  * resourceGroupName **required** `string`: Name of the resource group.
+  * hanaInstanceName **required** `string`: Name of the SAP HANA on Azure instance.
+  * hanaInstanceParameter **required** [HanaInstance](#hanainstance)
+
+#### Output
+* output [HanaInstance](#hanainstance)
+
+### HanaInstances_Restart
+The operation to restart a SAP HANA instance.
+
+
+```js
+azure_hanaonazure.HanaInstances_Restart({
+  "api-version": "",
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "hanaInstanceName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * api-version **required** `string`: Client API version.
+  * subscriptionId **required** `string`: Subscription ID which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+  * resourceGroupName **required** `string`: Name of the resource group.
+  * hanaInstanceName **required** `string`: Name of the SAP HANA on Azure instance.
+
+#### Output
+*Output schema unknown*
+
+### HanaInstances_Shutdown
+The operation to shutdown a SAP HANA instance.
+
+
+```js
+azure_hanaonazure.HanaInstances_Shutdown({
+  "api-version": "",
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "hanaInstanceName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * api-version **required** `string`: Client API version.
+  * subscriptionId **required** `string`: Subscription ID which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+  * resourceGroupName **required** `string`: Name of the resource group.
+  * hanaInstanceName **required** `string`: Name of the SAP HANA on Azure instance.
+
+#### Output
+*Output schema unknown*
+
+### HanaInstances_Start
+The operation to start a SAP HANA instance.
+
+
+```js
+azure_hanaonazure.HanaInstances_Start({
+  "api-version": "",
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "hanaInstanceName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * api-version **required** `string`: Client API version.
+  * subscriptionId **required** `string`: Subscription ID which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+  * resourceGroupName **required** `string`: Name of the resource group.
+  * hanaInstanceName **required** `string`: Name of the SAP HANA on Azure instance.
+
+#### Output
+*Output schema unknown*
+
+### SapMonitors_Delete
+Deletes a SAP monitor with the specified subscription, resource group, and monitor name.
+
+
+```js
+azure_hanaonazure.SapMonitors_Delete({
+  "api-version": "",
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "sapMonitorName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * api-version **required** `string`: Client API version.
+  * subscriptionId **required** `string`: Subscription ID which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+  * resourceGroupName **required** `string`: Name of the resource group.
+  * sapMonitorName **required** `string`: Name of the SAP monitor resource.
+
+#### Output
+*Output schema unknown*
+
+### SapMonitors_Get
+Gets properties of a SAP monitor for the specified subscription, resource group, and resource name.
+
+
+```js
+azure_hanaonazure.SapMonitors_Get({
+  "api-version": "",
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "sapMonitorName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * api-version **required** `string`: Client API version.
+  * subscriptionId **required** `string`: Subscription ID which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+  * resourceGroupName **required** `string`: Name of the resource group.
+  * sapMonitorName **required** `string`: Name of the SAP monitor resource.
+
+#### Output
+* output [SapMonitor](#sapmonitor)
+
+### SapMonitors_Update
+Patches the Tags field of a SAP monitor for the specified subscription, resource group, and monitor name.
+
+
+```js
+azure_hanaonazure.SapMonitors_Update({
+  "api-version": "",
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "sapMonitorName": "",
+  "tagsParameter": {}
+}, context)
+```
+
+#### Input
+* input `object`
+  * api-version **required** `string`: Client API version.
+  * subscriptionId **required** `string`: Subscription ID which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+  * resourceGroupName **required** `string`: Name of the resource group.
+  * sapMonitorName **required** `string`: Name of the SAP monitor resource.
+  * tagsParameter **required** [Tags](#tags)
+
+#### Output
+* output [SapMonitor](#sapmonitor)
+
+### SapMonitors_Create
+Creates a SAP monitor for the specified subscription, resource group, and resource name.
+
+
+```js
+azure_hanaonazure.SapMonitors_Create({
+  "api-version": "",
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "sapMonitorName": "",
+  "sapMonitorParameter": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * api-version **required** `string`: Client API version.
+  * subscriptionId **required** `string`: Subscription ID which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+  * resourceGroupName **required** `string`: Name of the resource group.
+  * sapMonitorName **required** `string`: Name of the SAP monitor resource.
+  * sapMonitorParameter **required** [SapMonitor](#sapmonitor)
+
+#### Output
+* output [SapMonitor](#sapmonitor)
+
 
 
 ## Definitions
@@ -123,7 +378,7 @@ azure_hanaonazure.HanaInstances_Get({
   * description `string`: The localized friendly description for the operation as shown to the user. This description should be thorough, yet concise. It will be used in tool-tips and detailed views.
   * operation `string`: The localized friendly name for the operation as shown to the user. This name should be concise (to fit in drop downs), but clear (self-documenting). Use Title Casing and include the entity/resource to which it applies.
   * origin `string`: The intended executor of the operation; governs the display of the operation in the RBAC UX and the audit logs UX. Default value is 'user,system'
-  * provider `string`: The localized friendly form of the resource provider name. This form is also expected to include the publisher/company responsible. Use Title Casing. Begin with “Microsoft” for 1st party services.
+  * provider `string`: The localized friendly form of the resource provider name. This form is also expected to include the publisher/company responsible. Use Title Casing. Begin with "Microsoft" for 1st party services.
   * resource `string`: The localized friendly form of the resource type related to this action/operation. This form should match the public documentation for the resource provider. Use Title Casing. For examples, refer to the “name” section.
 
 ### ErrorResponse
@@ -144,8 +399,13 @@ azure_hanaonazure.HanaInstances_Get({
 * HanaInstanceProperties `object`: Describes the properties of a HANA instance.
   * hanaInstanceId `string`: Specifies the HANA instance unique ID.
   * hardwareProfile [HardwareProfile](#hardwareprofile)
+  * hwRevision `string`: Hardware revision of a HANA instance
   * networkProfile [NetworkProfile](#networkprofile)
   * osProfile [OSProfile](#osprofile)
+  * partnerNodeId `string`: ARM ID of another HanaInstance that will share a network with this HanaInstance
+  * powerState `string` (values: starting, started, stopping, stopped, restarting, unknown): Resource power state
+  * provisioningState `string` (values: Accepted, Creating, Updating, Failed, Succeeded, Deleting, Migrating): State of provisioning of the HanaInstance
+  * proximityPlacementGroup `string`: Resource proximity placement group
   * storageProfile [StorageProfile](#storageprofile)
 
 ### HanaInstancesListResult
@@ -156,12 +416,21 @@ azure_hanaonazure.HanaInstances_Get({
 
 ### HardwareProfile
 * HardwareProfile `object`: Specifies the hardware settings for the HANA instance.
-  * hanaInstanceSize `string` (values: S72m, S144m, S72, S144, S192, S192m, S192xm, S384, S384m, S384xm, S384xxm, S576m, S576xm, S768, S768m, S768xm, S960m): Specifies the HANA instance SKU.
+  * hanaInstanceSize `string` (values: S72m, S144m, S72, S144, S192, S192m, S192xm, S96, S112, S224m, S224o, S224om, S224oo, S224oom, S224ooo, S224oxm, S224oxxm, S384, S384m, S384xm, S384xxm, S576m, S576xm, S768, S768m, S768xm, S960m): Specifies the HANA instance SKU.
   * hardwareType `string` (values: Cisco_UCS, HPE): Name of the hardware type (vendor and/or their product name)
 
 ### IpAddress
-* IpAddress `object`: Specifies the IP address of the network interaface.
+* IpAddress `object`: Specifies the IP address of the network interface.
   * ipAddress `string`: Specifies the IP address of the network interface.
+
+### MonitoringDetails
+* MonitoringDetails `object`: Details needed to monitor a Hana Instance
+  * hanaDbName `string`: Name of the database itself.
+  * hanaDbPassword `string`: Password for the HANA database to login for monitoring
+  * hanaDbSqlPort `integer`: The port number of the tenant DB. Used to connect to the DB.
+  * hanaDbUsername `string`: Username for the HANA database to login to for monitoring
+  * hanaHostname `string`: Hostname of the HANA Instance blade.
+  * hanaSubnet `string`: ARM ID of an Azure Subnet with access to the HANA instance.
 
 ### NetworkProfile
 * NetworkProfile `object`: Specifies the network settings for the HANA instance disks.
@@ -173,6 +442,7 @@ azure_hanaonazure.HanaInstances_Get({
 * OSProfile `object`: Specifies the operating system settings for the HANA instance.
   * computerName `string`: Specifies the host OS name of the HANA instance.
   * osType `string`: This property allows you to specify the type of the OS.
+  * sshPublicKey `string`: Specifies the SSH public key used to access the operating system.
   * version `string`: Specifies version of operating system.
 
 ### Operation
@@ -193,10 +463,47 @@ azure_hanaonazure.HanaInstances_Get({
   * tags `object`: Resource tags
   * type `string`: Resource type
 
+### SapMonitor
+* SapMonitor `object`: SAP monitor info on Azure (ARM properties and SAP monitor properties)
+  * properties [SapMonitorProperties](#sapmonitorproperties)
+  * id `string`: Resource ID
+  * location `string`: Resource location
+  * name `string`: Resource name
+  * tags `object`: Resource tags
+  * type `string`: Resource type
+
+### SapMonitorListResult
+* SapMonitorListResult `object`: The response from the List SAP monitors operation.
+  * nextLink `string`: The URL to get the next set of SAP monitors.
+  * value `array`: The list of SAP monitors.
+    * items [SapMonitor](#sapmonitor)
+
+### SapMonitorProperties
+* SapMonitorProperties `object`: Describes the properties of a SAP monitor.
+  * enableCustomerAnalytics `boolean`: The value indicating whether to send analytics to Microsoft
+  * hanaDbCredentialsMsiId `string`: MSI ID passed by customer which has access to customer's KeyVault and to be assigned to the Collector VM.
+  * hanaDbName `string`: Database name of the HANA instance.
+  * hanaDbPassword `string`: Database password of the HANA instance.
+  * hanaDbPasswordKeyVaultUrl `string`: KeyVault URL link to the password for the HANA database.
+  * hanaDbSqlPort `integer`: Database port of the HANA instance.
+  * hanaDbUsername `string`: Database username of the HANA instance.
+  * hanaHostname `string`: Hostname of the HANA instance.
+  * hanaSubnet `string`: Specifies the SAP monitor unique ID.
+  * keyVaultId `string`: Key Vault ID containing customer's HANA credentials.
+  * logAnalyticsWorkspaceArmId `string`: The ARM ID of the Log Analytics Workspace that is used for monitoring
+  * logAnalyticsWorkspaceId `string`: The workspace ID of the log analytics workspace to be used for monitoring
+  * logAnalyticsWorkspaceSharedKey `string`: The shared key of the log analytics workspace that is used for monitoring
+  * managedResourceGroupName `string`: The name of the resource group the SAP Monitor resources get deployed into.
+  * provisioningState `string` (values: Accepted, Creating, Updating, Failed, Succeeded, Deleting, Migrating): State of provisioning of the HanaInstance
+
 ### StorageProfile
 * StorageProfile `object`: Specifies the storage settings for the HANA instance disks.
   * nfsIpAddress `string`: IP Address to connect to storage.
   * osDisks `array`: Specifies information about the operating system disk used by the hana instance.
     * items [Disk](#disk)
+
+### Tags
+* Tags `object`: Tags field of the HANA instance.
+  * tags `object`: Tags field of the HANA instance.
 
 

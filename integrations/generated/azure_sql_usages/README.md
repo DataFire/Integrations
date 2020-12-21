@@ -15,11 +15,7 @@ let azure_sql_usages = require('@datafire/azure_sql_usages').create({
   redirect_uri: ""
 });
 
-azure_sql_usages.SubscriptionUsages_ListByLocation({
-  "locationName": "",
-  "subscriptionId": "",
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -30,13 +26,14 @@ The Azure SQL Database management API provides a RESTful set of web APIs that in
 
 ## Actions
 
-### SubscriptionUsages_ListByLocation
-Gets all subscription usage metrics in a given location.
+### Usages_ListByInstancePool
+Gets all instance pool usage metrics
 
 
 ```js
-azure_sql_usages.SubscriptionUsages_ListByLocation({
-  "locationName": "",
+azure_sql_usages.Usages_ListByInstancePool({
+  "resourceGroupName": "",
+  "instancePoolName": "",
   "subscriptionId": "",
   "api-version": ""
 }, context)
@@ -44,58 +41,38 @@ azure_sql_usages.SubscriptionUsages_ListByLocation({
 
 #### Input
 * input `object`
-  * locationName **required** `string`: The name of the region where the resource is located.
+  * resourceGroupName **required** `string`: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+  * instancePoolName **required** `string`: The name of the instance pool to be retrieved.
+  * expandChildren `boolean`: Optional request parameter to include managed instance usages within the instance pool.
   * subscriptionId **required** `string`: The subscription ID that identifies an Azure subscription.
   * api-version **required** `string`: The API version to use for the request.
 
 #### Output
-* output [SubscriptionUsageListResult](#subscriptionusagelistresult)
-
-### SubscriptionUsages_Get
-Gets a subscription usage metric.
-
-
-```js
-azure_sql_usages.SubscriptionUsages_Get({
-  "locationName": "",
-  "usageName": "",
-  "subscriptionId": "",
-  "api-version": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * locationName **required** `string`: The name of the region where the resource is located.
-  * usageName **required** `string`: Name of usage metric to return.
-  * subscriptionId **required** `string`: The subscription ID that identifies an Azure subscription.
-  * api-version **required** `string`: The API version to use for the request.
-
-#### Output
-* output [SubscriptionUsage](#subscriptionusage)
+* output [UsageListResult](#usagelistresult)
 
 
 
 ## Definitions
 
-### SubscriptionUsage
-* SubscriptionUsage `object`: Usage Metric of a Subscription in a Location.
-  * properties [SubscriptionUsageProperties](#subscriptionusageproperties)
-  * id `string`: Resource ID.
-  * name `string`: Resource name.
-  * type `string`: Resource type.
+### Name
+* Name `object`: ARM Usage Name
+  * localizedValue `string`: Usage name localized value.
+  * value `string`: Usage name value
 
-### SubscriptionUsageListResult
-* SubscriptionUsageListResult `object`: A list of subscription usage metrics in a location.
+### Usage
+* Usage `object`: ARM usage.
+  * currentValue `integer`: Usage current value.
+  * id `string`: Resource ID.
+  * limit `integer`: Usage limit.
+  * name [Name](#name)
+  * requestedLimit `integer`: Usage requested limit.
+  * type `string`: Resource type.
+  * unit `string`: Usage unit.
+
+### UsageListResult
+* UsageListResult `object`: A list of usages.
   * nextLink `string`: Link to retrieve next page of results.
   * value `array`: Array of results.
-    * items [SubscriptionUsage](#subscriptionusage)
-
-### SubscriptionUsageProperties
-* SubscriptionUsageProperties `object`: Properties of a subscription usage.
-  * currentValue `number`: Current value of the metric.
-  * displayName `string`: User-readable name of the metric.
-  * limit `number`: Boundary value of the metric.
-  * unit `string`: Unit of the metric.
+    * items [Usage](#usage)
 
 

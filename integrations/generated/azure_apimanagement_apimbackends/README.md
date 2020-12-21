@@ -15,12 +15,7 @@ let azure_apimanagement_apimbackends = require('@datafire/azure_apimanagement_ap
   redirect_uri: ""
 });
 
-azure_apimanagement_apimbackends.Backend_ListByService({
-  "resourceGroupName": "",
-  "serviceName": "",
-  "api-version": "",
-  "subscriptionId": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -48,14 +43,40 @@ azure_apimanagement_apimbackends.Backend_ListByService({
 * input `object`
   * resourceGroupName **required** `string`: The name of the resource group.
   * serviceName **required** `string`: The name of the API Management service.
-  * $filter `string`: | Field | Supported operators    | Supported functions                         |
+  * $filter `string`: |   Field     |     Usage     |     Supported operators     |     Supported functions     |</br>|-------------|-------------|-------------|-------------|</br>| name | filter | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith | </br>| title | filter | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith | </br>| url | filter | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith | </br>
   * $top `integer`: Number of records to return.
   * $skip `integer`: Number of records to skip.
   * api-version **required** `string`: Version of the API to be used with the client request.
   * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
 #### Output
-* output [BackendCollection](#backendcollection)
+* output `object`: Paged Backend list representation.
+  * nextLink `string`: Next page link if any.
+  * value `array`: Backend values.
+    * items `object`: Backend details.
+      * properties `object`: Parameters supplied to the Create Backend operation.
+        * protocol **required** `string` (values: http, soap): Backend communication protocol.
+        * url **required** `string`: Runtime Url of the Backend.
+        * credentials `object`: Details of the Credentials used to connect to Backend.
+          * authorization `object`: Authorization header information.
+          * certificate `array`: List of Client Certificate Thumbprint.
+          * header `object`: Header Parameter description.
+          * query `object`: Query Parameter description.
+        * description `string`: Backend Description.
+        * properties `object`: Properties specific to the Backend Type.
+          * serviceFabricCluster `object`: Properties of the Service Fabric Type Backend.
+        * proxy `object`: Details of the Backend WebProxy Server to use in the Request to Backend.
+          * password `string`: Password to connect to the WebProxy Server
+          * url **required** `string`: WebProxy Server AbsoluteUri property which includes the entire URI stored in the Uri instance, including all fragments and query strings.
+          * username `string`: Username to connect to the WebProxy server
+        * resourceId `string`: Management Uri of the Resource in External System. This url can be the Arm Resource Id of Logic Apps, Function Apps or Api Apps.
+        * title `string`: Backend Title.
+        * tls `object`: Properties controlling TLS Certificate Validation.
+          * validateCertificateChain `boolean`: Flag indicating whether SSL certificate chain validation should be done when using self-signed certificates for this backend host.
+          * validateCertificateName `boolean`: Flag indicating whether SSL certificate name validation should be done when using self-signed certificates for this backend host.
+      * id `string`: Resource ID.
+      * name `string`: Resource name.
+      * type `string`: Resource type for API Management resource.
 
 ### Backend_Delete
 Deletes the specified backend.
@@ -65,7 +86,7 @@ Deletes the specified backend.
 azure_apimanagement_apimbackends.Backend_Delete({
   "resourceGroupName": "",
   "serviceName": "",
-  "backendid": "",
+  "backendId": "",
   "If-Match": "",
   "api-version": "",
   "subscriptionId": ""
@@ -76,7 +97,7 @@ azure_apimanagement_apimbackends.Backend_Delete({
 * input `object`
   * resourceGroupName **required** `string`: The name of the resource group.
   * serviceName **required** `string`: The name of the API Management service.
-  * backendid **required** `string`: Identifier of the Backend entity. Must be unique in the current API Management service instance.
+  * backendId **required** `string`: Identifier of the Backend entity. Must be unique in the current API Management service instance.
   * If-Match **required** `string`: ETag of the Entity. ETag should match the current entity state from the header response of the GET request or it should be * for unconditional update.
   * api-version **required** `string`: Version of the API to be used with the client request.
   * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
@@ -92,7 +113,7 @@ Gets the details of the backend specified by its identifier.
 azure_apimanagement_apimbackends.Backend_Get({
   "resourceGroupName": "",
   "serviceName": "",
-  "backendid": "",
+  "backendId": "",
   "api-version": "",
   "subscriptionId": ""
 }, context)
@@ -102,12 +123,46 @@ azure_apimanagement_apimbackends.Backend_Get({
 * input `object`
   * resourceGroupName **required** `string`: The name of the resource group.
   * serviceName **required** `string`: The name of the API Management service.
-  * backendid **required** `string`: Identifier of the Backend entity. Must be unique in the current API Management service instance.
+  * backendId **required** `string`: Identifier of the Backend entity. Must be unique in the current API Management service instance.
   * api-version **required** `string`: Version of the API to be used with the client request.
   * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
 #### Output
-* output [BackendContract](#backendcontract)
+* output `object`: Backend details.
+  * properties `object`: Parameters supplied to the Create Backend operation.
+    * protocol **required** `string` (values: http, soap): Backend communication protocol.
+    * url **required** `string`: Runtime Url of the Backend.
+    * credentials `object`: Details of the Credentials used to connect to Backend.
+      * authorization `object`: Authorization header information.
+        * parameter **required** `string`: Authentication Parameter value.
+        * scheme **required** `string`: Authentication Scheme name.
+      * certificate `array`: List of Client Certificate Thumbprint.
+        * items `string`
+      * header `object`: Header Parameter description.
+      * query `object`: Query Parameter description.
+    * description `string`: Backend Description.
+    * properties `object`: Properties specific to the Backend Type.
+      * serviceFabricCluster `object`: Properties of the Service Fabric Type Backend.
+        * clientCertificatethumbprint **required** `string`: The client certificate thumbprint for the management endpoint.
+        * managementEndpoints **required** `array`: The cluster management endpoint.
+          * items `string`
+        * maxPartitionResolutionRetries `integer`: Maximum number of retries while attempting resolve the partition.
+        * serverCertificateThumbprints `array`: Thumbprints of certificates cluster management service uses for tls communication
+          * items `string`
+        * serverX509Names `array`: Server X509 Certificate Names Collection
+          * items `object`: Properties of server X509Names.
+    * proxy `object`: Details of the Backend WebProxy Server to use in the Request to Backend.
+      * password `string`: Password to connect to the WebProxy Server
+      * url **required** `string`: WebProxy Server AbsoluteUri property which includes the entire URI stored in the Uri instance, including all fragments and query strings.
+      * username `string`: Username to connect to the WebProxy server
+    * resourceId `string`: Management Uri of the Resource in External System. This url can be the Arm Resource Id of Logic Apps, Function Apps or Api Apps.
+    * title `string`: Backend Title.
+    * tls `object`: Properties controlling TLS Certificate Validation.
+      * validateCertificateChain `boolean`: Flag indicating whether SSL certificate chain validation should be done when using self-signed certificates for this backend host.
+      * validateCertificateName `boolean`: Flag indicating whether SSL certificate name validation should be done when using self-signed certificates for this backend host.
+  * id `string`: Resource ID.
+  * name `string`: Resource name.
+  * type `string`: Resource type for API Management resource.
 
 ### Backend_GetEntityTag
 Gets the entity state (Etag) version of the backend specified by its identifier.
@@ -117,7 +172,7 @@ Gets the entity state (Etag) version of the backend specified by its identifier.
 azure_apimanagement_apimbackends.Backend_GetEntityTag({
   "resourceGroupName": "",
   "serviceName": "",
-  "backendid": "",
+  "backendId": "",
   "api-version": "",
   "subscriptionId": ""
 }, context)
@@ -127,7 +182,7 @@ azure_apimanagement_apimbackends.Backend_GetEntityTag({
 * input `object`
   * resourceGroupName **required** `string`: The name of the resource group.
   * serviceName **required** `string`: The name of the API Management service.
-  * backendid **required** `string`: Identifier of the Backend entity. Must be unique in the current API Management service instance.
+  * backendId **required** `string`: Identifier of the Backend entity. Must be unique in the current API Management service instance.
   * api-version **required** `string`: Version of the API to be used with the client request.
   * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
@@ -142,7 +197,7 @@ Updates an existing backend.
 azure_apimanagement_apimbackends.Backend_Update({
   "resourceGroupName": "",
   "serviceName": "",
-  "backendid": "",
+  "backendId": "",
   "parameters": null,
   "If-Match": "",
   "api-version": "",
@@ -154,8 +209,36 @@ azure_apimanagement_apimbackends.Backend_Update({
 * input `object`
   * resourceGroupName **required** `string`: The name of the resource group.
   * serviceName **required** `string`: The name of the API Management service.
-  * backendid **required** `string`: Identifier of the Backend entity. Must be unique in the current API Management service instance.
-  * parameters **required** [BackendUpdateParameters](#backendupdateparameters)
+  * backendId **required** `string`: Identifier of the Backend entity. Must be unique in the current API Management service instance.
+  * parameters **required** `object`: Backend update parameters.
+    * properties `object`: Parameters supplied to the Update Backend operation.
+      * protocol `string` (values: http, soap): Backend communication protocol.
+      * url `string`: Runtime Url of the Backend.
+      * credentials `object`: Details of the Credentials used to connect to Backend.
+        * authorization `object`: Authorization header information.
+          * parameter **required** `string`: Authentication Parameter value.
+          * scheme **required** `string`: Authentication Scheme name.
+        * certificate `array`: List of Client Certificate Thumbprint.
+          * items `string`
+        * header `object`: Header Parameter description.
+        * query `object`: Query Parameter description.
+      * description `string`: Backend Description.
+      * properties `object`: Properties specific to the Backend Type.
+        * serviceFabricCluster `object`: Properties of the Service Fabric Type Backend.
+          * clientCertificatethumbprint **required** `string`: The client certificate thumbprint for the management endpoint.
+          * managementEndpoints **required** `array`: The cluster management endpoint.
+          * maxPartitionResolutionRetries `integer`: Maximum number of retries while attempting resolve the partition.
+          * serverCertificateThumbprints `array`: Thumbprints of certificates cluster management service uses for tls communication
+          * serverX509Names `array`: Server X509 Certificate Names Collection
+      * proxy `object`: Details of the Backend WebProxy Server to use in the Request to Backend.
+        * password `string`: Password to connect to the WebProxy Server
+        * url **required** `string`: WebProxy Server AbsoluteUri property which includes the entire URI stored in the Uri instance, including all fragments and query strings.
+        * username `string`: Username to connect to the WebProxy server
+      * resourceId `string`: Management Uri of the Resource in External System. This url can be the Arm Resource Id of Logic Apps, Function Apps or Api Apps.
+      * title `string`: Backend Title.
+      * tls `object`: Properties controlling TLS Certificate Validation.
+        * validateCertificateChain `boolean`: Flag indicating whether SSL certificate chain validation should be done when using self-signed certificates for this backend host.
+        * validateCertificateName `boolean`: Flag indicating whether SSL certificate name validation should be done when using self-signed certificates for this backend host.
   * If-Match **required** `string`: ETag of the Entity. ETag should match the current entity state from the header response of the GET request or it should be * for unconditional update.
   * api-version **required** `string`: Version of the API to be used with the client request.
   * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
@@ -171,7 +254,7 @@ Creates or Updates a backend.
 azure_apimanagement_apimbackends.Backend_CreateOrUpdate({
   "resourceGroupName": "",
   "serviceName": "",
-  "backendid": "",
+  "backendId": "",
   "parameters": null,
   "api-version": "",
   "subscriptionId": ""
@@ -182,14 +265,79 @@ azure_apimanagement_apimbackends.Backend_CreateOrUpdate({
 * input `object`
   * resourceGroupName **required** `string`: The name of the resource group.
   * serviceName **required** `string`: The name of the API Management service.
-  * backendid **required** `string`: Identifier of the Backend entity. Must be unique in the current API Management service instance.
-  * parameters **required** [BackendContract](#backendcontract)
+  * backendId **required** `string`: Identifier of the Backend entity. Must be unique in the current API Management service instance.
+  * parameters **required** `object`: Backend details.
+    * properties `object`: Parameters supplied to the Create Backend operation.
+      * protocol **required** `string` (values: http, soap): Backend communication protocol.
+      * url **required** `string`: Runtime Url of the Backend.
+      * credentials `object`: Details of the Credentials used to connect to Backend.
+        * authorization `object`: Authorization header information.
+          * parameter **required** `string`: Authentication Parameter value.
+          * scheme **required** `string`: Authentication Scheme name.
+        * certificate `array`: List of Client Certificate Thumbprint.
+          * items `string`
+        * header `object`: Header Parameter description.
+        * query `object`: Query Parameter description.
+      * description `string`: Backend Description.
+      * properties `object`: Properties specific to the Backend Type.
+        * serviceFabricCluster `object`: Properties of the Service Fabric Type Backend.
+          * clientCertificatethumbprint **required** `string`: The client certificate thumbprint for the management endpoint.
+          * managementEndpoints **required** `array`: The cluster management endpoint.
+          * maxPartitionResolutionRetries `integer`: Maximum number of retries while attempting resolve the partition.
+          * serverCertificateThumbprints `array`: Thumbprints of certificates cluster management service uses for tls communication
+          * serverX509Names `array`: Server X509 Certificate Names Collection
+      * proxy `object`: Details of the Backend WebProxy Server to use in the Request to Backend.
+        * password `string`: Password to connect to the WebProxy Server
+        * url **required** `string`: WebProxy Server AbsoluteUri property which includes the entire URI stored in the Uri instance, including all fragments and query strings.
+        * username `string`: Username to connect to the WebProxy server
+      * resourceId `string`: Management Uri of the Resource in External System. This url can be the Arm Resource Id of Logic Apps, Function Apps or Api Apps.
+      * title `string`: Backend Title.
+      * tls `object`: Properties controlling TLS Certificate Validation.
+        * validateCertificateChain `boolean`: Flag indicating whether SSL certificate chain validation should be done when using self-signed certificates for this backend host.
+        * validateCertificateName `boolean`: Flag indicating whether SSL certificate name validation should be done when using self-signed certificates for this backend host.
+    * id `string`: Resource ID.
+    * name `string`: Resource name.
+    * type `string`: Resource type for API Management resource.
   * If-Match `string`: ETag of the Entity. Not required when creating an entity, but required when updating an entity.
   * api-version **required** `string`: Version of the API to be used with the client request.
   * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
 #### Output
-* output [BackendContract](#backendcontract)
+* output `object`: Backend details.
+  * properties `object`: Parameters supplied to the Create Backend operation.
+    * protocol **required** `string` (values: http, soap): Backend communication protocol.
+    * url **required** `string`: Runtime Url of the Backend.
+    * credentials `object`: Details of the Credentials used to connect to Backend.
+      * authorization `object`: Authorization header information.
+        * parameter **required** `string`: Authentication Parameter value.
+        * scheme **required** `string`: Authentication Scheme name.
+      * certificate `array`: List of Client Certificate Thumbprint.
+        * items `string`
+      * header `object`: Header Parameter description.
+      * query `object`: Query Parameter description.
+    * description `string`: Backend Description.
+    * properties `object`: Properties specific to the Backend Type.
+      * serviceFabricCluster `object`: Properties of the Service Fabric Type Backend.
+        * clientCertificatethumbprint **required** `string`: The client certificate thumbprint for the management endpoint.
+        * managementEndpoints **required** `array`: The cluster management endpoint.
+          * items `string`
+        * maxPartitionResolutionRetries `integer`: Maximum number of retries while attempting resolve the partition.
+        * serverCertificateThumbprints `array`: Thumbprints of certificates cluster management service uses for tls communication
+          * items `string`
+        * serverX509Names `array`: Server X509 Certificate Names Collection
+          * items `object`: Properties of server X509Names.
+    * proxy `object`: Details of the Backend WebProxy Server to use in the Request to Backend.
+      * password `string`: Password to connect to the WebProxy Server
+      * url **required** `string`: WebProxy Server AbsoluteUri property which includes the entire URI stored in the Uri instance, including all fragments and query strings.
+      * username `string`: Username to connect to the WebProxy server
+    * resourceId `string`: Management Uri of the Resource in External System. This url can be the Arm Resource Id of Logic Apps, Function Apps or Api Apps.
+    * title `string`: Backend Title.
+    * tls `object`: Properties controlling TLS Certificate Validation.
+      * validateCertificateChain `boolean`: Flag indicating whether SSL certificate chain validation should be done when using self-signed certificates for this backend host.
+      * validateCertificateName `boolean`: Flag indicating whether SSL certificate name validation should be done when using self-signed certificates for this backend host.
+  * id `string`: Resource ID.
+  * name `string`: Resource name.
+  * type `string`: Resource type for API Management resource.
 
 ### Backend_Reconnect
 Notifies the APIM proxy to create a new connection to the backend after the specified timeout. If no timeout was specified, timeout of 2 minutes is used.
@@ -199,7 +347,7 @@ Notifies the APIM proxy to create a new connection to the backend after the spec
 azure_apimanagement_apimbackends.Backend_Reconnect({
   "resourceGroupName": "",
   "serviceName": "",
-  "backendid": "",
+  "backendId": "",
   "api-version": "",
   "subscriptionId": ""
 }, context)
@@ -209,8 +357,13 @@ azure_apimanagement_apimbackends.Backend_Reconnect({
 * input `object`
   * resourceGroupName **required** `string`: The name of the resource group.
   * serviceName **required** `string`: The name of the API Management service.
-  * backendid **required** `string`: Identifier of the Backend entity. Must be unique in the current API Management service instance.
-  * parameters [BackendReconnectContract](#backendreconnectcontract)
+  * backendId **required** `string`: Identifier of the Backend entity. Must be unique in the current API Management service instance.
+  * parameters `object`: Reconnect request parameters.
+    * properties `object`: Properties to control reconnect requests.
+      * after `string`: Duration in ISO8601 format after which reconnect will be initiated. Minimum duration of the Reconnect is PT2M.
+    * id `string`: Resource ID.
+    * name `string`: Resource name.
+    * type `string`: Resource type for API Management resource.
   * api-version **required** `string`: Version of the API to be used with the client request.
   * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
@@ -221,110 +374,4 @@ azure_apimanagement_apimbackends.Backend_Reconnect({
 
 ## Definitions
 
-### BackendAuthorizationHeaderCredentials
-* BackendAuthorizationHeaderCredentials `object`: Authorization header information.
-  * parameter **required** `string`: Authentication Parameter value.
-  * scheme **required** `string`: Authentication Scheme name.
-
-### BackendBaseParameters
-* BackendBaseParameters `object`: Backend entity base Parameter set.
-  * credentials [BackendCredentialsContract](#backendcredentialscontract)
-  * description `string`: Backend Description.
-  * properties [BackendProperties](#backendproperties)
-  * proxy [BackendProxyContract](#backendproxycontract)
-  * resourceId `string`: Management Uri of the Resource in External System. This url can be the Arm Resource Id of Logic Apps, Function Apps or Api Apps.
-  * title `string`: Backend Title.
-  * tls [BackendTlsProperties](#backendtlsproperties)
-
-### BackendCollection
-* BackendCollection `object`: Paged Backend list representation.
-  * nextLink `string`: Next page link if any.
-  * value `array`: Backend values.
-    * items [BackendContract](#backendcontract)
-
-### BackendContract
-* BackendContract `object`: Backend details.
-  * properties [BackendContractProperties](#backendcontractproperties)
-  * id `string`: Resource ID.
-  * name `string`: Resource name.
-  * type `string`: Resource type for API Management resource.
-
-### BackendContractProperties
-* BackendContractProperties `object`: Parameters supplied to the Create Backend operation.
-  * protocol **required** `string` (values: http, soap): Backend communication protocol.
-  * url **required** `string`: Runtime Url of the Backend.
-  * credentials [BackendCredentialsContract](#backendcredentialscontract)
-  * description `string`: Backend Description.
-  * properties [BackendProperties](#backendproperties)
-  * proxy [BackendProxyContract](#backendproxycontract)
-  * resourceId `string`: Management Uri of the Resource in External System. This url can be the Arm Resource Id of Logic Apps, Function Apps or Api Apps.
-  * title `string`: Backend Title.
-  * tls [BackendTlsProperties](#backendtlsproperties)
-
-### BackendCredentialsContract
-* BackendCredentialsContract `object`: Details of the Credentials used to connect to Backend.
-  * authorization [BackendAuthorizationHeaderCredentials](#backendauthorizationheadercredentials)
-  * certificate `array`: List of Client Certificate Thumbprint.
-    * items `string`
-  * header `object`: Header Parameter description.
-  * query `object`: Query Parameter description.
-
-### BackendProperties
-* BackendProperties `object`: Properties specific to the Backend Type.
-  * serviceFabricCluster [BackendServiceFabricClusterProperties](#backendservicefabricclusterproperties)
-
-### BackendProxyContract
-* BackendProxyContract `object`: Details of the Backend WebProxy Server to use in the Request to Backend.
-  * password `string`: Password to connect to the WebProxy Server
-  * url **required** `string`: WebProxy Server AbsoluteUri property which includes the entire URI stored in the Uri instance, including all fragments and query strings.
-  * username `string`: Username to connect to the WebProxy server
-
-### BackendReconnectContract
-* BackendReconnectContract `object`: Reconnect request parameters.
-  * properties [BackendReconnectProperties](#backendreconnectproperties)
-  * id `string`: Resource ID.
-  * name `string`: Resource name.
-  * type `string`: Resource type for API Management resource.
-
-### BackendReconnectProperties
-* BackendReconnectProperties `object`: Properties to control reconnect requests.
-  * after `string`: Duration in ISO8601 format after which reconnect will be initiated. Minimum duration of the Reconect is PT2M.
-
-### BackendServiceFabricClusterProperties
-* BackendServiceFabricClusterProperties `object`: Properties of the Service Fabric Type Backend.
-  * clientCertificatethumbprint **required** `string`: The client certificate thumbprint for the management endpoint.
-  * managementEndpoints **required** `array`: The cluster management endpoint.
-    * items `string`
-  * maxPartitionResolutionRetries `integer`: Maximum number of retries while attempting resolve the parition.
-  * serverCertificateThumbprints `array`: Thumbprints of certificates cluster management service uses for tls communication
-    * items `string`
-  * serverX509Names `array`: Server X509 Certificate Names Collection
-    * items [X509CertificateName](#x509certificatename)
-
-### BackendTlsProperties
-* BackendTlsProperties `object`: Properties controlling TLS Certificate Validation.
-  * validateCertificateChain `boolean`: Flag indicating whether SSL certificate chain validation should be done when using self-signed certificates for this backend host.
-  * validateCertificateName `boolean`: Flag indicating whether SSL certificate name validation should be done when using self-signed certificates for this backend host.
-
-### BackendUpdateParameterProperties
-* BackendUpdateParameterProperties `object`: Parameters supplied to the Update Backend operation.
-  * protocol `string` (values: http, soap): Backend communication protocol.
-  * url `string`: Runtime Url of the Backend.
-  * credentials [BackendCredentialsContract](#backendcredentialscontract)
-  * description `string`: Backend Description.
-  * properties [BackendProperties](#backendproperties)
-  * proxy [BackendProxyContract](#backendproxycontract)
-  * resourceId `string`: Management Uri of the Resource in External System. This url can be the Arm Resource Id of Logic Apps, Function Apps or Api Apps.
-  * title `string`: Backend Title.
-  * tls [BackendTlsProperties](#backendtlsproperties)
-
-### BackendUpdateParameters
-* BackendUpdateParameters `object`: Backend update parameters.
-  * properties [BackendUpdateParameterProperties](#backendupdateparameterproperties)
-
-### X509CertificateName
-* X509CertificateName `object`: Properties of server X509Names.
-  * issuerCertificateThumbprint `string`: Thumbprint for the Issuer of the Certificate.
-  * name `string`: Common Name of the Certificate.
-
-
+*This integration has no definitions*

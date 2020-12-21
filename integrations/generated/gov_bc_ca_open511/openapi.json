@@ -12,7 +12,7 @@
       "url": "http://www2.gov.bc.ca/gov/content?id=A519A56BC2BF44E4A008B33FCF527F61"
     },
     "termsOfService": "http://www2.gov.bc.ca/gov/content?id=D1EE0A405E584363B205CD4353E02C88",
-    "title": "DriveBC's Open511",
+    "title": "DriveBC's Open511 API",
     "version": "1.0.0",
     "x-apisguru-categories": [
       "open_data"
@@ -24,7 +24,7 @@
       {
         "converter": {
           "url": "https://github.com/lucybot/api-spec-converter",
-          "version": "2.6.2"
+          "version": "2.7.31"
         },
         "format": "openapi",
         "url": "https://raw.githubusercontent.com/bcgov/api-specs/master/open511/open511_OAS3.json",

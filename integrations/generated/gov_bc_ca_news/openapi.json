@@ -21,7 +21,7 @@
           "version": "2.6.2"
         },
         "format": "openapi",
-        "url": "https://raw.githubusercontent.com/bcgov/api-specs/master/news/news-oas3.json",
+        "url": "https://raw.githubusercontent.com/bcgov/api-specs/master/news/news-oas3.yaml",
         "version": "3.0"
       }
     ],
@@ -42,10 +42,13 @@
     "/api/FacebookPosts/ByUri": {
       "get": {
         "produces": [
-          "application/json"
+          "application/json",
+          "text/json",
+          "text/plain"
         ],
         "parameters": [
           {
+            "default": "",
             "description": "",
             "in": "query",
             "name": "uri",
@@ -79,7 +82,9 @@
     "/api/Home": {
       "get": {
         "produces": [
-          "application/json"
+          "application/json",
+          "text/json",
+          "text/plain"
         ],
         "parameters": [
           {
@@ -109,7 +114,9 @@
     "/api/Ministries": {
       "get": {
         "produces": [
-          "application/json"
+          "application/json",
+          "text/json",
+          "text/plain"
         ],
         "parameters": [
           {
@@ -142,7 +149,9 @@
     "/api/Ministries/{key}": {
       "get": {
         "produces": [
-          "application/json"
+          "application/json",
+          "text/json",
+          "text/plain"
         ],
         "parameters": [
           {
@@ -179,7 +188,9 @@
     "/api/Ministries/{key}/Minister": {
       "get": {
         "produces": [
-          "application/json"
+          "application/json",
+          "text/json",
+          "text/plain"
         ],
         "parameters": [
           {
@@ -216,7 +227,9 @@
     "/api/Newsletters": {
       "get": {
         "produces": [
-          "application/json"
+          "application/json",
+          "text/json",
+          "text/plain"
         ],
         "parameters": [
           {
@@ -249,7 +262,9 @@
     "/api/Newsletters/Images/{guid}": {
       "get": {
         "produces": [
-          "application/json"
+          "application/json",
+          "text/json",
+          "text/plain"
         ],
         "parameters": [
           {
@@ -286,7 +301,9 @@
     "/api/Newsletters/{newsletterKey}": {
       "get": {
         "produces": [
-          "application/json"
+          "application/json",
+          "text/json",
+          "text/plain"
         ],
         "parameters": [
           {
@@ -322,7 +339,9 @@
     "/api/Newsletters/{newsletterKey}/Editions/{editionKey}": {
       "get": {
         "produces": [
-          "application/json"
+          "application/json",
+          "text/json",
+          "text/plain"
         ],
         "parameters": [
           {
@@ -366,7 +385,9 @@
     "/api/Newsletters/{newsletterKey}/Editions/{editionKey}/Articles/{articleKey}": {
       "get": {
         "produces": [
-          "application/json"
+          "application/json",
+          "text/json",
+          "text/plain"
         ],
         "parameters": [
           {
@@ -417,12 +438,15 @@
     "/api/Posts": {
       "get": {
         "produces": [
-          "application/json"
+          "application/json",
+          "text/json",
+          "text/plain"
         ],
         "parameters": [
           {
+            "collectionFormat": "multi",
+            "default": "",
             "description": "",
-            "explode": true,
             "in": "query",
             "items": {
               "type": "string"
@@ -461,7 +485,9 @@
     "/api/Posts/Keys/{indexKind}/{indexKey}": {
       "get": {
         "produces": [
-          "application/json"
+          "application/json",
+          "text/json",
+          "text/plain"
         ],
         "parameters": [
           {
@@ -479,6 +505,7 @@
             "type": "string"
           },
           {
+            "default": "",
             "description": "One of: releases, stories, factsheets, updates or default (releases+stories+factsheets)",
             "in": "query",
             "name": "postKind",
@@ -486,6 +513,7 @@
             "type": "string"
           },
           {
+            "default": "",
             "description": "number of posts to return",
             "format": "int32",
             "in": "query",
@@ -494,6 +522,7 @@
             "type": "integer"
           },
           {
+            "default": "",
             "description": "number of posts to skip",
             "format": "int32",
             "in": "query",
@@ -531,7 +560,9 @@
     "/api/Posts/Keys/{reference}": {
       "get": {
         "produces": [
-          "application/json"
+          "application/json",
+          "text/json",
+          "text/plain"
         ],
         "parameters": [
           {
@@ -568,7 +599,9 @@
     "/api/Posts/Latest/{indexKind}/{indexKey}": {
       "get": {
         "produces": [
-          "application/json"
+          "application/json",
+          "text/json",
+          "text/plain"
         ],
         "parameters": [
           {
@@ -586,6 +619,7 @@
             "type": "string"
           },
           {
+            "default": "",
             "description": "One of: releases, stories, factsheets, updates or default (releases+stories except top/feature)",
             "in": "query",
             "name": "postKind",
@@ -593,6 +627,7 @@
             "type": "string"
           },
           {
+            "default": "",
             "description": "number of posts to return",
             "format": "int32",
             "in": "query",
@@ -601,6 +636,7 @@
             "type": "integer"
           },
           {
+            "default": "",
             "description": "number of posts to skip",
             "format": "int32",
             "in": "query",
@@ -638,7 +674,9 @@
     "/api/Posts/LatestMediaUri/{mediaType}": {
       "get": {
         "produces": [
-          "application/json"
+          "application/json",
+          "text/json",
+          "text/plain"
         ],
         "parameters": [
           {
@@ -675,7 +713,9 @@
     "/api/Posts/{key}": {
       "get": {
         "produces": [
-          "application/json"
+          "application/json",
+          "text/json",
+          "text/plain"
         ],
         "parameters": [
           {
@@ -712,7 +752,9 @@
     "/api/ResourceLinks": {
       "get": {
         "produces": [
-          "application/json"
+          "application/json",
+          "text/json",
+          "text/plain"
         ],
         "parameters": [
           {
@@ -745,7 +787,9 @@
     "/api/Sectors": {
       "get": {
         "produces": [
-          "application/json"
+          "application/json",
+          "text/json",
+          "text/plain"
         ],
         "parameters": [
           {
@@ -778,7 +822,9 @@
     "/api/Sectors/{key}": {
       "get": {
         "produces": [
-          "application/json"
+          "application/json",
+          "text/json",
+          "text/plain"
         ],
         "parameters": [
           {
@@ -815,7 +861,9 @@
     "/api/Services": {
       "get": {
         "produces": [
-          "application/json"
+          "application/json",
+          "text/json",
+          "text/plain"
         ],
         "parameters": [
           {
@@ -848,7 +896,9 @@
     "/api/Services/{key}": {
       "get": {
         "produces": [
-          "application/json"
+          "application/json",
+          "text/json",
+          "text/plain"
         ],
         "parameters": [
           {
@@ -885,7 +935,9 @@
     "/api/Slides": {
       "get": {
         "produces": [
-          "application/json"
+          "application/json",
+          "text/json",
+          "text/plain"
         ],
         "parameters": [
           {
@@ -918,7 +970,9 @@
     "/api/Slides/{id}": {
       "get": {
         "produces": [
-          "application/json"
+          "application/json",
+          "text/json",
+          "text/plain"
         ],
         "parameters": [
           {
@@ -955,7 +1009,9 @@
     "/api/Tags": {
       "get": {
         "produces": [
-          "application/json"
+          "application/json",
+          "text/json",
+          "text/plain"
         ],
         "parameters": [
           {
@@ -988,7 +1044,9 @@
     "/api/Tags/{key}": {
       "get": {
         "produces": [
-          "application/json"
+          "application/json",
+          "text/json",
+          "text/plain"
         ],
         "parameters": [
           {
@@ -1025,7 +1083,9 @@
     "/api/Themes": {
       "get": {
         "produces": [
-          "application/json"
+          "application/json",
+          "text/json",
+          "text/plain"
         ],
         "parameters": [
           {
@@ -1058,7 +1118,9 @@
     "/api/Themes/{key}": {
       "get": {
         "produces": [
-          "application/json"
+          "application/json",
+          "text/json",
+          "text/plain"
         ],
         "parameters": [
           {

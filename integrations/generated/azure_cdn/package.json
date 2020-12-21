@@ -1,6 +1,6 @@
 {
   "name": "@datafire/azure_cdn",
-  "version": "4.0.0",
+  "version": "5.0.0",
   "main": "index.js",
   "description": "DataFire integration for CdnManagementClient",
   "repository": {
@@ -14,7 +14,7 @@
   },
   "homepage": "https://github.com/DataFire/integrations#readme",
   "datafire": {
-    "origin": "https://api.apis.guru/v2/specs/azure.com/cdn/2017-04-02/swagger.json",
+    "origin": "https://api.apis.guru/v2/specs/azure.com/cdn/2019-06-15-preview/swagger.json",
     "type": "openapi"
   },
   "peerDependencies": {

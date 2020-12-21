@@ -9,7 +9,7 @@ npm install --save @datafire/urbanairship
 ```js
 let urbanairship = require('@datafire/urbanairship').create();
 
-urbanairship.apids.get({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

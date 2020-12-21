@@ -9,7 +9,7 @@ npm install --save @datafire/xkcd
 ```js
 let xkcd = require('@datafire/xkcd').create();
 
-xkcd.getLatestComic(null).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -20,13 +20,13 @@ Webcomic of romance, sarcasm, math, and language.
 
 ## Actions
 
-### getLatestComic
+### info.0.json.get
 Fetch current comic and metadata.
 
 
 
 ```js
-xkcd.getLatestComic(null, context)
+xkcd.info.0.json.get(null, context)
 ```
 
 #### Input
@@ -35,13 +35,13 @@ xkcd.getLatestComic(null, context)
 #### Output
 * output [comic](#comic)
 
-### getComic
+### comicId.info.0.json.get
 Fetch comics and metadata  by comic id.
 
 
 
 ```js
-xkcd.getComic({
+xkcd.comicId.info.0.json.get({
   "comicId": 0
 }, context)
 ```

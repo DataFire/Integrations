@@ -9,7 +9,7 @@ npm install --save @datafire/pinboard
 ```js
 let pinboard = require('@datafire/pinboard').create();
 
-pinboard.posts.all.get({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

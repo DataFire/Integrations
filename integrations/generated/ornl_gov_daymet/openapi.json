@@ -9,9 +9,9 @@
     "contact": {
       "x-twitter": "NASAEarthData"
     },
-    "description": "Welcome to the Daymet Single Pixel Tool API. You can use this API to download daily surface data within the Daymet database in a `csv` or `json` format for a single point. This API allows users to query a single geographic point by latitude and longitude in decimal degrees. A routine is executed that translates the (lon, lat) coordinates into projected Daymet (x,y) Lambert Conformal Coordinates. These coordinates are used to access the Daymet database of daily interpolated surface weather variables. Daily data from the nearest 1 km x 1 km Daymet grid cell are extracted from the database.\n\nIf you would like to learn how to automate the download of multiple locations for the Daymet Single Pixel Took, click [here](https://github.com/ornldaac/daymet-single-pixel-batch).",
-    "title": "Daymet Single Pixel Tool",
-    "version": "1.0.0",
+    "description": "Welcome to the Daymet Single Pixel Extraction Tool API. You can use this API to download daily surface data within the Daymet database in a `csv` or `json` format for a single point. This API allows users to query a single geographic point by latitude and longitude in decimal degrees. A routine is executed that translates the (lon, lat) coordinates into projected Daymet (x,y) Lambert Conformal Coordinates. These coordinates are used to access the Daymet database of daily interpolated surface weather variables. Daily data from the nearest 1 km x 1 km Daymet grid cell are extracted from the database.\n\nIf you would like to learn how to automate the download of multiple locations for the Daymet Single Pixel Extraction Tool, click [here](https://github.com/ornldaac/daymet-single-pixel-batch).",
+    "title": "Daymet Single Pixel Extraction Tool API",
+    "version": "1.0.2",
     "x-apisguru-categories": [
       "location"
     ],
@@ -64,7 +64,7 @@
             "type": "array"
           },
           {
-            "description": "Subset on years [1980..2017].",
+            "description": "Subset on years [1980..2019].",
             "in": "query",
             "items": {
               "type": "string"
@@ -88,8 +88,13 @@
           },
           {
             "description": "Specify a format for data retrieval.",
+            "enum": [
+              "csv",
+              "json"
+            ],
             "in": "query",
             "name": "format",
+            "required": true,
             "type": "string"
           }
         ],
@@ -139,7 +144,7 @@
             "type": "array"
           },
           {
-            "description": "Subset on years [1980..2016].",
+            "description": "Subset on years [1980..2019].",
             "in": "query",
             "items": {
               "type": "string"
@@ -163,8 +168,13 @@
           },
           {
             "description": "Specify a format for data retrieval.",
+            "enum": [
+              "csv",
+              "json"
+            ],
             "in": "query",
             "name": "format",
+            "required": true,
             "type": "string"
           }
         ],
@@ -213,7 +223,7 @@
             "type": "array"
           },
           {
-            "description": "Subset on years [1980..2016].",
+            "description": "Subset on years [1980..2019].",
             "in": "query",
             "items": {
               "type": "string"
@@ -237,8 +247,13 @@
           },
           {
             "description": "Specify a format for data retrieval.",
+            "enum": [
+              "csv",
+              "json"
+            ],
             "in": "query",
             "name": "format",
+            "required": true,
             "type": "string"
           }
         ],
@@ -288,7 +303,7 @@
             "type": "array"
           },
           {
-            "description": "Subset on years [1980..2016].",
+            "description": "Subset on years [1980..2019].",
             "in": "query",
             "items": {
               "type": "string"
@@ -312,8 +327,13 @@
           },
           {
             "description": "Specify a format for data retrieval.",
+            "enum": [
+              "csv",
+              "json"
+            ],
             "in": "query",
             "name": "format",
+            "required": true,
             "type": "string"
           }
         ],

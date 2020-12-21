@@ -9,7 +9,7 @@ npm install --save @datafire/docker_engine
 ```js
 let docker_engine = require('@datafire/docker_engine').create();
 
-docker_engine.VolumePrune({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

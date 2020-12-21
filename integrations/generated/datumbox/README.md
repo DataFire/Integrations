@@ -1,19 +1,15 @@
 # @datafire/datumbox
 
-Client library for DatumBox
+Client library for api.datumbox.com
 
 ## Installation and Usage
 ```bash
 npm install --save @datafire/datumbox
 ```
 ```js
-let datumbox = require('@datafire/datumbox').create({
-  apiKey: ""
-});
+let datumbox = require('@datafire/datumbox').create();
 
-datumbox.AdultContentDetection({
-  "text": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -30,13 +26,14 @@ The Adult Content Detection function classifies the documents as adult or noadul
 
 ```js
 datumbox.AdultContentDetection({
-  "text": ""
+  "api_key": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * text **required** `string`: The text that you want to analyze. It should not contain HTML tags.
+  * api_key **required** `string`: Your API Key
+  * text `string`: The text that you want to analyze. It should not contain HTML tags.
 
 #### Output
 *Output schema unknown*
@@ -47,13 +44,14 @@ The Commercial Detection function labels the documents as commercial or non-comm
 
 ```js
 datumbox.CommercialDetection({
-  "text": ""
+  "api_key": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * text **required** `string`: The text that you want to analyze. It should not contain HTML tags.
+  * api_key **required** `string`: Your API Key
+  * text `string`: The text that you want to analyze. It should not contain HTML tags.
 
 #### Output
 *Output schema unknown*
@@ -64,15 +62,15 @@ The Document Similarity function estimates the degree of similarity between two 
 
 ```js
 datumbox.DocumentSimilarity({
-  "original": "",
-  "copy": ""
+  "api_key": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * original **required** `string`: The first text. It should not contain HTML tags.
-  * copy **required** `string`: The second text. It should not contain HTML tags.
+  * api_key **required** `string`: Your API Key
+  * copy `string`: The second text. It should not contain HTML tags.
+  * original `string`: The first text. It should not contain HTML tags.
 
 #### Output
 *Output schema unknown*
@@ -83,13 +81,14 @@ The Educational Detection function classifies the documents as educational or no
 
 ```js
 datumbox.EducationalDetection({
-  "text": ""
+  "api_key": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * text **required** `string`: The text that you want to analyze. It should not contain HTML tags.
+  * api_key **required** `string`: Your API Key
+  * text `string`: The text that you want to analyze. It should not contain HTML tags.
 
 #### Output
 *Output schema unknown*
@@ -100,13 +99,14 @@ The Gender Detection function identifies if a particular document is written-by 
 
 ```js
 datumbox.GenderDetection({
-  "text": ""
+  "api_key": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * text **required** `string`: The text that you want to analyze. It should not contain HTML tags.
+  * api_key **required** `string`: Your API Key
+  * text `string`: The text that you want to analyze. It should not contain HTML tags.
 
 #### Output
 *Output schema unknown*
@@ -117,15 +117,15 @@ The Keyword Extraction function enables you to extract from an arbitrary documen
 
 ```js
 datumbox.KeywordExtraction({
-  "n": 0,
-  "text": ""
+  "api_key": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * n **required** `integer`: The number of keyword combinations (n-grams) that you wish to extract.
-  * text **required** `string`: The text that you want to analyze. It should not contain HTML tags.
+  * api_key **required** `string`: Your API Key
+  * n `integer`: The number of keyword combinations (n-grams) that you wish to extract.
+  * text `string`: The text that you want to analyze. It should not contain HTML tags.
 
 #### Output
 *Output schema unknown*
@@ -136,13 +136,14 @@ The Language Detection function identifies the natural language of the given doc
 
 ```js
 datumbox.LanguageDetection({
-  "text": ""
+  "api_key": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * text **required** `string`: The text that you want to analyze. It should not contain HTML tags.
+  * api_key **required** `string`: Your API Key
+  * text `string`: The text that you want to analyze. It should not contain HTML tags.
 
 #### Output
 *Output schema unknown*
@@ -153,13 +154,14 @@ The Readability Assessment function determines the degree of readability of a do
 
 ```js
 datumbox.ReadabilityAssessment({
-  "text": ""
+  "api_key": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * text **required** `string`: The text that you want to analyze. It should not contain HTML tags.
+  * api_key **required** `string`: Your API Key
+  * text `string`: The text that you want to analyze. It should not contain HTML tags.
 
 #### Output
 *Output schema unknown*
@@ -170,13 +172,14 @@ The Sentiment Analysis function classifies documents as positive, negative or ne
 
 ```js
 datumbox.SentimentAnalysis({
-  "text": ""
+  "api_key": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * text **required** `string`: The text that you want to analyze. It should not contain HTML tags.
+  * api_key **required** `string`: Your API Key
+  * text `string`: The text that you want to analyze. It should not contain HTML tags.
 
 #### Output
 *Output schema unknown*
@@ -187,13 +190,14 @@ The Spam Detection function labels documents as spam or nospam by taking into ac
 
 ```js
 datumbox.SpamDetection({
-  "text": ""
+  "api_key": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * text **required** `string`: The text that you want to analyze. It should not contain HTML tags.
+  * api_key **required** `string`: Your API Key
+  * text `string`: The text that you want to analyze. It should not contain HTML tags.
 
 #### Output
 *Output schema unknown*
@@ -204,13 +208,14 @@ The Subjectivity Analysis function categorizes documents as subjective or object
 
 ```js
 datumbox.SubjectivityAnalysis({
-  "text": ""
+  "api_key": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * text **required** `string`: The text that you want to analyze. It should not contain HTML tags.
+  * api_key **required** `string`: Your API Key
+  * text `string`: The text that you want to analyze. It should not contain HTML tags.
 
 #### Output
 *Output schema unknown*
@@ -221,13 +226,14 @@ The Text Extraction function enables you to extract the important information fr
 
 ```js
 datumbox.TextExtraction({
-  "text": ""
+  "api_key": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * text **required** `string`: The HTML source of the webpage.
+  * api_key **required** `string`: Your API Key
+  * text `string`: The HTML source of the webpage.
 
 #### Output
 *Output schema unknown*
@@ -238,13 +244,14 @@ The Topic Classification function assigns documents in 12 thematic categories ba
 
 ```js
 datumbox.TopicClassification({
-  "text": ""
+  "api_key": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * text **required** `string`: The text that you want to analyze. It should not contain HTML tags.
+  * api_key **required** `string`: Your API Key
+  * text `string`: The text that you want to analyze. It should not contain HTML tags.
 
 #### Output
 *Output schema unknown*
@@ -255,13 +262,14 @@ The Twitter Sentiment Analysis function allows you to perform Sentiment Analysis
 
 ```js
 datumbox.TwitterSentimentAnalysis({
-  "text": ""
+  "api_key": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * text **required** `string`: The text of the tweet that we evaluate.
+  * api_key **required** `string`: Your API Key
+  * text `string`: The text of the tweet that we evaluate.
 
 #### Output
 *Output schema unknown*

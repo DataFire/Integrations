@@ -1,6 +1,6 @@
 # @datafire/lufthansa_partner
 
-Client library for LH Partner
+Client library for LH Partner API
 
 ## Installation and Usage
 ```bash
@@ -15,10 +15,7 @@ let lufthansa_partner = require('@datafire/lufthansa_partner').create({
   redirect_uri: ""
 });
 
-lufthansa_partner.baggage.baggagetripandcontact.searchID.get({
-  "searchID": "",
-  "Accept": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

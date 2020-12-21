@@ -14,8 +14,8 @@
   },
   "homepage": "https://github.com/DataFire/integrations#readme",
   "datafire": {
-    "origin": "https://api.apis.guru/v2/specs/amazonaws.com/cloud9/2017-09-23/swagger.json",
-    "type": "openapi"
+    "origin": "https://api.apis.guru/v2/specs/amazonaws.com/cloud9/2017-09-23/openapi.json",
+    "type": "openapi_3"
   },
   "peerDependencies": {
     "datafire": "^2.0.0"

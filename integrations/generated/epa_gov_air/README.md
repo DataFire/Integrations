@@ -9,31 +9,30 @@ npm install --save @datafire/epa_gov_air
 ```js
 let epa_gov_air = require('@datafire/epa_gov_air').create();
 
-epa_gov_air.air_rest_services.metadata.post({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
 
 ## Description
 
-Enforcement and Compliance History Online (ECHO) is a tool developed and maintained by EPA's Office of Enforcement and Compliance Assurance for public use. ECHO provides integrated compliance and enforcement information for about 800,000 regulated facilities nationwide.
-<BR><BR>Air Rest Services provides multiple service endpoints, each with specific capabilities, to search and retrieve data on facilities regulated under the Clean Air Act (CAA). The returned results reflect data drawn from EPA's ICIS-Air database.
-<BR><BR>
+Enforcement and Compliance History Online (ECHO) is a tool developed and maintained by EPA's Office of Enforcement and Compliance Assurance for public use. ECHO provides integrated compliance and enforcement information for over 1 million regulated facilities nationwide.
+
+Air Rest Services provides multiple service endpoints, each with specific capabilities, to search and retrieve data on facilities regulated under the Clean Air Act (CAA). The returned results reflect data drawn from EPA's ICIS-Air database.
+
 The get_facilities, get_map, get_qid, and get_download end points are meant to be used together, while the enhanced get_facility_info end point is self contained.
-  The get_facility_info end point returns either an array of state, county or zip clusters with summary statistics per cluster or an array of facilities.
-<BR><BR>
+The get_facility_info end point returns either an array of state, county or zip clusters with summary statistics per cluster or an array of facilities.
+
 The recommended use scenario for get_facilities, get_qid, get_map, and get_downoad is:
-<br>
-<br><b>1)</b>  Use get_facilities to validate passed query parameters, obtain summary statistics and to obtain a query_id (QID).  QIDs are time sensitive and will be valid for approximately 30 minutes.
-<br><b>2)</b>  Use get_qid, with the returned QID, to paginate through arrays of facility results.
-<br><b>3)</b>  Use get_map, with the returned QID, to zoom in/out and pan on the clustered and individual facility coordinates that meet the QID query criteria.
-<br><b>4)</b>  Use get_download, with the returned QID, to generate a Comma Separated Value (CSV) file of facility information that meets the QID query criteria.
-<br>
-<br>
-Use the qcolumns parameter to customize your search results.  Use the Metdata service endpoint for a list of available output objects, their Column Ids, and their definitions to help you build your customized output. 
-<br><br>
+
+<b>1)</b>  Use get_facilities to validate passed query parameters, obtain summary statistics and to obtain a query_id (QID).  QIDs are time sensitive and will be valid for approximately 30 minutes.
+<b>2)</b>  Use get_qid, with the returned QID, to paginate through arrays of facility results.
+<b>3)</b>  Use get_map, with the returned QID, to zoom in/out and pan on the clustered and individual facility coordinates that meet the QID query criteria.
+<b>4)</b>  Use get_download, with the returned QID, to generate a Comma Separated Value (CSV) file of facility information that meets the QID query criteria.
+
+Use the qcolumns parameter to customize your search results.  Use the Metadata service endpoint for a list of available output objects, their Column Ids, and their definitions to help you build your customized output. 
+
 Additional ECHO Resources:   <a href="https://echo.epa.gov/tools/web-services">Web Services</a>, <a href="https://echo.epa.gov/resources/echo-data/about-the-data">About ECHO's Data</a>, <a href="https://echo.epa.gov/tools/data-downloads">Data Downloads</a>
-<br>
 
 ## Actions
 
@@ -51,7 +50,7 @@ epa_gov_air.air_rest_services.get_download.get({
 * input `object`
   * output `string`: Output Format Flag.  Enter one of the following keywords:
   * qid **required** `string`: Query ID Selector.  Enter the QueryID number from a previously run query.
-  * qcolumns `string`: Used to cutomize service output.  A list of comma-separated column IDs of output objects that will be returned in the service query object or download.  Use the metadata service endpoint for a complete list of Ids and definitions.
+  * qcolumns `string`: Used to customize service output.  A list of comma-separated column IDs of output objects that will be returned in the service query object or download.  Use the metadata service endpoint for a complete list of Ids and definitions.
   * p_pretty_print `number`: Optional flag to request GeoJSON formatted results to be pretty printed.  Only provide a numeric value when the output needs to be human readable as pretty printing has a performance cost.
 
 #### Output
@@ -71,7 +70,7 @@ epa_gov_air.air_rest_services.get_download.post({
 * input `object`
   * output `string`: Output Format Flag.  Enter one of the following keywords:
   * qid **required** `string`: Query ID Selector.  Enter the QueryID number from a previously run query.
-  * qcolumns `string`: Used to cutomize service output.  A list of comma-separated column IDs of output objects that will be returned in the service query object or download.  Use the metadata service endpoint for a complete list of Ids and definitions.
+  * qcolumns `string`: Used to customize service output.  A list of comma-separated column IDs of output objects that will be returned in the service query object or download.  Use the metadata service endpoint for a complete list of Ids and definitions.
   * p_pretty_print `number`: Optional flag to request GeoJSON formatted results to be pretty printed.  Only provide a numeric value when the output needs to be human readable as pretty printing has a performance cost.
 
 #### Output
@@ -115,6 +114,8 @@ epa_gov_air.air_rest_services.get_facilities.get({}, context)
   * p_act `string` (values: Y, N, A): Active Permits/Facilities Flag.  Provide Y or N to filter results to facilities with active permits.
   * p_maj `string` (values: Y, N): Major Facility Flag.  Enter Y to restrict results to Major facilities only.
   * p_mact `string`: CAA Maximum Achievable Control Technology (MACT) Subpart codes (alpha ID between 1 and 7 characters) applicable to the facility.
+  * p_nsps `string`: Air Programl New Source Performance Standards (NSPS)  Subpart Code Search.  One or more valid Air Program NSPS Program codes cand be passed.  
+  * p_nspsm `string`: Air Programl New Source Performance Standards Minors (NSPSM) Subpart Code Search.  One or more valid Air Program NSPSM Subpart codes can be passed.  
   * p_prog `string`: Air Program Code Filter.  Enter one or more Air program codes to filter results.  Provide multiple values as a comma-delimited list.
   * p_fea `string` (values: W, N): Formal Enforcement Actions [within / not within] specified date range indicator. The date range is determined by parameters p_fead1 and p_fead2 or by parameter p_feay.
   * p_feay `number` (values: 1, 2, 3, 4, 5): Years (1 to 5) Range.  This value is used to create a date range for Formal Enforcement Actions (FEA). Used along with p_fea (which indicates whether to look within or outside of the date range) to find FEAs within (or not within) the number of years specified.
@@ -125,7 +126,7 @@ epa_gov_air.air_rest_services.get_facilities.get({}, context)
   * p_qiv `string` (values: 0, GT1, GT2, GT4, GT8, 12): Quarters in Noncompliance Limiter.  Enter a coded value to limit results to facilities with given quarter of noncompliance.
   * p_naa `string`: Non-Attainment Area Flag.  Enter a Y or N to filter for or against facilities flagged as non-attainment areas.
   * p_impw `string` (values: Y, N): Discharging into Impaired Waters Flag. Enter Y to limit results to facilities with discharge to waterbodies listed as impaired in the ATTAINS database.
-  * p_trep `string` (values: NONE, CURR, NOTCURR): Current Toxics Release Inventory (TRI) Reporter Limiter.  Enter one of the following codes to limit results.
+  * p_trep `string` (values: CURR, NOTCURR): Current Toxics Release Inventory (TRI) Reporter Limiter.  Enter one of the following codes to limit results.
   * p_tri_cat `string` (values: TOTAL, CARC, HAP): Toxic Release Inventory Released To Air Chemical Identifier Category Filter.  Enter the chemical identifier category code to limit results. Note when filtering by TRI chemical identifier categories one may not also filter by specific chemical identifiers via p_tri_pol.  You must also specify a release amount using p_tri_amt or p_tri_any_amt.
   * p_tri_amt `string` (values: 0, GT0, GT1000, GT5000, GT10000, GT50000): Toxic Release Inventory Release Amount Filter.  Enter a value in pounds to limit results to facilities releasing this amount or greateer of TRI releases.  Valid values are 0, GT0, GT1000, GT5000, GT10000 and GT50000. Note when filtering by TRI release amounts one may only use either p_tri_amt or p_tri_any_amt.
   * p_tri_any_amt `number`: Toxic Release Inventory Release Of Any Kind Above Value Filter.  Enter a value to limit results to facilities releasing this amount or more of TRI releases.  Note when filtering by TRI releases one may only use p_tri_any_amt or p_tri_amt and not both.
@@ -142,8 +143,8 @@ epa_gov_air.air_rest_services.get_facilities.get({}, context)
   * p_pm `string` (values: NONE, GT5, GT10, GT25, GT50, GT75): Percent Minority Population Limiter.  Enter a value to restrict results to facilities with a given percentage of minority population within 3-mile radius.
   * p_pd `string` (values: NONE, GT100, GT500, GT1000, GT5000, GT10000, GT20000): Population Density Limiter (per sq mile). Enter a value to limit results to facilities located in area of a given population density.
   * p_ico `string` (values: Y, N): Indian Country Flag.  Enter a "Y" or "N" to restrict searches to facilities inside or outside Indian Country.
-  * p_huc `string`: 2-, 4-, 6-, or 8-character watershed. May contain multiple comma-separated values.
-  * p_wbd `string`: 2-, 4-, 6-, or 8-character watershed (WBD from the USGS Watershed Boundary Dataset). May contain multiple comma-separated values.
+  * p_huc `string`: 2-, 4-, 6-, or 8-character watershed code. May contain multiple comma-separated values.
+  * p_wbd `string`: 2-, 4-, 6-, 8-, 10-, or 12-character watershed (WBD from the USGS Watershed Boundary Dataset). May contain multiple comma-separated values.  Uses the FRS Best Pick Coordinate to obtain the WBD12 Huc value.
   * p_pid `string`: Nine-digit permit IDs. May contain up to 2000 comma-separated values.
   * p_med `string` (values: M, R, S, W, ALL): Filter Results by Media.
   * p_ysl `string` (values: W, N, NV): Last Facility Inspection [within / not within] Specified Date Range Indicator. The date range is determined by parameters p_idt1 and p_idt2 or by parameter p_ysly.
@@ -190,18 +191,18 @@ epa_gov_air.air_rest_services.get_facilities.get({}, context)
   * p_long `number`: Longitude location in decimal degrees.
   * p_radius `number`: Spatial Search Radius.  Enter a radius up to 100 miles in which to spatially search for facilities.
   * p_decouple `string` (values: Y, N): Decouple Inspection Code Search Flag.  Enter "Y" to search for inspection code types with p_pityp without respect to the date range search provided with p_ysl* parameters.
-  * p_ejscreen_over80cnt `string`
+  * p_ejscreen_over80cnt `string` (values: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11): The number of Environmenmt Justice Indicators above the 80th percentile.  Valid values are 1 through 11.
   * queryset `number`: Query Limiter.  Enter a value to limit the number of records returned for each query. Value cannot exceed 70,000.
   * responseset `number`: Response Set Limiter. Enter a value to limit the number of records per page. Value cannot exceed 1,000.
   * tablelist `string` (values: Y, N): Table List Flag. Enter a Y to display the first page of facility results.
   * maplist `string` (values: Y, N): Map List Flag.  Provide a Y to return mappable coordinates representing the full geographic extent of the queryset (all facilities that met the selection criteria).
   * summarylist `string` (values: Y, N): Summary List Flag.  Enter a Y to return a list of summary statistics based on the parameters submitted to the query service.
   * callback `string`: JSONP Callback.  For use with JSONP and GEOJSONP output only.  Enter a name of the function in which to wrap the JSON response.
-  * qcolumns `string`: Used to cutomize service output.  A list of comma-separated column IDs of output objects that will be returned in the service query object or download.  Use the metadata service endpoint for a complete list of Ids and definitions.
+  * qcolumns `string`: Used to customize service output.  A list of comma-separated column IDs of output objects that will be returned in the service query object or download.  Use the metadata service endpoint for a complete list of Ids and definitions.
 
 #### Output
 * output `object`: Root Object
-  * Results **required** [air2_Results](#air2_results)
+  * Results **required** [air05](#air05)
 
 ### air_rest_services.get_facilities.post
 Validates query search parameters and returns query identifier.  Use the responseset parameter to set the page size
@@ -241,6 +242,8 @@ epa_gov_air.air_rest_services.get_facilities.post({}, context)
   * p_act `string` (values: Y, N, A): Active Permits/Facilities Flag.  Provide Y or N to filter results to facilities with active permits.
   * p_maj `string` (values: Y, N): Major Facility Flag.  Enter Y to restrict results to Major facilities only.
   * p_mact `string`: CAA Maximum Achievable Control Technology (MACT) Subpart codes (alpha ID between 1 and 7 characters) applicable to the facility.
+  * p_nsps `string`: Air Programl New Source Performance Standards (NSPS)  Subpart Code Search.  One or more valid Air Program NSPS Program codes cand be passed.  
+  * p_nspsm `string`: Air Programl New Source Performance Standards Minors (NSPSM) Subpart Code Search.  One or more valid Air Program NSPSM Subpart codes can be passed.  
   * p_prog `string`: Air Program Code Filter.  Enter one or more Air program codes to filter results.  Provide multiple values as a comma-delimited list.
   * p_fea `string` (values: W, N): Formal Enforcement Actions [within / not within] specified date range indicator. The date range is determined by parameters p_fead1 and p_fead2 or by parameter p_feay.
   * p_feay `number` (values: 1, 2, 3, 4, 5): Years (1 to 5) Range.  This value is used to create a date range for Formal Enforcement Actions (FEA). Used along with p_fea (which indicates whether to look within or outside of the date range) to find FEAs within (or not within) the number of years specified.
@@ -251,7 +254,7 @@ epa_gov_air.air_rest_services.get_facilities.post({}, context)
   * p_qiv `string` (values: 0, GT1, GT2, GT4, GT8, 12): Quarters in Noncompliance Limiter.  Enter a coded value to limit results to facilities with given quarter of noncompliance.
   * p_naa `string`: Non-Attainment Area Flag.  Enter a Y or N to filter for or against facilities flagged as non-attainment areas.
   * p_impw `string` (values: Y, N): Discharging into Impaired Waters Flag. Enter Y to limit results to facilities with discharge to waterbodies listed as impaired in the ATTAINS database.
-  * p_trep `string` (values: NONE, CURR, NOTCURR): Current Toxics Release Inventory (TRI) Reporter Limiter.  Enter one of the following codes to limit results.
+  * p_trep `string` (values: CURR, NOTCURR): Current Toxics Release Inventory (TRI) Reporter Limiter.  Enter one of the following codes to limit results.
   * p_tri_cat `string` (values: TOTAL, CARC, HAP): Toxic Release Inventory Released To Air Chemical Identifier Category Filter.  Enter the chemical identifier category code to limit results. Note when filtering by TRI chemical identifier categories one may not also filter by specific chemical identifiers via p_tri_pol.  You must also specify a release amount using p_tri_amt or p_tri_any_amt.
   * p_tri_amt `string` (values: 0, GT0, GT1000, GT5000, GT10000, GT50000): Toxic Release Inventory Release Amount Filter.  Enter a value in pounds to limit results to facilities releasing this amount or greateer of TRI releases.  Valid values are 0, GT0, GT1000, GT5000, GT10000 and GT50000. Note when filtering by TRI release amounts one may only use either p_tri_amt or p_tri_any_amt.
   * p_tri_any_amt `number`: Toxic Release Inventory Release Of Any Kind Above Value Filter.  Enter a value to limit results to facilities releasing this amount or more of TRI releases.  Note when filtering by TRI releases one may only use p_tri_any_amt or p_tri_amt and not both.
@@ -268,8 +271,8 @@ epa_gov_air.air_rest_services.get_facilities.post({}, context)
   * p_pm `string` (values: NONE, GT5, GT10, GT25, GT50, GT75): Percent Minority Population Limiter.  Enter a value to restrict results to facilities with a given percentage of minority population within 3-mile radius.
   * p_pd `string` (values: NONE, GT100, GT500, GT1000, GT5000, GT10000, GT20000): Population Density Limiter (per sq mile). Enter a value to limit results to facilities located in area of a given population density.
   * p_ico `string` (values: Y, N): Indian Country Flag.  Enter a "Y" or "N" to restrict searches to facilities inside or outside Indian Country.
-  * p_huc `string`: 2-, 4-, 6-, or 8-character watershed. May contain multiple comma-separated values.
-  * p_wbd `string`: 2-, 4-, 6-, or 8-character watershed (WBD from the USGS Watershed Boundary Dataset). May contain multiple comma-separated values.
+  * p_huc `string`: 2-, 4-, 6-, or 8-character watershed code. May contain multiple comma-separated values.
+  * p_wbd `string`: 2-, 4-, 6-, 8-, 10-, or 12-character watershed (WBD from the USGS Watershed Boundary Dataset). May contain multiple comma-separated values.  Uses the FRS Best Pick Coordinate to obtain the WBD12 Huc value.
   * p_pid `string`: Nine-digit permit IDs. May contain up to 2000 comma-separated values.
   * p_med `string` (values: M, R, S, W, ALL): Filter Results by Media.
   * p_ysl `string` (values: W, N, NV): Last Facility Inspection [within / not within] Specified Date Range Indicator. The date range is determined by parameters p_idt1 and p_idt2 or by parameter p_ysly.
@@ -316,18 +319,18 @@ epa_gov_air.air_rest_services.get_facilities.post({}, context)
   * p_long `number`: Longitude location in decimal degrees.
   * p_radius `number`: Spatial Search Radius.  Enter a radius up to 100 miles in which to spatially search for facilities.
   * p_decouple `string` (values: Y, N): Decouple Inspection Code Search Flag.  Enter "Y" to search for inspection code types with p_pityp without respect to the date range search provided with p_ysl* parameters.
-  * p_ejscreen_over80cnt `string`
+  * p_ejscreen_over80cnt `string` (values: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11): The number of Environmenmt Justice Indicators above the 80th percentile.  Valid values are 1 through 11.
   * queryset `number`: Query Limiter.  Enter a value to limit the number of records returned for each query. Value cannot exceed 70,000.
   * responseset `number`: Response Set Limiter. Enter a value to limit the number of records per page. Value cannot exceed 1,000.
   * tablelist `string` (values: Y, N): Table List Flag. Enter a Y to display the first page of facility results.
   * maplist `string` (values: Y, N): Map List Flag.  Provide a Y to return mappable coordinates representing the full geographic extent of the queryset (all facilities that met the selection criteria).
   * summarylist `string` (values: Y, N): Summary List Flag.  Enter a Y to return a list of summary statistics based on the parameters submitted to the query service.
   * callback `string`: JSONP Callback.  For use with JSONP and GEOJSONP output only.  Enter a name of the function in which to wrap the JSON response.
-  * qcolumns `string`: Used to cutomize service output.  A list of comma-separated column IDs of output objects that will be returned in the service query object or download.  Use the metadata service endpoint for a complete list of Ids and definitions.
+  * qcolumns `string`: Used to customize service output.  A list of comma-separated column IDs of output objects that will be returned in the service query object or download.  Use the metadata service endpoint for a complete list of Ids and definitions.
 
 #### Output
 * output `object`: Root Object
-  * Results **required** [air2_Results](#air2_results)
+  * Results **required** [air05](#air05)
 
 ### air_rest_services.get_facility_info.get
 Returns either an array of Facilities or an array of Clusters that meet the specified search criteria.
@@ -367,6 +370,8 @@ epa_gov_air.air_rest_services.get_facility_info.get({}, context)
   * p_act `string` (values: Y, N, A): Active Permits/Facilities Flag.  Provide Y or N to filter results to facilities with active permits.
   * p_maj `string` (values: Y, N): Major Facility Flag.  Enter Y to restrict results to Major facilities only.
   * p_mact `string`: CAA Maximum Achievable Control Technology (MACT) Subpart codes (alpha ID between 1 and 7 characters) applicable to the facility.
+  * p_nsps `string`: Air Programl New Source Performance Standards (NSPS)  Subpart Code Search.  One or more valid Air Program NSPS Program codes cand be passed.  
+  * p_nspsm `string`: Air Programl New Source Performance Standards Minors (NSPSM) Subpart Code Search.  One or more valid Air Program NSPSM Subpart codes can be passed.  
   * p_prog `string`: Air Program Code Filter.  Enter one or more Air program codes to filter results.  Provide multiple values as a comma-delimited list.
   * p_fea `string` (values: W, N): Formal Enforcement Actions [within / not within] specified date range indicator. The date range is determined by parameters p_fead1 and p_fead2 or by parameter p_feay.
   * p_feay `number` (values: 1, 2, 3, 4, 5): Years (1 to 5) Range.  This value is used to create a date range for Formal Enforcement Actions (FEA). Used along with p_fea (which indicates whether to look within or outside of the date range) to find FEAs within (or not within) the number of years specified.
@@ -377,7 +382,7 @@ epa_gov_air.air_rest_services.get_facility_info.get({}, context)
   * p_qiv `string` (values: 0, GT1, GT2, GT4, GT8, 12): Quarters in Noncompliance Limiter.  Enter a coded value to limit results to facilities with given quarter of noncompliance.
   * p_naa `string`: Non-Attainment Area Flag.  Enter a Y or N to filter for or against facilities flagged as non-attainment areas.
   * p_impw `string` (values: Y, N): Discharging into Impaired Waters Flag. Enter Y to limit results to facilities with discharge to waterbodies listed as impaired in the ATTAINS database.
-  * p_trep `string` (values: NONE, CURR, NOTCURR): Current Toxics Release Inventory (TRI) Reporter Limiter.  Enter one of the following codes to limit results.
+  * p_trep `string` (values: CURR, NOTCURR): Current Toxics Release Inventory (TRI) Reporter Limiter.  Enter one of the following codes to limit results.
   * p_tri_cat `string` (values: TOTAL, CARC, HAP): Toxic Release Inventory Released To Air Chemical Identifier Category Filter.  Enter the chemical identifier category code to limit results. Note when filtering by TRI chemical identifier categories one may not also filter by specific chemical identifiers via p_tri_pol.  You must also specify a release amount using p_tri_amt or p_tri_any_amt.
   * p_tri_amt `string` (values: 0, GT0, GT1000, GT5000, GT10000, GT50000): Toxic Release Inventory Release Amount Filter.  Enter a value in pounds to limit results to facilities releasing this amount or greateer of TRI releases.  Valid values are 0, GT0, GT1000, GT5000, GT10000 and GT50000. Note when filtering by TRI release amounts one may only use either p_tri_amt or p_tri_any_amt.
   * p_tri_any_amt `number`: Toxic Release Inventory Release Of Any Kind Above Value Filter.  Enter a value to limit results to facilities releasing this amount or more of TRI releases.  Note when filtering by TRI releases one may only use p_tri_any_amt or p_tri_amt and not both.
@@ -394,8 +399,8 @@ epa_gov_air.air_rest_services.get_facility_info.get({}, context)
   * p_pm `string` (values: NONE, GT5, GT10, GT25, GT50, GT75): Percent Minority Population Limiter.  Enter a value to restrict results to facilities with a given percentage of minority population within 3-mile radius.
   * p_pd `string` (values: NONE, GT100, GT500, GT1000, GT5000, GT10000, GT20000): Population Density Limiter (per sq mile). Enter a value to limit results to facilities located in area of a given population density.
   * p_ico `string` (values: Y, N): Indian Country Flag.  Enter a "Y" or "N" to restrict searches to facilities inside or outside Indian Country.
-  * p_huc `string`: 2-, 4-, 6-, or 8-character watershed. May contain multiple comma-separated values.
-  * p_wbd `string`: 2-, 4-, 6-, or 8-character watershed (WBD from the USGS Watershed Boundary Dataset). May contain multiple comma-separated values.
+  * p_huc `string`: 2-, 4-, 6-, or 8-character watershed code. May contain multiple comma-separated values.
+  * p_wbd `string`: 2-, 4-, 6-, 8-, 10-, or 12-character watershed (WBD from the USGS Watershed Boundary Dataset). May contain multiple comma-separated values.  Uses the FRS Best Pick Coordinate to obtain the WBD12 Huc value.
   * p_pid `string`: Nine-digit permit IDs. May contain up to 2000 comma-separated values.
   * p_med `string` (values: M, R, S, W, ALL): Filter Results by Media.
   * p_ysl `string` (values: W, N, NV): Last Facility Inspection [within / not within] Specified Date Range Indicator. The date range is determined by parameters p_idt1 and p_idt2 or by parameter p_ysly.
@@ -442,17 +447,17 @@ epa_gov_air.air_rest_services.get_facility_info.get({}, context)
   * p_long `number`: Longitude location in decimal degrees.
   * p_radius `number`: Spatial Search Radius.  Enter a radius up to 100 miles in which to spatially search for facilities.
   * p_decouple `string` (values: Y, N): Decouple Inspection Code Search Flag.  Enter "Y" to search for inspection code types with p_pityp without respect to the date range search provided with p_ysl* parameters.
-  * p_ejscreen_over80cnt `string`
+  * p_ejscreen_over80cnt `string` (values: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11): The number of Environmenmt Justice Indicators above the 80th percentile.  Valid values are 1 through 11.
   * queryset `number`: Query Limiter.  Enter a value to limit the number of records returned for each query. Value cannot exceed 70,000.
   * responseset `number`: Response Set Limiter. Enter a value to limit the number of records per page. Value cannot exceed 1,000.
   * summarylist `string` (values: Y, N): Summary List Flag.  Enter a Y to return a list of summary statistics based on the parameters submitted to the query service.
   * callback `string`: JSONP Callback.  For use with JSONP and GEOJSONP output only.  Enter a name of the function in which to wrap the JSON response.
-  * qcolumns `string`: Used to cutomize service output.  A list of comma-separated column IDs of output objects that will be returned in the service query object or download.  Use the metadata service endpoint for a complete list of Ids and definitions.
+  * qcolumns `string`: Used to customize service output.  A list of comma-separated column IDs of output objects that will be returned in the service query object or download.  Use the metadata service endpoint for a complete list of Ids and definitions.
   * p_pretty_print `number`: Optional flag to request GeoJSON formatted results to be pretty printed.  Only provide a numeric value when the output needs to be human readable as pretty printing has a performance cost.
 
 #### Output
 * output `object`: Root Object
-  * Results **required** [air3_Results](#air3_results)
+  * Results **required** [air08](#air08)
 
 ### air_rest_services.get_facility_info.post
 Returns either an array of Facilities or an array of Clusters that meet the specified search criteria.
@@ -492,6 +497,8 @@ epa_gov_air.air_rest_services.get_facility_info.post({}, context)
   * p_act `string` (values: Y, N, A): Active Permits/Facilities Flag.  Provide Y or N to filter results to facilities with active permits.
   * p_maj `string` (values: Y, N): Major Facility Flag.  Enter Y to restrict results to Major facilities only.
   * p_mact `string`: CAA Maximum Achievable Control Technology (MACT) Subpart codes (alpha ID between 1 and 7 characters) applicable to the facility.
+  * p_nsps `string`: Air Programl New Source Performance Standards (NSPS)  Subpart Code Search.  One or more valid Air Program NSPS Program codes cand be passed.  
+  * p_nspsm `string`: Air Programl New Source Performance Standards Minors (NSPSM) Subpart Code Search.  One or more valid Air Program NSPSM Subpart codes can be passed.  
   * p_prog `string`: Air Program Code Filter.  Enter one or more Air program codes to filter results.  Provide multiple values as a comma-delimited list.
   * p_fea `string` (values: W, N): Formal Enforcement Actions [within / not within] specified date range indicator. The date range is determined by parameters p_fead1 and p_fead2 or by parameter p_feay.
   * p_feay `number` (values: 1, 2, 3, 4, 5): Years (1 to 5) Range.  This value is used to create a date range for Formal Enforcement Actions (FEA). Used along with p_fea (which indicates whether to look within or outside of the date range) to find FEAs within (or not within) the number of years specified.
@@ -502,7 +509,7 @@ epa_gov_air.air_rest_services.get_facility_info.post({}, context)
   * p_qiv `string` (values: 0, GT1, GT2, GT4, GT8, 12): Quarters in Noncompliance Limiter.  Enter a coded value to limit results to facilities with given quarter of noncompliance.
   * p_naa `string`: Non-Attainment Area Flag.  Enter a Y or N to filter for or against facilities flagged as non-attainment areas.
   * p_impw `string` (values: Y, N): Discharging into Impaired Waters Flag. Enter Y to limit results to facilities with discharge to waterbodies listed as impaired in the ATTAINS database.
-  * p_trep `string` (values: NONE, CURR, NOTCURR): Current Toxics Release Inventory (TRI) Reporter Limiter.  Enter one of the following codes to limit results.
+  * p_trep `string` (values: CURR, NOTCURR): Current Toxics Release Inventory (TRI) Reporter Limiter.  Enter one of the following codes to limit results.
   * p_tri_cat `string` (values: TOTAL, CARC, HAP): Toxic Release Inventory Released To Air Chemical Identifier Category Filter.  Enter the chemical identifier category code to limit results. Note when filtering by TRI chemical identifier categories one may not also filter by specific chemical identifiers via p_tri_pol.  You must also specify a release amount using p_tri_amt or p_tri_any_amt.
   * p_tri_amt `string` (values: 0, GT0, GT1000, GT5000, GT10000, GT50000): Toxic Release Inventory Release Amount Filter.  Enter a value in pounds to limit results to facilities releasing this amount or greateer of TRI releases.  Valid values are 0, GT0, GT1000, GT5000, GT10000 and GT50000. Note when filtering by TRI release amounts one may only use either p_tri_amt or p_tri_any_amt.
   * p_tri_any_amt `number`: Toxic Release Inventory Release Of Any Kind Above Value Filter.  Enter a value to limit results to facilities releasing this amount or more of TRI releases.  Note when filtering by TRI releases one may only use p_tri_any_amt or p_tri_amt and not both.
@@ -519,8 +526,8 @@ epa_gov_air.air_rest_services.get_facility_info.post({}, context)
   * p_pm `string` (values: NONE, GT5, GT10, GT25, GT50, GT75): Percent Minority Population Limiter.  Enter a value to restrict results to facilities with a given percentage of minority population within 3-mile radius.
   * p_pd `string` (values: NONE, GT100, GT500, GT1000, GT5000, GT10000, GT20000): Population Density Limiter (per sq mile). Enter a value to limit results to facilities located in area of a given population density.
   * p_ico `string` (values: Y, N): Indian Country Flag.  Enter a "Y" or "N" to restrict searches to facilities inside or outside Indian Country.
-  * p_huc `string`: 2-, 4-, 6-, or 8-character watershed. May contain multiple comma-separated values.
-  * p_wbd `string`: 2-, 4-, 6-, or 8-character watershed (WBD from the USGS Watershed Boundary Dataset). May contain multiple comma-separated values.
+  * p_huc `string`: 2-, 4-, 6-, or 8-character watershed code. May contain multiple comma-separated values.
+  * p_wbd `string`: 2-, 4-, 6-, 8-, 10-, or 12-character watershed (WBD from the USGS Watershed Boundary Dataset). May contain multiple comma-separated values.  Uses the FRS Best Pick Coordinate to obtain the WBD12 Huc value.
   * p_pid `string`: Nine-digit permit IDs. May contain up to 2000 comma-separated values.
   * p_med `string` (values: M, R, S, W, ALL): Filter Results by Media.
   * p_ysl `string` (values: W, N, NV): Last Facility Inspection [within / not within] Specified Date Range Indicator. The date range is determined by parameters p_idt1 and p_idt2 or by parameter p_ysly.
@@ -567,17 +574,17 @@ epa_gov_air.air_rest_services.get_facility_info.post({}, context)
   * p_long `number`: Longitude location in decimal degrees.
   * p_radius `number`: Spatial Search Radius.  Enter a radius up to 100 miles in which to spatially search for facilities.
   * p_decouple `string` (values: Y, N): Decouple Inspection Code Search Flag.  Enter "Y" to search for inspection code types with p_pityp without respect to the date range search provided with p_ysl* parameters.
-  * p_ejscreen_over80cnt `string`
+  * p_ejscreen_over80cnt `string` (values: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11): The number of Environmenmt Justice Indicators above the 80th percentile.  Valid values are 1 through 11.
   * queryset `number`: Query Limiter.  Enter a value to limit the number of records returned for each query. Value cannot exceed 70,000.
   * responseset `number`: Response Set Limiter. Enter a value to limit the number of records per page. Value cannot exceed 1,000.
   * summarylist `string` (values: Y, N): Summary List Flag.  Enter a Y to return a list of summary statistics based on the parameters submitted to the query service.
   * callback `string`: JSONP Callback.  For use with JSONP and GEOJSONP output only.  Enter a name of the function in which to wrap the JSON response.
-  * qcolumns `string`: Used to cutomize service output.  A list of comma-separated column IDs of output objects that will be returned in the service query object or download.  Use the metadata service endpoint for a complete list of Ids and definitions.
+  * qcolumns `string`: Used to customize service output.  A list of comma-separated column IDs of output objects that will be returned in the service query object or download.  Use the metadata service endpoint for a complete list of Ids and definitions.
   * p_pretty_print `number`: Optional flag to request GeoJSON formatted results to be pretty printed.  Only provide a numeric value when the output needs to be human readable as pretty printing has a performance cost.
 
 #### Output
 * output `object`: Root Object
-  * Results **required** [air3_Results](#air3_results)
+  * Results **required** [air08](#air08)
 
 ### air_rest_services.get_geojson.get
 Based on the QID obtained from a get_facilities or get_facility_info query, return GeoJSON of the facilities found.
@@ -596,13 +603,13 @@ epa_gov_air.air_rest_services.get_geojson.get({
   * callback `string`: JSONP Callback.  For use with JSONP and GEOJSONP output only.  Enter a name of the function in which to wrap the JSON response.
   * newsort `number`: Output Sort Column.  Enter the number of the column on which the data will be sorted. If unpopulated results will sort on the first column.
   * descending `string` (values: Y, N): Output Sort Column Descending Flag.  Enter Y to column identified in the newsort parameter descending.  Enter N to use ascending sort order. Used only when newsort parameter is populated.
-  * qcolumns `string`: Used to cutomize service output.  A list of comma-separated column IDs of output objects that will be returned in the service query object or download.  Use the metadata service endpoint for a complete list of Ids and definitions.
+  * qcolumns `string`: Used to customize service output.  A list of comma-separated column IDs of output objects that will be returned in the service query object or download.  Use the metadata service endpoint for a complete list of Ids and definitions.
   * p_pretty_print `number`: Optional flag to request GeoJSON formatted results to be pretty printed.  Only provide a numeric value when the output needs to be human readable as pretty printing has a performance cost.
 
 #### Output
 * output `object`: GeoJSON Feature Collection Object
   * features **required** `array`: Array of features in the feature collection.
-    * items [air6_Feature](#air6_feature)
+    * items [air09](#air09)
   * type **required** `string`: Static marker indicating object is a GeoJSON Feature Collection.
 
 ### air_rest_services.get_geojson.post
@@ -622,13 +629,13 @@ epa_gov_air.air_rest_services.get_geojson.post({
   * callback `string`: JSONP Callback.  For use with JSONP and GEOJSONP output only.  Enter a name of the function in which to wrap the JSON response.
   * newsort `number`: Output Sort Column.  Enter the number of the column on which the data will be sorted. If unpopulated results will sort on the first column.
   * descending `string` (values: Y, N): Output Sort Column Descending Flag.  Enter Y to column identified in the newsort parameter descending.  Enter N to use ascending sort order. Used only when newsort parameter is populated.
-  * qcolumns `string`: Used to cutomize service output.  A list of comma-separated column IDs of output objects that will be returned in the service query object or download.  Use the metadata service endpoint for a complete list of Ids and definitions.
+  * qcolumns `string`: Used to customize service output.  A list of comma-separated column IDs of output objects that will be returned in the service query object or download.  Use the metadata service endpoint for a complete list of Ids and definitions.
   * p_pretty_print `number`: Optional flag to request GeoJSON formatted results to be pretty printed.  Only provide a numeric value when the output needs to be human readable as pretty printing has a performance cost.
 
 #### Output
 * output `object`: GeoJSON Feature Collection Object
   * features **required** `array`: Array of features in the feature collection.
-    * items [air6_Feature](#air6_feature)
+    * items [air09](#air09)
   * type **required** `string`: Static marker indicating object is a GeoJSON Feature Collection.
 
 ### air_rest_services.get_info_clusters.get
@@ -694,7 +701,7 @@ epa_gov_air.air_rest_services.get_map.get({
 
 #### Output
 * output `object`: Root Object
-  * MapOutput **required** [air4_MapOutput](#air4_mapoutput)
+  * MapOutput **required** [air11](#air11)
 
 ### air_rest_services.get_map.post
 The purpose of the GET_MAP service is to display facility coordinates and facility clusters related to a get_facilities facility query. Currently, the maximum number of coordinates returned is 500. GET_MAP performs automatic clustering at the state, county, and zip code levels to maximize the number of coordinates returned.
@@ -721,7 +728,7 @@ epa_gov_air.air_rest_services.get_map.post({
 
 #### Output
 * output `object`: Root Object
-  * MapOutput **required** [air4_MapOutput](#air4_mapoutput)
+  * MapOutput **required** [air11](#air11)
 
 ### air_rest_services.get_qid.get
 GET_QID is passed with a query ID corresponding to a previously run get_facilities query. It then returns a Facility object containing all matching facilities. The main purpose of GET_QID is for large querysets that contain multiple pages (responsesets) of output. GET_QID allows for pagination and for the selection and sorting of columns. 
@@ -741,11 +748,11 @@ epa_gov_air.air_rest_services.get_qid.get({
   * callback `string`: JSONP Callback.  For use with JSONP and GEOJSONP output only.  Enter a name of the function in which to wrap the JSON response.
   * newsort `number`: Output Sort Column.  Enter the number of the column on which the data will be sorted. If unpopulated results will sort on the first column.
   * descending `string` (values: Y, N): Output Sort Column Descending Flag.  Enter Y to column identified in the newsort parameter descending.  Enter N to use ascending sort order. Used only when newsort parameter is populated.
-  * qcolumns `string`: Used to cutomize service output.  A list of comma-separated column IDs of output objects that will be returned in the service query object or download.  Use the metadata service endpoint for a complete list of Ids and definitions.
+  * qcolumns `string`: Used to customize service output.  A list of comma-separated column IDs of output objects that will be returned in the service query object or download.  Use the metadata service endpoint for a complete list of Ids and definitions.
 
 #### Output
 * output `object`: Root Object
-  * Results **required** [air5_Results](#air5_results)
+  * Results **required** [air12](#air12)
 
 ### air_rest_services.get_qid.post
 GET_QID is passed with a query ID corresponding to a previously run get_facilities query. It then returns a Facility object containing all matching facilities. The main purpose of GET_QID is for large querysets that contain multiple pages (responsesets) of output. GET_QID allows for pagination and for the selection and sorting of columns. 
@@ -765,11 +772,11 @@ epa_gov_air.air_rest_services.get_qid.post({
   * callback `string`: JSONP Callback.  For use with JSONP and GEOJSONP output only.  Enter a name of the function in which to wrap the JSON response.
   * newsort `number`: Output Sort Column.  Enter the number of the column on which the data will be sorted. If unpopulated results will sort on the first column.
   * descending `string` (values: Y, N): Output Sort Column Descending Flag.  Enter Y to column identified in the newsort parameter descending.  Enter N to use ascending sort order. Used only when newsort parameter is populated.
-  * qcolumns `string`: Used to cutomize service output.  A list of comma-separated column IDs of output objects that will be returned in the service query object or download.  Use the metadata service endpoint for a complete list of Ids and definitions.
+  * qcolumns `string`: Used to customize service output.  A list of comma-separated column IDs of output objects that will be returned in the service query object or download.  Use the metadata service endpoint for a complete list of Ids and definitions.
 
 #### Output
 * output `object`: Root Object
-  * Results **required** [air5_Results](#air5_results)
+  * Results **required** [air12](#air12)
 
 ### air_rest_services.metadata.get
 Returns the JSON Object Name and ColumnId for usage with the qcolumns parameter for get_qid, get_facility_info and other service endpoints.
@@ -786,7 +793,7 @@ epa_gov_air.air_rest_services.metadata.get({}, context)
 
 #### Output
 * output `object`: Root Object
-  * Results **required** [met_Results](#met_results)
+  * Results **required** [meta1](#meta1)
 
 ### air_rest_services.metadata.post
 Returns the JSON Object Name and ColumnId for usage with the qcolumns parameter for get_qid, get_facility_info and other service endpoints.
@@ -803,46 +810,40 @@ epa_gov_air.air_rest_services.metadata.post({}, context)
 
 #### Output
 * output `object`: Root Object
-  * Results **required** [met_Results](#met_results)
+  * Results **required** [meta1](#meta1)
 
 
 
 ## Definitions
 
-### Geometry
-* Geometry `object`: GeoJSON Geometry Object
-  * coordinates **required** `array`: Array of coordinate values in longitude, latitude format.
-    * items `number`
-  * type **required** `string`: Indicator of the geometry represented in the GeoJSON Feature, for Echo will always be "Point".
-
-### air1_ClusterData
-* air1_ClusterData `object`: Cluster Data Object
+### air00
+* air00 `object`: Cluster Data Object
   * CVRows **required** `string`: Summary count of the number of CWA facilities or SDWA public drinking water systems with current violations.
-  * ClusterCount **required** `string`
-  * ClusterIcon **required** `string`
+  * ClusterCount **required** `string`: The number of facilities or cases in the cluster.
+  * ClusterIcon **required** `string`: The icon file used to reprsent the cluster.
   * ClusterLatitude **required** `string`: The latitude in decimal degrees expressed using the NAD83 horizontal datum.
   * ClusterLongitude **required** `string`: The longitude in decimal degrees expressed using the NAD83 horizontal datum.
-  * ClusterName **required** `string`
-  * ClusterType **required** `string`
-  * ClusterValue **required** `string`
+  * ClusterName **required** `string`: THe name or the identifier of the geographic area used for clustering.  Examples:  Alaska, Fairfax County, 22314
+  * ClusterType **required** `string`: The representative geographic area used for clustering.  Examples:  State, County, Zip Code
+  * ClusterValue **required** `string`: The value, internal to the database report object, that represents this cluster, like a state abbreviation, zip code, or county FIPS code.  Examples: AK, 22314, 50011
   * EPARegionCode **required** `string`: The EPA region where the facility is located. EPA has 10 regional offices that execute programs within several states and territories
   * FEARows **required** `string`: Summary count of the number of facilities with a formal enforcement action in the past five years
   * INSPRows **required** `string`: Number of facilities with insp_5yr_flag populated (CWP_DATE_LAST_INSPECTION)
   * IndianCountryRows **required** `string`: Number of facilities with tribal_flag populated
   * InfFEARows **required** `string`: Number of facilities with infea_5yr_flag populated (INFORMAL_ENF_ACT_COUNT > 0)
-  * ObjectId **required** `string`: Sequential number assigned to each facility returned
+  * ObjectId **required** `string`: Sequential number assigned to each facility or cluster returned.
   * SVRows **required** `string`: Number of facilities with curr_sv_flag populated (CWP_STATUS = "Significant Violation")
   * TotalPenalties **required** `string`: The total dollar amount of either assessed or final penalties within the five year time period
   * V3Rows **required** `string`: Number of facilities having one or more quarters in non-compliance (QNC) in the last three years
 
-### air1_ClusterOutput
-* air1_ClusterOutput `object`: Cluster Output Object
-  * ClusterData `array`
-    * items [air1_ClusterData](#air1_clusterdata)
+### air01
+* air01 `object`: Cluster Output Object
+  * ClusterData `array`: An array of state, county, or zip code cluster information
+    * items [air00](#air00)
 
-### air1_MapData
-* air1_MapData `object`: Map Data Object
-  * CAAstatus **required** `string`
+### air02
+* air02 `object`: Map Data Object
+  * CAAstatus **required** `string`: The facility's 3-year compliance status history by quarter (3-month period). Each character represents a quarter of compliance, going from oldest to most recent. Character values correspond to the following compliance statuses:
   * FormalCount **required** `string`: The number of formal enforcement actions that have been taken against the facility
   * ICON **required** `string`: Name of each individual icon file within the URL base
   * InformalCount **required** `string`: The number of informal enforcement actions that have been taken against the facility
@@ -853,60 +854,66 @@ epa_gov_air.air_rest_services.metadata.post({}, context)
   * PUV **required** `string`: Pop up value. Combine with PopUpBaseURL to give the popup for the facility
   * TYPE **required** `string`: For DFR, this is always facility
 
-### air2_Facilities
-* air2_Facilities `object`: Facilities Object
-  * AIR3yrComplQtrsStatus **required** `string`
+### air03
+* air03 `object`: Facilities Object
+  * AIR3yrComplQtrsHistory **required** `string`: The facility's 3-year compliance status history by quarter (3-month period). Each character represents a quarter of compliance, going from oldest to most recent. Character values correspond to the following compliance statuses:
   * AIRCaseIDs **required** `string`: Space-delimited list of AIR cases associated with the facility.
-  * AIRCity **required** `string`
+  * AIRCity **required** `string`: The city where the AIR facility is located.
+  * AIRClassification **required** `string`
+  * AIRComplStatus **required** `string`: The facility's recent violation status under the Clean Air Act.
   * AIRCounty **required** `string`: The name of the county where the AIR facility is located.
-  * AIRCurrComplStatus **required** `string`
-  * AIRCurrHpv **required** `string`
-  * AIRDaysLastEval **required** `string`
+  * AIRDaysLastEval **required** `string`: The number of days since the most recent compliance evaluation of the facility.
   * AIREPARegion **required** `string`: The EPA region where the AIR facility is located.
-  * AIREvalCnt **required** `string`
-  * AIRFIPSCode **required** `string`
-  * AIRFacilityTypeCode **required** `string`
-  * AIRFeaCnt **required** `string`
+  * AIREvalCnt **required** `string`: The number of compliance evaluations, under the Clean Air Act, occurring at the facility within the last five years.
+  * AIRFIPSCode **required** `string`: A 5 digit combination of the 2 digit Federal Information Processing Standards (FIPS) code for the state and the 3 digit FIPS code of the county that a facility is located in.
+  * AIRFacilityTypeCode **required** `string`: A three-character code indicating if plant is government facility.
+  * AIRFacilityTypeDesc **required** `string`
+  * AIRFeaCnt **required** `string`: The total number of formal enforcement actions taken against the facility within the last five years.
+  * AIRHpvStatus **required** `string`: Indicates whether the facility currently has an unresolved High Priority Violation (HPV) under the Clean Air Act.
   * AIRIDs **required** `string`: Air Facility System (AFS) ID.
-  * AIRIeaCnt **required** `string`
+  * AIRIeaCnt **required** `string`: The total number of informal enforcement actions taken against the facility within the last five years.
   * AIRIndianCntryFlg **required** `string`: Flag indicating whether the AIR facility is located in Indian country.
-  * AIRLastEvalDate **required** `string`
-  * AIRLastEvalDateEPA **required** `string`
-  * AIRLastEvalDateState **required** `string`
-  * AIRLastFeaDate **required** `string`
-  * AIRLastFeaDateEPA **required** `string`
-  * AIRLastFeaDateState **required** `string`
-  * AIRLastIeaDate **required** `string`
-  * AIRLastIeaDateEPA **required** `string`
-  * AIRLastIeaDateState **required** `string`
-  * AIRLastPenaltyDate **required** `string`
-  * AIRLastStckDateEPA **required** `string`
-  * AIRLastStckDateState **required** `string`
-  * AIRLastStckTestDate **required** `string`
-  * AIRLastStckTestResults **required** `string`
-  * AIRLastViolDate **required** `string`
-  * AIRMacts **required** `string`
-  * AIRMajorFlag **required** `string`
-  * AIRMnthsInHpv **required** `string`
-  * AIRNAICS **required** `string`
+  * AIRLastEvalDate **required** `string`: The date on which the most recent Full Compliance Evaluation (FCE) of the facility by EPA or a state agency was completed.
+  * AIRLastEvalDateEPA **required** `string`: The last Air Inspection Date performed by EPA.
+  * AIRLastEvalDateState **required** `string`: The last Air Inspection Date performed by State or local authorities.
+  * AIRLastFeaDate **required** `string`: The effective date of the most recent listed formal enforcement action taken against the facility.
+  * AIRLastFeaDateEPA **required** `string`: The last Air Formal Enforcement Action Date take by EPA.
+  * AIRLastFeaDateState **required** `string`: The last Air Formal Enforcement Action Date take by State or Local authorities.
+  * AIRLastIeaDate **required** `string`: The effective date of the most recent listed informal enforcement action taken against the facility.
+  * AIRLastIeaDateEPA **required** `string`: The effective date of the most recent listed informal enforcement action taken against the facility by EPA.
+  * AIRLastIeaDateState **required** `string`: The effective date of the most recent listed informal enforcement action taken against the facility by a state agency.
+  * AIRLastPenaltyDate **required** `string`: Indicates the date on which the most recent assessed (or final) penalty was taken against the facility for AIR.
+  * AIRLastStckDateEPA **required** `string`: The date on which the most recent stack test by EPA occurred.
+  * AIRLastStckDateState **required** `string`: The date on which the most recent stack test by a state agency occurred.
+  * AIRLastStckTestDate **required** `string`: The date on which the most recent stack test occurred.
+  * AIRLastStckTestResults **required** `string`: The result of the most recent stack test (Pass, Fail, Pending, or Blank).
+  * AIRLastViolDate **required** `string`: The date on which the most recent violation was reported.
+  * AIRMacts **required** `string`: The Maximum Achievable Control Technology (MACT) Subpart associated with the facility.
+  * AIRMajorFlag **required** `string`: Indicated whether the facility is designated as a major facilitiy.
+  * AIRMnthsWithHpv **required** `string`: The number of months in the last three years in which the permit or site is considered in High Priority Violation (HPV) status
+  * AIRNAICS **required** `string`: The facility’s or permit's primary North American Industry Classification System (NAICS) Code.
   * AIRName **required** `string`: The name of the AIR Facility.
-  * AIRPenalties **required** `string`
-  * AIRPollRecentViol **required** `string`
+  * AIRNsps **required** `string`: The New Source Performance Standards (NSPS) Subpart associated with the facility.
+  * AIRNspsm **required** `string`: The Non-Major New Source Performance Standards (NSPS) Subpart associated with the facility.
+  * AIRPenalties **required** `string`: The total dollar amount of assessed (or final) penalties taken against the facility within the last five years under the Clean Air Act. This value only includes penalties that have been entered in the national program database, ICIS-Air.
+  * AIRPollRecentViol **required** `string`: The names of pollutants or pollutant categories with violations reported in the last year.
   * AIRPrograms **required** `string`: Comma-delimited list of AIR programs.
-  * AIRQtrsInHpv **required** `string`
-  * AIRQtrsWithViol **required** `string`
-  * AIRRecentViolCnt **required** `string`
+  * AIRQtrsWithHpv **required** `string`: The number of quarters in the last three years in which the permit or site is considered in High Priority Violation (HPV) status.
+  * AIRQtrsWithViol **required** `string`: The number of quarters in the last three years in which the permit or site has had unresolved violation(s) reported.
+  * AIRRecentViolCnt **required** `string`: The number of violations reported in the last year.
+  * AIRStackTest5YrAll **required** `string`
+  * AIRStackTest5YrFail **required** `string`
   * AIRState **required** `string`: The state where the AIR facility is located.
   * AIRStatus **required** `string`: The status of the AIR facility location.
   * AIRStreet **required** `string`: The street address of the AIR facility location.
-  * AIRTRIbalEPAids **required** `string`
-  * AIRTRIbalNames **required** `string`
-  * AIRUniverse **required** `string`
+  * AIRTRIbalEPAids **required** `string`: The EPA Tribal or Native Alaskan Village Identifier for facilities, that based on their Best Pick FRS spatial coordinate, are within a Tribal or Alaskan Village area.
+  * AIRTRIbalNames **required** `string`: The EPA Tribal or Native Alaskan Village Name for facilities, that based on their Best Pick FRS spatial coordinate, are within a Tribal or Alaskan Village area.
+  * AIRUniverse **required** `string`: The program office defines each CAA Source ID and the associated permits as being Federally Reportable or Non-Federally Reportable. Under the CAA, federally reportable source include majors, synthetic minors, NESHAP Part 61 minors, minors with an unresolved High Priority Violation (HPV), with recent enforcement action, or included on a Compliance Monitoring Strategy plan.
   * AIRZip **required** `string`: The five-digit zip code of the AIR facility.
-  * ActiveLower48 **required** `string`
-  * CWAIDs **required** `string`
-  * CalculatedAccuracyMeters **required** `string`
-  * CamdIDs `string`: Facility identifiers for the Clean Air Markets Division database.
+  * ActiveLower48 **required** `string`: A Y/N indicator indicating that the facility is active and located within the lower 48 contiguous US States.
+  * CWAIDs **required** `string`: A unique  ID assigned for each record/permit/site/facility within ICIS-NPDES. These identifiers are for used tracking purposes in the individual data systems.
+  * CalculatedAccuracyMeters **required** `string`: The estimated accuracy in Meters for the facility's geospatial coordinate.
+  * CamdIDs **required** `string`: Facility identifiers for the Clean Air Markets Division database.
   * CensusBlockGroup **required** `string`: A geographic unit used by the United States Census Bureau, generally defined to contain between 600 and 3,000 people.
   * ChesapeakeBayFlag **required** `string`: Displays "Y" if the facility is located within the Chesapeake Bay watershed.
   * CollectionMethod **required** `string`: ??
@@ -914,50 +921,55 @@ epa_gov_air.air_rest_services.metadata.post({}, context)
   * CurrVioFlag **required** `string`: Indicates if the facility has a current violation. 1 = Yes
   * EPASystem **required** `string`: The EPA data system in which permit and facility records are kept. EPA's Facility Registry System (FRS) links all program database records (such as permit IDs and IDs facilities use in reporting to EPA) together. The following list describes the individual data systems that are linked to from the detailed facility report: 
   * Ea5yrFlag **required** `string`: Indicates if the facility has a formal enforcement action within the last 5 years. 1 = Yes
-  * EisIDs **required** `string`
-  * EjscreenFlag **required** `string`
-  * EjscreenFlagUs **required** `string`
-  * FacCamdReporter **required** `string`
+  * EisIDs **required** `string`: A unique ID assigned for each facility within EPA’s Emissions Inventory System (EIS) Database.
+  * EjscreenFlag **required** `string`: A Y/N indicator identifying whether or not the facility is within an Environmental Justice area.
+  * EjscreenFlagUs **required** `string`: A Y/N indicator identifying whether or not the facility is within an Environmental Justice area.
+  * FacCamdReporter **required** `string`: Indicates whether the facility reports to the Clean Air Markets Division (CAMD).
+  * FacCountyName **required** `string`: The facility county name from EPA's Facility Registry System
   * FacDerivedHuc **required** `string`: The 8-digit Hydrologic Unit Code (HUC) of the watershed in which the facility resides. A HUC number is assigned to every watershed in the nation and uniquely identifies the watershed.
-  * FacDerivedTRIbes **required** `string`
-  * FacDerivedWBD **required** `string`
-  * FacDerivedWBDName **required** `string`
-  * FacEisAIRReleases **required** `string`
-  * FacEisReporter **required** `string`
+  * FacDerivedTRIbes **required** `string`: The tribes or tribal territories located within 25 miles of the facility's location.
+  * FacDerivedWBD **required** `string`: The Hydrologic Unit Code (HUC-12) of the waterbody in which the facility resides, derived based on location data in FRS.
+  * FacDerivedWBDName **required** `string`: The 12 digit Watershed Boundary Dataset Name derived from the FRS Best Pick Coordinate
+  * FacEisAIRReleases **required** `string`: The amount of hazardous air pollutants released to air in tons per year, as reported in the most recent National Emissions Inventory (NEI).
+  * FacEisReporter **required** `string`: Indicates whether the facility reports to the Emissions Inventory System (EIS).
   * FacFIPSCode **required** `string`: The 2-digit Federal Information Processing Standards (FIPS) code to identify the county that a facility is located in.
   * FacFederalAgencyCode **required** `string`: Indicates the federal agency, as classified in FRS. Federal agencies are installations that are owned and operated by the U.S. government. The five-character code consists of a letter followed by four numbers. There are four possible letters that can occupy the first character position: C = Civilian Federal Agency; D = Department of Defense; E = Department of Energy; X = Unknown. The second and third characters represent the agency code, while the fourth and fifth characters represent the bureau code.
-  * FacFederalAgencyName **required** `string`
-  * FacGHGCO2Releases **required** `string`
-  * FacGHGReporter **required** `string`
+  * FacFederalAgencyName **required** `string`: Indicates the name of the federal agency, as classified in FRS. Federal agencies are installations that are owned and operated by the U.S. government.
+  * FacGHGCO2Releases **required** `string`: The annual sum of total release amounts and "associated quantities" of all linked Greenhouse Gas IDs from the Office of Air and Radiation "Summary 2010 Greenhouse Gas Data." Units are reported as metric tons of CO2 equivalents per year (MTCO2e/year).
+  * FacGHGReporter **required** `string`: Indicates whether the facility reports to the Greenhouse Gas Reporting Program (GHGRP)
   * FacIndianCntryFlg **required** `string`: Flag showing Y/N whether the facility is located in Indian Country.
-  * FacIndianSpatialFlg **required** `string`
+  * FacIndianSpatialFlg **required** `string`: Returns “Y” if a facility is located within a tribal spatial boundary as defined by the U.S. Census Bureau 2010 tribal boundary layer data for tribes in the lower 48 states and Bureau of Land Management Alaska State Office data for native villages in Alaska. Returns “N” if a facility is not located within a tribal or native Alaskan village area.
   * FacLat **required** `string`: The latitude of the facility in decimal degrees expressed using the NAD83 horizontal datum. The coordinate comes from the FRS EPA Locational Reference Tables (LRT) file which represents the most accurate value for the facility based on the available spatial metadata.
   * FacLong **required** `string`: The longitude of the facility in decimal degrees expressed using the NAD83 horizontal datum. The coordinate comes from the FRS EPA Locational Reference Tables (LRT) file which represents the most accurate value for the facility based on the available spatial metadata.
   * FacMapFlg **required** `string`: Graphical indicator denoting whether geographical data required to map a facility are available.
   * FacMapIcon **required** `string`: The default map icon image file calculated for the facility by the ECHO program.
-  * FacNaaFlag **required** `string`
+  * FacNaaFlag **required** `string`: Indicates whether the facility is located in a nonattainment area of the country, where air pollution levels persistently exceed the national ambient air quality standards. This flag does not indicate whether or not the facility has violated national ambient area quality standards.
   * FacPercentMinority **required** `string`: Percent Minority is the percentage of the population of the given area that is considered minority. Statistics are shown for the area within a 3-mile radius of each facility.
-  * FacPopulationDensity **required** `string`
-  * FacSICCodes **required** `string`
-  * FacTRIAIRReleases **required** `string`
-  * FacTRICarcAIRReleases **required** `string`
-  * FacTRIHapsAIRReleases **required** `string`
+  * FacPopulationDensity **required** `string`: The number of persons per square mile in the profiled area.
+  * FacSICCodes **required** `string`: Indicates the facility’s or permit's primary Standard Industrial Classification (SIC) Code. The SIC code describes the primary activity of the facility.
+  * FacStdCountyName **required** `string`: The standardized  facility county name from EPA's Facility Registry System
+  * FacTRIAIRReleases **required** `string`: The total chemical releases to air, in pounds, as reported to TRI by the facility for the most recent reporting year.
+  * FacTRICarcAIRReleases **required** `string`: The pounds of chemicals considered to be carcinogens released to air, as reported to TRI for the most recent reporting year. Chemicals are classified as carcinogens under the requirements of the Occupational Safety and Health Administration (OSHA).
+  * FacTRIHapsReleases **required** `string`: The pounds of chemicals classified as hazardous air pollutants (HAPS) released to air in pounds per year, as reported to TRI for the most recent reporting year.
   * FacTRIReporter **required** `string`: Indicates whether facility reported to the Toxics Release Inventory (TRI) for the most recent reporting year.
   * FacUsMexBorderFlg **required** `string`: A Y/N flag indicating that the facility is within 100KM of the US-Mexico Border.
-  * GHGIDs **required** `string`
+  * GHGIDs **required** `string`: A unique ID assigned for each facility within EPA’s Greenhouse Gas Reporting Program (GHGRP) Emissions Data Sets.
   * HasPollRpt **required** `string`: ???
   * Infea5yrFlag **required** `string`: Indicates if the facility has an informal enforcement action within the last 5 years. 1 = Yes.
   * Insp5yrFlag **required** `string`: Indicates if the facility has an inspection within the last 5 years. 1 = Yes
-  * LastDatePce `string`
-  * LastDatePceEPA `string`
-  * LastDatePceSta `string`
+  * LastDatePce **required** `string`: The date on which the most recent Partial Compliance Evaluation (PCE) of the facility by EPA or a state agency was completed.
+  * LastDatePceEPA **required** `string`: The date on which the most recent Partial Compliance Evaluation (PCE) of the facility by EPA was completed.
+  * LastDatePceSta **required** `string`: The date on which the most recent Partial Compliance Evaluation (PCE) of the facility by a state agency was completed.
   * LocalControlRegionCode **required** `string`: Code for regions within a state. Search criteria for DFR in OTIS.
   * LocalControlRegionName **required** `string`: Regions within a state. Search criteria for DFR in OTIS.
   * Lower48 **required** `string`: Flag showing Y/N whether location is within the contiguous (lower 48) United States.
-  * Map **required** `string`
+  * Map **required** `string`: No Longer Used.
   * MaxPctileUs **required** `string`: The maximum percentile from all individual EJSCREEN indicators.
-  * MaxScore `string`: [Col. 121]
-  * Over80CountUs `string`
+  * MaxScore **required** `string`: A sorting score for internal use.
+  * NaaCategories **required** `string`: The nonattainment area categories that the facility is in, derived spatially based on the facility's geographic coordinates in FRS.�
+  * NaaPollutants **required** `string`: All criteria pollutants that the facility is in nonattainment for.
+  * OtherPermitIDs **required** `string`
+  * Over80CountUs **required** `string`: The number of primary EJSCREEN environmental justice (EJ) indexes exceeding the 80th or higher national percentile for the Census block group that the facility is located in.
   * PctileCancerUs **required** `string`: The national percentile of the census block group for the EJSCREEN NATA air toxics cancer risk indicator.
   * PctileDpmUs **required** `string`: The national percentile of the census block group for the EJSCREEN diesel particulate matter indicator.
   * PctileO3Us **required** `string`: The national percentile of the census block group for the EJSCREEN ozone indicator.
@@ -972,34 +984,35 @@ epa_gov_air.air_rest_services.metadata.post({}, context)
   * RCRAIDs **required** `string`: A unique 12-character ID assigned for each record/permit/site/facility within the RCRAInfo database.
   * ReferencePoint **required** `string`: ??
   * RegistryID **required** `string`: An internal 12-digit Facility Registry Service (FRS) tracking number used to tie all facility data together in EPA regulatory program databases.
-  * RmpIDs **required** `string`
+  * RmpIDs **required** `string`: A unique ID assigned to each facility submitting a Risk Management Plan to EPA under the Risk Management Plan Rule.
   * SDWAIDs **required** `string`: A unique 9-character ID assigned for each public water system within the Safe Drinking Water Information System (SDWIS).
-  * Score `string`
+  * Score **required** `string`
   * SourceID **required** `string`: Unique Identifier assigned by EPA.
   * Statute **required** `string`: The name of the statute associated with each of the permits and identifiers linked to the facility: 
   * TRIIDs **required** `string`: A unique 15-character ID assigned for each facility within the Toxics Release Inventory (TRI) program. The format is ZZZZZNNNNNSSSSS, where ZZZZZ = ZIP code, NNNNN = the first 5 consonants of the name, and SSSSS = the first 5 non-blank non-special characters in the street address.
-  * TRIbalFlag **required** `string`
+  * TRIbalFlag **required** `string`: A flag indicating that the facility is within a tribal area.
   * ViolFlag **required** `string`: Indicates if the facility had a violation within the last 3 years. 1 = Yes
-  * WebDocs `string`: Contains flags that identify what web accessible documents are available for the facility.
+  * WebDocs **required** `string`: Contains flags that identify what web accessible documents are available for the facility.
 
-### air2_MapOutput
-* air2_MapOutput `object`: Map Output Object
+### air04
+* air04 `object`: Map Output Object
   * IconBaseURL **required** `string`: URL where all the icons are located
-  * MapData **required** `array`
-    * items [air1_MapData](#air1_mapdata)
+  * MapData **required** `array`: An array of facility geospatial information.
+    * items [air02](#air02)
   * PopUpBaseURL **required** `string`: Combine this URL with the PUC to get popup info
   * QueryID **required** `string`: Sequential number assigned to entire search result
 
-### air2_Results
-* air2_Results `object`: Results Object
+### air05
+* air05 `object`: Results Object
+  * BadSystemIDs **required** `string`: Identifies which passed query system identifiers are invalid.
   * CVRows **required** `string`: Summary count of the number of CWA facilities or SDWA public drinking water systems with current violations.
   * FEARows **required** `string`: Summary count of the number of facilities with a formal enforcement action in the past five years
-  * Facilities `array`
-    * items [air2_Facilities](#air2_facilities)
+  * Facilities `array`: A complex array of facility information.
+    * items [air03](#air03)
   * INSPRows **required** `string`: Number of facilities with insp_5yr_flag populated (CWP_DATE_LAST_INSPECTION)
   * IndianCountryRows **required** `string`: Number of facilities with tribal_flag populated
   * InfFEARows **required** `string`: Number of facilities with infea_5yr_flag populated (INFORMAL_ENF_ACT_COUNT > 0)
-  * MapOutput [air2_MapOutput](#air2_mapoutput)
+  * MapOutput [air04](#air04)
   * Message **required** `string`: Field to record messages (typically performance-related) about packet processing
   * PageNo **required** `string`: The number of pages of results returned
   * QueryID **required** `string`: Sequential number assigned to entire search result
@@ -1008,62 +1021,66 @@ epa_gov_air.air_rest_services.metadata.post({}, context)
   * TotalPenalties **required** `string`: The total dollar amount of either assessed or final penalties within the five year time period
   * V3Rows **required** `string`: Number of facilities having one or more quarters in non-compliance (QNC) in the last three years
 
-### air3_Facilities
-* air3_Facilities `object`: Facilities Object
-  * AIR3yrComplQtrsStatus **required** `string`
+### air06
+* air06 `object`: Facilities Object
+  * AIR3yrComplQtrsHistory **required** `string`: The facility's 3-year compliance status history by quarter (3-month period). Each character represents a quarter of compliance, going from oldest to most recent. Character values correspond to the following compliance statuses:
   * AIRCaseIDs **required** `string`: Space-delimited list of AIR cases associated with the facility.
-  * AIRCity **required** `string`
-  * AIRCmsCategoryCode `string`: AIR CMS Category Code
-  * AIRCmsCategoryDesc `string`: AIR CMS Category Description
+  * AIRCity **required** `string`: The city where the AIR facility is located.
+  * AIRClassification **required** `string`
+  * AIRComplStatus **required** `string`: The facility's recent violation status under the Clean Air Act.
   * AIRCounty **required** `string`: The name of the county where the AIR facility is located.
-  * AIRCurrComplStatus **required** `string`
-  * AIRCurrHpv **required** `string`
-  * AIRDaysLastEval **required** `string`
+  * AIRDaysLastEval **required** `string`: The number of days since the most recent compliance evaluation of the facility.
   * AIREPARegion **required** `string`: The EPA region where the AIR facility is located.
-  * AIREvalCnt **required** `string`
-  * AIRFIPSCode **required** `string`
-  * AIRFacilityTypeCode **required** `string`
-  * AIRFeaCnt **required** `string`
+  * AIREvalCnt **required** `string`: The number of compliance evaluations, under the Clean Air Act, occurring at the facility within the last five years.
+  * AIRFIPSCode **required** `string`: A 5 digit combination of the 2 digit Federal Information Processing Standards (FIPS) code for the state and the 3 digit FIPS code of the county that a facility is located in.
+  * AIRFacilityTypeCode **required** `string`: A three-character code indicating if plant is government facility.
+  * AIRFacilityTypeDesc **required** `string`
+  * AIRFeaCnt **required** `string`: The total number of formal enforcement actions taken against the facility within the last five years.
+  * AIRHpvStatus **required** `string`: Indicates whether the facility currently has an unresolved High Priority Violation (HPV) under the Clean Air Act.
   * AIRIDs **required** `string`: Air Facility System (AFS) ID.
-  * AIRIeaCnt **required** `string`
+  * AIRIeaCnt **required** `string`: The total number of informal enforcement actions taken against the facility within the last five years.
   * AIRIndianCntryFlg **required** `string`: Flag indicating whether the AIR facility is located in Indian country.
-  * AIRLastEvalDate **required** `string`
-  * AIRLastEvalDateEPA **required** `string`
-  * AIRLastEvalDateState **required** `string`
-  * AIRLastFeaDate **required** `string`
-  * AIRLastFeaDateEPA **required** `string`
-  * AIRLastFeaDateState **required** `string`
-  * AIRLastIeaDate **required** `string`
-  * AIRLastIeaDateEPA **required** `string`
-  * AIRLastIeaDateState **required** `string`
-  * AIRLastPenaltyDate **required** `string`
-  * AIRLastStckDateEPA **required** `string`
-  * AIRLastStckDateState **required** `string`
-  * AIRLastStckTestDate **required** `string`
-  * AIRLastStckTestResults **required** `string`
-  * AIRLastViolDate **required** `string`
-  * AIRMacts **required** `string`
-  * AIRMajorFlag **required** `string`
-  * AIRMnthsInHpv **required** `string`
-  * AIRNAICS **required** `string`
+  * AIRLastEvalDate **required** `string`: The date on which the most recent Full Compliance Evaluation (FCE) of the facility by EPA or a state agency was completed.
+  * AIRLastEvalDateEPA **required** `string`: The last Air Inspection Date performed by EPA.
+  * AIRLastEvalDateState **required** `string`: The last Air Inspection Date performed by State or local authorities.
+  * AIRLastFeaDate **required** `string`: The effective date of the most recent listed formal enforcement action taken against the facility.
+  * AIRLastFeaDateEPA **required** `string`: The last Air Formal Enforcement Action Date take by EPA.
+  * AIRLastFeaDateState **required** `string`: The last Air Formal Enforcement Action Date take by State or Local authorities.
+  * AIRLastIeaDate **required** `string`: The effective date of the most recent listed informal enforcement action taken against the facility.
+  * AIRLastIeaDateEPA **required** `string`: The effective date of the most recent listed informal enforcement action taken against the facility by EPA.
+  * AIRLastIeaDateState **required** `string`: The effective date of the most recent listed informal enforcement action taken against the facility by a state agency.
+  * AIRLastPenaltyDate **required** `string`: Indicates the date on which the most recent assessed (or final) penalty was taken against the facility for AIR.
+  * AIRLastStckDateEPA **required** `string`: The date on which the most recent stack test by EPA occurred.
+  * AIRLastStckDateState **required** `string`: The date on which the most recent stack test by a state agency occurred.
+  * AIRLastStckTestDate **required** `string`: The date on which the most recent stack test occurred.
+  * AIRLastStckTestResults **required** `string`: The result of the most recent stack test (Pass, Fail, Pending, or Blank).
+  * AIRLastViolDate **required** `string`: The date on which the most recent violation was reported.
+  * AIRMacts **required** `string`: The Maximum Achievable Control Technology (MACT) Subpart associated with the facility.
+  * AIRMajorFlag **required** `string`: Indicated whether the facility is designated as a major facilitiy.
+  * AIRMnthsWithHpv **required** `string`: The number of months in the last three years in which the permit or site is considered in High Priority Violation (HPV) status
+  * AIRNAICS **required** `string`: The facility’s or permit's primary North American Industry Classification System (NAICS) Code.
   * AIRName **required** `string`: The name of the AIR Facility.
-  * AIRPenalties **required** `string`
-  * AIRPollRecentViol **required** `string`
+  * AIRNsps **required** `string`: The New Source Performance Standards (NSPS) Subpart associated with the facility.
+  * AIRNspsm **required** `string`: The Non-Major New Source Performance Standards (NSPS) Subpart associated with the facility.
+  * AIRPenalties **required** `string`: The total dollar amount of assessed (or final) penalties taken against the facility within the last five years under the Clean Air Act. This value only includes penalties that have been entered in the national program database, ICIS-Air.
+  * AIRPollRecentViol **required** `string`: The names of pollutants or pollutant categories with violations reported in the last year.
   * AIRPrograms **required** `string`: Comma-delimited list of AIR programs.
-  * AIRQtrsInHpv **required** `string`
-  * AIRQtrsWithViol **required** `string`
-  * AIRRecentViolCnt **required** `string`
+  * AIRQtrsWithHpv **required** `string`: The number of quarters in the last three years in which the permit or site is considered in High Priority Violation (HPV) status.
+  * AIRQtrsWithViol **required** `string`: The number of quarters in the last three years in which the permit or site has had unresolved violation(s) reported.
+  * AIRRecentViolCnt **required** `string`: The number of violations reported in the last year.
+  * AIRStackTest5YrAll **required** `string`
+  * AIRStackTest5YrFail **required** `string`
   * AIRState **required** `string`: The state where the AIR facility is located.
   * AIRStatus **required** `string`: The status of the AIR facility location.
   * AIRStreet **required** `string`: The street address of the AIR facility location.
-  * AIRTRIbalEPAids **required** `string`
-  * AIRTRIbalNames **required** `string`
-  * AIRUniverse **required** `string`
+  * AIRTRIbalEPAids **required** `string`: The EPA Tribal or Native Alaskan Village Identifier for facilities, that based on their Best Pick FRS spatial coordinate, are within a Tribal or Alaskan Village area.
+  * AIRTRIbalNames **required** `string`: The EPA Tribal or Native Alaskan Village Name for facilities, that based on their Best Pick FRS spatial coordinate, are within a Tribal or Alaskan Village area.
+  * AIRUniverse **required** `string`: The program office defines each CAA Source ID and the associated permits as being Federally Reportable or Non-Federally Reportable. Under the CAA, federally reportable source include majors, synthetic minors, NESHAP Part 61 minors, minors with an unresolved High Priority Violation (HPV), with recent enforcement action, or included on a Compliance Monitoring Strategy plan.
   * AIRZip **required** `string`: The five-digit zip code of the AIR facility.
-  * ActiveLower48 **required** `string`
-  * CWAIDs **required** `string`
-  * CalculatedAccuracyMeters **required** `string`
-  * CamdIDs `string`: Facility identifiers for the Clean Air Markets Division database.
+  * ActiveLower48 **required** `string`: A Y/N indicator indicating that the facility is active and located within the lower 48 contiguous US States.
+  * CWAIDs **required** `string`: A unique  ID assigned for each record/permit/site/facility within ICIS-NPDES. These identifiers are for used tracking purposes in the individual data systems.
+  * CalculatedAccuracyMeters **required** `string`: The estimated accuracy in Meters for the facility's geospatial coordinate.
+  * CamdIDs **required** `string`: Facility identifiers for the Clean Air Markets Division database.
   * CensusBlockGroup **required** `string`: A geographic unit used by the United States Census Bureau, generally defined to contain between 600 and 3,000 people.
   * ChesapeakeBayFlag **required** `string`: Displays "Y" if the facility is located within the Chesapeake Bay watershed.
   * CollectionMethod **required** `string`: ??
@@ -1071,51 +1088,56 @@ epa_gov_air.air_rest_services.metadata.post({}, context)
   * CurrVioFlag **required** `string`: Indicates if the facility has a current violation. 1 = Yes
   * EPASystem **required** `string`: The EPA data system in which permit and facility records are kept. EPA's Facility Registry System (FRS) links all program database records (such as permit IDs and IDs facilities use in reporting to EPA) together. The following list describes the individual data systems that are linked to from the detailed facility report: 
   * Ea5yrFlag **required** `string`: Indicates if the facility has a formal enforcement action within the last 5 years. 1 = Yes
-  * EisIDs **required** `string`
-  * EjscreenFlag **required** `string`
-  * EjscreenFlagUs **required** `string`
-  * FacCamdReporter **required** `string`
+  * EisIDs **required** `string`: A unique ID assigned for each facility within EPA’s Emissions Inventory System (EIS) Database.
+  * EjscreenFlag **required** `string`: A Y/N indicator identifying whether or not the facility is within an Environmental Justice area.
+  * EjscreenFlagUs **required** `string`: A Y/N indicator identifying whether or not the facility is within an Environmental Justice area.
+  * FacCamdReporter **required** `string`: Indicates whether the facility reports to the Clean Air Markets Division (CAMD).
+  * FacCountyName **required** `string`: The facility county name from EPA's Facility Registry System
   * FacDerivedHuc **required** `string`: The 8-digit Hydrologic Unit Code (HUC) of the watershed in which the facility resides. A HUC number is assigned to every watershed in the nation and uniquely identifies the watershed.
-  * FacDerivedTRIbes **required** `string`
-  * FacDerivedWBD **required** `string`
-  * FacDerivedWBDName **required** `string`
-  * FacEisAIRReleases **required** `string`
-  * FacEisReporter **required** `string`
+  * FacDerivedTRIbes **required** `string`: The tribes or tribal territories located within 25 miles of the facility's location.
+  * FacDerivedWBD **required** `string`: The Hydrologic Unit Code (HUC-12) of the waterbody in which the facility resides, derived based on location data in FRS.
+  * FacDerivedWBDName **required** `string`: The 12 digit Watershed Boundary Dataset Name derived from the FRS Best Pick Coordinate
+  * FacEisAIRReleases **required** `string`: The amount of hazardous air pollutants released to air in tons per year, as reported in the most recent National Emissions Inventory (NEI).
+  * FacEisReporter **required** `string`: Indicates whether the facility reports to the Emissions Inventory System (EIS).
   * FacFIPSCode **required** `string`: The 2-digit Federal Information Processing Standards (FIPS) code to identify the county that a facility is located in.
   * FacFederalAgencyCode **required** `string`: Indicates the federal agency, as classified in FRS. Federal agencies are installations that are owned and operated by the U.S. government. The five-character code consists of a letter followed by four numbers. There are four possible letters that can occupy the first character position: C = Civilian Federal Agency; D = Department of Defense; E = Department of Energy; X = Unknown. The second and third characters represent the agency code, while the fourth and fifth characters represent the bureau code.
-  * FacFederalAgencyName **required** `string`
-  * FacGHGCO2Releases **required** `string`
-  * FacGHGReporter **required** `string`
+  * FacFederalAgencyName **required** `string`: Indicates the name of the federal agency, as classified in FRS. Federal agencies are installations that are owned and operated by the U.S. government.
+  * FacGHGCO2Releases **required** `string`: The annual sum of total release amounts and "associated quantities" of all linked Greenhouse Gas IDs from the Office of Air and Radiation "Summary 2010 Greenhouse Gas Data." Units are reported as metric tons of CO2 equivalents per year (MTCO2e/year).
+  * FacGHGReporter **required** `string`: Indicates whether the facility reports to the Greenhouse Gas Reporting Program (GHGRP)
   * FacIndianCntryFlg **required** `string`: Flag showing Y/N whether the facility is located in Indian Country.
-  * FacIndianSpatialFlg **required** `string`
+  * FacIndianSpatialFlg **required** `string`: Returns “Y” if a facility is located within a tribal spatial boundary as defined by the U.S. Census Bureau 2010 tribal boundary layer data for tribes in the lower 48 states and Bureau of Land Management Alaska State Office data for native villages in Alaska. Returns “N” if a facility is not located within a tribal or native Alaskan village area.
   * FacLat **required** `string`: The latitude of the facility in decimal degrees expressed using the NAD83 horizontal datum. The coordinate comes from the FRS EPA Locational Reference Tables (LRT) file which represents the most accurate value for the facility based on the available spatial metadata.
   * FacLong **required** `string`: The longitude of the facility in decimal degrees expressed using the NAD83 horizontal datum. The coordinate comes from the FRS EPA Locational Reference Tables (LRT) file which represents the most accurate value for the facility based on the available spatial metadata.
   * FacMapFlg **required** `string`: Graphical indicator denoting whether geographical data required to map a facility are available.
   * FacMapIcon **required** `string`: The default map icon image file calculated for the facility by the ECHO program.
-  * FacNaaFlag **required** `string`
+  * FacNaaFlag **required** `string`: Indicates whether the facility is located in a nonattainment area of the country, where air pollution levels persistently exceed the national ambient air quality standards. This flag does not indicate whether or not the facility has violated national ambient area quality standards.
   * FacPercentMinority **required** `string`: Percent Minority is the percentage of the population of the given area that is considered minority. Statistics are shown for the area within a 3-mile radius of each facility.
-  * FacPopulationDensity **required** `string`
-  * FacSICCodes **required** `string`
-  * FacTRIAIRReleases **required** `string`
-  * FacTRICarcAIRReleases **required** `string`
-  * FacTRIHapsAIRReleases **required** `string`
+  * FacPopulationDensity **required** `string`: The number of persons per square mile in the profiled area.
+  * FacSICCodes **required** `string`: Indicates the facility’s or permit's primary Standard Industrial Classification (SIC) Code. The SIC code describes the primary activity of the facility.
+  * FacStdCountyName **required** `string`: The standardized  facility county name from EPA's Facility Registry System
+  * FacTRIAIRReleases **required** `string`: The total chemical releases to air, in pounds, as reported to TRI by the facility for the most recent reporting year.
+  * FacTRICarcAIRReleases **required** `string`: The pounds of chemicals considered to be carcinogens released to air, as reported to TRI for the most recent reporting year. Chemicals are classified as carcinogens under the requirements of the Occupational Safety and Health Administration (OSHA).
+  * FacTRIHapsReleases **required** `string`: The pounds of chemicals classified as hazardous air pollutants (HAPS) released to air in pounds per year, as reported to TRI for the most recent reporting year.
   * FacTRIReporter **required** `string`: Indicates whether facility reported to the Toxics Release Inventory (TRI) for the most recent reporting year.
   * FacUsMexBorderFlg **required** `string`: A Y/N flag indicating that the facility is within 100KM of the US-Mexico Border.
-  * GHGIDs **required** `string`
+  * GHGIDs **required** `string`: A unique ID assigned for each facility within EPA’s Greenhouse Gas Reporting Program (GHGRP) Emissions Data Sets.
   * HasPollRpt **required** `string`: ???
   * Infea5yrFlag **required** `string`: Indicates if the facility has an informal enforcement action within the last 5 years. 1 = Yes.
   * Insp5yrFlag **required** `string`: Indicates if the facility has an inspection within the last 5 years. 1 = Yes
-  * LastDatePce `string`
-  * LastDatePceEPA `string`
-  * LastDatePceSta `string`
+  * LastDatePce **required** `string`: The date on which the most recent Partial Compliance Evaluation (PCE) of the facility by EPA or a state agency was completed.
+  * LastDatePceEPA **required** `string`: The date on which the most recent Partial Compliance Evaluation (PCE) of the facility by EPA was completed.
+  * LastDatePceSta **required** `string`: The date on which the most recent Partial Compliance Evaluation (PCE) of the facility by a state agency was completed.
   * LocalControlRegionCode **required** `string`: Code for regions within a state. Search criteria for DFR in OTIS.
   * LocalControlRegionName **required** `string`: Regions within a state. Search criteria for DFR in OTIS.
   * Lower48 **required** `string`: Flag showing Y/N whether location is within the contiguous (lower 48) United States.
-  * Map **required** `string`
+  * Map **required** `string`: No Longer Used.
   * MaxPctileUs **required** `string`: The maximum percentile from all individual EJSCREEN indicators.
-  * MaxScore `string`: [Col. 121]
-  * ObjectId **required** `string`: Sequential number assigned to each facility returned
-  * Over80CountUs `string`
+  * MaxScore **required** `string`: A sorting score for internal use.
+  * NaaCategories **required** `string`: The nonattainment area categories that the facility is in, derived spatially based on the facility's geographic coordinates in FRS.�
+  * NaaPollutants **required** `string`: All criteria pollutants that the facility is in nonattainment for.
+  * ObjectId **required** `string`: Sequential number assigned to each facility or cluster returned.
+  * OtherPermitIDs **required** `string`
+  * Over80CountUs **required** `string`: The number of primary EJSCREEN environmental justice (EJ) indexes exceeding the 80th or higher national percentile for the Census block group that the facility is located in.
   * PctileCancerUs **required** `string`: The national percentile of the census block group for the EJSCREEN NATA air toxics cancer risk indicator.
   * PctileDpmUs **required** `string`: The national percentile of the census block group for the EJSCREEN diesel particulate matter indicator.
   * PctileO3Us **required** `string`: The national percentile of the census block group for the EJSCREEN ozone indicator.
@@ -1130,24 +1152,25 @@ epa_gov_air.air_rest_services.metadata.post({}, context)
   * RCRAIDs **required** `string`: A unique 12-character ID assigned for each record/permit/site/facility within the RCRAInfo database.
   * ReferencePoint **required** `string`: ??
   * RegistryID **required** `string`: An internal 12-digit Facility Registry Service (FRS) tracking number used to tie all facility data together in EPA regulatory program databases.
-  * RmpIDs **required** `string`
+  * RmpIDs **required** `string`: A unique ID assigned to each facility submitting a Risk Management Plan to EPA under the Risk Management Plan Rule.
   * SDWAIDs **required** `string`: A unique 9-character ID assigned for each public water system within the Safe Drinking Water Information System (SDWIS).
-  * Score `string`
+  * Score **required** `string`
   * SourceID **required** `string`: Unique Identifier assigned by EPA.
   * Statute **required** `string`: The name of the statute associated with each of the permits and identifiers linked to the facility: 
   * TRIIDs **required** `string`: A unique 15-character ID assigned for each facility within the Toxics Release Inventory (TRI) program. The format is ZZZZZNNNNNSSSSS, where ZZZZZ = ZIP code, NNNNN = the first 5 consonants of the name, and SSSSS = the first 5 non-blank non-special characters in the street address.
-  * TRIbalFlag **required** `string`
+  * TRIbalFlag **required** `string`: A flag indicating that the facility is within a tribal area.
   * ViolFlag **required** `string`: Indicates if the facility had a violation within the last 3 years. 1 = Yes
-  * WebDocs `string`: Contains flags that identify what web accessible documents are available for the facility.
+  * WebDocs **required** `string`: Contains flags that identify what web accessible documents are available for the facility.
 
-### air3_Results
-* air3_Results `object`: Results Object
+### air08
+* air08 `object`: Results Object
+  * BadSystemIDs **required** `string`: Identifies which passed query system identifiers are invalid.
   * CVRows **required** `string`: Summary count of the number of CWA facilities or SDWA public drinking water systems with current violations.
-  * ClusterOutput [air1_ClusterOutput](#air1_clusteroutput)
+  * ClusterOutput [air01](#air01)
   * ClusterRecords `string`: Number of clusters returned.
   * FEARows **required** `string`: Summary count of the number of facilities with a formal enforcement action in the past five years
-  * Facilities `array`
-    * items [air3_Facilities](#air3_facilities)
+  * Facilities `array`: A complex array of facility information.
+    * items [air06](#air06)
   * INSPRows **required** `string`: Number of facilities with insp_5yr_flag populated (CWP_DATE_LAST_INSPECTION)
   * IconBaseURL **required** `string`: URL where all the icons are located
   * IndianCountryRows **required** `string`: Number of facilities with tribal_flag populated
@@ -1156,90 +1179,79 @@ epa_gov_air.air_rest_services.metadata.post({}, context)
   * PopUpBaseURL **required** `string`: Combine this URL with the PUC to get popup info
   * QueryID **required** `string`: Sequential number assigned to entire search result
   * QueryParameters **required** `array`: A list of submitted query parameters and their values.
-    * items [qp0_QueryParameters](#qp0_queryparameters)
+    * items [qp0](#qp0)
   * QueryRows **required** `string`: Number of query results returned
   * SVRows **required** `string`: Number of facilities with curr_sv_flag populated (CWP_STATUS = "Significant Violation")
-  * ServiceBaseURL **required** `string`
+  * ServiceBaseURL **required** `string`: The base service URL.
   * TotalPenalties **required** `string`: The total dollar amount of either assessed or final penalties within the five year time period
   * V3Rows **required** `string`: Number of facilities having one or more quarters in non-compliance (QNC) in the last three years
 
-### air4_MapOutput
-* air4_MapOutput `object`: Map Output Object
-  * IconBaseURL **required** `string`: URL where all the icons are located
-  * MapData **required** `array`
-    * items [air1_MapData](#air1_mapdata)
-  * PopUpBaseURL **required** `string`: Combine this URL with the PUC to get popup info
-  * QueryID **required** `string`: Sequential number assigned to entire search result
-
-### air5_Results
-* air5_Results `object`: Results Object
-  * Facilities **required** `array`
-    * items [air2_Facilities](#air2_facilities)
-  * Message **required** `string`: Field to record messages (typically performance-related) about packet processing
-  * PageNo **required** `string`: The number of pages of results returned
-  * QueryID **required** `string`: Sequential number assigned to entire search result
-  * QueryRows **required** `string`: Number of query results returned
-
-### air6_Feature
-* air6_Feature `object`: GeoJSON Feature Object
-  * geometry **required** [Geometry](#geometry)
-  * properties **required** [air6_properties](#air6_properties)
+### air09
+* air09 `object`: GeoJSON Feature Object
+  * geometry **required** [geo](#geo)
+  * properties **required** [air10](#air10)
   * type **required** `string`: Static marker indicating object is a GeoJSON Feature.
 
-### air6_properties
-* air6_properties `object`: GeoJSON Properties Object
-  * AIR3yrComplQtrsStatus **required** `string`
+### air10
+* air10 `object`: GeoJSON Properties Object
+  * AIR3yrComplQtrsHistory **required** `string`: The facility's 3-year compliance status history by quarter (3-month period). Each character represents a quarter of compliance, going from oldest to most recent. Character values correspond to the following compliance statuses:
   * AIRCaseIDs **required** `string`: Space-delimited list of AIR cases associated with the facility.
-  * AIRCity **required** `string`
+  * AIRCity **required** `string`: The city where the AIR facility is located.
+  * AIRClassification **required** `string`
+  * AIRComplStatus **required** `string`: The facility's recent violation status under the Clean Air Act.
   * AIRCounty **required** `string`: The name of the county where the AIR facility is located.
-  * AIRCurrComplStatus **required** `string`
-  * AIRCurrHpv **required** `string`
-  * AIRDaysLastEval **required** `number`
+  * AIRDaysLastEval **required** `number`: The number of days since the most recent compliance evaluation of the facility.
   * AIREPARegion **required** `string`: The EPA region where the AIR facility is located.
-  * AIREvalCnt **required** `number`
-  * AIRFIPSCode **required** `string`
-  * AIRFacilityTypeCode **required** `string`
-  * AIRFeaCnt **required** `string`
+  * AIREvalCnt **required** `number`: The number of compliance evaluations, under the Clean Air Act, occurring at the facility within the last five years.
+  * AIRFIPSCode **required** `string`: A 5 digit combination of the 2 digit Federal Information Processing Standards (FIPS) code for the state and the 3 digit FIPS code of the county that a facility is located in.
+  * AIRFacilityTypeCode **required** `string`: A three-character code indicating if plant is government facility.
+  * AIRFacilityTypeDesc **required** `string`
+  * AIRFeaCnt **required** `string`: The total number of formal enforcement actions taken against the facility within the last five years.
+  * AIRHpvStatus **required** `string`: Indicates whether the facility currently has an unresolved High Priority Violation (HPV) under the Clean Air Act.
   * AIRIDs **required** `string`: Air Facility System (AFS) ID.
-  * AIRIeaCnt **required** `string`
+  * AIRIeaCnt **required** `string`: The total number of informal enforcement actions taken against the facility within the last five years.
   * AIRIndianCntryFlg **required** `string`: Flag indicating whether the AIR facility is located in Indian country.
-  * AIRLastEvalDate **required** `string`
-  * AIRLastEvalDateEPA **required** `string`
-  * AIRLastEvalDateState **required** `string`
-  * AIRLastFeaDate **required** `string`
-  * AIRLastFeaDateEPA **required** `string`
-  * AIRLastFeaDateState **required** `string`
-  * AIRLastIeaDate **required** `string`
-  * AIRLastIeaDateEPA **required** `string`
-  * AIRLastIeaDateState **required** `string`
-  * AIRLastPenaltyDate **required** `string`
-  * AIRLastStckDateEPA **required** `string`
-  * AIRLastStckDateState **required** `string`
-  * AIRLastStckTestDate **required** `string`
-  * AIRLastStckTestResults **required** `string`
-  * AIRLastViolDate **required** `string`
-  * AIRMacts **required** `string`
-  * AIRMajorFlag **required** `string`
-  * AIRMnthsInHpv **required** `number`
-  * AIRNAICS **required** `string`
+  * AIRLastEvalDate **required** `string`: The date on which the most recent Full Compliance Evaluation (FCE) of the facility by EPA or a state agency was completed.
+  * AIRLastEvalDateEPA **required** `string`: The last Air Inspection Date performed by EPA.
+  * AIRLastEvalDateState **required** `string`: The last Air Inspection Date performed by State or local authorities.
+  * AIRLastFeaDate **required** `string`: The effective date of the most recent listed formal enforcement action taken against the facility.
+  * AIRLastFeaDateEPA **required** `string`: The last Air Formal Enforcement Action Date take by EPA.
+  * AIRLastFeaDateState **required** `string`: The last Air Formal Enforcement Action Date take by State or Local authorities.
+  * AIRLastIeaDate **required** `string`: The effective date of the most recent listed informal enforcement action taken against the facility.
+  * AIRLastIeaDateEPA **required** `string`: The effective date of the most recent listed informal enforcement action taken against the facility by EPA.
+  * AIRLastIeaDateState **required** `string`: The effective date of the most recent listed informal enforcement action taken against the facility by a state agency.
+  * AIRLastPenaltyDate **required** `string`: Indicates the date on which the most recent assessed (or final) penalty was taken against the facility for AIR.
+  * AIRLastStckDateEPA **required** `string`: The date on which the most recent stack test by EPA occurred.
+  * AIRLastStckDateState **required** `string`: The date on which the most recent stack test by a state agency occurred.
+  * AIRLastStckTestDate **required** `string`: The date on which the most recent stack test occurred.
+  * AIRLastStckTestResults **required** `string`: The result of the most recent stack test (Pass, Fail, Pending, or Blank).
+  * AIRLastViolDate **required** `string`: The date on which the most recent violation was reported.
+  * AIRMacts **required** `string`: The Maximum Achievable Control Technology (MACT) Subpart associated with the facility.
+  * AIRMajorFlag **required** `string`: Indicated whether the facility is designated as a major facilitiy.
+  * AIRMnthsWithHpv **required** `number`: The number of months in the last three years in which the permit or site is considered in High Priority Violation (HPV) status
+  * AIRNAICS **required** `string`: The facility’s or permit's primary North American Industry Classification System (NAICS) Code.
   * AIRName **required** `string`: The name of the AIR Facility.
-  * AIRPenalties **required** `string`
-  * AIRPollRecentViol **required** `string`
+  * AIRNsps **required** `string`: The New Source Performance Standards (NSPS) Subpart associated with the facility.
+  * AIRNspsm **required** `string`: The Non-Major New Source Performance Standards (NSPS) Subpart associated with the facility.
+  * AIRPenalties **required** `string`: The total dollar amount of assessed (or final) penalties taken against the facility within the last five years under the Clean Air Act. This value only includes penalties that have been entered in the national program database, ICIS-Air.
+  * AIRPollRecentViol **required** `string`: The names of pollutants or pollutant categories with violations reported in the last year.
   * AIRPrograms **required** `string`: Comma-delimited list of AIR programs.
-  * AIRQtrsInHpv **required** `number`
-  * AIRQtrsWithViol **required** `number`
-  * AIRRecentViolCnt **required** `number`
+  * AIRQtrsWithHpv **required** `number`: The number of quarters in the last three years in which the permit or site is considered in High Priority Violation (HPV) status.
+  * AIRQtrsWithViol **required** `number`: The number of quarters in the last three years in which the permit or site has had unresolved violation(s) reported.
+  * AIRRecentViolCnt **required** `number`: The number of violations reported in the last year.
+  * AIRStackTest5YrAll **required** `string`
+  * AIRStackTest5YrFail **required** `string`
   * AIRState **required** `string`: The state where the AIR facility is located.
   * AIRStatus **required** `string`: The status of the AIR facility location.
   * AIRStreet **required** `string`: The street address of the AIR facility location.
-  * AIRTRIbalEPAids **required** `string`
-  * AIRTRIbalNames **required** `string`
-  * AIRUniverse **required** `string`
+  * AIRTRIbalEPAids **required** `string`: The EPA Tribal or Native Alaskan Village Identifier for facilities, that based on their Best Pick FRS spatial coordinate, are within a Tribal or Alaskan Village area.
+  * AIRTRIbalNames **required** `string`: The EPA Tribal or Native Alaskan Village Name for facilities, that based on their Best Pick FRS spatial coordinate, are within a Tribal or Alaskan Village area.
+  * AIRUniverse **required** `string`: The program office defines each CAA Source ID and the associated permits as being Federally Reportable or Non-Federally Reportable. Under the CAA, federally reportable source include majors, synthetic minors, NESHAP Part 61 minors, minors with an unresolved High Priority Violation (HPV), with recent enforcement action, or included on a Compliance Monitoring Strategy plan.
   * AIRZip **required** `string`: The five-digit zip code of the AIR facility.
-  * ActiveLower48 **required** `string`
-  * CWAIDs **required** `string`
-  * CalculatedAccuracyMeters **required** `number`
-  * CamdIDs `string`: Facility identifiers for the Clean Air Markets Division database.
+  * ActiveLower48 **required** `string`: A Y/N indicator indicating that the facility is active and located within the lower 48 contiguous US States.
+  * CWAIDs **required** `string`: A unique  ID assigned for each record/permit/site/facility within ICIS-NPDES. These identifiers are for used tracking purposes in the individual data systems.
+  * CalculatedAccuracyMeters **required** `number`: Indicates the calculated accuracy in meters for the facilities geospatial coordinate.  Generally, the accuracy is directly linked to the collection method where GPS methods are more accurate that manual methods like map or photo interpolations.
+  * CamdIDs **required** `string`: Facility identifiers for the Clean Air Markets Division database.
   * CensusBlockGroup **required** `string`: A geographic unit used by the United States Census Bureau, generally defined to contain between 600 and 3,000 people.
   * ChesapeakeBayFlag **required** `string`: Displays "Y" if the facility is located within the Chesapeake Bay watershed.
   * CollectionMethod **required** `string`: ??
@@ -1247,48 +1259,53 @@ epa_gov_air.air_rest_services.metadata.post({}, context)
   * CurrVioFlag **required** `number`: Indicates if the facility has a current violation. 1 = Yes
   * EPASystem **required** `string`: The EPA data system in which permit and facility records are kept. EPA's Facility Registry System (FRS) links all program database records (such as permit IDs and IDs facilities use in reporting to EPA) together. The following list describes the individual data systems that are linked to from the detailed facility report: 
   * Ea5yrFlag **required** `number`: Indicates if the facility has a formal enforcement action within the last 5 years. 1 = Yes
-  * EisIDs **required** `string`
-  * EjscreenFlag **required** `string`
-  * EjscreenFlagUs **required** `string`
-  * FacCamdReporter **required** `string`
+  * EisIDs **required** `string`: A unique ID assigned for each facility within EPA’s Emissions Inventory System (EIS) Database.
+  * EjscreenFlag **required** `string`: A Y/N indicator identifying whether or not the facility is within an Environmental Justice area.
+  * EjscreenFlagUs **required** `string`: A Y/N indicator identifying whether or not the facility is within an Environmental Justice area.
+  * FacCamdReporter **required** `string`: Indicates whether the facility reports to the Clean Air Markets Division (CAMD).
+  * FacCountyName **required** `string`: The facility county name from EPA's Facility Registry System
   * FacDerivedHuc **required** `string`: The 8-digit Hydrologic Unit Code (HUC) of the watershed in which the facility resides. A HUC number is assigned to every watershed in the nation and uniquely identifies the watershed.
-  * FacDerivedTRIbes **required** `string`
-  * FacDerivedWBD **required** `string`
-  * FacDerivedWBDName **required** `string`
-  * FacEisAIRReleases **required** `string`
-  * FacEisReporter **required** `string`
+  * FacDerivedTRIbes **required** `string`: The tribes or tribal territories located within 25 miles of the facility's location.
+  * FacDerivedWBD **required** `string`: The Hydrologic Unit Code (HUC-12) of the waterbody in which the facility resides, derived based on location data in FRS.
+  * FacDerivedWBDName **required** `string`: The 12 digit Watershed Boundary Dataset Name derived from the FRS Best Pick Coordinate
+  * FacEisAIRReleases **required** `string`: The amount of hazardous air pollutants released to air in tons per year, as reported in the most recent National Emissions Inventory (NEI).
+  * FacEisReporter **required** `string`: Indicates whether the facility reports to the Emissions Inventory System (EIS).
   * FacFIPSCode **required** `string`: The 2-digit Federal Information Processing Standards (FIPS) code to identify the county that a facility is located in.
   * FacFederalAgencyCode **required** `string`: Indicates the federal agency, as classified in FRS. Federal agencies are installations that are owned and operated by the U.S. government. The five-character code consists of a letter followed by four numbers. There are four possible letters that can occupy the first character position: C = Civilian Federal Agency; D = Department of Defense; E = Department of Energy; X = Unknown. The second and third characters represent the agency code, while the fourth and fifth characters represent the bureau code.
-  * FacFederalAgencyName **required** `string`
-  * FacGHGCO2Releases **required** `string`
-  * FacGHGReporter **required** `string`
+  * FacFederalAgencyName **required** `string`: Indicates the name of the federal agency, as classified in FRS. Federal agencies are installations that are owned and operated by the U.S. government.
+  * FacGHGCO2Releases **required** `string`: The annual sum of total release amounts and "associated quantities" of all linked Greenhouse Gas IDs from the Office of Air and Radiation "Summary 2010 Greenhouse Gas Data." Units are reported as metric tons of CO2 equivalents per year (MTCO2e/year).
+  * FacGHGReporter **required** `string`: Indicates whether the facility reports to the Greenhouse Gas Reporting Program (GHGRP)
   * FacIndianCntryFlg **required** `string`: Flag showing Y/N whether the facility is located in Indian Country.
-  * FacIndianSpatialFlg **required** `string`
+  * FacIndianSpatialFlg **required** `string`: Returns “Y” if a facility is located within a tribal spatial boundary as defined by the U.S. Census Bureau 2010 tribal boundary layer data for tribes in the lower 48 states and Bureau of Land Management Alaska State Office data for native villages in Alaska. Returns “N” if a facility is not located within a tribal or native Alaskan village area.
   * FacMapFlg **required** `string`: Graphical indicator denoting whether geographical data required to map a facility are available.
   * FacMapIcon **required** `string`: The default map icon image file calculated for the facility by the ECHO program.
-  * FacNaaFlag **required** `string`
+  * FacNaaFlag **required** `string`: Indicates whether the facility is located in a nonattainment area of the country, where air pollution levels persistently exceed the national ambient air quality standards. This flag does not indicate whether or not the facility has violated national ambient area quality standards.
   * FacPercentMinority **required** `number`: Percent Minority is the percentage of the population of the given area that is considered minority. Statistics are shown for the area within a 3-mile radius of each facility.
-  * FacPopulationDensity **required** `number`
-  * FacSICCodes **required** `string`
-  * FacTRIAIRReleases **required** `string`
-  * FacTRICarcAIRReleases **required** `string`
-  * FacTRIHapsAIRReleases **required** `string`
+  * FacPopulationDensity **required** `number`: The number of persons per square mile in the profiled area.
+  * FacSICCodes **required** `string`: Indicates the facility’s or permit's primary Standard Industrial Classification (SIC) Code. The SIC code describes the primary activity of the facility.
+  * FacStdCountyName **required** `string`: The standardized  facility county name from EPA's Facility Registry System
+  * FacTRIAIRReleases **required** `string`: The total chemical releases to air, in pounds, as reported to TRI by the facility for the most recent reporting year.
+  * FacTRICarcAIRReleases **required** `string`: The pounds of chemicals considered to be carcinogens released to air, as reported to TRI for the most recent reporting year. Chemicals are classified as carcinogens under the requirements of the Occupational Safety and Health Administration (OSHA).
+  * FacTRIHapsReleases **required** `string`: The pounds of chemicals classified as hazardous air pollutants (HAPS) released to air in pounds per year, as reported to TRI for the most recent reporting year.
   * FacTRIReporter **required** `string`: Indicates whether facility reported to the Toxics Release Inventory (TRI) for the most recent reporting year.
   * FacUsMexBorderFlg **required** `string`: A Y/N flag indicating that the facility is within 100KM of the US-Mexico Border.
-  * GHGIDs **required** `string`
+  * GHGIDs **required** `string`: A unique ID assigned for each facility within EPA’s Greenhouse Gas Reporting Program (GHGRP) Emissions Data Sets.
   * HasPollRpt **required** `string`: ???
   * Infea5yrFlag **required** `number`: Indicates if the facility has an informal enforcement action within the last 5 years. 1 = Yes.
   * Insp5yrFlag **required** `number`: Indicates if the facility has an inspection within the last 5 years. 1 = Yes
-  * LastDatePce `string`
-  * LastDatePceEPA `string`
-  * LastDatePceSta `string`
+  * LastDatePce **required** `string`: The date on which the most recent Partial Compliance Evaluation (PCE) of the facility by EPA or a state agency was completed.
+  * LastDatePceEPA **required** `string`: The date on which the most recent Partial Compliance Evaluation (PCE) of the facility by EPA was completed.
+  * LastDatePceSta **required** `string`: The date on which the most recent Partial Compliance Evaluation (PCE) of the facility by a state agency was completed.
   * LocalControlRegionCode **required** `string`: Code for regions within a state. Search criteria for DFR in OTIS.
   * LocalControlRegionName **required** `string`: Regions within a state. Search criteria for DFR in OTIS.
   * Lower48 **required** `string`: Flag showing Y/N whether location is within the contiguous (lower 48) United States.
-  * Map **required** `string`
+  * Map **required** `string`: No Longer Used.
   * MaxPctileUs **required** `number`: The maximum percentile from all individual EJSCREEN indicators.
-  * MaxScore `number`: [Col. 121]
-  * Over80CountUs `number`
+  * MaxScore **required** `number`: [Col. 121]
+  * NaaCategories **required** `string`: The nonattainment area categories that the facility is in, derived spatially based on the facility's geographic coordinates in FRS.�
+  * NaaPollutants **required** `string`: All criteria pollutants that the facility is in nonattainment for.
+  * OtherPermitIDs **required** `string`
+  * Over80CountUs **required** `number`: The number of primary EJSCREEN environmental justice (EJ) indexes exceeding the 80th or higher national percentile for the Census block group that the facility is located in.
   * PctileCancerUs **required** `number`: The national percentile of the census block group for the EJSCREEN NATA air toxics cancer risk indicator.
   * PctileDpmUs **required** `number`: The national percentile of the census block group for the EJSCREEN diesel particulate matter indicator.
   * PctileO3Us **required** `number`: The national percentile of the census block group for the EJSCREEN ozone indicator.
@@ -1303,33 +1320,56 @@ epa_gov_air.air_rest_services.metadata.post({}, context)
   * RCRAIDs **required** `string`: A unique 12-character ID assigned for each record/permit/site/facility within the RCRAInfo database.
   * ReferencePoint **required** `string`: ??
   * RegistryID **required** `string`: An internal 12-digit Facility Registry Service (FRS) tracking number used to tie all facility data together in EPA regulatory program databases.
-  * RmpIDs **required** `string`
+  * RmpIDs **required** `string`: A unique ID assigned to each facility submitting a Risk Management Plan to EPA under the Risk Management Plan Rule.
   * SDWAIDs **required** `string`: A unique 9-character ID assigned for each public water system within the Safe Drinking Water Information System (SDWIS).
-  * Score `number`
+  * Score **required** `number`
   * SourceID **required** `string`: Unique Identifier assigned by EPA.
   * Statute **required** `string`: The name of the statute associated with each of the permits and identifiers linked to the facility: 
   * TRIIDs **required** `string`: A unique 15-character ID assigned for each facility within the Toxics Release Inventory (TRI) program. The format is ZZZZZNNNNNSSSSS, where ZZZZZ = ZIP code, NNNNN = the first 5 consonants of the name, and SSSSS = the first 5 non-blank non-special characters in the street address.
-  * TRIbalFlag **required** `number`
+  * TRIbalFlag **required** `number`: A value of "1" indicates that the facility is within an Indian Tribal or Alaskan Native Village area.
   * ViolFlag **required** `number`: Indicates if the facility had a violation within the last 3 years. 1 = Yes
-  * WebDocs `string`: Contains flags that identify what web accessible documents are available for the facility.
+  * WebDocs **required** `string`: Contains flags that identify what web accessible documents are available for the facility.
 
-### met_Results
-* met_Results `object`: Results Object
+### air11
+* air11 `object`: Map Output Object
+  * IconBaseURL **required** `string`: URL where all the icons are located
+  * MapData **required** `array`: An array of facility geospatial information.
+    * items [air02](#air02)
+  * PopUpBaseURL **required** `string`: Combine this URL with the PUC to get popup info
+  * QueryID **required** `string`: Sequential number assigned to entire search result
+
+### air12
+* air12 `object`: Results Object
+  * Facilities **required** `array`: A complex array of facility information.
+    * items [air03](#air03)
+  * Message **required** `string`: Field to record messages (typically performance-related) about packet processing
+  * PageNo **required** `string`: The number of pages of results returned
+  * QueryID **required** `string`: Sequential number assigned to entire search result
+  * QueryRows **required** `string`: Number of query results returned
+
+### geo
+* geo `object`: GeoJSON Geometry Object
+  * coordinates **required** `array`: Array of coordinate values in longitude, latitude format.
+    * items `number`
+  * type **required** `string`: Indicator of the geometry represented in the GeoJSON Feature, for Echo will always be "Point".
+
+### meta1
+* meta1 `object`: Results Object
   * Message **required** `string`: Field to record messages (typically performance-related) about packet processing
   * ResultColumns `array`
-    * items [met_ResultsColumns](#met_resultscolumns)
+    * items [meta3](#meta3)
 
-### met_ResultsColumns
-* met_ResultsColumns `object`: Results Column Object
+### meta3
+* meta3 `object`: Results Column Object
   * ColumnID **required** `string`
   * ColumnName **required** `string`
   * DataLength **required** `string`: Data length for EPA program database column.
   * DataType **required** `string`: Data type for EPA program database column.
-  * Description **required** `string`: A description of the category of Supplemental Environment Project (SEP) for a settlement.
-  * ObjectName **required** `string`
+  * Description **required** `string`
+  * ObjectName **required** `string`: The JSON name used for the database column.
 
-### qp0_QueryParameters
-* qp0_QueryParameters `object`: Query Parameters Object
+### qp0
+* qp0 `object`: Query Parameters Object
   * QP **required** `string`: Query parameter
   * QV **required** `string`: Query value
 

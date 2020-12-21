@@ -12,7 +12,7 @@ let carbondoomsday = require('@datafire/carbondoomsday').create({
   password: ""
 });
 
-carbondoomsday.co2_list({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -116,6 +116,6 @@ carbondoomsday.co2_read({
 ### CO2
 * CO2 `object`
   * date **required** `string`
-  * ppm **required** `number`
+  * ppm **required** `string`
 
 

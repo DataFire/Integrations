@@ -1,6 +1,6 @@
 # @datafire/google_youtube
 
-Client library for YouTube Data
+Client library for YouTube Data API v3
 
 ## Installation and Usage
 ```bash
@@ -15,14 +15,14 @@ let google_youtube = require('@datafire/google_youtube').create({
   redirect_uri: ""
 });
 
-google_youtube.videos.reportAbuse({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
 
 ## Description
 
-Supports core YouTube features, such as uploading videos, creating and managing playlists, searching for content, and much more.
+The YouTube Data API v3 is an API that provides access to YouTube data, such as videos, playlists, and channels.
 
 ## Actions
 
@@ -67,1865 +67,2306 @@ google_youtube.oauthRefresh(null, context)
   * scope `string`
   * expiration `string`
 
-### activities.list
-Returns a list of channel activity events that match the request criteria. For example, you can retrieve events associated with a particular channel, events associated with the user's subscriptions and Google+ friends, or the YouTube home page feed, which is customized for each user.
+### youtube.abuseReports.insert
+Inserts a new resource into this collection.
 
 
 ```js
-google_youtube.activities.list({
-  "part": ""
+google_youtube.youtube.abuseReports.insert({
+  "part": []
 }, context)
 ```
 
 #### Input
 * input `object`
-  * channelId `string`: The channelId parameter specifies a unique YouTube channel ID. The API will then return a list of that channel's activities.
-  * home `boolean`: Set this parameter's value to true to retrieve the activity feed that displays on the YouTube home page for the currently authenticated user.
-  * maxResults `integer`: The maxResults parameter specifies the maximum number of items that should be returned in the result set.
-  * mine `boolean`: Set this parameter's value to true to retrieve a feed of the authenticated user's activities.
-  * pageToken `string`: The pageToken parameter identifies a specific page in the result set that should be returned. In an API response, the nextPageToken and prevPageToken properties identify other pages that could be retrieved.
-  * part **required** `string`: The part parameter specifies a comma-separated list of one or more activity resource properties that the API response will include.
-  * publishedAfter `string`: The publishedAfter parameter specifies the earliest date and time that an activity could have occurred for that activity to be included in the API response. If the parameter value specifies a day, but not a time, then any activities that occurred that day will be included in the result set. The value is specified in ISO 8601 (YYYY-MM-DDThh:mm:ss.sZ) format.
-  * publishedBefore `string`: The publishedBefore parameter specifies the date and time before which an activity must have occurred for that activity to be included in the API response. If the parameter value specifies a day, but not a time, then any activities that occurred that day will be excluded from the result set. The value is specified in ISO 8601 (YYYY-MM-DDThh:mm:ss.sZ) format.
-  * regionCode `string`: The regionCode parameter instructs the API to return results for the specified country. The parameter value is an ISO 3166-1 alpha-2 country code. YouTube uses this value when the authorized user's previous activity on YouTube does not provide enough information to generate the activity feed.
-  * alt `string` (values: json): Data format for the response.
+  * part **required** `array`: The *part* parameter serves two purposes in this operation. It identifies the properties that the write operation will set as well as the properties that the API response will include.
+  * body [AbuseReport](#abusereport)
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+
+#### Output
+* output [AbuseReport](#abusereport)
+
+### youtube.activities.list
+Retrieves a list of resources, possibly filtered.
+
+
+```js
+google_youtube.youtube.activities.list({
+  "part": []
+}, context)
+```
+
+#### Input
+* input `object`
+  * part **required** `array`: The *part* parameter specifies a comma-separated list of one or more activity resource properties that the API response will include. If the parameter identifies a property that contains child properties, the child properties will be included in the response. For example, in an activity resource, the snippet property contains other properties that identify the type of activity, a display title for the activity, and so forth. If you set *part=snippet*, the API response will also contain all of those nested properties.
+  * channelId `string`
+  * home `boolean`
+  * maxResults `integer`: The *maxResults* parameter specifies the maximum number of items that should be returned in the result set.
+  * mine `boolean`
+  * pageToken `string`: The *pageToken* parameter identifies a specific page in the result set that should be returned. In an API response, the nextPageToken and prevPageToken properties identify other pages that could be retrieved.
+  * publishedAfter `string`
+  * publishedBefore `string`
+  * regionCode `string`
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [ActivityListResponse](#activitylistresponse)
 
-### activities.insert
-Posts a bulletin for a specific channel. (The user submitting the request must be authorized to act on the channel's behalf.)
-
-Note: Even though an activity resource can contain information about actions like a user rating a video or marking a video as a favorite, you need to use other API methods to generate those activity resources. For example, you would use the API's videos.rate() method to rate a video and the playlistItems.insert() method to mark a video as a favorite.
+### youtube.captions.delete
+Deletes a resource.
 
 
 ```js
-google_youtube.activities.insert({
-  "part": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * body [Activity](#activity)
-  * part **required** `string`: The part parameter serves two purposes in this operation. It identifies the properties that the write operation will set as well as the properties that the API response will include.
-  * alt `string` (values: json): Data format for the response.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
-
-#### Output
-* output [Activity](#activity)
-
-### captions.delete
-Deletes a specified caption track.
-
-
-```js
-google_youtube.captions.delete({
+google_youtube.youtube.captions.delete({
   "id": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * id **required** `string`: The id parameter identifies the caption track that is being deleted. The value is a caption track ID as identified by the id property in a caption resource.
+  * id **required** `string`
   * onBehalfOf `string`: ID of the Google+ Page for the channel that the request is be on behalf of
-  * onBehalfOfContentOwner `string`: Note: This parameter is intended exclusively for YouTube content partners.
-  * alt `string` (values: json): Data format for the response.
+  * onBehalfOfContentOwner `string`: *Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwner* parameter indicates that the request's authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The actual CMS account that the user authenticates with must be linked to the specified YouTube content owner.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 *Output schema unknown*
 
-### captions.list
-Returns a list of caption tracks that are associated with a specified video. Note that the API response does not contain the actual captions and that the captions.download method provides the ability to retrieve a caption track.
+### youtube.captions.list
+Retrieves a list of resources, possibly filtered.
 
 
 ```js
-google_youtube.captions.list({
-  "part": "",
+google_youtube.youtube.captions.list({
+  "part": [],
   "videoId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * id `string`: The id parameter specifies a comma-separated list of IDs that identify the caption resources that should be retrieved. Each ID must identify a caption track associated with the specified video.
+  * part **required** `array`: The *part* parameter specifies a comma-separated list of one or more caption resource parts that the API response will include. The part names that you can include in the parameter value are id and snippet.
+  * videoId **required** `string`: Returns the captions for the specified video.
+  * id `array`: Returns the captions with the given IDs for Stubby or Apiary.
   * onBehalfOf `string`: ID of the Google+ Page for the channel that the request is on behalf of.
-  * onBehalfOfContentOwner `string`: Note: This parameter is intended exclusively for YouTube content partners.
-  * part **required** `string`: The part parameter specifies a comma-separated list of one or more caption resource parts that the API response will include. The part names that you can include in the parameter value are id and snippet.
-  * videoId **required** `string`: The videoId parameter specifies the YouTube video ID of the video for which the API should return caption tracks.
-  * alt `string` (values: json): Data format for the response.
+  * onBehalfOfContentOwner `string`: *Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwner* parameter indicates that the request's authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The actual CMS account that the user authenticates with must be linked to the specified YouTube content owner.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [CaptionListResponse](#captionlistresponse)
 
-### captions.insert
-Uploads a caption track.
+### youtube.captions.insert
+Inserts a new resource into this collection.
 
 
 ```js
-google_youtube.captions.insert({
-  "part": ""
+google_youtube.youtube.captions.insert({
+  "part": []
 }, context)
 ```
 
 #### Input
 * input `object`
-  * body [Caption](#caption)
+  * part **required** `array`: The *part* parameter specifies the caption resource parts that the API response will include. Set the parameter value to snippet.
   * onBehalfOf `string`: ID of the Google+ Page for the channel that the request is be on behalf of
-  * onBehalfOfContentOwner `string`: Note: This parameter is intended exclusively for YouTube content partners.
-  * part **required** `string`: The part parameter specifies the caption resource parts that the API response will include. Set the parameter value to snippet.
-  * sync `boolean`: The sync parameter indicates whether YouTube should automatically synchronize the caption file with the audio track of the video. If you set the value to true, YouTube will disregard any time codes that are in the uploaded caption file and generate new time codes for the captions.
-  * alt `string` (values: json): Data format for the response.
+  * onBehalfOfContentOwner `string`: *Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwner* parameter indicates that the request's authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The actual CMS account that the user authenticates with must be linked to the specified YouTube content owner.
+  * sync `boolean`: Extra parameter to allow automatically syncing the uploaded caption/transcript with the audio.
+  * body [Caption](#caption)
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [Caption](#caption)
 
-### captions.update
-Updates a caption track. When updating a caption track, you can change the track's draft status, upload a new caption file for the track, or both.
+### youtube.captions.update
+Updates an existing resource.
 
 
 ```js
-google_youtube.captions.update({
-  "part": ""
+google_youtube.youtube.captions.update({
+  "part": []
 }, context)
 ```
 
 #### Input
 * input `object`
+  * part **required** `array`: The *part* parameter specifies a comma-separated list of one or more caption resource parts that the API response will include. The part names that you can include in the parameter value are id and snippet.
+  * onBehalfOf `string`: ID of the Google+ Page for the channel that the request is on behalf of.
+  * onBehalfOfContentOwner `string`: *Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwner* parameter indicates that the request's authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The actual CMS account that the user authenticates with must be linked to the specified YouTube content owner.
+  * sync `boolean`: Extra parameter to allow automatically syncing the uploaded caption/transcript with the audio.
   * body [Caption](#caption)
-  * onBehalfOf `string`: ID of the Google+ Page for the channel that the request is be on behalf of
-  * onBehalfOfContentOwner `string`: Note: This parameter is intended exclusively for YouTube content partners.
-  * part **required** `string`: The part parameter serves two purposes in this operation. It identifies the properties that the write operation will set as well as the properties that the API response will include. Set the property value to snippet if you are updating the track's draft status. Otherwise, set the property value to id.
-  * sync `boolean`: Note: The API server only processes the parameter value if the request contains an updated caption file.
-  * alt `string` (values: json): Data format for the response.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [Caption](#caption)
 
-### captions.download
-Downloads a caption track. The caption track is returned in its original format unless the request specifies a value for the tfmt parameter and in its original language unless the request specifies a value for the tlang parameter.
+### youtube.captions.download
+Downloads a caption track.
 
 
 ```js
-google_youtube.captions.download({
+google_youtube.youtube.captions.download({
   "id": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * id **required** `string`: The id parameter identifies the caption track that is being retrieved. The value is a caption track ID as identified by the id property in a caption resource.
+  * id **required** `string`: The ID of the caption track to download, required for One Platform.
   * onBehalfOf `string`: ID of the Google+ Page for the channel that the request is be on behalf of
-  * onBehalfOfContentOwner `string`: Note: This parameter is intended exclusively for YouTube content partners.
-  * tfmt `string` (values: sbv, scc, srt, ttml, vtt): The tfmt parameter specifies that the caption track should be returned in a specific format. If the parameter is not included in the request, the track is returned in its original format.
-  * tlang `string`: The tlang parameter specifies that the API response should return a translation of the specified caption track. The parameter value is an ISO 639-1 two-letter language code that identifies the desired caption language. The translation is generated by using machine translation, such as Google Translate.
-  * alt `string` (values: json): Data format for the response.
+  * onBehalfOfContentOwner `string`: *Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwner* parameter indicates that the request's authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The actual CMS account that the user authenticates with must be linked to the specified YouTube content owner.
+  * tfmt `string`: Convert the captions into this format. Supported options are sbv, srt, and vtt.
+  * tlang `string`: tlang is the language code; machine translate the captions into this language.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 *Output schema unknown*
 
-### channelBanners.insert
-Uploads a channel banner image to YouTube. This method represents the first two steps in a three-step process to update the banner image for a channel:
-
-- Call the channelBanners.insert method to upload the binary image data to YouTube. The image must have a 16:9 aspect ratio and be at least 2120x1192 pixels.
-- Extract the url property's value from the response that the API returns for step 1.
-- Call the channels.update method to update the channel's branding settings. Set the brandingSettings.image.bannerExternalUrl property's value to the URL obtained in step 2.
+### youtube.channelBanners.insert
+Inserts a new resource into this collection.
 
 
 ```js
-google_youtube.channelBanners.insert({}, context)
+google_youtube.youtube.channelBanners.insert({}, context)
 ```
 
 #### Input
 * input `object`
+  * channelId `string`: Unused, channel_id is currently derived from the security context of the requestor.
+  * onBehalfOfContentOwner `string`: *Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwner* parameter indicates that the request's authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The actual CMS account that the user authenticates with must be linked to the specified YouTube content owner.
+  * onBehalfOfContentOwnerChannel `string`: This parameter can only be used in a properly authorized request. *Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwnerChannel* parameter specifies the YouTube channel ID of the channel to which a video is being added. This parameter is required when a request specifies a value for the onBehalfOfContentOwner parameter, and it can only be used in conjunction with that parameter. In addition, the request must be authorized using a CMS account that is linked to the content owner that the onBehalfOfContentOwner parameter specifies. Finally, the channel that the onBehalfOfContentOwnerChannel parameter value specifies must be linked to the content owner that the onBehalfOfContentOwner parameter specifies. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and perform actions on behalf of the channel specified in the parameter value, without having to provide authentication credentials for each separate channel.
   * body [ChannelBannerResource](#channelbannerresource)
-  * channelId `string`: The channelId parameter identifies the YouTube channel to which the banner is uploaded. The channelId parameter was introduced as a required parameter in May 2017. As this was a backward-incompatible change, channelBanners.insert requests that do not specify this parameter will not return an error until six months have passed from the time that the parameter was introduced. Please see the API Terms of Service for the official policy regarding backward incompatible changes and the API revision history for the exact date that the parameter was introduced.
-  * onBehalfOfContentOwner `string`: Note: This parameter is intended exclusively for YouTube content partners.
-  * alt `string` (values: json): Data format for the response.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [ChannelBannerResource](#channelbannerresource)
 
-### channelSections.delete
-Deletes a channelSection.
+### youtube.channelSections.delete
+Deletes a resource.
 
 
 ```js
-google_youtube.channelSections.delete({
+google_youtube.youtube.channelSections.delete({
   "id": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * id **required** `string`: The id parameter specifies the YouTube channelSection ID for the resource that is being deleted. In a channelSection resource, the id property specifies the YouTube channelSection ID.
-  * onBehalfOfContentOwner `string`: Note: This parameter is intended exclusively for YouTube content partners.
-  * alt `string` (values: json): Data format for the response.
+  * id **required** `string`
+  * onBehalfOfContentOwner `string`: *Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwner* parameter indicates that the request's authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The CMS account that the user authenticates with must be linked to the specified YouTube content owner.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 *Output schema unknown*
 
-### channelSections.list
-Returns channelSection resources that match the API request criteria.
+### youtube.channelSections.list
+Retrieves a list of resources, possibly filtered.
 
 
 ```js
-google_youtube.channelSections.list({
-  "part": ""
+google_youtube.youtube.channelSections.list({
+  "part": []
 }, context)
 ```
 
 #### Input
 * input `object`
-  * channelId `string`: The channelId parameter specifies a YouTube channel ID. The API will only return that channel's channelSections.
-  * hl `string`: The hl parameter indicates that the snippet.localized property values in the returned channelSection resources should be in the specified language if localized values for that language are available. For example, if the API request specifies hl=de, the snippet.localized properties in the API response will contain German titles if German titles are available. Channel owners can provide localized channel section titles using either the channelSections.insert or channelSections.update method.
-  * id `string`: The id parameter specifies a comma-separated list of the YouTube channelSection ID(s) for the resource(s) that are being retrieved. In a channelSection resource, the id property specifies the YouTube channelSection ID.
-  * mine `boolean`: Set this parameter's value to true to retrieve a feed of the authenticated user's channelSections.
-  * onBehalfOfContentOwner `string`: Note: This parameter is intended exclusively for YouTube content partners.
-  * part **required** `string`: The part parameter specifies a comma-separated list of one or more channelSection resource properties that the API response will include. The part names that you can include in the parameter value are id, snippet, and contentDetails.
-  * alt `string` (values: json): Data format for the response.
+  * part **required** `array`: The *part* parameter specifies a comma-separated list of one or more channelSection resource properties that the API response will include. The part names that you can include in the parameter value are id, snippet, and contentDetails. If the parameter identifies a property that contains child properties, the child properties will be included in the response. For example, in a channelSection resource, the snippet property contains other properties, such as a display title for the channelSection. If you set *part=snippet*, the API response will also contain all of those nested properties.
+  * channelId `string`: Return the ChannelSections owned by the specified channel ID.
+  * hl `string`: Return content in specified language
+  * id `array`: Return the ChannelSections with the given IDs for Stubby or Apiary.
+  * mine `boolean`: Return the ChannelSections owned by the authenticated user.
+  * onBehalfOfContentOwner `string`: *Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwner* parameter indicates that the request's authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The CMS account that the user authenticates with must be linked to the specified YouTube content owner.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [ChannelSectionListResponse](#channelsectionlistresponse)
 
-### channelSections.insert
-Adds a channelSection for the authenticated user's channel.
+### youtube.channelSections.insert
+Inserts a new resource into this collection.
 
 
 ```js
-google_youtube.channelSections.insert({
-  "part": ""
+google_youtube.youtube.channelSections.insert({
+  "part": []
 }, context)
 ```
 
 #### Input
 * input `object`
+  * part **required** `array`: The *part* parameter serves two purposes in this operation. It identifies the properties that the write operation will set as well as the properties that the API response will include. The part names that you can include in the parameter value are snippet and contentDetails.
+  * onBehalfOfContentOwner `string`: *Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwner* parameter indicates that the request's authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The CMS account that the user authenticates with must be linked to the specified YouTube content owner.
+  * onBehalfOfContentOwnerChannel `string`: This parameter can only be used in a properly authorized request. *Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwnerChannel* parameter specifies the YouTube channel ID of the channel to which a video is being added. This parameter is required when a request specifies a value for the onBehalfOfContentOwner parameter, and it can only be used in conjunction with that parameter. In addition, the request must be authorized using a CMS account that is linked to the content owner that the onBehalfOfContentOwner parameter specifies. Finally, the channel that the onBehalfOfContentOwnerChannel parameter value specifies must be linked to the content owner that the onBehalfOfContentOwner parameter specifies. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and perform actions on behalf of the channel specified in the parameter value, without having to provide authentication credentials for each separate channel.
   * body [ChannelSection](#channelsection)
-  * onBehalfOfContentOwner `string`: Note: This parameter is intended exclusively for YouTube content partners.
-  * onBehalfOfContentOwnerChannel `string`: This parameter can only be used in a properly authorized request. Note: This parameter is intended exclusively for YouTube content partners.
-  * part **required** `string`: The part parameter serves two purposes in this operation. It identifies the properties that the write operation will set as well as the properties that the API response will include.
-  * alt `string` (values: json): Data format for the response.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [ChannelSection](#channelsection)
 
-### channelSections.update
-Update a channelSection.
+### youtube.channelSections.update
+Updates an existing resource.
 
 
 ```js
-google_youtube.channelSections.update({
-  "part": ""
+google_youtube.youtube.channelSections.update({
+  "part": []
 }, context)
 ```
 
 #### Input
 * input `object`
+  * part **required** `array`: The *part* parameter serves two purposes in this operation. It identifies the properties that the write operation will set as well as the properties that the API response will include. The part names that you can include in the parameter value are snippet and contentDetails.
+  * onBehalfOfContentOwner `string`: *Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwner* parameter indicates that the request's authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The CMS account that the user authenticates with must be linked to the specified YouTube content owner.
   * body [ChannelSection](#channelsection)
-  * onBehalfOfContentOwner `string`: Note: This parameter is intended exclusively for YouTube content partners.
-  * part **required** `string`: The part parameter serves two purposes in this operation. It identifies the properties that the write operation will set as well as the properties that the API response will include.
-  * alt `string` (values: json): Data format for the response.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [ChannelSection](#channelsection)
 
-### channels.list
-Returns a collection of zero or more channel resources that match the request criteria.
+### youtube.channels.list
+Retrieves a list of resources, possibly filtered.
 
 
 ```js
-google_youtube.channels.list({
-  "part": ""
+google_youtube.youtube.channels.list({
+  "part": []
 }, context)
 ```
 
 #### Input
 * input `object`
-  * categoryId `string`: The categoryId parameter specifies a YouTube guide category, thereby requesting YouTube channels associated with that category.
-  * forUsername `string`: The forUsername parameter specifies a YouTube username, thereby requesting the channel associated with that username.
-  * hl `string`: The hl parameter should be used for filter out the properties that are not in the given language. Used for the brandingSettings part.
-  * id `string`: The id parameter specifies a comma-separated list of the YouTube channel ID(s) for the resource(s) that are being retrieved. In a channel resource, the id property specifies the channel's YouTube channel ID.
-  * managedByMe `boolean`: Note: This parameter is intended exclusively for YouTube content partners.
-  * maxResults `integer`: The maxResults parameter specifies the maximum number of items that should be returned in the result set.
-  * mine `boolean`: Set this parameter's value to true to instruct the API to only return channels owned by the authenticated user.
-  * mySubscribers `boolean`: Use the subscriptions.list method and its mySubscribers parameter to retrieve a list of subscribers to the authenticated user's channel.
-  * onBehalfOfContentOwner `string`: Note: This parameter is intended exclusively for YouTube content partners.
-  * pageToken `string`: The pageToken parameter identifies a specific page in the result set that should be returned. In an API response, the nextPageToken and prevPageToken properties identify other pages that could be retrieved.
-  * part **required** `string`: The part parameter specifies a comma-separated list of one or more channel resource properties that the API response will include.
-  * alt `string` (values: json): Data format for the response.
+  * part **required** `array`: The *part* parameter specifies a comma-separated list of one or more channel resource properties that the API response will include. If the parameter identifies a property that contains child properties, the child properties will be included in the response. For example, in a channel resource, the contentDetails property contains other properties, such as the uploads properties. As such, if you set *part=contentDetails*, the API response will also contain all of those nested properties.
+  * categoryId `string`: Return the channels within the specified guide category ID.
+  * forUsername `string`: Return the channel associated with a YouTube username.
+  * hl `string`: Stands for "host language". Specifies the localization language of the metadata to be filled into snippet.localized. The field is filled with the default metadata if there is no localization in the specified language. The parameter value must be a language code included in the list returned by the i18nLanguages.list method (e.g. en_US, es_MX).
+  * id `array`: Return the channels with the specified IDs.
+  * managedByMe `boolean`: Return the channels managed by the authenticated user.
+  * maxResults `integer`: The *maxResults* parameter specifies the maximum number of items that should be returned in the result set.
+  * mine `boolean`: Return the ids of channels owned by the authenticated user.
+  * mySubscribers `boolean`: Return the channels subscribed to the authenticated user
+  * onBehalfOfContentOwner `string`: *Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwner* parameter indicates that the request's authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The CMS account that the user authenticates with must be linked to the specified YouTube content owner.
+  * pageToken `string`: The *pageToken* parameter identifies a specific page in the result set that should be returned. In an API response, the nextPageToken and prevPageToken properties identify other pages that could be retrieved.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [ChannelListResponse](#channellistresponse)
 
-### channels.update
-Updates a channel's metadata. Note that this method currently only supports updates to the channel resource's brandingSettings and invideoPromotion objects and their child properties.
+### youtube.channels.update
+Updates an existing resource.
 
 
 ```js
-google_youtube.channels.update({
-  "part": ""
+google_youtube.youtube.channels.update({
+  "part": []
 }, context)
 ```
 
 #### Input
 * input `object`
+  * part **required** `array`: The *part* parameter serves two purposes in this operation. It identifies the properties that the write operation will set as well as the properties that the API response will include. The API currently only allows the parameter value to be set to either brandingSettings or invideoPromotion. (You cannot update both of those parts with a single request.) Note that this method overrides the existing values for all of the mutable properties that are contained in any parts that the parameter value specifies.
+  * onBehalfOfContentOwner `string`: The *onBehalfOfContentOwner* parameter indicates that the authenticated user is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The actual CMS account that the user authenticates with needs to be linked to the specified YouTube content owner.
   * body [Channel](#channel)
-  * onBehalfOfContentOwner `string`: The onBehalfOfContentOwner parameter indicates that the authenticated user is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The actual CMS account that the user authenticates with needs to be linked to the specified YouTube content owner.
-  * part **required** `string`: The part parameter serves two purposes in this operation. It identifies the properties that the write operation will set as well as the properties that the API response will include.
-  * alt `string` (values: json): Data format for the response.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [Channel](#channel)
 
-### commentThreads.list
-Returns a list of comment threads that match the API request parameters.
+### youtube.commentThreads.list
+Retrieves a list of resources, possibly filtered.
 
 
 ```js
-google_youtube.commentThreads.list({
-  "part": ""
+google_youtube.youtube.commentThreads.list({
+  "part": []
 }, context)
 ```
 
 #### Input
 * input `object`
-  * allThreadsRelatedToChannelId `string`: The allThreadsRelatedToChannelId parameter instructs the API to return all comment threads associated with the specified channel. The response can include comments about the channel or about the channel's videos.
-  * channelId `string`: The channelId parameter instructs the API to return comment threads containing comments about the specified channel. (The response will not include comments left on videos that the channel uploaded.)
-  * id `string`: The id parameter specifies a comma-separated list of comment thread IDs for the resources that should be retrieved.
-  * maxResults `integer`: The maxResults parameter specifies the maximum number of items that should be returned in the result set.
-  * moderationStatus `string` (values: heldForReview, likelySpam, published): Set this parameter to limit the returned comment threads to a particular moderation state.
-  * order `string` (values: relevance, time): The order parameter specifies the order in which the API response should list comment threads. Valid values are: 
-  * pageToken `string`: The pageToken parameter identifies a specific page in the result set that should be returned. In an API response, the nextPageToken property identifies the next page of the result that can be retrieved.
-  * part **required** `string`: The part parameter specifies a comma-separated list of one or more commentThread resource properties that the API response will include.
-  * searchTerms `string`: The searchTerms parameter instructs the API to limit the API response to only contain comments that contain the specified search terms.
-  * textFormat `string` (values: html, plainText): Set this parameter's value to html or plainText to instruct the API to return the comments left by users in html formatted or in plain text.
-  * videoId `string`: The videoId parameter instructs the API to return comment threads associated with the specified video ID.
-  * alt `string` (values: json): Data format for the response.
+  * part **required** `array`: The *part* parameter specifies a comma-separated list of one or more commentThread resource properties that the API response will include.
+  * allThreadsRelatedToChannelId `string`: Returns the comment threads of all videos of the channel and the channel comments as well.
+  * channelId `string`: Returns the comment threads for all the channel comments (ie does not include comments left on videos).
+  * id `array`: Returns the comment threads with the given IDs for Stubby or Apiary.
+  * maxResults `integer`: The *maxResults* parameter specifies the maximum number of items that should be returned in the result set.
+  * moderationStatus `string` (values: published, heldForReview, likelySpam, rejected): Limits the returned comment threads to those with the specified moderation status. Not compatible with the 'id' filter. Valid values: published, heldForReview, likelySpam.
+  * order `string` (values: orderUnspecified, time, relevance)
+  * pageToken `string`: The *pageToken* parameter identifies a specific page in the result set that should be returned. In an API response, the nextPageToken and prevPageToken properties identify other pages that could be retrieved.
+  * searchTerms `string`: Limits the returned comment threads to those matching the specified key words. Not compatible with the 'id' filter.
+  * textFormat `string` (values: textFormatUnspecified, html, plainText): The requested text format for the returned comments.
+  * videoId `string`: Returns the comment threads of the specified video.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [CommentThreadListResponse](#commentthreadlistresponse)
 
-### commentThreads.insert
-Creates a new top-level comment. To add a reply to an existing comment, use the comments.insert method instead.
+### youtube.commentThreads.insert
+Inserts a new resource into this collection.
 
 
 ```js
-google_youtube.commentThreads.insert({
-  "part": ""
+google_youtube.youtube.commentThreads.insert({
+  "part": []
 }, context)
 ```
 
 #### Input
 * input `object`
+  * part **required** `array`: The *part* parameter identifies the properties that the API response will include. Set the parameter value to snippet. The snippet part has a quota cost of 2 units.
   * body [CommentThread](#commentthread)
-  * part **required** `string`: The part parameter identifies the properties that the API response will include. Set the parameter value to snippet. The snippet part has a quota cost of 2 units.
-  * alt `string` (values: json): Data format for the response.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [CommentThread](#commentthread)
 
-### commentThreads.update
-Modifies the top-level comment in a comment thread.
+### youtube.commentThreads.update
+Updates an existing resource.
 
 
 ```js
-google_youtube.commentThreads.update({
-  "part": ""
+google_youtube.youtube.commentThreads.update({
+  "part": []
 }, context)
 ```
 
 #### Input
 * input `object`
+  * part **required** `array`: The *part* parameter specifies a comma-separated list of commentThread resource properties that the API response will include. You must at least include the snippet part in the parameter value since that part contains all of the properties that the API request can update.
   * body [CommentThread](#commentthread)
-  * part **required** `string`: The part parameter specifies a comma-separated list of commentThread resource properties that the API response will include. You must at least include the snippet part in the parameter value since that part contains all of the properties that the API request can update.
-  * alt `string` (values: json): Data format for the response.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [CommentThread](#commentthread)
 
-### comments.delete
-Deletes a comment.
+### youtube.comments.delete
+Deletes a resource.
 
 
 ```js
-google_youtube.comments.delete({
+google_youtube.youtube.comments.delete({
   "id": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * id **required** `string`: The id parameter specifies the comment ID for the resource that is being deleted.
-  * alt `string` (values: json): Data format for the response.
+  * id **required** `string`
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 *Output schema unknown*
 
-### comments.list
-Returns a list of comments that match the API request parameters.
+### youtube.comments.list
+Retrieves a list of resources, possibly filtered.
 
 
 ```js
-google_youtube.comments.list({
-  "part": ""
+google_youtube.youtube.comments.list({
+  "part": []
 }, context)
 ```
 
 #### Input
 * input `object`
-  * id `string`: The id parameter specifies a comma-separated list of comment IDs for the resources that are being retrieved. In a comment resource, the id property specifies the comment's ID.
-  * maxResults `integer`: The maxResults parameter specifies the maximum number of items that should be returned in the result set.
-  * pageToken `string`: The pageToken parameter identifies a specific page in the result set that should be returned. In an API response, the nextPageToken property identifies the next page of the result that can be retrieved.
-  * parentId `string`: The parentId parameter specifies the ID of the comment for which replies should be retrieved.
-  * part **required** `string`: The part parameter specifies a comma-separated list of one or more comment resource properties that the API response will include.
-  * textFormat `string` (values: html, plainText): This parameter indicates whether the API should return comments formatted as HTML or as plain text.
-  * alt `string` (values: json): Data format for the response.
+  * part **required** `array`: The *part* parameter specifies a comma-separated list of one or more comment resource properties that the API response will include.
+  * id `array`: Returns the comments with the given IDs for One Platform.
+  * maxResults `integer`: The *maxResults* parameter specifies the maximum number of items that should be returned in the result set.
+  * pageToken `string`: The *pageToken* parameter identifies a specific page in the result set that should be returned. In an API response, the nextPageToken and prevPageToken properties identify other pages that could be retrieved.
+  * parentId `string`: Returns replies to the specified comment. Note, currently YouTube features only one level of replies (ie replies to top level comments). However replies to replies may be supported in the future.
+  * textFormat `string` (values: textFormatUnspecified, html, plainText): The requested text format for the returned comments.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [CommentListResponse](#commentlistresponse)
 
-### comments.insert
-Creates a reply to an existing comment. Note: To create a top-level comment, use the commentThreads.insert method.
+### youtube.comments.insert
+Inserts a new resource into this collection.
 
 
 ```js
-google_youtube.comments.insert({
-  "part": ""
+google_youtube.youtube.comments.insert({
+  "part": []
 }, context)
 ```
 
 #### Input
 * input `object`
+  * part **required** `array`: The *part* parameter identifies the properties that the API response will include. Set the parameter value to snippet. The snippet part has a quota cost of 2 units.
   * body [Comment](#comment)
-  * part **required** `string`: The part parameter identifies the properties that the API response will include. Set the parameter value to snippet. The snippet part has a quota cost of 2 units.
-  * alt `string` (values: json): Data format for the response.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [Comment](#comment)
 
-### comments.update
-Modifies a comment.
+### youtube.comments.update
+Updates an existing resource.
 
 
 ```js
-google_youtube.comments.update({
-  "part": ""
+google_youtube.youtube.comments.update({
+  "part": []
 }, context)
 ```
 
 #### Input
 * input `object`
+  * part **required** `array`: The *part* parameter identifies the properties that the API response will include. You must at least include the snippet part in the parameter value since that part contains all of the properties that the API request can update.
   * body [Comment](#comment)
-  * part **required** `string`: The part parameter identifies the properties that the API response will include. You must at least include the snippet part in the parameter value since that part contains all of the properties that the API request can update.
-  * alt `string` (values: json): Data format for the response.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [Comment](#comment)
 
-### comments.markAsSpam
+### youtube.comments.markAsSpam
 Expresses the caller's opinion that one or more comments should be flagged as spam.
 
 
 ```js
-google_youtube.comments.markAsSpam({
-  "id": ""
+google_youtube.youtube.comments.markAsSpam({
+  "id": []
 }, context)
 ```
 
 #### Input
 * input `object`
-  * id **required** `string`: The id parameter specifies a comma-separated list of IDs of comments that the caller believes should be classified as spam.
-  * alt `string` (values: json): Data format for the response.
+  * id **required** `array`: Flags the comments with the given IDs as spam in the caller's opinion.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 *Output schema unknown*
 
-### comments.setModerationStatus
-Sets the moderation status of one or more comments. The API request must be authorized by the owner of the channel or video associated with the comments.
+### youtube.comments.setModerationStatus
+Sets the moderation status of one or more comments.
 
 
 ```js
-google_youtube.comments.setModerationStatus({
-  "id": "",
+google_youtube.youtube.comments.setModerationStatus({
+  "id": [],
   "moderationStatus": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * banAuthor `boolean`: The banAuthor parameter lets you indicate that you want to automatically reject any additional comments written by the comment's author. Set the parameter value to true to ban the author.
-  * id **required** `string`: The id parameter specifies a comma-separated list of IDs that identify the comments for which you are updating the moderation status.
-  * moderationStatus **required** `string` (values: heldForReview, published, rejected): Identifies the new moderation status of the specified comments.
-  * alt `string` (values: json): Data format for the response.
+  * id **required** `array`: Modifies the moderation status of the comments with the given IDs
+  * moderationStatus **required** `string` (values: published, heldForReview, likelySpam, rejected): Specifies the requested moderation status. Note, comments can be in statuses, which are not available through this call. For example, this call does not allow to mark a comment as 'likely spam'. Valid values: MODERATION_STATUS_PUBLISHED, MODERATION_STATUS_HELD_FOR_REVIEW, MODERATION_STATUS_REJECTED.
+  * banAuthor `boolean`: If set to true the author of the comment gets added to the ban list. This means all future comments of the author will autmomatically be rejected. Only valid in combination with STATUS_REJECTED.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 *Output schema unknown*
 
-### guideCategories.list
-Returns a list of categories that can be associated with YouTube channels.
+### youtube.i18nLanguages.list
+Retrieves a list of resources, possibly filtered.
 
 
 ```js
-google_youtube.guideCategories.list({
-  "part": ""
+google_youtube.youtube.i18nLanguages.list({
+  "part": []
 }, context)
 ```
 
 #### Input
 * input `object`
-  * hl `string`: The hl parameter specifies the language that will be used for text values in the API response.
-  * id `string`: The id parameter specifies a comma-separated list of the YouTube channel category ID(s) for the resource(s) that are being retrieved. In a guideCategory resource, the id property specifies the YouTube channel category ID.
-  * part **required** `string`: The part parameter specifies the guideCategory resource properties that the API response will include. Set the parameter value to snippet.
-  * regionCode `string`: The regionCode parameter instructs the API to return the list of guide categories available in the specified country. The parameter value is an ISO 3166-1 alpha-2 country code.
-  * alt `string` (values: json): Data format for the response.
+  * part **required** `array`: The *part* parameter specifies the i18nLanguage resource properties that the API response will include. Set the parameter value to snippet.
+  * hl `string`
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
-
-#### Output
-* output [GuideCategoryListResponse](#guidecategorylistresponse)
-
-### i18nLanguages.list
-Returns a list of application languages that the YouTube website supports.
-
-
-```js
-google_youtube.i18nLanguages.list({
-  "part": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * hl `string`: The hl parameter specifies the language that should be used for text values in the API response.
-  * part **required** `string`: The part parameter specifies the i18nLanguage resource properties that the API response will include. Set the parameter value to snippet.
-  * alt `string` (values: json): Data format for the response.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [I18nLanguageListResponse](#i18nlanguagelistresponse)
 
-### i18nRegions.list
-Returns a list of content regions that the YouTube website supports.
+### youtube.i18nRegions.list
+Retrieves a list of resources, possibly filtered.
 
 
 ```js
-google_youtube.i18nRegions.list({
-  "part": ""
+google_youtube.youtube.i18nRegions.list({
+  "part": []
 }, context)
 ```
 
 #### Input
 * input `object`
-  * hl `string`: The hl parameter specifies the language that should be used for text values in the API response.
-  * part **required** `string`: The part parameter specifies the i18nRegion resource properties that the API response will include. Set the parameter value to snippet.
-  * alt `string` (values: json): Data format for the response.
+  * part **required** `array`: The *part* parameter specifies the i18nRegion resource properties that the API response will include. Set the parameter value to snippet.
+  * hl `string`
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [I18nRegionListResponse](#i18nregionlistresponse)
 
-### liveBroadcasts.delete
-Deletes a broadcast.
+### youtube.liveBroadcasts.delete
+Delete a given broadcast.
 
 
 ```js
-google_youtube.liveBroadcasts.delete({
+google_youtube.youtube.liveBroadcasts.delete({
   "id": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * id **required** `string`: The id parameter specifies the YouTube live broadcast ID for the resource that is being deleted.
-  * onBehalfOfContentOwner `string`: Note: This parameter is intended exclusively for YouTube content partners.
-  * onBehalfOfContentOwnerChannel `string`: This parameter can only be used in a properly authorized request. Note: This parameter is intended exclusively for YouTube content partners.
-  * alt `string` (values: json): Data format for the response.
+  * id **required** `string`: Broadcast to delete.
+  * onBehalfOfContentOwner `string`: *Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwner* parameter indicates that the request's authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The CMS account that the user authenticates with must be linked to the specified YouTube content owner.
+  * onBehalfOfContentOwnerChannel `string`: This parameter can only be used in a properly authorized request. *Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwnerChannel* parameter specifies the YouTube channel ID of the channel to which a video is being added. This parameter is required when a request specifies a value for the onBehalfOfContentOwner parameter, and it can only be used in conjunction with that parameter. In addition, the request must be authorized using a CMS account that is linked to the content owner that the onBehalfOfContentOwner parameter specifies. Finally, the channel that the onBehalfOfContentOwnerChannel parameter value specifies must be linked to the content owner that the onBehalfOfContentOwner parameter specifies. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and perform actions on behalf of the channel specified in the parameter value, without having to provide authentication credentials for each separate channel.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 *Output schema unknown*
 
-### liveBroadcasts.list
-Returns a list of YouTube broadcasts that match the API request parameters.
+### youtube.liveBroadcasts.list
+Retrieve the list of broadcasts associated with the given channel.
 
 
 ```js
-google_youtube.liveBroadcasts.list({
-  "part": ""
+google_youtube.youtube.liveBroadcasts.list({
+  "part": []
 }, context)
 ```
 
 #### Input
 * input `object`
-  * broadcastStatus `string` (values: active, all, completed, upcoming): The broadcastStatus parameter filters the API response to only include broadcasts with the specified status.
-  * broadcastType `string` (values: all, event, persistent): The broadcastType parameter filters the API response to only include broadcasts with the specified type. This is only compatible with the mine filter for now.
-  * id `string`: The id parameter specifies a comma-separated list of YouTube broadcast IDs that identify the broadcasts being retrieved. In a liveBroadcast resource, the id property specifies the broadcast's ID.
-  * maxResults `integer`: The maxResults parameter specifies the maximum number of items that should be returned in the result set.
-  * mine `boolean`: The mine parameter can be used to instruct the API to only return broadcasts owned by the authenticated user. Set the parameter value to true to only retrieve your own broadcasts.
-  * onBehalfOfContentOwner `string`: Note: This parameter is intended exclusively for YouTube content partners.
-  * onBehalfOfContentOwnerChannel `string`: This parameter can only be used in a properly authorized request. Note: This parameter is intended exclusively for YouTube content partners.
-  * pageToken `string`: The pageToken parameter identifies a specific page in the result set that should be returned. In an API response, the nextPageToken and prevPageToken properties identify other pages that could be retrieved.
-  * part **required** `string`: The part parameter specifies a comma-separated list of one or more liveBroadcast resource properties that the API response will include. The part names that you can include in the parameter value are id, snippet, contentDetails, and status.
-  * alt `string` (values: json): Data format for the response.
+  * part **required** `array`: The *part* parameter specifies a comma-separated list of one or more liveBroadcast resource properties that the API response will include. The part names that you can include in the parameter value are id, snippet, contentDetails, status and statistics.
+  * broadcastStatus `string` (values: broadcastStatusFilterUnspecified, all, active, upcoming, completed): Return broadcasts with a certain status, e.g. active broadcasts.
+  * broadcastType `string` (values: broadcastTypeFilterUnspecified, all, event, persistent): Return only broadcasts with the selected type.
+  * id `array`: Return broadcasts with the given ids from Stubby or Apiary.
+  * maxResults `integer`: The *maxResults* parameter specifies the maximum number of items that should be returned in the result set.
+  * mine `boolean`
+  * onBehalfOfContentOwner `string`: *Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwner* parameter indicates that the request's authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The CMS account that the user authenticates with must be linked to the specified YouTube content owner.
+  * onBehalfOfContentOwnerChannel `string`: This parameter can only be used in a properly authorized request. *Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwnerChannel* parameter specifies the YouTube channel ID of the channel to which a video is being added. This parameter is required when a request specifies a value for the onBehalfOfContentOwner parameter, and it can only be used in conjunction with that parameter. In addition, the request must be authorized using a CMS account that is linked to the content owner that the onBehalfOfContentOwner parameter specifies. Finally, the channel that the onBehalfOfContentOwnerChannel parameter value specifies must be linked to the content owner that the onBehalfOfContentOwner parameter specifies. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and perform actions on behalf of the channel specified in the parameter value, without having to provide authentication credentials for each separate channel.
+  * pageToken `string`: The *pageToken* parameter identifies a specific page in the result set that should be returned. In an API response, the nextPageToken and prevPageToken properties identify other pages that could be retrieved.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [LiveBroadcastListResponse](#livebroadcastlistresponse)
 
-### liveBroadcasts.insert
-Creates a broadcast.
+### youtube.liveBroadcasts.insert
+Inserts a new stream for the authenticated user.
 
 
 ```js
-google_youtube.liveBroadcasts.insert({
-  "part": ""
+google_youtube.youtube.liveBroadcasts.insert({
+  "part": []
 }, context)
 ```
 
 #### Input
 * input `object`
+  * part **required** `array`: The *part* parameter serves two purposes in this operation. It identifies the properties that the write operation will set as well as the properties that the API response will include. The part properties that you can include in the parameter value are id, snippet, contentDetails, and status.
+  * onBehalfOfContentOwner `string`: *Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwner* parameter indicates that the request's authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The CMS account that the user authenticates with must be linked to the specified YouTube content owner.
+  * onBehalfOfContentOwnerChannel `string`: This parameter can only be used in a properly authorized request. *Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwnerChannel* parameter specifies the YouTube channel ID of the channel to which a video is being added. This parameter is required when a request specifies a value for the onBehalfOfContentOwner parameter, and it can only be used in conjunction with that parameter. In addition, the request must be authorized using a CMS account that is linked to the content owner that the onBehalfOfContentOwner parameter specifies. Finally, the channel that the onBehalfOfContentOwnerChannel parameter value specifies must be linked to the content owner that the onBehalfOfContentOwner parameter specifies. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and perform actions on behalf of the channel specified in the parameter value, without having to provide authentication credentials for each separate channel.
   * body [LiveBroadcast](#livebroadcast)
-  * onBehalfOfContentOwner `string`: Note: This parameter is intended exclusively for YouTube content partners.
-  * onBehalfOfContentOwnerChannel `string`: This parameter can only be used in a properly authorized request. Note: This parameter is intended exclusively for YouTube content partners.
-  * part **required** `string`: The part parameter serves two purposes in this operation. It identifies the properties that the write operation will set as well as the properties that the API response will include.
-  * alt `string` (values: json): Data format for the response.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [LiveBroadcast](#livebroadcast)
 
-### liveBroadcasts.update
-Updates a broadcast. For example, you could modify the broadcast settings defined in the liveBroadcast resource's contentDetails object.
+### youtube.liveBroadcasts.update
+Updates an existing broadcast for the authenticated user.
 
 
 ```js
-google_youtube.liveBroadcasts.update({
-  "part": ""
+google_youtube.youtube.liveBroadcasts.update({
+  "part": []
 }, context)
 ```
 
 #### Input
 * input `object`
+  * part **required** `array`: The *part* parameter serves two purposes in this operation. It identifies the properties that the write operation will set as well as the properties that the API response will include. The part properties that you can include in the parameter value are id, snippet, contentDetails, and status. Note that this method will override the existing values for all of the mutable properties that are contained in any parts that the parameter value specifies. For example, a broadcast's privacy status is defined in the status part. As such, if your request is updating a private or unlisted broadcast, and the request's part parameter value includes the status part, the broadcast's privacy setting will be updated to whatever value the request body specifies. If the request body does not specify a value, the existing privacy setting will be removed and the broadcast will revert to the default privacy setting.
+  * onBehalfOfContentOwner `string`: *Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwner* parameter indicates that the request's authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The CMS account that the user authenticates with must be linked to the specified YouTube content owner.
+  * onBehalfOfContentOwnerChannel `string`: This parameter can only be used in a properly authorized request. *Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwnerChannel* parameter specifies the YouTube channel ID of the channel to which a video is being added. This parameter is required when a request specifies a value for the onBehalfOfContentOwner parameter, and it can only be used in conjunction with that parameter. In addition, the request must be authorized using a CMS account that is linked to the content owner that the onBehalfOfContentOwner parameter specifies. Finally, the channel that the onBehalfOfContentOwnerChannel parameter value specifies must be linked to the content owner that the onBehalfOfContentOwner parameter specifies. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and perform actions on behalf of the channel specified in the parameter value, without having to provide authentication credentials for each separate channel.
   * body [LiveBroadcast](#livebroadcast)
-  * onBehalfOfContentOwner `string`: Note: This parameter is intended exclusively for YouTube content partners.
-  * onBehalfOfContentOwnerChannel `string`: This parameter can only be used in a properly authorized request. Note: This parameter is intended exclusively for YouTube content partners.
-  * part **required** `string`: The part parameter serves two purposes in this operation. It identifies the properties that the write operation will set as well as the properties that the API response will include.
-  * alt `string` (values: json): Data format for the response.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [LiveBroadcast](#livebroadcast)
 
-### liveBroadcasts.bind
-Binds a YouTube broadcast to a stream or removes an existing binding between a broadcast and a stream. A broadcast can only be bound to one video stream, though a video stream may be bound to more than one broadcast.
+### youtube.liveBroadcasts.bind
+Bind a broadcast to a stream.
 
 
 ```js
-google_youtube.liveBroadcasts.bind({
+google_youtube.youtube.liveBroadcasts.bind({
   "id": "",
-  "part": ""
+  "part": []
 }, context)
 ```
 
 #### Input
 * input `object`
-  * id **required** `string`: The id parameter specifies the unique ID of the broadcast that is being bound to a video stream.
-  * onBehalfOfContentOwner `string`: Note: This parameter is intended exclusively for YouTube content partners.
-  * onBehalfOfContentOwnerChannel `string`: This parameter can only be used in a properly authorized request. Note: This parameter is intended exclusively for YouTube content partners.
-  * part **required** `string`: The part parameter specifies a comma-separated list of one or more liveBroadcast resource properties that the API response will include. The part names that you can include in the parameter value are id, snippet, contentDetails, and status.
-  * streamId `string`: The streamId parameter specifies the unique ID of the video stream that is being bound to a broadcast. If this parameter is omitted, the API will remove any existing binding between the broadcast and a video stream.
-  * alt `string` (values: json): Data format for the response.
+  * id **required** `string`: Broadcast to bind to the stream
+  * part **required** `array`: The *part* parameter specifies a comma-separated list of one or more liveBroadcast resource properties that the API response will include. The part names that you can include in the parameter value are id, snippet, contentDetails, and status.
+  * onBehalfOfContentOwner `string`: *Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwner* parameter indicates that the request's authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The CMS account that the user authenticates with must be linked to the specified YouTube content owner.
+  * onBehalfOfContentOwnerChannel `string`: This parameter can only be used in a properly authorized request. *Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwnerChannel* parameter specifies the YouTube channel ID of the channel to which a video is being added. This parameter is required when a request specifies a value for the onBehalfOfContentOwner parameter, and it can only be used in conjunction with that parameter. In addition, the request must be authorized using a CMS account that is linked to the content owner that the onBehalfOfContentOwner parameter specifies. Finally, the channel that the onBehalfOfContentOwnerChannel parameter value specifies must be linked to the content owner that the onBehalfOfContentOwner parameter specifies. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and perform actions on behalf of the channel specified in the parameter value, without having to provide authentication credentials for each separate channel.
+  * streamId `string`: Stream to bind, if not set unbind the current one.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [LiveBroadcast](#livebroadcast)
 
-### liveBroadcasts.control
-Controls the settings for a slate that can be displayed in the broadcast stream.
+### youtube.liveBroadcasts.control
+Slate and recording control of the live broadcast. Support actions: slate on/off, recording start/stop/pause/resume. Design doc: goto/yt-api-liveBroadcast-control
 
 
 ```js
-google_youtube.liveBroadcasts.control({
+google_youtube.youtube.liveBroadcasts.control({
   "id": "",
-  "part": ""
+  "part": []
 }, context)
 ```
 
 #### Input
 * input `object`
-  * displaySlate `boolean`: The displaySlate parameter specifies whether the slate is being enabled or disabled.
-  * id **required** `string`: The id parameter specifies the YouTube live broadcast ID that uniquely identifies the broadcast in which the slate is being updated.
-  * offsetTimeMs `string`: The offsetTimeMs parameter specifies a positive time offset when the specified slate change will occur. The value is measured in milliseconds from the beginning of the broadcast's monitor stream, which is the time that the testing phase for the broadcast began. Even though it is specified in milliseconds, the value is actually an approximation, and YouTube completes the requested action as closely as possible to that time.
-  * onBehalfOfContentOwner `string`: Note: This parameter is intended exclusively for YouTube content partners.
-  * onBehalfOfContentOwnerChannel `string`: This parameter can only be used in a properly authorized request. Note: This parameter is intended exclusively for YouTube content partners.
-  * part **required** `string`: The part parameter specifies a comma-separated list of one or more liveBroadcast resource properties that the API response will include. The part names that you can include in the parameter value are id, snippet, contentDetails, and status.
-  * walltime `string`: The walltime parameter specifies the wall clock time at which the specified slate change will occur. The value is specified in ISO 8601 (YYYY-MM-DDThh:mm:ss.sssZ) format.
-  * alt `string` (values: json): Data format for the response.
+  * id **required** `string`: Broadcast to operate.
+  * part **required** `array`: The *part* parameter specifies a comma-separated list of one or more liveBroadcast resource properties that the API response will include. The part names that you can include in the parameter value are id, snippet, contentDetails, and status.
+  * displaySlate `boolean`: Whether display or hide slate.
+  * offsetTimeMs `string`: The exact time when the actions (e.g. slate on) are executed. It is an offset from the first frame of the monitor stream. If not set, it means "now" or ASAP. This field should not be set if the monitor stream is disabled, otherwise an error will be returned.
+  * onBehalfOfContentOwner `string`: *Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwner* parameter indicates that the request's authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The CMS account that the user authenticates with must be linked to the specified YouTube content owner.
+  * onBehalfOfContentOwnerChannel `string`: This parameter can only be used in a properly authorized request. *Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwnerChannel* parameter specifies the YouTube channel ID of the channel to which a video is being added. This parameter is required when a request specifies a value for the onBehalfOfContentOwner parameter, and it can only be used in conjunction with that parameter. In addition, the request must be authorized using a CMS account that is linked to the content owner that the onBehalfOfContentOwner parameter specifies. Finally, the channel that the onBehalfOfContentOwnerChannel parameter value specifies must be linked to the content owner that the onBehalfOfContentOwner parameter specifies. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and perform actions on behalf of the channel specified in the parameter value, without having to provide authentication credentials for each separate channel.
+  * walltime `string`: The wall clock time at which the action should be executed. Only one of offset_time_ms and walltime may be set at a time.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [LiveBroadcast](#livebroadcast)
 
-### liveBroadcasts.transition
-Changes the status of a YouTube live broadcast and initiates any processes associated with the new status. For example, when you transition a broadcast's status to testing, YouTube starts to transmit video to that broadcast's monitor stream. Before calling this method, you should confirm that the value of the status.streamStatus property for the stream bound to your broadcast is active.
+### youtube.liveBroadcasts.transition
+Transition a broadcast to a given status.
 
 
 ```js
-google_youtube.liveBroadcasts.transition({
+google_youtube.youtube.liveBroadcasts.transition({
   "broadcastStatus": "",
   "id": "",
-  "part": ""
+  "part": []
 }, context)
 ```
 
 #### Input
 * input `object`
-  * broadcastStatus **required** `string` (values: complete, live, testing): The broadcastStatus parameter identifies the state to which the broadcast is changing. Note that to transition a broadcast to either the testing or live state, the status.streamStatus must be active for the stream that the broadcast is bound to.
-  * id **required** `string`: The id parameter specifies the unique ID of the broadcast that is transitioning to another status.
-  * onBehalfOfContentOwner `string`: Note: This parameter is intended exclusively for YouTube content partners.
-  * onBehalfOfContentOwnerChannel `string`: This parameter can only be used in a properly authorized request. Note: This parameter is intended exclusively for YouTube content partners.
-  * part **required** `string`: The part parameter specifies a comma-separated list of one or more liveBroadcast resource properties that the API response will include. The part names that you can include in the parameter value are id, snippet, contentDetails, and status.
-  * alt `string` (values: json): Data format for the response.
+  * broadcastStatus **required** `string` (values: statusUnspecified, testing, live, complete): The status to which the broadcast is going to transition.
+  * id **required** `string`: Broadcast to transition.
+  * part **required** `array`: The *part* parameter specifies a comma-separated list of one or more liveBroadcast resource properties that the API response will include. The part names that you can include in the parameter value are id, snippet, contentDetails, and status.
+  * onBehalfOfContentOwner `string`: *Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwner* parameter indicates that the request's authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The CMS account that the user authenticates with must be linked to the specified YouTube content owner.
+  * onBehalfOfContentOwnerChannel `string`: This parameter can only be used in a properly authorized request. *Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwnerChannel* parameter specifies the YouTube channel ID of the channel to which a video is being added. This parameter is required when a request specifies a value for the onBehalfOfContentOwner parameter, and it can only be used in conjunction with that parameter. In addition, the request must be authorized using a CMS account that is linked to the content owner that the onBehalfOfContentOwner parameter specifies. Finally, the channel that the onBehalfOfContentOwnerChannel parameter value specifies must be linked to the content owner that the onBehalfOfContentOwner parameter specifies. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and perform actions on behalf of the channel specified in the parameter value, without having to provide authentication credentials for each separate channel.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [LiveBroadcast](#livebroadcast)
 
-### liveChatBans.delete
-Removes a chat ban.
+### youtube.liveChatBans.delete
+Deletes a chat ban.
 
 
 ```js
-google_youtube.liveChatBans.delete({
+google_youtube.youtube.liveChatBans.delete({
   "id": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * id **required** `string`: The id parameter identifies the chat ban to remove. The value uniquely identifies both the ban and the chat.
-  * alt `string` (values: json): Data format for the response.
+  * id **required** `string`
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 *Output schema unknown*
 
-### liveChatBans.insert
-Adds a new ban to the chat.
+### youtube.liveChatBans.insert
+Inserts a new resource into this collection.
 
 
 ```js
-google_youtube.liveChatBans.insert({
-  "part": ""
+google_youtube.youtube.liveChatBans.insert({
+  "part": []
 }, context)
 ```
 
 #### Input
 * input `object`
+  * part **required** `array`: The *part* parameter serves two purposes in this operation. It identifies the properties that the write operation will set as well as the properties that the API response returns. Set the parameter value to snippet.
   * body [LiveChatBan](#livechatban)
-  * part **required** `string`: The part parameter serves two purposes in this operation. It identifies the properties that the write operation will set as well as the properties that the API response returns. Set the parameter value to snippet.
-  * alt `string` (values: json): Data format for the response.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [LiveChatBan](#livechatban)
 
-### liveChatMessages.delete
+### youtube.liveChatMessages.delete
 Deletes a chat message.
 
 
 ```js
-google_youtube.liveChatMessages.delete({
+google_youtube.youtube.liveChatMessages.delete({
   "id": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * id **required** `string`: The id parameter specifies the YouTube chat message ID of the resource that is being deleted.
-  * alt `string` (values: json): Data format for the response.
+  * id **required** `string`
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 *Output schema unknown*
 
-### liveChatMessages.list
-Lists live chat messages for a specific chat.
+### youtube.liveChatMessages.list
+Retrieves a list of resources, possibly filtered.
 
 
 ```js
-google_youtube.liveChatMessages.list({
+google_youtube.youtube.liveChatMessages.list({
   "liveChatId": "",
-  "part": ""
+  "part": []
 }, context)
 ```
 
 #### Input
 * input `object`
-  * hl `string`: The hl parameter instructs the API to retrieve localized resource metadata for a specific application language that the YouTube website supports. The parameter value must be a language code included in the list returned by the i18nLanguages.list method.
-  * liveChatId **required** `string`: The liveChatId parameter specifies the ID of the chat whose messages will be returned.
-  * maxResults `integer`: The maxResults parameter specifies the maximum number of messages that should be returned in the result set.
-  * pageToken `string`: The pageToken parameter identifies a specific page in the result set that should be returned. In an API response, the nextPageToken property identify other pages that could be retrieved.
-  * part **required** `string`: The part parameter specifies the liveChatComment resource parts that the API response will include. Supported values are id and snippet.
-  * profileImageSize `integer`: The profileImageSize parameter specifies the size of the user profile pictures that should be returned in the result set. Default: 88.
-  * alt `string` (values: json): Data format for the response.
+  * liveChatId **required** `string`: The id of the live chat for which comments should be returned.
+  * part **required** `array`: The *part* parameter specifies the liveChatComment resource parts that the API response will include. Supported values are id and snippet.
+  * hl `string`: Specifies the localization language in which the system messages should be returned.
+  * maxResults `integer`: The *maxResults* parameter specifies the maximum number of items that should be returned in the result set.
+  * pageToken `string`: The *pageToken* parameter identifies a specific page in the result set that should be returned. In an API response, the nextPageToken property identify other pages that could be retrieved.
+  * profileImageSize `integer`: Specifies the size of the profile image that should be returned for each user.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [LiveChatMessageListResponse](#livechatmessagelistresponse)
 
-### liveChatMessages.insert
-Adds a message to a live chat.
+### youtube.liveChatMessages.insert
+Inserts a new resource into this collection.
 
 
 ```js
-google_youtube.liveChatMessages.insert({
-  "part": ""
+google_youtube.youtube.liveChatMessages.insert({
+  "part": []
 }, context)
 ```
 
 #### Input
 * input `object`
+  * part **required** `array`: The *part* parameter serves two purposes. It identifies the properties that the write operation will set as well as the properties that the API response will include. Set the parameter value to snippet.
   * body [LiveChatMessage](#livechatmessage)
-  * part **required** `string`: The part parameter serves two purposes. It identifies the properties that the write operation will set as well as the properties that the API response will include. Set the parameter value to snippet.
-  * alt `string` (values: json): Data format for the response.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [LiveChatMessage](#livechatmessage)
 
-### liveChatModerators.delete
-Removes a chat moderator.
+### youtube.liveChatModerators.delete
+Deletes a chat moderator.
 
 
 ```js
-google_youtube.liveChatModerators.delete({
+google_youtube.youtube.liveChatModerators.delete({
   "id": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * id **required** `string`: The id parameter identifies the chat moderator to remove. The value uniquely identifies both the moderator and the chat.
-  * alt `string` (values: json): Data format for the response.
+  * id **required** `string`
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 *Output schema unknown*
 
-### liveChatModerators.list
-Lists moderators for a live chat.
+### youtube.liveChatModerators.list
+Retrieves a list of resources, possibly filtered.
 
 
 ```js
-google_youtube.liveChatModerators.list({
+google_youtube.youtube.liveChatModerators.list({
   "liveChatId": "",
-  "part": ""
+  "part": []
 }, context)
 ```
 
 #### Input
 * input `object`
-  * liveChatId **required** `string`: The liveChatId parameter specifies the YouTube live chat for which the API should return moderators.
-  * maxResults `integer`: The maxResults parameter specifies the maximum number of items that should be returned in the result set.
-  * pageToken `string`: The pageToken parameter identifies a specific page in the result set that should be returned. In an API response, the nextPageToken and prevPageToken properties identify other pages that could be retrieved.
-  * part **required** `string`: The part parameter specifies the liveChatModerator resource parts that the API response will include. Supported values are id and snippet.
-  * alt `string` (values: json): Data format for the response.
+  * liveChatId **required** `string`: The id of the live chat for which moderators should be returned.
+  * part **required** `array`: The *part* parameter specifies the liveChatModerator resource parts that the API response will include. Supported values are id and snippet.
+  * maxResults `integer`: The *maxResults* parameter specifies the maximum number of items that should be returned in the result set.
+  * pageToken `string`: The *pageToken* parameter identifies a specific page in the result set that should be returned. In an API response, the nextPageToken and prevPageToken properties identify other pages that could be retrieved.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [LiveChatModeratorListResponse](#livechatmoderatorlistresponse)
 
-### liveChatModerators.insert
-Adds a new moderator for the chat.
+### youtube.liveChatModerators.insert
+Inserts a new resource into this collection.
 
 
 ```js
-google_youtube.liveChatModerators.insert({
-  "part": ""
+google_youtube.youtube.liveChatModerators.insert({
+  "part": []
 }, context)
 ```
 
 #### Input
 * input `object`
+  * part **required** `array`: The *part* parameter serves two purposes in this operation. It identifies the properties that the write operation will set as well as the properties that the API response returns. Set the parameter value to snippet.
   * body [LiveChatModerator](#livechatmoderator)
-  * part **required** `string`: The part parameter serves two purposes in this operation. It identifies the properties that the write operation will set as well as the properties that the API response returns. Set the parameter value to snippet.
-  * alt `string` (values: json): Data format for the response.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [LiveChatModerator](#livechatmoderator)
 
-### liveStreams.delete
-Deletes a video stream.
+### youtube.liveStreams.delete
+Deletes an existing stream for the authenticated user.
 
 
 ```js
-google_youtube.liveStreams.delete({
+google_youtube.youtube.liveStreams.delete({
   "id": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * id **required** `string`: The id parameter specifies the YouTube live stream ID for the resource that is being deleted.
-  * onBehalfOfContentOwner `string`: Note: This parameter is intended exclusively for YouTube content partners.
-  * onBehalfOfContentOwnerChannel `string`: This parameter can only be used in a properly authorized request. Note: This parameter is intended exclusively for YouTube content partners.
-  * alt `string` (values: json): Data format for the response.
+  * id **required** `string`
+  * onBehalfOfContentOwner `string`: *Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwner* parameter indicates that the request's authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The CMS account that the user authenticates with must be linked to the specified YouTube content owner.
+  * onBehalfOfContentOwnerChannel `string`: This parameter can only be used in a properly authorized request. *Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwnerChannel* parameter specifies the YouTube channel ID of the channel to which a video is being added. This parameter is required when a request specifies a value for the onBehalfOfContentOwner parameter, and it can only be used in conjunction with that parameter. In addition, the request must be authorized using a CMS account that is linked to the content owner that the onBehalfOfContentOwner parameter specifies. Finally, the channel that the onBehalfOfContentOwnerChannel parameter value specifies must be linked to the content owner that the onBehalfOfContentOwner parameter specifies. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and perform actions on behalf of the channel specified in the parameter value, without having to provide authentication credentials for each separate channel.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 *Output schema unknown*
 
-### liveStreams.list
-Returns a list of video streams that match the API request parameters.
+### youtube.liveStreams.list
+Retrieve the list of streams associated with the given channel. --
 
 
 ```js
-google_youtube.liveStreams.list({
-  "part": ""
+google_youtube.youtube.liveStreams.list({
+  "part": []
 }, context)
 ```
 
 #### Input
 * input `object`
-  * id `string`: The id parameter specifies a comma-separated list of YouTube stream IDs that identify the streams being retrieved. In a liveStream resource, the id property specifies the stream's ID.
-  * maxResults `integer`: The maxResults parameter specifies the maximum number of items that should be returned in the result set.
-  * mine `boolean`: The mine parameter can be used to instruct the API to only return streams owned by the authenticated user. Set the parameter value to true to only retrieve your own streams.
-  * onBehalfOfContentOwner `string`: Note: This parameter is intended exclusively for YouTube content partners.
-  * onBehalfOfContentOwnerChannel `string`: This parameter can only be used in a properly authorized request. Note: This parameter is intended exclusively for YouTube content partners.
-  * pageToken `string`: The pageToken parameter identifies a specific page in the result set that should be returned. In an API response, the nextPageToken and prevPageToken properties identify other pages that could be retrieved.
-  * part **required** `string`: The part parameter specifies a comma-separated list of one or more liveStream resource properties that the API response will include. The part names that you can include in the parameter value are id, snippet, cdn, and status.
-  * alt `string` (values: json): Data format for the response.
+  * part **required** `array`: The *part* parameter specifies a comma-separated list of one or more liveStream resource properties that the API response will include. The part names that you can include in the parameter value are id, snippet, cdn, and status.
+  * id `array`: Return LiveStreams with the given ids from Stubby or Apiary.
+  * maxResults `integer`: The *maxResults* parameter specifies the maximum number of items that should be returned in the result set.
+  * mine `boolean`
+  * onBehalfOfContentOwner `string`: *Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwner* parameter indicates that the request's authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The CMS account that the user authenticates with must be linked to the specified YouTube content owner.
+  * onBehalfOfContentOwnerChannel `string`: This parameter can only be used in a properly authorized request. *Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwnerChannel* parameter specifies the YouTube channel ID of the channel to which a video is being added. This parameter is required when a request specifies a value for the onBehalfOfContentOwner parameter, and it can only be used in conjunction with that parameter. In addition, the request must be authorized using a CMS account that is linked to the content owner that the onBehalfOfContentOwner parameter specifies. Finally, the channel that the onBehalfOfContentOwnerChannel parameter value specifies must be linked to the content owner that the onBehalfOfContentOwner parameter specifies. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and perform actions on behalf of the channel specified in the parameter value, without having to provide authentication credentials for each separate channel.
+  * pageToken `string`: The *pageToken* parameter identifies a specific page in the result set that should be returned. In an API response, the nextPageToken and prevPageToken properties identify other pages that could be retrieved.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [LiveStreamListResponse](#livestreamlistresponse)
 
-### liveStreams.insert
-Creates a video stream. The stream enables you to send your video to YouTube, which can then broadcast the video to your audience.
+### youtube.liveStreams.insert
+Inserts a new stream for the authenticated user.
 
 
 ```js
-google_youtube.liveStreams.insert({
-  "part": ""
+google_youtube.youtube.liveStreams.insert({
+  "part": []
 }, context)
 ```
 
 #### Input
 * input `object`
+  * part **required** `array`: The *part* parameter serves two purposes in this operation. It identifies the properties that the write operation will set as well as the properties that the API response will include. The part properties that you can include in the parameter value are id, snippet, cdn, and status.
+  * onBehalfOfContentOwner `string`: *Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwner* parameter indicates that the request's authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The CMS account that the user authenticates with must be linked to the specified YouTube content owner.
+  * onBehalfOfContentOwnerChannel `string`: This parameter can only be used in a properly authorized request. *Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwnerChannel* parameter specifies the YouTube channel ID of the channel to which a video is being added. This parameter is required when a request specifies a value for the onBehalfOfContentOwner parameter, and it can only be used in conjunction with that parameter. In addition, the request must be authorized using a CMS account that is linked to the content owner that the onBehalfOfContentOwner parameter specifies. Finally, the channel that the onBehalfOfContentOwnerChannel parameter value specifies must be linked to the content owner that the onBehalfOfContentOwner parameter specifies. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and perform actions on behalf of the channel specified in the parameter value, without having to provide authentication credentials for each separate channel.
   * body [LiveStream](#livestream)
-  * onBehalfOfContentOwner `string`: Note: This parameter is intended exclusively for YouTube content partners.
-  * onBehalfOfContentOwnerChannel `string`: This parameter can only be used in a properly authorized request. Note: This parameter is intended exclusively for YouTube content partners.
-  * part **required** `string`: The part parameter serves two purposes in this operation. It identifies the properties that the write operation will set as well as the properties that the API response will include.
-  * alt `string` (values: json): Data format for the response.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [LiveStream](#livestream)
 
-### liveStreams.update
-Updates a video stream. If the properties that you want to change cannot be updated, then you need to create a new stream with the proper settings.
+### youtube.liveStreams.update
+Updates an existing stream for the authenticated user.
 
 
 ```js
-google_youtube.liveStreams.update({
-  "part": ""
+google_youtube.youtube.liveStreams.update({
+  "part": []
 }, context)
 ```
 
 #### Input
 * input `object`
+  * part **required** `array`: The *part* parameter serves two purposes in this operation. It identifies the properties that the write operation will set as well as the properties that the API response will include. The part properties that you can include in the parameter value are id, snippet, cdn, and status. Note that this method will override the existing values for all of the mutable properties that are contained in any parts that the parameter value specifies. If the request body does not specify a value for a mutable property, the existing value for that property will be removed.
+  * onBehalfOfContentOwner `string`: *Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwner* parameter indicates that the request's authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The CMS account that the user authenticates with must be linked to the specified YouTube content owner.
+  * onBehalfOfContentOwnerChannel `string`: This parameter can only be used in a properly authorized request. *Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwnerChannel* parameter specifies the YouTube channel ID of the channel to which a video is being added. This parameter is required when a request specifies a value for the onBehalfOfContentOwner parameter, and it can only be used in conjunction with that parameter. In addition, the request must be authorized using a CMS account that is linked to the content owner that the onBehalfOfContentOwner parameter specifies. Finally, the channel that the onBehalfOfContentOwnerChannel parameter value specifies must be linked to the content owner that the onBehalfOfContentOwner parameter specifies. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and perform actions on behalf of the channel specified in the parameter value, without having to provide authentication credentials for each separate channel.
   * body [LiveStream](#livestream)
-  * onBehalfOfContentOwner `string`: Note: This parameter is intended exclusively for YouTube content partners.
-  * onBehalfOfContentOwnerChannel `string`: This parameter can only be used in a properly authorized request. Note: This parameter is intended exclusively for YouTube content partners.
-  * part **required** `string`: The part parameter serves two purposes in this operation. It identifies the properties that the write operation will set as well as the properties that the API response will include.
-  * alt `string` (values: json): Data format for the response.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [LiveStream](#livestream)
 
-### playlistItems.delete
-Deletes a playlist item.
+### youtube.members.list
+Retrieves a list of members that match the request criteria for a channel.
 
 
 ```js
-google_youtube.playlistItems.delete({
+google_youtube.youtube.members.list({
+  "part": []
+}, context)
+```
+
+#### Input
+* input `object`
+  * part **required** `array`: The *part* parameter specifies the member resource parts that the API response will include. Set the parameter value to snippet.
+  * filterByMemberChannelId `string`: Comma separated list of channel IDs. Only data about members that are part of this list will be included in the response.
+  * hasAccessToLevel `string`: Filter members in the results set to the ones that have access to a level.
+  * maxResults `integer`: The *maxResults* parameter specifies the maximum number of items that should be returned in the result set.
+  * mode `string` (values: listMembersModeUnknown, updates, all_current): Parameter that specifies which channel members to return.
+  * pageToken `string`: The *pageToken* parameter identifies a specific page in the result set that should be returned. In an API response, the nextPageToken and prevPageToken properties identify other pages that could be retrieved.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+
+#### Output
+* output [MemberListResponse](#memberlistresponse)
+
+### youtube.membershipsLevels.list
+Retrieves a list of all pricing levels offered by a creator to the fans.
+
+
+```js
+google_youtube.youtube.membershipsLevels.list({
+  "part": []
+}, context)
+```
+
+#### Input
+* input `object`
+  * part **required** `array`: The *part* parameter specifies the membershipsLevel resource parts that the API response will include. Supported values are id and snippet.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+
+#### Output
+* output [MembershipsLevelListResponse](#membershipslevellistresponse)
+
+### youtube.playlistItems.delete
+Deletes a resource.
+
+
+```js
+google_youtube.youtube.playlistItems.delete({
   "id": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * id **required** `string`: The id parameter specifies the YouTube playlist item ID for the playlist item that is being deleted. In a playlistItem resource, the id property specifies the playlist item's ID.
-  * onBehalfOfContentOwner `string`: Note: This parameter is intended exclusively for YouTube content partners.
-  * alt `string` (values: json): Data format for the response.
+  * id **required** `string`
+  * onBehalfOfContentOwner `string`: *Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwner* parameter indicates that the request's authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The CMS account that the user authenticates with must be linked to the specified YouTube content owner.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 *Output schema unknown*
 
-### playlistItems.list
-Returns a collection of playlist items that match the API request parameters. You can retrieve all of the playlist items in a specified playlist or retrieve one or more playlist items by their unique IDs.
+### youtube.playlistItems.list
+Retrieves a list of resources, possibly filtered.
 
 
 ```js
-google_youtube.playlistItems.list({
-  "part": ""
+google_youtube.youtube.playlistItems.list({
+  "part": []
 }, context)
 ```
 
 #### Input
 * input `object`
-  * id `string`: The id parameter specifies a comma-separated list of one or more unique playlist item IDs.
-  * maxResults `integer`: The maxResults parameter specifies the maximum number of items that should be returned in the result set.
-  * onBehalfOfContentOwner `string`: Note: This parameter is intended exclusively for YouTube content partners.
-  * pageToken `string`: The pageToken parameter identifies a specific page in the result set that should be returned. In an API response, the nextPageToken and prevPageToken properties identify other pages that could be retrieved.
-  * part **required** `string`: The part parameter specifies a comma-separated list of one or more playlistItem resource properties that the API response will include.
-  * playlistId `string`: The playlistId parameter specifies the unique ID of the playlist for which you want to retrieve playlist items. Note that even though this is an optional parameter, every request to retrieve playlist items must specify a value for either the id parameter or the playlistId parameter.
-  * videoId `string`: The videoId parameter specifies that the request should return only the playlist items that contain the specified video.
-  * alt `string` (values: json): Data format for the response.
+  * part **required** `array`: The *part* parameter specifies a comma-separated list of one or more playlistItem resource properties that the API response will include. If the parameter identifies a property that contains child properties, the child properties will be included in the response. For example, in a playlistItem resource, the snippet property contains numerous fields, including the title, description, position, and resourceId properties. As such, if you set *part=snippet*, the API response will contain all of those properties.
+  * id `array`
+  * maxResults `integer`: The *maxResults* parameter specifies the maximum number of items that should be returned in the result set.
+  * onBehalfOfContentOwner `string`: *Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwner* parameter indicates that the request's authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The CMS account that the user authenticates with must be linked to the specified YouTube content owner.
+  * pageToken `string`: The *pageToken* parameter identifies a specific page in the result set that should be returned. In an API response, the nextPageToken and prevPageToken properties identify other pages that could be retrieved.
+  * playlistId `string`: Return the playlist items within the given playlist.
+  * videoId `string`: Return the playlist items associated with the given video ID.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [PlaylistItemListResponse](#playlistitemlistresponse)
 
-### playlistItems.insert
-Adds a resource to a playlist.
+### youtube.playlistItems.insert
+Inserts a new resource into this collection.
 
 
 ```js
-google_youtube.playlistItems.insert({
-  "part": ""
+google_youtube.youtube.playlistItems.insert({
+  "part": []
 }, context)
 ```
 
 #### Input
 * input `object`
+  * part **required** `array`: The *part* parameter serves two purposes in this operation. It identifies the properties that the write operation will set as well as the properties that the API response will include.
+  * onBehalfOfContentOwner `string`: *Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwner* parameter indicates that the request's authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The CMS account that the user authenticates with must be linked to the specified YouTube content owner.
   * body [PlaylistItem](#playlistitem)
-  * onBehalfOfContentOwner `string`: Note: This parameter is intended exclusively for YouTube content partners.
-  * part **required** `string`: The part parameter serves two purposes in this operation. It identifies the properties that the write operation will set as well as the properties that the API response will include.
-  * alt `string` (values: json): Data format for the response.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [PlaylistItem](#playlistitem)
 
-### playlistItems.update
-Modifies a playlist item. For example, you could update the item's position in the playlist.
+### youtube.playlistItems.update
+Updates an existing resource.
 
 
 ```js
-google_youtube.playlistItems.update({
-  "part": ""
+google_youtube.youtube.playlistItems.update({
+  "part": []
 }, context)
 ```
 
 #### Input
 * input `object`
+  * part **required** `array`: The *part* parameter serves two purposes in this operation. It identifies the properties that the write operation will set as well as the properties that the API response will include. Note that this method will override the existing values for all of the mutable properties that are contained in any parts that the parameter value specifies. For example, a playlist item can specify a start time and end time, which identify the times portion of the video that should play when users watch the video in the playlist. If your request is updating a playlist item that sets these values, and the request's part parameter value includes the contentDetails part, the playlist item's start and end times will be updated to whatever value the request body specifies. If the request body does not specify values, the existing start and end times will be removed and replaced with the default settings.
+  * onBehalfOfContentOwner `string`: *Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwner* parameter indicates that the request's authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The CMS account that the user authenticates with must be linked to the specified YouTube content owner.
   * body [PlaylistItem](#playlistitem)
-  * onBehalfOfContentOwner `string`: Note: This parameter is intended exclusively for YouTube content partners.
-  * part **required** `string`: The part parameter serves two purposes in this operation. It identifies the properties that the write operation will set as well as the properties that the API response will include.
-  * alt `string` (values: json): Data format for the response.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [PlaylistItem](#playlistitem)
 
-### playlists.delete
-Deletes a playlist.
+### youtube.playlists.delete
+Deletes a resource.
 
 
 ```js
-google_youtube.playlists.delete({
+google_youtube.youtube.playlists.delete({
   "id": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * id **required** `string`: The id parameter specifies the YouTube playlist ID for the playlist that is being deleted. In a playlist resource, the id property specifies the playlist's ID.
-  * onBehalfOfContentOwner `string`: Note: This parameter is intended exclusively for YouTube content partners.
-  * alt `string` (values: json): Data format for the response.
+  * id **required** `string`
+  * onBehalfOfContentOwner `string`: *Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwner* parameter indicates that the request's authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The CMS account that the user authenticates with must be linked to the specified YouTube content owner.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 *Output schema unknown*
 
-### playlists.list
-Returns a collection of playlists that match the API request parameters. For example, you can retrieve all playlists that the authenticated user owns, or you can retrieve one or more playlists by their unique IDs.
+### youtube.playlists.list
+Retrieves a list of resources, possibly filtered.
 
 
 ```js
-google_youtube.playlists.list({
-  "part": ""
+google_youtube.youtube.playlists.list({
+  "part": []
 }, context)
 ```
 
 #### Input
 * input `object`
-  * channelId `string`: This value indicates that the API should only return the specified channel's playlists.
-  * hl `string`: The hl parameter should be used for filter out the properties that are not in the given language. Used for the snippet part.
-  * id `string`: The id parameter specifies a comma-separated list of the YouTube playlist ID(s) for the resource(s) that are being retrieved. In a playlist resource, the id property specifies the playlist's YouTube playlist ID.
-  * maxResults `integer`: The maxResults parameter specifies the maximum number of items that should be returned in the result set.
-  * mine `boolean`: Set this parameter's value to true to instruct the API to only return playlists owned by the authenticated user.
-  * onBehalfOfContentOwner `string`: Note: This parameter is intended exclusively for YouTube content partners.
-  * onBehalfOfContentOwnerChannel `string`: This parameter can only be used in a properly authorized request. Note: This parameter is intended exclusively for YouTube content partners.
-  * pageToken `string`: The pageToken parameter identifies a specific page in the result set that should be returned. In an API response, the nextPageToken and prevPageToken properties identify other pages that could be retrieved.
-  * part **required** `string`: The part parameter specifies a comma-separated list of one or more playlist resource properties that the API response will include.
-  * alt `string` (values: json): Data format for the response.
+  * part **required** `array`: The *part* parameter specifies a comma-separated list of one or more playlist resource properties that the API response will include. If the parameter identifies a property that contains child properties, the child properties will be included in the response. For example, in a playlist resource, the snippet property contains properties like author, title, description, tags, and timeCreated. As such, if you set *part=snippet*, the API response will contain all of those properties.
+  * channelId `string`: Return the playlists owned by the specified channel ID.
+  * hl `string`: Returen content in specified language
+  * id `array`: Return the playlists with the given IDs for Stubby or Apiary.
+  * maxResults `integer`: The *maxResults* parameter specifies the maximum number of items that should be returned in the result set.
+  * mine `boolean`: Return the playlists owned by the authenticated user.
+  * onBehalfOfContentOwner `string`: *Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwner* parameter indicates that the request's authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The CMS account that the user authenticates with must be linked to the specified YouTube content owner.
+  * onBehalfOfContentOwnerChannel `string`: This parameter can only be used in a properly authorized request. *Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwnerChannel* parameter specifies the YouTube channel ID of the channel to which a video is being added. This parameter is required when a request specifies a value for the onBehalfOfContentOwner parameter, and it can only be used in conjunction with that parameter. In addition, the request must be authorized using a CMS account that is linked to the content owner that the onBehalfOfContentOwner parameter specifies. Finally, the channel that the onBehalfOfContentOwnerChannel parameter value specifies must be linked to the content owner that the onBehalfOfContentOwner parameter specifies. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and perform actions on behalf of the channel specified in the parameter value, without having to provide authentication credentials for each separate channel.
+  * pageToken `string`: The *pageToken* parameter identifies a specific page in the result set that should be returned. In an API response, the nextPageToken and prevPageToken properties identify other pages that could be retrieved.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [PlaylistListResponse](#playlistlistresponse)
 
-### playlists.insert
-Creates a playlist.
+### youtube.playlists.insert
+Inserts a new resource into this collection.
 
 
 ```js
-google_youtube.playlists.insert({
-  "part": ""
+google_youtube.youtube.playlists.insert({
+  "part": []
 }, context)
 ```
 
 #### Input
 * input `object`
+  * part **required** `array`: The *part* parameter serves two purposes in this operation. It identifies the properties that the write operation will set as well as the properties that the API response will include.
+  * onBehalfOfContentOwner `string`: *Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwner* parameter indicates that the request's authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The CMS account that the user authenticates with must be linked to the specified YouTube content owner.
+  * onBehalfOfContentOwnerChannel `string`: This parameter can only be used in a properly authorized request. *Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwnerChannel* parameter specifies the YouTube channel ID of the channel to which a video is being added. This parameter is required when a request specifies a value for the onBehalfOfContentOwner parameter, and it can only be used in conjunction with that parameter. In addition, the request must be authorized using a CMS account that is linked to the content owner that the onBehalfOfContentOwner parameter specifies. Finally, the channel that the onBehalfOfContentOwnerChannel parameter value specifies must be linked to the content owner that the onBehalfOfContentOwner parameter specifies. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and perform actions on behalf of the channel specified in the parameter value, without having to provide authentication credentials for each separate channel.
   * body [Playlist](#playlist)
-  * onBehalfOfContentOwner `string`: Note: This parameter is intended exclusively for YouTube content partners.
-  * onBehalfOfContentOwnerChannel `string`: This parameter can only be used in a properly authorized request. Note: This parameter is intended exclusively for YouTube content partners.
-  * part **required** `string`: The part parameter serves two purposes in this operation. It identifies the properties that the write operation will set as well as the properties that the API response will include.
-  * alt `string` (values: json): Data format for the response.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [Playlist](#playlist)
 
-### playlists.update
-Modifies a playlist. For example, you could change a playlist's title, description, or privacy status.
+### youtube.playlists.update
+Updates an existing resource.
 
 
 ```js
-google_youtube.playlists.update({
-  "part": ""
+google_youtube.youtube.playlists.update({
+  "part": []
 }, context)
 ```
 
 #### Input
 * input `object`
+  * part **required** `array`: The *part* parameter serves two purposes in this operation. It identifies the properties that the write operation will set as well as the properties that the API response will include. Note that this method will override the existing values for mutable properties that are contained in any parts that the request body specifies. For example, a playlist's description is contained in the snippet part, which must be included in the request body. If the request does not specify a value for the snippet.description property, the playlist's existing description will be deleted.
+  * onBehalfOfContentOwner `string`: *Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwner* parameter indicates that the request's authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The CMS account that the user authenticates with must be linked to the specified YouTube content owner.
   * body [Playlist](#playlist)
-  * onBehalfOfContentOwner `string`: Note: This parameter is intended exclusively for YouTube content partners.
-  * part **required** `string`: The part parameter serves two purposes in this operation. It identifies the properties that the write operation will set as well as the properties that the API response will include.
-  * alt `string` (values: json): Data format for the response.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [Playlist](#playlist)
 
-### search.list
-Returns a collection of search results that match the query parameters specified in the API request. By default, a search result set identifies matching video, channel, and playlist resources, but you can also configure queries to only retrieve a specific type of resource.
+### youtube.search.list
+Retrieves a list of search resources
 
 
 ```js
-google_youtube.search.list({
-  "part": ""
+google_youtube.youtube.search.list({
+  "part": []
 }, context)
 ```
 
 #### Input
 * input `object`
-  * channelId `string`: The channelId parameter indicates that the API response should only contain resources created by the channel
-  * channelType `string` (values: any, show): The channelType parameter lets you restrict a search to a particular type of channel.
-  * eventType `string` (values: completed, live, upcoming): The eventType parameter restricts a search to broadcast events. If you specify a value for this parameter, you must also set the type parameter's value to video.
-  * forContentOwner `boolean`: Note: This parameter is intended exclusively for YouTube content partners.
-  * forDeveloper `boolean`: The forDeveloper parameter restricts the search to only retrieve videos uploaded via the developer's application or website. The API server uses the request's authorization credentials to identify the developer. Therefore, a developer can restrict results to videos uploaded through the developer's own app or website but not to videos uploaded through other apps or sites.
-  * forMine `boolean`: The forMine parameter restricts the search to only retrieve videos owned by the authenticated user. If you set this parameter to true, then the type parameter's value must also be set to video.
-  * location `string`: The location parameter, in conjunction with the locationRadius parameter, defines a circular geographic area and also restricts a search to videos that specify, in their metadata, a geographic location that falls within that area. The parameter value is a string that specifies latitude/longitude coordinates e.g. (37.42307,-122.08427).
-  * locationRadius `string`: The locationRadius parameter, in conjunction with the location parameter, defines a circular geographic area.
-  * maxResults `integer`: The maxResults parameter specifies the maximum number of items that should be returned in the result set.
-  * onBehalfOfContentOwner `string`: Note: This parameter is intended exclusively for YouTube content partners.
-  * order `string` (values: date, rating, relevance, title, videoCount, viewCount): The order parameter specifies the method that will be used to order resources in the API response.
-  * pageToken `string`: The pageToken parameter identifies a specific page in the result set that should be returned. In an API response, the nextPageToken and prevPageToken properties identify other pages that could be retrieved.
-  * part **required** `string`: The part parameter specifies a comma-separated list of one or more search resource properties that the API response will include. Set the parameter value to snippet.
-  * publishedAfter `string`: The publishedAfter parameter indicates that the API response should only contain resources created after the specified time. The value is an RFC 3339 formatted date-time value (1970-01-01T00:00:00Z).
-  * publishedBefore `string`: The publishedBefore parameter indicates that the API response should only contain resources created before the specified time. The value is an RFC 3339 formatted date-time value (1970-01-01T00:00:00Z).
-  * q `string`: The q parameter specifies the query term to search for.
-  * regionCode `string`: The regionCode parameter instructs the API to return search results for the specified country. The parameter value is an ISO 3166-1 alpha-2 country code.
-  * relatedToVideoId `string`: The relatedToVideoId parameter retrieves a list of videos that are related to the video that the parameter value identifies. The parameter value must be set to a YouTube video ID and, if you are using this parameter, the type parameter must be set to video.
-  * relevanceLanguage `string`: The relevanceLanguage parameter instructs the API to return search results that are most relevant to the specified language. The parameter value is typically an ISO 639-1 two-letter language code. However, you should use the values zh-Hans for simplified Chinese and zh-Hant for traditional Chinese. Please note that results in other languages will still be returned if they are highly relevant to the search query term.
-  * safeSearch `string` (values: moderate, none, strict): The safeSearch parameter indicates whether the search results should include restricted content as well as standard content.
-  * topicId `string`: The topicId parameter indicates that the API response should only contain resources associated with the specified topic. The value identifies a Freebase topic ID.
-  * type `string`: The type parameter restricts a search query to only retrieve a particular type of resource. The value is a comma-separated list of resource types.
-  * videoCaption `string` (values: any, closedCaption, none): The videoCaption parameter indicates whether the API should filter video search results based on whether they have captions. If you specify a value for this parameter, you must also set the type parameter's value to video.
-  * videoCategoryId `string`: The videoCategoryId parameter filters video search results based on their category. If you specify a value for this parameter, you must also set the type parameter's value to video.
-  * videoDefinition `string` (values: any, high, standard): The videoDefinition parameter lets you restrict a search to only include either high definition (HD) or standard definition (SD) videos. HD videos are available for playback in at least 720p, though higher resolutions, like 1080p, might also be available. If you specify a value for this parameter, you must also set the type parameter's value to video.
-  * videoDimension `string` (values: 2d, 3d, any): The videoDimension parameter lets you restrict a search to only retrieve 2D or 3D videos. If you specify a value for this parameter, you must also set the type parameter's value to video.
-  * videoDuration `string` (values: any, long, medium, short): The videoDuration parameter filters video search results based on their duration. If you specify a value for this parameter, you must also set the type parameter's value to video.
-  * videoEmbeddable `string` (values: any, true): The videoEmbeddable parameter lets you to restrict a search to only videos that can be embedded into a webpage. If you specify a value for this parameter, you must also set the type parameter's value to video.
-  * videoLicense `string` (values: any, creativeCommon, youtube): The videoLicense parameter filters search results to only include videos with a particular license. YouTube lets video uploaders choose to attach either the Creative Commons license or the standard YouTube license to each of their videos. If you specify a value for this parameter, you must also set the type parameter's value to video.
-  * videoSyndicated `string` (values: any, true): The videoSyndicated parameter lets you to restrict a search to only videos that can be played outside youtube.com. If you specify a value for this parameter, you must also set the type parameter's value to video.
-  * videoType `string` (values: any, episode, movie): The videoType parameter lets you restrict a search to a particular type of videos. If you specify a value for this parameter, you must also set the type parameter's value to video.
-  * alt `string` (values: json): Data format for the response.
+  * part **required** `array`: The *part* parameter specifies a comma-separated list of one or more search resource properties that the API response will include. Set the parameter value to snippet.
+  * channelId `string`: Filter on resources belonging to this channelId.
+  * channelType `string` (values: channelTypeUnspecified, any, show): Add a filter on the channel search.
+  * eventType `string` (values: none, upcoming, live, completed): Filter on the livestream status of the videos.
+  * forContentOwner `boolean`: Search owned by a content owner.
+  * forDeveloper `boolean`: Restrict the search to only retrieve videos uploaded using the project id of the authenticated user.
+  * forMine `boolean`: Search for the private videos of the authenticated user.
+  * location `string`: Filter on location of the video
+  * locationRadius `string`: Filter on distance from the location (specified above).
+  * maxResults `integer`: The *maxResults* parameter specifies the maximum number of items that should be returned in the result set.
+  * onBehalfOfContentOwner `string`: *Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwner* parameter indicates that the request's authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The CMS account that the user authenticates with must be linked to the specified YouTube content owner.
+  * order `string` (values: searchSortUnspecified, date, rating, viewCount, relevance, title, videoCount): Sort order of the results.
+  * pageToken `string`: The *pageToken* parameter identifies a specific page in the result set that should be returned. In an API response, the nextPageToken and prevPageToken properties identify other pages that could be retrieved.
+  * publishedAfter `string`: Filter on resources published after this date.
+  * publishedBefore `string`: Filter on resources published before this date.
+  * q `string`: Textual search terms to match.
+  * regionCode `string`: Display the content as seen by viewers in this country.
+  * relatedToVideoId `string`: Search related to a resource.
+  * relevanceLanguage `string`: Return results relevant to this language.
+  * safeSearch `string` (values: safeSearchSettingUnspecified, none, moderate, strict): Indicates whether the search results should include restricted content as well as standard content.
+  * topicId `string`: Restrict results to a particular topic.
+  * type `array`: Restrict results to a particular set of resource types from One Platform.
+  * videoCaption `string` (values: videoCaptionUnspecified, any, closedCaption, none): Filter on the presence of captions on the videos.
+  * videoCategoryId `string`: Filter on videos in a specific category.
+  * videoDefinition `string` (values: any, standard, high): Filter on the definition of the videos.
+  * videoDimension `string` (values: any, 2d, 3d): Filter on 3d videos.
+  * videoDuration `string` (values: videoDurationUnspecified, any, short, medium, long): Filter on the duration of the videos.
+  * videoEmbeddable `string` (values: videoEmbeddableUnspecified, any, true): Filter on embeddable videos.
+  * videoLicense `string` (values: any, youtube, creativeCommon): Filter on the license of the videos.
+  * videoSyndicated `string` (values: videoSyndicatedUnspecified, any, true): Filter on syndicated videos.
+  * videoType `string` (values: videoTypeUnspecified, any, movie, episode): Filter on videos of a specific type.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [SearchListResponse](#searchlistresponse)
 
-### sponsors.list
-Lists sponsors for a channel.
+### youtube.sponsors.list
+Retrieves a list of sponsors that match the request criteria for a channel.
 
 
 ```js
-google_youtube.sponsors.list({
-  "part": ""
+google_youtube.youtube.sponsors.list({
+  "part": []
 }, context)
 ```
 
 #### Input
 * input `object`
-  * filter `string` (values: all, newest): The filter parameter specifies which channel sponsors to return.
-  * maxResults `integer`: The maxResults parameter specifies the maximum number of items that should be returned in the result set.
-  * pageToken `string`: The pageToken parameter identifies a specific page in the result set that should be returned. In an API response, the nextPageToken and prevPageToken properties identify other pages that could be retrieved.
-  * part **required** `string`: The part parameter specifies the sponsor resource parts that the API response will include. Supported values are id and snippet.
-  * alt `string` (values: json): Data format for the response.
+  * part **required** `array`: The *part* parameter specifies the sponsor resource parts that the API response will include. Supported values are id and snippet.
+  * filter `string` (values: sponsorFilterUnknown, newest, all): Parameter that specifies which channel sponsors to return.
+  * maxResults `integer`: The *maxResults* parameter specifies the maximum number of items that should be returned in the result set.
+  * pageToken `string`: The *pageToken* parameter identifies a specific page in the result set that should be returned. In an API response, the nextPageToken and prevPageToken properties identify other pages that could be retrieved.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [SponsorListResponse](#sponsorlistresponse)
 
-### subscriptions.delete
-Deletes a subscription.
+### youtube.subscriptions.delete
+Deletes a resource.
 
 
 ```js
-google_youtube.subscriptions.delete({
+google_youtube.youtube.subscriptions.delete({
   "id": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * id **required** `string`: The id parameter specifies the YouTube subscription ID for the resource that is being deleted. In a subscription resource, the id property specifies the YouTube subscription ID.
-  * alt `string` (values: json): Data format for the response.
+  * id **required** `string`
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 *Output schema unknown*
 
-### subscriptions.list
-Returns subscription resources that match the API request criteria.
+### youtube.subscriptions.list
+Retrieves a list of resources, possibly filtered.
 
 
 ```js
-google_youtube.subscriptions.list({
-  "part": ""
+google_youtube.youtube.subscriptions.list({
+  "part": []
 }, context)
 ```
 
 #### Input
 * input `object`
-  * channelId `string`: The channelId parameter specifies a YouTube channel ID. The API will only return that channel's subscriptions.
-  * forChannelId `string`: The forChannelId parameter specifies a comma-separated list of channel IDs. The API response will then only contain subscriptions matching those channels.
-  * id `string`: The id parameter specifies a comma-separated list of the YouTube subscription ID(s) for the resource(s) that are being retrieved. In a subscription resource, the id property specifies the YouTube subscription ID.
-  * maxResults `integer`: The maxResults parameter specifies the maximum number of items that should be returned in the result set.
-  * mine `boolean`: Set this parameter's value to true to retrieve a feed of the authenticated user's subscriptions.
-  * myRecentSubscribers `boolean`: Set this parameter's value to true to retrieve a feed of the subscribers of the authenticated user in reverse chronological order (newest first).
-  * mySubscribers `boolean`: Set this parameter's value to true to retrieve a feed of the subscribers of the authenticated user in no particular order.
-  * onBehalfOfContentOwner `string`: Note: This parameter is intended exclusively for YouTube content partners.
-  * onBehalfOfContentOwnerChannel `string`: This parameter can only be used in a properly authorized request. Note: This parameter is intended exclusively for YouTube content partners.
-  * order `string` (values: alphabetical, relevance, unread): The order parameter specifies the method that will be used to sort resources in the API response.
-  * pageToken `string`: The pageToken parameter identifies a specific page in the result set that should be returned. In an API response, the nextPageToken and prevPageToken properties identify other pages that could be retrieved.
-  * part **required** `string`: The part parameter specifies a comma-separated list of one or more subscription resource properties that the API response will include.
-  * alt `string` (values: json): Data format for the response.
+  * part **required** `array`: The *part* parameter specifies a comma-separated list of one or more subscription resource properties that the API response will include. If the parameter identifies a property that contains child properties, the child properties will be included in the response. For example, in a subscription resource, the snippet property contains other properties, such as a display title for the subscription. If you set *part=snippet*, the API response will also contain all of those nested properties.
+  * channelId `string`: Return the subscriptions of the given channel owner.
+  * forChannelId `string`: Return the subscriptions to the subset of these channels that the authenticated user is subscribed to.
+  * id `array`: Return the subscriptions with the given IDs for Stubby or Apiary.
+  * maxResults `integer`: The *maxResults* parameter specifies the maximum number of items that should be returned in the result set.
+  * mine `boolean`: Flag for returning the subscriptions of the authenticated user.
+  * myRecentSubscribers `boolean`
+  * mySubscribers `boolean`: Return the subscribers of the given channel owner.
+  * onBehalfOfContentOwner `string`: *Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwner* parameter indicates that the request's authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The CMS account that the user authenticates with must be linked to the specified YouTube content owner.
+  * onBehalfOfContentOwnerChannel `string`: This parameter can only be used in a properly authorized request. *Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwnerChannel* parameter specifies the YouTube channel ID of the channel to which a video is being added. This parameter is required when a request specifies a value for the onBehalfOfContentOwner parameter, and it can only be used in conjunction with that parameter. In addition, the request must be authorized using a CMS account that is linked to the content owner that the onBehalfOfContentOwner parameter specifies. Finally, the channel that the onBehalfOfContentOwnerChannel parameter value specifies must be linked to the content owner that the onBehalfOfContentOwner parameter specifies. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and perform actions on behalf of the channel specified in the parameter value, without having to provide authentication credentials for each separate channel.
+  * order `string` (values: subscriptionOrderUnspecified, relevance, unread, alphabetical): The order of the returned subscriptions
+  * pageToken `string`: The *pageToken* parameter identifies a specific page in the result set that should be returned. In an API response, the nextPageToken and prevPageToken properties identify other pages that could be retrieved.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [SubscriptionListResponse](#subscriptionlistresponse)
 
-### subscriptions.insert
-Adds a subscription for the authenticated user's channel.
+### youtube.subscriptions.insert
+Inserts a new resource into this collection.
 
 
 ```js
-google_youtube.subscriptions.insert({
-  "part": ""
+google_youtube.youtube.subscriptions.insert({
+  "part": []
 }, context)
 ```
 
 #### Input
 * input `object`
+  * part **required** `array`: The *part* parameter serves two purposes in this operation. It identifies the properties that the write operation will set as well as the properties that the API response will include.
   * body [Subscription](#subscription)
-  * part **required** `string`: The part parameter serves two purposes in this operation. It identifies the properties that the write operation will set as well as the properties that the API response will include.
-  * alt `string` (values: json): Data format for the response.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [Subscription](#subscription)
 
-### superChatEvents.list
-Lists Super Chat events for a channel.
+### youtube.superChatEvents.list
+Retrieves a list of resources, possibly filtered.
 
 
 ```js
-google_youtube.superChatEvents.list({
-  "part": ""
+google_youtube.youtube.superChatEvents.list({
+  "part": []
 }, context)
 ```
 
 #### Input
 * input `object`
-  * hl `string`: The hl parameter instructs the API to retrieve localized resource metadata for a specific application language that the YouTube website supports. The parameter value must be a language code included in the list returned by the i18nLanguages.list method.
-  * maxResults `integer`: The maxResults parameter specifies the maximum number of items that should be returned in the result set.
-  * pageToken `string`: The pageToken parameter identifies a specific page in the result set that should be returned. In an API response, the nextPageToken and prevPageToken properties identify other pages that could be retrieved.
-  * part **required** `string`: The part parameter specifies the superChatEvent resource parts that the API response will include. Supported values are id and snippet.
-  * alt `string` (values: json): Data format for the response.
+  * part **required** `array`: The *part* parameter specifies the superChatEvent resource parts that the API response will include. Supported values are id and snippet.
+  * hl `string`: Return rendered funding amounts in specified language.
+  * maxResults `integer`: The *maxResults* parameter specifies the maximum number of items that should be returned in the result set.
+  * pageToken `string`: The *pageToken* parameter identifies a specific page in the result set that should be returned. In an API response, the nextPageToken and prevPageToken properties identify other pages that could be retrieved.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [SuperChatEventListResponse](#superchateventlistresponse)
 
-### thumbnails.set
-Uploads a custom video thumbnail to YouTube and sets it for a video.
+### youtube.tests.insert
+POST method.
 
 
 ```js
-google_youtube.thumbnails.set({
+google_youtube.youtube.tests.insert({
+  "part": []
+}, context)
+```
+
+#### Input
+* input `object`
+  * part **required** `array`
+  * body [TestItem](#testitem)
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+
+#### Output
+* output [TestItem](#testitem)
+
+### youtube.thirdPartyLinks.delete
+Deletes a resource.
+
+
+```js
+google_youtube.youtube.thirdPartyLinks.delete({
+  "linkingToken": "",
+  "type": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * linkingToken **required** `string`: Delete the partner links with the given linking token.
+  * type **required** `string` (values: linkUnspecified, channelToStoreLink): Type of the link to be deleted.
+  * part `array`: Do not use. Required for compatibility.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+
+#### Output
+*Output schema unknown*
+
+### youtube.thirdPartyLinks.list
+Retrieves a list of resources, possibly filtered.
+
+
+```js
+google_youtube.youtube.thirdPartyLinks.list({
+  "part": []
+}, context)
+```
+
+#### Input
+* input `object`
+  * part **required** `array`: The *part* parameter specifies the thirdPartyLink resource parts that the API response will include. Supported values are linkingToken, status, and snippet.
+  * linkingToken `string`: Get a third party link with the given linking token.
+  * type `string` (values: linkUnspecified, channelToStoreLink): Get a third party link of the given type.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+
+#### Output
+* output [ThirdPartyLink](#thirdpartylink)
+
+### youtube.thirdPartyLinks.insert
+Inserts a new resource into this collection.
+
+
+```js
+google_youtube.youtube.thirdPartyLinks.insert({
+  "part": []
+}, context)
+```
+
+#### Input
+* input `object`
+  * part **required** `array`: The *part* parameter specifies the thirdPartyLink resource parts that the API request and response will include. Supported values are linkingToken, status, and snippet.
+  * body [ThirdPartyLink](#thirdpartylink)
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+
+#### Output
+* output [ThirdPartyLink](#thirdpartylink)
+
+### youtube.thirdPartyLinks.update
+Updates an existing resource.
+
+
+```js
+google_youtube.youtube.thirdPartyLinks.update({
+  "part": []
+}, context)
+```
+
+#### Input
+* input `object`
+  * part **required** `array`: The *part* parameter specifies the thirdPartyLink resource parts that the API request and response will include. Supported values are linkingToken, status, and snippet.
+  * body [ThirdPartyLink](#thirdpartylink)
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+
+#### Output
+* output [ThirdPartyLink](#thirdpartylink)
+
+### youtube.thumbnails.set
+As this is not an insert in a strict sense (it supports uploading/setting of a thumbnail for multiple videos, which doesn't result in creation of a single resource), I use a custom verb here.
+
+
+```js
+google_youtube.youtube.thumbnails.set({
   "videoId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * onBehalfOfContentOwner `string`: Note: This parameter is intended exclusively for YouTube content partners.
-  * videoId **required** `string`: The videoId parameter specifies a YouTube video ID for which the custom video thumbnail is being provided.
-  * alt `string` (values: json): Data format for the response.
+  * videoId **required** `string`: Returns the Thumbnail with the given video IDs for Stubby or Apiary.
+  * onBehalfOfContentOwner `string`: *Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwner* parameter indicates that the request's authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The actual CMS account that the user authenticates with must be linked to the specified YouTube content owner.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [ThumbnailSetResponse](#thumbnailsetresponse)
 
-### videoAbuseReportReasons.list
-Returns a list of abuse reasons that can be used for reporting abusive videos.
+### youtube.videoAbuseReportReasons.list
+Retrieves a list of resources, possibly filtered.
 
 
 ```js
-google_youtube.videoAbuseReportReasons.list({
-  "part": ""
+google_youtube.youtube.videoAbuseReportReasons.list({
+  "part": []
 }, context)
 ```
 
 #### Input
 * input `object`
-  * hl `string`: The hl parameter specifies the language that should be used for text values in the API response.
-  * part **required** `string`: The part parameter specifies the videoCategory resource parts that the API response will include. Supported values are id and snippet.
-  * alt `string` (values: json): Data format for the response.
+  * part **required** `array`: The *part* parameter specifies the videoCategory resource parts that the API response will include. Supported values are id and snippet.
+  * hl `string`
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [VideoAbuseReportReasonListResponse](#videoabusereportreasonlistresponse)
 
-### videoCategories.list
-Returns a list of categories that can be associated with YouTube videos.
+### youtube.videoCategories.list
+Retrieves a list of resources, possibly filtered.
 
 
 ```js
-google_youtube.videoCategories.list({
-  "part": ""
+google_youtube.youtube.videoCategories.list({
+  "part": []
 }, context)
 ```
 
 #### Input
 * input `object`
-  * hl `string`: The hl parameter specifies the language that should be used for text values in the API response.
-  * id `string`: The id parameter specifies a comma-separated list of video category IDs for the resources that you are retrieving.
-  * part **required** `string`: The part parameter specifies the videoCategory resource properties that the API response will include. Set the parameter value to snippet.
-  * regionCode `string`: The regionCode parameter instructs the API to return the list of video categories available in the specified country. The parameter value is an ISO 3166-1 alpha-2 country code.
-  * alt `string` (values: json): Data format for the response.
+  * part **required** `array`: The *part* parameter specifies the videoCategory resource properties that the API response will include. Set the parameter value to snippet.
+  * hl `string`
+  * id `array`: Returns the video categories with the given IDs for Stubby or Apiary.
+  * regionCode `string`
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [VideoCategoryListResponse](#videocategorylistresponse)
 
-### videos.delete
-Deletes a YouTube video.
+### youtube.videos.delete
+Deletes a resource.
 
 
 ```js
-google_youtube.videos.delete({
+google_youtube.youtube.videos.delete({
   "id": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * id **required** `string`: The id parameter specifies the YouTube video ID for the resource that is being deleted. In a video resource, the id property specifies the video's ID.
-  * onBehalfOfContentOwner `string`: Note: This parameter is intended exclusively for YouTube content partners.
-  * alt `string` (values: json): Data format for the response.
+  * id **required** `string`
+  * onBehalfOfContentOwner `string`: *Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwner* parameter indicates that the request's authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The actual CMS account that the user authenticates with must be linked to the specified YouTube content owner.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 *Output schema unknown*
 
-### videos.list
-Returns a list of videos that match the API request parameters.
+### youtube.videos.list
+Retrieves a list of resources, possibly filtered.
 
 
 ```js
-google_youtube.videos.list({
-  "part": ""
+google_youtube.youtube.videos.list({
+  "part": []
 }, context)
 ```
 
 #### Input
 * input `object`
-  * chart `string` (values: mostPopular): The chart parameter identifies the chart that you want to retrieve.
-  * hl `string`: The hl parameter instructs the API to retrieve localized resource metadata for a specific application language that the YouTube website supports. The parameter value must be a language code included in the list returned by the i18nLanguages.list method.
-  * id `string`: The id parameter specifies a comma-separated list of the YouTube video ID(s) for the resource(s) that are being retrieved. In a video resource, the id property specifies the video's ID.
-  * locale `string`: DEPRECATED
-  * maxHeight `integer`: The maxHeight parameter specifies a maximum height of the embedded player. If maxWidth is provided, maxHeight may not be reached in order to not violate the width request.
-  * maxResults `integer`: The maxResults parameter specifies the maximum number of items that should be returned in the result set.
-  * maxWidth `integer`: The maxWidth parameter specifies a maximum width of the embedded player. If maxHeight is provided, maxWidth may not be reached in order to not violate the height request.
-  * myRating `string` (values: dislike, like): Set this parameter's value to like or dislike to instruct the API to only return videos liked or disliked by the authenticated user.
-  * onBehalfOfContentOwner `string`: Note: This parameter is intended exclusively for YouTube content partners.
-  * pageToken `string`: The pageToken parameter identifies a specific page in the result set that should be returned. In an API response, the nextPageToken and prevPageToken properties identify other pages that could be retrieved.
-  * part **required** `string`: The part parameter specifies a comma-separated list of one or more video resource properties that the API response will include.
-  * regionCode `string`: The regionCode parameter instructs the API to select a video chart available in the specified region. This parameter can only be used in conjunction with the chart parameter. The parameter value is an ISO 3166-1 alpha-2 country code.
-  * videoCategoryId `string`: The videoCategoryId parameter identifies the video category for which the chart should be retrieved. This parameter can only be used in conjunction with the chart parameter. By default, charts are not restricted to a particular category.
-  * alt `string` (values: json): Data format for the response.
+  * part **required** `array`: The *part* parameter specifies a comma-separated list of one or more video resource properties that the API response will include. If the parameter identifies a property that contains child properties, the child properties will be included in the response. For example, in a video resource, the snippet property contains the channelId, title, description, tags, and categoryId properties. As such, if you set *part=snippet*, the API response will contain all of those properties.
+  * chart `string` (values: chartUnspecified, mostPopular): Return the videos that are in the specified chart.
+  * hl `string`: Stands for "host language". Specifies the localization language of the metadata to be filled into snippet.localized. The field is filled with the default metadata if there is no localization in the specified language. The parameter value must be a language code included in the list returned by the i18nLanguages.list method (e.g. en_US, es_MX).
+  * id `array`: Return videos with the given ids.
+  * locale `string`
+  * maxHeight `integer`
+  * maxResults `integer`: The *maxResults* parameter specifies the maximum number of items that should be returned in the result set. *Note:* This parameter is supported for use in conjunction with the myRating and chart parameters, but it is not supported for use in conjunction with the id parameter.
+  * maxWidth `integer`: Return the player with maximum height specified in
+  * myRating `string` (values: none, like, dislike): Return videos liked/disliked by the authenticated user. Does not support RateType.RATED_TYPE_NONE.
+  * onBehalfOfContentOwner `string`: *Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwner* parameter indicates that the request's authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The CMS account that the user authenticates with must be linked to the specified YouTube content owner.
+  * pageToken `string`: The *pageToken* parameter identifies a specific page in the result set that should be returned. In an API response, the nextPageToken and prevPageToken properties identify other pages that could be retrieved. *Note:* This parameter is supported for use in conjunction with the myRating and chart parameters, but it is not supported for use in conjunction with the id parameter.
+  * regionCode `string`: Use a chart that is specific to the specified region
+  * videoCategoryId `string`: Use chart that is specific to the specified video category
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [VideoListResponse](#videolistresponse)
 
-### videos.insert
-Uploads a video to YouTube and optionally sets the video's metadata.
+### youtube.videos.insert
+Inserts a new resource into this collection.
 
 
 ```js
-google_youtube.videos.insert({
-  "part": ""
+google_youtube.youtube.videos.insert({
+  "part": []
 }, context)
 ```
 
 #### Input
 * input `object`
-  * autoLevels `boolean`: The autoLevels parameter indicates whether YouTube should automatically enhance the video's lighting and color.
+  * part **required** `array`: The *part* parameter serves two purposes in this operation. It identifies the properties that the write operation will set as well as the properties that the API response will include. Note that not all parts contain properties that can be set when inserting or updating a video. For example, the statistics object encapsulates statistics that YouTube calculates for a video and does not contain values that you can set or modify. If the parameter value specifies a part that does not contain mutable values, that part will still be included in the API response.
+  * autoLevels `boolean`: Should auto-levels be applied to the upload.
+  * notifySubscribers `boolean`: Notify the channel subscribers about the new video. As default, the notification is enabled.
+  * onBehalfOfContentOwner `string`: *Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwner* parameter indicates that the request's authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The CMS account that the user authenticates with must be linked to the specified YouTube content owner.
+  * onBehalfOfContentOwnerChannel `string`: This parameter can only be used in a properly authorized request. *Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwnerChannel* parameter specifies the YouTube channel ID of the channel to which a video is being added. This parameter is required when a request specifies a value for the onBehalfOfContentOwner parameter, and it can only be used in conjunction with that parameter. In addition, the request must be authorized using a CMS account that is linked to the content owner that the onBehalfOfContentOwner parameter specifies. Finally, the channel that the onBehalfOfContentOwnerChannel parameter value specifies must be linked to the content owner that the onBehalfOfContentOwner parameter specifies. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and perform actions on behalf of the channel specified in the parameter value, without having to provide authentication credentials for each separate channel.
+  * stabilize `boolean`: Should stabilize be applied to the upload.
   * body [Video](#video)
-  * notifySubscribers `boolean`: The notifySubscribers parameter indicates whether YouTube should send a notification about the new video to users who subscribe to the video's channel. A parameter value of True indicates that subscribers will be notified of newly uploaded videos. However, a channel owner who is uploading many videos might prefer to set the value to False to avoid sending a notification about each new video to the channel's subscribers.
-  * onBehalfOfContentOwner `string`: Note: This parameter is intended exclusively for YouTube content partners.
-  * onBehalfOfContentOwnerChannel `string`: This parameter can only be used in a properly authorized request. Note: This parameter is intended exclusively for YouTube content partners.
-  * part **required** `string`: The part parameter serves two purposes in this operation. It identifies the properties that the write operation will set as well as the properties that the API response will include.
-  * stabilize `boolean`: The stabilize parameter indicates whether YouTube should adjust the video to remove shaky camera motions.
-  * alt `string` (values: json): Data format for the response.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [Video](#video)
 
-### videos.update
-Updates a video's metadata.
+### youtube.videos.update
+Updates an existing resource.
 
 
 ```js
-google_youtube.videos.update({
-  "part": ""
+google_youtube.youtube.videos.update({
+  "part": []
 }, context)
 ```
 
 #### Input
 * input `object`
+  * part **required** `array`: The *part* parameter serves two purposes in this operation. It identifies the properties that the write operation will set as well as the properties that the API response will include. Note that this method will override the existing values for all of the mutable properties that are contained in any parts that the parameter value specifies. For example, a video's privacy setting is contained in the status part. As such, if your request is updating a private video, and the request's part parameter value includes the status part, the video's privacy setting will be updated to whatever value the request body specifies. If the request body does not specify a value, the existing privacy setting will be removed and the video will revert to the default privacy setting. In addition, not all parts contain properties that can be set when inserting or updating a video. For example, the statistics object encapsulates statistics that YouTube calculates for a video and does not contain values that you can set or modify. If the parameter value specifies a part that does not contain mutable values, that part will still be included in the API response.
+  * onBehalfOfContentOwner `string`: *Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwner* parameter indicates that the request's authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The actual CMS account that the user authenticates with must be linked to the specified YouTube content owner.
   * body [Video](#video)
-  * onBehalfOfContentOwner `string`: Note: This parameter is intended exclusively for YouTube content partners.
-  * part **required** `string`: The part parameter serves two purposes in this operation. It identifies the properties that the write operation will set as well as the properties that the API response will include.
-  * alt `string` (values: json): Data format for the response.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [Video](#video)
 
-### videos.getRating
+### youtube.videos.getRating
 Retrieves the ratings that the authorized user gave to a list of specified videos.
 
 
 ```js
-google_youtube.videos.getRating({
-  "id": ""
+google_youtube.youtube.videos.getRating({
+  "id": []
 }, context)
 ```
 
 #### Input
 * input `object`
-  * id **required** `string`: The id parameter specifies a comma-separated list of the YouTube video ID(s) for the resource(s) for which you are retrieving rating data. In a video resource, the id property specifies the video's ID.
-  * onBehalfOfContentOwner `string`: Note: This parameter is intended exclusively for YouTube content partners.
-  * alt `string` (values: json): Data format for the response.
+  * id **required** `array`
+  * onBehalfOfContentOwner `string`: *Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwner* parameter indicates that the request's authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The CMS account that the user authenticates with must be linked to the specified YouTube content owner.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
-* output [VideoGetRatingResponse](#videogetratingresponse)
+* output [VideoRatingListResponse](#videoratinglistresponse)
 
-### videos.rate
-Add a like or dislike rating to a video or remove a rating from a video.
+### youtube.videos.rate
+Adds a like or dislike rating to a video or removes a rating from a video.
 
 
 ```js
-google_youtube.videos.rate({
+google_youtube.youtube.videos.rate({
   "id": "",
   "rating": ""
 }, context)
@@ -1933,89 +2374,105 @@ google_youtube.videos.rate({
 
 #### Input
 * input `object`
-  * id **required** `string`: The id parameter specifies the YouTube video ID of the video that is being rated or having its rating removed.
-  * rating **required** `string` (values: dislike, like, none): Specifies the rating to record.
-  * alt `string` (values: json): Data format for the response.
+  * id **required** `string`
+  * rating **required** `string` (values: none, like, dislike)
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 *Output schema unknown*
 
-### videos.reportAbuse
+### youtube.videos.reportAbuse
 Report abuse for a video.
 
 
 ```js
-google_youtube.videos.reportAbuse({}, context)
+google_youtube.youtube.videos.reportAbuse({}, context)
 ```
 
 #### Input
 * input `object`
+  * onBehalfOfContentOwner `string`: *Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwner* parameter indicates that the request's authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The CMS account that the user authenticates with must be linked to the specified YouTube content owner.
   * body [VideoAbuseReport](#videoabusereport)
-  * onBehalfOfContentOwner `string`: Note: This parameter is intended exclusively for YouTube content partners.
-  * alt `string` (values: json): Data format for the response.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 *Output schema unknown*
 
-### watermarks.set
-Uploads a watermark image to YouTube and sets it for a channel.
+### youtube.watermarks.set
+Allows upload of watermark image and setting it for a channel.
 
 
 ```js
-google_youtube.watermarks.set({
+google_youtube.youtube.watermarks.set({
   "channelId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
+  * channelId **required** `string`
+  * onBehalfOfContentOwner `string`: *Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwner* parameter indicates that the request's authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The CMS account that the user authenticates with must be linked to the specified YouTube content owner.
   * body [InvideoBranding](#invideobranding)
-  * channelId **required** `string`: The channelId parameter specifies the YouTube channel ID for which the watermark is being provided.
-  * onBehalfOfContentOwner `string`: Note: This parameter is intended exclusively for YouTube content partners.
-  * alt `string` (values: json): Data format for the response.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 *Output schema unknown*
 
-### watermarks.unset
-Deletes a channel's watermark image.
+### youtube.watermarks.unset
+Allows removal of channel watermark.
 
 
 ```js
-google_youtube.watermarks.unset({
+google_youtube.youtube.watermarks.unset({
   "channelId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * channelId **required** `string`: The channelId parameter specifies the YouTube channel ID for which the watermark is being unset.
-  * onBehalfOfContentOwner `string`: Note: This parameter is intended exclusively for YouTube content partners.
-  * alt `string` (values: json): Data format for the response.
+  * channelId **required** `string`
+  * onBehalfOfContentOwner `string`: *Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwner* parameter indicates that the request's authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The CMS account that the user authenticates with must be linked to the specified YouTube content owner.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 *Output schema unknown*
@@ -2024,6 +2481,19 @@ google_youtube.watermarks.unset({
 
 ## Definitions
 
+### AbuseReport
+* AbuseReport `object`
+  * abuseTypes `array`
+    * items [AbuseType](#abusetype)
+  * description `string`
+  * relatedEntities `array`
+    * items [RelatedEntity](#relatedentity)
+  * subject [Entity](#entity)
+
+### AbuseType
+* AbuseType `object`
+  * id `string`
+
 ### AccessPolicy
 * AccessPolicy `object`: Rights management policy for YouTube resources.
   * allowed `boolean`: The value of allowed indicates whether the access to the policy is allowed or denied by default.
@@ -2031,9 +2501,9 @@ google_youtube.watermarks.unset({
     * items `string`
 
 ### Activity
-* Activity `object`: An activity resource contains information about an action that a particular channel, or user, has taken on YouTube.The actions reported in activity feeds include rating a video, sharing a video, marking a video as a favorite, commenting on a video, uploading a video, and so forth. Each activity resource identifies the type of action, the channel associated with the action, and the resource(s) associated with the action, such as the video that was rated or uploaded.
+* Activity `object`: An *activity* resource contains information about an action that a particular channel, or user, has taken on YouTube.The actions reported in activity feeds include rating a video, sharing a video, marking a video as a favorite, commenting on a video, uploading a video, and so forth. Each activity resource identifies the type of action, the channel associated with the action, and the resource(s) associated with the action, such as the video that was rated or uploaded.
   * contentDetails [ActivityContentDetails](#activitycontentdetails)
-  * etag `string`: Etag of this resource.
+  * etag `string`: Etag of this resource
   * id `string`: The ID that YouTube uses to uniquely identify the activity.
   * kind `string`: Identifies what kind of resource this is. Value: the fixed string "youtube#activity".
   * snippet [ActivitySnippet](#activitysnippet)
@@ -2083,7 +2553,7 @@ google_youtube.watermarks.unset({
   * adTag `string`: The URL the client should fetch to request a promoted item.
   * clickTrackingUrl `string`: The URL the client should ping to indicate that the user clicked through on this promoted item.
   * creativeViewUrl `string`: The URL the client should ping to indicate that the user was shown this promoted item.
-  * ctaType `string` (values: unspecified, visitAdvertiserSite): The type of call-to-action, a message to the user indicating action that can be taken.
+  * ctaType `string` (values: ctaTypeUnspecified, visitAdvertiserSite): The type of call-to-action, a message to the user indicating action that can be taken.
   * customCtaButtonText `string`: The custom call-to-action button text. If specified, it will override the default button text for the cta_type.
   * descriptionText `string`: The text description to accompany the promoted item.
   * destinationUrl `string`: The URL the client should direct the user to, if the user chooses to visit the advertiser's website.
@@ -2095,7 +2565,7 @@ google_youtube.watermarks.unset({
 
 ### ActivityContentDetailsRecommendation
 * ActivityContentDetailsRecommendation `object`: Information that identifies the recommended resource.
-  * reason `string` (values: unspecified, videoFavorited, videoLiked, videoWatched): The reason that the resource is recommended to the user.
+  * reason `string` (values: reasonUnspecified, videoFavorited, videoLiked, videoWatched): The reason that the resource is recommended to the user.
   * resourceId [ResourceId](#resourceid)
   * seedResourceId [ResourceId](#resourceid)
 
@@ -2105,7 +2575,7 @@ google_youtube.watermarks.unset({
   * imageUrl `string`: An image of the post's author.
   * referenceUrl `string`: The URL of the social network post.
   * resourceId [ResourceId](#resourceid)
-  * type `string` (values: facebook, googlePlus, twitter, unspecified): The name of the social network.
+  * type `string` (values: typeUnspecified, googlePlus, facebook, twitter): The name of the social network.
 
 ### ActivityContentDetailsSubscription
 * ActivityContentDetailsSubscription `object`: Information about a channel that a user subscribed to.
@@ -2119,7 +2589,7 @@ google_youtube.watermarks.unset({
 * ActivityListResponse `object`
   * etag `string`: Etag of this resource.
   * eventId `string`: Serialized EventId of the request which produced this response.
-  * items `array`: A list of activities, or events, that match the request criteria.
+  * items `array`
     * items [Activity](#activity)
   * kind `string`: Identifies what kind of resource this is. Value: the fixed string "youtube#activityListResponse".
   * nextPageToken `string`: The token that can be used as the value of the pageToken parameter to retrieve the next page in the result set.
@@ -2129,18 +2599,18 @@ google_youtube.watermarks.unset({
   * visitorId `string`: The visitorId identifies the visitor.
 
 ### ActivitySnippet
-* ActivitySnippet `object`: Basic details about an activity, including title, description, thumbnails, activity type and group.
+* ActivitySnippet `object`: Basic details about an activity, including title, description, thumbnails, activity type and group. Next ID: 12
   * channelId `string`: The ID that YouTube uses to uniquely identify the channel associated with the activity.
   * channelTitle `string`: Channel title for the channel responsible for this activity
-  * description `string`: The description of the resource primarily associated with the activity.
+  * description `string`: The description of the resource primarily associated with the activity. @mutable youtube.activities.insert
   * groupId `string`: The group ID associated with the activity. A group ID identifies user events that are associated with the same user and resource. For example, if a user rates a video and marks the same video as a favorite, the entries for those events would have the same group ID in the user's activity feed. In your user interface, you can avoid repetition by grouping events with the same groupId value.
-  * publishedAt `string`: The date and time that the video was uploaded. The value is specified in ISO 8601 (YYYY-MM-DDThh:mm:ss.sZ) format.
+  * publishedAt `string`: The date and time that the video was uploaded. The value is specified in ISO 8601 format.
   * thumbnails [ThumbnailDetails](#thumbnaildetails)
   * title `string`: The title of the resource primarily associated with the activity.
-  * type `string` (values: bulletin, channelItem, comment, favorite, like, playlistItem, promotedItem, recommendation, social, subscription, upload): The type of activity that the resource describes.
+  * type `string` (values: typeUnspecified, upload, like, favorite, comment, subscription, playlistItem, recommendation, bulletin, social, channelItem, promotedItem): The type of activity that the resource describes.
 
 ### Caption
-* Caption `object`: A caption resource represents a YouTube caption track. A caption track is associated with exactly one YouTube video.
+* Caption `object`: A *caption* resource represents a YouTube caption track. A caption track is associated with exactly one YouTube video.
   * etag `string`: Etag of this resource.
   * id `string`: The ID that YouTube uses to uniquely identify the caption track.
   * kind `string`: Identifies what kind of resource this is. Value: the fixed string "youtube#caption".
@@ -2157,30 +2627,30 @@ google_youtube.watermarks.unset({
 
 ### CaptionSnippet
 * CaptionSnippet `object`: Basic details about a caption track, such as its language and name.
-  * audioTrackType `string` (values: commentary, descriptive, primary, unknown): The type of audio track associated with the caption track.
-  * failureReason `string` (values: processingFailed, unknownFormat, unsupportedFormat): The reason that YouTube failed to process the caption track. This property is only present if the state property's value is failed.
+  * audioTrackType `string` (values: unknown, primary, commentary, descriptive): The type of audio track associated with the caption track.
+  * failureReason `string` (values: unknownFormat, unsupportedFormat, processingFailed): The reason that YouTube failed to process the caption track. This property is only present if the state property's value is failed.
   * isAutoSynced `boolean`: Indicates whether YouTube synchronized the caption track to the audio track in the video. The value will be true if a sync was explicitly requested when the caption track was uploaded. For example, when calling the captions.insert or captions.update methods, you can set the sync parameter to true to instruct YouTube to sync the uploaded track to the video. If the value is false, YouTube uses the time codes in the uploaded caption track to determine when to display captions.
   * isCC `boolean`: Indicates whether the track contains closed captions for the deaf and hard of hearing. The default value is false.
-  * isDraft `boolean`: Indicates whether the caption track is a draft. If the value is true, then the track is not publicly visible. The default value is false.
+  * isDraft `boolean`: Indicates whether the caption track is a draft. If the value is true, then the track is not publicly visible. The default value is false. @mutable youtube.captions.insert youtube.captions.update
   * isEasyReader `boolean`: Indicates whether caption track is formatted for "easy reader," meaning it is at a third-grade level for language learners. The default value is false.
   * isLarge `boolean`: Indicates whether the caption track uses large text for the vision-impaired. The default value is false.
   * language `string`: The language of the caption track. The property value is a BCP-47 language tag.
-  * lastUpdated `string`: The date and time when the caption track was last updated. The value is specified in ISO 8601 (YYYY-MM-DDThh:mm:ss.sZ) format.
+  * lastUpdated `string`: The date and time when the caption track was last updated. The value is specified in ISO 8601 format.
   * name `string`: The name of the caption track. The name is intended to be visible to the user as an option during playback.
-  * status `string` (values: failed, serving, syncing): The caption track's status.
-  * trackKind `string` (values: ASR, forced, standard): The caption track's type.
-  * videoId `string`: The ID that YouTube uses to uniquely identify the video associated with the caption track.
+  * status `string` (values: serving, syncing, failed): The caption track's status.
+  * trackKind `string` (values: standard, ASR, forced): The caption track's type.
+  * videoId `string`: The ID that YouTube uses to uniquely identify the video associated with the caption track. @mutable youtube.captions.insert
 
 ### CdnSettings
 * CdnSettings `object`: Brief description of the live stream cdn settings.
-  * format `string`: The format of the video stream that you are sending to Youtube.
+  * format `string`: The format of the video stream that you are sending to Youtube. 
   * frameRate `string` (values: 30fps, 60fps, variable): The frame rate of the inbound video data.
   * ingestionInfo [IngestionInfo](#ingestioninfo)
-  * ingestionType `string` (values: dash, rtmp): The method or protocol used to transmit the video stream.
-  * resolution `string` (values: 1080p, 1440p, 2160p, 240p, 360p, 480p, 720p, variable): The resolution of the inbound video data.
+  * ingestionType `string` (values: rtmp, dash, webrtc, hls):  The method or protocol used to transmit the video stream.
+  * resolution `string` (values: 240p, 360p, 480p, 720p, 1080p, 1440p, 2160p, variable): The resolution of the inbound video data.
 
 ### Channel
-* Channel `object`: A channel resource contains information about a YouTube channel.
+* Channel `object`: A *channel* resource contains information about a YouTube channel.
   * auditDetails [ChannelAuditDetails](#channelauditdetails)
   * brandingSettings [ChannelBrandingSettings](#channelbrandingsettings)
   * contentDetails [ChannelContentDetails](#channelcontentdetails)
@@ -2188,7 +2658,6 @@ google_youtube.watermarks.unset({
   * conversionPings [ChannelConversionPings](#channelconversionpings)
   * etag `string`: Etag of this resource.
   * id `string`: The ID that YouTube uses to uniquely identify the channel.
-  * invideoPromotion [InvideoPromotion](#invideopromotion)
   * kind `string`: Identifies what kind of resource this is. Value: the fixed string "youtube#channel".
   * localizations `object`: Localizations for different languages
   * snippet [ChannelSnippet](#channelsnippet)
@@ -2201,11 +2670,10 @@ google_youtube.watermarks.unset({
   * communityGuidelinesGoodStanding `boolean`: Whether or not the channel respects the community guidelines.
   * contentIdClaimsGoodStanding `boolean`: Whether or not the channel has any unresolved claims.
   * copyrightStrikesGoodStanding `boolean`: Whether or not the channel has any copyright strikes.
-  * overallGoodStanding `boolean`: Describes the general state of the channel. This field will always show if there are any issues whatsoever with the channel. Currently this field represents the result of the logical and operation over the community guidelines good standing, the copyright strikes good standing and the content ID claims good standing, but this may change in the future.
 
 ### ChannelBannerResource
 * ChannelBannerResource `object`: A channel banner returned as the response to a channel_banner.insert call.
-  * etag `string`: Etag of this resource.
+  * etag `string`
   * kind `string`: Identifies what kind of resource this is. Value: the fixed string "youtube#channelBannerResource".
   * url `string`: The URL of this banner image.
 
@@ -2220,20 +2688,20 @@ google_youtube.watermarks.unset({
 ### ChannelContentDetails
 * ChannelContentDetails `object`: Details about the content of a channel.
   * relatedPlaylists `object`
-    * favorites `string`: The ID of the playlist that contains the channel"s favorite videos. Use the  playlistItems.insert and  playlistItems.delete to add or remove items from that list.
-    * likes `string`: The ID of the playlist that contains the channel"s liked videos. Use the   playlistItems.insert and  playlistItems.delete to add or remove items from that list.
-    * uploads `string`: The ID of the playlist that contains the channel"s uploaded videos. Use the  videos.insert method to upload new videos and the videos.delete method to delete previously uploaded videos.
-    * watchHistory `string`: The ID of the playlist that contains the channel"s watch history. Use the  playlistItems.insert and  playlistItems.delete to add or remove items from that list.
-    * watchLater `string`: The ID of the playlist that contains the channel"s watch later playlist. Use the playlistItems.insert and  playlistItems.delete to add or remove items from that list.
+    * favorites `string`: The ID of the playlist that contains the channel"s favorite videos. Use the playlistItems.insert and playlistItems.delete to add or remove items from that list.
+    * likes `string`: The ID of the playlist that contains the channel"s liked videos. Use the playlistItems.insert and playlistItems.delete to add or remove items from that list.
+    * uploads `string`: The ID of the playlist that contains the channel"s uploaded videos. Use the videos.insert method to upload new videos and the videos.delete method to delete previously uploaded videos.
+    * watchHistory `string`: The ID of the playlist that contains the channel"s watch history. Use the playlistItems.insert and playlistItems.delete to add or remove items from that list.
+    * watchLater `string`: The ID of the playlist that contains the channel"s watch later playlist. Use the playlistItems.insert and playlistItems.delete to add or remove items from that list.
 
 ### ChannelContentOwnerDetails
 * ChannelContentOwnerDetails `object`: The contentOwnerDetails object encapsulates channel data that is relevant for YouTube Partners linked with the channel.
   * contentOwner `string`: The ID of the content owner linked to the channel.
-  * timeLinked `string`: The date and time of when the channel was linked to the content owner. The value is specified in ISO 8601 (YYYY-MM-DDThh:mm:ss.sZ) format.
+  * timeLinked `string`: The date and time of when the channel was linked to the content owner. The value is specified in ISO 8601 format.
 
 ### ChannelConversionPing
 * ChannelConversionPing `object`: Pings that the app shall fire (authenticated by biscotti cookie). Each ping has a context, in which the app must fire the ping, and a url identifying the ping.
-  * context `string` (values: cview, subscribe, unsubscribe): Defines the context of the ping.
+  * context `string` (values: subscribe, unsubscribe, cview): Defines the context of the ping.
   * conversionUrl `string`: The url (without the schema) that the player shall send the ping to. It's at caller's descretion to decide which schema to use (http vs https) Example of a returned url: //googleads.g.doubleclick.net/pagead/ viewthroughconversion/962985656/?data=path%3DtHe_path%3Btype%3D cview%3Butuid%3DGISQtTNGYqaYl4sKxoVvKA&labe=default The caller must append biscotti authentication (ms param in case of mobile, for example) to this ping.
 
 ### ChannelConversionPings
@@ -2245,7 +2713,7 @@ google_youtube.watermarks.unset({
 * ChannelListResponse `object`
   * etag `string`: Etag of this resource.
   * eventId `string`: Serialized EventId of the request which produced this response.
-  * items `array`: A list of channels that match the request criteria.
+  * items `array`
     * items [Channel](#channel)
   * kind `string`: Identifies what kind of resource this is. Value: the fixed string "youtube#channelListResponse".
   * nextPageToken `string`: The token that can be used as the value of the pageToken parameter to retrieve the next page in the result set.
@@ -2302,9 +2770,9 @@ google_youtube.watermarks.unset({
   * defaultLanguage `string`: The language of the channel section's default title and description.
   * localized [ChannelSectionLocalization](#channelsectionlocalization)
   * position `integer`: The position of the channel section in the channel.
-  * style `string` (values: channelsectionStyleUndefined, horizontalRow, verticalList): The style of the channel section.
+  * style `string` (values: channelsectionStyleUnspecified, horizontalRow, verticalList): The style of the channel section.
   * title `string`: The channel section's title for multiple_playlists and multiple_channels.
-  * type `string` (values: allPlaylists, channelsectionTypeUndefined, completedEvents, likedPlaylists, likes, liveEvents, multipleChannels, multiplePlaylists, popularUploads, postedPlaylists, postedVideos, recentActivity, recentPosts, recentUploads, singlePlaylist, subscriptions, upcomingEvents): The type of the channel section.
+  * type `string` (values: channelsectionTypeUnspecified, singlePlaylist, multiplePlaylists, popularUploads, recentUploads, likes, allPlaylists, likedPlaylists, recentPosts, recentActivity, liveEvents, upcomingEvents, completedEvents, multipleChannels, postedVideos, postedPlaylists, subscriptions): The type of the channel section.
 
 ### ChannelSectionTargeting
 * ChannelSectionTargeting `object`: ChannelSection targeting setting.
@@ -2340,7 +2808,7 @@ google_youtube.watermarks.unset({
   * defaultLanguage `string`: The language of the channel's default title and description.
   * description `string`: The description of the channel.
   * localized [ChannelLocalization](#channellocalization)
-  * publishedAt `string`: The date and time that the channel was created. The value is specified in ISO 8601 (YYYY-MM-DDThh:mm:ss.sZ) format.
+  * publishedAt `string`: The date and time that the channel was created. The value is specified in < a href="//www.w3.org/TR/NOTE-datetime">ISO 8601 format.
   * thumbnails [ThumbnailDetails](#thumbnaildetails)
   * title `string`: The channel's title.
 
@@ -2355,8 +2823,15 @@ google_youtube.watermarks.unset({
 ### ChannelStatus
 * ChannelStatus `object`: JSON template for the status part of a channel.
   * isLinked `boolean`: If true, then the user is linked to either a YouTube username or G+ account. Otherwise, the user doesn't have a public YouTube identity.
-  * longUploadsStatus `string` (values: allowed, disallowed, eligible, longUploadsUnspecified): The long uploads status of this channel. See
-  * privacyStatus `string` (values: private, public, unlisted, unlisted_new): Privacy status of the channel.
+  * longUploadsStatus `string` (values: longUploadsUnspecified, allowed, eligible, disallowed): The long uploads status of this channel. See https://support.google.com/youtube/answer/71673 for more information.
+  * madeForKids `boolean`
+  * privacyStatus `string` (values: public, unlisted, private): Privacy status of the channel.
+  * selfDeclaredMadeForKids `boolean`
+
+### ChannelToStoreLinkDetails
+* ChannelToStoreLinkDetails `object`: Information specific to a store on a merchandising platform linked to a YouTube channel.
+  * storeName `string`: Name of the store.
+  * storeUrl `string`: Landing page of the store.
 
 ### ChannelTopicDetails
 * ChannelTopicDetails `object`: Freebase topic information related to the channel.
@@ -2366,7 +2841,7 @@ google_youtube.watermarks.unset({
     * items `string`
 
 ### Comment
-* Comment `object`: A comment represents a single YouTube comment.
+* Comment `object`: A *comment* represents a single YouTube comment.
   * etag `string`: Etag of this resource.
   * id `string`: The ID that YouTube uses to uniquely identify the comment.
   * kind `string`: Identifies what kind of resource this is. Value: the fixed string "youtube#comment".
@@ -2386,23 +2861,28 @@ google_youtube.watermarks.unset({
 
 ### CommentSnippet
 * CommentSnippet `object`: Basic details about a comment, such as its author and text.
+  * authorChannelId [CommentSnippetAuthorChannelId](#commentsnippetauthorchannelid)
   * authorChannelUrl `string`: Link to the author's YouTube channel, if any.
   * authorDisplayName `string`: The name of the user who posted the comment.
   * authorProfileImageUrl `string`: The URL for the avatar of the user who posted the comment.
   * canRate `boolean`: Whether the current viewer can rate this comment.
   * channelId `string`: The id of the corresponding YouTube channel. In case of a channel comment this is the channel the comment refers to. In case of a video comment it's the video's channel.
   * likeCount `integer`: The total number of likes this comment has received.
-  * moderationStatus `string` (values: heldForReview, likelySpam, published, rejected): The comment's moderation status. Will not be set if the comments were requested through the id filter.
+  * moderationStatus `string` (values: published, heldForReview, likelySpam, rejected): The comment's moderation status. Will not be set if the comments were requested through the id filter.
   * parentId `string`: The unique id of the parent comment, only set for replies.
-  * publishedAt `string`: The date and time when the comment was orignally published. The value is specified in ISO 8601 (YYYY-MM-DDThh:mm:ss.sZ) format.
+  * publishedAt `string`: The date and time when the comment was orignally published. The value is specified in ISO 8601 format.
   * textDisplay `string`: The comment's text. The format is either plain text or HTML dependent on what has been requested. Even the plain text representation may differ from the text originally posted in that it may replace video links with video titles etc.
   * textOriginal `string`: The comment's original raw text as initially posted or last updated. The original text will only be returned if it is accessible to the viewer, which is only guaranteed if the viewer is the comment's author.
-  * updatedAt `string`: The date and time when was last updated . The value is specified in ISO 8601 (YYYY-MM-DDThh:mm:ss.sZ) format.
+  * updatedAt `string`: The date and time when was last updated . The value is specified in ISO 8601 format.
   * videoId `string`: The ID of the video the comment refers to, if any.
-  * viewerRating `string` (values: dislike, like, none, unspecified): The rating the viewer has given to this comment. For the time being this will never return RATE_TYPE_DISLIKE and instead return RATE_TYPE_NONE. This may change in the future.
+  * viewerRating `string` (values: none, like, dislike): The rating the viewer has given to this comment. For the time being this will never return RATE_TYPE_DISLIKE and instead return RATE_TYPE_NONE. This may change in the future.
+
+### CommentSnippetAuthorChannelId
+* CommentSnippetAuthorChannelId `object`: The id of the author's YouTube channel, if any.
+  * value `string`
 
 ### CommentThread
-* CommentThread `object`: A comment thread represents information that applies to a top level comment and all its replies. It can also include the top level comment itself and some of the replies.
+* CommentThread `object`: A *comment thread* represents information that applies to a top level comment and all its replies. It can also include the top level comment itself and some of the replies.
   * etag `string`: Etag of this resource.
   * id `string`: The ID that YouTube uses to uniquely identify the comment thread.
   * kind `string`: Identifies what kind of resource this is. Value: the fixed string "youtube#commentThread".
@@ -2436,79 +2916,86 @@ google_youtube.watermarks.unset({
   * videoId `string`: The ID of the video the comments refer to, if any. No video_id implies a channel discussion comment.
 
 ### ContentRating
-* ContentRating `object`: Ratings schemes. The country-specific ratings are mostly for movies and shows. NEXT_ID: 71
-  * acbRating `string` (values: acbC, acbE, acbG, acbM, acbMa15plus, acbP, acbPg, acbR18plus, acbUnrated): The video's Australian Classification Board (ACB) or Australian Communications and Media Authority (ACMA) rating. ACMA ratings are used to classify children's television programming.
-  * agcomRating `string` (values: agcomT, agcomUnrated, agcomVm14, agcomVm18): The video's rating from Italy's Autorità per le Garanzie nelle Comunicazioni (AGCOM).
-  * anatelRating `string` (values: anatelA, anatelF, anatelI, anatelI10, anatelI12, anatelI7, anatelR, anatelUnrated): The video's Anatel (Asociación Nacional de Televisión) rating for Chilean television.
-  * bbfcRating `string` (values: bbfc12, bbfc12a, bbfc15, bbfc18, bbfcPg, bbfcR18, bbfcU, bbfcUnrated): The video's British Board of Film Classification (BBFC) rating.
-  * bfvcRating `string` (values: bfvc13, bfvc15, bfvc18, bfvc20, bfvcB, bfvcE, bfvcG, bfvcUnrated): The video's rating from Thailand's Board of Film and Video Censors.
-  * bmukkRating `string` (values: bmukk10, bmukk12, bmukk14, bmukk16, bmukk6, bmukk8, bmukkAa, bmukkUnrated): The video's rating from the Austrian Board of Media Classification (Bundesministerium für Unterricht, Kunst und Kultur).
-  * catvRating `string` (values: catv14plus, catv18plus, catvC, catvC8, catvG, catvPg, catvUnrated): Rating system for Canadian TV - Canadian TV Classification System The video's rating from the Canadian Radio-Television and Telecommunications Commission (CRTC) for Canadian English-language broadcasts. For more information, see the Canadian Broadcast Standards Council website.
-  * catvfrRating `string` (values: catvfr13plus, catvfr16plus, catvfr18plus, catvfr8plus, catvfrG, catvfrUnrated): The video's rating from the Canadian Radio-Television and Telecommunications Commission (CRTC) for Canadian French-language broadcasts. For more information, see the Canadian Broadcast Standards Council website.
-  * cbfcRating `string` (values: cbfcA, cbfcS, cbfcU, cbfcUA, cbfcUnrated): The video's Central Board of Film Certification (CBFC - India) rating.
-  * cccRating `string` (values: ccc14, ccc18, ccc18s, ccc18v, ccc6, cccTe, cccUnrated): The video's Consejo de Calificación Cinematográfica (Chile) rating.
-  * cceRating `string` (values: cceM12, cceM14, cceM16, cceM18, cceM4, cceM6, cceUnrated): The video's rating from Portugal's Comissão de Classificação de Espect´culos.
-  * chfilmRating `string` (values: chfilm0, chfilm12, chfilm16, chfilm18, chfilm6, chfilmUnrated): The video's rating in Switzerland.
-  * chvrsRating `string` (values: chvrs14a, chvrs18a, chvrsE, chvrsG, chvrsPg, chvrsR, chvrsUnrated): The video's Canadian Home Video Rating System (CHVRS) rating.
-  * cicfRating `string` (values: cicfE, cicfKntEna, cicfKtEa, cicfUnrated): The video's rating from the Commission de Contrôle des Films (Belgium).
-  * cnaRating `string` (values: cna12, cna15, cna18, cna18plus, cnaAp, cnaUnrated): The video's rating from Romania's CONSILIUL NATIONAL AL AUDIOVIZUALULUI (CNA).
-  * cncRating `string` (values: cnc10, cnc12, cnc16, cnc18, cncE, cncT, cncUnrated): Rating system in France - Commission de classification cinematographique
-  * csaRating `string` (values: csa10, csa12, csa16, csa18, csaInterdiction, csaT, csaUnrated): The video's rating from France's Conseil supérieur de l?audiovisuel, which rates broadcast content.
-  * cscfRating `string` (values: cscf12, cscf16, cscf18, cscf6, cscf9, cscfA, cscfAl, cscfUnrated): The video's rating from Luxembourg's Commission de surveillance de la classification des films (CSCF).
-  * czfilmRating `string` (values: czfilm12, czfilm14, czfilm18, czfilmU, czfilmUnrated): The video's rating in the Czech Republic.
-  * djctqRating `string` (values: djctq10, djctq12, djctq14, djctq16, djctq18, djctqL, djctqUnrated): The video's Departamento de Justiça, Classificação, Qualificação e Títulos (DJCQT - Brazil) rating.
+* ContentRating `object`: Ratings schemes. The country-specific ratings are mostly for movies and shows. LINT.IfChange
+  * acbRating `string` (values: acbUnspecified, acbE, acbP, acbC, acbG, acbPg, acbM, acbMa15plus, acbR18plus, acbUnrated): The video's Australian Classification Board (ACB) or Australian Communications and Media Authority (ACMA) rating. ACMA ratings are used to classify children's television programming.
+  * agcomRating `string` (values: agcomUnspecified, agcomT, agcomVm14, agcomVm18, agcomUnrated): The video's rating from Italy's Autorità per le Garanzie nelle Comunicazioni (AGCOM).
+  * anatelRating `string` (values: anatelUnspecified, anatelF, anatelI, anatelI7, anatelI10, anatelI12, anatelR, anatelA, anatelUnrated): The video's Anatel (Asociación Nacional de Televisión) rating for Chilean television.
+  * bbfcRating `string` (values: bbfcUnspecified, bbfcU, bbfcPg, bbfc12a, bbfc12, bbfc15, bbfc18, bbfcR18, bbfcUnrated): The video's British Board of Film Classification (BBFC) rating.
+  * bfvcRating `string` (values: bfvcUnspecified, bfvcG, bfvcE, bfvc13, bfvc15, bfvc18, bfvc20, bfvcB, bfvcUnrated): The video's rating from Thailand's Board of Film and Video Censors.
+  * bmukkRating `string` (values: bmukkUnspecified, bmukkAa, bmukk6, bmukk8, bmukk10, bmukk12, bmukk14, bmukk16, bmukkUnrated): The video's rating from the Austrian Board of Media Classification (Bundesministerium für Unterricht, Kunst und Kultur).
+  * catvRating `string` (values: catvUnspecified, catvC, catvC8, catvG, catvPg, catv14plus, catv18plus, catvUnrated, catvE): Rating system for Canadian TV - Canadian TV Classification System The video's rating from the Canadian Radio-Television and Telecommunications Commission (CRTC) for Canadian English-language broadcasts. For more information, see the Canadian Broadcast Standards Council website.
+  * catvfrRating `string` (values: catvfrUnspecified, catvfrG, catvfr8plus, catvfr13plus, catvfr16plus, catvfr18plus, catvfrUnrated, catvfrE): The video's rating from the Canadian Radio-Television and Telecommunications Commission (CRTC) for Canadian French-language broadcasts. For more information, see the Canadian Broadcast Standards Council website.
+  * cbfcRating `string` (values: cbfcUnspecified, cbfcU, cbfcUA, cbfcA, cbfcS, cbfcUnrated): The video's Central Board of Film Certification (CBFC - India) rating.
+  * cccRating `string` (values: cccUnspecified, cccTe, ccc6, ccc14, ccc18, ccc18v, ccc18s, cccUnrated): The video's Consejo de Calificación Cinematográfica (Chile) rating.
+  * cceRating `string` (values: cceUnspecified, cceM4, cceM6, cceM12, cceM16, cceM18, cceUnrated, cceM14): The video's rating from Portugal's Comissão de Classificação de Espect´culos.
+  * chfilmRating `string` (values: chfilmUnspecified, chfilm0, chfilm6, chfilm12, chfilm16, chfilm18, chfilmUnrated): The video's rating in Switzerland.
+  * chvrsRating `string` (values: chvrsUnspecified, chvrsG, chvrsPg, chvrs14a, chvrs18a, chvrsR, chvrsE, chvrsUnrated): The video's Canadian Home Video Rating System (CHVRS) rating.
+  * cicfRating `string` (values: cicfUnspecified, cicfE, cicfKtEa, cicfKntEna, cicfUnrated): The video's rating from the Commission de Contrôle des Films (Belgium).
+  * cnaRating `string` (values: cnaUnspecified, cnaAp, cna12, cna15, cna18, cna18plus, cnaUnrated): The video's rating from Romania's CONSILIUL NATIONAL AL AUDIOVIZUALULUI (CNA).
+  * cncRating `string` (values: cncUnspecified, cncT, cnc10, cnc12, cnc16, cnc18, cncE, cncInterdiction, cncUnrated): Rating system in France - Commission de classification cinematographique
+  * csaRating `string` (values: csaUnspecified, csaT, csa10, csa12, csa16, csa18, csaInterdiction, csaUnrated): The video's rating from France's Conseil supérieur de l’audiovisuel, which rates broadcast content.
+  * cscfRating `string` (values: cscfUnspecified, cscfAl, cscfA, cscf6, cscf9, cscf12, cscf16, cscf18, cscfUnrated): The video's rating from Luxembourg's Commission de surveillance de la classification des films (CSCF).
+  * czfilmRating `string` (values: czfilmUnspecified, czfilmU, czfilm12, czfilm14, czfilm18, czfilmUnrated): The video's rating in the Czech Republic.
+  * djctqRating `string` (values: djctqUnspecified, djctqL, djctq10, djctq12, djctq14, djctq16, djctq18, djctqEr, djctqL10, djctqL12, djctqL14, djctqL16, djctqL18, djctq1012, djctq1014, djctq1016, djctq1018, djctq1214, djctq1216, djctq1218, djctq1416, djctq1418, djctq1618, djctqUnrated): The video's Departamento de Justiça, Classificação, Qualificação e Títulos (DJCQT - Brazil) rating.
   * djctqRatingReasons `array`: Reasons that explain why the video received its DJCQT (Brazil) rating.
-    * items `string` (values: djctqCriminalActs, djctqDrugs, djctqExplicitSex, djctqExtremeViolence, djctqIllegalDrugs, djctqImpactingContent, djctqInappropriateLanguage, djctqLegalDrugs, djctqNudity, djctqSex, djctqSexualContent, djctqViolence)
-  * ecbmctRating `string` (values: ecbmct13a, ecbmct13plus, ecbmct15a, ecbmct15plus, ecbmct18plus, ecbmct7a, ecbmct7plus, ecbmctG, ecbmctUnrated): Rating system in Turkey - Evaluation and Classification Board of the Ministry of Culture and Tourism
-  * eefilmRating `string` (values: eefilmK12, eefilmK14, eefilmK16, eefilmK6, eefilmL, eefilmMs12, eefilmMs6, eefilmPere, eefilmUnrated): The video's rating in Estonia.
-  * egfilmRating `string` (values: egfilm18, egfilmBn, egfilmGn, egfilmUnrated): The video's rating in Egypt.
-  * eirinRating `string` (values: eirinG, eirinPg12, eirinR15plus, eirinR18plus, eirinUnrated): The video's Eirin (映倫) rating. Eirin is the Japanese rating system.
-  * fcbmRating `string` (values: fcbm18, fcbm18pa, fcbm18pl, fcbm18sg, fcbm18sx, fcbmP13, fcbmPg13, fcbmU, fcbmUnrated): The video's rating from Malaysia's Film Censorship Board.
-  * fcoRating `string` (values: fcoI, fcoIi, fcoIia, fcoIib, fcoIii, fcoUnrated): The video's rating from Hong Kong's Office for Film, Newspaper and Article Administration.
-  * fmocRating `string` (values: fmoc10, fmoc12, fmoc16, fmoc18, fmocE, fmocU, fmocUnrated): This property has been deprecated. Use the contentDetails.contentRating.cncRating instead.
-  * fpbRating `string` (values: fpb10, fpb1012Pg, fpb13, fpb16, fpb18, fpb79Pg, fpbA, fpbPg, fpbUnrated, fpbX18, fpbXx): The video's rating from South Africa's Film and Publication Board.
+    * items `string` (values: djctqRatingReasonUnspecified, djctqViolence, djctqExtremeViolence, djctqSexualContent, djctqNudity, djctqSex, djctqExplicitSex, djctqDrugs, djctqLegalDrugs, djctqIllegalDrugs, djctqInappropriateLanguage, djctqCriminalActs, djctqImpactingContent)
+  * ecbmctRating `string` (values: ecbmctUnspecified, ecbmctG, ecbmct7a, ecbmct7plus, ecbmct13a, ecbmct13plus, ecbmct15a, ecbmct15plus, ecbmct18plus, ecbmctUnrated): Rating system in Turkey - Evaluation and Classification Board of the Ministry of Culture and Tourism
+  * eefilmRating `string` (values: eefilmUnspecified, eefilmPere, eefilmL, eefilmMs6, eefilmK6, eefilmMs12, eefilmK12, eefilmK14, eefilmK16, eefilmUnrated): The video's rating in Estonia.
+  * egfilmRating `string` (values: egfilmUnspecified, egfilmGn, egfilm18, egfilmBn, egfilmUnrated): The video's rating in Egypt.
+  * eirinRating `string` (values: eirinUnspecified, eirinG, eirinPg12, eirinR15plus, eirinR18plus, eirinUnrated): The video's Eirin (映倫) rating. Eirin is the Japanese rating system.
+  * fcbmRating `string` (values: fcbmUnspecified, fcbmU, fcbmPg13, fcbmP13, fcbm18, fcbm18sx, fcbm18pa, fcbm18sg, fcbm18pl, fcbmUnrated): The video's rating from Malaysia's Film Censorship Board.
+  * fcoRating `string` (values: fcoUnspecified, fcoI, fcoIia, fcoIib, fcoIi, fcoIii, fcoUnrated): The video's rating from Hong Kong's Office for Film, Newspaper and Article Administration.
+  * fmocRating `string` (values: fmocUnspecified, fmocU, fmoc10, fmoc12, fmoc16, fmoc18, fmocE, fmocUnrated): This property has been deprecated. Use the contentDetails.contentRating.cncRating instead.
+  * fpbRating `string` (values: fpbUnspecified, fpbA, fpbPg, fpb79Pg, fpb1012Pg, fpb13, fpb16, fpb18, fpbX18, fpbXx, fpbUnrated, fpb10): The video's rating from South Africa's Film and Publication Board.
   * fpbRatingReasons `array`: Reasons that explain why the video received its FPB (South Africa) rating.
-    * items `string` (values: fpbBlasphemy, fpbCriminalTechniques, fpbDrugs, fpbHorror, fpbImitativeActsTechniques, fpbLanguage, fpbNudity, fpbPrejudice, fpbSex, fpbSexualViolence, fpbViolence)
-  * fskRating `string` (values: fsk0, fsk12, fsk16, fsk18, fsk6, fskUnrated): The video's Freiwillige Selbstkontrolle der Filmwirtschaft (FSK - Germany) rating.
-  * grfilmRating `string` (values: grfilmE, grfilmK, grfilmK12, grfilmK13, grfilmK15, grfilmK17, grfilmK18, grfilmUnrated): The video's rating in Greece.
-  * icaaRating `string` (values: icaa12, icaa13, icaa16, icaa18, icaa7, icaaApta, icaaUnrated, icaaX): The video's Instituto de la Cinematografía y de las Artes Audiovisuales (ICAA - Spain) rating.
-  * ifcoRating `string` (values: ifco12, ifco12a, ifco15, ifco15a, ifco16, ifco18, ifcoG, ifcoPg, ifcoUnrated): The video's Irish Film Classification Office (IFCO - Ireland) rating. See the IFCO website for more information.
-  * ilfilmRating `string` (values: ilfilm12, ilfilm14, ilfilm16, ilfilm18, ilfilmAa, ilfilmUnrated): The video's rating in Israel.
-  * incaaRating `string` (values: incaaAtp, incaaC, incaaSam13, incaaSam16, incaaSam18, incaaUnrated): The video's INCAA (Instituto Nacional de Cine y Artes Audiovisuales - Argentina) rating.
-  * kfcbRating `string` (values: kfcb16plus, kfcbG, kfcbPg, kfcbR, kfcbUnrated): The video's rating from the Kenya Film Classification Board.
-  * kijkwijzerRating `string` (values: kijkwijzer12, kijkwijzer16, kijkwijzer18, kijkwijzer6, kijkwijzer9, kijkwijzerAl, kijkwijzerUnrated): voor de Classificatie van Audiovisuele Media (Netherlands).
-  * kmrbRating `string` (values: kmrb12plus, kmrb15plus, kmrbAll, kmrbR, kmrbTeenr, kmrbUnrated): The video's Korea Media Rating Board (영상물등급위원회) rating. The KMRB rates videos in South Korea.
-  * lsfRating `string` (values: lsf13, lsf17, lsf21, lsfA, lsfBo, lsfD, lsfR, lsfSu, lsfUnrated): The video's rating from Indonesia's Lembaga Sensor Film.
-  * mccaaRating `string` (values: mccaa12, mccaa12a, mccaa14, mccaa15, mccaa16, mccaa18, mccaaPg, mccaaU, mccaaUnrated): The video's rating from Malta's Film Age-Classification Board.
-  * mccypRating `string` (values: mccyp11, mccyp15, mccyp7, mccypA, mccypUnrated): The video's rating from the Danish Film Institute's (Det Danske Filminstitut) Media Council for Children and Young People.
-  * mcstRating `string` (values: mcst0, mcst16plus, mcstC13, mcstC16, mcstC18, mcstGPg, mcstP, mcstUnrated): The video's rating system for Vietnam - MCST
-  * mdaRating `string` (values: mdaG, mdaM18, mdaNc16, mdaPg, mdaPg13, mdaR21, mdaUnrated): The video's rating from Singapore's Media Development Authority (MDA) and, specifically, it's Board of Film Censors (BFC).
-  * medietilsynetRating `string` (values: medietilsynet11, medietilsynet12, medietilsynet15, medietilsynet18, medietilsynet6, medietilsynet7, medietilsynet9, medietilsynetA, medietilsynetUnrated): The video's rating from Medietilsynet, the Norwegian Media Authority.
-  * mekuRating `string` (values: meku12, meku16, meku18, meku7, mekuS, mekuUnrated): The video's rating from Finland's Kansallinen Audiovisuaalinen Instituutti (National Audiovisual Institute).
-  * menaMpaaRating `string` (values: menaMpaaG, menaMpaaPg, menaMpaaPg13, menaMpaaR, menaMpaaUnrated): The rating system for MENA countries, a clone of MPAA. It is needed to
-  * mibacRating `string` (values: mibacT, mibacUnrated, mibacVap, mibacVm12, mibacVm14, mibacVm18): The video's rating from the Ministero dei Beni e delle Attività Culturali e del Turismo (Italy).
-  * mocRating `string` (values: moc12, moc15, moc18, moc7, mocBanned, mocE, mocT, mocUnrated, mocX): The video's Ministerio de Cultura (Colombia) rating.
-  * moctwRating `string` (values: moctwG, moctwP, moctwPg, moctwR, moctwR12, moctwR15, moctwUnrated): The video's rating from Taiwan's Ministry of Culture (文化部).
-  * mpaaRating `string` (values: mpaaG, mpaaNc17, mpaaPg, mpaaPg13, mpaaR, mpaaUnrated): The video's Motion Picture Association of America (MPAA) rating.
-  * mpaatRating `string` (values: mpaatGb, mpaatRb): The rating system for trailer, DVD, and Ad in the US. See http://movielabs.com/md/ratings/v2.3/html/US_MPAAT_Ratings.html.
-  * mtrcbRating `string` (values: mtrcbG, mtrcbPg, mtrcbR13, mtrcbR16, mtrcbR18, mtrcbUnrated, mtrcbX): The video's rating from the Movie and Television Review and Classification Board (Philippines).
-  * nbcRating `string` (values: nbc12plus, nbc15plus, nbc18plus, nbc18plusr, nbcG, nbcPg, nbcPu, nbcUnrated): The video's rating from the Maldives National Bureau of Classification.
-  * nbcplRating `string` (values: nbcpl18plus, nbcplI, nbcplIi, nbcplIii, nbcplIv, nbcplUnrated): The video's rating in Poland.
-  * nfrcRating `string` (values: nfrcA, nfrcB, nfrcC, nfrcD, nfrcUnrated, nfrcX): The video's rating from the Bulgarian National Film Center.
-  * nfvcbRating `string` (values: nfvcb12, nfvcb12a, nfvcb15, nfvcb18, nfvcbG, nfvcbPg, nfvcbRe, nfvcbUnrated): The video's rating from Nigeria's National Film and Video Censors Board.
-  * nkclvRating `string` (values: nkclv12plus, nkclv18plus, nkclv7plus, nkclvU, nkclvUnrated): The video's rating from the Nacionãlais Kino centrs (National Film Centre of Latvia).
-  * oflcRating `string` (values: oflcG, oflcM, oflcPg, oflcR13, oflcR15, oflcR16, oflcR18, oflcRp13, oflcRp16, oflcRp18, oflcUnrated): The video's Office of Film and Literature Classification (OFLC - New Zealand) rating.
-  * pefilmRating `string` (values: pefilm14, pefilm18, pefilmPg, pefilmPt, pefilmUnrated): The video's rating in Peru.
-  * rcnofRating `string` (values: rcnofI, rcnofIi, rcnofIii, rcnofIv, rcnofUnrated, rcnofV, rcnofVi): The video's rating from the Hungarian Nemzeti Filmiroda, the Rating Committee of the National Office of Film.
-  * resorteviolenciaRating `string` (values: resorteviolenciaA, resorteviolenciaB, resorteviolenciaC, resorteviolenciaD, resorteviolenciaE, resorteviolenciaUnrated): The video's rating in Venezuela.
-  * rtcRating `string` (values: rtcA, rtcAa, rtcB, rtcB15, rtcC, rtcD, rtcUnrated): The video's General Directorate of Radio, Television and Cinematography (Mexico) rating.
-  * rteRating `string` (values: rteCh, rteGa, rteMa, rtePs, rteUnrated): The video's rating from Ireland's Raidió Teilifís Éireann.
-  * russiaRating `string` (values: russia0, russia12, russia16, russia18, russia6, russiaUnrated): The video's National Film Registry of the Russian Federation (MKRF - Russia) rating.
-  * skfilmRating `string` (values: skfilmG, skfilmP2, skfilmP5, skfilmP8, skfilmUnrated): The video's rating in Slovakia.
-  * smaisRating `string` (values: smais12, smais14, smais16, smais18, smais7, smaisL, smaisUnrated): The video's rating in Iceland.
-  * smsaRating `string` (values: smsa11, smsa15, smsa7, smsaA, smsaUnrated): The video's rating from Statens medieråd (Sweden's National Media Council).
-  * tvpgRating `string` (values: pg14, tvpgG, tvpgMa, tvpgPg, tvpgUnrated, tvpgY, tvpgY7, tvpgY7Fv): The video's TV Parental Guidelines (TVPG) rating.
-  * ytRating `string` (values: ytAgeRestricted): A rating that YouTube uses to identify age-restricted content.
+    * items `string` (values: fpbRatingReasonUnspecified, fpbBlasphemy, fpbLanguage, fpbNudity, fpbPrejudice, fpbSex, fpbViolence, fpbDrugs, fpbSexualViolence, fpbHorror, fpbCriminalTechniques, fpbImitativeActsTechniques)
+  * fskRating `string` (values: fskUnspecified, fsk0, fsk6, fsk12, fsk16, fsk18, fskUnrated): The video's Freiwillige Selbstkontrolle der Filmwirtschaft (FSK - Germany) rating.
+  * grfilmRating `string` (values: grfilmUnspecified, grfilmK, grfilmE, grfilmK12, grfilmK13, grfilmK15, grfilmK17, grfilmK18, grfilmUnrated): The video's rating in Greece.
+  * icaaRating `string` (values: icaaUnspecified, icaaApta, icaa7, icaa12, icaa13, icaa16, icaa18, icaaX, icaaUnrated): The video's Instituto de la Cinematografía y de las Artes Audiovisuales (ICAA - Spain) rating.
+  * ifcoRating `string` (values: ifcoUnspecified, ifcoG, ifcoPg, ifco12, ifco12a, ifco15, ifco15a, ifco16, ifco18, ifcoUnrated): The video's Irish Film Classification Office (IFCO - Ireland) rating. See the IFCO website for more information.
+  * ilfilmRating `string` (values: ilfilmUnspecified, ilfilmAa, ilfilm12, ilfilm14, ilfilm16, ilfilm18, ilfilmUnrated): The video's rating in Israel.
+  * incaaRating `string` (values: incaaUnspecified, incaaAtp, incaaSam13, incaaSam16, incaaSam18, incaaC, incaaUnrated): The video's INCAA (Instituto Nacional de Cine y Artes Audiovisuales - Argentina) rating.
+  * kfcbRating `string` (values: kfcbUnspecified, kfcbG, kfcbPg, kfcb16plus, kfcbR, kfcbUnrated): The video's rating from the Kenya Film Classification Board.
+  * kijkwijzerRating `string` (values: kijkwijzerUnspecified, kijkwijzerAl, kijkwijzer6, kijkwijzer9, kijkwijzer12, kijkwijzer16, kijkwijzer18, kijkwijzerUnrated): The video's NICAM/Kijkwijzer rating from the Nederlands Instituut voor de Classificatie van Audiovisuele Media (Netherlands).
+  * kmrbRating `string` (values: kmrbUnspecified, kmrbAll, kmrb12plus, kmrb15plus, kmrbTeenr, kmrbR, kmrbUnrated): The video's Korea Media Rating Board (영상물등급위원회) rating. The KMRB rates videos in South Korea.
+  * lsfRating `string` (values: lsfUnspecified, lsfSu, lsfA, lsfBo, lsf13, lsfR, lsf17, lsfD, lsf21, lsfUnrated): The video's rating from Indonesia's Lembaga Sensor Film.
+  * mccaaRating `string` (values: mccaaUnspecified, mccaaU, mccaaPg, mccaa12a, mccaa12, mccaa14, mccaa15, mccaa16, mccaa18, mccaaUnrated): The video's rating from Malta's Film Age-Classification Board.
+  * mccypRating `string` (values: mccypUnspecified, mccypA, mccyp7, mccyp11, mccyp15, mccypUnrated): The video's rating from the Danish Film Institute's (Det Danske Filminstitut) Media Council for Children and Young People.
+  * mcstRating `string` (values: mcstUnspecified, mcstP, mcst0, mcstC13, mcstC16, mcst16plus, mcstC18, mcstGPg, mcstUnrated): The video's rating system for Vietnam - MCST
+  * mdaRating `string` (values: mdaUnspecified, mdaG, mdaPg, mdaPg13, mdaNc16, mdaM18, mdaR21, mdaUnrated): The video's rating from Singapore's Media Development Authority (MDA) and, specifically, it's Board of Film Censors (BFC).
+  * medietilsynetRating `string` (values: medietilsynetUnspecified, medietilsynetA, medietilsynet6, medietilsynet7, medietilsynet9, medietilsynet11, medietilsynet12, medietilsynet15, medietilsynet18, medietilsynetUnrated): The video's rating from Medietilsynet, the Norwegian Media Authority.
+  * mekuRating `string` (values: mekuUnspecified, mekuS, meku7, meku12, meku16, meku18, mekuUnrated): The video's rating from Finland's Kansallinen Audiovisuaalinen Instituutti (National Audiovisual Institute).
+  * menaMpaaRating `string` (values: menaMpaaUnspecified, menaMpaaG, menaMpaaPg, menaMpaaPg13, menaMpaaR, menaMpaaUnrated): The rating system for MENA countries, a clone of MPAA. It is needed to prevent titles go live w/o additional QC check, since some of them can be inappropriate for the countries at all. See b/33408548 for more details.
+  * mibacRating `string` (values: mibacUnspecified, mibacT, mibacVap, mibacVm12, mibacVm14, mibacVm18, mibacUnrated): The video's rating from the Ministero dei Beni e delle Attività Culturali e del Turismo (Italy).
+  * mocRating `string` (values: mocUnspecified, mocE, mocT, moc7, moc12, moc15, moc18, mocX, mocBanned, mocUnrated): The video's Ministerio de Cultura (Colombia) rating.
+  * moctwRating `string` (values: moctwUnspecified, moctwG, moctwP, moctwPg, moctwR, moctwUnrated, moctwR12, moctwR15): The video's rating from Taiwan's Ministry of Culture (文化部).
+  * mpaaRating `string` (values: mpaaUnspecified, mpaaG, mpaaPg, mpaaPg13, mpaaR, mpaaNc17, mpaaX, mpaaUnrated): The video's Motion Picture Association of America (MPAA) rating.
+  * mpaatRating `string` (values: mpaatUnspecified, mpaatGb, mpaatRb): The rating system for trailer, DVD, and Ad in the US. See http://movielabs.com/md/ratings/v2.3/html/US_MPAAT_Ratings.html.
+  * mtrcbRating `string` (values: mtrcbUnspecified, mtrcbG, mtrcbPg, mtrcbR13, mtrcbR16, mtrcbR18, mtrcbX, mtrcbUnrated): The video's rating from the Movie and Television Review and Classification Board (Philippines).
+  * nbcRating `string` (values: nbcUnspecified, nbcG, nbcPg, nbc12plus, nbc15plus, nbc18plus, nbc18plusr, nbcPu, nbcUnrated): The video's rating from the Maldives National Bureau of Classification.
+  * nbcplRating `string` (values: nbcplUnspecified, nbcplI, nbcplIi, nbcplIii, nbcplIv, nbcpl18plus, nbcplUnrated): The video's rating in Poland.
+  * nfrcRating `string` (values: nfrcUnspecified, nfrcA, nfrcB, nfrcC, nfrcD, nfrcX, nfrcUnrated): The video's rating from the Bulgarian National Film Center.
+  * nfvcbRating `string` (values: nfvcbUnspecified, nfvcbG, nfvcbPg, nfvcb12, nfvcb12a, nfvcb15, nfvcb18, nfvcbRe, nfvcbUnrated): The video's rating from Nigeria's National Film and Video Censors Board.
+  * nkclvRating `string` (values: nkclvUnspecified, nkclvU, nkclv7plus, nkclv12plus, nkclv16plus, nkclv18plus, nkclvUnrated): The video's rating from the Nacionãlais Kino centrs (National Film Centre of Latvia).
+  * nmcRating `string` (values: nmcUnspecified, nmcG, nmcPg, nmcPg13, nmcPg15, nmc15plus, nmc18plus, nmc18tc, nmcUnrated): The National Media Council ratings system for United Arab Emirates.
+  * oflcRating `string` (values: oflcUnspecified, oflcG, oflcPg, oflcM, oflcR13, oflcR15, oflcR16, oflcR18, oflcUnrated, oflcRp13, oflcRp16, oflcRp18): The video's Office of Film and Literature Classification (OFLC - New Zealand) rating.
+  * pefilmRating `string` (values: pefilmUnspecified, pefilmPt, pefilmPg, pefilm14, pefilm18, pefilmUnrated): The video's rating in Peru.
+  * rcnofRating `string` (values: rcnofUnspecified, rcnofI, rcnofIi, rcnofIii, rcnofIv, rcnofV, rcnofVi, rcnofUnrated): The video's rating from the Hungarian Nemzeti Filmiroda, the Rating Committee of the National Office of Film.
+  * resorteviolenciaRating `string` (values: resorteviolenciaUnspecified, resorteviolenciaA, resorteviolenciaB, resorteviolenciaC, resorteviolenciaD, resorteviolenciaE, resorteviolenciaUnrated): The video's rating in Venezuela.
+  * rtcRating `string` (values: rtcUnspecified, rtcAa, rtcA, rtcB, rtcB15, rtcC, rtcD, rtcUnrated): The video's General Directorate of Radio, Television and Cinematography (Mexico) rating.
+  * rteRating `string` (values: rteUnspecified, rteGa, rteCh, rtePs, rteMa, rteUnrated): The video's rating from Ireland's Raidió Teilifís Éireann.
+  * russiaRating `string` (values: russiaUnspecified, russia0, russia6, russia12, russia16, russia18, russiaUnrated): The video's National Film Registry of the Russian Federation (MKRF - Russia) rating.
+  * skfilmRating `string` (values: skfilmUnspecified, skfilmG, skfilmP2, skfilmP5, skfilmP8, skfilmUnrated): The video's rating in Slovakia.
+  * smaisRating `string` (values: smaisUnspecified, smaisL, smais7, smais12, smais14, smais16, smais18, smaisUnrated): The video's rating in Iceland.
+  * smsaRating `string` (values: smsaUnspecified, smsaA, smsa7, smsa11, smsa15, smsaUnrated): The video's rating from Statens medieråd (Sweden's National Media Council).
+  * tvpgRating `string` (values: tvpgUnspecified, tvpgY, tvpgY7, tvpgY7Fv, tvpgG, tvpgPg, pg14, tvpgMa, tvpgUnrated): The video's TV Parental Guidelines (TVPG) rating.
+  * ytRating `string` (values: ytUnspecified, ytAgeRestricted): A rating that YouTube uses to identify age-restricted content.
+
+### Entity
+* Entity `object`
+  * id `string`
+  * typeId `string`
+  * url `string`
 
 ### GeoPoint
 * GeoPoint `object`: Geographical coordinates of a point, in WGS84.
@@ -2516,33 +3003,8 @@ google_youtube.watermarks.unset({
   * latitude `number`: Latitude in degrees.
   * longitude `number`: Longitude in degrees.
 
-### GuideCategory
-* GuideCategory `object`: A guideCategory resource identifies a category that YouTube algorithmically assigns based on a channel's content or other indicators, such as the channel's popularity. The list is similar to video categories, with the difference being that a video's uploader can assign a video category but only YouTube can assign a channel category.
-  * etag `string`: Etag of this resource.
-  * id `string`: The ID that YouTube uses to uniquely identify the guide category.
-  * kind `string`: Identifies what kind of resource this is. Value: the fixed string "youtube#guideCategory".
-  * snippet [GuideCategorySnippet](#guidecategorysnippet)
-
-### GuideCategoryListResponse
-* GuideCategoryListResponse `object`
-  * etag `string`: Etag of this resource.
-  * eventId `string`: Serialized EventId of the request which produced this response.
-  * items `array`: A list of categories that can be associated with YouTube channels. In this map, the category ID is the map key, and its value is the corresponding guideCategory resource.
-    * items [GuideCategory](#guidecategory)
-  * kind `string`: Identifies what kind of resource this is. Value: the fixed string "youtube#guideCategoryListResponse".
-  * nextPageToken `string`: The token that can be used as the value of the pageToken parameter to retrieve the next page in the result set.
-  * pageInfo [PageInfo](#pageinfo)
-  * prevPageToken `string`: The token that can be used as the value of the pageToken parameter to retrieve the previous page in the result set.
-  * tokenPagination [TokenPagination](#tokenpagination)
-  * visitorId `string`: The visitorId identifies the visitor.
-
-### GuideCategorySnippet
-* GuideCategorySnippet `object`: Basic details about a guide category.
-  * channelId `string`
-  * title `string`: Description of the guide category.
-
 ### I18nLanguage
-* I18nLanguage `object`: An i18nLanguage resource identifies a UI language currently supported by YouTube.
+* I18nLanguage `object`: An *i18nLanguage* resource identifies a UI language currently supported by YouTube.
   * etag `string`: Etag of this resource.
   * id `string`: The ID that YouTube uses to uniquely identify the i18n language.
   * kind `string`: Identifies what kind of resource this is. Value: the fixed string "youtube#i18nLanguage".
@@ -2563,7 +3025,7 @@ google_youtube.watermarks.unset({
   * name `string`: The human-readable name of the language in the language itself.
 
 ### I18nRegion
-* I18nRegion `object`: A i18nRegion resource identifies a region where YouTube is available.
+* I18nRegion `object`: A *i18nRegion* resource identifies a region where YouTube is available.
   * etag `string`: Etag of this resource.
   * id `string`: The ID that YouTube uses to uniquely identify the i18n region.
   * kind `string`: Identifies what kind of resource this is. Value: the fixed string "youtube#i18nRegion".
@@ -2586,7 +3048,7 @@ google_youtube.watermarks.unset({
 ### ImageSettings
 * ImageSettings `object`: Branding properties for images associated with the channel.
   * backgroundImageUrl [LocalizedProperty](#localizedproperty)
-  * bannerExternalUrl `string`: This is used only in update requests; if it's set, we use this URL to generate all of the above banner URLs.
+  * bannerExternalUrl `string`: This is generated when a ChannelBanner.Insert request has succeeded for the given channel.
   * bannerImageUrl `string`: Banner image. Desktop size (1060x175).
   * bannerMobileExtraHdImageUrl `string`: Banner image. Mobile size high resolution (1440x395).
   * bannerMobileHdImageUrl `string`: Banner image. Mobile size high resolution (1280x360).
@@ -2606,47 +3068,45 @@ google_youtube.watermarks.unset({
   * smallBrandedBannerImageImapScript [LocalizedProperty](#localizedproperty)
   * smallBrandedBannerImageUrl [LocalizedProperty](#localizedproperty)
   * trackingImageUrl `string`: The URL for a 1px by 1px tracking pixel that can be used to collect statistics for views of the channel or video pages.
-  * watchIconImageUrl `string`: The URL for the image that appears above the top-left corner of the video player. This is a 25-pixel-high image with a flexible width that cannot exceed 170 pixels.
+  * watchIconImageUrl `string`
 
 ### IngestionInfo
 * IngestionInfo `object`: Describes information necessary for ingesting an RTMP or an HTTP stream.
   * backupIngestionAddress `string`: The backup ingestion URL that you should use to stream video to YouTube. You have the option of simultaneously streaming the content that you are sending to the ingestionAddress to this URL.
-  * ingestionAddress `string`: The primary ingestion URL that you should use to stream video to YouTube. You must stream video to this URL.
+  * ingestionAddress `string`: The primary ingestion URL that you should use to stream video to YouTube. You must stream video to this URL. Depending on which application or tool you use to encode your video stream, you may need to enter the stream URL and stream name separately or you may need to concatenate them in the following format: *STREAM_URL/STREAM_NAME* 
+  * rtmpsBackupIngestionAddress `string`: This ingestion url may be used instead of backupIngestionAddress in order to stream via RTMPS. Not applicable to non-RTMP streams.
+  * rtmpsIngestionAddress `string`: This ingestion url may be used instead of ingestionAddress in order to stream via RTMPS. Not applicable to non-RTMP streams.
   * streamName `string`: The HTTP or RTMP stream name that YouTube assigns to the video stream.
 
 ### InvideoBranding
-* InvideoBranding `object`
-  * imageBytes `string`
-  * imageUrl `string`
+* InvideoBranding `object`: LINT.IfChange Describes an invideo branding.
+  * imageBytes `string`: The bytes the uploaded image. Only used in api to youtube communication.
+  * imageUrl `string`: The url of the uploaded image. Only used in apiary to api communication.
   * position [InvideoPosition](#invideoposition)
-  * targetChannelId `string`
+  * targetChannelId `string`: The channel to which this branding links. If not present it defaults to the current channel.
   * timing [InvideoTiming](#invideotiming)
 
 ### InvideoPosition
 * InvideoPosition `object`: Describes the spatial position of a visual widget inside a video. It is a union of various position types, out of which only will be set one.
-  * cornerPosition `string` (values: bottomLeft, bottomRight, topLeft, topRight): Describes in which corner of the video the visual widget will appear.
+  * cornerPosition `string` (values: topLeft, topRight, bottomLeft, bottomRight): Describes in which corner of the video the visual widget will appear.
   * type `string` (values: corner): Defines the position type.
-
-### InvideoPromotion
-* InvideoPromotion `object`: Describes an invideo promotion campaign consisting of multiple promoted items. A campaign belongs to a single channel_id.
-  * defaultTiming [InvideoTiming](#invideotiming)
-  * items `array`: List of promoted items in decreasing priority.
-    * items [PromotedItem](#promoteditem)
-  * position [InvideoPosition](#invideoposition)
-  * useSmartTiming `boolean`: Indicates whether the channel's promotional campaign uses "smart timing." This feature attempts to show promotions at a point in the video when they are more likely to be clicked and less likely to disrupt the viewing experience. This feature also picks up a single promotion to show on each video.
 
 ### InvideoTiming
 * InvideoTiming `object`: Describes a temporal position of a visual widget inside a video.
   * durationMs `string`: Defines the duration in milliseconds for which the promotion should be displayed. If missing, the client should use the default.
   * offsetMs `string`: Defines the time at which the promotion will appear. Depending on the value of type the value of the offsetMs field will represent a time offset from the start or from the end of the video, expressed in milliseconds.
-  * type `string` (values: offsetFromEnd, offsetFromStart): Describes a timing type. If the value is offsetFromStart, then the offsetMs field represents an offset from the start of the video. If the value is offsetFromEnd, then the offsetMs field represents an offset from the end of the video.
+  * type `string` (values: offsetFromStart, offsetFromEnd): Describes a timing type. If the value is offsetFromStart, then the offsetMs field represents an offset from the start of the video. If the value is offsetFromEnd, then the offsetMs field represents an offset from the end of the video.
 
 ### LanguageTag
 * LanguageTag `object`
   * value `string`
 
+### LevelDetails
+* LevelDetails `object`
+  * displayName `string`: The name that should be used when referring to this level.
+
 ### LiveBroadcast
-* LiveBroadcast `object`: A liveBroadcast resource represents an event that will be streamed, via live video, on YouTube.
+* LiveBroadcast `object`: A *liveBroadcast* resource represents an event that will be streamed, via live video, on YouTube.
   * contentDetails [LiveBroadcastContentDetails](#livebroadcastcontentdetails)
   * etag `string`: Etag of this resource.
   * id `string`: The ID that YouTube assigns to uniquely identify the broadcast.
@@ -2659,20 +3119,20 @@ google_youtube.watermarks.unset({
 * LiveBroadcastContentDetails `object`: Detailed settings of a broadcast.
   * boundStreamId `string`: This value uniquely identifies the live stream bound to the broadcast.
   * boundStreamLastUpdateTimeMs `string`: The date and time that the live stream referenced by boundStreamId was last updated.
-  * closedCaptionsType `string` (values: closedCaptionsDisabled, closedCaptionsEmbedded, closedCaptionsHttpPost)
-  * enableAutoStart `boolean`: This setting indicates whether auto start is enabled for this broadcast.
+  * closedCaptionsType `string` (values: closedCaptionsTypeUnspecified, closedCaptionsDisabled, closedCaptionsHttpPost, closedCaptionsEmbedded)
+  * enableAutoStart `boolean`: This setting indicates whether auto start is enabled for this broadcast. The default value for this property is false. This setting can only be used by Events.
+  * enableAutoStop `boolean`: This setting indicates whether auto stop is enabled for this broadcast. The default value for this property is false. This setting can only be used by Events.
   * enableClosedCaptions `boolean`: This setting indicates whether HTTP POST closed captioning is enabled for this broadcast. The ingestion URL of the closed captions is returned through the liveStreams API. This is mutually exclusive with using the closed_captions_type property, and is equivalent to setting closed_captions_type to CLOSED_CAPTIONS_HTTP_POST.
   * enableContentEncryption `boolean`: This setting indicates whether YouTube should enable content encryption for the broadcast.
-  * enableDvr `boolean`: This setting determines whether viewers can access DVR controls while watching the video. DVR controls enable the viewer to control the video playback experience by pausing, rewinding, or fast forwarding content. The default value for this property is true.
+  * enableDvr `boolean`: This setting determines whether viewers can access DVR controls while watching the video. DVR controls enable the viewer to control the video playback experience by pausing, rewinding, or fast forwarding content. The default value for this property is true. *Important:* You must set the value to true and also set the enableArchive property's value to true if you want to make playback available immediately after the broadcast ends.
   * enableEmbed `boolean`: This setting indicates whether the broadcast video can be played in an embedded player. If you choose to archive the video (using the enableArchive property), this setting will also apply to the archived video.
   * enableLowLatency `boolean`: Indicates whether this broadcast has low latency enabled.
-  * latencyPreference `string` (values: low, normal, ultraLow): If both this and enable_low_latency are set, they must match. LATENCY_NORMAL should match enable_low_latency=false LATENCY_LOW should match enable_low_latency=true LATENCY_ULTRA_LOW should have enable_low_latency omitted.
-  * mesh `string`
+  * latencyPreference `string` (values: latencyPreferenceUnspecified, normal, low, ultraLow): If both this and enable_low_latency are set, they must match. LATENCY_NORMAL should match enable_low_latency=false LATENCY_LOW should match enable_low_latency=true LATENCY_ULTRA_LOW should have enable_low_latency omitted.
+  * mesh `string`: The mesh for projecting the video if projection is mesh. The mesh value must be a UTF-8 string containing the base-64 encoding of 3D mesh data that follows the Spherical Video V2 RFC specification for an mshp box, excluding the box size and type but including the following four reserved zero bytes for the version and flags.
   * monitorStream [MonitorStreamInfo](#monitorstreaminfo)
-  * projection `string` (values: 360, mesh, rectangular): The projection format of this broadcast. This defaults to rectangular.
-  * recordFromStart `boolean`: Automatically start recording after the event goes live. The default value for this property is true.
+  * projection `string` (values: projectionUnspecified, rectangular, 360, mesh): The projection format of this broadcast. This defaults to rectangular.
+  * recordFromStart `boolean`: Automatically start recording after the event goes live. The default value for this property is true. *Important:* You must also set the enableDvr property's value to true if you want the playback to be available immediately after the broadcast ends. If you set this property's value to true but do not also set the enableDvr property to true, there may be a delay of around one day before the archived video will be available for playback.
   * startWithSlate `boolean`: This setting indicates whether the broadcast should automatically begin with an in-stream slate when you update the broadcast's status to live. After updating the status, you then need to send a liveCuepoints.insert request that sets the cuepoint's eventState to end to remove the in-stream slate and make your broadcast stream visible to viewers.
-  * stereoLayout `string` (values: left_right, mono, top_bottom)
 
 ### LiveBroadcastListResponse
 * LiveBroadcastListResponse `object`
@@ -2688,36 +3148,37 @@ google_youtube.watermarks.unset({
   * visitorId `string`: The visitorId identifies the visitor.
 
 ### LiveBroadcastSnippet
-* LiveBroadcastSnippet `object`
-  * actualEndTime `string`: The date and time that the broadcast actually ended. This information is only available once the broadcast's state is complete. The value is specified in ISO 8601 (YYYY-MM-DDThh:mm:ss.sZ) format.
-  * actualStartTime `string`: The date and time that the broadcast actually started. This information is only available once the broadcast's state is live. The value is specified in ISO 8601 (YYYY-MM-DDThh:mm:ss.sZ) format.
+* LiveBroadcastSnippet `object`: Basic broadcast information.
+  * actualEndTime `string`: The date and time that the broadcast actually ended. This information is only available once the broadcast's state is complete. The value is specified in ISO 8601 format.
+  * actualStartTime `string`: The date and time that the broadcast actually started. This information is only available once the broadcast's state is live. The value is specified in ISO 8601 format.
   * channelId `string`: The ID that YouTube uses to uniquely identify the channel that is publishing the broadcast.
   * description `string`: The broadcast's description. As with the title, you can set this field by modifying the broadcast resource or by setting the description field of the corresponding video resource.
-  * isDefaultBroadcast `boolean`
+  * isDefaultBroadcast `boolean`: Indicates whether this broadcast is the default broadcast. Internal only.
   * liveChatId `string`: The id of the live chat for this broadcast.
-  * publishedAt `string`: The date and time that the broadcast was added to YouTube's live broadcast schedule. The value is specified in ISO 8601 (YYYY-MM-DDThh:mm:ss.sZ) format.
-  * scheduledEndTime `string`: The date and time that the broadcast is scheduled to end. The value is specified in ISO 8601 (YYYY-MM-DDThh:mm:ss.sZ) format.
-  * scheduledStartTime `string`: The date and time that the broadcast is scheduled to start. The value is specified in ISO 8601 (YYYY-MM-DDThh:mm:ss.sZ) format.
+  * publishedAt `string`: The date and time that the broadcast was added to YouTube's live broadcast schedule. The value is specified in ISO 8601 format.
+  * scheduledEndTime `string`: The date and time that the broadcast is scheduled to end. The value is specified in ISO 8601 format.
+  * scheduledStartTime `string`: The date and time that the broadcast is scheduled to start. The value is specified in ISO 8601 format.
   * thumbnails [ThumbnailDetails](#thumbnaildetails)
   * title `string`: The broadcast's title. Note that the broadcast represents exactly one YouTube video. You can set this field by modifying the broadcast resource or by setting the title field of the corresponding video resource.
 
 ### LiveBroadcastStatistics
 * LiveBroadcastStatistics `object`: Statistics about the live broadcast. These represent a snapshot of the values at the time of the request. Statistics are only returned for live broadcasts.
-  * concurrentViewers `string`: The number of viewers currently watching the broadcast. The property and its value will be present if the broadcast has current viewers and the broadcast owner has not hidden the viewcount for the video. Note that YouTube stops tracking the number of concurrent viewers for a broadcast when the broadcast ends. So, this property would not identify the number of viewers watching an archived video of a live broadcast that already ended.
   * totalChatCount `string`: The total number of live chat messages currently on the broadcast. The property and its value will be present if the broadcast is public, has the live chat feature enabled, and has at least one message. Note that this field will not be filled after the broadcast ends. So this property would not identify the number of chat messages for an archived video of a completed live broadcast.
 
 ### LiveBroadcastStatus
-* LiveBroadcastStatus `object`
-  * lifeCycleStatus `string` (values: abandoned, complete, completeStarting, created, live, liveStarting, ready, reclaimed, revoked, testStarting, testing): The broadcast's status. The status can be updated using the API's liveBroadcasts.transition method.
-  * liveBroadcastPriority `string` (values: high, low, normal): Priority of the live broadcast event (internal state).
-  * privacyStatus `string` (values: private, public, unlisted, unlisted_new): The broadcast's privacy status. Note that the broadcast represents exactly one YouTube video, so the privacy settings are identical to those supported for videos. In addition, you can set this field by modifying the broadcast resource or by setting the privacyStatus field of the corresponding video resource.
-  * recordingStatus `string` (values: notRecording, recorded, recording): The broadcast's recording status.
+* LiveBroadcastStatus `object`: Live broadcast state.
+  * lifeCycleStatus `string` (values: lifeCycleStatusUnspecified, created, ready, testing, live, complete, revoked, testStarting, liveStarting): The broadcast's status. The status can be updated using the API's liveBroadcasts.transition method.
+  * liveBroadcastPriority `string` (values: liveBroadcastPriorityUnspecified, low, normal, high): Priority of the live broadcast event (internal state).
+  * madeForKids `boolean`: Whether the broadcast is made for kids or not, decided by YouTube instead of the creator. This field is read only.
+  * privacyStatus `string` (values: public, unlisted, private): The broadcast's privacy status. Note that the broadcast represents exactly one YouTube video, so the privacy settings are identical to those supported for videos. In addition, you can set this field by modifying the broadcast resource or by setting the privacyStatus field of the corresponding video resource.
+  * recordingStatus `string` (values: liveBroadcastRecordingStatusUnspecified, notRecording, recording, recorded): The broadcast's recording status.
+  * selfDeclaredMadeForKids `boolean`: This field will be set to True if the creator declares the broadcast to be kids only: go/live-cw-work.
 
 ### LiveChatBan
-* LiveChatBan `object`: A liveChatBan resource represents a ban for a YouTube live chat.
+* LiveChatBan `object`: A `__liveChatBan__` resource represents a ban for a YouTube live chat.
   * etag `string`: Etag of this resource.
   * id `string`: The ID that YouTube assigns to uniquely identify the ban.
-  * kind `string`: Identifies what kind of resource this is. Value: the fixed string "youtube#liveChatBan".
+  * kind `string`: Identifies what kind of resource this is. Value: the fixed string `"youtube#liveChatBan"`.
   * snippet [LiveChatBanSnippet](#livechatbansnippet)
 
 ### LiveChatBanSnippet
@@ -2725,7 +3186,7 @@ google_youtube.watermarks.unset({
   * banDurationSeconds `string`: The duration of a ban, only filled if the ban has type TEMPORARY.
   * bannedUserDetails [ChannelProfileDetails](#channelprofiledetails)
   * liveChatId `string`: The chat this ban is pertinent to.
-  * type `string` (values: permanent, temporary): The type of ban.
+  * type `string` (values: liveChatBanTypeUnspecified, permanent, temporary): The type of ban.
 
 ### LiveChatFanFundingEventDetails
 * LiveChatFanFundingEventDetails `object`
@@ -2735,7 +3196,7 @@ google_youtube.watermarks.unset({
   * userComment `string`: The comment added by the user to this fan funding event.
 
 ### LiveChatMessage
-* LiveChatMessage `object`: A liveChatMessage resource represents a chat message in a YouTube Live Chat.
+* LiveChatMessage `object`: A *liveChatMessage* resource represents a chat message in a YouTube Live Chat.
   * authorDetails [LiveChatMessageAuthorDetails](#livechatmessageauthordetails)
   * etag `string`: Etag of this resource.
   * id `string`: The ID that YouTube assigns to uniquely identify the message.
@@ -2761,11 +3222,11 @@ google_youtube.watermarks.unset({
 * LiveChatMessageListResponse `object`
   * etag `string`: Etag of this resource.
   * eventId `string`: Serialized EventId of the request which produced this response.
-  * items `array`: A list of live chat messages.
+  * items `array`
     * items [LiveChatMessage](#livechatmessage)
   * kind `string`: Identifies what kind of resource this is. Value: the fixed string "youtube#liveChatMessageListResponse".
-  * nextPageToken `string`: The token that can be used as the value of the pageToken parameter to retrieve the next page in the result set.
-  * offlineAt `string`: The date and time when the underlying stream went offline. The value is specified in ISO 8601 (YYYY-MM-DDThh:mm:ss.sZ) format.
+  * nextPageToken `string`
+  * offlineAt `string`: The date and time when the underlying stream went offline. The value is specified in ISO 8601 format.
   * pageInfo [PageInfo](#pageinfo)
   * pollingIntervalMillis `integer`: The amount of time the client should wait before polling again.
   * tokenPagination [TokenPagination](#tokenpagination)
@@ -2784,18 +3245,15 @@ google_youtube.watermarks.unset({
   * liveChatId `string`
   * messageDeletedDetails [LiveChatMessageDeletedDetails](#livechatmessagedeleteddetails)
   * messageRetractedDetails [LiveChatMessageRetractedDetails](#livechatmessageretracteddetails)
-  * pollClosedDetails [LiveChatPollClosedDetails](#livechatpollcloseddetails)
-  * pollEditedDetails [LiveChatPollEditedDetails](#livechatpollediteddetails)
-  * pollOpenedDetails [LiveChatPollOpenedDetails](#livechatpollopeneddetails)
-  * pollVotedDetails [LiveChatPollVotedDetails](#livechatpollvoteddetails)
-  * publishedAt `string`: The date and time when the message was orignally published. The value is specified in ISO 8601 (YYYY-MM-DDThh:mm:ss.sZ) format.
+  * publishedAt `string`: The date and time when the message was orignally published. The value is specified in ISO 8601 format.
   * superChatDetails [LiveChatSuperChatDetails](#livechatsuperchatdetails)
+  * superStickerDetails [LiveChatSuperStickerDetails](#livechatsuperstickerdetails)
   * textMessageDetails [LiveChatTextMessageDetails](#livechattextmessagedetails)
-  * type `string` (values: chatEndedEvent, fanFundingEvent, messageDeletedEvent, messageRetractedEvent, newSponsorEvent, pollClosedEvent, pollEditedEvent, pollOpenedEvent, pollVotedEvent, sponsorOnlyModeEndedEvent, sponsorOnlyModeStartedEvent, superChatEvent, textMessageEvent, tombstone, userBannedEvent): The type of message, this will always be present, it determines the contents of the message as well as which fields will be present.
+  * type `string` (values: invalidType, textMessageEvent, tombstone, fanFundingEvent, chatEndedEvent, sponsorOnlyModeStartedEvent, sponsorOnlyModeEndedEvent, newSponsorEvent, messageDeletedEvent, messageRetractedEvent, userBannedEvent, superChatEvent, superStickerEvent): The type of message, this will always be present, it determines the contents of the message as well as which fields will be present.
   * userBannedDetails [LiveChatUserBannedMessageDetails](#livechatuserbannedmessagedetails)
 
 ### LiveChatModerator
-* LiveChatModerator `object`: A liveChatModerator resource represents a moderator for a YouTube live chat. A chat moderator has the ability to ban/unban users from a chat, remove message, etc.
+* LiveChatModerator `object`: A *liveChatModerator* resource represents a moderator for a YouTube live chat. A chat moderator has the ability to ban/unban users from a chat, remove message, etc.
   * etag `string`: Etag of this resource.
   * id `string`: The ID that YouTube assigns to uniquely identify the moderator.
   * kind `string`: Identifies what kind of resource this is. Value: the fixed string "youtube#liveChatModerator".
@@ -2819,41 +3277,21 @@ google_youtube.watermarks.unset({
   * liveChatId `string`: The ID of the live chat this moderator can act on.
   * moderatorDetails [ChannelProfileDetails](#channelprofiledetails)
 
-### LiveChatPollClosedDetails
-* LiveChatPollClosedDetails `object`
-  * pollId `string`: The id of the poll that was closed.
-
-### LiveChatPollEditedDetails
-* LiveChatPollEditedDetails `object`
-  * id `string`
-  * items `array`
-    * items [LiveChatPollItem](#livechatpollitem)
-  * prompt `string`
-
-### LiveChatPollItem
-* LiveChatPollItem `object`
-  * description `string`: Plain text description of the item.
-  * itemId `string`
-
-### LiveChatPollOpenedDetails
-* LiveChatPollOpenedDetails `object`
-  * id `string`
-  * items `array`
-    * items [LiveChatPollItem](#livechatpollitem)
-  * prompt `string`
-
-### LiveChatPollVotedDetails
-* LiveChatPollVotedDetails `object`
-  * itemId `string`: The poll item the user chose.
-  * pollId `string`: The poll the user voted on.
-
 ### LiveChatSuperChatDetails
 * LiveChatSuperChatDetails `object`
   * amountDisplayString `string`: A rendered string that displays the fund amount and currency to the user.
   * amountMicros `string`: The amount purchased by the user, in micros (1,750,000 micros = 1.75).
   * currency `string`: The currency in which the purchase was made.
-  * tier `integer`: The tier in which the amount belongs to. Lower amounts belong to lower tiers. Starts at 1.
+  * tier `integer`: The tier in which the amount belongs. Lower amounts belong to lower tiers. The lowest tier is 1.
   * userComment `string`: The comment added by the user to this Super Chat event.
+
+### LiveChatSuperStickerDetails
+* LiveChatSuperStickerDetails `object`
+  * amountDisplayString `string`: A rendered string that displays the fund amount and currency to the user.
+  * amountMicros `string`: The amount purchased by the user, in micros (1,750,000 micros = 1.75).
+  * currency `string`: The currency in which the purchase was made.
+  * superStickerMetadata [SuperStickerMetadata](#superstickermetadata)
+  * tier `integer`: The tier in which the amount belongs. Lower amounts belong to lower tiers. The lowest tier is 1.
 
 ### LiveChatTextMessageDetails
 * LiveChatTextMessageDetails `object`
@@ -2879,20 +3317,20 @@ google_youtube.watermarks.unset({
 * LiveStreamConfigurationIssue `object`
   * description `string`: The long-form description of the issue and how to resolve it.
   * reason `string`: The short-form reason for this issue.
-  * severity `string` (values: error, info, warning): How severe this issue is to the stream.
-  * type `string` (values: audioBitrateHigh, audioBitrateLow, audioBitrateMismatch, audioCodec, audioCodecMismatch, audioSampleRate, audioSampleRateMismatch, audioStereoMismatch, audioTooManyChannels, badContainer, bitrateHigh, bitrateLow, frameRateHigh, framerateMismatch, gopMismatch, gopSizeLong, gopSizeOver, gopSizeShort, interlacedVideo, multipleAudioStreams, multipleVideoStreams, noAudioStream, noVideoStream, openGop, resolutionMismatch, videoBitrateMismatch, videoCodec, videoCodecMismatch, videoIngestionFasterThanRealtime, videoIngestionStarved, videoInterlaceMismatch, videoProfileMismatch, videoResolutionSuboptimal, videoResolutionUnsupported): The kind of error happening.
+  * severity `string` (values: info, warning, error): How severe this issue is to the stream.
+  * type `string` (values: gopSizeOver, gopSizeLong, gopSizeShort, openGop, badContainer, audioBitrateHigh, audioBitrateLow, audioSampleRate, bitrateHigh, bitrateLow, audioCodec, videoCodec, noAudioStream, noVideoStream, multipleVideoStreams, multipleAudioStreams, audioTooManyChannels, interlacedVideo, frameRateHigh, resolutionMismatch, videoCodecMismatch, videoInterlaceMismatch, videoProfileMismatch, videoBitrateMismatch, framerateMismatch, gopMismatch, audioSampleRateMismatch, audioStereoMismatch, audioCodecMismatch, audioBitrateMismatch, videoResolutionSuboptimal, videoResolutionUnsupported, videoIngestionStarved, videoIngestionFasterThanRealtime): The kind of error happening.
 
 ### LiveStreamContentDetails
 * LiveStreamContentDetails `object`: Detailed settings of a stream.
   * closedCaptionsIngestionUrl `string`: The ingestion URL where the closed captions of this stream are sent.
-  * isReusable `boolean`: Indicates whether the stream is reusable, which means that it can be bound to multiple broadcasts. It is common for broadcasters to reuse the same stream for many different broadcasts if those broadcasts occur at different times.
+  * isReusable `boolean`: Indicates whether the stream is reusable, which means that it can be bound to multiple broadcasts. It is common for broadcasters to reuse the same stream for many different broadcasts if those broadcasts occur at different times. If you set this value to false, then the stream will not be reusable, which means that it can only be bound to one broadcast. Non-reusable streams differ from reusable streams in the following ways: - A non-reusable stream can only be bound to one broadcast. - A non-reusable stream might be deleted by an automated process after the broadcast ends. - The liveStreams.list method does not list non-reusable streams if you call the method and set the mine parameter to true. The only way to use that method to retrieve the resource for a non-reusable stream is to use the id parameter to identify the stream. 
 
 ### LiveStreamHealthStatus
 * LiveStreamHealthStatus `object`
   * configurationIssues `array`: The configurations issues on this stream
     * items [LiveStreamConfigurationIssue](#livestreamconfigurationissue)
   * lastUpdateTimeSeconds `string`: The last time this status was updated (in seconds)
-  * status `string` (values: bad, good, noData, ok, revoked): The status code of this stream
+  * status `string` (values: good, ok, bad, noData, revoked): The status code of this stream
 
 ### LiveStreamListResponse
 * LiveStreamListResponse `object`
@@ -2912,17 +3350,16 @@ google_youtube.watermarks.unset({
   * channelId `string`: The ID that YouTube uses to uniquely identify the channel that is transmitting the stream.
   * description `string`: The stream's description. The value cannot be longer than 10000 characters.
   * isDefaultStream `boolean`
-  * publishedAt `string`: The date and time that the stream was created. The value is specified in ISO 8601 (YYYY-MM-DDThh:mm:ss.sZ) format.
+  * publishedAt `string`: The date and time that the stream was created. The value is specified in ISO 8601 format.
   * title `string`: The stream's title. The value must be between 1 and 128 characters long.
 
 ### LiveStreamStatus
 * LiveStreamStatus `object`: Brief description of the live stream status.
   * healthStatus [LiveStreamHealthStatus](#livestreamhealthstatus)
-  * streamStatus `string` (values: active, created, error, inactive, ready)
+  * streamStatus `string` (values: created, ready, active, inactive, error)
 
 ### LocalizedProperty
 * LocalizedProperty `object`
-  * default `string`
   * defaultLanguage [LanguageTag](#languagetag)
   * localized `array`
     * items [LocalizedString](#localizedstring)
@@ -2932,20 +3369,77 @@ google_youtube.watermarks.unset({
   * language `string`
   * value `string`
 
+### Member
+* Member `object`: A *member* resource represents a member for a YouTube channel. A member provides recurring monetary support to a creator and receives special benefits.
+  * etag `string`: Etag of this resource.
+  * kind `string`: Identifies what kind of resource this is. Value: the fixed string "youtube#member".
+  * snippet [MemberSnippet](#membersnippet)
+
+### MemberListResponse
+* MemberListResponse `object`
+  * etag `string`: Etag of this resource.
+  * eventId `string`: Serialized EventId of the request which produced this response.
+  * items `array`: A list of members that match the request criteria.
+    * items [Member](#member)
+  * kind `string`: Identifies what kind of resource this is. Value: the fixed string "youtube#memberListResponse".
+  * nextPageToken `string`: The token that can be used as the value of the pageToken parameter to retrieve the next page in the result set.
+  * pageInfo [PageInfo](#pageinfo)
+  * tokenPagination [TokenPagination](#tokenpagination)
+  * visitorId `string`: The visitorId identifies the visitor.
+
+### MemberSnippet
+* MemberSnippet `object`
+  * creatorChannelId `string`: The id of the channel that's offering memberships.
+  * memberDetails [ChannelProfileDetails](#channelprofiledetails)
+  * membershipsDetails [MembershipsDetails](#membershipsdetails)
+
+### MembershipsDetails
+* MembershipsDetails `object`
+  * accessibleLevels `array`: Ids of all levels that the user has access to. This includes the currently active level and all other levels that are included because of a higher purchase.
+    * items `string`
+  * highestAccessibleLevel `string`: Id of the highest level that the user has access to at the moment.
+  * highestAccessibleLevelDisplayName `string`: Display name for the highest level that the user has access to at the moment.
+  * membershipsDuration [MembershipsDuration](#membershipsduration)
+  * membershipsDurationAtLevels `array`: Data about memberships duration on particular pricing levels.
+    * items [MembershipsDurationAtLevel](#membershipsdurationatlevel)
+
+### MembershipsDuration
+* MembershipsDuration `object`
+  * memberSince `string`: The date and time when the user became a continuous member across all levels.
+  * memberTotalDurationMonths `integer`: The cumulative time the user has been a member across all levels in complete months (the time is rounded down to the nearest integer).
+
+### MembershipsDurationAtLevel
+* MembershipsDurationAtLevel `object`
+  * level `string`: Pricing level ID.
+  * memberSince `string`: The date and time when the user became a continuous member for the given level.
+  * memberTotalDurationMonths `integer`: The cumulative time the user has been a member for the given level in complete months (the time is rounded down to the nearest integer).
+
+### MembershipsLevel
+* MembershipsLevel `object`: A *membershipsLevel* resource represents an offer made by YouTube creators for their fans. Users can become members of the channel by joining one of the available levels. They will provide recurring monetary support and receives special benefits.
+  * etag `string`: Etag of this resource.
+  * id `string`: The ID that YouTube assigns to uniquely identify the memberships level.
+  * kind `string`: Identifies what kind of resource this is. Value: the fixed string "youtube#membershipsLevelListResponse".
+  * snippet [MembershipsLevelSnippet](#membershipslevelsnippet)
+
+### MembershipsLevelListResponse
+* MembershipsLevelListResponse `object`
+  * etag `string`: Etag of this resource.
+  * eventId `string`: Serialized EventId of the request which produced this response.
+  * items `array`: A list of pricing levels offered by a creator to the fans.
+    * items [MembershipsLevel](#membershipslevel)
+  * kind `string`: Identifies what kind of resource this is. Value: the fixed string "youtube#membershipsLevelListResponse".
+  * visitorId `string`: The visitorId identifies the visitor.
+
+### MembershipsLevelSnippet
+* MembershipsLevelSnippet `object`
+  * creatorChannelId `string`: The id of the channel that's offering channel memberships.
+  * levelDetails [LevelDetails](#leveldetails)
+
 ### MonitorStreamInfo
 * MonitorStreamInfo `object`: Settings and Info of the monitor stream
   * broadcastStreamDelayMs `integer`: If you have set the enableMonitorStream property to true, then this property determines the length of the live broadcast delay.
   * embedHtml `string`: HTML code that embeds a player that plays the monitor stream.
-  * enableMonitorStream `boolean`: This value determines whether the monitor stream is enabled for the broadcast. If the monitor stream is enabled, then YouTube will broadcast the event content on a special stream intended only for the broadcaster's consumption. The broadcaster can use the stream to review the event content and also to identify the optimal times to insert cuepoints.
-
-### Nonprofit
-* Nonprofit `object`: Nonprofit information.
-  * nonprofitId [NonprofitId](#nonprofitid)
-  * nonprofitLegalName `string`: Legal name of the nonprofit.
-
-### NonprofitId
-* NonprofitId `object`
-  * value `string`
+  * enableMonitorStream `boolean`: This value determines whether the monitor stream is enabled for the broadcast. If the monitor stream is enabled, then YouTube will broadcast the event content on a special stream intended only for the broadcaster's consumption. The broadcaster can use the stream to review the event content and also to identify the optimal times to insert cuepoints. You need to set this value to true if you intend to have a broadcast delay for your event. *Note:* This property cannot be updated once the broadcast is in the testing or live state.
 
 ### PageInfo
 * PageInfo `object`: Paging details for lists of resources, including total number of items available and number of resources returned in a single page.
@@ -2953,7 +3447,7 @@ google_youtube.watermarks.unset({
   * totalResults `integer`: The total number of results in the result set.
 
 ### Playlist
-* Playlist `object`: A playlist resource represents a YouTube playlist. A playlist is a collection of videos that can be viewed sequentially and shared with other users. A playlist can contain up to 200 videos, and YouTube does not limit the number of playlists that each user creates. By default, playlists are publicly visible to other users, but playlists can be public or private.
+* Playlist `object`: A *playlist* resource represents a YouTube playlist. A playlist is a collection of videos that can be viewed sequentially and shared with other users. A playlist can contain up to 200 videos, and YouTube does not limit the number of playlists that each user creates. By default, playlists are publicly visible to other users, but playlists can be public or private. YouTube also uses playlists to identify special collections of videos for a channel, such as: - uploaded videos - favorite videos - positively rated (liked) videos - watch history - watch later To be more specific, these lists are associated with a channel, which is a collection of a person, group, or company's videos, playlists, and other YouTube information. You can retrieve the playlist IDs for each of these lists from the channel resource for a given channel. You can then use the playlistItems.list method to retrieve any of those lists. You can also add or remove items from those lists by calling the playlistItems.insert and playlistItems.delete methods.
   * contentDetails [PlaylistContentDetails](#playlistcontentdetails)
   * etag `string`: Etag of this resource.
   * id `string`: The ID that YouTube uses to uniquely identify the playlist.
@@ -2968,7 +3462,7 @@ google_youtube.watermarks.unset({
   * itemCount `integer`: The number of videos in the playlist.
 
 ### PlaylistItem
-* PlaylistItem `object`: A playlistItem resource identifies another resource, such as a video, that is included in a playlist. In addition, the playlistItem  resource contains details about the included resource that pertain specifically to how that resource is used in that playlist.
+* PlaylistItem `object`: A *playlistItem* resource identifies another resource, such as a video, that is included in a playlist. In addition, the playlistItem resource contains details about the included resource that pertain specifically to how that resource is used in that playlist. YouTube uses playlists to identify special collections of videos for a channel, such as: - uploaded videos - favorite videos - positively rated (liked) videos - watch history - watch later To be more specific, these lists are associated with a channel, which is a collection of a person, group, or company's videos, playlists, and other YouTube information. You can retrieve the playlist IDs for each of these lists from the channel resource for a given channel. You can then use the playlistItems.list method to retrieve any of those lists. You can also add or remove items from those lists by calling the playlistItems.insert and playlistItems.delete methods. For example, if a user gives a positive rating to a video, you would insert that video into the liked videos playlist for that user's channel.
   * contentDetails [PlaylistItemContentDetails](#playlistitemcontentdetails)
   * etag `string`: Etag of this resource.
   * id `string`: The ID that YouTube uses to uniquely identify the playlist item.
@@ -2982,15 +3476,15 @@ google_youtube.watermarks.unset({
   * note `string`: A user-generated note for this item.
   * startAt `string`: The time, measured in seconds from the start of the video, when the video should start playing. (The playlist owner can specify the times when the video should start and stop playing when the video is played in the context of the playlist.) The default value is 0.
   * videoId `string`: The ID that YouTube uses to uniquely identify a video. To retrieve the video resource, set the id query parameter to this value in your API request.
-  * videoPublishedAt `string`: The date and time that the video was published to YouTube. The value is specified in ISO 8601 (YYYY-MM-DDThh:mm:ss.sZ) format.
+  * videoPublishedAt `string`: The date and time that the video was published to YouTube. The value is specified in ISO 8601 format.
 
 ### PlaylistItemListResponse
 * PlaylistItemListResponse `object`
-  * etag `string`: Etag of this resource.
+  * etag `string`
   * eventId `string`: Serialized EventId of the request which produced this response.
   * items `array`: A list of playlist items that match the request criteria.
     * items [PlaylistItem](#playlistitem)
-  * kind `string`: Identifies what kind of resource this is. Value: the fixed string "youtube#playlistItemListResponse".
+  * kind `string`: Identifies what kind of resource this is. Value: the fixed string "youtube#playlistItemListResponse". Etag of this resource.
   * nextPageToken `string`: The token that can be used as the value of the pageToken parameter to retrieve the next page in the result set.
   * pageInfo [PageInfo](#pageinfo)
   * prevPageToken `string`: The token that can be used as the value of the pageToken parameter to retrieve the previous page in the result set.
@@ -2998,26 +3492,26 @@ google_youtube.watermarks.unset({
   * visitorId `string`: The visitorId identifies the visitor.
 
 ### PlaylistItemSnippet
-* PlaylistItemSnippet `object`: Basic details about a playlist, including title, description and thumbnails.
+* PlaylistItemSnippet `object`: Basic details about a playlist, including title, description and thumbnails. Basic details of a YouTube Playlist item provided by the author. Next ID: 13
   * channelId `string`: The ID that YouTube uses to uniquely identify the user that added the item to the playlist.
   * channelTitle `string`: Channel title for the channel that the playlist item belongs to.
   * description `string`: The item's description.
-  * playlistId `string`: The ID that YouTube uses to uniquely identify the playlist that the playlist item is in.
+  * playlistId `string`: The ID that YouTube uses to uniquely identify thGe playlist that the playlist item is in.
   * position `integer`: The order in which the item appears in the playlist. The value uses a zero-based index, so the first item has a position of 0, the second item has a position of 1, and so forth.
-  * publishedAt `string`: The date and time that the item was added to the playlist. The value is specified in ISO 8601 (YYYY-MM-DDThh:mm:ss.sZ) format.
+  * publishedAt `string`: The date and time that the item was added to the playlist. The value is specified in ISO 8601 format.
   * resourceId [ResourceId](#resourceid)
   * thumbnails [ThumbnailDetails](#thumbnaildetails)
   * title `string`: The item's title.
 
 ### PlaylistItemStatus
 * PlaylistItemStatus `object`: Information about the playlist item's privacy status.
-  * privacyStatus `string` (values: private, public, unlisted, unlisted_new): This resource's privacy status.
+  * privacyStatus `string` (values: public, unlisted, private): This resource's privacy status.
 
 ### PlaylistListResponse
 * PlaylistListResponse `object`
   * etag `string`: Etag of this resource.
   * eventId `string`: Serialized EventId of the request which produced this response.
-  * items `array`: A list of playlists that match the request criteria.
+  * items `array`: A list of playlists that match the request criteria
     * items [Playlist](#playlist)
   * kind `string`: Identifies what kind of resource this is. Value: the fixed string "youtube#playlistListResponse".
   * nextPageToken `string`: The token that can be used as the value of the pageToken parameter to retrieve the next page in the result set.
@@ -3037,39 +3531,29 @@ google_youtube.watermarks.unset({
 
 ### PlaylistSnippet
 * PlaylistSnippet `object`: Basic details about a playlist, including title, description and thumbnails.
+  * tags `array`: Keyword tags associated with the playlist.
+    * items `string`
   * channelId `string`: The ID that YouTube uses to uniquely identify the channel that published the playlist.
   * channelTitle `string`: The channel title of the channel that the video belongs to.
   * defaultLanguage `string`: The language of the playlist's default title and description.
   * description `string`: The playlist's description.
   * localized [PlaylistLocalization](#playlistlocalization)
-  * publishedAt `string`: The date and time that the playlist was created. The value is specified in ISO 8601 (YYYY-MM-DDThh:mm:ss.sZ) format.
-  * tags `array`: Keyword tags associated with the playlist.
-    * items `string`
+  * publishedAt `string`: The date and time that the playlist was created. The value is specified in ISO 8601 format.
   * thumbnails [ThumbnailDetails](#thumbnaildetails)
   * title `string`: The playlist's title.
 
 ### PlaylistStatus
 * PlaylistStatus `object`
-  * privacyStatus `string` (values: private, public, unlisted, unlisted_new): The playlist's privacy status.
-
-### PromotedItem
-* PromotedItem `object`: Describes a single promoted item.
-  * customMessage `string`: A custom message to display for this promotion. This field is currently ignored unless the promoted item is a website.
-  * id [PromotedItemId](#promoteditemid)
-  * promotedByContentOwner `boolean`: If true, the content owner's name will be used when displaying the promotion. This field can only be set when the update is made on behalf of the content owner.
-  * timing [InvideoTiming](#invideotiming)
-
-### PromotedItemId
-* PromotedItemId `object`: Describes a single promoted item id. It is a union of various possible types.
-  * recentlyUploadedBy `string`: If type is recentUpload, this field identifies the channel from which to take the recent upload. If missing, the channel is assumed to be the same channel for which the invideoPromotion is set.
-  * type `string` (values: recentUpload, video, website): Describes the type of the promoted item.
-  * videoId `string`: If the promoted item represents a video, this field represents the unique YouTube ID identifying it. This field will be present only if type has the value video.
-  * websiteUrl `string`: If the promoted item represents a website, this field represents the url pointing to the website. This field will be present only if type has the value website.
+  * privacyStatus `string` (values: public, unlisted, private): The playlist's privacy status.
 
 ### PropertyValue
 * PropertyValue `object`: A pair Property / Value.
   * property `string`: A property.
   * value `string`: The property's value.
+
+### RelatedEntity
+* RelatedEntity `object`
+  * entity [Entity](#entity)
 
 ### ResourceId
 * ResourceId `object`: A resource id is a generic reference that points to another YouTube resource.
@@ -3082,7 +3566,7 @@ google_youtube.watermarks.unset({
 * SearchListResponse `object`
   * etag `string`: Etag of this resource.
   * eventId `string`: Serialized EventId of the request which produced this response.
-  * items `array`: A list of results that match the search criteria.
+  * items `array`: Pagination information for token pagination.
     * items [SearchResult](#searchresult)
   * kind `string`: Identifies what kind of resource this is. Value: the fixed string "youtube#searchListResponse".
   * nextPageToken `string`: The token that can be used as the value of the pageToken parameter to retrieve the next page in the result set.
@@ -3104,15 +3588,15 @@ google_youtube.watermarks.unset({
   * channelId `string`: The value that YouTube uses to uniquely identify the channel that published the resource that the search result identifies.
   * channelTitle `string`: The title of the channel that published the resource that the search result identifies.
   * description `string`: A description of the search result.
-  * liveBroadcastContent `string` (values: live, none, upcoming): It indicates if the resource (video or channel) has upcoming/active live broadcast content. Or it's "none" if there is not any upcoming/active live broadcasts.
-  * publishedAt `string`: The creation date and time of the resource that the search result identifies. The value is specified in ISO 8601 (YYYY-MM-DDThh:mm:ss.sZ) format.
+  * liveBroadcastContent `string` (values: none, upcoming, live, completed): It indicates if the resource (video or channel) has upcoming/active live broadcast content. Or it's "none" if there is not any upcoming/active live broadcasts.
+  * publishedAt `string`: The creation date and time of the resource that the search result identifies. The value is specified in ISO 8601 format.
   * thumbnails [ThumbnailDetails](#thumbnaildetails)
   * title `string`: The title of the search result.
 
 ### Sponsor
-* Sponsor `object`: A sponsor resource represents a sponsor for a YouTube channel. A sponsor provides recurring monetary support to a creator and receives special benefits.
+* Sponsor `object`: A `__sponsor__` resource represents a sponsor for a YouTube channel. A sponsor provides recurring monetary support to a creator and receives special benefits.
   * etag `string`: Etag of this resource.
-  * kind `string`: Identifies what kind of resource this is. Value: the fixed string "youtube#sponsor".
+  * kind `string`: Identifies what kind of resource this is. Value: the fixed string `"youtube#sponsor"`.
   * snippet [SponsorSnippet](#sponsorsnippet)
 
 ### SponsorListResponse
@@ -3121,21 +3605,21 @@ google_youtube.watermarks.unset({
   * eventId `string`: Serialized EventId of the request which produced this response.
   * items `array`: A list of sponsors that match the request criteria.
     * items [Sponsor](#sponsor)
-  * kind `string`: Identifies what kind of resource this is. Value: the fixed string "youtube#sponsorListResponse".
-  * nextPageToken `string`: The token that can be used as the value of the pageToken parameter to retrieve the next page in the result set.
+  * kind `string`: Identifies what kind of resource this is. Value: the fixed string `"youtube#sponsorListResponse".
+  * nextPageToken `string`: The token that can be used as the value of the `pageToken` parameter to retrieve the next page in the result set.
   * pageInfo [PageInfo](#pageinfo)
   * tokenPagination [TokenPagination](#tokenpagination)
-  * visitorId `string`: The visitorId identifies the visitor.
+  * visitorId `string`: The `visitorId` identifies the visitor.
 
 ### SponsorSnippet
 * SponsorSnippet `object`
   * channelId `string`: The id of the channel being sponsored.
   * cumulativeDurationMonths `integer`: The cumulative time a user has been a sponsor in months.
   * sponsorDetails [ChannelProfileDetails](#channelprofiledetails)
-  * sponsorSince `string`: The date and time when the user became a sponsor. The value is specified in ISO 8601 (YYYY-MM-DDThh:mm:ss.sZ) format.
+  * sponsorSince `string`: The date and time when the user became a sponsor. The value is specified in ISO 8601 (`YYYY-MM-DDThh:mm:ss.sZ`) format.
 
 ### Subscription
-* Subscription `object`: A subscription resource contains information about a YouTube user subscription. A subscription notifies a user when new videos are added to a channel or when another user takes one of several actions on YouTube, such as uploading a video, rating a video, or commenting on a video.
+* Subscription `object`: A *subscription* resource contains information about a YouTube user subscription. A subscription notifies a user when new videos are added to a channel or when another user takes one of several actions on YouTube, such as uploading a video, rating a video, or commenting on a video.
   * contentDetails [SubscriptionContentDetails](#subscriptioncontentdetails)
   * etag `string`: Etag of this resource.
   * id `string`: The ID that YouTube uses to uniquely identify the subscription.
@@ -3145,7 +3629,7 @@ google_youtube.watermarks.unset({
 
 ### SubscriptionContentDetails
 * SubscriptionContentDetails `object`: Details about the content to witch a subscription refers.
-  * activityType `string` (values: all, uploads): The type of activity this subscription is for (only uploads, everything).
+  * activityType `string` (values: subscriptionActivityTypeUnspecified, all, uploads): The type of activity this subscription is for (only uploads, everything).
   * newItemCount `integer`: The number of new items in the subscription since its content was last read.
   * totalItemCount `integer`: The approximate number of items that the subscription points to.
 
@@ -3167,7 +3651,7 @@ google_youtube.watermarks.unset({
   * channelId `string`: The ID that YouTube uses to uniquely identify the subscriber's channel.
   * channelTitle `string`: Channel title for the channel that the subscription belongs to.
   * description `string`: The subscription's details.
-  * publishedAt `string`: The date and time that the subscription was created. The value is specified in ISO 8601 (YYYY-MM-DDThh:mm:ss.sZ) format.
+  * publishedAt `string`: The date and time that the subscription was created. The value is specified in ISO 8601 format.
   * resourceId [ResourceId](#resourceid)
   * thumbnails [ThumbnailDetails](#thumbnaildetails)
   * title `string`: The subscription's title.
@@ -3180,10 +3664,10 @@ google_youtube.watermarks.unset({
   * title `string`: The title of the subscriber.
 
 ### SuperChatEvent
-* SuperChatEvent `object`: A superChatEvent resource represents a Super Chat purchase on a YouTube channel.
+* SuperChatEvent `object`: A `__superChatEvent__` resource represents a Super Chat purchase on a YouTube channel.
   * etag `string`: Etag of this resource.
   * id `string`: The ID that YouTube assigns to uniquely identify the Super Chat event.
-  * kind `string`: Identifies what kind of resource this is. Value: the fixed string "youtube#superChatEvent".
+  * kind `string`: Identifies what kind of resource this is. Value: the fixed string `"youtube#superChatEvent"`.
   * snippet [SuperChatEventSnippet](#superchateventsnippet)
 
 ### SuperChatEventListResponse
@@ -3203,13 +3687,45 @@ google_youtube.watermarks.unset({
   * amountMicros `string`: The purchase amount, in micros of the purchase currency. e.g., 1 is represented as 1000000.
   * channelId `string`: Channel id where the event occurred.
   * commentText `string`: The text contents of the comment left by the user.
-  * createdAt `string`: The date and time when the event occurred. The value is specified in ISO 8601 (YYYY-MM-DDThh:mm:ss.sZ) format.
+  * createdAt `string`: The date and time when the event occurred. The value is specified in ISO 8601 format.
   * currency `string`: The currency in which the purchase was made. ISO 4217.
   * displayString `string`: A rendered string that displays the purchase amount and currency (e.g., "$1.00"). The string is rendered for the given language.
-  * isSuperChatForGood `boolean`: True if this event is a Super Chat for Good purchase.
+  * isSuperStickerEvent `boolean`: True if this event is a Super Sticker event.
   * messageType `integer`: The tier for the paid message, which is based on the amount of money spent to purchase the message.
-  * nonprofit [Nonprofit](#nonprofit)
+  * superStickerMetadata [SuperStickerMetadata](#superstickermetadata)
   * supporterDetails [ChannelProfileDetails](#channelprofiledetails)
+
+### SuperStickerMetadata
+* SuperStickerMetadata `object`
+  * altText `string`: Internationalized alt text that describes the sticker image and any animation associated with it.
+  * altTextLanguage `string`: Specifies the localization language in which the alt text is returned.
+  * stickerId `string`: Unique identifier of the Super Sticker. This is a shorter form of the alt_text that includes pack name and a recognizable characteristic of the sticker.
+
+### TestItem
+* TestItem `object`
+  * gaia `string`
+  * id `string`
+  * snippet [TestItemTestItemSnippet](#testitemtestitemsnippet)
+
+### TestItemTestItemSnippet
+* TestItemTestItemSnippet `object`
+
+### ThirdPartyLink
+* ThirdPartyLink `object`: A *third party account link* resource represents a link between a YouTube account or a channel and an account on a third-party service.
+  * etag `string`: Etag of this resource
+  * kind `string`: Identifies what kind of resource this is. Value: the fixed string "youtube#thirdPartyLink".
+  * linkingToken `string`: The linking_token identifies a YouTube account and channel with which the third party account is linked.
+  * snippet [ThirdPartyLinkSnippet](#thirdpartylinksnippet)
+  * status [ThirdPartyLinkStatus](#thirdpartylinkstatus)
+
+### ThirdPartyLinkSnippet
+* ThirdPartyLinkSnippet `object`: Basic information about a third party account link, including its type and type-specific information.
+  * channelToStoreLink [ChannelToStoreLinkDetails](#channeltostorelinkdetails)
+  * type `string` (values: linkUnspecified, channelToStoreLink): Type of the link named after the entities that are being linked.
+
+### ThirdPartyLinkStatus
+* ThirdPartyLinkStatus `object`: The third-party link status object contains information about the status of the link.
+  * linkStatus `string` (values: unknown, failed, pending, linked)
 
 ### Thumbnail
 * Thumbnail `object`: A thumbnail is an image representing a YouTube resource.
@@ -3219,7 +3735,6 @@ google_youtube.watermarks.unset({
 
 ### ThumbnailDetails
 * ThumbnailDetails `object`: Internal representation of thumbnails for a YouTube resource.
-  * default [Thumbnail](#thumbnail)
   * high [Thumbnail](#thumbnail)
   * maxres [Thumbnail](#thumbnail)
   * medium [Thumbnail](#thumbnail)
@@ -3238,7 +3753,7 @@ google_youtube.watermarks.unset({
 * TokenPagination `object`: Stub token pagination template to suppress results.
 
 ### Video
-* Video `object`: A video resource represents a YouTube video.
+* Video `object`: A *video* resource represents a YouTube video.
   * ageGating [VideoAgeGating](#videoagegating)
   * contentDetails [VideoContentDetails](#videocontentdetails)
   * etag `string`: Etag of this resource.
@@ -3246,7 +3761,7 @@ google_youtube.watermarks.unset({
   * id `string`: The ID that YouTube uses to uniquely identify the video.
   * kind `string`: Identifies what kind of resource this is. Value: the fixed string "youtube#video".
   * liveStreamingDetails [VideoLiveStreamingDetails](#videolivestreamingdetails)
-  * localizations `object`: List with all localizations.
+  * localizations `object`: The localizations object contains localized versions of the basic details about the video, such as its title and description.
   * monetizationDetails [VideoMonetizationDetails](#videomonetizationdetails)
   * player [VideoPlayer](#videoplayer)
   * processingDetails [VideoProcessingDetails](#videoprocessingdetails)
@@ -3267,20 +3782,20 @@ google_youtube.watermarks.unset({
   * videoId `string`: The ID that YouTube uses to uniquely identify the video.
 
 ### VideoAbuseReportReason
-* VideoAbuseReportReason `object`: A videoAbuseReportReason resource identifies a reason that a video could be reported as abusive. Video abuse report reasons are used with video.ReportAbuse.
+* VideoAbuseReportReason `object`: A `__videoAbuseReportReason__` resource identifies a reason that a video could be reported as abusive. Video abuse report reasons are used with `video.ReportAbuse`.
   * etag `string`: Etag of this resource.
   * id `string`: The ID of this abuse report reason.
-  * kind `string`: Identifies what kind of resource this is. Value: the fixed string "youtube#videoAbuseReportReason".
+  * kind `string`: Identifies what kind of resource this is. Value: the fixed string `"youtube#videoAbuseReportReason"`.
   * snippet [VideoAbuseReportReasonSnippet](#videoabusereportreasonsnippet)
 
 ### VideoAbuseReportReasonListResponse
 * VideoAbuseReportReasonListResponse `object`
   * etag `string`: Etag of this resource.
   * eventId `string`: Serialized EventId of the request which produced this response.
-  * items `array`: A list of valid abuse reasons that are used with video.ReportAbuse.
+  * items `array`: A list of valid abuse reasons that are used with `video.ReportAbuse`.
     * items [VideoAbuseReportReason](#videoabusereportreason)
-  * kind `string`: Identifies what kind of resource this is. Value: the fixed string "youtube#videoAbuseReportReasonListResponse".
-  * visitorId `string`: The visitorId identifies the visitor.
+  * kind `string`: Identifies what kind of resource this is. Value: the fixed string `"youtube#videoAbuseReportReasonListResponse"`.
+  * visitorId `string`: The `visitorId` identifies the visitor.
 
 ### VideoAbuseReportReasonSnippet
 * VideoAbuseReportReasonSnippet `object`: Basic details about a video category, such as its localized title.
@@ -3300,7 +3815,7 @@ google_youtube.watermarks.unset({
   * videoGameRating `string` (values: anyone, m15Plus, m16Plus, m17Plus): Video game rating, if any.
 
 ### VideoCategory
-* VideoCategory `object`: A videoCategory resource identifies a category that has been or could be associated with uploaded videos.
+* VideoCategory `object`: A *videoCategory* resource identifies a category that has been or could be associated with uploaded videos.
   * etag `string`: Etag of this resource.
   * id `string`: The ID that YouTube uses to uniquely identify the video category.
   * kind `string`: Identifies what kind of resource this is. Value: the fixed string "youtube#videoCategory".
@@ -3327,15 +3842,15 @@ google_youtube.watermarks.unset({
 
 ### VideoContentDetails
 * VideoContentDetails `object`: Details about the content of a YouTube Video.
-  * caption `string` (values: false, true): The value of captions indicates whether the video has captions or not.
+  * caption `string` (values: true, false): The value of captions indicates whether the video has captions or not.
   * contentRating [ContentRating](#contentrating)
   * countryRestriction [AccessPolicy](#accesspolicy)
-  * definition `string` (values: hd, sd): The value of definition indicates whether the video is available in high definition or only in standard definition.
+  * definition `string` (values: sd, hd): The value of definition indicates whether the video is available in high definition or only in standard definition.
   * dimension `string`: The value of dimension indicates whether the video is available in 3D or in 2D.
   * duration `string`: The length of the video. The tag value is an ISO 8601 duration in the format PT#M#S, in which the letters PT indicate that the value specifies a period of time, and the letters M and S refer to length in minutes and seconds, respectively. The # characters preceding the M and S letters are both integers that specify the number of minutes (or seconds) of the video. For example, a value of PT15M51S indicates that the video is 15 minutes and 51 seconds long.
   * hasCustomThumbnail `boolean`: Indicates whether the video uploader has provided a custom thumbnail image for the video. This property is only visible to the video uploader.
   * licensedContent `boolean`: The value of is_license_content indicates whether the video is licensed content.
-  * projection `string` (values: 360, rectangular): Specifies the projection format of the video.
+  * projection `string` (values: rectangular, 360): Specifies the projection format of the video.
   * regionRestriction [VideoContentDetailsRegionRestriction](#videocontentdetailsregionrestriction)
 
 ### VideoContentDetailsRegionRestriction
@@ -3351,11 +3866,11 @@ google_youtube.watermarks.unset({
     * items [VideoFileDetailsAudioStream](#videofiledetailsaudiostream)
   * bitrateBps `string`: The uploaded video file's combined (video and audio) bitrate in bits per second.
   * container `string`: The uploaded video file's container format.
-  * creationTime `string`: The date and time when the uploaded video file was created. The value is specified in ISO 8601 format. Currently, the following ISO 8601 formats are supported:  
+  * creationTime `string`: The date and time when the uploaded video file was created. The value is specified in ISO 8601 format. Currently, the following ISO 8601 formats are supported: - Date only: YYYY-MM-DD - Naive time: YYYY-MM-DDTHH:MM:SS - Time with timezone: YYYY-MM-DDTHH:MM:SS+HH:MM 
   * durationMs `string`: The length of the uploaded video in milliseconds.
   * fileName `string`: The uploaded file's name. This field is present whether a video file or another type of file was uploaded.
   * fileSize `string`: The uploaded file's size in bytes. This field is present whether a video file or another type of file was uploaded.
-  * fileType `string` (values: archive, audio, document, image, other, project, video): The uploaded file's type as detected by YouTube's video processing engine. Currently, YouTube only processes video files, but this field is present whether a video file or another type of file was uploaded.
+  * fileType `string` (values: video, audio, image, archive, document, project, other): The uploaded file's type as detected by YouTube's video processing engine. Currently, YouTube only processes video files, but this field is present whether a video file or another type of file was uploaded.
   * videoStreams `array`: A list of video streams contained in the uploaded video file. Each item in the list contains detailed metadata about a video stream.
     * items [VideoFileDetailsVideoStream](#videofiledetailsvideostream)
 
@@ -3373,24 +3888,15 @@ google_youtube.watermarks.unset({
   * codec `string`: The video codec that the stream uses.
   * frameRateFps `number`: The video stream's frame rate, in frames per second.
   * heightPixels `integer`: The encoded video content's height in pixels.
-  * rotation `string` (values: clockwise, counterClockwise, none, other, upsideDown): The amount that YouTube needs to rotate the original source content to properly display the video.
+  * rotation `string` (values: none, clockwise, upsideDown, counterClockwise, other): The amount that YouTube needs to rotate the original source content to properly display the video.
   * vendor `string`: A value that uniquely identifies a video vendor. Typically, the value is a four-letter vendor code.
-  * widthPixels `integer`: The encoded video content's width in pixels. You can calculate the video's encoding aspect ratio as width_pixels / height_pixels.
-
-### VideoGetRatingResponse
-* VideoGetRatingResponse `object`
-  * etag `string`: Etag of this resource.
-  * eventId `string`: Serialized EventId of the request which produced this response.
-  * items `array`: A list of ratings that match the request criteria.
-    * items [VideoRating](#videorating)
-  * kind `string`: Identifies what kind of resource this is. Value: the fixed string "youtube#videoGetRatingResponse".
-  * visitorId `string`: The visitorId identifies the visitor.
+  * widthPixels `integer`: The encoded video content's width in pixels. You can calculate the video's encoding aspect ratio as width_pixels / height_pixels.
 
 ### VideoListResponse
 * VideoListResponse `object`
   * etag `string`: Etag of this resource.
   * eventId `string`: Serialized EventId of the request which produced this response.
-  * items `array`: A list of videos that match the request criteria.
+  * items `array`
     * items [Video](#video)
   * kind `string`: Identifies what kind of resource this is. Value: the fixed string "youtube#videoListResponse".
   * nextPageToken `string`: The token that can be used as the value of the pageToken parameter to retrieve the next page in the result set.
@@ -3402,11 +3908,11 @@ google_youtube.watermarks.unset({
 ### VideoLiveStreamingDetails
 * VideoLiveStreamingDetails `object`: Details about the live streaming metadata.
   * activeLiveChatId `string`: The ID of the currently active live chat attached to this video. This field is filled only if the video is a currently live broadcast that has live chat. Once the broadcast transitions to complete this field will be removed and the live chat closed down. For persistent broadcasts that live chat id will no longer be tied to this video but rather to the new video being displayed at the persistent page.
-  * actualEndTime `string`: The time that the broadcast actually ended. The value is specified in ISO 8601 (YYYY-MM-DDThh:mm:ss.sZ) format. This value will not be available until the broadcast is over.
-  * actualStartTime `string`: The time that the broadcast actually started. The value is specified in ISO 8601 (YYYY-MM-DDThh:mm:ss.sZ) format. This value will not be available until the broadcast begins.
+  * actualEndTime `string`: The time that the broadcast actually ended. The value is specified in ISO 8601 format. This value will not be available until the broadcast is over.
+  * actualStartTime `string`: The time that the broadcast actually started. The value is specified in ISO 8601 format. This value will not be available until the broadcast begins.
   * concurrentViewers `string`: The number of viewers currently watching the broadcast. The property and its value will be present if the broadcast has current viewers and the broadcast owner has not hidden the viewcount for the video. Note that YouTube stops tracking the number of concurrent viewers for a broadcast when the broadcast ends. So, this property would not identify the number of viewers watching an archived video of a live broadcast that already ended.
-  * scheduledEndTime `string`: The time that the broadcast is scheduled to end. The value is specified in ISO 8601 (YYYY-MM-DDThh:mm:ss.sZ) format. If the value is empty or the property is not present, then the broadcast is scheduled to continue indefinitely.
-  * scheduledStartTime `string`: The time that the broadcast is scheduled to begin. The value is specified in ISO 8601 (YYYY-MM-DDThh:mm:ss.sZ) format.
+  * scheduledEndTime `string`: The time that the broadcast is scheduled to end. The value is specified in ISO 8601 format. If the value is empty or the property is not present, then the broadcast is scheduled to continue indefinitely.
+  * scheduledStartTime `string`: The time that the broadcast is scheduled to begin. The value is specified in ISO 8601 format.
 
 ### VideoLocalization
 * VideoLocalization `object`: Localized versions of certain video properties (e.g. title).
@@ -3427,16 +3933,16 @@ google_youtube.watermarks.unset({
 * VideoProcessingDetails `object`: Describes processing status and progress and availability of some other Video resource parts.
   * editorSuggestionsAvailability `string`: This value indicates whether video editing suggestions, which might improve video quality or the playback experience, are available for the video. You can retrieve these suggestions by requesting the suggestions part in your videos.list() request.
   * fileDetailsAvailability `string`: This value indicates whether file details are available for the uploaded video. You can retrieve a video's file details by requesting the fileDetails part in your videos.list() request.
-  * processingFailureReason `string` (values: other, streamingFailed, transcodeFailed, uploadFailed): The reason that YouTube failed to process the video. This property will only have a value if the processingStatus property's value is failed.
+  * processingFailureReason `string` (values: uploadFailed, transcodeFailed, streamingFailed, other): The reason that YouTube failed to process the video. This property will only have a value if the processingStatus property's value is failed.
   * processingIssuesAvailability `string`: This value indicates whether the video processing engine has generated suggestions that might improve YouTube's ability to process the the video, warnings that explain video processing problems, or errors that cause video processing problems. You can retrieve these suggestions by requesting the suggestions part in your videos.list() request.
   * processingProgress [VideoProcessingDetailsProcessingProgress](#videoprocessingdetailsprocessingprogress)
-  * processingStatus `string` (values: failed, processing, succeeded, terminated): The video's processing status. This value indicates whether YouTube was able to process the video or if the video is still being processed.
+  * processingStatus `string` (values: processing, succeeded, failed, terminated): The video's processing status. This value indicates whether YouTube was able to process the video or if the video is still being processed.
   * tagSuggestionsAvailability `string`: This value indicates whether keyword (tag) suggestions are available for the video. Tags can be added to a video's metadata to make it easier for other users to find the video. You can retrieve these suggestions by requesting the suggestions part in your videos.list() request.
   * thumbnailsAvailability `string`: This value indicates whether thumbnail images have been generated for the video.
 
 ### VideoProcessingDetailsProcessingProgress
 * VideoProcessingDetailsProcessingProgress `object`: Video processing progress and completion time estimate.
-  * partsProcessed `string`: The number of parts of the video that YouTube has already processed. You can estimate the percentage of the video that YouTube has already processed by calculating:
+  * partsProcessed `string`: The number of parts of the video that YouTube has already processed. You can estimate the percentage of the video that YouTube has already processed by calculating: 100 * parts_processed / parts_total Note that since the estimated number of parts could increase without a corresponding increase in the number of parts that have already been processed, it is possible that the calculated progress could periodically decrease while YouTube processes a video.
   * partsTotal `string`: An estimate of the total number of parts that need to be processed for the video. The number may be updated with more precise estimates while YouTube processes the video.
   * timeLeftMs `string`: An estimate of the amount of time, in millseconds, that YouTube needs to finish processing the video.
 
@@ -3446,9 +3952,18 @@ google_youtube.watermarks.unset({
     * items `string`
 
 ### VideoRating
-* VideoRating `object`
-  * rating `string` (values: dislike, like, none, unspecified)
-  * videoId `string`
+* VideoRating `object`: Basic details about rating of a video.
+  * rating `string` (values: none, like, dislike): Rating of a video.
+  * videoId `string`: The ID that YouTube uses to uniquely identify the video.
+
+### VideoRatingListResponse
+* VideoRatingListResponse `object`
+  * etag `string`: Etag of this resource.
+  * eventId `string`: Serialized EventId of the request which produced this response.
+  * items `array`: A list of ratings that match the request criteria.
+    * items [VideoRating](#videorating)
+  * kind `string`: Identifies what kind of resource this is. Value: the fixed string "youtube#videoGetRatingResponse".
+  * visitorId `string`: The visitorId identifies the visitor.
 
 ### VideoRecordingDetails
 * VideoRecordingDetails `object`: Recording information associated with the video.
@@ -3458,19 +3973,19 @@ google_youtube.watermarks.unset({
 
 ### VideoSnippet
 * VideoSnippet `object`: Basic details about a video, including title, description, uploader, thumbnails and category.
+  * tags `array`: A list of keyword tags associated with the video. Tags may contain spaces.
+    * items `string`
   * categoryId `string`: The YouTube video category associated with the video.
   * channelId `string`: The ID that YouTube uses to uniquely identify the channel that the video was uploaded to.
   * channelTitle `string`: Channel title for the channel that the video belongs to.
   * defaultAudioLanguage `string`: The default_audio_language property specifies the language spoken in the video's default audio track.
   * defaultLanguage `string`: The language of the videos's default snippet.
-  * description `string`: The video's description.
-  * liveBroadcastContent `string` (values: live, none, upcoming): Indicates if the video is an upcoming/active live broadcast. Or it's "none" if the video is not an upcoming/active live broadcast.
+  * description `string`: The video's description. @mutable youtube.videos.insert youtube.videos.update
+  * liveBroadcastContent `string` (values: none, upcoming, live, completed): Indicates if the video is an upcoming/active live broadcast. Or it's "none" if the video is not an upcoming/active live broadcast.
   * localized [VideoLocalization](#videolocalization)
-  * publishedAt `string`: The date and time that the video was uploaded. The value is specified in ISO 8601 (YYYY-MM-DDThh:mm:ss.sZ) format.
-  * tags `array`: A list of keyword tags associated with the video. Tags may contain spaces.
-    * items `string`
+  * publishedAt `string`: The date and time that the video was uploaded. The value is specified in ISO 8601 format.
   * thumbnails [ThumbnailDetails](#thumbnaildetails)
-  * title `string`: The video's title.
+  * title `string`: The video's title. @mutable youtube.videos.insert youtube.videos.update
 
 ### VideoStatistics
 * VideoStatistics `object`: Statistics about the video, such as the number of times the video was viewed or liked.
@@ -3481,26 +3996,28 @@ google_youtube.watermarks.unset({
   * viewCount `string`: The number of times the video has been viewed.
 
 ### VideoStatus
-* VideoStatus `object`: Basic details about a video category, such as its localized title.
-  * embeddable `boolean`: This value indicates if the video can be embedded on another website.
-  * failureReason `string` (values: codec, conversion, emptyFile, invalidFile, tooSmall, uploadAborted): This value explains why a video failed to upload. This property is only present if the uploadStatus property indicates that the upload failed.
-  * license `string` (values: creativeCommon, youtube): The video's license.
-  * privacyStatus `string` (values: private, public, unlisted, unlisted_new): The video's privacy status.
-  * publicStatsViewable `boolean`: This value indicates if the extended video statistics on the watch page can be viewed by everyone. Note that the view count, likes, etc will still be visible if this is disabled.
-  * publishAt `string`: The date and time when the video is scheduled to publish. It can be set only if the privacy status of the video is private. The value is specified in ISO 8601 (YYYY-MM-DDThh:mm:ss.sZ) format.
-  * rejectionReason `string` (values: claim, copyright, duplicate, inappropriate, legal, length, termsOfUse, trademark, uploaderAccountClosed, uploaderAccountSuspended): This value explains why YouTube rejected an uploaded video. This property is only present if the uploadStatus property indicates that the upload was rejected.
-  * uploadStatus `string` (values: deleted, failed, processed, rejected, uploaded): The status of the uploaded video.
+* VideoStatus `object`: Basic details about a video category, such as its localized title. Next Id: 17
+  * embeddable `boolean`: This value indicates if the video can be embedded on another website. @mutable youtube.videos.insert youtube.videos.update
+  * failureReason `string` (values: conversion, invalidFile, emptyFile, tooSmall, codec, uploadAborted): This value explains why a video failed to upload. This property is only present if the uploadStatus property indicates that the upload failed.
+  * license `string` (values: youtube, creativeCommon): The video's license. @mutable youtube.videos.insert youtube.videos.update
+  * madeForKids `boolean`
+  * privacyStatus `string` (values: public, unlisted, private): The video's privacy status.
+  * publicStatsViewable `boolean`: This value indicates if the extended video statistics on the watch page can be viewed by everyone. Note that the view count, likes, etc will still be visible if this is disabled. @mutable youtube.videos.insert youtube.videos.update
+  * publishAt `string`: The date and time when the video is scheduled to publish. It can be set only if the privacy status of the video is private. The value is specified in ISO 8601 format.
+  * rejectionReason `string` (values: copyright, inappropriate, duplicate, termsOfUse, uploaderAccountSuspended, length, claim, uploaderAccountClosed, trademark, legal): This value explains why YouTube rejected an uploaded video. This property is only present if the uploadStatus property indicates that the upload was rejected.
+  * selfDeclaredMadeForKids `boolean`
+  * uploadStatus `string` (values: uploaded, processed, failed, rejected, deleted): The status of the uploaded video.
 
 ### VideoSuggestions
 * VideoSuggestions `object`: Specifies suggestions on how to improve video content, including encoding hints, tag suggestions, and editor suggestions.
   * editorSuggestions `array`: A list of video editing operations that might improve the video quality or playback experience of the uploaded video.
-    * items `string` (values: audioQuietAudioSwap, videoAutoLevels, videoCrop, videoStabilize)
+    * items `string` (values: videoAutoLevels, videoStabilize, videoCrop, audioQuietAudioSwap)
   * processingErrors `array`: A list of errors that will prevent YouTube from successfully processing the uploaded video video. These errors indicate that, regardless of the video's current processing status, eventually, that status will almost certainly be failed.
-    * items `string` (values: archiveFile, audioFile, docFile, imageFile, notAVideoFile, projectFile, unsupportedSpatialAudioLayout)
+    * items `string` (values: audioFile, imageFile, projectFile, notAVideoFile, docFile, archiveFile, unsupportedSpatialAudioLayout)
   * processingHints `array`: A list of suggestions that may improve YouTube's ability to process the video.
-    * items `string` (values: hdrVideo, nonStreamableMov, sendBestQualityVideo, spatialAudio, sphericalVideo, vrVideo)
+    * items `string` (values: nonStreamableMov, sendBestQualityVideo, sphericalVideo, spatialAudio, vrVideo, hdrVideo)
   * processingWarnings `array`: A list of reasons why YouTube may have difficulty transcoding the uploaded video or that might result in an erroneous transcoding. These warnings are generated before YouTube actually processes the uploaded video file. In addition, they identify issues that are unlikely to cause the video processing to fail but that might cause problems such as sync issues, video artifacts, or a missing audio track.
-    * items `string` (values: hasEditlist, inconsistentResolution, problematicAudioCodec, problematicHdrLookupTable, problematicVideoCodec, unknownAudioCodec, unknownContainer, unknownVideoCodec, unsupportedHdrColorMetadata, unsupportedHdrPixelFormat, unsupportedSphericalProjectionType, unsupportedVrStereoMode)
+    * items `string` (values: unknownContainer, unknownVideoCodec, unknownAudioCodec, inconsistentResolution, hasEditlist, problematicVideoCodec, problematicAudioCodec, unsupportedVrStereoMode, unsupportedSphericalProjectionType, unsupportedHdrPixelFormat, unsupportedHdrColorMetadata, problematicHdrLookupTable)
   * tagSuggestions `array`: A list of keyword tags that could be added to the video's metadata to increase the likelihood that users will locate your video when searching or browsing on YouTube.
     * items [VideoSuggestionsTagSuggestion](#videosuggestionstagsuggestion)
 
@@ -3516,7 +4033,7 @@ google_youtube.watermarks.unset({
     * items `string`
   * topicCategories `array`: A list of Wikipedia URLs that provide a high-level description of the video's content.
     * items `string`
-  * topicIds `array`: A list of Freebase topic IDs that are centrally associated with the video. These are topics that are centrally featured in the video, and it can be said that the video is mainly about each of these. You can retrieve information about each topic using the Freebase Topic API.
+  * topicIds `array`: A list of Freebase topic IDs that are centrally associated with the video. These are topics that are centrally featured in the video, and it can be said that the video is mainly about each of these. You can retrieve information about each topic using the < a href="http://wiki.freebase.com/wiki/Topic_API">Freebase Topic API.
     * items `string`
 
 ### WatchSettings

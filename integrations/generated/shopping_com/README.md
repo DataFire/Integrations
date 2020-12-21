@@ -9,7 +9,7 @@ npm install --save @datafire/shopping_com
 ```js
 let shopping_com = require('@datafire/shopping_com').create();
 
-shopping_com.CategoryTree.get({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

@@ -1,6 +1,6 @@
 {
   "name": "@datafire/nytimes_top_stories",
-  "version": "5.0.0",
+  "version": "6.0.0",
   "main": "index.js",
   "description": "DataFire integration for Top Stories",
   "repository": {
@@ -14,8 +14,8 @@
   },
   "homepage": "https://github.com/DataFire/integrations#readme",
   "datafire": {
-    "origin": "https://api.apis.guru/v2/specs/nytimes.com/top_stories/2.0.0/swagger.json",
-    "type": "openapi"
+    "origin": "https://api.apis.guru/v2/specs/nytimes.com/top_stories/2.0.0/openapi.json",
+    "type": "openapi_3"
   },
   "dependencies": {
     "datafire": "^2.0.0"

@@ -15,13 +15,7 @@ let azure_sql_canceloperations = require('@datafire/azure_sql_canceloperations')
   redirect_uri: ""
 });
 
-azure_sql_canceloperations.DatabaseOperations_ListByDatabase({
-  "resourceGroupName": "",
-  "serverName": "",
-  "databaseName": "",
-  "subscriptionId": "",
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

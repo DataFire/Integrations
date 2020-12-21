@@ -15,7 +15,7 @@ let box_content = require('@datafire/box_content').create({
   redirect_uri: ""
 });
 
-box_content.getWebhooks({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

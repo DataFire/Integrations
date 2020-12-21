@@ -7,7 +7,7 @@
   "info": {
     "description": "The HDInsight Management Client.",
     "title": "HDInsightManagementClient",
-    "version": "2015-03-01-preview",
+    "version": "2018-06-01-preview",
     "x-apisguru-categories": [
       "cloud"
     ],
@@ -17,7 +17,7 @@
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/hdinsight/resource-manager/Microsoft.HDInsight/preview/2015-03-01-preview/operations.json",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/hdinsight/resource-manager/Microsoft.HDInsight/stable/2018-06-01-preview/operations.json",
         "version": "2.0"
       }
     ],
@@ -64,13 +64,6 @@
       "name": "api-version",
       "required": true,
       "type": "string"
-    },
-    "SubscriptionIdParameter": {
-      "description": "The subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
-      "in": "path",
-      "name": "subscriptionId",
-      "required": true,
-      "type": "string"
     }
   },
   "paths": {
@@ -89,6 +82,12 @@
             "schema": {
               "$ref": "#/definitions/OperationListResult"
             }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
           }
         },
         "tags": [
@@ -101,6 +100,20 @@
     }
   },
   "definitions": {
+    "ErrorResponse": {
+      "description": "Describes the format of Error response.",
+      "properties": {
+        "code": {
+          "description": "Error code",
+          "type": "string"
+        },
+        "message": {
+          "description": "Error message indicating why the operation failed.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "Operation": {
       "description": "The HDInsight REST API operation.",
       "properties": {
@@ -116,7 +129,7 @@
               "type": "string"
             },
             "resource": {
-              "description": "The resource on which the operation is performed: Cluster, Capabilities, etc.",
+              "description": "The resource on which the operation is performed: Cluster, Applications, etc.",
               "type": "string"
             }
           }
@@ -126,6 +139,7 @@
           "type": "string"
         }
       },
+      "readOnly": true,
       "type": "object"
     },
     "OperationListResult": {
@@ -142,7 +156,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "readOnly": true
     }
   }
 }

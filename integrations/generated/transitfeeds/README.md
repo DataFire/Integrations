@@ -1,6 +1,6 @@
 # @datafire/transitfeeds
 
-Client library for TransitFeeds
+Client library for TransitFeeds API
 
 ## Installation and Usage
 ```bash
@@ -9,9 +9,7 @@ npm install --save @datafire/transitfeeds
 ```js
 let transitfeeds = require('@datafire/transitfeeds').create();
 
-transitfeeds.getFeedVersions({
-  "key": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -117,13 +115,13 @@ transitfeeds.getLocations({
 ## Definitions
 
 ### API401Response
-* API401Response `object`: This eleent contains information about a 401 Unauthorized error.
+* API401Response `object`: This element contains information about a 401 Unauthorized error.
   * msg `string`: Description of the error.
   * status `string` (values: INVALIDKEY, PERMISSIONDENIED): Indicates the status of this request.
   * ts `integer`: Indicates the timestamp (in number of seconds since the epoch (January 1 1970 00:00:00 GMT).
 
 ### API404Response
-* API404Response `object`: This eleent contains information about a 404 File Not Found error.
+* API404Response `object`: This element contains information about a 404 File Not Found error.
   * msg `string`: Description of the error.
   * status `string` (values: INVALIDMETHOD): Indicates the status of this request.
   * ts `integer`: Indicates the timestamp (in number of seconds since the epoch (January 1 1970 00:00:00 GMT).
@@ -173,7 +171,7 @@ transitfeeds.getLocations({
     * numPages `integer`: The number of pages available, based on the `total` and `limit`.
     * page `integer`: The page number being requested, based on the maximum number than can be returned from in `limit`.
     * total `integer`: The total number of feed versions found based on the request input. Note that this number may be larger
-  * status `string` (values: OK, EMPTYKEY, MISSINGINPUT, INVALIDINPUT): Indicates the success status of this request. The following values are possible:
+  * status `string` (values: OK, DEPRECATED, EMPTYKEY, MISSINGINPUT, INVALIDINPUT): Indicates the success status of this request. The following values are possible:
   * ts `integer`: Indicates the timestamp (in number of seconds since the epoch (January 1 1970 00:00:00 GMT).
 
 ### GetFeedsResponse
@@ -201,7 +199,7 @@ transitfeeds.getLocations({
     * numPages `integer`: The number of pages available, based on the `total` and `limit`.
     * page `integer`: The page number being requested, based on the maximum number than can be returned from in `limit`.
     * total `integer`: The total number of feed versions found based on the request input. Note that this number may be larger
-  * status `string` (values: OK, EMPTYKEY, MISSINGINPUT, INVALIDINPUT, OTHER): Indicates the success status of this request. The following values are possible:
+  * status `string` (values: OK, DEPRECATED, EMPTYKEY, MISSINGINPUT, INVALIDINPUT, OTHER): Indicates the success status of this request. The following values are possible:
   * ts `integer`: Indicates the timestamp (in number of seconds since the epoch (January 1 1970 00:00:00 GMT).
 
 ### GetLocationsResponse

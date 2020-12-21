@@ -7,15 +7,16 @@
   "basePath": "/echo",
   "info": {
     "contact": {
-      "name": "US EPA, OECA Integration, Targeting and Access Branch"
+      "name": "U.S. EPA, OECA Integration, Targeting and Access Branch",
+      "url": "https://echo.epa.gov/resources/general-info/contact-us"
     },
-    "description": "Enforcement and Compliance History Online (ECHO) is a tool developed and maintained by EPA's Office of Enforcement and Compliance Assurance for public use.\nECHO provides integrated compliance and enforcement information for about 800,000 regulated facilities nationwide.\n<BR><BR>EFF Rest Services provides the data for ECHO's Effluent Charts, a set of dynamic charts and tables of permitted effluent limits, releases, and violations over time for \nClean Water Act (CWA) wastewater discharge permits issued under the National Pollutant Discharge Elimination System (NPDES).  See Effluent Charts Help (https://echo.epa.gov/help/reports/effluent-charts-help) for additional information.\n<BR><BR>\nThe are 3 service end points for Efffluent Charts:  get_summary_chart, get_effluent_chart, and download_effluent_chart.\n<br>\n<br><b>1)</b>  Use get_summary_chart to retrieve a summary matrix of effluent parameters by effluent outfall and an overall violation status for a provided NPDES Permit and date range.\n<br><b>2)</b>  Use get_effluent_chart to retrieve detailed Discharge Limit, DMR and NPDES Violation information for a provided NPDES Permit, date range, effluent paramater, or outfall.\n<br><b>3)</b>  Use download_effluent_chart to generate a Comma Separated Value (CSV) file of the detailed data provided with get_effluent chart, for a provided NPDES Permit, date range, effluent paramater, or outfall.\n<br>\n<br>\nAdditional ECHO Resources:   <a href=\"https://echo.epa.gov/tools/web-services\">Web Services</a>, <a href=\"https://echo.epa.gov/resources/echo-data/about-the-data\">About ECHO's Data</a>, <a href=\"https://echo.epa.gov/tools/data-downloads\">Data Downloads</a>\n<br>\n",
+    "description": "Enforcement and Compliance History Online (ECHO) is a tool developed and maintained by EPA's Office of Enforcement and Compliance Assurance for public use.\n  ECHO provides integrated compliance and enforcement information for over 1 million regulated facilities nationwide.\n   EFF Rest Services provides the data for ECHO's Effluent Charts, a set of dynamic charts and tables of permitted effluent limits, releases, and violations over time for Clean Water Act (CWA) wastewater discharge permits issued under the National Pollutant Discharge Elimination System (NPDES).  \n\nSee Effluent Charts Help (https://echo.epa.gov/help/reports/effluent-charts-help) for additional information.\n\\\nThe are 3 service end points for Effluent Charts:  get_summary_chart, get_effluent_chart, and download_effluent_chart.\n\\\n <b>1)</b>  Use get_summary_chart to retrieve a summary matrix of effluent parameters by effluent outfall and an overall violation status for a provided NPDES Permit and date range.\n <b>2)</b>  Use get_effluent_chart to retrieve detailed Discharge Limit, DMR and NPDES Violation information for a provided NPDES Permit, date range, effluent parameter, or outfall.\n <b>3)</b>  Use download_effluent_chart to generate a Comma Separated Value (CSV) file of the detailed data provided with get_effluent chart, for a provided NPDES Permit, date range, effluent parameter, or outfall.\n\\\nAdditional ECHO Resources:   <a href=\"https://echo.epa.gov/tools/web-services\">Web Services</a>, <a href=\"https://echo.epa.gov/resources/echo-data/about-the-data\">About ECHO's Data</a>, <a href=\"https://echo.epa.gov/tools/data-downloads\">Data Downloads</a>\n ",
     "license": {
-      "name": "This page was built with the Swagger API.",
-      "url": "https://swagger.io"
+      "name": "U.S. Public Domain License",
+      "url": "https://edg.epa.gov/EPA_Data_License.html"
     },
     "title": "U.S. EPA Enforcement and Compliance History Online (ECHO) - Effluent Charting and Reporting",
-    "version": "1.0.0",
+    "version": "2019.10.15",
     "x-apisguru-categories": [
       "open_data"
     ],
@@ -39,36 +40,103 @@
     }
   },
   "consumes": [
-    "application/json",
-    "application/xml"
+    "application/x-www-form-urlencoded"
   ],
   "produces": [
     "application/json",
     "application/xml"
   ],
   "parameters": {
-    "callback": {
+    "f.callback": {
+      "description": "JSONP Callback.  For use with JSONP and GEOJSONP output only.  Enter a name of the function in which to wrap the JSON response.",
+      "in": "formData",
+      "name": "callback",
+      "required": false,
+      "type": "string"
+    },
+    "f.end_date": {
+      "description": "The end date (mm/dd/yyyy) for the date range of interest. Must be used in conjunction with start_date. If start_date and end_date are not specified, the service will return the last three years of data.",
+      "in": "formData",
+      "name": "end_date",
+      "required": false,
+      "type": "string"
+    },
+    "f.outfall": {
+      "description": "Three-character code that identifies the point of discharge (e.g., pipe or outfall) for a facility. A single NPDES ID may have multiple points of discharge.",
+      "in": "formData",
+      "name": "outfall",
+      "required": false,
+      "type": "string"
+    },
+    "f.output": {
+      "description": "Output Format Flag.  Enter one of the following keywords:\n- JSON = Data model formatted as Javascript Object Notation (default).\n- JSONP = Data model formatted as Javascript Object Notation with Padding.  \n- XML = Data model formatted as Extensible Markup Language.",
+      "enum": [
+        "JSONP",
+        "JSON",
+        "XML"
+      ],
+      "in": "formData",
+      "name": "output",
+      "required": false,
+      "type": "string"
+    },
+    "f.p_id": {
+      "description": "Identifier for the service.",
+      "in": "formData",
+      "name": "p_id",
+      "required": true,
+      "type": "string"
+    },
+    "f.parameter_code": {
+      "description": "Five-digit numeric code identifying the parameter. See Parameter Lookup documentation for a complete list of codes.",
+      "in": "formData",
+      "name": "parameter_code",
+      "required": false,
+      "type": "string"
+    },
+    "f.search_code": {
+      "description": "Enter a partial or complete code value.",
+      "in": "formData",
+      "name": "search_code",
+      "required": false,
+      "type": "string"
+    },
+    "f.search_term": {
+      "description": "Enter a partial or complete search phrase or word.",
+      "in": "formData",
+      "name": "search_term",
+      "required": false,
+      "type": "string"
+    },
+    "f.start_date": {
+      "description": "The start date (mm/dd/yyyy) for the date range of interest. Must be used in conjunction with end_date. If start_date and end_date are not specified, the service will return the last three years of data.",
+      "in": "formData",
+      "name": "start_date",
+      "required": false,
+      "type": "string"
+    },
+    "q.callback": {
       "description": "JSONP Callback.  For use with JSONP and GEOJSONP output only.  Enter a name of the function in which to wrap the JSON response.",
       "in": "query",
       "name": "callback",
       "required": false,
       "type": "string"
     },
-    "end_date": {
+    "q.end_date": {
       "description": "The end date (mm/dd/yyyy) for the date range of interest. Must be used in conjunction with start_date. If start_date and end_date are not specified, the service will return the last three years of data.",
       "in": "query",
       "name": "end_date",
       "required": false,
       "type": "string"
     },
-    "outfall": {
+    "q.outfall": {
       "description": "Three-character code that identifies the point of discharge (e.g., pipe or outfall) for a facility. A single NPDES ID may have multiple points of discharge.",
       "in": "query",
       "name": "outfall",
       "required": false,
       "type": "string"
     },
-    "output": {
+    "q.output": {
       "description": "Output Format Flag.  Enter one of the following keywords:\n- JSON = Data model formatted as Javascript Object Notation (default).\n- JSONP = Data model formatted as Javascript Object Notation with Padding.  \n- XML = Data model formatted as Extensible Markup Language.",
       "enum": [
         "JSONP",
@@ -80,35 +148,35 @@
       "required": false,
       "type": "string"
     },
-    "p_id": {
+    "q.p_id": {
       "description": "Identifier for the service.",
       "in": "query",
       "name": "p_id",
       "required": true,
       "type": "string"
     },
-    "parameter_code": {
+    "q.parameter_code": {
       "description": "Five-digit numeric code identifying the parameter. See Parameter Lookup documentation for a complete list of codes.",
       "in": "query",
       "name": "parameter_code",
       "required": false,
       "type": "string"
     },
-    "search_code": {
+    "q.search_code": {
       "description": "Enter a partial or complete code value.",
       "in": "query",
       "name": "search_code",
       "required": false,
       "type": "string"
     },
-    "search_term": {
+    "q.search_term": {
       "description": "Enter a partial or complete search phrase or word.",
       "in": "query",
       "name": "search_term",
       "required": false,
       "type": "string"
     },
-    "start_date": {
+    "q.start_date": {
       "description": "The start date (mm/dd/yyyy) for the date range of interest. Must be used in conjunction with end_date. If start_date and end_date are not specified, the service will return the last three years of data.",
       "in": "query",
       "name": "start_date",
@@ -122,19 +190,19 @@
         "description": "Downloads tabular Discharge Monitoring Report (DMR) and compliance data for one NPDES permit as a CSV.",
         "parameters": [
           {
-            "$ref": "#/parameters/p_id"
+            "$ref": "#/parameters/q.p_id"
           },
           {
-            "$ref": "#/parameters/outfall"
+            "$ref": "#/parameters/q.outfall"
           },
           {
-            "$ref": "#/parameters/parameter_code"
+            "$ref": "#/parameters/q.parameter_code"
           },
           {
-            "$ref": "#/parameters/start_date"
+            "$ref": "#/parameters/q.start_date"
           },
           {
-            "$ref": "#/parameters/end_date"
+            "$ref": "#/parameters/q.end_date"
           }
         ],
         "responses": {
@@ -155,19 +223,19 @@
         "description": "Downloads tabular Discharge Monitoring Report (DMR) and compliance data for one NPDES permit as a CSV.",
         "parameters": [
           {
-            "$ref": "#/parameters/p_id"
+            "$ref": "#/parameters/f.p_id"
           },
           {
-            "$ref": "#/parameters/outfall"
+            "$ref": "#/parameters/f.outfall"
           },
           {
-            "$ref": "#/parameters/parameter_code"
+            "$ref": "#/parameters/f.parameter_code"
           },
           {
-            "$ref": "#/parameters/start_date"
+            "$ref": "#/parameters/f.start_date"
           },
           {
-            "$ref": "#/parameters/end_date"
+            "$ref": "#/parameters/f.end_date"
           }
         ],
         "responses": {
@@ -190,25 +258,25 @@
         "description": "Discharge Monitoring Report (DMR) data supporting each effluent chart for one NPDES permit. Includes Discharge Monitoring Reports and NPDES Violations. \n\n",
         "parameters": [
           {
-            "$ref": "#/parameters/p_id"
+            "$ref": "#/parameters/q.p_id"
           },
           {
-            "$ref": "#/parameters/outfall"
+            "$ref": "#/parameters/q.outfall"
           },
           {
-            "$ref": "#/parameters/parameter_code"
+            "$ref": "#/parameters/q.parameter_code"
           },
           {
-            "$ref": "#/parameters/start_date"
+            "$ref": "#/parameters/q.start_date"
           },
           {
-            "$ref": "#/parameters/end_date"
+            "$ref": "#/parameters/q.end_date"
           },
           {
-            "$ref": "#/parameters/output"
+            "$ref": "#/parameters/q.output"
           },
           {
-            "$ref": "#/parameters/callback"
+            "$ref": "#/parameters/q.callback"
           }
         ],
         "responses": {
@@ -218,13 +286,16 @@
               "description": "Root Object",
               "properties": {
                 "Results": {
-                  "$ref": "#/definitions/eff1_Results"
+                  "$ref": "#/definitions/eff05"
                 }
               },
               "required": [
                 "Results"
               ],
-              "type": "object"
+              "type": "object",
+              "xml": {
+                "name": "Root"
+              }
             }
           }
         },
@@ -238,25 +309,25 @@
         "description": "Discharge Monitoring Report (DMR) data supporting each effluent chart for one NPDES permit. Includes Discharge Monitoring Reports and NPDES Violations. \n\n",
         "parameters": [
           {
-            "$ref": "#/parameters/p_id"
+            "$ref": "#/parameters/f.p_id"
           },
           {
-            "$ref": "#/parameters/outfall"
+            "$ref": "#/parameters/f.outfall"
           },
           {
-            "$ref": "#/parameters/parameter_code"
+            "$ref": "#/parameters/f.parameter_code"
           },
           {
-            "$ref": "#/parameters/start_date"
+            "$ref": "#/parameters/f.start_date"
           },
           {
-            "$ref": "#/parameters/end_date"
+            "$ref": "#/parameters/f.end_date"
           },
           {
-            "$ref": "#/parameters/output"
+            "$ref": "#/parameters/f.output"
           },
           {
-            "$ref": "#/parameters/callback"
+            "$ref": "#/parameters/f.callback"
           }
         ],
         "responses": {
@@ -266,13 +337,16 @@
               "description": "Root Object",
               "properties": {
                 "Results": {
-                  "$ref": "#/definitions/eff1_Results"
+                  "$ref": "#/definitions/eff05"
                 }
               },
               "required": [
                 "Results"
               ],
-              "type": "object"
+              "type": "object",
+              "xml": {
+                "name": "Root"
+              }
             }
           }
         },
@@ -288,19 +362,19 @@
         "description": "Summary of compliance status each outfall and parameter for one NPDES permit. Provides the current compliance status and overall compliance status for the date range of interest. This service supports the Summary Matrix on the Effluent Charts.",
         "parameters": [
           {
-            "$ref": "#/parameters/p_id"
+            "$ref": "#/parameters/q.p_id"
           },
           {
-            "$ref": "#/parameters/output"
+            "$ref": "#/parameters/q.output"
           },
           {
-            "$ref": "#/parameters/callback"
+            "$ref": "#/parameters/q.callback"
           },
           {
-            "$ref": "#/parameters/start_date"
+            "$ref": "#/parameters/q.start_date"
           },
           {
-            "$ref": "#/parameters/end_date"
+            "$ref": "#/parameters/q.end_date"
           }
         ],
         "responses": {
@@ -310,13 +384,16 @@
               "description": "Root Object",
               "properties": {
                 "Results": {
-                  "$ref": "#/definitions/eff2_Results"
+                  "$ref": "#/definitions/eff09"
                 }
               },
               "required": [
                 "Results"
               ],
-              "type": "object"
+              "type": "object",
+              "xml": {
+                "name": "Root"
+              }
             }
           }
         },
@@ -330,19 +407,19 @@
         "description": "Summary of compliance status each outfall and parameter for one NPDES permit. Provides the current compliance status and overall compliance status for the date range of interest. This service supports the Summary Matrix on the Effluent Charts.",
         "parameters": [
           {
-            "$ref": "#/parameters/p_id"
+            "$ref": "#/parameters/f.p_id"
           },
           {
-            "$ref": "#/parameters/output"
+            "$ref": "#/parameters/f.output"
           },
           {
-            "$ref": "#/parameters/callback"
+            "$ref": "#/parameters/f.callback"
           },
           {
-            "$ref": "#/parameters/start_date"
+            "$ref": "#/parameters/f.start_date"
           },
           {
-            "$ref": "#/parameters/end_date"
+            "$ref": "#/parameters/f.end_date"
           }
         ],
         "responses": {
@@ -352,13 +429,16 @@
               "description": "Root Object",
               "properties": {
                 "Results": {
-                  "$ref": "#/definitions/eff2_Results"
+                  "$ref": "#/definitions/eff09"
                 }
               },
               "required": [
                 "Results"
               ],
-              "type": "object"
+              "type": "object",
+              "xml": {
+                "name": "Root"
+              }
             }
           }
         },
@@ -374,16 +454,16 @@
         "description": "Look up Clean Water Act parameter codes and descriptions in the Integrated Compliance Information System - National Pollutant Discharge Elimination System (ICIS-NPDES) by code or term.",
         "parameters": [
           {
-            "$ref": "#/parameters/output"
+            "$ref": "#/parameters/q.output"
           },
           {
-            "$ref": "#/parameters/callback"
+            "$ref": "#/parameters/q.callback"
           },
           {
-            "$ref": "#/parameters/search_term"
+            "$ref": "#/parameters/q.search_term"
           },
           {
-            "$ref": "#/parameters/search_code"
+            "$ref": "#/parameters/q.search_code"
           }
         ],
         "responses": {
@@ -393,13 +473,16 @@
               "description": "Root Object",
               "properties": {
                 "Results": {
-                  "$ref": "#/definitions/rlk16_Results"
+                  "$ref": "#/definitions/rlup23"
                 }
               },
               "required": [
                 "Results"
               ],
-              "type": "object"
+              "type": "object",
+              "xml": {
+                "name": "Root"
+              }
             }
           }
         },
@@ -413,16 +496,16 @@
         "description": "Look up Clean Water Act parameter codes and descriptions in the Integrated Compliance Information System - National Pollutant Discharge Elimination System (ICIS-NPDES) by code or term.",
         "parameters": [
           {
-            "$ref": "#/parameters/output"
+            "$ref": "#/parameters/f.output"
           },
           {
-            "$ref": "#/parameters/callback"
+            "$ref": "#/parameters/f.callback"
           },
           {
-            "$ref": "#/parameters/search_term"
+            "$ref": "#/parameters/f.search_term"
           },
           {
-            "$ref": "#/parameters/search_code"
+            "$ref": "#/parameters/f.search_code"
           }
         ],
         "responses": {
@@ -432,13 +515,16 @@
               "description": "Root Object",
               "properties": {
                 "Results": {
-                  "$ref": "#/definitions/rlk16_Results"
+                  "$ref": "#/definitions/rlup23"
                 }
               },
               "required": [
                 "Results"
               ],
-              "type": "object"
+              "type": "object",
+              "xml": {
+                "name": "Root"
+              }
             }
           }
         },
@@ -451,7 +537,7 @@
     }
   },
   "definitions": {
-    "eff1_DischargeMonitoringReports": {
+    "eff01": {
       "description": "Discharge Monitoring Reports Object",
       "properties": {
         "DMREventId": {
@@ -614,10 +700,14 @@
         },
         "NPDESViolations": {
           "items": {
-            "$ref": "#/definitions/eff1_NPDESViolations"
+            "$ref": "#/definitions/eff02"
           },
           "title": "NPDES Violations",
-          "type": "array"
+          "type": "array",
+          "xml": {
+            "name": "NPDESViolations",
+            "wrapped": true
+          }
         },
         "NmbrOfSubmission": {
           "description": "The number of months of discharges represented on each DMR for the limit set (e.g., monthly = 1, bi-monthly = 2, quarterly = 3, triannual = 4, semi-annual = 6, annual = 12). This data element will be blank for Unscheduled Limit Sets",
@@ -737,9 +827,12 @@
         "NODEDesc",
         "ExceedencePct"
       ],
-      "type": "object"
+      "type": "object",
+      "xml": {
+        "name": "DischargeMonitoringReport"
+      }
     },
-    "eff1_NPDESViolations": {
+    "eff02": {
       "description": "NPDES Violations Object",
       "properties": {
         "NPDESViolationId": {
@@ -801,20 +894,30 @@
           "example": "No Violation",
           "title": "Violation Severity",
           "type": "string"
+        },
+        "ViolationSeverityDesc": {
+          "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "xml": {
+        "name": "NPDESViolation"
+      }
     },
-    "eff1_Parameters": {
+    "eff03": {
       "description": "Parameters Object",
       "properties": {
         "DischargeMonitoringReports": {
           "description": "An array of Discharge Monitoring Report (DMR) data.",
           "items": {
-            "$ref": "#/definitions/eff1_DischargeMonitoringReports"
+            "$ref": "#/definitions/eff01"
           },
           "title": "Effluent Discharge Monitoring Report",
-          "type": "array"
+          "type": "array",
+          "xml": {
+            "name": "DischargeMonitoringReports",
+            "wrapped": true
+          }
         },
         "MonitoringLocationCode": {
           "description": "The code that the monitoring location at which the monitoring requirement (and effluent limit if limited) applies. One parameter may have several monitoring location codes pertaining to the same permitted feature",
@@ -862,18 +965,25 @@
         "StayTypeDesc",
         "DischargeMonitoringReports"
       ],
-      "type": "object"
+      "type": "object",
+      "xml": {
+        "name": "Parameter"
+      }
     },
-    "eff1_PermFeatures": {
+    "eff04": {
       "description": "Permit Features Object",
       "properties": {
         "Parameters": {
           "description": "Array of Effuent Limit Parameters",
           "items": {
-            "$ref": "#/definitions/eff1_Parameters"
+            "$ref": "#/definitions/eff03"
           },
           "title": "Limit Parameters",
-          "type": "array"
+          "type": "array",
+          "xml": {
+            "name": "Parameters",
+            "wrapped": true
+          }
         },
         "PermFeatureNmbr": {
           "description": "A three-character code in ICIS-NPDES that identifies the point of discharge (e.g., outfall) for a facility. A NPDES permit may have multiple points of discharge. If the code is less than three characters in the .CSV, append zeros to the beginning of the number (e.g., 1 is equivalent to 001)",
@@ -900,9 +1010,12 @@
         "Parameters",
         "PermFeatureTypeDesc"
       ],
-      "type": "object"
+      "type": "object",
+      "xml": {
+        "name": "PermFeature"
+      }
     },
-    "eff1_Results": {
+    "eff05": {
       "description": "Results Object",
       "properties": {
         "CWPCity": {
@@ -979,10 +1092,14 @@
         "PermFeatures": {
           "description": "Array of Permitted Features",
           "items": {
-            "$ref": "#/definitions/eff1_PermFeatures"
+            "$ref": "#/definitions/eff04"
           },
           "title": "Permitted Features (Pipe Outfalls)",
-          "type": "array"
+          "type": "array",
+          "xml": {
+            "name": "PermFeatures",
+            "wrapped": true
+          }
         },
         "RegistryId": {
           "description": "12-digit Facility Registry Service (FRS) identification number.  FRS uniquely identifies a facility by assigning an identification number (FRS ID), and uses this FRS ID to link together all EPA regulatory program database records",
@@ -1029,7 +1146,7 @@
       ],
       "type": "object"
     },
-    "eff2_LinkedPermits": {
+    "eff06": {
       "description": "Linked Permits Object",
       "properties": {
         "CWPCity": {
@@ -1104,9 +1221,12 @@
         "CWPPermitTypeDesc",
         "CWPCurrentSNCStatus"
       ],
-      "type": "object"
+      "type": "object",
+      "xml": {
+        "name": "LinkedPermit"
+      }
     },
-    "eff2_Parameters": {
+    "eff07": {
       "description": "Parameters Object",
       "properties": {
         "CurrentVioStatus": {
@@ -1140,17 +1260,24 @@
         "MaxVioStatus",
         "CurrentVioStatus"
       ],
-      "type": "object"
+      "type": "object",
+      "xml": {
+        "name": "Parameter"
+      }
     },
-    "eff2_PermFeatures": {
+    "eff08": {
       "description": "Permit Features Object",
       "properties": {
         "Parameters": {
           "items": {
-            "$ref": "#/definitions/eff2_Parameters"
+            "$ref": "#/definitions/eff07"
           },
           "title": "Parameters",
-          "type": "array"
+          "type": "array",
+          "xml": {
+            "name": "Parameters",
+            "wrapped": true
+          }
         },
         "PermFeatureNmbr": {
           "description": "A three-character code in ICIS-NPDES that identifies the point of discharge (e.g., outfall) for a facility. A NPDES permit may have multiple points of discharge. If the code is less than three characters in the .CSV, append zeros to the beginning of the number (e.g., 1 is equivalent to 001)",
@@ -1177,9 +1304,12 @@
         "PermFeatureTypeDesc",
         "Parameters"
       ],
-      "type": "object"
+      "type": "object",
+      "xml": {
+        "name": "PermFeature"
+      }
     },
-    "eff2_Results": {
+    "eff09": {
       "description": "Results Object",
       "properties": {
         "CWPCity": {
@@ -1249,10 +1379,14 @@
         },
         "LinkedPermits": {
           "items": {
-            "$ref": "#/definitions/eff2_LinkedPermits"
+            "$ref": "#/definitions/eff06"
           },
           "title": "Linked Permits",
-          "type": "array"
+          "type": "array",
+          "xml": {
+            "name": "LinkedPermits",
+            "wrapped": true
+          }
         },
         "Message": {
           "description": "Field to record messages (typically performance-related) about packet processing",
@@ -1262,10 +1396,14 @@
         },
         "PermFeatures": {
           "items": {
-            "$ref": "#/definitions/eff2_PermFeatures"
+            "$ref": "#/definitions/eff08"
           },
           "title": "Permitted Features (Pipe Outfalls)",
-          "type": "array"
+          "type": "array",
+          "xml": {
+            "name": "PermFeatures",
+            "wrapped": true
+          }
         },
         "RegistryId": {
           "description": "12-digit Facility Registry Service (FRS) identification number.  FRS uniquely identifies a facility by assigning an identification number (FRS ID), and uses this FRS ID to link together all EPA regulatory program database records",
@@ -1312,7 +1450,7 @@
       ],
       "type": "object"
     },
-    "rlk00_LuValues": {
+    "rlup01": {
       "description": "Lookup Values",
       "properties": {
         "ValueCode": {
@@ -1330,16 +1468,23 @@
         "ValueCode",
         "ValueDescription"
       ],
-      "type": "object"
+      "type": "object",
+      "xml": {
+        "name": "LuValue"
+      }
     },
-    "rlk16_Results": {
+    "rlup23": {
       "description": "Results Object",
       "properties": {
         "LuValues": {
           "items": {
-            "$ref": "#/definitions/rlk00_LuValues"
+            "$ref": "#/definitions/rlup01"
           },
-          "type": "array"
+          "type": "array",
+          "xml": {
+            "name": "LuValues",
+            "wrapped": true
+          }
         },
         "Message": {
           "description": "Field to record messages (typically performance-related) about packet processing",

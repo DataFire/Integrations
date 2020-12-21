@@ -15,10 +15,7 @@ let google_replicapoolupdater = require('@datafire/google_replicapoolupdater').c
   redirect_uri: ""
 });
 
-google_replicapoolupdater.zoneOperations.list({
-  "project": "",
-  "zone": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

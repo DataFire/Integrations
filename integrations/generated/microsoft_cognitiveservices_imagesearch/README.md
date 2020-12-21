@@ -1,6 +1,6 @@
 # @datafire/microsoft_cognitiveservices_imagesearch
 
-Client library for Image Search
+Client library for Image Search Client
 
 ## Installation and Usage
 ```bash
@@ -11,10 +11,7 @@ let microsoft_cognitiveservices_imagesearch = require('@datafire/microsoft_cogni
   apiKeyHeader: ""
 });
 
-microsoft_cognitiveservices_imagesearch.Images_Details({
-  "X-BingApis-SDK": "",
-  "q": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

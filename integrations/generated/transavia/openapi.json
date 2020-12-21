@@ -57,6 +57,7 @@
       "apiKeyQuery": []
     }
   ],
+  "tags": [],
   "paths": {
     "/": {
       "get": {

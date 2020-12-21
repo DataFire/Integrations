@@ -15,9 +15,7 @@ let azure_devtestlabs_dtl = require('@datafire/azure_devtestlabs_dtl').create({
   redirect_uri: ""
 });
 
-azure_devtestlabs_dtl.ProviderOperations_List({
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -60,13 +58,13 @@ azure_devtestlabs_dtl.Labs_ListBySubscription({
 * input `object`
   * subscriptionId **required** `string`: The subscription ID.
   * $expand `string`: Specify the $expand query. Example: 'properties($select=defaultStorageAccount)'
-  * $filter `string`: The filter to apply to the operation.
-  * $top `integer`: The maximum number of resources to return from the operation.
-  * $orderby `string`: The ordering expression for the results, using OData notation.
+  * $filter `string`: The filter to apply to the operation. Example: '$filter=contains(name,'myName')
+  * $top `integer`: The maximum number of resources to return from the operation. Example: '$top=10'
+  * $orderby `string`: The ordering expression for the results, using OData notation. Example: '$orderby=name desc'
   * api-version **required** `string`: Client API version.
 
 #### Output
-* output [ResponseWithContinuation[Lab]](#responsewithcontinuation[lab])
+* output [LabList](#lablist)
 
 ### Operations_Get
 Get operation.
@@ -106,13 +104,13 @@ azure_devtestlabs_dtl.GlobalSchedules_ListBySubscription({
 * input `object`
   * subscriptionId **required** `string`: The subscription ID.
   * $expand `string`: Specify the $expand query. Example: 'properties($select=status)'
-  * $filter `string`: The filter to apply to the operation.
-  * $top `integer`: The maximum number of resources to return from the operation.
-  * $orderby `string`: The ordering expression for the results, using OData notation.
+  * $filter `string`: The filter to apply to the operation. Example: '$filter=contains(name,'myName')
+  * $top `integer`: The maximum number of resources to return from the operation. Example: '$top=10'
+  * $orderby `string`: The ordering expression for the results, using OData notation. Example: '$orderby=name desc'
   * api-version **required** `string`: Client API version.
 
 #### Output
-* output [ResponseWithContinuation[Schedule]](#responsewithcontinuation[schedule])
+* output [ScheduleList](#schedulelist)
 
 ### Labs_ListByResourceGroup
 List labs in a resource group.
@@ -131,13 +129,13 @@ azure_devtestlabs_dtl.Labs_ListByResourceGroup({
   * subscriptionId **required** `string`: The subscription ID.
   * resourceGroupName **required** `string`: The name of the resource group.
   * $expand `string`: Specify the $expand query. Example: 'properties($select=defaultStorageAccount)'
-  * $filter `string`: The filter to apply to the operation.
-  * $top `integer`: The maximum number of resources to return from the operation.
-  * $orderby `string`: The ordering expression for the results, using OData notation.
+  * $filter `string`: The filter to apply to the operation. Example: '$filter=contains(name,'myName')
+  * $top `integer`: The maximum number of resources to return from the operation. Example: '$top=10'
+  * $orderby `string`: The ordering expression for the results, using OData notation. Example: '$orderby=name desc'
   * api-version **required** `string`: Client API version.
 
 #### Output
-* output [ResponseWithContinuation[Lab]](#responsewithcontinuation[lab])
+* output [LabList](#lablist)
 
 ### ArtifactSources_List
 List artifact sources in a given lab.
@@ -158,13 +156,13 @@ azure_devtestlabs_dtl.ArtifactSources_List({
   * resourceGroupName **required** `string`: The name of the resource group.
   * labName **required** `string`: The name of the lab.
   * $expand `string`: Specify the $expand query. Example: 'properties($select=displayName)'
-  * $filter `string`: The filter to apply to the operation.
-  * $top `integer`: The maximum number of resources to return from the operation.
-  * $orderby `string`: The ordering expression for the results, using OData notation.
+  * $filter `string`: The filter to apply to the operation. Example: '$filter=contains(name,'myName')
+  * $top `integer`: The maximum number of resources to return from the operation. Example: '$top=10'
+  * $orderby `string`: The ordering expression for the results, using OData notation. Example: '$orderby=name desc'
   * api-version **required** `string`: Client API version.
 
 #### Output
-* output [ResponseWithContinuation[ArtifactSource]](#responsewithcontinuation[artifactsource])
+* output [ArtifactSourceList](#artifactsourcelist)
 
 ### ArmTemplates_List
 List azure resource manager templates in a given artifact source.
@@ -187,13 +185,13 @@ azure_devtestlabs_dtl.ArmTemplates_List({
   * labName **required** `string`: The name of the lab.
   * artifactSourceName **required** `string`: The name of the artifact source.
   * $expand `string`: Specify the $expand query. Example: 'properties($select=displayName)'
-  * $filter `string`: The filter to apply to the operation.
-  * $top `integer`: The maximum number of resources to return from the operation.
-  * $orderby `string`: The ordering expression for the results, using OData notation.
+  * $filter `string`: The filter to apply to the operation. Example: '$filter=contains(name,'myName')
+  * $top `integer`: The maximum number of resources to return from the operation. Example: '$top=10'
+  * $orderby `string`: The ordering expression for the results, using OData notation. Example: '$orderby=name desc'
   * api-version **required** `string`: Client API version.
 
 #### Output
-* output [ResponseWithContinuation[ArmTemplate]](#responsewithcontinuation[armtemplate])
+* output [ArmTemplateList](#armtemplatelist)
 
 ### ArmTemplates_Get
 Get azure resource manager template.
@@ -216,7 +214,7 @@ azure_devtestlabs_dtl.ArmTemplates_Get({
   * resourceGroupName **required** `string`: The name of the resource group.
   * labName **required** `string`: The name of the lab.
   * artifactSourceName **required** `string`: The name of the artifact source.
-  * name **required** `string`: The name of the azure Resource Manager template.
+  * name **required** `string`: The name of the azure resource manager template.
   * $expand `string`: Specify the $expand query. Example: 'properties($select=displayName)'
   * api-version **required** `string`: Client API version.
 
@@ -244,13 +242,13 @@ azure_devtestlabs_dtl.Artifacts_List({
   * labName **required** `string`: The name of the lab.
   * artifactSourceName **required** `string`: The name of the artifact source.
   * $expand `string`: Specify the $expand query. Example: 'properties($select=title)'
-  * $filter `string`: The filter to apply to the operation.
-  * $top `integer`: The maximum number of resources to return from the operation.
-  * $orderby `string`: The ordering expression for the results, using OData notation.
+  * $filter `string`: The filter to apply to the operation. Example: '$filter=contains(name,'myName')
+  * $top `integer`: The maximum number of resources to return from the operation. Example: '$top=10'
+  * $orderby `string`: The ordering expression for the results, using OData notation. Example: '$orderby=name desc'
   * api-version **required** `string`: Client API version.
 
 #### Output
-* output [ResponseWithContinuation[Artifact]](#responsewithcontinuation[artifact])
+* output [ArtifactList](#artifactlist)
 
 ### Artifacts_Get
 Get artifact.
@@ -361,7 +359,7 @@ azure_devtestlabs_dtl.ArtifactSources_Get({
 * output [ArtifactSource](#artifactsource)
 
 ### ArtifactSources_Update
-Modify properties of artifact sources.
+Allows modifying tags of artifact sources. All other properties will be ignored.
 
 
 ```js
@@ -490,13 +488,13 @@ azure_devtestlabs_dtl.CustomImages_List({
   * resourceGroupName **required** `string`: The name of the resource group.
   * labName **required** `string`: The name of the lab.
   * $expand `string`: Specify the $expand query. Example: 'properties($select=vm)'
-  * $filter `string`: The filter to apply to the operation.
-  * $top `integer`: The maximum number of resources to return from the operation.
-  * $orderby `string`: The ordering expression for the results, using OData notation.
+  * $filter `string`: The filter to apply to the operation. Example: '$filter=contains(name,'myName')
+  * $top `integer`: The maximum number of resources to return from the operation. Example: '$top=10'
+  * $orderby `string`: The ordering expression for the results, using OData notation. Example: '$orderby=name desc'
   * api-version **required** `string`: Client API version.
 
 #### Output
-* output [ResponseWithContinuation[CustomImage]](#responsewithcontinuation[customimage])
+* output [CustomImageList](#customimagelist)
 
 ### CustomImages_Delete
 Delete custom image. This operation can take a while to complete.
@@ -544,6 +542,33 @@ azure_devtestlabs_dtl.CustomImages_Get({
   * labName **required** `string`: The name of the lab.
   * name **required** `string`: The name of the custom image.
   * $expand `string`: Specify the $expand query. Example: 'properties($select=vm)'
+  * api-version **required** `string`: Client API version.
+
+#### Output
+* output [CustomImage](#customimage)
+
+### CustomImages_Update
+Allows modifying tags of custom images. All other properties will be ignored.
+
+
+```js
+azure_devtestlabs_dtl.CustomImages_Update({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "labName": "",
+  "name": "",
+  "customImage": {},
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: The subscription ID.
+  * resourceGroupName **required** `string`: The name of the resource group.
+  * labName **required** `string`: The name of the lab.
+  * name **required** `string`: The name of the custom image.
+  * customImage **required** [CustomImageFragment](#customimagefragment)
   * api-version **required** `string`: Client API version.
 
 #### Output
@@ -597,13 +622,13 @@ azure_devtestlabs_dtl.Formulas_List({
   * resourceGroupName **required** `string`: The name of the resource group.
   * labName **required** `string`: The name of the lab.
   * $expand `string`: Specify the $expand query. Example: 'properties($select=description)'
-  * $filter `string`: The filter to apply to the operation.
-  * $top `integer`: The maximum number of resources to return from the operation.
-  * $orderby `string`: The ordering expression for the results, using OData notation.
+  * $filter `string`: The filter to apply to the operation. Example: '$filter=contains(name,'myName')
+  * $top `integer`: The maximum number of resources to return from the operation. Example: '$top=10'
+  * $orderby `string`: The ordering expression for the results, using OData notation. Example: '$orderby=name desc'
   * api-version **required** `string`: Client API version.
 
 #### Output
-* output [ResponseWithContinuation[Formula]](#responsewithcontinuation[formula])
+* output [FormulaList](#formulalist)
 
 ### Formulas_Delete
 Delete formula.
@@ -656,8 +681,35 @@ azure_devtestlabs_dtl.Formulas_Get({
 #### Output
 * output [Formula](#formula)
 
+### Formulas_Update
+Allows modifying tags of formulas. All other properties will be ignored.
+
+
+```js
+azure_devtestlabs_dtl.Formulas_Update({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "labName": "",
+  "name": "",
+  "formula": {},
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: The subscription ID.
+  * resourceGroupName **required** `string`: The name of the resource group.
+  * labName **required** `string`: The name of the lab.
+  * name **required** `string`: The name of the formula.
+  * formula **required** [FormulaFragment](#formulafragment)
+  * api-version **required** `string`: Client API version.
+
+#### Output
+* output [Formula](#formula)
+
 ### Formulas_CreateOrUpdate
-Create or replace an existing Formula. This operation can take a while to complete.
+Create or replace an existing formula. This operation can take a while to complete.
 
 
 ```js
@@ -704,16 +756,16 @@ azure_devtestlabs_dtl.GalleryImages_List({
   * resourceGroupName **required** `string`: The name of the resource group.
   * labName **required** `string`: The name of the lab.
   * $expand `string`: Specify the $expand query. Example: 'properties($select=author)'
-  * $filter `string`: The filter to apply to the operation.
-  * $top `integer`: The maximum number of resources to return from the operation.
-  * $orderby `string`: The ordering expression for the results, using OData notation.
+  * $filter `string`: The filter to apply to the operation. Example: '$filter=contains(name,'myName')
+  * $top `integer`: The maximum number of resources to return from the operation. Example: '$top=10'
+  * $orderby `string`: The ordering expression for the results, using OData notation. Example: '$orderby=name desc'
   * api-version **required** `string`: Client API version.
 
 #### Output
-* output [ResponseWithContinuation[GalleryImage]](#responsewithcontinuation[galleryimage])
+* output [GalleryImageList](#galleryimagelist)
 
 ### NotificationChannels_List
-List notificationchannels in a given lab.
+List notification channels in a given lab.
 
 
 ```js
@@ -731,16 +783,16 @@ azure_devtestlabs_dtl.NotificationChannels_List({
   * resourceGroupName **required** `string`: The name of the resource group.
   * labName **required** `string`: The name of the lab.
   * $expand `string`: Specify the $expand query. Example: 'properties($select=webHookUrl)'
-  * $filter `string`: The filter to apply to the operation.
-  * $top `integer`: The maximum number of resources to return from the operation.
-  * $orderby `string`: The ordering expression for the results, using OData notation.
+  * $filter `string`: The filter to apply to the operation. Example: '$filter=contains(name,'myName')
+  * $top `integer`: The maximum number of resources to return from the operation. Example: '$top=10'
+  * $orderby `string`: The ordering expression for the results, using OData notation. Example: '$orderby=name desc'
   * api-version **required** `string`: Client API version.
 
 #### Output
-* output [ResponseWithContinuation[NotificationChannel]](#responsewithcontinuation[notificationchannel])
+* output [NotificationChannelList](#notificationchannellist)
 
 ### NotificationChannels_Delete
-Delete notificationchannel.
+Delete notification channel.
 
 
 ```js
@@ -758,14 +810,14 @@ azure_devtestlabs_dtl.NotificationChannels_Delete({
   * subscriptionId **required** `string`: The subscription ID.
   * resourceGroupName **required** `string`: The name of the resource group.
   * labName **required** `string`: The name of the lab.
-  * name **required** `string`: The name of the notificationChannel.
+  * name **required** `string`: The name of the notification channel.
   * api-version **required** `string`: Client API version.
 
 #### Output
 *Output schema unknown*
 
 ### NotificationChannels_Get
-Get notificationchannel.
+Get notification channel.
 
 
 ```js
@@ -783,7 +835,7 @@ azure_devtestlabs_dtl.NotificationChannels_Get({
   * subscriptionId **required** `string`: The subscription ID.
   * resourceGroupName **required** `string`: The name of the resource group.
   * labName **required** `string`: The name of the lab.
-  * name **required** `string`: The name of the notificationChannel.
+  * name **required** `string`: The name of the notification channel.
   * $expand `string`: Specify the $expand query. Example: 'properties($select=webHookUrl)'
   * api-version **required** `string`: Client API version.
 
@@ -791,7 +843,7 @@ azure_devtestlabs_dtl.NotificationChannels_Get({
 * output [NotificationChannel](#notificationchannel)
 
 ### NotificationChannels_Update
-Modify properties of notificationchannels.
+Allows modifying tags of notification channels. All other properties will be ignored.
 
 
 ```js
@@ -810,7 +862,7 @@ azure_devtestlabs_dtl.NotificationChannels_Update({
   * subscriptionId **required** `string`: The subscription ID.
   * resourceGroupName **required** `string`: The name of the resource group.
   * labName **required** `string`: The name of the lab.
-  * name **required** `string`: The name of the notificationChannel.
+  * name **required** `string`: The name of the notification channel.
   * notificationChannel **required** [NotificationChannelFragment](#notificationchannelfragment)
   * api-version **required** `string`: Client API version.
 
@@ -818,7 +870,7 @@ azure_devtestlabs_dtl.NotificationChannels_Update({
 * output [NotificationChannel](#notificationchannel)
 
 ### NotificationChannels_CreateOrUpdate
-Create or replace an existing notificationChannel.
+Create or replace an existing notification channel.
 
 
 ```js
@@ -839,7 +891,7 @@ azure_devtestlabs_dtl.NotificationChannels_CreateOrUpdate({
   * subscriptionId **required** `string`: The subscription ID.
   * resourceGroupName **required** `string`: The name of the resource group.
   * labName **required** `string`: The name of the lab.
-  * name **required** `string`: The name of the notificationChannel.
+  * name **required** `string`: The name of the notification channel.
   * notificationChannel **required** [NotificationChannel](#notificationchannel)
   * api-version **required** `string`: Client API version.
 
@@ -866,7 +918,7 @@ azure_devtestlabs_dtl.NotificationChannels_Notify({
   * subscriptionId **required** `string`: The subscription ID.
   * resourceGroupName **required** `string`: The name of the resource group.
   * labName **required** `string`: The name of the lab.
-  * name **required** `string`: The name of the notificationChannel.
+  * name **required** `string`: The name of the notification channel.
   * notifyParameters **required** [NotifyParameters](#notifyparameters)
   * api-version **required** `string`: Client API version.
 
@@ -921,13 +973,13 @@ azure_devtestlabs_dtl.Policies_List({
   * labName **required** `string`: The name of the lab.
   * policySetName **required** `string`: The name of the policy set.
   * $expand `string`: Specify the $expand query. Example: 'properties($select=description)'
-  * $filter `string`: The filter to apply to the operation.
-  * $top `integer`: The maximum number of resources to return from the operation.
-  * $orderby `string`: The ordering expression for the results, using OData notation.
+  * $filter `string`: The filter to apply to the operation. Example: '$filter=contains(name,'myName')
+  * $top `integer`: The maximum number of resources to return from the operation. Example: '$top=10'
+  * $orderby `string`: The ordering expression for the results, using OData notation. Example: '$orderby=name desc'
   * api-version **required** `string`: Client API version.
 
 #### Output
-* output [ResponseWithContinuation[Policy]](#responsewithcontinuation[policy])
+* output [PolicyList](#policylist)
 
 ### Policies_Delete
 Delete policy.
@@ -985,7 +1037,7 @@ azure_devtestlabs_dtl.Policies_Get({
 * output [Policy](#policy)
 
 ### Policies_Update
-Modify properties of policies.
+Allows modifying tags of policies. All other properties will be ignored.
 
 
 ```js
@@ -1063,13 +1115,13 @@ azure_devtestlabs_dtl.Schedules_List({
   * resourceGroupName **required** `string`: The name of the resource group.
   * labName **required** `string`: The name of the lab.
   * $expand `string`: Specify the $expand query. Example: 'properties($select=status)'
-  * $filter `string`: The filter to apply to the operation.
-  * $top `integer`: The maximum number of resources to return from the operation.
-  * $orderby `string`: The ordering expression for the results, using OData notation.
+  * $filter `string`: The filter to apply to the operation. Example: '$filter=contains(name,'myName')
+  * $top `integer`: The maximum number of resources to return from the operation. Example: '$top=10'
+  * $orderby `string`: The ordering expression for the results, using OData notation. Example: '$orderby=name desc'
   * api-version **required** `string`: Client API version.
 
 #### Output
-* output [ResponseWithContinuation[Schedule]](#responsewithcontinuation[schedule])
+* output [ScheduleList](#schedulelist)
 
 ### Schedules_Delete
 Delete schedule.
@@ -1123,7 +1175,7 @@ azure_devtestlabs_dtl.Schedules_Get({
 * output [Schedule](#schedule)
 
 ### Schedules_Update
-Modify properties of schedules.
+Allows modifying tags of schedules. All other properties will be ignored.
 
 
 ```js
@@ -1226,33 +1278,7 @@ azure_devtestlabs_dtl.Schedules_ListApplicable({
   * api-version **required** `string`: Client API version.
 
 #### Output
-* output [ResponseWithContinuation[Schedule]](#responsewithcontinuation[schedule])
-
-### ServiceRunners_List
-List service runners in a given lab.
-
-
-```js
-azure_devtestlabs_dtl.ServiceRunners_List({
-  "subscriptionId": "",
-  "resourceGroupName": "",
-  "labName": "",
-  "api-version": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * subscriptionId **required** `string`: The subscription ID.
-  * resourceGroupName **required** `string`: The name of the resource group.
-  * labName **required** `string`: The name of the lab.
-  * $filter `string`: The filter to apply to the operation.
-  * $top `integer`: The maximum number of resources to return from the operation.
-  * $orderby `string`: The ordering expression for the results, using OData notation.
-  * api-version **required** `string`: Client API version.
-
-#### Output
-* output [ResponseWithContinuation[ServiceRunner]](#responsewithcontinuation[servicerunner])
+* output [ScheduleList](#schedulelist)
 
 ### ServiceRunners_Delete
 Delete service runner.
@@ -1305,7 +1331,7 @@ azure_devtestlabs_dtl.ServiceRunners_Get({
 * output [ServiceRunner](#servicerunner)
 
 ### ServiceRunners_CreateOrUpdate
-Create or replace an existing Service runner.
+Create or replace an existing service runner.
 
 
 ```js
@@ -1350,13 +1376,13 @@ azure_devtestlabs_dtl.Users_List({
   * resourceGroupName **required** `string`: The name of the resource group.
   * labName **required** `string`: The name of the lab.
   * $expand `string`: Specify the $expand query. Example: 'properties($select=identity)'
-  * $filter `string`: The filter to apply to the operation.
-  * $top `integer`: The maximum number of resources to return from the operation.
-  * $orderby `string`: The ordering expression for the results, using OData notation.
+  * $filter `string`: The filter to apply to the operation. Example: '$filter=contains(name,'myName')
+  * $top `integer`: The maximum number of resources to return from the operation. Example: '$top=10'
+  * $orderby `string`: The ordering expression for the results, using OData notation. Example: '$orderby=name desc'
   * api-version **required** `string`: Client API version.
 
 #### Output
-* output [ResponseWithContinuation[User]](#responsewithcontinuation[user])
+* output [UserList](#userlist)
 
 ### Users_Delete
 Delete user profile. This operation can take a while to complete.
@@ -1410,7 +1436,7 @@ azure_devtestlabs_dtl.Users_Get({
 * output [User](#user)
 
 ### Users_Update
-Modify properties of user profiles.
+Allows modifying tags of user profiles. All other properties will be ignored.
 
 
 ```js
@@ -1437,7 +1463,7 @@ azure_devtestlabs_dtl.Users_Update({
 * output [User](#user)
 
 ### Users_CreateOrUpdate
-Create or replace an existing user profile.
+Create or replace an existing user profile. This operation can take a while to complete.
 
 
 ```js
@@ -1484,13 +1510,13 @@ azure_devtestlabs_dtl.Disks_List({
   * labName **required** `string`: The name of the lab.
   * userName **required** `string`: The name of the user profile.
   * $expand `string`: Specify the $expand query. Example: 'properties($select=diskType)'
-  * $filter `string`: The filter to apply to the operation.
-  * $top `integer`: The maximum number of resources to return from the operation.
-  * $orderby `string`: The ordering expression for the results, using OData notation.
+  * $filter `string`: The filter to apply to the operation. Example: '$filter=contains(name,'myName')
+  * $top `integer`: The maximum number of resources to return from the operation. Example: '$top=10'
+  * $orderby `string`: The ordering expression for the results, using OData notation. Example: '$orderby=name desc'
   * api-version **required** `string`: Client API version.
 
 #### Output
-* output [ResponseWithContinuation[Disk]](#responsewithcontinuation[disk])
+* output [DiskList](#disklist)
 
 ### Disks_Delete
 Delete disk. This operation can take a while to complete.
@@ -1542,6 +1568,35 @@ azure_devtestlabs_dtl.Disks_Get({
   * userName **required** `string`: The name of the user profile.
   * name **required** `string`: The name of the disk.
   * $expand `string`: Specify the $expand query. Example: 'properties($select=diskType)'
+  * api-version **required** `string`: Client API version.
+
+#### Output
+* output [Disk](#disk)
+
+### Disks_Update
+Allows modifying tags of disks. All other properties will be ignored.
+
+
+```js
+azure_devtestlabs_dtl.Disks_Update({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "labName": "",
+  "userName": "",
+  "name": "",
+  "disk": {},
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: The subscription ID.
+  * resourceGroupName **required** `string`: The name of the resource group.
+  * labName **required** `string`: The name of the lab.
+  * userName **required** `string`: The name of the user profile.
+  * name **required** `string`: The name of the disk.
+  * disk **required** [DiskFragment](#diskfragment)
   * api-version **required** `string`: Client API version.
 
 #### Output
@@ -1657,13 +1712,13 @@ azure_devtestlabs_dtl.Environments_List({
   * labName **required** `string`: The name of the lab.
   * userName **required** `string`: The name of the user profile.
   * $expand `string`: Specify the $expand query. Example: 'properties($select=deploymentProperties)'
-  * $filter `string`: The filter to apply to the operation.
-  * $top `integer`: The maximum number of resources to return from the operation.
-  * $orderby `string`: The ordering expression for the results, using OData notation.
+  * $filter `string`: The filter to apply to the operation. Example: '$filter=contains(name,'myName')
+  * $top `integer`: The maximum number of resources to return from the operation. Example: '$top=10'
+  * $orderby `string`: The ordering expression for the results, using OData notation. Example: '$orderby=name desc'
   * api-version **required** `string`: Client API version.
 
 #### Output
-* output [ResponseWithContinuation[DtlEnvironment]](#responsewithcontinuation[dtlenvironment])
+* output [DtlEnvironmentList](#dtlenvironmentlist)
 
 ### Environments_Delete
 Delete environment. This operation can take a while to complete.
@@ -1715,6 +1770,35 @@ azure_devtestlabs_dtl.Environments_Get({
   * userName **required** `string`: The name of the user profile.
   * name **required** `string`: The name of the environment.
   * $expand `string`: Specify the $expand query. Example: 'properties($select=deploymentProperties)'
+  * api-version **required** `string`: Client API version.
+
+#### Output
+* output [DtlEnvironment](#dtlenvironment)
+
+### Environments_Update
+Allows modifying tags of environments. All other properties will be ignored.
+
+
+```js
+azure_devtestlabs_dtl.Environments_Update({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "labName": "",
+  "userName": "",
+  "name": "",
+  "dtlEnvironment": {},
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: The subscription ID.
+  * resourceGroupName **required** `string`: The name of the resource group.
+  * labName **required** `string`: The name of the lab.
+  * userName **required** `string`: The name of the user profile.
+  * name **required** `string`: The name of the environment.
+  * dtlEnvironment **required** [DtlEnvironmentFragment](#dtlenvironmentfragment)
   * api-version **required** `string`: Client API version.
 
 #### Output
@@ -1772,13 +1856,13 @@ azure_devtestlabs_dtl.Secrets_List({
   * labName **required** `string`: The name of the lab.
   * userName **required** `string`: The name of the user profile.
   * $expand `string`: Specify the $expand query. Example: 'properties($select=value)'
-  * $filter `string`: The filter to apply to the operation.
-  * $top `integer`: The maximum number of resources to return from the operation.
-  * $orderby `string`: The ordering expression for the results, using OData notation.
+  * $filter `string`: The filter to apply to the operation. Example: '$filter=contains(name,'myName')
+  * $top `integer`: The maximum number of resources to return from the operation. Example: '$top=10'
+  * $orderby `string`: The ordering expression for the results, using OData notation. Example: '$orderby=name desc'
   * api-version **required** `string`: Client API version.
 
 #### Output
-* output [ResponseWithContinuation[Secret]](#responsewithcontinuation[secret])
+* output [SecretList](#secretlist)
 
 ### Secrets_Delete
 Delete secret.
@@ -1835,8 +1919,37 @@ azure_devtestlabs_dtl.Secrets_Get({
 #### Output
 * output [Secret](#secret)
 
+### Secrets_Update
+Allows modifying tags of secrets. All other properties will be ignored.
+
+
+```js
+azure_devtestlabs_dtl.Secrets_Update({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "labName": "",
+  "userName": "",
+  "name": "",
+  "secret": {},
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: The subscription ID.
+  * resourceGroupName **required** `string`: The name of the resource group.
+  * labName **required** `string`: The name of the lab.
+  * userName **required** `string`: The name of the user profile.
+  * name **required** `string`: The name of the secret.
+  * secret **required** [SecretFragment](#secretfragment)
+  * api-version **required** `string`: Client API version.
+
+#### Output
+* output [Secret](#secret)
+
 ### Secrets_CreateOrUpdate
-Create or replace an existing secret.
+Create or replace an existing secret. This operation can take a while to complete.
 
 
 ```js
@@ -1866,6 +1979,414 @@ azure_devtestlabs_dtl.Secrets_CreateOrUpdate({
 #### Output
 * output [Secret](#secret)
 
+### ServiceFabrics_List
+List service fabrics in a given user profile.
+
+
+```js
+azure_devtestlabs_dtl.ServiceFabrics_List({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "labName": "",
+  "userName": "",
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: The subscription ID.
+  * resourceGroupName **required** `string`: The name of the resource group.
+  * labName **required** `string`: The name of the lab.
+  * userName **required** `string`: The name of the user profile.
+  * $expand `string`: Specify the $expand query. Example: 'properties($expand=applicableSchedule)'
+  * $filter `string`: The filter to apply to the operation. Example: '$filter=contains(name,'myName')
+  * $top `integer`: The maximum number of resources to return from the operation. Example: '$top=10'
+  * $orderby `string`: The ordering expression for the results, using OData notation. Example: '$orderby=name desc'
+  * api-version **required** `string`: Client API version.
+
+#### Output
+* output [ServiceFabricList](#servicefabriclist)
+
+### ServiceFabrics_Delete
+Delete service fabric. This operation can take a while to complete.
+
+
+```js
+azure_devtestlabs_dtl.ServiceFabrics_Delete({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "labName": "",
+  "userName": "",
+  "name": "",
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: The subscription ID.
+  * resourceGroupName **required** `string`: The name of the resource group.
+  * labName **required** `string`: The name of the lab.
+  * userName **required** `string`: The name of the user profile.
+  * name **required** `string`: The name of the service fabric.
+  * api-version **required** `string`: Client API version.
+
+#### Output
+*Output schema unknown*
+
+### ServiceFabrics_Get
+Get service fabric.
+
+
+```js
+azure_devtestlabs_dtl.ServiceFabrics_Get({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "labName": "",
+  "userName": "",
+  "name": "",
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: The subscription ID.
+  * resourceGroupName **required** `string`: The name of the resource group.
+  * labName **required** `string`: The name of the lab.
+  * userName **required** `string`: The name of the user profile.
+  * name **required** `string`: The name of the service fabric.
+  * $expand `string`: Specify the $expand query. Example: 'properties($expand=applicableSchedule)'
+  * api-version **required** `string`: Client API version.
+
+#### Output
+* output [ServiceFabric](#servicefabric)
+
+### ServiceFabrics_Update
+Allows modifying tags of service fabrics. All other properties will be ignored.
+
+
+```js
+azure_devtestlabs_dtl.ServiceFabrics_Update({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "labName": "",
+  "userName": "",
+  "name": "",
+  "serviceFabric": {},
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: The subscription ID.
+  * resourceGroupName **required** `string`: The name of the resource group.
+  * labName **required** `string`: The name of the lab.
+  * userName **required** `string`: The name of the user profile.
+  * name **required** `string`: The name of the service fabric.
+  * serviceFabric **required** [ServiceFabricFragment](#servicefabricfragment)
+  * api-version **required** `string`: Client API version.
+
+#### Output
+* output [ServiceFabric](#servicefabric)
+
+### ServiceFabrics_CreateOrUpdate
+Create or replace an existing service fabric. This operation can take a while to complete.
+
+
+```js
+azure_devtestlabs_dtl.ServiceFabrics_CreateOrUpdate({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "labName": "",
+  "userName": "",
+  "name": "",
+  "serviceFabric": {
+    "properties": {}
+  },
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: The subscription ID.
+  * resourceGroupName **required** `string`: The name of the resource group.
+  * labName **required** `string`: The name of the lab.
+  * userName **required** `string`: The name of the user profile.
+  * name **required** `string`: The name of the service fabric.
+  * serviceFabric **required** [ServiceFabric](#servicefabric)
+  * api-version **required** `string`: Client API version.
+
+#### Output
+* output [ServiceFabric](#servicefabric)
+
+### ServiceFabrics_ListApplicableSchedules
+Lists the applicable start/stop schedules, if any.
+
+
+```js
+azure_devtestlabs_dtl.ServiceFabrics_ListApplicableSchedules({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "labName": "",
+  "userName": "",
+  "name": "",
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: The subscription ID.
+  * resourceGroupName **required** `string`: The name of the resource group.
+  * labName **required** `string`: The name of the lab.
+  * userName **required** `string`: The name of the user profile.
+  * name **required** `string`: The name of the service fabric.
+  * api-version **required** `string`: Client API version.
+
+#### Output
+* output [ApplicableSchedule](#applicableschedule)
+
+### ServiceFabrics_Start
+Start a service fabric. This operation can take a while to complete.
+
+
+```js
+azure_devtestlabs_dtl.ServiceFabrics_Start({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "labName": "",
+  "userName": "",
+  "name": "",
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: The subscription ID.
+  * resourceGroupName **required** `string`: The name of the resource group.
+  * labName **required** `string`: The name of the lab.
+  * userName **required** `string`: The name of the user profile.
+  * name **required** `string`: The name of the service fabric.
+  * api-version **required** `string`: Client API version.
+
+#### Output
+*Output schema unknown*
+
+### ServiceFabrics_Stop
+Stop a service fabric This operation can take a while to complete.
+
+
+```js
+azure_devtestlabs_dtl.ServiceFabrics_Stop({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "labName": "",
+  "userName": "",
+  "name": "",
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: The subscription ID.
+  * resourceGroupName **required** `string`: The name of the resource group.
+  * labName **required** `string`: The name of the lab.
+  * userName **required** `string`: The name of the user profile.
+  * name **required** `string`: The name of the service fabric.
+  * api-version **required** `string`: Client API version.
+
+#### Output
+*Output schema unknown*
+
+### ServiceFabricSchedules_List
+List schedules in a given service fabric.
+
+
+```js
+azure_devtestlabs_dtl.ServiceFabricSchedules_List({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "labName": "",
+  "userName": "",
+  "serviceFabricName": "",
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: The subscription ID.
+  * resourceGroupName **required** `string`: The name of the resource group.
+  * labName **required** `string`: The name of the lab.
+  * userName **required** `string`: The name of the user profile.
+  * serviceFabricName **required** `string`: The name of the service fabric.
+  * $expand `string`: Specify the $expand query. Example: 'properties($select=status)'
+  * $filter `string`: The filter to apply to the operation. Example: '$filter=contains(name,'myName')
+  * $top `integer`: The maximum number of resources to return from the operation. Example: '$top=10'
+  * $orderby `string`: The ordering expression for the results, using OData notation. Example: '$orderby=name desc'
+  * api-version **required** `string`: Client API version.
+
+#### Output
+* output [ScheduleList](#schedulelist)
+
+### ServiceFabricSchedules_Delete
+Delete schedule.
+
+
+```js
+azure_devtestlabs_dtl.ServiceFabricSchedules_Delete({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "labName": "",
+  "userName": "",
+  "serviceFabricName": "",
+  "name": "",
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: The subscription ID.
+  * resourceGroupName **required** `string`: The name of the resource group.
+  * labName **required** `string`: The name of the lab.
+  * userName **required** `string`: The name of the user profile.
+  * serviceFabricName **required** `string`: The name of the service fabric.
+  * name **required** `string`: The name of the schedule.
+  * api-version **required** `string`: Client API version.
+
+#### Output
+*Output schema unknown*
+
+### ServiceFabricSchedules_Get
+Get schedule.
+
+
+```js
+azure_devtestlabs_dtl.ServiceFabricSchedules_Get({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "labName": "",
+  "userName": "",
+  "serviceFabricName": "",
+  "name": "",
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: The subscription ID.
+  * resourceGroupName **required** `string`: The name of the resource group.
+  * labName **required** `string`: The name of the lab.
+  * userName **required** `string`: The name of the user profile.
+  * serviceFabricName **required** `string`: The name of the service fabric.
+  * name **required** `string`: The name of the schedule.
+  * $expand `string`: Specify the $expand query. Example: 'properties($select=status)'
+  * api-version **required** `string`: Client API version.
+
+#### Output
+* output [Schedule](#schedule)
+
+### ServiceFabricSchedules_Update
+Allows modifying tags of schedules. All other properties will be ignored.
+
+
+```js
+azure_devtestlabs_dtl.ServiceFabricSchedules_Update({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "labName": "",
+  "userName": "",
+  "serviceFabricName": "",
+  "name": "",
+  "schedule": {},
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: The subscription ID.
+  * resourceGroupName **required** `string`: The name of the resource group.
+  * labName **required** `string`: The name of the lab.
+  * userName **required** `string`: The name of the user profile.
+  * serviceFabricName **required** `string`: The name of the service fabric.
+  * name **required** `string`: The name of the schedule.
+  * schedule **required** [ScheduleFragment](#schedulefragment)
+  * api-version **required** `string`: Client API version.
+
+#### Output
+* output [Schedule](#schedule)
+
+### ServiceFabricSchedules_CreateOrUpdate
+Create or replace an existing schedule.
+
+
+```js
+azure_devtestlabs_dtl.ServiceFabricSchedules_CreateOrUpdate({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "labName": "",
+  "userName": "",
+  "serviceFabricName": "",
+  "name": "",
+  "schedule": {
+    "properties": {}
+  },
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: The subscription ID.
+  * resourceGroupName **required** `string`: The name of the resource group.
+  * labName **required** `string`: The name of the lab.
+  * userName **required** `string`: The name of the user profile.
+  * serviceFabricName **required** `string`: The name of the service fabric.
+  * name **required** `string`: The name of the schedule.
+  * schedule **required** [Schedule](#schedule)
+  * api-version **required** `string`: Client API version.
+
+#### Output
+* output [Schedule](#schedule)
+
+### ServiceFabricSchedules_Execute
+Execute a schedule. This operation can take a while to complete.
+
+
+```js
+azure_devtestlabs_dtl.ServiceFabricSchedules_Execute({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "labName": "",
+  "userName": "",
+  "serviceFabricName": "",
+  "name": "",
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: The subscription ID.
+  * resourceGroupName **required** `string`: The name of the resource group.
+  * labName **required** `string`: The name of the lab.
+  * userName **required** `string`: The name of the user profile.
+  * serviceFabricName **required** `string`: The name of the service fabric.
+  * name **required** `string`: The name of the schedule.
+  * api-version **required** `string`: Client API version.
+
+#### Output
+*Output schema unknown*
+
 ### VirtualMachines_List
 List virtual machines in a given lab.
 
@@ -1885,13 +2406,13 @@ azure_devtestlabs_dtl.VirtualMachines_List({
   * resourceGroupName **required** `string`: The name of the resource group.
   * labName **required** `string`: The name of the lab.
   * $expand `string`: Specify the $expand query. Example: 'properties($expand=artifacts,computeVm,networkInterface,applicableSchedule)'
-  * $filter `string`: The filter to apply to the operation.
-  * $top `integer`: The maximum number of resources to return from the operation.
-  * $orderby `string`: The ordering expression for the results, using OData notation.
+  * $filter `string`: The filter to apply to the operation. Example: '$filter=contains(name,'myName')
+  * $top `integer`: The maximum number of resources to return from the operation. Example: '$top=10'
+  * $orderby `string`: The ordering expression for the results, using OData notation. Example: '$orderby=name desc'
   * api-version **required** `string`: Client API version.
 
 #### Output
-* output [ResponseWithContinuation[LabVirtualMachine]](#responsewithcontinuation[labvirtualmachine])
+* output [LabVirtualMachineList](#labvirtualmachinelist)
 
 ### VirtualMachines_Delete
 Delete virtual machine. This operation can take a while to complete.
@@ -1945,7 +2466,7 @@ azure_devtestlabs_dtl.VirtualMachines_Get({
 * output [LabVirtualMachine](#labvirtualmachine)
 
 ### VirtualMachines_Update
-Modify properties of virtual machines.
+Allows modifying tags of virtual machines. All other properties will be ignored.
 
 
 ```js
@@ -1972,7 +2493,7 @@ azure_devtestlabs_dtl.VirtualMachines_Update({
 * output [LabVirtualMachine](#labvirtualmachine)
 
 ### VirtualMachines_CreateOrUpdate
-Create or replace an existing Virtual machine. This operation can take a while to complete.
+Create or replace an existing virtual machine. This operation can take a while to complete.
 
 
 ```js
@@ -2106,8 +2627,33 @@ azure_devtestlabs_dtl.VirtualMachines_DetachDataDisk({
 #### Output
 *Output schema unknown*
 
+### VirtualMachines_GetRdpFileContents
+Gets a string that represents the contents of the RDP file for the virtual machine
+
+
+```js
+azure_devtestlabs_dtl.VirtualMachines_GetRdpFileContents({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "labName": "",
+  "name": "",
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: The subscription ID.
+  * resourceGroupName **required** `string`: The name of the resource group.
+  * labName **required** `string`: The name of the lab.
+  * name **required** `string`: The name of the virtual machine.
+  * api-version **required** `string`: Client API version.
+
+#### Output
+* output [RdpConnection](#rdpconnection)
+
 ### VirtualMachines_ListApplicableSchedules
-Lists all applicable schedules
+Lists the applicable start/stop schedules, if any.
 
 
 ```js
@@ -2130,6 +2676,83 @@ azure_devtestlabs_dtl.VirtualMachines_ListApplicableSchedules({
 
 #### Output
 * output [ApplicableSchedule](#applicableschedule)
+
+### VirtualMachines_Redeploy
+Redeploy a virtual machine This operation can take a while to complete.
+
+
+```js
+azure_devtestlabs_dtl.VirtualMachines_Redeploy({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "labName": "",
+  "name": "",
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: The subscription ID.
+  * resourceGroupName **required** `string`: The name of the resource group.
+  * labName **required** `string`: The name of the lab.
+  * name **required** `string`: The name of the virtual machine.
+  * api-version **required** `string`: Client API version.
+
+#### Output
+*Output schema unknown*
+
+### VirtualMachines_Resize
+Resize Virtual Machine. This operation can take a while to complete.
+
+
+```js
+azure_devtestlabs_dtl.VirtualMachines_Resize({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "labName": "",
+  "name": "",
+  "resizeLabVirtualMachineProperties": {},
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: The subscription ID.
+  * resourceGroupName **required** `string`: The name of the resource group.
+  * labName **required** `string`: The name of the lab.
+  * name **required** `string`: The name of the virtual machine.
+  * resizeLabVirtualMachineProperties **required** [ResizeLabVirtualMachineProperties](#resizelabvirtualmachineproperties)
+  * api-version **required** `string`: Client API version.
+
+#### Output
+*Output schema unknown*
+
+### VirtualMachines_Restart
+Restart a virtual machine. This operation can take a while to complete.
+
+
+```js
+azure_devtestlabs_dtl.VirtualMachines_Restart({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "labName": "",
+  "name": "",
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: The subscription ID.
+  * resourceGroupName **required** `string`: The name of the resource group.
+  * labName **required** `string`: The name of the lab.
+  * name **required** `string`: The name of the virtual machine.
+  * api-version **required** `string`: Client API version.
+
+#### Output
+*Output schema unknown*
 
 ### VirtualMachines_Start
 Start a virtual machine. This operation can take a while to complete.
@@ -2181,6 +2804,56 @@ azure_devtestlabs_dtl.VirtualMachines_Stop({
 #### Output
 *Output schema unknown*
 
+### VirtualMachines_TransferDisks
+Transfers all data disks attached to the virtual machine to be owned by the current user. This operation can take a while to complete.
+
+
+```js
+azure_devtestlabs_dtl.VirtualMachines_TransferDisks({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "labName": "",
+  "name": "",
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: The subscription ID.
+  * resourceGroupName **required** `string`: The name of the resource group.
+  * labName **required** `string`: The name of the lab.
+  * name **required** `string`: The name of the virtual machine.
+  * api-version **required** `string`: Client API version.
+
+#### Output
+*Output schema unknown*
+
+### VirtualMachines_UnClaim
+Release ownership of an existing virtual machine This operation can take a while to complete.
+
+
+```js
+azure_devtestlabs_dtl.VirtualMachines_UnClaim({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "labName": "",
+  "name": "",
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: The subscription ID.
+  * resourceGroupName **required** `string`: The name of the resource group.
+  * labName **required** `string`: The name of the lab.
+  * name **required** `string`: The name of the virtual machine.
+  * api-version **required** `string`: Client API version.
+
+#### Output
+*Output schema unknown*
+
 ### VirtualMachineSchedules_List
 List schedules in a given virtual machine.
 
@@ -2202,13 +2875,13 @@ azure_devtestlabs_dtl.VirtualMachineSchedules_List({
   * labName **required** `string`: The name of the lab.
   * virtualMachineName **required** `string`: The name of the virtual machine.
   * $expand `string`: Specify the $expand query. Example: 'properties($select=status)'
-  * $filter `string`: The filter to apply to the operation.
-  * $top `integer`: The maximum number of resources to return from the operation.
-  * $orderby `string`: The ordering expression for the results, using OData notation.
+  * $filter `string`: The filter to apply to the operation. Example: '$filter=contains(name,'myName')
+  * $top `integer`: The maximum number of resources to return from the operation. Example: '$top=10'
+  * $orderby `string`: The ordering expression for the results, using OData notation. Example: '$orderby=name desc'
   * api-version **required** `string`: Client API version.
 
 #### Output
-* output [ResponseWithContinuation[Schedule]](#responsewithcontinuation[schedule])
+* output [ScheduleList](#schedulelist)
 
 ### VirtualMachineSchedules_Delete
 Delete schedule.
@@ -2266,7 +2939,7 @@ azure_devtestlabs_dtl.VirtualMachineSchedules_Get({
 * output [Schedule](#schedule)
 
 ### VirtualMachineSchedules_Update
-Modify properties of schedules.
+Allows modifying tags of schedules. All other properties will be ignored.
 
 
 ```js
@@ -2371,13 +3044,13 @@ azure_devtestlabs_dtl.VirtualNetworks_List({
   * resourceGroupName **required** `string`: The name of the resource group.
   * labName **required** `string`: The name of the lab.
   * $expand `string`: Specify the $expand query. Example: 'properties($expand=externalSubnets)'
-  * $filter `string`: The filter to apply to the operation.
-  * $top `integer`: The maximum number of resources to return from the operation.
-  * $orderby `string`: The ordering expression for the results, using OData notation.
+  * $filter `string`: The filter to apply to the operation. Example: '$filter=contains(name,'myName')
+  * $top `integer`: The maximum number of resources to return from the operation. Example: '$top=10'
+  * $orderby `string`: The ordering expression for the results, using OData notation. Example: '$orderby=name desc'
   * api-version **required** `string`: Client API version.
 
 #### Output
-* output [ResponseWithContinuation[VirtualNetwork]](#responsewithcontinuation[virtualnetwork])
+* output [VirtualNetworkList](#virtualnetworklist)
 
 ### VirtualNetworks_Delete
 Delete virtual network. This operation can take a while to complete.
@@ -2431,7 +3104,7 @@ azure_devtestlabs_dtl.VirtualNetworks_Get({
 * output [VirtualNetwork](#virtualnetwork)
 
 ### VirtualNetworks_Update
-Modify properties of virtual networks.
+Allows modifying tags of virtual networks. All other properties will be ignored.
 
 
 ```js
@@ -2532,7 +3205,7 @@ azure_devtestlabs_dtl.Labs_Get({
 * output [Lab](#lab)
 
 ### Labs_Update
-Modify properties of labs.
+Allows modifying tags of labs. All other properties will be ignored.
 
 
 ```js
@@ -2679,6 +3352,31 @@ azure_devtestlabs_dtl.Labs_GenerateUploadUri({
 #### Output
 * output [GenerateUploadUriResponse](#generateuploaduriresponse)
 
+### Labs_ImportVirtualMachine
+Import a virtual machine into a different lab. This operation can take a while to complete.
+
+
+```js
+azure_devtestlabs_dtl.Labs_ImportVirtualMachine({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "name": "",
+  "importLabVirtualMachineRequest": {},
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: The subscription ID.
+  * resourceGroupName **required** `string`: The name of the resource group.
+  * name **required** `string`: The name of the lab.
+  * importLabVirtualMachineRequest **required** [ImportLabVirtualMachineRequest](#importlabvirtualmachinerequest)
+  * api-version **required** `string`: Client API version.
+
+#### Output
+*Output schema unknown*
+
 ### Labs_ListVhds
 List disk images available for custom image creation.
 
@@ -2700,7 +3398,7 @@ azure_devtestlabs_dtl.Labs_ListVhds({
   * api-version **required** `string`: Client API version.
 
 #### Output
-* output [ResponseWithContinuation[LabVhd]](#responsewithcontinuation[labvhd])
+* output [LabVhdList](#labvhdlist)
 
 ### GlobalSchedules_ListByResourceGroup
 List schedules in a resource group.
@@ -2719,13 +3417,13 @@ azure_devtestlabs_dtl.GlobalSchedules_ListByResourceGroup({
   * subscriptionId **required** `string`: The subscription ID.
   * resourceGroupName **required** `string`: The name of the resource group.
   * $expand `string`: Specify the $expand query. Example: 'properties($select=status)'
-  * $filter `string`: The filter to apply to the operation.
-  * $top `integer`: The maximum number of resources to return from the operation.
-  * $orderby `string`: The ordering expression for the results, using OData notation.
+  * $filter `string`: The filter to apply to the operation. Example: '$filter=contains(name,'myName')
+  * $top `integer`: The maximum number of resources to return from the operation. Example: '$top=10'
+  * $orderby `string`: The ordering expression for the results, using OData notation. Example: '$orderby=name desc'
   * api-version **required** `string`: Client API version.
 
 #### Output
-* output [ResponseWithContinuation[Schedule]](#responsewithcontinuation[schedule])
+* output [ScheduleList](#schedulelist)
 
 ### GlobalSchedules_Delete
 Delete schedule.
@@ -2775,7 +3473,7 @@ azure_devtestlabs_dtl.GlobalSchedules_Get({
 * output [Schedule](#schedule)
 
 ### GlobalSchedules_Update
-Modify properties of schedules.
+Allows modifying tags of schedules. All other properties will be ignored.
 
 
 ```js
@@ -2890,11 +3588,7 @@ azure_devtestlabs_dtl.GlobalSchedules_Retarget({
 ### ApplicableScheduleFragment
 * ApplicableScheduleFragment `object`: Schedules applicable to a virtual machine. The schedules may have been defined on a VM or on lab level.
   * properties [ApplicableSchedulePropertiesFragment](#applicableschedulepropertiesfragment)
-  * id `string`: The identifier of the resource.
-  * location `string`: The location of the resource.
-  * name `string`: The name of the resource.
   * tags `object`: The tags of the resource.
-  * type `string`: The type of the resource.
 
 ### ApplicableScheduleProperties
 * ApplicableScheduleProperties `object`: Properties of a schedules applicable to a virtual machine.
@@ -2925,8 +3619,19 @@ azure_devtestlabs_dtl.GlobalSchedules_Retarget({
   * parameters `object`: The parameters of the ARM template.
   * template `object`: The template's contents.
 
+### ArmTemplateList
+* ArmTemplateList `object`: The response of a list operation.
+  * nextLink `string`: Link for next set of results.
+  * value `array`: Results of the list operation.
+    * items [ArmTemplate](#armtemplate)
+
 ### ArmTemplateParameterProperties
 * ArmTemplateParameterProperties `object`: Properties of an Azure Resource Manager template parameter.
+  * name `string`: The name of the template parameter.
+  * value `string`: The value of the template parameter.
+
+### ArmTemplateParameterPropertiesFragment
+* ArmTemplateParameterPropertiesFragment `object`: Properties of an Azure Resource Manager template parameter.
   * name `string`: The name of the template parameter.
   * value `string`: The value of the template parameter.
 
@@ -2936,6 +3641,7 @@ azure_devtestlabs_dtl.GlobalSchedules_Retarget({
   * createdDate `string`: The creation date of the armTemplate.
   * description `string`: The description of the ARM template.
   * displayName `string`: The display name of the ARM template.
+  * enabled `boolean`: Whether or not ARM template is enabled for use by lab user.
   * icon `string`: The URI to the icon of the ARM template.
   * parametersValueFilesInfo `array`: File name and parameter values information from all azuredeploy.*.parameters.json for the ARM template.
     * items [ParametersValueFileInfo](#parametersvaluefileinfo)
@@ -2965,6 +3671,7 @@ azure_devtestlabs_dtl.GlobalSchedules_Retarget({
 ### ArtifactInstallProperties
 * ArtifactInstallProperties `object`: Properties of an artifact.
   * artifactId `string`: The artifact's identifier.
+  * artifactTitle `string`: The artifact's title.
   * deploymentStatusMessage `string`: The status message from the deployment.
   * installTime `string`: The time that the artifact starts to install on the virtual machine.
   * parameters `array`: The parameters of the artifact.
@@ -2975,12 +3682,19 @@ azure_devtestlabs_dtl.GlobalSchedules_Retarget({
 ### ArtifactInstallPropertiesFragment
 * ArtifactInstallPropertiesFragment `object`: Properties of an artifact.
   * artifactId `string`: The artifact's identifier.
+  * artifactTitle `string`: The artifact's title.
   * deploymentStatusMessage `string`: The status message from the deployment.
   * installTime `string`: The time that the artifact starts to install on the virtual machine.
   * parameters `array`: The parameters of the artifact.
     * items [ArtifactParameterPropertiesFragment](#artifactparameterpropertiesfragment)
   * status `string`: The status of the artifact.
   * vmExtensionStatusMessage `string`: The status message from the virtual machine extension.
+
+### ArtifactList
+* ArtifactList `object`: The response of a list operation.
+  * nextLink `string`: Link for next set of results.
+  * value `array`: Results of the list operation.
+    * items [Artifact](#artifact)
 
 ### ArtifactParameterProperties
 * ArtifactParameterProperties `object`: Properties of an artifact parameter.
@@ -3015,11 +3729,13 @@ azure_devtestlabs_dtl.GlobalSchedules_Retarget({
 ### ArtifactSourceFragment
 * ArtifactSourceFragment `object`: Properties of an artifact source.
   * properties [ArtifactSourcePropertiesFragment](#artifactsourcepropertiesfragment)
-  * id `string`: The identifier of the resource.
-  * location `string`: The location of the resource.
-  * name `string`: The name of the resource.
   * tags `object`: The tags of the resource.
-  * type `string`: The type of the resource.
+
+### ArtifactSourceList
+* ArtifactSourceList `object`: The response of a list operation.
+  * nextLink `string`: Link for next set of results.
+  * value `array`: Results of the list operation.
+    * items [ArtifactSource](#artifactsource)
 
 ### ArtifactSourceProperties
 * ArtifactSourceProperties `object`: Properties of an artifact source.
@@ -3041,11 +3757,9 @@ azure_devtestlabs_dtl.GlobalSchedules_Retarget({
   * branchRef `string`: The artifact source's branch reference.
   * displayName `string`: The artifact source's display name.
   * folderPath `string`: The folder containing artifacts.
-  * provisioningState `string`: The provisioning status of the resource.
   * securityToken `string`: The security token to authenticate to the artifact source.
   * sourceType `string` (values: VsoGit, GitHub): The artifact source's type.
   * status `string` (values: Enabled, Disabled): Indicates if the artifact source is enabled (values: Enabled, Disabled).
-  * uniqueIdentifier `string`: The unique immutable identifier of a resource (Guid).
   * uri `string`: The artifact source's URI.
 
 ### AttachDiskProperties
@@ -3056,10 +3770,20 @@ azure_devtestlabs_dtl.GlobalSchedules_Retarget({
 * AttachNewDataDiskOptions `object`: Properties to attach new disk to the Virtual Machine.
   * diskName `string`: The name of the disk to be attached.
   * diskSizeGiB `integer`: Size of the disk to be attached in GibiBytes.
-  * diskType `string` (values: Standard, Premium): The storage type for the disk (i.e. Standard, Premium).
+  * diskType `string` (values: Standard, Premium, StandardSSD): The storage type for the disk (i.e. Standard, Premium).
+
+### AttachNewDataDiskOptionsFragment
+* AttachNewDataDiskOptionsFragment `object`: Properties to attach new disk to the Virtual Machine.
+  * diskName `string`: The name of the disk to be attached.
+  * diskSizeGiB `integer`: Size of the disk to be attached in GibiBytes.
+  * diskType `string` (values: Standard, Premium, StandardSSD): The storage type for the disk (i.e. Standard, Premium).
 
 ### BulkCreationParameters
 * BulkCreationParameters `object`: Parameters for creating multiple virtual machines as a single action.
+  * instanceCount `integer`: The number of virtual machine instances to create.
+
+### BulkCreationParametersFragment
+* BulkCreationParametersFragment `object`: Parameters for creating multiple virtual machines as a single action.
   * instanceCount `integer`: The number of virtual machine instances to create.
 
 ### CloudError
@@ -3068,11 +3792,11 @@ azure_devtestlabs_dtl.GlobalSchedules_Retarget({
 
 ### CloudErrorBody
 * CloudErrorBody `object`: Body of an error from a REST request.
-  * code `string`
+  * code `string`: The error code.
   * details `array`: Inner errors.
     * items [CloudErrorBody](#clouderrorbody)
-  * message `string`
-  * target `string`
+  * message `string`: The error message.
+  * target `string`: The error target.
 
 ### ComputeDataDisk
 * ComputeDataDisk `object`: A data disks attached to a virtual machine.
@@ -3143,12 +3867,28 @@ azure_devtestlabs_dtl.GlobalSchedules_Retarget({
   * tags `object`: The tags of the resource.
   * type `string`: The type of the resource.
 
+### CustomImageFragment
+* CustomImageFragment `object`: A custom image.
+  * properties [CustomImagePropertiesFragment](#customimagepropertiesfragment)
+  * tags `object`: The tags of the resource.
+
+### CustomImageList
+* CustomImageList `object`: The response of a list operation.
+  * nextLink `string`: Link for next set of results.
+  * value `array`: Results of the list operation.
+    * items [CustomImage](#customimage)
+
 ### CustomImageProperties
 * CustomImageProperties `object`: Properties of a custom image.
   * author `string`: The author of the custom image.
   * creationDate `string`: The creation date of the custom image.
+  * customImagePlan [CustomImagePropertiesFromPlan](#customimagepropertiesfromplan)
+  * dataDiskStorageInfo `array`: Storage information about the data disks present in the custom image
+    * items [DataDiskStorageTypeInfo](#datadiskstoragetypeinfo)
   * description `string`: The description of the custom image.
+  * isPlanAuthorized `boolean`: Whether or not the custom images underlying offer/plan has been enabled for programmatic deployment
   * managedImageId `string`: The Managed Image Id backing the custom image.
+  * managedSnapshotId `string`: The Managed Snapshot Id backing the custom image.
   * provisioningState `string`: The provisioning status of the resource.
   * uniqueIdentifier `string`: The unique immutable identifier of a resource (Guid).
   * vhd [CustomImagePropertiesCustom](#customimagepropertiescustom)
@@ -3160,17 +3900,70 @@ azure_devtestlabs_dtl.GlobalSchedules_Retarget({
   * osType **required** `string` (values: Windows, Linux, None): The OS type of the custom image (i.e. Windows, Linux)
   * sysPrep `boolean`: Indicates whether sysprep has been run on the VHD.
 
+### CustomImagePropertiesCustomFragment
+* CustomImagePropertiesCustomFragment `object`: Properties for creating a custom image from a VHD.
+  * imageName `string`: The image name.
+  * osType `string` (values: Windows, Linux, None): The OS type of the custom image (i.e. Windows, Linux)
+  * sysPrep `boolean`: Indicates whether sysprep has been run on the VHD.
+
+### CustomImagePropertiesFragment
+* CustomImagePropertiesFragment `object`: Properties of a custom image.
+  * author `string`: The author of the custom image.
+  * customImagePlan [CustomImagePropertiesFromPlanFragment](#customimagepropertiesfromplanfragment)
+  * dataDiskStorageInfo `array`: Storage information about the data disks present in the custom image
+    * items [DataDiskStorageTypeInfoFragment](#datadiskstoragetypeinfofragment)
+  * description `string`: The description of the custom image.
+  * isPlanAuthorized `boolean`: Whether or not the custom images underlying offer/plan has been enabled for programmatic deployment
+  * managedImageId `string`: The Managed Image Id backing the custom image.
+  * managedSnapshotId `string`: The Managed Snapshot Id backing the custom image.
+  * vhd [CustomImagePropertiesCustomFragment](#customimagepropertiescustomfragment)
+  * vm [CustomImagePropertiesFromVmFragment](#customimagepropertiesfromvmfragment)
+
+### CustomImagePropertiesFromPlan
+* CustomImagePropertiesFromPlan `object`: Properties for plan on a custom image.
+  * id `string`: The id of the plan, equivalent to name of the plan
+  * offer `string`: The offer for the plan from the marketplace image the custom image is derived from
+  * publisher `string`: The publisher for the plan from the marketplace image the custom image is derived from
+
+### CustomImagePropertiesFromPlanFragment
+* CustomImagePropertiesFromPlanFragment `object`: Properties for plan on a custom image.
+  * id `string`: The id of the plan, equivalent to name of the plan
+  * offer `string`: The offer for the plan from the marketplace image the custom image is derived from
+  * publisher `string`: The publisher for the plan from the marketplace image the custom image is derived from
+
 ### CustomImagePropertiesFromVm
 * CustomImagePropertiesFromVm `object`: Properties for creating a custom image from a virtual machine.
   * linuxOsInfo [LinuxOsInfo](#linuxosinfo)
   * sourceVmId `string`: The source vm identifier.
   * windowsOsInfo [WindowsOsInfo](#windowsosinfo)
 
+### CustomImagePropertiesFromVmFragment
+* CustomImagePropertiesFromVmFragment `object`: Properties for creating a custom image from a virtual machine.
+  * linuxOsInfo [LinuxOsInfoFragment](#linuxosinfofragment)
+  * sourceVmId `string`: The source vm identifier.
+  * windowsOsInfo [WindowsOsInfoFragment](#windowsosinfofragment)
+
 ### DataDiskProperties
 * DataDiskProperties `object`: Request body for adding a new or existing data disk to a virtual machine.
   * attachNewDataDiskOptions [AttachNewDataDiskOptions](#attachnewdatadiskoptions)
   * existingLabDiskId `string`: Specifies the existing lab disk id to attach to virtual machine.
   * hostCaching `string` (values: None, ReadOnly, ReadWrite): Caching option for a data disk (i.e. None, ReadOnly, ReadWrite).
+
+### DataDiskPropertiesFragment
+* DataDiskPropertiesFragment `object`: Request body for adding a new or existing data disk to a virtual machine.
+  * attachNewDataDiskOptions [AttachNewDataDiskOptionsFragment](#attachnewdatadiskoptionsfragment)
+  * existingLabDiskId `string`: Specifies the existing lab disk id to attach to virtual machine.
+  * hostCaching `string` (values: None, ReadOnly, ReadWrite): Caching option for a data disk (i.e. None, ReadOnly, ReadWrite).
+
+### DataDiskStorageTypeInfo
+* DataDiskStorageTypeInfo `object`: Storage information about the data disks present in the custom image
+  * lun `string`: Disk Lun
+  * storageType `string` (values: Standard, Premium, StandardSSD): Disk Storage Type
+
+### DataDiskStorageTypeInfoFragment
+* DataDiskStorageTypeInfoFragment `object`: Storage information about the data disks present in the custom image
+  * lun `string`: Disk Lun
+  * storageType `string` (values: Standard, Premium, StandardSSD): Disk Storage Type
 
 ### DayDetails
 * DayDetails `object`: Properties of a daily schedule.
@@ -3197,18 +3990,39 @@ azure_devtestlabs_dtl.GlobalSchedules_Retarget({
   * tags `object`: The tags of the resource.
   * type `string`: The type of the resource.
 
+### DiskFragment
+* DiskFragment `object`: A Disk.
+  * properties [DiskPropertiesFragment](#diskpropertiesfragment)
+  * tags `object`: The tags of the resource.
+
+### DiskList
+* DiskList `object`: The response of a list operation.
+  * nextLink `string`: Link for next set of results.
+  * value `array`: Results of the list operation.
+    * items [Disk](#disk)
+
 ### DiskProperties
 * DiskProperties `object`: Properties of a disk.
   * createdDate `string`: The creation date of the disk.
   * diskBlobName `string`: When backed by a blob, the name of the VHD blob without extension.
   * diskSizeGiB `integer`: The size of the disk in GibiBytes.
-  * diskType `string` (values: Standard, Premium): The storage type for the disk (i.e. Standard, Premium).
+  * diskType `string` (values: Standard, Premium, StandardSSD): The storage type for the disk (i.e. Standard, Premium).
   * diskUri `string`: When backed by a blob, the URI of underlying blob.
   * hostCaching `string`: The host caching policy of the disk (i.e. None, ReadOnly, ReadWrite).
   * leasedByLabVmId `string`: The resource ID of the VM to which this disk is leased.
   * managedDiskId `string`: When backed by managed disk, this is the ID of the compute disk resource.
   * provisioningState `string`: The provisioning status of the resource.
   * uniqueIdentifier `string`: The unique immutable identifier of a resource (Guid).
+
+### DiskPropertiesFragment
+* DiskPropertiesFragment `object`: Properties of a disk.
+  * diskBlobName `string`: When backed by a blob, the name of the VHD blob without extension.
+  * diskSizeGiB `integer`: The size of the disk in GibiBytes.
+  * diskType `string` (values: Standard, Premium, StandardSSD): The storage type for the disk (i.e. Standard, Premium).
+  * diskUri `string`: When backed by a blob, the URI of underlying blob.
+  * hostCaching `string`: The host caching policy of the disk (i.e. None, ReadOnly, ReadWrite).
+  * leasedByLabVmId `string`: The resource ID of the VM to which this disk is leased.
+  * managedDiskId `string`: When backed by managed disk, this is the ID of the compute disk resource.
 
 ### DtlEnvironment
 * DtlEnvironment `object`: An environment, which is essentially an ARM template deployment.
@@ -3219,11 +4033,28 @@ azure_devtestlabs_dtl.GlobalSchedules_Retarget({
   * tags `object`: The tags of the resource.
   * type `string`: The type of the resource.
 
+### DtlEnvironmentFragment
+* DtlEnvironmentFragment `object`: An environment, which is essentially an ARM template deployment.
+  * properties [EnvironmentPropertiesFragment](#environmentpropertiesfragment)
+  * tags `object`: The tags of the resource.
+
+### DtlEnvironmentList
+* DtlEnvironmentList `object`: The response of a list operation.
+  * nextLink `string`: Link for next set of results.
+  * value `array`: Results of the list operation.
+    * items [DtlEnvironment](#dtlenvironment)
+
 ### EnvironmentDeploymentProperties
 * EnvironmentDeploymentProperties `object`: Properties of an environment deployment.
   * armTemplateId `string`: The Azure Resource Manager template's identifier.
   * parameters `array`: The parameters of the Azure Resource Manager template.
     * items [ArmTemplateParameterProperties](#armtemplateparameterproperties)
+
+### EnvironmentDeploymentPropertiesFragment
+* EnvironmentDeploymentPropertiesFragment `object`: Properties of an environment deployment.
+  * armTemplateId `string`: The Azure Resource Manager template's identifier.
+  * parameters `array`: The parameters of the Azure Resource Manager template.
+    * items [ArmTemplateParameterPropertiesFragment](#armtemplateparameterpropertiesfragment)
 
 ### EnvironmentProperties
 * EnvironmentProperties `object`: Properties of an environment.
@@ -3234,10 +4065,16 @@ azure_devtestlabs_dtl.GlobalSchedules_Retarget({
   * resourceGroupId `string`: The identifier of the resource group containing the environment's resources.
   * uniqueIdentifier `string`: The unique immutable identifier of a resource (Guid).
 
+### EnvironmentPropertiesFragment
+* EnvironmentPropertiesFragment `object`: Properties of an environment.
+  * armTemplateDisplayName `string`: The display name of the Azure Resource Manager template that produced the environment.
+  * deploymentProperties [EnvironmentDeploymentPropertiesFragment](#environmentdeploymentpropertiesfragment)
+
 ### EvaluatePoliciesProperties
 * EvaluatePoliciesProperties `object`: Properties for evaluating a policy set.
   * factData `string`: The fact data.
   * factName `string`: The fact name.
+  * userObjectId `string`: The user for which policies will be evaluated
   * valueOffset `string`: The value offset.
 
 ### EvaluatePoliciesRequest
@@ -3282,6 +4119,17 @@ azure_devtestlabs_dtl.GlobalSchedules_Retarget({
   * tags `object`: The tags of the resource.
   * type `string`: The type of the resource.
 
+### FormulaFragment
+* FormulaFragment `object`: A formula for creating a VM, specifying an image base and other parameters
+  * properties [FormulaPropertiesFragment](#formulapropertiesfragment)
+  * tags `object`: The tags of the resource.
+
+### FormulaList
+* FormulaList `object`: The response of a list operation.
+  * nextLink `string`: Link for next set of results.
+  * value `array`: Results of the list operation.
+    * items [Formula](#formula)
+
 ### FormulaProperties
 * FormulaProperties `object`: Properties of a formula.
   * author `string`: The author of the formula.
@@ -3293,8 +4141,20 @@ azure_devtestlabs_dtl.GlobalSchedules_Retarget({
   * uniqueIdentifier `string`: The unique immutable identifier of a resource (Guid).
   * vm [FormulaPropertiesFromVm](#formulapropertiesfromvm)
 
+### FormulaPropertiesFragment
+* FormulaPropertiesFragment `object`: Properties of a formula.
+  * author `string`: The author of the formula.
+  * description `string`: The description of the formula.
+  * formulaContent [LabVirtualMachineCreationParameterFragment](#labvirtualmachinecreationparameterfragment)
+  * osType `string`: The OS type of the formula.
+  * vm [FormulaPropertiesFromVmFragment](#formulapropertiesfromvmfragment)
+
 ### FormulaPropertiesFromVm
 * FormulaPropertiesFromVm `object`: Information about a VM from which a formula is to be created.
+  * labVmId `string`: The identifier of the VM from which a formula is to be created.
+
+### FormulaPropertiesFromVmFragment
+* FormulaPropertiesFromVmFragment `object`: Information about a VM from which a formula is to be created.
   * labVmId `string`: The identifier of the VM from which a formula is to be created.
 
 ### GalleryImage
@@ -3306,6 +4166,12 @@ azure_devtestlabs_dtl.GlobalSchedules_Retarget({
   * tags `object`: The tags of the resource.
   * type `string`: The type of the resource.
 
+### GalleryImageList
+* GalleryImageList `object`: The response of a list operation.
+  * nextLink `string`: Link for next set of results.
+  * value `array`: Results of the list operation.
+    * items [GalleryImage](#galleryimage)
+
 ### GalleryImageProperties
 * GalleryImageProperties `object`: Properties of a gallery image.
   * author `string`: The author of the gallery image.
@@ -3314,6 +4180,8 @@ azure_devtestlabs_dtl.GlobalSchedules_Retarget({
   * enabled `boolean`: Indicates whether this gallery image is enabled.
   * icon `string`: The icon of the gallery image.
   * imageReference [GalleryImageReference](#galleryimagereference)
+  * isPlanAuthorized `boolean`: Indicates if the plan has been authorized for programmatic deployment.
+  * planId `string`: The third party plan that applies to this image
 
 ### GalleryImageReference
 * GalleryImageReference `object`: The reference information for an Azure Marketplace image.
@@ -3344,7 +4212,7 @@ azure_devtestlabs_dtl.GlobalSchedules_Retarget({
   * blobName `string`: The blob name of the upload URI.
 
 ### GenerateUploadUriResponse
-* GenerateUploadUriResponse `object`: Reponse body for generating an upload URI.
+* GenerateUploadUriResponse `object`: Response body for generating an upload URI.
   * uploadUri `string`: The upload URI for the VHD.
 
 ### HourDetails
@@ -3361,6 +4229,11 @@ azure_devtestlabs_dtl.GlobalSchedules_Retarget({
   * principalId `string`: The principal id of resource identity.
   * tenantId `string`: The tenant identifier of resource.
   * type `string`: Managed identity.
+
+### ImportLabVirtualMachineRequest
+* ImportLabVirtualMachineRequest `object`: This represents the payload required to import a virtual machine from a different lab into the current one
+  * destinationVirtualMachineName `string`: The name of the virtual machine in the destination lab
+  * sourceVirtualMachineResourceId `string`: The full resource ID of the virtual machine to be imported.
 
 ### InboundNatRule
 * InboundNatRule `object`: A rule for NAT - exposing a VM's port (backendPort) on the public IP address using a load balancer.
@@ -3382,6 +4255,24 @@ azure_devtestlabs_dtl.GlobalSchedules_Retarget({
   * name `string`: The name of the resource.
   * tags `object`: The tags of the resource.
   * type `string`: The type of the resource.
+
+### LabAnnouncementProperties
+* LabAnnouncementProperties `object`: Properties of a lab's announcement banner
+  * enabled `string` (values: Enabled, Disabled): Is the lab announcement active/enabled at this time?
+  * expirationDate `string`: The time at which the announcement expires (null for never)
+  * expired `boolean`: Has this announcement expired?
+  * markdown `string`: The markdown text (if any) that this lab displays in the UI. If left empty/null, nothing will be shown.
+  * provisioningState `string`: The provisioning status of the resource.
+  * title `string`: The plain text title for the lab announcement
+  * uniqueIdentifier `string`: The unique immutable identifier of a resource (Guid).
+
+### LabAnnouncementPropertiesFragment
+* LabAnnouncementPropertiesFragment `object`: Properties of a lab's announcement banner
+  * enabled `string` (values: Enabled, Disabled): Is the lab announcement active/enabled at this time?
+  * expirationDate `string`: The time at which the announcement expires (null for never)
+  * expired `boolean`: Has this announcement expired?
+  * markdown `string`: The markdown text (if any) that this lab displays in the UI. If left empty/null, nothing will be shown.
+  * title `string`: The plain text title for the lab announcement
 
 ### LabCost
 * LabCost `object`: A cost item.
@@ -3420,31 +4311,51 @@ azure_devtestlabs_dtl.GlobalSchedules_Retarget({
 ### LabFragment
 * LabFragment `object`: A lab.
   * properties [LabPropertiesFragment](#labpropertiesfragment)
-  * id `string`: The identifier of the resource.
-  * location `string`: The location of the resource.
-  * name `string`: The name of the resource.
   * tags `object`: The tags of the resource.
-  * type `string`: The type of the resource.
+
+### LabList
+* LabList `object`: The response of a list operation.
+  * nextLink `string`: Link for next set of results.
+  * value `array`: Results of the list operation.
+    * items [Lab](#lab)
 
 ### LabProperties
 * LabProperties `object`: Properties of a lab.
+  * announcement [LabAnnouncementProperties](#labannouncementproperties)
   * artifactsStorageAccount `string`: The lab's artifact storage account.
   * createdDate `string`: The creation date of the lab.
   * defaultPremiumStorageAccount `string`: The lab's default premium storage account.
   * defaultStorageAccount `string`: The lab's default storage account.
-  * labStorageType `string` (values: Standard, Premium): Type of storage used by the lab. It can be either Premium or Standard. Default is Premium.
+  * environmentPermission `string` (values: Reader, Contributor): The access rights to be granted to the user when provisioning an environment
+  * extendedProperties `object`: Extended properties of the lab used for experimental features
+  * labStorageType `string` (values: Standard, Premium, StandardSSD): Type of storage used by the lab. It can be either Premium or Standard. Default is Premium.
+  * loadBalancerId `string`: The load balancer used to for lab VMs that use shared IP address.
+  * mandatoryArtifactsResourceIdsLinux `array`: The ordered list of artifact resource IDs that should be applied on all Linux VM creations by default, prior to the artifacts specified by the user.
+    * items `string`
+  * mandatoryArtifactsResourceIdsWindows `array`: The ordered list of artifact resource IDs that should be applied on all Windows VM creations by default, prior to the artifacts specified by the user.
+    * items `string`
+  * networkSecurityGroupId `string`: The Network Security Group attached to the lab VMs Network interfaces to restrict open ports.
   * premiumDataDiskStorageAccount `string`: The lab's premium data disk storage account.
   * premiumDataDisks `string` (values: Disabled, Enabled): The setting to enable usage of premium data disks.
   * provisioningState `string`: The provisioning status of the resource.
+  * publicIpId `string`: The public IP address for the lab's load balancer.
+  * support [LabSupportProperties](#labsupportproperties)
   * uniqueIdentifier `string`: The unique immutable identifier of a resource (Guid).
   * vaultName `string`: The lab's Key vault.
+  * vmCreationResourceGroup `string`: The resource group in which all new lab virtual machines will be created. To let DevTest Labs manage resource group creation, set this value to null.
 
 ### LabPropertiesFragment
 * LabPropertiesFragment `object`: Properties of a lab.
-  * labStorageType `string` (values: Standard, Premium): Type of storage used by the lab. It can be either Premium or Standard. Default is Premium.
+  * announcement [LabAnnouncementPropertiesFragment](#labannouncementpropertiesfragment)
+  * environmentPermission `string` (values: Reader, Contributor): The access rights to be granted to the user when provisioning an environment
+  * extendedProperties `object`: Extended properties of the lab used for experimental features
+  * labStorageType `string` (values: Standard, Premium, StandardSSD): Type of storage used by the lab. It can be either Premium or Standard. Default is Premium.
+  * mandatoryArtifactsResourceIdsLinux `array`: The ordered list of artifact resource IDs that should be applied on all Linux VM creations by default, prior to the artifacts specified by the user.
+    * items `string`
+  * mandatoryArtifactsResourceIdsWindows `array`: The ordered list of artifact resource IDs that should be applied on all Windows VM creations by default, prior to the artifacts specified by the user.
+    * items `string`
   * premiumDataDisks `string` (values: Disabled, Enabled): The setting to enable usage of premium data disks.
-  * provisioningState `string`: The provisioning status of the resource.
-  * uniqueIdentifier `string`: The unique immutable identifier of a resource (Guid).
+  * support [LabSupportPropertiesFragment](#labsupportpropertiesfragment)
 
 ### LabResourceCostProperties
 * LabResourceCostProperties `object`: The properties of a resource cost item.
@@ -3458,9 +4369,25 @@ azure_devtestlabs_dtl.GlobalSchedules_Retarget({
   * resourceUId `string`: The unique identifier of the resource.
   * resourcename `string`: The name of the resource.
 
+### LabSupportProperties
+* LabSupportProperties `object`: Properties of a lab's support banner
+  * enabled `string` (values: Enabled, Disabled): Is the lab support banner active/enabled at this time?
+  * markdown `string`: The markdown text (if any) that this lab displays in the UI. If left empty/null, nothing will be shown.
+
+### LabSupportPropertiesFragment
+* LabSupportPropertiesFragment `object`: Properties of a lab's support banner
+  * enabled `string` (values: Enabled, Disabled): Is the lab support banner active/enabled at this time?
+  * markdown `string`: The markdown text (if any) that this lab displays in the UI. If left empty/null, nothing will be shown.
+
 ### LabVhd
 * LabVhd `object`: Properties of a VHD in the lab.
   * id `string`: The URI to the VHD.
+
+### LabVhdList
+* LabVhdList `object`: The response of a list operation.
+  * nextLink `string`: Link for next set of results.
+  * value `array`: Results of the list operation.
+    * items [LabVhd](#labvhd)
 
 ### LabVirtualMachine
 * LabVirtualMachine `object`: A virtual machine.
@@ -3478,19 +4405,27 @@ azure_devtestlabs_dtl.GlobalSchedules_Retarget({
   * properties [LabVirtualMachineCreationParameterProperties](#labvirtualmachinecreationparameterproperties)
   * tags `object`: The tags of the resource.
 
+### LabVirtualMachineCreationParameterFragment
+* LabVirtualMachineCreationParameterFragment `object`: Properties for creating a virtual machine.
+  * location `string`: The location of the new virtual machine or environment
+  * name `string`: The name of the virtual machine or environment
+  * properties [LabVirtualMachineCreationParameterPropertiesFragment](#labvirtualmachinecreationparameterpropertiesfragment)
+  * tags `object`: The tags of the resource.
+
 ### LabVirtualMachineCreationParameterProperties
 * LabVirtualMachineCreationParameterProperties `object`: Properties for virtual machine creation.
   * allowClaim `boolean`: Indicates whether another user can take ownership of the virtual machine
-  * applicableSchedule [ApplicableSchedule](#applicableschedule)
   * artifactDeploymentStatus [ArtifactDeploymentStatusProperties](#artifactdeploymentstatusproperties)
   * artifacts `array`: The artifacts to be installed on the virtual machine.
     * items [ArtifactInstallProperties](#artifactinstallproperties)
   * bulkCreationParameters [BulkCreationParameters](#bulkcreationparameters)
-  * computeVm [ComputeVmProperties](#computevmproperties)
+  * computeId `string`: The resource identifier (Microsoft.Compute) of the virtual machine.
   * createdByUser `string`: The email address of creator of the virtual machine.
   * createdByUserId `string`: The object identifier of the creator of the virtual machine.
   * createdDate `string`: The creation date of the virtual machine.
   * customImageId `string`: The custom image identifier of the virtual machine.
+  * dataDiskParameters `array`: New or existing data disks to attach to the virtual machine after creation
+    * items [DataDiskProperties](#datadiskproperties)
   * disallowPublicIpAddress `boolean`: Indicates whether the virtual machine is to be created without a public IP address.
   * environmentId `string`: The resource ID of the environment that contains this virtual machine, if any.
   * expirationDate `string`: The expiration date for VM.
@@ -3499,28 +4434,70 @@ azure_devtestlabs_dtl.GlobalSchedules_Retarget({
   * isAuthenticationWithSshKey `boolean`: Indicates whether this virtual machine uses an SSH key for authentication.
   * labSubnetName `string`: The lab subnet name of the virtual machine.
   * labVirtualNetworkId `string`: The lab virtual network identifier of the virtual machine.
+  * lastKnownPowerState `string`: Last known compute power state captured in DTL
   * networkInterface [NetworkInterfaceProperties](#networkinterfaceproperties)
   * notes `string`: The notes of the virtual machine.
   * osType `string`: The OS type of the virtual machine.
   * ownerObjectId `string`: The object identifier of the owner of the virtual machine.
   * ownerUserPrincipalName `string`: The user principal name of the virtual machine owner.
   * password `string`: The password of the virtual machine administrator.
-  * provisioningState `string`: The provisioning status of the resource.
+  * planId `string`: The id of the plan associated with the virtual machine image
+  * scheduleParameters `array`: Virtual Machine schedules to be created
+    * items [ScheduleCreationParameter](#schedulecreationparameter)
   * size `string`: The size of the virtual machine.
   * sshKey `string`: The SSH key of the virtual machine administrator.
   * storageType `string`: Storage type to use for virtual machine (i.e. Standard, Premium).
-  * uniqueIdentifier `string`: The unique immutable identifier of a resource (Guid).
   * userName `string`: The user name of the virtual machine.
-  * virtualMachineCreationSource `string` (values: FromCustomImage, FromGalleryImage): Tells source of creation of lab virtual machine. Output property only.
+  * virtualMachineCreationSource `string` (values: FromCustomImage, FromGalleryImage, FromSharedGalleryImage): Tells source of creation of lab virtual machine. Output property only.
+
+### LabVirtualMachineCreationParameterPropertiesFragment
+* LabVirtualMachineCreationParameterPropertiesFragment `object`: Properties for virtual machine creation.
+  * allowClaim `boolean`: Indicates whether another user can take ownership of the virtual machine
+  * artifactDeploymentStatus [ArtifactDeploymentStatusPropertiesFragment](#artifactdeploymentstatuspropertiesfragment)
+  * artifacts `array`: The artifacts to be installed on the virtual machine.
+    * items [ArtifactInstallPropertiesFragment](#artifactinstallpropertiesfragment)
+  * bulkCreationParameters [BulkCreationParametersFragment](#bulkcreationparametersfragment)
+  * computeId `string`: The resource identifier (Microsoft.Compute) of the virtual machine.
+  * createdByUser `string`: The email address of creator of the virtual machine.
+  * createdByUserId `string`: The object identifier of the creator of the virtual machine.
+  * createdDate `string`: The creation date of the virtual machine.
+  * customImageId `string`: The custom image identifier of the virtual machine.
+  * dataDiskParameters `array`: New or existing data disks to attach to the virtual machine after creation
+    * items [DataDiskPropertiesFragment](#datadiskpropertiesfragment)
+  * disallowPublicIpAddress `boolean`: Indicates whether the virtual machine is to be created without a public IP address.
+  * environmentId `string`: The resource ID of the environment that contains this virtual machine, if any.
+  * expirationDate `string`: The expiration date for VM.
+  * fqdn `string`: The fully-qualified domain name of the virtual machine.
+  * galleryImageReference [GalleryImageReferenceFragment](#galleryimagereferencefragment)
+  * isAuthenticationWithSshKey `boolean`: Indicates whether this virtual machine uses an SSH key for authentication.
+  * labSubnetName `string`: The lab subnet name of the virtual machine.
+  * labVirtualNetworkId `string`: The lab virtual network identifier of the virtual machine.
+  * lastKnownPowerState `string`: Last known compute power state captured in DTL
+  * networkInterface [NetworkInterfacePropertiesFragment](#networkinterfacepropertiesfragment)
+  * notes `string`: The notes of the virtual machine.
+  * osType `string`: The OS type of the virtual machine.
+  * ownerObjectId `string`: The object identifier of the owner of the virtual machine.
+  * ownerUserPrincipalName `string`: The user principal name of the virtual machine owner.
+  * password `string`: The password of the virtual machine administrator.
+  * planId `string`: The id of the plan associated with the virtual machine image
+  * scheduleParameters `array`: Virtual Machine schedules to be created
+    * items [ScheduleCreationParameterFragment](#schedulecreationparameterfragment)
+  * size `string`: The size of the virtual machine.
+  * sshKey `string`: The SSH key of the virtual machine administrator.
+  * storageType `string`: Storage type to use for virtual machine (i.e. Standard, Premium).
+  * userName `string`: The user name of the virtual machine.
+  * virtualMachineCreationSource `string` (values: FromCustomImage, FromGalleryImage, FromSharedGalleryImage): Tells source of creation of lab virtual machine. Output property only.
 
 ### LabVirtualMachineFragment
 * LabVirtualMachineFragment `object`: A virtual machine.
   * properties [LabVirtualMachinePropertiesFragment](#labvirtualmachinepropertiesfragment)
-  * id `string`: The identifier of the resource.
-  * location `string`: The location of the resource.
-  * name `string`: The name of the resource.
   * tags `object`: The tags of the resource.
-  * type `string`: The type of the resource.
+
+### LabVirtualMachineList
+* LabVirtualMachineList `object`: The response of a list operation.
+  * nextLink `string`: Link for next set of results.
+  * value `array`: Results of the list operation.
+    * items [LabVirtualMachine](#labvirtualmachine)
 
 ### LabVirtualMachineProperties
 * LabVirtualMachineProperties `object`: Properties of a virtual machine.
@@ -3535,6 +4512,8 @@ azure_devtestlabs_dtl.GlobalSchedules_Retarget({
   * createdByUserId `string`: The object identifier of the creator of the virtual machine.
   * createdDate `string`: The creation date of the virtual machine.
   * customImageId `string`: The custom image identifier of the virtual machine.
+  * dataDiskParameters `array`: New or existing data disks to attach to the virtual machine after creation
+    * items [DataDiskProperties](#datadiskproperties)
   * disallowPublicIpAddress `boolean`: Indicates whether the virtual machine is to be created without a public IP address.
   * environmentId `string`: The resource ID of the environment that contains this virtual machine, if any.
   * expirationDate `string`: The expiration date for VM.
@@ -3543,32 +4522,37 @@ azure_devtestlabs_dtl.GlobalSchedules_Retarget({
   * isAuthenticationWithSshKey `boolean`: Indicates whether this virtual machine uses an SSH key for authentication.
   * labSubnetName `string`: The lab subnet name of the virtual machine.
   * labVirtualNetworkId `string`: The lab virtual network identifier of the virtual machine.
+  * lastKnownPowerState `string`: Last known compute power state captured in DTL
   * networkInterface [NetworkInterfaceProperties](#networkinterfaceproperties)
   * notes `string`: The notes of the virtual machine.
   * osType `string`: The OS type of the virtual machine.
   * ownerObjectId `string`: The object identifier of the owner of the virtual machine.
   * ownerUserPrincipalName `string`: The user principal name of the virtual machine owner.
   * password `string`: The password of the virtual machine administrator.
+  * planId `string`: The id of the plan associated with the virtual machine image
   * provisioningState `string`: The provisioning status of the resource.
+  * scheduleParameters `array`: Virtual Machine schedules to be created
+    * items [ScheduleCreationParameter](#schedulecreationparameter)
   * size `string`: The size of the virtual machine.
   * sshKey `string`: The SSH key of the virtual machine administrator.
   * storageType `string`: Storage type to use for virtual machine (i.e. Standard, Premium).
   * uniqueIdentifier `string`: The unique immutable identifier of a resource (Guid).
   * userName `string`: The user name of the virtual machine.
-  * virtualMachineCreationSource `string` (values: FromCustomImage, FromGalleryImage): Tells source of creation of lab virtual machine. Output property only.
+  * virtualMachineCreationSource `string` (values: FromCustomImage, FromGalleryImage, FromSharedGalleryImage): Tells source of creation of lab virtual machine. Output property only.
 
 ### LabVirtualMachinePropertiesFragment
 * LabVirtualMachinePropertiesFragment `object`: Properties of a virtual machine.
   * allowClaim `boolean`: Indicates whether another user can take ownership of the virtual machine
-  * applicableSchedule [ApplicableScheduleFragment](#applicableschedulefragment)
   * artifactDeploymentStatus [ArtifactDeploymentStatusPropertiesFragment](#artifactdeploymentstatuspropertiesfragment)
   * artifacts `array`: The artifacts to be installed on the virtual machine.
     * items [ArtifactInstallPropertiesFragment](#artifactinstallpropertiesfragment)
-  * computeVm [ComputeVmPropertiesFragment](#computevmpropertiesfragment)
+  * computeId `string`: The resource identifier (Microsoft.Compute) of the virtual machine.
   * createdByUser `string`: The email address of creator of the virtual machine.
   * createdByUserId `string`: The object identifier of the creator of the virtual machine.
   * createdDate `string`: The creation date of the virtual machine.
   * customImageId `string`: The custom image identifier of the virtual machine.
+  * dataDiskParameters `array`: New or existing data disks to attach to the virtual machine after creation
+    * items [DataDiskPropertiesFragment](#datadiskpropertiesfragment)
   * disallowPublicIpAddress `boolean`: Indicates whether the virtual machine is to be created without a public IP address.
   * environmentId `string`: The resource ID of the environment that contains this virtual machine, if any.
   * expirationDate `string`: The expiration date for VM.
@@ -3577,22 +4561,28 @@ azure_devtestlabs_dtl.GlobalSchedules_Retarget({
   * isAuthenticationWithSshKey `boolean`: Indicates whether this virtual machine uses an SSH key for authentication.
   * labSubnetName `string`: The lab subnet name of the virtual machine.
   * labVirtualNetworkId `string`: The lab virtual network identifier of the virtual machine.
+  * lastKnownPowerState `string`: Last known compute power state captured in DTL
   * networkInterface [NetworkInterfacePropertiesFragment](#networkinterfacepropertiesfragment)
   * notes `string`: The notes of the virtual machine.
   * osType `string`: The OS type of the virtual machine.
   * ownerObjectId `string`: The object identifier of the owner of the virtual machine.
   * ownerUserPrincipalName `string`: The user principal name of the virtual machine owner.
   * password `string`: The password of the virtual machine administrator.
-  * provisioningState `string`: The provisioning status of the resource.
+  * planId `string`: The id of the plan associated with the virtual machine image
+  * scheduleParameters `array`: Virtual Machine schedules to be created
+    * items [ScheduleCreationParameterFragment](#schedulecreationparameterfragment)
   * size `string`: The size of the virtual machine.
   * sshKey `string`: The SSH key of the virtual machine administrator.
   * storageType `string`: Storage type to use for virtual machine (i.e. Standard, Premium).
-  * uniqueIdentifier `string`: The unique immutable identifier of a resource (Guid).
   * userName `string`: The user name of the virtual machine.
-  * virtualMachineCreationSource `string` (values: FromCustomImage, FromGalleryImage): Tells source of creation of lab virtual machine. Output property only.
+  * virtualMachineCreationSource `string` (values: FromCustomImage, FromGalleryImage, FromSharedGalleryImage): Tells source of creation of lab virtual machine. Output property only.
 
 ### LinuxOsInfo
 * LinuxOsInfo `object`: Information about a Linux OS.
+  * linuxOsState `string` (values: NonDeprovisioned, DeprovisionRequested, DeprovisionApplied): The state of the Linux OS (i.e. NonDeprovisioned, DeprovisionRequested, DeprovisionApplied).
+
+### LinuxOsInfoFragment
+* LinuxOsInfoFragment `object`: Information about a Linux OS.
   * linuxOsState `string` (values: NonDeprovisioned, DeprovisionRequested, DeprovisionApplied): The state of the Linux OS (i.e. NonDeprovisioned, DeprovisionRequested, DeprovisionApplied).
 
 ### NetworkInterfaceProperties
@@ -3631,18 +4621,22 @@ azure_devtestlabs_dtl.GlobalSchedules_Retarget({
 ### NotificationChannelFragment
 * NotificationChannelFragment `object`: A notification.
   * properties [NotificationChannelPropertiesFragment](#notificationchannelpropertiesfragment)
-  * id `string`: The identifier of the resource.
-  * location `string`: The location of the resource.
-  * name `string`: The name of the resource.
   * tags `object`: The tags of the resource.
-  * type `string`: The type of the resource.
+
+### NotificationChannelList
+* NotificationChannelList `object`: The response of a list operation.
+  * nextLink `string`: Link for next set of results.
+  * value `array`: Results of the list operation.
+    * items [NotificationChannel](#notificationchannel)
 
 ### NotificationChannelProperties
 * NotificationChannelProperties `object`: Properties of a schedule.
   * createdDate `string`: The creation date of the notification channel.
   * description `string`: Description of notification.
+  * emailRecipient `string`: The email recipient to send notifications to (can be a list of semi-colon separated email addresses).
   * events `array`: The list of event for which this notification is enabled.
     * items [Event](#event)
+  * notificationLocale `string`: The locale to use when sending a notification (fallback for unsupported languages is EN).
   * provisioningState `string`: The provisioning status of the resource.
   * uniqueIdentifier `string`: The unique immutable identifier of a resource (Guid).
   * webHookUrl `string`: The webhook URL to send notifications to.
@@ -3650,21 +4644,25 @@ azure_devtestlabs_dtl.GlobalSchedules_Retarget({
 ### NotificationChannelPropertiesFragment
 * NotificationChannelPropertiesFragment `object`: Properties of a schedule.
   * description `string`: Description of notification.
+  * emailRecipient `string`: The email recipient to send notifications to (can be a list of semi-colon separated email addresses).
   * events `array`: The list of event for which this notification is enabled.
     * items [EventFragment](#eventfragment)
-  * provisioningState `string`: The provisioning status of the resource.
-  * uniqueIdentifier `string`: The unique immutable identifier of a resource (Guid).
+  * notificationLocale `string`: The locale to use when sending a notification (fallback for unsupported languages is EN).
   * webHookUrl `string`: The webhook URL to send notifications to.
 
 ### NotificationSettings
 * NotificationSettings `object`: Notification settings for a schedule.
-  * status `string` (values: Disabled, Enabled): If notifications are enabled for this schedule (i.e. Enabled, Disabled).
+  * emailRecipient `string`: The email recipient to send notifications to (can be a list of semi-colon separated email addresses).
+  * notificationLocale `string`: The locale to use when sending a notification (fallback for unsupported languages is EN).
+  * status `string` (values: Enabled, Disabled): If notifications are enabled for this schedule (i.e. Enabled, Disabled).
   * timeInMinutes `integer`: Time in minutes before event at which notification will be sent.
   * webhookUrl `string`: The webhook URL to which the notification will be sent.
 
 ### NotificationSettingsFragment
 * NotificationSettingsFragment `object`: Notification settings for a schedule.
-  * status `string` (values: Disabled, Enabled): If notifications are enabled for this schedule (i.e. Enabled, Disabled).
+  * emailRecipient `string`: The email recipient to send notifications to (can be a list of semi-colon separated email addresses).
+  * notificationLocale `string`: The locale to use when sending a notification (fallback for unsupported languages is EN).
+  * status `string` (values: Enabled, Disabled): If notifications are enabled for this schedule (i.e. Enabled, Disabled).
   * timeInMinutes `integer`: Time in minutes before event at which notification will be sent.
   * webhookUrl `string`: The webhook URL to which the notification will be sent.
 
@@ -3722,11 +4720,13 @@ azure_devtestlabs_dtl.GlobalSchedules_Retarget({
 ### PolicyFragment
 * PolicyFragment `object`: A Policy.
   * properties [PolicyPropertiesFragment](#policypropertiesfragment)
-  * id `string`: The identifier of the resource.
-  * location `string`: The location of the resource.
-  * name `string`: The name of the resource.
   * tags `object`: The tags of the resource.
-  * type `string`: The type of the resource.
+
+### PolicyList
+* PolicyList `object`: The response of a list operation.
+  * nextLink `string`: Link for next set of results.
+  * value `array`: Results of the list operation.
+    * items [Policy](#policy)
 
 ### PolicyProperties
 * PolicyProperties `object`: Properties of a Policy.
@@ -3734,7 +4734,7 @@ azure_devtestlabs_dtl.GlobalSchedules_Retarget({
   * description `string`: The description of the policy.
   * evaluatorType `string` (values: AllowedValuesPolicy, MaxValuePolicy): The evaluator type of the policy (i.e. AllowedValuesPolicy, MaxValuePolicy).
   * factData `string`: The fact data of the policy.
-  * factName `string` (values: UserOwnedLabVmCount, UserOwnedLabPremiumVmCount, LabVmCount, LabPremiumVmCount, LabVmSize, GalleryImage, UserOwnedLabVmCountInSubnet, LabTargetCost): The fact name of the policy (e.g. LabVmCount, LabVmSize, MaxVmsAllowedPerLab, etc.
+  * factName `string` (values: UserOwnedLabVmCount, UserOwnedLabPremiumVmCount, LabVmCount, LabPremiumVmCount, LabVmSize, GalleryImage, UserOwnedLabVmCountInSubnet, LabTargetCost, EnvironmentTemplate, ScheduleEditPermission): The fact name of the policy (e.g. LabVmCount, LabVmSize, MaxVmsAllowedPerLab, etc.
   * provisioningState `string`: The provisioning status of the resource.
   * status `string` (values: Enabled, Disabled): The status of the policy.
   * threshold `string`: The threshold of the policy (i.e. a number for MaxValuePolicy, and a JSON array of values for AllowedValuesPolicy).
@@ -3745,11 +4745,9 @@ azure_devtestlabs_dtl.GlobalSchedules_Retarget({
   * description `string`: The description of the policy.
   * evaluatorType `string` (values: AllowedValuesPolicy, MaxValuePolicy): The evaluator type of the policy (i.e. AllowedValuesPolicy, MaxValuePolicy).
   * factData `string`: The fact data of the policy.
-  * factName `string` (values: UserOwnedLabVmCount, UserOwnedLabPremiumVmCount, LabVmCount, LabPremiumVmCount, LabVmSize, GalleryImage, UserOwnedLabVmCountInSubnet, LabTargetCost): The fact name of the policy (e.g. LabVmCount, LabVmSize, MaxVmsAllowedPerLab, etc.
-  * provisioningState `string`: The provisioning status of the resource.
+  * factName `string` (values: UserOwnedLabVmCount, UserOwnedLabPremiumVmCount, LabVmCount, LabPremiumVmCount, LabVmSize, GalleryImage, UserOwnedLabVmCountInSubnet, LabTargetCost, EnvironmentTemplate, ScheduleEditPermission): The fact name of the policy (e.g. LabVmCount, LabVmSize, MaxVmsAllowedPerLab, etc.
   * status `string` (values: Enabled, Disabled): The status of the policy.
   * threshold `string`: The threshold of the policy (i.e. a number for MaxValuePolicy, and a JSON array of values for AllowedValuesPolicy).
-  * uniqueIdentifier `string`: The unique immutable identifier of a resource (Guid).
 
 ### PolicySetResult
 * PolicySetResult `object`: Result of a policy set evaluation.
@@ -3778,6 +4776,14 @@ azure_devtestlabs_dtl.GlobalSchedules_Retarget({
   * value `array`: List of operations supported by the resource provider.
     * items [OperationMetadata](#operationmetadata)
 
+### RdpConnection
+* RdpConnection `object`: Represents a .rdp file
+  * contents `string`: The contents of the .rdp file
+
+### ResizeLabVirtualMachineProperties
+* ResizeLabVirtualMachineProperties `object`: Request body for resizing a virtual machine.
+  * size `string`: Specifies the size of the virtual machine.
+
 ### Resource
 * Resource `object`: An Azure resource.
   * id `string`: The identifier of the resource.
@@ -3785,114 +4791,6 @@ azure_devtestlabs_dtl.GlobalSchedules_Retarget({
   * name `string`: The name of the resource.
   * tags `object`: The tags of the resource.
   * type `string`: The type of the resource.
-
-### ResponseWithContinuation[ArmTemplate]
-* ResponseWithContinuation[ArmTemplate] `object`: The response of a list operation.
-  * nextLink `string`: Link for next set of results.
-  * value `array`: Results of the list operation.
-    * items [ArmTemplate](#armtemplate)
-
-### ResponseWithContinuation[ArtifactSource]
-* ResponseWithContinuation[ArtifactSource] `object`: The response of a list operation.
-  * nextLink `string`: Link for next set of results.
-  * value `array`: Results of the list operation.
-    * items [ArtifactSource](#artifactsource)
-
-### ResponseWithContinuation[Artifact]
-* ResponseWithContinuation[Artifact] `object`: The response of a list operation.
-  * nextLink `string`: Link for next set of results.
-  * value `array`: Results of the list operation.
-    * items [Artifact](#artifact)
-
-### ResponseWithContinuation[CustomImage]
-* ResponseWithContinuation[CustomImage] `object`: The response of a list operation.
-  * nextLink `string`: Link for next set of results.
-  * value `array`: Results of the list operation.
-    * items [CustomImage](#customimage)
-
-### ResponseWithContinuation[Disk]
-* ResponseWithContinuation[Disk] `object`: The response of a list operation.
-  * nextLink `string`: Link for next set of results.
-  * value `array`: Results of the list operation.
-    * items [Disk](#disk)
-
-### ResponseWithContinuation[DtlEnvironment]
-* ResponseWithContinuation[DtlEnvironment] `object`: The response of a list operation.
-  * nextLink `string`: Link for next set of results.
-  * value `array`: Results of the list operation.
-    * items [DtlEnvironment](#dtlenvironment)
-
-### ResponseWithContinuation[Formula]
-* ResponseWithContinuation[Formula] `object`: The response of a list operation.
-  * nextLink `string`: Link for next set of results.
-  * value `array`: Results of the list operation.
-    * items [Formula](#formula)
-
-### ResponseWithContinuation[GalleryImage]
-* ResponseWithContinuation[GalleryImage] `object`: The response of a list operation.
-  * nextLink `string`: Link for next set of results.
-  * value `array`: Results of the list operation.
-    * items [GalleryImage](#galleryimage)
-
-### ResponseWithContinuation[LabVhd]
-* ResponseWithContinuation[LabVhd] `object`: The response of a list operation.
-  * nextLink `string`: Link for next set of results.
-  * value `array`: Results of the list operation.
-    * items [LabVhd](#labvhd)
-
-### ResponseWithContinuation[LabVirtualMachine]
-* ResponseWithContinuation[LabVirtualMachine] `object`: The response of a list operation.
-  * nextLink `string`: Link for next set of results.
-  * value `array`: Results of the list operation.
-    * items [LabVirtualMachine](#labvirtualmachine)
-
-### ResponseWithContinuation[Lab]
-* ResponseWithContinuation[Lab] `object`: The response of a list operation.
-  * nextLink `string`: Link for next set of results.
-  * value `array`: Results of the list operation.
-    * items [Lab](#lab)
-
-### ResponseWithContinuation[NotificationChannel]
-* ResponseWithContinuation[NotificationChannel] `object`: The response of a list operation.
-  * nextLink `string`: Link for next set of results.
-  * value `array`: Results of the list operation.
-    * items [NotificationChannel](#notificationchannel)
-
-### ResponseWithContinuation[Policy]
-* ResponseWithContinuation[Policy] `object`: The response of a list operation.
-  * nextLink `string`: Link for next set of results.
-  * value `array`: Results of the list operation.
-    * items [Policy](#policy)
-
-### ResponseWithContinuation[Schedule]
-* ResponseWithContinuation[Schedule] `object`: The response of a list operation.
-  * nextLink `string`: Link for next set of results.
-  * value `array`: Results of the list operation.
-    * items [Schedule](#schedule)
-
-### ResponseWithContinuation[Secret]
-* ResponseWithContinuation[Secret] `object`: The response of a list operation.
-  * nextLink `string`: Link for next set of results.
-  * value `array`: Results of the list operation.
-    * items [Secret](#secret)
-
-### ResponseWithContinuation[ServiceRunner]
-* ResponseWithContinuation[ServiceRunner] `object`: The response of a list operation.
-  * nextLink `string`: Link for next set of results.
-  * value `array`: Results of the list operation.
-    * items [ServiceRunner](#servicerunner)
-
-### ResponseWithContinuation[User]
-* ResponseWithContinuation[User] `object`: The response of a list operation.
-  * nextLink `string`: Link for next set of results.
-  * value `array`: Results of the list operation.
-    * items [User](#user)
-
-### ResponseWithContinuation[VirtualNetwork]
-* ResponseWithContinuation[VirtualNetwork] `object`: The response of a list operation.
-  * nextLink `string`: Link for next set of results.
-  * value `array`: Results of the list operation.
-    * items [VirtualNetwork](#virtualnetwork)
 
 ### RetargetScheduleProperties
 * RetargetScheduleProperties `object`: Properties for retargeting a virtual machine schedule.
@@ -3908,14 +4806,52 @@ azure_devtestlabs_dtl.GlobalSchedules_Retarget({
   * tags `object`: The tags of the resource.
   * type `string`: The type of the resource.
 
+### ScheduleCreationParameter
+* ScheduleCreationParameter `object`: Properties for creating a schedule.
+  * location `string`: The location of the new virtual machine or environment
+  * name `string`: The name of the virtual machine or environment
+  * properties [ScheduleCreationParameterProperties](#schedulecreationparameterproperties)
+  * tags `object`: The tags of the resource.
+
+### ScheduleCreationParameterFragment
+* ScheduleCreationParameterFragment `object`: Properties for creating a schedule.
+  * location `string`: The location of the new virtual machine or environment
+  * name `string`: The name of the virtual machine or environment
+  * properties [ScheduleCreationParameterPropertiesFragment](#schedulecreationparameterpropertiesfragment)
+  * tags `object`: The tags of the resource.
+
+### ScheduleCreationParameterProperties
+* ScheduleCreationParameterProperties `object`: Properties for schedule creation.
+  * dailyRecurrence [DayDetails](#daydetails)
+  * hourlyRecurrence [HourDetails](#hourdetails)
+  * notificationSettings [NotificationSettings](#notificationsettings)
+  * status `string` (values: Enabled, Disabled): The status of the schedule (i.e. Enabled, Disabled)
+  * targetResourceId `string`: The resource ID to which the schedule belongs
+  * taskType `string`: The task type of the schedule (e.g. LabVmsShutdownTask, LabVmAutoStart).
+  * timeZoneId `string`: The time zone ID (e.g. Pacific Standard time).
+  * weeklyRecurrence [WeekDetails](#weekdetails)
+
+### ScheduleCreationParameterPropertiesFragment
+* ScheduleCreationParameterPropertiesFragment `object`: Properties for schedule creation.
+  * dailyRecurrence [DayDetailsFragment](#daydetailsfragment)
+  * hourlyRecurrence [HourDetailsFragment](#hourdetailsfragment)
+  * notificationSettings [NotificationSettingsFragment](#notificationsettingsfragment)
+  * status `string` (values: Enabled, Disabled): The status of the schedule (i.e. Enabled, Disabled)
+  * targetResourceId `string`: The resource ID to which the schedule belongs
+  * taskType `string`: The task type of the schedule (e.g. LabVmsShutdownTask, LabVmAutoStart).
+  * timeZoneId `string`: The time zone ID (e.g. Pacific Standard time).
+  * weeklyRecurrence [WeekDetailsFragment](#weekdetailsfragment)
+
 ### ScheduleFragment
 * ScheduleFragment `object`: A schedule.
   * properties [SchedulePropertiesFragment](#schedulepropertiesfragment)
-  * id `string`: The identifier of the resource.
-  * location `string`: The location of the resource.
-  * name `string`: The name of the resource.
   * tags `object`: The tags of the resource.
-  * type `string`: The type of the resource.
+
+### ScheduleList
+* ScheduleList `object`: The response of a list operation.
+  * nextLink `string`: Link for next set of results.
+  * value `array`: Results of the list operation.
+    * items [Schedule](#schedule)
 
 ### ScheduleProperties
 * ScheduleProperties `object`: Properties of a schedule.
@@ -3936,12 +4872,10 @@ azure_devtestlabs_dtl.GlobalSchedules_Retarget({
   * dailyRecurrence [DayDetailsFragment](#daydetailsfragment)
   * hourlyRecurrence [HourDetailsFragment](#hourdetailsfragment)
   * notificationSettings [NotificationSettingsFragment](#notificationsettingsfragment)
-  * provisioningState `string`: The provisioning status of the resource.
   * status `string` (values: Enabled, Disabled): The status of the schedule (i.e. Enabled, Disabled)
   * targetResourceId `string`: The resource ID to which the schedule belongs
   * taskType `string`: The task type of the schedule (e.g. LabVmsShutdownTask, LabVmAutoStart).
   * timeZoneId `string`: The time zone ID (e.g. Pacific Standard time).
-  * uniqueIdentifier `string`: The unique immutable identifier of a resource (Guid).
   * weeklyRecurrence [WeekDetailsFragment](#weekdetailsfragment)
 
 ### Secret
@@ -3953,11 +4887,59 @@ azure_devtestlabs_dtl.GlobalSchedules_Retarget({
   * tags `object`: The tags of the resource.
   * type `string`: The type of the resource.
 
+### SecretFragment
+* SecretFragment `object`: A secret.
+  * properties [SecretPropertiesFragment](#secretpropertiesfragment)
+  * tags `object`: The tags of the resource.
+
+### SecretList
+* SecretList `object`: The response of a list operation.
+  * nextLink `string`: Link for next set of results.
+  * value `array`: Results of the list operation.
+    * items [Secret](#secret)
+
 ### SecretProperties
 * SecretProperties `object`: Properties of a secret.
   * provisioningState `string`: The provisioning status of the resource.
   * uniqueIdentifier `string`: The unique immutable identifier of a resource (Guid).
   * value `string`: The value of the secret for secret creation.
+
+### SecretPropertiesFragment
+* SecretPropertiesFragment `object`: Properties of a secret.
+  * value `string`: The value of the secret for secret creation.
+
+### ServiceFabric
+* ServiceFabric `object`: A Service Fabric.
+  * properties **required** [ServiceFabricProperties](#servicefabricproperties)
+  * id `string`: The identifier of the resource.
+  * location `string`: The location of the resource.
+  * name `string`: The name of the resource.
+  * tags `object`: The tags of the resource.
+  * type `string`: The type of the resource.
+
+### ServiceFabricFragment
+* ServiceFabricFragment `object`: A Service Fabric.
+  * properties [ServiceFabricPropertiesFragment](#servicefabricpropertiesfragment)
+  * tags `object`: The tags of the resource.
+
+### ServiceFabricList
+* ServiceFabricList `object`: The response of a list operation.
+  * nextLink `string`: Link for next set of results.
+  * value `array`: Results of the list operation.
+    * items [ServiceFabric](#servicefabric)
+
+### ServiceFabricProperties
+* ServiceFabricProperties `object`: Properties of a service fabric.
+  * applicableSchedule [ApplicableSchedule](#applicableschedule)
+  * environmentId `string`: The resource id of the environment under which the service fabric resource is present
+  * externalServiceFabricId `string`: The backing service fabric resource's id
+  * provisioningState `string`: The provisioning status of the resource.
+  * uniqueIdentifier `string`: The unique immutable identifier of a resource (Guid).
+
+### ServiceFabricPropertiesFragment
+* ServiceFabricPropertiesFragment `object`: Properties of a service fabric.
+  * environmentId `string`: The resource id of the environment under which the service fabric resource is present
+  * externalServiceFabricId `string`: The backing service fabric resource's id
 
 ### ServiceRunner
 * ServiceRunner `object`: A container for a managed identity to execute DevTest lab services.
@@ -3985,12 +4967,14 @@ azure_devtestlabs_dtl.GlobalSchedules_Retarget({
   * eventType `string`: The event for which a notification will be sent.
   * guid `string`: The GUID for the virtual machine to be shut down.
   * labName `string`: The lab for the schedule.
+  * minutesUntilShutdown `string`: Minutes remaining until shutdown
   * owner `string`: The owner of the virtual machine.
   * resourceGroupName `string`: The resource group name for the schedule.
   * skipUrl `string`: The URL to skip auto-shutdown.
   * subscriptionId `string`: The subscription ID for the schedule.
   * text `string`: The text for the notification.
   * vmName `string`: The virtual machine to be shut down.
+  * vmUrl `string`: The URL of the virtual machine.
 
 ### Subnet
 * Subnet `object`: Subnet information.
@@ -4042,6 +5026,10 @@ azure_devtestlabs_dtl.GlobalSchedules_Retarget({
   * status `string` (values: Enabled, Disabled): Target cost status
   * target `integer`: Lab target cost
 
+### UpdateResource
+* UpdateResource `object`: Represents an update resource
+  * tags `object`: The tags of the resource.
+
 ### User
 * User `object`: Profile of a lab user.
   * properties [UserProperties](#userproperties)
@@ -4054,11 +5042,7 @@ azure_devtestlabs_dtl.GlobalSchedules_Retarget({
 ### UserFragment
 * UserFragment `object`: Profile of a lab user.
   * properties [UserPropertiesFragment](#userpropertiesfragment)
-  * id `string`: The identifier of the resource.
-  * location `string`: The location of the resource.
-  * name `string`: The name of the resource.
   * tags `object`: The tags of the resource.
-  * type `string`: The type of the resource.
 
 ### UserIdentity
 * UserIdentity `object`: Identity attributes of a lab user.
@@ -4076,6 +5060,12 @@ azure_devtestlabs_dtl.GlobalSchedules_Retarget({
   * principalName `string`: Set to the principal name / UPN of the client JWT making the request.
   * tenantId `string`: Set to the tenant ID of the client JWT making the request.
 
+### UserList
+* UserList `object`: The response of a list operation.
+  * nextLink `string`: Link for next set of results.
+  * value `array`: Results of the list operation.
+    * items [User](#user)
+
 ### UserProperties
 * UserProperties `object`: Properties of a lab user profile.
   * createdDate `string`: The creation date of the user profile.
@@ -4087,9 +5077,7 @@ azure_devtestlabs_dtl.GlobalSchedules_Retarget({
 ### UserPropertiesFragment
 * UserPropertiesFragment `object`: Properties of a lab user profile.
   * identity [UserIdentityFragment](#useridentityfragment)
-  * provisioningState `string`: The provisioning status of the resource.
   * secretStore [UserSecretStoreFragment](#usersecretstorefragment)
-  * uniqueIdentifier `string`: The unique immutable identifier of a resource (Guid).
 
 ### UserSecretStore
 * UserSecretStore `object`: Properties of a user's secret store.
@@ -4113,11 +5101,13 @@ azure_devtestlabs_dtl.GlobalSchedules_Retarget({
 ### VirtualNetworkFragment
 * VirtualNetworkFragment `object`: A virtual network.
   * properties [VirtualNetworkPropertiesFragment](#virtualnetworkpropertiesfragment)
-  * id `string`: The identifier of the resource.
-  * location `string`: The location of the resource.
-  * name `string`: The name of the resource.
   * tags `object`: The tags of the resource.
-  * type `string`: The type of the resource.
+
+### VirtualNetworkList
+* VirtualNetworkList `object`: The response of a list operation.
+  * nextLink `string`: Link for next set of results.
+  * value `array`: Results of the list operation.
+    * items [VirtualNetwork](#virtualnetwork)
 
 ### VirtualNetworkProperties
 * VirtualNetworkProperties `object`: Properties of a virtual network.
@@ -4139,12 +5129,8 @@ azure_devtestlabs_dtl.GlobalSchedules_Retarget({
     * items [SubnetFragment](#subnetfragment)
   * description `string`: The description of the virtual network.
   * externalProviderResourceId `string`: The Microsoft.Network resource identifier of the virtual network.
-  * externalSubnets `array`: The external subnet properties.
-    * items [ExternalSubnetFragment](#externalsubnetfragment)
-  * provisioningState `string`: The provisioning status of the resource.
   * subnetOverrides `array`: The subnet overrides of the virtual network.
     * items [SubnetOverrideFragment](#subnetoverridefragment)
-  * uniqueIdentifier `string`: The unique immutable identifier of a resource (Guid).
 
 ### WeekDetails
 * WeekDetails `object`: Properties of a weekly schedule.
@@ -4160,6 +5146,10 @@ azure_devtestlabs_dtl.GlobalSchedules_Retarget({
 
 ### WindowsOsInfo
 * WindowsOsInfo `object`: Information about a Windows OS.
+  * windowsOsState `string` (values: NonSysprepped, SysprepRequested, SysprepApplied): The state of the Windows OS (i.e. NonSysprepped, SysprepRequested, SysprepApplied).
+
+### WindowsOsInfoFragment
+* WindowsOsInfoFragment `object`: Information about a Windows OS.
   * windowsOsState `string` (values: NonSysprepped, SysprepRequested, SysprepApplied): The state of the Windows OS (i.e. NonSysprepped, SysprepRequested, SysprepApplied).
 
 

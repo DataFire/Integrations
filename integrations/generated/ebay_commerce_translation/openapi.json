@@ -1,0 +1,248 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "contact": {
+      "name": "eBay Inc,",
+      "x-twitter": "ebay"
+    },
+    "description": "This API allows 3rd party developers to translate item title, description, search query.",
+    "license": {
+      "name": "eBay API License Agreement",
+      "url": "https://go.developer.ebay.com/api-license-agreement"
+    },
+    "title": "Translation API",
+    "version": "1",
+    "x-apisguru-categories": [
+      "ecommerce"
+    ],
+    "x-logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_ebay_profile_image.jpeg"
+    },
+    "x-origin": [
+      {
+        "format": "openapi",
+        "url": "https://developer.ebay.com/api-docs/master/commerce/translation/openapi/3/commerce_translation_v1_oas3.json",
+        "version": "3.0"
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "ebay.com",
+    "x-serviceName": "commerce-translation",
+    "x-datafire": {
+      "name": "ebay_commerce_translation",
+      "type": "openapi"
+    }
+  },
+  "host": "api.ebay.com",
+  "basePath": "/commerce/translation/v1",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/translate": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/TranslateRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/TranslateResponse"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "properties": {
+                "errors": {
+                  "items": {
+                    "$ref": "#/definitions/Error"
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "properties": {
+                "errors": {
+                  "items": {
+                    "$ref": "#/definitions/Error"
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            }
+          }
+        },
+        "security": [
+          {
+            "api_auth": [
+              "https://api.ebay.com/oauth/api_scope"
+            ]
+          }
+        ],
+        "tags": [
+          "language"
+        ],
+        "description": "Translates input text inot a given language.",
+        "operationId": "translate"
+      }
+    }
+  },
+  "definitions": {
+    "Error": {
+      "description": "This type defines the fields that can be returned in an error.",
+      "properties": {
+        "parameters": {
+          "description": "An array of name/value pairs that describe details the error condition. These are useful when multiple errors are returned.",
+          "items": {
+            "$ref": "#/definitions/ErrorParameter"
+          },
+          "type": "array"
+        },
+        "category": {
+          "description": "Identifies the type of erro.",
+          "type": "string"
+        },
+        "domain": {
+          "description": "Name for the primary system where the error occurred. This is relevant for application errors.",
+          "type": "string"
+        },
+        "errorId": {
+          "description": "A unique number to identify the error.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "inputRefIds": {
+          "description": "An array of request elements most closely associated to the error.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "longMessage": {
+          "description": "A more detailed explanation of the error.",
+          "type": "string"
+        },
+        "message": {
+          "description": "Information on how to correct the problem, in the end user's terms and language where applicable.",
+          "type": "string"
+        },
+        "outputRefIds": {
+          "description": "An array of request elements most closely associated to the error.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "subdomain": {
+          "description": "Further helps indicate which subsystem the error is coming from. System subcategories include: Initialization, Serialization, Security, Monitoring, Rate Limiting, etc.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "ErrorParameter": {
+      "properties": {
+        "name": {
+          "description": "The object of the error.",
+          "type": "string"
+        },
+        "value": {
+          "description": "The value of the object.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "TranslateRequest": {
+      "properties": {
+        "from": {
+          "description": "The language of the input text. For implementation help, refer to <a href='https://developer.ebay.com/devzone/rest/api-ref/translation/types/LanguageEnum.html'>eBay API documentation</a>",
+          "type": "string"
+        },
+        "text": {
+          "description": "The input text.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "to": {
+          "description": "The language to use for the translation of th einput text. For implementation help, refer to <a href='https://developer.ebay.com/devzone/rest/api-ref/translation/types/LanguageEnum.html'>eBay API documentation</a>",
+          "type": "string"
+        },
+        "translationContext": {
+          "description": "The context of the translation. For implementation help, refer to <a href='https://developer.ebay.com/devzone/rest/api-ref/translation/types/TranslationContextEnum.html'>eBay API documentation</a>",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "TranslateResponse": {
+      "properties": {
+        "translations": {
+          "description": "The list of translations.",
+          "items": {
+            "$ref": "#/definitions/Translation"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "Translation": {
+      "properties": {
+        "from": {
+          "description": "The language of the input text. For implementation help, refer to <a href='https://developer.ebay.com/devzone/rest/api-ref/translation/types/LanguageEnum.html'>eBay API documentation</a>",
+          "type": "string"
+        },
+        "originalText": {
+          "description": "Original text.",
+          "type": "string"
+        },
+        "to": {
+          "description": "The language to use for the translation of th einput text. For implementation help, refer to <a href='https://developer.ebay.com/devzone/rest/api-ref/translation/types/LanguageEnum.html'>eBay API documentation</a>",
+          "type": "string"
+        },
+        "translatedText": {
+          "description": "Translated text.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "securityDefinitions": {
+    "api_auth": {
+      "description": "The security definitions for this API. Please check individual operations for applicable scopes.",
+      "flow": "application",
+      "scopes": {
+        "https://api.ebay.com/oauth/api_scope": "View public data from eBay"
+      },
+      "tokenUrl": "https://api.ebay.com/identity/v1/oauth2/token",
+      "type": "oauth2"
+    }
+  },
+  "x-components": {}
+}

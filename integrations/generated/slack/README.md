@@ -1,6 +1,6 @@
 # @datafire/slack
 
-Client library for Slack
+Client library for Slack Web API
 
 ## Installation and Usage
 ```bash
@@ -15,7 +15,7 @@ let slack = require('@datafire/slack').create({
   redirect_uri: ""
 });
 
-slack.users_setPresence({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -67,6 +67,776 @@ slack.oauthRefresh(null, context)
   * scope `string`
   * expiration `string`
 
+### admin_apps_approve
+Approve an app for installation on a workspace.
+
+
+```js
+slack.admin_apps_approve({
+  "token": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * token **required** `string`: Authentication token. Requires scope: `admin.apps:write`
+  * app_id `string`: The id of the app to approve.
+  * request_id `string`: The id of the request to approve.
+  * team_id `string`
+
+#### Output
+* output `object`: This method either only returns a brief _OK_ response or a verbose schema is not available for this method.
+  * ok **required** [defs_ok_true](#defs_ok_true)
+
+### admin_apps_approved_list
+List approved apps for an org or workspace.
+
+
+```js
+slack.admin_apps_approved_list({
+  "token": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * cursor `string`: Set `cursor` to `next_cursor` returned by the previous call to list items in the next page
+  * token **required** `string`: Authentication token. Requires scope: `admin.apps:read`
+  * limit `integer`: The maximum number of items to return. Must be between 1 - 1000 both inclusive.
+  * team_id `string`
+  * enterprise_id `string`
+
+#### Output
+* output `object`: This method either only returns a brief _OK_ response or a verbose schema is not available for this method.
+  * ok **required** [defs_ok_true](#defs_ok_true)
+
+### admin_apps_requests_list
+List app requests for a team/workspace.
+
+
+```js
+slack.admin_apps_requests_list({
+  "token": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * cursor `string`: Set `cursor` to `next_cursor` returned by the previous call to list items in the next page
+  * token **required** `string`: Authentication token. Requires scope: `admin.apps:read`
+  * limit `integer`: The maximum number of items to return. Must be between 1 - 1000 both inclusive.
+  * team_id `string`
+
+#### Output
+* output `object`: This method either only returns a brief _OK_ response or a verbose schema is not available for this method.
+  * ok **required** [defs_ok_true](#defs_ok_true)
+
+### admin_apps_restrict
+Restrict an app for installation on a workspace.
+
+
+```js
+slack.admin_apps_restrict({
+  "token": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * token **required** `string`: Authentication token. Requires scope: `admin.apps:write`
+  * app_id `string`: The id of the app to restrict.
+  * request_id `string`: The id of the request to restrict.
+  * team_id `string`
+
+#### Output
+* output `object`: This method either only returns a brief _OK_ response or a verbose schema is not available for this method.
+  * ok **required** [defs_ok_true](#defs_ok_true)
+
+### admin_apps_restricted_list
+List restricted apps for an org or workspace.
+
+
+```js
+slack.admin_apps_restricted_list({
+  "token": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * cursor `string`: Set `cursor` to `next_cursor` returned by the previous call to list items in the next page
+  * token **required** `string`: Authentication token. Requires scope: `admin.apps:read`
+  * limit `integer`: The maximum number of items to return. Must be between 1 - 1000 both inclusive.
+  * team_id `string`
+  * enterprise_id `string`
+
+#### Output
+* output `object`: This method either only returns a brief _OK_ response or a verbose schema is not available for this method.
+  * ok **required** [defs_ok_true](#defs_ok_true)
+
+### admin_conversations_setTeams
+Set the workspaces in an Enterprise grid org that connect to a channel.
+
+
+```js
+slack.admin_conversations_setTeams({
+  "token": "",
+  "channel_id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * token **required** `string`: Authentication token. Requires scope: `admin.conversations:write`
+  * channel_id **required** `string`: The encoded `channel_id` to add or remove to workspaces.
+  * org_channel `boolean`: True if channel has to be converted to an org channel
+  * target_team_ids `string`: The list of workspaces to which the channel should be shared. Not required if the channel is being shared orgwide. Example: `['T1234', 'T5678']`
+  * team_id `string`: The workspace to which the channel belongs. Omit this argument if the channel is a cross-workspace shared channel.
+
+#### Output
+* output `object`: This method either only returns a brief _OK_ response or a verbose schema is not available for this method.
+  * ok **required** [defs_ok_true](#defs_ok_true)
+
+### admin_emoji_add
+Add an emoji.
+
+
+```js
+slack.admin_emoji_add({
+  "name": "",
+  "token": "",
+  "url": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * name **required** `string`: The name of the emoji to be removed. Colons (`:myemoji:`) around the value are not required, although they may be included.
+  * token **required** `string`: Authentication token. Requires scope: `admin.teams:write`
+  * url **required** `string`: The URL of a file to use as an image for the emoji. Square images under 128KB and with transparent backgrounds work best.
+
+#### Output
+* output `object`: This method either only returns a brief _OK_ response or a verbose schema is not available for this method.
+  * ok **required** [defs_ok_true](#defs_ok_true)
+
+### admin_emoji_addAlias
+Add an emoji alias.
+
+
+```js
+slack.admin_emoji_addAlias({
+  "alias_for": "",
+  "name": "",
+  "token": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * alias_for **required** `string`: The alias of the emoji.
+  * name **required** `string`: The name of the emoji to be aliased. Colons (`:myemoji:`) around the value are not required, although they may be included.
+  * token **required** `string`: Authentication token. Requires scope: `admin.teams:write`
+
+#### Output
+* output `object`: This method either only returns a brief _OK_ response or a verbose schema is not available for this method.
+  * ok **required** [defs_ok_true](#defs_ok_true)
+
+### admin_emoji_list
+List emoji for an Enterprise Grid organization.
+
+
+```js
+slack.admin_emoji_list({
+  "token": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * cursor `string`: Set `cursor` to `next_cursor` returned by the previous call to list items in the next page
+  * token **required** `string`: Authentication token. Requires scope: `admin.teams:read`
+  * limit `integer`: The maximum number of items to return. Must be between 1 - 1000 both inclusive.
+
+#### Output
+* output `object`: This method either only returns a brief _OK_ response or a verbose schema is not available for this method.
+  * ok **required** [defs_ok_true](#defs_ok_true)
+
+### admin_emoji_remove
+Remove an emoji across an Enterprise Grid organization
+
+
+```js
+slack.admin_emoji_remove({
+  "name": "",
+  "token": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * name **required** `string`: The name of the emoji to be removed. Colons (`:myemoji:`) around the value are not required, although they may be included.
+  * token **required** `string`: Authentication token. Requires scope: `admin.teams:write`
+
+#### Output
+* output `object`: This method either only returns a brief _OK_ response or a verbose schema is not available for this method.
+  * ok **required** [defs_ok_true](#defs_ok_true)
+
+### admin_emoji_rename
+Rename an emoji.
+
+
+```js
+slack.admin_emoji_rename({
+  "name": "",
+  "new_name": "",
+  "token": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * name **required** `string`: The name of the emoji to be renamed. Colons (`:myemoji:`) around the value are not required, although they may be included.
+  * new_name **required** `string`: The new name of the emoji.
+  * token **required** `string`: Authentication token. Requires scope: `admin.teams:write`
+
+#### Output
+* output `object`: This method either only returns a brief _OK_ response or a verbose schema is not available for this method.
+  * ok **required** [defs_ok_true](#defs_ok_true)
+
+### admin_inviteRequests_approve
+Approve a workspace invite request.
+
+
+```js
+slack.admin_inviteRequests_approve({
+  "token": "",
+  "invite_request_id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * token **required** `string`: Authentication token. Requires scope: `admin.invites:write`
+  * invite_request_id **required** `string`: ID of the request to invite.
+  * team_id `string`: ID for the workspace where the invite request was made.
+
+#### Output
+* output `object`: This method either only returns a brief _OK_ response or a verbose schema is not available for this method.
+  * ok **required** [defs_ok_true](#defs_ok_true)
+
+### admin_inviteRequests_approved_list
+List all approved workspace invite requests.
+
+
+```js
+slack.admin_inviteRequests_approved_list({
+  "token": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * cursor `string`: Value of the `next_cursor` field sent as part of the previous API response
+  * token **required** `string`: Authentication token. Requires scope: `admin.invites:read`
+  * limit `integer`: The number of results that will be returned by the API on each invocation. Must be between 1 - 1000, both inclusive
+  * team_id `string`: ID for the workspace where the invite requests were made.
+
+#### Output
+* output `object`: This method either only returns a brief _OK_ response or a verbose schema is not available for this method.
+  * ok **required** [defs_ok_true](#defs_ok_true)
+
+### admin_inviteRequests_denied_list
+List all denied workspace invite requests.
+
+
+```js
+slack.admin_inviteRequests_denied_list({
+  "token": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * cursor `string`: Value of the `next_cursor` field sent as part of the previous api response
+  * token **required** `string`: Authentication token. Requires scope: `admin.invites:read`
+  * limit `integer`: The number of results that will be returned by the API on each invocation. Must be between 1 - 1000 both inclusive
+  * team_id `string`: ID for the workspace where the invite requests were made.
+
+#### Output
+* output `object`: This method either only returns a brief _OK_ response or a verbose schema is not available for this method.
+  * ok **required** [defs_ok_true](#defs_ok_true)
+
+### admin_inviteRequests_deny
+Deny a workspace invite request.
+
+
+```js
+slack.admin_inviteRequests_deny({
+  "token": "",
+  "invite_request_id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * token **required** `string`: Authentication token. Requires scope: `admin.invites:write`
+  * invite_request_id **required** `string`: ID of the request to invite.
+  * team_id `string`: ID for the workspace where the invite request was made.
+
+#### Output
+* output `object`: This method either only returns a brief _OK_ response or a verbose schema is not available for this method.
+  * ok **required** [defs_ok_true](#defs_ok_true)
+
+### admin_inviteRequests_list
+List all pending workspace invite requests.
+
+
+```js
+slack.admin_inviteRequests_list({
+  "token": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * cursor `string`: Value of the `next_cursor` field sent as part of the previous API response
+  * token **required** `string`: Authentication token. Requires scope: `admin.invites:read`
+  * limit `integer`: The number of results that will be returned by the API on each invocation. Must be between 1 - 1000, both inclusive
+  * team_id `string`: ID for the workspace where the invite requests were made.
+
+#### Output
+* output `object`: This method either only returns a brief _OK_ response or a verbose schema is not available for this method.
+  * ok **required** [defs_ok_true](#defs_ok_true)
+
+### admin_teams_admins_list
+List all of the admins on a given workspace.
+
+
+```js
+slack.admin_teams_admins_list({
+  "token": "",
+  "team_id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * cursor `string`: Set `cursor` to `next_cursor` returned by the previous call to list items in the next page.
+  * token **required** `string`: Authentication token. Requires scope: `admin.teams:read`
+  * limit `integer`: The maximum number of items to return.
+  * team_id **required** `string`
+
+#### Output
+* output `object`: This method either only returns a brief _OK_ response or a verbose schema is not available for this method.
+  * ok **required** [defs_ok_true](#defs_ok_true)
+
+### admin_teams_create
+Create an Enterprise team.
+
+
+```js
+slack.admin_teams_create({
+  "token": "",
+  "team_domain": "",
+  "team_name": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * token **required** `string`: Authentication token. Requires scope: `admin.teams:write`
+  * team_description `string`: Description for the team.
+  * team_discoverability `string`: Who can join the team. A team's discoverability can be `open`, `closed`, `invite_only`, or `unlisted`.
+  * team_domain **required** `string`: Team domain (for example, slacksoftballteam).
+  * team_name **required** `string`: Team name (for example, Slack Softball Team).
+
+#### Output
+* output `object`: This method either only returns a brief _OK_ response or a verbose schema is not available for this method.
+  * ok **required** [defs_ok_true](#defs_ok_true)
+
+### admin_teams_list
+List all teams on an Enterprise organization
+
+
+```js
+slack.admin_teams_list({
+  "token": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * cursor `string`: Set `cursor` to `next_cursor` returned by the previous call to list items in the next page.
+  * token **required** `string`: Authentication token. Requires scope: `admin.teams:read`
+  * limit `integer`: The maximum number of items to return. Must be between 1 - 100 both inclusive.
+
+#### Output
+* output `object`: This method either only returns a brief _OK_ response or a verbose schema is not available for this method.
+  * ok **required** [defs_ok_true](#defs_ok_true)
+
+### admin_teams_owners_list
+List all of the owners on a given workspace.
+
+
+```js
+slack.admin_teams_owners_list({
+  "token": "",
+  "team_id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * cursor `string`: Set `cursor` to `next_cursor` returned by the previous call to list items in the next page.
+  * token **required** `string`: Authentication token. Requires scope: `admin.teams:read`
+  * limit `integer`: The maximum number of items to return. Must be between 1 - 1000 both inclusive.
+  * team_id **required** `string`
+
+#### Output
+* output `object`: This method either only returns a brief _OK_ response or a verbose schema is not available for this method.
+  * ok **required** [defs_ok_true](#defs_ok_true)
+
+### admin_teams_settings_info
+Fetch information about settings in a workspace
+
+
+```js
+slack.admin_teams_settings_info({
+  "token": "",
+  "team_id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * token **required** `string`: Authentication token. Requires scope: `admin.teams:read`
+  * team_id **required** `string`
+
+#### Output
+* output `object`: This method either only returns a brief _OK_ response or a verbose schema is not available for this method.
+  * ok **required** [defs_ok_true](#defs_ok_true)
+
+### admin_teams_settings_setDefaultChannels
+Set the default channels of a workspace.
+
+
+```js
+slack.admin_teams_settings_setDefaultChannels({
+  "channel_ids": "",
+  "team_id": "",
+  "token": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * channel_ids **required** `string`: An array of channel IDs.
+  * team_id **required** `string`: ID for the workspace to set the default channel for.
+  * token **required** `string`: Authentication token. Requires scope: `admin.teams:write`
+
+#### Output
+* output `object`: This method either only returns a brief _OK_ response or a verbose schema is not available for this method.
+  * ok **required** [defs_ok_true](#defs_ok_true)
+
+### admin_teams_settings_setDescription
+Set the description of a given workspace.
+
+
+```js
+slack.admin_teams_settings_setDescription({
+  "token": "",
+  "description": "",
+  "team_id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * token **required** `string`: Authentication token. Requires scope: `admin.teams:write`
+  * description **required** `string`: The new description for the workspace.
+  * team_id **required** `string`: ID for the workspace to set the description for.
+
+#### Output
+* output `object`: This method either only returns a brief _OK_ response or a verbose schema is not available for this method.
+  * ok **required** [defs_ok_true](#defs_ok_true)
+
+### admin_teams_settings_setDiscoverability
+An API method that allows admins to set the discoverability of a given workspace
+
+
+```js
+slack.admin_teams_settings_setDiscoverability({
+  "token": "",
+  "discoverability": "",
+  "team_id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * token **required** `string`: Authentication token. Requires scope: `admin.teams:write`
+  * discoverability **required** `string`: This workspace's discovery setting. It must be set to one of `open`, `invite_only`, `closed`, or `unlisted`.
+  * team_id **required** `string`: The ID of the workspace to set discoverability on.
+
+#### Output
+* output `object`: This method either only returns a brief _OK_ response or a verbose schema is not available for this method.
+  * ok **required** [defs_ok_true](#defs_ok_true)
+
+### admin_teams_settings_setIcon
+Sets the icon of a workspace.
+
+
+```js
+slack.admin_teams_settings_setIcon({
+  "image_url": "",
+  "team_id": "",
+  "token": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * image_url **required** `string`: Image URL for the icon
+  * team_id **required** `string`: ID for the workspace to set the icon for.
+  * token **required** `string`: Authentication token. Requires scope: `admin.teams:write`
+
+#### Output
+* output `object`: This method either only returns a brief _OK_ response or a verbose schema is not available for this method.
+  * ok **required** [defs_ok_true](#defs_ok_true)
+
+### admin_teams_settings_setName
+Set the name of a given workspace.
+
+
+```js
+slack.admin_teams_settings_setName({
+  "token": "",
+  "name": "",
+  "team_id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * token **required** `string`: Authentication token. Requires scope: `admin.teams:write`
+  * name **required** `string`: The new name of the workspace.
+  * team_id **required** `string`: ID for the workspace to set the name for.
+
+#### Output
+* output `object`: This method either only returns a brief _OK_ response or a verbose schema is not available for this method.
+  * ok **required** [defs_ok_true](#defs_ok_true)
+
+### admin_users_assign
+Add an Enterprise user to a workspace.
+
+
+```js
+slack.admin_users_assign({
+  "token": "",
+  "team_id": "",
+  "user_id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * token **required** `string`: Authentication token. Requires scope: `admin.users:write`
+  * channel_ids `string`: Comma separated values of channel IDs to add user in the new workspace.
+  * is_restricted `boolean`: True if user should be added to the workspace as a guest.
+  * is_ultra_restricted `boolean`: True if user should be added to the workspace as a single-channel guest.
+  * team_id **required** `string`: The ID (`T1234`) of the workspace.
+  * user_id **required** `string`: The ID of the user to add to the workspace.
+
+#### Output
+* output `object`: This method either only returns a brief _OK_ response or a verbose schema is not available for this method.
+  * ok **required** [defs_ok_true](#defs_ok_true)
+
+### admin_users_invite
+Invite a user to a workspace.
+
+
+```js
+slack.admin_users_invite({
+  "token": "",
+  "channel_ids": "",
+  "email": "",
+  "team_id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * token **required** `string`: Authentication token. Requires scope: `admin.users:write`
+  * channel_ids **required** `string`: A comma-separated list of `channel_id`s for this user to join. At least one channel is required.
+  * custom_message `string`: An optional message to send to the user in the invite email.
+  * email **required** `string`: The email address of the person to invite.
+  * guest_expiration_ts `string`: Timestamp when guest account should be disabled. Only include this timestamp if you are inviting a guest user and you want their account to expire on a certain date.
+  * is_restricted `boolean`: Is this user a multi-channel guest user? (default: false)
+  * is_ultra_restricted `boolean`: Is this user a single channel guest user? (default: false)
+  * real_name `string`: Full name of the user.
+  * resend `boolean`: Allow this invite to be resent in the future if a user has not signed up yet. (default: false)
+  * team_id **required** `string`: The ID (`T1234`) of the workspace.
+
+#### Output
+* output `object`: This method either only returns a brief _OK_ response or a verbose schema is not available for this method.
+  * ok **required** [defs_ok_true](#defs_ok_true)
+
+### admin_users_list
+List users on a workspace
+
+
+```js
+slack.admin_users_list({
+  "token": "",
+  "team_id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * cursor `string`: Set `cursor` to `next_cursor` returned by the previous call to list items in the next page.
+  * token **required** `string`: Authentication token. Requires scope: `admin.users:read`
+  * limit `integer`: Limit for how many users to be retrieved per page
+  * team_id **required** `string`: The ID (`T1234`) of the workspace.
+
+#### Output
+* output `object`: This method either only returns a brief _OK_ response or a verbose schema is not available for this method.
+  * ok **required** [defs_ok_true](#defs_ok_true)
+
+### admin_users_remove
+Remove a user from a workspace.
+
+
+```js
+slack.admin_users_remove({
+  "token": "",
+  "team_id": "",
+  "user_id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * token **required** `string`: Authentication token. Requires scope: `admin.users:write`
+  * team_id **required** `string`: The ID (`T1234`) of the workspace.
+  * user_id **required** `string`: The ID of the user to remove.
+
+#### Output
+* output `object`: This method either only returns a brief _OK_ response or a verbose schema is not available for this method.
+  * ok **required** [defs_ok_true](#defs_ok_true)
+
+### admin_users_session_reset
+Wipes all valid sessions on all devices for a given user
+
+
+```js
+slack.admin_users_session_reset({
+  "token": "",
+  "user_id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * token **required** `string`: Authentication token. Requires scope: `admin.users:write`
+  * mobile_only `boolean`: Only expire mobile sessions (default: false)
+  * user_id **required** `string`: The ID of the user to wipe sessions for
+  * web_only `boolean`: Only expire web sessions (default: false)
+
+#### Output
+* output `object`: This method either only returns a brief _OK_ response or a verbose schema is not available for this method.
+  * ok **required** [defs_ok_true](#defs_ok_true)
+
+### admin_users_setAdmin
+Set an existing guest, regular user, or owner to be an admin user.
+
+
+```js
+slack.admin_users_setAdmin({
+  "token": "",
+  "team_id": "",
+  "user_id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * token **required** `string`: Authentication token. Requires scope: `admin.users:write`
+  * team_id **required** `string`: The ID (`T1234`) of the workspace.
+  * user_id **required** `string`: The ID of the user to designate as an admin.
+
+#### Output
+* output `object`: This method either only returns a brief _OK_ response or a verbose schema is not available for this method.
+  * ok **required** [defs_ok_true](#defs_ok_true)
+
+### admin_users_setExpiration
+Set an expiration for a guest user
+
+
+```js
+slack.admin_users_setExpiration({
+  "token": "",
+  "expiration_ts": 0,
+  "team_id": "",
+  "user_id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * token **required** `string`: Authentication token. Requires scope: `admin.users:write`
+  * expiration_ts **required** `integer`: Timestamp when guest account should be disabled.
+  * team_id **required** `string`: The ID (`T1234`) of the workspace.
+  * user_id **required** `string`: The ID of the user to set an expiration for.
+
+#### Output
+* output `object`: This method either only returns a brief _OK_ response or a verbose schema is not available for this method.
+  * ok **required** [defs_ok_true](#defs_ok_true)
+
+### admin_users_setOwner
+Set an existing guest, regular user, or admin user to be a workspace owner.
+
+
+```js
+slack.admin_users_setOwner({
+  "token": "",
+  "team_id": "",
+  "user_id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * token **required** `string`: Authentication token. Requires scope: `admin.users:write`
+  * team_id **required** `string`: The ID (`T1234`) of the workspace.
+  * user_id **required** `string`: Id of the user to promote to owner.
+
+#### Output
+* output `object`: This method either only returns a brief _OK_ response or a verbose schema is not available for this method.
+  * ok **required** [defs_ok_true](#defs_ok_true)
+
+### admin_users_setRegular
+Set an existing guest user, admin user, or owner to be a regular user.
+
+
+```js
+slack.admin_users_setRegular({
+  "token": "",
+  "team_id": "",
+  "user_id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * token **required** `string`: Authentication token. Requires scope: `admin.users:write`
+  * team_id **required** `string`: The ID (`T1234`) of the workspace.
+  * user_id **required** `string`: The ID of the user to designate as a regular user.
+
+#### Output
+* output `object`: This method either only returns a brief _OK_ response or a verbose schema is not available for this method.
+  * ok **required** [defs_ok_true](#defs_ok_true)
+
 ### api_test
 Checks API calling code.
 
@@ -97,7 +867,26 @@ slack.apps_permissions_info({}, context)
   * token `string`: Authentication token. Requires scope: `none`
 
 #### Output
-* output `object`: Verbose schema not yet ready for this method.
+* output `object`: Schema for successful response from apps.permissions.info method
+  * info **required** `object`
+    * app_home **required** `object`
+      * resources [objs_resources](#objs_resources)
+      * scopes [objs_scopes](#objs_scopes)
+    * channel **required** `object`
+      * resources [objs_resources](#objs_resources)
+      * scopes [objs_scopes](#objs_scopes)
+    * group **required** `object`
+      * resources [objs_resources](#objs_resources)
+      * scopes [objs_scopes](#objs_scopes)
+    * im **required** `object`
+      * resources [objs_resources](#objs_resources)
+      * scopes [objs_scopes](#objs_scopes)
+    * mpim **required** `object`
+      * resources [objs_resources](#objs_resources)
+      * scopes [objs_scopes](#objs_scopes)
+    * team **required** `object`
+      * resources **required** [objs_resources](#objs_resources)
+      * scopes **required** [objs_scopes](#objs_scopes)
   * ok **required** [defs_ok_true](#defs_ok_true)
 
 ### apps_permissions_request
@@ -105,14 +894,18 @@ Allows an app to request additional scopes
 
 
 ```js
-slack.apps_permissions_request({}, context)
+slack.apps_permissions_request({
+  "scopes": "",
+  "token": "",
+  "trigger_id": ""
+}, context)
 ```
 
 #### Input
 * input `object`
-  * scopes `string`: A comma separated list of scopes to request for
-  * token `string`: Authentication token. Requires scope: `none`
-  * trigger_id `string`: Token used to trigger the permissions API
+  * scopes **required** `string`: A comma separated list of scopes to request for
+  * token **required** `string`: Authentication token. Requires scope: `none`
+  * trigger_id **required** `string`: Token used to trigger the permissions API
 
 #### Output
 * output `object`: Schema for successful response from apps.permissions.request method
@@ -123,13 +916,15 @@ Returns list of resource grants this app has on a team.
 
 
 ```js
-slack.apps_permissions_resources_list({}, context)
+slack.apps_permissions_resources_list({
+  "token": ""
+}, context)
 ```
 
 #### Input
 * input `object`
   * cursor `string`: Paginate through collections of data by setting the `cursor` parameter to a `next_cursor` attribute returned by a previous request's `response_metadata`. Default value fetches the first "page" of the collection. See [pagination](/docs/pagination) for more detail.
-  * token `string`: Authentication token. Requires scope: `none`
+  * token **required** `string`: Authentication token. Requires scope: `none`
   * limit `integer`: The maximum number of items to return.
 
 #### Output
@@ -147,12 +942,14 @@ Returns list of scopes this app has on a team.
 
 
 ```js
-slack.apps_permissions_scopes_list({}, context)
+slack.apps_permissions_scopes_list({
+  "token": ""
+}, context)
 ```
 
 #### Input
 * input `object`
-  * token `string`: Authentication token. Requires scope: `none`
+  * token **required** `string`: Authentication token. Requires scope: `none`
 
 #### Output
 * output `object`: Schema for successful response api.permissions.scopes.list method
@@ -166,18 +963,82 @@ slack.apps_permissions_scopes_list({}, context)
     * team [objs_scopes](#objs_scopes)
     * user [objs_scopes](#objs_scopes)
 
+### apps_permissions_users_list
+Returns list of user grants and corresponding scopes this app has on a team.
+
+
+```js
+slack.apps_permissions_users_list({
+  "token": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * cursor `string`: Paginate through collections of data by setting the `cursor` parameter to a `next_cursor` attribute returned by a previous request's `response_metadata`. Default value fetches the first "page" of the collection. See [pagination](/docs/pagination) for more detail.
+  * token **required** `string`: Authentication token. Requires scope: `none`
+  * limit `integer`: The maximum number of items to return.
+
+#### Output
+* output `object`: This method either only returns a brief _OK_ response or a verbose schema is not available for this method.
+  * ok **required** [defs_ok_true](#defs_ok_true)
+
+### apps_permissions_users_request
+Enables an app to trigger a permissions modal to grant an app access to a user access scope.
+
+
+```js
+slack.apps_permissions_users_request({
+  "scopes": "",
+  "token": "",
+  "user": "",
+  "trigger_id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * scopes **required** `string`: A comma separated list of user scopes to request for
+  * token **required** `string`: Authentication token. Requires scope: `none`
+  * user **required** `string`: The user this scope is being requested for
+  * trigger_id **required** `string`: Token used to trigger the request
+
+#### Output
+* output `object`: This method either only returns a brief _OK_ response or a verbose schema is not available for this method.
+  * ok **required** [defs_ok_true](#defs_ok_true)
+
+### apps_uninstall
+Uninstalls your app from a workspace.
+
+
+```js
+slack.apps_uninstall({}, context)
+```
+
+#### Input
+* input `object`
+  * client_secret `string`: Issued when you created your application.
+  * token `string`: Authentication token. Requires scope: `none`
+  * client_id `string`: Issued when you created your application.
+
+#### Output
+* output `object`: Schema for successful response from apps.uninstall method
+  * ok **required** [defs_ok_true](#defs_ok_true)
+
 ### auth_revoke
 Revokes a token.
 
 
 ```js
-slack.auth_revoke({}, context)
+slack.auth_revoke({
+  "token": ""
+}, context)
 ```
 
 #### Input
 * input `object`
   * test `boolean`: Setting this parameter to `1` triggers a _testing mode_ where the specified token will not actually be revoked.
-  * token `string`: Authentication token. Requires scope: `none`
+  * token **required** `string`: Authentication token. Requires scope: `none`
 
 #### Output
 * output `object`: Schema for successful response from auth.revoke method
@@ -189,15 +1050,18 @@ Checks authentication & identity.
 
 
 ```js
-slack.auth_test({}, context)
+slack.auth_test({
+  "token": ""
+}, context)
 ```
 
 #### Input
 * input `object`
-  * token `string`: Authentication token. Requires scope: `none`
+  * token **required** `string`: Authentication token. Requires scope: `none`
 
 #### Output
 * output `object`: Schema for successful response auth.test method
+  * is_enterprise_install `boolean`
   * ok **required** [defs_ok_true](#defs_ok_true)
   * team **required** `string`
   * team_id **required** [defs_team](#defs_team)
@@ -210,12 +1074,14 @@ Gets information about a bot user.
 
 
 ```js
-slack.bots_info({}, context)
+slack.bots_info({
+  "token": ""
+}, context)
 ```
 
 #### Input
 * input `object`
-  * token `string`: Authentication token. Requires scope: `users:read`
+  * token **required** `string`: Authentication token. Requires scope: `users:read`
   * bot `string`: Bot user to get info on
 
 #### Output
@@ -260,9 +1126,9 @@ slack.channels_create({}, context)
 
 #### Input
 * input `object`
-  * validate `boolean`: Whether to return errors on invalid channel name instead of modifying it to meet the specified criteria.
   * token `string`: Authentication token. Requires scope: `channels:write`
   * name `string`: Name of channel to create
+  * validate `boolean`: Whether to return errors on invalid channel name instead of modifying it to meet the specified criteria.
 
 #### Output
 * output `object`: Schema for successful response channels.create method
@@ -289,7 +1155,10 @@ slack.channels_history({}, context)
 
 #### Output
 * output `object`: Schema for successful response channels.history method
+  * channel_actions_count **required** `integer`
+  * channel_actions_ts **required**
   * has_more **required** `boolean`
+  * is_limited `boolean`
   * messages **required** `array`
     * items [objs_message](#objs_message)
   * ok **required** [defs_ok_true](#defs_ok_true)
@@ -324,8 +1193,8 @@ slack.channels_invite({}, context)
 #### Input
 * input `object`
   * token `string`: Authentication token. Requires scope: `channels:write`
-  * user `string`: User to invite to channel.
   * channel `string`: Channel to invite user to.
+  * user `string`: User to invite to channel.
 
 #### Output
 * output `object`: Schema for successful response channels.invite method
@@ -342,9 +1211,9 @@ slack.channels_join({}, context)
 
 #### Input
 * input `object`
-  * validate `boolean`: Whether to return errors on invalid channel name instead of modifying it to meet the specified criteria.
   * token `string`: Authentication token. Requires scope: `channels:write`
   * name `string`: Name of channel to join
+  * validate `boolean`: Whether to return errors on invalid channel name instead of modifying it to meet the specified criteria.
 
 #### Output
 * output `object`: Schema for successful response from channels.join method
@@ -363,8 +1232,8 @@ slack.channels_kick({}, context)
 #### Input
 * input `object`
   * token `string`: Authentication token. Requires scope: `channels:write`
-  * user `string`: User to remove from channel.
   * channel `string`: Channel to remove user from.
+  * user `string`: User to remove from channel.
 
 #### Output
 * output `object`: Schema for successful response from channels.kick method
@@ -384,7 +1253,7 @@ slack.channels_leave({}, context)
   * channel `string`: Channel to leave
 
 #### Output
-* output `object`: Verbose schema not yet ready for this method.
+* output `object`: Schema for successful response from channels.leave method
   * ok **required** [defs_ok_true](#defs_ok_true)
 
 ### channels_list
@@ -408,6 +1277,7 @@ slack.channels_list({}, context)
   * channels **required** `array`
     * items [objs_channel](#objs_channel)
   * ok **required** [defs_ok_true](#defs_ok_true)
+  * response_metadata [objs_response_metadata](#objs_response_metadata)
 
 ### channels_mark
 Sets the read cursor in a channel.
@@ -420,8 +1290,8 @@ slack.channels_mark({}, context)
 #### Input
 * input `object`
   * token `string`: Authentication token. Requires scope: `channels:write`
-  * ts `number`: Timestamp of the most recently seen message.
   * channel `string`: Channel to set reading cursor in.
+  * ts `number`: Timestamp of the most recently seen message.
 
 #### Output
 * output `object`: Schema for successful response channels.mark method
@@ -437,10 +1307,10 @@ slack.channels_rename({}, context)
 
 #### Input
 * input `object`
-  * validate `boolean`: Whether to return errors on invalid channel name instead of modifying it to meet the specified criteria.
   * token `string`: Authentication token. Requires scope: `channels:write`
-  * name `string`: New name for channel.
   * channel `string`: Channel to rename
+  * name `string`: New name for channel.
+  * validate `boolean`: Whether to return errors on invalid channel name instead of modifying it to meet the specified criteria.
 
 #### Output
 * output `object`: Schema for successful response from channels.rename method
@@ -462,7 +1332,10 @@ slack.channels_replies({}, context)
   * channel `string`: Channel to fetch thread from
 
 #### Output
-* output `object`: Verbose schema not yet ready for this method.
+* output `object`: Schema for successful response from channels.replies method
+  * has_more **required** `boolean`
+  * messages **required** `array`
+    * items
   * ok **required** [defs_ok_true](#defs_ok_true)
 
 ### channels_setPurpose
@@ -470,14 +1343,19 @@ Sets the purpose for a channel.
 
 
 ```js
-slack.channels_setPurpose({}, context)
+slack.channels_setPurpose({
+  "token": "",
+  "channel": "",
+  "purpose": ""
+}, context)
 ```
 
 #### Input
 * input `object`
-  * token `string`: Authentication token. Requires scope: `channels:write`
-  * purpose `string`: The new purpose
-  * channel `string`: Channel to set the purpose of
+  * token **required** `string`: Authentication token. Requires scope: `channels:write`
+  * channel **required** `string`: Channel to set the purpose of
+  * name_tagging `boolean`: if it is true, treat this like a message and not an unescaped thing
+  * purpose **required** `string`: The new purpose
 
 #### Output
 * output `object`: Schema for successful response from channels.setPurpose method
@@ -489,34 +1367,42 @@ Sets the topic for a channel.
 
 
 ```js
-slack.channels_setTopic({}, context)
+slack.channels_setTopic({
+  "token": "",
+  "channel": "",
+  "topic": ""
+}, context)
 ```
 
 #### Input
 * input `object`
-  * topic `string`: The new topic
-  * token `string`: Authentication token. Requires scope: `channels:write`
-  * channel `string`: Channel to set the topic of
+  * token **required** `string`: Authentication token. Requires scope: `channels:write`
+  * channel **required** `string`: Channel to set the topic of
+  * topic **required** `string`: The new topic
 
 #### Output
-* output `object`: Verbose schema not yet ready for this method.
+* output `object`: Schema for successful response from channels.setTopic method
   * ok **required** [defs_ok_true](#defs_ok_true)
+  * topic **required** `string`
 
 ### channels_unarchive
 Unarchives a channel.
 
 
 ```js
-slack.channels_unarchive({}, context)
+slack.channels_unarchive({
+  "token": "",
+  "channel": ""
+}, context)
 ```
 
 #### Input
 * input `object`
-  * token `string`: Authentication token. Requires scope: `channels:write`
-  * channel `string`: Channel to unarchive
+  * token **required** `string`: Authentication token. Requires scope: `channels:write`
+  * channel **required** `string`: Channel to unarchive
 
 #### Output
-* output `object`: Verbose schema not yet ready for this method.
+* output `object`: Schema for successful response from channels.unarchive method
   * ok **required** [defs_ok_true](#defs_ok_true)
 
 ### chat_delete
@@ -529,10 +1415,10 @@ slack.chat_delete({}, context)
 
 #### Input
 * input `object`
-  * as_user `boolean`: Pass true to delete the message as the authed user with `chat:write:user` scope. [Bot users](/bot-users) in this context are considered authed users. If unused or false, the message will be deleted with `chat:write:bot` scope.
   * token `string`: Authentication token. Requires scope: `chat:write`
-  * ts `number`: Timestamp of the message to be deleted.
+  * as_user `boolean`: Pass true to delete the message as the authed user with `chat:write:user` scope. [Bot users](/bot-users) in this context are considered authed users. If unused or false, the message will be deleted with `chat:write:bot` scope.
   * channel `string`: Channel containing the message to be deleted.
+  * ts `number`: Timestamp of the message to be deleted.
 
 #### Output
 * output `object`: Schema for successful response of chat.delete method
@@ -540,19 +1426,46 @@ slack.chat_delete({}, context)
   * ok **required** [defs_ok_true](#defs_ok_true)
   * ts **required** [defs_ts](#defs_ts)
 
+### chat_deleteScheduledMessage
+Deletes a pending scheduled message from the queue.
+
+
+```js
+slack.chat_deleteScheduledMessage({
+  "token": "",
+  "channel": "",
+  "scheduled_message_id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * token **required** `string`: Authentication token. Requires scope: `chat:write`
+  * as_user `boolean`: Pass true to delete the message as the authed user with `chat:write:user` scope. [Bot users](/bot-users) in this context are considered authed users. If unused or false, the message will be deleted with `chat:write:bot` scope.
+  * channel **required** `string`: The channel the scheduled_message is posting to
+  * scheduled_message_id **required** `string`: `scheduled_message_id` returned from call to chat.scheduleMessage
+
+#### Output
+* output `object`: Schema for successful response from chat.deleteScheduledMessage method
+  * ok **required** [defs_ok_true](#defs_ok_true)
+
 ### chat_getPermalink
 Retrieve a permalink URL for a specific extant message
 
 
 ```js
-slack.chat_getPermalink({}, context)
+slack.chat_getPermalink({
+  "token": "",
+  "message_ts": "",
+  "channel": ""
+}, context)
 ```
 
 #### Input
 * input `object`
-  * token `string`: Authentication token. Requires scope: `none`
-  * message_ts `number`: A message's `ts` value, uniquely identifying it within a channel
-  * channel `string`: The ID of the conversation or channel containing the message
+  * token **required** `string`: Authentication token. Requires scope: `none`
+  * message_ts **required** `string`: A message's `ts` value, uniquely identifying it within a channel
+  * channel **required** `string`: The ID of the conversation or channel containing the message
 
 #### Output
 * output `object`: Schema for successful response chat.getPermalink
@@ -570,32 +1483,43 @@ slack.chat_meMessage({}, context)
 
 #### Input
 * input `object`
-  * text `string`: Text of the message to send.
   * token `string`: Authentication token. Requires scope: `chat:write:user`
   * channel `string`: Channel to send message to. Can be a public channel, private group or IM channel. Can be an encoded ID, or a name.
+  * text `string`: Text of the message to send.
 
 #### Output
-* output `object`: Verbose schema not yet ready for this method.
+* output `object`: Schema for successful response from chat.meMessage method
+  * channel [defs_channel](#defs_channel)
   * ok **required** [defs_ok_true](#defs_ok_true)
+  * ts [defs_ts](#defs_ts)
 
 ### chat_postEphemeral
 Sends an ephemeral message to a user in a channel.
 
 
 ```js
-slack.chat_postEphemeral({}, context)
+slack.chat_postEphemeral({
+  "token": "",
+  "channel": "",
+  "user": ""
+}, context)
 ```
 
 #### Input
 * input `object`
+  * token **required** `string`: Authentication token. Requires scope: `chat:write`
+  * as_user `boolean`: Pass true to post the message as the authed user. Defaults to true if the chat:write:bot scope is not included. Otherwise, defaults to false.
   * attachments `string`: A JSON-based array of structured attachments, presented as a URL-encoded string.
-  * text `string`: Text of the message to send. See below for an explanation of [formatting](#formatting). This field is usually required, unless you're providing only `attachments` instead.
+  * blocks `string`: A JSON-based array of structured blocks, presented as a URL-encoded string.
+  * channel **required** `string`: Channel, private group, or IM channel to send message to. Can be an encoded ID, or a name.
+  * icon_emoji `string`: Emoji to use as the icon for this message. Overrides `icon_url`. Must be used in conjunction with `as_user` set to `false`, otherwise ignored. See [authorship](#authorship) below.
+  * icon_url `string`: URL to an image to use as the icon for this message. Must be used in conjunction with `as_user` set to false, otherwise ignored. See [authorship](#authorship) below.
   * link_names `boolean`: Find and link channel names and usernames.
   * parse `string`: Change how messages are treated. Defaults to `none`. See [below](#formatting).
-  * token `string`: Authentication token. Requires scope: `chat:write`
-  * user `string`: `id` of the user who will receive the ephemeral message. The user should be in the channel specified by the `channel` argument.
-  * as_user `boolean`: Pass true to post the message as the authed bot. Defaults to false.
-  * channel `string`: Channel, private group, or IM channel to send message to. Can be an encoded ID, or a name.
+  * text `string`: How this field works and whether it is required depends on other fields you use in your API call. [See below](#text_usage) for more detail.
+  * thread_ts `string`: Provide another message's `ts` value to post this message in a thread. Avoid using a reply's `ts` value; use its parent's value instead. Ephemeral messages in threads are only shown if there is already an active thread.
+  * user **required** `string`: `id` of the user who will receive the ephemeral message. The user should be in the channel specified by the `channel` argument.
+  * username `string`: Set your bot's user name. Must be used in conjunction with `as_user` set to false, otherwise ignored. See [authorship](#authorship) below.
 
 #### Output
 * output `object`: Schema for successful response from chat.postEphemeral method
@@ -607,26 +1531,30 @@ Sends a message to a channel.
 
 
 ```js
-slack.chat_postMessage({}, context)
+slack.chat_postMessage({
+  "token": "",
+  "channel": ""
+}, context)
 ```
 
 #### Input
 * input `object`
-  * username `string`: Set your bot's user name. Must be used in conjunction with `as_user` set to false, otherwise ignored. See [authorship](#authorship) below.
-  * thread_ts `number`: Provide another message's `ts` value to make this message a reply. Avoid using a reply's `ts` value; use its parent instead.
+  * token **required** `string`: Authentication token. Requires scope: `chat:write`
+  * as_user `string`: Pass true to post the message as the authed user, instead of as a bot. Defaults to false. See [authorship](#authorship) below.
   * attachments `string`: A JSON-based array of structured attachments, presented as a URL-encoded string.
-  * unfurl_links `boolean`: Pass true to enable unfurling of primarily text-based content.
-  * text `string`: Text of the message to send. See below for an explanation of [formatting](#formatting). This field is usually required, unless you're providing only `attachments` instead. Provide no more than 40,000 characters or [risk truncation](/changelog/2018-04-truncating-really-long-messages).
-  * unfurl_media `boolean`: Pass false to disable unfurling of media content.
-  * parse `string`: Change how messages are treated. Defaults to `none`. See [below](#formatting).
-  * as_user `boolean`: Pass true to post the message as the authed user, instead of as a bot. Defaults to false. See [authorship](#authorship) below.
-  * token `string`: Authentication token. Requires scope: `chat:write`
-  * mrkdwn `boolean`: Disable Slack markup parsing by setting to `false`. Enabled by default.
+  * blocks `string`: A JSON-based array of structured blocks, presented as a URL-encoded string.
+  * channel **required** `string`: Channel, private group, or IM channel to send message to. Can be an encoded ID, or a name. See [below](#channels) for more details.
   * icon_emoji `string`: Emoji to use as the icon for this message. Overrides `icon_url`. Must be used in conjunction with `as_user` set to `false`, otherwise ignored. See [authorship](#authorship) below.
-  * link_names `boolean`: Find and link channel names and usernames.
   * icon_url `string`: URL to an image to use as the icon for this message. Must be used in conjunction with `as_user` set to false, otherwise ignored. See [authorship](#authorship) below.
-  * channel `string`: Channel, private group, or IM channel to send message to. Can be an encoded ID, or a name. See [below](#channels) for more details.
+  * link_names `boolean`: Find and link channel names and usernames.
+  * mrkdwn `boolean`: Disable Slack markup parsing by setting to `false`. Enabled by default.
+  * parse `string`: Change how messages are treated. Defaults to `none`. See [below](#formatting).
   * reply_broadcast `boolean`: Used in conjunction with `thread_ts` and indicates whether reply should be made visible to everyone in the channel or conversation. Defaults to `false`.
+  * text `string`: How this field works and whether it is required depends on other fields you use in your API call. [See below](#text_usage) for more detail.
+  * thread_ts `string`: Provide another message's `ts` value to make this message a reply. Avoid using a reply's `ts` value; use its parent instead.
+  * unfurl_links `boolean`: Pass true to enable unfurling of primarily text-based content.
+  * unfurl_media `boolean`: Pass false to disable unfurling of media content.
+  * username `string`: Set your bot's user name. Must be used in conjunction with `as_user` set to false, otherwise ignored. See [authorship](#authorship) below.
 
 #### Output
 * output `object`: Schema for successful response of chat.postMessage method
@@ -635,23 +1563,96 @@ slack.chat_postMessage({}, context)
   * ok **required** [defs_ok_true](#defs_ok_true)
   * ts **required** [defs_ts](#defs_ts)
 
+### chat_scheduleMessage
+Schedules a message to be sent to a channel.
+
+
+```js
+slack.chat_scheduleMessage({}, context)
+```
+
+#### Input
+* input `object`
+  * token `string`: Authentication token. Requires scope: `chat:write`
+  * as_user `boolean`: Pass true to post the message as the authed user, instead of as a bot. Defaults to false. See [chat.postMessage](chat.postMessage#authorship).
+  * attachments `string`: A JSON-based array of structured attachments, presented as a URL-encoded string.
+  * blocks `string`: A JSON-based array of structured blocks, presented as a URL-encoded string.
+  * channel `string`: Channel, private group, or DM channel to send message to. Can be an encoded ID, or a name. See [below](#channels) for more details.
+  * link_names `boolean`: Find and link channel names and usernames.
+  * parse `string`: Change how messages are treated. Defaults to `none`. See [chat.postMessage](chat.postMessage#formatting).
+  * post_at `string`: Unix EPOCH timestamp of time in future to send the message.
+  * reply_broadcast `boolean`: Used in conjunction with `thread_ts` and indicates whether reply should be made visible to everyone in the channel or conversation. Defaults to `false`.
+  * text `string`: How this field works and whether it is required depends on other fields you use in your API call. [See below](#text_usage) for more detail.
+  * thread_ts `number`: Provide another message's `ts` value to make this message a reply. Avoid using a reply's `ts` value; use its parent instead.
+  * unfurl_links `boolean`: Pass true to enable unfurling of primarily text-based content.
+  * unfurl_media `boolean`: Pass false to disable unfurling of media content.
+
+#### Output
+* output `object`: Schema for successful response of chat.scheduleMessage method
+  * channel **required** [defs_channel](#defs_channel)
+  * message **required** `object`
+    * bot_id **required** [defs_bot_id](#defs_bot_id)
+    * bot_profile [objs_bot_profile](#objs_bot_profile)
+    * team **required** [defs_team](#defs_team)
+    * text **required** `string`
+    * type **required** `string`
+    * user **required** [defs_user_id](#defs_user_id)
+    * username `string`
+  * ok **required** [defs_ok_true](#defs_ok_true)
+  * post_at **required** `integer`
+  * scheduled_message_id **required** `string`
+
+### chat_scheduledMessages_list
+Returns a list of scheduled messages.
+
+
+```js
+slack.chat_scheduledMessages_list({}, context)
+```
+
+#### Input
+* input `object`
+  * cursor `string`: For pagination purposes, this is the `cursor` value returned from a previous call to `chat.scheduledmessages.list` indicating where you want to start this call from.
+  * token `string`: Authentication token. Requires scope: `none`
+  * limit `integer`: Maximum number of original entries to return.
+  * oldest `number`: A UNIX timestamp of the oldest value in the time range
+  * channel `string`: The channel of the scheduled messages
+  * latest `number`: A UNIX timestamp of the latest value in the time range
+
+#### Output
+* output `object`: Schema for successful response from chat.scheduledMessages.list method
+  * ok **required** [defs_ok_true](#defs_ok_true)
+  * response_metadata **required** `object`
+    * next_cursor **required** `string`
+  * scheduled_messages **required** `array`
+    * items `object`
+      * channel_id **required** [defs_channel_id](#defs_channel_id)
+      * date_created **required** `integer`
+      * id **required** `string`
+      * post_at **required** `integer`
+      * text `string`
+
 ### chat_unfurl
 Provide custom unfurl behavior for user-posted URLs
 
 
 ```js
-slack.chat_unfurl({}, context)
+slack.chat_unfurl({
+  "token": "",
+  "channel": "",
+  "ts": ""
+}, context)
 ```
 
 #### Input
 * input `object`
+  * token **required** `string`: Authentication token. Requires scope: `links:write`
+  * channel **required** `string`: Channel ID of the message
+  * ts **required** `string`: Timestamp of the message to add unfurl behavior to.
+  * unfurls `string`: URL-encoded JSON map with keys set to URLs featured in the the message, pointing to their unfurl blocks or message attachments.
   * user_auth_message `string`: Provide a simply-formatted string to send as an ephemeral message to the user as invitation to authenticate further and enable full unfurling behavior
   * user_auth_required `boolean`: Set to `true` or `1` to indicate the user must install your Slack app to trigger unfurls for this domain
-  * unfurls `string`: URL-encoded JSON map with keys set to URLs featured in the the message, pointing to their unfurl message attachments.
-  * ts `string`: Timestamp of the message to add unfurl behavior to.
   * user_auth_url `string`: Send users to this custom URL where they will complete authentication in your app to fully trigger unfurling. Value should be properly URL-encoded.
-  * token `string`: Authentication token. Requires scope: `links:write`
-  * channel `string`: Channel ID of the message
 
 #### Output
 * output `object`: Schema for successful response from chat.unfurl method
@@ -662,26 +1663,36 @@ Updates a message.
 
 
 ```js
-slack.chat_update({}, context)
+slack.chat_update({
+  "token": "",
+  "channel": "",
+  "ts": ""
+}, context)
 ```
 
 #### Input
 * input `object`
+  * token **required** `string`: Authentication token. Requires scope: `chat:write`
+  * as_user `string`: Pass true to update the message as the authed user. [Bot users](/bot-users) in this context are considered authed users.
   * attachments `string`: A JSON-based array of structured attachments, presented as a URL-encoded string. This field is required when not presenting `text`.
+  * blocks `string`: A JSON-based array of structured blocks, presented as a URL-encoded string.
+  * channel **required** `string`: Channel containing the message to be updated.
+  * link_names `string`: Find and link channel names and usernames. Defaults to `none`. See [below](#formatting).
+  * parse `string`: Change how messages are treated. Defaults to `client`, unlike `chat.postMessage`. Accepts either `none` or `full`. See [below](#formatting).
   * text `string`: New text for the message, using the [default formatting rules](/docs/formatting). It's not required when presenting `attachments`.
-  * ts `number`: Timestamp of the message to be updated.
-  * parse `string`: Change how messages are treated. Defaults to `client`, unlike `chat.postMessage`. See [below](#formatting).
-  * as_user `boolean`: Pass true to update the message as the authed user. [Bot users](/bot-users) in this context are considered authed users.
-  * token `string`: Authentication token. Requires scope: `chat:write`
-  * link_names `boolean`: Find and link channel names and usernames. Defaults to `none`. See [below](#formatting).
-  * channel `string`: Channel containing the message to be updated.
+  * ts **required** `string`: Timestamp of the message to be updated.
 
 #### Output
 * output `object`: Schema for successful response of chat.update method
-  * channel **required** [defs_channel](#defs_channel)
+  * channel **required** `string`
+  * message **required** `object`
+    * attachments `array`
+      * items `object`
+    * blocks [blocks](#blocks)
+    * text **required** `string`
   * ok **required** [defs_ok_true](#defs_ok_true)
   * text **required** `string`
-  * ts **required** [defs_ts](#defs_ts)
+  * ts **required** `string`
 
 ### conversations_archive
 Archives a conversation.
@@ -730,8 +1741,9 @@ slack.conversations_create({}, context)
 #### Input
 * input `object`
   * token `string`: Authentication token. Requires scope: `conversations:write`
-  * name `string`: Name of the public or private channel to create
   * is_private `boolean`: Create a private channel instead of a public one
+  * name `string`: Name of the public or private channel to create
+  * user_ids `string`: **Required** for workspace apps. A list of between 1 and 30 human users that will be added to the newly-created conversation. This argument has no effect when used by classic Slack apps.
 
 #### Output
 * output `object`: Schema for successful response conversations.create method
@@ -758,6 +1770,8 @@ slack.conversations_history({}, context)
 
 #### Output
 * output `object`: Schema for successful response from conversations.history method
+  * channel_actions_count **required** `integer`
+  * channel_actions_ts **required**
   * has_more **required** `boolean`
   * messages **required** `array`
     * items [objs_message](#objs_message)
@@ -774,6 +1788,7 @@ slack.conversations_info({}, context)
 
 #### Input
 * input `object`
+  * include_num_members `boolean`: Set to `true` to include the member count for the specified conversation. Defaults to `false`
   * token `string`: Authentication token. Requires scope: `conversations:read`
   * channel `string`: Conversation ID to learn more about
   * include_locale `boolean`: Set this to `true` to receive the locale for this conversation. Defaults to `false`
@@ -794,8 +1809,8 @@ slack.conversations_invite({}, context)
 #### Input
 * input `object`
   * token `string`: Authentication token. Requires scope: `conversations:write`
-  * users `string`: A comma separated list of user IDs. Up to 30 users may be listed.
   * channel `string`: The ID of the public or private channel to invite user(s) to.
+  * users `string`: A comma separated list of user IDs. Up to 1000 users may be listed.
 
 #### Output
 * output `object`: Schema for successful response from conversations.invite method
@@ -835,8 +1850,8 @@ slack.conversations_kick({}, context)
 #### Input
 * input `object`
   * token `string`: Authentication token. Requires scope: `conversations:write`
-  * user `string`: User ID to be removed.
   * channel `string`: ID of conversation to remove user from.
+  * user `string`: User ID to be removed.
 
 #### Output
 * output `object`: Schema for successful response conversations.kick method
@@ -918,14 +1933,14 @@ slack.conversations_open({}, context)
 #### Input
 * input `object`
   * token `string`: Authentication token. Requires scope: `conversations:write`
+  * channel `string`: Resume a conversation by supplying an `im` or `mpim`'s ID. Or provide the `users` field instead.
   * return_im `boolean`: Boolean, indicates you want the full IM channel definition in the response.
   * users `string`: Comma separated lists of users. If only one user is included, this creates a 1:1 DM.  The ordering of the users is preserved whenever a multi-person direct message is returned. Supply a `channel` when not supplying `users`.
-  * channel `string`: Resume a conversation by supplying an `im` or `mpim`'s ID. Or provide the `users` field instead.
 
 #### Output
 * output `object`: Schema for successful response from conversations.open method when opening channels, ims, mpims
   * already_open `boolean`
-  * channel **required** [objs_conversation](#objs_conversation)
+  * channel **required**
   * no_op `boolean`
   * ok **required** [defs_ok_true](#defs_ok_true)
 
@@ -940,8 +1955,8 @@ slack.conversations_rename({}, context)
 #### Input
 * input `object`
   * token `string`: Authentication token. Requires scope: `conversations:write`
-  * name `string`: New name for conversation.
   * channel `string`: ID of conversation to rename
+  * name `string`: New name for conversation.
 
 #### Output
 * output `object`: Schema for successful response from conversations.rename method
@@ -972,7 +1987,6 @@ slack.conversations_replies({}, context)
   * has_more `boolean`
   * messages **required** `array`
     * items
-
   * ok **required** [defs_ok_true](#defs_ok_true)
 
 ### conversations_setPurpose
@@ -986,8 +2000,8 @@ slack.conversations_setPurpose({}, context)
 #### Input
 * input `object`
   * token `string`: Authentication token. Requires scope: `conversations:write`
-  * purpose `string`: A new, specialer purpose
   * channel `string`: Conversation to set the purpose of
+  * purpose `string`: A new, specialer purpose
 
 #### Output
 * output `object`: Schema for successful response from conversations.setPurpose method
@@ -1004,9 +2018,9 @@ slack.conversations_setTopic({}, context)
 
 #### Input
 * input `object`
-  * topic `string`: The new topic string. Does not support formatting or linkification.
   * token `string`: Authentication token. Requires scope: `conversations:write`
   * channel `string`: Conversation to set the topic of
+  * topic `string`: The new topic string. Does not support formatting or linkification.
 
 #### Output
 * output `object`: Schema for successful response from conversations.setTopic method
@@ -1035,17 +2049,21 @@ Open a dialog with a user
 
 
 ```js
-slack.dialog_open({}, context)
+slack.dialog_open({
+  "token": "",
+  "trigger_id": "",
+  "dialog": ""
+}, context)
 ```
 
 #### Input
 * input `object`
-  * token `string`: Authentication token. Requires scope: `none`
-  * dialog `string`: The dialog definition. This must be a JSON-encoded string.
-  * trigger_id `string`: Exchange a trigger to post to the user.
+  * token **required** `string`: Authentication token. Requires scope: `none`
+  * trigger_id **required** `string`: Exchange a trigger to post to the user.
+  * dialog **required** `string`: The dialog definition. This must be a JSON-encoded string.
 
 #### Output
-* output `object`: Verbose schema not yet ready for this method.
+* output `object`: Schema for successful response from dialog.open method
   * ok **required** [defs_ok_true](#defs_ok_true)
 
 ### dnd_endDnd
@@ -1053,15 +2071,17 @@ Ends the current user's Do Not Disturb session immediately.
 
 
 ```js
-slack.dnd_endDnd({}, context)
+slack.dnd_endDnd({
+  "token": ""
+}, context)
 ```
 
 #### Input
 * input `object`
-  * token `string`: Authentication token. Requires scope: `dnd:write`
+  * token **required** `string`: Authentication token. Requires scope: `dnd:write`
 
 #### Output
-* output `object`: Verbose schema not yet ready for this method.
+* output `object`: Schema for successful response from dnd.endDnd method
   * ok **required** [defs_ok_true](#defs_ok_true)
 
 ### dnd_endSnooze
@@ -1069,16 +2089,22 @@ Ends the current user's snooze mode immediately.
 
 
 ```js
-slack.dnd_endSnooze({}, context)
+slack.dnd_endSnooze({
+  "token": ""
+}, context)
 ```
 
 #### Input
 * input `object`
-  * token `string`: Authentication token. Requires scope: `dnd:write`
+  * token **required** `string`: Authentication token. Requires scope: `dnd:write`
 
 #### Output
-* output `object`: Verbose schema not yet ready for this method.
+* output `object`: Schema for successful response from dnd.endSnooze method
+  * dnd_enabled **required** `boolean`
+  * next_dnd_end_ts **required** `integer`
+  * next_dnd_start_ts **required** `integer`
   * ok **required** [defs_ok_true](#defs_ok_true)
+  * snooze_enabled **required** `boolean`
 
 ### dnd_info
 Retrieves a user's current Do Not Disturb status.
@@ -1094,28 +2120,40 @@ slack.dnd_info({}, context)
   * user `string`: User to fetch status for (defaults to current user)
 
 #### Output
-* output `object`: Verbose schema not yet ready for this method.
+* output `object`: Schema for successful response from dnd.info method
+  * dnd_enabled **required** `boolean`
+  * next_dnd_end_ts **required** `integer`
+  * next_dnd_start_ts **required** `integer`
   * ok **required** [defs_ok_true](#defs_ok_true)
+  * snooze_enabled **required** `boolean`
+  * snooze_endtime **required** `integer`
+  * snooze_remaining **required** `integer`
 
 ### dnd_setSnooze
 Turns on Do Not Disturb mode for the current user, or changes its duration.
 
 
 ```js
-slack.dnd_setSnooze({}, context)
+slack.dnd_setSnooze({
+  "num_minutes": "",
+  "token": ""
+}, context)
 ```
 
 #### Input
 * input `object`
-  * num_minutes `integer`: Number of minutes, from now, to snooze until.
-  * token `string`: Authentication token. Requires scope: `dnd:write`
+  * num_minutes **required** `string`: Number of minutes, from now, to snooze until.
+  * token **required** `string`: Authentication token. Requires scope: `dnd:write`
 
 #### Output
-* output `object`: Verbose schema not yet ready for this method.
+* output `object`: Schema for successful response from dnd.setSnooze method
   * ok **required** [defs_ok_true](#defs_ok_true)
+  * snooze_enabled **required** `boolean`
+  * snooze_endtime **required** `integer`
+  * snooze_remaining **required** `integer`
 
 ### dnd_teamInfo
-Retrieves the Do Not Disturb status for users on a team.
+Retrieves the Do Not Disturb status for up to 50 users on a team.
 
 
 ```js
@@ -1138,34 +2176,17 @@ Lists custom emoji for a team.
 
 
 ```js
-slack.emoji_list({}, context)
+slack.emoji_list({
+  "token": ""
+}, context)
 ```
 
 #### Input
 * input `object`
-  * token `string`: Authentication token. Requires scope: `emoji:read`
+  * token **required** `string`: Authentication token. Requires scope: `emoji:read`
 
 #### Output
-* output `object`: Verbose schema not yet ready for this method.
-  * ok **required** [defs_ok_true](#defs_ok_true)
-
-### files_comments_add
-Add a comment to an existing file.
-
-
-```js
-slack.files_comments_add({}, context)
-```
-
-#### Input
-* input `object`
-  * comment `string`: Text of the comment to add.
-  * token `string`: Authentication token. Requires scope: `files:write:user`
-  * file `string`: File to add a comment to.
-
-#### Output
-* output `object`: Schema for successful response files.comments.add method
-  * comment **required** [objs_comment](#objs_comment)
+* output `object`: This method either only returns a brief _OK_ response or a verbose schema is not available for this method.
   * ok **required** [defs_ok_true](#defs_ok_true)
 
 ### files_comments_delete
@@ -1179,31 +2200,11 @@ slack.files_comments_delete({}, context)
 #### Input
 * input `object`
   * token `string`: Authentication token. Requires scope: `files:write:user`
-  * id `string`: The comment to delete.
   * file `string`: File to delete a comment from.
+  * id `string`: The comment to delete.
 
 #### Output
 * output `object`: Schema for successful response files.comments.delete method
-  * ok **required** [defs_ok_true](#defs_ok_true)
-
-### files_comments_edit
-Edit an existing file comment.
-
-
-```js
-slack.files_comments_edit({}, context)
-```
-
-#### Input
-* input `object`
-  * comment `string`: Text of the comment to edit.
-  * token `string`: Authentication token. Requires scope: `files:write:user`
-  * id `string`: The comment to edit.
-  * file `string`: File containing the comment to edit.
-
-#### Output
-* output `object`: Schema for successful response files.comments.edit method
-  * comment **required** [objs_comment](#objs_comment)
   * ok **required** [defs_ok_true](#defs_ok_true)
 
 ### files_delete
@@ -1234,16 +2235,20 @@ slack.files_info({}, context)
 #### Input
 * input `object`
   * count `string`
+  * cursor `string`: Parameter for pagination. File comments are paginated for a single file. Set `cursor` equal to the `next_cursor` attribute returned by the previous request's `response_metadata`. This parameter is optional, but pagination is mandatory: the default value simply fetches the first "page" of the collection of comments. See [pagination](/docs/pagination) for more details.
   * token `string`: Authentication token. Requires scope: `files:read`
+  * limit `integer`: The maximum number of items to return. Fewer than the requested number of items may be returned, even if the end of the list hasn't been reached.
   * file `string`: Specify a file by providing its ID.
   * page `string`
 
 #### Output
 * output `object`: Schema for successful response from files.info method
   * comments **required** [objs_comments](#objs_comments)
+  * editor [defs_user_id](#defs_user_id)
   * file **required** [objs_file](#objs_file)
   * ok **required** [defs_ok_true](#defs_ok_true)
-  * paging **required** [objs_paging](#objs_paging)
+  * paging [objs_paging](#objs_paging)
+  * response_metadata [objs_response_metadata](#objs_response_metadata)
 
 ### files_list
 Lists & filters team files.
@@ -1261,8 +2266,9 @@ slack.files_list({}, context)
   * ts_from `number`: Filter files created after this timestamp (inclusive).
   * token `string`: Authentication token. Requires scope: `files:read`
   * user `string`: Filter files created by a single user.
+  * show_files_hidden_by_limit `boolean`: Show truncated file info for files hidden due to being too old, and the team who owns the file being over the file limit.
   * page `string`
-  * types `string`: Filter files by type:
+  * types `string`: Filter files by type ([see below](#file_types)). You can pass multiple values in the types argument, like `types=spaces,snippets`.The default value is `all`, which does not filter the list.
 
 #### Output
 * output `object`: Schema for successful response from files.list method
@@ -1270,6 +2276,127 @@ slack.files_list({}, context)
     * items [objs_file](#objs_file)
   * ok **required** [defs_ok_true](#defs_ok_true)
   * paging **required** [objs_paging](#objs_paging)
+
+### files_remote_add
+Adds a file from a remote service
+
+
+```js
+slack.files_remote_add({}, context)
+```
+
+#### Input
+* input `object`
+  * external_id `string`: Creator defined GUID for the file.
+  * external_url `string`: URL of the remote file.
+  * filetype `string`: type of file
+  * indexable_file_contents `string`: A text file (txt, pdf, doc, etc.) containing textual search terms that are used to improve discovery of the remote file.
+  * preview_image `string`: Preview of the document via `multipart/form-data`.
+  * title `string`: Title of the file being shared.
+  * token `string`: Authentication token. Requires scope: `remote_files:write`
+
+#### Output
+* output `object`: This method either only returns a brief _OK_ response or a verbose schema is not available for this method.
+  * ok **required** [defs_ok_true](#defs_ok_true)
+
+### files_remote_info
+Retrieve information about a remote file added to Slack
+
+
+```js
+slack.files_remote_info({}, context)
+```
+
+#### Input
+* input `object`
+  * token `string`: Authentication token. Requires scope: `remote_files:read`
+  * external_id `string`: Creator defined GUID for the file.
+  * file `string`: Specify a file by providing its ID.
+
+#### Output
+* output `object`: This method either only returns a brief _OK_ response or a verbose schema is not available for this method.
+  * ok **required** [defs_ok_true](#defs_ok_true)
+
+### files_remote_list
+Retrieve information about a remote file added to Slack
+
+
+```js
+slack.files_remote_list({}, context)
+```
+
+#### Input
+* input `object`
+  * ts_to `number`: Filter files created before this timestamp (inclusive).
+  * cursor `string`: Paginate through collections of data by setting the `cursor` parameter to a `next_cursor` attribute returned by a previous request's `response_metadata`. Default value fetches the first "page" of the collection. See [pagination](/docs/pagination) for more detail.
+  * ts_from `number`: Filter files created after this timestamp (inclusive).
+  * token `string`: Authentication token. Requires scope: `remote_files:read`
+  * limit `integer`: The maximum number of items to return.
+  * channel `string`: Filter files appearing in a specific channel, indicated by its ID.
+
+#### Output
+* output `object`: This method either only returns a brief _OK_ response or a verbose schema is not available for this method.
+  * ok **required** [defs_ok_true](#defs_ok_true)
+
+### files_remote_remove
+Remove a remote file.
+
+
+```js
+slack.files_remote_remove({}, context)
+```
+
+#### Input
+* input `object`
+  * external_id `string`: Creator defined GUID for the file.
+  * file `string`: Specify a file by providing its ID.
+  * token `string`: Authentication token. Requires scope: `remote_files:write`
+
+#### Output
+* output `object`: This method either only returns a brief _OK_ response or a verbose schema is not available for this method.
+  * ok **required** [defs_ok_true](#defs_ok_true)
+
+### files_remote_share
+Share a remote file into a channel.
+
+
+```js
+slack.files_remote_share({}, context)
+```
+
+#### Input
+* input `object`
+  * channels `string`: Comma-separated list of channel IDs where the file will be shared.
+  * token `string`: Authentication token. Requires scope: `remote_files:share`
+  * external_id `string`: Creator defined GUID for the file.
+  * file `string`: Specify a file by providing its ID.
+
+#### Output
+* output `object`: This method either only returns a brief _OK_ response or a verbose schema is not available for this method.
+  * ok **required** [defs_ok_true](#defs_ok_true)
+
+### files_remote_update
+Updates an existing remote file.
+
+
+```js
+slack.files_remote_update({}, context)
+```
+
+#### Input
+* input `object`
+  * external_id `string`: Creator defined GUID for the file.
+  * external_url `string`: URL of the remote file.
+  * file `string`: Specify a file by providing its ID.
+  * filetype `string`: type of file
+  * indexable_file_contents `string`: File containing contents that can be used to improve searchability for the remote file.
+  * preview_image `string`: Preview of the document via `multipart/form-data`.
+  * title `string`: Title of the file being shared.
+  * token `string`: Authentication token. Requires scope: `remote_files:write`
+
+#### Output
+* output `object`: This method either only returns a brief _OK_ response or a verbose schema is not available for this method.
+  * ok **required** [defs_ok_true](#defs_ok_true)
 
 ### files_revokePublicURL
 Revokes public/external sharing access for a file
@@ -1285,7 +2412,8 @@ slack.files_revokePublicURL({}, context)
   * file `string`: File to revoke
 
 #### Output
-* output `object`: Verbose schema not yet ready for this method.
+* output `object`: Schema for successful response from files.revokePublicURL method
+  * file **required** [objs_file](#objs_file)
   * ok **required** [defs_ok_true](#defs_ok_true)
 
 ### files_sharedPublicURL
@@ -1302,7 +2430,8 @@ slack.files_sharedPublicURL({}, context)
   * file `string`: File to share
 
 #### Output
-* output `object`: Verbose schema not yet ready for this method.
+* output `object`: Schema for successful response from files.sharedPublicURL method
+  * file **required** [objs_file](#objs_file)
   * ok **required** [defs_ok_true](#defs_ok_true)
 
 ### files_upload
@@ -1316,17 +2445,14 @@ slack.files_upload({}, context)
 #### Input
 * input `object`
   * channels `string`: Comma-separated list of channel names or IDs where the file will be shared.
-  * title `string`: Title of file.
-  * initial_comment `string`: Initial comment to add to file.
-  * filetype `string`: A [file type](/types/file#file_types) identifier.
-  * filename `string`: Filename of file.
   * content `string`: File contents via a POST variable. If omitting this parameter, you must provide a `file`.
+  * file `string`: File contents via `multipart/form-data`. If omitting this parameter, you must submit `content`.
+  * filename `string`: Filename of file.
+  * filetype `string`: A [file type](/types/file#file_types) identifier.
+  * initial_comment `string`: The message text introducing the file in specified `channels`.
+  * thread_ts `number`: Provide another message's `ts` value to upload this file as a reply. Never use a reply's `ts` value; use its parent instead.
+  * title `string`: Title of file.
   * token `string`: Authentication token. Requires scope: `files:write:user`
-  * file `string`, `object`: File contents via `multipart/form-data`. If omitting this parameter, you must submit `content`.
-    * content `string`
-    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
-    * contentType `string`
-    * filename `string`
 
 #### Output
 * output `object`: Schema for successful response files.upload method
@@ -1360,9 +2486,9 @@ slack.groups_create({}, context)
 
 #### Input
 * input `object`
-  * validate `boolean`: Whether to return errors on invalid channel name instead of modifying it to meet the specified criteria.
   * token `string`: Authentication token. Requires scope: `groups:write`
   * name `string`: Name of private channel to create
+  * validate `boolean`: Whether to return errors on invalid channel name instead of modifying it to meet the specified criteria.
 
 #### Output
 * output `object`: Schema for successful response groups.create method
@@ -1379,11 +2505,12 @@ slack.groups_createChild({}, context)
 
 #### Input
 * input `object`
-  * token `string`: Authentication token. Requires scope: `groups:write`
   * channel `string`: Private channel to clone and archive.
+  * token `string`: Authentication token. Requires scope: `groups:write`
 
 #### Output
-* output `object`: Verbose schema not yet ready for this method.
+* output `object`: Schema for successful response from groups.createChild method
+  * group **required** [objs_group](#objs_group)
   * ok **required** [defs_ok_true](#defs_ok_true)
 
 ### groups_history
@@ -1406,6 +2533,8 @@ slack.groups_history({}, context)
 
 #### Output
 * output `object`: Schema for successful response groups.history method
+  * channel_actions_count **required** `integer`
+  * channel_actions_ts **required**
   * has_more **required** `boolean`
   * messages **required** `array`
     * items [objs_message](#objs_message)
@@ -1441,8 +2570,8 @@ slack.groups_invite({}, context)
 #### Input
 * input `object`
   * token `string`: Authentication token. Requires scope: `groups:write`
-  * user `string`: User to invite.
   * channel `string`: Private channel to invite user to.
+  * user `string`: User to invite.
 
 #### Output
 * output `object`: Schema for successful response groups.invite method
@@ -1454,14 +2583,18 @@ Removes a user from a private channel.
 
 
 ```js
-slack.groups_kick({}, context)
+slack.groups_kick({
+  "token": "",
+  "channel": "",
+  "user": ""
+}, context)
 ```
 
 #### Input
 * input `object`
-  * token `string`: Authentication token. Requires scope: `groups:write`
-  * user `string`: User to remove from private channel.
-  * channel `string`: Private channel to remove user from.
+  * token **required** `string`: Authentication token. Requires scope: `groups:write`
+  * channel **required** `string`: Private channel to remove user from.
+  * user **required** `string`: User to remove from private channel.
 
 #### Output
 * output `object`: Schema for successful response from groups.kick method
@@ -1472,16 +2605,19 @@ Leaves a private channel.
 
 
 ```js
-slack.groups_leave({}, context)
+slack.groups_leave({
+  "token": "",
+  "channel": ""
+}, context)
 ```
 
 #### Input
 * input `object`
-  * token `string`: Authentication token. Requires scope: `groups:write`
-  * channel `string`: Private channel to leave
+  * token **required** `string`: Authentication token. Requires scope: `groups:write`
+  * channel **required** `string`: Private channel to leave
 
 #### Output
-* output `object`: Verbose schema not yet ready for this method.
+* output `object`: Schema for successful response from groups.leave method
   * ok **required** [defs_ok_true](#defs_ok_true)
 
 ### groups_list
@@ -1495,7 +2631,9 @@ slack.groups_list({}, context)
 #### Input
 * input `object`
   * exclude_members `boolean`: Exclude the `members` from each `group`
+  * cursor `string`: Parameter for pagination. Set `cursor` equal to the `next_cursor` attribute returned by the previous request's `response_metadata`. This parameter is optional, but pagination is mandatory: the default value simply fetches the first "page" of the collection. See [pagination](/docs/pagination) for more details.
   * token `string`: Authentication token. Requires scope: `groups:read`
+  * limit `integer`: The maximum number of items to return. Fewer than the requested number of items may be returned, even if the end of the list hasn't been reached.
   * exclude_archived `boolean`: Don't return archived private channels.
 
 #### Output
@@ -1503,6 +2641,7 @@ slack.groups_list({}, context)
   * groups **required** `array`
     * items [objs_group](#objs_group)
   * ok **required** [defs_ok_true](#defs_ok_true)
+  * response_metadata [objs_response_metadata](#objs_response_metadata)
 
 ### groups_mark
 Sets the read cursor in a private channel.
@@ -1515,8 +2654,8 @@ slack.groups_mark({}, context)
 #### Input
 * input `object`
   * token `string`: Authentication token. Requires scope: `groups:write`
-  * ts `number`: Timestamp of the most recently seen message.
   * channel `string`: Private channel to set reading cursor in.
+  * ts `number`: Timestamp of the most recently seen message.
 
 #### Output
 * output `object`: Schema for successful response from groups.mark method
@@ -1536,7 +2675,7 @@ slack.groups_open({}, context)
   * channel `string`: Private channel to open.
 
 #### Output
-* output `object`: Verbose schema not yet ready for this method.
+* output `object`: Schema for successful response from groups.open method
   * ok **required** [defs_ok_true](#defs_ok_true)
 
 ### groups_rename
@@ -1549,13 +2688,14 @@ slack.groups_rename({}, context)
 
 #### Input
 * input `object`
-  * validate `boolean`: Whether to return errors on invalid channel name instead of modifying it to meet the specified criteria.
   * token `string`: Authentication token. Requires scope: `groups:write`
-  * name `string`: New name for private channel.
   * channel `string`: Private channel to rename
+  * name `string`: New name for private channel.
+  * validate `boolean`: Whether to return errors on invalid channel name instead of modifying it to meet the specified criteria.
 
 #### Output
-* output `object`: Verbose schema not yet ready for this method.
+* output `object`: Schema for successful response from groups.rename method
+  * channel **required** [objs_group](#objs_group)
   * ok **required** [defs_ok_true](#defs_ok_true)
 
 ### groups_replies
@@ -1573,7 +2713,10 @@ slack.groups_replies({}, context)
   * channel `string`: Private channel to fetch thread from
 
 #### Output
-* output `object`: Verbose schema not yet ready for this method.
+* output `object`: Schema for successful response from groups.replies method
+  * has_more `boolean`
+  * messages **required** `array`
+    * items [objs_message](#objs_message)
   * ok **required** [defs_ok_true](#defs_ok_true)
 
 ### groups_setPurpose
@@ -1587,8 +2730,8 @@ slack.groups_setPurpose({}, context)
 #### Input
 * input `object`
   * token `string`: Authentication token. Requires scope: `groups:write`
-  * purpose `string`: The new purpose
   * channel `string`: Private channel to set the purpose of
+  * purpose `string`: The new purpose
 
 #### Output
 * output `object`: Schema for successful response from groups.setPurpose method
@@ -1605,9 +2748,9 @@ slack.groups_setTopic({}, context)
 
 #### Input
 * input `object`
-  * topic `string`: The new topic
   * token `string`: Authentication token. Requires scope: `groups:write`
   * channel `string`: Private channel to set the topic of
+  * topic `string`: The new topic
 
 #### Output
 * output `object`: Schema for successful response from groups.setTopic method
@@ -1628,7 +2771,7 @@ slack.groups_unarchive({}, context)
   * channel `string`: Private channel to unarchive
 
 #### Output
-* output `object`: Verbose schema not yet ready for this method.
+* output `object`: Schema for successful response from groups.unarchive method
   * ok **required** [defs_ok_true](#defs_ok_true)
 
 ### im_close
@@ -1636,16 +2779,21 @@ Close a direct message channel.
 
 
 ```js
-slack.im_close({}, context)
+slack.im_close({
+  "token": "",
+  "channel": ""
+}, context)
 ```
 
 #### Input
 * input `object`
-  * token `string`: Authentication token. Requires scope: `im:write`
-  * channel `string`: Direct message channel to close.
+  * token **required** `string`: Authentication token. Requires scope: `im:write`
+  * channel **required** `string`: Direct message channel to close.
 
 #### Output
-* output `object`: Verbose schema not yet ready for this method.
+* output `object`: Schema for successful response from im.close method
+  * already_closed `boolean`
+  * no_op `boolean`
   * ok **required** [defs_ok_true](#defs_ok_true)
 
 ### im_history
@@ -1668,6 +2816,8 @@ slack.im_history({}, context)
 
 #### Output
 * output `object`: Schema for successful response from im.history method
+  * channel_actions_count **required** `integer`
+  * channel_actions_ts **required**
   * has_more **required** `boolean`
   * messages **required** `array`
     * items [objs_message](#objs_message)
@@ -1692,20 +2842,25 @@ slack.im_list({}, context)
   * ims **required** `array`
     * items [objs_im](#objs_im)
   * ok **required** [defs_ok_true](#defs_ok_true)
+  * response_metadata [objs_response_metadata](#objs_response_metadata)
 
 ### im_mark
 Sets the read cursor in a direct message channel.
 
 
 ```js
-slack.im_mark({}, context)
+slack.im_mark({
+  "token": "",
+  "channel": "",
+  "ts": ""
+}, context)
 ```
 
 #### Input
 * input `object`
-  * token `string`: Authentication token. Requires scope: `im:write`
-  * ts `number`: Timestamp of the most recently seen message.
-  * channel `string`: Direct message channel to set reading cursor in.
+  * token **required** `string`: Authentication token. Requires scope: `im:write`
+  * channel **required** `string`: Direct message channel to set reading cursor in.
+  * ts **required** `string`: Timestamp of the most recently seen message.
 
 #### Output
 * output `object`: Schema for successful response im.mark method
@@ -1722,9 +2877,9 @@ slack.im_open({}, context)
 #### Input
 * input `object`
   * token `string`: Authentication token. Requires scope: `im:write`
+  * include_locale `boolean`: Set this to `true` to receive the locale for this im. Defaults to `false`
   * return_im `boolean`: Boolean, indicates you want the full IM channel definition in the response.
   * user `string`: User to open a direct message channel with.
-  * include_locale `boolean`: Set this to `true` to receive the locale for this im. Defaults to `false`
 
 #### Output
 * output `object`: Schema for successful response from im.open method
@@ -1757,7 +2912,10 @@ slack.im_replies({}, context)
   * channel `string`: Direct message channel to fetch thread from
 
 #### Output
-* output `object`: Verbose schema not yet ready for this method.
+* output `object`: Schema for successful response from im.replies method
+  * has_more **required** `boolean`
+  * messages **required** `array`
+    * items
   * ok **required** [defs_ok_true](#defs_ok_true)
 
 ### migration_exchange
@@ -1765,14 +2923,17 @@ For Enterprise Grid workspaces, map local user IDs to global user IDs
 
 
 ```js
-slack.migration_exchange({}, context)
+slack.migration_exchange({
+  "token": "",
+  "users": ""
+}, context)
 ```
 
 #### Input
 * input `object`
-  * token `string`: Authentication token. Requires scope: `tokens.basic`
+  * token **required** `string`: Authentication token. Requires scope: `tokens.basic`
   * to_old `boolean`: Specify `true` to convert `W` global user IDs to workspace-specific `U` IDs. Defaults to `false`.
-  * users `string`: A comma-separated list of user ids, up to 400 per request
+  * users **required** `string`: A comma-separated list of user ids, up to 400 per request
 
 #### Output
 * output `object`: Schema for successful response from migration.exchange method
@@ -1788,16 +2949,19 @@ Closes a multiparty direct message channel.
 
 
 ```js
-slack.mpim_close({}, context)
+slack.mpim_close({
+  "token": "",
+  "channel": ""
+}, context)
 ```
 
 #### Input
 * input `object`
-  * token `string`: Authentication token. Requires scope: `mpim:write`
-  * channel `string`: MPIM to close.
+  * token **required** `string`: Authentication token. Requires scope: `mpim:write`
+  * channel **required** `string`: MPIM to close.
 
 #### Output
-* output `object`: Verbose schema not yet ready for this method.
+* output `object`: Schema for successful response from mpim.close method
   * ok **required** [defs_ok_true](#defs_ok_true)
 
 ### mpim_history
@@ -1819,7 +2983,12 @@ slack.mpim_history({}, context)
   * latest `number`: End of time range of messages to include in results.
 
 #### Output
-* output `object`: Verbose schema not yet ready for this method.
+* output `object`: Schema for successful response from mpim.history method
+  * channel_actions_count **required** `integer`
+  * channel_actions_ts **required**
+  * has_more **required** `boolean`
+  * messages **required** `array`
+    * items [objs_message](#objs_message)
   * ok **required** [defs_ok_true](#defs_ok_true)
 
 ### mpim_list
@@ -1832,11 +3001,16 @@ slack.mpim_list({}, context)
 
 #### Input
 * input `object`
+  * cursor `string`: Parameter for pagination. Set `cursor` equal to the `next_cursor` attribute returned by the previous request's `response_metadata`. This parameter is optional, but pagination is mandatory: the default value simply fetches the first "page" of the collection. See [pagination](/docs/pagination) for more details.
   * token `string`: Authentication token. Requires scope: `mpim:read`
+  * limit `integer`: The maximum number of items to return. Fewer than the requested number of items may be returned, even if the end of the list hasn't been reached.
 
 #### Output
-* output `object`: Verbose schema not yet ready for this method.
+* output `object`: Schema for successful response from mpim.list method
+  * groups **required** `array`
+    * items [objs_group](#objs_group)
   * ok **required** [defs_ok_true](#defs_ok_true)
+  * response_metadata [objs_response_metadata](#objs_response_metadata)
 
 ### mpim_mark
 Sets the read cursor in a multiparty direct message channel.
@@ -1849,8 +3023,8 @@ slack.mpim_mark({}, context)
 #### Input
 * input `object`
   * token `string`: Authentication token. Requires scope: `mpim:write`
-  * ts `number`: Timestamp of the most recently seen message.
   * channel `string`: multiparty direct message channel to set reading cursor in.
+  * ts `number`: Timestamp of the most recently seen message.
 
 #### Output
 * output `object`: Schema for successful response from mpim.mark method
@@ -1889,7 +3063,10 @@ slack.mpim_replies({}, context)
   * channel `string`: Multiparty direct message channel to fetch thread from.
 
 #### Output
-* output `object`: Verbose schema not yet ready for this method.
+* output `object`: Schema for successful response from mpim.replies method
+  * has_more **required** `boolean`
+  * messages **required** `array`
+    * items
   * ok **required** [defs_ok_true](#defs_ok_true)
 
 ### oauth_access
@@ -1902,14 +3079,15 @@ slack.oauth_access({}, context)
 
 #### Input
 * input `object`
-  * client_secret `string`: Issued when you created your application.
   * code `string`: The `code` param returned via the OAuth callback.
-  * single_channel `boolean`: Request the user to add your app only to a single channel.
-  * client_id `string`: Issued when you created your application.
+  * token `string`: Authentication token. Requires scope: `none`
   * redirect_uri `string`: This must match the originally submitted URI (if one was sent).
+  * single_channel `boolean`: Request the user to add your app only to a single channel. Only valid with a [legacy workspace app](https://api.slack.com/legacy-workspace-apps).
+  * client_id `string`: Issued when you created your application.
+  * client_secret `string`: Issued when you created your application.
 
 #### Output
-* output `object`: Verbose schema not yet ready for this method.
+* output `object`: This method either only returns a brief _OK_ response or a verbose schema is not available for this method.
   * ok **required** [defs_ok_true](#defs_ok_true)
 
 ### oauth_token
@@ -1929,7 +3107,28 @@ slack.oauth_token({}, context)
   * redirect_uri `string`: This must match the originally submitted URI (if one was sent).
 
 #### Output
-* output `object`: Verbose schema not yet ready for this method.
+* output `object`: This method either only returns a brief _OK_ response or a verbose schema is not available for this method.
+  * ok **required** [defs_ok_true](#defs_ok_true)
+
+### oauth_v2_access
+Exchanges a temporary OAuth verifier code for an access token.
+
+
+```js
+slack.oauth_v2_access({
+  "code": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * client_secret `string`: Issued when you created your application.
+  * code **required** `string`: The `code` param returned via the OAuth callback.
+  * client_id `string`: Issued when you created your application.
+  * redirect_uri `string`: This must match the originally submitted URI (if one was sent).
+
+#### Output
+* output `object`: This method either only returns a brief _OK_ response or a verbose schema is not available for this method.
   * ok **required** [defs_ok_true](#defs_ok_true)
 
 ### pins_add
@@ -1942,11 +3141,9 @@ slack.pins_add({}, context)
 
 #### Input
 * input `object`
-  * file_comment `string`: File comment to pin.
-  * timestamp `number`: Timestamp of the message to pin.
   * token `string`: Authentication token. Requires scope: `pins:write`
-  * file `string`: File to pin.
   * channel `string`: Channel to pin the item in.
+  * timestamp `number`: Timestamp of the message to pin.
 
 #### Output
 * output `object`: Schema for successful response from pins.add method
@@ -1968,7 +3165,6 @@ slack.pins_list({}, context)
 #### Output
 * output: Schema for successful response from pins.list method
 
-
 ### pins_remove
 Un-pins an item from a channel.
 
@@ -1979,11 +3175,11 @@ slack.pins_remove({}, context)
 
 #### Input
 * input `object`
+  * token `string`: Authentication token. Requires scope: `pins:write`
+  * channel `string`: Channel where the item is pinned to.
+  * file `string`: File to un-pin.
   * file_comment `string`: File comment to un-pin.
   * timestamp `number`: Timestamp of the message to un-pin.
-  * token `string`: Authentication token. Requires scope: `pins:write`
-  * file `string`: File to un-pin.
-  * channel `string`: Channel where the item is pinned to.
 
 #### Output
 * output `object`: Schema for successful response from pins.remove method
@@ -1994,17 +3190,20 @@ Adds a reaction to an item.
 
 
 ```js
-slack.reactions_add({}, context)
+slack.reactions_add({
+  "token": "",
+  "channel": "",
+  "name": "",
+  "timestamp": ""
+}, context)
 ```
 
 #### Input
 * input `object`
-  * name `string`: Reaction (emoji) name.
-  * file_comment `string`: File comment to add reaction to.
-  * timestamp `number`: Timestamp of the message to add reaction to.
-  * token `string`: Authentication token. Requires scope: `reactions:write`
-  * file `string`: File to add reaction to.
-  * channel `string`: Channel where the message to add reaction to was posted.
+  * token **required** `string`: Authentication token. Requires scope: `reactions:write`
+  * channel **required** `string`: Channel where the message to add reaction to was posted.
+  * name **required** `string`: Reaction (emoji) name.
+  * timestamp **required** `string`: Timestamp of the message to add reaction to.
 
 #### Output
 * output `object`: Schema for successful response from reactions.add method
@@ -2015,62 +3214,70 @@ Gets reactions for an item.
 
 
 ```js
-slack.reactions_get({}, context)
+slack.reactions_get({
+  "token": ""
+}, context)
 ```
 
 #### Input
 * input `object`
   * full `boolean`: If true always return the complete reaction list.
   * file_comment `string`: File comment to get reactions for.
-  * timestamp `number`: Timestamp of the message to get reactions for.
-  * token `string`: Authentication token. Requires scope: `reactions:read`
+  * timestamp `string`: Timestamp of the message to get reactions for.
+  * token **required** `string`: Authentication token. Requires scope: `reactions:read`
   * file `string`: File to get reactions for.
   * channel `string`: Channel where the message to get reactions for was posted.
 
 #### Output
 * output `object`: Schema for successful response from reactions.get method
 
-
 ### reactions_list
 Lists reactions made by a user.
 
 
 ```js
-slack.reactions_list({}, context)
+slack.reactions_list({
+  "token": ""
+}, context)
 ```
 
 #### Input
 * input `object`
-  * count `string`
-  * token `string`: Authentication token. Requires scope: `reactions:read`
+  * count `integer`
   * full `boolean`: If true always return the complete reaction list.
+  * cursor `string`: Parameter for pagination. Set `cursor` equal to the `next_cursor` attribute returned by the previous request's `response_metadata`. This parameter is optional, but pagination is mandatory: the default value simply fetches the first "page" of the collection. See [pagination](/docs/pagination) for more details.
+  * token **required** `string`: Authentication token. Requires scope: `reactions:read`
+  * limit `integer`: The maximum number of items to return. Fewer than the requested number of items may be returned, even if the end of the list hasn't been reached.
   * user `string`: Show reactions made by this user. Defaults to the authed user.
-  * page `string`
+  * page `integer`
 
 #### Output
 * output `object`: Schema for successful response from reactions.list method
   * items **required** `array`
     * items
-
   * ok **required** [defs_ok_true](#defs_ok_true)
   * paging [objs_paging](#objs_paging)
+  * response_metadata [objs_response_metadata](#objs_response_metadata)
 
 ### reactions_remove
 Removes a reaction from an item.
 
 
 ```js
-slack.reactions_remove({}, context)
+slack.reactions_remove({
+  "token": "",
+  "name": ""
+}, context)
 ```
 
 #### Input
 * input `object`
-  * name `string`: Reaction (emoji) name.
-  * file_comment `string`: File comment to remove reaction from.
-  * timestamp `number`: Timestamp of the message to remove reaction from.
-  * token `string`: Authentication token. Requires scope: `reactions:write`
-  * file `string`: File to remove reaction from.
+  * token **required** `string`: Authentication token. Requires scope: `reactions:write`
   * channel `string`: Channel where the message to remove reaction from was posted.
+  * file `string`: File to remove reaction from.
+  * file_comment `string`: File comment to remove reaction from.
+  * name **required** `string`: Reaction (emoji) name.
+  * timestamp `string`: Timestamp of the message to remove reaction from.
 
 #### Output
 * output `object`: Schema for successful response from reactions.remove method
@@ -2086,14 +3293,15 @@ slack.reminders_add({}, context)
 
 #### Input
 * input `object`
-  * text `string`: The content of the reminder
   * token `string`: Authentication token. Requires scope: `reminders:write`
-  * user `string`: The user who will receive the reminder. If no user is specified, the reminder will go to user who created it.
+  * text `string`: The content of the reminder
   * time `string`: When this reminder should happen: the Unix timestamp (up to five years from now), the number of seconds until the reminder (if within 24 hours), or a natural language description (Ex. "in 15 minutes," or "every Thursday")
+  * user `string`: The user who will receive the reminder. If no user is specified, the reminder will go to user who created it.
 
 #### Output
-* output `object`: Verbose schema not yet ready for this method.
+* output `object`: Schema for successful response from reminders.add method
   * ok **required** [defs_ok_true](#defs_ok_true)
+  * reminder **required** [objs_reminder](#objs_reminder)
 
 ### reminders_complete
 Marks a reminder as complete.
@@ -2109,7 +3317,7 @@ slack.reminders_complete({}, context)
   * reminder `string`: The ID of the reminder to be marked as complete
 
 #### Output
-* output `object`: Verbose schema not yet ready for this method.
+* output `object`: Schema for successful response from reminders.complete method
   * ok **required** [defs_ok_true](#defs_ok_true)
 
 ### reminders_delete
@@ -2126,7 +3334,7 @@ slack.reminders_delete({}, context)
   * reminder `string`: The ID of the reminder
 
 #### Output
-* output `object`: Verbose schema not yet ready for this method.
+* output `object`: Schema for successful response from reminders.delete method
   * ok **required** [defs_ok_true](#defs_ok_true)
 
 ### reminders_info
@@ -2143,8 +3351,9 @@ slack.reminders_info({}, context)
   * reminder `string`: The ID of the reminder
 
 #### Output
-* output `object`: Verbose schema not yet ready for this method.
+* output `object`: Schema for successful response from reminders.info method
   * ok **required** [defs_ok_true](#defs_ok_true)
+  * reminder **required** [objs_reminder](#objs_reminder)
 
 ### reminders_list
 Lists all reminders created by or for a given user.
@@ -2159,21 +3368,25 @@ slack.reminders_list({}, context)
   * token `string`: Authentication token. Requires scope: `reminders:read`
 
 #### Output
-* output `object`: Verbose schema not yet ready for this method.
+* output `object`: Schema for successful response from reminders.list method
   * ok **required** [defs_ok_true](#defs_ok_true)
+  * reminders **required** `array`
+    * items [objs_reminder](#objs_reminder)
 
 ### rtm_connect
 Starts a Real Time Messaging session.
 
 
 ```js
-slack.rtm_connect({}, context)
+slack.rtm_connect({
+  "token": ""
+}, context)
 ```
 
 #### Input
 * input `object`
   * presence_sub `boolean`: Only deliver presence events when requested by subscription. See [presence subscriptions](/docs/presence-and-status#subscriptions).
-  * token `string`: Authentication token. Requires scope: `rtm:stream`
+  * token **required** `string`: Authentication token. Requires scope: `rtm:stream`
   * batch_presence_aware `boolean`: Batch presence deliveries via subscription. Enabling changes the shape of `presence_change` events. See [batch presence](/docs/presence-and-status#batching).
 
 #### Output
@@ -2188,133 +3401,29 @@ slack.rtm_connect({}, context)
     * name **required** `string`
   * url **required** `string`
 
-### rtm_start
-Starts a Real Time Messaging session.
-
-
-```js
-slack.rtm_start({}, context)
-```
-
-#### Input
-* input `object`
-  * no_latest `boolean`: Exclude latest timestamps for channels, groups, mpims, and ims. Automatically sets `no_unreads` to `1`
-  * simple_latest `boolean`: Return timestamp only for latest message object of each channel (improves performance).
-  * include_locale `boolean`: Set this to `true` to receive the locale for users and channels. Defaults to `false`
-  * presence_sub `boolean`: Only deliver presence events when requested by subscription. See [presence subscriptions](/docs/presence-and-status#subscriptions).
-  * no_unreads `boolean`: Skip unread counts for each channel (improves performance).
-  * batch_presence_aware `boolean`: Batch presence deliveries via subscription. Enabling changes the shape of `presence_change` events. See [batch presence](/docs/presence-and-status#batching).
-  * mpim_aware `boolean`: Returns MPIMs to the client in the API response.
-  * token `string`: Authentication token. Requires scope: `rtm:stream`
-
-#### Output
-* output `object`: Schema for successful response from rtm.start method
-  * bots **required** `array`
-
-  * cache_ts **required** `integer`
-  * cache_ts_version **required** `string`
-  * cache_version `string`
-  * can_manage_shared_channels **required** `boolean`
-  * channels **required** `array`
-    * items [objs_conversation](#objs_conversation)
-  * dead_pig `boolean`
-  * dnd **required** [objs_dnd](#objs_dnd)
-  * groups **required** `array`: Group objects present for rtm.start. Can be null when there are no groups
-    * items
-
-  * ims **required** `array`
-    * items [objs_conversation](#objs_conversation)
-  * latest_event_ts **required** `string`
-  * mpims `array`: Mpim objects present for rtm.start. Can be null when there are no mpims
-    * items
-
-  * non_threadable_channels **required** `array`
-
-  * ok **required** [defs_ok_true](#defs_ok_true)
-  * read_only_channels **required** `array`
-
-  * self **required** `object`
-    * created **required** `integer`
-    * id **required** `string`
-    * manual_presence **required** `string`
-    * name `string`
-    * prefs **required** [prefs_prefs](#prefs_prefs)
-  * subteams **required** `object`
-    * all **required** `array`
-
-    * self **required** `array`
-
-  * team **required** [objs_team](#objs_team)
-  * thread_only_channels **required** `array`
-
-  * url **required** `string`
-  * users **required** `array`
-    * items [objs_user](#objs_user)
-
-### search_all
-Searches for messages and files matching a query.
-
-
-```js
-slack.search_all({}, context)
-```
-
-#### Input
-* input `object`
-  * sort_dir `string`: Change sort direction to ascending (`asc`) or descending (`desc`).
-  * query `string`: Search query. May contains booleans, etc.
-  * sort `string`: Return matches sorted by either `score` or `timestamp`.
-  * count `string`
-  * token `string`: Authentication token. Requires scope: `search:read`
-  * highlight `boolean`: Pass a value of `true` to enable query highlight markers (see below).
-  * page `string`
-
-#### Output
-* output `object`: Verbose schema not yet ready for this method.
-  * ok **required** [defs_ok_true](#defs_ok_true)
-
-### search_files
-Searches for files matching a query.
-
-
-```js
-slack.search_files({}, context)
-```
-
-#### Input
-* input `object`
-  * sort_dir `string`: Change sort direction to ascending (`asc`) or descending (`desc`).
-  * query `string`: Search query.
-  * sort `string`: Return matches sorted by either `score` or `timestamp`.
-  * highlight `boolean`: Pass a value of `true` to enable query highlight markers (see below).
-  * count `string`
-  * token `string`: Authentication token. Requires scope: `search:read`
-  * page `string`
-
-#### Output
-* output `object`: Verbose schema not yet ready for this method.
-  * ok **required** [defs_ok_true](#defs_ok_true)
-
 ### search_messages
 Searches for messages matching a query.
 
 
 ```js
-slack.search_messages({}, context)
+slack.search_messages({
+  "query": "",
+  "token": ""
+}, context)
 ```
 
 #### Input
 * input `object`
   * sort_dir `string`: Change sort direction to ascending (`asc`) or descending (`desc`).
-  * query `string`: Search query.
+  * query **required** `string`: Search query.
   * sort `string`: Return matches sorted by either `score` or `timestamp`.
-  * count `string`: Pass the number of results you want per "page". Maximum of `100`.
-  * token `string`: Authentication token. Requires scope: `search:read`
+  * count `integer`: Pass the number of results you want per "page". Maximum of `100`.
+  * token **required** `string`: Authentication token. Requires scope: `search:read`
   * highlight `boolean`: Pass a value of `true` to enable query highlight markers (see below).
-  * page `string`
+  * page `integer`
 
 #### Output
-* output `object`: Verbose schema not yet ready for this method.
+* output `object`: This method either only returns a brief _OK_ response or a verbose schema is not available for this method.
   * ok **required** [defs_ok_true](#defs_ok_true)
 
 ### stars_add
@@ -2322,19 +3431,21 @@ Adds a star to an item.
 
 
 ```js
-slack.stars_add({}, context)
+slack.stars_add({
+  "token": ""
+}, context)
 ```
 
 #### Input
 * input `object`
-  * file_comment `string`: File comment to add star to.
-  * timestamp `number`: Timestamp of the message to add star to.
-  * token `string`: Authentication token. Requires scope: `stars:write`
+  * token **required** `string`: Authentication token. Requires scope: `stars:write`
   * channel `string`: Channel to add star to, or channel where the message to add star to was posted (used with `timestamp`).
   * file `string`: File to add star to.
+  * file_comment `string`: File comment to add star to.
+  * timestamp `string`: Timestamp of the message to add star to.
 
 #### Output
-* output `object`: Verbose schema not yet ready for this method.
+* output `object`: Schema for successful response from stars.add method
   * ok **required** [defs_ok_true](#defs_ok_true)
 
 ### stars_list
@@ -2348,12 +3459,17 @@ slack.stars_list({}, context)
 #### Input
 * input `object`
   * count `string`
+  * cursor `string`: Parameter for pagination. Set `cursor` equal to the `next_cursor` attribute returned by the previous request's `response_metadata`. This parameter is optional, but pagination is mandatory: the default value simply fetches the first "page" of the collection. See [pagination](/docs/pagination) for more details.
   * token `string`: Authentication token. Requires scope: `stars:read`
+  * limit `integer`: The maximum number of items to return. Fewer than the requested number of items may be returned, even if the end of the list hasn't been reached.
   * page `string`
 
 #### Output
-* output `object`: Verbose schema not yet ready for this method.
+* output `object`: Schema for successful response from stars.list method
+  * items **required** `array`
+    * items
   * ok **required** [defs_ok_true](#defs_ok_true)
+  * paging [objs_paging](#objs_paging)
 
 ### stars_remove
 Removes a star from an item.
@@ -2365,14 +3481,14 @@ slack.stars_remove({}, context)
 
 #### Input
 * input `object`
-  * file_comment `string`: File comment to remove star from.
-  * timestamp `number`: Timestamp of the message to remove star from.
   * token `string`: Authentication token. Requires scope: `stars:write`
   * channel `string`: Channel to remove star from, or channel where the message to remove star from was posted (used with `timestamp`).
   * file `string`: File to remove star from.
+  * file_comment `string`: File comment to remove star from.
+  * timestamp `number`: Timestamp of the message to remove star from.
 
 #### Output
-* output `object`: Verbose schema not yet ready for this method.
+* output `object`: Schema for successful response from stars.remove method
   * ok **required** [defs_ok_true](#defs_ok_true)
 
 ### team_accessLogs
@@ -2380,35 +3496,53 @@ Gets the access logs for the current team.
 
 
 ```js
-slack.team_accessLogs({}, context)
+slack.team_accessLogs({
+  "token": ""
+}, context)
 ```
 
 #### Input
 * input `object`
-  * count `string`
-  * token `string`: Authentication token. Requires scope: `admin`
-  * page `string`
-  * before `integer`: End of time range of logs to include in results (inclusive).
+  * count `integer`
+  * token **required** `string`: Authentication token. Requires scope: `admin`
+  * page `integer`
+  * before `string`: End of time range of logs to include in results (inclusive).
 
 #### Output
-* output `object`: Verbose schema not yet ready for this method.
+* output `object`: Schema for successful response from team.accessLogs method
+  * logins **required** `array`
+    * items `object`
+      * count **required** `integer`
+      * country **required** `string`
+      * date_first **required** `integer`
+      * date_last **required** `integer`
+      * ip **required** `string`
+      * isp **required** `string`
+      * region **required** `string`
+      * user_agent **required** `string`
+      * user_id **required** [defs_user_id](#defs_user_id)
+      * username **required** `string`
   * ok **required** [defs_ok_true](#defs_ok_true)
+  * paging **required** [objs_paging](#objs_paging)
 
 ### team_billableInfo
 Gets billable users information for the current team.
 
 
 ```js
-slack.team_billableInfo({}, context)
+slack.team_billableInfo({
+  "token": ""
+}, context)
 ```
 
 #### Input
 * input `object`
-  * token `string`: Authentication token. Requires scope: `admin`
+  * token **required** `string`: Authentication token. Requires scope: `admin`
   * user `string`: A user to retrieve the billable information for. Defaults to all users.
 
 #### Output
-* output `object`: Verbose schema not yet ready for this method.
+* output `object`: Schema for successful response from team.billableInfo method
+  * billable_info **required** `object`
   * ok **required** [defs_ok_true](#defs_ok_true)
 
 ### team_info
@@ -2416,12 +3550,15 @@ Gets information about the current team.
 
 
 ```js
-slack.team_info({}, context)
+slack.team_info({
+  "token": ""
+}, context)
 ```
 
 #### Input
 * input `object`
-  * token `string`: Authentication token. Requires scope: `team:read`
+  * token **required** `string`: Authentication token. Requires scope: `team:read`
+  * team `string`: Team to get info on, if omitted, will return information about the current team. Will only return team that the authenticated token is allowed to see through external shared channels
 
 #### Output
 * output `object`: Schema for successful response from team.info method
@@ -2433,34 +3570,52 @@ Gets the integration logs for the current team.
 
 
 ```js
-slack.team_integrationLogs({}, context)
+slack.team_integrationLogs({
+  "token": ""
+}, context)
 ```
 
 #### Input
 * input `object`
-  * count `string`
+  * count `integer`
   * change_type `string`: Filter logs with this change type. Defaults to all logs.
   * app_id `integer`: Filter logs to this Slack app. Defaults to all logs.
-  * token `string`: Authentication token. Requires scope: `admin`
+  * token **required** `string`: Authentication token. Requires scope: `admin`
   * user `string`: Filter logs generated by this user’s actions. Defaults to all logs.
   * service_id `integer`: Filter logs to this service. Defaults to all logs.
   * page `string`
 
 #### Output
-* output `object`: Verbose schema not yet ready for this method.
+* output `object`: Schema for successful response from team.integrationLogs method
+  * logs **required** `array`
+    * items `object`
+      * admin_app_id [defs_app_id](#defs_app_id)
+      * app_id **required** [defs_app_id](#defs_app_id)
+      * app_type **required** `string`
+      * change_type **required** `string`
+      * channel [defs_channel](#defs_channel)
+      * date **required** `string`
+      * scope **required** `string`
+      * service_id `string`
+      * service_type `string`
+      * user_id **required** [defs_user_id](#defs_user_id)
+      * user_name **required** `string`
   * ok **required** [defs_ok_true](#defs_ok_true)
+  * paging **required** [objs_paging](#objs_paging)
 
 ### team_profile_get
 Retrieve a team's profile.
 
 
 ```js
-slack.team_profile_get({}, context)
+slack.team_profile_get({
+  "token": ""
+}, context)
 ```
 
 #### Input
 * input `object`
-  * token `string`: Authentication token. Requires scope: `users.profile:read`
+  * token **required** `string`: Authentication token. Requires scope: `users.profile:read`
   * visibility `string`: Filter by visibility.
 
 #### Output
@@ -2475,135 +3630,165 @@ Create a User Group
 
 
 ```js
-slack.usergroups_create({}, context)
+slack.usergroups_create({
+  "token": "",
+  "name": ""
+}, context)
 ```
 
 #### Input
 * input `object`
-  * handle `string`: A mention handle. Must be unique among channels, users and User Groups.
-  * name `string`: A name for the User Group. Must be unique among User Groups.
+  * token **required** `string`: Authentication token. Requires scope: `usergroups:write`
   * channels `string`: A comma separated string of encoded channel IDs for which the User Group uses as a default.
-  * token `string`: Authentication token. Requires scope: `usergroups:write`
-  * include_count `boolean`: Include the number of users in each User Group.
   * description `string`: A short description of the User Group.
+  * handle `string`: A mention handle. Must be unique among channels, users and User Groups.
+  * include_count `boolean`: Include the number of users in each User Group.
+  * name **required** `string`: A name for the User Group. Must be unique among User Groups.
 
 #### Output
-* output `object`: Verbose schema not yet ready for this method.
+* output `object`: Schema for successful response from usergroups.create method
   * ok **required** [defs_ok_true](#defs_ok_true)
+  * usergroup **required** [objs_subteam](#objs_subteam)
 
 ### usergroups_disable
 Disable an existing User Group
 
 
 ```js
-slack.usergroups_disable({}, context)
+slack.usergroups_disable({
+  "token": "",
+  "usergroup": ""
+}, context)
 ```
 
 #### Input
 * input `object`
-  * token `string`: Authentication token. Requires scope: `usergroups:write`
+  * token **required** `string`: Authentication token. Requires scope: `usergroups:write`
   * include_count `boolean`: Include the number of users in the User Group.
-  * usergroup `string`: The encoded ID of the User Group to disable.
+  * usergroup **required** `string`: The encoded ID of the User Group to disable.
 
 #### Output
-* output `object`: Verbose schema not yet ready for this method.
+* output `object`: Schema for successful response from usergroups.disable method
   * ok **required** [defs_ok_true](#defs_ok_true)
+  * usergroup **required** [objs_subteam](#objs_subteam)
 
 ### usergroups_enable
 Enable a User Group
 
 
 ```js
-slack.usergroups_enable({}, context)
+slack.usergroups_enable({
+  "token": "",
+  "usergroup": ""
+}, context)
 ```
 
 #### Input
 * input `object`
-  * token `string`: Authentication token. Requires scope: `usergroups:write`
+  * token **required** `string`: Authentication token. Requires scope: `usergroups:write`
   * include_count `boolean`: Include the number of users in the User Group.
-  * usergroup `string`: The encoded ID of the User Group to enable.
+  * usergroup **required** `string`: The encoded ID of the User Group to enable.
 
 #### Output
-* output `object`: Verbose schema not yet ready for this method.
+* output `object`: Schema for successful response from usergroups.enable method
   * ok **required** [defs_ok_true](#defs_ok_true)
+  * usergroup **required** [objs_subteam](#objs_subteam)
 
 ### usergroups_list
 List all User Groups for a team
 
 
 ```js
-slack.usergroups_list({}, context)
+slack.usergroups_list({
+  "token": ""
+}, context)
 ```
 
 #### Input
 * input `object`
   * include_users `boolean`: Include the list of users for each User Group.
-  * token `string`: Authentication token. Requires scope: `usergroups:read`
+  * token **required** `string`: Authentication token. Requires scope: `usergroups:read`
   * include_count `boolean`: Include the number of users in each User Group.
   * include_disabled `boolean`: Include disabled User Groups.
 
 #### Output
-* output `object`: Verbose schema not yet ready for this method.
+* output `object`: Schema for successful response from usergroups.list method
   * ok **required** [defs_ok_true](#defs_ok_true)
+  * usergroups **required** `array`
+    * items [objs_subteam](#objs_subteam)
 
 ### usergroups_update
 Update an existing User Group
 
 
 ```js
-slack.usergroups_update({}, context)
+slack.usergroups_update({
+  "token": "",
+  "usergroup": ""
+}, context)
 ```
 
 #### Input
 * input `object`
-  * handle `string`: A mention handle. Must be unique among channels, users and User Groups.
-  * description `string`: A short description of the User Group.
+  * token **required** `string`: Authentication token. Requires scope: `usergroups:write`
   * channels `string`: A comma separated string of encoded channel IDs for which the User Group uses as a default.
-  * token `string`: Authentication token. Requires scope: `usergroups:write`
+  * description `string`: A short description of the User Group.
+  * handle `string`: A mention handle. Must be unique among channels, users and User Groups.
   * include_count `boolean`: Include the number of users in the User Group.
-  * usergroup `string`: The encoded ID of the User Group to update.
   * name `string`: A name for the User Group. Must be unique among User Groups.
+  * usergroup **required** `string`: The encoded ID of the User Group to update.
 
 #### Output
-* output `object`: Verbose schema not yet ready for this method.
+* output `object`: Schema for successful response from usergroups.update method
   * ok **required** [defs_ok_true](#defs_ok_true)
+  * usergroup **required** [objs_subteam](#objs_subteam)
 
 ### usergroups_users_list
 List all users in a User Group
 
 
 ```js
-slack.usergroups_users_list({}, context)
+slack.usergroups_users_list({
+  "token": "",
+  "usergroup": ""
+}, context)
 ```
 
 #### Input
 * input `object`
-  * token `string`: Authentication token. Requires scope: `usergroups:read`
+  * token **required** `string`: Authentication token. Requires scope: `usergroups:read`
   * include_disabled `boolean`: Allow results that involve disabled User Groups.
-  * usergroup `string`: The encoded ID of the User Group to update.
+  * usergroup **required** `string`: The encoded ID of the User Group to update.
 
 #### Output
-* output `object`: Verbose schema not yet ready for this method.
+* output `object`: Schema for successful response from usergroups.users.list method
   * ok **required** [defs_ok_true](#defs_ok_true)
+  * users **required** `array`
+    * items [defs_user_id](#defs_user_id)
 
 ### usergroups_users_update
 Update the list of users for a User Group
 
 
 ```js
-slack.usergroups_users_update({}, context)
+slack.usergroups_users_update({
+  "token": "",
+  "usergroup": "",
+  "users": ""
+}, context)
 ```
 
 #### Input
 * input `object`
+  * token **required** `string`: Authentication token. Requires scope: `usergroups:write`
   * include_count `boolean`: Include the number of users in the User Group.
-  * token `string`: Authentication token. Requires scope: `usergroups:write`
-  * users `string`: A comma separated string of encoded user IDs that represent the entire list of users for the User Group.
-  * usergroup `string`: The encoded ID of the User Group to update.
+  * usergroup **required** `string`: The encoded ID of the User Group to update.
+  * users **required** `string`: A comma separated string of encoded user IDs that represent the entire list of users for the User Group.
 
 #### Output
-* output `object`: Verbose schema not yet ready for this method.
+* output `object`: Schema for successful response from usergroups.users.update method
   * ok **required** [defs_ok_true](#defs_ok_true)
+  * usergroup **required** [objs_subteam](#objs_subteam)
 
 ### users_conversations
 List conversations the calling user may access.
@@ -2635,15 +3820,17 @@ Delete the user profile photo
 
 
 ```js
-slack.users_deletePhoto({}, context)
+slack.users_deletePhoto({
+  "token": ""
+}, context)
 ```
 
 #### Input
 * input `object`
-  * token `string`: Authentication token. Requires scope: `users.profile:write`
+  * token **required** `string`: Authentication token. Requires scope: `users.profile:write`
 
 #### Output
-* output `object`: Verbose schema not yet ready for this method.
+* output `object`: Schema for successful response from users.deletePhoto method
   * ok **required** [defs_ok_true](#defs_ok_true)
 
 ### users_getPresence
@@ -2651,12 +3838,14 @@ Gets user presence information.
 
 
 ```js
-slack.users_getPresence({}, context)
+slack.users_getPresence({
+  "token": ""
+}, context)
 ```
 
 #### Input
 * input `object`
-  * token `string`: Authentication token. Requires scope: `users:read`
+  * token **required** `string`: Authentication token. Requires scope: `users:read`
   * user `string`: User to get presence info on. Defaults to the authed user.
 
 #### Output
@@ -2684,20 +3873,21 @@ slack.users_identity({}, context)
 #### Output
 * output: Schema for successful response from users.identity method
 
-
 ### users_info
 Gets information about a user.
 
 
 ```js
-slack.users_info({}, context)
+slack.users_info({
+  "token": ""
+}, context)
 ```
 
 #### Input
 * input `object`
-  * include_locale `boolean`: Set this to `true` to receive the locale for this user. Defaults to `false`
-  * token `string`: Authentication token. Requires scope: `users:read`
+  * token **required** `string`: Authentication token. Requires scope: `users:read`
   * user `string`: User to get info on
+  * include_locale `boolean`: Set this to `true` to receive the locale for this user. Defaults to `false`
 
 #### Output
 * output `object`: Schema for successful response from users.info method
@@ -2714,7 +3904,6 @@ slack.users_list({}, context)
 
 #### Input
 * input `object`
-  * presence `boolean`: Deprecated. Whether to include presence data in the output. Defaults to `false`. Setting this to `true` reduces performance, especially with large teams.
   * cursor `string`: Paginate through collections of data by setting the `cursor` parameter to a `next_cursor` attribute returned by a previous request's `response_metadata`. Default value fetches the first "page" of the collection. See [pagination](/docs/pagination) for more detail.
   * token `string`: Authentication token. Requires scope: `users:read`
   * limit `integer`: The maximum number of items to return. Fewer than the requested number of items may be returned, even if the end of the users list hasn't been reached.
@@ -2726,6 +3915,7 @@ slack.users_list({}, context)
   * members **required** `array`
     * items [objs_user](#objs_user)
   * ok **required** [defs_ok_true](#defs_ok_true)
+  * response_metadata [objs_response_metadata](#objs_response_metadata)
 
 ### users_lookupByEmail
 Find a user with an email address.
@@ -2774,11 +3964,11 @@ slack.users_profile_set({}, context)
 
 #### Input
 * input `object`
-  * profile `string`: Collection of key:value pairs presented as a URL-encoded JSON hash.
   * token `string`: Authentication token. Requires scope: `users.profile:write`
+  * name `string`: Name of a single key to set. Usable only if `profile` is not passed.
+  * profile `string`: Collection of key:value pairs presented as a URL-encoded JSON hash. At most 50 fields may be set. Each field name is limited to 255 characters.
   * user `string`: ID of user to change. This argument may only be specified by team admins on paid teams.
   * value `string`: Value to set a single key to. Usable only if `profile` is not passed.
-  * name `string`: Name of a single key to set. Usable only if `profile` is not passed.
 
 #### Output
 * output `object`: Schema for successful response from users.profile.set method
@@ -2791,15 +3981,17 @@ Marked a user as active. Deprecated and non-functional.
 
 
 ```js
-slack.users_setActive({}, context)
+slack.users_setActive({
+  "token": ""
+}, context)
 ```
 
 #### Input
 * input `object`
-  * token `string`: Authentication token. Requires scope: `users:write`
+  * token **required** `string`: Authentication token. Requires scope: `users:write`
 
 #### Output
-* output `object`: Verbose schema not yet ready for this method.
+* output `object`: This method either only returns a brief _OK_ response or a verbose schema is not available for this method.
   * ok **required** [defs_ok_true](#defs_ok_true)
 
 ### users_setPhoto
@@ -2812,36 +4004,143 @@ slack.users_setPhoto({}, context)
 
 #### Input
 * input `object`
-  * image `string`: File contents via `multipart/form-data`.
   * crop_w `integer`: Width/height of crop box (always square)
-  * token `string`: Authentication token. Requires scope: `users.profile:write`
-  * crop_y `integer`: Y coordinate of top-left corner of crop box
   * crop_x `integer`: X coordinate of top-left corner of crop box
+  * crop_y `integer`: Y coordinate of top-left corner of crop box
+  * image `string`: File contents via `multipart/form-data`.
+  * token `string`: Authentication token. Requires scope: `users.profile:write`
 
 #### Output
-* output `object`: Verbose schema not yet ready for this method.
+* output `object`: Schema for successful response from users.setPhoto method
   * ok **required** [defs_ok_true](#defs_ok_true)
+  * profile **required** `object`
+    * avatar_hash **required** `string`
+    * image_1024 **required** `string`
+    * image_192 **required** `string`
+    * image_24 **required** `string`
+    * image_32 **required** `string`
+    * image_48 **required** `string`
+    * image_512 **required** `string`
+    * image_72 **required** `string`
+    * image_original **required** `string`
 
 ### users_setPresence
 Manually sets user presence.
 
 
 ```js
-slack.users_setPresence({}, context)
+slack.users_setPresence({
+  "token": "",
+  "presence": ""
+}, context)
 ```
 
 #### Input
 * input `object`
-  * token `string`: Authentication token. Requires scope: `users:write`
-  * presence `string`: Either `auto` or `away`
+  * token **required** `string`: Authentication token. Requires scope: `users:write`
+  * presence **required** `string`: Either `auto` or `away`
 
 #### Output
-* output `object`: Verbose schema not yet ready for this method.
+* output `object`: Schema for successful response from users.setPresence method
+  * ok **required** [defs_ok_true](#defs_ok_true)
+
+### views_open
+Open a view for a user.
+
+
+```js
+slack.views_open({
+  "token": "",
+  "trigger_id": "",
+  "view": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * token **required** `string`: Authentication token. Requires scope: `none`
+  * trigger_id **required** `string`: Exchange a trigger to post to the user.
+  * view **required** `string`: A [view payload](/reference/surfaces/views). This must be a JSON-encoded string.
+
+#### Output
+* output `object`: This method either only returns a brief _OK_ response or a verbose schema is not available for this method.
+  * ok **required** [defs_ok_true](#defs_ok_true)
+
+### views_publish
+Publish a static view for a User.
+
+
+```js
+slack.views_publish({
+  "token": "",
+  "user_id": "",
+  "view": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * hash `string`: A string that represents view state to protect against possible race conditions.
+  * token **required** `string`: Authentication token. Requires scope: `none`
+  * user_id **required** `string`: `id` of the user you want publish a view to.
+  * view **required** `string`: A [view payload](/reference/surfaces/views). This must be a JSON-encoded string.
+
+#### Output
+* output `object`: This method either only returns a brief _OK_ response or a verbose schema is not available for this method.
+  * ok **required** [defs_ok_true](#defs_ok_true)
+
+### views_push
+Push a view onto the stack of a root view.
+
+
+```js
+slack.views_push({
+  "token": "",
+  "trigger_id": "",
+  "view": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * token **required** `string`: Authentication token. Requires scope: `none`
+  * trigger_id **required** `string`: Exchange a trigger to post to the user.
+  * view **required** `string`: A [view payload](/reference/surfaces/views). This must be a JSON-encoded string.
+
+#### Output
+* output `object`: This method either only returns a brief _OK_ response or a verbose schema is not available for this method.
+  * ok **required** [defs_ok_true](#defs_ok_true)
+
+### views_update
+Update an existing view.
+
+
+```js
+slack.views_update({
+  "token": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * hash `string`: A string that represents view state to protect against possible race conditions.
+  * view_id `string`: A unique identifier of the view to be updated. Either `view_id` or `external_id` is required.
+  * token **required** `string`: Authentication token. Requires scope: `none`
+  * external_id `string`: A unique identifier of the view set by the developer. Must be unique for all views on a team. Max length of 255 characters. Either `view_id` or `external_id` is required.
+  * view `string`: A [view payload](/reference/surfaces/views) This must be a JSON-encoded string.
+
+#### Output
+* output `object`: This method either only returns a brief _OK_ response or a verbose schema is not available for this method.
   * ok **required** [defs_ok_true](#defs_ok_true)
 
 
 
 ## Definitions
+
+### blocks
+* Block Kit blocks `array`: This is a very loose definition, in the future, we'll populate this with deeper schema in this definition namespace.
+  * items `object`
+    * type **required** `string`
 
 ### defs_app_id
 * App ID `string`
@@ -2864,14 +4163,20 @@ slack.users_setPresence({}, context)
 ### defs_dm_id
 * Direct Message Channel ID `string`
 
+### defs_enterprise_id
+* Enterprise ID `string`
+
+### defs_enterprise_name
+* Name of the enterprise org `string`
+
+### defs_enterprise_user_id
+* Enterprise User ID `string`
+
 ### defs_file_id
 * File ID `string`
 
 ### defs_group_id
 * Private Channel ID `string`
-
-### defs_invite_id
-* Invite ID for an external shared channel `integer`
 
 ### defs_ok_false
 * default failure response `boolean` (values: false)
@@ -2882,8 +4187,11 @@ slack.users_setPresence({}, context)
 ### defs_pinned_info
 * Info for a pinned item `object`
 
-### defs_room_id
-* Room ID for a slack call `string`
+### defs_reminder_id
+* Reminder ID `string`
+
+### defs_subteam_id
+* Subteam ID `string`
 
 ### defs_team
 * Team ID `string`
@@ -2897,6 +4205,22 @@ slack.users_setPresence({}, context)
 ### defs_user_id
 * User ID `string`
 
+### defs_workspace_id
+* Team or Enterprise ID `string`
+
+### objs_bot_profile
+* Bot Profile Object `object`
+  * app_id **required** [defs_app_id](#defs_app_id)
+  * deleted **required** `boolean`
+  * icons **required** `object`
+    * image_36 **required** `string`
+    * image_48 **required** `string`
+    * image_72 **required** `string`
+  * id **required** [defs_bot_id](#defs_bot_id)
+  * name **required** `string`
+  * team_id **required** [defs_team](#defs_team)
+  * updated **required** `integer`
+
 ### objs_channel
 * Channel Object `object`
   * accepted_user [defs_user_id](#defs_user_id)
@@ -2905,18 +4229,20 @@ slack.users_setPresence({}, context)
   * id **required** [defs_channel_id](#defs_channel_id)
   * is_archived `boolean`
   * is_channel **required** `boolean`
+  * is_frozen `boolean`
   * is_general `boolean`
   * is_member `boolean`
   * is_moved `integer`
   * is_mpim **required** `boolean`
+  * is_non_threadable `boolean`
   * is_org_shared **required** `boolean`
   * is_pending_ext_shared `boolean`
   * is_private **required** `boolean`
   * is_read_only `boolean`
   * is_shared **required** `boolean`
+  * is_thread_only `boolean`
   * last_read [defs_ts](#defs_ts)
   * latest
-
   * members **required** `array`
     * items [defs_user_id](#defs_user_id)
   * name **required** `string`
@@ -2926,7 +4252,7 @@ slack.users_setPresence({}, context)
     * items [defs_team](#defs_team)
   * previous_names `array`
     * items [defs_channel_name](#defs_channel_name)
-  * priority `integer`
+  * priority `number`
   * purpose **required** `object`
     * creator **required** [defs_topic_purpose_creator](#defs_topic_purpose_creator)
     * last_set **required** `integer`
@@ -2941,32 +4267,35 @@ slack.users_setPresence({}, context)
 
 ### objs_comment
 * File Comment Object `object`
-  * comment `string`
-  * created `integer`
-  * id [defs_comment_id](#defs_comment_id)
-  * is_intro `boolean`
+  * comment **required** `string`
+  * created **required** `integer`
+  * id **required** [defs_comment_id](#defs_comment_id)
+  * is_intro **required** `boolean`
+  * is_starred `boolean`
+  * num_stars `integer`
   * pinned_info [defs_pinned_info](#defs_pinned_info)
   * pinned_to `array`
     * items [defs_channel](#defs_channel)
   * reactions `array`
     * items [objs_reaction](#objs_reaction)
-  * timestamp `integer`
-  * user `string`
+  * timestamp **required** `integer`
+  * user **required** [defs_user_id](#defs_user_id)
 
 ### objs_comments
 * file comments object `array`
 
-
 ### objs_conversation
 * objs_conversation
 
-
-### objs_dnd
-* objs_dnd `object`
-  * dnd_enabled **required** `boolean`
-  * next_dnd_end_ts **required** `integer`
-  * next_dnd_start_ts **required** `integer`
-  * snooze_enabled **required** `boolean`
+### objs_enterprise_user
+* objs_enterprise_user `object`
+  * enterprise_id **required** [defs_enterprise_id](#defs_enterprise_id)
+  * enterprise_name **required** [defs_enterprise_name](#defs_enterprise_name)
+  * id **required** [defs_enterprise_user_id](#defs_enterprise_user_id)
+  * is_admin **required** `boolean`
+  * is_owner **required** `boolean`
+  * teams **required** `array`
+    * items [defs_team](#defs_team)
 
 ### objs_file
 * file object `object`
@@ -2974,21 +4303,31 @@ slack.users_setPresence({}, context)
     * items [defs_channel_id](#defs_channel_id)
   * comments_count `integer`
   * created `integer`
+  * date_delete `integer`
   * display_as_bot `boolean`
   * editable `boolean`
+  * editor [defs_user_id](#defs_user_id)
+  * external_id `string`
   * external_type `string`
+  * external_url `string`
   * filetype `string`
   * groups `array`
     * items [defs_group_id](#defs_group_id)
+  * has_rich_preview `boolean`
   * id [defs_file_id](#defs_file_id)
   * image_exif_rotation `integer`
   * ims `array`
     * items [defs_dm_id](#defs_dm_id)
   * is_external `boolean`
   * is_public `boolean`
+  * is_starred `boolean`
+  * is_tombstoned `boolean`
+  * last_editor [defs_user_id](#defs_user_id)
   * mimetype `string`
   * mode `string`
   * name `string`
+  * non_owner_editable `boolean`
+  * num_stars `integer`
   * original_h `integer`
   * original_w `integer`
   * permalink `string`
@@ -2997,10 +4336,14 @@ slack.users_setPresence({}, context)
   * pinned_to `array`
     * items [defs_channel](#defs_channel)
   * pretty_type `string`
+  * preview `string`
   * public_url_shared `boolean`
   * reactions `array`
     * items [objs_reaction](#objs_reaction)
+  * shares `object`
   * size `integer`
+  * source_team [defs_team](#defs_team)
+  * state `string`
   * thumb_1024 `string`
   * thumb_1024_h `integer`
   * thumb_1024_w `integer`
@@ -3022,15 +4365,15 @@ slack.users_setPresence({}, context)
   * thumb_960 `string`
   * thumb_960_h `integer`
   * thumb_960_w `integer`
+  * thumb_tiny `string`
   * timestamp `integer`
   * title `string`
+  * updated `integer`
   * url_private `string`
   * url_private_download `string`
   * user `string`
+  * user_team [defs_team](#defs_team)
   * username `string`
-
-### objs_file_object_with_id_only
-* file object with ID only [defs_file_id](#defs_file_id)
 
 ### objs_group
 * Group object `object`
@@ -3038,19 +4381,23 @@ slack.users_setPresence({}, context)
   * creator **required** [defs_user_id](#defs_user_id)
   * id **required** [defs_group_id](#defs_group_id)
   * is_archived `boolean`
+  * is_deleted `boolean`
   * is_group **required** `boolean`
   * is_moved `integer`
   * is_mpim `boolean`
   * is_open `boolean`
   * is_pending_ext_shared `boolean`
+  * is_read_only `boolean`
+  * is_thread_only `boolean`
   * last_read [defs_ts](#defs_ts)
   * latest
-
-  * members **required** `array`
+  * members `array`
     * items [defs_user_id](#defs_user_id)
   * name **required** `string`
   * name_normalized **required** `string`
-  * priority `integer`
+  * num_members `integer`
+  * parent_group [defs_group_id](#defs_group_id)
+  * priority `number`
   * purpose **required** `object`
     * creator **required** [defs_topic_purpose_creator](#defs_topic_purpose_creator)
     * last_set **required** `integer`
@@ -3062,27 +4409,31 @@ slack.users_setPresence({}, context)
   * unread_count `integer`
   * unread_count_display `integer`
 
+### objs_icon
+* objs_icon `object`
+  * image_102 `string`
+  * image_132 `string`
+  * image_230 `string`
+  * image_34 `string`
+  * image_44 `string`
+  * image_68 `string`
+  * image_88 `string`
+  * image_default `boolean`
+
 ### objs_im
 * IM Object `object`
   * created **required** `integer`
   * id **required** [defs_dm_id](#defs_dm_id)
+  * is_app_home `boolean`
+  * is_archived `boolean`
+  * is_ext_shared `boolean`
+  * is_frozen `boolean`
   * is_im **required** `boolean`
   * is_org_shared **required** `boolean`
+  * is_shared `boolean`
   * is_user_deleted **required** `boolean`
-  * priority `integer`
+  * priority `number`
   * user **required** [defs_user_id](#defs_user_id)
-
-### objs_inviting_user
-* objs_inviting_user `object`
-  * id **required** [defs_user_id](#defs_user_id)
-  * is_app_user **required** `boolean`
-  * is_restricted **required** `boolean`
-  * is_ultra_restricted **required** `boolean`
-  * name **required** `string`
-  * profile **required** [objs_user_profile_shortest](#objs_user_profile_shortest)
-  * real_name `string`
-  * team_id **required** [defs_team](#defs_team)
-  * updated **required** `number`
 
 ### objs_message
 * Message object `object`
@@ -3094,18 +4445,26 @@ slack.users_setPresence({}, context)
       * image_height `integer`
       * image_url `string`
       * image_width `integer`
+  * blocks [blocks](#blocks)
   * bot_id
-
+  * bot_profile [objs_bot_profile](#objs_bot_profile)
+  * client_msg_id `string`
   * comment [objs_comment](#objs_comment)
   * display_as_bot `boolean`
   * file [objs_file](#objs_file)
+  * files `array`
+    * items [objs_file](#objs_file)
   * icons `object`
     * emoji `string`
   * inviter [defs_user_id](#defs_user_id)
+  * is_delayed_message `boolean`
   * is_intro `boolean`
+  * is_starred `boolean`
   * last_read [defs_ts](#defs_ts)
+  * latest_reply [defs_ts](#defs_ts)
   * name `string`
   * old_name `string`
+  * parent_user_id [defs_user_id](#defs_user_id)
   * permalink `string`
   * pinned_to `array`
     * items [defs_channel](#defs_channel)
@@ -3117,10 +4476,13 @@ slack.users_setPresence({}, context)
       * ts **required** [defs_ts](#defs_ts)
       * user **required** [defs_user_id](#defs_user_id)
   * reply_count `integer`
-  * source_team [defs_team](#defs_team)
+  * reply_users `array`
+    * items [defs_user_id](#defs_user_id)
+  * reply_users_count `integer`
+  * source_team [defs_workspace_id](#defs_workspace_id)
   * subscribed `boolean`
   * subtype `string`
-  * team [defs_team](#defs_team)
+  * team [defs_workspace_id](#defs_workspace_id)
   * text **required** `string`
   * thread_ts [defs_ts](#defs_ts)
   * topic `string`
@@ -3130,14 +4492,16 @@ slack.users_setPresence({}, context)
   * upload `boolean`
   * user [defs_user_id](#defs_user_id)
   * user_profile [objs_user_profile_short](#objs_user_profile_short)
-  * user_team [defs_team](#defs_team)
+  * user_team [defs_workspace_id](#defs_workspace_id)
   * username `string`
 
 ### objs_paging
-* paging object for files `object`
-  * count **required** `integer`
+* paging object `object`
+  * count `integer`
   * page **required** `integer`
   * pages `integer`
+  * per_page `integer`
+  * spill `integer`
   * total **required** `integer`
 
 ### objs_reaction
@@ -3147,35 +4511,85 @@ slack.users_setPresence({}, context)
   * users **required** `array`
     * items [defs_user_id](#defs_user_id)
 
+### objs_reminder
+* objs_reminder `object`
+  * complete_ts `integer`
+  * creator **required** [defs_user_id](#defs_user_id)
+  * id **required** [defs_reminder_id](#defs_reminder_id)
+  * recurring **required** `boolean`
+  * text **required** `string`
+  * time `integer`
+  * user **required** [defs_user_id](#defs_user_id)
+
+### objs_resources
+* resources in info from apps.permissions.info `object`
+  * excluded_ids `array`
+    * items
+  * ids **required** `array`
+    * items
+  * wildcard `boolean`
+
+### objs_response_metadata
+* new paging style `object`
+  * next_cursor **required** `string`
+
 ### objs_scopes
 * objs_scopes `array`
   * items `string`
 
+### objs_subteam
+* Subteam/Usergroup Object `object`
+  * auto_provision **required** `boolean`
+  * auto_type **required**
+  * created_by **required** [defs_user_id](#defs_user_id)
+  * date_create **required** `integer`
+  * date_delete **required** `integer`
+  * date_update **required** `integer`
+  * deleted_by **required**
+  * description **required** `string`
+  * enterprise_subteam_id **required** `string`
+  * handle **required** `string`
+  * id **required** [defs_subteam_id](#defs_subteam_id)
+  * is_external **required** `boolean`
+  * is_subteam **required** `boolean`
+  * is_usergroup **required** `boolean`
+  * name **required** `string`
+  * prefs **required** `object`
+    * channels **required** `array`
+      * items [defs_channel_id](#defs_channel_id)
+    * groups **required** `array`
+      * items [defs_group_id](#defs_group_id)
+  * team_id **required** [defs_team](#defs_team)
+  * updated_by **required** [defs_user_id](#defs_user_id)
+  * user_count `integer`
+  * users `array`
+    * items [defs_user_id](#defs_user_id)
+
 ### objs_team
 * Team Object `object`
+  * archived `boolean`
   * avatar_base_url `string`
+  * created `integer`
+  * date_create `integer`
+  * deleted `boolean`
+  * description `string`
+  * discoverable `string`
   * domain **required** `string`
   * email_domain **required** `string`
-  * enterprise_id `string`
-  * enterprise_name `string`
+  * enterprise_id [defs_enterprise_id](#defs_enterprise_id)
+  * enterprise_name [defs_enterprise_name](#defs_enterprise_name)
   * has_compliance_export `boolean`
-  * icon **required** `object`
-    * image_102 `string`
-    * image_132 `string`
-    * image_230 `string`
-    * image_34 `string`
-    * image_44 `string`
-    * image_68 `string`
-    * image_88 `string`
-    * image_default `boolean`
+  * icon **required** [objs_icon](#objs_icon)
   * id **required** [defs_team](#defs_team)
+  * is_assigned `boolean`
+  * is_enterprise `integer`
+  * limit_ts `integer`
   * messages_count `integer`
   * msg_edit_window_mins `integer`
   * name **required** `string`
   * over_integrations_limit `boolean`
   * over_storage_limit `boolean`
-  * plan `string`
-  * prefs [team_prefs_prefs](#team_prefs_prefs)
+  * plan `string` (values: , std, plus, compliance, enterprise)
 
 ### objs_team_profile_field
 * objs_team_profile_field `object`
@@ -3192,46 +4606,31 @@ slack.users_setPresence({}, context)
   * type **required** `string` (values: text, date, link, mailto, options_list, user)
 
 ### objs_user
-* objs_user `object`
-  * color **required** `string`
-  * deleted **required** `boolean`
-  * has_2fa `boolean`
-  * id **required** [defs_user_id](#defs_user_id)
-  * is_admin **required** `boolean`
-  * is_app_user **required** `boolean`
-  * is_bot **required** `boolean`
-  * is_owner **required** `boolean`
-  * is_primary_owner **required** `boolean`
-  * is_restricted **required** `boolean`
-  * is_ultra_restricted **required** `boolean`
-  * locale `string`
-  * name **required** `string`
-  * presence `string`
-  * profile **required** [objs_user_profile](#objs_user_profile)
-  * real_name **required** `string`
-  * team_id **required** [defs_team](#defs_team)
-  * tz **required** `string`
-  * tz_label **required** `string`
-  * tz_offset **required** `number`
-  * updated **required** `number`
+* objs_user
 
 ### objs_user_profile
 * User profile object `object`
   * always_active `boolean`
+  * api_app_id [defs_app_id](#defs_app_id)
   * avatar_hash **required** `string`
+  * bot_id [defs_bot_id](#defs_bot_id)
   * display_name **required** `string`
   * display_name_normalized **required** `string`
   * email `string`
-  * fields `object`
+  * fields
+    * items `object`
   * first_name `string`
-  * guest_channels `string`
-  * image_192 **required** `string`
-  * image_24 **required** `string`
-  * image_32 **required** `string`
-  * image_48 **required** `string`
+  * guest_expiration_ts `integer`
+  * guest_invited_by `string`
+  * image_1024 `string`
+  * image_192 `string`
+  * image_24 `string`
+  * image_32 `string`
+  * image_48 `string`
   * image_512 `string`
-  * image_72 **required** `string`
+  * image_72 `string`
   * image_original `string`
+  * is_custom_image `boolean`
   * last_name `string`
   * phone `string`
   * real_name **required** `string`
@@ -3241,337 +4640,22 @@ slack.users_setPresence({}, context)
   * status_expiration `integer`
   * status_text `string`
   * status_text_canonical `string`
-  * team [defs_team](#defs_team)
+  * team [defs_workspace_id](#defs_workspace_id)
+  * teams [defs_workspace_id](#defs_workspace_id)
   * title `string`
 
 ### objs_user_profile_short
 * objs_user_profile_short `object`
   * avatar_hash **required** `string`
   * display_name **required** `string`
+  * display_name_normalized `string`
   * first_name **required** `string`
   * image_72 **required** `string`
   * is_restricted **required** `boolean`
   * is_ultra_restricted **required** `boolean`
   * name **required** `string`
   * real_name **required** `string`
-  * team **required** [defs_team](#defs_team)
-
-### objs_user_profile_shortest
-* objs_user_profile_shortest `object`
-  * avatar_hash **required** `string`
-  * display_name **required** `string`
-  * first_name **required** `string`
-  * image_72 **required** `string`
-  * real_name **required** `string`
-  * team **required** [defs_team](#defs_team)
-
-### prefs_prefs
-* User Prefs object `object`
-  * a11y_animations `boolean`
-  * a11y_font_size `string`
-  * all_channels_loud `boolean`
-  * all_notifications_prefs `string`
-  * all_unreads_sort_order `string`
-  * allow_calls_to_set_current_status `boolean`
-  * allow_cmd_tab_iss `boolean`
-  * analytics_upsell_coachmark_seen `boolean`
-  * arrow_history `boolean`
-  * at_channel_suppressed_channels `string`
-  * box_enabled `boolean`
-  * channel_sort `string`
-  * client_logs_pri `string`
-  * color_names_in_list `boolean`
-  * confirm_clear_all_unreads `boolean`
-  * confirm_sh_call_start `boolean`
-  * confirm_user_marked_away `boolean`
-  * convert_emoticons `boolean`
-  * display_display_names `boolean`
-  * display_real_names_override `integer`
-  * dnd_enabled `boolean`
-  * dnd_end_hour `string`
-  * dnd_start_hour `string`
-  * dropbox_enabled `boolean`
-  * email_alerts `string`
-  * email_alerts_sleep_until `integer`
-  * email_developer `boolean`
-  * email_misc `boolean`
-  * email_offers `boolean`
-  * email_research `boolean`
-  * email_tips `boolean`
-  * email_weekly `boolean`
-  * emoji_autocomplete_big `boolean`
-  * emoji_mode `string`
-  * emoji_use `string`
-  * enable_react_emoji_picker `boolean`
-  * enable_unread_view `boolean`
-  * enhanced_debugging `boolean`
-  * ent_org_wide_channels_sidebar `boolean`
-  * enter_is_special_in_tbt `boolean`
-  * enterprise_excluded_app_teams `null`
-  * enterprise_mdm_custom_msg `string`
-  * enterprise_migration_seen `boolean`
-  * expand_inline_imgs `boolean`
-  * expand_internal_inline_imgs `boolean`
-  * expand_non_media_attachments `boolean`
-  * expand_snippets `boolean`
-  * f_key_search `boolean`
-  * flannel_server_pool `string`
-  * folder_data `string`
-  * folders_enabled `boolean`
-  * frecency_ent_jumper `string`
-  * frecency_ent_jumper_backup `string`
-  * frecency_jumper `string`
-  * full_text_extracts `boolean`
-  * fuller_timestamps `boolean`
-  * gdrive_authed `boolean`
-  * gdrive_enabled `boolean`
-  * graphic_emoticons `boolean`
-  * growls_enabled `boolean`
-  * growth_all_banners_prefs `string`
-  * growth_msg_limit_approaching_cta_count `integer`
-  * growth_msg_limit_approaching_cta_ts `integer`
-  * growth_msg_limit_long_reached_cta_count `integer`
-  * growth_msg_limit_long_reached_cta_last_ts `integer`
-  * growth_msg_limit_reached_cta_count `integer`
-  * growth_msg_limit_reached_cta_last_ts `integer`
-  * growth_msg_limit_sixty_day_banner_cta_count `integer`
-  * growth_msg_limit_sixty_day_banner_cta_last_ts `integer`
-  * has_created_channel `boolean`
-  * has_invited `boolean`
-  * has_recently_shared_a_channel `boolean`
-  * has_searched `boolean`
-  * has_uploaded `boolean`
-  * hide_hex_swatch `boolean`
-  * hide_user_group_info_pane `boolean`
-  * highlight_words `string`
-  * in_interactive_mas_migration_flow `boolean`
-  * intro_to_apps_message_seen `boolean`
-  * jumbomoji `boolean`
-  * k_key_omnibox `boolean`
-  * k_key_omnibox_auto_hide_count `integer`
-  * keyboard `null`
-  * last_seen_at_channel_warning `integer`
-  * last_snippet_type `string`
-  * last_tos_acknowledged `string`
-  * lessons_enabled `boolean`
-  * load_lato_2 `boolean`
-  * locale `string`
-  * locales_enabled `object`
-    * de-DE `string`
-    * en-US `string`
-    * es-ES `string`
-    * fr-FR `string`
-    * ja-JP `string`
-    * pseudo `string`
-  * loud_channels `string`
-  * loud_channels_set `string`
-  * ls_disabled `boolean`
-  * mac_ssb_bounce `string`
-  * mac_ssb_bullet `boolean`
-  * mark_msgs_read_immediately `boolean`
-  * measure_css_usage `boolean`
-  * mentions_exclude_at_channels `boolean`
-  * mentions_exclude_at_user_groups `boolean`
-  * messages_theme `string`
-  * msg_input_send_btn `boolean`
-  * msg_input_send_btn_auto_set `boolean`
-  * msg_preview `boolean`
-  * msg_preview_persistent `boolean`
-  * mute_sounds `boolean`
-  * muted_channels `string`
-  * never_channels `string`
-  * new_msg_snd `string`
-  * newxp_seen_last_message `integer`
-  * no_created_overlays `boolean`
-  * no_invites_widget_in_sidebar `boolean`
-  * no_joined_overlays `boolean`
-  * no_macelectron_banner `boolean`
-  * no_macssb1_banner `boolean`
-  * no_macssb2_banner `boolean`
-  * no_omnibox_in_channels `boolean`
-  * no_text_in_notifications `boolean`
-  * no_winssb1_banner `boolean`
-  * obey_inline_img_limit `boolean`
-  * onboarding_cancelled `boolean`
-  * onboarding_slackbot_conversation_step `integer`
-  * overloaded_message_enabled `boolean`
-  * pagekeys_handled `boolean`
-  * posts_formatting_guide `boolean`
-  * preferred_skin_tone `string`
-  * privacy_policy_seen `boolean`
-  * prompted_for_email_disabling `boolean`
-  * purchaser `boolean`
-  * push_at_channel_suppressed_channels `string`
-  * push_dm_alert `boolean`
-  * push_everything `boolean`
-  * push_idle_wait `integer`
-  * push_loud_channels `string`
-  * push_loud_channels_set `string`
-  * push_mention_alert `boolean`
-  * push_mention_channels `string`
-  * push_show_preview `boolean`
-  * push_sound `string`
-  * require_at `boolean`
-  * search_exclude_bots `boolean`
-  * search_exclude_channels `string`
-  * search_only_current_team `boolean`
-  * search_only_my_channels `boolean`
-  * search_sort `string`
-  * seen_administration_menu `boolean`
-  * seen_app_space_coachmark `boolean`
-  * seen_app_space_tutorial `boolean`
-  * seen_calls_interactive_coachmark `boolean`
-  * seen_channel_browser_admin_coachmark `boolean`
-  * seen_custom_status_badge `boolean`
-  * seen_custom_status_callout `boolean`
-  * seen_domain_invite_reminder `boolean`
-  * seen_emoji_update_overlay_coachmark `boolean`
-  * seen_gdrive_coachmark `boolean`
-  * seen_guest_admin_slackbot_announcement `boolean`
-  * seen_highlights_arrows_coachmark `boolean`
-  * seen_highlights_coachmark `boolean`
-  * seen_highlights_warm_welcome `boolean`
-  * seen_intl_channel_names_coachmark `boolean`
-  * seen_japanese_locale_change_message `boolean`
-  * seen_keyboard_shortcuts_coachmark `boolean`
-  * seen_locale_change_message `integer`
-  * seen_member_invite_reminder `boolean`
-  * seen_name_tagging_coachmark `boolean`
-  * seen_onboarding_banner `boolean`
-  * seen_onboarding_channels `boolean`
-  * seen_onboarding_direct_messages `boolean`
-  * seen_onboarding_invites `boolean`
-  * seen_onboarding_private_groups `boolean`
-  * seen_onboarding_recent_mentions `boolean`
-  * seen_onboarding_search `boolean`
-  * seen_onboarding_slackbot_conversation `boolean`
-  * seen_onboarding_starred_items `boolean`
-  * seen_onboarding_start `boolean`
-  * seen_shared_channels_coachmark `boolean`
-  * seen_shared_channels_opt_in_change_message `boolean`
-  * seen_shdep_slackbot_message `boolean`
-  * seen_single_emoji_msg `boolean`
-  * seen_ssb_prompt `boolean`
-  * seen_threads_notification_banner `boolean`
-  * seen_unread_view_coachmark `boolean`
-  * seen_welcome_2 `boolean`
-  * separate_private_channels `boolean`
-  * separate_shared_channels `boolean`
-  * shdep_promo_code_submitted `boolean`
-  * show_all_skin_tones `boolean`
-  * show_ent_onboarding `boolean`
-  * show_jumper_scores `boolean`
-  * show_memory_instrument `boolean`
-  * show_sidebar_quickswitcher_button `boolean`
-  * show_typing `boolean`
-  * sidebar_behavior `string`
-  * sidebar_theme `string`
-  * sidebar_theme_custom_values `string`
-  * snippet_editor_wrap_long_lines `boolean`
-  * spaces_new_xp_banner_dismissed `boolean`
-  * ss_emojis `boolean`
-  * ssb_space_window `string`
-  * start_scroll_at_oldest `boolean`
-  * tab_ui_return_selects `boolean`
-  * threads_everything `boolean`
-  * time24 `boolean`
-  * two_factor_auth_enabled `boolean`
-  * two_factor_backup_type `null`
-  * two_factor_type `null`
-  * tz `string`
-  * user_colors `string`
-  * webapp_spellcheck `boolean`
-  * welcome_message_hidden `boolean`
-  * whats_new_read `integer`
-  * winssb_run_from_tray `boolean`
-  * winssb_window_flash_behavior `string`
-
-### team_prefs_prefs
-* Team Prefs Object `object`
-  * all_users_can_purchase `boolean`
-  * allow_calls `boolean`
-  * allow_calls_interactive_screen_sharing `boolean`
-  * allow_message_deletion `boolean`
-  * allow_retention_override `boolean`
-  * allow_shared_channel_perms_override `boolean`
-  * app_whitelist_enabled `boolean`
-  * auth_mode `string`
-  * calling_app_name `string`
-  * can_receive_shared_channels_invites `boolean`
-  * compliance_export_start `integer`
-  * custom_status_default_emoji `string`
-  * custom_status_presets `array`
-    * items `array`
-      * items `string`
-  * custom_tos `boolean`
-  * default_channels **required** `array`
-    * items [defs_channel](#defs_channel)
-  * default_rxns `array`
-    * items `string`
-  * disable_email_ingestion `boolean`
-  * disable_file_deleting `boolean`
-  * disable_file_editing `boolean`
-  * disable_file_uploads `string`
-  * disallow_public_file_urls `boolean`
-  * discoverable `string`
-  * display_email_addresses `boolean`
-  * display_real_names `boolean`
-  * dm_retention_duration `integer`
-  * dm_retention_type `integer`
-  * dnd_enabled `boolean`
-  * dnd_end_hour `string`
-  * dnd_start_hour `string`
-  * enable_shared_channels `integer`
-  * enterprise_default_channels `array`
-
-  * enterprise_mandatory_channels `array`
-
-  * enterprise_mdm_date_enabled `integer`
-  * enterprise_mdm_level `integer`
-  * enterprise_team_creation_request `object`
-    * is_enabled **required** `boolean`
-  * file_limit_whitelisted `boolean`
-  * file_retention_duration `integer`
-  * file_retention_type `integer`
-  * gdrive_enabled_team `boolean`
-  * group_retention_duration `integer`
-  * group_retention_type `integer`
-  * hide_referers `boolean`
-  * invites_limit `boolean`
-  * invites_only_admins `boolean`
-  * locale `string`
-  * loud_channel_mentions_limit `integer`
-  * msg_edit_window_mins `integer`
-  * require_at_for_mention `boolean`
-  * retention_duration `integer`
-  * retention_type `integer`
-  * show_join_leave `boolean`
-  * uses_customized_custom_status_presets `boolean`
-  * warn_before_at_channel `string`
-  * who_can_archive_channels `string`
-  * who_can_at_channel `string`
-  * who_can_at_everyone `string`
-  * who_can_change_team_profile `string`
-  * who_can_create_channels `string`
-  * who_can_create_delete_user_groups `string`
-  * who_can_create_groups `string`
-  * who_can_create_shared_channels `string`
-  * who_can_edit_user_groups `string`
-  * who_can_kick_channels `string`
-  * who_can_kick_groups `string`
-  * who_can_manage_guests `object`
-    * type **required** `array`
-      * items `string`
-  * who_can_manage_integrations `object`
-    * type **required** `array`
-      * items `string`
-  * who_can_manage_shared_channels `object`
-    * type **required** `array`
-      * items `string`
-  * who_can_post_general `string`
-  * who_can_post_in_shared_channels `object`
-    * type **required** `array`
-      * items `string`
-  * who_has_team_visibility `string`
+  * real_name_normalized `string`
+  * team **required** [defs_workspace_id](#defs_workspace_id)
 
 

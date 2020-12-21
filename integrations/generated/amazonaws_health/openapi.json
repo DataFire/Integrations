@@ -1,12 +1,5 @@
 {
   "swagger": "2.0",
-  "schemes": [
-    "https",
-    "http"
-  ],
-  "host": "health.amazonaws.com",
-  "basePath": "/",
-  "x-hasEquivalentPaths": true,
   "info": {
     "contact": {
       "email": "mike.ralphson@gmail.com",
@@ -14,7 +7,7 @@
       "url": "https://github.com/mermade/aws2openapi",
       "x-twitter": "PermittedSoc"
     },
-    "description": "<fullname>AWS Health</fullname> <p>The AWS Health API provides programmatic access to the AWS Health information that is presented in the <a href=\"https://phd.aws.amazon.com/phd/home#/\">AWS Personal Health Dashboard</a>. You can get information about events that affect your AWS resources:</p> <ul> <li> <p> <a>DescribeEvents</a>: Summary information about events.</p> </li> <li> <p> <a>DescribeEventDetails</a>: Detailed information about one or more events.</p> </li> <li> <p> <a>DescribeAffectedEntities</a>: Information about AWS resources that are affected by one or more events.</p> </li> </ul> <p>In addition, these operations provide information about event types and summary counts of events or affected entities:</p> <ul> <li> <p> <a>DescribeEventTypes</a>: Information about the kinds of events that AWS Health tracks.</p> </li> <li> <p> <a>DescribeEventAggregates</a>: A count of the number of events that meet specified criteria.</p> </li> <li> <p> <a>DescribeEntityAggregates</a>: A count of the number of affected entities that meet specified criteria.</p> </li> </ul> <p>The Health API requires a Business or Enterprise support plan from <a href=\"http://aws.amazon.com/premiumsupport/\">AWS Support</a>. Calling the Health API from an account that does not have a Business or Enterprise support plan causes a <code>SubscriptionRequiredException</code>. </p> <p>For authentication of requests, AWS Health uses the <a href=\"http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html\">Signature Version 4 Signing Process</a>.</p> <p>See the <a href=\"http://docs.aws.amazon.com/health/latest/ug/what-is-aws-health.html\">AWS Health User Guide</a> for information about how to use the API.</p> <p> <b>Service Endpoint</b> </p> <p>The HTTP endpoint for the AWS Health API is:</p> <ul> <li> <p>https://health.us-east-1.amazonaws.com </p> </li> </ul>",
+    "description": "<fullname>AWS Health</fullname> <p>The AWS Health API provides programmatic access to the AWS Health information that appears in the <a href=\"https://phd.aws.amazon.com/phd/home#/\">AWS Personal Health Dashboard</a>. You can use the API operations to get information about AWS Health events that affect your AWS services and resources.</p> <note> <p>You must have a Business or Enterprise support plan from <a href=\"http://aws.amazon.com/premiumsupport/\">AWS Support</a> to use the AWS Health API. If you call the AWS Health API from an AWS account that doesn't have a Business or Enterprise support plan, you receive a <code>SubscriptionRequiredException</code> error.</p> </note> <p>AWS Health has a single endpoint: health.us-east-1.amazonaws.com (HTTPS). Use this endpoint to call the AWS Health API operations.</p> <p>For authentication of requests, AWS Health uses the <a href=\"https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html\">Signature Version 4 Signing Process</a>.</p> <p>If your AWS account is part of AWS Organizations, you can use the AWS Health organizational view feature. This feature provides a centralized view of AWS Health events across all accounts in your organization. You can aggregate AWS Health events in real time to identify accounts in your organization that are affected by an operational event or get notified of security vulnerabilities. Use the organizational view API operations to enable this feature and return event information. For more information, see <a href=\"https://docs.aws.amazon.com/health/latest/ug/aggregate-events.html\">Aggregating AWS Health events</a> in the <i>AWS Health User Guide</i>.</p> <note> <p>When you use the AWS Health API operations to return AWS Health events, see the following recommendations:</p> <ul> <li> <p>Use the <a href=\"https://docs.aws.amazon.com/health/latest/APIReference/API_Event.html#AWSHealth-Type-Event-eventScopeCode\">eventScopeCode</a> parameter to specify whether to return AWS Health events that are public or account-specific.</p> </li> <li> <p>Use pagination to view all events from the response. For example, if you call the <code>DescribeEventsForOrganization</code> operation to get all events in your organization, you might receive several page results. Specify the <code>nextToken</code> in the next request to return more results.</p> </li> </ul> </note>",
     "license": {
       "name": "Apache 2.0 License",
       "url": "http://www.apache.org/licenses/"
@@ -30,7 +23,7 @@
     ],
     "x-logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.jpeg"
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"
     },
     "x-origin": [
       {
@@ -40,7 +33,7 @@
           "version": "1.0.0"
         },
         "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/health-2016-08-04.normal.json",
-        "x-apisguru-direct": true
+        "x-apisguru-driver": "external"
       }
     ],
     "x-preferred": true,
@@ -52,129 +45,65 @@
       "type": "openapi"
     }
   },
-  "externalDocs": {
-    "description": "Amazon Web Services documentation",
-    "url": "https://aws.amazon.com/health/"
-  },
-  "consumes": [
-    "application/json"
+  "host": "health.us-east-1.amazonaws.com",
+  "basePath": "/",
+  "schemes": [
+    "https"
   ],
-  "produces": [
-    "application/json"
-  ],
-  "securityDefinitions": {
-    "hmac": {
-      "description": "Amazon Signature authorization v4",
-      "in": "header",
-      "name": "Authorization",
-      "type": "apiKey",
-      "x-amazon-apigateway-authtype": "awsSigv4"
-    }
-  },
-  "security": [
-    {
-      "hmac": []
-    }
-  ],
-  "parameters": {
-    "Action": {
-      "in": "header",
-      "name": "Action",
-      "required": true,
-      "type": "string"
-    },
-    "Version": {
-      "in": "header",
-      "name": "Version",
-      "required": true,
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "in": "header",
-      "name": "X-Amz-Algorithm",
-      "required": false,
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "in": "header",
-      "name": "X-Amz-Content-Sha256",
-      "required": false,
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "in": "header",
-      "name": "X-Amz-Credential",
-      "required": false,
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "in": "header",
-      "name": "X-Amz-Date",
-      "required": false,
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "in": "header",
-      "name": "X-Amz-Security-Token",
-      "required": false,
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "in": "header",
-      "name": "X-Amz-Signature",
-      "required": false,
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "in": "header",
-      "name": "X-Amz-SignedHeaders",
-      "required": false,
-      "type": "string"
-    }
-  },
   "paths": {
-    "/": {
+    "/#X-Amz-Target=AWSHealth_20160804.DescribeAffectedAccountsForOrganization": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "<p>Returns a list of entities that have been affected by the specified events, based on the specified filter criteria. Entities can refer to individual customer resources, groups of customer resources, or any other construct, depending on the AWS service. Events that have impact beyond that of the affected entities, or where the extent of impact is unknown, include at least one entity indicating this.</p> <p>At least one event ARN is required. Results are sorted by the <code>lastUpdatedTime</code> of the entity, starting with the most recent.</p>",
-        "operationId": "DescribeAffectedEntities",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/DescribeAffectedEntitiesRequest"
-            }
-          },
           {
             "description": "Pagination limit",
             "in": "query",
@@ -188,6 +117,126 @@
             "name": "nextToken",
             "required": false,
             "type": "string"
+          },
+          {
+            "enum": [
+              "AWSHealth_20160804.DescribeAffectedAccountsForOrganization"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeAffectedAccountsForOrganizationRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeAffectedAccountsForOrganizationResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidPaginationToken",
+            "schema": {
+              "$ref": "#/definitions/InvalidPaginationToken"
+            }
+          }
+        },
+        "description": "<p>Returns a list of accounts in the organization from AWS Organizations that are affected by the provided event. For more information about the different types of AWS Health events, see <a href=\"https://docs.aws.amazon.com/health/latest/APIReference/API_Event.html\">Event</a>. </p> <p>Before you can call this operation, you must first enable AWS Health to work with AWS Organizations. To do this, call the <a href=\"https://docs.aws.amazon.com/health/latest/APIReference/API_EnableHealthServiceAccessForOrganization.html\">EnableHealthServiceAccessForOrganization</a> operation from your organization's master account.</p> <note> <p>This API operation uses pagination. Specify the <code>nextToken</code> parameter in the next request to return more results.</p> </note>",
+        "operationId": "DescribeAffectedAccountsForOrganization"
+      }
+    },
+    "/#X-Amz-Target=AWSHealth_20160804.DescribeAffectedEntities": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "maxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "AWSHealth_20160804.DescribeAffectedEntities"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeAffectedEntitiesRequest"
+            }
           }
         ],
         "responses": {
@@ -209,43 +258,182 @@
               "$ref": "#/definitions/UnsupportedLocale"
             }
           }
-        }
+        },
+        "description": "<p>Returns a list of entities that have been affected by the specified events, based on the specified filter criteria. Entities can refer to individual customer resources, groups of customer resources, or any other construct, depending on the AWS service. Events that have impact beyond that of the affected entities, or where the extent of impact is unknown, include at least one entity indicating this.</p> <p>At least one event ARN is required. Results are sorted by the <code>lastUpdatedTime</code> of the entity, starting with the most recent.</p> <note> <p>This API operation uses pagination. Specify the <code>nextToken</code> parameter in the next request to return more results.</p> </note>",
+        "operationId": "DescribeAffectedEntities"
       }
     },
-    "/#DescribeEntityAggregates": {
+    "/#X-Amz-Target=AWSHealth_20160804.DescribeAffectedEntitiesForOrganization": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Returns the number of entities that are affected by each of the specified events. If no events are specified, the counts of all affected entities are returned.",
-        "operationId": "DescribeEntityAggregates",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "maxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "AWSHealth_20160804.DescribeAffectedEntitiesForOrganization"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeAffectedEntitiesForOrganizationRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeAffectedEntitiesForOrganizationResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidPaginationToken",
+            "schema": {
+              "$ref": "#/definitions/InvalidPaginationToken"
+            }
+          },
+          "481": {
+            "description": "UnsupportedLocale",
+            "schema": {
+              "$ref": "#/definitions/UnsupportedLocale"
+            }
+          }
+        },
+        "description": "<p>Returns a list of entities that have been affected by one or more events for one or more accounts in your organization in AWS Organizations, based on the filter criteria. Entities can refer to individual customer resources, groups of customer resources, or any other construct, depending on the AWS service.</p> <p>At least one event Amazon Resource Name (ARN) and account ID are required. Results are sorted by the <code>lastUpdatedTime</code> of the entity, starting with the most recent.</p> <p>Before you can call this operation, you must first enable AWS Health to work with AWS Organizations. To do this, call the <a href=\"https://docs.aws.amazon.com/health/latest/APIReference/API_EnableHealthServiceAccessForOrganization.html\">EnableHealthServiceAccessForOrganization</a> operation from your organization's master account. </p> <note> <p>This API operation uses pagination. Specify the <code>nextToken</code> parameter in the next request to return more results.</p> </note>",
+        "operationId": "DescribeAffectedEntitiesForOrganization"
+      }
+    },
+    "/#X-Amz-Target=AWSHealth_20160804.DescribeEntityAggregates": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "AWSHealth_20160804.DescribeEntityAggregates"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -262,51 +450,64 @@
               "$ref": "#/definitions/DescribeEntityAggregatesResponse"
             }
           }
-        }
+        },
+        "description": "Returns the number of entities that are affected by each of the specified events. If no events are specified, the counts of all affected entities are returned.",
+        "operationId": "DescribeEntityAggregates"
       }
     },
-    "/#DescribeEventAggregates": {
+    "/#X-Amz-Target=AWSHealth_20160804.DescribeEventAggregates": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Returns the number of events of each event type (issue, scheduled change, and account notification). If no filter is specified, the counts of all events in each category are returned.",
-        "operationId": "DescribeEventAggregates",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/DescribeEventAggregatesRequest"
-            }
-          },
           {
             "description": "Pagination limit",
             "in": "query",
@@ -320,6 +521,23 @@
             "name": "nextToken",
             "required": false,
             "type": "string"
+          },
+          {
+            "enum": [
+              "AWSHealth_20160804.DescribeEventAggregates"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeEventAggregatesRequest"
+            }
           }
         ],
         "responses": {
@@ -335,43 +553,73 @@
               "$ref": "#/definitions/InvalidPaginationToken"
             }
           }
-        }
+        },
+        "description": "<p>Returns the number of events of each event type (issue, scheduled change, and account notification). If no filter is specified, the counts of all events in each category are returned.</p> <note> <p>This API operation uses pagination. Specify the <code>nextToken</code> parameter in the next request to return more results.</p> </note>",
+        "operationId": "DescribeEventAggregates"
       }
     },
-    "/#DescribeEventDetails": {
+    "/#X-Amz-Target=AWSHealth_20160804.DescribeEventDetails": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "<p>Returns detailed information about one or more specified events. Information includes standard event data (region, service, etc., as returned by <a>DescribeEvents</a>), a detailed event description, and possible additional metadata that depends upon the nature of the event. Affected entities are not included; to retrieve those, use the <a>DescribeAffectedEntities</a> operation.</p> <p>If a specified event cannot be retrieved, an error message is returned for that event.</p>",
-        "operationId": "DescribeEventDetails",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "enum": [
+              "AWSHealth_20160804.DescribeEventDetails"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -394,51 +642,153 @@
               "$ref": "#/definitions/UnsupportedLocale"
             }
           }
-        }
+        },
+        "description": "<p>Returns detailed information about one or more specified events. Information includes standard event data (Region, service, and so on, as returned by <a href=\"https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEvents.html\">DescribeEvents</a>), a detailed event description, and possible additional metadata that depends upon the nature of the event. Affected entities are not included. To retrieve those, use the <a href=\"https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeAffectedEntities.html\">DescribeAffectedEntities</a> operation.</p> <p>If a specified event cannot be retrieved, an error message is returned for that event.</p>",
+        "operationId": "DescribeEventDetails"
       }
     },
-    "/#DescribeEventTypes": {
+    "/#X-Amz-Target=AWSHealth_20160804.DescribeEventDetailsForOrganization": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Returns the event types that meet the specified filter criteria. If no filter criteria are specified, all event types are returned, in no particular order.",
-        "operationId": "DescribeEventTypes",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "enum": [
+              "AWSHealth_20160804.DescribeEventDetailsForOrganization"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/DescribeEventTypesRequest"
+              "$ref": "#/definitions/DescribeEventDetailsForOrganizationRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeEventDetailsForOrganizationResponse"
             }
           },
+          "480": {
+            "description": "UnsupportedLocale",
+            "schema": {
+              "$ref": "#/definitions/UnsupportedLocale"
+            }
+          }
+        },
+        "description": "<p>Returns detailed information about one or more specified events for one or more accounts in your organization. Information includes standard event data (Region, service, and so on, as returned by <a href=\"https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventsForOrganization.html\">DescribeEventsForOrganization</a>), a detailed event description, and possible additional metadata that depends upon the nature of the event. Affected entities are not included; to retrieve those, use the <a href=\"https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeAffectedEntitiesForOrganization.html\">DescribeAffectedEntitiesForOrganization</a> operation.</p> <p>Before you can call this operation, you must first enable AWS Health to work with AWS Organizations. To do this, call the <a href=\"https://docs.aws.amazon.com/health/latest/APIReference/API_EnableHealthServiceAccessForOrganization.html\">EnableHealthServiceAccessForOrganization</a> operation from your organization's master account.</p> <p>When you call the <code>DescribeEventDetailsForOrganization</code> operation, you specify the <code>organizationEventDetailFilters</code> object in the request. Depending on the AWS Health event type, note the following differences:</p> <ul> <li> <p>If the event is public, the <code>awsAccountId</code> parameter must be empty. If you specify an account ID for a public event, then an error message is returned. That's because the event might apply to all AWS accounts and isn't specific to an account in your organization.</p> </li> <li> <p>If the event is specific to an account, then you must specify the <code>awsAccountId</code> parameter in the request. If you don't specify an account ID, an error message returns because the event is specific to an AWS account in your organization. </p> </li> </ul> <p>For more information, see <a href=\"https://docs.aws.amazon.com/health/latest/APIReference/API_Event.html\">Event</a>.</p>",
+        "operationId": "DescribeEventDetailsForOrganization"
+      }
+    },
+    "/#X-Amz-Target=AWSHealth_20160804.DescribeEventTypes": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
           {
             "description": "Pagination limit",
             "in": "query",
@@ -452,6 +802,23 @@
             "name": "nextToken",
             "required": false,
             "type": "string"
+          },
+          {
+            "enum": [
+              "AWSHealth_20160804.DescribeEventTypes"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeEventTypesRequest"
+            }
           }
         ],
         "responses": {
@@ -473,51 +840,64 @@
               "$ref": "#/definitions/UnsupportedLocale"
             }
           }
-        }
+        },
+        "description": "<p>Returns the event types that meet the specified filter criteria. If no filter criteria are specified, all event types are returned, in no particular order.</p> <note> <p>This API operation uses pagination. Specify the <code>nextToken</code> parameter in the next request to return more results.</p> </note>",
+        "operationId": "DescribeEventTypes"
       }
     },
-    "/#DescribeEvents": {
+    "/#X-Amz-Target=AWSHealth_20160804.DescribeEvents": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "<p>Returns information about events that meet the specified filter criteria. Events are returned in a summary form and do not include the detailed description, any additional metadata that depends on the event type, or any affected resources. To retrieve that information, use the <a>DescribeEventDetails</a> and <a>DescribeAffectedEntities</a> operations.</p> <p>If no filter criteria are specified, all events are returned. Results are sorted by <code>lastModifiedTime</code>, starting with the most recent.</p>",
-        "operationId": "DescribeEvents",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/DescribeEventsRequest"
-            }
-          },
           {
             "description": "Pagination limit",
             "in": "query",
@@ -531,6 +911,23 @@
             "name": "nextToken",
             "required": false,
             "type": "string"
+          },
+          {
+            "enum": [
+              "AWSHealth_20160804.DescribeEvents"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeEventsRequest"
+            }
           }
         ],
         "responses": {
@@ -552,7 +949,340 @@
               "$ref": "#/definitions/UnsupportedLocale"
             }
           }
+        },
+        "description": "<p> Returns information about events that meet the specified filter criteria. Events are returned in a summary form and do not include the detailed description, any additional metadata that depends on the event type, or any affected resources. To retrieve that information, use the <a href=\"https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventDetails.html\">DescribeEventDetails</a> and <a href=\"https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeAffectedEntities.html\">DescribeAffectedEntities</a> operations.</p> <p>If no filter criteria are specified, all events are returned. Results are sorted by <code>lastModifiedTime</code>, starting with the most recent event.</p> <note> <ul> <li> <p>When you call the <code>DescribeEvents</code> operation and specify an entity for the <code>entityValues</code> parameter, AWS Health might return public events that aren't specific to that resource. For example, if you call <code>DescribeEvents</code> and specify an ID for an Amazon Elastic Compute Cloud (Amazon EC2) instance, AWS Health might return events that aren't specific to that resource or service. To get events that are specific to a service, use the <code>services</code> parameter in the <code>filter</code> object. For more information, see <a href=\"https://docs.aws.amazon.com/health/latest/APIReference/API_Event.html\">Event</a>.</p> </li> <li> <p>This API operation uses pagination. Specify the <code>nextToken</code> parameter in the next request to return more results.</p> </li> </ul> </note>",
+        "operationId": "DescribeEvents"
+      }
+    },
+    "/#X-Amz-Target=AWSHealth_20160804.DescribeEventsForOrganization": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "maxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "AWSHealth_20160804.DescribeEventsForOrganization"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeEventsForOrganizationRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeEventsForOrganizationResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidPaginationToken",
+            "schema": {
+              "$ref": "#/definitions/InvalidPaginationToken"
+            }
+          },
+          "481": {
+            "description": "UnsupportedLocale",
+            "schema": {
+              "$ref": "#/definitions/UnsupportedLocale"
+            }
+          }
+        },
+        "description": "<p>Returns information about events across your organization in AWS Organizations. You can use the<code>filters</code> parameter to specify the events that you want to return. Events are returned in a summary form and don't include the affected accounts, detailed description, any additional metadata that depends on the event type, or any affected resources. To retrieve that information, use the following operations:</p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeAffectedAccountsForOrganization.html\">DescribeAffectedAccountsForOrganization</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventDetailsForOrganization.html\">DescribeEventDetailsForOrganization</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeAffectedEntitiesForOrganization.html\">DescribeAffectedEntitiesForOrganization</a> </p> </li> </ul> <p>If you don't specify a <code>filter</code>, the <code>DescribeEventsForOrganizations</code> returns all events across your organization. Results are sorted by <code>lastModifiedTime</code>, starting with the most recent event. </p> <p>For more information about the different types of AWS Health events, see <a href=\"https://docs.aws.amazon.com/health/latest/APIReference/API_Event.html\">Event</a>.</p> <p>Before you can call this operation, you must first enable AWS Health to work with AWS Organizations. To do this, call the <a href=\"https://docs.aws.amazon.com/health/latest/APIReference/API_EnableHealthServiceAccessForOrganization.html\">EnableHealthServiceAccessForOrganization</a> operation from your organization's master AWS account.</p> <note> <p>This API operation uses pagination. Specify the <code>nextToken</code> parameter in the next request to return more results.</p> </note>",
+        "operationId": "DescribeEventsForOrganization"
+      }
+    },
+    "/#X-Amz-Target=AWSHealth_20160804.DescribeHealthServiceStatusForOrganization": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "AWSHealth_20160804.DescribeHealthServiceStatusForOrganization"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeHealthServiceStatusForOrganizationResponse"
+            }
+          }
+        },
+        "description": "This operation provides status information on enabling or disabling AWS Health to work with your organization. To call this operation, you must sign in as an IAM user, assume an IAM role, or sign in as the root user (not recommended) in the organization's master account.",
+        "operationId": "DescribeHealthServiceStatusForOrganization"
+      }
+    },
+    "/#X-Amz-Target=AWSHealth_20160804.DisableHealthServiceAccessForOrganization": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "AWSHealth_20160804.DisableHealthServiceAccessForOrganization"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "480": {
+            "description": "ConcurrentModificationException",
+            "schema": {
+              "$ref": "#/definitions/ConcurrentModificationException"
+            }
+          }
+        },
+        "description": "<p>Disables AWS Health from working with AWS Organizations. To call this operation, you must sign in as an AWS Identity and Access Management (IAM) user, assume an IAM role, or sign in as the root user (not recommended) in the organization's master AWS account. For more information, see <a href=\"https://docs.aws.amazon.com/health/latest/ug/aggregate-events.html\">Aggregating AWS Health events</a> in the <i>AWS Health User Guide</i>.</p> <p>This operation doesn't remove the service-linked role (SLR) from the AWS master account in your organization. You must use the IAM console, API, or AWS Command Line Interface (AWS CLI) to remove the SLR. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html#delete-service-linked-role\">Deleting a Service-Linked Role</a> in the <i>IAM User Guide</i>.</p> <note> <p>You can also disable the organizational feature by using the Organizations <a href=\"https://docs.aws.amazon.com/organizations/latest/APIReference/API_DisableAWSServiceAccess.html\">DisableAWSServiceAccess</a> API operation. After you call this operation, AWS Health stops aggregating events for all other AWS accounts in your organization. If you call the AWS Health API operations for organizational view, AWS Health returns an error. AWS Health continues to aggregate health events for your AWS account.</p> </note>",
+        "operationId": "DisableHealthServiceAccessForOrganization"
+      }
+    },
+    "/#X-Amz-Target=AWSHealth_20160804.EnableHealthServiceAccessForOrganization": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "AWSHealth_20160804.EnableHealthServiceAccessForOrganization"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "480": {
+            "description": "ConcurrentModificationException",
+            "schema": {
+              "$ref": "#/definitions/ConcurrentModificationException"
+            }
+          }
+        },
+        "description": "<p>Calling this operation enables AWS Health to work with AWS Organizations. This applies a service-linked role (SLR) to the master account in the organization. To call this operation, you must sign in as an IAM user, assume an IAM role, or sign in as the root user (not recommended) in the organization's master account.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/health/latest/ug/aggregate-events.html\">Aggregating AWS Health events</a> in the <i>AWS Health User Guide</i>.</p>",
+        "operationId": "EnableHealthServiceAccessForOrganization"
       }
     }
   },
@@ -560,47 +1290,276 @@
     "AffectedEntity": {
       "description": "Information about an entity that is affected by a Health event.",
       "properties": {
+        "tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/tagSet"
+            },
+            {
+              "description": "<p>A map of entity tags attached to the affected entity.</p> <note> <p>Currently, the <code>tags</code> property isn't supported.</p> </note>"
+            }
+          ]
+        },
         "awsAccountId": {
-          "$ref": "#/definitions/accountId",
-          "description": "The 12-digit AWS account number that contains the affected entity."
+          "allOf": [
+            {
+              "$ref": "#/definitions/accountId"
+            },
+            {
+              "description": "The 12-digit AWS account number that contains the affected entity."
+            }
+          ]
         },
         "entityArn": {
-          "$ref": "#/definitions/entityArn",
-          "description": "The unique identifier for the entity. Format: <code>arn:aws:health:<i>entity-region</i>:<i>aws-account</i>:entity/<i>entity-id</i> </code>. Example: <code>arn:aws:health:us-east-1:111222333444:entity/AVh5GGT7ul1arKr1sE1K</code> "
+          "allOf": [
+            {
+              "$ref": "#/definitions/entityArn"
+            },
+            {
+              "description": "The unique identifier for the entity. Format: <code>arn:aws:health:<i>entity-region</i>:<i>aws-account</i>:entity/<i>entity-id</i> </code>. Example: <code>arn:aws:health:us-east-1:111222333444:entity/AVh5GGT7ul1arKr1sE1K</code> "
+            }
+          ]
+        },
+        "entityUrl": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/entityUrl"
+            },
+            {
+              "description": "The URL of the affected entity."
+            }
+          ]
         },
         "entityValue": {
-          "$ref": "#/definitions/entityValue",
-          "description": "The ID of the affected entity."
+          "allOf": [
+            {
+              "$ref": "#/definitions/entityValue"
+            },
+            {
+              "description": "The ID of the affected entity."
+            }
+          ]
         },
         "eventArn": {
-          "$ref": "#/definitions/eventArn",
-          "description": "The unique identifier for the event. Format: <code>arn:aws:health:<i>event-region</i>::event/<i>EVENT_TYPE_PLUS_ID</i> </code>. Example: <code>arn:aws:health:us-east-1::event/AWS_EC2_MAINTENANCE_5331</code> "
+          "allOf": [
+            {
+              "$ref": "#/definitions/eventArn"
+            },
+            {
+              "description": "The unique identifier for the event. Format: <code>arn:aws:health:<i>event-region</i>::event/<i>SERVICE</i>/<i>EVENT_TYPE_CODE</i>/<i>EVENT_TYPE_PLUS_ID</i> </code>. Example: <code>Example: arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456</code> "
+            }
+          ]
         },
         "lastUpdatedTime": {
-          "$ref": "#/definitions/timestamp",
-          "description": "The most recent time that the entity was updated."
+          "allOf": [
+            {
+              "$ref": "#/definitions/timestamp"
+            },
+            {
+              "description": "The most recent time that the entity was updated."
+            }
+          ]
         },
         "statusCode": {
-          "$ref": "#/definitions/entityStatusCode",
-          "description": "The most recent status of the entity affected by the event. The possible values are <code>IMPAIRED</code>, <code>UNIMPAIRED</code>, and <code>UNKNOWN</code>."
-        },
-        "tags": {
-          "$ref": "#/definitions/tagSet",
-          "description": "A map of entity tags attached to the affected entity."
+          "allOf": [
+            {
+              "$ref": "#/definitions/entityStatusCode"
+            },
+            {
+              "description": "The most recent status of the entity affected by the event. The possible values are <code>IMPAIRED</code>, <code>UNIMPAIRED</code>, and <code>UNKNOWN</code>."
+            }
+          ]
         }
       },
       "type": "object"
     },
+    "ConcurrentModificationException": {},
     "DateTimeRange": {
-      "description": "A range of dates and times that is used by the <a>EventFilter</a> and <a>EntityFilter</a> objects. If <code>from</code> is set and <code>to</code> is set: match items where the timestamp (<code>startTime</code>, <code>endTime</code>, or <code>lastUpdatedTime</code>) is between <code>from</code> and <code>to</code> inclusive. If <code>from</code> is set and <code>to</code> is not set: match items where the timestamp value is equal to or after <code>from</code>. If <code>from</code> is not set and <code>to</code> is set: match items where the timestamp value is equal to or before <code>to</code>.",
+      "description": "A range of dates and times that is used by the <a href=\"https://docs.aws.amazon.com/health/latest/APIReference/API_EventFilter.html\">EventFilter</a> and <a href=\"https://docs.aws.amazon.com/health/latest/APIReference/API_EntityFilter.html\">EntityFilter</a> objects. If <code>from</code> is set and <code>to</code> is set: match items where the timestamp (<code>startTime</code>, <code>endTime</code>, or <code>lastUpdatedTime</code>) is between <code>from</code> and <code>to</code> inclusive. If <code>from</code> is set and <code>to</code> is not set: match items where the timestamp value is equal to or after <code>from</code>. If <code>from</code> is not set and <code>to</code> is set: match items where the timestamp value is equal to or before <code>to</code>.",
       "properties": {
         "from": {
-          "$ref": "#/definitions/timestamp",
-          "description": "The starting date and time of a time range."
+          "allOf": [
+            {
+              "$ref": "#/definitions/timestamp"
+            },
+            {
+              "description": "The starting date and time of a time range."
+            }
+          ]
         },
         "to": {
-          "$ref": "#/definitions/timestamp",
-          "description": "The ending date and time of a time range."
+          "allOf": [
+            {
+              "$ref": "#/definitions/timestamp"
+            },
+            {
+              "description": "The ending date and time of a time range."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DescribeAffectedAccountsForOrganizationRequest": {
+      "properties": {
+        "eventArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/eventArn"
+            },
+            {
+              "description": "The unique identifier for the event. Format: <code>arn:aws:health:<i>event-region</i>::event/<i>SERVICE</i>/<i>EVENT_TYPE_CODE</i>/<i>EVENT_TYPE_PLUS_ID</i> </code>. Example: <code>Example: arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456</code> "
+            }
+          ]
+        },
+        "maxResults": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/maxResults"
+            },
+            {
+              "description": "The maximum number of items to return in one batch, between 10 and 100, inclusive."
+            }
+          ]
+        },
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/nextToken"
+            },
+            {
+              "description": "If the results of a search are large, only a portion of the results are returned, and a <code>nextToken</code> pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value."
+            }
+          ]
+        }
+      },
+      "required": [
+        "eventArn"
+      ],
+      "title": "DescribeAffectedAccountsForOrganizationRequest",
+      "type": "object"
+    },
+    "DescribeAffectedAccountsForOrganizationResponse": {
+      "properties": {
+        "affectedAccounts": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/affectedAccountsList"
+            },
+            {
+              "description": "A JSON set of elements of the affected accounts."
+            }
+          ]
+        },
+        "eventScopeCode": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/eventScopeCode"
+            },
+            {
+              "description": "<p>This parameter specifies if the AWS Health event is a public AWS service event or an account-specific event.</p> <ul> <li> <p>If the <code>eventScopeCode</code> value is <code>PUBLIC</code>, then the <code>affectedAccounts</code> value is always empty.</p> </li> <li> <p>If the <code>eventScopeCode</code> value is <code>ACCOUNT_SPECIFIC</code>, then the <code>affectedAccounts</code> value lists the affected AWS accounts in your organization. For example, if an event affects a service such as Amazon Elastic Compute Cloud and you have AWS accounts that use that service, those account IDs appear in the response.</p> </li> <li> <p>If the <code>eventScopeCode</code> value is <code>NONE</code>, then the <code>eventArn</code> that you specified in the request is invalid or doesn't exist.</p> </li> </ul>"
+            }
+          ]
+        },
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/nextToken"
+            },
+            {
+              "description": "If the results of a search are large, only a portion of the results are returned, and a <code>nextToken</code> pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DescribeAffectedEntitiesForOrganizationFailedSet": {
+      "items": {
+        "$ref": "#/definitions/OrganizationAffectedEntitiesErrorItem"
+      },
+      "type": "array"
+    },
+    "DescribeAffectedEntitiesForOrganizationRequest": {
+      "properties": {
+        "locale": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/locale"
+            },
+            {
+              "description": "The locale (language) to return information in. English (en) is the default and the only supported value at this time."
+            }
+          ]
+        },
+        "maxResults": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/maxResults"
+            },
+            {
+              "description": "The maximum number of items to return in one batch, between 10 and 100, inclusive."
+            }
+          ]
+        },
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/nextToken"
+            },
+            {
+              "description": "If the results of a search are large, only a portion of the results are returned, and a <code>nextToken</code> pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value."
+            }
+          ]
+        },
+        "organizationEntityFilters": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/OrganizationEntityFiltersList"
+            },
+            {
+              "description": "A JSON set of elements including the <code>awsAccountId</code> and the <code>eventArn</code>."
+            }
+          ]
+        }
+      },
+      "required": [
+        "organizationEntityFilters"
+      ],
+      "title": "DescribeAffectedEntitiesForOrganizationRequest",
+      "type": "object"
+    },
+    "DescribeAffectedEntitiesForOrganizationResponse": {
+      "properties": {
+        "entities": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/EntityList"
+            },
+            {
+              "description": "A JSON set of elements including the <code>awsAccountId</code> and its <code>entityArn</code>, <code>entityValue</code> and its <code>entityArn</code>, <code>lastUpdatedTime</code>, and <code>statusCode</code>."
+            }
+          ]
+        },
+        "failedSet": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DescribeAffectedEntitiesForOrganizationFailedSet"
+            },
+            {
+              "description": "A JSON set of elements of the failed response, including the <code>awsAccountId</code>, <code>errorMessage</code>, <code>errorName</code>, and <code>eventArn</code>."
+            }
+          ]
+        },
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/nextToken"
+            },
+            {
+              "description": "If the results of a search are large, only a portion of the results are returned, and a <code>nextToken</code> pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value."
+            }
+          ]
         }
       },
       "type": "object"
@@ -608,36 +1567,73 @@
     "DescribeAffectedEntitiesRequest": {
       "properties": {
         "filter": {
-          "$ref": "#/definitions/EntityFilter",
-          "description": "Values to narrow the results returned. At least one event ARN is required. "
+          "allOf": [
+            {
+              "$ref": "#/definitions/EntityFilter"
+            },
+            {
+              "description": "Values to narrow the results returned. At least one event ARN is required."
+            }
+          ]
         },
         "locale": {
-          "$ref": "#/definitions/locale",
-          "description": "The locale (language) to return information in. English (en) is the default and the only supported value at this time."
+          "allOf": [
+            {
+              "$ref": "#/definitions/locale"
+            },
+            {
+              "description": "The locale (language) to return information in. English (en) is the default and the only supported value at this time."
+            }
+          ]
         },
         "maxResults": {
-          "$ref": "#/definitions/maxResults",
-          "description": "The maximum number of items to return in one batch, between 10 and 100, inclusive."
+          "allOf": [
+            {
+              "$ref": "#/definitions/maxResults"
+            },
+            {
+              "description": "The maximum number of items to return in one batch, between 10 and 100, inclusive."
+            }
+          ]
         },
         "nextToken": {
-          "$ref": "#/definitions/nextToken",
-          "description": "If the results of a search are large, only a portion of the results are returned, and a <code>nextToken</code> pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value."
+          "allOf": [
+            {
+              "$ref": "#/definitions/nextToken"
+            },
+            {
+              "description": "If the results of a search are large, only a portion of the results are returned, and a <code>nextToken</code> pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value."
+            }
+          ]
         }
       },
       "required": [
         "filter"
       ],
+      "title": "DescribeAffectedEntitiesRequest",
       "type": "object"
     },
     "DescribeAffectedEntitiesResponse": {
       "properties": {
         "entities": {
-          "$ref": "#/definitions/EntityList",
-          "description": "The entities that match the filter criteria."
+          "allOf": [
+            {
+              "$ref": "#/definitions/EntityList"
+            },
+            {
+              "description": "The entities that match the filter criteria."
+            }
+          ]
         },
         "nextToken": {
-          "$ref": "#/definitions/nextToken",
-          "description": "If the results of a search are large, only a portion of the results are returned, and a <code>nextToken</code> pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value."
+          "allOf": [
+            {
+              "$ref": "#/definitions/nextToken"
+            },
+            {
+              "description": "If the results of a search are large, only a portion of the results are returned, and a <code>nextToken</code> pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value."
+            }
+          ]
         }
       },
       "type": "object"
@@ -645,17 +1641,30 @@
     "DescribeEntityAggregatesRequest": {
       "properties": {
         "eventArns": {
-          "$ref": "#/definitions/EventArnsList",
-          "description": "A list of event ARNs (unique identifiers). For example: <code>\"arn:aws:health:us-east-1::event/AWS_EC2_MAINTENANCE_5331\", \"arn:aws:health:us-west-1::event/AWS_EBS_LOST_VOLUME_xyz\"</code> "
+          "allOf": [
+            {
+              "$ref": "#/definitions/EventArnsList"
+            },
+            {
+              "description": "A list of event ARNs (unique identifiers). For example: <code>\"arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-CDE456\", \"arn:aws:health:us-west-1::event/EBS/AWS_EBS_LOST_VOLUME/AWS_EBS_LOST_VOLUME_CHI789_JKL101\"</code> "
+            }
+          ]
         }
       },
+      "title": "DescribeEntityAggregatesRequest",
       "type": "object"
     },
     "DescribeEntityAggregatesResponse": {
       "properties": {
         "entityAggregates": {
-          "$ref": "#/definitions/EntityAggregateList",
-          "description": "The number of entities that are affected by each of the specified events."
+          "allOf": [
+            {
+              "$ref": "#/definitions/EntityAggregateList"
+            },
+            {
+              "description": "The number of entities that are affected by each of the specified events."
+            }
+          ]
         }
       },
       "type": "object"
@@ -663,36 +1672,73 @@
     "DescribeEventAggregatesRequest": {
       "properties": {
         "aggregateField": {
-          "$ref": "#/definitions/eventAggregateField",
-          "description": "The only currently supported value is <code>eventTypeCategory</code>."
+          "allOf": [
+            {
+              "$ref": "#/definitions/eventAggregateField"
+            },
+            {
+              "description": "The only currently supported value is <code>eventTypeCategory</code>."
+            }
+          ]
         },
         "filter": {
-          "$ref": "#/definitions/EventFilter",
-          "description": "Values to narrow the results returned."
+          "allOf": [
+            {
+              "$ref": "#/definitions/EventFilter"
+            },
+            {
+              "description": "Values to narrow the results returned."
+            }
+          ]
         },
         "maxResults": {
-          "$ref": "#/definitions/maxResults",
-          "description": "The maximum number of items to return in one batch, between 10 and 100, inclusive."
+          "allOf": [
+            {
+              "$ref": "#/definitions/maxResults"
+            },
+            {
+              "description": "The maximum number of items to return in one batch, between 10 and 100, inclusive."
+            }
+          ]
         },
         "nextToken": {
-          "$ref": "#/definitions/nextToken",
-          "description": "If the results of a search are large, only a portion of the results are returned, and a <code>nextToken</code> pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value."
+          "allOf": [
+            {
+              "$ref": "#/definitions/nextToken"
+            },
+            {
+              "description": "If the results of a search are large, only a portion of the results are returned, and a <code>nextToken</code> pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value."
+            }
+          ]
         }
       },
       "required": [
         "aggregateField"
       ],
+      "title": "DescribeEventAggregatesRequest",
       "type": "object"
     },
     "DescribeEventAggregatesResponse": {
       "properties": {
         "eventAggregates": {
-          "$ref": "#/definitions/EventAggregateList",
-          "description": "The number of events in each category that meet the optional filter criteria."
+          "allOf": [
+            {
+              "$ref": "#/definitions/EventAggregateList"
+            },
+            {
+              "description": "The number of events in each category that meet the optional filter criteria."
+            }
+          ]
         },
         "nextToken": {
-          "$ref": "#/definitions/nextToken",
-          "description": "If the results of a search are large, only a portion of the results are returned, and a <code>nextToken</code> pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value."
+          "allOf": [
+            {
+              "$ref": "#/definitions/nextToken"
+            },
+            {
+              "description": "If the results of a search are large, only a portion of the results are returned, and a <code>nextToken</code> pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value."
+            }
+          ]
         }
       },
       "type": "object"
@@ -703,31 +1749,122 @@
       },
       "type": "array"
     },
+    "DescribeEventDetailsForOrganizationFailedSet": {
+      "items": {
+        "$ref": "#/definitions/OrganizationEventDetailsErrorItem"
+      },
+      "type": "array"
+    },
+    "DescribeEventDetailsForOrganizationRequest": {
+      "properties": {
+        "locale": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/locale"
+            },
+            {
+              "description": "The locale (language) to return information in. English (en) is the default and the only supported value at this time."
+            }
+          ]
+        },
+        "organizationEventDetailFilters": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/OrganizationEventDetailFiltersList"
+            },
+            {
+              "description": "A set of JSON elements that includes the <code>awsAccountId</code> and the <code>eventArn</code>."
+            }
+          ]
+        }
+      },
+      "required": [
+        "organizationEventDetailFilters"
+      ],
+      "title": "DescribeEventDetailsForOrganizationRequest",
+      "type": "object"
+    },
+    "DescribeEventDetailsForOrganizationResponse": {
+      "properties": {
+        "failedSet": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DescribeEventDetailsForOrganizationFailedSet"
+            },
+            {
+              "description": "Error messages for any events that could not be retrieved."
+            }
+          ]
+        },
+        "successfulSet": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DescribeEventDetailsForOrganizationSuccessfulSet"
+            },
+            {
+              "description": "Information about the events that could be retrieved."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DescribeEventDetailsForOrganizationSuccessfulSet": {
+      "items": {
+        "$ref": "#/definitions/OrganizationEventDetails"
+      },
+      "type": "array"
+    },
     "DescribeEventDetailsRequest": {
       "properties": {
         "eventArns": {
-          "$ref": "#/definitions/eventArnList",
-          "description": "A list of event ARNs (unique identifiers). For example: <code>\"arn:aws:health:us-east-1::event/AWS_EC2_MAINTENANCE_5331\", \"arn:aws:health:us-west-1::event/AWS_EBS_LOST_VOLUME_xyz\"</code> "
+          "allOf": [
+            {
+              "$ref": "#/definitions/eventArnList"
+            },
+            {
+              "description": "A list of event ARNs (unique identifiers). For example: <code>\"arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-CDE456\", \"arn:aws:health:us-west-1::event/EBS/AWS_EBS_LOST_VOLUME/AWS_EBS_LOST_VOLUME_CHI789_JKL101\"</code> "
+            }
+          ]
         },
         "locale": {
-          "$ref": "#/definitions/locale",
-          "description": "The locale (language) to return information in. English (en) is the default and the only supported value at this time."
+          "allOf": [
+            {
+              "$ref": "#/definitions/locale"
+            },
+            {
+              "description": "The locale (language) to return information in. English (en) is the default and the only supported value at this time."
+            }
+          ]
         }
       },
       "required": [
         "eventArns"
       ],
+      "title": "DescribeEventDetailsRequest",
       "type": "object"
     },
     "DescribeEventDetailsResponse": {
       "properties": {
         "failedSet": {
-          "$ref": "#/definitions/DescribeEventDetailsFailedSet",
-          "description": "Error messages for any events that could not be retrieved."
+          "allOf": [
+            {
+              "$ref": "#/definitions/DescribeEventDetailsFailedSet"
+            },
+            {
+              "description": "Error messages for any events that could not be retrieved."
+            }
+          ]
         },
         "successfulSet": {
-          "$ref": "#/definitions/DescribeEventDetailsSuccessfulSet",
-          "description": "Information about the events that could be retrieved."
+          "allOf": [
+            {
+              "$ref": "#/definitions/DescribeEventDetailsSuccessfulSet"
+            },
+            {
+              "description": "Information about the events that could be retrieved."
+            }
+          ]
         }
       },
       "type": "object"
@@ -741,33 +1878,141 @@
     "DescribeEventTypesRequest": {
       "properties": {
         "filter": {
-          "$ref": "#/definitions/EventTypeFilter",
-          "description": "Values to narrow the results returned."
+          "allOf": [
+            {
+              "$ref": "#/definitions/EventTypeFilter"
+            },
+            {
+              "description": "Values to narrow the results returned."
+            }
+          ]
         },
         "locale": {
-          "$ref": "#/definitions/locale",
-          "description": "The locale (language) to return information in. English (en) is the default and the only supported value at this time."
+          "allOf": [
+            {
+              "$ref": "#/definitions/locale"
+            },
+            {
+              "description": "The locale (language) to return information in. English (en) is the default and the only supported value at this time."
+            }
+          ]
         },
         "maxResults": {
-          "$ref": "#/definitions/maxResults",
-          "description": "The maximum number of items to return in one batch, between 10 and 100, inclusive."
+          "allOf": [
+            {
+              "$ref": "#/definitions/maxResults"
+            },
+            {
+              "description": "The maximum number of items to return in one batch, between 10 and 100, inclusive."
+            }
+          ]
         },
         "nextToken": {
-          "$ref": "#/definitions/nextToken",
-          "description": "If the results of a search are large, only a portion of the results are returned, and a <code>nextToken</code> pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value."
+          "allOf": [
+            {
+              "$ref": "#/definitions/nextToken"
+            },
+            {
+              "description": "If the results of a search are large, only a portion of the results are returned, and a <code>nextToken</code> pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value."
+            }
+          ]
         }
       },
+      "title": "DescribeEventTypesRequest",
       "type": "object"
     },
     "DescribeEventTypesResponse": {
       "properties": {
         "eventTypes": {
-          "$ref": "#/definitions/EventTypeList",
-          "description": "A list of event types that match the filter criteria. Event types have a category (<code>issue</code>, <code>accountNotification</code>, or <code>scheduledChange</code>), a service (for example, <code>EC2</code>, <code>RDS</code>, <code>DATAPIPELINE</code>, <code>BILLING</code>), and a code (in the format <code>AWS_<i>SERVICE</i>_<i>DESCRIPTION</i> </code>; for example, <code>AWS_EC2_SYSTEM_MAINTENANCE_EVENT</code>)."
+          "allOf": [
+            {
+              "$ref": "#/definitions/EventTypeList"
+            },
+            {
+              "description": "A list of event types that match the filter criteria. Event types have a category (<code>issue</code>, <code>accountNotification</code>, or <code>scheduledChange</code>), a service (for example, <code>EC2</code>, <code>RDS</code>, <code>DATAPIPELINE</code>, <code>BILLING</code>), and a code (in the format <code>AWS_<i>SERVICE</i>_<i>DESCRIPTION</i> </code>; for example, <code>AWS_EC2_SYSTEM_MAINTENANCE_EVENT</code>)."
+            }
+          ]
         },
         "nextToken": {
-          "$ref": "#/definitions/nextToken",
-          "description": "If the results of a search are large, only a portion of the results are returned, and a <code>nextToken</code> pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value."
+          "allOf": [
+            {
+              "$ref": "#/definitions/nextToken"
+            },
+            {
+              "description": "If the results of a search are large, only a portion of the results are returned, and a <code>nextToken</code> pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DescribeEventsForOrganizationRequest": {
+      "properties": {
+        "filter": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/OrganizationEventFilter"
+            },
+            {
+              "description": "Values to narrow the results returned."
+            }
+          ]
+        },
+        "locale": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/locale"
+            },
+            {
+              "description": "The locale (language) to return information in. English (en) is the default and the only supported value at this time."
+            }
+          ]
+        },
+        "maxResults": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/maxResults"
+            },
+            {
+              "description": "The maximum number of items to return in one batch, between 10 and 100, inclusive."
+            }
+          ]
+        },
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/nextToken"
+            },
+            {
+              "description": "If the results of a search are large, only a portion of the results are returned, and a <code>nextToken</code> pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value."
+            }
+          ]
+        }
+      },
+      "title": "DescribeEventsForOrganizationRequest",
+      "type": "object"
+    },
+    "DescribeEventsForOrganizationResponse": {
+      "properties": {
+        "events": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/OrganizationEventList"
+            },
+            {
+              "description": "The events that match the specified filter criteria."
+            }
+          ]
+        },
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/nextToken"
+            },
+            {
+              "description": "If the results of a search are large, only a portion of the results are returned, and a <code>nextToken</code> pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value."
+            }
+          ]
         }
       },
       "type": "object"
@@ -775,47 +2020,111 @@
     "DescribeEventsRequest": {
       "properties": {
         "filter": {
-          "$ref": "#/definitions/EventFilter",
-          "description": "Values to narrow the results returned."
+          "allOf": [
+            {
+              "$ref": "#/definitions/EventFilter"
+            },
+            {
+              "description": "Values to narrow the results returned."
+            }
+          ]
         },
         "locale": {
-          "$ref": "#/definitions/locale",
-          "description": "The locale (language) to return information in. English (en) is the default and the only supported value at this time."
+          "allOf": [
+            {
+              "$ref": "#/definitions/locale"
+            },
+            {
+              "description": "The locale (language) to return information in. English (en) is the default and the only supported value at this time."
+            }
+          ]
         },
         "maxResults": {
-          "$ref": "#/definitions/maxResults",
-          "description": "The maximum number of items to return in one batch, between 10 and 100, inclusive."
+          "allOf": [
+            {
+              "$ref": "#/definitions/maxResults"
+            },
+            {
+              "description": "The maximum number of items to return in one batch, between 10 and 100, inclusive."
+            }
+          ]
         },
         "nextToken": {
-          "$ref": "#/definitions/nextToken",
-          "description": "If the results of a search are large, only a portion of the results are returned, and a <code>nextToken</code> pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value."
+          "allOf": [
+            {
+              "$ref": "#/definitions/nextToken"
+            },
+            {
+              "description": "If the results of a search are large, only a portion of the results are returned, and a <code>nextToken</code> pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value."
+            }
+          ]
         }
       },
+      "title": "DescribeEventsRequest",
       "type": "object"
     },
     "DescribeEventsResponse": {
       "properties": {
         "events": {
-          "$ref": "#/definitions/EventList",
-          "description": "The events that match the specified filter criteria."
+          "allOf": [
+            {
+              "$ref": "#/definitions/EventList"
+            },
+            {
+              "description": "The events that match the specified filter criteria."
+            }
+          ]
         },
         "nextToken": {
-          "$ref": "#/definitions/nextToken",
-          "description": "If the results of a search are large, only a portion of the results are returned, and a <code>nextToken</code> pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value."
+          "allOf": [
+            {
+              "$ref": "#/definitions/nextToken"
+            },
+            {
+              "description": "If the results of a search are large, only a portion of the results are returned, and a <code>nextToken</code> pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DescribeHealthServiceStatusForOrganizationResponse": {
+      "properties": {
+        "healthServiceAccessStatusForOrganization": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/healthServiceAccessStatusForOrganization"
+            },
+            {
+              "description": "<p>Information about the status of enabling or disabling AWS Health Organizational View in your organization.</p> <p>Valid values are <code>ENABLED | DISABLED | PENDING</code>. </p>"
+            }
+          ]
         }
       },
       "type": "object"
     },
     "EntityAggregate": {
-      "description": "The number of entities that are affected by one or more events. Returned by the <a>DescribeEntityAggregates</a> operation.",
+      "description": "The number of entities that are affected by one or more events. Returned by the <a href=\"https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEntityAggregates.html\">DescribeEntityAggregates</a> operation.",
       "properties": {
         "count": {
-          "$ref": "#/definitions/count",
-          "description": "The number entities that match the criteria for the specified events."
+          "allOf": [
+            {
+              "$ref": "#/definitions/count"
+            },
+            {
+              "description": "The number of entities that match the criteria for the specified events."
+            }
+          ]
         },
         "eventArn": {
-          "$ref": "#/definitions/eventArn",
-          "description": "The unique identifier for the event. Format: <code>arn:aws:health:<i>event-region</i>::event/<i>EVENT_TYPE_PLUS_ID</i> </code>. Example: <code>arn:aws:health:us-east-1::event/AWS_EC2_MAINTENANCE_5331</code> "
+          "allOf": [
+            {
+              "$ref": "#/definitions/eventArn"
+            },
+            {
+              "description": "The unique identifier for the event. Format: <code>arn:aws:health:<i>event-region</i>::event/<i>SERVICE</i>/<i>EVENT_TYPE_CODE</i>/<i>EVENT_TYPE_PLUS_ID</i> </code>. Example: <code>Example: arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456</code> "
+            }
+          ]
         }
       },
       "type": "object"
@@ -827,31 +2136,67 @@
       "type": "array"
     },
     "EntityFilter": {
-      "description": "The values to use to filter results from the <a>DescribeAffectedEntities</a> operation.",
+      "description": "The values to use to filter results from the <a href=\"https://docs.aws.amazon.com/health/latest/APIReference/API_EntityFilter.html\">EntityFilter</a> operation.",
       "properties": {
+        "tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/tagFilter"
+            },
+            {
+              "description": "<p>A map of entity tags attached to the affected entity.</p> <note> <p>Currently, the <code>tags</code> property isn't supported.</p> </note>"
+            }
+          ]
+        },
         "entityArns": {
-          "$ref": "#/definitions/entityArnList",
-          "description": "A list of entity ARNs (unique identifiers)."
+          "allOf": [
+            {
+              "$ref": "#/definitions/entityArnList"
+            },
+            {
+              "description": "A list of entity ARNs (unique identifiers)."
+            }
+          ]
         },
         "entityValues": {
-          "$ref": "#/definitions/entityValueList",
-          "description": "A list of IDs for affected entities."
+          "allOf": [
+            {
+              "$ref": "#/definitions/entityValueList"
+            },
+            {
+              "description": "A list of IDs for affected entities."
+            }
+          ]
         },
         "eventArns": {
-          "$ref": "#/definitions/eventArnList",
-          "description": "A list of event ARNs (unique identifiers). For example: <code>\"arn:aws:health:us-east-1::event/AWS_EC2_MAINTENANCE_5331\", \"arn:aws:health:us-west-1::event/AWS_EBS_LOST_VOLUME_xyz\"</code> "
+          "allOf": [
+            {
+              "$ref": "#/definitions/eventArnList"
+            },
+            {
+              "description": "A list of event ARNs (unique identifiers). For example: <code>\"arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-CDE456\", \"arn:aws:health:us-west-1::event/EBS/AWS_EBS_LOST_VOLUME/AWS_EBS_LOST_VOLUME_CHI789_JKL101\"</code> "
+            }
+          ]
         },
         "lastUpdatedTimes": {
-          "$ref": "#/definitions/dateTimeRangeList",
-          "description": "A list of the most recent dates and times that the entity was updated."
+          "allOf": [
+            {
+              "$ref": "#/definitions/dateTimeRangeList"
+            },
+            {
+              "description": "A list of the most recent dates and times that the entity was updated."
+            }
+          ]
         },
         "statusCodes": {
-          "$ref": "#/definitions/entityStatusCodeList",
-          "description": "A list of entity status codes (<code>IMPAIRED</code>, <code>UNIMPAIRED</code>, or <code>UNKNOWN</code>)."
-        },
-        "tags": {
-          "$ref": "#/definitions/tagFilter",
-          "description": "A map of entity tags attached to the affected entity."
+          "allOf": [
+            {
+              "$ref": "#/definitions/entityStatusCodeList"
+            },
+            {
+              "description": "A list of entity status codes (<code>IMPAIRED</code>, <code>UNIMPAIRED</code>, or <code>UNKNOWN</code>)."
+            }
+          ]
         }
       },
       "required": [
@@ -866,61 +2211,172 @@
       "type": "array"
     },
     "Event": {
-      "description": "Summary information about an event, returned by the <a>DescribeEvents</a> operation. The <a>DescribeEventDetails</a> operation also returns this information, as well as the <a>EventDescription</a> and additional event metadata.",
+      "description": "<p>Summary information about an AWS Health event.</p> <p>AWS Health events can be public or account-specific:</p> <ul> <li> <p> <i>Public events</i> might be service events that are not specific to an AWS account. For example, if there is an issue with an AWS Region, AWS Health provides information about the event, even if you don't use services or resources in that Region.</p> </li> <li> <p> <i>Account-specific</i> events are specific to either your AWS account or an account in your organization. For example, if there's an issue with Amazon Elastic Compute Cloud in a Region that you use, AWS Health provides information about the event and the affected resources in the account.</p> </li> </ul> <p>You can determine if an event is public or account-specific by using the <code>eventScopeCode</code> parameter. For more information, see <a href=\"https://docs.aws.amazon.com/health/latest/APIReference/API_Event.html#AWSHealth-Type-Event-eventScopeCode\">eventScopeCode</a>.</p>",
       "properties": {
         "arn": {
-          "$ref": "#/definitions/eventArn",
-          "description": "The unique identifier for the event. Format: <code>arn:aws:health:<i>event-region</i>::event/<i>EVENT_TYPE_PLUS_ID</i> </code>. Example: <code>arn:aws:health:us-east-1::event/AWS_EC2_MAINTENANCE_5331</code> "
+          "allOf": [
+            {
+              "$ref": "#/definitions/eventArn"
+            },
+            {
+              "description": "The unique identifier for the event. Format: <code>arn:aws:health:<i>event-region</i>::event/<i>SERVICE</i>/<i>EVENT_TYPE_CODE</i>/<i>EVENT_TYPE_PLUS_ID</i> </code>. Example: <code>Example: arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456</code> "
+            }
+          ]
         },
         "availabilityZone": {
-          "$ref": "#/definitions/availabilityZone",
-          "description": "The AWS Availability Zone of the event. For example, us-east-1a."
+          "allOf": [
+            {
+              "$ref": "#/definitions/availabilityZone"
+            },
+            {
+              "description": "The AWS Availability Zone of the event. For example, us-east-1a."
+            }
+          ]
         },
         "endTime": {
-          "$ref": "#/definitions/timestamp",
-          "description": "The date and time that the event ended."
+          "allOf": [
+            {
+              "$ref": "#/definitions/timestamp"
+            },
+            {
+              "description": "The date and time that the event ended."
+            }
+          ]
+        },
+        "eventScopeCode": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/eventScopeCode"
+            },
+            {
+              "description": "<p>This parameter specifies if the AWS Health event is a public AWS service event or an account-specific event.</p> <ul> <li> <p>If the <code>eventScopeCode</code> value is <code>PUBLIC</code>, then the <code>affectedAccounts</code> value is always empty.</p> </li> <li> <p>If the <code>eventScopeCode</code> value is <code>ACCOUNT_SPECIFIC</code>, then the <code>affectedAccounts</code> value lists the affected AWS accounts in your organization. For example, if an event affects a service such as Amazon Elastic Compute Cloud and you have AWS accounts that use that service, those account IDs appear in the response.</p> </li> <li> <p>If the <code>eventScopeCode</code> value is <code>NONE</code>, then the <code>eventArn</code> that you specified in the request is invalid or doesn't exist.</p> </li> </ul>"
+            }
+          ]
         },
         "eventTypeCategory": {
-          "$ref": "#/definitions/eventTypeCategory",
-          "description": "The "
+          "allOf": [
+            {
+              "$ref": "#/definitions/eventTypeCategory"
+            },
+            {
+              "description": "The category of the event. Possible values are <code>issue</code>, <code>scheduledChange</code>, and <code>accountNotification</code>."
+            }
+          ]
         },
         "eventTypeCode": {
-          "$ref": "#/definitions/eventTypeCode",
-          "description": "The unique identifier for the event type. The format is <code>AWS_<i>SERVICE</i>_<i>DESCRIPTION</i> </code>; for example, <code>AWS_EC2_SYSTEM_MAINTENANCE_EVENT</code>."
+          "allOf": [
+            {
+              "$ref": "#/definitions/eventTypeCode"
+            },
+            {
+              "description": "The unique identifier for the event type. The format is <code>AWS_<i>SERVICE</i>_<i>DESCRIPTION</i> </code>; for example, <code>AWS_EC2_SYSTEM_MAINTENANCE_EVENT</code>."
+            }
+          ]
         },
         "lastUpdatedTime": {
-          "$ref": "#/definitions/timestamp",
-          "description": "The most recent date and time that the event was updated."
+          "allOf": [
+            {
+              "$ref": "#/definitions/timestamp"
+            },
+            {
+              "description": "The most recent date and time that the event was updated."
+            }
+          ]
         },
         "region": {
-          "$ref": "#/definitions/region",
-          "description": "The AWS region name of the event."
+          "allOf": [
+            {
+              "$ref": "#/definitions/region"
+            },
+            {
+              "description": "The AWS region name of the event."
+            }
+          ]
         },
         "service": {
-          "$ref": "#/definitions/service",
-          "description": "The AWS service that is affected by the event. For example, <code>EC2</code>, <code>RDS</code>."
+          "allOf": [
+            {
+              "$ref": "#/definitions/service"
+            },
+            {
+              "description": "The AWS service that is affected by the event. For example, <code>EC2</code>, <code>RDS</code>."
+            }
+          ]
         },
         "startTime": {
-          "$ref": "#/definitions/timestamp",
-          "description": "The date and time that the event began."
+          "allOf": [
+            {
+              "$ref": "#/definitions/timestamp"
+            },
+            {
+              "description": "The date and time that the event began."
+            }
+          ]
         },
         "statusCode": {
-          "$ref": "#/definitions/eventStatusCode",
-          "description": "The most recent status of the event. Possible values are <code>open</code>, <code>closed</code>, and <code>upcoming</code>."
+          "allOf": [
+            {
+              "$ref": "#/definitions/eventStatusCode"
+            },
+            {
+              "description": "The most recent status of the event. Possible values are <code>open</code>, <code>closed</code>, and <code>upcoming</code>."
+            }
+          ]
         }
       },
       "type": "object"
     },
+    "EventAccountFilter": {
+      "description": "The values used to filter results from the <a href=\"https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventDetailsForOrganization.html\">DescribeEventDetailsForOrganization</a> and <a href=\"https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeAffectedEntitiesForOrganization.html\">DescribeAffectedEntitiesForOrganization</a> operations.",
+      "properties": {
+        "awsAccountId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/accountId"
+            },
+            {
+              "description": "The 12-digit AWS account numbers that contains the affected entities."
+            }
+          ]
+        },
+        "eventArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/eventArn"
+            },
+            {
+              "description": "The unique identifier for the event. Format: <code>arn:aws:health:<i>event-region</i>::event/<i>SERVICE</i>/<i>EVENT_TYPE_CODE</i>/<i>EVENT_TYPE_PLUS_ID</i> </code>. Example: <code>Example: arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456</code> "
+            }
+          ]
+        }
+      },
+      "required": [
+        "eventArn"
+      ],
+      "type": "object"
+    },
     "EventAggregate": {
-      "description": "The number of events of each issue type. Returned by the <a>DescribeEventAggregates</a> operation.",
+      "description": "The number of events of each issue type. Returned by the <a href=\"https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventAggregates.html\">DescribeEventAggregates</a> operation.",
       "properties": {
         "aggregateValue": {
-          "$ref": "#/definitions/aggregateValue",
-          "description": "The issue type for the associated count."
+          "allOf": [
+            {
+              "$ref": "#/definitions/aggregateValue"
+            },
+            {
+              "description": "The issue type for the associated count."
+            }
+          ]
         },
         "count": {
-          "$ref": "#/definitions/count",
-          "description": "The number of events of the associated issue type."
+          "allOf": [
+            {
+              "$ref": "#/definitions/count"
+            },
+            {
+              "description": "The number of events of the associated issue type."
+            }
+          ]
         }
       },
       "type": "object"
@@ -940,105 +2396,225 @@
       "type": "array"
     },
     "EventDescription": {
-      "description": "The detailed description of the event. Included in the information returned by the <a>DescribeEventDetails</a> operation.",
+      "description": "The detailed description of the event. Included in the information returned by the <a href=\"https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventDetails.html\">DescribeEventDetails</a> operation.",
       "properties": {
         "latestDescription": {
-          "$ref": "#/definitions/eventDescription",
-          "description": "The most recent description of the event."
+          "allOf": [
+            {
+              "$ref": "#/definitions/eventDescription"
+            },
+            {
+              "description": "The most recent description of the event."
+            }
+          ]
         }
       },
       "type": "object"
     },
     "EventDetails": {
-      "description": "Detailed information about an event. A combination of an <a>Event</a> object, an <a>EventDescription</a> object, and additional metadata about the event. Returned by the <a>DescribeEventDetails</a> operation.",
+      "description": "Detailed information about an event. A combination of an <a href=\"https://docs.aws.amazon.com/health/latest/APIReference/API_Event.html\">Event</a> object, an <a href=\"https://docs.aws.amazon.com/health/latest/APIReference/API_EventDescription.html\">EventDescription</a> object, and additional metadata about the event. Returned by the <a href=\"https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventDetails.html\">DescribeEventDetails</a> operation.",
       "properties": {
         "event": {
-          "$ref": "#/definitions/Event",
-          "description": "Summary information about the event."
+          "allOf": [
+            {
+              "$ref": "#/definitions/Event"
+            },
+            {
+              "description": "Summary information about the event."
+            }
+          ]
         },
         "eventDescription": {
-          "$ref": "#/definitions/EventDescription",
-          "description": "The most recent description of the event."
+          "allOf": [
+            {
+              "$ref": "#/definitions/EventDescription"
+            },
+            {
+              "description": "The most recent description of the event."
+            }
+          ]
         },
         "eventMetadata": {
-          "$ref": "#/definitions/eventMetadata",
-          "description": "Additional metadata about the event."
+          "allOf": [
+            {
+              "$ref": "#/definitions/eventMetadata"
+            },
+            {
+              "description": "Additional metadata about the event."
+            }
+          ]
         }
       },
       "type": "object"
     },
     "EventDetailsErrorItem": {
-      "description": "Error information returned when a <a>DescribeEventDetails</a> operation cannot find a specified event.",
+      "description": "Error information returned when a <a href=\"https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventDetails.html\">DescribeEventDetails</a> operation cannot find a specified event.",
       "properties": {
         "errorMessage": {
-          "$ref": "#/definitions/string",
-          "description": "A message that describes the error."
+          "allOf": [
+            {
+              "$ref": "#/definitions/string"
+            },
+            {
+              "description": "A message that describes the error."
+            }
+          ]
         },
         "errorName": {
-          "$ref": "#/definitions/string",
-          "description": "The name of the error."
+          "allOf": [
+            {
+              "$ref": "#/definitions/string"
+            },
+            {
+              "description": "The name of the error."
+            }
+          ]
         },
         "eventArn": {
-          "$ref": "#/definitions/eventArn",
-          "description": "The unique identifier for the event. Format: <code>arn:aws:health:<i>event-region</i>::event/<i>EVENT_TYPE_PLUS_ID</i> </code>. Example: <code>arn:aws:health:us-east-1::event/AWS_EC2_MAINTENANCE_5331</code> "
+          "allOf": [
+            {
+              "$ref": "#/definitions/eventArn"
+            },
+            {
+              "description": "The unique identifier for the event. Format: <code>arn:aws:health:<i>event-region</i>::event/<i>SERVICE</i>/<i>EVENT_TYPE_CODE</i>/<i>EVENT_TYPE_PLUS_ID</i> </code>. Example: <code>Example: arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456</code> "
+            }
+          ]
         }
       },
       "type": "object"
     },
     "EventFilter": {
-      "description": "The values to use to filter results from the <a>DescribeEvents</a> and <a>DescribeEventAggregates</a> operations.",
+      "description": "The values to use to filter results from the <a href=\"https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEvents.html\">DescribeEvents</a> and <a href=\"https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventAggregates.html\">DescribeEventAggregates</a> operations.",
       "properties": {
+        "tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/tagFilter"
+            },
+            {
+              "description": "<p>A map of entity tags attached to the affected entity.</p> <note> <p>Currently, the <code>tags</code> property isn't supported.</p> </note>"
+            }
+          ]
+        },
         "availabilityZones": {
-          "$ref": "#/definitions/availabilityZones",
-          "description": "A list of AWS availability zones."
+          "allOf": [
+            {
+              "$ref": "#/definitions/availabilityZones"
+            },
+            {
+              "description": "A list of AWS availability zones."
+            }
+          ]
         },
         "endTimes": {
-          "$ref": "#/definitions/dateTimeRangeList",
-          "description": "A list of dates and times that the event ended."
+          "allOf": [
+            {
+              "$ref": "#/definitions/dateTimeRangeList"
+            },
+            {
+              "description": "A list of dates and times that the event ended."
+            }
+          ]
         },
         "entityArns": {
-          "$ref": "#/definitions/entityArnList",
-          "description": "A list of entity ARNs (unique identifiers)."
+          "allOf": [
+            {
+              "$ref": "#/definitions/entityArnList"
+            },
+            {
+              "description": "A list of entity ARNs (unique identifiers)."
+            }
+          ]
         },
         "entityValues": {
-          "$ref": "#/definitions/entityValueList",
-          "description": "A list of entity identifiers, such as EC2 instance IDs (<code>i-34ab692e</code>) or EBS volumes (<code>vol-426ab23e</code>)."
+          "allOf": [
+            {
+              "$ref": "#/definitions/entityValueList"
+            },
+            {
+              "description": "A list of entity identifiers, such as EC2 instance IDs (<code>i-34ab692e</code>) or EBS volumes (<code>vol-426ab23e</code>)."
+            }
+          ]
         },
         "eventArns": {
-          "$ref": "#/definitions/eventArnList",
-          "description": "A list of event ARNs (unique identifiers). For example: <code>\"arn:aws:health:us-east-1::event/AWS_EC2_MAINTENANCE_5331\", \"arn:aws:health:us-west-1::event/AWS_EBS_LOST_VOLUME_xyz\"</code> "
+          "allOf": [
+            {
+              "$ref": "#/definitions/eventArnList"
+            },
+            {
+              "description": "A list of event ARNs (unique identifiers). For example: <code>\"arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-CDE456\", \"arn:aws:health:us-west-1::event/EBS/AWS_EBS_LOST_VOLUME/AWS_EBS_LOST_VOLUME_CHI789_JKL101\"</code> "
+            }
+          ]
         },
         "eventStatusCodes": {
-          "$ref": "#/definitions/eventStatusCodeList",
-          "description": "A list of event status codes."
+          "allOf": [
+            {
+              "$ref": "#/definitions/eventStatusCodeList"
+            },
+            {
+              "description": "A list of event status codes."
+            }
+          ]
         },
         "eventTypeCategories": {
-          "$ref": "#/definitions/eventTypeCategoryList",
-          "description": "A list of event type category codes (<code>issue</code>, <code>scheduledChange</code>, or <code>accountNotification</code>)."
+          "allOf": [
+            {
+              "$ref": "#/definitions/eventTypeCategoryList"
+            },
+            {
+              "description": "A list of event type category codes (<code>issue</code>, <code>scheduledChange</code>, or <code>accountNotification</code>)."
+            }
+          ]
         },
         "eventTypeCodes": {
-          "$ref": "#/definitions/eventTypeList",
-          "description": "A list of unique identifiers for event types. For example, <code>\"AWS_EC2_SYSTEM_MAINTENANCE_EVENT\",\"AWS_RDS_MAINTENANCE_SCHEDULED\"</code> "
+          "allOf": [
+            {
+              "$ref": "#/definitions/eventTypeList"
+            },
+            {
+              "description": "A list of unique identifiers for event types. For example, <code>\"AWS_EC2_SYSTEM_MAINTENANCE_EVENT\",\"AWS_RDS_MAINTENANCE_SCHEDULED\".</code> "
+            }
+          ]
         },
         "lastUpdatedTimes": {
-          "$ref": "#/definitions/dateTimeRangeList",
-          "description": "A list of dates and times that the event was last updated."
+          "allOf": [
+            {
+              "$ref": "#/definitions/dateTimeRangeList"
+            },
+            {
+              "description": "A list of dates and times that the event was last updated."
+            }
+          ]
         },
         "regions": {
-          "$ref": "#/definitions/regionList",
-          "description": "A list of AWS regions."
+          "allOf": [
+            {
+              "$ref": "#/definitions/regionList"
+            },
+            {
+              "description": "A list of AWS regions."
+            }
+          ]
         },
         "services": {
-          "$ref": "#/definitions/serviceList",
-          "description": "The AWS services associated with the event. For example, <code>EC2</code>, <code>RDS</code>."
+          "allOf": [
+            {
+              "$ref": "#/definitions/serviceList"
+            },
+            {
+              "description": "The AWS services associated with the event. For example, <code>EC2</code>, <code>RDS</code>."
+            }
+          ]
         },
         "startTimes": {
-          "$ref": "#/definitions/dateTimeRangeList",
-          "description": "A list of dates and times that the event began."
-        },
-        "tags": {
-          "$ref": "#/definitions/tagFilter",
-          "description": "A map of entity tags attached to the affected entity."
+          "allOf": [
+            {
+              "$ref": "#/definitions/dateTimeRangeList"
+            },
+            {
+              "description": "A list of dates and times that the event began."
+            }
+          ]
         }
       },
       "type": "object"
@@ -1053,16 +2629,34 @@
       "description": "Metadata about a type of event that is reported by AWS Health. Data consists of the category (for example, <code>issue</code>), the service (for example, <code>EC2</code>), and the event type code (for example, <code>AWS_EC2_SYSTEM_MAINTENANCE_EVENT</code>).",
       "properties": {
         "category": {
-          "$ref": "#/definitions/eventTypeCategory",
-          "description": "A list of event type category codes (<code>issue</code>, <code>scheduledChange</code>, or <code>accountNotification</code>)."
+          "allOf": [
+            {
+              "$ref": "#/definitions/eventTypeCategory"
+            },
+            {
+              "description": "A list of event type category codes (<code>issue</code>, <code>scheduledChange</code>, or <code>accountNotification</code>)."
+            }
+          ]
         },
         "code": {
-          "$ref": "#/definitions/eventTypeCode",
-          "description": "The unique identifier for the event type. The format is <code>AWS_<i>SERVICE</i>_<i>DESCRIPTION</i> </code>; for example, <code>AWS_EC2_SYSTEM_MAINTENANCE_EVENT</code>."
+          "allOf": [
+            {
+              "$ref": "#/definitions/eventTypeCode"
+            },
+            {
+              "description": "The unique identifier for the event type. The format is <code>AWS_<i>SERVICE</i>_<i>DESCRIPTION</i> </code>; for example, <code>AWS_EC2_SYSTEM_MAINTENANCE_EVENT</code>."
+            }
+          ]
         },
         "service": {
-          "$ref": "#/definitions/service",
-          "description": "The AWS service that is affected by the event. For example, <code>EC2</code>, <code>RDS</code>."
+          "allOf": [
+            {
+              "$ref": "#/definitions/service"
+            },
+            {
+              "description": "The AWS service that is affected by the event. For example, <code>EC2</code>, <code>RDS</code>."
+            }
+          ]
         }
       },
       "type": "object"
@@ -1084,19 +2678,37 @@
       "type": "array"
     },
     "EventTypeFilter": {
-      "description": "The values to use to filter results from the <a>DescribeEventTypes</a> operation.",
+      "description": "The values to use to filter results from the <a href=\"https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventTypes.html\">DescribeEventTypes</a> operation.",
       "properties": {
         "eventTypeCategories": {
-          "$ref": "#/definitions/EventTypeCategoryList",
-          "description": "A list of event type category codes (<code>issue</code>, <code>scheduledChange</code>, or <code>accountNotification</code>)."
+          "allOf": [
+            {
+              "$ref": "#/definitions/EventTypeCategoryList"
+            },
+            {
+              "description": "A list of event type category codes (<code>issue</code>, <code>scheduledChange</code>, or <code>accountNotification</code>)."
+            }
+          ]
         },
         "eventTypeCodes": {
-          "$ref": "#/definitions/EventTypeCodeList",
-          "description": "A list of event type codes."
+          "allOf": [
+            {
+              "$ref": "#/definitions/EventTypeCodeList"
+            },
+            {
+              "description": "A list of event type codes."
+            }
+          ]
         },
         "services": {
-          "$ref": "#/definitions/serviceList",
-          "description": "The AWS services associated with the event. For example, <code>EC2</code>, <code>RDS</code>."
+          "allOf": [
+            {
+              "$ref": "#/definitions/serviceList"
+            },
+            {
+              "description": "The AWS services associated with the event. For example, <code>EC2</code>, <code>RDS</code>."
+            }
+          ]
         }
       },
       "type": "object"
@@ -1107,32 +2719,372 @@
       },
       "type": "array"
     },
-    "InvalidPaginationToken": {
-      "description": "The specified pagination token (<code>nextToken</code>) is not valid.",
+    "InvalidPaginationToken": {},
+    "OrganizationAffectedEntitiesErrorItem": {
+      "description": "Error information returned when a <a href=\"https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeAffectedEntitiesForOrganization.html\">DescribeAffectedEntitiesForOrganization</a> operation cannot find or process a specific entity.",
       "properties": {
-        "message": {
-          "$ref": "#/definitions/string"
+        "awsAccountId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/accountId"
+            },
+            {
+              "description": "The 12-digit AWS account numbers that contains the affected entities."
+            }
+          ]
+        },
+        "errorMessage": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/string"
+            },
+            {
+              "description": "The unique identifier for the event type. The format is <code>AWS_SERVICE_DESCRIPTION</code>. For example, <code>AWS_EC2_SYSTEM_MAINTENANCE_EVENT</code>."
+            }
+          ]
+        },
+        "errorName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/string"
+            },
+            {
+              "description": "The name of the error."
+            }
+          ]
+        },
+        "eventArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/eventArn"
+            },
+            {
+              "description": "The unique identifier for the event. Format: <code>arn:aws:health:<i>event-region</i>::event/<i>SERVICE</i>/<i>EVENT_TYPE_CODE</i>/<i>EVENT_TYPE_PLUS_ID</i> </code>. Example: <code>Example: arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456</code> "
+            }
+          ]
         }
       },
       "type": "object"
     },
-    "UnsupportedLocale": {
-      "description": "The specified locale is not supported.",
+    "OrganizationEntityFiltersList": {
+      "items": {
+        "$ref": "#/definitions/EventAccountFilter"
+      },
+      "maxItems": 10,
+      "minItems": 1,
+      "type": "array"
+    },
+    "OrganizationEvent": {
+      "description": "Summary information about an event, returned by the <a href=\"https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventsForOrganization.html\">DescribeEventsForOrganization</a> operation.",
       "properties": {
-        "message": {
-          "$ref": "#/definitions/string"
+        "arn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/eventArn"
+            },
+            {
+              "description": "The unique identifier for the event. Format: <code>arn:aws:health:<i>event-region</i>::event/<i>SERVICE</i>/<i>EVENT_TYPE_CODE</i>/<i>EVENT_TYPE_PLUS_ID</i> </code>. Example: <code>Example: arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456</code> "
+            }
+          ]
+        },
+        "endTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/timestamp"
+            },
+            {
+              "description": "The date and time that the event ended."
+            }
+          ]
+        },
+        "eventScopeCode": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/eventScopeCode"
+            },
+            {
+              "description": "<p>This parameter specifies if the AWS Health event is a public AWS service event or an account-specific event.</p> <ul> <li> <p>If the <code>eventScopeCode</code> value is <code>PUBLIC</code>, then the <code>affectedAccounts</code> value is always empty.</p> </li> <li> <p>If the <code>eventScopeCode</code> value is <code>ACCOUNT_SPECIFIC</code>, then the <code>affectedAccounts</code> value lists the affected AWS accounts in your organization. For example, if an event affects a service such as Amazon Elastic Compute Cloud and you have AWS accounts that use that service, those account IDs appear in the response.</p> </li> <li> <p>If the <code>eventScopeCode</code> value is <code>NONE</code>, then the <code>eventArn</code> that you specified in the request is invalid or doesn't exist.</p> </li> </ul>"
+            }
+          ]
+        },
+        "eventTypeCategory": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/eventTypeCategory"
+            },
+            {
+              "description": "The category of the event type."
+            }
+          ]
+        },
+        "eventTypeCode": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/eventTypeCode"
+            },
+            {
+              "description": "The unique identifier for the event type. The format is <code>AWS_SERVICE_DESCRIPTION</code>. For example, <code>AWS_EC2_SYSTEM_MAINTENANCE_EVENT</code>."
+            }
+          ]
+        },
+        "lastUpdatedTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/timestamp"
+            },
+            {
+              "description": "The most recent date and time that the event was updated."
+            }
+          ]
+        },
+        "region": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/region"
+            },
+            {
+              "description": "The AWS Region name of the event."
+            }
+          ]
+        },
+        "service": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/service"
+            },
+            {
+              "description": "The AWS service that is affected by the event. For example, EC2, RDS."
+            }
+          ]
+        },
+        "startTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/timestamp"
+            },
+            {
+              "description": "The date and time that the event began."
+            }
+          ]
+        },
+        "statusCode": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/eventStatusCode"
+            },
+            {
+              "description": "The most recent status of the event. Possible values are <code>open</code>, <code>closed</code>, and <code>upcoming</code>."
+            }
+          ]
         }
       },
       "type": "object"
     },
+    "OrganizationEventDetailFiltersList": {
+      "items": {
+        "$ref": "#/definitions/EventAccountFilter"
+      },
+      "maxItems": 10,
+      "minItems": 1,
+      "type": "array"
+    },
+    "OrganizationEventDetails": {
+      "description": "Detailed information about an event. A combination of an <a href=\"https://docs.aws.amazon.com/health/latest/APIReference/API_Event.html\">Event</a> object, an <a href=\"https://docs.aws.amazon.com/health/latest/APIReference/API_EventDescription.html\">EventDescription</a> object, and additional metadata about the event. Returned by the <a href=\"https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventDetailsForOrganization.html\">DescribeEventDetailsForOrganization</a> operation.",
+      "properties": {
+        "awsAccountId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/accountId"
+            },
+            {
+              "description": "The 12-digit AWS account numbers that contains the affected entities."
+            }
+          ]
+        },
+        "event": {
+          "$ref": "#/definitions/Event"
+        },
+        "eventDescription": {
+          "$ref": "#/definitions/EventDescription"
+        },
+        "eventMetadata": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/eventMetadata"
+            },
+            {
+              "description": "Additional metadata about the event."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "OrganizationEventDetailsErrorItem": {
+      "description": "Error information returned when a <a href=\"https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventDetailsForOrganization.html\">DescribeEventDetailsForOrganization</a> operation cannot find a specified event.",
+      "properties": {
+        "awsAccountId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/accountId"
+            },
+            {
+              "description": "Error information returned when a <a href=\"https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventDetailsForOrganization.html\">DescribeEventDetailsForOrganization</a> operation cannot find a specified event."
+            }
+          ]
+        },
+        "errorMessage": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/string"
+            },
+            {
+              "description": "A message that describes the error."
+            }
+          ]
+        },
+        "errorName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/string"
+            },
+            {
+              "description": "The name of the error."
+            }
+          ]
+        },
+        "eventArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/eventArn"
+            },
+            {
+              "description": "The unique identifier for the event. Format: <code>arn:aws:health:<i>event-region</i>::event/<i>SERVICE</i>/<i>EVENT_TYPE_CODE</i>/<i>EVENT_TYPE_PLUS_ID</i> </code>. Example: <code>Example: arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456</code> "
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "OrganizationEventFilter": {
+      "description": "The values to filter results from the <a href=\"https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventsForOrganization.html\">DescribeEventsForOrganization</a> operation.",
+      "properties": {
+        "awsAccountIds": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/awsAccountIdsList"
+            },
+            {
+              "description": "A list of 12-digit AWS account numbers that contains the affected entities."
+            }
+          ]
+        },
+        "endTime": {
+          "$ref": "#/definitions/DateTimeRange"
+        },
+        "entityArns": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/entityArnList"
+            },
+            {
+              "description": "A list of entity ARNs (unique identifiers)."
+            }
+          ]
+        },
+        "entityValues": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/entityValueList"
+            },
+            {
+              "description": "A list of entity identifiers, such as EC2 instance IDs (i-34ab692e) or EBS volumes (vol-426ab23e)."
+            }
+          ]
+        },
+        "eventStatusCodes": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/eventStatusCodeList"
+            },
+            {
+              "description": "A list of event status codes."
+            }
+          ]
+        },
+        "eventTypeCategories": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/eventTypeCategoryList"
+            },
+            {
+              "description": "A list of event type category codes (issue, scheduledChange, or accountNotification)."
+            }
+          ]
+        },
+        "eventTypeCodes": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/eventTypeList"
+            },
+            {
+              "description": "A list of unique identifiers for event types. For example, <code>\"AWS_EC2_SYSTEM_MAINTENANCE_EVENT\",\"AWS_RDS_MAINTENANCE_SCHEDULED\".</code> "
+            }
+          ]
+        },
+        "lastUpdatedTime": {
+          "$ref": "#/definitions/DateTimeRange"
+        },
+        "regions": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/regionList"
+            },
+            {
+              "description": "A list of AWS Regions."
+            }
+          ]
+        },
+        "services": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/serviceList"
+            },
+            {
+              "description": "The AWS services associated with the event. For example, <code>EC2</code>, <code>RDS</code>."
+            }
+          ]
+        },
+        "startTime": {
+          "$ref": "#/definitions/DateTimeRange"
+        }
+      },
+      "type": "object"
+    },
+    "OrganizationEventList": {
+      "items": {
+        "$ref": "#/definitions/OrganizationEvent"
+      },
+      "type": "array"
+    },
+    "UnsupportedLocale": {},
     "accountId": {
-      "pattern": "[0-9]{12}",
+      "maxLength": 12,
+      "pattern": "^\\S+$",
       "type": "string"
+    },
+    "affectedAccountsList": {
+      "items": {
+        "$ref": "#/definitions/accountId"
+      },
+      "type": "array"
     },
     "aggregateValue": {
       "type": "string"
     },
     "availabilityZone": {
+      "maxLength": 18,
+      "minLength": 6,
       "pattern": "[a-z]{2}\\-[0-9a-z\\-]{4,16}",
       "type": "string"
     },
@@ -1140,6 +3092,14 @@
       "items": {
         "$ref": "#/definitions/availabilityZone"
       },
+      "type": "array"
+    },
+    "awsAccountIdsList": {
+      "items": {
+        "$ref": "#/definitions/accountId"
+      },
+      "maxItems": 50,
+      "minItems": 1,
       "type": "array"
     },
     "count": {
@@ -1155,6 +3115,7 @@
     },
     "entityArn": {
       "maxLength": 1600,
+      "pattern": ".{0,1600}",
       "type": "string"
     },
     "entityArnList": {
@@ -1181,8 +3142,12 @@
       "minItems": 1,
       "type": "array"
     },
+    "entityUrl": {
+      "type": "string"
+    },
     "entityValue": {
-      "maxLength": 256,
+      "maxLength": 1224,
+      "pattern": ".{0,1224}",
       "type": "string"
     },
     "entityValueList": {
@@ -1201,7 +3166,7 @@
     },
     "eventArn": {
       "maxLength": 1600,
-      "pattern": "arn:aws:health:[^:]*:[^:]*:event/[\\w-]+",
+      "pattern": "arn:aws(-[a-z]+(-[a-z]+)?)?:health:[^:]*:[^:]*:event(?:/[\\w-]+){3}",
       "type": "string"
     },
     "eventArnList": {
@@ -1216,18 +3181,18 @@
       "type": "string"
     },
     "eventMetadata": {
-      "items": {
-        "properties": {
-          "key": {
-            "$ref": "#/definitions/metadataKey"
-          },
-          "value": {
-            "$ref": "#/definitions/metadataValue"
-          }
-        },
-        "type": "object"
+      "additionalProperties": {
+        "$ref": "#/definitions/metadataValue"
       },
-      "type": "array"
+      "type": "object"
+    },
+    "eventScopeCode": {
+      "enum": [
+        "PUBLIC",
+        "ACCOUNT_SPECIFIC",
+        "NONE"
+      ],
+      "type": "string"
     },
     "eventStatusCode": {
       "enum": [
@@ -1248,13 +3213,15 @@
     "eventType": {
       "maxLength": 100,
       "minLength": 3,
+      "pattern": "[^:/]{3,100}",
       "type": "string"
     },
     "eventTypeCategory": {
       "enum": [
         "issue",
         "accountNotification",
-        "scheduledChange"
+        "scheduledChange",
+        "investigation"
       ],
       "maxLength": 255,
       "minLength": 3,
@@ -1271,6 +3238,7 @@
     "eventTypeCode": {
       "maxLength": 100,
       "minLength": 3,
+      "pattern": "[a-zA-Z0-9\\_\\-]{3,100}",
       "type": "string"
     },
     "eventTypeList": {
@@ -1281,9 +3249,13 @@
       "minItems": 1,
       "type": "array"
     },
+    "healthServiceAccessStatusForOrganization": {
+      "type": "string"
+    },
     "locale": {
       "maxLength": 256,
       "minLength": 2,
+      "pattern": ".{2,256}",
       "type": "string"
     },
     "maxResults": {
@@ -1292,17 +3264,22 @@
       "type": "integer"
     },
     "metadataKey": {
+      "maxLength": 32766,
       "type": "string"
     },
     "metadataValue": {
-      "maxLength": 10240,
+      "maxLength": 32766,
       "type": "string"
     },
     "nextToken": {
-      "pattern": "[a-zA-Z0-9=/+_.-]{4,512}",
+      "maxLength": 10000,
+      "minLength": 4,
+      "pattern": "[a-zA-Z0-9=/+_.-]{4,10000}",
       "type": "string"
     },
     "region": {
+      "maxLength": 25,
+      "minLength": 2,
       "pattern": "[^:/]{2,25}",
       "type": "string"
     },
@@ -1317,6 +3294,7 @@
     "service": {
       "maxLength": 30,
       "minLength": 2,
+      "pattern": "[^:/]{2,30}",
       "type": "string"
     },
     "serviceList": {
@@ -1339,30 +3317,89 @@
     },
     "tagKey": {
       "maxLength": 127,
+      "pattern": ".{0,127}",
       "type": "string"
     },
     "tagSet": {
-      "items": {
-        "properties": {
-          "key": {
-            "$ref": "#/definitions/tagKey"
-          },
-          "value": {
-            "$ref": "#/definitions/tagValue"
-          }
-        },
-        "type": "object"
+      "additionalProperties": {
+        "$ref": "#/definitions/tagValue"
       },
-      "maxItems": 50,
-      "type": "array"
+      "maxProperties": 50,
+      "type": "object"
     },
     "tagValue": {
       "maxLength": 255,
+      "pattern": ".{0,255}",
       "type": "string"
     },
     "timestamp": {
       "format": "date-time",
       "type": "string"
     }
-  }
+  },
+  "securityDefinitions": {
+    "hmac": {
+      "description": "Amazon Signature authorization v4",
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey",
+      "x-amazon-apigateway-authtype": "awsSigv4"
+    }
+  },
+  "security": [
+    {
+      "hmac": []
+    }
+  ],
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://docs.aws.amazon.com/health/"
+  },
+  "x-components": {
+    "parameters": {
+      "X-Amz-Algorithm": {
+        "in": "header",
+        "name": "X-Amz-Algorithm",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Content-Sha256": {
+        "in": "header",
+        "name": "X-Amz-Content-Sha256",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Credential": {
+        "in": "header",
+        "name": "X-Amz-Credential",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Date": {
+        "in": "header",
+        "name": "X-Amz-Date",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Security-Token": {
+        "in": "header",
+        "name": "X-Amz-Security-Token",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Signature": {
+        "in": "header",
+        "name": "X-Amz-Signature",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-SignedHeaders": {
+        "in": "header",
+        "name": "X-Amz-SignedHeaders",
+        "required": false,
+        "type": "string"
+      }
+    }
+  },
+  "x-hasEquivalentPaths": true
 }

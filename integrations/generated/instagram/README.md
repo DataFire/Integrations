@@ -1,6 +1,6 @@
 # @datafire/instagram
 
-Client library for Instagram
+Client library for Instagram API
 
 ## Installation and Usage
 ```bash
@@ -16,7 +16,7 @@ let instagram = require('@datafire/instagram').create({
   redirect_uri: ""
 });
 
-instagram.users.self.media.liked.get({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

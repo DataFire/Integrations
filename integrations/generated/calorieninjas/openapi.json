@@ -1,0 +1,86 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "contact": {
+      "email": "info@calorieninjas.com",
+      "name": "CalorieNinjas team",
+      "url": "www.calorieninjas.com"
+    },
+    "description": "Natural language nutrition API to extract nutrition data from any text.",
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    },
+    "termsOfService": "www.calorieninjas.com/tos",
+    "title": "CalorieNinjas",
+    "version": "1.0.0",
+    "x-apisguru-categories": [
+      "text"
+    ],
+    "x-origin": [
+      {
+        "format": "openapi",
+        "url": "https://www.calorieninjas.com/openapi.json",
+        "version": "3.0"
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "calorieninjas.com",
+    "x-datafire": {
+      "name": "calorieninjas",
+      "type": "openapi"
+    }
+  },
+  "basePath": "api.calorieninjas.com",
+  "paths": {
+    "/v1/nutrition": {
+      "get": {
+        "parameters": [
+          {
+            "description": "Input query containing food and/or beverage words.",
+            "in": "query",
+            "maxLength": 1500,
+            "minLength": 0,
+            "name": "query",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "Default response"
+          }
+        },
+        "externalDocs": {
+          "url": "www.calorieninjas.com/api"
+        },
+        "description": "Returns a list of food item nutrition facts extracted from an input string containing food and beverage words. ",
+        "operationId": "",
+        "summary": "Get nutrition text for an input string containing food and beverage words."
+      }
+    }
+  },
+  "definitions": {},
+  "securityDefinitions": {
+    "x-api-key": {
+      "in": "header",
+      "name": "api_key",
+      "type": "apiKey"
+    }
+  },
+  "security": [
+    {
+      "x-api-key": []
+    }
+  ],
+  "tags": [],
+  "externalDocs": {
+    "description": "See www.calorieninjas.com/api.",
+    "url": "www.calorieninjas.com/api"
+  },
+  "x-components": {
+    "callbacks": {},
+    "links": {},
+    "requestBodies": {}
+  }
+}

@@ -15,11 +15,7 @@ let onedb = require('@datafire/onedb').create({
   access_token: ""
 });
 
-onedb.get({
-  "namespace": "",
-  "type": "",
-  "id": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

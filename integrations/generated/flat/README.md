@@ -15,7 +15,7 @@ let flat = require('@datafire/flat').create({
   redirect_uri: ""
 });
 
-flat.createOrganizationUser({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -24,7 +24,7 @@ flat.createOrganizationUser({}).then(data => {
 
 The Flat API allows you to easily extend the abilities of the [Flat Platform](https://flat.io), with a wide range of use cases including the following:
 
-* Creating and importing new music scores using MusicXML or MIDI files
+* Creating and importing new music scores using MusicXML, MIDI, Guitar Pro (GP3, GP4, GP5, GPX, GP), PowerTab, TuxGuitar and MuseScore files
 * Browsing, updating, copying, exporting the user's scores (for example in MP3, WAV or MIDI)
 * Managing educational resources with Flat for Education: creating & updating the organization accounts, the classes, rosters and assignments.
 
@@ -477,7 +477,7 @@ flat.listCollections({}, context)
 
 #### Input
 * input `object`
-  * parent `string` (values: root, sharedWithMe, trash): List the collection contained in this `parent` collection.
+  * parent `string`: List the collection contained in this `parent` collection.
   * sort `string` (values: creationDate, title): Sort
   * direction `string` (values: asc, desc): Sort direction
   * limit `integer`: This is the maximum number of objects that may be returned
@@ -903,7 +903,7 @@ flat.updateOrganizationUser({
 * output [UserDetailsAdmin](#userdetailsadmin)
 
 ### createScore
-Use this API method to **create a new music score in the current User account**. You will need a MusicXML 3 (`vnd.recordare.musicxml` or `vnd.recordare.musicxml+xml`) or a MIDI (`audio/midi`) file to create the new Flat document.
+Use this API method to **create a new music score in the current User account**. You will need a MusicXML 3 (`vnd.recordare.musicxml` or `vnd.recordare.musicxml+xml`), a MIDI (`audio/midi`), Guitar Pro (GP3, GP4, GP5, GPX, GP), PowerTab, TuxGuitar, or MuseScore file to create the new Flat document.
 
 This API call will automatically create the first revision of the document, the score can be modified by the using our web application or by uploading a new revision of this file (`POST /v2/scores/{score}/revisions/{revision}`).
 
@@ -978,8 +978,8 @@ This API method allows you to change the metadata of a score document (e.g. its 
 
 To edit the file itself, create a new revision using the appropriate method (`POST /v2/scores/{score}/revisions/{revision}`).
 
-When editing the `title` of the score, the API metadata are updated directly when calling this method, unlike the data itself.
-The title in the score data will be "lazy" updated at the next score save with the editor or our internal save.
+When editing the `title`, `subtitle`, `composer`, `lyricist` or `licenseText`, the metadatas will be instantly be updated, and a real-time action will be pushed to update the document lazily.
+This pending document modification will be automatically be saved as a new version by either a connected client or our internal versioning service.
 
 
 
@@ -1572,6 +1572,7 @@ flat.getUserScores({
   * returnCreator `string`: The User unique identifier of the teacher who returned the submission
   * returnDate `string`: The date when the teacher returned the work
   * returnFeedback `string`: The feedback associated with the return
+  * state `string` (values: created, turnedIn, returned): State of the submission
   * studentComment `string`: An optionnal comment sent by the student when submitting his work
   * submissionDate `string`: The date when the student submitted his work
 
@@ -1655,28 +1656,28 @@ flat.getUserScores({
     * canShare `boolean`: Whether the current user can modify the sharing settings for the collection
   * collaborators `array`: The list of the collaborators of the collection
     * items [ResourceCollaborator](#resourcecollaborator)
+  * collections `array`: The List of parent collections, which includes all the collections this score is included. Please note that you might not have access to all of them.
+    * items `string`
+  * creationDate `string`: The date when the collection was created
   * htmlUrl `string`: The url where the collection can be viewed in a web browser
   * id `string`: Unique identifier of the collection
   * privacy [CollectionPrivacy](#collectionprivacy)
   * rights [ResourceRights](#resourcerights)
   * sharingKey `string`: The private sharing key of the collection (available when the `privacy` mode is set to `privateLink`)
-  * title [CollectionTitle](#collectiontitle)
+  * title `string`: The title of the collection
   * type [CollectionType](#collectiontype)
   * user [UserPublicSummary](#userpublicsummary)
 
 ### CollectionCreation
 * CollectionCreation `object`
-  * title **required** [CollectionTitle](#collectiontitle)
+  * title **required** `string`: The title of the collection
 
 ### CollectionModification
 * CollectionModification `object`: Edit the collection metadata
-  * title [CollectionTitle](#collectiontitle)
+  * title `string`: The title of the collection
 
 ### CollectionPrivacy
 * CollectionPrivacy `string` (values: private): The collection main privacy mode.
-
-### CollectionTitle
-* CollectionTitle `string`: The title of the collection
 
 ### CollectionType
 * CollectionType `string` (values: root, regular, sharedWithMe, sharedWithGroup, trash): Type of the collection.
@@ -1689,7 +1690,7 @@ flat.getUserScores({
   * param `string`: The related parameter that caused the error
 
 ### FlatLocales
-* FlatLocales `string` (values: en, es, fr, it, pl, ro, nl): The user language
+* FlatLocales `string` (values: en, es, fr, de, it, ja, ko, nl, pl, pt, ro, ru, tr, zh-Hans): The user language
 
 ### GoogleClassroomCoursework
 * GoogleClassroomCoursework `object`: A coursework on Google Classroom
@@ -1730,10 +1731,10 @@ flat.getUserScores({
 * LicenseMode `string` (values: credit, site): Mode of the license
 
 ### LicenseSources
-* LicenseSources `string` (values: order, trial, voucher, distributor, subscription): Source of the license
+* LicenseSources `string` (values: order, trial, voucher, distributor, subscription, appStore): Source of the license
 
 ### LmsName
-* LmsName `string` (values: canvas, moodle, schoology, blackboard, desire2learn, sakai, other): LMS name
+* LmsName `string` (values: canvas, moodle, schoology, blackboard, desire2learn, sakai, schoolbox, other): LMS name
 
 ### LtiCredentials
 * LtiCredentials `object`: A couple of LTI 1.x OAuth credentials
@@ -1797,6 +1798,7 @@ flat.getUserScores({
   * aclAdmin `boolean`: `True` if the current user can manage the current document (i.e. share, delete)
   * aclRead `boolean`: `True` if the current user can read the current document
   * aclWrite `boolean`: `True` if the current user can modify the current document.
+  * isCollaborator `boolean`: `True` if the current user is a collaborator of the current document (direct or via group).
   * collection `string`: If this object is a permission of a collection, this property will contain the unique identifier of the collection
   * group [Group](#group)
   * id `string`: The unique identifier of the permission
@@ -1819,9 +1821,7 @@ flat.getUserScores({
   * aclAdmin `boolean`: `True` if the current user can manage the current document (i.e. share, delete)
   * aclRead `boolean`: `True` if the current user can read the current document
   * aclWrite `boolean`: `True` if the current user can modify the current document.
-
-### ResourceSharingKey
-* ResourceSharingKey `string`: When using the `privacy` mode `privateLink`, this property can be used to set a custom sharing key, otherwise a new key will be generated.
+  * isCollaborator `boolean`: `True` if the current user is a collaborator of the current document (direct or via group).
 
 ### ScoreComment
 * ScoreComment `object`: Comment added on a sheet music
@@ -1847,7 +1847,8 @@ flat.getUserScores({
   * measureUuids **required** `array`: The list of measure UUIds
     * items `string`
   * partUuid **required** `string`: The unique identifier (UUID) of the score part
-  * staffIdx **required** `number`: The identififer of the staff
+  * staffIdx `number`: (Deprecated, use `staffUuid`) The identififer of the staff
+  * staffUuid `string`: The unique identififer (UUID) of the staff
   * startDpq **required** `number`
   * startTimePos **required** `number`
   * stopDpq **required** `number`
@@ -1880,8 +1881,9 @@ flat.getUserScores({
 ### ScoreCreation
 * ScoreCreation `object`: A new created score
   * collection `string`: Unique identifier of a collection where the score will be created.
-  * data [ScoreData](#scoredata)
-  * dataEncoding [ScoreDataEncoding](#scoredataencoding)
+  * data `string`: The data of the score file. It must be a MusicXML 3 file (`vnd.recordare.musicxml` or `vnd.recordare.musicxml+xml`), a MIDI file (`audio/midi`) or a Flat.json (aka Adagio.json) file.
+  * dataEncoding `string` (values: base64): The optional encoding of the score data. This property must match the encoding used for the `data` property.
+  * filename `string`: If this is an imported file, its filename
   * googleDriveFolder `string`: If the user uses Google Drive and this properties is specified, the file will be created in this directory. The currently user creating the file must be granted to write in this directory.
   * privacy **required** [ScorePrivacy](#scoreprivacy)
   * source [ScoreSource](#scoresource)
@@ -1889,12 +1891,6 @@ flat.getUserScores({
 
 ### ScoreCreationType
 * ScoreCreationType `string` (values: original, arrangement, other): The type of creation (an orginal, an arrangement)
-
-### ScoreData
-* ScoreData `string`: The data of the score file. It must be a MusicXML 3 file (`vnd.recordare.musicxml` or `vnd.recordare.musicxml+xml`), a MIDI file (`audio/midi`) or a Flat.json (aka Adagio.json) file.
-
-### ScoreDataEncoding
-* ScoreDataEncoding `string` (values: base64): The optional encoding of the score data. This property must match the encoding used for the `data` property.
 
 ### ScoreDetails
 * ScoreDetails `object`: The score and all its details
@@ -1906,6 +1902,8 @@ flat.getUserScores({
   * user [UserPublicSummary](#userpublicsummary)
   * collaborators `array`: The list of the collaborators of the score
     * items [ResourceCollaborator](#resourcecollaborator)
+  * collections `array`: The List of parent collections, which includes all the collections this score is included. Please note that you might not have access to all of them.
+    * items `string`
   * comments [ScoreCommentsCounts](#scorecommentscounts)
   * composer `string`: Composer of the score
   * creationDate `string`: The date when the score was created
@@ -1946,11 +1944,15 @@ flat.getUserScores({
 
 ### ScoreModification
 * ScoreModification `object`: Edit the score metadata
+  * composer `string`: The composer of the score
   * creationType [ScoreCreationType](#scorecreationtype)
   * description `string`: Description of the creation
   * license [ScoreLicense](#scorelicense)
+  * licenseText `string`: The rights info written on the score
+  * lyricist `string`: The lyricist of the score
   * privacy [ScorePrivacy](#scoreprivacy)
-  * sharingKey [ResourceSharingKey](#resourcesharingkey)
+  * sharingKey `string`: When using the `privacy` mode `privateLink`, this property can be used to set a custom sharing key, otherwise a new key will be generated.
+  * subtitle `string`: The subtitle of the score
   * tags `array`: Tags describing the score
     * items `string`
   * title `string`: The title of the score
@@ -1965,6 +1967,7 @@ flat.getUserScores({
     * items `string`: The list of user identifier or collaborators who worked on this
   * creationDate `string`: The date when this revision was created
   * description `string`: A description associated to the revision
+  * event `string`: The last event (action id) of the revision
   * id `string`: The unique identifier of the revision.
   * statistics [ScoreRevisionStatistics](#scorerevisionstatistics)
   * user `string`: The user identifier who created the revision
@@ -1972,8 +1975,8 @@ flat.getUserScores({
 ### ScoreRevisionCreation
 * ScoreRevisionCreation `object`: A new created revision
   * autosave `boolean`: Must be set to `true` if the revision was created automatically.
-  * data **required** [ScoreData](#scoredata)
-  * dataEncoding [ScoreDataEncoding](#scoredataencoding)
+  * data **required** `string`: The data of the score file. It must be a MusicXML 3 file (`vnd.recordare.musicxml` or `vnd.recordare.musicxml+xml`), a MIDI file (`audio/midi`) or a Flat.json (aka Adagio.json) file.
+  * dataEncoding `string` (values: base64): The optional encoding of the score data. This property must match the encoding used for the `data` property.
   * description `string`: A description associated to the revision
 
 ### ScoreRevisionStatistics
@@ -2053,7 +2056,8 @@ flat.getUserScores({
 ### UserBasics
 * UserBasics `object`
   * id `string`: The user unique identifier
-  * isPowerUser `boolean`: User license status. 'True' if user is an individual Power user
+  * isFlatTeam `boolean`: Will be 'true' if user is part of the Flat Team
+  * isPowerUser `boolean`: User license status. 'true' if user is an individual Power user
   * name `string`: A displayable name for the user
   * picture `string`: User pictue
   * printableName `string`: The name that can be directly printed (name or username)
@@ -2069,7 +2073,8 @@ flat.getUserScores({
 ### UserDetails
 * UserDetails `object`: User details
   * id `string`: The user unique identifier
-  * isPowerUser `boolean`: User license status. 'True' if user is an individual Power user
+  * isFlatTeam `boolean`: Will be 'true' if user is part of the Flat Team
+  * isPowerUser `boolean`: User license status. 'true' if user is an individual Power user
   * name `string`: A displayable name for the user
   * picture `string`: User pictue
   * printableName `string`: The name that can be directly printed (name or username)
@@ -2081,7 +2086,8 @@ flat.getUserScores({
   * bio `string`: User's biography
   * followersCount `integer`: Number of followers the user have
   * followingCount `integer`: Number of people the user follow
-  * instruments [UserInstruments](#userinstruments)
+  * instruments `array`: An array of the instrument identifiers that the user plays.
+    * items `string`
   * likedScoresCount `integer`: Number of the scores liked by the user
   * ownedPublicScoresCount `integer`: Number of public scores the user have
   * profileTheme `string`: Theme (background) for the profile
@@ -2094,7 +2100,8 @@ flat.getUserScores({
 ### UserDetailsAdmin
 * UserDetailsAdmin: User details (view for organization teacher / admin)
   * id `string`: The user unique identifier
-  * isPowerUser `boolean`: User license status. 'True' if user is an individual Power user
+  * isFlatTeam `boolean`: Will be 'true' if user is part of the Flat Team
+  * isPowerUser `boolean`: User license status. 'true' if user is an individual Power user
   * name `string`: A displayable name for the user
   * picture `string`: User pictue
   * printableName `string`: The name that can be directly printed (name or username)
@@ -2112,14 +2119,11 @@ flat.getUserScores({
     * mode [LicenseMode](#licensemode)
     * source [LicenseSources](#licensesources)
 
-### UserInstruments
-* UserInstruments `array`: An array of the instrument identifiers that the user plays.
-  * items `string`
-
 ### UserPublic
 * UserPublic: Public User details
   * id `string`: The user unique identifier
-  * isPowerUser `boolean`: User license status. 'True' if user is an individual Power user
+  * isFlatTeam `boolean`: Will be 'true' if user is part of the Flat Team
+  * isPowerUser `boolean`: User license status. 'true' if user is an individual Power user
   * name `string`: A displayable name for the user
   * picture `string`: User pictue
   * printableName `string`: The name that can be directly printed (name or username)
@@ -2131,7 +2135,8 @@ flat.getUserScores({
   * bio `string`: User's biography
   * followersCount `integer`: Number of followers the user have
   * followingCount `integer`: Number of people the user follow
-  * instruments [UserInstruments](#userinstruments)
+  * instruments `array`: An array of the instrument identifiers that the user plays.
+    * items `string`
   * likedScoresCount `integer`: Number of the scores liked by the user
   * ownedPublicScoresCount `integer`: Number of public scores the user have
   * profileTheme `string`: Theme (background) for the profile
@@ -2140,7 +2145,8 @@ flat.getUserScores({
 ### UserPublicSummary
 * UserPublicSummary: Public User details summary
   * id `string`: The user unique identifier
-  * isPowerUser `boolean`: User license status. 'True' if user is an individual Power user
+  * isFlatTeam `boolean`: Will be 'true' if user is part of the Flat Team
+  * isPowerUser `boolean`: User license status. 'true' if user is an individual Power user
   * name `string`: A displayable name for the user
   * picture `string`: User pictue
   * printableName `string`: The name that can be directly printed (name or username)

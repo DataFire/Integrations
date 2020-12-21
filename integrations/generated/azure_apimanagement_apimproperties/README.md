@@ -15,12 +15,7 @@ let azure_apimanagement_apimproperties = require('@datafire/azure_apimanagement_
   redirect_uri: ""
 });
 
-azure_apimanagement_apimproperties.Property_ListByService({
-  "resourceGroupName": "",
-  "serviceName": "",
-  "api-version": "",
-  "subscriptionId": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -48,17 +43,29 @@ azure_apimanagement_apimproperties.Property_ListByService({
 * input `object`
   * resourceGroupName **required** `string`: The name of the resource group.
   * serviceName **required** `string`: The name of the API Management service.
-  * $filter `string`: | Field | Supported operators    | Supported functions                                   |
+  * $filter `string`: |   Field     |     Usage     |     Supported operators     |     Supported functions     |</br>|-------------|-------------|-------------|-------------|</br>| tags | filter | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith, any, all | </br>| displayName | filter | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith | </br>
   * $top `integer`: Number of records to return.
   * $skip `integer`: Number of records to skip.
   * api-version **required** `string`: Version of the API to be used with the client request.
   * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
 #### Output
-* output [PropertyCollection](#propertycollection)
+* output `object`: Paged Property list representation.
+  * nextLink `string`: Next page link if any.
+  * value `array`: Page values.
+    * items `object`: Property details.
+      * properties `object`: Property Contract properties.
+        * displayName **required** `string`: Unique name of Property. It may contain only letters, digits, period, dash, and underscore characters.
+        * value **required** `string`: Value of the property. Can contain policy expressions. It may not be empty or consist only of whitespace.
+        * secret `boolean`: Determines whether the value is a secret and should be encrypted or not. Default value is false.
+        * tags `array`: Optional tags that when provided can be used to filter the property list.
+          * items `string`
+      * id `string`: Resource ID.
+      * name `string`: Resource name.
+      * type `string`: Resource type for API Management resource.
 
 ### Property_Delete
-Deletes specific property from the the API Management service instance.
+Deletes specific property from the API Management service instance.
 
 
 ```js
@@ -107,7 +114,16 @@ azure_apimanagement_apimproperties.Property_Get({
   * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
 #### Output
-* output [PropertyContract](#propertycontract)
+* output `object`: Property details.
+  * properties `object`: Property Contract properties.
+    * displayName **required** `string`: Unique name of Property. It may contain only letters, digits, period, dash, and underscore characters.
+    * value **required** `string`: Value of the property. Can contain policy expressions. It may not be empty or consist only of whitespace.
+    * secret `boolean`: Determines whether the value is a secret and should be encrypted or not. Default value is false.
+    * tags `array`: Optional tags that when provided can be used to filter the property list.
+      * items `string`
+  * id `string`: Resource ID.
+  * name `string`: Resource name.
+  * type `string`: Resource type for API Management resource.
 
 ### Property_GetEntityTag
 Gets the entity state (Etag) version of the property specified by its identifier.
@@ -155,7 +171,13 @@ azure_apimanagement_apimproperties.Property_Update({
   * resourceGroupName **required** `string`: The name of the resource group.
   * serviceName **required** `string`: The name of the API Management service.
   * propId **required** `string`: Identifier of the property.
-  * parameters **required** [PropertyUpdateParameters](#propertyupdateparameters)
+  * parameters **required** `object`: Property update Parameters.
+    * properties `object`: Property Contract properties.
+      * displayName `string`: Unique name of Property. It may contain only letters, digits, period, dash, and underscore characters.
+      * value `string`: Value of the property. Can contain policy expressions. It may not be empty or consist only of whitespace.
+      * secret `boolean`: Determines whether the value is a secret and should be encrypted or not. Default value is false.
+      * tags `array`: Optional tags that when provided can be used to filter the property list.
+        * items `string`
   * If-Match **required** `string`: ETag of the Entity. ETag should match the current entity state from the header response of the GET request or it should be * for unconditional update.
   * api-version **required** `string`: Version of the API to be used with the client request.
   * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
@@ -183,55 +205,34 @@ azure_apimanagement_apimproperties.Property_CreateOrUpdate({
   * resourceGroupName **required** `string`: The name of the resource group.
   * serviceName **required** `string`: The name of the API Management service.
   * propId **required** `string`: Identifier of the property.
-  * parameters **required** [PropertyContract](#propertycontract)
+  * parameters **required** `object`: Property details.
+    * properties `object`: Property Contract properties.
+      * displayName **required** `string`: Unique name of Property. It may contain only letters, digits, period, dash, and underscore characters.
+      * value **required** `string`: Value of the property. Can contain policy expressions. It may not be empty or consist only of whitespace.
+      * secret `boolean`: Determines whether the value is a secret and should be encrypted or not. Default value is false.
+      * tags `array`: Optional tags that when provided can be used to filter the property list.
+        * items `string`
+    * id `string`: Resource ID.
+    * name `string`: Resource name.
+    * type `string`: Resource type for API Management resource.
   * If-Match `string`: ETag of the Entity. Not required when creating an entity, but required when updating an entity.
   * api-version **required** `string`: Version of the API to be used with the client request.
   * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
 #### Output
-* output [PropertyContract](#propertycontract)
+* output `object`: Property details.
+  * properties `object`: Property Contract properties.
+    * displayName **required** `string`: Unique name of Property. It may contain only letters, digits, period, dash, and underscore characters.
+    * value **required** `string`: Value of the property. Can contain policy expressions. It may not be empty or consist only of whitespace.
+    * secret `boolean`: Determines whether the value is a secret and should be encrypted or not. Default value is false.
+    * tags `array`: Optional tags that when provided can be used to filter the property list.
+      * items `string`
+  * id `string`: Resource ID.
+  * name `string`: Resource name.
+  * type `string`: Resource type for API Management resource.
 
 
 
 ## Definitions
 
-### PropertyCollection
-* PropertyCollection `object`: Paged Property list representation.
-  * nextLink `string`: Next page link if any.
-  * value `array`: Page values.
-    * items [PropertyContract](#propertycontract)
-
-### PropertyContract
-* PropertyContract `object`: Property details.
-  * properties [PropertyContractProperties](#propertycontractproperties)
-  * id `string`: Resource ID.
-  * name `string`: Resource name.
-  * type `string`: Resource type for API Management resource.
-
-### PropertyContractProperties
-* PropertyContractProperties `object`: Property Contract properties.
-  * displayName **required** `string`: Unique name of Property. It may contain only letters, digits, period, dash, and underscore characters.
-  * value **required** `string`: Value of the property. Can contain policy expressions. It may not be empty or consist only of whitespace.
-  * secret `boolean`: Determines whether the value is a secret and should be encrypted or not. Default value is false.
-  * tags `array`: Optional tags that when provided can be used to filter the property list.
-    * items `string`
-
-### PropertyEntityBaseParameters
-* PropertyEntityBaseParameters `object`: Property Entity Base Parameters set.
-  * secret `boolean`: Determines whether the value is a secret and should be encrypted or not. Default value is false.
-  * tags `array`: Optional tags that when provided can be used to filter the property list.
-    * items `string`
-
-### PropertyUpdateParameterProperties
-* PropertyUpdateParameterProperties `object`: Property Contract properties.
-  * displayName `string`: Unique name of Property. It may contain only letters, digits, period, dash, and underscore characters.
-  * value `string`: Value of the property. Can contain policy expressions. It may not be empty or consist only of whitespace.
-  * secret `boolean`: Determines whether the value is a secret and should be encrypted or not. Default value is false.
-  * tags `array`: Optional tags that when provided can be used to filter the property list.
-    * items `string`
-
-### PropertyUpdateParameters
-* PropertyUpdateParameters `object`: Property update Parameters.
-  * properties [PropertyUpdateParameterProperties](#propertyupdateparameterproperties)
-
-
+*This integration has no definitions*

@@ -13,16 +13,14 @@ let amazonaws_states = require('@datafire/amazonaws_states').create({
   region: ""
 });
 
-amazonaws_states.CreateActivity({
-  "name": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
 
 ## Description
 
-<fullname>AWS Step Functions</fullname> <p>AWS Step Functions is a service that lets you coordinate the components of distributed applications and microservices using visual workflows.</p> <p>You can use Step Functions to build applications from individual components, each of which performs a discrete function, or <i>task</i>, allowing you to scale and change applications quickly. Step Functions provides a console that helps visualize the components of your application as a series of steps. Step Functions automatically triggers and tracks each step, and retries steps when there are errors, so your application executes predictably and in the right order every time. Step Functions logs the state of each step, so you can quickly diagnose and debug any issues.</p> <p>Step Functions manages operations and underlying infrastructure to ensure your application is available at any scale. You can run tasks on AWS, your own servers, or any system that has access to AWS. You can access and use Step Functions using the console, the AWS SDKs, or an HTTP API. For more information about Step Functions, see the <i> <a href="http://docs.aws.amazon.com/step-functions/latest/dg/welcome.html">AWS Step Functions Developer Guide</a> </i>.</p>
+<fullname>AWS Step Functions</fullname> <p>AWS Step Functions is a service that lets you coordinate the components of distributed applications and microservices using visual workflows.</p> <p>You can use Step Functions to build applications from individual components, each of which performs a discrete function, or <i>task</i>, allowing you to scale and change applications quickly. Step Functions provides a console that helps visualize the components of your application as a series of steps. Step Functions automatically triggers and tracks each step, and retries steps when there are errors, so your application executes predictably and in the right order every time. Step Functions logs the state of each step, so you can quickly diagnose and debug any issues.</p> <p>Step Functions manages operations and underlying infrastructure to ensure your application is available at any scale. You can run tasks on AWS, your own servers, or any system that has access to AWS. You can access and use Step Functions using the console, the AWS SDKs, or an HTTP API. For more information about Step Functions, see the <i> <a href="https://docs.aws.amazon.com/step-functions/latest/dg/welcome.html">AWS Step Functions Developer Guide</a> </i>.</p>
 
 ## Actions
 
@@ -32,13 +30,15 @@ amazonaws_states.CreateActivity({
 
 ```js
 amazonaws_states.CreateActivity({
-  "name": ""
+  "name": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * name **required** [Name](#name)
+  * tags
+    * items [Tag](#tag)
+  * name **required**
 
 #### Output
 * output [CreateActivityOutput](#createactivityoutput)
@@ -49,17 +49,27 @@ amazonaws_states.CreateActivity({
 
 ```js
 amazonaws_states.CreateStateMachine({
-  "name": "",
-  "definition": "",
-  "roleArn": ""
+  "name": null,
+  "definition": null,
+  "roleArn": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * definition **required** [Definition](#definition)
-  * name **required** [Name](#name)
-  * roleArn **required** [Arn](#arn)
+  * tags
+    * items [Tag](#tag)
+  * definition **required**
+  * loggingConfiguration
+    * destinations
+      * items [LogDestination](#logdestination)
+    * includeExecutionData
+    * level
+  * name **required**
+  * roleArn **required**
+  * tracingConfiguration
+    * enabled
+  * type
 
 #### Output
 * output [CreateStateMachineOutput](#createstatemachineoutput)
@@ -70,13 +80,13 @@ amazonaws_states.CreateStateMachine({
 
 ```js
 amazonaws_states.DeleteActivity({
-  "activityArn": ""
+  "activityArn": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * activityArn **required** [Arn](#arn)
+  * activityArn **required**
 
 #### Output
 * output [DeleteActivityOutput](#deleteactivityoutput)
@@ -87,13 +97,13 @@ amazonaws_states.DeleteActivity({
 
 ```js
 amazonaws_states.DeleteStateMachine({
-  "stateMachineArn": ""
+  "stateMachineArn": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * stateMachineArn **required** [Arn](#arn)
+  * stateMachineArn **required**
 
 #### Output
 * output [DeleteStateMachineOutput](#deletestatemachineoutput)
@@ -104,13 +114,13 @@ amazonaws_states.DeleteStateMachine({
 
 ```js
 amazonaws_states.DescribeActivity({
-  "activityArn": ""
+  "activityArn": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * activityArn **required** [Arn](#arn)
+  * activityArn **required**
 
 #### Output
 * output [DescribeActivityOutput](#describeactivityoutput)
@@ -121,13 +131,13 @@ amazonaws_states.DescribeActivity({
 
 ```js
 amazonaws_states.DescribeExecution({
-  "executionArn": ""
+  "executionArn": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * executionArn **required** [Arn](#arn)
+  * executionArn **required**
 
 #### Output
 * output [DescribeExecutionOutput](#describeexecutionoutput)
@@ -138,13 +148,13 @@ amazonaws_states.DescribeExecution({
 
 ```js
 amazonaws_states.DescribeStateMachine({
-  "stateMachineArn": ""
+  "stateMachineArn": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * stateMachineArn **required** [Arn](#arn)
+  * stateMachineArn **required**
 
 #### Output
 * output [DescribeStateMachineOutput](#describestatemachineoutput)
@@ -155,13 +165,13 @@ amazonaws_states.DescribeStateMachine({
 
 ```js
 amazonaws_states.DescribeStateMachineForExecution({
-  "executionArn": ""
+  "executionArn": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * executionArn **required** [Arn](#arn)
+  * executionArn **required**
 
 #### Output
 * output [DescribeStateMachineForExecutionOutput](#describestatemachineforexecutionoutput)
@@ -172,14 +182,14 @@ amazonaws_states.DescribeStateMachineForExecution({
 
 ```js
 amazonaws_states.GetActivityTask({
-  "activityArn": ""
+  "activityArn": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * activityArn **required** [Arn](#arn)
-  * workerName [Name](#name)
+  * activityArn **required**
+  * workerName
 
 #### Output
 * output [GetActivityTaskOutput](#getactivitytaskoutput)
@@ -190,7 +200,7 @@ amazonaws_states.GetActivityTask({
 
 ```js
 amazonaws_states.GetExecutionHistory({
-  "executionArn": ""
+  "executionArn": null
 }, context)
 ```
 
@@ -198,10 +208,11 @@ amazonaws_states.GetExecutionHistory({
 * input `object`
   * maxResults `string`
   * nextToken `string`
-  * executionArn **required** [Arn](#arn)
-  * maxResults [PageSize](#pagesize)
-  * nextToken [PageToken](#pagetoken)
-  * reverseOrder [ReverseOrder](#reverseorder)
+  * executionArn **required**
+  * includeExecutionData
+  * maxResults
+  * nextToken
+  * reverseOrder
 
 #### Output
 * output [GetExecutionHistoryOutput](#getexecutionhistoryoutput)
@@ -218,8 +229,8 @@ amazonaws_states.ListActivities({}, context)
 * input `object`
   * maxResults `string`
   * nextToken `string`
-  * maxResults [PageSize](#pagesize)
-  * nextToken [PageToken](#pagetoken)
+  * maxResults
+  * nextToken
 
 #### Output
 * output [ListActivitiesOutput](#listactivitiesoutput)
@@ -230,7 +241,7 @@ amazonaws_states.ListActivities({}, context)
 
 ```js
 amazonaws_states.ListExecutions({
-  "stateMachineArn": ""
+  "stateMachineArn": null
 }, context)
 ```
 
@@ -238,10 +249,10 @@ amazonaws_states.ListExecutions({
 * input `object`
   * maxResults `string`
   * nextToken `string`
-  * maxResults [PageSize](#pagesize)
-  * nextToken [PageToken](#pagetoken)
-  * stateMachineArn **required** [Arn](#arn)
-  * statusFilter [ExecutionStatus](#executionstatus)
+  * maxResults
+  * nextToken
+  * stateMachineArn **required**
+  * statusFilter
 
 #### Output
 * output [ListExecutionsOutput](#listexecutionsoutput)
@@ -258,11 +269,28 @@ amazonaws_states.ListStateMachines({}, context)
 * input `object`
   * maxResults `string`
   * nextToken `string`
-  * maxResults [PageSize](#pagesize)
-  * nextToken [PageToken](#pagetoken)
+  * maxResults
+  * nextToken
 
 #### Output
 * output [ListStateMachinesOutput](#liststatemachinesoutput)
+
+### ListTagsForResource
+
+
+
+```js
+amazonaws_states.ListTagsForResource({
+  "resourceArn": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * resourceArn **required**
+
+#### Output
+* output [ListTagsForResourceOutput](#listtagsforresourceoutput)
 
 ### SendTaskFailure
 
@@ -270,15 +298,15 @@ amazonaws_states.ListStateMachines({}, context)
 
 ```js
 amazonaws_states.SendTaskFailure({
-  "taskToken": ""
+  "taskToken": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * cause [Cause](#cause)
-  * error [Error](#error)
-  * taskToken **required** [TaskToken](#tasktoken)
+  * cause
+  * error
+  * taskToken **required**
 
 #### Output
 * output [SendTaskFailureOutput](#sendtaskfailureoutput)
@@ -289,13 +317,13 @@ amazonaws_states.SendTaskFailure({
 
 ```js
 amazonaws_states.SendTaskHeartbeat({
-  "taskToken": ""
+  "taskToken": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * taskToken **required** [TaskToken](#tasktoken)
+  * taskToken **required**
 
 #### Output
 * output [SendTaskHeartbeatOutput](#sendtaskheartbeatoutput)
@@ -306,15 +334,15 @@ amazonaws_states.SendTaskHeartbeat({
 
 ```js
 amazonaws_states.SendTaskSuccess({
-  "taskToken": "",
-  "output": ""
+  "taskToken": null,
+  "output": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * output **required** [Data](#data)
-  * taskToken **required** [TaskToken](#tasktoken)
+  * output **required**
+  * taskToken **required**
 
 #### Output
 * output [SendTaskSuccessOutput](#sendtasksuccessoutput)
@@ -325,18 +353,39 @@ amazonaws_states.SendTaskSuccess({
 
 ```js
 amazonaws_states.StartExecution({
-  "stateMachineArn": ""
+  "stateMachineArn": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * input [Data](#data)
-  * name [Name](#name)
-  * stateMachineArn **required** [Arn](#arn)
+  * input
+  * name
+  * stateMachineArn **required**
+  * traceHeader
 
 #### Output
 * output [StartExecutionOutput](#startexecutionoutput)
+
+### StartSyncExecution
+
+
+
+```js
+amazonaws_states.StartSyncExecution({
+  "stateMachineArn": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * input
+  * name
+  * stateMachineArn **required**
+  * traceHeader
+
+#### Output
+* output [StartSyncExecutionOutput](#startsyncexecutionoutput)
 
 ### StopExecution
 
@@ -344,18 +393,58 @@ amazonaws_states.StartExecution({
 
 ```js
 amazonaws_states.StopExecution({
-  "executionArn": ""
+  "executionArn": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * cause [Cause](#cause)
-  * error [Error](#error)
-  * executionArn **required** [Arn](#arn)
+  * cause
+  * error
+  * executionArn **required**
 
 #### Output
 * output [StopExecutionOutput](#stopexecutionoutput)
+
+### TagResource
+
+
+
+```js
+amazonaws_states.TagResource({
+  "resourceArn": null,
+  "tags": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * tags **required**
+    * items [Tag](#tag)
+  * resourceArn **required**
+
+#### Output
+* output [TagResourceOutput](#tagresourceoutput)
+
+### UntagResource
+
+
+
+```js
+amazonaws_states.UntagResource({
+  "resourceArn": null,
+  "tagKeys": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * resourceArn **required**
+  * tagKeys **required**
+    * items [TagKey](#tagkey)
+
+#### Output
+* output [UntagResourceOutput](#untagresourceoutput)
 
 ### UpdateStateMachine
 
@@ -363,15 +452,22 @@ amazonaws_states.StopExecution({
 
 ```js
 amazonaws_states.UpdateStateMachine({
-  "stateMachineArn": ""
+  "stateMachineArn": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * definition [Definition](#definition)
-  * roleArn [Arn](#arn)
-  * stateMachineArn **required** [Arn](#arn)
+  * definition
+  * loggingConfiguration
+    * destinations
+      * items [LogDestination](#logdestination)
+    * includeExecutionData
+    * level
+  * roleArn
+  * stateMachineArn **required**
+  * tracingConfiguration
+    * enabled
 
 #### Output
 * output [UpdateStateMachineOutput](#updatestatemachineoutput)
@@ -381,17 +477,15 @@ amazonaws_states.UpdateStateMachine({
 ## Definitions
 
 ### ActivityDoesNotExist
-* ActivityDoesNotExist `object`: The specified activity does not exist.
-  * message [ErrorMessage](#errormessage)
+
 
 ### ActivityFailedEventDetails
-* ActivityFailedEventDetails `object`: Contains details about an activity which failed during an execution.
-  * cause [Cause](#cause)
-  * error [Error](#error)
+* ActivityFailedEventDetails `object`: Contains details about an activity that failed during an execution.
+  * cause
+  * error
 
 ### ActivityLimitExceeded
-* ActivityLimitExceeded `object`: The maximum number of activities has been reached. Existing activities must be deleted before a new activity can be created.
-  * message [ErrorMessage](#errormessage)
+
 
 ### ActivityList
 * ActivityList `array`
@@ -399,165 +493,200 @@ amazonaws_states.UpdateStateMachine({
 
 ### ActivityListItem
 * ActivityListItem `object`: Contains details about an activity.
-  * activityArn **required** [Arn](#arn)
-  * creationDate **required** [Timestamp](#timestamp)
-  * name **required** [Name](#name)
+  * activityArn **required**
+  * creationDate **required**
+  * name **required**
 
 ### ActivityScheduleFailedEventDetails
-* ActivityScheduleFailedEventDetails `object`: Contains details about an activity schedule failure which occurred during an execution.
-  * cause [Cause](#cause)
-  * error [Error](#error)
+* ActivityScheduleFailedEventDetails `object`: Contains details about an activity schedule failure that occurred during an execution.
+  * cause
+  * error
 
 ### ActivityScheduledEventDetails
 * ActivityScheduledEventDetails `object`: Contains details about an activity scheduled during an execution.
-  * heartbeatInSeconds [TimeoutInSeconds](#timeoutinseconds)
-  * input [Data](#data)
-  * resource **required** [Arn](#arn)
-  * timeoutInSeconds [TimeoutInSeconds](#timeoutinseconds)
+  * heartbeatInSeconds
+  * input
+  * inputDetails
+    * truncated
+  * resource **required**
+  * timeoutInSeconds
 
 ### ActivityStartedEventDetails
 * ActivityStartedEventDetails `object`: Contains details about the start of an activity during an execution.
-  * workerName [Identity](#identity)
+  * workerName
 
 ### ActivitySucceededEventDetails
-* ActivitySucceededEventDetails `object`: Contains details about an activity which successfully terminated during an execution.
-  * output [Data](#data)
+* ActivitySucceededEventDetails `object`: Contains details about an activity that successfully terminated during an execution.
+  * output
+  * outputDetails
+    * truncated
 
 ### ActivityTimedOutEventDetails
-* ActivityTimedOutEventDetails `object`: Contains details about an activity timeout which occurred during an execution.
-  * cause [Cause](#cause)
-  * error [Error](#error)
+* ActivityTimedOutEventDetails `object`: Contains details about an activity timeout that occurred during an execution.
+  * cause
+  * error
 
 ### ActivityWorkerLimitExceeded
-* ActivityWorkerLimitExceeded `object`: The maximum number of workers concurrently polling for activity tasks has been reached.
-  * message [ErrorMessage](#errormessage)
+
 
 ### Arn
 * Arn `string`
 
-### Cause
-* Cause `string`
+### BilledDuration
+* BilledDuration `integer`
+
+### BilledMemoryUsed
+* BilledMemoryUsed `integer`
+
+### BillingDetails
+* BillingDetails `object`: An object that describes workflow billing details.
+  * billedDurationInMilliseconds
+  * billedMemoryUsedInMB
+
+### CloudWatchEventsExecutionDataDetails
+* CloudWatchEventsExecutionDataDetails `object`: Provides details about execution input or output.
+  * included
+
+### CloudWatchLogsLogGroup
+* CloudWatchLogsLogGroup `object`: <p/>
+  * logGroupArn
+
+### ConnectorParameters
+* ConnectorParameters `string`
 
 ### CreateActivityInput
 * CreateActivityInput `object`
-  * name **required** [Name](#name)
+  * tags
+    * items [Tag](#tag)
+  * name **required**
 
 ### CreateActivityOutput
 * CreateActivityOutput `object`
-  * activityArn **required** [Arn](#arn)
-  * creationDate **required** [Timestamp](#timestamp)
+  * activityArn **required**
+  * creationDate **required**
 
 ### CreateStateMachineInput
 * CreateStateMachineInput `object`
-  * definition **required** [Definition](#definition)
-  * name **required** [Name](#name)
-  * roleArn **required** [Arn](#arn)
+  * tags
+    * items [Tag](#tag)
+  * definition **required**
+  * loggingConfiguration
+    * destinations
+      * items [LogDestination](#logdestination)
+    * includeExecutionData
+    * level
+  * name **required**
+  * roleArn **required**
+  * tracingConfiguration
+    * enabled
+  * type
 
 ### CreateStateMachineOutput
 * CreateStateMachineOutput `object`
-  * creationDate **required** [Timestamp](#timestamp)
-  * stateMachineArn **required** [Arn](#arn)
-
-### Data
-* Data `string`
+  * creationDate **required**
+  * stateMachineArn **required**
 
 ### Definition
 * Definition `string`
 
 ### DeleteActivityInput
 * DeleteActivityInput `object`
-  * activityArn **required** [Arn](#arn)
+  * activityArn **required**
 
 ### DeleteActivityOutput
 * DeleteActivityOutput `object`
 
 ### DeleteStateMachineInput
 * DeleteStateMachineInput `object`
-  * stateMachineArn **required** [Arn](#arn)
+  * stateMachineArn **required**
 
 ### DeleteStateMachineOutput
 * DeleteStateMachineOutput `object`
 
 ### DescribeActivityInput
 * DescribeActivityInput `object`
-  * activityArn **required** [Arn](#arn)
+  * activityArn **required**
 
 ### DescribeActivityOutput
 * DescribeActivityOutput `object`
-  * activityArn **required** [Arn](#arn)
-  * creationDate **required** [Timestamp](#timestamp)
-  * name **required** [Name](#name)
+  * activityArn **required**
+  * creationDate **required**
+  * name **required**
 
 ### DescribeExecutionInput
 * DescribeExecutionInput `object`
-  * executionArn **required** [Arn](#arn)
+  * executionArn **required**
 
 ### DescribeExecutionOutput
 * DescribeExecutionOutput `object`
-  * executionArn **required** [Arn](#arn)
-  * input **required** [Data](#data)
-  * name [Name](#name)
-  * output [Data](#data)
-  * startDate **required** [Timestamp](#timestamp)
-  * stateMachineArn **required** [Arn](#arn)
-  * status **required** [ExecutionStatus](#executionstatus)
-  * stopDate [Timestamp](#timestamp)
+  * executionArn **required**
+  * input
+  * inputDetails [CloudWatchEventsExecutionDataDetails](#cloudwatcheventsexecutiondatadetails)
+  * name
+  * output
+  * outputDetails [CloudWatchEventsExecutionDataDetails](#cloudwatcheventsexecutiondatadetails)
+  * startDate **required**
+  * stateMachineArn **required**
+  * status **required**
+  * stopDate
+  * traceHeader
 
 ### DescribeStateMachineForExecutionInput
 * DescribeStateMachineForExecutionInput `object`
-  * executionArn **required** [Arn](#arn)
+  * executionArn **required**
 
 ### DescribeStateMachineForExecutionOutput
 * DescribeStateMachineForExecutionOutput `object`
-  * definition **required** [Definition](#definition)
-  * name **required** [Name](#name)
-  * roleArn **required** [Arn](#arn)
-  * stateMachineArn **required** [Arn](#arn)
-  * updateDate **required** [Timestamp](#timestamp)
+  * definition **required**
+  * loggingConfiguration [LoggingConfiguration](#loggingconfiguration)
+  * name **required**
+  * roleArn **required**
+  * stateMachineArn **required**
+  * tracingConfiguration
+    * enabled
+  * updateDate **required**
 
 ### DescribeStateMachineInput
 * DescribeStateMachineInput `object`
-  * stateMachineArn **required** [Arn](#arn)
+  * stateMachineArn **required**
 
 ### DescribeStateMachineOutput
 * DescribeStateMachineOutput `object`
-  * creationDate **required** [Timestamp](#timestamp)
-  * definition **required** [Definition](#definition)
-  * name **required** [Name](#name)
-  * roleArn **required** [Arn](#arn)
-  * stateMachineArn **required** [Arn](#arn)
-  * status [StateMachineStatus](#statemachinestatus)
+  * creationDate **required**
+  * definition **required**
+  * loggingConfiguration [LoggingConfiguration](#loggingconfiguration)
+  * name **required**
+  * roleArn **required**
+  * stateMachineArn **required**
+  * status
+  * tracingConfiguration
+    * enabled
+  * type **required**
 
-### Error
-* Error `string`
-
-### ErrorMessage
-* ErrorMessage `string`
+### Enabled
+* Enabled `boolean`
 
 ### EventId
 * EventId `integer`
 
 ### ExecutionAbortedEventDetails
 * ExecutionAbortedEventDetails `object`: Contains details about an abort of an execution.
-  * cause [Cause](#cause)
-  * error [Error](#error)
+  * cause
+  * error
 
 ### ExecutionAlreadyExists
-* ExecutionAlreadyExists `object`: <p>The execution has the same <code>name</code> as another execution (but a different <code>input</code>).</p> <note> <p>Executions with the same <code>name</code> and <code>input</code> are considered idempotent.</p> </note>
-  * message [ErrorMessage](#errormessage)
+
 
 ### ExecutionDoesNotExist
-* ExecutionDoesNotExist `object`: The specified execution does not exist.
-  * message [ErrorMessage](#errormessage)
+
 
 ### ExecutionFailedEventDetails
 * ExecutionFailedEventDetails `object`: Contains details about an execution failure event.
-  * cause [Cause](#cause)
-  * error [Error](#error)
+  * cause
+  * error
 
 ### ExecutionLimitExceeded
-* ExecutionLimitExceeded `object`: The maximum number of running executions has been reached. Running executions must end or be stopped before a new execution can be started.
-  * message [ErrorMessage](#errormessage)
+
 
 ### ExecutionList
 * ExecutionList `array`
@@ -565,56 +694,64 @@ amazonaws_states.UpdateStateMachine({
 
 ### ExecutionListItem
 * ExecutionListItem `object`: Contains details about an execution.
-  * executionArn **required** [Arn](#arn)
-  * name **required** [Name](#name)
-  * startDate **required** [Timestamp](#timestamp)
-  * stateMachineArn **required** [Arn](#arn)
-  * status **required** [ExecutionStatus](#executionstatus)
-  * stopDate [Timestamp](#timestamp)
+  * executionArn **required**
+  * name **required**
+  * startDate **required**
+  * stateMachineArn **required**
+  * status **required**
+  * stopDate
 
 ### ExecutionStartedEventDetails
 * ExecutionStartedEventDetails `object`: Contains details about the start of the execution.
-  * input [Data](#data)
-  * roleArn [Arn](#arn)
+  * input
+  * inputDetails
+    * truncated
+  * roleArn
 
 ### ExecutionStatus
 * ExecutionStatus `string` (values: RUNNING, SUCCEEDED, FAILED, TIMED_OUT, ABORTED)
 
 ### ExecutionSucceededEventDetails
 * ExecutionSucceededEventDetails `object`: Contains details about the successful termination of the execution.
-  * output [Data](#data)
+  * output
+  * outputDetails
+    * truncated
 
 ### ExecutionTimedOutEventDetails
-* ExecutionTimedOutEventDetails `object`: Contains details about the execution timeout which occurred during the execution.
-  * cause [Cause](#cause)
-  * error [Error](#error)
+* ExecutionTimedOutEventDetails `object`: Contains details about the execution timeout that occurred during the execution.
+  * cause
+  * error
 
 ### GetActivityTaskInput
 * GetActivityTaskInput `object`
-  * activityArn **required** [Arn](#arn)
-  * workerName [Name](#name)
+  * activityArn **required**
+  * workerName
 
 ### GetActivityTaskOutput
 * GetActivityTaskOutput `object`
-  * input [Data](#data)
-  * taskToken [TaskToken](#tasktoken)
+  * input
+  * taskToken
 
 ### GetExecutionHistoryInput
 * GetExecutionHistoryInput `object`
-  * executionArn **required** [Arn](#arn)
-  * maxResults [PageSize](#pagesize)
-  * nextToken [PageToken](#pagetoken)
-  * reverseOrder [ReverseOrder](#reverseorder)
+  * executionArn **required**
+  * includeExecutionData
+  * maxResults
+  * nextToken
+  * reverseOrder
 
 ### GetExecutionHistoryOutput
 * GetExecutionHistoryOutput `object`
-  * events **required** [HistoryEventList](#historyeventlist)
-  * nextToken [PageToken](#pagetoken)
+  * events **required**
+    * items [HistoryEvent](#historyevent)
+  * nextToken
 
 ### HistoryEvent
 * HistoryEvent `object`: Contains details about the events of an execution.
   * activityFailedEventDetails [ActivityFailedEventDetails](#activityfailedeventdetails)
-  * activityScheduleFailedEventDetails [ActivityScheduleFailedEventDetails](#activityschedulefailedeventdetails)
+  * activityScheduleFailedEventDetails
+    * cause
+    * error
   * activityScheduledEventDetails [ActivityScheduledEventDetails](#activityscheduledeventdetails)
   * activityStartedEventDetails [ActivityStartedEventDetails](#activitystartedeventdetails)
   * activitySucceededEventDetails [ActivitySucceededEventDetails](#activitysucceededeventdetails)
@@ -624,118 +761,234 @@ amazonaws_states.UpdateStateMachine({
   * executionStartedEventDetails [ExecutionStartedEventDetails](#executionstartedeventdetails)
   * executionSucceededEventDetails [ExecutionSucceededEventDetails](#executionsucceededeventdetails)
   * executionTimedOutEventDetails [ExecutionTimedOutEventDetails](#executiontimedouteventdetails)
-  * id **required** [EventId](#eventid)
+  * id **required**
   * lambdaFunctionFailedEventDetails [LambdaFunctionFailedEventDetails](#lambdafunctionfailedeventdetails)
   * lambdaFunctionScheduleFailedEventDetails [LambdaFunctionScheduleFailedEventDetails](#lambdafunctionschedulefailedeventdetails)
   * lambdaFunctionScheduledEventDetails [LambdaFunctionScheduledEventDetails](#lambdafunctionscheduledeventdetails)
-  * lambdaFunctionStartFailedEventDetails [LambdaFunctionStartFailedEventDetails](#lambdafunctionstartfailedeventdetails)
-  * lambdaFunctionSucceededEventDetails [LambdaFunctionSucceededEventDetails](#lambdafunctionsucceededeventdetails)
+  * lambdaFunctionStartFailedEventDetails
+    * cause
+    * error
+  * lambdaFunctionSucceededEventDetails
+    * output
+    * outputDetails
+      * truncated
   * lambdaFunctionTimedOutEventDetails [LambdaFunctionTimedOutEventDetails](#lambdafunctiontimedouteventdetails)
-  * previousEventId [EventId](#eventid)
+  * mapIterationAbortedEventDetails
+    * index
+    * name
+  * mapIterationFailedEventDetails
+    * index
+    * name
+  * mapIterationStartedEventDetails
+    * index
+    * name
+  * mapIterationSucceededEventDetails
+    * index
+    * name
+  * mapStateStartedEventDetails
+    * length
+  * previousEventId
   * stateEnteredEventDetails [StateEnteredEventDetails](#stateenteredeventdetails)
   * stateExitedEventDetails [StateExitedEventDetails](#stateexitedeventdetails)
-  * timestamp **required** [Timestamp](#timestamp)
-  * type **required** [HistoryEventType](#historyeventtype)
+  * taskFailedEventDetails
+    * cause
+    * error
+    * resource **required**
+    * resourceType **required**
+  * taskScheduledEventDetails
+    * parameters **required**
+    * heartbeatInSeconds
+    * region **required**
+    * resource **required**
+    * resourceType **required**
+    * timeoutInSeconds
+  * taskStartFailedEventDetails
+    * cause
+    * error
+    * resource **required**
+    * resourceType **required**
+  * taskStartedEventDetails
+    * resource **required**
+    * resourceType **required**
+  * taskSubmitFailedEventDetails
+    * cause
+    * error
+    * resource **required**
+    * resourceType **required**
+  * taskSubmittedEventDetails
+    * output
+    * outputDetails
+      * truncated
+    * resource **required**
+    * resourceType **required**
+  * taskSucceededEventDetails
+    * output
+    * outputDetails
+      * truncated
+    * resource **required**
+    * resourceType **required**
+  * taskTimedOutEventDetails
+    * cause
+    * error
+    * resource **required**
+    * resourceType **required**
+  * timestamp **required**
+  * type **required**
+
+### HistoryEventExecutionDataDetails
+* HistoryEventExecutionDataDetails `object`: Provides details about input or output in an execution history event.
+  * truncated
 
 ### HistoryEventList
-* HistoryEventList `array`: Contains details about the events which occurred during an execution.
+* HistoryEventList `array`: Contains details about the events that occurred during an execution.
   * items [HistoryEvent](#historyevent)
 
 ### HistoryEventType
-* HistoryEventType `string` (values: ActivityFailed, ActivityScheduleFailed, ActivityScheduled, ActivityStarted, ActivitySucceeded, ActivityTimedOut, ChoiceStateEntered, ChoiceStateExited, ExecutionFailed, ExecutionStarted, ExecutionSucceeded, ExecutionAborted, ExecutionTimedOut, FailStateEntered, LambdaFunctionFailed, LambdaFunctionScheduleFailed, LambdaFunctionScheduled, LambdaFunctionStartFailed, LambdaFunctionStarted, LambdaFunctionSucceeded, LambdaFunctionTimedOut, SucceedStateEntered, SucceedStateExited, TaskStateAborted, TaskStateEntered, TaskStateExited, PassStateEntered, PassStateExited, ParallelStateAborted, ParallelStateEntered, ParallelStateExited, ParallelStateFailed, ParallelStateStarted, ParallelStateSucceeded, WaitStateAborted, WaitStateEntered, WaitStateExited)
+* HistoryEventType `string` (values: ActivityFailed, ActivityScheduled, ActivityScheduleFailed, ActivityStarted, ActivitySucceeded, ActivityTimedOut, ChoiceStateEntered, ChoiceStateExited, ExecutionAborted, ExecutionFailed, ExecutionStarted, ExecutionSucceeded, ExecutionTimedOut, FailStateEntered, LambdaFunctionFailed, LambdaFunctionScheduled, LambdaFunctionScheduleFailed, LambdaFunctionStarted, LambdaFunctionStartFailed, LambdaFunctionSucceeded, LambdaFunctionTimedOut, MapIterationAborted, MapIterationFailed, MapIterationStarted, MapIterationSucceeded, MapStateAborted, MapStateEntered, MapStateExited, MapStateFailed, MapStateStarted, MapStateSucceeded, ParallelStateAborted, ParallelStateEntered, ParallelStateExited, ParallelStateFailed, ParallelStateStarted, ParallelStateSucceeded, PassStateEntered, PassStateExited, SucceedStateEntered, SucceedStateExited, TaskFailed, TaskScheduled, TaskStarted, TaskStartFailed, TaskStateAborted, TaskStateEntered, TaskStateExited, TaskSubmitFailed, TaskSubmitted, TaskSucceeded, TaskTimedOut, WaitStateAborted, WaitStateEntered, WaitStateExited)
 
 ### Identity
 * Identity `string`
 
+### IncludeExecutionData
+* IncludeExecutionData `boolean`
+
+### IncludeExecutionDataGetExecutionHistory
+* IncludeExecutionDataGetExecutionHistory `boolean`
+
 ### InvalidArn
-* InvalidArn `object`: The provided Amazon Resource Name (ARN) is invalid.
-  * message [ErrorMessage](#errormessage)
+
 
 ### InvalidDefinition
-* InvalidDefinition `object`: The provided Amazon States Language definition is invalid.
-  * message [ErrorMessage](#errormessage)
+
 
 ### InvalidExecutionInput
-* InvalidExecutionInput `object`: The provided JSON input data is invalid.
-  * message [ErrorMessage](#errormessage)
+
+
+### InvalidLoggingConfiguration
+
 
 ### InvalidName
-* InvalidName `object`: The provided name is invalid.
-  * message [ErrorMessage](#errormessage)
+
 
 ### InvalidOutput
-* InvalidOutput `object`: The provided JSON output data is invalid.
-  * message [ErrorMessage](#errormessage)
+
 
 ### InvalidToken
-* InvalidToken `object`: The provided token is invalid.
-  * message [ErrorMessage](#errormessage)
+
+
+### InvalidTracingConfiguration
+
 
 ### LambdaFunctionFailedEventDetails
-* LambdaFunctionFailedEventDetails `object`: Contains details about a lambda function which failed during an execution.
-  * cause [Cause](#cause)
-  * error [Error](#error)
+* LambdaFunctionFailedEventDetails `object`: Contains details about a lambda function that failed during an execution.
+  * cause
+  * error
 
 ### LambdaFunctionScheduleFailedEventDetails
-* LambdaFunctionScheduleFailedEventDetails `object`: Contains details about a failed lambda function schedule event which occurred during an execution.
-  * cause [Cause](#cause)
-  * error [Error](#error)
+* LambdaFunctionScheduleFailedEventDetails `object`: Contains details about a failed lambda function schedule event that occurred during an execution.
+  * cause
+  * error
 
 ### LambdaFunctionScheduledEventDetails
 * LambdaFunctionScheduledEventDetails `object`: Contains details about a lambda function scheduled during an execution.
-  * input [Data](#data)
-  * resource **required** [Arn](#arn)
-  * timeoutInSeconds [TimeoutInSeconds](#timeoutinseconds)
+  * input
+  * inputDetails
+    * truncated
+  * resource **required**
+  * timeoutInSeconds
 
 ### LambdaFunctionStartFailedEventDetails
-* LambdaFunctionStartFailedEventDetails `object`: Contains details about a lambda function which failed to start during an execution.
-  * cause [Cause](#cause)
-  * error [Error](#error)
+* LambdaFunctionStartFailedEventDetails `object`: Contains details about a lambda function that failed to start during an execution.
+  * cause
+  * error
 
 ### LambdaFunctionSucceededEventDetails
-* LambdaFunctionSucceededEventDetails `object`: Contains details about a lambda function which successfully terminated during an execution.
-  * output [Data](#data)
+* LambdaFunctionSucceededEventDetails `object`: Contains details about a lambda function that successfully terminated during an execution.
+  * output
+  * outputDetails
+    * truncated
 
 ### LambdaFunctionTimedOutEventDetails
-* LambdaFunctionTimedOutEventDetails `object`: Contains details about a lambda function timeout which occurred during an execution.
-  * cause [Cause](#cause)
-  * error [Error](#error)
+* LambdaFunctionTimedOutEventDetails `object`: Contains details about a lambda function timeout that occurred during an execution.
+  * cause
+  * error
 
 ### ListActivitiesInput
 * ListActivitiesInput `object`
-  * maxResults [PageSize](#pagesize)
-  * nextToken [PageToken](#pagetoken)
+  * maxResults
+  * nextToken
 
 ### ListActivitiesOutput
 * ListActivitiesOutput `object`
-  * activities **required** [ActivityList](#activitylist)
-  * nextToken [PageToken](#pagetoken)
+  * activities **required**
+    * items [ActivityListItem](#activitylistitem)
+  * nextToken
 
 ### ListExecutionsInput
 * ListExecutionsInput `object`
-  * maxResults [PageSize](#pagesize)
-  * nextToken [PageToken](#pagetoken)
-  * stateMachineArn **required** [Arn](#arn)
-  * statusFilter [ExecutionStatus](#executionstatus)
+  * maxResults
+  * nextToken
+  * stateMachineArn **required**
+  * statusFilter
 
 ### ListExecutionsOutput
 * ListExecutionsOutput `object`
-  * executions **required** [ExecutionList](#executionlist)
-  * nextToken [PageToken](#pagetoken)
+  * executions **required**
+    * items [ExecutionListItem](#executionlistitem)
+  * nextToken
+
+### ListExecutionsPageToken
+* ListExecutionsPageToken `string`
 
 ### ListStateMachinesInput
 * ListStateMachinesInput `object`
-  * maxResults [PageSize](#pagesize)
-  * nextToken [PageToken](#pagetoken)
+  * maxResults
+  * nextToken
 
 ### ListStateMachinesOutput
 * ListStateMachinesOutput `object`
-  * nextToken [PageToken](#pagetoken)
+  * nextToken
   * stateMachines **required** [StateMachineList](#statemachinelist)
 
+### ListTagsForResourceInput
+* ListTagsForResourceInput `object`
+  * resourceArn **required**
+
+### ListTagsForResourceOutput
+* ListTagsForResourceOutput `object`
+  * tags
+    * items [Tag](#tag)
+
+### LogDestination
+* LogDestination `object`: <p/>
+  * cloudWatchLogsLogGroup
+    * logGroupArn
+
+### LogDestinationList
+* LogDestinationList `array`
+  * items [LogDestination](#logdestination)
+
+### LogLevel
+* LogLevel `string` (values: ALL, ERROR, FATAL, OFF)
+
+### LoggingConfiguration
+* LoggingConfiguration `object`: The <code>LoggingConfiguration</code> data type is used to set CloudWatch Logs options.
+  * destinations
+    * items [LogDestination](#logdestination)
+  * includeExecutionData
+  * level
+
+### MapIterationEventDetails
+* MapIterationEventDetails `object`: Contains details about an iteration of a Map state.
+  * index
+  * name
+
+### MapStateStartedEventDetails
+* MapStateStartedEventDetails `object`: Details about a Map state that was started.
+  * length
+
 ### MissingRequiredParameter
-* MissingRequiredParameter `object`: Request is missing a required parameter. This error occurs if both <code>definition</code> and <code>roleArn</code> are not specified.
-  * message [ErrorMessage](#errormessage)
+
 
 ### Name
 * Name `string`
@@ -746,69 +999,111 @@ amazonaws_states.UpdateStateMachine({
 ### PageToken
 * PageToken `string`
 
+### ResourceNotFound
+
+
 ### ReverseOrder
 * ReverseOrder `boolean`
 
 ### SendTaskFailureInput
 * SendTaskFailureInput `object`
-  * cause [Cause](#cause)
-  * error [Error](#error)
-  * taskToken **required** [TaskToken](#tasktoken)
+  * cause
+  * error
+  * taskToken **required**
 
 ### SendTaskFailureOutput
 * SendTaskFailureOutput `object`
 
 ### SendTaskHeartbeatInput
 * SendTaskHeartbeatInput `object`
-  * taskToken **required** [TaskToken](#tasktoken)
+  * taskToken **required**
 
 ### SendTaskHeartbeatOutput
 * SendTaskHeartbeatOutput `object`
 
 ### SendTaskSuccessInput
 * SendTaskSuccessInput `object`
-  * output **required** [Data](#data)
-  * taskToken **required** [TaskToken](#tasktoken)
+  * output **required**
+  * taskToken **required**
 
 ### SendTaskSuccessOutput
 * SendTaskSuccessOutput `object`
 
+### SensitiveCause
+* SensitiveCause `string`
+
+### SensitiveData
+* SensitiveData `string`
+
+### SensitiveDataJobInput
+* SensitiveDataJobInput `string`
+
+### SensitiveError
+* SensitiveError `string`
+
 ### StartExecutionInput
 * StartExecutionInput `object`
-  * input [Data](#data)
-  * name [Name](#name)
-  * stateMachineArn **required** [Arn](#arn)
+  * input
+  * name
+  * stateMachineArn **required**
+  * traceHeader
 
 ### StartExecutionOutput
 * StartExecutionOutput `object`
-  * executionArn **required** [Arn](#arn)
-  * startDate **required** [Timestamp](#timestamp)
+  * executionArn **required**
+  * startDate **required**
+
+### StartSyncExecutionInput
+* StartSyncExecutionInput `object`
+  * input
+  * name
+  * stateMachineArn **required**
+  * traceHeader
+
+### StartSyncExecutionOutput
+* StartSyncExecutionOutput `object`
+  * billingDetails
+    * billedDurationInMilliseconds
+    * billedMemoryUsedInMB
+  * cause
+  * error
+  * executionArn **required**
+  * input
+  * inputDetails [CloudWatchEventsExecutionDataDetails](#cloudwatcheventsexecutiondatadetails)
+  * name
+  * output
+  * outputDetails [CloudWatchEventsExecutionDataDetails](#cloudwatcheventsexecutiondatadetails)
+  * startDate **required**
+  * stateMachineArn
+  * status **required**
+  * stopDate **required**
+  * traceHeader
 
 ### StateEnteredEventDetails
 * StateEnteredEventDetails `object`: Contains details about a state entered during an execution.
-  * input [Data](#data)
-  * name **required** [Name](#name)
+  * input
+  * inputDetails
+    * truncated
+  * name **required**
 
 ### StateExitedEventDetails
 * StateExitedEventDetails `object`: Contains details about an exit from a state during an execution.
-  * name **required** [Name](#name)
-  * output [Data](#data)
+  * name **required**
+  * output
+  * outputDetails
+    * truncated
 
 ### StateMachineAlreadyExists
-* StateMachineAlreadyExists `object`: A state machine with the same name but a different definition or role ARN already exists.
-  * message [ErrorMessage](#errormessage)
+
 
 ### StateMachineDeleting
-* StateMachineDeleting `object`: The specified state machine is being deleted.
-  * message [ErrorMessage](#errormessage)
+
 
 ### StateMachineDoesNotExist
-* StateMachineDoesNotExist `object`: The specified state machine does not exist.
-  * message [ErrorMessage](#errormessage)
+
 
 ### StateMachineLimitExceeded
-* StateMachineLimitExceeded `object`: The maximum number of state machines has been reached. Existing state machines must be deleted before a new state machine can be created.
-  * message [ErrorMessage](#errormessage)
+
 
 ### StateMachineList
 * StateMachineList `array`
@@ -816,30 +1111,124 @@ amazonaws_states.UpdateStateMachine({
 
 ### StateMachineListItem
 * StateMachineListItem `object`: Contains details about the state machine.
-  * creationDate **required** [Timestamp](#timestamp)
-  * name **required** [Name](#name)
-  * stateMachineArn **required** [Arn](#arn)
+  * creationDate **required**
+  * name **required**
+  * stateMachineArn **required**
+  * type **required**
 
 ### StateMachineStatus
 * StateMachineStatus `string` (values: ACTIVE, DELETING)
 
+### StateMachineType
+* StateMachineType `string` (values: STANDARD, EXPRESS)
+
+### StateMachineTypeNotSupported
+
+
 ### StopExecutionInput
 * StopExecutionInput `object`
-  * cause [Cause](#cause)
-  * error [Error](#error)
-  * executionArn **required** [Arn](#arn)
+  * cause
+  * error
+  * executionArn **required**
 
 ### StopExecutionOutput
 * StopExecutionOutput `object`
-  * stopDate **required** [Timestamp](#timestamp)
+  * stopDate **required**
+
+### SyncExecutionStatus
+* SyncExecutionStatus `string` (values: SUCCEEDED, FAILED, TIMED_OUT)
+
+### Tag
+* Tag `object`: <p>Tags are key-value pairs that can be associated with Step Functions state machines and activities.</p> <p>An array of key-value pairs. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Using Cost Allocation Tags</a> in the <i>AWS Billing and Cost Management User Guide</i>, and <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html">Controlling Access Using IAM Tags</a>.</p> <p>Tags may only contain Unicode letters, digits, white space, or these symbols: <code>_ . : / = + - @</code>.</p>
+  * key
+  * value
+
+### TagKey
+* TagKey `string`
+
+### TagKeyList
+* TagKeyList `array`
+  * items [TagKey](#tagkey)
+
+### TagList
+* TagList `array`
+  * items [Tag](#tag)
+
+### TagResourceInput
+* TagResourceInput `object`
+  * tags **required**
+    * items [Tag](#tag)
+  * resourceArn **required**
+
+### TagResourceOutput
+* TagResourceOutput `object`
+
+### TagValue
+* TagValue `string`
 
 ### TaskDoesNotExist
-* TaskDoesNotExist `object`
-  * message [ErrorMessage](#errormessage)
+
+
+### TaskFailedEventDetails
+* TaskFailedEventDetails `object`: Contains details about a task failure event.
+  * cause
+  * error
+  * resource **required**
+  * resourceType **required**
+
+### TaskScheduledEventDetails
+* TaskScheduledEventDetails `object`: Contains details about a task scheduled during an execution.
+  * parameters **required**
+  * heartbeatInSeconds
+  * region **required**
+  * resource **required**
+  * resourceType **required**
+  * timeoutInSeconds
+
+### TaskStartFailedEventDetails
+* TaskStartFailedEventDetails `object`: Contains details about a task that failed to start during an execution.
+  * cause
+  * error
+  * resource **required**
+  * resourceType **required**
+
+### TaskStartedEventDetails
+* TaskStartedEventDetails `object`: Contains details about the start of a task during an execution.
+  * resource **required**
+  * resourceType **required**
+
+### TaskSubmitFailedEventDetails
+* TaskSubmitFailedEventDetails `object`: Contains details about a task that failed to submit during an execution.
+  * cause
+  * error
+  * resource **required**
+  * resourceType **required**
+
+### TaskSubmittedEventDetails
+* TaskSubmittedEventDetails `object`: Contains details about a task submitted to a resource .
+  * output
+  * outputDetails
+    * truncated
+  * resource **required**
+  * resourceType **required**
+
+### TaskSucceededEventDetails
+* TaskSucceededEventDetails `object`: Contains details about the successful completion of a task state.
+  * output
+  * outputDetails
+    * truncated
+  * resource **required**
+  * resourceType **required**
 
 ### TaskTimedOut
-* TaskTimedOut `object`
-  * message [ErrorMessage](#errormessage)
+
+
+### TaskTimedOutEventDetails
+* TaskTimedOutEventDetails `object`: Contains details about a resource timeout that occurred during an execution.
+  * cause
+  * error
+  * resource **required**
+  * resourceType **required**
 
 ### TaskToken
 * TaskToken `string`
@@ -850,14 +1239,49 @@ amazonaws_states.UpdateStateMachine({
 ### Timestamp
 * Timestamp `string`
 
+### TooManyTags
+
+
+### TraceHeader
+* TraceHeader `string`
+
+### TracingConfiguration
+* TracingConfiguration `object`: Selects whether or not the state machine's AWS X-Ray tracing is enabled. Default is <code>false</code> 
+  * enabled
+
+### UnsignedInteger
+* UnsignedInteger `integer`
+
+### UntagResourceInput
+* UntagResourceInput `object`
+  * resourceArn **required**
+  * tagKeys **required**
+    * items [TagKey](#tagkey)
+
+### UntagResourceOutput
+* UntagResourceOutput `object`
+
 ### UpdateStateMachineInput
 * UpdateStateMachineInput `object`
-  * definition [Definition](#definition)
-  * roleArn [Arn](#arn)
-  * stateMachineArn **required** [Arn](#arn)
+  * definition
+  * loggingConfiguration
+    * destinations
+      * items [LogDestination](#logdestination)
+    * includeExecutionData
+    * level
+  * roleArn
+  * stateMachineArn **required**
+  * tracingConfiguration
+    * enabled
 
 ### UpdateStateMachineOutput
 * UpdateStateMachineOutput `object`
-  * updateDate **required** [Timestamp](#timestamp)
+  * updateDate **required**
+
+### includedDetails
+* includedDetails `boolean`
+
+### truncated
+* truncated `boolean`
 
 

@@ -1,6 +1,6 @@
 # @datafire/google_calendar
 
-Client library for Calendar
+Client library for Calendar API
 
 ## Installation and Usage
 ```bash
@@ -15,7 +15,7 @@ let google_calendar = require('@datafire/google_calendar').create({
   redirect_uri: ""
 });
 
-google_calendar.settings.watch({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -67,12 +67,12 @@ google_calendar.oauthRefresh(null, context)
   * scope `string`
   * expiration `string`
 
-### calendars.insert
+### calendar.calendars.insert
 Creates a secondary calendar.
 
 
 ```js
-google_calendar.calendars.insert({}, context)
+google_calendar.calendar.calendars.insert({}, context)
 ```
 
 #### Input
@@ -89,12 +89,12 @@ google_calendar.calendars.insert({}, context)
 #### Output
 * output [Calendar](#calendar)
 
-### calendars.delete
+### calendar.calendars.delete
 Deletes a secondary calendar. Use calendars.clear for clearing all events on primary calendars.
 
 
 ```js
-google_calendar.calendars.delete({
+google_calendar.calendar.calendars.delete({
   "calendarId": ""
 }, context)
 ```
@@ -113,12 +113,12 @@ google_calendar.calendars.delete({
 #### Output
 *Output schema unknown*
 
-### calendars.get
+### calendar.calendars.get
 Returns metadata for a calendar.
 
 
 ```js
-google_calendar.calendars.get({
+google_calendar.calendar.calendars.get({
   "calendarId": ""
 }, context)
 ```
@@ -137,20 +137,20 @@ google_calendar.calendars.get({
 #### Output
 * output [Calendar](#calendar)
 
-### calendars.patch
+### calendar.calendars.patch
 Updates metadata for a calendar. This method supports patch semantics.
 
 
 ```js
-google_calendar.calendars.patch({
+google_calendar.calendar.calendars.patch({
   "calendarId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * body [Calendar](#calendar)
   * calendarId **required** `string`: Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the "primary" keyword.
+  * body [Calendar](#calendar)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -162,20 +162,20 @@ google_calendar.calendars.patch({
 #### Output
 * output [Calendar](#calendar)
 
-### calendars.update
+### calendar.calendars.update
 Updates metadata for a calendar.
 
 
 ```js
-google_calendar.calendars.update({
+google_calendar.calendar.calendars.update({
   "calendarId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * body [Calendar](#calendar)
   * calendarId **required** `string`: Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the "primary" keyword.
+  * body [Calendar](#calendar)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -187,12 +187,12 @@ google_calendar.calendars.update({
 #### Output
 * output [Calendar](#calendar)
 
-### acl.list
+### calendar.acl.list
 Returns the rules in the access control list for the calendar.
 
 
 ```js
-google_calendar.acl.list({
+google_calendar.calendar.acl.list({
   "calendarId": ""
 }, context)
 ```
@@ -215,21 +215,21 @@ google_calendar.acl.list({
 #### Output
 * output [Acl](#acl)
 
-### acl.insert
+### calendar.acl.insert
 Creates an access control rule.
 
 
 ```js
-google_calendar.acl.insert({
+google_calendar.calendar.acl.insert({
   "calendarId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * body [AclRule](#aclrule)
   * calendarId **required** `string`: Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the "primary" keyword.
   * sendNotifications `boolean`: Whether to send notifications about the calendar sharing change. Optional. The default is True.
+  * body [AclRule](#aclrule)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -241,12 +241,12 @@ google_calendar.acl.insert({
 #### Output
 * output [AclRule](#aclrule)
 
-### acl.watch
+### calendar.acl.watch
 Watch for changes to ACL resources.
 
 
 ```js
-google_calendar.acl.watch({
+google_calendar.calendar.acl.watch({
   "calendarId": ""
 }, context)
 ```
@@ -256,9 +256,9 @@ google_calendar.acl.watch({
   * calendarId **required** `string`: Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the "primary" keyword.
   * maxResults `integer`: Maximum number of entries returned on one result page. By default the value is 100 entries. The page size can never be larger than 250 entries. Optional.
   * pageToken `string`: Token specifying which result page to return. Optional.
-  * resource [Channel](#channel)
   * showDeleted `boolean`: Whether to include deleted ACLs in the result. Deleted ACLs are represented by role equal to "none". Deleted ACLs will always be included if syncToken is provided. Optional. The default is False.
   * syncToken `string`: Token obtained from the nextSyncToken field returned on the last page of results from the previous list request. It makes the result of this list request contain only entries that have changed since then. All entries deleted since the previous list request will always be in the result set and it is not allowed to set showDeleted to False.
+  * body [Channel](#channel)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -270,12 +270,12 @@ google_calendar.acl.watch({
 #### Output
 * output [Channel](#channel)
 
-### acl.delete
+### calendar.acl.delete
 Deletes an access control rule.
 
 
 ```js
-google_calendar.acl.delete({
+google_calendar.calendar.acl.delete({
   "calendarId": "",
   "ruleId": ""
 }, context)
@@ -296,12 +296,12 @@ google_calendar.acl.delete({
 #### Output
 *Output schema unknown*
 
-### acl.get
+### calendar.acl.get
 Returns an access control rule.
 
 
 ```js
-google_calendar.acl.get({
+google_calendar.calendar.acl.get({
   "calendarId": "",
   "ruleId": ""
 }, context)
@@ -322,12 +322,12 @@ google_calendar.acl.get({
 #### Output
 * output [AclRule](#aclrule)
 
-### acl.patch
+### calendar.acl.patch
 Updates an access control rule. This method supports patch semantics.
 
 
 ```js
-google_calendar.acl.patch({
+google_calendar.calendar.acl.patch({
   "calendarId": "",
   "ruleId": ""
 }, context)
@@ -335,10 +335,10 @@ google_calendar.acl.patch({
 
 #### Input
 * input `object`
-  * body [AclRule](#aclrule)
   * calendarId **required** `string`: Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the "primary" keyword.
   * ruleId **required** `string`: ACL rule identifier.
   * sendNotifications `boolean`: Whether to send notifications about the calendar sharing change. Note that there are no notifications on access removal. Optional. The default is True.
+  * body [AclRule](#aclrule)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -350,12 +350,12 @@ google_calendar.acl.patch({
 #### Output
 * output [AclRule](#aclrule)
 
-### acl.update
+### calendar.acl.update
 Updates an access control rule.
 
 
 ```js
-google_calendar.acl.update({
+google_calendar.calendar.acl.update({
   "calendarId": "",
   "ruleId": ""
 }, context)
@@ -363,10 +363,10 @@ google_calendar.acl.update({
 
 #### Input
 * input `object`
-  * body [AclRule](#aclrule)
   * calendarId **required** `string`: Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the "primary" keyword.
   * ruleId **required** `string`: ACL rule identifier.
   * sendNotifications `boolean`: Whether to send notifications about the calendar sharing change. Note that there are no notifications on access removal. Optional. The default is True.
+  * body [AclRule](#aclrule)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -378,12 +378,12 @@ google_calendar.acl.update({
 #### Output
 * output [AclRule](#aclrule)
 
-### calendars.clear
+### calendar.calendars.clear
 Clears a primary calendar. This operation deletes all events associated with the primary calendar of an account.
 
 
 ```js
-google_calendar.calendars.clear({
+google_calendar.calendar.calendars.clear({
   "calendarId": ""
 }, context)
 ```
@@ -402,20 +402,20 @@ google_calendar.calendars.clear({
 #### Output
 *Output schema unknown*
 
-### events.list
+### calendar.events.list
 Returns events on the specified calendar.
 
 
 ```js
-google_calendar.events.list({
+google_calendar.calendar.events.list({
   "calendarId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * alwaysIncludeEmail `boolean`: Whether to always include a value in the email field for the organizer, creator and attendees, even if no real email is available (i.e. a generated, non-working value will be provided). The use of this option is discouraged and should only be used by clients which cannot handle the absence of an email address value in the mentioned places. Optional. The default is False.
   * calendarId **required** `string`: Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the "primary" keyword.
+  * alwaysIncludeEmail `boolean`: Deprecated and ignored. A value will always be returned in the email field for the organizer, creator and attendees, even if no real email address is available (i.e. a generated, non-working value will be provided).
   * iCalUID `string`: Specifies event ID in the iCalendar format to be included in the response. Optional.
   * maxAttendees `integer`: The maximum number of attendees to include in the response. If there are more than the specified number of attendees, only the participant is returned. Optional.
   * maxResults `integer`: Maximum number of events returned on one result page. The number of events in the resulting page may be less than this value, or none at all, even if there are more events matching the query. Incomplete pages can be detected by a non-empty nextPageToken field in the response. By default the value is 250 events. The page size can never be larger than 2500 events. Optional.
@@ -428,8 +428,8 @@ google_calendar.events.list({
   * showHiddenInvitations `boolean`: Whether to include hidden invitations in the result. Optional. The default is False.
   * singleEvents `boolean`: Whether to expand recurring events into instances and only return single one-off events and instances of recurring events, but not the underlying recurring events themselves. Optional. The default is False.
   * syncToken `string`: Token obtained from the nextSyncToken field returned on the last page of results from the previous list request. It makes the result of this list request contain only entries that have changed since then. All events deleted since the previous list request will always be in the result set and it is not allowed to set showDeleted to False.
-  * timeMax `string`: Upper bound (exclusive) for an event's start time to filter by. Optional. The default is not to filter by start time. Must be an RFC3339 timestamp with mandatory time zone offset, e.g., 2011-06-03T10:00:00-07:00, 2011-06-03T10:00:00Z. Milliseconds may be provided but will be ignored. If timeMin is set, timeMax must be greater than timeMin.
-  * timeMin `string`: Lower bound (inclusive) for an event's end time to filter by. Optional. The default is not to filter by end time. Must be an RFC3339 timestamp with mandatory time zone offset, e.g., 2011-06-03T10:00:00-07:00, 2011-06-03T10:00:00Z. Milliseconds may be provided but will be ignored. If timeMax is set, timeMin must be smaller than timeMax.
+  * timeMax `string`: Upper bound (exclusive) for an event's start time to filter by. Optional. The default is not to filter by start time. Must be an RFC3339 timestamp with mandatory time zone offset, for example, 2011-06-03T10:00:00-07:00, 2011-06-03T10:00:00Z. Milliseconds may be provided but are ignored. If timeMin is set, timeMax must be greater than timeMin.
+  * timeMin `string`: Lower bound (exclusive) for an event's end time to filter by. Optional. The default is not to filter by end time. Must be an RFC3339 timestamp with mandatory time zone offset, for example, 2011-06-03T10:00:00-07:00, 2011-06-03T10:00:00Z. Milliseconds may be provided but are ignored. If timeMax is set, timeMin must be smaller than timeMax.
   * timeZone `string`: Time zone used in the response. Optional. The default is the time zone of the calendar.
   * updatedMin `string`: Lower bound for an event's last modification time (as a RFC3339 timestamp) to filter by. When specified, entries deleted since this time will always be included regardless of showDeleted. Optional. The default is not to filter by last modification time.
   * alt `string` (values: json): Data format for the response.
@@ -443,24 +443,25 @@ google_calendar.events.list({
 #### Output
 * output [Events](#events)
 
-### events.insert
+### calendar.events.insert
 Creates an event.
 
 
 ```js
-google_calendar.events.insert({
+google_calendar.calendar.events.insert({
   "calendarId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * body [Event](#event)
   * calendarId **required** `string`: Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the "primary" keyword.
   * conferenceDataVersion `integer`: Version number of conference data supported by the API client. Version 0 assumes no conference data support and ignores conference data in the event's body. Version 1 enables support for copying of ConferenceData as well as for creating new conferences using the createRequest field of conferenceData. The default is 0.
   * maxAttendees `integer`: The maximum number of attendees to include in the response. If there are more than the specified number of attendees, only the participant is returned. Optional.
-  * sendNotifications `boolean`: Whether to send notifications about the creation of the new event. Optional. The default is False.
+  * sendNotifications `boolean`: Deprecated. Please use sendUpdates instead.
+  * sendUpdates `string` (values: all, externalOnly, none): Whether to send notifications about the creation of the new event. Note that some emails might still be sent. The default is false.
   * supportsAttachments `boolean`: Whether API client performing operation supports event attachments. Optional. The default is False.
+  * body [Event](#event)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -472,22 +473,22 @@ google_calendar.events.insert({
 #### Output
 * output [Event](#event)
 
-### events.import
+### calendar.events.import
 Imports an event. This operation is used to add a private copy of an existing event to a calendar.
 
 
 ```js
-google_calendar.events.import({
+google_calendar.calendar.events.import({
   "calendarId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * body [Event](#event)
   * calendarId **required** `string`: Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the "primary" keyword.
   * conferenceDataVersion `integer`: Version number of conference data supported by the API client. Version 0 assumes no conference data support and ignores conference data in the event's body. Version 1 enables support for copying of ConferenceData as well as for creating new conferences using the createRequest field of conferenceData. The default is 0.
   * supportsAttachments `boolean`: Whether API client performing operation supports event attachments. Optional. The default is False.
+  * body [Event](#event)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -499,12 +500,12 @@ google_calendar.events.import({
 #### Output
 * output [Event](#event)
 
-### events.quickAdd
+### calendar.events.quickAdd
 Creates an event based on a simple text string.
 
 
 ```js
-google_calendar.events.quickAdd({
+google_calendar.calendar.events.quickAdd({
   "calendarId": "",
   "text": ""
 }, context)
@@ -513,8 +514,9 @@ google_calendar.events.quickAdd({
 #### Input
 * input `object`
   * calendarId **required** `string`: Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the "primary" keyword.
-  * sendNotifications `boolean`: Whether to send notifications about the creation of the event. Optional. The default is False.
   * text **required** `string`: The text describing the event to be created.
+  * sendNotifications `boolean`: Deprecated. Please use sendUpdates instead.
+  * sendUpdates `string` (values: all, externalOnly, none): Guests who should receive notifications about the creation of the new event.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -526,20 +528,20 @@ google_calendar.events.quickAdd({
 #### Output
 * output [Event](#event)
 
-### events.watch
+### calendar.events.watch
 Watch for changes to Events resources.
 
 
 ```js
-google_calendar.events.watch({
+google_calendar.calendar.events.watch({
   "calendarId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * alwaysIncludeEmail `boolean`: Whether to always include a value in the email field for the organizer, creator and attendees, even if no real email is available (i.e. a generated, non-working value will be provided). The use of this option is discouraged and should only be used by clients which cannot handle the absence of an email address value in the mentioned places. Optional. The default is False.
   * calendarId **required** `string`: Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the "primary" keyword.
+  * alwaysIncludeEmail `boolean`: Deprecated and ignored. A value will always be returned in the email field for the organizer, creator and attendees, even if no real email address is available (i.e. a generated, non-working value will be provided).
   * iCalUID `string`: Specifies event ID in the iCalendar format to be included in the response. Optional.
   * maxAttendees `integer`: The maximum number of attendees to include in the response. If there are more than the specified number of attendees, only the participant is returned. Optional.
   * maxResults `integer`: Maximum number of events returned on one result page. The number of events in the resulting page may be less than this value, or none at all, even if there are more events matching the query. Incomplete pages can be detected by a non-empty nextPageToken field in the response. By default the value is 250 events. The page size can never be larger than 2500 events. Optional.
@@ -547,16 +549,16 @@ google_calendar.events.watch({
   * pageToken `string`: Token specifying which result page to return. Optional.
   * privateExtendedProperty `array`: Extended properties constraint specified as propertyName=value. Matches only private properties. This parameter might be repeated multiple times to return events that match all given constraints.
   * q `string`: Free text search terms to find events that match these terms in any field, except for extended properties. Optional.
-  * resource [Channel](#channel)
   * sharedExtendedProperty `array`: Extended properties constraint specified as propertyName=value. Matches only shared properties. This parameter might be repeated multiple times to return events that match all given constraints.
   * showDeleted `boolean`: Whether to include deleted events (with status equals "cancelled") in the result. Cancelled instances of recurring events (but not the underlying recurring event) will still be included if showDeleted and singleEvents are both False. If showDeleted and singleEvents are both True, only single instances of deleted events (but not the underlying recurring events) are returned. Optional. The default is False.
   * showHiddenInvitations `boolean`: Whether to include hidden invitations in the result. Optional. The default is False.
   * singleEvents `boolean`: Whether to expand recurring events into instances and only return single one-off events and instances of recurring events, but not the underlying recurring events themselves. Optional. The default is False.
   * syncToken `string`: Token obtained from the nextSyncToken field returned on the last page of results from the previous list request. It makes the result of this list request contain only entries that have changed since then. All events deleted since the previous list request will always be in the result set and it is not allowed to set showDeleted to False.
-  * timeMax `string`: Upper bound (exclusive) for an event's start time to filter by. Optional. The default is not to filter by start time. Must be an RFC3339 timestamp with mandatory time zone offset, e.g., 2011-06-03T10:00:00-07:00, 2011-06-03T10:00:00Z. Milliseconds may be provided but will be ignored. If timeMin is set, timeMax must be greater than timeMin.
-  * timeMin `string`: Lower bound (inclusive) for an event's end time to filter by. Optional. The default is not to filter by end time. Must be an RFC3339 timestamp with mandatory time zone offset, e.g., 2011-06-03T10:00:00-07:00, 2011-06-03T10:00:00Z. Milliseconds may be provided but will be ignored. If timeMax is set, timeMin must be smaller than timeMax.
+  * timeMax `string`: Upper bound (exclusive) for an event's start time to filter by. Optional. The default is not to filter by start time. Must be an RFC3339 timestamp with mandatory time zone offset, for example, 2011-06-03T10:00:00-07:00, 2011-06-03T10:00:00Z. Milliseconds may be provided but are ignored. If timeMin is set, timeMax must be greater than timeMin.
+  * timeMin `string`: Lower bound (exclusive) for an event's end time to filter by. Optional. The default is not to filter by end time. Must be an RFC3339 timestamp with mandatory time zone offset, for example, 2011-06-03T10:00:00-07:00, 2011-06-03T10:00:00Z. Milliseconds may be provided but are ignored. If timeMax is set, timeMin must be smaller than timeMax.
   * timeZone `string`: Time zone used in the response. Optional. The default is the time zone of the calendar.
   * updatedMin `string`: Lower bound for an event's last modification time (as a RFC3339 timestamp) to filter by. When specified, entries deleted since this time will always be included regardless of showDeleted. Optional. The default is not to filter by last modification time.
+  * body [Channel](#channel)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -568,12 +570,12 @@ google_calendar.events.watch({
 #### Output
 * output [Channel](#channel)
 
-### events.delete
+### calendar.events.delete
 Deletes an event.
 
 
 ```js
-google_calendar.events.delete({
+google_calendar.calendar.events.delete({
   "calendarId": "",
   "eventId": ""
 }, context)
@@ -583,7 +585,8 @@ google_calendar.events.delete({
 * input `object`
   * calendarId **required** `string`: Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the "primary" keyword.
   * eventId **required** `string`: Event identifier.
-  * sendNotifications `boolean`: Whether to send notifications about the deletion of the event. Optional. The default is False.
+  * sendNotifications `boolean`: Deprecated. Please use sendUpdates instead.
+  * sendUpdates `string` (values: all, externalOnly, none): Guests who should receive notifications about the deletion of the event.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -595,12 +598,12 @@ google_calendar.events.delete({
 #### Output
 *Output schema unknown*
 
-### events.get
+### calendar.events.get
 Returns an event.
 
 
 ```js
-google_calendar.events.get({
+google_calendar.calendar.events.get({
   "calendarId": "",
   "eventId": ""
 }, context)
@@ -608,9 +611,9 @@ google_calendar.events.get({
 
 #### Input
 * input `object`
-  * alwaysIncludeEmail `boolean`: Whether to always include a value in the email field for the organizer, creator and attendees, even if no real email is available (i.e. a generated, non-working value will be provided). The use of this option is discouraged and should only be used by clients which cannot handle the absence of an email address value in the mentioned places. Optional. The default is False.
   * calendarId **required** `string`: Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the "primary" keyword.
   * eventId **required** `string`: Event identifier.
+  * alwaysIncludeEmail `boolean`: Deprecated and ignored. A value will always be returned in the email field for the organizer, creator and attendees, even if no real email address is available (i.e. a generated, non-working value will be provided).
   * maxAttendees `integer`: The maximum number of attendees to include in the response. If there are more than the specified number of attendees, only the participant is returned. Optional.
   * timeZone `string`: Time zone used in the response. Optional. The default is the time zone of the calendar.
   * alt `string` (values: json): Data format for the response.
@@ -624,12 +627,12 @@ google_calendar.events.get({
 #### Output
 * output [Event](#event)
 
-### events.patch
+### calendar.events.patch
 Updates an event. This method supports patch semantics.
 
 
 ```js
-google_calendar.events.patch({
+google_calendar.calendar.events.patch({
   "calendarId": "",
   "eventId": ""
 }, context)
@@ -637,14 +640,15 @@ google_calendar.events.patch({
 
 #### Input
 * input `object`
-  * alwaysIncludeEmail `boolean`: Whether to always include a value in the email field for the organizer, creator and attendees, even if no real email is available (i.e. a generated, non-working value will be provided). The use of this option is discouraged and should only be used by clients which cannot handle the absence of an email address value in the mentioned places. Optional. The default is False.
-  * body [Event](#event)
   * calendarId **required** `string`: Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the "primary" keyword.
-  * conferenceDataVersion `integer`: Version number of conference data supported by the API client. Version 0 assumes no conference data support and ignores conference data in the event's body. Version 1 enables support for copying of ConferenceData as well as for creating new conferences using the createRequest field of conferenceData. The default is 0.
   * eventId **required** `string`: Event identifier.
+  * alwaysIncludeEmail `boolean`: Deprecated and ignored. A value will always be returned in the email field for the organizer, creator and attendees, even if no real email address is available (i.e. a generated, non-working value will be provided).
+  * conferenceDataVersion `integer`: Version number of conference data supported by the API client. Version 0 assumes no conference data support and ignores conference data in the event's body. Version 1 enables support for copying of ConferenceData as well as for creating new conferences using the createRequest field of conferenceData. The default is 0.
   * maxAttendees `integer`: The maximum number of attendees to include in the response. If there are more than the specified number of attendees, only the participant is returned. Optional.
-  * sendNotifications `boolean`: Whether to send notifications about the event update (e.g. attendee's responses, title changes, etc.). Optional. The default is False.
+  * sendNotifications `boolean`: Deprecated. Please use sendUpdates instead.
+  * sendUpdates `string` (values: all, externalOnly, none): Guests who should receive notifications about the event update (for example, title changes, etc.).
   * supportsAttachments `boolean`: Whether API client performing operation supports event attachments. Optional. The default is False.
+  * body [Event](#event)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -656,12 +660,12 @@ google_calendar.events.patch({
 #### Output
 * output [Event](#event)
 
-### events.update
+### calendar.events.update
 Updates an event.
 
 
 ```js
-google_calendar.events.update({
+google_calendar.calendar.events.update({
   "calendarId": "",
   "eventId": ""
 }, context)
@@ -669,14 +673,15 @@ google_calendar.events.update({
 
 #### Input
 * input `object`
-  * alwaysIncludeEmail `boolean`: Whether to always include a value in the email field for the organizer, creator and attendees, even if no real email is available (i.e. a generated, non-working value will be provided). The use of this option is discouraged and should only be used by clients which cannot handle the absence of an email address value in the mentioned places. Optional. The default is False.
-  * body [Event](#event)
   * calendarId **required** `string`: Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the "primary" keyword.
-  * conferenceDataVersion `integer`: Version number of conference data supported by the API client. Version 0 assumes no conference data support and ignores conference data in the event's body. Version 1 enables support for copying of ConferenceData as well as for creating new conferences using the createRequest field of conferenceData. The default is 0.
   * eventId **required** `string`: Event identifier.
+  * alwaysIncludeEmail `boolean`: Deprecated and ignored. A value will always be returned in the email field for the organizer, creator and attendees, even if no real email address is available (i.e. a generated, non-working value will be provided).
+  * conferenceDataVersion `integer`: Version number of conference data supported by the API client. Version 0 assumes no conference data support and ignores conference data in the event's body. Version 1 enables support for copying of ConferenceData as well as for creating new conferences using the createRequest field of conferenceData. The default is 0.
   * maxAttendees `integer`: The maximum number of attendees to include in the response. If there are more than the specified number of attendees, only the participant is returned. Optional.
-  * sendNotifications `boolean`: Whether to send notifications about the event update (e.g. attendee's responses, title changes, etc.). Optional. The default is False.
+  * sendNotifications `boolean`: Deprecated. Please use sendUpdates instead.
+  * sendUpdates `string` (values: all, externalOnly, none): Guests who should receive notifications about the event update (for example, title changes, etc.).
   * supportsAttachments `boolean`: Whether API client performing operation supports event attachments. Optional. The default is False.
+  * body [Event](#event)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -688,12 +693,12 @@ google_calendar.events.update({
 #### Output
 * output [Event](#event)
 
-### events.instances
+### calendar.events.instances
 Returns instances of the specified recurring event.
 
 
 ```js
-google_calendar.events.instances({
+google_calendar.calendar.events.instances({
   "calendarId": "",
   "eventId": ""
 }, context)
@@ -701,9 +706,9 @@ google_calendar.events.instances({
 
 #### Input
 * input `object`
-  * alwaysIncludeEmail `boolean`: Whether to always include a value in the email field for the organizer, creator and attendees, even if no real email is available (i.e. a generated, non-working value will be provided). The use of this option is discouraged and should only be used by clients which cannot handle the absence of an email address value in the mentioned places. Optional. The default is False.
   * calendarId **required** `string`: Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the "primary" keyword.
   * eventId **required** `string`: Recurring event identifier.
+  * alwaysIncludeEmail `boolean`: Deprecated and ignored. A value will always be returned in the email field for the organizer, creator and attendees, even if no real email address is available (i.e. a generated, non-working value will be provided).
   * maxAttendees `integer`: The maximum number of attendees to include in the response. If there are more than the specified number of attendees, only the participant is returned. Optional.
   * maxResults `integer`: Maximum number of events returned on one result page. By default the value is 250 events. The page size can never be larger than 2500 events. Optional.
   * originalStart `string`: The original start time of the instance in the result. Optional.
@@ -723,24 +728,25 @@ google_calendar.events.instances({
 #### Output
 * output [Events](#events)
 
-### events.move
+### calendar.events.move
 Moves an event to another calendar, i.e. changes an event's organizer.
 
 
 ```js
-google_calendar.events.move({
+google_calendar.calendar.events.move({
   "calendarId": "",
-  "destination": "",
-  "eventId": ""
+  "eventId": "",
+  "destination": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * calendarId **required** `string`: Calendar identifier of the source calendar where the event currently is on.
-  * destination **required** `string`: Calendar identifier of the target calendar where the event is to be moved to.
   * eventId **required** `string`: Event identifier.
-  * sendNotifications `boolean`: Whether to send notifications about the change of the event's organizer. Optional. The default is False.
+  * destination **required** `string`: Calendar identifier of the target calendar where the event is to be moved to.
+  * sendNotifications `boolean`: Deprecated. Please use sendUpdates instead.
+  * sendUpdates `string` (values: all, externalOnly, none): Guests who should receive notifications about the change of the event's organizer.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -752,17 +758,17 @@ google_calendar.events.move({
 #### Output
 * output [Event](#event)
 
-### channels.stop
+### calendar.channels.stop
 Stop watching resources through this channel
 
 
 ```js
-google_calendar.channels.stop({}, context)
+google_calendar.calendar.channels.stop({}, context)
 ```
 
 #### Input
 * input `object`
-  * resource [Channel](#channel)
+  * body [Channel](#channel)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -774,12 +780,12 @@ google_calendar.channels.stop({}, context)
 #### Output
 *Output schema unknown*
 
-### colors.get
+### calendar.colors.get
 Returns the color definitions for calendars and events.
 
 
 ```js
-google_calendar.colors.get({}, context)
+google_calendar.calendar.colors.get({}, context)
 ```
 
 #### Input
@@ -795,12 +801,12 @@ google_calendar.colors.get({}, context)
 #### Output
 * output [Colors](#colors)
 
-### freebusy.query
+### calendar.freebusy.query
 Returns free/busy information for a set of calendars.
 
 
 ```js
-google_calendar.freebusy.query({}, context)
+google_calendar.calendar.freebusy.query({}, context)
 ```
 
 #### Input
@@ -817,12 +823,12 @@ google_calendar.freebusy.query({}, context)
 #### Output
 * output [FreeBusyResponse](#freebusyresponse)
 
-### calendarList.list
-Returns entries on the user's calendar list.
+### calendar.calendarList.list
+Returns the calendars on the user's calendar list.
 
 
 ```js
-google_calendar.calendarList.list({}, context)
+google_calendar.calendar.calendarList.list({}, context)
 ```
 
 #### Input
@@ -844,18 +850,18 @@ google_calendar.calendarList.list({}, context)
 #### Output
 * output [CalendarList](#calendarlist)
 
-### calendarList.insert
-Adds an entry to the user's calendar list.
+### calendar.calendarList.insert
+Inserts an existing calendar into the user's calendar list.
 
 
 ```js
-google_calendar.calendarList.insert({}, context)
+google_calendar.calendar.calendarList.insert({}, context)
 ```
 
 #### Input
 * input `object`
-  * body [CalendarListEntry](#calendarlistentry)
   * colorRgbFormat `boolean`: Whether to use the foregroundColor and backgroundColor fields to write the calendar colors (RGB). If this feature is used, the index-based colorId field will be set to the best matching option automatically. Optional. The default is False.
+  * body [CalendarListEntry](#calendarlistentry)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -867,12 +873,12 @@ google_calendar.calendarList.insert({}, context)
 #### Output
 * output [CalendarListEntry](#calendarlistentry)
 
-### calendarList.watch
+### calendar.calendarList.watch
 Watch for changes to CalendarList resources.
 
 
 ```js
-google_calendar.calendarList.watch({}, context)
+google_calendar.calendar.calendarList.watch({}, context)
 ```
 
 #### Input
@@ -880,10 +886,10 @@ google_calendar.calendarList.watch({}, context)
   * maxResults `integer`: Maximum number of entries returned on one result page. By default the value is 100 entries. The page size can never be larger than 250 entries. Optional.
   * minAccessRole `string` (values: freeBusyReader, owner, reader, writer): The minimum access role for the user in the returned entries. Optional. The default is no restriction.
   * pageToken `string`: Token specifying which result page to return. Optional.
-  * resource [Channel](#channel)
   * showDeleted `boolean`: Whether to include deleted calendar list entries in the result. Optional. The default is False.
   * showHidden `boolean`: Whether to show hidden entries. Optional. The default is False.
   * syncToken `string`: Token obtained from the nextSyncToken field returned on the last page of results from the previous list request. It makes the result of this list request contain only entries that have changed since then. If only read-only fields such as calendar properties or ACLs have changed, the entry won't be returned. All entries deleted and hidden since the previous list request will always be in the result set and it is not allowed to set showDeleted neither showHidden to False.
+  * body [Channel](#channel)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -895,12 +901,12 @@ google_calendar.calendarList.watch({}, context)
 #### Output
 * output [Channel](#channel)
 
-### calendarList.delete
-Deletes an entry on the user's calendar list.
+### calendar.calendarList.delete
+Removes a calendar from the user's calendar list.
 
 
 ```js
-google_calendar.calendarList.delete({
+google_calendar.calendar.calendarList.delete({
   "calendarId": ""
 }, context)
 ```
@@ -919,12 +925,12 @@ google_calendar.calendarList.delete({
 #### Output
 *Output schema unknown*
 
-### calendarList.get
-Returns an entry on the user's calendar list.
+### calendar.calendarList.get
+Returns a calendar from the user's calendar list.
 
 
 ```js
-google_calendar.calendarList.get({
+google_calendar.calendar.calendarList.get({
   "calendarId": ""
 }, context)
 ```
@@ -943,21 +949,21 @@ google_calendar.calendarList.get({
 #### Output
 * output [CalendarListEntry](#calendarlistentry)
 
-### calendarList.patch
-Updates an entry on the user's calendar list. This method supports patch semantics.
+### calendar.calendarList.patch
+Updates an existing calendar on the user's calendar list. This method supports patch semantics.
 
 
 ```js
-google_calendar.calendarList.patch({
+google_calendar.calendar.calendarList.patch({
   "calendarId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * body [CalendarListEntry](#calendarlistentry)
   * calendarId **required** `string`: Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the "primary" keyword.
   * colorRgbFormat `boolean`: Whether to use the foregroundColor and backgroundColor fields to write the calendar colors (RGB). If this feature is used, the index-based colorId field will be set to the best matching option automatically. Optional. The default is False.
+  * body [CalendarListEntry](#calendarlistentry)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -969,21 +975,21 @@ google_calendar.calendarList.patch({
 #### Output
 * output [CalendarListEntry](#calendarlistentry)
 
-### calendarList.update
-Updates an entry on the user's calendar list.
+### calendar.calendarList.update
+Updates an existing calendar on the user's calendar list.
 
 
 ```js
-google_calendar.calendarList.update({
+google_calendar.calendar.calendarList.update({
   "calendarId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * body [CalendarListEntry](#calendarlistentry)
   * calendarId **required** `string`: Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the "primary" keyword.
   * colorRgbFormat `boolean`: Whether to use the foregroundColor and backgroundColor fields to write the calendar colors (RGB). If this feature is used, the index-based colorId field will be set to the best matching option automatically. Optional. The default is False.
+  * body [CalendarListEntry](#calendarlistentry)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -995,12 +1001,12 @@ google_calendar.calendarList.update({
 #### Output
 * output [CalendarListEntry](#calendarlistentry)
 
-### settings.list
+### calendar.settings.list
 Returns all user settings for the authenticated user.
 
 
 ```js
-google_calendar.settings.list({}, context)
+google_calendar.calendar.settings.list({}, context)
 ```
 
 #### Input
@@ -1019,20 +1025,20 @@ google_calendar.settings.list({}, context)
 #### Output
 * output [Settings](#settings)
 
-### settings.watch
+### calendar.settings.watch
 Watch for changes to Settings resources.
 
 
 ```js
-google_calendar.settings.watch({}, context)
+google_calendar.calendar.settings.watch({}, context)
 ```
 
 #### Input
 * input `object`
   * maxResults `integer`: Maximum number of entries returned on one result page. By default the value is 100 entries. The page size can never be larger than 250 entries. Optional.
   * pageToken `string`: Token specifying which result page to return. Optional.
-  * resource [Channel](#channel)
   * syncToken `string`: Token obtained from the nextSyncToken field returned on the last page of results from the previous list request. It makes the result of this list request contain only entries that have changed since then.
+  * body [Channel](#channel)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1044,12 +1050,12 @@ google_calendar.settings.watch({}, context)
 #### Output
 * output [Channel](#channel)
 
-### settings.get
+### calendar.settings.get
 Returns a single user setting.
 
 
 ```js
-google_calendar.settings.get({
+google_calendar.calendar.settings.get({
   "setting": ""
 }, context)
 ```
@@ -1123,7 +1129,7 @@ google_calendar.settings.get({
   * description `string`: Description of the calendar. Optional. Read-only.
   * etag `string`: ETag of the resource.
   * foregroundColor `string`: The foreground color of the calendar in the hexadecimal format "#ffffff". This property supersedes the index-based colorId property. To set or change this property, you need to specify colorRgbFormat=true in the parameters of the insert, update and patch methods. Optional.
-  * hidden `boolean`: Whether the calendar has been hidden from the list. Optional. The default is False.
+  * hidden `boolean`: Whether the calendar has been hidden from the list. Optional. The attribute is only returned when the calendar is hidden, in which case the value is true.
   * id `string`: Identifier of the calendar.
   * kind `string`: Type of the resource ("calendar#calendarListEntry").
   * location `string`: Geographic location of the calendar as free-form text. Optional. Read-only.
@@ -1138,7 +1144,7 @@ google_calendar.settings.get({
 
 ### CalendarNotification
 * CalendarNotification `object`
-  * method `string`: The method used to deliver the notification. Possible values are:  
+  * method `string`: The method used to deliver the notification. The possible value is:  
   * type `string`: The type of notification. Possible values are:  
 
 ### Channel
@@ -1146,7 +1152,7 @@ google_calendar.settings.get({
   * address `string`: The address where notifications are delivered for this channel.
   * expiration `string`: Date and time of notification channel expiration, expressed as a Unix timestamp, in milliseconds. Optional.
   * id `string`: A UUID or similar unique string that identifies this channel.
-  * kind `string`: Identifies this as a notification channel used to watch for changes to a resource. Value: the fixed string "api#channel".
+  * kind `string`: Identifies this as a notification channel used to watch for changes to a resource, which is "api#channel".
   * params `object`: Additional parameters controlling delivery channel behavior. Optional.
   * payload `boolean`: A Boolean value to indicate whether payload is wanted. Optional.
   * resourceId `string`: An opaque ID that identifies the resource being watched on this channel. Stable across different API versions.
@@ -1168,13 +1174,13 @@ google_calendar.settings.get({
 
 ### ConferenceData
 * ConferenceData `object`
+  * parameters [ConferenceParameters](#conferenceparameters)
   * conferenceId `string`: The ID of the conference.
   * conferenceSolution [ConferenceSolution](#conferencesolution)
   * createRequest [CreateConferenceRequest](#createconferencerequest)
   * entryPoints `array`: Information about individual conference entry points, such as URLs or phone numbers.
     * items [EntryPoint](#entrypoint)
   * notes `string`: Additional notes (such as instructions from the domain administrator, legal notices) to display to the user. Can contain HTML. The maximum length is 2048 characters. Optional.
-  * parameters [ConferenceParameters](#conferenceparameters)
   * signature `string`: The signature of the conference data.
 
 ### ConferenceParameters
@@ -1213,12 +1219,15 @@ google_calendar.settings.get({
 ### EntryPoint
 * EntryPoint `object`
   * accessCode `string`: The access code to access the conference. The maximum length is 128 characters.
+  * entryPointFeatures `array`: Features of the entry point, such as being toll or toll-free. One entry point can have multiple features. However, toll and toll-free cannot be both set on the same entry point.
+    * items `string`
   * entryPointType `string`: The type of the conference entry point.
   * label `string`: The label for the URI. Visible to end users. Not localized. The maximum length is 512 characters.
   * meetingCode `string`: The meeting code to access the conference. The maximum length is 128 characters.
   * passcode `string`: The passcode to access the conference. The maximum length is 128 characters.
   * password `string`: The password to access the conference. The maximum length is 128 characters.
   * pin `string`: The PIN to access the conference. The maximum length is 128 characters.
+  * regionCode `string`: The CLDR/ISO 3166 region code for the country associated with this phone access. Example: "SE" for Sweden.
   * uri `string`: The URI of the entry point. The maximum length is 1300 characters.
 
 ### Error
@@ -1231,7 +1240,7 @@ google_calendar.settings.get({
   * anyoneCanAddSelf `boolean`: Whether anyone can invite themselves to the event (currently works for Google+ events only). Optional. The default is False.
   * attachments `array`: File attachments for the event. Currently only Google Drive attachments are supported.
     * items [EventAttachment](#eventattachment)
-  * attendees `array`: The attendees of the event. See the Events with attendees guide for more information on scheduling events with other calendar users.
+  * attendees `array`: The attendees of the event. See the Events with attendees guide for more information on scheduling events with other calendar users. Service accounts need to use domain-wide delegation of authority to populate the attendee list.
     * items [EventAttendee](#eventattendee)
   * attendeesOmitted `boolean`: Whether attendees may have been omitted from the event's representation. When retrieving an event, this may be due to a restriction specified by the maxAttendee query parameter. When updating an event, this can be used to only update the participant's response. Optional. The default is False.
   * colorId `string`: The color of the event. This is an ID referring to an entry in the event section of the colors definition (see the  colors endpoint). Optional.
@@ -1240,24 +1249,24 @@ google_calendar.settings.get({
   * creator `object`: The creator of the event. Read-only.
     * displayName `string`: The creator's name, if available.
     * email `string`: The creator's email address, if available.
-    * id `string`: The creator's Profile ID, if available. It corresponds to theid field in the People collection of the Google+ API
+    * id `string`: The creator's Profile ID, if available. It corresponds to the id field in the People collection of the Google+ API
     * self `boolean`: Whether the creator corresponds to the calendar on which this copy of the event appears. Read-only. The default is False.
-  * description `string`: Description of the event. Optional.
+  * description `string`: Description of the event. Can contain HTML. Optional.
   * end [EventDateTime](#eventdatetime)
   * endTimeUnspecified `boolean`: Whether the end time is actually unspecified. An end time is still provided for compatibility reasons, even if this attribute is set to True. The default is False.
   * etag `string`: ETag of the resource.
   * extendedProperties `object`: Extended properties of the event.
     * private `object`: Properties that are private to the copy of the event that appears on this calendar.
     * shared `object`: Properties that are shared between copies of the event on other attendees' calendars.
-  * gadget `object`: A gadget that extends this event.
-    * display `string`: The gadget's display mode. Optional. Possible values are:  
-    * height `integer`: The gadget's height in pixels. The height must be an integer greater than 0. Optional.
-    * iconLink `string`: The gadget's icon URL. The URL scheme must be HTTPS.
-    * link `string`: The gadget's URL. The URL scheme must be HTTPS.
+  * gadget `object`: A gadget that extends this event. Gadgets are deprecated; this structure is instead only used for returning birthday calendar metadata.
+    * display `string`: The gadget's display mode. Deprecated. Possible values are:  
+    * height `integer`: The gadget's height in pixels. The height must be an integer greater than 0. Optional. Deprecated.
+    * iconLink `string`: The gadget's icon URL. The URL scheme must be HTTPS. Deprecated.
+    * link `string`: The gadget's URL. The URL scheme must be HTTPS. Deprecated.
     * preferences `object`: Preferences.
-    * title `string`: The gadget's title.
-    * type `string`: The gadget's type.
-    * width `integer`: The gadget's width in pixels. The width must be an integer greater than 0. Optional.
+    * title `string`: The gadget's title. Deprecated.
+    * type `string`: The gadget's type. Deprecated.
+    * width `integer`: The gadget's width in pixels. The width must be an integer greater than 0. Optional. Deprecated.
   * guestsCanInviteOthers `boolean`: Whether attendees other than the organizer can invite others to the event. Optional. The default is True.
   * guestsCanModify `boolean`: Whether attendees other than the organizer can modify the event. Optional. The default is False.
   * guestsCanSeeOtherGuests `boolean`: Whether attendees other than the organizer can see who the event's attendees are. Optional. The default is True.
@@ -1271,10 +1280,10 @@ google_calendar.settings.get({
   * organizer `object`: The organizer of the event. If the organizer is also an attendee, this is indicated with a separate entry in attendees with the organizer field set to True. To change the organizer, use the move operation. Read-only, except when importing an event.
     * displayName `string`: The organizer's name, if available.
     * email `string`: The organizer's email address, if available. It must be a valid email address as per RFC5322.
-    * id `string`: The organizer's Profile ID, if available. It corresponds to theid field in the People collection of the Google+ API
+    * id `string`: The organizer's Profile ID, if available. It corresponds to the id field in the People collection of the Google+ API
     * self `boolean`: Whether the organizer corresponds to the calendar on which this copy of the event appears. Read-only. The default is False.
   * originalStartTime [EventDateTime](#eventdatetime)
-  * privateCopy `boolean`: Whether this is a private event copy where changes are not shared with other copies on other calendars. Optional. Immutable. The default is False.
+  * privateCopy `boolean`: If set to True, Event propagation is disabled. Note that it is not the same thing as Private event properties. Optional. Immutable. The default is False.
   * recurrence `array`: List of RRULE, EXRULE, RDATE and EXDATE lines for a recurring event, as specified in RFC5545. Note that DTSTART and DTEND lines are not allowed in this field; event start and end times are specified in the start and end fields. This field is omitted for single events or instances of recurring events.
     * items `string`
   * recurringEventId `string`: For an instance of a recurring event, this is the id of the recurring event to which this instance belongs. Immutable.
@@ -1307,7 +1316,7 @@ google_calendar.settings.get({
   * comment `string`: The attendee's response comment. Optional.
   * displayName `string`: The attendee's name, if available. Optional.
   * email `string`: The attendee's email address, if available. This field must be present when adding an attendee. It must be a valid email address as per RFC5322.
-  * id `string`: The attendee's Profile ID, if available. It corresponds to theid field in the People collection of the Google+ API
+  * id `string`: The attendee's Profile ID, if available. It corresponds to the id field in the People collection of the Google+ API
   * optional `boolean`: Whether this is an optional attendee. Optional. The default is False.
   * organizer `boolean`: Whether the attendee is the organizer of the event. Read-only. The default is False.
   * resource `boolean`: Whether the attendee is a resource. Can only be set when the attendee is added to the event for the first time. Subsequent modifications are ignored. Optional. The default is False.
@@ -1357,12 +1366,12 @@ google_calendar.settings.get({
 
 ### FreeBusyRequest
 * FreeBusyRequest `object`
-  * calendarExpansionMax `integer`: Maximal number of calendars for which FreeBusy information is to be provided. Optional.
-  * groupExpansionMax `integer`: Maximal number of calendar identifiers to be provided for a single group. Optional. An error will be returned for a group with more members than this value.
+  * calendarExpansionMax `integer`: Maximal number of calendars for which FreeBusy information is to be provided. Optional. Maximum value is 50.
+  * groupExpansionMax `integer`: Maximal number of calendar identifiers to be provided for a single group. Optional. An error is returned for a group with more members than this value. Maximum value is 100.
   * items `array`: List of calendars and/or groups to query.
     * items [FreeBusyRequestItem](#freebusyrequestitem)
-  * timeMax `string`: The end of the interval for the query.
-  * timeMin `string`: The start of the interval for the query.
+  * timeMax `string`: The end of the interval for the query formatted as per RFC3339.
+  * timeMin `string`: The start of the interval for the query formatted as per RFC3339.
   * timeZone `string`: Time zone used in the response. Optional. The default is UTC.
 
 ### FreeBusyRequestItem

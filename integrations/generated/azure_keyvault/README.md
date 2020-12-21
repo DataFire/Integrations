@@ -9,9 +9,7 @@ npm install --save @datafire/azure_keyvault
 ```js
 let azure_keyvault = require('@datafire/azure_keyvault').create();
 
-azure_keyvault.GetCertificates({
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -35,6 +33,7 @@ azure_keyvault.GetCertificates({
 #### Input
 * input `object`
   * maxresults `integer`: Maximum number of results to return in a page. If not specified the service will return up to 25 results.
+  * includePending `boolean`: Specifies whether to include certificates which are not completely provisioned.
   * api-version **required** `string`: Client API version.
 
 #### Output
@@ -191,6 +190,25 @@ azure_keyvault.SetCertificateIssuer({
 #### Output
 * output [IssuerBundle](#issuerbundle)
 
+### RestoreCertificate
+Restores a backed up certificate, and all its versions, to a vault. This operation requires the certificates/restore permission.
+
+
+```js
+azure_keyvault.RestoreCertificate({
+  "parameters": null,
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * parameters **required** [CertificateRestoreParameters](#certificaterestoreparameters)
+  * api-version **required** `string`: Client API version.
+
+#### Output
+* output [CertificateBundle](#certificatebundle)
+
 ### DeleteCertificate
 Deletes all versions of a certificate object along with its associated policy. Delete certificate cannot be used to remove individual versions of a certificate object. This operation requires the certificates/delete permission.
 
@@ -209,6 +227,25 @@ azure_keyvault.DeleteCertificate({
 
 #### Output
 * output [DeletedCertificateBundle](#deletedcertificatebundle)
+
+### BackupCertificate
+Requests that a backup of the specified certificate be downloaded to the client. All versions of the certificate will be downloaded. This operation requires the certificates/backup permission.
+
+
+```js
+azure_keyvault.BackupCertificate({
+  "certificate-name": "",
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * certificate-name **required** `string`: The name of the certificate.
+  * api-version **required** `string`: Client API version.
+
+#### Output
+* output [BackupCertificateResult](#backupcertificateresult)
 
 ### CreateCertificate
 If this is the first version, the certificate resource is created. This operation requires the certificates/create permission.
@@ -449,6 +486,7 @@ azure_keyvault.GetDeletedCertificates({
 #### Input
 * input `object`
   * maxresults `integer`: Maximum number of results to return in a page. If not specified the service will return up to 25 results.
+  * includePending `boolean`: Specifies whether to include certificates which are not completely provisioned.
   * api-version **required** `string`: Client API version.
 
 #### Output
@@ -679,12 +717,12 @@ azure_keyvault.GetDeletedStorageAccounts({
 #### Output
 * output [DeletedStorageListResult](#deletedstoragelistresult)
 
-### PurgeDeletedStorgeAccount
+### PurgeDeletedStorageAccount
 The purge deleted storage account operation removes the secret permanently, without the possibility of recovery. This operation can only be performed on a soft-delete enabled vault. This operation requires the storage/purge permission.
 
 
 ```js
-azure_keyvault.PurgeDeletedStorgeAccount({
+azure_keyvault.PurgeDeletedStorageAccount({
   "storage-account-name": "",
   "api-version": ""
 }, context)
@@ -1003,7 +1041,7 @@ azure_keyvault.decrypt({
 * output [KeyOperationResult](#keyoperationresult)
 
 ### encrypt
-The ENCRYPT operation encrypts an arbitrary sequence of bytes using an encryption key that is stored in Azure Key Vault. Note that the ENCRYPT operation only supports a single block of data, the size of which is dependent on the target key and the encryption algorithm to be used. The ENCRYPT operation is only strictly necessary for symmetric keys stored in Azure Key Vault since protection with an asymmetric key can be performed using public portion of the key. This operation is supported for asymmetric keys as a convenience for callers that have a key-reference but do not have access to the public key material. This operation requires the keys/encypt permission.
+The ENCRYPT operation encrypts an arbitrary sequence of bytes using an encryption key that is stored in Azure Key Vault. Note that the ENCRYPT operation only supports a single block of data, the size of which is dependent on the target key and the encryption algorithm to be used. The ENCRYPT operation is only strictly necessary for symmetric keys stored in Azure Key Vault since protection with an asymmetric key can be performed using public portion of the key. This operation is supported for asymmetric keys as a convenience for callers that have a key-reference but do not have access to the public key material. This operation requires the keys/encrypt permission.
 
 
 ```js
@@ -1552,7 +1590,7 @@ azure_keyvault.SetSasDefinition({
 
 ### AdministratorDetails
 * AdministratorDetails `object`: Details of the organization administrator of the certificate issuer.
-  * email `string`: Email addresss.
+  * email `string`: Email address.
   * first_name `string`: First name.
   * last_name `string`: Last name.
   * phone `string`: Phone number.
@@ -1564,6 +1602,10 @@ azure_keyvault.SetSasDefinition({
   * exp `integer`: Expiry date in UTC.
   * nbf `integer`: Not before date in UTC.
   * updated `integer`: Last updated time in UTC.
+
+### BackupCertificateResult
+* BackupCertificateResult `object`: The backup certificate result, containing the backup blob.
+  * value `string`: The backup blob containing the backed up certificate.
 
 ### BackupKeyResult
 * BackupKeyResult `object`: The backup key result, containing the backup blob.
@@ -1684,6 +1726,10 @@ azure_keyvault.SetSasDefinition({
   * secret_props [SecretProperties](#secretproperties)
   * x509_props [X509CertificateProperties](#x509certificateproperties)
 
+### CertificateRestoreParameters
+* CertificateRestoreParameters `object`: The certificate restore parameters.
+  * value **required** `string`: The backup blob associated with a certificate bundle.
+
 ### CertificateUpdateParameters
 * CertificateUpdateParameters `object`: The certificate update parameters.
   * attributes [CertificateAttributes](#certificateattributes)
@@ -1692,7 +1738,7 @@ azure_keyvault.SetSasDefinition({
 
 ### Contact
 * Contact `object`: The contact information for the vault certificates.
-  * email `string`: Email addresss.
+  * email `string`: Email address.
   * name `string`: Name.
   * phone `string`: Phone number.
 
@@ -1874,12 +1920,13 @@ azure_keyvault.SetSasDefinition({
 
 ### IssuerParameters
 * IssuerParameters `object`: Parameters for the issuer of the X509 component of a certificate.
-  * cty `string`: Type of certificate to be requested from the issuer provider.
+  * cert_transparency `boolean`: Indicates if the certificates generated under this policy should be published to certificate transparency logs.
+  * cty `string`: Certificate type as supported by the provider (optional); for example 'OV-SSL', 'EV-SSL'
   * name `string`: Name of the referenced issuer object or reserved names; for example, 'Self' or 'Unknown'.
 
 ### JsonWebKey
 * JsonWebKey `object`: As of http://tools.ietf.org/html/draft-ietf-jose-json-web-key-18
-  * crv `string` (values: P-256, P-384, P-521, SECP256K1): Elliptic curve name. For valid values, see JsonWebKeyCurveName.
+  * crv `string` (values: P-256, P-384, P-521, P-256K): Elliptic curve name. For valid values, see JsonWebKeyCurveName.
   * d `string`: RSA private exponent, or the D component of an EC private key.
   * dp `string`: RSA private key parameter.
   * dq `string`: RSA private key parameter.
@@ -1889,7 +1936,7 @@ azure_keyvault.SetSasDefinition({
   * key_ops `array`
     * items `string`: Supported key operations.
   * kid `string`: Key identifier.
-  * kty `string` (values: EC, EC-HSM, RSA, RSA-HSM, oct): JsonWebKey key type (kty).
+  * kty `string` (values: EC, EC-HSM, RSA, RSA-HSM, oct): JsonWebKey Key Type (kty), as defined in https://tools.ietf.org/html/draft-ietf-jose-json-web-algorithms-40.
   * n `string`: RSA modulus.
   * p `string`: RSA secret prime.
   * q `string`: RSA secret prime, with p < q.
@@ -1916,10 +1963,10 @@ azure_keyvault.SetSasDefinition({
 ### KeyCreateParameters
 * KeyCreateParameters `object`: The key create parameters.
   * attributes [KeyAttributes](#keyattributes)
-  * crv `string` (values: P-256, P-384, P-521, SECP256K1): Elliptic curve name. For valid values, see JsonWebKeyCurveName.
+  * crv `string` (values: P-256, P-384, P-521, P-256K): Elliptic curve name. For valid values, see JsonWebKeyCurveName.
   * key_ops `array`
     * items `string` (values: encrypt, decrypt, sign, verify, wrapKey, unwrapKey): JSON web key operations. For more information, see JsonWebKeyOperation.
-  * key_size `integer`: The key size in bytes. For example, 1024 or 2048.
+  * key_size `integer`: The key size in bits. For example: 2048, 3072, or 4096 for RSA.
   * kty **required** `string` (values: EC, EC-HSM, RSA, RSA-HSM, oct): The type of key to create. For valid values, see JsonWebKeyType.
   * tags `object`: Application specific metadata in the form of key-value pairs.
 
@@ -1955,9 +2002,10 @@ azure_keyvault.SetSasDefinition({
 
 ### KeyProperties
 * KeyProperties `object`: Properties of the key pair backing a certificate.
+  * crv `string` (values: P-256, P-384, P-521, P-256K): Elliptic curve name. For valid values, see JsonWebKeyCurveName.
   * exportable `boolean`: Indicates if the private key can be exported.
-  * key_size `integer`: The key size in bytes. For example;  1024 or 2048.
-  * kty `string`: The key type.
+  * key_size `integer`: The key size in bits. For example: 2048, 3072, or 4096 for RSA.
+  * kty `string` (values: EC, EC-HSM, RSA, RSA-HSM, oct): The type of key pair to be used for the certificate.
   * reuse_key `boolean`: Indicates if the same key pair will be used on certificate renewal.
 
 ### KeyRestoreParameters
@@ -1966,7 +2014,7 @@ azure_keyvault.SetSasDefinition({
 
 ### KeySignParameters
 * KeySignParameters `object`: The key operations parameters.
-  * alg **required** `string` (values: PS256, PS384, PS512, RS256, RS384, RS512, RSNULL, ES256, ES384, ES512, ECDSA256): The signing/verification algorithm identifier. For more information on possible algorithm types, see JsonWebKeySignatureAlgorithm.
+  * alg **required** `string` (values: PS256, PS384, PS512, RS256, RS384, RS512, RSNULL, ES256, ES384, ES512, ES256K): The signing/verification algorithm identifier. For more information on possible algorithm types, see JsonWebKeySignatureAlgorithm.
   * value **required** `string`
 
 ### KeyUpdateParameters
@@ -1982,7 +2030,7 @@ azure_keyvault.SetSasDefinition({
 
 ### KeyVerifyParameters
 * KeyVerifyParameters `object`: The key verify parameters.
-  * alg **required** `string` (values: PS256, PS384, PS512, RS256, RS384, RS512, RSNULL, ES256, ES384, ES512, ECDSA256): The signing/verification algorithm. For more information on possible algorithm types, see JsonWebKeySignatureAlgorithm.
+  * alg **required** `string` (values: PS256, PS384, PS512, RS256, RS384, RS512, RSNULL, ES256, ES384, ES512, ES256K): The signing/verification algorithm. For more information on possible algorithm types, see JsonWebKeySignatureAlgorithm.
   * digest **required** `string`: The digest used for signing.
   * value **required** `string`: The signature to be verified.
 
@@ -2039,7 +2087,7 @@ azure_keyvault.SetSasDefinition({
 
 ### SasDefinitionListResult
 * SasDefinitionListResult `object`: The storage account SAS definition list result.
-  * nextLink `string`: The URL to get the next set of SAS defintions.
+  * nextLink `string`: The URL to get the next set of SAS definitions.
   * value `array`: A response message containing a list of SAS definitions along with a link to the next page of SAS definitions.
     * items [SasDefinitionItem](#sasdefinitionitem)
 
@@ -2182,6 +2230,6 @@ azure_keyvault.SetSasDefinition({
     * items `string` (values: digitalSignature, nonRepudiation, keyEncipherment, dataEncipherment, keyAgreement, keyCertSign, cRLSign, encipherOnly, decipherOnly)
   * sans [SubjectAlternativeNames](#subjectalternativenames)
   * subject `string`: The subject name. Should be a valid X509 distinguished Name.
-  * validity_months `integer`: The duration that the ceritifcate is valid in months.
+  * validity_months `integer`: The duration that the certificate is valid in months.
 
 

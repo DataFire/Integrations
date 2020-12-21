@@ -1,13 +1,10 @@
 {
   "swagger": "2.0",
-  "schemes": [
-    "https"
-  ],
   "host": "api.postmarkapp.com",
   "basePath": "/",
   "info": {
-    "description": "Postmark makes sending and receiving email \nincredibly easy. The Account-level API allows users to\nconfigure all Servers, Domains, and Sender Signatures associated \nwith an Account.\n",
-    "title": "Postmark Account-level",
+    "description": "Postmark makes sending and receiving email\nincredibly easy. The Account-level API allows users to\nconfigure all Servers, Domains, and Sender Signatures associated\nwith an Account.\n",
+    "title": "Postmark Account-level API",
     "version": "0.9.0",
     "x-apisguru-categories": [
       "email"
@@ -256,7 +253,7 @@
     },
     "/domains/{domainid}/rotatedkim": {
       "post": {
-        "description": "Creates a new DKIM key to replace your current key. Until the DNS entries are confirmed, \nthe new values will be in the `DKIMPendingHost` and `DKIMPendingTextValue` fields. \nAfter the new DKIM value is verified in DNS, the pending values will migrate to \n`DKIMTextValue` and `DKIMPendingTextValue` and Postmark will begin to sign emails \nwith the new DKIM key.\n",
+        "description": "Creates a new DKIM key to replace your current key. Until the DNS entries are confirmed,\nthe new values will be in the `DKIMPendingHost` and `DKIMPendingTextValue` fields.\nAfter the new DKIM value is verified in DNS, the pending values will migrate to\n`DKIMTextValue` and `DKIMPendingTextValue` and Postmark will begin to sign emails\nwith the new DKIM key.\n",
         "operationId": "rotateDKIMKeyForDomain",
         "parameters": [
           {
@@ -619,7 +616,7 @@
     },
     "/senders/{signatureid}/requestnewdkim": {
       "post": {
-        "description": "Requests a new DKIM key to be created. Until the DNS entries are confirmed, \nthe new values will be in the `DKIMPendingHost` and `DKIMPendingTextValue` fields. \nAfter the new DKIM value is verified in DNS, the pending values will migrate to \n`DKIMTextValue` and `DKIMPendingTextValue` and Postmark will begin to sign emails \nwith the new DKIM key.\n",
+        "description": "Requests a new DKIM key to be created. Until the DNS entries are confirmed,\nthe new values will be in the `DKIMPendingHost` and `DKIMPendingTextValue` fields.\nAfter the new DKIM value is verified in DNS, the pending values will migrate to\n`DKIMTextValue` and `DKIMPendingTextValue` and Postmark will begin to sign emails\nwith the new DKIM key.\n",
         "operationId": "requestNewDKIMKeyForSenderSignature",
         "parameters": [
           {
@@ -938,6 +935,46 @@
         "summary": "Edit a Server",
         "tags": [
           "Server Management API"
+        ]
+      }
+    },
+    "/templates/push": {
+      "put": {
+        "operationId": "pushTemplates",
+        "parameters": [
+          {
+            "description": "The token associated with the Account on which this request will operate.",
+            "in": "header",
+            "name": "X-Postmark-Account-Token",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/TemplatesPushModel"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ok",
+            "schema": {
+              "$ref": "#/definitions/TemplatesPushResponse"
+            }
+          },
+          "422": {
+            "$ref": "#/responses/422"
+          },
+          "500": {
+            "$ref": "#/responses/500"
+          }
+        },
+        "summary": "Push templates from one server to another",
+        "tags": [
+          "Templates API"
         ]
       }
     }
@@ -1463,6 +1500,47 @@
         },
         "Message": {
           "type": "string"
+        }
+      }
+    },
+    "TemplatesPushModel": {
+      "description": "",
+      "properties": {
+        "DestinationServerId": {
+          "type": "integer"
+        },
+        "PerformChanges": {
+          "type": "boolean"
+        },
+        "SourceServerId": {
+          "type": "integer"
+        }
+      }
+    },
+    "TemplatesPushResponse": {
+      "description": "",
+      "properties": {
+        "Templates": {
+          "items": {
+            "properties": {
+              "Action": {
+                "type": "string"
+              },
+              "Alias": {
+                "type": "string"
+              },
+              "Name": {
+                "type": "string"
+              },
+              "TemplateId": {
+                "type": "integer"
+              }
+            }
+          },
+          "type": "array"
+        },
+        "TotalCount": {
+          "type": "integer"
         }
       }
     }

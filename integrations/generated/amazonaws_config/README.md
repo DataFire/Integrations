@@ -13,18 +13,36 @@ let amazonaws_config = require('@datafire/amazonaws_config').create({
   region: ""
 });
 
-amazonaws_config.BatchGetResourceConfig({
-  "resourceKeys": []
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
 
 ## Description
 
-<fullname>AWS Config</fullname> <p>AWS Config provides a way to keep track of the configurations of all the AWS resources associated with your AWS account. You can use AWS Config to get the current and historical configurations of each AWS resource and also to get information about the relationship between the resources. An AWS resource can be an Amazon Compute Cloud (Amazon EC2) instance, an Elastic Block Store (EBS) volume, an elastic network Interface (ENI), or a security group. For a complete list of resources currently supported by AWS Config, see <a href="http://docs.aws.amazon.com/config/latest/developerguide/resource-config-reference.html#supported-resources">Supported AWS Resources</a>.</p> <p>You can access and manage AWS Config through the AWS Management Console, the AWS Command Line Interface (AWS CLI), the AWS Config API, or the AWS SDKs for AWS Config. This reference guide contains documentation for the AWS Config API and the AWS CLI commands that you can use to manage AWS Config. The AWS Config API uses the Signature Version 4 protocol for signing requests. For more information about how to sign a request with this protocol, see <a href="http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4 Signing Process</a>. For detailed information about AWS Config features and their associated actions or commands, as well as how to work with AWS Management Console, see <a href="http://docs.aws.amazon.com/config/latest/developerguide/WhatIsConfig.html">What Is AWS Config</a> in the <i>AWS Config Developer Guide</i>.</p>
+<fullname>AWS Config</fullname> <p>AWS Config provides a way to keep track of the configurations of all the AWS resources associated with your AWS account. You can use AWS Config to get the current and historical configurations of each AWS resource and also to get information about the relationship between the resources. An AWS resource can be an Amazon Compute Cloud (Amazon EC2) instance, an Elastic Block Store (EBS) volume, an elastic network Interface (ENI), or a security group. For a complete list of resources currently supported by AWS Config, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/resource-config-reference.html#supported-resources">Supported AWS Resources</a>.</p> <p>You can access and manage AWS Config through the AWS Management Console, the AWS Command Line Interface (AWS CLI), the AWS Config API, or the AWS SDKs for AWS Config. This reference guide contains documentation for the AWS Config API and the AWS CLI commands that you can use to manage AWS Config. The AWS Config API uses the Signature Version 4 protocol for signing requests. For more information about how to sign a request with this protocol, see <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4 Signing Process</a>. For detailed information about AWS Config features and their associated actions or commands, as well as how to work with AWS Management Console, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/WhatIsConfig.html">What Is AWS Config</a> in the <i>AWS Config Developer Guide</i>.</p>
 
 ## Actions
+
+### BatchGetAggregateResourceConfig
+
+
+
+```js
+amazonaws_config.BatchGetAggregateResourceConfig({
+  "ConfigurationAggregatorName": null,
+  "ResourceIdentifiers": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * ConfigurationAggregatorName **required**
+  * ResourceIdentifiers **required**
+    * items [AggregateResourceIdentifier](#aggregateresourceidentifier)
+
+#### Output
+* output [BatchGetAggregateResourceConfigResponse](#batchgetaggregateresourceconfigresponse)
 
 ### BatchGetResourceConfig
 
@@ -32,13 +50,14 @@ amazonaws_config.BatchGetResourceConfig({
 
 ```js
 amazonaws_config.BatchGetResourceConfig({
-  "resourceKeys": []
+  "resourceKeys": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * resourceKeys **required** [ResourceKeys](#resourcekeys)
+  * resourceKeys **required**
+    * items [ResourceKey](#resourcekey)
 
 #### Output
 * output [BatchGetResourceConfigResponse](#batchgetresourceconfigresponse)
@@ -49,15 +68,15 @@ amazonaws_config.BatchGetResourceConfig({
 
 ```js
 amazonaws_config.DeleteAggregationAuthorization({
-  "AuthorizedAccountId": "",
-  "AuthorizedAwsRegion": ""
+  "AuthorizedAccountId": null,
+  "AuthorizedAwsRegion": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * AuthorizedAccountId **required** [AccountId](#accountid)
-  * AuthorizedAwsRegion **required** [AwsRegion](#awsregion)
+  * AuthorizedAccountId **required**
+  * AuthorizedAwsRegion **required**
 
 #### Output
 *Output schema unknown*
@@ -68,13 +87,13 @@ amazonaws_config.DeleteAggregationAuthorization({
 
 ```js
 amazonaws_config.DeleteConfigRule({
-  "ConfigRuleName": ""
+  "ConfigRuleName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ConfigRuleName **required** [StringWithCharLimit64](#stringwithcharlimit64)
+  * ConfigRuleName **required**
 
 #### Output
 *Output schema unknown*
@@ -85,13 +104,13 @@ amazonaws_config.DeleteConfigRule({
 
 ```js
 amazonaws_config.DeleteConfigurationAggregator({
-  "ConfigurationAggregatorName": ""
+  "ConfigurationAggregatorName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ConfigurationAggregatorName **required** [ConfigurationAggregatorName](#configurationaggregatorname)
+  * ConfigurationAggregatorName **required**
 
 #### Output
 *Output schema unknown*
@@ -102,13 +121,30 @@ amazonaws_config.DeleteConfigurationAggregator({
 
 ```js
 amazonaws_config.DeleteConfigurationRecorder({
-  "ConfigurationRecorderName": ""
+  "ConfigurationRecorderName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ConfigurationRecorderName **required** [RecorderName](#recordername)
+  * ConfigurationRecorderName **required**
+
+#### Output
+*Output schema unknown*
+
+### DeleteConformancePack
+
+
+
+```js
+amazonaws_config.DeleteConformancePack({
+  "ConformancePackName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * ConformancePackName **required**
 
 #### Output
 *Output schema unknown*
@@ -119,13 +155,13 @@ amazonaws_config.DeleteConfigurationRecorder({
 
 ```js
 amazonaws_config.DeleteDeliveryChannel({
-  "DeliveryChannelName": ""
+  "DeliveryChannelName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * DeliveryChannelName **required** [ChannelName](#channelname)
+  * DeliveryChannelName **required**
 
 #### Output
 *Output schema unknown*
@@ -136,16 +172,50 @@ amazonaws_config.DeleteDeliveryChannel({
 
 ```js
 amazonaws_config.DeleteEvaluationResults({
-  "ConfigRuleName": ""
+  "ConfigRuleName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ConfigRuleName **required** [StringWithCharLimit64](#stringwithcharlimit64)
+  * ConfigRuleName **required**
 
 #### Output
 * output [DeleteEvaluationResultsResponse](#deleteevaluationresultsresponse)
+
+### DeleteOrganizationConfigRule
+
+
+
+```js
+amazonaws_config.DeleteOrganizationConfigRule({
+  "OrganizationConfigRuleName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * OrganizationConfigRuleName **required**
+
+#### Output
+*Output schema unknown*
+
+### DeleteOrganizationConformancePack
+
+
+
+```js
+amazonaws_config.DeleteOrganizationConformancePack({
+  "OrganizationConformancePackName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * OrganizationConformancePackName **required**
+
+#### Output
+*Output schema unknown*
 
 ### DeletePendingAggregationRequest
 
@@ -153,15 +223,72 @@ amazonaws_config.DeleteEvaluationResults({
 
 ```js
 amazonaws_config.DeletePendingAggregationRequest({
-  "RequesterAccountId": "",
-  "RequesterAwsRegion": ""
+  "RequesterAccountId": null,
+  "RequesterAwsRegion": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * RequesterAccountId **required** [AccountId](#accountid)
-  * RequesterAwsRegion **required** [AwsRegion](#awsregion)
+  * RequesterAccountId **required**
+  * RequesterAwsRegion **required**
+
+#### Output
+*Output schema unknown*
+
+### DeleteRemediationConfiguration
+
+
+
+```js
+amazonaws_config.DeleteRemediationConfiguration({
+  "ConfigRuleName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * ConfigRuleName **required**
+  * ResourceType
+
+#### Output
+* output [DeleteRemediationConfigurationResponse](#deleteremediationconfigurationresponse)
+
+### DeleteRemediationExceptions
+
+
+
+```js
+amazonaws_config.DeleteRemediationExceptions({
+  "ConfigRuleName": null,
+  "ResourceKeys": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * ConfigRuleName **required**
+  * ResourceKeys **required**
+    * items [RemediationExceptionResourceKey](#remediationexceptionresourcekey)
+
+#### Output
+* output [DeleteRemediationExceptionsResponse](#deleteremediationexceptionsresponse)
+
+### DeleteResourceConfig
+
+
+
+```js
+amazonaws_config.DeleteResourceConfig({
+  "ResourceType": null,
+  "ResourceId": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * ResourceId **required**
+  * ResourceType **required**
 
 #### Output
 *Output schema unknown*
@@ -172,13 +299,13 @@ amazonaws_config.DeletePendingAggregationRequest({
 
 ```js
 amazonaws_config.DeleteRetentionConfiguration({
-  "RetentionConfigurationName": ""
+  "RetentionConfigurationName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * RetentionConfigurationName **required** [RetentionConfigurationName](#retentionconfigurationname)
+  * RetentionConfigurationName **required**
 
 #### Output
 *Output schema unknown*
@@ -189,13 +316,13 @@ amazonaws_config.DeleteRetentionConfiguration({
 
 ```js
 amazonaws_config.DeliverConfigSnapshot({
-  "deliveryChannelName": ""
+  "deliveryChannelName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * deliveryChannelName **required** [ChannelName](#channelname)
+  * deliveryChannelName **required**
 
 #### Output
 * output [DeliverConfigSnapshotResponse](#deliverconfigsnapshotresponse)
@@ -206,16 +333,20 @@ amazonaws_config.DeliverConfigSnapshot({
 
 ```js
 amazonaws_config.DescribeAggregateComplianceByConfigRules({
-  "ConfigurationAggregatorName": ""
+  "ConfigurationAggregatorName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ConfigurationAggregatorName **required** [ConfigurationAggregatorName](#configurationaggregatorname)
-  * Filters [ConfigRuleComplianceFilters](#configrulecompliancefilters)
-  * Limit [GroupByAPILimit](#groupbyapilimit)
-  * NextToken [NextToken](#nexttoken)
+  * ConfigurationAggregatorName **required**
+  * Filters
+    * AccountId
+    * AwsRegion
+    * ComplianceType
+    * ConfigRuleName
+  * Limit
+  * NextToken
 
 #### Output
 * output [DescribeAggregateComplianceByConfigRulesResponse](#describeaggregatecompliancebyconfigrulesresponse)
@@ -230,8 +361,8 @@ amazonaws_config.DescribeAggregationAuthorizations({}, context)
 
 #### Input
 * input `object`
-  * Limit [Limit](#limit)
-  * NextToken [String](#string)
+  * Limit
+  * NextToken
 
 #### Output
 * output [DescribeAggregationAuthorizationsResponse](#describeaggregationauthorizationsresponse)
@@ -246,9 +377,11 @@ amazonaws_config.DescribeComplianceByConfigRule({}, context)
 
 #### Input
 * input `object`
-  * ComplianceTypes [ComplianceTypes](#compliancetypes)
-  * ConfigRuleNames [ConfigRuleNames](#configrulenames)
-  * NextToken [String](#string)
+  * ComplianceTypes
+    * items [ComplianceType](#compliancetype)
+  * ConfigRuleNames
+    * items [ConfigRuleName](#configrulename)
+  * NextToken
 
 #### Output
 * output [DescribeComplianceByConfigRuleResponse](#describecompliancebyconfigruleresponse)
@@ -263,11 +396,12 @@ amazonaws_config.DescribeComplianceByResource({}, context)
 
 #### Input
 * input `object`
-  * ComplianceTypes [ComplianceTypes](#compliancetypes)
-  * Limit [Limit](#limit)
-  * NextToken [NextToken](#nexttoken)
-  * ResourceId [BaseResourceId](#baseresourceid)
-  * ResourceType [StringWithCharLimit256](#stringwithcharlimit256)
+  * ComplianceTypes
+    * items [ComplianceType](#compliancetype)
+  * Limit
+  * NextToken
+  * ResourceId
+  * ResourceType
 
 #### Output
 * output [DescribeComplianceByResourceResponse](#describecompliancebyresourceresponse)
@@ -282,9 +416,10 @@ amazonaws_config.DescribeConfigRuleEvaluationStatus({}, context)
 
 #### Input
 * input `object`
-  * ConfigRuleNames [ConfigRuleNames](#configrulenames)
-  * Limit [RuleLimit](#rulelimit)
-  * NextToken [String](#string)
+  * ConfigRuleNames
+    * items [ConfigRuleName](#configrulename)
+  * Limit
+  * NextToken
 
 #### Output
 * output [DescribeConfigRuleEvaluationStatusResponse](#describeconfigruleevaluationstatusresponse)
@@ -299,8 +434,9 @@ amazonaws_config.DescribeConfigRules({}, context)
 
 #### Input
 * input `object`
-  * ConfigRuleNames [ConfigRuleNames](#configrulenames)
-  * NextToken [String](#string)
+  * ConfigRuleNames
+    * items [ConfigRuleName](#configrulename)
+  * NextToken
 
 #### Output
 * output [DescribeConfigRulesResponse](#describeconfigrulesresponse)
@@ -311,16 +447,17 @@ amazonaws_config.DescribeConfigRules({}, context)
 
 ```js
 amazonaws_config.DescribeConfigurationAggregatorSourcesStatus({
-  "ConfigurationAggregatorName": ""
+  "ConfigurationAggregatorName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ConfigurationAggregatorName **required** [ConfigurationAggregatorName](#configurationaggregatorname)
-  * Limit [Limit](#limit)
-  * NextToken [String](#string)
-  * UpdateStatus [AggregatedSourceStatusTypeList](#aggregatedsourcestatustypelist)
+  * ConfigurationAggregatorName **required**
+  * Limit
+  * NextToken
+  * UpdateStatus
+    * items [AggregatedSourceStatusType](#aggregatedsourcestatustype)
 
 #### Output
 * output [DescribeConfigurationAggregatorSourcesStatusResponse](#describeconfigurationaggregatorsourcesstatusresponse)
@@ -335,9 +472,10 @@ amazonaws_config.DescribeConfigurationAggregators({}, context)
 
 #### Input
 * input `object`
-  * ConfigurationAggregatorNames [ConfigurationAggregatorNameList](#configurationaggregatornamelist)
-  * Limit [Limit](#limit)
-  * NextToken [String](#string)
+  * ConfigurationAggregatorNames
+    * items [ConfigurationAggregatorName](#configurationaggregatorname)
+  * Limit
+  * NextToken
 
 #### Output
 * output [DescribeConfigurationAggregatorsResponse](#describeconfigurationaggregatorsresponse)
@@ -352,7 +490,8 @@ amazonaws_config.DescribeConfigurationRecorderStatus({}, context)
 
 #### Input
 * input `object`
-  * ConfigurationRecorderNames [ConfigurationRecorderNameList](#configurationrecordernamelist)
+  * ConfigurationRecorderNames
+    * items [RecorderName](#recordername)
 
 #### Output
 * output [DescribeConfigurationRecorderStatusResponse](#describeconfigurationrecorderstatusresponse)
@@ -367,10 +506,70 @@ amazonaws_config.DescribeConfigurationRecorders({}, context)
 
 #### Input
 * input `object`
-  * ConfigurationRecorderNames [ConfigurationRecorderNameList](#configurationrecordernamelist)
+  * ConfigurationRecorderNames
+    * items [RecorderName](#recordername)
 
 #### Output
 * output [DescribeConfigurationRecordersResponse](#describeconfigurationrecordersresponse)
+
+### DescribeConformancePackCompliance
+
+
+
+```js
+amazonaws_config.DescribeConformancePackCompliance({
+  "ConformancePackName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * ConformancePackName **required**
+  * Filters
+    * ComplianceType
+    * ConfigRuleNames
+      * items [StringWithCharLimit64](#stringwithcharlimit64)
+  * Limit
+  * NextToken
+
+#### Output
+* output [DescribeConformancePackComplianceResponse](#describeconformancepackcomplianceresponse)
+
+### DescribeConformancePackStatus
+
+
+
+```js
+amazonaws_config.DescribeConformancePackStatus({}, context)
+```
+
+#### Input
+* input `object`
+  * ConformancePackNames
+    * items [ConformancePackName](#conformancepackname)
+  * Limit
+  * NextToken
+
+#### Output
+* output [DescribeConformancePackStatusResponse](#describeconformancepackstatusresponse)
+
+### DescribeConformancePacks
+
+
+
+```js
+amazonaws_config.DescribeConformancePacks({}, context)
+```
+
+#### Input
+* input `object`
+  * ConformancePackNames
+    * items [ConformancePackName](#conformancepackname)
+  * Limit
+  * NextToken
+
+#### Output
+* output [DescribeConformancePacksResponse](#describeconformancepacksresponse)
 
 ### DescribeDeliveryChannelStatus
 
@@ -382,7 +581,8 @@ amazonaws_config.DescribeDeliveryChannelStatus({}, context)
 
 #### Input
 * input `object`
-  * DeliveryChannelNames [DeliveryChannelNameList](#deliverychannelnamelist)
+  * DeliveryChannelNames
+    * items [ChannelName](#channelname)
 
 #### Output
 * output [DescribeDeliveryChannelStatusResponse](#describedeliverychannelstatusresponse)
@@ -397,10 +597,83 @@ amazonaws_config.DescribeDeliveryChannels({}, context)
 
 #### Input
 * input `object`
-  * DeliveryChannelNames [DeliveryChannelNameList](#deliverychannelnamelist)
+  * DeliveryChannelNames
+    * items [ChannelName](#channelname)
 
 #### Output
 * output [DescribeDeliveryChannelsResponse](#describedeliverychannelsresponse)
+
+### DescribeOrganizationConfigRuleStatuses
+
+
+
+```js
+amazonaws_config.DescribeOrganizationConfigRuleStatuses({}, context)
+```
+
+#### Input
+* input `object`
+  * Limit
+  * NextToken
+  * OrganizationConfigRuleNames
+    * items [StringWithCharLimit64](#stringwithcharlimit64)
+
+#### Output
+* output [DescribeOrganizationConfigRuleStatusesResponse](#describeorganizationconfigrulestatusesresponse)
+
+### DescribeOrganizationConfigRules
+
+
+
+```js
+amazonaws_config.DescribeOrganizationConfigRules({}, context)
+```
+
+#### Input
+* input `object`
+  * Limit
+  * NextToken
+  * OrganizationConfigRuleNames
+    * items [StringWithCharLimit64](#stringwithcharlimit64)
+
+#### Output
+* output [DescribeOrganizationConfigRulesResponse](#describeorganizationconfigrulesresponse)
+
+### DescribeOrganizationConformancePackStatuses
+
+
+
+```js
+amazonaws_config.DescribeOrganizationConformancePackStatuses({}, context)
+```
+
+#### Input
+* input `object`
+  * Limit
+  * NextToken
+  * OrganizationConformancePackNames
+    * items [OrganizationConformancePackName](#organizationconformancepackname)
+
+#### Output
+* output [DescribeOrganizationConformancePackStatusesResponse](#describeorganizationconformancepackstatusesresponse)
+
+### DescribeOrganizationConformancePacks
+
+
+
+```js
+amazonaws_config.DescribeOrganizationConformancePacks({}, context)
+```
+
+#### Input
+* input `object`
+  * Limit
+  * NextToken
+  * OrganizationConformancePackNames
+    * items [OrganizationConformancePackName](#organizationconformancepackname)
+
+#### Output
+* output [DescribeOrganizationConformancePacksResponse](#describeorganizationconformancepacksresponse)
 
 ### DescribePendingAggregationRequests
 
@@ -412,11 +685,75 @@ amazonaws_config.DescribePendingAggregationRequests({}, context)
 
 #### Input
 * input `object`
-  * Limit [DescribePendingAggregationRequestsLimit](#describependingaggregationrequestslimit)
-  * NextToken [String](#string)
+  * Limit
+  * NextToken
 
 #### Output
 * output [DescribePendingAggregationRequestsResponse](#describependingaggregationrequestsresponse)
+
+### DescribeRemediationConfigurations
+
+
+
+```js
+amazonaws_config.DescribeRemediationConfigurations({
+  "ConfigRuleNames": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * ConfigRuleNames **required**
+    * items [ConfigRuleName](#configrulename)
+
+#### Output
+* output [DescribeRemediationConfigurationsResponse](#describeremediationconfigurationsresponse)
+
+### DescribeRemediationExceptions
+
+
+
+```js
+amazonaws_config.DescribeRemediationExceptions({
+  "ConfigRuleName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * Limit `string`
+  * NextToken `string`
+  * ConfigRuleName **required**
+  * Limit
+  * NextToken
+  * ResourceKeys
+    * items [RemediationExceptionResourceKey](#remediationexceptionresourcekey)
+
+#### Output
+* output [DescribeRemediationExceptionsResponse](#describeremediationexceptionsresponse)
+
+### DescribeRemediationExecutionStatus
+
+
+
+```js
+amazonaws_config.DescribeRemediationExecutionStatus({
+  "ConfigRuleName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * Limit `string`
+  * NextToken `string`
+  * ConfigRuleName **required**
+  * Limit
+  * NextToken
+  * ResourceKeys
+    * items [ResourceKey](#resourcekey)
+
+#### Output
+* output [DescribeRemediationExecutionStatusResponse](#describeremediationexecutionstatusresponse)
 
 ### DescribeRetentionConfigurations
 
@@ -428,8 +765,9 @@ amazonaws_config.DescribeRetentionConfigurations({}, context)
 
 #### Input
 * input `object`
-  * NextToken [NextToken](#nexttoken)
-  * RetentionConfigurationNames [RetentionConfigurationNameList](#retentionconfigurationnamelist)
+  * NextToken
+  * RetentionConfigurationNames
+    * items [RetentionConfigurationName](#retentionconfigurationname)
 
 #### Output
 * output [DescribeRetentionConfigurationsResponse](#describeretentionconfigurationsresponse)
@@ -440,22 +778,22 @@ amazonaws_config.DescribeRetentionConfigurations({}, context)
 
 ```js
 amazonaws_config.GetAggregateComplianceDetailsByConfigRule({
-  "ConfigurationAggregatorName": "",
-  "ConfigRuleName": "",
-  "AccountId": "",
-  "AwsRegion": ""
+  "ConfigurationAggregatorName": null,
+  "ConfigRuleName": null,
+  "AccountId": null,
+  "AwsRegion": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * AccountId **required** [AccountId](#accountid)
-  * AwsRegion **required** [AwsRegion](#awsregion)
-  * ComplianceType [ComplianceType](#compliancetype)
-  * ConfigRuleName **required** [ConfigRuleName](#configrulename)
-  * ConfigurationAggregatorName **required** [ConfigurationAggregatorName](#configurationaggregatorname)
-  * Limit [Limit](#limit)
-  * NextToken [NextToken](#nexttoken)
+  * AccountId **required**
+  * AwsRegion **required**
+  * ComplianceType
+  * ConfigRuleName **required**
+  * ConfigurationAggregatorName **required**
+  * Limit
+  * NextToken
 
 #### Output
 * output [GetAggregateComplianceDetailsByConfigRuleResponse](#getaggregatecompliancedetailsbyconfigruleresponse)
@@ -466,20 +804,70 @@ amazonaws_config.GetAggregateComplianceDetailsByConfigRule({
 
 ```js
 amazonaws_config.GetAggregateConfigRuleComplianceSummary({
-  "ConfigurationAggregatorName": ""
+  "ConfigurationAggregatorName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ConfigurationAggregatorName **required** [ConfigurationAggregatorName](#configurationaggregatorname)
-  * Filters [ConfigRuleComplianceSummaryFilters](#configrulecompliancesummaryfilters)
-  * GroupByKey [ConfigRuleComplianceSummaryGroupKey](#configrulecompliancesummarygroupkey)
-  * Limit [GroupByAPILimit](#groupbyapilimit)
-  * NextToken [NextToken](#nexttoken)
+  * ConfigurationAggregatorName **required**
+  * Filters
+    * AccountId
+    * AwsRegion
+  * GroupByKey
+  * Limit
+  * NextToken
 
 #### Output
 * output [GetAggregateConfigRuleComplianceSummaryResponse](#getaggregateconfigrulecompliancesummaryresponse)
+
+### GetAggregateDiscoveredResourceCounts
+
+
+
+```js
+amazonaws_config.GetAggregateDiscoveredResourceCounts({
+  "ConfigurationAggregatorName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * ConfigurationAggregatorName **required**
+  * Filters
+    * AccountId
+    * Region
+    * ResourceType
+  * GroupByKey
+  * Limit
+  * NextToken
+
+#### Output
+* output [GetAggregateDiscoveredResourceCountsResponse](#getaggregatediscoveredresourcecountsresponse)
+
+### GetAggregateResourceConfig
+
+
+
+```js
+amazonaws_config.GetAggregateResourceConfig({
+  "ConfigurationAggregatorName": null,
+  "ResourceIdentifier": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * ConfigurationAggregatorName **required**
+  * ResourceIdentifier **required**
+    * ResourceId **required**
+    * ResourceName
+    * ResourceType **required**
+    * SourceAccountId **required**
+    * SourceRegion **required**
+
+#### Output
+* output [GetAggregateResourceConfigResponse](#getaggregateresourceconfigresponse)
 
 ### GetComplianceDetailsByConfigRule
 
@@ -487,16 +875,17 @@ amazonaws_config.GetAggregateConfigRuleComplianceSummary({
 
 ```js
 amazonaws_config.GetComplianceDetailsByConfigRule({
-  "ConfigRuleName": ""
+  "ConfigRuleName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ComplianceTypes [ComplianceTypes](#compliancetypes)
-  * ConfigRuleName **required** [StringWithCharLimit64](#stringwithcharlimit64)
-  * Limit [Limit](#limit)
-  * NextToken [NextToken](#nexttoken)
+  * ComplianceTypes
+    * items [ComplianceType](#compliancetype)
+  * ConfigRuleName **required**
+  * Limit
+  * NextToken
 
 #### Output
 * output [GetComplianceDetailsByConfigRuleResponse](#getcompliancedetailsbyconfigruleresponse)
@@ -507,17 +896,18 @@ amazonaws_config.GetComplianceDetailsByConfigRule({
 
 ```js
 amazonaws_config.GetComplianceDetailsByResource({
-  "ResourceType": "",
-  "ResourceId": ""
+  "ResourceType": null,
+  "ResourceId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ComplianceTypes [ComplianceTypes](#compliancetypes)
-  * NextToken [String](#string)
-  * ResourceId **required** [BaseResourceId](#baseresourceid)
-  * ResourceType **required** [StringWithCharLimit256](#stringwithcharlimit256)
+  * ComplianceTypes
+    * items [ComplianceType](#compliancetype)
+  * NextToken
+  * ResourceId **required**
+  * ResourceType **required**
 
 #### Output
 * output [GetComplianceDetailsByResourceResponse](#getcompliancedetailsbyresourceresponse)
@@ -546,10 +936,57 @@ amazonaws_config.GetComplianceSummaryByResourceType({}, context)
 
 #### Input
 * input `object`
-  * ResourceTypes [ResourceTypes](#resourcetypes)
+  * ResourceTypes
+    * items [StringWithCharLimit256](#stringwithcharlimit256)
 
 #### Output
 * output [GetComplianceSummaryByResourceTypeResponse](#getcompliancesummarybyresourcetyperesponse)
+
+### GetConformancePackComplianceDetails
+
+
+
+```js
+amazonaws_config.GetConformancePackComplianceDetails({
+  "ConformancePackName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * ConformancePackName **required**
+  * Filters
+    * ComplianceType
+    * ConfigRuleNames
+      * items [StringWithCharLimit64](#stringwithcharlimit64)
+    * ResourceIds
+      * items [StringWithCharLimit256](#stringwithcharlimit256)
+    * ResourceType
+  * Limit
+  * NextToken
+
+#### Output
+* output [GetConformancePackComplianceDetailsResponse](#getconformancepackcompliancedetailsresponse)
+
+### GetConformancePackComplianceSummary
+
+
+
+```js
+amazonaws_config.GetConformancePackComplianceSummary({
+  "ConformancePackNames": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * ConformancePackNames **required**
+    * items [ConformancePackName](#conformancepackname)
+  * Limit
+  * NextToken
+
+#### Output
+* output [GetConformancePackComplianceSummaryResponse](#getconformancepackcompliancesummaryresponse)
 
 ### GetDiscoveredResourceCounts
 
@@ -561,12 +998,57 @@ amazonaws_config.GetDiscoveredResourceCounts({}, context)
 
 #### Input
 * input `object`
-  * limit [Limit](#limit)
-  * nextToken [NextToken](#nexttoken)
-  * resourceTypes [ResourceTypes](#resourcetypes)
+  * limit
+  * nextToken
+  * resourceTypes
+    * items [StringWithCharLimit256](#stringwithcharlimit256)
 
 #### Output
 * output [GetDiscoveredResourceCountsResponse](#getdiscoveredresourcecountsresponse)
+
+### GetOrganizationConfigRuleDetailedStatus
+
+
+
+```js
+amazonaws_config.GetOrganizationConfigRuleDetailedStatus({
+  "OrganizationConfigRuleName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * Filters
+    * AccountId
+    * MemberAccountRuleStatus
+  * Limit
+  * NextToken
+  * OrganizationConfigRuleName **required**
+
+#### Output
+* output [GetOrganizationConfigRuleDetailedStatusResponse](#getorganizationconfigruledetailedstatusresponse)
+
+### GetOrganizationConformancePackDetailedStatus
+
+
+
+```js
+amazonaws_config.GetOrganizationConformancePackDetailedStatus({
+  "OrganizationConformancePackName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * Filters
+    * AccountId
+    * Status
+  * Limit
+  * NextToken
+  * OrganizationConformancePackName **required**
+
+#### Output
+* output [GetOrganizationConformancePackDetailedStatusResponse](#getorganizationconformancepackdetailedstatusresponse)
 
 ### GetResourceConfigHistory
 
@@ -574,8 +1056,8 @@ amazonaws_config.GetDiscoveredResourceCounts({}, context)
 
 ```js
 amazonaws_config.GetResourceConfigHistory({
-  "resourceType": "",
-  "resourceId": ""
+  "resourceType": null,
+  "resourceId": null
 }, context)
 ```
 
@@ -583,16 +1065,42 @@ amazonaws_config.GetResourceConfigHistory({
 * input `object`
   * limit `string`
   * nextToken `string`
-  * chronologicalOrder [ChronologicalOrder](#chronologicalorder)
-  * earlierTime [EarlierTime](#earliertime)
-  * laterTime [LaterTime](#latertime)
-  * limit [Limit](#limit)
-  * nextToken [NextToken](#nexttoken)
-  * resourceId **required** [ResourceId](#resourceid)
-  * resourceType **required** [ResourceType](#resourcetype)
+  * chronologicalOrder
+  * earlierTime
+  * laterTime
+  * limit
+  * nextToken
+  * resourceId **required**
+  * resourceType **required**
 
 #### Output
 * output [GetResourceConfigHistoryResponse](#getresourceconfighistoryresponse)
+
+### ListAggregateDiscoveredResources
+
+
+
+```js
+amazonaws_config.ListAggregateDiscoveredResources({
+  "ConfigurationAggregatorName": null,
+  "ResourceType": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * ConfigurationAggregatorName **required**
+  * Filters
+    * AccountId
+    * Region
+    * ResourceId
+    * ResourceName
+  * Limit
+  * NextToken
+  * ResourceType **required**
+
+#### Output
+* output [ListAggregateDiscoveredResourcesResponse](#listaggregatediscoveredresourcesresponse)
 
 ### ListDiscoveredResources
 
@@ -600,21 +1108,41 @@ amazonaws_config.GetResourceConfigHistory({
 
 ```js
 amazonaws_config.ListDiscoveredResources({
-  "resourceType": ""
+  "resourceType": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * includeDeletedResources [Boolean](#boolean)
-  * limit [Limit](#limit)
-  * nextToken [NextToken](#nexttoken)
-  * resourceIds [ResourceIdList](#resourceidlist)
-  * resourceName [ResourceName](#resourcename)
-  * resourceType **required** [ResourceType](#resourcetype)
+  * includeDeletedResources
+  * limit
+  * nextToken
+  * resourceIds
+    * items [ResourceId](#resourceid)
+  * resourceName
+  * resourceType **required**
 
 #### Output
 * output [ListDiscoveredResourcesResponse](#listdiscoveredresourcesresponse)
+
+### ListTagsForResource
+
+
+
+```js
+amazonaws_config.ListTagsForResource({
+  "ResourceArn": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * Limit
+  * NextToken
+  * ResourceArn **required**
+
+#### Output
+* output [ListTagsForResourceResponse](#listtagsforresourceresponse)
 
 ### PutAggregationAuthorization
 
@@ -622,15 +1150,17 @@ amazonaws_config.ListDiscoveredResources({
 
 ```js
 amazonaws_config.PutAggregationAuthorization({
-  "AuthorizedAccountId": "",
-  "AuthorizedAwsRegion": ""
+  "AuthorizedAccountId": null,
+  "AuthorizedAwsRegion": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * AuthorizedAccountId **required** [AccountId](#accountid)
-  * AuthorizedAwsRegion **required** [AwsRegion](#awsregion)
+  * AuthorizedAccountId **required**
+  * AuthorizedAwsRegion **required**
+  * Tags
+    * items [Tag](#tag)
 
 #### Output
 * output [PutAggregationAuthorizationResponse](#putaggregationauthorizationresponse)
@@ -641,18 +1171,34 @@ amazonaws_config.PutAggregationAuthorization({
 
 ```js
 amazonaws_config.PutConfigRule({
-  "ConfigRule": {
-    "Source": {
-      "Owner": "",
-      "SourceIdentifier": ""
-    }
-  }
+  "ConfigRule": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ConfigRule **required** [ConfigRule](#configrule)
+  * ConfigRule **required**
+    * ConfigRuleArn
+    * ConfigRuleId
+    * ConfigRuleName
+    * ConfigRuleState
+    * CreatedBy
+    * Description
+    * InputParameters
+    * MaximumExecutionFrequency
+    * Scope
+      * ComplianceResourceId
+      * ComplianceResourceTypes
+        * items [StringWithCharLimit256](#stringwithcharlimit256)
+      * TagKey
+      * TagValue
+    * Source **required**
+      * Owner **required**
+      * SourceDetails
+        * items [SourceDetail](#sourcedetail)
+      * SourceIdentifier **required**
+  * Tags
+    * items [Tag](#tag)
 
 #### Output
 *Output schema unknown*
@@ -663,15 +1209,22 @@ amazonaws_config.PutConfigRule({
 
 ```js
 amazonaws_config.PutConfigurationAggregator({
-  "ConfigurationAggregatorName": ""
+  "ConfigurationAggregatorName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * AccountAggregationSources [AccountAggregationSourceList](#accountaggregationsourcelist)
-  * ConfigurationAggregatorName **required** [ConfigurationAggregatorName](#configurationaggregatorname)
-  * OrganizationAggregationSource [OrganizationAggregationSource](#organizationaggregationsource)
+  * AccountAggregationSources
+    * items [AccountAggregationSource](#accountaggregationsource)
+  * ConfigurationAggregatorName **required**
+  * OrganizationAggregationSource
+    * AllAwsRegions
+    * AwsRegions
+      * items [String](#string)
+    * RoleArn **required**
+  * Tags
+    * items [Tag](#tag)
 
 #### Output
 * output [PutConfigurationAggregatorResponse](#putconfigurationaggregatorresponse)
@@ -682,16 +1235,46 @@ amazonaws_config.PutConfigurationAggregator({
 
 ```js
 amazonaws_config.PutConfigurationRecorder({
-  "ConfigurationRecorder": {}
+  "ConfigurationRecorder": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ConfigurationRecorder **required** [ConfigurationRecorder](#configurationrecorder)
+  * ConfigurationRecorder **required**
+    * name
+    * recordingGroup
+      * allSupported
+      * includeGlobalResourceTypes
+      * resourceTypes
+        * items [ResourceType](#resourcetype)
+    * roleARN
 
 #### Output
 *Output schema unknown*
+
+### PutConformancePack
+
+
+
+```js
+amazonaws_config.PutConformancePack({
+  "ConformancePackName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * ConformancePackInputParameters
+    * items [ConformancePackInputParameter](#conformancepackinputparameter)
+  * ConformancePackName **required**
+  * DeliveryS3Bucket
+  * DeliveryS3KeyPrefix
+  * TemplateBody
+  * TemplateS3Uri
+
+#### Output
+* output [PutConformancePackResponse](#putconformancepackresponse)
 
 ### PutDeliveryChannel
 
@@ -699,13 +1282,19 @@ amazonaws_config.PutConfigurationRecorder({
 
 ```js
 amazonaws_config.PutDeliveryChannel({
-  "DeliveryChannel": {}
+  "DeliveryChannel": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * DeliveryChannel **required** [DeliveryChannel](#deliverychannel)
+  * DeliveryChannel **required**
+    * configSnapshotDeliveryProperties
+      * deliveryFrequency
+    * name
+    * s3BucketName
+    * s3KeyPrefix
+    * snsTopicARN
 
 #### Output
 *Output schema unknown*
@@ -716,18 +1305,174 @@ amazonaws_config.PutDeliveryChannel({
 
 ```js
 amazonaws_config.PutEvaluations({
-  "ResultToken": ""
+  "ResultToken": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Evaluations [Evaluations](#evaluations)
-  * ResultToken **required** [String](#string)
-  * TestMode [Boolean](#boolean)
+  * Evaluations
+    * items [Evaluation](#evaluation)
+  * ResultToken **required**
+  * TestMode
 
 #### Output
 * output [PutEvaluationsResponse](#putevaluationsresponse)
+
+### PutExternalEvaluation
+
+
+
+```js
+amazonaws_config.PutExternalEvaluation({
+  "ConfigRuleName": "",
+  "ExternalEvaluation": {
+    "ComplianceResourceType": "",
+    "ComplianceResourceId": "",
+    "ComplianceType": "",
+    "OrderingTimestamp": ""
+  }
+}, context)
+```
+
+#### Input
+* input `object`
+  * ConfigRuleName **required** [ConfigRuleName](#configrulename)
+  * ExternalEvaluation **required** [ExternalEvaluation](#externalevaluation)
+
+#### Output
+* output [PutExternalEvaluationResponse](#putexternalevaluationresponse)
+
+### PutOrganizationConfigRule
+
+
+
+```js
+amazonaws_config.PutOrganizationConfigRule({
+  "OrganizationConfigRuleName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * ExcludedAccounts
+    * items [AccountId](#accountid)
+  * OrganizationConfigRuleName **required**
+  * OrganizationCustomRuleMetadata
+    * Description
+    * InputParameters
+    * LambdaFunctionArn **required**
+    * MaximumExecutionFrequency
+    * OrganizationConfigRuleTriggerTypes **required**
+      * items [OrganizationConfigRuleTriggerType](#organizationconfigruletriggertype)
+    * ResourceIdScope
+    * ResourceTypesScope
+      * items [StringWithCharLimit256](#stringwithcharlimit256)
+    * TagKeyScope
+    * TagValueScope
+  * OrganizationManagedRuleMetadata
+    * Description
+    * InputParameters
+    * MaximumExecutionFrequency
+    * ResourceIdScope
+    * ResourceTypesScope
+      * items [StringWithCharLimit256](#stringwithcharlimit256)
+    * RuleIdentifier **required**
+    * TagKeyScope
+    * TagValueScope
+
+#### Output
+* output [PutOrganizationConfigRuleResponse](#putorganizationconfigruleresponse)
+
+### PutOrganizationConformancePack
+
+
+
+```js
+amazonaws_config.PutOrganizationConformancePack({
+  "OrganizationConformancePackName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * ConformancePackInputParameters
+    * items [ConformancePackInputParameter](#conformancepackinputparameter)
+  * DeliveryS3Bucket
+  * DeliveryS3KeyPrefix
+  * ExcludedAccounts
+    * items [AccountId](#accountid)
+  * OrganizationConformancePackName **required**
+  * TemplateBody
+  * TemplateS3Uri
+
+#### Output
+* output [PutOrganizationConformancePackResponse](#putorganizationconformancepackresponse)
+
+### PutRemediationConfigurations
+
+
+
+```js
+amazonaws_config.PutRemediationConfigurations({
+  "RemediationConfigurations": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * RemediationConfigurations **required**
+    * items [RemediationConfiguration](#remediationconfiguration)
+
+#### Output
+* output [PutRemediationConfigurationsResponse](#putremediationconfigurationsresponse)
+
+### PutRemediationExceptions
+
+
+
+```js
+amazonaws_config.PutRemediationExceptions({
+  "ConfigRuleName": null,
+  "ResourceKeys": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * ConfigRuleName **required**
+  * ExpirationTime
+  * Message
+  * ResourceKeys **required**
+    * items [RemediationExceptionResourceKey](#remediationexceptionresourcekey)
+
+#### Output
+* output [PutRemediationExceptionsResponse](#putremediationexceptionsresponse)
+
+### PutResourceConfig
+
+
+
+```js
+amazonaws_config.PutResourceConfig({
+  "ResourceType": null,
+  "SchemaVersionId": null,
+  "ResourceId": null,
+  "Configuration": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * Configuration **required**
+  * ResourceId **required**
+  * ResourceName
+  * ResourceType **required**
+  * SchemaVersionId **required**
+  * Tags
+
+#### Output
+*Output schema unknown*
 
 ### PutRetentionConfiguration
 
@@ -735,16 +1480,59 @@ amazonaws_config.PutEvaluations({
 
 ```js
 amazonaws_config.PutRetentionConfiguration({
-  "RetentionPeriodInDays": 0
+  "RetentionPeriodInDays": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * RetentionPeriodInDays **required** [RetentionPeriodInDays](#retentionperiodindays)
+  * RetentionPeriodInDays **required**
 
 #### Output
 * output [PutRetentionConfigurationResponse](#putretentionconfigurationresponse)
+
+### SelectAggregateResourceConfig
+
+
+
+```js
+amazonaws_config.SelectAggregateResourceConfig({
+  "Expression": null,
+  "ConfigurationAggregatorName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * MaxResults `string`
+  * NextToken `string`
+  * ConfigurationAggregatorName **required**
+  * Expression **required**
+  * Limit
+  * MaxResults
+  * NextToken
+
+#### Output
+* output [SelectAggregateResourceConfigResponse](#selectaggregateresourceconfigresponse)
+
+### SelectResourceConfig
+
+
+
+```js
+amazonaws_config.SelectResourceConfig({
+  "Expression": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * Expression **required**
+  * Limit
+  * NextToken
+
+#### Output
+* output [SelectResourceConfigResponse](#selectresourceconfigresponse)
 
 ### StartConfigRulesEvaluation
 
@@ -756,7 +1544,8 @@ amazonaws_config.StartConfigRulesEvaluation({}, context)
 
 #### Input
 * input `object`
-  * ConfigRuleNames [ReevaluateConfigRuleNames](#reevaluateconfigrulenames)
+  * ConfigRuleNames
+    * items [ConfigRuleName](#configrulename)
 
 #### Output
 * output [StartConfigRulesEvaluationResponse](#startconfigrulesevaluationresponse)
@@ -767,16 +1556,36 @@ amazonaws_config.StartConfigRulesEvaluation({}, context)
 
 ```js
 amazonaws_config.StartConfigurationRecorder({
-  "ConfigurationRecorderName": ""
+  "ConfigurationRecorderName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ConfigurationRecorderName **required** [RecorderName](#recordername)
+  * ConfigurationRecorderName **required**
 
 #### Output
 *Output schema unknown*
+
+### StartRemediationExecution
+
+
+
+```js
+amazonaws_config.StartRemediationExecution({
+  "ConfigRuleName": null,
+  "ResourceKeys": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * ConfigRuleName **required**
+  * ResourceKeys **required**
+    * items [ResourceKey](#resourcekey)
+
+#### Output
+* output [StartRemediationExecutionResponse](#startremediationexecutionresponse)
 
 ### StopConfigurationRecorder
 
@@ -784,13 +1593,53 @@ amazonaws_config.StartConfigurationRecorder({
 
 ```js
 amazonaws_config.StopConfigurationRecorder({
-  "ConfigurationRecorderName": ""
+  "ConfigurationRecorderName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ConfigurationRecorderName **required** [RecorderName](#recordername)
+  * ConfigurationRecorderName **required**
+
+#### Output
+*Output schema unknown*
+
+### TagResource
+
+
+
+```js
+amazonaws_config.TagResource({
+  "ResourceArn": null,
+  "Tags": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * ResourceArn **required**
+  * Tags **required**
+    * items [Tag](#tag)
+
+#### Output
+*Output schema unknown*
+
+### UntagResource
+
+
+
+```js
+amazonaws_config.UntagResource({
+  "ResourceArn": null,
+  "TagKeys": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * ResourceArn **required**
+  * TagKeys **required**
+    * items [TagKey](#tagkey)
 
 #### Output
 *Output schema unknown*
@@ -804,9 +1653,11 @@ amazonaws_config.StopConfigurationRecorder({
 
 ### AccountAggregationSource
 * AccountAggregationSource `object`: A collection of accounts and regions.
-  * AccountIds **required** [AccountAggregationSourceAccountList](#accountaggregationsourceaccountlist)
-  * AllAwsRegions [Boolean](#boolean)
-  * AwsRegions [AggregatorRegionList](#aggregatorregionlist)
+  * AccountIds **required**
+    * items [AccountId](#accountid)
+  * AllAwsRegions
+  * AwsRegions
+    * items [String](#string)
 
 ### AccountAggregationSourceAccountList
 * AccountAggregationSourceAccountList `array`
@@ -821,10 +1672,14 @@ amazonaws_config.StopConfigurationRecorder({
 
 ### AggregateComplianceByConfigRule
 * AggregateComplianceByConfigRule `object`: <p>Indicates whether an AWS Config rule is compliant based on account ID, region, compliance, and rule name.</p> <p>A rule is compliant if all of the resources that the rule evaluated comply with it. It is noncompliant if any of these resources do not comply.</p>
-  * AccountId [AccountId](#accountid)
-  * AwsRegion [AwsRegion](#awsregion)
-  * Compliance [Compliance](#compliance)
-  * ConfigRuleName [ConfigRuleName](#configrulename)
+  * AccountId
+  * AwsRegion
+  * Compliance
+    * ComplianceContributorCount
+      * CapExceeded
+      * CappedCount
+    * ComplianceType
+  * ConfigRuleName
 
 ### AggregateComplianceByConfigRuleList
 * AggregateComplianceByConfigRuleList `array`
@@ -832,8 +1687,15 @@ amazonaws_config.StopConfigurationRecorder({
 
 ### AggregateComplianceCount
 * AggregateComplianceCount `object`: Returns the number of compliant and noncompliant rules for one or more accounts and regions in an aggregator.
-  * ComplianceSummary [ComplianceSummary](#compliancesummary)
-  * GroupName [StringWithCharLimit256](#stringwithcharlimit256)
+  * ComplianceSummary
+    * ComplianceSummaryTimestamp
+    * CompliantResourceCount
+      * CapExceeded
+      * CappedCount
+    * NonCompliantResourceCount
+      * CapExceeded
+      * CappedCount
+  * GroupName
 
 ### AggregateComplianceCountList
 * AggregateComplianceCountList `array`
@@ -841,27 +1703,40 @@ amazonaws_config.StopConfigurationRecorder({
 
 ### AggregateEvaluationResult
 * AggregateEvaluationResult `object`: The details of an AWS Config evaluation for an account ID and region in an aggregator. Provides the AWS resource that was evaluated, the compliance of the resource, related time stamps, and supplementary information. 
-  * AccountId [AccountId](#accountid)
-  * Annotation [StringWithCharLimit256](#stringwithcharlimit256)
-  * AwsRegion [AwsRegion](#awsregion)
-  * ComplianceType [ComplianceType](#compliancetype)
-  * ConfigRuleInvokedTime [Date](#date)
-  * EvaluationResultIdentifier [EvaluationResultIdentifier](#evaluationresultidentifier)
-  * ResultRecordedTime [Date](#date)
+  * AccountId
+  * Annotation
+  * AwsRegion
+  * ComplianceType
+  * ConfigRuleInvokedTime
+  * EvaluationResultIdentifier
+    * EvaluationResultQualifier
+      * ConfigRuleName
+      * ResourceId
+      * ResourceType
+    * OrderingTimestamp
+  * ResultRecordedTime
 
 ### AggregateEvaluationResultList
 * AggregateEvaluationResultList `array`
   * items [AggregateEvaluationResult](#aggregateevaluationresult)
 
+### AggregateResourceIdentifier
+* AggregateResourceIdentifier `object`: The details that identify a resource that is collected by AWS Config aggregator, including the resource type, ID, (if available) the custom resource name, the source account, and source region.
+  * ResourceId **required**
+  * ResourceName
+  * ResourceType **required**
+  * SourceAccountId **required**
+  * SourceRegion **required**
+
 ### AggregatedSourceStatus
 * AggregatedSourceStatus `object`: The current sync status between the source and the aggregator account.
-  * AwsRegion [AwsRegion](#awsregion)
-  * LastErrorCode [String](#string)
-  * LastErrorMessage [String](#string)
-  * LastUpdateStatus [AggregatedSourceStatusType](#aggregatedsourcestatustype)
-  * LastUpdateTime [Date](#date)
-  * SourceId [String](#string)
-  * SourceType [AggregatedSourceType](#aggregatedsourcetype)
+  * AwsRegion
+  * LastErrorCode
+  * LastErrorMessage
+  * LastUpdateStatus
+  * LastUpdateTime
+  * SourceId
+  * SourceType
 
 ### AggregatedSourceStatusList
 * AggregatedSourceStatusList `array`
@@ -879,10 +1754,10 @@ amazonaws_config.StopConfigurationRecorder({
 
 ### AggregationAuthorization
 * AggregationAuthorization `object`: An object that represents the authorizations granted to aggregator accounts and regions.
-  * AggregationAuthorizationArn [String](#string)
-  * AuthorizedAccountId [AccountId](#accountid)
-  * AuthorizedAwsRegion [AwsRegion](#awsregion)
-  * CreationTime [Date](#date)
+  * AggregationAuthorizationArn
+  * AuthorizedAccountId
+  * AuthorizedAwsRegion
+  * CreationTime
 
 ### AggregationAuthorizationList
 * AggregationAuthorizationList `array`
@@ -895,6 +1770,18 @@ amazonaws_config.StopConfigurationRecorder({
 ### AllSupported
 * AllSupported `boolean`
 
+### AmazonResourceName
+* AmazonResourceName `string`
+
+### Annotation
+* Annotation `string`
+
+### AutoRemediationAttemptSeconds
+* AutoRemediationAttemptSeconds `integer`
+
+### AutoRemediationAttempts
+* AutoRemediationAttempts `integer`
+
 ### AvailabilityZone
 * AvailabilityZone `string`
 
@@ -903,20 +1790,20 @@ amazonaws_config.StopConfigurationRecorder({
 
 ### BaseConfigurationItem
 * BaseConfigurationItem `object`: The detailed configuration of a specified resource.
-  * accountId [AccountId](#accountid)
-  * arn [ARN](#arn)
-  * availabilityZone [AvailabilityZone](#availabilityzone)
-  * awsRegion [AwsRegion](#awsregion)
-  * configuration [Configuration](#configuration)
-  * configurationItemCaptureTime [ConfigurationItemCaptureTime](#configurationitemcapturetime)
-  * configurationItemStatus [ConfigurationItemStatus](#configurationitemstatus)
-  * configurationStateId [ConfigurationStateId](#configurationstateid)
-  * resourceCreationTime [ResourceCreationTime](#resourcecreationtime)
-  * resourceId [ResourceId](#resourceid)
-  * resourceName [ResourceName](#resourcename)
-  * resourceType [ResourceType](#resourcetype)
-  * supplementaryConfiguration [SupplementaryConfiguration](#supplementaryconfiguration)
-  * version [Version](#version)
+  * accountId
+  * arn
+  * availabilityZone
+  * awsRegion
+  * configuration
+  * configurationItemCaptureTime
+  * configurationItemStatus
+  * configurationStateId
+  * resourceCreationTime
+  * resourceId
+  * resourceName
+  * resourceType
+  * supplementaryConfiguration
+  * version
 
 ### BaseConfigurationItems
 * BaseConfigurationItems `array`
@@ -925,14 +1812,30 @@ amazonaws_config.StopConfigurationRecorder({
 ### BaseResourceId
 * BaseResourceId `string`
 
+### BatchGetAggregateResourceConfigRequest
+* BatchGetAggregateResourceConfigRequest `object`
+  * ConfigurationAggregatorName **required**
+  * ResourceIdentifiers **required**
+    * items [AggregateResourceIdentifier](#aggregateresourceidentifier)
+
+### BatchGetAggregateResourceConfigResponse
+* BatchGetAggregateResourceConfigResponse `object`
+  * BaseConfigurationItems
+    * items [BaseConfigurationItem](#baseconfigurationitem)
+  * UnprocessedResourceIdentifiers
+    * items [AggregateResourceIdentifier](#aggregateresourceidentifier)
+
 ### BatchGetResourceConfigRequest
 * BatchGetResourceConfigRequest `object`
-  * resourceKeys **required** [ResourceKeys](#resourcekeys)
+  * resourceKeys **required**
+    * items [ResourceKey](#resourcekey)
 
 ### BatchGetResourceConfigResponse
 * BatchGetResourceConfigResponse `object`
-  * baseConfigurationItems [BaseConfigurationItems](#baseconfigurationitems)
-  * unprocessedResourceKeys [ResourceKeys](#resourcekeys)
+  * baseConfigurationItems
+    * items [BaseConfigurationItem](#baseconfigurationitem)
+  * unprocessedResourceKeys
+    * items [ResourceKey](#resourcekey)
 
 ### Boolean
 * Boolean `boolean`
@@ -945,13 +1848,19 @@ amazonaws_config.StopConfigurationRecorder({
 
 ### Compliance
 * Compliance `object`: Indicates whether an AWS resource or AWS Config rule is compliant and provides the number of contributors that affect the compliance.
-  * ComplianceContributorCount [ComplianceContributorCount](#compliancecontributorcount)
-  * ComplianceType [ComplianceType](#compliancetype)
+  * ComplianceContributorCount
+    * CapExceeded
+    * CappedCount
+  * ComplianceType
 
 ### ComplianceByConfigRule
 * ComplianceByConfigRule `object`: Indicates whether an AWS Config rule is compliant. A rule is compliant if all of the resources that the rule evaluated comply with it. A rule is noncompliant if any of these resources do not comply.
-  * Compliance [Compliance](#compliance)
-  * ConfigRuleName [StringWithCharLimit64](#stringwithcharlimit64)
+  * Compliance
+    * ComplianceContributorCount
+      * CapExceeded
+      * CappedCount
+    * ComplianceType
+  * ConfigRuleName
 
 ### ComplianceByConfigRules
 * ComplianceByConfigRules `array`
@@ -959,9 +1868,13 @@ amazonaws_config.StopConfigurationRecorder({
 
 ### ComplianceByResource
 * ComplianceByResource `object`: Indicates whether an AWS resource that is evaluated according to one or more AWS Config rules is compliant. A resource is compliant if it complies with all of the rules that evaluate it. A resource is noncompliant if it does not comply with one or more of these rules.
-  * Compliance [Compliance](#compliance)
-  * ResourceId [BaseResourceId](#baseresourceid)
-  * ResourceType [StringWithCharLimit256](#stringwithcharlimit256)
+  * Compliance
+    * ComplianceContributorCount
+      * CapExceeded
+      * CappedCount
+    * ComplianceType
+  * ResourceId
+  * ResourceType
 
 ### ComplianceByResources
 * ComplianceByResources `array`
@@ -969,8 +1882,8 @@ amazonaws_config.StopConfigurationRecorder({
 
 ### ComplianceContributorCount
 * ComplianceContributorCount `object`: The number of AWS resources or AWS Config rules responsible for the current compliance of the item, up to a maximum number.
-  * CapExceeded [Boolean](#boolean)
-  * CappedCount [Integer](#integer)
+  * CapExceeded
+  * CappedCount
 
 ### ComplianceResourceTypes
 * ComplianceResourceTypes `array`
@@ -982,14 +1895,25 @@ amazonaws_config.StopConfigurationRecorder({
 
 ### ComplianceSummary
 * ComplianceSummary `object`: The number of AWS Config rules or AWS resources that are compliant and noncompliant.
-  * ComplianceSummaryTimestamp [Date](#date)
-  * CompliantResourceCount [ComplianceContributorCount](#compliancecontributorcount)
-  * NonCompliantResourceCount [ComplianceContributorCount](#compliancecontributorcount)
+  * ComplianceSummaryTimestamp
+  * CompliantResourceCount
+    * CapExceeded
+    * CappedCount
+  * NonCompliantResourceCount
+    * CapExceeded
+    * CappedCount
 
 ### ComplianceSummaryByResourceType
 * ComplianceSummaryByResourceType `object`: The number of AWS resources of a specific type that are compliant or noncompliant, up to a maximum of 100 for each.
-  * ComplianceSummary [ComplianceSummary](#compliancesummary)
-  * ResourceType [StringWithCharLimit256](#stringwithcharlimit256)
+  * ComplianceSummary
+    * ComplianceSummaryTimestamp
+    * CompliantResourceCount
+      * CapExceeded
+      * CappedCount
+    * NonCompliantResourceCount
+      * CapExceeded
+      * CappedCount
+  * ResourceType
 
 ### ComplianceType
 * ComplianceType `string` (values: COMPLIANT, NON_COMPLIANT, NOT_APPLICABLE, INSUFFICIENT_DATA)
@@ -1000,53 +1924,64 @@ amazonaws_config.StopConfigurationRecorder({
 
 ### ConfigExportDeliveryInfo
 * ConfigExportDeliveryInfo `object`: Provides status of the delivery of the snapshot or the configuration history to the specified Amazon S3 bucket. Also provides the status of notifications about the Amazon S3 delivery to the specified Amazon SNS topic.
-  * lastAttemptTime [Date](#date)
-  * lastErrorCode [String](#string)
-  * lastErrorMessage [String](#string)
-  * lastStatus [DeliveryStatus](#deliverystatus)
-  * lastSuccessfulTime [Date](#date)
-  * nextDeliveryTime [Date](#date)
+  * lastAttemptTime
+  * lastErrorCode
+  * lastErrorMessage
+  * lastStatus
+  * lastSuccessfulTime
+  * nextDeliveryTime
 
 ### ConfigRule
-* ConfigRule `object`: <p>An AWS Config rule represents an AWS Lambda function that you create for a custom rule or a predefined function for an AWS managed rule. The function evaluates configuration items to assess whether your AWS resources comply with your desired configurations. This function can run when AWS Config detects a configuration change to an AWS resource and at a periodic frequency that you choose (for example, every 24 hours).</p> <note> <p>You can use the AWS CLI and AWS SDKs if you want to create a rule that triggers evaluations for your resources when AWS Config delivers the configuration snapshot. For more information, see <a>ConfigSnapshotDeliveryProperties</a>.</p> </note> <p>For more information about developing and using AWS Config rules, see <a href="http://docs.aws.amazon.com/config/latest/developerguide/evaluate-config.html">Evaluating AWS Resource Configurations with AWS Config</a> in the <i>AWS Config Developer Guide</i>.</p>
-  * ConfigRuleArn [String](#string)
-  * ConfigRuleId [String](#string)
-  * ConfigRuleName [StringWithCharLimit64](#stringwithcharlimit64)
-  * ConfigRuleState [ConfigRuleState](#configrulestate)
-  * Description [EmptiableStringWithCharLimit256](#emptiablestringwithcharlimit256)
-  * InputParameters [StringWithCharLimit1024](#stringwithcharlimit1024)
-  * MaximumExecutionFrequency [MaximumExecutionFrequency](#maximumexecutionfrequency)
-  * Scope [Scope](#scope)
-  * Source **required** [Source](#source)
+* ConfigRule `object`: <p>An AWS Config rule represents an AWS Lambda function that you create for a custom rule or a predefined function for an AWS managed rule. The function evaluates configuration items to assess whether your AWS resources comply with your desired configurations. This function can run when AWS Config detects a configuration change to an AWS resource and at a periodic frequency that you choose (for example, every 24 hours).</p> <note> <p>You can use the AWS CLI and AWS SDKs if you want to create a rule that triggers evaluations for your resources when AWS Config delivers the configuration snapshot. For more information, see <a>ConfigSnapshotDeliveryProperties</a>.</p> </note> <p>For more information about developing and using AWS Config rules, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config.html">Evaluating AWS Resource Configurations with AWS Config</a> in the <i>AWS Config Developer Guide</i>.</p>
+  * ConfigRuleArn
+  * ConfigRuleId
+  * ConfigRuleName
+  * ConfigRuleState
+  * CreatedBy
+  * Description
+  * InputParameters
+  * MaximumExecutionFrequency
+  * Scope
+    * ComplianceResourceId
+    * ComplianceResourceTypes
+      * items [StringWithCharLimit256](#stringwithcharlimit256)
+    * TagKey
+    * TagValue
+  * Source **required**
+    * Owner **required**
+    * SourceDetails
+      * items [SourceDetail](#sourcedetail)
+    * SourceIdentifier **required**
 
 ### ConfigRuleComplianceFilters
 * ConfigRuleComplianceFilters `object`: Filters the compliance results based on account ID, region, compliance type, and rule name.
-  * AccountId [AccountId](#accountid)
-  * AwsRegion [AwsRegion](#awsregion)
-  * ComplianceType [ComplianceType](#compliancetype)
-  * ConfigRuleName [ConfigRuleName](#configrulename)
+  * AccountId
+  * AwsRegion
+  * ComplianceType
+  * ConfigRuleName
 
 ### ConfigRuleComplianceSummaryFilters
 * ConfigRuleComplianceSummaryFilters `object`: Filters the results based on the account IDs and regions.
-  * AccountId [AccountId](#accountid)
-  * AwsRegion [AwsRegion](#awsregion)
+  * AccountId
+  * AwsRegion
 
 ### ConfigRuleComplianceSummaryGroupKey
 * ConfigRuleComplianceSummaryGroupKey `string` (values: ACCOUNT_ID, AWS_REGION)
 
 ### ConfigRuleEvaluationStatus
 * ConfigRuleEvaluationStatus `object`: <p>Status information for your AWS managed Config rules. The status includes information such as the last time the rule ran, the last time it failed, and the related error for the last failure.</p> <p>This action does not return status information about custom AWS Config rules.</p>
-  * ConfigRuleArn [String](#string)
-  * ConfigRuleId [String](#string)
-  * ConfigRuleName [StringWithCharLimit64](#stringwithcharlimit64)
-  * FirstActivatedTime [Date](#date)
-  * FirstEvaluationStarted [Boolean](#boolean)
-  * LastErrorCode [String](#string)
-  * LastErrorMessage [String](#string)
-  * LastFailedEvaluationTime [Date](#date)
-  * LastFailedInvocationTime [Date](#date)
-  * LastSuccessfulEvaluationTime [Date](#date)
-  * LastSuccessfulInvocationTime [Date](#date)
+  * ConfigRuleArn
+  * ConfigRuleId
+  * ConfigRuleName
+  * FirstActivatedTime
+  * FirstEvaluationStarted
+  * LastDeactivatedTime
+  * LastErrorCode
+  * LastErrorMessage
+  * LastFailedEvaluationTime
+  * LastFailedInvocationTime
+  * LastSuccessfulEvaluationTime
+  * LastSuccessfulInvocationTime
 
 ### ConfigRuleEvaluationStatusList
 * ConfigRuleEvaluationStatusList `array`
@@ -1057,7 +1992,7 @@ amazonaws_config.StopConfigurationRecorder({
 
 ### ConfigRuleNames
 * ConfigRuleNames `array`
-  * items [StringWithCharLimit64](#stringwithcharlimit64)
+  * items [ConfigRuleName](#configrulename)
 
 ### ConfigRuleState
 * ConfigRuleState `string` (values: ACTIVE, DELETING, DELETING_RESULTS, EVALUATING)
@@ -1067,27 +2002,33 @@ amazonaws_config.StopConfigurationRecorder({
   * items [ConfigRule](#configrule)
 
 ### ConfigSnapshotDeliveryProperties
-* ConfigSnapshotDeliveryProperties `object`: <p>Provides options for how often AWS Config delivers configuration snapshots to the Amazon S3 bucket in your delivery channel.</p> <note> <p>If you want to create a rule that triggers evaluations for your resources when AWS Config delivers the configuration snapshot, see the following:</p> </note> <p>The frequency for a rule that triggers evaluations for your resources when AWS Config delivers the configuration snapshot is set by one of two values, depending on which is less frequent:</p> <ul> <li> <p>The value for the <code>deliveryFrequency</code> parameter within the delivery channel configuration, which sets how often AWS Config delivers configuration snapshots. This value also sets how often AWS Config invokes evaluations for AWS Config rules.</p> </li> <li> <p>The value for the <code>MaximumExecutionFrequency</code> parameter, which sets the maximum frequency with which AWS Config invokes evaluations for the rule. For more information, see <a>ConfigRule</a>.</p> </li> </ul> <p>If the <code>deliveryFrequency</code> value is less frequent than the <code>MaximumExecutionFrequency</code> value for a rule, AWS Config invokes the rule only as often as the <code>deliveryFrequency</code> value.</p> <ol> <li> <p>For example, you want your rule to run evaluations when AWS Config delivers the configuration snapshot.</p> </li> <li> <p>You specify the <code>MaximumExecutionFrequency</code> value for <code>Six_Hours</code>. </p> </li> <li> <p>You then specify the delivery channel <code>deliveryFrequency</code> value for <code>TwentyFour_Hours</code>.</p> </li> <li> <p>Because the value for <code>deliveryFrequency</code> is less frequent than <code>MaximumExecutionFrequency</code>, AWS Config invokes evaluations for the rule every 24 hours. </p> </li> </ol> <p>You should set the <code>MaximumExecutionFrequency</code> value to be at least as frequent as the <code>deliveryFrequency</code> value. You can view the <code>deliveryFrequency</code> value by using the <code>DescribeDeliveryChannnels</code> action.</p> <p>To update the <code>deliveryFrequency</code> with which AWS Config delivers your configuration snapshots, use the <code>PutDeliveryChannel</code> action.</p>
-  * deliveryFrequency [MaximumExecutionFrequency](#maximumexecutionfrequency)
+* ConfigSnapshotDeliveryProperties `object`: <p>Provides options for how often AWS Config delivers configuration snapshots to the Amazon S3 bucket in your delivery channel.</p> <p>The frequency for a rule that triggers evaluations for your resources when AWS Config delivers the configuration snapshot is set by one of two values, depending on which is less frequent:</p> <ul> <li> <p>The value for the <code>deliveryFrequency</code> parameter within the delivery channel configuration, which sets how often AWS Config delivers configuration snapshots. This value also sets how often AWS Config invokes evaluations for AWS Config rules.</p> </li> <li> <p>The value for the <code>MaximumExecutionFrequency</code> parameter, which sets the maximum frequency with which AWS Config invokes evaluations for the rule. For more information, see <a>ConfigRule</a>.</p> </li> </ul> <p>If the <code>deliveryFrequency</code> value is less frequent than the <code>MaximumExecutionFrequency</code> value for a rule, AWS Config invokes the rule only as often as the <code>deliveryFrequency</code> value.</p> <ol> <li> <p>For example, you want your rule to run evaluations when AWS Config delivers the configuration snapshot.</p> </li> <li> <p>You specify the <code>MaximumExecutionFrequency</code> value for <code>Six_Hours</code>. </p> </li> <li> <p>You then specify the delivery channel <code>deliveryFrequency</code> value for <code>TwentyFour_Hours</code>.</p> </li> <li> <p>Because the value for <code>deliveryFrequency</code> is less frequent than <code>MaximumExecutionFrequency</code>, AWS Config invokes evaluations for the rule every 24 hours. </p> </li> </ol> <p>You should set the <code>MaximumExecutionFrequency</code> value to be at least as frequent as the <code>deliveryFrequency</code> value. You can view the <code>deliveryFrequency</code> value by using the <code>DescribeDeliveryChannnels</code> action.</p> <p>To update the <code>deliveryFrequency</code> with which AWS Config delivers your configuration snapshots, use the <code>PutDeliveryChannel</code> action.</p>
+  * deliveryFrequency
 
 ### ConfigStreamDeliveryInfo
 * ConfigStreamDeliveryInfo `object`: A list that contains the status of the delivery of the configuration stream notification to the Amazon SNS topic.
-  * lastErrorCode [String](#string)
-  * lastErrorMessage [String](#string)
-  * lastStatus [DeliveryStatus](#deliverystatus)
-  * lastStatusChangeTime [Date](#date)
+  * lastErrorCode
+  * lastErrorMessage
+  * lastStatus
+  * lastStatusChangeTime
 
 ### Configuration
 * Configuration `string`
 
 ### ConfigurationAggregator
 * ConfigurationAggregator `object`: The details about the configuration aggregator, including information about source accounts, regions, and metadata of the aggregator. 
-  * AccountAggregationSources [AccountAggregationSourceList](#accountaggregationsourcelist)
-  * ConfigurationAggregatorArn [ConfigurationAggregatorArn](#configurationaggregatorarn)
-  * ConfigurationAggregatorName [ConfigurationAggregatorName](#configurationaggregatorname)
-  * CreationTime [Date](#date)
-  * LastUpdatedTime [Date](#date)
-  * OrganizationAggregationSource [OrganizationAggregationSource](#organizationaggregationsource)
+  * AccountAggregationSources
+    * items [AccountAggregationSource](#accountaggregationsource)
+  * ConfigurationAggregatorArn
+  * ConfigurationAggregatorName
+  * CreatedBy
+  * CreationTime
+  * LastUpdatedTime
+  * OrganizationAggregationSource
+    * AllAwsRegions
+    * AwsRegions
+      * items [String](#string)
+    * RoleArn **required**
 
 ### ConfigurationAggregatorArn
 * ConfigurationAggregatorArn `string`
@@ -1105,24 +2046,26 @@ amazonaws_config.StopConfigurationRecorder({
 
 ### ConfigurationItem
 * ConfigurationItem `object`: A list that contains detailed configurations of a specified resource.
-  * accountId [AccountId](#accountid)
-  * arn [ARN](#arn)
-  * availabilityZone [AvailabilityZone](#availabilityzone)
-  * awsRegion [AwsRegion](#awsregion)
-  * configuration [Configuration](#configuration)
-  * configurationItemCaptureTime [ConfigurationItemCaptureTime](#configurationitemcapturetime)
-  * configurationItemMD5Hash [ConfigurationItemMD5Hash](#configurationitemmd5hash)
-  * configurationItemStatus [ConfigurationItemStatus](#configurationitemstatus)
-  * configurationStateId [ConfigurationStateId](#configurationstateid)
-  * relatedEvents [RelatedEventList](#relatedeventlist)
-  * relationships [RelationshipList](#relationshiplist)
-  * resourceCreationTime [ResourceCreationTime](#resourcecreationtime)
-  * resourceId [ResourceId](#resourceid)
-  * resourceName [ResourceName](#resourcename)
-  * resourceType [ResourceType](#resourcetype)
-  * supplementaryConfiguration [SupplementaryConfiguration](#supplementaryconfiguration)
-  * tags [Tags](#tags)
-  * version [Version](#version)
+  * tags
+  * accountId
+  * arn
+  * availabilityZone
+  * awsRegion
+  * configuration
+  * configurationItemCaptureTime
+  * configurationItemMD5Hash
+  * configurationItemStatus
+  * configurationStateId
+  * relatedEvents
+    * items [RelatedEvent](#relatedevent)
+  * relationships
+    * items [Relationship](#relationship)
+  * resourceCreationTime
+  * resourceId
+  * resourceName
+  * resourceType
+  * supplementaryConfiguration
+  * version
 
 ### ConfigurationItemCaptureTime
 * ConfigurationItemCaptureTime `string`
@@ -1139,9 +2082,13 @@ amazonaws_config.StopConfigurationRecorder({
 
 ### ConfigurationRecorder
 * ConfigurationRecorder `object`: An object that represents the recording of configuration changes of an AWS resource.
-  * name [RecorderName](#recordername)
-  * recordingGroup [RecordingGroup](#recordinggroup)
-  * roleARN [String](#string)
+  * name
+  * recordingGroup
+    * allSupported
+    * includeGlobalResourceTypes
+    * resourceTypes
+      * items [ResourceType](#resourcetype)
+  * roleARN
 
 ### ConfigurationRecorderList
 * ConfigurationRecorderList `array`
@@ -1153,14 +2100,14 @@ amazonaws_config.StopConfigurationRecorder({
 
 ### ConfigurationRecorderStatus
 * ConfigurationRecorderStatus `object`: The current status of the configuration recorder.
-  * lastErrorCode [String](#string)
-  * lastErrorMessage [String](#string)
-  * lastStartTime [Date](#date)
-  * lastStatus [RecorderStatus](#recorderstatus)
-  * lastStatusChangeTime [Date](#date)
-  * lastStopTime [Date](#date)
-  * name [String](#string)
-  * recording [Boolean](#boolean)
+  * lastErrorCode
+  * lastErrorMessage
+  * lastStartTime
+  * lastStatus
+  * lastStatusChangeTime
+  * lastStopTime
+  * name
+  * recording
 
 ### ConfigurationRecorderStatusList
 * ConfigurationRecorderStatusList `array`
@@ -1169,61 +2116,223 @@ amazonaws_config.StopConfigurationRecorder({
 ### ConfigurationStateId
 * ConfigurationStateId `string`
 
+### ConformancePackArn
+* ConformancePackArn `string`
+
+### ConformancePackComplianceFilters
+* ConformancePackComplianceFilters `object`: Filters the conformance pack by compliance types and AWS Config rule names.
+  * ComplianceType
+  * ConfigRuleNames
+    * items [StringWithCharLimit64](#stringwithcharlimit64)
+
+### ConformancePackComplianceResourceIds
+* ConformancePackComplianceResourceIds `array`
+  * items [StringWithCharLimit256](#stringwithcharlimit256)
+
+### ConformancePackComplianceSummary
+* ConformancePackComplianceSummary `object`: Summary includes the name and status of the conformance pack.
+  * ConformancePackComplianceStatus **required**
+  * ConformancePackName **required**
+
+### ConformancePackComplianceSummaryList
+* ConformancePackComplianceSummaryList `array`
+  * items [ConformancePackComplianceSummary](#conformancepackcompliancesummary)
+
+### ConformancePackComplianceType
+* ConformancePackComplianceType `string` (values: COMPLIANT, NON_COMPLIANT)
+
+### ConformancePackConfigRuleNames
+* ConformancePackConfigRuleNames `array`
+  * items [StringWithCharLimit64](#stringwithcharlimit64)
+
+### ConformancePackDetail
+* ConformancePackDetail `object`: Returns details of a conformance pack. A conformance pack is a collection of AWS Config rules and remediation actions that can be easily deployed in an account and a region.
+  * ConformancePackArn **required**
+  * ConformancePackId **required**
+  * ConformancePackInputParameters
+    * items [ConformancePackInputParameter](#conformancepackinputparameter)
+  * ConformancePackName **required**
+  * CreatedBy
+  * DeliveryS3Bucket
+  * DeliveryS3KeyPrefix
+  * LastUpdateRequestedTime
+
+### ConformancePackDetailList
+* ConformancePackDetailList `array`
+  * items [ConformancePackDetail](#conformancepackdetail)
+
+### ConformancePackEvaluationFilters
+* ConformancePackEvaluationFilters `object`: Filters a conformance pack by AWS Config rule names, compliance types, AWS resource types, and resource IDs.
+  * ComplianceType
+  * ConfigRuleNames
+    * items [StringWithCharLimit64](#stringwithcharlimit64)
+  * ResourceIds
+    * items [StringWithCharLimit256](#stringwithcharlimit256)
+  * ResourceType
+
+### ConformancePackEvaluationResult
+* ConformancePackEvaluationResult `object`: The details of a conformance pack evaluation. Provides AWS Config rule and AWS resource type that was evaluated, the compliance of the conformance pack, related time stamps, and supplementary information. 
+  * Annotation
+  * ComplianceType **required**
+  * ConfigRuleInvokedTime **required**
+  * EvaluationResultIdentifier **required** [EvaluationResultIdentifier](#evaluationresultidentifier)
+  * ResultRecordedTime **required**
+
+### ConformancePackId
+* ConformancePackId `string`
+
+### ConformancePackInputParameter
+* ConformancePackInputParameter `object`: Input parameters in the form of key-value pairs for the conformance pack, both of which you define. Keys can have a maximum character length of 255 characters, and values can have a maximum length of 4096 characters.
+  * ParameterName **required**
+  * ParameterValue **required**
+
+### ConformancePackInputParameters
+* ConformancePackInputParameters `array`
+  * items [ConformancePackInputParameter](#conformancepackinputparameter)
+
+### ConformancePackName
+* ConformancePackName `string`
+
+### ConformancePackNamesList
+* ConformancePackNamesList `array`
+  * items [ConformancePackName](#conformancepackname)
+
+### ConformancePackNamesToSummarizeList
+* ConformancePackNamesToSummarizeList `array`
+  * items [ConformancePackName](#conformancepackname)
+
+### ConformancePackRuleCompliance
+* ConformancePackRuleCompliance `object`: Compliance information of one or more AWS Config rules within a conformance pack. You can filter using AWS Config rule names and compliance types.
+  * ComplianceType
+  * ConfigRuleName
+
+### ConformancePackRuleComplianceList
+* ConformancePackRuleComplianceList `array`
+  * items [ConformancePackRuleCompliance](#conformancepackrulecompliance)
+
+### ConformancePackRuleEvaluationResultsList
+* ConformancePackRuleEvaluationResultsList `array`
+  * items [ConformancePackEvaluationResult](#conformancepackevaluationresult)
+
+### ConformancePackState
+* ConformancePackState `string` (values: CREATE_IN_PROGRESS, CREATE_COMPLETE, CREATE_FAILED, DELETE_IN_PROGRESS, DELETE_FAILED)
+
+### ConformancePackStatusDetail
+* ConformancePackStatusDetail `object`: Status details of a conformance pack.
+  * ConformancePackArn **required**
+  * ConformancePackId **required**
+  * ConformancePackName **required**
+  * ConformancePackState **required**
+  * ConformancePackStatusReason
+  * LastUpdateCompletedTime
+  * LastUpdateRequestedTime **required**
+  * StackArn **required**
+
+### ConformancePackStatusDetailsList
+* ConformancePackStatusDetailsList `array`
+  * items [ConformancePackStatusDetail](#conformancepackstatusdetail)
+
+### ConformancePackStatusReason
+* ConformancePackStatusReason `string`
+
+### ConformancePackTemplateValidationException
+
+
+### CosmosPageLimit
+* CosmosPageLimit `integer`
+
 ### Date
 * Date `string`
 
 ### DeleteAggregationAuthorizationRequest
 * DeleteAggregationAuthorizationRequest `object`
-  * AuthorizedAccountId **required** [AccountId](#accountid)
-  * AuthorizedAwsRegion **required** [AwsRegion](#awsregion)
+  * AuthorizedAccountId **required**
+  * AuthorizedAwsRegion **required**
 
 ### DeleteConfigRuleRequest
 * DeleteConfigRuleRequest `object`: <p/>
-  * ConfigRuleName **required** [StringWithCharLimit64](#stringwithcharlimit64)
+  * ConfigRuleName **required**
 
 ### DeleteConfigurationAggregatorRequest
 * DeleteConfigurationAggregatorRequest `object`
-  * ConfigurationAggregatorName **required** [ConfigurationAggregatorName](#configurationaggregatorname)
+  * ConfigurationAggregatorName **required**
 
 ### DeleteConfigurationRecorderRequest
 * DeleteConfigurationRecorderRequest `object`: The request object for the <code>DeleteConfigurationRecorder</code> action.
-  * ConfigurationRecorderName **required** [RecorderName](#recordername)
+  * ConfigurationRecorderName **required**
+
+### DeleteConformancePackRequest
+* DeleteConformancePackRequest `object`
+  * ConformancePackName **required**
 
 ### DeleteDeliveryChannelRequest
 * DeleteDeliveryChannelRequest `object`: The input for the <a>DeleteDeliveryChannel</a> action. The action accepts the following data, in JSON format. 
-  * DeliveryChannelName **required** [ChannelName](#channelname)
+  * DeliveryChannelName **required**
 
 ### DeleteEvaluationResultsRequest
 * DeleteEvaluationResultsRequest `object`: <p/>
-  * ConfigRuleName **required** [StringWithCharLimit64](#stringwithcharlimit64)
+  * ConfigRuleName **required**
 
 ### DeleteEvaluationResultsResponse
 * DeleteEvaluationResultsResponse `object`: The output when you delete the evaluation results for the specified AWS Config rule.
 
+### DeleteOrganizationConfigRuleRequest
+* DeleteOrganizationConfigRuleRequest `object`
+  * OrganizationConfigRuleName **required**
+
+### DeleteOrganizationConformancePackRequest
+* DeleteOrganizationConformancePackRequest `object`
+  * OrganizationConformancePackName **required**
+
 ### DeletePendingAggregationRequestRequest
 * DeletePendingAggregationRequestRequest `object`
-  * RequesterAccountId **required** [AccountId](#accountid)
-  * RequesterAwsRegion **required** [AwsRegion](#awsregion)
+  * RequesterAccountId **required**
+  * RequesterAwsRegion **required**
+
+### DeleteRemediationConfigurationRequest
+* DeleteRemediationConfigurationRequest `object`
+  * ConfigRuleName **required**
+  * ResourceType
+
+### DeleteRemediationConfigurationResponse
+* DeleteRemediationConfigurationResponse `object`
+
+### DeleteRemediationExceptionsRequest
+* DeleteRemediationExceptionsRequest `object`
+  * ConfigRuleName **required**
+  * ResourceKeys **required**
+    * items [RemediationExceptionResourceKey](#remediationexceptionresourcekey)
+
+### DeleteRemediationExceptionsResponse
+* DeleteRemediationExceptionsResponse `object`
+  * FailedBatches
+    * items [FailedDeleteRemediationExceptionsBatch](#faileddeleteremediationexceptionsbatch)
+
+### DeleteResourceConfigRequest
+* DeleteResourceConfigRequest `object`
+  * ResourceId **required**
+  * ResourceType **required**
 
 ### DeleteRetentionConfigurationRequest
 * DeleteRetentionConfigurationRequest `object`
-  * RetentionConfigurationName **required** [RetentionConfigurationName](#retentionconfigurationname)
+  * RetentionConfigurationName **required**
 
 ### DeliverConfigSnapshotRequest
 * DeliverConfigSnapshotRequest `object`: The input for the <a>DeliverConfigSnapshot</a> action.
-  * deliveryChannelName **required** [ChannelName](#channelname)
+  * deliveryChannelName **required**
 
 ### DeliverConfigSnapshotResponse
 * DeliverConfigSnapshotResponse `object`: The output for the <a>DeliverConfigSnapshot</a> action, in JSON format.
-  * configSnapshotId [String](#string)
+  * configSnapshotId
 
 ### DeliveryChannel
 * DeliveryChannel `object`: The channel through which AWS Config delivers notifications and updated configuration states.
-  * configSnapshotDeliveryProperties [ConfigSnapshotDeliveryProperties](#configsnapshotdeliveryproperties)
-  * name [ChannelName](#channelname)
-  * s3BucketName [String](#string)
-  * s3KeyPrefix [String](#string)
-  * snsTopicARN [String](#string)
+  * configSnapshotDeliveryProperties
+    * deliveryFrequency
+  * name
+  * s3BucketName
+  * s3KeyPrefix
+  * snsTopicARN
 
 ### DeliveryChannelList
 * DeliveryChannelList `array`
@@ -1235,162 +2344,354 @@ amazonaws_config.StopConfigurationRecorder({
 
 ### DeliveryChannelStatus
 * DeliveryChannelStatus `object`: <p>The status of a specified delivery channel.</p> <p>Valid values: <code>Success</code> | <code>Failure</code> </p>
-  * configHistoryDeliveryInfo [ConfigExportDeliveryInfo](#configexportdeliveryinfo)
-  * configSnapshotDeliveryInfo [ConfigExportDeliveryInfo](#configexportdeliveryinfo)
-  * configStreamDeliveryInfo [ConfigStreamDeliveryInfo](#configstreamdeliveryinfo)
-  * name [String](#string)
+  * configHistoryDeliveryInfo
+    * lastAttemptTime
+    * lastErrorCode
+    * lastErrorMessage
+    * lastStatus
+    * lastSuccessfulTime
+    * nextDeliveryTime
+  * configSnapshotDeliveryInfo
+    * lastAttemptTime
+    * lastErrorCode
+    * lastErrorMessage
+    * lastStatus
+    * lastSuccessfulTime
+    * nextDeliveryTime
+  * configStreamDeliveryInfo
+    * lastErrorCode
+    * lastErrorMessage
+    * lastStatus
+    * lastStatusChangeTime
+  * name
 
 ### DeliveryChannelStatusList
 * DeliveryChannelStatusList `array`
   * items [DeliveryChannelStatus](#deliverychannelstatus)
+
+### DeliveryS3Bucket
+* DeliveryS3Bucket `string`
+
+### DeliveryS3KeyPrefix
+* DeliveryS3KeyPrefix `string`
 
 ### DeliveryStatus
 * DeliveryStatus `string` (values: Success, Failure, Not_Applicable)
 
 ### DescribeAggregateComplianceByConfigRulesRequest
 * DescribeAggregateComplianceByConfigRulesRequest `object`
-  * ConfigurationAggregatorName **required** [ConfigurationAggregatorName](#configurationaggregatorname)
-  * Filters [ConfigRuleComplianceFilters](#configrulecompliancefilters)
-  * Limit [GroupByAPILimit](#groupbyapilimit)
-  * NextToken [NextToken](#nexttoken)
+  * ConfigurationAggregatorName **required**
+  * Filters
+    * AccountId
+    * AwsRegion
+    * ComplianceType
+    * ConfigRuleName
+  * Limit
+  * NextToken
 
 ### DescribeAggregateComplianceByConfigRulesResponse
 * DescribeAggregateComplianceByConfigRulesResponse `object`
-  * AggregateComplianceByConfigRules [AggregateComplianceByConfigRuleList](#aggregatecompliancebyconfigrulelist)
-  * NextToken [NextToken](#nexttoken)
+  * AggregateComplianceByConfigRules
+    * items [AggregateComplianceByConfigRule](#aggregatecompliancebyconfigrule)
+  * NextToken
 
 ### DescribeAggregationAuthorizationsRequest
 * DescribeAggregationAuthorizationsRequest `object`
-  * Limit [Limit](#limit)
-  * NextToken [String](#string)
+  * Limit
+  * NextToken
 
 ### DescribeAggregationAuthorizationsResponse
 * DescribeAggregationAuthorizationsResponse `object`
-  * AggregationAuthorizations [AggregationAuthorizationList](#aggregationauthorizationlist)
-  * NextToken [String](#string)
+  * AggregationAuthorizations
+    * items [AggregationAuthorization](#aggregationauthorization)
+  * NextToken
 
 ### DescribeComplianceByConfigRuleRequest
 * DescribeComplianceByConfigRuleRequest `object`: <p/>
-  * ComplianceTypes [ComplianceTypes](#compliancetypes)
-  * ConfigRuleNames [ConfigRuleNames](#configrulenames)
-  * NextToken [String](#string)
+  * ComplianceTypes
+    * items [ComplianceType](#compliancetype)
+  * ConfigRuleNames
+    * items [ConfigRuleName](#configrulename)
+  * NextToken
 
 ### DescribeComplianceByConfigRuleResponse
 * DescribeComplianceByConfigRuleResponse `object`: <p/>
-  * ComplianceByConfigRules [ComplianceByConfigRules](#compliancebyconfigrules)
-  * NextToken [String](#string)
+  * ComplianceByConfigRules
+    * items [ComplianceByConfigRule](#compliancebyconfigrule)
+  * NextToken
 
 ### DescribeComplianceByResourceRequest
 * DescribeComplianceByResourceRequest `object`: <p/>
-  * ComplianceTypes [ComplianceTypes](#compliancetypes)
-  * Limit [Limit](#limit)
-  * NextToken [NextToken](#nexttoken)
-  * ResourceId [BaseResourceId](#baseresourceid)
-  * ResourceType [StringWithCharLimit256](#stringwithcharlimit256)
+  * ComplianceTypes
+    * items [ComplianceType](#compliancetype)
+  * Limit
+  * NextToken
+  * ResourceId
+  * ResourceType
 
 ### DescribeComplianceByResourceResponse
 * DescribeComplianceByResourceResponse `object`: <p/>
-  * ComplianceByResources [ComplianceByResources](#compliancebyresources)
-  * NextToken [NextToken](#nexttoken)
+  * ComplianceByResources
+    * items [ComplianceByResource](#compliancebyresource)
+  * NextToken
 
 ### DescribeConfigRuleEvaluationStatusRequest
 * DescribeConfigRuleEvaluationStatusRequest `object`: <p/>
-  * ConfigRuleNames [ConfigRuleNames](#configrulenames)
-  * Limit [RuleLimit](#rulelimit)
-  * NextToken [String](#string)
+  * ConfigRuleNames
+    * items [ConfigRuleName](#configrulename)
+  * Limit
+  * NextToken
 
 ### DescribeConfigRuleEvaluationStatusResponse
 * DescribeConfigRuleEvaluationStatusResponse `object`: <p/>
-  * ConfigRulesEvaluationStatus [ConfigRuleEvaluationStatusList](#configruleevaluationstatuslist)
-  * NextToken [String](#string)
+  * ConfigRulesEvaluationStatus
+    * items [ConfigRuleEvaluationStatus](#configruleevaluationstatus)
+  * NextToken
 
 ### DescribeConfigRulesRequest
 * DescribeConfigRulesRequest `object`: <p/>
-  * ConfigRuleNames [ConfigRuleNames](#configrulenames)
-  * NextToken [String](#string)
+  * ConfigRuleNames
+    * items [ConfigRuleName](#configrulename)
+  * NextToken
 
 ### DescribeConfigRulesResponse
 * DescribeConfigRulesResponse `object`: <p/>
-  * ConfigRules [ConfigRules](#configrules)
-  * NextToken [String](#string)
+  * ConfigRules
+    * items [ConfigRule](#configrule)
+  * NextToken
 
 ### DescribeConfigurationAggregatorSourcesStatusRequest
 * DescribeConfigurationAggregatorSourcesStatusRequest `object`
-  * ConfigurationAggregatorName **required** [ConfigurationAggregatorName](#configurationaggregatorname)
-  * Limit [Limit](#limit)
-  * NextToken [String](#string)
-  * UpdateStatus [AggregatedSourceStatusTypeList](#aggregatedsourcestatustypelist)
+  * ConfigurationAggregatorName **required**
+  * Limit
+  * NextToken
+  * UpdateStatus
+    * items [AggregatedSourceStatusType](#aggregatedsourcestatustype)
 
 ### DescribeConfigurationAggregatorSourcesStatusResponse
 * DescribeConfigurationAggregatorSourcesStatusResponse `object`
-  * AggregatedSourceStatusList [AggregatedSourceStatusList](#aggregatedsourcestatuslist)
-  * NextToken [String](#string)
+  * AggregatedSourceStatusList
+    * items [AggregatedSourceStatus](#aggregatedsourcestatus)
+  * NextToken
 
 ### DescribeConfigurationAggregatorsRequest
 * DescribeConfigurationAggregatorsRequest `object`
-  * ConfigurationAggregatorNames [ConfigurationAggregatorNameList](#configurationaggregatornamelist)
-  * Limit [Limit](#limit)
-  * NextToken [String](#string)
+  * ConfigurationAggregatorNames
+    * items [ConfigurationAggregatorName](#configurationaggregatorname)
+  * Limit
+  * NextToken
 
 ### DescribeConfigurationAggregatorsResponse
 * DescribeConfigurationAggregatorsResponse `object`
-  * ConfigurationAggregators [ConfigurationAggregatorList](#configurationaggregatorlist)
-  * NextToken [String](#string)
+  * ConfigurationAggregators
+    * items [ConfigurationAggregator](#configurationaggregator)
+  * NextToken
 
 ### DescribeConfigurationRecorderStatusRequest
 * DescribeConfigurationRecorderStatusRequest `object`: The input for the <a>DescribeConfigurationRecorderStatus</a> action.
-  * ConfigurationRecorderNames [ConfigurationRecorderNameList](#configurationrecordernamelist)
+  * ConfigurationRecorderNames
+    * items [RecorderName](#recordername)
 
 ### DescribeConfigurationRecorderStatusResponse
 * DescribeConfigurationRecorderStatusResponse `object`: The output for the <a>DescribeConfigurationRecorderStatus</a> action, in JSON format.
-  * ConfigurationRecordersStatus [ConfigurationRecorderStatusList](#configurationrecorderstatuslist)
+  * ConfigurationRecordersStatus
+    * items [ConfigurationRecorderStatus](#configurationrecorderstatus)
 
 ### DescribeConfigurationRecordersRequest
 * DescribeConfigurationRecordersRequest `object`: The input for the <a>DescribeConfigurationRecorders</a> action.
-  * ConfigurationRecorderNames [ConfigurationRecorderNameList](#configurationrecordernamelist)
+  * ConfigurationRecorderNames
+    * items [RecorderName](#recordername)
 
 ### DescribeConfigurationRecordersResponse
 * DescribeConfigurationRecordersResponse `object`: The output for the <a>DescribeConfigurationRecorders</a> action.
-  * ConfigurationRecorders [ConfigurationRecorderList](#configurationrecorderlist)
+  * ConfigurationRecorders
+    * items [ConfigurationRecorder](#configurationrecorder)
+
+### DescribeConformancePackComplianceLimit
+* DescribeConformancePackComplianceLimit `integer`
+
+### DescribeConformancePackComplianceRequest
+* DescribeConformancePackComplianceRequest `object`
+  * ConformancePackName **required**
+  * Filters
+    * ComplianceType
+    * ConfigRuleNames
+      * items [StringWithCharLimit64](#stringwithcharlimit64)
+  * Limit
+  * NextToken
+
+### DescribeConformancePackComplianceResponse
+* DescribeConformancePackComplianceResponse `object`
+  * ConformancePackName **required**
+  * ConformancePackRuleComplianceList **required**
+    * items [ConformancePackRuleCompliance](#conformancepackrulecompliance)
+  * NextToken
+
+### DescribeConformancePackStatusRequest
+* DescribeConformancePackStatusRequest `object`
+  * ConformancePackNames
+    * items [ConformancePackName](#conformancepackname)
+  * Limit
+  * NextToken
+
+### DescribeConformancePackStatusResponse
+* DescribeConformancePackStatusResponse `object`
+  * ConformancePackStatusDetails
+    * items [ConformancePackStatusDetail](#conformancepackstatusdetail)
+  * NextToken
+
+### DescribeConformancePacksRequest
+* DescribeConformancePacksRequest `object`
+  * ConformancePackNames
+    * items [ConformancePackName](#conformancepackname)
+  * Limit
+  * NextToken
+
+### DescribeConformancePacksResponse
+* DescribeConformancePacksResponse `object`
+  * ConformancePackDetails
+    * items [ConformancePackDetail](#conformancepackdetail)
+  * NextToken
 
 ### DescribeDeliveryChannelStatusRequest
 * DescribeDeliveryChannelStatusRequest `object`: The input for the <a>DeliveryChannelStatus</a> action.
-  * DeliveryChannelNames [DeliveryChannelNameList](#deliverychannelnamelist)
+  * DeliveryChannelNames
+    * items [ChannelName](#channelname)
 
 ### DescribeDeliveryChannelStatusResponse
 * DescribeDeliveryChannelStatusResponse `object`: The output for the <a>DescribeDeliveryChannelStatus</a> action.
-  * DeliveryChannelsStatus [DeliveryChannelStatusList](#deliverychannelstatuslist)
+  * DeliveryChannelsStatus
+    * items [DeliveryChannelStatus](#deliverychannelstatus)
 
 ### DescribeDeliveryChannelsRequest
 * DescribeDeliveryChannelsRequest `object`: The input for the <a>DescribeDeliveryChannels</a> action.
-  * DeliveryChannelNames [DeliveryChannelNameList](#deliverychannelnamelist)
+  * DeliveryChannelNames
+    * items [ChannelName](#channelname)
 
 ### DescribeDeliveryChannelsResponse
 * DescribeDeliveryChannelsResponse `object`: The output for the <a>DescribeDeliveryChannels</a> action.
-  * DeliveryChannels [DeliveryChannelList](#deliverychannellist)
+  * DeliveryChannels
+    * items [DeliveryChannel](#deliverychannel)
+
+### DescribeOrganizationConfigRuleStatusesRequest
+* DescribeOrganizationConfigRuleStatusesRequest `object`
+  * Limit
+  * NextToken
+  * OrganizationConfigRuleNames
+    * items [StringWithCharLimit64](#stringwithcharlimit64)
+
+### DescribeOrganizationConfigRuleStatusesResponse
+* DescribeOrganizationConfigRuleStatusesResponse `object`
+  * NextToken
+  * OrganizationConfigRuleStatuses
+    * items [OrganizationConfigRuleStatus](#organizationconfigrulestatus)
+
+### DescribeOrganizationConfigRulesRequest
+* DescribeOrganizationConfigRulesRequest `object`
+  * Limit
+  * NextToken
+  * OrganizationConfigRuleNames
+    * items [StringWithCharLimit64](#stringwithcharlimit64)
+
+### DescribeOrganizationConfigRulesResponse
+* DescribeOrganizationConfigRulesResponse `object`
+  * NextToken
+  * OrganizationConfigRules
+    * items [OrganizationConfigRule](#organizationconfigrule)
+
+### DescribeOrganizationConformancePackStatusesRequest
+* DescribeOrganizationConformancePackStatusesRequest `object`
+  * Limit
+  * NextToken
+  * OrganizationConformancePackNames
+    * items [OrganizationConformancePackName](#organizationconformancepackname)
+
+### DescribeOrganizationConformancePackStatusesResponse
+* DescribeOrganizationConformancePackStatusesResponse `object`
+  * NextToken
+  * OrganizationConformancePackStatuses
+    * items [OrganizationConformancePackStatus](#organizationconformancepackstatus)
+
+### DescribeOrganizationConformancePacksRequest
+* DescribeOrganizationConformancePacksRequest `object`
+  * Limit
+  * NextToken
+  * OrganizationConformancePackNames
+    * items [OrganizationConformancePackName](#organizationconformancepackname)
+
+### DescribeOrganizationConformancePacksResponse
+* DescribeOrganizationConformancePacksResponse `object`
+  * NextToken
+  * OrganizationConformancePacks
+    * items [OrganizationConformancePack](#organizationconformancepack)
 
 ### DescribePendingAggregationRequestsLimit
 * DescribePendingAggregationRequestsLimit `integer`
 
 ### DescribePendingAggregationRequestsRequest
 * DescribePendingAggregationRequestsRequest `object`
-  * Limit [DescribePendingAggregationRequestsLimit](#describependingaggregationrequestslimit)
-  * NextToken [String](#string)
+  * Limit
+  * NextToken
 
 ### DescribePendingAggregationRequestsResponse
 * DescribePendingAggregationRequestsResponse `object`
-  * NextToken [String](#string)
-  * PendingAggregationRequests [PendingAggregationRequestList](#pendingaggregationrequestlist)
+  * NextToken
+  * PendingAggregationRequests
+    * items [PendingAggregationRequest](#pendingaggregationrequest)
+
+### DescribeRemediationConfigurationsRequest
+* DescribeRemediationConfigurationsRequest `object`
+  * ConfigRuleNames **required**
+    * items [ConfigRuleName](#configrulename)
+
+### DescribeRemediationConfigurationsResponse
+* DescribeRemediationConfigurationsResponse `object`
+  * RemediationConfigurations
+    * items [RemediationConfiguration](#remediationconfiguration)
+
+### DescribeRemediationExceptionsRequest
+* DescribeRemediationExceptionsRequest `object`
+  * ConfigRuleName **required**
+  * Limit
+  * NextToken
+  * ResourceKeys
+    * items [RemediationExceptionResourceKey](#remediationexceptionresourcekey)
+
+### DescribeRemediationExceptionsResponse
+* DescribeRemediationExceptionsResponse `object`
+  * NextToken
+  * RemediationExceptions
+    * items [RemediationException](#remediationexception)
+
+### DescribeRemediationExecutionStatusRequest
+* DescribeRemediationExecutionStatusRequest `object`
+  * ConfigRuleName **required**
+  * Limit
+  * NextToken
+  * ResourceKeys
+    * items [ResourceKey](#resourcekey)
+
+### DescribeRemediationExecutionStatusResponse
+* DescribeRemediationExecutionStatusResponse `object`
+  * NextToken
+  * RemediationExecutionStatuses
+    * items [RemediationExecutionStatus](#remediationexecutionstatus)
 
 ### DescribeRetentionConfigurationsRequest
 * DescribeRetentionConfigurationsRequest `object`
-  * NextToken [NextToken](#nexttoken)
-  * RetentionConfigurationNames [RetentionConfigurationNameList](#retentionconfigurationnamelist)
+  * NextToken
+  * RetentionConfigurationNames
+    * items [RetentionConfigurationName](#retentionconfigurationname)
 
 ### DescribeRetentionConfigurationsResponse
 * DescribeRetentionConfigurationsResponse `object`
-  * NextToken [NextToken](#nexttoken)
-  * RetentionConfigurations [RetentionConfigurationList](#retentionconfigurationlist)
+  * NextToken
+  * RetentionConfigurations
+    * items [RetentionConfiguration](#retentionconfiguration)
+
+### DiscoveredResourceIdentifierList
+* DiscoveredResourceIdentifierList `array`
+  * items [AggregateResourceIdentifier](#aggregateresourceidentifier)
 
 ### EarlierTime
 * EarlierTime `string`
@@ -1400,31 +2701,39 @@ amazonaws_config.StopConfigurationRecorder({
 
 ### Evaluation
 * Evaluation `object`: Identifies an AWS resource and indicates whether it complies with the AWS Config rule that it was evaluated against.
-  * Annotation [StringWithCharLimit256](#stringwithcharlimit256)
-  * ComplianceResourceId **required** [BaseResourceId](#baseresourceid)
-  * ComplianceResourceType **required** [StringWithCharLimit256](#stringwithcharlimit256)
-  * ComplianceType **required** [ComplianceType](#compliancetype)
-  * OrderingTimestamp **required** [OrderingTimestamp](#orderingtimestamp)
+  * Annotation
+  * ComplianceResourceId **required**
+  * ComplianceResourceType **required**
+  * ComplianceType **required**
+  * OrderingTimestamp **required**
 
 ### EvaluationResult
 * EvaluationResult `object`: The details of an AWS Config evaluation. Provides the AWS resource that was evaluated, the compliance of the resource, related time stamps, and supplementary information.
-  * Annotation [StringWithCharLimit256](#stringwithcharlimit256)
-  * ComplianceType [ComplianceType](#compliancetype)
-  * ConfigRuleInvokedTime [Date](#date)
-  * EvaluationResultIdentifier [EvaluationResultIdentifier](#evaluationresultidentifier)
-  * ResultRecordedTime [Date](#date)
-  * ResultToken [String](#string)
+  * Annotation
+  * ComplianceType
+  * ConfigRuleInvokedTime
+  * EvaluationResultIdentifier
+    * EvaluationResultQualifier
+      * ConfigRuleName
+      * ResourceId
+      * ResourceType
+    * OrderingTimestamp
+  * ResultRecordedTime
+  * ResultToken
 
 ### EvaluationResultIdentifier
 * EvaluationResultIdentifier `object`: Uniquely identifies an evaluation result.
-  * EvaluationResultQualifier [EvaluationResultQualifier](#evaluationresultqualifier)
-  * OrderingTimestamp [Date](#date)
+  * EvaluationResultQualifier
+    * ConfigRuleName
+    * ResourceId
+    * ResourceType
+  * OrderingTimestamp
 
 ### EvaluationResultQualifier
 * EvaluationResultQualifier `object`: Identifies an AWS Config rule that evaluated an AWS resource, and provides the type and ID of the resource that the rule evaluated.
-  * ConfigRuleName [StringWithCharLimit64](#stringwithcharlimit64)
-  * ResourceId [BaseResourceId](#baseresourceid)
-  * ResourceType [StringWithCharLimit256](#stringwithcharlimit256)
+  * ConfigRuleName
+  * ResourceId
+  * ResourceType
 
 ### EvaluationResults
 * EvaluationResults `array`
@@ -1437,148 +2746,361 @@ amazonaws_config.StopConfigurationRecorder({
 ### EventSource
 * EventSource `string` (values: aws.config)
 
+### ExcludedAccounts
+* ExcludedAccounts `array`
+  * items [AccountId](#accountid)
+
+### ExecutionControls
+* ExecutionControls `object`: The controls that AWS Config uses for executing remediations.
+  * SsmControls
+    * ConcurrentExecutionRatePercentage
+    * ErrorPercentage
+
+### Expression
+* Expression `string`
+
+### ExternalEvaluation
+* ExternalEvaluation `object`
+  * Annotation [StringWithCharLimit256](#stringwithcharlimit256)
+  * ComplianceResourceId **required** [BaseResourceId](#baseresourceid)
+  * ComplianceResourceType **required** [StringWithCharLimit256](#stringwithcharlimit256)
+  * ComplianceType **required** [ComplianceType](#compliancetype)
+  * OrderingTimestamp **required** [OrderingTimestamp](#orderingtimestamp)
+
+### FailedDeleteRemediationExceptionsBatch
+* FailedDeleteRemediationExceptionsBatch `object`: List of each of the failed delete remediation exceptions with specific reasons.
+  * FailedItems
+    * items [RemediationExceptionResourceKey](#remediationexceptionresourcekey)
+  * FailureMessage
+
+### FailedDeleteRemediationExceptionsBatches
+* FailedDeleteRemediationExceptionsBatches `array`
+  * items [FailedDeleteRemediationExceptionsBatch](#faileddeleteremediationexceptionsbatch)
+
+### FailedRemediationBatch
+* FailedRemediationBatch `object`: List of each of the failed remediations with specific reasons.
+  * FailedItems
+    * items [RemediationConfiguration](#remediationconfiguration)
+  * FailureMessage
+
+### FailedRemediationBatches
+* FailedRemediationBatches `array`
+  * items [FailedRemediationBatch](#failedremediationbatch)
+
+### FailedRemediationExceptionBatch
+* FailedRemediationExceptionBatch `object`: List of each of the failed remediation exceptions with specific reasons.
+  * FailedItems
+    * items [RemediationException](#remediationexception)
+  * FailureMessage
+
+### FailedRemediationExceptionBatches
+* FailedRemediationExceptionBatches `array`
+  * items [FailedRemediationExceptionBatch](#failedremediationexceptionbatch)
+
+### FieldInfo
+* FieldInfo `object`: Details about the fields such as name of the field.
+  * Name
+
+### FieldInfoList
+* FieldInfoList `array`
+  * items [FieldInfo](#fieldinfo)
+
+### FieldName
+* FieldName `string`
+
 ### GetAggregateComplianceDetailsByConfigRuleRequest
 * GetAggregateComplianceDetailsByConfigRuleRequest `object`
-  * AccountId **required** [AccountId](#accountid)
-  * AwsRegion **required** [AwsRegion](#awsregion)
-  * ComplianceType [ComplianceType](#compliancetype)
-  * ConfigRuleName **required** [ConfigRuleName](#configrulename)
-  * ConfigurationAggregatorName **required** [ConfigurationAggregatorName](#configurationaggregatorname)
-  * Limit [Limit](#limit)
-  * NextToken [NextToken](#nexttoken)
+  * AccountId **required**
+  * AwsRegion **required**
+  * ComplianceType
+  * ConfigRuleName **required**
+  * ConfigurationAggregatorName **required**
+  * Limit
+  * NextToken
 
 ### GetAggregateComplianceDetailsByConfigRuleResponse
 * GetAggregateComplianceDetailsByConfigRuleResponse `object`
-  * AggregateEvaluationResults [AggregateEvaluationResultList](#aggregateevaluationresultlist)
-  * NextToken [NextToken](#nexttoken)
+  * AggregateEvaluationResults
+    * items [AggregateEvaluationResult](#aggregateevaluationresult)
+  * NextToken
 
 ### GetAggregateConfigRuleComplianceSummaryRequest
 * GetAggregateConfigRuleComplianceSummaryRequest `object`
-  * ConfigurationAggregatorName **required** [ConfigurationAggregatorName](#configurationaggregatorname)
-  * Filters [ConfigRuleComplianceSummaryFilters](#configrulecompliancesummaryfilters)
-  * GroupByKey [ConfigRuleComplianceSummaryGroupKey](#configrulecompliancesummarygroupkey)
-  * Limit [GroupByAPILimit](#groupbyapilimit)
-  * NextToken [NextToken](#nexttoken)
+  * ConfigurationAggregatorName **required**
+  * Filters
+    * AccountId
+    * AwsRegion
+  * GroupByKey
+  * Limit
+  * NextToken
 
 ### GetAggregateConfigRuleComplianceSummaryResponse
 * GetAggregateConfigRuleComplianceSummaryResponse `object`
-  * AggregateComplianceCounts [AggregateComplianceCountList](#aggregatecompliancecountlist)
-  * GroupByKey [StringWithCharLimit256](#stringwithcharlimit256)
-  * NextToken [NextToken](#nexttoken)
+  * AggregateComplianceCounts
+    * items [AggregateComplianceCount](#aggregatecompliancecount)
+  * GroupByKey
+  * NextToken
+
+### GetAggregateDiscoveredResourceCountsRequest
+* GetAggregateDiscoveredResourceCountsRequest `object`
+  * ConfigurationAggregatorName **required**
+  * Filters
+    * AccountId
+    * Region
+    * ResourceType
+  * GroupByKey
+  * Limit
+  * NextToken
+
+### GetAggregateDiscoveredResourceCountsResponse
+* GetAggregateDiscoveredResourceCountsResponse `object`
+  * GroupByKey
+  * GroupedResourceCounts
+    * items [GroupedResourceCount](#groupedresourcecount)
+  * NextToken
+  * TotalDiscoveredResources **required**
+
+### GetAggregateResourceConfigRequest
+* GetAggregateResourceConfigRequest `object`
+  * ConfigurationAggregatorName **required**
+  * ResourceIdentifier **required**
+    * ResourceId **required**
+    * ResourceName
+    * ResourceType **required**
+    * SourceAccountId **required**
+    * SourceRegion **required**
+
+### GetAggregateResourceConfigResponse
+* GetAggregateResourceConfigResponse `object`
+  * ConfigurationItem
+    * tags
+    * accountId
+    * arn
+    * availabilityZone
+    * awsRegion
+    * configuration
+    * configurationItemCaptureTime
+    * configurationItemMD5Hash
+    * configurationItemStatus
+    * configurationStateId
+    * relatedEvents
+      * items [RelatedEvent](#relatedevent)
+    * relationships
+      * items [Relationship](#relationship)
+    * resourceCreationTime
+    * resourceId
+    * resourceName
+    * resourceType
+    * supplementaryConfiguration
+    * version
 
 ### GetComplianceDetailsByConfigRuleRequest
 * GetComplianceDetailsByConfigRuleRequest `object`: <p/>
-  * ComplianceTypes [ComplianceTypes](#compliancetypes)
-  * ConfigRuleName **required** [StringWithCharLimit64](#stringwithcharlimit64)
-  * Limit [Limit](#limit)
-  * NextToken [NextToken](#nexttoken)
+  * ComplianceTypes
+    * items [ComplianceType](#compliancetype)
+  * ConfigRuleName **required**
+  * Limit
+  * NextToken
 
 ### GetComplianceDetailsByConfigRuleResponse
 * GetComplianceDetailsByConfigRuleResponse `object`: <p/>
-  * EvaluationResults [EvaluationResults](#evaluationresults)
-  * NextToken [NextToken](#nexttoken)
+  * EvaluationResults
+    * items [EvaluationResult](#evaluationresult)
+  * NextToken
 
 ### GetComplianceDetailsByResourceRequest
 * GetComplianceDetailsByResourceRequest `object`: <p/>
-  * ComplianceTypes [ComplianceTypes](#compliancetypes)
-  * NextToken [String](#string)
-  * ResourceId **required** [BaseResourceId](#baseresourceid)
-  * ResourceType **required** [StringWithCharLimit256](#stringwithcharlimit256)
+  * ComplianceTypes
+    * items [ComplianceType](#compliancetype)
+  * NextToken
+  * ResourceId **required**
+  * ResourceType **required**
 
 ### GetComplianceDetailsByResourceResponse
 * GetComplianceDetailsByResourceResponse `object`: <p/>
-  * EvaluationResults [EvaluationResults](#evaluationresults)
-  * NextToken [String](#string)
+  * EvaluationResults
+    * items [EvaluationResult](#evaluationresult)
+  * NextToken
 
 ### GetComplianceSummaryByConfigRuleResponse
 * GetComplianceSummaryByConfigRuleResponse `object`: <p/>
-  * ComplianceSummary [ComplianceSummary](#compliancesummary)
+  * ComplianceSummary
+    * ComplianceSummaryTimestamp
+    * CompliantResourceCount
+      * CapExceeded
+      * CappedCount
+    * NonCompliantResourceCount
+      * CapExceeded
+      * CappedCount
 
 ### GetComplianceSummaryByResourceTypeRequest
 * GetComplianceSummaryByResourceTypeRequest `object`: <p/>
-  * ResourceTypes [ResourceTypes](#resourcetypes)
+  * ResourceTypes
+    * items [StringWithCharLimit256](#stringwithcharlimit256)
 
 ### GetComplianceSummaryByResourceTypeResponse
 * GetComplianceSummaryByResourceTypeResponse `object`: <p/>
-  * ComplianceSummariesByResourceType [ComplianceSummariesByResourceType](#compliancesummariesbyresourcetype)
+  * ComplianceSummariesByResourceType
+    * items [ComplianceSummaryByResourceType](#compliancesummarybyresourcetype)
+
+### GetConformancePackComplianceDetailsLimit
+* GetConformancePackComplianceDetailsLimit `integer`
+
+### GetConformancePackComplianceDetailsRequest
+* GetConformancePackComplianceDetailsRequest `object`
+  * ConformancePackName **required**
+  * Filters
+    * ComplianceType
+    * ConfigRuleNames
+      * items [StringWithCharLimit64](#stringwithcharlimit64)
+    * ResourceIds
+      * items [StringWithCharLimit256](#stringwithcharlimit256)
+    * ResourceType
+  * Limit
+  * NextToken
+
+### GetConformancePackComplianceDetailsResponse
+* GetConformancePackComplianceDetailsResponse `object`
+  * ConformancePackName **required**
+  * ConformancePackRuleEvaluationResults
+    * items [ConformancePackEvaluationResult](#conformancepackevaluationresult)
+  * NextToken
+
+### GetConformancePackComplianceSummaryRequest
+* GetConformancePackComplianceSummaryRequest `object`
+  * ConformancePackNames **required**
+    * items [ConformancePackName](#conformancepackname)
+  * Limit
+  * NextToken
+
+### GetConformancePackComplianceSummaryResponse
+* GetConformancePackComplianceSummaryResponse `object`
+  * ConformancePackComplianceSummaryList
+    * items [ConformancePackComplianceSummary](#conformancepackcompliancesummary)
+  * NextToken
 
 ### GetDiscoveredResourceCountsRequest
 * GetDiscoveredResourceCountsRequest `object`
-  * limit [Limit](#limit)
-  * nextToken [NextToken](#nexttoken)
-  * resourceTypes [ResourceTypes](#resourcetypes)
+  * limit
+  * nextToken
+  * resourceTypes
+    * items [StringWithCharLimit256](#stringwithcharlimit256)
 
 ### GetDiscoveredResourceCountsResponse
 * GetDiscoveredResourceCountsResponse `object`
-  * nextToken [NextToken](#nexttoken)
-  * resourceCounts [ResourceCounts](#resourcecounts)
-  * totalDiscoveredResources [Long](#long)
+  * nextToken
+  * resourceCounts
+    * items [ResourceCount](#resourcecount)
+  * totalDiscoveredResources
+
+### GetOrganizationConfigRuleDetailedStatusRequest
+* GetOrganizationConfigRuleDetailedStatusRequest `object`
+  * Filters
+    * AccountId
+    * MemberAccountRuleStatus
+  * Limit
+  * NextToken
+  * OrganizationConfigRuleName **required**
+
+### GetOrganizationConfigRuleDetailedStatusResponse
+* GetOrganizationConfigRuleDetailedStatusResponse `object`
+  * NextToken
+  * OrganizationConfigRuleDetailedStatus
+    * items [MemberAccountStatus](#memberaccountstatus)
+
+### GetOrganizationConformancePackDetailedStatusRequest
+* GetOrganizationConformancePackDetailedStatusRequest `object`
+  * Filters
+    * AccountId
+    * Status
+  * Limit
+  * NextToken
+  * OrganizationConformancePackName **required**
+
+### GetOrganizationConformancePackDetailedStatusResponse
+* GetOrganizationConformancePackDetailedStatusResponse `object`
+  * NextToken
+  * OrganizationConformancePackDetailedStatuses
+    * items [OrganizationConformancePackDetailedStatus](#organizationconformancepackdetailedstatus)
 
 ### GetResourceConfigHistoryRequest
 * GetResourceConfigHistoryRequest `object`: The input for the <a>GetResourceConfigHistory</a> action.
-  * chronologicalOrder [ChronologicalOrder](#chronologicalorder)
-  * earlierTime [EarlierTime](#earliertime)
-  * laterTime [LaterTime](#latertime)
-  * limit [Limit](#limit)
-  * nextToken [NextToken](#nexttoken)
-  * resourceId **required** [ResourceId](#resourceid)
-  * resourceType **required** [ResourceType](#resourcetype)
+  * chronologicalOrder
+  * earlierTime
+  * laterTime
+  * limit
+  * nextToken
+  * resourceId **required**
+  * resourceType **required**
 
 ### GetResourceConfigHistoryResponse
 * GetResourceConfigHistoryResponse `object`: The output for the <a>GetResourceConfigHistory</a> action.
-  * configurationItems [ConfigurationItemList](#configurationitemlist)
-  * nextToken [NextToken](#nexttoken)
+  * configurationItems
+    * items [ConfigurationItem](#configurationitem)
+  * nextToken
 
 ### GroupByAPILimit
 * GroupByAPILimit `integer`
+
+### GroupedResourceCount
+* GroupedResourceCount `object`: The count of resources that are grouped by the group name.
+  * GroupName **required**
+  * ResourceCount **required**
+
+### GroupedResourceCountList
+* GroupedResourceCountList `array`
+  * items [GroupedResourceCount](#groupedresourcecount)
 
 ### IncludeGlobalResourceTypes
 * IncludeGlobalResourceTypes `boolean`
 
 ### InsufficientDeliveryPolicyException
-* InsufficientDeliveryPolicyException `object`: Your Amazon S3 bucket policy does not permit AWS Config to write to it.
+
 
 ### InsufficientPermissionsException
-* InsufficientPermissionsException `object`: <p>Indicates one of the following errors:</p> <ul> <li> <p>The rule cannot be created because the IAM role assigned to AWS Config lacks permissions to perform the config:Put* action.</p> </li> <li> <p>The AWS Lambda function cannot be invoked. Check the function ARN, and check the function's permissions.</p> </li> </ul>
+
 
 ### Integer
 * Integer `integer`
 
 ### InvalidConfigurationRecorderNameException
-* InvalidConfigurationRecorderNameException `object`: You have provided a configuration recorder name that is not valid.
+
 
 ### InvalidDeliveryChannelNameException
-* InvalidDeliveryChannelNameException `object`: The specified delivery channel name is not valid.
+
+
+### InvalidExpressionException
+
 
 ### InvalidLimitException
-* InvalidLimitException `object`: The specified limit is outside the allowable range.
+
 
 ### InvalidNextTokenException
-* InvalidNextTokenException `object`: The specified next token is invalid. Specify the <code>nextToken</code> string that was returned in the previous response to get the next page of results.
+
 
 ### InvalidParameterValueException
-* InvalidParameterValueException `object`: One or more of the specified parameters are invalid. Verify that your parameters are valid and try again.
+
 
 ### InvalidRecordingGroupException
-* InvalidRecordingGroupException `object`: AWS Config throws an exception if the recording group does not contain a valid list of resource types. Invalid values might also be incorrectly formatted.
+
 
 ### InvalidResultTokenException
-* InvalidResultTokenException `object`: The specified <code>ResultToken</code> is invalid.
+
 
 ### InvalidRoleException
-* InvalidRoleException `object`: You have provided a null or empty role ARN.
+
 
 ### InvalidS3KeyPrefixException
-* InvalidS3KeyPrefixException `object`: The specified Amazon S3 key prefix is not valid.
+
 
 ### InvalidSNSTopicARNException
-* InvalidSNSTopicARNException `object`: The specified Amazon SNS topic does not exist.
+
 
 ### InvalidTimeRangeException
-* InvalidTimeRangeException `object`: The specified time range is not valid. The earlier time is not chronologically before the later time.
+
 
 ### LastDeliveryChannelDeleteFailedException
-* LastDeliveryChannelDeleteFailedException `object`: You cannot delete the delivery channel you specified because the configuration recorder is running.
+
 
 ### LaterTime
 * LaterTime `string`
@@ -1587,39 +3109,95 @@ amazonaws_config.StopConfigurationRecorder({
 * Limit `integer`
 
 ### LimitExceededException
-* LimitExceededException `object`: This exception is thrown if an evaluation is in progress or if you call the <a>StartConfigRulesEvaluation</a> API more than once per minute.
+
+
+### ListAggregateDiscoveredResourcesRequest
+* ListAggregateDiscoveredResourcesRequest `object`
+  * ConfigurationAggregatorName **required**
+  * Filters
+    * AccountId
+    * Region
+    * ResourceId
+    * ResourceName
+  * Limit
+  * NextToken
+  * ResourceType **required**
+
+### ListAggregateDiscoveredResourcesResponse
+* ListAggregateDiscoveredResourcesResponse `object`
+  * NextToken
+  * ResourceIdentifiers
+    * items [AggregateResourceIdentifier](#aggregateresourceidentifier)
 
 ### ListDiscoveredResourcesRequest
 * ListDiscoveredResourcesRequest `object`: <p/>
-  * includeDeletedResources [Boolean](#boolean)
-  * limit [Limit](#limit)
-  * nextToken [NextToken](#nexttoken)
-  * resourceIds [ResourceIdList](#resourceidlist)
-  * resourceName [ResourceName](#resourcename)
-  * resourceType **required** [ResourceType](#resourcetype)
+  * includeDeletedResources
+  * limit
+  * nextToken
+  * resourceIds
+    * items [ResourceId](#resourceid)
+  * resourceName
+  * resourceType **required**
 
 ### ListDiscoveredResourcesResponse
 * ListDiscoveredResourcesResponse `object`: <p/>
-  * nextToken [NextToken](#nexttoken)
-  * resourceIdentifiers [ResourceIdentifierList](#resourceidentifierlist)
+  * nextToken
+  * resourceIdentifiers
+    * items [ResourceIdentifier](#resourceidentifier)
+
+### ListTagsForResourceRequest
+* ListTagsForResourceRequest `object`
+  * Limit
+  * NextToken
+  * ResourceArn **required**
+
+### ListTagsForResourceResponse
+* ListTagsForResourceResponse `object`
+  * NextToken
+  * Tags
+    * items [Tag](#tag)
 
 ### Long
 * Long `integer`
 
+### MaxActiveResourcesExceededException
+
+
 ### MaxNumberOfConfigRulesExceededException
-* MaxNumberOfConfigRulesExceededException `object`: Failed to add the AWS Config rule because the account already contains the maximum number of 50 rules. Consider deleting any deactivated rules before you add new rules.
+
 
 ### MaxNumberOfConfigurationRecordersExceededException
-* MaxNumberOfConfigurationRecordersExceededException `object`: You have reached the limit of the number of recorders you can create.
+
+
+### MaxNumberOfConformancePacksExceededException
+
 
 ### MaxNumberOfDeliveryChannelsExceededException
-* MaxNumberOfDeliveryChannelsExceededException `object`: You have reached the limit of the number of delivery channels you can create.
+
+
+### MaxNumberOfOrganizationConfigRulesExceededException
+
+
+### MaxNumberOfOrganizationConformancePacksExceededException
+
 
 ### MaxNumberOfRetentionConfigurationsExceededException
-* MaxNumberOfRetentionConfigurationsExceededException `object`: Failed to add the retention configuration because a retention configuration with that name already exists.
+
 
 ### MaximumExecutionFrequency
 * MaximumExecutionFrequency `string` (values: One_Hour, Three_Hours, Six_Hours, Twelve_Hours, TwentyFour_Hours)
+
+### MemberAccountRuleStatus
+* MemberAccountRuleStatus `string` (values: CREATE_SUCCESSFUL, CREATE_IN_PROGRESS, CREATE_FAILED, DELETE_SUCCESSFUL, DELETE_FAILED, DELETE_IN_PROGRESS, UPDATE_SUCCESSFUL, UPDATE_IN_PROGRESS, UPDATE_FAILED)
+
+### MemberAccountStatus
+* MemberAccountStatus `object`: Organization config rule creation or deletion status in each member account. This includes the name of the rule, the status, error code and error message when the rule creation or deletion failed.
+  * AccountId **required**
+  * ConfigRuleName **required**
+  * ErrorCode
+  * ErrorMessage
+  * LastUpdateTime
+  * MemberAccountRuleStatus **required**
 
 ### MessageType
 * MessageType `string` (values: ConfigurationItemChangeNotification, ConfigurationSnapshotDeliveryCompleted, ScheduledNotification, OversizedConfigurationItemChangeNotification)
@@ -1631,110 +3209,469 @@ amazonaws_config.StopConfigurationRecorder({
 * NextToken `string`
 
 ### NoAvailableConfigurationRecorderException
-* NoAvailableConfigurationRecorderException `object`: There are no configuration recorders available to provide the role needed to describe your resources. Create a configuration recorder.
+
 
 ### NoAvailableDeliveryChannelException
-* NoAvailableDeliveryChannelException `object`: There is no delivery channel available to record configurations.
+
 
 ### NoAvailableOrganizationException
-* NoAvailableOrganizationException `object`: Organization does is no longer available.
+
 
 ### NoRunningConfigurationRecorderException
-* NoRunningConfigurationRecorderException `object`: There is no configuration recorder running.
+
 
 ### NoSuchBucketException
-* NoSuchBucketException `object`: The specified Amazon S3 bucket does not exist.
+
 
 ### NoSuchConfigRuleException
-* NoSuchConfigRuleException `object`: One or more AWS Config rules in the request are invalid. Verify that the rule names are correct and try again.
+
+
+### NoSuchConfigRuleInConformancePackException
+
 
 ### NoSuchConfigurationAggregatorException
-* NoSuchConfigurationAggregatorException `object`: You have specified a configuration aggregator that does not exist.
+
 
 ### NoSuchConfigurationRecorderException
-* NoSuchConfigurationRecorderException `object`: You have specified a configuration recorder that does not exist.
+
+
+### NoSuchConformancePackException
+
 
 ### NoSuchDeliveryChannelException
-* NoSuchDeliveryChannelException `object`: You have specified a delivery channel that does not exist.
+
+
+### NoSuchOrganizationConfigRuleException
+
+
+### NoSuchOrganizationConformancePackException
+
+
+### NoSuchRemediationConfigurationException
+
+
+### NoSuchRemediationExceptionException
+
 
 ### NoSuchRetentionConfigurationException
-* NoSuchRetentionConfigurationException `object`: You have specified a retention configuration that does not exist.
+
 
 ### OrderingTimestamp
 * OrderingTimestamp `string`
 
 ### OrganizationAccessDeniedException
-* OrganizationAccessDeniedException `object`: No permission to call the EnableAWSServiceAccess API.
+
 
 ### OrganizationAggregationSource
-* OrganizationAggregationSource `object`: This object contains regions to setup the aggregator and an IAM role to retrieve organization details.
-  * AllAwsRegions [Boolean](#boolean)
-  * AwsRegions [AggregatorRegionList](#aggregatorregionlist)
-  * RoleArn **required** [String](#string)
+* OrganizationAggregationSource `object`: This object contains regions to set up the aggregator and an IAM role to retrieve organization details.
+  * AllAwsRegions
+  * AwsRegions
+    * items [String](#string)
+  * RoleArn **required**
 
 ### OrganizationAllFeaturesNotEnabledException
-* OrganizationAllFeaturesNotEnabledException `object`: The configuration aggregator cannot be created because organization does not have all features enabled.
+
+
+### OrganizationConfigRule
+* OrganizationConfigRule `object`: An organization config rule that has information about config rules that AWS Config creates in member accounts.
+  * ExcludedAccounts
+    * items [AccountId](#accountid)
+  * LastUpdateTime
+  * OrganizationConfigRuleArn **required**
+  * OrganizationConfigRuleName **required**
+  * OrganizationCustomRuleMetadata
+    * Description
+    * InputParameters
+    * LambdaFunctionArn **required**
+    * MaximumExecutionFrequency
+    * OrganizationConfigRuleTriggerTypes **required**
+      * items [OrganizationConfigRuleTriggerType](#organizationconfigruletriggertype)
+    * ResourceIdScope
+    * ResourceTypesScope
+      * items [StringWithCharLimit256](#stringwithcharlimit256)
+    * TagKeyScope
+    * TagValueScope
+  * OrganizationManagedRuleMetadata
+    * Description
+    * InputParameters
+    * MaximumExecutionFrequency
+    * ResourceIdScope
+    * ResourceTypesScope
+      * items [StringWithCharLimit256](#stringwithcharlimit256)
+    * RuleIdentifier **required**
+    * TagKeyScope
+    * TagValueScope
+
+### OrganizationConfigRuleDetailedStatus
+* OrganizationConfigRuleDetailedStatus `array`
+  * items [MemberAccountStatus](#memberaccountstatus)
+
+### OrganizationConfigRuleName
+* OrganizationConfigRuleName `string`
+
+### OrganizationConfigRuleNames
+* OrganizationConfigRuleNames `array`
+  * items [StringWithCharLimit64](#stringwithcharlimit64)
+
+### OrganizationConfigRuleStatus
+* OrganizationConfigRuleStatus `object`: Returns the status for an organization config rule in an organization.
+  * ErrorCode
+  * ErrorMessage
+  * LastUpdateTime
+  * OrganizationConfigRuleName **required**
+  * OrganizationRuleStatus **required**
+
+### OrganizationConfigRuleStatuses
+* OrganizationConfigRuleStatuses `array`
+  * items [OrganizationConfigRuleStatus](#organizationconfigrulestatus)
+
+### OrganizationConfigRuleTriggerType
+* OrganizationConfigRuleTriggerType `string` (values: ConfigurationItemChangeNotification, OversizedConfigurationItemChangeNotification, ScheduledNotification)
+
+### OrganizationConfigRuleTriggerTypes
+* OrganizationConfigRuleTriggerTypes `array`
+  * items [OrganizationConfigRuleTriggerType](#organizationconfigruletriggertype)
+
+### OrganizationConfigRules
+* OrganizationConfigRules `array`
+  * items [OrganizationConfigRule](#organizationconfigrule)
+
+### OrganizationConformancePack
+* OrganizationConformancePack `object`: An organization conformance pack that has information about conformance packs that AWS Config creates in member accounts. 
+  * ConformancePackInputParameters
+    * items [ConformancePackInputParameter](#conformancepackinputparameter)
+  * DeliveryS3Bucket
+  * DeliveryS3KeyPrefix
+  * ExcludedAccounts
+    * items [AccountId](#accountid)
+  * LastUpdateTime **required**
+  * OrganizationConformancePackArn **required**
+  * OrganizationConformancePackName **required**
+
+### OrganizationConformancePackDetailedStatus
+* OrganizationConformancePackDetailedStatus `object`: Organization conformance pack creation or deletion status in each member account. This includes the name of the conformance pack, the status, error code and error message when the conformance pack creation or deletion failed. 
+  * AccountId **required**
+  * ConformancePackName **required**
+  * ErrorCode
+  * ErrorMessage
+  * LastUpdateTime
+  * Status **required**
+
+### OrganizationConformancePackDetailedStatuses
+* OrganizationConformancePackDetailedStatuses `array`
+  * items [OrganizationConformancePackDetailedStatus](#organizationconformancepackdetailedstatus)
+
+### OrganizationConformancePackName
+* OrganizationConformancePackName `string`
+
+### OrganizationConformancePackNames
+* OrganizationConformancePackNames `array`
+  * items [OrganizationConformancePackName](#organizationconformancepackname)
+
+### OrganizationConformancePackStatus
+* OrganizationConformancePackStatus `object`: Returns the status for an organization conformance pack in an organization.
+  * ErrorCode
+  * ErrorMessage
+  * LastUpdateTime
+  * OrganizationConformancePackName **required**
+  * Status **required**
+
+### OrganizationConformancePackStatuses
+* OrganizationConformancePackStatuses `array`
+  * items [OrganizationConformancePackStatus](#organizationconformancepackstatus)
+
+### OrganizationConformancePackTemplateValidationException
+
+
+### OrganizationConformancePacks
+* OrganizationConformancePacks `array`
+  * items [OrganizationConformancePack](#organizationconformancepack)
+
+### OrganizationCustomRuleMetadata
+* OrganizationCustomRuleMetadata `object`: An object that specifies organization custom rule metadata such as resource type, resource ID of AWS resource, Lamdba function ARN, and organization trigger types that trigger AWS Config to evaluate your AWS resources against a rule. It also provides the frequency with which you want AWS Config to run evaluations for the rule if the trigger type is periodic.
+  * Description
+  * InputParameters
+  * LambdaFunctionArn **required**
+  * MaximumExecutionFrequency
+  * OrganizationConfigRuleTriggerTypes **required**
+    * items [OrganizationConfigRuleTriggerType](#organizationconfigruletriggertype)
+  * ResourceIdScope
+  * ResourceTypesScope
+    * items [StringWithCharLimit256](#stringwithcharlimit256)
+  * TagKeyScope
+  * TagValueScope
+
+### OrganizationManagedRuleMetadata
+* OrganizationManagedRuleMetadata `object`: An object that specifies organization managed rule metadata such as resource type and ID of AWS resource along with the rule identifier. It also provides the frequency with which you want AWS Config to run evaluations for the rule if the trigger type is periodic.
+  * Description
+  * InputParameters
+  * MaximumExecutionFrequency
+  * ResourceIdScope
+  * ResourceTypesScope
+    * items [StringWithCharLimit256](#stringwithcharlimit256)
+  * RuleIdentifier **required**
+  * TagKeyScope
+  * TagValueScope
+
+### OrganizationResourceDetailedStatus
+* OrganizationResourceDetailedStatus `string` (values: CREATE_SUCCESSFUL, CREATE_IN_PROGRESS, CREATE_FAILED, DELETE_SUCCESSFUL, DELETE_FAILED, DELETE_IN_PROGRESS, UPDATE_SUCCESSFUL, UPDATE_IN_PROGRESS, UPDATE_FAILED)
+
+### OrganizationResourceDetailedStatusFilters
+* OrganizationResourceDetailedStatusFilters `object`: Status filter object to filter results based on specific member account ID or status type for an organization conformance pack.
+  * AccountId
+  * Status
+
+### OrganizationResourceStatus
+* OrganizationResourceStatus `string` (values: CREATE_SUCCESSFUL, CREATE_IN_PROGRESS, CREATE_FAILED, DELETE_SUCCESSFUL, DELETE_FAILED, DELETE_IN_PROGRESS, UPDATE_SUCCESSFUL, UPDATE_IN_PROGRESS, UPDATE_FAILED)
+
+### OrganizationRuleStatus
+* OrganizationRuleStatus `string` (values: CREATE_SUCCESSFUL, CREATE_IN_PROGRESS, CREATE_FAILED, DELETE_SUCCESSFUL, DELETE_FAILED, DELETE_IN_PROGRESS, UPDATE_SUCCESSFUL, UPDATE_IN_PROGRESS, UPDATE_FAILED)
+
+### OversizedConfigurationItemException
+
 
 ### Owner
 * Owner `string` (values: CUSTOM_LAMBDA, AWS)
 
+### PageSizeLimit
+* PageSizeLimit `integer`
+
+### ParameterName
+* ParameterName `string`
+
+### ParameterValue
+* ParameterValue `string`
+
 ### PendingAggregationRequest
 * PendingAggregationRequest `object`: An object that represents the account ID and region of an aggregator account that is requesting authorization but is not yet authorized.
-  * RequesterAccountId [AccountId](#accountid)
-  * RequesterAwsRegion [AwsRegion](#awsregion)
+  * RequesterAccountId
+  * RequesterAwsRegion
 
 ### PendingAggregationRequestList
 * PendingAggregationRequestList `array`
   * items [PendingAggregationRequest](#pendingaggregationrequest)
 
+### Percentage
+* Percentage `integer`
+
 ### PutAggregationAuthorizationRequest
 * PutAggregationAuthorizationRequest `object`
-  * AuthorizedAccountId **required** [AccountId](#accountid)
-  * AuthorizedAwsRegion **required** [AwsRegion](#awsregion)
+  * AuthorizedAccountId **required**
+  * AuthorizedAwsRegion **required**
+  * Tags
+    * items [Tag](#tag)
 
 ### PutAggregationAuthorizationResponse
 * PutAggregationAuthorizationResponse `object`
-  * AggregationAuthorization [AggregationAuthorization](#aggregationauthorization)
+  * AggregationAuthorization
+    * AggregationAuthorizationArn
+    * AuthorizedAccountId
+    * AuthorizedAwsRegion
+    * CreationTime
 
 ### PutConfigRuleRequest
 * PutConfigRuleRequest `object`
-  * ConfigRule **required** [ConfigRule](#configrule)
+  * ConfigRule **required**
+    * ConfigRuleArn
+    * ConfigRuleId
+    * ConfigRuleName
+    * ConfigRuleState
+    * CreatedBy
+    * Description
+    * InputParameters
+    * MaximumExecutionFrequency
+    * Scope
+      * ComplianceResourceId
+      * ComplianceResourceTypes
+        * items [StringWithCharLimit256](#stringwithcharlimit256)
+      * TagKey
+      * TagValue
+    * Source **required**
+      * Owner **required**
+      * SourceDetails
+        * items [SourceDetail](#sourcedetail)
+      * SourceIdentifier **required**
+  * Tags
+    * items [Tag](#tag)
 
 ### PutConfigurationAggregatorRequest
 * PutConfigurationAggregatorRequest `object`
-  * AccountAggregationSources [AccountAggregationSourceList](#accountaggregationsourcelist)
-  * ConfigurationAggregatorName **required** [ConfigurationAggregatorName](#configurationaggregatorname)
-  * OrganizationAggregationSource [OrganizationAggregationSource](#organizationaggregationsource)
+  * AccountAggregationSources
+    * items [AccountAggregationSource](#accountaggregationsource)
+  * ConfigurationAggregatorName **required**
+  * OrganizationAggregationSource
+    * AllAwsRegions
+    * AwsRegions
+      * items [String](#string)
+    * RoleArn **required**
+  * Tags
+    * items [Tag](#tag)
 
 ### PutConfigurationAggregatorResponse
 * PutConfigurationAggregatorResponse `object`
-  * ConfigurationAggregator [ConfigurationAggregator](#configurationaggregator)
+  * ConfigurationAggregator
+    * AccountAggregationSources
+      * items [AccountAggregationSource](#accountaggregationsource)
+    * ConfigurationAggregatorArn
+    * ConfigurationAggregatorName
+    * CreatedBy
+    * CreationTime
+    * LastUpdatedTime
+    * OrganizationAggregationSource
+      * AllAwsRegions
+      * AwsRegions
+        * items [String](#string)
+      * RoleArn **required**
 
 ### PutConfigurationRecorderRequest
 * PutConfigurationRecorderRequest `object`: The input for the <a>PutConfigurationRecorder</a> action.
-  * ConfigurationRecorder **required** [ConfigurationRecorder](#configurationrecorder)
+  * ConfigurationRecorder **required**
+    * name
+    * recordingGroup
+      * allSupported
+      * includeGlobalResourceTypes
+      * resourceTypes
+        * items [ResourceType](#resourcetype)
+    * roleARN
+
+### PutConformancePackRequest
+* PutConformancePackRequest `object`
+  * ConformancePackInputParameters
+    * items [ConformancePackInputParameter](#conformancepackinputparameter)
+  * ConformancePackName **required**
+  * DeliveryS3Bucket
+  * DeliveryS3KeyPrefix
+  * TemplateBody
+  * TemplateS3Uri
+
+### PutConformancePackResponse
+* PutConformancePackResponse `object`
+  * ConformancePackArn
 
 ### PutDeliveryChannelRequest
 * PutDeliveryChannelRequest `object`: The input for the <a>PutDeliveryChannel</a> action.
-  * DeliveryChannel **required** [DeliveryChannel](#deliverychannel)
+  * DeliveryChannel **required**
+    * configSnapshotDeliveryProperties
+      * deliveryFrequency
+    * name
+    * s3BucketName
+    * s3KeyPrefix
+    * snsTopicARN
 
 ### PutEvaluationsRequest
 * PutEvaluationsRequest `object`: <p/>
-  * Evaluations [Evaluations](#evaluations)
-  * ResultToken **required** [String](#string)
-  * TestMode [Boolean](#boolean)
+  * Evaluations
+    * items [Evaluation](#evaluation)
+  * ResultToken **required**
+  * TestMode
 
 ### PutEvaluationsResponse
 * PutEvaluationsResponse `object`: <p/>
-  * FailedEvaluations [Evaluations](#evaluations)
+  * FailedEvaluations
+    * items [Evaluation](#evaluation)
+
+### PutExternalEvaluationRequest
+* PutExternalEvaluationRequest `object`
+  * ConfigRuleName **required** [ConfigRuleName](#configrulename)
+  * ExternalEvaluation **required** [ExternalEvaluation](#externalevaluation)
+
+### PutExternalEvaluationResponse
+* PutExternalEvaluationResponse `object`
+
+### PutOrganizationConfigRuleRequest
+* PutOrganizationConfigRuleRequest `object`
+  * ExcludedAccounts
+    * items [AccountId](#accountid)
+  * OrganizationConfigRuleName **required**
+  * OrganizationCustomRuleMetadata
+    * Description
+    * InputParameters
+    * LambdaFunctionArn **required**
+    * MaximumExecutionFrequency
+    * OrganizationConfigRuleTriggerTypes **required**
+      * items [OrganizationConfigRuleTriggerType](#organizationconfigruletriggertype)
+    * ResourceIdScope
+    * ResourceTypesScope
+      * items [StringWithCharLimit256](#stringwithcharlimit256)
+    * TagKeyScope
+    * TagValueScope
+  * OrganizationManagedRuleMetadata
+    * Description
+    * InputParameters
+    * MaximumExecutionFrequency
+    * ResourceIdScope
+    * ResourceTypesScope
+      * items [StringWithCharLimit256](#stringwithcharlimit256)
+    * RuleIdentifier **required**
+    * TagKeyScope
+    * TagValueScope
+
+### PutOrganizationConfigRuleResponse
+* PutOrganizationConfigRuleResponse `object`
+  * OrganizationConfigRuleArn
+
+### PutOrganizationConformancePackRequest
+* PutOrganizationConformancePackRequest `object`
+  * ConformancePackInputParameters
+    * items [ConformancePackInputParameter](#conformancepackinputparameter)
+  * DeliveryS3Bucket
+  * DeliveryS3KeyPrefix
+  * ExcludedAccounts
+    * items [AccountId](#accountid)
+  * OrganizationConformancePackName **required**
+  * TemplateBody
+  * TemplateS3Uri
+
+### PutOrganizationConformancePackResponse
+* PutOrganizationConformancePackResponse `object`
+  * OrganizationConformancePackArn
+
+### PutRemediationConfigurationsRequest
+* PutRemediationConfigurationsRequest `object`
+  * RemediationConfigurations **required**
+    * items [RemediationConfiguration](#remediationconfiguration)
+
+### PutRemediationConfigurationsResponse
+* PutRemediationConfigurationsResponse `object`
+  * FailedBatches
+    * items [FailedRemediationBatch](#failedremediationbatch)
+
+### PutRemediationExceptionsRequest
+* PutRemediationExceptionsRequest `object`
+  * ConfigRuleName **required**
+  * ExpirationTime
+  * Message
+  * ResourceKeys **required**
+    * items [RemediationExceptionResourceKey](#remediationexceptionresourcekey)
+
+### PutRemediationExceptionsResponse
+* PutRemediationExceptionsResponse `object`
+  * FailedBatches
+    * items [FailedRemediationExceptionBatch](#failedremediationexceptionbatch)
+
+### PutResourceConfigRequest
+* PutResourceConfigRequest `object`
+  * Configuration **required**
+  * ResourceId **required**
+  * ResourceName
+  * ResourceType **required**
+  * SchemaVersionId **required**
+  * Tags
 
 ### PutRetentionConfigurationRequest
 * PutRetentionConfigurationRequest `object`
-  * RetentionPeriodInDays **required** [RetentionPeriodInDays](#retentionperiodindays)
+  * RetentionPeriodInDays **required**
 
 ### PutRetentionConfigurationResponse
 * PutRetentionConfigurationResponse `object`
-  * RetentionConfiguration [RetentionConfiguration](#retentionconfiguration)
+  * RetentionConfiguration
+    * Name **required**
+    * RetentionPeriodInDays **required**
+
+### QueryInfo
+* QueryInfo `object`: Details about the query.
+  * SelectFields
+    * items [FieldInfo](#fieldinfo)
 
 ### RecorderName
 * RecorderName `string`
@@ -1743,14 +3680,15 @@ amazonaws_config.StopConfigurationRecorder({
 * RecorderStatus `string` (values: Pending, Success, Failure)
 
 ### RecordingGroup
-* RecordingGroup `object`: <p>Specifies the types of AWS resource for which AWS Config records configuration changes.</p> <p>In the recording group, you specify whether all supported types or specific types of resources are recorded.</p> <p>By default, AWS Config records configuration changes for all supported types of regional resources that AWS Config discovers in the region in which it is running. Regional resources are tied to a region and can be used only in that region. Examples of regional resources are EC2 instances and EBS volumes.</p> <p>You can also have AWS Config record configuration changes for supported types of global resources (for example, IAM resources). Global resources are not tied to an individual region and can be used in all regions.</p> <important> <p>The configuration details for any global resource are the same in all regions. If you customize AWS Config in multiple regions to record global resources, it will create multiple configuration items each time a global resource changes: one configuration item for each region. These configuration items will contain identical data. To prevent duplicate configuration items, you should consider customizing AWS Config in only one region to record global resources, unless you want the configuration items to be available in multiple regions.</p> </important> <p>If you don't want AWS Config to record all resources, you can specify which types of resources it will record with the <code>resourceTypes</code> parameter.</p> <p>For a list of supported resource types, see <a href="http://docs.aws.amazon.com/config/latest/developerguide/resource-config-reference.html#supported-resources">Supported Resource Types</a>.</p> <p>For more information, see <a href="http://docs.aws.amazon.com/config/latest/developerguide/select-resources.html">Selecting Which Resources AWS Config Records</a>.</p>
-  * allSupported [AllSupported](#allsupported)
-  * includeGlobalResourceTypes [IncludeGlobalResourceTypes](#includeglobalresourcetypes)
-  * resourceTypes [ResourceTypeList](#resourcetypelist)
+* RecordingGroup `object`: <p>Specifies the types of AWS resource for which AWS Config records configuration changes.</p> <p>In the recording group, you specify whether all supported types or specific types of resources are recorded.</p> <p>By default, AWS Config records configuration changes for all supported types of regional resources that AWS Config discovers in the region in which it is running. Regional resources are tied to a region and can be used only in that region. Examples of regional resources are EC2 instances and EBS volumes.</p> <p>You can also have AWS Config record configuration changes for supported types of global resources (for example, IAM resources). Global resources are not tied to an individual region and can be used in all regions.</p> <important> <p>The configuration details for any global resource are the same in all regions. If you customize AWS Config in multiple regions to record global resources, it will create multiple configuration items each time a global resource changes: one configuration item for each region. These configuration items will contain identical data. To prevent duplicate configuration items, you should consider customizing AWS Config in only one region to record global resources, unless you want the configuration items to be available in multiple regions.</p> </important> <p>If you don't want AWS Config to record all resources, you can specify which types of resources it will record with the <code>resourceTypes</code> parameter.</p> <p>For a list of supported resource types, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/resource-config-reference.html#supported-resources">Supported Resource Types</a>.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/select-resources.html">Selecting Which Resources AWS Config Records</a>.</p>
+  * allSupported
+  * includeGlobalResourceTypes
+  * resourceTypes
+    * items [ResourceType](#resourcetype)
 
 ### ReevaluateConfigRuleNames
 * ReevaluateConfigRuleNames `array`
-  * items [StringWithCharLimit64](#stringwithcharlimit64)
+  * items [ConfigRuleName](#configrulename)
 
 ### RelatedEvent
 * RelatedEvent `string`
@@ -1761,10 +3699,10 @@ amazonaws_config.StopConfigurationRecorder({
 
 ### Relationship
 * Relationship `object`: The relationship of the related resource to the main resource.
-  * relationshipName [RelationshipName](#relationshipname)
-  * resourceId [ResourceId](#resourceid)
-  * resourceName [ResourceName](#resourcename)
-  * resourceType [ResourceType](#resourcetype)
+  * relationshipName
+  * resourceId
+  * resourceName
+  * resourceType
 
 ### RelationshipList
 * RelationshipList `array`
@@ -1773,10 +3711,110 @@ amazonaws_config.StopConfigurationRecorder({
 ### RelationshipName
 * RelationshipName `string`
 
+### RemediationConfiguration
+* RemediationConfiguration `object`: An object that represents the details about the remediation configuration that includes the remediation action, parameters, and data to execute the action.
+  * Arn
+  * Automatic
+  * ConfigRuleName **required**
+  * CreatedByService
+  * ExecutionControls
+    * SsmControls
+      * ConcurrentExecutionRatePercentage
+      * ErrorPercentage
+  * MaximumAutomaticAttempts
+  * Parameters
+  * ResourceType
+  * RetryAttemptSeconds
+  * TargetId **required**
+  * TargetType **required**
+  * TargetVersion
+
+### RemediationConfigurations
+* RemediationConfigurations `array`
+  * items [RemediationConfiguration](#remediationconfiguration)
+
+### RemediationException
+* RemediationException `object`: An object that represents the details about the remediation exception. The details include the rule name, an explanation of an exception, the time when the exception will be deleted, the resource ID, and resource type. 
+  * ConfigRuleName **required**
+  * ExpirationTime
+  * Message
+  * ResourceId **required**
+  * ResourceType **required**
+
+### RemediationExceptionResourceKey
+* RemediationExceptionResourceKey `object`: The details that identify a resource within AWS Config, including the resource type and resource ID. 
+  * ResourceId
+  * ResourceType
+
+### RemediationExceptionResourceKeys
+* RemediationExceptionResourceKeys `array`
+  * items [RemediationExceptionResourceKey](#remediationexceptionresourcekey)
+
+### RemediationExceptions
+* RemediationExceptions `array`
+  * items [RemediationException](#remediationexception)
+
+### RemediationExecutionState
+* RemediationExecutionState `string` (values: QUEUED, IN_PROGRESS, SUCCEEDED, FAILED)
+
+### RemediationExecutionStatus
+* RemediationExecutionStatus `object`: Provides details of the current status of the invoked remediation action for that resource.
+  * InvocationTime
+  * LastUpdatedTime
+  * ResourceKey [ResourceKey](#resourcekey)
+  * State
+  * StepDetails
+    * items [RemediationExecutionStep](#remediationexecutionstep)
+
+### RemediationExecutionStatuses
+* RemediationExecutionStatuses `array`
+  * items [RemediationExecutionStatus](#remediationexecutionstatus)
+
+### RemediationExecutionStep
+* RemediationExecutionStep `object`: Name of the step from the SSM document.
+  * ErrorMessage
+  * Name
+  * StartTime
+  * State
+  * StopTime
+
+### RemediationExecutionStepState
+* RemediationExecutionStepState `string` (values: SUCCEEDED, PENDING, FAILED)
+
+### RemediationExecutionSteps
+* RemediationExecutionSteps `array`
+  * items [RemediationExecutionStep](#remediationexecutionstep)
+
+### RemediationInProgressException
+
+
+### RemediationParameterValue
+* RemediationParameterValue `object`: The value is either a dynamic (resource) value or a static value. You must select either a dynamic value or a static value.
+  * ResourceValue
+    * Value **required**
+  * StaticValue
+    * Values **required**
+      * items [StringWithCharLimit256](#stringwithcharlimit256)
+
+### RemediationParameters
+* RemediationParameters `object`
+
+### RemediationTargetType
+* RemediationTargetType `string` (values: SSM_DOCUMENT)
+
 ### ResourceCount
 * ResourceCount `object`: An object that contains the resource type and the number of resources.
-  * count [Long](#long)
-  * resourceType [ResourceType](#resourcetype)
+  * count
+  * resourceType
+
+### ResourceCountFilters
+* ResourceCountFilters `object`: Filters the resource count based on account ID, region, and resource type.
+  * AccountId
+  * Region
+  * ResourceType
+
+### ResourceCountGroupKey
+* ResourceCountGroupKey `string` (values: RESOURCE_TYPE, ACCOUNT_ID, AWS_REGION)
 
 ### ResourceCounts
 * ResourceCounts `array`
@@ -1788,6 +3826,13 @@ amazonaws_config.StopConfigurationRecorder({
 ### ResourceDeletionTime
 * ResourceDeletionTime `string`
 
+### ResourceFilters
+* ResourceFilters `object`: Filters the results by resource account ID, region, resource ID, and resource name.
+  * AccountId
+  * Region
+  * ResourceId
+  * ResourceName
+
 ### ResourceId
 * ResourceId `string`
 
@@ -1797,22 +3842,26 @@ amazonaws_config.StopConfigurationRecorder({
 
 ### ResourceIdentifier
 * ResourceIdentifier `object`: The details that identify a resource that is discovered by AWS Config, including the resource type, ID, and (if available) the custom resource name.
-  * resourceDeletionTime [ResourceDeletionTime](#resourcedeletiontime)
-  * resourceId [ResourceId](#resourceid)
-  * resourceName [ResourceName](#resourcename)
-  * resourceType [ResourceType](#resourcetype)
+  * resourceDeletionTime
+  * resourceId
+  * resourceName
+  * resourceType
 
 ### ResourceIdentifierList
 * ResourceIdentifierList `array`
   * items [ResourceIdentifier](#resourceidentifier)
 
+### ResourceIdentifiersList
+* ResourceIdentifiersList `array`
+  * items [AggregateResourceIdentifier](#aggregateresourceidentifier)
+
 ### ResourceInUseException
-* ResourceInUseException `object`: The rule is currently being deleted or the rule is deleting your evaluation results. Try your request again later.
+
 
 ### ResourceKey
 * ResourceKey `object`: The details that identify a resource within AWS Config, including the resource type and resource ID.
-  * resourceId **required** [ResourceId](#resourceid)
-  * resourceType **required** [ResourceType](#resourcetype)
+  * resourceId **required**
+  * resourceType **required**
 
 ### ResourceKeys
 * ResourceKeys `array`
@@ -1822,23 +3871,44 @@ amazonaws_config.StopConfigurationRecorder({
 * ResourceName `string`
 
 ### ResourceNotDiscoveredException
-* ResourceNotDiscoveredException `object`: You have specified a resource that is either unknown or has not been discovered.
+
+
+### ResourceNotFoundException
+
 
 ### ResourceType
-* ResourceType `string` (values: AWS::EC2::CustomerGateway, AWS::EC2::EIP, AWS::EC2::Host, AWS::EC2::Instance, AWS::EC2::InternetGateway, AWS::EC2::NetworkAcl, AWS::EC2::NetworkInterface, AWS::EC2::RouteTable, AWS::EC2::SecurityGroup, AWS::EC2::Subnet, AWS::CloudTrail::Trail, AWS::EC2::Volume, AWS::EC2::VPC, AWS::EC2::VPNConnection, AWS::EC2::VPNGateway, AWS::IAM::Group, AWS::IAM::Policy, AWS::IAM::Role, AWS::IAM::User, AWS::ACM::Certificate, AWS::RDS::DBInstance, AWS::RDS::DBSubnetGroup, AWS::RDS::DBSecurityGroup, AWS::RDS::DBSnapshot, AWS::RDS::EventSubscription, AWS::ElasticLoadBalancingV2::LoadBalancer, AWS::S3::Bucket, AWS::SSM::ManagedInstanceInventory, AWS::Redshift::Cluster, AWS::Redshift::ClusterSnapshot, AWS::Redshift::ClusterParameterGroup, AWS::Redshift::ClusterSecurityGroup, AWS::Redshift::ClusterSubnetGroup, AWS::Redshift::EventSubscription, AWS::CloudWatch::Alarm, AWS::CloudFormation::Stack, AWS::DynamoDB::Table, AWS::AutoScaling::AutoScalingGroup, AWS::AutoScaling::LaunchConfiguration, AWS::AutoScaling::ScalingPolicy, AWS::AutoScaling::ScheduledAction, AWS::CodeBuild::Project, AWS::WAF::RateBasedRule, AWS::WAF::Rule, AWS::WAF::WebACL, AWS::WAFRegional::RateBasedRule, AWS::WAFRegional::Rule, AWS::WAFRegional::WebACL, AWS::CloudFront::Distribution, AWS::CloudFront::StreamingDistribution, AWS::WAF::RuleGroup, AWS::WAFRegional::RuleGroup, AWS::Lambda::Function, AWS::ElasticBeanstalk::Application, AWS::ElasticBeanstalk::ApplicationVersion, AWS::ElasticBeanstalk::Environment, AWS::ElasticLoadBalancing::LoadBalancer, AWS::XRay::EncryptionConfig)
+* ResourceType `string` (values: AWS::EC2::CustomerGateway, AWS::EC2::EIP, AWS::EC2::Host, AWS::EC2::Instance, AWS::EC2::InternetGateway, AWS::EC2::NetworkAcl, AWS::EC2::NetworkInterface, AWS::EC2::RouteTable, AWS::EC2::SecurityGroup, AWS::EC2::Subnet, AWS::CloudTrail::Trail, AWS::EC2::Volume, AWS::EC2::VPC, AWS::EC2::VPNConnection, AWS::EC2::VPNGateway, AWS::EC2::RegisteredHAInstance, AWS::EC2::NatGateway, AWS::EC2::EgressOnlyInternetGateway, AWS::EC2::VPCEndpoint, AWS::EC2::VPCEndpointService, AWS::EC2::FlowLog, AWS::EC2::VPCPeeringConnection, AWS::Elasticsearch::Domain, AWS::IAM::Group, AWS::IAM::Policy, AWS::IAM::Role, AWS::IAM::User, AWS::ElasticLoadBalancingV2::LoadBalancer, AWS::ACM::Certificate, AWS::RDS::DBInstance, AWS::RDS::DBSubnetGroup, AWS::RDS::DBSecurityGroup, AWS::RDS::DBSnapshot, AWS::RDS::DBCluster, AWS::RDS::DBClusterSnapshot, AWS::RDS::EventSubscription, AWS::S3::Bucket, AWS::S3::AccountPublicAccessBlock, AWS::Redshift::Cluster, AWS::Redshift::ClusterSnapshot, AWS::Redshift::ClusterParameterGroup, AWS::Redshift::ClusterSecurityGroup, AWS::Redshift::ClusterSubnetGroup, AWS::Redshift::EventSubscription, AWS::SSM::ManagedInstanceInventory, AWS::CloudWatch::Alarm, AWS::CloudFormation::Stack, AWS::ElasticLoadBalancing::LoadBalancer, AWS::AutoScaling::AutoScalingGroup, AWS::AutoScaling::LaunchConfiguration, AWS::AutoScaling::ScalingPolicy, AWS::AutoScaling::ScheduledAction, AWS::DynamoDB::Table, AWS::CodeBuild::Project, AWS::WAF::RateBasedRule, AWS::WAF::Rule, AWS::WAF::RuleGroup, AWS::WAF::WebACL, AWS::WAFRegional::RateBasedRule, AWS::WAFRegional::Rule, AWS::WAFRegional::RuleGroup, AWS::WAFRegional::WebACL, AWS::CloudFront::Distribution, AWS::CloudFront::StreamingDistribution, AWS::Lambda::Function, AWS::ElasticBeanstalk::Application, AWS::ElasticBeanstalk::ApplicationVersion, AWS::ElasticBeanstalk::Environment, AWS::WAFv2::WebACL, AWS::WAFv2::RuleGroup, AWS::WAFv2::IPSet, AWS::WAFv2::RegexPatternSet, AWS::WAFv2::ManagedRuleSet, AWS::XRay::EncryptionConfig, AWS::SSM::AssociationCompliance, AWS::SSM::PatchCompliance, AWS::Shield::Protection, AWS::ShieldRegional::Protection, AWS::Config::ResourceCompliance, AWS::ApiGateway::Stage, AWS::ApiGateway::RestApi, AWS::ApiGatewayV2::Stage, AWS::ApiGatewayV2::Api, AWS::CodePipeline::Pipeline, AWS::ServiceCatalog::CloudFormationProvisionedProduct, AWS::ServiceCatalog::CloudFormationProduct, AWS::ServiceCatalog::Portfolio, AWS::SQS::Queue, AWS::KMS::Key, AWS::QLDB::Ledger, AWS::SecretsManager::Secret, AWS::SNS::Topic, AWS::SSM::FileData)
 
 ### ResourceTypeList
 * ResourceTypeList `array`
   * items [ResourceType](#resourcetype)
 
+### ResourceTypeString
+* ResourceTypeString `string`
+
 ### ResourceTypes
 * ResourceTypes `array`
   * items [StringWithCharLimit256](#stringwithcharlimit256)
 
+### ResourceTypesScope
+* ResourceTypesScope `array`
+  * items [StringWithCharLimit256](#stringwithcharlimit256)
+
+### ResourceValue
+* ResourceValue `object`: The dynamic value of the resource.
+  * Value **required**
+
+### ResourceValueType
+* ResourceValueType `string` (values: RESOURCE_ID)
+
+### Results
+* Results `array`
+  * items [String](#string)
+
 ### RetentionConfiguration
 * RetentionConfiguration `object`: An object with the name of the retention configuration and the retention period in days. The object stores the configuration for data retention in AWS Config.
-  * Name **required** [RetentionConfigurationName](#retentionconfigurationname)
-  * RetentionPeriodInDays **required** [RetentionPeriodInDays](#retentionperiodindays)
+  * Name **required**
+  * RetentionPeriodInDays **required**
 
 ### RetentionConfigurationList
 * RetentionConfigurationList `array`
@@ -1857,43 +3927,113 @@ amazonaws_config.StopConfigurationRecorder({
 ### RuleLimit
 * RuleLimit `integer`
 
+### SchemaVersionId
+* SchemaVersionId `string`
+
 ### Scope
 * Scope `object`: Defines which resources trigger an evaluation for an AWS Config rule. The scope can include one or more resource types, a combination of a tag key and value, or a combination of one resource type and one resource ID. Specify a scope to constrain which resources trigger an evaluation for a rule. Otherwise, evaluations for the rule are triggered when any resource in your recording group changes in configuration.
-  * ComplianceResourceId [BaseResourceId](#baseresourceid)
-  * ComplianceResourceTypes [ComplianceResourceTypes](#complianceresourcetypes)
-  * TagKey [StringWithCharLimit128](#stringwithcharlimit128)
-  * TagValue [StringWithCharLimit256](#stringwithcharlimit256)
+  * ComplianceResourceId
+  * ComplianceResourceTypes
+    * items [StringWithCharLimit256](#stringwithcharlimit256)
+  * TagKey
+  * TagValue
+
+### SelectAggregateResourceConfigRequest
+* SelectAggregateResourceConfigRequest `object`
+  * ConfigurationAggregatorName **required**
+  * Expression **required**
+  * Limit
+  * MaxResults
+  * NextToken
+
+### SelectAggregateResourceConfigResponse
+* SelectAggregateResourceConfigResponse `object`
+  * NextToken
+  * QueryInfo [QueryInfo](#queryinfo)
+  * Results
+    * items [String](#string)
+
+### SelectResourceConfigRequest
+* SelectResourceConfigRequest `object`
+  * Expression **required**
+  * Limit
+  * NextToken
+
+### SelectResourceConfigResponse
+* SelectResourceConfigResponse `object`
+  * NextToken
+  * QueryInfo
+    * SelectFields
+      * items [FieldInfo](#fieldinfo)
+  * Results
+    * items [String](#string)
 
 ### Source
 * Source `object`: Provides the AWS Config rule owner (AWS or customer), the rule identifier, and the events that trigger the evaluation of your AWS resources.
-  * Owner **required** [Owner](#owner)
-  * SourceDetails [SourceDetails](#sourcedetails)
-  * SourceIdentifier **required** [StringWithCharLimit256](#stringwithcharlimit256)
+  * Owner **required**
+  * SourceDetails
+    * items [SourceDetail](#sourcedetail)
+  * SourceIdentifier **required**
 
 ### SourceDetail
 * SourceDetail `object`: Provides the source and the message types that trigger AWS Config to evaluate your AWS resources against a rule. It also provides the frequency with which you want AWS Config to run evaluations for the rule if the trigger type is periodic. You can specify the parameter values for <code>SourceDetail</code> only for custom rules. 
-  * EventSource [EventSource](#eventsource)
-  * MaximumExecutionFrequency [MaximumExecutionFrequency](#maximumexecutionfrequency)
-  * MessageType [MessageType](#messagetype)
+  * EventSource
+  * MaximumExecutionFrequency
+  * MessageType
 
 ### SourceDetails
 * SourceDetails `array`
   * items [SourceDetail](#sourcedetail)
 
+### SsmControls
+* SsmControls `object`: AWS Systems Manager (SSM) specific remediation controls.
+  * ConcurrentExecutionRatePercentage
+  * ErrorPercentage
+
+### StackArn
+* StackArn `string`
+
 ### StartConfigRulesEvaluationRequest
 * StartConfigRulesEvaluationRequest `object`: <p/>
-  * ConfigRuleNames [ReevaluateConfigRuleNames](#reevaluateconfigrulenames)
+  * ConfigRuleNames
+    * items [ConfigRuleName](#configrulename)
 
 ### StartConfigRulesEvaluationResponse
 * StartConfigRulesEvaluationResponse `object`: The output when you start the evaluation for the specified AWS Config rule.
 
 ### StartConfigurationRecorderRequest
 * StartConfigurationRecorderRequest `object`: The input for the <a>StartConfigurationRecorder</a> action.
-  * ConfigurationRecorderName **required** [RecorderName](#recordername)
+  * ConfigurationRecorderName **required**
+
+### StartRemediationExecutionRequest
+* StartRemediationExecutionRequest `object`
+  * ConfigRuleName **required**
+  * ResourceKeys **required**
+    * items [ResourceKey](#resourcekey)
+
+### StartRemediationExecutionResponse
+* StartRemediationExecutionResponse `object`
+  * FailedItems
+    * items [ResourceKey](#resourcekey)
+  * FailureMessage
+
+### StaticParameterValues
+* StaticParameterValues `array`
+  * items [StringWithCharLimit256](#stringwithcharlimit256)
+
+### StaticValue
+* StaticValue `object`: The static value of the resource.
+  * Values **required**
+    * items [StringWithCharLimit256](#stringwithcharlimit256)
+
+### StatusDetailFilters
+* StatusDetailFilters `object`: Status filter object to filter results based on specific member account ID or status type for an organization config rule. 
+  * AccountId
+  * MemberAccountRuleStatus
 
 ### StopConfigurationRecorderRequest
 * StopConfigurationRecorderRequest `object`: The input for the <a>StopConfigurationRecorder</a> action.
-  * ConfigurationRecorderName **required** [RecorderName](#recordername)
+  * ConfigurationRecorderName **required**
 
 ### String
 * String `string`
@@ -1904,17 +4044,23 @@ amazonaws_config.StopConfigurationRecorder({
 ### StringWithCharLimit128
 * StringWithCharLimit128 `string`
 
+### StringWithCharLimit2048
+* StringWithCharLimit2048 `string`
+
 ### StringWithCharLimit256
 * StringWithCharLimit256 `string`
+
+### StringWithCharLimit256Min0
+* StringWithCharLimit256Min0 `string`
 
 ### StringWithCharLimit64
 * StringWithCharLimit64 `string`
 
+### StringWithCharLimit768
+* StringWithCharLimit768 `string`
+
 ### SupplementaryConfiguration
-* SupplementaryConfiguration `array`
-  * items `object`
-    * key [SupplementaryConfigurationName](#supplementaryconfigurationname)
-    * value [SupplementaryConfigurationValue](#supplementaryconfigurationvalue)
+* SupplementaryConfiguration `object`
 
 ### SupplementaryConfigurationName
 * SupplementaryConfigurationName `string`
@@ -1922,14 +4068,59 @@ amazonaws_config.StopConfigurationRecorder({
 ### SupplementaryConfigurationValue
 * SupplementaryConfigurationValue `string`
 
+### Tag
+* Tag `object`: The tags for the resource. The metadata that you apply to a resource to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
+  * Key
+  * Value
+
+### TagKey
+* TagKey `string`
+
+### TagKeyList
+* TagKeyList `array`
+  * items [TagKey](#tagkey)
+
+### TagList
+* TagList `array`
+  * items [Tag](#tag)
+
+### TagResourceRequest
+* TagResourceRequest `object`
+  * ResourceArn **required**
+  * Tags **required**
+    * items [Tag](#tag)
+
+### TagValue
+* TagValue `string`
+
 ### Tags
-* Tags `array`
-  * items `object`
-    * key [Name](#name)
-    * value [Value](#value)
+* Tags `object`
+
+### TagsList
+* TagsList `array`
+  * items [Tag](#tag)
+
+### TemplateBody
+* TemplateBody `string`
+
+### TemplateS3Uri
+* TemplateS3Uri `string`
+
+### TooManyTagsException
+
+
+### UnprocessedResourceIdentifierList
+* UnprocessedResourceIdentifierList `array`
+  * items [AggregateResourceIdentifier](#aggregateresourceidentifier)
+
+### UntagResourceRequest
+* UntagResourceRequest `object`
+  * ResourceArn **required**
+  * TagKeys **required**
+    * items [TagKey](#tagkey)
 
 ### ValidationException
-* ValidationException `object`: The requested action is not valid.
+
 
 ### Value
 * Value `string`

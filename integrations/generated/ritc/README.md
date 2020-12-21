@@ -11,7 +11,7 @@ let ritc = require('@datafire/ritc').create({
   Authorization: ""
 });
 
-ritc.runApp({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

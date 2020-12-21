@@ -1,19 +1,17 @@
 # @datafire/microsoft_cognitiveservices_prediction
 
-Client library for PredictionEndpoint
+Client library for Custom Vision Prediction Client
 
 ## Installation and Usage
 ```bash
 npm install --save @datafire/microsoft_cognitiveservices_prediction
 ```
 ```js
-let microsoft_cognitiveservices_prediction = require('@datafire/microsoft_cognitiveservices_prediction').create();
+let microsoft_cognitiveservices_prediction = require('@datafire/microsoft_cognitiveservices_prediction').create({
+  apim_key: ""
+});
 
-microsoft_cognitiveservices_prediction.PredictImage({
-  "projectId": "",
-  "imageData": "",
-  "Prediction-Key": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -24,127 +22,224 @@ microsoft_cognitiveservices_prediction.PredictImage({
 
 ## Actions
 
-### PredictImage
-Predict an image and saves the result
+### ClassifyImage
+Classify an image and saves the result.
 
 
 ```js
-microsoft_cognitiveservices_prediction.PredictImage({
+microsoft_cognitiveservices_prediction.ClassifyImage({
   "projectId": "",
-  "imageData": "",
-  "Prediction-Key": ""
+  "publishedName": "",
+  "imageData": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * projectId **required** `string`: The project id
-  * iterationId `string`: Optional. Specifies the id of a particular iteration to evaluate against.
-  * application `string`: Optional. Specifies the name of application using the endpoint
-  * imageData **required** `string`, `object`
-    * content `string`
-    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
-    * contentType `string`
-    * filename `string`
-  * Prediction-Key **required** `string`
+  * projectId **required** `string`: The project id.
+  * publishedName **required** `string`: Specifies the name of the model to evaluate against.
+  * application `string`: Optional. Specifies the name of application using the endpoint.
+  * imageData **required** `string`: Binary image data. Supported formats are JPEG, GIF, PNG, and BMP. Supports images up to 4MB.
 
 #### Output
-* output [ImagePredictionResultModel](#imagepredictionresultmodel)
+* output [ImagePrediction](#imageprediction)
 
-### PredictImageWithNoStore
-Predict an image without saving the result
+### ClassifyImageWithNoStore
+Classify an image without saving the result.
 
 
 ```js
-microsoft_cognitiveservices_prediction.PredictImageWithNoStore({
+microsoft_cognitiveservices_prediction.ClassifyImageWithNoStore({
   "projectId": "",
-  "imageData": "",
-  "Prediction-Key": ""
+  "publishedName": "",
+  "imageData": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * projectId **required** `string`: The project id
-  * iterationId `string`: Optional. Specifies the id of a particular iteration to evaluate against.
-  * application `string`: Optional. Specifies the name of application using the endpoint
-  * imageData **required** `string`, `object`
-    * content `string`
-    * encoding `string` (values: ascii, utf8, utf16le, base64, binary, hex)
-    * contentType `string`
-    * filename `string`
-  * Prediction-Key **required** `string`
+  * projectId **required** `string`: The project id.
+  * publishedName **required** `string`: Specifies the name of the model to evaluate against.
+  * application `string`: Optional. Specifies the name of application using the endpoint.
+  * imageData **required** `string`: Binary image data. Supported formats are JPEG, GIF, PNG, and BMP. Supports images up to 0MB.
 
 #### Output
-* output [ImagePredictionResultModel](#imagepredictionresultmodel)
+* output [ImagePrediction](#imageprediction)
 
-### PredictImageUrl
-Predict an image url and saves the result
+### ClassifyImageUrl
+Classify an image url and saves the result.
 
 
 ```js
-microsoft_cognitiveservices_prediction.PredictImageUrl({
+microsoft_cognitiveservices_prediction.ClassifyImageUrl({
   "projectId": "",
-  "imageUrl": {},
-  "Prediction-Key": ""
+  "publishedName": "",
+  "body": {
+    "url": ""
+  }
 }, context)
 ```
 
 #### Input
 * input `object`
-  * projectId **required** `string`: The project id
-  * imageUrl **required** [ImageUrl](#imageurl)
-  * iterationId `string`: Optional. Specifies the id of a particular iteration to evaluate against.
-  * application `string`: Optional. Specifies the name of application using the endpoint
-  * Prediction-Key **required** `string`
+  * projectId **required** `string`: The project id.
+  * publishedName **required** `string`: Specifies the name of the model to evaluate against.
+  * application `string`: Optional. Specifies the name of application using the endpoint.
+  * body **required** [ImageUrl](#imageurl)
 
 #### Output
-* output [ImagePredictionResultModel](#imagepredictionresultmodel)
+* output [ImagePrediction](#imageprediction)
 
-### PredictImageUrlWithNoStore
-Predict an image url without saving the result
+### ClassifyImageUrlWithNoStore
+Classify an image url without saving the result.
 
 
 ```js
-microsoft_cognitiveservices_prediction.PredictImageUrlWithNoStore({
+microsoft_cognitiveservices_prediction.ClassifyImageUrlWithNoStore({
   "projectId": "",
-  "imageUrl": {},
-  "Prediction-Key": ""
+  "publishedName": "",
+  "body": {
+    "url": ""
+  }
 }, context)
 ```
 
 #### Input
 * input `object`
-  * projectId **required** `string`: The project id
-  * imageUrl **required** [ImageUrl](#imageurl)
-  * iterationId `string`: Optional. Specifies the id of a particular iteration to evaluate against.
-  * application `string`: Optional. Specifies the name of application using the endpoint
-  * Prediction-Key **required** `string`
+  * projectId **required** `string`: The project id.
+  * publishedName **required** `string`: Specifies the name of the model to evaluate against.
+  * application `string`: Optional. Specifies the name of application using the endpoint.
+  * body **required** [ImageUrl](#imageurl)
 
 #### Output
-* output [ImagePredictionResultModel](#imagepredictionresultmodel)
+* output [ImagePrediction](#imageprediction)
+
+### DetectImage
+Detect objects in an image and saves the result.
+
+
+```js
+microsoft_cognitiveservices_prediction.DetectImage({
+  "projectId": "",
+  "publishedName": "",
+  "imageData": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * projectId **required** `string`: The project id.
+  * publishedName **required** `string`: Specifies the name of the model to evaluate against.
+  * application `string`: Optional. Specifies the name of application using the endpoint.
+  * imageData **required** `string`: Binary image data. Supported formats are JPEG, GIF, PNG, and BMP. Supports images up to 4MB.
+
+#### Output
+* output [ImagePrediction](#imageprediction)
+
+### DetectImageWithNoStore
+Detect objects in an image without saving the result.
+
+
+```js
+microsoft_cognitiveservices_prediction.DetectImageWithNoStore({
+  "projectId": "",
+  "publishedName": "",
+  "imageData": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * projectId **required** `string`: The project id.
+  * publishedName **required** `string`: Specifies the name of the model to evaluate against.
+  * application `string`: Optional. Specifies the name of application using the endpoint.
+  * imageData **required** `string`: Binary image data. Supported formats are JPEG, GIF, PNG, and BMP. Supports images up to 0MB.
+
+#### Output
+* output [ImagePrediction](#imageprediction)
+
+### DetectImageUrl
+Detect objects in an image url and saves the result.
+
+
+```js
+microsoft_cognitiveservices_prediction.DetectImageUrl({
+  "projectId": "",
+  "publishedName": "",
+  "body": {
+    "url": ""
+  }
+}, context)
+```
+
+#### Input
+* input `object`
+  * projectId **required** `string`: The project id.
+  * publishedName **required** `string`: Specifies the name of the model to evaluate against.
+  * application `string`: Optional. Specifies the name of application using the endpoint.
+  * body **required** [ImageUrl](#imageurl)
+
+#### Output
+* output [ImagePrediction](#imageprediction)
+
+### DetectImageUrlWithNoStore
+Detect objects in an image url without saving the result.
+
+
+```js
+microsoft_cognitiveservices_prediction.DetectImageUrlWithNoStore({
+  "projectId": "",
+  "publishedName": "",
+  "body": {
+    "url": ""
+  }
+}, context)
+```
+
+#### Input
+* input `object`
+  * projectId **required** `string`: The project id.
+  * publishedName **required** `string`: Specifies the name of the model to evaluate against.
+  * application `string`: Optional. Specifies the name of application using the endpoint.
+  * body **required** [ImageUrl](#imageurl)
+
+#### Output
+* output [ImagePrediction](#imageprediction)
 
 
 
 ## Definitions
 
-### ImagePredictionResultModel
-* ImagePredictionResultModel `object`: result of an image prediction request
-  * Created `string`
-  * Id `string`
-  * Iteration `string`
-  * Predictions `array`
-    * items [ImageTagPredictionModel](#imagetagpredictionmodel)
-  * Project `string`
+### BoundingBox
+* BoundingBox `object`: Bounding box that defines a region of an image.
+  * height **required** `number`: Height.
+  * left **required** `number`: Coordinate of the left boundary.
+  * top **required** `number`: Coordinate of the top boundary.
+  * width **required** `number`: Width.
 
-### ImageTagPredictionModel
-* ImageTagPredictionModel `object`
-  * Probability `number`
-  * Tag `string`
-  * TagId `string`
+### CustomVisionError
+* CustomVisionError `object`
+  * code **required** `string` (values: NoError, BadRequest, BadRequestExceededBatchSize, BadRequestNotSupported, BadRequestInvalidIds, BadRequestProjectName, BadRequestProjectNameNotUnique, BadRequestProjectDescription, BadRequestProjectUnknownDomain, BadRequestProjectUnknownClassification, BadRequestProjectUnsupportedDomainTypeChange, BadRequestProjectUnsupportedExportPlatform, BadRequestIterationName, BadRequestIterationNameNotUnique, BadRequestIterationDescription, BadRequestIterationIsNotTrained, BadRequestWorkspaceCannotBeModified, BadRequestWorkspaceNotDeletable, BadRequestTagName, BadRequestTagNameNotUnique, BadRequestTagDescription, BadRequestTagType, BadRequestMultipleNegativeTag, BadRequestImageTags, BadRequestImageRegions, BadRequestNegativeAndRegularTagOnSameImage, BadRequestRequiredParamIsNull, BadRequestIterationIsPublished, BadRequestInvalidPublishName, BadRequestInvalidPublishTarget, BadRequestUnpublishFailed, BadRequestSubscriptionApi, BadRequestExceedProjectLimit, BadRequestExceedIterationPerProjectLimit, BadRequestExceedTagPerProjectLimit, BadRequestExceedTagPerImageLimit, BadRequestExceededQuota, BadRequestCannotMigrateProjectWithName, BadRequestNotLimitedTrial, BadRequestImageBatch, BadRequestImageStream, BadRequestImageUrl, BadRequestImageFormat, BadRequestImageSizeBytes, BadRequestImageExceededCount, BadRequestTrainingNotNeeded, BadRequestTrainingNotNeededButTrainingPipelineUpdated, BadRequestTrainingValidationFailed, BadRequestClassificationTrainingValidationFailed, BadRequestMultiClassClassificationTrainingValidationFailed, BadRequestMultiLabelClassificationTrainingValidationFailed, BadRequestDetectionTrainingValidationFailed, BadRequestTrainingAlreadyInProgress, BadRequestDetectionTrainingNotAllowNegativeTag, BadRequestInvalidEmailAddress, BadRequestDomainNotSupportedForAdvancedTraining, BadRequestExportPlatformNotSupportedForAdvancedTraining, BadRequestReservedBudgetInHoursNotEnoughForAdvancedTraining, BadRequestExportValidationFailed, BadRequestExportAlreadyInProgress, BadRequestPredictionIdsMissing, BadRequestPredictionIdsExceededCount, BadRequestPredictionTagsExceededCount, BadRequestPredictionResultsExceededCount, BadRequestPredictionInvalidApplicationName, BadRequestPredictionInvalidQueryParameters, BadRequestInvalid, UnsupportedMediaType, Forbidden, ForbiddenUser, ForbiddenUserResource, ForbiddenUserSignupDisabled, ForbiddenUserSignupAllowanceExceeded, ForbiddenUserDoesNotExist, ForbiddenUserDisabled, ForbiddenUserInsufficientCapability, ForbiddenDRModeEnabled, ForbiddenInvalid, NotFound, NotFoundProject, NotFoundProjectDefaultIteration, NotFoundIteration, NotFoundIterationPerformance, NotFoundTag, NotFoundImage, NotFoundDomain, NotFoundApimSubscription, NotFoundInvalid, Conflict, ConflictInvalid, ErrorUnknown, ErrorProjectInvalidWorkspace, ErrorProjectInvalidPipelineConfiguration, ErrorProjectInvalidDomain, ErrorProjectTrainingRequestFailed, ErrorProjectExportRequestFailed, ErrorFeaturizationServiceUnavailable, ErrorFeaturizationQueueTimeout, ErrorFeaturizationInvalidFeaturizer, ErrorFeaturizationAugmentationUnavailable, ErrorFeaturizationUnrecognizedJob, ErrorFeaturizationAugmentationError, ErrorExporterInvalidPlatform, ErrorExporterInvalidFeaturizer, ErrorExporterInvalidClassifier, ErrorPredictionServiceUnavailable, ErrorPredictionModelNotFound, ErrorPredictionModelNotCached, ErrorPrediction, ErrorPredictionStorage, ErrorRegionProposal, ErrorInvalid): The error code.
+  * message **required** `string`: A message explaining the error reported by the service.
+
+### ImagePrediction
+* ImagePrediction `object`: Result of an image prediction request.
+  * created `string`: Date this prediction was created.
+  * id `string`: Prediction Id.
+  * iteration `string`: Iteration Id.
+  * predictions `array`: List of predictions.
+    * items [Prediction](#prediction)
+  * project `string`: Project Id.
 
 ### ImageUrl
-* ImageUrl `object`
-  * Url `string`
+* ImageUrl `object`: Image url.
+  * url **required** `string`: Url of the image.
+
+### Prediction
+* Prediction `object`: Prediction result.
+  * boundingBox [BoundingBox](#boundingbox)
+  * probability `number`: Probability of the tag.
+  * tagId `string`: Id of the predicted tag.
+  * tagName `string`: Name of the predicted tag.
 
 

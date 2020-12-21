@@ -15,13 +15,7 @@ let azure_sql_sql_core = require('@datafire/azure_sql_sql_core').create({
   redirect_uri: ""
 });
 
-azure_sql_sql_core.ServiceTierAdvisors_ListByDatabase({
-  "api-version": "",
-  "subscriptionId": "",
-  "resourceGroupName": "",
-  "serverName": "",
-  "databaseName": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

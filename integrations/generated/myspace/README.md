@@ -9,7 +9,7 @@ npm install --save @datafire/myspace
 ```js
 let myspace = require('@datafire/myspace').create();
 
-myspace.1.0.activities._supportedFields.get({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

@@ -15,9 +15,7 @@ let azure_resources_policydefinitions = require('@datafire/azure_resources_polic
   redirect_uri: ""
 });
 
-azure_resources_policydefinitions.PolicyDefinitions_ListBuiltIn({
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -29,7 +27,7 @@ To manage and control access to your resources, you can define customized polici
 ## Actions
 
 ### PolicyDefinitions_ListBuiltIn
-Gets all the built in policy definitions.
+This operation retrieves a list of all the built-in policy definitions.
 
 
 ```js
@@ -46,7 +44,7 @@ azure_resources_policydefinitions.PolicyDefinitions_ListBuiltIn({
 * output [PolicyDefinitionListResult](#policydefinitionlistresult)
 
 ### PolicyDefinitions_GetBuiltIn
-Gets the built in policy definition.
+This operation retrieves the built-in policy definition with the given name.
 
 
 ```js
@@ -58,14 +56,14 @@ azure_resources_policydefinitions.PolicyDefinitions_GetBuiltIn({
 
 #### Input
 * input `object`
-  * policyDefinitionName **required** `string`: The name of the built in policy definition to get.
+  * policyDefinitionName **required** `string`: The name of the built-in policy definition to get.
   * api-version **required** `string`: The API version to use for the operation.
 
 #### Output
 * output [PolicyDefinition](#policydefinition)
 
 ### PolicyDefinitions_ListByManagementGroup
-Gets all the policy definitions for a subscription at management group level.
+This operation retrieves a list of all the policy definitions in a given management group.
 
 
 ```js
@@ -84,7 +82,7 @@ azure_resources_policydefinitions.PolicyDefinitions_ListByManagementGroup({
 * output [PolicyDefinitionListResult](#policydefinitionlistresult)
 
 ### PolicyDefinitions_DeleteAtManagementGroup
-Deletes a policy definition at management group level.
+This operation deletes the policy definition in the given management group with the given name.
 
 
 ```js
@@ -105,7 +103,7 @@ azure_resources_policydefinitions.PolicyDefinitions_DeleteAtManagementGroup({
 *Output schema unknown*
 
 ### PolicyDefinitions_GetAtManagementGroup
-Gets the policy definition at management group level.
+This operation retrieves the policy definition in the given management group with the given name.
 
 
 ```js
@@ -126,7 +124,7 @@ azure_resources_policydefinitions.PolicyDefinitions_GetAtManagementGroup({
 * output [PolicyDefinition](#policydefinition)
 
 ### PolicyDefinitions_CreateOrUpdateAtManagementGroup
-Creates or updates a policy definition at management group level.
+This operation creates or updates a policy definition in the given management group with the given name.
 
 
 ```js
@@ -149,7 +147,7 @@ azure_resources_policydefinitions.PolicyDefinitions_CreateOrUpdateAtManagementGr
 * output [PolicyDefinition](#policydefinition)
 
 ### PolicyDefinitions_List
-Gets all the policy definitions for a subscription.
+This operation retrieves a list of all the policy definitions in a given subscription.
 
 
 ```js
@@ -168,7 +166,7 @@ azure_resources_policydefinitions.PolicyDefinitions_List({
 * output [PolicyDefinitionListResult](#policydefinitionlistresult)
 
 ### PolicyDefinitions_Delete
-Deletes a policy definition.
+This operation deletes the policy definition in the given subscription with the given name.
 
 
 ```js
@@ -189,7 +187,7 @@ azure_resources_policydefinitions.PolicyDefinitions_Delete({
 *Output schema unknown*
 
 ### PolicyDefinitions_Get
-Gets the policy definition.
+This operation retrieves the policy definition in the given subscription with the given name.
 
 
 ```js
@@ -210,7 +208,7 @@ azure_resources_policydefinitions.PolicyDefinitions_Get({
 * output [PolicyDefinition](#policydefinition)
 
 ### PolicyDefinitions_CreateOrUpdate
-Creates or updates a policy definition.
+This operation creates or updates a policy definition in the given subscription with the given name.
 
 
 ```js
@@ -241,6 +239,7 @@ azure_resources_policydefinitions.PolicyDefinitions_CreateOrUpdate({
   * id `string`: The ID of the policy definition.
   * name `string`: The name of the policy definition.
   * properties [PolicyDefinitionProperties](#policydefinitionproperties)
+  * type `string`: The type of the resource (Microsoft.Authorization/policyDefinitions).
 
 ### PolicyDefinitionListResult
 * PolicyDefinitionListResult `object`: List of policy definitions.
@@ -253,7 +252,7 @@ azure_resources_policydefinitions.PolicyDefinitions_CreateOrUpdate({
   * description `string`: The policy definition description.
   * displayName `string`: The display name of the policy definition.
   * metadata `object`: The policy definition metadata.
-  * mode `string` (values: NotSpecified, Indexed, All): The policy definition mode. Possible values are NotSpecified, Indexed, and All.
+  * mode `string`: The policy definition mode. Some examples are All, Indexed, Microsoft.KeyVault.Data.
   * parameters `object`: Required if a parameter is used in policy rule.
   * policyRule `object`: The policy rule.
   * policyType `string` (values: NotSpecified, BuiltIn, Custom): The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.

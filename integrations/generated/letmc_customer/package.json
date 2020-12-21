@@ -1,6 +1,6 @@
 {
   "name": "@datafire/letmc_customer",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "main": "index.js",
   "description": "DataFire integration for LetMC Api V2, Customer Login",
   "repository": {

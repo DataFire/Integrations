@@ -1,8 +1,8 @@
 {
   "name": "@datafire/landregistry_gov_uk_deed",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "main": "index.js",
-  "description": "DataFire integration for Deed",
+  "description": "DataFire integration for Deed API",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DataFire/integrations.git"

@@ -7,7 +7,7 @@
   "basePath": "/",
   "info": {
     "description": "La estandarización de la conexión con cualquier banco en tiempo real.",
-    "title": "Afterbanks",
+    "title": "Afterbanks API",
     "version": "3.0.0",
     "x-apisguru-categories": [
       "financial"
@@ -15,7 +15,7 @@
     "x-description-language": "es",
     "x-logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_910891773521793030_0Uehp4Yx_400x400.jpg"
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_AfterbanksAPI_profile_image.jpeg"
     },
     "x-origin": [
       {

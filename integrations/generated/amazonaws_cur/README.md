@@ -13,14 +13,14 @@ let amazonaws_cur = require('@datafire/amazonaws_cur').create({
   region: ""
 });
 
-amazonaws_cur.DeleteReportDefinition({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
 
 ## Description
 
-All public APIs for AWS Cost and Usage Report service
+<p>The AWS Cost and Usage Report API enables you to programmatically create, query, and delete AWS Cost and Usage report definitions.</p> <p>AWS Cost and Usage reports track the monthly AWS costs and usage associated with your AWS account. The report contains line items for each unique combination of AWS product, usage type, and operation that your AWS account uses. You can configure the AWS Cost and Usage report to show only the data that you want, using the AWS Cost and Usage API.</p> <p>Service Endpoint</p> <p>The AWS Cost and Usage Report API provides the following endpoint:</p> <ul> <li> <p>cur.us-east-1.amazonaws.com</p> </li> </ul>
 
 ## Actions
 
@@ -34,7 +34,7 @@ amazonaws_cur.DeleteReportDefinition({}, context)
 
 #### Input
 * input `object`
-  * ReportName [ReportName](#reportname)
+  * ReportName
 
 #### Output
 * output [DeleteReportDefinitionResponse](#deletereportdefinitionresponse)
@@ -57,18 +57,19 @@ amazonaws_cur.DescribeReportDefinitions({}, context)
 #### Output
 * output [DescribeReportDefinitionsResponse](#describereportdefinitionsresponse)
 
-### PutReportDefinition
+### ModifyReportDefinition
 
 
 
 ```js
-amazonaws_cur.PutReportDefinition({
+amazonaws_cur.ModifyReportDefinition({
+  "ReportName": "",
   "ReportDefinition": {
     "ReportName": "",
     "TimeUnit": "",
     "Format": "",
     "Compression": "",
-    "AdditionalSchemaElements": [],
+    "AdditionalSchemaElements": null,
     "S3Bucket": "",
     "S3Prefix": "",
     "S3Region": ""
@@ -79,6 +80,37 @@ amazonaws_cur.PutReportDefinition({
 #### Input
 * input `object`
   * ReportDefinition **required** [ReportDefinition](#reportdefinition)
+  * ReportName **required** [ReportName](#reportname)
+
+#### Output
+* output [ModifyReportDefinitionResponse](#modifyreportdefinitionresponse)
+
+### PutReportDefinition
+
+
+
+```js
+amazonaws_cur.PutReportDefinition({
+  "ReportDefinition": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * ReportDefinition **required**
+    * AdditionalArtifacts
+      * items [AdditionalArtifact](#additionalartifact)
+    * AdditionalSchemaElements **required**
+      * items [SchemaElement](#schemaelement)
+    * Compression **required** [CompressionFormat](#compressionformat)
+    * Format **required** [ReportFormat](#reportformat)
+    * RefreshClosedReports
+    * ReportName **required** [ReportName](#reportname)
+    * ReportVersioning
+    * S3Bucket **required** [S3Bucket](#s3bucket)
+    * S3Prefix **required** [S3Prefix](#s3prefix)
+    * S3Region **required** [AWSRegion](#awsregion)
+    * TimeUnit **required** [TimeUnit](#timeunit)
 
 #### Output
 * output [PutReportDefinitionResponse](#putreportdefinitionresponse)
@@ -88,70 +120,94 @@ amazonaws_cur.PutReportDefinition({
 ## Definitions
 
 ### AWSRegion
-* AWSRegion `string` (values: us-east-1, us-west-1, us-west-2, eu-central-1, eu-west-1, ap-southeast-1, ap-southeast-2, ap-northeast-1): Region of customer S3 bucket.
+* AWSRegion `string` (values: af-south-1, ap-east-1, ap-south-1, ap-southeast-1, ap-southeast-2, ap-northeast-1, ap-northeast-2, ap-northeast-3, ca-central-1, eu-central-1, eu-west-1, eu-west-2, eu-west-3, eu-north-1, eu-south-1, me-south-1, sa-east-1, us-east-1, us-east-2, us-west-1, us-west-2, cn-north-1, cn-northwest-1): The region of the S3 bucket that AWS delivers the report into.
 
 ### AdditionalArtifact
-* AdditionalArtifact `string` (values: REDSHIFT, QUICKSIGHT): Enable support for Redshift and/or QuickSight.
+* AdditionalArtifact `string` (values: REDSHIFT, QUICKSIGHT, ATHENA): The types of manifest that you want AWS to create for this report.
 
 ### AdditionalArtifactList
 * AdditionalArtifactList `array`: A list of additional artifacts.
   * items [AdditionalArtifact](#additionalartifact)
 
 ### CompressionFormat
-* CompressionFormat `string` (values: ZIP, GZIP): Preferred compression format for report.
+* CompressionFormat `string` (values: ZIP, GZIP, Parquet): The compression format that AWS uses for the report.
 
 ### DeleteReportDefinitionRequest
-* DeleteReportDefinitionRequest `object`: Request of DeleteReportDefinition
-  * ReportName [ReportName](#reportname)
+* DeleteReportDefinitionRequest `object`: Deletes the specified report.
+  * ReportName
 
 ### DeleteReportDefinitionResponse
-* DeleteReportDefinitionResponse `object`: Response of DeleteReportDefinition
+* DeleteReportDefinitionResponse `object`: If the action is successful, the service sends back an HTTP 200 response.
   * ResponseMessage [DeleteResponseMessage](#deleteresponsemessage)
 
 ### DeleteResponseMessage
-* DeleteResponseMessage `string`: A message indicates if the deletion is successful.
+* DeleteResponseMessage `string`: Whether the deletion was successful or not.
 
 ### DescribeReportDefinitionsRequest
-* DescribeReportDefinitionsRequest `object`: Request of DescribeReportDefinitions
+* DescribeReportDefinitionsRequest `object`: Requests a list of AWS Cost and Usage reports owned by the account.
   * MaxResults [MaxResults](#maxresults)
   * NextToken [GenericString](#genericstring)
 
 ### DescribeReportDefinitionsResponse
-* DescribeReportDefinitionsResponse `object`: Response of DescribeReportDefinitions
+* DescribeReportDefinitionsResponse `object`: If the action is successful, the service sends back an HTTP 200 response.
   * NextToken [GenericString](#genericstring)
-  * ReportDefinitions [ReportDefinitionList](#reportdefinitionlist)
+  * ReportDefinitions
+    * items [ReportDefinition](#reportdefinition)
 
 ### DuplicateReportNameException
-* DuplicateReportNameException `object`: This exception is thrown when putting a report preference with a name that already exists.
-  * Message [ErrorMessage](#errormessage)
 
-### ErrorMessage
-* ErrorMessage `string`: A message to show the detail of the exception.
 
 ### GenericString
 * GenericString `string`: A generic string.
 
 ### InternalErrorException
-* InternalErrorException `object`: This exception is thrown on a known dependency failure.
-  * Message [ErrorMessage](#errormessage)
+
 
 ### MaxResults
-* MaxResults `integer`: The max number of results returned by the operation.
+* MaxResults `integer`: The maximum number of results that AWS returns for the operation.
+
+### ModifyReportDefinitionRequest
+* ModifyReportDefinitionRequest `object`
+  * ReportDefinition **required** [ReportDefinition](#reportdefinition)
+  * ReportName **required** [ReportName](#reportname)
+
+### ModifyReportDefinitionResponse
+* ModifyReportDefinitionResponse `object`
 
 ### PutReportDefinitionRequest
-* PutReportDefinitionRequest `object`: Request of PutReportDefinition
-  * ReportDefinition **required** [ReportDefinition](#reportdefinition)
+* PutReportDefinitionRequest `object`: Creates a Cost and Usage Report.
+  * ReportDefinition **required**
+    * AdditionalArtifacts
+      * items [AdditionalArtifact](#additionalartifact)
+    * AdditionalSchemaElements **required**
+      * items [SchemaElement](#schemaelement)
+    * Compression **required** [CompressionFormat](#compressionformat)
+    * Format **required** [ReportFormat](#reportformat)
+    * RefreshClosedReports
+    * ReportName **required** [ReportName](#reportname)
+    * ReportVersioning
+    * S3Bucket **required** [S3Bucket](#s3bucket)
+    * S3Prefix **required** [S3Prefix](#s3prefix)
+    * S3Region **required** [AWSRegion](#awsregion)
+    * TimeUnit **required** [TimeUnit](#timeunit)
 
 ### PutReportDefinitionResponse
-* PutReportDefinitionResponse `object`: Response of PutReportDefinition
+* PutReportDefinitionResponse `object`: If the action is successful, the service sends back an HTTP 200 response with an empty HTTP body.
+
+### RefreshClosedReports
+* RefreshClosedReports `boolean`
 
 ### ReportDefinition
-* ReportDefinition `object`: The definition of AWS Cost and Usage Report. Customer can specify the report name, time unit, report format, compression format, S3 bucket and additional artifacts and schema elements in the definition.
-  * AdditionalArtifacts [AdditionalArtifactList](#additionalartifactlist)
-  * AdditionalSchemaElements **required** [SchemaElementList](#schemaelementlist)
+* ReportDefinition `object`: The definition of AWS Cost and Usage Report. You can specify the report name, time unit, report format, compression format, S3 bucket, additional artifacts, and schema elements in the definition. 
+  * AdditionalArtifacts
+    * items [AdditionalArtifact](#additionalartifact)
+  * AdditionalSchemaElements **required**
+    * items [SchemaElement](#schemaelement)
   * Compression **required** [CompressionFormat](#compressionformat)
   * Format **required** [ReportFormat](#reportformat)
+  * RefreshClosedReports
   * ReportName **required** [ReportName](#reportname)
+  * ReportVersioning
   * S3Bucket **required** [S3Bucket](#s3bucket)
   * S3Prefix **required** [S3Prefix](#s3prefix)
   * S3Region **required** [AWSRegion](#awsregion)
@@ -162,33 +218,34 @@ amazonaws_cur.PutReportDefinition({
   * items [ReportDefinition](#reportdefinition)
 
 ### ReportFormat
-* ReportFormat `string` (values: textORcsv): Preferred format for report.
+* ReportFormat `string` (values: textORcsv, Parquet): The format that AWS saves the report in.
 
 ### ReportLimitReachedException
-* ReportLimitReachedException `object`: This exception is thrown when the number of report preference reaches max limit. The max number is 5.
-  * Message [ErrorMessage](#errormessage)
+
 
 ### ReportName
-* ReportName `string`: Preferred name for a report, it has to be unique. Must starts with a number/letter, case sensitive. Limited to 256 characters.
+* ReportName `string`: The name of the report that you want to create. The name must be unique, is case sensitive, and can't include spaces. 
+
+### ReportVersioning
+* ReportVersioning `string` (values: CREATE_NEW_REPORT, OVERWRITE_REPORT)
 
 ### S3Bucket
-* S3Bucket `string`: Name of customer S3 bucket.
+* S3Bucket `string`: The S3 bucket where AWS delivers the report.
 
 ### S3Prefix
-* S3Prefix `string`: Preferred report path prefix. Limited to 256 characters.
+* S3Prefix `string`: The prefix that AWS adds to the report name when AWS delivers the report. Your prefix can't include spaces.
 
 ### SchemaElement
-* SchemaElement `string` (values: RESOURCES): Preference of including Resource IDs. You can include additional details about individual resource IDs in your report.
+* SchemaElement `string` (values: RESOURCES): Whether or not AWS includes resource IDs in the report. 
 
 ### SchemaElementList
-* SchemaElementList `array`: A list of schema elements.
+* SchemaElementList `array`: A list of strings that indicate the content that is included in the report, such as service or usage type.
   * items [SchemaElement](#schemaelement)
 
 ### TimeUnit
-* TimeUnit `string` (values: HOURLY, DAILY): The frequency on which report data are measured and displayed.
+* TimeUnit `string` (values: HOURLY, DAILY, MONTHLY): The length of time covered by the report. 
 
 ### ValidationException
-* ValidationException `object`: This exception is thrown when providing an invalid input. eg. Put a report preference with an invalid report name, or Delete a report preference with an empty report name.
-  * Message [ErrorMessage](#errormessage)
+
 
 

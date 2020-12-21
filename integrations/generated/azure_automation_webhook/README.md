@@ -15,12 +15,7 @@ let azure_automation_webhook = require('@datafire/azure_automation_webhook').cre
   redirect_uri: ""
 });
 
-azure_automation_webhook.Webhook_ListByAutomationAccount({
-  "resourceGroupName": "",
-  "automationAccountName": "",
-  "subscriptionId": "",
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -47,32 +42,13 @@ azure_automation_webhook.Webhook_ListByAutomationAccount({
 #### Input
 * input `object`
   * resourceGroupName **required** `string`: Name of an Azure Resource group.
-  * automationAccountName **required** `string`: The automation account name.
+  * automationAccountName **required** `string`: The name of the automation account.
   * $filter `string`: The filter to apply on the operation.
   * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
   * api-version **required** `string`: Client Api Version.
 
 #### Output
-* output `object`: The response model for the list webhook operation.
-  * nextLink `string`: Gets or sets the next link.
-  * value `array`: Gets or sets a list of webhooks.
-    * items `object`: Definition of the webhook type.
-      * properties `object`: Definition of the webhook properties
-        * creationTime `string`: Gets or sets the creation time.
-        * description `string`: Gets or sets the description.
-        * expiryTime `string`: Gets or sets the expiry time.
-        * isEnabled `boolean`: Gets or sets the value of the enabled flag of the webhook.
-        * lastInvokedTime `string`: Gets or sets the last invoked time.
-        * lastModifiedBy `string`: Details of the user who last modified the Webhook
-        * lastModifiedTime `string`: Gets or sets the last modified time.
-        * parameters `object`: Gets or sets the parameters of the job that is created when the webhook calls the runbook it is associated with.
-        * runOn `string`: Gets or sets the name of the hybrid worker group the webhook job will run on.
-        * runbook `object`: The runbook property associated with the entity.
-          * name `string`: Gets or sets the name of the runbook.
-        * uri `string`: Gets or sets the webhook uri.
-      * id `string`: Fully qualified resource Id for the resource
-      * name `string`: The name of the resource
-      * type `string`: The type of the resource.
+* output [WebhookListResult](#webhooklistresult)
 
 ### Webhook_GenerateUri
 Generates a Uri for use in creating a webhook.
@@ -90,7 +66,7 @@ azure_automation_webhook.Webhook_GenerateUri({
 #### Input
 * input `object`
   * resourceGroupName **required** `string`: Name of an Azure Resource group.
-  * automationAccountName **required** `string`: The automation account name.
+  * automationAccountName **required** `string`: The name of the automation account.
   * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
   * api-version **required** `string`: Client Api Version.
 
@@ -114,7 +90,7 @@ azure_automation_webhook.Webhook_Delete({
 #### Input
 * input `object`
   * resourceGroupName **required** `string`: Name of an Azure Resource group.
-  * automationAccountName **required** `string`: The automation account name.
+  * automationAccountName **required** `string`: The name of the automation account.
   * webhookName **required** `string`: The webhook name.
   * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
   * api-version **required** `string`: Client Api Version.
@@ -139,29 +115,13 @@ azure_automation_webhook.Webhook_Get({
 #### Input
 * input `object`
   * resourceGroupName **required** `string`: Name of an Azure Resource group.
-  * automationAccountName **required** `string`: The automation account name.
+  * automationAccountName **required** `string`: The name of the automation account.
   * webhookName **required** `string`: The webhook name.
   * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
   * api-version **required** `string`: Client Api Version.
 
 #### Output
-* output `object`: Definition of the webhook type.
-  * properties `object`: Definition of the webhook properties
-    * creationTime `string`: Gets or sets the creation time.
-    * description `string`: Gets or sets the description.
-    * expiryTime `string`: Gets or sets the expiry time.
-    * isEnabled `boolean`: Gets or sets the value of the enabled flag of the webhook.
-    * lastInvokedTime `string`: Gets or sets the last invoked time.
-    * lastModifiedBy `string`: Details of the user who last modified the Webhook
-    * lastModifiedTime `string`: Gets or sets the last modified time.
-    * parameters `object`: Gets or sets the parameters of the job that is created when the webhook calls the runbook it is associated with.
-    * runOn `string`: Gets or sets the name of the hybrid worker group the webhook job will run on.
-    * runbook `object`: The runbook property associated with the entity.
-      * name `string`: Gets or sets the name of the runbook.
-    * uri `string`: Gets or sets the webhook uri.
-  * id `string`: Fully qualified resource Id for the resource
-  * name `string`: The name of the resource
-  * type `string`: The type of the resource.
+* output [Webhook](#webhook)
 
 ### Webhook_Update
 Update the webhook identified by webhook name.
@@ -181,36 +141,14 @@ azure_automation_webhook.Webhook_Update({
 #### Input
 * input `object`
   * resourceGroupName **required** `string`: Name of an Azure Resource group.
-  * automationAccountName **required** `string`: The automation account name.
+  * automationAccountName **required** `string`: The name of the automation account.
   * webhookName **required** `string`: The webhook name.
-  * parameters **required** `object`: The parameters supplied to the update webhook operation.
-    * name `string`: Gets or sets the name of the webhook.
-    * properties `object`: The properties of the update webhook.
-      * description `string`: Gets or sets the description of the webhook.
-      * isEnabled `boolean`: Gets or sets the value of the enabled flag of webhook.
-      * parameters `object`: Gets or sets the parameters of the job.
-      * runOn `string`: Gets or sets the name of the hybrid worker group the webhook job will run on.
+  * parameters **required** [WebhookUpdateParameters](#webhookupdateparameters)
   * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
   * api-version **required** `string`: Client Api Version.
 
 #### Output
-* output `object`: Definition of the webhook type.
-  * properties `object`: Definition of the webhook properties
-    * creationTime `string`: Gets or sets the creation time.
-    * description `string`: Gets or sets the description.
-    * expiryTime `string`: Gets or sets the expiry time.
-    * isEnabled `boolean`: Gets or sets the value of the enabled flag of the webhook.
-    * lastInvokedTime `string`: Gets or sets the last invoked time.
-    * lastModifiedBy `string`: Details of the user who last modified the Webhook
-    * lastModifiedTime `string`: Gets or sets the last modified time.
-    * parameters `object`: Gets or sets the parameters of the job that is created when the webhook calls the runbook it is associated with.
-    * runOn `string`: Gets or sets the name of the hybrid worker group the webhook job will run on.
-    * runbook `object`: The runbook property associated with the entity.
-      * name `string`: Gets or sets the name of the runbook.
-    * uri `string`: Gets or sets the webhook uri.
-  * id `string`: Fully qualified resource Id for the resource
-  * name `string`: The name of the resource
-  * type `string`: The type of the resource.
+* output [Webhook](#webhook)
 
 ### Webhook_CreateOrUpdate
 Create the webhook identified by webhook name.
@@ -230,42 +168,74 @@ azure_automation_webhook.Webhook_CreateOrUpdate({
 #### Input
 * input `object`
   * resourceGroupName **required** `string`: Name of an Azure Resource group.
-  * automationAccountName **required** `string`: The automation account name.
+  * automationAccountName **required** `string`: The name of the automation account.
   * webhookName **required** `string`: The webhook name.
-  * parameters **required** `object`: The parameters supplied to the create or update webhook operation.
-    * name **required** `string`: Gets or sets the name of the webhook.
-    * properties **required** `object`: The properties of the create webhook operation.
-      * expiryTime `string`: Gets or sets the expiry time.
-      * isEnabled `boolean`: Gets or sets the value of the enabled flag of webhook.
-      * parameters `object`: Gets or sets the parameters of the job.
-      * runOn `string`: Gets or sets the name of the hybrid worker group the webhook job will run on.
-      * runbook `object`: The runbook property associated with the entity.
-        * name `string`: Gets or sets the name of the runbook.
-      * uri `string`: Gets or sets the uri.
+  * parameters **required** [WebhookCreateOrUpdateParameters](#webhookcreateorupdateparameters)
   * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
   * api-version **required** `string`: Client Api Version.
 
 #### Output
-* output `object`: Definition of the webhook type.
-  * properties `object`: Definition of the webhook properties
-    * creationTime `string`: Gets or sets the creation time.
-    * description `string`: Gets or sets the description.
-    * expiryTime `string`: Gets or sets the expiry time.
-    * isEnabled `boolean`: Gets or sets the value of the enabled flag of the webhook.
-    * lastInvokedTime `string`: Gets or sets the last invoked time.
-    * lastModifiedBy `string`: Details of the user who last modified the Webhook
-    * lastModifiedTime `string`: Gets or sets the last modified time.
-    * parameters `object`: Gets or sets the parameters of the job that is created when the webhook calls the runbook it is associated with.
-    * runOn `string`: Gets or sets the name of the hybrid worker group the webhook job will run on.
-    * runbook `object`: The runbook property associated with the entity.
-      * name `string`: Gets or sets the name of the runbook.
-    * uri `string`: Gets or sets the webhook uri.
-  * id `string`: Fully qualified resource Id for the resource
-  * name `string`: The name of the resource
-  * type `string`: The type of the resource.
+* output [Webhook](#webhook)
 
 
 
 ## Definitions
 
-*This integration has no definitions*
+### RunbookAssociationProperty
+* RunbookAssociationProperty `object`: The runbook property associated with the entity.
+  * name `string`: Gets or sets the name of the runbook.
+
+### Webhook
+* Webhook `object`: Definition of the webhook type.
+  * properties [WebhookProperties](#webhookproperties)
+  * id `string`: Fully qualified resource Id for the resource
+  * name `string`: The name of the resource
+  * type `string`: The type of the resource.
+
+### WebhookCreateOrUpdateParameters
+* WebhookCreateOrUpdateParameters `object`: The parameters supplied to the create or update webhook operation.
+  * name **required** `string`: Gets or sets the name of the webhook.
+  * properties **required** [WebhookCreateOrUpdateProperties](#webhookcreateorupdateproperties)
+
+### WebhookCreateOrUpdateProperties
+* WebhookCreateOrUpdateProperties `object`: The properties of the create webhook operation.
+  * expiryTime `string`: Gets or sets the expiry time.
+  * isEnabled `boolean`: Gets or sets the value of the enabled flag of webhook.
+  * parameters `object`: Gets or sets the parameters of the job.
+  * runOn `string`: Gets or sets the name of the hybrid worker group the webhook job will run on.
+  * runbook [RunbookAssociationProperty](#runbookassociationproperty)
+  * uri `string`: Gets or sets the uri.
+
+### WebhookListResult
+* WebhookListResult `object`: The response model for the list webhook operation.
+  * nextLink `string`: Gets or sets the next link.
+  * value `array`: Gets or sets a list of webhooks.
+    * items [Webhook](#webhook)
+
+### WebhookProperties
+* WebhookProperties `object`: Definition of the webhook properties
+  * creationTime `string`: Gets or sets the creation time.
+  * description `string`: Gets or sets the description.
+  * expiryTime `string`: Gets or sets the expiry time.
+  * isEnabled `boolean`: Gets or sets the value of the enabled flag of the webhook.
+  * lastInvokedTime `string`: Gets or sets the last invoked time.
+  * lastModifiedBy `string`: Details of the user who last modified the Webhook
+  * lastModifiedTime `string`: Gets or sets the last modified time.
+  * parameters `object`: Gets or sets the parameters of the job that is created when the webhook calls the runbook it is associated with.
+  * runOn `string`: Gets or sets the name of the hybrid worker group the webhook job will run on.
+  * runbook [RunbookAssociationProperty](#runbookassociationproperty)
+  * uri `string`: Gets or sets the webhook uri.
+
+### WebhookUpdateParameters
+* WebhookUpdateParameters `object`: The parameters supplied to the update webhook operation.
+  * name `string`: Gets or sets the name of the webhook.
+  * properties [WebhookUpdateProperties](#webhookupdateproperties)
+
+### WebhookUpdateProperties
+* WebhookUpdateProperties `object`: The properties of the update webhook.
+  * description `string`: Gets or sets the description of the webhook.
+  * isEnabled `boolean`: Gets or sets the value of the enabled flag of webhook.
+  * parameters `object`: Gets or sets the parameters of the job.
+  * runOn `string`: Gets or sets the name of the hybrid worker group the webhook job will run on.
+
+

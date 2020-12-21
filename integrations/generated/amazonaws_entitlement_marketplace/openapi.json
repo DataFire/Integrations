@@ -1,11 +1,5 @@
 {
   "swagger": "2.0",
-  "schemes": [
-    "https",
-    "http"
-  ],
-  "host": "entitlement.marketplace.amazonaws.com",
-  "basePath": "/",
   "info": {
     "contact": {
       "email": "mike.ralphson@gmail.com",
@@ -29,7 +23,7 @@
     ],
     "x-logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.jpeg"
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"
     },
     "x-origin": [
       {
@@ -39,7 +33,7 @@
           "version": "1.0.0"
         },
         "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/entitlement.marketplace-2017-01-11.normal.json",
-        "x-apisguru-direct": true
+        "x-apisguru-driver": "external"
       }
     ],
     "x-preferred": true,
@@ -51,121 +45,74 @@
       "type": "openapi"
     }
   },
-  "externalDocs": {
-    "description": "Amazon Web Services documentation",
-    "url": "https://aws.amazon.com/marketplace/"
-  },
-  "consumes": [
-    "application/json"
+  "host": "entitlement.marketplace.us-east-1.amazonaws.com",
+  "basePath": "/",
+  "schemes": [
+    "http"
   ],
-  "produces": [
-    "application/json"
-  ],
-  "securityDefinitions": {
-    "hmac": {
-      "description": "Amazon Signature authorization v4",
-      "in": "header",
-      "name": "Authorization",
-      "type": "apiKey",
-      "x-amazon-apigateway-authtype": "awsSigv4"
-    }
-  },
-  "security": [
-    {
-      "hmac": []
-    }
-  ],
-  "parameters": {
-    "Action": {
-      "in": "header",
-      "name": "Action",
-      "required": true,
-      "type": "string"
-    },
-    "Version": {
-      "in": "header",
-      "name": "Version",
-      "required": true,
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "in": "header",
-      "name": "X-Amz-Algorithm",
-      "required": false,
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "in": "header",
-      "name": "X-Amz-Content-Sha256",
-      "required": false,
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "in": "header",
-      "name": "X-Amz-Credential",
-      "required": false,
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "in": "header",
-      "name": "X-Amz-Date",
-      "required": false,
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "in": "header",
-      "name": "X-Amz-Security-Token",
-      "required": false,
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "in": "header",
-      "name": "X-Amz-Signature",
-      "required": false,
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "in": "header",
-      "name": "X-Amz-SignedHeaders",
-      "required": false,
-      "type": "string"
-    }
-  },
   "paths": {
-    "/": {
+    "/#X-Amz-Target=AWSMPEntitlementService.GetEntitlements": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "GetEntitlements retrieves entitlement values for a given product. The results can be filtered based on customer identifier or product dimensions.",
-        "operationId": "GetEntitlements",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "enum": [
+              "AWSMPEntitlementService.GetEntitlements"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -200,7 +147,9 @@
               "$ref": "#/definitions/InternalServiceErrorException"
             }
           }
-        }
+        },
+        "description": "GetEntitlements retrieves entitlement values for a given product. The results can be filtered based on customer identifier or product dimensions.",
+        "operationId": "GetEntitlements"
       }
     }
   },
@@ -216,24 +165,54 @@
       "description": "An entitlement represents capacity in a product owned by the customer. For example, a customer might own some number of users or seats in an SaaS application or some amount of data capacity in a multi-tenant database.",
       "properties": {
         "CustomerIdentifier": {
-          "$ref": "#/definitions/NonEmptyString",
-          "description": "The customer identifier is a handle to each unique customer in an application. Customer identifiers are obtained through the ResolveCustomer operation in AWS Marketplace Metering Service."
+          "allOf": [
+            {
+              "$ref": "#/definitions/NonEmptyString"
+            },
+            {
+              "description": "The customer identifier is a handle to each unique customer in an application. Customer identifiers are obtained through the ResolveCustomer operation in AWS Marketplace Metering Service."
+            }
+          ]
         },
         "Dimension": {
-          "$ref": "#/definitions/NonEmptyString",
-          "description": "The dimension for which the given entitlement applies. Dimensions represent categories of capacity in a product and are specified when the product is listed in AWS Marketplace."
+          "allOf": [
+            {
+              "$ref": "#/definitions/NonEmptyString"
+            },
+            {
+              "description": "The dimension for which the given entitlement applies. Dimensions represent categories of capacity in a product and are specified when the product is listed in AWS Marketplace."
+            }
+          ]
         },
         "ExpirationDate": {
-          "$ref": "#/definitions/Timestamp",
-          "description": "The expiration date represents the minimum date through which this entitlement is expected to remain valid. For contractual products listed on AWS Marketplace, the expiration date is the date at which the customer will renew or cancel their contract. Customers who are opting to renew their contract will still have entitlements with an expiration date."
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "The expiration date represents the minimum date through which this entitlement is expected to remain valid. For contractual products listed on AWS Marketplace, the expiration date is the date at which the customer will renew or cancel their contract. Customers who are opting to renew their contract will still have entitlements with an expiration date."
+            }
+          ]
         },
         "ProductCode": {
-          "$ref": "#/definitions/ProductCode",
-          "description": "The product code for which the given entitlement applies. Product codes are provided by AWS Marketplace when the product listing is created."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ProductCode"
+            },
+            {
+              "description": "The product code for which the given entitlement applies. Product codes are provided by AWS Marketplace when the product listing is created."
+            }
+          ]
         },
         "Value": {
-          "$ref": "#/definitions/EntitlementValue",
-          "description": "The EntitlementValue represents the amount of capacity that the customer is entitled to for the product."
+          "allOf": [
+            {
+              "$ref": "#/definitions/EntitlementValue"
+            },
+            {
+              "description": "The EntitlementValue represents the amount of capacity that the customer is entitled to for the product."
+            }
+          ]
         }
       },
       "type": "object"
@@ -249,20 +228,44 @@
       "description": "The EntitlementValue represents the amount of capacity that the customer is entitled to for the product.",
       "properties": {
         "BooleanValue": {
-          "$ref": "#/definitions/Boolean",
-          "description": "The BooleanValue field will be populated with a boolean value when the entitlement is a boolean type. Otherwise, the field will not be set."
+          "allOf": [
+            {
+              "$ref": "#/definitions/Boolean"
+            },
+            {
+              "description": "The BooleanValue field will be populated with a boolean value when the entitlement is a boolean type. Otherwise, the field will not be set."
+            }
+          ]
         },
         "DoubleValue": {
-          "$ref": "#/definitions/Double",
-          "description": "The DoubleValue field will be populated with a double value when the entitlement is a double type. Otherwise, the field will not be set."
+          "allOf": [
+            {
+              "$ref": "#/definitions/Double"
+            },
+            {
+              "description": "The DoubleValue field will be populated with a double value when the entitlement is a double type. Otherwise, the field will not be set."
+            }
+          ]
         },
         "IntegerValue": {
-          "$ref": "#/definitions/Integer",
-          "description": "The IntegerValue field will be populated with an integer value when the entitlement is an integer type. Otherwise, the field will not be set."
+          "allOf": [
+            {
+              "$ref": "#/definitions/Integer"
+            },
+            {
+              "description": "The IntegerValue field will be populated with an integer value when the entitlement is an integer type. Otherwise, the field will not be set."
+            }
+          ]
         },
         "StringValue": {
-          "$ref": "#/definitions/String",
-          "description": "The StringValue field will be populated with a string value when the entitlement is a string type. Otherwise, the field will not be set."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The StringValue field will be populated with a string value when the entitlement is a string type. Otherwise, the field will not be set."
+            }
+          ]
         }
       },
       "type": "object"
@@ -288,54 +291,83 @@
       "type": "string"
     },
     "GetEntitlementFilters": {
-      "items": {
-        "properties": {
-          "key": {
-            "$ref": "#/definitions/GetEntitlementFilterName"
-          },
-          "value": {
-            "$ref": "#/definitions/FilterValueList"
-          }
-        },
-        "type": "object"
+      "additionalProperties": {
+        "$ref": "#/definitions/FilterValueList"
       },
-      "type": "array"
+      "type": "object"
     },
     "GetEntitlementsRequest": {
       "description": "The GetEntitlementsRequest contains parameters for the GetEntitlements operation.",
       "properties": {
         "Filter": {
-          "$ref": "#/definitions/GetEntitlementFilters",
-          "description": "Filter is used to return entitlements for a specific customer or for a specific dimension. Filters are described as keys mapped to a lists of values. Filtered requests are <i>unioned</i> for each value in the value list, and then <i>intersected</i> for each filter key."
+          "allOf": [
+            {
+              "$ref": "#/definitions/GetEntitlementFilters"
+            },
+            {
+              "description": "Filter is used to return entitlements for a specific customer or for a specific dimension. Filters are described as keys mapped to a lists of values. Filtered requests are <i>unioned</i> for each value in the value list, and then <i>intersected</i> for each filter key."
+            }
+          ]
         },
         "MaxResults": {
-          "$ref": "#/definitions/Integer",
-          "description": "The maximum number of items to retrieve from the GetEntitlements operation. For pagination, use the NextToken field in subsequent calls to GetEntitlements."
+          "allOf": [
+            {
+              "$ref": "#/definitions/Integer"
+            },
+            {
+              "description": "The maximum number of items to retrieve from the GetEntitlements operation. For pagination, use the NextToken field in subsequent calls to GetEntitlements."
+            }
+          ]
         },
         "NextToken": {
-          "$ref": "#/definitions/NonEmptyString",
-          "description": "For paginated calls to GetEntitlements, pass the NextToken from the previous GetEntitlementsResult."
+          "allOf": [
+            {
+              "$ref": "#/definitions/NonEmptyString"
+            },
+            {
+              "description": "For paginated calls to GetEntitlements, pass the NextToken from the previous GetEntitlementsResult."
+            }
+          ]
         },
         "ProductCode": {
-          "$ref": "#/definitions/ProductCode",
-          "description": "Product code is used to uniquely identify a product in AWS Marketplace. The product code will be provided by AWS Marketplace when the product listing is created."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ProductCode"
+            },
+            {
+              "description": "Product code is used to uniquely identify a product in AWS Marketplace. The product code will be provided by AWS Marketplace when the product listing is created."
+            }
+          ]
         }
       },
       "required": [
         "ProductCode"
       ],
+      "title": "GetEntitlementsRequest",
       "type": "object"
     },
     "GetEntitlementsResult": {
       "description": "The GetEntitlementsRequest contains results from the GetEntitlements operation.",
       "properties": {
         "Entitlements": {
-          "$ref": "#/definitions/EntitlementList",
-          "description": "The set of entitlements found through the GetEntitlements operation. If the result contains an empty set of entitlements, NextToken might still be present and should be used."
+          "allOf": [
+            {
+              "$ref": "#/definitions/EntitlementList"
+            },
+            {
+              "description": "The set of entitlements found through the GetEntitlements operation. If the result contains an empty set of entitlements, NextToken might still be present and should be used."
+            }
+          ]
         },
         "NextToken": {
-          "$ref": "#/definitions/NonEmptyString",
-          "description": "For paginated results, use NextToken in subsequent calls to GetEntitlements. If the result contains an empty set of entitlements, NextToken might still be present and should be used."
+          "allOf": [
+            {
+              "$ref": "#/definitions/NonEmptyString"
+            },
+            {
+              "description": "For paginated results, use NextToken in subsequent calls to GetEntitlements. If the result contains an empty set of entitlements, NextToken might still be present and should be used."
+            }
+          ]
         }
       },
       "type": "object"
@@ -385,6 +417,70 @@
     "Timestamp": {
       "format": "date-time",
       "type": "string"
+    }
+  },
+  "securityDefinitions": {
+    "hmac": {
+      "description": "Amazon Signature authorization v4",
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey",
+      "x-amazon-apigateway-authtype": "awsSigv4"
+    }
+  },
+  "security": [
+    {
+      "hmac": []
+    }
+  ],
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://docs.aws.amazon.com/marketplace/"
+  },
+  "x-components": {
+    "parameters": {
+      "X-Amz-Algorithm": {
+        "in": "header",
+        "name": "X-Amz-Algorithm",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Content-Sha256": {
+        "in": "header",
+        "name": "X-Amz-Content-Sha256",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Credential": {
+        "in": "header",
+        "name": "X-Amz-Credential",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Date": {
+        "in": "header",
+        "name": "X-Amz-Date",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Security-Token": {
+        "in": "header",
+        "name": "X-Amz-Security-Token",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Signature": {
+        "in": "header",
+        "name": "X-Amz-Signature",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-SignedHeaders": {
+        "in": "header",
+        "name": "X-Amz-SignedHeaders",
+        "required": false,
+        "type": "string"
+      }
     }
   }
 }

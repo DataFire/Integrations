@@ -7,7 +7,7 @@
   "info": {
     "description": "To manage and control access to your resources, you can define customized policies and assign them at a scope.",
     "title": "PolicyClient",
-    "version": "2017-06-01-preview",
+    "version": "2019-06-01",
     "x-apisguru-categories": [
       "cloud"
     ],
@@ -17,7 +17,7 @@
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/resources/resource-manager/Microsoft.Authorization/preview/2017-06-01-preview/policyAssignments.json",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/resources/resource-manager/Microsoft.Authorization/stable/2019-06-01/policyAssignments.json",
         "version": "2.0"
       }
     ],
@@ -34,12 +34,10 @@
     }
   },
   "consumes": [
-    "application/json",
-    "text/json"
+    "application/json"
   ],
   "produces": [
-    "application/json",
-    "text/json"
+    "application/json"
   ],
   "securityDefinitions": {
     "azure_auth": {
@@ -78,11 +76,11 @@
   "paths": {
     "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyAssignments": {
       "get": {
-        "description": "Gets all the policy assignments for a subscription.",
+        "description": "This operation retrieves the list of all policy assignments associated with the given subscription that match the optional given $filter. Valid values for $filter are: 'atScope()' or 'policyDefinitionId eq '{value}''. If $filter is not provided, the unfiltered list includes all policy assignments associated with the subscription, including those that apply directly or from management groups that contain the given subscription, as well as any applied to objects contained within the subscription. If $filter=atScope() is provided, the returned list includes all policy assignments that apply to the subscription, which is everything in the unfiltered list except those applied to objects contained within the subscription. If $filter=policyDefinitionId eq '{value}' is provided, the returned list includes all policy assignments of the policy definition whose id is {value}.",
         "operationId": "PolicyAssignments_List",
         "parameters": [
           {
-            "description": "The filter to apply on the operation.",
+            "description": "The filter to apply on the operation. Valid values for $filter are: 'atScope()' or 'policyDefinitionId eq '{value}''. If $filter is not provided, no filtering is performed.",
             "in": "query",
             "name": "$filter",
             "required": false,
@@ -109,39 +107,44 @@
             }
           }
         },
+        "summary": "Retrieves all policy assignments that apply to a subscription.",
         "tags": [
           "PolicyAssignments"
         ],
         "x-ms-examples": {
-          "List policy assignments": {
+          "List policy assignments that apply to a subscription": {
             "parameters": {
               "$filter": "atScope()",
-              "api-version": "2017-06-01-preview",
-              "subscriptionId": "subId"
+              "api-version": "2019-06-01",
+              "subscriptionId": "ae640e6b-ba3e-4256-9d62-2993eecfa6f2"
             },
             "responses": {
               "200": {
                 "body": {
                   "value": [
                     {
-                      "id": "/subscriptions/subId/providers/Microsoft.Authorization/policyAssignments/costManagement",
-                      "name": "costManagement",
+                      "id": "/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyAssignments/CostManagement",
+                      "identity": {
+                        "principalId": "e6d23f8d-af97-4fbc-bda6-00604e4e3d0a",
+                        "tenantId": "4bee2b8a-1bee-47c2-90e9-404241551135",
+                        "type": "SystemAssigned"
+                      },
+                      "location": "eastus",
+                      "name": "CostManagement",
                       "properties": {
-                        "description": "Policies required to minimize the risk of accidental cost overruns",
+                        "description": "Minimize the risk of accidental cost overruns",
                         "displayName": "Storage Cost Management",
                         "metadata": {
                           "category": "Cost Management"
                         },
-                        "notScopes": [
-                          "/subscriptions/subId/resourcegroups/testingResourceGroup"
-                        ],
+                        "notScopes": [],
                         "parameters": {
                           "allowedSkus": {
                             "type": "Array"
                           }
                         },
-                        "policyDefinitionId": "/subscriptions/subId/providers/Microsoft.Authorization/policyDefinitions/storageSkus",
-                        "scope": "/subscriptions/subId"
+                        "policyDefinitionId": "/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyDefinitions/storageSkus",
+                        "scope": "/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2"
                       },
                       "sku": {
                         "name": "A0",
@@ -150,13 +153,14 @@
                       "type": "Microsoft.Authorization/policyAssignments"
                     },
                     {
-                      "id": "/subscriptions/subId/providers/Microsoft.Authorization/policyAssignments/tagEnforcement",
-                      "name": "tagEnforcement",
+                      "id": "/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyAssignments/TagEnforcement",
+                      "name": "TagEnforcement",
                       "properties": {
-                        "description": "Policy that ensures a given tag key and value are present on all resources",
+                        "description": "Ensure a given tag key and value are present on all resources",
                         "displayName": "Enforces a tag key and value",
-                        "policyDefinitionId": "/subscriptions/subId/providers/Microsoft.Authorization/policyDefinitions/tagKeyValue",
-                        "scope": "/subscriptions/subId"
+                        "notScopes": [],
+                        "policyDefinitionId": "/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyDefinitions/TagKeyValue",
+                        "scope": "/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2"
                       },
                       "sku": {
                         "name": "A0",
@@ -179,7 +183,7 @@
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Authorization/policyAssignments": {
       "get": {
-        "description": "Gets policy assignments for the resource group.",
+        "description": "This operation retrieves the list of all policy assignments associated with the given resource group in the given subscription that match the optional given $filter. Valid values for $filter are: 'atScope()' or 'policyDefinitionId eq '{value}''. If $filter is not provided, the unfiltered list includes all policy assignments associated with the resource group, including those that apply directly or apply from containing scopes, as well as any applied to resources contained within the resource group. If $filter=atScope() is provided, the returned list includes all policy assignments that apply to the resource group, which is everything in the unfiltered list except those applied to resources contained within the resource group. If $filter=policyDefinitionId eq '{value}' is provided, the returned list includes all policy assignments of the policy definition whose id is {value} that apply to the resource group.",
         "operationId": "PolicyAssignments_ListForResourceGroup",
         "parameters": [
           {
@@ -193,7 +197,7 @@
             "type": "string"
           },
           {
-            "description": "The filter to apply on the operation.",
+            "description": "The filter to apply on the operation. Valid values for $filter are: 'atScope()' or 'policyDefinitionId eq '{value}''. If $filter is not provided, no filtering is performed.",
             "in": "query",
             "name": "$filter",
             "required": false,
@@ -221,9 +225,75 @@
             }
           }
         },
+        "summary": "Retrieves all policy assignments that apply to a resource group.",
         "tags": [
           "PolicyAssignments"
         ],
+        "x-ms-examples": {
+          "List policy assignments that apply to a resource group": {
+            "parameters": {
+              "$filter": "atScope()",
+              "api-version": "2019-06-01",
+              "resourceGroupName": "TestResourceGroup",
+              "subscriptionId": "ae640e6b-ba3e-4256-9d62-2993eecfa6f2"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "value": [
+                    {
+                      "id": "/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/resourceGroups/TestResourceGroup/providers/Microsoft.Authorization/policyAssignments/TestCostManagement",
+                      "identity": {
+                        "principalId": "e6d23f8d-af97-4fbc-bda6-00604e4e3d0a",
+                        "tenantId": "4bee2b8a-1bee-47c2-90e9-404241551135",
+                        "type": "SystemAssigned"
+                      },
+                      "location": "eastus",
+                      "name": "TestCostManagement",
+                      "properties": {
+                        "description": "Minimize the risk of accidental cost overruns",
+                        "displayName": "Storage Cost Management",
+                        "metadata": {
+                          "category": "Cost Management"
+                        },
+                        "notScopes": [],
+                        "parameters": {
+                          "allowedSkus": {
+                            "type": "Array"
+                          }
+                        },
+                        "policyDefinitionId": "/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyDefinitions/storageSkus",
+                        "scope": "/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/resourceGroups/TestResourceGroup"
+                      },
+                      "sku": {
+                        "name": "A0",
+                        "tier": "Free"
+                      },
+                      "type": "Microsoft.Authorization/policyAssignments"
+                    },
+                    {
+                      "id": "/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/resourceGroups/TestResourceGroup/providers/Microsoft.Authorization/policyAssignments/TestTagEnforcement",
+                      "name": "TestTagEnforcement",
+                      "properties": {
+                        "description": "Ensure a given tag key and value are present on all resources",
+                        "displayName": "Enforces a tag key and value",
+                        "notScopes": [],
+                        "policyDefinitionId": "/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyDefinitions/TagKeyValue",
+                        "scope": "/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/resourceGroups/TestResourceGroup"
+                      },
+                      "sku": {
+                        "name": "A0",
+                        "tier": "Free"
+                      },
+                      "type": "Microsoft.Authorization/policyAssignments"
+                    }
+                  ]
+                },
+                "headers": {}
+              }
+            }
+          }
+        },
         "x-ms-pageable": {
           "nextLinkName": "nextLink"
         }
@@ -231,12 +301,12 @@
     },
     "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{parentResourcePath}/{resourceType}/{resourceName}/providers/Microsoft.Authorization/policyAssignments": {
       "get": {
-        "deprecated": true,
-        "description": "Gets policy assignments for a resource.",
+        "deprecated": false,
+        "description": "This operation retrieves the list of all policy assignments associated with the specified resource in the given resource group and subscription that match the optional given $filter. Valid values for $filter are: 'atScope()' or 'policyDefinitionId eq '{value}''. If $filter is not provided, the unfiltered list includes all policy assignments associated with the resource, including those that apply directly or from all containing scopes, as well as any applied to resources contained within the resource. If $filter=atScope() is provided, the returned list includes all policy assignments that apply to the resource, which is everything in the unfiltered list except those applied to resources contained within the resource. If $filter=policyDefinitionId eq '{value}' is provided, the returned list includes all policy assignments of the policy definition whose id is {value} that apply to the resource. Three parameters plus the resource name are used to identify a specific resource. If the resource is not part of a parent resource (the more common case), the parent resource path should not be provided (or provided as ''). For example a web app could be specified as ({resourceProviderNamespace} == 'Microsoft.Web', {parentResourcePath} == '', {resourceType} == 'sites', {resourceName} == 'MyWebApp'). If the resource is part of a parent resource, then all parameters should be provided. For example a virtual machine DNS name could be specified as ({resourceProviderNamespace} == 'Microsoft.Compute', {parentResourcePath} == 'virtualMachines/MyVirtualMachine', {resourceType} == 'domainNames', {resourceName} == 'MyComputerName'). A convenient alternative to providing the namespace and type name separately is to provide both in the {resourceType} parameter, format: ({resourceProviderNamespace} == '', {parentResourcePath} == '', {resourceType} == 'Microsoft.Web/sites', {resourceName} == 'MyWebApp').",
         "operationId": "PolicyAssignments_ListForResource",
         "parameters": [
           {
-            "description": "The name of the resource group containing the resource. The name is case insensitive.",
+            "description": "The name of the resource group containing the resource.",
             "in": "path",
             "maxLength": 90,
             "minLength": 1,
@@ -246,14 +316,14 @@
             "type": "string"
           },
           {
-            "description": "The namespace of the resource provider.",
+            "description": "The namespace of the resource provider. For example, the namespace of a virtual machine is Microsoft.Compute (from Microsoft.Compute/virtualMachines)",
             "in": "path",
             "name": "resourceProviderNamespace",
             "required": true,
             "type": "string"
           },
           {
-            "description": "The parent resource path.",
+            "description": "The parent resource path. Use empty string if there is none.",
             "in": "path",
             "name": "parentResourcePath",
             "required": true,
@@ -261,7 +331,7 @@
             "x-ms-skip-url-encoding": true
           },
           {
-            "description": "The resource type.",
+            "description": "The resource type name. For example the type name of a web app is 'sites' (from Microsoft.Web/sites).",
             "in": "path",
             "name": "resourceType",
             "required": true,
@@ -269,14 +339,14 @@
             "x-ms-skip-url-encoding": true
           },
           {
-            "description": "The name of the resource with policy assignments.",
+            "description": "The name of the resource.",
             "in": "path",
             "name": "resourceName",
             "required": true,
             "type": "string"
           },
           {
-            "description": "The filter to apply on the operation.",
+            "description": "The filter to apply on the operation. Valid values for $filter are: 'atScope()' or 'policyDefinitionId eq '{value}''. If $filter is not provided, no filtering is performed.",
             "in": "query",
             "name": "$filter",
             "required": false,
@@ -303,9 +373,78 @@
             }
           }
         },
+        "summary": "Retrieves all policy assignments that apply to a resource.",
         "tags": [
           "PolicyAssignments"
         ],
+        "x-ms-examples": {
+          "List all policy assignments that apply to a resource": {
+            "parameters": {
+              "api-version": "2019-06-01",
+              "parentResourcePath": "virtualMachines/MyTestVm",
+              "resourceGroupName": "TestResourceGroup",
+              "resourceName": "MyTestComputer.cloudapp.net",
+              "resourceProviderNamespace": "Microsoft.Compute",
+              "resourceType": "domainNames",
+              "subscriptionId": "ae640e6b-ba3e-4256-9d62-2993eecfa6f2"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "value": [
+                    {
+                      "id": "/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/resourceGroups/TestResourceGroup/providers/Microsoft.Authorization/policyAssignments/TestCostManagement",
+                      "identity": {
+                        "principalId": "e6d23f8d-af97-4fbc-bda6-00604e4e3d0a",
+                        "tenantId": "4bee2b8a-1bee-47c2-90e9-404241551135",
+                        "type": "SystemAssigned"
+                      },
+                      "location": "eastus",
+                      "name": "TestCostManagement",
+                      "properties": {
+                        "description": "Minimize the risk of accidental cost overruns",
+                        "displayName": "VM Cost Management",
+                        "metadata": {
+                          "category": "Cost Management"
+                        },
+                        "notScopes": [],
+                        "parameters": {
+                          "allowedSkus": {
+                            "type": "Array"
+                          }
+                        },
+                        "policyDefinitionId": "/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyDefinitions/vmSkus",
+                        "scope": "/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/resourceGroups/TestResourceGroup"
+                      },
+                      "sku": {
+                        "name": "A0",
+                        "tier": "Free"
+                      },
+                      "type": "Microsoft.Authorization/policyAssignments"
+                    },
+                    {
+                      "id": "/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/resourceGroups/TestResourceGroup/providers/Microsoft.Authorization/policyAssignments/TestTagEnforcement",
+                      "name": "TestTagEnforcement",
+                      "properties": {
+                        "description": "Ensure a given tag key and value are present on all resources",
+                        "displayName": "Enforces a tag key and value",
+                        "notScopes": [],
+                        "policyDefinitionId": "/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyDefinitions/TagKeyValue",
+                        "scope": "/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/resourceGroups/TestResourceGroup"
+                      },
+                      "sku": {
+                        "name": "A0",
+                        "tier": "Free"
+                      },
+                      "type": "Microsoft.Authorization/policyAssignments"
+                    }
+                  ]
+                },
+                "headers": {}
+              }
+            }
+          }
+        },
         "x-ms-odata": "#/definitions/PolicyAssignment",
         "x-ms-pageable": {
           "nextLinkName": "nextLink"
@@ -314,11 +453,11 @@
     },
     "/{policyAssignmentId}": {
       "delete": {
-        "description": "When providing a scope for the assigment, use '/subscriptions/{subscription-id}/' for subscriptions, '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}' for resource groups, and '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider-namespace}/{resource-type}/{resource-name}' for resources.",
+        "description": "This operation deletes the policy with the given ID. Policy assignment IDs have this format: '{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}'. Valid formats for {scope} are: '/providers/Microsoft.Management/managementGroups/{managementGroup}' (management group), '/subscriptions/{subscriptionId}' (subscription), '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' (resource group), or '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}' (resource).",
         "operationId": "PolicyAssignments_DeleteById",
         "parameters": [
           {
-            "description": "The ID of the policy assignment to delete. Use the format '/{scope}/providers/Microsoft.Authorization/policyAssignments/{policy-assignment-name}'.",
+            "description": "The ID of the policy assignment to delete. Use the format '{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}'.",
             "in": "path",
             "name": "policyAssignmentId",
             "required": true,
@@ -336,6 +475,9 @@
               "$ref": "#/definitions/PolicyAssignment"
             }
           },
+          "204": {
+            "description": "No Content - the policy assignment doesn't exist."
+          },
           "default": {
             "description": "Error response describing why the operation failed.",
             "schema": {
@@ -343,17 +485,55 @@
             }
           }
         },
-        "summary": "Deletes a policy assignment by ID.",
+        "summary": "Deletes a policy assignment.",
         "tags": [
           "PolicyAssignments"
-        ]
+        ],
+        "x-ms-examples": {
+          "Delete a policy assignment by ID": {
+            "parameters": {
+              "api-version": "2019-06-01",
+              "policyAssignmentId": "providers/Microsoft.Management/managementGroups/MyManagementGroup/providers/Microsoft.Authorization/policyAssignments/LowCostStorage"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "id": "/providers/Microsoft.Management/managementGroups/MyManagementGroup/providers/Microsoft.Authorization/policyAssignments/LowCostStorage",
+                  "name": "LowCostStorage",
+                  "properties": {
+                    "description": "Allow only storage accounts of SKU Standard_GRS or Standard_LRS to be created",
+                    "displayName": "Enforce storage account SKU",
+                    "metadata": {
+                      "assignedBy": "Cheapskate Boss"
+                    },
+                    "notScopes": [],
+                    "parameters": {
+                      "listOfAllowedSKUs": {
+                        "value": [
+                          "Standard_GRS",
+                          "Standard_LRS"
+                        ]
+                      }
+                    },
+                    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/7433c107-6db4-4ad1-b57a-a76dce0154a1"
+                  },
+                  "type": "Microsoft.Authorization/policyAssignments"
+                },
+                "headers": {}
+              },
+              "204": {
+                "headers": {}
+              }
+            }
+          }
+        }
       },
       "get": {
-        "description": "When providing a scope for the assigment, use '/subscriptions/{subscription-id}/' for subscriptions, '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}' for resource groups, and '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider-namespace}/{resource-type}/{resource-name}' for resources.",
+        "description": "The operation retrieves the policy assignment with the given ID. Policy assignment IDs have this format: '{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}'. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'.",
         "operationId": "PolicyAssignments_GetById",
         "parameters": [
           {
-            "description": "The ID of the policy assignment to get. Use the format '/{scope}/providers/Microsoft.Authorization/policyAssignments/{policy-assignment-name}'.",
+            "description": "The ID of the policy assignment to get. Use the format '{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}'.",
             "in": "path",
             "name": "policyAssignmentId",
             "required": true,
@@ -378,17 +558,93 @@
             }
           }
         },
-        "summary": "Gets a policy assignment by ID.",
+        "summary": "Retrieves the policy assignment with the given ID.",
         "tags": [
           "PolicyAssignments"
-        ]
+        ],
+        "x-ms-examples": {
+          "Retrieve a policy assignment by ID": {
+            "parameters": {
+              "api-version": "2019-06-01",
+              "policyAssignmentId": "providers/Microsoft.Management/managementGroups/MyManagementGroup/providers/Microsoft.Authorization/policyAssignments/LowCostStorage"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "id": "/providers/Microsoft.Management/managementGroups/MyManagementGroup/providers/Microsoft.Authorization/policyAssignments/LowCostStorage",
+                  "name": "LowCostStorage",
+                  "properties": {
+                    "description": "Allow only storage accounts of SKU Standard_GRS or Standard_LRS to be created",
+                    "displayName": "Enforce storage account SKU",
+                    "enforcementMode": "Default",
+                    "metadata": {
+                      "assignedBy": "Cheapskate Boss"
+                    },
+                    "notScopes": [],
+                    "parameters": {
+                      "listOfAllowedSKUs": {
+                        "value": [
+                          "Standard_GRS",
+                          "Standard_LRS"
+                        ]
+                      }
+                    },
+                    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/7433c107-6db4-4ad1-b57a-a76dce0154a1"
+                  },
+                  "type": "Microsoft.Authorization/policyAssignments"
+                },
+                "headers": {}
+              }
+            }
+          },
+          "Retrieve a policy assignment with a managed identity by ID": {
+            "parameters": {
+              "api-version": "2019-06-01",
+              "policyAssignmentId": "providers/Microsoft.Management/managementGroups/MyManagementGroup/providers/Microsoft.Authorization/policyAssignments/LowCostStorage"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "id": "/providers/Microsoft.Management/managementGroups/MyManagementGroup/providers/Microsoft.Authorization/policyAssignments/LowCostStorage",
+                  "identity": {
+                    "principalId": "e6d23f8d-af97-4fbc-bda6-00604e4e3d0a",
+                    "tenantId": "4bee2b8a-1bee-47c2-90e9-404241551135",
+                    "type": "SystemAssigned"
+                  },
+                  "location": "westus",
+                  "name": "LowCostStorage",
+                  "properties": {
+                    "description": "Allow only storage accounts of SKU Standard_GRS or Standard_LRS to be created",
+                    "displayName": "Enforce storage account SKU",
+                    "enforcementMode": "Default",
+                    "metadata": {
+                      "assignedBy": "Cheapskate Boss"
+                    },
+                    "notScopes": [],
+                    "parameters": {
+                      "listOfAllowedSKUs": {
+                        "value": [
+                          "Standard_GRS",
+                          "Standard_LRS"
+                        ]
+                      }
+                    },
+                    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/7433c107-6db4-4ad1-b57a-a76dce0154a1"
+                  },
+                  "type": "Microsoft.Authorization/policyAssignments"
+                },
+                "headers": {}
+              }
+            }
+          }
+        }
       },
       "put": {
-        "description": "Policy assignments are inherited by child resources. For example, when you apply a policy to a resource group that policy is assigned to all resources in the group. When providing a scope for the assigment, use '/subscriptions/{subscription-id}/' for subscriptions, '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}' for resource groups, and '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider-namespace}/{resource-type}/{resource-name}' for resources.",
+        "description": "This operation creates or updates the policy assignment with the given ID. Policy assignments made on a scope apply to all resources contained in that scope. For example, when you assign a policy to a resource group that policy applies to all resources in the group. Policy assignment IDs have this format: '{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}'. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'.",
         "operationId": "PolicyAssignments_CreateById",
         "parameters": [
           {
-            "description": "The ID of the policy assignment to create. Use the format '/{scope}/providers/Microsoft.Authorization/policyAssignments/{policy-assignment-name}'.",
+            "description": "The ID of the policy assignment to create. Use the format '{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}'.",
             "in": "path",
             "name": "policyAssignmentId",
             "required": true,
@@ -422,19 +678,137 @@
             }
           }
         },
-        "summary": "Creates a policy assignment by ID.",
+        "summary": "Creates or updates a policy assignment.",
         "tags": [
           "PolicyAssignments"
-        ]
+        ],
+        "x-ms-examples": {
+          "Create or update policy assignment by ID": {
+            "parameters": {
+              "api-version": "2019-06-01",
+              "parameters": {
+                "properties": {
+                  "description": "Allow only storage accounts of SKU Standard_GRS or Standard_LRS to be created",
+                  "displayName": "Enforce storage account SKU",
+                  "enforcementMode": "Default",
+                  "metadata": {
+                    "assignedBy": "Cheapskate Boss"
+                  },
+                  "parameters": {
+                    "listOfAllowedSKUs": {
+                      "value": [
+                        "Standard_GRS",
+                        "Standard_LRS"
+                      ]
+                    }
+                  },
+                  "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/7433c107-6db4-4ad1-b57a-a76dce0154a1"
+                }
+              },
+              "policyAssignmentId": "providers/Microsoft.Management/managementGroups/MyManagementGroup/providers/Microsoft.Authorization/policyAssignments/LowCostStorage"
+            },
+            "responses": {
+              "201": {
+                "body": {
+                  "id": "/providers/Microsoft.Management/managementGroups/MyManagementGroup/providers/Microsoft.Authorization/policyAssignments/LowCostStorage",
+                  "name": "LowCostStorage",
+                  "properties": {
+                    "description": "Allow only storage accounts of SKU Standard_GRS or Standard_LRS to be created",
+                    "displayName": "Enforce storage account SKU",
+                    "enforcementMode": "Default",
+                    "metadata": {
+                      "assignedBy": "Cheapskate Boss"
+                    },
+                    "notScopes": [],
+                    "parameters": {
+                      "listOfAllowedSKUs": {
+                        "value": [
+                          "Standard_GRS",
+                          "Standard_LRS"
+                        ]
+                      }
+                    },
+                    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/7433c107-6db4-4ad1-b57a-a76dce0154a1"
+                  },
+                  "type": "Microsoft.Authorization/policyAssignments"
+                },
+                "headers": {}
+              }
+            }
+          },
+          "Create or update policy assignment with a managed identity by ID": {
+            "parameters": {
+              "api-version": "2019-06-01",
+              "parameters": {
+                "identity": {
+                  "type": "SystemAssigned"
+                },
+                "location": "eastus",
+                "properties": {
+                  "description": "Allow only storage accounts of SKU Standard_GRS or Standard_LRS to be created",
+                  "displayName": "Enforce storage account SKU",
+                  "enforcementMode": "Default",
+                  "metadata": {
+                    "assignedBy": "Cheapskate Boss"
+                  },
+                  "parameters": {
+                    "listOfAllowedSKUs": {
+                      "value": [
+                        "Standard_GRS",
+                        "Standard_LRS"
+                      ]
+                    }
+                  },
+                  "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/7433c107-6db4-4ad1-b57a-a76dce0154a1"
+                }
+              },
+              "policyAssignmentId": "providers/Microsoft.Management/managementGroups/MyManagementGroup/providers/Microsoft.Authorization/policyAssignments/LowCostStorage"
+            },
+            "responses": {
+              "201": {
+                "body": {
+                  "id": "/providers/Microsoft.Management/managementGroups/MyManagementGroup/providers/Microsoft.Authorization/policyAssignments/LowCostStorage",
+                  "identity": {
+                    "principalId": "e6d23f8d-af97-4fbc-bda6-00604e4e3d0a",
+                    "tenantId": "4bee2b8a-1bee-47c2-90e9-404241551135",
+                    "type": "SystemAssigned"
+                  },
+                  "location": "eastus",
+                  "name": "LowCostStorage",
+                  "properties": {
+                    "description": "Allow only storage accounts of SKU Standard_GRS or Standard_LRS to be created",
+                    "displayName": "Enforce storage account SKU",
+                    "enforcementMode": "Default",
+                    "metadata": {
+                      "assignedBy": "Cheapskate Boss"
+                    },
+                    "notScopes": [],
+                    "parameters": {
+                      "listOfAllowedSKUs": {
+                        "value": [
+                          "Standard_GRS",
+                          "Standard_LRS"
+                        ]
+                      }
+                    },
+                    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/7433c107-6db4-4ad1-b57a-a76dce0154a1"
+                  },
+                  "type": "Microsoft.Authorization/policyAssignments"
+                },
+                "headers": {}
+              }
+            }
+          }
+        }
       }
     },
     "/{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}": {
       "delete": {
-        "description": "Deletes a policy assignment.",
+        "description": "This operation deletes a policy assignment, given its name and the scope it was created in. The scope of a policy assignment is the part of its ID preceding '/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}'.",
         "operationId": "PolicyAssignments_Delete",
         "parameters": [
           {
-            "description": "The scope of the policy assignment.",
+            "description": "The scope of the policy assignment. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'",
             "in": "path",
             "name": "scope",
             "required": true,
@@ -469,16 +843,57 @@
             }
           }
         },
+        "summary": "Deletes a policy assignment.",
         "tags": [
           "PolicyAssignments"
-        ]
+        ],
+        "x-ms-examples": {
+          "Delete a policy assignment": {
+            "parameters": {
+              "api-version": "2019-06-01",
+              "policyAssignmentName": "EnforceNaming",
+              "scope": "subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "id": "/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyAssignments/EnforceNaming",
+                  "name": "EnforceNaming",
+                  "properties": {
+                    "description": "Force resource names to begin with given DeptA and end with -LC",
+                    "displayName": "Enforce resource naming rules",
+                    "metadata": {
+                      "assignedBy": "Special Someone"
+                    },
+                    "notScopes": [],
+                    "parameters": {
+                      "prefix": {
+                        "value": "DeptA"
+                      },
+                      "suffix": {
+                        "value": "-LC"
+                      }
+                    },
+                    "policyDefinitionId": "/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyDefinitions/ResourceNaming",
+                    "scope": "subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2"
+                  },
+                  "type": "Microsoft.Authorization/policyAssignments"
+                },
+                "headers": {}
+              },
+              "204": {
+                "headers": {}
+              }
+            }
+          }
+        }
       },
       "get": {
-        "description": "Gets a policy assignment.",
+        "description": "This operation retrieves a single policy assignment, given its name and the scope it was created at.",
         "operationId": "PolicyAssignments_Get",
         "parameters": [
           {
-            "description": "The scope of the policy assignment.",
+            "description": "The scope of the policy assignment. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'",
             "in": "path",
             "name": "scope",
             "required": true,
@@ -510,41 +925,82 @@
             }
           }
         },
+        "summary": "Retrieves a policy assignment.",
         "tags": [
           "PolicyAssignments"
         ],
         "x-ms-examples": {
-          "Get a policy assignment": {
+          "Retrieve a policy assignment": {
             "parameters": {
-              "api-version": "2017-06-01-preview",
-              "policyAssignmentName": "costManagement",
-              "scope": "/subscriptions/subId"
+              "api-version": "2019-06-01",
+              "policyAssignmentName": "EnforceNaming",
+              "scope": "subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2"
             },
             "responses": {
               "200": {
                 "body": {
-                  "id": "/subscriptions/subId/providers/Microsoft.Authorization/policyAssignments/costManagement",
-                  "name": "costManagement",
+                  "id": "/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyAssignments/EnforceNaming",
+                  "name": "EnforceNaming",
                   "properties": {
-                    "description": "Policies required to minimize the risk of accidental cost overruns",
-                    "displayName": "Storage Cost Management",
+                    "description": "Force resource names to begin with given DeptA and end with -LC",
+                    "displayName": "Enforce resource naming rules",
+                    "enforcementMode": "Default",
                     "metadata": {
-                      "category": "Cost Management"
+                      "assignedBy": "Special Someone"
                     },
-                    "notScopes": [
-                      "/subscriptions/subId/resourcegroups/testingResourceGroup"
-                    ],
+                    "notScopes": [],
                     "parameters": {
-                      "allowedSkus": {
-                        "type": "Array"
+                      "prefix": {
+                        "value": "DeptA"
+                      },
+                      "suffix": {
+                        "value": "-LC"
                       }
                     },
-                    "policyDefinitionId": "/subscriptions/subId/providers/Microsoft.Authorization/policyDefinitions/storageSkus",
-                    "scope": "/subscriptions/subId"
+                    "policyDefinitionId": "/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyDefinitions/ResourceNaming",
+                    "scope": "subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2"
                   },
-                  "sku": {
-                    "name": "A0",
-                    "tier": "Free"
+                  "type": "Microsoft.Authorization/policyAssignments"
+                },
+                "headers": {}
+              }
+            }
+          },
+          "Retrieve a policy assignment with a managed identity": {
+            "parameters": {
+              "api-version": "2019-06-01",
+              "policyAssignmentName": "EnforceNaming",
+              "scope": "subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "id": "/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyAssignments/EnforceNaming",
+                  "identity": {
+                    "principalId": "e6d23f8d-af97-4fbc-bda6-00604e4e3d0a",
+                    "tenantId": "4bee2b8a-1bee-47c2-90e9-404241551135",
+                    "type": "SystemAssigned"
+                  },
+                  "location": "westus",
+                  "name": "EnforceNaming",
+                  "properties": {
+                    "description": "Force resource names to begin with given DeptA and end with -LC",
+                    "displayName": "Enforce resource naming rules",
+                    "enforcementMode": "Default",
+                    "metadata": {
+                      "assignedBy": "Special Someone"
+                    },
+                    "notScopes": [],
+                    "parameters": {
+                      "prefix": {
+                        "value": "DeptA"
+                      },
+                      "suffix": {
+                        "value": "-LC"
+                      }
+                    },
+                    "policyDefinitionId": "/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyDefinitions/ResourceNaming",
+                    "scope": "subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2"
                   },
                   "type": "Microsoft.Authorization/policyAssignments"
                 },
@@ -555,11 +1011,11 @@
         }
       },
       "put": {
-        "description": "Policy assignments are inherited by child resources. For example, when you apply a policy to a resource group that policy is assigned to all resources in the group.",
+        "description": " This operation creates or updates a policy assignment with the given scope and name. Policy assignments apply to all resources contained within their scope. For example, when you assign a policy at resource group scope, that policy applies to all resources in the group.",
         "operationId": "PolicyAssignments_Create",
         "parameters": [
           {
-            "description": "The scope of the policy assignment.",
+            "description": "The scope of the policy assignment. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'",
             "in": "path",
             "name": "scope",
             "required": true,
@@ -600,64 +1056,178 @@
             }
           }
         },
-        "summary": "Creates a policy assignment.",
+        "summary": "Creates or updates a policy assignment.",
         "tags": [
           "PolicyAssignments"
         ],
         "x-ms-examples": {
-          "Put a policy assignment": {
+          "Create or update a policy assignment": {
             "parameters": {
-              "api-version": "2017-06-01-preview",
+              "api-version": "2019-06-01",
               "parameters": {
                 "properties": {
-                  "description": "Policies required to minimize the risk of accidental cost overruns",
-                  "displayName": "Storage Cost Management",
+                  "description": "Force resource names to begin with given DeptA and end with -LC",
+                  "displayName": "Enforce resource naming rules",
                   "metadata": {
-                    "category": "Cost Management"
+                    "assignedBy": "Special Someone"
                   },
-                  "notScopes": [
-                    "/subscriptions/subId/resourcegroups/testingResourceGroup"
-                  ],
                   "parameters": {
-                    "allowedSkus": {
-                      "type": "Array"
+                    "prefix": {
+                      "value": "DeptA"
+                    },
+                    "suffix": {
+                      "value": "-LC"
                     }
                   },
-                  "policyDefinitionId": "/subscriptions/subId/providers/Microsoft.Authorization/policyDefinitions/storageSkus"
-                },
-                "sku": {
-                  "name": "A0",
-                  "tier": "Free"
+                  "policyDefinitionId": "/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyDefinitions/ResourceNaming"
                 }
               },
-              "policyAssignmentName": "costManagement",
-              "scope": "/subscriptions/subId"
+              "policyAssignmentName": "EnforceNaming",
+              "scope": "subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2"
             },
             "responses": {
               "201": {
                 "body": {
-                  "id": "/subscriptions/subId/providers/Microsoft.Authorization/policyAssignments/costManagement",
-                  "name": "costManagement",
+                  "id": "/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyAssignments/EnforceNaming",
+                  "name": "EnforceNaming",
                   "properties": {
-                    "description": "Policies required to minimize the risk of accidental cost overruns",
-                    "displayName": "Storage Cost Management",
+                    "description": "Force resource names to begin with given DeptA and end with -LC",
+                    "displayName": "Enforce resource naming rules",
+                    "enforcementMode": "Default",
                     "metadata": {
-                      "category": "Cost Management"
+                      "assignedBy": "Special Someone"
                     },
-                    "notScopes": [
-                      "/subscriptions/subId/resourcegroups/testingResourceGroup"
-                    ],
+                    "notScopes": [],
                     "parameters": {
-                      "allowedSkus": {
-                        "type": "Array"
+                      "prefix": {
+                        "value": "DeptA"
+                      },
+                      "suffix": {
+                        "value": "-LC"
                       }
                     },
-                    "policyDefinitionId": "/subscriptions/subId/providers/Microsoft.Authorization/policyDefinitions/storageSkus",
-                    "scope": "/subscriptions/subId"
+                    "policyDefinitionId": "/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyDefinitions/ResourceNaming",
+                    "scope": "subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2"
                   },
-                  "sku": {
-                    "name": "A0",
-                    "tier": "Free"
+                  "type": "Microsoft.Authorization/policyAssignments"
+                },
+                "headers": {}
+              }
+            }
+          },
+          "Create or update a policy assignment with a managed identity": {
+            "parameters": {
+              "api-version": "2019-06-01",
+              "parameters": {
+                "identity": {
+                  "type": "SystemAssigned"
+                },
+                "location": "eastus",
+                "properties": {
+                  "description": "Force resource names to begin with given DeptA and end with -LC",
+                  "displayName": "Enforce resource naming rules",
+                  "enforcementMode": "Default",
+                  "metadata": {
+                    "assignedBy": "Foo Bar"
+                  },
+                  "parameters": {
+                    "prefix": {
+                      "value": "DeptA"
+                    },
+                    "suffix": {
+                      "value": "-LC"
+                    }
+                  },
+                  "policyDefinitionId": "/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyDefinitions/ResourceNaming"
+                }
+              },
+              "policyAssignmentName": "EnforceNaming",
+              "scope": "subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2"
+            },
+            "responses": {
+              "201": {
+                "body": {
+                  "id": "/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyAssignments/EnforceNaming",
+                  "identity": {
+                    "principalId": "e6d23f8d-af97-4fbc-bda6-00604e4e3d0a",
+                    "tenantId": "4bee2b8a-1bee-47c2-90e9-404241551135",
+                    "type": "SystemAssigned"
+                  },
+                  "location": "eastus",
+                  "name": "EnforceNaming",
+                  "properties": {
+                    "description": "Force resource names to begin with given DeptA and end with -LC",
+                    "displayName": "Enforce resource naming rules",
+                    "enforcementMode": "Default",
+                    "metadata": {
+                      "assignedBy": "Special Someone"
+                    },
+                    "notScopes": [],
+                    "parameters": {
+                      "prefix": {
+                        "value": "DeptA"
+                      },
+                      "suffix": {
+                        "value": "-LC"
+                      }
+                    },
+                    "policyDefinitionId": "/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyDefinitions/ResourceNaming",
+                    "scope": "subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2"
+                  },
+                  "type": "Microsoft.Authorization/policyAssignments"
+                },
+                "headers": {}
+              }
+            }
+          },
+          "Create or update a policy assignment without enforcing policy effect during resource creation or update.": {
+            "parameters": {
+              "api-version": "2019-06-01",
+              "parameters": {
+                "properties": {
+                  "description": "Force resource names to begin with given DeptA and end with -LC",
+                  "displayName": "Enforce resource naming rules",
+                  "enforcementMode": "DoNotEnforce",
+                  "metadata": {
+                    "assignedBy": "Special Someone"
+                  },
+                  "parameters": {
+                    "prefix": {
+                      "value": "DeptA"
+                    },
+                    "suffix": {
+                      "value": "-LC"
+                    }
+                  },
+                  "policyDefinitionId": "/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyDefinitions/ResourceNaming"
+                }
+              },
+              "policyAssignmentName": "EnforceNaming",
+              "scope": "subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2"
+            },
+            "responses": {
+              "201": {
+                "body": {
+                  "id": "/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyAssignments/EnforceNaming",
+                  "name": "EnforceNaming",
+                  "properties": {
+                    "description": "Force resource names to begin with given DeptA and end with -LC",
+                    "displayName": "Enforce resource naming rules",
+                    "enforcementMode": "DoNotEnforce",
+                    "metadata": {
+                      "assignedBy": "Special Someone"
+                    },
+                    "notScopes": [],
+                    "parameters": {
+                      "prefix": {
+                        "value": "DeptA"
+                      },
+                      "suffix": {
+                        "value": "-LC"
+                      }
+                    },
+                    "policyDefinitionId": "/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyDefinitions/ResourceNaming",
+                    "scope": "subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2"
                   },
                   "type": "Microsoft.Authorization/policyAssignments"
                 },
@@ -671,7 +1241,7 @@
   },
   "definitions": {
     "ErrorResponse": {
-      "description": "Error reponse indicates ARM is not able to process the incoming request. The reason is provided in the error message.",
+      "description": "Error response indicates Azure Resource Manager is not able to process the incoming request. The reason is provided in the error message.",
       "properties": {
         "errorCode": {
           "description": "Error code.",
@@ -688,12 +1258,47 @@
       },
       "type": "object"
     },
+    "Identity": {
+      "description": "Identity for the resource.",
+      "properties": {
+        "principalId": {
+          "description": "The principal ID of the resource identity.",
+          "readOnly": true,
+          "type": "string"
+        },
+        "tenantId": {
+          "description": "The tenant ID of the resource identity.",
+          "readOnly": true,
+          "type": "string"
+        },
+        "type": {
+          "description": "The identity type.",
+          "enum": [
+            "SystemAssigned",
+            "None"
+          ],
+          "type": "string",
+          "x-ms-enum": {
+            "modelAsString": false,
+            "name": "ResourceIdentityType"
+          }
+        }
+      }
+    },
     "PolicyAssignment": {
       "description": "The policy assignment.",
       "properties": {
         "id": {
           "description": "The ID of the policy assignment.",
           "readOnly": true,
+          "type": "string"
+        },
+        "identity": {
+          "$ref": "#/definitions/Identity",
+          "description": "The managed identity associated with the policy assignment."
+        },
+        "location": {
+          "description": "The location of the policy assignment. Only required when utilizing managed identity.",
           "type": "string"
         },
         "name": {
@@ -708,7 +1313,7 @@
         },
         "sku": {
           "$ref": "#/definitions/PolicySku",
-          "description": "The policy sku."
+          "description": "The policy sku. This property is optional, obsolete, and will be ignored."
         },
         "type": {
           "description": "The type of the policy assignment.",
@@ -745,6 +1350,28 @@
           "description": "The display name of the policy assignment.",
           "type": "string"
         },
+        "enforcementMode": {
+          "description": "The policy assignment enforcement mode. Possible values are Default and DoNotEnforce.",
+          "enum": [
+            "Default",
+            "DoNotEnforce"
+          ],
+          "type": "string",
+          "x-ms-enum": {
+            "modelAsString": true,
+            "name": "enforcementMode",
+            "values": [
+              {
+                "description": "The policy effect is enforced during resource creation or update.",
+                "value": "Default"
+              },
+              {
+                "description": "The policy effect is not enforced during resource creation or update.",
+                "value": "DoNotEnforce"
+              }
+            ]
+          }
+        },
         "metadata": {
           "description": "The policy assignment metadata.",
           "type": "object"
@@ -761,7 +1388,7 @@
           "type": "object"
         },
         "policyDefinitionId": {
-          "description": "The ID of the policy definition.",
+          "description": "The ID of the policy definition or policy set definition being assigned.",
           "type": "string"
         },
         "scope": {
@@ -771,7 +1398,7 @@
       }
     },
     "PolicySku": {
-      "description": "The policy sku.",
+      "description": "The policy sku. This property is optional, obsolete, and will be ignored.",
       "properties": {
         "name": {
           "description": "The name of the policy sku. Possible values are A0 and A1.",

@@ -12,10 +12,7 @@ let fantasydata_nascar_v2 = require('@datafire/fantasydata_nascar_v2').create({
   apiKeyQuery: ""
 });
 
-fantasydata_nascar_v2.DriverRaceProjectionsEntryList({
-  "format": "",
-  "raceid": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

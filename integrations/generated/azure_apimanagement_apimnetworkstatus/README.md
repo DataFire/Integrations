@@ -15,13 +15,7 @@ let azure_apimanagement_apimnetworkstatus = require('@datafire/azure_apimanageme
   redirect_uri: ""
 });
 
-azure_apimanagement_apimnetworkstatus.NetworkStatus_ListByLocation({
-  "subscriptionId": "",
-  "resourceGroupName": "",
-  "serviceName": "",
-  "locationName": "",
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -78,7 +72,8 @@ azure_apimanagement_apimnetworkstatus.NetworkStatus_ListByService({
   * api-version **required** `string`: Version of the API to be used with the client request.
 
 #### Output
-* output [NetworkStatusContract](#networkstatuscontract)
+* output `array`: List of Network Status values.
+  * items [NetworkStatusContractByLocation](#networkstatuscontractbylocation)
 
 
 
@@ -98,5 +93,10 @@ azure_apimanagement_apimnetworkstatus.NetworkStatus_ListByService({
     * items [ConnectivityStatusContract](#connectivitystatuscontract)
   * dnsServers **required** `array`: Gets the list of DNS servers IPV4 addresses.
     * items `string`
+
+### NetworkStatusContractByLocation
+* NetworkStatusContractByLocation `object`: Network Status in the Location
+  * location `string`: Location of service
+  * networkStatus [NetworkStatusContract](#networkstatuscontract)
 
 

@@ -1,6 +1,6 @@
 # @datafire/runscope
 
-Client library for Runscope
+Client library for Runscope API
 
 ## Installation and Usage
 ```bash
@@ -15,7 +15,7 @@ let runscope = require('@datafire/runscope').create({
   redirect_uri: ""
 });
 
-runscope.account.get(null).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

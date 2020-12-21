@@ -1,6 +1,6 @@
 # @datafire/selectpdf
 
-Client library for SelectPdf HTML To PDF
+Client library for SelectPdf HTML To PDF API
 
 ## Installation and Usage
 ```bash
@@ -9,7 +9,7 @@ npm install --save @datafire/selectpdf
 ```js
 let selectpdf = require('@datafire/selectpdf').create();
 
-selectpdf.api2.convert.post({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

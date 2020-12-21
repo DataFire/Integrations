@@ -1,6 +1,6 @@
 # @datafire/link_fish
 
-Client library for link.fish
+Client library for link.fish API
 
 ## Installation and Usage
 ```bash
@@ -12,9 +12,7 @@ let link_fish = require('@datafire/link_fish').create({
   password: ""
 });
 
-link_fish.Urls.apps.get({
-  "url": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -93,11 +91,13 @@ Accept: application/xml
 
 # Credits
 
-Depending on the request made a different amount of credits get charged. How many which request costs can be found on the [API pricing page](http://link.fish/api/#pricing). Additionally, does a  header named "X-LF-Credits-Charged" get added to each successful response with the amount of credits charged.
+Depending on the request made a different amount of credits get charged. How many which request costs can be found on the [API pricing page](http://link.fish/api/#pricing). Additionally, does a  header named "X-LF-Credits-Charged" get added to each successful response with information about the credits.
 
 Example:
 ```
-X-LF-Credits-Charged: 1
+X-LF-Credits-Charged: 1 # Credits used for current requests
+X-LF-Credits-Subscription-Max: 1000 # Total credits available in subscription
+X-LF-Credits-Subscription-Used: 512 # Credits still left in current month
 ```
 You can check anytime how many credits you did use already by logging into your link.fish  account at [https://app.link.fish](https://app.link.fish) and checking under:  "Plugins" -> "API Dashboard"
 
@@ -153,6 +153,7 @@ link_fish.Urls.browser_data.get({
   * url **required** `string`: The URL of the website to query
   * item_format `string` (values: normal, flat): If the items should be return "normal" with multiple levels or "flat" with just one level and linked instead.
   * simplify_special_types `boolean`: Some types like "PropertyValue" do save key and value in separate properties which makes the data harder to process. If this option gets set it converts them automatically into the regular key -> value format.
+  * include_raw_html `boolean`: Returns additionally also the raw HTML as property "rawHtml".
   * screenshot `string` (values: none, normal, full): If and what kind of screenshot should be returned. Do only request screenshot generation when really needed because it will increase the response time significantly.
   * screenshot_width `integer`: The widh of the screenshot in pixel.
   * screenshot_file_format `string` (values: png, jpg): The file format of the screenshot
@@ -195,10 +196,47 @@ link_fish.Urls.data.get({
   * url **required** `string`: The URL of the website to query
   * item_format `string` (values: normal, flat): If the items should be return "normal" with multiple levels or "flat" with just one level and linked instead.
   * simplify_special_types `boolean`: Some types like "PropertyValue" do save key and value in separate properties which makes the data harder to process. If this option gets set it converts them automatically into the regular key -> value format.
+  * include_raw_html `boolean`: Returns additionally also the raw HTML as property "rawHtml".
   * browser_render `boolean`: If the page should be fully rendered with a browser to extract data. The request will then cost 5 credits instead of 1!
 
 #### Output
 * output [Url](#url)
+
+### Urls.data_raw.get
+Visits the URL and extracts the data.
+
+
+```js
+link_fish.Urls.data_raw.get({
+  "url": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * url **required** `string`: The URL to get the data of
+
+#### Output
+* output [DataRaw](#dataraw)
+
+### Urls.data_tabular.get
+Visits the URL and extracts tabular data.
+
+
+```js
+link_fish.Urls.data_tabular.get({
+  "url": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * url **required** `string`: The URL to get the data of
+  * selector `string`: CSS selector to define tabular data which should get returned
+  * browser_render `boolean`: If the page should be fully rendered with a browser to extract data. The request will then cost 5 credits instead of 1!
+
+#### Output
+* output [DataTabular](#datatabular)
 
 ### Urls.geo_coordinates.get
 Visits the URL and checks if there are Geo Coordinates on them and returns the found ones.
@@ -270,6 +308,24 @@ link_fish.Urls.social_media.get({
 * Apps `object`
   * android **required** `string`: Android app
   * ios **required** `string`: iOS app
+  * url **required** `string`: The url of the website. Can be different to requested one if there were redirects
+
+### DataRaw
+* DataRaw `object`
+  * data **required** `object`: The found data (can be an object or array)
+  * sourceFormat `string`: The format the source data was in. (json/xml)
+  * statusCode **required** `string`: The HTTP status code the URL returned
+  * url **required** `string`: The url of the website. Can be different to requested one if there were redirects
+
+### DataTabular
+* DataTabular `object`
+  * data **required** `object`
+    * data `array`: The found tabular data on the website.
+      * items `array`
+        * items `array`
+          * items `string`
+    * metadata `object`
+  * statusCode **required** `string`: The HTTP status code the URL returned
   * url **required** `string`: The url of the website. Can be different to requested one if there were redirects
 
 ### GeoCoordinates

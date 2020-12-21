@@ -13,17 +13,14 @@ let amazonaws_elasticloadbalancing = require('@datafire/amazonaws_elasticloadbal
   region: ""
 });
 
-amazonaws_elasticloadbalancing.AddListenerCertificates({
-  "ListenerArn": "",
-  "Certificates": []
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
 
 ## Description
 
-<fullname>Elastic Load Balancing</fullname> <p>A load balancer distributes incoming traffic across targets, such as your EC2 instances. This enables you to increase the availability of your application. The load balancer also monitors the health of its registered targets and ensures that it routes traffic only to healthy targets. You configure your load balancer to accept incoming traffic by specifying one or more listeners, which are configured with a protocol and port number for connections from clients to the load balancer. You configure a target group with a protocol and port number for connections from the load balancer to the targets, and with health check settings to be used when checking the health status of the targets.</p> <p>Elastic Load Balancing supports the following types of load balancers: Application Load Balancers, Network Load Balancers, and Classic Load Balancers.</p> <p>An Application Load Balancer makes routing and load balancing decisions at the application layer (HTTP/HTTPS). A Network Load Balancer makes routing and load balancing decisions at the transport layer (TCP). Both Application Load Balancers and Network Load Balancers can route requests to one or more ports on each EC2 instance or container instance in your virtual private cloud (VPC).</p> <p>A Classic Load Balancer makes routing and load balancing decisions either at the transport layer (TCP/SSL) or the application layer (HTTP/HTTPS), and supports either EC2-Classic or a VPC. For more information, see the <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/">Elastic Load Balancing User Guide</a>.</p> <p>This reference covers the 2015-12-01 API, which supports Application Load Balancers and Network Load Balancers. The 2012-06-01 API supports Classic Load Balancers.</p> <p>To get started, complete the following tasks:</p> <ol> <li> <p>Create a load balancer using <a>CreateLoadBalancer</a>.</p> </li> <li> <p>Create a target group using <a>CreateTargetGroup</a>.</p> </li> <li> <p>Register targets for the target group using <a>RegisterTargets</a>.</p> </li> <li> <p>Create one or more listeners for your load balancer using <a>CreateListener</a>.</p> </li> </ol> <p>To delete a load balancer and its related resources, complete the following tasks:</p> <ol> <li> <p>Delete the load balancer using <a>DeleteLoadBalancer</a>.</p> </li> <li> <p>Delete the target group using <a>DeleteTargetGroup</a>.</p> </li> </ol> <p>All Elastic Load Balancing operations are idempotent, which means that they complete at most one time. If you repeat an operation, it succeeds.</p>
+<fullname>Elastic Load Balancing</fullname> <p>A load balancer distributes incoming traffic across targets, such as your EC2 instances. This enables you to increase the availability of your application. The load balancer also monitors the health of its registered targets and ensures that it routes traffic only to healthy targets. You configure your load balancer to accept incoming traffic by specifying one or more listeners, which are configured with a protocol and port number for connections from clients to the load balancer. You configure a target group with a protocol and port number for connections from the load balancer to the targets, and with health check settings to be used when checking the health status of the targets.</p> <p>Elastic Load Balancing supports the following types of load balancers: Application Load Balancers, Network Load Balancers, Gateway Load Balancers, and Classic Load Balancers. This reference covers the following load balancer types:</p> <ul> <li> <p>Application Load Balancer - Operates at the application layer (layer 7) and supports HTTP and HTTPS.</p> </li> <li> <p>Network Load Balancer - Operates at the transport layer (layer 4) and supports TCP, TLS, and UDP.</p> </li> <li> <p>Gateway Load Balancer - Operates at the network layer (layer 3).</p> </li> </ul> <p>For more information, see the <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/">Elastic Load Balancing User Guide</a>.</p> <p>All Elastic Load Balancing operations are idempotent, which means that they complete at most one time. If you repeat an operation, it succeeds.</p>
 
 ## Actions
 
@@ -40,8 +37,28 @@ amazonaws_elasticloadbalancing.AddListenerCertificates({
 
 #### Input
 * input `object`
-  * Certificates **required** [CertificateList](#certificatelist)
-  * ListenerArn **required** [ListenerArn](#listenerarn)
+  * ListenerArn **required** `string`
+  * Certificates **required** `array`
+
+#### Output
+* output [AddListenerCertificatesOutput](#addlistenercertificatesoutput)
+
+### AddListenerCertificates
+
+
+
+```js
+amazonaws_elasticloadbalancing.AddListenerCertificates({
+  "ListenerArn": null,
+  "Certificates": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * Certificates **required**
+    * items [Certificate](#certificate)
+  * ListenerArn **required**
 
 #### Output
 * output [AddListenerCertificatesOutput](#addlistenercertificatesoutput)
@@ -59,8 +76,29 @@ amazonaws_elasticloadbalancing.AddTags({
 
 #### Input
 * input `object`
-  * ResourceArns **required** [ResourceArns](#resourcearns)
-  * Tags **required** [TagList](#taglist)
+  * ResourceArns **required** `array`
+  * Tags **required** `array`
+
+#### Output
+* output [AddTagsOutput](#addtagsoutput)
+
+### AddTags
+
+
+
+```js
+amazonaws_elasticloadbalancing.AddTags({
+  "ResourceArns": null,
+  "Tags": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * ResourceArns **required**
+    * items [ResourceArn](#resourcearn)
+  * Tags **required**
+    * items [Tag](#tag)
 
 #### Output
 * output [AddTagsOutput](#addtagsoutput)
@@ -72,20 +110,49 @@ amazonaws_elasticloadbalancing.AddTags({
 ```js
 amazonaws_elasticloadbalancing.CreateListener({
   "LoadBalancerArn": "",
-  "Protocol": "",
-  "Port": 0,
   "DefaultActions": []
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Certificates [CertificateList](#certificatelist)
-  * DefaultActions **required** [Actions](#actions)
-  * LoadBalancerArn **required** [LoadBalancerArn](#loadbalancerarn)
-  * Port **required** [Port](#port)
-  * Protocol **required** [ProtocolEnum](#protocolenum)
-  * SslPolicy [SslPolicyName](#sslpolicyname)
+  * LoadBalancerArn **required** `string`
+  * Protocol `string`
+  * Port `integer`
+  * SslPolicy `string`
+  * Certificates `array`
+  * DefaultActions **required** `array`
+  * AlpnPolicy `array`
+  * Tags `array`
+
+#### Output
+* output [CreateListenerOutput](#createlisteneroutput)
+
+### CreateListener
+
+
+
+```js
+amazonaws_elasticloadbalancing.CreateListener({
+  "LoadBalancerArn": null,
+  "DefaultActions": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * AlpnPolicy
+    * items [AlpnPolicyValue](#alpnpolicyvalue)
+  * Certificates
+    * items [Certificate](#certificate)
+  * DefaultActions **required**
+    * items [Action](#action)
+  * LoadBalancerArn **required**
+  * Port
+  * Protocol
+  * SslPolicy
+  * Tags
+    * items [Tag](#tag)
 
 #### Output
 * output [CreateListenerOutput](#createlisteneroutput)
@@ -102,14 +169,44 @@ amazonaws_elasticloadbalancing.CreateLoadBalancer({
 
 #### Input
 * input `object`
-  * IpAddressType [IpAddressType](#ipaddresstype)
-  * Name **required** [LoadBalancerName](#loadbalancername)
-  * Scheme [LoadBalancerSchemeEnum](#loadbalancerschemeenum)
-  * SecurityGroups [SecurityGroups](#securitygroups)
-  * SubnetMappings [SubnetMappings](#subnetmappings)
-  * Subnets [Subnets](#subnets)
-  * Tags [TagList](#taglist)
-  * Type [LoadBalancerTypeEnum](#loadbalancertypeenum)
+  * Name **required** `string`
+  * Subnets `array`
+  * SubnetMappings `array`
+  * SecurityGroups `array`
+  * Scheme `string`
+  * Tags `array`
+  * Type `string`
+  * IpAddressType `string`
+  * CustomerOwnedIpv4Pool `string`
+
+#### Output
+* output [CreateLoadBalancerOutput](#createloadbalanceroutput)
+
+### CreateLoadBalancer
+
+
+
+```js
+amazonaws_elasticloadbalancing.CreateLoadBalancer({
+  "Name": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * CustomerOwnedIpv4Pool
+  * IpAddressType
+  * Name **required**
+  * Scheme
+  * SecurityGroups
+    * items [SecurityGroupId](#securitygroupid)
+  * SubnetMappings
+    * items [SubnetMapping](#subnetmapping)
+  * Subnets
+    * items [SubnetId](#subnetid)
+  * Tags
+    * items [Tag](#tag)
+  * Type
 
 #### Output
 * output [CreateLoadBalancerOutput](#createloadbalanceroutput)
@@ -129,10 +226,38 @@ amazonaws_elasticloadbalancing.CreateRule({
 
 #### Input
 * input `object`
-  * Actions **required** [Actions](#actions)
-  * Conditions **required** [RuleConditionList](#ruleconditionlist)
-  * ListenerArn **required** [ListenerArn](#listenerarn)
-  * Priority **required** [RulePriority](#rulepriority)
+  * ListenerArn **required** `string`
+  * Conditions **required** `array`
+  * Priority **required** `integer`
+  * Actions **required** `array`
+  * Tags `array`
+
+#### Output
+* output [CreateRuleOutput](#createruleoutput)
+
+### CreateRule
+
+
+
+```js
+amazonaws_elasticloadbalancing.CreateRule({
+  "ListenerArn": null,
+  "Conditions": null,
+  "Priority": null,
+  "Actions": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * Actions **required**
+    * items [Action](#action)
+  * Conditions **required**
+    * items [RuleCondition](#rulecondition)
+  * ListenerArn **required**
+  * Priority **required**
+  * Tags
+    * items [Tag](#tag)
 
 #### Output
 * output [CreateRuleOutput](#createruleoutput)
@@ -143,28 +268,63 @@ amazonaws_elasticloadbalancing.CreateRule({
 
 ```js
 amazonaws_elasticloadbalancing.CreateTargetGroup({
-  "Name": "",
-  "Protocol": "",
-  "Port": 0,
-  "VpcId": ""
+  "Name": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * HealthCheckIntervalSeconds [HealthCheckIntervalSeconds](#healthcheckintervalseconds)
-  * HealthCheckPath [Path](#path)
-  * HealthCheckPort [HealthCheckPort](#healthcheckport)
-  * HealthCheckProtocol [ProtocolEnum](#protocolenum)
-  * HealthCheckTimeoutSeconds [HealthCheckTimeoutSeconds](#healthchecktimeoutseconds)
-  * HealthyThresholdCount [HealthCheckThresholdCount](#healthcheckthresholdcount)
-  * Matcher [Matcher](#matcher)
-  * Name **required** [TargetGroupName](#targetgroupname)
-  * Port **required** [Port](#port)
-  * Protocol **required** [ProtocolEnum](#protocolenum)
-  * TargetType [TargetTypeEnum](#targettypeenum)
-  * UnhealthyThresholdCount [HealthCheckThresholdCount](#healthcheckthresholdcount)
-  * VpcId **required** [VpcId](#vpcid)
+  * Name **required** `string`
+  * Protocol `string`
+  * ProtocolVersion `string`
+  * Port `integer`
+  * VpcId `string`
+  * HealthCheckProtocol `string`
+  * HealthCheckPort `string`
+  * HealthCheckEnabled `boolean`
+  * HealthCheckPath `string`
+  * HealthCheckIntervalSeconds `integer`
+  * HealthCheckTimeoutSeconds `integer`
+  * HealthyThresholdCount `integer`
+  * UnhealthyThresholdCount `integer`
+  * Matcher `object`
+  * TargetType `string`
+  * Tags `array`
+
+#### Output
+* output [CreateTargetGroupOutput](#createtargetgroupoutput)
+
+### CreateTargetGroup
+
+
+
+```js
+amazonaws_elasticloadbalancing.CreateTargetGroup({
+  "Name": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * HealthCheckEnabled
+  * HealthCheckIntervalSeconds
+  * HealthCheckPath
+  * HealthCheckPort
+  * HealthCheckProtocol
+  * HealthCheckTimeoutSeconds
+  * HealthyThresholdCount
+  * Matcher
+    * GrpcCode
+    * HttpCode
+  * Name **required**
+  * Port
+  * Protocol
+  * ProtocolVersion
+  * Tags
+    * items [Tag](#tag)
+  * TargetType
+  * UnhealthyThresholdCount
+  * VpcId
 
 #### Output
 * output [CreateTargetGroupOutput](#createtargetgroupoutput)
@@ -181,7 +341,24 @@ amazonaws_elasticloadbalancing.DeleteListener({
 
 #### Input
 * input `object`
-  * ListenerArn **required** [ListenerArn](#listenerarn)
+  * ListenerArn **required** `string`
+
+#### Output
+* output [DeleteListenerOutput](#deletelisteneroutput)
+
+### DeleteListener
+
+
+
+```js
+amazonaws_elasticloadbalancing.DeleteListener({
+  "ListenerArn": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * ListenerArn **required**
 
 #### Output
 * output [DeleteListenerOutput](#deletelisteneroutput)
@@ -198,7 +375,24 @@ amazonaws_elasticloadbalancing.DeleteLoadBalancer({
 
 #### Input
 * input `object`
-  * LoadBalancerArn **required** [LoadBalancerArn](#loadbalancerarn)
+  * LoadBalancerArn **required** `string`
+
+#### Output
+* output [DeleteLoadBalancerOutput](#deleteloadbalanceroutput)
+
+### DeleteLoadBalancer
+
+
+
+```js
+amazonaws_elasticloadbalancing.DeleteLoadBalancer({
+  "LoadBalancerArn": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * LoadBalancerArn **required**
 
 #### Output
 * output [DeleteLoadBalancerOutput](#deleteloadbalanceroutput)
@@ -215,7 +409,24 @@ amazonaws_elasticloadbalancing.DeleteRule({
 
 #### Input
 * input `object`
-  * RuleArn **required** [RuleArn](#rulearn)
+  * RuleArn **required** `string`
+
+#### Output
+* output [DeleteRuleOutput](#deleteruleoutput)
+
+### DeleteRule
+
+
+
+```js
+amazonaws_elasticloadbalancing.DeleteRule({
+  "RuleArn": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * RuleArn **required**
 
 #### Output
 * output [DeleteRuleOutput](#deleteruleoutput)
@@ -232,7 +443,24 @@ amazonaws_elasticloadbalancing.DeleteTargetGroup({
 
 #### Input
 * input `object`
-  * TargetGroupArn **required** [TargetGroupArn](#targetgrouparn)
+  * TargetGroupArn **required** `string`
+
+#### Output
+* output [DeleteTargetGroupOutput](#deletetargetgroupoutput)
+
+### DeleteTargetGroup
+
+
+
+```js
+amazonaws_elasticloadbalancing.DeleteTargetGroup({
+  "TargetGroupArn": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * TargetGroupArn **required**
 
 #### Output
 * output [DeleteTargetGroupOutput](#deletetargetgroupoutput)
@@ -250,8 +478,28 @@ amazonaws_elasticloadbalancing.DeregisterTargets({
 
 #### Input
 * input `object`
-  * TargetGroupArn **required** [TargetGroupArn](#targetgrouparn)
-  * Targets **required** [TargetDescriptions](#targetdescriptions)
+  * TargetGroupArn **required** `string`
+  * Targets **required** `array`
+
+#### Output
+* output [DeregisterTargetsOutput](#deregistertargetsoutput)
+
+### DeregisterTargets
+
+
+
+```js
+amazonaws_elasticloadbalancing.DeregisterTargets({
+  "TargetGroupArn": null,
+  "Targets": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * TargetGroupArn **required**
+  * Targets **required**
+    * items [TargetDescription](#targetdescription)
 
 #### Output
 * output [DeregisterTargetsOutput](#deregistertargetsoutput)
@@ -266,8 +514,24 @@ amazonaws_elasticloadbalancing.DescribeAccountLimits({}, context)
 
 #### Input
 * input `object`
-  * Marker [Marker](#marker)
-  * PageSize [PageSize](#pagesize)
+  * Marker `string`
+  * PageSize `integer`
+
+#### Output
+* output [DescribeAccountLimitsOutput](#describeaccountlimitsoutput)
+
+### DescribeAccountLimits
+
+
+
+```js
+amazonaws_elasticloadbalancing.DescribeAccountLimits({}, context)
+```
+
+#### Input
+* input `object`
+  * Marker
+  * PageSize
 
 #### Output
 * output [DescribeAccountLimitsOutput](#describeaccountlimitsoutput)
@@ -284,9 +548,28 @@ amazonaws_elasticloadbalancing.DescribeListenerCertificates({
 
 #### Input
 * input `object`
-  * ListenerArn **required** [ListenerArn](#listenerarn)
-  * Marker [Marker](#marker)
-  * PageSize [PageSize](#pagesize)
+  * ListenerArn **required** `string`
+  * Marker `string`
+  * PageSize `integer`
+
+#### Output
+* output [DescribeListenerCertificatesOutput](#describelistenercertificatesoutput)
+
+### DescribeListenerCertificates
+
+
+
+```js
+amazonaws_elasticloadbalancing.DescribeListenerCertificates({
+  "ListenerArn": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * ListenerArn **required**
+  * Marker
+  * PageSize
 
 #### Output
 * output [DescribeListenerCertificatesOutput](#describelistenercertificatesoutput)
@@ -301,11 +584,30 @@ amazonaws_elasticloadbalancing.DescribeListeners({}, context)
 
 #### Input
 * input `object`
+  * LoadBalancerArn `string`
+  * ListenerArns `array`
   * Marker `string`
-  * ListenerArns [ListenerArns](#listenerarns)
-  * LoadBalancerArn [LoadBalancerArn](#loadbalancerarn)
-  * Marker [Marker](#marker)
-  * PageSize [PageSize](#pagesize)
+  * PageSize `integer`
+
+#### Output
+* output [DescribeListenersOutput](#describelistenersoutput)
+
+### DescribeListeners
+
+
+
+```js
+amazonaws_elasticloadbalancing.DescribeListeners({}, context)
+```
+
+#### Input
+* input `object`
+  * Marker `string`
+  * ListenerArns
+    * items [ListenerArn](#listenerarn)
+  * LoadBalancerArn
+  * Marker
+  * PageSize
 
 #### Output
 * output [DescribeListenersOutput](#describelistenersoutput)
@@ -322,7 +624,24 @@ amazonaws_elasticloadbalancing.DescribeLoadBalancerAttributes({
 
 #### Input
 * input `object`
-  * LoadBalancerArn **required** [LoadBalancerArn](#loadbalancerarn)
+  * LoadBalancerArn **required** `string`
+
+#### Output
+* output [DescribeLoadBalancerAttributesOutput](#describeloadbalancerattributesoutput)
+
+### DescribeLoadBalancerAttributes
+
+
+
+```js
+amazonaws_elasticloadbalancing.DescribeLoadBalancerAttributes({
+  "LoadBalancerArn": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * LoadBalancerArn **required**
 
 #### Output
 * output [DescribeLoadBalancerAttributesOutput](#describeloadbalancerattributesoutput)
@@ -337,11 +656,31 @@ amazonaws_elasticloadbalancing.DescribeLoadBalancers({}, context)
 
 #### Input
 * input `object`
+  * LoadBalancerArns `array`
+  * Names `array`
   * Marker `string`
-  * LoadBalancerArns [LoadBalancerArns](#loadbalancerarns)
-  * Marker [Marker](#marker)
-  * Names [LoadBalancerNames](#loadbalancernames)
-  * PageSize [PageSize](#pagesize)
+  * PageSize `integer`
+
+#### Output
+* output [DescribeLoadBalancersOutput](#describeloadbalancersoutput)
+
+### DescribeLoadBalancers
+
+
+
+```js
+amazonaws_elasticloadbalancing.DescribeLoadBalancers({}, context)
+```
+
+#### Input
+* input `object`
+  * Marker `string`
+  * LoadBalancerArns
+    * items [LoadBalancerArn](#loadbalancerarn)
+  * Marker
+  * Names
+    * items [LoadBalancerName](#loadbalancername)
+  * PageSize
 
 #### Output
 * output [DescribeLoadBalancersOutput](#describeloadbalancersoutput)
@@ -356,10 +695,29 @@ amazonaws_elasticloadbalancing.DescribeRules({}, context)
 
 #### Input
 * input `object`
-  * ListenerArn [ListenerArn](#listenerarn)
-  * Marker [Marker](#marker)
-  * PageSize [PageSize](#pagesize)
-  * RuleArns [RuleArns](#rulearns)
+  * ListenerArn `string`
+  * RuleArns `array`
+  * Marker `string`
+  * PageSize `integer`
+
+#### Output
+* output [DescribeRulesOutput](#describerulesoutput)
+
+### DescribeRules
+
+
+
+```js
+amazonaws_elasticloadbalancing.DescribeRules({}, context)
+```
+
+#### Input
+* input `object`
+  * ListenerArn
+  * Marker
+  * PageSize
+  * RuleArns
+    * items [RuleArn](#rulearn)
 
 #### Output
 * output [DescribeRulesOutput](#describerulesoutput)
@@ -374,9 +732,27 @@ amazonaws_elasticloadbalancing.DescribeSSLPolicies({}, context)
 
 #### Input
 * input `object`
-  * Marker [Marker](#marker)
-  * Names [SslPolicyNames](#sslpolicynames)
-  * PageSize [PageSize](#pagesize)
+  * Names `array`
+  * Marker `string`
+  * PageSize `integer`
+
+#### Output
+* output [DescribeSSLPoliciesOutput](#describesslpoliciesoutput)
+
+### DescribeSSLPolicies
+
+
+
+```js
+amazonaws_elasticloadbalancing.DescribeSSLPolicies({}, context)
+```
+
+#### Input
+* input `object`
+  * Marker
+  * Names
+    * items [SslPolicyName](#sslpolicyname)
+  * PageSize
 
 #### Output
 * output [DescribeSSLPoliciesOutput](#describesslpoliciesoutput)
@@ -393,7 +769,25 @@ amazonaws_elasticloadbalancing.DescribeTags({
 
 #### Input
 * input `object`
-  * ResourceArns **required** [ResourceArns](#resourcearns)
+  * ResourceArns **required** `array`
+
+#### Output
+* output [DescribeTagsOutput](#describetagsoutput)
+
+### DescribeTags
+
+
+
+```js
+amazonaws_elasticloadbalancing.DescribeTags({
+  "ResourceArns": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * ResourceArns **required**
+    * items [ResourceArn](#resourcearn)
 
 #### Output
 * output [DescribeTagsOutput](#describetagsoutput)
@@ -410,7 +804,24 @@ amazonaws_elasticloadbalancing.DescribeTargetGroupAttributes({
 
 #### Input
 * input `object`
-  * TargetGroupArn **required** [TargetGroupArn](#targetgrouparn)
+  * TargetGroupArn **required** `string`
+
+#### Output
+* output [DescribeTargetGroupAttributesOutput](#describetargetgroupattributesoutput)
+
+### DescribeTargetGroupAttributes
+
+
+
+```js
+amazonaws_elasticloadbalancing.DescribeTargetGroupAttributes({
+  "TargetGroupArn": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * TargetGroupArn **required**
 
 #### Output
 * output [DescribeTargetGroupAttributesOutput](#describetargetgroupattributesoutput)
@@ -425,12 +836,33 @@ amazonaws_elasticloadbalancing.DescribeTargetGroups({}, context)
 
 #### Input
 * input `object`
+  * LoadBalancerArn `string`
+  * TargetGroupArns `array`
+  * Names `array`
   * Marker `string`
-  * LoadBalancerArn [LoadBalancerArn](#loadbalancerarn)
-  * Marker [Marker](#marker)
-  * Names [TargetGroupNames](#targetgroupnames)
-  * PageSize [PageSize](#pagesize)
-  * TargetGroupArns [TargetGroupArns](#targetgrouparns)
+  * PageSize `integer`
+
+#### Output
+* output [DescribeTargetGroupsOutput](#describetargetgroupsoutput)
+
+### DescribeTargetGroups
+
+
+
+```js
+amazonaws_elasticloadbalancing.DescribeTargetGroups({}, context)
+```
+
+#### Input
+* input `object`
+  * Marker `string`
+  * LoadBalancerArn
+  * Marker
+  * Names
+    * items [TargetGroupName](#targetgroupname)
+  * PageSize
+  * TargetGroupArns
+    * items [TargetGroupArn](#targetgrouparn)
 
 #### Output
 * output [DescribeTargetGroupsOutput](#describetargetgroupsoutput)
@@ -447,8 +879,27 @@ amazonaws_elasticloadbalancing.DescribeTargetHealth({
 
 #### Input
 * input `object`
-  * TargetGroupArn **required** [TargetGroupArn](#targetgrouparn)
-  * Targets [TargetDescriptions](#targetdescriptions)
+  * TargetGroupArn **required** `string`
+  * Targets `array`
+
+#### Output
+* output [DescribeTargetHealthOutput](#describetargethealthoutput)
+
+### DescribeTargetHealth
+
+
+
+```js
+amazonaws_elasticloadbalancing.DescribeTargetHealth({
+  "TargetGroupArn": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * TargetGroupArn **required**
+  * Targets
+    * items [TargetDescription](#targetdescription)
 
 #### Output
 * output [DescribeTargetHealthOutput](#describetargethealthoutput)
@@ -465,12 +916,39 @@ amazonaws_elasticloadbalancing.ModifyListener({
 
 #### Input
 * input `object`
-  * Certificates [CertificateList](#certificatelist)
-  * DefaultActions [Actions](#actions)
-  * ListenerArn **required** [ListenerArn](#listenerarn)
-  * Port [Port](#port)
-  * Protocol [ProtocolEnum](#protocolenum)
-  * SslPolicy [SslPolicyName](#sslpolicyname)
+  * ListenerArn **required** `string`
+  * Port `integer`
+  * Protocol `string`
+  * SslPolicy `string`
+  * Certificates `array`
+  * DefaultActions `array`
+  * AlpnPolicy `array`
+
+#### Output
+* output [ModifyListenerOutput](#modifylisteneroutput)
+
+### ModifyListener
+
+
+
+```js
+amazonaws_elasticloadbalancing.ModifyListener({
+  "ListenerArn": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * AlpnPolicy
+    * items [AlpnPolicyValue](#alpnpolicyvalue)
+  * Certificates
+    * items [Certificate](#certificate)
+  * DefaultActions
+    * items [Action](#action)
+  * ListenerArn **required**
+  * Port
+  * Protocol
+  * SslPolicy
 
 #### Output
 * output [ModifyListenerOutput](#modifylisteneroutput)
@@ -488,8 +966,28 @@ amazonaws_elasticloadbalancing.ModifyLoadBalancerAttributes({
 
 #### Input
 * input `object`
-  * Attributes **required** [LoadBalancerAttributes](#loadbalancerattributes)
-  * LoadBalancerArn **required** [LoadBalancerArn](#loadbalancerarn)
+  * LoadBalancerArn **required** `string`
+  * Attributes **required** `array`
+
+#### Output
+* output [ModifyLoadBalancerAttributesOutput](#modifyloadbalancerattributesoutput)
+
+### ModifyLoadBalancerAttributes
+
+
+
+```js
+amazonaws_elasticloadbalancing.ModifyLoadBalancerAttributes({
+  "LoadBalancerArn": null,
+  "Attributes": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * Attributes **required**
+    * items [LoadBalancerAttribute](#loadbalancerattribute)
+  * LoadBalancerArn **required**
 
 #### Output
 * output [ModifyLoadBalancerAttributesOutput](#modifyloadbalancerattributesoutput)
@@ -506,9 +1004,30 @@ amazonaws_elasticloadbalancing.ModifyRule({
 
 #### Input
 * input `object`
-  * Actions [Actions](#actions)
-  * Conditions [RuleConditionList](#ruleconditionlist)
-  * RuleArn **required** [RuleArn](#rulearn)
+  * RuleArn **required** `string`
+  * Conditions `array`
+  * Actions `array`
+
+#### Output
+* output [ModifyRuleOutput](#modifyruleoutput)
+
+### ModifyRule
+
+
+
+```js
+amazonaws_elasticloadbalancing.ModifyRule({
+  "RuleArn": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * Actions
+    * items [Action](#action)
+  * Conditions
+    * items [RuleCondition](#rulecondition)
+  * RuleArn **required**
 
 #### Output
 * output [ModifyRuleOutput](#modifyruleoutput)
@@ -525,15 +1044,44 @@ amazonaws_elasticloadbalancing.ModifyTargetGroup({
 
 #### Input
 * input `object`
-  * HealthCheckIntervalSeconds [HealthCheckIntervalSeconds](#healthcheckintervalseconds)
-  * HealthCheckPath [Path](#path)
-  * HealthCheckPort [HealthCheckPort](#healthcheckport)
-  * HealthCheckProtocol [ProtocolEnum](#protocolenum)
-  * HealthCheckTimeoutSeconds [HealthCheckTimeoutSeconds](#healthchecktimeoutseconds)
-  * HealthyThresholdCount [HealthCheckThresholdCount](#healthcheckthresholdcount)
-  * Matcher [Matcher](#matcher)
-  * TargetGroupArn **required** [TargetGroupArn](#targetgrouparn)
-  * UnhealthyThresholdCount [HealthCheckThresholdCount](#healthcheckthresholdcount)
+  * TargetGroupArn **required** `string`
+  * HealthCheckProtocol `string`
+  * HealthCheckPort `string`
+  * HealthCheckPath `string`
+  * HealthCheckEnabled `boolean`
+  * HealthCheckIntervalSeconds `integer`
+  * HealthCheckTimeoutSeconds `integer`
+  * HealthyThresholdCount `integer`
+  * UnhealthyThresholdCount `integer`
+  * Matcher `object`
+
+#### Output
+* output [ModifyTargetGroupOutput](#modifytargetgroupoutput)
+
+### ModifyTargetGroup
+
+
+
+```js
+amazonaws_elasticloadbalancing.ModifyTargetGroup({
+  "TargetGroupArn": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * HealthCheckEnabled
+  * HealthCheckIntervalSeconds
+  * HealthCheckPath
+  * HealthCheckPort
+  * HealthCheckProtocol
+  * HealthCheckTimeoutSeconds
+  * HealthyThresholdCount
+  * Matcher
+    * GrpcCode
+    * HttpCode
+  * TargetGroupArn **required**
+  * UnhealthyThresholdCount
 
 #### Output
 * output [ModifyTargetGroupOutput](#modifytargetgroupoutput)
@@ -551,8 +1099,28 @@ amazonaws_elasticloadbalancing.ModifyTargetGroupAttributes({
 
 #### Input
 * input `object`
-  * Attributes **required** [TargetGroupAttributes](#targetgroupattributes)
-  * TargetGroupArn **required** [TargetGroupArn](#targetgrouparn)
+  * TargetGroupArn **required** `string`
+  * Attributes **required** `array`
+
+#### Output
+* output [ModifyTargetGroupAttributesOutput](#modifytargetgroupattributesoutput)
+
+### ModifyTargetGroupAttributes
+
+
+
+```js
+amazonaws_elasticloadbalancing.ModifyTargetGroupAttributes({
+  "TargetGroupArn": null,
+  "Attributes": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * Attributes **required**
+    * items [TargetGroupAttribute](#targetgroupattribute)
+  * TargetGroupArn **required**
 
 #### Output
 * output [ModifyTargetGroupAttributesOutput](#modifytargetgroupattributesoutput)
@@ -570,8 +1138,28 @@ amazonaws_elasticloadbalancing.RegisterTargets({
 
 #### Input
 * input `object`
-  * TargetGroupArn **required** [TargetGroupArn](#targetgrouparn)
-  * Targets **required** [TargetDescriptions](#targetdescriptions)
+  * TargetGroupArn **required** `string`
+  * Targets **required** `array`
+
+#### Output
+* output [RegisterTargetsOutput](#registertargetsoutput)
+
+### RegisterTargets
+
+
+
+```js
+amazonaws_elasticloadbalancing.RegisterTargets({
+  "TargetGroupArn": null,
+  "Targets": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * TargetGroupArn **required**
+  * Targets **required**
+    * items [TargetDescription](#targetdescription)
 
 #### Output
 * output [RegisterTargetsOutput](#registertargetsoutput)
@@ -589,8 +1177,28 @@ amazonaws_elasticloadbalancing.RemoveListenerCertificates({
 
 #### Input
 * input `object`
-  * Certificates **required** [CertificateList](#certificatelist)
-  * ListenerArn **required** [ListenerArn](#listenerarn)
+  * ListenerArn **required** `string`
+  * Certificates **required** `array`
+
+#### Output
+* output [RemoveListenerCertificatesOutput](#removelistenercertificatesoutput)
+
+### RemoveListenerCertificates
+
+
+
+```js
+amazonaws_elasticloadbalancing.RemoveListenerCertificates({
+  "ListenerArn": null,
+  "Certificates": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * Certificates **required**
+    * items [Certificate](#certificate)
+  * ListenerArn **required**
 
 #### Output
 * output [RemoveListenerCertificatesOutput](#removelistenercertificatesoutput)
@@ -608,8 +1216,29 @@ amazonaws_elasticloadbalancing.RemoveTags({
 
 #### Input
 * input `object`
-  * ResourceArns **required** [ResourceArns](#resourcearns)
-  * TagKeys **required** [TagKeys](#tagkeys)
+  * ResourceArns **required** `array`
+  * TagKeys **required** `array`
+
+#### Output
+* output [RemoveTagsOutput](#removetagsoutput)
+
+### RemoveTags
+
+
+
+```js
+amazonaws_elasticloadbalancing.RemoveTags({
+  "ResourceArns": null,
+  "TagKeys": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * ResourceArns **required**
+    * items [ResourceArn](#resourcearn)
+  * TagKeys **required**
+    * items [TagKey](#tagkey)
 
 #### Output
 * output [RemoveTagsOutput](#removetagsoutput)
@@ -627,8 +1256,27 @@ amazonaws_elasticloadbalancing.SetIpAddressType({
 
 #### Input
 * input `object`
-  * IpAddressType **required** [IpAddressType](#ipaddresstype)
-  * LoadBalancerArn **required** [LoadBalancerArn](#loadbalancerarn)
+  * LoadBalancerArn **required** `string`
+  * IpAddressType **required** `string`
+
+#### Output
+* output [SetIpAddressTypeOutput](#setipaddresstypeoutput)
+
+### SetIpAddressType
+
+
+
+```js
+amazonaws_elasticloadbalancing.SetIpAddressType({
+  "LoadBalancerArn": null,
+  "IpAddressType": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * IpAddressType **required**
+  * LoadBalancerArn **required**
 
 #### Output
 * output [SetIpAddressTypeOutput](#setipaddresstypeoutput)
@@ -645,7 +1293,25 @@ amazonaws_elasticloadbalancing.SetRulePriorities({
 
 #### Input
 * input `object`
-  * RulePriorities **required** [RulePriorityList](#ruleprioritylist)
+  * RulePriorities **required** `array`
+
+#### Output
+* output [SetRulePrioritiesOutput](#setruleprioritiesoutput)
+
+### SetRulePriorities
+
+
+
+```js
+amazonaws_elasticloadbalancing.SetRulePriorities({
+  "RulePriorities": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * RulePriorities **required**
+    * items [RulePriorityPair](#ruleprioritypair)
 
 #### Output
 * output [SetRulePrioritiesOutput](#setruleprioritiesoutput)
@@ -663,8 +1329,28 @@ amazonaws_elasticloadbalancing.SetSecurityGroups({
 
 #### Input
 * input `object`
-  * LoadBalancerArn **required** [LoadBalancerArn](#loadbalancerarn)
-  * SecurityGroups **required** [SecurityGroups](#securitygroups)
+  * LoadBalancerArn **required** `string`
+  * SecurityGroups **required** `array`
+
+#### Output
+* output [SetSecurityGroupsOutput](#setsecuritygroupsoutput)
+
+### SetSecurityGroups
+
+
+
+```js
+amazonaws_elasticloadbalancing.SetSecurityGroups({
+  "LoadBalancerArn": null,
+  "SecurityGroups": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * LoadBalancerArn **required**
+  * SecurityGroups **required**
+    * items [SecurityGroupId](#securitygroupid)
 
 #### Output
 * output [SetSecurityGroupsOutput](#setsecuritygroupsoutput)
@@ -681,9 +1367,32 @@ amazonaws_elasticloadbalancing.SetSubnets({
 
 #### Input
 * input `object`
-  * LoadBalancerArn **required** [LoadBalancerArn](#loadbalancerarn)
-  * SubnetMappings [SubnetMappings](#subnetmappings)
-  * Subnets [Subnets](#subnets)
+  * LoadBalancerArn **required** `string`
+  * Subnets `array`
+  * SubnetMappings `array`
+  * IpAddressType `string`
+
+#### Output
+* output [SetSubnetsOutput](#setsubnetsoutput)
+
+### SetSubnets
+
+
+
+```js
+amazonaws_elasticloadbalancing.SetSubnets({
+  "LoadBalancerArn": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * IpAddressType
+  * LoadBalancerArn **required**
+  * SubnetMappings
+    * items [SubnetMapping](#subnetmapping)
+  * Subnets
+    * items [SubnetId](#subnetid)
 
 #### Output
 * output [SetSubnetsOutput](#setsubnetsoutput)
@@ -692,19 +1401,59 @@ amazonaws_elasticloadbalancing.SetSubnets({
 
 ## Definitions
 
+### ALPNPolicyNotSupportedException
+
+
 ### Action
-* Action `object`: Information about an action.
-  * AuthenticateCognitoConfig [AuthenticateCognitoActionConfig](#authenticatecognitoactionconfig)
-  * AuthenticateOidcConfig [AuthenticateOidcActionConfig](#authenticateoidcactionconfig)
-  * Order [ActionOrder](#actionorder)
-  * TargetGroupArn [TargetGroupArn](#targetgrouparn)
-  * Type **required** [ActionTypeEnum](#actiontypeenum)
+* Action `object`: <p>Information about an action.</p> <p>Each rule must include exactly one of the following types of actions: <code>forward</code>, <code>fixed-response</code>, or <code>redirect</code>, and it must be the last action to be performed.</p>
+  * AuthenticateCognitoConfig
+    * AuthenticationRequestExtraParams
+    * OnUnauthenticatedRequest
+    * Scope
+    * SessionCookieName
+    * SessionTimeout
+    * UserPoolArn **required**
+    * UserPoolClientId **required**
+    * UserPoolDomain **required**
+  * AuthenticateOidcConfig
+    * AuthenticationRequestExtraParams
+    * AuthorizationEndpoint **required**
+    * ClientId **required**
+    * ClientSecret
+    * Issuer **required**
+    * OnUnauthenticatedRequest
+    * Scope
+    * SessionCookieName
+    * SessionTimeout
+    * TokenEndpoint **required**
+    * UseExistingClientSecret
+    * UserInfoEndpoint **required**
+  * FixedResponseConfig
+    * ContentType
+    * MessageBody
+    * StatusCode **required**
+  * ForwardConfig
+    * TargetGroupStickinessConfig
+      * DurationSeconds
+      * Enabled
+    * TargetGroups
+      * items [TargetGroupTuple](#targetgrouptuple)
+  * Order
+  * RedirectConfig
+    * Host
+    * Path
+    * Port
+    * Protocol
+    * Query
+    * StatusCode **required**
+  * TargetGroupArn
+  * Type **required**
 
 ### ActionOrder
 * ActionOrder `integer`
 
 ### ActionTypeEnum
-* ActionTypeEnum `string` (values: forward, authenticate-oidc, authenticate-cognito)
+* ActionTypeEnum `string` (values: forward, authenticate-oidc, authenticate-cognito, redirect, fixed-response)
 
 ### Actions
 * Actions `array`
@@ -712,17 +1461,21 @@ amazonaws_elasticloadbalancing.SetSubnets({
 
 ### AddListenerCertificatesInput
 * AddListenerCertificatesInput `object`
-  * Certificates **required** [CertificateList](#certificatelist)
-  * ListenerArn **required** [ListenerArn](#listenerarn)
+  * Certificates **required**
+    * items [Certificate](#certificate)
+  * ListenerArn **required**
 
 ### AddListenerCertificatesOutput
 * AddListenerCertificatesOutput `object`
-  * Certificates [CertificateList](#certificatelist)
+  * Certificates
+    * items [Certificate](#certificate)
 
 ### AddTagsInput
 * AddTagsInput `object`
-  * ResourceArns **required** [ResourceArns](#resourcearns)
-  * Tags **required** [TagList](#taglist)
+  * ResourceArns **required**
+    * items [ResourceArn](#resourcearn)
+  * Tags **required**
+    * items [Tag](#tag)
 
 ### AddTagsOutput
 * AddTagsOutput `object`
@@ -731,13 +1484,17 @@ amazonaws_elasticloadbalancing.SetSubnets({
 * AllocationId `string`
 
 ### AllocationIdNotFoundException
-* AllocationIdNotFoundException `object`: The specified allocation ID does not exist.
+
+
+### AlpnPolicyName
+* AlpnPolicyName `array`
+  * items [AlpnPolicyValue](#alpnpolicyvalue)
+
+### AlpnPolicyValue
+* AlpnPolicyValue `string`
 
 ### AuthenticateCognitoActionAuthenticationRequestExtraParams
-* AuthenticateCognitoActionAuthenticationRequestExtraParams `array`
-  * items `object`
-    * key [AuthenticateCognitoActionAuthenticationRequestParamName](#authenticatecognitoactionauthenticationrequestparamname)
-    * value [AuthenticateCognitoActionAuthenticationRequestParamValue](#authenticatecognitoactionauthenticationrequestparamvalue)
+* AuthenticateCognitoActionAuthenticationRequestExtraParams `object`
 
 ### AuthenticateCognitoActionAuthenticationRequestParamName
 * AuthenticateCognitoActionAuthenticationRequestParamName `string`
@@ -750,14 +1507,14 @@ amazonaws_elasticloadbalancing.SetSubnets({
 
 ### AuthenticateCognitoActionConfig
 * AuthenticateCognitoActionConfig `object`: Request parameters to use when integrating with Amazon Cognito to authenticate users.
-  * AuthenticationRequestExtraParams [AuthenticateCognitoActionAuthenticationRequestExtraParams](#authenticatecognitoactionauthenticationrequestextraparams)
-  * OnUnauthenticatedRequest [AuthenticateCognitoActionConditionalBehaviorEnum](#authenticatecognitoactionconditionalbehaviorenum)
-  * Scope [AuthenticateCognitoActionScope](#authenticatecognitoactionscope)
-  * SessionCookieName [AuthenticateCognitoActionSessionCookieName](#authenticatecognitoactionsessioncookiename)
-  * SessionTimeout [AuthenticateCognitoActionSessionTimeout](#authenticatecognitoactionsessiontimeout)
-  * UserPoolArn **required** [AuthenticateCognitoActionUserPoolArn](#authenticatecognitoactionuserpoolarn)
-  * UserPoolClientId **required** [AuthenticateCognitoActionUserPoolClientId](#authenticatecognitoactionuserpoolclientid)
-  * UserPoolDomain **required** [AuthenticateCognitoActionUserPoolDomain](#authenticatecognitoactionuserpooldomain)
+  * AuthenticationRequestExtraParams
+  * OnUnauthenticatedRequest
+  * Scope
+  * SessionCookieName
+  * SessionTimeout
+  * UserPoolArn **required**
+  * UserPoolClientId **required**
+  * UserPoolDomain **required**
 
 ### AuthenticateCognitoActionScope
 * AuthenticateCognitoActionScope `string`
@@ -778,10 +1535,7 @@ amazonaws_elasticloadbalancing.SetSubnets({
 * AuthenticateCognitoActionUserPoolDomain `string`
 
 ### AuthenticateOidcActionAuthenticationRequestExtraParams
-* AuthenticateOidcActionAuthenticationRequestExtraParams `array`
-  * items `object`
-    * key [AuthenticateOidcActionAuthenticationRequestParamName](#authenticateoidcactionauthenticationrequestparamname)
-    * value [AuthenticateOidcActionAuthenticationRequestParamValue](#authenticateoidcactionauthenticationrequestparamvalue)
+* AuthenticateOidcActionAuthenticationRequestExtraParams `object`
 
 ### AuthenticateOidcActionAuthenticationRequestParamName
 * AuthenticateOidcActionAuthenticationRequestParamName `string`
@@ -803,17 +1557,18 @@ amazonaws_elasticloadbalancing.SetSubnets({
 
 ### AuthenticateOidcActionConfig
 * AuthenticateOidcActionConfig `object`: Request parameters when using an identity provider (IdP) that is compliant with OpenID Connect (OIDC) to authenticate users.
-  * AuthenticationRequestExtraParams [AuthenticateOidcActionAuthenticationRequestExtraParams](#authenticateoidcactionauthenticationrequestextraparams)
-  * AuthorizationEndpoint **required** [AuthenticateOidcActionAuthorizationEndpoint](#authenticateoidcactionauthorizationendpoint)
-  * ClientId **required** [AuthenticateOidcActionClientId](#authenticateoidcactionclientid)
-  * ClientSecret **required** [AuthenticateOidcActionClientSecret](#authenticateoidcactionclientsecret)
-  * Issuer **required** [AuthenticateOidcActionIssuer](#authenticateoidcactionissuer)
-  * OnUnauthenticatedRequest [AuthenticateOidcActionConditionalBehaviorEnum](#authenticateoidcactionconditionalbehaviorenum)
-  * Scope [AuthenticateOidcActionScope](#authenticateoidcactionscope)
-  * SessionCookieName [AuthenticateOidcActionSessionCookieName](#authenticateoidcactionsessioncookiename)
-  * SessionTimeout [AuthenticateOidcActionSessionTimeout](#authenticateoidcactionsessiontimeout)
-  * TokenEndpoint **required** [AuthenticateOidcActionTokenEndpoint](#authenticateoidcactiontokenendpoint)
-  * UserInfoEndpoint **required** [AuthenticateOidcActionUserInfoEndpoint](#authenticateoidcactionuserinfoendpoint)
+  * AuthenticationRequestExtraParams
+  * AuthorizationEndpoint **required**
+  * ClientId **required**
+  * ClientSecret
+  * Issuer **required**
+  * OnUnauthenticatedRequest
+  * Scope
+  * SessionCookieName
+  * SessionTimeout
+  * TokenEndpoint **required**
+  * UseExistingClientSecret
+  * UserInfoEndpoint **required**
 
 ### AuthenticateOidcActionIssuer
 * AuthenticateOidcActionIssuer `string`
@@ -830,17 +1585,22 @@ amazonaws_elasticloadbalancing.SetSubnets({
 ### AuthenticateOidcActionTokenEndpoint
 * AuthenticateOidcActionTokenEndpoint `string`
 
+### AuthenticateOidcActionUseExistingClientSecret
+* AuthenticateOidcActionUseExistingClientSecret `boolean`
+
 ### AuthenticateOidcActionUserInfoEndpoint
 * AuthenticateOidcActionUserInfoEndpoint `string`
 
 ### AvailabilityZone
 * AvailabilityZone `object`: Information about an Availability Zone.
-  * LoadBalancerAddresses [LoadBalancerAddresses](#loadbalanceraddresses)
-  * SubnetId [SubnetId](#subnetid)
-  * ZoneName [ZoneName](#zonename)
+  * LoadBalancerAddresses
+    * items [LoadBalancerAddress](#loadbalanceraddress)
+  * OutpostId
+  * SubnetId
+  * ZoneName
 
 ### AvailabilityZoneNotSupportedException
-* AvailabilityZoneNotSupportedException `object`: The specified Availability Zone is not supported.
+
 
 ### AvailabilityZones
 * AvailabilityZones `array`
@@ -851,8 +1611,8 @@ amazonaws_elasticloadbalancing.SetSubnets({
 
 ### Certificate
 * Certificate `object`: Information about an SSL server certificate.
-  * CertificateArn [CertificateArn](#certificatearn)
-  * IsDefault [Default](#default)
+  * CertificateArn
+  * IsDefault
 
 ### CertificateArn
 * CertificateArn `string`
@@ -862,12 +1622,12 @@ amazonaws_elasticloadbalancing.SetSubnets({
   * items [Certificate](#certificate)
 
 ### CertificateNotFoundException
-* CertificateNotFoundException `object`: The specified certificate does not exist.
+
 
 ### Cipher
 * Cipher `object`: Information about a cipher used in a policy.
-  * Name [CipherName](#ciphername)
-  * Priority [CipherPriority](#cipherpriority)
+  * Name
+  * Priority
 
 ### CipherName
 * CipherName `string`
@@ -884,65 +1644,93 @@ amazonaws_elasticloadbalancing.SetSubnets({
 
 ### CreateListenerInput
 * CreateListenerInput `object`
-  * Certificates [CertificateList](#certificatelist)
-  * DefaultActions **required** [Actions](#actions)
-  * LoadBalancerArn **required** [LoadBalancerArn](#loadbalancerarn)
-  * Port **required** [Port](#port)
-  * Protocol **required** [ProtocolEnum](#protocolenum)
-  * SslPolicy [SslPolicyName](#sslpolicyname)
+  * AlpnPolicy
+    * items [AlpnPolicyValue](#alpnpolicyvalue)
+  * Certificates
+    * items [Certificate](#certificate)
+  * DefaultActions **required**
+    * items [Action](#action)
+  * LoadBalancerArn **required**
+  * Port
+  * Protocol
+  * SslPolicy
+  * Tags
+    * items [Tag](#tag)
 
 ### CreateListenerOutput
 * CreateListenerOutput `object`
-  * Listeners [Listeners](#listeners)
+  * Listeners
+    * items [Listener](#listener)
 
 ### CreateLoadBalancerInput
 * CreateLoadBalancerInput `object`
-  * IpAddressType [IpAddressType](#ipaddresstype)
-  * Name **required** [LoadBalancerName](#loadbalancername)
-  * Scheme [LoadBalancerSchemeEnum](#loadbalancerschemeenum)
-  * SecurityGroups [SecurityGroups](#securitygroups)
-  * SubnetMappings [SubnetMappings](#subnetmappings)
-  * Subnets [Subnets](#subnets)
-  * Tags [TagList](#taglist)
-  * Type [LoadBalancerTypeEnum](#loadbalancertypeenum)
+  * CustomerOwnedIpv4Pool
+  * IpAddressType
+  * Name **required**
+  * Scheme
+  * SecurityGroups
+    * items [SecurityGroupId](#securitygroupid)
+  * SubnetMappings
+    * items [SubnetMapping](#subnetmapping)
+  * Subnets
+    * items [SubnetId](#subnetid)
+  * Tags
+    * items [Tag](#tag)
+  * Type
 
 ### CreateLoadBalancerOutput
 * CreateLoadBalancerOutput `object`
-  * LoadBalancers [LoadBalancers](#loadbalancers)
+  * LoadBalancers
+    * items [LoadBalancer](#loadbalancer)
 
 ### CreateRuleInput
 * CreateRuleInput `object`
-  * Actions **required** [Actions](#actions)
-  * Conditions **required** [RuleConditionList](#ruleconditionlist)
-  * ListenerArn **required** [ListenerArn](#listenerarn)
-  * Priority **required** [RulePriority](#rulepriority)
+  * Actions **required**
+    * items [Action](#action)
+  * Conditions **required**
+    * items [RuleCondition](#rulecondition)
+  * ListenerArn **required**
+  * Priority **required**
+  * Tags
+    * items [Tag](#tag)
 
 ### CreateRuleOutput
 * CreateRuleOutput `object`
-  * Rules [Rules](#rules)
+  * Rules
+    * items [Rule](#rule)
 
 ### CreateTargetGroupInput
 * CreateTargetGroupInput `object`
-  * HealthCheckIntervalSeconds [HealthCheckIntervalSeconds](#healthcheckintervalseconds)
-  * HealthCheckPath [Path](#path)
-  * HealthCheckPort [HealthCheckPort](#healthcheckport)
-  * HealthCheckProtocol [ProtocolEnum](#protocolenum)
-  * HealthCheckTimeoutSeconds [HealthCheckTimeoutSeconds](#healthchecktimeoutseconds)
-  * HealthyThresholdCount [HealthCheckThresholdCount](#healthcheckthresholdcount)
-  * Matcher [Matcher](#matcher)
-  * Name **required** [TargetGroupName](#targetgroupname)
-  * Port **required** [Port](#port)
-  * Protocol **required** [ProtocolEnum](#protocolenum)
-  * TargetType [TargetTypeEnum](#targettypeenum)
-  * UnhealthyThresholdCount [HealthCheckThresholdCount](#healthcheckthresholdcount)
-  * VpcId **required** [VpcId](#vpcid)
+  * HealthCheckEnabled
+  * HealthCheckIntervalSeconds
+  * HealthCheckPath
+  * HealthCheckPort
+  * HealthCheckProtocol
+  * HealthCheckTimeoutSeconds
+  * HealthyThresholdCount
+  * Matcher
+    * GrpcCode
+    * HttpCode
+  * Name **required**
+  * Port
+  * Protocol
+  * ProtocolVersion
+  * Tags
+    * items [Tag](#tag)
+  * TargetType
+  * UnhealthyThresholdCount
+  * VpcId
 
 ### CreateTargetGroupOutput
 * CreateTargetGroupOutput `object`
-  * TargetGroups [TargetGroups](#targetgroups)
+  * TargetGroups
+    * items [TargetGroup](#targetgroup)
 
 ### CreatedTime
 * CreatedTime `string`
+
+### CustomerOwnedIpv4Pool
+* CustomerOwnedIpv4Pool `string`
 
 ### DNSName
 * DNSName `string`
@@ -952,168 +1740,218 @@ amazonaws_elasticloadbalancing.SetSubnets({
 
 ### DeleteListenerInput
 * DeleteListenerInput `object`
-  * ListenerArn **required** [ListenerArn](#listenerarn)
+  * ListenerArn **required**
 
 ### DeleteListenerOutput
 * DeleteListenerOutput `object`
 
 ### DeleteLoadBalancerInput
 * DeleteLoadBalancerInput `object`
-  * LoadBalancerArn **required** [LoadBalancerArn](#loadbalancerarn)
+  * LoadBalancerArn **required**
 
 ### DeleteLoadBalancerOutput
 * DeleteLoadBalancerOutput `object`
 
 ### DeleteRuleInput
 * DeleteRuleInput `object`
-  * RuleArn **required** [RuleArn](#rulearn)
+  * RuleArn **required**
 
 ### DeleteRuleOutput
 * DeleteRuleOutput `object`
 
 ### DeleteTargetGroupInput
 * DeleteTargetGroupInput `object`
-  * TargetGroupArn **required** [TargetGroupArn](#targetgrouparn)
+  * TargetGroupArn **required**
 
 ### DeleteTargetGroupOutput
 * DeleteTargetGroupOutput `object`
 
 ### DeregisterTargetsInput
 * DeregisterTargetsInput `object`
-  * TargetGroupArn **required** [TargetGroupArn](#targetgrouparn)
-  * Targets **required** [TargetDescriptions](#targetdescriptions)
+  * TargetGroupArn **required**
+  * Targets **required**
+    * items [TargetDescription](#targetdescription)
 
 ### DeregisterTargetsOutput
 * DeregisterTargetsOutput `object`
 
 ### DescribeAccountLimitsInput
 * DescribeAccountLimitsInput `object`
-  * Marker [Marker](#marker)
-  * PageSize [PageSize](#pagesize)
+  * Marker
+  * PageSize
 
 ### DescribeAccountLimitsOutput
 * DescribeAccountLimitsOutput `object`
-  * Limits [Limits](#limits)
-  * NextMarker [Marker](#marker)
+  * Limits
+    * items [Limit](#limit)
+  * NextMarker
 
 ### DescribeListenerCertificatesInput
 * DescribeListenerCertificatesInput `object`
-  * ListenerArn **required** [ListenerArn](#listenerarn)
-  * Marker [Marker](#marker)
-  * PageSize [PageSize](#pagesize)
+  * ListenerArn **required**
+  * Marker
+  * PageSize
 
 ### DescribeListenerCertificatesOutput
 * DescribeListenerCertificatesOutput `object`
-  * Certificates [CertificateList](#certificatelist)
-  * NextMarker [Marker](#marker)
+  * Certificates
+    * items [Certificate](#certificate)
+  * NextMarker
 
 ### DescribeListenersInput
 * DescribeListenersInput `object`
-  * ListenerArns [ListenerArns](#listenerarns)
-  * LoadBalancerArn [LoadBalancerArn](#loadbalancerarn)
-  * Marker [Marker](#marker)
-  * PageSize [PageSize](#pagesize)
+  * ListenerArns
+    * items [ListenerArn](#listenerarn)
+  * LoadBalancerArn
+  * Marker
+  * PageSize
 
 ### DescribeListenersOutput
 * DescribeListenersOutput `object`
-  * Listeners [Listeners](#listeners)
-  * NextMarker [Marker](#marker)
+  * Listeners
+    * items [Listener](#listener)
+  * NextMarker
 
 ### DescribeLoadBalancerAttributesInput
 * DescribeLoadBalancerAttributesInput `object`
-  * LoadBalancerArn **required** [LoadBalancerArn](#loadbalancerarn)
+  * LoadBalancerArn **required**
 
 ### DescribeLoadBalancerAttributesOutput
 * DescribeLoadBalancerAttributesOutput `object`
-  * Attributes [LoadBalancerAttributes](#loadbalancerattributes)
+  * Attributes
+    * items [LoadBalancerAttribute](#loadbalancerattribute)
 
 ### DescribeLoadBalancersInput
 * DescribeLoadBalancersInput `object`
-  * LoadBalancerArns [LoadBalancerArns](#loadbalancerarns)
-  * Marker [Marker](#marker)
-  * Names [LoadBalancerNames](#loadbalancernames)
-  * PageSize [PageSize](#pagesize)
+  * LoadBalancerArns
+    * items [LoadBalancerArn](#loadbalancerarn)
+  * Marker
+  * Names
+    * items [LoadBalancerName](#loadbalancername)
+  * PageSize
 
 ### DescribeLoadBalancersOutput
 * DescribeLoadBalancersOutput `object`
-  * LoadBalancers [LoadBalancers](#loadbalancers)
-  * NextMarker [Marker](#marker)
+  * LoadBalancers
+    * items [LoadBalancer](#loadbalancer)
+  * NextMarker
 
 ### DescribeRulesInput
 * DescribeRulesInput `object`
-  * ListenerArn [ListenerArn](#listenerarn)
-  * Marker [Marker](#marker)
-  * PageSize [PageSize](#pagesize)
-  * RuleArns [RuleArns](#rulearns)
+  * ListenerArn
+  * Marker
+  * PageSize
+  * RuleArns
+    * items [RuleArn](#rulearn)
 
 ### DescribeRulesOutput
 * DescribeRulesOutput `object`
-  * NextMarker [Marker](#marker)
-  * Rules [Rules](#rules)
+  * NextMarker
+  * Rules
+    * items [Rule](#rule)
 
 ### DescribeSSLPoliciesInput
 * DescribeSSLPoliciesInput `object`
-  * Marker [Marker](#marker)
-  * Names [SslPolicyNames](#sslpolicynames)
-  * PageSize [PageSize](#pagesize)
+  * Marker
+  * Names
+    * items [SslPolicyName](#sslpolicyname)
+  * PageSize
 
 ### DescribeSSLPoliciesOutput
 * DescribeSSLPoliciesOutput `object`
-  * NextMarker [Marker](#marker)
-  * SslPolicies [SslPolicies](#sslpolicies)
+  * NextMarker
+  * SslPolicies
+    * items [SslPolicy](#sslpolicy)
 
 ### DescribeTagsInput
 * DescribeTagsInput `object`
-  * ResourceArns **required** [ResourceArns](#resourcearns)
+  * ResourceArns **required**
+    * items [ResourceArn](#resourcearn)
 
 ### DescribeTagsOutput
 * DescribeTagsOutput `object`
-  * TagDescriptions [TagDescriptions](#tagdescriptions)
+  * TagDescriptions
+    * items [TagDescription](#tagdescription)
 
 ### DescribeTargetGroupAttributesInput
 * DescribeTargetGroupAttributesInput `object`
-  * TargetGroupArn **required** [TargetGroupArn](#targetgrouparn)
+  * TargetGroupArn **required**
 
 ### DescribeTargetGroupAttributesOutput
 * DescribeTargetGroupAttributesOutput `object`
-  * Attributes [TargetGroupAttributes](#targetgroupattributes)
+  * Attributes
+    * items [TargetGroupAttribute](#targetgroupattribute)
 
 ### DescribeTargetGroupsInput
 * DescribeTargetGroupsInput `object`
-  * LoadBalancerArn [LoadBalancerArn](#loadbalancerarn)
-  * Marker [Marker](#marker)
-  * Names [TargetGroupNames](#targetgroupnames)
-  * PageSize [PageSize](#pagesize)
-  * TargetGroupArns [TargetGroupArns](#targetgrouparns)
+  * LoadBalancerArn
+  * Marker
+  * Names
+    * items [TargetGroupName](#targetgroupname)
+  * PageSize
+  * TargetGroupArns
+    * items [TargetGroupArn](#targetgrouparn)
 
 ### DescribeTargetGroupsOutput
 * DescribeTargetGroupsOutput `object`
-  * NextMarker [Marker](#marker)
-  * TargetGroups [TargetGroups](#targetgroups)
+  * NextMarker
+  * TargetGroups
+    * items [TargetGroup](#targetgroup)
 
 ### DescribeTargetHealthInput
 * DescribeTargetHealthInput `object`
-  * TargetGroupArn **required** [TargetGroupArn](#targetgrouparn)
-  * Targets [TargetDescriptions](#targetdescriptions)
+  * TargetGroupArn **required**
+  * Targets
+    * items [TargetDescription](#targetdescription)
 
 ### DescribeTargetHealthOutput
 * DescribeTargetHealthOutput `object`
-  * TargetHealthDescriptions [TargetHealthDescriptions](#targethealthdescriptions)
+  * TargetHealthDescriptions
+    * items [TargetHealthDescription](#targethealthdescription)
 
 ### Description
 * Description `string`
 
 ### DuplicateListenerException
-* DuplicateListenerException `object`: A listener with the specified port already exists.
+
 
 ### DuplicateLoadBalancerNameException
-* DuplicateLoadBalancerNameException `object`: A load balancer with the specified name already exists.
+
 
 ### DuplicateTagKeysException
-* DuplicateTagKeysException `object`: A tag key was specified more than once.
+
 
 ### DuplicateTargetGroupNameException
-* DuplicateTargetGroupNameException `object`: A target group with the specified name already exists.
+
+
+### FixedResponseActionConfig
+* FixedResponseActionConfig `object`: Information about an action that returns a custom HTTP response.
+  * ContentType
+  * MessageBody
+  * StatusCode **required**
+
+### FixedResponseActionContentType
+* FixedResponseActionContentType `string`
+
+### FixedResponseActionMessage
+* FixedResponseActionMessage `string`
+
+### FixedResponseActionStatusCode
+* FixedResponseActionStatusCode `string`
+
+### ForwardActionConfig
+* ForwardActionConfig `object`: Information about a forward action.
+  * TargetGroupStickinessConfig
+    * DurationSeconds
+    * Enabled
+  * TargetGroups
+    * items [TargetGroupTuple](#targetgrouptuple)
+
+### GrpcCode
+* GrpcCode `string`
+
+### HealthCheckEnabled
+* HealthCheckEnabled `boolean`
 
 ### HealthCheckIntervalSeconds
 * HealthCheckIntervalSeconds `integer`
@@ -1128,31 +1966,53 @@ amazonaws_elasticloadbalancing.SetSubnets({
 * HealthCheckTimeoutSeconds `integer`
 
 ### HealthUnavailableException
-* HealthUnavailableException `object`: The health of the specified targets could not be retrieved due to an internal error.
+
+
+### HostHeaderConditionConfig
+* HostHeaderConditionConfig `object`: Information about a host header condition.
+  * Values
+    * items [StringValue](#stringvalue)
 
 ### HttpCode
 * HttpCode `string`
 
+### HttpHeaderConditionConfig
+* HttpHeaderConditionConfig `object`: <p>Information about an HTTP header condition.</p> <p>There is a set of standard HTTP header fields. You can also define custom HTTP header fields.</p>
+  * HttpHeaderName
+  * Values
+    * items [StringValue](#stringvalue)
+
+### HttpHeaderConditionName
+* HttpHeaderConditionName `string`
+
+### HttpRequestMethodConditionConfig
+* HttpRequestMethodConditionConfig `object`: <p>Information about an HTTP method condition.</p> <p>HTTP defines a set of request methods, also referred to as HTTP verbs. For more information, see the <a href="https://www.iana.org/assignments/http-methods/http-methods.xhtml">HTTP Method Registry</a>. You can also define custom HTTP methods.</p>
+  * Values
+    * items [StringValue](#stringvalue)
+
+### IPv6Address
+* IPv6Address `string`
+
 ### IncompatibleProtocolsException
-* IncompatibleProtocolsException `object`: The specified configuration is not valid with this protocol.
+
 
 ### InvalidConfigurationRequestException
-* InvalidConfigurationRequestException `object`: The requested configuration is not valid.
+
 
 ### InvalidLoadBalancerActionException
-* InvalidLoadBalancerActionException `object`: The requested action is not valid.
+
 
 ### InvalidSchemeException
-* InvalidSchemeException `object`: The requested scheme is not valid.
+
 
 ### InvalidSecurityGroupException
-* InvalidSecurityGroupException `object`: The specified security group does not exist.
+
 
 ### InvalidSubnetException
-* InvalidSubnetException `object`: The specified subnet is out of available addresses.
+
 
 ### InvalidTargetException
-* InvalidTargetException `object`: The specified target does not exist, is not in the same VPC as the target group, or has an unsupported instance type.
+
 
 ### IpAddress
 * IpAddress `string`
@@ -1165,8 +2025,8 @@ amazonaws_elasticloadbalancing.SetSubnets({
 
 ### Limit
 * Limit `object`: Information about an Elastic Load Balancing resource limit for your AWS account.
-  * Max [Max](#max)
-  * Name [Name](#name)
+  * Max
+  * Name
 
 ### Limits
 * Limits `array`
@@ -1178,13 +2038,17 @@ amazonaws_elasticloadbalancing.SetSubnets({
 
 ### Listener
 * Listener `object`: Information about a listener.
-  * Certificates [CertificateList](#certificatelist)
-  * DefaultActions [Actions](#actions)
-  * ListenerArn [ListenerArn](#listenerarn)
-  * LoadBalancerArn [LoadBalancerArn](#loadbalancerarn)
-  * Port [Port](#port)
-  * Protocol [ProtocolEnum](#protocolenum)
-  * SslPolicy [SslPolicyName](#sslpolicyname)
+  * AlpnPolicy
+    * items [AlpnPolicyValue](#alpnpolicyvalue)
+  * Certificates
+    * items [Certificate](#certificate)
+  * DefaultActions
+    * items [Action](#action)
+  * ListenerArn
+  * LoadBalancerArn
+  * Port
+  * Protocol
+  * SslPolicy
 
 ### ListenerArn
 * ListenerArn `string`
@@ -1194,7 +2058,7 @@ amazonaws_elasticloadbalancing.SetSubnets({
   * items [ListenerArn](#listenerarn)
 
 ### ListenerNotFoundException
-* ListenerNotFoundException `object`: The specified listener does not exist.
+
 
 ### Listeners
 * Listeners `array`
@@ -1202,23 +2066,30 @@ amazonaws_elasticloadbalancing.SetSubnets({
 
 ### LoadBalancer
 * LoadBalancer `object`: Information about a load balancer.
-  * AvailabilityZones [AvailabilityZones](#availabilityzones)
-  * CanonicalHostedZoneId [CanonicalHostedZoneId](#canonicalhostedzoneid)
-  * CreatedTime [CreatedTime](#createdtime)
-  * DNSName [DNSName](#dnsname)
-  * IpAddressType [IpAddressType](#ipaddresstype)
-  * LoadBalancerArn [LoadBalancerArn](#loadbalancerarn)
-  * LoadBalancerName [LoadBalancerName](#loadbalancername)
-  * Scheme [LoadBalancerSchemeEnum](#loadbalancerschemeenum)
-  * SecurityGroups [SecurityGroups](#securitygroups)
-  * State [LoadBalancerState](#loadbalancerstate)
-  * Type [LoadBalancerTypeEnum](#loadbalancertypeenum)
-  * VpcId [VpcId](#vpcid)
+  * AvailabilityZones
+    * items [AvailabilityZone](#availabilityzone)
+  * CanonicalHostedZoneId
+  * CreatedTime
+  * CustomerOwnedIpv4Pool
+  * DNSName
+  * IpAddressType
+  * LoadBalancerArn
+  * LoadBalancerName
+  * Scheme
+  * SecurityGroups
+    * items [SecurityGroupId](#securitygroupid)
+  * State
+    * Code
+    * Reason
+  * Type
+  * VpcId
 
 ### LoadBalancerAddress
 * LoadBalancerAddress `object`: Information about a static IP address for a load balancer.
-  * AllocationId [AllocationId](#allocationid)
-  * IpAddress [IpAddress](#ipaddress)
+  * AllocationId
+  * IPv6Address
+  * IpAddress
+  * PrivateIPv4Address
 
 ### LoadBalancerAddresses
 * LoadBalancerAddresses `array`
@@ -1233,8 +2104,8 @@ amazonaws_elasticloadbalancing.SetSubnets({
 
 ### LoadBalancerAttribute
 * LoadBalancerAttribute `object`: Information about a load balancer attribute.
-  * Key [LoadBalancerAttributeKey](#loadbalancerattributekey)
-  * Value [LoadBalancerAttributeValue](#loadbalancerattributevalue)
+  * Key
+  * Value
 
 ### LoadBalancerAttributeKey
 * LoadBalancerAttributeKey `string`
@@ -1254,21 +2125,21 @@ amazonaws_elasticloadbalancing.SetSubnets({
   * items [LoadBalancerName](#loadbalancername)
 
 ### LoadBalancerNotFoundException
-* LoadBalancerNotFoundException `object`: The specified load balancer does not exist.
+
 
 ### LoadBalancerSchemeEnum
 * LoadBalancerSchemeEnum `string` (values: internet-facing, internal)
 
 ### LoadBalancerState
 * LoadBalancerState `object`: Information about the state of the load balancer.
-  * Code [LoadBalancerStateEnum](#loadbalancerstateenum)
-  * Reason [StateReason](#statereason)
+  * Code
+  * Reason
 
 ### LoadBalancerStateEnum
 * LoadBalancerStateEnum `string` (values: active, provisioning, active_impaired, failed)
 
 ### LoadBalancerTypeEnum
-* LoadBalancerTypeEnum `string` (values: application, network)
+* LoadBalancerTypeEnum `string` (values: application, network, gateway)
 
 ### LoadBalancers
 * LoadBalancers `array`
@@ -1278,74 +2149,94 @@ amazonaws_elasticloadbalancing.SetSubnets({
 * Marker `string`
 
 ### Matcher
-* Matcher `object`: Information to use when checking for a successful response from a target.
-  * HttpCode **required** [HttpCode](#httpcode)
+* Matcher `object`: The codes to use when checking for a successful response from a target. If the protocol version is gRPC, these are gRPC codes. Otherwise, these are HTTP codes.
+  * GrpcCode
+  * HttpCode
 
 ### Max
 * Max `string`
 
 ### ModifyListenerInput
 * ModifyListenerInput `object`
-  * Certificates [CertificateList](#certificatelist)
-  * DefaultActions [Actions](#actions)
-  * ListenerArn **required** [ListenerArn](#listenerarn)
-  * Port [Port](#port)
-  * Protocol [ProtocolEnum](#protocolenum)
-  * SslPolicy [SslPolicyName](#sslpolicyname)
+  * AlpnPolicy
+    * items [AlpnPolicyValue](#alpnpolicyvalue)
+  * Certificates
+    * items [Certificate](#certificate)
+  * DefaultActions
+    * items [Action](#action)
+  * ListenerArn **required**
+  * Port
+  * Protocol
+  * SslPolicy
 
 ### ModifyListenerOutput
 * ModifyListenerOutput `object`
-  * Listeners [Listeners](#listeners)
+  * Listeners
+    * items [Listener](#listener)
 
 ### ModifyLoadBalancerAttributesInput
 * ModifyLoadBalancerAttributesInput `object`
-  * Attributes **required** [LoadBalancerAttributes](#loadbalancerattributes)
-  * LoadBalancerArn **required** [LoadBalancerArn](#loadbalancerarn)
+  * Attributes **required**
+    * items [LoadBalancerAttribute](#loadbalancerattribute)
+  * LoadBalancerArn **required**
 
 ### ModifyLoadBalancerAttributesOutput
 * ModifyLoadBalancerAttributesOutput `object`
-  * Attributes [LoadBalancerAttributes](#loadbalancerattributes)
+  * Attributes
+    * items [LoadBalancerAttribute](#loadbalancerattribute)
 
 ### ModifyRuleInput
 * ModifyRuleInput `object`
-  * Actions [Actions](#actions)
-  * Conditions [RuleConditionList](#ruleconditionlist)
-  * RuleArn **required** [RuleArn](#rulearn)
+  * Actions
+    * items [Action](#action)
+  * Conditions
+    * items [RuleCondition](#rulecondition)
+  * RuleArn **required**
 
 ### ModifyRuleOutput
 * ModifyRuleOutput `object`
-  * Rules [Rules](#rules)
+  * Rules
+    * items [Rule](#rule)
 
 ### ModifyTargetGroupAttributesInput
 * ModifyTargetGroupAttributesInput `object`
-  * Attributes **required** [TargetGroupAttributes](#targetgroupattributes)
-  * TargetGroupArn **required** [TargetGroupArn](#targetgrouparn)
+  * Attributes **required**
+    * items [TargetGroupAttribute](#targetgroupattribute)
+  * TargetGroupArn **required**
 
 ### ModifyTargetGroupAttributesOutput
 * ModifyTargetGroupAttributesOutput `object`
-  * Attributes [TargetGroupAttributes](#targetgroupattributes)
+  * Attributes
+    * items [TargetGroupAttribute](#targetgroupattribute)
 
 ### ModifyTargetGroupInput
 * ModifyTargetGroupInput `object`
-  * HealthCheckIntervalSeconds [HealthCheckIntervalSeconds](#healthcheckintervalseconds)
-  * HealthCheckPath [Path](#path)
-  * HealthCheckPort [HealthCheckPort](#healthcheckport)
-  * HealthCheckProtocol [ProtocolEnum](#protocolenum)
-  * HealthCheckTimeoutSeconds [HealthCheckTimeoutSeconds](#healthchecktimeoutseconds)
-  * HealthyThresholdCount [HealthCheckThresholdCount](#healthcheckthresholdcount)
-  * Matcher [Matcher](#matcher)
-  * TargetGroupArn **required** [TargetGroupArn](#targetgrouparn)
-  * UnhealthyThresholdCount [HealthCheckThresholdCount](#healthcheckthresholdcount)
+  * HealthCheckEnabled
+  * HealthCheckIntervalSeconds
+  * HealthCheckPath
+  * HealthCheckPort
+  * HealthCheckProtocol
+  * HealthCheckTimeoutSeconds
+  * HealthyThresholdCount
+  * Matcher
+    * GrpcCode
+    * HttpCode
+  * TargetGroupArn **required**
+  * UnhealthyThresholdCount
 
 ### ModifyTargetGroupOutput
 * ModifyTargetGroupOutput `object`
-  * TargetGroups [TargetGroups](#targetgroups)
+  * TargetGroups
+    * items [TargetGroup](#targetgroup)
 
 ### Name
 * Name `string`
 
 ### OperationNotPermittedException
-* OperationNotPermittedException `object`: This operation is not allowed.
+
+
+### OutpostId
+* OutpostId `string`
 
 ### PageSize
 * PageSize `integer`
@@ -1353,35 +2244,91 @@ amazonaws_elasticloadbalancing.SetSubnets({
 ### Path
 * Path `string`
 
+### PathPatternConditionConfig
+* PathPatternConditionConfig `object`: Information about a path pattern condition.
+  * Values
+    * items [StringValue](#stringvalue)
+
 ### Port
 * Port `integer`
 
 ### PriorityInUseException
-* PriorityInUseException `object`: The specified priority is in use.
+
+
+### PrivateIPv4Address
+* PrivateIPv4Address `string`
 
 ### ProtocolEnum
-* ProtocolEnum `string` (values: HTTP, HTTPS, TCP)
+* ProtocolEnum `string` (values: HTTP, HTTPS, TCP, TLS, UDP, TCP_UDP, GENEVE)
+
+### ProtocolVersion
+* ProtocolVersion `string`
+
+### QueryStringConditionConfig
+* QueryStringConditionConfig `object`: <p>Information about a query string condition.</p> <p>The query string component of a URI starts after the first '?' character and is terminated by either a '#' character or the end of the URI. A typical query string contains key/value pairs separated by '&amp;' characters. The allowed characters are specified by RFC 3986. Any character can be percentage encoded.</p>
+  * Values
+    * items [QueryStringKeyValuePair](#querystringkeyvaluepair)
+
+### QueryStringKeyValuePair
+* QueryStringKeyValuePair `object`: Information about a key/value pair.
+  * Key
+  * Value
+
+### QueryStringKeyValuePairList
+* QueryStringKeyValuePairList `array`
+  * items [QueryStringKeyValuePair](#querystringkeyvaluepair)
+
+### RedirectActionConfig
+* RedirectActionConfig `object`: <p>Information about a redirect action.</p> <p>A URI consists of the following components: protocol://hostname:port/path?query. You must modify at least one of the following components to avoid a redirect loop: protocol, hostname, port, or path. Any components that you do not modify retain their original values.</p> <p>You can reuse URI components using the following reserved keywords:</p> <ul> <li> <p>#{protocol}</p> </li> <li> <p>#{host}</p> </li> <li> <p>#{port}</p> </li> <li> <p>#{path} (the leading "/" is removed)</p> </li> <li> <p>#{query}</p> </li> </ul> <p>For example, you can change the path to "/new/#{path}", the hostname to "example.#{host}", or the query to "#{query}&amp;value=xyz".</p>
+  * Host
+  * Path
+  * Port
+  * Protocol
+  * Query
+  * StatusCode **required**
+
+### RedirectActionHost
+* RedirectActionHost `string`
+
+### RedirectActionPath
+* RedirectActionPath `string`
+
+### RedirectActionPort
+* RedirectActionPort `string`
+
+### RedirectActionProtocol
+* RedirectActionProtocol `string`
+
+### RedirectActionQuery
+* RedirectActionQuery `string`
+
+### RedirectActionStatusCodeEnum
+* RedirectActionStatusCodeEnum `string` (values: HTTP_301, HTTP_302)
 
 ### RegisterTargetsInput
 * RegisterTargetsInput `object`
-  * TargetGroupArn **required** [TargetGroupArn](#targetgrouparn)
-  * Targets **required** [TargetDescriptions](#targetdescriptions)
+  * TargetGroupArn **required**
+  * Targets **required**
+    * items [TargetDescription](#targetdescription)
 
 ### RegisterTargetsOutput
 * RegisterTargetsOutput `object`
 
 ### RemoveListenerCertificatesInput
 * RemoveListenerCertificatesInput `object`
-  * Certificates **required** [CertificateList](#certificatelist)
-  * ListenerArn **required** [ListenerArn](#listenerarn)
+  * Certificates **required**
+    * items [Certificate](#certificate)
+  * ListenerArn **required**
 
 ### RemoveListenerCertificatesOutput
 * RemoveListenerCertificatesOutput `object`
 
 ### RemoveTagsInput
 * RemoveTagsInput `object`
-  * ResourceArns **required** [ResourceArns](#resourcearns)
-  * TagKeys **required** [TagKeys](#tagkeys)
+  * ResourceArns **required**
+    * items [ResourceArn](#resourcearn)
+  * TagKeys **required**
+    * items [TagKey](#tagkey)
 
 ### RemoveTagsOutput
 * RemoveTagsOutput `object`
@@ -1394,15 +2341,17 @@ amazonaws_elasticloadbalancing.SetSubnets({
   * items [ResourceArn](#resourcearn)
 
 ### ResourceInUseException
-* ResourceInUseException `object`: A specified resource is in use.
+
 
 ### Rule
 * Rule `object`: Information about a rule.
-  * Actions [Actions](#actions)
-  * Conditions [RuleConditionList](#ruleconditionlist)
-  * IsDefault [IsDefault](#isdefault)
-  * Priority [String](#string)
-  * RuleArn [RuleArn](#rulearn)
+  * Actions
+    * items [Action](#action)
+  * Conditions
+    * items [RuleCondition](#rulecondition)
+  * IsDefault
+  * Priority
+  * RuleArn
 
 ### RuleArn
 * RuleArn `string`
@@ -1412,16 +2361,36 @@ amazonaws_elasticloadbalancing.SetSubnets({
   * items [RuleArn](#rulearn)
 
 ### RuleCondition
-* RuleCondition `object`: Information about a condition for a rule.
-  * Field [ConditionFieldName](#conditionfieldname)
-  * Values [ListOfString](#listofstring)
+* RuleCondition `object`: <p>Information about a condition for a rule.</p> <p>Each rule can optionally include up to one of each of the following conditions: <code>http-request-method</code>, <code>host-header</code>, <code>path-pattern</code>, and <code>source-ip</code>. Each rule can also optionally include one or more of each of the following conditions: <code>http-header</code> and <code>query-string</code>.</p>
+  * Field
+  * HostHeaderConfig
+    * Values
+      * items [StringValue](#stringvalue)
+  * HttpHeaderConfig
+    * HttpHeaderName
+    * Values
+      * items [StringValue](#stringvalue)
+  * HttpRequestMethodConfig
+    * Values
+      * items [StringValue](#stringvalue)
+  * PathPatternConfig
+    * Values
+      * items [StringValue](#stringvalue)
+  * QueryStringConfig
+    * Values
+      * items [QueryStringKeyValuePair](#querystringkeyvaluepair)
+  * SourceIpConfig
+    * Values
+      * items [StringValue](#stringvalue)
+  * Values
+    * items [StringValue](#stringvalue)
 
 ### RuleConditionList
 * RuleConditionList `array`
   * items [RuleCondition](#rulecondition)
 
 ### RuleNotFoundException
-* RuleNotFoundException `object`: The specified rule does not exist.
+
 
 ### RulePriority
 * RulePriority `integer`
@@ -1432,15 +2401,15 @@ amazonaws_elasticloadbalancing.SetSubnets({
 
 ### RulePriorityPair
 * RulePriorityPair `object`: Information about the priorities for the rules for a listener.
-  * Priority [RulePriority](#rulepriority)
-  * RuleArn [RuleArn](#rulearn)
+  * Priority
+  * RuleArn
 
 ### Rules
 * Rules `array`
   * items [Rule](#rule)
 
 ### SSLPolicyNotFoundException
-* SSLPolicyNotFoundException `object`: The specified SSL policy does not exist.
+
 
 ### SecurityGroupId
 * SecurityGroupId `string`
@@ -1451,39 +2420,53 @@ amazonaws_elasticloadbalancing.SetSubnets({
 
 ### SetIpAddressTypeInput
 * SetIpAddressTypeInput `object`
-  * IpAddressType **required** [IpAddressType](#ipaddresstype)
-  * LoadBalancerArn **required** [LoadBalancerArn](#loadbalancerarn)
+  * IpAddressType **required**
+  * LoadBalancerArn **required**
 
 ### SetIpAddressTypeOutput
 * SetIpAddressTypeOutput `object`
-  * IpAddressType [IpAddressType](#ipaddresstype)
+  * IpAddressType
 
 ### SetRulePrioritiesInput
 * SetRulePrioritiesInput `object`
-  * RulePriorities **required** [RulePriorityList](#ruleprioritylist)
+  * RulePriorities **required**
+    * items [RulePriorityPair](#ruleprioritypair)
 
 ### SetRulePrioritiesOutput
 * SetRulePrioritiesOutput `object`
-  * Rules [Rules](#rules)
+  * Rules
+    * items [Rule](#rule)
 
 ### SetSecurityGroupsInput
 * SetSecurityGroupsInput `object`
-  * LoadBalancerArn **required** [LoadBalancerArn](#loadbalancerarn)
-  * SecurityGroups **required** [SecurityGroups](#securitygroups)
+  * LoadBalancerArn **required**
+  * SecurityGroups **required**
+    * items [SecurityGroupId](#securitygroupid)
 
 ### SetSecurityGroupsOutput
 * SetSecurityGroupsOutput `object`
-  * SecurityGroupIds [SecurityGroups](#securitygroups)
+  * SecurityGroupIds
+    * items [SecurityGroupId](#securitygroupid)
 
 ### SetSubnetsInput
 * SetSubnetsInput `object`
-  * LoadBalancerArn **required** [LoadBalancerArn](#loadbalancerarn)
-  * SubnetMappings [SubnetMappings](#subnetmappings)
-  * Subnets [Subnets](#subnets)
+  * IpAddressType
+  * LoadBalancerArn **required**
+  * SubnetMappings
+    * items [SubnetMapping](#subnetmapping)
+  * Subnets
+    * items [SubnetId](#subnetid)
 
 ### SetSubnetsOutput
 * SetSubnetsOutput `object`
-  * AvailabilityZones [AvailabilityZones](#availabilityzones)
+  * AvailabilityZones
+    * items [AvailabilityZone](#availabilityzone)
+  * IpAddressType
+
+### SourceIpConditionConfig
+* SourceIpConditionConfig `object`: <p>Information about a source IP condition.</p> <p>You can use this condition to route based on the IP address of the source that connects to the load balancer. If a client is behind a proxy, this is the IP address of the proxy not the IP address of the client.</p>
+  * Values
+    * items [StringValue](#stringvalue)
 
 ### SslPolicies
 * SslPolicies `array`
@@ -1491,9 +2474,11 @@ amazonaws_elasticloadbalancing.SetSubnets({
 
 ### SslPolicy
 * SslPolicy `object`: Information about a policy used for SSL negotiation.
-  * Ciphers [Ciphers](#ciphers)
-  * Name [SslPolicyName](#sslpolicyname)
-  * SslProtocols [SslProtocols](#sslprotocols)
+  * Ciphers
+    * items [Cipher](#cipher)
+  * Name
+  * SslProtocols
+    * items [SslProtocol](#sslprotocol)
 
 ### SslPolicyName
 * SslPolicyName `string`
@@ -1523,15 +2508,17 @@ amazonaws_elasticloadbalancing.SetSubnets({
 
 ### SubnetMapping
 * SubnetMapping `object`: Information about a subnet mapping.
-  * AllocationId [AllocationId](#allocationid)
-  * SubnetId [SubnetId](#subnetid)
+  * AllocationId
+  * IPv6Address
+  * PrivateIPv4Address
+  * SubnetId
 
 ### SubnetMappings
 * SubnetMappings `array`
   * items [SubnetMapping](#subnetmapping)
 
 ### SubnetNotFoundException
-* SubnetNotFoundException `object`: The specified subnet does not exist.
+
 
 ### Subnets
 * Subnets `array`
@@ -1539,13 +2526,14 @@ amazonaws_elasticloadbalancing.SetSubnets({
 
 ### Tag
 * Tag `object`: Information about a tag.
-  * Key **required** [TagKey](#tagkey)
-  * Value [TagValue](#tagvalue)
+  * Key **required**
+  * Value
 
 ### TagDescription
 * TagDescription `object`: The tags associated with a resource.
-  * ResourceArn [ResourceArn](#resourcearn)
-  * Tags [TagList](#taglist)
+  * ResourceArn
+  * Tags
+    * items [Tag](#tag)
 
 ### TagDescriptions
 * TagDescriptions `array`
@@ -1567,9 +2555,9 @@ amazonaws_elasticloadbalancing.SetSubnets({
 
 ### TargetDescription
 * TargetDescription `object`: Information about a target.
-  * AvailabilityZone [ZoneName](#zonename)
-  * Id **required** [TargetId](#targetid)
-  * Port [Port](#port)
+  * AvailabilityZone
+  * Id **required**
+  * Port
 
 ### TargetDescriptions
 * TargetDescriptions `array`
@@ -1577,21 +2565,26 @@ amazonaws_elasticloadbalancing.SetSubnets({
 
 ### TargetGroup
 * TargetGroup `object`: Information about a target group.
-  * HealthCheckIntervalSeconds [HealthCheckIntervalSeconds](#healthcheckintervalseconds)
-  * HealthCheckPath [Path](#path)
-  * HealthCheckPort [HealthCheckPort](#healthcheckport)
-  * HealthCheckProtocol [ProtocolEnum](#protocolenum)
-  * HealthCheckTimeoutSeconds [HealthCheckTimeoutSeconds](#healthchecktimeoutseconds)
-  * HealthyThresholdCount [HealthCheckThresholdCount](#healthcheckthresholdcount)
-  * LoadBalancerArns [LoadBalancerArns](#loadbalancerarns)
-  * Matcher [Matcher](#matcher)
-  * Port [Port](#port)
-  * Protocol [ProtocolEnum](#protocolenum)
-  * TargetGroupArn [TargetGroupArn](#targetgrouparn)
-  * TargetGroupName [TargetGroupName](#targetgroupname)
-  * TargetType [TargetTypeEnum](#targettypeenum)
-  * UnhealthyThresholdCount [HealthCheckThresholdCount](#healthcheckthresholdcount)
-  * VpcId [VpcId](#vpcid)
+  * HealthCheckEnabled
+  * HealthCheckIntervalSeconds
+  * HealthCheckPath
+  * HealthCheckPort
+  * HealthCheckProtocol
+  * HealthCheckTimeoutSeconds
+  * HealthyThresholdCount
+  * LoadBalancerArns
+    * items [LoadBalancerArn](#loadbalancerarn)
+  * Matcher
+    * GrpcCode
+    * HttpCode
+  * Port
+  * Protocol
+  * ProtocolVersion
+  * TargetGroupArn
+  * TargetGroupName
+  * TargetType
+  * UnhealthyThresholdCount
+  * VpcId
 
 ### TargetGroupArn
 * TargetGroupArn `string`
@@ -1601,12 +2594,12 @@ amazonaws_elasticloadbalancing.SetSubnets({
   * items [TargetGroupArn](#targetgrouparn)
 
 ### TargetGroupAssociationLimitException
-* TargetGroupAssociationLimitException `object`: You've reached the limit on the number of load balancers per target group.
+
 
 ### TargetGroupAttribute
 * TargetGroupAttribute `object`: Information about a target group attribute.
-  * Key [TargetGroupAttributeKey](#targetgroupattributekey)
-  * Value [TargetGroupAttributeValue](#targetgroupattributevalue)
+  * Key
+  * Value
 
 ### TargetGroupAttributeKey
 * TargetGroupAttributeKey `string`
@@ -1618,6 +2611,10 @@ amazonaws_elasticloadbalancing.SetSubnets({
 * TargetGroupAttributes `array`
   * items [TargetGroupAttribute](#targetgroupattribute)
 
+### TargetGroupList
+* TargetGroupList `array`
+  * items [TargetGroupTuple](#targetgrouptuple)
+
 ### TargetGroupName
 * TargetGroupName `string`
 
@@ -1626,7 +2623,26 @@ amazonaws_elasticloadbalancing.SetSubnets({
   * items [TargetGroupName](#targetgroupname)
 
 ### TargetGroupNotFoundException
-* TargetGroupNotFoundException `object`: The specified target group does not exist.
+
+
+### TargetGroupStickinessConfig
+* TargetGroupStickinessConfig `object`: Information about the target group stickiness for a rule.
+  * DurationSeconds
+  * Enabled
+
+### TargetGroupStickinessDurationSeconds
+* TargetGroupStickinessDurationSeconds `integer`
+
+### TargetGroupStickinessEnabled
+* TargetGroupStickinessEnabled `boolean`
+
+### TargetGroupTuple
+* TargetGroupTuple `object`: Information about how traffic will be distributed between multiple target groups in a forward rule.
+  * TargetGroupArn
+  * Weight
+
+### TargetGroupWeight
+* TargetGroupWeight `integer`
 
 ### TargetGroups
 * TargetGroups `array`
@@ -1634,22 +2650,28 @@ amazonaws_elasticloadbalancing.SetSubnets({
 
 ### TargetHealth
 * TargetHealth `object`: Information about the current health of a target.
-  * Description [Description](#description)
-  * Reason [TargetHealthReasonEnum](#targethealthreasonenum)
-  * State [TargetHealthStateEnum](#targethealthstateenum)
+  * Description
+  * Reason
+  * State
 
 ### TargetHealthDescription
 * TargetHealthDescription `object`: Information about the health of a target.
-  * HealthCheckPort [HealthCheckPort](#healthcheckport)
-  * Target [TargetDescription](#targetdescription)
-  * TargetHealth [TargetHealth](#targethealth)
+  * HealthCheckPort
+  * Target
+    * AvailabilityZone
+    * Id **required**
+    * Port
+  * TargetHealth
+    * Description
+    * Reason
+    * State
 
 ### TargetHealthDescriptions
 * TargetHealthDescriptions `array`
   * items [TargetHealthDescription](#targethealthdescription)
 
 ### TargetHealthReasonEnum
-* TargetHealthReasonEnum `string` (values: Elb.RegistrationInProgress, Elb.InitialHealthChecking, Target.ResponseCodeMismatch, Target.Timeout, Target.FailedHealthChecks, Target.NotRegistered, Target.NotInUse, Target.DeregistrationInProgress, Target.InvalidState, Target.IpUnusable, Elb.InternalError)
+* TargetHealthReasonEnum `string` (values: Elb.RegistrationInProgress, Elb.InitialHealthChecking, Target.ResponseCodeMismatch, Target.Timeout, Target.FailedHealthChecks, Target.NotRegistered, Target.NotInUse, Target.DeregistrationInProgress, Target.InvalidState, Target.IpUnusable, Target.HealthCheckDisabled, Elb.InternalError)
 
 ### TargetHealthStateEnum
 * TargetHealthStateEnum `string` (values: initial, healthy, unhealthy, unused, draining, unavailable)
@@ -1658,37 +2680,40 @@ amazonaws_elasticloadbalancing.SetSubnets({
 * TargetId `string`
 
 ### TargetTypeEnum
-* TargetTypeEnum `string` (values: instance, ip)
+* TargetTypeEnum `string` (values: instance, ip, lambda)
 
 ### TooManyActionsException
-* TooManyActionsException `object`: You've reached the limit on the number of actions per rule.
+
 
 ### TooManyCertificatesException
-* TooManyCertificatesException `object`: You've reached the limit on the number of certificates per load balancer.
+
 
 ### TooManyListenersException
-* TooManyListenersException `object`: You've reached the limit on the number of listeners per load balancer.
+
 
 ### TooManyLoadBalancersException
-* TooManyLoadBalancersException `object`: You've reached the limit on the number of load balancers for your AWS account.
+
 
 ### TooManyRegistrationsForTargetIdException
-* TooManyRegistrationsForTargetIdException `object`: You've reached the limit on the number of times a target can be registered with a load balancer.
+
 
 ### TooManyRulesException
-* TooManyRulesException `object`: You've reached the limit on the number of rules per load balancer.
+
 
 ### TooManyTagsException
-* TooManyTagsException `object`: You've reached the limit on the number of tags per load balancer.
+
 
 ### TooManyTargetGroupsException
-* TooManyTargetGroupsException `object`: You've reached the limit on the number of target groups for your AWS account.
+
 
 ### TooManyTargetsException
-* TooManyTargetsException `object`: You've reached the limit on the number of targets.
+
+
+### TooManyUniqueTargetGroupsPerLoadBalancerException
+
 
 ### UnsupportedProtocolException
-* UnsupportedProtocolException `object`: The specified protocol is not supported.
+
 
 ### VpcId
 * VpcId `string`

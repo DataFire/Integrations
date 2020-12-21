@@ -6,7 +6,7 @@
   "host": "management.azure.com",
   "info": {
     "title": "ContainerInstanceManagementClient",
-    "version": "2017-10-01-preview",
+    "version": "2018-10-01",
     "x-apisguru-categories": [
       "cloud"
     ],
@@ -16,7 +16,7 @@
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/containerinstance/resource-manager/Microsoft.ContainerInstance/preview/2017-10-01-preview/containerInstance.json",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/containerinstance/resource-manager/Microsoft.ContainerInstance/stable/2018-10-01/containerInstance.json",
         "version": "2.0"
       }
     ],
@@ -73,10 +73,34 @@
       "type": "string",
       "x-ms-parameter-location": "method"
     },
+    "LocationParameter": {
+      "description": "The identifier for the physical azure location.",
+      "in": "path",
+      "name": "location",
+      "required": true,
+      "type": "string",
+      "x-ms-parameter-location": "method"
+    },
+    "OperationIdParameter": {
+      "description": "The operation Id.",
+      "in": "path",
+      "name": "operationId",
+      "required": true,
+      "type": "string",
+      "x-ms-parameter-location": "method"
+    },
     "ResourceGroupNameParameter": {
       "description": "The name of the resource group.",
       "in": "path",
       "name": "resourceGroupName",
+      "required": true,
+      "type": "string",
+      "x-ms-parameter-location": "method"
+    },
+    "SubnetNameParameter": {
+      "description": "The name of the subnet.",
+      "in": "path",
+      "name": "subnetName",
       "required": true,
       "type": "string",
       "x-ms-parameter-location": "method"
@@ -88,6 +112,14 @@
       "required": true,
       "type": "string",
       "x-ms-parameter-location": "client"
+    },
+    "VirtualNetworkNameParameter": {
+      "description": "The name of the virtual network.",
+      "in": "path",
+      "name": "virtualNetworkName",
+      "required": true,
+      "type": "string",
+      "x-ms-parameter-location": "method"
     }
   },
   "paths": {
@@ -106,6 +138,12 @@
             "schema": {
               "$ref": "#/definitions/OperationListResult"
             }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
           }
         },
         "tags": [
@@ -114,7 +152,7 @@
         "x-ms-examples": {
           "OperationsList": {
             "parameters": {
-              "api-version": "2017-10-01-preview"
+              "api-version": "2018-10-01"
             },
             "responses": {
               "200": {
@@ -156,27 +194,33 @@
             "schema": {
               "$ref": "#/definitions/ContainerGroupListResult"
             }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
           }
         },
         "summary": "Get a list of container groups in the specified subscription.",
         "x-ms-examples": {
           "ContainerGroupsList": {
             "parameters": {
-              "api-version": "2017-10-01-preview",
-              "subscriptionId": "ae43b1e3-c35d-4c8c-bc0d-f148b4c52b78"
+              "api-version": "2018-10-01",
+              "subscriptionId": "subid"
             },
             "responses": {
               "200": {
                 "body": {
                   "value": [
                     {
-                      "id": "/subscriptions/ae43b1e3-c35d-4c8c-bc0d-f148b4c52b78/resourceGroups/demo/providers/Microsoft.ContainerInstance/containerGroups/mycontainers",
-                      "location": "westus",
-                      "name": "mycontainers",
+                      "id": "/subscriptions/subid/resourceGroups/demo/providers/Microsoft.ContainerInstance/containerGroups/demo1",
+                      "location": "WestUs",
+                      "name": "demo1",
                       "properties": {
                         "containers": [
                           {
-                            "name": "mycontainers",
+                            "name": "demo1",
                             "properties": {
                               "command": [],
                               "environmentVariables": [],
@@ -187,40 +231,7 @@
                                   "startTime": "2017-10-17T17:27:21Z",
                                   "state": "Running"
                                 },
-                                "events": [
-                                  {
-                                    "count": 1,
-                                    "firstTimestamp": "2017-10-17T17:27:14Z",
-                                    "lastTimestamp": "2017-10-17T17:27:14Z",
-                                    "message": "pulling image \"nginx\"",
-                                    "name": "Pulling",
-                                    "type": "Normal"
-                                  },
-                                  {
-                                    "count": 1,
-                                    "firstTimestamp": "2017-10-17T17:27:20Z",
-                                    "lastTimestamp": "2017-10-17T17:27:20Z",
-                                    "message": "Successfully pulled image \"nginx\"",
-                                    "name": "Pulled",
-                                    "type": "Normal"
-                                  },
-                                  {
-                                    "count": 1,
-                                    "firstTimestamp": "2017-10-17T17:27:20Z",
-                                    "lastTimestamp": "2017-10-17T17:27:20Z",
-                                    "message": "Created container with id 59ac4a83384ce9184c315ecd3c7cff39a7c9a3257646d41309758f8730b9a527",
-                                    "name": "Created",
-                                    "type": "Normal"
-                                  },
-                                  {
-                                    "count": 1,
-                                    "firstTimestamp": "2017-10-17T17:27:21Z",
-                                    "lastTimestamp": "2017-10-17T17:27:21Z",
-                                    "message": "Started container with id 59ac4a83384ce9184c315ecd3c7cff39a7c9a3257646d41309758f8730b9a527",
-                                    "name": "Started",
-                                    "type": "Normal"
-                                  }
-                                ],
+                                "events": [],
                                 "restartCount": 0
                               },
                               "ports": [
@@ -233,17 +244,25 @@
                                   "cpu": 1,
                                   "memoryInGB": 1.5
                                 }
-                              }
+                              },
+                              "volumeMounts": [
+                                {
+                                  "mountPath": "/mnt/volume1",
+                                  "name": "volume1",
+                                  "readOnly": false
+                                }
+                              ]
                             }
                           }
                         ],
-                        "imageRegistryCredentials": [],
-                        "instanceView": {
-                          "events": [],
-                          "state": "Running"
-                        },
+                        "imageRegistryCredentials": [
+                          {
+                            "server": "azcloudconsoleregistry.azurecr.io",
+                            "username": "azcloudconsoleregistry"
+                          }
+                        ],
                         "ipAddress": {
-                          "ip": "13.64.70.13",
+                          "ip": "10.0.0.1",
                           "ports": [
                             {
                               "port": 80,
@@ -253,7 +272,17 @@
                           "type": "Public"
                         },
                         "osType": "Linux",
-                        "provisioningState": "Succeeded"
+                        "provisioningState": "Succeeded",
+                        "volumes": [
+                          {
+                            "azureFile": {
+                              "readOnly": false,
+                              "shareName": "share1",
+                              "storageAccountName": "storage1"
+                            },
+                            "name": "volume1"
+                          }
+                        ]
                       },
                       "type": "Microsoft.ContainerInstance/containerGroups"
                     }
@@ -265,6 +294,197 @@
         },
         "x-ms-pageable": {
           "nextLinkName": "nextLink"
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/providers/Microsoft.ContainerInstance/locations/{location}/cachedImages": {
+      "get": {
+        "description": "Get the list of cached images on specific OS type for a subscription in a region.",
+        "operationId": "ListCachedImages",
+        "parameters": [
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/LocationParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/CachedImagesListResult"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
+          }
+        },
+        "summary": "Get the list of cached images.",
+        "x-ms-examples": {
+          "CachedImages": {
+            "parameters": {
+              "api-version": "2018-10-01",
+              "location": "westcentralus",
+              "subscriptionId": "subid"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "value": [
+                    {
+                      "image": "ubuntu:16.04",
+                      "osType": "Linux"
+                    },
+                    {
+                      "image": "alpine:3.6",
+                      "osType": "Linux"
+                    },
+                    {
+                      "image": "microsoft/nanoserver:10.0.14393.2485",
+                      "osType": "Windows"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/providers/Microsoft.ContainerInstance/locations/{location}/capabilities": {
+      "get": {
+        "description": "Get the list of CPU/memory/GPU capabilities of a region.",
+        "operationId": "ListCapabilities",
+        "parameters": [
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/LocationParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/CapabilitiesListResult"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
+          }
+        },
+        "summary": "Get the list of capabilities of the location.",
+        "x-ms-examples": {
+          "GetCapabilities": {
+            "parameters": {
+              "api-version": "2018-10-01",
+              "location": "westus",
+              "subscriptionId": "subid"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "value": [
+                    {
+                      "capabilities": {
+                        "maxCpu": 4,
+                        "maxGpuCount": 4,
+                        "maxMemoryInGB": 14
+                      },
+                      "gpu": "K80",
+                      "ipAddressType": "Public",
+                      "location": "West US",
+                      "osType": "Linux",
+                      "resourceType": "containerGroups"
+                    },
+                    {
+                      "capabilities": {
+                        "maxCpu": 4,
+                        "maxGpuCount": 0,
+                        "maxMemoryInGB": 14
+                      },
+                      "gpu": "None",
+                      "ipAddressType": "Public",
+                      "location": "West US",
+                      "osType": "Windows",
+                      "resourceType": "containerGroups"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/providers/Microsoft.ContainerInstance/locations/{location}/usages": {
+      "get": {
+        "description": "Get the usage for a subscription",
+        "operationId": "ContainerGroupUsage_List",
+        "parameters": [
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/LocationParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/UsageListResult"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "ContainerUsage": {
+            "parameters": {
+              "api-version": "2018-10-01",
+              "location": "westcentralus",
+              "subscriptionId": "subid"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "value": [
+                    {
+                      "currentValue": 1,
+                      "limit": 2000,
+                      "name": {
+                        "localizedValue": "Container Groups",
+                        "value": "ContainerGroups"
+                      },
+                      "unit": "Count"
+                    }
+                  ]
+                }
+              }
+            }
+          }
         }
       }
     },
@@ -289,74 +509,38 @@
             "schema": {
               "$ref": "#/definitions/ContainerGroupListResult"
             }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
           }
         },
         "summary": "Get a list of container groups in the specified subscription and resource group.",
         "x-ms-examples": {
           "ContainerGroupsListByResourceGroup": {
             "parameters": {
-              "api-version": "2017-10-01-preview",
+              "api-version": "2018-10-01",
               "resourceGroupName": "demo",
-              "subscriptionId": "ae43b1e3-c35d-4c8c-bc0d-f148b4c52b78"
+              "subscriptionId": "subid"
             },
             "responses": {
               "200": {
                 "body": {
                   "value": [
                     {
-                      "id": "/subscriptions/ae43b1e3-c35d-4c8c-bc0d-f148b4c52b78/resourceGroups/demo/providers/Microsoft.ContainerInstance/containerGroups/mycontainers",
-                      "location": "westus",
-                      "name": "mycontainers",
+                      "id": "/subscriptions/subid/resourceGroups/demo/providers/Microsoft.ContainerInstance/containerGroups/demo1",
+                      "location": "WestUs",
+                      "name": "demo1",
                       "properties": {
                         "containers": [
                           {
-                            "name": "mycontainers",
+                            "name": "demo1",
                             "properties": {
                               "command": [],
                               "environmentVariables": [],
                               "image": "nginx",
-                              "instanceView": {
-                                "currentState": {
-                                  "detailStatus": "",
-                                  "startTime": "2017-10-17T17:27:21Z",
-                                  "state": "Running"
-                                },
-                                "events": [
-                                  {
-                                    "count": 1,
-                                    "firstTimestamp": "2017-10-17T17:27:14Z",
-                                    "lastTimestamp": "2017-10-17T17:27:14Z",
-                                    "message": "pulling image \"nginx\"",
-                                    "name": "Pulling",
-                                    "type": "Normal"
-                                  },
-                                  {
-                                    "count": 1,
-                                    "firstTimestamp": "2017-10-17T17:27:20Z",
-                                    "lastTimestamp": "2017-10-17T17:27:20Z",
-                                    "message": "Successfully pulled image \"nginx\"",
-                                    "name": "Pulled",
-                                    "type": "Normal"
-                                  },
-                                  {
-                                    "count": 1,
-                                    "firstTimestamp": "2017-10-17T17:27:20Z",
-                                    "lastTimestamp": "2017-10-17T17:27:20Z",
-                                    "message": "Created container with id 59ac4a83384ce9184c315ecd3c7cff39a7c9a3257646d41309758f8730b9a527",
-                                    "name": "Created",
-                                    "type": "Normal"
-                                  },
-                                  {
-                                    "count": 1,
-                                    "firstTimestamp": "2017-10-17T17:27:21Z",
-                                    "lastTimestamp": "2017-10-17T17:27:21Z",
-                                    "message": "Started container with id 59ac4a83384ce9184c315ecd3c7cff39a7c9a3257646d41309758f8730b9a527",
-                                    "name": "Started",
-                                    "type": "Normal"
-                                  }
-                                ],
-                                "restartCount": 0
-                              },
                               "ports": [
                                 {
                                   "port": 80
@@ -367,17 +551,25 @@
                                   "cpu": 1,
                                   "memoryInGB": 1.5
                                 }
-                              }
+                              },
+                              "volumeMounts": [
+                                {
+                                  "mountPath": "/mnt/volume1",
+                                  "name": "volume1",
+                                  "readOnly": false
+                                }
+                              ]
                             }
                           }
                         ],
-                        "imageRegistryCredentials": [],
-                        "instanceView": {
-                          "events": [],
-                          "state": "Running"
-                        },
+                        "imageRegistryCredentials": [
+                          {
+                            "server": "azcloudconsoleregistry.azurecr.io",
+                            "username": "azcloudconsoleregistry"
+                          }
+                        ],
                         "ipAddress": {
-                          "ip": "13.64.70.13",
+                          "ip": "10.0.0.1",
                           "ports": [
                             {
                               "port": 80,
@@ -387,7 +579,17 @@
                           "type": "Public"
                         },
                         "osType": "Linux",
-                        "provisioningState": "Succeeded"
+                        "provisioningState": "Succeeded",
+                        "volumes": [
+                          {
+                            "azureFile": {
+                              "readOnly": false,
+                              "shareName": "share1",
+                              "storageAccountName": "storage1"
+                            },
+                            "name": "volume1"
+                          }
+                        ]
                       },
                       "type": "Microsoft.ContainerInstance/containerGroups"
                     }
@@ -429,108 +631,25 @@
           },
           "204": {
             "description": "No Content - the specified container group was not found."
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
           }
         },
         "summary": "Delete the specified container group.",
         "x-ms-examples": {
           "ContainerGroupsDelete": {
             "parameters": {
-              "api-version": "2017-10-01-preview",
-              "containerGroupName": "mycontainers",
+              "api-version": "2018-10-01",
+              "containerGroupName": "demo1",
               "resourceGroupName": "demo",
-              "subscriptionId": "ae43b1e3-c35d-4c8c-bc0d-f148b4c52b78"
+              "subscriptionId": "subid"
             },
             "responses": {
-              "200": {
-                "body": {
-                  "id": "/subscriptions/ae43b1e3-c35d-4c8c-bc0d-f148b4c52b78/resourceGroups/demo/providers/Microsoft.ContainerInstance/containerGroups/mycontainers",
-                  "location": "westus",
-                  "name": "mycontainers",
-                  "properties": {
-                    "containers": [
-                      {
-                        "name": "mycontainers",
-                        "properties": {
-                          "command": [],
-                          "environmentVariables": [],
-                          "image": "nginx",
-                          "instanceView": {
-                            "currentState": {
-                              "detailStatus": "",
-                              "startTime": "2017-10-17T17:27:21Z",
-                              "state": "Running"
-                            },
-                            "events": [
-                              {
-                                "count": 1,
-                                "firstTimestamp": "2017-10-17T17:27:14Z",
-                                "lastTimestamp": "2017-10-17T17:27:14Z",
-                                "message": "pulling image \"nginx\"",
-                                "name": "Pulling",
-                                "type": "Normal"
-                              },
-                              {
-                                "count": 1,
-                                "firstTimestamp": "2017-10-17T17:27:20Z",
-                                "lastTimestamp": "2017-10-17T17:27:20Z",
-                                "message": "Successfully pulled image \"nginx\"",
-                                "name": "Pulled",
-                                "type": "Normal"
-                              },
-                              {
-                                "count": 1,
-                                "firstTimestamp": "2017-10-17T17:27:20Z",
-                                "lastTimestamp": "2017-10-17T17:27:20Z",
-                                "message": "Created container with id 59ac4a83384ce9184c315ecd3c7cff39a7c9a3257646d41309758f8730b9a527",
-                                "name": "Created",
-                                "type": "Normal"
-                              },
-                              {
-                                "count": 1,
-                                "firstTimestamp": "2017-10-17T17:27:21Z",
-                                "lastTimestamp": "2017-10-17T17:27:21Z",
-                                "message": "Started container with id 59ac4a83384ce9184c315ecd3c7cff39a7c9a3257646d41309758f8730b9a527",
-                                "name": "Started",
-                                "type": "Normal"
-                              }
-                            ],
-                            "restartCount": 0
-                          },
-                          "ports": [
-                            {
-                              "port": 80
-                            }
-                          ],
-                          "resources": {
-                            "requests": {
-                              "cpu": 1,
-                              "memoryInGB": 1.5
-                            }
-                          }
-                        }
-                      }
-                    ],
-                    "imageRegistryCredentials": [],
-                    "instanceView": {
-                      "events": [],
-                      "state": "Running"
-                    },
-                    "ipAddress": {
-                      "ip": "13.64.70.13",
-                      "ports": [
-                        {
-                          "port": 80,
-                          "protocol": "TCP"
-                        }
-                      ],
-                      "type": "Public"
-                    },
-                    "osType": "Linux",
-                    "provisioningState": "Succeeded"
-                  },
-                  "type": "Microsoft.ContainerInstance/containerGroups"
-                }
-              },
+              "200": {},
               "204": {}
             }
           }
@@ -559,27 +678,33 @@
             "schema": {
               "$ref": "#/definitions/ContainerGroup"
             }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
           }
         },
         "summary": "Get the properties of the specified container group.",
         "x-ms-examples": {
           "ContainerGroupsGet_Failed": {
             "parameters": {
-              "api-version": "2017-10-01-preview",
-              "containerGroupName": "mycontainers",
+              "api-version": "2018-10-01",
+              "containerGroupName": "demo1",
               "resourceGroupName": "demo",
-              "subscriptionId": "ae43b1e3-c35d-4c8c-bc0d-f148b4c52b78"
+              "subscriptionId": "subid"
             },
             "responses": {
               "200": {
                 "body": {
-                  "id": "/subscriptions/ae43b1e3-c35d-4c8c-bc0d-f148b4c52b78/resourceGroups/demo/providers/Microsoft.ContainerInstance/containerGroups/mycontainers",
-                  "location": "westus",
-                  "name": "mycontainers",
+                  "id": "/subscriptions/subid/resourceGroups/demo/providers/Microsoft.ContainerInstance/containerGroups/demo1",
+                  "location": "WestUs",
+                  "name": "demo1",
                   "properties": {
                     "containers": [
                       {
-                        "name": "mycontainers",
+                        "name": "demo1",
                         "properties": {
                           "command": [],
                           "environmentVariables": [],
@@ -587,40 +712,24 @@
                           "instanceView": {
                             "currentState": {
                               "detailStatus": "",
-                              "startTime": "2017-10-17T17:27:21Z",
-                              "state": "Running"
+                              "startTime": "2017-08-08T00:09:10Z",
+                              "state": "Waiting"
                             },
                             "events": [
                               {
                                 "count": 1,
-                                "firstTimestamp": "2017-10-17T17:27:14Z",
-                                "lastTimestamp": "2017-10-17T17:27:14Z",
+                                "firstTimestamp": "2017-08-08T00:09:01Z",
+                                "lastTimestamp": "2017-08-08T00:09:01Z",
                                 "message": "pulling image \"nginx\"",
                                 "name": "Pulling",
                                 "type": "Normal"
                               },
                               {
                                 "count": 1,
-                                "firstTimestamp": "2017-10-17T17:27:20Z",
-                                "lastTimestamp": "2017-10-17T17:27:20Z",
+                                "firstTimestamp": "2017-08-08T00:09:10Z",
+                                "lastTimestamp": "2017-08-08T00:09:10Z",
                                 "message": "Successfully pulled image \"nginx\"",
                                 "name": "Pulled",
-                                "type": "Normal"
-                              },
-                              {
-                                "count": 1,
-                                "firstTimestamp": "2017-10-17T17:27:20Z",
-                                "lastTimestamp": "2017-10-17T17:27:20Z",
-                                "message": "Created container with id 59ac4a83384ce9184c315ecd3c7cff39a7c9a3257646d41309758f8730b9a527",
-                                "name": "Created",
-                                "type": "Normal"
-                              },
-                              {
-                                "count": 1,
-                                "firstTimestamp": "2017-10-17T17:27:21Z",
-                                "lastTimestamp": "2017-10-17T17:27:21Z",
-                                "message": "Started container with id 59ac4a83384ce9184c315ecd3c7cff39a7c9a3257646d41309758f8730b9a527",
-                                "name": "Started",
                                 "type": "Normal"
                               }
                             ],
@@ -636,17 +745,29 @@
                               "cpu": 1,
                               "memoryInGB": 1.5
                             }
-                          }
+                          },
+                          "volumeMounts": [
+                            {
+                              "mountPath": "/mnt/volume1",
+                              "name": "volume1",
+                              "readOnly": false
+                            }
+                          ]
                         }
                       }
                     ],
-                    "imageRegistryCredentials": [],
+                    "imageRegistryCredentials": [
+                      {
+                        "server": "azcloudconsoleregistry.azurecr.io",
+                        "username": "azcloudconsoleregistry"
+                      }
+                    ],
                     "instanceView": {
                       "events": [
                         {
                           "count": 1,
-                          "firstTimestamp": "2017-10-17T17:19:10Z",
-                          "lastTimestamp": "2017-10-17T17:19:10Z",
+                          "firstTimestamp": "2017-10-08T00:19:10Z",
+                          "lastTimestamp": "2017-10-08T00:19:10Z",
                           "message": "Output: mount error(2): Permission denied",
                           "name": "FailedMount",
                           "type": "Normal"
@@ -655,7 +776,7 @@
                       "state": "Pending"
                     },
                     "ipAddress": {
-                      "ip": "13.64.70.13",
+                      "ip": "10.0.0.1",
                       "ports": [
                         {
                           "port": 80,
@@ -665,7 +786,17 @@
                       "type": "Public"
                     },
                     "osType": "Linux",
-                    "provisioningState": "Succeeded"
+                    "provisioningState": "Failed",
+                    "volumes": [
+                      {
+                        "azureFile": {
+                          "readOnly": false,
+                          "shareName": "share1",
+                          "storageAccountName": "storage1"
+                        },
+                        "name": "volume1"
+                      }
+                    ]
                   },
                   "type": "Microsoft.ContainerInstance/containerGroups"
                 }
@@ -674,67 +805,25 @@
           },
           "ContainerGroupsGet_Succeeded": {
             "parameters": {
-              "api-version": "2017-10-01-preview",
-              "containerGroupName": "mycontainers",
+              "api-version": "2018-10-01",
+              "containerGroupName": "demo1",
               "resourceGroupName": "demo",
-              "subscriptionId": "ae43b1e3-c35d-4c8c-bc0d-f148b4c52b78"
+              "subscriptionId": "subid"
             },
             "responses": {
               "200": {
                 "body": {
-                  "id": "/subscriptions/ae43b1e3-c35d-4c8c-bc0d-f148b4c52b78/resourceGroups/demo/providers/Microsoft.ContainerInstance/containerGroups/mycontainers",
-                  "location": "westus",
-                  "name": "mycontainers",
+                  "id": "/subscriptions/subid/resourceGroups/demo/providers/Microsoft.ContainerInstance/containerGroups/demo1",
+                  "location": "WestUs",
+                  "name": "demo1",
                   "properties": {
                     "containers": [
                       {
-                        "name": "mycontainers",
+                        "name": "demo1",
                         "properties": {
                           "command": [],
                           "environmentVariables": [],
                           "image": "nginx",
-                          "instanceView": {
-                            "currentState": {
-                              "detailStatus": "",
-                              "startTime": "2017-10-17T17:27:21Z",
-                              "state": "Running"
-                            },
-                            "events": [
-                              {
-                                "count": 1,
-                                "firstTimestamp": "2017-10-17T17:27:14Z",
-                                "lastTimestamp": "2017-10-17T17:27:14Z",
-                                "message": "pulling image \"nginx\"",
-                                "name": "Pulling",
-                                "type": "Normal"
-                              },
-                              {
-                                "count": 1,
-                                "firstTimestamp": "2017-10-17T17:27:20Z",
-                                "lastTimestamp": "2017-10-17T17:27:20Z",
-                                "message": "Successfully pulled image \"nginx\"",
-                                "name": "Pulled",
-                                "type": "Normal"
-                              },
-                              {
-                                "count": 1,
-                                "firstTimestamp": "2017-10-17T17:27:20Z",
-                                "lastTimestamp": "2017-10-17T17:27:20Z",
-                                "message": "Created container with id 59ac4a83384ce9184c315ecd3c7cff39a7c9a3257646d41309758f8730b9a527",
-                                "name": "Created",
-                                "type": "Normal"
-                              },
-                              {
-                                "count": 1,
-                                "firstTimestamp": "2017-10-17T17:27:21Z",
-                                "lastTimestamp": "2017-10-17T17:27:21Z",
-                                "message": "Started container with id 59ac4a83384ce9184c315ecd3c7cff39a7c9a3257646d41309758f8730b9a527",
-                                "name": "Started",
-                                "type": "Normal"
-                              }
-                            ],
-                            "restartCount": 0
-                          },
                           "ports": [
                             {
                               "port": 80
@@ -745,17 +834,25 @@
                               "cpu": 1,
                               "memoryInGB": 1.5
                             }
-                          }
+                          },
+                          "volumeMounts": [
+                            {
+                              "mountPath": "/mnt/volume1",
+                              "name": "volume1",
+                              "readOnly": false
+                            }
+                          ]
                         }
                       }
                     ],
-                    "imageRegistryCredentials": [],
-                    "instanceView": {
-                      "events": [],
-                      "state": "Running"
-                    },
+                    "imageRegistryCredentials": [
+                      {
+                        "server": "azcloudconsoleregistry.azurecr.io",
+                        "username": "azcloudconsoleregistry"
+                      }
+                    ],
                     "ipAddress": {
-                      "ip": "13.64.70.13",
+                      "ip": "10.0.0.1",
                       "ports": [
                         {
                           "port": 80,
@@ -765,7 +862,161 @@
                       "type": "Public"
                     },
                     "osType": "Linux",
-                    "provisioningState": "Succeeded"
+                    "provisioningState": "Succeeded",
+                    "volumes": [
+                      {
+                        "azureFile": {
+                          "readOnly": false,
+                          "shareName": "share1",
+                          "storageAccountName": "storage1"
+                        },
+                        "name": "volume1"
+                      }
+                    ]
+                  },
+                  "type": "Microsoft.ContainerInstance/containerGroups"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "description": "Updates container group tags with specified values.",
+        "operationId": "ContainerGroups_Update",
+        "parameters": [
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ContainerGroupNameParameter"
+          },
+          {
+            "description": "The container group resource with just the tags to be updated.",
+            "in": "body",
+            "name": "Resource",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Resource"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ContainerGroup"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
+          }
+        },
+        "summary": "Update container groups.",
+        "x-ms-examples": {
+          "ContainerGroupsUpdate": {
+            "parameters": {
+              "Resource": {
+                "tags": {
+                  "tag1key": "tag1Value",
+                  "tag2key": "tag2Value"
+                }
+              },
+              "api-version": "2018-10-01",
+              "containerGroupName": "demo1",
+              "resourceGroupName": "demoResource",
+              "subscriptionId": "subid"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "id": "/subscriptions/subid/resourceGroups/demoResource/providers/Microsoft.ContainerInstance/containerGroups/demo1",
+                  "location": "WestUs",
+                  "name": "demo1",
+                  "properties": {
+                    "containers": [
+                      {
+                        "name": "demo1",
+                        "properties": {
+                          "command": [],
+                          "environmentVariables": [],
+                          "image": "nginx",
+                          "ports": [
+                            {
+                              "port": 80
+                            }
+                          ],
+                          "resources": {
+                            "requests": {
+                              "cpu": 1,
+                              "memoryInGB": 1.5
+                            }
+                          },
+                          "volumeMounts": [
+                            {
+                              "mountPath": "/mnt/volume1",
+                              "name": "volume1",
+                              "readOnly": false
+                            },
+                            {
+                              "mountPath": "/mnt/volume2",
+                              "name": "volume2",
+                              "readOnly": false
+                            },
+                            {
+                              "mountPath": "/mnt/volume3",
+                              "name": "volume3",
+                              "readOnly": true
+                            }
+                          ]
+                        }
+                      }
+                    ],
+                    "imageRegistryCredentials": [],
+                    "ipAddress": {
+                      "dnsNameLabel": "dnsnamelabel1",
+                      "fqdn": "dnsnamelabel1.azure-container.io",
+                      "ip": "10.0.0.1",
+                      "ports": [
+                        {
+                          "port": 80,
+                          "protocol": "TCP"
+                        }
+                      ],
+                      "type": "Public"
+                    },
+                    "osType": "Linux",
+                    "provisioningState": "Succeeded",
+                    "volumes": [
+                      {
+                        "azureFile": {
+                          "shareName": "shareName",
+                          "storageAccountName": "accountName"
+                        },
+                        "name": "volume1"
+                      },
+                      {
+                        "emptyDir": {},
+                        "name": "volume2"
+                      },
+                      {
+                        "name": "volume3",
+                        "secret": {}
+                      }
+                    ]
+                  },
+                  "tags": {
+                    "tag1key": "tag1Value",
+                    "tag2key": "tag2Value"
                   },
                   "type": "Microsoft.ContainerInstance/containerGroups"
                 }
@@ -812,25 +1063,37 @@
             "schema": {
               "$ref": "#/definitions/ContainerGroup"
             }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
           }
         },
         "summary": "Create or update container groups.",
         "x-ms-examples": {
           "ContainerGroupsCreateOrUpdate": {
             "parameters": {
-              "api-version": "2017-10-01-preview",
+              "api-version": "2018-10-01",
               "containerGroup": {
-                "location": "westus",
-                "name": "mycontainers",
+                "id": "/subscriptions/subid/resourceGroups/demo/providers/Microsoft.ContainerInstance/containerGroups/demo1",
+                "identity": {
+                  "type": "SystemAssigned, UserAssigned",
+                  "userAssignedIdentities": {
+                    "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity-name": {}
+                  }
+                },
+                "location": "west us",
+                "name": "demo1",
                 "properties": {
                   "containers": [
                     {
-                      "name": "mycontainers",
+                      "name": "demo1",
                       "properties": {
                         "command": [],
                         "environmentVariables": [],
                         "image": "nginx",
-                        "instanceView": {},
                         "ports": [
                           {
                             "port": 80
@@ -839,6 +1102,10 @@
                         "resources": {
                           "requests": {
                             "cpu": 1,
+                            "gpu": {
+                              "count": 1,
+                              "sku": "K80"
+                            },
                             "memoryInGB": 1.5
                           }
                         },
@@ -852,13 +1119,36 @@
                             "mountPath": "/mnt/volume2",
                             "name": "volume2",
                             "readOnly": false
+                          },
+                          {
+                            "mountPath": "/mnt/volume3",
+                            "name": "volume3",
+                            "readOnly": true
                           }
                         ]
                       }
                     }
                   ],
+                  "diagnostics": {
+                    "logAnalytics": {
+                      "logType": "ContainerInsights",
+                      "metadata": {
+                        "test-key": "test-metadata-value"
+                      },
+                      "workspaceId": "workspaceid",
+                      "workspaceKey": "workspaceKey"
+                    }
+                  },
+                  "dnsConfig": {
+                    "nameServers": [
+                      "1.1.1.1"
+                    ],
+                    "options": "ndots:2",
+                    "searchDomains": "cluster.local svc.cluster.local"
+                  },
                   "imageRegistryCredentials": [],
                   "ipAddress": {
+                    "dnsNameLabel": "dnsnamelabel1",
                     "ports": [
                       {
                         "port": 80,
@@ -867,12 +1157,15 @@
                     ],
                     "type": "Public"
                   },
+                  "networkProfile": {
+                    "id": "test-network-profile-id"
+                  },
                   "osType": "Linux",
                   "volumes": [
                     {
                       "azureFile": {
                         "shareName": "shareName",
-                        "storageAccountKey": "",
+                        "storageAccountKey": "accountKey",
                         "storageAccountName": "accountName"
                       },
                       "name": "volume1"
@@ -880,25 +1173,32 @@
                     {
                       "emptyDir": {},
                       "name": "volume2"
+                    },
+                    {
+                      "name": "volume3",
+                      "secret": {
+                        "secretKey1": "SecretValue1InBase64",
+                        "secretKey2": "SecretValue2InBase64"
+                      }
                     }
                   ]
                 },
                 "type": "Microsoft.ContainerInstance/containerGroups"
               },
-              "containerGroupName": "mycontainers",
+              "containerGroupName": "demo1",
               "resourceGroupName": "demo",
-              "subscriptionId": "ae43b1e3-c35d-4c8c-bc0d-f148b4c52b78"
+              "subscriptionId": "subid"
             },
             "responses": {
               "200": {
                 "body": {
-                  "id": "/subscriptions/ae43b1e3-c35d-4c8c-bc0d-f148b4c52b78/resourceGroups/demo/providers/Microsoft.ContainerInstance/containerGroups/mycontainers",
-                  "location": "westus",
-                  "name": "mycontainers",
+                  "id": "/subscriptions/subid/resourceGroups/demo/providers/Microsoft.ContainerInstance/containerGroups/demo1",
+                  "location": "WestUs",
+                  "name": "demo1",
                   "properties": {
                     "containers": [
                       {
-                        "name": "mycontainers",
+                        "name": "demo1",
                         "properties": {
                           "command": [],
                           "environmentVariables": [],
@@ -911,6 +1211,10 @@
                           "resources": {
                             "requests": {
                               "cpu": 1,
+                              "gpu": {
+                                "count": 1,
+                                "sku": "K80"
+                              },
                               "memoryInGB": 1.5
                             }
                           },
@@ -924,18 +1228,34 @@
                               "mountPath": "/mnt/volume2",
                               "name": "volume2",
                               "readOnly": false
+                            },
+                            {
+                              "mountPath": "/mnt/volume3",
+                              "name": "volume3",
+                              "readOnly": true
                             }
                           ]
                         }
                       }
                     ],
-                    "imageRegistryCredentials": [],
-                    "instanceView": {
-                      "events": [],
-                      "state": "Pending"
+                    "diagnostics": {
+                      "logAnalytics": {
+                        "workspaceId": "workspaceid",
+                        "workspaceKey": ""
+                      }
                     },
+                    "dnsConfig": {
+                      "nameServers": [
+                        "1.1.1.1"
+                      ],
+                      "options": "ndots:2",
+                      "searchDomains": "cluster.local svc.cluster.local"
+                    },
+                    "imageRegistryCredentials": [],
                     "ipAddress": {
-                      "ip": "13.64.70.13",
+                      "dnsNameLabel": "dnsnamelabel1",
+                      "fqdn": "dnsnamelabel1.azure-container.io",
+                      "ip": "10.0.0.1",
                       "ports": [
                         {
                           "port": 80,
@@ -945,12 +1265,11 @@
                       "type": "Public"
                     },
                     "osType": "Linux",
-                    "provisioningState": "Creating",
+                    "provisioningState": "Succeeded",
                     "volumes": [
                       {
                         "azureFile": {
                           "shareName": "shareName",
-                          "storageAccountKey": "",
                           "storageAccountName": "accountName"
                         },
                         "name": "volume1"
@@ -958,6 +1277,10 @@
                       {
                         "emptyDir": {},
                         "name": "volume2"
+                      },
+                      {
+                        "name": "volume3",
+                        "secret": {}
                       }
                     ]
                   },
@@ -966,13 +1289,13 @@
               },
               "201": {
                 "body": {
-                  "id": "/subscriptions/ae43b1e3-c35d-4c8c-bc0d-f148b4c52b78/resourceGroups/demo/providers/Microsoft.ContainerInstance/containerGroups/mycontainers",
-                  "location": "westus",
-                  "name": "mycontainers",
+                  "id": "/subscriptions/subid/resourceGroups/demo/providers/Microsoft.ContainerInstance/containerGroups/demo1",
+                  "location": "WestUs",
+                  "name": "demo1",
                   "properties": {
                     "containers": [
                       {
-                        "name": "mycontainers",
+                        "name": "demo1",
                         "properties": {
                           "command": [],
                           "environmentVariables": [],
@@ -985,6 +1308,10 @@
                           "resources": {
                             "requests": {
                               "cpu": 1,
+                              "gpu": {
+                                "count": 1,
+                                "sku": "K80"
+                              },
                               "memoryInGB": 1.5
                             }
                           },
@@ -998,18 +1325,26 @@
                               "mountPath": "/mnt/volume2",
                               "name": "volume2",
                               "readOnly": false
+                            },
+                            {
+                              "mountPath": "/mnt/volume3",
+                              "name": "volume3",
+                              "readOnly": true
                             }
                           ]
                         }
                       }
                     ],
-                    "imageRegistryCredentials": [],
-                    "instanceView": {
-                      "events": [],
-                      "state": "Pending"
+                    "dnsConfig": {
+                      "nameServers": [
+                        "1.1.1.1"
+                      ]
                     },
+                    "imageRegistryCredentials": [],
                     "ipAddress": {
-                      "ip": "13.64.70.13",
+                      "dnsNameLabel": "dnsnamelabel1",
+                      "fqdn": "dnsnamelabel1.azure-container.io",
+                      "ip": "10.0.0.1",
                       "ports": [
                         {
                           "port": 80,
@@ -1019,12 +1354,11 @@
                       "type": "Public"
                     },
                     "osType": "Linux",
-                    "provisioningState": "Creating",
+                    "provisioningState": "Succeeded",
                     "volumes": [
                       {
                         "azureFile": {
                           "shareName": "shareName",
-                          "storageAccountKey": "",
                           "storageAccountName": "accountName"
                         },
                         "name": "volume1"
@@ -1032,10 +1366,92 @@
                       {
                         "emptyDir": {},
                         "name": "volume2"
+                      },
+                      {
+                        "name": "volume3",
+                        "secret": {}
                       }
                     ]
                   },
                   "type": "Microsoft.ContainerInstance/containerGroups"
+                }
+              }
+            }
+          }
+        },
+        "x-ms-long-running-operation": true
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerInstance/containerGroups/{containerGroupName}/containers/{containerName}/exec": {
+      "post": {
+        "description": "Executes a command for a specific container instance in a specified resource group and container group.",
+        "operationId": "Container_ExecuteCommand",
+        "parameters": [
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ContainerGroupNameParameter"
+          },
+          {
+            "description": "The name of the container instance.",
+            "in": "path",
+            "name": "containerName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The request for the exec command.",
+            "in": "body",
+            "name": "containerExecRequest",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ContainerExecRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ContainerExecResponse"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
+          }
+        },
+        "summary": "Executes a command in a specific container instance.",
+        "x-ms-examples": {
+          "ContainerExec": {
+            "parameters": {
+              "api-version": "2018-10-01",
+              "containerExecRequest": {
+                "command": "/bin/bash",
+                "terminalSize": {
+                  "column": 12,
+                  "row": 12
+                }
+              },
+              "containerGroupName": "demo1",
+              "containerName": "container1",
+              "resourceGroupName": "demo",
+              "subscriptionId": "subid"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "password": "password",
+                  "webSocketUri": "wss://web-socket-uri"
                 }
               }
             }
@@ -1046,7 +1462,7 @@
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerInstance/containerGroups/{containerGroupName}/containers/{containerName}/logs": {
       "get": {
         "description": "Get the logs for a specified container instance in a specified resource group and container group.",
-        "operationId": "ContainerLogs_List",
+        "operationId": "Container_ListLogs",
         "parameters": [
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
@@ -1080,18 +1496,24 @@
             "schema": {
               "$ref": "#/definitions/Logs"
             }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
           }
         },
         "summary": "Get the logs for a specified container instance.",
         "x-ms-examples": {
-          "ContainerLogsList": {
+          "ContainerListLogs": {
             "parameters": {
-              "api-version": "2017-10-01-preview",
+              "api-version": "2018-10-01",
               "containerGroupName": "demo1",
               "containerName": "container1",
               "resourceGroupName": "demo",
               "subscriptionId": "subid",
-              "tail": "10"
+              "tail": 10
             },
             "responses": {
               "200": {
@@ -1099,6 +1521,196 @@
                   "content": "log content"
                 }
               }
+            }
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerInstance/containerGroups/{containerGroupName}/restart": {
+      "post": {
+        "description": "Restarts all containers in a container group in place. If container image has updates, new image will be downloaded.",
+        "operationId": "ContainerGroups_Restart",
+        "parameters": [
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ContainerGroupNameParameter"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "NoContent"
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
+          }
+        },
+        "summary": "Restarts all containers in a container group.",
+        "x-ms-examples": {
+          "ContainerRestart": {
+            "parameters": {
+              "api-version": "2018-10-01",
+              "containerGroupName": "demo1",
+              "resourceGroupName": "demo",
+              "subscriptionId": "subid"
+            },
+            "responses": {
+              "204": {}
+            }
+          }
+        },
+        "x-ms-long-running-operation": true
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerInstance/containerGroups/{containerGroupName}/start": {
+      "post": {
+        "description": "Starts all containers in a container group.",
+        "operationId": "ContainerGroups_Start",
+        "parameters": [
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ContainerGroupNameParameter"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "NoContent"
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
+          }
+        },
+        "summary": "Starts all containers in a container group.",
+        "x-ms-examples": {
+          "ContainerStart": {
+            "parameters": {
+              "api-version": "2018-10-01",
+              "containerGroupName": "demo1",
+              "resourceGroupName": "demo",
+              "subscriptionId": "subid"
+            },
+            "responses": {
+              "204": {}
+            }
+          }
+        },
+        "x-ms-long-running-operation": true
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerInstance/containerGroups/{containerGroupName}/stop": {
+      "post": {
+        "description": "Stops all containers in a container group. Compute resources will be deallocated and billing will stop.",
+        "operationId": "ContainerGroups_Stop",
+        "parameters": [
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ContainerGroupNameParameter"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "NoContent"
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
+          }
+        },
+        "summary": "Stops all containers in a container group.",
+        "x-ms-examples": {
+          "ContainerStop": {
+            "parameters": {
+              "api-version": "2018-10-01",
+              "containerGroupName": "demo1",
+              "resourceGroupName": "demo",
+              "subscriptionId": "subid"
+            },
+            "responses": {
+              "204": {}
+            }
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}/providers/Microsoft.ContainerInstance/serviceAssociationLinks/default": {
+      "delete": {
+        "description": "Delete the container instance service association link for the subnet. This operation unblocks user from deleting subnet.",
+        "operationId": "ServiceAssociationLink_Delete",
+        "parameters": [
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/VirtualNetworkNameParameter"
+          },
+          {
+            "$ref": "#/parameters/SubnetNameParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "204": {
+            "description": "No Content - the specified service association link was not found."
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
+          }
+        },
+        "summary": "Delete the container instance service association link for the subnet.",
+        "x-ms-examples": {
+          "ContainerGroupsDelete": {
+            "parameters": {
+              "api-version": "2018-09-01",
+              "resourceGroupName": "demo",
+              "subnetName": "demo1",
+              "subscriptionId": "subid",
+              "virtualNetworkName": "demo1"
+            },
+            "responses": {
+              "200": {},
+              "204": {}
             }
           }
         }
@@ -1132,6 +1744,127 @@
       ],
       "type": "object"
     },
+    "CachedImagesListResult": {
+      "description": "The response containing cached images.",
+      "properties": {
+        "nextLink": {
+          "description": "The URI to fetch the next page of cached images.",
+          "type": "string"
+        },
+        "value": {
+          "description": "The list of cached images.",
+          "items": {
+            "$ref": "#/definitions/cachedImages"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "Capabilities": {
+      "description": "The regional capabilities.",
+      "properties": {
+        "capabilities": {
+          "description": "The supported capabilities.",
+          "properties": {
+            "maxCpu": {
+              "description": "The maximum allowed CPU request in cores.",
+              "readOnly": true,
+              "type": "number"
+            },
+            "maxGpuCount": {
+              "description": "The maximum allowed GPU count.",
+              "readOnly": true,
+              "type": "number"
+            },
+            "maxMemoryInGB": {
+              "description": "The maximum allowed memory request in GB.",
+              "readOnly": true,
+              "type": "number"
+            }
+          },
+          "readOnly": true,
+          "type": "object"
+        },
+        "gpu": {
+          "description": "The GPU sku that this capability describes.",
+          "readOnly": true,
+          "type": "string"
+        },
+        "ipAddressType": {
+          "description": "The ip address type that this capability describes.",
+          "readOnly": true,
+          "type": "string"
+        },
+        "location": {
+          "description": "The resource location.",
+          "readOnly": true,
+          "type": "string"
+        },
+        "osType": {
+          "description": "The OS type that this capability describes.",
+          "readOnly": true,
+          "type": "string"
+        },
+        "resourceType": {
+          "description": "The resource type that this capability describes.",
+          "readOnly": true,
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "CapabilitiesListResult": {
+      "description": "The response containing list of capabilities.",
+      "properties": {
+        "nextLink": {
+          "description": "The URI to fetch the next page of capabilities.",
+          "type": "string"
+        },
+        "value": {
+          "description": "The list of capabilities.",
+          "items": {
+            "$ref": "#/definitions/Capabilities"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "CloudError": {
+      "description": "An error response from the Batch service.",
+      "properties": {
+        "error": {
+          "$ref": "#/definitions/CloudErrorBody"
+        }
+      },
+      "x-ms-external": true
+    },
+    "CloudErrorBody": {
+      "description": "An error response from the Batch service.",
+      "properties": {
+        "code": {
+          "description": "An identifier for the error. Codes are invariant and are intended to be consumed programmatically.",
+          "type": "string"
+        },
+        "details": {
+          "description": "A list of additional details about the error.",
+          "items": {
+            "$ref": "#/definitions/CloudErrorBody"
+          },
+          "type": "array"
+        },
+        "message": {
+          "description": "A message describing the error, intended to be suitable for display in a user interface.",
+          "type": "string"
+        },
+        "target": {
+          "description": "The target of the particular error. For example, the name of the property in error.",
+          "type": "string"
+        }
+      },
+      "x-ms-external": true
+    },
     "Container": {
       "description": "A container instance.",
       "properties": {
@@ -1151,6 +1884,57 @@
       ],
       "type": "object"
     },
+    "ContainerExec": {
+      "description": "The container execution command, for liveness or readiness probe",
+      "properties": {
+        "command": {
+          "description": "The commands to execute within the container.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "ContainerExecRequest": {
+      "description": "The container exec request.",
+      "properties": {
+        "command": {
+          "description": "The command to be executed.",
+          "type": "string"
+        },
+        "terminalSize": {
+          "description": "The size of the terminal.",
+          "properties": {
+            "cols": {
+              "description": "The column size of the terminal",
+              "type": "integer"
+            },
+            "rows": {
+              "description": "The row size of the terminal",
+              "type": "integer"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "ContainerExecResponse": {
+      "description": "The information for the container exec command.",
+      "properties": {
+        "password": {
+          "description": "The password to start the exec command.",
+          "type": "string"
+        },
+        "webSocketUri": {
+          "description": "The uri for the exec websocket.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "ContainerGroup": {
       "allOf": [
         {
@@ -1158,6 +1942,10 @@
         },
         {
           "properties": {
+            "identity": {
+              "$ref": "#/definitions/ContainerGroupIdentity",
+              "description": "The identity of the container group, if configured."
+            },
             "properties": {
               "properties": {
                 "containers": {
@@ -1166,6 +1954,14 @@
                     "$ref": "#/definitions/Container"
                   },
                   "type": "array"
+                },
+                "diagnostics": {
+                  "$ref": "#/definitions/ContainerGroupDiagnostics",
+                  "description": "The diagnostic information for a container group."
+                },
+                "dnsConfig": {
+                  "$ref": "#/definitions/DnsConfiguration",
+                  "description": "The DNS config information for a container group."
                 },
                 "imageRegistryCredentials": {
                   "description": "The image registry credentials by which the container group is created from.",
@@ -1197,6 +1993,10 @@
                 "ipAddress": {
                   "$ref": "#/definitions/IpAddress",
                   "description": "The IP address type of the container group."
+                },
+                "networkProfile": {
+                  "$ref": "#/definitions/ContainerGroupNetworkProfile",
+                  "description": "The network profile information for a container group."
                 },
                 "osType": {
                   "description": "The operating system type required by the containers in the container group.",
@@ -1252,6 +2052,64 @@
       ],
       "description": "A container group."
     },
+    "ContainerGroupDiagnostics": {
+      "description": "Container group diagnostic information.",
+      "properties": {
+        "logAnalytics": {
+          "$ref": "#/definitions/LogAnalytics",
+          "description": "Container group log analytics information."
+        }
+      },
+      "type": "object"
+    },
+    "ContainerGroupIdentity": {
+      "description": "Identity for the container group.",
+      "properties": {
+        "principalId": {
+          "description": "The principal id of the container group identity. This property will only be provided for a system assigned identity.",
+          "readOnly": true,
+          "type": "string"
+        },
+        "tenantId": {
+          "description": "The tenant id associated with the container group. This property will only be provided for a system assigned identity.",
+          "readOnly": true,
+          "type": "string"
+        },
+        "type": {
+          "description": "The type of identity used for the container group. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the container group.",
+          "enum": [
+            "SystemAssigned",
+            "UserAssigned",
+            "SystemAssigned, UserAssigned",
+            "None"
+          ],
+          "type": "string",
+          "x-ms-enum": {
+            "modelAsString": false,
+            "name": "ResourceIdentityType"
+          }
+        },
+        "userAssignedIdentities": {
+          "additionalProperties": {
+            "properties": {
+              "clientId": {
+                "description": "The client id of user assigned identity.",
+                "readOnly": true,
+                "type": "string"
+              },
+              "principalId": {
+                "description": "The principal id of user assigned identity.",
+                "readOnly": true,
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "description": "The list of user identities associated with the container group. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.",
+          "type": "object"
+        }
+      }
+    },
     "ContainerGroupListResult": {
       "description": "The container group list response that contains the container group properties.",
       "properties": {
@@ -1267,6 +2125,45 @@
           "type": "array"
         }
       },
+      "type": "object"
+    },
+    "ContainerGroupNetworkProfile": {
+      "description": "Container group network profile information.",
+      "properties": {
+        "id": {
+          "description": "The identifier for a network profile.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "type": "object"
+    },
+    "ContainerHttpGet": {
+      "description": "The container Http Get settings, for liveness or readiness probe",
+      "properties": {
+        "path": {
+          "description": "The path to probe.",
+          "type": "string"
+        },
+        "port": {
+          "description": "The port number to probe.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "scheme": {
+          "description": "The scheme.",
+          "enum": [
+            "http",
+            "https"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "port"
+      ],
       "type": "object"
     },
     "ContainerPort": {
@@ -1293,6 +2190,45 @@
       "required": [
         "port"
       ],
+      "type": "object"
+    },
+    "ContainerProbe": {
+      "description": "The container probe, for liveness or readiness",
+      "properties": {
+        "exec": {
+          "$ref": "#/definitions/ContainerExec",
+          "description": "The execution command to probe"
+        },
+        "failureThreshold": {
+          "description": "The failure threshold.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "httpGet": {
+          "$ref": "#/definitions/ContainerHttpGet",
+          "description": "The Http Get settings to probe"
+        },
+        "initialDelaySeconds": {
+          "description": "The initial delay seconds.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "periodSeconds": {
+          "description": "The period seconds.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "successThreshold": {
+          "description": "The success threshold.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "timeoutSeconds": {
+          "description": "The timeout seconds.",
+          "format": "int32",
+          "type": "integer"
+        }
+      },
       "type": "object"
     },
     "ContainerProperties": {
@@ -1346,12 +2282,20 @@
           "readOnly": true,
           "type": "object"
         },
+        "livenessProbe": {
+          "$ref": "#/definitions/ContainerProbe",
+          "description": "The liveness probe."
+        },
         "ports": {
           "description": "The exposed ports on the container instance.",
           "items": {
             "$ref": "#/definitions/ContainerPort"
           },
           "type": "array"
+        },
+        "readinessProbe": {
+          "$ref": "#/definitions/ContainerProbe",
+          "description": "The readiness probe."
         },
         "resources": {
           "$ref": "#/definitions/ResourceRequirements",
@@ -1399,6 +2343,30 @@
       },
       "type": "object"
     },
+    "DnsConfiguration": {
+      "description": "DNS configuration for the container group.",
+      "properties": {
+        "nameServers": {
+          "description": "The DNS servers for the container group.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "options": {
+          "description": "The DNS options for the container group.",
+          "type": "string"
+        },
+        "searchDomains": {
+          "description": "The DNS search domains for hostname lookup in the container group.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "nameServers"
+      ],
+      "type": "object"
+    },
     "EmptyDirVolume": {
       "description": "The empty directory volume.",
       "properties": {},
@@ -1411,14 +2379,17 @@
           "description": "The name of the environment variable.",
           "type": "string"
         },
+        "secureValue": {
+          "description": "The value of the secure environment variable.",
+          "type": "string"
+        },
         "value": {
           "description": "The value of the environment variable.",
           "type": "string"
         }
       },
       "required": [
-        "name",
-        "value"
+        "name"
       ],
       "type": "object"
     },
@@ -1454,6 +2425,54 @@
       },
       "type": "object"
     },
+    "GitRepoVolume": {
+      "description": "Represents a volume that is populated with the contents of a git repository",
+      "properties": {
+        "directory": {
+          "description": "Target directory name. Must not contain or start with '..'.  If '.' is supplied, the volume directory will be the git repository.  Otherwise, if specified, the volume will contain the git repository in the subdirectory with the given name.",
+          "type": "string"
+        },
+        "repository": {
+          "description": "Repository URL",
+          "type": "string"
+        },
+        "revision": {
+          "description": "Commit hash for the specified revision.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "repository"
+      ]
+    },
+    "GpuResource": {
+      "description": "The GPU resource.",
+      "properties": {
+        "count": {
+          "description": "The count of the GPU resource.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "sku": {
+          "description": "The SKU of the GPU resource.",
+          "enum": [
+            "K80",
+            "P100",
+            "V100"
+          ],
+          "type": "string",
+          "x-ms-enum": {
+            "modelAsString": true,
+            "name": "GpuSku"
+          }
+        }
+      },
+      "required": [
+        "count",
+        "sku"
+      ],
+      "type": "object"
+    },
     "ImageRegistryCredential": {
       "description": "Image registry credential.",
       "properties": {
@@ -1479,6 +2498,15 @@
     "IpAddress": {
       "description": "IP address for the container group.",
       "properties": {
+        "dnsNameLabel": {
+          "description": "The Dns name label for the IP.",
+          "type": "string"
+        },
+        "fqdn": {
+          "description": "The FQDN for the IP.",
+          "readOnly": true,
+          "type": "string"
+        },
         "ip": {
           "description": "The IP exposed to the public internet.",
           "type": "string"
@@ -1491,9 +2519,10 @@
           "type": "array"
         },
         "type": {
-          "description": "Specifies if the IP is exposed to the public internet.",
+          "description": "Specifies if the IP is exposed to the public internet or private VNET.",
           "enum": [
-            "Public"
+            "Public",
+            "Private"
           ],
           "type": "string",
           "x-ms-enum": {
@@ -1505,6 +2534,43 @@
       "required": [
         "ports",
         "type"
+      ],
+      "type": "object"
+    },
+    "LogAnalytics": {
+      "description": "Container group log analytics information.",
+      "properties": {
+        "logType": {
+          "description": "The log type to be used.",
+          "enum": [
+            "ContainerInsights",
+            "ContainerInstanceLogs"
+          ],
+          "type": "string",
+          "x-ms-enum": {
+            "modelAsString": true,
+            "name": "LogAnalyticsLogType"
+          }
+        },
+        "metadata": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "Metadata for log analytics.",
+          "type": "object"
+        },
+        "workspaceId": {
+          "description": "The workspace id for log analytics",
+          "type": "string"
+        },
+        "workspaceKey": {
+          "description": "The workspace key for log analytics",
+          "type": "string"
+        }
+      },
+      "required": [
+        "workspaceId",
+        "workspaceKey"
       ],
       "type": "object"
     },
@@ -1558,13 +2624,25 @@
             "modelAsString": true,
             "name": "ContainerInstanceOperationsOrigin"
           }
+        },
+        "properties": {
+          "description": "The additional properties.",
+          "type": "object"
         }
       },
+      "required": [
+        "name",
+        "display"
+      ],
       "type": "object"
     },
     "OperationListResult": {
       "description": "The operation list response that contains all operations for Azure Container Instance service.",
       "properties": {
+        "nextLink": {
+          "description": "The URI to fetch the next page of operations.",
+          "type": "string"
+        },
         "value": {
           "description": "The list of operations.",
           "items": {
@@ -1631,9 +2709,6 @@
           "type": "string"
         }
       },
-      "required": [
-        "location"
-      ],
       "type": "object",
       "x-ms-azure-resource": true
     },
@@ -1644,6 +2719,10 @@
           "description": "The CPU limit of this container instance.",
           "format": "double",
           "type": "number"
+        },
+        "gpu": {
+          "$ref": "#/definitions/GpuResource",
+          "description": "The GPU limit of this container instance."
         },
         "memoryInGB": {
           "description": "The memory limit in GB of this container instance.",
@@ -1660,6 +2739,10 @@
           "description": "The CPU request of this container instance.",
           "format": "double",
           "type": "number"
+        },
+        "gpu": {
+          "$ref": "#/definitions/GpuResource",
+          "description": "The GPU request of this container instance."
         },
         "memoryInGB": {
           "description": "The memory request in GB of this container instance.",
@@ -1690,20 +2773,86 @@
       ],
       "type": "object"
     },
+    "SecretVolume": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "description": "The secret volume.",
+      "type": "object"
+    },
+    "Usage": {
+      "description": "A single usage result",
+      "properties": {
+        "currentValue": {
+          "description": "The current usage of the resource",
+          "readOnly": true,
+          "type": "integer"
+        },
+        "limit": {
+          "description": "The maximum permitted usage of the resource.",
+          "readOnly": true,
+          "type": "integer"
+        },
+        "name": {
+          "description": "The name object of the resource",
+          "properties": {
+            "localizedValue": {
+              "description": "The localized name of the resource",
+              "readOnly": true,
+              "type": "string"
+            },
+            "value": {
+              "description": "The name of the resource",
+              "readOnly": true,
+              "type": "string"
+            }
+          },
+          "readOnly": true,
+          "type": "object"
+        },
+        "unit": {
+          "description": "Unit of the usage result",
+          "readOnly": true,
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "UsageListResult": {
+      "description": "The response containing the usage data",
+      "properties": {
+        "value": {
+          "items": {
+            "$ref": "#/definitions/Usage"
+          },
+          "readOnly": true,
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
     "Volume": {
       "description": "The properties of the volume.",
       "properties": {
         "azureFile": {
           "$ref": "#/definitions/AzureFileVolume",
-          "description": "The name of the Azure File volume."
+          "description": "The Azure File volume."
         },
         "emptyDir": {
           "$ref": "#/definitions/EmptyDirVolume",
           "description": "The empty directory volume."
         },
+        "gitRepo": {
+          "$ref": "#/definitions/GitRepoVolume",
+          "description": "The git repo volume."
+        },
         "name": {
           "description": "The name of the volume.",
           "type": "string"
+        },
+        "secret": {
+          "$ref": "#/definitions/SecretVolume",
+          "description": "The secret volume."
         }
       },
       "required": [
@@ -1730,6 +2879,28 @@
       "required": [
         "name",
         "mountPath"
+      ],
+      "type": "object"
+    },
+    "cachedImages": {
+      "description": "The cached image and OS type.",
+      "properties": {
+        "id": {
+          "description": "The resource Id of the cached image.",
+          "type": "string"
+        },
+        "image": {
+          "description": "The cached image name.",
+          "type": "string"
+        },
+        "osType": {
+          "description": "The OS type of the cached image.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "osType",
+        "image"
       ],
       "type": "object"
     }

@@ -1,0 +1,141 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "contact": {
+      "email": "support@iptwist.com"
+    },
+    "description": "The reliable, secure, and simple IP geolocation API.",
+    "termsOfService": "https://iptwist.com/legal/terms",
+    "title": "ipTwist",
+    "version": "1.0.0",
+    "x-apisguru-categories": [
+      "developer_tools"
+    ],
+    "x-origin": [
+      {
+        "converter": {
+          "url": "https://github.com/lucybot/api-spec-converter",
+          "version": "2.7.31"
+        },
+        "format": "openapi",
+        "url": "https://iptwist.com/schema",
+        "version": "3.0"
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "iptwist.com",
+    "x-datafire": {
+      "name": "iptwist",
+      "type": "openapi"
+    }
+  },
+  "paths": {
+    "/": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "IP address",
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Request"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful IP geolocation",
+            "schema": {
+              "$ref": "#/definitions/Response"
+            }
+          },
+          "401": {
+            "description": "Invalid authentication."
+          },
+          "403": {
+            "description": "Monthly quota exceeded."
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "tags": [
+          "Main"
+        ],
+        "summary": "Geolocate a given IP address"
+      }
+    }
+  },
+  "definitions": {
+    "Request": {
+      "properties": {
+        "ip": {
+          "format": "ipv4",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Response": {
+      "properties": {
+        "city": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "country_code": {
+          "type": "string"
+        },
+        "ip": {
+          "format": "ipv4",
+          "type": "string"
+        },
+        "latitude": {
+          "format": "float",
+          "type": "number"
+        },
+        "longitude": {
+          "format": "float",
+          "type": "number"
+        },
+        "state": {
+          "type": "string"
+        },
+        "timezone": {
+          "type": "string"
+        },
+        "zip": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "securityDefinitions": {
+    "ApiKeyAuth": {
+      "in": "header",
+      "name": "X-IPTWIST-TOKEN",
+      "type": "apiKey"
+    }
+  },
+  "tags": [
+    {
+      "name": "Main"
+    }
+  ],
+  "externalDocs": {
+    "description": "Official Documentation",
+    "url": "https://iptwist.com/documentation"
+  },
+  "x-components": {}
+}

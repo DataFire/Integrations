@@ -12,10 +12,7 @@ let fantasydata_golf_v2 = require('@datafire/fantasydata_golf_v2').create({
   apiKeyQuery: ""
 });
 
-fantasydata_golf_v2.DfsSlates({
-  "format": "",
-  "tournamentid": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

@@ -1,6 +1,6 @@
 # @datafire/voodoomfg
 
-Client library for Voodoo Manufacturing 3D Print
+Client library for Voodoo Manufacturing 3D Print API
 
 ## Installation and Usage
 ```bash
@@ -11,7 +11,7 @@ let voodoomfg = require('@datafire/voodoomfg').create({
   "Voodoo Manufacturing API Key": ""
 });
 
-voodoomfg.materials.get(null).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

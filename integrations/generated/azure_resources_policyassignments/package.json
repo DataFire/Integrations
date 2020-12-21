@@ -1,6 +1,6 @@
 {
   "name": "@datafire/azure_resources_policyassignments",
-  "version": "4.0.0",
+  "version": "5.0.0",
   "main": "index.js",
   "description": "DataFire integration for PolicyClient",
   "repository": {
@@ -14,7 +14,7 @@
   },
   "homepage": "https://github.com/DataFire/integrations#readme",
   "datafire": {
-    "origin": "https://api.apis.guru/v2/specs/azure.com/resources-policyAssignments/2017-06-01-preview/swagger.json",
+    "origin": "https://api.apis.guru/v2/specs/azure.com/resources-policyAssignments/2019-06-01/swagger.json",
     "type": "openapi"
   },
   "peerDependencies": {

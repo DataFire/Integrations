@@ -12,7 +12,7 @@ let deeparteffects = require('@datafire/deeparteffects').create({
   sigv4: ""
 });
 
-deeparteffects.noauth.result.get({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

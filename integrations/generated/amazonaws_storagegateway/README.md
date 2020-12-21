@@ -13,19 +13,14 @@ let amazonaws_storagegateway = require('@datafire/amazonaws_storagegateway').cre
   region: ""
 });
 
-amazonaws_storagegateway.ActivateGateway({
-  "ActivationKey": "",
-  "GatewayName": "",
-  "GatewayTimezone": "",
-  "GatewayRegion": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
 
 ## Description
 
-<fullname>AWS Storage Gateway Service</fullname> <p>AWS Storage Gateway is the service that connects an on-premises software appliance with cloud-based storage to provide seamless and secure integration between an organization's on-premises IT environment and AWS's storage infrastructure. The service enables you to securely upload data to the AWS cloud for cost effective backup and rapid disaster recovery.</p> <p>Use the following links to get started using the <i>AWS Storage Gateway Service API Reference</i>:</p> <ul> <li> <p> <a href="http://docs.aws.amazon.com/storagegateway/latest/userguide/AWSStorageGatewayAPI.html#AWSStorageGatewayHTTPRequestsHeaders">AWS Storage Gateway Required Request Headers</a>: Describes the required headers that you must send with every POST request to AWS Storage Gateway.</p> </li> <li> <p> <a href="http://docs.aws.amazon.com/storagegateway/latest/userguide/AWSStorageGatewayAPI.html#AWSStorageGatewaySigningRequests">Signing Requests</a>: AWS Storage Gateway requires that you authenticate every request you send; this topic describes how sign such a request.</p> </li> <li> <p> <a href="http://docs.aws.amazon.com/storagegateway/latest/userguide/AWSStorageGatewayAPI.html#APIErrorResponses">Error Responses</a>: Provides reference information about AWS Storage Gateway errors.</p> </li> <li> <p> <a href="http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_Operations.html">Operations in AWS Storage Gateway</a>: Contains detailed descriptions of all AWS Storage Gateway operations, their request parameters, response elements, possible errors, and examples of requests and responses.</p> </li> <li> <p> <a href="http://docs.aws.amazon.com/general/latest/gr/rande.html#sg_region">AWS Storage Gateway Regions and Endpoints:</a> Provides a list of each region and endpoints available for use with AWS Storage Gateway. </p> </li> </ul> <note> <p>AWS Storage Gateway resource IDs are in uppercase. When you use these resource IDs with the Amazon EC2 API, EC2 expects resource IDs in lowercase. You must change your resource ID to lowercase to use it with the EC2 API. For example, in Storage Gateway the ID for a volume might be <code>vol-AA22BB012345DAF670</code>. When you use this ID with the EC2 API, you must change it to <code>vol-aa22bb012345daf670</code>. Otherwise, the EC2 API might not behave as expected.</p> </note> <important> <p>IDs for Storage Gateway volumes and Amazon EBS snapshots created from gateway volumes are changing to a longer format. Starting in December 2016, all new volumes and snapshots will be created with a 17-character string. Starting in April 2016, you will be able to use these longer IDs so you can test your systems with the new format. For more information, see <a href="https://aws.amazon.com/ec2/faqs/#longer-ids">Longer EC2 and EBS Resource IDs</a>.</p> <p> For example, a volume Amazon Resource Name (ARN) with the longer volume ID format looks like the following:</p> <p> <code>arn:aws:storagegateway:us-west-2:111122223333:gateway/sgw-12A3456B/volume/vol-1122AABBCCDDEEFFG</code>.</p> <p>A snapshot ID with the longer ID format looks like the following: <code>snap-78e226633445566ee</code>.</p> <p>For more information, see <a href="https://forums.aws.amazon.com/ann.jspa?annID=3557">Announcement: Heads-up – Longer AWS Storage Gateway volume and snapshot IDs coming in 2016</a>.</p> </important>
+<fullname>AWS Storage Gateway Service</fullname> <p>AWS Storage Gateway is the service that connects an on-premises software appliance with cloud-based storage to provide seamless and secure integration between an organization's on-premises IT environment and the AWS storage infrastructure. The service enables you to securely upload data to the AWS Cloud for cost effective backup and rapid disaster recovery.</p> <p>Use the following links to get started using the <i>AWS Storage Gateway Service API Reference</i>:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/storagegateway/latest/userguide/AWSStorageGatewayAPI.html#AWSStorageGatewayHTTPRequestsHeaders">AWS Storage Gateway required request headers</a>: Describes the required headers that you must send with every POST request to AWS Storage Gateway.</p> </li> <li> <p> <a href="https://docs.aws.amazon.com/storagegateway/latest/userguide/AWSStorageGatewayAPI.html#AWSStorageGatewaySigningRequests">Signing requests</a>: AWS Storage Gateway requires that you authenticate every request you send; this topic describes how sign such a request.</p> </li> <li> <p> <a href="https://docs.aws.amazon.com/storagegateway/latest/userguide/AWSStorageGatewayAPI.html#APIErrorResponses">Error responses</a>: Provides reference information about AWS Storage Gateway errors.</p> </li> <li> <p> <a href="https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_Operations.html">Operations in AWS Storage Gateway</a>: Contains detailed descriptions of all AWS Storage Gateway operations, their request parameters, response elements, possible errors, and examples of requests and responses.</p> </li> <li> <p> <a href="https://docs.aws.amazon.com/general/latest/gr/sg.html">AWS Storage Gateway endpoints and quotas</a>: Provides a list of each AWS Region and the endpoints available for use with AWS Storage Gateway.</p> </li> </ul> <note> <p>AWS Storage Gateway resource IDs are in uppercase. When you use these resource IDs with the Amazon EC2 API, EC2 expects resource IDs in lowercase. You must change your resource ID to lowercase to use it with the EC2 API. For example, in Storage Gateway the ID for a volume might be <code>vol-AA22BB012345DAF670</code>. When you use this ID with the EC2 API, you must change it to <code>vol-aa22bb012345daf670</code>. Otherwise, the EC2 API might not behave as expected.</p> </note> <important> <p>IDs for Storage Gateway volumes and Amazon EBS snapshots created from gateway volumes are changing to a longer format. Starting in December 2016, all new volumes and snapshots will be created with a 17-character string. Starting in April 2016, you will be able to use these longer IDs so you can test your systems with the new format. For more information, see <a href="http://aws.amazon.com/ec2/faqs/#longer-ids">Longer EC2 and EBS resource IDs</a>.</p> <p>For example, a volume Amazon Resource Name (ARN) with the longer volume ID format looks like the following:</p> <p> <code>arn:aws:storagegateway:us-west-2:111122223333:gateway/sgw-12A3456B/volume/vol-1122AABBCCDDEEFFG</code>.</p> <p>A snapshot ID with the longer ID format looks like the following: <code>snap-78e226633445566ee</code>.</p> <p>For more information, see <a href="http://forums.aws.amazon.com/ann.jspa?annID=3557">Announcement: Heads-up – Longer AWS Storage Gateway volume and snapshot IDs coming in 2016</a>.</p> </important>
 
 ## Actions
 
@@ -35,22 +30,24 @@ amazonaws_storagegateway.ActivateGateway({
 
 ```js
 amazonaws_storagegateway.ActivateGateway({
-  "ActivationKey": "",
-  "GatewayName": "",
-  "GatewayTimezone": "",
-  "GatewayRegion": ""
+  "ActivationKey": null,
+  "GatewayName": null,
+  "GatewayTimezone": null,
+  "GatewayRegion": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ActivationKey **required** [ActivationKey](#activationkey)
-  * GatewayName **required** [GatewayName](#gatewayname)
-  * GatewayRegion **required** [RegionId](#regionid)
-  * GatewayTimezone **required** [GatewayTimezone](#gatewaytimezone)
-  * GatewayType [GatewayType](#gatewaytype)
-  * MediumChangerType [MediumChangerType](#mediumchangertype)
-  * TapeDriveType [TapeDriveType](#tapedrivetype)
+  * ActivationKey **required**
+  * GatewayName **required**
+  * GatewayRegion **required**
+  * GatewayTimezone **required**
+  * GatewayType
+  * MediumChangerType
+  * Tags
+    * items [Tag](#tag)
+  * TapeDriveType
 
 #### Output
 * output [ActivateGatewayOutput](#activategatewayoutput)
@@ -62,13 +59,14 @@ amazonaws_storagegateway.ActivateGateway({
 ```js
 amazonaws_storagegateway.AddCache({
   "GatewayARN": "",
-  "DiskIds": []
+  "DiskIds": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * DiskIds **required** [DiskIds](#diskids)
+  * DiskIds **required**
+    * items [DiskId](#diskid)
   * GatewayARN **required** [GatewayARN](#gatewayarn)
 
 #### Output
@@ -80,15 +78,16 @@ amazonaws_storagegateway.AddCache({
 
 ```js
 amazonaws_storagegateway.AddTagsToResource({
-  "ResourceARN": "",
-  "Tags": []
+  "ResourceARN": null,
+  "Tags": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ResourceARN **required** [ResourceARN](#resourcearn)
-  * Tags **required** [Tags](#tags)
+  * ResourceARN **required**
+  * Tags **required**
+    * items [Tag](#tag)
 
 #### Output
 * output [AddTagsToResourceOutput](#addtagstoresourceoutput)
@@ -100,13 +99,14 @@ amazonaws_storagegateway.AddTagsToResource({
 ```js
 amazonaws_storagegateway.AddUploadBuffer({
   "GatewayARN": "",
-  "DiskIds": []
+  "DiskIds": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * DiskIds **required** [DiskIds](#diskids)
+  * DiskIds **required**
+    * items [DiskId](#diskid)
   * GatewayARN **required** [GatewayARN](#gatewayarn)
 
 #### Output
@@ -119,17 +119,61 @@ amazonaws_storagegateway.AddUploadBuffer({
 ```js
 amazonaws_storagegateway.AddWorkingStorage({
   "GatewayARN": "",
-  "DiskIds": []
+  "DiskIds": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * DiskIds **required** [DiskIds](#diskids)
+  * DiskIds **required**
+    * items [DiskId](#diskid)
   * GatewayARN **required** [GatewayARN](#gatewayarn)
 
 #### Output
 * output [AddWorkingStorageOutput](#addworkingstorageoutput)
+
+### AssignTapePool
+
+
+
+```js
+amazonaws_storagegateway.AssignTapePool({
+  "TapeARN": null,
+  "PoolId": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * BypassGovernanceRetention
+  * PoolId **required**
+  * TapeARN **required**
+
+#### Output
+* output [AssignTapePoolOutput](#assigntapepooloutput)
+
+### AttachVolume
+
+
+
+```js
+amazonaws_storagegateway.AttachVolume({
+  "GatewayARN": null,
+  "VolumeARN": null,
+  "NetworkInterfaceId": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * DiskId
+  * GatewayARN **required**
+  * NetworkInterfaceId **required**
+  * TargetName
+  * VolumeARN **required**
+
+#### Output
+* output [AttachVolumeOutput](#attachvolumeoutput)
 
 ### CancelArchival
 
@@ -138,14 +182,14 @@ amazonaws_storagegateway.AddWorkingStorage({
 ```js
 amazonaws_storagegateway.CancelArchival({
   "GatewayARN": "",
-  "TapeARN": ""
+  "TapeARN": null
 }, context)
 ```
 
 #### Input
 * input `object`
   * GatewayARN **required** [GatewayARN](#gatewayarn)
-  * TapeARN **required** [TapeARN](#tapearn)
+  * TapeARN **required**
 
 #### Output
 * output [CancelArchivalOutput](#cancelarchivaloutput)
@@ -157,14 +201,14 @@ amazonaws_storagegateway.CancelArchival({
 ```js
 amazonaws_storagegateway.CancelRetrieval({
   "GatewayARN": "",
-  "TapeARN": ""
+  "TapeARN": null
 }, context)
 ```
 
 #### Input
 * input `object`
   * GatewayARN **required** [GatewayARN](#gatewayarn)
-  * TapeARN **required** [TapeARN](#tapearn)
+  * TapeARN **required**
 
 #### Output
 * output [CancelRetrievalOutput](#cancelretrievaloutput)
@@ -176,24 +220,26 @@ amazonaws_storagegateway.CancelRetrieval({
 ```js
 amazonaws_storagegateway.CreateCachediSCSIVolume({
   "GatewayARN": "",
-  "VolumeSizeInBytes": 0,
-  "TargetName": "",
-  "NetworkInterfaceId": "",
-  "ClientToken": ""
+  "VolumeSizeInBytes": null,
+  "TargetName": null,
+  "NetworkInterfaceId": null,
+  "ClientToken": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ClientToken **required** [ClientToken](#clienttoken)
+  * ClientToken **required**
   * GatewayARN **required** [GatewayARN](#gatewayarn)
-  * KMSEncrypted [Boolean](#boolean)
-  * KMSKey [KMSKey](#kmskey)
-  * NetworkInterfaceId **required** [NetworkInterfaceId](#networkinterfaceid)
-  * SnapshotId [SnapshotId](#snapshotid)
-  * SourceVolumeARN [VolumeARN](#volumearn)
-  * TargetName **required** [TargetName](#targetname)
-  * VolumeSizeInBytes **required** [long](#long)
+  * KMSEncrypted
+  * KMSKey
+  * NetworkInterfaceId **required**
+  * SnapshotId
+  * SourceVolumeARN
+  * Tags
+    * items [Tag](#tag)
+  * TargetName **required**
+  * VolumeSizeInBytes **required**
 
 #### Output
 * output [CreateCachediSCSIVolumeOutput](#createcachediscsivolumeoutput)
@@ -204,32 +250,90 @@ amazonaws_storagegateway.CreateCachediSCSIVolume({
 
 ```js
 amazonaws_storagegateway.CreateNFSFileShare({
-  "ClientToken": "",
-  "GatewayARN": "",
-  "Role": "",
-  "LocationARN": ""
+  "ClientToken": null,
+  "GatewayARN": null,
+  "Role": null,
+  "LocationARN": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ClientList [FileShareClientList](#fileshareclientlist)
-  * ClientToken **required** [ClientToken](#clienttoken)
-  * DefaultStorageClass [StorageClass](#storageclass)
-  * GatewayARN **required** [GatewayARN](#gatewayarn)
-  * GuessMIMETypeEnabled [Boolean](#boolean)
-  * KMSEncrypted [Boolean](#boolean)
-  * KMSKey [KMSKey](#kmskey)
-  * LocationARN **required** [LocationARN](#locationarn)
-  * NFSFileShareDefaults [NFSFileShareDefaults](#nfsfilesharedefaults)
-  * ObjectACL [ObjectACL](#objectacl)
-  * ReadOnly [Boolean](#boolean)
-  * RequesterPays [Boolean](#boolean)
-  * Role **required** [Role](#role)
-  * Squash [Squash](#squash)
+  * CacheAttributes
+    * CacheStaleTimeoutInSeconds
+  * ClientList
+    * items [IPV4AddressCIDR](#ipv4addresscidr)
+  * ClientToken **required**
+  * DefaultStorageClass
+  * FileShareName
+  * GatewayARN **required**
+  * GuessMIMETypeEnabled
+  * KMSEncrypted
+  * KMSKey
+  * LocationARN **required**
+  * NFSFileShareDefaults
+    * DirectoryMode
+    * FileMode
+    * GroupId
+    * OwnerId
+  * NotificationPolicy
+  * ObjectACL
+  * ReadOnly
+  * RequesterPays
+  * Role **required**
+  * Squash
+  * Tags
+    * items [Tag](#tag)
 
 #### Output
 * output [CreateNFSFileShareOutput](#createnfsfileshareoutput)
+
+### CreateSMBFileShare
+
+
+
+```js
+amazonaws_storagegateway.CreateSMBFileShare({
+  "ClientToken": null,
+  "GatewayARN": null,
+  "Role": null,
+  "LocationARN": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * AccessBasedEnumeration
+  * AdminUserList
+    * items [FileShareUser](#fileshareuser)
+  * AuditDestinationARN
+  * Authentication
+  * CacheAttributes
+    * CacheStaleTimeoutInSeconds
+  * CaseSensitivity
+  * ClientToken **required**
+  * DefaultStorageClass
+  * FileShareName
+  * GatewayARN **required**
+  * GuessMIMETypeEnabled
+  * InvalidUserList
+    * items [FileShareUser](#fileshareuser)
+  * KMSEncrypted
+  * KMSKey
+  * LocationARN **required**
+  * NotificationPolicy
+  * ObjectACL
+  * ReadOnly
+  * RequesterPays
+  * Role **required**
+  * SMBACLEnabled
+  * Tags
+    * items [Tag](#tag)
+  * ValidUserList
+    * items [FileShareUser](#fileshareuser)
+
+#### Output
+* output [CreateSMBFileShareOutput](#createsmbfileshareoutput)
 
 ### CreateSnapshot
 
@@ -237,15 +341,17 @@ amazonaws_storagegateway.CreateNFSFileShare({
 
 ```js
 amazonaws_storagegateway.CreateSnapshot({
-  "VolumeARN": "",
-  "SnapshotDescription": ""
+  "VolumeARN": null,
+  "SnapshotDescription": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * SnapshotDescription **required** [SnapshotDescription](#snapshotdescription)
-  * VolumeARN **required** [VolumeARN](#volumearn)
+  * SnapshotDescription **required**
+  * Tags
+    * items [Tag](#tag)
+  * VolumeARN **required**
 
 #### Output
 * output [CreateSnapshotOutput](#createsnapshotoutput)
@@ -256,15 +362,17 @@ amazonaws_storagegateway.CreateSnapshot({
 
 ```js
 amazonaws_storagegateway.CreateSnapshotFromVolumeRecoveryPoint({
-  "VolumeARN": "",
-  "SnapshotDescription": ""
+  "VolumeARN": null,
+  "SnapshotDescription": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * SnapshotDescription **required** [SnapshotDescription](#snapshotdescription)
-  * VolumeARN **required** [VolumeARN](#volumearn)
+  * SnapshotDescription **required**
+  * Tags
+    * items [Tag](#tag)
+  * VolumeARN **required**
 
 #### Output
 * output [CreateSnapshotFromVolumeRecoveryPointOutput](#createsnapshotfromvolumerecoverypointoutput)
@@ -276,24 +384,51 @@ amazonaws_storagegateway.CreateSnapshotFromVolumeRecoveryPoint({
 ```js
 amazonaws_storagegateway.CreateStorediSCSIVolume({
   "GatewayARN": "",
-  "DiskId": "",
-  "PreserveExistingData": true,
-  "TargetName": "",
-  "NetworkInterfaceId": ""
+  "DiskId": null,
+  "PreserveExistingData": null,
+  "TargetName": null,
+  "NetworkInterfaceId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * DiskId **required** [DiskId](#diskid)
+  * DiskId **required**
   * GatewayARN **required** [GatewayARN](#gatewayarn)
-  * NetworkInterfaceId **required** [NetworkInterfaceId](#networkinterfaceid)
-  * PreserveExistingData **required** [boolean](#boolean)
-  * SnapshotId [SnapshotId](#snapshotid)
-  * TargetName **required** [TargetName](#targetname)
+  * KMSEncrypted
+  * KMSKey
+  * NetworkInterfaceId **required**
+  * PreserveExistingData **required**
+  * SnapshotId
+  * Tags
+    * items [Tag](#tag)
+  * TargetName **required**
 
 #### Output
 * output [CreateStorediSCSIVolumeOutput](#createstorediscsivolumeoutput)
+
+### CreateTapePool
+
+
+
+```js
+amazonaws_storagegateway.CreateTapePool({
+  "PoolName": null,
+  "StorageClass": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * PoolName **required**
+  * RetentionLockTimeInDays
+  * RetentionLockType
+  * StorageClass **required**
+  * Tags
+    * items [Tag](#tag)
+
+#### Output
+* output [CreateTapePoolOutput](#createtapepooloutput)
 
 ### CreateTapeWithBarcode
 
@@ -301,19 +436,23 @@ amazonaws_storagegateway.CreateStorediSCSIVolume({
 
 ```js
 amazonaws_storagegateway.CreateTapeWithBarcode({
-  "GatewayARN": "",
-  "TapeSizeInBytes": 0,
-  "TapeBarcode": ""
+  "GatewayARN": null,
+  "TapeSizeInBytes": null,
+  "TapeBarcode": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * GatewayARN **required** [GatewayARN](#gatewayarn)
-  * KMSEncrypted [Boolean](#boolean)
-  * KMSKey [KMSKey](#kmskey)
-  * TapeBarcode **required** [TapeBarcode](#tapebarcode)
-  * TapeSizeInBytes **required** [TapeSize](#tapesize)
+  * GatewayARN **required**
+  * KMSEncrypted
+  * KMSKey
+  * PoolId
+  * Tags
+    * items [Tag](#tag)
+  * TapeBarcode **required**
+  * TapeSizeInBytes **required**
+  * Worm
 
 #### Output
 * output [CreateTapeWithBarcodeOutput](#createtapewithbarcodeoutput)
@@ -324,26 +463,47 @@ amazonaws_storagegateway.CreateTapeWithBarcode({
 
 ```js
 amazonaws_storagegateway.CreateTapes({
-  "GatewayARN": "",
-  "TapeSizeInBytes": 0,
-  "ClientToken": "",
-  "NumTapesToCreate": 0,
-  "TapeBarcodePrefix": ""
+  "GatewayARN": null,
+  "TapeSizeInBytes": null,
+  "ClientToken": null,
+  "NumTapesToCreate": null,
+  "TapeBarcodePrefix": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ClientToken **required** [ClientToken](#clienttoken)
-  * GatewayARN **required** [GatewayARN](#gatewayarn)
-  * KMSEncrypted [Boolean](#boolean)
-  * KMSKey [KMSKey](#kmskey)
-  * NumTapesToCreate **required** [NumTapesToCreate](#numtapestocreate)
-  * TapeBarcodePrefix **required** [TapeBarcodePrefix](#tapebarcodeprefix)
-  * TapeSizeInBytes **required** [TapeSize](#tapesize)
+  * ClientToken **required**
+  * GatewayARN **required**
+  * KMSEncrypted
+  * KMSKey
+  * NumTapesToCreate **required**
+  * PoolId
+  * Tags
+    * items [Tag](#tag)
+  * TapeBarcodePrefix **required**
+  * TapeSizeInBytes **required**
+  * Worm
 
 #### Output
 * output [CreateTapesOutput](#createtapesoutput)
+
+### DeleteAutomaticTapeCreationPolicy
+
+
+
+```js
+amazonaws_storagegateway.DeleteAutomaticTapeCreationPolicy({
+  "GatewayARN": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * GatewayARN **required** [GatewayARN](#gatewayarn)
+
+#### Output
+* output [DeleteAutomaticTapeCreationPolicyOutput](#deleteautomatictapecreationpolicyoutput)
 
 ### DeleteBandwidthRateLimit
 
@@ -352,13 +512,13 @@ amazonaws_storagegateway.CreateTapes({
 ```js
 amazonaws_storagegateway.DeleteBandwidthRateLimit({
   "GatewayARN": "",
-  "BandwidthType": ""
+  "BandwidthType": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * BandwidthType **required** [BandwidthType](#bandwidthtype)
+  * BandwidthType **required**
   * GatewayARN **required** [GatewayARN](#gatewayarn)
 
 #### Output
@@ -370,15 +530,15 @@ amazonaws_storagegateway.DeleteBandwidthRateLimit({
 
 ```js
 amazonaws_storagegateway.DeleteChapCredentials({
-  "TargetARN": "",
-  "InitiatorName": ""
+  "TargetARN": null,
+  "InitiatorName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * InitiatorName **required** [IqnName](#iqnname)
-  * TargetARN **required** [TargetARN](#targetarn)
+  * InitiatorName **required**
+  * TargetARN **required**
 
 #### Output
 * output [DeleteChapCredentialsOutput](#deletechapcredentialsoutput)
@@ -389,14 +549,14 @@ amazonaws_storagegateway.DeleteChapCredentials({
 
 ```js
 amazonaws_storagegateway.DeleteFileShare({
-  "FileShareARN": ""
+  "FileShareARN": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * FileShareARN **required** [FileShareARN](#filesharearn)
-  * ForceDelete [boolean](#boolean)
+  * FileShareARN **required**
+  * ForceDelete
 
 #### Output
 * output [DeleteFileShareOutput](#deletefileshareoutput)
@@ -424,13 +584,13 @@ amazonaws_storagegateway.DeleteGateway({
 
 ```js
 amazonaws_storagegateway.DeleteSnapshotSchedule({
-  "VolumeARN": ""
+  "VolumeARN": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * VolumeARN **required** [VolumeARN](#volumearn)
+  * VolumeARN **required**
 
 #### Output
 * output [DeleteSnapshotScheduleOutput](#deletesnapshotscheduleoutput)
@@ -441,15 +601,16 @@ amazonaws_storagegateway.DeleteSnapshotSchedule({
 
 ```js
 amazonaws_storagegateway.DeleteTape({
-  "GatewayARN": "",
-  "TapeARN": ""
+  "GatewayARN": null,
+  "TapeARN": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * GatewayARN **required** [GatewayARN](#gatewayarn)
-  * TapeARN **required** [TapeARN](#tapearn)
+  * BypassGovernanceRetention
+  * GatewayARN **required**
+  * TapeARN **required**
 
 #### Output
 * output [DeleteTapeOutput](#deletetapeoutput)
@@ -460,16 +621,34 @@ amazonaws_storagegateway.DeleteTape({
 
 ```js
 amazonaws_storagegateway.DeleteTapeArchive({
-  "TapeARN": ""
+  "TapeARN": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * TapeARN **required** [TapeARN](#tapearn)
+  * BypassGovernanceRetention
+  * TapeARN **required**
 
 #### Output
 * output [DeleteTapeArchiveOutput](#deletetapearchiveoutput)
+
+### DeleteTapePool
+
+
+
+```js
+amazonaws_storagegateway.DeleteTapePool({
+  "PoolARN": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * PoolARN **required**
+
+#### Output
+* output [DeleteTapePoolOutput](#deletetapepooloutput)
 
 ### DeleteVolume
 
@@ -477,16 +656,33 @@ amazonaws_storagegateway.DeleteTapeArchive({
 
 ```js
 amazonaws_storagegateway.DeleteVolume({
-  "VolumeARN": ""
+  "VolumeARN": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * VolumeARN **required** [VolumeARN](#volumearn)
+  * VolumeARN **required**
 
 #### Output
 * output [DeleteVolumeOutput](#deletevolumeoutput)
+
+### DescribeAvailabilityMonitorTest
+
+
+
+```js
+amazonaws_storagegateway.DescribeAvailabilityMonitorTest({
+  "GatewayARN": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * GatewayARN **required** [GatewayARN](#gatewayarn)
+
+#### Output
+* output [DescribeAvailabilityMonitorTestOutput](#describeavailabilitymonitortestoutput)
 
 ### DescribeBandwidthRateLimit
 
@@ -504,6 +700,23 @@ amazonaws_storagegateway.DescribeBandwidthRateLimit({
 
 #### Output
 * output [DescribeBandwidthRateLimitOutput](#describebandwidthratelimitoutput)
+
+### DescribeBandwidthRateLimitSchedule
+
+
+
+```js
+amazonaws_storagegateway.DescribeBandwidthRateLimitSchedule({
+  "GatewayARN": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * GatewayARN **required** [GatewayARN](#gatewayarn)
+
+#### Output
+* output [DescribeBandwidthRateLimitScheduleOutput](#describebandwidthratelimitscheduleoutput)
 
 ### DescribeCache
 
@@ -528,13 +741,14 @@ amazonaws_storagegateway.DescribeCache({
 
 ```js
 amazonaws_storagegateway.DescribeCachediSCSIVolumes({
-  "VolumeARNs": []
+  "VolumeARNs": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * VolumeARNs **required** [VolumeARNs](#volumearns)
+  * VolumeARNs **required**
+    * items [VolumeARN](#volumearn)
 
 #### Output
 * output [DescribeCachediSCSIVolumesOutput](#describecachediscsivolumesoutput)
@@ -545,13 +759,13 @@ amazonaws_storagegateway.DescribeCachediSCSIVolumes({
 
 ```js
 amazonaws_storagegateway.DescribeChapCredentials({
-  "TargetARN": ""
+  "TargetARN": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * TargetARN **required** [TargetARN](#targetarn)
+  * TargetARN **required**
 
 #### Output
 * output [DescribeChapCredentialsOutput](#describechapcredentialsoutput)
@@ -596,16 +810,52 @@ amazonaws_storagegateway.DescribeMaintenanceStartTime({
 
 ```js
 amazonaws_storagegateway.DescribeNFSFileShares({
-  "FileShareARNList": []
+  "FileShareARNList": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * FileShareARNList **required** [FileShareARNList](#filesharearnlist)
+  * FileShareARNList **required**
+    * items [FileShareARN](#filesharearn)
 
 #### Output
 * output [DescribeNFSFileSharesOutput](#describenfsfilesharesoutput)
+
+### DescribeSMBFileShares
+
+
+
+```js
+amazonaws_storagegateway.DescribeSMBFileShares({
+  "FileShareARNList": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * FileShareARNList **required**
+    * items [FileShareARN](#filesharearn)
+
+#### Output
+* output [DescribeSMBFileSharesOutput](#describesmbfilesharesoutput)
+
+### DescribeSMBSettings
+
+
+
+```js
+amazonaws_storagegateway.DescribeSMBSettings({
+  "GatewayARN": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * GatewayARN **required** [GatewayARN](#gatewayarn)
+
+#### Output
+* output [DescribeSMBSettingsOutput](#describesmbsettingsoutput)
 
 ### DescribeSnapshotSchedule
 
@@ -613,13 +863,13 @@ amazonaws_storagegateway.DescribeNFSFileShares({
 
 ```js
 amazonaws_storagegateway.DescribeSnapshotSchedule({
-  "VolumeARN": ""
+  "VolumeARN": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * VolumeARN **required** [VolumeARN](#volumearn)
+  * VolumeARN **required**
 
 #### Output
 * output [DescribeSnapshotScheduleOutput](#describesnapshotscheduleoutput)
@@ -630,13 +880,14 @@ amazonaws_storagegateway.DescribeSnapshotSchedule({
 
 ```js
 amazonaws_storagegateway.DescribeStorediSCSIVolumes({
-  "VolumeARNs": []
+  "VolumeARNs": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * VolumeARNs **required** [VolumeARNs](#volumearns)
+  * VolumeARNs **required**
+    * items [VolumeARN](#volumearn)
 
 #### Output
 * output [DescribeStorediSCSIVolumesOutput](#describestorediscsivolumesoutput)
@@ -653,9 +904,10 @@ amazonaws_storagegateway.DescribeTapeArchives({}, context)
 * input `object`
   * Limit `string`
   * Marker `string`
-  * Limit [PositiveIntObject](#positiveintobject)
-  * Marker [Marker](#marker)
-  * TapeARNs [TapeARNs](#tapearns)
+  * Limit
+  * Marker
+  * TapeARNs
+    * items [TapeARN](#tapearn)
 
 #### Output
 * output [DescribeTapeArchivesOutput](#describetapearchivesoutput)
@@ -675,8 +927,8 @@ amazonaws_storagegateway.DescribeTapeRecoveryPoints({
   * Limit `string`
   * Marker `string`
   * GatewayARN **required** [GatewayARN](#gatewayarn)
-  * Limit [PositiveIntObject](#positiveintobject)
-  * Marker [Marker](#marker)
+  * Limit
+  * Marker
 
 #### Output
 * output [DescribeTapeRecoveryPointsOutput](#describetaperecoverypointsoutput)
@@ -696,9 +948,10 @@ amazonaws_storagegateway.DescribeTapes({
   * Limit `string`
   * Marker `string`
   * GatewayARN **required** [GatewayARN](#gatewayarn)
-  * Limit [PositiveIntObject](#positiveintobject)
-  * Marker [Marker](#marker)
-  * TapeARNs [TapeARNs](#tapearns)
+  * Limit
+  * Marker
+  * TapeARNs
+    * items [TapeARN](#tapearn)
 
 #### Output
 * output [DescribeTapesOutput](#describetapesoutput)
@@ -735,9 +988,10 @@ amazonaws_storagegateway.DescribeVTLDevices({
   * Limit `string`
   * Marker `string`
   * GatewayARN **required** [GatewayARN](#gatewayarn)
-  * Limit [PositiveIntObject](#positiveintobject)
-  * Marker [Marker](#marker)
-  * VTLDeviceARNs [VTLDeviceARNs](#vtldevicearns)
+  * Limit
+  * Marker
+  * VTLDeviceARNs
+    * items [VTLDeviceARN](#vtldevicearn)
 
 #### Output
 * output [DescribeVTLDevicesOutput](#describevtldevicesoutput)
@@ -759,6 +1013,24 @@ amazonaws_storagegateway.DescribeWorkingStorage({
 #### Output
 * output [DescribeWorkingStorageOutput](#describeworkingstorageoutput)
 
+### DetachVolume
+
+
+
+```js
+amazonaws_storagegateway.DetachVolume({
+  "VolumeARN": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * ForceDetach
+  * VolumeARN **required**
+
+#### Output
+* output [DetachVolumeOutput](#detachvolumeoutput)
+
 ### DisableGateway
 
 
@@ -776,6 +1048,48 @@ amazonaws_storagegateway.DisableGateway({
 #### Output
 * output [DisableGatewayOutput](#disablegatewayoutput)
 
+### JoinDomain
+
+
+
+```js
+amazonaws_storagegateway.JoinDomain({
+  "GatewayARN": null,
+  "DomainName": null,
+  "UserName": null,
+  "Password": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * DomainControllers
+    * items [Host](#host)
+  * DomainName **required**
+  * GatewayARN **required**
+  * OrganizationalUnit
+  * Password **required**
+  * TimeoutInSeconds
+  * UserName **required**
+
+#### Output
+* output [JoinDomainOutput](#joindomainoutput)
+
+### ListAutomaticTapeCreationPolicies
+
+
+
+```js
+amazonaws_storagegateway.ListAutomaticTapeCreationPolicies({}, context)
+```
+
+#### Input
+* input `object`
+  * GatewayARN [GatewayARN](#gatewayarn)
+
+#### Output
+* output [ListAutomaticTapeCreationPoliciesOutput](#listautomatictapecreationpoliciesoutput)
+
 ### ListFileShares
 
 
@@ -786,9 +1100,11 @@ amazonaws_storagegateway.ListFileShares({}, context)
 
 #### Input
 * input `object`
-  * GatewayARN [GatewayARN](#gatewayarn)
-  * Limit [PositiveIntObject](#positiveintobject)
-  * Marker [Marker](#marker)
+  * Limit `string`
+  * Marker `string`
+  * GatewayARN
+  * Limit
+  * Marker
 
 #### Output
 * output [ListFileSharesOutput](#listfilesharesoutput)
@@ -805,8 +1121,8 @@ amazonaws_storagegateway.ListGateways({}, context)
 * input `object`
   * Limit `string`
   * Marker `string`
-  * Limit [PositiveIntObject](#positiveintobject)
-  * Marker [Marker](#marker)
+  * Limit
+  * Marker
 
 #### Output
 * output [ListGatewaysOutput](#listgatewaysoutput)
@@ -834,18 +1150,40 @@ amazonaws_storagegateway.ListLocalDisks({
 
 ```js
 amazonaws_storagegateway.ListTagsForResource({
-  "ResourceARN": ""
+  "ResourceARN": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Limit [PositiveIntObject](#positiveintobject)
-  * Marker [Marker](#marker)
-  * ResourceARN **required** [ResourceARN](#resourcearn)
+  * Limit `string`
+  * Marker `string`
+  * Limit
+  * Marker
+  * ResourceARN **required**
 
 #### Output
 * output [ListTagsForResourceOutput](#listtagsforresourceoutput)
+
+### ListTapePools
+
+
+
+```js
+amazonaws_storagegateway.ListTapePools({}, context)
+```
+
+#### Input
+* input `object`
+  * Limit `string`
+  * Marker `string`
+  * Limit
+  * Marker
+  * PoolARNs
+    * items [PoolARN](#poolarn)
+
+#### Output
+* output [ListTapePoolsOutput](#listtapepoolsoutput)
 
 ### ListTapes
 
@@ -857,8 +1195,10 @@ amazonaws_storagegateway.ListTapes({}, context)
 
 #### Input
 * input `object`
-  * Limit [PositiveIntObject](#positiveintobject)
-  * Marker [Marker](#marker)
+  * Limit `string`
+  * Marker `string`
+  * Limit
+  * Marker
   * TapeARNs [TapeARNs](#tapearns)
 
 #### Output
@@ -870,13 +1210,13 @@ amazonaws_storagegateway.ListTapes({}, context)
 
 ```js
 amazonaws_storagegateway.ListVolumeInitiators({
-  "VolumeARN": ""
+  "VolumeARN": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * VolumeARN **required** [VolumeARN](#volumearn)
+  * VolumeARN **required**
 
 #### Output
 * output [ListVolumeInitiatorsOutput](#listvolumeinitiatorsoutput)
@@ -911,8 +1251,8 @@ amazonaws_storagegateway.ListVolumes({}, context)
   * Limit `string`
   * Marker `string`
   * GatewayARN [GatewayARN](#gatewayarn)
-  * Limit [PositiveIntObject](#positiveintobject)
-  * Marker [Marker](#marker)
+  * Limit
+  * Marker
 
 #### Output
 * output [ListVolumesOutput](#listvolumesoutput)
@@ -940,13 +1280,16 @@ amazonaws_storagegateway.NotifyWhenUploaded({
 
 ```js
 amazonaws_storagegateway.RefreshCache({
-  "FileShareARN": ""
+  "FileShareARN": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * FileShareARN **required** [FileShareARN](#filesharearn)
+  * FileShareARN **required**
+  * FolderList
+    * items [Folder](#folder)
+  * Recursive
 
 #### Output
 * output [RefreshCacheOutput](#refreshcacheoutput)
@@ -957,15 +1300,16 @@ amazonaws_storagegateway.RefreshCache({
 
 ```js
 amazonaws_storagegateway.RemoveTagsFromResource({
-  "ResourceARN": "",
-  "TagKeys": []
+  "ResourceARN": null,
+  "TagKeys": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ResourceARN **required** [ResourceARN](#resourcearn)
-  * TagKeys **required** [TagKeys](#tagkeys)
+  * ResourceARN **required**
+  * TagKeys **required**
+    * items [TagKey](#tagkey)
 
 #### Output
 * output [RemoveTagsFromResourceOutput](#removetagsfromresourceoutput)
@@ -993,15 +1337,15 @@ amazonaws_storagegateway.ResetCache({
 
 ```js
 amazonaws_storagegateway.RetrieveTapeArchive({
-  "TapeARN": "",
-  "GatewayARN": ""
+  "TapeARN": null,
+  "GatewayARN": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * GatewayARN **required** [GatewayARN](#gatewayarn)
-  * TapeARN **required** [TapeARN](#tapearn)
+  * GatewayARN **required**
+  * TapeARN **required**
 
 #### Output
 * output [RetrieveTapeArchiveOutput](#retrievetapearchiveoutput)
@@ -1012,7 +1356,7 @@ amazonaws_storagegateway.RetrieveTapeArchive({
 
 ```js
 amazonaws_storagegateway.RetrieveTapeRecoveryPoint({
-  "TapeARN": "",
+  "TapeARN": null,
   "GatewayARN": ""
 }, context)
 ```
@@ -1020,7 +1364,7 @@ amazonaws_storagegateway.RetrieveTapeRecoveryPoint({
 #### Input
 * input `object`
   * GatewayARN **required** [GatewayARN](#gatewayarn)
-  * TapeARN **required** [TapeARN](#tapearn)
+  * TapeARN **required**
 
 #### Output
 * output [RetrieveTapeRecoveryPointOutput](#retrievetaperecoverypointoutput)
@@ -1032,17 +1376,36 @@ amazonaws_storagegateway.RetrieveTapeRecoveryPoint({
 ```js
 amazonaws_storagegateway.SetLocalConsolePassword({
   "GatewayARN": "",
-  "LocalConsolePassword": ""
+  "LocalConsolePassword": null
 }, context)
 ```
 
 #### Input
 * input `object`
   * GatewayARN **required** [GatewayARN](#gatewayarn)
-  * LocalConsolePassword **required** [LocalConsolePassword](#localconsolepassword)
+  * LocalConsolePassword **required**
 
 #### Output
 * output [SetLocalConsolePasswordOutput](#setlocalconsolepasswordoutput)
+
+### SetSMBGuestPassword
+
+
+
+```js
+amazonaws_storagegateway.SetSMBGuestPassword({
+  "GatewayARN": null,
+  "Password": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * GatewayARN **required**
+  * Password **required**
+
+#### Output
+* output [SetSMBGuestPasswordOutput](#setsmbguestpasswordoutput)
 
 ### ShutdownGateway
 
@@ -1061,6 +1424,23 @@ amazonaws_storagegateway.ShutdownGateway({
 #### Output
 * output [ShutdownGatewayOutput](#shutdowngatewayoutput)
 
+### StartAvailabilityMonitorTest
+
+
+
+```js
+amazonaws_storagegateway.StartAvailabilityMonitorTest({
+  "GatewayARN": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * GatewayARN **required** [GatewayARN](#gatewayarn)
+
+#### Output
+* output [StartAvailabilityMonitorTestOutput](#startavailabilitymonitortestoutput)
+
 ### StartGateway
 
 
@@ -1078,6 +1458,26 @@ amazonaws_storagegateway.StartGateway({
 #### Output
 * output [StartGatewayOutput](#startgatewayoutput)
 
+### UpdateAutomaticTapeCreationPolicy
+
+
+
+```js
+amazonaws_storagegateway.UpdateAutomaticTapeCreationPolicy({
+  "AutomaticTapeCreationRules": null,
+  "GatewayARN": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * AutomaticTapeCreationRules **required**
+    * items [AutomaticTapeCreationRule](#automatictapecreationrule)
+  * GatewayARN **required** [GatewayARN](#gatewayarn)
+
+#### Output
+* output [UpdateAutomaticTapeCreationPolicyOutput](#updateautomatictapecreationpolicyoutput)
+
 ### UpdateBandwidthRateLimit
 
 
@@ -1090,12 +1490,32 @@ amazonaws_storagegateway.UpdateBandwidthRateLimit({
 
 #### Input
 * input `object`
-  * AverageDownloadRateLimitInBitsPerSec [BandwidthDownloadRateLimit](#bandwidthdownloadratelimit)
-  * AverageUploadRateLimitInBitsPerSec [BandwidthUploadRateLimit](#bandwidthuploadratelimit)
+  * AverageDownloadRateLimitInBitsPerSec
+  * AverageUploadRateLimitInBitsPerSec
   * GatewayARN **required** [GatewayARN](#gatewayarn)
 
 #### Output
 * output [UpdateBandwidthRateLimitOutput](#updatebandwidthratelimitoutput)
+
+### UpdateBandwidthRateLimitSchedule
+
+
+
+```js
+amazonaws_storagegateway.UpdateBandwidthRateLimitSchedule({
+  "GatewayARN": "",
+  "BandwidthRateLimitIntervals": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * BandwidthRateLimitIntervals **required**
+    * items [BandwidthRateLimitInterval](#bandwidthratelimitinterval)
+  * GatewayARN **required** [GatewayARN](#gatewayarn)
+
+#### Output
+* output [UpdateBandwidthRateLimitScheduleOutput](#updatebandwidthratelimitscheduleoutput)
 
 ### UpdateChapCredentials
 
@@ -1103,18 +1523,18 @@ amazonaws_storagegateway.UpdateBandwidthRateLimit({
 
 ```js
 amazonaws_storagegateway.UpdateChapCredentials({
-  "TargetARN": "",
-  "SecretToAuthenticateInitiator": "",
-  "InitiatorName": ""
+  "TargetARN": null,
+  "SecretToAuthenticateInitiator": null,
+  "InitiatorName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * InitiatorName **required** [IqnName](#iqnname)
-  * SecretToAuthenticateInitiator **required** [ChapSecret](#chapsecret)
-  * SecretToAuthenticateTarget [ChapSecret](#chapsecret)
-  * TargetARN **required** [TargetARN](#targetarn)
+  * InitiatorName **required**
+  * SecretToAuthenticateInitiator **required**
+  * SecretToAuthenticateTarget
+  * TargetARN **required**
 
 #### Output
 * output [UpdateChapCredentialsOutput](#updatechapcredentialsoutput)
@@ -1131,9 +1551,10 @@ amazonaws_storagegateway.UpdateGatewayInformation({
 
 #### Input
 * input `object`
+  * CloudWatchLogGroupARN
   * GatewayARN **required** [GatewayARN](#gatewayarn)
   * GatewayName [GatewayName](#gatewayname)
-  * GatewayTimezone [GatewayTimezone](#gatewaytimezone)
+  * GatewayTimezone
 
 #### Output
 * output [UpdateGatewayInformationOutput](#updategatewayinformationoutput)
@@ -1162,18 +1583,18 @@ amazonaws_storagegateway.UpdateGatewaySoftwareNow({
 ```js
 amazonaws_storagegateway.UpdateMaintenanceStartTime({
   "GatewayARN": "",
-  "HourOfDay": 0,
-  "MinuteOfHour": 0,
-  "DayOfWeek": 0
+  "HourOfDay": null,
+  "MinuteOfHour": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * DayOfWeek **required** [DayOfWeek](#dayofweek)
+  * DayOfMonth
+  * DayOfWeek
   * GatewayARN **required** [GatewayARN](#gatewayarn)
-  * HourOfDay **required** [HourOfDay](#hourofday)
-  * MinuteOfHour **required** [MinuteOfHour](#minuteofhour)
+  * HourOfDay **required**
+  * MinuteOfHour **required**
 
 #### Output
 * output [UpdateMaintenanceStartTimeOutput](#updatemaintenancestarttimeoutput)
@@ -1184,26 +1605,111 @@ amazonaws_storagegateway.UpdateMaintenanceStartTime({
 
 ```js
 amazonaws_storagegateway.UpdateNFSFileShare({
-  "FileShareARN": ""
+  "FileShareARN": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ClientList [FileShareClientList](#fileshareclientlist)
-  * DefaultStorageClass [StorageClass](#storageclass)
-  * FileShareARN **required** [FileShareARN](#filesharearn)
-  * GuessMIMETypeEnabled [Boolean](#boolean)
-  * KMSEncrypted [Boolean](#boolean)
-  * KMSKey [KMSKey](#kmskey)
-  * NFSFileShareDefaults [NFSFileShareDefaults](#nfsfilesharedefaults)
-  * ObjectACL [ObjectACL](#objectacl)
-  * ReadOnly [Boolean](#boolean)
-  * RequesterPays [Boolean](#boolean)
-  * Squash [Squash](#squash)
+  * CacheAttributes
+    * CacheStaleTimeoutInSeconds
+  * ClientList
+    * items [IPV4AddressCIDR](#ipv4addresscidr)
+  * DefaultStorageClass
+  * FileShareARN **required**
+  * FileShareName
+  * GuessMIMETypeEnabled
+  * KMSEncrypted
+  * KMSKey
+  * NFSFileShareDefaults
+    * DirectoryMode
+    * FileMode
+    * GroupId
+    * OwnerId
+  * NotificationPolicy
+  * ObjectACL
+  * ReadOnly
+  * RequesterPays
+  * Squash
 
 #### Output
 * output [UpdateNFSFileShareOutput](#updatenfsfileshareoutput)
+
+### UpdateSMBFileShare
+
+
+
+```js
+amazonaws_storagegateway.UpdateSMBFileShare({
+  "FileShareARN": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * AccessBasedEnumeration
+  * AdminUserList
+    * items [FileShareUser](#fileshareuser)
+  * AuditDestinationARN
+  * CacheAttributes
+    * CacheStaleTimeoutInSeconds
+  * CaseSensitivity
+  * DefaultStorageClass
+  * FileShareARN **required**
+  * FileShareName
+  * GuessMIMETypeEnabled
+  * InvalidUserList
+    * items [FileShareUser](#fileshareuser)
+  * KMSEncrypted
+  * KMSKey
+  * NotificationPolicy
+  * ObjectACL
+  * ReadOnly
+  * RequesterPays
+  * SMBACLEnabled
+  * ValidUserList
+    * items [FileShareUser](#fileshareuser)
+
+#### Output
+* output [UpdateSMBFileShareOutput](#updatesmbfileshareoutput)
+
+### UpdateSMBFileShareVisibility
+
+
+
+```js
+amazonaws_storagegateway.UpdateSMBFileShareVisibility({
+  "GatewayARN": "",
+  "FileSharesVisible": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * FileSharesVisible **required**
+  * GatewayARN **required** [GatewayARN](#gatewayarn)
+
+#### Output
+* output [UpdateSMBFileShareVisibilityOutput](#updatesmbfilesharevisibilityoutput)
+
+### UpdateSMBSecurityStrategy
+
+
+
+```js
+amazonaws_storagegateway.UpdateSMBSecurityStrategy({
+  "GatewayARN": "",
+  "SMBSecurityStrategy": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * GatewayARN **required** [GatewayARN](#gatewayarn)
+  * SMBSecurityStrategy **required**
+
+#### Output
+* output [UpdateSMBSecurityStrategyOutput](#updatesmbsecuritystrategyoutput)
 
 ### UpdateSnapshotSchedule
 
@@ -1211,18 +1717,20 @@ amazonaws_storagegateway.UpdateNFSFileShare({
 
 ```js
 amazonaws_storagegateway.UpdateSnapshotSchedule({
-  "VolumeARN": "",
-  "StartAt": 0,
-  "RecurrenceInHours": 0
+  "VolumeARN": null,
+  "StartAt": null,
+  "RecurrenceInHours": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Description [Description](#description)
-  * RecurrenceInHours **required** [RecurrenceInHours](#recurrenceinhours)
-  * StartAt **required** [HourOfDay](#hourofday)
-  * VolumeARN **required** [VolumeARN](#volumearn)
+  * Description
+  * RecurrenceInHours **required**
+  * StartAt **required**
+  * Tags
+    * items [Tag](#tag)
+  * VolumeARN **required**
 
 #### Output
 * output [UpdateSnapshotScheduleOutput](#updatesnapshotscheduleoutput)
@@ -1233,15 +1741,15 @@ amazonaws_storagegateway.UpdateSnapshotSchedule({
 
 ```js
 amazonaws_storagegateway.UpdateVTLDeviceType({
-  "VTLDeviceARN": "",
-  "DeviceType": ""
+  "VTLDeviceARN": null,
+  "DeviceType": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * DeviceType **required** [DeviceType](#devicetype)
-  * VTLDeviceARN **required** [VTLDeviceARN](#vtldevicearn)
+  * DeviceType **required**
+  * VTLDeviceARN **required**
 
 #### Output
 * output [UpdateVTLDeviceTypeOutput](#updatevtldevicetypeoutput)
@@ -1251,25 +1759,31 @@ amazonaws_storagegateway.UpdateVTLDeviceType({
 ## Definitions
 
 ### ActivateGatewayInput
-* ActivateGatewayInput `object`: <p>A JSON object containing one or more of the following fields:</p> <ul> <li> <p> <a>ActivateGatewayInput$ActivationKey</a> </p> </li> <li> <p> <a>ActivateGatewayInput$GatewayName</a> </p> </li> <li> <p> <a>ActivateGatewayInput$GatewayRegion</a> </p> </li> <li> <p> <a>ActivateGatewayInput$GatewayTimezone</a> </p> </li> <li> <p> <a>ActivateGatewayInput$GatewayType</a> </p> </li> <li> <p> <a>ActivateGatewayInput$TapeDriveType</a> </p> </li> <li> <p> <a>ActivateGatewayInput$MediumChangerType</a> </p> </li> </ul>
-  * ActivationKey **required** [ActivationKey](#activationkey)
-  * GatewayName **required** [GatewayName](#gatewayname)
-  * GatewayRegion **required** [RegionId](#regionid)
-  * GatewayTimezone **required** [GatewayTimezone](#gatewaytimezone)
-  * GatewayType [GatewayType](#gatewaytype)
-  * MediumChangerType [MediumChangerType](#mediumchangertype)
-  * TapeDriveType [TapeDriveType](#tapedrivetype)
+* ActivateGatewayInput `object`: <p>A JSON object containing one or more of the following fields:</p> <ul> <li> <p> <a>ActivateGatewayInput$ActivationKey</a> </p> </li> <li> <p> <a>ActivateGatewayInput$GatewayName</a> </p> </li> <li> <p> <a>ActivateGatewayInput$GatewayRegion</a> </p> </li> <li> <p> <a>ActivateGatewayInput$GatewayTimezone</a> </p> </li> <li> <p> <a>ActivateGatewayInput$GatewayType</a> </p> </li> <li> <p> <a>ActivateGatewayInput$MediumChangerType</a> </p> </li> <li> <p> <a>ActivateGatewayInput$TapeDriveType</a> </p> </li> </ul>
+  * ActivationKey **required**
+  * GatewayName **required**
+  * GatewayRegion **required**
+  * GatewayTimezone **required**
+  * GatewayType
+  * MediumChangerType
+  * Tags
+    * items [Tag](#tag)
+  * TapeDriveType
 
 ### ActivateGatewayOutput
-* ActivateGatewayOutput `object`: <p>AWS Storage Gateway returns the Amazon Resource Name (ARN) of the activated gateway. It is a string made of information such as your account, gateway name, and region. This ARN is used to reference the gateway in other API operations as well as resource-based authorization.</p> <note> <p>For gateways activated prior to September 02, 2015, the gateway ARN contains the gateway name rather than the gateway ID. Changing the name of the gateway has no effect on the gateway ARN.</p> </note>
+* ActivateGatewayOutput `object`: <p>AWS Storage Gateway returns the Amazon Resource Name (ARN) of the activated gateway. It is a string made of information such as your account, gateway name, and AWS Region. This ARN is used to reference the gateway in other API operations as well as resource-based authorization.</p> <note> <p>For gateways activated prior to September 02, 2015, the gateway ARN contains the gateway name rather than the gateway ID. Changing the name of the gateway has no effect on the gateway ARN.</p> </note>
   * GatewayARN [GatewayARN](#gatewayarn)
 
 ### ActivationKey
 * ActivationKey `string`
 
+### ActiveDirectoryStatus
+* ActiveDirectoryStatus `string` (values: ACCESS_DENIED, DETACHED, JOINED, JOINING, NETWORK_ERROR, TIMEOUT, UNKNOWN_ERROR)
+
 ### AddCacheInput
 * AddCacheInput `object`
-  * DiskIds **required** [DiskIds](#diskids)
+  * DiskIds **required**
+    * items [DiskId](#diskid)
   * GatewayARN **required** [GatewayARN](#gatewayarn)
 
 ### AddCacheOutput
@@ -1278,16 +1792,18 @@ amazonaws_storagegateway.UpdateVTLDeviceType({
 
 ### AddTagsToResourceInput
 * AddTagsToResourceInput `object`: AddTagsToResourceInput
-  * ResourceARN **required** [ResourceARN](#resourcearn)
-  * Tags **required** [Tags](#tags)
+  * ResourceARN **required**
+  * Tags **required**
+    * items [Tag](#tag)
 
 ### AddTagsToResourceOutput
 * AddTagsToResourceOutput `object`: AddTagsToResourceOutput
-  * ResourceARN [ResourceARN](#resourcearn)
+  * ResourceARN
 
 ### AddUploadBufferInput
 * AddUploadBufferInput `object`
-  * DiskIds **required** [DiskIds](#diskids)
+  * DiskIds **required**
+    * items [DiskId](#diskid)
   * GatewayARN **required** [GatewayARN](#gatewayarn)
 
 ### AddUploadBufferOutput
@@ -1296,15 +1812,85 @@ amazonaws_storagegateway.UpdateVTLDeviceType({
 
 ### AddWorkingStorageInput
 * AddWorkingStorageInput `object`: <p>A JSON object containing one or more of the following fields:</p> <ul> <li> <p> <a>AddWorkingStorageInput$DiskIds</a> </p> </li> </ul>
-  * DiskIds **required** [DiskIds](#diskids)
+  * DiskIds **required**
+    * items [DiskId](#diskid)
   * GatewayARN **required** [GatewayARN](#gatewayarn)
 
 ### AddWorkingStorageOutput
-* AddWorkingStorageOutput `object`: A JSON object containing the of the gateway for which working storage was configured.
+* AddWorkingStorageOutput `object`: A JSON object containing the Amazon Resource Name (ARN) of the gateway for which working storage was configured.
   * GatewayARN [GatewayARN](#gatewayarn)
+
+### AssignTapePoolInput
+* AssignTapePoolInput `object`
+  * BypassGovernanceRetention
+  * PoolId **required**
+  * TapeARN **required**
+
+### AssignTapePoolOutput
+* AssignTapePoolOutput `object`
+  * TapeARN
+
+### AttachVolumeInput
+* AttachVolumeInput `object`: AttachVolumeInput
+  * DiskId
+  * GatewayARN **required**
+  * NetworkInterfaceId **required**
+  * TargetName
+  * VolumeARN **required**
+
+### AttachVolumeOutput
+* AttachVolumeOutput `object`: AttachVolumeOutput
+  * TargetARN
+  * VolumeARN
+
+### AuditDestinationARN
+* AuditDestinationARN `string`
+
+### Authentication
+* Authentication `string`: <p>The authentication method of the file share. The default is <code>ActiveDirectory</code>.</p> <p>Valid Values: <code>ActiveDirectory</code> | <code>GuestAccess</code> </p>
+
+### AutomaticTapeCreationPolicyInfo
+* AutomaticTapeCreationPolicyInfo `object`: Information about the gateway's automatic tape creation policies, including the automatic tape creation rules and the gateway that is using the policies.
+  * AutomaticTapeCreationRules
+    * items [AutomaticTapeCreationRule](#automatictapecreationrule)
+  * GatewayARN [GatewayARN](#gatewayarn)
+
+### AutomaticTapeCreationPolicyInfos
+* AutomaticTapeCreationPolicyInfos `array`
+  * items [AutomaticTapeCreationPolicyInfo](#automatictapecreationpolicyinfo)
+
+### AutomaticTapeCreationRule
+* AutomaticTapeCreationRule `object`: An automatic tape creation policy consists of automatic tape creation rules where each rule defines when and how to create new tapes. For more information about automatic tape creation, see <a href="https://docs.aws.amazon.com/storagegateway/latest/userguide/GettingStartedCreateTapes.html#CreateTapesAutomatically">Creating Tapes Automatically</a>.
+  * MinimumNumTapes **required**
+  * PoolId **required**
+  * TapeBarcodePrefix **required**
+  * TapeSizeInBytes **required**
+  * Worm
+
+### AutomaticTapeCreationRules
+* AutomaticTapeCreationRules `array`
+  * items [AutomaticTapeCreationRule](#automatictapecreationrule)
+
+### AvailabilityMonitorTestStatus
+* AvailabilityMonitorTestStatus `string` (values: COMPLETE, FAILED, PENDING)
 
 ### BandwidthDownloadRateLimit
 * BandwidthDownloadRateLimit `integer`
+
+### BandwidthRateLimitInterval
+* BandwidthRateLimitInterval `object`:  Describes a bandwidth rate limit interval for a gateway. A bandwidth rate limit schedule consists of one or more bandwidth rate limit intervals. A bandwidth rate limit interval defines a period of time on one or more days of the week, during which bandwidth rate limits are specified for uploading, downloading, or both. 
+  * AverageDownloadRateLimitInBitsPerSec
+  * AverageUploadRateLimitInBitsPerSec
+  * DaysOfWeek **required**
+    * items [DayOfWeek](#dayofweek)
+  * EndHourOfDay **required**
+  * EndMinuteOfHour **required**
+  * StartHourOfDay **required**
+  * StartMinuteOfHour **required**
+
+### BandwidthRateLimitIntervals
+* BandwidthRateLimitIntervals `array`
+  * items [BandwidthRateLimitInterval](#bandwidthratelimitinterval)
 
 ### BandwidthType
 * BandwidthType `string`
@@ -1315,19 +1901,33 @@ amazonaws_storagegateway.UpdateVTLDeviceType({
 ### Boolean
 * Boolean `boolean`
 
+### CacheAttributes
+* CacheAttributes `object`: Lists refresh cache information.
+  * CacheStaleTimeoutInSeconds
+
+### CacheStaleTimeoutInSeconds
+* CacheStaleTimeoutInSeconds `integer`
+
 ### CachediSCSIVolume
 * CachediSCSIVolume `object`: Describes an iSCSI cached volume.
-  * CreatedDate [CreatedDate](#createddate)
+  * CreatedDate
   * KMSKey [KMSKey](#kmskey)
-  * SourceSnapshotId [SnapshotId](#snapshotid)
-  * VolumeARN [VolumeARN](#volumearn)
-  * VolumeId [VolumeId](#volumeid)
-  * VolumeProgress [DoubleObject](#doubleobject)
-  * VolumeSizeInBytes [long](#long)
-  * VolumeStatus [VolumeStatus](#volumestatus)
-  * VolumeType [VolumeType](#volumetype)
-  * VolumeUsedInBytes [VolumeUsedInBytes](#volumeusedinbytes)
-  * VolumeiSCSIAttributes [VolumeiSCSIAttributes](#volumeiscsiattributes)
+  * SourceSnapshotId
+  * TargetName
+  * VolumeARN
+  * VolumeAttachmentStatus
+  * VolumeId
+  * VolumeProgress
+  * VolumeSizeInBytes
+  * VolumeStatus
+  * VolumeType
+  * VolumeUsedInBytes
+  * VolumeiSCSIAttributes
+    * ChapEnabled
+    * LunNumber
+    * NetworkInterfaceId
+    * NetworkInterfacePort
+    * TargetARN
 
 ### CachediSCSIVolumes
 * CachediSCSIVolumes `array`
@@ -1336,20 +1936,23 @@ amazonaws_storagegateway.UpdateVTLDeviceType({
 ### CancelArchivalInput
 * CancelArchivalInput `object`: CancelArchivalInput
   * GatewayARN **required** [GatewayARN](#gatewayarn)
-  * TapeARN **required** [TapeARN](#tapearn)
+  * TapeARN **required**
 
 ### CancelArchivalOutput
 * CancelArchivalOutput `object`: CancelArchivalOutput
-  * TapeARN [TapeARN](#tapearn)
+  * TapeARN
 
 ### CancelRetrievalInput
 * CancelRetrievalInput `object`: CancelRetrievalInput
   * GatewayARN **required** [GatewayARN](#gatewayarn)
-  * TapeARN **required** [TapeARN](#tapearn)
+  * TapeARN **required**
 
 ### CancelRetrievalOutput
 * CancelRetrievalOutput `object`: CancelRetrievalOutput
-  * TapeARN [TapeARN](#tapearn)
+  * TapeARN
+
+### CaseSensitivity
+* CaseSensitivity `string` (values: ClientSpecified, CaseSensitive)
 
 ### ChapCredentials
 * ChapCredentials `array`
@@ -1357,10 +1960,10 @@ amazonaws_storagegateway.UpdateVTLDeviceType({
 
 ### ChapInfo
 * ChapInfo `object`: Describes Challenge-Handshake Authentication Protocol (CHAP) information that supports authentication between your gateway and iSCSI initiators.
-  * InitiatorName [IqnName](#iqnname)
-  * SecretToAuthenticateInitiator [ChapSecret](#chapsecret)
-  * SecretToAuthenticateTarget [ChapSecret](#chapsecret)
-  * TargetARN [TargetARN](#targetarn)
+  * InitiatorName
+  * SecretToAuthenticateInitiator
+  * SecretToAuthenticateTarget
+  * TargetARN
 
 ### ChapSecret
 * ChapSecret `string`
@@ -1368,139 +1971,235 @@ amazonaws_storagegateway.UpdateVTLDeviceType({
 ### ClientToken
 * ClientToken `string`
 
+### CloudWatchLogGroupARN
+* CloudWatchLogGroupARN `string`
+
 ### CreateCachediSCSIVolumeInput
 * CreateCachediSCSIVolumeInput `object`
-  * ClientToken **required** [ClientToken](#clienttoken)
+  * ClientToken **required**
   * GatewayARN **required** [GatewayARN](#gatewayarn)
-  * KMSEncrypted [Boolean](#boolean)
-  * KMSKey [KMSKey](#kmskey)
-  * NetworkInterfaceId **required** [NetworkInterfaceId](#networkinterfaceid)
-  * SnapshotId [SnapshotId](#snapshotid)
-  * SourceVolumeARN [VolumeARN](#volumearn)
-  * TargetName **required** [TargetName](#targetname)
-  * VolumeSizeInBytes **required** [long](#long)
+  * KMSEncrypted
+  * KMSKey
+  * NetworkInterfaceId **required**
+  * SnapshotId
+  * SourceVolumeARN
+  * Tags
+    * items [Tag](#tag)
+  * TargetName **required**
+  * VolumeSizeInBytes **required**
 
 ### CreateCachediSCSIVolumeOutput
 * CreateCachediSCSIVolumeOutput `object`
-  * TargetARN [TargetARN](#targetarn)
-  * VolumeARN [VolumeARN](#volumearn)
+  * TargetARN
+  * VolumeARN
 
 ### CreateNFSFileShareInput
 * CreateNFSFileShareInput `object`: CreateNFSFileShareInput
-  * ClientList [FileShareClientList](#fileshareclientlist)
-  * ClientToken **required** [ClientToken](#clienttoken)
-  * DefaultStorageClass [StorageClass](#storageclass)
-  * GatewayARN **required** [GatewayARN](#gatewayarn)
-  * GuessMIMETypeEnabled [Boolean](#boolean)
-  * KMSEncrypted [Boolean](#boolean)
-  * KMSKey [KMSKey](#kmskey)
-  * LocationARN **required** [LocationARN](#locationarn)
-  * NFSFileShareDefaults [NFSFileShareDefaults](#nfsfilesharedefaults)
-  * ObjectACL [ObjectACL](#objectacl)
-  * ReadOnly [Boolean](#boolean)
-  * RequesterPays [Boolean](#boolean)
-  * Role **required** [Role](#role)
-  * Squash [Squash](#squash)
+  * CacheAttributes
+    * CacheStaleTimeoutInSeconds
+  * ClientList
+    * items [IPV4AddressCIDR](#ipv4addresscidr)
+  * ClientToken **required**
+  * DefaultStorageClass
+  * FileShareName
+  * GatewayARN **required**
+  * GuessMIMETypeEnabled
+  * KMSEncrypted
+  * KMSKey
+  * LocationARN **required**
+  * NFSFileShareDefaults
+    * DirectoryMode
+    * FileMode
+    * GroupId
+    * OwnerId
+  * NotificationPolicy
+  * ObjectACL
+  * ReadOnly
+  * RequesterPays
+  * Role **required**
+  * Squash
+  * Tags
+    * items [Tag](#tag)
 
 ### CreateNFSFileShareOutput
 * CreateNFSFileShareOutput `object`: CreateNFSFileShareOutput
-  * FileShareARN [FileShareARN](#filesharearn)
+  * FileShareARN
+
+### CreateSMBFileShareInput
+* CreateSMBFileShareInput `object`: CreateSMBFileShareInput
+  * AccessBasedEnumeration
+  * AdminUserList
+    * items [FileShareUser](#fileshareuser)
+  * AuditDestinationARN
+  * Authentication
+  * CacheAttributes
+    * CacheStaleTimeoutInSeconds
+  * CaseSensitivity
+  * ClientToken **required**
+  * DefaultStorageClass
+  * FileShareName
+  * GatewayARN **required**
+  * GuessMIMETypeEnabled
+  * InvalidUserList
+    * items [FileShareUser](#fileshareuser)
+  * KMSEncrypted
+  * KMSKey
+  * LocationARN **required**
+  * NotificationPolicy
+  * ObjectACL
+  * ReadOnly
+  * RequesterPays
+  * Role **required**
+  * SMBACLEnabled
+  * Tags
+    * items [Tag](#tag)
+  * ValidUserList
+    * items [FileShareUser](#fileshareuser)
+
+### CreateSMBFileShareOutput
+* CreateSMBFileShareOutput `object`: CreateSMBFileShareOutput
+  * FileShareARN
 
 ### CreateSnapshotFromVolumeRecoveryPointInput
 * CreateSnapshotFromVolumeRecoveryPointInput `object`
-  * SnapshotDescription **required** [SnapshotDescription](#snapshotdescription)
-  * VolumeARN **required** [VolumeARN](#volumearn)
+  * SnapshotDescription **required**
+  * Tags
+    * items [Tag](#tag)
+  * VolumeARN **required**
 
 ### CreateSnapshotFromVolumeRecoveryPointOutput
 * CreateSnapshotFromVolumeRecoveryPointOutput `object`
-  * SnapshotId [SnapshotId](#snapshotid)
-  * VolumeARN [VolumeARN](#volumearn)
-  * VolumeRecoveryPointTime [string](#string)
+  * SnapshotId
+  * VolumeARN
+  * VolumeRecoveryPointTime
 
 ### CreateSnapshotInput
 * CreateSnapshotInput `object`: <p>A JSON object containing one or more of the following fields:</p> <ul> <li> <p> <a>CreateSnapshotInput$SnapshotDescription</a> </p> </li> <li> <p> <a>CreateSnapshotInput$VolumeARN</a> </p> </li> </ul>
-  * SnapshotDescription **required** [SnapshotDescription](#snapshotdescription)
-  * VolumeARN **required** [VolumeARN](#volumearn)
+  * SnapshotDescription **required**
+  * Tags
+    * items [Tag](#tag)
+  * VolumeARN **required**
 
 ### CreateSnapshotOutput
 * CreateSnapshotOutput `object`: A JSON object containing the following fields:
-  * SnapshotId [SnapshotId](#snapshotid)
-  * VolumeARN [VolumeARN](#volumearn)
+  * SnapshotId
+  * VolumeARN
 
 ### CreateStorediSCSIVolumeInput
 * CreateStorediSCSIVolumeInput `object`: <p>A JSON object containing one or more of the following fields:</p> <ul> <li> <p> <a>CreateStorediSCSIVolumeInput$DiskId</a> </p> </li> <li> <p> <a>CreateStorediSCSIVolumeInput$NetworkInterfaceId</a> </p> </li> <li> <p> <a>CreateStorediSCSIVolumeInput$PreserveExistingData</a> </p> </li> <li> <p> <a>CreateStorediSCSIVolumeInput$SnapshotId</a> </p> </li> <li> <p> <a>CreateStorediSCSIVolumeInput$TargetName</a> </p> </li> </ul>
-  * DiskId **required** [DiskId](#diskid)
+  * DiskId **required**
   * GatewayARN **required** [GatewayARN](#gatewayarn)
-  * NetworkInterfaceId **required** [NetworkInterfaceId](#networkinterfaceid)
-  * PreserveExistingData **required** [boolean](#boolean)
-  * SnapshotId [SnapshotId](#snapshotid)
-  * TargetName **required** [TargetName](#targetname)
+  * KMSEncrypted
+  * KMSKey
+  * NetworkInterfaceId **required**
+  * PreserveExistingData **required**
+  * SnapshotId
+  * Tags
+    * items [Tag](#tag)
+  * TargetName **required**
 
 ### CreateStorediSCSIVolumeOutput
 * CreateStorediSCSIVolumeOutput `object`: A JSON object containing the following fields:
-  * TargetARN [TargetARN](#targetarn)
-  * VolumeARN [VolumeARN](#volumearn)
-  * VolumeSizeInBytes [long](#long)
+  * TargetARN
+  * VolumeARN
+  * VolumeSizeInBytes
+
+### CreateTapePoolInput
+* CreateTapePoolInput `object`
+  * PoolName **required**
+  * RetentionLockTimeInDays
+  * RetentionLockType
+  * StorageClass **required**
+  * Tags
+    * items [Tag](#tag)
+
+### CreateTapePoolOutput
+* CreateTapePoolOutput `object`
+  * PoolARN
 
 ### CreateTapeWithBarcodeInput
 * CreateTapeWithBarcodeInput `object`: CreateTapeWithBarcodeInput
-  * GatewayARN **required** [GatewayARN](#gatewayarn)
-  * KMSEncrypted [Boolean](#boolean)
-  * KMSKey [KMSKey](#kmskey)
-  * TapeBarcode **required** [TapeBarcode](#tapebarcode)
-  * TapeSizeInBytes **required** [TapeSize](#tapesize)
+  * GatewayARN **required**
+  * KMSEncrypted
+  * KMSKey
+  * PoolId
+  * Tags
+    * items [Tag](#tag)
+  * TapeBarcode **required**
+  * TapeSizeInBytes **required**
+  * Worm
 
 ### CreateTapeWithBarcodeOutput
 * CreateTapeWithBarcodeOutput `object`: CreateTapeOutput
-  * TapeARN [TapeARN](#tapearn)
+  * TapeARN
 
 ### CreateTapesInput
 * CreateTapesInput `object`: CreateTapesInput
-  * ClientToken **required** [ClientToken](#clienttoken)
-  * GatewayARN **required** [GatewayARN](#gatewayarn)
-  * KMSEncrypted [Boolean](#boolean)
-  * KMSKey [KMSKey](#kmskey)
-  * NumTapesToCreate **required** [NumTapesToCreate](#numtapestocreate)
-  * TapeBarcodePrefix **required** [TapeBarcodePrefix](#tapebarcodeprefix)
-  * TapeSizeInBytes **required** [TapeSize](#tapesize)
+  * ClientToken **required**
+  * GatewayARN **required**
+  * KMSEncrypted
+  * KMSKey
+  * NumTapesToCreate **required**
+  * PoolId
+  * Tags
+    * items [Tag](#tag)
+  * TapeBarcodePrefix **required**
+  * TapeSizeInBytes **required**
+  * Worm
 
 ### CreateTapesOutput
 * CreateTapesOutput `object`: CreateTapeOutput
-  * TapeARNs [TapeARNs](#tapearns)
+  * TapeARNs
+    * items [TapeARN](#tapearn)
 
 ### CreatedDate
 * CreatedDate `string`
 
+### DayOfMonth
+* DayOfMonth `integer`
+
 ### DayOfWeek
 * DayOfWeek `integer`
 
+### DaysOfWeek
+* DaysOfWeek `array`
+  * items [DayOfWeek](#dayofweek)
+
+### DeleteAutomaticTapeCreationPolicyInput
+* DeleteAutomaticTapeCreationPolicyInput `object`
+  * GatewayARN **required** [GatewayARN](#gatewayarn)
+
+### DeleteAutomaticTapeCreationPolicyOutput
+* DeleteAutomaticTapeCreationPolicyOutput `object`
+  * GatewayARN [GatewayARN](#gatewayarn)
+
 ### DeleteBandwidthRateLimitInput
 * DeleteBandwidthRateLimitInput `object`: <p>A JSON object containing the following fields:</p> <ul> <li> <p> <a>DeleteBandwidthRateLimitInput$BandwidthType</a> </p> </li> </ul>
-  * BandwidthType **required** [BandwidthType](#bandwidthtype)
+  * BandwidthType **required**
   * GatewayARN **required** [GatewayARN](#gatewayarn)
 
 ### DeleteBandwidthRateLimitOutput
-* DeleteBandwidthRateLimitOutput `object`: A JSON object containing the of the gateway whose bandwidth rate information was deleted.
+* DeleteBandwidthRateLimitOutput `object`: A JSON object containing the Amazon Resource Name (ARN) of the gateway whose bandwidth rate information was deleted.
   * GatewayARN [GatewayARN](#gatewayarn)
 
 ### DeleteChapCredentialsInput
 * DeleteChapCredentialsInput `object`: <p>A JSON object containing one or more of the following fields:</p> <ul> <li> <p> <a>DeleteChapCredentialsInput$InitiatorName</a> </p> </li> <li> <p> <a>DeleteChapCredentialsInput$TargetARN</a> </p> </li> </ul>
-  * InitiatorName **required** [IqnName](#iqnname)
-  * TargetARN **required** [TargetARN](#targetarn)
+  * InitiatorName **required**
+  * TargetARN **required**
 
 ### DeleteChapCredentialsOutput
 * DeleteChapCredentialsOutput `object`: A JSON object containing the following fields:
-  * InitiatorName [IqnName](#iqnname)
-  * TargetARN [TargetARN](#targetarn)
+  * InitiatorName
+  * TargetARN
 
 ### DeleteFileShareInput
 * DeleteFileShareInput `object`: DeleteFileShareInput
-  * FileShareARN **required** [FileShareARN](#filesharearn)
-  * ForceDelete [boolean](#boolean)
+  * FileShareARN **required**
+  * ForceDelete
 
 ### DeleteFileShareOutput
 * DeleteFileShareOutput `object`: DeleteFileShareOutput
-  * FileShareARN [FileShareARN](#filesharearn)
+  * FileShareARN
 
 ### DeleteGatewayInput
 * DeleteGatewayInput `object`: A JSON object containing the ID of the gateway to delete.
@@ -1512,45 +2211,78 @@ amazonaws_storagegateway.UpdateVTLDeviceType({
 
 ### DeleteSnapshotScheduleInput
 * DeleteSnapshotScheduleInput `object`
-  * VolumeARN **required** [VolumeARN](#volumearn)
+  * VolumeARN **required**
 
 ### DeleteSnapshotScheduleOutput
 * DeleteSnapshotScheduleOutput `object`
-  * VolumeARN [VolumeARN](#volumearn)
+  * VolumeARN
 
 ### DeleteTapeArchiveInput
 * DeleteTapeArchiveInput `object`: DeleteTapeArchiveInput
-  * TapeARN **required** [TapeARN](#tapearn)
+  * BypassGovernanceRetention
+  * TapeARN **required**
 
 ### DeleteTapeArchiveOutput
 * DeleteTapeArchiveOutput `object`: DeleteTapeArchiveOutput
-  * TapeARN [TapeARN](#tapearn)
+  * TapeARN
 
 ### DeleteTapeInput
 * DeleteTapeInput `object`: DeleteTapeInput
-  * GatewayARN **required** [GatewayARN](#gatewayarn)
-  * TapeARN **required** [TapeARN](#tapearn)
+  * BypassGovernanceRetention
+  * GatewayARN **required**
+  * TapeARN **required**
 
 ### DeleteTapeOutput
 * DeleteTapeOutput `object`: DeleteTapeOutput
-  * TapeARN [TapeARN](#tapearn)
+  * TapeARN
+
+### DeleteTapePoolInput
+* DeleteTapePoolInput `object`
+  * PoolARN **required**
+
+### DeleteTapePoolOutput
+* DeleteTapePoolOutput `object`
+  * PoolARN
 
 ### DeleteVolumeInput
 * DeleteVolumeInput `object`: A JSON object containing the <a>DeleteVolumeInput$VolumeARN</a> to delete.
-  * VolumeARN **required** [VolumeARN](#volumearn)
+  * VolumeARN **required**
 
 ### DeleteVolumeOutput
-* DeleteVolumeOutput `object`: A JSON object containing the of the storage volume that was deleted
-  * VolumeARN [VolumeARN](#volumearn)
+* DeleteVolumeOutput `object`: A JSON object containing the Amazon Resource Name (ARN) of the storage volume that was deleted.
+  * VolumeARN
+
+### DeprecationDate
+* DeprecationDate `string`
+
+### DescribeAvailabilityMonitorTestInput
+* DescribeAvailabilityMonitorTestInput `object`
+  * GatewayARN **required** [GatewayARN](#gatewayarn)
+
+### DescribeAvailabilityMonitorTestOutput
+* DescribeAvailabilityMonitorTestOutput `object`
+  * GatewayARN [GatewayARN](#gatewayarn)
+  * StartTime
+  * Status
 
 ### DescribeBandwidthRateLimitInput
-* DescribeBandwidthRateLimitInput `object`: A JSON object containing the of the gateway.
+* DescribeBandwidthRateLimitInput `object`: A JSON object containing the Amazon Resource Name (ARN) of the gateway.
   * GatewayARN **required** [GatewayARN](#gatewayarn)
 
 ### DescribeBandwidthRateLimitOutput
 * DescribeBandwidthRateLimitOutput `object`: A JSON object containing the following fields:
-  * AverageDownloadRateLimitInBitsPerSec [BandwidthDownloadRateLimit](#bandwidthdownloadratelimit)
-  * AverageUploadRateLimitInBitsPerSec [BandwidthUploadRateLimit](#bandwidthuploadratelimit)
+  * AverageDownloadRateLimitInBitsPerSec
+  * AverageUploadRateLimitInBitsPerSec
+  * GatewayARN [GatewayARN](#gatewayarn)
+
+### DescribeBandwidthRateLimitScheduleInput
+* DescribeBandwidthRateLimitScheduleInput `object`
+  * GatewayARN **required** [GatewayARN](#gatewayarn)
+
+### DescribeBandwidthRateLimitScheduleOutput
+* DescribeBandwidthRateLimitScheduleOutput `object`
+  * BandwidthRateLimitIntervals
+    * items [BandwidthRateLimitInterval](#bandwidthratelimitinterval)
   * GatewayARN [GatewayARN](#gatewayarn)
 
 ### DescribeCacheInput
@@ -1559,29 +2291,33 @@ amazonaws_storagegateway.UpdateVTLDeviceType({
 
 ### DescribeCacheOutput
 * DescribeCacheOutput `object`
-  * CacheAllocatedInBytes [long](#long)
-  * CacheDirtyPercentage [double](#double)
-  * CacheHitPercentage [double](#double)
-  * CacheMissPercentage [double](#double)
-  * CacheUsedPercentage [double](#double)
-  * DiskIds [DiskIds](#diskids)
+  * CacheAllocatedInBytes
+  * CacheDirtyPercentage
+  * CacheHitPercentage
+  * CacheMissPercentage
+  * CacheUsedPercentage
+  * DiskIds
+    * items [DiskId](#diskid)
   * GatewayARN [GatewayARN](#gatewayarn)
 
 ### DescribeCachediSCSIVolumesInput
 * DescribeCachediSCSIVolumesInput `object`
-  * VolumeARNs **required** [VolumeARNs](#volumearns)
+  * VolumeARNs **required**
+    * items [VolumeARN](#volumearn)
 
 ### DescribeCachediSCSIVolumesOutput
 * DescribeCachediSCSIVolumesOutput `object`: A JSON object containing the following fields:
-  * CachediSCSIVolumes [CachediSCSIVolumes](#cachediscsivolumes)
+  * CachediSCSIVolumes
+    * items [CachediSCSIVolume](#cachediscsivolume)
 
 ### DescribeChapCredentialsInput
 * DescribeChapCredentialsInput `object`: A JSON object containing the Amazon Resource Name (ARN) of the iSCSI volume target.
-  * TargetARN **required** [TargetARN](#targetarn)
+  * TargetARN **required**
 
 ### DescribeChapCredentialsOutput
-* DescribeChapCredentialsOutput `object`: A JSON object containing a .
-  * ChapCredentials [ChapCredentials](#chapcredentials)
+* DescribeChapCredentialsOutput `object`: A JSON object containing the following fields:
+  * ChapCredentials
+    * items [ChapInfo](#chapinfo)
 
 ### DescribeGatewayInformationInput
 * DescribeGatewayInformationInput `object`: A JSON object containing the ID of the gateway.
@@ -1589,90 +2325,136 @@ amazonaws_storagegateway.UpdateVTLDeviceType({
 
 ### DescribeGatewayInformationOutput
 * DescribeGatewayInformationOutput `object`: A JSON object containing the following fields:
+  * CloudWatchLogGroupARN
+  * DeprecationDate
+  * Ec2InstanceId
+  * Ec2InstanceRegion
+  * EndpointType
   * GatewayARN [GatewayARN](#gatewayarn)
-  * GatewayId [GatewayId](#gatewayid)
-  * GatewayName [string](#string)
-  * GatewayNetworkInterfaces [GatewayNetworkInterfaces](#gatewaynetworkinterfaces)
-  * GatewayState [GatewayState](#gatewaystate)
-  * GatewayTimezone [GatewayTimezone](#gatewaytimezone)
-  * GatewayType [GatewayType](#gatewaytype)
-  * LastSoftwareUpdate [LastSoftwareUpdate](#lastsoftwareupdate)
-  * NextUpdateAvailabilityDate [NextUpdateAvailabilityDate](#nextupdateavailabilitydate)
+  * GatewayId
+  * GatewayName
+  * GatewayNetworkInterfaces
+    * items [NetworkInterface](#networkinterface)
+  * GatewayState
+  * GatewayTimezone
+  * GatewayType
+  * HostEnvironment
+  * LastSoftwareUpdate
+  * NextUpdateAvailabilityDate
+  * SoftwareUpdatesEndDate
+  * Tags
+    * items [Tag](#tag)
+  * VPCEndpoint
 
 ### DescribeMaintenanceStartTimeInput
-* DescribeMaintenanceStartTimeInput `object`: A JSON object containing the of the gateway.
+* DescribeMaintenanceStartTimeInput `object`: A JSON object containing the Amazon Resource Name (ARN) of the gateway.
   * GatewayARN **required** [GatewayARN](#gatewayarn)
 
 ### DescribeMaintenanceStartTimeOutput
-* DescribeMaintenanceStartTimeOutput `object`: <p>A JSON object containing the following fields:</p> <ul> <li> <p> <a>DescribeMaintenanceStartTimeOutput$DayOfWeek</a> </p> </li> <li> <p> <a>DescribeMaintenanceStartTimeOutput$HourOfDay</a> </p> </li> <li> <p> <a>DescribeMaintenanceStartTimeOutput$MinuteOfHour</a> </p> </li> <li> <p> <a>DescribeMaintenanceStartTimeOutput$Timezone</a> </p> </li> </ul>
-  * DayOfWeek [DayOfWeek](#dayofweek)
+* DescribeMaintenanceStartTimeOutput `object`: <p>A JSON object containing the following fields:</p> <ul> <li> <p> <a>DescribeMaintenanceStartTimeOutput$DayOfMonth</a> </p> </li> <li> <p> <a>DescribeMaintenanceStartTimeOutput$DayOfWeek</a> </p> </li> <li> <p> <a>DescribeMaintenanceStartTimeOutput$HourOfDay</a> </p> </li> <li> <p> <a>DescribeMaintenanceStartTimeOutput$MinuteOfHour</a> </p> </li> <li> <p> <a>DescribeMaintenanceStartTimeOutput$Timezone</a> </p> </li> </ul>
+  * DayOfMonth
+  * DayOfWeek
   * GatewayARN [GatewayARN](#gatewayarn)
-  * HourOfDay [HourOfDay](#hourofday)
-  * MinuteOfHour [MinuteOfHour](#minuteofhour)
-  * Timezone [GatewayTimezone](#gatewaytimezone)
+  * HourOfDay
+  * MinuteOfHour
+  * Timezone
 
 ### DescribeNFSFileSharesInput
 * DescribeNFSFileSharesInput `object`: DescribeNFSFileSharesInput
-  * FileShareARNList **required** [FileShareARNList](#filesharearnlist)
+  * FileShareARNList **required**
+    * items [FileShareARN](#filesharearn)
 
 ### DescribeNFSFileSharesOutput
 * DescribeNFSFileSharesOutput `object`: DescribeNFSFileSharesOutput
-  * NFSFileShareInfoList [NFSFileShareInfoList](#nfsfileshareinfolist)
+  * NFSFileShareInfoList
+    * items [NFSFileShareInfo](#nfsfileshareinfo)
+
+### DescribeSMBFileSharesInput
+* DescribeSMBFileSharesInput `object`: DescribeSMBFileSharesInput
+  * FileShareARNList **required**
+    * items [FileShareARN](#filesharearn)
+
+### DescribeSMBFileSharesOutput
+* DescribeSMBFileSharesOutput `object`: DescribeSMBFileSharesOutput
+  * SMBFileShareInfoList
+    * items [SMBFileShareInfo](#smbfileshareinfo)
+
+### DescribeSMBSettingsInput
+* DescribeSMBSettingsInput `object`
+  * GatewayARN **required** [GatewayARN](#gatewayarn)
+
+### DescribeSMBSettingsOutput
+* DescribeSMBSettingsOutput `object`
+  * ActiveDirectoryStatus
+  * DomainName
+  * FileSharesVisible
+  * GatewayARN [GatewayARN](#gatewayarn)
+  * SMBGuestPasswordSet
+  * SMBSecurityStrategy
 
 ### DescribeSnapshotScheduleInput
 * DescribeSnapshotScheduleInput `object`: A JSON object containing the <a>DescribeSnapshotScheduleInput$VolumeARN</a> of the volume.
-  * VolumeARN **required** [VolumeARN](#volumearn)
+  * VolumeARN **required**
 
 ### DescribeSnapshotScheduleOutput
 * DescribeSnapshotScheduleOutput `object`
-  * Description [Description](#description)
-  * RecurrenceInHours [RecurrenceInHours](#recurrenceinhours)
-  * StartAt [HourOfDay](#hourofday)
-  * Timezone [GatewayTimezone](#gatewaytimezone)
-  * VolumeARN [VolumeARN](#volumearn)
+  * Description
+  * RecurrenceInHours
+  * StartAt
+  * Tags
+    * items [Tag](#tag)
+  * Timezone
+  * VolumeARN
 
 ### DescribeStorediSCSIVolumesInput
 * DescribeStorediSCSIVolumesInput `object`: A JSON object containing a list of <a>DescribeStorediSCSIVolumesInput$VolumeARNs</a>.
-  * VolumeARNs **required** [VolumeARNs](#volumearns)
+  * VolumeARNs **required**
+    * items [VolumeARN](#volumearn)
 
 ### DescribeStorediSCSIVolumesOutput
 * DescribeStorediSCSIVolumesOutput `object`
-  * StorediSCSIVolumes [StorediSCSIVolumes](#storediscsivolumes)
+  * StorediSCSIVolumes
+    * items [StorediSCSIVolume](#storediscsivolume)
 
 ### DescribeTapeArchivesInput
 * DescribeTapeArchivesInput `object`: DescribeTapeArchivesInput
-  * Limit [PositiveIntObject](#positiveintobject)
-  * Marker [Marker](#marker)
-  * TapeARNs [TapeARNs](#tapearns)
+  * Limit
+  * Marker
+  * TapeARNs
+    * items [TapeARN](#tapearn)
 
 ### DescribeTapeArchivesOutput
 * DescribeTapeArchivesOutput `object`: DescribeTapeArchivesOutput
-  * Marker [Marker](#marker)
-  * TapeArchives [TapeArchives](#tapearchives)
+  * Marker
+  * TapeArchives
+    * items [TapeArchive](#tapearchive)
 
 ### DescribeTapeRecoveryPointsInput
 * DescribeTapeRecoveryPointsInput `object`: DescribeTapeRecoveryPointsInput
   * GatewayARN **required** [GatewayARN](#gatewayarn)
-  * Limit [PositiveIntObject](#positiveintobject)
-  * Marker [Marker](#marker)
+  * Limit
+  * Marker
 
 ### DescribeTapeRecoveryPointsOutput
 * DescribeTapeRecoveryPointsOutput `object`: DescribeTapeRecoveryPointsOutput
   * GatewayARN [GatewayARN](#gatewayarn)
-  * Marker [Marker](#marker)
-  * TapeRecoveryPointInfos [TapeRecoveryPointInfos](#taperecoverypointinfos)
+  * Marker
+  * TapeRecoveryPointInfos
+    * items [TapeRecoveryPointInfo](#taperecoverypointinfo)
 
 ### DescribeTapesInput
 * DescribeTapesInput `object`: DescribeTapesInput
   * GatewayARN **required** [GatewayARN](#gatewayarn)
-  * Limit [PositiveIntObject](#positiveintobject)
-  * Marker [Marker](#marker)
-  * TapeARNs [TapeARNs](#tapearns)
+  * Limit
+  * Marker
+  * TapeARNs
+    * items [TapeARN](#tapearn)
 
 ### DescribeTapesOutput
 * DescribeTapesOutput `object`: DescribeTapesOutput
-  * Marker [Marker](#marker)
-  * Tapes [Tapes](#tapes)
+  * Marker
+  * Tapes
+    * items [Tape](#tape)
 
 ### DescribeUploadBufferInput
 * DescribeUploadBufferInput `object`
@@ -1680,47 +2462,60 @@ amazonaws_storagegateway.UpdateVTLDeviceType({
 
 ### DescribeUploadBufferOutput
 * DescribeUploadBufferOutput `object`
-  * DiskIds [DiskIds](#diskids)
+  * DiskIds
+    * items [DiskId](#diskid)
   * GatewayARN [GatewayARN](#gatewayarn)
-  * UploadBufferAllocatedInBytes [long](#long)
-  * UploadBufferUsedInBytes [long](#long)
+  * UploadBufferAllocatedInBytes
+  * UploadBufferUsedInBytes
 
 ### DescribeVTLDevicesInput
 * DescribeVTLDevicesInput `object`: DescribeVTLDevicesInput
   * GatewayARN **required** [GatewayARN](#gatewayarn)
-  * Limit [PositiveIntObject](#positiveintobject)
-  * Marker [Marker](#marker)
-  * VTLDeviceARNs [VTLDeviceARNs](#vtldevicearns)
+  * Limit
+  * Marker
+  * VTLDeviceARNs
+    * items [VTLDeviceARN](#vtldevicearn)
 
 ### DescribeVTLDevicesOutput
 * DescribeVTLDevicesOutput `object`: DescribeVTLDevicesOutput
   * GatewayARN [GatewayARN](#gatewayarn)
-  * Marker [Marker](#marker)
-  * VTLDevices [VTLDevices](#vtldevices)
+  * Marker
+  * VTLDevices
+    * items [VTLDevice](#vtldevice)
 
 ### DescribeWorkingStorageInput
-* DescribeWorkingStorageInput `object`: A JSON object containing the of the gateway.
+* DescribeWorkingStorageInput `object`: A JSON object containing the Amazon Resource Name (ARN) of the gateway.
   * GatewayARN **required** [GatewayARN](#gatewayarn)
 
 ### DescribeWorkingStorageOutput
 * DescribeWorkingStorageOutput `object`: A JSON object containing the following fields:
-  * DiskIds [DiskIds](#diskids)
+  * DiskIds
+    * items [DiskId](#diskid)
   * GatewayARN [GatewayARN](#gatewayarn)
-  * WorkingStorageAllocatedInBytes [long](#long)
-  * WorkingStorageUsedInBytes [long](#long)
+  * WorkingStorageAllocatedInBytes
+  * WorkingStorageUsedInBytes
 
 ### Description
 * Description `string`
+
+### DetachVolumeInput
+* DetachVolumeInput `object`: AttachVolumeInput
+  * ForceDetach
+  * VolumeARN **required**
+
+### DetachVolumeOutput
+* DetachVolumeOutput `object`: AttachVolumeOutput
+  * VolumeARN
 
 ### DeviceType
 * DeviceType `string`
 
 ### DeviceiSCSIAttributes
 * DeviceiSCSIAttributes `object`: Lists iSCSI information about a VTL device.
-  * ChapEnabled [boolean](#boolean)
-  * NetworkInterfaceId [NetworkInterfaceId](#networkinterfaceid)
-  * NetworkInterfacePort [integer](#integer)
-  * TargetARN [TargetARN](#targetarn)
+  * ChapEnabled
+  * NetworkInterfaceId
+  * NetworkInterfacePort
+  * TargetARN
 
 ### DisableGatewayInput
 * DisableGatewayInput `object`: DisableGatewayInput
@@ -1728,20 +2523,28 @@ amazonaws_storagegateway.UpdateVTLDeviceType({
 
 ### DisableGatewayOutput
 * DisableGatewayOutput `object`: DisableGatewayOutput
-  * GatewayARN [GatewayARN](#gatewayarn)
+  * GatewayARN
 
 ### Disk
-* Disk `object`
-  * DiskAllocationResource [string](#string)
+* Disk `object`: Represents a gateway's local disk.
+  * DiskAllocationResource
   * DiskAllocationType [DiskAllocationType](#diskallocationtype)
-  * DiskId [DiskId](#diskid)
-  * DiskNode [string](#string)
-  * DiskPath [string](#string)
-  * DiskSizeInBytes [long](#long)
-  * DiskStatus [string](#string)
+  * DiskAttributeList [DiskAttributeList](#diskattributelist)
+  * DiskId
+  * DiskNode
+  * DiskPath
+  * DiskSizeInBytes
+  * DiskStatus
 
 ### DiskAllocationType
-* DiskAllocationType `string`
+* DiskAllocationType `string`: <p>One of the <code>DiskAllocationType</code> enumeration values that identifies how a local disk is used.</p> <p>Valid Values: <code>UPLOAD_BUFFER</code> | <code>CACHE_STORAGE</code> </p>
+
+### DiskAttribute
+* DiskAttribute `string`
+
+### DiskAttributeList
+* DiskAttributeList `array`: A list of values that represents attributes of a local disk.
+  * items [DiskAttribute](#diskattribute)
 
 ### DiskId
 * DiskId `string`
@@ -1754,53 +2557,91 @@ amazonaws_storagegateway.UpdateVTLDeviceType({
 * Disks `array`
   * items [Disk](#disk)
 
+### DomainName
+* DomainName `string`
+
+### DomainUserName
+* DomainUserName `string`
+
+### DomainUserPassword
+* DomainUserPassword `string`
+
 ### DoubleObject
 * DoubleObject `number`
 
-### ErrorCode
-* ErrorCode `string` (values: ActivationKeyExpired, ActivationKeyInvalid, ActivationKeyNotFound, GatewayInternalError, GatewayNotConnected, GatewayNotFound, GatewayProxyNetworkConnectionBusy, AuthenticationFailure, BandwidthThrottleScheduleNotFound, Blocked, CannotExportSnapshot, ChapCredentialNotFound, DiskAlreadyAllocated, DiskDoesNotExist, DiskSizeGreaterThanVolumeMaxSize, DiskSizeLessThanVolumeSize, DiskSizeNotGigAligned, DuplicateCertificateInfo, DuplicateSchedule, EndpointNotFound, IAMNotSupported, InitiatorInvalid, InitiatorNotFound, InternalError, InvalidGateway, InvalidEndpoint, InvalidParameters, InvalidSchedule, LocalStorageLimitExceeded, LunAlreadyAllocated , LunInvalid, MaximumContentLengthExceeded, MaximumTapeCartridgeCountExceeded, MaximumVolumeCountExceeded, NetworkConfigurationChanged, NoDisksAvailable, NotImplemented, NotSupported, OperationAborted, OutdatedGateway, ParametersNotImplemented, RegionInvalid, RequestTimeout, ServiceUnavailable, SnapshotDeleted, SnapshotIdInvalid, SnapshotInProgress, SnapshotNotFound, SnapshotScheduleNotFound, StagingAreaFull, StorageFailure, TapeCartridgeNotFound, TargetAlreadyExists, TargetInvalid, TargetNotFound, UnauthorizedOperation, VolumeAlreadyExists, VolumeIdInvalid, VolumeInUse, VolumeNotFound, VolumeNotReady)
+### Ec2InstanceId
+* Ec2InstanceId `string`
+
+### Ec2InstanceRegion
+* Ec2InstanceRegion `string`
+
+### EndpointType
+* EndpointType `string`
 
 ### FileShareARN
-* FileShareARN `string`: The Amazon Resource Name (ARN) of the file share. 
+* FileShareARN `string`: The Amazon Resource Name (ARN) of the file share.
 
 ### FileShareARNList
 * FileShareARNList `array`
   * items [FileShareARN](#filesharearn)
 
 ### FileShareClientList
-* FileShareClientList `array`: The list of clients that are allowed to access the file gateway. The list must contain either valid IP addresses or valid CIDR blocks. 
+* FileShareClientList `array`: The list of clients that are allowed to access the file gateway. The list must contain either valid IP addresses or valid CIDR blocks.
   * items [IPV4AddressCIDR](#ipv4addresscidr)
 
 ### FileShareId
-* FileShareId `string`: The ID of the file share. 
+* FileShareId `string`: The ID of the file share.
 
 ### FileShareInfo
 * FileShareInfo `object`: Describes a file share.
   * FileShareARN [FileShareARN](#filesharearn)
   * FileShareId [FileShareId](#fileshareid)
   * FileShareStatus [FileShareStatus](#filesharestatus)
+  * FileShareType [FileShareType](#filesharetype)
   * GatewayARN [GatewayARN](#gatewayarn)
 
 ### FileShareInfoList
 * FileShareInfoList `array`
   * items [FileShareInfo](#fileshareinfo)
 
+### FileShareName
+* FileShareName `string`
+
 ### FileShareStatus
-* FileShareStatus `string`: The status of the file share. Possible values are CREATING, UPDATING, AVAILABLE and DELETING. 
+* FileShareStatus `string`: <p>The status of the file share.</p> <p>Valid Values: <code>CREATING</code> | <code>UPDATING</code> | <code>AVAILABLE</code> | <code>DELETING</code> </p>
+
+### FileShareType
+* FileShareType `string` (values: NFS, SMB): The type of the file share.
+
+### FileShareUser
+* FileShareUser `string`
+
+### FileShareUserList
+* FileShareUserList `array`
+  * items [FileShareUser](#fileshareuser)
+
+### Folder
+* Folder `string`
+
+### FolderList
+* FolderList `array`
+  * items [Folder](#folder)
 
 ### GatewayARN
-* GatewayARN `string`: The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a> operation to return a list of gateways for your account and region.
+* GatewayARN `string`: The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a> operation to return a list of gateways for your account and AWS Region.
 
 ### GatewayId
 * GatewayId `string`
 
 ### GatewayInfo
 * GatewayInfo `object`: Describes a gateway object.
-  * GatewayARN [GatewayARN](#gatewayarn)
-  * GatewayId [GatewayId](#gatewayid)
-  * GatewayName [string](#string)
-  * GatewayOperationalState [GatewayOperationalState](#gatewayoperationalstate)
-  * GatewayType [GatewayType](#gatewaytype)
+  * Ec2InstanceId
+  * Ec2InstanceRegion
+  * GatewayARN
+  * GatewayId
+  * GatewayName
+  * GatewayOperationalState
+  * GatewayType
 
 ### GatewayName
 * GatewayName `string`: The name you configured for your gateway.
@@ -1825,6 +2666,16 @@ amazonaws_storagegateway.UpdateVTLDeviceType({
 * Gateways `array`
   * items [GatewayInfo](#gatewayinfo)
 
+### Host
+* Host `string`
+
+### HostEnvironment
+* HostEnvironment `string` (values: VMWARE, HYPER-V, EC2, KVM, OTHER)
+
+### Hosts
+* Hosts `array`
+  * items [Host](#host)
+
 ### HourOfDay
 * HourOfDay `integer`
 
@@ -1839,85 +2690,124 @@ amazonaws_storagegateway.UpdateVTLDeviceType({
   * items [Initiator](#initiator)
 
 ### InternalServerError
-* InternalServerError `object`: An internal server error has occurred during the request. For more information, see the error and message fields.
-  * error [StorageGatewayError](#storagegatewayerror)
-  * message [string](#string)
+
 
 ### InvalidGatewayRequestException
-* InvalidGatewayRequestException `object`: An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.
-  * error [StorageGatewayError](#storagegatewayerror)
-  * message [string](#string)
+
 
 ### IqnName
 * IqnName `string`
 
+### JoinDomainInput
+* JoinDomainInput `object`: JoinDomainInput
+  * DomainControllers
+    * items [Host](#host)
+  * DomainName **required**
+  * GatewayARN **required**
+  * OrganizationalUnit
+  * Password **required**
+  * TimeoutInSeconds
+  * UserName **required**
+
+### JoinDomainOutput
+* JoinDomainOutput `object`: JoinDomainOutput
+  * ActiveDirectoryStatus
+  * GatewayARN
+
 ### KMSKey
-* KMSKey `string`: The Amazon Resource Name (ARN) of the KMS key used for Amazon S3 server side encryption. This value can only be set when KMSEncrypted is true. Optional.
+* KMSKey `string`: The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This value can only be set when <code>KMSEncrypted</code> is <code>true</code>. Optional.
 
 ### LastSoftwareUpdate
 * LastSoftwareUpdate `string`
 
+### ListAutomaticTapeCreationPoliciesInput
+* ListAutomaticTapeCreationPoliciesInput `object`
+  * GatewayARN [GatewayARN](#gatewayarn)
+
+### ListAutomaticTapeCreationPoliciesOutput
+* ListAutomaticTapeCreationPoliciesOutput `object`
+  * AutomaticTapeCreationPolicyInfos
+    * items [AutomaticTapeCreationPolicyInfo](#automatictapecreationpolicyinfo)
+
 ### ListFileSharesInput
 * ListFileSharesInput `object`: ListFileShareInput
-  * GatewayARN [GatewayARN](#gatewayarn)
-  * Limit [PositiveIntObject](#positiveintobject)
-  * Marker [Marker](#marker)
+  * GatewayARN
+  * Limit
+  * Marker
 
 ### ListFileSharesOutput
 * ListFileSharesOutput `object`: ListFileShareOutput
-  * FileShareInfoList [FileShareInfoList](#fileshareinfolist)
-  * Marker [Marker](#marker)
-  * NextMarker [Marker](#marker)
+  * FileShareInfoList
+    * items [FileShareInfo](#fileshareinfo)
+  * Marker
+  * NextMarker
 
 ### ListGatewaysInput
 * ListGatewaysInput `object`: <p>A JSON object containing zero or more of the following fields:</p> <ul> <li> <p> <a>ListGatewaysInput$Limit</a> </p> </li> <li> <p> <a>ListGatewaysInput$Marker</a> </p> </li> </ul>
-  * Limit [PositiveIntObject](#positiveintobject)
-  * Marker [Marker](#marker)
+  * Limit
+  * Marker
 
 ### ListGatewaysOutput
 * ListGatewaysOutput `object`
-  * Gateways [Gateways](#gateways)
-  * Marker [Marker](#marker)
+  * Gateways
+    * items [GatewayInfo](#gatewayinfo)
+  * Marker
 
 ### ListLocalDisksInput
-* ListLocalDisksInput `object`: A JSON object containing the of the gateway.
+* ListLocalDisksInput `object`: A JSON object containing the Amazon Resource Name (ARN) of the gateway.
   * GatewayARN **required** [GatewayARN](#gatewayarn)
 
 ### ListLocalDisksOutput
 * ListLocalDisksOutput `object`
-  * Disks [Disks](#disks)
+  * Disks
+    * items [Disk](#disk)
   * GatewayARN [GatewayARN](#gatewayarn)
 
 ### ListTagsForResourceInput
 * ListTagsForResourceInput `object`: ListTagsForResourceInput
-  * Limit [PositiveIntObject](#positiveintobject)
-  * Marker [Marker](#marker)
-  * ResourceARN **required** [ResourceARN](#resourcearn)
+  * Limit
+  * Marker
+  * ResourceARN **required**
 
 ### ListTagsForResourceOutput
 * ListTagsForResourceOutput `object`: ListTagsForResourceOutput
-  * Marker [Marker](#marker)
-  * ResourceARN [ResourceARN](#resourcearn)
-  * Tags [Tags](#tags)
+  * Marker
+  * ResourceARN
+  * Tags
+    * items [Tag](#tag)
+
+### ListTapePoolsInput
+* ListTapePoolsInput `object`
+  * Limit
+  * Marker
+  * PoolARNs
+    * items [PoolARN](#poolarn)
+
+### ListTapePoolsOutput
+* ListTapePoolsOutput `object`
+  * Marker
+  * PoolInfos
+    * items [PoolInfo](#poolinfo)
 
 ### ListTapesInput
 * ListTapesInput `object`: <p>A JSON object that contains one or more of the following fields:</p> <ul> <li> <p> <a>ListTapesInput$Limit</a> </p> </li> <li> <p> <a>ListTapesInput$Marker</a> </p> </li> <li> <p> <a>ListTapesInput$TapeARNs</a> </p> </li> </ul>
-  * Limit [PositiveIntObject](#positiveintobject)
-  * Marker [Marker](#marker)
+  * Limit
+  * Marker
   * TapeARNs [TapeARNs](#tapearns)
 
 ### ListTapesOutput
 * ListTapesOutput `object`: <p>A JSON object containing the following fields:</p> <ul> <li> <p> <a>ListTapesOutput$Marker</a> </p> </li> <li> <p> <a>ListTapesOutput$VolumeInfos</a> </p> </li> </ul>
-  * Marker [Marker](#marker)
+  * Marker
   * TapeInfos [TapeInfos](#tapeinfos)
 
 ### ListVolumeInitiatorsInput
 * ListVolumeInitiatorsInput `object`: ListVolumeInitiatorsInput
-  * VolumeARN **required** [VolumeARN](#volumearn)
+  * VolumeARN **required**
 
 ### ListVolumeInitiatorsOutput
 * ListVolumeInitiatorsOutput `object`: ListVolumeInitiatorsOutput
-  * Initiators [Initiators](#initiators)
+  * Initiators
+    * items [Initiator](#initiator)
 
 ### ListVolumeRecoveryPointsInput
 * ListVolumeRecoveryPointsInput `object`
@@ -1926,25 +2816,27 @@ amazonaws_storagegateway.UpdateVTLDeviceType({
 ### ListVolumeRecoveryPointsOutput
 * ListVolumeRecoveryPointsOutput `object`
   * GatewayARN [GatewayARN](#gatewayarn)
-  * VolumeRecoveryPointInfos [VolumeRecoveryPointInfos](#volumerecoverypointinfos)
+  * VolumeRecoveryPointInfos
+    * items [VolumeRecoveryPointInfo](#volumerecoverypointinfo)
 
 ### ListVolumesInput
 * ListVolumesInput `object`: <p>A JSON object that contains one or more of the following fields:</p> <ul> <li> <p> <a>ListVolumesInput$Limit</a> </p> </li> <li> <p> <a>ListVolumesInput$Marker</a> </p> </li> </ul>
   * GatewayARN [GatewayARN](#gatewayarn)
-  * Limit [PositiveIntObject](#positiveintobject)
-  * Marker [Marker](#marker)
+  * Limit
+  * Marker
 
 ### ListVolumesOutput
-* ListVolumesOutput `object`
+* ListVolumesOutput `object`: <p>A JSON object containing the following fields:</p> <ul> <li> <p> <a>ListVolumesOutput$Marker</a> </p> </li> <li> <p> <a>ListVolumesOutput$VolumeInfos</a> </p> </li> </ul>
   * GatewayARN [GatewayARN](#gatewayarn)
-  * Marker [Marker](#marker)
-  * VolumeInfos [VolumeInfos](#volumeinfos)
+  * Marker
+  * VolumeInfos
+    * items [VolumeInfo](#volumeinfo)
 
 ### LocalConsolePassword
 * LocalConsolePassword `string`
 
 ### LocationARN
-* LocationARN `string`: The ARN of the backend storage used for storing file data. 
+* LocationARN `string`: The ARN of the backend storage used for storing file data. A prefix name can be added to the S3 bucket name. It must end with a "/".
 
 ### Marker
 * Marker `string`
@@ -1952,35 +2844,44 @@ amazonaws_storagegateway.UpdateVTLDeviceType({
 ### MediumChangerType
 * MediumChangerType `string`
 
+### MinimumNumTapes
+* MinimumNumTapes `integer`
+
 ### MinuteOfHour
 * MinuteOfHour `integer`
 
 ### NFSFileShareDefaults
-* NFSFileShareDefaults `object`: Describes file share default values. Files and folders stored as Amazon S3 objects in S3 buckets don't, by default, have Unix file permissions assigned to them. Upon discovery in an S3 bucket by Storage Gateway, the S3 objects that represent files and folders are assigned these default Unix permissions. This operation is only supported in the file gateway type.
-  * DirectoryMode [PermissionMode](#permissionmode)
-  * FileMode [PermissionMode](#permissionmode)
-  * GroupId [PermissionId](#permissionid)
-  * OwnerId [PermissionId](#permissionid)
+* NFSFileShareDefaults `object`: Describes Network File System (NFS) file share default values. Files and folders stored as Amazon S3 objects in S3 buckets don't, by default, have Unix file permissions assigned to them. Upon discovery in an S3 bucket by Storage Gateway, the S3 objects that represent files and folders are assigned these default Unix permissions. This operation is only supported for file gateways.
+  * DirectoryMode
+  * FileMode
+  * GroupId
+  * OwnerId
 
 ### NFSFileShareInfo
 * NFSFileShareInfo `object`: The Unix file permissions and ownership information assigned, by default, to native S3 objects when file gateway discovers them in S3 buckets. This operation is only supported in file gateways.
+  * CacheAttributes
+    * CacheStaleTimeoutInSeconds
   * ClientList [FileShareClientList](#fileshareclientlist)
-  * DefaultStorageClass [StorageClass](#storageclass)
+  * DefaultStorageClass
   * FileShareARN [FileShareARN](#filesharearn)
   * FileShareId [FileShareId](#fileshareid)
+  * FileShareName
   * FileShareStatus [FileShareStatus](#filesharestatus)
   * GatewayARN [GatewayARN](#gatewayarn)
-  * GuessMIMETypeEnabled [Boolean](#boolean)
-  * KMSEncrypted [boolean](#boolean)
+  * GuessMIMETypeEnabled
+  * KMSEncrypted
   * KMSKey [KMSKey](#kmskey)
   * LocationARN [LocationARN](#locationarn)
   * NFSFileShareDefaults [NFSFileShareDefaults](#nfsfilesharedefaults)
+  * NotificationPolicy
   * ObjectACL [ObjectACL](#objectacl)
   * Path [Path](#path)
-  * ReadOnly [Boolean](#boolean)
-  * RequesterPays [Boolean](#boolean)
+  * ReadOnly
+  * RequesterPays
   * Role [Role](#role)
   * Squash [Squash](#squash)
+  * Tags
+    * items [Tag](#tag)
 
 ### NFSFileShareInfoList
 * NFSFileShareInfoList `array`
@@ -1988,9 +2889,9 @@ amazonaws_storagegateway.UpdateVTLDeviceType({
 
 ### NetworkInterface
 * NetworkInterface `object`: Describes a gateway's network interface.
-  * Ipv4Address [string](#string)
-  * Ipv6Address [string](#string)
-  * MacAddress [string](#string)
+  * Ipv4Address
+  * Ipv6Address
+  * MacAddress
 
 ### NetworkInterfaceId
 * NetworkInterfaceId `string`
@@ -2000,6 +2901,9 @@ amazonaws_storagegateway.UpdateVTLDeviceType({
 
 ### NotificationId
 * NotificationId `string`: The randomly generated ID of the notification that was sent. This ID is in UUID format.
+
+### NotificationPolicy
+* NotificationPolicy `string`
 
 ### NotifyWhenUploadedInput
 * NotifyWhenUploadedInput `object`
@@ -2014,16 +2918,48 @@ amazonaws_storagegateway.UpdateVTLDeviceType({
 * NumTapesToCreate `integer`
 
 ### ObjectACL
-* ObjectACL `string` (values: private, public-read, public-read-write, authenticated-read, bucket-owner-read, bucket-owner-full-control, aws-exec-read): Sets the access control list permission for objects in the S3 bucket that a file gateway puts objects into. The default value is "private".
+* ObjectACL `string` (values: private, public-read, public-read-write, authenticated-read, bucket-owner-read, bucket-owner-full-control, aws-exec-read): A value that sets the access control list (ACL) permission for objects in the S3 bucket that a file gateway puts objects into. The default value is <code>private</code>.
+
+### OrganizationalUnit
+* OrganizationalUnit `string`
 
 ### Path
-* Path `string`: The file share path used by the NFS client to identify the mount point. 
+* Path `string`: The file share path used by the NFS client to identify the mount point.
 
 ### PermissionId
 * PermissionId `integer`
 
 ### PermissionMode
 * PermissionMode `string`
+
+### PoolARN
+* PoolARN `string`
+
+### PoolARNs
+* PoolARNs `array`
+  * items [PoolARN](#poolarn)
+
+### PoolId
+* PoolId `string`
+
+### PoolInfo
+* PoolInfo `object`: Describes a custom tape pool.
+  * PoolARN
+  * PoolName
+  * PoolStatus
+  * RetentionLockTimeInDays
+  * RetentionLockType
+  * StorageClass
+
+### PoolInfos
+* PoolInfos `array`
+  * items [PoolInfo](#poolinfo)
+
+### PoolName
+* PoolName `string`
+
+### PoolStatus
+* PoolStatus `string` (values: ACTIVE, DELETED)
 
 ### PositiveIntObject
 * PositiveIntObject `integer`
@@ -2032,24 +2968,29 @@ amazonaws_storagegateway.UpdateVTLDeviceType({
 * RecurrenceInHours `integer`
 
 ### RefreshCacheInput
-* RefreshCacheInput `object`
-  * FileShareARN **required** [FileShareARN](#filesharearn)
+* RefreshCacheInput `object`: RefreshCacheInput
+  * FileShareARN **required**
+  * FolderList
+    * items [Folder](#folder)
+  * Recursive
 
 ### RefreshCacheOutput
-* RefreshCacheOutput `object`
+* RefreshCacheOutput `object`: RefreshCacheOutput
   * FileShareARN [FileShareARN](#filesharearn)
+  * NotificationId [NotificationId](#notificationid)
 
 ### RegionId
 * RegionId `string`
 
 ### RemoveTagsFromResourceInput
 * RemoveTagsFromResourceInput `object`: RemoveTagsFromResourceInput
-  * ResourceARN **required** [ResourceARN](#resourcearn)
-  * TagKeys **required** [TagKeys](#tagkeys)
+  * ResourceARN **required**
+  * TagKeys **required**
+    * items [TagKey](#tagkey)
 
 ### RemoveTagsFromResourceOutput
 * RemoveTagsFromResourceOutput `object`: RemoveTagsFromResourceOutput
-  * ResourceARN [ResourceARN](#resourcearn)
+  * ResourceARN
 
 ### ResetCacheInput
 * ResetCacheInput `object`
@@ -2062,47 +3003,104 @@ amazonaws_storagegateway.UpdateVTLDeviceType({
 ### ResourceARN
 * ResourceARN `string`
 
+### RetentionLockTimeInDays
+* RetentionLockTimeInDays `integer`
+
+### RetentionLockType
+* RetentionLockType `string` (values: COMPLIANCE, GOVERNANCE, NONE)
+
 ### RetrieveTapeArchiveInput
 * RetrieveTapeArchiveInput `object`: RetrieveTapeArchiveInput
-  * GatewayARN **required** [GatewayARN](#gatewayarn)
-  * TapeARN **required** [TapeARN](#tapearn)
+  * GatewayARN **required**
+  * TapeARN **required**
 
 ### RetrieveTapeArchiveOutput
 * RetrieveTapeArchiveOutput `object`: RetrieveTapeArchiveOutput
-  * TapeARN [TapeARN](#tapearn)
+  * TapeARN
 
 ### RetrieveTapeRecoveryPointInput
 * RetrieveTapeRecoveryPointInput `object`: RetrieveTapeRecoveryPointInput
   * GatewayARN **required** [GatewayARN](#gatewayarn)
-  * TapeARN **required** [TapeARN](#tapearn)
+  * TapeARN **required**
 
 ### RetrieveTapeRecoveryPointOutput
 * RetrieveTapeRecoveryPointOutput `object`: RetrieveTapeRecoveryPointOutput
-  * TapeARN [TapeARN](#tapearn)
+  * TapeARN
 
 ### Role
-* Role `string`: The ARN of the IAM role that file gateway assumes when it accesses the underlying storage. 
+* Role `string`: The ARN of the IAM role that file gateway assumes when it accesses the underlying storage.
+
+### SMBFileShareInfo
+* SMBFileShareInfo `object`: The Windows file permissions and ownership information assigned, by default, to native S3 objects when file gateway discovers them in S3 buckets. This operation is only supported for file gateways.
+  * AccessBasedEnumeration
+  * AdminUserList
+    * items [FileShareUser](#fileshareuser)
+  * AuditDestinationARN
+  * Authentication [Authentication](#authentication)
+  * CacheAttributes
+    * CacheStaleTimeoutInSeconds
+  * CaseSensitivity
+  * DefaultStorageClass
+  * FileShareARN [FileShareARN](#filesharearn)
+  * FileShareId [FileShareId](#fileshareid)
+  * FileShareName
+  * FileShareStatus [FileShareStatus](#filesharestatus)
+  * GatewayARN [GatewayARN](#gatewayarn)
+  * GuessMIMETypeEnabled
+  * InvalidUserList
+    * items [FileShareUser](#fileshareuser)
+  * KMSEncrypted
+  * KMSKey [KMSKey](#kmskey)
+  * LocationARN [LocationARN](#locationarn)
+  * NotificationPolicy
+  * ObjectACL [ObjectACL](#objectacl)
+  * Path
+  * ReadOnly
+  * RequesterPays
+  * Role [Role](#role)
+  * SMBACLEnabled
+  * Tags
+    * items [Tag](#tag)
+  * ValidUserList
+    * items [FileShareUser](#fileshareuser)
+
+### SMBFileShareInfoList
+* SMBFileShareInfoList `array`
+  * items [SMBFileShareInfo](#smbfileshareinfo)
+
+### SMBGuestPassword
+* SMBGuestPassword `string`
+
+### SMBSecurityStrategy
+* SMBSecurityStrategy `string` (values: ClientSpecified, MandatorySigning, MandatoryEncryption)
 
 ### ServiceUnavailableError
-* ServiceUnavailableError `object`: An internal server error has occurred because the service is unavailable. For more information, see the error and message fields.
-  * error [StorageGatewayError](#storagegatewayerror)
-  * message [string](#string)
+
 
 ### SetLocalConsolePasswordInput
 * SetLocalConsolePasswordInput `object`: SetLocalConsolePasswordInput
   * GatewayARN **required** [GatewayARN](#gatewayarn)
-  * LocalConsolePassword **required** [LocalConsolePassword](#localconsolepassword)
+  * LocalConsolePassword **required**
 
 ### SetLocalConsolePasswordOutput
 * SetLocalConsolePasswordOutput `object`
   * GatewayARN [GatewayARN](#gatewayarn)
 
+### SetSMBGuestPasswordInput
+* SetSMBGuestPasswordInput `object`: SetSMBGuestPasswordInput
+  * GatewayARN **required**
+  * Password **required**
+
+### SetSMBGuestPasswordOutput
+* SetSMBGuestPasswordOutput `object`
+  * GatewayARN [GatewayARN](#gatewayarn)
+
 ### ShutdownGatewayInput
-* ShutdownGatewayInput `object`: A JSON object containing the of the gateway to shut down.
+* ShutdownGatewayInput `object`: A JSON object containing the Amazon Resource Name (ARN) of the gateway to shut down.
   * GatewayARN **required** [GatewayARN](#gatewayarn)
 
 ### ShutdownGatewayOutput
-* ShutdownGatewayOutput `object`: A JSON object containing the of the gateway that was shut down.
+* ShutdownGatewayOutput `object`: A JSON object containing the Amazon Resource Name (ARN) of the gateway that was shut down.
   * GatewayARN [GatewayARN](#gatewayarn)
 
 ### SnapshotDescription
@@ -2111,48 +3109,62 @@ amazonaws_storagegateway.UpdateVTLDeviceType({
 ### SnapshotId
 * SnapshotId `string`
 
+### SoftwareUpdatesEndDate
+* SoftwareUpdatesEndDate `string`
+
 ### Squash
-* Squash `string`: <p>The user mapped to anonymous user. Valid options are the following: </p> <ul> <li> <p>"RootSquash" - Only root is mapped to anonymous user.</p> </li> <li> <p>"NoSquash" - No one is mapped to anonymous user</p> </li> <li> <p>"AllSquash" - Everyone is mapped to anonymous user.</p> </li> </ul>
+* Squash `string`: <p>The user mapped to anonymous user. Valid options are the following:</p> <ul> <li> <p> <code>RootSquash</code>: Only root is mapped to anonymous user.</p> </li> <li> <p> <code>NoSquash</code>: No one is mapped to anonymous user.</p> </li> <li> <p> <code>AllSquash</code>: Everyone is mapped to anonymous user.</p> </li> </ul>
+
+### StartAvailabilityMonitorTestInput
+* StartAvailabilityMonitorTestInput `object`
+  * GatewayARN **required** [GatewayARN](#gatewayarn)
+
+### StartAvailabilityMonitorTestOutput
+* StartAvailabilityMonitorTestOutput `object`
+  * GatewayARN [GatewayARN](#gatewayarn)
 
 ### StartGatewayInput
-* StartGatewayInput `object`: A JSON object containing the of the gateway to start.
+* StartGatewayInput `object`: A JSON object containing the Amazon Resource Name (ARN) of the gateway to start.
   * GatewayARN **required** [GatewayARN](#gatewayarn)
 
 ### StartGatewayOutput
-* StartGatewayOutput `object`: A JSON object containing the of the gateway that was restarted.
+* StartGatewayOutput `object`: A JSON object containing the Amazon Resource Name (ARN) of the gateway that was restarted.
   * GatewayARN [GatewayARN](#gatewayarn)
 
 ### StorageClass
 * StorageClass `string`: <p/>
 
-### StorageGatewayError
-* StorageGatewayError `object`: Provides additional information about an error that was returned by the service as an or. See the <code>errorCode</code> and <code>errorDetails</code> members for more information about the error.
-  * errorCode [ErrorCode](#errorcode)
-  * errorDetails [errorDetails](#errordetails)
-
 ### StorediSCSIVolume
 * StorediSCSIVolume `object`: Describes an iSCSI stored volume.
-  * CreatedDate [CreatedDate](#createddate)
-  * PreservedExistingData [boolean](#boolean)
-  * SourceSnapshotId [SnapshotId](#snapshotid)
-  * VolumeARN [VolumeARN](#volumearn)
-  * VolumeDiskId [DiskId](#diskid)
-  * VolumeId [VolumeId](#volumeid)
-  * VolumeProgress [DoubleObject](#doubleobject)
-  * VolumeSizeInBytes [long](#long)
-  * VolumeStatus [VolumeStatus](#volumestatus)
-  * VolumeType [VolumeType](#volumetype)
-  * VolumeUsedInBytes [VolumeUsedInBytes](#volumeusedinbytes)
-  * VolumeiSCSIAttributes [VolumeiSCSIAttributes](#volumeiscsiattributes)
+  * CreatedDate
+  * KMSKey [KMSKey](#kmskey)
+  * PreservedExistingData
+  * SourceSnapshotId
+  * TargetName
+  * VolumeARN
+  * VolumeAttachmentStatus
+  * VolumeDiskId
+  * VolumeId
+  * VolumeProgress
+  * VolumeSizeInBytes
+  * VolumeStatus
+  * VolumeType
+  * VolumeUsedInBytes
+  * VolumeiSCSIAttributes
+    * ChapEnabled
+    * LunNumber
+    * NetworkInterfaceId
+    * NetworkInterfacePort
+    * TargetARN
 
 ### StorediSCSIVolumes
 * StorediSCSIVolumes `array`
   * items [StorediSCSIVolume](#storediscsivolume)
 
 ### Tag
-* Tag `object`
-  * Key **required** [TagKey](#tagkey)
-  * Value **required** [TagValue](#tagvalue)
+* Tag `object`: A key-value pair that helps you manage, filter, and search for your resource. Allowed characters: letters, white space, and numbers, representable in UTF-8, and the following characters: + - = . _ : /.
+  * Key **required**
+  * Value **required**
 
 ### TagKey
 * TagKey `string`
@@ -2171,14 +3183,18 @@ amazonaws_storagegateway.UpdateVTLDeviceType({
 ### Tape
 * Tape `object`: Describes a virtual tape object.
   * KMSKey [KMSKey](#kmskey)
-  * Progress [DoubleObject](#doubleobject)
-  * TapeARN [TapeARN](#tapearn)
-  * TapeBarcode [TapeBarcode](#tapebarcode)
-  * TapeCreatedDate [Time](#time)
-  * TapeSizeInBytes [TapeSize](#tapesize)
-  * TapeStatus [TapeStatus](#tapestatus)
-  * TapeUsedInBytes [TapeUsage](#tapeusage)
-  * VTLDevice [VTLDeviceARN](#vtldevicearn)
+  * PoolEntryDate
+  * PoolId
+  * Progress
+  * RetentionStartDate
+  * TapeARN
+  * TapeBarcode
+  * TapeCreatedDate
+  * TapeSizeInBytes
+  * TapeStatus
+  * TapeUsedInBytes
+  * VTLDevice
+  * Worm
 
 ### TapeARN
 * TapeARN `string`
@@ -2189,15 +3205,19 @@ amazonaws_storagegateway.UpdateVTLDeviceType({
 
 ### TapeArchive
 * TapeArchive `object`: Represents a virtual tape that is archived in the virtual tape shelf (VTS).
-  * CompletionTime [Time](#time)
+  * CompletionTime
   * KMSKey [KMSKey](#kmskey)
-  * RetrievedTo [GatewayARN](#gatewayarn)
-  * TapeARN [TapeARN](#tapearn)
-  * TapeBarcode [TapeBarcode](#tapebarcode)
-  * TapeCreatedDate [Time](#time)
-  * TapeSizeInBytes [TapeSize](#tapesize)
-  * TapeStatus [TapeArchiveStatus](#tapearchivestatus)
-  * TapeUsedInBytes [TapeUsage](#tapeusage)
+  * PoolEntryDate
+  * PoolId
+  * RetentionStartDate
+  * RetrievedTo
+  * TapeARN
+  * TapeBarcode
+  * TapeCreatedDate
+  * TapeSizeInBytes
+  * TapeStatus
+  * TapeUsedInBytes
+  * Worm
 
 ### TapeArchiveStatus
 * TapeArchiveStatus `string`
@@ -2217,22 +3237,25 @@ amazonaws_storagegateway.UpdateVTLDeviceType({
 
 ### TapeInfo
 * TapeInfo `object`: Describes a virtual tape.
-  * GatewayARN [GatewayARN](#gatewayarn)
-  * TapeARN [TapeARN](#tapearn)
-  * TapeBarcode [TapeBarcode](#tapebarcode)
-  * TapeSizeInBytes [TapeSize](#tapesize)
-  * TapeStatus [TapeStatus](#tapestatus)
+  * GatewayARN
+  * PoolEntryDate
+  * PoolId
+  * RetentionStartDate
+  * TapeARN
+  * TapeBarcode
+  * TapeSizeInBytes
+  * TapeStatus
 
 ### TapeInfos
-* TapeInfos `array`: An array of <a>TapeInfo</a> objects, where each object describes an a single tape. If there not tapes in the tape library or VTS, then the <code>TapeInfos</code> is an empty array.
+* TapeInfos `array`: An array of <a>TapeInfo</a> objects, where each object describes a single tape. If there are no tapes in the tape library or VTS, then the <code>TapeInfos</code> is an empty array.
   * items [TapeInfo](#tapeinfo)
 
 ### TapeRecoveryPointInfo
 * TapeRecoveryPointInfo `object`: Describes a recovery point.
-  * TapeARN [TapeARN](#tapearn)
-  * TapeRecoveryPointTime [Time](#time)
-  * TapeSizeInBytes [TapeSize](#tapesize)
-  * TapeStatus [TapeRecoveryPointStatus](#taperecoverypointstatus)
+  * TapeARN
+  * TapeRecoveryPointTime
+  * TapeSizeInBytes
+  * TapeStatus
 
 ### TapeRecoveryPointInfos
 * TapeRecoveryPointInfos `array`
@@ -2246,6 +3269,9 @@ amazonaws_storagegateway.UpdateVTLDeviceType({
 
 ### TapeStatus
 * TapeStatus `string`
+
+### TapeStorageClass
+* TapeStorageClass `string` (values: DEEP_ARCHIVE, GLACIER)
 
 ### TapeUsage
 * TapeUsage `integer`
@@ -2263,103 +3289,190 @@ amazonaws_storagegateway.UpdateVTLDeviceType({
 ### Time
 * Time `string`
 
+### TimeoutInSeconds
+* TimeoutInSeconds `integer`
+
+### UpdateAutomaticTapeCreationPolicyInput
+* UpdateAutomaticTapeCreationPolicyInput `object`
+  * AutomaticTapeCreationRules **required**
+    * items [AutomaticTapeCreationRule](#automatictapecreationrule)
+  * GatewayARN **required** [GatewayARN](#gatewayarn)
+
+### UpdateAutomaticTapeCreationPolicyOutput
+* UpdateAutomaticTapeCreationPolicyOutput `object`
+  * GatewayARN [GatewayARN](#gatewayarn)
+
 ### UpdateBandwidthRateLimitInput
 * UpdateBandwidthRateLimitInput `object`: <p>A JSON object containing one or more of the following fields:</p> <ul> <li> <p> <a>UpdateBandwidthRateLimitInput$AverageDownloadRateLimitInBitsPerSec</a> </p> </li> <li> <p> <a>UpdateBandwidthRateLimitInput$AverageUploadRateLimitInBitsPerSec</a> </p> </li> </ul>
-  * AverageDownloadRateLimitInBitsPerSec [BandwidthDownloadRateLimit](#bandwidthdownloadratelimit)
-  * AverageUploadRateLimitInBitsPerSec [BandwidthUploadRateLimit](#bandwidthuploadratelimit)
+  * AverageDownloadRateLimitInBitsPerSec
+  * AverageUploadRateLimitInBitsPerSec
   * GatewayARN **required** [GatewayARN](#gatewayarn)
 
 ### UpdateBandwidthRateLimitOutput
-* UpdateBandwidthRateLimitOutput `object`: A JSON object containing the of the gateway whose throttle information was updated.
+* UpdateBandwidthRateLimitOutput `object`: A JSON object containing the Amazon Resource Name (ARN) of the gateway whose throttle information was updated.
+  * GatewayARN [GatewayARN](#gatewayarn)
+
+### UpdateBandwidthRateLimitScheduleInput
+* UpdateBandwidthRateLimitScheduleInput `object`
+  * BandwidthRateLimitIntervals **required**
+    * items [BandwidthRateLimitInterval](#bandwidthratelimitinterval)
+  * GatewayARN **required** [GatewayARN](#gatewayarn)
+
+### UpdateBandwidthRateLimitScheduleOutput
+* UpdateBandwidthRateLimitScheduleOutput `object`
   * GatewayARN [GatewayARN](#gatewayarn)
 
 ### UpdateChapCredentialsInput
 * UpdateChapCredentialsInput `object`: <p>A JSON object containing one or more of the following fields:</p> <ul> <li> <p> <a>UpdateChapCredentialsInput$InitiatorName</a> </p> </li> <li> <p> <a>UpdateChapCredentialsInput$SecretToAuthenticateInitiator</a> </p> </li> <li> <p> <a>UpdateChapCredentialsInput$SecretToAuthenticateTarget</a> </p> </li> <li> <p> <a>UpdateChapCredentialsInput$TargetARN</a> </p> </li> </ul>
-  * InitiatorName **required** [IqnName](#iqnname)
-  * SecretToAuthenticateInitiator **required** [ChapSecret](#chapsecret)
-  * SecretToAuthenticateTarget [ChapSecret](#chapsecret)
-  * TargetARN **required** [TargetARN](#targetarn)
+  * InitiatorName **required**
+  * SecretToAuthenticateInitiator **required**
+  * SecretToAuthenticateTarget
+  * TargetARN **required**
 
 ### UpdateChapCredentialsOutput
 * UpdateChapCredentialsOutput `object`: A JSON object containing the following fields:
-  * InitiatorName [IqnName](#iqnname)
-  * TargetARN [TargetARN](#targetarn)
+  * InitiatorName
+  * TargetARN
 
 ### UpdateGatewayInformationInput
 * UpdateGatewayInformationInput `object`
+  * CloudWatchLogGroupARN
   * GatewayARN **required** [GatewayARN](#gatewayarn)
   * GatewayName [GatewayName](#gatewayname)
-  * GatewayTimezone [GatewayTimezone](#gatewaytimezone)
+  * GatewayTimezone
 
 ### UpdateGatewayInformationOutput
-* UpdateGatewayInformationOutput `object`: A JSON object containing the ARN of the gateway that was updated.
+* UpdateGatewayInformationOutput `object`: A JSON object containing the Amazon Resource Name (ARN) of the gateway that was updated.
   * GatewayARN [GatewayARN](#gatewayarn)
-  * GatewayName [string](#string)
+  * GatewayName
 
 ### UpdateGatewaySoftwareNowInput
-* UpdateGatewaySoftwareNowInput `object`: A JSON object containing the of the gateway to update.
+* UpdateGatewaySoftwareNowInput `object`: A JSON object containing the Amazon Resource Name (ARN) of the gateway to update.
   * GatewayARN **required** [GatewayARN](#gatewayarn)
 
 ### UpdateGatewaySoftwareNowOutput
-* UpdateGatewaySoftwareNowOutput `object`: A JSON object containing the of the gateway that was updated.
+* UpdateGatewaySoftwareNowOutput `object`: A JSON object containing the Amazon Resource Name (ARN) of the gateway that was updated.
   * GatewayARN [GatewayARN](#gatewayarn)
 
 ### UpdateMaintenanceStartTimeInput
-* UpdateMaintenanceStartTimeInput `object`: <p>A JSON object containing the following fields:</p> <ul> <li> <p> <a>UpdateMaintenanceStartTimeInput$DayOfWeek</a> </p> </li> <li> <p> <a>UpdateMaintenanceStartTimeInput$HourOfDay</a> </p> </li> <li> <p> <a>UpdateMaintenanceStartTimeInput$MinuteOfHour</a> </p> </li> </ul>
-  * DayOfWeek **required** [DayOfWeek](#dayofweek)
+* UpdateMaintenanceStartTimeInput `object`: <p>A JSON object containing the following fields:</p> <ul> <li> <p> <a>UpdateMaintenanceStartTimeInput$DayOfMonth</a> </p> </li> <li> <p> <a>UpdateMaintenanceStartTimeInput$DayOfWeek</a> </p> </li> <li> <p> <a>UpdateMaintenanceStartTimeInput$HourOfDay</a> </p> </li> <li> <p> <a>UpdateMaintenanceStartTimeInput$MinuteOfHour</a> </p> </li> </ul>
+  * DayOfMonth
+  * DayOfWeek
   * GatewayARN **required** [GatewayARN](#gatewayarn)
-  * HourOfDay **required** [HourOfDay](#hourofday)
-  * MinuteOfHour **required** [MinuteOfHour](#minuteofhour)
+  * HourOfDay **required**
+  * MinuteOfHour **required**
 
 ### UpdateMaintenanceStartTimeOutput
-* UpdateMaintenanceStartTimeOutput `object`: A JSON object containing the of the gateway whose maintenance start time is updated.
+* UpdateMaintenanceStartTimeOutput `object`: A JSON object containing the Amazon Resource Name (ARN) of the gateway whose maintenance start time is updated.
   * GatewayARN [GatewayARN](#gatewayarn)
 
 ### UpdateNFSFileShareInput
 * UpdateNFSFileShareInput `object`: UpdateNFSFileShareInput
-  * ClientList [FileShareClientList](#fileshareclientlist)
-  * DefaultStorageClass [StorageClass](#storageclass)
-  * FileShareARN **required** [FileShareARN](#filesharearn)
-  * GuessMIMETypeEnabled [Boolean](#boolean)
-  * KMSEncrypted [Boolean](#boolean)
-  * KMSKey [KMSKey](#kmskey)
-  * NFSFileShareDefaults [NFSFileShareDefaults](#nfsfilesharedefaults)
-  * ObjectACL [ObjectACL](#objectacl)
-  * ReadOnly [Boolean](#boolean)
-  * RequesterPays [Boolean](#boolean)
-  * Squash [Squash](#squash)
+  * CacheAttributes
+    * CacheStaleTimeoutInSeconds
+  * ClientList
+    * items [IPV4AddressCIDR](#ipv4addresscidr)
+  * DefaultStorageClass
+  * FileShareARN **required**
+  * FileShareName
+  * GuessMIMETypeEnabled
+  * KMSEncrypted
+  * KMSKey
+  * NFSFileShareDefaults
+    * DirectoryMode
+    * FileMode
+    * GroupId
+    * OwnerId
+  * NotificationPolicy
+  * ObjectACL
+  * ReadOnly
+  * RequesterPays
+  * Squash
 
 ### UpdateNFSFileShareOutput
 * UpdateNFSFileShareOutput `object`: UpdateNFSFileShareOutput
-  * FileShareARN [FileShareARN](#filesharearn)
+  * FileShareARN
+
+### UpdateSMBFileShareInput
+* UpdateSMBFileShareInput `object`: UpdateSMBFileShareInput
+  * AccessBasedEnumeration
+  * AdminUserList
+    * items [FileShareUser](#fileshareuser)
+  * AuditDestinationARN
+  * CacheAttributes
+    * CacheStaleTimeoutInSeconds
+  * CaseSensitivity
+  * DefaultStorageClass
+  * FileShareARN **required**
+  * FileShareName
+  * GuessMIMETypeEnabled
+  * InvalidUserList
+    * items [FileShareUser](#fileshareuser)
+  * KMSEncrypted
+  * KMSKey
+  * NotificationPolicy
+  * ObjectACL
+  * ReadOnly
+  * RequesterPays
+  * SMBACLEnabled
+  * ValidUserList
+    * items [FileShareUser](#fileshareuser)
+
+### UpdateSMBFileShareOutput
+* UpdateSMBFileShareOutput `object`: UpdateSMBFileShareOutput
+  * FileShareARN
+
+### UpdateSMBFileShareVisibilityInput
+* UpdateSMBFileShareVisibilityInput `object`
+  * FileSharesVisible **required**
+  * GatewayARN **required** [GatewayARN](#gatewayarn)
+
+### UpdateSMBFileShareVisibilityOutput
+* UpdateSMBFileShareVisibilityOutput `object`
+  * GatewayARN [GatewayARN](#gatewayarn)
+
+### UpdateSMBSecurityStrategyInput
+* UpdateSMBSecurityStrategyInput `object`
+  * GatewayARN **required** [GatewayARN](#gatewayarn)
+  * SMBSecurityStrategy **required**
+
+### UpdateSMBSecurityStrategyOutput
+* UpdateSMBSecurityStrategyOutput `object`
+  * GatewayARN [GatewayARN](#gatewayarn)
 
 ### UpdateSnapshotScheduleInput
 * UpdateSnapshotScheduleInput `object`: <p>A JSON object containing one or more of the following fields:</p> <ul> <li> <p> <a>UpdateSnapshotScheduleInput$Description</a> </p> </li> <li> <p> <a>UpdateSnapshotScheduleInput$RecurrenceInHours</a> </p> </li> <li> <p> <a>UpdateSnapshotScheduleInput$StartAt</a> </p> </li> <li> <p> <a>UpdateSnapshotScheduleInput$VolumeARN</a> </p> </li> </ul>
-  * Description [Description](#description)
-  * RecurrenceInHours **required** [RecurrenceInHours](#recurrenceinhours)
-  * StartAt **required** [HourOfDay](#hourofday)
-  * VolumeARN **required** [VolumeARN](#volumearn)
+  * Description
+  * RecurrenceInHours **required**
+  * StartAt **required**
+  * Tags
+    * items [Tag](#tag)
+  * VolumeARN **required**
 
 ### UpdateSnapshotScheduleOutput
-* UpdateSnapshotScheduleOutput `object`: A JSON object containing the of the updated storage volume.
-  * VolumeARN [VolumeARN](#volumearn)
+* UpdateSnapshotScheduleOutput `object`: A JSON object containing the Amazon Resource Name (ARN) of the updated storage volume.
+  * VolumeARN
 
 ### UpdateVTLDeviceTypeInput
 * UpdateVTLDeviceTypeInput `object`
-  * DeviceType **required** [DeviceType](#devicetype)
-  * VTLDeviceARN **required** [VTLDeviceARN](#vtldevicearn)
+  * DeviceType **required**
+  * VTLDeviceARN **required**
 
 ### UpdateVTLDeviceTypeOutput
 * UpdateVTLDeviceTypeOutput `object`: UpdateVTLDeviceTypeOutput
-  * VTLDeviceARN [VTLDeviceARN](#vtldevicearn)
+  * VTLDeviceARN
 
 ### VTLDevice
 * VTLDevice `object`: Represents a device object associated with a tape gateway.
-  * DeviceiSCSIAttributes [DeviceiSCSIAttributes](#deviceiscsiattributes)
-  * VTLDeviceARN [VTLDeviceARN](#vtldevicearn)
-  * VTLDeviceProductIdentifier [VTLDeviceProductIdentifier](#vtldeviceproductidentifier)
-  * VTLDeviceType [VTLDeviceType](#vtldevicetype)
-  * VTLDeviceVendor [VTLDeviceVendor](#vtldevicevendor)
+  * DeviceiSCSIAttributes
+    * ChapEnabled
+    * NetworkInterfaceId
+    * NetworkInterfacePort
+    * TargetARN
+  * VTLDeviceARN
+  * VTLDeviceProductIdentifier
+  * VTLDeviceType
+  * VTLDeviceVendor
 
 ### VTLDeviceARN
 * VTLDeviceARN `string`
@@ -2388,28 +3501,32 @@ amazonaws_storagegateway.UpdateVTLDeviceType({
 * VolumeARNs `array`
   * items [VolumeARN](#volumearn)
 
+### VolumeAttachmentStatus
+* VolumeAttachmentStatus `string`
+
 ### VolumeId
 * VolumeId `string`
 
 ### VolumeInfo
 * VolumeInfo `object`: Describes a storage volume object.
   * GatewayARN [GatewayARN](#gatewayarn)
-  * GatewayId [GatewayId](#gatewayid)
-  * VolumeARN [VolumeARN](#volumearn)
-  * VolumeId [VolumeId](#volumeid)
-  * VolumeSizeInBytes [long](#long)
-  * VolumeType [VolumeType](#volumetype)
+  * GatewayId
+  * VolumeARN
+  * VolumeAttachmentStatus
+  * VolumeId
+  * VolumeSizeInBytes
+  * VolumeType
 
 ### VolumeInfos
 * VolumeInfos `array`
   * items [VolumeInfo](#volumeinfo)
 
 ### VolumeRecoveryPointInfo
-* VolumeRecoveryPointInfo `object`
-  * VolumeARN [VolumeARN](#volumearn)
-  * VolumeRecoveryPointTime [string](#string)
-  * VolumeSizeInBytes [long](#long)
-  * VolumeUsageInBytes [long](#long)
+* VolumeRecoveryPointInfo `object`: Describes a storage volume recovery point object.
+  * VolumeARN
+  * VolumeRecoveryPointTime
+  * VolumeSizeInBytes
+  * VolumeUsageInBytes
 
 ### VolumeRecoveryPointInfos
 * VolumeRecoveryPointInfos `array`
@@ -2426,23 +3543,17 @@ amazonaws_storagegateway.UpdateVTLDeviceType({
 
 ### VolumeiSCSIAttributes
 * VolumeiSCSIAttributes `object`: Lists iSCSI information about a volume.
-  * ChapEnabled [boolean](#boolean)
-  * LunNumber [PositiveIntObject](#positiveintobject)
-  * NetworkInterfaceId [NetworkInterfaceId](#networkinterfaceid)
-  * NetworkInterfacePort [integer](#integer)
-  * TargetARN [TargetARN](#targetarn)
+  * ChapEnabled
+  * LunNumber
+  * NetworkInterfaceId
+  * NetworkInterfacePort
+  * TargetARN
 
 ### boolean
 * boolean `boolean`
 
 ### double
 * double `number`
-
-### errorDetails
-* errorDetails `array`
-  * items `object`
-    * key [string](#string)
-    * value [string](#string)
 
 ### integer
 * integer `integer`

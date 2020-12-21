@@ -15,9 +15,7 @@ let azure_locationbasedservices = require('@datafire/azure_locationbasedservices
   redirect_uri: ""
 });
 
-azure_locationbasedservices.Accounts_ListOperations({
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

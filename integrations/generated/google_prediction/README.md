@@ -15,10 +15,7 @@ let google_prediction = require('@datafire/google_prediction').create({
   redirect_uri: ""
 });
 
-google_prediction.hostedmodels.predict({
-  "hostedModelName": "",
-  "project": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -292,9 +289,6 @@ google_prediction.trainedmodels.predict({
         * categorical `object`: Description of the categorical values of this feature.
           * count `string`: Number of categorical values for this feature in the data.
           * values `array`: List of all the categories for this feature in the data set.
-            * items `object`
-              * count `string`: Number of times this feature had this value.
-              * value `string`: The category name.
         * index `string`: The feature index.
         * numeric `object`: Description of the numeric values of this feature.
           * count `string`: Number of numeric values for this feature in the data set.
@@ -326,7 +320,6 @@ google_prediction.trainedmodels.predict({
   * input `object`: Input to the model for a prediction.
     * csvInstance `array`: A list of input features, these can be strings or doubles.
 
-
 ### Insert
 * Insert `object`
   * id `string`: The unique name for the predictive model.
@@ -338,7 +331,6 @@ google_prediction.trainedmodels.predict({
   * trainingInstances `array`: Instances to train model on.
     * items `object`
       * csvInstance `array`: The input features for this instance.
-
       * output `string`: The generic output value - could be regression or class label.
   * utility `array`: A class weighting function, which allows the importance weights for class labels to be specified (Categorical models only).
     * items `object`: Class label (string).
@@ -386,7 +378,6 @@ google_prediction.trainedmodels.predict({
 ### Update
 * Update `object`
   * csvInstance `array`: The input features for this instance.
-
   * output `string`: The generic output value - could be regression or class label.
 
 

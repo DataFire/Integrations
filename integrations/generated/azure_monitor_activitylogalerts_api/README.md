@@ -15,10 +15,7 @@ let azure_monitor_activitylogalerts_api = require('@datafire/azure_monitor_activ
   redirect_uri: ""
 });
 
-azure_monitor_activitylogalerts_api.ActivityLogAlerts_ListBySubscriptionId({
-  "subscriptionId": "",
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

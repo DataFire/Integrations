@@ -1,35 +1,33 @@
 {
   "swagger": "2.0",
-  "schemes": [
-    "https"
-  ],
-  "host": "www.googleapis.com",
-  "basePath": "/pagespeedonline/v4",
   "info": {
     "contact": {
       "name": "Google",
-      "url": "https://google.com"
+      "url": "https://google.com",
+      "x-twitter": "youtube"
     },
-    "description": "Analyzes the performance of a web page and provides tailored suggestions to make that page faster.",
-    "title": "PageSpeed Insights",
-    "version": "v4",
+    "description": "The PageSpeed Insights API lets you analyze the performance of your website with a simple API. It offers tailored suggestions for how you can optimize your site, and lets you easily integrate PageSpeed Insights analysis into your development tools and workflow. ",
+    "license": {
+      "name": "Creative Commons Attribution 3.0",
+      "url": "http://creativecommons.org/licenses/by/3.0/"
+    },
+    "termsOfService": "https://developers.google.com/terms/",
+    "title": "PageSpeed Insights API",
+    "version": "v5",
     "x-apiClientRegistration": {
       "url": "https://console.developers.google.com"
     },
     "x-apisguru-categories": [
-      "tools"
+      "analytics",
+      "media"
     ],
     "x-logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
     },
     "x-origin": [
       {
-        "converter": {
-          "url": "https://github.com/lucybot/api-spec-converter",
-          "version": "2.6.2"
-        },
         "format": "google",
-        "url": "https://www.googleapis.com/discovery/v1/apis/pagespeedonline/v4/rest",
+        "url": "https://pagespeedonline.googleapis.com/$discovery/rest?version=v5",
         "version": "v1"
       }
     ],
@@ -41,75 +39,125 @@
       "type": "openapi"
     }
   },
-  "externalDocs": {
-    "url": "https://developers.google.com/speed/docs/insights/v4/getting-started"
-  },
-  "parameters": {
-    "alt": {
-      "default": "json",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ],
-      "in": "query",
-      "name": "alt",
-      "type": "string"
-    },
-    "fields": {
-      "description": "Selector specifying which fields to include in a partial response.",
-      "in": "query",
-      "name": "fields",
-      "type": "string"
-    },
-    "key": {
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
-      "in": "query",
-      "name": "key",
-      "type": "string"
-    },
-    "oauth_token": {
-      "description": "OAuth 2.0 token for the current user.",
-      "in": "query",
-      "name": "oauth_token",
-      "type": "string"
-    },
-    "prettyPrint": {
-      "default": true,
-      "description": "Returns response with indentations and line breaks.",
-      "in": "query",
-      "name": "prettyPrint",
-      "type": "boolean"
-    },
-    "quotaUser": {
-      "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
-      "in": "query",
-      "name": "quotaUser",
-      "type": "string"
-    },
-    "userIp": {
-      "description": "Deprecated. Please use quotaUser instead.",
-      "in": "query",
-      "name": "userIp",
-      "type": "string"
-    }
-  },
-  "tags": [
-    {
-      "name": "pagespeedapi"
-    }
+  "host": "pagespeedonline.googleapis.com",
+  "basePath": "/",
+  "schemes": [
+    "https"
   ],
   "paths": {
-    "/runPagespeed": {
+    "/pagespeedonline/v5/runPagespeed": {
+      "parameters": [
+        {
+          "description": "V1 error format.",
+          "enum": [
+            "1",
+            "2"
+          ],
+          "in": "query",
+          "name": "$.xgafv",
+          "type": "string"
+        },
+        {
+          "description": "OAuth access token.",
+          "in": "query",
+          "name": "access_token",
+          "type": "string"
+        },
+        {
+          "description": "Data format for response.",
+          "enum": [
+            "json",
+            "media",
+            "proto"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
+        },
+        {
+          "description": "JSONP",
+          "in": "query",
+          "name": "callback",
+          "type": "string"
+        },
+        {
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
+        },
+        {
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
+        },
+        {
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
+        },
+        {
+          "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
+        },
+        {
+          "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+          "in": "query",
+          "name": "upload_protocol",
+          "type": "string"
+        },
+        {
+          "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+          "in": "query",
+          "name": "uploadType",
+          "type": "string"
+        }
+      ],
       "get": {
-        "description": "Runs PageSpeed analysis on the page at the specified URL, and returns PageSpeed scores, a list of suggestions to make that page faster, and other information.",
-        "operationId": "pagespeedapi.runpagespeed",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "default": false,
-            "description": "Indicates if third party resources should be filtered out before PageSpeed analysis.",
+            "description": "Required. The URL to fetch and analyze",
             "in": "query",
-            "name": "filter_third_party_resources",
-            "type": "boolean"
+            "name": "url",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The captcha token passed when filling out a captcha.",
+            "in": "query",
+            "name": "captchaToken",
+            "type": "string"
+          },
+          {
+            "collectionFormat": "multi",
+            "description": "A Lighthouse category to run; if none are given, only Performance category will be run",
+            "in": "query",
+            "items": {
+              "enum": [
+                "CATEGORY_UNSPECIFIED",
+                "ACCESSIBILITY",
+                "BEST_PRACTICES",
+                "PERFORMANCE",
+                "PWA",
+                "SEO"
+              ],
+              "type": "string"
+            },
+            "name": "category",
+            "type": "array"
           },
           {
             "description": "The locale used to localize formatted results",
@@ -118,44 +166,14 @@
             "type": "string"
           },
           {
-            "collectionFormat": "multi",
-            "description": "A PageSpeed rule to run; if none are given, all rules are run",
-            "in": "query",
-            "items": {
-              "type": "string"
-            },
-            "name": "rule",
-            "type": "array"
-          },
-          {
-            "default": false,
-            "description": "Indicates if binary data containing a screenshot should be included",
-            "in": "query",
-            "name": "screenshot",
-            "type": "boolean"
-          },
-          {
-            "default": false,
-            "description": "Indicates if binary data containing snapshot images should be included",
-            "in": "query",
-            "name": "snapshots",
-            "type": "boolean"
-          },
-          {
             "description": "The analysis strategy (desktop or mobile) to use, and desktop is the default",
             "enum": [
-              "desktop",
-              "mobile"
+              "STRATEGY_UNSPECIFIED",
+              "DESKTOP",
+              "MOBILE"
             ],
             "in": "query",
             "name": "strategy",
-            "type": "string"
-          },
-          {
-            "description": "The URL to fetch and analyze",
-            "in": "query",
-            "name": "url",
-            "required": true,
             "type": "string"
           },
           {
@@ -175,490 +193,662 @@
           "200": {
             "description": "Successful response",
             "schema": {
-              "$ref": "#/definitions/PagespeedApiPagespeedResponseV4"
+              "$ref": "#/definitions/PagespeedApiPagespeedResponseV5"
             }
           }
         },
+        "security": [
+          {
+            "Oauth2": [
+              "openid"
+            ],
+            "Oauth2c": [
+              "openid"
+            ]
+          }
+        ],
         "tags": [
           "pagespeedapi"
-        ]
-      },
-      "parameters": [
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/userIp"
-        }
-      ]
+        ],
+        "description": "Runs PageSpeed analysis on the page at the specified URL, and returns PageSpeed scores, a list of suggestions to make that page faster, and other information.",
+        "operationId": "pagespeedonline.pagespeedapi.runpagespeed"
+      }
     }
   },
   "definitions": {
-    "PagespeedApiFormatStringV4": {
+    "AuditRefs": {
+      "description": "A light reference to an audit by id, used to group and weight audits in a given category.",
       "properties": {
-        "args": {
-          "description": "List of arguments for the format string.",
+        "group": {
+          "description": "The category group that the audit belongs to (optional).",
+          "type": "string"
+        },
+        "id": {
+          "description": "The audit ref id.",
+          "type": "string"
+        },
+        "weight": {
+          "description": "The weight this audit's score has on the overall category score.",
+          "format": "double",
+          "type": "number"
+        }
+      },
+      "type": "object"
+    },
+    "Bucket": {
+      "description": "A proportion of data in the total distribution, bucketed by a min/max percentage. Each bucket's range is bounded by min <= x < max, In millisecond.",
+      "properties": {
+        "max": {
+          "description": "Upper bound for a bucket's range.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "min": {
+          "description": "Lower bound for a bucket's range.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "proportion": {
+          "description": "The proportion of data in this bucket.",
+          "format": "double",
+          "type": "number"
+        }
+      },
+      "type": "object"
+    },
+    "Categories": {
+      "description": "The categories in a Lighthouse run.",
+      "properties": {
+        "accessibility": {
+          "$ref": "#/definitions/LighthouseCategoryV5",
+          "description": "The accessibility category, containing all accessibility related audits."
+        },
+        "best-practices": {
+          "$ref": "#/definitions/LighthouseCategoryV5",
+          "description": "The best practices category, containing all best practices related audits."
+        },
+        "performance": {
+          "$ref": "#/definitions/LighthouseCategoryV5",
+          "description": "The performance category, containing all performance related audits."
+        },
+        "pwa": {
+          "$ref": "#/definitions/LighthouseCategoryV5",
+          "description": "The Progressive-Web-App (PWA) category, containing all pwa related audits."
+        },
+        "seo": {
+          "$ref": "#/definitions/LighthouseCategoryV5",
+          "description": "The Search-Engine-Optimization (SEO) category, containing all seo related audits."
+        }
+      },
+      "type": "object"
+    },
+    "CategoryGroupV5": {
+      "description": "Message containing a category",
+      "properties": {
+        "description": {
+          "description": "The description of what the category is grouping",
+          "type": "string"
+        },
+        "title": {
+          "description": "The human readable title of the group",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "ConfigSettings": {
+      "description": "Message containing the configuration settings for the Lighthouse run.",
+      "properties": {
+        "channel": {
+          "description": "How Lighthouse was run, e.g. from the Chrome extension or from the npm module.",
+          "type": "string"
+        },
+        "emulatedFormFactor": {
+          "description": "The form factor the emulation should use.",
+          "type": "string"
+        },
+        "locale": {
+          "description": "The locale setting.",
+          "type": "string"
+        },
+        "onlyCategories": {
+          "description": "List of categories of audits the run should conduct."
+        }
+      },
+      "type": "object"
+    },
+    "Environment": {
+      "description": "Message containing environment configuration for a Lighthouse run.",
+      "properties": {
+        "benchmarkIndex": {
+          "description": "The benchmark index number that indicates rough device class.",
+          "format": "double",
+          "type": "number"
+        },
+        "hostUserAgent": {
+          "description": "The user agent string of the version of Chrome used.",
+          "type": "string"
+        },
+        "networkUserAgent": {
+          "description": "The user agent string that was sent over the network.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "I18n": {
+      "description": "Message containing the i18n data for the LHR - Version 1.",
+      "properties": {
+        "rendererFormattedStrings": {
+          "$ref": "#/definitions/RendererFormattedStrings",
+          "description": "Internationalized strings that are formatted to the locale in configSettings."
+        }
+      },
+      "type": "object"
+    },
+    "LighthouseAuditResultV5": {
+      "description": "An audit's result object in a Lighthouse result.",
+      "properties": {
+        "description": {
+          "description": "The description of the audit.",
+          "type": "string"
+        },
+        "details": {
+          "additionalProperties": {
+            "description": "Properties of the object."
+          },
+          "description": "Freeform details section of the audit.",
+          "type": "object"
+        },
+        "displayValue": {
+          "description": "The value that should be displayed on the UI for this audit.",
+          "type": "string"
+        },
+        "errorMessage": {
+          "description": "An error message from a thrown error inside the audit.",
+          "type": "string"
+        },
+        "explanation": {
+          "description": "An explanation of the errors in the audit.",
+          "type": "string"
+        },
+        "id": {
+          "description": "The audit's id.",
+          "type": "string"
+        },
+        "numericValue": {
+          "description": "A numeric value that has a meaning specific to the audit, e.g. the number of nodes in the DOM or the timestamp of a specific load event. More information can be found in the audit details, if present.",
+          "format": "double",
+          "type": "number"
+        },
+        "score": {
+          "description": "The score of the audit, can be null."
+        },
+        "scoreDisplayMode": {
+          "description": "The enumerated score display mode.",
+          "type": "string"
+        },
+        "title": {
+          "description": "The human readable title.",
+          "type": "string"
+        },
+        "warnings": {
+          "description": "Possible warnings that occurred in the audit, can be null."
+        }
+      },
+      "type": "object"
+    },
+    "LighthouseCategoryV5": {
+      "description": "A Lighthouse category.",
+      "properties": {
+        "auditRefs": {
+          "description": "An array of references to all the audit members of this category.",
           "items": {
-            "properties": {
-              "key": {
-                "description": "The placeholder key for this arg, as a string.",
-                "type": "string"
-              },
-              "rects": {
-                "description": "The screen rectangles being referred to, with dimensions measured in CSS pixels. This is only ever used for SNAPSHOT_RECT arguments. If this is absent for a SNAPSHOT_RECT argument, it means that that argument refers to the entire snapshot.",
-                "items": {
-                  "properties": {
-                    "height": {
-                      "format": "int32",
-                      "type": "integer"
-                    },
-                    "left": {
-                      "format": "int32",
-                      "type": "integer"
-                    },
-                    "top": {
-                      "format": "int32",
-                      "type": "integer"
-                    },
-                    "width": {
-                      "format": "int32",
-                      "type": "integer"
-                    }
-                  },
-                  "type": "object"
-                },
-                "type": "array"
-              },
-              "secondary_rects": {
-                "description": "Secondary screen rectangles being referred to, with dimensions measured in CSS pixels. This is only ever used for SNAPSHOT_RECT arguments.",
-                "items": {
-                  "properties": {
-                    "height": {
-                      "format": "int32",
-                      "type": "integer"
-                    },
-                    "left": {
-                      "format": "int32",
-                      "type": "integer"
-                    },
-                    "top": {
-                      "format": "int32",
-                      "type": "integer"
-                    },
-                    "width": {
-                      "format": "int32",
-                      "type": "integer"
-                    }
-                  },
-                  "type": "object"
-                },
-                "type": "array"
-              },
-              "type": {
-                "description": "Type of argument. One of URL, STRING_LITERAL, INT_LITERAL, BYTES, DURATION, VERBATIM_STRING, PERCENTAGE, HYPERLINK, or SNAPSHOT_RECT.",
-                "type": "string"
-              },
-              "value": {
-                "description": "Argument value, as a localized string.",
-                "type": "string"
-              }
-            },
-            "type": "object"
+            "$ref": "#/definitions/AuditRefs"
           },
           "type": "array"
         },
-        "format": {
-          "description": "A localized format string with {{FOO}} placeholders, where 'FOO' is the key of the argument whose value should be substituted. For HYPERLINK arguments, the format string will instead contain {{BEGIN_FOO}} and {{END_FOO}} for the argument with key 'FOO'.",
+        "description": {
+          "description": "A more detailed description of the category and its importance.",
+          "type": "string"
+        },
+        "id": {
+          "description": "The string identifier of the category.",
+          "type": "string"
+        },
+        "manualDescription": {
+          "description": "A description for the manual audits in the category.",
+          "type": "string"
+        },
+        "score": {
+          "description": "The overall score of the category, the weighted average of all its audits. (The category's score, can be null.)"
+        },
+        "title": {
+          "description": "The human-friendly name of the category.",
           "type": "string"
         }
       },
       "type": "object"
     },
-    "PagespeedApiImageV4": {
+    "LighthouseResultV5": {
+      "description": "The Lighthouse result object.",
       "properties": {
-        "data": {
-          "description": "Image data base64 encoded.",
-          "format": "byte",
-          "type": "string"
-        },
-        "height": {
-          "description": "Height of screenshot in pixels.",
-          "format": "int32",
-          "type": "integer"
-        },
-        "key": {
-          "description": "Unique string key, if any, identifying this image.",
-          "type": "string"
-        },
-        "mime_type": {
-          "description": "Mime type of image data (e.g. \"image/jpeg\").",
-          "type": "string"
-        },
-        "page_rect": {
-          "properties": {
-            "height": {
-              "format": "int32",
-              "type": "integer"
-            },
-            "left": {
-              "format": "int32",
-              "type": "integer"
-            },
-            "top": {
-              "format": "int32",
-              "type": "integer"
-            },
-            "width": {
-              "format": "int32",
-              "type": "integer"
-            }
+        "audits": {
+          "additionalProperties": {
+            "$ref": "#/definitions/LighthouseAuditResultV5"
           },
+          "description": "Map of audits in the LHR.",
           "type": "object"
         },
-        "width": {
-          "description": "Width of screenshot in pixels.",
-          "format": "int32",
-          "type": "integer"
+        "categories": {
+          "$ref": "#/definitions/Categories",
+          "description": "Map of categories in the LHR."
+        },
+        "categoryGroups": {
+          "additionalProperties": {
+            "$ref": "#/definitions/CategoryGroupV5"
+          },
+          "description": "Map of category groups in the LHR.",
+          "type": "object"
+        },
+        "configSettings": {
+          "$ref": "#/definitions/ConfigSettings",
+          "description": "The configuration settings for this LHR."
+        },
+        "environment": {
+          "$ref": "#/definitions/Environment",
+          "description": "Environment settings that were used when making this LHR."
+        },
+        "fetchTime": {
+          "description": "The time that this run was fetched.",
+          "type": "string"
+        },
+        "finalUrl": {
+          "description": "The final resolved url that was audited.",
+          "type": "string"
+        },
+        "i18n": {
+          "$ref": "#/definitions/I18n",
+          "description": "The internationalization strings that are required to render the LHR."
+        },
+        "lighthouseVersion": {
+          "description": "The lighthouse version that was used to generate this LHR.",
+          "type": "string"
+        },
+        "requestedUrl": {
+          "description": "The original requested url.",
+          "type": "string"
+        },
+        "runWarnings": {
+          "description": "List of all run warnings in the LHR. Will always output to at least `[]`.",
+          "items": {},
+          "type": "array"
+        },
+        "runtimeError": {
+          "$ref": "#/definitions/RuntimeError",
+          "description": "A top-level error message that, if present, indicates a serious enough problem that this Lighthouse result may need to be discarded."
+        },
+        "stackPacks": {
+          "description": "The Stack Pack advice strings.",
+          "items": {
+            "$ref": "#/definitions/StackPack"
+          },
+          "type": "array"
+        },
+        "timing": {
+          "$ref": "#/definitions/Timing",
+          "description": "Timing information for this LHR."
+        },
+        "userAgent": {
+          "description": "The user agent that was used to run this LHR.",
+          "type": "string"
         }
       },
       "type": "object"
     },
-    "PagespeedApiPagespeedResponseV4": {
+    "PagespeedApiLoadingExperienceV5": {
+      "description": "The CrUX loading experience object that contains CrUX data breakdowns.",
       "properties": {
+        "id": {
+          "description": "The url, pattern or origin which the metrics are on.",
+          "type": "string"
+        },
+        "initial_url": {
+          "description": "The requested URL, which may differ from the resolved \"id\".",
+          "type": "string"
+        },
+        "metrics": {
+          "additionalProperties": {
+            "$ref": "#/definitions/UserPageLoadMetricV5"
+          },
+          "description": "The map of .",
+          "type": "object"
+        },
+        "origin_fallback": {
+          "description": "True if the result is an origin fallback from a page, false otherwise.",
+          "type": "boolean"
+        },
+        "overall_category": {
+          "description": "The human readable speed \"category\" of the id.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "PagespeedApiPagespeedResponseV5": {
+      "description": "The Pagespeed API response object.",
+      "properties": {
+        "analysisUTCTimestamp": {
+          "description": "The UTC timestamp of this analysis.",
+          "type": "string"
+        },
         "captchaResult": {
           "description": "The captcha verify result",
           "type": "string"
-        },
-        "formattedResults": {
-          "description": "Localized PageSpeed results. Contains a ruleResults entry for each PageSpeed rule instantiated and run by the server.",
-          "properties": {
-            "locale": {
-              "description": "The locale of the formattedResults, e.g. \"en_US\".",
-              "type": "string"
-            },
-            "ruleResults": {
-              "additionalProperties": {
-                "description": "The enum-like identifier for this rule. For instance \"EnableKeepAlive\" or \"AvoidCssImport\". Not localized.",
-                "properties": {
-                  "beta": {
-                    "description": "Whether this rule is in 'beta'. Rules in beta are new rules that are being tested, which do not impact the overall score.",
-                    "type": "boolean"
-                  },
-                  "groups": {
-                    "description": "List of rule groups that this rule belongs to. Each entry in the list is one of \"SPEED\", \"USABILITY\", or \"SECURITY\".",
-                    "items": {
-                      "type": "string"
-                    },
-                    "type": "array"
-                  },
-                  "localizedRuleName": {
-                    "description": "Localized name of the rule, intended for presentation to a user.",
-                    "type": "string"
-                  },
-                  "ruleImpact": {
-                    "description": "The impact (unbounded floating point value) that implementing the suggestions for this rule would have on making the page faster. Impact is comparable between rules to determine which rule's suggestions would have a higher or lower impact on making a page faster. For instance, if enabling compression would save 1MB, while optimizing images would save 500kB, the enable compression rule would have 2x the impact of the image optimization rule, all other things being equal.",
-                    "format": "double",
-                    "type": "number"
-                  },
-                  "summary": {
-                    "$ref": "#/definitions/PagespeedApiFormatStringV4",
-                    "description": "A brief summary description for the rule, indicating at a high level what should be done to follow the rule and what benefit can be gained by doing so."
-                  },
-                  "urlBlocks": {
-                    "description": "List of blocks of URLs. Each block may contain a heading and a list of URLs. Each URL may optionally include additional details.",
-                    "items": {
-                      "properties": {
-                        "header": {
-                          "$ref": "#/definitions/PagespeedApiFormatStringV4",
-                          "description": "Heading to be displayed with the list of URLs."
-                        },
-                        "urls": {
-                          "description": "List of entries that provide information about URLs in the url block. Optional.",
-                          "items": {
-                            "properties": {
-                              "details": {
-                                "description": "List of entries that provide additional details about a single URL. Optional.",
-                                "items": {
-                                  "$ref": "#/definitions/PagespeedApiFormatStringV4"
-                                },
-                                "type": "array"
-                              },
-                              "result": {
-                                "$ref": "#/definitions/PagespeedApiFormatStringV4",
-                                "description": "A format string that gives information about the URL, and a list of arguments for that format string."
-                              }
-                            },
-                            "type": "object"
-                          },
-                          "type": "array"
-                        }
-                      },
-                      "type": "object"
-                    },
-                    "type": "array"
-                  }
-                },
-                "type": "object"
-              },
-              "description": "Dictionary of formatted rule results, with one entry for each PageSpeed rule instantiated and run by the server.",
-              "type": "object"
-            }
-          },
-          "type": "object"
         },
         "id": {
           "description": "Canonicalized and final URL for the document, after following page redirects (if any).",
           "type": "string"
         },
-        "invalidRules": {
-          "description": "List of rules that were specified in the request, but which the server did not know how to instantiate.",
-          "items": {
-            "type": "string"
-          },
-          "type": "array"
-        },
         "kind": {
-          "default": "pagespeedonline#result",
           "description": "Kind of result.",
           "type": "string"
         },
+        "lighthouseResult": {
+          "$ref": "#/definitions/LighthouseResultV5",
+          "description": "Lighthouse response for the audit url as an object."
+        },
         "loadingExperience": {
-          "description": "Metrics of end users' page loading experience.",
-          "properties": {
-            "id": {
-              "description": "The url, pattern or origin which the metrics are on.",
-              "type": "string"
-            },
-            "initial_url": {
-              "type": "string"
-            },
-            "metrics": {
-              "additionalProperties": {
-                "description": "The type of the metric.",
-                "properties": {
-                  "category": {
-                    "type": "string"
-                  },
-                  "distributions": {
-                    "items": {
-                      "properties": {
-                        "max": {
-                          "format": "int32",
-                          "type": "integer"
-                        },
-                        "min": {
-                          "format": "int32",
-                          "type": "integer"
-                        },
-                        "proportion": {
-                          "format": "double",
-                          "type": "number"
-                        }
-                      },
-                      "type": "object"
-                    },
-                    "type": "array"
-                  },
-                  "median": {
-                    "format": "int32",
-                    "type": "integer"
-                  }
-                },
-                "type": "object"
-              },
-              "type": "object"
-            },
-            "overall_category": {
-              "type": "string"
-            }
-          },
-          "type": "object"
+          "$ref": "#/definitions/PagespeedApiLoadingExperienceV5",
+          "description": "Metrics of end users' page loading experience."
         },
-        "pageStats": {
-          "description": "Summary statistics for the page, such as number of JavaScript bytes, number of HTML bytes, etc.",
-          "properties": {
-            "cms": {
-              "description": "Content management system (CMS) used for the page.",
-              "type": "string"
-            },
-            "cssResponseBytes": {
-              "description": "Number of uncompressed response bytes for CSS resources on the page.",
-              "format": "int64",
-              "type": "string"
-            },
-            "flashResponseBytes": {
-              "description": "Number of response bytes for flash resources on the page.",
-              "format": "int64",
-              "type": "string"
-            },
-            "htmlResponseBytes": {
-              "description": "Number of uncompressed response bytes for the main HTML document and all iframes on the page.",
-              "format": "int64",
-              "type": "string"
-            },
-            "imageResponseBytes": {
-              "description": "Number of response bytes for image resources on the page.",
-              "format": "int64",
-              "type": "string"
-            },
-            "javascriptResponseBytes": {
-              "description": "Number of uncompressed response bytes for JS resources on the page.",
-              "format": "int64",
-              "type": "string"
-            },
-            "numRenderBlockingRoundTrips": {
-              "description": "The needed round trips to load render blocking resources",
-              "format": "int32",
-              "type": "integer"
-            },
-            "numTotalRoundTrips": {
-              "description": "The needed round trips to load the full page",
-              "format": "int32",
-              "type": "integer"
-            },
-            "numberCssResources": {
-              "description": "Number of CSS resources referenced by the page.",
-              "format": "int32",
-              "type": "integer"
-            },
-            "numberHosts": {
-              "description": "Number of unique hosts referenced by the page.",
-              "format": "int32",
-              "type": "integer"
-            },
-            "numberJsResources": {
-              "description": "Number of JavaScript resources referenced by the page.",
-              "format": "int32",
-              "type": "integer"
-            },
-            "numberResources": {
-              "description": "Number of HTTP resources loaded by the page.",
-              "format": "int32",
-              "type": "integer"
-            },
-            "numberRobotedResources": {
-              "description": "Number of roboted resources.",
-              "format": "int32",
-              "type": "integer"
-            },
-            "numberStaticResources": {
-              "description": "Number of static (i.e. cacheable) resources on the page.",
-              "format": "int32",
-              "type": "integer"
-            },
-            "numberTransientFetchFailureResources": {
-              "description": "Number of transient-failed resources.",
-              "format": "int32",
-              "type": "integer"
-            },
-            "otherResponseBytes": {
-              "description": "Number of response bytes for other resources on the page.",
-              "format": "int64",
-              "type": "string"
-            },
-            "overTheWireResponseBytes": {
-              "description": "Number of over-the-wire bytes, uses the default gzip compression strategy as an estimation.",
-              "format": "int64",
-              "type": "string"
-            },
-            "robotedUrls": {
-              "description": "List of roboted urls.",
-              "items": {
-                "type": "string"
-              },
-              "type": "array"
-            },
-            "textResponseBytes": {
-              "description": "Number of uncompressed response bytes for text resources not covered by other statistics (i.e non-HTML, non-script, non-CSS resources) on the page.",
-              "format": "int64",
-              "type": "string"
-            },
-            "totalRequestBytes": {
-              "description": "Total size of all request bytes sent by the page.",
-              "format": "int64",
-              "type": "string"
-            },
-            "transientFetchFailureUrls": {
-              "description": "List of transient fetch failure urls.",
-              "items": {
-                "type": "string"
-              },
-              "type": "array"
-            }
-          },
-          "type": "object"
-        },
-        "responseCode": {
-          "description": "Response code for the document. 200 indicates a normal page load. 4xx/5xx indicates an error.",
-          "format": "int32",
-          "type": "integer"
-        },
-        "ruleGroups": {
-          "additionalProperties": {
-            "description": "The name of this rule group: one of \"SPEED\", \"USABILITY\", or \"SECURITY\".",
-            "properties": {
-              "pass": {
-                "type": "boolean"
-              },
-              "score": {
-                "description": "The score (0-100) for this rule group, which indicates how much better a page could be in that category (e.g. how much faster, or how much more usable, or how much more secure). A high score indicates little room for improvement, while a lower score indicates more room for improvement.",
-                "format": "int32",
-                "type": "integer"
-              }
-            },
-            "type": "object"
-          },
-          "description": "A map with one entry for each rule group in these results.",
-          "type": "object"
-        },
-        "screenshot": {
-          "$ref": "#/definitions/PagespeedApiImageV4",
-          "description": "Base64-encoded screenshot of the page that was analyzed."
-        },
-        "snapshots": {
-          "description": "Additional base64-encoded screenshots of the page, in various partial render states.",
-          "items": {
-            "$ref": "#/definitions/PagespeedApiImageV4"
-          },
-          "type": "array"
-        },
-        "title": {
-          "description": "Title of the page, as displayed in the browser's title bar.",
-          "type": "string"
+        "originLoadingExperience": {
+          "$ref": "#/definitions/PagespeedApiLoadingExperienceV5",
+          "description": "Metrics of the aggregated page loading experience of the origin"
         },
         "version": {
-          "description": "The version of PageSpeed used to generate these results.",
-          "properties": {
-            "major": {
-              "description": "The major version number of PageSpeed used to generate these results.",
-              "format": "int32",
-              "type": "integer"
-            },
-            "minor": {
-              "description": "The minor version number of PageSpeed used to generate these results.",
-              "format": "int32",
-              "type": "integer"
-            }
-          },
-          "type": "object"
+          "$ref": "#/definitions/PagespeedVersion",
+          "description": "The version of PageSpeed used to generate these results."
         }
       },
       "type": "object"
+    },
+    "PagespeedVersion": {
+      "description": "The Pagespeed Version object.",
+      "properties": {
+        "major": {
+          "description": "The major version number of PageSpeed used to generate these results.",
+          "type": "string"
+        },
+        "minor": {
+          "description": "The minor version number of PageSpeed used to generate these results.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "RendererFormattedStrings": {
+      "description": "Message holding the formatted strings used in the renderer.",
+      "properties": {
+        "auditGroupExpandTooltip": {
+          "description": "The tooltip text on an expandable chevron icon.",
+          "type": "string"
+        },
+        "crcInitialNavigation": {
+          "description": "The label for the initial request in a critical request chain.",
+          "type": "string"
+        },
+        "crcLongestDurationLabel": {
+          "description": "The label for values shown in the summary of critical request chains.",
+          "type": "string"
+        },
+        "errorLabel": {
+          "description": "The label shown next to an audit or metric that has had an error.",
+          "type": "string"
+        },
+        "errorMissingAuditInfo": {
+          "description": "The error string shown next to an erroring audit.",
+          "type": "string"
+        },
+        "labDataTitle": {
+          "description": "The title of the lab data performance category.",
+          "type": "string"
+        },
+        "lsPerformanceCategoryDescription": {
+          "description": "The disclaimer shown under performance explaning that the network can vary.",
+          "type": "string"
+        },
+        "manualAuditsGroupTitle": {
+          "description": "The heading shown above a list of audits that were not computerd in the run.",
+          "type": "string"
+        },
+        "notApplicableAuditsGroupTitle": {
+          "description": "The heading shown above a list of audits that do not apply to a page.",
+          "type": "string"
+        },
+        "opportunityResourceColumnLabel": {
+          "description": "The heading for the estimated page load savings opportunity of an audit.",
+          "type": "string"
+        },
+        "opportunitySavingsColumnLabel": {
+          "description": "The heading for the estimated page load savings of opportunity audits.",
+          "type": "string"
+        },
+        "passedAuditsGroupTitle": {
+          "description": "The heading that is shown above a list of audits that are passing.",
+          "type": "string"
+        },
+        "scorescaleLabel": {
+          "description": "The label that explains the score gauges scale (0-49, 50-89, 90-100).",
+          "type": "string"
+        },
+        "toplevelWarningsMessage": {
+          "description": "The label shown preceding important warnings that may have invalidated an entire report.",
+          "type": "string"
+        },
+        "varianceDisclaimer": {
+          "description": "The disclaimer shown below a performance metric value.",
+          "type": "string"
+        },
+        "warningHeader": {
+          "description": "The label shown above a bulleted list of warnings.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "RuntimeError": {
+      "description": "Message containing a runtime error config.",
+      "properties": {
+        "code": {
+          "description": "The enumerated Lighthouse Error code.",
+          "type": "string"
+        },
+        "message": {
+          "description": "A human readable message explaining the error code.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "StackPack": {
+      "description": "Message containing Stack Pack information.",
+      "properties": {
+        "descriptions": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "The stack pack advice strings.",
+          "type": "object"
+        },
+        "iconDataURL": {
+          "description": "The stack pack icon data uri.",
+          "type": "string"
+        },
+        "id": {
+          "description": "The stack pack id.",
+          "type": "string"
+        },
+        "title": {
+          "description": "The stack pack title.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Timing": {
+      "description": "Message containing the performance timing data for the Lighthouse run.",
+      "properties": {
+        "total": {
+          "description": "The total duration of Lighthouse's run.",
+          "format": "double",
+          "type": "number"
+        }
+      },
+      "type": "object"
+    },
+    "UserPageLoadMetricV5": {
+      "description": "A CrUX metric object for a single metric and form factor.",
+      "properties": {
+        "category": {
+          "description": "The category of the specific time metric.",
+          "type": "string"
+        },
+        "distributions": {
+          "description": "Metric distributions. Proportions should sum up to 1.",
+          "items": {
+            "$ref": "#/definitions/Bucket"
+          },
+          "type": "array"
+        },
+        "formFactor": {
+          "description": "Identifies the form factor of the metric being collected.",
+          "type": "string"
+        },
+        "median": {
+          "description": "The median number of the metric, in millisecond.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "metricId": {
+          "description": "Identifies the type of the metric.",
+          "type": "string"
+        },
+        "percentile": {
+          "description": "We use this field to store certain percentile value for this metric. For v4, this field contains pc50. For v5, this field contains pc90.",
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "securityDefinitions": {
+    "Oauth2": {
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+      "description": "Oauth 2.0 implicit authentication",
+      "flow": "implicit",
+      "scopes": {
+        "openid": "Associate you with your personal info on Google"
+      },
+      "type": "oauth2"
+    },
+    "Oauth2c": {
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+      "description": "Oauth 2.0 authorizationCode authentication",
+      "flow": "accessCode",
+      "scopes": {
+        "openid": "Associate you with your personal info on Google"
+      },
+      "tokenUrl": "https://accounts.google.com/o/oauth2/token",
+      "type": "oauth2"
+    }
+  },
+  "tags": [
+    {
+      "name": "pagespeedapi"
+    }
+  ],
+  "externalDocs": {
+    "url": "https://developers.google.com/speed/docs/insights/v5/about"
+  },
+  "x-components": {
+    "parameters": {
+      "_.xgafv": {
+        "description": "V1 error format.",
+        "enum": [
+          "1",
+          "2"
+        ],
+        "in": "query",
+        "name": "$.xgafv",
+        "type": "string"
+      },
+      "access_token": {
+        "description": "OAuth access token.",
+        "in": "query",
+        "name": "access_token",
+        "type": "string"
+      },
+      "alt": {
+        "description": "Data format for response.",
+        "enum": [
+          "json",
+          "media",
+          "proto"
+        ],
+        "in": "query",
+        "name": "alt",
+        "type": "string"
+      },
+      "callback": {
+        "description": "JSONP",
+        "in": "query",
+        "name": "callback",
+        "type": "string"
+      },
+      "fields": {
+        "description": "Selector specifying which fields to include in a partial response.",
+        "in": "query",
+        "name": "fields",
+        "type": "string"
+      },
+      "key": {
+        "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+        "in": "query",
+        "name": "key",
+        "type": "string"
+      },
+      "oauth_token": {
+        "description": "OAuth 2.0 token for the current user.",
+        "in": "query",
+        "name": "oauth_token",
+        "type": "string"
+      },
+      "prettyPrint": {
+        "description": "Returns response with indentations and line breaks.",
+        "in": "query",
+        "name": "prettyPrint",
+        "type": "boolean"
+      },
+      "quotaUser": {
+        "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+        "in": "query",
+        "name": "quotaUser",
+        "type": "string"
+      },
+      "uploadType": {
+        "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+        "in": "query",
+        "name": "uploadType",
+        "type": "string"
+      },
+      "upload_protocol": {
+        "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+        "in": "query",
+        "name": "upload_protocol",
+        "type": "string"
+      }
     }
   }
 }

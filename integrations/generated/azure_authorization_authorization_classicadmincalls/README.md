@@ -15,10 +15,7 @@ let azure_authorization_authorization_classicadmincalls = require('@datafire/azu
   redirect_uri: ""
 });
 
-azure_authorization_authorization_classicadmincalls.ClassicAdministrators_List({
-  "api-version": "",
-  "subscriptionId": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

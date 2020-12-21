@@ -1,0 +1,767 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "contact": {
+      "email": "mike.ralphson@gmail.com",
+      "name": "Mike Ralphson",
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
+    },
+    "description": "<p>The AWS Migration Hub home region APIs are available specifically for working with your Migration Hub home region. You can use these APIs to determine a home region, as well as to create and work with controls that describe the home region.</p> <ul> <li> <p>You must make API calls for write actions (create, notify, associate, disassociate, import, or put) while in your home region, or a <code>HomeRegionNotSetException</code> error is returned.</p> </li> <li> <p>API calls for read actions (list, describe, stop, and delete) are permitted outside of your home region.</p> </li> <li> <p>If you call a write API outside the home region, an <code>InvalidInputException</code> is returned.</p> </li> <li> <p>You can call <code>GetHomeRegion</code> action to obtain the account's Migration Hub home region.</p> </li> </ul> <p>For specific API usage, see the sections that follow in this AWS Migration Hub Home Region API reference. </p>",
+    "license": {
+      "name": "Apache 2.0 License",
+      "url": "http://www.apache.org/licenses/"
+    },
+    "termsOfService": "https://aws.amazon.com/service-terms/",
+    "title": "AWS Migration Hub Config",
+    "version": "2019-06-30",
+    "x-apiClientRegistration": {
+      "url": "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"
+    },
+    "x-apisguru-categories": [
+      "cloud"
+    ],
+    "x-logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"
+    },
+    "x-origin": [
+      {
+        "contentType": "application/json",
+        "converter": {
+          "url": "https://github.com/mermade/aws2openapi",
+          "version": "1.0.0"
+        },
+        "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/migrationhub-config-2019-06-30.normal.json",
+        "x-apisguru-driver": "external"
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "amazonaws.com",
+    "x-release": "v4",
+    "x-serviceName": "migrationhub-config",
+    "x-datafire": {
+      "name": "amazonaws_migrationhub_config",
+      "type": "openapi"
+    }
+  },
+  "host": "migrationhub-config.us-east-1.amazonaws.com",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/#X-Amz-Target=AWSMigrationHubMultiAccountService.CreateHomeRegionControl": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "AWSMigrationHubMultiAccountService.CreateHomeRegionControl"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateHomeRegionControlRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateHomeRegionControlResult"
+            }
+          },
+          "480": {
+            "description": "InternalServerError",
+            "schema": {
+              "$ref": "#/definitions/InternalServerError"
+            }
+          },
+          "481": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "482": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "484": {
+            "description": "DryRunOperation",
+            "schema": {
+              "$ref": "#/definitions/DryRunOperation"
+            }
+          },
+          "485": {
+            "description": "InvalidInputException",
+            "schema": {
+              "$ref": "#/definitions/InvalidInputException"
+            }
+          }
+        },
+        "description": "This API sets up the home region for the calling account only.",
+        "operationId": "CreateHomeRegionControl"
+      }
+    },
+    "/#X-Amz-Target=AWSMigrationHubMultiAccountService.DescribeHomeRegionControls": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "AWSMigrationHubMultiAccountService.DescribeHomeRegionControls"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeHomeRegionControlsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeHomeRegionControlsResult"
+            }
+          },
+          "480": {
+            "description": "InternalServerError",
+            "schema": {
+              "$ref": "#/definitions/InternalServerError"
+            }
+          },
+          "481": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "482": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "484": {
+            "description": "InvalidInputException",
+            "schema": {
+              "$ref": "#/definitions/InvalidInputException"
+            }
+          }
+        },
+        "description": "This API permits filtering on the <code>ControlId</code> and <code>HomeRegion</code> fields.",
+        "operationId": "DescribeHomeRegionControls"
+      }
+    },
+    "/#X-Amz-Target=AWSMigrationHubMultiAccountService.GetHomeRegion": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "AWSMigrationHubMultiAccountService.GetHomeRegion"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetHomeRegionRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetHomeRegionResult"
+            }
+          },
+          "480": {
+            "description": "InternalServerError",
+            "schema": {
+              "$ref": "#/definitions/InternalServerError"
+            }
+          },
+          "481": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "482": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "484": {
+            "description": "InvalidInputException",
+            "schema": {
+              "$ref": "#/definitions/InvalidInputException"
+            }
+          }
+        },
+        "description": "Returns the calling account’s home region, if configured. This API is used by other AWS services to determine the regional endpoint for calling AWS Application Discovery Service and Migration Hub. You must call <code>GetHomeRegion</code> at least once before you call any other AWS Application Discovery Service and AWS Migration Hub APIs, to obtain the account's Migration Hub home region.",
+        "operationId": "GetHomeRegion"
+      }
+    }
+  },
+  "definitions": {
+    "AccessDeniedException": {},
+    "ControlId": {
+      "maxLength": 50,
+      "minLength": 1,
+      "pattern": "^hrc-[a-z0-9]{12}$",
+      "type": "string"
+    },
+    "CreateHomeRegionControlRequest": {
+      "properties": {
+        "DryRun": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DryRun"
+            },
+            {
+              "description": "Optional Boolean flag to indicate whether any effect should take place. It tests whether the caller has permission to make the call."
+            }
+          ]
+        },
+        "HomeRegion": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/HomeRegion"
+            },
+            {
+              "description": "The name of the home region of the calling account."
+            }
+          ]
+        },
+        "Target": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Target"
+            },
+            {
+              "description": "The account for which this command sets up a home region control. The <code>Target</code> is always of type <code>ACCOUNT</code>."
+            }
+          ]
+        }
+      },
+      "required": [
+        "HomeRegion",
+        "Target"
+      ],
+      "title": "CreateHomeRegionControlRequest",
+      "type": "object"
+    },
+    "CreateHomeRegionControlResult": {
+      "properties": {
+        "HomeRegionControl": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/HomeRegionControl"
+            },
+            {
+              "description": "This object is the <code>HomeRegionControl</code> object that's returned by a successful call to <code>CreateHomeRegionControl</code>."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DescribeHomeRegionControlsMaxResults": {
+      "maximum": 100,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "DescribeHomeRegionControlsRequest": {
+      "properties": {
+        "ControlId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ControlId"
+            },
+            {
+              "description": "The <code>ControlID</code> is a unique identifier string of your <code>HomeRegionControl</code> object."
+            }
+          ]
+        },
+        "HomeRegion": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/HomeRegion"
+            },
+            {
+              "description": "The name of the home region you'd like to view."
+            }
+          ]
+        },
+        "MaxResults": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DescribeHomeRegionControlsMaxResults"
+            },
+            {
+              "description": "The maximum number of filtering results to display per page. "
+            }
+          ]
+        },
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Token"
+            },
+            {
+              "description": "If a <code>NextToken</code> was returned by a previous call, more results are available. To retrieve the next page of results, make the call again using the returned token in <code>NextToken</code>."
+            }
+          ]
+        },
+        "Target": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Target"
+            },
+            {
+              "description": "The target parameter specifies the identifier to which the home region is applied, which is always of type <code>ACCOUNT</code>. It applies the home region to the current <code>ACCOUNT</code>."
+            }
+          ]
+        }
+      },
+      "title": "DescribeHomeRegionControlsRequest",
+      "type": "object"
+    },
+    "DescribeHomeRegionControlsResult": {
+      "properties": {
+        "HomeRegionControls": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/HomeRegionControls"
+            },
+            {
+              "description": "An array that contains your <code>HomeRegionControl</code> objects."
+            }
+          ]
+        },
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Token"
+            },
+            {
+              "description": "If a <code>NextToken</code> was returned by a previous call, more results are available. To retrieve the next page of results, make the call again using the returned token in <code>NextToken</code>."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DryRun": {
+      "type": "boolean"
+    },
+    "DryRunOperation": {},
+    "GetHomeRegionRequest": {
+      "properties": {},
+      "title": "GetHomeRegionRequest",
+      "type": "object"
+    },
+    "GetHomeRegionResult": {
+      "properties": {
+        "HomeRegion": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/HomeRegion"
+            },
+            {
+              "description": "The name of the home region of the calling account."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "HomeRegion": {
+      "maxLength": 50,
+      "minLength": 1,
+      "pattern": "^([a-z]+)-([a-z]+)-([0-9]+)$",
+      "type": "string"
+    },
+    "HomeRegionControl": {
+      "description": "A home region control is an object that specifies the home region for an account, with some additional information. It contains a target (always of type <code>ACCOUNT</code>), an ID, and a time at which the home region was set.",
+      "properties": {
+        "ControlId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ControlId"
+            },
+            {
+              "description": "A unique identifier that's generated for each home region control. It's always a string that begins with \"hrc-\" followed by 12 lowercase letters and numbers."
+            }
+          ]
+        },
+        "HomeRegion": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/HomeRegion"
+            },
+            {
+              "description": "The AWS Region that's been set as home region. For example, \"us-west-2\" or \"eu-central-1\" are valid home regions."
+            }
+          ]
+        },
+        "RequestedTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RequestedTime"
+            },
+            {
+              "description": "A timestamp representing the time when the customer called <code>CreateHomeregionControl</code> and set the home region for the account."
+            }
+          ]
+        },
+        "Target": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Target"
+            },
+            {
+              "description": "The target parameter specifies the identifier to which the home region is applied, which is always an <code>ACCOUNT</code>. It applies the home region to the current <code>ACCOUNT</code>."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "HomeRegionControls": {
+      "items": {
+        "$ref": "#/definitions/HomeRegionControl"
+      },
+      "maxItems": 100,
+      "type": "array"
+    },
+    "InternalServerError": {},
+    "InvalidInputException": {},
+    "RequestedTime": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "ServiceUnavailableException": {},
+    "Target": {
+      "description": "The target parameter specifies the identifier to which the home region is applied, which is always an <code>ACCOUNT</code>. It applies the home region to the current <code>ACCOUNT</code>.",
+      "properties": {
+        "Id": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TargetId"
+            },
+            {
+              "description": "The <code>TargetID</code> is a 12-character identifier of the <code>ACCOUNT</code> for which the control was created. (This must be the current account.) "
+            }
+          ]
+        },
+        "Type": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TargetType"
+            },
+            {
+              "description": "The target type is always an <code>ACCOUNT</code>."
+            }
+          ]
+        }
+      },
+      "required": [
+        "Type"
+      ],
+      "type": "object"
+    },
+    "TargetId": {
+      "maxLength": 12,
+      "minLength": 12,
+      "pattern": "^\\d{12}$",
+      "type": "string"
+    },
+    "TargetType": {
+      "enum": [
+        "ACCOUNT"
+      ],
+      "type": "string"
+    },
+    "ThrottlingException": {},
+    "Token": {
+      "maxLength": 2048,
+      "minLength": 0,
+      "pattern": "^[a-zA-Z0-9\\/\\+\\=]{0,2048}$",
+      "type": "string"
+    }
+  },
+  "securityDefinitions": {
+    "hmac": {
+      "description": "Amazon Signature authorization v4",
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey",
+      "x-amazon-apigateway-authtype": "awsSigv4"
+    }
+  },
+  "security": [
+    {
+      "hmac": []
+    }
+  ],
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://docs.aws.amazon.com/migrationhub-config/"
+  },
+  "x-components": {
+    "parameters": {
+      "X-Amz-Algorithm": {
+        "in": "header",
+        "name": "X-Amz-Algorithm",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Content-Sha256": {
+        "in": "header",
+        "name": "X-Amz-Content-Sha256",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Credential": {
+        "in": "header",
+        "name": "X-Amz-Credential",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Date": {
+        "in": "header",
+        "name": "X-Amz-Date",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Security-Token": {
+        "in": "header",
+        "name": "X-Amz-Security-Token",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Signature": {
+        "in": "header",
+        "name": "X-Amz-Signature",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-SignedHeaders": {
+        "in": "header",
+        "name": "X-Amz-SignedHeaders",
+        "required": false,
+        "type": "string"
+      }
+    }
+  },
+  "x-hasEquivalentPaths": true
+}

@@ -1,0 +1,1396 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "contact": {
+      "email": "mike.ralphson@gmail.com",
+      "name": "Mike Ralphson",
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
+    },
+    "description": "<p>Amazon Connect is a cloud-based contact center solution that makes it easy to set up and manage a customer contact center and provide reliable customer engagement at any scale.</p> <p>Amazon Connect enables customer contacts through voice or chat.</p> <p>The APIs described here are used by chat participants, such as agents and customers.</p>",
+    "license": {
+      "name": "Apache 2.0 License",
+      "url": "http://www.apache.org/licenses/"
+    },
+    "termsOfService": "https://aws.amazon.com/service-terms/",
+    "title": "Amazon Connect Participant Service",
+    "version": "2018-09-07",
+    "x-apiClientRegistration": {
+      "url": "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"
+    },
+    "x-apisguru-categories": [
+      "cloud"
+    ],
+    "x-logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"
+    },
+    "x-origin": [
+      {
+        "contentType": "application/json",
+        "converter": {
+          "url": "https://github.com/mermade/aws2openapi",
+          "version": "1.0.0"
+        },
+        "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/connectparticipant-2018-09-07.normal.json",
+        "x-apisguru-driver": "external"
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "amazonaws.com",
+    "x-release": "v4",
+    "x-serviceName": "connectparticipant",
+    "x-datafire": {
+      "name": "amazonaws_connectparticipant",
+      "type": "openapi"
+    }
+  },
+  "host": "participant.connect.us-east-1.amazonaws.com",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/participant/connection#X-Amz-Bearer": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Participant Token as obtained from <a href=\"https://docs.aws.amazon.com/connect/latest/APIReference/API_StartChatContactResponse.html\">StartChatContact</a> API response.",
+            "in": "header",
+            "maxLength": 1000,
+            "minLength": 1,
+            "name": "X-Amz-Bearer",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "Type": {
+                  "description": "Type of connection information required.",
+                  "items": {
+                    "$ref": "#/definitions/ConnectionType"
+                  },
+                  "minItems": 1,
+                  "type": "array"
+                }
+              },
+              "required": [
+                "Type"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateParticipantConnectionResponse"
+            }
+          },
+          "480": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "483": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          }
+        },
+        "description": "<p>Creates the participant's connection. Note that ParticipantToken is used for invoking this API instead of ConnectionToken.</p> <p>The participant token is valid for the lifetime of the participant – until the they are part of a contact.</p> <p>The response URL for <code>WEBSOCKET</code> Type has a connect expiry timeout of 100s. Clients must manually connect to the returned websocket URL and subscribe to the desired topic. </p> <p>For chat, you need to publish the following on the established websocket connection:</p> <p> <code>{\"topic\":\"aws/subscribe\",\"content\":{\"topics\":[\"aws/chat\"]}}</code> </p> <p>Upon websocket URL expiry, as specified in the response ConnectionExpiry parameter, clients need to call this API again to obtain a new websocket URL and perform the same steps as before.</p>",
+        "operationId": "CreateParticipantConnection"
+      }
+    },
+    "/participant/disconnect#X-Amz-Bearer": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The authentication token associated with the participant's connection.",
+            "in": "header",
+            "maxLength": 1000,
+            "minLength": 1,
+            "name": "X-Amz-Bearer",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "ClientToken": {
+                  "description": "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.",
+                  "maxLength": 500,
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DisconnectParticipantResponse"
+            }
+          },
+          "480": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "483": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          }
+        },
+        "description": "Disconnects a participant. Note that ConnectionToken is used for invoking this API instead of ParticipantToken.",
+        "operationId": "DisconnectParticipant"
+      }
+    },
+    "/participant/event#X-Amz-Bearer": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The authentication token associated with the participant's connection.",
+            "in": "header",
+            "maxLength": 1000,
+            "minLength": 1,
+            "name": "X-Amz-Bearer",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "ClientToken": {
+                  "description": "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.",
+                  "maxLength": 500,
+                  "type": "string"
+                },
+                "Content": {
+                  "description": "The content of the event to be sent (for example, message text). This is not yet supported.",
+                  "maxLength": 1024,
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "ContentType": {
+                  "description": "<p>The content type of the request. Supported types are:</p> <ul> <li> <p>application/vnd.amazonaws.connect.event.typing</p> </li> <li> <p>application/vnd.amazonaws.connect.event.connection.acknowledged</p> </li> </ul>",
+                  "maxLength": 100,
+                  "minLength": 1,
+                  "type": "string"
+                }
+              },
+              "required": [
+                "ContentType"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/SendEventResponse"
+            }
+          },
+          "480": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "483": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          }
+        },
+        "description": "Sends an event. Note that ConnectionToken is used for invoking this API instead of ParticipantToken.",
+        "operationId": "SendEvent"
+      }
+    },
+    "/participant/message#X-Amz-Bearer": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The authentication token associated with the connection.",
+            "in": "header",
+            "maxLength": 1000,
+            "minLength": 1,
+            "name": "X-Amz-Bearer",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "ClientToken": {
+                  "description": "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.",
+                  "maxLength": 500,
+                  "type": "string"
+                },
+                "Content": {
+                  "description": "The content of the message.",
+                  "maxLength": 1024,
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "ContentType": {
+                  "description": "The type of the content. Supported types are text/plain.",
+                  "maxLength": 100,
+                  "minLength": 1,
+                  "type": "string"
+                }
+              },
+              "required": [
+                "ContentType",
+                "Content"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/SendMessageResponse"
+            }
+          },
+          "480": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "483": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          }
+        },
+        "description": "Sends a message. Note that ConnectionToken is used for invoking this API instead of ParticipantToken.",
+        "operationId": "SendMessage"
+      }
+    },
+    "/participant/transcript#X-Amz-Bearer": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The authentication token associated with the participant's connection.",
+            "in": "header",
+            "maxLength": 1000,
+            "minLength": 1,
+            "name": "X-Amz-Bearer",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "ContactId": {
+                  "description": "The contactId from the current contact chain for which transcript is needed.",
+                  "maxLength": 256,
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "MaxResults": {
+                  "description": "The maximum number of results to return in the page. Default: 10. ",
+                  "maximum": 100,
+                  "minimum": 0,
+                  "type": "integer"
+                },
+                "NextToken": {
+                  "description": "The pagination token. Use the value returned previously in the next subsequent request to retrieve the next set of results.",
+                  "maxLength": 1000,
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "ScanDirection": {
+                  "description": "The direction from StartPosition from which to retrieve message. Default: BACKWARD when no StartPosition is provided, FORWARD with StartPosition. ",
+                  "enum": [
+                    "FORWARD",
+                    "BACKWARD"
+                  ],
+                  "type": "string"
+                },
+                "SortOrder": {
+                  "description": "The sort order for the records. Default: DESCENDING.",
+                  "enum": [
+                    "DESCENDING",
+                    "ASCENDING"
+                  ],
+                  "type": "string"
+                },
+                "StartPosition": {
+                  "description": "A filtering option for where to start. For example, if you sent 100 messages, start with message 50. ",
+                  "properties": {
+                    "AbsoluteTime": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/Instant"
+                        },
+                        {
+                          "description": "<p>The time in ISO format where to start.</p> <p>It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example, 2019-11-08T02:41:28.172Z.</p>"
+                        }
+                      ]
+                    },
+                    "Id": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/ChatItemId"
+                        },
+                        {
+                          "description": "The ID of the message or event where to start. "
+                        }
+                      ]
+                    },
+                    "MostRecent": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/MostRecent"
+                        },
+                        {
+                          "description": "The start position of the most recent message where you want to start. "
+                        }
+                      ]
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetTranscriptResponse"
+            }
+          },
+          "480": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "483": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          }
+        },
+        "description": "Retrieves a transcript of the session. Note that ConnectionToken is used for invoking this API instead of ParticipantToken.",
+        "operationId": "GetTranscript"
+      }
+    }
+  },
+  "definitions": {
+    "AccessDeniedException": {},
+    "ChatContent": {
+      "maxLength": 1024,
+      "minLength": 1,
+      "type": "string"
+    },
+    "ChatContentType": {
+      "maxLength": 100,
+      "minLength": 1,
+      "type": "string"
+    },
+    "ChatItemId": {
+      "maxLength": 256,
+      "minLength": 1,
+      "type": "string"
+    },
+    "ChatItemType": {
+      "enum": [
+        "MESSAGE",
+        "EVENT",
+        "CONNECTION_ACK"
+      ],
+      "type": "string"
+    },
+    "ClientToken": {
+      "maxLength": 500,
+      "type": "string"
+    },
+    "ConnectionCredentials": {
+      "description": "Connection credentials. ",
+      "properties": {
+        "ConnectionToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ParticipantToken"
+            },
+            {
+              "description": "The connection token."
+            }
+          ]
+        },
+        "Expiry": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ISO8601Datetime"
+            },
+            {
+              "description": "<p>The expiration of the token.</p> <p>It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example, 2019-11-08T02:41:28.172Z.</p>"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ConnectionType": {
+      "enum": [
+        "WEBSOCKET",
+        "CONNECTION_CREDENTIALS"
+      ],
+      "type": "string"
+    },
+    "ConnectionTypeList": {
+      "items": {
+        "$ref": "#/definitions/ConnectionType"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "ContactId": {
+      "maxLength": 256,
+      "minLength": 1,
+      "type": "string"
+    },
+    "CreateParticipantConnectionRequest": {
+      "properties": {
+        "Type": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ConnectionTypeList"
+            },
+            {
+              "description": "Type of connection information required."
+            }
+          ]
+        }
+      },
+      "required": [
+        "Type"
+      ],
+      "title": "CreateParticipantConnectionRequest",
+      "type": "object"
+    },
+    "CreateParticipantConnectionResponse": {
+      "properties": {
+        "ConnectionCredentials": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ConnectionCredentials"
+            },
+            {
+              "description": "Creates the participant's connection credentials. The authentication token associated with the participant's connection."
+            }
+          ]
+        },
+        "Websocket": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Websocket"
+            },
+            {
+              "description": "Creates the participant's websocket connection."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DisconnectParticipantRequest": {
+      "properties": {
+        "ClientToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ClientToken"
+            },
+            {
+              "description": "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request."
+            }
+          ]
+        }
+      },
+      "title": "DisconnectParticipantRequest",
+      "type": "object"
+    },
+    "DisconnectParticipantResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "DisplayName": {
+      "maxLength": 256,
+      "minLength": 1,
+      "type": "string"
+    },
+    "GetTranscriptRequest": {
+      "properties": {
+        "ContactId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ContactId"
+            },
+            {
+              "description": "The contactId from the current contact chain for which transcript is needed."
+            }
+          ]
+        },
+        "MaxResults": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MaxResults"
+            },
+            {
+              "description": "The maximum number of results to return in the page. Default: 10. "
+            }
+          ]
+        },
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NextToken"
+            },
+            {
+              "description": "The pagination token. Use the value returned previously in the next subsequent request to retrieve the next set of results."
+            }
+          ]
+        },
+        "ScanDirection": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ScanDirection"
+            },
+            {
+              "description": "The direction from StartPosition from which to retrieve message. Default: BACKWARD when no StartPosition is provided, FORWARD with StartPosition. "
+            }
+          ]
+        },
+        "SortOrder": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SortKey"
+            },
+            {
+              "description": "The sort order for the records. Default: DESCENDING."
+            }
+          ]
+        },
+        "StartPosition": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/StartPosition"
+            },
+            {
+              "description": "A filtering option for where to start."
+            }
+          ]
+        }
+      },
+      "title": "GetTranscriptRequest",
+      "type": "object"
+    },
+    "GetTranscriptResponse": {
+      "properties": {
+        "InitialContactId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ContactId"
+            },
+            {
+              "description": "The initial contact ID for the contact. "
+            }
+          ]
+        },
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NextToken"
+            },
+            {
+              "description": "The pagination token. Use the value returned previously in the next subsequent request to retrieve the next set of results."
+            }
+          ]
+        },
+        "Transcript": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Transcript"
+            },
+            {
+              "description": "The list of messages in the session."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ISO8601Datetime": {
+      "type": "string"
+    },
+    "Instant": {
+      "maxLength": 100,
+      "minLength": 1,
+      "type": "string"
+    },
+    "InternalServerException": {},
+    "Item": {
+      "description": "An item - message or event - that has been sent. ",
+      "properties": {
+        "AbsoluteTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Instant"
+            },
+            {
+              "description": "<p>The time when the message or event was sent.</p> <p>It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example, 2019-11-08T02:41:28.172Z.</p>"
+            }
+          ]
+        },
+        "Content": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ChatContent"
+            },
+            {
+              "description": "The content of the message or event."
+            }
+          ]
+        },
+        "ContentType": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ChatContentType"
+            },
+            {
+              "description": "The type of content of the item."
+            }
+          ]
+        },
+        "DisplayName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DisplayName"
+            },
+            {
+              "description": "The chat display name of the sender."
+            }
+          ]
+        },
+        "Id": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ChatItemId"
+            },
+            {
+              "description": "The ID of the item."
+            }
+          ]
+        },
+        "ParticipantId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ParticipantId"
+            },
+            {
+              "description": "The ID of the sender in the session."
+            }
+          ]
+        },
+        "ParticipantRole": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ParticipantRole"
+            },
+            {
+              "description": "The role of the sender. For example, is it a customer, agent, or system."
+            }
+          ]
+        },
+        "Type": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ChatItemType"
+            },
+            {
+              "description": "Type of the item: message or event. "
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "MaxResults": {
+      "maximum": 100,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "MostRecent": {
+      "maximum": 100,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "NextToken": {
+      "maxLength": 1000,
+      "minLength": 1,
+      "type": "string"
+    },
+    "ParticipantId": {
+      "maxLength": 256,
+      "minLength": 1,
+      "type": "string"
+    },
+    "ParticipantRole": {
+      "enum": [
+        "AGENT",
+        "CUSTOMER",
+        "SYSTEM"
+      ],
+      "type": "string"
+    },
+    "ParticipantToken": {
+      "maxLength": 1000,
+      "minLength": 1,
+      "type": "string"
+    },
+    "PreSignedConnectionUrl": {
+      "maxLength": 2000,
+      "minLength": 1,
+      "type": "string"
+    },
+    "ScanDirection": {
+      "enum": [
+        "FORWARD",
+        "BACKWARD"
+      ],
+      "type": "string"
+    },
+    "SendEventRequest": {
+      "properties": {
+        "ClientToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ClientToken"
+            },
+            {
+              "description": "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request."
+            }
+          ]
+        },
+        "Content": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ChatContent"
+            },
+            {
+              "description": "The content of the event to be sent (for example, message text). This is not yet supported."
+            }
+          ]
+        },
+        "ContentType": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ChatContentType"
+            },
+            {
+              "description": "<p>The content type of the request. Supported types are:</p> <ul> <li> <p>application/vnd.amazonaws.connect.event.typing</p> </li> <li> <p>application/vnd.amazonaws.connect.event.connection.acknowledged</p> </li> </ul>"
+            }
+          ]
+        }
+      },
+      "required": [
+        "ContentType"
+      ],
+      "title": "SendEventRequest",
+      "type": "object"
+    },
+    "SendEventResponse": {
+      "properties": {
+        "AbsoluteTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Instant"
+            },
+            {
+              "description": "<p>The time when the event was sent.</p> <p>It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example, 2019-11-08T02:41:28.172Z.</p>"
+            }
+          ]
+        },
+        "Id": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ChatItemId"
+            },
+            {
+              "description": "The ID of the response."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "SendMessageRequest": {
+      "properties": {
+        "ClientToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ClientToken"
+            },
+            {
+              "description": "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request."
+            }
+          ]
+        },
+        "Content": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ChatContent"
+            },
+            {
+              "description": "The content of the message."
+            }
+          ]
+        },
+        "ContentType": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ChatContentType"
+            },
+            {
+              "description": "The type of the content. Supported types are text/plain."
+            }
+          ]
+        }
+      },
+      "required": [
+        "ContentType",
+        "Content"
+      ],
+      "title": "SendMessageRequest",
+      "type": "object"
+    },
+    "SendMessageResponse": {
+      "properties": {
+        "AbsoluteTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Instant"
+            },
+            {
+              "description": "<p>The time when the message was sent.</p> <p>It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example, 2019-11-08T02:41:28.172Z.</p>"
+            }
+          ]
+        },
+        "Id": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ChatItemId"
+            },
+            {
+              "description": "The ID of the message."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "SortKey": {
+      "enum": [
+        "DESCENDING",
+        "ASCENDING"
+      ],
+      "type": "string"
+    },
+    "StartPosition": {
+      "description": "A filtering option for where to start. For example, if you sent 100 messages, start with message 50. ",
+      "properties": {
+        "AbsoluteTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Instant"
+            },
+            {
+              "description": "<p>The time in ISO format where to start.</p> <p>It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example, 2019-11-08T02:41:28.172Z.</p>"
+            }
+          ]
+        },
+        "Id": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ChatItemId"
+            },
+            {
+              "description": "The ID of the message or event where to start. "
+            }
+          ]
+        },
+        "MostRecent": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MostRecent"
+            },
+            {
+              "description": "The start position of the most recent message where you want to start. "
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ThrottlingException": {},
+    "Transcript": {
+      "items": {
+        "$ref": "#/definitions/Item"
+      },
+      "type": "array"
+    },
+    "ValidationException": {},
+    "Websocket": {
+      "description": "The websocket for the participant's connection.",
+      "properties": {
+        "ConnectionExpiry": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ISO8601Datetime"
+            },
+            {
+              "description": "<p>The URL expiration timestamp in ISO date format.</p> <p>It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example, 2019-11-08T02:41:28.172Z.</p>"
+            }
+          ]
+        },
+        "Url": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PreSignedConnectionUrl"
+            },
+            {
+              "description": "The URL of the websocket."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    }
+  },
+  "securityDefinitions": {
+    "hmac": {
+      "description": "Amazon Signature authorization v4",
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey",
+      "x-amazon-apigateway-authtype": "awsSigv4"
+    }
+  },
+  "security": [
+    {
+      "hmac": []
+    }
+  ],
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://docs.aws.amazon.com/connect/"
+  },
+  "x-components": {
+    "parameters": {
+      "X-Amz-Algorithm": {
+        "in": "header",
+        "name": "X-Amz-Algorithm",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Content-Sha256": {
+        "in": "header",
+        "name": "X-Amz-Content-Sha256",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Credential": {
+        "in": "header",
+        "name": "X-Amz-Credential",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Date": {
+        "in": "header",
+        "name": "X-Amz-Date",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Security-Token": {
+        "in": "header",
+        "name": "X-Amz-Security-Token",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Signature": {
+        "in": "header",
+        "name": "X-Amz-Signature",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-SignedHeaders": {
+        "in": "header",
+        "name": "X-Amz-SignedHeaders",
+        "required": false,
+        "type": "string"
+      }
+    }
+  }
+}

@@ -37,6 +37,100 @@
     "application/json"
   ],
   "paths": {
+    "/alerts?lat={lat}&lon={lon}": {
+      "get": {
+        "description": "Returns severe weather alerts issued by meteorological agencies - given a lat, and a lon.",
+        "parameters": [
+          {
+            "description": "Latitude component of location.",
+            "format": "double",
+            "in": "path",
+            "name": "lat",
+            "required": true,
+            "type": "number"
+          },
+          {
+            "description": "Longitude component of location.",
+            "format": "double",
+            "in": "path",
+            "name": "lon",
+            "required": true,
+            "type": "number"
+          },
+          {
+            "description": "Wraps return in jsonp callback - Example - callback=func",
+            "format": "string",
+            "in": "query",
+            "name": "callback",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Your registered API key.",
+            "format": "string",
+            "in": "query",
+            "name": "key",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Weather Alert Object.",
+            "schema": {
+              "$ref": "#/definitions/WeatherAlert"
+            }
+          },
+          "default": {
+            "description": "No Data.",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "summary": "Returns severe weather alerts issued by meteorological agencies - Given a lat/lon.",
+        "tags": [
+          "Alerts"
+        ],
+        "operationId": "alerts_lat_lat_lon_lon.get"
+      }
+    },
+    "/bulk/files/{file}": {
+      "get": {
+        "description": "**(Advanceed/Enterprise plans only)** Downloads bulk data files - OPTIONS: ( current.json.gz - Current observations for cities > 1000 population). Units are Metric (Celcius, m/s, etc).",
+        "parameters": [
+          {
+            "description": "Filename (ie. current.json.gz)",
+            "format": "string",
+            "in": "path",
+            "name": "file",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Your registered API key.",
+            "format": "string",
+            "in": "query",
+            "name": "key",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "No Data.",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "summary": "Download pre-generated bulk datasets",
+        "tags": [
+          "Bulk Downloads"
+        ],
+        "operationId": "bulk.files.file.get"
+      }
+    },
     "/bulk/history/daily?city={city}&country={country}": {
       "get": {
         "description": "Returns Historical Observations - Given a city in the format of City,ST or City. The state, and country parameters can be provided to make the search more accurate.",
@@ -167,9 +261,9 @@
             }
           }
         },
-        "summary": "Returns Historical Observations - Given City and/or State, Country.",
+        "summary": "[Enterprise Plan Only] Returns Historical Observations - Given City and/or State, Country.",
         "tags": [
-          "(Bulk) Daily Historical Weather Data (Advanced+ / Enterprise Plans)"
+          "(Bulk) Daily Historical Weather Data (Enterprise Plans)"
         ],
         "operationId": "bulk.history.daily_city_city_country_country.get"
       }
@@ -288,132 +382,11 @@
             }
           }
         },
-        "summary": "Returns Historical Observations - Given a City ID",
+        "summary": "[Enterprise Plan Only] Returns Historical Observations - Given a City ID",
         "tags": [
-          "(Bulk) Daily Historical Weather Data (Advanced+ / Enterprise Plans)"
+          "(Bulk) Daily Historical Weather Data (Enterprise Plans)"
         ],
         "operationId": "bulk.history.daily_city_id_city_id.get"
-      }
-    },
-    "/bulk/history/daily?ip={ip}": {
-      "get": {
-        "description": "Returns Historical Observations - Given IP Address, or auto.",
-        "parameters": [
-          {
-            "description": "IP Address, or auto. Example: ip=auto",
-            "format": "string",
-            "in": "path",
-            "name": "ip",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "Start Date (YYYY-MM-DD or YYYY-MM-DD:HH).",
-            "format": "string",
-            "in": "query",
-            "name": "start_date",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "End Date (YYYY-MM-DD or YYYY-MM-DD:HH).",
-            "format": "string",
-            "in": "query",
-            "name": "end_date",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>",
-            "enum": [
-              "S",
-              "I"
-            ],
-            "format": "string",
-            "in": "query",
-            "name": "units",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>",
-            "enum": [
-              "ar",
-              "az",
-              "be",
-              "bg",
-              "bs",
-              "ca",
-              "cs",
-              "de",
-              "fi",
-              "fr",
-              "el",
-              "es",
-              "et",
-              "hr",
-              "hu",
-              "id",
-              "it",
-              "is",
-              "kw",
-              "nb",
-              "nl",
-              "pl",
-              "pt",
-              "ro",
-              "ru",
-              "sk",
-              "sl",
-              "sr",
-              "sv",
-              "tr",
-              "uk",
-              "zh",
-              "zh-tw"
-            ],
-            "format": "string",
-            "in": "query",
-            "name": "lang",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "Wraps return in jsonp callback. Example: callback=func",
-            "format": "string",
-            "in": "query",
-            "name": "callback",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "Your registered API key.",
-            "format": "string",
-            "in": "query",
-            "name": "key",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "An Historical Day Data Object.",
-            "schema": {
-              "$ref": "#/definitions/HistoryDay"
-            }
-          },
-          "default": {
-            "description": "No Data.",
-            "schema": {
-              "$ref": "#/definitions/Error"
-            }
-          }
-        },
-        "summary": "Returns Historical Observations - Given IP Address, or auto.",
-        "tags": [
-          "(Bulk) Daily Historical Weather Data (Advanced+ / Enterprise Plans)"
-        ],
-        "operationId": "bulk.history.daily_ip_ip.get"
       }
     },
     "/bulk/history/daily?lat={lat}&lon={lon}": {
@@ -538,9 +511,9 @@
             }
           }
         },
-        "summary": "Returns Historical Observations - Given a lat/lon.",
+        "summary": "[Enterprise Plan Only] Returns Historical Observations - Given a lat/lon.",
         "tags": [
-          "(Bulk) Daily Historical Weather Data (Advanced+ / Enterprise Plans)"
+          "(Bulk) Daily Historical Weather Data (Enterprise Plans)"
         ],
         "operationId": "bulk.history.daily_lat_lat_lon_lon.get"
       }
@@ -667,9 +640,9 @@
             }
           }
         },
-        "summary": "Returns Historical Observations - Given a Postal Code",
+        "summary": "[Enterprise Plan Only] Returns Historical Observations - Given a Postal Code",
         "tags": [
-          "(Bulk) Daily Historical Weather Data (Advanced+ / Enterprise Plans)"
+          "(Bulk) Daily Historical Weather Data (Enterprise Plans)"
         ],
         "operationId": "bulk.history.daily_postal_code_postal_code.get"
       }
@@ -788,9 +761,9 @@
             }
           }
         },
-        "summary": "Returns Historical Observations - Given a station ID.",
+        "summary": "[Enterprise Plan Only] Returns Historical Observations - Given a station ID.",
         "tags": [
-          "(Bulk) Daily Historical Weather Data (Advanced+ / Enterprise Plans)"
+          "(Bulk) Daily Historical Weather Data (Enterprise Plans)"
         ],
         "operationId": "bulk.history.daily_station_station.get"
       }
@@ -925,9 +898,9 @@
             }
           }
         },
-        "summary": "Returns Historical Observations - Given City and/or State, Country. (1 Year/call limit)",
+        "summary": "[Enterprise Plan Only] Returns Historical Observations - Given City and/or State, Country. (1 Year/call limit)",
         "tags": [
-          "(Bulk) Hourly Historical Weather Data (Advanced+ / Enterprise Plans)"
+          "(Bulk) Hourly Historical Weather Data (Enterprise Plans)"
         ],
         "operationId": "bulk.history.hourly_city_city_country_country.get"
       }
@@ -1046,132 +1019,11 @@
             }
           }
         },
-        "summary": "Returns Historical Observations - Given a City ID. (1 Year/call limit)",
+        "summary": "[Enterprise Plan Only] Returns Historical Observations - Given a City ID. (1 Year/call limit)",
         "tags": [
-          "(Bulk) Hourly Historical Weather Data (Advanced+ / Enterprise Plans)"
+          "(Bulk) Hourly Historical Weather Data (Enterprise Plans)"
         ],
         "operationId": "bulk.history.hourly_city_id_city_id.get"
-      }
-    },
-    "/bulk/history/hourly?ip={ip}": {
-      "get": {
-        "description": "Returns Historical Observations - Given IP Address, or auto.",
-        "parameters": [
-          {
-            "description": "IP Address, or auto. Example: ip=auto",
-            "format": "string",
-            "in": "path",
-            "name": "ip",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "Start Date (YYYY-MM-DD or YYYY-MM-DD:HH).",
-            "format": "string",
-            "in": "query",
-            "name": "start_date",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "End Date (YYYY-MM-DD or YYYY-MM-DD:HH).",
-            "format": "string",
-            "in": "query",
-            "name": "end_date",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>",
-            "enum": [
-              "S",
-              "I"
-            ],
-            "format": "string",
-            "in": "query",
-            "name": "units",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>",
-            "enum": [
-              "ar",
-              "az",
-              "be",
-              "bg",
-              "bs",
-              "ca",
-              "cs",
-              "de",
-              "fi",
-              "fr",
-              "el",
-              "es",
-              "et",
-              "hr",
-              "hu",
-              "id",
-              "it",
-              "is",
-              "kw",
-              "nb",
-              "nl",
-              "pl",
-              "pt",
-              "ro",
-              "ru",
-              "sk",
-              "sl",
-              "sr",
-              "sv",
-              "tr",
-              "uk",
-              "zh",
-              "zh-tw"
-            ],
-            "format": "string",
-            "in": "query",
-            "name": "lang",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "Wraps return in jsonp callback. Example: callback=func",
-            "format": "string",
-            "in": "query",
-            "name": "callback",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "Your registered API key.",
-            "format": "string",
-            "in": "query",
-            "name": "key",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "An Historical Data Object.",
-            "schema": {
-              "$ref": "#/definitions/History"
-            }
-          },
-          "default": {
-            "description": "No Data.",
-            "schema": {
-              "$ref": "#/definitions/Error"
-            }
-          }
-        },
-        "summary": "Returns Historical Observations - Given IP Address, or auto. (1 Year/call limit)",
-        "tags": [
-          "(Bulk) Hourly Historical Weather Data (Advanced+ / Enterprise Plans)"
-        ],
-        "operationId": "bulk.history.hourly_ip_ip.get"
       }
     },
     "/bulk/history/hourly?lat={lat}&lon={lon}": {
@@ -1296,9 +1148,9 @@
             }
           }
         },
-        "summary": "Returns Historical Observations - Given a lat/lon. (1 Year/call limit)",
+        "summary": "[Enterprise Plan Only] Returns Historical Observations - Given a lat/lon. (1 Year/call limit)",
         "tags": [
-          "(Bulk) Hourly Historical Weather Data (Advanced+ / Enterprise Plans)"
+          "(Bulk) Hourly Historical Weather Data (Enterprise Plans)"
         ],
         "operationId": "bulk.history.hourly_lat_lat_lon_lon.get"
       }
@@ -1425,9 +1277,9 @@
             }
           }
         },
-        "summary": "Returns Historical Observations - Given a Postal Code. (1 Year/call limit)",
+        "summary": "[Enterprise Plan Only] Returns Historical Observations - Given a Postal Code. (1 Year/call limit)",
         "tags": [
-          "(Bulk) Hourly Historical Weather Data (Advanced+ / Enterprise Plans)"
+          "(Bulk) Hourly Historical Weather Data (Enterprise Plans)"
         ],
         "operationId": "bulk.history.hourly_postal_code_postal_code.get"
       }
@@ -1546,23 +1398,47 @@
             }
           }
         },
-        "summary": "Returns Historical Observations - Given a station ID. (1 Year/call limit)",
+        "summary": "[Enterprise Plan Only] Returns Historical Observations - Given a station ID. (1 Year/call limit)",
         "tags": [
-          "(Bulk) Hourly Historical Weather Data (Advanced+ / Enterprise Plans)"
+          "(Bulk) Hourly Historical Weather Data (Enterprise Plans)"
         ],
         "operationId": "bulk.history.hourly_station_station.get"
       }
     },
-    "/bulk/{file}": {
+    "/current/airquality?city={city}&country={country}": {
       "get": {
-        "description": "**(Advanced/Advanced+/Enterprise plans only)** Downloads bulk data files - OPTIONS: (forecast16d.json.gz - 16 day forecasts for cities > 1000 population, current.json.gz - Current observations for cities > 1000 population).",
+        "description": "Returns current air quality conditions.",
         "parameters": [
           {
-            "description": "Filename (ie. forecast16d.json.gz)",
+            "description": "City search.. Example - &city=Raleigh,NC or &city=Berlin,DE or city=Paris&country=FR",
             "format": "string",
             "in": "path",
-            "name": "file",
+            "name": "city",
             "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Full name of state.",
+            "format": "string",
+            "in": "query",
+            "name": "state",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Country Code (2 letter).",
+            "format": "string",
+            "in": "path",
+            "name": "country",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Wraps return in jsonp callback. Example: callback=func",
+            "format": "string",
+            "in": "query",
+            "name": "callback",
+            "required": false,
             "type": "string"
           },
           {
@@ -1575,6 +1451,12 @@
           }
         ],
         "responses": {
+          "200": {
+            "description": "Current air quality conditions",
+            "schema": {
+              "$ref": "#/definitions/AQCurrentGroup"
+            }
+          },
           "default": {
             "description": "No Data.",
             "schema": {
@@ -1582,16 +1464,182 @@
             }
           }
         },
-        "summary": "Download pre-generated bulk datasets",
+        "summary": "Returns current air quality conditions - Given City and/or State, Country.",
         "tags": [
-          "Bulk Downloads"
+          "Current Air Quality"
         ],
-        "operationId": "bulk.file.get"
+        "operationId": "current.airquality_city_city_country_country.get"
+      }
+    },
+    "/current/airquality?city_id={city_id}": {
+      "get": {
+        "description": "Returns current air quality conditions.",
+        "parameters": [
+          {
+            "description": "City ID. Example: 4487042",
+            "format": "integer",
+            "in": "path",
+            "name": "city_id",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Wraps return in jsonp callback. Example - callback=func",
+            "format": "string",
+            "in": "query",
+            "name": "callback",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Your registered API key.",
+            "format": "string",
+            "in": "query",
+            "name": "key",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Current air quality conditions",
+            "schema": {
+              "$ref": "#/definitions/AQCurrentGroup"
+            }
+          },
+          "default": {
+            "description": "No Data.",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "summary": "Returns current air quality conditions - Given a City ID.",
+        "tags": [
+          "Current Air Quality"
+        ],
+        "operationId": "current.airquality_city_id_city_id.get"
+      }
+    },
+    "/current/airquality?lat={lat}&lon={lon}": {
+      "get": {
+        "description": "Returns current air quality conditions.",
+        "parameters": [
+          {
+            "description": "Latitude component of location.",
+            "format": "double",
+            "in": "path",
+            "name": "lat",
+            "required": true,
+            "type": "number"
+          },
+          {
+            "description": "Longitude component of location.",
+            "format": "double",
+            "in": "path",
+            "name": "lon",
+            "required": true,
+            "type": "number"
+          },
+          {
+            "description": "Wraps return in jsonp callback. Example - callback=func",
+            "format": "string",
+            "in": "query",
+            "name": "callback",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Your registered API key.",
+            "format": "string",
+            "in": "query",
+            "name": "key",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Current air quality conditions",
+            "schema": {
+              "$ref": "#/definitions/AQCurrentGroup"
+            }
+          },
+          "default": {
+            "description": "No Data.",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "summary": "Returns current air quality conditions - Given a lat/lon.",
+        "tags": [
+          "Current Air Quality"
+        ],
+        "operationId": "current.airquality_lat_lat_lon_lon.get"
+      }
+    },
+    "/current/airquality?postal_code={postal_code}": {
+      "get": {
+        "description": "Returns current air quality conditions.",
+        "parameters": [
+          {
+            "description": "Postal Code. Example: 28546",
+            "format": "integer",
+            "in": "path",
+            "name": "postal_code",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Country Code (2 letter).",
+            "format": "string",
+            "in": "query",
+            "name": "country",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Wraps return in jsonp callback. Example - callback=func",
+            "format": "string",
+            "in": "query",
+            "name": "callback",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Your registered API key.",
+            "format": "string",
+            "in": "query",
+            "name": "key",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Current air quality conditions",
+            "schema": {
+              "$ref": "#/definitions/AQCurrentGroup"
+            }
+          },
+          "default": {
+            "description": "No Data.",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "summary": "Returns current air quality conditions - Given a Postal Code.",
+        "tags": [
+          "Current Air Quality"
+        ],
+        "operationId": "current.airquality_postal_code_postal_code.get"
       }
     },
     "/current?cities={cities}": {
       "get": {
-        "description": "**(Advanced/Advanced+/Enterprise plans only)** Returns a group of Current Observations - Given a list of City IDs. ",
+        "description": "Returns a group of Current Observations - Given a list of City IDs. ",
         "parameters": [
           {
             "description": "Comma separated list of City ID's. Example: 4487042, 4494942, 4504871",
@@ -1953,122 +2001,6 @@
         "operationId": "current_city_id_city_id.get"
       }
     },
-    "/current?ip={ip}": {
-      "get": {
-        "description": "Returns a Current Observation - Given an IP address, or auto.",
-        "parameters": [
-          {
-            "description": "IP Address, or auto. Example: ip=auto",
-            "format": "string",
-            "in": "path",
-            "name": "ip",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "Marine stations only (buoys, oil platforms, etc)",
-            "enum": [
-              "t"
-            ],
-            "format": "string",
-            "in": "query",
-            "name": "marine",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>",
-            "enum": [
-              "S",
-              "I"
-            ],
-            "format": "string",
-            "in": "query",
-            "name": "units",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>",
-            "enum": [
-              "ar",
-              "az",
-              "be",
-              "bg",
-              "bs",
-              "ca",
-              "cs",
-              "de",
-              "fi",
-              "fr",
-              "el",
-              "es",
-              "et",
-              "hr",
-              "hu",
-              "id",
-              "it",
-              "is",
-              "kw",
-              "nb",
-              "nl",
-              "pl",
-              "pt",
-              "ro",
-              "ru",
-              "sk",
-              "sl",
-              "sr",
-              "sv",
-              "tr",
-              "uk",
-              "zh",
-              "zh-tw"
-            ],
-            "format": "string",
-            "in": "query",
-            "name": "lang",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "Wraps return in jsonp callback - Example - callback=func",
-            "format": "string",
-            "in": "query",
-            "name": "callback",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "Your registered API key.",
-            "format": "string",
-            "in": "query",
-            "name": "key",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "An Observation Group object.",
-            "schema": {
-              "$ref": "#/definitions/CurrentObsGroup"
-            }
-          },
-          "default": {
-            "description": "No Data.",
-            "schema": {
-              "$ref": "#/definitions/Error"
-            }
-          }
-        },
-        "summary": "Returns a Current Observation - Given an IP address, or auto.",
-        "tags": [
-          "Current Weather Data"
-        ],
-        "operationId": "current_ip_ip.get"
-      }
-    },
     "/current?lat={lat}&lon={lon}": {
       "get": {
         "description": "Returns a Current Observation - given a lat, and a lon.",
@@ -2424,7 +2356,7 @@
     },
     "/current?stations={stations}": {
       "get": {
-        "description": "**(Advanced/Advanced+/Enterprise plans only)** Returns a group of Current Observations - Given a list of Station Call IDs. ",
+        "description": "Returns a group of Current Observations - Given a list of Station Call IDs. ",
         "parameters": [
           {
             "description": "Comma separated list of Station Call ID's. Example: KRDU,KBFI,KVNY",
@@ -2769,119 +2701,6 @@
         "operationId": "forecast.3hourly_city_id_city_id.get"
       }
     },
-    "/forecast/3hourly?ip={ip}": {
-      "get": {
-        "description": "Returns a 3-hourly forecast, where each point represents a three hour   period. Every point has a datetime string in the format \"YYYY-MM-DD:HH\". Time is UTC.\n",
-        "parameters": [
-          {
-            "description": "IP address, or auto. Example: ip=auto",
-            "format": "string",
-            "in": "path",
-            "name": "ip",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "Number of days to return. Default 16.",
-            "format": "integer",
-            "in": "query",
-            "name": "days",
-            "required": false,
-            "type": "number"
-          },
-          {
-            "description": "Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>",
-            "enum": [
-              "S",
-              "I"
-            ],
-            "format": "string",
-            "in": "query",
-            "name": "units",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>",
-            "enum": [
-              "ar",
-              "az",
-              "be",
-              "bg",
-              "bs",
-              "ca",
-              "cs",
-              "de",
-              "fi",
-              "fr",
-              "el",
-              "es",
-              "et",
-              "hr",
-              "hu",
-              "id",
-              "it",
-              "is",
-              "kw",
-              "nb",
-              "nl",
-              "pl",
-              "pt",
-              "ro",
-              "ru",
-              "sk",
-              "sl",
-              "sr",
-              "sv",
-              "tr",
-              "uk",
-              "zh",
-              "zh-tw"
-            ],
-            "format": "string",
-            "in": "query",
-            "name": "lang",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "Wraps return in jsonp callback. Example: callback=func",
-            "format": "string",
-            "in": "query",
-            "name": "callback",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "Your registered API key.",
-            "format": "string",
-            "in": "query",
-            "name": "key",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "A forecast object.",
-            "schema": {
-              "$ref": "#/definitions/ForecastHourly"
-            }
-          },
-          "default": {
-            "description": "No Data.",
-            "schema": {
-              "$ref": "#/definitions/Error"
-            }
-          }
-        },
-        "summary": "Returns a 3hourly forecast - Given an IP Address, or ip=auto for automatic IP lookup.",
-        "tags": [
-          "5 day / 3 hour Forecast"
-        ],
-        "operationId": "forecast.3hourly_ip_ip.get"
-      }
-    },
     "/forecast/3hourly?lat={lat}&lon={lon}": {
       "get": {
         "description": "Returns a 3-hourly forecast, where each point represents a three hour   period. Every point has a datetime string in the format \"YYYY-MM-DD:HH\". Time is UTC.\n",
@@ -3124,9 +2943,273 @@
         "operationId": "forecast.3hourly_postal_code_postal_code.get"
       }
     },
+    "/forecast/airquality?city={city}&country={country}": {
+      "get": {
+        "description": "Returns 72 hour (hourly) Air Quality forecast, where each point represents a one hour period.",
+        "parameters": [
+          {
+            "description": "City search.. Example - &city=Raleigh,NC or &city=Berlin,DE or city=Paris&country=FR",
+            "format": "string",
+            "in": "path",
+            "name": "city",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Full name of state.",
+            "format": "string",
+            "in": "query",
+            "name": "state",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Country Code (2 letter).",
+            "format": "string",
+            "in": "path",
+            "name": "country",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Wraps return in jsonp callback. Example: callback=func",
+            "format": "string",
+            "in": "query",
+            "name": "callback",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Number of hours to return.",
+            "format": "integer",
+            "in": "query",
+            "name": "hours",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Your registered API key.",
+            "format": "string",
+            "in": "query",
+            "name": "key",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A forecast object.",
+            "schema": {
+              "$ref": "#/definitions/AQHourly"
+            }
+          },
+          "default": {
+            "description": "No Data.",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "summary": "Returns 72 hour (hourly) Air Quality forecast - Given City and/or State, Country.",
+        "tags": [
+          "Air Quality Forecast"
+        ],
+        "operationId": "forecast.airquality_city_city_country_country.get"
+      }
+    },
+    "/forecast/airquality?city_id={city_id}": {
+      "get": {
+        "description": "Returns 72 hour (hourly) Air Quality forecast, where each point represents a one hour period.",
+        "parameters": [
+          {
+            "description": "City ID. Example: 4487042",
+            "format": "integer",
+            "in": "path",
+            "name": "city_id",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Wraps return in jsonp callback. Example - callback=func",
+            "format": "string",
+            "in": "query",
+            "name": "callback",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Number of hours to return.",
+            "format": "integer",
+            "in": "query",
+            "name": "hours",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Your registered API key.",
+            "format": "string",
+            "in": "query",
+            "name": "key",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A forecast object.",
+            "schema": {
+              "$ref": "#/definitions/AQHourly"
+            }
+          },
+          "default": {
+            "description": "No Data.",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "summary": "Returns 72 hour (hourly) Air Quality forecast - Given a City ID.",
+        "tags": [
+          "Air Quality Forecast"
+        ],
+        "operationId": "forecast.airquality_city_id_city_id.get"
+      }
+    },
+    "/forecast/airquality?lat={lat}&lon={lon}": {
+      "get": {
+        "description": "Returns 72 hour (hourly) Air Quality forecast, where each point represents a one hour period.",
+        "parameters": [
+          {
+            "description": "Latitude component of location.",
+            "format": "double",
+            "in": "path",
+            "name": "lat",
+            "required": true,
+            "type": "number"
+          },
+          {
+            "description": "Longitude component of location.",
+            "format": "double",
+            "in": "path",
+            "name": "lon",
+            "required": true,
+            "type": "number"
+          },
+          {
+            "description": "Wraps return in jsonp callback. Example - callback=func",
+            "format": "string",
+            "in": "query",
+            "name": "callback",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Your registered API key.",
+            "format": "string",
+            "in": "query",
+            "name": "key",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Number of hours to return.",
+            "format": "integer",
+            "in": "query",
+            "name": "hours",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A forecast object.",
+            "schema": {
+              "$ref": "#/definitions/AQHourly"
+            }
+          },
+          "default": {
+            "description": "No Data.",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "summary": "Returns 72 hour (hourly) Air Quality forecast - Given a lat/lon.",
+        "tags": [
+          "Air Quality Forecast"
+        ],
+        "operationId": "forecast.airquality_lat_lat_lon_lon.get"
+      }
+    },
+    "/forecast/airquality?postal_code={postal_code}": {
+      "get": {
+        "description": "Returns 72 hour (hourly) Air Quality forecast, where each point represents a one hour period.",
+        "parameters": [
+          {
+            "description": "Postal Code. Example: 28546",
+            "format": "integer",
+            "in": "path",
+            "name": "postal_code",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Country Code (2 letter).",
+            "format": "string",
+            "in": "query",
+            "name": "country",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Wraps return in jsonp callback. Example - callback=func",
+            "format": "string",
+            "in": "query",
+            "name": "callback",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Number of hours to return.",
+            "format": "integer",
+            "in": "query",
+            "name": "hours",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Your registered API key.",
+            "format": "string",
+            "in": "query",
+            "name": "key",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A forecast object.",
+            "schema": {
+              "$ref": "#/definitions/AQHourly"
+            }
+          },
+          "default": {
+            "description": "No Data.",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "summary": "Returns 72 hour (hourly) Air Quality forecast - Given a Postal Code.",
+        "tags": [
+          "Air Quality Forecast"
+        ],
+        "operationId": "forecast.airquality_postal_code_postal_code.get"
+      }
+    },
     "/forecast/daily?city={city}&country={country}": {
       "get": {
-        "description": "**(REQUIRED: Basic Plan or Higher)** Returns a daily forecast, where each point represents one day (24hr) period. Every point has a datetime string in the format \"YYYY-MM-DD\". One day begins at 00:00 UTC, and ends at 23:59 UTC. Accepts a city in the format of City,ST or City. The state, and country parameters can be provided to make the search more accurate.\n",
+        "description": "Returns a daily forecast, where each point represents one day (24hr) period. Every point has a datetime string in the format \"YYYY-MM-DD\". One day begins at 00:00 UTC, and ends at 23:59 UTC. Accepts a city in the format of City,ST or City. The state, and country parameters can be provided to make the search more accurate.\n",
         "parameters": [
           {
             "description": "City search.. Example - &city=Raleigh,NC or &city=Berlin,DE or city=Paris&country=FR",
@@ -3255,7 +3338,7 @@
     },
     "/forecast/daily?city_id={city_id}": {
       "get": {
-        "description": "**(REQUIRED: Basic Plan or Higher)** Returns a daily forecast, where each point represents one day (24hr) period. Every point has a datetime string in the format \"YYYY-MM-DD\". One day begins at 00:00 UTC, and ends at 23:59 UTC.\n",
+        "description": "Returns a daily forecast, where each point represents one day (24hr) period. Every point has a datetime string in the format \"YYYY-MM-DD\". One day begins at 00:00 UTC, and ends at 23:59 UTC.\n",
         "parameters": [
           {
             "description": "City ID. Example: 4487042",
@@ -3366,122 +3449,9 @@
         "operationId": "forecast.daily_city_id_city_id.get"
       }
     },
-    "/forecast/daily?ip={ip}": {
-      "get": {
-        "description": "**(REQUIRED: Basic Plan or Higher)** Returns a daily forecast, where each point represents one day (24hr) period. Every point has a datetime string in the format \"YYYY-MM-DD\". One day begins at 00:00 UTC, and ends at 23:59 UTC. \n",
-        "parameters": [
-          {
-            "description": "IP address, or auto. Example: ip=auto",
-            "format": "string",
-            "in": "path",
-            "name": "ip",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "Number of days to return. Default 16.",
-            "format": "integer",
-            "in": "query",
-            "name": "days",
-            "required": false,
-            "type": "number"
-          },
-          {
-            "description": "Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>",
-            "enum": [
-              "S",
-              "I"
-            ],
-            "format": "string",
-            "in": "query",
-            "name": "units",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>",
-            "enum": [
-              "ar",
-              "az",
-              "be",
-              "bg",
-              "bs",
-              "ca",
-              "cs",
-              "de",
-              "fi",
-              "fr",
-              "el",
-              "es",
-              "et",
-              "hr",
-              "hu",
-              "id",
-              "it",
-              "is",
-              "kw",
-              "nb",
-              "nl",
-              "pl",
-              "pt",
-              "ro",
-              "ru",
-              "sk",
-              "sl",
-              "sr",
-              "sv",
-              "tr",
-              "uk",
-              "zh",
-              "zh-tw"
-            ],
-            "format": "string",
-            "in": "query",
-            "name": "lang",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "Wraps return in jsonp callback. Example: callback=func",
-            "format": "string",
-            "in": "query",
-            "name": "callback",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "Your registered API key.",
-            "format": "string",
-            "in": "query",
-            "name": "key",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "A forecast object.",
-            "schema": {
-              "$ref": "#/definitions/ForecastDay"
-            }
-          },
-          "default": {
-            "description": "No Data.",
-            "schema": {
-              "$ref": "#/definitions/Error"
-            }
-          }
-        },
-        "summary": "Returns a daily forecast - Given an IP Address, or ip=auto for automatic IP lookup.",
-        "tags": [
-          "16 day / daily Forecast"
-        ],
-        "operationId": "forecast.daily_ip_ip.get"
-      }
-    },
     "/forecast/daily?lat={lat}&lon={lon}": {
       "get": {
-        "description": "**(REQUIRED: Basic Plan or Higher)** Returns a daily forecast, where each point represents one day (24hr) period. Every point has a datetime string in the format \"YYYY-MM-DD\". One day begins at 00:00 UTC, and ends at 23:59 UTC. \n",
+        "description": "Returns a daily forecast, where each point represents one day (24hr) period. Every point has a datetime string in the format \"YYYY-MM-DD\". One day begins at 00:00 UTC, and ends at 23:59 UTC. \n",
         "parameters": [
           {
             "description": "Latitude component of location.",
@@ -3602,7 +3572,7 @@
     },
     "/forecast/daily?postal_code={postal_code}": {
       "get": {
-        "description": "**(REQUIRED: Basic Plan or Higher)** Returns a daily forecast, where each point represents one day (24hr) period. Every point has a datetime string in the format \"YYYY-MM-DD\". One day begins at 00:00 UTC, and ends at 23:59 UTC.\n",
+        "description": "Returns a daily forecast, where each point represents one day (24hr) period. Every point has a datetime string in the format \"YYYY-MM-DD\". One day begins at 00:00 UTC, and ends at 23:59 UTC.\n",
         "parameters": [
           {
             "description": "Postal Code. Example: 28546",
@@ -3721,9 +3691,100 @@
         "operationId": "forecast.daily_postal_code_postal_code.get"
       }
     },
+    "/forecast/energy?lat={lat}&lon={lon}": {
+      "get": {
+        "description": "Retrieve an 8 day forecast relevant to te Energy Sector (degree days, solar radiation, precipitation, wind).",
+        "parameters": [
+          {
+            "description": "Latitude component of location.",
+            "format": "double",
+            "in": "path",
+            "name": "lat",
+            "required": true,
+            "type": "number"
+          },
+          {
+            "description": "Longitude component of location.",
+            "format": "double",
+            "in": "path",
+            "name": "lon",
+            "required": true,
+            "type": "number"
+          },
+          {
+            "description": "Temperature threshold to use to calculate degree days (default 18 C) ",
+            "format": "double",
+            "in": "query",
+            "name": "threshold",
+            "required": false,
+            "type": "number"
+          },
+          {
+            "description": "Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>",
+            "enum": [
+              "S",
+              "I"
+            ],
+            "format": "string",
+            "in": "query",
+            "name": "units",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Time period (default: daily)",
+            "enum": [
+              "hourly",
+              "daily"
+            ],
+            "format": "string",
+            "in": "query",
+            "name": "tp",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Wraps return in jsonp callback. Example: callback=func",
+            "format": "string",
+            "in": "query",
+            "name": "callback",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Your registered API key.",
+            "format": "string",
+            "in": "query",
+            "name": "key",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "An Energy Data Object.",
+            "schema": {
+              "$ref": "#/definitions/EnergyObsGroupForecast"
+            }
+          },
+          "default": {
+            "description": "No Data.",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "summary": "Returns Energy Forecast API response  - Given a single lat/lon. ",
+        "tags": [
+          "Forecast Degree Day API",
+          "Forecast Solar Irradiance API"
+        ],
+        "operationId": "forecast.energy_lat_lat_lon_lon.get"
+      }
+    },
     "/forecast/hourly?city={city}&country={country}": {
       "get": {
-        "description": "**(REQUIRED: Developer Plan or Higher)** Returns an hourly forecast, where each point represents a one hour   period. Every point has a datetime string in the format \"YYYY-MM-DD:HH\". Time is UTC. Accepts a city in the format of City,ST or City. The state, and country parameters can be provided to make the search more accurate.\n",
+        "description": " Returns an hourly forecast, where each point represents a one hour   period. Every point has a datetime string in the format \"YYYY-MM-DD:HH\". Time is UTC. Accepts a city in the format of City,ST or City. The state, and country parameters can be provided to make the search more accurate.\n",
         "parameters": [
           {
             "description": "City search.. Example - &city=Raleigh,NC or &city=Berlin,DE or city=Paris&country=FR",
@@ -3843,16 +3904,16 @@
             }
           }
         },
-        "summary": "Returns an 48 hour (hourly forecast) - Given City and/or State, Country.",
+        "summary": "Returns an 120 hour (hourly forecast) - Given City and/or State, Country.",
         "tags": [
-          "48 hour / hourly Forecast"
+          "120 hour / hourly Forecast"
         ],
         "operationId": "forecast.hourly_city_city_country_country.get"
       }
     },
     "/forecast/hourly?city_id={city_id}": {
       "get": {
-        "description": "**(REQUIRED: Developer Plan or Higher)** Returns an hourly forecast, where each point represents a one hour   period. Every point has a datetime string in the format \"YYYY-MM-DD:HH\". Time is UTC. \n",
+        "description": " Returns an hourly forecast, where each point represents a one hour   period. Every point has a datetime string in the format \"YYYY-MM-DD:HH\". Time is UTC. \n",
         "parameters": [
           {
             "description": "City ID. Example: 4487042",
@@ -3956,137 +4017,16 @@
             }
           }
         },
-        "summary": "Returns a 48 hour (hourly) forecast - Given a City ID.",
+        "summary": "Returns a 120 hour (hourly) forecast - Given a City ID.",
         "tags": [
-          "48 hour / hourly Forecast"
+          "120 hour / hourly Forecast"
         ],
         "operationId": "forecast.hourly_city_id_city_id.get"
       }
     },
-    "/forecast/hourly?ip={ip}": {
-      "get": {
-        "description": "**(REQUIRED: Developer Plan or Higher)** Returns an hourly forecast, where each point represents a one hour period. Every point has a datetime string in the format \"YYYY-MM-DD:HH\". Time is UTC. \n",
-        "parameters": [
-          {
-            "description": "IP address, or auto. Example: ip=auto",
-            "format": "string",
-            "in": "path",
-            "name": "ip",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "Number of days to return. Default 16.",
-            "format": "integer",
-            "in": "query",
-            "name": "days",
-            "required": false,
-            "type": "number"
-          },
-          {
-            "description": "Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>",
-            "enum": [
-              "S",
-              "I"
-            ],
-            "format": "string",
-            "in": "query",
-            "name": "units",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>",
-            "enum": [
-              "ar",
-              "az",
-              "be",
-              "bg",
-              "bs",
-              "ca",
-              "cs",
-              "de",
-              "fi",
-              "fr",
-              "el",
-              "es",
-              "et",
-              "hr",
-              "hu",
-              "id",
-              "it",
-              "is",
-              "kw",
-              "nb",
-              "nl",
-              "pl",
-              "pt",
-              "ro",
-              "ru",
-              "sk",
-              "sl",
-              "sr",
-              "sv",
-              "tr",
-              "uk",
-              "zh",
-              "zh-tw"
-            ],
-            "format": "string",
-            "in": "query",
-            "name": "lang",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "Wraps return in jsonp callback. Example: callback=func",
-            "format": "string",
-            "in": "query",
-            "name": "callback",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "Number of hours to return.",
-            "format": "integer",
-            "in": "query",
-            "name": "hours",
-            "required": false,
-            "type": "integer"
-          },
-          {
-            "description": "Your registered API key.",
-            "format": "string",
-            "in": "query",
-            "name": "key",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "A forecast object.",
-            "schema": {
-              "$ref": "#/definitions/ForecastHourly"
-            }
-          },
-          "default": {
-            "description": "No Data.",
-            "schema": {
-              "$ref": "#/definitions/Error"
-            }
-          }
-        },
-        "summary": "Returns a hourly forecast - Given an IP Address, or ip=auto for automatic IP lookup.",
-        "tags": [
-          "48 hour / hourly Forecast"
-        ],
-        "operationId": "forecast.hourly_ip_ip.get"
-      }
-    },
     "/forecast/hourly?lat={lat}&lon={lon}": {
       "get": {
-        "description": "**(REQUIRED: Developer Plan or Higher)** Returns an hourly forecast, where each point represents a one hour period. Every point has a datetime string in the format \"YYYY-MM-DD:HH\". Time is UTC. \n",
+        "description": "Returns an hourly forecast, where each point represents a one hour period. Every point has a datetime string in the format \"YYYY-MM-DD:HH\". Time is UTC. \n",
         "parameters": [
           {
             "description": "Latitude component of location.",
@@ -4198,16 +4138,16 @@
             }
           }
         },
-        "summary": "Returns 48 hour (hourly) forecast - Given a lat/lon.",
+        "summary": "Returns 120 hour (hourly) forecast - Given a lat/lon.",
         "tags": [
-          "48 hour / hourly Forecast"
+          "120 hour / hourly Forecast"
         ],
         "operationId": "forecast.hourly_lat_lat_lon_lon.get"
       }
     },
     "/forecast/hourly?postal_code={postal_code}": {
       "get": {
-        "description": "**(REQUIRED: Developer Plan or Higher)** Returns an hourly forecast, where each point represents a one hour   period. Every point has a datetime string in the format \"YYYY-MM-DD:HH\". Time is UTC. \n",
+        "description": " Returns an hourly forecast, where each point represents a one hour   period. Every point has a datetime string in the format \"YYYY-MM-DD:HH\". Time is UTC. \n",
         "parameters": [
           {
             "description": "Postal Code. Example: 28546",
@@ -4319,16 +4259,248 @@
             }
           }
         },
-        "summary": "Returns a 48 hour (hourly) forecast - Given a Postal Code.",
+        "summary": "Returns a 120 hour (hourly) forecast - Given a Postal Code.",
         "tags": [
-          "48 hour / hourly Forecast"
+          "120 hour / hourly Forecast"
         ],
         "operationId": "forecast.hourly_postal_code_postal_code.get"
       }
     },
+    "/history/airquality?city={city}&country={country}": {
+      "get": {
+        "description": "Returns historical air quality conditions.",
+        "parameters": [
+          {
+            "description": "City search.. Example - &city=Raleigh,NC or &city=Berlin,DE or city=Paris&country=FR",
+            "format": "string",
+            "in": "path",
+            "name": "city",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Full name of state.",
+            "format": "string",
+            "in": "query",
+            "name": "state",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Country Code (2 letter).",
+            "format": "string",
+            "in": "path",
+            "name": "country",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Wraps return in jsonp callback. Example: callback=func",
+            "format": "string",
+            "in": "query",
+            "name": "callback",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Your registered API key.",
+            "format": "string",
+            "in": "query",
+            "name": "key",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Historical air quality conditions",
+            "schema": {
+              "$ref": "#/definitions/AQCurrentGroup"
+            }
+          },
+          "default": {
+            "description": "No Data.",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "summary": "Returns 72 hours of historical quality conditions - Given City and/or State, Country.",
+        "tags": [
+          "Historical Air Quality"
+        ],
+        "operationId": "history.airquality_city_city_country_country.get"
+      }
+    },
+    "/history/airquality?city_id={city_id}": {
+      "get": {
+        "description": "Returns historical air quality conditions.",
+        "parameters": [
+          {
+            "description": "City ID.",
+            "format": "double",
+            "in": "path",
+            "name": "city_id",
+            "required": true,
+            "type": "number"
+          },
+          {
+            "description": "Wraps return in jsonp callback. Example - callback=func",
+            "format": "string",
+            "in": "query",
+            "name": "callback",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Your registered API key.",
+            "format": "string",
+            "in": "query",
+            "name": "key",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Historical air quality conditions",
+            "schema": {
+              "$ref": "#/definitions/AQCurrentGroup"
+            }
+          },
+          "default": {
+            "description": "No Data.",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "summary": "Returns 72 hours of historical air quality conditions - Given a City ID.",
+        "tags": [
+          "Historical Air Quality"
+        ],
+        "operationId": "history.airquality_city_id_city_id.get"
+      }
+    },
+    "/history/airquality?lat={lat}&lon={lon}": {
+      "get": {
+        "description": "Returns historical air quality conditions.",
+        "parameters": [
+          {
+            "description": "Latitude component of location.",
+            "format": "double",
+            "in": "path",
+            "name": "lat",
+            "required": true,
+            "type": "number"
+          },
+          {
+            "description": "Longitude component of location.",
+            "format": "double",
+            "in": "path",
+            "name": "lon",
+            "required": true,
+            "type": "number"
+          },
+          {
+            "description": "Wraps return in jsonp callback. Example - callback=func",
+            "format": "string",
+            "in": "query",
+            "name": "callback",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Your registered API key.",
+            "format": "string",
+            "in": "query",
+            "name": "key",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Historical air quality conditions",
+            "schema": {
+              "$ref": "#/definitions/AQCurrentGroup"
+            }
+          },
+          "default": {
+            "description": "No Data.",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "summary": "Returns 72 hours of historical air quality conditions - Given a lat/lon.",
+        "tags": [
+          "Historical Air Quality"
+        ],
+        "operationId": "history.airquality_lat_lat_lon_lon.get"
+      }
+    },
+    "/history/airquality?postal_code={postal_code}": {
+      "get": {
+        "description": "Returns historical air quality conditions.",
+        "parameters": [
+          {
+            "description": "Postal Code. Example: 28546",
+            "format": "integer",
+            "in": "path",
+            "name": "postal_code",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Country Code (2 letter).",
+            "format": "string",
+            "in": "query",
+            "name": "country",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Wraps return in jsonp callback. Example - callback=func",
+            "format": "string",
+            "in": "query",
+            "name": "callback",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Your registered API key.",
+            "format": "string",
+            "in": "query",
+            "name": "key",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Historical air quality conditions",
+            "schema": {
+              "$ref": "#/definitions/AQCurrentGroup"
+            }
+          },
+          "default": {
+            "description": "No Data.",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "summary": "Returns 72 hours of historical air quality conditions - Given a Postal Code.",
+        "tags": [
+          "Historical Air Quality"
+        ],
+        "operationId": "history.airquality_postal_code_postal_code.get"
+      }
+    },
     "/history/daily?city={city}&country={country}": {
       "get": {
-        "description": "Returns Historical Observations - Given a city in the format of City,ST or City. The state, and country parameters can be provided to make the search more accurate. **(LIMIT 1 day for Low Volume plans. LIMIT 7 days for Basic/Developer. LIMIT 30 days for Advanced/Advanced+/Enterprise)**",
+        "description": "Returns Historical Observations - Given a city in the format of City,ST or City. The state, and country parameters can be provided to make the search more accurate. **(LIMIT 1 day for Free plan. LIMIT 7 days for Developer. LIMIT 30 days for Advanced/Advanced+/Enterprise)**",
         "parameters": [
           {
             "description": "City search.. Example - &city=Raleigh,NC or &city=Berlin,DE or city=Paris&country=FR",
@@ -4465,7 +4637,7 @@
     },
     "/history/daily?city_id={city_id}": {
       "get": {
-        "description": "Returns Historical Observations - Given a City ID. **(LIMIT 1 day for Low Volume plans. LIMIT 7 days for Basic/Developer. LIMIT 30 days for Advanced/Advanced+/Enterprise)**",
+        "description": "Returns Historical Observations - Given a City ID. **(LIMIT 1 day for Free plan. LIMIT 7 days for Developer. LIMIT 30 days for Advanced/Advanced+/Enterprise)**",
         "parameters": [
           {
             "description": "City ID. Example: 4487042",
@@ -4584,130 +4756,9 @@
         "operationId": "history.daily_city_id_city_id.get"
       }
     },
-    "/history/daily?ip={ip}": {
-      "get": {
-        "description": "Returns Historical Observations - Given IP Address, or auto. **(LIMIT 1 day for Low Volume plans. LIMIT 7 days for Basic/Developer. LIMIT 30 days for Advanced/Advanced+/Enterprise)**",
-        "parameters": [
-          {
-            "description": "IP Address, or auto. Example: ip=auto",
-            "format": "string",
-            "in": "path",
-            "name": "ip",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "Start Date (YYYY-MM-DD or YYYY-MM-DD:HH).",
-            "format": "string",
-            "in": "query",
-            "name": "start_date",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "End Date (YYYY-MM-DD or YYYY-MM-DD:HH).",
-            "format": "string",
-            "in": "query",
-            "name": "end_date",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>",
-            "enum": [
-              "S",
-              "I"
-            ],
-            "format": "string",
-            "in": "query",
-            "name": "units",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>",
-            "enum": [
-              "ar",
-              "az",
-              "be",
-              "bg",
-              "bs",
-              "ca",
-              "cs",
-              "de",
-              "fi",
-              "fr",
-              "el",
-              "es",
-              "et",
-              "hr",
-              "hu",
-              "id",
-              "it",
-              "is",
-              "kw",
-              "nb",
-              "nl",
-              "pl",
-              "pt",
-              "ro",
-              "ru",
-              "sk",
-              "sl",
-              "sr",
-              "sv",
-              "tr",
-              "uk",
-              "zh",
-              "zh-tw"
-            ],
-            "format": "string",
-            "in": "query",
-            "name": "lang",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "Wraps return in jsonp callback. Example: callback=func",
-            "format": "string",
-            "in": "query",
-            "name": "callback",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "Your registered API key.",
-            "format": "string",
-            "in": "query",
-            "name": "key",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "An Historical Day Data Object.",
-            "schema": {
-              "$ref": "#/definitions/HistoryDay"
-            }
-          },
-          "default": {
-            "description": "No Data.",
-            "schema": {
-              "$ref": "#/definitions/Error"
-            }
-          }
-        },
-        "summary": "Returns Historical Observations - Given IP Address, or auto.",
-        "tags": [
-          "Daily Historical Weather Data"
-        ],
-        "operationId": "history.daily_ip_ip.get"
-      }
-    },
     "/history/daily?lat={lat}&lon={lon}": {
       "get": {
-        "description": "Returns Historical Observations - Given a lat, and lon. **(LIMIT 1 day for Low Volume plans. LIMIT 7 days for Basic/Developer. LIMIT 30 days for Advanced/Advanced+/Enterprise)**",
+        "description": "Returns Historical Observations - Given a lat, and lon. **(LIMIT 1 day for Free plan. LIMIT 7 days for Developer. LIMIT 30 days for Advanced/Advanced+/Enterprise)**",
         "parameters": [
           {
             "description": "Latitude component of location.",
@@ -4836,7 +4887,7 @@
     },
     "/history/daily?postal_code={postal_code}": {
       "get": {
-        "description": "Returns Historical Observations - Given a Postal Code. **(LIMIT 1 day for Low Volume plans. LIMIT 7 days for Basic/Developer. LIMIT 30 days for Advanced/Advanced+/Enterprise)**",
+        "description": "Returns Historical Observations - Given a Postal Code. **(LIMIT 1 day for Free plan. LIMIT 7 days for Developer. LIMIT 30 days for Advanced/Advanced+/Enterprise)**",
         "parameters": [
           {
             "description": "Postal Code. Example: 28546",
@@ -4965,7 +5016,7 @@
     },
     "/history/daily?station={station}": {
       "get": {
-        "description": "Returns Historical Observations - Given a station ID. **(LIMIT 1 day for Low Volume plans. LIMIT 7 days for Basic/Developer. LIMIT 30 days for Advanced/Advanced+/Enterprise)**",
+        "description": "Returns Historical Observations - Given a station ID. **(LIMIT 1 day for Free plan. LIMIT 7 days for Developer. LIMIT 30 days for Advanced/Advanced+/Enterprise)**",
         "parameters": [
           {
             "description": "Station ID.",
@@ -5191,7 +5242,7 @@
         "tags": [
           "Historical Degree Day API",
           "Historical Solar Irradiance API",
-          "Historical Weather Energy API (Advanced+ / Enterprise Plans)"
+          "Historical Weather Energy API"
         ],
         "operationId": "history.energy.bbox_lat1_lat1_lon1_lon1_lat2_lat2_lon2_lon2.get"
       }
@@ -5235,6 +5286,7 @@
           {
             "description": "Time period to aggregate by (daily, monthly)",
             "enum": [
+              "hourly",
               "daily",
               "monthly"
             ],
@@ -5299,14 +5351,14 @@
         "tags": [
           "Historical Degree Day API",
           "Historical Solar Irradiance API",
-          "Historical Weather Energy API (Advanced+ / Enterprise Plans)"
+          "Historical Weather Energy API"
         ],
         "operationId": "history.energy_lat_lat_lon_lon.get"
       }
     },
     "/history/hourly?city={city}&country={country}": {
       "get": {
-        "description": "Returns Historical Observations - Given a city in the format of City,ST or City. The state, and country parameters can be provided to make the search more accurate. **(LIMIT 1 day for Low Volume plans. LIMIT 7 days for Basic/Developer. LIMIT 30 days for Advanced/Advanced+/Enterprise)**",
+        "description": "Returns Historical Observations - Given a city in the format of City,ST or City. The state, and country parameters can be provided to make the search more accurate. **(LIMIT 1 day for Free plan. LIMIT 7 days for Developer. LIMIT 30 days for Advanced/Advanced+/Enterprise)**",
         "parameters": [
           {
             "description": "City search. Example - &city=Raleigh,NC or &city=Berlin,DE or city=Paris&country=FR",
@@ -5404,6 +5456,18 @@
             "type": "string"
           },
           {
+            "description": "Assume utc (default) or local time for start_date, end_date",
+            "enum": [
+              "local",
+              "utc"
+            ],
+            "format": "string",
+            "in": "query",
+            "name": "tz",
+            "required": false,
+            "type": "string"
+          },
+          {
             "description": "Wraps return in jsonp callback. Example: callback=func",
             "format": "string",
             "in": "query",
@@ -5443,7 +5507,7 @@
     },
     "/history/hourly?city_id={city_id}": {
       "get": {
-        "description": "Returns Historical Observations - Given a City ID. **(LIMIT 1 day for Low Volume plans. LIMIT 7 days for Basic/Developer. LIMIT 30 days for Advanced/Advanced+/Enterprise)**",
+        "description": "Returns Historical Observations - Given a City ID. **(LIMIT 1 day for Free plan. LIMIT 7 days for Developer. LIMIT 30 days for Advanced/Advanced+/Enterprise)**",
         "parameters": [
           {
             "description": "City ID. Example: 4487042",
@@ -5525,6 +5589,18 @@
             "type": "string"
           },
           {
+            "description": "Assume utc (default) or local time for start_date, end_date",
+            "enum": [
+              "local",
+              "utc"
+            ],
+            "format": "string",
+            "in": "query",
+            "name": "tz",
+            "required": false,
+            "type": "string"
+          },
+          {
             "description": "Wraps return in jsonp callback. Example: callback=func",
             "format": "string",
             "in": "query",
@@ -5562,130 +5638,9 @@
         "operationId": "history.hourly_city_id_city_id.get"
       }
     },
-    "/history/hourly?ip={ip}": {
-      "get": {
-        "description": "Returns Historical Observations - Given IP Address, or auto. **(LIMIT 1 day for Low Volume plans. LIMIT 7 days for Basic/Developer. LIMIT 30 days for Advanced/Advanced+/Enterprise)**",
-        "parameters": [
-          {
-            "description": "IP Address, or auto. Example: ip=auto",
-            "format": "string",
-            "in": "path",
-            "name": "ip",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "Start Date (YYYY-MM-DD or YYYY-MM-DD:HH).",
-            "format": "string",
-            "in": "query",
-            "name": "start_date",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "End Date (YYYY-MM-DD or YYYY-MM-DD:HH).",
-            "format": "string",
-            "in": "query",
-            "name": "end_date",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "Convert to units. Default Metric See <a target='blank' href='/api/requests'>units field description</a>",
-            "enum": [
-              "S",
-              "I"
-            ],
-            "format": "string",
-            "in": "query",
-            "name": "units",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "Language (Default: English) See <a target='blank' href='/api/requests'>language field description</a>",
-            "enum": [
-              "ar",
-              "az",
-              "be",
-              "bg",
-              "bs",
-              "ca",
-              "cs",
-              "de",
-              "fi",
-              "fr",
-              "el",
-              "es",
-              "et",
-              "hr",
-              "hu",
-              "id",
-              "it",
-              "is",
-              "kw",
-              "nb",
-              "nl",
-              "pl",
-              "pt",
-              "ro",
-              "ru",
-              "sk",
-              "sl",
-              "sr",
-              "sv",
-              "tr",
-              "uk",
-              "zh",
-              "zh-tw"
-            ],
-            "format": "string",
-            "in": "query",
-            "name": "lang",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "Wraps return in jsonp callback. Example: callback=func",
-            "format": "string",
-            "in": "query",
-            "name": "callback",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "Your registered API key.",
-            "format": "string",
-            "in": "query",
-            "name": "key",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "An Historical Data Object.",
-            "schema": {
-              "$ref": "#/definitions/History"
-            }
-          },
-          "default": {
-            "description": "No Data.",
-            "schema": {
-              "$ref": "#/definitions/Error"
-            }
-          }
-        },
-        "summary": "Returns Historical Observations - Given IP Address, or auto.",
-        "tags": [
-          "Hourly Historical Weather Data"
-        ],
-        "operationId": "history.hourly_ip_ip.get"
-      }
-    },
     "/history/hourly?lat={lat}&lon={lon}": {
       "get": {
-        "description": "Returns Historical Observations - Given a lat, and lon. **(LIMIT 1 day for Low Volume plans. LIMIT 7 days for Basic/Developer. LIMIT 30 days for Advanced/Advanced+/Enterprise)**",
+        "description": "Returns Historical Observations - Given a lat, and lon. **(LIMIT 1 day for Free plan. LIMIT 7 days for Developer. LIMIT 30 days for Advanced/Advanced+/Enterprise)**",
         "parameters": [
           {
             "description": "Latitude component of location.",
@@ -5775,6 +5730,18 @@
             "type": "string"
           },
           {
+            "description": "Assume utc (default) or local time for start_date, end_date",
+            "enum": [
+              "local",
+              "utc"
+            ],
+            "format": "string",
+            "in": "query",
+            "name": "tz",
+            "required": false,
+            "type": "string"
+          },
+          {
             "description": "Wraps return in jsonp callback. Example: callback=func",
             "format": "string",
             "in": "query",
@@ -5814,7 +5781,7 @@
     },
     "/history/hourly?postal_code={postal_code}": {
       "get": {
-        "description": "Returns Historical Observations - Given a Postal Code. **(LIMIT 1 day for Low Volume plans. LIMIT 7 days for Basic/Developer. LIMIT 30 days for Advanced/Advanced+/Enterprise)**",
+        "description": "Returns Historical Observations - Given a Postal Code. **(LIMIT 1 day for Free plan. LIMIT 7 days for Developer. LIMIT 30 days for Advanced/Advanced+/Enterprise)**",
         "parameters": [
           {
             "description": "Postal Code. Example: 28546",
@@ -5904,6 +5871,18 @@
             "type": "string"
           },
           {
+            "description": "Assume utc (default) or local time for start_date, end_date",
+            "enum": [
+              "local",
+              "utc"
+            ],
+            "format": "string",
+            "in": "query",
+            "name": "tz",
+            "required": false,
+            "type": "string"
+          },
+          {
             "description": "Wraps return in jsonp callback. Example: callback=func",
             "format": "string",
             "in": "query",
@@ -5943,7 +5922,7 @@
     },
     "/history/hourly?station={station}": {
       "get": {
-        "description": "Returns Historical Observations - Given a station ID. **(LIMIT 1 day for Low Volume plans. LIMIT 7 days for Basic/Developer. LIMIT 30 days for Advanced/Advanced+/Enterprise)**",
+        "description": "Returns Historical Observations - Given a station ID. **(LIMIT 1 day for Free plan. LIMIT 7 days for Developer. LIMIT 30 days for Advanced/Advanced+/Enterprise)**",
         "parameters": [
           {
             "description": "Station ID.",
@@ -6025,6 +6004,18 @@
             "type": "string"
           },
           {
+            "description": "Assume utc (default) or local time for start_date, end_date",
+            "enum": [
+              "local",
+              "utc"
+            ],
+            "format": "string",
+            "in": "query",
+            "name": "tz",
+            "required": false,
+            "type": "string"
+          },
+          {
             "description": "Wraps return in jsonp callback. Example: callback=func",
             "format": "string",
             "in": "query",
@@ -6061,80 +6052,191 @@
         ],
         "operationId": "history.hourly_station_station.get"
       }
-    },
-    "/ip?ip={ip}": {
-      "get": {
-        "description": "Returns a geolocation object. Given an IP address. If no IP supplied, will use request IP address.",
-        "parameters": [
-          {
-            "description": "IP address",
-            "format": "string",
-            "in": "path",
-            "name": "ip",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "Wraps return in jsonp callback",
-            "format": "string",
-            "in": "query",
-            "name": "callback",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "exclude=all => return IP address only",
-            "format": "string",
-            "in": "query",
-            "name": "exclude",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "&format=none => return IP address as string",
-            "format": "string",
-            "in": "query",
-            "name": "format",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "Your registered API key.",
-            "format": "string",
-            "in": "query",
-            "name": "key",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "A geolocation object.",
-            "schema": {
-              "$ref": "#/definitions/GeoIPObj"
-            }
-          },
-          "default": {
-            "description": "No Data.",
-            "schema": {
-              "$ref": "#/definitions/Error"
-            }
-          }
-        },
-        "summary": "Returns an Geolocation object.",
-        "tags": [
-          "IP Geolocation API"
-        ],
-        "operationId": "ip_ip_ip.get"
-      }
     }
   },
   "definitions": {
+    "AQCurrent": {
+      "properties": {
+        "aqi": {
+          "description": "Cloud cover as a percentage (%)",
+          "example": 100,
+          "type": "integer"
+        },
+        "no2": {
+          "description": "Concentration of NO2 (µg/m³)",
+          "example": 25,
+          "type": "number"
+        },
+        "o3": {
+          "description": "Concentration of O3 (µg/m³)",
+          "example": 2,
+          "type": "number"
+        },
+        "pm10": {
+          "description": "Concentration of PM 10 (µg/m³)",
+          "example": 150,
+          "type": "number"
+        },
+        "pm25": {
+          "description": "Concentration of PM 2.5 (µg/m³)",
+          "example": 230,
+          "type": "number"
+        },
+        "so2": {
+          "description": "Concentration of SO2 (µg/m³)",
+          "example": 50,
+          "type": "number"
+        }
+      },
+      "type": "object"
+    },
+    "AQCurrentGroup": {
+      "properties": {
+        "city_name": {
+          "description": "City Name",
+          "example": "Raleigh",
+          "type": "string"
+        },
+        "country_code": {
+          "description": "Country Abbreviation",
+          "example": "US",
+          "type": "string"
+        },
+        "data": {
+          "items": {
+            "$ref": "#/definitions/AQCurrent"
+          },
+          "type": "array"
+        },
+        "lat": {
+          "description": "Latitude",
+          "example": "38.25",
+          "type": "string"
+        },
+        "lon": {
+          "description": "Longitude",
+          "example": "-78.00",
+          "type": "string"
+        },
+        "state_code": {
+          "description": "State Abbreviation",
+          "example": "NC",
+          "type": "string"
+        },
+        "timezone": {
+          "description": "Local IANA time zone",
+          "example": "America/New_York",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "AQHour": {
+      "properties": {
+        "aqi": {
+          "description": "Cloud cover as a percentage (%)",
+          "example": 100,
+          "type": "integer"
+        },
+        "no2": {
+          "description": "Concentration of NO2 (µg/m³)",
+          "example": 25,
+          "type": "number"
+        },
+        "o3": {
+          "description": "Concentration of O3 (µg/m³)",
+          "example": 2,
+          "type": "number"
+        },
+        "pm10": {
+          "description": "Concentration of PM 10 (µg/m³)",
+          "example": 150,
+          "type": "number"
+        },
+        "pm25": {
+          "description": "Concentration of PM 2.5 (µg/m³)",
+          "example": 230,
+          "type": "number"
+        },
+        "so2": {
+          "description": "Concentration of SO2 (µg/m³)",
+          "example": 50,
+          "type": "number"
+        },
+        "timestamp_local": {
+          "description": "Timestamp in local time",
+          "example": "2019-03-04T12:00:00",
+          "type": "string"
+        },
+        "timestamp_utc": {
+          "description": "Timestamp UTC",
+          "example": "2019-03-04T17:00:00",
+          "type": "string"
+        },
+        "ts": {
+          "description": "Unix Timestamp",
+          "example": "1551718800",
+          "type": "number"
+        }
+      },
+      "type": "object"
+    },
+    "AQHourly": {
+      "properties": {
+        "city_name": {
+          "description": "City Name",
+          "example": "Raleigh",
+          "type": "string"
+        },
+        "country_code": {
+          "description": "Country Abbreviation",
+          "example": "US",
+          "type": "string"
+        },
+        "data": {
+          "items": {
+            "$ref": "#/definitions/AQHour"
+          },
+          "type": "array"
+        },
+        "lat": {
+          "description": "Latitude",
+          "example": "38.25",
+          "type": "string"
+        },
+        "lon": {
+          "description": "Longitude",
+          "example": "-78.00",
+          "type": "string"
+        },
+        "state_code": {
+          "description": "State Abbreviation",
+          "example": "NC",
+          "type": "string"
+        },
+        "timezone": {
+          "description": "Local IANA time zone",
+          "example": "America/New_York",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "AlertRegionGroup": {
+      "description": "List of impacted regions",
+      "example": "St Louis, MO",
+      "type": "string"
+    },
     "CurrentObs": {
       "properties": {
         "app_temp": {
           "description": "Apparent temperature - Default (C)",
           "example": 14.85,
+          "type": "number"
+        },
+        "aqi": {
+          "description": "Air quality index (US EPA standard 0 to +500)",
+          "example": 50,
           "type": "number"
         },
         "city_name": {
@@ -6163,13 +6265,23 @@
           "type": "number"
         },
         "dhi": {
-          "description": "Direct component of solar insolation (W/m^2)",
+          "description": "Diffuse horizontal irradiance (W/m^2)",
+          "example": 450.4,
+          "type": "number"
+        },
+        "dni": {
+          "description": "Direct normal irradiance (W/m^2)",
           "example": 450.4,
           "type": "number"
         },
         "elev_angle": {
           "description": "Current solar elevation angle (Degrees)",
           "example": 37,
+          "type": "number"
+        },
+        "ghi": {
+          "description": "Global horizontal irradiance (W/m^2)",
+          "example": 450.4,
           "type": "number"
         },
         "hour_angle": {
@@ -6221,6 +6333,11 @@
           "example": 10,
           "type": "number"
         },
+        "solar_rad": {
+          "description": "Estimated solar radiation (W/m^2)",
+          "example": 300.4,
+          "type": "number"
+        },
         "state_code": {
           "description": "State abbreviation",
           "example": "NC",
@@ -6238,7 +6355,7 @@
         },
         "sunset": {
           "description": "Time (UTC) of Sunset (HH:MM)",
-          "example": "19:34",
+          "example": 1174,
           "type": "string"
         },
         "temp": {
@@ -6461,6 +6578,137 @@
       },
       "type": "object"
     },
+    "EnergyObsGroupForecast": {
+      "properties": {
+        "city_name": {
+          "description": "City name (closest)",
+          "example": "Raleigh",
+          "type": "string"
+        },
+        "country_code": {
+          "description": "Country abbreviation",
+          "example": "US",
+          "type": "string"
+        },
+        "data": {
+          "items": {
+            "$ref": "#/definitions/EnergyObsSeries"
+          },
+          "type": "array"
+        },
+        "lat": {
+          "description": "Latitude",
+          "example": "38.00",
+          "type": "string"
+        },
+        "lon": {
+          "description": "Longitude",
+          "example": "-78.25",
+          "type": "string"
+        },
+        "state_code": {
+          "description": "State abbreviation",
+          "example": "NC",
+          "type": "string"
+        },
+        "threshold_units": {
+          "description": "Degree day threshold units",
+          "example": "C",
+          "type": "string"
+        },
+        "threshold_value": {
+          "description": "Degree day threshold",
+          "example": "18",
+          "type": "string"
+        },
+        "timezone": {
+          "description": "Local IANA time zone",
+          "example": "America/New_York",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "EnergyObsSeries": {
+      "properties": {
+        "cdd": {
+          "description": "Cooling degree days",
+          "example": 10,
+          "type": "number"
+        },
+        "clouds": {
+          "description": "Average cloud cover (%)",
+          "example": 42,
+          "type": "integer"
+        },
+        "date": {
+          "description": "Date",
+          "example": "2018-06-01",
+          "type": "string"
+        },
+        "dewpt": {
+          "description": "Average dew point temperature - Default (C)",
+          "example": 12,
+          "type": "number"
+        },
+        "hdd": {
+          "description": "Heating degree days",
+          "example": 120,
+          "type": "number"
+        },
+        "precip": {
+          "description": "Total precipitation in period - Default (mm)",
+          "example": 2,
+          "type": "number"
+        },
+        "rh": {
+          "description": "Average Relative humidity (%)",
+          "example": 75,
+          "type": "integer"
+        },
+        "snow": {
+          "description": "Total snowfall in period - Default (mm)",
+          "example": 10,
+          "type": "number"
+        },
+        "sun_hours": {
+          "description": "Average number of daily sun hours - # hours where Solar GHI > 1000 W/m^2",
+          "example": 4.5,
+          "type": "number"
+        },
+        "t_dhi": {
+          "description": "Total diffuse horizontal solar irradiance (W/m^2)",
+          "example": 450,
+          "type": "number"
+        },
+        "t_dni": {
+          "description": "Total direct normal solar irradiance (W/m^2)",
+          "example": 1200,
+          "type": "number"
+        },
+        "t_ghi": {
+          "description": "Total global horizontal solar irradiance (W/m^2)",
+          "example": 3000,
+          "type": "number"
+        },
+        "temp": {
+          "description": "Average temperature - Default (C)",
+          "example": 13.85,
+          "type": "number"
+        },
+        "wind_dir": {
+          "description": "Average wind direction (Degrees)",
+          "example": 125,
+          "type": "integer"
+        },
+        "wind_speed": {
+          "description": "Average wind speed - Default (m/s)",
+          "example": 5.85,
+          "type": "number"
+        }
+      },
+      "type": "object"
+    },
     "Error": {
       "properties": {
         "code": {
@@ -6491,8 +6739,8 @@
           "type": "integer"
         },
         "datetime": {
-          "description": "(UTC) Date in format \"YYYY-MM-DD\"",
-          "example": "2017-02-06",
+          "description": "Date in format \"YYYY-MM-DD:HH\". All datetime is in (UTC)",
+          "example": "2019-03-04:17",
           "type": "string"
         },
         "dewpt": {
@@ -6514,6 +6762,21 @@
           "description": "Minimum daily Temperature - default (C)",
           "example": -1.23,
           "type": "number"
+        },
+        "moon_phase": {
+          "description": "Moon phase",
+          "example": 0.87,
+          "type": "number"
+        },
+        "moonrise_ts": {
+          "description": "Moonrise unix timestamp",
+          "example": 1530331260,
+          "type": "integer"
+        },
+        "moonset_ts": {
+          "description": "Moonset unix timestamp",
+          "example": 1530331260,
+          "type": "integer"
         },
         "pod": {
           "description": "Part of the day (d = day, n = night)",
@@ -6555,14 +6818,34 @@
           "example": 45,
           "type": "number"
         },
+        "sunrise_ts": {
+          "description": "Sunrise unix timestamp",
+          "example": 1530331260,
+          "type": "integer"
+        },
+        "sunset_ts": {
+          "description": "Sunset unix timestamp",
+          "example": 1530331260,
+          "type": "integer"
+        },
         "temp": {
           "description": "Temperature (Average) - default (C)",
           "example": 1,
           "type": "number"
         },
+        "timestamp_local": {
+          "description": "Timestamp in local time",
+          "example": "2019-03-04T12:00:00",
+          "type": "string"
+        },
+        "timestamp_utc": {
+          "description": "Timestamp UTC",
+          "example": "2019-03-04T17:00:00",
+          "type": "string"
+        },
         "ts": {
           "description": "Unix Timestamp",
-          "example": "1490990400",
+          "example": "1551718800",
           "type": "number"
         },
         "uv": {
@@ -6672,8 +6955,8 @@
           "type": "integer"
         },
         "datetime": {
-          "description": "(UTC) Date in format \"YYYY-MM-DD:HH\"",
-          "example": "2017-02-06:02",
+          "description": "Date in format \"YYYY-MM-DD:HH\". All datetime is in (UTC)",
+          "example": "2019-03-04:17",
           "type": "string"
         },
         "dewpt": {
@@ -6693,7 +6976,7 @@
         },
         "ghi": {
           "description": "Global horizontal solar irradiance (W/m^2)",
-          "example": 1500,
+          "example": 1000,
           "type": "number"
         },
         "pod": {
@@ -6709,11 +6992,6 @@
         "precip": {
           "description": "Accumulated precipitation since last forecast point. Default (mm)",
           "example": 1.1,
-          "type": "number"
-        },
-        "precip6h": {
-          "description": "Accumulated precipitation since last forecast point. Default (mm)",
-          "example": 14.5,
           "type": "number"
         },
         "pres": {
@@ -6746,14 +7024,29 @@
           "example": 45,
           "type": "number"
         },
+        "solar_rad": {
+          "description": "Estimated solar radiation (W/m^2)",
+          "example": 300,
+          "type": "number"
+        },
         "temp": {
           "description": "Temperature - Default (C)",
           "example": -1.5,
           "type": "number"
         },
+        "timestamp_local": {
+          "description": "Timestamp in local time",
+          "example": "2019-03-04T12:00:00",
+          "type": "string"
+        },
+        "timestamp_utc": {
+          "description": "Timestamp UTC",
+          "example": "2019-03-04T17:00:00",
+          "type": "string"
+        },
         "ts": {
           "description": "Unix Timestamp",
-          "example": "1490990400",
+          "example": "1551718800",
           "type": "number"
         },
         "uv": {
@@ -7105,6 +7398,11 @@
           "example": 3,
           "type": "number"
         },
+        "precip_gpm": {
+          "description": "Satellite estimated liquid equivalent precipitation - default (mm)",
+          "example": 3,
+          "type": "number"
+        },
         "pres": {
           "description": "Average pressure (mb)",
           "example": 885.1,
@@ -7153,7 +7451,7 @@
         "ts": {
           "description": "Unix timestamp of datetime (Midnight UTC)",
           "example": 1501970516,
-          "type": "number"
+          "type": "integer"
         },
         "wind_dir": {
           "description": "Average wind direction (degrees)",
@@ -7161,8 +7459,8 @@
           "type": "integer"
         },
         "wind_gust_spd": {
-          "description": "Wind gust direction (degrees)",
-          "example": 340,
+          "description": "Wind gust speed - default (m/s)",
+          "example": 40.98,
           "type": "number"
         },
         "wind_spd": {
@@ -7177,7 +7475,7 @@
       "properties": {
         "datetime": {
           "description": "Date in format \"YYYY-MM-DD:HH\". All datetime is in (UTC)",
-          "example": "2016-01-01:00",
+          "example": "2019-03-04:17",
           "type": "string"
         },
         "dewpt": {
@@ -7220,11 +7518,6 @@
           "example": 3,
           "type": "number"
         },
-        "precip6h": {
-          "description": "Liquid equivalent precipitation in last 6 hours - Default (mm)",
-          "example": 6,
-          "type": "number"
-        },
         "pres": {
           "description": "Pressure (mb)",
           "example": 845,
@@ -7250,15 +7543,30 @@
           "example": 60,
           "type": "number"
         },
+        "solar_rad": {
+          "description": "Estimated solar radiation (W/m^2)",
+          "example": 300,
+          "type": "number"
+        },
         "temp": {
           "description": "Temperature (Default Celcius)",
           "example": -1.2,
           "type": "number"
         },
-        "ts": {
-          "description": "Unix Timestamp (UTC)",
-          "example": "1451606400",
+        "timestamp_local": {
+          "description": "Timestamp in local time",
+          "example": "2019-03-04T12:00:00",
           "type": "string"
+        },
+        "timestamp_utc": {
+          "description": "Timestamp UTC",
+          "example": "2019-03-04T17:00:00",
+          "type": "string"
+        },
+        "ts": {
+          "description": "Unix Timestamp",
+          "example": "1551718800",
+          "type": "number"
         },
         "uv": {
           "description": "UV Index (1-11+)",
@@ -7294,6 +7602,78 @@
           "description": "Wind Speed (Default m/s)",
           "example": 14.7,
           "type": "number"
+        }
+      },
+      "type": "object"
+    },
+    "WeatherAlert": {
+      "properties": {
+        "alerts": {
+          "items": {
+            "$ref": "#/definitions/WeatherAlertGroup"
+          },
+          "type": "array"
+        },
+        "lat": {
+          "description": "Latitude",
+          "example": 38,
+          "type": "number"
+        },
+        "lon": {
+          "description": "Longitude",
+          "example": -78.25,
+          "type": "number"
+        }
+      },
+      "type": "object"
+    },
+    "WeatherAlertGroup": {
+      "properties": {
+        "alerts": {
+          "items": {
+            "$ref": "#/definitions/AlertRegionGroup"
+          },
+          "type": "array"
+        },
+        "description": {
+          "description": "Full description of weather alert",
+          "example": "Mississippi River at Chester\n\n.This Flood Warning is a result of 1-2 inches of rainfall across\nthe basin earlier this week...\nThe Flood Warning continues for\nthe Mississippi River at Chester\n* until Tuesday morning.\n* At  8:30 PM Friday the stage was 26.8 feet.\n* Flood stage is 27.0 feet.\n* Minor flooding is forecast.\n* The river is forecast to rise above flood stage by tonight and to\ncrest near 29.0 feet by Saturday evening. The river is forecast to\nfall below flood stage by Monday morning.\n* Impact:  At 28.0 feet...Unleveed islands near Chester and the prison\nfarm floods.\n* Impact:  At 27.0 feet...Flood Stage.  Unprotected farmland on right\nbank begins to flood.",
+          "type": "string"
+        },
+        "effective_local": {
+          "description": "Issued time local",
+          "example": "2019-02-08T21:51:00",
+          "type": "string"
+        },
+        "effective_utc": {
+          "description": "Issued time UTC",
+          "example": "2019-02-09T02:51:00",
+          "type": "string"
+        },
+        "expires_local": {
+          "description": "Expiration time local",
+          "example": "2019-02-09T21:51:00",
+          "type": "string"
+        },
+        "expires_utc": {
+          "description": "Expiration time UTC",
+          "example": "2019-02-10T02:51:00",
+          "type": "string"
+        },
+        "severity": {
+          "description": "Severity of weather. (Advisory | Watch | Warning)",
+          "example": "Warning",
+          "type": "string"
+        },
+        "title": {
+          "description": "Brief description of weather alert",
+          "example": "Flood Warning issued February 8 at 8:51PM CST expiring February 12 at 8:24AM CST by NWS St Louis MO",
+          "type": "string"
+        },
+        "uri": {
+          "description": "URI to weather alert",
+          "example": "https://api.weather.gov/alerts/NWS-IDP-PROD-3361975-2942026",
+          "type": "string"
         }
       },
       "type": "object"

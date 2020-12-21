@@ -15,7 +15,7 @@ let google_serviceuser = require('@datafire/google_serviceuser').create({
   redirect_uri: ""
 });
 
-google_serviceuser.services.search({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

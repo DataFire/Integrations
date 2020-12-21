@@ -1,8 +1,8 @@
 {
   "name": "@datafire/gov_bc_ca_gwells",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "main": "index.js",
-  "description": "DataFire integration for Registers of Well Drillers and Well Pump Installers",
+  "description": "DataFire integration for Groundwater Wells, Aquifers and Registry API",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DataFire/integrations.git"

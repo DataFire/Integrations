@@ -18,7 +18,7 @@
       "url": "https://app.code-scan.com/site/terms"
     },
     "termsOfService": "https://app.code-scan.com/site/terms",
-    "title": "CodeScan",
+    "title": "CodeScan API",
     "version": "1.0.0",
     "x-apisguru-categories": [
       "developer_tools"

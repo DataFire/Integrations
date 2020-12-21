@@ -15,10 +15,7 @@ let azure_monitor_logprofiles_api = require('@datafire/azure_monitor_logprofiles
   redirect_uri: ""
 });
 
-azure_monitor_logprofiles_api.LogProfiles_List({
-  "api-version": "",
-  "subscriptionId": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

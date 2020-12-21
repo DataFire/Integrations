@@ -9,10 +9,7 @@ npm install --save @datafire/visagecloud
 ```js
 let visagecloud = require('@datafire/visagecloud').create();
 
-visagecloud.getAccountByAccessKeyUsingGET({
-  "accessKey": "",
-  "secretKey": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -148,6 +145,7 @@ visagecloud.performAnalysisUsingPOST({
   * pictureURL `string`: The URL of the picture, assuming it is served by a third party server. Server should be accesible from the Internet or through another netwoek by VisageCloud infrastructure
   * picture `string`: The multipart/form-data version of the image, in case a direct upload is used. At least one of picture or pictureURL must be present
   * algorithmVersion `string` (values: V1, V2): Algorithm version (V2 is more performant but not backward compatible)
+  * autoRotate `boolean`: Auto-rotate to find flipped or rotate faces
   * skipEXIF `boolean`: Skip EXIF rotation procesing
   * waitForPictureUpload `boolean`: Waits until the picture is successfully uploaded, before returning the response back the the client
   * filters `array`: [For advanced users only] Change feature filters for robustness of feature extraction. Tweaking this parameter may affect per
@@ -202,6 +200,7 @@ visagecloud.performRecognitionUsingPOST({
   * pictureURL `string`: The URL of the picture
   * picture `string`: The picture itself
   * algorithmVersion `string` (values: V1, V2): Algorithm version (V2 is more performant but not backward compatible)
+  * autoRotate `boolean`: Auto-rotate to find flipped or rotate faces
   * skipEXIF rotation processing `boolean`: Skip EXIF rotation procesing
   * waitForPictureUpload `boolean`: Waits until the picture is successfully uploaded, before returning the response back the the client
   * filters `array`: [For advanced users only] Change feature filters for robustness of feature extraction. Tweaking this parameter may affect per
@@ -1145,8 +1144,7 @@ visagecloud.addStreamUsingPOST({
   "accessKey": "",
   "secretKey": "",
   "name": "",
-  "url": "",
-  "attributes": ""
+  "url": ""
 }, context)
 ```
 
@@ -1166,7 +1164,7 @@ visagecloud.addStreamUsingPOST({
   * storeAttendanceFrames `boolean`: Boolean value indicating whether you want to store permanently store frames with a recognized face in them
   * isActive `boolean`: Boolean value indicating whether the stream is currently active or not
   * associatedCollections `array`: List of collection ids which will be used to measure attendance
-  * attributes **required** `string`: Attributes of the stream
+  * attributes `string`: Attributes of the stream
 
 #### Output
 * output [RestResponse](#restresponse)
@@ -1221,8 +1219,7 @@ Update an existing stream with a given ID
 visagecloud.updateStreamUsingPATCH({
   "accessKey": "",
   "secretKey": "",
-  "streamId": "",
-  "attributes": ""
+  "streamId": ""
 }, context)
 ```
 
@@ -1231,12 +1228,19 @@ visagecloud.updateStreamUsingPATCH({
   * accessKey **required** `string`: The accessKey provided by VisageCloud
   * secretKey **required** `string`: The secretKey provided by VisageCloud
   * streamId **required** `string`: The id of the stream that will be updated
-  * retentionTime `integer`: Number of seconds for frames to be kept. Default is 605000 seconds (7 days)
+  * name `string`: The name of the stream that will be updated
+  * url `string`: The url of the stream
+  * method `string` (values: WEBRTC_PULL, WEBRTC_PUSH, INGESTION_ENDPOINT): Streaming method
+  * username `string`: Username
+  * password `string`: Password
+  * skipFramesWithNoFaces `boolean`: Boolean value indicating whether you want the original picture to be stored for later retrieval
+  * retentionTime `integer`: Number of seconds for frames to be kept
   * storeOriginalFrames `boolean`: Boolean value indicating whether you want the original picture to be stored for later retrieval
-  * associatedCollections `array`: List of collection ids which will be used to measure attendance
-  * attributes **required** `string`: Attributes of the stream
   * storeAttendanceFaces `boolean`: Boolean value indicating whether you want to store permanently store faces clippings of the recognized faces
   * storeAttendanceFrames `boolean`: Boolean value indicating whether you want to store permanently store frames with a recognized face in them
+  * isActive `boolean`: Boolean value indicating whether the stream is currently active or not
+  * associatedCollections `array`: List of collection ids which will be used to measure attendance
+  * attributes `string`: Attributes of the stream
 
 #### Output
 * output [RestResponse](#restresponse)

@@ -14,7 +14,7 @@
       "name": "MIT"
     },
     "termsOfService": "http://www.vestorly.com/terms/",
-    "title": "Vestorly",
+    "title": "Vestorly API",
     "version": "1.0.0",
     "x-apisguru-categories": [
       "marketing"
@@ -37,10 +37,6 @@
       "type": "openapi"
     }
   },
-  "externalDocs": {
-    "description": "Find more info here",
-    "url": "https://developers.vestorly.com"
-  },
   "securityDefinitions": {
     "access_token": {
       "authorizationUrl": "https://dev.vestorly.com/oauth/authorize",
@@ -54,6 +50,10 @@
   "tags": [
     {
       "description": "Vestorly API docs",
+      "externalDocs": {
+        "description": "Find more info here",
+        "url": "https://developers.vestorly.com"
+      },
       "name": "api docs"
     }
   ],
@@ -66,7 +66,7 @@
           {
             "description": "Vestorly Auth Token",
             "in": "query",
-            "name": "vestorly-auth",
+            "name": "vestorly_auth",
             "required": true,
             "type": "string"
           },
@@ -105,6 +105,67 @@
         ]
       }
     },
+    "/article_phrases": {
+      "get": {
+        "description": "Returns phrases used in Categories",
+        "operationId": "findArticlePhrases",
+        "parameters": [
+          {
+            "description": "Vestorly Auth Token",
+            "in": "query",
+            "name": "vestorly_auth",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "OAuth Token",
+            "in": "query",
+            "name": "access_token",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Text to search phrases",
+            "in": "query",
+            "name": "text_search",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Number of returned phrases",
+            "in": "query",
+            "name": "size",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Number of phrases to skip",
+            "in": "query",
+            "name": "from",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "schema": {
+              "$ref": "#/definitions/ArticlePhrases"
+            }
+          }
+        },
+        "security": [
+          {
+            "access_token": [
+              "default"
+            ]
+          }
+        ],
+        "tags": [
+          "article_phrase"
+        ]
+      }
+    },
     "/articles": {
       "get": {
         "description": "Returns all articles",
@@ -113,7 +174,7 @@
           {
             "description": "Vestorly Auth Token",
             "in": "query",
-            "name": "vestorly-auth",
+            "name": "vestorly_auth",
             "required": true,
             "type": "string"
           },
@@ -182,7 +243,7 @@
           {
             "description": "Vestorly Auth Token",
             "in": "query",
-            "name": "vestorly-auth",
+            "name": "vestorly_auth",
             "required": true,
             "type": "string"
           },
@@ -222,6 +283,622 @@
         ]
       }
     },
+    "/custom_feed_filters": {
+      "get": {
+        "description": "Returns all Categorie's filters",
+        "operationId": "findCustomFeedFilters",
+        "parameters": [
+          {
+            "description": "Vestorly Auth Token",
+            "in": "query",
+            "name": "vestorly_auth",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "OAuth Token",
+            "in": "query",
+            "name": "access_token",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "schema": {
+              "$ref": "#/definitions/CustomFeedFilters"
+            }
+          }
+        },
+        "security": [
+          {
+            "access_token": [
+              "default"
+            ]
+          }
+        ],
+        "tags": [
+          "custom_feed_filters"
+        ]
+      },
+      "post": {
+        "description": "Creates a new Category filter",
+        "operationId": "createCustomFeedFilter",
+        "parameters": [
+          {
+            "description": "Vestorly Auth Token",
+            "in": "query",
+            "name": "vestorly_auth",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "OAuth Token",
+            "in": "query",
+            "name": "access_token",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Category filter to add",
+            "in": "body",
+            "name": "custom_feed_filter",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CustomFeedFilterInput"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Custom Feed Filter response",
+            "schema": {
+              "$ref": "#/definitions/CustomFeedFilterresponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "access_token": [
+              "default"
+            ]
+          }
+        ],
+        "tags": [
+          "custom_feed_filters"
+        ]
+      }
+    },
+    "/custom_feed_filters/{id}": {
+      "delete": {
+        "description": "Deletes the Category's filter",
+        "operationId": "deleteCustomFeedFilter",
+        "parameters": [
+          {
+            "description": "Vestorly Auth Token",
+            "in": "query",
+            "name": "vestorly_auth",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "OAuth Token",
+            "in": "query",
+            "name": "access_token",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "id of category filter to delete",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Custom Feed Filter response",
+            "schema": {
+              "$ref": "#/definitions/CustomFeedFilterresponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "access_token": [
+              "default"
+            ]
+          }
+        ],
+        "tags": [
+          "custom_feed_filters"
+        ]
+      },
+      "get": {
+        "description": "Returns a single Category's filter",
+        "operationId": "findCustomFeedFilterByID",
+        "parameters": [
+          {
+            "description": "Vestorly Auth Token",
+            "in": "query",
+            "name": "vestorly_auth",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "OAuth Token",
+            "in": "query",
+            "name": "access_token",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Custom Feed Filter Id to fetch",
+            "format": "string",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Custom Feed Filter response",
+            "schema": {
+              "$ref": "#/definitions/CustomFeedFilterresponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "access_token": [
+              "default"
+            ]
+          }
+        ],
+        "tags": [
+          "custom_feed_filters"
+        ]
+      },
+      "put": {
+        "description": "Updates a Category Feed Filter",
+        "operationId": "updateCustomFeedFilterById",
+        "parameters": [
+          {
+            "description": "Vestorly Auth Token",
+            "in": "query",
+            "name": "vestorly_auth",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "OAuth Token",
+            "in": "query",
+            "name": "access_token",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "id of category filter to update",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Category filter to add",
+            "in": "body",
+            "name": "custom_feed_filter",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CustomFeedFilterInput"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Custom Feed Filter response",
+            "schema": {
+              "$ref": "#/definitions/CustomFeedFilterresponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "access_token": [
+              "default"
+            ]
+          }
+        ],
+        "tags": [
+          "custom_feed_filters"
+        ]
+      }
+    },
+    "/custom_feeds": {
+      "get": {
+        "description": "Returns all Categories",
+        "operationId": "findCustomFeeds",
+        "parameters": [
+          {
+            "description": "Vestorly Auth Token",
+            "in": "query",
+            "name": "vestorly_auth",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "OAuth Token",
+            "in": "query",
+            "name": "access_token",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "schema": {
+              "$ref": "#/definitions/CustomFeeds"
+            }
+          }
+        },
+        "security": [
+          {
+            "access_token": [
+              "default"
+            ]
+          }
+        ],
+        "tags": [
+          "custom_feeds"
+        ]
+      },
+      "post": {
+        "description": "Creates a new Category",
+        "operationId": "createCustomFeed",
+        "parameters": [
+          {
+            "description": "Vestorly Auth Token",
+            "in": "query",
+            "name": "vestorly_auth",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "OAuth Token",
+            "in": "query",
+            "name": "access_token",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Category to add",
+            "in": "body",
+            "name": "custom_feed",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CustomFeedInput"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Custom Feed response",
+            "schema": {
+              "$ref": "#/definitions/CustomFeedresponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "access_token": [
+              "default"
+            ]
+          }
+        ],
+        "tags": [
+          "custom_feeds"
+        ]
+      }
+    },
+    "/custom_feeds/{id}": {
+      "delete": {
+        "description": "Deletes a new Category",
+        "operationId": "deleteCustomFeed",
+        "parameters": [
+          {
+            "description": "Vestorly Auth Token",
+            "in": "query",
+            "name": "vestorly_auth",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "OAuth Token",
+            "in": "query",
+            "name": "access_token",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "id of category to delete",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Custom Feed response",
+            "schema": {
+              "$ref": "#/definitions/CustomFeedresponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "access_token": [
+              "default"
+            ]
+          }
+        ],
+        "tags": [
+          "custom_feeds"
+        ]
+      },
+      "get": {
+        "description": "Returns a single Category",
+        "operationId": "findCustomFeedByID",
+        "parameters": [
+          {
+            "description": "Vestorly Auth Token",
+            "in": "query",
+            "name": "vestorly_auth",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "OAuth Token",
+            "in": "query",
+            "name": "access_token",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Custom Feed Id to fetch",
+            "format": "string",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Custom Feed response",
+            "schema": {
+              "$ref": "#/definitions/CustomFeedresponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "access_token": [
+              "default"
+            ]
+          }
+        ],
+        "tags": [
+          "custom_feeds"
+        ]
+      },
+      "put": {
+        "description": "Updates a Category",
+        "operationId": "updateCategoryById",
+        "parameters": [
+          {
+            "description": "Vestorly Auth Token",
+            "in": "query",
+            "name": "vestorly_auth",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "OAuth Token",
+            "in": "query",
+            "name": "access_token",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "id of category to update",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Category to add",
+            "in": "body",
+            "name": "custom_feed",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CustomFeedInput"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Custom Feed response",
+            "schema": {
+              "$ref": "#/definitions/CustomFeedresponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "access_token": [
+              "default"
+            ]
+          }
+        ],
+        "tags": [
+          "custom_feeds"
+        ]
+      }
+    },
+    "/custom_feeds/{id}/articles": {
+      "get": {
+        "description": "Returns Articles by Category",
+        "operationId": "findCustomFeedArticles",
+        "parameters": [
+          {
+            "description": "Vestorly Auth Token",
+            "in": "query",
+            "name": "vestorly_auth",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "OAuth Token",
+            "in": "query",
+            "name": "access_token",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Category Id to fetch",
+            "format": "string",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Limit on the number of articles to return",
+            "format": "int32",
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Field on model to sort by",
+            "in": "query",
+            "name": "sort_by",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Field where the fetch will start from",
+            "format": "int32",
+            "in": "query",
+            "name": "start",
+            "type": "integer"
+          },
+          {
+            "description": "Filter retrieved articles since this date",
+            "in": "query",
+            "name": "created_at_gte_days_ago",
+            "type": "string"
+          },
+          {
+            "description": "Search query parameter",
+            "in": "query",
+            "name": "text_query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "schema": {
+              "$ref": "#/definitions/Articles"
+            }
+          }
+        },
+        "security": [
+          {
+            "access_token": [
+              "default"
+            ]
+          }
+        ],
+        "tags": [
+          "custom_feed_articles"
+        ]
+      }
+    },
+    "/custom_feeds/{id}/duplicates": {
+      "post": {
+        "description": "Duplicates Category",
+        "operationId": "duplicateCustomFeed",
+        "parameters": [
+          {
+            "description": "Vestorly Auth Token",
+            "in": "query",
+            "name": "vestorly_auth",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "OAuth Token",
+            "in": "query",
+            "name": "access_token",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "id of category to duplicate",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Custom Feed response",
+            "schema": {
+              "$ref": "#/definitions/CustomFeedresponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "access_token": [
+              "default"
+            ]
+          }
+        ],
+        "tags": [
+          "custom_feeds"
+        ]
+      }
+    },
     "/events": {
       "get": {
         "description": "Returns all events",
@@ -230,7 +907,7 @@
           {
             "description": "Vestorly Auth Token",
             "in": "query",
-            "name": "vestorly-auth",
+            "name": "vestorly_auth",
             "required": true,
             "type": "string"
           },
@@ -268,7 +945,7 @@
           {
             "description": "Vestorly Auth Token",
             "in": "query",
-            "name": "vestorly-auth",
+            "name": "vestorly_auth",
             "required": true,
             "type": "string"
           },
@@ -331,7 +1008,7 @@
           {
             "description": "Vestorly Auth Token",
             "in": "query",
-            "name": "vestorly-auth",
+            "name": "vestorly_auth",
             "required": true,
             "type": "string"
           }
@@ -365,7 +1042,7 @@
             "description": "Vestorly Auth Token",
             "format": "string",
             "in": "query",
-            "name": "vestorly-auth",
+            "name": "vestorly_auth",
             "required": true,
             "type": "string"
           },
@@ -404,7 +1081,7 @@
             "description": "Vestorly Auth Token",
             "format": "string",
             "in": "query",
-            "name": "vestorly-auth",
+            "name": "vestorly_auth",
             "required": true,
             "type": "string"
           },
@@ -457,7 +1134,7 @@
             "description": "Vestorly Auth Token",
             "format": "string",
             "in": "query",
-            "name": "vestorly-auth",
+            "name": "vestorly_auth",
             "required": true,
             "type": "string"
           },
@@ -506,7 +1183,7 @@
             "description": "Vestorly Auth Token",
             "format": "string",
             "in": "query",
-            "name": "vestorly-auth",
+            "name": "vestorly_auth",
             "required": true,
             "type": "string"
           },
@@ -552,7 +1229,7 @@
           {
             "description": "Vestorly Auth Token",
             "in": "query",
-            "name": "vestorly-auth",
+            "name": "vestorly_auth",
             "required": true,
             "type": "string"
           },
@@ -611,7 +1288,7 @@
           {
             "description": "Vestorly Auth Token",
             "in": "query",
-            "name": "vestorly-auth",
+            "name": "vestorly_auth",
             "required": true,
             "type": "string"
           },
@@ -651,7 +1328,7 @@
           {
             "description": "Vestorly Auth Token",
             "in": "query",
-            "name": "vestorly-auth",
+            "name": "vestorly_auth",
             "required": true,
             "type": "string"
           },
@@ -692,7 +1369,7 @@
             "description": "Vestorly Auth Token",
             "format": "string",
             "in": "query",
-            "name": "vestorly-auth",
+            "name": "vestorly_auth",
             "required": true,
             "type": "string"
           },
@@ -744,7 +1421,7 @@
           {
             "description": "Vestorly Auth Token",
             "in": "query",
-            "name": "vestorly-auth",
+            "name": "vestorly_auth",
             "required": true,
             "type": "string"
           },
@@ -802,7 +1479,7 @@
             "description": "Vestorly Auth Token",
             "format": "string",
             "in": "query",
-            "name": "vestorly-auth",
+            "name": "vestorly_auth",
             "required": true,
             "type": "string"
           },
@@ -849,7 +1526,7 @@
             "description": "Vestorly Auth Token",
             "format": "string",
             "in": "query",
-            "name": "vestorly-auth",
+            "name": "vestorly_auth",
             "required": true,
             "type": "string"
           },
@@ -898,7 +1575,7 @@
           {
             "description": "Vestorly Auth Token",
             "in": "query",
-            "name": "vestorly-auth",
+            "name": "vestorly_auth",
             "required": true,
             "type": "string"
           },
@@ -945,7 +1622,7 @@
           {
             "description": "Vestorly Auth Token",
             "in": "query",
-            "name": "vestorly-auth",
+            "name": "vestorly_auth",
             "required": true,
             "type": "string"
           },
@@ -990,7 +1667,7 @@
           {
             "description": "Vestorly Auth Token",
             "in": "query",
-            "name": "vestorly-auth",
+            "name": "vestorly_auth",
             "required": true,
             "type": "string"
           },
@@ -1039,7 +1716,7 @@
           {
             "description": "Vestorly Auth Token",
             "in": "query",
-            "name": "vestorly-auth",
+            "name": "vestorly_auth",
             "required": true,
             "type": "string"
           },
@@ -1079,7 +1756,7 @@
           {
             "description": "Vestorly Auth Token",
             "in": "query",
-            "name": "vestorly-auth",
+            "name": "vestorly_auth",
             "required": true,
             "type": "string"
           },
@@ -1124,7 +1801,7 @@
           {
             "description": "Vestorly Auth Token",
             "in": "query",
-            "name": "vestorly-auth",
+            "name": "vestorly_auth",
             "required": true,
             "type": "string"
           },
@@ -1180,7 +1857,7 @@
           {
             "description": "Vestorly Auth Token",
             "in": "query",
-            "name": "vestorly-auth",
+            "name": "vestorly_auth",
             "required": true,
             "type": "string"
           },
@@ -1239,7 +1916,7 @@
           {
             "description": "Vestorly Auth Token",
             "in": "query",
-            "name": "vestorly-auth",
+            "name": "vestorly_auth",
             "required": true,
             "type": "string"
           },
@@ -1288,7 +1965,7 @@
           {
             "description": "Vestorly Auth Token",
             "in": "query",
-            "name": "vestorly-auth",
+            "name": "vestorly_auth",
             "required": true,
             "type": "string"
           },
@@ -1333,7 +2010,7 @@
           {
             "description": "Vestorly Auth Token",
             "in": "query",
-            "name": "vestorly-auth",
+            "name": "vestorly_auth",
             "required": true,
             "type": "string"
           },
@@ -1381,6 +2058,249 @@
         ]
       }
     },
+    "/seed_custom_feeds": {
+      "get": {
+        "description": "Returns all Categories keywords",
+        "operationId": "findSeedCustomFeeds",
+        "parameters": [
+          {
+            "description": "Vestorly Auth Token",
+            "in": "query",
+            "name": "vestorly_auth",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "OAuth Token",
+            "in": "query",
+            "name": "access_token",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "schema": {
+              "$ref": "#/definitions/SeedCustomFeeds"
+            }
+          }
+        },
+        "security": [
+          {
+            "access_token": [
+              "default"
+            ]
+          }
+        ],
+        "tags": [
+          "seed_custom_feeds"
+        ]
+      },
+      "post": {
+        "description": "Creates a new Category Keyword",
+        "operationId": "createSeedCustomFeed",
+        "parameters": [
+          {
+            "description": "Vestorly Auth Token",
+            "in": "query",
+            "name": "vestorly_auth",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "OAuth Token",
+            "in": "query",
+            "name": "access_token",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Category to add",
+            "in": "body",
+            "name": "seed_custom_feed",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SeedCustomFeedInput"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Seed Custom Feed response",
+            "schema": {
+              "$ref": "#/definitions/SeedCustomFeedresponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "access_token": [
+              "default"
+            ]
+          }
+        ],
+        "tags": [
+          "seed_custom_feeds"
+        ]
+      }
+    },
+    "/seed_custom_feeds/{id}": {
+      "delete": {
+        "description": "Deletes a Category keywords",
+        "operationId": "deleteSeedCustomFeed",
+        "parameters": [
+          {
+            "description": "Vestorly Auth Token",
+            "in": "query",
+            "name": "vestorly_auth",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "OAuth Token",
+            "in": "query",
+            "name": "access_token",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "id of seed category to delete",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Seed Custom Feed response",
+            "schema": {
+              "$ref": "#/definitions/SeedCustomFeedresponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "access_token": [
+              "default"
+            ]
+          }
+        ],
+        "tags": [
+          "seed_custom_feeds"
+        ]
+      },
+      "get": {
+        "description": "Returns a single Category keyword",
+        "operationId": "findSeedCustomFeedByID",
+        "parameters": [
+          {
+            "description": "Vestorly Auth Token",
+            "in": "query",
+            "name": "vestorly_auth",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "OAuth Token",
+            "in": "query",
+            "name": "access_token",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Seed Custom Feed Id to fetch",
+            "format": "string",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Seed Custom Feed response",
+            "schema": {
+              "$ref": "#/definitions/SeedCustomFeedresponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "access_token": [
+              "default"
+            ]
+          }
+        ],
+        "tags": [
+          "seed_custom_feeds"
+        ]
+      },
+      "put": {
+        "description": "Updates a Category keywords",
+        "operationId": "updateSeedCustomFeedById",
+        "parameters": [
+          {
+            "description": "Vestorly Auth Token",
+            "in": "query",
+            "name": "vestorly_auth",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "OAuth Token",
+            "in": "query",
+            "name": "access_token",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "id of seed category to update",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Category keywords to add",
+            "in": "body",
+            "name": "seed_custom_feed",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SeedCustomFeedInput"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Seed Custom Feed response",
+            "schema": {
+              "$ref": "#/definitions/SeedCustomFeedresponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "access_token": [
+              "default"
+            ]
+          }
+        ],
+        "tags": [
+          "seed_custom_feeds"
+        ]
+      }
+    },
     "/sessions": {
       "post": {
         "consumes": [
@@ -1425,7 +2345,7 @@
           {
             "description": "Authenication token",
             "in": "query",
-            "name": "vestorly-auth",
+            "name": "vestorly_auth",
             "required": true,
             "type": "string"
           },
@@ -1458,7 +2378,7 @@
           {
             "description": "Vestorly Auth Token",
             "in": "query",
-            "name": "vestorly-auth",
+            "name": "vestorly_auth",
             "required": true,
             "type": "string"
           },
@@ -1496,7 +2416,7 @@
           {
             "description": "Vestorly Auth Token",
             "in": "query",
-            "name": "vestorly-auth",
+            "name": "vestorly_auth",
             "required": true,
             "type": "string"
           },
@@ -1545,7 +2465,7 @@
           {
             "description": "Vestorly Auth Token",
             "in": "query",
-            "name": "vestorly-auth",
+            "name": "vestorly_auth",
             "required": true,
             "type": "string"
           },
@@ -1590,7 +2510,7 @@
           {
             "description": "Vestorly Auth Token",
             "in": "query",
-            "name": "vestorly-auth",
+            "name": "vestorly_auth",
             "required": true,
             "type": "string"
           },
@@ -1795,6 +2715,9 @@
         "proxy_url": {
           "type": "string"
         },
+        "redirector_link": {
+          "type": "string"
+        },
         "square_logo_url": {
           "type": "string"
         },
@@ -1819,6 +2742,38 @@
         "title"
       ]
     },
+    "ArticlePhrase": {
+      "properties": {
+        "created_at": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "length": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "text": {
+          "type": "string"
+        }
+      }
+    },
+    "ArticlePhraseresponse": {
+      "properties": {
+        "article_phrase": {
+          "$ref": "#/definitions/ArticlePhrase"
+        }
+      }
+    },
+    "ArticlePhrases": {
+      "properties": {
+        "article_phrases": {
+          "items": {
+            "$ref": "#/definitions/ArticlePhrase"
+          },
+          "type": "array"
+        }
+      }
+    },
     "Articleresponse": {
       "properties": {
         "article": {
@@ -1831,6 +2786,170 @@
         "articles": {
           "items": {
             "$ref": "#/definitions/Article"
+          },
+          "type": "array"
+        }
+      }
+    },
+    "CustomFeed": {
+      "properties": {
+        "_id": {
+          "type": "string"
+        },
+        "custom_feed_filter_id": {
+          "type": "string"
+        },
+        "custom_feed_permission_id": {
+          "type": "string"
+        },
+        "custom_feed_template_id": {
+          "type": "string"
+        },
+        "custom_feed_visibility": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "default": {
+          "type": "boolean"
+        },
+        "display_label": {
+          "type": "string"
+        },
+        "is_auto_curated_newsletter_custom_feed": {
+          "type": "boolean"
+        },
+        "label": {
+          "type": "string"
+        },
+        "links": {
+          "type": "string"
+        },
+        "popularity": {
+          "format": "float",
+          "type": "number"
+        },
+        "premium_content": {
+          "type": "boolean"
+        },
+        "seed_custom_feed_id": {
+          "type": "string"
+        },
+        "third_party_articles_custom_feed_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "_id",
+        "label"
+      ]
+    },
+    "CustomFeedFilter": {
+      "properties": {
+        "_id": {
+          "type": "string"
+        },
+        "custom_feed_id": {
+          "type": "string"
+        },
+        "source_ids": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "_id",
+        "custom_feed_id"
+      ]
+    },
+    "CustomFeedFilterInput": {
+      "properties": {
+        "custom_feed_id": {
+          "type": "string"
+        },
+        "source_ids": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "custom_feed_id"
+      ]
+    },
+    "CustomFeedFilterresponse": {
+      "properties": {
+        "custom_feed_filter": {
+          "$ref": "#/definitions/CustomFeedFilter"
+        }
+      }
+    },
+    "CustomFeedFilters": {
+      "properties": {
+        "custom_feed_filters": {
+          "items": {
+            "$ref": "#/definitions/CustomFeedFilter"
+          },
+          "type": "array"
+        }
+      }
+    },
+    "CustomFeedInput": {
+      "properties": {
+        "custom_feed_filter_id": {
+          "type": "string"
+        },
+        "custom_feed_permission_id": {
+          "type": "string"
+        },
+        "custom_feed_visibility": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "default": {
+          "type": "boolean"
+        },
+        "is_auto_curated_newsletter_custom_feed": {
+          "type": "boolean"
+        },
+        "label": {
+          "type": "string"
+        },
+        "popularity": {
+          "format": "float",
+          "type": "number"
+        },
+        "premium_content": {
+          "type": "boolean"
+        },
+        "seed_custom_feed_id": {
+          "type": "string"
+        },
+        "social_posting_id": {
+          "type": "string"
+        },
+        "third_party_articles_custom_feed_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "label"
+      ]
+    },
+    "CustomFeedresponse": {
+      "properties": {
+        "custom_feed": {
+          "$ref": "#/definitions/CustomFeed"
+        }
+      }
+    },
+    "CustomFeeds": {
+      "properties": {
+        "custom_feeds": {
+          "items": {
+            "$ref": "#/definitions/CustomFeed"
           },
           "type": "array"
         }
@@ -1898,6 +3017,7 @@
         "_id",
         "type",
         "original_url",
+        "orginator_email",
         "subject_email"
       ]
     },
@@ -1985,7 +3105,11 @@
       "required": [
         "type",
         "original_url",
-        "subject_email"
+        "orginator_email",
+        "subject_email",
+        "advisor_email",
+        "originator_group_name",
+        "newsletter"
       ]
     },
     "Eventcreateresponse": {
@@ -2428,7 +3552,11 @@
           "format": "int64",
           "type": "integer"
         }
-      }
+      },
+      "required": [
+        "id",
+        "name"
+      ]
     },
     "NewsletterInput": {
       "properties": {
@@ -2450,7 +3578,10 @@
           "format": "int64",
           "type": "integer"
         }
-      }
+      },
+      "required": [
+        "name"
+      ]
     },
     "NewsletterSetting": {
       "properties": {
@@ -2478,15 +3609,6 @@
         "facebook_active_wall": {
           "type": "string"
         },
-        "facebook_day_of_week": {
-          "type": "integer"
-        },
-        "facebook_hour": {
-          "type": "integer"
-        },
-        "facebook_status": {
-          "type": "string"
-        },
         "footer_email_font": {
           "type": "string"
         },
@@ -2509,15 +3631,6 @@
           "type": "string"
         },
         "linkedin_active_wall": {
-          "type": "string"
-        },
-        "linkedin_day_of_week": {
-          "type": "integer"
-        },
-        "linkedin_hour": {
-          "type": "integer"
-        },
-        "linkedin_status": {
           "type": "string"
         },
         "montage_enabled": {
@@ -2547,9 +3660,6 @@
         "primary_email_font": {
           "type": "string"
         },
-        "render_version": {
-          "type": "string"
-        },
         "salutation_text": {
           "type": "string"
         },
@@ -2559,13 +3669,7 @@
         "social_description": {
           "type": "string"
         },
-        "social_hour": {
-          "type": "integer"
-        },
         "social_posting_text": {
-          "type": "string"
-        },
-        "social_subtitle": {
           "type": "string"
         },
         "social_title": {
@@ -2575,15 +3679,6 @@
           "type": "string"
         },
         "title_color": {
-          "type": "string"
-        },
-        "twitter_day_of_week": {
-          "type": "integer"
-        },
-        "twitter_hour": {
-          "type": "integer"
-        },
-        "twitter_status": {
           "type": "string"
         }
       },
@@ -2644,9 +3739,6 @@
           "type": "string"
         },
         "company_homepage_url": {
-          "type": "string"
-        },
-        "email_theme_name": {
           "type": "string"
         },
         "is_default": {
@@ -2768,13 +3860,13 @@
           },
           "type": "array"
         },
-        "pdf_attachment_url": {
-          "type": "string"
-        },
         "post_date": {
           "type": "string"
         },
         "proxy_url": {
+          "type": "string"
+        },
+        "redirector_link": {
           "type": "string"
         },
         "slug": {
@@ -2807,7 +3899,11 @@
         "video_id": {
           "type": "string"
         }
-      }
+      },
+      "required": [
+        "id",
+        "name"
+      ]
     },
     "PostInput": {
       "properties": {
@@ -2895,9 +3991,6 @@
           },
           "type": "array"
         },
-        "pdf_attachment_url": {
-          "type": "string"
-        },
         "post_date": {
           "type": "string"
         },
@@ -2936,6 +4029,7 @@
         }
       },
       "required": [
+        "name",
         "title"
       ]
     },
@@ -2958,6 +4052,89 @@
         "posts": {
           "items": {
             "$ref": "#/definitions/Post"
+          },
+          "type": "array"
+        }
+      }
+    },
+    "SeedCustomFeed": {
+      "properties": {
+        "_id": {
+          "type": "string"
+        },
+        "article_id": {
+          "type": "string"
+        },
+        "custom_feed_id": {
+          "type": "string"
+        },
+        "not_article_id": {
+          "type": "string"
+        },
+        "not_seeds": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "seeds": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "sort_by": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "_id",
+        "label"
+      ]
+    },
+    "SeedCustomFeedInput": {
+      "properties": {
+        "article_id": {
+          "type": "string"
+        },
+        "custom_feed_id": {
+          "type": "string"
+        },
+        "not_article_id": {
+          "type": "string"
+        },
+        "not_seeds": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "seeds": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "sort_by": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "custom_feed_id"
+      ]
+    },
+    "SeedCustomFeedresponse": {
+      "properties": {
+        "seed_custom_feed": {
+          "$ref": "#/definitions/SeedCustomFeed"
+        }
+      }
+    },
+    "SeedCustomFeeds": {
+      "properties": {
+        "seed_custom_feeds": {
+          "items": {
+            "$ref": "#/definitions/SeedCustomFeed"
           },
           "type": "array"
         }

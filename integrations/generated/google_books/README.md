@@ -1,6 +1,6 @@
 # @datafire/google_books
 
-Client library for Books
+Client library for Books API
 
 ## Installation and Usage
 ```bash
@@ -15,14 +15,14 @@ let google_books = require('@datafire/google_books').create({
   redirect_uri: ""
 });
 
-google_books.volumes.useruploaded.list({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
 
 ## Description
 
-Searches for books and manages your Google Books library.
+The Google Books API allows clients to access the Google Books repository.
 
 ## Actions
 
@@ -67,12 +67,12 @@ google_books.oauthRefresh(null, context)
   * scope `string`
   * expiration `string`
 
-### cloudloading.addBook
-
+### books.cloudloading.addBook
+Add a user-upload volume and triggers processing.
 
 
 ```js
-google_books.cloudloading.addBook({}, context)
+google_books.books.cloudloading.addBook({}, context)
 ```
 
 #### Input
@@ -80,24 +80,28 @@ google_books.cloudloading.addBook({}, context)
   * drive_document_id `string`: A drive document id. The upload_client_token must not be set.
   * mime_type `string`: The document MIME type. It can be set only if the drive_document_id is set.
   * name `string`: The document name. It can be set only if the drive_document_id is set.
-  * upload_client_token `string`
-  * alt `string` (values: json): Data format for the response.
+  * upload_client_token `string`: Scotty upload token.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [BooksCloudloadingResource](#bookscloudloadingresource)
 
-### cloudloading.deleteBook
+### books.cloudloading.deleteBook
 Remove the book and its contents
 
 
 ```js
-google_books.cloudloading.deleteBook({
+google_books.books.cloudloading.deleteBook({
   "volumeId": ""
 }, context)
 ```
@@ -105,45 +109,53 @@ google_books.cloudloading.deleteBook({
 #### Input
 * input `object`
   * volumeId **required** `string`: The id of the book to be removed.
-  * alt `string` (values: json): Data format for the response.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
-*Output schema unknown*
+* output [Empty](#empty)
 
-### cloudloading.updateBook
-
+### books.cloudloading.updateBook
+Updates a user-upload volume.
 
 
 ```js
-google_books.cloudloading.updateBook({}, context)
+google_books.books.cloudloading.updateBook({}, context)
 ```
 
 #### Input
 * input `object`
   * body [BooksCloudloadingResource](#bookscloudloadingresource)
-  * alt `string` (values: json): Data format for the response.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [BooksCloudloadingResource](#bookscloudloadingresource)
 
-### dictionary.listOfflineMetadata
+### books.dictionary.listOfflineMetadata
 Returns a list of offline dictionary metadata available
 
 
 ```js
-google_books.dictionary.listOfflineMetadata({
+google_books.books.dictionary.listOfflineMetadata({
   "cpksver": ""
 }, context)
 ```
@@ -151,45 +163,53 @@ google_books.dictionary.listOfflineMetadata({
 #### Input
 * input `object`
   * cpksver **required** `string`: The device/version ID from which to request the data.
-  * alt `string` (values: json): Data format for the response.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [Metadata](#metadata)
 
-### familysharing.getFamilyInfo
+### books.familysharing.getFamilyInfo
 Gets information regarding the family that the user is part of.
 
 
 ```js
-google_books.familysharing.getFamilyInfo({}, context)
+google_books.books.familysharing.getFamilyInfo({}, context)
 ```
 
 #### Input
 * input `object`
   * source `string`: String to identify the originator of this request.
-  * alt `string` (values: json): Data format for the response.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [FamilyInfo](#familyinfo)
 
-### familysharing.share
+### books.familysharing.share
 Initiates sharing of the content with the user's family. Empty response indicates success.
 
 
 ```js
-google_books.familysharing.share({}, context)
+google_books.books.familysharing.share({}, context)
 ```
 
 #### Input
@@ -197,23 +217,27 @@ google_books.familysharing.share({}, context)
   * docId `string`: The docid to share.
   * source `string`: String to identify the originator of this request.
   * volumeId `string`: The volume to share.
-  * alt `string` (values: json): Data format for the response.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
-*Output schema unknown*
+* output [Empty](#empty)
 
-### familysharing.unshare
+### books.familysharing.unshare
 Initiates revoking content that has already been shared with the user's family. Empty response indicates success.
 
 
 ```js
-google_books.familysharing.unshare({}, context)
+google_books.books.familysharing.unshare({}, context)
 ```
 
 #### Input
@@ -221,44 +245,53 @@ google_books.familysharing.unshare({}, context)
   * docId `string`: The docid to unshare.
   * source `string`: String to identify the originator of this request.
   * volumeId `string`: The volume to unshare.
-  * alt `string` (values: json): Data format for the response.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
-*Output schema unknown*
+* output [Empty](#empty)
 
-### myconfig.getUserSettings
+### books.myconfig.getUserSettings
 Gets the current settings for the user.
 
 
 ```js
-google_books.myconfig.getUserSettings({}, context)
+google_books.books.myconfig.getUserSettings({}, context)
 ```
 
 #### Input
 * input `object`
-  * alt `string` (values: json): Data format for the response.
+  * country `string`: Unused. Added only to workaround TEX mandatory request template requirement
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [Usersettings](#usersettings)
 
-### myconfig.releaseDownloadAccess
+### books.myconfig.releaseDownloadAccess
 Release downloaded content access restriction.
 
 
 ```js
-google_books.myconfig.releaseDownloadAccess({
+google_books.books.myconfig.releaseDownloadAccess({
   "cpksver": "",
   "volumeIds": []
 }, context)
@@ -267,26 +300,30 @@ google_books.myconfig.releaseDownloadAccess({
 #### Input
 * input `object`
   * cpksver **required** `string`: The device/version ID from which to release the restriction.
+  * volumeIds **required** `array`: The volume(s) to release restrictions for.
   * locale `string`: ISO-639-1, ISO-3166-1 codes for message localization, i.e. en_US.
   * source `string`: String to identify the originator of this request.
-  * volumeIds **required** `array`: The volume(s) to release restrictions for.
-  * alt `string` (values: json): Data format for the response.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [DownloadAccesses](#downloadaccesses)
 
-### myconfig.requestAccess
+### books.myconfig.requestAccess
 Request concurrent and download access restrictions.
 
 
 ```js
-google_books.myconfig.requestAccess({
+google_books.books.myconfig.requestAccess({
   "cpksver": "",
   "nonce": "",
   "source": "",
@@ -297,28 +334,32 @@ google_books.myconfig.requestAccess({
 #### Input
 * input `object`
   * cpksver **required** `string`: The device/version ID from which to request the restrictions.
-  * licenseTypes `string` (values: BOTH, CONCURRENT, DOWNLOAD): The type of access license to request. If not specified, the default is BOTH.
-  * locale `string`: ISO-639-1, ISO-3166-1 codes for message localization, i.e. en_US.
   * nonce **required** `string`: The client nonce value.
   * source **required** `string`: String to identify the originator of this request.
   * volumeId **required** `string`: The volume to request concurrent/download restrictions for.
-  * alt `string` (values: json): Data format for the response.
+  * licenseTypes `string` (values: LICENSE_TYPES_UNDEFINED, BOTH, CONCURRENT, DOWNLOAD): The type of access license to request. If not specified, the default is BOTH.
+  * locale `string`: ISO-639-1, ISO-3166-1 codes for message localization, i.e. en_US.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
-* output [RequestAccess](#requestaccess)
+* output [RequestAccessData](#requestaccessdata)
 
-### myconfig.syncVolumeLicenses
+### books.myconfig.syncVolumeLicenses
 Request downloaded content access for specified volumes on the My eBooks shelf.
 
 
 ```js
-google_books.myconfig.syncVolumeLicenses({
+google_books.books.myconfig.syncVolumeLicenses({
   "cpksver": "",
   "nonce": "",
   "source": ""
@@ -328,52 +369,60 @@ google_books.myconfig.syncVolumeLicenses({
 #### Input
 * input `object`
   * cpksver **required** `string`: The device/version ID from which to release the restriction.
+  * nonce **required** `string`: The client nonce value.
+  * source **required** `string`: String to identify the originator of this request.
   * features `array`: List of features supported by the client, i.e., 'RENTALS'
   * includeNonComicsSeries `boolean`: Set to true to include non-comics series. Defaults to false.
   * locale `string`: ISO-639-1, ISO-3166-1 codes for message localization, i.e. en_US.
-  * nonce **required** `string`: The client nonce value.
   * showPreorders `boolean`: Set to true to show pre-ordered books. Defaults to false.
-  * source **required** `string`: String to identify the originator of this request.
   * volumeIds `array`: The volume(s) to request download restrictions for.
-  * alt `string` (values: json): Data format for the response.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [Volumes](#volumes)
 
-### myconfig.updateUserSettings
+### books.myconfig.updateUserSettings
 Sets the settings for the user. If a sub-object is specified, it will overwrite the existing sub-object stored in the server. Unspecified sub-objects will retain the existing value.
 
 
 ```js
-google_books.myconfig.updateUserSettings({}, context)
+google_books.books.myconfig.updateUserSettings({}, context)
 ```
 
 #### Input
 * input `object`
   * body [Usersettings](#usersettings)
-  * alt `string` (values: json): Data format for the response.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [Usersettings](#usersettings)
 
-### mylibrary.annotations.list
+### books.mylibrary.annotations.list
 Retrieves a list of annotations, possibly filtered.
 
 
 ```js
-google_books.mylibrary.annotations.list({}, context)
+google_books.books.mylibrary.annotations.list({}, context)
 ```
 
 #### Input
@@ -388,49 +437,57 @@ google_books.mylibrary.annotations.list({}, context)
   * updatedMax `string`: RFC 3339 timestamp to restrict to items updated prior to this timestamp (exclusive).
   * updatedMin `string`: RFC 3339 timestamp to restrict to items updated since this timestamp (inclusive).
   * volumeId `string`: The volume to restrict annotations to.
-  * alt `string` (values: json): Data format for the response.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [Annotations](#annotations)
 
-### mylibrary.annotations.insert
+### books.mylibrary.annotations.insert
 Inserts a new annotation.
 
 
 ```js
-google_books.mylibrary.annotations.insert({}, context)
+google_books.books.mylibrary.annotations.insert({}, context)
 ```
 
 #### Input
 * input `object`
   * annotationId `string`: The ID for the annotation to insert.
-  * body [Annotation](#annotation)
   * country `string`: ISO-3166-1 code to override the IP-based location.
   * showOnlySummaryInResponse `boolean`: Requests that only the summary of the specified layer be provided in the response.
   * source `string`: String to identify the originator of this request.
-  * alt `string` (values: json): Data format for the response.
+  * body [Annotation](#annotation)
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [Annotation](#annotation)
 
-### mylibrary.annotations.summary
+### books.mylibrary.annotations.summary
 Gets the summary of specified layers.
 
 
 ```js
-google_books.mylibrary.annotations.summary({
+google_books.books.mylibrary.annotations.summary({
   "layerIds": [],
   "volumeId": ""
 }, context)
@@ -440,23 +497,27 @@ google_books.mylibrary.annotations.summary({
 * input `object`
   * layerIds **required** `array`: Array of layer IDs to get the summary for.
   * volumeId **required** `string`: Volume id to get the summary for.
-  * alt `string` (values: json): Data format for the response.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [AnnotationsSummary](#annotationssummary)
 
-### mylibrary.annotations.delete
+### books.mylibrary.annotations.delete
 Deletes an annotation.
 
 
 ```js
-google_books.mylibrary.annotations.delete({
+google_books.books.mylibrary.annotations.delete({
   "annotationId": ""
 }, context)
 ```
@@ -465,23 +526,27 @@ google_books.mylibrary.annotations.delete({
 * input `object`
   * annotationId **required** `string`: The ID for the annotation to delete.
   * source `string`: String to identify the originator of this request.
-  * alt `string` (values: json): Data format for the response.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
-*Output schema unknown*
+* output [Empty](#empty)
 
-### mylibrary.annotations.update
+### books.mylibrary.annotations.update
 Updates an existing annotation.
 
 
 ```js
-google_books.mylibrary.annotations.update({
+google_books.books.mylibrary.annotations.update({
   "annotationId": ""
 }, context)
 ```
@@ -489,47 +554,55 @@ google_books.mylibrary.annotations.update({
 #### Input
 * input `object`
   * annotationId **required** `string`: The ID for the annotation to update.
-  * body [Annotation](#annotation)
   * source `string`: String to identify the originator of this request.
-  * alt `string` (values: json): Data format for the response.
+  * body [Annotation](#annotation)
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [Annotation](#annotation)
 
-### mylibrary.bookshelves.list
+### books.mylibrary.bookshelves.list
 Retrieves a list of bookshelves belonging to the authenticated user.
 
 
 ```js
-google_books.mylibrary.bookshelves.list({}, context)
+google_books.books.mylibrary.bookshelves.list({}, context)
 ```
 
 #### Input
 * input `object`
   * source `string`: String to identify the originator of this request.
-  * alt `string` (values: json): Data format for the response.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [Bookshelves](#bookshelves)
 
-### mylibrary.bookshelves.get
+### books.mylibrary.bookshelves.get
 Retrieves metadata for a specific bookshelf belonging to the authenticated user.
 
 
 ```js
-google_books.mylibrary.bookshelves.get({
+google_books.books.mylibrary.bookshelves.get({
   "shelf": ""
 }, context)
 ```
@@ -538,23 +611,27 @@ google_books.mylibrary.bookshelves.get({
 * input `object`
   * shelf **required** `string`: ID of bookshelf to retrieve.
   * source `string`: String to identify the originator of this request.
-  * alt `string` (values: json): Data format for the response.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [Bookshelf](#bookshelf)
 
-### mylibrary.bookshelves.addVolume
+### books.mylibrary.bookshelves.addVolume
 Adds a volume to a bookshelf.
 
 
 ```js
-google_books.mylibrary.bookshelves.addVolume({
+google_books.books.mylibrary.bookshelves.addVolume({
   "shelf": "",
   "volumeId": ""
 }, context)
@@ -562,27 +639,31 @@ google_books.mylibrary.bookshelves.addVolume({
 
 #### Input
 * input `object`
-  * reason `string` (values: IOS_PREX, IOS_SEARCH, ONBOARDING): The reason for which the book is added to the library.
   * shelf **required** `string`: ID of bookshelf to which to add a volume.
-  * source `string`: String to identify the originator of this request.
   * volumeId **required** `string`: ID of volume to add.
-  * alt `string` (values: json): Data format for the response.
+  * reason `string` (values: REASON_UNDEFINED, IOS_PREX, IOS_SEARCH, ONBOARDING): The reason for which the book is added to the library.
+  * source `string`: String to identify the originator of this request.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
-*Output schema unknown*
+* output [Empty](#empty)
 
-### mylibrary.bookshelves.clearVolumes
+### books.mylibrary.bookshelves.clearVolumes
 Clears all volumes from a bookshelf.
 
 
 ```js
-google_books.mylibrary.bookshelves.clearVolumes({
+google_books.books.mylibrary.bookshelves.clearVolumes({
   "shelf": ""
 }, context)
 ```
@@ -591,23 +672,27 @@ google_books.mylibrary.bookshelves.clearVolumes({
 * input `object`
   * shelf **required** `string`: ID of bookshelf from which to remove a volume.
   * source `string`: String to identify the originator of this request.
-  * alt `string` (values: json): Data format for the response.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
-*Output schema unknown*
+* output [Empty](#empty)
 
-### mylibrary.bookshelves.moveVolume
+### books.mylibrary.bookshelves.moveVolume
 Moves a volume within a bookshelf.
 
 
 ```js
-google_books.mylibrary.bookshelves.moveVolume({
+google_books.books.mylibrary.bookshelves.moveVolume({
   "shelf": "",
   "volumeId": "",
   "volumePosition": 0
@@ -617,26 +702,30 @@ google_books.mylibrary.bookshelves.moveVolume({
 #### Input
 * input `object`
   * shelf **required** `string`: ID of bookshelf with the volume.
-  * source `string`: String to identify the originator of this request.
   * volumeId **required** `string`: ID of volume to move.
   * volumePosition **required** `integer`: Position on shelf to move the item (0 puts the item before the current first item, 1 puts it between the first and the second and so on.)
-  * alt `string` (values: json): Data format for the response.
+  * source `string`: String to identify the originator of this request.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
-*Output schema unknown*
+* output [Empty](#empty)
 
-### mylibrary.bookshelves.removeVolume
+### books.mylibrary.bookshelves.removeVolume
 Removes a volume from a bookshelf.
 
 
 ```js
-google_books.mylibrary.bookshelves.removeVolume({
+google_books.books.mylibrary.bookshelves.removeVolume({
   "shelf": "",
   "volumeId": ""
 }, context)
@@ -644,214 +733,246 @@ google_books.mylibrary.bookshelves.removeVolume({
 
 #### Input
 * input `object`
-  * reason `string` (values: ONBOARDING): The reason for which the book is removed from the library.
   * shelf **required** `string`: ID of bookshelf from which to remove a volume.
-  * source `string`: String to identify the originator of this request.
   * volumeId **required** `string`: ID of volume to remove.
-  * alt `string` (values: json): Data format for the response.
+  * reason `string` (values: REASON_UNDEFINED, ONBOARDING): The reason for which the book is removed from the library.
+  * source `string`: String to identify the originator of this request.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
-*Output schema unknown*
+* output [Empty](#empty)
 
-### mylibrary.bookshelves.volumes.list
+### books.mylibrary.bookshelves.volumes.list
 Gets volume information for volumes on a bookshelf.
 
 
 ```js
-google_books.mylibrary.bookshelves.volumes.list({
+google_books.books.mylibrary.bookshelves.volumes.list({
   "shelf": ""
 }, context)
 ```
 
 #### Input
 * input `object`
+  * shelf **required** `string`: The bookshelf ID or name retrieve volumes for.
   * country `string`: ISO-3166-1 code to override the IP-based location.
   * maxResults `integer`: Maximum number of results to return
-  * projection `string` (values: full, lite): Restrict information returned to a set of selected fields.
+  * projection `string` (values: PROJECTION_UNDEFINED, FULL, LITE): Restrict information returned to a set of selected fields.
   * q `string`: Full-text search query string in this bookshelf.
-  * shelf **required** `string`: The bookshelf ID or name retrieve volumes for.
   * showPreorders `boolean`: Set to true to show pre-ordered books. Defaults to false.
   * source `string`: String to identify the originator of this request.
   * startIndex `integer`: Index of the first element to return (starts at 0)
-  * alt `string` (values: json): Data format for the response.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [Volumes](#volumes)
 
-### mylibrary.readingpositions.get
+### books.mylibrary.readingpositions.get
 Retrieves my reading position information for a volume.
 
 
 ```js
-google_books.mylibrary.readingpositions.get({
+google_books.books.mylibrary.readingpositions.get({
   "volumeId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
+  * volumeId **required** `string`: ID of volume for which to retrieve a reading position.
   * contentVersion `string`: Volume content version for which this reading position is requested.
   * source `string`: String to identify the originator of this request.
-  * volumeId **required** `string`: ID of volume for which to retrieve a reading position.
-  * alt `string` (values: json): Data format for the response.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [ReadingPosition](#readingposition)
 
-### mylibrary.readingpositions.setPosition
+### books.mylibrary.readingpositions.setPosition
 Sets my reading position information for a volume.
 
 
 ```js
-google_books.mylibrary.readingpositions.setPosition({
+google_books.books.mylibrary.readingpositions.setPosition({
+  "volumeId": "",
   "position": "",
-  "timestamp": "",
-  "volumeId": ""
+  "timestamp": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * action `string` (values: bookmark, chapter, next-page, prev-page, scroll, search): Action that caused this reading position to be set.
+  * volumeId **required** `string`: ID of volume for which to update the reading position.
+  * position **required** `string`: Position string for the new volume reading position.
+  * timestamp **required** `string`: RFC 3339 UTC format timestamp associated with this reading position.
+  * action `string` (values: ACTION_UNDEFINED, bookmark, chapter, next-page, prev-page, scroll, search): Action that caused this reading position to be set.
   * contentVersion `string`: Volume content version for which this reading position applies.
   * deviceCookie `string`: Random persistent device cookie optional on set position.
-  * position **required** `string`: Position string for the new volume reading position.
   * source `string`: String to identify the originator of this request.
-  * timestamp **required** `string`: RFC 3339 UTC format timestamp associated with this reading position.
-  * volumeId **required** `string`: ID of volume for which to update the reading position.
-  * alt `string` (values: json): Data format for the response.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
-*Output schema unknown*
+* output [Empty](#empty)
 
-### notification.get
+### books.notification.get
 Returns notification details for a given notification id.
 
 
 ```js
-google_books.notification.get({
+google_books.books.notification.get({
   "notification_id": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * locale `string`: ISO-639-1 language and ISO-3166-1 country code. Ex: 'en_US'. Used for generating notification title and body.
   * notification_id **required** `string`: String to identify the notification.
+  * locale `string`: ISO-639-1 language and ISO-3166-1 country code. Ex: 'en_US'. Used for generating notification title and body.
   * source `string`: String to identify the originator of this request.
-  * alt `string` (values: json): Data format for the response.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [Notification](#notification)
 
-### onboarding.listCategories
+### books.onboarding.listCategories
 List categories for onboarding experience.
 
 
 ```js
-google_books.onboarding.listCategories({}, context)
+google_books.books.onboarding.listCategories({}, context)
 ```
 
 #### Input
 * input `object`
   * locale `string`: ISO-639-1 language and ISO-3166-1 country code. Default is en-US if unset.
-  * alt `string` (values: json): Data format for the response.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [Category](#category)
 
-### onboarding.listCategoryVolumes
+### books.onboarding.listCategoryVolumes
 List available volumes under categories for onboarding experience.
 
 
 ```js
-google_books.onboarding.listCategoryVolumes({}, context)
+google_books.books.onboarding.listCategoryVolumes({}, context)
 ```
 
 #### Input
 * input `object`
   * categoryId `array`: List of category ids requested.
   * locale `string`: ISO-639-1 language and ISO-3166-1 country code. Default is en-US if unset.
-  * maxAllowedMaturityRating `string` (values: mature, not-mature): The maximum allowed maturity rating of returned volumes. Books with a higher maturity rating are filtered out.
+  * maxAllowedMaturityRating `string` (values: MAX_ALLOWED_MATURITY_RATING_UNDEFINED, MATURE, not-mature): The maximum allowed maturity rating of returned volumes. Books with a higher maturity rating are filtered out.
   * pageSize `integer`: Number of maximum results per page to be included in the response.
   * pageToken `string`: The value of the nextToken from the previous page.
-  * alt `string` (values: json): Data format for the response.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [Volume2](#volume2)
 
-### personalizedstream.get
+### books.personalizedstream.get
 Returns a stream of personalized book clusters
 
 
 ```js
-google_books.personalizedstream.get({}, context)
+google_books.books.personalizedstream.get({}, context)
 ```
 
 #### Input
 * input `object`
   * locale `string`: ISO-639-1 language and ISO-3166-1 country code. Ex: 'en_US'. Used for generating recommendations.
-  * maxAllowedMaturityRating `string` (values: mature, not-mature): The maximum allowed maturity rating of returned recommendations. Books with a higher maturity rating are filtered out.
+  * maxAllowedMaturityRating `string` (values: MAX_ALLOWED_MATURITY_RATING_UNDEFINED, MATURE, not-mature): The maximum allowed maturity rating of returned recommendations. Books with a higher maturity rating are filtered out.
   * source `string`: String to identify the originator of this request.
-  * alt `string` (values: json): Data format for the response.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [Discoveryclusters](#discoveryclusters)
 
-### promooffer.accept
-
+### books.promooffer.accept
+Accepts the promo offer.
 
 
 ```js
-google_books.promooffer.accept({}, context)
+google_books.books.promooffer.accept({}, context)
 ```
 
 #### Input
@@ -864,23 +985,27 @@ google_books.promooffer.accept({}, context)
   * product `string`: device product
   * serial `string`: device serial
   * volumeId `string`: Volume id to exercise the offer
-  * alt `string` (values: json): Data format for the response.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
-*Output schema unknown*
+* output [Empty](#empty)
 
-### promooffer.dismiss
-
+### books.promooffer.dismiss
+Marks the promo offer as dismissed.
 
 
 ```js
-google_books.promooffer.dismiss({}, context)
+google_books.books.promooffer.dismiss({}, context)
 ```
 
 #### Input
@@ -892,23 +1017,27 @@ google_books.promooffer.dismiss({}, context)
   * offerId `string`: Offer to dimiss
   * product `string`: device product
   * serial `string`: device serial
-  * alt `string` (values: json): Data format for the response.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
-*Output schema unknown*
+* output [Empty](#empty)
 
-### promooffer.get
+### books.promooffer.get
 Returns a list of promo offers available to the user
 
 
 ```js
-google_books.promooffer.get({}, context)
+google_books.books.promooffer.get({}, context)
 ```
 
 #### Input
@@ -919,23 +1048,27 @@ google_books.promooffer.get({}, context)
   * model `string`: device model
   * product `string`: device product
   * serial `string`: device serial
-  * alt `string` (values: json): Data format for the response.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [Offers](#offers)
 
-### series.get
+### books.series.get
 Returns Series metadata for the given series ids.
 
 
 ```js
-google_books.series.get({
+google_books.books.series.get({
   "series_id": []
 }, context)
 ```
@@ -943,168 +1076,192 @@ google_books.series.get({
 #### Input
 * input `object`
   * series_id **required** `array`: String that identifies the series
-  * alt `string` (values: json): Data format for the response.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [Series](#series)
 
-### series.membership.get
+### books.series.membership.get
 Returns Series membership data given the series id.
 
 
 ```js
-google_books.series.membership.get({
+google_books.books.series.membership.get({
   "series_id": ""
 }, context)
 ```
 
 #### Input
 * input `object`
+  * series_id **required** `string`: String that identifies the series
   * page_size `integer`: Number of maximum results per page to be included in the response.
   * page_token `string`: The value of the nextToken from the previous page.
-  * series_id **required** `string`: String that identifies the series
-  * alt `string` (values: json): Data format for the response.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [Seriesmembership](#seriesmembership)
 
-### bookshelves.list
+### books.bookshelves.list
 Retrieves a list of public bookshelves for the specified user.
 
 
 ```js
-google_books.bookshelves.list({
+google_books.books.bookshelves.list({
   "userId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * source `string`: String to identify the originator of this request.
   * userId **required** `string`: ID of user for whom to retrieve bookshelves.
-  * alt `string` (values: json): Data format for the response.
+  * source `string`: String to identify the originator of this request.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [Bookshelves](#bookshelves)
 
-### bookshelves.get
+### books.bookshelves.get
 Retrieves metadata for a specific bookshelf for the specified user.
 
 
 ```js
-google_books.bookshelves.get({
-  "shelf": "",
-  "userId": ""
+google_books.books.bookshelves.get({
+  "userId": "",
+  "shelf": ""
 }, context)
 ```
 
 #### Input
 * input `object`
+  * userId **required** `string`: ID of user for whom to retrieve bookshelves.
   * shelf **required** `string`: ID of bookshelf to retrieve.
   * source `string`: String to identify the originator of this request.
-  * userId **required** `string`: ID of user for whom to retrieve bookshelves.
-  * alt `string` (values: json): Data format for the response.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [Bookshelf](#bookshelf)
 
-### bookshelves.volumes.list
+### books.bookshelves.volumes.list
 Retrieves volumes in a specific bookshelf for the specified user.
 
 
 ```js
-google_books.bookshelves.volumes.list({
-  "shelf": "",
-  "userId": ""
+google_books.books.bookshelves.volumes.list({
+  "userId": "",
+  "shelf": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * maxResults `integer`: Maximum number of results to return
+  * userId **required** `string`: ID of user for whom to retrieve bookshelf volumes.
   * shelf **required** `string`: ID of bookshelf to retrieve volumes.
+  * maxResults `integer`: Maximum number of results to return
   * showPreorders `boolean`: Set to true to show pre-ordered books. Defaults to false.
   * source `string`: String to identify the originator of this request.
   * startIndex `integer`: Index of the first element to return (starts at 0)
-  * userId **required** `string`: ID of user for whom to retrieve bookshelf volumes.
-  * alt `string` (values: json): Data format for the response.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [Volumes](#volumes)
 
-### volumes.list
+### books.volumes.list
 Performs a book search.
 
 
 ```js
-google_books.volumes.list({
+google_books.books.volumes.list({
   "q": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * download `string` (values: epub): Restrict to volumes by download availability.
-  * filter `string` (values: ebooks, free-ebooks, full, paid-ebooks, partial): Filter search results.
-  * langRestrict `string`: Restrict results to books with this language code.
-  * libraryRestrict `string` (values: my-library, no-restrict): Restrict search to this user's library.
-  * maxAllowedMaturityRating `string` (values: mature, not-mature): The maximum allowed maturity rating of returned recommendations. Books with a higher maturity rating are filtered out.
-  * maxResults `integer`: Maximum number of results to return.
-  * orderBy `string` (values: newest, relevance): Sort search results.
-  * partner `string`: Restrict and brand results for partner ID.
-  * printType `string` (values: all, books, magazines): Restrict to books or magazines.
-  * projection `string` (values: full, lite): Restrict information returned to a set of selected fields.
   * q **required** `string`: Full-text search query string.
+  * download `string` (values: DOWNLOAD_UNDEFINED, EPUB): Restrict to volumes by download availability.
+  * filter `string` (values: FILTER_UNDEFINED, ebooks, free-ebooks, full, paid-ebooks, partial): Filter search results.
+  * langRestrict `string`: Restrict results to books with this language code.
+  * libraryRestrict `string` (values: LIBRARY_RESTRICT_UNDEFINED, my-library, no-restrict): Restrict search to this user's library.
+  * maxAllowedMaturityRating `string` (values: MAX_ALLOWED_MATURITY_RATING_UNDEFINED, MATURE, not-mature): The maximum allowed maturity rating of returned recommendations. Books with a higher maturity rating are filtered out.
+  * maxResults `integer`: Maximum number of results to return.
+  * orderBy `string` (values: ORDER_BY_UNDEFINED, newest, relevance): Sort search results.
+  * partner `string`: Restrict and brand results for partner ID.
+  * printType `string` (values: PRINT_TYPE_UNDEFINED, ALL, BOOKS, MAGAZINES): Restrict to books or magazines.
+  * projection `string` (values: PROJECTION_UNDEFINED, FULL, LITE): Restrict information returned to a set of selected fields.
   * showPreorders `boolean`: Set to true to show books available for preorder. Defaults to false.
   * source `string`: String to identify the originator of this request.
   * startIndex `integer`: Index of the first result to return (starts at 0)
-  * alt `string` (values: json): Data format for the response.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [Volumes](#volumes)
 
-### volumes.mybooks.list
+### books.volumes.mybooks.list
 Return a list of books in My Library.
 
 
 ```js
-google_books.volumes.mybooks.list({}, context)
+google_books.books.volumes.mybooks.list({}, context)
 ```
 
 #### Input
@@ -1116,47 +1273,55 @@ google_books.volumes.mybooks.list({}, context)
   * processingState `array`: The processing state of the user uploaded volumes to be returned. Applicable only if the UPLOADED is specified in the acquireMethod.
   * source `string`: String to identify the originator of this request.
   * startIndex `integer`: Index of the first result to return (starts at 0)
-  * alt `string` (values: json): Data format for the response.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [Volumes](#volumes)
 
-### volumes.recommended.list
+### books.volumes.recommended.list
 Return a list of recommended books for the current user.
 
 
 ```js
-google_books.volumes.recommended.list({}, context)
+google_books.books.volumes.recommended.list({}, context)
 ```
 
 #### Input
 * input `object`
   * locale `string`: ISO-639-1 language and ISO-3166-1 country code. Ex: 'en_US'. Used for generating recommendations.
-  * maxAllowedMaturityRating `string` (values: mature, not-mature): The maximum allowed maturity rating of returned recommendations. Books with a higher maturity rating are filtered out.
+  * maxAllowedMaturityRating `string` (values: MAX_ALLOWED_MATURITY_RATING_UNDEFINED, MATURE, not-mature): The maximum allowed maturity rating of returned recommendations. Books with a higher maturity rating are filtered out.
   * source `string`: String to identify the originator of this request.
-  * alt `string` (values: json): Data format for the response.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [Volumes](#volumes)
 
-### volumes.recommended.rate
+### books.volumes.recommended.rate
 Rate a recommended book for the current user.
 
 
 ```js
-google_books.volumes.recommended.rate({
+google_books.books.volumes.recommended.rate({
   "rating": "",
   "volumeId": ""
 }, context)
@@ -1164,27 +1329,31 @@ google_books.volumes.recommended.rate({
 
 #### Input
 * input `object`
-  * locale `string`: ISO-639-1 language and ISO-3166-1 country code. Ex: 'en_US'. Used for generating recommendations.
-  * rating **required** `string` (values: HAVE_IT, NOT_INTERESTED): Rating to be given to the volume.
-  * source `string`: String to identify the originator of this request.
+  * rating **required** `string` (values: RATING_UNDEFINED, HAVE_IT, NOT_INTERESTED): Rating to be given to the volume.
   * volumeId **required** `string`: ID of the source volume.
-  * alt `string` (values: json): Data format for the response.
+  * locale `string`: ISO-639-1 language and ISO-3166-1 country code. Ex: 'en_US'. Used for generating recommendations.
+  * source `string`: String to identify the originator of this request.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [BooksVolumesRecommendedRateResponse](#booksvolumesrecommendedrateresponse)
 
-### volumes.useruploaded.list
+### books.volumes.useruploaded.list
 Return a list of books uploaded by the current user.
 
 
 ```js
-google_books.volumes.useruploaded.list({}, context)
+google_books.books.volumes.useruploaded.list({}, context)
 ```
 
 #### Input
@@ -1195,93 +1364,106 @@ google_books.volumes.useruploaded.list({}, context)
   * source `string`: String to identify the originator of this request.
   * startIndex `integer`: Index of the first result to return (starts at 0)
   * volumeId `array`: The ids of the volumes to be returned. If not specified all that match the processingState are returned.
-  * alt `string` (values: json): Data format for the response.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [Volumes](#volumes)
 
-### volumes.get
+### books.volumes.get
 Gets volume information for a single volume.
 
 
 ```js
-google_books.volumes.get({
+google_books.books.volumes.get({
   "volumeId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
+  * volumeId **required** `string`: ID of volume to retrieve.
   * country `string`: ISO-3166-1 code to override the IP-based location.
   * includeNonComicsSeries `boolean`: Set to true to include non-comics series. Defaults to false.
   * partner `string`: Brand results for partner ID.
-  * projection `string` (values: full, lite): Restrict information returned to a set of selected fields.
-  * source `string`: String to identify the originator of this request.
+  * projection `string` (values: PROJECTION_UNDEFINED, FULL, LITE): Restrict information returned to a set of selected fields.
+  * source `string`: string to identify the originator of this request.
   * user_library_consistent_read `boolean`
-  * volumeId **required** `string`: ID of volume to retrieve.
-  * alt `string` (values: json): Data format for the response.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [Volume](#volume)
 
-### volumes.associated.list
+### books.volumes.associated.list
 Return a list of associated books.
 
 
 ```js
-google_books.volumes.associated.list({
+google_books.books.volumes.associated.list({
   "volumeId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * association `string` (values: end-of-sample, end-of-volume, related-for-play): Association type.
-  * locale `string`: ISO-639-1 language and ISO-3166-1 country code. Ex: 'en_US'. Used for generating recommendations.
-  * maxAllowedMaturityRating `string` (values: mature, not-mature): The maximum allowed maturity rating of returned recommendations. Books with a higher maturity rating are filtered out.
-  * source `string`: String to identify the originator of this request.
   * volumeId **required** `string`: ID of the source volume.
-  * alt `string` (values: json): Data format for the response.
+  * association `string` (values: ASSOCIATION_UNDEFINED, end-of-sample, end-of-volume, related-for-play): Association type.
+  * locale `string`: ISO-639-1 language and ISO-3166-1 country code. Ex: 'en_US'. Used for generating recommendations.
+  * maxAllowedMaturityRating `string` (values: MAX_ALLOWED_MATURITY_RATING_UNDEFINED, MATURE, not-mature): The maximum allowed maturity rating of returned recommendations. Books with a higher maturity rating are filtered out.
+  * source `string`: String to identify the originator of this request.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [Volumes](#volumes)
 
-### layers.volumeAnnotations.list
+### books.layers.volumeAnnotations.list
 Gets the volume annotations for a volume and layer.
 
 
 ```js
-google_books.layers.volumeAnnotations.list({
-  "contentVersion": "",
+google_books.books.layers.volumeAnnotations.list({
+  "volumeId": "",
   "layerId": "",
-  "volumeId": ""
+  "contentVersion": ""
 }, context)
 ```
 
 #### Input
 * input `object`
+  * volumeId **required** `string`: The volume to retrieve annotations for.
+  * layerId **required** `string`: The ID for the layer to get the annotations.
   * contentVersion **required** `string`: The content version for the requested volume.
   * endOffset `string`: The end offset to end retrieving data from.
   * endPosition `string`: The end position to end retrieving data from.
-  * layerId **required** `string`: The ID for the layer to get the annotations.
   * locale `string`: The locale information for the data. ISO-639-1 language and ISO-3166-1 country code. Ex: 'en_US'.
   * maxResults `integer`: Maximum number of results to return
   * pageToken `string`: The value of the nextToken from the previous page.
@@ -1292,66 +1474,74 @@ google_books.layers.volumeAnnotations.list({
   * updatedMax `string`: RFC 3339 timestamp to restrict to items updated prior to this timestamp (exclusive).
   * updatedMin `string`: RFC 3339 timestamp to restrict to items updated since this timestamp (inclusive).
   * volumeAnnotationsVersion `string`: The version of the volume annotations that you are requesting.
-  * volumeId **required** `string`: The volume to retrieve annotations for.
-  * alt `string` (values: json): Data format for the response.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [Volumeannotations](#volumeannotations)
 
-### layers.volumeAnnotations.get
+### books.layers.volumeAnnotations.get
 Gets the volume annotation.
 
 
 ```js
-google_books.layers.volumeAnnotations.get({
-  "annotationId": "",
+google_books.books.layers.volumeAnnotations.get({
+  "volumeId": "",
   "layerId": "",
-  "volumeId": ""
+  "annotationId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * annotationId **required** `string`: The ID of the volume annotation to retrieve.
+  * volumeId **required** `string`: The volume to retrieve annotations for.
   * layerId **required** `string`: The ID for the layer to get the annotations.
+  * annotationId **required** `string`: The ID of the volume annotation to retrieve.
   * locale `string`: The locale information for the data. ISO-639-1 language and ISO-3166-1 country code. Ex: 'en_US'.
   * source `string`: String to identify the originator of this request.
-  * volumeId **required** `string`: The volume to retrieve annotations for.
-  * alt `string` (values: json): Data format for the response.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [Volumeannotation](#volumeannotation)
 
-### layers.annotationData.list
+### books.layers.annotationData.list
 Gets the annotation data for a volume and layer.
 
 
 ```js
-google_books.layers.annotationData.list({
-  "contentVersion": "",
+google_books.books.layers.annotationData.list({
+  "volumeId": "",
   "layerId": "",
-  "volumeId": ""
+  "contentVersion": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * annotationDataId `array`: The list of Annotation Data Ids to retrieve. Pagination is ignored if this is set.
-  * contentVersion **required** `string`: The content version for the requested volume.
-  * h `integer`: The requested pixel height for any images. If height is provided width must also be provided.
+  * volumeId **required** `string`: The volume to retrieve annotation data for.
   * layerId **required** `string`: The ID for the layer to get the annotation data.
+  * contentVersion **required** `string`: The content version for the requested volume.
+  * annotationDataId `array`: The list of Annotation Data Ids to retrieve. Pagination is ignored if this is set.
+  * h `integer`: The requested pixel height for any images. If height is provided width must also be provided.
   * locale `string`: The locale information for the data. ISO-639-1 language and ISO-3166-1 country code. Ex: 'en_US'.
   * maxResults `integer`: Maximum number of results to return
   * pageToken `string`: The value of the nextToken from the previous page.
@@ -1359,107 +1549,122 @@ google_books.layers.annotationData.list({
   * source `string`: String to identify the originator of this request.
   * updatedMax `string`: RFC 3339 timestamp to restrict to items updated prior to this timestamp (exclusive).
   * updatedMin `string`: RFC 3339 timestamp to restrict to items updated since this timestamp (inclusive).
-  * volumeId **required** `string`: The volume to retrieve annotation data for.
   * w `integer`: The requested pixel width for any images. If width is provided height must also be provided.
-  * alt `string` (values: json): Data format for the response.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [Annotationsdata](#annotationsdata)
 
-### layers.annotationData.get
+### books.layers.annotationData.get
 Gets the annotation data.
 
 
 ```js
-google_books.layers.annotationData.get({
-  "annotationDataId": "",
-  "contentVersion": "",
+google_books.books.layers.annotationData.get({
+  "volumeId": "",
   "layerId": "",
-  "volumeId": ""
+  "annotationDataId": "",
+  "contentVersion": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * allowWebDefinitions `boolean`: For the dictionary layer. Whether or not to allow web definitions.
+  * volumeId **required** `string`: The volume to retrieve annotations for.
+  * layerId **required** `string`: The ID for the layer to get the annotations.
   * annotationDataId **required** `string`: The ID of the annotation data to retrieve.
   * contentVersion **required** `string`: The content version for the volume you are trying to retrieve.
+  * allowWebDefinitions `boolean`: For the dictionary layer. Whether or not to allow web definitions.
   * h `integer`: The requested pixel height for any images. If height is provided width must also be provided.
-  * layerId **required** `string`: The ID for the layer to get the annotations.
   * locale `string`: The locale information for the data. ISO-639-1 language and ISO-3166-1 country code. Ex: 'en_US'.
   * scale `integer`: The requested scale for the image.
   * source `string`: String to identify the originator of this request.
-  * volumeId **required** `string`: The volume to retrieve annotations for.
   * w `integer`: The requested pixel width for any images. If width is provided height must also be provided.
-  * alt `string` (values: json): Data format for the response.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
-* output [Annotationdata](#annotationdata)
+* output [DictionaryAnnotationdata](#dictionaryannotationdata)
 
-### layers.list
+### books.layers.list
 List the layer summaries for a volume.
 
 
 ```js
-google_books.layers.list({
+google_books.books.layers.list({
   "volumeId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
+  * volumeId **required** `string`: The volume to retrieve layers for.
   * contentVersion `string`: The content version for the requested volume.
   * maxResults `integer`: Maximum number of results to return
   * pageToken `string`: The value of the nextToken from the previous page.
   * source `string`: String to identify the originator of this request.
-  * volumeId **required** `string`: The volume to retrieve layers for.
-  * alt `string` (values: json): Data format for the response.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [Layersummaries](#layersummaries)
 
-### layers.get
+### books.layers.get
 Gets the layer summary for a volume.
 
 
 ```js
-google_books.layers.get({
-  "summaryId": "",
-  "volumeId": ""
+google_books.books.layers.get({
+  "volumeId": "",
+  "summaryId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
+  * volumeId **required** `string`: The volume to retrieve layers for.
+  * summaryId **required** `string`: The ID for the layer to get the summary for.
   * contentVersion `string`: The content version for the requested volume.
   * source `string`: String to identify the originator of this request.
-  * summaryId **required** `string`: The ID for the layer to get the summary for.
-  * volumeId **required** `string`: The volume to retrieve layers for.
-  * alt `string` (values: json): Data format for the response.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [Layersummary](#layersummary)
@@ -1502,17 +1707,6 @@ google_books.layers.get({
   * updated `string`: Timestamp for the last time this annotation was modified.
   * volumeId `string`: The volume that this annotation belongs to.
 
-### Annotationdata
-* Annotationdata `object`
-  * annotationType `string`: The type of annotation this data is for.
-  * encoded_data `string`: Base64 encoded data for this annotation data.
-  * id `string`: Unique id for this annotation data.
-  * kind `string`: Resource Type
-  * layerId `string`: The Layer id for this data. *
-  * selfLink `string`: URL for this resource. *
-  * updated `string`: Timestamp for the last time this data was updated. (RFC 3339 UTC date-time format).
-  * volumeId `string`: The volume id for this data. *
-
 ### Annotations
 * Annotations `object`
   * items `array`: A list of annotations.
@@ -1535,7 +1729,7 @@ google_books.layers.get({
 ### Annotationsdata
 * Annotationsdata `object`
   * items `array`: A list of Annotation Data.
-    * items [Annotationdata](#annotationdata)
+    * items [GeoAnnotationdata](#geoannotationdata)
   * kind `string`: Resource type
   * nextPageToken `string`: Token to pass in for pagination for the next page. This will not be present if this request does not have more results.
   * totalItems `integer`: The total number of volume annotations found.
@@ -1600,6 +1794,18 @@ google_books.layers.get({
   * timeWindowSeconds `integer`: Time in seconds for license auto-expiration.
   * volumeId `string`: Identifies the volume for which this entry applies.
 
+### DictionaryAnnotationdata
+* DictionaryAnnotationdata `object`
+  * annotationType `string`: The type of annotation this data is for.
+  * data [Dictlayerdata](#dictlayerdata)
+  * encodedData `string`: Base64 encoded data for this annotation data.
+  * id `string`: Unique id for this annotation data.
+  * kind `string`: Resource Type
+  * layerId `string`: The Layer id for this data. *
+  * selfLink `string`: URL for this resource. *
+  * updated `string`: Timestamp for the last time this data was updated. (RFC 3339 UTC date-time format).
+  * volumeId `string`: The volume id for this data. *
+
 ### Dictlayerdata
 * Dictlayerdata `object`
   * common `object`
@@ -1612,44 +1818,10 @@ google_books.layers.get({
       * items `object`
         * derivatives `array`
           * items `object`
-            * source `object`
-              * attribution `string`
-              * url `string`
-            * text `string`
         * examples `array`
           * items `object`
-            * source `object`
-              * attribution `string`
-              * url `string`
-            * text `string`
         * senses `array`
           * items `object`
-            * conjugations `array`
-              * items `object`
-                * type `string`
-                * value `string`
-            * definitions `array`
-              * items `object`
-                * definition `string`
-                * examples `array`
-                  * items `object`
-                    * source `object`
-                      * attribution `string`
-                      * url `string`
-                    * text `string`
-            * partOfSpeech `string`
-            * pronunciation `string`
-            * pronunciationUrl `string`
-            * source `object`
-              * attribution `string`
-              * url `string`
-            * syllabification `string`
-            * synonyms `array`
-              * items `object`
-                * source `object`
-                  * attribution `string`
-                  * url `string`
-                * text `string`
         * source `object`: The words with different meanings but not related words, e.g. "go" (game) and "go" (verb).
           * attribution `string`
           * url `string`
@@ -1696,6 +1868,9 @@ google_books.layers.get({
     * items [DownloadAccessRestriction](#downloadaccessrestriction)
   * kind `string`: Resource type.
 
+### Empty
+* Empty `object`: A generic empty message that you can re-use to avoid defining duplicated empty messages in your APIs. A typical example is to use it as the request or the response type of an API method. For instance: service Foo { rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON representation for `Empty` is empty JSON object `{}`.
+
 ### FamilyInfo
 * FamilyInfo `object`
   * kind `string`: Resource type.
@@ -1705,6 +1880,18 @@ google_books.layers.get({
     * allowedMaturityRating `string`: The maximum allowed maturity rating for the user.
     * isInFamily `boolean`
     * role `string`: The role of the user in the family.
+
+### GeoAnnotationdata
+* GeoAnnotationdata `object`
+  * annotationType `string`: The type of annotation this data is for.
+  * data [Geolayerdata](#geolayerdata)
+  * encodedData `string`: Base64 encoded data for this annotation data.
+  * id `string`: Unique id for this annotation data.
+  * kind `string`: Resource Type
+  * layerId `string`: The Layer id for this data. *
+  * selfLink `string`: URL for this resource. *
+  * updated `string`: Timestamp for the last time this data was updated. (RFC 3339 UTC date-time format).
+  * volumeId `string`: The volume id for this data. *
 
 ### Geolayerdata
 * Geolayerdata `object`
@@ -1716,10 +1903,7 @@ google_books.layers.get({
     * title `string`: The display title and localized canonical name to use when searching for this entity on Google search.
   * geo `object`
     * boundary `array`: The boundary of the location as a set of loops containing pairs of latitude, longitude coordinates.
-      * items `array`
-        * items `object`
-          * latitude `integer`
-          * longitude `integer`
+      * items `string`
     * cachePolicy `string`: The cache policy active for this data. EX: UNRESTRICTED, RESTRICTED, NEVER
     * countryCode `string`: The country code of the location.
     * latitude `number`: The latitude of the location.
@@ -1732,7 +1916,7 @@ google_books.layers.get({
       * lo `object`
         * latitude `number`
         * longitude `number`
-    * zoom `integer`: The Zoom level to use for the map. Zoom levels between 0 (the lowest zoom level, in which the entire world can be seen on one map) to 21+ (down to individual buildings). See: https://developers.google.com/maps/documentation/staticmaps/#Zoomlevels
+    * zoom `integer`: The Zoom level to use for the map. Zoom levels between 0 (the lowest zoom level, in which the entire world can be seen on one map) to 21+ (down to individual buildings). See: https: //developers.google.com/maps/documentation/staticmaps/#Zoomlevels
   * kind `string`
 
 ### Layersummaries
@@ -1779,6 +1963,7 @@ google_books.layers.get({
   * doc_type `string`
   * dont_show_notification `boolean`
   * iconUrl `string`
+  * is_document_mature `boolean`
   * kind `string`: Resource type.
   * notificationGroup `string`
   * notification_type `string`
@@ -1786,6 +1971,7 @@ google_books.layers.get({
   * reason `string`
   * show_notification_settings_action `boolean`
   * targetUrl `string`
+  * timeToExpireMs `string`
   * title `string`
 
 ### Offers
@@ -1815,8 +2001,8 @@ google_books.layers.get({
   * updated `string`: Timestamp when this reading position was last updated (formatted UTC timestamp with millisecond resolution).
   * volumeId `string`: Volume id associated with this reading position.
 
-### RequestAccess
-* RequestAccess `object`
+### RequestAccessData
+* RequestAccessData `object`
   * concurrentAccess [ConcurrentAccessRestriction](#concurrentaccessrestriction)
   * downloadAccess [DownloadAccessRestriction](#downloadaccessrestriction)
   * kind `string`: Resource type.
@@ -1844,9 +2030,26 @@ google_books.layers.get({
   * series `array`
     * items `object`
       * bannerImageUrl `string`
+      * eligibleForSubscription `boolean`
       * imageUrl `string`
+      * isComplete `boolean`
+      * seriesFormatType `string`
       * seriesId `string`
+      * seriesSubscriptionReleaseInfo `object`
+        * cancelTime `string`
+        * currentReleaseInfo `object`
+          * amountInMicros `number`
+          * currencyCode `string`
+          * releaseNumber `string`
+          * releaseTime `string`
+        * nextReleaseInfo `object`
+          * amountInMicros `number`
+          * currencyCode `string`
+          * releaseNumber `string`
+          * releaseTime `string`
+        * seriesSubscriptionType `string`
       * seriesType `string`
+      * subscriptionId `string`
       * title `string`
 
 ### Seriesmembership
@@ -1973,6 +2176,7 @@ google_books.layers.get({
     * canonicalVolumeLink `string`: Canonical URL for a volume. (In LITE projection.)
     * categories `array`: A list of subject categories, such as "Fiction", "Suspense", etc.
       * items `string`
+    * comicsContent `boolean`: Whether the volume has comics content.
     * contentVersion `string`: An identifier for the version of the volume content (text & images). (In LITE projection)
     * description `string`: A synopsis of the volume. The text of the description is formatted in HTML and includes simple formatting elements, such as b, i, and br tags. (In LITE projection.)
     * dimensions `object`: Physical dimensions of this volume.
@@ -2006,6 +2210,9 @@ google_books.layers.get({
     * publishedDate `string`: Date of publication. (In LITE projection.)
     * publisher `string`: Publisher of this volume. (In LITE projection.)
     * ratingsCount `integer`: The number of review ratings for this volume.
+    * readingModes `object`: The reading modes available for this volume.
+      * image `boolean`
+      * text `boolean`
     * samplePageCount `integer`: Total number of sample pages as per publisher metadata.
     * seriesInfo [Volumeseriesinfo](#volumeseriesinfo)
     * subtitle `string`: Volume subtitle. (In LITE projection.)

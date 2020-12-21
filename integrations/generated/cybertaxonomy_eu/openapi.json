@@ -27,7 +27,7 @@
       {
         "converter": {
           "url": "https://github.com/lucybot/api-spec-converter",
-          "version": "2.6.2"
+          "version": "2.7.31"
         },
         "format": "swagger",
         "url": "http://cybertaxonomy.eu/eubon-utis/api-docs",

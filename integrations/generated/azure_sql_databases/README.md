@@ -15,12 +15,7 @@ let azure_sql_databases = require('@datafire/azure_sql_databases').create({
   redirect_uri: ""
 });
 
-azure_sql_databases.Databases_ListByServer({
-  "resourceGroupName": "",
-  "serverName": "",
-  "subscriptionId": "",
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -160,21 +155,17 @@ azure_sql_databases.Databases_CreateOrUpdate({
 #### Output
 * output [Database](#database)
 
-### Databases_Export
-Exports a database.
+### Databases_Rename
+Renames a database.
 
 
 ```js
-azure_sql_databases.Databases_Export({
+azure_sql_databases.Databases_Rename({
   "resourceGroupName": "",
   "serverName": "",
   "databaseName": "",
   "parameters": {
-    "storageKeyType": "",
-    "storageKey": "",
-    "storageUri": "",
-    "administratorLogin": "",
-    "administratorLoginPassword": ""
+    "id": ""
   },
   "subscriptionId": "",
   "api-version": ""
@@ -185,13 +176,13 @@ azure_sql_databases.Databases_Export({
 * input `object`
   * resourceGroupName **required** `string`: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
   * serverName **required** `string`: The name of the server.
-  * databaseName **required** `string`: The name of the database.
-  * parameters **required** [ImportExportDatabaseDefinition](#importexportdatabasedefinition)
+  * databaseName **required** `string`: The name of the database to rename.
+  * parameters **required** [ResourceMoveDefinition](#resourcemovedefinition)
   * subscriptionId **required** `string`: The subscription ID that identifies an Azure subscription.
   * api-version **required** `string`: The API version to use for the request.
 
 #### Output
-* output [ImportExportOperationResult](#importexportoperationresult)
+*Output schema unknown*
 
 ### Databases_Pause
 Pauses a database.
@@ -243,6 +234,31 @@ azure_sql_databases.Databases_Resume({
 #### Output
 * output [Database](#database)
 
+### Databases_UpgradeDataWarehouse
+Upgrades a data warehouse.
+
+
+```js
+azure_sql_databases.Databases_UpgradeDataWarehouse({
+  "resourceGroupName": "",
+  "serverName": "",
+  "databaseName": "",
+  "subscriptionId": "",
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * resourceGroupName **required** `string`: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+  * serverName **required** `string`: The name of the server.
+  * databaseName **required** `string`: The name of the database to be upgraded.
+  * subscriptionId **required** `string`: The subscription ID that identifies an Azure subscription.
+  * api-version **required** `string`: The API version to use for the request.
+
+#### Output
+*Output schema unknown*
+
 ### Databases_ListByElasticPool
 Gets a list of databases in an elastic pool.
 
@@ -275,13 +291,9 @@ azure_sql_databases.Databases_ListByElasticPool({
 ### Database
 * Database `object`: A database resource.
   * kind `string`: Kind of database. This is metadata used for the Azure portal experience.
+  * managedBy `string`: Resource that manages the database.
   * properties [DatabaseProperties](#databaseproperties)
-  * sku `object`: The resource model definition representing SKU
-    * capacity `integer`: If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
-    * family `string`: If the service has different generations of hardware, for the same SKU, then that can be captured here.
-    * name **required** `string`: The name of the SKU. Ex - P3. It is typically a letter+number code
-    * size `string`: The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
-    * tier `string`: This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
+  * sku [Sku](#sku)
   * location **required** `string`: Resource location.
   * tags `object`: Resource tags.
   * id `string`: Resource ID.
@@ -294,97 +306,70 @@ azure_sql_databases.Databases_ListByElasticPool({
   * value `array`: Array of results.
     * items [Database](#database)
 
-### DatabaseOperation
-* DatabaseOperation `object`: A database operation.
-  * properties [DatabaseOperationProperties](#databaseoperationproperties)
-  * id `string`: Resource ID.
-  * name `string`: Resource name.
-  * type `string`: Resource type.
-
-### DatabaseOperationListResult
-* DatabaseOperationListResult `object`: The response to a list database operations request
-  * nextLink `string`: Link to retrieve next page of results.
-  * value `array`: Array of results.
-    * items [DatabaseOperation](#databaseoperation)
-
-### DatabaseOperationProperties
-* DatabaseOperationProperties `object`: The properties of a database operation.
-  * databaseName `string`: The name of the database the operation is being performed on.
-  * errorCode `integer`: The operation error code.
-  * errorDescription `string`: The operation error description.
-  * errorSeverity `integer`: The operation error severity.
-  * isUserError `boolean`: Whether or not the error is a user error.
-  * operation `string`: The name of operation.
-  * operationFriendlyName `string`: The friendly name of operation.
-  * percentComplete `integer`: The percentage of the operation completed.
-  * serverName `string`: The name of the server.
-  * startTime `string`: The operation start time.
-  * state `string` (values: Pending, InProgress, Succeeded, Failed, CancelInProgress, Cancelled): The operation state.
-
 ### DatabaseProperties
 * DatabaseProperties `object`: The database's properties.
+  * autoPauseDelay `integer`: Time in minutes after which database is automatically paused. A value of -1 means that automatic pause is disabled
   * catalogCollation `string` (values: DATABASE_DEFAULT, SQL_Latin1_General_CP1_CI_AS): Collation of the metadata catalog.
   * collation `string`: The collation of the database.
-  * createMode `string` (values: Default, Copy, Secondary, OnlineSecondary, PointInTimeRestore, Restore, Recovery, RestoreExternalBackup, RestoreExternalBackupSecondary, RestoreLongTermRetentionBackup): Specifies the mode of database creation.
+  * createMode `string` (values: Default, Copy, Secondary, PointInTimeRestore, Restore, Recovery, RestoreExternalBackup, RestoreExternalBackupSecondary, RestoreLongTermRetentionBackup, OnlineSecondary): Specifies the mode of database creation.
   * creationDate `string`: The creation date of the database (ISO8601 format).
   * currentServiceObjectiveName `string`: The current service level objective name of the database.
+  * currentSku [Sku](#sku)
   * databaseId `string`: The ID of the database.
   * defaultSecondaryLocation `string`: The default secondary region for this database.
+  * earliestRestoreDate `string`: This records the earliest start date and time that restore is available for this database (ISO8601 format).
   * elasticPoolId `string`: The resource identifier of the elastic pool containing this database.
   * failoverGroupId `string`: Failover Group resource identifier that this database belongs to.
+  * licenseType `string` (values: LicenseIncluded, BasePrice): The license type to apply for this database.
   * longTermRetentionBackupResourceId `string`: The resource identifier of the long term retention backup associated with create operation of this database.
+  * maxLogSizeBytes `integer`: The max log size for this database.
   * maxSizeBytes `integer`: The max size of the database expressed in bytes.
+  * minCapacity `number`: Minimal capacity that database will always have allocated, if not paused
+  * pausedDate `string`: The date when database was paused by user configuration or action (ISO8601 format). Null if the database is ready.
+  * readReplicaCount `integer`: The number of readonly secondary replicas associated with the database to which readonly application intent connections may be routed. This property is only settable for Hyperscale edition databases.
+  * readScale `string` (values: Enabled, Disabled): If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica. This property is only settable for Premium and Business Critical databases.
   * recoverableDatabaseId `string`: The resource identifier of the recoverable database associated with create operation of this database.
   * recoveryServicesRecoveryPointId `string`: The resource identifier of the recovery point associated with create operation of this database.
+  * requestedServiceObjectiveName `string`: The requested service level objective name of the database.
   * restorableDroppedDatabaseId `string`: The resource identifier of the restorable dropped database associated with create operation of this database.
   * restorePointInTime `string`: Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database.
+  * resumedDate `string`: The date when database was resumed by user action or database login (ISO8601 format). Null if the database is paused.
   * sampleName `string` (values: AdventureWorksLT, WideWorldImportersStd, WideWorldImportersFull): The name of the sample schema to apply when creating this database.
   * sourceDatabaseDeletionDate `string`: Specifies the time that the database was deleted.
   * sourceDatabaseId `string`: The resource identifier of the source database associated with create operation of this database.
-  * status `string` (values: Online, Restoring, RecoveryPending, Recovering, Suspect, Offline, Standby, Shutdown, EmergencyMode, AutoClosed, Copying, Creating, Inaccessible, OfflineSecondary, Pausing, Paused, Resuming, Scaling): The status of the database.
+  * status `string` (values: Online, Restoring, RecoveryPending, Recovering, Suspect, Offline, Standby, Shutdown, EmergencyMode, AutoClosed, Copying, Creating, Inaccessible, OfflineSecondary, Pausing, Paused, Resuming, Scaling, OfflineChangingDwPerformanceTiers, OnlineChangingDwPerformanceTiers, Disabled): The status of the database.
   * zoneRedundant `boolean`: Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
 
 ### DatabaseUpdate
 * DatabaseUpdate `object`: A database resource.
   * properties [DatabaseProperties](#databaseproperties)
-  * sku `object`: The resource model definition representing SKU
-    * capacity `integer`: If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
-    * family `string`: If the service has different generations of hardware, for the same SKU, then that can be captured here.
-    * name **required** `string`: The name of the SKU. Ex - P3. It is typically a letter+number code
-    * size `string`: The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
-    * tier `string`: This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
+  * sku [Sku](#sku)
   * tags `object`: Resource tags.
 
-### ImportExportDatabaseDefinition
-* ImportExportDatabaseDefinition `object`: Contains the information necessary to perform import/export operation.
-  * administratorLogin **required** `string`: Administrator login name.
-  * administratorLoginPassword **required** `string`: Administrator login password.
-  * authenticationType `string`: Authentication type.
-  * databaseName `string`: Name of the import database.
-  * edition `string`: Edition of the import database.
-  * maxSizeBytes `string`: Max size in bytes for the import database.
-  * serviceObjectiveName `string`: Service level objective name of the import database.
-  * storageKey **required** `string`: Storage key.
-  * storageKeyType **required** `string`: Storage key type.
-  * storageUri **required** `string`: Storage Uri.
-
-### ImportExportOperationResult
-* ImportExportOperationResult `object`: An ImportExport operation result resource.
-  * properties [ImportExportOperationResultProperties](#importexportoperationresultproperties)
+### Resource
+* Resource `object`: ARM resource.
   * id `string`: Resource ID.
   * name `string`: Resource name.
   * type `string`: Resource type.
 
-### ImportExportOperationResultProperties
-* ImportExportOperationResultProperties `object`: Contains the operation result properties for import/export operation.
-  * blobUri `string`: Blob Uri.
-  * databaseName `string`: Database name.
-  * errorMessage `string`: Error message.
-  * lastModifiedTime `string`: Last modified time.
-  * queuedTime `string`: Queued time.
-  * requestId `string`: Request Id.
-  * requestType `string`: Request type.
-  * serverName `string`: Server name.
-  * status `string`: Operation status.
+### ResourceMoveDefinition
+* ResourceMoveDefinition `object`: Contains the information necessary to perform a resource move (rename).
+  * id **required** `string`: The target ID for the resource
+
+### Sku
+* Sku `object`: An ARM Resource SKU.
+  * capacity `integer`: Capacity of the particular SKU.
+  * family `string`: If the service has different generations of hardware, for the same SKU, then that can be captured here.
+  * name **required** `string`: The name of the SKU, typically, a letter + Number code, e.g. P3.
+  * size `string`: Size of the particular SKU
+  * tier `string`: The tier or edition of the particular SKU, e.g. Basic, Premium.
+
+### TrackedResource
+* TrackedResource `object`: ARM tracked top level resource.
+  * location **required** `string`: Resource location.
+  * tags `object`: Resource tags.
+  * id `string`: Resource ID.
+  * name `string`: Resource name.
+  * type `string`: Resource type.
 
 

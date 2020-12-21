@@ -51,21 +51,6 @@
     }
   },
   "parameters": {
-    "ApiVersionParameter": {
-      "description": "The API version to use for the request.",
-      "in": "query",
-      "name": "api-version",
-      "required": true,
-      "type": "string"
-    },
-    "ResourceGroupParameter": {
-      "description": "The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.",
-      "in": "path",
-      "name": "resourceGroupName",
-      "required": true,
-      "type": "string",
-      "x-ms-parameter-location": "method"
-    },
     "ServerNameParameter": {
       "description": "The name of the server.",
       "in": "path",
@@ -73,13 +58,6 @@
       "required": true,
       "type": "string",
       "x-ms-parameter-location": "method"
-    },
-    "SubscriptionIdParameter": {
-      "description": "The subscription ID that identifies an Azure subscription.",
-      "in": "path",
-      "name": "subscriptionId",
-      "required": true,
-      "type": "string"
     }
   },
   "paths": {
@@ -89,13 +67,28 @@
         "operationId": "Databases_ListMetricDefinitions",
         "parameters": [
           {
-            "$ref": "#/parameters/ApiVersionParameter"
+            "description": "The API version to use for the request.",
+            "in": "query",
+            "name": "api-version",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "client"
           },
           {
-            "$ref": "#/parameters/SubscriptionIdParameter"
+            "description": "The subscription ID that identifies an Azure subscription.",
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "client"
           },
           {
-            "$ref": "#/parameters/ResourceGroupParameter"
+            "description": "The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.",
+            "in": "path",
+            "name": "resourceGroupName",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "$ref": "#/parameters/ServerNameParameter"
@@ -524,7 +517,9 @@
             }
           }
         },
-        "x-ms-pageable": {}
+        "x-ms-pageable": {
+          "nextLinkName": null
+        }
       }
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/databases/{databaseName}/metrics": {
@@ -533,13 +528,28 @@
         "operationId": "Databases_ListMetrics",
         "parameters": [
           {
-            "$ref": "#/parameters/ApiVersionParameter"
+            "description": "The API version to use for the request.",
+            "in": "query",
+            "name": "api-version",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "client"
           },
           {
-            "$ref": "#/parameters/SubscriptionIdParameter"
+            "description": "The subscription ID that identifies an Azure subscription.",
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "client"
           },
           {
-            "$ref": "#/parameters/ResourceGroupParameter"
+            "description": "The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.",
+            "in": "path",
+            "name": "resourceGroupName",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "$ref": "#/parameters/ServerNameParameter"
@@ -626,7 +636,9 @@
             }
           }
         },
-        "x-ms-pageable": {}
+        "x-ms-pageable": {
+          "nextLinkName": null
+        }
       }
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/elasticPools/{elasticPoolName}/metricDefinitions": {
@@ -635,13 +647,28 @@
         "operationId": "ElasticPools_ListMetricDefinitions",
         "parameters": [
           {
-            "$ref": "#/parameters/ApiVersionParameter"
+            "description": "The API version to use for the request.",
+            "in": "query",
+            "name": "api-version",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "client"
           },
           {
-            "$ref": "#/parameters/SubscriptionIdParameter"
+            "description": "The subscription ID that identifies an Azure subscription.",
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "client"
           },
           {
-            "$ref": "#/parameters/ResourceGroupParameter"
+            "description": "The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.",
+            "in": "path",
+            "name": "resourceGroupName",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "$ref": "#/parameters/ServerNameParameter"
@@ -1070,7 +1097,9 @@
             }
           }
         },
-        "x-ms-pageable": {}
+        "x-ms-pageable": {
+          "nextLinkName": null
+        }
       }
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/elasticPools/{elasticPoolName}/metrics": {
@@ -1079,13 +1108,28 @@
         "operationId": "ElasticPools_ListMetrics",
         "parameters": [
           {
-            "$ref": "#/parameters/ApiVersionParameter"
+            "description": "The API version to use for the request.",
+            "in": "query",
+            "name": "api-version",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "client"
           },
           {
-            "$ref": "#/parameters/SubscriptionIdParameter"
+            "description": "The subscription ID that identifies an Azure subscription.",
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "client"
           },
           {
-            "$ref": "#/parameters/ResourceGroupParameter"
+            "description": "The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.",
+            "in": "path",
+            "name": "resourceGroupName",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "$ref": "#/parameters/ServerNameParameter"
@@ -1172,7 +1216,9 @@
             }
           }
         },
-        "x-ms-pageable": {}
+        "x-ms-pageable": {
+          "nextLinkName": null
+        }
       }
     }
   },
@@ -1248,7 +1294,7 @@
       "description": "A database metric definition.",
       "properties": {
         "metricAvailabilities": {
-          "description": "The list of database metric availabities for the metric.",
+          "description": "The list of database metric availabilities for the metric.",
           "items": {
             "$ref": "#/definitions/MetricAvailability"
           },

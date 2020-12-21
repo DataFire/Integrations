@@ -1,0 +1,63 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "IP2WHOIS is a free tool to allow you to check WHOIS information for a particular domain, such as domain assigned owner contact information, registrar information, registrant information, location and much more.",
+    "title": "IP2WHOIS Domain Lookup",
+    "version": "1.0",
+    "x-apisguru-categories": [
+      "developer_tools"
+    ],
+    "x-origin": [
+      {
+        "format": "openapi",
+        "url": "https://api.swaggerhub.com/apis/ip2whois/ip2whois-domain-lookup/1.0",
+        "version": "3.0"
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "ip2whois.com",
+    "x-datafire": {
+      "name": "ip2whois",
+      "type": "openapi"
+    }
+  },
+  "host": "api.ip2whois.com",
+  "basePath": "/v1",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "produces": [
+          "text/html; charset=UTF-8"
+        ],
+        "parameters": [
+          {
+            "description": "Domain name for lookup purpose.",
+            "in": "query",
+            "name": "domain",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "API key.",
+            "in": "query",
+            "name": "key",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get response from IP2WHOIS",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "description": "Lookup WHOIS information"
+      }
+    }
+  }
+}

@@ -1,6 +1,6 @@
 # @datafire/appveyor
 
-Client library for AppVeyor
+Client library for AppVeyor REST API
 
 ## Installation and Usage
 ```bash
@@ -11,9 +11,7 @@ let appveyor = require('@datafire/appveyor').create({
   apiToken: ""
 });
 
-appveyor.encryptValue({
-  "body": {}
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -129,6 +127,25 @@ appveyor.startBuild({
 #### Input
 * input `object`
   * body **required** [BuildStartRequest](#buildstartrequest)
+
+#### Output
+* output [Build](#build)
+
+### reRunBuild
+If `reRunIncomplete` is `true` and all jobs in the referenced build completed successfully, a 500 Internal Server Error is returned with the message "No failed or cancelled jobs in build with ID {buildId}".
+
+
+```js
+appveyor.reRunBuild({
+  "body": {
+    "buildId": 0
+  }
+}, context)
+```
+
+#### Input
+* input `object`
+  * body **required** [ReRunBuildRequest](#rerunbuildrequest)
 
 #### Output
 * output [Build](#build)
@@ -674,7 +691,7 @@ appveyor.getProjectDeployments({
 * input `object`
   * accountName **required** `string`: AppVeyor account name (`accountName` property of `UserAccount`)
   * projectSlug **required** `string`: Project Slug
-  * recordsNumber **required** `integer`: Number of results to include in the response.
+  * recordsNumber **required** `integer`: Number of results to include in the response. getProjectDeployments is documented to have a maximum of 20. It currently returns 500 Internal Server Error for recordsNumber <= 5. In the past it has returned 500 Internal Server Error for many different values which did not match the value used by the ci.appveyor.com web interface at the time.  As of 2018-09-08, the value used by the web interface is 10.
 
 #### Output
 * output [ProjectDeploymentsResults](#projectdeploymentsresults)
@@ -693,7 +710,7 @@ appveyor.getProjectHistory({
 
 #### Input
 * input `object`
-  * recordsNumber **required** `integer`: Number of results to include in the response.
+  * recordsNumber **required** `integer`: Number of results to include in the response. getProjectDeployments is documented to have a maximum of 20. It currently returns 500 Internal Server Error for recordsNumber <= 5. In the past it has returned 500 Internal Server Error for many different values which did not match the value used by the ci.appveyor.com web interface at the time.  As of 2018-09-08, the value used by the web interface is 10.
   * startBuildId `integer`: Maximum `buildId` to include in the results (exclusive).
   * branch `string`: Repository Branch
   * accountName **required** `string`: AppVeyor account name (`accountName` property of `UserAccount`)
@@ -1023,6 +1040,7 @@ appveyor.getUser({
 
 ### ArtifactModel
 * ArtifactModel `object`
+  * created `string`
   * fileName `string`
   * name `string`
   * size `integer`
@@ -1054,13 +1072,14 @@ appveyor.getUser({
   * messageExtended `string`
   * messages `array`
     * items [BuildMessage](#buildmessage)
+  * projectId `integer`
   * pullRequestId `integer`
   * pullRequestName `string`
   * started `string`
   * status [Status](#status)
 
 ### BuildCloudName
-* BuildCloudName `string` (values: gce, pro-vs2013, pro-win2016, pro-vs2017, ubuntu)
+* BuildCloudName `string` (values: azure-westus, gce, pro-ubuntu, pro-ubuntu18, pro-vs2013, pro-win2016, pro-vs2017, ubuntu)
 
 ### BuildJob
 * BuildJob
@@ -1121,7 +1140,7 @@ appveyor.getUser({
   * osType [OSType](#ostype)
 
 ### BuildWorkerImageName
-* BuildWorkerImageName `string` (values: Previous Ubuntu, Previous Visual Studio 2013, Previous Visual Studio 2015, Previous Visual Studio 2017, Ubuntu, Visual Studio 2013, Visual Studio 2015, Visual Studio 2017, Visual Studio 2017 Preview, WMF 5)
+* BuildWorkerImageName `string` (values: Previous Ubuntu, Previous Ubuntu1604, Previous Ubuntu1804, Previous Visual Studio 2013, Previous Visual Studio 2015, Previous Visual Studio 2017, Ubuntu, Ubuntu1604, Ubuntu1804, Visual Studio 2013, Visual Studio 2015, Visual Studio 2015 2, Visual Studio 2017, Visual Studio 2017 Preview, Visual Studio 2019 Preview, WMF 5, Windows Server 2019): Defines the available build worker image templates used to provision a virtual machine for a build.  Images are updated regularly.  "Previous" selects the previous version of an image, for use as a temporary workaround for regressions.
 
 ### CollaboratorAddition
 * CollaboratorAddition `object`: Technically `roleId` has default value 0 and is not required, but
@@ -1279,7 +1298,7 @@ appveyor.getUser({
   * project [ProjectLookupModel](#projectlookupmodel)
 
 ### Error
-* Error `object`
+* Error `object`: Schema of object returned in 4XX and 5XX responses.
   * message **required** `string`
   * modelState `object`: When present, this property is a map of property names in the format
 
@@ -1363,6 +1382,7 @@ appveyor.getUser({
   * id `string`
   * isPrivateProject `boolean`
   * name `string`
+  * nuGetFeedId `integer`
   * projectId `integer`
   * publishingEnabled `boolean`
 
@@ -1396,9 +1416,13 @@ appveyor.getUser({
   * alwaysBuildClosedPullRequests `boolean`
   * builds `array`: Only non-empty for response from getProjects.
     * items [Build](#build)
+  * currentBuildId `integer`
+  * disablePullRequestWebhooks `boolean`
+  * disablePushWebhooks `boolean`
   * enableDeploymentInPullRequests `boolean`
   * enableSecureVariablesInPullRequests `boolean`
   * enableSecureVariablesInPullRequestsFromSameRepo `boolean`
+  * isGitHubApp `boolean`
   * isPrivate `boolean`
   * nuGetFeed [NuGetFeed](#nugetfeed)
   * repositoryBranch `string`: Not present in response from addProject.
@@ -1476,6 +1500,7 @@ appveyor.getUser({
     * items [Script](#script)
   * deployments `array`
     * items [DeploymentProvider](#deploymentprovider)
+  * disableNuGetPublishForOctopusPackages `boolean`
   * disableNuGetPublishOnPullRequests `boolean`
   * doNotIncrementBuildNumberOnPullRequests `boolean`
   * dotnetCsprojAssemblyVersionFormat `string`
@@ -1623,9 +1648,13 @@ appveyor.getUser({
   * alwaysBuildClosedPullRequests `boolean`
   * builds `array`: Only non-empty for response from getProjects.
     * items [Build](#build)
+  * currentBuildId `integer`
+  * disablePullRequestWebhooks `boolean`
+  * disablePushWebhooks `boolean`
   * enableDeploymentInPullRequests `boolean`
   * enableSecureVariablesInPullRequests `boolean`
   * enableSecureVariablesInPullRequestsFromSameRepo `boolean`
+  * isGitHubApp `boolean`
   * isPrivate `boolean`
   * nuGetFeed [NuGetFeed](#nugetfeed)
   * repositoryBranch `string`: Not present in response from addProject.
@@ -1652,6 +1681,11 @@ appveyor.getUser({
   * versionFormat **required** `string`
   * webhookId `string`
   * webhookUrl `string`
+
+### ReRunBuildRequest
+* ReRunBuildRequest `object`
+  * buildId **required** `integer`
+  * reRunIncomplete `boolean`: Set `reRunIncomplete` set to `false` (default value) for full build re-run. Set it set to `true` to rerun only failed or cancelled jobs in multijob build.
 
 ### RepositoryAuthenticationType
 * RepositoryAuthenticationType `string` (values: credentials, ssh)
@@ -1698,7 +1732,7 @@ appveyor.getUser({
   * script **required** `string`
 
 ### ScriptLanguage
-* ScriptLanguage `string` (values: cmd, ps, pwsh)
+* ScriptLanguage `string` (values: cmd, ps, pwsh, sh)
 
 ### SecurityDescriptor
 * SecurityDescriptor `object`
@@ -1708,7 +1742,7 @@ appveyor.getUser({
     * items [RoleAce](#roleace)
 
 ### Status
-* Status `string` (values: cancelled, cancelling, failed, queued, running, success)
+* Status `string` (values: cancelled, cancelling, failed, queued, running, starting, success)
 
 ### StoredNameValue
 * StoredNameValue `object`
@@ -1743,12 +1777,6 @@ appveyor.getUser({
 * UserAccount
   * created `string`
   * updated `string`
-  * failedBuildNotification **required** [BuildNotificationFrequency](#buildnotificationfrequency)
-  * failedDeploymentNotification **required** [DeploymentNotificationFrequency](#deploymentnotificationfrequency)
-  * notifyWhenBuildStatusChangedOnly `boolean`: Note that this value is `true` on user creation, but behaves as
-  * notifyWhenDeploymentStatusChangedOnly `boolean`: Note that this value is `true` on user creation, but behaves as
-  * successfulBuildNotification **required** [BuildNotificationFrequency](#buildnotificationfrequency)
-  * successfulDeploymentNotification **required** [DeploymentNotificationFrequency](#deploymentnotificationfrequency)
   * accountId `integer`
   * accountName `string`
   * email **required** `string`
@@ -1759,6 +1787,7 @@ appveyor.getUser({
   * password `string`
   * roleId `integer`
   * roleName `string`
+  * twoFactorAuthEnabled `boolean`
   * userId `integer`
 
 ### UserAccountRolesResults

@@ -1,16 +1,12 @@
 {
   "swagger": "2.0",
-  "schemes": [
-    "https"
-  ],
-  "host": "api.lufthansa.com",
-  "basePath": "/v1",
   "info": {
+    "description": "",
     "license": {
       "name": "LH",
       "url": "https://developer.lufthansa.com"
     },
-    "title": "LH Public",
+    "title": "LH Public API",
     "version": "1.0",
     "x-apisguru-categories": [
       "transport"
@@ -21,9 +17,9 @@
     },
     "x-origin": [
       {
-        "format": "swagger",
+        "format": "openapi",
         "url": "https://raw.githubusercontent.com/LufthansaOpenAPI/Swagger/master/LH_public_API_swagger_2_0.json",
-        "version": "2.0"
+        "version": "3.0"
       }
     ],
     "x-preferred": true,
@@ -34,28 +30,17 @@
       "type": "openapi"
     }
   },
-  "consumes": [
-    "application/json"
+  "host": "api.lufthansa.com",
+  "basePath": "/v1",
+  "schemes": [
+    "https"
   ],
-  "produces": [
-    "application/json"
-  ],
-  "securityDefinitions": {
-    "auth": {
-      "authorizationUrl": "https://api.lufthansa.com/v1/oauth/token",
-      "flow": "accessCode",
-      "scopes": {
-        "read:LH Open API": "read access"
-      },
-      "tokenUrl": "https://api.lufthansa.com/v1/oauth/token",
-      "type": "oauth2"
-    }
-  },
   "paths": {
     "/cargo/getRoute/{origin}-{destination}/{fromDate}/{productCode}": {
       "get": {
-        "description": "Retrieve a list of all possible flights (both direct and connecting) between two airports on a given date. Routes are available for today and up to days in the future.",
-        "operationId": "CargoGetRouteFromDateProductCodeByOriginAndDestinationGet",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Departure Airport : 3-letter IATA airport code, e.g. FRA.",
@@ -115,7 +100,6 @@
         "responses": {
           "200": {
             "description": "",
-            "examples": {},
             "schema": {
               "type": "object"
             }
@@ -126,10 +110,12 @@
             "auth": []
           }
         ],
-        "summary": "Retrieve all flights",
         "tags": [
           "Cargo"
         ],
+        "description": "Retrieve a list of all possible flights (both direct and connecting) between two airports on a given date. Routes are available for today and up to days in the future.",
+        "operationId": "CargoGetRouteFromDateProductCodeByOriginAndDestinationGet",
+        "summary": "Retrieve all flights",
         "x-operation-settings": {
           "AllowDynamicFormParameters": false,
           "AllowDynamicQueryParameters": false,
@@ -141,8 +127,9 @@
     },
     "/cargo/shipmentTracking/{aWBPrefix}-{aWBNumber}": {
       "get": {
-        "description": "With this tracking service you can easily retrieve your shipment or flight status information.",
-        "operationId": "CargoShipmentTrackingByAWBPrefixAndAWBNumberGet",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "aWBPrefix : Represents the airline that is the owner of this AWB, i.e. \"020\" = Lufthansa Cargo, format : [0-9]{3} e.g. 020",
@@ -169,7 +156,6 @@
         "responses": {
           "200": {
             "description": "",
-            "examples": {},
             "schema": {
               "type": "object"
             }
@@ -180,10 +166,12 @@
             "auth": []
           }
         ],
-        "summary": "Shipment Tracking",
         "tags": [
           "Cargo"
         ],
+        "description": "With this tracking service you can easily retrieve your shipment or flight status information.",
+        "operationId": "CargoShipmentTrackingByAWBPrefixAndAWBNumberGet",
+        "summary": "Shipment Tracking",
         "x-operation-settings": {
           "AllowDynamicFormParameters": false,
           "AllowDynamicQueryParameters": false,
@@ -195,8 +183,9 @@
     },
     "/offers/lounges/{location}": {
       "get": {
-        "description": "Lounge information",
-        "operationId": "OffersLoungesByLocationGet",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "3-leter IATA airport or city code (e.g. 'ZRH')",
@@ -237,7 +226,6 @@
         "responses": {
           "200": {
             "description": "",
-            "examples": {},
             "schema": {
               "type": "object"
             }
@@ -248,10 +236,12 @@
             "auth": []
           }
         ],
-        "summary": "Lounges",
         "tags": [
           "Offers"
         ],
+        "description": "Lounge information",
+        "operationId": "OffersLoungesByLocationGet",
+        "summary": "Lounges",
         "x-operation-settings": {
           "AllowDynamicFormParameters": false,
           "AllowDynamicQueryParameters": false,
@@ -263,8 +253,9 @@
     },
     "/offers/seatmaps/{flightNumber}/{origin}/{destination}/{date}/{cabinClass}": {
       "get": {
-        "description": "Cabin layout and seat characteristics.",
-        "operationId": "OffersSeatmapsDestinationDateCabinClassByFlightNumberAndOriginGet",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Flight number including carrier code and any suffix (e.g. 'LH2037')",
@@ -312,7 +303,6 @@
         "responses": {
           "200": {
             "description": "",
-            "examples": {},
             "schema": {
               "type": "object"
             }
@@ -323,10 +313,12 @@
             "auth": []
           }
         ],
-        "summary": "Seat Maps",
         "tags": [
           "Offers"
         ],
+        "description": "Cabin layout and seat characteristics.",
+        "operationId": "OffersSeatmapsDestinationDateCabinClassByFlightNumberAndOriginGet",
+        "summary": "Seat Maps",
         "x-operation-settings": {
           "AllowDynamicFormParameters": false,
           "AllowDynamicQueryParameters": false,
@@ -338,8 +330,9 @@
     },
     "/operations/flightstatus/arrivals/{airportCode}/{fromDateTime}": {
       "get": {
-        "description": "Status of all arrivals at a given airport up to 4 hours from the provided date time.",
-        "operationId": "OperationsFlightstatusArrivalsByAirportCodeAndFromDateTimeGet",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "3-letter IATA aiport code (e.g. 'ZRH')",
@@ -380,7 +373,6 @@
         "responses": {
           "200": {
             "description": "",
-            "examples": {},
             "schema": {
               "type": "object"
             }
@@ -391,10 +383,12 @@
             "auth": []
           }
         ],
-        "summary": "Flight Status at Arrival Airport",
         "tags": [
           "Operations"
         ],
+        "description": "Status of all arrivals at a given airport up to 4 hours from the provided date time.",
+        "operationId": "OperationsFlightstatusArrivalsByAirportCodeAndFromDateTimeGet",
+        "summary": "Flight Status at Arrival Airport",
         "x-operation-settings": {
           "AllowDynamicFormParameters": false,
           "AllowDynamicQueryParameters": false,
@@ -406,8 +400,9 @@
     },
     "/operations/flightstatus/departures/{airportCode}/{fromDateTime}": {
       "get": {
-        "description": "Status of all departures from a given airport up to 4 hours from the provided date time.",
-        "operationId": "OperationsFlightstatusDeparturesByAirportCodeAndFromDateTimeGet",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Departure airport. 3-letter IATA airport code (e.g. 'HAM')",
@@ -448,7 +443,6 @@
         "responses": {
           "200": {
             "description": "",
-            "examples": {},
             "schema": {
               "type": "object"
             }
@@ -459,10 +453,12 @@
             "auth": []
           }
         ],
-        "summary": "Flight Status at Departure Airport",
         "tags": [
           "Operations"
         ],
+        "description": "Status of all departures from a given airport up to 4 hours from the provided date time.",
+        "operationId": "OperationsFlightstatusDeparturesByAirportCodeAndFromDateTimeGet",
+        "summary": "Flight Status at Departure Airport",
         "x-operation-settings": {
           "AllowDynamicFormParameters": false,
           "AllowDynamicQueryParameters": false,
@@ -474,8 +470,9 @@
     },
     "/operations/flightstatus/route/{origin}/{destination}/{date}": {
       "get": {
-        "description": "Status of flights between a given origin and destination on a given date.",
-        "operationId": "OperationsFlightstatusRouteDateByOriginAndDestinationGet",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "3-letter IATA airport (e.g. 'FRA')",
@@ -523,7 +520,6 @@
         "responses": {
           "200": {
             "description": "",
-            "examples": {},
             "schema": {
               "type": "object"
             }
@@ -534,10 +530,12 @@
             "auth": []
           }
         ],
-        "summary": "Flight Status by Route",
         "tags": [
           "Operations"
         ],
+        "description": "Status of flights between a given origin and destination on a given date.",
+        "operationId": "OperationsFlightstatusRouteDateByOriginAndDestinationGet",
+        "summary": "Flight Status by Route",
         "x-operation-settings": {
           "AllowDynamicFormParameters": false,
           "AllowDynamicQueryParameters": false,
@@ -549,8 +547,9 @@
     },
     "/operations/flightstatus/{flightNumber}/{date}": {
       "get": {
-        "description": "Status of a particular flight (boarding, delayed, etc.).",
-        "operationId": "OperationsFlightstatusByFlightNumberAndDateGet",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Flight number including carrier code and any suffix (e.g. 'LH400')",
@@ -591,7 +590,6 @@
         "responses": {
           "200": {
             "description": "",
-            "examples": {},
             "schema": {
               "type": "object"
             }
@@ -602,10 +600,12 @@
             "auth": []
           }
         ],
-        "summary": "Flight Status",
         "tags": [
           "Operations"
         ],
+        "description": "Status of a particular flight (boarding, delayed, etc.).",
+        "operationId": "OperationsFlightstatusByFlightNumberAndDateGet",
+        "summary": "Flight Status",
         "x-operation-settings": {
           "AllowDynamicFormParameters": false,
           "AllowDynamicQueryParameters": false,
@@ -617,8 +617,9 @@
     },
     "/operations/schedules/{origin}/{destination}/{fromDateTime}": {
       "get": {
-        "description": "Scheduled flights between given airports on a given date.",
-        "operationId": "OperationsSchedulesFromDateTimeByOriginAndDestinationGet",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Departure airport. 3-letter IATA airport code (e.g. 'ZRH')",
@@ -673,7 +674,6 @@
         "responses": {
           "200": {
             "description": "",
-            "examples": {},
             "schema": {
               "type": "object"
             }
@@ -684,10 +684,12 @@
             "auth": []
           }
         ],
-        "summary": "Flight Schedules",
         "tags": [
           "Operations"
         ],
+        "description": "Scheduled flights between given airports on a given date.",
+        "operationId": "OperationsSchedulesFromDateTimeByOriginAndDestinationGet",
+        "summary": "Flight Schedules",
         "x-operation-settings": {
           "AllowDynamicFormParameters": false,
           "AllowDynamicQueryParameters": false,
@@ -699,8 +701,9 @@
     },
     "/references/aircraft/{aircraftCode}": {
       "get": {
-        "description": "List all aircraft types or one specific aircraft type.",
-        "operationId": "ReferencesAircraftByAircraftCodeGet",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "http header: application/json or application/xml (Acceptable values are: \"application/json\", \"application/xml\")",
@@ -737,7 +740,6 @@
         "responses": {
           "200": {
             "description": "",
-            "examples": {},
             "schema": {
               "type": "object"
             }
@@ -748,10 +750,12 @@
             "auth": []
           }
         ],
-        "summary": "Aircraft",
         "tags": [
           "Reference Data"
         ],
+        "description": "List all aircraft types or one specific aircraft type.",
+        "operationId": "ReferencesAircraftByAircraftCodeGet",
+        "summary": "Aircraft",
         "x-operation-settings": {
           "AllowDynamicFormParameters": false,
           "AllowDynamicQueryParameters": false,
@@ -763,8 +767,9 @@
     },
     "/references/airlines/{airlineCode}": {
       "get": {
-        "description": "List all airlines or one specific airline.",
-        "operationId": "ReferencesAirlinesByAirlineCodeGet",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "http header: application/json or application/xml (Acceptable values are: \"application/json\", \"application/xml\")",
@@ -801,7 +806,6 @@
         "responses": {
           "200": {
             "description": "",
-            "examples": {},
             "schema": {
               "type": "object"
             }
@@ -812,10 +816,12 @@
             "auth": []
           }
         ],
-        "summary": "Airlines",
         "tags": [
           "Reference Data"
         ],
+        "description": "List all airlines or one specific airline.",
+        "operationId": "ReferencesAirlinesByAirlineCodeGet",
+        "summary": "Airlines",
         "x-operation-settings": {
           "AllowDynamicFormParameters": false,
           "AllowDynamicQueryParameters": false,
@@ -827,8 +833,9 @@
     },
     "/references/airports/nearest/{latitude},{longitude}": {
       "get": {
-        "description": "List the 5 closest airports to the given latitude and longitude, irrespective of the radius of the reference point.",
-        "operationId": "ReferencesAirportsNearestByLatitudeAndLongitudeGet",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Latitude in decimal format to at most 3 decimal places",
@@ -864,7 +871,6 @@
         "responses": {
           "200": {
             "description": "",
-            "examples": {},
             "schema": {
               "type": "object"
             }
@@ -875,10 +881,12 @@
             "auth": []
           }
         ],
-        "summary": "Nearest Airports",
         "tags": [
           "Reference Data"
         ],
+        "description": "List the 5 closest airports to the given latitude and longitude, irrespective of the radius of the reference point.",
+        "operationId": "ReferencesAirportsNearestByLatitudeAndLongitudeGet",
+        "summary": "Nearest Airports",
         "x-operation-settings": {
           "AllowDynamicFormParameters": false,
           "AllowDynamicQueryParameters": false,
@@ -890,8 +898,9 @@
     },
     "/references/airports/{airportCode}": {
       "get": {
-        "description": "List all airports or one specific airport. All airports response is very large. It is possible to request the response in a specific language.",
-        "operationId": "ReferencesAirportsByAirportCodeGet",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "http header: application/json or application/xml (Acceptable values are: \"application/json\", \"application/xml\")",
@@ -942,7 +951,6 @@
         "responses": {
           "200": {
             "description": "",
-            "examples": {},
             "schema": {
               "$ref": "#/definitions/AirportResponse"
             }
@@ -953,10 +961,12 @@
             "auth": []
           }
         ],
-        "summary": "Airports",
         "tags": [
           "Reference Data"
         ],
+        "description": "List all airports or one specific airport. All airports response is very large. It is possible to request the response in a specific language.",
+        "operationId": "ReferencesAirportsByAirportCodeGet",
+        "summary": "Airports",
         "x-operation-settings": {
           "AllowDynamicFormParameters": false,
           "AllowDynamicQueryParameters": false,
@@ -968,8 +978,9 @@
     },
     "/references/cities/{cityCode}": {
       "get": {
-        "description": "List all cities or one specific city. It is possible to request the response in a specific language.",
-        "operationId": "ReferencesCitiesByCityCodeGet",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "http header: application/json or application/xml (Acceptable values are: \"application/json\", \"application/xml\")",
@@ -1013,7 +1024,6 @@
         "responses": {
           "200": {
             "description": "",
-            "examples": {},
             "schema": {
               "type": "object"
             }
@@ -1024,10 +1034,12 @@
             "auth": []
           }
         ],
-        "summary": "Cities",
         "tags": [
           "Reference Data"
         ],
+        "description": "List all cities or one specific city. It is possible to request the response in a specific language.",
+        "operationId": "ReferencesCitiesByCityCodeGet",
+        "summary": "Cities",
         "x-operation-settings": {
           "AllowDynamicFormParameters": false,
           "AllowDynamicQueryParameters": false,
@@ -1039,8 +1051,9 @@
     },
     "/references/countries/{countryCode}": {
       "get": {
-        "description": "List all countries or one specific country. It is possible to request the response in a specific language.",
-        "operationId": "ReferencesCountriesByCountryCodeGet",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "http header: application/json or application/xml (Acceptable values are: \"application/json\", \"application/xml\")",
@@ -1084,7 +1097,6 @@
         "responses": {
           "200": {
             "description": "",
-            "examples": {},
             "schema": {
               "type": "object"
             }
@@ -1095,10 +1107,12 @@
             "auth": []
           }
         ],
-        "summary": "Countries",
         "tags": [
           "Reference Data"
         ],
+        "description": "List all countries or one specific country. It is possible to request the response in a specific language.",
+        "operationId": "ReferencesCountriesByCountryCodeGet",
+        "summary": "Countries",
         "x-operation-settings": {
           "AllowDynamicFormParameters": false,
           "AllowDynamicQueryParameters": false,
@@ -1247,5 +1261,17 @@
       },
       "type": "object"
     }
-  }
+  },
+  "securityDefinitions": {
+    "auth": {
+      "authorizationUrl": "https://api.lufthansa.com/v1/oauth/token",
+      "flow": "accessCode",
+      "scopes": {
+        "read:LH Open API": "read access"
+      },
+      "tokenUrl": "https://api.lufthansa.com/v1/oauth/token",
+      "type": "oauth2"
+    }
+  },
+  "x-components": {}
 }

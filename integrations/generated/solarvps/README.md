@@ -11,7 +11,7 @@ let solarvps = require('@datafire/solarvps').create({
   apiKey: ""
 });
 
-solarvps.contacts.get(null).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

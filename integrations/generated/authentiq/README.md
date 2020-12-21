@@ -1,6 +1,6 @@
 # @datafire/authentiq
 
-Client library for Authentiq Connect
+Client library for Authentiq Connect API
 
 ## Installation and Usage
 ```bash
@@ -16,13 +16,7 @@ let authentiq = require('@datafire/authentiq').create({
   redirect_uri: ""
 });
 
-authentiq.authorize({
-  "client_id": "",
-  "response_type": "",
-  "scope": "",
-  "redirect_uri": "",
-  "state": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -77,21 +71,13 @@ authentiq.oauthRefresh(null, context)
   * expiration `string`
 
 ### authorize
-Start a session with Authentiq Connect and authenticate a user.
-
-Example:
+Start a session with Authentiq Connect to authenticate a user.
 
 ```
 GET https://connect.authentiq.io/authorize?client_id=<your-client-id>&response_type=code+id_token&scope=openid+email&redirect_uri=<your-redirect-uri>&state=0123456789
 ```
 
-This endpoint is compatible with OpenID Connect and also supports the POST method, in which case the parameters are passed as a form post.
-
-See also:
-  - [OAuth 2.0 Authorization Endpoint](http://tools.ietf.org/html/rfc6749#section-3.1)
-  - [OIDC Authentication request](http://openid.net/specs/openid-connect-core-1_0.html#AuthRequest)
-  - [OIDC Successful Authentication response](http://openid.net/specs/openid-connect-core-1_0.html#AuthResponse)
-  - [OIDC Error Authentication response](http://openid.net/specs/openid-connect-core-1_0.html#AuthError)
+This endpoint also supports the POST method.
 
 
 
@@ -143,9 +129,6 @@ Register a new client with this Authentiq Connect provider.
 
 This endpoint is compatible with [OIDC's Client Registration](http://openid.net/specs/openid-connect-registration-1_0.html) extension.
 
-See also:
-- [OIDC Client Registration Endpoint](http://openid.net/specs/openid-connect-registration-1_0.html#ClientRegistration)
-
 
 
 ```js
@@ -182,9 +165,6 @@ authentiq.clientClient_id({
 ### getClient
 Retrieve the configuration of a previously registered client.
 
-See also:
-- [OIDC Client Configuration Endpoint](http://openid.net/specs/openid-connect-registration-1_0.html#ClientConfigurationEndpoint)
-
 
 
 ```js
@@ -202,9 +182,6 @@ authentiq.getClient({
 
 ### updateClient
 Update the configuration of a previously registered client.
-
-See also:
-- [OIDC Client Configuration Endpoint](http://openid.net/specs/openid-connect-registration-1_0.html#ClientConfigurationEndpoint)
 
 
 
@@ -226,12 +203,7 @@ authentiq.updateClient({
 ### token
 Exchange en authorization code for an ID Token or Access Token.
 
-This endpoint supports both `client_secret_post` and `client_secret_basic` authenticatino methods, as specified by the client's `token_endpoint_auth_method`.
-
-See also:
-  - [OIDC Token Endpoint](http://openid.net/specs/openid-connect-core-1_0.html#TokenRequest)
-  - [OIDC Successful Token response](http://openid.net/specs/openid-connect-core-1_0.html#TokenResponse)
-  - [OIDC Token Error response](http://openid.net/specs/openid-connect-core-1_0.html#TokenError)
+This endpoint supports both `client_secret_basic` (default) and `client_secret_basic` authentication methods, as specified by the client's `token_endpoint_auth_method`.
 
 
 
@@ -258,9 +230,7 @@ authentiq.token({
 * output [Token](#token)
 
 ### userInfo
-Use this endpoint to retrieve a user's profile in case you've not already obtained enough details from the ID Token via the Token Endpoint.
- See also:
- - [OIDC UserInfo endpoint](http://openid.net/specs/openid-connect-core-1_0.html#UserInfo)
+Use this endpoint to retrieve a user's profile in case you are unable to parse an ID Token or you've not already obtained enough details from the ID Token via the Token Endpoint.
 
 
 
@@ -278,9 +248,6 @@ authentiq.userInfo(null, context)
 An OpenID Connect Session Management iframe to facilitate e.g. single sign-on or remote logouts.
 
 The iframe implements the OIDC postMessage-based [change notification protocol](http://openid.net/specs/openid-connect-session-1_0.html#ChangeNotification) via which a client can receive notifications about session state changes.
-
-See also:
-- [OIDC OP iframe](http://openid.net/specs/openid-connect-session-1_0.html#OPiframe)
 
 
 

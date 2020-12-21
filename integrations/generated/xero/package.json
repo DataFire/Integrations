@@ -1,6 +1,6 @@
 {
   "name": "@datafire/xero",
-  "version": "4.1.1",
+  "version": "5.0.0",
   "main": "index.js",
   "description": "DataFire integration for Accounting",
   "repository": {

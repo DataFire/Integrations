@@ -1,8 +1,8 @@
 {
   "name": "@datafire/musixmatch",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "main": "index.js",
-  "description": "DataFire integration for Musixmatch",
+  "description": "DataFire integration for Musixmatch API",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DataFire/integrations.git"

@@ -1,0 +1,208 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "contact": {
+      "name": "Fun Generators",
+      "url": "http://fungenerators.com/api/barcode/"
+    },
+    "description": "Generate Barcode images for a given barcode number. You can decode Barcode images and get the barcodes in a numberic form as well. Many industry standard barcode types are supported. The best and complete Barcode API on the cloud. [Click here to subscribe](http://fungenerators.com/api/barcode/) \n",
+    "termsOfService": "https://fungenerators.com/terms",
+    "title": "Barcode API",
+    "version": "1.5",
+    "x-apisguru-categories": [
+      "text"
+    ],
+    "x-origin": [
+      {
+        "format": "openapi",
+        "url": "https://fungenerators.com/yaml/barcode.yaml",
+        "version": "3.0"
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "fungenerators.com",
+    "x-serviceName": "barcode",
+    "x-datafire": {
+      "name": "fungenerators_barcode",
+      "type": "openapi"
+    }
+  },
+  "host": "api.fungenerators.com",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/barcode/decode": {
+      "post": {
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Barcode image to decode and get the content value",
+            "format": "binary",
+            "in": "formData",
+            "name": "barimage",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200  response"
+          },
+          "401": {
+            "description": "401  response"
+          }
+        },
+        "security": [
+          {
+            "X-Fungenerators-Api-Secret": []
+          }
+        ],
+        "tags": [
+          "Barcode"
+        ],
+        "description": "Decode a Barcode image and return the cotents if successful"
+      }
+    },
+    "/barcode/decode/types": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "200  response"
+          },
+          "401": {
+            "description": "401  response"
+          }
+        },
+        "security": [
+          {
+            "X-Fungenerators-Api-Secret": []
+          }
+        ],
+        "tags": [
+          "Barcode"
+        ],
+        "description": "Get the supported barcode types for the decoding process."
+      }
+    },
+    "/barcode/encode": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Barcode number",
+            "format": "string",
+            "in": "query",
+            "name": "number",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Barcode format default C39. Valid values are the keys to those returned from /barcode/encode/types.",
+            "format": "string",
+            "in": "query",
+            "name": "barcodeformat",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Output image format. Must be one of png/html/jpg/svg",
+            "format": "string",
+            "in": "query",
+            "name": "outputformat",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Width factor of the image",
+            "format": "integer",
+            "in": "query",
+            "name": "widthfactor",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Total height of the image",
+            "format": "integer",
+            "in": "query",
+            "name": "totalheight",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200  response"
+          },
+          "401": {
+            "description": "401  response"
+          }
+        },
+        "security": [
+          {
+            "X-Fungenerators-Api-Secret": []
+          }
+        ],
+        "tags": [
+          "Barcode"
+        ],
+        "description": "Get a Bar Code image for the given barcode number"
+      }
+    },
+    "/barcode/encode/types": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "200  response"
+          },
+          "401": {
+            "description": "401  response"
+          }
+        },
+        "security": [
+          {
+            "X-Fungenerators-Api-Secret": []
+          }
+        ],
+        "tags": [
+          "Barcode"
+        ],
+        "description": "Get the supported barcode types for encoding / image generation."
+      }
+    }
+  },
+  "securityDefinitions": {
+    "X-Fungenerators-Api-Secret": {
+      "in": "header",
+      "name": "X-Fungenerators-Api-Secret",
+      "type": "apiKey"
+    }
+  },
+  "tags": [
+    {
+      "externalDocs": {
+        "description": "Find out more",
+        "url": "http://fungenerators.com/api/barcode/"
+      },
+      "description": "Barcode API",
+      "name": "Barcode"
+    }
+  ],
+  "x-components": {}
+}

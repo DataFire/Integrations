@@ -18,7 +18,7 @@
       "url": "https://creativecommons.org/licenses/by-nc/4.0/legalcode"
     },
     "title": "obono RKSV",
-    "version": "1.3.3.0",
+    "version": "1.4.0.0",
     "x-apisguru-categories": [
       "ecommerce"
     ],
@@ -172,6 +172,114 @@
         "operationId": "export.csv.registrierkassen.registrierkasseUuid.belege.get"
       }
     },
+    "/export/dep131/registrierkassen/{registrierkasseUuid}/belege": {
+      "get": {
+        "parameters": [
+          {
+            "description": "The `_uuid` of the `Registrierkasse` to export.",
+            "in": "path",
+            "name": "registrierkasseUuid",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Only return results that were saved before the specified date-time string (i.e., anything that `Date.parse()` can parse).",
+            "in": "query",
+            "name": "before",
+            "type": "string"
+          },
+          {
+            "description": "Only return results that were saved after the specified date-time string (i.e., anything that `Date.parse()` can parse).",
+            "in": "query",
+            "name": "after",
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "text/csv"
+        ],
+        "responses": {
+          "200": {
+            "description": "The exported data of a particular `Registrierkasse` in its DEP131 / CSV representation."
+          }
+        },
+        "tags": [
+          "export"
+        ],
+        "operationId": "export.dep131.registrierkassen.registrierkasseUuid.belege.get"
+      }
+    },
+    "/export/dep7/registrierkassen/{registrierkasseUuid}/belege": {
+      "get": {
+        "parameters": [
+          {
+            "description": "The `_uuid` of the `Registrierkasse` to export.",
+            "in": "path",
+            "name": "registrierkasseUuid",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Only return results that were saved before the specified date-time string (i.e., anything that `Date.parse()` can parse).",
+            "in": "query",
+            "name": "before",
+            "type": "string"
+          },
+          {
+            "description": "Only return results that were saved after the specified date-time string (i.e., anything that `Date.parse()` can parse).",
+            "in": "query",
+            "name": "after",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The exported data of a particular `Registrierkasse` in its DEP7 representation."
+          }
+        },
+        "tags": [
+          "export"
+        ],
+        "operationId": "export.dep7.registrierkassen.registrierkasseUuid.belege.get"
+      }
+    },
+    "/export/gobd/registrierkassen/{registrierkasseUuid}": {
+      "get": {
+        "parameters": [
+          {
+            "description": "The `_uuid` of the `Registrierkasse` to export.",
+            "in": "path",
+            "name": "registrierkasseUuid",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Only return results that were saved before the specified date-time string (i.e., anything that `Date.parse()` can parse).",
+            "in": "query",
+            "name": "before",
+            "type": "string"
+          },
+          {
+            "description": "Only return results that were saved after the specified date-time string (i.e., anything that `Date.parse()` can parse).",
+            "in": "query",
+            "name": "after",
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/zip"
+        ],
+        "responses": {
+          "200": {
+            "description": "The exported data of a particular `Registrierkasse` in its GoBD representation."
+          }
+        },
+        "tags": [
+          "export"
+        ],
+        "operationId": "export.gobd.registrierkassen.registrierkasseUuid.get"
+      }
+    },
     "/export/html/belege/{belegUuid}": {
       "get": {
         "parameters": [
@@ -275,11 +383,13 @@
             "type": "integer"
           },
           {
-            "default": "esc",
+            "default": "escpos",
             "description": "The thermal printer dialect.",
             "enum": [
-              "esc",
-              "star"
+              "escpos",
+              "escposlite",
+              "star",
+              "text"
             ],
             "in": "query",
             "name": "dialect",
@@ -599,6 +709,29 @@
         },
         "tags": [
           "beleg"
+        ]
+      }
+    },
+    "/registrierkassen/{registrierkasseUuid}/dep": {
+      "get": {
+        "description": "Generates a DEP file.",
+        "operationId": "getDEP",
+        "parameters": [
+          {
+            "description": "The `_uuid` of the `Registrierkasse` to retrieve the DEP file.",
+            "in": "path",
+            "name": "registrierkasseUuid",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The DEP file."
+          }
+        },
+        "tags": [
+          "registrierkasse"
         ]
       }
     },

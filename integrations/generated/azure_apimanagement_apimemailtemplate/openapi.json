@@ -7,7 +7,7 @@
   "info": {
     "description": "Use these REST APIs for performing operations on Email Templates associated with your Azure API Management deployment.",
     "title": "ApiManagementClient",
-    "version": "2018-01-01",
+    "version": "2018-06-01-preview",
     "x-apisguru-categories": [
       "cloud"
     ],
@@ -17,7 +17,7 @@
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/apimanagement/resource-manager/Microsoft.ApiManagement/preview/2018-01-01/apimemailtemplate.json",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/apimanagement/resource-manager/Microsoft.ApiManagement/preview/2018-06-01-preview/apimemailtemplate.json",
         "version": "2.0"
       }
     ],
@@ -161,7 +161,7 @@
         "x-ms-examples": {
           "ApiManagementListEmailTemplates": {
             "parameters": {
-              "api-version": "2018-01-01",
+              "api-version": "2018-06-01-preview",
               "resourceGroupName": "rg1",
               "serviceName": "apimService1",
               "subscriptionId": "subid"
@@ -327,7 +327,7 @@
           "ApiManagementDeleteEmailTemplate": {
             "parameters": {
               "If-Match": "*",
-              "api-version": "2018-01-01",
+              "api-version": "2018-06-01-preview",
               "resourceGroupName": "rg1",
               "serviceName": "apimService1",
               "subscriptionId": "subid",
@@ -443,7 +443,7 @@
         "x-ms-examples": {
           "ApiManagementGetEmailTemplate": {
             "parameters": {
-              "api-version": "2018-01-01",
+              "api-version": "2018-06-01-preview",
               "resourceGroupName": "rg1",
               "serviceName": "apimService1",
               "subscriptionId": "subid",
@@ -594,7 +594,7 @@
         "x-ms-examples": {
           "ApiManagementHeadEmailTemplate": {
             "parameters": {
-              "api-version": "2018-01-01",
+              "api-version": "2018-06-01-preview",
               "resourceGroupName": "rg1",
               "serviceName": "apimService1",
               "subscriptionId": "subid",
@@ -714,7 +714,7 @@
           "ApiManagementUpdateEmailTemplate": {
             "parameters": {
               "If-Match": "*",
-              "api-version": "2018-01-01",
+              "api-version": "2018-06-01-preview",
               "parameters": {
                 "properties": {
                   "body": "<!DOCTYPE html >\r\n<html>\r\n  <head />\r\n  <body>\r\n    <p style=\"font-size:12pt;font-family:'Segoe UI'\">Dear $DevFirstName $DevLastName,</p>\r\n    <p style=\"font-size:12pt;font-family:'Segoe UI'\">\r\n          We are happy to let you know that your request to publish the $AppName application in the gallery has been approved. Your application has been published and can be viewed <a href=\"http://$DevPortalUrl/Applications/Details/$AppId\">here</a>.\r\n        </p>\r\n    <p style=\"font-size:12pt;font-family:'Segoe UI'\">Best,</p>\r\n    <p style=\"font-size:12pt;font-family:'Segoe UI'\">The $OrganizationName API Team</p>\r\n  </body>\r\n</html>",
@@ -852,7 +852,7 @@
         "x-ms-examples": {
           "ApiManagementCreateEmailTemplate": {
             "parameters": {
-              "api-version": "2018-01-01",
+              "api-version": "2018-06-01-preview",
               "parameters": {
                 "properties": {
                   "subject": "Your request for $IssueName was successfully received."

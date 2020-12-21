@@ -1,0 +1,1353 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "contact": {
+      "email": "mike.ralphson@gmail.com",
+      "name": "Mike Ralphson",
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
+    },
+    "description": "<p>With Fleet Hub for AWS IoT Device Management you can build stand-alone web applications for monitoring the health of your device fleets.</p> <note> <p>Fleet Hub for AWS IoT Device Management is in public preview and is subject to change.</p> </note>",
+    "license": {
+      "name": "Apache 2.0 License",
+      "url": "http://www.apache.org/licenses/"
+    },
+    "termsOfService": "https://aws.amazon.com/service-terms/",
+    "title": "AWS IoT Fleet Hub",
+    "version": "2020-11-03",
+    "x-apiClientRegistration": {
+      "url": "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"
+    },
+    "x-apisguru-categories": [
+      "cloud"
+    ],
+    "x-logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"
+    },
+    "x-origin": [
+      {
+        "contentType": "application/json",
+        "converter": {
+          "url": "https://github.com/mermade/aws2openapi",
+          "version": "1.0.0"
+        },
+        "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/iotfleethub-2020-11-03.normal.json",
+        "x-apisguru-driver": "external"
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "amazonaws.com",
+    "x-release": "v4",
+    "x-serviceName": "iotfleethub",
+    "x-datafire": {
+      "name": "amazonaws_iotfleethub",
+      "type": "openapi"
+    }
+  },
+  "host": "api.fleethub.iot.us-east-1.amazonaws.com",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/applications": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "A token used to get the next set of results.",
+            "in": "query",
+            "maxLength": 2048,
+            "minLength": 1,
+            "name": "nextToken",
+            "pattern": "^[A-Za-z0-9+/=]+$",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListApplicationsResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          },
+          "482": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          }
+        },
+        "description": "<p>Gets a list of Fleet Hub for AWS IoT Device Management web applications for the current account.</p> <note> <p>Fleet Hub for AWS IoT Device Management is in public preview and is subject to change.</p> </note>",
+        "operationId": "ListApplications"
+      },
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "tags": {
+                  "additionalProperties": {
+                    "$ref": "#/definitions/TagValue"
+                  },
+                  "description": "A set of key/value pairs that you can use to manage the web application resource.",
+                  "maxProperties": 50,
+                  "minProperties": 1,
+                  "type": "object"
+                },
+                "applicationDescription": {
+                  "description": "An optional description of the web application.",
+                  "maxLength": 2048,
+                  "minLength": 1,
+                  "pattern": "^[ -~]*$",
+                  "type": "string"
+                },
+                "applicationName": {
+                  "description": "The name of the web application.",
+                  "maxLength": 100,
+                  "minLength": 1,
+                  "pattern": "^[ -~]*$",
+                  "type": "string"
+                },
+                "clientToken": {
+                  "description": "A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.",
+                  "maxLength": 64,
+                  "minLength": 1,
+                  "pattern": "^[a-zA-Z0-9-_]+$",
+                  "type": "string"
+                },
+                "roleArn": {
+                  "description": "<p>The ARN of the role that the web application assumes when it interacts with AWS IoT Core.</p> <note> <p>The name of the role must be in the form <code>AWSIotFleetHub_<i>random_string</i> </code>.</p> </note>",
+                  "maxLength": 1600,
+                  "minLength": 1,
+                  "pattern": "^arn:[!-~]+$",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "applicationName",
+                "roleArn"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateApplicationResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          },
+          "482": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "483": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          }
+        },
+        "description": "<p>Creates a Fleet Hub for AWS IoT Device Management web application.</p> <note> <p>Fleet Hub for AWS IoT Device Management is in public preview and is subject to change.</p> </note>",
+        "operationId": "CreateApplication"
+      }
+    },
+    "/applications/{applicationId}": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "delete": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The unique Id of the web application.",
+            "in": "path",
+            "maxLength": 36,
+            "minLength": 36,
+            "name": "applicationId",
+            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.",
+            "in": "query",
+            "maxLength": 64,
+            "minLength": 1,
+            "name": "clientToken",
+            "pattern": "^[a-zA-Z0-9-_]+$",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteApplicationResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          }
+        },
+        "description": "<p>Deletes a Fleet Hub for AWS IoT Device Management web application.</p> <note> <p>Fleet Hub for AWS IoT Device Management is in public preview and is subject to change.</p> </note>",
+        "operationId": "DeleteApplication"
+      },
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The unique Id of the web application.",
+            "in": "path",
+            "maxLength": 36,
+            "minLength": 36,
+            "name": "applicationId",
+            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeApplicationResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          }
+        },
+        "description": "<p>Gets information about a Fleet Hub for AWS IoT Device Management web application.</p> <note> <p>Fleet Hub for AWS IoT Device Management is in public preview and is subject to change.</p> </note>",
+        "operationId": "DescribeApplication"
+      },
+      "patch": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The unique Id of the web application.",
+            "in": "path",
+            "maxLength": 36,
+            "minLength": 36,
+            "name": "applicationId",
+            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "applicationDescription": {
+                  "description": "An optional description of the web application.",
+                  "maxLength": 2048,
+                  "minLength": 1,
+                  "pattern": "^[ -~]*$",
+                  "type": "string"
+                },
+                "applicationName": {
+                  "description": "The name of the web application.",
+                  "maxLength": 100,
+                  "minLength": 1,
+                  "pattern": "^[ -~]*$",
+                  "type": "string"
+                },
+                "clientToken": {
+                  "description": "A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.",
+                  "maxLength": 64,
+                  "minLength": 1,
+                  "pattern": "^[a-zA-Z0-9-_]+$",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UpdateApplicationResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          },
+          "483": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          },
+          "484": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          }
+        },
+        "description": "<p>Updates information about a Fleet Hub for a AWS IoT Device Management web application.</p> <note> <p>Fleet Hub for AWS IoT Device Management is in public preview and is subject to change.</p> </note>",
+        "operationId": "UpdateApplication"
+      }
+    },
+    "/tags/{resourceArn}": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The ARN of the resource.",
+            "in": "path",
+            "name": "resourceArn",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListTagsForResourceResponse"
+            }
+          },
+          "480": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          },
+          "481": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        },
+        "description": "<p>Lists the tags for the specified resource.</p> <note> <p>Fleet Hub for AWS IoT Device Management is in public preview and is subject to change.</p> </note>",
+        "operationId": "ListTagsForResource"
+      },
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The ARN of the resource.",
+            "in": "path",
+            "name": "resourceArn",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "tags": {
+                  "additionalProperties": {
+                    "$ref": "#/definitions/TagValue"
+                  },
+                  "description": "The new or modified tags for the resource.",
+                  "maxProperties": 50,
+                  "minProperties": 1,
+                  "type": "object"
+                }
+              },
+              "required": [
+                "tags"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/TagResourceResponse"
+            }
+          },
+          "480": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          },
+          "481": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        },
+        "description": "<p>Adds to or modifies the tags of the specified resource. Tags are metadata which can be used to manage a resource.</p> <note> <p>Fleet Hub for AWS IoT Device Management is in public preview and is subject to change.</p> </note>",
+        "operationId": "TagResource"
+      }
+    },
+    "/tags/{resourceArn}#tagKeys": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "delete": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The ARN of the resource.",
+            "in": "path",
+            "name": "resourceArn",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "collectionFormat": "multi",
+            "description": "A list of the keys of the tags to be removed from the resource.",
+            "in": "query",
+            "items": {
+              "$ref": "#/definitions/TagKey"
+            },
+            "name": "tagKeys",
+            "required": true,
+            "type": "array"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UntagResourceResponse"
+            }
+          },
+          "480": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          },
+          "481": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        },
+        "description": "<p>Removes the specified tags (metadata) from the resource.</p> <note> <p>Fleet Hub for AWS IoT Device Management is in public preview and is subject to change.</p> </note>",
+        "operationId": "UntagResource"
+      }
+    }
+  },
+  "definitions": {
+    "ApplicationState": {
+      "enum": [
+        "CREATING",
+        "DELETING",
+        "ACTIVE",
+        "CREATE_FAILED",
+        "DELETE_FAILED"
+      ],
+      "type": "string"
+    },
+    "ApplicationSummaries": {
+      "items": {
+        "$ref": "#/definitions/ApplicationSummary"
+      },
+      "type": "array"
+    },
+    "ApplicationSummary": {
+      "description": "<p>A summary of information about a AWS IoT Device Management web application.</p> <note> <p>Fleet Hub for AWS IoT Device Management is in public preview and is subject to change.</p> </note>",
+      "properties": {
+        "applicationCreationDate": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "The date (in Unix epoch time) when the web application was created."
+            }
+          ]
+        },
+        "applicationDescription": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Description"
+            },
+            {
+              "description": "An optional description of the web application."
+            }
+          ]
+        },
+        "applicationId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Id"
+            },
+            {
+              "description": "The unique Id of the web application."
+            }
+          ]
+        },
+        "applicationLastUpdateDate": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "The date (in Unix epoch time) when the web application was last updated."
+            }
+          ]
+        },
+        "applicationName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Name"
+            },
+            {
+              "description": "The name of the web application."
+            }
+          ]
+        },
+        "applicationState": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ApplicationState"
+            },
+            {
+              "description": "The current state of the web application."
+            }
+          ]
+        },
+        "applicationUrl": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Url"
+            },
+            {
+              "description": "The URL of the web application."
+            }
+          ]
+        }
+      },
+      "required": [
+        "applicationId",
+        "applicationName",
+        "applicationUrl"
+      ],
+      "type": "object"
+    },
+    "Arn": {
+      "maxLength": 1600,
+      "minLength": 1,
+      "pattern": "^arn:[!-~]+$",
+      "type": "string"
+    },
+    "ClientRequestToken": {
+      "maxLength": 64,
+      "minLength": 1,
+      "pattern": "^[a-zA-Z0-9-_]+$",
+      "type": "string"
+    },
+    "ConflictException": {},
+    "CreateApplicationRequest": {
+      "properties": {
+        "tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagMap"
+            },
+            {
+              "description": "A set of key/value pairs that you can use to manage the web application resource."
+            }
+          ]
+        },
+        "applicationDescription": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Description"
+            },
+            {
+              "description": "An optional description of the web application."
+            }
+          ]
+        },
+        "applicationName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Name"
+            },
+            {
+              "description": "The name of the web application."
+            }
+          ]
+        },
+        "clientToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ClientRequestToken"
+            },
+            {
+              "description": "A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required."
+            }
+          ]
+        },
+        "roleArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Arn"
+            },
+            {
+              "description": "<p>The ARN of the role that the web application assumes when it interacts with AWS IoT Core.</p> <note> <p>The name of the role must be in the form <code>AWSIotFleetHub_<i>random_string</i> </code>.</p> </note>"
+            }
+          ]
+        }
+      },
+      "required": [
+        "applicationName",
+        "roleArn"
+      ],
+      "title": "CreateApplicationRequest",
+      "type": "object"
+    },
+    "CreateApplicationResponse": {
+      "properties": {
+        "applicationArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Arn"
+            },
+            {
+              "description": "The ARN of the web application."
+            }
+          ]
+        },
+        "applicationId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Id"
+            },
+            {
+              "description": "The unique Id of the web application."
+            }
+          ]
+        }
+      },
+      "required": [
+        "applicationId",
+        "applicationArn"
+      ],
+      "type": "object"
+    },
+    "DeleteApplicationRequest": {
+      "properties": {},
+      "title": "DeleteApplicationRequest",
+      "type": "object"
+    },
+    "DeleteApplicationResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "DescribeApplicationRequest": {
+      "properties": {},
+      "title": "DescribeApplicationRequest",
+      "type": "object"
+    },
+    "DescribeApplicationResponse": {
+      "properties": {
+        "tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagMap"
+            },
+            {
+              "description": "A set of key/value pairs that you can use to manage the web application resource."
+            }
+          ]
+        },
+        "applicationArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Arn"
+            },
+            {
+              "description": "The ARN of the web application."
+            }
+          ]
+        },
+        "applicationCreationDate": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "The date (in Unix epoch time) when the application was created."
+            }
+          ]
+        },
+        "applicationDescription": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Description"
+            },
+            {
+              "description": "An optional description of the web application."
+            }
+          ]
+        },
+        "applicationId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Id"
+            },
+            {
+              "description": "The unique Id of the web application."
+            }
+          ]
+        },
+        "applicationLastUpdateDate": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "The date (in Unix epoch time) when the application was last updated."
+            }
+          ]
+        },
+        "applicationName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Name"
+            },
+            {
+              "description": "The name of the web application."
+            }
+          ]
+        },
+        "applicationState": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ApplicationState"
+            },
+            {
+              "description": "The current state of the web application."
+            }
+          ]
+        },
+        "applicationUrl": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Url"
+            },
+            {
+              "description": "The URL of the web application."
+            }
+          ]
+        },
+        "errorMessage": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ErrorMessage"
+            },
+            {
+              "description": "A message indicating why the <code>DescribeApplication</code> API failed."
+            }
+          ]
+        },
+        "roleArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Arn"
+            },
+            {
+              "description": "The ARN of the role that the web application assumes when it interacts with AWS IoT Core."
+            }
+          ]
+        },
+        "ssoClientId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SsoClientId"
+            },
+            {
+              "description": "The Id of the single sign-on client that you use to authenticate and authorize users on the web application."
+            }
+          ]
+        }
+      },
+      "required": [
+        "applicationId",
+        "applicationArn",
+        "applicationName",
+        "applicationUrl",
+        "applicationState",
+        "applicationCreationDate",
+        "applicationLastUpdateDate",
+        "roleArn"
+      ],
+      "type": "object"
+    },
+    "Description": {
+      "maxLength": 2048,
+      "minLength": 1,
+      "pattern": "^[ -~]*$",
+      "type": "string"
+    },
+    "ErrorMessage": {
+      "type": "string"
+    },
+    "Id": {
+      "maxLength": 36,
+      "minLength": 36,
+      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+      "type": "string"
+    },
+    "InternalFailureException": {},
+    "InvalidRequestException": {},
+    "LimitExceededException": {},
+    "ListApplicationsRequest": {
+      "properties": {},
+      "title": "ListApplicationsRequest",
+      "type": "object"
+    },
+    "ListApplicationsResponse": {
+      "properties": {
+        "applicationSummaries": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ApplicationSummaries"
+            },
+            {
+              "description": "An array of objects that provide summaries of information about the web applications in the list."
+            }
+          ]
+        },
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NextToken"
+            },
+            {
+              "description": "A token used to get the next set of results."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ListTagsForResourceRequest": {
+      "properties": {},
+      "title": "ListTagsForResourceRequest",
+      "type": "object"
+    },
+    "ListTagsForResourceResponse": {
+      "properties": {
+        "tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagMap"
+            },
+            {
+              "description": "The list of tags assigned to the resource."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "Name": {
+      "maxLength": 100,
+      "minLength": 1,
+      "pattern": "^[ -~]*$",
+      "type": "string"
+    },
+    "NextToken": {
+      "maxLength": 2048,
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9+/=]+$",
+      "type": "string"
+    },
+    "ResourceArn": {
+      "type": "string"
+    },
+    "ResourceNotFoundException": {},
+    "SsoClientId": {
+      "type": "string"
+    },
+    "TagKey": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
+      "type": "string"
+    },
+    "TagKeyList": {
+      "items": {
+        "$ref": "#/definitions/TagKey"
+      },
+      "type": "array"
+    },
+    "TagMap": {
+      "additionalProperties": {
+        "$ref": "#/definitions/TagValue"
+      },
+      "maxProperties": 50,
+      "minProperties": 1,
+      "type": "object"
+    },
+    "TagResourceRequest": {
+      "properties": {
+        "tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagMap"
+            },
+            {
+              "description": "The new or modified tags for the resource."
+            }
+          ]
+        }
+      },
+      "required": [
+        "tags"
+      ],
+      "title": "TagResourceRequest",
+      "type": "object"
+    },
+    "TagResourceResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "TagValue": {
+      "maxLength": 256,
+      "minLength": 1,
+      "type": "string"
+    },
+    "ThrottlingException": {},
+    "Timestamp": {
+      "type": "integer"
+    },
+    "UntagResourceRequest": {
+      "properties": {},
+      "title": "UntagResourceRequest",
+      "type": "object"
+    },
+    "UntagResourceResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "UpdateApplicationRequest": {
+      "properties": {
+        "applicationDescription": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Description"
+            },
+            {
+              "description": "An optional description of the web application."
+            }
+          ]
+        },
+        "applicationName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Name"
+            },
+            {
+              "description": "The name of the web application."
+            }
+          ]
+        },
+        "clientToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ClientRequestToken"
+            },
+            {
+              "description": "A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required."
+            }
+          ]
+        }
+      },
+      "title": "UpdateApplicationRequest",
+      "type": "object"
+    },
+    "UpdateApplicationResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "Url": {
+      "maxLength": 256,
+      "minLength": 1,
+      "pattern": "^https\\://\\S+$",
+      "type": "string"
+    }
+  },
+  "securityDefinitions": {
+    "hmac": {
+      "description": "Amazon Signature authorization v4",
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey",
+      "x-amazon-apigateway-authtype": "awsSigv4"
+    }
+  },
+  "security": [
+    {
+      "hmac": []
+    }
+  ],
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://docs.aws.amazon.com/iot/"
+  },
+  "x-components": {
+    "parameters": {
+      "X-Amz-Algorithm": {
+        "in": "header",
+        "name": "X-Amz-Algorithm",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Content-Sha256": {
+        "in": "header",
+        "name": "X-Amz-Content-Sha256",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Credential": {
+        "in": "header",
+        "name": "X-Amz-Credential",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Date": {
+        "in": "header",
+        "name": "X-Amz-Date",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Security-Token": {
+        "in": "header",
+        "name": "X-Amz-Security-Token",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Signature": {
+        "in": "header",
+        "name": "X-Amz-Signature",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-SignedHeaders": {
+        "in": "header",
+        "name": "X-Amz-SignedHeaders",
+        "required": false,
+        "type": "string"
+      }
+    }
+  },
+  "x-hasEquivalentPaths": true
+}

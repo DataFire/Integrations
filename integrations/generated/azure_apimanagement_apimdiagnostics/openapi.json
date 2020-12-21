@@ -7,7 +7,7 @@
   "info": {
     "description": "Use these REST APIs for performing operations on Diagnostic entity associated with your Azure API Management deployment. Diagnostics are used to log requests/responses in the APIM proxy.",
     "title": "ApiManagementClient",
-    "version": "2018-01-01",
+    "version": "2019-12-01-preview",
     "x-apisguru-categories": [
       "cloud"
     ],
@@ -17,7 +17,7 @@
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/apimanagement/resource-manager/Microsoft.ApiManagement/preview/2018-01-01/apimdiagnostics.json",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/apimanagement/resource-manager/Microsoft.ApiManagement/preview/2019-12-01-preview/apimdiagnostics.json",
         "version": "2.0"
       }
     ],
@@ -57,19 +57,7 @@
       ]
     }
   ],
-  "parameters": {
-    "DiagnosticIdParameter": {
-      "description": "Diagnostic identifier. Must be unique in the current API Management service instance.",
-      "in": "path",
-      "maxLength": 80,
-      "minLength": 1,
-      "name": "diagnosticId",
-      "pattern": "(^[\\w]+$)|(^[\\w][\\w\\-]+[\\w]$)",
-      "required": true,
-      "type": "string",
-      "x-ms-parameter-location": "method"
-    }
-  },
+  "parameters": {},
   "paths": {
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/diagnostics": {
       "get": {
@@ -96,21 +84,7 @@
             "x-ms-parameter-location": "method"
           },
           {
-            "description": "Version of the API to be used with the client request.",
-            "in": "query",
-            "name": "api-version",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
-            "in": "path",
-            "name": "subscriptionId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "| Field       | Supported operators    | Supported functions               |\n|-------------|------------------------|-----------------------------------|\n| id          | ge, le, eq, ne, gt, lt | substringof, startswith, endswith |",
+            "description": "|   Field     |     Usage     |     Supported operators     |     Supported functions     |</br>|-------------|-------------|-------------|-------------|</br>| name | filter | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith | </br>",
             "in": "query",
             "name": "$filter",
             "required": false,
@@ -135,13 +109,283 @@
             "required": false,
             "type": "integer",
             "x-ms-parameter-location": "method"
+          },
+          {
+            "description": "Version of the API to be used with the client request.",
+            "in": "query",
+            "name": "api-version",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
           "200": {
-            "description": "Paged Result reponse of diagnostics.",
+            "description": "Paged Result response of diagnostics.",
             "schema": {
-              "$ref": "#/definitions/DiagnosticCollection"
+              "description": "Paged Diagnostic list representation.",
+              "properties": {
+                "nextLink": {
+                  "description": "Next page link if any.",
+                  "type": "string"
+                },
+                "value": {
+                  "description": "Page values.",
+                  "items": {
+                    "allOf": [
+                      {
+                        "description": "The Resource definition.",
+                        "properties": {
+                          "id": {
+                            "description": "Resource ID.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "name": {
+                            "description": "Resource name.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "type": {
+                            "description": "Resource type for API Management resource.",
+                            "readOnly": true,
+                            "type": "string"
+                          }
+                        },
+                        "x-ms-azure-resource": true
+                      }
+                    ],
+                    "description": "Diagnostic details.",
+                    "properties": {
+                      "properties": {
+                        "description": "Diagnostic Entity Properties",
+                        "properties": {
+                          "alwaysLog": {
+                            "description": "Specifies for what type of messages sampling settings should not apply.",
+                            "enum": [
+                              "allErrors"
+                            ],
+                            "type": "string",
+                            "x-ms-enum": {
+                              "modelAsString": true,
+                              "name": "AlwaysLog",
+                              "values": [
+                                {
+                                  "description": "Always log all erroneous request regardless of sampling settings.",
+                                  "value": "allErrors"
+                                }
+                              ]
+                            }
+                          },
+                          "backend": {
+                            "description": "Diagnostic settings for incoming/outgoing HTTP messages to the Gateway.",
+                            "properties": {
+                              "request": {
+                                "description": "Http message diagnostic settings.",
+                                "properties": {
+                                  "body": {
+                                    "description": "Body logging settings.",
+                                    "properties": {
+                                      "bytes": {
+                                        "description": "Number of request body bytes to log.",
+                                        "format": "int32",
+                                        "maximum": 8192,
+                                        "type": "integer"
+                                      }
+                                    }
+                                  },
+                                  "headers": {
+                                    "description": "Array of HTTP Headers to log.",
+                                    "items": {
+                                      "type": "string"
+                                    },
+                                    "type": "array"
+                                  }
+                                }
+                              },
+                              "response": {
+                                "description": "Http message diagnostic settings.",
+                                "properties": {
+                                  "body": {
+                                    "description": "Body logging settings.",
+                                    "properties": {
+                                      "bytes": {
+                                        "description": "Number of request body bytes to log.",
+                                        "format": "int32",
+                                        "maximum": 8192,
+                                        "type": "integer"
+                                      }
+                                    }
+                                  },
+                                  "headers": {
+                                    "description": "Array of HTTP Headers to log.",
+                                    "items": {
+                                      "type": "string"
+                                    },
+                                    "type": "array"
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "frontend": {
+                            "description": "Diagnostic settings for incoming/outgoing HTTP messages to the Gateway.",
+                            "properties": {
+                              "request": {
+                                "description": "Http message diagnostic settings.",
+                                "properties": {
+                                  "body": {
+                                    "description": "Body logging settings.",
+                                    "properties": {
+                                      "bytes": {
+                                        "description": "Number of request body bytes to log.",
+                                        "format": "int32",
+                                        "maximum": 8192,
+                                        "type": "integer"
+                                      }
+                                    }
+                                  },
+                                  "headers": {
+                                    "description": "Array of HTTP Headers to log.",
+                                    "items": {
+                                      "type": "string"
+                                    },
+                                    "type": "array"
+                                  }
+                                }
+                              },
+                              "response": {
+                                "description": "Http message diagnostic settings.",
+                                "properties": {
+                                  "body": {
+                                    "description": "Body logging settings.",
+                                    "properties": {
+                                      "bytes": {
+                                        "description": "Number of request body bytes to log.",
+                                        "format": "int32",
+                                        "maximum": 8192,
+                                        "type": "integer"
+                                      }
+                                    }
+                                  },
+                                  "headers": {
+                                    "description": "Array of HTTP Headers to log.",
+                                    "items": {
+                                      "type": "string"
+                                    },
+                                    "type": "array"
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "httpCorrelationProtocol": {
+                            "description": "Sets correlation protocol to use for Application Insights diagnostics.",
+                            "enum": [
+                              "None",
+                              "Legacy",
+                              "W3C"
+                            ],
+                            "type": "string",
+                            "x-ms-enum": {
+                              "modelAsString": true,
+                              "name": "HttpCorrelationProtocol",
+                              "values": [
+                                {
+                                  "description": "Do not read and inject correlation headers.",
+                                  "value": "None"
+                                },
+                                {
+                                  "description": "Inject Request-Id and Request-Context headers with request correlation data. See https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md.",
+                                  "value": "Legacy"
+                                },
+                                {
+                                  "description": "Inject Trace Context headers. See https://w3c.github.io/trace-context.",
+                                  "value": "W3C"
+                                }
+                              ]
+                            }
+                          },
+                          "logClientIp": {
+                            "description": "Log the ClientIP. Default is false.",
+                            "type": "boolean"
+                          },
+                          "loggerId": {
+                            "description": "Resource Id of a target logger.",
+                            "type": "string"
+                          },
+                          "sampling": {
+                            "description": "Sampling settings for Diagnostic.",
+                            "properties": {
+                              "percentage": {
+                                "description": "Rate of sampling for fixed-rate sampling.",
+                                "format": "double",
+                                "maximum": 100,
+                                "minimum": 0,
+                                "type": "number"
+                              },
+                              "samplingType": {
+                                "description": "Sampling type.",
+                                "enum": [
+                                  "fixed"
+                                ],
+                                "type": "string",
+                                "x-ms-enum": {
+                                  "modelAsString": true,
+                                  "name": "SamplingType",
+                                  "values": [
+                                    {
+                                      "description": "Fixed-rate sampling.",
+                                      "value": "fixed"
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          },
+                          "verbosity": {
+                            "description": "The verbosity level applied to traces emitted by trace policies.",
+                            "enum": [
+                              "verbose",
+                              "information",
+                              "error"
+                            ],
+                            "type": "string",
+                            "x-ms-enum": {
+                              "modelAsString": true,
+                              "name": "Verbosity",
+                              "values": [
+                                {
+                                  "description": "All the traces emitted by trace policies will be sent to the logger attached to this diagnostic instance.",
+                                  "value": "verbose"
+                                },
+                                {
+                                  "description": "Traces with 'severity' set to 'information' and 'error' will be sent to the logger attached to this diagnostic instance.",
+                                  "value": "information"
+                                },
+                                {
+                                  "description": "Only traces with 'severity' set to 'error' will be sent to the logger attached to this diagnostic instance.",
+                                  "value": "error"
+                                }
+                              ]
+                            }
+                          }
+                        },
+                        "required": [
+                          "loggerId"
+                        ]
+                      }
+                    }
+                  },
+                  "type": "array"
+                }
+              }
             }
           },
           "default": {
@@ -188,12 +432,12 @@
           }
         },
         "tags": [
-          "Diagnostics"
+          "Diagnostic"
         ],
         "x-ms-examples": {
           "ApiManagementListDiagnostics": {
             "parameters": {
-              "api-version": "2018-01-01",
+              "api-version": "2019-12-01-preview",
               "resourceGroupName": "rg1",
               "serviceName": "apimService1",
               "subscriptionId": "subid"
@@ -201,13 +445,61 @@
             "responses": {
               "200": {
                 "body": {
-                  "nextLink": "",
                   "value": [
                     {
-                      "id": "/subscriptions/subid/resourcegroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/diagnostics/default",
-                      "name": "default",
+                      "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/diagnostics/applicationinsights",
+                      "name": "applicationinsights",
                       "properties": {
-                        "enabled": false
+                        "alwaysLog": "allErrors",
+                        "backend": {
+                          "request": {
+                            "body": {
+                              "bytes": 0
+                            },
+                            "headers": []
+                          },
+                          "response": {
+                            "body": {
+                              "bytes": 0
+                            },
+                            "headers": []
+                          }
+                        },
+                        "frontend": {
+                          "request": {
+                            "body": {
+                              "bytes": 0
+                            },
+                            "headers": []
+                          },
+                          "response": {
+                            "body": {
+                              "bytes": 0
+                            },
+                            "headers": []
+                          }
+                        },
+                        "httpCorrelationProtocol": "Legacy",
+                        "logClientIp": true,
+                        "loggerId": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/loggers/aisamplingtest",
+                        "sampling": {
+                          "percentage": 100,
+                          "samplingType": "fixed"
+                        },
+                        "verbosity": "information"
+                      },
+                      "type": "Microsoft.ApiManagement/service/diagnostics"
+                    },
+                    {
+                      "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/diagnostics/azuremonitor",
+                      "name": "azuremonitor",
+                      "properties": {
+                        "logClientIp": true,
+                        "loggerId": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/loggers/azuremonitor",
+                        "sampling": {
+                          "percentage": 100,
+                          "samplingType": "fixed"
+                        }
                       },
                       "type": "Microsoft.ApiManagement/service/diagnostics"
                     }
@@ -217,7 +509,7 @@
             }
           }
         },
-        "x-ms-odata": "#/definitions/DiagnosticContract",
+        "x-ms-odata": "./definitions.json#/definitions/DiagnosticContract",
         "x-ms-pageable": {
           "nextLinkName": "nextLink"
         }
@@ -248,7 +540,15 @@
             "x-ms-parameter-location": "method"
           },
           {
-            "$ref": "#/parameters/DiagnosticIdParameter"
+            "description": "Diagnostic identifier. Must be unique in the current API Management service instance.",
+            "in": "path",
+            "maxLength": 80,
+            "minLength": 1,
+            "name": "diagnosticId",
+            "pattern": "^[^*#&+:<>?]+$",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "ETag of the Entity. ETag should match the current entity state from the header response of the GET request or it should be * for unconditional update.",
@@ -324,14 +624,14 @@
           }
         },
         "tags": [
-          "Diagnostics"
+          "Diagnostic"
         ],
         "x-ms-examples": {
           "ApiManagementDeleteDiagnostic": {
             "parameters": {
               "If-Match": "*",
-              "api-version": "2018-01-01",
-              "diagnosticId": "default",
+              "api-version": "2019-12-01-preview",
+              "diagnosticId": "applicationinsights",
               "resourceGroupName": "rg1",
               "serviceName": "apimService1",
               "subscriptionId": "subid"
@@ -367,7 +667,15 @@
             "x-ms-parameter-location": "method"
           },
           {
-            "$ref": "#/parameters/DiagnosticIdParameter"
+            "description": "Diagnostic identifier. Must be unique in the current API Management service instance.",
+            "in": "path",
+            "maxLength": 80,
+            "minLength": 1,
+            "name": "diagnosticId",
+            "pattern": "^[^*#&+:<>?]+$",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "Version of the API to be used with the client request.",
@@ -394,7 +702,250 @@
               }
             },
             "schema": {
-              "$ref": "#/definitions/DiagnosticContract"
+              "allOf": [
+                {
+                  "description": "The Resource definition.",
+                  "properties": {
+                    "id": {
+                      "description": "Resource ID.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "name": {
+                      "description": "Resource name.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "type": {
+                      "description": "Resource type for API Management resource.",
+                      "readOnly": true,
+                      "type": "string"
+                    }
+                  },
+                  "x-ms-azure-resource": true
+                }
+              ],
+              "description": "Diagnostic details.",
+              "properties": {
+                "properties": {
+                  "description": "Diagnostic Entity Properties",
+                  "properties": {
+                    "alwaysLog": {
+                      "description": "Specifies for what type of messages sampling settings should not apply.",
+                      "enum": [
+                        "allErrors"
+                      ],
+                      "type": "string",
+                      "x-ms-enum": {
+                        "modelAsString": true,
+                        "name": "AlwaysLog",
+                        "values": [
+                          {
+                            "description": "Always log all erroneous request regardless of sampling settings.",
+                            "value": "allErrors"
+                          }
+                        ]
+                      }
+                    },
+                    "backend": {
+                      "description": "Diagnostic settings for incoming/outgoing HTTP messages to the Gateway.",
+                      "properties": {
+                        "request": {
+                          "description": "Http message diagnostic settings.",
+                          "properties": {
+                            "body": {
+                              "description": "Body logging settings.",
+                              "properties": {
+                                "bytes": {
+                                  "description": "Number of request body bytes to log.",
+                                  "format": "int32",
+                                  "maximum": 8192,
+                                  "type": "integer"
+                                }
+                              }
+                            },
+                            "headers": {
+                              "description": "Array of HTTP Headers to log.",
+                              "items": {
+                                "type": "string"
+                              },
+                              "type": "array"
+                            }
+                          }
+                        },
+                        "response": {
+                          "description": "Http message diagnostic settings.",
+                          "properties": {
+                            "body": {
+                              "description": "Body logging settings.",
+                              "properties": {
+                                "bytes": {
+                                  "description": "Number of request body bytes to log.",
+                                  "format": "int32",
+                                  "maximum": 8192,
+                                  "type": "integer"
+                                }
+                              }
+                            },
+                            "headers": {
+                              "description": "Array of HTTP Headers to log.",
+                              "items": {
+                                "type": "string"
+                              },
+                              "type": "array"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "frontend": {
+                      "description": "Diagnostic settings for incoming/outgoing HTTP messages to the Gateway.",
+                      "properties": {
+                        "request": {
+                          "description": "Http message diagnostic settings.",
+                          "properties": {
+                            "body": {
+                              "description": "Body logging settings.",
+                              "properties": {
+                                "bytes": {
+                                  "description": "Number of request body bytes to log.",
+                                  "format": "int32",
+                                  "maximum": 8192,
+                                  "type": "integer"
+                                }
+                              }
+                            },
+                            "headers": {
+                              "description": "Array of HTTP Headers to log.",
+                              "items": {
+                                "type": "string"
+                              },
+                              "type": "array"
+                            }
+                          }
+                        },
+                        "response": {
+                          "description": "Http message diagnostic settings.",
+                          "properties": {
+                            "body": {
+                              "description": "Body logging settings.",
+                              "properties": {
+                                "bytes": {
+                                  "description": "Number of request body bytes to log.",
+                                  "format": "int32",
+                                  "maximum": 8192,
+                                  "type": "integer"
+                                }
+                              }
+                            },
+                            "headers": {
+                              "description": "Array of HTTP Headers to log.",
+                              "items": {
+                                "type": "string"
+                              },
+                              "type": "array"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "httpCorrelationProtocol": {
+                      "description": "Sets correlation protocol to use for Application Insights diagnostics.",
+                      "enum": [
+                        "None",
+                        "Legacy",
+                        "W3C"
+                      ],
+                      "type": "string",
+                      "x-ms-enum": {
+                        "modelAsString": true,
+                        "name": "HttpCorrelationProtocol",
+                        "values": [
+                          {
+                            "description": "Do not read and inject correlation headers.",
+                            "value": "None"
+                          },
+                          {
+                            "description": "Inject Request-Id and Request-Context headers with request correlation data. See https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md.",
+                            "value": "Legacy"
+                          },
+                          {
+                            "description": "Inject Trace Context headers. See https://w3c.github.io/trace-context.",
+                            "value": "W3C"
+                          }
+                        ]
+                      }
+                    },
+                    "logClientIp": {
+                      "description": "Log the ClientIP. Default is false.",
+                      "type": "boolean"
+                    },
+                    "loggerId": {
+                      "description": "Resource Id of a target logger.",
+                      "type": "string"
+                    },
+                    "sampling": {
+                      "description": "Sampling settings for Diagnostic.",
+                      "properties": {
+                        "percentage": {
+                          "description": "Rate of sampling for fixed-rate sampling.",
+                          "format": "double",
+                          "maximum": 100,
+                          "minimum": 0,
+                          "type": "number"
+                        },
+                        "samplingType": {
+                          "description": "Sampling type.",
+                          "enum": [
+                            "fixed"
+                          ],
+                          "type": "string",
+                          "x-ms-enum": {
+                            "modelAsString": true,
+                            "name": "SamplingType",
+                            "values": [
+                              {
+                                "description": "Fixed-rate sampling.",
+                                "value": "fixed"
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    },
+                    "verbosity": {
+                      "description": "The verbosity level applied to traces emitted by trace policies.",
+                      "enum": [
+                        "verbose",
+                        "information",
+                        "error"
+                      ],
+                      "type": "string",
+                      "x-ms-enum": {
+                        "modelAsString": true,
+                        "name": "Verbosity",
+                        "values": [
+                          {
+                            "description": "All the traces emitted by trace policies will be sent to the logger attached to this diagnostic instance.",
+                            "value": "verbose"
+                          },
+                          {
+                            "description": "Traces with 'severity' set to 'information' and 'error' will be sent to the logger attached to this diagnostic instance.",
+                            "value": "information"
+                          },
+                          {
+                            "description": "Only traces with 'severity' set to 'error' will be sent to the logger attached to this diagnostic instance.",
+                            "value": "error"
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "loggerId"
+                  ]
+                }
+              }
             }
           },
           "default": {
@@ -441,13 +992,13 @@
           }
         },
         "tags": [
-          "Diagnostics"
+          "Diagnostic"
         ],
         "x-ms-examples": {
           "ApiManagementGetDiagnostic": {
             "parameters": {
-              "api-version": "2018-01-01",
-              "diagnosticId": "default",
+              "api-version": "2019-12-01-preview",
+              "diagnosticId": "applicationinsights",
               "resourceGroupName": "rg1",
               "serviceName": "apimService1",
               "subscriptionId": "subid"
@@ -455,10 +1006,45 @@
             "responses": {
               "200": {
                 "body": {
-                  "id": "/subscriptions/subid/resourcegroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/diagnostics/default",
-                  "name": "default",
+                  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/diagnostics/applicationinsights",
+                  "name": "applicationinsights",
                   "properties": {
-                    "enabled": false
+                    "alwaysLog": "allErrors",
+                    "backend": {
+                      "request": {
+                        "body": {
+                          "bytes": 100
+                        },
+                        "headers": []
+                      },
+                      "response": {
+                        "body": {
+                          "bytes": 100
+                        },
+                        "headers": []
+                      }
+                    },
+                    "frontend": {
+                      "request": {
+                        "body": {
+                          "bytes": 100
+                        },
+                        "headers": []
+                      },
+                      "response": {
+                        "body": {
+                          "bytes": 100
+                        },
+                        "headers": []
+                      }
+                    },
+                    "httpCorrelationProtocol": "Legacy",
+                    "logClientIp": true,
+                    "loggerId": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/loggers/aisamplingtest",
+                    "sampling": {
+                      "percentage": 100,
+                      "samplingType": "fixed"
+                    }
                   },
                   "type": "Microsoft.ApiManagement/service/diagnostics"
                 }
@@ -491,7 +1077,15 @@
             "x-ms-parameter-location": "method"
           },
           {
-            "$ref": "#/parameters/DiagnosticIdParameter"
+            "description": "Diagnostic identifier. Must be unique in the current API Management service instance.",
+            "in": "path",
+            "maxLength": 80,
+            "minLength": 1,
+            "name": "diagnosticId",
+            "pattern": "^[^*#&+:<>?]+$",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "Version of the API to be used with the client request.",
@@ -510,7 +1104,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Operation completed successfully.",
+            "description": "Gets the entity tag of the diagnostic",
             "headers": {
               "ETag": {
                 "description": "Current entity state version. Should be treated as opaque and used to make conditional HTTP requests.",
@@ -562,13 +1156,13 @@
           }
         },
         "tags": [
-          "Diagnostics"
+          "Diagnostic"
         ],
         "x-ms-examples": {
           "ApiManagementHeadDiagnostic": {
             "parameters": {
-              "api-version": "2018-01-01",
-              "diagnosticId": "default",
+              "api-version": "2019-12-01-preview",
+              "diagnosticId": "applicationinsights",
               "resourceGroupName": "rg1",
               "serviceName": "apimService1",
               "subscriptionId": "subid"
@@ -607,7 +1201,15 @@
             "x-ms-parameter-location": "method"
           },
           {
-            "$ref": "#/parameters/DiagnosticIdParameter"
+            "description": "Diagnostic identifier. Must be unique in the current API Management service instance.",
+            "in": "path",
+            "maxLength": 80,
+            "minLength": 1,
+            "name": "diagnosticId",
+            "pattern": "^[^*#&+:<>?]+$",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "Diagnostic Update parameters.",
@@ -615,7 +1217,250 @@
             "name": "parameters",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/DiagnosticContract"
+              "allOf": [
+                {
+                  "description": "The Resource definition.",
+                  "properties": {
+                    "id": {
+                      "description": "Resource ID.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "name": {
+                      "description": "Resource name.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "type": {
+                      "description": "Resource type for API Management resource.",
+                      "readOnly": true,
+                      "type": "string"
+                    }
+                  },
+                  "x-ms-azure-resource": true
+                }
+              ],
+              "description": "Diagnostic details.",
+              "properties": {
+                "properties": {
+                  "description": "Diagnostic Entity Properties",
+                  "properties": {
+                    "alwaysLog": {
+                      "description": "Specifies for what type of messages sampling settings should not apply.",
+                      "enum": [
+                        "allErrors"
+                      ],
+                      "type": "string",
+                      "x-ms-enum": {
+                        "modelAsString": true,
+                        "name": "AlwaysLog",
+                        "values": [
+                          {
+                            "description": "Always log all erroneous request regardless of sampling settings.",
+                            "value": "allErrors"
+                          }
+                        ]
+                      }
+                    },
+                    "backend": {
+                      "description": "Diagnostic settings for incoming/outgoing HTTP messages to the Gateway.",
+                      "properties": {
+                        "request": {
+                          "description": "Http message diagnostic settings.",
+                          "properties": {
+                            "body": {
+                              "description": "Body logging settings.",
+                              "properties": {
+                                "bytes": {
+                                  "description": "Number of request body bytes to log.",
+                                  "format": "int32",
+                                  "maximum": 8192,
+                                  "type": "integer"
+                                }
+                              }
+                            },
+                            "headers": {
+                              "description": "Array of HTTP Headers to log.",
+                              "items": {
+                                "type": "string"
+                              },
+                              "type": "array"
+                            }
+                          }
+                        },
+                        "response": {
+                          "description": "Http message diagnostic settings.",
+                          "properties": {
+                            "body": {
+                              "description": "Body logging settings.",
+                              "properties": {
+                                "bytes": {
+                                  "description": "Number of request body bytes to log.",
+                                  "format": "int32",
+                                  "maximum": 8192,
+                                  "type": "integer"
+                                }
+                              }
+                            },
+                            "headers": {
+                              "description": "Array of HTTP Headers to log.",
+                              "items": {
+                                "type": "string"
+                              },
+                              "type": "array"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "frontend": {
+                      "description": "Diagnostic settings for incoming/outgoing HTTP messages to the Gateway.",
+                      "properties": {
+                        "request": {
+                          "description": "Http message diagnostic settings.",
+                          "properties": {
+                            "body": {
+                              "description": "Body logging settings.",
+                              "properties": {
+                                "bytes": {
+                                  "description": "Number of request body bytes to log.",
+                                  "format": "int32",
+                                  "maximum": 8192,
+                                  "type": "integer"
+                                }
+                              }
+                            },
+                            "headers": {
+                              "description": "Array of HTTP Headers to log.",
+                              "items": {
+                                "type": "string"
+                              },
+                              "type": "array"
+                            }
+                          }
+                        },
+                        "response": {
+                          "description": "Http message diagnostic settings.",
+                          "properties": {
+                            "body": {
+                              "description": "Body logging settings.",
+                              "properties": {
+                                "bytes": {
+                                  "description": "Number of request body bytes to log.",
+                                  "format": "int32",
+                                  "maximum": 8192,
+                                  "type": "integer"
+                                }
+                              }
+                            },
+                            "headers": {
+                              "description": "Array of HTTP Headers to log.",
+                              "items": {
+                                "type": "string"
+                              },
+                              "type": "array"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "httpCorrelationProtocol": {
+                      "description": "Sets correlation protocol to use for Application Insights diagnostics.",
+                      "enum": [
+                        "None",
+                        "Legacy",
+                        "W3C"
+                      ],
+                      "type": "string",
+                      "x-ms-enum": {
+                        "modelAsString": true,
+                        "name": "HttpCorrelationProtocol",
+                        "values": [
+                          {
+                            "description": "Do not read and inject correlation headers.",
+                            "value": "None"
+                          },
+                          {
+                            "description": "Inject Request-Id and Request-Context headers with request correlation data. See https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md.",
+                            "value": "Legacy"
+                          },
+                          {
+                            "description": "Inject Trace Context headers. See https://w3c.github.io/trace-context.",
+                            "value": "W3C"
+                          }
+                        ]
+                      }
+                    },
+                    "logClientIp": {
+                      "description": "Log the ClientIP. Default is false.",
+                      "type": "boolean"
+                    },
+                    "loggerId": {
+                      "description": "Resource Id of a target logger.",
+                      "type": "string"
+                    },
+                    "sampling": {
+                      "description": "Sampling settings for Diagnostic.",
+                      "properties": {
+                        "percentage": {
+                          "description": "Rate of sampling for fixed-rate sampling.",
+                          "format": "double",
+                          "maximum": 100,
+                          "minimum": 0,
+                          "type": "number"
+                        },
+                        "samplingType": {
+                          "description": "Sampling type.",
+                          "enum": [
+                            "fixed"
+                          ],
+                          "type": "string",
+                          "x-ms-enum": {
+                            "modelAsString": true,
+                            "name": "SamplingType",
+                            "values": [
+                              {
+                                "description": "Fixed-rate sampling.",
+                                "value": "fixed"
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    },
+                    "verbosity": {
+                      "description": "The verbosity level applied to traces emitted by trace policies.",
+                      "enum": [
+                        "verbose",
+                        "information",
+                        "error"
+                      ],
+                      "type": "string",
+                      "x-ms-enum": {
+                        "modelAsString": true,
+                        "name": "Verbosity",
+                        "values": [
+                          {
+                            "description": "All the traces emitted by trace policies will be sent to the logger attached to this diagnostic instance.",
+                            "value": "verbose"
+                          },
+                          {
+                            "description": "Traces with 'severity' set to 'information' and 'error' will be sent to the logger attached to this diagnostic instance.",
+                            "value": "information"
+                          },
+                          {
+                            "description": "Only traces with 'severity' set to 'error' will be sent to the logger attached to this diagnostic instance.",
+                            "value": "error"
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "loggerId"
+                  ]
+                }
+              }
             }
           },
           {
@@ -689,17 +1534,58 @@
           }
         },
         "tags": [
-          "Diagnostics"
+          "Diagnostic"
         ],
         "x-ms-examples": {
           "ApiManagementUpdateDiagnostic": {
             "parameters": {
               "If-Match": "*",
-              "api-version": "2018-01-01",
-              "diagnosticId": "default",
+              "api-version": "2019-12-01-preview",
+              "diagnosticId": "applicationinsights",
               "parameters": {
                 "properties": {
-                  "enabled": false
+                  "alwaysLog": "allErrors",
+                  "backend": {
+                    "request": {
+                      "body": {
+                        "bytes": 512
+                      },
+                      "headers": [
+                        "Content-type"
+                      ]
+                    },
+                    "response": {
+                      "body": {
+                        "bytes": 512
+                      },
+                      "headers": [
+                        "Content-type"
+                      ]
+                    }
+                  },
+                  "frontend": {
+                    "request": {
+                      "body": {
+                        "bytes": 512
+                      },
+                      "headers": [
+                        "Content-type"
+                      ]
+                    },
+                    "response": {
+                      "body": {
+                        "bytes": 512
+                      },
+                      "headers": [
+                        "Content-type"
+                      ]
+                    }
+                  },
+                  "loggerId": "/loggers/applicationinsights",
+                  "sampling": {
+                    "percentage": 50,
+                    "samplingType": "fixed"
+                  }
                 }
               },
               "resourceGroupName": "rg1",
@@ -736,7 +1622,15 @@
             "x-ms-parameter-location": "method"
           },
           {
-            "$ref": "#/parameters/DiagnosticIdParameter"
+            "description": "Diagnostic identifier. Must be unique in the current API Management service instance.",
+            "in": "path",
+            "maxLength": 80,
+            "minLength": 1,
+            "name": "diagnosticId",
+            "pattern": "^[^*#&+:<>?]+$",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "Create parameters.",
@@ -744,7 +1638,250 @@
             "name": "parameters",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/DiagnosticContract"
+              "allOf": [
+                {
+                  "description": "The Resource definition.",
+                  "properties": {
+                    "id": {
+                      "description": "Resource ID.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "name": {
+                      "description": "Resource name.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "type": {
+                      "description": "Resource type for API Management resource.",
+                      "readOnly": true,
+                      "type": "string"
+                    }
+                  },
+                  "x-ms-azure-resource": true
+                }
+              ],
+              "description": "Diagnostic details.",
+              "properties": {
+                "properties": {
+                  "description": "Diagnostic Entity Properties",
+                  "properties": {
+                    "alwaysLog": {
+                      "description": "Specifies for what type of messages sampling settings should not apply.",
+                      "enum": [
+                        "allErrors"
+                      ],
+                      "type": "string",
+                      "x-ms-enum": {
+                        "modelAsString": true,
+                        "name": "AlwaysLog",
+                        "values": [
+                          {
+                            "description": "Always log all erroneous request regardless of sampling settings.",
+                            "value": "allErrors"
+                          }
+                        ]
+                      }
+                    },
+                    "backend": {
+                      "description": "Diagnostic settings for incoming/outgoing HTTP messages to the Gateway.",
+                      "properties": {
+                        "request": {
+                          "description": "Http message diagnostic settings.",
+                          "properties": {
+                            "body": {
+                              "description": "Body logging settings.",
+                              "properties": {
+                                "bytes": {
+                                  "description": "Number of request body bytes to log.",
+                                  "format": "int32",
+                                  "maximum": 8192,
+                                  "type": "integer"
+                                }
+                              }
+                            },
+                            "headers": {
+                              "description": "Array of HTTP Headers to log.",
+                              "items": {
+                                "type": "string"
+                              },
+                              "type": "array"
+                            }
+                          }
+                        },
+                        "response": {
+                          "description": "Http message diagnostic settings.",
+                          "properties": {
+                            "body": {
+                              "description": "Body logging settings.",
+                              "properties": {
+                                "bytes": {
+                                  "description": "Number of request body bytes to log.",
+                                  "format": "int32",
+                                  "maximum": 8192,
+                                  "type": "integer"
+                                }
+                              }
+                            },
+                            "headers": {
+                              "description": "Array of HTTP Headers to log.",
+                              "items": {
+                                "type": "string"
+                              },
+                              "type": "array"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "frontend": {
+                      "description": "Diagnostic settings for incoming/outgoing HTTP messages to the Gateway.",
+                      "properties": {
+                        "request": {
+                          "description": "Http message diagnostic settings.",
+                          "properties": {
+                            "body": {
+                              "description": "Body logging settings.",
+                              "properties": {
+                                "bytes": {
+                                  "description": "Number of request body bytes to log.",
+                                  "format": "int32",
+                                  "maximum": 8192,
+                                  "type": "integer"
+                                }
+                              }
+                            },
+                            "headers": {
+                              "description": "Array of HTTP Headers to log.",
+                              "items": {
+                                "type": "string"
+                              },
+                              "type": "array"
+                            }
+                          }
+                        },
+                        "response": {
+                          "description": "Http message diagnostic settings.",
+                          "properties": {
+                            "body": {
+                              "description": "Body logging settings.",
+                              "properties": {
+                                "bytes": {
+                                  "description": "Number of request body bytes to log.",
+                                  "format": "int32",
+                                  "maximum": 8192,
+                                  "type": "integer"
+                                }
+                              }
+                            },
+                            "headers": {
+                              "description": "Array of HTTP Headers to log.",
+                              "items": {
+                                "type": "string"
+                              },
+                              "type": "array"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "httpCorrelationProtocol": {
+                      "description": "Sets correlation protocol to use for Application Insights diagnostics.",
+                      "enum": [
+                        "None",
+                        "Legacy",
+                        "W3C"
+                      ],
+                      "type": "string",
+                      "x-ms-enum": {
+                        "modelAsString": true,
+                        "name": "HttpCorrelationProtocol",
+                        "values": [
+                          {
+                            "description": "Do not read and inject correlation headers.",
+                            "value": "None"
+                          },
+                          {
+                            "description": "Inject Request-Id and Request-Context headers with request correlation data. See https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md.",
+                            "value": "Legacy"
+                          },
+                          {
+                            "description": "Inject Trace Context headers. See https://w3c.github.io/trace-context.",
+                            "value": "W3C"
+                          }
+                        ]
+                      }
+                    },
+                    "logClientIp": {
+                      "description": "Log the ClientIP. Default is false.",
+                      "type": "boolean"
+                    },
+                    "loggerId": {
+                      "description": "Resource Id of a target logger.",
+                      "type": "string"
+                    },
+                    "sampling": {
+                      "description": "Sampling settings for Diagnostic.",
+                      "properties": {
+                        "percentage": {
+                          "description": "Rate of sampling for fixed-rate sampling.",
+                          "format": "double",
+                          "maximum": 100,
+                          "minimum": 0,
+                          "type": "number"
+                        },
+                        "samplingType": {
+                          "description": "Sampling type.",
+                          "enum": [
+                            "fixed"
+                          ],
+                          "type": "string",
+                          "x-ms-enum": {
+                            "modelAsString": true,
+                            "name": "SamplingType",
+                            "values": [
+                              {
+                                "description": "Fixed-rate sampling.",
+                                "value": "fixed"
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    },
+                    "verbosity": {
+                      "description": "The verbosity level applied to traces emitted by trace policies.",
+                      "enum": [
+                        "verbose",
+                        "information",
+                        "error"
+                      ],
+                      "type": "string",
+                      "x-ms-enum": {
+                        "modelAsString": true,
+                        "name": "Verbosity",
+                        "values": [
+                          {
+                            "description": "All the traces emitted by trace policies will be sent to the logger attached to this diagnostic instance.",
+                            "value": "verbose"
+                          },
+                          {
+                            "description": "Traces with 'severity' set to 'information' and 'error' will be sent to the logger attached to this diagnostic instance.",
+                            "value": "information"
+                          },
+                          {
+                            "description": "Only traces with 'severity' set to 'error' will be sent to the logger attached to this diagnostic instance.",
+                            "value": "error"
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "loggerId"
+                  ]
+                }
+              }
             }
           },
           {
@@ -772,15 +1909,513 @@
         ],
         "responses": {
           "200": {
-            "description": "Diagnostic was successfully updated.",
+            "description": "Diagnostic successfully updated",
+            "headers": {
+              "ETag": {
+                "description": "Current entity state version. Should be treated as opaque and used to make conditional HTTP requests.",
+                "type": "string"
+              }
+            },
             "schema": {
-              "$ref": "#/definitions/DiagnosticContract"
+              "allOf": [
+                {
+                  "description": "The Resource definition.",
+                  "properties": {
+                    "id": {
+                      "description": "Resource ID.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "name": {
+                      "description": "Resource name.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "type": {
+                      "description": "Resource type for API Management resource.",
+                      "readOnly": true,
+                      "type": "string"
+                    }
+                  },
+                  "x-ms-azure-resource": true
+                }
+              ],
+              "description": "Diagnostic details.",
+              "properties": {
+                "properties": {
+                  "description": "Diagnostic Entity Properties",
+                  "properties": {
+                    "alwaysLog": {
+                      "description": "Specifies for what type of messages sampling settings should not apply.",
+                      "enum": [
+                        "allErrors"
+                      ],
+                      "type": "string",
+                      "x-ms-enum": {
+                        "modelAsString": true,
+                        "name": "AlwaysLog",
+                        "values": [
+                          {
+                            "description": "Always log all erroneous request regardless of sampling settings.",
+                            "value": "allErrors"
+                          }
+                        ]
+                      }
+                    },
+                    "backend": {
+                      "description": "Diagnostic settings for incoming/outgoing HTTP messages to the Gateway.",
+                      "properties": {
+                        "request": {
+                          "description": "Http message diagnostic settings.",
+                          "properties": {
+                            "body": {
+                              "description": "Body logging settings.",
+                              "properties": {
+                                "bytes": {
+                                  "description": "Number of request body bytes to log.",
+                                  "format": "int32",
+                                  "maximum": 8192,
+                                  "type": "integer"
+                                }
+                              }
+                            },
+                            "headers": {
+                              "description": "Array of HTTP Headers to log.",
+                              "items": {
+                                "type": "string"
+                              },
+                              "type": "array"
+                            }
+                          }
+                        },
+                        "response": {
+                          "description": "Http message diagnostic settings.",
+                          "properties": {
+                            "body": {
+                              "description": "Body logging settings.",
+                              "properties": {
+                                "bytes": {
+                                  "description": "Number of request body bytes to log.",
+                                  "format": "int32",
+                                  "maximum": 8192,
+                                  "type": "integer"
+                                }
+                              }
+                            },
+                            "headers": {
+                              "description": "Array of HTTP Headers to log.",
+                              "items": {
+                                "type": "string"
+                              },
+                              "type": "array"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "frontend": {
+                      "description": "Diagnostic settings for incoming/outgoing HTTP messages to the Gateway.",
+                      "properties": {
+                        "request": {
+                          "description": "Http message diagnostic settings.",
+                          "properties": {
+                            "body": {
+                              "description": "Body logging settings.",
+                              "properties": {
+                                "bytes": {
+                                  "description": "Number of request body bytes to log.",
+                                  "format": "int32",
+                                  "maximum": 8192,
+                                  "type": "integer"
+                                }
+                              }
+                            },
+                            "headers": {
+                              "description": "Array of HTTP Headers to log.",
+                              "items": {
+                                "type": "string"
+                              },
+                              "type": "array"
+                            }
+                          }
+                        },
+                        "response": {
+                          "description": "Http message diagnostic settings.",
+                          "properties": {
+                            "body": {
+                              "description": "Body logging settings.",
+                              "properties": {
+                                "bytes": {
+                                  "description": "Number of request body bytes to log.",
+                                  "format": "int32",
+                                  "maximum": 8192,
+                                  "type": "integer"
+                                }
+                              }
+                            },
+                            "headers": {
+                              "description": "Array of HTTP Headers to log.",
+                              "items": {
+                                "type": "string"
+                              },
+                              "type": "array"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "httpCorrelationProtocol": {
+                      "description": "Sets correlation protocol to use for Application Insights diagnostics.",
+                      "enum": [
+                        "None",
+                        "Legacy",
+                        "W3C"
+                      ],
+                      "type": "string",
+                      "x-ms-enum": {
+                        "modelAsString": true,
+                        "name": "HttpCorrelationProtocol",
+                        "values": [
+                          {
+                            "description": "Do not read and inject correlation headers.",
+                            "value": "None"
+                          },
+                          {
+                            "description": "Inject Request-Id and Request-Context headers with request correlation data. See https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md.",
+                            "value": "Legacy"
+                          },
+                          {
+                            "description": "Inject Trace Context headers. See https://w3c.github.io/trace-context.",
+                            "value": "W3C"
+                          }
+                        ]
+                      }
+                    },
+                    "logClientIp": {
+                      "description": "Log the ClientIP. Default is false.",
+                      "type": "boolean"
+                    },
+                    "loggerId": {
+                      "description": "Resource Id of a target logger.",
+                      "type": "string"
+                    },
+                    "sampling": {
+                      "description": "Sampling settings for Diagnostic.",
+                      "properties": {
+                        "percentage": {
+                          "description": "Rate of sampling for fixed-rate sampling.",
+                          "format": "double",
+                          "maximum": 100,
+                          "minimum": 0,
+                          "type": "number"
+                        },
+                        "samplingType": {
+                          "description": "Sampling type.",
+                          "enum": [
+                            "fixed"
+                          ],
+                          "type": "string",
+                          "x-ms-enum": {
+                            "modelAsString": true,
+                            "name": "SamplingType",
+                            "values": [
+                              {
+                                "description": "Fixed-rate sampling.",
+                                "value": "fixed"
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    },
+                    "verbosity": {
+                      "description": "The verbosity level applied to traces emitted by trace policies.",
+                      "enum": [
+                        "verbose",
+                        "information",
+                        "error"
+                      ],
+                      "type": "string",
+                      "x-ms-enum": {
+                        "modelAsString": true,
+                        "name": "Verbosity",
+                        "values": [
+                          {
+                            "description": "All the traces emitted by trace policies will be sent to the logger attached to this diagnostic instance.",
+                            "value": "verbose"
+                          },
+                          {
+                            "description": "Traces with 'severity' set to 'information' and 'error' will be sent to the logger attached to this diagnostic instance.",
+                            "value": "information"
+                          },
+                          {
+                            "description": "Only traces with 'severity' set to 'error' will be sent to the logger attached to this diagnostic instance.",
+                            "value": "error"
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "loggerId"
+                  ]
+                }
+              }
             }
           },
           "201": {
             "description": "Diagnostic was successfully created.",
+            "headers": {
+              "ETag": {
+                "description": "Current entity state version. Should be treated as opaque and used to make conditional HTTP requests.",
+                "type": "string"
+              }
+            },
             "schema": {
-              "$ref": "#/definitions/DiagnosticContract"
+              "allOf": [
+                {
+                  "description": "The Resource definition.",
+                  "properties": {
+                    "id": {
+                      "description": "Resource ID.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "name": {
+                      "description": "Resource name.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "type": {
+                      "description": "Resource type for API Management resource.",
+                      "readOnly": true,
+                      "type": "string"
+                    }
+                  },
+                  "x-ms-azure-resource": true
+                }
+              ],
+              "description": "Diagnostic details.",
+              "properties": {
+                "properties": {
+                  "description": "Diagnostic Entity Properties",
+                  "properties": {
+                    "alwaysLog": {
+                      "description": "Specifies for what type of messages sampling settings should not apply.",
+                      "enum": [
+                        "allErrors"
+                      ],
+                      "type": "string",
+                      "x-ms-enum": {
+                        "modelAsString": true,
+                        "name": "AlwaysLog",
+                        "values": [
+                          {
+                            "description": "Always log all erroneous request regardless of sampling settings.",
+                            "value": "allErrors"
+                          }
+                        ]
+                      }
+                    },
+                    "backend": {
+                      "description": "Diagnostic settings for incoming/outgoing HTTP messages to the Gateway.",
+                      "properties": {
+                        "request": {
+                          "description": "Http message diagnostic settings.",
+                          "properties": {
+                            "body": {
+                              "description": "Body logging settings.",
+                              "properties": {
+                                "bytes": {
+                                  "description": "Number of request body bytes to log.",
+                                  "format": "int32",
+                                  "maximum": 8192,
+                                  "type": "integer"
+                                }
+                              }
+                            },
+                            "headers": {
+                              "description": "Array of HTTP Headers to log.",
+                              "items": {
+                                "type": "string"
+                              },
+                              "type": "array"
+                            }
+                          }
+                        },
+                        "response": {
+                          "description": "Http message diagnostic settings.",
+                          "properties": {
+                            "body": {
+                              "description": "Body logging settings.",
+                              "properties": {
+                                "bytes": {
+                                  "description": "Number of request body bytes to log.",
+                                  "format": "int32",
+                                  "maximum": 8192,
+                                  "type": "integer"
+                                }
+                              }
+                            },
+                            "headers": {
+                              "description": "Array of HTTP Headers to log.",
+                              "items": {
+                                "type": "string"
+                              },
+                              "type": "array"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "frontend": {
+                      "description": "Diagnostic settings for incoming/outgoing HTTP messages to the Gateway.",
+                      "properties": {
+                        "request": {
+                          "description": "Http message diagnostic settings.",
+                          "properties": {
+                            "body": {
+                              "description": "Body logging settings.",
+                              "properties": {
+                                "bytes": {
+                                  "description": "Number of request body bytes to log.",
+                                  "format": "int32",
+                                  "maximum": 8192,
+                                  "type": "integer"
+                                }
+                              }
+                            },
+                            "headers": {
+                              "description": "Array of HTTP Headers to log.",
+                              "items": {
+                                "type": "string"
+                              },
+                              "type": "array"
+                            }
+                          }
+                        },
+                        "response": {
+                          "description": "Http message diagnostic settings.",
+                          "properties": {
+                            "body": {
+                              "description": "Body logging settings.",
+                              "properties": {
+                                "bytes": {
+                                  "description": "Number of request body bytes to log.",
+                                  "format": "int32",
+                                  "maximum": 8192,
+                                  "type": "integer"
+                                }
+                              }
+                            },
+                            "headers": {
+                              "description": "Array of HTTP Headers to log.",
+                              "items": {
+                                "type": "string"
+                              },
+                              "type": "array"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "httpCorrelationProtocol": {
+                      "description": "Sets correlation protocol to use for Application Insights diagnostics.",
+                      "enum": [
+                        "None",
+                        "Legacy",
+                        "W3C"
+                      ],
+                      "type": "string",
+                      "x-ms-enum": {
+                        "modelAsString": true,
+                        "name": "HttpCorrelationProtocol",
+                        "values": [
+                          {
+                            "description": "Do not read and inject correlation headers.",
+                            "value": "None"
+                          },
+                          {
+                            "description": "Inject Request-Id and Request-Context headers with request correlation data. See https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md.",
+                            "value": "Legacy"
+                          },
+                          {
+                            "description": "Inject Trace Context headers. See https://w3c.github.io/trace-context.",
+                            "value": "W3C"
+                          }
+                        ]
+                      }
+                    },
+                    "logClientIp": {
+                      "description": "Log the ClientIP. Default is false.",
+                      "type": "boolean"
+                    },
+                    "loggerId": {
+                      "description": "Resource Id of a target logger.",
+                      "type": "string"
+                    },
+                    "sampling": {
+                      "description": "Sampling settings for Diagnostic.",
+                      "properties": {
+                        "percentage": {
+                          "description": "Rate of sampling for fixed-rate sampling.",
+                          "format": "double",
+                          "maximum": 100,
+                          "minimum": 0,
+                          "type": "number"
+                        },
+                        "samplingType": {
+                          "description": "Sampling type.",
+                          "enum": [
+                            "fixed"
+                          ],
+                          "type": "string",
+                          "x-ms-enum": {
+                            "modelAsString": true,
+                            "name": "SamplingType",
+                            "values": [
+                              {
+                                "description": "Fixed-rate sampling.",
+                                "value": "fixed"
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    },
+                    "verbosity": {
+                      "description": "The verbosity level applied to traces emitted by trace policies.",
+                      "enum": [
+                        "verbose",
+                        "information",
+                        "error"
+                      ],
+                      "type": "string",
+                      "x-ms-enum": {
+                        "modelAsString": true,
+                        "name": "Verbosity",
+                        "values": [
+                          {
+                            "description": "All the traces emitted by trace policies will be sent to the logger attached to this diagnostic instance.",
+                            "value": "verbose"
+                          },
+                          {
+                            "description": "Traces with 'severity' set to 'information' and 'error' will be sent to the logger attached to this diagnostic instance.",
+                            "value": "information"
+                          },
+                          {
+                            "description": "Only traces with 'severity' set to 'error' will be sent to the logger attached to this diagnostic instance.",
+                            "value": "error"
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "loggerId"
+                  ]
+                }
+              }
             }
           },
           "default": {
@@ -827,16 +2462,57 @@
           }
         },
         "tags": [
-          "Diagnostics"
+          "Diagnostic"
         ],
         "x-ms-examples": {
           "ApiManagementCreateDiagnostic": {
             "parameters": {
-              "api-version": "2018-01-01",
-              "diagnosticId": "default",
+              "api-version": "2019-12-01-preview",
+              "diagnosticId": "applicationinsights",
               "parameters": {
                 "properties": {
-                  "enabled": true
+                  "alwaysLog": "allErrors",
+                  "backend": {
+                    "request": {
+                      "body": {
+                        "bytes": 512
+                      },
+                      "headers": [
+                        "Content-type"
+                      ]
+                    },
+                    "response": {
+                      "body": {
+                        "bytes": 512
+                      },
+                      "headers": [
+                        "Content-type"
+                      ]
+                    }
+                  },
+                  "frontend": {
+                    "request": {
+                      "body": {
+                        "bytes": 512
+                      },
+                      "headers": [
+                        "Content-type"
+                      ]
+                    },
+                    "response": {
+                      "body": {
+                        "bytes": 512
+                      },
+                      "headers": [
+                        "Content-type"
+                      ]
+                    }
+                  },
+                  "loggerId": "/loggers/azuremonitor",
+                  "sampling": {
+                    "percentage": 50,
+                    "samplingType": "fixed"
+                  }
                 }
               },
               "resourceGroupName": "rg1",
@@ -846,830 +2522,104 @@
             "responses": {
               "200": {
                 "body": {
-                  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/diagnostics/default",
-                  "name": "default",
+                  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/diagnostics/applicationinsights",
+                  "name": "applicationinsights",
                   "properties": {
-                    "enabled": true
+                    "alwaysLog": "allErrors",
+                    "backend": {
+                      "request": {
+                        "body": {
+                          "bytes": 512
+                        },
+                        "headers": [
+                          "Content-type"
+                        ]
+                      },
+                      "response": {
+                        "body": {
+                          "bytes": 512
+                        },
+                        "headers": [
+                          "Content-type"
+                        ]
+                      }
+                    },
+                    "frontend": {
+                      "request": {
+                        "body": {
+                          "bytes": 512
+                        },
+                        "headers": [
+                          "Content-type"
+                        ]
+                      },
+                      "response": {
+                        "body": {
+                          "bytes": 512
+                        },
+                        "headers": [
+                          "Content-type"
+                        ]
+                      }
+                    },
+                    "loggerId": "/loggers/applicationinsights",
+                    "sampling": {
+                      "percentage": 50,
+                      "samplingType": "fixed"
+                    }
                   },
                   "type": "Microsoft.ApiManagement/service/diagnostics"
                 }
               },
               "201": {
                 "body": {
-                  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/diagnostics/default",
-                  "name": "default",
+                  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/diagnostics/applicationinsights",
+                  "name": "applicationinsights",
                   "properties": {
-                    "enabled": true
+                    "alwaysLog": "allErrors",
+                    "backend": {
+                      "request": {
+                        "body": {
+                          "bytes": 512
+                        },
+                        "headers": [
+                          "Content-type"
+                        ]
+                      },
+                      "response": {
+                        "body": {
+                          "bytes": 512
+                        },
+                        "headers": [
+                          "Content-type"
+                        ]
+                      }
+                    },
+                    "frontend": {
+                      "request": {
+                        "body": {
+                          "bytes": 512
+                        },
+                        "headers": [
+                          "Content-type"
+                        ]
+                      },
+                      "response": {
+                        "body": {
+                          "bytes": 512
+                        },
+                        "headers": [
+                          "Content-type"
+                        ]
+                      }
+                    },
+                    "loggerId": "/loggers/azuremonitor",
+                    "sampling": {
+                      "percentage": 50,
+                      "samplingType": "fixed"
+                    }
                   },
                   "type": "Microsoft.ApiManagement/service/diagnostics"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/diagnostics/{diagnosticId}/loggers": {
-      "get": {
-        "description": "Lists all loggers assosiated with the specified Diagnostic of the API Management service instance.",
-        "operationId": "DiagnosticLogger_ListByService",
-        "parameters": [
-          {
-            "description": "The name of the resource group.",
-            "in": "path",
-            "name": "resourceGroupName",
-            "required": true,
-            "type": "string",
-            "x-ms-parameter-location": "method"
-          },
-          {
-            "description": "The name of the API Management service.",
-            "in": "path",
-            "maxLength": 50,
-            "minLength": 1,
-            "name": "serviceName",
-            "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
-            "required": true,
-            "type": "string",
-            "x-ms-parameter-location": "method"
-          },
-          {
-            "description": "Version of the API to be used with the client request.",
-            "in": "query",
-            "name": "api-version",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
-            "in": "path",
-            "name": "subscriptionId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "$ref": "#/parameters/DiagnosticIdParameter"
-          },
-          {
-            "description": "| Field       | Supported operators    | Supported functions               |\n|-------------|------------------------|-----------------------------------|\n| id          | ge, le, eq, ne, gt, lt | substringof, startswith, endswith |\n| type        | eq                     |                                   |",
-            "in": "query",
-            "name": "$filter",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "Number of records to return.",
-            "format": "int32",
-            "in": "query",
-            "minimum": 1,
-            "name": "$top",
-            "required": false,
-            "type": "integer",
-            "x-ms-parameter-location": "method"
-          },
-          {
-            "description": "Number of records to skip.",
-            "format": "int32",
-            "in": "query",
-            "minimum": 0,
-            "name": "$skip",
-            "required": false,
-            "type": "integer",
-            "x-ms-parameter-location": "method"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Paged Result reponse of loggers assigned to the specified Diagnostic.",
-            "schema": {
-              "description": "Paged Logger list representation.",
-              "properties": {
-                "count": {
-                  "description": "Total record count number across all pages.",
-                  "format": "int64",
-                  "type": "integer"
-                },
-                "nextLink": {
-                  "description": "Next page link if any.",
-                  "type": "string"
-                },
-                "value": {
-                  "description": "Logger values.",
-                  "items": {
-                    "allOf": [
-                      {
-                        "description": "The Resource definition.",
-                        "properties": {
-                          "id": {
-                            "description": "Resource ID.",
-                            "readOnly": true,
-                            "type": "string"
-                          },
-                          "name": {
-                            "description": "Resource name.",
-                            "readOnly": true,
-                            "type": "string"
-                          },
-                          "type": {
-                            "description": "Resource type for API Management resource.",
-                            "readOnly": true,
-                            "type": "string"
-                          }
-                        },
-                        "x-ms-azure-resource": true
-                      }
-                    ],
-                    "description": "Logger details.",
-                    "properties": {
-                      "properties": {
-                        "description": "The Logger entity in API Management represents an event sink that you can use to log API Management events. Currently the Logger entity supports logging API Management events to Azure Event Hubs.",
-                        "properties": {
-                          "credentials": {
-                            "additionalProperties": {
-                              "type": "string"
-                            },
-                            "description": "The name and SendRule connection string of the event hub for azureEventHub logger.\nInstrumentation key for applicationInsights logger.",
-                            "example": {
-                              "connectionString": "Endpoint=sb://contoso-ns.servicebus.windows.net/;SharedAccessKeyName=Sender;SharedAccessKey=...",
-                              "name": "apim"
-                            },
-                            "type": "object"
-                          },
-                          "description": {
-                            "description": "Logger description.",
-                            "maxLength": 256,
-                            "type": "string"
-                          },
-                          "isBuffered": {
-                            "description": "Whether records are buffered in the logger before publishing. Default is assumed to be true.",
-                            "type": "boolean"
-                          },
-                          "loggerType": {
-                            "description": "Logger type.",
-                            "enum": [
-                              "azureEventHub",
-                              "applicationInsights"
-                            ],
-                            "type": "string",
-                            "x-ms-enum": {
-                              "modelAsString": true,
-                              "name": "LoggerType",
-                              "values": [
-                                {
-                                  "description": "Azure Event Hub as log destination.",
-                                  "value": "azureEventHub"
-                                },
-                                {
-                                  "description": "Azure Application Insights as log destination.",
-                                  "value": "applicationInsights"
-                                }
-                              ]
-                            }
-                          }
-                        },
-                        "required": [
-                          "loggerType",
-                          "credentials"
-                        ]
-                      }
-                    }
-                  },
-                  "type": "array"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "Error response describing why the operation failed.",
-            "schema": {
-              "description": "Error Response.",
-              "properties": {
-                "error": {
-                  "description": "Error Body contract.",
-                  "properties": {
-                    "code": {
-                      "description": "Service-defined error code. This code serves as a sub-status for the HTTP error code specified in the response.",
-                      "type": "string"
-                    },
-                    "details": {
-                      "description": "The list of invalid fields send in request, in case of validation error.",
-                      "items": {
-                        "description": "Error Field contract.",
-                        "properties": {
-                          "code": {
-                            "description": "Property level error code.",
-                            "type": "string"
-                          },
-                          "message": {
-                            "description": "Human-readable representation of property-level error.",
-                            "type": "string"
-                          },
-                          "target": {
-                            "description": "Property name.",
-                            "type": "string"
-                          }
-                        }
-                      },
-                      "type": "array"
-                    },
-                    "message": {
-                      "description": "Human-readable representation of the error.",
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "tags": [
-          "DiagnosticLoggers"
-        ],
-        "x-ms-examples": {
-          "ApiManagementListDiagnosticLoggers": {
-            "parameters": {
-              "api-version": "2018-01-01",
-              "diagnosticId": "default",
-              "resourceGroupName": "rg1",
-              "serviceName": "apimService1",
-              "subscriptionId": "subid"
-            },
-            "responses": {
-              "200": {
-                "body": {
-                  "nextLink": "",
-                  "value": [
-                    {
-                      "id": "/subscriptions/subid/resourcegroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/diagnostics/default/loggers/applicationinsights",
-                      "name": "applicationinsights",
-                      "properties": {
-                        "credentials": {
-                          "instrumentationKey": "{{5a.......2a}}"
-                        },
-                        "description": null,
-                        "isBuffered": false,
-                        "loggerType": "applicationInsights"
-                      },
-                      "type": "Microsoft.ApiManagement/service/diagnostics/loggers"
-                    }
-                  ]
-                }
-              }
-            }
-          }
-        },
-        "x-ms-odata": "./apimloggers.json#/definitions/LoggerContract",
-        "x-ms-pageable": {
-          "nextLinkName": "nextLink"
-        }
-      }
-    },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/diagnostics/{diagnosticId}/loggers/{loggerid}": {
-      "delete": {
-        "description": "Deletes the specified Logger from Diagnostic.",
-        "operationId": "DiagnosticLogger_Delete",
-        "parameters": [
-          {
-            "description": "The name of the resource group.",
-            "in": "path",
-            "name": "resourceGroupName",
-            "required": true,
-            "type": "string",
-            "x-ms-parameter-location": "method"
-          },
-          {
-            "description": "The name of the API Management service.",
-            "in": "path",
-            "maxLength": 50,
-            "minLength": 1,
-            "name": "serviceName",
-            "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
-            "required": true,
-            "type": "string",
-            "x-ms-parameter-location": "method"
-          },
-          {
-            "$ref": "#/parameters/DiagnosticIdParameter"
-          },
-          {
-            "description": "Logger identifier. Must be unique in the API Management service instance.",
-            "in": "path",
-            "maxLength": 80,
-            "name": "loggerid",
-            "pattern": "(^[\\w]+$)|(^[\\w][\\w\\-]+[\\w]$)",
-            "required": true,
-            "type": "string",
-            "x-ms-parameter-location": "method"
-          },
-          {
-            "description": "Version of the API to be used with the client request.",
-            "in": "query",
-            "name": "api-version",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
-            "in": "path",
-            "name": "subscriptionId",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "The Logger was successfully detached from Diagnostic."
-          },
-          "204": {
-            "description": "The Logger was successfully detached from Diagnostic."
-          },
-          "default": {
-            "description": "Error response describing why the operation failed.",
-            "schema": {
-              "description": "Error Response.",
-              "properties": {
-                "error": {
-                  "description": "Error Body contract.",
-                  "properties": {
-                    "code": {
-                      "description": "Service-defined error code. This code serves as a sub-status for the HTTP error code specified in the response.",
-                      "type": "string"
-                    },
-                    "details": {
-                      "description": "The list of invalid fields send in request, in case of validation error.",
-                      "items": {
-                        "description": "Error Field contract.",
-                        "properties": {
-                          "code": {
-                            "description": "Property level error code.",
-                            "type": "string"
-                          },
-                          "message": {
-                            "description": "Human-readable representation of property-level error.",
-                            "type": "string"
-                          },
-                          "target": {
-                            "description": "Property name.",
-                            "type": "string"
-                          }
-                        }
-                      },
-                      "type": "array"
-                    },
-                    "message": {
-                      "description": "Human-readable representation of the error.",
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "tags": [
-          "DiagnosticLoggers"
-        ],
-        "x-ms-examples": {
-          "ApiManagementDeleteDiagnosticLogger": {
-            "parameters": {
-              "api-version": "2018-01-01",
-              "diagnosticId": "default",
-              "loggerid": "applicationinsights",
-              "parameters": {},
-              "resourceGroupName": "rg1",
-              "serviceName": "apimService1",
-              "subscriptionId": "subid"
-            },
-            "responses": {
-              "200": {},
-              "204": {}
-            }
-          }
-        }
-      },
-      "head": {
-        "description": "Checks that logger entity specified by identifier is associated with the diagnostics entity.",
-        "operationId": "DiagnosticLogger_CheckEntityExists",
-        "parameters": [
-          {
-            "description": "The name of the resource group.",
-            "in": "path",
-            "name": "resourceGroupName",
-            "required": true,
-            "type": "string",
-            "x-ms-parameter-location": "method"
-          },
-          {
-            "description": "The name of the API Management service.",
-            "in": "path",
-            "maxLength": 50,
-            "minLength": 1,
-            "name": "serviceName",
-            "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
-            "required": true,
-            "type": "string",
-            "x-ms-parameter-location": "method"
-          },
-          {
-            "$ref": "#/parameters/DiagnosticIdParameter"
-          },
-          {
-            "description": "Logger identifier. Must be unique in the API Management service instance.",
-            "in": "path",
-            "maxLength": 80,
-            "name": "loggerid",
-            "pattern": "(^[\\w]+$)|(^[\\w][\\w\\-]+[\\w]$)",
-            "required": true,
-            "type": "string",
-            "x-ms-parameter-location": "method"
-          },
-          {
-            "description": "Version of the API to be used with the client request.",
-            "in": "query",
-            "name": "api-version",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
-            "in": "path",
-            "name": "subscriptionId",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "The logger is associated with the diagnostic entity."
-          },
-          "404": {
-            "description": "The logger is not associated with the diagnostic entity."
-          },
-          "default": {
-            "description": "Error response describing why the operation failed.",
-            "schema": {
-              "description": "Error Response.",
-              "properties": {
-                "error": {
-                  "description": "Error Body contract.",
-                  "properties": {
-                    "code": {
-                      "description": "Service-defined error code. This code serves as a sub-status for the HTTP error code specified in the response.",
-                      "type": "string"
-                    },
-                    "details": {
-                      "description": "The list of invalid fields send in request, in case of validation error.",
-                      "items": {
-                        "description": "Error Field contract.",
-                        "properties": {
-                          "code": {
-                            "description": "Property level error code.",
-                            "type": "string"
-                          },
-                          "message": {
-                            "description": "Human-readable representation of property-level error.",
-                            "type": "string"
-                          },
-                          "target": {
-                            "description": "Property name.",
-                            "type": "string"
-                          }
-                        }
-                      },
-                      "type": "array"
-                    },
-                    "message": {
-                      "description": "Human-readable representation of the error.",
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "tags": [
-          "DiagnosticLoggers"
-        ],
-        "x-ms-examples": {
-          "ApiManagementHeadDiagnosticLogger": {
-            "parameters": {
-              "api-version": "2018-01-01",
-              "diagnosticId": "default",
-              "loggerid": "templateLogger",
-              "resourceGroupName": "rg1",
-              "serviceName": "apimService1",
-              "subscriptionId": "subid"
-            },
-            "responses": {
-              "204": {},
-              "404": {}
-            }
-          }
-        }
-      },
-      "put": {
-        "description": "Attaches a logger to a dignostic.",
-        "operationId": "DiagnosticLogger_CreateOrUpdate",
-        "parameters": [
-          {
-            "description": "The name of the resource group.",
-            "in": "path",
-            "name": "resourceGroupName",
-            "required": true,
-            "type": "string",
-            "x-ms-parameter-location": "method"
-          },
-          {
-            "description": "The name of the API Management service.",
-            "in": "path",
-            "maxLength": 50,
-            "minLength": 1,
-            "name": "serviceName",
-            "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
-            "required": true,
-            "type": "string",
-            "x-ms-parameter-location": "method"
-          },
-          {
-            "$ref": "#/parameters/DiagnosticIdParameter"
-          },
-          {
-            "description": "Logger identifier. Must be unique in the API Management service instance.",
-            "in": "path",
-            "maxLength": 80,
-            "name": "loggerid",
-            "pattern": "(^[\\w]+$)|(^[\\w][\\w\\-]+[\\w]$)",
-            "required": true,
-            "type": "string",
-            "x-ms-parameter-location": "method"
-          },
-          {
-            "description": "Version of the API to be used with the client request.",
-            "in": "query",
-            "name": "api-version",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
-            "in": "path",
-            "name": "subscriptionId",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Logger to Diagnostic link was successfully updated.",
-            "schema": {
-              "allOf": [
-                {
-                  "description": "The Resource definition.",
-                  "properties": {
-                    "id": {
-                      "description": "Resource ID.",
-                      "readOnly": true,
-                      "type": "string"
-                    },
-                    "name": {
-                      "description": "Resource name.",
-                      "readOnly": true,
-                      "type": "string"
-                    },
-                    "type": {
-                      "description": "Resource type for API Management resource.",
-                      "readOnly": true,
-                      "type": "string"
-                    }
-                  },
-                  "x-ms-azure-resource": true
-                }
-              ],
-              "description": "Logger details.",
-              "properties": {
-                "properties": {
-                  "description": "The Logger entity in API Management represents an event sink that you can use to log API Management events. Currently the Logger entity supports logging API Management events to Azure Event Hubs.",
-                  "properties": {
-                    "credentials": {
-                      "additionalProperties": {
-                        "type": "string"
-                      },
-                      "description": "The name and SendRule connection string of the event hub for azureEventHub logger.\nInstrumentation key for applicationInsights logger.",
-                      "example": {
-                        "connectionString": "Endpoint=sb://contoso-ns.servicebus.windows.net/;SharedAccessKeyName=Sender;SharedAccessKey=...",
-                        "name": "apim"
-                      },
-                      "type": "object"
-                    },
-                    "description": {
-                      "description": "Logger description.",
-                      "maxLength": 256,
-                      "type": "string"
-                    },
-                    "isBuffered": {
-                      "description": "Whether records are buffered in the logger before publishing. Default is assumed to be true.",
-                      "type": "boolean"
-                    },
-                    "loggerType": {
-                      "description": "Logger type.",
-                      "enum": [
-                        "azureEventHub",
-                        "applicationInsights"
-                      ],
-                      "type": "string",
-                      "x-ms-enum": {
-                        "modelAsString": true,
-                        "name": "LoggerType",
-                        "values": [
-                          {
-                            "description": "Azure Event Hub as log destination.",
-                            "value": "azureEventHub"
-                          },
-                          {
-                            "description": "Azure Application Insights as log destination.",
-                            "value": "applicationInsights"
-                          }
-                        ]
-                      }
-                    }
-                  },
-                  "required": [
-                    "loggerType",
-                    "credentials"
-                  ]
-                }
-              }
-            }
-          },
-          "201": {
-            "description": "Logger was successfully attached to Diagnostic.",
-            "schema": {
-              "allOf": [
-                {
-                  "description": "The Resource definition.",
-                  "properties": {
-                    "id": {
-                      "description": "Resource ID.",
-                      "readOnly": true,
-                      "type": "string"
-                    },
-                    "name": {
-                      "description": "Resource name.",
-                      "readOnly": true,
-                      "type": "string"
-                    },
-                    "type": {
-                      "description": "Resource type for API Management resource.",
-                      "readOnly": true,
-                      "type": "string"
-                    }
-                  },
-                  "x-ms-azure-resource": true
-                }
-              ],
-              "description": "Logger details.",
-              "properties": {
-                "properties": {
-                  "description": "The Logger entity in API Management represents an event sink that you can use to log API Management events. Currently the Logger entity supports logging API Management events to Azure Event Hubs.",
-                  "properties": {
-                    "credentials": {
-                      "additionalProperties": {
-                        "type": "string"
-                      },
-                      "description": "The name and SendRule connection string of the event hub for azureEventHub logger.\nInstrumentation key for applicationInsights logger.",
-                      "example": {
-                        "connectionString": "Endpoint=sb://contoso-ns.servicebus.windows.net/;SharedAccessKeyName=Sender;SharedAccessKey=...",
-                        "name": "apim"
-                      },
-                      "type": "object"
-                    },
-                    "description": {
-                      "description": "Logger description.",
-                      "maxLength": 256,
-                      "type": "string"
-                    },
-                    "isBuffered": {
-                      "description": "Whether records are buffered in the logger before publishing. Default is assumed to be true.",
-                      "type": "boolean"
-                    },
-                    "loggerType": {
-                      "description": "Logger type.",
-                      "enum": [
-                        "azureEventHub",
-                        "applicationInsights"
-                      ],
-                      "type": "string",
-                      "x-ms-enum": {
-                        "modelAsString": true,
-                        "name": "LoggerType",
-                        "values": [
-                          {
-                            "description": "Azure Event Hub as log destination.",
-                            "value": "azureEventHub"
-                          },
-                          {
-                            "description": "Azure Application Insights as log destination.",
-                            "value": "applicationInsights"
-                          }
-                        ]
-                      }
-                    }
-                  },
-                  "required": [
-                    "loggerType",
-                    "credentials"
-                  ]
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "Error response describing why the operation failed.",
-            "schema": {
-              "description": "Error Response.",
-              "properties": {
-                "error": {
-                  "description": "Error Body contract.",
-                  "properties": {
-                    "code": {
-                      "description": "Service-defined error code. This code serves as a sub-status for the HTTP error code specified in the response.",
-                      "type": "string"
-                    },
-                    "details": {
-                      "description": "The list of invalid fields send in request, in case of validation error.",
-                      "items": {
-                        "description": "Error Field contract.",
-                        "properties": {
-                          "code": {
-                            "description": "Property level error code.",
-                            "type": "string"
-                          },
-                          "message": {
-                            "description": "Human-readable representation of property-level error.",
-                            "type": "string"
-                          },
-                          "target": {
-                            "description": "Property name.",
-                            "type": "string"
-                          }
-                        }
-                      },
-                      "type": "array"
-                    },
-                    "message": {
-                      "description": "Human-readable representation of the error.",
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "tags": [
-          "DiagnosticLoggers"
-        ],
-        "x-ms-examples": {
-          "ApiManagementCreateDiagnosticLogger": {
-            "parameters": {
-              "api-version": "2018-01-01",
-              "diagnosticId": "default",
-              "loggerid": "applicationinsights",
-              "parameters": {},
-              "resourceGroupName": "rg1",
-              "serviceName": "apimService1",
-              "subscriptionId": "subid"
-            },
-            "responses": {
-              "200": {
-                "body": {
-                  "id": "/subscriptions/subid/resourcegroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/diagnostics/default/loggers/applicationinsights",
-                  "name": "applicationinsights",
-                  "properties": {
-                    "credentials": {
-                      "instrumentationKey": "{{5a.......2a}}"
-                    },
-                    "description": null,
-                    "isBuffered": false,
-                    "loggerType": "applicationInsights"
-                  },
-                  "type": "Microsoft.ApiManagement/service/diagnostics/loggers"
-                }
-              },
-              "201": {
-                "body": {
-                  "id": "/subscriptions/subid/resourcegroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/diagnostics/default/loggers/applicationinsights",
-                  "name": "applicationinsights",
-                  "properties": {
-                    "credentials": {
-                      "instrumentationKey": "{{5a.......2a}}"
-                    },
-                    "description": null,
-                    "isBuffered": false,
-                    "loggerType": "applicationInsights"
-                  },
-                  "type": "Microsoft.ApiManagement/service/diagnostics/loggers"
                 }
               }
             }
@@ -1678,67 +2628,5 @@
       }
     }
   },
-  "definitions": {
-    "DiagnosticCollection": {
-      "description": "Paged Diagnostic list representation.",
-      "properties": {
-        "nextLink": {
-          "description": "Next page link if any.",
-          "type": "string"
-        },
-        "value": {
-          "description": "Page values.",
-          "items": {
-            "$ref": "#/definitions/DiagnosticContract"
-          },
-          "type": "array"
-        }
-      }
-    },
-    "DiagnosticContract": {
-      "allOf": [
-        {
-          "description": "The Resource definition.",
-          "properties": {
-            "id": {
-              "description": "Resource ID.",
-              "readOnly": true,
-              "type": "string"
-            },
-            "name": {
-              "description": "Resource name.",
-              "readOnly": true,
-              "type": "string"
-            },
-            "type": {
-              "description": "Resource type for API Management resource.",
-              "readOnly": true,
-              "type": "string"
-            }
-          },
-          "x-ms-azure-resource": true
-        }
-      ],
-      "description": "Diagnostic details.",
-      "properties": {
-        "properties": {
-          "$ref": "#/definitions/DiagnosticContractProperties",
-          "description": "Diagnostic entity contract properties.",
-          "x-ms-client-flatten": true
-        }
-      }
-    },
-    "DiagnosticContractProperties": {
-      "description": "Diagnostic Entity Properties",
-      "properties": {
-        "enabled": {
-          "description": "Indicates whether a diagnostic should receive data or not.",
-          "type": "boolean"
-        }
-      },
-      "required": [
-        "enabled"
-      ]
-    }
-  }
+  "definitions": {}
 }

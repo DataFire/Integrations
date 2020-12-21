@@ -15,12 +15,7 @@ let azure_apimanagement_apimversionsets = require('@datafire/azure_apimanagement
   redirect_uri: ""
 });
 
-azure_apimanagement_apimversionsets.ApiVersionSet_ListByService({
-  "resourceGroupName": "",
-  "serviceName": "",
-  "api-version": "",
-  "subscriptionId": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

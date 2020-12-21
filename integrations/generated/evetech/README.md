@@ -15,7 +15,7 @@ let evetech = require('@datafire/evetech').create({
   redirect_uri: ""
 });
 
-evetech.get_wars({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -52,36 +52,6 @@ evetech.get_alliances({}, context)
 #### Output
 * output `array`: 200 ok array
   * items `integer`: 200 ok integer
-
-### get_alliances_names
-Resolve a set of alliance IDs to alliance names
-
----
-Alternate route: `/dev/alliances/names/`
-
-Alternate route: `/v2/alliances/names/`
-
----
-This route is cached for up to 3600 seconds
-
-
-```js
-evetech.get_alliances_names({
-  "alliance_ids": []
-}, context)
-```
-
-#### Input
-* input `object`
-  * alliance_ids **required** `array`: A comma separated list of alliance IDs
-  * datasource `string` (values: tranquility, singularity): The server name you would like data from
-  * If-None-Match `string`: ETag from a previous request. A 304 will be returned if this matches the current ETag
-
-#### Output
-* output `array`: 200 ok array
-  * items `object`: 200 ok object
-    * alliance_id **required** `integer`: alliance_id integer
-    * alliance_name **required** `string`: alliance_name string
 
 ### get_alliances_alliance_id
 Public information about an alliance
@@ -121,18 +91,12 @@ evetech.get_alliances_alliance_id({
 Return contacts of an alliance
 
 ---
-Alternate route: `/legacy/alliances/{alliance_id}/contacts/`
+Alternate route: `/dev/alliances/{alliance_id}/contacts/`
 
-Alternate route: `/v1/alliances/{alliance_id}/contacts/`
+Alternate route: `/v2/alliances/{alliance_id}/contacts/`
 
 ---
 This route is cached for up to 300 seconds
-
----
-Warning: This route has an upgrade available.
-
----
-[Diff of the upcoming changes](https://esi.evetech.net/diff/latest/dev/#GET-/alliances/{alliance_id}/contacts/)
 
 
 ```js
@@ -154,7 +118,8 @@ evetech.get_alliances_alliance_id_contacts({
   * items `object`: 200 ok object
     * contact_id **required** `integer`: contact_id integer
     * contact_type **required** `string` (values: character, corporation, alliance, faction): contact_type string
-    * label_id `integer`: Custom label of the contact
+    * label_ids `array`: label_ids array
+      * items `integer`: Label IDs applied to the contact
     * standing **required** `number`: Standing of the contact
 
 ### get_alliances_alliance_id_contacts_labels
@@ -231,7 +196,7 @@ Alternate route: `/legacy/alliances/{alliance_id}/icons/`
 Alternate route: `/v1/alliances/{alliance_id}/icons/`
 
 ---
-This route is cached for up to 3600 seconds
+This route expires daily at 11:05
 
 
 ```js
@@ -276,7 +241,6 @@ evetech.post_characters_affiliation({
   * characters **required** `array`: characters array
     * items `integer`: character integer
   * datasource `string` (values: tranquility, singularity): The server name you would like data from
-  * If-None-Match `string`: ETag from a previous request. A 304 will be returned if this matches the current ETag
 
 #### Output
 * output `array`: 200 ok array
@@ -285,38 +249,6 @@ evetech.post_characters_affiliation({
     * character_id **required** `integer`: The character's ID
     * corporation_id **required** `integer`: The character's corporation ID
     * faction_id `integer`: The character's faction ID, if their corporation is in a faction
-
-### get_characters_names
-Resolve a set of character IDs to character names
-
----
-Alternate route: `/dev/characters/names/`
-
-Alternate route: `/legacy/characters/names/`
-
-Alternate route: `/v1/characters/names/`
-
----
-This route is cached for up to 3600 seconds
-
-
-```js
-evetech.get_characters_names({
-  "character_ids": []
-}, context)
-```
-
-#### Input
-* input `object`
-  * character_ids **required** `array`: A comma separated list of character IDs
-  * datasource `string` (values: tranquility, singularity): The server name you would like data from
-  * If-None-Match `string`: ETag from a previous request. A 304 will be returned if this matches the current ETag
-
-#### Output
-* output `array`: 200 ok array
-  * items `object`: 200 ok object
-    * character_id **required** `integer`: character_id integer
-    * character_name **required** `string`: character_name string
 
 ### get_characters_character_id
 Public information about a character
@@ -421,9 +353,10 @@ evetech.get_characters_character_id_assets({
 #### Output
 * output `array`: 200 ok array
   * items `object`: 200 ok object
+    * is_blueprint_copy `boolean`: is_blueprint_copy boolean
     * is_singleton **required** `boolean`: is_singleton boolean
     * item_id **required** `integer`: item_id integer
-    * location_flag **required** `string` (values: AssetSafety, AutoFit, Cargo, CorpseBay, Deliveries, DroneBay, FighterBay, FighterTube0, FighterTube1, FighterTube2, FighterTube3, FighterTube4, FleetHangar, Hangar, HangarAll, HiSlot0, HiSlot1, HiSlot2, HiSlot3, HiSlot4, HiSlot5, HiSlot6, HiSlot7, HiddenModifiers, Implant, LoSlot0, LoSlot1, LoSlot2, LoSlot3, LoSlot4, LoSlot5, LoSlot6, LoSlot7, Locked, MedSlot0, MedSlot1, MedSlot2, MedSlot3, MedSlot4, MedSlot5, MedSlot6, MedSlot7, QuafeBay, RigSlot0, RigSlot1, RigSlot2, RigSlot3, RigSlot4, RigSlot5, RigSlot6, RigSlot7, ShipHangar, Skill, SpecializedAmmoHold, SpecializedCommandCenterHold, SpecializedFuelBay, SpecializedGasHold, SpecializedIndustrialShipHold, SpecializedLargeShipHold, SpecializedMaterialBay, SpecializedMediumShipHold, SpecializedMineralHold, SpecializedOreHold, SpecializedPlanetaryCommoditiesHold, SpecializedSalvageHold, SpecializedShipHold, SpecializedSmallShipHold, SubSystemBay, SubSystemSlot0, SubSystemSlot1, SubSystemSlot2, SubSystemSlot3, SubSystemSlot4, SubSystemSlot5, SubSystemSlot6, SubSystemSlot7, Unlocked, Wardrobe): location_flag string
+    * location_flag **required** `string` (values: AssetSafety, AutoFit, BoosterBay, Cargo, CorpseBay, Deliveries, DroneBay, FighterBay, FighterTube0, FighterTube1, FighterTube2, FighterTube3, FighterTube4, FleetHangar, Hangar, HangarAll, HiSlot0, HiSlot1, HiSlot2, HiSlot3, HiSlot4, HiSlot5, HiSlot6, HiSlot7, HiddenModifiers, Implant, LoSlot0, LoSlot1, LoSlot2, LoSlot3, LoSlot4, LoSlot5, LoSlot6, LoSlot7, Locked, MedSlot0, MedSlot1, MedSlot2, MedSlot3, MedSlot4, MedSlot5, MedSlot6, MedSlot7, QuafeBay, RigSlot0, RigSlot1, RigSlot2, RigSlot3, RigSlot4, RigSlot5, RigSlot6, RigSlot7, ShipHangar, Skill, SpecializedAmmoHold, SpecializedCommandCenterHold, SpecializedFuelBay, SpecializedGasHold, SpecializedIndustrialShipHold, SpecializedLargeShipHold, SpecializedMaterialBay, SpecializedMediumShipHold, SpecializedMineralHold, SpecializedOreHold, SpecializedPlanetaryCommoditiesHold, SpecializedSalvageHold, SpecializedShipHold, SpecializedSmallShipHold, SubSystemBay, SubSystemSlot0, SubSystemSlot1, SubSystemSlot2, SubSystemSlot3, SubSystemSlot4, SubSystemSlot5, SubSystemSlot6, SubSystemSlot7, Unlocked, Wardrobe): location_flag string
     * location_id **required** `integer`: location_id integer
     * location_type **required** `string` (values: station, solar_system, other): location_type string
     * quantity **required** `integer`: quantity integer
@@ -649,7 +582,7 @@ evetech.get_characters_character_id_bookmarks_folders({
     * name **required** `string`: name string
 
 ### get_characters_character_id_calendar
-Get 50 event summaries from the calendar. If no from_event ID is given, the resource will return the next 50 chronological event summaries from now. If a from_event ID is specified, it will return the next 50 chronological event summaries from after that event.
+Get 50 event summaries from the calendar. If no from_event ID is given, the resource will return the next 50 chronological event summaries from now. If a from_event ID is specified, it will return the next 50 chronological event summaries from after that event
 
 ---
 Alternate route: `/dev/characters/{character_id}/calendar/`
@@ -864,18 +797,12 @@ evetech.delete_characters_character_id_contacts({
 Return contacts of a character
 
 ---
-Alternate route: `/legacy/characters/{character_id}/contacts/`
+Alternate route: `/dev/characters/{character_id}/contacts/`
 
-Alternate route: `/v1/characters/{character_id}/contacts/`
+Alternate route: `/v2/characters/{character_id}/contacts/`
 
 ---
 This route is cached for up to 300 seconds
-
----
-Warning: This route has an upgrade available.
-
----
-[Diff of the upcoming changes](https://esi.evetech.net/diff/latest/dev/#GET-/characters/{character_id}/contacts/)
 
 
 ```js
@@ -899,23 +826,18 @@ evetech.get_characters_character_id_contacts({
     * contact_type **required** `string` (values: character, corporation, alliance, faction): contact_type string
     * is_blocked `boolean`: Whether this contact is in the blocked list. Note a missing value denotes unknown, not true or false
     * is_watched `boolean`: Whether this contact is being watched
-    * label_id `integer`: Custom label of the contact
+    * label_ids `array`: label_ids array
+      * items `integer`: Label IDs applied to the contact
     * standing **required** `number`: Standing of the contact
 
 ### post_characters_character_id_contacts
 Bulk add contacts with same settings
 
 ---
-Alternate route: `/legacy/characters/{character_id}/contacts/`
+Alternate route: `/dev/characters/{character_id}/contacts/`
 
-Alternate route: `/v1/characters/{character_id}/contacts/`
+Alternate route: `/v2/characters/{character_id}/contacts/`
 
-
----
-Warning: This route has an upgrade available.
-
----
-[Diff of the upcoming changes](https://esi.evetech.net/diff/latest/dev/#POST-/characters/{character_id}/contacts/)
 
 
 ```js
@@ -932,7 +854,7 @@ evetech.post_characters_character_id_contacts({
   * contact_ids **required** `array`: contact_ids array
     * items `integer`: ID of the contact to edit
   * datasource `string` (values: tranquility, singularity): The server name you would like data from
-  * label_id `integer`: Add a custom label to the new contact
+  * label_ids `array`: Add custom labels to the new contact
   * standing **required** `number`: Standing for the contact
   * token `string`: Access token to use if unable to set a header
   * watched `boolean`: Whether the contact should be watched, note this is only effective on characters
@@ -945,16 +867,10 @@ evetech.post_characters_character_id_contacts({
 Bulk edit contacts with same settings
 
 ---
-Alternate route: `/legacy/characters/{character_id}/contacts/`
+Alternate route: `/dev/characters/{character_id}/contacts/`
 
-Alternate route: `/v1/characters/{character_id}/contacts/`
+Alternate route: `/v2/characters/{character_id}/contacts/`
 
-
----
-Warning: This route has an upgrade available.
-
----
-[Diff of the upcoming changes](https://esi.evetech.net/diff/latest/dev/#PUT-/characters/{character_id}/contacts/)
 
 
 ```js
@@ -971,7 +887,7 @@ evetech.put_characters_character_id_contacts({
   * contact_ids **required** `array`: contact_ids array
     * items `integer`: ID of the contact to edit
   * datasource `string` (values: tranquility, singularity): The server name you would like data from
-  * label_id `integer`: Add a custom label to the contact, use 0 for clearing label
+  * label_ids `array`: Add custom labels to the contact
   * standing **required** `number`: Standing for the contact
   * token `string`: Access token to use if unable to set a header
   * watched `boolean`: Whether the contact should be watched, note this is only effective on characters
@@ -1135,7 +1051,7 @@ evetech.get_characters_character_id_contracts_contract_id_items({
 #### Output
 * output `array`: 200 ok array
   * items `object`: 200 ok object
-    * is_included **required** `boolean`: true if the contract issuer has submitted this item with the contract, false if the isser is asking for this item in the contract.
+    * is_included **required** `boolean`: true if the contract issuer has submitted this item with the contract, false if the isser is asking for this item in the contract
     * is_singleton **required** `boolean`: is_singleton boolean
     * quantity **required** `integer`: Number of items in the stack
     * raw_quantity `integer`: -1 indicates that the item is a singleton (non-stackable). If the item happens to be a Blueprint, -1 is an Original and -2 is a Blueprint Copy
@@ -1481,7 +1397,7 @@ evetech.get_characters_character_id_industry_jobs({
   * character_id **required** `integer`: An EVE character ID
   * datasource `string` (values: tranquility, singularity): The server name you would like data from
   * If-None-Match `string`: ETag from a previous request. A 304 will be returned if this matches the current ETag
-  * include_completed `boolean`: Whether retrieve completed character industry jobs as well
+  * include_completed `boolean`: Whether to retrieve completed character industry jobs. Only includes jobs from the past 90 days
   * token `string`: Access token to use if unable to set a header
 
 #### Output
@@ -1545,7 +1461,7 @@ evetech.get_characters_character_id_killmails_recent({
     * killmail_id **required** `integer`: ID of this killmail
 
 ### get_characters_character_id_location
-Information about the characters current location. Returns the current solar system id, and also the current station or structure ID if applicable.
+Information about the characters current location. Returns the current solar system id, and also the current station or structure ID if applicable
 
 ---
 Alternate route: `/dev/characters/{character_id}/location/`
@@ -1611,7 +1527,7 @@ evetech.get_characters_character_id_loyalty_points({
     * loyalty_points **required** `integer`: loyalty_points integer
 
 ### get_characters_character_id_mail
-Return the 50 most recent mail headers belonging to the character that match the query criteria. Queries can be filtered by label, and last_mail_id can be used to paginate backwards.
+Return the 50 most recent mail headers belonging to the character that match the query criteria. Queries can be filtered by label, and last_mail_id can be used to paginate backwards
 
 ---
 Alternate route: `/dev/characters/{character_id}/mail/`
@@ -2018,7 +1934,7 @@ Return character notifications
 ---
 Alternate route: `/dev/characters/{character_id}/notifications/`
 
-Alternate route: `/v2/characters/{character_id}/notifications/`
+Alternate route: `/v4/characters/{character_id}/notifications/`
 
 ---
 This route is cached for up to 600 seconds
@@ -2046,7 +1962,7 @@ evetech.get_characters_character_id_notifications({
     * sender_type **required** `string` (values: character, corporation, alliance, faction, other): sender_type string
     * text `string`: text string
     * timestamp **required** `string`: timestamp string
-    * type **required** `string` (values: AcceptedAlly, AcceptedSurrender, AllAnchoringMsg, AllMaintenanceBillMsg, AllStrucInvulnerableMsg, AllStructVulnerableMsg, AllWarCorpJoinedAllianceMsg, AllWarDeclaredMsg, AllWarInvalidatedMsg, AllWarRetractedMsg, AllWarSurrenderMsg, AllianceCapitalChanged, AllyContractCancelled, AllyJoinedWarAggressorMsg, AllyJoinedWarAllyMsg, AllyJoinedWarDefenderMsg, BattlePunishFriendlyFire, BillOutOfMoneyMsg, BillPaidCorpAllMsg, BountyClaimMsg, BountyESSShared, BountyESSTaken, BountyPlacedAlliance, BountyPlacedChar, BountyPlacedCorp, BountyYourBountyClaimed, BuddyConnectContactAdd, CharAppAcceptMsg, CharAppRejectMsg, CharAppWithdrawMsg, CharLeftCorpMsg, CharMedalMsg, CharTerminationMsg, CloneActivationMsg, CloneActivationMsg2, CloneMovedMsg, CloneRevokedMsg1, CloneRevokedMsg2, ContactAdd, ContactEdit, ContainerPasswordMsg, CorpAllBillMsg, CorpAppAcceptMsg, CorpAppInvitedMsg, CorpAppNewMsg, CorpAppRejectCustomMsg, CorpAppRejectMsg, CorpDividendMsg, CorpFriendlyFireDisableTimerCompleted, CorpFriendlyFireDisableTimerStarted, CorpFriendlyFireEnableTimerCompleted, CorpFriendlyFireEnableTimerStarted, CorpKicked, CorpLiquidationMsg, CorpNewCEOMsg, CorpNewsMsg, CorpOfficeExpirationMsg, CorpStructLostMsg, CorpTaxChangeMsg, CorpVoteCEORevokedMsg, CorpVoteMsg, CorpWarDeclaredMsg, CorpWarFightingLegalMsg, CorpWarInvalidatedMsg, CorpWarRetractedMsg, CorpWarSurrenderMsg, CustomsMsg, DeclareWar, DistrictAttacked, DustAppAcceptedMsg, EntosisCaptureStarted, FWAllianceKickMsg, FWAllianceWarningMsg, FWCharKickMsg, FWCharRankGainMsg, FWCharRankLossMsg, FWCharWarningMsg, FWCorpJoinMsg, FWCorpKickMsg, FWCorpLeaveMsg, FWCorpWarningMsg, FacWarCorpJoinRequestMsg, FacWarCorpJoinWithdrawMsg, FacWarCorpLeaveRequestMsg, FacWarCorpLeaveWithdrawMsg, FacWarLPDisqualifiedEvent, FacWarLPDisqualifiedKill, FacWarLPPayoutEvent, FacWarLPPayoutKill, GameTimeAdded, GameTimeReceived, GameTimeSent, GiftReceived, IHubDestroyedByBillFailure, IncursionCompletedMsg, IndustryTeamAuctionLost, IndustryTeamAuctionWon, InfrastructureHubBillAboutToExpire, InsuranceExpirationMsg, InsuranceFirstShipMsg, InsuranceInvalidatedMsg, InsuranceIssuedMsg, InsurancePayoutMsg, JumpCloneDeletedMsg1, JumpCloneDeletedMsg2, KillReportFinalBlow, KillReportVictim, KillRightAvailable, KillRightAvailableOpen, KillRightEarned, KillRightUnavailable, KillRightUnavailableOpen, KillRightUsed, LocateCharMsg, MadeWarMutual, MercOfferedNegotiationMsg, MissionOfferExpirationMsg, MissionTimeoutMsg, MoonminingAutomaticFracture, MoonminingExtractionCancelled, MoonminingExtractionFinished, MoonminingExtractionStarted, MoonminingLaserFired, NPCStandingsGained, NPCStandingsLost, OfferedSurrender, OfferedToAlly, OldLscMessages, OperationFinished, OrbitalAttacked, OrbitalReinforced, OwnershipTransferred, ReimbursementMsg, ResearchMissionAvailableMsg, RetractsWar, SeasonalChallengeCompleted, SovAllClaimAquiredMsg, SovAllClaimLostMsg, SovCommandNodeEventStarted, SovCorpBillLateMsg, SovCorpClaimFailMsg, SovDisruptorMsg, SovStationEnteredFreeport, SovStructureDestroyed, SovStructureReinforced, SovStructureSelfDestructCancel, SovStructureSelfDestructFinished, SovStructureSelfDestructRequested, SovereigntyIHDamageMsg, SovereigntySBUDamageMsg, SovereigntyTCUDamageMsg, StationAggressionMsg1, StationAggressionMsg2, StationConquerMsg, StationServiceDisabled, StationServiceEnabled, StationStateChangeMsg, StoryLineMissionAvailableMsg, StructureAnchoring, StructureCourierContractChanged, StructureDestroyed, StructureFuelAlert, StructureItemsDelivered, StructureLostArmor, StructureLostShields, StructureOnline, StructureServicesOffline, StructureUnanchoring, StructureUnderAttack, StructureWentHighPower, StructureWentLowPower, StructuresReinforcementChanged, TowerAlertMsg, TowerResourceAlertMsg, TransactionReversalMsg, TutorialMsg, WarAllyOfferDeclinedMsg, WarSurrenderDeclinedMsg, WarSurrenderOfferMsg): type string
+    * type **required** `string` (values: AcceptedAlly, AcceptedSurrender, AllAnchoringMsg, AllMaintenanceBillMsg, AllStrucInvulnerableMsg, AllStructVulnerableMsg, AllWarCorpJoinedAllianceMsg, AllWarDeclaredMsg, AllWarInvalidatedMsg, AllWarRetractedMsg, AllWarSurrenderMsg, AllianceCapitalChanged, AllyContractCancelled, AllyJoinedWarAggressorMsg, AllyJoinedWarAllyMsg, AllyJoinedWarDefenderMsg, BattlePunishFriendlyFire, BillOutOfMoneyMsg, BillPaidCorpAllMsg, BountyClaimMsg, BountyESSShared, BountyESSTaken, BountyPlacedAlliance, BountyPlacedChar, BountyPlacedCorp, BountyYourBountyClaimed, BuddyConnectContactAdd, CharAppAcceptMsg, CharAppRejectMsg, CharAppWithdrawMsg, CharLeftCorpMsg, CharMedalMsg, CharTerminationMsg, CloneActivationMsg, CloneActivationMsg2, CloneMovedMsg, CloneRevokedMsg1, CloneRevokedMsg2, CombatOperationFinished, ContactAdd, ContactEdit, ContainerPasswordMsg, CorpAllBillMsg, CorpAppAcceptMsg, CorpAppInvitedMsg, CorpAppNewMsg, CorpAppRejectCustomMsg, CorpAppRejectMsg, CorpDividendMsg, CorpFriendlyFireDisableTimerCompleted, CorpFriendlyFireDisableTimerStarted, CorpFriendlyFireEnableTimerCompleted, CorpFriendlyFireEnableTimerStarted, CorpKicked, CorpLiquidationMsg, CorpNewCEOMsg, CorpNewsMsg, CorpOfficeExpirationMsg, CorpStructLostMsg, CorpTaxChangeMsg, CorpVoteCEORevokedMsg, CorpVoteMsg, CorpWarDeclaredMsg, CorpWarFightingLegalMsg, CorpWarInvalidatedMsg, CorpWarRetractedMsg, CorpWarSurrenderMsg, CustomsMsg, DeclareWar, DistrictAttacked, DustAppAcceptedMsg, EntosisCaptureStarted, FWAllianceKickMsg, FWAllianceWarningMsg, FWCharKickMsg, FWCharRankGainMsg, FWCharRankLossMsg, FWCharWarningMsg, FWCorpJoinMsg, FWCorpKickMsg, FWCorpLeaveMsg, FWCorpWarningMsg, FacWarCorpJoinRequestMsg, FacWarCorpJoinWithdrawMsg, FacWarCorpLeaveRequestMsg, FacWarCorpLeaveWithdrawMsg, FacWarLPDisqualifiedEvent, FacWarLPDisqualifiedKill, FacWarLPPayoutEvent, FacWarLPPayoutKill, GameTimeAdded, GameTimeReceived, GameTimeSent, GiftReceived, IHubDestroyedByBillFailure, IncursionCompletedMsg, IndustryOperationFinished, IndustryTeamAuctionLost, IndustryTeamAuctionWon, InfrastructureHubBillAboutToExpire, InsuranceExpirationMsg, InsuranceFirstShipMsg, InsuranceInvalidatedMsg, InsuranceIssuedMsg, InsurancePayoutMsg, JumpCloneDeletedMsg1, JumpCloneDeletedMsg2, KillReportFinalBlow, KillReportVictim, KillRightAvailable, KillRightAvailableOpen, KillRightEarned, KillRightUnavailable, KillRightUnavailableOpen, KillRightUsed, LocateCharMsg, MadeWarMutual, MercOfferedNegotiationMsg, MissionOfferExpirationMsg, MissionTimeoutMsg, MoonminingAutomaticFracture, MoonminingExtractionCancelled, MoonminingExtractionFinished, MoonminingExtractionStarted, MoonminingLaserFired, NPCStandingsGained, NPCStandingsLost, OfferedSurrender, OfferedToAlly, OldLscMessages, OperationFinished, OrbitalAttacked, OrbitalReinforced, OwnershipTransferred, ReimbursementMsg, ResearchMissionAvailableMsg, RetractsWar, SeasonalChallengeCompleted, SovAllClaimAquiredMsg, SovAllClaimLostMsg, SovCommandNodeEventStarted, SovCorpBillLateMsg, SovCorpClaimFailMsg, SovDisruptorMsg, SovStationEnteredFreeport, SovStructureDestroyed, SovStructureReinforced, SovStructureSelfDestructCancel, SovStructureSelfDestructFinished, SovStructureSelfDestructRequested, SovereigntyIHDamageMsg, SovereigntySBUDamageMsg, SovereigntyTCUDamageMsg, StationAggressionMsg1, StationAggressionMsg2, StationConquerMsg, StationServiceDisabled, StationServiceEnabled, StationStateChangeMsg, StoryLineMissionAvailableMsg, StructureAnchoring, StructureCourierContractChanged, StructureDestroyed, StructureFuelAlert, StructureItemsDelivered, StructureItemsMovedToSafety, StructureLostArmor, StructureLostShields, StructureOnline, StructureServicesOffline, StructureUnanchoring, StructureUnderAttack, StructureWentHighPower, StructureWentLowPower, StructuresJobsCancelled, StructuresJobsPaused, StructuresReinforcementChanged, TowerAlertMsg, TowerResourceAlertMsg, TransactionReversalMsg, TutorialMsg, WarAllyOfferDeclinedMsg, WarSurrenderDeclinedMsg, WarSurrenderOfferMsg): type string
 
 ### get_characters_character_id_notifications_contacts
 Return notifications about having been added to someone's contact list
@@ -2323,9 +2239,6 @@ evetech.get_characters_character_id_planets_planet_id({
         * head_radius `number`: head_radius number
         * heads **required** `array`: heads array
           * items `object`: head object
-            * head_id **required** `integer`: head_id integer
-            * latitude **required** `number`: latitude number
-            * longitude **required** `number`: longitude number
         * product_type_id `integer`: product_type_id integer
         * qty_per_cycle `integer`: qty_per_cycle integer
       * factory_details `object`: factory_details object
@@ -2356,7 +2269,7 @@ Alternate route: `/dev/characters/{character_id}/portrait/`
 Alternate route: `/v2/characters/{character_id}/portrait/`
 
 ---
-This route is cached for up to 3600 seconds
+This route expires daily at 11:05
 
 
 ```js
@@ -3013,12 +2926,18 @@ evetech.get_characters_character_id_wallet({
 Retrieve the given character's wallet journal going 30 days back
 
 ---
-Alternate route: `/dev/characters/{character_id}/wallet/journal/`
+Alternate route: `/legacy/characters/{character_id}/wallet/journal/`
 
 Alternate route: `/v4/characters/{character_id}/wallet/journal/`
 
 ---
 This route is cached for up to 3600 seconds
+
+---
+Warning: This route has an upgrade available
+
+---
+[Diff of the upcoming changes](https://esi.evetech.net/diff/latest/dev/#GET-/characters/{character_id}/wallet/journal/)
 
 
 ```js
@@ -3047,7 +2966,7 @@ evetech.get_characters_character_id_wallet_journal({
     * first_party_id `integer`: The id of the first party involved in the transaction. This attribute has no consistency and is different or non existant for particular ref_types. The description attribute will help make sense of what this attribute means. For more info about the given ID it can be dropped into the /universe/names/ ESI route to determine its type and name
     * id **required** `integer`: Unique journal reference ID
     * reason `string`: The user stated reason for the transaction. Only applies to some ref_types
-    * ref_type **required** `string` (values: acceleration_gate_fee, advertisement_listing_fee, agent_donation, agent_location_services, agent_miscellaneous, agent_mission_collateral_paid, agent_mission_collateral_refunded, agent_mission_reward, agent_mission_reward_corporation_tax, agent_mission_time_bonus_reward, agent_mission_time_bonus_reward_corporation_tax, agent_security_services, agent_services_rendered, agents_preward, alliance_maintainance_fee, alliance_registration_fee, asset_safety_recovery_tax, bounty, bounty_prize, bounty_prize_corporation_tax, bounty_prizes, bounty_reimbursement, bounty_surcharge, brokers_fee, clone_activation, clone_transfer, contraband_fine, contract_auction_bid, contract_auction_bid_corp, contract_auction_bid_refund, contract_auction_sold, contract_brokers_fee, contract_brokers_fee_corp, contract_collateral, contract_collateral_deposited_corp, contract_collateral_payout, contract_collateral_refund, contract_deposit, contract_deposit_corp, contract_deposit_refund, contract_deposit_sales_tax, contract_price, contract_price_payment_corp, contract_reversal, contract_reward, contract_reward_deposited, contract_reward_deposited_corp, contract_reward_refund, contract_sales_tax, copying, corporate_reward_payout, corporate_reward_tax, corporation_account_withdrawal, corporation_bulk_payment, corporation_dividend_payment, corporation_liquidation, corporation_logo_change_cost, corporation_payment, corporation_registration_fee, courier_mission_escrow, cspa, cspaofflinerefund, datacore_fee, dna_modification_fee, docking_fee, duel_wager_escrow, duel_wager_payment, duel_wager_refund, factory_slot_rental_fee, gm_cash_transfer, industry_job_tax, infrastructure_hub_maintenance, inheritance, insurance, jump_clone_activation_fee, jump_clone_installation_fee, kill_right_fee, lp_store, manufacturing, market_escrow, market_fine_paid, market_transaction, medal_creation, medal_issued, mission_completion, mission_cost, mission_expiration, mission_reward, office_rental_fee, operation_bonus, opportunity_reward, planetary_construction, planetary_export_tax, planetary_import_tax, player_donation, player_trading, project_discovery_reward, project_discovery_tax, reaction, release_of_impounded_property, repair_bill, reprocessing_tax, researching_material_productivity, researching_technology, researching_time_productivity, resource_wars_reward, reverse_engineering, security_processing_fee, shares, sovereignity_bill, store_purchase, store_purchase_refund, transaction_tax, upkeep_adjustment_fee, war_ally_contract, war_fee, war_fee_surrender): The transaction type for the given transaction. Different transaction types will populate different attributes. Note: If you have an existing XML API application that is using ref_types, you will need to know which string ESI ref_type maps to which integer. You can look at the following file to see string->int mappings: https://github.com/ccpgames/eve-glue/blob/master/eve_glue/wallet_journal_ref.py
+    * ref_type **required** `string` (values: acceleration_gate_fee, advertisement_listing_fee, agent_donation, agent_location_services, agent_miscellaneous, agent_mission_collateral_paid, agent_mission_collateral_refunded, agent_mission_reward, agent_mission_reward_corporation_tax, agent_mission_time_bonus_reward, agent_mission_time_bonus_reward_corporation_tax, agent_security_services, agent_services_rendered, agents_preward, alliance_maintainance_fee, alliance_registration_fee, asset_safety_recovery_tax, bounty, bounty_prize, bounty_prize_corporation_tax, bounty_prizes, bounty_reimbursement, bounty_surcharge, brokers_fee, clone_activation, clone_transfer, contraband_fine, contract_auction_bid, contract_auction_bid_corp, contract_auction_bid_refund, contract_auction_sold, contract_brokers_fee, contract_brokers_fee_corp, contract_collateral, contract_collateral_deposited_corp, contract_collateral_payout, contract_collateral_refund, contract_deposit, contract_deposit_corp, contract_deposit_refund, contract_deposit_sales_tax, contract_price, contract_price_payment_corp, contract_reversal, contract_reward, contract_reward_deposited, contract_reward_deposited_corp, contract_reward_refund, contract_sales_tax, copying, corporate_reward_payout, corporate_reward_tax, corporation_account_withdrawal, corporation_bulk_payment, corporation_dividend_payment, corporation_liquidation, corporation_logo_change_cost, corporation_payment, corporation_registration_fee, courier_mission_escrow, cspa, cspaofflinerefund, datacore_fee, dna_modification_fee, docking_fee, duel_wager_escrow, duel_wager_payment, duel_wager_refund, factory_slot_rental_fee, gm_cash_transfer, industry_job_tax, infrastructure_hub_maintenance, inheritance, insurance, jump_clone_activation_fee, jump_clone_installation_fee, kill_right_fee, lp_store, manufacturing, market_escrow, market_fine_paid, market_transaction, medal_creation, medal_issued, mission_completion, mission_cost, mission_expiration, mission_reward, office_rental_fee, operation_bonus, opportunity_reward, planetary_construction, planetary_export_tax, planetary_import_tax, player_donation, player_trading, project_discovery_reward, project_discovery_tax, reaction, release_of_impounded_property, repair_bill, reprocessing_tax, researching_material_productivity, researching_technology, researching_time_productivity, resource_wars_reward, reverse_engineering, security_processing_fee, shares, sovereignity_bill, store_purchase, store_purchase_refund, transaction_tax, upkeep_adjustment_fee, war_ally_contract, war_fee, war_fee_surrender): "The transaction type for the given. transaction. Different transaction types will populate different attributes. Note: If you have an existing XML API application that is using ref_types, you will need to know which string ESI ref_type maps to which integer. You can look at the following file to see string->int mappings: https://github.com/ccpgames/eve-glue/blob/master/eve_glue/wallet_journal_ref.py"
     * second_party_id `integer`: The id of the second party involved in the transaction. This attribute has no consistency and is different or non existant for particular ref_types. The description attribute will help make sense of what this attribute means. For more info about the given ID it can be dropped into the /universe/names/ ESI route to determine its type and name
     * tax `number`: Tax amount received. Only applies to tax related transactions
     * tax_receiver_id `integer`: The corporation ID receiving any tax paid. Only applies to tax related transactions
@@ -3094,6 +3013,127 @@ evetech.get_characters_character_id_wallet_transactions({
     * type_id **required** `integer`: type_id integer
     * unit_price **required** `number`: Amount paid per unit
 
+### get_contracts_public_bids_contract_id
+Lists bids on a public auction contract
+
+---
+Alternate route: `/dev/contracts/public/bids/{contract_id}/`
+
+Alternate route: `/legacy/contracts/public/bids/{contract_id}/`
+
+Alternate route: `/v1/contracts/public/bids/{contract_id}/`
+
+---
+This route is cached for up to 300 seconds
+
+
+```js
+evetech.get_contracts_public_bids_contract_id({
+  "contract_id": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * contract_id **required** `integer`: ID of a contract
+  * datasource `string` (values: tranquility, singularity): The server name you would like data from
+  * If-None-Match `string`: ETag from a previous request. A 304 will be returned if this matches the current ETag
+  * page `integer`: Which page of results to return
+
+#### Output
+* output `array`: 200 ok array
+  * items `object`: 200 ok object
+    * amount **required** `number`: The amount bid, in ISK
+    * bid_id **required** `integer`: Unique ID for the bid
+    * date_bid **required** `string`: Datetime when the bid was placed
+
+### get_contracts_public_items_contract_id
+Lists items of a public contract
+
+---
+Alternate route: `/dev/contracts/public/items/{contract_id}/`
+
+Alternate route: `/legacy/contracts/public/items/{contract_id}/`
+
+Alternate route: `/v1/contracts/public/items/{contract_id}/`
+
+---
+This route is cached for up to 3600 seconds
+
+
+```js
+evetech.get_contracts_public_items_contract_id({
+  "contract_id": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * contract_id **required** `integer`: ID of a contract
+  * datasource `string` (values: tranquility, singularity): The server name you would like data from
+  * If-None-Match `string`: ETag from a previous request. A 304 will be returned if this matches the current ETag
+  * page `integer`: Which page of results to return
+
+#### Output
+* output `array`: 200 ok array
+  * items `object`: 200 ok object
+    * is_blueprint_copy `boolean`: is_blueprint_copy boolean
+    * is_included **required** `boolean`: true if the contract issuer has submitted this item with the contract, false if the isser is asking for this item in the contract
+    * item_id `integer`: Unique ID for the item being sold. Not present if item is being requested by contract rather than sold with contract
+    * material_efficiency `integer`: Material Efficiency Level of the blueprint
+    * quantity **required** `integer`: Number of items in the stack
+    * record_id **required** `integer`: Unique ID for the item, used by the contract system
+    * runs `integer`: Number of runs remaining if the blueprint is a copy, -1 if it is an original
+    * time_efficiency `integer`: Time Efficiency Level of the blueprint
+    * type_id **required** `integer`: Type ID for item
+
+### get_contracts_public_region_id
+Returns a paginated list of all public contracts in the given region
+
+---
+Alternate route: `/dev/contracts/public/{region_id}/`
+
+Alternate route: `/legacy/contracts/public/{region_id}/`
+
+Alternate route: `/v1/contracts/public/{region_id}/`
+
+---
+This route is cached for up to 1800 seconds
+
+
+```js
+evetech.get_contracts_public_region_id({
+  "region_id": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * datasource `string` (values: tranquility, singularity): The server name you would like data from
+  * If-None-Match `string`: ETag from a previous request. A 304 will be returned if this matches the current ETag
+  * page `integer`: Which page of results to return
+  * region_id **required** `integer`: An EVE region id
+
+#### Output
+* output `array`: 200 ok array
+  * items `object`: 200 ok object
+    * buyout `number`: Buyout price (for Auctions only)
+    * collateral `number`: Collateral price (for Couriers only)
+    * contract_id **required** `integer`: contract_id integer
+    * date_expired **required** `string`: Expiration date of the contract
+    * date_issued **required** `string`: Сreation date of the contract
+    * days_to_complete `integer`: Number of days to perform the contract
+    * end_location_id `integer`: End location ID (for Couriers contract)
+    * for_corporation `boolean`: true if the contract was issued on behalf of the issuer's corporation
+    * issuer_corporation_id **required** `integer`: Character's corporation ID for the issuer
+    * issuer_id **required** `integer`: Character ID for the issuer
+    * price `number`: Price of contract (for ItemsExchange and Auctions)
+    * reward `number`: Remuneration for contract (for Couriers only)
+    * start_location_id `integer`: Start location ID (for Couriers contract)
+    * title `string`: Title of the contract
+    * type **required** `string` (values: unknown, item_exchange, auction, courier, loan): Type of the contract
+    * volume `number`: Volume of items in the contract
+
 ### get_corporation_corporation_id_mining_extractions
 Extraction timers for all moon chunks being extracted by refineries belonging to a corporation.
 
@@ -3109,7 +3149,7 @@ Alternate route: `/v1/corporation/{corporation_id}/mining/extractions/`
 This route is cached for up to 1800 seconds
 
 ---
-Requires one of the following EVE corporation role(s): Structure_manager
+Requires one of the following EVE corporation role(s): Station_Manager
 
 
 
@@ -3220,36 +3260,6 @@ evetech.get_corporation_corporation_id_mining_observers_observer_id({
     * recorded_corporation_id **required** `integer`: The corporation id of the character at the time data was recorded.
     * type_id **required** `integer`: type_id integer
 
-### get_corporations_names
-Resolve a set of corporation IDs to corporation names
-
----
-Alternate route: `/dev/corporations/names/`
-
-Alternate route: `/v2/corporations/names/`
-
----
-This route is cached for up to 3600 seconds
-
-
-```js
-evetech.get_corporations_names({
-  "corporation_ids": []
-}, context)
-```
-
-#### Input
-* input `object`
-  * corporation_ids **required** `array`: A comma separated list of corporation IDs
-  * datasource `string` (values: tranquility, singularity): The server name you would like data from
-  * If-None-Match `string`: ETag from a previous request. A 304 will be returned if this matches the current ETag
-
-#### Output
-* output `array`: 200 ok array
-  * items `object`: 200 ok object
-    * corporation_id **required** `integer`: corporation_id integer
-    * corporation_name **required** `string`: corporation_name string
-
 ### get_corporations_npccorps
 Get a list of npc corporations
 
@@ -3316,6 +3326,7 @@ evetech.get_corporations_corporation_id({
   * tax_rate **required** `number`: tax_rate number
   * ticker **required** `string`: the short name of the corporation
   * url `string`: url string
+  * war_eligible `boolean`: war_eligible boolean
 
 ### get_corporations_corporation_id_alliancehistory
 Get a list of all the alliances a corporation has been a member of
@@ -3382,6 +3393,7 @@ evetech.get_corporations_corporation_id_assets({
 #### Output
 * output `array`: 200 ok array
   * items `object`: 200 ok object
+    * is_blueprint_copy `boolean`: is_blueprint_copy boolean
     * is_singleton **required** `boolean`: is_singleton boolean
     * item_id **required** `integer`: item_id integer
     * location_flag **required** `string` (values: AssetSafety, AutoFit, Bonus, Booster, BoosterBay, Capsule, Cargo, CorpDeliveries, CorpSAG1, CorpSAG2, CorpSAG3, CorpSAG4, CorpSAG5, CorpSAG6, CorpSAG7, CrateLoot, Deliveries, DroneBay, DustBattle, DustDatabank, FighterBay, FighterTube0, FighterTube1, FighterTube2, FighterTube3, FighterTube4, FleetHangar, Hangar, HangarAll, HiSlot0, HiSlot1, HiSlot2, HiSlot3, HiSlot4, HiSlot5, HiSlot6, HiSlot7, HiddenModifiers, Implant, Impounded, JunkyardReprocessed, JunkyardTrashed, LoSlot0, LoSlot1, LoSlot2, LoSlot3, LoSlot4, LoSlot5, LoSlot6, LoSlot7, Locked, MedSlot0, MedSlot1, MedSlot2, MedSlot3, MedSlot4, MedSlot5, MedSlot6, MedSlot7, OfficeFolder, Pilot, PlanetSurface, QuafeBay, Reward, RigSlot0, RigSlot1, RigSlot2, RigSlot3, RigSlot4, RigSlot5, RigSlot6, RigSlot7, SecondaryStorage, ServiceSlot0, ServiceSlot1, ServiceSlot2, ServiceSlot3, ServiceSlot4, ServiceSlot5, ServiceSlot6, ServiceSlot7, ShipHangar, ShipOffline, Skill, SkillInTraining, SpecializedAmmoHold, SpecializedCommandCenterHold, SpecializedFuelBay, SpecializedGasHold, SpecializedIndustrialShipHold, SpecializedLargeShipHold, SpecializedMaterialBay, SpecializedMediumShipHold, SpecializedMineralHold, SpecializedOreHold, SpecializedPlanetaryCommoditiesHold, SpecializedSalvageHold, SpecializedShipHold, SpecializedSmallShipHold, StructureActive, StructureFuel, StructureInactive, StructureOffline, SubSystemBay, SubSystemSlot0, SubSystemSlot1, SubSystemSlot2, SubSystemSlot3, SubSystemSlot4, SubSystemSlot5, SubSystemSlot6, SubSystemSlot7, Unlocked, Wallet, Wardrobe): location_flag string
@@ -3429,7 +3441,7 @@ evetech.post_corporations_corporation_id_assets_locations({
       * z **required** `number`: z number
 
 ### post_corporations_corporation_id_assets_names
-Return names for a set of item ids, which you can get from corporation assets endpoint. Only valid for items that can customize names, like containers or ships.
+Return names for a set of item ids, which you can get from corporation assets endpoint. Only valid for items that can customize names, like containers or ships
 
 ---
 Alternate route: `/dev/corporations/{corporation_id}/assets/names/`
@@ -3592,18 +3604,12 @@ evetech.get_corporations_corporation_id_bookmarks_folders({
 Return contacts of a corporation
 
 ---
-Alternate route: `/legacy/corporations/{corporation_id}/contacts/`
+Alternate route: `/dev/corporations/{corporation_id}/contacts/`
 
-Alternate route: `/v1/corporations/{corporation_id}/contacts/`
+Alternate route: `/v2/corporations/{corporation_id}/contacts/`
 
 ---
 This route is cached for up to 300 seconds
-
----
-Warning: This route has an upgrade available.
-
----
-[Diff of the upcoming changes](https://esi.evetech.net/diff/latest/dev/#GET-/corporations/{corporation_id}/contacts/)
 
 
 ```js
@@ -3626,7 +3632,8 @@ evetech.get_corporations_corporation_id_contacts({
     * contact_id **required** `integer`: contact_id integer
     * contact_type **required** `string` (values: character, corporation, alliance, faction): contact_type string
     * is_watched `boolean`: Whether this contact is being watched
-    * label_id `integer`: Custom label of the contact
+    * label_ids `array`: label_ids array
+      * items `integer`: Label IDs applied to the contact
     * standing **required** `number`: Standing of the contact
 
 ### get_corporations_corporation_id_contacts_labels
@@ -3832,7 +3839,7 @@ evetech.get_corporations_corporation_id_contracts_contract_id_items({
 #### Output
 * output `array`: 200 ok array
   * items `object`: 200 ok object
-    * is_included **required** `boolean`: true if the contract issuer has submitted this item with the contract, false if the isser is asking for this item in the contract.
+    * is_included **required** `boolean`: true if the contract issuer has submitted this item with the contract, false if the isser is asking for this item in the contract
     * is_singleton **required** `boolean`: is_singleton boolean
     * quantity **required** `integer`: Number of items in the stack
     * raw_quantity `integer`: -1 indicates that the item is a singleton (non-stackable). If the item happens to be a Blueprint, -1 is an Original and -2 is a Blueprint Copy
@@ -4056,7 +4063,7 @@ Alternate route: `/v1/corporations/{corporation_id}/industry/jobs/`
 This route is cached for up to 300 seconds
 
 ---
-Requires one of the following EVE corporation role(s): FactoryManager
+Requires one of the following EVE corporation role(s): Factory_Manager
 
 
 
@@ -4071,7 +4078,7 @@ evetech.get_corporations_corporation_id_industry_jobs({
   * corporation_id **required** `integer`: An EVE corporation ID
   * datasource `string` (values: tranquility, singularity): The server name you would like data from
   * If-None-Match `string`: ETag from a previous request. A 304 will be returned if this matches the current ETag
-  * include_completed `boolean`: Whether retrieve completed industry jobs as well
+  * include_completed `boolean`: Whether to retrieve completed corporation industry jobs. Only includes jobs from the past 90 days
   * page `integer`: Which page of results to return
   * token `string`: Access token to use if unable to set a header
 
@@ -4367,7 +4374,7 @@ List open market orders placed on behalf of a corporation
 ---
 Alternate route: `/dev/corporations/{corporation_id}/orders/`
 
-Alternate route: `/v2/corporations/{corporation_id}/orders/`
+Alternate route: `/v3/corporations/{corporation_id}/orders/`
 
 ---
 This route is cached for up to 1200 seconds
@@ -4398,6 +4405,7 @@ evetech.get_corporations_corporation_id_orders({
     * escrow `number`: For buy orders, the amount of ISK in escrow
     * is_buy_order `boolean`: True if the order is a bid (buy) order
     * issued **required** `string`: Date and time when this order was issued
+    * issued_by **required** `integer`: The character who issued this order
     * location_id **required** `integer`: ID of the location where order was placed
     * min_volume `integer`: For buy orders, the minimum quantity that will be accepted in a matching sell order
     * order_id **required** `integer`: Unique order ID
@@ -4415,9 +4423,7 @@ List cancelled and expired market orders placed on behalf of a corporation up to
 ---
 Alternate route: `/dev/corporations/{corporation_id}/orders/history/`
 
-Alternate route: `/legacy/corporations/{corporation_id}/orders/history/`
-
-Alternate route: `/v1/corporations/{corporation_id}/orders/history/`
+Alternate route: `/v2/corporations/{corporation_id}/orders/history/`
 
 ---
 This route is cached for up to 3600 seconds
@@ -4448,6 +4454,7 @@ evetech.get_corporations_corporation_id_orders_history({
     * escrow `number`: For buy orders, the amount of ISK in escrow
     * is_buy_order `boolean`: True if the order is a bid (buy) order
     * issued **required** `string`: Date and time when this order was issued
+    * issued_by `integer`: The character who issued this order
     * location_id **required** `integer`: ID of the location where order was placed
     * min_volume `integer`: For buy orders, the minimum quantity that will be accepted in a matching sell order
     * order_id **required** `integer`: Unique order ID
@@ -4458,97 +4465,7 @@ evetech.get_corporations_corporation_id_orders_history({
     * type_id **required** `integer`: The type ID of the item transacted in this order
     * volume_remain **required** `integer`: Quantity of items still required or offered
     * volume_total **required** `integer`: Quantity of items required or offered at time order was placed
-    * wallet_division **required** `integer`: The corporation wallet division used for this order.
-
-### get_corporations_corporation_id_outposts
-Get a list of corporation outpost IDs Note: This endpoint will be removed once outposts are migrated to Citadels as talked about in this blog: https://community.eveonline.com/news/dev-blogs/the-next-steps-in-structure-transition/
-
----
-Alternate route: `/dev/corporations/{corporation_id}/outposts/`
-
-Alternate route: `/legacy/corporations/{corporation_id}/outposts/`
-
-Alternate route: `/v1/corporations/{corporation_id}/outposts/`
-
----
-This route is cached for up to 3600 seconds
-
----
-Requires one of the following EVE corporation role(s): Director
-
-
-
-```js
-evetech.get_corporations_corporation_id_outposts({
-  "corporation_id": 0
-}, context)
-```
-
-#### Input
-* input `object`
-  * corporation_id **required** `integer`: An EVE corporation ID
-  * datasource `string` (values: tranquility, singularity): The server name you would like data from
-  * If-None-Match `string`: ETag from a previous request. A 304 will be returned if this matches the current ETag
-  * page `integer`: Which page of results to return
-  * token `string`: Access token to use if unable to set a header
-
-#### Output
-* output `array`: 200 ok array
-  * items `integer`: 200 ok integer
-
-### get_corporations_corporation_id_outposts_outpost_id
-Get details about a given outpost. Note: This endpoint will be removed once outposts are migrated to Citadels as talked about in this blog: https://community.eveonline.com/news/dev-blogs/the-next-steps-in-structure-transition/
-
----
-Alternate route: `/dev/corporations/{corporation_id}/outposts/{outpost_id}/`
-
-Alternate route: `/legacy/corporations/{corporation_id}/outposts/{outpost_id}/`
-
-Alternate route: `/v1/corporations/{corporation_id}/outposts/{outpost_id}/`
-
----
-This route is cached for up to 3600 seconds
-
----
-Requires one of the following EVE corporation role(s): Director
-
-
-
-```js
-evetech.get_corporations_corporation_id_outposts_outpost_id({
-  "corporation_id": 0,
-  "outpost_id": 0
-}, context)
-```
-
-#### Input
-* input `object`
-  * corporation_id **required** `integer`: An EVE corporation ID
-  * datasource `string` (values: tranquility, singularity): The server name you would like data from
-  * If-None-Match `string`: ETag from a previous request. A 304 will be returned if this matches the current ETag
-  * outpost_id **required** `integer`: A station (outpost) ID
-  * token `string`: Access token to use if unable to set a header
-
-#### Output
-* output `object`: 200 ok object
-  * coordinates **required** `object`: coordinates object
-    * x **required** `number`: x number
-    * y **required** `number`: y number
-    * z **required** `number`: z number
-  * docking_cost_per_ship_volume **required** `number`: docking_cost_per_ship_volume number
-  * office_rental_cost **required** `integer`: office_rental_cost integer
-  * owner_id **required** `integer`: The entity that owns the station (e.g. the entity whose logo is on the station services bar)
-  * reprocessing_efficiency **required** `number`: reprocessing_efficiency number
-  * reprocessing_station_take **required** `number`: reprocessing_station_take number
-  * services **required** `array`: A list of services the given outpost provides
-    * items `object`: service object
-      * discount_per_good_standing **required** `number`: discount_per_good_standing number
-      * minimum_standing **required** `number`: minimum_standing number
-      * service_name **required** `string` (values: Bounty Missions, Assassination Missions, Courier Missions, Interbus, Reprocessing Plant, Refinery, Market, Black Market, Stock Exchange, Cloning, Surgery, DNA Therapy, Repair Facilities, Factory, Laboratory, Gambling, Fitting, Paintshop, News, Storage, Insurance, Docking, Office Rental, Jump Clone Facility, Loyalty Point Store, Navy Offices, Security Office): service_name string
-      * surcharge_per_bad_standing **required** `number`: surcharge_per_bad_standing number
-  * standing_owner_id **required** `integer`: The owner ID that sets the ability for someone to dock based on standings.
-  * system_id **required** `integer`: The ID of the solar system the outpost rests in
-  * type_id **required** `integer`: The type ID of the given outpost
+    * wallet_division **required** `integer`: The corporation wallet division used for this order
 
 ### get_corporations_corporation_id_roles
 Return the roles of all members if the character has the personnel manager role or any grantable role.
@@ -4816,19 +4733,23 @@ evetech.get_corporations_corporation_id_starbases_starbase_id({
   * use_alliance_standings **required** `boolean`: True if the starbase (POS) is using alliance standings, otherwise using corporation's
 
 ### get_corporations_corporation_id_structures
-Get a list of corporation structures. This route's version includes the changes to structures detailed in this blog: https://www.eveonline.com/article/upwell-2.0-structures-changes-coming-on-february-13th
+Get a list of corporation structures. This route's version includes the changes to structures detailed in this blog: https://www.eveonline.com/article/upwell-2.0-structures-changes-coming-on-february-13th Note: this route will not return any flex structures owned by a corporation, use the v3 route to have those included in the response. A list of FLEX structures can be found here: https://support.eveonline.com/hc/en-us/articles/213021829-Upwell-Structures
 
 ---
-Alternate route: `/dev/corporations/{corporation_id}/structures/`
-
 Alternate route: `/v2/corporations/{corporation_id}/structures/`
 
 ---
 This route is cached for up to 3600 seconds
 
 ---
-Requires one of the following EVE corporation role(s): StationManager
+Requires one of the following EVE corporation role(s): Station_Manager
 
+
+---
+Warning: This route has an upgrade available
+
+---
+[Diff of the upcoming changes](https://esi.evetech.net/diff/latest/dev/#GET-/corporations/{corporation_id}/structures/)
 
 
 ```js
@@ -4852,12 +4773,12 @@ evetech.get_corporations_corporation_id_structures({
   * items `object`: 200 ok object
     * corporation_id **required** `integer`: ID of the corporation that owns the structure
     * fuel_expires `string`: Date on which the structure will run out of fuel
-    * next_reinforce_apply `string`: The date and time when the structure's newly requested reinforcement times (e.g. next_reinforce_hour and next_reinforce_day) will take effect.
-    * next_reinforce_hour `integer`: The requested change to reinforce_hour that will take effect at the time shown by next_reinforce_apply.
-    * next_reinforce_weekday `integer`: The requested change to reinforce_weekday that will take effect at the time shown by next_reinforce_apply.
+    * next_reinforce_apply `string`: The date and time when the structure's newly requested reinforcement times (e.g. next_reinforce_hour and next_reinforce_day) will take effect
+    * next_reinforce_hour `integer`: The requested change to reinforce_hour that will take effect at the time shown by next_reinforce_apply
+    * next_reinforce_weekday `integer`: The requested change to reinforce_weekday that will take effect at the time shown by next_reinforce_apply
     * profile_id **required** `integer`: The id of the ACL profile for this citadel
-    * reinforce_hour **required** `integer`: The hour of day that determines the four hour window when the structure will randomly exit its reinforcement periods and become vulnerable to attack against its armor and/or hull. The structure will become vulnerable at a random time that is +/- 2 hours centered on the value of this property.
-    * reinforce_weekday **required** `integer`: The day of the week when the structure exits its final reinforcement period and becomes vulnerable to attack against its hull. Monday is 0 and Sunday is 6.
+    * reinforce_hour **required** `integer`: The hour of day that determines the four hour window when the structure will randomly exit its reinforcement periods and become vulnerable to attack against its armor and/or hull. The structure will become vulnerable at a random time that is +/- 2 hours centered on the value of this property
+    * reinforce_weekday **required** `integer`: The day of the week when the structure exits its final reinforcement period and becomes vulnerable to attack against its hull. Monday is 0 and Sunday is 6
     * services `array`: Contains a list of service upgrades, and their state
       * items `object`: service object
         * name **required** `string`: name string
@@ -4961,10 +4882,10 @@ evetech.get_corporations_corporation_id_wallets({
     * division **required** `integer`: division integer
 
 ### get_corporations_corporation_id_wallets_division_journal
-Retrieve the given corporation's wallet journal for the given division going 30 days back
+Retrieve the given corporation's wallet journal for the given division going 30 days back. Note: any journal records having to do with the new navigation structures from the release of Onslaught will not show up in this version. To see those, use the v4 version of this route.
 
 ---
-Alternate route: `/dev/corporations/{corporation_id}/wallets/{division}/journal/`
+Alternate route: `/legacy/corporations/{corporation_id}/wallets/{division}/journal/`
 
 Alternate route: `/v3/corporations/{corporation_id}/wallets/{division}/journal/`
 
@@ -4974,6 +4895,12 @@ This route is cached for up to 3600 seconds
 ---
 Requires one of the following EVE corporation role(s): Accountant, Junior_Accountant
 
+
+---
+Warning: This route has an upgrade available
+
+---
+[Diff of the upcoming changes](https://esi.evetech.net/diff/latest/dev/#GET-/corporations/{corporation_id}/wallets/{division}/journal/)
 
 
 ```js
@@ -5004,7 +4931,7 @@ evetech.get_corporations_corporation_id_wallets_division_journal({
     * first_party_id `integer`: The id of the first party involved in the transaction. This attribute has no consistency and is different or non existant for particular ref_types. The description attribute will help make sense of what this attribute means. For more info about the given ID it can be dropped into the /universe/names/ ESI route to determine its type and name
     * id **required** `integer`: Unique journal reference ID
     * reason `string`: The user stated reason for the transaction. Only applies to some ref_types
-    * ref_type **required** `string` (values: acceleration_gate_fee, advertisement_listing_fee, agent_donation, agent_location_services, agent_miscellaneous, agent_mission_collateral_paid, agent_mission_collateral_refunded, agent_mission_reward, agent_mission_reward_corporation_tax, agent_mission_time_bonus_reward, agent_mission_time_bonus_reward_corporation_tax, agent_security_services, agent_services_rendered, agents_preward, alliance_maintainance_fee, alliance_registration_fee, asset_safety_recovery_tax, bounty, bounty_prize, bounty_prize_corporation_tax, bounty_prizes, bounty_reimbursement, bounty_surcharge, brokers_fee, clone_activation, clone_transfer, contraband_fine, contract_auction_bid, contract_auction_bid_corp, contract_auction_bid_refund, contract_auction_sold, contract_brokers_fee, contract_brokers_fee_corp, contract_collateral, contract_collateral_deposited_corp, contract_collateral_payout, contract_collateral_refund, contract_deposit, contract_deposit_corp, contract_deposit_refund, contract_deposit_sales_tax, contract_price, contract_price_payment_corp, contract_reversal, contract_reward, contract_reward_deposited, contract_reward_deposited_corp, contract_reward_refund, contract_sales_tax, copying, corporate_reward_payout, corporate_reward_tax, corporation_account_withdrawal, corporation_bulk_payment, corporation_dividend_payment, corporation_liquidation, corporation_logo_change_cost, corporation_payment, corporation_registration_fee, courier_mission_escrow, cspa, cspaofflinerefund, datacore_fee, dna_modification_fee, docking_fee, duel_wager_escrow, duel_wager_payment, duel_wager_refund, factory_slot_rental_fee, gm_cash_transfer, industry_job_tax, infrastructure_hub_maintenance, inheritance, insurance, jump_clone_activation_fee, jump_clone_installation_fee, kill_right_fee, lp_store, manufacturing, market_escrow, market_fine_paid, market_transaction, medal_creation, medal_issued, mission_completion, mission_cost, mission_expiration, mission_reward, office_rental_fee, operation_bonus, opportunity_reward, planetary_construction, planetary_export_tax, planetary_import_tax, player_donation, player_trading, project_discovery_reward, project_discovery_tax, reaction, release_of_impounded_property, repair_bill, reprocessing_tax, researching_material_productivity, researching_technology, researching_time_productivity, resource_wars_reward, reverse_engineering, security_processing_fee, shares, sovereignity_bill, store_purchase, store_purchase_refund, transaction_tax, upkeep_adjustment_fee, war_ally_contract, war_fee, war_fee_surrender): The transaction type for the given transaction. Different transaction types will populate different attributes. Note: If you have an existing XML API application that is using ref_types, you will need to know which string ESI ref_type maps to which integer. You can look at the following file to see string->int mappings: https://github.com/ccpgames/eve-glue/blob/master/eve_glue/wallet_journal_ref.py
+    * ref_type **required** `string` (values: acceleration_gate_fee, advertisement_listing_fee, agent_donation, agent_location_services, agent_miscellaneous, agent_mission_collateral_paid, agent_mission_collateral_refunded, agent_mission_reward, agent_mission_reward_corporation_tax, agent_mission_time_bonus_reward, agent_mission_time_bonus_reward_corporation_tax, agent_security_services, agent_services_rendered, agents_preward, alliance_maintainance_fee, alliance_registration_fee, asset_safety_recovery_tax, bounty, bounty_prize, bounty_prize_corporation_tax, bounty_prizes, bounty_reimbursement, bounty_surcharge, brokers_fee, clone_activation, clone_transfer, contraband_fine, contract_auction_bid, contract_auction_bid_corp, contract_auction_bid_refund, contract_auction_sold, contract_brokers_fee, contract_brokers_fee_corp, contract_collateral, contract_collateral_deposited_corp, contract_collateral_payout, contract_collateral_refund, contract_deposit, contract_deposit_corp, contract_deposit_refund, contract_deposit_sales_tax, contract_price, contract_price_payment_corp, contract_reversal, contract_reward, contract_reward_deposited, contract_reward_deposited_corp, contract_reward_refund, contract_sales_tax, copying, corporate_reward_payout, corporate_reward_tax, corporation_account_withdrawal, corporation_bulk_payment, corporation_dividend_payment, corporation_liquidation, corporation_logo_change_cost, corporation_payment, corporation_registration_fee, courier_mission_escrow, cspa, cspaofflinerefund, datacore_fee, dna_modification_fee, docking_fee, duel_wager_escrow, duel_wager_payment, duel_wager_refund, factory_slot_rental_fee, gm_cash_transfer, industry_job_tax, infrastructure_hub_maintenance, inheritance, insurance, jump_clone_activation_fee, jump_clone_installation_fee, kill_right_fee, lp_store, manufacturing, market_escrow, market_fine_paid, market_transaction, medal_creation, medal_issued, mission_completion, mission_cost, mission_expiration, mission_reward, office_rental_fee, operation_bonus, opportunity_reward, planetary_construction, planetary_export_tax, planetary_import_tax, player_donation, player_trading, project_discovery_reward, project_discovery_tax, reaction, release_of_impounded_property, repair_bill, reprocessing_tax, researching_material_productivity, researching_technology, researching_time_productivity, resource_wars_reward, reverse_engineering, security_processing_fee, shares, sovereignity_bill, store_purchase, store_purchase_refund, transaction_tax, upkeep_adjustment_fee, war_ally_contract, war_fee, war_fee_surrender): "The transaction type for the given. transaction. Different transaction types will populate different attributes. Note: If you have an existing XML API application that is using ref_types, you will need to know which string ESI ref_type maps to which integer. You can look at the following file to see string->int mappings: https://github.com/ccpgames/eve-glue/blob/master/eve_glue/wallet_journal_ref.py"
     * second_party_id `integer`: The id of the second party involved in the transaction. This attribute has no consistency and is different or non existant for particular ref_types. The description attribute will help make sense of what this attribute means. For more info about the given ID it can be dropped into the /universe/names/ ESI route to determine its type and name
     * tax `number`: Tax amount received. Only applies to tax related transactions
     * tax_receiver_id `integer`: The corporation ID receiving any tax paid. Only applies to tax related transactions
@@ -5049,7 +4976,7 @@ evetech.get_corporations_corporation_id_wallets_division_transactions({
     * client_id **required** `integer`: client_id integer
     * date **required** `string`: Date and time of transaction
     * is_buy **required** `boolean`: is_buy boolean
-    * journal_ref_id **required** `integer`: journal_ref_id integer
+    * journal_ref_id **required** `integer`: -1 if there is no corresponding wallet journal entry
     * location_id **required** `integer`: location_id integer
     * quantity **required** `integer`: quantity integer
     * transaction_id **required** `integer`: Unique transaction ID
@@ -5121,6 +5048,48 @@ evetech.get_dogma_attributes_attribute_id({
   * published `boolean`: published boolean
   * stackable `boolean`: stackable boolean
   * unit_id `integer`: unit_id integer
+
+### get_dogma_dynamic_items_type_id_item_id
+Returns info about a dynamic item resulting from mutation with a mutaplasmid.
+
+---
+Alternate route: `/dev/dogma/dynamic/items/{type_id}/{item_id}/`
+
+Alternate route: `/legacy/dogma/dynamic/items/{type_id}/{item_id}/`
+
+Alternate route: `/v1/dogma/dynamic/items/{type_id}/{item_id}/`
+
+---
+This route expires daily at 11:05
+
+
+```js
+evetech.get_dogma_dynamic_items_type_id_item_id({
+  "item_id": 0,
+  "type_id": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * datasource `string` (values: tranquility, singularity): The server name you would like data from
+  * If-None-Match `string`: ETag from a previous request. A 304 will be returned if this matches the current ETag
+  * item_id **required** `integer`: item_id integer
+  * type_id **required** `integer`: type_id integer
+
+#### Output
+* output `object`: 200 ok object
+  * created_by **required** `integer`: The ID of the character who created the item
+  * dogma_attributes **required** `array`: dogma_attributes array
+    * items `object`: dogma_attribute object
+      * attribute_id **required** `integer`: attribute_id integer
+      * value **required** `number`: value number
+  * dogma_effects **required** `array`: dogma_effects array
+    * items `object`: dogma_effect object
+      * effect_id **required** `integer`: effect_id integer
+      * is_default **required** `boolean`: is_default boolean
+  * mutator_type_id **required** `integer`: The type ID of the mutator used to generate the dynamic item.
+  * source_type_id **required** `integer`: The type ID of the source item the mutator was applied to create the dynamic item.
 
 ### get_dogma_effects
 Get a list of dogma effect ids
@@ -5637,7 +5606,7 @@ evetech.post_fleets_fleet_id_wings_wing_id_squads({
   * squad_id **required** `integer`: The squad_id of the newly created squad
 
 ### get_fw_leaderboards
-Top 4 leaderboard of factions for kills and victory points separated by total, last week and yesterday.
+Top 4 leaderboard of factions for kills and victory points separated by total, last week and yesterday
 
 ---
 Alternate route: `/dev/fw/leaderboards/`
@@ -5661,8 +5630,8 @@ evetech.get_fw_leaderboards({}, context)
 
 #### Output
 * output `object`: 200 ok object
-  * kills **required** `object`: Top 4 rankings of factions by number of kills from yesterday, last week and in total.
-    * active_total **required** `array`: Top 4 ranking of factions active in faction warfare by total kills. A faction is considered "active" if they have participated in faction warfare in the past 14 days.
+  * kills **required** `object`: Top 4 rankings of factions by number of kills from yesterday, last week and in total
+    * active_total **required** `array`: Top 4 ranking of factions active in faction warfare by total kills. A faction is considered "active" if they have participated in faction warfare in the past 14 days
       * items `object`: active_total object
         * amount `integer`: Amount of kills
         * faction_id `integer`: faction_id integer
@@ -5675,7 +5644,7 @@ evetech.get_fw_leaderboards({}, context)
         * amount `integer`: Amount of kills
         * faction_id `integer`: faction_id integer
   * victory_points **required** `object`: Top 4 rankings of factions by victory points from yesterday, last week and in total
-    * active_total **required** `array`: Top 4 ranking of factions active in faction warfare by total victory points. A faction is considered "active" if they have participated in faction warfare in the past 14 days.
+    * active_total **required** `array`: Top 4 ranking of factions active in faction warfare by total victory points. A faction is considered "active" if they have participated in faction warfare in the past 14 days
       * items `object`: active_total object
         * amount `integer`: Amount of victory points
         * faction_id `integer`: faction_id integer
@@ -5689,7 +5658,7 @@ evetech.get_fw_leaderboards({}, context)
         * faction_id `integer`: faction_id integer
 
 ### get_fw_leaderboards_characters
-Top 100 leaderboard of pilots for kills and victory points separated by total, last week and yesterday.
+Top 100 leaderboard of pilots for kills and victory points separated by total, last week and yesterday
 
 ---
 Alternate route: `/dev/fw/leaderboards/characters/`
@@ -5713,8 +5682,8 @@ evetech.get_fw_leaderboards_characters({}, context)
 
 #### Output
 * output `object`: 200 ok object
-  * kills **required** `object`: Top 100 rankings of pilots by number of kills from yesterday, last week and in total.
-    * active_total **required** `array`: Top 100 ranking of pilots active in faction warfare by total kills. A pilot is considered "active" if they have participated in faction warfare in the past 14 days.
+  * kills **required** `object`: Top 100 rankings of pilots by number of kills from yesterday, last week and in total
+    * active_total **required** `array`: Top 100 ranking of pilots active in faction warfare by total kills. A pilot is considered "active" if they have participated in faction warfare in the past 14 days
       * items `object`: active_total object
         * amount `integer`: Amount of kills
         * character_id `integer`: character_id integer
@@ -5727,7 +5696,7 @@ evetech.get_fw_leaderboards_characters({}, context)
         * amount `integer`: Amount of kills
         * character_id `integer`: character_id integer
   * victory_points **required** `object`: Top 100 rankings of pilots by victory points from yesterday, last week and in total
-    * active_total **required** `array`: Top 100 ranking of pilots active in faction warfare by total victory points. A pilot is considered "active" if they have participated in faction warfare in the past 14 days.
+    * active_total **required** `array`: Top 100 ranking of pilots active in faction warfare by total victory points. A pilot is considered "active" if they have participated in faction warfare in the past 14 days
       * items `object`: active_total object
         * amount `integer`: Amount of victory points
         * character_id `integer`: character_id integer
@@ -5741,7 +5710,7 @@ evetech.get_fw_leaderboards_characters({}, context)
         * character_id `integer`: character_id integer
 
 ### get_fw_leaderboards_corporations
-Top 10 leaderboard of corporations for kills and victory points separated by total, last week and yesterday.
+Top 10 leaderboard of corporations for kills and victory points separated by total, last week and yesterday
 
 ---
 Alternate route: `/dev/fw/leaderboards/corporations/`
@@ -5765,8 +5734,8 @@ evetech.get_fw_leaderboards_corporations({}, context)
 
 #### Output
 * output `object`: 200 ok object
-  * kills **required** `object`: Top 10 rankings of corporations by number of kills from yesterday, last week and in total.
-    * active_total **required** `array`: Top 10 ranking of corporations active in faction warfare by total kills. A corporation is considered "active" if they have participated in faction warfare in the past 14 days.
+  * kills **required** `object`: Top 10 rankings of corporations by number of kills from yesterday, last week and in total
+    * active_total **required** `array`: Top 10 ranking of corporations active in faction warfare by total kills. A corporation is considered "active" if they have participated in faction warfare in the past 14 days
       * items `object`: active_total object
         * amount `integer`: Amount of kills
         * corporation_id `integer`: corporation_id integer
@@ -5779,7 +5748,7 @@ evetech.get_fw_leaderboards_corporations({}, context)
         * amount `integer`: Amount of kills
         * corporation_id `integer`: corporation_id integer
   * victory_points **required** `object`: Top 10 rankings of corporations by victory points from yesterday, last week and in total
-    * active_total **required** `array`: Top 10 ranking of corporations active in faction warfare by total victory points. A corporation is considered "active" if they have participated in faction warfare in the past 14 days.
+    * active_total **required** `array`: Top 10 ranking of corporations active in faction warfare by total victory points. A corporation is considered "active" if they have participated in faction warfare in the past 14 days
       * items `object`: active_total object
         * amount `integer`: Amount of victory points
         * corporation_id `integer`: corporation_id integer
@@ -5834,18 +5803,12 @@ evetech.get_fw_stats({}, context)
 An overview of the current ownership of faction warfare solar systems
 
 ---
-Alternate route: `/legacy/fw/systems/`
+Alternate route: `/dev/fw/systems/`
 
-Alternate route: `/v1/fw/systems/`
+Alternate route: `/v2/fw/systems/`
 
 ---
 This route is cached for up to 1800 seconds
-
----
-Warning: This route has an upgrade available.
-
----
-[Diff of the upcoming changes](https://esi.evetech.net/diff/latest/dev/#GET-/fw/systems/)
 
 
 ```js
@@ -5860,7 +5823,7 @@ evetech.get_fw_systems({}, context)
 #### Output
 * output `array`: 200 ok array
   * items `object`: 200 ok object
-    * contested **required** `boolean`: contested boolean
+    * contested **required** `string` (values: captured, contested, uncontested, vulnerable): contested string
     * occupier_faction_id **required** `integer`: occupier_faction_id integer
     * owner_faction_id **required** `integer`: owner_faction_id integer
     * solar_system_id **required** `integer`: solar_system_id integer
@@ -6089,11 +6052,6 @@ evetech.get_killmails_killmail_id_killmail_hash({
         * item_type_id **required** `integer`: item_type_id integer
         * items `array`: items array
           * items `object`: item object
-            * flag **required** `integer`: flag integer
-            * item_type_id **required** `integer`: item_type_id integer
-            * quantity_destroyed `integer`: quantity_destroyed integer
-            * quantity_dropped `integer`: quantity_dropped integer
-            * singleton **required** `integer`: singleton integer
         * quantity_destroyed `integer`: How many of the item were destroyed if any
         * quantity_dropped `integer`: How many of the item were dropped if any
         * singleton **required** `integer`: singleton integer
@@ -6344,7 +6302,7 @@ evetech.get_markets_region_id_orders({
 * input `object`
   * datasource `string` (values: tranquility, singularity): The server name you would like data from
   * If-None-Match `string`: ETag from a previous request. A 304 will be returned if this matches the current ETag
-  * order_type **required** `string` (values: buy, sell, all): Filter buy/sell orders, return all orders by default. If you query without type_id, we always return both buy and sell orders.
+  * order_type **required** `string` (values: buy, sell, all): Filter buy/sell orders, return all orders by default. If you query without type_id, we always return both buy and sell orders
   * page `integer`: Which page of results to return
   * region_id **required** `integer`: Return orders in this region
   * type_id `integer`: Return orders only for this type
@@ -7298,7 +7256,7 @@ evetech.get_universe_groups_group_id({
     * items `integer`: type integer
 
 ### post_universe_ids
-Resolve a set of names to IDs in the following categories: agents, alliances, characters, constellations, corporations factions, inventory_types, regions, stations, and systems. Only exact matches will be returned. All names searched for are cached for 12 hours.
+Resolve a set of names to IDs in the following categories: agents, alliances, characters, constellations, corporations factions, inventory_types, regions, stations, and systems. Only exact matches will be returned. All names searched for are cached for 12 hours
 
 ---
 Alternate route: `/dev/universe/ids/`
@@ -7403,7 +7361,7 @@ evetech.get_universe_moons_moon_id({
   * system_id **required** `integer`: The solar system this moon is in
 
 ### post_universe_names
-Resolve a set of IDs to names and categories. Supported ID's for resolving are: Characters, Corporations, Alliances, Stations, Solar Systems, Constellations, Regions, Types.
+Resolve a set of IDs to names and categories. Supported ID's for resolving are: Characters, Corporations, Alliances, Stations, Solar Systems, Constellations, Regions, Types
 
 ---
 Alternate route: `/dev/universe/names/`
@@ -7736,6 +7694,7 @@ evetech.get_universe_structures({}, context)
 #### Input
 * input `object`
   * datasource `string` (values: tranquility, singularity): The server name you would like data from
+  * filter `string` (values: market, manufacturing_basic): Only list public structures that have this service online
   * If-None-Match `string`: ETag from a previous request. A 304 will be returned if this matches the current ETag
 
 #### Output
@@ -7743,14 +7702,12 @@ evetech.get_universe_structures({}, context)
   * items `integer`: 200 ok integer
 
 ### get_universe_structures_structure_id
-Returns information on requested structure, if you are on the ACL. Otherwise, returns "Forbidden" for all inputs.
+Returns information on requested structure if you are on the ACL. Otherwise, returns "Forbidden" for all inputs.
 
 ---
 Alternate route: `/dev/universe/structures/{structure_id}/`
 
-Alternate route: `/legacy/universe/structures/{structure_id}/`
-
-Alternate route: `/v1/universe/structures/{structure_id}/`
+Alternate route: `/v2/universe/structures/{structure_id}/`
 
 ---
 This route is cached for up to 3600 seconds
@@ -7772,6 +7729,7 @@ evetech.get_universe_structures_structure_id({
 #### Output
 * output `object`: 200 ok object
   * name **required** `string`: The full name of the structure
+  * owner_id **required** `integer`: The ID of the corporation who owns this particular structure
   * position `object`: Coordinates of the structure in Cartesian space relative to the Sun, in metres.
     * x **required** `number`: x number
     * y **required** `number`: y number
@@ -7865,12 +7823,12 @@ evetech.get_universe_systems({}, context)
   * items `integer`: 200 ok integer
 
 ### get_universe_systems_system_id
-Get information on a solar system
+Get information on a solar system.
 
 ---
 Alternate route: `/dev/universe/systems/{system_id}/`
 
-Alternate route: `/v3/universe/systems/{system_id}/`
+Alternate route: `/v4/universe/systems/{system_id}/`
 
 ---
 This route expires daily at 11:05
@@ -7894,7 +7852,7 @@ evetech.get_universe_systems_system_id({
 * output `object`: 200 ok object
   * constellation_id **required** `integer`: The constellation this solar system is in
   * name **required** `string`: name string
-  * planets **required** `array`: planets array
+  * planets `array`: planets array
     * items `object`: planet object
       * asteroid_belts `array`: asteroid_belts array
         * items `integer`: asteroid_belt integer
@@ -7907,7 +7865,7 @@ evetech.get_universe_systems_system_id({
     * z **required** `number`: z number
   * security_class `string`: security_class string
   * security_status **required** `number`: security_status number
-  * star_id **required** `integer`: star_id integer
+  * star_id `integer`: star_id integer
   * stargates `array`: stargates array
     * items `integer`: stargate integer
   * stations `array`: stations array
@@ -8015,7 +7973,7 @@ evetech.get_wars({}, context)
 * input `object`
   * datasource `string` (values: tranquility, singularity): The server name you would like data from
   * If-None-Match `string`: ETag from a previous request. A 304 will be returned if this matches the current ETag
-  * max_war_id `integer`: Only return wars with ID smaller than this.
+  * max_war_id `integer`: Only return wars with ID smaller than this
 
 #### Output
 * output `array`: 200 ok array

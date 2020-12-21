@@ -1,6 +1,6 @@
 # @datafire/google_adsensehost
 
-Client library for AdSense Host
+Client library for AdSense Host API
 
 ## Installation and Usage
 ```bash
@@ -15,7 +15,7 @@ let google_adsensehost = require('@datafire/google_adsensehost').create({
   redirect_uri: ""
 });
 
-google_adsensehost.adclients.list({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -67,12 +67,12 @@ google_adsensehost.oauthRefresh(null, context)
   * scope `string`
   * expiration `string`
 
-### accounts.list
+### adsensehost.accounts.list
 List hosted accounts associated with this AdSense account by ad client id.
 
 
 ```js
-google_adsensehost.accounts.list({
+google_adsensehost.adsensehost.accounts.list({
   "filterAdClientId": []
 }, context)
 ```
@@ -91,12 +91,12 @@ google_adsensehost.accounts.list({
 #### Output
 * output [Accounts](#accounts)
 
-### accounts.get
+### adsensehost.accounts.get
 Get information about the selected associated AdSense account.
 
 
 ```js
-google_adsensehost.accounts.get({
+google_adsensehost.adsensehost.accounts.get({
   "accountId": ""
 }, context)
 ```
@@ -115,12 +115,12 @@ google_adsensehost.accounts.get({
 #### Output
 * output [Account](#account)
 
-### accounts.adclients.list
+### adsensehost.accounts.adclients.list
 List all hosted ad clients in the specified hosted account.
 
 
 ```js
-google_adsensehost.accounts.adclients.list({
+google_adsensehost.adsensehost.accounts.adclients.list({
   "accountId": ""
 }, context)
 ```
@@ -141,12 +141,12 @@ google_adsensehost.accounts.adclients.list({
 #### Output
 * output [AdClients](#adclients)
 
-### accounts.adclients.get
+### adsensehost.accounts.adclients.get
 Get information about one of the ad clients in the specified publisher's AdSense account.
 
 
 ```js
-google_adsensehost.accounts.adclients.get({
+google_adsensehost.adsensehost.accounts.adclients.get({
   "accountId": "",
   "adClientId": ""
 }, context)
@@ -167,12 +167,12 @@ google_adsensehost.accounts.adclients.get({
 #### Output
 * output [AdClient](#adclient)
 
-### accounts.adunits.list
+### adsensehost.accounts.adunits.list
 List all ad units in the specified publisher's AdSense account.
 
 
 ```js
-google_adsensehost.accounts.adunits.list({
+google_adsensehost.adsensehost.accounts.adunits.list({
   "accountId": "",
   "adClientId": ""
 }, context)
@@ -196,12 +196,12 @@ google_adsensehost.accounts.adunits.list({
 #### Output
 * output [AdUnits](#adunits)
 
-### accounts.adunits.patch
+### adsensehost.accounts.adunits.patch
 Update the supplied ad unit in the specified publisher AdSense account. This method supports patch semantics.
 
 
 ```js
-google_adsensehost.accounts.adunits.patch({
+google_adsensehost.adsensehost.accounts.adunits.patch({
   "accountId": "",
   "adClientId": "",
   "adUnitId": ""
@@ -225,12 +225,12 @@ google_adsensehost.accounts.adunits.patch({
 #### Output
 * output [AdUnit](#adunit)
 
-### accounts.adunits.insert
+### adsensehost.accounts.adunits.insert
 Insert the supplied ad unit into the specified publisher AdSense account.
 
 
 ```js
-google_adsensehost.accounts.adunits.insert({
+google_adsensehost.adsensehost.accounts.adunits.insert({
   "accountId": "",
   "adClientId": ""
 }, context)
@@ -252,12 +252,12 @@ google_adsensehost.accounts.adunits.insert({
 #### Output
 * output [AdUnit](#adunit)
 
-### accounts.adunits.update
+### adsensehost.accounts.adunits.update
 Update the supplied ad unit in the specified publisher AdSense account.
 
 
 ```js
-google_adsensehost.accounts.adunits.update({
+google_adsensehost.adsensehost.accounts.adunits.update({
   "accountId": "",
   "adClientId": ""
 }, context)
@@ -279,12 +279,12 @@ google_adsensehost.accounts.adunits.update({
 #### Output
 * output [AdUnit](#adunit)
 
-### accounts.adunits.delete
+### adsensehost.accounts.adunits.delete
 Delete the specified ad unit from the specified publisher AdSense account.
 
 
 ```js
-google_adsensehost.accounts.adunits.delete({
+google_adsensehost.adsensehost.accounts.adunits.delete({
   "accountId": "",
   "adClientId": "",
   "adUnitId": ""
@@ -307,12 +307,12 @@ google_adsensehost.accounts.adunits.delete({
 #### Output
 * output [AdUnit](#adunit)
 
-### accounts.adunits.get
+### adsensehost.accounts.adunits.get
 Get the specified host ad unit in this AdSense account.
 
 
 ```js
-google_adsensehost.accounts.adunits.get({
+google_adsensehost.adsensehost.accounts.adunits.get({
   "accountId": "",
   "adClientId": "",
   "adUnitId": ""
@@ -335,12 +335,12 @@ google_adsensehost.accounts.adunits.get({
 #### Output
 * output [AdUnit](#adunit)
 
-### accounts.adunits.getAdCode
+### adsensehost.accounts.adunits.getAdCode
 Get ad code for the specified ad unit, attaching the specified host custom channels.
 
 
 ```js
-google_adsensehost.accounts.adunits.getAdCode({
+google_adsensehost.adsensehost.accounts.adunits.getAdCode({
   "accountId": "",
   "adClientId": "",
   "adUnitId": ""
@@ -364,29 +364,29 @@ google_adsensehost.accounts.adunits.getAdCode({
 #### Output
 * output [AdCode](#adcode)
 
-### accounts.reports.generate
+### adsensehost.accounts.reports.generate
 Generate an AdSense report based on the report request sent in the query parameters. Returns the result as JSON; to retrieve output in CSV format specify "alt=csv" as a query parameter.
 
 
 ```js
-google_adsensehost.accounts.reports.generate({
+google_adsensehost.adsensehost.accounts.reports.generate({
   "accountId": "",
-  "endDate": "",
-  "startDate": ""
+  "startDate": "",
+  "endDate": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * accountId **required** `string`: Hosted account upon which to report.
-  * dimension `array`: Dimensions to base the report on.
+  * startDate **required** `string`: Start of the date range to report on in "YYYY-MM-DD" format, inclusive.
   * endDate **required** `string`: End of the date range to report on in "YYYY-MM-DD" format, inclusive.
+  * dimension `array`: Dimensions to base the report on.
   * filter `array`: Filters to be run on the report.
   * locale `string`: Optional locale to use for translating report output to a local language. Defaults to "en_US" if not specified.
   * maxResults `integer`: The maximum number of rows of report data to return.
   * metric `array`: Numeric columns to include in the report.
   * sort `array`: The name of a dimension or metric to sort the resulting report on, optionally prefixed with "+" to sort ascending or "-" to sort descending. If no prefix is specified, the column is sorted ascending.
-  * startDate **required** `string`: Start of the date range to report on in "YYYY-MM-DD" format, inclusive.
   * startIndex `integer`: Index of the first row of report data to return.
   * alt `string` (values: csv, json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
@@ -399,12 +399,12 @@ google_adsensehost.accounts.reports.generate({
 #### Output
 * output [Report](#report)
 
-### adclients.list
+### adsensehost.adclients.list
 List all host ad clients in this AdSense account.
 
 
 ```js
-google_adsensehost.adclients.list({}, context)
+google_adsensehost.adsensehost.adclients.list({}, context)
 ```
 
 #### Input
@@ -422,12 +422,12 @@ google_adsensehost.adclients.list({}, context)
 #### Output
 * output [AdClients](#adclients)
 
-### adclients.get
+### adsensehost.adclients.get
 Get information about one of the ad clients in the Host AdSense account.
 
 
 ```js
-google_adsensehost.adclients.get({
+google_adsensehost.adsensehost.adclients.get({
   "adClientId": ""
 }, context)
 ```
@@ -446,12 +446,12 @@ google_adsensehost.adclients.get({
 #### Output
 * output [AdClient](#adclient)
 
-### customchannels.list
+### adsensehost.customchannels.list
 List all host custom channels in this AdSense account.
 
 
 ```js
-google_adsensehost.customchannels.list({
+google_adsensehost.adsensehost.customchannels.list({
   "adClientId": ""
 }, context)
 ```
@@ -472,12 +472,12 @@ google_adsensehost.customchannels.list({
 #### Output
 * output [CustomChannels](#customchannels)
 
-### customchannels.patch
+### adsensehost.customchannels.patch
 Update a custom channel in the host AdSense account. This method supports patch semantics.
 
 
 ```js
-google_adsensehost.customchannels.patch({
+google_adsensehost.adsensehost.customchannels.patch({
   "adClientId": "",
   "customChannelId": ""
 }, context)
@@ -486,8 +486,8 @@ google_adsensehost.customchannels.patch({
 #### Input
 * input `object`
   * adClientId **required** `string`: Ad client in which the custom channel will be updated.
-  * body [CustomChannel](#customchannel)
   * customChannelId **required** `string`: Custom channel to get.
+  * body [CustomChannel](#customchannel)
   * alt `string` (values: csv, json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -499,12 +499,12 @@ google_adsensehost.customchannels.patch({
 #### Output
 * output [CustomChannel](#customchannel)
 
-### customchannels.insert
+### adsensehost.customchannels.insert
 Add a new custom channel to the host AdSense account.
 
 
 ```js
-google_adsensehost.customchannels.insert({
+google_adsensehost.adsensehost.customchannels.insert({
   "adClientId": ""
 }, context)
 ```
@@ -524,12 +524,12 @@ google_adsensehost.customchannels.insert({
 #### Output
 * output [CustomChannel](#customchannel)
 
-### customchannels.update
+### adsensehost.customchannels.update
 Update a custom channel in the host AdSense account.
 
 
 ```js
-google_adsensehost.customchannels.update({
+google_adsensehost.adsensehost.customchannels.update({
   "adClientId": ""
 }, context)
 ```
@@ -549,12 +549,12 @@ google_adsensehost.customchannels.update({
 #### Output
 * output [CustomChannel](#customchannel)
 
-### customchannels.delete
+### adsensehost.customchannels.delete
 Delete a specific custom channel from the host AdSense account.
 
 
 ```js
-google_adsensehost.customchannels.delete({
+google_adsensehost.adsensehost.customchannels.delete({
   "adClientId": "",
   "customChannelId": ""
 }, context)
@@ -575,12 +575,12 @@ google_adsensehost.customchannels.delete({
 #### Output
 * output [CustomChannel](#customchannel)
 
-### customchannels.get
+### adsensehost.customchannels.get
 Get a specific custom channel from the host AdSense account.
 
 
 ```js
-google_adsensehost.customchannels.get({
+google_adsensehost.adsensehost.customchannels.get({
   "adClientId": "",
   "customChannelId": ""
 }, context)
@@ -601,12 +601,12 @@ google_adsensehost.customchannels.get({
 #### Output
 * output [CustomChannel](#customchannel)
 
-### urlchannels.list
+### adsensehost.urlchannels.list
 List all host URL channels in the host AdSense account.
 
 
 ```js
-google_adsensehost.urlchannels.list({
+google_adsensehost.adsensehost.urlchannels.list({
   "adClientId": ""
 }, context)
 ```
@@ -627,12 +627,12 @@ google_adsensehost.urlchannels.list({
 #### Output
 * output [UrlChannels](#urlchannels)
 
-### urlchannels.insert
+### adsensehost.urlchannels.insert
 Add a new URL channel to the host AdSense account.
 
 
 ```js
-google_adsensehost.urlchannels.insert({
+google_adsensehost.adsensehost.urlchannels.insert({
   "adClientId": ""
 }, context)
 ```
@@ -652,12 +652,12 @@ google_adsensehost.urlchannels.insert({
 #### Output
 * output [UrlChannel](#urlchannel)
 
-### urlchannels.delete
+### adsensehost.urlchannels.delete
 Delete a URL channel from the host AdSense account.
 
 
 ```js
-google_adsensehost.urlchannels.delete({
+google_adsensehost.adsensehost.urlchannels.delete({
   "adClientId": "",
   "urlChannelId": ""
 }, context)
@@ -678,12 +678,12 @@ google_adsensehost.urlchannels.delete({
 #### Output
 * output [UrlChannel](#urlchannel)
 
-### associationsessions.start
+### adsensehost.associationsessions.start
 Create an association session for initiating an association with an AdSense user.
 
 
 ```js
-google_adsensehost.associationsessions.start({
+google_adsensehost.adsensehost.associationsessions.start({
   "productCode": [],
   "websiteUrl": ""
 }, context)
@@ -692,9 +692,10 @@ google_adsensehost.associationsessions.start({
 #### Input
 * input `object`
   * productCode **required** `array`: Products to associate with the user.
+  * websiteUrl **required** `string`: The URL of the user's hosted website.
+  * callbackUrl `string`: The URL to redirect the user to once association is completed. It receives a token parameter that can then be used to retrieve the associated account.
   * userLocale `string`: The preferred locale of the user.
   * websiteLocale `string`: The locale of the user's hosted website.
-  * websiteUrl **required** `string`: The URL of the user's hosted website.
   * alt `string` (values: csv, json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -706,12 +707,12 @@ google_adsensehost.associationsessions.start({
 #### Output
 * output [AssociationSession](#associationsession)
 
-### associationsessions.verify
+### adsensehost.associationsessions.verify
 Verify an association session after the association callback returns from AdSense signup.
 
 
 ```js
-google_adsensehost.associationsessions.verify({
+google_adsensehost.adsensehost.associationsessions.verify({
   "token": ""
 }, context)
 ```
@@ -730,27 +731,27 @@ google_adsensehost.associationsessions.verify({
 #### Output
 * output [AssociationSession](#associationsession)
 
-### reports.generate
+### adsensehost.reports.generate
 Generate an AdSense report based on the report request sent in the query parameters. Returns the result as JSON; to retrieve output in CSV format specify "alt=csv" as a query parameter.
 
 
 ```js
-google_adsensehost.reports.generate({
-  "endDate": "",
-  "startDate": ""
+google_adsensehost.adsensehost.reports.generate({
+  "startDate": "",
+  "endDate": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * dimension `array`: Dimensions to base the report on.
+  * startDate **required** `string`: Start of the date range to report on in "YYYY-MM-DD" format, inclusive.
   * endDate **required** `string`: End of the date range to report on in "YYYY-MM-DD" format, inclusive.
+  * dimension `array`: Dimensions to base the report on.
   * filter `array`: Filters to be run on the report.
   * locale `string`: Optional locale to use for translating report output to a local language. Defaults to "en_US" if not specified.
   * maxResults `integer`: The maximum number of rows of report data to return.
   * metric `array`: Numeric columns to include in the report.
   * sort `array`: The name of a dimension or metric to sort the resulting report on, optionally prefixed with "+" to sort ascending or "-" to sort descending. If no prefix is specified, the column is sorted ascending.
-  * startDate **required** `string`: Start of the date range to report on in "YYYY-MM-DD" format, inclusive.
   * startIndex `integer`: Index of the first row of report data to return.
   * alt `string` (values: csv, json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.

@@ -1,6 +1,6 @@
 # @datafire/cisco
 
-Client library for Cisco PSIRT openVuln
+Client library for Cisco PSIRT openVuln API
 
 ## Installation and Usage
 ```bash
@@ -15,9 +15,7 @@ let cisco = require('@datafire/cisco').create({
   redirect_uri: ""
 });
 
-cisco.security.advisories.cvrf.advisory.advisory_id.get({
-  "advisory_id": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

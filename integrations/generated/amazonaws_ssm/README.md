@@ -13,18 +13,14 @@ let amazonaws_ssm = require('@datafire/amazonaws_ssm').create({
   region: ""
 });
 
-amazonaws_ssm.AddTagsToResource({
-  "ResourceType": "",
-  "ResourceId": "",
-  "Tags": []
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
 
 ## Description
 
-<fullname>AWS Systems Manager</fullname> <p>AWS Systems Manager is a collection of capabilities that helps you automate management tasks such as collecting system inventory, applying operating system (OS) patches, automating the creation of Amazon Machine Images (AMIs), and configuring operating systems (OSs) and applications at scale. Systems Manager lets you remotely and securely manage the configuration of your managed instances. A <i>managed instance</i> is any Amazon EC2 instance or on-premises machine in your hybrid environment that has been configured for Systems Manager.</p> <p>This reference is intended to be used with the <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/">AWS Systems Manager User Guide</a>.</p> <p>To get started, verify prerequisites and configure managed instances. For more information, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-setting-up.html">Systems Manager Prerequisites</a>.</p> <p>For information about other API actions you can perform on Amazon EC2 instances, see the <a href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/">Amazon EC2 API Reference</a>. For information about how to use a Query API, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/making-api-requests.html">Making API Requests</a>. </p>
+<fullname>AWS Systems Manager</fullname> <p>AWS Systems Manager is a collection of capabilities that helps you automate management tasks such as collecting system inventory, applying operating system (OS) patches, automating the creation of Amazon Machine Images (AMIs), and configuring operating systems (OSs) and applications at scale. Systems Manager lets you remotely and securely manage the configuration of your managed instances. A <i>managed instance</i> is any Amazon Elastic Compute Cloud instance (EC2 instance), or any on-premises server or virtual machine (VM) in your hybrid environment that has been configured for Systems Manager.</p> <p>This reference is intended to be used with the <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/">AWS Systems Manager User Guide</a>.</p> <p>To get started, verify prerequisites and configure managed instances. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-setting-up.html">Setting up AWS Systems Manager</a> in the <i>AWS Systems Manager User Guide</i>.</p> <p>For information about other API actions you can perform on EC2 instances, see the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/">Amazon EC2 API Reference</a>. For information about how to use a Query API, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/making-api-requests.html">Making API requests</a>. </p>
 
 ## Actions
 
@@ -34,17 +30,18 @@ amazonaws_ssm.AddTagsToResource({
 
 ```js
 amazonaws_ssm.AddTagsToResource({
-  "ResourceType": "",
-  "ResourceId": "",
-  "Tags": []
+  "ResourceType": null,
+  "ResourceId": null,
+  "Tags": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ResourceId **required** [ResourceId](#resourceid)
-  * ResourceType **required** [ResourceTypeForTagging](#resourcetypefortagging)
-  * Tags **required** [TagList](#taglist)
+  * ResourceId **required**
+  * ResourceType **required**
+  * Tags **required**
+    * items [Tag](#tag)
 
 #### Output
 * output [AddTagsToResourceResult](#addtagstoresourceresult)
@@ -55,17 +52,35 @@ amazonaws_ssm.AddTagsToResource({
 
 ```js
 amazonaws_ssm.CancelCommand({
-  "CommandId": ""
+  "CommandId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * CommandId **required** [CommandId](#commandid)
-  * InstanceIds [InstanceIdList](#instanceidlist)
+  * CommandId **required**
+  * InstanceIds
+    * items [InstanceId](#instanceid)
 
 #### Output
 * output [CancelCommandResult](#cancelcommandresult)
+
+### CancelMaintenanceWindowExecution
+
+
+
+```js
+amazonaws_ssm.CancelMaintenanceWindowExecution({
+  "WindowExecutionId": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * WindowExecutionId **required**
+
+#### Output
+* output [CancelMaintenanceWindowExecutionResult](#cancelmaintenancewindowexecutionresult)
 
 ### CreateActivation
 
@@ -73,17 +88,19 @@ amazonaws_ssm.CancelCommand({
 
 ```js
 amazonaws_ssm.CreateActivation({
-  "IamRole": ""
+  "IamRole": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * DefaultInstanceName [DefaultInstanceName](#defaultinstancename)
-  * Description [ActivationDescription](#activationdescription)
-  * ExpirationDate [ExpirationDate](#expirationdate)
-  * IamRole **required** [IamRole](#iamrole)
-  * RegistrationLimit [RegistrationLimit](#registrationlimit)
+  * DefaultInstanceName
+  * Description
+  * ExpirationDate
+  * IamRole **required**
+  * RegistrationLimit
+  * Tags
+    * items [Tag](#tag)
 
 #### Output
 * output [CreateActivationResult](#createactivationresult)
@@ -94,20 +111,33 @@ amazonaws_ssm.CreateActivation({
 
 ```js
 amazonaws_ssm.CreateAssociation({
-  "Name": ""
+  "Name": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * AssociationName [AssociationName](#associationname)
-  * DocumentVersion [DocumentVersion](#documentversion)
-  * InstanceId [InstanceId](#instanceid)
-  * Name **required** [DocumentName](#documentname)
-  * OutputLocation [InstanceAssociationOutputLocation](#instanceassociationoutputlocation)
-  * Parameters [Parameters](#parameters)
-  * ScheduleExpression [ScheduleExpression](#scheduleexpression)
-  * Targets [Targets](#targets)
+  * ApplyOnlyAtCronInterval
+  * AssociationName
+  * AutomationTargetParameterName
+  * ComplianceSeverity
+  * DocumentVersion
+  * InstanceId
+  * MaxConcurrency
+  * MaxErrors
+  * Name **required**
+  * OutputLocation
+    * S3Location
+      * OutputS3BucketName
+      * OutputS3KeyPrefix
+      * OutputS3Region
+  * Parameters
+  * ScheduleExpression
+  * SyncCompliance
+  * TargetLocations
+    * items [TargetLocation](#targetlocation)
+  * Targets
+    * items [Target](#target)
 
 #### Output
 * output [CreateAssociationResult](#createassociationresult)
@@ -118,13 +148,14 @@ amazonaws_ssm.CreateAssociation({
 
 ```js
 amazonaws_ssm.CreateAssociationBatch({
-  "Entries": []
+  "Entries": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Entries **required** [CreateAssociationBatchRequestEntries](#createassociationbatchrequestentries)
+  * Entries **required**
+    * items [CreateAssociationBatchRequestEntry](#createassociationbatchrequestentry)
 
 #### Output
 * output [CreateAssociationBatchResult](#createassociationbatchresult)
@@ -135,18 +166,25 @@ amazonaws_ssm.CreateAssociationBatch({
 
 ```js
 amazonaws_ssm.CreateDocument({
-  "Content": "",
-  "Name": ""
+  "Content": null,
+  "Name": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Content **required** [DocumentContent](#documentcontent)
-  * DocumentFormat [DocumentFormat](#documentformat)
-  * DocumentType [DocumentType](#documenttype)
-  * Name **required** [DocumentName](#documentname)
-  * TargetType [TargetType](#targettype)
+  * Attachments
+    * items [AttachmentsSource](#attachmentssource)
+  * Content **required**
+  * DocumentFormat
+  * DocumentType
+  * Name **required**
+  * Requires
+    * items [DocumentRequires](#documentrequires)
+  * Tags
+    * items [Tag](#tag)
+  * TargetType
+  * VersionName
 
 #### Output
 * output [CreateDocumentResult](#createdocumentresult)
@@ -157,26 +195,86 @@ amazonaws_ssm.CreateDocument({
 
 ```js
 amazonaws_ssm.CreateMaintenanceWindow({
-  "Name": "",
-  "Schedule": "",
-  "Duration": 0,
-  "Cutoff": 0,
-  "AllowUnassociatedTargets": true
+  "Name": null,
+  "Schedule": null,
+  "Duration": null,
+  "Cutoff": null,
+  "AllowUnassociatedTargets": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * AllowUnassociatedTargets **required** [MaintenanceWindowAllowUnassociatedTargets](#maintenancewindowallowunassociatedtargets)
-  * ClientToken [ClientToken](#clienttoken)
-  * Cutoff **required** [MaintenanceWindowCutoff](#maintenancewindowcutoff)
-  * Description [MaintenanceWindowDescription](#maintenancewindowdescription)
-  * Duration **required** [MaintenanceWindowDurationHours](#maintenancewindowdurationhours)
-  * Name **required** [MaintenanceWindowName](#maintenancewindowname)
-  * Schedule **required** [MaintenanceWindowSchedule](#maintenancewindowschedule)
+  * AllowUnassociatedTargets **required**
+  * ClientToken
+  * Cutoff **required**
+  * Description
+  * Duration **required**
+  * EndDate
+  * Name **required**
+  * Schedule **required**
+  * ScheduleOffset
+  * ScheduleTimezone
+  * StartDate
+  * Tags
+    * items [Tag](#tag)
 
 #### Output
 * output [CreateMaintenanceWindowResult](#createmaintenancewindowresult)
+
+### CreateOpsItem
+
+
+
+```js
+amazonaws_ssm.CreateOpsItem({
+  "Description": null,
+  "Source": null,
+  "Title": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * ActualEndTime
+  * ActualStartTime
+  * Category
+  * Description **required**
+  * Notifications
+    * items [OpsItemNotification](#opsitemnotification)
+  * OperationalData
+  * OpsItemType
+  * PlannedEndTime
+  * PlannedStartTime
+  * Priority
+  * RelatedOpsItems
+    * items [RelatedOpsItem](#relatedopsitem)
+  * Severity
+  * Source **required**
+  * Tags
+    * items [Tag](#tag)
+  * Title **required**
+
+#### Output
+* output [CreateOpsItemResponse](#createopsitemresponse)
+
+### CreateOpsMetadata
+
+
+
+```js
+amazonaws_ssm.CreateOpsMetadata({
+  "ResourceId": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * Metadata
+  * ResourceId **required**
+
+#### Output
+* output [CreateOpsMetadataResult](#createopsmetadataresult)
 
 ### CreatePatchBaseline
 
@@ -184,23 +282,33 @@ amazonaws_ssm.CreateMaintenanceWindow({
 
 ```js
 amazonaws_ssm.CreatePatchBaseline({
-  "Name": ""
+  "Name": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ApprovalRules [PatchRuleGroup](#patchrulegroup)
-  * ApprovedPatches [PatchIdList](#patchidlist)
-  * ApprovedPatchesComplianceLevel [PatchComplianceLevel](#patchcompliancelevel)
-  * ApprovedPatchesEnableNonSecurity [Boolean](#boolean)
-  * ClientToken [ClientToken](#clienttoken)
-  * Description [BaselineDescription](#baselinedescription)
-  * GlobalFilters [PatchFilterGroup](#patchfiltergroup)
-  * Name **required** [BaselineName](#baselinename)
-  * OperatingSystem [OperatingSystem](#operatingsystem)
-  * RejectedPatches [PatchIdList](#patchidlist)
-  * Sources [PatchSourceList](#patchsourcelist)
+  * ApprovalRules
+    * PatchRules **required**
+      * items [PatchRule](#patchrule)
+  * ApprovedPatches
+    * items [PatchId](#patchid)
+  * ApprovedPatchesComplianceLevel
+  * ApprovedPatchesEnableNonSecurity
+  * ClientToken
+  * Description
+  * GlobalFilters
+    * PatchFilters **required**
+      * items [PatchFilter](#patchfilter)
+  * Name **required**
+  * OperatingSystem
+  * RejectedPatches
+    * items [PatchId](#patchid)
+  * RejectedPatchesAction
+  * Sources
+    * items [PatchSource](#patchsource)
+  * Tags
+    * items [Tag](#tag)
 
 #### Output
 * output [CreatePatchBaselineResult](#createpatchbaselineresult)
@@ -211,19 +319,31 @@ amazonaws_ssm.CreatePatchBaseline({
 
 ```js
 amazonaws_ssm.CreateResourceDataSync({
-  "SyncName": "",
-  "S3Destination": {
-    "BucketName": "",
-    "SyncFormat": "",
-    "Region": ""
-  }
+  "SyncName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * S3Destination **required** [ResourceDataSyncS3Destination](#resourcedatasyncs3destination)
-  * SyncName **required** [ResourceDataSyncName](#resourcedatasyncname)
+  * S3Destination
+    * AWSKMSKeyARN
+    * BucketName **required**
+    * DestinationDataSharing
+      * DestinationDataSharingType
+    * Prefix
+    * Region **required**
+    * SyncFormat **required**
+  * SyncName **required**
+  * SyncSource
+    * AwsOrganizationsSource
+      * OrganizationSourceType **required**
+      * OrganizationalUnits
+        * items [ResourceDataSyncOrganizationalUnit](#resourcedatasyncorganizationalunit)
+    * IncludeFutureRegions
+    * SourceRegions **required**
+      * items [ResourceDataSyncSourceRegion](#resourcedatasyncsourceregion)
+    * SourceType **required**
+  * SyncType
 
 #### Output
 * output [CreateResourceDataSyncResult](#createresourcedatasyncresult)
@@ -234,13 +354,13 @@ amazonaws_ssm.CreateResourceDataSync({
 
 ```js
 amazonaws_ssm.DeleteActivation({
-  "ActivationId": ""
+  "ActivationId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ActivationId **required** [ActivationId](#activationid)
+  * ActivationId **required**
 
 #### Output
 * output [DeleteActivationResult](#deleteactivationresult)
@@ -255,9 +375,9 @@ amazonaws_ssm.DeleteAssociation({}, context)
 
 #### Input
 * input `object`
-  * AssociationId [AssociationId](#associationid)
-  * InstanceId [InstanceId](#instanceid)
-  * Name [DocumentName](#documentname)
+  * AssociationId
+  * InstanceId
+  * Name
 
 #### Output
 * output [DeleteAssociationResult](#deleteassociationresult)
@@ -268,13 +388,16 @@ amazonaws_ssm.DeleteAssociation({}, context)
 
 ```js
 amazonaws_ssm.DeleteDocument({
-  "Name": ""
+  "Name": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Name **required** [DocumentName](#documentname)
+  * DocumentVersion
+  * Force
+  * Name **required**
+  * VersionName
 
 #### Output
 * output [DeleteDocumentResult](#deletedocumentresult)
@@ -285,16 +408,16 @@ amazonaws_ssm.DeleteDocument({
 
 ```js
 amazonaws_ssm.DeleteInventory({
-  "TypeName": ""
+  "TypeName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ClientToken [ClientToken](#clienttoken)
-  * DryRun [DryRun](#dryrun)
-  * SchemaDeleteOption [InventorySchemaDeleteOption](#inventoryschemadeleteoption)
-  * TypeName **required** [InventoryItemTypeName](#inventoryitemtypename)
+  * ClientToken
+  * DryRun
+  * SchemaDeleteOption
+  * TypeName **required**
 
 #### Output
 * output [DeleteInventoryResult](#deleteinventoryresult)
@@ -305,16 +428,33 @@ amazonaws_ssm.DeleteInventory({
 
 ```js
 amazonaws_ssm.DeleteMaintenanceWindow({
-  "WindowId": ""
+  "WindowId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * WindowId **required** [MaintenanceWindowId](#maintenancewindowid)
+  * WindowId **required**
 
 #### Output
 * output [DeleteMaintenanceWindowResult](#deletemaintenancewindowresult)
+
+### DeleteOpsMetadata
+
+
+
+```js
+amazonaws_ssm.DeleteOpsMetadata({
+  "OpsMetadataArn": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * OpsMetadataArn **required**
+
+#### Output
+* output [DeleteOpsMetadataResult](#deleteopsmetadataresult)
 
 ### DeleteParameter
 
@@ -322,13 +462,13 @@ amazonaws_ssm.DeleteMaintenanceWindow({
 
 ```js
 amazonaws_ssm.DeleteParameter({
-  "Name": ""
+  "Name": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Name **required** [PSParameterName](#psparametername)
+  * Name **required**
 
 #### Output
 * output [DeleteParameterResult](#deleteparameterresult)
@@ -339,13 +479,14 @@ amazonaws_ssm.DeleteParameter({
 
 ```js
 amazonaws_ssm.DeleteParameters({
-  "Names": []
+  "Names": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Names **required** [ParameterNameList](#parameternamelist)
+  * Names **required**
+    * items [PSParameterName](#psparametername)
 
 #### Output
 * output [DeleteParametersResult](#deleteparametersresult)
@@ -356,13 +497,13 @@ amazonaws_ssm.DeleteParameters({
 
 ```js
 amazonaws_ssm.DeletePatchBaseline({
-  "BaselineId": ""
+  "BaselineId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * BaselineId **required** [BaselineId](#baselineid)
+  * BaselineId **required**
 
 #### Output
 * output [DeletePatchBaselineResult](#deletepatchbaselineresult)
@@ -373,13 +514,14 @@ amazonaws_ssm.DeletePatchBaseline({
 
 ```js
 amazonaws_ssm.DeleteResourceDataSync({
-  "SyncName": ""
+  "SyncName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * SyncName **required** [ResourceDataSyncName](#resourcedatasyncname)
+  * SyncName **required**
+  * SyncType
 
 #### Output
 * output [DeleteResourceDataSyncResult](#deleteresourcedatasyncresult)
@@ -390,13 +532,13 @@ amazonaws_ssm.DeleteResourceDataSync({
 
 ```js
 amazonaws_ssm.DeregisterManagedInstance({
-  "InstanceId": ""
+  "InstanceId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * InstanceId **required** [ManagedInstanceId](#managedinstanceid)
+  * InstanceId **required**
 
 #### Output
 * output [DeregisterManagedInstanceResult](#deregistermanagedinstanceresult)
@@ -407,15 +549,15 @@ amazonaws_ssm.DeregisterManagedInstance({
 
 ```js
 amazonaws_ssm.DeregisterPatchBaselineForPatchGroup({
-  "BaselineId": "",
-  "PatchGroup": ""
+  "BaselineId": null,
+  "PatchGroup": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * BaselineId **required** [BaselineId](#baselineid)
-  * PatchGroup **required** [PatchGroup](#patchgroup)
+  * BaselineId **required**
+  * PatchGroup **required**
 
 #### Output
 * output [DeregisterPatchBaselineForPatchGroupResult](#deregisterpatchbaselineforpatchgroupresult)
@@ -426,16 +568,16 @@ amazonaws_ssm.DeregisterPatchBaselineForPatchGroup({
 
 ```js
 amazonaws_ssm.DeregisterTargetFromMaintenanceWindow({
-  "WindowId": "",
-  "WindowTargetId": ""
+  "WindowId": null,
+  "WindowTargetId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Safe [Boolean](#boolean)
-  * WindowId **required** [MaintenanceWindowId](#maintenancewindowid)
-  * WindowTargetId **required** [MaintenanceWindowTargetId](#maintenancewindowtargetid)
+  * Safe
+  * WindowId **required**
+  * WindowTargetId **required**
 
 #### Output
 * output [DeregisterTargetFromMaintenanceWindowResult](#deregistertargetfrommaintenancewindowresult)
@@ -446,15 +588,15 @@ amazonaws_ssm.DeregisterTargetFromMaintenanceWindow({
 
 ```js
 amazonaws_ssm.DeregisterTaskFromMaintenanceWindow({
-  "WindowId": "",
-  "WindowTaskId": ""
+  "WindowId": null,
+  "WindowTaskId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * WindowId **required** [MaintenanceWindowId](#maintenancewindowid)
-  * WindowTaskId **required** [MaintenanceWindowTaskId](#maintenancewindowtaskid)
+  * WindowId **required**
+  * WindowTaskId **required**
 
 #### Output
 * output [DeregisterTaskFromMaintenanceWindowResult](#deregistertaskfrommaintenancewindowresult)
@@ -471,9 +613,10 @@ amazonaws_ssm.DescribeActivations({}, context)
 * input `object`
   * MaxResults `string`
   * NextToken `string`
-  * Filters [DescribeActivationsFilterList](#describeactivationsfilterlist)
-  * MaxResults [MaxResults](#maxresults)
-  * NextToken [NextToken](#nexttoken)
+  * Filters
+    * items [DescribeActivationsFilter](#describeactivationsfilter)
+  * MaxResults
+  * NextToken
 
 #### Output
 * output [DescribeActivationsResult](#describeactivationsresult)
@@ -488,13 +631,61 @@ amazonaws_ssm.DescribeAssociation({}, context)
 
 #### Input
 * input `object`
-  * AssociationId [AssociationId](#associationid)
-  * AssociationVersion [AssociationVersion](#associationversion)
-  * InstanceId [InstanceId](#instanceid)
-  * Name [DocumentName](#documentname)
+  * AssociationId
+  * AssociationVersion
+  * InstanceId
+  * Name
 
 #### Output
 * output [DescribeAssociationResult](#describeassociationresult)
+
+### DescribeAssociationExecutionTargets
+
+
+
+```js
+amazonaws_ssm.DescribeAssociationExecutionTargets({
+  "AssociationId": null,
+  "ExecutionId": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * MaxResults `string`
+  * NextToken `string`
+  * AssociationId **required**
+  * ExecutionId **required**
+  * Filters
+    * items [AssociationExecutionTargetsFilter](#associationexecutiontargetsfilter)
+  * MaxResults
+  * NextToken
+
+#### Output
+* output [DescribeAssociationExecutionTargetsResult](#describeassociationexecutiontargetsresult)
+
+### DescribeAssociationExecutions
+
+
+
+```js
+amazonaws_ssm.DescribeAssociationExecutions({
+  "AssociationId": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * MaxResults `string`
+  * NextToken `string`
+  * AssociationId **required**
+  * Filters
+    * items [AssociationExecutionFilter](#associationexecutionfilter)
+  * MaxResults
+  * NextToken
+
+#### Output
+* output [DescribeAssociationExecutionsResult](#describeassociationexecutionsresult)
 
 ### DescribeAutomationExecutions
 
@@ -506,9 +697,12 @@ amazonaws_ssm.DescribeAutomationExecutions({}, context)
 
 #### Input
 * input `object`
-  * Filters [AutomationExecutionFilterList](#automationexecutionfilterlist)
-  * MaxResults [MaxResults](#maxresults)
-  * NextToken [NextToken](#nexttoken)
+  * MaxResults `string`
+  * NextToken `string`
+  * Filters
+    * items [AutomationExecutionFilter](#automationexecutionfilter)
+  * MaxResults
+  * NextToken
 
 #### Output
 * output [DescribeAutomationExecutionsResult](#describeautomationexecutionsresult)
@@ -519,17 +713,20 @@ amazonaws_ssm.DescribeAutomationExecutions({}, context)
 
 ```js
 amazonaws_ssm.DescribeAutomationStepExecutions({
-  "AutomationExecutionId": ""
+  "AutomationExecutionId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * AutomationExecutionId **required** [AutomationExecutionId](#automationexecutionid)
-  * Filters [StepExecutionFilterList](#stepexecutionfilterlist)
-  * MaxResults [MaxResults](#maxresults)
-  * NextToken [NextToken](#nexttoken)
-  * ReverseOrder [Boolean](#boolean)
+  * MaxResults `string`
+  * NextToken `string`
+  * AutomationExecutionId **required**
+  * Filters
+    * items [StepExecutionFilter](#stepexecutionfilter)
+  * MaxResults
+  * NextToken
+  * ReverseOrder
 
 #### Output
 * output [DescribeAutomationStepExecutionsResult](#describeautomationstepexecutionsresult)
@@ -544,9 +741,12 @@ amazonaws_ssm.DescribeAvailablePatches({}, context)
 
 #### Input
 * input `object`
-  * Filters [PatchOrchestratorFilterList](#patchorchestratorfilterlist)
-  * MaxResults [PatchBaselineMaxResults](#patchbaselinemaxresults)
-  * NextToken [NextToken](#nexttoken)
+  * MaxResults `string`
+  * NextToken `string`
+  * Filters
+    * items [PatchOrchestratorFilter](#patchorchestratorfilter)
+  * MaxResults
+  * NextToken
 
 #### Output
 * output [DescribeAvailablePatchesResult](#describeavailablepatchesresult)
@@ -557,14 +757,15 @@ amazonaws_ssm.DescribeAvailablePatches({}, context)
 
 ```js
 amazonaws_ssm.DescribeDocument({
-  "Name": ""
+  "Name": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * DocumentVersion [DocumentVersion](#documentversion)
-  * Name **required** [DocumentARN](#documentarn)
+  * DocumentVersion
+  * Name **required**
+  * VersionName
 
 #### Output
 * output [DescribeDocumentResult](#describedocumentresult)
@@ -575,15 +776,15 @@ amazonaws_ssm.DescribeDocument({
 
 ```js
 amazonaws_ssm.DescribeDocumentPermission({
-  "Name": "",
-  "PermissionType": ""
+  "Name": null,
+  "PermissionType": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Name **required** [DocumentName](#documentname)
-  * PermissionType **required** [DocumentPermissionType](#documentpermissiontype)
+  * Name **required**
+  * PermissionType **required**
 
 #### Output
 * output [DescribeDocumentPermissionResponse](#describedocumentpermissionresponse)
@@ -594,15 +795,17 @@ amazonaws_ssm.DescribeDocumentPermission({
 
 ```js
 amazonaws_ssm.DescribeEffectiveInstanceAssociations({
-  "InstanceId": ""
+  "InstanceId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * InstanceId **required** [InstanceId](#instanceid)
-  * MaxResults [EffectiveInstanceAssociationMaxResults](#effectiveinstanceassociationmaxresults)
-  * NextToken [NextToken](#nexttoken)
+  * MaxResults `string`
+  * NextToken `string`
+  * InstanceId **required**
+  * MaxResults
+  * NextToken
 
 #### Output
 * output [DescribeEffectiveInstanceAssociationsResult](#describeeffectiveinstanceassociationsresult)
@@ -613,15 +816,17 @@ amazonaws_ssm.DescribeEffectiveInstanceAssociations({
 
 ```js
 amazonaws_ssm.DescribeEffectivePatchesForPatchBaseline({
-  "BaselineId": ""
+  "BaselineId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * BaselineId **required** [BaselineId](#baselineid)
-  * MaxResults [PatchBaselineMaxResults](#patchbaselinemaxresults)
-  * NextToken [NextToken](#nexttoken)
+  * MaxResults `string`
+  * NextToken `string`
+  * BaselineId **required**
+  * MaxResults
+  * NextToken
 
 #### Output
 * output [DescribeEffectivePatchesForPatchBaselineResult](#describeeffectivepatchesforpatchbaselineresult)
@@ -632,15 +837,17 @@ amazonaws_ssm.DescribeEffectivePatchesForPatchBaseline({
 
 ```js
 amazonaws_ssm.DescribeInstanceAssociationsStatus({
-  "InstanceId": ""
+  "InstanceId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * InstanceId **required** [InstanceId](#instanceid)
-  * MaxResults [MaxResults](#maxresults)
-  * NextToken [NextToken](#nexttoken)
+  * MaxResults `string`
+  * NextToken `string`
+  * InstanceId **required**
+  * MaxResults
+  * NextToken
 
 #### Output
 * output [DescribeInstanceAssociationsStatusResult](#describeinstanceassociationsstatusresult)
@@ -657,10 +864,12 @@ amazonaws_ssm.DescribeInstanceInformation({}, context)
 * input `object`
   * MaxResults `string`
   * NextToken `string`
-  * Filters [InstanceInformationStringFilterList](#instanceinformationstringfilterlist)
-  * InstanceInformationFilterList [InstanceInformationFilterList](#instanceinformationfilterlist)
-  * MaxResults [MaxResultsEC2Compatible](#maxresultsec2compatible)
-  * NextToken [NextToken](#nexttoken)
+  * Filters
+    * items [InstanceInformationStringFilter](#instanceinformationstringfilter)
+  * InstanceInformationFilterList
+    * items [InstanceInformationFilter](#instanceinformationfilter)
+  * MaxResults
+  * NextToken
 
 #### Output
 * output [DescribeInstanceInformationResult](#describeinstanceinformationresult)
@@ -671,15 +880,18 @@ amazonaws_ssm.DescribeInstanceInformation({}, context)
 
 ```js
 amazonaws_ssm.DescribeInstancePatchStates({
-  "InstanceIds": []
+  "InstanceIds": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * InstanceIds **required** [InstanceIdList](#instanceidlist)
-  * MaxResults [PatchComplianceMaxResults](#patchcompliancemaxresults)
-  * NextToken [NextToken](#nexttoken)
+  * MaxResults `string`
+  * NextToken `string`
+  * InstanceIds **required**
+    * items [InstanceId](#instanceid)
+  * MaxResults
+  * NextToken
 
 #### Output
 * output [DescribeInstancePatchStatesResult](#describeinstancepatchstatesresult)
@@ -690,16 +902,19 @@ amazonaws_ssm.DescribeInstancePatchStates({
 
 ```js
 amazonaws_ssm.DescribeInstancePatchStatesForPatchGroup({
-  "PatchGroup": ""
+  "PatchGroup": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Filters [InstancePatchStateFilterList](#instancepatchstatefilterlist)
-  * MaxResults [PatchComplianceMaxResults](#patchcompliancemaxresults)
-  * NextToken [NextToken](#nexttoken)
-  * PatchGroup **required** [PatchGroup](#patchgroup)
+  * MaxResults `string`
+  * NextToken `string`
+  * Filters
+    * items [InstancePatchStateFilter](#instancepatchstatefilter)
+  * MaxResults
+  * NextToken
+  * PatchGroup **required**
 
 #### Output
 * output [DescribeInstancePatchStatesForPatchGroupResult](#describeinstancepatchstatesforpatchgroupresult)
@@ -710,16 +925,19 @@ amazonaws_ssm.DescribeInstancePatchStatesForPatchGroup({
 
 ```js
 amazonaws_ssm.DescribeInstancePatches({
-  "InstanceId": ""
+  "InstanceId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Filters [PatchOrchestratorFilterList](#patchorchestratorfilterlist)
-  * InstanceId **required** [InstanceId](#instanceid)
-  * MaxResults [PatchComplianceMaxResults](#patchcompliancemaxresults)
-  * NextToken [NextToken](#nexttoken)
+  * MaxResults `string`
+  * NextToken `string`
+  * Filters
+    * items [PatchOrchestratorFilter](#patchorchestratorfilter)
+  * InstanceId **required**
+  * MaxResults
+  * NextToken
 
 #### Output
 * output [DescribeInstancePatchesResult](#describeinstancepatchesresult)
@@ -734,9 +952,11 @@ amazonaws_ssm.DescribeInventoryDeletions({}, context)
 
 #### Input
 * input `object`
-  * DeletionId [InventoryDeletionId](#inventorydeletionid)
-  * MaxResults [MaxResults](#maxresults)
-  * NextToken [NextToken](#nexttoken)
+  * MaxResults `string`
+  * NextToken `string`
+  * DeletionId
+  * MaxResults
+  * NextToken
 
 #### Output
 * output [DescribeInventoryDeletionsResult](#describeinventorydeletionsresult)
@@ -747,18 +967,21 @@ amazonaws_ssm.DescribeInventoryDeletions({}, context)
 
 ```js
 amazonaws_ssm.DescribeMaintenanceWindowExecutionTaskInvocations({
-  "WindowExecutionId": "",
-  "TaskId": ""
+  "WindowExecutionId": null,
+  "TaskId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Filters [MaintenanceWindowFilterList](#maintenancewindowfilterlist)
-  * MaxResults [MaintenanceWindowMaxResults](#maintenancewindowmaxresults)
-  * NextToken [NextToken](#nexttoken)
-  * TaskId **required** [MaintenanceWindowExecutionTaskId](#maintenancewindowexecutiontaskid)
-  * WindowExecutionId **required** [MaintenanceWindowExecutionId](#maintenancewindowexecutionid)
+  * MaxResults `string`
+  * NextToken `string`
+  * Filters
+    * items [MaintenanceWindowFilter](#maintenancewindowfilter)
+  * MaxResults
+  * NextToken
+  * TaskId **required**
+  * WindowExecutionId **required**
 
 #### Output
 * output [DescribeMaintenanceWindowExecutionTaskInvocationsResult](#describemaintenancewindowexecutiontaskinvocationsresult)
@@ -769,16 +992,19 @@ amazonaws_ssm.DescribeMaintenanceWindowExecutionTaskInvocations({
 
 ```js
 amazonaws_ssm.DescribeMaintenanceWindowExecutionTasks({
-  "WindowExecutionId": ""
+  "WindowExecutionId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Filters [MaintenanceWindowFilterList](#maintenancewindowfilterlist)
-  * MaxResults [MaintenanceWindowMaxResults](#maintenancewindowmaxresults)
-  * NextToken [NextToken](#nexttoken)
-  * WindowExecutionId **required** [MaintenanceWindowExecutionId](#maintenancewindowexecutionid)
+  * MaxResults `string`
+  * NextToken `string`
+  * Filters
+    * items [MaintenanceWindowFilter](#maintenancewindowfilter)
+  * MaxResults
+  * NextToken
+  * WindowExecutionId **required**
 
 #### Output
 * output [DescribeMaintenanceWindowExecutionTasksResult](#describemaintenancewindowexecutiontasksresult)
@@ -789,19 +1015,46 @@ amazonaws_ssm.DescribeMaintenanceWindowExecutionTasks({
 
 ```js
 amazonaws_ssm.DescribeMaintenanceWindowExecutions({
-  "WindowId": ""
+  "WindowId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Filters [MaintenanceWindowFilterList](#maintenancewindowfilterlist)
-  * MaxResults [MaintenanceWindowMaxResults](#maintenancewindowmaxresults)
-  * NextToken [NextToken](#nexttoken)
-  * WindowId **required** [MaintenanceWindowId](#maintenancewindowid)
+  * MaxResults `string`
+  * NextToken `string`
+  * Filters
+    * items [MaintenanceWindowFilter](#maintenancewindowfilter)
+  * MaxResults
+  * NextToken
+  * WindowId **required**
 
 #### Output
 * output [DescribeMaintenanceWindowExecutionsResult](#describemaintenancewindowexecutionsresult)
+
+### DescribeMaintenanceWindowSchedule
+
+
+
+```js
+amazonaws_ssm.DescribeMaintenanceWindowSchedule({}, context)
+```
+
+#### Input
+* input `object`
+  * MaxResults `string`
+  * NextToken `string`
+  * Filters
+    * items [PatchOrchestratorFilter](#patchorchestratorfilter)
+  * MaxResults
+  * NextToken
+  * ResourceType
+  * Targets
+    * items [Target](#target)
+  * WindowId
+
+#### Output
+* output [DescribeMaintenanceWindowScheduleResult](#describemaintenancewindowscheduleresult)
 
 ### DescribeMaintenanceWindowTargets
 
@@ -809,16 +1062,19 @@ amazonaws_ssm.DescribeMaintenanceWindowExecutions({
 
 ```js
 amazonaws_ssm.DescribeMaintenanceWindowTargets({
-  "WindowId": ""
+  "WindowId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Filters [MaintenanceWindowFilterList](#maintenancewindowfilterlist)
-  * MaxResults [MaintenanceWindowMaxResults](#maintenancewindowmaxresults)
-  * NextToken [NextToken](#nexttoken)
-  * WindowId **required** [MaintenanceWindowId](#maintenancewindowid)
+  * MaxResults `string`
+  * NextToken `string`
+  * Filters
+    * items [MaintenanceWindowFilter](#maintenancewindowfilter)
+  * MaxResults
+  * NextToken
+  * WindowId **required**
 
 #### Output
 * output [DescribeMaintenanceWindowTargetsResult](#describemaintenancewindowtargetsresult)
@@ -829,16 +1085,19 @@ amazonaws_ssm.DescribeMaintenanceWindowTargets({
 
 ```js
 amazonaws_ssm.DescribeMaintenanceWindowTasks({
-  "WindowId": ""
+  "WindowId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Filters [MaintenanceWindowFilterList](#maintenancewindowfilterlist)
-  * MaxResults [MaintenanceWindowMaxResults](#maintenancewindowmaxresults)
-  * NextToken [NextToken](#nexttoken)
-  * WindowId **required** [MaintenanceWindowId](#maintenancewindowid)
+  * MaxResults `string`
+  * NextToken `string`
+  * Filters
+    * items [MaintenanceWindowFilter](#maintenancewindowfilter)
+  * MaxResults
+  * NextToken
+  * WindowId **required**
 
 #### Output
 * output [DescribeMaintenanceWindowTasksResult](#describemaintenancewindowtasksresult)
@@ -853,12 +1112,59 @@ amazonaws_ssm.DescribeMaintenanceWindows({}, context)
 
 #### Input
 * input `object`
-  * Filters [MaintenanceWindowFilterList](#maintenancewindowfilterlist)
-  * MaxResults [MaintenanceWindowMaxResults](#maintenancewindowmaxresults)
-  * NextToken [NextToken](#nexttoken)
+  * MaxResults `string`
+  * NextToken `string`
+  * Filters
+    * items [MaintenanceWindowFilter](#maintenancewindowfilter)
+  * MaxResults
+  * NextToken
 
 #### Output
 * output [DescribeMaintenanceWindowsResult](#describemaintenancewindowsresult)
+
+### DescribeMaintenanceWindowsForTarget
+
+
+
+```js
+amazonaws_ssm.DescribeMaintenanceWindowsForTarget({
+  "Targets": null,
+  "ResourceType": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * MaxResults `string`
+  * NextToken `string`
+  * MaxResults
+  * NextToken
+  * ResourceType **required**
+  * Targets **required**
+    * items [Target](#target)
+
+#### Output
+* output [DescribeMaintenanceWindowsForTargetResult](#describemaintenancewindowsfortargetresult)
+
+### DescribeOpsItems
+
+
+
+```js
+amazonaws_ssm.DescribeOpsItems({}, context)
+```
+
+#### Input
+* input `object`
+  * MaxResults `string`
+  * NextToken `string`
+  * MaxResults
+  * NextToken
+  * OpsItemFilters
+    * items [OpsItemFilter](#opsitemfilter)
+
+#### Output
+* output [DescribeOpsItemsResponse](#describeopsitemsresponse)
 
 ### DescribeParameters
 
@@ -872,10 +1178,12 @@ amazonaws_ssm.DescribeParameters({}, context)
 * input `object`
   * MaxResults `string`
   * NextToken `string`
-  * Filters [ParametersFilterList](#parametersfilterlist)
-  * MaxResults [MaxResults](#maxresults)
-  * NextToken [NextToken](#nexttoken)
-  * ParameterFilters [ParameterStringFilterList](#parameterstringfilterlist)
+  * Filters
+    * items [ParametersFilter](#parametersfilter)
+  * MaxResults
+  * NextToken
+  * ParameterFilters
+    * items [ParameterStringFilter](#parameterstringfilter)
 
 #### Output
 * output [DescribeParametersResult](#describeparametersresult)
@@ -890,9 +1198,12 @@ amazonaws_ssm.DescribePatchBaselines({}, context)
 
 #### Input
 * input `object`
-  * Filters [PatchOrchestratorFilterList](#patchorchestratorfilterlist)
-  * MaxResults [PatchBaselineMaxResults](#patchbaselinemaxresults)
-  * NextToken [NextToken](#nexttoken)
+  * MaxResults `string`
+  * NextToken `string`
+  * Filters
+    * items [PatchOrchestratorFilter](#patchorchestratorfilter)
+  * MaxResults
+  * NextToken
 
 #### Output
 * output [DescribePatchBaselinesResult](#describepatchbaselinesresult)
@@ -903,13 +1214,13 @@ amazonaws_ssm.DescribePatchBaselines({}, context)
 
 ```js
 amazonaws_ssm.DescribePatchGroupState({
-  "PatchGroup": ""
+  "PatchGroup": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * PatchGroup **required** [PatchGroup](#patchgroup)
+  * PatchGroup **required**
 
 #### Output
 * output [DescribePatchGroupStateResult](#describepatchgroupstateresult)
@@ -924,12 +1235,62 @@ amazonaws_ssm.DescribePatchGroups({}, context)
 
 #### Input
 * input `object`
-  * Filters [PatchOrchestratorFilterList](#patchorchestratorfilterlist)
-  * MaxResults [PatchBaselineMaxResults](#patchbaselinemaxresults)
-  * NextToken [NextToken](#nexttoken)
+  * MaxResults `string`
+  * NextToken `string`
+  * Filters
+    * items [PatchOrchestratorFilter](#patchorchestratorfilter)
+  * MaxResults
+  * NextToken
 
 #### Output
 * output [DescribePatchGroupsResult](#describepatchgroupsresult)
+
+### DescribePatchProperties
+
+
+
+```js
+amazonaws_ssm.DescribePatchProperties({
+  "OperatingSystem": null,
+  "Property": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * MaxResults `string`
+  * NextToken `string`
+  * MaxResults
+  * NextToken
+  * OperatingSystem **required**
+  * PatchSet
+  * Property **required**
+
+#### Output
+* output [DescribePatchPropertiesResult](#describepatchpropertiesresult)
+
+### DescribeSessions
+
+
+
+```js
+amazonaws_ssm.DescribeSessions({
+  "State": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * MaxResults `string`
+  * NextToken `string`
+  * Filters
+    * items [SessionFilter](#sessionfilter)
+  * MaxResults
+  * NextToken
+  * State **required**
+
+#### Output
+* output [DescribeSessionsResponse](#describesessionsresponse)
 
 ### GetAutomationExecution
 
@@ -937,16 +1298,35 @@ amazonaws_ssm.DescribePatchGroups({}, context)
 
 ```js
 amazonaws_ssm.GetAutomationExecution({
-  "AutomationExecutionId": ""
+  "AutomationExecutionId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * AutomationExecutionId **required** [AutomationExecutionId](#automationexecutionid)
+  * AutomationExecutionId **required**
 
 #### Output
 * output [GetAutomationExecutionResult](#getautomationexecutionresult)
+
+### GetCalendarState
+
+
+
+```js
+amazonaws_ssm.GetCalendarState({
+  "CalendarNames": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * AtTime
+  * CalendarNames **required**
+    * items [CalendarNameOrARN](#calendarnameorarn)
+
+#### Output
+* output [GetCalendarStateResponse](#getcalendarstateresponse)
 
 ### GetCommandInvocation
 
@@ -954,19 +1334,36 @@ amazonaws_ssm.GetAutomationExecution({
 
 ```js
 amazonaws_ssm.GetCommandInvocation({
-  "CommandId": "",
-  "InstanceId": ""
+  "CommandId": null,
+  "InstanceId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * CommandId **required** [CommandId](#commandid)
-  * InstanceId **required** [InstanceId](#instanceid)
-  * PluginName [CommandPluginName](#commandpluginname)
+  * CommandId **required**
+  * InstanceId **required**
+  * PluginName
 
 #### Output
 * output [GetCommandInvocationResult](#getcommandinvocationresult)
+
+### GetConnectionStatus
+
+
+
+```js
+amazonaws_ssm.GetConnectionStatus({
+  "Target": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * Target **required**
+
+#### Output
+* output [GetConnectionStatusResponse](#getconnectionstatusresponse)
 
 ### GetDefaultPatchBaseline
 
@@ -978,7 +1375,7 @@ amazonaws_ssm.GetDefaultPatchBaseline({}, context)
 
 #### Input
 * input `object`
-  * OperatingSystem [OperatingSystem](#operatingsystem)
+  * OperatingSystem
 
 #### Output
 * output [GetDefaultPatchBaselineResult](#getdefaultpatchbaselineresult)
@@ -989,15 +1386,15 @@ amazonaws_ssm.GetDefaultPatchBaseline({}, context)
 
 ```js
 amazonaws_ssm.GetDeployablePatchSnapshotForInstance({
-  "InstanceId": "",
-  "SnapshotId": ""
+  "InstanceId": null,
+  "SnapshotId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * InstanceId **required** [InstanceId](#instanceid)
-  * SnapshotId **required** [SnapshotId](#snapshotid)
+  * InstanceId **required**
+  * SnapshotId **required**
 
 #### Output
 * output [GetDeployablePatchSnapshotForInstanceResult](#getdeployablepatchsnapshotforinstanceresult)
@@ -1008,15 +1405,16 @@ amazonaws_ssm.GetDeployablePatchSnapshotForInstance({
 
 ```js
 amazonaws_ssm.GetDocument({
-  "Name": ""
+  "Name": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * DocumentFormat [DocumentFormat](#documentformat)
-  * DocumentVersion [DocumentVersion](#documentversion)
-  * Name **required** [DocumentARN](#documentarn)
+  * DocumentFormat
+  * DocumentVersion
+  * Name **required**
+  * VersionName
 
 #### Output
 * output [GetDocumentResult](#getdocumentresult)
@@ -1031,11 +1429,16 @@ amazonaws_ssm.GetInventory({}, context)
 
 #### Input
 * input `object`
-  * Aggregators [InventoryAggregatorList](#inventoryaggregatorlist)
-  * Filters [InventoryFilterList](#inventoryfilterlist)
-  * MaxResults [MaxResults](#maxresults)
-  * NextToken [NextToken](#nexttoken)
-  * ResultAttributes [ResultAttributeList](#resultattributelist)
+  * MaxResults `string`
+  * NextToken `string`
+  * Aggregators
+    * items [InventoryAggregator](#inventoryaggregator)
+  * Filters
+    * items [InventoryFilter](#inventoryfilter)
+  * MaxResults
+  * NextToken
+  * ResultAttributes
+    * items [ResultAttribute](#resultattribute)
 
 #### Output
 * output [GetInventoryResult](#getinventoryresult)
@@ -1050,11 +1453,13 @@ amazonaws_ssm.GetInventorySchema({}, context)
 
 #### Input
 * input `object`
-  * Aggregator [AggregatorSchemaOnly](#aggregatorschemaonly)
-  * MaxResults [GetInventorySchemaMaxResults](#getinventoryschemamaxresults)
-  * NextToken [NextToken](#nexttoken)
-  * SubType [IsSubTypeSchema](#issubtypeschema)
-  * TypeName [InventoryItemTypeNameFilter](#inventoryitemtypenamefilter)
+  * MaxResults `string`
+  * NextToken `string`
+  * Aggregator
+  * MaxResults
+  * NextToken
+  * SubType
+  * TypeName
 
 #### Output
 * output [GetInventorySchemaResult](#getinventoryschemaresult)
@@ -1065,13 +1470,13 @@ amazonaws_ssm.GetInventorySchema({}, context)
 
 ```js
 amazonaws_ssm.GetMaintenanceWindow({
-  "WindowId": ""
+  "WindowId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * WindowId **required** [MaintenanceWindowId](#maintenancewindowid)
+  * WindowId **required**
 
 #### Output
 * output [GetMaintenanceWindowResult](#getmaintenancewindowresult)
@@ -1082,13 +1487,13 @@ amazonaws_ssm.GetMaintenanceWindow({
 
 ```js
 amazonaws_ssm.GetMaintenanceWindowExecution({
-  "WindowExecutionId": ""
+  "WindowExecutionId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * WindowExecutionId **required** [MaintenanceWindowExecutionId](#maintenancewindowexecutionid)
+  * WindowExecutionId **required**
 
 #### Output
 * output [GetMaintenanceWindowExecutionResult](#getmaintenancewindowexecutionresult)
@@ -1099,15 +1504,15 @@ amazonaws_ssm.GetMaintenanceWindowExecution({
 
 ```js
 amazonaws_ssm.GetMaintenanceWindowExecutionTask({
-  "WindowExecutionId": "",
-  "TaskId": ""
+  "WindowExecutionId": null,
+  "TaskId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * TaskId **required** [MaintenanceWindowExecutionTaskId](#maintenancewindowexecutiontaskid)
-  * WindowExecutionId **required** [MaintenanceWindowExecutionId](#maintenancewindowexecutionid)
+  * TaskId **required**
+  * WindowExecutionId **required**
 
 #### Output
 * output [GetMaintenanceWindowExecutionTaskResult](#getmaintenancewindowexecutiontaskresult)
@@ -1118,17 +1523,17 @@ amazonaws_ssm.GetMaintenanceWindowExecutionTask({
 
 ```js
 amazonaws_ssm.GetMaintenanceWindowExecutionTaskInvocation({
-  "WindowExecutionId": "",
-  "TaskId": "",
-  "InvocationId": ""
+  "WindowExecutionId": null,
+  "TaskId": null,
+  "InvocationId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * InvocationId **required** [MaintenanceWindowExecutionTaskInvocationId](#maintenancewindowexecutiontaskinvocationid)
-  * TaskId **required** [MaintenanceWindowExecutionTaskId](#maintenancewindowexecutiontaskid)
-  * WindowExecutionId **required** [MaintenanceWindowExecutionId](#maintenancewindowexecutionid)
+  * InvocationId **required**
+  * TaskId **required**
+  * WindowExecutionId **required**
 
 #### Output
 * output [GetMaintenanceWindowExecutionTaskInvocationResult](#getmaintenancewindowexecutiontaskinvocationresult)
@@ -1139,18 +1544,79 @@ amazonaws_ssm.GetMaintenanceWindowExecutionTaskInvocation({
 
 ```js
 amazonaws_ssm.GetMaintenanceWindowTask({
-  "WindowId": "",
-  "WindowTaskId": ""
+  "WindowId": null,
+  "WindowTaskId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * WindowId **required** [MaintenanceWindowId](#maintenancewindowid)
-  * WindowTaskId **required** [MaintenanceWindowTaskId](#maintenancewindowtaskid)
+  * WindowId **required**
+  * WindowTaskId **required**
 
 #### Output
 * output [GetMaintenanceWindowTaskResult](#getmaintenancewindowtaskresult)
+
+### GetOpsItem
+
+
+
+```js
+amazonaws_ssm.GetOpsItem({
+  "OpsItemId": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * OpsItemId **required**
+
+#### Output
+* output [GetOpsItemResponse](#getopsitemresponse)
+
+### GetOpsMetadata
+
+
+
+```js
+amazonaws_ssm.GetOpsMetadata({
+  "OpsMetadataArn": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * MaxResults
+  * NextToken
+  * OpsMetadataArn **required**
+
+#### Output
+* output [GetOpsMetadataResult](#getopsmetadataresult)
+
+### GetOpsSummary
+
+
+
+```js
+amazonaws_ssm.GetOpsSummary({}, context)
+```
+
+#### Input
+* input `object`
+  * MaxResults `string`
+  * NextToken `string`
+  * Aggregators
+    * items [OpsAggregator](#opsaggregator)
+  * Filters
+    * items [OpsFilter](#opsfilter)
+  * MaxResults
+  * NextToken
+  * ResultAttributes
+    * items [OpsResultAttribute](#opsresultattribute)
+  * SyncName
+
+#### Output
+* output [GetOpsSummaryResult](#getopssummaryresult)
 
 ### GetParameter
 
@@ -1158,14 +1624,14 @@ amazonaws_ssm.GetMaintenanceWindowTask({
 
 ```js
 amazonaws_ssm.GetParameter({
-  "Name": ""
+  "Name": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Name **required** [PSParameterName](#psparametername)
-  * WithDecryption [Boolean](#boolean)
+  * Name **required**
+  * WithDecryption
 
 #### Output
 * output [GetParameterResult](#getparameterresult)
@@ -1176,7 +1642,7 @@ amazonaws_ssm.GetParameter({
 
 ```js
 amazonaws_ssm.GetParameterHistory({
-  "Name": ""
+  "Name": null
 }, context)
 ```
 
@@ -1184,10 +1650,10 @@ amazonaws_ssm.GetParameterHistory({
 * input `object`
   * MaxResults `string`
   * NextToken `string`
-  * MaxResults [MaxResults](#maxresults)
-  * Name **required** [PSParameterName](#psparametername)
-  * NextToken [NextToken](#nexttoken)
-  * WithDecryption [Boolean](#boolean)
+  * MaxResults
+  * Name **required**
+  * NextToken
+  * WithDecryption
 
 #### Output
 * output [GetParameterHistoryResult](#getparameterhistoryresult)
@@ -1198,14 +1664,15 @@ amazonaws_ssm.GetParameterHistory({
 
 ```js
 amazonaws_ssm.GetParameters({
-  "Names": []
+  "Names": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Names **required** [ParameterNameList](#parameternamelist)
-  * WithDecryption [Boolean](#boolean)
+  * Names **required**
+    * items [PSParameterName](#psparametername)
+  * WithDecryption
 
 #### Output
 * output [GetParametersResult](#getparametersresult)
@@ -1216,7 +1683,7 @@ amazonaws_ssm.GetParameters({
 
 ```js
 amazonaws_ssm.GetParametersByPath({
-  "Path": ""
+  "Path": null
 }, context)
 ```
 
@@ -1224,12 +1691,13 @@ amazonaws_ssm.GetParametersByPath({
 * input `object`
   * MaxResults `string`
   * NextToken `string`
-  * MaxResults [GetParametersByPathMaxResults](#getparametersbypathmaxresults)
-  * NextToken [NextToken](#nexttoken)
-  * ParameterFilters [ParameterStringFilterList](#parameterstringfilterlist)
-  * Path **required** [PSParameterName](#psparametername)
-  * Recursive [Boolean](#boolean)
-  * WithDecryption [Boolean](#boolean)
+  * MaxResults
+  * NextToken
+  * ParameterFilters
+    * items [ParameterStringFilter](#parameterstringfilter)
+  * Path **required**
+  * Recursive
+  * WithDecryption
 
 #### Output
 * output [GetParametersByPathResult](#getparametersbypathresult)
@@ -1240,13 +1708,13 @@ amazonaws_ssm.GetParametersByPath({
 
 ```js
 amazonaws_ssm.GetPatchBaseline({
-  "BaselineId": ""
+  "BaselineId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * BaselineId **required** [BaselineId](#baselineid)
+  * BaselineId **required**
 
 #### Output
 * output [GetPatchBaselineResult](#getpatchbaselineresult)
@@ -1257,17 +1725,55 @@ amazonaws_ssm.GetPatchBaseline({
 
 ```js
 amazonaws_ssm.GetPatchBaselineForPatchGroup({
-  "PatchGroup": ""
+  "PatchGroup": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * OperatingSystem [OperatingSystem](#operatingsystem)
-  * PatchGroup **required** [PatchGroup](#patchgroup)
+  * OperatingSystem
+  * PatchGroup **required**
 
 #### Output
 * output [GetPatchBaselineForPatchGroupResult](#getpatchbaselineforpatchgroupresult)
+
+### GetServiceSetting
+
+
+
+```js
+amazonaws_ssm.GetServiceSetting({
+  "SettingId": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * SettingId **required**
+
+#### Output
+* output [GetServiceSettingResult](#getservicesettingresult)
+
+### LabelParameterVersion
+
+
+
+```js
+amazonaws_ssm.LabelParameterVersion({
+  "Name": null,
+  "Labels": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * Labels **required**
+    * items [ParameterLabel](#parameterlabel)
+  * Name **required**
+  * ParameterVersion
+
+#### Output
+* output [LabelParameterVersionResult](#labelparameterversionresult)
 
 ### ListAssociationVersions
 
@@ -1275,15 +1781,17 @@ amazonaws_ssm.GetPatchBaselineForPatchGroup({
 
 ```js
 amazonaws_ssm.ListAssociationVersions({
-  "AssociationId": ""
+  "AssociationId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * AssociationId **required** [AssociationId](#associationid)
-  * MaxResults [MaxResults](#maxresults)
-  * NextToken [NextToken](#nexttoken)
+  * MaxResults `string`
+  * NextToken `string`
+  * AssociationId **required**
+  * MaxResults
+  * NextToken
 
 #### Output
 * output [ListAssociationVersionsResult](#listassociationversionsresult)
@@ -1300,9 +1808,10 @@ amazonaws_ssm.ListAssociations({}, context)
 * input `object`
   * MaxResults `string`
   * NextToken `string`
-  * AssociationFilterList [AssociationFilterList](#associationfilterlist)
-  * MaxResults [MaxResults](#maxresults)
-  * NextToken [NextToken](#nexttoken)
+  * AssociationFilterList
+    * items [AssociationFilter](#associationfilter)
+  * MaxResults
+  * NextToken
 
 #### Output
 * output [ListAssociationsResult](#listassociationsresult)
@@ -1319,12 +1828,13 @@ amazonaws_ssm.ListCommandInvocations({}, context)
 * input `object`
   * MaxResults `string`
   * NextToken `string`
-  * CommandId [CommandId](#commandid)
-  * Details [Boolean](#boolean)
-  * Filters [CommandFilterList](#commandfilterlist)
-  * InstanceId [InstanceId](#instanceid)
-  * MaxResults [CommandMaxResults](#commandmaxresults)
-  * NextToken [NextToken](#nexttoken)
+  * CommandId
+  * Details
+  * Filters
+    * items [CommandFilter](#commandfilter)
+  * InstanceId
+  * MaxResults
+  * NextToken
 
 #### Output
 * output [ListCommandInvocationsResult](#listcommandinvocationsresult)
@@ -1341,11 +1851,12 @@ amazonaws_ssm.ListCommands({}, context)
 * input `object`
   * MaxResults `string`
   * NextToken `string`
-  * CommandId [CommandId](#commandid)
-  * Filters [CommandFilterList](#commandfilterlist)
-  * InstanceId [InstanceId](#instanceid)
-  * MaxResults [CommandMaxResults](#commandmaxresults)
-  * NextToken [NextToken](#nexttoken)
+  * CommandId
+  * Filters
+    * items [CommandFilter](#commandfilter)
+  * InstanceId
+  * MaxResults
+  * NextToken
 
 #### Output
 * output [ListCommandsResult](#listcommandsresult)
@@ -1360,11 +1871,16 @@ amazonaws_ssm.ListComplianceItems({}, context)
 
 #### Input
 * input `object`
-  * Filters [ComplianceStringFilterList](#compliancestringfilterlist)
-  * MaxResults [MaxResults](#maxresults)
-  * NextToken [NextToken](#nexttoken)
-  * ResourceIds [ComplianceResourceIdList](#complianceresourceidlist)
-  * ResourceTypes [ComplianceResourceTypeList](#complianceresourcetypelist)
+  * MaxResults `string`
+  * NextToken `string`
+  * Filters
+    * items [ComplianceStringFilter](#compliancestringfilter)
+  * MaxResults
+  * NextToken
+  * ResourceIds
+    * items [ComplianceResourceId](#complianceresourceid)
+  * ResourceTypes
+    * items [ComplianceResourceType](#complianceresourcetype)
 
 #### Output
 * output [ListComplianceItemsResult](#listcomplianceitemsresult)
@@ -1379,12 +1895,37 @@ amazonaws_ssm.ListComplianceSummaries({}, context)
 
 #### Input
 * input `object`
-  * Filters [ComplianceStringFilterList](#compliancestringfilterlist)
-  * MaxResults [MaxResults](#maxresults)
-  * NextToken [NextToken](#nexttoken)
+  * MaxResults `string`
+  * NextToken `string`
+  * Filters
+    * items [ComplianceStringFilter](#compliancestringfilter)
+  * MaxResults
+  * NextToken
 
 #### Output
 * output [ListComplianceSummariesResult](#listcompliancesummariesresult)
+
+### ListDocumentMetadataHistory
+
+
+
+```js
+amazonaws_ssm.ListDocumentMetadataHistory({
+  "Name": null,
+  "Metadata": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * DocumentVersion
+  * MaxResults
+  * Metadata **required**
+  * Name **required**
+  * NextToken
+
+#### Output
+* output [ListDocumentMetadataHistoryResponse](#listdocumentmetadatahistoryresponse)
 
 ### ListDocumentVersions
 
@@ -1392,15 +1933,17 @@ amazonaws_ssm.ListComplianceSummaries({}, context)
 
 ```js
 amazonaws_ssm.ListDocumentVersions({
-  "Name": ""
+  "Name": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * MaxResults [MaxResults](#maxresults)
-  * Name **required** [DocumentName](#documentname)
-  * NextToken [NextToken](#nexttoken)
+  * MaxResults `string`
+  * NextToken `string`
+  * MaxResults
+  * Name **required**
+  * NextToken
 
 #### Output
 * output [ListDocumentVersionsResult](#listdocumentversionsresult)
@@ -1417,10 +1960,12 @@ amazonaws_ssm.ListDocuments({}, context)
 * input `object`
   * MaxResults `string`
   * NextToken `string`
-  * DocumentFilterList [DocumentFilterList](#documentfilterlist)
-  * Filters [DocumentKeyValuesFilterList](#documentkeyvaluesfilterlist)
-  * MaxResults [MaxResults](#maxresults)
-  * NextToken [NextToken](#nexttoken)
+  * DocumentFilterList
+    * items [DocumentFilter](#documentfilter)
+  * Filters
+    * items [DocumentKeyValuesFilter](#documentkeyvaluesfilter)
+  * MaxResults
+  * NextToken
 
 #### Output
 * output [ListDocumentsResult](#listdocumentsresult)
@@ -1431,21 +1976,62 @@ amazonaws_ssm.ListDocuments({}, context)
 
 ```js
 amazonaws_ssm.ListInventoryEntries({
-  "InstanceId": "",
-  "TypeName": ""
+  "InstanceId": null,
+  "TypeName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Filters [InventoryFilterList](#inventoryfilterlist)
-  * InstanceId **required** [InstanceId](#instanceid)
-  * MaxResults [MaxResults](#maxresults)
-  * NextToken [NextToken](#nexttoken)
-  * TypeName **required** [InventoryItemTypeName](#inventoryitemtypename)
+  * Filters
+    * items [InventoryFilter](#inventoryfilter)
+  * InstanceId **required**
+  * MaxResults
+  * NextToken
+  * TypeName **required**
 
 #### Output
 * output [ListInventoryEntriesResult](#listinventoryentriesresult)
+
+### ListOpsItemEvents
+
+
+
+```js
+amazonaws_ssm.ListOpsItemEvents({}, context)
+```
+
+#### Input
+* input `object`
+  * MaxResults `string`
+  * NextToken `string`
+  * Filters
+    * items [OpsItemEventFilter](#opsitemeventfilter)
+  * MaxResults
+  * NextToken
+
+#### Output
+* output [ListOpsItemEventsResponse](#listopsitemeventsresponse)
+
+### ListOpsMetadata
+
+
+
+```js
+amazonaws_ssm.ListOpsMetadata({}, context)
+```
+
+#### Input
+* input `object`
+  * MaxResults `string`
+  * NextToken `string`
+  * Filters
+    * items [OpsMetadataFilter](#opsmetadatafilter)
+  * MaxResults
+  * NextToken
+
+#### Output
+* output [ListOpsMetadataResult](#listopsmetadataresult)
 
 ### ListResourceComplianceSummaries
 
@@ -1457,9 +2043,12 @@ amazonaws_ssm.ListResourceComplianceSummaries({}, context)
 
 #### Input
 * input `object`
-  * Filters [ComplianceStringFilterList](#compliancestringfilterlist)
-  * MaxResults [MaxResults](#maxresults)
-  * NextToken [NextToken](#nexttoken)
+  * MaxResults `string`
+  * NextToken `string`
+  * Filters
+    * items [ComplianceStringFilter](#compliancestringfilter)
+  * MaxResults
+  * NextToken
 
 #### Output
 * output [ListResourceComplianceSummariesResult](#listresourcecompliancesummariesresult)
@@ -1474,8 +2063,11 @@ amazonaws_ssm.ListResourceDataSync({}, context)
 
 #### Input
 * input `object`
-  * MaxResults [MaxResults](#maxresults)
-  * NextToken [NextToken](#nexttoken)
+  * MaxResults `string`
+  * NextToken `string`
+  * MaxResults
+  * NextToken
+  * SyncType
 
 #### Output
 * output [ListResourceDataSyncResult](#listresourcedatasyncresult)
@@ -1486,15 +2078,15 @@ amazonaws_ssm.ListResourceDataSync({}, context)
 
 ```js
 amazonaws_ssm.ListTagsForResource({
-  "ResourceType": "",
-  "ResourceId": ""
+  "ResourceType": null,
+  "ResourceId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ResourceId **required** [ResourceId](#resourceid)
-  * ResourceType **required** [ResourceTypeForTagging](#resourcetypefortagging)
+  * ResourceId **required**
+  * ResourceType **required**
 
 #### Output
 * output [ListTagsForResourceResult](#listtagsforresourceresult)
@@ -1505,17 +2097,20 @@ amazonaws_ssm.ListTagsForResource({
 
 ```js
 amazonaws_ssm.ModifyDocumentPermission({
-  "Name": "",
-  "PermissionType": ""
+  "Name": null,
+  "PermissionType": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * AccountIdsToAdd [AccountIdList](#accountidlist)
-  * AccountIdsToRemove [AccountIdList](#accountidlist)
-  * Name **required** [DocumentName](#documentname)
-  * PermissionType **required** [DocumentPermissionType](#documentpermissiontype)
+  * AccountIdsToAdd
+    * items [AccountId](#accountid)
+  * AccountIdsToRemove
+    * items [AccountId](#accountid)
+  * Name **required**
+  * PermissionType **required**
+  * SharedDocumentVersion
 
 #### Output
 * output [ModifyDocumentPermissionResponse](#modifydocumentpermissionresponse)
@@ -1526,24 +2121,27 @@ amazonaws_ssm.ModifyDocumentPermission({
 
 ```js
 amazonaws_ssm.PutComplianceItems({
-  "ResourceId": "",
-  "ResourceType": "",
-  "ComplianceType": "",
-  "ExecutionSummary": {
-    "ExecutionTime": ""
-  },
-  "Items": []
+  "ResourceId": null,
+  "ResourceType": null,
+  "ComplianceType": null,
+  "ExecutionSummary": null,
+  "Items": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ComplianceType **required** [ComplianceTypeName](#compliancetypename)
-  * ExecutionSummary **required** [ComplianceExecutionSummary](#complianceexecutionsummary)
-  * ItemContentHash [ComplianceItemContentHash](#complianceitemcontenthash)
-  * Items **required** [ComplianceItemEntryList](#complianceitementrylist)
-  * ResourceId **required** [ComplianceResourceId](#complianceresourceid)
-  * ResourceType **required** [ComplianceResourceType](#complianceresourcetype)
+  * ComplianceType **required**
+  * ExecutionSummary **required**
+    * ExecutionId
+    * ExecutionTime **required**
+    * ExecutionType
+  * ItemContentHash
+  * Items **required**
+    * items [ComplianceItemEntry](#complianceitementry)
+  * ResourceId **required**
+  * ResourceType **required**
+  * UploadType
 
 #### Output
 * output [PutComplianceItemsResult](#putcomplianceitemsresult)
@@ -1554,15 +2152,16 @@ amazonaws_ssm.PutComplianceItems({
 
 ```js
 amazonaws_ssm.PutInventory({
-  "InstanceId": "",
-  "Items": []
+  "InstanceId": null,
+  "Items": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * InstanceId **required** [InstanceId](#instanceid)
-  * Items **required** [InventoryItemList](#inventoryitemlist)
+  * InstanceId **required**
+  * Items **required**
+    * items [InventoryItem](#inventoryitem)
 
 #### Output
 * output [PutInventoryResult](#putinventoryresult)
@@ -1573,21 +2172,25 @@ amazonaws_ssm.PutInventory({
 
 ```js
 amazonaws_ssm.PutParameter({
-  "Name": "",
-  "Value": "",
-  "Type": ""
+  "Name": null,
+  "Value": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * AllowedPattern [AllowedPattern](#allowedpattern)
-  * Description [ParameterDescription](#parameterdescription)
-  * KeyId [ParameterKeyId](#parameterkeyid)
-  * Name **required** [PSParameterName](#psparametername)
-  * Overwrite [Boolean](#boolean)
-  * Type **required** [ParameterType](#parametertype)
-  * Value **required** [PSParameterValue](#psparametervalue)
+  * AllowedPattern
+  * DataType
+  * Description
+  * KeyId
+  * Name **required**
+  * Overwrite
+  * Policies
+  * Tags
+    * items [Tag](#tag)
+  * Tier
+  * Type
+  * Value **required**
 
 #### Output
 * output [PutParameterResult](#putparameterresult)
@@ -1598,13 +2201,13 @@ amazonaws_ssm.PutParameter({
 
 ```js
 amazonaws_ssm.RegisterDefaultPatchBaseline({
-  "BaselineId": ""
+  "BaselineId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * BaselineId **required** [BaselineId](#baselineid)
+  * BaselineId **required**
 
 #### Output
 * output [RegisterDefaultPatchBaselineResult](#registerdefaultpatchbaselineresult)
@@ -1615,15 +2218,15 @@ amazonaws_ssm.RegisterDefaultPatchBaseline({
 
 ```js
 amazonaws_ssm.RegisterPatchBaselineForPatchGroup({
-  "BaselineId": "",
-  "PatchGroup": ""
+  "BaselineId": null,
+  "PatchGroup": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * BaselineId **required** [BaselineId](#baselineid)
-  * PatchGroup **required** [PatchGroup](#patchgroup)
+  * BaselineId **required**
+  * PatchGroup **required**
 
 #### Output
 * output [RegisterPatchBaselineForPatchGroupResult](#registerpatchbaselineforpatchgroupresult)
@@ -1634,21 +2237,22 @@ amazonaws_ssm.RegisterPatchBaselineForPatchGroup({
 
 ```js
 amazonaws_ssm.RegisterTargetWithMaintenanceWindow({
-  "WindowId": "",
-  "ResourceType": "",
-  "Targets": []
+  "WindowId": null,
+  "ResourceType": null,
+  "Targets": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ClientToken [ClientToken](#clienttoken)
-  * Description [MaintenanceWindowDescription](#maintenancewindowdescription)
-  * Name [MaintenanceWindowName](#maintenancewindowname)
-  * OwnerInformation [OwnerInformation](#ownerinformation)
-  * ResourceType **required** [MaintenanceWindowResourceType](#maintenancewindowresourcetype)
-  * Targets **required** [Targets](#targets)
-  * WindowId **required** [MaintenanceWindowId](#maintenancewindowid)
+  * ClientToken
+  * Description
+  * Name
+  * OwnerInformation
+  * ResourceType **required**
+  * Targets **required**
+    * items [Target](#target)
+  * WindowId **required**
 
 #### Output
 * output [RegisterTargetWithMaintenanceWindowResult](#registertargetwithmaintenancewindowresult)
@@ -1659,32 +2263,61 @@ amazonaws_ssm.RegisterTargetWithMaintenanceWindow({
 
 ```js
 amazonaws_ssm.RegisterTaskWithMaintenanceWindow({
-  "WindowId": "",
-  "Targets": [],
-  "TaskArn": "",
-  "ServiceRoleArn": "",
-  "TaskType": "",
-  "MaxConcurrency": "",
-  "MaxErrors": ""
+  "WindowId": null,
+  "Targets": null,
+  "TaskArn": null,
+  "TaskType": null,
+  "MaxConcurrency": null,
+  "MaxErrors": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ClientToken [ClientToken](#clienttoken)
-  * Description [MaintenanceWindowDescription](#maintenancewindowdescription)
-  * LoggingInfo [LoggingInfo](#logginginfo)
-  * MaxConcurrency **required** [MaxConcurrency](#maxconcurrency)
-  * MaxErrors **required** [MaxErrors](#maxerrors)
-  * Name [MaintenanceWindowName](#maintenancewindowname)
-  * Priority [MaintenanceWindowTaskPriority](#maintenancewindowtaskpriority)
-  * ServiceRoleArn **required** [ServiceRole](#servicerole)
-  * Targets **required** [Targets](#targets)
-  * TaskArn **required** [MaintenanceWindowTaskArn](#maintenancewindowtaskarn)
-  * TaskInvocationParameters [MaintenanceWindowTaskInvocationParameters](#maintenancewindowtaskinvocationparameters)
-  * TaskParameters [MaintenanceWindowTaskParameters](#maintenancewindowtaskparameters)
-  * TaskType **required** [MaintenanceWindowTaskType](#maintenancewindowtasktype)
-  * WindowId **required** [MaintenanceWindowId](#maintenancewindowid)
+  * ClientToken
+  * Description
+  * LoggingInfo
+    * S3BucketName **required**
+    * S3KeyPrefix
+    * S3Region **required**
+  * MaxConcurrency **required**
+  * MaxErrors **required**
+  * Name
+  * Priority
+  * ServiceRoleArn
+  * Targets **required**
+    * items [Target](#target)
+  * TaskArn **required**
+  * TaskInvocationParameters
+    * Automation
+      * DocumentVersion
+      * Parameters
+    * Lambda
+      * ClientContext
+      * Payload
+      * Qualifier
+    * RunCommand
+      * CloudWatchOutputConfig [CloudWatchOutputConfig](#cloudwatchoutputconfig)
+      * Comment
+      * DocumentHash
+      * DocumentHashType
+      * DocumentVersion
+      * NotificationConfig
+        * NotificationArn
+        * NotificationEvents
+          * items [NotificationEvent](#notificationevent)
+        * NotificationType
+      * OutputS3BucketName
+      * OutputS3KeyPrefix
+      * Parameters
+      * ServiceRoleArn
+      * TimeoutSeconds
+    * StepFunctions
+      * Input
+      * Name
+  * TaskParameters
+  * TaskType **required**
+  * WindowId **required**
 
 #### Output
 * output [RegisterTaskWithMaintenanceWindowResult](#registertaskwithmaintenancewindowresult)
@@ -1695,20 +2328,55 @@ amazonaws_ssm.RegisterTaskWithMaintenanceWindow({
 
 ```js
 amazonaws_ssm.RemoveTagsFromResource({
-  "ResourceType": "",
-  "ResourceId": "",
-  "TagKeys": []
+  "ResourceType": null,
+  "ResourceId": null,
+  "TagKeys": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ResourceId **required** [ResourceId](#resourceid)
-  * ResourceType **required** [ResourceTypeForTagging](#resourcetypefortagging)
-  * TagKeys **required** [KeyList](#keylist)
+  * ResourceId **required**
+  * ResourceType **required**
+  * TagKeys **required**
+    * items [TagKey](#tagkey)
 
 #### Output
 * output [RemoveTagsFromResourceResult](#removetagsfromresourceresult)
+
+### ResetServiceSetting
+
+
+
+```js
+amazonaws_ssm.ResetServiceSetting({
+  "SettingId": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * SettingId **required**
+
+#### Output
+* output [ResetServiceSettingResult](#resetservicesettingresult)
+
+### ResumeSession
+
+
+
+```js
+amazonaws_ssm.ResumeSession({
+  "SessionId": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * SessionId **required**
+
+#### Output
+* output [ResumeSessionResponse](#resumesessionresponse)
 
 ### SendAutomationSignal
 
@@ -1716,16 +2384,16 @@ amazonaws_ssm.RemoveTagsFromResource({
 
 ```js
 amazonaws_ssm.SendAutomationSignal({
-  "AutomationExecutionId": "",
-  "SignalType": ""
+  "AutomationExecutionId": null,
+  "SignalType": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * AutomationExecutionId **required** [AutomationExecutionId](#automationexecutionid)
-  * Payload [AutomationParameterMap](#automationparametermap)
-  * SignalType **required** [SignalType](#signaltype)
+  * AutomationExecutionId **required**
+  * Payload
+  * SignalType **required**
 
 #### Output
 * output [SendAutomationSignalResult](#sendautomationsignalresult)
@@ -1736,31 +2404,58 @@ amazonaws_ssm.SendAutomationSignal({
 
 ```js
 amazonaws_ssm.SendCommand({
-  "DocumentName": ""
+  "DocumentName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Comment [Comment](#comment)
-  * DocumentHash [DocumentHash](#documenthash)
-  * DocumentHashType [DocumentHashType](#documenthashtype)
-  * DocumentName **required** [DocumentARN](#documentarn)
-  * DocumentVersion [DocumentVersion](#documentversion)
-  * InstanceIds [InstanceIdList](#instanceidlist)
-  * MaxConcurrency [MaxConcurrency](#maxconcurrency)
-  * MaxErrors [MaxErrors](#maxerrors)
-  * NotificationConfig [NotificationConfig](#notificationconfig)
-  * OutputS3BucketName [S3BucketName](#s3bucketname)
-  * OutputS3KeyPrefix [S3KeyPrefix](#s3keyprefix)
-  * OutputS3Region [S3Region](#s3region)
-  * Parameters [Parameters](#parameters)
-  * ServiceRoleArn [ServiceRole](#servicerole)
-  * Targets [Targets](#targets)
-  * TimeoutSeconds [TimeoutSeconds](#timeoutseconds)
+  * CloudWatchOutputConfig
+    * CloudWatchLogGroupName
+    * CloudWatchOutputEnabled
+  * Comment
+  * DocumentHash
+  * DocumentHashType
+  * DocumentName **required**
+  * DocumentVersion
+  * InstanceIds
+    * items [InstanceId](#instanceid)
+  * MaxConcurrency
+  * MaxErrors
+  * NotificationConfig
+    * NotificationArn
+    * NotificationEvents
+      * items [NotificationEvent](#notificationevent)
+    * NotificationType
+  * OutputS3BucketName
+  * OutputS3KeyPrefix
+  * OutputS3Region
+  * Parameters
+  * ServiceRoleArn
+  * Targets
+    * items [Target](#target)
+  * TimeoutSeconds
 
 #### Output
 * output [SendCommandResult](#sendcommandresult)
+
+### StartAssociationsOnce
+
+
+
+```js
+amazonaws_ssm.StartAssociationsOnce({
+  "AssociationIds": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * AssociationIds **required**
+    * items [AssociationId](#associationid)
+
+#### Output
+* output [StartAssociationsOnceResult](#startassociationsonceresult)
 
 ### StartAutomationExecution
 
@@ -1768,24 +2463,77 @@ amazonaws_ssm.SendCommand({
 
 ```js
 amazonaws_ssm.StartAutomationExecution({
-  "DocumentName": ""
+  "DocumentName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ClientToken [IdempotencyToken](#idempotencytoken)
-  * DocumentName **required** [DocumentARN](#documentarn)
-  * DocumentVersion [DocumentVersion](#documentversion)
-  * MaxConcurrency [MaxConcurrency](#maxconcurrency)
-  * MaxErrors [MaxErrors](#maxerrors)
-  * Mode [ExecutionMode](#executionmode)
-  * Parameters [AutomationParameterMap](#automationparametermap)
-  * TargetParameterName [AutomationParameterKey](#automationparameterkey)
-  * Targets [Targets](#targets)
+  * ClientToken
+  * DocumentName **required**
+  * DocumentVersion
+  * MaxConcurrency
+  * MaxErrors
+  * Mode
+  * Parameters
+  * Tags
+    * items [Tag](#tag)
+  * TargetLocations
+    * items [TargetLocation](#targetlocation)
+  * TargetMaps
+    * items [TargetMap](#targetmap)
+  * TargetParameterName
+  * Targets
+    * items [Target](#target)
 
 #### Output
 * output [StartAutomationExecutionResult](#startautomationexecutionresult)
+
+### StartChangeRequestExecution
+
+
+
+```js
+amazonaws_ssm.StartChangeRequestExecution({
+  "DocumentName": null,
+  "Runbooks": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * ChangeRequestName
+  * ClientToken
+  * DocumentName **required**
+  * DocumentVersion
+  * Parameters
+  * Runbooks **required**
+    * items [Runbook](#runbook)
+  * ScheduledTime
+  * Tags
+    * items [Tag](#tag)
+
+#### Output
+* output [StartChangeRequestExecutionResult](#startchangerequestexecutionresult)
+
+### StartSession
+
+
+
+```js
+amazonaws_ssm.StartSession({
+  "Target": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * DocumentName
+  * Parameters
+  * Target **required**
+
+#### Output
+* output [StartSessionResponse](#startsessionresponse)
 
 ### StopAutomationExecution
 
@@ -1793,17 +2541,34 @@ amazonaws_ssm.StartAutomationExecution({
 
 ```js
 amazonaws_ssm.StopAutomationExecution({
-  "AutomationExecutionId": ""
+  "AutomationExecutionId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * AutomationExecutionId **required** [AutomationExecutionId](#automationexecutionid)
-  * Type [StopType](#stoptype)
+  * AutomationExecutionId **required**
+  * Type
 
 #### Output
 * output [StopAutomationExecutionResult](#stopautomationexecutionresult)
+
+### TerminateSession
+
+
+
+```js
+amazonaws_ssm.TerminateSession({
+  "SessionId": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * SessionId **required**
+
+#### Output
+* output [TerminateSessionResponse](#terminatesessionresponse)
 
 ### UpdateAssociation
 
@@ -1811,21 +2576,34 @@ amazonaws_ssm.StopAutomationExecution({
 
 ```js
 amazonaws_ssm.UpdateAssociation({
-  "AssociationId": ""
+  "AssociationId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * AssociationId **required** [AssociationId](#associationid)
-  * AssociationName [AssociationName](#associationname)
-  * AssociationVersion [AssociationVersion](#associationversion)
-  * DocumentVersion [DocumentVersion](#documentversion)
-  * Name [DocumentName](#documentname)
-  * OutputLocation [InstanceAssociationOutputLocation](#instanceassociationoutputlocation)
-  * Parameters [Parameters](#parameters)
-  * ScheduleExpression [ScheduleExpression](#scheduleexpression)
-  * Targets [Targets](#targets)
+  * ApplyOnlyAtCronInterval
+  * AssociationId **required**
+  * AssociationName
+  * AssociationVersion
+  * AutomationTargetParameterName
+  * ComplianceSeverity
+  * DocumentVersion
+  * MaxConcurrency
+  * MaxErrors
+  * Name
+  * OutputLocation
+    * S3Location
+      * OutputS3BucketName
+      * OutputS3KeyPrefix
+      * OutputS3Region
+  * Parameters
+  * ScheduleExpression
+  * SyncCompliance
+  * TargetLocations
+    * items [TargetLocation](#targetlocation)
+  * Targets
+    * items [Target](#target)
 
 #### Output
 * output [UpdateAssociationResult](#updateassociationresult)
@@ -1836,21 +2614,21 @@ amazonaws_ssm.UpdateAssociation({
 
 ```js
 amazonaws_ssm.UpdateAssociationStatus({
-  "Name": "",
-  "InstanceId": "",
-  "AssociationStatus": {
-    "Date": "",
-    "Name": "",
-    "Message": ""
-  }
+  "Name": null,
+  "InstanceId": null,
+  "AssociationStatus": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * AssociationStatus **required** [AssociationStatus](#associationstatus)
-  * InstanceId **required** [InstanceId](#instanceid)
-  * Name **required** [DocumentName](#documentname)
+  * AssociationStatus **required**
+    * AdditionalInfo
+    * Date **required**
+    * Message **required**
+    * Name **required**
+  * InstanceId **required**
+  * Name **required**
 
 #### Output
 * output [UpdateAssociationStatusResult](#updateassociationstatusresult)
@@ -1861,18 +2639,21 @@ amazonaws_ssm.UpdateAssociationStatus({
 
 ```js
 amazonaws_ssm.UpdateDocument({
-  "Content": "",
-  "Name": ""
+  "Content": null,
+  "Name": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Content **required** [DocumentContent](#documentcontent)
-  * DocumentFormat [DocumentFormat](#documentformat)
-  * DocumentVersion [DocumentVersion](#documentversion)
-  * Name **required** [DocumentName](#documentname)
-  * TargetType [TargetType](#targettype)
+  * Attachments
+    * items [AttachmentsSource](#attachmentssource)
+  * Content **required**
+  * DocumentFormat
+  * DocumentVersion
+  * Name **required**
+  * TargetType
+  * VersionName
 
 #### Output
 * output [UpdateDocumentResult](#updatedocumentresult)
@@ -1883,18 +2664,41 @@ amazonaws_ssm.UpdateDocument({
 
 ```js
 amazonaws_ssm.UpdateDocumentDefaultVersion({
-  "Name": "",
-  "DocumentVersion": ""
+  "Name": null,
+  "DocumentVersion": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * DocumentVersion **required** [DocumentVersionNumber](#documentversionnumber)
-  * Name **required** [DocumentName](#documentname)
+  * DocumentVersion **required**
+  * Name **required**
 
 #### Output
 * output [UpdateDocumentDefaultVersionResult](#updatedocumentdefaultversionresult)
+
+### UpdateDocumentMetadata
+
+
+
+```js
+amazonaws_ssm.UpdateDocumentMetadata({
+  "Name": null,
+  "DocumentReviews": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * DocumentReviews **required**
+    * Action **required**
+    * Comment
+      * items [DocumentReviewCommentSource](#documentreviewcommentsource)
+  * DocumentVersion
+  * Name **required**
+
+#### Output
+* output [UpdateDocumentMetadataResponse](#updatedocumentmetadataresponse)
 
 ### UpdateMaintenanceWindow
 
@@ -1902,21 +2706,25 @@ amazonaws_ssm.UpdateDocumentDefaultVersion({
 
 ```js
 amazonaws_ssm.UpdateMaintenanceWindow({
-  "WindowId": ""
+  "WindowId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * AllowUnassociatedTargets [MaintenanceWindowAllowUnassociatedTargets](#maintenancewindowallowunassociatedtargets)
-  * Cutoff [MaintenanceWindowCutoff](#maintenancewindowcutoff)
-  * Description [MaintenanceWindowDescription](#maintenancewindowdescription)
-  * Duration [MaintenanceWindowDurationHours](#maintenancewindowdurationhours)
-  * Enabled [MaintenanceWindowEnabled](#maintenancewindowenabled)
-  * Name [MaintenanceWindowName](#maintenancewindowname)
-  * Replace [Boolean](#boolean)
-  * Schedule [MaintenanceWindowSchedule](#maintenancewindowschedule)
-  * WindowId **required** [MaintenanceWindowId](#maintenancewindowid)
+  * AllowUnassociatedTargets
+  * Cutoff
+  * Description
+  * Duration
+  * Enabled
+  * EndDate
+  * Name
+  * Replace
+  * Schedule
+  * ScheduleOffset
+  * ScheduleTimezone
+  * StartDate
+  * WindowId **required**
 
 #### Output
 * output [UpdateMaintenanceWindowResult](#updatemaintenancewindowresult)
@@ -1927,20 +2735,21 @@ amazonaws_ssm.UpdateMaintenanceWindow({
 
 ```js
 amazonaws_ssm.UpdateMaintenanceWindowTarget({
-  "WindowId": "",
-  "WindowTargetId": ""
+  "WindowId": null,
+  "WindowTargetId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Description [MaintenanceWindowDescription](#maintenancewindowdescription)
-  * Name [MaintenanceWindowName](#maintenancewindowname)
-  * OwnerInformation [OwnerInformation](#ownerinformation)
-  * Replace [Boolean](#boolean)
-  * Targets [Targets](#targets)
-  * WindowId **required** [MaintenanceWindowId](#maintenancewindowid)
-  * WindowTargetId **required** [MaintenanceWindowTargetId](#maintenancewindowtargetid)
+  * Description
+  * Name
+  * OwnerInformation
+  * Replace
+  * Targets
+    * items [Target](#target)
+  * WindowId **required**
+  * WindowTargetId **required**
 
 #### Output
 * output [UpdateMaintenanceWindowTargetResult](#updatemaintenancewindowtargetresult)
@@ -1951,27 +2760,57 @@ amazonaws_ssm.UpdateMaintenanceWindowTarget({
 
 ```js
 amazonaws_ssm.UpdateMaintenanceWindowTask({
-  "WindowId": "",
-  "WindowTaskId": ""
+  "WindowId": null,
+  "WindowTaskId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Description [MaintenanceWindowDescription](#maintenancewindowdescription)
-  * LoggingInfo [LoggingInfo](#logginginfo)
-  * MaxConcurrency [MaxConcurrency](#maxconcurrency)
-  * MaxErrors [MaxErrors](#maxerrors)
-  * Name [MaintenanceWindowName](#maintenancewindowname)
-  * Priority [MaintenanceWindowTaskPriority](#maintenancewindowtaskpriority)
-  * Replace [Boolean](#boolean)
-  * ServiceRoleArn [ServiceRole](#servicerole)
-  * Targets [Targets](#targets)
-  * TaskArn [MaintenanceWindowTaskArn](#maintenancewindowtaskarn)
-  * TaskInvocationParameters [MaintenanceWindowTaskInvocationParameters](#maintenancewindowtaskinvocationparameters)
-  * TaskParameters [MaintenanceWindowTaskParameters](#maintenancewindowtaskparameters)
-  * WindowId **required** [MaintenanceWindowId](#maintenancewindowid)
-  * WindowTaskId **required** [MaintenanceWindowTaskId](#maintenancewindowtaskid)
+  * Description
+  * LoggingInfo
+    * S3BucketName **required**
+    * S3KeyPrefix
+    * S3Region **required**
+  * MaxConcurrency
+  * MaxErrors
+  * Name
+  * Priority
+  * Replace
+  * ServiceRoleArn
+  * Targets
+    * items [Target](#target)
+  * TaskArn
+  * TaskInvocationParameters
+    * Automation
+      * DocumentVersion
+      * Parameters
+    * Lambda
+      * ClientContext
+      * Payload
+      * Qualifier
+    * RunCommand
+      * CloudWatchOutputConfig [CloudWatchOutputConfig](#cloudwatchoutputconfig)
+      * Comment
+      * DocumentHash
+      * DocumentHashType
+      * DocumentVersion
+      * NotificationConfig
+        * NotificationArn
+        * NotificationEvents
+          * items [NotificationEvent](#notificationevent)
+        * NotificationType
+      * OutputS3BucketName
+      * OutputS3KeyPrefix
+      * Parameters
+      * ServiceRoleArn
+      * TimeoutSeconds
+    * StepFunctions
+      * Input
+      * Name
+  * TaskParameters
+  * WindowId **required**
+  * WindowTaskId **required**
 
 #### Output
 * output [UpdateMaintenanceWindowTaskResult](#updatemaintenancewindowtaskresult)
@@ -1982,18 +2821,72 @@ amazonaws_ssm.UpdateMaintenanceWindowTask({
 
 ```js
 amazonaws_ssm.UpdateManagedInstanceRole({
-  "InstanceId": "",
-  "IamRole": ""
+  "InstanceId": null,
+  "IamRole": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * IamRole **required** [IamRole](#iamrole)
-  * InstanceId **required** [ManagedInstanceId](#managedinstanceid)
+  * IamRole **required**
+  * InstanceId **required**
 
 #### Output
 * output [UpdateManagedInstanceRoleResult](#updatemanagedinstanceroleresult)
+
+### UpdateOpsItem
+
+
+
+```js
+amazonaws_ssm.UpdateOpsItem({
+  "OpsItemId": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * ActualEndTime
+  * ActualStartTime
+  * Category
+  * Description
+  * Notifications
+    * items [OpsItemNotification](#opsitemnotification)
+  * OperationalData
+  * OperationalDataToDelete
+    * items [String](#string)
+  * OpsItemId **required**
+  * PlannedEndTime
+  * PlannedStartTime
+  * Priority
+  * RelatedOpsItems
+    * items [RelatedOpsItem](#relatedopsitem)
+  * Severity
+  * Status
+  * Title
+
+#### Output
+* output [UpdateOpsItemResponse](#updateopsitemresponse)
+
+### UpdateOpsMetadata
+
+
+
+```js
+amazonaws_ssm.UpdateOpsMetadata({
+  "OpsMetadataArn": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * KeysToDelete
+    * items [MetadataKey](#metadatakey)
+  * MetadataToUpdate
+  * OpsMetadataArn **required**
+
+#### Output
+* output [UpdateOpsMetadataResult](#updateopsmetadataresult)
 
 ### UpdatePatchBaseline
 
@@ -2001,30 +2894,89 @@ amazonaws_ssm.UpdateManagedInstanceRole({
 
 ```js
 amazonaws_ssm.UpdatePatchBaseline({
-  "BaselineId": ""
+  "BaselineId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ApprovalRules [PatchRuleGroup](#patchrulegroup)
-  * ApprovedPatches [PatchIdList](#patchidlist)
-  * ApprovedPatchesComplianceLevel [PatchComplianceLevel](#patchcompliancelevel)
-  * ApprovedPatchesEnableNonSecurity [Boolean](#boolean)
-  * BaselineId **required** [BaselineId](#baselineid)
-  * Description [BaselineDescription](#baselinedescription)
-  * GlobalFilters [PatchFilterGroup](#patchfiltergroup)
-  * Name [BaselineName](#baselinename)
-  * RejectedPatches [PatchIdList](#patchidlist)
-  * Replace [Boolean](#boolean)
-  * Sources [PatchSourceList](#patchsourcelist)
+  * ApprovalRules
+    * PatchRules **required**
+      * items [PatchRule](#patchrule)
+  * ApprovedPatches
+    * items [PatchId](#patchid)
+  * ApprovedPatchesComplianceLevel
+  * ApprovedPatchesEnableNonSecurity
+  * BaselineId **required**
+  * Description
+  * GlobalFilters
+    * PatchFilters **required**
+      * items [PatchFilter](#patchfilter)
+  * Name
+  * RejectedPatches
+    * items [PatchId](#patchid)
+  * RejectedPatchesAction
+  * Replace
+  * Sources
+    * items [PatchSource](#patchsource)
 
 #### Output
 * output [UpdatePatchBaselineResult](#updatepatchbaselineresult)
 
+### UpdateResourceDataSync
+
+
+
+```js
+amazonaws_ssm.UpdateResourceDataSync({
+  "SyncName": null,
+  "SyncType": null,
+  "SyncSource": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * SyncName **required**
+  * SyncSource **required**
+    * AwsOrganizationsSource
+      * OrganizationSourceType **required**
+      * OrganizationalUnits
+        * items [ResourceDataSyncOrganizationalUnit](#resourcedatasyncorganizationalunit)
+    * IncludeFutureRegions
+    * SourceRegions **required**
+      * items [ResourceDataSyncSourceRegion](#resourcedatasyncsourceregion)
+    * SourceType **required**
+  * SyncType **required**
+
+#### Output
+* output [UpdateResourceDataSyncResult](#updateresourcedatasyncresult)
+
+### UpdateServiceSetting
+
+
+
+```js
+amazonaws_ssm.UpdateServiceSetting({
+  "SettingId": null,
+  "SettingValue": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * SettingId **required**
+  * SettingValue **required**
+
+#### Output
+* output [UpdateServiceSettingResult](#updateservicesettingresult)
+
 
 
 ## Definitions
+
+### Account
+* Account `string`
 
 ### AccountId
 * AccountId `string`
@@ -2033,17 +2985,32 @@ amazonaws_ssm.UpdatePatchBaseline({
 * AccountIdList `array`
   * items [AccountId](#accountid)
 
+### AccountSharingInfo
+* AccountSharingInfo `object`: Information includes the AWS account ID where the current document is shared and the version shared with that account.
+  * AccountId
+  * SharedDocumentVersion
+
+### AccountSharingInfoList
+* AccountSharingInfoList `array`: A list of of AWS accounts where the current document is shared and the version shared with each account.
+  * items [AccountSharingInfo](#accountsharinginfo)
+
+### Accounts
+* Accounts `array`
+  * items [Account](#account)
+
 ### Activation
 * Activation `object`: An activation registers one or more on-premises servers or virtual machines (VMs) with AWS so that you can configure those servers or VMs using Run Command. A server or VM that has been registered with AWS is called a managed instance.
-  * ActivationId [ActivationId](#activationid)
-  * CreatedDate [CreatedDate](#createddate)
-  * DefaultInstanceName [DefaultInstanceName](#defaultinstancename)
-  * Description [ActivationDescription](#activationdescription)
-  * ExpirationDate [ExpirationDate](#expirationdate)
-  * Expired [Boolean](#boolean)
-  * IamRole [IamRole](#iamrole)
-  * RegistrationLimit [RegistrationLimit](#registrationlimit)
-  * RegistrationsCount [RegistrationsCount](#registrationscount)
+  * ActivationId
+  * CreatedDate
+  * DefaultInstanceName
+  * Description
+  * ExpirationDate
+  * Expired
+  * IamRole
+  * RegistrationLimit
+  * RegistrationsCount
+  * Tags
+    * items [Tag](#tag)
 
 ### ActivationCode
 * ActivationCode `string`
@@ -2060,9 +3027,10 @@ amazonaws_ssm.UpdatePatchBaseline({
 
 ### AddTagsToResourceRequest
 * AddTagsToResourceRequest `object`
-  * ResourceId **required** [ResourceId](#resourceid)
-  * ResourceType **required** [ResourceTypeForTagging](#resourcetypefortagging)
-  * Tags **required** [TagList](#taglist)
+  * ResourceId **required**
+  * ResourceType **required**
+  * Tags **required**
+    * items [Tag](#tag)
 
 ### AddTagsToResourceResult
 * AddTagsToResourceResult `object`
@@ -2077,69 +3045,170 @@ amazonaws_ssm.UpdatePatchBaseline({
 * AllowedPattern `string`
 
 ### AlreadyExistsException
-* AlreadyExistsException `object`: Error returned if an attempt is made to register a patch group with a patch baseline that is already registered with a different patch baseline.
-  * Message [String](#string)
+
+
+### ApplyOnlyAtCronInterval
+* ApplyOnlyAtCronInterval `boolean`
 
 ### ApproveAfterDays
 * ApproveAfterDays `integer`
 
 ### AssociatedInstances
-* AssociatedInstances `object`: You must disassociate a document from all instances before you can delete it.
+
 
 ### Association
 * Association `object`: Describes an association of a Systems Manager document and an instance.
-  * AssociationId [AssociationId](#associationid)
-  * AssociationName [AssociationName](#associationname)
-  * AssociationVersion [AssociationVersion](#associationversion)
-  * DocumentVersion [DocumentVersion](#documentversion)
-  * InstanceId [InstanceId](#instanceid)
-  * LastExecutionDate [DateTime](#datetime)
-  * Name [DocumentName](#documentname)
-  * Overview [AssociationOverview](#associationoverview)
-  * ScheduleExpression [ScheduleExpression](#scheduleexpression)
-  * Targets [Targets](#targets)
+  * AssociationId
+  * AssociationName
+  * AssociationVersion
+  * DocumentVersion
+  * InstanceId
+  * LastExecutionDate
+  * Name
+  * Overview
+    * AssociationStatusAggregatedCount
+    * DetailedStatus
+    * Status
+  * ScheduleExpression
+  * Targets
+    * items [Target](#target)
 
 ### AssociationAlreadyExists
-* AssociationAlreadyExists `object`: The specified association already exists.
+
+
+### AssociationComplianceSeverity
+* AssociationComplianceSeverity `string` (values: CRITICAL, HIGH, MEDIUM, LOW, UNSPECIFIED)
 
 ### AssociationDescription
 * AssociationDescription `object`: Describes the parameters for a document.
-  * AssociationId [AssociationId](#associationid)
-  * AssociationName [AssociationName](#associationname)
-  * AssociationVersion [AssociationVersion](#associationversion)
-  * Date [DateTime](#datetime)
-  * DocumentVersion [DocumentVersion](#documentversion)
-  * InstanceId [InstanceId](#instanceid)
-  * LastExecutionDate [DateTime](#datetime)
-  * LastSuccessfulExecutionDate [DateTime](#datetime)
-  * LastUpdateAssociationDate [DateTime](#datetime)
-  * Name [DocumentName](#documentname)
-  * OutputLocation [InstanceAssociationOutputLocation](#instanceassociationoutputlocation)
-  * Overview [AssociationOverview](#associationoverview)
-  * Parameters [Parameters](#parameters)
-  * ScheduleExpression [ScheduleExpression](#scheduleexpression)
-  * Status [AssociationStatus](#associationstatus)
-  * Targets [Targets](#targets)
+  * ApplyOnlyAtCronInterval
+  * AssociationId
+  * AssociationName
+  * AssociationVersion
+  * AutomationTargetParameterName
+  * ComplianceSeverity
+  * Date
+  * DocumentVersion
+  * InstanceId
+  * LastExecutionDate
+  * LastSuccessfulExecutionDate
+  * LastUpdateAssociationDate
+  * MaxConcurrency
+  * MaxErrors
+  * Name
+  * OutputLocation
+    * S3Location
+      * OutputS3BucketName
+      * OutputS3KeyPrefix
+      * OutputS3Region
+  * Overview
+    * AssociationStatusAggregatedCount
+    * DetailedStatus
+    * Status
+  * Parameters
+  * ScheduleExpression
+  * Status
+    * AdditionalInfo
+    * Date **required**
+    * Message **required**
+    * Name **required**
+  * SyncCompliance
+  * TargetLocations
+    * items [TargetLocation](#targetlocation)
+  * Targets
+    * items [Target](#target)
 
 ### AssociationDescriptionList
 * AssociationDescriptionList `array`
   * items [AssociationDescription](#associationdescription)
 
 ### AssociationDoesNotExist
-* AssociationDoesNotExist `object`: The specified association does not exist.
-  * Message [String](#string)
+
+
+### AssociationExecution
+* AssociationExecution `object`: Includes information about the specified association.
+  * AssociationId
+  * AssociationVersion
+  * CreatedTime
+  * DetailedStatus
+  * ExecutionId
+  * LastExecutionDate
+  * ResourceCountByStatus
+  * Status
+
+### AssociationExecutionDoesNotExist
+
+
+### AssociationExecutionFilter
+* AssociationExecutionFilter `object`: Filters used in the request.
+  * Key **required**
+  * Type **required**
+  * Value **required**
+
+### AssociationExecutionFilterKey
+* AssociationExecutionFilterKey `string` (values: ExecutionId, Status, CreatedTime)
+
+### AssociationExecutionFilterList
+* AssociationExecutionFilterList `array`
+  * items [AssociationExecutionFilter](#associationexecutionfilter)
+
+### AssociationExecutionFilterValue
+* AssociationExecutionFilterValue `string`
+
+### AssociationExecutionId
+* AssociationExecutionId `string`
+
+### AssociationExecutionTarget
+* AssociationExecutionTarget `object`: Includes information about the specified association execution.
+  * AssociationId
+  * AssociationVersion
+  * DetailedStatus
+  * ExecutionId
+  * LastExecutionDate
+  * OutputSource
+    * OutputSourceId
+    * OutputSourceType
+  * ResourceId
+  * ResourceType
+  * Status
+
+### AssociationExecutionTargetsFilter
+* AssociationExecutionTargetsFilter `object`: Filters for the association execution.
+  * Key **required**
+  * Value **required**
+
+### AssociationExecutionTargetsFilterKey
+* AssociationExecutionTargetsFilterKey `string` (values: Status, ResourceId, ResourceType)
+
+### AssociationExecutionTargetsFilterList
+* AssociationExecutionTargetsFilterList `array`
+  * items [AssociationExecutionTargetsFilter](#associationexecutiontargetsfilter)
+
+### AssociationExecutionTargetsFilterValue
+* AssociationExecutionTargetsFilterValue `string`
+
+### AssociationExecutionTargetsList
+* AssociationExecutionTargetsList `array`
+  * items [AssociationExecutionTarget](#associationexecutiontarget)
+
+### AssociationExecutionsList
+* AssociationExecutionsList `array`
+  * items [AssociationExecution](#associationexecution)
 
 ### AssociationFilter
 * AssociationFilter `object`: Describes a filter.
-  * key **required** [AssociationFilterKey](#associationfilterkey)
-  * value **required** [AssociationFilterValue](#associationfiltervalue)
+  * key **required**
+  * value **required**
 
 ### AssociationFilterKey
-* AssociationFilterKey `string` (values: InstanceId, Name, AssociationId, AssociationStatusName, LastExecutedBefore, LastExecutedAfter, AssociationName)
+* AssociationFilterKey `string` (values: InstanceId, Name, AssociationId, AssociationStatusName, LastExecutedBefore, LastExecutedAfter, AssociationName, ResourceGroupName)
 
 ### AssociationFilterList
 * AssociationFilterList `array`
   * items [AssociationFilter](#associationfilter)
+
+### AssociationFilterOperatorType
+* AssociationFilterOperatorType `string` (values: EQUAL, LESS_THAN, GREATER_THAN)
 
 ### AssociationFilterValue
 * AssociationFilterValue `string`
@@ -2147,8 +3216,12 @@ amazonaws_ssm.UpdatePatchBaseline({
 ### AssociationId
 * AssociationId `string`
 
+### AssociationIdList
+* AssociationIdList `array`
+  * items [AssociationId](#associationid)
+
 ### AssociationLimitExceeded
-* AssociationLimitExceeded `object`: You can have at most 2,000 active associations.
+
 
 ### AssociationList
 * AssociationList `array`
@@ -2159,49 +3232,122 @@ amazonaws_ssm.UpdatePatchBaseline({
 
 ### AssociationOverview
 * AssociationOverview `object`: Information about the association.
-  * AssociationStatusAggregatedCount [AssociationStatusAggregatedCount](#associationstatusaggregatedcount)
-  * DetailedStatus [StatusName](#statusname)
-  * Status [StatusName](#statusname)
+  * AssociationStatusAggregatedCount
+  * DetailedStatus
+  * Status
+
+### AssociationResourceId
+* AssociationResourceId `string`
+
+### AssociationResourceType
+* AssociationResourceType `string`
 
 ### AssociationStatus
 * AssociationStatus `object`: Describes an association status.
-  * AdditionalInfo [StatusAdditionalInfo](#statusadditionalinfo)
-  * Date **required** [DateTime](#datetime)
-  * Message **required** [StatusMessage](#statusmessage)
-  * Name **required** [AssociationStatusName](#associationstatusname)
+  * AdditionalInfo
+  * Date **required**
+  * Message **required**
+  * Name **required**
 
 ### AssociationStatusAggregatedCount
-* AssociationStatusAggregatedCount `array`
-  * items `object`
-    * key [StatusName](#statusname)
-    * value [InstanceCount](#instancecount)
+* AssociationStatusAggregatedCount `object`
 
 ### AssociationStatusName
 * AssociationStatusName `string` (values: Pending, Success, Failed)
+
+### AssociationSyncCompliance
+* AssociationSyncCompliance `string` (values: AUTO, MANUAL)
 
 ### AssociationVersion
 * AssociationVersion `string`
 
 ### AssociationVersionInfo
 * AssociationVersionInfo `object`: Information about the association version.
-  * AssociationId [AssociationId](#associationid)
-  * AssociationName [AssociationName](#associationname)
-  * AssociationVersion [AssociationVersion](#associationversion)
-  * CreatedDate [DateTime](#datetime)
-  * DocumentVersion [DocumentVersion](#documentversion)
-  * Name [DocumentName](#documentname)
-  * OutputLocation [InstanceAssociationOutputLocation](#instanceassociationoutputlocation)
-  * Parameters [Parameters](#parameters)
-  * ScheduleExpression [ScheduleExpression](#scheduleexpression)
-  * Targets [Targets](#targets)
+  * ApplyOnlyAtCronInterval
+  * AssociationId
+  * AssociationName
+  * AssociationVersion
+  * ComplianceSeverity
+  * CreatedDate
+  * DocumentVersion
+  * MaxConcurrency
+  * MaxErrors
+  * Name
+  * OutputLocation
+    * S3Location
+      * OutputS3BucketName
+      * OutputS3KeyPrefix
+      * OutputS3Region
+  * Parameters
+  * ScheduleExpression
+  * SyncCompliance
+  * TargetLocations
+    * items [TargetLocation](#targetlocation)
+  * Targets
+    * items [Target](#target)
 
 ### AssociationVersionLimitExceeded
-* AssociationVersionLimitExceeded `object`: You have reached the maximum number versions allowed for an association. Each association has a limit of 1,000 versions. 
-  * Message [String](#string)
+
 
 ### AssociationVersionList
 * AssociationVersionList `array`
   * items [AssociationVersionInfo](#associationversioninfo)
+
+### AttachmentContent
+* AttachmentContent `object`: A structure that includes attributes that describe a document attachment.
+  * Hash
+  * HashType
+  * Name
+  * Size
+  * Url
+
+### AttachmentContentList
+* AttachmentContentList `array`
+  * items [AttachmentContent](#attachmentcontent)
+
+### AttachmentHash
+* AttachmentHash `string`
+
+### AttachmentHashType
+* AttachmentHashType `string` (values: Sha256)
+
+### AttachmentIdentifier
+* AttachmentIdentifier `string`
+
+### AttachmentInformation
+* AttachmentInformation `object`: An attribute of an attachment, such as the attachment name.
+  * Name
+
+### AttachmentInformationList
+* AttachmentInformationList `array`
+  * items [AttachmentInformation](#attachmentinformation)
+
+### AttachmentName
+* AttachmentName `string`
+
+### AttachmentUrl
+* AttachmentUrl `string`
+
+### AttachmentsSource
+* AttachmentsSource `object`: Identifying information about a document attachment, including the file name and a key-value pair that identifies the location of an attachment to a document.
+  * Key
+  * Name
+  * Values
+    * items [AttachmentsSourceValue](#attachmentssourcevalue)
+
+### AttachmentsSourceKey
+* AttachmentsSourceKey `string` (values: SourceUrl, S3FileUrl, AttachmentReference)
+
+### AttachmentsSourceList
+* AttachmentsSourceList `array`
+  * items [AttachmentsSource](#attachmentssource)
+
+### AttachmentsSourceValue
+* AttachmentsSourceValue `string`
+
+### AttachmentsSourceValues
+* AttachmentsSourceValues `array`
+  * items [AttachmentsSourceValue](#attachmentssourcevalue)
 
 ### AttributeName
 * AttributeName `string`
@@ -2212,46 +3358,70 @@ amazonaws_ssm.UpdatePatchBaseline({
 ### AutomationActionName
 * AutomationActionName `string`
 
+### AutomationDefinitionNotApprovedException
+
+
 ### AutomationDefinitionNotFoundException
-* AutomationDefinitionNotFoundException `object`: An Automation document with the specified name could not be found.
-  * Message [String](#string)
+
 
 ### AutomationDefinitionVersionNotFoundException
-* AutomationDefinitionVersionNotFoundException `object`: An Automation document with the specified name and version could not be found.
-  * Message [String](#string)
+
 
 ### AutomationExecution
 * AutomationExecution `object`: Detailed information about the current state of an individual Automation execution.
-  * AutomationExecutionId [AutomationExecutionId](#automationexecutionid)
-  * AutomationExecutionStatus [AutomationExecutionStatus](#automationexecutionstatus)
-  * CurrentAction [String](#string)
-  * CurrentStepName [String](#string)
-  * DocumentName [DocumentName](#documentname)
-  * DocumentVersion [DocumentVersion](#documentversion)
-  * ExecutedBy [String](#string)
-  * ExecutionEndTime [DateTime](#datetime)
-  * ExecutionStartTime [DateTime](#datetime)
-  * FailureMessage [String](#string)
-  * MaxConcurrency [MaxConcurrency](#maxconcurrency)
-  * MaxErrors [MaxErrors](#maxerrors)
-  * Mode [ExecutionMode](#executionmode)
-  * Outputs [AutomationParameterMap](#automationparametermap)
-  * Parameters [AutomationParameterMap](#automationparametermap)
-  * ParentAutomationExecutionId [AutomationExecutionId](#automationexecutionid)
-  * ResolvedTargets [ResolvedTargets](#resolvedtargets)
-  * StepExecutions [StepExecutionList](#stepexecutionlist)
-  * StepExecutionsTruncated [Boolean](#boolean)
-  * Target [String](#string)
-  * TargetParameterName [AutomationParameterKey](#automationparameterkey)
-  * Targets [Targets](#targets)
+  * AssociationId
+  * AutomationExecutionId
+  * AutomationExecutionStatus
+  * AutomationSubtype
+  * ChangeRequestName
+  * CurrentAction
+  * CurrentStepName
+  * DocumentName
+  * DocumentVersion
+  * ExecutedBy
+  * ExecutionEndTime
+  * ExecutionStartTime
+  * FailureMessage
+  * MaxConcurrency
+  * MaxErrors
+  * Mode
+  * OpsItemId
+  * Outputs
+  * Parameters
+  * ParentAutomationExecutionId
+  * ProgressCounters
+    * CancelledSteps
+    * FailedSteps
+    * SuccessSteps
+    * TimedOutSteps
+    * TotalSteps
+  * ResolvedTargets
+    * ParameterValues
+      * items [ParameterValue](#parametervalue)
+    * Truncated
+  * Runbooks
+    * items [Runbook](#runbook)
+  * ScheduledTime
+  * StepExecutions
+    * items [StepExecution](#stepexecution)
+  * StepExecutionsTruncated
+  * Target
+  * TargetLocations
+    * items [TargetLocation](#targetlocation)
+  * TargetMaps
+    * items [TargetMap](#targetmap)
+  * TargetParameterName
+  * Targets
+    * items [Target](#target)
 
 ### AutomationExecutionFilter
 * AutomationExecutionFilter `object`: A filter used to match specific automation executions. This is used to limit the scope of Automation execution information returned.
-  * Key **required** [AutomationExecutionFilterKey](#automationexecutionfilterkey)
-  * Values **required** [AutomationExecutionFilterValueList](#automationexecutionfiltervaluelist)
+  * Key **required**
+  * Values **required**
+    * items [AutomationExecutionFilterValue](#automationexecutionfiltervalue)
 
 ### AutomationExecutionFilterKey
-* AutomationExecutionFilterKey `string` (values: DocumentNamePrefix, ExecutionStatus, ExecutionId, ParentExecutionId, CurrentAction, StartTimeBefore, StartTimeAfter)
+* AutomationExecutionFilterKey `string` (values: DocumentNamePrefix, ExecutionStatus, ExecutionId, ParentExecutionId, CurrentAction, StartTimeBefore, StartTimeAfter, AutomationType, TagKey, TargetResourceGroup, AutomationSubtype, OpsItemId)
 
 ### AutomationExecutionFilterList
 * AutomationExecutionFilterList `array`
@@ -2268,51 +3438,60 @@ amazonaws_ssm.UpdatePatchBaseline({
 * AutomationExecutionId `string`
 
 ### AutomationExecutionLimitExceededException
-* AutomationExecutionLimitExceededException `object`: The number of simultaneously running Automation executions exceeded the allowable limit.
-  * Message [String](#string)
+
 
 ### AutomationExecutionMetadata
 * AutomationExecutionMetadata `object`: Details about a specific Automation execution.
-  * AutomationExecutionId [AutomationExecutionId](#automationexecutionid)
-  * AutomationExecutionStatus [AutomationExecutionStatus](#automationexecutionstatus)
-  * CurrentAction [String](#string)
-  * CurrentStepName [String](#string)
-  * DocumentName [DocumentName](#documentname)
-  * DocumentVersion [DocumentVersion](#documentversion)
-  * ExecutedBy [String](#string)
-  * ExecutionEndTime [DateTime](#datetime)
-  * ExecutionStartTime [DateTime](#datetime)
-  * FailureMessage [String](#string)
-  * LogFile [String](#string)
-  * MaxConcurrency [MaxConcurrency](#maxconcurrency)
-  * MaxErrors [MaxErrors](#maxerrors)
-  * Mode [ExecutionMode](#executionmode)
-  * Outputs [AutomationParameterMap](#automationparametermap)
-  * ParentAutomationExecutionId [AutomationExecutionId](#automationexecutionid)
-  * ResolvedTargets [ResolvedTargets](#resolvedtargets)
-  * Target [String](#string)
-  * TargetParameterName [AutomationParameterKey](#automationparameterkey)
-  * Targets [Targets](#targets)
+  * AssociationId
+  * AutomationExecutionId
+  * AutomationExecutionStatus
+  * AutomationSubtype
+  * AutomationType
+  * ChangeRequestName
+  * CurrentAction
+  * CurrentStepName
+  * DocumentName
+  * DocumentVersion
+  * ExecutedBy
+  * ExecutionEndTime
+  * ExecutionStartTime
+  * FailureMessage
+  * LogFile
+  * MaxConcurrency
+  * MaxErrors
+  * Mode
+  * OpsItemId
+  * Outputs
+  * ParentAutomationExecutionId
+  * ResolvedTargets
+    * ParameterValues
+      * items [ParameterValue](#parametervalue)
+    * Truncated
+  * Runbooks
+    * items [Runbook](#runbook)
+  * ScheduledTime
+  * Target
+  * TargetMaps
+    * items [TargetMap](#targetmap)
+  * TargetParameterName
+  * Targets
+    * items [Target](#target)
 
 ### AutomationExecutionMetadataList
 * AutomationExecutionMetadataList `array`
   * items [AutomationExecutionMetadata](#automationexecutionmetadata)
 
 ### AutomationExecutionNotFoundException
-* AutomationExecutionNotFoundException `object`: There is no automation execution information for the requested automation execution ID.
-  * Message [String](#string)
+
 
 ### AutomationExecutionStatus
-* AutomationExecutionStatus `string` (values: Pending, InProgress, Waiting, Success, TimedOut, Cancelling, Cancelled, Failed)
+* AutomationExecutionStatus `string` (values: Pending, InProgress, Waiting, Success, TimedOut, Cancelling, Cancelled, Failed, PendingApproval, Approved, Rejected, Scheduled, RunbookInProgress, PendingChangeCalendarOverride, ChangeCalendarOverrideApproved, ChangeCalendarOverrideRejected, CompletedWithSuccess, CompletedWithFailure)
 
 ### AutomationParameterKey
 * AutomationParameterKey `string`
 
 ### AutomationParameterMap
-* AutomationParameterMap `array`
-  * items `object`
-    * key [AutomationParameterKey](#automationparameterkey)
-    * value [AutomationParameterValueList](#automationparametervaluelist)
+* AutomationParameterMap `object`
 
 ### AutomationParameterValue
 * AutomationParameterValue `string`
@@ -2322,8 +3501,16 @@ amazonaws_ssm.UpdatePatchBaseline({
   * items [AutomationParameterValue](#automationparametervalue)
 
 ### AutomationStepNotFoundException
-* AutomationStepNotFoundException `object`: The specified step name and execution ID don't exist. Verify the information and try again.
-  * Message [String](#string)
+
+
+### AutomationSubtype
+* AutomationSubtype `string` (values: ChangeRequest)
+
+### AutomationTargetParameterName
+* AutomationTargetParameterName `string`
+
+### AutomationType
+* AutomationType `string` (values: CrossAccount, Local)
 
 ### BaselineDescription
 * BaselineDescription `string`
@@ -2340,48 +3527,92 @@ amazonaws_ssm.UpdatePatchBaseline({
 ### Boolean
 * Boolean `boolean`
 
+### CalendarNameOrARN
+* CalendarNameOrARN `string`
+
+### CalendarNameOrARNList
+* CalendarNameOrARNList `array`
+  * items [CalendarNameOrARN](#calendarnameorarn)
+
+### CalendarState
+* CalendarState `string` (values: OPEN, CLOSED)
+
 ### CancelCommandRequest
 * CancelCommandRequest `object`: <p/>
-  * CommandId **required** [CommandId](#commandid)
-  * InstanceIds [InstanceIdList](#instanceidlist)
+  * CommandId **required**
+  * InstanceIds
+    * items [InstanceId](#instanceid)
 
 ### CancelCommandResult
 * CancelCommandResult `object`: Whether or not the command was successfully canceled. There is no guarantee that a request can be canceled.
 
+### CancelMaintenanceWindowExecutionRequest
+* CancelMaintenanceWindowExecutionRequest `object`
+  * WindowExecutionId **required**
+
+### CancelMaintenanceWindowExecutionResult
+* CancelMaintenanceWindowExecutionResult `object`
+  * WindowExecutionId
+
+### ChangeRequestName
+* ChangeRequestName `string`
+
 ### ClientToken
 * ClientToken `string`
 
+### CloudWatchLogGroupName
+* CloudWatchLogGroupName `string`
+
+### CloudWatchOutputConfig
+* CloudWatchOutputConfig `object`: Configuration options for sending command output to CloudWatch Logs.
+  * CloudWatchLogGroupName
+  * CloudWatchOutputEnabled
+
+### CloudWatchOutputEnabled
+* CloudWatchOutputEnabled `boolean`
+
 ### Command
 * Command `object`: Describes a command request.
-  * CommandId [CommandId](#commandid)
-  * Comment [Comment](#comment)
-  * CompletedCount [CompletedCount](#completedcount)
-  * DocumentName [DocumentName](#documentname)
-  * DocumentVersion [DocumentVersion](#documentversion)
-  * ErrorCount [ErrorCount](#errorcount)
-  * ExpiresAfter [DateTime](#datetime)
-  * InstanceIds [InstanceIdList](#instanceidlist)
-  * MaxConcurrency [MaxConcurrency](#maxconcurrency)
-  * MaxErrors [MaxErrors](#maxerrors)
-  * NotificationConfig [NotificationConfig](#notificationconfig)
-  * OutputS3BucketName [S3BucketName](#s3bucketname)
-  * OutputS3KeyPrefix [S3KeyPrefix](#s3keyprefix)
-  * OutputS3Region [S3Region](#s3region)
-  * Parameters [Parameters](#parameters)
-  * RequestedDateTime [DateTime](#datetime)
-  * ServiceRole [ServiceRole](#servicerole)
-  * Status [CommandStatus](#commandstatus)
-  * StatusDetails [StatusDetails](#statusdetails)
-  * TargetCount [TargetCount](#targetcount)
-  * Targets [Targets](#targets)
+  * CloudWatchOutputConfig
+    * CloudWatchLogGroupName
+    * CloudWatchOutputEnabled
+  * CommandId
+  * Comment
+  * CompletedCount
+  * DeliveryTimedOutCount
+  * DocumentName
+  * DocumentVersion
+  * ErrorCount
+  * ExpiresAfter
+  * InstanceIds
+    * items [InstanceId](#instanceid)
+  * MaxConcurrency
+  * MaxErrors
+  * NotificationConfig
+    * NotificationArn
+    * NotificationEvents
+      * items [NotificationEvent](#notificationevent)
+    * NotificationType
+  * OutputS3BucketName
+  * OutputS3KeyPrefix
+  * OutputS3Region
+  * Parameters
+  * RequestedDateTime
+  * ServiceRole
+  * Status
+  * StatusDetails
+  * TargetCount
+  * Targets
+    * items [Target](#target)
+  * TimeoutSeconds
 
 ### CommandFilter
-* CommandFilter `object`: Describes a command filter.
-  * key **required** [CommandFilterKey](#commandfilterkey)
-  * value **required** [CommandFilterValue](#commandfiltervalue)
+* CommandFilter `object`: <p>Describes a command filter.</p> <note> <p>An instance ID can't be specified when a command status is <code>Pending</code> because the command hasn't run on the instance yet.</p> </note>
+  * key **required**
+  * value **required**
 
 ### CommandFilterKey
-* CommandFilterKey `string` (values: InvokedAfter, InvokedBefore, Status)
+* CommandFilterKey `string` (values: InvokedAfter, InvokedBefore, Status, ExecutionStage, DocumentName)
 
 ### CommandFilterList
 * CommandFilterList `array`
@@ -2394,22 +3625,29 @@ amazonaws_ssm.UpdatePatchBaseline({
 * CommandId `string`
 
 ### CommandInvocation
-* CommandInvocation `object`: An invocation is copy of a command sent to a specific instance. A command can apply to one or more instances. A command invocation applies to one instance. For example, if a user executes SendCommand against three instances, then a command invocation is created for each requested instance ID. A command invocation returns status and detail information about a command you executed. 
-  * CommandId [CommandId](#commandid)
+* CommandInvocation `object`: An invocation is copy of a command sent to a specific instance. A command can apply to one or more instances. A command invocation applies to one instance. For example, if a user runs SendCommand against three instances, then a command invocation is created for each requested instance ID. A command invocation returns status and detail information about a command you ran. 
+  * CloudWatchOutputConfig
+    * CloudWatchLogGroupName
+    * CloudWatchOutputEnabled
+  * CommandId
   * CommandPlugins [CommandPluginList](#commandpluginlist)
-  * Comment [Comment](#comment)
-  * DocumentName [DocumentName](#documentname)
-  * DocumentVersion [DocumentVersion](#documentversion)
-  * InstanceId [InstanceId](#instanceid)
-  * InstanceName [InstanceTagName](#instancetagname)
-  * NotificationConfig [NotificationConfig](#notificationconfig)
-  * RequestedDateTime [DateTime](#datetime)
-  * ServiceRole [ServiceRole](#servicerole)
-  * StandardErrorUrl [Url](#url)
-  * StandardOutputUrl [Url](#url)
-  * Status [CommandInvocationStatus](#commandinvocationstatus)
-  * StatusDetails [StatusDetails](#statusdetails)
-  * TraceOutput [InvocationTraceOutput](#invocationtraceoutput)
+  * Comment
+  * DocumentName
+  * DocumentVersion
+  * InstanceId
+  * InstanceName
+  * NotificationConfig
+    * NotificationArn
+    * NotificationEvents
+      * items [NotificationEvent](#notificationevent)
+    * NotificationType
+  * RequestedDateTime
+  * ServiceRole
+  * StandardErrorUrl
+  * StandardOutputUrl
+  * Status
+  * StatusDetails
+  * TraceOutput
 
 ### CommandInvocationList
 * CommandInvocationList `array`
@@ -2427,18 +3665,18 @@ amazonaws_ssm.UpdatePatchBaseline({
 
 ### CommandPlugin
 * CommandPlugin `object`: Describes plugin details.
-  * Name [CommandPluginName](#commandpluginname)
-  * Output [CommandPluginOutput](#commandpluginoutput)
-  * OutputS3BucketName [S3BucketName](#s3bucketname)
-  * OutputS3KeyPrefix [S3KeyPrefix](#s3keyprefix)
-  * OutputS3Region [S3Region](#s3region)
-  * ResponseCode [ResponseCode](#responsecode)
-  * ResponseFinishDateTime [DateTime](#datetime)
-  * ResponseStartDateTime [DateTime](#datetime)
-  * StandardErrorUrl [Url](#url)
-  * StandardOutputUrl [Url](#url)
-  * Status [CommandPluginStatus](#commandpluginstatus)
-  * StatusDetails [StatusDetails](#statusdetails)
+  * Name
+  * Output
+  * OutputS3BucketName
+  * OutputS3KeyPrefix
+  * OutputS3Region
+  * ResponseCode
+  * ResponseFinishDateTime
+  * ResponseStartDateTime
+  * StandardErrorUrl
+  * StandardOutputUrl
+  * Status
+  * StatusDetails
 
 ### CommandPluginList
 * CommandPluginList `array`
@@ -2467,9 +3705,9 @@ amazonaws_ssm.UpdatePatchBaseline({
 
 ### ComplianceExecutionSummary
 * ComplianceExecutionSummary `object`: A summary of the call execution that includes an execution ID, the type of execution (for example, <code>Command</code>), and the date/time of the execution using a datetime object that is saved in the following format: yyyy-MM-dd'T'HH:mm:ss'Z'.
-  * ExecutionId [ComplianceExecutionId](#complianceexecutionid)
-  * ExecutionTime **required** [DateTime](#datetime)
-  * ExecutionType [ComplianceExecutionType](#complianceexecutiontype)
+  * ExecutionId
+  * ExecutionTime **required**
+  * ExecutionType
 
 ### ComplianceExecutionType
 * ComplianceExecutionType `string`
@@ -2478,33 +3716,33 @@ amazonaws_ssm.UpdatePatchBaseline({
 * ComplianceFilterValue `string`
 
 ### ComplianceItem
-* ComplianceItem `object`: Information about the compliance as defined by the resource type. For example, for a patch resource type, <code>Items</code> includes information about the PatchSeverity, Classification, etc.
-  * ComplianceType [ComplianceTypeName](#compliancetypename)
-  * Details [ComplianceItemDetails](#complianceitemdetails)
-  * ExecutionSummary [ComplianceExecutionSummary](#complianceexecutionsummary)
-  * Id [ComplianceItemId](#complianceitemid)
-  * ResourceId [ComplianceResourceId](#complianceresourceid)
-  * ResourceType [ComplianceResourceType](#complianceresourcetype)
-  * Severity [ComplianceSeverity](#complianceseverity)
-  * Status [ComplianceStatus](#compliancestatus)
-  * Title [ComplianceItemTitle](#complianceitemtitle)
+* ComplianceItem `object`: Information about the compliance as defined by the resource type. For example, for a patch resource type, <code>Items</code> includes information about the PatchSeverity, Classification, and so on.
+  * ComplianceType
+  * Details
+  * ExecutionSummary
+    * ExecutionId
+    * ExecutionTime **required**
+    * ExecutionType
+  * Id
+  * ResourceId
+  * ResourceType
+  * Severity
+  * Status
+  * Title
 
 ### ComplianceItemContentHash
 * ComplianceItemContentHash `string`
 
 ### ComplianceItemDetails
-* ComplianceItemDetails `array`
-  * items `object`
-    * key [AttributeName](#attributename)
-    * value [AttributeValue](#attributevalue)
+* ComplianceItemDetails `object`
 
 ### ComplianceItemEntry
 * ComplianceItemEntry `object`: Information about a compliance item.
-  * Details [ComplianceItemDetails](#complianceitemdetails)
-  * Id [ComplianceItemId](#complianceitemid)
-  * Severity **required** [ComplianceSeverity](#complianceseverity)
-  * Status **required** [ComplianceStatus](#compliancestatus)
-  * Title [ComplianceItemTitle](#complianceitemtitle)
+  * Details
+  * Id
+  * Severity **required**
+  * Status **required**
+  * Title
 
 ### ComplianceItemEntryList
 * ComplianceItemEntryList `array`
@@ -2545,9 +3783,10 @@ amazonaws_ssm.UpdatePatchBaseline({
 
 ### ComplianceStringFilter
 * ComplianceStringFilter `object`: One or more filters. Use a filter to return a more specific list of results.
-  * Key [ComplianceStringFilterKey](#compliancestringfilterkey)
-  * Type [ComplianceQueryOperatorType](#compliancequeryoperatortype)
-  * Values [ComplianceStringFilterValueList](#compliancestringfiltervaluelist)
+  * Key
+  * Type
+  * Values
+    * items [ComplianceFilterValue](#compliancefiltervalue)
 
 ### ComplianceStringFilterKey
 * ComplianceStringFilterKey `string`
@@ -2565,129 +3804,333 @@ amazonaws_ssm.UpdatePatchBaseline({
 
 ### ComplianceSummaryItem
 * ComplianceSummaryItem `object`: A summary of compliance information by compliance type.
-  * ComplianceType [ComplianceTypeName](#compliancetypename)
-  * CompliantSummary [CompliantSummary](#compliantsummary)
-  * NonCompliantSummary [NonCompliantSummary](#noncompliantsummary)
+  * ComplianceType
+  * CompliantSummary
+    * CompliantCount
+    * SeveritySummary
+      * CriticalCount
+      * HighCount
+      * InformationalCount
+      * LowCount
+      * MediumCount
+      * UnspecifiedCount
+  * NonCompliantSummary
+    * NonCompliantCount
+    * SeveritySummary
+      * CriticalCount
+      * HighCount
+      * InformationalCount
+      * LowCount
+      * MediumCount
+      * UnspecifiedCount
 
 ### ComplianceSummaryItemList
 * ComplianceSummaryItemList `array`
   * items [ComplianceSummaryItem](#compliancesummaryitem)
 
 ### ComplianceTypeCountLimitExceededException
-* ComplianceTypeCountLimitExceededException `object`: You specified too many custom compliance types. You can specify a maximum of 10 different types. 
-  * Message [String](#string)
+
 
 ### ComplianceTypeName
 * ComplianceTypeName `string`
 
+### ComplianceUploadType
+* ComplianceUploadType `string` (values: COMPLETE, PARTIAL)
+
 ### CompliantSummary
 * CompliantSummary `object`: A summary of resources that are compliant. The summary is organized according to the resource count for each compliance type.
-  * CompliantCount [ComplianceSummaryCount](#compliancesummarycount)
-  * SeveritySummary [SeveritySummary](#severitysummary)
+  * CompliantCount
+  * SeveritySummary
+    * CriticalCount
+    * HighCount
+    * InformationalCount
+    * LowCount
+    * MediumCount
+    * UnspecifiedCount
 
 ### ComputerName
 * ComputerName `string`
 
+### ConnectionStatus
+* ConnectionStatus `string` (values: Connected, NotConnected)
+
+### ContentLength
+* ContentLength `integer`
+
 ### CreateActivationRequest
 * CreateActivationRequest `object`
-  * DefaultInstanceName [DefaultInstanceName](#defaultinstancename)
-  * Description [ActivationDescription](#activationdescription)
-  * ExpirationDate [ExpirationDate](#expirationdate)
-  * IamRole **required** [IamRole](#iamrole)
-  * RegistrationLimit [RegistrationLimit](#registrationlimit)
+  * DefaultInstanceName
+  * Description
+  * ExpirationDate
+  * IamRole **required**
+  * RegistrationLimit
+  * Tags
+    * items [Tag](#tag)
 
 ### CreateActivationResult
 * CreateActivationResult `object`
-  * ActivationCode [ActivationCode](#activationcode)
-  * ActivationId [ActivationId](#activationid)
+  * ActivationCode
+  * ActivationId
 
 ### CreateAssociationBatchRequest
 * CreateAssociationBatchRequest `object`
-  * Entries **required** [CreateAssociationBatchRequestEntries](#createassociationbatchrequestentries)
+  * Entries **required**
+    * items [CreateAssociationBatchRequestEntry](#createassociationbatchrequestentry)
 
 ### CreateAssociationBatchRequestEntries
 * CreateAssociationBatchRequestEntries `array`
   * items [CreateAssociationBatchRequestEntry](#createassociationbatchrequestentry)
 
 ### CreateAssociationBatchRequestEntry
-* CreateAssociationBatchRequestEntry `object`: Describes the association of a Systems Manager document and an instance.
-  * AssociationName [AssociationName](#associationname)
-  * DocumentVersion [DocumentVersion](#documentversion)
-  * InstanceId [InstanceId](#instanceid)
-  * Name **required** [DocumentName](#documentname)
-  * OutputLocation [InstanceAssociationOutputLocation](#instanceassociationoutputlocation)
-  * Parameters [Parameters](#parameters)
-  * ScheduleExpression [ScheduleExpression](#scheduleexpression)
-  * Targets [Targets](#targets)
+* CreateAssociationBatchRequestEntry `object`: Describes the association of a Systems Manager SSM document and an instance.
+  * ApplyOnlyAtCronInterval
+  * AssociationName
+  * AutomationTargetParameterName
+  * ComplianceSeverity
+  * DocumentVersion
+  * InstanceId
+  * MaxConcurrency
+  * MaxErrors
+  * Name **required**
+  * OutputLocation
+    * S3Location
+      * OutputS3BucketName
+      * OutputS3KeyPrefix
+      * OutputS3Region
+  * Parameters
+  * ScheduleExpression
+  * SyncCompliance
+  * TargetLocations
+    * items [TargetLocation](#targetlocation)
+  * Targets
+    * items [Target](#target)
 
 ### CreateAssociationBatchResult
 * CreateAssociationBatchResult `object`
-  * Failed [FailedCreateAssociationList](#failedcreateassociationlist)
-  * Successful [AssociationDescriptionList](#associationdescriptionlist)
+  * Failed
+    * items [FailedCreateAssociation](#failedcreateassociation)
+  * Successful
+    * items [AssociationDescription](#associationdescription)
 
 ### CreateAssociationRequest
 * CreateAssociationRequest `object`
-  * AssociationName [AssociationName](#associationname)
-  * DocumentVersion [DocumentVersion](#documentversion)
-  * InstanceId [InstanceId](#instanceid)
-  * Name **required** [DocumentName](#documentname)
-  * OutputLocation [InstanceAssociationOutputLocation](#instanceassociationoutputlocation)
-  * Parameters [Parameters](#parameters)
-  * ScheduleExpression [ScheduleExpression](#scheduleexpression)
-  * Targets [Targets](#targets)
+  * ApplyOnlyAtCronInterval
+  * AssociationName
+  * AutomationTargetParameterName
+  * ComplianceSeverity
+  * DocumentVersion
+  * InstanceId
+  * MaxConcurrency
+  * MaxErrors
+  * Name **required**
+  * OutputLocation
+    * S3Location
+      * OutputS3BucketName
+      * OutputS3KeyPrefix
+      * OutputS3Region
+  * Parameters
+  * ScheduleExpression
+  * SyncCompliance
+  * TargetLocations
+    * items [TargetLocation](#targetlocation)
+  * Targets
+    * items [Target](#target)
 
 ### CreateAssociationResult
 * CreateAssociationResult `object`
-  * AssociationDescription [AssociationDescription](#associationdescription)
+  * AssociationDescription
+    * ApplyOnlyAtCronInterval
+    * AssociationId
+    * AssociationName
+    * AssociationVersion
+    * AutomationTargetParameterName
+    * ComplianceSeverity
+    * Date
+    * DocumentVersion
+    * InstanceId
+    * LastExecutionDate
+    * LastSuccessfulExecutionDate
+    * LastUpdateAssociationDate
+    * MaxConcurrency
+    * MaxErrors
+    * Name
+    * OutputLocation
+      * S3Location
+        * OutputS3BucketName
+        * OutputS3KeyPrefix
+        * OutputS3Region
+    * Overview
+      * AssociationStatusAggregatedCount
+      * DetailedStatus
+      * Status
+    * Parameters
+    * ScheduleExpression
+    * Status
+      * AdditionalInfo
+      * Date **required**
+      * Message **required**
+      * Name **required**
+    * SyncCompliance
+    * TargetLocations
+      * items [TargetLocation](#targetlocation)
+    * Targets
+      * items [Target](#target)
 
 ### CreateDocumentRequest
 * CreateDocumentRequest `object`
-  * Content **required** [DocumentContent](#documentcontent)
-  * DocumentFormat [DocumentFormat](#documentformat)
-  * DocumentType [DocumentType](#documenttype)
-  * Name **required** [DocumentName](#documentname)
-  * TargetType [TargetType](#targettype)
+  * Attachments
+    * items [AttachmentsSource](#attachmentssource)
+  * Content **required**
+  * DocumentFormat
+  * DocumentType
+  * Name **required**
+  * Requires
+    * items [DocumentRequires](#documentrequires)
+  * Tags
+    * items [Tag](#tag)
+  * TargetType
+  * VersionName
 
 ### CreateDocumentResult
 * CreateDocumentResult `object`
-  * DocumentDescription [DocumentDescription](#documentdescription)
+  * DocumentDescription
+    * ApprovedVersion
+    * AttachmentsInformation
+      * items [AttachmentInformation](#attachmentinformation)
+    * Author
+    * CreatedDate
+    * DefaultVersion
+    * Description
+    * DocumentFormat
+    * DocumentType
+    * DocumentVersion
+    * Hash
+    * HashType
+    * LatestVersion
+    * Name
+    * Owner
+    * Parameters
+      * items [DocumentParameter](#documentparameter)
+    * PendingReviewVersion
+    * PlatformTypes
+      * items [PlatformType](#platformtype)
+    * Requires
+      * items [DocumentRequires](#documentrequires)
+    * ReviewInformation
+      * items [ReviewInformation](#reviewinformation)
+    * ReviewStatus
+    * SchemaVersion
+    * Sha1
+    * Status
+    * StatusInformation
+    * Tags
+      * items [Tag](#tag)
+    * TargetType
+    * VersionName
 
 ### CreateMaintenanceWindowRequest
 * CreateMaintenanceWindowRequest `object`
-  * AllowUnassociatedTargets **required** [MaintenanceWindowAllowUnassociatedTargets](#maintenancewindowallowunassociatedtargets)
-  * ClientToken [ClientToken](#clienttoken)
-  * Cutoff **required** [MaintenanceWindowCutoff](#maintenancewindowcutoff)
-  * Description [MaintenanceWindowDescription](#maintenancewindowdescription)
-  * Duration **required** [MaintenanceWindowDurationHours](#maintenancewindowdurationhours)
-  * Name **required** [MaintenanceWindowName](#maintenancewindowname)
-  * Schedule **required** [MaintenanceWindowSchedule](#maintenancewindowschedule)
+  * AllowUnassociatedTargets **required**
+  * ClientToken
+  * Cutoff **required**
+  * Description
+  * Duration **required**
+  * EndDate
+  * Name **required**
+  * Schedule **required**
+  * ScheduleOffset
+  * ScheduleTimezone
+  * StartDate
+  * Tags
+    * items [Tag](#tag)
 
 ### CreateMaintenanceWindowResult
 * CreateMaintenanceWindowResult `object`
-  * WindowId [MaintenanceWindowId](#maintenancewindowid)
+  * WindowId
+
+### CreateOpsItemRequest
+* CreateOpsItemRequest `object`
+  * ActualEndTime
+  * ActualStartTime
+  * Category
+  * Description **required**
+  * Notifications
+    * items [OpsItemNotification](#opsitemnotification)
+  * OperationalData
+  * OpsItemType
+  * PlannedEndTime
+  * PlannedStartTime
+  * Priority
+  * RelatedOpsItems
+    * items [RelatedOpsItem](#relatedopsitem)
+  * Severity
+  * Source **required**
+  * Tags
+    * items [Tag](#tag)
+  * Title **required**
+
+### CreateOpsItemResponse
+* CreateOpsItemResponse `object`
+  * OpsItemId
+
+### CreateOpsMetadataRequest
+* CreateOpsMetadataRequest `object`
+  * Metadata
+  * ResourceId **required**
+
+### CreateOpsMetadataResult
+* CreateOpsMetadataResult `object`
+  * OpsMetadataArn
 
 ### CreatePatchBaselineRequest
 * CreatePatchBaselineRequest `object`
-  * ApprovalRules [PatchRuleGroup](#patchrulegroup)
-  * ApprovedPatches [PatchIdList](#patchidlist)
-  * ApprovedPatchesComplianceLevel [PatchComplianceLevel](#patchcompliancelevel)
-  * ApprovedPatchesEnableNonSecurity [Boolean](#boolean)
-  * ClientToken [ClientToken](#clienttoken)
-  * Description [BaselineDescription](#baselinedescription)
-  * GlobalFilters [PatchFilterGroup](#patchfiltergroup)
-  * Name **required** [BaselineName](#baselinename)
-  * OperatingSystem [OperatingSystem](#operatingsystem)
-  * RejectedPatches [PatchIdList](#patchidlist)
-  * Sources [PatchSourceList](#patchsourcelist)
+  * ApprovalRules
+    * PatchRules **required**
+      * items [PatchRule](#patchrule)
+  * ApprovedPatches
+    * items [PatchId](#patchid)
+  * ApprovedPatchesComplianceLevel
+  * ApprovedPatchesEnableNonSecurity
+  * ClientToken
+  * Description
+  * GlobalFilters
+    * PatchFilters **required**
+      * items [PatchFilter](#patchfilter)
+  * Name **required**
+  * OperatingSystem
+  * RejectedPatches
+    * items [PatchId](#patchid)
+  * RejectedPatchesAction
+  * Sources
+    * items [PatchSource](#patchsource)
+  * Tags
+    * items [Tag](#tag)
 
 ### CreatePatchBaselineResult
 * CreatePatchBaselineResult `object`
-  * BaselineId [BaselineId](#baselineid)
+  * BaselineId
 
 ### CreateResourceDataSyncRequest
 * CreateResourceDataSyncRequest `object`
-  * S3Destination **required** [ResourceDataSyncS3Destination](#resourcedatasyncs3destination)
-  * SyncName **required** [ResourceDataSyncName](#resourcedatasyncname)
+  * S3Destination
+    * AWSKMSKeyARN
+    * BucketName **required**
+    * DestinationDataSharing
+      * DestinationDataSharingType
+    * Prefix
+    * Region **required**
+    * SyncFormat **required**
+  * SyncName **required**
+  * SyncSource
+    * AwsOrganizationsSource
+      * OrganizationSourceType **required**
+      * OrganizationalUnits
+        * items [ResourceDataSyncOrganizationalUnit](#resourcedatasyncorganizationalunit)
+    * IncludeFutureRegions
+    * SourceRegions **required**
+      * items [ResourceDataSyncSourceRegion](#resourcedatasyncsourceregion)
+    * SourceType **required**
+  * SyncType
 
 ### CreateResourceDataSyncResult
 * CreateResourceDataSyncResult `object`
@@ -2696,8 +4139,7 @@ amazonaws_ssm.UpdatePatchBaseline({
 * CreatedDate `string`
 
 ### CustomSchemaCountLimitExceededException
-* CustomSchemaCountLimitExceededException `object`: You have exceeded the limit for custom schemas. Delete one or more custom schemas and try again.
-  * Message [String](#string)
+
 
 ### DateTime
 * DateTime `string`
@@ -2710,121 +4152,143 @@ amazonaws_ssm.UpdatePatchBaseline({
 
 ### DeleteActivationRequest
 * DeleteActivationRequest `object`
-  * ActivationId **required** [ActivationId](#activationid)
+  * ActivationId **required**
 
 ### DeleteActivationResult
 * DeleteActivationResult `object`
 
 ### DeleteAssociationRequest
 * DeleteAssociationRequest `object`
-  * AssociationId [AssociationId](#associationid)
-  * InstanceId [InstanceId](#instanceid)
-  * Name [DocumentName](#documentname)
+  * AssociationId
+  * InstanceId
+  * Name
 
 ### DeleteAssociationResult
 * DeleteAssociationResult `object`
 
 ### DeleteDocumentRequest
 * DeleteDocumentRequest `object`
-  * Name **required** [DocumentName](#documentname)
+  * DocumentVersion
+  * Force
+  * Name **required**
+  * VersionName
 
 ### DeleteDocumentResult
 * DeleteDocumentResult `object`
 
 ### DeleteInventoryRequest
 * DeleteInventoryRequest `object`
-  * ClientToken [ClientToken](#clienttoken)
-  * DryRun [DryRun](#dryrun)
-  * SchemaDeleteOption [InventorySchemaDeleteOption](#inventoryschemadeleteoption)
-  * TypeName **required** [InventoryItemTypeName](#inventoryitemtypename)
+  * ClientToken
+  * DryRun
+  * SchemaDeleteOption
+  * TypeName **required**
 
 ### DeleteInventoryResult
 * DeleteInventoryResult `object`
-  * DeletionId [InventoryDeletionId](#inventorydeletionid)
-  * DeletionSummary [InventoryDeletionSummary](#inventorydeletionsummary)
-  * TypeName [InventoryItemTypeName](#inventoryitemtypename)
+  * DeletionId
+  * DeletionSummary
+    * RemainingCount
+    * SummaryItems
+      * items [InventoryDeletionSummaryItem](#inventorydeletionsummaryitem)
+    * TotalCount
+  * TypeName
 
 ### DeleteMaintenanceWindowRequest
 * DeleteMaintenanceWindowRequest `object`
-  * WindowId **required** [MaintenanceWindowId](#maintenancewindowid)
+  * WindowId **required**
 
 ### DeleteMaintenanceWindowResult
 * DeleteMaintenanceWindowResult `object`
-  * WindowId [MaintenanceWindowId](#maintenancewindowid)
+  * WindowId
+
+### DeleteOpsMetadataRequest
+* DeleteOpsMetadataRequest `object`
+  * OpsMetadataArn **required**
+
+### DeleteOpsMetadataResult
+* DeleteOpsMetadataResult `object`
 
 ### DeleteParameterRequest
 * DeleteParameterRequest `object`
-  * Name **required** [PSParameterName](#psparametername)
+  * Name **required**
 
 ### DeleteParameterResult
 * DeleteParameterResult `object`
 
 ### DeleteParametersRequest
 * DeleteParametersRequest `object`
-  * Names **required** [ParameterNameList](#parameternamelist)
+  * Names **required**
+    * items [PSParameterName](#psparametername)
 
 ### DeleteParametersResult
 * DeleteParametersResult `object`
-  * DeletedParameters [ParameterNameList](#parameternamelist)
-  * InvalidParameters [ParameterNameList](#parameternamelist)
+  * DeletedParameters
+    * items [PSParameterName](#psparametername)
+  * InvalidParameters
+    * items [PSParameterName](#psparametername)
 
 ### DeletePatchBaselineRequest
 * DeletePatchBaselineRequest `object`
-  * BaselineId **required** [BaselineId](#baselineid)
+  * BaselineId **required**
 
 ### DeletePatchBaselineResult
 * DeletePatchBaselineResult `object`
-  * BaselineId [BaselineId](#baselineid)
+  * BaselineId
 
 ### DeleteResourceDataSyncRequest
 * DeleteResourceDataSyncRequest `object`
-  * SyncName **required** [ResourceDataSyncName](#resourcedatasyncname)
+  * SyncName **required**
+  * SyncType
 
 ### DeleteResourceDataSyncResult
 * DeleteResourceDataSyncResult `object`
 
+### DeliveryTimedOutCount
+* DeliveryTimedOutCount `integer`
+
 ### DeregisterManagedInstanceRequest
 * DeregisterManagedInstanceRequest `object`
-  * InstanceId **required** [ManagedInstanceId](#managedinstanceid)
+  * InstanceId **required**
 
 ### DeregisterManagedInstanceResult
 * DeregisterManagedInstanceResult `object`
 
 ### DeregisterPatchBaselineForPatchGroupRequest
 * DeregisterPatchBaselineForPatchGroupRequest `object`
-  * BaselineId **required** [BaselineId](#baselineid)
-  * PatchGroup **required** [PatchGroup](#patchgroup)
+  * BaselineId **required**
+  * PatchGroup **required**
 
 ### DeregisterPatchBaselineForPatchGroupResult
 * DeregisterPatchBaselineForPatchGroupResult `object`
-  * BaselineId [BaselineId](#baselineid)
-  * PatchGroup [PatchGroup](#patchgroup)
+  * BaselineId
+  * PatchGroup
 
 ### DeregisterTargetFromMaintenanceWindowRequest
 * DeregisterTargetFromMaintenanceWindowRequest `object`
-  * Safe [Boolean](#boolean)
-  * WindowId **required** [MaintenanceWindowId](#maintenancewindowid)
-  * WindowTargetId **required** [MaintenanceWindowTargetId](#maintenancewindowtargetid)
+  * Safe
+  * WindowId **required**
+  * WindowTargetId **required**
 
 ### DeregisterTargetFromMaintenanceWindowResult
 * DeregisterTargetFromMaintenanceWindowResult `object`
-  * WindowId [MaintenanceWindowId](#maintenancewindowid)
-  * WindowTargetId [MaintenanceWindowTargetId](#maintenancewindowtargetid)
+  * WindowId
+  * WindowTargetId
 
 ### DeregisterTaskFromMaintenanceWindowRequest
 * DeregisterTaskFromMaintenanceWindowRequest `object`
-  * WindowId **required** [MaintenanceWindowId](#maintenancewindowid)
-  * WindowTaskId **required** [MaintenanceWindowTaskId](#maintenancewindowtaskid)
+  * WindowId **required**
+  * WindowTaskId **required**
 
 ### DeregisterTaskFromMaintenanceWindowResult
 * DeregisterTaskFromMaintenanceWindowResult `object`
-  * WindowId [MaintenanceWindowId](#maintenancewindowid)
-  * WindowTaskId [MaintenanceWindowTaskId](#maintenancewindowtaskid)
+  * WindowId
+  * WindowTaskId
 
 ### DescribeActivationsFilter
 * DescribeActivationsFilter `object`: Filter for the DescribeActivation API.
-  * FilterKey [DescribeActivationsFilterKeys](#describeactivationsfilterkeys)
-  * FilterValues [StringList](#stringlist)
+  * FilterKey
+  * FilterValues
+    * items [String](#string)
 
 ### DescribeActivationsFilterKeys
 * DescribeActivationsFilterKeys `string` (values: ActivationIds, DefaultInstanceName, IamRole)
@@ -2835,288 +4299,505 @@ amazonaws_ssm.UpdatePatchBaseline({
 
 ### DescribeActivationsRequest
 * DescribeActivationsRequest `object`
-  * Filters [DescribeActivationsFilterList](#describeactivationsfilterlist)
-  * MaxResults [MaxResults](#maxresults)
-  * NextToken [NextToken](#nexttoken)
+  * Filters
+    * items [DescribeActivationsFilter](#describeactivationsfilter)
+  * MaxResults
+  * NextToken
 
 ### DescribeActivationsResult
 * DescribeActivationsResult `object`
-  * ActivationList [ActivationList](#activationlist)
-  * NextToken [NextToken](#nexttoken)
+  * ActivationList
+    * items [Activation](#activation)
+  * NextToken
+
+### DescribeAssociationExecutionTargetsRequest
+* DescribeAssociationExecutionTargetsRequest `object`
+  * AssociationId **required**
+  * ExecutionId **required**
+  * Filters
+    * items [AssociationExecutionTargetsFilter](#associationexecutiontargetsfilter)
+  * MaxResults
+  * NextToken
+
+### DescribeAssociationExecutionTargetsResult
+* DescribeAssociationExecutionTargetsResult `object`
+  * AssociationExecutionTargets
+    * items [AssociationExecutionTarget](#associationexecutiontarget)
+  * NextToken
+
+### DescribeAssociationExecutionsRequest
+* DescribeAssociationExecutionsRequest `object`
+  * AssociationId **required**
+  * Filters
+    * items [AssociationExecutionFilter](#associationexecutionfilter)
+  * MaxResults
+  * NextToken
+
+### DescribeAssociationExecutionsResult
+* DescribeAssociationExecutionsResult `object`
+  * AssociationExecutions
+    * items [AssociationExecution](#associationexecution)
+  * NextToken
 
 ### DescribeAssociationRequest
 * DescribeAssociationRequest `object`
-  * AssociationId [AssociationId](#associationid)
-  * AssociationVersion [AssociationVersion](#associationversion)
-  * InstanceId [InstanceId](#instanceid)
-  * Name [DocumentName](#documentname)
+  * AssociationId
+  * AssociationVersion
+  * InstanceId
+  * Name
 
 ### DescribeAssociationResult
 * DescribeAssociationResult `object`
-  * AssociationDescription [AssociationDescription](#associationdescription)
+  * AssociationDescription
+    * ApplyOnlyAtCronInterval
+    * AssociationId
+    * AssociationName
+    * AssociationVersion
+    * AutomationTargetParameterName
+    * ComplianceSeverity
+    * Date
+    * DocumentVersion
+    * InstanceId
+    * LastExecutionDate
+    * LastSuccessfulExecutionDate
+    * LastUpdateAssociationDate
+    * MaxConcurrency
+    * MaxErrors
+    * Name
+    * OutputLocation
+      * S3Location
+        * OutputS3BucketName
+        * OutputS3KeyPrefix
+        * OutputS3Region
+    * Overview
+      * AssociationStatusAggregatedCount
+      * DetailedStatus
+      * Status
+    * Parameters
+    * ScheduleExpression
+    * Status
+      * AdditionalInfo
+      * Date **required**
+      * Message **required**
+      * Name **required**
+    * SyncCompliance
+    * TargetLocations
+      * items [TargetLocation](#targetlocation)
+    * Targets
+      * items [Target](#target)
 
 ### DescribeAutomationExecutionsRequest
 * DescribeAutomationExecutionsRequest `object`
-  * Filters [AutomationExecutionFilterList](#automationexecutionfilterlist)
-  * MaxResults [MaxResults](#maxresults)
-  * NextToken [NextToken](#nexttoken)
+  * Filters
+    * items [AutomationExecutionFilter](#automationexecutionfilter)
+  * MaxResults
+  * NextToken
 
 ### DescribeAutomationExecutionsResult
 * DescribeAutomationExecutionsResult `object`
-  * AutomationExecutionMetadataList [AutomationExecutionMetadataList](#automationexecutionmetadatalist)
-  * NextToken [NextToken](#nexttoken)
+  * AutomationExecutionMetadataList
+    * items [AutomationExecutionMetadata](#automationexecutionmetadata)
+  * NextToken
 
 ### DescribeAutomationStepExecutionsRequest
 * DescribeAutomationStepExecutionsRequest `object`
-  * AutomationExecutionId **required** [AutomationExecutionId](#automationexecutionid)
-  * Filters [StepExecutionFilterList](#stepexecutionfilterlist)
-  * MaxResults [MaxResults](#maxresults)
-  * NextToken [NextToken](#nexttoken)
-  * ReverseOrder [Boolean](#boolean)
+  * AutomationExecutionId **required**
+  * Filters
+    * items [StepExecutionFilter](#stepexecutionfilter)
+  * MaxResults
+  * NextToken
+  * ReverseOrder
 
 ### DescribeAutomationStepExecutionsResult
 * DescribeAutomationStepExecutionsResult `object`
-  * NextToken [NextToken](#nexttoken)
-  * StepExecutions [StepExecutionList](#stepexecutionlist)
+  * NextToken
+  * StepExecutions
+    * items [StepExecution](#stepexecution)
 
 ### DescribeAvailablePatchesRequest
 * DescribeAvailablePatchesRequest `object`
-  * Filters [PatchOrchestratorFilterList](#patchorchestratorfilterlist)
-  * MaxResults [PatchBaselineMaxResults](#patchbaselinemaxresults)
-  * NextToken [NextToken](#nexttoken)
+  * Filters
+    * items [PatchOrchestratorFilter](#patchorchestratorfilter)
+  * MaxResults
+  * NextToken
 
 ### DescribeAvailablePatchesResult
 * DescribeAvailablePatchesResult `object`
-  * NextToken [NextToken](#nexttoken)
-  * Patches [PatchList](#patchlist)
+  * NextToken
+  * Patches
+    * items [Patch](#patch)
 
 ### DescribeDocumentPermissionRequest
 * DescribeDocumentPermissionRequest `object`
-  * Name **required** [DocumentName](#documentname)
-  * PermissionType **required** [DocumentPermissionType](#documentpermissiontype)
+  * Name **required**
+  * PermissionType **required**
 
 ### DescribeDocumentPermissionResponse
 * DescribeDocumentPermissionResponse `object`
-  * AccountIds [AccountIdList](#accountidlist)
+  * AccountIds
+    * items [AccountId](#accountid)
+  * AccountSharingInfoList
+    * items [AccountSharingInfo](#accountsharinginfo)
 
 ### DescribeDocumentRequest
 * DescribeDocumentRequest `object`
-  * DocumentVersion [DocumentVersion](#documentversion)
-  * Name **required** [DocumentARN](#documentarn)
+  * DocumentVersion
+  * Name **required**
+  * VersionName
 
 ### DescribeDocumentResult
 * DescribeDocumentResult `object`
-  * Document [DocumentDescription](#documentdescription)
+  * Document
+    * ApprovedVersion
+    * AttachmentsInformation
+      * items [AttachmentInformation](#attachmentinformation)
+    * Author
+    * CreatedDate
+    * DefaultVersion
+    * Description
+    * DocumentFormat
+    * DocumentType
+    * DocumentVersion
+    * Hash
+    * HashType
+    * LatestVersion
+    * Name
+    * Owner
+    * Parameters
+      * items [DocumentParameter](#documentparameter)
+    * PendingReviewVersion
+    * PlatformTypes
+      * items [PlatformType](#platformtype)
+    * Requires
+      * items [DocumentRequires](#documentrequires)
+    * ReviewInformation
+      * items [ReviewInformation](#reviewinformation)
+    * ReviewStatus
+    * SchemaVersion
+    * Sha1
+    * Status
+    * StatusInformation
+    * Tags
+      * items [Tag](#tag)
+    * TargetType
+    * VersionName
 
 ### DescribeEffectiveInstanceAssociationsRequest
 * DescribeEffectiveInstanceAssociationsRequest `object`
-  * InstanceId **required** [InstanceId](#instanceid)
-  * MaxResults [EffectiveInstanceAssociationMaxResults](#effectiveinstanceassociationmaxresults)
-  * NextToken [NextToken](#nexttoken)
+  * InstanceId **required**
+  * MaxResults
+  * NextToken
 
 ### DescribeEffectiveInstanceAssociationsResult
 * DescribeEffectiveInstanceAssociationsResult `object`
-  * Associations [InstanceAssociationList](#instanceassociationlist)
-  * NextToken [NextToken](#nexttoken)
+  * Associations
+    * items [InstanceAssociation](#instanceassociation)
+  * NextToken
 
 ### DescribeEffectivePatchesForPatchBaselineRequest
 * DescribeEffectivePatchesForPatchBaselineRequest `object`
-  * BaselineId **required** [BaselineId](#baselineid)
-  * MaxResults [PatchBaselineMaxResults](#patchbaselinemaxresults)
-  * NextToken [NextToken](#nexttoken)
+  * BaselineId **required**
+  * MaxResults
+  * NextToken
 
 ### DescribeEffectivePatchesForPatchBaselineResult
 * DescribeEffectivePatchesForPatchBaselineResult `object`
-  * EffectivePatches [EffectivePatchList](#effectivepatchlist)
-  * NextToken [NextToken](#nexttoken)
+  * EffectivePatches
+    * items [EffectivePatch](#effectivepatch)
+  * NextToken
 
 ### DescribeInstanceAssociationsStatusRequest
 * DescribeInstanceAssociationsStatusRequest `object`
-  * InstanceId **required** [InstanceId](#instanceid)
-  * MaxResults [MaxResults](#maxresults)
-  * NextToken [NextToken](#nexttoken)
+  * InstanceId **required**
+  * MaxResults
+  * NextToken
 
 ### DescribeInstanceAssociationsStatusResult
 * DescribeInstanceAssociationsStatusResult `object`
-  * InstanceAssociationStatusInfos [InstanceAssociationStatusInfos](#instanceassociationstatusinfos)
-  * NextToken [NextToken](#nexttoken)
+  * InstanceAssociationStatusInfos
+    * items [InstanceAssociationStatusInfo](#instanceassociationstatusinfo)
+  * NextToken
 
 ### DescribeInstanceInformationRequest
 * DescribeInstanceInformationRequest `object`
-  * Filters [InstanceInformationStringFilterList](#instanceinformationstringfilterlist)
-  * InstanceInformationFilterList [InstanceInformationFilterList](#instanceinformationfilterlist)
-  * MaxResults [MaxResultsEC2Compatible](#maxresultsec2compatible)
-  * NextToken [NextToken](#nexttoken)
+  * Filters
+    * items [InstanceInformationStringFilter](#instanceinformationstringfilter)
+  * InstanceInformationFilterList
+    * items [InstanceInformationFilter](#instanceinformationfilter)
+  * MaxResults
+  * NextToken
 
 ### DescribeInstanceInformationResult
 * DescribeInstanceInformationResult `object`
-  * InstanceInformationList [InstanceInformationList](#instanceinformationlist)
-  * NextToken [NextToken](#nexttoken)
+  * InstanceInformationList
+    * items [InstanceInformation](#instanceinformation)
+  * NextToken
 
 ### DescribeInstancePatchStatesForPatchGroupRequest
 * DescribeInstancePatchStatesForPatchGroupRequest `object`
-  * Filters [InstancePatchStateFilterList](#instancepatchstatefilterlist)
-  * MaxResults [PatchComplianceMaxResults](#patchcompliancemaxresults)
-  * NextToken [NextToken](#nexttoken)
-  * PatchGroup **required** [PatchGroup](#patchgroup)
+  * Filters
+    * items [InstancePatchStateFilter](#instancepatchstatefilter)
+  * MaxResults
+  * NextToken
+  * PatchGroup **required**
 
 ### DescribeInstancePatchStatesForPatchGroupResult
 * DescribeInstancePatchStatesForPatchGroupResult `object`
-  * InstancePatchStates [InstancePatchStatesList](#instancepatchstateslist)
-  * NextToken [NextToken](#nexttoken)
+  * InstancePatchStates
+    * items [InstancePatchState](#instancepatchstate)
+  * NextToken
 
 ### DescribeInstancePatchStatesRequest
 * DescribeInstancePatchStatesRequest `object`
-  * InstanceIds **required** [InstanceIdList](#instanceidlist)
-  * MaxResults [PatchComplianceMaxResults](#patchcompliancemaxresults)
-  * NextToken [NextToken](#nexttoken)
+  * InstanceIds **required**
+    * items [InstanceId](#instanceid)
+  * MaxResults
+  * NextToken
 
 ### DescribeInstancePatchStatesResult
 * DescribeInstancePatchStatesResult `object`
-  * InstancePatchStates [InstancePatchStateList](#instancepatchstatelist)
-  * NextToken [NextToken](#nexttoken)
+  * InstancePatchStates
+    * items [InstancePatchState](#instancepatchstate)
+  * NextToken
 
 ### DescribeInstancePatchesRequest
 * DescribeInstancePatchesRequest `object`
-  * Filters [PatchOrchestratorFilterList](#patchorchestratorfilterlist)
-  * InstanceId **required** [InstanceId](#instanceid)
-  * MaxResults [PatchComplianceMaxResults](#patchcompliancemaxresults)
-  * NextToken [NextToken](#nexttoken)
+  * Filters
+    * items [PatchOrchestratorFilter](#patchorchestratorfilter)
+  * InstanceId **required**
+  * MaxResults
+  * NextToken
 
 ### DescribeInstancePatchesResult
 * DescribeInstancePatchesResult `object`
-  * NextToken [NextToken](#nexttoken)
-  * Patches [PatchComplianceDataList](#patchcompliancedatalist)
+  * NextToken
+  * Patches
+    * items [PatchComplianceData](#patchcompliancedata)
 
 ### DescribeInventoryDeletionsRequest
 * DescribeInventoryDeletionsRequest `object`
-  * DeletionId [InventoryDeletionId](#inventorydeletionid)
-  * MaxResults [MaxResults](#maxresults)
-  * NextToken [NextToken](#nexttoken)
+  * DeletionId
+  * MaxResults
+  * NextToken
 
 ### DescribeInventoryDeletionsResult
 * DescribeInventoryDeletionsResult `object`
-  * InventoryDeletions [InventoryDeletionsList](#inventorydeletionslist)
-  * NextToken [NextToken](#nexttoken)
+  * InventoryDeletions
+    * items [InventoryDeletionStatusItem](#inventorydeletionstatusitem)
+  * NextToken
 
 ### DescribeMaintenanceWindowExecutionTaskInvocationsRequest
 * DescribeMaintenanceWindowExecutionTaskInvocationsRequest `object`
-  * Filters [MaintenanceWindowFilterList](#maintenancewindowfilterlist)
-  * MaxResults [MaintenanceWindowMaxResults](#maintenancewindowmaxresults)
-  * NextToken [NextToken](#nexttoken)
-  * TaskId **required** [MaintenanceWindowExecutionTaskId](#maintenancewindowexecutiontaskid)
-  * WindowExecutionId **required** [MaintenanceWindowExecutionId](#maintenancewindowexecutionid)
+  * Filters
+    * items [MaintenanceWindowFilter](#maintenancewindowfilter)
+  * MaxResults
+  * NextToken
+  * TaskId **required**
+  * WindowExecutionId **required**
 
 ### DescribeMaintenanceWindowExecutionTaskInvocationsResult
 * DescribeMaintenanceWindowExecutionTaskInvocationsResult `object`
-  * NextToken [NextToken](#nexttoken)
-  * WindowExecutionTaskInvocationIdentities [MaintenanceWindowExecutionTaskInvocationIdentityList](#maintenancewindowexecutiontaskinvocationidentitylist)
+  * NextToken
+  * WindowExecutionTaskInvocationIdentities
+    * items [MaintenanceWindowExecutionTaskInvocationIdentity](#maintenancewindowexecutiontaskinvocationidentity)
 
 ### DescribeMaintenanceWindowExecutionTasksRequest
 * DescribeMaintenanceWindowExecutionTasksRequest `object`
-  * Filters [MaintenanceWindowFilterList](#maintenancewindowfilterlist)
-  * MaxResults [MaintenanceWindowMaxResults](#maintenancewindowmaxresults)
-  * NextToken [NextToken](#nexttoken)
-  * WindowExecutionId **required** [MaintenanceWindowExecutionId](#maintenancewindowexecutionid)
+  * Filters
+    * items [MaintenanceWindowFilter](#maintenancewindowfilter)
+  * MaxResults
+  * NextToken
+  * WindowExecutionId **required**
 
 ### DescribeMaintenanceWindowExecutionTasksResult
 * DescribeMaintenanceWindowExecutionTasksResult `object`
-  * NextToken [NextToken](#nexttoken)
-  * WindowExecutionTaskIdentities [MaintenanceWindowExecutionTaskIdentityList](#maintenancewindowexecutiontaskidentitylist)
+  * NextToken
+  * WindowExecutionTaskIdentities
+    * items [MaintenanceWindowExecutionTaskIdentity](#maintenancewindowexecutiontaskidentity)
 
 ### DescribeMaintenanceWindowExecutionsRequest
 * DescribeMaintenanceWindowExecutionsRequest `object`
-  * Filters [MaintenanceWindowFilterList](#maintenancewindowfilterlist)
-  * MaxResults [MaintenanceWindowMaxResults](#maintenancewindowmaxresults)
-  * NextToken [NextToken](#nexttoken)
-  * WindowId **required** [MaintenanceWindowId](#maintenancewindowid)
+  * Filters
+    * items [MaintenanceWindowFilter](#maintenancewindowfilter)
+  * MaxResults
+  * NextToken
+  * WindowId **required**
 
 ### DescribeMaintenanceWindowExecutionsResult
 * DescribeMaintenanceWindowExecutionsResult `object`
-  * NextToken [NextToken](#nexttoken)
-  * WindowExecutions [MaintenanceWindowExecutionList](#maintenancewindowexecutionlist)
+  * NextToken
+  * WindowExecutions
+    * items [MaintenanceWindowExecution](#maintenancewindowexecution)
+
+### DescribeMaintenanceWindowScheduleRequest
+* DescribeMaintenanceWindowScheduleRequest `object`
+  * Filters
+    * items [PatchOrchestratorFilter](#patchorchestratorfilter)
+  * MaxResults
+  * NextToken
+  * ResourceType
+  * Targets
+    * items [Target](#target)
+  * WindowId
+
+### DescribeMaintenanceWindowScheduleResult
+* DescribeMaintenanceWindowScheduleResult `object`
+  * NextToken
+  * ScheduledWindowExecutions
+    * items [ScheduledWindowExecution](#scheduledwindowexecution)
 
 ### DescribeMaintenanceWindowTargetsRequest
 * DescribeMaintenanceWindowTargetsRequest `object`
-  * Filters [MaintenanceWindowFilterList](#maintenancewindowfilterlist)
-  * MaxResults [MaintenanceWindowMaxResults](#maintenancewindowmaxresults)
-  * NextToken [NextToken](#nexttoken)
-  * WindowId **required** [MaintenanceWindowId](#maintenancewindowid)
+  * Filters
+    * items [MaintenanceWindowFilter](#maintenancewindowfilter)
+  * MaxResults
+  * NextToken
+  * WindowId **required**
 
 ### DescribeMaintenanceWindowTargetsResult
 * DescribeMaintenanceWindowTargetsResult `object`
-  * NextToken [NextToken](#nexttoken)
-  * Targets [MaintenanceWindowTargetList](#maintenancewindowtargetlist)
+  * NextToken
+  * Targets
+    * items [MaintenanceWindowTarget](#maintenancewindowtarget)
 
 ### DescribeMaintenanceWindowTasksRequest
 * DescribeMaintenanceWindowTasksRequest `object`
-  * Filters [MaintenanceWindowFilterList](#maintenancewindowfilterlist)
-  * MaxResults [MaintenanceWindowMaxResults](#maintenancewindowmaxresults)
-  * NextToken [NextToken](#nexttoken)
-  * WindowId **required** [MaintenanceWindowId](#maintenancewindowid)
+  * Filters
+    * items [MaintenanceWindowFilter](#maintenancewindowfilter)
+  * MaxResults
+  * NextToken
+  * WindowId **required**
 
 ### DescribeMaintenanceWindowTasksResult
 * DescribeMaintenanceWindowTasksResult `object`
-  * NextToken [NextToken](#nexttoken)
-  * Tasks [MaintenanceWindowTaskList](#maintenancewindowtasklist)
+  * NextToken
+  * Tasks
+    * items [MaintenanceWindowTask](#maintenancewindowtask)
+
+### DescribeMaintenanceWindowsForTargetRequest
+* DescribeMaintenanceWindowsForTargetRequest `object`
+  * MaxResults
+  * NextToken
+  * ResourceType **required**
+  * Targets **required**
+    * items [Target](#target)
+
+### DescribeMaintenanceWindowsForTargetResult
+* DescribeMaintenanceWindowsForTargetResult `object`
+  * NextToken
+  * WindowIdentities
+    * items [MaintenanceWindowIdentityForTarget](#maintenancewindowidentityfortarget)
 
 ### DescribeMaintenanceWindowsRequest
 * DescribeMaintenanceWindowsRequest `object`
-  * Filters [MaintenanceWindowFilterList](#maintenancewindowfilterlist)
-  * MaxResults [MaintenanceWindowMaxResults](#maintenancewindowmaxresults)
-  * NextToken [NextToken](#nexttoken)
+  * Filters
+    * items [MaintenanceWindowFilter](#maintenancewindowfilter)
+  * MaxResults
+  * NextToken
 
 ### DescribeMaintenanceWindowsResult
 * DescribeMaintenanceWindowsResult `object`
-  * NextToken [NextToken](#nexttoken)
-  * WindowIdentities [MaintenanceWindowIdentityList](#maintenancewindowidentitylist)
+  * NextToken
+  * WindowIdentities
+    * items [MaintenanceWindowIdentity](#maintenancewindowidentity)
+
+### DescribeOpsItemsRequest
+* DescribeOpsItemsRequest `object`
+  * MaxResults
+  * NextToken
+  * OpsItemFilters
+    * items [OpsItemFilter](#opsitemfilter)
+
+### DescribeOpsItemsResponse
+* DescribeOpsItemsResponse `object`
+  * NextToken
+  * OpsItemSummaries
+    * items [OpsItemSummary](#opsitemsummary)
 
 ### DescribeParametersRequest
 * DescribeParametersRequest `object`
-  * Filters [ParametersFilterList](#parametersfilterlist)
-  * MaxResults [MaxResults](#maxresults)
-  * NextToken [NextToken](#nexttoken)
-  * ParameterFilters [ParameterStringFilterList](#parameterstringfilterlist)
+  * Filters
+    * items [ParametersFilter](#parametersfilter)
+  * MaxResults
+  * NextToken
+  * ParameterFilters
+    * items [ParameterStringFilter](#parameterstringfilter)
 
 ### DescribeParametersResult
 * DescribeParametersResult `object`
-  * NextToken [NextToken](#nexttoken)
-  * Parameters [ParameterMetadataList](#parametermetadatalist)
+  * NextToken
+  * Parameters
+    * items [ParameterMetadata](#parametermetadata)
 
 ### DescribePatchBaselinesRequest
 * DescribePatchBaselinesRequest `object`
-  * Filters [PatchOrchestratorFilterList](#patchorchestratorfilterlist)
-  * MaxResults [PatchBaselineMaxResults](#patchbaselinemaxresults)
-  * NextToken [NextToken](#nexttoken)
+  * Filters
+    * items [PatchOrchestratorFilter](#patchorchestratorfilter)
+  * MaxResults
+  * NextToken
 
 ### DescribePatchBaselinesResult
 * DescribePatchBaselinesResult `object`
-  * BaselineIdentities [PatchBaselineIdentityList](#patchbaselineidentitylist)
-  * NextToken [NextToken](#nexttoken)
+  * BaselineIdentities
+    * items [PatchBaselineIdentity](#patchbaselineidentity)
+  * NextToken
 
 ### DescribePatchGroupStateRequest
 * DescribePatchGroupStateRequest `object`
-  * PatchGroup **required** [PatchGroup](#patchgroup)
+  * PatchGroup **required**
 
 ### DescribePatchGroupStateResult
 * DescribePatchGroupStateResult `object`
-  * Instances [Integer](#integer)
-  * InstancesWithFailedPatches [Integer](#integer)
-  * InstancesWithInstalledOtherPatches [Integer](#integer)
-  * InstancesWithInstalledPatches [Integer](#integer)
-  * InstancesWithMissingPatches [Integer](#integer)
-  * InstancesWithNotApplicablePatches [Integer](#integer)
+  * Instances
+  * InstancesWithFailedPatches
+  * InstancesWithInstalledOtherPatches
+  * InstancesWithInstalledPatches
+  * InstancesWithInstalledPendingRebootPatches
+  * InstancesWithInstalledRejectedPatches
+  * InstancesWithMissingPatches
+  * InstancesWithNotApplicablePatches
+  * InstancesWithUnreportedNotApplicablePatches
 
 ### DescribePatchGroupsRequest
 * DescribePatchGroupsRequest `object`
-  * Filters [PatchOrchestratorFilterList](#patchorchestratorfilterlist)
-  * MaxResults [PatchBaselineMaxResults](#patchbaselinemaxresults)
-  * NextToken [NextToken](#nexttoken)
+  * Filters
+    * items [PatchOrchestratorFilter](#patchorchestratorfilter)
+  * MaxResults
+  * NextToken
 
 ### DescribePatchGroupsResult
 * DescribePatchGroupsResult `object`
-  * Mappings [PatchGroupPatchBaselineMappingList](#patchgrouppatchbaselinemappinglist)
-  * NextToken [NextToken](#nexttoken)
+  * Mappings
+    * items [PatchGroupPatchBaselineMapping](#patchgrouppatchbaselinemapping)
+  * NextToken
+
+### DescribePatchPropertiesRequest
+* DescribePatchPropertiesRequest `object`
+  * MaxResults
+  * NextToken
+  * OperatingSystem **required**
+  * PatchSet
+  * Property **required**
+
+### DescribePatchPropertiesResult
+* DescribePatchPropertiesResult `object`
+  * NextToken
+  * Properties
+    * items [PatchPropertyEntry](#patchpropertyentry)
+
+### DescribeSessionsRequest
+* DescribeSessionsRequest `object`
+  * Filters
+    * items [SessionFilter](#sessionfilter)
+  * MaxResults
+  * NextToken
+  * State **required**
+
+### DescribeSessionsResponse
+* DescribeSessionsResponse `object`
+  * NextToken
+  * Sessions
+    * items [Session](#session)
 
 ### DescriptionInDocument
 * DescriptionInDocument `string`
@@ -3125,42 +4806,60 @@ amazonaws_ssm.UpdatePatchBaseline({
 * DocumentARN `string`
 
 ### DocumentAlreadyExists
-* DocumentAlreadyExists `object`: The specified document already exists.
-  * Message [String](#string)
+
+
+### DocumentAuthor
+* DocumentAuthor `string`
 
 ### DocumentContent
 * DocumentContent `string`
 
 ### DocumentDefaultVersionDescription
 * DocumentDefaultVersionDescription `object`: A default version of a document.
-  * DefaultVersion [DocumentVersion](#documentversion)
-  * Name [DocumentName](#documentname)
+  * DefaultVersion
+  * DefaultVersionName
+  * Name
 
 ### DocumentDescription
 * DocumentDescription `object`: Describes a Systems Manager document. 
-  * CreatedDate [DateTime](#datetime)
-  * DefaultVersion [DocumentVersion](#documentversion)
-  * Description [DescriptionInDocument](#descriptionindocument)
-  * DocumentFormat [DocumentFormat](#documentformat)
-  * DocumentType [DocumentType](#documenttype)
-  * DocumentVersion [DocumentVersion](#documentversion)
-  * Hash [DocumentHash](#documenthash)
-  * HashType [DocumentHashType](#documenthashtype)
-  * LatestVersion [DocumentVersion](#documentversion)
-  * Name [DocumentARN](#documentarn)
-  * Owner [DocumentOwner](#documentowner)
-  * Parameters [DocumentParameterList](#documentparameterlist)
-  * PlatformTypes [PlatformTypeList](#platformtypelist)
-  * SchemaVersion [DocumentSchemaVersion](#documentschemaversion)
-  * Sha1 [DocumentSha1](#documentsha1)
-  * Status [DocumentStatus](#documentstatus)
-  * Tags [TagList](#taglist)
-  * TargetType [TargetType](#targettype)
+  * ApprovedVersion
+  * AttachmentsInformation
+    * items [AttachmentInformation](#attachmentinformation)
+  * Author
+  * CreatedDate
+  * DefaultVersion
+  * Description
+  * DocumentFormat
+  * DocumentType
+  * DocumentVersion
+  * Hash
+  * HashType
+  * LatestVersion
+  * Name
+  * Owner
+  * Parameters
+    * items [DocumentParameter](#documentparameter)
+  * PendingReviewVersion
+  * PlatformTypes
+    * items [PlatformType](#platformtype)
+  * Requires
+    * items [DocumentRequires](#documentrequires)
+  * ReviewInformation
+    * items [ReviewInformation](#reviewinformation)
+  * ReviewStatus
+  * SchemaVersion
+  * Sha1
+  * Status
+  * StatusInformation
+  * Tags
+    * items [Tag](#tag)
+  * TargetType
+  * VersionName
 
 ### DocumentFilter
-* DocumentFilter `object`: Describes a filter.
-  * key **required** [DocumentFilterKey](#documentfilterkey)
-  * value **required** [DocumentFilterValue](#documentfiltervalue)
+* DocumentFilter `object`: This data type is deprecated. Instead, use <a>DocumentKeyValuesFilter</a>.
+  * key **required**
+  * value **required**
 
 ### DocumentFilterKey
 * DocumentFilterKey `string` (values: Name, Owner, PlatformTypes, DocumentType)
@@ -3173,7 +4872,7 @@ amazonaws_ssm.UpdatePatchBaseline({
 * DocumentFilterValue `string`
 
 ### DocumentFormat
-* DocumentFormat `string` (values: YAML, JSON)
+* DocumentFormat `string` (values: YAML, JSON, TEXT)
 
 ### DocumentHash
 * DocumentHash `string`
@@ -3183,24 +4882,32 @@ amazonaws_ssm.UpdatePatchBaseline({
 
 ### DocumentIdentifier
 * DocumentIdentifier `object`: Describes the name of a Systems Manager document.
-  * DocumentFormat [DocumentFormat](#documentformat)
-  * DocumentType [DocumentType](#documenttype)
-  * DocumentVersion [DocumentVersion](#documentversion)
-  * Name [DocumentARN](#documentarn)
-  * Owner [DocumentOwner](#documentowner)
-  * PlatformTypes [PlatformTypeList](#platformtypelist)
-  * SchemaVersion [DocumentSchemaVersion](#documentschemaversion)
-  * Tags [TagList](#taglist)
-  * TargetType [TargetType](#targettype)
+  * Author
+  * DocumentFormat
+  * DocumentType
+  * DocumentVersion
+  * Name
+  * Owner
+  * PlatformTypes
+    * items [PlatformType](#platformtype)
+  * Requires
+    * items [DocumentRequires](#documentrequires)
+  * ReviewStatus
+  * SchemaVersion
+  * Tags
+    * items [Tag](#tag)
+  * TargetType
+  * VersionName
 
 ### DocumentIdentifierList
 * DocumentIdentifierList `array`
   * items [DocumentIdentifier](#documentidentifier)
 
 ### DocumentKeyValuesFilter
-* DocumentKeyValuesFilter `object`: <p>One or more filters. Use a filter to return a more specific list of documents.</p> <p>For keys, you can specify one or more tags that have been applied to a document. </p> <p>Other valid values include Owner, Name, PlatformTypes, and DocumentType.</p> <p>Note that only one Owner can be specified in a request. For example: <code>Key=Owner,Values=Self</code>.</p> <p>If you use Name as a key, you can use a name prefix to return a list of documents. For example, in the AWS CLI, to return a list of all documents that begin with <code>Te</code>, run the following command:</p> <p> <code>aws ssm list-documents --filters Key=Name,Values=Te</code> </p> <p>If you specify more than two keys, only documents that are identified by all the tags are returned in the results. If you specify more than two values for a key, documents that are identified by any of the values are returned in the results.</p> <p>To specify a custom key and value pair, use the format <code>Key=tag:[tagName],Values=[valueName]</code>.</p> <p>For example, if you created a Key called region and are using the AWS CLI to call the <code>list-documents</code> command: </p> <p> <code>aws ssm list-documents --filters Key=tag:region,Values=east,west Key=Owner,Values=Self</code> </p>
-  * Key [DocumentKeyValuesFilterKey](#documentkeyvaluesfilterkey)
-  * Values [DocumentKeyValuesFilterValues](#documentkeyvaluesfiltervalues)
+* DocumentKeyValuesFilter `object`: <p>One or more filters. Use a filter to return a more specific list of documents.</p> <p>For keys, you can specify one or more tags that have been applied to a document. </p> <p>You can also use AWS-provided keys, some of which have specific allowed values. These keys and their associated values are as follows:</p> <dl> <dt>DocumentType</dt> <dd> <ul> <li> <p>ApplicationConfiguration</p> </li> <li> <p>ApplicationConfigurationSchema</p> </li> <li> <p>Automation</p> </li> <li> <p>ChangeCalendar</p> </li> <li> <p>Command</p> </li> <li> <p>DeploymentStrategy</p> </li> <li> <p>Package</p> </li> <li> <p>Policy</p> </li> <li> <p>Session</p> </li> </ul> </dd> <dt>Owner</dt> <dd> <p>Note that only one <code>Owner</code> can be specified in a request. For example: <code>Key=Owner,Values=Self</code>.</p> <ul> <li> <p>Amazon</p> </li> <li> <p>Private</p> </li> <li> <p>Public</p> </li> <li> <p>Self</p> </li> <li> <p>ThirdParty</p> </li> </ul> </dd> <dt>PlatformTypes</dt> <dd> <ul> <li> <p>Linux</p> </li> <li> <p>Windows</p> </li> </ul> </dd> </dl> <p> <code>Name</code> is another AWS-provided key. If you use <code>Name</code> as a key, you can use a name prefix to return a list of documents. For example, in the AWS CLI, to return a list of all documents that begin with <code>Te</code>, run the following command:</p> <p> <code>aws ssm list-documents --filters Key=Name,Values=Te</code> </p> <p>You can also use the <code>TargetType</code> AWS-provided key. For a list of valid resource type values that can be used with this key, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">AWS resource and property types reference</a> in the <i>AWS CloudFormation User Guide</i>.</p> <p>If you specify more than two keys, only documents that are identified by all the tags are returned in the results. If you specify more than two values for a key, documents that are identified by any of the values are returned in the results.</p> <p>To specify a custom key and value pair, use the format <code>Key=tag:tagName,Values=valueName</code>.</p> <p>For example, if you created a key called region and are using the AWS CLI to call the <code>list-documents</code> command: </p> <p> <code>aws ssm list-documents --filters Key=tag:region,Values=east,west Key=Owner,Values=Self</code> </p>
+  * Key
+  * Values
+    * items [DocumentKeyValuesFilterValue](#documentkeyvaluesfiltervalue)
 
 ### DocumentKeyValuesFilterKey
 * DocumentKeyValuesFilterKey `string`
@@ -3217,8 +4924,15 @@ amazonaws_ssm.UpdatePatchBaseline({
   * items [DocumentKeyValuesFilterValue](#documentkeyvaluesfiltervalue)
 
 ### DocumentLimitExceeded
-* DocumentLimitExceeded `object`: You can have at most 200 active Systems Manager documents.
-  * Message [String](#string)
+
+
+### DocumentMetadataEnum
+* DocumentMetadataEnum `string` (values: DocumentReviews)
+
+### DocumentMetadataResponseInfo
+* DocumentMetadataResponseInfo `object`: Details about the response to a document review request.
+  * ReviewerResponse
+    * items [DocumentReviewerResponseSource](#documentreviewerresponsesource)
 
 ### DocumentName
 * DocumentName `string`
@@ -3227,11 +4941,11 @@ amazonaws_ssm.UpdatePatchBaseline({
 * DocumentOwner `string`
 
 ### DocumentParameter
-* DocumentParameter `object`: Parameters specified in a System Manager document that execute on the server when the command is run. 
-  * DefaultValue [DocumentParameterDefaultValue](#documentparameterdefaultvalue)
-  * Description [DocumentParameterDescrption](#documentparameterdescrption)
-  * Name [DocumentParameterName](#documentparametername)
-  * Type [DocumentParameterType](#documentparametertype)
+* DocumentParameter `object`: Parameters specified in a System Manager document that run on the server when the command is run. 
+  * DefaultValue
+  * Description
+  * Name
+  * Type
 
 ### DocumentParameterDefaultValue
 * DocumentParameterDefaultValue `string`
@@ -3250,11 +4964,56 @@ amazonaws_ssm.UpdatePatchBaseline({
 * DocumentParameterType `string` (values: String, StringList)
 
 ### DocumentPermissionLimit
-* DocumentPermissionLimit `object`: The document cannot be shared with more AWS user accounts. You can share a document with a maximum of 20 accounts. You can publicly share up to five documents. If you need to increase this limit, contact AWS Support.
-  * Message [String](#string)
+
 
 ### DocumentPermissionType
 * DocumentPermissionType `string` (values: Share)
+
+### DocumentRequires
+* DocumentRequires `object`: An SSM document required by the current document.
+  * Name **required**
+  * Version
+
+### DocumentRequiresList
+* DocumentRequiresList `array`
+  * items [DocumentRequires](#documentrequires)
+
+### DocumentReviewAction
+* DocumentReviewAction `string` (values: SendForReview, UpdateReview, Approve, Reject)
+
+### DocumentReviewComment
+* DocumentReviewComment `string`
+
+### DocumentReviewCommentList
+* DocumentReviewCommentList `array`
+  * items [DocumentReviewCommentSource](#documentreviewcommentsource)
+
+### DocumentReviewCommentSource
+* DocumentReviewCommentSource `object`: Information about comments added to a document review request.
+  * Content
+  * Type
+
+### DocumentReviewCommentType
+* DocumentReviewCommentType `string` (values: Comment)
+
+### DocumentReviewerResponseList
+* DocumentReviewerResponseList `array`
+  * items [DocumentReviewerResponseSource](#documentreviewerresponsesource)
+
+### DocumentReviewerResponseSource
+* DocumentReviewerResponseSource `object`: Information about a reviewer's response to a document review request.
+  * Comment
+    * items [DocumentReviewCommentSource](#documentreviewcommentsource)
+  * CreateTime
+  * ReviewStatus
+  * Reviewer
+  * UpdatedTime
+
+### DocumentReviews
+* DocumentReviews `object`: Information about a document approval review.
+  * Action **required**
+  * Comment
+    * items [DocumentReviewCommentSource](#documentreviewcommentsource)
 
 ### DocumentSchemaVersion
 * DocumentSchemaVersion `string`
@@ -3263,54 +5022,93 @@ amazonaws_ssm.UpdatePatchBaseline({
 * DocumentSha1 `string`
 
 ### DocumentStatus
-* DocumentStatus `string` (values: Creating, Active, Updating, Deleting)
+* DocumentStatus `string` (values: Creating, Active, Updating, Deleting, Failed): The status of a document.
+
+### DocumentStatusInformation
+* DocumentStatusInformation `string`
 
 ### DocumentType
-* DocumentType `string` (values: Command, Policy, Automation)
+* DocumentType `string` (values: Command, Policy, Automation, Session, Package, ApplicationConfiguration, ApplicationConfigurationSchema, DeploymentStrategy, ChangeCalendar, Automation.ChangeTemplate)
 
 ### DocumentVersion
 * DocumentVersion `string`
 
 ### DocumentVersionInfo
 * DocumentVersionInfo `object`: Version information about the document.
-  * CreatedDate [DateTime](#datetime)
-  * DocumentFormat [DocumentFormat](#documentformat)
-  * DocumentVersion [DocumentVersion](#documentversion)
-  * IsDefaultVersion [Boolean](#boolean)
-  * Name [DocumentName](#documentname)
+  * CreatedDate
+  * DocumentFormat
+  * DocumentVersion
+  * IsDefaultVersion
+  * Name
+  * ReviewStatus
+  * Status
+  * StatusInformation
+  * VersionName
 
 ### DocumentVersionLimitExceeded
-* DocumentVersionLimitExceeded `object`: The document has too many versions. Delete one or more document versions and try again.
-  * Message [String](#string)
+
 
 ### DocumentVersionList
 * DocumentVersionList `array`
   * items [DocumentVersionInfo](#documentversioninfo)
 
+### DocumentVersionName
+* DocumentVersionName `string`
+
 ### DocumentVersionNumber
 * DocumentVersionNumber `string`
 
 ### DoesNotExistException
-* DoesNotExistException `object`: <p>Error returned when the ID specified for a resource, such as a Maintenance Window or Patch baseline, doesn't exist.</p> <p>For information about resource limits in Systems Manager, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_ssm">AWS Systems Manager Limits</a>.</p>
-  * Message [String](#string)
+
 
 ### DryRun
 * DryRun `boolean`
 
 ### DuplicateDocumentContent
-* DuplicateDocumentContent `object`: The content of the association document matches another document. Change the content of the document and try again.
-  * Message [String](#string)
+
+
+### DuplicateDocumentVersionName
+
 
 ### DuplicateInstanceId
-* DuplicateInstanceId `object`: You cannot specify an instance ID in more than one association.
+
 
 ### EffectiveInstanceAssociationMaxResults
 * EffectiveInstanceAssociationMaxResults `integer`
 
 ### EffectivePatch
 * EffectivePatch `object`: The EffectivePatch structure defines metadata about a patch along with the approval state of the patch in a particular patch baseline. The approval state includes information about whether the patch is currently approved, due to be approved by a rule, explicitly approved, or explicitly rejected and the date the patch was or will be approved.
-  * Patch [Patch](#patch)
-  * PatchStatus [PatchStatus](#patchstatus)
+  * Patch
+    * AdvisoryIds
+      * items [PatchAdvisoryId](#patchadvisoryid)
+    * Arch
+    * BugzillaIds
+      * items [PatchBugzillaId](#patchbugzillaid)
+    * CVEIds
+      * items [PatchCVEId](#patchcveid)
+    * Classification
+    * ContentUrl
+    * Description
+    * Epoch
+    * Id
+    * KbNumber
+    * Language
+    * MsrcNumber
+    * MsrcSeverity
+    * Name
+    * Product
+    * ProductFamily
+    * Release
+    * ReleaseDate
+    * Repository
+    * Severity
+    * Title
+    * Vendor
+    * Version
+  * PatchStatus
+    * ApprovalDate
+    * ComplianceLevel
+    * DeploymentStatus
 
 ### EffectivePatchList
 * EffectivePatchList `array`
@@ -3322,14 +5120,38 @@ amazonaws_ssm.UpdatePatchBaseline({
 ### ExecutionMode
 * ExecutionMode `string` (values: Auto, Interactive)
 
+### ExecutionRoleName
+* ExecutionRoleName `string`
+
 ### ExpirationDate
 * ExpirationDate `string`
 
 ### FailedCreateAssociation
 * FailedCreateAssociation `object`: Describes a failed association.
-  * Entry [CreateAssociationBatchRequestEntry](#createassociationbatchrequestentry)
-  * Fault [Fault](#fault)
-  * Message [BatchErrorMessage](#batcherrormessage)
+  * Entry
+    * ApplyOnlyAtCronInterval
+    * AssociationName
+    * AutomationTargetParameterName
+    * ComplianceSeverity
+    * DocumentVersion
+    * InstanceId
+    * MaxConcurrency
+    * MaxErrors
+    * Name **required**
+    * OutputLocation
+      * S3Location
+        * OutputS3BucketName
+        * OutputS3KeyPrefix
+        * OutputS3Region
+    * Parameters
+    * ScheduleExpression
+    * SyncCompliance
+    * TargetLocations
+      * items [TargetLocation](#targetlocation)
+    * Targets
+      * items [Target](#target)
+  * Fault
+  * Message
 
 ### FailedCreateAssociationList
 * FailedCreateAssociationList `array`
@@ -3337,298 +5159,519 @@ amazonaws_ssm.UpdatePatchBaseline({
 
 ### FailureDetails
 * FailureDetails `object`: Information about an Automation failure.
-  * Details [AutomationParameterMap](#automationparametermap)
-  * FailureStage [String](#string)
-  * FailureType [String](#string)
+  * Details
+  * FailureStage
+  * FailureType
 
 ### Fault
 * Fault `string` (values: Client, Server, Unknown)
 
 ### FeatureNotAvailableException
-* FeatureNotAvailableException `object`: You attempted to register a LAMBDA or STEP_FUNCTION task in a region where the corresponding service is not available. 
-  * Message [String](#string)
+
 
 ### GetAutomationExecutionRequest
 * GetAutomationExecutionRequest `object`
-  * AutomationExecutionId **required** [AutomationExecutionId](#automationexecutionid)
+  * AutomationExecutionId **required**
 
 ### GetAutomationExecutionResult
 * GetAutomationExecutionResult `object`
-  * AutomationExecution [AutomationExecution](#automationexecution)
+  * AutomationExecution
+    * AssociationId
+    * AutomationExecutionId
+    * AutomationExecutionStatus
+    * AutomationSubtype
+    * ChangeRequestName
+    * CurrentAction
+    * CurrentStepName
+    * DocumentName
+    * DocumentVersion
+    * ExecutedBy
+    * ExecutionEndTime
+    * ExecutionStartTime
+    * FailureMessage
+    * MaxConcurrency
+    * MaxErrors
+    * Mode
+    * OpsItemId
+    * Outputs
+    * Parameters
+    * ParentAutomationExecutionId
+    * ProgressCounters
+      * CancelledSteps
+      * FailedSteps
+      * SuccessSteps
+      * TimedOutSteps
+      * TotalSteps
+    * ResolvedTargets
+      * ParameterValues
+        * items [ParameterValue](#parametervalue)
+      * Truncated
+    * Runbooks
+      * items [Runbook](#runbook)
+    * ScheduledTime
+    * StepExecutions
+      * items [StepExecution](#stepexecution)
+    * StepExecutionsTruncated
+    * Target
+    * TargetLocations
+      * items [TargetLocation](#targetlocation)
+    * TargetMaps
+      * items [TargetMap](#targetmap)
+    * TargetParameterName
+    * Targets
+      * items [Target](#target)
+
+### GetCalendarStateRequest
+* GetCalendarStateRequest `object`
+  * AtTime
+  * CalendarNames **required**
+    * items [CalendarNameOrARN](#calendarnameorarn)
+
+### GetCalendarStateResponse
+* GetCalendarStateResponse `object`
+  * AtTime
+  * NextTransitionTime
+  * State
 
 ### GetCommandInvocationRequest
 * GetCommandInvocationRequest `object`
-  * CommandId **required** [CommandId](#commandid)
-  * InstanceId **required** [InstanceId](#instanceid)
-  * PluginName [CommandPluginName](#commandpluginname)
+  * CommandId **required**
+  * InstanceId **required**
+  * PluginName
 
 ### GetCommandInvocationResult
 * GetCommandInvocationResult `object`
-  * CommandId [CommandId](#commandid)
-  * Comment [Comment](#comment)
-  * DocumentName [DocumentName](#documentname)
-  * DocumentVersion [DocumentVersion](#documentversion)
-  * ExecutionElapsedTime [StringDateTime](#stringdatetime)
-  * ExecutionEndDateTime [StringDateTime](#stringdatetime)
-  * ExecutionStartDateTime [StringDateTime](#stringdatetime)
-  * InstanceId [InstanceId](#instanceid)
-  * PluginName [CommandPluginName](#commandpluginname)
-  * ResponseCode [ResponseCode](#responsecode)
-  * StandardErrorContent [StandardErrorContent](#standarderrorcontent)
-  * StandardErrorUrl [Url](#url)
-  * StandardOutputContent [StandardOutputContent](#standardoutputcontent)
-  * StandardOutputUrl [Url](#url)
-  * Status [CommandInvocationStatus](#commandinvocationstatus)
-  * StatusDetails [StatusDetails](#statusdetails)
+  * CloudWatchOutputConfig
+    * CloudWatchLogGroupName
+    * CloudWatchOutputEnabled
+  * CommandId
+  * Comment
+  * DocumentName
+  * DocumentVersion
+  * ExecutionElapsedTime
+  * ExecutionEndDateTime
+  * ExecutionStartDateTime
+  * InstanceId
+  * PluginName
+  * ResponseCode
+  * StandardErrorContent
+  * StandardErrorUrl
+  * StandardOutputContent
+  * StandardOutputUrl
+  * Status
+  * StatusDetails
+
+### GetConnectionStatusRequest
+* GetConnectionStatusRequest `object`
+  * Target **required**
+
+### GetConnectionStatusResponse
+* GetConnectionStatusResponse `object`
+  * Status
+  * Target
 
 ### GetDefaultPatchBaselineRequest
 * GetDefaultPatchBaselineRequest `object`
-  * OperatingSystem [OperatingSystem](#operatingsystem)
+  * OperatingSystem
 
 ### GetDefaultPatchBaselineResult
 * GetDefaultPatchBaselineResult `object`
-  * BaselineId [BaselineId](#baselineid)
-  * OperatingSystem [OperatingSystem](#operatingsystem)
+  * BaselineId
+  * OperatingSystem
 
 ### GetDeployablePatchSnapshotForInstanceRequest
 * GetDeployablePatchSnapshotForInstanceRequest `object`
-  * InstanceId **required** [InstanceId](#instanceid)
-  * SnapshotId **required** [SnapshotId](#snapshotid)
+  * InstanceId **required**
+  * SnapshotId **required**
 
 ### GetDeployablePatchSnapshotForInstanceResult
 * GetDeployablePatchSnapshotForInstanceResult `object`
-  * InstanceId [InstanceId](#instanceid)
-  * Product [Product](#product)
-  * SnapshotDownloadUrl [SnapshotDownloadUrl](#snapshotdownloadurl)
-  * SnapshotId [SnapshotId](#snapshotid)
+  * InstanceId
+  * Product
+  * SnapshotDownloadUrl
+  * SnapshotId
 
 ### GetDocumentRequest
 * GetDocumentRequest `object`
-  * DocumentFormat [DocumentFormat](#documentformat)
-  * DocumentVersion [DocumentVersion](#documentversion)
-  * Name **required** [DocumentARN](#documentarn)
+  * DocumentFormat
+  * DocumentVersion
+  * Name **required**
+  * VersionName
 
 ### GetDocumentResult
 * GetDocumentResult `object`
-  * Content [DocumentContent](#documentcontent)
-  * DocumentFormat [DocumentFormat](#documentformat)
-  * DocumentType [DocumentType](#documenttype)
-  * DocumentVersion [DocumentVersion](#documentversion)
-  * Name [DocumentARN](#documentarn)
+  * AttachmentsContent
+    * items [AttachmentContent](#attachmentcontent)
+  * Content
+  * DocumentFormat
+  * DocumentType
+  * DocumentVersion
+  * Name
+  * Requires
+    * items [DocumentRequires](#documentrequires)
+  * ReviewStatus
+  * Status
+  * StatusInformation
+  * VersionName
 
 ### GetInventoryRequest
 * GetInventoryRequest `object`
-  * Aggregators [InventoryAggregatorList](#inventoryaggregatorlist)
-  * Filters [InventoryFilterList](#inventoryfilterlist)
-  * MaxResults [MaxResults](#maxresults)
-  * NextToken [NextToken](#nexttoken)
-  * ResultAttributes [ResultAttributeList](#resultattributelist)
+  * Aggregators
+    * items [InventoryAggregator](#inventoryaggregator)
+  * Filters
+    * items [InventoryFilter](#inventoryfilter)
+  * MaxResults
+  * NextToken
+  * ResultAttributes
+    * items [ResultAttribute](#resultattribute)
 
 ### GetInventoryResult
 * GetInventoryResult `object`
-  * Entities [InventoryResultEntityList](#inventoryresultentitylist)
-  * NextToken [NextToken](#nexttoken)
+  * Entities
+    * items [InventoryResultEntity](#inventoryresultentity)
+  * NextToken
 
 ### GetInventorySchemaMaxResults
 * GetInventorySchemaMaxResults `integer`
 
 ### GetInventorySchemaRequest
 * GetInventorySchemaRequest `object`
-  * Aggregator [AggregatorSchemaOnly](#aggregatorschemaonly)
-  * MaxResults [GetInventorySchemaMaxResults](#getinventoryschemamaxresults)
-  * NextToken [NextToken](#nexttoken)
-  * SubType [IsSubTypeSchema](#issubtypeschema)
-  * TypeName [InventoryItemTypeNameFilter](#inventoryitemtypenamefilter)
+  * Aggregator
+  * MaxResults
+  * NextToken
+  * SubType
+  * TypeName
 
 ### GetInventorySchemaResult
 * GetInventorySchemaResult `object`
-  * NextToken [NextToken](#nexttoken)
-  * Schemas [InventoryItemSchemaResultList](#inventoryitemschemaresultlist)
+  * NextToken
+  * Schemas
+    * items [InventoryItemSchema](#inventoryitemschema)
 
 ### GetMaintenanceWindowExecutionRequest
 * GetMaintenanceWindowExecutionRequest `object`
-  * WindowExecutionId **required** [MaintenanceWindowExecutionId](#maintenancewindowexecutionid)
+  * WindowExecutionId **required**
 
 ### GetMaintenanceWindowExecutionResult
 * GetMaintenanceWindowExecutionResult `object`
-  * EndTime [DateTime](#datetime)
-  * StartTime [DateTime](#datetime)
-  * Status [MaintenanceWindowExecutionStatus](#maintenancewindowexecutionstatus)
-  * StatusDetails [MaintenanceWindowExecutionStatusDetails](#maintenancewindowexecutionstatusdetails)
-  * TaskIds [MaintenanceWindowExecutionTaskIdList](#maintenancewindowexecutiontaskidlist)
-  * WindowExecutionId [MaintenanceWindowExecutionId](#maintenancewindowexecutionid)
+  * EndTime
+  * StartTime
+  * Status
+  * StatusDetails
+  * TaskIds
+    * items [MaintenanceWindowExecutionTaskId](#maintenancewindowexecutiontaskid)
+  * WindowExecutionId
 
 ### GetMaintenanceWindowExecutionTaskInvocationRequest
 * GetMaintenanceWindowExecutionTaskInvocationRequest `object`
-  * InvocationId **required** [MaintenanceWindowExecutionTaskInvocationId](#maintenancewindowexecutiontaskinvocationid)
-  * TaskId **required** [MaintenanceWindowExecutionTaskId](#maintenancewindowexecutiontaskid)
-  * WindowExecutionId **required** [MaintenanceWindowExecutionId](#maintenancewindowexecutionid)
+  * InvocationId **required**
+  * TaskId **required**
+  * WindowExecutionId **required**
 
 ### GetMaintenanceWindowExecutionTaskInvocationResult
 * GetMaintenanceWindowExecutionTaskInvocationResult `object`
-  * EndTime [DateTime](#datetime)
-  * ExecutionId [MaintenanceWindowExecutionTaskExecutionId](#maintenancewindowexecutiontaskexecutionid)
-  * InvocationId [MaintenanceWindowExecutionTaskInvocationId](#maintenancewindowexecutiontaskinvocationid)
-  * OwnerInformation [OwnerInformation](#ownerinformation)
-  * Parameters [MaintenanceWindowExecutionTaskInvocationParameters](#maintenancewindowexecutiontaskinvocationparameters)
-  * StartTime [DateTime](#datetime)
-  * Status [MaintenanceWindowExecutionStatus](#maintenancewindowexecutionstatus)
-  * StatusDetails [MaintenanceWindowExecutionStatusDetails](#maintenancewindowexecutionstatusdetails)
-  * TaskExecutionId [MaintenanceWindowExecutionTaskId](#maintenancewindowexecutiontaskid)
-  * TaskType [MaintenanceWindowTaskType](#maintenancewindowtasktype)
-  * WindowExecutionId [MaintenanceWindowExecutionId](#maintenancewindowexecutionid)
-  * WindowTargetId [MaintenanceWindowTaskTargetId](#maintenancewindowtasktargetid)
+  * EndTime
+  * ExecutionId
+  * InvocationId
+  * OwnerInformation
+  * Parameters
+  * StartTime
+  * Status
+  * StatusDetails
+  * TaskExecutionId
+  * TaskType
+  * WindowExecutionId
+  * WindowTargetId
 
 ### GetMaintenanceWindowExecutionTaskRequest
 * GetMaintenanceWindowExecutionTaskRequest `object`
-  * TaskId **required** [MaintenanceWindowExecutionTaskId](#maintenancewindowexecutiontaskid)
-  * WindowExecutionId **required** [MaintenanceWindowExecutionId](#maintenancewindowexecutionid)
+  * TaskId **required**
+  * WindowExecutionId **required**
 
 ### GetMaintenanceWindowExecutionTaskResult
 * GetMaintenanceWindowExecutionTaskResult `object`
-  * EndTime [DateTime](#datetime)
-  * MaxConcurrency [MaxConcurrency](#maxconcurrency)
-  * MaxErrors [MaxErrors](#maxerrors)
-  * Priority [MaintenanceWindowTaskPriority](#maintenancewindowtaskpriority)
-  * ServiceRole [ServiceRole](#servicerole)
-  * StartTime [DateTime](#datetime)
-  * Status [MaintenanceWindowExecutionStatus](#maintenancewindowexecutionstatus)
-  * StatusDetails [MaintenanceWindowExecutionStatusDetails](#maintenancewindowexecutionstatusdetails)
-  * TaskArn [MaintenanceWindowTaskArn](#maintenancewindowtaskarn)
-  * TaskExecutionId [MaintenanceWindowExecutionTaskId](#maintenancewindowexecutiontaskid)
-  * TaskParameters [MaintenanceWindowTaskParametersList](#maintenancewindowtaskparameterslist)
-  * Type [MaintenanceWindowTaskType](#maintenancewindowtasktype)
-  * WindowExecutionId [MaintenanceWindowExecutionId](#maintenancewindowexecutionid)
+  * EndTime
+  * MaxConcurrency
+  * MaxErrors
+  * Priority
+  * ServiceRole
+  * StartTime
+  * Status
+  * StatusDetails
+  * TaskArn
+  * TaskExecutionId
+  * TaskParameters
+    * items [MaintenanceWindowTaskParameters](#maintenancewindowtaskparameters)
+  * Type
+  * WindowExecutionId
 
 ### GetMaintenanceWindowRequest
 * GetMaintenanceWindowRequest `object`
-  * WindowId **required** [MaintenanceWindowId](#maintenancewindowid)
+  * WindowId **required**
 
 ### GetMaintenanceWindowResult
 * GetMaintenanceWindowResult `object`
-  * AllowUnassociatedTargets [MaintenanceWindowAllowUnassociatedTargets](#maintenancewindowallowunassociatedtargets)
-  * CreatedDate [DateTime](#datetime)
-  * Cutoff [MaintenanceWindowCutoff](#maintenancewindowcutoff)
-  * Description [MaintenanceWindowDescription](#maintenancewindowdescription)
-  * Duration [MaintenanceWindowDurationHours](#maintenancewindowdurationhours)
-  * Enabled [MaintenanceWindowEnabled](#maintenancewindowenabled)
-  * ModifiedDate [DateTime](#datetime)
-  * Name [MaintenanceWindowName](#maintenancewindowname)
-  * Schedule [MaintenanceWindowSchedule](#maintenancewindowschedule)
-  * WindowId [MaintenanceWindowId](#maintenancewindowid)
+  * AllowUnassociatedTargets
+  * CreatedDate
+  * Cutoff
+  * Description
+  * Duration
+  * Enabled
+  * EndDate
+  * ModifiedDate
+  * Name
+  * NextExecutionTime
+  * Schedule
+  * ScheduleOffset
+  * ScheduleTimezone
+  * StartDate
+  * WindowId
 
 ### GetMaintenanceWindowTaskRequest
 * GetMaintenanceWindowTaskRequest `object`
-  * WindowId **required** [MaintenanceWindowId](#maintenancewindowid)
-  * WindowTaskId **required** [MaintenanceWindowTaskId](#maintenancewindowtaskid)
+  * WindowId **required**
+  * WindowTaskId **required**
 
 ### GetMaintenanceWindowTaskResult
 * GetMaintenanceWindowTaskResult `object`
-  * Description [MaintenanceWindowDescription](#maintenancewindowdescription)
-  * LoggingInfo [LoggingInfo](#logginginfo)
-  * MaxConcurrency [MaxConcurrency](#maxconcurrency)
-  * MaxErrors [MaxErrors](#maxerrors)
-  * Name [MaintenanceWindowName](#maintenancewindowname)
-  * Priority [MaintenanceWindowTaskPriority](#maintenancewindowtaskpriority)
-  * ServiceRoleArn [ServiceRole](#servicerole)
-  * Targets [Targets](#targets)
-  * TaskArn [MaintenanceWindowTaskArn](#maintenancewindowtaskarn)
-  * TaskInvocationParameters [MaintenanceWindowTaskInvocationParameters](#maintenancewindowtaskinvocationparameters)
-  * TaskParameters [MaintenanceWindowTaskParameters](#maintenancewindowtaskparameters)
-  * TaskType [MaintenanceWindowTaskType](#maintenancewindowtasktype)
-  * WindowId [MaintenanceWindowId](#maintenancewindowid)
-  * WindowTaskId [MaintenanceWindowTaskId](#maintenancewindowtaskid)
+  * Description
+  * LoggingInfo
+    * S3BucketName **required**
+    * S3KeyPrefix
+    * S3Region **required**
+  * MaxConcurrency
+  * MaxErrors
+  * Name
+  * Priority
+  * ServiceRoleArn
+  * Targets
+    * items [Target](#target)
+  * TaskArn
+  * TaskInvocationParameters
+    * Automation
+      * DocumentVersion
+      * Parameters
+    * Lambda
+      * ClientContext
+      * Payload
+      * Qualifier
+    * RunCommand
+      * CloudWatchOutputConfig [CloudWatchOutputConfig](#cloudwatchoutputconfig)
+      * Comment
+      * DocumentHash
+      * DocumentHashType
+      * DocumentVersion
+      * NotificationConfig
+        * NotificationArn
+        * NotificationEvents
+          * items [NotificationEvent](#notificationevent)
+        * NotificationType
+      * OutputS3BucketName
+      * OutputS3KeyPrefix
+      * Parameters
+      * ServiceRoleArn
+      * TimeoutSeconds
+    * StepFunctions
+      * Input
+      * Name
+  * TaskParameters
+  * TaskType
+  * WindowId
+  * WindowTaskId
+
+### GetOpsItemRequest
+* GetOpsItemRequest `object`
+  * OpsItemId **required**
+
+### GetOpsItemResponse
+* GetOpsItemResponse `object`
+  * OpsItem
+    * ActualEndTime
+    * ActualStartTime
+    * Category
+    * CreatedBy
+    * CreatedTime
+    * Description
+    * LastModifiedBy
+    * LastModifiedTime
+    * Notifications
+      * items [OpsItemNotification](#opsitemnotification)
+    * OperationalData
+    * OpsItemId
+    * OpsItemType
+    * PlannedEndTime
+    * PlannedStartTime
+    * Priority
+    * RelatedOpsItems
+      * items [RelatedOpsItem](#relatedopsitem)
+    * Severity
+    * Source
+    * Status
+    * Title
+    * Version
+
+### GetOpsMetadataMaxResults
+* GetOpsMetadataMaxResults `integer`
+
+### GetOpsMetadataRequest
+* GetOpsMetadataRequest `object`
+  * MaxResults
+  * NextToken
+  * OpsMetadataArn **required**
+
+### GetOpsMetadataResult
+* GetOpsMetadataResult `object`
+  * Metadata
+  * NextToken
+  * ResourceId
+
+### GetOpsSummaryRequest
+* GetOpsSummaryRequest `object`
+  * Aggregators
+    * items [OpsAggregator](#opsaggregator)
+  * Filters
+    * items [OpsFilter](#opsfilter)
+  * MaxResults
+  * NextToken
+  * ResultAttributes
+    * items [OpsResultAttribute](#opsresultattribute)
+  * SyncName
+
+### GetOpsSummaryResult
+* GetOpsSummaryResult `object`
+  * Entities
+    * items [OpsEntity](#opsentity)
+  * NextToken
 
 ### GetParameterHistoryRequest
 * GetParameterHistoryRequest `object`
-  * MaxResults [MaxResults](#maxresults)
-  * Name **required** [PSParameterName](#psparametername)
-  * NextToken [NextToken](#nexttoken)
-  * WithDecryption [Boolean](#boolean)
+  * MaxResults
+  * Name **required**
+  * NextToken
+  * WithDecryption
 
 ### GetParameterHistoryResult
 * GetParameterHistoryResult `object`
-  * NextToken [NextToken](#nexttoken)
-  * Parameters [ParameterHistoryList](#parameterhistorylist)
+  * NextToken
+  * Parameters
+    * items [ParameterHistory](#parameterhistory)
 
 ### GetParameterRequest
 * GetParameterRequest `object`
-  * Name **required** [PSParameterName](#psparametername)
-  * WithDecryption [Boolean](#boolean)
+  * Name **required**
+  * WithDecryption
 
 ### GetParameterResult
 * GetParameterResult `object`
-  * Parameter [Parameter](#parameter)
+  * Parameter
+    * ARN
+    * DataType
+    * LastModifiedDate
+    * Name
+    * Selector
+    * SourceResult
+    * Type
+    * Value
+    * Version
 
 ### GetParametersByPathMaxResults
 * GetParametersByPathMaxResults `integer`
 
 ### GetParametersByPathRequest
 * GetParametersByPathRequest `object`
-  * MaxResults [GetParametersByPathMaxResults](#getparametersbypathmaxresults)
-  * NextToken [NextToken](#nexttoken)
-  * ParameterFilters [ParameterStringFilterList](#parameterstringfilterlist)
-  * Path **required** [PSParameterName](#psparametername)
-  * Recursive [Boolean](#boolean)
-  * WithDecryption [Boolean](#boolean)
+  * MaxResults
+  * NextToken
+  * ParameterFilters
+    * items [ParameterStringFilter](#parameterstringfilter)
+  * Path **required**
+  * Recursive
+  * WithDecryption
 
 ### GetParametersByPathResult
 * GetParametersByPathResult `object`
-  * NextToken [NextToken](#nexttoken)
-  * Parameters [ParameterList](#parameterlist)
+  * NextToken
+  * Parameters
+    * items [Parameter](#parameter)
 
 ### GetParametersRequest
 * GetParametersRequest `object`
-  * Names **required** [ParameterNameList](#parameternamelist)
-  * WithDecryption [Boolean](#boolean)
+  * Names **required**
+    * items [PSParameterName](#psparametername)
+  * WithDecryption
 
 ### GetParametersResult
 * GetParametersResult `object`
-  * InvalidParameters [ParameterNameList](#parameternamelist)
-  * Parameters [ParameterList](#parameterlist)
+  * InvalidParameters
+    * items [PSParameterName](#psparametername)
+  * Parameters
+    * items [Parameter](#parameter)
 
 ### GetPatchBaselineForPatchGroupRequest
 * GetPatchBaselineForPatchGroupRequest `object`
-  * OperatingSystem [OperatingSystem](#operatingsystem)
-  * PatchGroup **required** [PatchGroup](#patchgroup)
+  * OperatingSystem
+  * PatchGroup **required**
 
 ### GetPatchBaselineForPatchGroupResult
 * GetPatchBaselineForPatchGroupResult `object`
-  * BaselineId [BaselineId](#baselineid)
-  * OperatingSystem [OperatingSystem](#operatingsystem)
-  * PatchGroup [PatchGroup](#patchgroup)
+  * BaselineId
+  * OperatingSystem
+  * PatchGroup
 
 ### GetPatchBaselineRequest
 * GetPatchBaselineRequest `object`
-  * BaselineId **required** [BaselineId](#baselineid)
+  * BaselineId **required**
 
 ### GetPatchBaselineResult
 * GetPatchBaselineResult `object`
-  * ApprovalRules [PatchRuleGroup](#patchrulegroup)
-  * ApprovedPatches [PatchIdList](#patchidlist)
-  * ApprovedPatchesComplianceLevel [PatchComplianceLevel](#patchcompliancelevel)
-  * ApprovedPatchesEnableNonSecurity [Boolean](#boolean)
-  * BaselineId [BaselineId](#baselineid)
-  * CreatedDate [DateTime](#datetime)
-  * Description [BaselineDescription](#baselinedescription)
-  * GlobalFilters [PatchFilterGroup](#patchfiltergroup)
-  * ModifiedDate [DateTime](#datetime)
-  * Name [BaselineName](#baselinename)
-  * OperatingSystem [OperatingSystem](#operatingsystem)
-  * PatchGroups [PatchGroupList](#patchgrouplist)
-  * RejectedPatches [PatchIdList](#patchidlist)
-  * Sources [PatchSourceList](#patchsourcelist)
+  * ApprovalRules
+    * PatchRules **required**
+      * items [PatchRule](#patchrule)
+  * ApprovedPatches
+    * items [PatchId](#patchid)
+  * ApprovedPatchesComplianceLevel
+  * ApprovedPatchesEnableNonSecurity
+  * BaselineId
+  * CreatedDate
+  * Description
+  * GlobalFilters
+    * PatchFilters **required**
+      * items [PatchFilter](#patchfilter)
+  * ModifiedDate
+  * Name
+  * OperatingSystem
+  * PatchGroups
+    * items [PatchGroup](#patchgroup)
+  * RejectedPatches
+    * items [PatchId](#patchid)
+  * RejectedPatchesAction
+  * Sources
+    * items [PatchSource](#patchsource)
+
+### GetServiceSettingRequest
+* GetServiceSettingRequest `object`: The request body of the GetServiceSetting API action.
+  * SettingId **required**
+
+### GetServiceSettingResult
+* GetServiceSettingResult `object`: The query result body of the GetServiceSetting API action.
+  * ServiceSetting
+    * ARN
+    * LastModifiedDate
+    * LastModifiedUser
+    * SettingId
+    * SettingValue
+    * Status
 
 ### HierarchyLevelLimitExceededException
-* HierarchyLevelLimitExceededException `object`: A hierarchy can have a maximum of 15 levels. For more information, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-working.html">Working with Systems Manager Parameters</a>. 
-  * message [String](#string)
+
 
 ### HierarchyTypeMismatchException
-* HierarchyTypeMismatchException `object`: Parameter Store does not support changing a parameter type in a hierarchy. For example, you can't change a parameter from a String type to a SecureString type. You must create a new, unique parameter.
-  * message [String](#string)
+
 
 ### IPAddress
 * IPAddress `string`
+
+### ISO8601String
+* ISO8601String `string`
 
 ### IamRole
 * IamRole `string`
@@ -3637,20 +5680,25 @@ amazonaws_ssm.UpdatePatchBaseline({
 * IdempotencyToken `string`
 
 ### IdempotentParameterMismatch
-* IdempotentParameterMismatch `object`: Error returned when an idempotent operation is retried and the parameters don't match the original call to the API with the same idempotency token. 
-  * Message [String](#string)
+
+
+### IncompatiblePolicyException
+
+
+### InstallOverrideList
+* InstallOverrideList `string`
 
 ### InstanceAggregatedAssociationOverview
 * InstanceAggregatedAssociationOverview `object`: Status information about the aggregated associations.
-  * DetailedStatus [StatusName](#statusname)
-  * InstanceAssociationStatusAggregatedCount [InstanceAssociationStatusAggregatedCount](#instanceassociationstatusaggregatedcount)
+  * DetailedStatus
+  * InstanceAssociationStatusAggregatedCount
 
 ### InstanceAssociation
 * InstanceAssociation `object`: One or more association documents on the instance. 
-  * AssociationId [AssociationId](#associationid)
-  * AssociationVersion [AssociationVersion](#associationversion)
-  * Content [DocumentContent](#documentcontent)
-  * InstanceId [InstanceId](#instanceid)
+  * AssociationId
+  * AssociationVersion
+  * Content
+  * InstanceId
 
 ### InstanceAssociationExecutionSummary
 * InstanceAssociationExecutionSummary `string`
@@ -3660,33 +5708,36 @@ amazonaws_ssm.UpdatePatchBaseline({
   * items [InstanceAssociation](#instanceassociation)
 
 ### InstanceAssociationOutputLocation
-* InstanceAssociationOutputLocation `object`: An Amazon S3 bucket where you want to store the results of this request.
-  * S3Location [S3OutputLocation](#s3outputlocation)
+* InstanceAssociationOutputLocation `object`: An S3 bucket where you want to store the results of this request.
+  * S3Location
+    * OutputS3BucketName
+    * OutputS3KeyPrefix
+    * OutputS3Region
 
 ### InstanceAssociationOutputUrl
-* InstanceAssociationOutputUrl `object`: The URL of Amazon S3 bucket where you want to store the results of this request.
-  * S3OutputUrl [S3OutputUrl](#s3outputurl)
+* InstanceAssociationOutputUrl `object`: The URL of S3 bucket where you want to store the results of this request.
+  * S3OutputUrl
+    * OutputUrl
 
 ### InstanceAssociationStatusAggregatedCount
-* InstanceAssociationStatusAggregatedCount `array`
-  * items `object`
-    * key [StatusName](#statusname)
-    * value [InstanceCount](#instancecount)
+* InstanceAssociationStatusAggregatedCount `object`
 
 ### InstanceAssociationStatusInfo
 * InstanceAssociationStatusInfo `object`: Status information about the instance association.
-  * AssociationId [AssociationId](#associationid)
-  * AssociationName [AssociationName](#associationname)
-  * AssociationVersion [AssociationVersion](#associationversion)
-  * DetailedStatus [StatusName](#statusname)
-  * DocumentVersion [DocumentVersion](#documentversion)
-  * ErrorCode [AgentErrorCode](#agenterrorcode)
-  * ExecutionDate [DateTime](#datetime)
-  * ExecutionSummary [InstanceAssociationExecutionSummary](#instanceassociationexecutionsummary)
-  * InstanceId [InstanceId](#instanceid)
-  * Name [DocumentName](#documentname)
-  * OutputUrl [InstanceAssociationOutputUrl](#instanceassociationoutputurl)
-  * Status [StatusName](#statusname)
+  * AssociationId
+  * AssociationName
+  * AssociationVersion
+  * DetailedStatus
+  * DocumentVersion
+  * ErrorCode
+  * ExecutionDate
+  * ExecutionSummary
+  * InstanceId
+  * Name
+  * OutputUrl
+    * S3OutputUrl
+      * OutputUrl
+  * Status
 
 ### InstanceAssociationStatusInfos
 * InstanceAssociationStatusInfos `array`
@@ -3704,30 +5755,33 @@ amazonaws_ssm.UpdatePatchBaseline({
 
 ### InstanceInformation
 * InstanceInformation `object`: Describes a filter for a specific list of instances. 
-  * ActivationId [ActivationId](#activationid)
-  * AgentVersion [Version](#version)
-  * AssociationOverview [InstanceAggregatedAssociationOverview](#instanceaggregatedassociationoverview)
-  * AssociationStatus [StatusName](#statusname)
-  * ComputerName [ComputerName](#computername)
-  * IPAddress [IPAddress](#ipaddress)
-  * IamRole [IamRole](#iamrole)
-  * InstanceId [InstanceId](#instanceid)
-  * IsLatestVersion [Boolean](#boolean)
-  * LastAssociationExecutionDate [DateTime](#datetime)
-  * LastPingDateTime [DateTime](#datetime)
-  * LastSuccessfulAssociationExecutionDate [DateTime](#datetime)
-  * Name [String](#string)
-  * PingStatus [PingStatus](#pingstatus)
-  * PlatformName [String](#string)
-  * PlatformType [PlatformType](#platformtype)
-  * PlatformVersion [String](#string)
-  * RegistrationDate [DateTime](#datetime)
-  * ResourceType [ResourceType](#resourcetype)
+  * ActivationId
+  * AgentVersion
+  * AssociationOverview
+    * DetailedStatus
+    * InstanceAssociationStatusAggregatedCount
+  * AssociationStatus
+  * ComputerName
+  * IPAddress
+  * IamRole
+  * InstanceId
+  * IsLatestVersion
+  * LastAssociationExecutionDate
+  * LastPingDateTime
+  * LastSuccessfulAssociationExecutionDate
+  * Name
+  * PingStatus
+  * PlatformName
+  * PlatformType
+  * PlatformVersion
+  * RegistrationDate
+  * ResourceType
 
 ### InstanceInformationFilter
-* InstanceInformationFilter `object`: Describes a filter for a specific list of instances. 
-  * key **required** [InstanceInformationFilterKey](#instanceinformationfilterkey)
-  * valueSet **required** [InstanceInformationFilterValueSet](#instanceinformationfiltervalueset)
+* InstanceInformationFilter `object`: <p>Describes a filter for a specific list of instances. You can filter instances information by using tags. You specify tags by using a key-value mapping.</p> <p>Use this action instead of the <a>DescribeInstanceInformationRequest$InstanceInformationFilterList</a> method. The <code>InstanceInformationFilterList</code> method is a legacy method and does not support tags. </p>
+  * key **required**
+  * valueSet **required**
+    * items [InstanceInformationFilterValue](#instanceinformationfiltervalue)
 
 ### InstanceInformationFilterKey
 * InstanceInformationFilterKey `string` (values: InstanceIds, AgentVersion, PingStatus, PlatformTypes, ActivationIds, IamRole, ResourceType, AssociationStatus)
@@ -3749,8 +5803,9 @@ amazonaws_ssm.UpdatePatchBaseline({
 
 ### InstanceInformationStringFilter
 * InstanceInformationStringFilter `object`: The filters to describe or get information about your managed instances.
-  * Key **required** [InstanceInformationStringFilterKey](#instanceinformationstringfilterkey)
-  * Values **required** [InstanceInformationFilterValueSet](#instanceinformationfiltervalueset)
+  * Key **required**
+  * Values **required**
+    * items [InstanceInformationFilterValue](#instanceinformationfiltervalue)
 
 ### InstanceInformationStringFilterKey
 * InstanceInformationStringFilterKey `string`
@@ -3761,25 +5816,32 @@ amazonaws_ssm.UpdatePatchBaseline({
 
 ### InstancePatchState
 * InstancePatchState `object`: Defines the high-level patch compliance state for a managed instance, providing information about the number of installed, missing, not applicable, and failed patches along with metadata about the operation when this information was gathered for the instance.
-  * BaselineId **required** [BaselineId](#baselineid)
-  * FailedCount [PatchFailedCount](#patchfailedcount)
-  * InstalledCount [PatchInstalledCount](#patchinstalledcount)
-  * InstalledOtherCount [PatchInstalledOtherCount](#patchinstalledothercount)
-  * InstanceId **required** [InstanceId](#instanceid)
-  * MissingCount [PatchMissingCount](#patchmissingcount)
-  * NotApplicableCount [PatchNotApplicableCount](#patchnotapplicablecount)
-  * Operation **required** [PatchOperationType](#patchoperationtype)
-  * OperationEndTime **required** [DateTime](#datetime)
-  * OperationStartTime **required** [DateTime](#datetime)
-  * OwnerInformation [OwnerInformation](#ownerinformation)
-  * PatchGroup **required** [PatchGroup](#patchgroup)
-  * SnapshotId [SnapshotId](#snapshotid)
+  * BaselineId **required**
+  * FailedCount
+  * InstallOverrideList
+  * InstalledCount
+  * InstalledOtherCount
+  * InstalledPendingRebootCount
+  * InstalledRejectedCount
+  * InstanceId **required**
+  * LastNoRebootInstallOperationTime
+  * MissingCount
+  * NotApplicableCount
+  * Operation **required**
+  * OperationEndTime **required**
+  * OperationStartTime **required**
+  * OwnerInformation
+  * PatchGroup **required**
+  * RebootOption
+  * SnapshotId
+  * UnreportedNotApplicableCount
 
 ### InstancePatchStateFilter
-* InstancePatchStateFilter `object`: Defines a filter used in DescribeInstancePatchStatesForPatchGroup used to scope down the information returned by the API.
-  * Key **required** [InstancePatchStateFilterKey](#instancepatchstatefilterkey)
-  * Type **required** [InstancePatchStateOperatorType](#instancepatchstateoperatortype)
-  * Values **required** [InstancePatchStateFilterValues](#instancepatchstatefiltervalues)
+* InstancePatchStateFilter `object`: Defines a filter used in <a>DescribeInstancePatchStatesForPatchGroup</a> used to scope down the information returned by the API.
+  * Key **required**
+  * Type **required**
+  * Values **required**
+    * items [InstancePatchStateFilterValue](#instancepatchstatefiltervalue)
 
 ### InstancePatchStateFilterKey
 * InstancePatchStateFilterKey `string`
@@ -3809,175 +5871,163 @@ amazonaws_ssm.UpdatePatchBaseline({
 ### InstanceTagName
 * InstanceTagName `string`
 
+### InstancesCount
+* InstancesCount `integer`
+
 ### Integer
 * Integer `integer`
 
 ### InternalServerError
-* InternalServerError `object`: An error occurred on the server side.
-  * Message [String](#string)
+
 
 ### InvalidActivation
-* InvalidActivation `object`: The activation is not valid. The activation might have been deleted, or the ActivationId and the ActivationCode do not match.
-  * Message [String](#string)
+
 
 ### InvalidActivationId
-* InvalidActivationId `object`: The activation ID is not valid. Verify the you entered the correct ActivationId or ActivationCode and try again.
-  * Message [String](#string)
+
+
+### InvalidAggregatorException
+
 
 ### InvalidAllowedPatternException
-* InvalidAllowedPatternException `object`: The request does not meet the regular expression requirement.
-  * message [String](#string)
+
+
+### InvalidAssociation
+
 
 ### InvalidAssociationVersion
-* InvalidAssociationVersion `object`: The version you specified is not valid. Use ListAssociationVersions to view all versions of an association according to the association ID. Or, use the <code>$LATEST</code> parameter to view the latest version of the association.
-  * Message [String](#string)
+
 
 ### InvalidAutomationExecutionParametersException
-* InvalidAutomationExecutionParametersException `object`: The supplied parameters for invoking the specified Automation document are incorrect. For example, they may not match the set of parameters permitted for the specified Automation document.
-  * Message [String](#string)
+
 
 ### InvalidAutomationSignalException
-* InvalidAutomationSignalException `object`: The signal is not valid for the current Automation execution.
-  * Message [String](#string)
+
 
 ### InvalidAutomationStatusUpdateException
-* InvalidAutomationStatusUpdateException `object`: The specified update status operation is not valid.
-  * Message [String](#string)
+
 
 ### InvalidCommandId
-* InvalidCommandId `object`
+
 
 ### InvalidDeleteInventoryParametersException
-* InvalidDeleteInventoryParametersException `object`: One or more of the parameters specified for the delete operation is not valid. Verify all parameters and try again.
-  * Message [String](#string)
+
 
 ### InvalidDeletionIdException
-* InvalidDeletionIdException `object`: The ID specified for the delete operation does not exist or is not valide. Verify the ID and try again.
-  * Message [String](#string)
+
 
 ### InvalidDocument
-* InvalidDocument `object`: The specified document does not exist.
-  * Message [String](#string)
+
 
 ### InvalidDocumentContent
-* InvalidDocumentContent `object`: The content for the document is not valid.
-  * Message [String](#string)
+
 
 ### InvalidDocumentOperation
-* InvalidDocumentOperation `object`: You attempted to delete a document while it is still shared. You must stop sharing the document before you can delete it.
-  * Message [String](#string)
+
 
 ### InvalidDocumentSchemaVersion
-* InvalidDocumentSchemaVersion `object`: The version of the document schema is not supported.
-  * Message [String](#string)
+
+
+### InvalidDocumentType
+
 
 ### InvalidDocumentVersion
-* InvalidDocumentVersion `object`: The document version is not valid or does not exist.
-  * Message [String](#string)
+
 
 ### InvalidFilter
-* InvalidFilter `object`: The filter name is not valid. Verify the you entered the correct name and try again.
-  * Message [String](#string)
+
 
 ### InvalidFilterKey
-* InvalidFilterKey `object`: The specified key is not valid.
+
 
 ### InvalidFilterOption
-* InvalidFilterOption `object`: The specified filter option is not valid. Valid options are Equals and BeginsWith. For Path filter, valid options are Recursive and OneLevel.
-  * message [String](#string)
+
 
 ### InvalidFilterValue
-* InvalidFilterValue `object`: The filter value is not valid. Verify the value and try again.
-  * Message [String](#string)
+
 
 ### InvalidInstanceId
-* InvalidInstanceId `object`: <p>The following problems can cause this exception:</p> <p>You do not have permission to access the instance.</p> <p>The SSM Agent is not running. On managed instances and Linux instances, verify that the SSM Agent is running. On EC2 Windows instances, verify that the EC2Config service is running.</p> <p>The SSM Agent or EC2Config service is not registered to the SSM endpoint. Try reinstalling the SSM Agent or EC2Config service.</p> <p>The instance is not in valid state. Valid states are: Running, Pending, Stopped, Stopping. Invalid states are: Shutting-down and Terminated.</p>
-  * Message [String](#string)
+
 
 ### InvalidInstanceInformationFilterValue
-* InvalidInstanceInformationFilterValue `object`: The specified filter value is not valid.
-  * message [String](#string)
+
+
+### InvalidInventoryGroupException
+
 
 ### InvalidInventoryItemContextException
-* InvalidInventoryItemContextException `object`: You specified invalid keys or values in the <code>Context</code> attribute for <code>InventoryItem</code>. Verify the keys and values, and try again.
-  * Message [String](#string)
+
 
 ### InvalidInventoryRequestException
-* InvalidInventoryRequestException `object`: The request is not valid.
-  * Message [String](#string)
+
 
 ### InvalidItemContentException
-* InvalidItemContentException `object`: One or more content items is not valid.
-  * Message [String](#string)
-  * TypeName [InventoryItemTypeName](#inventoryitemtypename)
+
 
 ### InvalidKeyId
-* InvalidKeyId `object`: The query key ID is not valid.
-  * message [String](#string)
+
 
 ### InvalidNextToken
-* InvalidNextToken `object`: The specified token is not valid.
-  * Message [String](#string)
+
 
 ### InvalidNotificationConfig
-* InvalidNotificationConfig `object`: One or more configuration items is not valid. Verify that a valid Amazon Resource Name (ARN) was provided for an Amazon SNS topic.
-  * Message [String](#string)
+
 
 ### InvalidOptionException
-* InvalidOptionException `object`: The delete inventory option specified is not valid. Verify the option and try again.
-  * Message [String](#string)
+
 
 ### InvalidOutputFolder
-* InvalidOutputFolder `object`: The S3 bucket does not exist.
+
 
 ### InvalidOutputLocation
-* InvalidOutputLocation `object`: The output location is not valid or does not exist.
+
 
 ### InvalidParameters
-* InvalidParameters `object`: You must specify values for all required parameters in the Systems Manager document. You can only supply values to parameters defined in the Systems Manager document.
-  * Message [String](#string)
+
 
 ### InvalidPermissionType
-* InvalidPermissionType `object`: The permission type is not supported. <i>Share</i> is the only supported permission type.
-  * Message [String](#string)
+
 
 ### InvalidPluginName
-* InvalidPluginName `object`: The plugin name is not valid.
+
+
+### InvalidPolicyAttributeException
+
+
+### InvalidPolicyTypeException
+
 
 ### InvalidResourceId
-* InvalidResourceId `object`: The resource ID is not valid. Verify that you entered the correct ID and try again.
+
 
 ### InvalidResourceType
-* InvalidResourceType `object`: The resource type is not valid. For example, if you are attempting to tag an instance, the instance must be a registered, managed instance.
+
 
 ### InvalidResultAttributeException
-* InvalidResultAttributeException `object`: The specified inventory item result attribute is not valid.
-  * Message [String](#string)
+
 
 ### InvalidRole
-* InvalidRole `object`: The role name can't contain invalid characters. Also verify that you specified an IAM role for notifications that includes the required trust policy. For information about configuring the IAM role for Run Command notifications, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/rc-sns-notifications.html">Configuring Amazon SNS Notifications for Run Command</a> in the <i>AWS Systems Manager User Guide</i>.
-  * Message [String](#string)
+
 
 ### InvalidSchedule
-* InvalidSchedule `object`: The schedule is invalid. Verify your cron or rate expression and try again.
-  * Message [String](#string)
+
 
 ### InvalidTarget
-* InvalidTarget `object`: The target is not valid or does not exist. It might not be configured for EC2 Systems Manager or you might not have permission to perform the operation.
-  * Message [String](#string)
+
 
 ### InvalidTypeNameException
-* InvalidTypeNameException `object`: The parameter type name is not valid.
-  * Message [String](#string)
+
 
 ### InvalidUpdate
-* InvalidUpdate `object`: The update is not valid.
-  * Message [String](#string)
+
 
 ### InventoryAggregator
 * InventoryAggregator `object`: Specifies the inventory type and attribute for the aggregation execution.
-  * Aggregators [InventoryAggregatorList](#inventoryaggregatorlist)
-  * Expression [InventoryAggregatorExpression](#inventoryaggregatorexpression)
+  * Aggregators
+    * items [InventoryAggregator](#inventoryaggregator)
+  * Expression
+  * Groups
+    * items [InventoryGroup](#inventorygroup)
 
 ### InventoryAggregatorExpression
 * InventoryAggregatorExpression `string`
@@ -3988,9 +6038,6 @@ amazonaws_ssm.UpdatePatchBaseline({
 
 ### InventoryAttributeDataType
 * InventoryAttributeDataType `string` (values: string, number)
-
-### InventoryDeletionId
-* InventoryDeletionId `string`
 
 ### InventoryDeletionLastStatusMessage
 * InventoryDeletionLastStatusMessage `string`
@@ -4006,25 +6053,30 @@ amazonaws_ssm.UpdatePatchBaseline({
 
 ### InventoryDeletionStatusItem
 * InventoryDeletionStatusItem `object`: Status information returned by the <code>DeleteInventory</code> action.
-  * DeletionId [InventoryDeletionId](#inventorydeletionid)
-  * DeletionStartTime [InventoryDeletionStartTime](#inventorydeletionstarttime)
-  * DeletionSummary [InventoryDeletionSummary](#inventorydeletionsummary)
-  * LastStatus [InventoryDeletionStatus](#inventorydeletionstatus)
-  * LastStatusMessage [InventoryDeletionLastStatusMessage](#inventorydeletionlaststatusmessage)
-  * LastStatusUpdateTime [InventoryDeletionLastStatusUpdateTime](#inventorydeletionlaststatusupdatetime)
-  * TypeName [InventoryItemTypeName](#inventoryitemtypename)
+  * DeletionId
+  * DeletionStartTime
+  * DeletionSummary
+    * RemainingCount
+    * SummaryItems
+      * items [InventoryDeletionSummaryItem](#inventorydeletionsummaryitem)
+    * TotalCount
+  * LastStatus
+  * LastStatusMessage
+  * LastStatusUpdateTime
+  * TypeName
 
 ### InventoryDeletionSummary
 * InventoryDeletionSummary `object`: Information about the delete operation.
-  * RemainingCount [RemainingCount](#remainingcount)
-  * SummaryItems [InventoryDeletionSummaryItems](#inventorydeletionsummaryitems)
-  * TotalCount [TotalCount](#totalcount)
+  * RemainingCount
+  * SummaryItems
+    * items [InventoryDeletionSummaryItem](#inventorydeletionsummaryitem)
+  * TotalCount
 
 ### InventoryDeletionSummaryItem
 * InventoryDeletionSummaryItem `object`: Either a count, remaining count, or a version number in a delete inventory summary.
-  * Count [ResourceCount](#resourcecount)
-  * RemainingCount [RemainingCount](#remainingcount)
-  * Version [InventoryItemSchemaVersion](#inventoryitemschemaversion)
+  * Count
+  * RemainingCount
+  * Version
 
 ### InventoryDeletionSummaryItems
 * InventoryDeletionSummaryItems `array`
@@ -4036,9 +6088,10 @@ amazonaws_ssm.UpdatePatchBaseline({
 
 ### InventoryFilter
 * InventoryFilter `object`: One or more filters. Use a filter to return a more specific list of results.
-  * Key **required** [InventoryFilterKey](#inventoryfilterkey)
-  * Type [InventoryQueryOperatorType](#inventoryqueryoperatortype)
-  * Values **required** [InventoryFilterValueList](#inventoryfiltervaluelist)
+  * Key **required**
+  * Type
+  * Values **required**
+    * items [InventoryFilterValue](#inventoryfiltervalue)
 
 ### InventoryFilterKey
 * InventoryFilterKey `string`
@@ -4054,19 +6107,33 @@ amazonaws_ssm.UpdatePatchBaseline({
 * InventoryFilterValueList `array`
   * items [InventoryFilterValue](#inventoryfiltervalue)
 
+### InventoryGroup
+* InventoryGroup `object`: A user-defined set of one or more filters on which to aggregate inventory data. Groups return a count of resources that match and don't match the specified criteria.
+  * Filters **required**
+    * items [InventoryFilter](#inventoryfilter)
+  * Name **required**
+
+### InventoryGroupList
+* InventoryGroupList `array`
+  * items [InventoryGroup](#inventorygroup)
+
+### InventoryGroupName
+* InventoryGroupName `string`
+
 ### InventoryItem
 * InventoryItem `object`: Information collected from managed instances based on your inventory policy document
-  * CaptureTime **required** [InventoryItemCaptureTime](#inventoryitemcapturetime)
-  * Content [InventoryItemEntryList](#inventoryitementrylist)
-  * ContentHash [InventoryItemContentHash](#inventoryitemcontenthash)
-  * Context [InventoryItemContentContext](#inventoryitemcontentcontext)
-  * SchemaVersion **required** [InventoryItemSchemaVersion](#inventoryitemschemaversion)
-  * TypeName **required** [InventoryItemTypeName](#inventoryitemtypename)
+  * CaptureTime **required**
+  * Content
+    * items [InventoryItemEntry](#inventoryitementry)
+  * ContentHash
+  * Context
+  * SchemaVersion **required**
+  * TypeName **required**
 
 ### InventoryItemAttribute
 * InventoryItemAttribute `object`: Attributes are the entries within the inventory item content. It contains name and value.
-  * DataType **required** [InventoryAttributeDataType](#inventoryattributedatatype)
-  * Name **required** [InventoryItemAttributeName](#inventoryitemattributename)
+  * DataType **required**
+  * Name **required**
 
 ### InventoryItemAttributeList
 * InventoryItemAttributeList `array`
@@ -4079,19 +6146,13 @@ amazonaws_ssm.UpdatePatchBaseline({
 * InventoryItemCaptureTime `string`
 
 ### InventoryItemContentContext
-* InventoryItemContentContext `array`
-  * items `object`
-    * key [AttributeName](#attributename)
-    * value [AttributeValue](#attributevalue)
+* InventoryItemContentContext `object`
 
 ### InventoryItemContentHash
 * InventoryItemContentHash `string`
 
 ### InventoryItemEntry
-* InventoryItemEntry `array`
-  * items `object`
-    * key [AttributeName](#attributename)
-    * value [AttributeValue](#attributevalue)
+* InventoryItemEntry `object`
 
 ### InventoryItemEntryList
 * InventoryItemEntryList `array`
@@ -4103,10 +6164,11 @@ amazonaws_ssm.UpdatePatchBaseline({
 
 ### InventoryItemSchema
 * InventoryItemSchema `object`: The inventory item schema definition. Users can use this to compose inventory query filters.
-  * Attributes **required** [InventoryItemAttributeList](#inventoryitemattributelist)
-  * DisplayName [InventoryTypeDisplayName](#inventorytypedisplayname)
-  * TypeName **required** [InventoryItemTypeName](#inventoryitemtypename)
-  * Version [InventoryItemSchemaVersion](#inventoryitemschemaversion)
+  * Attributes **required**
+    * items [InventoryItemAttribute](#inventoryitemattribute)
+  * DisplayName
+  * TypeName **required**
+  * Version
 
 ### InventoryItemSchemaResultList
 * InventoryItemSchemaResultList `array`
@@ -4122,12 +6184,12 @@ amazonaws_ssm.UpdatePatchBaseline({
 * InventoryItemTypeNameFilter `string`
 
 ### InventoryQueryOperatorType
-* InventoryQueryOperatorType `string` (values: Equal, NotEqual, BeginWith, LessThan, GreaterThan)
+* InventoryQueryOperatorType `string` (values: Equal, NotEqual, BeginWith, LessThan, GreaterThan, Exists)
 
 ### InventoryResultEntity
 * InventoryResultEntity `object`: Inventory query results.
-  * Data [InventoryResultItemMap](#inventoryresultitemmap)
-  * Id [InventoryResultEntityId](#inventoryresultentityid)
+  * Data
+  * Id
 
 ### InventoryResultEntityId
 * InventoryResultEntityId `string`
@@ -4138,20 +6200,18 @@ amazonaws_ssm.UpdatePatchBaseline({
 
 ### InventoryResultItem
 * InventoryResultItem `object`: The inventory result item.
-  * CaptureTime [InventoryItemCaptureTime](#inventoryitemcapturetime)
-  * Content **required** [InventoryItemEntryList](#inventoryitementrylist)
-  * ContentHash [InventoryItemContentHash](#inventoryitemcontenthash)
-  * SchemaVersion **required** [InventoryItemSchemaVersion](#inventoryitemschemaversion)
-  * TypeName **required** [InventoryItemTypeName](#inventoryitemtypename)
+  * CaptureTime
+  * Content **required**
+    * items [InventoryItemEntry](#inventoryitementry)
+  * ContentHash
+  * SchemaVersion **required**
+  * TypeName **required**
 
 ### InventoryResultItemKey
 * InventoryResultItemKey `string`
 
 ### InventoryResultItemMap
-* InventoryResultItemMap `array`
-  * items `object`
-    * key [InventoryResultItemKey](#inventoryresultitemkey)
-    * value [InventoryResultItem](#inventoryresultitem)
+* InventoryResultItemMap `object`
 
 ### InventorySchemaDeleteOption
 * InventorySchemaDeleteOption `string` (values: DisableSchema, DeleteSchema)
@@ -4160,7 +6220,7 @@ amazonaws_ssm.UpdatePatchBaseline({
 * InventoryTypeDisplayName `string`
 
 ### InvocationDoesNotExist
-* InvocationDoesNotExist `object`: The command ID and instance ID you specified did not match any invocations. Verify the command ID adn the instance ID and try again. 
+
 
 ### InvocationTraceOutput
 * InvocationTraceOutput `string`
@@ -4169,18 +6229,27 @@ amazonaws_ssm.UpdatePatchBaseline({
 * IsSubTypeSchema `boolean`
 
 ### ItemContentMismatchException
-* ItemContentMismatchException `object`: The inventory item has invalid content. 
-  * Message [String](#string)
-  * TypeName [InventoryItemTypeName](#inventoryitemtypename)
+
 
 ### ItemSizeLimitExceededException
-* ItemSizeLimitExceededException `object`: The inventory item size has exceeded the size limit.
-  * Message [String](#string)
-  * TypeName [InventoryItemTypeName](#inventoryitemtypename)
+
 
 ### KeyList
 * KeyList `array`
   * items [TagKey](#tagkey)
+
+### LabelParameterVersionRequest
+* LabelParameterVersionRequest `object`
+  * Labels **required**
+    * items [ParameterLabel](#parameterlabel)
+  * Name **required**
+  * ParameterVersion
+
+### LabelParameterVersionResult
+* LabelParameterVersionResult `object`
+  * InvalidLabels
+    * items [ParameterLabel](#parameterlabel)
+  * ParameterVersion
 
 ### LastResourceDataSyncMessage
 * LastResourceDataSyncMessage `string`
@@ -4196,152 +6265,223 @@ amazonaws_ssm.UpdatePatchBaseline({
 
 ### ListAssociationVersionsRequest
 * ListAssociationVersionsRequest `object`
-  * AssociationId **required** [AssociationId](#associationid)
-  * MaxResults [MaxResults](#maxresults)
-  * NextToken [NextToken](#nexttoken)
+  * AssociationId **required**
+  * MaxResults
+  * NextToken
 
 ### ListAssociationVersionsResult
 * ListAssociationVersionsResult `object`
-  * AssociationVersions [AssociationVersionList](#associationversionlist)
-  * NextToken [NextToken](#nexttoken)
+  * AssociationVersions
+    * items [AssociationVersionInfo](#associationversioninfo)
+  * NextToken
 
 ### ListAssociationsRequest
 * ListAssociationsRequest `object`
-  * AssociationFilterList [AssociationFilterList](#associationfilterlist)
-  * MaxResults [MaxResults](#maxresults)
-  * NextToken [NextToken](#nexttoken)
+  * AssociationFilterList
+    * items [AssociationFilter](#associationfilter)
+  * MaxResults
+  * NextToken
 
 ### ListAssociationsResult
 * ListAssociationsResult `object`
-  * Associations [AssociationList](#associationlist)
-  * NextToken [NextToken](#nexttoken)
+  * Associations
+    * items [Association](#association)
+  * NextToken
 
 ### ListCommandInvocationsRequest
 * ListCommandInvocationsRequest `object`
-  * CommandId [CommandId](#commandid)
-  * Details [Boolean](#boolean)
-  * Filters [CommandFilterList](#commandfilterlist)
-  * InstanceId [InstanceId](#instanceid)
-  * MaxResults [CommandMaxResults](#commandmaxresults)
-  * NextToken [NextToken](#nexttoken)
+  * CommandId
+  * Details
+  * Filters
+    * items [CommandFilter](#commandfilter)
+  * InstanceId
+  * MaxResults
+  * NextToken
 
 ### ListCommandInvocationsResult
 * ListCommandInvocationsResult `object`
-  * CommandInvocations [CommandInvocationList](#commandinvocationlist)
-  * NextToken [NextToken](#nexttoken)
+  * CommandInvocations
+    * items [CommandInvocation](#commandinvocation)
+  * NextToken
 
 ### ListCommandsRequest
 * ListCommandsRequest `object`
-  * CommandId [CommandId](#commandid)
-  * Filters [CommandFilterList](#commandfilterlist)
-  * InstanceId [InstanceId](#instanceid)
-  * MaxResults [CommandMaxResults](#commandmaxresults)
-  * NextToken [NextToken](#nexttoken)
+  * CommandId
+  * Filters
+    * items [CommandFilter](#commandfilter)
+  * InstanceId
+  * MaxResults
+  * NextToken
 
 ### ListCommandsResult
 * ListCommandsResult `object`
-  * Commands [CommandList](#commandlist)
-  * NextToken [NextToken](#nexttoken)
+  * Commands
+    * items [Command](#command)
+  * NextToken
 
 ### ListComplianceItemsRequest
 * ListComplianceItemsRequest `object`
-  * Filters [ComplianceStringFilterList](#compliancestringfilterlist)
-  * MaxResults [MaxResults](#maxresults)
-  * NextToken [NextToken](#nexttoken)
-  * ResourceIds [ComplianceResourceIdList](#complianceresourceidlist)
-  * ResourceTypes [ComplianceResourceTypeList](#complianceresourcetypelist)
+  * Filters
+    * items [ComplianceStringFilter](#compliancestringfilter)
+  * MaxResults
+  * NextToken
+  * ResourceIds
+    * items [ComplianceResourceId](#complianceresourceid)
+  * ResourceTypes
+    * items [ComplianceResourceType](#complianceresourcetype)
 
 ### ListComplianceItemsResult
 * ListComplianceItemsResult `object`
-  * ComplianceItems [ComplianceItemList](#complianceitemlist)
-  * NextToken [NextToken](#nexttoken)
+  * ComplianceItems
+    * items [ComplianceItem](#complianceitem)
+  * NextToken
 
 ### ListComplianceSummariesRequest
 * ListComplianceSummariesRequest `object`
-  * Filters [ComplianceStringFilterList](#compliancestringfilterlist)
-  * MaxResults [MaxResults](#maxresults)
-  * NextToken [NextToken](#nexttoken)
+  * Filters
+    * items [ComplianceStringFilter](#compliancestringfilter)
+  * MaxResults
+  * NextToken
 
 ### ListComplianceSummariesResult
 * ListComplianceSummariesResult `object`
-  * ComplianceSummaryItems [ComplianceSummaryItemList](#compliancesummaryitemlist)
-  * NextToken [NextToken](#nexttoken)
+  * ComplianceSummaryItems
+    * items [ComplianceSummaryItem](#compliancesummaryitem)
+  * NextToken
+
+### ListDocumentMetadataHistoryRequest
+* ListDocumentMetadataHistoryRequest `object`
+  * DocumentVersion
+  * MaxResults
+  * Metadata **required**
+  * Name **required**
+  * NextToken
+
+### ListDocumentMetadataHistoryResponse
+* ListDocumentMetadataHistoryResponse `object`
+  * Author
+  * DocumentVersion
+  * Metadata
+    * ReviewerResponse
+      * items [DocumentReviewerResponseSource](#documentreviewerresponsesource)
+  * Name
+  * NextToken
 
 ### ListDocumentVersionsRequest
 * ListDocumentVersionsRequest `object`
-  * MaxResults [MaxResults](#maxresults)
-  * Name **required** [DocumentName](#documentname)
-  * NextToken [NextToken](#nexttoken)
+  * MaxResults
+  * Name **required**
+  * NextToken
 
 ### ListDocumentVersionsResult
 * ListDocumentVersionsResult `object`
-  * DocumentVersions [DocumentVersionList](#documentversionlist)
-  * NextToken [NextToken](#nexttoken)
+  * DocumentVersions
+    * items [DocumentVersionInfo](#documentversioninfo)
+  * NextToken
 
 ### ListDocumentsRequest
 * ListDocumentsRequest `object`
-  * DocumentFilterList [DocumentFilterList](#documentfilterlist)
-  * Filters [DocumentKeyValuesFilterList](#documentkeyvaluesfilterlist)
-  * MaxResults [MaxResults](#maxresults)
-  * NextToken [NextToken](#nexttoken)
+  * DocumentFilterList
+    * items [DocumentFilter](#documentfilter)
+  * Filters
+    * items [DocumentKeyValuesFilter](#documentkeyvaluesfilter)
+  * MaxResults
+  * NextToken
 
 ### ListDocumentsResult
 * ListDocumentsResult `object`
-  * DocumentIdentifiers [DocumentIdentifierList](#documentidentifierlist)
-  * NextToken [NextToken](#nexttoken)
+  * DocumentIdentifiers
+    * items [DocumentIdentifier](#documentidentifier)
+  * NextToken
 
 ### ListInventoryEntriesRequest
 * ListInventoryEntriesRequest `object`
-  * Filters [InventoryFilterList](#inventoryfilterlist)
-  * InstanceId **required** [InstanceId](#instanceid)
-  * MaxResults [MaxResults](#maxresults)
-  * NextToken [NextToken](#nexttoken)
-  * TypeName **required** [InventoryItemTypeName](#inventoryitemtypename)
+  * Filters
+    * items [InventoryFilter](#inventoryfilter)
+  * InstanceId **required**
+  * MaxResults
+  * NextToken
+  * TypeName **required**
 
 ### ListInventoryEntriesResult
 * ListInventoryEntriesResult `object`
-  * CaptureTime [InventoryItemCaptureTime](#inventoryitemcapturetime)
-  * Entries [InventoryItemEntryList](#inventoryitementrylist)
-  * InstanceId [InstanceId](#instanceid)
-  * NextToken [NextToken](#nexttoken)
-  * SchemaVersion [InventoryItemSchemaVersion](#inventoryitemschemaversion)
-  * TypeName [InventoryItemTypeName](#inventoryitemtypename)
+  * CaptureTime
+  * Entries
+    * items [InventoryItemEntry](#inventoryitementry)
+  * InstanceId
+  * NextToken
+  * SchemaVersion
+  * TypeName
+
+### ListOpsItemEventsRequest
+* ListOpsItemEventsRequest `object`
+  * Filters
+    * items [OpsItemEventFilter](#opsitemeventfilter)
+  * MaxResults
+  * NextToken
+
+### ListOpsItemEventsResponse
+* ListOpsItemEventsResponse `object`
+  * NextToken
+  * Summaries
+    * items [OpsItemEventSummary](#opsitemeventsummary)
+
+### ListOpsMetadataMaxResults
+* ListOpsMetadataMaxResults `integer`
+
+### ListOpsMetadataRequest
+* ListOpsMetadataRequest `object`
+  * Filters
+    * items [OpsMetadataFilter](#opsmetadatafilter)
+  * MaxResults
+  * NextToken
+
+### ListOpsMetadataResult
+* ListOpsMetadataResult `object`
+  * NextToken
+  * OpsMetadataList
+    * items [OpsMetadata](#opsmetadata)
 
 ### ListResourceComplianceSummariesRequest
 * ListResourceComplianceSummariesRequest `object`
-  * Filters [ComplianceStringFilterList](#compliancestringfilterlist)
-  * MaxResults [MaxResults](#maxresults)
-  * NextToken [NextToken](#nexttoken)
+  * Filters
+    * items [ComplianceStringFilter](#compliancestringfilter)
+  * MaxResults
+  * NextToken
 
 ### ListResourceComplianceSummariesResult
 * ListResourceComplianceSummariesResult `object`
-  * NextToken [NextToken](#nexttoken)
-  * ResourceComplianceSummaryItems [ResourceComplianceSummaryItemList](#resourcecompliancesummaryitemlist)
+  * NextToken
+  * ResourceComplianceSummaryItems
+    * items [ResourceComplianceSummaryItem](#resourcecompliancesummaryitem)
 
 ### ListResourceDataSyncRequest
 * ListResourceDataSyncRequest `object`
-  * MaxResults [MaxResults](#maxresults)
-  * NextToken [NextToken](#nexttoken)
+  * MaxResults
+  * NextToken
+  * SyncType
 
 ### ListResourceDataSyncResult
 * ListResourceDataSyncResult `object`
-  * NextToken [NextToken](#nexttoken)
-  * ResourceDataSyncItems [ResourceDataSyncItemList](#resourcedatasyncitemlist)
+  * NextToken
+  * ResourceDataSyncItems
+    * items [ResourceDataSyncItem](#resourcedatasyncitem)
 
 ### ListTagsForResourceRequest
 * ListTagsForResourceRequest `object`
-  * ResourceId **required** [ResourceId](#resourceid)
-  * ResourceType **required** [ResourceTypeForTagging](#resourcetypefortagging)
+  * ResourceId **required**
+  * ResourceType **required**
 
 ### ListTagsForResourceResult
 * ListTagsForResourceResult `object`
-  * TagList [TagList](#taglist)
+  * TagList
+    * items [Tag](#tag)
 
 ### LoggingInfo
-* LoggingInfo `object`: <p>Information about an Amazon S3 bucket to write instance-level logs to.</p> <note> <p> <code>LoggingInfo</code> has been deprecated. To specify an S3 bucket to contain logs, instead use the <code>OutputS3BucketName</code> and <code>OutputS3KeyPrefix</code> options in the <code>TaskInvocationParameters</code> structure. For information about how Systems Manager handles these options for the supported Maintenance Window task types, see <a>MaintenanceWindowTaskInvocationParameters</a>.</p> </note>
-  * S3BucketName **required** [S3BucketName](#s3bucketname)
-  * S3KeyPrefix [S3KeyPrefix](#s3keyprefix)
-  * S3Region **required** [S3Region](#s3region)
+* LoggingInfo `object`: <p>Information about an S3 bucket to write instance-level logs to.</p> <note> <p> <code>LoggingInfo</code> has been deprecated. To specify an S3 bucket to contain logs, instead use the <code>OutputS3BucketName</code> and <code>OutputS3KeyPrefix</code> options in the <code>TaskInvocationParameters</code> structure. For information about how Systems Manager handles these options for the supported maintenance window task types, see <a>MaintenanceWindowTaskInvocationParameters</a>.</p> </note>
+  * S3BucketName **required**
+  * S3KeyPrefix
+  * S3Region **required**
 
 ### Long
 * Long `integer`
@@ -4351,8 +6491,8 @@ amazonaws_ssm.UpdatePatchBaseline({
 
 ### MaintenanceWindowAutomationParameters
 * MaintenanceWindowAutomationParameters `object`: The parameters for an AUTOMATION task type.
-  * DocumentVersion [DocumentVersion](#documentversion)
-  * Parameters [AutomationParameterMap](#automationparametermap)
+  * DocumentVersion
+  * Parameters
 
 ### MaintenanceWindowCutoff
 * MaintenanceWindowCutoff `integer`
@@ -4367,13 +6507,13 @@ amazonaws_ssm.UpdatePatchBaseline({
 * MaintenanceWindowEnabled `boolean`
 
 ### MaintenanceWindowExecution
-* MaintenanceWindowExecution `object`: Describes the information about an execution of a Maintenance Window. 
-  * EndTime [DateTime](#datetime)
-  * StartTime [DateTime](#datetime)
-  * Status [MaintenanceWindowExecutionStatus](#maintenancewindowexecutionstatus)
-  * StatusDetails [MaintenanceWindowExecutionStatusDetails](#maintenancewindowexecutionstatusdetails)
-  * WindowExecutionId [MaintenanceWindowExecutionId](#maintenancewindowexecutionid)
-  * WindowId [MaintenanceWindowId](#maintenancewindowid)
+* MaintenanceWindowExecution `object`: Describes the information about an execution of a maintenance window. 
+  * EndTime
+  * StartTime
+  * Status
+  * StatusDetails
+  * WindowExecutionId
+  * WindowId
 
 ### MaintenanceWindowExecutionId
 * MaintenanceWindowExecutionId `string`
@@ -4399,15 +6539,15 @@ amazonaws_ssm.UpdatePatchBaseline({
   * items [MaintenanceWindowExecutionTaskId](#maintenancewindowexecutiontaskid)
 
 ### MaintenanceWindowExecutionTaskIdentity
-* MaintenanceWindowExecutionTaskIdentity `object`: Information about a task execution performed as part of a Maintenance Window execution.
-  * EndTime [DateTime](#datetime)
-  * StartTime [DateTime](#datetime)
-  * Status [MaintenanceWindowExecutionStatus](#maintenancewindowexecutionstatus)
-  * StatusDetails [MaintenanceWindowExecutionStatusDetails](#maintenancewindowexecutionstatusdetails)
-  * TaskArn [MaintenanceWindowTaskArn](#maintenancewindowtaskarn)
-  * TaskExecutionId [MaintenanceWindowExecutionTaskId](#maintenancewindowexecutiontaskid)
-  * TaskType [MaintenanceWindowTaskType](#maintenancewindowtasktype)
-  * WindowExecutionId [MaintenanceWindowExecutionId](#maintenancewindowexecutionid)
+* MaintenanceWindowExecutionTaskIdentity `object`: Information about a task execution performed as part of a maintenance window execution.
+  * EndTime
+  * StartTime
+  * Status
+  * StatusDetails
+  * TaskArn
+  * TaskExecutionId
+  * TaskType
+  * WindowExecutionId
 
 ### MaintenanceWindowExecutionTaskIdentityList
 * MaintenanceWindowExecutionTaskIdentityList `array`
@@ -4417,19 +6557,19 @@ amazonaws_ssm.UpdatePatchBaseline({
 * MaintenanceWindowExecutionTaskInvocationId `string`
 
 ### MaintenanceWindowExecutionTaskInvocationIdentity
-* MaintenanceWindowExecutionTaskInvocationIdentity `object`: Describes the information about a task invocation for a particular target as part of a task execution performed as part of a Maintenance Window execution.
-  * EndTime [DateTime](#datetime)
-  * ExecutionId [MaintenanceWindowExecutionTaskExecutionId](#maintenancewindowexecutiontaskexecutionid)
-  * InvocationId [MaintenanceWindowExecutionTaskInvocationId](#maintenancewindowexecutiontaskinvocationid)
-  * OwnerInformation [OwnerInformation](#ownerinformation)
-  * Parameters [MaintenanceWindowExecutionTaskInvocationParameters](#maintenancewindowexecutiontaskinvocationparameters)
-  * StartTime [DateTime](#datetime)
-  * Status [MaintenanceWindowExecutionStatus](#maintenancewindowexecutionstatus)
-  * StatusDetails [MaintenanceWindowExecutionStatusDetails](#maintenancewindowexecutionstatusdetails)
-  * TaskExecutionId [MaintenanceWindowExecutionTaskId](#maintenancewindowexecutiontaskid)
-  * TaskType [MaintenanceWindowTaskType](#maintenancewindowtasktype)
-  * WindowExecutionId [MaintenanceWindowExecutionId](#maintenancewindowexecutionid)
-  * WindowTargetId [MaintenanceWindowTaskTargetId](#maintenancewindowtasktargetid)
+* MaintenanceWindowExecutionTaskInvocationIdentity `object`: Describes the information about a task invocation for a particular target as part of a task execution performed as part of a maintenance window execution.
+  * EndTime
+  * ExecutionId
+  * InvocationId
+  * OwnerInformation
+  * Parameters
+  * StartTime
+  * Status
+  * StatusDetails
+  * TaskExecutionId
+  * TaskType
+  * WindowExecutionId
+  * WindowTargetId
 
 ### MaintenanceWindowExecutionTaskInvocationIdentityList
 * MaintenanceWindowExecutionTaskInvocationIdentityList `array`
@@ -4439,9 +6579,10 @@ amazonaws_ssm.UpdatePatchBaseline({
 * MaintenanceWindowExecutionTaskInvocationParameters `string`
 
 ### MaintenanceWindowFilter
-* MaintenanceWindowFilter `object`: Filter used in the request.
-  * Key [MaintenanceWindowFilterKey](#maintenancewindowfilterkey)
-  * Values [MaintenanceWindowFilterValues](#maintenancewindowfiltervalues)
+* MaintenanceWindowFilter `object`: Filter used in the request. Supported filter keys are Name and Enabled.
+  * Key
+  * Values
+    * items [MaintenanceWindowFilterValue](#maintenancewindowfiltervalue)
 
 ### MaintenanceWindowFilterKey
 * MaintenanceWindowFilterKey `string`
@@ -4461,13 +6602,24 @@ amazonaws_ssm.UpdatePatchBaseline({
 * MaintenanceWindowId `string`
 
 ### MaintenanceWindowIdentity
-* MaintenanceWindowIdentity `object`: Information about the Maintenance Window.
-  * Cutoff [MaintenanceWindowCutoff](#maintenancewindowcutoff)
-  * Description [MaintenanceWindowDescription](#maintenancewindowdescription)
-  * Duration [MaintenanceWindowDurationHours](#maintenancewindowdurationhours)
-  * Enabled [MaintenanceWindowEnabled](#maintenancewindowenabled)
-  * Name [MaintenanceWindowName](#maintenancewindowname)
-  * WindowId [MaintenanceWindowId](#maintenancewindowid)
+* MaintenanceWindowIdentity `object`: Information about the maintenance window.
+  * Cutoff
+  * Description
+  * Duration
+  * Enabled
+  * EndDate
+  * Name
+  * NextExecutionTime
+  * Schedule
+  * ScheduleOffset
+  * ScheduleTimezone
+  * StartDate
+  * WindowId
+
+### MaintenanceWindowIdentityForTarget
+* MaintenanceWindowIdentityForTarget `object`: The maintenance window to which the specified target belongs.
+  * Name
+  * WindowId
 
 ### MaintenanceWindowIdentityList
 * MaintenanceWindowIdentityList `array`
@@ -4477,10 +6629,10 @@ amazonaws_ssm.UpdatePatchBaseline({
 * MaintenanceWindowLambdaClientContext `string`
 
 ### MaintenanceWindowLambdaParameters
-* MaintenanceWindowLambdaParameters `object`: <p>The parameters for a LAMBDA task type.</p> <p>For information about specifying and updating task parameters, see <a>RegisterTaskWithMaintenanceWindow</a> and <a>UpdateMaintenanceWindowTask</a>.</p> <note> <p> <code>LoggingInfo</code> has been deprecated. To specify an S3 bucket to contain logs, instead use the <code>OutputS3BucketName</code> and <code>OutputS3KeyPrefix</code> options in the <code>TaskInvocationParameters</code> structure. For information about how Systems Manager handles these options for the supported Maintenance Window task types, see <a>MaintenanceWindowTaskInvocationParameters</a>.</p> <p> <code>TaskParameters</code> has been deprecated. To specify parameters to pass to a task when it runs, instead use the <code>Parameters</code> option in the <code>TaskInvocationParameters</code> structure. For information about how Systems Manager handles these options for the supported Maintenance Window task types, see <a>MaintenanceWindowTaskInvocationParameters</a>.</p> <p>For Lambda tasks, Systems Manager ignores any values specified for TaskParameters and LoggingInfo.</p> </note>
-  * ClientContext [MaintenanceWindowLambdaClientContext](#maintenancewindowlambdaclientcontext)
-  * Payload [MaintenanceWindowLambdaPayload](#maintenancewindowlambdapayload)
-  * Qualifier [MaintenanceWindowLambdaQualifier](#maintenancewindowlambdaqualifier)
+* MaintenanceWindowLambdaParameters `object`: <p>The parameters for a LAMBDA task type.</p> <p>For information about specifying and updating task parameters, see <a>RegisterTaskWithMaintenanceWindow</a> and <a>UpdateMaintenanceWindowTask</a>.</p> <note> <p> <code>LoggingInfo</code> has been deprecated. To specify an S3 bucket to contain logs, instead use the <code>OutputS3BucketName</code> and <code>OutputS3KeyPrefix</code> options in the <code>TaskInvocationParameters</code> structure. For information about how Systems Manager handles these options for the supported maintenance window task types, see <a>MaintenanceWindowTaskInvocationParameters</a>.</p> <p> <code>TaskParameters</code> has been deprecated. To specify parameters to pass to a task when it runs, instead use the <code>Parameters</code> option in the <code>TaskInvocationParameters</code> structure. For information about how Systems Manager handles these options for the supported maintenance window task types, see <a>MaintenanceWindowTaskInvocationParameters</a>.</p> <p>For Lambda tasks, Systems Manager ignores any values specified for TaskParameters and LoggingInfo.</p> </note>
+  * ClientContext
+  * Payload
+  * Qualifier
 
 ### MaintenanceWindowLambdaPayload
 * MaintenanceWindowLambdaPayload `string`
@@ -4494,23 +6646,35 @@ amazonaws_ssm.UpdatePatchBaseline({
 ### MaintenanceWindowName
 * MaintenanceWindowName `string`
 
+### MaintenanceWindowOffset
+* MaintenanceWindowOffset `integer`
+
 ### MaintenanceWindowResourceType
-* MaintenanceWindowResourceType `string` (values: INSTANCE)
+* MaintenanceWindowResourceType `string` (values: INSTANCE, RESOURCE_GROUP)
 
 ### MaintenanceWindowRunCommandParameters
-* MaintenanceWindowRunCommandParameters `object`: <p>The parameters for a RUN_COMMAND task type.</p> <p>For information about specifying and updating task parameters, see <a>RegisterTaskWithMaintenanceWindow</a> and <a>UpdateMaintenanceWindowTask</a>.</p> <note> <p> <code>LoggingInfo</code> has been deprecated. To specify an S3 bucket to contain logs, instead use the <code>OutputS3BucketName</code> and <code>OutputS3KeyPrefix</code> options in the <code>TaskInvocationParameters</code> structure. For information about how Systems Manager handles these options for the supported Maintenance Window task types, see <a>MaintenanceWindowTaskInvocationParameters</a>.</p> <p> <code>TaskParameters</code> has been deprecated. To specify parameters to pass to a task when it runs, instead use the <code>Parameters</code> option in the <code>TaskInvocationParameters</code> structure. For information about how Systems Manager handles these options for the supported Maintenance Window task types, see <a>MaintenanceWindowTaskInvocationParameters</a>.</p> <p>For Run Command tasks, Systems Manager uses specified values for <code>TaskParameters</code> and <code>LoggingInfo</code> only if no values are specified for <code>TaskInvocationParameters</code>. </p> </note>
-  * Comment [Comment](#comment)
-  * DocumentHash [DocumentHash](#documenthash)
-  * DocumentHashType [DocumentHashType](#documenthashtype)
-  * NotificationConfig [NotificationConfig](#notificationconfig)
-  * OutputS3BucketName [S3BucketName](#s3bucketname)
-  * OutputS3KeyPrefix [S3KeyPrefix](#s3keyprefix)
-  * Parameters [Parameters](#parameters)
-  * ServiceRoleArn [ServiceRole](#servicerole)
-  * TimeoutSeconds [TimeoutSeconds](#timeoutseconds)
+* MaintenanceWindowRunCommandParameters `object`: <p>The parameters for a RUN_COMMAND task type.</p> <p>For information about specifying and updating task parameters, see <a>RegisterTaskWithMaintenanceWindow</a> and <a>UpdateMaintenanceWindowTask</a>.</p> <note> <p> <code>LoggingInfo</code> has been deprecated. To specify an S3 bucket to contain logs, instead use the <code>OutputS3BucketName</code> and <code>OutputS3KeyPrefix</code> options in the <code>TaskInvocationParameters</code> structure. For information about how Systems Manager handles these options for the supported maintenance window task types, see <a>MaintenanceWindowTaskInvocationParameters</a>.</p> <p> <code>TaskParameters</code> has been deprecated. To specify parameters to pass to a task when it runs, instead use the <code>Parameters</code> option in the <code>TaskInvocationParameters</code> structure. For information about how Systems Manager handles these options for the supported maintenance window task types, see <a>MaintenanceWindowTaskInvocationParameters</a>.</p> <p>For Run Command tasks, Systems Manager uses specified values for <code>TaskParameters</code> and <code>LoggingInfo</code> only if no values are specified for <code>TaskInvocationParameters</code>. </p> </note>
+  * CloudWatchOutputConfig [CloudWatchOutputConfig](#cloudwatchoutputconfig)
+  * Comment
+  * DocumentHash
+  * DocumentHashType
+  * DocumentVersion
+  * NotificationConfig
+    * NotificationArn
+    * NotificationEvents
+      * items [NotificationEvent](#notificationevent)
+    * NotificationType
+  * OutputS3BucketName
+  * OutputS3KeyPrefix
+  * Parameters
+  * ServiceRoleArn
+  * TimeoutSeconds
 
 ### MaintenanceWindowSchedule
 * MaintenanceWindowSchedule `string`
+
+### MaintenanceWindowSearchMaxResults
+* MaintenanceWindowSearchMaxResults `integer`
 
 ### MaintenanceWindowStepFunctionsInput
 * MaintenanceWindowStepFunctionsInput `string`
@@ -4519,19 +6683,23 @@ amazonaws_ssm.UpdatePatchBaseline({
 * MaintenanceWindowStepFunctionsName `string`
 
 ### MaintenanceWindowStepFunctionsParameters
-* MaintenanceWindowStepFunctionsParameters `object`: <p>The parameters for a STEP_FUNCTION task.</p> <p>For information about specifying and updating task parameters, see <a>RegisterTaskWithMaintenanceWindow</a> and <a>UpdateMaintenanceWindowTask</a>.</p> <note> <p> <code>LoggingInfo</code> has been deprecated. To specify an S3 bucket to contain logs, instead use the <code>OutputS3BucketName</code> and <code>OutputS3KeyPrefix</code> options in the <code>TaskInvocationParameters</code> structure. For information about how Systems Manager handles these options for the supported Maintenance Window task types, see <a>MaintenanceWindowTaskInvocationParameters</a>.</p> <p> <code>TaskParameters</code> has been deprecated. To specify parameters to pass to a task when it runs, instead use the <code>Parameters</code> option in the <code>TaskInvocationParameters</code> structure. For information about how Systems Manager handles these options for the supported Maintenance Window task types, see <a>MaintenanceWindowTaskInvocationParameters</a>.</p> <p>For Step Functions tasks, Systems Manager ignores any values specified for <code>TaskParameters</code> and <code>LoggingInfo</code>.</p> </note>
-  * Input [MaintenanceWindowStepFunctionsInput](#maintenancewindowstepfunctionsinput)
-  * Name [MaintenanceWindowStepFunctionsName](#maintenancewindowstepfunctionsname)
+* MaintenanceWindowStepFunctionsParameters `object`: <p>The parameters for a STEP_FUNCTIONS task.</p> <p>For information about specifying and updating task parameters, see <a>RegisterTaskWithMaintenanceWindow</a> and <a>UpdateMaintenanceWindowTask</a>.</p> <note> <p> <code>LoggingInfo</code> has been deprecated. To specify an S3 bucket to contain logs, instead use the <code>OutputS3BucketName</code> and <code>OutputS3KeyPrefix</code> options in the <code>TaskInvocationParameters</code> structure. For information about how Systems Manager handles these options for the supported maintenance window task types, see <a>MaintenanceWindowTaskInvocationParameters</a>.</p> <p> <code>TaskParameters</code> has been deprecated. To specify parameters to pass to a task when it runs, instead use the <code>Parameters</code> option in the <code>TaskInvocationParameters</code> structure. For information about how Systems Manager handles these options for the supported maintenance window task types, see <a>MaintenanceWindowTaskInvocationParameters</a>.</p> <p>For Step Functions tasks, Systems Manager ignores any values specified for <code>TaskParameters</code> and <code>LoggingInfo</code>.</p> </note>
+  * Input
+  * Name
+
+### MaintenanceWindowStringDateTime
+* MaintenanceWindowStringDateTime `string`
 
 ### MaintenanceWindowTarget
-* MaintenanceWindowTarget `object`: The target registered with the Maintenance Window.
-  * Description [MaintenanceWindowDescription](#maintenancewindowdescription)
-  * Name [MaintenanceWindowName](#maintenancewindowname)
-  * OwnerInformation [OwnerInformation](#ownerinformation)
-  * ResourceType [MaintenanceWindowResourceType](#maintenancewindowresourcetype)
-  * Targets [Targets](#targets)
-  * WindowId [MaintenanceWindowId](#maintenancewindowid)
-  * WindowTargetId [MaintenanceWindowTargetId](#maintenancewindowtargetid)
+* MaintenanceWindowTarget `object`: The target registered with the maintenance window.
+  * Description
+  * Name
+  * OwnerInformation
+  * ResourceType
+  * Targets
+    * items [Target](#target)
+  * WindowId
+  * WindowTargetId
 
 ### MaintenanceWindowTargetId
 * MaintenanceWindowTargetId `string`
@@ -4541,20 +6709,24 @@ amazonaws_ssm.UpdatePatchBaseline({
   * items [MaintenanceWindowTarget](#maintenancewindowtarget)
 
 ### MaintenanceWindowTask
-* MaintenanceWindowTask `object`: Information about a task defined for a Maintenance Window.
-  * Description [MaintenanceWindowDescription](#maintenancewindowdescription)
-  * LoggingInfo [LoggingInfo](#logginginfo)
-  * MaxConcurrency [MaxConcurrency](#maxconcurrency)
-  * MaxErrors [MaxErrors](#maxerrors)
-  * Name [MaintenanceWindowName](#maintenancewindowname)
-  * Priority [MaintenanceWindowTaskPriority](#maintenancewindowtaskpriority)
-  * ServiceRoleArn [ServiceRole](#servicerole)
-  * Targets [Targets](#targets)
-  * TaskArn [MaintenanceWindowTaskArn](#maintenancewindowtaskarn)
-  * TaskParameters [MaintenanceWindowTaskParameters](#maintenancewindowtaskparameters)
-  * Type [MaintenanceWindowTaskType](#maintenancewindowtasktype)
-  * WindowId [MaintenanceWindowId](#maintenancewindowid)
-  * WindowTaskId [MaintenanceWindowTaskId](#maintenancewindowtaskid)
+* MaintenanceWindowTask `object`: Information about a task defined for a maintenance window.
+  * Description
+  * LoggingInfo
+    * S3BucketName **required**
+    * S3KeyPrefix
+    * S3Region **required**
+  * MaxConcurrency
+  * MaxErrors
+  * Name
+  * Priority
+  * ServiceRoleArn
+  * Targets
+    * items [Target](#target)
+  * TaskArn
+  * TaskParameters
+  * Type
+  * WindowId
+  * WindowTaskId
 
 ### MaintenanceWindowTaskArn
 * MaintenanceWindowTaskArn `string`
@@ -4564,10 +6736,32 @@ amazonaws_ssm.UpdatePatchBaseline({
 
 ### MaintenanceWindowTaskInvocationParameters
 * MaintenanceWindowTaskInvocationParameters `object`: The parameters for task execution.
-  * Automation [MaintenanceWindowAutomationParameters](#maintenancewindowautomationparameters)
-  * Lambda [MaintenanceWindowLambdaParameters](#maintenancewindowlambdaparameters)
-  * RunCommand [MaintenanceWindowRunCommandParameters](#maintenancewindowruncommandparameters)
-  * StepFunctions [MaintenanceWindowStepFunctionsParameters](#maintenancewindowstepfunctionsparameters)
+  * Automation
+    * DocumentVersion
+    * Parameters
+  * Lambda
+    * ClientContext
+    * Payload
+    * Qualifier
+  * RunCommand
+    * CloudWatchOutputConfig [CloudWatchOutputConfig](#cloudwatchoutputconfig)
+    * Comment
+    * DocumentHash
+    * DocumentHashType
+    * DocumentVersion
+    * NotificationConfig
+      * NotificationArn
+      * NotificationEvents
+        * items [NotificationEvent](#notificationevent)
+      * NotificationType
+    * OutputS3BucketName
+    * OutputS3KeyPrefix
+    * Parameters
+    * ServiceRoleArn
+    * TimeoutSeconds
+  * StepFunctions
+    * Input
+    * Name
 
 ### MaintenanceWindowTaskList
 * MaintenanceWindowTaskList `array`
@@ -4581,17 +6775,15 @@ amazonaws_ssm.UpdatePatchBaseline({
 
 ### MaintenanceWindowTaskParameterValueExpression
 * MaintenanceWindowTaskParameterValueExpression `object`: Defines the values for a task parameter.
-  * Values [MaintenanceWindowTaskParameterValueList](#maintenancewindowtaskparametervaluelist)
+  * Values
+    * items [MaintenanceWindowTaskParameterValue](#maintenancewindowtaskparametervalue)
 
 ### MaintenanceWindowTaskParameterValueList
 * MaintenanceWindowTaskParameterValueList `array`
   * items [MaintenanceWindowTaskParameterValue](#maintenancewindowtaskparametervalue)
 
 ### MaintenanceWindowTaskParameters
-* MaintenanceWindowTaskParameters `array`
-  * items `object`
-    * key [MaintenanceWindowTaskParameterName](#maintenancewindowtaskparametername)
-    * value [MaintenanceWindowTaskParameterValueExpression](#maintenancewindowtaskparametervalueexpression)
+* MaintenanceWindowTaskParameters `object`
 
 ### MaintenanceWindowTaskParametersList
 * MaintenanceWindowTaskParametersList `array`
@@ -4606,6 +6798,13 @@ amazonaws_ssm.UpdatePatchBaseline({
 ### MaintenanceWindowTaskType
 * MaintenanceWindowTaskType `string` (values: RUN_COMMAND, AUTOMATION, STEP_FUNCTIONS, LAMBDA)
 
+### MaintenanceWindowTimezone
+* MaintenanceWindowTimezone `string`
+
+### MaintenanceWindowsForTargetList
+* MaintenanceWindowsForTargetList `array`
+  * items [MaintenanceWindowIdentityForTarget](#maintenancewindowidentityfortarget)
+
 ### ManagedInstanceId
 * ManagedInstanceId `string`
 
@@ -4613,8 +6812,7 @@ amazonaws_ssm.UpdatePatchBaseline({
 * MaxConcurrency `string`
 
 ### MaxDocumentSizeExceeded
-* MaxDocumentSizeExceeded `object`: The size limit of a document is 64 KB.
-  * Message [String](#string)
+
 
 ### MaxErrors
 * MaxErrors `string`
@@ -4625,12 +6823,32 @@ amazonaws_ssm.UpdatePatchBaseline({
 ### MaxResultsEC2Compatible
 * MaxResultsEC2Compatible `integer`
 
+### MetadataKey
+* MetadataKey `string`
+
+### MetadataKeysToDeleteList
+* MetadataKeysToDeleteList `array`
+  * items [MetadataKey](#metadatakey)
+
+### MetadataMap
+* MetadataMap `object`
+
+### MetadataValue
+* MetadataValue `object`: Metadata to assign to an Application Manager application.
+  * Value
+
+### MetadataValueString
+* MetadataValueString `string`
+
 ### ModifyDocumentPermissionRequest
 * ModifyDocumentPermissionRequest `object`
-  * AccountIdsToAdd [AccountIdList](#accountidlist)
-  * AccountIdsToRemove [AccountIdList](#accountidlist)
-  * Name **required** [DocumentName](#documentname)
-  * PermissionType **required** [DocumentPermissionType](#documentpermissiontype)
+  * AccountIdsToAdd
+    * items [AccountId](#accountid)
+  * AccountIdsToRemove
+    * items [AccountId](#accountid)
+  * Name **required**
+  * PermissionType **required**
+  * SharedDocumentVersion
 
 ### ModifyDocumentPermissionResponse
 * ModifyDocumentPermissionResponse `object`
@@ -4640,23 +6858,27 @@ amazonaws_ssm.UpdatePatchBaseline({
 
 ### NonCompliantSummary
 * NonCompliantSummary `object`: A summary of resources that are not compliant. The summary is organized according to resource type.
-  * NonCompliantCount [ComplianceSummaryCount](#compliancesummarycount)
-  * SeveritySummary [SeveritySummary](#severitysummary)
+  * NonCompliantCount
+  * SeveritySummary
+    * CriticalCount
+    * HighCount
+    * InformationalCount
+    * LowCount
+    * MediumCount
+    * UnspecifiedCount
 
 ### NormalStringMap
-* NormalStringMap `array`
-  * items `object`
-    * key [String](#string)
-    * value [String](#string)
+* NormalStringMap `object`
 
 ### NotificationArn
 * NotificationArn `string`
 
 ### NotificationConfig
 * NotificationConfig `object`: Configurations for sending notifications.
-  * NotificationArn [NotificationArn](#notificationarn)
-  * NotificationEvents [NotificationEventList](#notificationeventlist)
-  * NotificationType [NotificationType](#notificationtype)
+  * NotificationArn
+  * NotificationEvents
+    * items [NotificationEvent](#notificationevent)
+  * NotificationType
 
 ### NotificationEvent
 * NotificationEvent `string` (values: All, InProgress, Success, TimedOut, Cancelled, Failed)
@@ -4669,13 +6891,373 @@ amazonaws_ssm.UpdatePatchBaseline({
 * NotificationType `string` (values: Command, Invocation)
 
 ### OperatingSystem
-* OperatingSystem `string` (values: WINDOWS, AMAZON_LINUX, UBUNTU, REDHAT_ENTERPRISE_LINUX, SUSE, CENTOS)
+* OperatingSystem `string` (values: WINDOWS, AMAZON_LINUX, AMAZON_LINUX_2, UBUNTU, REDHAT_ENTERPRISE_LINUX, SUSE, CENTOS, ORACLE_LINUX, DEBIAN, MACOS)
+
+### OpsAggregator
+* OpsAggregator `object`: One or more aggregators for viewing counts of OpsItems using different dimensions such as <code>Source</code>, <code>CreatedTime</code>, or <code>Source and CreatedTime</code>, to name a few.
+  * AggregatorType
+  * Aggregators
+    * items [OpsAggregator](#opsaggregator)
+  * AttributeName
+  * Filters
+    * items [OpsFilter](#opsfilter)
+  * TypeName
+  * Values
+
+### OpsAggregatorList
+* OpsAggregatorList `array`
+  * items [OpsAggregator](#opsaggregator)
+
+### OpsAggregatorType
+* OpsAggregatorType `string`
+
+### OpsAggregatorValue
+* OpsAggregatorValue `string`
+
+### OpsAggregatorValueKey
+* OpsAggregatorValueKey `string`
+
+### OpsAggregatorValueMap
+* OpsAggregatorValueMap `object`
+
+### OpsDataAttributeName
+* OpsDataAttributeName `string`
+
+### OpsDataTypeName
+* OpsDataTypeName `string`
+
+### OpsEntity
+* OpsEntity `object`: The result of the query.
+  * Data
+  * Id
+
+### OpsEntityId
+* OpsEntityId `string`
+
+### OpsEntityItem
+* OpsEntityItem `object`: The OpsItem summaries result item.
+  * CaptureTime
+  * Content
+    * items [OpsEntityItemEntry](#opsentityitementry)
+
+### OpsEntityItemCaptureTime
+* OpsEntityItemCaptureTime `string`
+
+### OpsEntityItemEntry
+* OpsEntityItemEntry `object`
+
+### OpsEntityItemEntryList
+* OpsEntityItemEntryList `array`
+  * items [OpsEntityItemEntry](#opsentityitementry)
+
+### OpsEntityItemKey
+* OpsEntityItemKey `string`
+
+### OpsEntityItemMap
+* OpsEntityItemMap `object`
+
+### OpsEntityList
+* OpsEntityList `array`
+  * items [OpsEntity](#opsentity)
+
+### OpsFilter
+* OpsFilter `object`: A filter for viewing OpsItem summaries.
+  * Key **required**
+  * Type
+  * Values **required**
+    * items [OpsFilterValue](#opsfiltervalue)
+
+### OpsFilterKey
+* OpsFilterKey `string`
+
+### OpsFilterList
+* OpsFilterList `array`
+  * items [OpsFilter](#opsfilter)
+
+### OpsFilterOperatorType
+* OpsFilterOperatorType `string` (values: Equal, NotEqual, BeginWith, LessThan, GreaterThan, Exists)
+
+### OpsFilterValue
+* OpsFilterValue `string`
+
+### OpsFilterValueList
+* OpsFilterValueList `array`
+  * items [OpsFilterValue](#opsfiltervalue)
+
+### OpsItem
+* OpsItem `object`: Operations engineers and IT professionals use OpsCenter to view, investigate, and remediate operational issues impacting the performance and health of their AWS resources. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter.html">AWS Systems Manager OpsCenter</a> in the <i>AWS Systems Manager User Guide</i>. 
+  * ActualEndTime
+  * ActualStartTime
+  * Category
+  * CreatedBy
+  * CreatedTime
+  * Description
+  * LastModifiedBy
+  * LastModifiedTime
+  * Notifications
+    * items [OpsItemNotification](#opsitemnotification)
+  * OperationalData
+  * OpsItemId
+  * OpsItemType
+  * PlannedEndTime
+  * PlannedStartTime
+  * Priority
+  * RelatedOpsItems
+    * items [RelatedOpsItem](#relatedopsitem)
+  * Severity
+  * Source
+  * Status
+  * Title
+  * Version
+
+### OpsItemAlreadyExistsException
+
+
+### OpsItemCategory
+* OpsItemCategory `string`
+
+### OpsItemDataKey
+* OpsItemDataKey `string`
+
+### OpsItemDataType
+* OpsItemDataType `string` (values: SearchableString, String)
+
+### OpsItemDataValue
+* OpsItemDataValue `object`: An object that defines the value of the key and its type in the OperationalData map.
+  * Type
+  * Value
+
+### OpsItemDataValueString
+* OpsItemDataValueString `string`
+
+### OpsItemDescription
+* OpsItemDescription `string`
+
+### OpsItemEventFilter
+* OpsItemEventFilter `object`: Describes a filter for a specific list of OpsItem events. You can filter event information by using tags. You specify tags by using a key-value pair mapping. 
+  * Key **required**
+  * Operator **required**
+  * Values **required**
+    * items [OpsItemEventFilterValue](#opsitemeventfiltervalue)
+
+### OpsItemEventFilterKey
+* OpsItemEventFilterKey `string` (values: OpsItemId)
+
+### OpsItemEventFilterOperator
+* OpsItemEventFilterOperator `string` (values: Equal)
+
+### OpsItemEventFilterValue
+* OpsItemEventFilterValue `string`
+
+### OpsItemEventFilterValues
+* OpsItemEventFilterValues `array`
+  * items [OpsItemEventFilterValue](#opsitemeventfiltervalue)
+
+### OpsItemEventFilters
+* OpsItemEventFilters `array`
+  * items [OpsItemEventFilter](#opsitemeventfilter)
+
+### OpsItemEventMaxResults
+* OpsItemEventMaxResults `integer`
+
+### OpsItemEventSummaries
+* OpsItemEventSummaries `array`
+  * items [OpsItemEventSummary](#opsitemeventsummary)
+
+### OpsItemEventSummary
+* OpsItemEventSummary `object`: Summary information about an OpsItem event.
+  * CreatedBy
+    * Arn
+  * CreatedTime
+  * Detail
+  * DetailType
+  * EventId
+  * OpsItemId
+  * Source
+
+### OpsItemFilter
+* OpsItemFilter `object`: Describes an OpsItem filter.
+  * Key **required**
+  * Operator **required**
+  * Values **required**
+    * items [OpsItemFilterValue](#opsitemfiltervalue)
+
+### OpsItemFilterKey
+* OpsItemFilterKey `string` (values: Status, CreatedBy, Source, Priority, Title, OpsItemId, CreatedTime, LastModifiedTime, ActualStartTime, ActualEndTime, PlannedStartTime, PlannedEndTime, OperationalData, OperationalDataKey, OperationalDataValue, ResourceId, AutomationId, Category, Severity, OpsItemType, ChangeRequestByRequesterArn, ChangeRequestByRequesterName, ChangeRequestByApproverArn, ChangeRequestByApproverName, ChangeRequestByTemplate, ChangeRequestByTargetsResourceGroup)
+
+### OpsItemFilterOperator
+* OpsItemFilterOperator `string` (values: Equal, Contains, GreaterThan, LessThan)
+
+### OpsItemFilterValue
+* OpsItemFilterValue `string`
+
+### OpsItemFilterValues
+* OpsItemFilterValues `array`
+  * items [OpsItemFilterValue](#opsitemfiltervalue)
+
+### OpsItemFilters
+* OpsItemFilters `array`
+  * items [OpsItemFilter](#opsitemfilter)
+
+### OpsItemId
+* OpsItemId `string`
+
+### OpsItemIdentity
+* OpsItemIdentity `object`: Information about the user or resource that created an OpsItem event.
+  * Arn
+
+### OpsItemInvalidParameterException
+
+
+### OpsItemLimitExceededException
+
+
+### OpsItemMaxResults
+* OpsItemMaxResults `integer`
+
+### OpsItemNotFoundException
+
+
+### OpsItemNotification
+* OpsItemNotification `object`: A notification about the OpsItem.
+  * Arn
+
+### OpsItemNotifications
+* OpsItemNotifications `array`
+  * items [OpsItemNotification](#opsitemnotification)
+
+### OpsItemOperationalData
+* OpsItemOperationalData `object`
+
+### OpsItemOpsDataKeysList
+* OpsItemOpsDataKeysList `array`
+  * items [String](#string)
+
+### OpsItemPriority
+* OpsItemPriority `integer`
+
+### OpsItemSeverity
+* OpsItemSeverity `string`
+
+### OpsItemSource
+* OpsItemSource `string`
+
+### OpsItemStatus
+* OpsItemStatus `string` (values: Open, InProgress, Resolved, Pending, TimedOut, Cancelling, Cancelled, Failed, CompletedWithSuccess, CompletedWithFailure, Scheduled, RunbookInProgress, PendingChangeCalendarOverride, ChangeCalendarOverrideApproved, ChangeCalendarOverrideRejected, PendingApproval, Approved, Rejected)
+
+### OpsItemSummaries
+* OpsItemSummaries `array`
+  * items [OpsItemSummary](#opsitemsummary)
+
+### OpsItemSummary
+* OpsItemSummary `object`: A count of OpsItems.
+  * ActualEndTime
+  * ActualStartTime
+  * Category
+  * CreatedBy
+  * CreatedTime
+  * LastModifiedBy
+  * LastModifiedTime
+  * OperationalData
+  * OpsItemId
+  * OpsItemType
+  * PlannedEndTime
+  * PlannedStartTime
+  * Priority
+  * Severity
+  * Source
+  * Status
+  * Title
+
+### OpsItemTitle
+* OpsItemTitle `string`
+
+### OpsItemType
+* OpsItemType `string`
+
+### OpsMetadata
+* OpsMetadata `object`: Operational metadata for an application in Application Manager.
+  * CreationDate
+  * LastModifiedDate
+  * LastModifiedUser
+  * OpsMetadataArn
+  * ResourceId
+
+### OpsMetadataAlreadyExistsException
+
+
+### OpsMetadataArn
+* OpsMetadataArn `string`
+
+### OpsMetadataFilter
+* OpsMetadataFilter `object`: A filter to limit the number of OpsMetadata objects displayed.
+  * Key **required**
+  * Values **required**
+    * items [OpsMetadataFilterValue](#opsmetadatafiltervalue)
+
+### OpsMetadataFilterKey
+* OpsMetadataFilterKey `string`
+
+### OpsMetadataFilterList
+* OpsMetadataFilterList `array`
+  * items [OpsMetadataFilter](#opsmetadatafilter)
+
+### OpsMetadataFilterValue
+* OpsMetadataFilterValue `string`
+
+### OpsMetadataFilterValueList
+* OpsMetadataFilterValueList `array`
+  * items [OpsMetadataFilterValue](#opsmetadatafiltervalue)
+
+### OpsMetadataInvalidArgumentException
+
+
+### OpsMetadataKeyLimitExceededException
+
+
+### OpsMetadataLimitExceededException
+
+
+### OpsMetadataList
+* OpsMetadataList `array`
+  * items [OpsMetadata](#opsmetadata)
+
+### OpsMetadataNotFoundException
+
+
+### OpsMetadataResourceId
+* OpsMetadataResourceId `string`
+
+### OpsMetadataTooManyUpdatesException
+
+
+### OpsResultAttribute
+* OpsResultAttribute `object`: The OpsItem data type to return.
+  * TypeName **required**
+
+### OpsResultAttributeList
+* OpsResultAttributeList `array`
+  * items [OpsResultAttribute](#opsresultattribute)
+
+### OutputSource
+* OutputSource `object`: Information about the source where the association execution details are stored.
+  * OutputSourceId
+  * OutputSourceType
+
+### OutputSourceId
+* OutputSourceId `string`
+
+### OutputSourceType
+* OutputSourceType `string`
 
 ### OwnerInformation
 * OwnerInformation `string`
 
 ### PSParameterName
 * PSParameterName `string`
+
+### PSParameterSelector
+* PSParameterSelector `string`
 
 ### PSParameterValue
 * PSParameterValue `string`
@@ -4684,60 +7266,88 @@ amazonaws_ssm.UpdatePatchBaseline({
 * PSParameterVersion `integer`
 
 ### Parameter
-* Parameter `object`: An Amazon EC2 Systems Manager parameter in Parameter Store.
-  * Name [PSParameterName](#psparametername)
-  * Type [ParameterType](#parametertype)
-  * Value [PSParameterValue](#psparametervalue)
-  * Version [PSParameterVersion](#psparameterversion)
+* Parameter `object`: An Systems Manager parameter in Parameter Store.
+  * ARN
+  * DataType
+  * LastModifiedDate
+  * Name
+  * Selector
+  * SourceResult
+  * Type
+  * Value
+  * Version
 
 ### ParameterAlreadyExists
-* ParameterAlreadyExists `object`: The parameter already exists. You can't create duplicate parameters.
-  * message [String](#string)
+
+
+### ParameterDataType
+* ParameterDataType `string`
 
 ### ParameterDescription
 * ParameterDescription `string`
 
 ### ParameterHistory
 * ParameterHistory `object`: Information about parameter usage.
-  * AllowedPattern [AllowedPattern](#allowedpattern)
-  * Description [ParameterDescription](#parameterdescription)
-  * KeyId [ParameterKeyId](#parameterkeyid)
-  * LastModifiedDate [DateTime](#datetime)
-  * LastModifiedUser [String](#string)
-  * Name [PSParameterName](#psparametername)
-  * Type [ParameterType](#parametertype)
-  * Value [PSParameterValue](#psparametervalue)
-  * Version [PSParameterVersion](#psparameterversion)
+  * AllowedPattern
+  * DataType
+  * Description
+  * KeyId
+  * Labels
+    * items [ParameterLabel](#parameterlabel)
+  * LastModifiedDate
+  * LastModifiedUser
+  * Name
+  * Policies
+    * items [ParameterInlinePolicy](#parameterinlinepolicy)
+  * Tier
+  * Type
+  * Value
+  * Version
 
 ### ParameterHistoryList
 * ParameterHistoryList `array`
   * items [ParameterHistory](#parameterhistory)
 
+### ParameterInlinePolicy
+* ParameterInlinePolicy `object`: One or more policies assigned to a parameter.
+  * PolicyStatus
+  * PolicyText
+  * PolicyType
+
 ### ParameterKeyId
 * ParameterKeyId `string`
 
+### ParameterLabel
+* ParameterLabel `string`
+
+### ParameterLabelList
+* ParameterLabelList `array`
+  * items [ParameterLabel](#parameterlabel)
+
 ### ParameterLimitExceeded
-* ParameterLimitExceeded `object`: You have exceeded the number of parameters for this AWS account. Delete one or more parameters and try again.
-  * message [String](#string)
+
 
 ### ParameterList
 * ParameterList `array`
   * items [Parameter](#parameter)
 
 ### ParameterMaxVersionLimitExceeded
-* ParameterMaxVersionLimitExceeded `object`: The parameter exceeded the maximum number of allowed versions.
-  * message [String](#string)
+
 
 ### ParameterMetadata
-* ParameterMetadata `object`: Metada includes information like the ARN of the last user and the date/time the parameter was last used.
-  * AllowedPattern [AllowedPattern](#allowedpattern)
-  * Description [ParameterDescription](#parameterdescription)
-  * KeyId [ParameterKeyId](#parameterkeyid)
-  * LastModifiedDate [DateTime](#datetime)
-  * LastModifiedUser [String](#string)
-  * Name [PSParameterName](#psparametername)
-  * Type [ParameterType](#parametertype)
-  * Version [PSParameterVersion](#psparameterversion)
+* ParameterMetadata `object`: Metadata includes information like the ARN of the last user and the date/time the parameter was last used.
+  * AllowedPattern
+  * DataType
+  * Description
+  * KeyId
+  * LastModifiedDate
+  * LastModifiedUser
+  * Name
+  * Policies
+    * items [ParameterInlinePolicy](#parameterinlinepolicy)
+  * Tier
+  * Type
+  * Version
 
 ### ParameterMetadataList
 * ParameterMetadataList `array`
@@ -4751,18 +7361,24 @@ amazonaws_ssm.UpdatePatchBaseline({
   * items [PSParameterName](#psparametername)
 
 ### ParameterNotFound
-* ParameterNotFound `object`: The parameter could not be found. Verify the name and try again.
-  * message [String](#string)
+
 
 ### ParameterPatternMismatchException
-* ParameterPatternMismatchException `object`: The parameter name is not valid.
-  * message [String](#string)
+
+
+### ParameterPolicies
+* ParameterPolicies `string`
+
+### ParameterPolicyList
+* ParameterPolicyList `array`
+  * items [ParameterInlinePolicy](#parameterinlinepolicy)
 
 ### ParameterStringFilter
 * ParameterStringFilter `object`: One or more filters. Use a filter to return a more specific list of results.
-  * Key **required** [ParameterStringFilterKey](#parameterstringfilterkey)
-  * Option [ParameterStringQueryOption](#parameterstringqueryoption)
-  * Values [ParameterStringFilterValueList](#parameterstringfiltervaluelist)
+  * Key **required**
+  * Option
+  * Values
+    * items [ParameterStringFilterValue](#parameterstringfiltervalue)
 
 ### ParameterStringFilterKey
 * ParameterStringFilterKey `string`
@@ -4781,6 +7397,9 @@ amazonaws_ssm.UpdatePatchBaseline({
 ### ParameterStringQueryOption
 * ParameterStringQueryOption `string`
 
+### ParameterTier
+* ParameterTier `string` (values: Standard, Advanced, Intelligent-Tiering)
+
 ### ParameterType
 * ParameterType `string` (values: String, StringList, SecureString)
 
@@ -4791,20 +7410,20 @@ amazonaws_ssm.UpdatePatchBaseline({
 * ParameterValueList `array`
   * items [ParameterValue](#parametervalue)
 
+### ParameterVersionLabelLimitExceeded
+
+
 ### ParameterVersionNotFound
-* ParameterVersionNotFound `object`: The specified parameter version was not found. Verify the parameter name and version, and try again.
-  * message [String](#string)
+
 
 ### Parameters
-* Parameters `array`
-  * items `object`
-    * key [ParameterName](#parametername)
-    * value [ParameterValueList](#parametervaluelist)
+* Parameters `object`
 
 ### ParametersFilter
 * ParametersFilter `object`: This data type is deprecated. Instead, use <a>ParameterStringFilter</a>.
-  * Key **required** [ParametersFilterKey](#parametersfilterkey)
-  * Values **required** [ParametersFilterValueList](#parametersfiltervaluelist)
+  * Key **required**
+  * Values **required**
+    * items [ParametersFilterValue](#parametersfiltervalue)
 
 ### ParametersFilterKey
 * ParametersFilterKey `string` (values: Name, Type, KeyId)
@@ -4822,27 +7441,53 @@ amazonaws_ssm.UpdatePatchBaseline({
 
 ### Patch
 * Patch `object`: Represents metadata about a patch.
-  * Classification [PatchClassification](#patchclassification)
-  * ContentUrl [PatchContentUrl](#patchcontenturl)
-  * Description [PatchDescription](#patchdescription)
-  * Id [PatchId](#patchid)
-  * KbNumber [PatchKbNumber](#patchkbnumber)
-  * Language [PatchLanguage](#patchlanguage)
-  * MsrcNumber [PatchMsrcNumber](#patchmsrcnumber)
-  * MsrcSeverity [PatchMsrcSeverity](#patchmsrcseverity)
-  * Product [PatchProduct](#patchproduct)
-  * ProductFamily [PatchProductFamily](#patchproductfamily)
-  * ReleaseDate [DateTime](#datetime)
-  * Title [PatchTitle](#patchtitle)
-  * Vendor [PatchVendor](#patchvendor)
+  * AdvisoryIds
+    * items [PatchAdvisoryId](#patchadvisoryid)
+  * Arch
+  * BugzillaIds
+    * items [PatchBugzillaId](#patchbugzillaid)
+  * CVEIds
+    * items [PatchCVEId](#patchcveid)
+  * Classification
+  * ContentUrl
+  * Description
+  * Epoch
+  * Id
+  * KbNumber
+  * Language
+  * MsrcNumber
+  * MsrcSeverity
+  * Name
+  * Product
+  * ProductFamily
+  * Release
+  * ReleaseDate
+  * Repository
+  * Severity
+  * Title
+  * Vendor
+  * Version
+
+### PatchAction
+* PatchAction `string` (values: ALLOW_AS_DEPENDENCY, BLOCK)
+
+### PatchAdvisoryId
+* PatchAdvisoryId `string`
+
+### PatchAdvisoryIdList
+* PatchAdvisoryIdList `array`
+  * items [PatchAdvisoryId](#patchadvisoryid)
+
+### PatchArch
+* PatchArch `string`
 
 ### PatchBaselineIdentity
 * PatchBaselineIdentity `object`: Defines the basic information about a patch baseline.
-  * BaselineDescription [BaselineDescription](#baselinedescription)
-  * BaselineId [BaselineId](#baselineid)
-  * BaselineName [BaselineName](#baselinename)
-  * DefaultBaseline [DefaultBaseline](#defaultbaseline)
-  * OperatingSystem [OperatingSystem](#operatingsystem)
+  * BaselineDescription
+  * BaselineId
+  * BaselineName
+  * DefaultBaseline
+  * OperatingSystem
 
 ### PatchBaselineIdentityList
 * PatchBaselineIdentityList `array`
@@ -4851,24 +7496,42 @@ amazonaws_ssm.UpdatePatchBaseline({
 ### PatchBaselineMaxResults
 * PatchBaselineMaxResults `integer`
 
+### PatchBugzillaId
+* PatchBugzillaId `string`
+
+### PatchBugzillaIdList
+* PatchBugzillaIdList `array`
+  * items [PatchBugzillaId](#patchbugzillaid)
+
+### PatchCVEId
+* PatchCVEId `string`
+
+### PatchCVEIdList
+* PatchCVEIdList `array`
+  * items [PatchCVEId](#patchcveid)
+
+### PatchCVEIds
+* PatchCVEIds `string`
+
 ### PatchClassification
 * PatchClassification `string`
 
 ### PatchComplianceData
 * PatchComplianceData `object`: Information about the state of a patch on a particular instance as it relates to the patch baseline used to patch the instance.
-  * Classification **required** [PatchClassification](#patchclassification)
-  * InstalledTime **required** [DateTime](#datetime)
-  * KBId **required** [PatchKbNumber](#patchkbnumber)
-  * Severity **required** [PatchSeverity](#patchseverity)
-  * State **required** [PatchComplianceDataState](#patchcompliancedatastate)
-  * Title **required** [PatchTitle](#patchtitle)
+  * CVEIds
+  * Classification **required**
+  * InstalledTime **required**
+  * KBId **required**
+  * Severity **required**
+  * State **required**
+  * Title **required**
 
 ### PatchComplianceDataList
 * PatchComplianceDataList `array`
   * items [PatchComplianceData](#patchcompliancedata)
 
 ### PatchComplianceDataState
-* PatchComplianceDataState `string` (values: INSTALLED, INSTALLED_OTHER, MISSING, NOT_APPLICABLE, FAILED)
+* PatchComplianceDataState `string` (values: INSTALLED, INSTALLED_OTHER, INSTALLED_PENDING_REBOOT, INSTALLED_REJECTED, MISSING, NOT_APPLICABLE, FAILED)
 
 ### PatchComplianceLevel
 * PatchComplianceLevel `string` (values: CRITICAL, HIGH, MEDIUM, LOW, INFORMATIONAL, UNSPECIFIED)
@@ -4885,20 +7548,25 @@ amazonaws_ssm.UpdatePatchBaseline({
 ### PatchDescription
 * PatchDescription `string`
 
+### PatchEpoch
+* PatchEpoch `integer`
+
 ### PatchFailedCount
 * PatchFailedCount `integer`
 
 ### PatchFilter
-* PatchFilter `object`: <p>Defines a patch filter.</p> <p>A patch filter consists of key/value pairs, but not all keys are valid for all operating system types. For example, the key <code>PRODUCT</code> is valid for all supported operating system types. The key <code>MSRC_SEVERITY</code>, however, is valid only for Windows operating systems, and the key <code>SECTION</code> is valid only for Ubuntu operating systems.</p> <p>Refer to the following sections for information about which keys may be used with each major operating system, and which values are valid for each key.</p> <p> <b>Windows Operating Systems</b> </p> <p>The supported keys for Windows operating systems are <code>PRODUCT</code>, <code>CLASSIFICATION</code>, and <code>MSRC_SEVERITY</code>. See the following lists for valid values for each of these keys.</p> <p> <i>Supported key:</i> <code>PRODUCT</code> </p> <p> <i>Supported values:</i> </p> <ul> <li> <p> <code>Windows7</code> </p> </li> <li> <p> <code>Windows8</code> </p> </li> <li> <p> <code>Windows8.1</code> </p> </li> <li> <p> <code>Windows8Embedded</code> </p> </li> <li> <p> <code>Windows10</code> </p> </li> <li> <p> <code>Windows10LTSB</code> </p> </li> <li> <p> <code>WindowsServer2008</code> </p> </li> <li> <p> <code>WindowsServer2008R2</code> </p> </li> <li> <p> <code>WindowsServer2012</code> </p> </li> <li> <p> <code>WindowsServer2012R2</code> </p> </li> <li> <p> <code>WindowsServer2016</code> </p> </li> </ul> <p> <i>Supported key:</i> <code>CLASSIFICATION</code> </p> <p> <i>Supported values:</i> </p> <ul> <li> <p> <code>CriticalUpdates</code> </p> </li> <li> <p> <code>DefinitionUpdates</code> </p> </li> <li> <p> <code>Drivers</code> </p> </li> <li> <p> <code>FeaturePacks</code> </p> </li> <li> <p> <code>SecurityUpdates</code> </p> </li> <li> <p> <code>ServicePacks</code> </p> </li> <li> <p> <code>Tools</code> </p> </li> <li> <p> <code>UpdateRollups</code> </p> </li> <li> <p> <code>Updates</code> </p> </li> <li> <p> <code>Upgrades</code> </p> </li> </ul> <p> <i>Supported key:</i> <code>MSRC_SEVERITY</code> </p> <p> <i>Supported values:</i> </p> <ul> <li> <p> <code>Critical</code> </p> </li> <li> <p> <code>Important</code> </p> </li> <li> <p> <code>Moderate</code> </p> </li> <li> <p> <code>Low</code> </p> </li> <li> <p> <code>Unspecified</code> </p> </li> </ul> <p> <b>Ubuntu Operating Systems</b> </p> <p>The supported keys for Ubuntu operating systems are <code>PRODUCT</code>, <code>PRIORITY</code>, and <code>SECTION</code>. See the following lists for valid values for each of these keys.</p> <p> <i>Supported key:</i> <code>PRODUCT</code> </p> <p> <i>Supported values:</i> </p> <ul> <li> <p> <code>Ubuntu14.04</code> </p> </li> <li> <p> <code>Ubuntu16.04</code> </p> </li> </ul> <p> <i>Supported key:</i> <code>PRIORITY</code> </p> <p> <i>Supported values:</i> </p> <ul> <li> <p> <code>Required</code> </p> </li> <li> <p> <code>Important</code> </p> </li> <li> <p> <code>Standard</code> </p> </li> <li> <p> <code>Optional</code> </p> </li> <li> <p> <code>Extra</code> </p> </li> </ul> <p> <i>Supported key:</i> <code>SECTION</code> </p> <p>Only the length of the key value is validated. Minimum length is 1. Maximum length is 64.</p> <p> <b>Amazon Linux Operating Systems</b> </p> <p>The supported keys for Amazon Linux operating systems are <code>PRODUCT</code>, <code>CLASSIFICATION</code>, and <code>SEVERITY</code>. See the following lists for valid values for each of these keys.</p> <p> <i>Supported key:</i> <code>PRODUCT</code> </p> <p> <i>Supported values:</i> </p> <ul> <li> <p> <code>AmazonLinux2012.03</code> </p> </li> <li> <p> <code>AmazonLinux2012.09</code> </p> </li> <li> <p> <code>AmazonLinux2013.03</code> </p> </li> <li> <p> <code>AmazonLinux2013.09</code> </p> </li> <li> <p> <code>AmazonLinux2014.03</code> </p> </li> <li> <p> <code>AmazonLinux2014.09</code> </p> </li> <li> <p> <code>AmazonLinux2015.03</code> </p> </li> <li> <p> <code>AmazonLinux2015.09</code> </p> </li> <li> <p> <code>AmazonLinux2016.03</code> </p> </li> <li> <p> <code>AmazonLinux2016.09</code> </p> </li> <li> <p> <code>AmazonLinux2017.03</code> </p> </li> <li> <p> <code>AmazonLinux2017.09</code> </p> </li> </ul> <p> <i>Supported key:</i> <code>CLASSIFICATION</code> </p> <p> <i>Supported values:</i> </p> <ul> <li> <p> <code>Security</code> </p> </li> <li> <p> <code>Bugfix</code> </p> </li> <li> <p> <code>Enhancement</code> </p> </li> <li> <p> <code>Recommended</code> </p> </li> <li> <p> <code>Newpackage</code> </p> </li> </ul> <p> <i>Supported key:</i> <code>SEVERITY</code> </p> <p> <i>Supported values:</i> </p> <ul> <li> <p> <code>Critical</code> </p> </li> <li> <p> <code>Important</code> </p> </li> <li> <p> <code>Medium</code> </p> </li> <li> <p> <code>Low</code> </p> </li> </ul> <p> <b>RedHat Enterprise Linux (RHEL) Operating Systems</b> </p> <p>The supported keys for RedHat Enterprise Linux operating systems are <code>PRODUCT</code>, <code>CLASSIFICATION</code>, and <code>SEVERITY</code>. See the following lists for valid values for each of these keys.</p> <p> <i>Supported key:</i> <code>PRODUCT</code> </p> <p> <i>Supported values:</i> </p> <ul> <li> <p> <code>RedhatEnterpriseLinux6.5</code> </p> </li> <li> <p> <code>RedhatEnterpriseLinux6.6</code> </p> </li> <li> <p> <code>RedhatEnterpriseLinux6.7</code> </p> </li> <li> <p> <code>RedhatEnterpriseLinux6.8</code> </p> </li> <li> <p> <code>RedhatEnterpriseLinux6.9</code> </p> </li> <li> <p> <code>RedhatEnterpriseLinux7.0</code> </p> </li> <li> <p> <code>RedhatEnterpriseLinux7.1</code> </p> </li> <li> <p> <code>RedhatEnterpriseLinux7.2</code> </p> </li> <li> <p> <code>RedhatEnterpriseLinux7.3</code> </p> </li> <li> <p> <code>RedhatEnterpriseLinux7.4</code> </p> </li> </ul> <p> <i>Supported key:</i> <code>CLASSIFICATION</code> </p> <p> <i>Supported values:</i> </p> <ul> <li> <p> <code>Security</code> </p> </li> <li> <p> <code>Bugfix</code> </p> </li> <li> <p> <code>Enhancement</code> </p> </li> <li> <p> <code>Recommended</code> </p> </li> <li> <p> <code>Newpackage</code> </p> </li> </ul> <p> <i>Supported key:</i> <code>SEVERITY</code> </p> <p> <i>Supported values:</i> </p> <ul> <li> <p> <code>Critical</code> </p> </li> <li> <p> <code>Important</code> </p> </li> <li> <p> <code>Medium</code> </p> </li> <li> <p> <code>Low</code> </p> </li> </ul> <p> <b>SUSE Linux Enterprise Server (SLES) Operating Systems</b> </p> <p>The supported keys for SLES operating systems are <code>PRODUCT</code>, <code>CLASSIFICATION</code>, and <code>SEVERITY</code>. See the following lists for valid values for each of these keys.</p> <p> <i>Supported key:</i> <code>PRODUCT</code> </p> <p> <i>Supported values:</i> </p> <ul> <li> <p> <code>Suse12.0</code> </p> </li> <li> <p> <code>Suse12.1</code> </p> </li> <li> <p> <code>Suse12.2</code> </p> </li> <li> <p> <code>Suse12.3</code> </p> </li> <li> <p> <code>Suse12.4</code> </p> </li> <li> <p> <code>Suse12.5</code> </p> </li> <li> <p> <code>Suse12.6</code> </p> </li> <li> <p> <code>Suse12.7</code> </p> </li> <li> <p> <code>Suse12.8</code> </p> </li> <li> <p> <code>Suse12.9</code> </p> </li> </ul> <p> <i>Supported key:</i> <code>CLASSIFICATION</code> </p> <p> <i>Supported values:</i> </p> <ul> <li> <p> <code>Security</code> </p> </li> <li> <p> <code>Recommended</code> </p> </li> <li> <p> <code>Optional</code> </p> </li> <li> <p> <code>Feature</code> </p> </li> <li> <p> <code>Document</code> </p> </li> <li> <p> <code>Yast</code> </p> </li> </ul> <p> <i>Supported key:</i> <code>SEVERITY</code> </p> <p> <i>Supported values:</i> </p> <ul> <li> <p> <code>Critical</code> </p> </li> <li> <p> <code>Important</code> </p> </li> <li> <p> <code>Moderate</code> </p> </li> <li> <p> <code>Low</code> </p> </li> </ul> <p> <b>CentOS Operating Systems</b> </p> <p>The supported keys for CentOS operating systems are <code>PRODUCT</code>, <code>CLASSIFICATION</code>, and <code>SEVERITY</code>. See the following lists for valid values for each of these keys.</p> <p> <i>Supported key:</i> <code>PRODUCT</code> </p> <p> <i>Supported values:</i> </p> <ul> <li> <p> <code>CentOS6.5</code> </p> </li> <li> <p> <code>CentOS6.6</code> </p> </li> <li> <p> <code>CentOS6.7</code> </p> </li> <li> <p> <code>CentOS6.8</code> </p> </li> <li> <p> <code>CentOS6.9</code> </p> </li> <li> <p> <code>CentOS7.0</code> </p> </li> <li> <p> <code>CentOS7.1</code> </p> </li> <li> <p> <code>CentOS7.2</code> </p> </li> <li> <p> <code>CentOS7.3</code> </p> </li> <li> <p> <code>CentOS7.4</code> </p> </li> </ul> <p> <i>Supported key:</i> <code>CLASSIFICATION</code> </p> <p> <i>Supported values:</i> </p> <ul> <li> <p> <code>Security</code> </p> </li> <li> <p> <code>Bugfix</code> </p> </li> <li> <p> <code>Enhancement</code> </p> </li> <li> <p> <code>Recommended</code> </p> </li> <li> <p> <code>Newpackage</code> </p> </li> </ul> <p> <i>Supported key:</i> <code>SEVERITY</code> </p> <p> <i>Supported values:</i> </p> <ul> <li> <p> <code>Critical</code> </p> </li> <li> <p> <code>Important</code> </p> </li> <li> <p> <code>Medium</code> </p> </li> <li> <p> <code>Low</code> </p> </li> </ul>
-  * Key **required** [PatchFilterKey](#patchfilterkey)
-  * Values **required** [PatchFilterValueList](#patchfiltervaluelist)
+* PatchFilter `object`: <p> Defines which patches should be included in a patch baseline.</p> <p>A patch filter consists of a key and a set of values. The filter key is a patch property. For example, the available filter keys for WINDOWS are PATCH_SET, PRODUCT, PRODUCT_FAMILY, CLASSIFICATION, and MSRC_SEVERITY. The filter values define a matching criterion for the patch property indicated by the key. For example, if the filter key is PRODUCT and the filter values are ["Office 2013", "Office 2016"], then the filter accepts all patches where product name is either "Office 2013" or "Office 2016". The filter values can be exact values for the patch property given as a key, or a wildcard (*), which matches all values.</p> <p>You can view lists of valid values for the patch properties by running the <code>DescribePatchProperties</code> command. For information about which patch properties can be used with each major operating system, see <a>DescribePatchProperties</a>.</p>
+  * Key **required**
+  * Values **required**
+    * items [PatchFilterValue](#patchfiltervalue)
 
 ### PatchFilterGroup
 * PatchFilterGroup `object`: A set of patch filters, typically used for approval rules.
-  * PatchFilters **required** [PatchFilterList](#patchfilterlist)
+  * PatchFilters **required**
+    * items [PatchFilter](#patchfilter)
 
 ### PatchFilterKey
-* PatchFilterKey `string` (values: PRODUCT, CLASSIFICATION, MSRC_SEVERITY, PATCH_ID, SECTION, PRIORITY, SEVERITY)
+* PatchFilterKey `string` (values: ARCH, ADVISORY_ID, BUGZILLA_ID, PATCH_SET, PRODUCT, PRODUCT_FAMILY, CLASSIFICATION, CVE_ID, EPOCH, MSRC_SEVERITY, NAME, PATCH_ID, SECTION, PRIORITY, REPOSITORY, RELEASE, SEVERITY, SECURITY, VERSION)
 
 ### PatchFilterList
 * PatchFilterList `array`
@@ -4920,8 +7588,13 @@ amazonaws_ssm.UpdatePatchBaseline({
 
 ### PatchGroupPatchBaselineMapping
 * PatchGroupPatchBaselineMapping `object`: The mapping between a patch group and the patch baseline the patch group is registered with.
-  * BaselineIdentity [PatchBaselineIdentity](#patchbaselineidentity)
-  * PatchGroup [PatchGroup](#patchgroup)
+  * BaselineIdentity
+    * BaselineDescription
+    * BaselineId
+    * BaselineName
+    * DefaultBaseline
+    * OperatingSystem
+  * PatchGroup
 
 ### PatchGroupPatchBaselineMappingList
 * PatchGroupPatchBaselineMappingList `array`
@@ -4939,6 +7612,12 @@ amazonaws_ssm.UpdatePatchBaseline({
 
 ### PatchInstalledOtherCount
 * PatchInstalledOtherCount `integer`
+
+### PatchInstalledPendingRebootCount
+* PatchInstalledPendingRebootCount `integer`
+
+### PatchInstalledRejectedCount
+* PatchInstalledRejectedCount `integer`
 
 ### PatchKbNumber
 * PatchKbNumber `string`
@@ -4959,6 +7638,9 @@ amazonaws_ssm.UpdatePatchBaseline({
 ### PatchMsrcSeverity
 * PatchMsrcSeverity `string`
 
+### PatchName
+* PatchName `string`
+
 ### PatchNotApplicableCount
 * PatchNotApplicableCount `integer`
 
@@ -4967,8 +7649,9 @@ amazonaws_ssm.UpdatePatchBaseline({
 
 ### PatchOrchestratorFilter
 * PatchOrchestratorFilter `object`: Defines a filter used in Patch Manager APIs.
-  * Key [PatchOrchestratorFilterKey](#patchorchestratorfilterkey)
-  * Values [PatchOrchestratorFilterValues](#patchorchestratorfiltervalues)
+  * Key
+  * Values
+    * items [PatchOrchestratorFilterValue](#patchorchestratorfiltervalue)
 
 ### PatchOrchestratorFilterKey
 * PatchOrchestratorFilterKey `string`
@@ -4990,29 +7673,53 @@ amazonaws_ssm.UpdatePatchBaseline({
 ### PatchProductFamily
 * PatchProductFamily `string`
 
+### PatchPropertiesList
+* PatchPropertiesList `array`
+  * items [PatchPropertyEntry](#patchpropertyentry)
+
+### PatchProperty
+* PatchProperty `string` (values: PRODUCT, PRODUCT_FAMILY, CLASSIFICATION, MSRC_SEVERITY, PRIORITY, SEVERITY)
+
+### PatchPropertyEntry
+* PatchPropertyEntry `object`
+
+### PatchRelease
+* PatchRelease `string`
+
+### PatchRepository
+* PatchRepository `string`
+
 ### PatchRule
 * PatchRule `object`: Defines an approval rule for a patch baseline.
-  * ApproveAfterDays **required** [ApproveAfterDays](#approveafterdays)
-  * ComplianceLevel [PatchComplianceLevel](#patchcompliancelevel)
-  * EnableNonSecurity [Boolean](#boolean)
-  * PatchFilterGroup **required** [PatchFilterGroup](#patchfiltergroup)
+  * ApproveAfterDays
+  * ApproveUntilDate
+  * ComplianceLevel
+  * EnableNonSecurity
+  * PatchFilterGroup **required**
+    * PatchFilters **required**
+      * items [PatchFilter](#patchfilter)
 
 ### PatchRuleGroup
 * PatchRuleGroup `object`: A set of rules defining the approval rules for a patch baseline.
-  * PatchRules **required** [PatchRuleList](#patchrulelist)
+  * PatchRules **required**
+    * items [PatchRule](#patchrule)
 
 ### PatchRuleList
 * PatchRuleList `array`
   * items [PatchRule](#patchrule)
+
+### PatchSet
+* PatchSet `string` (values: OS, APPLICATION)
 
 ### PatchSeverity
 * PatchSeverity `string`
 
 ### PatchSource
 * PatchSource `object`: Information about the patches to use to update the instances, including target operating systems and source repository. Applies to Linux instances only.
-  * Configuration **required** [PatchSourceConfiguration](#patchsourceconfiguration)
-  * Name **required** [PatchSourceName](#patchsourcename)
-  * Products **required** [PatchSourceProductList](#patchsourceproductlist)
+  * Configuration **required**
+  * Name **required**
+  * Products **required**
+    * items [PatchSourceProduct](#patchsourceproduct)
 
 ### PatchSourceConfiguration
 * PatchSourceConfiguration `string`
@@ -5033,15 +7740,24 @@ amazonaws_ssm.UpdatePatchBaseline({
 
 ### PatchStatus
 * PatchStatus `object`: Information about the approval status of a patch.
-  * ApprovalDate [DateTime](#datetime)
-  * ComplianceLevel [PatchComplianceLevel](#patchcompliancelevel)
-  * DeploymentStatus [PatchDeploymentStatus](#patchdeploymentstatus)
+  * ApprovalDate
+  * ComplianceLevel
+  * DeploymentStatus
+
+### PatchStringDateTime
+* PatchStringDateTime `string`
 
 ### PatchTitle
 * PatchTitle `string`
 
+### PatchUnreportedNotApplicableCount
+* PatchUnreportedNotApplicableCount `integer`
+
 ### PatchVendor
 * PatchVendor `string`
+
+### PatchVersion
+* PatchVersion `string`
 
 ### PingStatus
 * PingStatus `string` (values: Online, ConnectionLost, Inactive)
@@ -5053,17 +7769,33 @@ amazonaws_ssm.UpdatePatchBaseline({
 * PlatformTypeList `array`
   * items [PlatformType](#platformtype)
 
+### PoliciesLimitExceededException
+
+
 ### Product
 * Product `string`
 
+### ProgressCounters
+* ProgressCounters `object`: An aggregate of step execution statuses displayed in the AWS Console for a multi-Region and multi-account Automation execution.
+  * CancelledSteps
+  * FailedSteps
+  * SuccessSteps
+  * TimedOutSteps
+  * TotalSteps
+
 ### PutComplianceItemsRequest
 * PutComplianceItemsRequest `object`
-  * ComplianceType **required** [ComplianceTypeName](#compliancetypename)
-  * ExecutionSummary **required** [ComplianceExecutionSummary](#complianceexecutionsummary)
-  * ItemContentHash [ComplianceItemContentHash](#complianceitemcontenthash)
-  * Items **required** [ComplianceItemEntryList](#complianceitementrylist)
-  * ResourceId **required** [ComplianceResourceId](#complianceresourceid)
-  * ResourceType **required** [ComplianceResourceType](#complianceresourcetype)
+  * ComplianceType **required**
+  * ExecutionSummary **required**
+    * ExecutionId
+    * ExecutionTime **required**
+    * ExecutionType
+  * ItemContentHash
+  * Items **required**
+    * items [ComplianceItemEntry](#complianceitementry)
+  * ResourceId **required**
+  * ResourceType **required**
+  * UploadType
 
 ### PutComplianceItemsResult
 * PutComplianceItemsResult `object`
@@ -5073,79 +7805,127 @@ amazonaws_ssm.UpdatePatchBaseline({
 
 ### PutInventoryRequest
 * PutInventoryRequest `object`
-  * InstanceId **required** [InstanceId](#instanceid)
-  * Items **required** [InventoryItemList](#inventoryitemlist)
+  * InstanceId **required**
+  * Items **required**
+    * items [InventoryItem](#inventoryitem)
 
 ### PutInventoryResult
 * PutInventoryResult `object`
-  * Message [PutInventoryMessage](#putinventorymessage)
+  * Message
 
 ### PutParameterRequest
 * PutParameterRequest `object`
-  * AllowedPattern [AllowedPattern](#allowedpattern)
-  * Description [ParameterDescription](#parameterdescription)
-  * KeyId [ParameterKeyId](#parameterkeyid)
-  * Name **required** [PSParameterName](#psparametername)
-  * Overwrite [Boolean](#boolean)
-  * Type **required** [ParameterType](#parametertype)
-  * Value **required** [PSParameterValue](#psparametervalue)
+  * AllowedPattern
+  * DataType
+  * Description
+  * KeyId
+  * Name **required**
+  * Overwrite
+  * Policies
+  * Tags
+    * items [Tag](#tag)
+  * Tier
+  * Type
+  * Value **required**
 
 ### PutParameterResult
 * PutParameterResult `object`
-  * Version [PSParameterVersion](#psparameterversion)
+  * Tier
+  * Version
+
+### RebootOption
+* RebootOption `string` (values: RebootIfNeeded, NoReboot)
+
+### Region
+* Region `string`
+
+### Regions
+* Regions `array`
+  * items [Region](#region)
 
 ### RegisterDefaultPatchBaselineRequest
 * RegisterDefaultPatchBaselineRequest `object`
-  * BaselineId **required** [BaselineId](#baselineid)
+  * BaselineId **required**
 
 ### RegisterDefaultPatchBaselineResult
 * RegisterDefaultPatchBaselineResult `object`
-  * BaselineId [BaselineId](#baselineid)
+  * BaselineId
 
 ### RegisterPatchBaselineForPatchGroupRequest
 * RegisterPatchBaselineForPatchGroupRequest `object`
-  * BaselineId **required** [BaselineId](#baselineid)
-  * PatchGroup **required** [PatchGroup](#patchgroup)
+  * BaselineId **required**
+  * PatchGroup **required**
 
 ### RegisterPatchBaselineForPatchGroupResult
 * RegisterPatchBaselineForPatchGroupResult `object`
-  * BaselineId [BaselineId](#baselineid)
-  * PatchGroup [PatchGroup](#patchgroup)
+  * BaselineId
+  * PatchGroup
 
 ### RegisterTargetWithMaintenanceWindowRequest
 * RegisterTargetWithMaintenanceWindowRequest `object`
-  * ClientToken [ClientToken](#clienttoken)
-  * Description [MaintenanceWindowDescription](#maintenancewindowdescription)
-  * Name [MaintenanceWindowName](#maintenancewindowname)
-  * OwnerInformation [OwnerInformation](#ownerinformation)
-  * ResourceType **required** [MaintenanceWindowResourceType](#maintenancewindowresourcetype)
-  * Targets **required** [Targets](#targets)
-  * WindowId **required** [MaintenanceWindowId](#maintenancewindowid)
+  * ClientToken
+  * Description
+  * Name
+  * OwnerInformation
+  * ResourceType **required**
+  * Targets **required**
+    * items [Target](#target)
+  * WindowId **required**
 
 ### RegisterTargetWithMaintenanceWindowResult
 * RegisterTargetWithMaintenanceWindowResult `object`
-  * WindowTargetId [MaintenanceWindowTargetId](#maintenancewindowtargetid)
+  * WindowTargetId
 
 ### RegisterTaskWithMaintenanceWindowRequest
 * RegisterTaskWithMaintenanceWindowRequest `object`
-  * ClientToken [ClientToken](#clienttoken)
-  * Description [MaintenanceWindowDescription](#maintenancewindowdescription)
-  * LoggingInfo [LoggingInfo](#logginginfo)
-  * MaxConcurrency **required** [MaxConcurrency](#maxconcurrency)
-  * MaxErrors **required** [MaxErrors](#maxerrors)
-  * Name [MaintenanceWindowName](#maintenancewindowname)
-  * Priority [MaintenanceWindowTaskPriority](#maintenancewindowtaskpriority)
-  * ServiceRoleArn **required** [ServiceRole](#servicerole)
-  * Targets **required** [Targets](#targets)
-  * TaskArn **required** [MaintenanceWindowTaskArn](#maintenancewindowtaskarn)
-  * TaskInvocationParameters [MaintenanceWindowTaskInvocationParameters](#maintenancewindowtaskinvocationparameters)
-  * TaskParameters [MaintenanceWindowTaskParameters](#maintenancewindowtaskparameters)
-  * TaskType **required** [MaintenanceWindowTaskType](#maintenancewindowtasktype)
-  * WindowId **required** [MaintenanceWindowId](#maintenancewindowid)
+  * ClientToken
+  * Description
+  * LoggingInfo
+    * S3BucketName **required**
+    * S3KeyPrefix
+    * S3Region **required**
+  * MaxConcurrency **required**
+  * MaxErrors **required**
+  * Name
+  * Priority
+  * ServiceRoleArn
+  * Targets **required**
+    * items [Target](#target)
+  * TaskArn **required**
+  * TaskInvocationParameters
+    * Automation
+      * DocumentVersion
+      * Parameters
+    * Lambda
+      * ClientContext
+      * Payload
+      * Qualifier
+    * RunCommand
+      * CloudWatchOutputConfig [CloudWatchOutputConfig](#cloudwatchoutputconfig)
+      * Comment
+      * DocumentHash
+      * DocumentHashType
+      * DocumentVersion
+      * NotificationConfig
+        * NotificationArn
+        * NotificationEvents
+          * items [NotificationEvent](#notificationevent)
+        * NotificationType
+      * OutputS3BucketName
+      * OutputS3KeyPrefix
+      * Parameters
+      * ServiceRoleArn
+      * TimeoutSeconds
+    * StepFunctions
+      * Input
+      * Name
+  * TaskParameters
+  * TaskType **required**
+  * WindowId **required**
 
 ### RegisterTaskWithMaintenanceWindowResult
 * RegisterTaskWithMaintenanceWindowResult `object`
-  * WindowTaskId [MaintenanceWindowTaskId](#maintenancewindowtaskid)
+  * WindowTaskId
 
 ### RegistrationLimit
 * RegistrationLimit `integer`
@@ -5153,33 +7933,76 @@ amazonaws_ssm.UpdatePatchBaseline({
 ### RegistrationsCount
 * RegistrationsCount `integer`
 
+### RelatedOpsItem
+* RelatedOpsItem `object`: An OpsItems that shares something in common with the current OpsItem. For example, related OpsItems can include OpsItems with similar error messages, impacted resources, or statuses for the impacted resource.
+  * OpsItemId **required**
+
+### RelatedOpsItems
+* RelatedOpsItems `array`
+  * items [RelatedOpsItem](#relatedopsitem)
+
 ### RemainingCount
 * RemainingCount `integer`
 
 ### RemoveTagsFromResourceRequest
 * RemoveTagsFromResourceRequest `object`
-  * ResourceId **required** [ResourceId](#resourceid)
-  * ResourceType **required** [ResourceTypeForTagging](#resourcetypefortagging)
-  * TagKeys **required** [KeyList](#keylist)
+  * ResourceId **required**
+  * ResourceType **required**
+  * TagKeys **required**
+    * items [TagKey](#tagkey)
 
 ### RemoveTagsFromResourceResult
 * RemoveTagsFromResourceResult `object`
 
+### ResetServiceSettingRequest
+* ResetServiceSettingRequest `object`: The request body of the ResetServiceSetting API action.
+  * SettingId **required**
+
+### ResetServiceSettingResult
+* ResetServiceSettingResult `object`: The result body of the ResetServiceSetting API action.
+  * ServiceSetting
+    * ARN
+    * LastModifiedDate
+    * LastModifiedUser
+    * SettingId
+    * SettingValue
+    * Status
+
 ### ResolvedTargets
 * ResolvedTargets `object`: Information about targets that resolved during the Automation execution.
-  * ParameterValues [TargetParameterList](#targetparameterlist)
-  * Truncated [Boolean](#boolean)
+  * ParameterValues
+    * items [ParameterValue](#parametervalue)
+  * Truncated
 
 ### ResourceComplianceSummaryItem
 * ResourceComplianceSummaryItem `object`: Compliance summary information for a specific resource. 
-  * ComplianceType [ComplianceTypeName](#compliancetypename)
-  * CompliantSummary [CompliantSummary](#compliantsummary)
-  * ExecutionSummary [ComplianceExecutionSummary](#complianceexecutionsummary)
-  * NonCompliantSummary [NonCompliantSummary](#noncompliantsummary)
-  * OverallSeverity [ComplianceSeverity](#complianceseverity)
-  * ResourceId [ComplianceResourceId](#complianceresourceid)
-  * ResourceType [ComplianceResourceType](#complianceresourcetype)
-  * Status [ComplianceStatus](#compliancestatus)
+  * ComplianceType
+  * CompliantSummary
+    * CompliantCount
+    * SeveritySummary
+      * CriticalCount
+      * HighCount
+      * InformationalCount
+      * LowCount
+      * MediumCount
+      * UnspecifiedCount
+  * ExecutionSummary
+    * ExecutionId
+    * ExecutionTime **required**
+    * ExecutionType
+  * NonCompliantSummary
+    * NonCompliantCount
+    * SeveritySummary
+      * CriticalCount
+      * HighCount
+      * InformationalCount
+      * LowCount
+      * MediumCount
+      * UnspecifiedCount
+  * OverallSeverity
+  * ResourceId
+  * ResourceType
+  * Status
 
 ### ResourceComplianceSummaryItemList
 * ResourceComplianceSummaryItemList `array`
@@ -5188,55 +8011,111 @@ amazonaws_ssm.UpdatePatchBaseline({
 ### ResourceCount
 * ResourceCount `integer`
 
+### ResourceCountByStatus
+* ResourceCountByStatus `string`
+
 ### ResourceDataSyncAWSKMSKeyARN
 * ResourceDataSyncAWSKMSKeyARN `string`
 
 ### ResourceDataSyncAlreadyExistsException
-* ResourceDataSyncAlreadyExistsException `object`: A sync configuration with the same name already exists.
-  * SyncName [ResourceDataSyncName](#resourcedatasyncname)
+
+
+### ResourceDataSyncAwsOrganizationsSource
+* ResourceDataSyncAwsOrganizationsSource `object`: Information about the AwsOrganizationsSource resource data sync source. A sync source of this type can synchronize data from AWS Organizations or, if an AWS Organization is not present, from multiple AWS Regions.
+  * OrganizationSourceType **required**
+  * OrganizationalUnits
+    * items [ResourceDataSyncOrganizationalUnit](#resourcedatasyncorganizationalunit)
+
+### ResourceDataSyncConflictException
+
 
 ### ResourceDataSyncCountExceededException
-* ResourceDataSyncCountExceededException `object`: You have exceeded the allowed maximum sync configurations.
-  * Message [String](#string)
+
 
 ### ResourceDataSyncCreatedTime
 * ResourceDataSyncCreatedTime `string`
 
+### ResourceDataSyncDestinationDataSharing
+* ResourceDataSyncDestinationDataSharing `object`: Synchronize Systems Manager Inventory data from multiple AWS accounts defined in AWS Organizations to a centralized S3 bucket. Data is synchronized to individual key prefixes in the central bucket. Each key prefix represents a different AWS account ID.
+  * DestinationDataSharingType
+
+### ResourceDataSyncDestinationDataSharingType
+* ResourceDataSyncDestinationDataSharingType `string`
+
+### ResourceDataSyncIncludeFutureRegions
+* ResourceDataSyncIncludeFutureRegions `boolean`
+
 ### ResourceDataSyncInvalidConfigurationException
-* ResourceDataSyncInvalidConfigurationException `object`: The specified sync configuration is invalid.
-  * Message [String](#string)
+
 
 ### ResourceDataSyncItem
 * ResourceDataSyncItem `object`: Information about a Resource Data Sync configuration, including its current status and last successful sync.
-  * LastStatus [LastResourceDataSyncStatus](#lastresourcedatasyncstatus)
-  * LastSuccessfulSyncTime [LastSuccessfulResourceDataSyncTime](#lastsuccessfulresourcedatasynctime)
-  * LastSyncStatusMessage [LastResourceDataSyncMessage](#lastresourcedatasyncmessage)
-  * LastSyncTime [LastResourceDataSyncTime](#lastresourcedatasynctime)
-  * S3Destination [ResourceDataSyncS3Destination](#resourcedatasyncs3destination)
-  * SyncCreatedTime [ResourceDataSyncCreatedTime](#resourcedatasynccreatedtime)
-  * SyncName [ResourceDataSyncName](#resourcedatasyncname)
+  * LastStatus
+  * LastSuccessfulSyncTime
+  * LastSyncStatusMessage
+  * LastSyncTime
+  * S3Destination
+    * AWSKMSKeyARN
+    * BucketName **required**
+    * DestinationDataSharing
+      * DestinationDataSharingType
+    * Prefix
+    * Region **required**
+    * SyncFormat **required**
+  * SyncCreatedTime
+  * SyncLastModifiedTime
+  * SyncName
+  * SyncSource
+    * AwsOrganizationsSource
+      * OrganizationSourceType **required**
+      * OrganizationalUnits
+        * items [ResourceDataSyncOrganizationalUnit](#resourcedatasyncorganizationalunit)
+    * IncludeFutureRegions
+    * SourceRegions
+      * items [ResourceDataSyncSourceRegion](#resourcedatasyncsourceregion)
+    * SourceType
+    * State
+  * SyncType
 
 ### ResourceDataSyncItemList
 * ResourceDataSyncItemList `array`
   * items [ResourceDataSyncItem](#resourcedatasyncitem)
 
+### ResourceDataSyncLastModifiedTime
+* ResourceDataSyncLastModifiedTime `string`
+
 ### ResourceDataSyncName
 * ResourceDataSyncName `string`
 
 ### ResourceDataSyncNotFoundException
-* ResourceDataSyncNotFoundException `object`: The specified sync name was not found.
-  * SyncName [ResourceDataSyncName](#resourcedatasyncname)
+
+
+### ResourceDataSyncOrganizationSourceType
+* ResourceDataSyncOrganizationSourceType `string`
+
+### ResourceDataSyncOrganizationalUnit
+* ResourceDataSyncOrganizationalUnit `object`: The AWS Organizations organizational unit data source for the sync.
+  * OrganizationalUnitId
+
+### ResourceDataSyncOrganizationalUnitId
+* ResourceDataSyncOrganizationalUnitId `string`
+
+### ResourceDataSyncOrganizationalUnitList
+* ResourceDataSyncOrganizationalUnitList `array`
+  * items [ResourceDataSyncOrganizationalUnit](#resourcedatasyncorganizationalunit)
 
 ### ResourceDataSyncS3BucketName
 * ResourceDataSyncS3BucketName `string`
 
 ### ResourceDataSyncS3Destination
-* ResourceDataSyncS3Destination `object`: Information about the target Amazon S3 bucket for the Resource Data Sync.
-  * AWSKMSKeyARN [ResourceDataSyncAWSKMSKeyARN](#resourcedatasyncawskmskeyarn)
-  * BucketName **required** [ResourceDataSyncS3BucketName](#resourcedatasyncs3bucketname)
-  * Prefix [ResourceDataSyncS3Prefix](#resourcedatasyncs3prefix)
-  * Region **required** [ResourceDataSyncS3Region](#resourcedatasyncs3region)
-  * SyncFormat **required** [ResourceDataSyncS3Format](#resourcedatasyncs3format)
+* ResourceDataSyncS3Destination `object`: Information about the target S3 bucket for the Resource Data Sync.
+  * AWSKMSKeyARN
+  * BucketName **required**
+  * DestinationDataSharing
+    * DestinationDataSharingType
+  * Prefix
+  * Region **required**
+  * SyncFormat **required**
 
 ### ResourceDataSyncS3Format
 * ResourceDataSyncS3Format `string` (values: JsonSerDe)
@@ -5247,33 +8126,113 @@ amazonaws_ssm.UpdatePatchBaseline({
 ### ResourceDataSyncS3Region
 * ResourceDataSyncS3Region `string`
 
+### ResourceDataSyncSource
+* ResourceDataSyncSource `object`: Information about the source of the data included in the resource data sync.
+  * AwsOrganizationsSource
+    * OrganizationSourceType **required**
+    * OrganizationalUnits
+      * items [ResourceDataSyncOrganizationalUnit](#resourcedatasyncorganizationalunit)
+  * IncludeFutureRegions
+  * SourceRegions **required**
+    * items [ResourceDataSyncSourceRegion](#resourcedatasyncsourceregion)
+  * SourceType **required**
+
+### ResourceDataSyncSourceRegion
+* ResourceDataSyncSourceRegion `string`
+
+### ResourceDataSyncSourceRegionList
+* ResourceDataSyncSourceRegionList `array`
+  * items [ResourceDataSyncSourceRegion](#resourcedatasyncsourceregion)
+
+### ResourceDataSyncSourceType
+* ResourceDataSyncSourceType `string`
+
+### ResourceDataSyncSourceWithState
+* ResourceDataSyncSourceWithState `object`: <p>The data type name for including resource data sync state. There are four sync states:</p> <p> <code>OrganizationNotExists</code> (Your organization doesn't exist)</p> <p> <code>NoPermissions</code> (The system can't locate the service-linked role. This role is automatically created when a user creates a resource data sync in Explorer.)</p> <p> <code>InvalidOrganizationalUnit</code> (You specified or selected an invalid unit in the resource data sync configuration.)</p> <p> <code>TrustedAccessDisabled</code> (You disabled Systems Manager access in the organization in AWS Organizations.)</p>
+  * AwsOrganizationsSource
+    * OrganizationSourceType **required**
+    * OrganizationalUnits
+      * items [ResourceDataSyncOrganizationalUnit](#resourcedatasyncorganizationalunit)
+  * IncludeFutureRegions
+  * SourceRegions
+    * items [ResourceDataSyncSourceRegion](#resourcedatasyncsourceregion)
+  * SourceType
+  * State
+
+### ResourceDataSyncState
+* ResourceDataSyncState `string`
+
+### ResourceDataSyncType
+* ResourceDataSyncType `string`
+
 ### ResourceId
 * ResourceId `string`
 
 ### ResourceInUseException
-* ResourceInUseException `object`: Error returned if an attempt is made to delete a patch baseline that is registered for a patch group.
-  * Message [String](#string)
+
 
 ### ResourceLimitExceededException
-* ResourceLimitExceededException `object`: <p>Error returned when the caller has exceeded the default resource limits. For example, too many Maintenance Windows or Patch baselines have been created.</p> <p>For information about resource limits in Systems Manager, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_ssm">AWS Systems Manager Limits</a>.</p>
-  * Message [String](#string)
+
 
 ### ResourceType
 * ResourceType `string` (values: ManagedInstance, Document, EC2Instance)
 
 ### ResourceTypeForTagging
-* ResourceTypeForTagging `string` (values: Document, ManagedInstance, MaintenanceWindow, Parameter, PatchBaseline)
+* ResourceTypeForTagging `string` (values: Document, ManagedInstance, MaintenanceWindow, Parameter, PatchBaseline, OpsItem)
 
 ### ResponseCode
 * ResponseCode `integer`
 
 ### ResultAttribute
 * ResultAttribute `object`: The inventory item result attribute.
-  * TypeName **required** [InventoryItemTypeName](#inventoryitemtypename)
+  * TypeName **required**
 
 ### ResultAttributeList
 * ResultAttributeList `array`
   * items [ResultAttribute](#resultattribute)
+
+### ResumeSessionRequest
+* ResumeSessionRequest `object`
+  * SessionId **required**
+
+### ResumeSessionResponse
+* ResumeSessionResponse `object`
+  * SessionId
+  * StreamUrl
+  * TokenValue
+
+### ReviewInformation
+* ReviewInformation `object`: Information about the result of a document review request.
+  * ReviewedTime
+  * Reviewer
+  * Status
+
+### ReviewInformationList
+* ReviewInformationList `array`
+  * items [ReviewInformation](#reviewinformation)
+
+### ReviewStatus
+* ReviewStatus `string` (values: APPROVED, NOT_REVIEWED, PENDING, REJECTED)
+
+### Reviewer
+* Reviewer `string`
+
+### Runbook
+* Runbook `object`: <p>Information about an Automation runbook (Automation document) used in a runbook workflow in Change Manager.</p> <note> <p>The Automation runbooks specified for the runbook workflow can't run until all required approvals for the change request have been received.</p> </note>
+  * DocumentName **required**
+  * DocumentVersion
+  * MaxConcurrency
+  * MaxErrors
+  * Parameters
+  * TargetLocations
+    * items [TargetLocation](#targetlocation)
+  * TargetParameterName
+  * Targets
+    * items [Target](#target)
+
+### Runbooks
+* Runbooks `array`
+  * items [Runbook](#runbook)
 
 ### S3BucketName
 * S3BucketName `string`
@@ -5282,14 +8241,14 @@ amazonaws_ssm.UpdatePatchBaseline({
 * S3KeyPrefix `string`
 
 ### S3OutputLocation
-* S3OutputLocation `object`: An Amazon S3 bucket where you want to store the results of this request.
-  * OutputS3BucketName [S3BucketName](#s3bucketname)
-  * OutputS3KeyPrefix [S3KeyPrefix](#s3keyprefix)
-  * OutputS3Region [S3Region](#s3region)
+* S3OutputLocation `object`: An S3 bucket where you want to store the results of this request.
+  * OutputS3BucketName
+  * OutputS3KeyPrefix
+  * OutputS3Region
 
 ### S3OutputUrl
-* S3OutputUrl `object`: A URL for the Amazon S3 bucket where you want to store the results of this request.
-  * OutputUrl [Url](#url)
+* S3OutputUrl `object`: A URL for the S3 bucket where you want to store the results of this request.
+  * OutputUrl
 
 ### S3Region
 * S3Region `string`
@@ -5297,49 +8256,199 @@ amazonaws_ssm.UpdatePatchBaseline({
 ### ScheduleExpression
 * ScheduleExpression `string`
 
+### ScheduledWindowExecution
+* ScheduledWindowExecution `object`: Information about a scheduled execution for a maintenance window.
+  * ExecutionTime
+  * Name
+  * WindowId
+
+### ScheduledWindowExecutionList
+* ScheduledWindowExecutionList `array`
+  * items [ScheduledWindowExecution](#scheduledwindowexecution)
+
 ### SendAutomationSignalRequest
 * SendAutomationSignalRequest `object`
-  * AutomationExecutionId **required** [AutomationExecutionId](#automationexecutionid)
-  * Payload [AutomationParameterMap](#automationparametermap)
-  * SignalType **required** [SignalType](#signaltype)
+  * AutomationExecutionId **required**
+  * Payload
+  * SignalType **required**
 
 ### SendAutomationSignalResult
 * SendAutomationSignalResult `object`
 
 ### SendCommandRequest
 * SendCommandRequest `object`
-  * Comment [Comment](#comment)
-  * DocumentHash [DocumentHash](#documenthash)
-  * DocumentHashType [DocumentHashType](#documenthashtype)
-  * DocumentName **required** [DocumentARN](#documentarn)
-  * DocumentVersion [DocumentVersion](#documentversion)
-  * InstanceIds [InstanceIdList](#instanceidlist)
-  * MaxConcurrency [MaxConcurrency](#maxconcurrency)
-  * MaxErrors [MaxErrors](#maxerrors)
-  * NotificationConfig [NotificationConfig](#notificationconfig)
-  * OutputS3BucketName [S3BucketName](#s3bucketname)
-  * OutputS3KeyPrefix [S3KeyPrefix](#s3keyprefix)
-  * OutputS3Region [S3Region](#s3region)
-  * Parameters [Parameters](#parameters)
-  * ServiceRoleArn [ServiceRole](#servicerole)
-  * Targets [Targets](#targets)
-  * TimeoutSeconds [TimeoutSeconds](#timeoutseconds)
+  * CloudWatchOutputConfig
+    * CloudWatchLogGroupName
+    * CloudWatchOutputEnabled
+  * Comment
+  * DocumentHash
+  * DocumentHashType
+  * DocumentName **required**
+  * DocumentVersion
+  * InstanceIds
+    * items [InstanceId](#instanceid)
+  * MaxConcurrency
+  * MaxErrors
+  * NotificationConfig
+    * NotificationArn
+    * NotificationEvents
+      * items [NotificationEvent](#notificationevent)
+    * NotificationType
+  * OutputS3BucketName
+  * OutputS3KeyPrefix
+  * OutputS3Region
+  * Parameters
+  * ServiceRoleArn
+  * Targets
+    * items [Target](#target)
+  * TimeoutSeconds
 
 ### SendCommandResult
 * SendCommandResult `object`
-  * Command [Command](#command)
+  * Command
+    * CloudWatchOutputConfig
+      * CloudWatchLogGroupName
+      * CloudWatchOutputEnabled
+    * CommandId
+    * Comment
+    * CompletedCount
+    * DeliveryTimedOutCount
+    * DocumentName
+    * DocumentVersion
+    * ErrorCount
+    * ExpiresAfter
+    * InstanceIds
+      * items [InstanceId](#instanceid)
+    * MaxConcurrency
+    * MaxErrors
+    * NotificationConfig
+      * NotificationArn
+      * NotificationEvents
+        * items [NotificationEvent](#notificationevent)
+      * NotificationType
+    * OutputS3BucketName
+    * OutputS3KeyPrefix
+    * OutputS3Region
+    * Parameters
+    * RequestedDateTime
+    * ServiceRole
+    * Status
+    * StatusDetails
+    * TargetCount
+    * Targets
+      * items [Target](#target)
+    * TimeoutSeconds
 
 ### ServiceRole
 * ServiceRole `string`
 
+### ServiceSetting
+* ServiceSetting `object`: <p>The service setting data structure.</p> <p> <code>ServiceSetting</code> is an account-level setting for an AWS service. This setting defines how a user interacts with or uses a service or a feature of a service. For example, if an AWS service charges money to the account based on feature or service usage, then the AWS service team might create a default setting of "false". This means the user can't use this feature unless they change the setting to "true" and intentionally opt in for a paid feature.</p> <p>Services map a <code>SettingId</code> object to a setting value. AWS services teams define the default value for a <code>SettingId</code>. You can't create a new <code>SettingId</code>, but you can overwrite the default value if you have the <code>ssm:UpdateServiceSetting</code> permission for the setting. Use the <a>UpdateServiceSetting</a> API action to change the default setting. Or, use the <a>ResetServiceSetting</a> to change the value back to the original value defined by the AWS service team.</p>
+  * ARN
+  * LastModifiedDate
+  * LastModifiedUser
+  * SettingId
+  * SettingValue
+  * Status
+
+### ServiceSettingId
+* ServiceSettingId `string`
+
+### ServiceSettingNotFound
+
+
+### ServiceSettingValue
+* ServiceSettingValue `string`
+
+### Session
+* Session `object`: Information about a Session Manager connection to an instance.
+  * Details
+  * DocumentName
+  * EndDate
+  * OutputUrl
+    * CloudWatchOutputUrl
+    * S3OutputUrl
+  * Owner
+  * SessionId
+  * StartDate
+  * Status
+  * Target
+
+### SessionDetails
+* SessionDetails `string`
+
+### SessionFilter
+* SessionFilter `object`: Describes a filter for Session Manager information.
+  * key **required**
+  * value **required**
+
+### SessionFilterKey
+* SessionFilterKey `string` (values: InvokedAfter, InvokedBefore, Target, Owner, Status, SessionId)
+
+### SessionFilterList
+* SessionFilterList `array`
+  * items [SessionFilter](#sessionfilter)
+
+### SessionFilterValue
+* SessionFilterValue `string`
+
+### SessionId
+* SessionId `string`
+
+### SessionList
+* SessionList `array`
+  * items [Session](#session)
+
+### SessionManagerCloudWatchOutputUrl
+* SessionManagerCloudWatchOutputUrl `string`
+
+### SessionManagerOutputUrl
+* SessionManagerOutputUrl `object`: Reserved for future use.
+  * CloudWatchOutputUrl
+  * S3OutputUrl
+
+### SessionManagerParameterName
+* SessionManagerParameterName `string`
+
+### SessionManagerParameterValue
+* SessionManagerParameterValue `string`
+
+### SessionManagerParameterValueList
+* SessionManagerParameterValueList `array`
+  * items [SessionManagerParameterValue](#sessionmanagerparametervalue)
+
+### SessionManagerParameters
+* SessionManagerParameters `object`
+
+### SessionManagerS3OutputUrl
+* SessionManagerS3OutputUrl `string`
+
+### SessionMaxResults
+* SessionMaxResults `integer`
+
+### SessionOwner
+* SessionOwner `string`
+
+### SessionState
+* SessionState `string` (values: Active, History)
+
+### SessionStatus
+* SessionStatus `string` (values: Connected, Connecting, Disconnected, Terminated, Terminating, Failed)
+
+### SessionTarget
+* SessionTarget `string`
+
 ### SeveritySummary
 * SeveritySummary `object`: The number of managed instances found for each patch severity level defined in the request filter.
-  * CriticalCount [ComplianceSummaryCount](#compliancesummarycount)
-  * HighCount [ComplianceSummaryCount](#compliancesummarycount)
-  * InformationalCount [ComplianceSummaryCount](#compliancesummarycount)
-  * LowCount [ComplianceSummaryCount](#compliancesummarycount)
-  * MediumCount [ComplianceSummaryCount](#compliancesummarycount)
-  * UnspecifiedCount [ComplianceSummaryCount](#compliancesummarycount)
+  * CriticalCount
+  * HighCount
+  * InformationalCount
+  * LowCount
+  * MediumCount
+  * UnspecifiedCount
+
+### SharedDocumentVersion
+* SharedDocumentVersion `string`: The document version shared with other accounts. You can share <code>Latest</code>, <code>Default</code> or <code>All versions</code>.
 
 ### SignalType
 * SignalType `string` (values: Approve, Reject, StartStep, StopStep, Resume)
@@ -5356,21 +8465,65 @@ amazonaws_ssm.UpdatePatchBaseline({
 ### StandardOutputContent
 * StandardOutputContent `string`
 
+### StartAssociationsOnceRequest
+* StartAssociationsOnceRequest `object`
+  * AssociationIds **required**
+    * items [AssociationId](#associationid)
+
+### StartAssociationsOnceResult
+* StartAssociationsOnceResult `object`
+
 ### StartAutomationExecutionRequest
 * StartAutomationExecutionRequest `object`
-  * ClientToken [IdempotencyToken](#idempotencytoken)
-  * DocumentName **required** [DocumentARN](#documentarn)
-  * DocumentVersion [DocumentVersion](#documentversion)
-  * MaxConcurrency [MaxConcurrency](#maxconcurrency)
-  * MaxErrors [MaxErrors](#maxerrors)
-  * Mode [ExecutionMode](#executionmode)
-  * Parameters [AutomationParameterMap](#automationparametermap)
-  * TargetParameterName [AutomationParameterKey](#automationparameterkey)
-  * Targets [Targets](#targets)
+  * ClientToken
+  * DocumentName **required**
+  * DocumentVersion
+  * MaxConcurrency
+  * MaxErrors
+  * Mode
+  * Parameters
+  * Tags
+    * items [Tag](#tag)
+  * TargetLocations
+    * items [TargetLocation](#targetlocation)
+  * TargetMaps
+    * items [TargetMap](#targetmap)
+  * TargetParameterName
+  * Targets
+    * items [Target](#target)
 
 ### StartAutomationExecutionResult
 * StartAutomationExecutionResult `object`
-  * AutomationExecutionId [AutomationExecutionId](#automationexecutionid)
+  * AutomationExecutionId
+
+### StartChangeRequestExecutionRequest
+* StartChangeRequestExecutionRequest `object`
+  * ChangeRequestName
+  * ClientToken
+  * DocumentName **required**
+  * DocumentVersion
+  * Parameters
+  * Runbooks **required**
+    * items [Runbook](#runbook)
+  * ScheduledTime
+  * Tags
+    * items [Tag](#tag)
+
+### StartChangeRequestExecutionResult
+* StartChangeRequestExecutionResult `object`
+  * AutomationExecutionId
+
+### StartSessionRequest
+* StartSessionRequest `object`
+  * DocumentName
+  * Parameters
+  * Target **required**
+
+### StartSessionResponse
+* StartSessionResponse `object`
+  * SessionId
+  * StreamUrl
+  * TokenValue
 
 ### StatusAdditionalInfo
 * StatusAdditionalInfo `string`
@@ -5385,31 +8538,50 @@ amazonaws_ssm.UpdatePatchBaseline({
 * StatusName `string`
 
 ### StatusUnchanged
-* StatusUnchanged `object`: The updated status is the same as the current status.
+
 
 ### StepExecution
 * StepExecution `object`: Detailed information about an the execution state of an Automation step.
-  * Action [AutomationActionName](#automationactionname)
-  * ExecutionEndTime [DateTime](#datetime)
-  * ExecutionStartTime [DateTime](#datetime)
-  * FailureDetails [FailureDetails](#failuredetails)
-  * FailureMessage [String](#string)
-  * Inputs [NormalStringMap](#normalstringmap)
-  * MaxAttempts [Integer](#integer)
-  * OnFailure [String](#string)
-  * Outputs [AutomationParameterMap](#automationparametermap)
-  * OverriddenParameters [AutomationParameterMap](#automationparametermap)
-  * Response [String](#string)
-  * ResponseCode [String](#string)
-  * StepExecutionId [String](#string)
-  * StepName [String](#string)
-  * StepStatus [AutomationExecutionStatus](#automationexecutionstatus)
-  * TimeoutSeconds [Long](#long)
+  * Action
+  * ExecutionEndTime
+  * ExecutionStartTime
+  * FailureDetails
+    * Details
+    * FailureStage
+    * FailureType
+  * FailureMessage
+  * Inputs
+  * IsCritical
+  * IsEnd
+  * MaxAttempts
+  * NextStep
+  * OnFailure
+  * Outputs
+  * OverriddenParameters
+  * Response
+  * ResponseCode
+  * StepExecutionId
+  * StepName
+  * StepStatus
+  * TargetLocation
+    * Accounts
+      * items [Account](#account)
+    * ExecutionRoleName
+    * Regions
+      * items [Region](#region)
+    * TargetLocationMaxConcurrency
+    * TargetLocationMaxErrors
+  * Targets
+    * items [Target](#target)
+  * TimeoutSeconds
+  * ValidNextSteps
+    * items [ValidNextStep](#validnextstep)
 
 ### StepExecutionFilter
 * StepExecutionFilter `object`: A filter to limit the amount of step execution information returned by the call.
-  * Key **required** [StepExecutionFilterKey](#stepexecutionfilterkey)
-  * Values **required** [StepExecutionFilterValueList](#stepexecutionfiltervaluelist)
+  * Key **required**
+  * Values **required**
+    * items [StepExecutionFilterValue](#stepexecutionfiltervalue)
 
 ### StepExecutionFilterKey
 * StepExecutionFilterKey `string` (values: StartTimeBefore, StartTimeAfter, StepExecutionStatus, StepExecutionId, StepName, Action)
@@ -5431,14 +8603,17 @@ amazonaws_ssm.UpdatePatchBaseline({
 
 ### StopAutomationExecutionRequest
 * StopAutomationExecutionRequest `object`
-  * AutomationExecutionId **required** [AutomationExecutionId](#automationexecutionid)
-  * Type [StopType](#stoptype)
+  * AutomationExecutionId **required**
+  * Type
 
 ### StopAutomationExecutionResult
 * StopAutomationExecutionResult `object`
 
 ### StopType
 * StopType `string` (values: Complete, Cancel)
+
+### StreamUrl
+* StreamUrl `string`
 
 ### String
 * String `string`
@@ -5451,13 +8626,12 @@ amazonaws_ssm.UpdatePatchBaseline({
   * items [String](#string)
 
 ### SubTypeCountLimitExceededException
-* SubTypeCountLimitExceededException `object`: The sub-type count exceeded the limit for the inventory type.
-  * Message [String](#string)
+
 
 ### Tag
-* Tag `object`: Metadata that you assign to your AWS resources. Tags enable you to categorize your resources in different ways, for example, by purpose, owner, or environment. In Systems Manager, you can apply tags to documents, managed instances, Maintenance Windows, Parameter Store parameters, and patch baselines.
-  * Key **required** [TagKey](#tagkey)
-  * Value **required** [TagValue](#tagvalue)
+* Tag `object`: Metadata that you assign to your AWS resources. Tags enable you to categorize your resources in different ways, for example, by purpose, owner, or environment. In Systems Manager, you can apply tags to documents, managed instances, maintenance windows, Parameter Store parameters, and patch baselines.
+  * Key **required**
+  * Value **required**
 
 ### TagKey
 * TagKey `string`
@@ -5470,19 +8644,53 @@ amazonaws_ssm.UpdatePatchBaseline({
 * TagValue `string`
 
 ### Target
-* Target `object`: <p>An array of search criteria that targets instances using a Key,Value combination that you specify. <code>Targets</code> is required if you don't provide one or more instance IDs in the call.</p> <p/>
-  * Key [TargetKey](#targetkey)
-  * Values [TargetValues](#targetvalues)
+* Target `object`: <p>An array of search criteria that targets instances using a Key,Value combination that you specify. </p> <p>Supported formats include the following.</p> <ul> <li> <p> <code>Key=InstanceIds,Values=<i>instance-id-1</i>,<i>instance-id-2</i>,<i>instance-id-3</i> </code> </p> </li> <li> <p> <code>Key=tag:<i>my-tag-key</i>,Values=<i>my-tag-value-1</i>,<i>my-tag-value-2</i> </code> </p> </li> <li> <p> <code>Key=tag-key,Values=<i>my-tag-key-1</i>,<i>my-tag-key-2</i> </code> </p> </li> <li> <p> <b>Run Command and Maintenance window targets only</b>: <code>Key=resource-groups:Name,Values=<i>resource-group-name</i> </code> </p> </li> <li> <p> <b>Maintenance window targets only</b>: <code>Key=resource-groups:ResourceTypeFilters,Values=<i>resource-type-1</i>,<i>resource-type-2</i> </code> </p> </li> <li> <p> <b>Automation targets only</b>: <code>Key=ResourceGroup;Values=<i>resource-group-name</i> </code> </p> </li> </ul> <p>For example:</p> <ul> <li> <p> <code>Key=InstanceIds,Values=i-02573cafcfEXAMPLE,i-0471e04240EXAMPLE,i-07782c72faEXAMPLE</code> </p> </li> <li> <p> <code>Key=tag:CostCenter,Values=CostCenter1,CostCenter2,CostCenter3</code> </p> </li> <li> <p> <code>Key=tag-key,Values=Name,Instance-Type,CostCenter</code> </p> </li> <li> <p> <b>Run Command and Maintenance window targets only</b>: <code>Key=resource-groups:Name,Values=ProductionResourceGroup</code> </p> <p>This example demonstrates how to target all resources in the resource group <b>ProductionResourceGroup</b> in your maintenance window.</p> </li> <li> <p> <b>Maintenance window targets only</b>: <code>Key=resource-groups:ResourceTypeFilters,Values=<i>AWS::EC2::INSTANCE</i>,<i>AWS::EC2::VPC</i> </code> </p> <p>This example demonstrates how to target only EC2 instances and VPCs in your maintenance window.</p> </li> <li> <p> <b>Automation targets only</b>: <code>Key=ResourceGroup,Values=MyResourceGroup</code> </p> </li> <li> <p> <b>State Manager association targets only</b>: <code>Key=InstanceIds,Values=<i>*</i> </code> </p> <p>This example demonstrates how to target all managed instances in the AWS Region where the association was created.</p> </li> </ul> <p>For more information about how to send commands that target instances using <code>Key,Value</code> parameters, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html#send-commands-targeting">Targeting multiple instances</a> in the <i>AWS Systems Manager User Guide</i>.</p>
+  * Key
+  * Values
+    * items [TargetValue](#targetvalue)
 
 ### TargetCount
 * TargetCount `integer`
 
 ### TargetInUseException
-* TargetInUseException `object`: You specified the <code>Safe</code> option for the DeregisterTargetFromMaintenanceWindow operation, but the target is still referenced in a task.
-  * Message [String](#string)
+
 
 ### TargetKey
 * TargetKey `string`
+
+### TargetLocation
+* TargetLocation `object`: The combination of AWS Regions and accounts targeted by the current Automation execution.
+  * Accounts
+    * items [Account](#account)
+  * ExecutionRoleName
+  * Regions
+    * items [Region](#region)
+  * TargetLocationMaxConcurrency
+  * TargetLocationMaxErrors
+
+### TargetLocations
+* TargetLocations `array`
+  * items [TargetLocation](#targetlocation)
+
+### TargetMap
+* TargetMap `object`
+
+### TargetMapKey
+* TargetMapKey `string`
+
+### TargetMapValue
+* TargetMapValue `string`
+
+### TargetMapValueList
+* TargetMapValueList `array`
+  * items [TargetMapValue](#targetmapvalue)
+
+### TargetMaps
+* TargetMaps `array`
+  * items [TargetMap](#targetmap)
+
+### TargetNotConnected
+
 
 ### TargetParameterList
 * TargetParameterList `array`
@@ -5502,206 +8710,511 @@ amazonaws_ssm.UpdatePatchBaseline({
 * Targets `array`
   * items [Target](#target)
 
+### TerminateSessionRequest
+* TerminateSessionRequest `object`
+  * SessionId **required**
+
+### TerminateSessionResponse
+* TerminateSessionResponse `object`
+  * SessionId
+
 ### TimeoutSeconds
 * TimeoutSeconds `integer`
 
+### TokenValue
+* TokenValue `string`
+
 ### TooManyTagsError
-* TooManyTagsError `object`: The Targets parameter includes too many tags. Remove one or more tags and try the command again.
+
 
 ### TooManyUpdates
-* TooManyUpdates `object`: There are concurrent updates for a resource that supports one update at a time.
-  * Message [String](#string)
+
 
 ### TotalCount
 * TotalCount `integer`
 
 ### TotalSizeLimitExceededException
-* TotalSizeLimitExceededException `object`: The size of inventory data has exceeded the total size limit for the resource.
-  * Message [String](#string)
+
+
+### UUID
+* UUID `string`
+
+### UnsupportedCalendarException
+
+
+### UnsupportedFeatureRequiredException
+
 
 ### UnsupportedInventoryItemContextException
-* UnsupportedInventoryItemContextException `object`: The <code>Context</code> attribute that you specified for the <code>InventoryItem</code> is not allowed for this inventory type. You can only use the <code>Context</code> attribute with inventory types like <code>AWS:ComplianceItem</code>.
-  * Message [String](#string)
-  * TypeName [InventoryItemTypeName](#inventoryitemtypename)
+
 
 ### UnsupportedInventorySchemaVersionException
-* UnsupportedInventorySchemaVersionException `object`: Inventory item type schema version has to match supported versions in the service. Check output of GetInventorySchema to see the available schema version for each type.
-  * Message [String](#string)
+
 
 ### UnsupportedOperatingSystem
-* UnsupportedOperatingSystem `object`: The operating systems you specified is not supported, or the operation is not supported for the operating system. Valid operating systems include: Windows, AmazonLinux, RedhatEnterpriseLinux, and Ubuntu.
-  * Message [String](#string)
+
 
 ### UnsupportedParameterType
-* UnsupportedParameterType `object`: The parameter type is not supported.
-  * message [String](#string)
+
 
 ### UnsupportedPlatformType
-* UnsupportedPlatformType `object`: The document does not support the platform type of the given instance ID(s). For example, you sent an document for a Windows instance to a Linux instance.
-  * Message [String](#string)
+
 
 ### UpdateAssociationRequest
 * UpdateAssociationRequest `object`
-  * AssociationId **required** [AssociationId](#associationid)
-  * AssociationName [AssociationName](#associationname)
-  * AssociationVersion [AssociationVersion](#associationversion)
-  * DocumentVersion [DocumentVersion](#documentversion)
-  * Name [DocumentName](#documentname)
-  * OutputLocation [InstanceAssociationOutputLocation](#instanceassociationoutputlocation)
-  * Parameters [Parameters](#parameters)
-  * ScheduleExpression [ScheduleExpression](#scheduleexpression)
-  * Targets [Targets](#targets)
+  * ApplyOnlyAtCronInterval
+  * AssociationId **required**
+  * AssociationName
+  * AssociationVersion
+  * AutomationTargetParameterName
+  * ComplianceSeverity
+  * DocumentVersion
+  * MaxConcurrency
+  * MaxErrors
+  * Name
+  * OutputLocation
+    * S3Location
+      * OutputS3BucketName
+      * OutputS3KeyPrefix
+      * OutputS3Region
+  * Parameters
+  * ScheduleExpression
+  * SyncCompliance
+  * TargetLocations
+    * items [TargetLocation](#targetlocation)
+  * Targets
+    * items [Target](#target)
 
 ### UpdateAssociationResult
 * UpdateAssociationResult `object`
-  * AssociationDescription [AssociationDescription](#associationdescription)
+  * AssociationDescription
+    * ApplyOnlyAtCronInterval
+    * AssociationId
+    * AssociationName
+    * AssociationVersion
+    * AutomationTargetParameterName
+    * ComplianceSeverity
+    * Date
+    * DocumentVersion
+    * InstanceId
+    * LastExecutionDate
+    * LastSuccessfulExecutionDate
+    * LastUpdateAssociationDate
+    * MaxConcurrency
+    * MaxErrors
+    * Name
+    * OutputLocation
+      * S3Location
+        * OutputS3BucketName
+        * OutputS3KeyPrefix
+        * OutputS3Region
+    * Overview
+      * AssociationStatusAggregatedCount
+      * DetailedStatus
+      * Status
+    * Parameters
+    * ScheduleExpression
+    * Status
+      * AdditionalInfo
+      * Date **required**
+      * Message **required**
+      * Name **required**
+    * SyncCompliance
+    * TargetLocations
+      * items [TargetLocation](#targetlocation)
+    * Targets
+      * items [Target](#target)
 
 ### UpdateAssociationStatusRequest
 * UpdateAssociationStatusRequest `object`
-  * AssociationStatus **required** [AssociationStatus](#associationstatus)
-  * InstanceId **required** [InstanceId](#instanceid)
-  * Name **required** [DocumentName](#documentname)
+  * AssociationStatus **required**
+    * AdditionalInfo
+    * Date **required**
+    * Message **required**
+    * Name **required**
+  * InstanceId **required**
+  * Name **required**
 
 ### UpdateAssociationStatusResult
 * UpdateAssociationStatusResult `object`
-  * AssociationDescription [AssociationDescription](#associationdescription)
+  * AssociationDescription
+    * ApplyOnlyAtCronInterval
+    * AssociationId
+    * AssociationName
+    * AssociationVersion
+    * AutomationTargetParameterName
+    * ComplianceSeverity
+    * Date
+    * DocumentVersion
+    * InstanceId
+    * LastExecutionDate
+    * LastSuccessfulExecutionDate
+    * LastUpdateAssociationDate
+    * MaxConcurrency
+    * MaxErrors
+    * Name
+    * OutputLocation
+      * S3Location
+        * OutputS3BucketName
+        * OutputS3KeyPrefix
+        * OutputS3Region
+    * Overview
+      * AssociationStatusAggregatedCount
+      * DetailedStatus
+      * Status
+    * Parameters
+    * ScheduleExpression
+    * Status
+      * AdditionalInfo
+      * Date **required**
+      * Message **required**
+      * Name **required**
+    * SyncCompliance
+    * TargetLocations
+      * items [TargetLocation](#targetlocation)
+    * Targets
+      * items [Target](#target)
 
 ### UpdateDocumentDefaultVersionRequest
 * UpdateDocumentDefaultVersionRequest `object`
-  * DocumentVersion **required** [DocumentVersionNumber](#documentversionnumber)
-  * Name **required** [DocumentName](#documentname)
+  * DocumentVersion **required**
+  * Name **required**
 
 ### UpdateDocumentDefaultVersionResult
 * UpdateDocumentDefaultVersionResult `object`
-  * Description [DocumentDefaultVersionDescription](#documentdefaultversiondescription)
+  * Description
+    * DefaultVersion
+    * DefaultVersionName
+    * Name
+
+### UpdateDocumentMetadataRequest
+* UpdateDocumentMetadataRequest `object`
+  * DocumentReviews **required**
+    * Action **required**
+    * Comment
+      * items [DocumentReviewCommentSource](#documentreviewcommentsource)
+  * DocumentVersion
+  * Name **required**
+
+### UpdateDocumentMetadataResponse
+* UpdateDocumentMetadataResponse `object`
 
 ### UpdateDocumentRequest
 * UpdateDocumentRequest `object`
-  * Content **required** [DocumentContent](#documentcontent)
-  * DocumentFormat [DocumentFormat](#documentformat)
-  * DocumentVersion [DocumentVersion](#documentversion)
-  * Name **required** [DocumentName](#documentname)
-  * TargetType [TargetType](#targettype)
+  * Attachments
+    * items [AttachmentsSource](#attachmentssource)
+  * Content **required**
+  * DocumentFormat
+  * DocumentVersion
+  * Name **required**
+  * TargetType
+  * VersionName
 
 ### UpdateDocumentResult
 * UpdateDocumentResult `object`
-  * DocumentDescription [DocumentDescription](#documentdescription)
+  * DocumentDescription
+    * ApprovedVersion
+    * AttachmentsInformation
+      * items [AttachmentInformation](#attachmentinformation)
+    * Author
+    * CreatedDate
+    * DefaultVersion
+    * Description
+    * DocumentFormat
+    * DocumentType
+    * DocumentVersion
+    * Hash
+    * HashType
+    * LatestVersion
+    * Name
+    * Owner
+    * Parameters
+      * items [DocumentParameter](#documentparameter)
+    * PendingReviewVersion
+    * PlatformTypes
+      * items [PlatformType](#platformtype)
+    * Requires
+      * items [DocumentRequires](#documentrequires)
+    * ReviewInformation
+      * items [ReviewInformation](#reviewinformation)
+    * ReviewStatus
+    * SchemaVersion
+    * Sha1
+    * Status
+    * StatusInformation
+    * Tags
+      * items [Tag](#tag)
+    * TargetType
+    * VersionName
 
 ### UpdateMaintenanceWindowRequest
 * UpdateMaintenanceWindowRequest `object`
-  * AllowUnassociatedTargets [MaintenanceWindowAllowUnassociatedTargets](#maintenancewindowallowunassociatedtargets)
-  * Cutoff [MaintenanceWindowCutoff](#maintenancewindowcutoff)
-  * Description [MaintenanceWindowDescription](#maintenancewindowdescription)
-  * Duration [MaintenanceWindowDurationHours](#maintenancewindowdurationhours)
-  * Enabled [MaintenanceWindowEnabled](#maintenancewindowenabled)
-  * Name [MaintenanceWindowName](#maintenancewindowname)
-  * Replace [Boolean](#boolean)
-  * Schedule [MaintenanceWindowSchedule](#maintenancewindowschedule)
-  * WindowId **required** [MaintenanceWindowId](#maintenancewindowid)
+  * AllowUnassociatedTargets
+  * Cutoff
+  * Description
+  * Duration
+  * Enabled
+  * EndDate
+  * Name
+  * Replace
+  * Schedule
+  * ScheduleOffset
+  * ScheduleTimezone
+  * StartDate
+  * WindowId **required**
 
 ### UpdateMaintenanceWindowResult
 * UpdateMaintenanceWindowResult `object`
-  * AllowUnassociatedTargets [MaintenanceWindowAllowUnassociatedTargets](#maintenancewindowallowunassociatedtargets)
-  * Cutoff [MaintenanceWindowCutoff](#maintenancewindowcutoff)
-  * Description [MaintenanceWindowDescription](#maintenancewindowdescription)
-  * Duration [MaintenanceWindowDurationHours](#maintenancewindowdurationhours)
-  * Enabled [MaintenanceWindowEnabled](#maintenancewindowenabled)
-  * Name [MaintenanceWindowName](#maintenancewindowname)
-  * Schedule [MaintenanceWindowSchedule](#maintenancewindowschedule)
-  * WindowId [MaintenanceWindowId](#maintenancewindowid)
+  * AllowUnassociatedTargets
+  * Cutoff
+  * Description
+  * Duration
+  * Enabled
+  * EndDate
+  * Name
+  * Schedule
+  * ScheduleOffset
+  * ScheduleTimezone
+  * StartDate
+  * WindowId
 
 ### UpdateMaintenanceWindowTargetRequest
 * UpdateMaintenanceWindowTargetRequest `object`
-  * Description [MaintenanceWindowDescription](#maintenancewindowdescription)
-  * Name [MaintenanceWindowName](#maintenancewindowname)
-  * OwnerInformation [OwnerInformation](#ownerinformation)
-  * Replace [Boolean](#boolean)
-  * Targets [Targets](#targets)
-  * WindowId **required** [MaintenanceWindowId](#maintenancewindowid)
-  * WindowTargetId **required** [MaintenanceWindowTargetId](#maintenancewindowtargetid)
+  * Description
+  * Name
+  * OwnerInformation
+  * Replace
+  * Targets
+    * items [Target](#target)
+  * WindowId **required**
+  * WindowTargetId **required**
 
 ### UpdateMaintenanceWindowTargetResult
 * UpdateMaintenanceWindowTargetResult `object`
-  * Description [MaintenanceWindowDescription](#maintenancewindowdescription)
-  * Name [MaintenanceWindowName](#maintenancewindowname)
-  * OwnerInformation [OwnerInformation](#ownerinformation)
-  * Targets [Targets](#targets)
-  * WindowId [MaintenanceWindowId](#maintenancewindowid)
-  * WindowTargetId [MaintenanceWindowTargetId](#maintenancewindowtargetid)
+  * Description
+  * Name
+  * OwnerInformation
+  * Targets
+    * items [Target](#target)
+  * WindowId
+  * WindowTargetId
 
 ### UpdateMaintenanceWindowTaskRequest
 * UpdateMaintenanceWindowTaskRequest `object`
-  * Description [MaintenanceWindowDescription](#maintenancewindowdescription)
-  * LoggingInfo [LoggingInfo](#logginginfo)
-  * MaxConcurrency [MaxConcurrency](#maxconcurrency)
-  * MaxErrors [MaxErrors](#maxerrors)
-  * Name [MaintenanceWindowName](#maintenancewindowname)
-  * Priority [MaintenanceWindowTaskPriority](#maintenancewindowtaskpriority)
-  * Replace [Boolean](#boolean)
-  * ServiceRoleArn [ServiceRole](#servicerole)
-  * Targets [Targets](#targets)
-  * TaskArn [MaintenanceWindowTaskArn](#maintenancewindowtaskarn)
-  * TaskInvocationParameters [MaintenanceWindowTaskInvocationParameters](#maintenancewindowtaskinvocationparameters)
-  * TaskParameters [MaintenanceWindowTaskParameters](#maintenancewindowtaskparameters)
-  * WindowId **required** [MaintenanceWindowId](#maintenancewindowid)
-  * WindowTaskId **required** [MaintenanceWindowTaskId](#maintenancewindowtaskid)
+  * Description
+  * LoggingInfo
+    * S3BucketName **required**
+    * S3KeyPrefix
+    * S3Region **required**
+  * MaxConcurrency
+  * MaxErrors
+  * Name
+  * Priority
+  * Replace
+  * ServiceRoleArn
+  * Targets
+    * items [Target](#target)
+  * TaskArn
+  * TaskInvocationParameters
+    * Automation
+      * DocumentVersion
+      * Parameters
+    * Lambda
+      * ClientContext
+      * Payload
+      * Qualifier
+    * RunCommand
+      * CloudWatchOutputConfig [CloudWatchOutputConfig](#cloudwatchoutputconfig)
+      * Comment
+      * DocumentHash
+      * DocumentHashType
+      * DocumentVersion
+      * NotificationConfig
+        * NotificationArn
+        * NotificationEvents
+          * items [NotificationEvent](#notificationevent)
+        * NotificationType
+      * OutputS3BucketName
+      * OutputS3KeyPrefix
+      * Parameters
+      * ServiceRoleArn
+      * TimeoutSeconds
+    * StepFunctions
+      * Input
+      * Name
+  * TaskParameters
+  * WindowId **required**
+  * WindowTaskId **required**
 
 ### UpdateMaintenanceWindowTaskResult
 * UpdateMaintenanceWindowTaskResult `object`
-  * Description [MaintenanceWindowDescription](#maintenancewindowdescription)
-  * LoggingInfo [LoggingInfo](#logginginfo)
-  * MaxConcurrency [MaxConcurrency](#maxconcurrency)
-  * MaxErrors [MaxErrors](#maxerrors)
-  * Name [MaintenanceWindowName](#maintenancewindowname)
-  * Priority [MaintenanceWindowTaskPriority](#maintenancewindowtaskpriority)
-  * ServiceRoleArn [ServiceRole](#servicerole)
-  * Targets [Targets](#targets)
-  * TaskArn [MaintenanceWindowTaskArn](#maintenancewindowtaskarn)
-  * TaskInvocationParameters [MaintenanceWindowTaskInvocationParameters](#maintenancewindowtaskinvocationparameters)
-  * TaskParameters [MaintenanceWindowTaskParameters](#maintenancewindowtaskparameters)
-  * WindowId [MaintenanceWindowId](#maintenancewindowid)
-  * WindowTaskId [MaintenanceWindowTaskId](#maintenancewindowtaskid)
+  * Description
+  * LoggingInfo
+    * S3BucketName **required**
+    * S3KeyPrefix
+    * S3Region **required**
+  * MaxConcurrency
+  * MaxErrors
+  * Name
+  * Priority
+  * ServiceRoleArn
+  * Targets
+    * items [Target](#target)
+  * TaskArn
+  * TaskInvocationParameters
+    * Automation
+      * DocumentVersion
+      * Parameters
+    * Lambda
+      * ClientContext
+      * Payload
+      * Qualifier
+    * RunCommand
+      * CloudWatchOutputConfig [CloudWatchOutputConfig](#cloudwatchoutputconfig)
+      * Comment
+      * DocumentHash
+      * DocumentHashType
+      * DocumentVersion
+      * NotificationConfig
+        * NotificationArn
+        * NotificationEvents
+          * items [NotificationEvent](#notificationevent)
+        * NotificationType
+      * OutputS3BucketName
+      * OutputS3KeyPrefix
+      * Parameters
+      * ServiceRoleArn
+      * TimeoutSeconds
+    * StepFunctions
+      * Input
+      * Name
+  * TaskParameters
+  * WindowId
+  * WindowTaskId
 
 ### UpdateManagedInstanceRoleRequest
 * UpdateManagedInstanceRoleRequest `object`
-  * IamRole **required** [IamRole](#iamrole)
-  * InstanceId **required** [ManagedInstanceId](#managedinstanceid)
+  * IamRole **required**
+  * InstanceId **required**
 
 ### UpdateManagedInstanceRoleResult
 * UpdateManagedInstanceRoleResult `object`
 
+### UpdateOpsItemRequest
+* UpdateOpsItemRequest `object`
+  * ActualEndTime
+  * ActualStartTime
+  * Category
+  * Description
+  * Notifications
+    * items [OpsItemNotification](#opsitemnotification)
+  * OperationalData
+  * OperationalDataToDelete
+    * items [String](#string)
+  * OpsItemId **required**
+  * PlannedEndTime
+  * PlannedStartTime
+  * Priority
+  * RelatedOpsItems
+    * items [RelatedOpsItem](#relatedopsitem)
+  * Severity
+  * Status
+  * Title
+
+### UpdateOpsItemResponse
+* UpdateOpsItemResponse `object`
+
+### UpdateOpsMetadataRequest
+* UpdateOpsMetadataRequest `object`
+  * KeysToDelete
+    * items [MetadataKey](#metadatakey)
+  * MetadataToUpdate
+  * OpsMetadataArn **required**
+
+### UpdateOpsMetadataResult
+* UpdateOpsMetadataResult `object`
+  * OpsMetadataArn
+
 ### UpdatePatchBaselineRequest
 * UpdatePatchBaselineRequest `object`
-  * ApprovalRules [PatchRuleGroup](#patchrulegroup)
-  * ApprovedPatches [PatchIdList](#patchidlist)
-  * ApprovedPatchesComplianceLevel [PatchComplianceLevel](#patchcompliancelevel)
-  * ApprovedPatchesEnableNonSecurity [Boolean](#boolean)
-  * BaselineId **required** [BaselineId](#baselineid)
-  * Description [BaselineDescription](#baselinedescription)
-  * GlobalFilters [PatchFilterGroup](#patchfiltergroup)
-  * Name [BaselineName](#baselinename)
-  * RejectedPatches [PatchIdList](#patchidlist)
-  * Replace [Boolean](#boolean)
-  * Sources [PatchSourceList](#patchsourcelist)
+  * ApprovalRules
+    * PatchRules **required**
+      * items [PatchRule](#patchrule)
+  * ApprovedPatches
+    * items [PatchId](#patchid)
+  * ApprovedPatchesComplianceLevel
+  * ApprovedPatchesEnableNonSecurity
+  * BaselineId **required**
+  * Description
+  * GlobalFilters
+    * PatchFilters **required**
+      * items [PatchFilter](#patchfilter)
+  * Name
+  * RejectedPatches
+    * items [PatchId](#patchid)
+  * RejectedPatchesAction
+  * Replace
+  * Sources
+    * items [PatchSource](#patchsource)
 
 ### UpdatePatchBaselineResult
 * UpdatePatchBaselineResult `object`
-  * ApprovalRules [PatchRuleGroup](#patchrulegroup)
-  * ApprovedPatches [PatchIdList](#patchidlist)
-  * ApprovedPatchesComplianceLevel [PatchComplianceLevel](#patchcompliancelevel)
-  * ApprovedPatchesEnableNonSecurity [Boolean](#boolean)
-  * BaselineId [BaselineId](#baselineid)
-  * CreatedDate [DateTime](#datetime)
-  * Description [BaselineDescription](#baselinedescription)
-  * GlobalFilters [PatchFilterGroup](#patchfiltergroup)
-  * ModifiedDate [DateTime](#datetime)
-  * Name [BaselineName](#baselinename)
-  * OperatingSystem [OperatingSystem](#operatingsystem)
-  * RejectedPatches [PatchIdList](#patchidlist)
-  * Sources [PatchSourceList](#patchsourcelist)
+  * ApprovalRules
+    * PatchRules **required**
+      * items [PatchRule](#patchrule)
+  * ApprovedPatches
+    * items [PatchId](#patchid)
+  * ApprovedPatchesComplianceLevel
+  * ApprovedPatchesEnableNonSecurity
+  * BaselineId
+  * CreatedDate
+  * Description
+  * GlobalFilters
+    * PatchFilters **required**
+      * items [PatchFilter](#patchfilter)
+  * ModifiedDate
+  * Name
+  * OperatingSystem
+  * RejectedPatches
+    * items [PatchId](#patchid)
+  * RejectedPatchesAction
+  * Sources
+    * items [PatchSource](#patchsource)
+
+### UpdateResourceDataSyncRequest
+* UpdateResourceDataSyncRequest `object`
+  * SyncName **required**
+  * SyncSource **required**
+    * AwsOrganizationsSource
+      * OrganizationSourceType **required**
+      * OrganizationalUnits
+        * items [ResourceDataSyncOrganizationalUnit](#resourcedatasyncorganizationalunit)
+    * IncludeFutureRegions
+    * SourceRegions **required**
+      * items [ResourceDataSyncSourceRegion](#resourcedatasyncsourceregion)
+    * SourceType **required**
+  * SyncType **required**
+
+### UpdateResourceDataSyncResult
+* UpdateResourceDataSyncResult `object`
+
+### UpdateServiceSettingRequest
+* UpdateServiceSettingRequest `object`: The request body of the UpdateServiceSetting API action.
+  * SettingId **required**
+  * SettingValue **required**
+
+### UpdateServiceSettingResult
+* UpdateServiceSettingResult `object`: The result body of the UpdateServiceSetting API action.
 
 ### Url
 * Url `string`
+
+### ValidNextStep
+* ValidNextStep `string`
+
+### ValidNextStepList
+* ValidNextStepList `array`
+  * items [ValidNextStep](#validnextstep)
 
 ### Version
 * Version `string`

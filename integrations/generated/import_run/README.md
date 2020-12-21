@@ -11,9 +11,7 @@ let import_run = require('@datafire/import_run').create({
   api_key: ""
 });
 
-import_run.extractor.extractorId.cancel.post({
-  "extractorId": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

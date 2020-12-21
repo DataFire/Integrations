@@ -15,9 +15,7 @@ let azure_operationsmanagement_operationsmanagement = require('@datafire/azure_o
   redirect_uri: ""
 });
 
-azure_operationsmanagement_operationsmanagement.Operations_List({
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -46,7 +44,7 @@ azure_operationsmanagement_operationsmanagement.Operations_List({
 * output [OperationListResult](#operationlistresult)
 
 ### ManagementAssociations_ListBySubscription
-Retrieves the ManagementAssociatons list.
+Retrieves the ManagementAssociations list.
 
 
 ```js
@@ -240,6 +238,31 @@ azure_operationsmanagement_operationsmanagement.Solutions_Get({
 #### Output
 * output [Solution](#solution)
 
+### Solutions_Update
+Patch a Solution. Only updating tags supported.
+
+
+```js
+azure_operationsmanagement_operationsmanagement.Solutions_Update({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "api-version": "",
+  "solutionName": "",
+  "parameters": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+  * resourceGroupName **required** `string`: The name of the resource group to get. The name is case insensitive.
+  * api-version **required** `string`: Client Api Version.
+  * solutionName **required** `string`: User Solution Name.
+  * parameters **required** [SolutionPatch](#solutionpatch)
+
+#### Output
+* output [Solution](#solution)
+
 ### Solutions_CreateOrUpdate
 Creates or updates the Solution.
 
@@ -383,7 +406,7 @@ azure_operationsmanagement_operationsmanagement.ManagementAssociations_CreateOrU
 
 ### ManagementAssociationPropertiesList
 * ManagementAssociationPropertiesList `object`: the list of ManagementAssociation response
-  * value `array`: List of Management Association properites within the subscription.
+  * value `array`: List of Management Association properties within the subscription.
     * items [ManagementAssociation](#managementassociation)
 
 ### ManagementConfiguration
@@ -405,7 +428,7 @@ azure_operationsmanagement_operationsmanagement.ManagementAssociations_CreateOrU
 
 ### ManagementConfigurationPropertiesList
 * ManagementConfigurationPropertiesList `object`: the list of ManagementConfiguration response
-  * value `array`: List of Management Configuration properites within the subscription.
+  * value `array`: List of Management Configuration properties within the subscription.
     * items [ManagementConfiguration](#managementconfiguration)
 
 ### Operation
@@ -428,7 +451,12 @@ azure_operationsmanagement_operationsmanagement.ManagementAssociations_CreateOrU
   * name `string`: Resource name.
   * plan [SolutionPlan](#solutionplan)
   * properties [SolutionProperties](#solutionproperties)
+  * tags `object`: Resource tags
   * type `string`: Resource type.
+
+### SolutionPatch
+* SolutionPatch `object`: The properties of a Solution that can be patched.
+  * tags `object`: Resource tags
 
 ### SolutionPlan
 * SolutionPlan `object`: Plan for solution object supported by the OperationsManagement resource provider.
@@ -448,7 +476,7 @@ azure_operationsmanagement_operationsmanagement.ManagementAssociations_CreateOrU
 
 ### SolutionPropertiesList
 * SolutionPropertiesList `object`: the list of solution response
-  * value `array`: List of solution properites within the subscription.
+  * value `array`: List of solution properties within the subscription.
     * items [Solution](#solution)
 
 

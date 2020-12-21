@@ -15,12 +15,7 @@ let azure_analysisservices = require('@datafire/azure_analysisservices').create(
   redirect_uri: ""
 });
 
-azure_analysisservices.Servers_CheckNameAvailability({
-  "location": "",
-  "serverParameters": {},
-  "api-version": "",
-  "subscriptionId": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -30,6 +25,23 @@ azure_analysisservices.Servers_CheckNameAvailability({
 The Azure Analysis Services Web API provides a RESTful set of web services that enables users to create, retrieve, update, and delete Analysis Services servers
 
 ## Actions
+
+### Operations_List
+Lists all of the available consumption REST API operations.
+
+
+```js
+azure_analysisservices.Operations_List({
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * api-version **required** `string`: The client API version.
+
+#### Output
+* output [OperationListResult](#operationlistresult)
 
 ### Servers_CheckNameAvailability
 Check the name availability in the target location.
@@ -299,7 +311,7 @@ azure_analysisservices.Servers_ListGatewayStatus({
 #### Input
 * input `object`
   * resourceGroupName **required** `string`: The name of the Azure Resource group of which a given Analysis Services server is part. This name must be at least 1 character in length, and no more than 90.
-  * serverName **required** `string`: The name of the Analysis Services server. It must be at least 3 characters in length, and no more than 63.
+  * serverName **required** `string`: The name of the Analysis Services server.
   * api-version **required** `string`: The client API version.
   * subscriptionId **required** `string`: A unique identifier for a Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
@@ -353,7 +365,7 @@ azure_analysisservices.Servers_ListSkusForExisting({
 * output [SkuEnumerationForExistingResourceResult](#skuenumerationforexistingresourceresult)
 
 ### Servers_Suspend
-Supends operation of the specified Analysis Services server instance.
+Suspends operation of the specified Analysis Services server instance.
 
 
 ```js
@@ -394,6 +406,8 @@ azure_analysisservices.Servers_Suspend({
   * asAdministrators [ServerAdministrators](#serveradministrators)
   * backupBlobContainerUri `string`: The SAS container URI to the backup container.
   * gatewayDetails [GatewayDetails](#gatewaydetails)
+  * ipV4FirewallSettings [IPv4FirewallSettings](#ipv4firewallsettings)
+  * querypoolConnectionMode `string` (values: All, ReadOnly): How the read-write server's participation in the query pool is controlled.<br/>It can have the following values: <ul><li>readOnly - indicates that the read-write server is intended not to participate in query operations</li><li>all - indicates that the read-write server can participate in query operations</li></ul>Specifying readOnly when capacity is 1 results in error.
 
 ### AnalysisServicesServerProperties
 * AnalysisServicesServerProperties `object`: Properties of Analysis Services resource.
@@ -403,6 +417,8 @@ azure_analysisservices.Servers_Suspend({
   * asAdministrators [ServerAdministrators](#serveradministrators)
   * backupBlobContainerUri `string`: The SAS container URI to the backup container.
   * gatewayDetails [GatewayDetails](#gatewaydetails)
+  * ipV4FirewallSettings [IPv4FirewallSettings](#ipv4firewallsettings)
+  * querypoolConnectionMode `string` (values: All, ReadOnly): How the read-write server's participation in the query pool is controlled.<br/>It can have the following values: <ul><li>readOnly - indicates that the read-write server is intended not to participate in query operations</li><li>all - indicates that the read-write server can participate in query operations</li></ul>Specifying readOnly when capacity is 1 results in error.
 
 ### AnalysisServicesServerUpdateParameters
 * AnalysisServicesServerUpdateParameters `object`: Provision request specification
@@ -421,7 +437,7 @@ azure_analysisservices.Servers_Suspend({
   * type `string`: The resource type of azure analysis services.
 
 ### CheckServerNameAvailabilityResult
-* CheckServerNameAvailabilityResult `object`: The checking result of server name availibility.
+* CheckServerNameAvailabilityResult `object`: The checking result of server name availability.
   * message `string`: The detailed message of the request unavailability.
   * nameAvailable `boolean`: Indicator of available of the server name.
   * reason `string`: The reason of unavailability.
@@ -438,17 +454,43 @@ azure_analysisservices.Servers_Suspend({
   * gatewayResourceId `string`: Gateway resource to be associated with the server.
 
 ### GatewayError
-* GatewayError `object`: Detail of gateway errors
+* GatewayError `object`: Detail of gateway errors.
   * code `string`: Error code of list gateway.
   * message `string`: Error message of list gateway.
 
 ### GatewayListStatusError
-* GatewayListStatusError `object`: Status of gateway is error
+* GatewayListStatusError `object`: Status of gateway is error.
   * error [GatewayError](#gatewayerror)
 
 ### GatewayListStatusLive
-* GatewayListStatusLive `object`: Status of gateway is live
+* GatewayListStatusLive `object`: Status of gateway is live.
   * status `string` (values: Live): Live message of list gateway.
+
+### IPv4FirewallRule
+* IPv4FirewallRule `object`: The detail of firewall rule.
+  * firewallRuleName `string`: The rule name.
+  * rangeEnd `string`: The end range of IPv4.
+  * rangeStart `string`: The start range of IPv4.
+
+### IPv4FirewallSettings
+* IPv4FirewallSettings `object`: An array of firewall rules.
+  * enablePowerBIService `boolean`: The indicator of enabling PBI service.
+  * firewallRules `array`: An array of firewall rules.
+    * items [IPv4FirewallRule](#ipv4firewallrule)
+
+### Operation
+* Operation `object`: A Consumption REST API operation.
+  * display `object`: The object that represents the operation.
+    * operation `string`: Operation type: Read, write, delete, etc.
+    * provider `string`: Service provider: Microsoft.Consumption.
+    * resource `string`: Resource on which the operation is performed: UsageDetail, etc.
+  * name `string`: Operation name: {provider}/{resource}/{operation}.
+
+### OperationListResult
+* OperationListResult `object`: Result of listing consumption operations. It contains a list of operations and a URL link to get the next set of results.
+  * nextLink `string`: URL to get the next set of operation list results if there are any.
+  * value `array`: List of analysis services operations supported by the Microsoft.AnalysisServices resource provider.
+    * items [Operation](#operation)
 
 ### OperationStatus
 * OperationStatus `object`: The status of operation.
@@ -470,26 +512,27 @@ azure_analysisservices.Servers_Suspend({
 
 ### ResourceSku
 * ResourceSku `object`: Represents the SKU name and Azure pricing tier for Analysis Services resource.
+  * capacity `integer`: The number of instances in the read only query pool.
   * name **required** `string`: Name of the SKU level.
   * tier `string` (values: Development, Basic, Standard): The name of the Azure pricing tier to which the SKU applies.
 
 ### ServerAdministrators
-* ServerAdministrators `object`: An array of administrator user identities
+* ServerAdministrators `object`: An array of administrator user identities.
   * members `array`: An array of administrator user identities.
     * items `string`: The UPN of the user. For example: johnsmith@contoso.com.
 
 ### SkuDetailsForExistingResource
-* SkuDetailsForExistingResource `object`: An object that represents SKU details for existing resources
+* SkuDetailsForExistingResource `object`: An object that represents SKU details for existing resources.
   * sku [ResourceSku](#resourcesku)
 
 ### SkuEnumerationForExistingResourceResult
-* SkuEnumerationForExistingResourceResult `object`: An object that represents enumerating SKUs for existing resources
-  * value `array`: The collection of available SKUs for existing resources
+* SkuEnumerationForExistingResourceResult `object`: An object that represents enumerating SKUs for existing resources.
+  * value `array`: The collection of available SKUs for existing resources.
     * items [SkuDetailsForExistingResource](#skudetailsforexistingresource)
 
 ### SkuEnumerationForNewResourceResult
-* SkuEnumerationForNewResourceResult `object`: An object that represents enumerating SKUs for new resources
-  * value `array`: The collection of available SKUs for new resources
+* SkuEnumerationForNewResourceResult `object`: An object that represents enumerating SKUs for new resources.
+  * value `array`: The collection of available SKUs for new resources.
     * items [ResourceSku](#resourcesku)
 
 

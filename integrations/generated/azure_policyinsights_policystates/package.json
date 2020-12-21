@@ -1,6 +1,6 @@
 {
   "name": "@datafire/azure_policyinsights_policystates",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "main": "index.js",
   "description": "DataFire integration for PolicyStatesClient",
   "repository": {
@@ -14,7 +14,7 @@
   },
   "homepage": "https://github.com/DataFire/integrations#readme",
   "datafire": {
-    "origin": "https://api.apis.guru/v2/specs/azure.com/policyinsights-policyStates/2017-12-12-preview/swagger.json",
+    "origin": "https://api.apis.guru/v2/specs/azure.com/policyinsights-policyStates/2018-07-01-preview/swagger.json",
     "type": "openapi"
   },
   "peerDependencies": {

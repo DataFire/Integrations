@@ -15,13 +15,7 @@ let azure_recoveryservicesbackup_registeredidentities = require('@datafire/azure
   redirect_uri: ""
 });
 
-azure_recoveryservicesbackup_registeredidentities.ProtectionContainers_Unregister({
-  "subscriptionId": "",
-  "resourceGroupName": "",
-  "vaultName": "",
-  "api-version": "",
-  "identityName": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

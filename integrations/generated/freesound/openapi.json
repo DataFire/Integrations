@@ -22,7 +22,7 @@
     ],
     "x-logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/http_freesound.org_media_images_logo.png"
+      "url": "https://api.apis.guru/v2/cache/logo/https_freesound.org_media_images_logo.png"
     },
     "x-origin": [
       {
@@ -43,10 +43,6 @@
     "description": "Find out more about Freesound",
     "url": "https://freesound.org/docs/api/index.html"
   },
-  "produces": [
-    "application/xml",
-    "application/json"
-  ],
   "tags": [
     {
       "description": "Search resources",
@@ -136,6 +132,10 @@
             "type": "integer"
           }
         ],
+        "produces": [
+          "application/xml",
+          "application/json"
+        ],
         "responses": {
           "200": {
             "description": "successful operation",
@@ -169,6 +169,10 @@
             "required": true,
             "type": "integer"
           }
+        ],
+        "produces": [
+          "application/xml",
+          "application/json"
         ],
         "responses": {
           "200": {

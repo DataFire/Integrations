@@ -7,7 +7,7 @@
   "info": {
     "description": "The Run Commands Client.",
     "title": "RunCommandsClient",
-    "version": "2017-12-01",
+    "version": "2019-03-01",
     "x-apisguru-categories": [
       "cloud"
     ],
@@ -17,7 +17,7 @@
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/compute/resource-manager/Microsoft.Compute/stable/2017-12-01/runCommands.json",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/compute/resource-manager/Microsoft.Compute/stable/2019-03-01/runCommands.json",
         "version": "2.0"
       }
     ],
@@ -110,7 +110,7 @@
         "x-ms-examples": {
           "VirtualMachineRunCommandList": {
             "parameters": {
-              "api-version": "2017-12-01",
+              "api-version": "2019-03-01",
               "location": "SoutheastAsia",
               "subscriptionId": "subid"
             },
@@ -119,74 +119,74 @@
                 "body": {
                   "value": [
                     {
+                      "$schema": "http://schema.management.azure.com/schemas/2016-11-17/runcommands.json",
                       "description": "Configure the machine to enable remote PowerShell.",
                       "id": "EnableRemotePS",
                       "label": "Enable remote PowerShell",
-                      "osType": "Windows",
-                      "schema": "http://schema.management.azure.com/schemas/2016-11-17/runcommands.json"
+                      "osType": "Windows"
                     },
                     {
+                      "$schema": "http://schema.management.azure.com/schemas/2016-11-17/runcommands.json",
                       "description": "Shows detailed information for the IP address, subnet mask and default gateway for each adapter bound to TCP/IP.",
                       "id": "IPConfig",
                       "label": "List IP configuration",
-                      "osType": "Windows",
-                      "schema": "http://schema.management.azure.com/schemas/2016-11-17/runcommands.json"
+                      "osType": "Windows"
                     },
                     {
+                      "$schema": "http://schema.management.azure.com/schemas/2016-11-17/runcommands.json",
                       "description": "Custom multiline PowerShell script should be defined in script property. Optional parameters can be set in parameters property.",
                       "id": "RunPowerShellScript",
                       "label": "Executes a PowerShell script",
-                      "osType": "Windows",
-                      "schema": "http://schema.management.azure.com/schemas/2016-11-17/runcommands.json"
+                      "osType": "Windows"
                     },
                     {
+                      "$schema": "http://schema.management.azure.com/schemas/2016-11-17/runcommands.json",
                       "description": "Custom multiline shell script should be defined in script property. Optional parameters can be set in parameters property.",
                       "id": "RunShellScript",
                       "label": "Executes a Linux shell script",
-                      "osType": "Linux",
-                      "schema": "http://schema.management.azure.com/schemas/2016-11-17/runcommands.json"
+                      "osType": "Linux"
                     },
                     {
+                      "$schema": "http://schema.management.azure.com/schemas/2016-11-17/runcommands.json",
                       "description": "Get the configuration of all network interfaces.",
                       "id": "ifconfig",
                       "label": "List network configuration",
-                      "osType": "Linux",
-                      "schema": "http://schema.management.azure.com/schemas/2016-11-17/runcommands.json"
+                      "osType": "Linux"
                     },
                     {
+                      "$schema": "http://schema.management.azure.com/schemas/2016-11-17/runcommands.json",
                       "description": "Checks if the local Administrator account is disabled, and if so enables it.",
                       "id": "EnableAdminAccount",
                       "label": "Enable administrator account",
-                      "osType": "Windows",
-                      "schema": "http://schema.management.azure.com/schemas/2016-11-17/runcommands.json"
+                      "osType": "Windows"
                     },
                     {
+                      "$schema": "http://schema.management.azure.com/schemas/2016-11-17/runcommands.json",
                       "description": "Reset built-in Administrator account password.",
                       "id": "ResetAccountPassword",
                       "label": "Reset built-in Administrator account password",
-                      "osType": "Windows",
-                      "schema": "http://schema.management.azure.com/schemas/2016-11-17/runcommands.json"
+                      "osType": "Windows"
                     },
                     {
+                      "$schema": "http://schema.management.azure.com/schemas/2016-11-17/runcommands.json",
                       "description": "Checks registry settings and domain policy settings. Suggests policy actions if machine is part of a domain or modifies the settings to default values.",
                       "id": "RDPSettings",
                       "label": "Verify RDP Listener Settings",
-                      "osType": "Windows",
-                      "schema": "http://schema.management.azure.com/schemas/2016-11-17/runcommands.json"
+                      "osType": "Windows"
                     },
                     {
+                      "$schema": "http://schema.management.azure.com/schemas/2016-11-17/runcommands.json",
                       "description": "Sets the default or user specified port number for Remote Desktop connections. Enables firewall rule for inbound access to the port.",
                       "id": "SetRDPPort",
                       "label": "Set Remote Desktop port",
-                      "osType": "Windows",
-                      "schema": "http://schema.management.azure.com/schemas/2016-11-17/runcommands.json"
+                      "osType": "Windows"
                     },
                     {
+                      "$schema": "http://schema.management.azure.com/schemas/2016-11-17/runcommands.json",
                       "description": "Removes the SSL certificate tied to the RDP listener and restores the RDP listerner security to default. Use this script if you see any issues with the certificate.",
                       "id": "ResetRDPCert",
                       "label": "Restore RDP Authentication mode to defaults",
-                      "osType": "Windows",
-                      "schema": "http://schema.management.azure.com/schemas/2016-11-17/runcommands.json"
+                      "osType": "Windows"
                     }
                   ]
                 }
@@ -240,7 +240,7 @@
         "x-ms-examples": {
           "VirtualMachineRunCommandGet": {
             "parameters": {
-              "api-version": "2017-12-01",
+              "api-version": "2019-03-01",
               "commandId": "RunPowerShellScript",
               "location": "SoutheastAsia",
               "subscriptionId": "24fb23e3-6ba3-41f0-9b6e-e41131d5d61e"
@@ -255,14 +255,14 @@
                   "osType": "Windows",
                   "parameters": [
                     {
+                      "defaultValue": "value1",
                       "name": "arg1",
-                      "type": "string",
-                      "value": "value1"
+                      "type": "string"
                     },
                     {
+                      "defaultValue": "value2",
                       "name": "arg2",
-                      "type": "string",
-                      "value": "value2"
+                      "type": "string"
                     }
                   ],
                   "script": [
@@ -276,6 +276,68 @@
               }
             }
           }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/virtualmachines/{instanceId}/runCommand": {
+      "post": {
+        "description": "Run command on a virtual machine in a VM scale set.",
+        "operationId": "VirtualMachineScaleSetVMs_RunCommand",
+        "parameters": [
+          {
+            "description": "The name of the resource group.",
+            "in": "path",
+            "name": "resourceGroupName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The name of the VM scale set.",
+            "in": "path",
+            "name": "vmScaleSetName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The instance ID of the virtual machine.",
+            "in": "path",
+            "name": "instanceId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Parameters supplied to the Run command operation.",
+            "in": "body",
+            "name": "parameters",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RunCommandInput"
+            }
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/RunCommandResult"
+            }
+          },
+          "202": {
+            "description": "Accepted"
+          }
+        },
+        "tags": [
+          "VirtualMachineScaleSetVMs"
+        ],
+        "x-ms-long-running-operation": true,
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "location"
         }
       }
     },
@@ -331,8 +393,8 @@
         "x-ms-examples": {
           "VirtualMachineRunCommand": {
             "parameters": {
-              "$top": "1",
-              "api-version": "2017-12-01",
+              "$top": 1,
+              "api-version": "2019-03-01",
               "monitor": "true",
               "parameters": {
                 "commandId": "RunPowerShellScript"
@@ -344,125 +406,65 @@
             "responses": {
               "200": {
                 "body": {
-                  "endTime": "2017-06-16T16:10:11.2897717-07:00",
-                  "name": "289dbc84-3c84-4a86-9e40-bbd4d61edcaf",
-                  "properties": {
-                    "output": [
-                      {
-                        "code": "ComponentStatus/StdOut/succeeded",
-                        "displayStatus": "Provisioning succeeded",
-                        "level": "Info",
-                        "message": "This is a sample script with parameters value1 value2"
-                      },
-                      {
-                        "code": "ComponentStatus/StdErr/succeeded",
-                        "displayStatus": "Provisioning succeeded",
-                        "level": "Info",
-                        "message": ""
-                      }
-                    ]
-                  },
-                  "startTime": "2017-06-16T16:01:37.8958419-07:00",
-                  "status": "Succeeded"
+                  "value": [
+                    {
+                      "code": "ComponentStatus/StdOut/succeeded",
+                      "displayStatus": "Provisioning succeeded",
+                      "level": "Info",
+                      "message": "This is a sample script with parameters value1 value2"
+                    },
+                    {
+                      "code": "ComponentStatus/StdErr/succeeded",
+                      "displayStatus": "Provisioning succeeded",
+                      "level": "Info",
+                      "message": ""
+                    }
+                  ]
                 }
               },
-              "202": {
-                "body": ""
-              }
+              "202": {}
             }
           }
         },
-        "x-ms-long-running-operation": true
+        "x-ms-long-running-operation": true,
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "location"
+        }
       }
     }
   },
   "definitions": {
-    "ApiError": {
-      "description": "Api error.",
+    "InstanceViewStatus": {
+      "description": "Instance view status.",
       "properties": {
         "code": {
-          "description": "The error code.",
+          "description": "The status code.",
           "type": "string"
         },
-        "details": {
-          "description": "The Api error details",
-          "items": {
-            "$ref": "#/definitions/ApiErrorBase"
-          },
-          "type": "array"
-        },
-        "innererror": {
-          "$ref": "#/definitions/InnerError",
-          "description": "The Api inner error"
-        },
-        "message": {
-          "description": "The error message.",
+        "displayStatus": {
+          "description": "The short localizable label for the status.",
           "type": "string"
         },
-        "target": {
-          "description": "The target of the particular error.",
-          "type": "string"
-        }
-      }
-    },
-    "ApiErrorBase": {
-      "description": "Api error base.",
-      "properties": {
-        "code": {
-          "description": "The error code.",
-          "type": "string"
+        "level": {
+          "description": "The level code.",
+          "enum": [
+            "Info",
+            "Warning",
+            "Error"
+          ],
+          "type": "string",
+          "x-ms-enum": {
+            "modelAsString": false,
+            "name": "StatusLevelTypes"
+          }
         },
         "message": {
-          "description": "The error message.",
+          "description": "The detailed status message, including for alerts and error messages.",
           "type": "string"
         },
-        "target": {
-          "description": "The target of the particular error.",
-          "type": "string"
-        }
-      }
-    },
-    "InnerError": {
-      "description": "Inner error details.",
-      "properties": {
-        "errordetail": {
-          "description": "The internal error message or exception dump.",
-          "type": "string"
-        },
-        "exceptiontype": {
-          "description": "The exception type.",
-          "type": "string"
-        }
-      }
-    },
-    "OperationStatusResponse": {
-      "description": "Operation status response",
-      "properties": {
-        "endTime": {
-          "description": "End time of the operation",
+        "time": {
+          "description": "The time of the status.",
           "format": "date-time",
-          "readOnly": true,
-          "type": "string"
-        },
-        "error": {
-          "$ref": "#/definitions/ApiError",
-          "description": "Api error",
-          "readOnly": true
-        },
-        "name": {
-          "description": "Operation ID",
-          "readOnly": true,
-          "type": "string"
-        },
-        "startTime": {
-          "description": "Start time of the operation",
-          "format": "date-time",
-          "readOnly": true,
-          "type": "string"
-        },
-        "status": {
-          "description": "Operation status",
-          "readOnly": true,
           "type": "string"
         }
       }
@@ -623,25 +625,13 @@
       ]
     },
     "RunCommandResult": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/OperationStatusResponse"
-        }
-      ],
-      "description": "Run command operation response.",
       "properties": {
-        "properties": {
-          "$ref": "#/definitions/RunCommandResultProperties",
-          "x-ms-client-flatten": true
-        }
-      }
-    },
-    "RunCommandResultProperties": {
-      "description": "Compute-specific operation properties, including output",
-      "properties": {
-        "output": {
-          "description": "Operation output data (raw JSON)",
-          "type": "object"
+        "value": {
+          "description": "Run command operation response.",
+          "items": {
+            "$ref": "#/definitions/InstanceViewStatus"
+          },
+          "type": "array"
         }
       }
     }

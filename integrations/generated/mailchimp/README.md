@@ -11,7 +11,7 @@ let mailchimp = require('@datafire/mailchimp').create({
   apiKey: ""
 });
 
-mailchimp.getPing({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -155,7 +155,6 @@ mailchimp.getAutomations({}, context)
           * saved_segment_id `integer`: The id for an existing saved segment.
           * match `string` (values: any, all): Segment match type.
           * conditions `array`: An array of segment conditions.
-            * items [SegmentCondition](#segmentcondition)
       * settings `object`: The settings for the Automation workflow.
         * title `string`: The title of the Automation.
         * from_name `string`: The 'from' name for the Automation (not an email address).
@@ -1240,13 +1239,6 @@ mailchimp.getCampaigns({}, context)
           * items `string`
         * combinations `array`: Combinations of possible variables used to build emails.
           * items `object`
-            * id `string`: Unique ID for the combination.
-            * subject_line `integer`: The index of `variate_settings.subject_lines` used.
-            * send_time `integer`: The index of `variate_settings.send_times` used.
-            * from_name `integer`: The index of `variate_settings.from_names` used.
-            * reply_to `integer`: The index of `variate_settings.reply_to_addresses` used.
-            * content_description `integer`: The index of `variate_settings.contents` used.
-            * recipients `integer`: The number of recipients for this combination.
       * tracking `object`: The tracking options for a campaign.
         * opens `boolean`: Whether to [track opens](http://kb.mailchimp.com/reports/about-open-tracking?utm_source=mc-api&utm_medium=docs&utm_campaign=apidocs). Defaults to `true`. Cannot be set to false for variate campaigns.
         * html_clicks `boolean`: Whether to [track clicks](http://kb.mailchimp.com/reports/about-click-tracking?utm_source=mc-api&utm_medium=docs&utm_campaign=apidocs) in the HTML version of the campaign. Defaults to `true`. Cannot be set to false for variate campaigns.
@@ -1266,13 +1258,6 @@ mailchimp.getCampaigns({}, context)
         * schedule `object`: The schedule for sending the RSS Campaign.
           * hour `integer`: The hour to send the campaign in local time. Acceptable hours are 0-23. For example, '4' would be 4am in [your account's default time zone](http://kb.mailchimp.com/accounts/account-setup/how-to-set-account-defaults?utm_source=mc-api&utm_medium=docs&utm_campaign=apidocs).
           * daily_send `object`: The days of the week to send a daily RSS Campaign.
-            * sunday `boolean`: Sends the daily RSS Campaign on Sundays.
-            * monday `boolean`: Sends the daily RSS Campaign on Mondays.
-            * tuesday `boolean`: Sends the daily RSS Campaign on Tuesdays.
-            * wednesday `boolean`: Sends the daily RSS Campaign on Wednesdays.
-            * thursday `boolean`: Sends the daily RSS Campaign on Thursdays.
-            * friday `boolean`: Sends the daily RSS Campaign on Fridays.
-            * saturday `boolean`: Sends the daily RSS Campaign on Saturdays.
           * weekly_send_day `string` (values: sunday, monday, tuesday, wednesday, thursday, friday, saturday): The day of the week to send a weekly RSS Campaign.
           * monthly_send_date `number`: The day of the month to send a monthly RSS Campaign. Acceptable days are 0-31, where '0' is always the last day of a month. Months with fewer than the selected number of days will not have an RSS campaign sent out that day. For example, RSS Campaigns set to send on the 30th will not go out in February.
         * last_sent `string`: The date the campaign was last sent.
@@ -2727,92 +2712,44 @@ mailchimp.getDashboardAudiences({}, context)
         * last_day `string`
         * subscribers `object`
           * total_by_series `object`
-            * active `integer`
-            * net_growth `integer`
-            * unsubscribes `integer`
       * data `object`
         * subscribers `object`
           * active `array`
-            * items `object`
-              * date `string`
-              * val `string`
           * unsubscribes `array`
-            * items `object`
-              * date `string`
-              * val `string`
           * net_growth `array`
-            * items `object`
-              * date `string`
-              * val `string`
     * thirty_days `object`
       * meta_data `object`
         * first_day `string`
         * last_day `string`
         * subscribers `object`
           * total_by_series `object`
-            * active `integer`
-            * net_growth `integer`
-            * unsubscribes `integer`
       * data `object`
         * subscribers `object`
           * active `array`
-            * items `object`
-              * date `string`
-              * val `string`
           * unsubscribes `array`
-            * items `object`
-              * date `string`
-              * val `string`
           * net_growth `array`
-            * items `object`
-              * date `string`
-              * val `string`
     * ninety_days `object`
       * meta_data `object`
         * first_day `string`
         * last_day `string`
         * subscribers `object`
           * total_by_series `object`
-            * active `integer`
-            * net_growth `integer`
-            * unsubscribes `integer`
       * data `object`
         * subscribers `object`
           * active `array`
-            * items `object`
-              * date `string`
-              * val `string`
           * unsubscribes `array`
-            * items `object`
-              * date `string`
-              * val `string`
           * net_growth `array`
-            * items `object`
-              * date `string`
-              * val `string`
     * one_year `object`
       * meta_data `object`
         * first_day `string`
         * last_day `string`
         * subscribers `object`
           * total_by_series `object`
-            * active `integer`
-            * net_growth `integer`
-            * unsubscribes `integer`
       * data `object`
         * subscribers `object`
           * active `array`
-            * items `object`
-              * date `string`
-              * val `string`
           * unsubscribes `array`
-            * items `object`
-              * date `string`
-              * val `string`
           * net_growth `array`
-            * items `object`
-              * date `string`
-              * val `string`
   * sources `object`
     * seven_days `object`
       * meta_data `object`
@@ -2820,64 +2757,40 @@ mailchimp.getDashboardAudiences({}, context)
         * last_day `string`
         * distribution `object`
           * totals `object`
-            * current `integer`
-            * previous `integer`
           * total_by_series `object`
-            * sources `integer`
       * data `object`
         * distribution `object`
           * sources `array`
-            * items `object`
-              * source `string`
-              * val `string`
     * thirty_days `object`
       * meta_data `object`
         * first_day `string`
         * last_day `string`
         * distribution `object`
           * totals `object`
-            * current `integer`
-            * previous `integer`
           * total_by_series `object`
-            * sources `integer`
       * data `object`
         * distribution `object`
           * sources `array`
-            * items `object`
-              * source `string`
-              * val `string`
     * ninety_days `object`
       * meta_data `object`
         * first_day `string`
         * last_day `string`
         * distribution `object`
           * totals `object`
-            * current `integer`
-            * previous `integer`
           * total_by_series `object`
-            * sources `integer`
       * data `object`
         * distribution `object`
           * sources `array`
-            * items `object`
-              * source `string`
-              * val `string`
     * one_year `object`
       * meta_data `object`
         * first_day `string`
         * last_day `string`
         * distribution `object`
           * totals `object`
-            * current `integer`
-            * previous `integer`
           * total_by_series `object`
-            * sources `integer`
       * data `object`
         * distribution `object`
           * sources `array`
-            * items `object`
-              * source `string`
-              * val `string`
 
 ### getDashboardCharts
 Get info about which dashboard charts to show for this user
@@ -2923,140 +2836,76 @@ mailchimp.getDashboardEcommerce({}, context)
         * last_day `string`
         * orders `object`
           * totals `object`
-            * current `integer`
-            * previous `integer`
           * mailchimp `object`
-            * current `integer`
-            * previous `integer`
           * total_by_series `object`
-            * completed_orders `integer`
         * carts `object`
           * totals `object`
-            * current `integer`
-            * previous `integer`
           * mailchimp `object`
-            * current `integer`
-            * previous `integer`
           * total_by_series `object`
-            * recovered_carts `integer`
         * section_title `string`
         * store_count `integer`
       * data `object`
         * orders `object`
           * completed_orders `array`
-            * items `object`
-              * date `string`
-              * val `string`
         * carts `object`
           * recovered_carts `array`
-            * items `object`
-              * date `string`
-              * val `string`
     * thirty_days `object`
       * meta_data `object`
         * first_day `string`
         * last_day `string`
         * orders `object`
           * totals `object`
-            * current `integer`
-            * previous `integer`
           * mailchimp `object`
-            * current `integer`
-            * previous `integer`
           * total_by_series `object`
-            * completed_orders `integer`
         * carts `object`
           * totals `object`
-            * current `integer`
-            * previous `integer`
           * mailchimp `object`
-            * current `integer`
-            * previous `integer`
           * total_by_series `object`
-            * recovered_carts `integer`
         * section_title `string`
         * store_count `integer`
       * data `object`
         * orders `object`
           * completed_orders `array`
-            * items `object`
-              * date `string`
-              * val `string`
         * carts `object`
           * recovered_carts `array`
-            * items `object`
-              * date `string`
-              * val `string`
     * ninety_days `object`
       * meta_data `object`
         * first_day `string`
         * last_day `string`
         * orders `object`
           * totals `object`
-            * current `integer`
-            * previous `integer`
           * mailchimp `object`
-            * current `integer`
-            * previous `integer`
           * total_by_series `object`
-            * completed_orders `integer`
         * carts `object`
           * totals `object`
-            * current `integer`
-            * previous `integer`
           * mailchimp `object`
-            * current `integer`
-            * previous `integer`
           * total_by_series `object`
-            * recovered_carts `integer`
         * section_title `string`
         * store_count `integer`
       * data `object`
         * orders `object`
           * completed_orders `array`
-            * items `object`
-              * date `string`
-              * val `string`
         * carts `object`
           * recovered_carts `array`
-            * items `object`
-              * date `string`
-              * val `string`
     * one_year `object`
       * meta_data `object`
         * first_day `string`
         * last_day `string`
         * orders `object`
           * totals `object`
-            * current `integer`
-            * previous `integer`
           * mailchimp `object`
-            * current `integer`
-            * previous `integer`
           * total_by_series `object`
-            * completed_orders `integer`
         * carts `object`
           * totals `object`
-            * current `integer`
-            * previous `integer`
           * mailchimp `object`
-            * current `integer`
-            * previous `integer`
           * total_by_series `object`
-            * recovered_carts `integer`
         * section_title `string`
         * store_count `integer`
       * data `object`
         * orders `object`
           * completed_orders `array`
-            * items `object`
-              * date `string`
-              * val `string`
         * carts `object`
           * recovered_carts `array`
-            * items `object`
-              * date `string`
-              * val `string`
   * revenue `object`
     * seven_days `object`
       * meta_data `object`
@@ -3064,180 +2913,84 @@ mailchimp.getDashboardEcommerce({}, context)
         * last_day `string`
         * orders `object`
           * totals `object`
-            * current `number`
-            * previous `number`
           * mailchimp `object`
-            * current `number`
-            * previous `number`
           * total_by_series `object`
-            * email_campaigns `number`
-            * automations `number`
-            * elsewhere `number`
         * carts `object`
           * totals `object`
-            * current `number`
-            * previous `number`
           * mailchimp `object`
-            * current `number`
-            * previous `number`
           * total_by_series `object`
-            * recovered_carts `number`
         * section_title `string`
         * store_count `integer`
       * data `object`
         * orders `object`
           * email_campaigns `array`
-            * items `object`
-              * date `string`
-              * val `number`
           * automations `array`
-            * items `object`
-              * date `string`
-              * val `number`
           * elsewhere `array`
-            * items `object`
-              * date `string`
-              * val `number`
         * carts `object`
           * recovered_carts `array`
-            * items `object`
-              * date `string`
-              * val `number`
     * thirty_days `object`
       * meta_data `object`
         * first_day `string`
         * last_day `string`
         * orders `object`
           * totals `object`
-            * current `number`
-            * previous `number`
           * mailchimp `object`
-            * current `number`
-            * previous `number`
           * total_by_series `object`
-            * email_campaigns `number`
-            * automations `number`
-            * elsewhere `number`
         * carts `object`
           * totals `object`
-            * current `number`
-            * previous `number`
           * mailchimp `object`
-            * current `number`
-            * previous `number`
           * total_by_series `object`
-            * recovered_carts `number`
         * section_title `string`
         * store_count `integer`
       * data `object`
         * orders `object`
           * email_campaigns `array`
-            * items `object`
-              * date `string`
-              * val `number`
           * automations `array`
-            * items `object`
-              * date `string`
-              * val `number`
           * elsewhere `array`
-            * items `object`
-              * date `string`
-              * val `number`
         * carts `object`
           * recovered_carts `array`
-            * items `object`
-              * date `string`
-              * val `number`
     * ninety_days `object`
       * meta_data `object`
         * first_day `string`
         * last_day `string`
         * orders `object`
           * totals `object`
-            * current `number`
-            * previous `number`
           * mailchimp `object`
-            * current `number`
-            * previous `number`
           * total_by_series `object`
-            * email_campaigns `number`
-            * automations `number`
-            * elsewhere `number`
         * carts `object`
           * totals `object`
-            * current `number`
-            * previous `number`
           * mailchimp `object`
-            * current `number`
-            * previous `number`
           * total_by_series `object`
-            * recovered_carts `number`
         * section_title `string`
         * store_count `integer`
       * data `object`
         * orders `object`
           * email_campaigns `array`
-            * items `object`
-              * date `string`
-              * val `number`
           * automations `array`
-            * items `object`
-              * date `string`
-              * val `number`
           * elsewhere `array`
-            * items `object`
-              * date `string`
-              * val `number`
         * carts `object`
           * recovered_carts `array`
-            * items `object`
-              * date `string`
-              * val `number`
     * one_year `object`
       * meta_data `object`
         * first_day `string`
         * last_day `string`
         * orders `object`
           * totals `object`
-            * current `number`
-            * previous `number`
           * mailchimp `object`
-            * current `number`
-            * previous `number`
           * total_by_series `object`
-            * email_campaigns `number`
-            * automations `number`
-            * elsewhere `number`
         * carts `object`
           * totals `object`
-            * current `number`
-            * previous `number`
           * mailchimp `object`
-            * current `number`
-            * previous `number`
           * total_by_series `object`
-            * recovered_carts `number`
         * section_title `string`
         * store_count `integer`
       * data `object`
         * orders `object`
           * email_campaigns `array`
-            * items `object`
-              * date `string`
-              * val `number`
           * automations `array`
-            * items `object`
-              * date `string`
-              * val `number`
           * elsewhere `array`
-            * items `object`
-              * date `string`
-              * val `number`
         * carts `object`
           * recovered_carts `array`
-            * items `object`
-              * date `string`
-              * val `number`
 
 ### getDashboardEngagement
 Get all the engagement info for the mobile dashboard
@@ -3262,25 +3015,8 @@ mailchimp.getDashboardEngagement({}, context)
         * last_day `string`
         * stats `object`
           * total_by_series `object`
-            * sent `integer`
-            * delivered `integer`
-            * opened `integer`
-            * clicked `integer`
-            * added_to_cart `integer`
-            * purchased `integer`
-            * abuse_reports `integer`
-            * unsubscribed `integer`
-            * bounced `integer`
         * rates `object`
           * total_by_series `object`
-            * delivery_rate `number`
-            * open_rate `number`
-            * click_rate `number`
-            * add_to_cart_rate `number`
-            * purchase_rate `number`
-            * abuse_rate `number`
-            * unsubscribe_rate `number`
-            * bounce_rate `number`
       * data `object`
         * stats `object`
           * sent `array`
@@ -3307,25 +3043,8 @@ mailchimp.getDashboardEngagement({}, context)
         * last_day `string`
         * stats `object`
           * total_by_series `object`
-            * sent `integer`
-            * delivered `integer`
-            * opened `integer`
-            * clicked `integer`
-            * added_to_cart `integer`
-            * purchased `integer`
-            * abuse_reports `integer`
-            * unsubscribed `integer`
-            * bounced `integer`
         * rates `object`
           * total_by_series `object`
-            * delivery_rate `number`
-            * open_rate `number`
-            * click_rate `number`
-            * add_to_cart_rate `number`
-            * purchase_rate `number`
-            * abuse_rate `number`
-            * unsubscribe_rate `number`
-            * bounce_rate `number`
       * data `object`
         * stats `object`
           * sent `array`
@@ -3352,25 +3071,8 @@ mailchimp.getDashboardEngagement({}, context)
         * last_day `string`
         * stats `object`
           * total_by_series `object`
-            * sent `integer`
-            * delivered `integer`
-            * opened `integer`
-            * clicked `integer`
-            * added_to_cart `integer`
-            * purchased `integer`
-            * abuse_reports `integer`
-            * unsubscribed `integer`
-            * bounced `integer`
         * rates `object`
           * total_by_series `object`
-            * delivery_rate `number`
-            * open_rate `number`
-            * click_rate `number`
-            * add_to_cart_rate `number`
-            * purchase_rate `number`
-            * abuse_rate `number`
-            * unsubscribe_rate `number`
-            * bounce_rate `number`
       * data `object`
         * stats `object`
           * sent `array`
@@ -3397,25 +3099,8 @@ mailchimp.getDashboardEngagement({}, context)
         * last_day `string`
         * stats `object`
           * total_by_series `object`
-            * sent `integer`
-            * delivered `integer`
-            * opened `integer`
-            * clicked `integer`
-            * added_to_cart `integer`
-            * purchased `integer`
-            * abuse_reports `integer`
-            * unsubscribed `integer`
-            * bounced `integer`
         * rates `object`
           * total_by_series `object`
-            * delivery_rate `number`
-            * open_rate `number`
-            * click_rate `number`
-            * add_to_cart_rate `number`
-            * purchase_rate `number`
-            * abuse_rate `number`
-            * unsubscribe_rate `number`
-            * bounce_rate `number`
       * data `object`
         * stats `object`
           * sent `array`
@@ -10698,7 +10383,6 @@ mailchimp.getSearchCampaigns({
           * inline_css `boolean`: Automatically inline the CSS included with the campaign content.
           * auto_tweet `boolean`: Automatically tweet a link to the [campaign archive](http://kb.mailchimp.com/campaigns/archives/set-up-your-campaign-archive?utm_source=mc-api&utm_medium=docs&utm_campaign=apidocs) page when the campaign is sent.
           * auto_fb_post `array`: An array of [Facebook](http://kb.mailchimp.com/integrations/facebook/integrate-facebook-with-mailchimp?utm_source=mc-api&utm_medium=docs&utm_campaign=apidocs) page ids to auto-post to.
-            * items `string`
           * fb_comments `boolean`: Allows Facebook comments on the campaign (also force-enables the Campaign Archive toolbar). Defaults to `true`.
           * timewarp `boolean`: Send this campaign using [Timewarp](http://kb.mailchimp.com/campaigns/confirmation-and-sending/use-timewarp-to-optimize-sending-by-time-zone?utm_source=mc-api&utm_medium=docs&utm_campaign=apidocs).
           * template_id `integer`: The id for the template used in this campaign.
@@ -10710,24 +10394,11 @@ mailchimp.getSearchCampaigns({
           * wait_time `integer`: The number of minutes to wait before choosing the winning campaign. The value of wait_time must be greater than 0 and in whole hours, specified in minutes.
           * test_size `integer`: The percentage of recipients to send the test combinations to, must be a value between 10 and 100.
           * subject_lines `array`: The possible subject lines to test. If no subject lines are provided, settings.subject_line will be used.
-            * items `string`
           * send_times `array`: The possible send times to test. The times provided should be in the format YYYY-MM-DD HH:MM:SS. If send_times are provided to test, the test_size will be set to 100% and winner_criteria will be ignored.
-            * items `string`
           * from_names `array`: The possible from names. The number of from_names provided must match the number of reply_to_addresses. If no from_names are provided, settings.from_name will be used.
-            * items `string`
           * reply_to_addresses `array`: The possible reply-to addresses. The number of reply_to_addresses provided must match the number of from_names. If no reply_to_addresses are provided, settings.reply_to will be used.
-            * items `string`
           * contents `array`: Descriptions of possible email contents. To set campaign contents, make a PUT request to /campaigns/{campaign_id}/content with the field 'variate_contents'.
-            * items `string`
           * combinations `array`: Combinations of possible variables used to build emails.
-            * items `object`
-              * id `string`: Unique ID for the combination.
-              * subject_line `integer`: The index of `variate_settings.subject_lines` used.
-              * send_time `integer`: The index of `variate_settings.send_times` used.
-              * from_name `integer`: The index of `variate_settings.from_names` used.
-              * reply_to `integer`: The index of `variate_settings.reply_to_addresses` used.
-              * content_description `integer`: The index of `variate_settings.contents` used.
-              * recipients `integer`: The number of recipients for this combination.
         * tracking `object`: The tracking options for a campaign.
           * opens `boolean`: Whether to [track opens](http://kb.mailchimp.com/reports/about-open-tracking?utm_source=mc-api&utm_medium=docs&utm_campaign=apidocs). Defaults to `true`. Cannot be set to false for variate campaigns.
           * html_clicks `boolean`: Whether to [track clicks](http://kb.mailchimp.com/reports/about-click-tracking?utm_source=mc-api&utm_medium=docs&utm_campaign=apidocs) in the HTML version of the campaign. Defaults to `true`. Cannot be set to false for variate campaigns.
@@ -10737,25 +10408,11 @@ mailchimp.getSearchCampaigns({
           * google_analytics `string`: The custom slug for [Google Analytics](http://kb.mailchimp.com/integrations/other-integrations/integrate-google-analytics-with-mailchimp?utm_source=mc-api&utm_medium=docs&utm_campaign=apidocs) tracking (max of 50 bytes).
           * clicktale `string`: The custom slug for [ClickTale](http://kb.mailchimp.com/integrations/other-integrations/additional-tracking-options-for-campaigns?utm_source=mc-api&utm_medium=docs&utm_campaign=apidocs#Click-Tale) tracking (max of 50 bytes).
           * salesforce `object`: Salesforce tracking options for a campaign. Must be using MailChimp's built-in [Salesforce integration](http://kb.mailchimp.com/integrations/other-integrations/integrate-salesforce-with-mailchimp?utm_source=mc-api&utm_medium=docs&utm_campaign=apidocs).
-            * campaign `boolean`: Create a campaign in a connected Salesforce account.
-            * notes `boolean`: Update contact notes for a campaign based on subscriber email addresses.
           * capsule `object`: Capsule tracking options for a campaign. Must be using MailChimp's built-in Capsule integration.
-            * notes `boolean`: Update contact notes for a campaign based on subscriber email addresses.
         * rss_opts `object`: [RSS](http://kb.mailchimp.com/campaigns/rss-in-campaigns/create-an-rss-campaign?utm_source=mc-api&utm_medium=docs&utm_campaign=apidocs) options for a campaign.
           * feed_url `string`: The URL for the RSS feed.
           * frequency `string` (values: daily, weekly, monthly): The frequency of the RSS Campaign.
           * schedule `object`: The schedule for sending the RSS Campaign.
-            * hour `integer`: The hour to send the campaign in local time. Acceptable hours are 0-23. For example, '4' would be 4am in [your account's default time zone](http://kb.mailchimp.com/accounts/account-setup/how-to-set-account-defaults?utm_source=mc-api&utm_medium=docs&utm_campaign=apidocs).
-            * daily_send `object`: The days of the week to send a daily RSS Campaign.
-              * sunday `boolean`: Sends the daily RSS Campaign on Sundays.
-              * monday `boolean`: Sends the daily RSS Campaign on Mondays.
-              * tuesday `boolean`: Sends the daily RSS Campaign on Tuesdays.
-              * wednesday `boolean`: Sends the daily RSS Campaign on Wednesdays.
-              * thursday `boolean`: Sends the daily RSS Campaign on Thursdays.
-              * friday `boolean`: Sends the daily RSS Campaign on Fridays.
-              * saturday `boolean`: Sends the daily RSS Campaign on Saturdays.
-            * weekly_send_day `string` (values: sunday, monday, tuesday, wednesday, thursday, friday, saturday): The day of the week to send a weekly RSS Campaign.
-            * monthly_send_date `number`: The day of the month to send a monthly RSS Campaign. Acceptable days are 0-31, where '0' is always the last day of a month. Months with fewer than the selected number of days will not have an RSS campaign sent out that day. For example, RSS Campaigns set to send on the 30th will not go out in February.
           * last_sent `string`: The date the campaign was last sent.
           * constrain_rss_img `boolean`: Whether to add CSS to images in the RSS feed to constrain their width in campaigns.
         * ab_split_opts `object`: [A/B Testing](http://kb.mailchimp.com/campaigns/ab/about-ab-testing-campaigns?utm_source=mc-api&utm_medium=docs&utm_campaign=apidocs) options for a campaign.
@@ -10785,9 +10442,6 @@ mailchimp.getSearchCampaigns({
           * subscriber_clicks `integer`: The number of unique clicks.
           * click_rate `number`: The number of unique clicks divided by the total number of successful deliveries.
           * ecommerce `object`: E-Commerce stats for a campaign.
-            * total_orders `integer`: The total orders for a campaign.
-            * total_spent `number`: The total spent for a campaign. Calculated as the sum of all order totals with no deductions.
-            * total_revenue `number`: The total revenue for a campaign. Calculated as the sum of all order totals minus shipping and tax totals.
         * delivery_status [DeliveryStatus](#deliverystatus)
         * _links [HATEOASLinks](#hateoaslinks)
       * snippet `string`

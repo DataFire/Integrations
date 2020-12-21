@@ -1,0 +1,2936 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "contact": {
+      "email": "mike.ralphson@gmail.com",
+      "name": "Mike Ralphson",
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
+    },
+    "description": " AWS Service Catalog AppRegistry enables organizations to understand the application context of their AWS resources. AppRegistry provides a repository of your applications, their resources, and the application metadata that you use within your enterprise.",
+    "license": {
+      "name": "Apache 2.0 License",
+      "url": "http://www.apache.org/licenses/"
+    },
+    "termsOfService": "https://aws.amazon.com/service-terms/",
+    "title": "AWS Service Catalog App Registry",
+    "version": "2020-06-24",
+    "x-apiClientRegistration": {
+      "url": "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"
+    },
+    "x-apisguru-categories": [
+      "cloud"
+    ],
+    "x-logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"
+    },
+    "x-origin": [
+      {
+        "contentType": "application/json",
+        "converter": {
+          "url": "https://github.com/mermade/aws2openapi",
+          "version": "1.0.0"
+        },
+        "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/servicecatalog-appregistry-2020-06-24.normal.json",
+        "x-apisguru-driver": "external"
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "amazonaws.com",
+    "x-release": "v4",
+    "x-serviceName": "servicecatalog-appregistry",
+    "x-datafire": {
+      "name": "amazonaws_servicecatalog_appregistry",
+      "type": "openapi"
+    }
+  },
+  "host": "servicecatalog-appregistry.us-east-1.amazonaws.com",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/applications": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The token to use to get the next page of results after a previous API call. ",
+            "in": "query",
+            "maxLength": 2024,
+            "minLength": 1,
+            "name": "nextToken",
+            "pattern": "[A-Za-z0-9+/=]+",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "The upper bound of the number of results to return (cannot exceed 25). If this parameter is omitted, it defaults to 25. This value is optional.",
+            "in": "query",
+            "maximum": 25,
+            "minimum": 1,
+            "name": "maxResults",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListApplicationsResponse"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Retrieves a list of all of your applications. Results are paginated.",
+        "operationId": "ListApplications"
+      },
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "tags": {
+                  "additionalProperties": {
+                    "$ref": "#/definitions/TagValue"
+                  },
+                  "description": "Key-value pairs you can use to associate with the application.",
+                  "maxProperties": 50,
+                  "minProperties": 0,
+                  "type": "object"
+                },
+                "clientToken": {
+                  "description": "A unique identifier that you provide to ensure idempotency. If you retry a request that completed successfully using the same client token and the same parameters, the retry succeeds without performing any further actions. If you retry a successful request using the same client token, but one or more of the parameters are different, the retry fails.",
+                  "maxLength": 128,
+                  "minLength": 1,
+                  "pattern": "[a-zA-Z0-9][a-zA-Z0-9_-]*",
+                  "type": "string"
+                },
+                "description": {
+                  "description": "The description of the application.",
+                  "maxLength": 1024,
+                  "type": "string"
+                },
+                "name": {
+                  "description": "The name of the application. The name must be unique in the region in which you are creating the application.",
+                  "maxLength": 256,
+                  "minLength": 1,
+                  "pattern": "\\w+",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "name",
+                "clientToken"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateApplicationResponse"
+            }
+          },
+          "480": {
+            "description": "ServiceQuotaExceededException",
+            "schema": {
+              "$ref": "#/definitions/ServiceQuotaExceededException"
+            }
+          },
+          "481": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          },
+          "482": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Creates a new application that is the top-level node in a hierarchy of related cloud resource abstractions.",
+        "operationId": "CreateApplication"
+      }
+    },
+    "/applications/{application}": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "delete": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The name or ID of the application.",
+            "in": "path",
+            "maxLength": 256,
+            "minLength": 1,
+            "name": "application",
+            "pattern": "\\w+",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteApplicationResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "482": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Deletes an application that is specified either by its application ID or name. All associated attribute groups and resources must be disassociated from it before deleting an application.",
+        "operationId": "DeleteApplication"
+      },
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The name or ID of the application.",
+            "in": "path",
+            "maxLength": 256,
+            "minLength": 1,
+            "name": "application",
+            "pattern": "\\w+",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetApplicationResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "482": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Retrieves metadata information about one of your applications. The application can be specified either by its unique ID or by its name (which is unique within one account in one region at a given point in time). Specify by ID in automated workflows if you want to make sure that the exact same application is returned or a <code>ResourceNotFoundException</code> is thrown, avoiding the ABA addressing problem.",
+        "operationId": "GetApplication"
+      },
+      "patch": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The name or ID of the application that will be updated.",
+            "in": "path",
+            "maxLength": 256,
+            "minLength": 1,
+            "name": "application",
+            "pattern": "\\w+",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "description": {
+                  "description": "The new description of the application.",
+                  "maxLength": 1024,
+                  "type": "string"
+                },
+                "name": {
+                  "description": "The new name of the application. The name must be unique in the region in which you are updating the application.",
+                  "maxLength": 256,
+                  "minLength": 1,
+                  "pattern": "\\w+",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UpdateApplicationResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          },
+          "482": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Updates an existing application with new attributes.",
+        "operationId": "UpdateApplication"
+      }
+    },
+    "/applications/{application}/attribute-groups": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The name or ID of the application.",
+            "in": "path",
+            "maxLength": 256,
+            "minLength": 1,
+            "name": "application",
+            "pattern": "\\w+",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The token to use to get the next page of results after a previous API call. ",
+            "in": "query",
+            "maxLength": 2024,
+            "minLength": 1,
+            "name": "nextToken",
+            "pattern": "[A-Za-z0-9+/=]+",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "The upper bound of the number of results to return (cannot exceed 25). If this parameter is omitted, it defaults to 25. This value is optional.",
+            "in": "query",
+            "maximum": 25,
+            "minimum": 1,
+            "name": "maxResults",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListAssociatedAttributeGroupsResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "482": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Lists all attribute groups that are associated with specified application. Results are paginated.",
+        "operationId": "ListAssociatedAttributeGroups"
+      }
+    },
+    "/applications/{application}/attribute-groups/{attributeGroup}": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "delete": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The name or ID of the application.",
+            "in": "path",
+            "maxLength": 256,
+            "minLength": 1,
+            "name": "application",
+            "pattern": "\\w+",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The name or ID of the attribute group that holds the attributes to describe the application.",
+            "in": "path",
+            "maxLength": 256,
+            "minLength": 1,
+            "name": "attributeGroup",
+            "pattern": "\\w+",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DisassociateAttributeGroupResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "482": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Disassociates an attribute group from an application to remove the extra attributes contained in the attribute group from the application's metadata. This operation reverts <code>AssociateAttributeGroup</code>.",
+        "operationId": "DisassociateAttributeGroup"
+      },
+      "put": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The name or ID of the application.",
+            "in": "path",
+            "maxLength": 256,
+            "minLength": 1,
+            "name": "application",
+            "pattern": "\\w+",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The name or ID of the attribute group that holds the attributes to describe the application.",
+            "in": "path",
+            "maxLength": 256,
+            "minLength": 1,
+            "name": "attributeGroup",
+            "pattern": "\\w+",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/AssociateAttributeGroupResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "482": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "483": {
+            "description": "ServiceQuotaExceededException",
+            "schema": {
+              "$ref": "#/definitions/ServiceQuotaExceededException"
+            }
+          }
+        },
+        "description": "Associates an attribute group with an application to augment the application's metadata with the group's attributes. This feature enables applications to be described with user-defined details that are machine-readable, such as third-party integrations.",
+        "operationId": "AssociateAttributeGroup"
+      }
+    },
+    "/applications/{application}/resources": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The name or ID of the application.",
+            "in": "path",
+            "maxLength": 256,
+            "minLength": 1,
+            "name": "application",
+            "pattern": "\\w+",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The token to use to get the next page of results after a previous API call. ",
+            "in": "query",
+            "maxLength": 2024,
+            "minLength": 1,
+            "name": "nextToken",
+            "pattern": "[A-Za-z0-9+/=]+",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "The upper bound of the number of results to return (cannot exceed 25). If this parameter is omitted, it defaults to 25. This value is optional.",
+            "in": "query",
+            "maximum": 25,
+            "minimum": 1,
+            "name": "maxResults",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListAssociatedResourcesResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "482": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Lists all resources that are associated with specified application. Results are paginated.",
+        "operationId": "ListAssociatedResources"
+      }
+    },
+    "/applications/{application}/resources/{resourceType}/{resource}": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "delete": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The name or ID of the application.",
+            "in": "path",
+            "maxLength": 256,
+            "minLength": 1,
+            "name": "application",
+            "pattern": "\\w+",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The type of the resource that is being disassociated.",
+            "enum": [
+              "CFN_STACK"
+            ],
+            "in": "path",
+            "name": "resourceType",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The name or ID of the resource.",
+            "in": "path",
+            "maxLength": 256,
+            "minLength": 1,
+            "name": "resource",
+            "pattern": "\\S+",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DisassociateResourceResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Disassociates a resource from application. Both the resource and the application can be specified either by ID or name.",
+        "operationId": "DisassociateResource"
+      },
+      "put": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The name or ID of the application.",
+            "in": "path",
+            "maxLength": 256,
+            "minLength": 1,
+            "name": "application",
+            "pattern": "\\w+",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The type of resource of which the application will be associated.",
+            "enum": [
+              "CFN_STACK"
+            ],
+            "in": "path",
+            "name": "resourceType",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The name or ID of the resource of which the application will be associated.",
+            "in": "path",
+            "maxLength": 256,
+            "minLength": 1,
+            "name": "resource",
+            "pattern": "\\S+",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/AssociateResourceResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "ServiceQuotaExceededException",
+            "schema": {
+              "$ref": "#/definitions/ServiceQuotaExceededException"
+            }
+          },
+          "483": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          }
+        },
+        "description": "Associates a resource with an application. Both the resource and the application can be specified either by ID or name.",
+        "operationId": "AssociateResource"
+      }
+    },
+    "/attribute-groups": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The token to use to get the next page of results after a previous API call. ",
+            "in": "query",
+            "maxLength": 2024,
+            "minLength": 1,
+            "name": "nextToken",
+            "pattern": "[A-Za-z0-9+/=]+",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "The upper bound of the number of results to return (cannot exceed 25). If this parameter is omitted, it defaults to 25. This value is optional.",
+            "in": "query",
+            "maximum": 25,
+            "minimum": 1,
+            "name": "maxResults",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListAttributeGroupsResponse"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Lists all attribute groups which you have access to. Results are paginated.",
+        "operationId": "ListAttributeGroups"
+      },
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "tags": {
+                  "additionalProperties": {
+                    "$ref": "#/definitions/TagValue"
+                  },
+                  "description": "Key-value pairs you can use to associate with the attribute group.",
+                  "maxProperties": 50,
+                  "minProperties": 0,
+                  "type": "object"
+                },
+                "attributes": {
+                  "description": "A JSON string in the form of nested key-value pairs that represent the attributes in the group and describes an application and its components.",
+                  "maxLength": 8000,
+                  "minLength": 1,
+                  "pattern": "[\\u0009\\u000A\\u000D\\u0020-\\u00FF]+",
+                  "type": "string"
+                },
+                "clientToken": {
+                  "description": "A unique identifier that you provide to ensure idempotency. If you retry a request that completed successfully using the same client token and the same parameters, the retry succeeds without performing any further actions. If you retry a successful request using the same client token, but one or more of the parameters are different, the retry fails.",
+                  "maxLength": 128,
+                  "minLength": 1,
+                  "pattern": "[a-zA-Z0-9][a-zA-Z0-9_-]*",
+                  "type": "string"
+                },
+                "description": {
+                  "description": "The description of the attribute group that the user provides.",
+                  "maxLength": 1024,
+                  "type": "string"
+                },
+                "name": {
+                  "description": "The name of the attribute group.",
+                  "maxLength": 256,
+                  "minLength": 1,
+                  "pattern": "\\w+",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "name",
+                "attributes",
+                "clientToken"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateAttributeGroupResponse"
+            }
+          },
+          "480": {
+            "description": "ServiceQuotaExceededException",
+            "schema": {
+              "$ref": "#/definitions/ServiceQuotaExceededException"
+            }
+          },
+          "481": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          },
+          "482": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "483": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Creates a new attribute group as a container for user-defined attributes. This feature enables users to have full control over their cloud application's metadata in a rich machine-readable format to facilitate integration with automated workflows and third-party tools.",
+        "operationId": "CreateAttributeGroup"
+      }
+    },
+    "/attribute-groups/{attributeGroup}": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "delete": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The name or ID of the attribute group that holds the attributes to describe the application.",
+            "in": "path",
+            "maxLength": 256,
+            "minLength": 1,
+            "name": "attributeGroup",
+            "pattern": "\\w+",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteAttributeGroupResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "482": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Deletes an attribute group, specified either by its attribute group ID or name.",
+        "operationId": "DeleteAttributeGroup"
+      },
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The name or ID of the attribute group that holds the attributes to describe the application.",
+            "in": "path",
+            "maxLength": 256,
+            "minLength": 1,
+            "name": "attributeGroup",
+            "pattern": "\\w+",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetAttributeGroupResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "482": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Retrieves an attribute group, either by its name or its ID. The attribute group can be specified either by its unique ID or by its name.",
+        "operationId": "GetAttributeGroup"
+      },
+      "patch": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The name or ID of the attribute group that holds the attributes to describe the application.",
+            "in": "path",
+            "maxLength": 256,
+            "minLength": 1,
+            "name": "attributeGroup",
+            "pattern": "\\w+",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "attributes": {
+                  "description": "A JSON string in the form of nested key-value pairs that represent the attributes in the group and describes an application and its components.",
+                  "maxLength": 8000,
+                  "minLength": 1,
+                  "pattern": "[\\u0009\\u000A\\u000D\\u0020-\\u00FF]+",
+                  "type": "string"
+                },
+                "description": {
+                  "description": "The description of the attribute group that the user provides.",
+                  "maxLength": 1024,
+                  "type": "string"
+                },
+                "name": {
+                  "description": "The new name of the attribute group. The name must be unique in the region in which you are updating the attribute group.",
+                  "maxLength": 256,
+                  "minLength": 1,
+                  "pattern": "\\w+",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UpdateAttributeGroupResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "482": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          },
+          "483": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Updates an existing attribute group with new details. ",
+        "operationId": "UpdateAttributeGroup"
+      }
+    },
+    "/tags/{resourceArn}": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The Amazon resource name (ARN) that specifies the resource.",
+            "in": "path",
+            "maxLength": 1600,
+            "minLength": 1,
+            "name": "resourceArn",
+            "pattern": "arn:(aws[a-zA-Z0-9-]*):([a-zA-Z0-9\\-])+:([a-z]{2}(-gov)?-[a-z]+-\\d{1})?:(\\d{12})?:(.*)",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListTagsForResourceResponse"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Lists all of the tags on the resource.",
+        "operationId": "ListTagsForResource"
+      },
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The Amazon resource name (ARN) that specifies the resource.",
+            "in": "path",
+            "maxLength": 1600,
+            "minLength": 1,
+            "name": "resourceArn",
+            "pattern": "arn:(aws[a-zA-Z0-9-]*):([a-zA-Z0-9\\-])+:([a-z]{2}(-gov)?-[a-z]+-\\d{1})?:(\\d{12})?:(.*)",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "tags": {
+                  "additionalProperties": {
+                    "$ref": "#/definitions/TagValue"
+                  },
+                  "description": "The new or modified tags for the resource.",
+                  "maxProperties": 50,
+                  "minProperties": 0,
+                  "type": "object"
+                }
+              },
+              "required": [
+                "tags"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/TagResourceResponse"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "<p>Assigns one or more tags (key-value pairs) to the specified resource.</p> <p>Each tag consists of a key and an optional value. If a tag with the same key is already associated with the resource, this action updates its value.</p>",
+        "operationId": "TagResource"
+      }
+    },
+    "/tags/{resourceArn}#tagKeys": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "delete": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The Amazon resource name (ARN) that specifies the resource.",
+            "in": "path",
+            "maxLength": 1600,
+            "minLength": 1,
+            "name": "resourceArn",
+            "pattern": "arn:(aws[a-zA-Z0-9-]*):([a-zA-Z0-9\\-])+:([a-z]{2}(-gov)?-[a-z]+-\\d{1})?:(\\d{12})?:(.*)",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "collectionFormat": "multi",
+            "description": "A list of the tag keys to remove from the specified resource.",
+            "in": "query",
+            "items": {
+              "$ref": "#/definitions/TagKey"
+            },
+            "maxItems": 50,
+            "minItems": 0,
+            "name": "tagKeys",
+            "required": true,
+            "type": "array"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UntagResourceResponse"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Removes tags from a resource.",
+        "operationId": "UntagResource"
+      }
+    }
+  },
+  "definitions": {
+    "Application": {
+      "description": "Represents a Service Catalog AppRegistry application that is the top-level node in a hierarchy of related cloud resource abstractions.",
+      "properties": {
+        "tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Tags"
+            },
+            {
+              "description": "Key-value pairs you can use to associate with the application."
+            }
+          ]
+        },
+        "arn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ApplicationArn"
+            },
+            {
+              "description": "The Amazon resource name (ARN) that specifies the application across services."
+            }
+          ]
+        },
+        "creationTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "The ISO-8601 formatted timestamp of the moment when the application was created."
+            }
+          ]
+        },
+        "description": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Description"
+            },
+            {
+              "description": "The description of the application."
+            }
+          ]
+        },
+        "id": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ApplicationId"
+            },
+            {
+              "description": "The identifier of the application."
+            }
+          ]
+        },
+        "lastUpdateTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": " The ISO-8601 formatted timestamp of the moment when the application was last updated."
+            }
+          ]
+        },
+        "name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Name"
+            },
+            {
+              "description": "The name of the application. The name must be unique in the region in which you are creating the application."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ApplicationArn": {
+      "pattern": "arn:aws[-a-z]*:servicecatalog:[a-z]{2}(-gov)?-[a-z]+-\\d:\\d{12}:/applications/[a-z0-9]+",
+      "type": "string"
+    },
+    "ApplicationId": {
+      "pattern": "[a-z0-9]{12}",
+      "type": "string"
+    },
+    "ApplicationSpecifier": {
+      "maxLength": 256,
+      "minLength": 1,
+      "pattern": "\\w+",
+      "type": "string"
+    },
+    "ApplicationSummaries": {
+      "items": {
+        "$ref": "#/definitions/ApplicationSummary"
+      },
+      "type": "array"
+    },
+    "ApplicationSummary": {
+      "description": "Summary of a Service Catalog AppRegistry application.",
+      "properties": {
+        "arn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ApplicationArn"
+            },
+            {
+              "description": "The Amazon resource name (ARN) that specifies the application across services."
+            }
+          ]
+        },
+        "creationTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "The ISO-8601 formatted timestamp of the moment when the application was created."
+            }
+          ]
+        },
+        "description": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Description"
+            },
+            {
+              "description": "The description of the application."
+            }
+          ]
+        },
+        "id": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ApplicationId"
+            },
+            {
+              "description": "The identifier of the application."
+            }
+          ]
+        },
+        "lastUpdateTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": " The ISO-8601 formatted timestamp of the moment when the application was last updated."
+            }
+          ]
+        },
+        "name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Name"
+            },
+            {
+              "description": "The name of the application. The name must be unique in the region in which you are creating the application."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "Arn": {
+      "maxLength": 1600,
+      "minLength": 1,
+      "pattern": "arn:(aws[a-zA-Z0-9-]*):([a-zA-Z0-9\\-])+:([a-z]{2}(-gov)?-[a-z]+-\\d{1})?:(\\d{12})?:(.*)",
+      "type": "string"
+    },
+    "AssociateAttributeGroupRequest": {
+      "properties": {},
+      "title": "AssociateAttributeGroupRequest",
+      "type": "object"
+    },
+    "AssociateAttributeGroupResponse": {
+      "properties": {
+        "applicationArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ApplicationArn"
+            },
+            {
+              "description": "The Amazon resource name (ARN) of the application that was augmented with attributes."
+            }
+          ]
+        },
+        "attributeGroupArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AttributeGroupArn"
+            },
+            {
+              "description": "The Amazon resource name (ARN) of the attribute group that contains the application's new attributes."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "AssociateResourceRequest": {
+      "properties": {},
+      "title": "AssociateResourceRequest",
+      "type": "object"
+    },
+    "AssociateResourceResponse": {
+      "properties": {
+        "applicationArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ApplicationArn"
+            },
+            {
+              "description": "The Amazon resource name (ARN) of the application that was augmented with attributes."
+            }
+          ]
+        },
+        "resourceArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Arn"
+            },
+            {
+              "description": "The Amazon resource name (ARN) that specifies the resource."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "AssociationCount": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "AttributeGroup": {
+      "description": "Represents a Service Catalog AppRegistry attribute group that is rich metadata which describes an application and its components.",
+      "properties": {
+        "tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Tags"
+            },
+            {
+              "description": "Key-value pairs you can use to associate with the attribute group."
+            }
+          ]
+        },
+        "arn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AttributeGroupArn"
+            },
+            {
+              "description": "The Amazon resource name (ARN) that specifies the attribute group across services."
+            }
+          ]
+        },
+        "creationTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "The ISO-8601 formatted timestamp of the moment the attribute group was created."
+            }
+          ]
+        },
+        "description": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Description"
+            },
+            {
+              "description": "The description of the attribute group that the user provides."
+            }
+          ]
+        },
+        "id": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AttributeGroupId"
+            },
+            {
+              "description": "The globally unique attribute group identifier of the attribute group."
+            }
+          ]
+        },
+        "lastUpdateTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "The ISO-8601 formatted timestamp of the moment the attribute group was last updated. This time is the same as the creationTime for a newly created attribute group."
+            }
+          ]
+        },
+        "name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Name"
+            },
+            {
+              "description": "The name of the attribute group."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "AttributeGroupArn": {
+      "pattern": "arn:aws[-a-z]*:servicecatalog:[a-z]{2}(-gov)?-[a-z]+-\\d:\\d{12}:/attribute-groups/[a-z0-9]+",
+      "type": "string"
+    },
+    "AttributeGroupId": {
+      "maxLength": 100,
+      "minLength": 1,
+      "pattern": "[a-z0-9]{12}",
+      "type": "string"
+    },
+    "AttributeGroupIds": {
+      "items": {
+        "$ref": "#/definitions/AttributeGroupId"
+      },
+      "type": "array"
+    },
+    "AttributeGroupSpecifier": {
+      "maxLength": 256,
+      "minLength": 1,
+      "pattern": "\\w+",
+      "type": "string"
+    },
+    "AttributeGroupSummaries": {
+      "items": {
+        "$ref": "#/definitions/AttributeGroupSummary"
+      },
+      "type": "array"
+    },
+    "AttributeGroupSummary": {
+      "description": "Summary of a Service Catalog AppRegistry attribute group.",
+      "properties": {
+        "arn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AttributeGroupArn"
+            },
+            {
+              "description": "The Amazon resource name (ARN) that specifies the attribute group across services."
+            }
+          ]
+        },
+        "creationTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "The ISO-8601 formatted timestamp of the moment the attribute group was created."
+            }
+          ]
+        },
+        "description": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Description"
+            },
+            {
+              "description": "The description of the attribute group that the user provides."
+            }
+          ]
+        },
+        "id": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AttributeGroupId"
+            },
+            {
+              "description": "The globally unique attribute group identifier of the attribute group."
+            }
+          ]
+        },
+        "lastUpdateTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "The ISO-8601 formatted timestamp of the moment the attribute group was last updated. This time is the same as the creationTime for a newly created attribute group."
+            }
+          ]
+        },
+        "name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Name"
+            },
+            {
+              "description": "The name of the attribute group."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "Attributes": {
+      "maxLength": 8000,
+      "minLength": 1,
+      "pattern": "[\\u0009\\u000A\\u000D\\u0020-\\u00FF]+",
+      "type": "string"
+    },
+    "ClientToken": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "[a-zA-Z0-9][a-zA-Z0-9_-]*",
+      "type": "string"
+    },
+    "ConflictException": {},
+    "CreateApplicationRequest": {
+      "properties": {
+        "tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Tags"
+            },
+            {
+              "description": "Key-value pairs you can use to associate with the application."
+            }
+          ]
+        },
+        "clientToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ClientToken"
+            },
+            {
+              "description": "A unique identifier that you provide to ensure idempotency. If you retry a request that completed successfully using the same client token and the same parameters, the retry succeeds without performing any further actions. If you retry a successful request using the same client token, but one or more of the parameters are different, the retry fails."
+            }
+          ]
+        },
+        "description": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Description"
+            },
+            {
+              "description": "The description of the application."
+            }
+          ]
+        },
+        "name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Name"
+            },
+            {
+              "description": "The name of the application. The name must be unique in the region in which you are creating the application."
+            }
+          ]
+        }
+      },
+      "required": [
+        "name",
+        "clientToken"
+      ],
+      "title": "CreateApplicationRequest",
+      "type": "object"
+    },
+    "CreateApplicationResponse": {
+      "properties": {
+        "application": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Application"
+            },
+            {
+              "description": "Information about the application."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "CreateAttributeGroupRequest": {
+      "properties": {
+        "tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Tags"
+            },
+            {
+              "description": "Key-value pairs you can use to associate with the attribute group."
+            }
+          ]
+        },
+        "attributes": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Attributes"
+            },
+            {
+              "description": "A JSON string in the form of nested key-value pairs that represent the attributes in the group and describes an application and its components."
+            }
+          ]
+        },
+        "clientToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ClientToken"
+            },
+            {
+              "description": "A unique identifier that you provide to ensure idempotency. If you retry a request that completed successfully using the same client token and the same parameters, the retry succeeds without performing any further actions. If you retry a successful request using the same client token, but one or more of the parameters are different, the retry fails."
+            }
+          ]
+        },
+        "description": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Description"
+            },
+            {
+              "description": "The description of the attribute group that the user provides."
+            }
+          ]
+        },
+        "name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Name"
+            },
+            {
+              "description": "The name of the attribute group."
+            }
+          ]
+        }
+      },
+      "required": [
+        "name",
+        "attributes",
+        "clientToken"
+      ],
+      "title": "CreateAttributeGroupRequest",
+      "type": "object"
+    },
+    "CreateAttributeGroupResponse": {
+      "properties": {
+        "attributeGroup": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AttributeGroup"
+            },
+            {
+              "description": "Information about the attribute group."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DeleteApplicationRequest": {
+      "properties": {},
+      "title": "DeleteApplicationRequest",
+      "type": "object"
+    },
+    "DeleteApplicationResponse": {
+      "properties": {
+        "application": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ApplicationSummary"
+            },
+            {
+              "description": "Information about the deleted application."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DeleteAttributeGroupRequest": {
+      "properties": {},
+      "title": "DeleteAttributeGroupRequest",
+      "type": "object"
+    },
+    "DeleteAttributeGroupResponse": {
+      "properties": {
+        "attributeGroup": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AttributeGroupSummary"
+            },
+            {
+              "description": "Information about the deleted attribute group."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "Description": {
+      "maxLength": 1024,
+      "type": "string"
+    },
+    "DisassociateAttributeGroupRequest": {
+      "properties": {},
+      "title": "DisassociateAttributeGroupRequest",
+      "type": "object"
+    },
+    "DisassociateAttributeGroupResponse": {
+      "properties": {
+        "applicationArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ApplicationArn"
+            },
+            {
+              "description": "The Amazon resource name (ARN) that specifies the application."
+            }
+          ]
+        },
+        "attributeGroupArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AttributeGroupArn"
+            },
+            {
+              "description": "The Amazon resource name (ARN) that specifies the attribute group."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DisassociateResourceRequest": {
+      "properties": {},
+      "title": "DisassociateResourceRequest",
+      "type": "object"
+    },
+    "DisassociateResourceResponse": {
+      "properties": {
+        "applicationArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ApplicationArn"
+            },
+            {
+              "description": "The Amazon resource name (ARN) that specifies the application."
+            }
+          ]
+        },
+        "resourceArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Arn"
+            },
+            {
+              "description": "The Amazon resource name (ARN) that specifies the resource."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "GetApplicationRequest": {
+      "properties": {},
+      "title": "GetApplicationRequest",
+      "type": "object"
+    },
+    "GetApplicationResponse": {
+      "properties": {
+        "tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Tags"
+            },
+            {
+              "description": "Key-value pairs associated with the application."
+            }
+          ]
+        },
+        "arn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ApplicationArn"
+            },
+            {
+              "description": "The Amazon resource name (ARN) that specifies the application across services."
+            }
+          ]
+        },
+        "associatedResourceCount": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AssociationCount"
+            },
+            {
+              "description": "The number of top-level resources that were registered as part of this application."
+            }
+          ]
+        },
+        "creationTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "The ISO-8601 formatted timestamp of the moment when the application was created."
+            }
+          ]
+        },
+        "description": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Description"
+            },
+            {
+              "description": "The description of the application."
+            }
+          ]
+        },
+        "id": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ApplicationId"
+            },
+            {
+              "description": "The identifier of the application."
+            }
+          ]
+        },
+        "lastUpdateTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "The ISO-8601 formatted timestamp of the moment when the application was last updated."
+            }
+          ]
+        },
+        "name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Name"
+            },
+            {
+              "description": "The name of the application. The name must be unique in the region in which you are creating the application."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "GetAttributeGroupRequest": {
+      "properties": {},
+      "title": "GetAttributeGroupRequest",
+      "type": "object"
+    },
+    "GetAttributeGroupResponse": {
+      "properties": {
+        "tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Tags"
+            },
+            {
+              "description": "Key-value pairs associated with the attribute group."
+            }
+          ]
+        },
+        "arn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AttributeGroupArn"
+            },
+            {
+              "description": "The Amazon resource name (ARN) that specifies the attribute group across services."
+            }
+          ]
+        },
+        "attributes": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Attributes"
+            },
+            {
+              "description": "A JSON string in the form of nested key-value pairs that represent the attributes in the group and describes an application and its components."
+            }
+          ]
+        },
+        "creationTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "The ISO-8601 formatted timestamp of the moment the attribute group was created."
+            }
+          ]
+        },
+        "description": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Description"
+            },
+            {
+              "description": "The description of the attribute group that the user provides."
+            }
+          ]
+        },
+        "id": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AttributeGroupId"
+            },
+            {
+              "description": "The identifier of the attribute group."
+            }
+          ]
+        },
+        "lastUpdateTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "The ISO-8601 formatted timestamp of the moment the attribute group was last updated. This time is the same as the creationTime for a newly created attribute group."
+            }
+          ]
+        },
+        "name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Name"
+            },
+            {
+              "description": "The name of the attribute group."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "InternalServerException": {},
+    "ListApplicationsRequest": {
+      "properties": {},
+      "title": "ListApplicationsRequest",
+      "type": "object"
+    },
+    "ListApplicationsResponse": {
+      "properties": {
+        "applications": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ApplicationSummaries"
+            },
+            {
+              "description": "This list of applications."
+            }
+          ]
+        },
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NextToken"
+            },
+            {
+              "description": "The token to use to get the next page of results after a previous API call. "
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ListAssociatedAttributeGroupsRequest": {
+      "properties": {},
+      "title": "ListAssociatedAttributeGroupsRequest",
+      "type": "object"
+    },
+    "ListAssociatedAttributeGroupsResponse": {
+      "properties": {
+        "attributeGroups": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AttributeGroupIds"
+            },
+            {
+              "description": "A list of attribute group IDs."
+            }
+          ]
+        },
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NextToken"
+            },
+            {
+              "description": "The token to use to get the next page of results after a previous API call. "
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ListAssociatedResourcesRequest": {
+      "properties": {},
+      "title": "ListAssociatedResourcesRequest",
+      "type": "object"
+    },
+    "ListAssociatedResourcesResponse": {
+      "properties": {
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NextToken"
+            },
+            {
+              "description": "The token to use to get the next page of results after a previous API call. "
+            }
+          ]
+        },
+        "resources": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Resources"
+            },
+            {
+              "description": "Information about the resources."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ListAttributeGroupsRequest": {
+      "properties": {},
+      "title": "ListAttributeGroupsRequest",
+      "type": "object"
+    },
+    "ListAttributeGroupsResponse": {
+      "properties": {
+        "attributeGroups": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AttributeGroupSummaries"
+            },
+            {
+              "description": "This list of attribute groups."
+            }
+          ]
+        },
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NextToken"
+            },
+            {
+              "description": "The token to use to get the next page of results after a previous API call. "
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ListTagsForResourceRequest": {
+      "properties": {},
+      "title": "ListTagsForResourceRequest",
+      "type": "object"
+    },
+    "ListTagsForResourceResponse": {
+      "properties": {
+        "tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Tags"
+            },
+            {
+              "description": "The tags on the resource."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "MaxResults": {
+      "maximum": 25,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "Name": {
+      "maxLength": 256,
+      "minLength": 1,
+      "pattern": "\\w+",
+      "type": "string"
+    },
+    "NextToken": {
+      "maxLength": 2024,
+      "minLength": 1,
+      "pattern": "[A-Za-z0-9+/=]+",
+      "type": "string"
+    },
+    "ResourceInfo": {
+      "description": "Information about the resource.",
+      "properties": {
+        "arn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/StackArn"
+            },
+            {
+              "description": "The Amazon resource name (ARN) that specifies the resource across services."
+            }
+          ]
+        },
+        "name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceSpecifier"
+            },
+            {
+              "description": "The name of the resource."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ResourceNotFoundException": {},
+    "ResourceSpecifier": {
+      "maxLength": 256,
+      "minLength": 1,
+      "pattern": "\\S+",
+      "type": "string"
+    },
+    "ResourceType": {
+      "enum": [
+        "CFN_STACK"
+      ],
+      "type": "string"
+    },
+    "Resources": {
+      "items": {
+        "$ref": "#/definitions/ResourceInfo"
+      },
+      "type": "array"
+    },
+    "ServiceQuotaExceededException": {},
+    "StackArn": {
+      "pattern": "arn:aws[-a-z]*:cloudformation:[a-z]{2}(-gov)?-[a-z]+-\\d:\\d{12}:stack/[a-zA-Z][-A-Za-z0-9]{0,127}/[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}",
+      "type": "string"
+    },
+    "TagKey": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "(?!aws:)[a-zA-Z+-=._:/]+",
+      "type": "string"
+    },
+    "TagKeys": {
+      "items": {
+        "$ref": "#/definitions/TagKey"
+      },
+      "maxItems": 50,
+      "minItems": 0,
+      "type": "array"
+    },
+    "TagResourceRequest": {
+      "properties": {
+        "tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Tags"
+            },
+            {
+              "description": "The new or modified tags for the resource."
+            }
+          ]
+        }
+      },
+      "required": [
+        "tags"
+      ],
+      "title": "TagResourceRequest",
+      "type": "object"
+    },
+    "TagResourceResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "TagValue": {
+      "maxLength": 256,
+      "pattern": "[\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*",
+      "type": "string"
+    },
+    "Tags": {
+      "additionalProperties": {
+        "$ref": "#/definitions/TagValue"
+      },
+      "maxProperties": 50,
+      "minProperties": 0,
+      "type": "object"
+    },
+    "Timestamp": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "UntagResourceRequest": {
+      "properties": {},
+      "title": "UntagResourceRequest",
+      "type": "object"
+    },
+    "UntagResourceResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "UpdateApplicationRequest": {
+      "properties": {
+        "description": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Description"
+            },
+            {
+              "description": "The new description of the application."
+            }
+          ]
+        },
+        "name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Name"
+            },
+            {
+              "description": "The new name of the application. The name must be unique in the region in which you are updating the application."
+            }
+          ]
+        }
+      },
+      "title": "UpdateApplicationRequest",
+      "type": "object"
+    },
+    "UpdateApplicationResponse": {
+      "properties": {
+        "application": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Application"
+            },
+            {
+              "description": "The updated information of the application."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "UpdateAttributeGroupRequest": {
+      "properties": {
+        "attributes": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Attributes"
+            },
+            {
+              "description": "A JSON string in the form of nested key-value pairs that represent the attributes in the group and describes an application and its components."
+            }
+          ]
+        },
+        "description": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Description"
+            },
+            {
+              "description": "The description of the attribute group that the user provides."
+            }
+          ]
+        },
+        "name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Name"
+            },
+            {
+              "description": "The new name of the attribute group. The name must be unique in the region in which you are updating the attribute group."
+            }
+          ]
+        }
+      },
+      "title": "UpdateAttributeGroupRequest",
+      "type": "object"
+    },
+    "UpdateAttributeGroupResponse": {
+      "properties": {
+        "attributeGroup": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AttributeGroup"
+            },
+            {
+              "description": "The updated information of the attribute group."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ValidationException": {}
+  },
+  "securityDefinitions": {
+    "hmac": {
+      "description": "Amazon Signature authorization v4",
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey",
+      "x-amazon-apigateway-authtype": "awsSigv4"
+    }
+  },
+  "security": [
+    {
+      "hmac": []
+    }
+  ],
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://docs.aws.amazon.com/servicecatalog-appregistry/"
+  },
+  "x-components": {
+    "parameters": {
+      "X-Amz-Algorithm": {
+        "in": "header",
+        "name": "X-Amz-Algorithm",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Content-Sha256": {
+        "in": "header",
+        "name": "X-Amz-Content-Sha256",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Credential": {
+        "in": "header",
+        "name": "X-Amz-Credential",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Date": {
+        "in": "header",
+        "name": "X-Amz-Date",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Security-Token": {
+        "in": "header",
+        "name": "X-Amz-Security-Token",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Signature": {
+        "in": "header",
+        "name": "X-Amz-Signature",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-SignedHeaders": {
+        "in": "header",
+        "name": "X-Amz-SignedHeaders",
+        "required": false,
+        "type": "string"
+      }
+    }
+  },
+  "x-hasEquivalentPaths": true
+}

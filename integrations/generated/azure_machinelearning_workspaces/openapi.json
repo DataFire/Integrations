@@ -7,7 +7,7 @@
   "info": {
     "description": "These APIs allow end users to operate on Azure Machine Learning Workspace resources. They support CRUD operations for Azure Machine Learning Workspaces.",
     "title": "Machine Learning Workspaces Management Client",
-    "version": "2016-04-01",
+    "version": "2019-10-01",
     "x-apisguru-categories": [
       "cloud"
     ],
@@ -17,7 +17,7 @@
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/machinelearning/resource-manager/Microsoft.MachineLearning/stable/2016-04-01/swagger/workspaces.json",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/machinelearning/resource-manager/Microsoft.MachineLearning/stable/2019-10-01/workspaces.json",
         "version": "2.0"
       }
     ],
@@ -116,7 +116,9 @@
         "tags": [
           "Operation"
         ],
-        "x-ms-pageable": {}
+        "x-ms-pageable": {
+          "nextLinkName": null
+        }
       }
     },
     "/subscriptions/{subscriptionId}/providers/Microsoft.MachineLearning/workspaces": {
@@ -151,7 +153,7 @@
         "x-ms-examples": {
           "WorkspaceGetBySubscription": {
             "parameters": {
-              "api-version": "2016-04-01",
+              "api-version": "2019-10-01",
               "subscriptionId": "00000000-1111-2222-3333-444444444444"
             },
             "responses": {
@@ -172,6 +174,10 @@
                         "workspaceState": "Enabled",
                         "workspaceType": "PaidStandard"
                       },
+                      "sku": {
+                        "name": "Enterprise",
+                        "tier": "Enterprise"
+                      },
                       "type": "Microsoft.MachineLearning/workspaces"
                     },
                     {
@@ -187,6 +193,10 @@
                         "workspaceId": "00000000-1111-2222-3333-444444444444",
                         "workspaceState": "Enabled",
                         "workspaceType": "PaidStandard"
+                      },
+                      "sku": {
+                        "name": "Basic",
+                        "tier": "Basic"
                       },
                       "type": "Microsoft.MachineLearning/workspaces"
                     }
@@ -236,7 +246,7 @@
         "x-ms-examples": {
           "WorkspaceListResourceGroup": {
             "parameters": {
-              "api-version": "2016-04-01",
+              "api-version": "2019-10-01",
               "resourceGroupName": "myResourceGroup",
               "subscriptionId": "00000000-1111-2222-3333-444444444444"
             },
@@ -258,6 +268,10 @@
                         "workspaceState": "Enabled",
                         "workspaceType": "PaidStandard"
                       },
+                      "sku": {
+                        "name": "Enterprise",
+                        "tier": "Enterprise"
+                      },
                       "type": "Microsoft.MachineLearning/workspaces"
                     },
                     {
@@ -273,6 +287,10 @@
                         "workspaceId": "00000000-1111-2222-3333-444444444444",
                         "workspaceState": "Enabled",
                         "workspaceType": "PaidStandard"
+                      },
+                      "sku": {
+                        "name": "Basic",
+                        "tier": "Basic"
                       },
                       "type": "Microsoft.MachineLearning/workspaces"
                     }
@@ -323,9 +341,9 @@
           "Workspaces"
         ],
         "x-ms-examples": {
-          "WorkspaceDelere": {
+          "WorkspaceDelete": {
             "parameters": {
-              "api-version": "2016-04-01",
+              "api-version": "2019-10-01",
               "resourceGroupName": "myResourceGroup",
               "subscriptionId": "00000000-0000-0000-0000-000000000000",
               "workspaceName": "testworkspace"
@@ -374,7 +392,7 @@
         "x-ms-examples": {
           "WorkspaceGet": {
             "parameters": {
-              "api-version": "2016-04-01",
+              "api-version": "2019-10-01",
               "resourceGroupName": "myResourceGroup",
               "subscriptionId": "00000000-0000-0000-0000-000000000000",
               "workspaceName": "testworkspace"
@@ -394,6 +412,10 @@
                     "workspaceId": "00000000-1111-2222-3333-444444444444",
                     "workspaceState": "Enabled",
                     "workspaceType": "PaidStandard"
+                  },
+                  "sku": {
+                    "name": "Enterprise",
+                    "tier": "Enterprise"
                   },
                   "tags": {
                     "tagKey1": "TagValue1"
@@ -451,10 +473,14 @@
         "x-ms-examples": {
           "WorkspaceUpdate": {
             "parameters": {
-              "api-version": "2016-04-01",
+              "api-version": "2019-10-01",
               "parameters": {
                 "properties": {
-                  "keyVaultIdentifierId": "kvidnew"
+                  "keyVaultIdentifierId": "kvidnew",
+                  "sku": {
+                    "name": "Enterprise",
+                    "tier": "Enterprise"
+                  }
                 },
                 "tags": {
                   "tagKey1": "TagValue1"
@@ -479,6 +505,10 @@
                     "workspaceId": "00000000-1111-2222-3333-444444444444",
                     "workspaceState": "Enabled",
                     "workspaceType": "PaidStandard"
+                  },
+                  "sku": {
+                    "name": "Enterprise",
+                    "tier": "Enterprise"
                   },
                   "tags": {
                     "tagKey1": "TagValue1"
@@ -536,11 +566,16 @@
         "x-ms-examples": {
           "WorkspaceCreate": {
             "parameters": {
-              "api-version": "2016-04-01",
+              "api-version": "2019-10-01",
               "parameters": {
                 "location": "West Europe",
                 "properties": {
+                  "ownerEmail": "abc@microsoft.com",
                   "userStorageAccountId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/teststorage"
+                },
+                "sku": {
+                  "name": "Enterprise",
+                  "tier": "Enterprise"
                 },
                 "tags": {
                   "tagKey1": "TagValue1"
@@ -565,6 +600,10 @@
                     "workspaceId": "00000000-1111-2222-3333-444444444444",
                     "workspaceState": "Enabled",
                     "workspaceType": "PaidStandard"
+                  },
+                  "sku": {
+                    "name": "Enterprise",
+                    "tier": "Enterprise"
                   },
                   "tags": {
                     "tagKey1": "TagValue1"
@@ -615,7 +654,7 @@
         "x-ms-examples": {
           "ListWorkspaceKeys": {
             "parameters": {
-              "api-version": "2016-04-01",
+              "api-version": "2019-10-01",
               "resourceGroupName": "myResourceGroup",
               "subscriptionId": "00000000-0000-0000-0000-000000000000",
               "workspaceName": "testworkspace"
@@ -667,7 +706,7 @@
         "x-ms-examples": {
           "ResyncStorageKeys": {
             "parameters": {
-              "api-version": "2016-04-01",
+              "api-version": "2019-10-01",
               "resourceGroupName": "myResourceGroup",
               "subscriptionId": "00000000-0000-0000-0000-000000000000",
               "workspaceName": "testworkspace"
@@ -758,6 +797,10 @@
           "readOnly": true,
           "type": "string"
         },
+        "sku": {
+          "$ref": "#/definitions/Sku",
+          "description": "The sku of the workspace."
+        },
         "tags": {
           "additionalProperties": {
             "type": "string"
@@ -775,6 +818,20 @@
         "location"
       ],
       "x-ms-azure-resource": true
+    },
+    "Sku": {
+      "description": "Sku of the resource",
+      "properties": {
+        "name": {
+          "description": "Name of the sku",
+          "type": "string"
+        },
+        "tier": {
+          "description": "Tier of the sku like Basic or Enterprise",
+          "type": "string"
+        }
+      },
+      "type": "object"
     },
     "Workspace": {
       "allOf": [
@@ -888,7 +945,8 @@
         }
       },
       "required": [
-        "userStorageAccountId"
+        "userStorageAccountId",
+        "ownerEmail"
       ],
       "type": "object"
     },
@@ -898,6 +956,10 @@
         "keyVaultIdentifierId": {
           "description": "The key vault identifier used for encrypted workspaces.",
           "type": "string"
+        },
+        "sku": {
+          "$ref": "#/definitions/Sku",
+          "description": "The sku of the workspace."
         },
         "workspaceState": {
           "description": "The current state of workspace resource.",

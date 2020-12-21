@@ -13,17 +13,14 @@ let amazonaws_codepipeline = require('@datafire/amazonaws_codepipeline').create(
   region: ""
 });
 
-amazonaws_codepipeline.AcknowledgeJob({
-  "jobId": "",
-  "nonce": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
 
 ## Description
 
-<fullname>AWS CodePipeline</fullname> <p> <b>Overview</b> </p> <p>This is the AWS CodePipeline API Reference. This guide provides descriptions of the actions and data types for AWS CodePipeline. Some functionality for your pipeline is only configurable through the API. For additional information, see the <a href="http://docs.aws.amazon.com/codepipeline/latest/userguide/welcome.html">AWS CodePipeline User Guide</a>.</p> <p>You can use the AWS CodePipeline API to work with pipelines, stages, actions, and transitions, as described below.</p> <p> <i>Pipelines</i> are models of automated release processes. Each pipeline is uniquely named, and consists of stages, actions, and transitions. </p> <p>You can work with pipelines by calling:</p> <ul> <li> <p> <a>CreatePipeline</a>, which creates a uniquely-named pipeline.</p> </li> <li> <p> <a>DeletePipeline</a>, which deletes the specified pipeline.</p> </li> <li> <p> <a>GetPipeline</a>, which returns information about the pipeline structure and pipeline metadata, including the pipeline Amazon Resource Name (ARN).</p> </li> <li> <p> <a>GetPipelineExecution</a>, which returns information about a specific execution of a pipeline.</p> </li> <li> <p> <a>GetPipelineState</a>, which returns information about the current state of the stages and actions of a pipeline.</p> </li> <li> <p> <a>ListPipelines</a>, which gets a summary of all of the pipelines associated with your account.</p> </li> <li> <p> <a>ListPipelineExecutions</a>, which gets a summary of the most recent executions for a pipeline.</p> </li> <li> <p> <a>StartPipelineExecution</a>, which runs the the most recent revision of an artifact through the pipeline.</p> </li> <li> <p> <a>UpdatePipeline</a>, which updates a pipeline with edits or changes to the structure of the pipeline.</p> </li> </ul> <p>Pipelines include <i>stages</i>. Each stage contains one or more actions that must complete before the next stage begins. A stage will result in success or failure. If a stage fails, then the pipeline stops at that stage and will remain stopped until either a new version of an artifact appears in the source location, or a user takes action to re-run the most recent artifact through the pipeline. You can call <a>GetPipelineState</a>, which displays the status of a pipeline, including the status of stages in the pipeline, or <a>GetPipeline</a>, which returns the entire structure of the pipeline, including the stages of that pipeline. For more information about the structure of stages and actions, also refer to the <a href="http://docs.aws.amazon.com/codepipeline/latest/userguide/pipeline-structure.html">AWS CodePipeline Pipeline Structure Reference</a>.</p> <p>Pipeline stages include <i>actions</i>, which are categorized into categories such as source or build actions performed within a stage of a pipeline. For example, you can use a source action to import artifacts into a pipeline from a source such as Amazon S3. Like stages, you do not work with actions directly in most cases, but you do define and interact with actions when working with pipeline operations such as <a>CreatePipeline</a> and <a>GetPipelineState</a>. Valid action categories are:</p> <ul> <li> <p>Source</p> </li> <li> <p>Build</p> </li> <li> <p>Test</p> </li> <li> <p>Deploy</p> </li> <li> <p>Approval</p> </li> <li> <p>Invoke</p> </li> </ul> <p>Pipelines also include <i>transitions</i>, which allow the transition of artifacts from one stage to the next in a pipeline after the actions in one stage complete.</p> <p>You can work with transitions by calling:</p> <ul> <li> <p> <a>DisableStageTransition</a>, which prevents artifacts from transitioning to the next stage in a pipeline.</p> </li> <li> <p> <a>EnableStageTransition</a>, which enables transition of artifacts between stages in a pipeline. </p> </li> </ul> <p> <b>Using the API to integrate with AWS CodePipeline</b> </p> <p>For third-party integrators or developers who want to create their own integrations with AWS CodePipeline, the expected sequence varies from the standard API user. In order to integrate with AWS CodePipeline, developers will need to work with the following items:</p> <p> <b>Jobs</b>, which are instances of an action. For example, a job for a source action might import a revision of an artifact from a source. </p> <p>You can work with jobs by calling:</p> <ul> <li> <p> <a>AcknowledgeJob</a>, which confirms whether a job worker has received the specified job,</p> </li> <li> <p> <a>GetJobDetails</a>, which returns the details of a job,</p> </li> <li> <p> <a>PollForJobs</a>, which determines whether there are any jobs to act upon, </p> </li> <li> <p> <a>PutJobFailureResult</a>, which provides details of a job failure, and</p> </li> <li> <p> <a>PutJobSuccessResult</a>, which provides details of a job success.</p> </li> </ul> <p> <b>Third party jobs</b>, which are instances of an action created by a partner action and integrated into AWS CodePipeline. Partner actions are created by members of the AWS Partner Network.</p> <p>You can work with third party jobs by calling:</p> <ul> <li> <p> <a>AcknowledgeThirdPartyJob</a>, which confirms whether a job worker has received the specified job,</p> </li> <li> <p> <a>GetThirdPartyJobDetails</a>, which requests the details of a job for a partner action,</p> </li> <li> <p> <a>PollForThirdPartyJobs</a>, which determines whether there are any jobs to act upon, </p> </li> <li> <p> <a>PutThirdPartyJobFailureResult</a>, which provides details of a job failure, and</p> </li> <li> <p> <a>PutThirdPartyJobSuccessResult</a>, which provides details of a job success.</p> </li> </ul>
+<fullname>AWS CodePipeline</fullname> <p> <b>Overview</b> </p> <p>This is the AWS CodePipeline API Reference. This guide provides descriptions of the actions and data types for AWS CodePipeline. Some functionality for your pipeline can only be configured through the API. For more information, see the <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/welcome.html">AWS CodePipeline User Guide</a>.</p> <p>You can use the AWS CodePipeline API to work with pipelines, stages, actions, and transitions.</p> <p> <i>Pipelines</i> are models of automated release processes. Each pipeline is uniquely named, and consists of stages, actions, and transitions. </p> <p>You can work with pipelines by calling:</p> <ul> <li> <p> <a>CreatePipeline</a>, which creates a uniquely named pipeline.</p> </li> <li> <p> <a>DeletePipeline</a>, which deletes the specified pipeline.</p> </li> <li> <p> <a>GetPipeline</a>, which returns information about the pipeline structure and pipeline metadata, including the pipeline Amazon Resource Name (ARN).</p> </li> <li> <p> <a>GetPipelineExecution</a>, which returns information about a specific execution of a pipeline.</p> </li> <li> <p> <a>GetPipelineState</a>, which returns information about the current state of the stages and actions of a pipeline.</p> </li> <li> <p> <a>ListActionExecutions</a>, which returns action-level details for past executions. The details include full stage and action-level details, including individual action duration, status, any errors that occurred during the execution, and input and output artifact location details.</p> </li> <li> <p> <a>ListPipelines</a>, which gets a summary of all of the pipelines associated with your account.</p> </li> <li> <p> <a>ListPipelineExecutions</a>, which gets a summary of the most recent executions for a pipeline.</p> </li> <li> <p> <a>StartPipelineExecution</a>, which runs the most recent revision of an artifact through the pipeline.</p> </li> <li> <p> <a>StopPipelineExecution</a>, which stops the specified pipeline execution from continuing through the pipeline.</p> </li> <li> <p> <a>UpdatePipeline</a>, which updates a pipeline with edits or changes to the structure of the pipeline.</p> </li> </ul> <p>Pipelines include <i>stages</i>. Each stage contains one or more actions that must complete before the next stage begins. A stage results in success or failure. If a stage fails, the pipeline stops at that stage and remains stopped until either a new version of an artifact appears in the source location, or a user takes action to rerun the most recent artifact through the pipeline. You can call <a>GetPipelineState</a>, which displays the status of a pipeline, including the status of stages in the pipeline, or <a>GetPipeline</a>, which returns the entire structure of the pipeline, including the stages of that pipeline. For more information about the structure of stages and actions, see <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/pipeline-structure.html">AWS CodePipeline Pipeline Structure Reference</a>.</p> <p>Pipeline stages include <i>actions</i> that are categorized into categories such as source or build actions performed in a stage of a pipeline. For example, you can use a source action to import artifacts into a pipeline from a source such as Amazon S3. Like stages, you do not work with actions directly in most cases, but you do define and interact with actions when working with pipeline operations such as <a>CreatePipeline</a> and <a>GetPipelineState</a>. Valid action categories are:</p> <ul> <li> <p>Source</p> </li> <li> <p>Build</p> </li> <li> <p>Test</p> </li> <li> <p>Deploy</p> </li> <li> <p>Approval</p> </li> <li> <p>Invoke</p> </li> </ul> <p>Pipelines also include <i>transitions</i>, which allow the transition of artifacts from one stage to the next in a pipeline after the actions in one stage complete.</p> <p>You can work with transitions by calling:</p> <ul> <li> <p> <a>DisableStageTransition</a>, which prevents artifacts from transitioning to the next stage in a pipeline.</p> </li> <li> <p> <a>EnableStageTransition</a>, which enables transition of artifacts between stages in a pipeline. </p> </li> </ul> <p> <b>Using the API to integrate with AWS CodePipeline</b> </p> <p>For third-party integrators or developers who want to create their own integrations with AWS CodePipeline, the expected sequence varies from the standard API user. To integrate with AWS CodePipeline, developers need to work with the following items:</p> <p> <b>Jobs</b>, which are instances of an action. For example, a job for a source action might import a revision of an artifact from a source. </p> <p>You can work with jobs by calling:</p> <ul> <li> <p> <a>AcknowledgeJob</a>, which confirms whether a job worker has received the specified job.</p> </li> <li> <p> <a>GetJobDetails</a>, which returns the details of a job.</p> </li> <li> <p> <a>PollForJobs</a>, which determines whether there are any jobs to act on.</p> </li> <li> <p> <a>PutJobFailureResult</a>, which provides details of a job failure. </p> </li> <li> <p> <a>PutJobSuccessResult</a>, which provides details of a job success.</p> </li> </ul> <p> <b>Third party jobs</b>, which are instances of an action created by a partner action and integrated into AWS CodePipeline. Partner actions are created by members of the AWS Partner Network.</p> <p>You can work with third party jobs by calling:</p> <ul> <li> <p> <a>AcknowledgeThirdPartyJob</a>, which confirms whether a job worker has received the specified job.</p> </li> <li> <p> <a>GetThirdPartyJobDetails</a>, which requests the details of a job for a partner action.</p> </li> <li> <p> <a>PollForThirdPartyJobs</a>, which determines whether there are any jobs to act on. </p> </li> <li> <p> <a>PutThirdPartyJobFailureResult</a>, which provides details of a job failure.</p> </li> <li> <p> <a>PutThirdPartyJobSuccessResult</a>, which provides details of a job success.</p> </li> </ul>
 
 ## Actions
 
@@ -33,15 +30,15 @@ amazonaws_codepipeline.AcknowledgeJob({
 
 ```js
 amazonaws_codepipeline.AcknowledgeJob({
-  "jobId": "",
-  "nonce": ""
+  "jobId": null,
+  "nonce": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * jobId **required** [JobId](#jobid)
-  * nonce **required** [Nonce](#nonce)
+  * jobId **required**
+  * nonce **required**
 
 #### Output
 * output [AcknowledgeJobOutput](#acknowledgejoboutput)
@@ -52,17 +49,17 @@ amazonaws_codepipeline.AcknowledgeJob({
 
 ```js
 amazonaws_codepipeline.AcknowledgeThirdPartyJob({
-  "jobId": "",
-  "nonce": "",
-  "clientToken": ""
+  "jobId": null,
+  "nonce": null,
+  "clientToken": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * clientToken **required** [ClientToken](#clienttoken)
-  * jobId **required** [ThirdPartyJobId](#thirdpartyjobid)
-  * nonce **required** [Nonce](#nonce)
+  * clientToken **required**
+  * jobId **required**
+  * nonce **required**
 
 #### Output
 * output [AcknowledgeThirdPartyJobOutput](#acknowledgethirdpartyjoboutput)
@@ -73,29 +70,34 @@ amazonaws_codepipeline.AcknowledgeThirdPartyJob({
 
 ```js
 amazonaws_codepipeline.CreateCustomActionType({
-  "category": "",
-  "provider": "",
-  "version": "",
-  "inputArtifactDetails": {
-    "minimumCount": 0,
-    "maximumCount": 0
-  },
-  "outputArtifactDetails": {
-    "minimumCount": 0,
-    "maximumCount": 0
-  }
+  "category": null,
+  "provider": null,
+  "version": null,
+  "inputArtifactDetails": null,
+  "outputArtifactDetails": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * category **required** [ActionCategory](#actioncategory)
-  * configurationProperties [ActionConfigurationPropertyList](#actionconfigurationpropertylist)
-  * inputArtifactDetails **required** [ArtifactDetails](#artifactdetails)
-  * outputArtifactDetails **required** [ArtifactDetails](#artifactdetails)
-  * provider **required** [ActionProvider](#actionprovider)
-  * settings [ActionTypeSettings](#actiontypesettings)
-  * version **required** [Version](#version)
+  * tags
+    * items [Tag](#tag)
+  * category **required**
+  * configurationProperties
+    * items [ActionConfigurationProperty](#actionconfigurationproperty)
+  * inputArtifactDetails **required**
+    * maximumCount **required**
+    * minimumCount **required**
+  * outputArtifactDetails **required**
+    * maximumCount **required**
+    * minimumCount **required**
+  * provider **required**
+  * settings
+    * entityUrlTemplate
+    * executionUrlTemplate
+    * revisionUrlTemplate
+    * thirdPartyConfigurationUrl
+  * version **required**
 
 #### Output
 * output [CreateCustomActionTypeOutput](#createcustomactiontypeoutput)
@@ -106,21 +108,27 @@ amazonaws_codepipeline.CreateCustomActionType({
 
 ```js
 amazonaws_codepipeline.CreatePipeline({
-  "pipeline": {
-    "name": "",
-    "roleArn": "",
-    "artifactStore": {
-      "type": "",
-      "location": ""
-    },
-    "stages": []
-  }
+  "pipeline": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * pipeline **required** [PipelineDeclaration](#pipelinedeclaration)
+  * tags
+    * items [Tag](#tag)
+  * pipeline **required**
+    * artifactStore
+      * encryptionKey
+        * id **required**
+        * type **required**
+      * location **required**
+      * type **required**
+    * artifactStores
+    * name **required**
+    * roleArn **required**
+    * stages **required**
+      * items [StageDeclaration](#stagedeclaration)
+    * version
 
 #### Output
 * output [CreatePipelineOutput](#createpipelineoutput)
@@ -131,17 +139,17 @@ amazonaws_codepipeline.CreatePipeline({
 
 ```js
 amazonaws_codepipeline.DeleteCustomActionType({
-  "category": "",
-  "provider": "",
-  "version": ""
+  "category": null,
+  "provider": null,
+  "version": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * category **required** [ActionCategory](#actioncategory)
-  * provider **required** [ActionProvider](#actionprovider)
-  * version **required** [Version](#version)
+  * category **required**
+  * provider **required**
+  * version **required**
 
 #### Output
 *Output schema unknown*
@@ -152,13 +160,13 @@ amazonaws_codepipeline.DeleteCustomActionType({
 
 ```js
 amazonaws_codepipeline.DeletePipeline({
-  "name": ""
+  "name": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * name **required** [PipelineName](#pipelinename)
+  * name **required**
 
 #### Output
 *Output schema unknown*
@@ -169,13 +177,13 @@ amazonaws_codepipeline.DeletePipeline({
 
 ```js
 amazonaws_codepipeline.DeleteWebhook({
-  "name": ""
+  "name": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * name **required** [WebhookName](#webhookname)
+  * name **required**
 
 #### Output
 * output [DeleteWebhookOutput](#deletewebhookoutput)
@@ -190,7 +198,7 @@ amazonaws_codepipeline.DeregisterWebhookWithThirdParty({}, context)
 
 #### Input
 * input `object`
-  * webhookName [WebhookName](#webhookname)
+  * webhookName
 
 #### Output
 * output [DeregisterWebhookWithThirdPartyOutput](#deregisterwebhookwiththirdpartyoutput)
@@ -201,19 +209,19 @@ amazonaws_codepipeline.DeregisterWebhookWithThirdParty({}, context)
 
 ```js
 amazonaws_codepipeline.DisableStageTransition({
-  "pipelineName": "",
-  "stageName": "",
-  "transitionType": "",
-  "reason": ""
+  "pipelineName": null,
+  "stageName": null,
+  "transitionType": null,
+  "reason": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * pipelineName **required** [PipelineName](#pipelinename)
-  * reason **required** [DisabledReason](#disabledreason)
-  * stageName **required** [StageName](#stagename)
-  * transitionType **required** [StageTransitionType](#stagetransitiontype)
+  * pipelineName **required**
+  * reason **required**
+  * stageName **required**
+  * transitionType **required**
 
 #### Output
 *Output schema unknown*
@@ -224,17 +232,17 @@ amazonaws_codepipeline.DisableStageTransition({
 
 ```js
 amazonaws_codepipeline.EnableStageTransition({
-  "pipelineName": "",
-  "stageName": "",
-  "transitionType": ""
+  "pipelineName": null,
+  "stageName": null,
+  "transitionType": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * pipelineName **required** [PipelineName](#pipelinename)
-  * stageName **required** [StageName](#stagename)
-  * transitionType **required** [StageTransitionType](#stagetransitiontype)
+  * pipelineName **required**
+  * stageName **required**
+  * transitionType **required**
 
 #### Output
 *Output schema unknown*
@@ -245,13 +253,13 @@ amazonaws_codepipeline.EnableStageTransition({
 
 ```js
 amazonaws_codepipeline.GetJobDetails({
-  "jobId": ""
+  "jobId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * jobId **required** [JobId](#jobid)
+  * jobId **required**
 
 #### Output
 * output [GetJobDetailsOutput](#getjobdetailsoutput)
@@ -262,14 +270,14 @@ amazonaws_codepipeline.GetJobDetails({
 
 ```js
 amazonaws_codepipeline.GetPipeline({
-  "name": ""
+  "name": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * name **required** [PipelineName](#pipelinename)
-  * version [PipelineVersion](#pipelineversion)
+  * name **required**
+  * version
 
 #### Output
 * output [GetPipelineOutput](#getpipelineoutput)
@@ -280,15 +288,15 @@ amazonaws_codepipeline.GetPipeline({
 
 ```js
 amazonaws_codepipeline.GetPipelineExecution({
-  "pipelineName": "",
-  "pipelineExecutionId": ""
+  "pipelineName": null,
+  "pipelineExecutionId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * pipelineExecutionId **required** [PipelineExecutionId](#pipelineexecutionid)
-  * pipelineName **required** [PipelineName](#pipelinename)
+  * pipelineExecutionId **required**
+  * pipelineName **required**
 
 #### Output
 * output [GetPipelineExecutionOutput](#getpipelineexecutionoutput)
@@ -299,13 +307,13 @@ amazonaws_codepipeline.GetPipelineExecution({
 
 ```js
 amazonaws_codepipeline.GetPipelineState({
-  "name": ""
+  "name": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * name **required** [PipelineName](#pipelinename)
+  * name **required**
 
 #### Output
 * output [GetPipelineStateOutput](#getpipelinestateoutput)
@@ -316,18 +324,41 @@ amazonaws_codepipeline.GetPipelineState({
 
 ```js
 amazonaws_codepipeline.GetThirdPartyJobDetails({
-  "jobId": "",
-  "clientToken": ""
+  "jobId": null,
+  "clientToken": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * clientToken **required** [ClientToken](#clienttoken)
-  * jobId **required** [ThirdPartyJobId](#thirdpartyjobid)
+  * clientToken **required**
+  * jobId **required**
 
 #### Output
 * output [GetThirdPartyJobDetailsOutput](#getthirdpartyjobdetailsoutput)
+
+### ListActionExecutions
+
+
+
+```js
+amazonaws_codepipeline.ListActionExecutions({
+  "pipelineName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * maxResults `string`
+  * nextToken `string`
+  * filter
+    * pipelineExecutionId
+  * maxResults
+  * nextToken
+  * pipelineName **required**
+
+#### Output
+* output [ListActionExecutionsOutput](#listactionexecutionsoutput)
 
 ### ListActionTypes
 
@@ -339,8 +370,9 @@ amazonaws_codepipeline.ListActionTypes({}, context)
 
 #### Input
 * input `object`
-  * actionOwnerFilter [ActionOwner](#actionowner)
-  * nextToken [NextToken](#nexttoken)
+  * nextToken `string`
+  * actionOwnerFilter
+  * nextToken
 
 #### Output
 * output [ListActionTypesOutput](#listactiontypesoutput)
@@ -351,15 +383,17 @@ amazonaws_codepipeline.ListActionTypes({}, context)
 
 ```js
 amazonaws_codepipeline.ListPipelineExecutions({
-  "pipelineName": ""
+  "pipelineName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * maxResults [MaxResults](#maxresults)
-  * nextToken [NextToken](#nexttoken)
-  * pipelineName **required** [PipelineName](#pipelinename)
+  * maxResults `string`
+  * nextToken `string`
+  * maxResults
+  * nextToken
+  * pipelineName **required**
 
 #### Output
 * output [ListPipelineExecutionsOutput](#listpipelineexecutionsoutput)
@@ -374,10 +408,32 @@ amazonaws_codepipeline.ListPipelines({}, context)
 
 #### Input
 * input `object`
-  * nextToken [NextToken](#nexttoken)
+  * nextToken `string`
+  * nextToken
 
 #### Output
 * output [ListPipelinesOutput](#listpipelinesoutput)
+
+### ListTagsForResource
+
+
+
+```js
+amazonaws_codepipeline.ListTagsForResource({
+  "resourceArn": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * maxResults `string`
+  * nextToken `string`
+  * maxResults
+  * nextToken
+  * resourceArn **required**
+
+#### Output
+* output [ListTagsForResourceOutput](#listtagsforresourceoutput)
 
 ### ListWebhooks
 
@@ -389,8 +445,10 @@ amazonaws_codepipeline.ListWebhooks({}, context)
 
 #### Input
 * input `object`
-  * MaxResults [MaxResults](#maxresults)
-  * NextToken [NextToken](#nexttoken)
+  * MaxResults `string`
+  * NextToken `string`
+  * MaxResults
+  * NextToken
 
 #### Output
 * output [ListWebhooksOutput](#listwebhooksoutput)
@@ -401,20 +459,19 @@ amazonaws_codepipeline.ListWebhooks({}, context)
 
 ```js
 amazonaws_codepipeline.PollForJobs({
-  "actionTypeId": {
-    "category": "",
-    "owner": "",
-    "provider": "",
-    "version": ""
-  }
+  "actionTypeId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * actionTypeId **required** [ActionTypeId](#actiontypeid)
-  * maxBatchSize [MaxBatchSize](#maxbatchsize)
-  * queryParam [QueryParamMap](#queryparammap)
+  * actionTypeId **required**
+    * category **required**
+    * owner **required**
+    * provider **required**
+    * version **required**
+  * maxBatchSize
+  * queryParam
 
 #### Output
 * output [PollForJobsOutput](#pollforjobsoutput)
@@ -425,19 +482,18 @@ amazonaws_codepipeline.PollForJobs({
 
 ```js
 amazonaws_codepipeline.PollForThirdPartyJobs({
-  "actionTypeId": {
-    "category": "",
-    "owner": "",
-    "provider": "",
-    "version": ""
-  }
+  "actionTypeId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * actionTypeId **required** [ActionTypeId](#actiontypeid)
-  * maxBatchSize [MaxBatchSize](#maxbatchsize)
+  * actionTypeId **required**
+    * category **required**
+    * owner **required**
+    * provider **required**
+    * version **required**
+  * maxBatchSize
 
 #### Output
 * output [PollForThirdPartyJobsOutput](#pollforthirdpartyjobsoutput)
@@ -448,23 +504,22 @@ amazonaws_codepipeline.PollForThirdPartyJobs({
 
 ```js
 amazonaws_codepipeline.PutActionRevision({
-  "pipelineName": "",
-  "stageName": "",
-  "actionName": "",
-  "actionRevision": {
-    "revisionId": "",
-    "revisionChangeId": "",
-    "created": ""
-  }
+  "pipelineName": null,
+  "stageName": null,
+  "actionName": null,
+  "actionRevision": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * actionName **required** [ActionName](#actionname)
-  * actionRevision **required** [ActionRevision](#actionrevision)
-  * pipelineName **required** [PipelineName](#pipelinename)
-  * stageName **required** [StageName](#stagename)
+  * actionName **required**
+  * actionRevision **required**
+    * created **required**
+    * revisionChangeId **required**
+    * revisionId **required**
+  * pipelineName **required**
+  * stageName **required**
 
 #### Output
 * output [PutActionRevisionOutput](#putactionrevisionoutput)
@@ -475,24 +530,23 @@ amazonaws_codepipeline.PutActionRevision({
 
 ```js
 amazonaws_codepipeline.PutApprovalResult({
-  "pipelineName": "",
-  "stageName": "",
-  "actionName": "",
-  "result": {
-    "summary": "",
-    "status": ""
-  },
-  "token": ""
+  "pipelineName": null,
+  "stageName": null,
+  "actionName": null,
+  "result": null,
+  "token": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * actionName **required** [ActionName](#actionname)
-  * pipelineName **required** [PipelineName](#pipelinename)
-  * result **required** [ApprovalResult](#approvalresult)
-  * stageName **required** [StageName](#stagename)
-  * token **required** [ApprovalToken](#approvaltoken)
+  * actionName **required**
+  * pipelineName **required**
+  * result **required**
+    * status **required**
+    * summary **required**
+  * stageName **required**
+  * token **required**
 
 #### Output
 * output [PutApprovalResultOutput](#putapprovalresultoutput)
@@ -503,18 +557,18 @@ amazonaws_codepipeline.PutApprovalResult({
 
 ```js
 amazonaws_codepipeline.PutJobFailureResult({
-  "jobId": "",
-  "failureDetails": {
-    "type": "",
-    "message": ""
-  }
+  "jobId": null,
+  "failureDetails": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * failureDetails **required** [FailureDetails](#failuredetails)
-  * jobId **required** [JobId](#jobid)
+  * failureDetails **required**
+    * externalExecutionId
+    * message **required**
+    * type **required**
+  * jobId **required**
 
 #### Output
 *Output schema unknown*
@@ -525,16 +579,24 @@ amazonaws_codepipeline.PutJobFailureResult({
 
 ```js
 amazonaws_codepipeline.PutJobSuccessResult({
-  "jobId": ""
+  "jobId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * continuationToken [ContinuationToken](#continuationtoken)
-  * currentRevision [CurrentRevision](#currentrevision)
-  * executionDetails [ExecutionDetails](#executiondetails)
-  * jobId **required** [JobId](#jobid)
+  * continuationToken
+  * currentRevision
+    * changeIdentifier **required**
+    * created
+    * revision **required**
+    * revisionSummary
+  * executionDetails
+    * externalExecutionId
+    * percentComplete
+    * summary
+  * jobId **required**
+  * outputVariables
 
 #### Output
 *Output schema unknown*
@@ -545,20 +607,20 @@ amazonaws_codepipeline.PutJobSuccessResult({
 
 ```js
 amazonaws_codepipeline.PutThirdPartyJobFailureResult({
-  "jobId": "",
-  "clientToken": "",
-  "failureDetails": {
-    "type": "",
-    "message": ""
-  }
+  "jobId": null,
+  "clientToken": null,
+  "failureDetails": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * clientToken **required** [ClientToken](#clienttoken)
-  * failureDetails **required** [FailureDetails](#failuredetails)
-  * jobId **required** [ThirdPartyJobId](#thirdpartyjobid)
+  * clientToken **required**
+  * failureDetails **required**
+    * externalExecutionId
+    * message **required**
+    * type **required**
+  * jobId **required**
 
 #### Output
 *Output schema unknown*
@@ -569,18 +631,25 @@ amazonaws_codepipeline.PutThirdPartyJobFailureResult({
 
 ```js
 amazonaws_codepipeline.PutThirdPartyJobSuccessResult({
-  "jobId": "",
-  "clientToken": ""
+  "jobId": null,
+  "clientToken": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * clientToken **required** [ClientToken](#clienttoken)
-  * continuationToken [ContinuationToken](#continuationtoken)
-  * currentRevision [CurrentRevision](#currentrevision)
-  * executionDetails [ExecutionDetails](#executiondetails)
-  * jobId **required** [ThirdPartyJobId](#thirdpartyjobid)
+  * clientToken **required**
+  * continuationToken
+  * currentRevision
+    * changeIdentifier **required**
+    * created
+    * revision **required**
+    * revisionSummary
+  * executionDetails
+    * externalExecutionId
+    * percentComplete
+    * summary
+  * jobId **required**
 
 #### Output
 *Output schema unknown*
@@ -591,20 +660,24 @@ amazonaws_codepipeline.PutThirdPartyJobSuccessResult({
 
 ```js
 amazonaws_codepipeline.PutWebhook({
-  "webhook": {
-    "name": "",
-    "targetPipeline": "",
-    "targetAction": "",
-    "filters": [],
-    "authentication": "",
-    "authenticationConfiguration": {}
-  }
+  "webhook": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * webhook **required** [WebhookDefinition](#webhookdefinition)
+  * tags
+    * items [Tag](#tag)
+  * webhook **required**
+    * authentication **required**
+    * authenticationConfiguration **required**
+      * AllowedIPRange
+      * SecretToken
+    * filters **required**
+      * items [WebhookFilterRule](#webhookfilterrule)
+    * name **required**
+    * targetAction **required**
+    * targetPipeline **required**
 
 #### Output
 * output [PutWebhookOutput](#putwebhookoutput)
@@ -619,7 +692,7 @@ amazonaws_codepipeline.RegisterWebhookWithThirdParty({}, context)
 
 #### Input
 * input `object`
-  * webhookName [WebhookName](#webhookname)
+  * webhookName
 
 #### Output
 * output [RegisterWebhookWithThirdPartyOutput](#registerwebhookwiththirdpartyoutput)
@@ -630,19 +703,19 @@ amazonaws_codepipeline.RegisterWebhookWithThirdParty({}, context)
 
 ```js
 amazonaws_codepipeline.RetryStageExecution({
-  "pipelineName": "",
-  "stageName": "",
-  "pipelineExecutionId": "",
-  "retryMode": ""
+  "pipelineName": null,
+  "stageName": null,
+  "pipelineExecutionId": null,
+  "retryMode": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * pipelineExecutionId **required** [PipelineExecutionId](#pipelineexecutionid)
-  * pipelineName **required** [PipelineName](#pipelinename)
-  * retryMode **required** [StageRetryMode](#stageretrymode)
-  * stageName **required** [StageName](#stagename)
+  * pipelineExecutionId **required**
+  * pipelineName **required**
+  * retryMode **required**
+  * stageName **required**
 
 #### Output
 * output [RetryStageExecutionOutput](#retrystageexecutionoutput)
@@ -653,16 +726,78 @@ amazonaws_codepipeline.RetryStageExecution({
 
 ```js
 amazonaws_codepipeline.StartPipelineExecution({
-  "name": ""
+  "name": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * name **required** [PipelineName](#pipelinename)
+  * clientRequestToken
+  * name **required**
 
 #### Output
 * output [StartPipelineExecutionOutput](#startpipelineexecutionoutput)
+
+### StopPipelineExecution
+
+
+
+```js
+amazonaws_codepipeline.StopPipelineExecution({
+  "pipelineName": null,
+  "pipelineExecutionId": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * abandon
+  * pipelineExecutionId **required**
+  * pipelineName **required**
+  * reason
+
+#### Output
+* output [StopPipelineExecutionOutput](#stoppipelineexecutionoutput)
+
+### TagResource
+
+
+
+```js
+amazonaws_codepipeline.TagResource({
+  "resourceArn": null,
+  "tags": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * tags **required**
+    * items [Tag](#tag)
+  * resourceArn **required**
+
+#### Output
+* output [TagResourceOutput](#tagresourceoutput)
+
+### UntagResource
+
+
+
+```js
+amazonaws_codepipeline.UntagResource({
+  "resourceArn": null,
+  "tagKeys": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * resourceArn **required**
+  * tagKeys **required**
+    * items [TagKey](#tagkey)
+
+#### Output
+* output [UntagResourceOutput](#untagresourceoutput)
 
 ### UpdatePipeline
 
@@ -670,21 +805,25 @@ amazonaws_codepipeline.StartPipelineExecution({
 
 ```js
 amazonaws_codepipeline.UpdatePipeline({
-  "pipeline": {
-    "name": "",
-    "roleArn": "",
-    "artifactStore": {
-      "type": "",
-      "location": ""
-    },
-    "stages": []
-  }
+  "pipeline": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * pipeline **required** [PipelineDeclaration](#pipelinedeclaration)
+  * pipeline **required**
+    * artifactStore
+      * encryptionKey
+        * id **required**
+        * type **required**
+      * location **required**
+      * type **required**
+    * artifactStores
+    * name **required**
+    * roleArn **required**
+    * stages **required**
+      * items [StageDeclaration](#stagedeclaration)
+    * version
 
 #### Output
 * output [UpdatePipelineOutput](#updatepipelineoutput)
@@ -693,11 +832,14 @@ amazonaws_codepipeline.UpdatePipeline({
 
 ## Definitions
 
+### AWSRegionName
+* AWSRegionName `string`
+
 ### AWSSessionCredentials
-* AWSSessionCredentials `object`: Represents an AWS session credentials object. These credentials are temporary credentials that are issued by AWS Secure Token Service (STS). They can be used to access input and output artifacts in the Amazon S3 bucket used to store artifact for the pipeline in AWS CodePipeline.
-  * accessKeyId **required** [AccessKeyId](#accesskeyid)
-  * secretAccessKey **required** [SecretAccessKey](#secretaccesskey)
-  * sessionToken **required** [SessionToken](#sessiontoken)
+* AWSSessionCredentials `object`: Represents an AWS session credentials object. These credentials are temporary credentials that are issued by AWS Secure Token Service (STS). They can be used to access input and output artifacts in the S3 bucket used to store artifact for the pipeline in AWS CodePipeline.
+  * accessKeyId **required**
+  * secretAccessKey **required**
+  * sessionToken **required**
 
 ### AccessKeyId
 * AccessKeyId `string`
@@ -707,48 +849,45 @@ amazonaws_codepipeline.UpdatePipeline({
 
 ### AcknowledgeJobInput
 * AcknowledgeJobInput `object`: Represents the input of an AcknowledgeJob action.
-  * jobId **required** [JobId](#jobid)
-  * nonce **required** [Nonce](#nonce)
+  * jobId **required**
+  * nonce **required**
 
 ### AcknowledgeJobOutput
 * AcknowledgeJobOutput `object`: Represents the output of an AcknowledgeJob action.
-  * status [JobStatus](#jobstatus)
+  * status
 
 ### AcknowledgeThirdPartyJobInput
 * AcknowledgeThirdPartyJobInput `object`: Represents the input of an AcknowledgeThirdPartyJob action.
-  * clientToken **required** [ClientToken](#clienttoken)
-  * jobId **required** [ThirdPartyJobId](#thirdpartyjobid)
-  * nonce **required** [Nonce](#nonce)
+  * clientToken **required**
+  * jobId **required**
+  * nonce **required**
 
 ### AcknowledgeThirdPartyJobOutput
 * AcknowledgeThirdPartyJobOutput `object`: Represents the output of an AcknowledgeThirdPartyJob action.
-  * status [JobStatus](#jobstatus)
+  * status
 
 ### ActionCategory
 * ActionCategory `string` (values: Source, Build, Deploy, Test, Invoke, Approval)
 
 ### ActionConfiguration
 * ActionConfiguration `object`: Represents information about an action configuration.
-  * configuration [ActionConfigurationMap](#actionconfigurationmap)
+  * configuration
 
 ### ActionConfigurationKey
 * ActionConfigurationKey `string`
 
 ### ActionConfigurationMap
-* ActionConfigurationMap `array`
-  * items `object`
-    * key [ActionConfigurationKey](#actionconfigurationkey)
-    * value [ActionConfigurationValue](#actionconfigurationvalue)
+* ActionConfigurationMap `object`
 
 ### ActionConfigurationProperty
 * ActionConfigurationProperty `object`: Represents information about an action configuration property.
-  * description [Description](#description)
-  * key **required** [Boolean](#boolean)
-  * name **required** [ActionConfigurationKey](#actionconfigurationkey)
-  * queryable [Boolean](#boolean)
-  * required **required** [Boolean](#boolean)
-  * secret **required** [Boolean](#boolean)
-  * type [ActionConfigurationPropertyType](#actionconfigurationpropertytype)
+  * description
+  * key **required**
+  * name **required**
+  * queryable
+  * required **required**
+  * secret **required**
+  * type
 
 ### ActionConfigurationPropertyList
 * ActionConfigurationPropertyList `array`
@@ -764,33 +903,111 @@ amazonaws_codepipeline.UpdatePipeline({
 * ActionConfigurationValue `string`
 
 ### ActionContext
-* ActionContext `object`: Represents the context of an action within the stage of a pipeline to a job worker.
-  * name [ActionName](#actionname)
+* ActionContext `object`: Represents the context of an action in the stage of a pipeline to a job worker.
+  * actionExecutionId
+  * name
 
 ### ActionDeclaration
 * ActionDeclaration `object`: Represents information about an action declaration.
-  * actionTypeId **required** [ActionTypeId](#actiontypeid)
-  * configuration [ActionConfigurationMap](#actionconfigurationmap)
-  * inputArtifacts [InputArtifactList](#inputartifactlist)
-  * name **required** [ActionName](#actionname)
-  * outputArtifacts [OutputArtifactList](#outputartifactlist)
-  * roleArn [RoleArn](#rolearn)
-  * runOrder [ActionRunOrder](#actionrunorder)
+  * actionTypeId **required**
+    * category **required**
+    * owner **required**
+    * provider **required**
+    * version **required**
+  * configuration
+  * inputArtifacts
+    * items [InputArtifact](#inputartifact)
+  * name **required**
+  * namespace
+  * outputArtifacts
+    * items [OutputArtifact](#outputartifact)
+  * region
+  * roleArn
+  * runOrder
 
 ### ActionExecution
 * ActionExecution `object`: Represents information about the run of an action.
-  * errorDetails [ErrorDetails](#errordetails)
-  * externalExecutionId [ExecutionId](#executionid)
-  * externalExecutionUrl [Url](#url)
-  * lastStatusChange [Timestamp](#timestamp)
-  * lastUpdatedBy [LastUpdatedBy](#lastupdatedby)
-  * percentComplete [Percentage](#percentage)
-  * status [ActionExecutionStatus](#actionexecutionstatus)
-  * summary [ExecutionSummary](#executionsummary)
-  * token [ActionExecutionToken](#actionexecutiontoken)
+  * actionExecutionId
+  * errorDetails
+    * code
+    * message
+  * externalExecutionId
+  * externalExecutionUrl
+  * lastStatusChange
+  * lastUpdatedBy
+  * percentComplete
+  * status
+  * summary
+  * token
+
+### ActionExecutionDetail
+* ActionExecutionDetail `object`: Returns information about an execution of an action, including the action execution ID, and the name, version, and timing of the action. 
+  * actionExecutionId
+  * actionName
+  * input
+    * actionTypeId [ActionTypeId](#actiontypeid)
+    * configuration
+    * inputArtifacts
+      * items [ArtifactDetail](#artifactdetail)
+    * namespace
+    * region
+    * resolvedConfiguration
+    * roleArn
+  * lastUpdateTime
+  * output
+    * executionResult
+      * externalExecutionId
+      * externalExecutionSummary
+      * externalExecutionUrl
+    * outputArtifacts
+      * items [ArtifactDetail](#artifactdetail)
+    * outputVariables
+  * pipelineExecutionId
+  * pipelineVersion
+  * stageName
+  * startTime
+  * status
+
+### ActionExecutionDetailList
+* ActionExecutionDetailList `array`
+  * items [ActionExecutionDetail](#actionexecutiondetail)
+
+### ActionExecutionFilter
+* ActionExecutionFilter `object`: Filter values for the action execution.
+  * pipelineExecutionId
+
+### ActionExecutionId
+* ActionExecutionId `string`
+
+### ActionExecutionInput
+* ActionExecutionInput `object`: Input information used for an action execution.
+  * actionTypeId [ActionTypeId](#actiontypeid)
+  * configuration
+  * inputArtifacts
+    * items [ArtifactDetail](#artifactdetail)
+  * namespace
+  * region
+  * resolvedConfiguration
+  * roleArn
+
+### ActionExecutionOutput
+* ActionExecutionOutput `object`: Output details listed for an action execution, such as the action execution result.
+  * executionResult
+    * externalExecutionId
+    * externalExecutionSummary
+    * externalExecutionUrl
+  * outputArtifacts
+    * items [ArtifactDetail](#artifactdetail)
+  * outputVariables
+
+### ActionExecutionResult
+* ActionExecutionResult `object`: Execution result information, such as the external execution ID.
+  * externalExecutionId
+  * externalExecutionSummary
+  * externalExecutionUrl
 
 ### ActionExecutionStatus
-* ActionExecutionStatus `string` (values: InProgress, Succeeded, Failed)
+* ActionExecutionStatus `string` (values: InProgress, Abandoned, Succeeded, Failed)
 
 ### ActionExecutionToken
 * ActionExecutionToken `string`
@@ -798,8 +1015,11 @@ amazonaws_codepipeline.UpdatePipeline({
 ### ActionName
 * ActionName `string`
 
+### ActionNamespace
+* ActionNamespace `string`
+
 ### ActionNotFoundException
-* ActionNotFoundException `object`: The specified action cannot be found.
+
 
 ### ActionOwner
 * ActionOwner `string` (values: AWS, ThirdParty, Custom)
@@ -809,20 +1029,35 @@ amazonaws_codepipeline.UpdatePipeline({
 
 ### ActionRevision
 * ActionRevision `object`: Represents information about the version (or revision) of an action.
-  * created **required** [Timestamp](#timestamp)
-  * revisionChangeId **required** [RevisionChangeIdentifier](#revisionchangeidentifier)
-  * revisionId **required** [Revision](#revision)
+  * created **required**
+  * revisionChangeId **required**
+  * revisionId **required**
 
 ### ActionRunOrder
 * ActionRunOrder `integer`
 
 ### ActionState
 * ActionState `object`: Represents information about the state of an action.
-  * actionName [ActionName](#actionname)
-  * currentRevision [ActionRevision](#actionrevision)
-  * entityUrl [Url](#url)
-  * latestExecution [ActionExecution](#actionexecution)
-  * revisionUrl [Url](#url)
+  * actionName
+  * currentRevision
+    * created **required**
+    * revisionChangeId **required**
+    * revisionId **required**
+  * entityUrl
+  * latestExecution
+    * actionExecutionId
+    * errorDetails
+      * code
+      * message
+    * externalExecutionId
+    * externalExecutionUrl
+    * lastStatusChange
+    * lastUpdatedBy
+    * percentComplete
+    * status
+    * summary
+    * token
+  * revisionUrl
 
 ### ActionStateList
 * ActionStateList `array`
@@ -830,40 +1065,53 @@ amazonaws_codepipeline.UpdatePipeline({
 
 ### ActionType
 * ActionType `object`: Returns information about the details of an action type.
-  * actionConfigurationProperties [ActionConfigurationPropertyList](#actionconfigurationpropertylist)
-  * id **required** [ActionTypeId](#actiontypeid)
-  * inputArtifactDetails **required** [ArtifactDetails](#artifactdetails)
-  * outputArtifactDetails **required** [ArtifactDetails](#artifactdetails)
-  * settings [ActionTypeSettings](#actiontypesettings)
+  * actionConfigurationProperties
+    * items [ActionConfigurationProperty](#actionconfigurationproperty)
+  * id **required**
+    * category **required**
+    * owner **required**
+    * provider **required**
+    * version **required**
+  * inputArtifactDetails **required**
+    * maximumCount **required**
+    * minimumCount **required**
+  * outputArtifactDetails **required**
+    * maximumCount **required**
+    * minimumCount **required**
+  * settings
+    * entityUrlTemplate
+    * executionUrlTemplate
+    * revisionUrlTemplate
+    * thirdPartyConfigurationUrl
 
 ### ActionTypeId
 * ActionTypeId `object`: Represents information about an action type.
-  * category **required** [ActionCategory](#actioncategory)
-  * owner **required** [ActionOwner](#actionowner)
-  * provider **required** [ActionProvider](#actionprovider)
-  * version **required** [Version](#version)
+  * category **required**
+  * owner **required**
+  * provider **required**
+  * version **required**
 
 ### ActionTypeList
 * ActionTypeList `array`
   * items [ActionType](#actiontype)
 
 ### ActionTypeNotFoundException
-* ActionTypeNotFoundException `object`: The specified action type cannot be found.
+
 
 ### ActionTypeSettings
 * ActionTypeSettings `object`: Returns information about the settings for an action type.
-  * entityUrlTemplate [UrlTemplate](#urltemplate)
-  * executionUrlTemplate [UrlTemplate](#urltemplate)
-  * revisionUrlTemplate [UrlTemplate](#urltemplate)
-  * thirdPartyConfigurationUrl [Url](#url)
+  * entityUrlTemplate
+  * executionUrlTemplate
+  * revisionUrlTemplate
+  * thirdPartyConfigurationUrl
 
 ### ApprovalAlreadyCompletedException
-* ApprovalAlreadyCompletedException `object`: The approval action has already been approved or rejected.
+
 
 ### ApprovalResult
 * ApprovalResult `object`: Represents information about the result of an approval request.
-  * status **required** [ApprovalStatus](#approvalstatus)
-  * summary **required** [ApprovalSummary](#approvalsummary)
+  * status **required**
+  * summary **required**
 
 ### ApprovalStatus
 * ApprovalStatus `string` (values: Approved, Rejected)
@@ -875,15 +1123,30 @@ amazonaws_codepipeline.UpdatePipeline({
 * ApprovalToken `string`
 
 ### Artifact
-* Artifact `object`: Represents information about an artifact that will be worked upon by actions in the pipeline.
-  * location [ArtifactLocation](#artifactlocation)
-  * name [ArtifactName](#artifactname)
-  * revision [Revision](#revision)
+* Artifact `object`: Represents information about an artifact that is worked on by actions in the pipeline.
+  * location
+    * s3Location
+      * bucketName **required**
+      * objectKey **required**
+    * type
+  * name
+  * revision
+
+### ArtifactDetail
+* ArtifactDetail `object`: Artifact details for the action execution, such as the artifact location.
+  * name
+  * s3location
+    * bucket
+    * key
+
+### ArtifactDetailList
+* ArtifactDetailList `array`
+  * items [ArtifactDetail](#artifactdetail)
 
 ### ArtifactDetails
 * ArtifactDetails `object`: Returns information about the details of an artifact.
-  * maximumCount **required** [MaximumArtifactCount](#maximumartifactcount)
-  * minimumCount **required** [MinimumArtifactCount](#minimumartifactcount)
+  * maximumCount **required**
+  * minimumCount **required**
 
 ### ArtifactList
 * ArtifactList `array`
@@ -891,8 +1154,10 @@ amazonaws_codepipeline.UpdatePipeline({
 
 ### ArtifactLocation
 * ArtifactLocation `object`: Represents information about the location of an artifact.
-  * s3Location [S3ArtifactLocation](#s3artifactlocation)
-  * type [ArtifactLocationType](#artifactlocationtype)
+  * s3Location
+    * bucketName **required**
+    * objectKey **required**
+  * type
 
 ### ArtifactLocationType
 * ArtifactLocationType `string` (values: S3)
@@ -902,33 +1167,38 @@ amazonaws_codepipeline.UpdatePipeline({
 
 ### ArtifactRevision
 * ArtifactRevision `object`: Represents revision details of an artifact. 
-  * created [Timestamp](#timestamp)
-  * name [ArtifactName](#artifactname)
-  * revisionChangeIdentifier [RevisionChangeIdentifier](#revisionchangeidentifier)
-  * revisionId [Revision](#revision)
-  * revisionSummary [RevisionSummary](#revisionsummary)
-  * revisionUrl [Url](#url)
+  * created
+  * name
+  * revisionChangeIdentifier
+  * revisionId
+  * revisionSummary
+  * revisionUrl
 
 ### ArtifactRevisionList
 * ArtifactRevisionList `array`
   * items [ArtifactRevision](#artifactrevision)
 
 ### ArtifactStore
-* ArtifactStore `object`: The Amazon S3 bucket where artifacts are stored for the pipeline.
-  * encryptionKey [EncryptionKey](#encryptionkey)
-  * location **required** [ArtifactStoreLocation](#artifactstorelocation)
-  * type **required** [ArtifactStoreType](#artifactstoretype)
+* ArtifactStore `object`: <p>The S3 bucket where artifacts for the pipeline are stored.</p> <note> <p>You must include either <code>artifactStore</code> or <code>artifactStores</code> in your pipeline, but you cannot use both. If you create a cross-region action in your pipeline, you must use <code>artifactStores</code>.</p> </note>
+  * encryptionKey
+    * id **required**
+    * type **required**
+  * location **required**
+  * type **required**
 
 ### ArtifactStoreLocation
 * ArtifactStoreLocation `string`
+
+### ArtifactStoreMap
+* ArtifactStoreMap `object`
 
 ### ArtifactStoreType
 * ArtifactStoreType `string` (values: S3)
 
 ### BlockerDeclaration
 * BlockerDeclaration `object`: Reserved for future use.
-  * name **required** [BlockerName](#blockername)
-  * type **required** [BlockerType](#blockertype)
+  * name **required**
+  * type **required**
 
 ### BlockerName
 * BlockerName `string`
@@ -942,64 +1212,132 @@ amazonaws_codepipeline.UpdatePipeline({
 ### ClientId
 * ClientId `string`
 
+### ClientRequestToken
+* ClientRequestToken `string`
+
 ### ClientToken
 * ClientToken `string`
 
 ### Code
 * Code `string`
 
+### ConcurrentModificationException
+
+
+### ConflictException
+
+
 ### ContinuationToken
 * ContinuationToken `string`
 
 ### CreateCustomActionTypeInput
 * CreateCustomActionTypeInput `object`: Represents the input of a CreateCustomActionType operation.
-  * category **required** [ActionCategory](#actioncategory)
-  * configurationProperties [ActionConfigurationPropertyList](#actionconfigurationpropertylist)
-  * inputArtifactDetails **required** [ArtifactDetails](#artifactdetails)
-  * outputArtifactDetails **required** [ArtifactDetails](#artifactdetails)
-  * provider **required** [ActionProvider](#actionprovider)
-  * settings [ActionTypeSettings](#actiontypesettings)
-  * version **required** [Version](#version)
+  * tags
+    * items [Tag](#tag)
+  * category **required**
+  * configurationProperties
+    * items [ActionConfigurationProperty](#actionconfigurationproperty)
+  * inputArtifactDetails **required**
+    * maximumCount **required**
+    * minimumCount **required**
+  * outputArtifactDetails **required**
+    * maximumCount **required**
+    * minimumCount **required**
+  * provider **required**
+  * settings
+    * entityUrlTemplate
+    * executionUrlTemplate
+    * revisionUrlTemplate
+    * thirdPartyConfigurationUrl
+  * version **required**
 
 ### CreateCustomActionTypeOutput
-* CreateCustomActionTypeOutput `object`: Represents the output of a CreateCustomActionType operation.
-  * actionType **required** [ActionType](#actiontype)
+* CreateCustomActionTypeOutput `object`: Represents the output of a <code>CreateCustomActionType</code> operation.
+  * tags
+    * items [Tag](#tag)
+  * actionType **required**
+    * actionConfigurationProperties
+      * items [ActionConfigurationProperty](#actionconfigurationproperty)
+    * id **required**
+      * category **required**
+      * owner **required**
+      * provider **required**
+      * version **required**
+    * inputArtifactDetails **required**
+      * maximumCount **required**
+      * minimumCount **required**
+    * outputArtifactDetails **required**
+      * maximumCount **required**
+      * minimumCount **required**
+    * settings
+      * entityUrlTemplate
+      * executionUrlTemplate
+      * revisionUrlTemplate
+      * thirdPartyConfigurationUrl
 
 ### CreatePipelineInput
-* CreatePipelineInput `object`: Represents the input of a CreatePipeline action.
-  * pipeline **required** [PipelineDeclaration](#pipelinedeclaration)
+* CreatePipelineInput `object`: Represents the input of a <code>CreatePipeline</code> action.
+  * tags
+    * items [Tag](#tag)
+  * pipeline **required**
+    * artifactStore
+      * encryptionKey
+        * id **required**
+        * type **required**
+      * location **required**
+      * type **required**
+    * artifactStores
+    * name **required**
+    * roleArn **required**
+    * stages **required**
+      * items [StageDeclaration](#stagedeclaration)
+    * version
 
 ### CreatePipelineOutput
-* CreatePipelineOutput `object`: Represents the output of a CreatePipeline action.
-  * pipeline [PipelineDeclaration](#pipelinedeclaration)
+* CreatePipelineOutput `object`: Represents the output of a <code>CreatePipeline</code> action.
+  * tags
+    * items [Tag](#tag)
+  * pipeline
+    * artifactStore
+      * encryptionKey
+        * id **required**
+        * type **required**
+      * location **required**
+      * type **required**
+    * artifactStores
+    * name **required**
+    * roleArn **required**
+    * stages **required**
+      * items [StageDeclaration](#stagedeclaration)
+    * version
 
 ### CurrentRevision
 * CurrentRevision `object`: Represents information about a current revision.
-  * changeIdentifier **required** [RevisionChangeIdentifier](#revisionchangeidentifier)
-  * created [Time](#time)
-  * revision **required** [Revision](#revision)
-  * revisionSummary [RevisionSummary](#revisionsummary)
+  * changeIdentifier **required**
+  * created
+  * revision **required**
+  * revisionSummary
 
 ### DeleteCustomActionTypeInput
-* DeleteCustomActionTypeInput `object`: Represents the input of a DeleteCustomActionType operation. The custom action will be marked as deleted.
-  * category **required** [ActionCategory](#actioncategory)
-  * provider **required** [ActionProvider](#actionprovider)
-  * version **required** [Version](#version)
+* DeleteCustomActionTypeInput `object`: Represents the input of a <code>DeleteCustomActionType</code> operation. The custom action will be marked as deleted.
+  * category **required**
+  * provider **required**
+  * version **required**
 
 ### DeletePipelineInput
-* DeletePipelineInput `object`: Represents the input of a DeletePipeline action.
-  * name **required** [PipelineName](#pipelinename)
+* DeletePipelineInput `object`: Represents the input of a <code>DeletePipeline</code> action.
+  * name **required**
 
 ### DeleteWebhookInput
 * DeleteWebhookInput `object`
-  * name **required** [WebhookName](#webhookname)
+  * name **required**
 
 ### DeleteWebhookOutput
 * DeleteWebhookOutput `object`
 
 ### DeregisterWebhookWithThirdPartyInput
 * DeregisterWebhookWithThirdPartyInput `object`
-  * webhookName [WebhookName](#webhookname)
+  * webhookName
 
 ### DeregisterWebhookWithThirdPartyOutput
 * DeregisterWebhookWithThirdPartyOutput `object`
@@ -1008,28 +1346,31 @@ amazonaws_codepipeline.UpdatePipeline({
 * Description `string`
 
 ### DisableStageTransitionInput
-* DisableStageTransitionInput `object`: Represents the input of a DisableStageTransition action.
-  * pipelineName **required** [PipelineName](#pipelinename)
-  * reason **required** [DisabledReason](#disabledreason)
-  * stageName **required** [StageName](#stagename)
-  * transitionType **required** [StageTransitionType](#stagetransitiontype)
+* DisableStageTransitionInput `object`: Represents the input of a <code>DisableStageTransition</code> action.
+  * pipelineName **required**
+  * reason **required**
+  * stageName **required**
+  * transitionType **required**
 
 ### DisabledReason
 * DisabledReason `string`
 
+### DuplicatedStopRequestException
+
+
 ### EnableStageTransitionInput
-* EnableStageTransitionInput `object`: Represents the input of an EnableStageTransition action.
-  * pipelineName **required** [PipelineName](#pipelinename)
-  * stageName **required** [StageName](#stagename)
-  * transitionType **required** [StageTransitionType](#stagetransitiontype)
+* EnableStageTransitionInput `object`: Represents the input of an <code>EnableStageTransition</code> action.
+  * pipelineName **required**
+  * stageName **required**
+  * transitionType **required**
 
 ### Enabled
 * Enabled `boolean`
 
 ### EncryptionKey
 * EncryptionKey `object`: Represents information about the key used to encrypt data in the artifact store, such as an AWS Key Management Service (AWS KMS) key.
-  * id **required** [EncryptionKeyId](#encryptionkeyid)
-  * type **required** [EncryptionKeyType](#encryptionkeytype)
+  * id **required**
+  * type **required**
 
 ### EncryptionKeyId
 * EncryptionKeyId `string`
@@ -1039,14 +1380,14 @@ amazonaws_codepipeline.UpdatePipeline({
 
 ### ErrorDetails
 * ErrorDetails `object`: Represents information about an error in AWS CodePipeline.
-  * code [Code](#code)
-  * message [Message](#message)
+  * code
+  * message
 
 ### ExecutionDetails
 * ExecutionDetails `object`: The details of the actions taken and results produced on an artifact as it passes through stages in the pipeline.
-  * externalExecutionId [ExecutionId](#executionid)
-  * percentComplete [Percentage](#percentage)
-  * summary [ExecutionSummary](#executionsummary)
+  * externalExecutionId
+  * percentComplete
+  * summary
 
 ### ExecutionId
 * ExecutionId `string`
@@ -1054,130 +1395,307 @@ amazonaws_codepipeline.UpdatePipeline({
 ### ExecutionSummary
 * ExecutionSummary `string`
 
+### ExecutionTrigger
+* ExecutionTrigger `object`: The interaction or event that started a pipeline execution.
+  * triggerDetail
+  * triggerType
+
+### ExternalExecutionId
+* ExternalExecutionId `string`
+
+### ExternalExecutionSummary
+* ExternalExecutionSummary `string`
+
 ### FailureDetails
 * FailureDetails `object`: Represents information about failure details.
-  * externalExecutionId [ExecutionId](#executionid)
-  * message **required** [Message](#message)
-  * type **required** [FailureType](#failuretype)
+  * externalExecutionId
+  * message **required**
+  * type **required**
 
 ### FailureType
 * FailureType `string` (values: JobFailed, ConfigurationError, PermissionError, RevisionOutOfSync, RevisionUnavailable, SystemUnavailable)
 
 ### GetJobDetailsInput
-* GetJobDetailsInput `object`: Represents the input of a GetJobDetails action.
-  * jobId **required** [JobId](#jobid)
+* GetJobDetailsInput `object`: Represents the input of a <code>GetJobDetails</code> action.
+  * jobId **required**
 
 ### GetJobDetailsOutput
-* GetJobDetailsOutput `object`: Represents the output of a GetJobDetails action.
-  * jobDetails [JobDetails](#jobdetails)
+* GetJobDetailsOutput `object`: Represents the output of a <code>GetJobDetails</code> action.
+  * jobDetails
+    * accountId
+    * data
+      * actionConfiguration
+        * configuration
+      * actionTypeId
+        * category **required**
+        * owner **required**
+        * provider **required**
+        * version **required**
+      * artifactCredentials
+        * accessKeyId **required**
+        * secretAccessKey **required**
+        * sessionToken **required**
+      * continuationToken
+      * encryptionKey
+        * id **required**
+        * type **required**
+      * inputArtifacts
+        * items [Artifact](#artifact)
+      * outputArtifacts
+        * items [Artifact](#artifact)
+      * pipelineContext
+        * action
+          * actionExecutionId
+          * name
+        * pipelineArn
+        * pipelineExecutionId
+        * pipelineName
+        * stage
+          * name
+    * id
 
 ### GetPipelineExecutionInput
-* GetPipelineExecutionInput `object`: Represents the input of a GetPipelineExecution action.
-  * pipelineExecutionId **required** [PipelineExecutionId](#pipelineexecutionid)
-  * pipelineName **required** [PipelineName](#pipelinename)
+* GetPipelineExecutionInput `object`: Represents the input of a <code>GetPipelineExecution</code> action.
+  * pipelineExecutionId **required**
+  * pipelineName **required**
 
 ### GetPipelineExecutionOutput
-* GetPipelineExecutionOutput `object`: Represents the output of a GetPipelineExecution action.
-  * pipelineExecution [PipelineExecution](#pipelineexecution)
+* GetPipelineExecutionOutput `object`: Represents the output of a <code>GetPipelineExecution</code> action.
+  * pipelineExecution
+    * artifactRevisions
+      * items [ArtifactRevision](#artifactrevision)
+    * pipelineExecutionId
+    * pipelineName
+    * pipelineVersion
+    * status
 
 ### GetPipelineInput
-* GetPipelineInput `object`: Represents the input of a GetPipeline action.
-  * name **required** [PipelineName](#pipelinename)
-  * version [PipelineVersion](#pipelineversion)
+* GetPipelineInput `object`: Represents the input of a <code>GetPipeline</code> action.
+  * name **required**
+  * version
 
 ### GetPipelineOutput
-* GetPipelineOutput `object`: Represents the output of a GetPipeline action.
-  * metadata [PipelineMetadata](#pipelinemetadata)
-  * pipeline [PipelineDeclaration](#pipelinedeclaration)
+* GetPipelineOutput `object`: Represents the output of a <code>GetPipeline</code> action.
+  * metadata
+    * created
+    * pipelineArn
+    * updated
+  * pipeline
+    * artifactStore
+      * encryptionKey
+        * id **required**
+        * type **required**
+      * location **required**
+      * type **required**
+    * artifactStores
+    * name **required**
+    * roleArn **required**
+    * stages **required**
+      * items [StageDeclaration](#stagedeclaration)
+    * version
 
 ### GetPipelineStateInput
-* GetPipelineStateInput `object`: Represents the input of a GetPipelineState action.
-  * name **required** [PipelineName](#pipelinename)
+* GetPipelineStateInput `object`: Represents the input of a <code>GetPipelineState</code> action.
+  * name **required**
 
 ### GetPipelineStateOutput
-* GetPipelineStateOutput `object`: Represents the output of a GetPipelineState action.
-  * created [Timestamp](#timestamp)
-  * pipelineName [PipelineName](#pipelinename)
-  * pipelineVersion [PipelineVersion](#pipelineversion)
-  * stageStates [StageStateList](#stagestatelist)
-  * updated [Timestamp](#timestamp)
+* GetPipelineStateOutput `object`: Represents the output of a <code>GetPipelineState</code> action.
+  * created
+  * pipelineName
+  * pipelineVersion
+  * stageStates
+    * items [StageState](#stagestate)
+  * updated
 
 ### GetThirdPartyJobDetailsInput
-* GetThirdPartyJobDetailsInput `object`: Represents the input of a GetThirdPartyJobDetails action.
-  * clientToken **required** [ClientToken](#clienttoken)
-  * jobId **required** [ThirdPartyJobId](#thirdpartyjobid)
+* GetThirdPartyJobDetailsInput `object`: Represents the input of a <code>GetThirdPartyJobDetails</code> action.
+  * clientToken **required**
+  * jobId **required**
 
 ### GetThirdPartyJobDetailsOutput
-* GetThirdPartyJobDetailsOutput `object`: Represents the output of a GetThirdPartyJobDetails action.
-  * jobDetails [ThirdPartyJobDetails](#thirdpartyjobdetails)
+* GetThirdPartyJobDetailsOutput `object`: Represents the output of a <code>GetThirdPartyJobDetails</code> action.
+  * jobDetails
+    * data
+      * actionConfiguration
+        * configuration
+      * actionTypeId
+        * category **required**
+        * owner **required**
+        * provider **required**
+        * version **required**
+      * artifactCredentials
+        * accessKeyId **required**
+        * secretAccessKey **required**
+        * sessionToken **required**
+      * continuationToken
+      * encryptionKey
+        * id **required**
+        * type **required**
+      * inputArtifacts
+        * items [Artifact](#artifact)
+      * outputArtifacts
+        * items [Artifact](#artifact)
+      * pipelineContext
+        * action
+          * actionExecutionId
+          * name
+        * pipelineArn
+        * pipelineExecutionId
+        * pipelineName
+        * stage
+          * name
+    * id
+    * nonce
 
 ### InputArtifact
 * InputArtifact `object`: Represents information about an artifact to be worked on, such as a test or build artifact.
-  * name **required** [ArtifactName](#artifactname)
+  * name **required**
 
 ### InputArtifactList
 * InputArtifactList `array`
   * items [InputArtifact](#inputartifact)
 
 ### InvalidActionDeclarationException
-* InvalidActionDeclarationException `object`: The specified action declaration was specified in an invalid format.
+
 
 ### InvalidApprovalTokenException
-* InvalidApprovalTokenException `object`: The approval request already received a response or has expired.
+
+
+### InvalidArnException
+
 
 ### InvalidBlockerDeclarationException
-* InvalidBlockerDeclarationException `object`: Reserved for future use.
+
 
 ### InvalidClientTokenException
-* InvalidClientTokenException `object`: The client token was specified in an invalid format
+
 
 ### InvalidJobException
-* InvalidJobException `object`: The specified job was specified in an invalid format or cannot be found.
+
 
 ### InvalidJobStateException
-* InvalidJobStateException `object`: The specified job state was specified in an invalid format.
+
 
 ### InvalidNextTokenException
-* InvalidNextTokenException `object`: The next token was specified in an invalid format. Make sure that the next token you provided is the token returned by a previous call.
+
 
 ### InvalidNonceException
-* InvalidNonceException `object`: The specified nonce was specified in an invalid format.
+
 
 ### InvalidStageDeclarationException
-* InvalidStageDeclarationException `object`: The specified stage declaration was specified in an invalid format.
+
 
 ### InvalidStructureException
-* InvalidStructureException `object`: The specified structure was specified in an invalid format.
+
+
+### InvalidTagsException
+
 
 ### InvalidWebhookAuthenticationParametersException
-* InvalidWebhookAuthenticationParametersException `object`: The specified authentication type is in an invalid format.
+
 
 ### InvalidWebhookFilterPatternException
-* InvalidWebhookFilterPatternException `object`: The specified event filter rule is in an invalid format.
+
 
 ### Job
 * Job `object`: Represents information about a job.
-  * accountId [AccountId](#accountid)
-  * data [JobData](#jobdata)
-  * id [JobId](#jobid)
-  * nonce [Nonce](#nonce)
+  * accountId
+  * data
+    * actionConfiguration
+      * configuration
+    * actionTypeId
+      * category **required**
+      * owner **required**
+      * provider **required**
+      * version **required**
+    * artifactCredentials
+      * accessKeyId **required**
+      * secretAccessKey **required**
+      * sessionToken **required**
+    * continuationToken
+    * encryptionKey
+      * id **required**
+      * type **required**
+    * inputArtifacts
+      * items [Artifact](#artifact)
+    * outputArtifacts
+      * items [Artifact](#artifact)
+    * pipelineContext
+      * action
+        * actionExecutionId
+        * name
+      * pipelineArn
+      * pipelineExecutionId
+      * pipelineName
+      * stage
+        * name
+  * id
+  * nonce
 
 ### JobData
-* JobData `object`: Represents additional information about a job required for a job worker to complete the job.
-  * actionConfiguration [ActionConfiguration](#actionconfiguration)
-  * actionTypeId [ActionTypeId](#actiontypeid)
-  * artifactCredentials [AWSSessionCredentials](#awssessioncredentials)
-  * continuationToken [ContinuationToken](#continuationtoken)
-  * encryptionKey [EncryptionKey](#encryptionkey)
-  * inputArtifacts [ArtifactList](#artifactlist)
-  * outputArtifacts [ArtifactList](#artifactlist)
-  * pipelineContext [PipelineContext](#pipelinecontext)
+* JobData `object`: Represents other information about a job required for a job worker to complete the job.
+  * actionConfiguration
+    * configuration
+  * actionTypeId
+    * category **required**
+    * owner **required**
+    * provider **required**
+    * version **required**
+  * artifactCredentials
+    * accessKeyId **required**
+    * secretAccessKey **required**
+    * sessionToken **required**
+  * continuationToken
+  * encryptionKey
+    * id **required**
+    * type **required**
+  * inputArtifacts
+    * items [Artifact](#artifact)
+  * outputArtifacts
+    * items [Artifact](#artifact)
+  * pipelineContext
+    * action
+      * actionExecutionId
+      * name
+    * pipelineArn
+    * pipelineExecutionId
+    * pipelineName
+    * stage
+      * name
 
 ### JobDetails
 * JobDetails `object`: Represents information about the details of a job.
-  * accountId [AccountId](#accountid)
-  * data [JobData](#jobdata)
-  * id [JobId](#jobid)
+  * accountId
+  * data
+    * actionConfiguration
+      * configuration
+    * actionTypeId
+      * category **required**
+      * owner **required**
+      * provider **required**
+      * version **required**
+    * artifactCredentials
+      * accessKeyId **required**
+      * secretAccessKey **required**
+      * sessionToken **required**
+    * continuationToken
+    * encryptionKey
+      * id **required**
+      * type **required**
+    * inputArtifacts
+      * items [Artifact](#artifact)
+    * outputArtifacts
+      * items [Artifact](#artifact)
+    * pipelineContext
+      * action
+        * actionExecutionId
+        * name
+      * pipelineArn
+      * pipelineExecutionId
+      * pipelineName
+      * stage
+        * name
+  * id
 
 ### JobId
 * JobId `string`
@@ -1187,7 +1705,7 @@ amazonaws_codepipeline.UpdatePipeline({
   * items [Job](#job)
 
 ### JobNotFoundException
-* JobNotFoundException `object`: The specified job was specified in an invalid format or cannot be found.
+
 
 ### JobStatus
 * JobStatus `string` (values: Created, Queued, Dispatched, InProgress, TimedOut, Succeeded, Failed)
@@ -1205,56 +1723,97 @@ amazonaws_codepipeline.UpdatePipeline({
 * LastUpdatedBy `string`
 
 ### LimitExceededException
-* LimitExceededException `object`: The number of pipelines associated with the AWS account has exceeded the limit allowed for the account.
+
+
+### ListActionExecutionsInput
+* ListActionExecutionsInput `object`
+  * filter
+    * pipelineExecutionId
+  * maxResults
+  * nextToken
+  * pipelineName **required**
+
+### ListActionExecutionsOutput
+* ListActionExecutionsOutput `object`
+  * actionExecutionDetails
+    * items [ActionExecutionDetail](#actionexecutiondetail)
+  * nextToken
 
 ### ListActionTypesInput
-* ListActionTypesInput `object`: Represents the input of a ListActionTypes action.
-  * actionOwnerFilter [ActionOwner](#actionowner)
-  * nextToken [NextToken](#nexttoken)
+* ListActionTypesInput `object`: Represents the input of a <code>ListActionTypes</code> action.
+  * actionOwnerFilter
+  * nextToken
 
 ### ListActionTypesOutput
-* ListActionTypesOutput `object`: Represents the output of a ListActionTypes action.
-  * actionTypes **required** [ActionTypeList](#actiontypelist)
-  * nextToken [NextToken](#nexttoken)
+* ListActionTypesOutput `object`: Represents the output of a <code>ListActionTypes</code> action.
+  * actionTypes **required**
+    * items [ActionType](#actiontype)
+  * nextToken
 
 ### ListPipelineExecutionsInput
-* ListPipelineExecutionsInput `object`: Represents the input of a ListPipelineExecutions action.
-  * maxResults [MaxResults](#maxresults)
-  * nextToken [NextToken](#nexttoken)
-  * pipelineName **required** [PipelineName](#pipelinename)
+* ListPipelineExecutionsInput `object`: Represents the input of a <code>ListPipelineExecutions</code> action.
+  * maxResults
+  * nextToken
+  * pipelineName **required**
 
 ### ListPipelineExecutionsOutput
-* ListPipelineExecutionsOutput `object`: Represents the output of a ListPipelineExecutions action.
-  * nextToken [NextToken](#nexttoken)
-  * pipelineExecutionSummaries [PipelineExecutionSummaryList](#pipelineexecutionsummarylist)
+* ListPipelineExecutionsOutput `object`: Represents the output of a <code>ListPipelineExecutions</code> action.
+  * nextToken
+  * pipelineExecutionSummaries
+    * items [PipelineExecutionSummary](#pipelineexecutionsummary)
 
 ### ListPipelinesInput
-* ListPipelinesInput `object`: Represents the input of a ListPipelines action.
-  * nextToken [NextToken](#nexttoken)
+* ListPipelinesInput `object`: Represents the input of a <code>ListPipelines</code> action.
+  * nextToken
 
 ### ListPipelinesOutput
-* ListPipelinesOutput `object`: Represents the output of a ListPipelines action.
-  * nextToken [NextToken](#nexttoken)
-  * pipelines [PipelineList](#pipelinelist)
+* ListPipelinesOutput `object`: Represents the output of a <code>ListPipelines</code> action.
+  * nextToken
+  * pipelines
+    * items [PipelineSummary](#pipelinesummary)
+
+### ListTagsForResourceInput
+* ListTagsForResourceInput `object`
+  * maxResults
+  * nextToken
+  * resourceArn **required**
+
+### ListTagsForResourceOutput
+* ListTagsForResourceOutput `object`
+  * tags
+    * items [Tag](#tag)
+  * nextToken
 
 ### ListWebhookItem
 * ListWebhookItem `object`: The detail returned for each webhook after listing webhooks, such as the webhook URL, the webhook name, and the webhook ARN.
-  * arn [WebhookArn](#webhookarn)
-  * definition **required** [WebhookDefinition](#webhookdefinition)
-  * errorCode [WebhookErrorCode](#webhookerrorcode)
-  * errorMessage [WebhookErrorMessage](#webhookerrormessage)
-  * lastTriggered [WebhookLastTriggered](#webhooklasttriggered)
-  * url **required** [WebhookUrl](#webhookurl)
+  * tags
+    * items [Tag](#tag)
+  * arn
+  * definition **required**
+    * authentication **required**
+    * authenticationConfiguration **required**
+      * AllowedIPRange
+      * SecretToken
+    * filters **required**
+      * items [WebhookFilterRule](#webhookfilterrule)
+    * name **required**
+    * targetAction **required**
+    * targetPipeline **required**
+  * errorCode
+  * errorMessage
+  * lastTriggered
+  * url **required**
 
 ### ListWebhooksInput
 * ListWebhooksInput `object`
-  * MaxResults [MaxResults](#maxresults)
-  * NextToken [NextToken](#nexttoken)
+  * MaxResults
+  * NextToken
 
 ### ListWebhooksOutput
 * ListWebhooksOutput `object`
-  * NextToken [NextToken](#nexttoken)
-  * webhooks [WebhookList](#webhooklist)
+  * NextToken
+  * webhooks
+    * items [ListWebhookItem](#listwebhookitem)
 
 ### MatchEquals
 * MatchEquals `string`
@@ -1281,15 +1840,27 @@ amazonaws_codepipeline.UpdatePipeline({
 * Nonce `string`
 
 ### NotLatestPipelineExecutionException
-* NotLatestPipelineExecutionException `object`: The stage has failed in a later run of the pipeline and the pipelineExecutionId associated with the request is out of date.
+
 
 ### OutputArtifact
 * OutputArtifact `object`: Represents information about the output of an action.
-  * name **required** [ArtifactName](#artifactname)
+  * name **required**
 
 ### OutputArtifactList
 * OutputArtifactList `array`
   * items [OutputArtifact](#outputartifact)
+
+### OutputVariablesKey
+* OutputVariablesKey `string`
+
+### OutputVariablesMap
+* OutputVariablesMap `object`
+
+### OutputVariablesSizeExceededException
+
+
+### OutputVariablesValue
+* OutputVariablesValue `string`
 
 ### Percentage
 * Percentage `integer`
@@ -1298,43 +1869,65 @@ amazonaws_codepipeline.UpdatePipeline({
 * PipelineArn `string`
 
 ### PipelineContext
-* PipelineContext `object`: Represents information about a pipeline to a job worker.
-  * action [ActionContext](#actioncontext)
-  * pipelineName [PipelineName](#pipelinename)
-  * stage [StageContext](#stagecontext)
+* PipelineContext `object`: <p>Represents information about a pipeline to a job worker.</p> <note> <p>PipelineContext contains <code>pipelineArn</code> and <code>pipelineExecutionId</code> for custom action jobs. The <code>pipelineArn</code> and <code>pipelineExecutionId</code> fields are not populated for ThirdParty action jobs.</p> </note>
+  * action
+    * actionExecutionId
+    * name
+  * pipelineArn
+  * pipelineExecutionId
+  * pipelineName
+  * stage
+    * name
 
 ### PipelineDeclaration
 * PipelineDeclaration `object`: Represents the structure of actions and stages to be performed in the pipeline.
-  * artifactStore **required** [ArtifactStore](#artifactstore)
-  * name **required** [PipelineName](#pipelinename)
-  * roleArn **required** [RoleArn](#rolearn)
-  * stages **required** [PipelineStageDeclarationList](#pipelinestagedeclarationlist)
-  * version [PipelineVersion](#pipelineversion)
+  * artifactStore
+    * encryptionKey
+      * id **required**
+      * type **required**
+    * location **required**
+    * type **required**
+  * artifactStores
+  * name **required**
+  * roleArn **required**
+  * stages **required**
+    * items [StageDeclaration](#stagedeclaration)
+  * version
 
 ### PipelineExecution
 * PipelineExecution `object`: Represents information about an execution of a pipeline.
-  * artifactRevisions [ArtifactRevisionList](#artifactrevisionlist)
-  * pipelineExecutionId [PipelineExecutionId](#pipelineexecutionid)
-  * pipelineName [PipelineName](#pipelinename)
-  * pipelineVersion [PipelineVersion](#pipelineversion)
-  * status [PipelineExecutionStatus](#pipelineexecutionstatus)
+  * artifactRevisions
+    * items [ArtifactRevision](#artifactrevision)
+  * pipelineExecutionId
+  * pipelineName
+  * pipelineVersion
+  * status
 
 ### PipelineExecutionId
 * PipelineExecutionId `string`
 
 ### PipelineExecutionNotFoundException
-* PipelineExecutionNotFoundException `object`: The pipeline execution was specified in an invalid format or cannot be found, or an execution ID does not belong to the specified pipeline. 
+
+
+### PipelineExecutionNotStoppableException
+
 
 ### PipelineExecutionStatus
-* PipelineExecutionStatus `string` (values: InProgress, Succeeded, Superseded, Failed)
+* PipelineExecutionStatus `string` (values: InProgress, Stopped, Stopping, Succeeded, Superseded, Failed)
 
 ### PipelineExecutionSummary
 * PipelineExecutionSummary `object`: Summary information about a pipeline execution.
-  * lastUpdateTime [Timestamp](#timestamp)
-  * pipelineExecutionId [PipelineExecutionId](#pipelineexecutionid)
-  * sourceRevisions [SourceRevisionList](#sourcerevisionlist)
-  * startTime [Timestamp](#timestamp)
-  * status [PipelineExecutionStatus](#pipelineexecutionstatus)
+  * lastUpdateTime
+  * pipelineExecutionId
+  * sourceRevisions
+    * items [SourceRevision](#sourcerevision)
+  * startTime
+  * status
+  * stopTrigger
+    * reason
+  * trigger
+    * triggerDetail
+    * triggerType
 
 ### PipelineExecutionSummaryList
 * PipelineExecutionSummaryList `array`
@@ -1346,18 +1939,18 @@ amazonaws_codepipeline.UpdatePipeline({
 
 ### PipelineMetadata
 * PipelineMetadata `object`: Information about a pipeline.
-  * created [Timestamp](#timestamp)
-  * pipelineArn [PipelineArn](#pipelinearn)
-  * updated [Timestamp](#timestamp)
+  * created
+  * pipelineArn
+  * updated
 
 ### PipelineName
 * PipelineName `string`
 
 ### PipelineNameInUseException
-* PipelineNameInUseException `object`: The specified pipeline name is already in use.
+
 
 ### PipelineNotFoundException
-* PipelineNotFoundException `object`: The specified pipeline was specified in an invalid format or cannot be found.
+
 
 ### PipelineStageDeclarationList
 * PipelineStageDeclarationList `array`
@@ -1365,117 +1958,187 @@ amazonaws_codepipeline.UpdatePipeline({
 
 ### PipelineSummary
 * PipelineSummary `object`: Returns a summary of a pipeline.
-  * created [Timestamp](#timestamp)
-  * name [PipelineName](#pipelinename)
-  * updated [Timestamp](#timestamp)
-  * version [PipelineVersion](#pipelineversion)
+  * created
+  * name
+  * updated
+  * version
 
 ### PipelineVersion
 * PipelineVersion `integer`
 
 ### PipelineVersionNotFoundException
-* PipelineVersionNotFoundException `object`: The specified pipeline version was specified in an invalid format or cannot be found.
+
 
 ### PollForJobsInput
-* PollForJobsInput `object`: Represents the input of a PollForJobs action.
-  * actionTypeId **required** [ActionTypeId](#actiontypeid)
-  * maxBatchSize [MaxBatchSize](#maxbatchsize)
-  * queryParam [QueryParamMap](#queryparammap)
+* PollForJobsInput `object`: Represents the input of a <code>PollForJobs</code> action.
+  * actionTypeId **required**
+    * category **required**
+    * owner **required**
+    * provider **required**
+    * version **required**
+  * maxBatchSize
+  * queryParam
 
 ### PollForJobsOutput
-* PollForJobsOutput `object`: Represents the output of a PollForJobs action.
-  * jobs [JobList](#joblist)
+* PollForJobsOutput `object`: Represents the output of a <code>PollForJobs</code> action.
+  * jobs
+    * items [Job](#job)
 
 ### PollForThirdPartyJobsInput
-* PollForThirdPartyJobsInput `object`: Represents the input of a PollForThirdPartyJobs action.
-  * actionTypeId **required** [ActionTypeId](#actiontypeid)
-  * maxBatchSize [MaxBatchSize](#maxbatchsize)
+* PollForThirdPartyJobsInput `object`: Represents the input of a <code>PollForThirdPartyJobs</code> action.
+  * actionTypeId **required**
+    * category **required**
+    * owner **required**
+    * provider **required**
+    * version **required**
+  * maxBatchSize
 
 ### PollForThirdPartyJobsOutput
-* PollForThirdPartyJobsOutput `object`: Represents the output of a PollForThirdPartyJobs action.
-  * jobs [ThirdPartyJobList](#thirdpartyjoblist)
+* PollForThirdPartyJobsOutput `object`: Represents the output of a <code>PollForThirdPartyJobs</code> action.
+  * jobs
+    * items [ThirdPartyJob](#thirdpartyjob)
 
 ### PutActionRevisionInput
-* PutActionRevisionInput `object`: Represents the input of a PutActionRevision action.
-  * actionName **required** [ActionName](#actionname)
-  * actionRevision **required** [ActionRevision](#actionrevision)
-  * pipelineName **required** [PipelineName](#pipelinename)
-  * stageName **required** [StageName](#stagename)
+* PutActionRevisionInput `object`: Represents the input of a <code>PutActionRevision</code> action.
+  * actionName **required**
+  * actionRevision **required**
+    * created **required**
+    * revisionChangeId **required**
+    * revisionId **required**
+  * pipelineName **required**
+  * stageName **required**
 
 ### PutActionRevisionOutput
-* PutActionRevisionOutput `object`: Represents the output of a PutActionRevision action.
-  * newRevision [Boolean](#boolean)
-  * pipelineExecutionId [PipelineExecutionId](#pipelineexecutionid)
+* PutActionRevisionOutput `object`: Represents the output of a <code>PutActionRevision</code> action.
+  * newRevision
+  * pipelineExecutionId
 
 ### PutApprovalResultInput
-* PutApprovalResultInput `object`: Represents the input of a PutApprovalResult action.
-  * actionName **required** [ActionName](#actionname)
-  * pipelineName **required** [PipelineName](#pipelinename)
-  * result **required** [ApprovalResult](#approvalresult)
-  * stageName **required** [StageName](#stagename)
-  * token **required** [ApprovalToken](#approvaltoken)
+* PutApprovalResultInput `object`: Represents the input of a <code>PutApprovalResult</code> action.
+  * actionName **required**
+  * pipelineName **required**
+  * result **required**
+    * status **required**
+    * summary **required**
+  * stageName **required**
+  * token **required**
 
 ### PutApprovalResultOutput
-* PutApprovalResultOutput `object`: Represents the output of a PutApprovalResult action.
-  * approvedAt [Timestamp](#timestamp)
+* PutApprovalResultOutput `object`: Represents the output of a <code>PutApprovalResult</code> action.
+  * approvedAt
 
 ### PutJobFailureResultInput
-* PutJobFailureResultInput `object`: Represents the input of a PutJobFailureResult action.
-  * failureDetails **required** [FailureDetails](#failuredetails)
-  * jobId **required** [JobId](#jobid)
+* PutJobFailureResultInput `object`: Represents the input of a <code>PutJobFailureResult</code> action.
+  * failureDetails **required**
+    * externalExecutionId
+    * message **required**
+    * type **required**
+  * jobId **required**
 
 ### PutJobSuccessResultInput
-* PutJobSuccessResultInput `object`: Represents the input of a PutJobSuccessResult action.
-  * continuationToken [ContinuationToken](#continuationtoken)
-  * currentRevision [CurrentRevision](#currentrevision)
-  * executionDetails [ExecutionDetails](#executiondetails)
-  * jobId **required** [JobId](#jobid)
+* PutJobSuccessResultInput `object`: Represents the input of a <code>PutJobSuccessResult</code> action.
+  * continuationToken
+  * currentRevision
+    * changeIdentifier **required**
+    * created
+    * revision **required**
+    * revisionSummary
+  * executionDetails
+    * externalExecutionId
+    * percentComplete
+    * summary
+  * jobId **required**
+  * outputVariables
 
 ### PutThirdPartyJobFailureResultInput
-* PutThirdPartyJobFailureResultInput `object`: Represents the input of a PutThirdPartyJobFailureResult action.
-  * clientToken **required** [ClientToken](#clienttoken)
-  * failureDetails **required** [FailureDetails](#failuredetails)
-  * jobId **required** [ThirdPartyJobId](#thirdpartyjobid)
+* PutThirdPartyJobFailureResultInput `object`: Represents the input of a <code>PutThirdPartyJobFailureResult</code> action.
+  * clientToken **required**
+  * failureDetails **required**
+    * externalExecutionId
+    * message **required**
+    * type **required**
+  * jobId **required**
 
 ### PutThirdPartyJobSuccessResultInput
-* PutThirdPartyJobSuccessResultInput `object`: Represents the input of a PutThirdPartyJobSuccessResult action.
-  * clientToken **required** [ClientToken](#clienttoken)
-  * continuationToken [ContinuationToken](#continuationtoken)
-  * currentRevision [CurrentRevision](#currentrevision)
-  * executionDetails [ExecutionDetails](#executiondetails)
-  * jobId **required** [ThirdPartyJobId](#thirdpartyjobid)
+* PutThirdPartyJobSuccessResultInput `object`: Represents the input of a <code>PutThirdPartyJobSuccessResult</code> action.
+  * clientToken **required**
+  * continuationToken
+  * currentRevision
+    * changeIdentifier **required**
+    * created
+    * revision **required**
+    * revisionSummary
+  * executionDetails
+    * externalExecutionId
+    * percentComplete
+    * summary
+  * jobId **required**
 
 ### PutWebhookInput
 * PutWebhookInput `object`
-  * webhook **required** [WebhookDefinition](#webhookdefinition)
+  * tags
+    * items [Tag](#tag)
+  * webhook **required**
+    * authentication **required**
+    * authenticationConfiguration **required**
+      * AllowedIPRange
+      * SecretToken
+    * filters **required**
+      * items [WebhookFilterRule](#webhookfilterrule)
+    * name **required**
+    * targetAction **required**
+    * targetPipeline **required**
 
 ### PutWebhookOutput
 * PutWebhookOutput `object`
-  * webhook [ListWebhookItem](#listwebhookitem)
+  * webhook
+    * tags
+      * items [Tag](#tag)
+    * arn
+    * definition **required**
+      * authentication **required**
+      * authenticationConfiguration **required**
+        * AllowedIPRange
+        * SecretToken
+      * filters **required**
+        * items [WebhookFilterRule](#webhookfilterrule)
+      * name **required**
+      * targetAction **required**
+      * targetPipeline **required**
+    * errorCode
+    * errorMessage
+    * lastTriggered
+    * url **required**
 
 ### QueryParamMap
-* QueryParamMap `array`
-  * items `object`
-    * key [ActionConfigurationKey](#actionconfigurationkey)
-    * value [ActionConfigurationQueryableValue](#actionconfigurationqueryablevalue)
+* QueryParamMap `object`
 
 ### RegisterWebhookWithThirdPartyInput
 * RegisterWebhookWithThirdPartyInput `object`
-  * webhookName [WebhookName](#webhookname)
+  * webhookName
 
 ### RegisterWebhookWithThirdPartyOutput
 * RegisterWebhookWithThirdPartyOutput `object`
 
+### ResolvedActionConfigurationMap
+* ResolvedActionConfigurationMap `object`
+
+### ResourceArn
+* ResourceArn `string`
+
+### ResourceNotFoundException
+
+
 ### RetryStageExecutionInput
-* RetryStageExecutionInput `object`: Represents the input of a RetryStageExecution action.
-  * pipelineExecutionId **required** [PipelineExecutionId](#pipelineexecutionid)
-  * pipelineName **required** [PipelineName](#pipelinename)
-  * retryMode **required** [StageRetryMode](#stageretrymode)
-  * stageName **required** [StageName](#stagename)
+* RetryStageExecutionInput `object`: Represents the input of a <code>RetryStageExecution</code> action.
+  * pipelineExecutionId **required**
+  * pipelineName **required**
+  * retryMode **required**
+  * stageName **required**
 
 ### RetryStageExecutionOutput
-* RetryStageExecutionOutput `object`: Represents the output of a RetryStageExecution action.
-  * pipelineExecutionId [PipelineExecutionId](#pipelineexecutionid)
+* RetryStageExecutionOutput `object`: Represents the output of a <code>RetryStageExecution</code> action.
+  * pipelineExecutionId
 
 ### Revision
 * Revision `string`
@@ -1490,12 +2153,23 @@ amazonaws_codepipeline.UpdatePipeline({
 * RoleArn `string`
 
 ### S3ArtifactLocation
-* S3ArtifactLocation `object`: The location of the Amazon S3 bucket that contains a revision.
-  * bucketName **required** [S3BucketName](#s3bucketname)
-  * objectKey **required** [S3ObjectKey](#s3objectkey)
+* S3ArtifactLocation `object`: The location of the S3 bucket that contains a revision.
+  * bucketName **required**
+  * objectKey **required**
+
+### S3Bucket
+* S3Bucket `string`
 
 ### S3BucketName
 * S3BucketName `string`
+
+### S3Key
+* S3Key `string`
+
+### S3Location
+* S3Location `object`: The Amazon S3 artifact location for an action's artifacts.
+  * bucket
+  * key
 
 ### S3ObjectKey
 * S3ObjectKey `string`
@@ -1507,11 +2181,11 @@ amazonaws_codepipeline.UpdatePipeline({
 * SessionToken `string`
 
 ### SourceRevision
-* SourceRevision `object`
-  * actionName **required** [ActionName](#actionname)
-  * revisionId [Revision](#revision)
-  * revisionSummary [RevisionSummary](#revisionsummary)
-  * revisionUrl [Url](#url)
+* SourceRevision `object`: Information about the version (or revision) of a source artifact that initiated a pipeline execution.
+  * actionName **required**
+  * revisionId
+  * revisionSummary
+  * revisionUrl
 
 ### SourceRevisionList
 * SourceRevisionList `array`
@@ -1527,40 +2201,50 @@ amazonaws_codepipeline.UpdatePipeline({
 
 ### StageContext
 * StageContext `object`: Represents information about a stage to a job worker.
-  * name [StageName](#stagename)
+  * name
 
 ### StageDeclaration
 * StageDeclaration `object`: Represents information about a stage and its definition.
-  * actions **required** [StageActionDeclarationList](#stageactiondeclarationlist)
-  * blockers [StageBlockerDeclarationList](#stageblockerdeclarationlist)
-  * name **required** [StageName](#stagename)
+  * actions **required**
+    * items [ActionDeclaration](#actiondeclaration)
+  * blockers
+    * items [BlockerDeclaration](#blockerdeclaration)
+  * name **required**
 
 ### StageExecution
 * StageExecution `object`: Represents information about the run of a stage.
-  * pipelineExecutionId **required** [PipelineExecutionId](#pipelineexecutionid)
-  * status **required** [StageExecutionStatus](#stageexecutionstatus)
+  * pipelineExecutionId **required**
+  * status **required**
 
 ### StageExecutionStatus
-* StageExecutionStatus `string` (values: InProgress, Failed, Succeeded)
+* StageExecutionStatus `string` (values: InProgress, Failed, Stopped, Stopping, Succeeded)
 
 ### StageName
 * StageName `string`
 
 ### StageNotFoundException
-* StageNotFoundException `object`: The specified stage was specified in an invalid format or cannot be found.
+
 
 ### StageNotRetryableException
-* StageNotRetryableException `object`: The specified stage can't be retried because the pipeline structure or stage state changed after the stage was not completed; the stage contains no failed actions; one or more actions are still in progress; or another retry attempt is already in progress. 
+
 
 ### StageRetryMode
 * StageRetryMode `string` (values: FAILED_ACTIONS)
 
 ### StageState
 * StageState `object`: Represents information about the state of the stage.
-  * actionStates [ActionStateList](#actionstatelist)
-  * inboundTransitionState [TransitionState](#transitionstate)
-  * latestExecution [StageExecution](#stageexecution)
-  * stageName [StageName](#stagename)
+  * actionStates
+    * items [ActionState](#actionstate)
+  * inboundExecution [StageExecution](#stageexecution)
+  * inboundTransitionState
+    * disabledReason
+    * enabled
+    * lastChangedAt
+    * lastChangedBy
+  * latestExecution
+    * pipelineExecutionId **required**
+    * status **required**
+  * stageName
 
 ### StageStateList
 * StageStateList `array`
@@ -1570,34 +2254,132 @@ amazonaws_codepipeline.UpdatePipeline({
 * StageTransitionType `string` (values: Inbound, Outbound)
 
 ### StartPipelineExecutionInput
-* StartPipelineExecutionInput `object`: Represents the input of a StartPipelineExecution action.
-  * name **required** [PipelineName](#pipelinename)
+* StartPipelineExecutionInput `object`: Represents the input of a <code>StartPipelineExecution</code> action.
+  * clientRequestToken
+  * name **required**
 
 ### StartPipelineExecutionOutput
-* StartPipelineExecutionOutput `object`: Represents the output of a StartPipelineExecution action.
-  * pipelineExecutionId [PipelineExecutionId](#pipelineexecutionid)
+* StartPipelineExecutionOutput `object`: Represents the output of a <code>StartPipelineExecution</code> action.
+  * pipelineExecutionId
+
+### StopExecutionTrigger
+* StopExecutionTrigger `object`: The interaction that stopped a pipeline execution.
+  * reason
+
+### StopPipelineExecutionInput
+* StopPipelineExecutionInput `object`
+  * abandon
+  * pipelineExecutionId **required**
+  * pipelineName **required**
+  * reason
+
+### StopPipelineExecutionOutput
+* StopPipelineExecutionOutput `object`
+  * pipelineExecutionId
+
+### StopPipelineExecutionReason
+* StopPipelineExecutionReason `string`
+
+### String
+* String `string`
+
+### Tag
+* Tag `object`: A tag is a key-value pair that is used to manage the resource.
+  * key **required**
+  * value **required**
+
+### TagKey
+* TagKey `string`
+
+### TagKeyList
+* TagKeyList `array`
+  * items [TagKey](#tagkey)
+
+### TagList
+* TagList `array`
+  * items [Tag](#tag)
+
+### TagResourceInput
+* TagResourceInput `object`
+  * tags **required**
+    * items [Tag](#tag)
+  * resourceArn **required**
+
+### TagResourceOutput
+* TagResourceOutput `object`
+
+### TagValue
+* TagValue `string`
 
 ### ThirdPartyJob
-* ThirdPartyJob `object`: A response to a PollForThirdPartyJobs request returned by AWS CodePipeline when there is a job to be worked upon by a partner action.
-  * clientId [ClientId](#clientid)
-  * jobId [JobId](#jobid)
+* ThirdPartyJob `object`: A response to a <code>PollForThirdPartyJobs</code> request returned by AWS CodePipeline when there is a job to be worked on by a partner action.
+  * clientId
+  * jobId
 
 ### ThirdPartyJobData
 * ThirdPartyJobData `object`: Represents information about the job data for a partner action.
-  * actionConfiguration [ActionConfiguration](#actionconfiguration)
-  * actionTypeId [ActionTypeId](#actiontypeid)
-  * artifactCredentials [AWSSessionCredentials](#awssessioncredentials)
-  * continuationToken [ContinuationToken](#continuationtoken)
-  * encryptionKey [EncryptionKey](#encryptionkey)
-  * inputArtifacts [ArtifactList](#artifactlist)
-  * outputArtifacts [ArtifactList](#artifactlist)
-  * pipelineContext [PipelineContext](#pipelinecontext)
+  * actionConfiguration
+    * configuration
+  * actionTypeId
+    * category **required**
+    * owner **required**
+    * provider **required**
+    * version **required**
+  * artifactCredentials
+    * accessKeyId **required**
+    * secretAccessKey **required**
+    * sessionToken **required**
+  * continuationToken
+  * encryptionKey
+    * id **required**
+    * type **required**
+  * inputArtifacts
+    * items [Artifact](#artifact)
+  * outputArtifacts
+    * items [Artifact](#artifact)
+  * pipelineContext
+    * action
+      * actionExecutionId
+      * name
+    * pipelineArn
+    * pipelineExecutionId
+    * pipelineName
+    * stage
+      * name
 
 ### ThirdPartyJobDetails
-* ThirdPartyJobDetails `object`: The details of a job sent in response to a GetThirdPartyJobDetails request.
-  * data [ThirdPartyJobData](#thirdpartyjobdata)
-  * id [ThirdPartyJobId](#thirdpartyjobid)
-  * nonce [Nonce](#nonce)
+* ThirdPartyJobDetails `object`: The details of a job sent in response to a <code>GetThirdPartyJobDetails</code> request.
+  * data
+    * actionConfiguration
+      * configuration
+    * actionTypeId
+      * category **required**
+      * owner **required**
+      * provider **required**
+      * version **required**
+    * artifactCredentials
+      * accessKeyId **required**
+      * secretAccessKey **required**
+      * sessionToken **required**
+    * continuationToken
+    * encryptionKey
+      * id **required**
+      * type **required**
+    * inputArtifacts
+      * items [Artifact](#artifact)
+    * outputArtifacts
+      * items [Artifact](#artifact)
+    * pipelineContext
+      * action
+        * actionExecutionId
+        * name
+      * pipelineArn
+      * pipelineExecutionId
+      * pipelineName
+      * stage
+        * name
+  * id
+  * nonce
 
 ### ThirdPartyJobId
 * ThirdPartyJobId `string`
@@ -1612,20 +2394,62 @@ amazonaws_codepipeline.UpdatePipeline({
 ### Timestamp
 * Timestamp `string`
 
+### TooManyTagsException
+
+
 ### TransitionState
 * TransitionState `object`: Represents information about the state of transitions between one stage and another stage.
-  * disabledReason [DisabledReason](#disabledreason)
-  * enabled [Enabled](#enabled)
-  * lastChangedAt [LastChangedAt](#lastchangedat)
-  * lastChangedBy [LastChangedBy](#lastchangedby)
+  * disabledReason
+  * enabled
+  * lastChangedAt
+  * lastChangedBy
+
+### TriggerDetail
+* TriggerDetail `string`
+
+### TriggerType
+* TriggerType `string` (values: CreatePipeline, StartPipelineExecution, PollForSourceChanges, Webhook, CloudWatchEvent, PutActionRevision)
+
+### UntagResourceInput
+* UntagResourceInput `object`
+  * resourceArn **required**
+  * tagKeys **required**
+    * items [TagKey](#tagkey)
+
+### UntagResourceOutput
+* UntagResourceOutput `object`
 
 ### UpdatePipelineInput
-* UpdatePipelineInput `object`: Represents the input of an UpdatePipeline action.
-  * pipeline **required** [PipelineDeclaration](#pipelinedeclaration)
+* UpdatePipelineInput `object`: Represents the input of an <code>UpdatePipeline</code> action.
+  * pipeline **required**
+    * artifactStore
+      * encryptionKey
+        * id **required**
+        * type **required**
+      * location **required**
+      * type **required**
+    * artifactStores
+    * name **required**
+    * roleArn **required**
+    * stages **required**
+      * items [StageDeclaration](#stagedeclaration)
+    * version
 
 ### UpdatePipelineOutput
-* UpdatePipelineOutput `object`: Represents the output of an UpdatePipeline action.
-  * pipeline [PipelineDeclaration](#pipelinedeclaration)
+* UpdatePipelineOutput `object`: Represents the output of an <code>UpdatePipeline</code> action.
+  * pipeline
+    * artifactStore
+      * encryptionKey
+        * id **required**
+        * type **required**
+      * location **required**
+      * type **required**
+    * artifactStores
+    * name **required**
+    * roleArn **required**
+    * stages **required**
+      * items [StageDeclaration](#stagedeclaration)
+    * version
 
 ### Url
 * Url `string`
@@ -1634,7 +2458,7 @@ amazonaws_codepipeline.UpdatePipeline({
 * UrlTemplate `string`
 
 ### ValidationException
-* ValidationException `object`: The validation was specified in an invalid format.
+
 
 ### Version
 * Version `string`
@@ -1643,9 +2467,9 @@ amazonaws_codepipeline.UpdatePipeline({
 * WebhookArn `string`
 
 ### WebhookAuthConfiguration
-* WebhookAuthConfiguration `object`
-  * AllowedIPRange [WebhookAuthConfigurationAllowedIPRange](#webhookauthconfigurationallowediprange)
-  * SecretToken [WebhookAuthConfigurationSecretToken](#webhookauthconfigurationsecrettoken)
+* WebhookAuthConfiguration `object`: The authentication applied to incoming webhook trigger requests.
+  * AllowedIPRange
+  * SecretToken
 
 ### WebhookAuthConfigurationAllowedIPRange
 * WebhookAuthConfigurationAllowedIPRange `string`
@@ -1658,12 +2482,15 @@ amazonaws_codepipeline.UpdatePipeline({
 
 ### WebhookDefinition
 * WebhookDefinition `object`: Represents information about a webhook and its definition.
-  * authentication **required** [WebhookAuthenticationType](#webhookauthenticationtype)
-  * authenticationConfiguration **required** [WebhookAuthConfiguration](#webhookauthconfiguration)
-  * filters **required** [WebhookFilters](#webhookfilters)
-  * name **required** [WebhookName](#webhookname)
-  * targetAction **required** [ActionName](#actionname)
-  * targetPipeline **required** [PipelineName](#pipelinename)
+  * authentication **required**
+  * authenticationConfiguration **required**
+    * AllowedIPRange
+    * SecretToken
+  * filters **required**
+    * items [WebhookFilterRule](#webhookfilterrule)
+  * name **required**
+  * targetAction **required**
+  * targetPipeline **required**
 
 ### WebhookErrorCode
 * WebhookErrorCode `string`
@@ -1673,8 +2500,8 @@ amazonaws_codepipeline.UpdatePipeline({
 
 ### WebhookFilterRule
 * WebhookFilterRule `object`: The event criteria that specify when a webhook notification is sent to your URL.
-  * jsonPath **required** [JsonPath](#jsonpath)
-  * matchEquals [MatchEquals](#matchequals)
+  * jsonPath **required**
+  * matchEquals
 
 ### WebhookFilters
 * WebhookFilters `array`
@@ -1691,7 +2518,7 @@ amazonaws_codepipeline.UpdatePipeline({
 * WebhookName `string`
 
 ### WebhookNotFoundException
-* WebhookNotFoundException `object`: The specified webhook was entered in an invalid format or cannot be found.
+
 
 ### WebhookUrl
 * WebhookUrl `string`

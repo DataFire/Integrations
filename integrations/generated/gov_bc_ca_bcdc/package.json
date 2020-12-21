@@ -1,8 +1,8 @@
 {
   "name": "@datafire/gov_bc_ca_bcdc",
-  "version": "5.0.0",
+  "version": "6.0.0",
   "main": "index.js",
-  "description": "DataFire integration for BC Data Catalogue",
+  "description": "DataFire integration for BC Data Catalogue API",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DataFire/integrations.git"

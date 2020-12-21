@@ -78,11 +78,12 @@
             "x-ms-parameter-location": "method"
           },
           {
-            "description": "The automation account name.",
+            "description": "The name of the automation account.",
             "in": "path",
             "name": "automationAccountName",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
@@ -103,90 +104,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "description": "The response model for the list connection operation.",
-              "properties": {
-                "nextLink": {
-                  "description": "Gets or sets the next link.",
-                  "type": "string"
-                },
-                "value": {
-                  "description": "Gets or sets a list of connection.",
-                  "items": {
-                    "allOf": [
-                      {
-                        "allOf": [
-                          {
-                            "description": "The core properties of ARM resources",
-                            "properties": {
-                              "id": {
-                                "description": "Fully qualified resource Id for the resource",
-                                "readOnly": true,
-                                "type": "string"
-                              },
-                              "name": {
-                                "description": "The name of the resource",
-                                "readOnly": true,
-                                "type": "string"
-                              },
-                              "type": {
-                                "description": "The type of the resource.",
-                                "readOnly": true,
-                                "type": "string"
-                              }
-                            },
-                            "x-ms-azure-resource": true
-                          }
-                        ],
-                        "description": "The resource model definition for a ARM proxy resource. It will have everything other than required location and tags"
-                      }
-                    ],
-                    "description": "Definition of the connection.",
-                    "properties": {
-                      "properties": {
-                        "description": "Definition of the connection properties.",
-                        "properties": {
-                          "connectionType": {
-                            "description": "The connection type property associated with the entity.",
-                            "properties": {
-                              "name": {
-                                "description": "Gets or sets the name of the connection type.",
-                                "type": "string"
-                              }
-                            }
-                          },
-                          "creationTime": {
-                            "description": "Gets the creation time.",
-                            "format": "date-time",
-                            "readOnly": true,
-                            "type": "string",
-                            "x-nullable": false
-                          },
-                          "description": {
-                            "description": "Gets or sets the description.",
-                            "type": "string"
-                          },
-                          "fieldDefinitionValues": {
-                            "additionalProperties": {
-                              "type": "string"
-                            },
-                            "description": "Gets the field definition values of the connection.",
-                            "readOnly": true,
-                            "type": "object"
-                          },
-                          "lastModifiedTime": {
-                            "description": "Gets the last modified time.",
-                            "format": "date-time",
-                            "readOnly": true,
-                            "type": "string",
-                            "x-nullable": false
-                          }
-                        }
-                      }
-                    }
-                  },
-                  "type": "array"
-                }
-              }
+              "$ref": "#/definitions/ConnectionListResult"
             }
           },
           "default": {
@@ -1531,10 +1449,10 @@
           },
           "List connections by automation account, next 100": {
             "parameters": {
+              "$skip": 100,
               "api-version": "2015-10-31",
               "automationAccountName": "myAutomationAccount28",
               "resourceGroupName": "rg",
-              "skip": "100",
               "subscriptionId": "subid"
             },
             "responses": {
@@ -2574,11 +2492,12 @@
             "x-ms-parameter-location": "method"
           },
           {
-            "description": "The automation account name.",
+            "description": "The name of the automation account.",
             "in": "path",
             "name": "automationAccountName",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "The name of connection.",
@@ -2606,77 +2525,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "allOf": [
-                {
-                  "allOf": [
-                    {
-                      "description": "The core properties of ARM resources",
-                      "properties": {
-                        "id": {
-                          "description": "Fully qualified resource Id for the resource",
-                          "readOnly": true,
-                          "type": "string"
-                        },
-                        "name": {
-                          "description": "The name of the resource",
-                          "readOnly": true,
-                          "type": "string"
-                        },
-                        "type": {
-                          "description": "The type of the resource.",
-                          "readOnly": true,
-                          "type": "string"
-                        }
-                      },
-                      "x-ms-azure-resource": true
-                    }
-                  ],
-                  "description": "The resource model definition for a ARM proxy resource. It will have everything other than required location and tags"
-                }
-              ],
-              "description": "Definition of the connection.",
-              "properties": {
-                "properties": {
-                  "description": "Definition of the connection properties.",
-                  "properties": {
-                    "connectionType": {
-                      "description": "The connection type property associated with the entity.",
-                      "properties": {
-                        "name": {
-                          "description": "Gets or sets the name of the connection type.",
-                          "type": "string"
-                        }
-                      }
-                    },
-                    "creationTime": {
-                      "description": "Gets the creation time.",
-                      "format": "date-time",
-                      "readOnly": true,
-                      "type": "string",
-                      "x-nullable": false
-                    },
-                    "description": {
-                      "description": "Gets or sets the description.",
-                      "type": "string"
-                    },
-                    "fieldDefinitionValues": {
-                      "additionalProperties": {
-                        "type": "string"
-                      },
-                      "description": "Gets the field definition values of the connection.",
-                      "readOnly": true,
-                      "type": "object"
-                    },
-                    "lastModifiedTime": {
-                      "description": "Gets the last modified time.",
-                      "format": "date-time",
-                      "readOnly": true,
-                      "type": "string",
-                      "x-nullable": false
-                    }
-                  }
-                }
-              }
+              "$ref": "#/definitions/Connection"
             }
           },
           "204": {
@@ -2738,11 +2587,12 @@
             "x-ms-parameter-location": "method"
           },
           {
-            "description": "The automation account name.",
+            "description": "The name of the automation account.",
             "in": "path",
             "name": "automationAccountName",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "The name of connection.",
@@ -2770,77 +2620,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "allOf": [
-                {
-                  "allOf": [
-                    {
-                      "description": "The core properties of ARM resources",
-                      "properties": {
-                        "id": {
-                          "description": "Fully qualified resource Id for the resource",
-                          "readOnly": true,
-                          "type": "string"
-                        },
-                        "name": {
-                          "description": "The name of the resource",
-                          "readOnly": true,
-                          "type": "string"
-                        },
-                        "type": {
-                          "description": "The type of the resource.",
-                          "readOnly": true,
-                          "type": "string"
-                        }
-                      },
-                      "x-ms-azure-resource": true
-                    }
-                  ],
-                  "description": "The resource model definition for a ARM proxy resource. It will have everything other than required location and tags"
-                }
-              ],
-              "description": "Definition of the connection.",
-              "properties": {
-                "properties": {
-                  "description": "Definition of the connection properties.",
-                  "properties": {
-                    "connectionType": {
-                      "description": "The connection type property associated with the entity.",
-                      "properties": {
-                        "name": {
-                          "description": "Gets or sets the name of the connection type.",
-                          "type": "string"
-                        }
-                      }
-                    },
-                    "creationTime": {
-                      "description": "Gets the creation time.",
-                      "format": "date-time",
-                      "readOnly": true,
-                      "type": "string",
-                      "x-nullable": false
-                    },
-                    "description": {
-                      "description": "Gets or sets the description.",
-                      "type": "string"
-                    },
-                    "fieldDefinitionValues": {
-                      "additionalProperties": {
-                        "type": "string"
-                      },
-                      "description": "Gets the field definition values of the connection.",
-                      "readOnly": true,
-                      "type": "object"
-                    },
-                    "lastModifiedTime": {
-                      "description": "Gets the last modified time.",
-                      "format": "date-time",
-                      "readOnly": true,
-                      "type": "string",
-                      "x-nullable": false
-                    }
-                  }
-                }
-              }
+              "$ref": "#/definitions/Connection"
             }
           },
           "default": {
@@ -2916,11 +2696,12 @@
             "x-ms-parameter-location": "method"
           },
           {
-            "description": "The automation account name.",
+            "description": "The name of the automation account.",
             "in": "path",
             "name": "automationAccountName",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "The parameters supplied to the update a connection operation.",
@@ -2935,29 +2716,7 @@
             "name": "parameters",
             "required": true,
             "schema": {
-              "description": "The parameters supplied to the update connection operation.",
-              "properties": {
-                "name": {
-                  "description": "Gets or sets the name of the connection.",
-                  "type": "string"
-                },
-                "properties": {
-                  "description": "The properties of the update connection operation.",
-                  "properties": {
-                    "description": {
-                      "description": "Gets or sets the description of the connection.",
-                      "type": "string"
-                    },
-                    "fieldDefinitionValues": {
-                      "additionalProperties": {
-                        "type": "string"
-                      },
-                      "description": "Gets or sets the field definition values of the connection.",
-                      "type": "object"
-                    }
-                  }
-                }
-              }
+              "$ref": "#/definitions/ConnectionUpdateParameters"
             }
           },
           {
@@ -2979,77 +2738,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "allOf": [
-                {
-                  "allOf": [
-                    {
-                      "description": "The core properties of ARM resources",
-                      "properties": {
-                        "id": {
-                          "description": "Fully qualified resource Id for the resource",
-                          "readOnly": true,
-                          "type": "string"
-                        },
-                        "name": {
-                          "description": "The name of the resource",
-                          "readOnly": true,
-                          "type": "string"
-                        },
-                        "type": {
-                          "description": "The type of the resource.",
-                          "readOnly": true,
-                          "type": "string"
-                        }
-                      },
-                      "x-ms-azure-resource": true
-                    }
-                  ],
-                  "description": "The resource model definition for a ARM proxy resource. It will have everything other than required location and tags"
-                }
-              ],
-              "description": "Definition of the connection.",
-              "properties": {
-                "properties": {
-                  "description": "Definition of the connection properties.",
-                  "properties": {
-                    "connectionType": {
-                      "description": "The connection type property associated with the entity.",
-                      "properties": {
-                        "name": {
-                          "description": "Gets or sets the name of the connection type.",
-                          "type": "string"
-                        }
-                      }
-                    },
-                    "creationTime": {
-                      "description": "Gets the creation time.",
-                      "format": "date-time",
-                      "readOnly": true,
-                      "type": "string",
-                      "x-nullable": false
-                    },
-                    "description": {
-                      "description": "Gets or sets the description.",
-                      "type": "string"
-                    },
-                    "fieldDefinitionValues": {
-                      "additionalProperties": {
-                        "type": "string"
-                      },
-                      "description": "Gets the field definition values of the connection.",
-                      "readOnly": true,
-                      "type": "object"
-                    },
-                    "lastModifiedTime": {
-                      "description": "Gets the last modified time.",
-                      "format": "date-time",
-                      "readOnly": true,
-                      "type": "string",
-                      "x-nullable": false
-                    }
-                  }
-                }
-              }
+              "$ref": "#/definitions/Connection"
             }
           },
           "default": {
@@ -3135,11 +2824,12 @@
             "x-ms-parameter-location": "method"
           },
           {
-            "description": "The automation account name.",
+            "description": "The name of the automation account.",
             "in": "path",
             "name": "automationAccountName",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "The parameters supplied to the create or update connection operation.",
@@ -3154,45 +2844,7 @@
             "name": "parameters",
             "required": true,
             "schema": {
-              "description": "The parameters supplied to the create or update connection operation.",
-              "properties": {
-                "name": {
-                  "description": "Gets or sets the name of the connection.",
-                  "type": "string"
-                },
-                "properties": {
-                  "description": "The properties of the create connection properties",
-                  "properties": {
-                    "connectionType": {
-                      "description": "The connection type property associated with the entity.",
-                      "properties": {
-                        "name": {
-                          "description": "Gets or sets the name of the connection type.",
-                          "type": "string"
-                        }
-                      }
-                    },
-                    "description": {
-                      "description": "Gets or sets the description of the connection.",
-                      "type": "string"
-                    },
-                    "fieldDefinitionValues": {
-                      "additionalProperties": {
-                        "type": "string"
-                      },
-                      "description": "Gets or sets the field definition properties of the connection.",
-                      "type": "object"
-                    }
-                  },
-                  "required": [
-                    "connectionType"
-                  ]
-                }
-              },
-              "required": [
-                "name",
-                "properties"
-              ]
+              "$ref": "#/definitions/ConnectionCreateOrUpdateParameters"
             }
           },
           {
@@ -3214,153 +2866,13 @@
           "200": {
             "description": "OK",
             "schema": {
-              "allOf": [
-                {
-                  "allOf": [
-                    {
-                      "description": "The core properties of ARM resources",
-                      "properties": {
-                        "id": {
-                          "description": "Fully qualified resource Id for the resource",
-                          "readOnly": true,
-                          "type": "string"
-                        },
-                        "name": {
-                          "description": "The name of the resource",
-                          "readOnly": true,
-                          "type": "string"
-                        },
-                        "type": {
-                          "description": "The type of the resource.",
-                          "readOnly": true,
-                          "type": "string"
-                        }
-                      },
-                      "x-ms-azure-resource": true
-                    }
-                  ],
-                  "description": "The resource model definition for a ARM proxy resource. It will have everything other than required location and tags"
-                }
-              ],
-              "description": "Definition of the connection.",
-              "properties": {
-                "properties": {
-                  "description": "Definition of the connection properties.",
-                  "properties": {
-                    "connectionType": {
-                      "description": "The connection type property associated with the entity.",
-                      "properties": {
-                        "name": {
-                          "description": "Gets or sets the name of the connection type.",
-                          "type": "string"
-                        }
-                      }
-                    },
-                    "creationTime": {
-                      "description": "Gets the creation time.",
-                      "format": "date-time",
-                      "readOnly": true,
-                      "type": "string",
-                      "x-nullable": false
-                    },
-                    "description": {
-                      "description": "Gets or sets the description.",
-                      "type": "string"
-                    },
-                    "fieldDefinitionValues": {
-                      "additionalProperties": {
-                        "type": "string"
-                      },
-                      "description": "Gets the field definition values of the connection.",
-                      "readOnly": true,
-                      "type": "object"
-                    },
-                    "lastModifiedTime": {
-                      "description": "Gets the last modified time.",
-                      "format": "date-time",
-                      "readOnly": true,
-                      "type": "string",
-                      "x-nullable": false
-                    }
-                  }
-                }
-              }
+              "$ref": "#/definitions/Connection"
             }
           },
           "201": {
             "description": "Created",
             "schema": {
-              "allOf": [
-                {
-                  "allOf": [
-                    {
-                      "description": "The core properties of ARM resources",
-                      "properties": {
-                        "id": {
-                          "description": "Fully qualified resource Id for the resource",
-                          "readOnly": true,
-                          "type": "string"
-                        },
-                        "name": {
-                          "description": "The name of the resource",
-                          "readOnly": true,
-                          "type": "string"
-                        },
-                        "type": {
-                          "description": "The type of the resource.",
-                          "readOnly": true,
-                          "type": "string"
-                        }
-                      },
-                      "x-ms-azure-resource": true
-                    }
-                  ],
-                  "description": "The resource model definition for a ARM proxy resource. It will have everything other than required location and tags"
-                }
-              ],
-              "description": "Definition of the connection.",
-              "properties": {
-                "properties": {
-                  "description": "Definition of the connection properties.",
-                  "properties": {
-                    "connectionType": {
-                      "description": "The connection type property associated with the entity.",
-                      "properties": {
-                        "name": {
-                          "description": "Gets or sets the name of the connection type.",
-                          "type": "string"
-                        }
-                      }
-                    },
-                    "creationTime": {
-                      "description": "Gets the creation time.",
-                      "format": "date-time",
-                      "readOnly": true,
-                      "type": "string",
-                      "x-nullable": false
-                    },
-                    "description": {
-                      "description": "Gets or sets the description.",
-                      "type": "string"
-                    },
-                    "fieldDefinitionValues": {
-                      "additionalProperties": {
-                        "type": "string"
-                      },
-                      "description": "Gets the field definition values of the connection.",
-                      "readOnly": true,
-                      "type": "object"
-                    },
-                    "lastModifiedTime": {
-                      "description": "Gets the last modified time.",
-                      "format": "date-time",
-                      "readOnly": true,
-                      "type": "string",
-                      "x-nullable": false
-                    }
-                  }
-                }
-              }
+              "$ref": "#/definitions/Connection"
             }
           },
           "default": {
@@ -3451,5 +2963,178 @@
       }
     }
   },
-  "definitions": {}
+  "definitions": {
+    "Connection": {
+      "allOf": [
+        {
+          "allOf": [
+            {
+              "description": "The core properties of ARM resources",
+              "properties": {
+                "id": {
+                  "description": "Fully qualified resource Id for the resource",
+                  "readOnly": true,
+                  "type": "string"
+                },
+                "name": {
+                  "description": "The name of the resource",
+                  "readOnly": true,
+                  "type": "string"
+                },
+                "type": {
+                  "description": "The type of the resource.",
+                  "readOnly": true,
+                  "type": "string"
+                }
+              },
+              "type": "object",
+              "x-ms-azure-resource": true
+            }
+          ],
+          "description": "ARM proxy resource.",
+          "properties": {},
+          "type": "object"
+        }
+      ],
+      "description": "Definition of the connection.",
+      "properties": {
+        "properties": {
+          "$ref": "#/definitions/ConnectionProperties",
+          "description": "Gets or sets the properties of the connection.",
+          "x-ms-client-flatten": true
+        }
+      }
+    },
+    "ConnectionCreateOrUpdateParameters": {
+      "description": "The parameters supplied to the create or update connection operation.",
+      "properties": {
+        "name": {
+          "description": "Gets or sets the name of the connection.",
+          "type": "string"
+        },
+        "properties": {
+          "$ref": "#/definitions/ConnectionCreateOrUpdateProperties",
+          "description": "Gets or sets the properties of the connection.",
+          "x-ms-client-flatten": true
+        }
+      },
+      "required": [
+        "name",
+        "properties"
+      ]
+    },
+    "ConnectionCreateOrUpdateProperties": {
+      "description": "The properties of the create connection properties",
+      "properties": {
+        "connectionType": {
+          "$ref": "#/definitions/ConnectionTypeAssociationProperty",
+          "description": "Gets or sets the connectionType of the connection."
+        },
+        "description": {
+          "description": "Gets or sets the description of the connection.",
+          "type": "string"
+        },
+        "fieldDefinitionValues": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "Gets or sets the field definition properties of the connection.",
+          "type": "object"
+        }
+      },
+      "required": [
+        "connectionType"
+      ]
+    },
+    "ConnectionListResult": {
+      "description": "The response model for the list connection operation.",
+      "properties": {
+        "nextLink": {
+          "description": "Gets or sets the next link.",
+          "type": "string"
+        },
+        "value": {
+          "description": "Gets or sets a list of connection.",
+          "items": {
+            "$ref": "#/definitions/Connection"
+          },
+          "type": "array"
+        }
+      }
+    },
+    "ConnectionProperties": {
+      "description": "Definition of the connection properties.",
+      "properties": {
+        "connectionType": {
+          "$ref": "#/definitions/ConnectionTypeAssociationProperty",
+          "description": "Gets or sets the connectionType of the connection."
+        },
+        "creationTime": {
+          "description": "Gets the creation time.",
+          "format": "date-time",
+          "readOnly": true,
+          "type": "string",
+          "x-nullable": false
+        },
+        "description": {
+          "description": "Gets or sets the description.",
+          "type": "string"
+        },
+        "fieldDefinitionValues": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "Gets the field definition values of the connection.",
+          "readOnly": true,
+          "type": "object"
+        },
+        "lastModifiedTime": {
+          "description": "Gets the last modified time.",
+          "format": "date-time",
+          "readOnly": true,
+          "type": "string",
+          "x-nullable": false
+        }
+      }
+    },
+    "ConnectionTypeAssociationProperty": {
+      "description": "The connection type property associated with the entity.",
+      "properties": {
+        "name": {
+          "description": "Gets or sets the name of the connection type.",
+          "type": "string"
+        }
+      }
+    },
+    "ConnectionUpdateParameters": {
+      "description": "The parameters supplied to the update connection operation.",
+      "properties": {
+        "name": {
+          "description": "Gets or sets the name of the connection.",
+          "type": "string"
+        },
+        "properties": {
+          "$ref": "#/definitions/ConnectionUpdateProperties",
+          "description": "Gets or sets the properties of the connection.",
+          "x-ms-client-flatten": true
+        }
+      }
+    },
+    "ConnectionUpdateProperties": {
+      "description": "The properties of the update connection operation.",
+      "properties": {
+        "description": {
+          "description": "Gets or sets the description of the connection.",
+          "type": "string"
+        },
+        "fieldDefinitionValues": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "Gets or sets the field definition values of the connection.",
+          "type": "object"
+        }
+      }
+    }
+  }
 }

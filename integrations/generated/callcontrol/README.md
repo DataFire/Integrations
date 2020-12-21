@@ -1,6 +1,6 @@
 # @datafire/callcontrol
 
-Client library for Call Control
+Client library for Call Control API
 
 ## Installation and Usage
 ```bash
@@ -11,9 +11,7 @@ let callcontrol = require('@datafire/callcontrol').create({
   apiKey: ""
 });
 
-callcontrol.Complaints_Complaints({
-  "phoneNumber": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

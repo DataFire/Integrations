@@ -1,6 +1,6 @@
 # @datafire/google_identitytoolkit
 
-Client library for Google Identity Toolkit
+Client library for Google Identity Toolkit API
 
 ## Installation and Usage
 ```bash
@@ -15,7 +15,7 @@ let google_identitytoolkit = require('@datafire/google_identitytoolkit').create(
   redirect_uri: ""
 });
 
-google_identitytoolkit.relyingparty.verifyPhoneNumber({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -67,12 +67,12 @@ google_identitytoolkit.oauthRefresh(null, context)
   * scope `string`
   * expiration `string`
 
-### relyingparty.createAuthUri
+### identitytoolkit.relyingparty.createAuthUri
 Creates the URI used by the IdP to authenticate the user.
 
 
 ```js
-google_identitytoolkit.relyingparty.createAuthUri({}, context)
+google_identitytoolkit.identitytoolkit.relyingparty.createAuthUri({}, context)
 ```
 
 #### Input
@@ -89,12 +89,12 @@ google_identitytoolkit.relyingparty.createAuthUri({}, context)
 #### Output
 * output [CreateAuthUriResponse](#createauthuriresponse)
 
-### relyingparty.deleteAccount
+### identitytoolkit.relyingparty.deleteAccount
 Delete user account.
 
 
 ```js
-google_identitytoolkit.relyingparty.deleteAccount({}, context)
+google_identitytoolkit.identitytoolkit.relyingparty.deleteAccount({}, context)
 ```
 
 #### Input
@@ -111,12 +111,12 @@ google_identitytoolkit.relyingparty.deleteAccount({}, context)
 #### Output
 * output [DeleteAccountResponse](#deleteaccountresponse)
 
-### relyingparty.downloadAccount
+### identitytoolkit.relyingparty.downloadAccount
 Batch download user accounts.
 
 
 ```js
-google_identitytoolkit.relyingparty.downloadAccount({}, context)
+google_identitytoolkit.identitytoolkit.relyingparty.downloadAccount({}, context)
 ```
 
 #### Input
@@ -133,12 +133,12 @@ google_identitytoolkit.relyingparty.downloadAccount({}, context)
 #### Output
 * output [DownloadAccountResponse](#downloadaccountresponse)
 
-### relyingparty.emailLinkSignin
+### identitytoolkit.relyingparty.emailLinkSignin
 Reset password for a user.
 
 
 ```js
-google_identitytoolkit.relyingparty.emailLinkSignin({}, context)
+google_identitytoolkit.identitytoolkit.relyingparty.emailLinkSignin({}, context)
 ```
 
 #### Input
@@ -155,12 +155,12 @@ google_identitytoolkit.relyingparty.emailLinkSignin({}, context)
 #### Output
 * output [EmailLinkSigninResponse](#emaillinksigninresponse)
 
-### relyingparty.getAccountInfo
+### identitytoolkit.relyingparty.getAccountInfo
 Returns the account info.
 
 
 ```js
-google_identitytoolkit.relyingparty.getAccountInfo({}, context)
+google_identitytoolkit.identitytoolkit.relyingparty.getAccountInfo({}, context)
 ```
 
 #### Input
@@ -177,12 +177,12 @@ google_identitytoolkit.relyingparty.getAccountInfo({}, context)
 #### Output
 * output [GetAccountInfoResponse](#getaccountinforesponse)
 
-### relyingparty.getOobConfirmationCode
+### identitytoolkit.relyingparty.getOobConfirmationCode
 Get a code for user action confirmation.
 
 
 ```js
-google_identitytoolkit.relyingparty.getOobConfirmationCode({}, context)
+google_identitytoolkit.identitytoolkit.relyingparty.getOobConfirmationCode({}, context)
 ```
 
 #### Input
@@ -199,12 +199,12 @@ google_identitytoolkit.relyingparty.getOobConfirmationCode({}, context)
 #### Output
 * output [GetOobConfirmationCodeResponse](#getoobconfirmationcoderesponse)
 
-### relyingparty.getProjectConfig
+### identitytoolkit.relyingparty.getProjectConfig
 Get project configuration.
 
 
 ```js
-google_identitytoolkit.relyingparty.getProjectConfig({}, context)
+google_identitytoolkit.identitytoolkit.relyingparty.getProjectConfig({}, context)
 ```
 
 #### Input
@@ -222,12 +222,12 @@ google_identitytoolkit.relyingparty.getProjectConfig({}, context)
 #### Output
 * output [IdentitytoolkitRelyingpartyGetProjectConfigResponse](#identitytoolkitrelyingpartygetprojectconfigresponse)
 
-### relyingparty.getRecaptchaParam
+### identitytoolkit.relyingparty.getRecaptchaParam
 Get recaptcha secure param.
 
 
 ```js
-google_identitytoolkit.relyingparty.getRecaptchaParam({}, context)
+google_identitytoolkit.identitytoolkit.relyingparty.getRecaptchaParam({}, context)
 ```
 
 #### Input
@@ -243,12 +243,12 @@ google_identitytoolkit.relyingparty.getRecaptchaParam({}, context)
 #### Output
 * output [GetRecaptchaParamResponse](#getrecaptchaparamresponse)
 
-### relyingparty.getPublicKeys
+### identitytoolkit.relyingparty.getPublicKeys
 Get token signing public key.
 
 
 ```js
-google_identitytoolkit.relyingparty.getPublicKeys({}, context)
+google_identitytoolkit.identitytoolkit.relyingparty.getPublicKeys({}, context)
 ```
 
 #### Input
@@ -264,12 +264,12 @@ google_identitytoolkit.relyingparty.getPublicKeys({}, context)
 #### Output
 * output [IdentitytoolkitRelyingpartyGetPublicKeysResponse](#identitytoolkitrelyingpartygetpublickeysresponse)
 
-### relyingparty.resetPassword
+### identitytoolkit.relyingparty.resetPassword
 Reset password for a user.
 
 
 ```js
-google_identitytoolkit.relyingparty.resetPassword({}, context)
+google_identitytoolkit.identitytoolkit.relyingparty.resetPassword({}, context)
 ```
 
 #### Input
@@ -286,12 +286,12 @@ google_identitytoolkit.relyingparty.resetPassword({}, context)
 #### Output
 * output [ResetPasswordResponse](#resetpasswordresponse)
 
-### relyingparty.sendVerificationCode
+### identitytoolkit.relyingparty.sendVerificationCode
 Send SMS verification code.
 
 
 ```js
-google_identitytoolkit.relyingparty.sendVerificationCode({}, context)
+google_identitytoolkit.identitytoolkit.relyingparty.sendVerificationCode({}, context)
 ```
 
 #### Input
@@ -308,12 +308,12 @@ google_identitytoolkit.relyingparty.sendVerificationCode({}, context)
 #### Output
 * output [IdentitytoolkitRelyingpartySendVerificationCodeResponse](#identitytoolkitrelyingpartysendverificationcoderesponse)
 
-### relyingparty.setAccountInfo
+### identitytoolkit.relyingparty.setAccountInfo
 Set account info for a user.
 
 
 ```js
-google_identitytoolkit.relyingparty.setAccountInfo({}, context)
+google_identitytoolkit.identitytoolkit.relyingparty.setAccountInfo({}, context)
 ```
 
 #### Input
@@ -330,12 +330,12 @@ google_identitytoolkit.relyingparty.setAccountInfo({}, context)
 #### Output
 * output [SetAccountInfoResponse](#setaccountinforesponse)
 
-### relyingparty.setProjectConfig
+### identitytoolkit.relyingparty.setProjectConfig
 Set project configuration.
 
 
 ```js
-google_identitytoolkit.relyingparty.setProjectConfig({}, context)
+google_identitytoolkit.identitytoolkit.relyingparty.setProjectConfig({}, context)
 ```
 
 #### Input
@@ -352,12 +352,12 @@ google_identitytoolkit.relyingparty.setProjectConfig({}, context)
 #### Output
 * output [IdentitytoolkitRelyingpartySetProjectConfigResponse](#identitytoolkitrelyingpartysetprojectconfigresponse)
 
-### relyingparty.signOutUser
+### identitytoolkit.relyingparty.signOutUser
 Sign out user.
 
 
 ```js
-google_identitytoolkit.relyingparty.signOutUser({}, context)
+google_identitytoolkit.identitytoolkit.relyingparty.signOutUser({}, context)
 ```
 
 #### Input
@@ -374,12 +374,12 @@ google_identitytoolkit.relyingparty.signOutUser({}, context)
 #### Output
 * output [IdentitytoolkitRelyingpartySignOutUserResponse](#identitytoolkitrelyingpartysignoutuserresponse)
 
-### relyingparty.signupNewUser
+### identitytoolkit.relyingparty.signupNewUser
 Signup new user.
 
 
 ```js
-google_identitytoolkit.relyingparty.signupNewUser({}, context)
+google_identitytoolkit.identitytoolkit.relyingparty.signupNewUser({}, context)
 ```
 
 #### Input
@@ -396,12 +396,12 @@ google_identitytoolkit.relyingparty.signupNewUser({}, context)
 #### Output
 * output [SignupNewUserResponse](#signupnewuserresponse)
 
-### relyingparty.uploadAccount
+### identitytoolkit.relyingparty.uploadAccount
 Batch upload existing user accounts.
 
 
 ```js
-google_identitytoolkit.relyingparty.uploadAccount({}, context)
+google_identitytoolkit.identitytoolkit.relyingparty.uploadAccount({}, context)
 ```
 
 #### Input
@@ -418,12 +418,12 @@ google_identitytoolkit.relyingparty.uploadAccount({}, context)
 #### Output
 * output [UploadAccountResponse](#uploadaccountresponse)
 
-### relyingparty.verifyAssertion
+### identitytoolkit.relyingparty.verifyAssertion
 Verifies the assertion returned by the IdP.
 
 
 ```js
-google_identitytoolkit.relyingparty.verifyAssertion({}, context)
+google_identitytoolkit.identitytoolkit.relyingparty.verifyAssertion({}, context)
 ```
 
 #### Input
@@ -440,12 +440,12 @@ google_identitytoolkit.relyingparty.verifyAssertion({}, context)
 #### Output
 * output [VerifyAssertionResponse](#verifyassertionresponse)
 
-### relyingparty.verifyCustomToken
+### identitytoolkit.relyingparty.verifyCustomToken
 Verifies the developer asserted ID token.
 
 
 ```js
-google_identitytoolkit.relyingparty.verifyCustomToken({}, context)
+google_identitytoolkit.identitytoolkit.relyingparty.verifyCustomToken({}, context)
 ```
 
 #### Input
@@ -462,12 +462,12 @@ google_identitytoolkit.relyingparty.verifyCustomToken({}, context)
 #### Output
 * output [VerifyCustomTokenResponse](#verifycustomtokenresponse)
 
-### relyingparty.verifyPassword
+### identitytoolkit.relyingparty.verifyPassword
 Verifies the user entered password.
 
 
 ```js
-google_identitytoolkit.relyingparty.verifyPassword({}, context)
+google_identitytoolkit.identitytoolkit.relyingparty.verifyPassword({}, context)
 ```
 
 #### Input
@@ -484,12 +484,12 @@ google_identitytoolkit.relyingparty.verifyPassword({}, context)
 #### Output
 * output [VerifyPasswordResponse](#verifypasswordresponse)
 
-### relyingparty.verifyPhoneNumber
+### identitytoolkit.relyingparty.verifyPhoneNumber
 Verifies ownership of a phone number and creates/updates the user account accordingly.
 
 
 ```js
-google_identitytoolkit.relyingparty.verifyPhoneNumber({}, context)
+google_identitytoolkit.identitytoolkit.relyingparty.verifyPhoneNumber({}, context)
 ```
 
 #### Input

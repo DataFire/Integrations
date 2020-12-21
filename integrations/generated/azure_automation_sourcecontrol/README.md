@@ -15,12 +15,7 @@ let azure_automation_sourcecontrol = require('@datafire/azure_automation_sourcec
   redirect_uri: ""
 });
 
-azure_automation_sourcecontrol.SourceControl_ListByAutomationAccount({
-  "resourceGroupName": "",
-  "automationAccountName": "",
-  "subscriptionId": "",
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -53,23 +48,7 @@ azure_automation_sourcecontrol.SourceControl_ListByAutomationAccount({
   * api-version **required** `string`: Client Api Version.
 
 #### Output
-* output `object`: The response model for the list source controls operation.
-  * nextLink `string`: Gets or sets the next link.
-  * value `array`: Gets or sets a list of souce controls.
-    * items `object`: Definition of the source control.
-      * id `string`: Resource Id.
-      * name `string`: Resource name.
-      * properties `object`: Definition of the source control properties
-        * autoSync `boolean`: Gets or sets auto async of the source control. Default is false.
-        * branch `string`: Gets or sets the repo branch of the source control. Include branch as empty string for VsoTfvc.
-        * creationTime `string`: Gets or sets the creation time.
-        * description `string`: Gets or sets the description.
-        * folderPath `string`: Gets or sets the folder path of the source control.
-        * lastModifiedTime `string`: Gets or sets the last modified time.
-        * publishRunbook `boolean`: Gets or sets the auto publish of the source control. Default is true.
-        * repoUrl `string`: Gets or sets the repo url of the source control.
-        * sourceType `string` (values: VsoGit, VsoTfvc, GitHub): The source type. Must be one of VsoGit, VsoTfvc, GitHub.
-      * type `string`: Resource type.
+* output [SourceControlListResult](#sourcecontrollistresult)
 
 ### SourceControl_Delete
 Delete the source control.
@@ -119,20 +98,7 @@ azure_automation_sourcecontrol.SourceControl_Get({
   * api-version **required** `string`: Client Api Version.
 
 #### Output
-* output `object`: Definition of the source control.
-  * id `string`: Resource Id.
-  * name `string`: Resource name.
-  * properties `object`: Definition of the source control properties
-    * autoSync `boolean`: Gets or sets auto async of the source control. Default is false.
-    * branch `string`: Gets or sets the repo branch of the source control. Include branch as empty string for VsoTfvc.
-    * creationTime `string`: Gets or sets the creation time.
-    * description `string`: Gets or sets the description.
-    * folderPath `string`: Gets or sets the folder path of the source control.
-    * lastModifiedTime `string`: Gets or sets the last modified time.
-    * publishRunbook `boolean`: Gets or sets the auto publish of the source control. Default is true.
-    * repoUrl `string`: Gets or sets the repo url of the source control.
-    * sourceType `string` (values: VsoGit, VsoTfvc, GitHub): The source type. Must be one of VsoGit, VsoTfvc, GitHub.
-  * type `string`: Resource type.
+* output [SourceControl](#sourcecontrol)
 
 ### SourceControl_Update
 Update a source control.
@@ -154,32 +120,12 @@ azure_automation_sourcecontrol.SourceControl_Update({
   * resourceGroupName **required** `string`: Name of an Azure Resource group.
   * automationAccountName **required** `string`: The name of the automation account.
   * sourceControlName **required** `string`: The source control name.
-  * parameters **required** `object`: The parameters supplied to the update source control operation.
-    * properties `object`: The properties of the update source control
-      * autoSync `boolean`: Gets or sets auto async of the source control. Default is false.
-      * branch `string`: Gets or sets the repo branch of the source control.
-      * description `string`: Gets or sets the user description of the source control.
-      * folderPath `string`: Gets or sets the folder path of the source control. Path must be relative.
-      * publishRunbook `boolean`: Gets or sets the auto publish of the source control. Default is true.
-      * securityToken `string`: Gets or sets the authorization token for the repo of the source control.
+  * parameters **required** [SourceControlUpdateParameters](#sourcecontrolupdateparameters)
   * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
   * api-version **required** `string`: Client Api Version.
 
 #### Output
-* output `object`: Definition of the source control.
-  * id `string`: Resource Id.
-  * name `string`: Resource name.
-  * properties `object`: Definition of the source control properties
-    * autoSync `boolean`: Gets or sets auto async of the source control. Default is false.
-    * branch `string`: Gets or sets the repo branch of the source control. Include branch as empty string for VsoTfvc.
-    * creationTime `string`: Gets or sets the creation time.
-    * description `string`: Gets or sets the description.
-    * folderPath `string`: Gets or sets the folder path of the source control.
-    * lastModifiedTime `string`: Gets or sets the last modified time.
-    * publishRunbook `boolean`: Gets or sets the auto publish of the source control. Default is true.
-    * repoUrl `string`: Gets or sets the repo url of the source control.
-    * sourceType `string` (values: VsoGit, VsoTfvc, GitHub): The source type. Must be one of VsoGit, VsoTfvc, GitHub.
-  * type `string`: Resource type.
+* output [SourceControl](#sourcecontrol)
 
 ### SourceControl_CreateOrUpdate
 Create a source control.
@@ -201,37 +147,74 @@ azure_automation_sourcecontrol.SourceControl_CreateOrUpdate({
   * resourceGroupName **required** `string`: Name of an Azure Resource group.
   * automationAccountName **required** `string`: The name of the automation account.
   * sourceControlName **required** `string`: The source control name.
-  * parameters **required** `object`: The parameters supplied to the create or update source control operation.
-    * properties **required** `object`: The properties of the create source control operation.
-      * autoSync `boolean`: Gets or sets auto async of the source control. Default is false.
-      * branch `string`: Gets or sets the repo branch of the source control. Include branch as empty string for VsoTfvc.
-      * description `string`: Gets or sets the user description of the source control.
-      * folderPath `string`: Gets or sets the folder path of the source control. Path must be relative.
-      * publishRunbook `boolean`: Gets or sets the auto publish of the source control. Default is true.
-      * repoUrl `string`: Gets or sets the repo url of the source control.
-      * securityToken `string`: Gets or sets the authorization token for the repo of the source control.
-      * sourceType `string` (values: VsoGit, VsoTfvc, GitHub): The source type. Must be one of VsoGit, VsoTfvc, GitHub, case sensitive.
+  * parameters **required** [SourceControlCreateOrUpdateParameters](#sourcecontrolcreateorupdateparameters)
   * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
   * api-version **required** `string`: Client Api Version.
 
 #### Output
-* output `object`: Definition of the source control.
-  * id `string`: Resource Id.
-  * name `string`: Resource name.
-  * properties `object`: Definition of the source control properties
-    * autoSync `boolean`: Gets or sets auto async of the source control. Default is false.
-    * branch `string`: Gets or sets the repo branch of the source control. Include branch as empty string for VsoTfvc.
-    * creationTime `string`: Gets or sets the creation time.
-    * description `string`: Gets or sets the description.
-    * folderPath `string`: Gets or sets the folder path of the source control.
-    * lastModifiedTime `string`: Gets or sets the last modified time.
-    * publishRunbook `boolean`: Gets or sets the auto publish of the source control. Default is true.
-    * repoUrl `string`: Gets or sets the repo url of the source control.
-    * sourceType `string` (values: VsoGit, VsoTfvc, GitHub): The source type. Must be one of VsoGit, VsoTfvc, GitHub.
-  * type `string`: Resource type.
+* output [SourceControl](#sourcecontrol)
 
 
 
 ## Definitions
 
-*This integration has no definitions*
+### SourceControl
+* SourceControl `object`: Definition of the source control.
+  * properties [SourceControlProperties](#sourcecontrolproperties)
+  * id `string`: Fully qualified resource Id for the resource
+  * name `string`: The name of the resource
+  * type `string`: The type of the resource.
+
+### SourceControlCreateOrUpdateParameters
+* SourceControlCreateOrUpdateParameters `object`: The parameters supplied to the create or update source control operation.
+  * properties **required** [SourceControlCreateOrUpdateProperties](#sourcecontrolcreateorupdateproperties)
+
+### SourceControlCreateOrUpdateProperties
+* SourceControlCreateOrUpdateProperties `object`: The properties of the create source control operation.
+  * autoSync `boolean`: The auto async of the source control. Default is false.
+  * branch `string`: The repo branch of the source control. Include branch as empty string for VsoTfvc.
+  * description `string`: The user description of the source control.
+  * folderPath `string`: The folder path of the source control. Path must be relative.
+  * publishRunbook `boolean`: The auto publish of the source control. Default is true.
+  * repoUrl `string`: The repo url of the source control.
+  * securityToken [SourceControlSecurityTokenProperties](#sourcecontrolsecuritytokenproperties)
+  * sourceType `string` (values: VsoGit, VsoTfvc, GitHub): The source type. Must be one of VsoGit, VsoTfvc, GitHub, case sensitive.
+
+### SourceControlListResult
+* SourceControlListResult `object`: The response model for the list source controls operation.
+  * nextLink `string`: The next link.
+  * value `array`: The list of source controls.
+    * items [SourceControl](#sourcecontrol)
+
+### SourceControlProperties
+* SourceControlProperties `object`: Definition of the source control properties
+  * autoSync `boolean`: The auto sync of the source control. Default is false.
+  * branch `string`: The repo branch of the source control. Include branch as empty string for VsoTfvc.
+  * creationTime `string`: The creation time.
+  * description `string`: The description.
+  * folderPath `string`: The folder path of the source control.
+  * lastModifiedTime `string`: The last modified time.
+  * publishRunbook `boolean`: The auto publish of the source control. Default is true.
+  * repoUrl `string`: The repo url of the source control.
+  * sourceType `string` (values: VsoGit, VsoTfvc, GitHub): The source type. Must be one of VsoGit, VsoTfvc, GitHub.
+
+### SourceControlSecurityTokenProperties
+* SourceControlSecurityTokenProperties `object`
+  * accessToken `string`: The access token.
+  * refreshToken `string`: The refresh token.
+  * tokenType `string` (values: PersonalAccessToken, Oauth): The token type. Must be either PersonalAccessToken or Oauth.
+
+### SourceControlUpdateParameters
+* SourceControlUpdateParameters `object`: The parameters supplied to the update source control operation.
+  * properties [SourceControlUpdateProperties](#sourcecontrolupdateproperties)
+
+### SourceControlUpdateProperties
+* SourceControlUpdateProperties `object`: The properties of the update source control
+  * autoSync `boolean`: The auto sync of the source control. Default is false.
+  * branch `string`: The repo branch of the source control.
+  * description `string`: The user description of the source control.
+  * folderPath `string`: The folder path of the source control. Path must be relative.
+  * publishRunbook `boolean`: The auto publish of the source control. Default is true.
+  * securityToken [SourceControlSecurityTokenProperties](#sourcecontrolsecuritytokenproperties)
+
+

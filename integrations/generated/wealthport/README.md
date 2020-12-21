@@ -12,7 +12,7 @@ let wealthport = require('@datafire/wealthport').create({
   "Using URL Query Parameter": ""
 });
 
-wealthport.createSource({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

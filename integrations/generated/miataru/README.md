@@ -9,9 +9,7 @@ npm install --save @datafire/miataru
 ```js
 let miataru = require('@datafire/miataru').create();
 
-miataru.getLocation({
-  "body": null
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

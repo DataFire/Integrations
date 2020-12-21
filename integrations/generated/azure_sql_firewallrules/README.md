@@ -15,12 +15,7 @@ let azure_sql_firewallrules = require('@datafire/azure_sql_firewallrules').creat
   redirect_uri: ""
 });
 
-azure_sql_firewallrules.FirewallRules_ListByServer({
-  "resourceGroupName": "",
-  "serverName": "",
-  "subscriptionId": "",
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

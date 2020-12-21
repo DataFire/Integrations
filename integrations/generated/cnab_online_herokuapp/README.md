@@ -9,9 +9,7 @@ npm install --save @datafire/cnab_online_herokuapp
 ```js
 let cnab_online_herokuapp = require('@datafire/cnab_online_herokuapp').create();
 
-cnab_online_herokuapp.file.post({
-  "file": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

@@ -1,6 +1,6 @@
 # @datafire/who_hosts_this
 
-Client library for Who Hosts This
+Client library for Who Hosts This API
 
 ## Installation and Usage
 ```bash
@@ -11,9 +11,7 @@ let who_hosts_this = require('@datafire/who_hosts_this').create({
   QueryKey: ""
 });
 
-who_hosts_this.Detect.get({
-  "url": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

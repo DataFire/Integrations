@@ -15,28 +15,25 @@ let azure_azsadmin_infraroleinstance = require('@datafire/azure_azsadmin_infraro
   redirect_uri: ""
 });
 
-azure_azsadmin_infraroleinstance.InfraRoleInstances_List({
-  "subscriptionId": "",
-  "location": "",
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
 
 ## Description
 
-InfraRole instance operation endpoints and objects.
+Infrastructure role instance operation endpoints and objects.
 
 ## Actions
 
 ### InfraRoleInstances_List
-Get a list of all infra role instances at a location.
+Returns a list of all infrastructure role instances at a location.
 
 
 ```js
 azure_azsadmin_infraroleinstance.InfraRoleInstances_List({
   "subscriptionId": "",
+  "resourceGroupName": "",
   "location": "",
   "api-version": ""
 }, context)
@@ -44,21 +41,23 @@ azure_azsadmin_infraroleinstance.InfraRoleInstances_List({
 
 #### Input
 * input `object`
-  * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription.The subscription ID forms part of the URI for every service call.
+  * subscriptionId **required** `string`: Subscription credentials that uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+  * resourceGroupName **required** `string`: Name of the resource group.
   * location **required** `string`: Location of the resource.
-  * api-version **required** `string`: Client Api Version.
+  * api-version **required** `string`: Client API Version.
   * $filter `string`: OData filter parameter.
 
 #### Output
 * output [InfraRoleInstanceList](#infraroleinstancelist)
 
 ### InfraRoleInstances_Get
-Get an infra role instance.
+Return the requested infrastructure role instance.
 
 
 ```js
 azure_azsadmin_infraroleinstance.InfraRoleInstances_Get({
   "subscriptionId": "",
+  "resourceGroupName": "",
   "location": "",
   "infraRoleInstance": "",
   "api-version": ""
@@ -67,21 +66,23 @@ azure_azsadmin_infraroleinstance.InfraRoleInstances_Get({
 
 #### Input
 * input `object`
-  * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription.The subscription ID forms part of the URI for every service call.
+  * subscriptionId **required** `string`: Subscription credentials that uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+  * resourceGroupName **required** `string`: Name of the resource group.
   * location **required** `string`: Location of the resource.
-  * infraRoleInstance **required** `string`: Name of an infra role instance.
-  * api-version **required** `string`: Client Api Version.
+  * infraRoleInstance **required** `string`: Name of an infrastructure role instance.
+  * api-version **required** `string`: Client API Version.
 
 #### Output
 * output [InfraRoleInstance](#infraroleinstance)
 
 ### InfraRoleInstances_PowerOff
-Power off an infra role instance.
+Power off an infrastructure role instance.
 
 
 ```js
 azure_azsadmin_infraroleinstance.InfraRoleInstances_PowerOff({
   "subscriptionId": "",
+  "resourceGroupName": "",
   "location": "",
   "infraRoleInstance": "",
   "api-version": ""
@@ -90,23 +91,23 @@ azure_azsadmin_infraroleinstance.InfraRoleInstances_PowerOff({
 
 #### Input
 * input `object`
-  * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription.The subscription ID forms part of the URI for every service call.
+  * subscriptionId **required** `string`: Subscription credentials that uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+  * resourceGroupName **required** `string`: Name of the resource group.
   * location **required** `string`: Location of the resource.
-  * infraRoleInstance **required** `string`: Name of an infra role instance.
-  * api-version **required** `string`: Client Api Version.
+  * infraRoleInstance **required** `string`: Name of an infrastructure role instance.
+  * api-version **required** `string`: Client API Version.
 
 #### Output
-* output `object`: Status of the compute operation.
-  * properties `object`: The state of the operation.
-    * provisioningState `string`: The state of the operation.
+*Output schema unknown*
 
 ### InfraRoleInstances_PowerOn
-Power on an infra role instance.
+Power on an infrastructure role instance.
 
 
 ```js
 azure_azsadmin_infraroleinstance.InfraRoleInstances_PowerOn({
   "subscriptionId": "",
+  "resourceGroupName": "",
   "location": "",
   "infraRoleInstance": "",
   "api-version": ""
@@ -115,23 +116,23 @@ azure_azsadmin_infraroleinstance.InfraRoleInstances_PowerOn({
 
 #### Input
 * input `object`
-  * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription.The subscription ID forms part of the URI for every service call.
+  * subscriptionId **required** `string`: Subscription credentials that uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+  * resourceGroupName **required** `string`: Name of the resource group.
   * location **required** `string`: Location of the resource.
-  * infraRoleInstance **required** `string`: Name of an infra role instance.
-  * api-version **required** `string`: Client Api Version.
+  * infraRoleInstance **required** `string`: Name of an infrastructure role instance.
+  * api-version **required** `string`: Client API Version.
 
 #### Output
-* output `object`: Status of the compute operation.
-  * properties `object`: The state of the operation.
-    * provisioningState `string`: The state of the operation.
+*Output schema unknown*
 
 ### InfraRoleInstances_Reboot
-Reboot an infra role instance.
+Reboot an infrastructure role instance.
 
 
 ```js
 azure_azsadmin_infraroleinstance.InfraRoleInstances_Reboot({
   "subscriptionId": "",
+  "resourceGroupName": "",
   "location": "",
   "infraRoleInstance": "",
   "api-version": ""
@@ -140,23 +141,23 @@ azure_azsadmin_infraroleinstance.InfraRoleInstances_Reboot({
 
 #### Input
 * input `object`
-  * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription.The subscription ID forms part of the URI for every service call.
+  * subscriptionId **required** `string`: Subscription credentials that uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+  * resourceGroupName **required** `string`: Name of the resource group.
   * location **required** `string`: Location of the resource.
-  * infraRoleInstance **required** `string`: Name of an infra role instance.
-  * api-version **required** `string`: Client Api Version.
+  * infraRoleInstance **required** `string`: Name of an infrastructure role instance.
+  * api-version **required** `string`: Client API Version.
 
 #### Output
-* output `object`: Status of the compute operation.
-  * properties `object`: The state of the operation.
-    * provisioningState `string`: The state of the operation.
+*Output schema unknown*
 
 ### InfraRoleInstances_Shutdown
-Shut down an infra role instance.
+Shut down an infrastructure role instance.
 
 
 ```js
 azure_azsadmin_infraroleinstance.InfraRoleInstances_Shutdown({
   "subscriptionId": "",
+  "resourceGroupName": "",
   "location": "",
   "infraRoleInstance": "",
   "api-version": ""
@@ -165,15 +166,14 @@ azure_azsadmin_infraroleinstance.InfraRoleInstances_Shutdown({
 
 #### Input
 * input `object`
-  * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription.The subscription ID forms part of the URI for every service call.
+  * subscriptionId **required** `string`: Subscription credentials that uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+  * resourceGroupName **required** `string`: Name of the resource group.
   * location **required** `string`: Location of the resource.
-  * infraRoleInstance **required** `string`: Name of an infra role instance.
-  * api-version **required** `string`: Client Api Version.
+  * infraRoleInstance **required** `string`: Name of an infrastructure role instance.
+  * api-version **required** `string`: Client API Version.
 
 #### Output
-* output `object`: Status of the compute operation.
-  * properties `object`: The state of the operation.
-    * provisioningState `string`: The state of the operation.
+*Output schema unknown*
 
 
 
@@ -183,19 +183,19 @@ azure_azsadmin_infraroleinstance.InfraRoleInstances_Shutdown({
 * InfraRoleInstance `object`: The virtual machine resource is used to represent an infrastructure virtual machine in the Azure Stack environment. The fabric resource provider only surfaces infrastructure virtual machines. These machines are never created directly by the admin, but rather as a side effect of expanding admin services.
   * properties [InfraRoleInstanceModel](#infraroleinstancemodel)
   * id `string`: URI of the resource.
-  * location `string`: Region Location of resource.
+  * location `string`: The region where the resource is located.
   * name `string`: Name of the resource.
-  * tags `object`: List of key value pairs.
+  * tags `object`: List of key-value pairs.
   * type `string`: Type of resource.
 
 ### InfraRoleInstanceList
-* InfraRoleInstanceList `object`: Pageable list of infra role instances.
+* InfraRoleInstanceList `object`: Pageable list of infrastructure role instances.
   * nextLink `string`: URI to the next page.
-  * value `array`: List of infra role instances for this page.
+  * value `array`: List of infrastructure role instances.
     * items [InfraRoleInstance](#infraroleinstance)
 
 ### InfraRoleInstanceModel
-* InfraRoleInstanceModel `object`: All properties of an infra role instance.
+* InfraRoleInstanceModel `object`: All properties of an infrastructure role instance.
   * scaleUnit `string`: The cluster that the virtual machine's host is part of.
   * scaleUnitNode `string`: URI to the scale unit node.
   * size [InfraRoleInstanceSize](#infraroleinstancesize)
@@ -204,6 +204,6 @@ azure_azsadmin_infraroleinstance.InfraRoleInstances_Shutdown({
 ### InfraRoleInstanceSize
 * InfraRoleInstanceSize `object`: The capacity information for a virtual machine.
   * cores `integer`: The number of cores assigned to the virtual machine.
-  * memoryGb `number`: The amount of memory, in GB, currently assigned to the virtual machine.  In Azure Stack V1, only static memory is used for infrastructure VMs.
+  * memoryGb `number`: The amount of memory, in GB, currently assigned to the virtual machine.
 
 

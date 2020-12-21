@@ -1,6 +1,6 @@
 {
   "name": "@datafire/azure_compute_skus",
-  "version": "4.0.0",
+  "version": "5.0.0",
   "main": "index.js",
   "description": "DataFire integration for ComputeManagementClient",
   "repository": {
@@ -14,7 +14,7 @@
   },
   "homepage": "https://github.com/DataFire/integrations#readme",
   "datafire": {
-    "origin": "https://api.apis.guru/v2/specs/azure.com/compute-skus/2017-09-01/swagger.json",
+    "origin": "https://api.apis.guru/v2/specs/azure.com/compute-skus/2019-04-01/swagger.json",
     "type": "openapi"
   },
   "peerDependencies": {

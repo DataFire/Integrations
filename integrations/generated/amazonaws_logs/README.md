@@ -13,17 +13,14 @@ let amazonaws_logs = require('@datafire/amazonaws_logs').create({
   region: ""
 });
 
-amazonaws_logs.AssociateKmsKey({
-  "logGroupName": "",
-  "kmsKeyId": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
 
 ## Description
 
-<p>You can use Amazon CloudWatch Logs to monitor, store, and access your log files from Amazon EC2 instances, AWS CloudTrail, or other sources. You can then retrieve the associated log data from CloudWatch Logs using the CloudWatch console, CloudWatch Logs commands in the AWS CLI, CloudWatch Logs API, or CloudWatch Logs SDK.</p> <p>You can use CloudWatch Logs to:</p> <ul> <li> <p> <b>Monitor logs from EC2 instances in real-time</b>: You can use CloudWatch Logs to monitor applications and systems using log data. For example, CloudWatch Logs can track the number of errors that occur in your application logs and send you a notification whenever the rate of errors exceeds a threshold that you specify. CloudWatch Logs uses your log data for monitoring; so, no code changes are required. For example, you can monitor application logs for specific literal terms (such as "NullReferenceException") or count the number of occurrences of a literal term at a particular position in log data (such as "404" status codes in an Apache access log). When the term you are searching for is found, CloudWatch Logs reports the data to a CloudWatch metric that you specify.</p> </li> <li> <p> <b>Monitor AWS CloudTrail logged events</b>: You can create alarms in CloudWatch and receive notifications of particular API activity as captured by CloudTrail and use the notification to perform troubleshooting.</p> </li> <li> <p> <b>Archive log data</b>: You can use CloudWatch Logs to store your log data in highly durable storage. You can change the log retention setting so that any log events older than this setting are automatically deleted. The CloudWatch Logs agent makes it easy to quickly send both rotated and non-rotated log data off of a host and into the log service. You can then access the raw log data when you need it.</p> </li> </ul>
+<p>You can use Amazon CloudWatch Logs to monitor, store, and access your log files from EC2 instances, AWS CloudTrail, or other sources. You can then retrieve the associated log data from CloudWatch Logs using the CloudWatch console, CloudWatch Logs commands in the AWS CLI, CloudWatch Logs API, or CloudWatch Logs SDK.</p> <p>You can use CloudWatch Logs to:</p> <ul> <li> <p> <b>Monitor logs from EC2 instances in real-time</b>: You can use CloudWatch Logs to monitor applications and systems using log data. For example, CloudWatch Logs can track the number of errors that occur in your application logs and send you a notification whenever the rate of errors exceeds a threshold that you specify. CloudWatch Logs uses your log data for monitoring so no code changes are required. For example, you can monitor application logs for specific literal terms (such as "NullReferenceException") or count the number of occurrences of a literal term at a particular position in log data (such as "404" status codes in an Apache access log). When the term you are searching for is found, CloudWatch Logs reports the data to a CloudWatch metric that you specify.</p> </li> <li> <p> <b>Monitor AWS CloudTrail logged events</b>: You can create alarms in CloudWatch and receive notifications of particular API activity as captured by CloudTrail. You can use the notification to perform troubleshooting.</p> </li> <li> <p> <b>Archive log data</b>: You can use CloudWatch Logs to store your log data in highly durable storage. You can change the log retention setting so that any log events older than this setting are automatically deleted. The CloudWatch Logs agent makes it easy to quickly send both rotated and non-rotated log data off of a host and into the log service. You can then access the raw log data when you need it.</p> </li> </ul>
 
 ## Actions
 
@@ -33,15 +30,15 @@ amazonaws_logs.AssociateKmsKey({
 
 ```js
 amazonaws_logs.AssociateKmsKey({
-  "logGroupName": "",
-  "kmsKeyId": ""
+  "logGroupName": null,
+  "kmsKeyId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * kmsKeyId **required** [KmsKeyId](#kmskeyid)
-  * logGroupName **required** [LogGroupName](#loggroupname)
+  * kmsKeyId **required**
+  * logGroupName **required**
 
 #### Output
 *Output schema unknown*
@@ -52,13 +49,13 @@ amazonaws_logs.AssociateKmsKey({
 
 ```js
 amazonaws_logs.CancelExportTask({
-  "taskId": ""
+  "taskId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * taskId **required** [ExportTaskId](#exporttaskid)
+  * taskId **required**
 
 #### Output
 *Output schema unknown*
@@ -69,22 +66,22 @@ amazonaws_logs.CancelExportTask({
 
 ```js
 amazonaws_logs.CreateExportTask({
-  "logGroupName": "",
-  "from": 0,
-  "to": 0,
-  "destination": ""
+  "logGroupName": null,
+  "from": null,
+  "to": null,
+  "destination": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * destination **required** [ExportDestinationBucket](#exportdestinationbucket)
-  * destinationPrefix [ExportDestinationPrefix](#exportdestinationprefix)
-  * from **required** [Timestamp](#timestamp)
-  * logGroupName **required** [LogGroupName](#loggroupname)
-  * logStreamNamePrefix [LogStreamName](#logstreamname)
-  * taskName [ExportTaskName](#exporttaskname)
-  * to **required** [Timestamp](#timestamp)
+  * destination **required**
+  * destinationPrefix
+  * from **required**
+  * logGroupName **required**
+  * logStreamNamePrefix
+  * taskName
+  * to **required**
 
 #### Output
 * output [CreateExportTaskResponse](#createexporttaskresponse)
@@ -95,15 +92,15 @@ amazonaws_logs.CreateExportTask({
 
 ```js
 amazonaws_logs.CreateLogGroup({
-  "logGroupName": ""
+  "logGroupName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * kmsKeyId [KmsKeyId](#kmskeyid)
-  * logGroupName **required** [LogGroupName](#loggroupname)
-  * tags [Tags](#tags)
+  * tags
+  * kmsKeyId
+  * logGroupName **required**
 
 #### Output
 *Output schema unknown*
@@ -114,15 +111,15 @@ amazonaws_logs.CreateLogGroup({
 
 ```js
 amazonaws_logs.CreateLogStream({
-  "logGroupName": "",
-  "logStreamName": ""
+  "logGroupName": null,
+  "logStreamName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * logGroupName **required** [LogGroupName](#loggroupname)
-  * logStreamName **required** [LogStreamName](#logstreamname)
+  * logGroupName **required**
+  * logStreamName **required**
 
 #### Output
 *Output schema unknown*
@@ -133,13 +130,13 @@ amazonaws_logs.CreateLogStream({
 
 ```js
 amazonaws_logs.DeleteDestination({
-  "destinationName": ""
+  "destinationName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * destinationName **required** [DestinationName](#destinationname)
+  * destinationName **required**
 
 #### Output
 *Output schema unknown*
@@ -150,13 +147,13 @@ amazonaws_logs.DeleteDestination({
 
 ```js
 amazonaws_logs.DeleteLogGroup({
-  "logGroupName": ""
+  "logGroupName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * logGroupName **required** [LogGroupName](#loggroupname)
+  * logGroupName **required**
 
 #### Output
 *Output schema unknown*
@@ -167,15 +164,15 @@ amazonaws_logs.DeleteLogGroup({
 
 ```js
 amazonaws_logs.DeleteLogStream({
-  "logGroupName": "",
-  "logStreamName": ""
+  "logGroupName": null,
+  "logStreamName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * logGroupName **required** [LogGroupName](#loggroupname)
-  * logStreamName **required** [LogStreamName](#logstreamname)
+  * logGroupName **required**
+  * logStreamName **required**
 
 #### Output
 *Output schema unknown*
@@ -186,18 +183,35 @@ amazonaws_logs.DeleteLogStream({
 
 ```js
 amazonaws_logs.DeleteMetricFilter({
-  "logGroupName": "",
-  "filterName": ""
+  "logGroupName": null,
+  "filterName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * filterName **required** [FilterName](#filtername)
-  * logGroupName **required** [LogGroupName](#loggroupname)
+  * filterName **required**
+  * logGroupName **required**
 
 #### Output
 *Output schema unknown*
+
+### DeleteQueryDefinition
+
+
+
+```js
+amazonaws_logs.DeleteQueryDefinition({
+  "queryDefinitionId": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * queryDefinitionId **required**
+
+#### Output
+* output [DeleteQueryDefinitionResponse](#deletequerydefinitionresponse)
 
 ### DeleteResourcePolicy
 
@@ -209,7 +223,7 @@ amazonaws_logs.DeleteResourcePolicy({}, context)
 
 #### Input
 * input `object`
-  * policyName [PolicyName](#policyname)
+  * policyName
 
 #### Output
 *Output schema unknown*
@@ -220,13 +234,13 @@ amazonaws_logs.DeleteResourcePolicy({}, context)
 
 ```js
 amazonaws_logs.DeleteRetentionPolicy({
-  "logGroupName": ""
+  "logGroupName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * logGroupName **required** [LogGroupName](#loggroupname)
+  * logGroupName **required**
 
 #### Output
 *Output schema unknown*
@@ -237,15 +251,15 @@ amazonaws_logs.DeleteRetentionPolicy({
 
 ```js
 amazonaws_logs.DeleteSubscriptionFilter({
-  "logGroupName": "",
-  "filterName": ""
+  "logGroupName": null,
+  "filterName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * filterName **required** [FilterName](#filtername)
-  * logGroupName **required** [LogGroupName](#loggroupname)
+  * filterName **required**
+  * logGroupName **required**
 
 #### Output
 *Output schema unknown*
@@ -262,9 +276,9 @@ amazonaws_logs.DescribeDestinations({}, context)
 * input `object`
   * limit `string`
   * nextToken `string`
-  * DestinationNamePrefix [DestinationName](#destinationname)
-  * limit [DescribeLimit](#describelimit)
-  * nextToken [NextToken](#nexttoken)
+  * DestinationNamePrefix
+  * limit
+  * nextToken
 
 #### Output
 * output [DescribeDestinationsResponse](#describedestinationsresponse)
@@ -279,10 +293,10 @@ amazonaws_logs.DescribeExportTasks({}, context)
 
 #### Input
 * input `object`
-  * limit [DescribeLimit](#describelimit)
-  * nextToken [NextToken](#nexttoken)
-  * statusCode [ExportTaskStatusCode](#exporttaskstatuscode)
-  * taskId [ExportTaskId](#exporttaskid)
+  * limit
+  * nextToken
+  * statusCode
+  * taskId
 
 #### Output
 * output [DescribeExportTasksResponse](#describeexporttasksresponse)
@@ -299,9 +313,9 @@ amazonaws_logs.DescribeLogGroups({}, context)
 * input `object`
   * limit `string`
   * nextToken `string`
-  * limit [DescribeLimit](#describelimit)
-  * logGroupNamePrefix [LogGroupName](#loggroupname)
-  * nextToken [NextToken](#nexttoken)
+  * limit
+  * logGroupNamePrefix
+  * nextToken
 
 #### Output
 * output [DescribeLogGroupsResponse](#describeloggroupsresponse)
@@ -312,7 +326,7 @@ amazonaws_logs.DescribeLogGroups({}, context)
 
 ```js
 amazonaws_logs.DescribeLogStreams({
-  "logGroupName": ""
+  "logGroupName": null
 }, context)
 ```
 
@@ -320,12 +334,12 @@ amazonaws_logs.DescribeLogStreams({
 * input `object`
   * limit `string`
   * nextToken `string`
-  * descending [Descending](#descending)
-  * limit [DescribeLimit](#describelimit)
-  * logGroupName **required** [LogGroupName](#loggroupname)
-  * logStreamNamePrefix [LogStreamName](#logstreamname)
-  * nextToken [NextToken](#nexttoken)
-  * orderBy [OrderBy](#orderby)
+  * descending
+  * limit
+  * logGroupName **required**
+  * logStreamNamePrefix
+  * nextToken
+  * orderBy
 
 #### Output
 * output [DescribeLogStreamsResponse](#describelogstreamsresponse)
@@ -342,15 +356,50 @@ amazonaws_logs.DescribeMetricFilters({}, context)
 * input `object`
   * limit `string`
   * nextToken `string`
-  * filterNamePrefix [FilterName](#filtername)
-  * limit [DescribeLimit](#describelimit)
-  * logGroupName [LogGroupName](#loggroupname)
-  * metricName [MetricName](#metricname)
-  * metricNamespace [MetricNamespace](#metricnamespace)
-  * nextToken [NextToken](#nexttoken)
+  * filterNamePrefix
+  * limit
+  * logGroupName
+  * metricName
+  * metricNamespace
+  * nextToken
 
 #### Output
 * output [DescribeMetricFiltersResponse](#describemetricfiltersresponse)
+
+### DescribeQueries
+
+
+
+```js
+amazonaws_logs.DescribeQueries({}, context)
+```
+
+#### Input
+* input `object`
+  * logGroupName
+  * maxResults
+  * nextToken [NextToken](#nexttoken)
+  * status
+
+#### Output
+* output [DescribeQueriesResponse](#describequeriesresponse)
+
+### DescribeQueryDefinitions
+
+
+
+```js
+amazonaws_logs.DescribeQueryDefinitions({}, context)
+```
+
+#### Input
+* input `object`
+  * maxResults
+  * nextToken [NextToken](#nexttoken)
+  * queryDefinitionNamePrefix
+
+#### Output
+* output [DescribeQueryDefinitionsResponse](#describequerydefinitionsresponse)
 
 ### DescribeResourcePolicies
 
@@ -362,7 +411,7 @@ amazonaws_logs.DescribeResourcePolicies({}, context)
 
 #### Input
 * input `object`
-  * limit [DescribeLimit](#describelimit)
+  * limit
   * nextToken [NextToken](#nexttoken)
 
 #### Output
@@ -374,7 +423,7 @@ amazonaws_logs.DescribeResourcePolicies({}, context)
 
 ```js
 amazonaws_logs.DescribeSubscriptionFilters({
-  "logGroupName": ""
+  "logGroupName": null
 }, context)
 ```
 
@@ -382,10 +431,10 @@ amazonaws_logs.DescribeSubscriptionFilters({
 * input `object`
   * limit `string`
   * nextToken `string`
-  * filterNamePrefix [FilterName](#filtername)
-  * limit [DescribeLimit](#describelimit)
-  * logGroupName **required** [LogGroupName](#loggroupname)
-  * nextToken [NextToken](#nexttoken)
+  * filterNamePrefix
+  * limit
+  * logGroupName **required**
+  * nextToken
 
 #### Output
 * output [DescribeSubscriptionFiltersResponse](#describesubscriptionfiltersresponse)
@@ -396,13 +445,13 @@ amazonaws_logs.DescribeSubscriptionFilters({
 
 ```js
 amazonaws_logs.DisassociateKmsKey({
-  "logGroupName": ""
+  "logGroupName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * logGroupName **required** [LogGroupName](#loggroupname)
+  * logGroupName **required**
 
 #### Output
 *Output schema unknown*
@@ -413,7 +462,7 @@ amazonaws_logs.DisassociateKmsKey({
 
 ```js
 amazonaws_logs.FilterLogEvents({
-  "logGroupName": ""
+  "logGroupName": null
 }, context)
 ```
 
@@ -421,14 +470,16 @@ amazonaws_logs.FilterLogEvents({
 * input `object`
   * limit `string`
   * nextToken `string`
-  * endTime [Timestamp](#timestamp)
-  * filterPattern [FilterPattern](#filterpattern)
-  * interleaved [Interleaved](#interleaved)
-  * limit [EventsLimit](#eventslimit)
-  * logGroupName **required** [LogGroupName](#loggroupname)
-  * logStreamNames [InputLogStreamNames](#inputlogstreamnames)
-  * nextToken [NextToken](#nexttoken)
-  * startTime [Timestamp](#timestamp)
+  * endTime
+  * filterPattern
+  * interleaved
+  * limit
+  * logGroupName **required**
+  * logStreamNamePrefix
+  * logStreamNames
+    * items [LogStreamName](#logstreamname)
+  * nextToken
+  * startTime
 
 #### Output
 * output [FilterLogEventsResponse](#filterlogeventsresponse)
@@ -439,8 +490,8 @@ amazonaws_logs.FilterLogEvents({
 
 ```js
 amazonaws_logs.GetLogEvents({
-  "logGroupName": "",
-  "logStreamName": ""
+  "logGroupName": null,
+  "logStreamName": null
 }, context)
 ```
 
@@ -448,16 +499,68 @@ amazonaws_logs.GetLogEvents({
 * input `object`
   * limit `string`
   * nextToken `string`
-  * endTime [Timestamp](#timestamp)
-  * limit [EventsLimit](#eventslimit)
-  * logGroupName **required** [LogGroupName](#loggroupname)
-  * logStreamName **required** [LogStreamName](#logstreamname)
-  * nextToken [NextToken](#nexttoken)
-  * startFromHead [StartFromHead](#startfromhead)
-  * startTime [Timestamp](#timestamp)
+  * endTime
+  * limit
+  * logGroupName **required**
+  * logStreamName **required**
+  * nextToken
+  * startFromHead
+  * startTime
 
 #### Output
 * output [GetLogEventsResponse](#getlogeventsresponse)
+
+### GetLogGroupFields
+
+
+
+```js
+amazonaws_logs.GetLogGroupFields({
+  "logGroupName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * logGroupName **required**
+  * time
+
+#### Output
+* output [GetLogGroupFieldsResponse](#getloggroupfieldsresponse)
+
+### GetLogRecord
+
+
+
+```js
+amazonaws_logs.GetLogRecord({
+  "logRecordPointer": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * logRecordPointer **required**
+
+#### Output
+* output [GetLogRecordResponse](#getlogrecordresponse)
+
+### GetQueryResults
+
+
+
+```js
+amazonaws_logs.GetQueryResults({
+  "queryId": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * queryId **required**
+
+#### Output
+* output [GetQueryResultsResponse](#getqueryresultsresponse)
 
 ### ListTagsLogGroup
 
@@ -465,13 +568,13 @@ amazonaws_logs.GetLogEvents({
 
 ```js
 amazonaws_logs.ListTagsLogGroup({
-  "logGroupName": ""
+  "logGroupName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * logGroupName **required** [LogGroupName](#loggroupname)
+  * logGroupName **required**
 
 #### Output
 * output [ListTagsLogGroupResponse](#listtagsloggroupresponse)
@@ -482,17 +585,17 @@ amazonaws_logs.ListTagsLogGroup({
 
 ```js
 amazonaws_logs.PutDestination({
-  "destinationName": "",
-  "targetArn": "",
-  "roleArn": ""
+  "destinationName": null,
+  "targetArn": null,
+  "roleArn": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * destinationName **required** [DestinationName](#destinationname)
-  * roleArn **required** [RoleArn](#rolearn)
-  * targetArn **required** [TargetArn](#targetarn)
+  * destinationName **required**
+  * roleArn **required**
+  * targetArn **required**
 
 #### Output
 * output [PutDestinationResponse](#putdestinationresponse)
@@ -503,15 +606,15 @@ amazonaws_logs.PutDestination({
 
 ```js
 amazonaws_logs.PutDestinationPolicy({
-  "destinationName": "",
-  "accessPolicy": ""
+  "destinationName": null,
+  "accessPolicy": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * accessPolicy **required** [AccessPolicy](#accesspolicy)
-  * destinationName **required** [DestinationName](#destinationname)
+  * accessPolicy **required**
+  * destinationName **required**
 
 #### Output
 *Output schema unknown*
@@ -522,18 +625,19 @@ amazonaws_logs.PutDestinationPolicy({
 
 ```js
 amazonaws_logs.PutLogEvents({
-  "logGroupName": "",
-  "logStreamName": "",
-  "logEvents": []
+  "logGroupName": null,
+  "logStreamName": null,
+  "logEvents": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * logEvents **required** [InputLogEvents](#inputlogevents)
-  * logGroupName **required** [LogGroupName](#loggroupname)
-  * logStreamName **required** [LogStreamName](#logstreamname)
-  * sequenceToken [SequenceToken](#sequencetoken)
+  * logEvents **required**
+    * items [InputLogEvent](#inputlogevent)
+  * logGroupName **required**
+  * logStreamName **required**
+  * sequenceToken
 
 #### Output
 * output [PutLogEventsResponse](#putlogeventsresponse)
@@ -544,22 +648,45 @@ amazonaws_logs.PutLogEvents({
 
 ```js
 amazonaws_logs.PutMetricFilter({
-  "logGroupName": "",
-  "filterName": "",
-  "filterPattern": "",
-  "metricTransformations": []
+  "logGroupName": null,
+  "filterName": null,
+  "filterPattern": null,
+  "metricTransformations": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * filterName **required** [FilterName](#filtername)
-  * filterPattern **required** [FilterPattern](#filterpattern)
-  * logGroupName **required** [LogGroupName](#loggroupname)
-  * metricTransformations **required** [MetricTransformations](#metrictransformations)
+  * filterName **required**
+  * filterPattern **required**
+  * logGroupName **required**
+  * metricTransformations **required**
+    * items [MetricTransformation](#metrictransformation)
 
 #### Output
 *Output schema unknown*
+
+### PutQueryDefinition
+
+
+
+```js
+amazonaws_logs.PutQueryDefinition({
+  "name": null,
+  "queryString": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * logGroupNames
+    * items [LogGroupName](#loggroupname)
+  * name **required**
+  * queryDefinitionId
+  * queryString **required**
+
+#### Output
+* output [PutQueryDefinitionResponse](#putquerydefinitionresponse)
 
 ### PutResourcePolicy
 
@@ -571,8 +698,8 @@ amazonaws_logs.PutResourcePolicy({}, context)
 
 #### Input
 * input `object`
-  * policyDocument [PolicyDocument](#policydocument)
-  * policyName [PolicyName](#policyname)
+  * policyDocument
+  * policyName
 
 #### Output
 * output [PutResourcePolicyResponse](#putresourcepolicyresponse)
@@ -583,14 +710,14 @@ amazonaws_logs.PutResourcePolicy({}, context)
 
 ```js
 amazonaws_logs.PutRetentionPolicy({
-  "logGroupName": "",
+  "logGroupName": null,
   "retentionInDays": 0
 }, context)
 ```
 
 #### Input
 * input `object`
-  * logGroupName **required** [LogGroupName](#loggroupname)
+  * logGroupName **required**
   * retentionInDays **required** [Days](#days)
 
 #### Output
@@ -602,24 +729,66 @@ amazonaws_logs.PutRetentionPolicy({
 
 ```js
 amazonaws_logs.PutSubscriptionFilter({
-  "logGroupName": "",
-  "filterName": "",
-  "filterPattern": "",
-  "destinationArn": ""
+  "logGroupName": null,
+  "filterName": null,
+  "filterPattern": null,
+  "destinationArn": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * destinationArn **required** [DestinationArn](#destinationarn)
-  * distribution [Distribution](#distribution)
-  * filterName **required** [FilterName](#filtername)
-  * filterPattern **required** [FilterPattern](#filterpattern)
-  * logGroupName **required** [LogGroupName](#loggroupname)
-  * roleArn [RoleArn](#rolearn)
+  * destinationArn **required**
+  * distribution
+  * filterName **required**
+  * filterPattern **required**
+  * logGroupName **required**
+  * roleArn
 
 #### Output
 *Output schema unknown*
+
+### StartQuery
+
+
+
+```js
+amazonaws_logs.StartQuery({
+  "startTime": null,
+  "endTime": null,
+  "queryString": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * endTime **required**
+  * limit
+  * logGroupName
+  * logGroupNames
+    * items [LogGroupName](#loggroupname)
+  * queryString **required**
+  * startTime **required**
+
+#### Output
+* output [StartQueryResponse](#startqueryresponse)
+
+### StopQuery
+
+
+
+```js
+amazonaws_logs.StopQuery({
+  "queryId": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * queryId **required**
+
+#### Output
+* output [StopQueryResponse](#stopqueryresponse)
 
 ### TagLogGroup
 
@@ -627,15 +796,15 @@ amazonaws_logs.PutSubscriptionFilter({
 
 ```js
 amazonaws_logs.TagLogGroup({
-  "logGroupName": "",
-  "tags": []
+  "logGroupName": null,
+  "tags": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * logGroupName **required** [LogGroupName](#loggroupname)
-  * tags **required** [Tags](#tags)
+  * tags **required**
+  * logGroupName **required**
 
 #### Output
 *Output schema unknown*
@@ -647,14 +816,15 @@ amazonaws_logs.TagLogGroup({
 ```js
 amazonaws_logs.TestMetricFilter({
   "filterPattern": "",
-  "logEventMessages": []
+  "logEventMessages": null
 }, context)
 ```
 
 #### Input
 * input `object`
   * filterPattern **required** [FilterPattern](#filterpattern)
-  * logEventMessages **required** [TestEventMessages](#testeventmessages)
+  * logEventMessages **required**
+    * items [EventMessage](#eventmessage)
 
 #### Output
 * output [TestMetricFilterResponse](#testmetricfilterresponse)
@@ -665,15 +835,16 @@ amazonaws_logs.TestMetricFilter({
 
 ```js
 amazonaws_logs.UntagLogGroup({
-  "logGroupName": "",
-  "tags": []
+  "logGroupName": null,
+  "tags": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * logGroupName **required** [LogGroupName](#loggroupname)
-  * tags **required** [TagList](#taglist)
+  * tags **required**
+    * items [TagKey](#tagkey)
+  * logGroupName **required**
 
 #### Output
 *Output schema unknown*
@@ -690,103 +861,112 @@ amazonaws_logs.UntagLogGroup({
 
 ### AssociateKmsKeyRequest
 * AssociateKmsKeyRequest `object`
-  * kmsKeyId **required** [KmsKeyId](#kmskeyid)
-  * logGroupName **required** [LogGroupName](#loggroupname)
+  * kmsKeyId **required**
+  * logGroupName **required**
 
 ### CancelExportTaskRequest
 * CancelExportTaskRequest `object`
-  * taskId **required** [ExportTaskId](#exporttaskid)
+  * taskId **required**
 
 ### CreateExportTaskRequest
 * CreateExportTaskRequest `object`
-  * destination **required** [ExportDestinationBucket](#exportdestinationbucket)
-  * destinationPrefix [ExportDestinationPrefix](#exportdestinationprefix)
-  * from **required** [Timestamp](#timestamp)
-  * logGroupName **required** [LogGroupName](#loggroupname)
-  * logStreamNamePrefix [LogStreamName](#logstreamname)
-  * taskName [ExportTaskName](#exporttaskname)
-  * to **required** [Timestamp](#timestamp)
+  * destination **required**
+  * destinationPrefix
+  * from **required**
+  * logGroupName **required**
+  * logStreamNamePrefix
+  * taskName
+  * to **required**
 
 ### CreateExportTaskResponse
 * CreateExportTaskResponse `object`
-  * taskId [ExportTaskId](#exporttaskid)
+  * taskId
 
 ### CreateLogGroupRequest
 * CreateLogGroupRequest `object`
-  * kmsKeyId [KmsKeyId](#kmskeyid)
-  * logGroupName **required** [LogGroupName](#loggroupname)
-  * tags [Tags](#tags)
+  * tags
+  * kmsKeyId
+  * logGroupName **required**
 
 ### CreateLogStreamRequest
 * CreateLogStreamRequest `object`
-  * logGroupName **required** [LogGroupName](#loggroupname)
-  * logStreamName **required** [LogStreamName](#logstreamname)
+  * logGroupName **required**
+  * logStreamName **required**
 
 ### DataAlreadyAcceptedException
-* DataAlreadyAcceptedException `object`: The event was already logged.
-  * expectedSequenceToken [SequenceToken](#sequencetoken)
+
 
 ### Days
-* Days `integer`: The number of days to retain the log events in the specified log group. Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1827, and 3653.
+* Days `integer`: <p>The number of days to retain the log events in the specified log group. Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1827, and 3653.</p> <p>If you omit <code>retentionInDays</code> in a <code>PutRetentionPolicy</code> operation, the events in the log group are always retained and never expire.</p>
 
 ### DefaultValue
 * DefaultValue `number`
 
 ### DeleteDestinationRequest
 * DeleteDestinationRequest `object`
-  * destinationName **required** [DestinationName](#destinationname)
+  * destinationName **required**
 
 ### DeleteLogGroupRequest
 * DeleteLogGroupRequest `object`
-  * logGroupName **required** [LogGroupName](#loggroupname)
+  * logGroupName **required**
 
 ### DeleteLogStreamRequest
 * DeleteLogStreamRequest `object`
-  * logGroupName **required** [LogGroupName](#loggroupname)
-  * logStreamName **required** [LogStreamName](#logstreamname)
+  * logGroupName **required**
+  * logStreamName **required**
 
 ### DeleteMetricFilterRequest
 * DeleteMetricFilterRequest `object`
-  * filterName **required** [FilterName](#filtername)
-  * logGroupName **required** [LogGroupName](#loggroupname)
+  * filterName **required**
+  * logGroupName **required**
+
+### DeleteQueryDefinitionRequest
+* DeleteQueryDefinitionRequest `object`
+  * queryDefinitionId **required**
+
+### DeleteQueryDefinitionResponse
+* DeleteQueryDefinitionResponse `object`
+  * success
 
 ### DeleteResourcePolicyRequest
 * DeleteResourcePolicyRequest `object`
-  * policyName [PolicyName](#policyname)
+  * policyName
 
 ### DeleteRetentionPolicyRequest
 * DeleteRetentionPolicyRequest `object`
-  * logGroupName **required** [LogGroupName](#loggroupname)
+  * logGroupName **required**
 
 ### DeleteSubscriptionFilterRequest
 * DeleteSubscriptionFilterRequest `object`
-  * filterName **required** [FilterName](#filtername)
-  * logGroupName **required** [LogGroupName](#loggroupname)
+  * filterName **required**
+  * logGroupName **required**
 
 ### Descending
 * Descending `boolean`
 
 ### DescribeDestinationsRequest
 * DescribeDestinationsRequest `object`
-  * DestinationNamePrefix [DestinationName](#destinationname)
-  * limit [DescribeLimit](#describelimit)
-  * nextToken [NextToken](#nexttoken)
+  * DestinationNamePrefix
+  * limit
+  * nextToken
 
 ### DescribeDestinationsResponse
 * DescribeDestinationsResponse `object`
-  * destinations [Destinations](#destinations)
+  * destinations
+    * items [Destination](#destination)
   * nextToken [NextToken](#nexttoken)
 
 ### DescribeExportTasksRequest
 * DescribeExportTasksRequest `object`
-  * limit [DescribeLimit](#describelimit)
-  * nextToken [NextToken](#nexttoken)
-  * statusCode [ExportTaskStatusCode](#exporttaskstatuscode)
-  * taskId [ExportTaskId](#exporttaskid)
+  * limit
+  * nextToken
+  * statusCode
+  * taskId
 
 ### DescribeExportTasksResponse
 * DescribeExportTasksResponse `object`
-  * exportTasks [ExportTasks](#exporttasks)
+  * exportTasks
+    * items [ExportTask](#exporttask)
   * nextToken [NextToken](#nexttoken)
 
 ### DescribeLimit
@@ -794,73 +974,106 @@ amazonaws_logs.UntagLogGroup({
 
 ### DescribeLogGroupsRequest
 * DescribeLogGroupsRequest `object`
-  * limit [DescribeLimit](#describelimit)
-  * logGroupNamePrefix [LogGroupName](#loggroupname)
-  * nextToken [NextToken](#nexttoken)
+  * limit
+  * logGroupNamePrefix
+  * nextToken
 
 ### DescribeLogGroupsResponse
 * DescribeLogGroupsResponse `object`
-  * logGroups [LogGroups](#loggroups)
+  * logGroups
+    * items [LogGroup](#loggroup)
   * nextToken [NextToken](#nexttoken)
 
 ### DescribeLogStreamsRequest
 * DescribeLogStreamsRequest `object`
-  * descending [Descending](#descending)
-  * limit [DescribeLimit](#describelimit)
-  * logGroupName **required** [LogGroupName](#loggroupname)
-  * logStreamNamePrefix [LogStreamName](#logstreamname)
-  * nextToken [NextToken](#nexttoken)
-  * orderBy [OrderBy](#orderby)
+  * descending
+  * limit
+  * logGroupName **required**
+  * logStreamNamePrefix
+  * nextToken
+  * orderBy
 
 ### DescribeLogStreamsResponse
 * DescribeLogStreamsResponse `object`
-  * logStreams [LogStreams](#logstreams)
+  * logStreams
+    * items [LogStream](#logstream)
   * nextToken [NextToken](#nexttoken)
 
 ### DescribeMetricFiltersRequest
 * DescribeMetricFiltersRequest `object`
-  * filterNamePrefix [FilterName](#filtername)
-  * limit [DescribeLimit](#describelimit)
-  * logGroupName [LogGroupName](#loggroupname)
-  * metricName [MetricName](#metricname)
-  * metricNamespace [MetricNamespace](#metricnamespace)
-  * nextToken [NextToken](#nexttoken)
+  * filterNamePrefix
+  * limit
+  * logGroupName
+  * metricName
+  * metricNamespace
+  * nextToken
 
 ### DescribeMetricFiltersResponse
 * DescribeMetricFiltersResponse `object`
-  * metricFilters [MetricFilters](#metricfilters)
+  * metricFilters
+    * items [MetricFilter](#metricfilter)
   * nextToken [NextToken](#nexttoken)
+
+### DescribeQueriesMaxResults
+* DescribeQueriesMaxResults `integer`
+
+### DescribeQueriesRequest
+* DescribeQueriesRequest `object`
+  * logGroupName
+  * maxResults
+  * nextToken [NextToken](#nexttoken)
+  * status
+
+### DescribeQueriesResponse
+* DescribeQueriesResponse `object`
+  * nextToken [NextToken](#nexttoken)
+  * queries
+    * items [QueryInfo](#queryinfo)
+
+### DescribeQueryDefinitionsRequest
+* DescribeQueryDefinitionsRequest `object`
+  * maxResults
+  * nextToken [NextToken](#nexttoken)
+  * queryDefinitionNamePrefix
+
+### DescribeQueryDefinitionsResponse
+* DescribeQueryDefinitionsResponse `object`
+  * nextToken [NextToken](#nexttoken)
+  * queryDefinitions
+    * items [QueryDefinition](#querydefinition)
 
 ### DescribeResourcePoliciesRequest
 * DescribeResourcePoliciesRequest `object`
-  * limit [DescribeLimit](#describelimit)
+  * limit
   * nextToken [NextToken](#nexttoken)
 
 ### DescribeResourcePoliciesResponse
 * DescribeResourcePoliciesResponse `object`
   * nextToken [NextToken](#nexttoken)
-  * resourcePolicies [ResourcePolicies](#resourcepolicies)
+  * resourcePolicies
+    * items [ResourcePolicy](#resourcepolicy)
 
 ### DescribeSubscriptionFiltersRequest
 * DescribeSubscriptionFiltersRequest `object`
-  * filterNamePrefix [FilterName](#filtername)
-  * limit [DescribeLimit](#describelimit)
-  * logGroupName **required** [LogGroupName](#loggroupname)
-  * nextToken [NextToken](#nexttoken)
+  * filterNamePrefix
+  * limit
+  * logGroupName **required**
+  * nextToken
 
 ### DescribeSubscriptionFiltersResponse
 * DescribeSubscriptionFiltersResponse `object`
   * nextToken [NextToken](#nexttoken)
-  * subscriptionFilters [SubscriptionFilters](#subscriptionfilters)
+  * subscriptionFilters
+    * items [SubscriptionFilter](#subscriptionfilter)
 
 ### Destination
 * Destination `object`: Represents a cross-account destination that receives subscription log events.
-  * accessPolicy [AccessPolicy](#accesspolicy)
-  * arn [Arn](#arn)
-  * creationTime [Timestamp](#timestamp)
-  * destinationName [DestinationName](#destinationname)
-  * roleArn [RoleArn](#rolearn)
-  * targetArn [TargetArn](#targetarn)
+  * accessPolicy
+  * arn
+  * creationTime
+  * destinationName
+  * roleArn
+  * targetArn
 
 ### DestinationArn
 * DestinationArn `string`
@@ -874,7 +1087,7 @@ amazonaws_logs.UntagLogGroup({
 
 ### DisassociateKmsKeyRequest
 * DisassociateKmsKeyRequest `object`
-  * logGroupName **required** [LogGroupName](#loggroupname)
+  * logGroupName **required**
 
 ### Distribution
 * Distribution `string` (values: Random, ByLogStream): The method used to distribute log data to the destination, which can be either random or grouped by log stream.
@@ -899,20 +1112,24 @@ amazonaws_logs.UntagLogGroup({
 
 ### ExportTask
 * ExportTask `object`: Represents an export task.
-  * destination [ExportDestinationBucket](#exportdestinationbucket)
-  * destinationPrefix [ExportDestinationPrefix](#exportdestinationprefix)
-  * executionInfo [ExportTaskExecutionInfo](#exporttaskexecutioninfo)
-  * from [Timestamp](#timestamp)
-  * logGroupName [LogGroupName](#loggroupname)
-  * status [ExportTaskStatus](#exporttaskstatus)
-  * taskId [ExportTaskId](#exporttaskid)
-  * taskName [ExportTaskName](#exporttaskname)
-  * to [Timestamp](#timestamp)
+  * destination
+  * destinationPrefix
+  * executionInfo
+    * completionTime
+    * creationTime
+  * from
+  * logGroupName
+  * status
+    * code
+    * message
+  * taskId
+  * taskName
+  * to
 
 ### ExportTaskExecutionInfo
 * ExportTaskExecutionInfo `object`: Represents the status of an export task.
-  * completionTime [Timestamp](#timestamp)
-  * creationTime [Timestamp](#timestamp)
+  * completionTime
+  * creationTime
 
 ### ExportTaskId
 * ExportTaskId `string`
@@ -922,8 +1139,8 @@ amazonaws_logs.UntagLogGroup({
 
 ### ExportTaskStatus
 * ExportTaskStatus `object`: Represents the status of an export task.
-  * code [ExportTaskStatusCode](#exporttaskstatuscode)
-  * message [ExportTaskStatusMessage](#exporttaskstatusmessage)
+  * code
+  * message
 
 ### ExportTaskStatusCode
 * ExportTaskStatusCode `string` (values: CANCELLED, COMPLETED, FAILED, PENDING, PENDING_CANCEL, RUNNING)
@@ -936,44 +1153,48 @@ amazonaws_logs.UntagLogGroup({
   * items [ExportTask](#exporttask)
 
 ### ExtractedValues
-* ExtractedValues `array`
-  * items `object`
-    * key [Token](#token)
-    * value [Value](#value)
+* ExtractedValues `object`
+
+### Field
+* Field `string`
 
 ### FilterCount
 * FilterCount `integer`
 
 ### FilterLogEventsRequest
 * FilterLogEventsRequest `object`
-  * endTime [Timestamp](#timestamp)
-  * filterPattern [FilterPattern](#filterpattern)
-  * interleaved [Interleaved](#interleaved)
-  * limit [EventsLimit](#eventslimit)
-  * logGroupName **required** [LogGroupName](#loggroupname)
-  * logStreamNames [InputLogStreamNames](#inputlogstreamnames)
-  * nextToken [NextToken](#nexttoken)
-  * startTime [Timestamp](#timestamp)
+  * endTime
+  * filterPattern
+  * interleaved
+  * limit
+  * logGroupName **required**
+  * logStreamNamePrefix
+  * logStreamNames
+    * items [LogStreamName](#logstreamname)
+  * nextToken
+  * startTime
 
 ### FilterLogEventsResponse
 * FilterLogEventsResponse `object`
-  * events [FilteredLogEvents](#filteredlogevents)
-  * nextToken [NextToken](#nexttoken)
-  * searchedLogStreams [SearchedLogStreams](#searchedlogstreams)
+  * events
+    * items [FilteredLogEvent](#filteredlogevent)
+  * nextToken
+  * searchedLogStreams
+    * items [SearchedLogStream](#searchedlogstream)
 
 ### FilterName
 * FilterName `string`
 
 ### FilterPattern
-* FilterPattern `string`: A symbolic description of how CloudWatch Logs should interpret the data in each log event. For example, a log event may contain time stamps, IP addresses, strings, and so on. You use the filter pattern to specify what to look for in the log event message.
+* FilterPattern `string`: A symbolic description of how CloudWatch Logs should interpret the data in each log event. For example, a log event can contain timestamps, IP addresses, strings, and so on. You use the filter pattern to specify what to look for in the log event message.
 
 ### FilteredLogEvent
 * FilteredLogEvent `object`: Represents a matched event.
-  * eventId [EventId](#eventid)
-  * ingestionTime [Timestamp](#timestamp)
-  * logStreamName [LogStreamName](#logstreamname)
-  * message [EventMessage](#eventmessage)
-  * timestamp [Timestamp](#timestamp)
+  * eventId
+  * ingestionTime
+  * logStreamName
+  * message
+  * timestamp
 
 ### FilteredLogEvents
 * FilteredLogEvents `array`
@@ -981,24 +1202,57 @@ amazonaws_logs.UntagLogGroup({
 
 ### GetLogEventsRequest
 * GetLogEventsRequest `object`
-  * endTime [Timestamp](#timestamp)
-  * limit [EventsLimit](#eventslimit)
-  * logGroupName **required** [LogGroupName](#loggroupname)
-  * logStreamName **required** [LogStreamName](#logstreamname)
-  * nextToken [NextToken](#nexttoken)
-  * startFromHead [StartFromHead](#startfromhead)
-  * startTime [Timestamp](#timestamp)
+  * endTime
+  * limit
+  * logGroupName **required**
+  * logStreamName **required**
+  * nextToken
+  * startFromHead
+  * startTime
 
 ### GetLogEventsResponse
 * GetLogEventsResponse `object`
-  * events [OutputLogEvents](#outputlogevents)
-  * nextBackwardToken [NextToken](#nexttoken)
-  * nextForwardToken [NextToken](#nexttoken)
+  * events
+    * items [OutputLogEvent](#outputlogevent)
+  * nextBackwardToken
+  * nextForwardToken
+
+### GetLogGroupFieldsRequest
+* GetLogGroupFieldsRequest `object`
+  * logGroupName **required**
+  * time
+
+### GetLogGroupFieldsResponse
+* GetLogGroupFieldsResponse `object`
+  * logGroupFields
+    * items [LogGroupField](#loggroupfield)
+
+### GetLogRecordRequest
+* GetLogRecordRequest `object`
+  * logRecordPointer **required**
+
+### GetLogRecordResponse
+* GetLogRecordResponse `object`
+  * logRecord
+
+### GetQueryResultsRequest
+* GetQueryResultsRequest `object`
+  * queryId **required**
+
+### GetQueryResultsResponse
+* GetQueryResultsResponse `object`
+  * results
+    * items [ResultRows](#resultrows)
+  * statistics
+    * bytesScanned
+    * recordsMatched
+    * recordsScanned
+  * status
 
 ### InputLogEvent
 * InputLogEvent `object`: Represents a log event, which is a record of activity that was recorded by the application or resource being monitored.
-  * message **required** [EventMessage](#eventmessage)
-  * timestamp **required** [Timestamp](#timestamp)
+  * message **required**
+  * timestamp **required**
 
 ### InputLogEvents
 * InputLogEvents `array`
@@ -1012,59 +1266,77 @@ amazonaws_logs.UntagLogGroup({
 * Interleaved `boolean`
 
 ### InvalidOperationException
-* InvalidOperationException `object`: The operation is not valid on the specified resource.
+
 
 ### InvalidParameterException
-* InvalidParameterException `object`: A parameter is specified incorrectly.
+
 
 ### InvalidSequenceTokenException
-* InvalidSequenceTokenException `object`: The sequence token is not valid.
-  * expectedSequenceToken [SequenceToken](#sequencetoken)
+
 
 ### KmsKeyId
 * KmsKeyId `string`
 
 ### LimitExceededException
-* LimitExceededException `object`: You have reached the maximum number of resources that can be created.
+
 
 ### ListTagsLogGroupRequest
 * ListTagsLogGroupRequest `object`
-  * logGroupName **required** [LogGroupName](#loggroupname)
+  * logGroupName **required**
 
 ### ListTagsLogGroupResponse
 * ListTagsLogGroupResponse `object`
-  * tags [Tags](#tags)
+  * tags
 
 ### LogEventIndex
 * LogEventIndex `integer`
 
 ### LogGroup
 * LogGroup `object`: Represents a log group.
-  * arn [Arn](#arn)
-  * creationTime [Timestamp](#timestamp)
-  * kmsKeyId [KmsKeyId](#kmskeyid)
-  * logGroupName [LogGroupName](#loggroupname)
-  * metricFilterCount [FilterCount](#filtercount)
+  * arn
+  * creationTime
+  * kmsKeyId
+  * logGroupName
+  * metricFilterCount
   * retentionInDays [Days](#days)
-  * storedBytes [StoredBytes](#storedbytes)
+  * storedBytes
+
+### LogGroupField
+* LogGroupField `object`: The fields contained in log events found by a <code>GetLogGroupFields</code> operation, along with the percentage of queried log events in which each field appears.
+  * name
+  * percent
+
+### LogGroupFieldList
+* LogGroupFieldList `array`
+  * items [LogGroupField](#loggroupfield)
 
 ### LogGroupName
 * LogGroupName `string`
+
+### LogGroupNames
+* LogGroupNames `array`
+  * items [LogGroupName](#loggroupname)
 
 ### LogGroups
 * LogGroups `array`
   * items [LogGroup](#loggroup)
 
+### LogRecord
+* LogRecord `object`
+
+### LogRecordPointer
+* LogRecordPointer `string`
+
 ### LogStream
 * LogStream `object`: Represents a log stream, which is a sequence of log events from a single emitter of logs.
-  * arn [Arn](#arn)
-  * creationTime [Timestamp](#timestamp)
-  * firstEventTimestamp [Timestamp](#timestamp)
-  * lastEventTimestamp [Timestamp](#timestamp)
-  * lastIngestionTime [Timestamp](#timestamp)
-  * logStreamName [LogStreamName](#logstreamname)
-  * storedBytes [StoredBytes](#storedbytes)
-  * uploadSequenceToken [SequenceToken](#sequencetoken)
+  * arn
+  * creationTime
+  * firstEventTimestamp
+  * lastEventTimestamp
+  * lastIngestionTime
+  * logStreamName
+  * storedBytes
+  * uploadSequenceToken
 
 ### LogStreamName
 * LogStreamName `string`
@@ -1076,19 +1348,23 @@ amazonaws_logs.UntagLogGroup({
 * LogStreams `array`
   * items [LogStream](#logstream)
 
+### MalformedQueryException
+
+
 ### MetricFilter
 * MetricFilter `object`: Metric filters express how CloudWatch Logs would extract metric observations from ingested log events and transform them into metric data in a CloudWatch metric.
-  * creationTime [Timestamp](#timestamp)
-  * filterName [FilterName](#filtername)
+  * creationTime
+  * filterName
   * filterPattern [FilterPattern](#filterpattern)
-  * logGroupName [LogGroupName](#loggroupname)
-  * metricTransformations [MetricTransformations](#metrictransformations)
+  * logGroupName
+  * metricTransformations
+    * items [MetricTransformation](#metrictransformation)
 
 ### MetricFilterMatchRecord
 * MetricFilterMatchRecord `object`: Represents a matched event.
-  * eventMessage [EventMessage](#eventmessage)
-  * eventNumber [EventNumber](#eventnumber)
-  * extractedValues [ExtractedValues](#extractedvalues)
+  * eventMessage
+  * eventNumber
+  * extractedValues
 
 ### MetricFilterMatches
 * MetricFilterMatches `array`
@@ -1099,17 +1375,17 @@ amazonaws_logs.UntagLogGroup({
   * items [MetricFilter](#metricfilter)
 
 ### MetricName
-* MetricName `string`: The name of the CloudWatch metric to which the monitored log information should be published. For example, you may publish to a metric called ErrorCount.
+* MetricName `string`: The name of the CloudWatch metric to which the monitored log information should be published. For example, you might publish to a metric named ErrorCount.
 
 ### MetricNamespace
 * MetricNamespace `string`
 
 ### MetricTransformation
-* MetricTransformation `object`: Indicates how to transform ingested log events in to metric data in a CloudWatch metric.
-  * defaultValue [DefaultValue](#defaultvalue)
-  * metricName **required** [MetricName](#metricname)
-  * metricNamespace **required** [MetricNamespace](#metricnamespace)
-  * metricValue **required** [MetricValue](#metricvalue)
+* MetricTransformation `object`: Indicates how to transform ingested log events to metric data in a CloudWatch metric.
+  * defaultValue
+  * metricName **required**
+  * metricNamespace **required**
+  * metricValue **required**
 
 ### MetricTransformations
 * MetricTransformations `array`
@@ -1122,20 +1398,23 @@ amazonaws_logs.UntagLogGroup({
 * NextToken `string`: The token for the next set of items to return. The token expires after 24 hours.
 
 ### OperationAbortedException
-* OperationAbortedException `object`: Multiple requests to update the same resource were in conflict.
+
 
 ### OrderBy
 * OrderBy `string` (values: LogStreamName, LastEventTime)
 
 ### OutputLogEvent
 * OutputLogEvent `object`: Represents a log event.
-  * ingestionTime [Timestamp](#timestamp)
-  * message [EventMessage](#eventmessage)
-  * timestamp [Timestamp](#timestamp)
+  * ingestionTime
+  * message
+  * timestamp
 
 ### OutputLogEvents
 * OutputLogEvents `array`
   * items [OutputLogEvent](#outputlogevent)
+
+### Percentage
+* Percentage `integer`
 
 ### PolicyDocument
 * PolicyDocument `string`
@@ -1145,72 +1424,151 @@ amazonaws_logs.UntagLogGroup({
 
 ### PutDestinationPolicyRequest
 * PutDestinationPolicyRequest `object`
-  * accessPolicy **required** [AccessPolicy](#accesspolicy)
-  * destinationName **required** [DestinationName](#destinationname)
+  * accessPolicy **required**
+  * destinationName **required**
 
 ### PutDestinationRequest
 * PutDestinationRequest `object`
-  * destinationName **required** [DestinationName](#destinationname)
-  * roleArn **required** [RoleArn](#rolearn)
-  * targetArn **required** [TargetArn](#targetarn)
+  * destinationName **required**
+  * roleArn **required**
+  * targetArn **required**
 
 ### PutDestinationResponse
 * PutDestinationResponse `object`
-  * destination [Destination](#destination)
+  * destination
+    * accessPolicy
+    * arn
+    * creationTime
+    * destinationName
+    * roleArn
+    * targetArn
 
 ### PutLogEventsRequest
 * PutLogEventsRequest `object`
-  * logEvents **required** [InputLogEvents](#inputlogevents)
-  * logGroupName **required** [LogGroupName](#loggroupname)
-  * logStreamName **required** [LogStreamName](#logstreamname)
-  * sequenceToken [SequenceToken](#sequencetoken)
+  * logEvents **required**
+    * items [InputLogEvent](#inputlogevent)
+  * logGroupName **required**
+  * logStreamName **required**
+  * sequenceToken
 
 ### PutLogEventsResponse
 * PutLogEventsResponse `object`
-  * nextSequenceToken [SequenceToken](#sequencetoken)
-  * rejectedLogEventsInfo [RejectedLogEventsInfo](#rejectedlogeventsinfo)
+  * nextSequenceToken
+  * rejectedLogEventsInfo
+    * expiredLogEventEndIndex
+    * tooNewLogEventStartIndex
+    * tooOldLogEventEndIndex
 
 ### PutMetricFilterRequest
 * PutMetricFilterRequest `object`
-  * filterName **required** [FilterName](#filtername)
-  * filterPattern **required** [FilterPattern](#filterpattern)
-  * logGroupName **required** [LogGroupName](#loggroupname)
-  * metricTransformations **required** [MetricTransformations](#metrictransformations)
+  * filterName **required**
+  * filterPattern **required**
+  * logGroupName **required**
+  * metricTransformations **required**
+    * items [MetricTransformation](#metrictransformation)
+
+### PutQueryDefinitionRequest
+* PutQueryDefinitionRequest `object`
+  * logGroupNames
+    * items [LogGroupName](#loggroupname)
+  * name **required**
+  * queryDefinitionId
+  * queryString **required**
+
+### PutQueryDefinitionResponse
+* PutQueryDefinitionResponse `object`
+  * queryDefinitionId
 
 ### PutResourcePolicyRequest
 * PutResourcePolicyRequest `object`
-  * policyDocument [PolicyDocument](#policydocument)
-  * policyName [PolicyName](#policyname)
+  * policyDocument
+  * policyName
 
 ### PutResourcePolicyResponse
 * PutResourcePolicyResponse `object`
-  * resourcePolicy [ResourcePolicy](#resourcepolicy)
+  * resourcePolicy
+    * lastUpdatedTime
+    * policyDocument
+    * policyName
 
 ### PutRetentionPolicyRequest
 * PutRetentionPolicyRequest `object`
-  * logGroupName **required** [LogGroupName](#loggroupname)
+  * logGroupName **required**
   * retentionInDays **required** [Days](#days)
 
 ### PutSubscriptionFilterRequest
 * PutSubscriptionFilterRequest `object`
-  * destinationArn **required** [DestinationArn](#destinationarn)
-  * distribution [Distribution](#distribution)
-  * filterName **required** [FilterName](#filtername)
-  * filterPattern **required** [FilterPattern](#filterpattern)
-  * logGroupName **required** [LogGroupName](#loggroupname)
-  * roleArn [RoleArn](#rolearn)
+  * destinationArn **required**
+  * distribution
+  * filterName **required**
+  * filterPattern **required**
+  * logGroupName **required**
+  * roleArn
+
+### QueryDefinition
+* QueryDefinition `object`: This structure contains details about a saved CloudWatch Logs Insights query definition.
+  * lastModified
+  * logGroupNames
+    * items [LogGroupName](#loggroupname)
+  * name
+  * queryDefinitionId
+  * queryString
+
+### QueryDefinitionList
+* QueryDefinitionList `array`
+  * items [QueryDefinition](#querydefinition)
+
+### QueryDefinitionName
+* QueryDefinitionName `string`
+
+### QueryDefinitionString
+* QueryDefinitionString `string`
+
+### QueryId
+* QueryId `string`
+
+### QueryInfo
+* QueryInfo `object`: Information about one CloudWatch Logs Insights query that matches the request in a <code>DescribeQueries</code> operation. 
+  * createTime
+  * logGroupName
+  * queryId
+  * queryString
+  * status
+
+### QueryInfoList
+* QueryInfoList `array`
+  * items [QueryInfo](#queryinfo)
+
+### QueryListMaxResults
+* QueryListMaxResults `integer`
+
+### QueryResults
+* QueryResults `array`
+  * items [ResultRows](#resultrows)
+
+### QueryStatistics
+* QueryStatistics `object`: Contains the number of log events scanned by the query, the number of log events that matched the query criteria, and the total number of bytes in the log events that were scanned.
+  * bytesScanned
+  * recordsMatched
+  * recordsScanned
+
+### QueryStatus
+* QueryStatus `string` (values: Scheduled, Running, Complete, Failed, Cancelled)
+
+### QueryString
+* QueryString `string`
 
 ### RejectedLogEventsInfo
 * RejectedLogEventsInfo `object`: Represents the rejected events.
-  * expiredLogEventEndIndex [LogEventIndex](#logeventindex)
-  * tooNewLogEventStartIndex [LogEventIndex](#logeventindex)
-  * tooOldLogEventEndIndex [LogEventIndex](#logeventindex)
+  * expiredLogEventEndIndex
+  * tooNewLogEventStartIndex
+  * tooOldLogEventEndIndex
 
 ### ResourceAlreadyExistsException
-* ResourceAlreadyExistsException `object`: The specified resource already exists.
+
 
 ### ResourceNotFoundException
-* ResourceNotFoundException `object`: The specified resource does not exist.
+
 
 ### ResourcePolicies
 * ResourcePolicies `array`
@@ -1218,17 +1576,26 @@ amazonaws_logs.UntagLogGroup({
 
 ### ResourcePolicy
 * ResourcePolicy `object`: A policy enabling one or more entities to put logs to a log group in this account.
-  * lastUpdatedTime [Timestamp](#timestamp)
-  * policyDocument [PolicyDocument](#policydocument)
-  * policyName [PolicyName](#policyname)
+  * lastUpdatedTime
+  * policyDocument
+  * policyName
+
+### ResultField
+* ResultField `object`: <p>Contains one field from one log event returned by a CloudWatch Logs Insights query, along with the value of that field.</p> <p>For more information about the fields that are generated by CloudWatch logs, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_AnalyzeLogData-discoverable-fields.html">Supported Logs and Discovered Fields</a>.</p>
+  * field
+  * value
+
+### ResultRows
+* ResultRows `array`
+  * items [ResultField](#resultfield)
 
 ### RoleArn
 * RoleArn `string`
 
 ### SearchedLogStream
 * SearchedLogStream `object`: Represents the search status of a log stream.
-  * logStreamName [LogStreamName](#logstreamname)
-  * searchedCompletely [LogStreamSearchedCompletely](#logstreamsearchedcompletely)
+  * logStreamName
+  * searchedCompletely
 
 ### SearchedLogStreams
 * SearchedLogStreams `array`
@@ -1238,27 +1605,55 @@ amazonaws_logs.UntagLogGroup({
 * SequenceToken `string`
 
 ### ServiceUnavailableException
-* ServiceUnavailableException `object`: The service cannot complete the request.
+
 
 ### StartFromHead
 * StartFromHead `boolean`
+
+### StartQueryRequest
+* StartQueryRequest `object`
+  * endTime **required**
+  * limit
+  * logGroupName
+  * logGroupNames
+    * items [LogGroupName](#loggroupname)
+  * queryString **required**
+  * startTime **required**
+
+### StartQueryResponse
+* StartQueryResponse `object`
+  * queryId
+
+### StatsValue
+* StatsValue `number`
+
+### StopQueryRequest
+* StopQueryRequest `object`
+  * queryId **required**
+
+### StopQueryResponse
+* StopQueryResponse `object`
+  * success
 
 ### StoredBytes
 * StoredBytes `integer`
 
 ### SubscriptionFilter
 * SubscriptionFilter `object`: Represents a subscription filter.
-  * creationTime [Timestamp](#timestamp)
-  * destinationArn [DestinationArn](#destinationarn)
+  * creationTime
+  * destinationArn
   * distribution [Distribution](#distribution)
-  * filterName [FilterName](#filtername)
+  * filterName
   * filterPattern [FilterPattern](#filterpattern)
-  * logGroupName [LogGroupName](#loggroupname)
-  * roleArn [RoleArn](#rolearn)
+  * logGroupName
+  * roleArn
 
 ### SubscriptionFilters
 * SubscriptionFilters `array`
   * items [SubscriptionFilter](#subscriptionfilter)
+
+### Success
+* Success `boolean`
 
 ### TagKey
 * TagKey `string`
@@ -1269,17 +1664,14 @@ amazonaws_logs.UntagLogGroup({
 
 ### TagLogGroupRequest
 * TagLogGroupRequest `object`
-  * logGroupName **required** [LogGroupName](#loggroupname)
-  * tags **required** [Tags](#tags)
+  * tags **required**
+  * logGroupName **required**
 
 ### TagValue
 * TagValue `string`
 
 ### Tags
-* Tags `array`
-  * items `object`
-    * key [TagKey](#tagkey)
-    * value [TagValue](#tagvalue)
+* Tags `object`
 
 ### TargetArn
 * TargetArn `string`
@@ -1291,11 +1683,13 @@ amazonaws_logs.UntagLogGroup({
 ### TestMetricFilterRequest
 * TestMetricFilterRequest `object`
   * filterPattern **required** [FilterPattern](#filterpattern)
-  * logEventMessages **required** [TestEventMessages](#testeventmessages)
+  * logEventMessages **required**
+    * items [EventMessage](#eventmessage)
 
 ### TestMetricFilterResponse
 * TestMetricFilterResponse `object`
-  * matches [MetricFilterMatches](#metricfiltermatches)
+  * matches
+    * items [MetricFilterMatchRecord](#metricfiltermatchrecord)
 
 ### Timestamp
 * Timestamp `integer`
@@ -1303,10 +1697,14 @@ amazonaws_logs.UntagLogGroup({
 ### Token
 * Token `string`
 
+### UnrecognizedClientException
+
+
 ### UntagLogGroupRequest
 * UntagLogGroupRequest `object`
-  * logGroupName **required** [LogGroupName](#loggroupname)
-  * tags **required** [TagList](#taglist)
+  * tags **required**
+    * items [TagKey](#tagkey)
+  * logGroupName **required**
 
 ### Value
 * Value `string`

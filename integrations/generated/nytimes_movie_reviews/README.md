@@ -1,6 +1,6 @@
 # @datafire/nytimes_movie_reviews
 
-Client library for Movie Reviews
+Client library for Movie Reviews API
 
 ## Installation and Usage
 ```bash
@@ -11,7 +11,7 @@ let nytimes_movie_reviews = require('@datafire/nytimes_movie_reviews').create({
   apikey: ""
 });
 
-nytimes_movie_reviews.reviews.search.json.get({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

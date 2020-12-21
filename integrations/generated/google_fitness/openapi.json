@@ -1,32 +1,33 @@
 {
   "swagger": "2.0",
-  "schemes": [
-    "https"
-  ],
-  "host": "www.googleapis.com",
-  "basePath": "/fitness/v1/users",
   "info": {
     "contact": {
       "name": "Google",
-      "url": "https://google.com"
+      "url": "https://google.com",
+      "x-twitter": "youtube"
     },
-    "description": "Stores and accesses user data in the fitness store from apps on any platform.",
-    "title": "Fitness",
+    "description": "The Fitness API for managing users' fitness tracking data.",
+    "license": {
+      "name": "Creative Commons Attribution 3.0",
+      "url": "http://creativecommons.org/licenses/by/3.0/"
+    },
+    "termsOfService": "https://developers.google.com/terms/",
+    "title": "Fitness API",
     "version": "v1",
     "x-apiClientRegistration": {
       "url": "https://console.developers.google.com"
     },
+    "x-apisguru-categories": [
+      "analytics",
+      "media"
+    ],
     "x-logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
     },
     "x-origin": [
       {
-        "converter": {
-          "url": "https://github.com/lucybot/api-spec-converter",
-          "version": "2.6.2"
-        },
         "format": "google",
-        "url": "https://www.googleapis.com/discovery/v1/apis/fitness/v1/rest",
+        "url": "https://fitness.googleapis.com/$discovery/rest?version=v1",
         "version": "v1"
       }
     ],
@@ -38,124 +39,102 @@
       "type": "openapi"
     }
   },
-  "externalDocs": {
-    "url": "https://developers.google.com/fit/rest/"
-  },
-  "securityDefinitions": {
-    "Oauth2": {
-      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 authentication",
-      "flow": "implicit",
-      "scopes": {
-        "https://www.googleapis.com/auth/fitness.activity.read": "View your activity information in Google Fit",
-        "https://www.googleapis.com/auth/fitness.activity.write": "View and store your activity information in Google Fit",
-        "https://www.googleapis.com/auth/fitness.blood_glucose.read": "View blood glucose data in Google Fit",
-        "https://www.googleapis.com/auth/fitness.blood_glucose.write": "View and store blood glucose data in Google Fit",
-        "https://www.googleapis.com/auth/fitness.blood_pressure.read": "View blood pressure data in Google Fit",
-        "https://www.googleapis.com/auth/fitness.blood_pressure.write": "View and store blood pressure data in Google Fit",
-        "https://www.googleapis.com/auth/fitness.body.read": "View body sensor information in Google Fit",
-        "https://www.googleapis.com/auth/fitness.body.write": "View and store body sensor data in Google Fit",
-        "https://www.googleapis.com/auth/fitness.body_temperature.read": "View body temperature data in Google Fit",
-        "https://www.googleapis.com/auth/fitness.body_temperature.write": "View and store body temperature data in Google Fit",
-        "https://www.googleapis.com/auth/fitness.location.read": "View your stored location data in Google Fit",
-        "https://www.googleapis.com/auth/fitness.location.write": "View and store your location data in Google Fit",
-        "https://www.googleapis.com/auth/fitness.nutrition.read": "View nutrition information in Google Fit",
-        "https://www.googleapis.com/auth/fitness.nutrition.write": "View and store nutrition information in Google Fit",
-        "https://www.googleapis.com/auth/fitness.oxygen_saturation.read": "View oxygen saturation data in Google Fit",
-        "https://www.googleapis.com/auth/fitness.oxygen_saturation.write": "View and store oxygen saturation data in Google Fit",
-        "https://www.googleapis.com/auth/fitness.reproductive_health.read": "View reproductive health data in Google Fit",
-        "https://www.googleapis.com/auth/fitness.reproductive_health.write": "View and store reproductive health data in Google Fit"
-      },
-      "type": "oauth2"
-    },
-    "offline": {
-      "type": "oauth2",
-      "flow": "accessCode",
-      "scopes": {
-        "https://www.googleapis.com/auth/fitness.activity.read": "View your activity information in Google Fit",
-        "https://www.googleapis.com/auth/fitness.activity.write": "View and store your activity information in Google Fit",
-        "https://www.googleapis.com/auth/fitness.blood_glucose.read": "View blood glucose data in Google Fit",
-        "https://www.googleapis.com/auth/fitness.blood_glucose.write": "View and store blood glucose data in Google Fit",
-        "https://www.googleapis.com/auth/fitness.blood_pressure.read": "View blood pressure data in Google Fit",
-        "https://www.googleapis.com/auth/fitness.blood_pressure.write": "View and store blood pressure data in Google Fit",
-        "https://www.googleapis.com/auth/fitness.body.read": "View body sensor information in Google Fit",
-        "https://www.googleapis.com/auth/fitness.body.write": "View and store body sensor data in Google Fit",
-        "https://www.googleapis.com/auth/fitness.body_temperature.read": "View body temperature data in Google Fit",
-        "https://www.googleapis.com/auth/fitness.body_temperature.write": "View and store body temperature data in Google Fit",
-        "https://www.googleapis.com/auth/fitness.location.read": "View your stored location data in Google Fit",
-        "https://www.googleapis.com/auth/fitness.location.write": "View and store your location data in Google Fit",
-        "https://www.googleapis.com/auth/fitness.nutrition.read": "View nutrition information in Google Fit",
-        "https://www.googleapis.com/auth/fitness.nutrition.write": "View and store nutrition information in Google Fit",
-        "https://www.googleapis.com/auth/fitness.oxygen_saturation.read": "View oxygen saturation data in Google Fit",
-        "https://www.googleapis.com/auth/fitness.oxygen_saturation.write": "View and store oxygen saturation data in Google Fit",
-        "https://www.googleapis.com/auth/fitness.reproductive_health.read": "View reproductive health data in Google Fit",
-        "https://www.googleapis.com/auth/fitness.reproductive_health.write": "View and store reproductive health data in Google Fit"
-      },
-      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "tokenUrl": "https://www.googleapis.com/oauth2/v4/token",
-      "description": "Allows offline access using a refresh_token"
-    }
-  },
-  "parameters": {
-    "alt": {
-      "default": "json",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ],
-      "in": "query",
-      "name": "alt",
-      "type": "string"
-    },
-    "fields": {
-      "description": "Selector specifying which fields to include in a partial response.",
-      "in": "query",
-      "name": "fields",
-      "type": "string"
-    },
-    "key": {
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
-      "in": "query",
-      "name": "key",
-      "type": "string"
-    },
-    "oauth_token": {
-      "description": "OAuth 2.0 token for the current user.",
-      "in": "query",
-      "name": "oauth_token",
-      "type": "string"
-    },
-    "prettyPrint": {
-      "default": true,
-      "description": "Returns response with indentations and line breaks.",
-      "in": "query",
-      "name": "prettyPrint",
-      "type": "boolean"
-    },
-    "quotaUser": {
-      "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
-      "in": "query",
-      "name": "quotaUser",
-      "type": "string"
-    },
-    "userIp": {
-      "description": "Deprecated. Please use quotaUser instead.",
-      "in": "query",
-      "name": "userIp",
-      "type": "string"
-    }
-  },
-  "tags": [
-    {
-      "name": "users"
-    }
+  "host": "fitness.googleapis.com",
+  "basePath": "/fitness/v1/users",
+  "schemes": [
+    "https"
   ],
   "paths": {
     "/{userId}/dataSources": {
+      "parameters": [
+        {
+          "description": "V1 error format.",
+          "enum": [
+            "1",
+            "2"
+          ],
+          "in": "query",
+          "name": "$.xgafv",
+          "type": "string"
+        },
+        {
+          "description": "OAuth access token.",
+          "in": "query",
+          "name": "access_token",
+          "type": "string"
+        },
+        {
+          "description": "Data format for response.",
+          "enum": [
+            "json",
+            "media",
+            "proto"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
+        },
+        {
+          "description": "JSONP",
+          "in": "query",
+          "name": "callback",
+          "type": "string"
+        },
+        {
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
+        },
+        {
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
+        },
+        {
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
+        },
+        {
+          "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
+        },
+        {
+          "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+          "in": "query",
+          "name": "upload_protocol",
+          "type": "string"
+        },
+        {
+          "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+          "in": "query",
+          "name": "uploadType",
+          "type": "string"
+        }
+      ],
       "get": {
-        "description": "Lists all data sources that are visible to the developer, using the OAuth scopes provided. The list is not exhaustive; the user may have private data sources that are only visible to other developers, or calls using other scopes.",
-        "operationId": "users.dataSources.list",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "description": "List data sources for the person identified. Use me to indicate the authenticated user. Only me is supported at this time.",
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "string"
+          },
           {
             "collectionFormat": "multi",
             "description": "The names of data types to include in the list. If not specified, all data sources will be returned.",
@@ -165,13 +144,6 @@
             },
             "name": "dataTypeName",
             "type": "array"
-          },
-          {
-            "description": "List data sources for the person identified. Use me to indicate the authenticated user. Only me is supported at this time.",
-            "in": "path",
-            "name": "userId",
-            "required": true,
-            "type": "string"
           }
         ],
         "responses": {
@@ -186,138 +158,207 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.activity.read"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.activity.read"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.activity.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.activity.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.blood_glucose.read"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.blood_glucose.read"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.blood_glucose.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.blood_glucose.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.blood_pressure.read"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.blood_pressure.read"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.blood_pressure.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.blood_pressure.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.body.read"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.body.read"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.body.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.body.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.body_temperature.read"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.body_temperature.read"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.body_temperature.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.body_temperature.write"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.heart_rate.read"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.heart_rate.read"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.heart_rate.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.heart_rate.write"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.location.read"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.location.read"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.location.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.location.write"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.nutrition.read"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.nutrition.read"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.nutrition.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.nutrition.write"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.oxygen_saturation.read"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.oxygen_saturation.read"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.oxygen_saturation.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.oxygen_saturation.write"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.reproductive_health.read"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.reproductive_health.read"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.reproductive_health.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.reproductive_health.write"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.sleep.read"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.sleep.read"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.sleep.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.sleep.write"
             ]
           }
         ],
         "tags": [
           "users"
-        ]
+        ],
+        "description": "Lists all data sources that are visible to the developer, using the OAuth scopes provided. The list is not exhaustive; the user may have private data sources that are only visible to other developers, or calls using other scopes.",
+        "operationId": "fitness.users.dataSources.list"
       },
-      "parameters": [
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/userIp"
-        }
-      ],
       "post": {
-        "description": "Creates a new data source that is unique across all data sources belonging to this user. The data stream ID field can be omitted and will be generated by the server with the correct format. The data stream ID is an ordered combination of some fields from the data source. In addition to the data source fields reflected into the data source ID, the developer project number that is authenticated when creating the data source is included. This developer project number is obfuscated when read by any other developer reading public data types.",
-        "operationId": "users.dataSources.create",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/DataSource"
-            }
-          },
           {
             "description": "Create the data source for the person identified. Use me to indicate the authenticated user. Only me is supported at this time.",
             "in": "path",
             "name": "userId",
             "required": true,
             "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/DataSource"
+            }
           }
         ],
         "responses": {
@@ -332,72 +373,195 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.activity.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.activity.write"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.blood_glucose.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.blood_glucose.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.blood_pressure.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.blood_pressure.write"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.body.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.body.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.body_temperature.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.body_temperature.write"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.heart_rate.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.heart_rate.write"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.location.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.location.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.nutrition.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.nutrition.write"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.oxygen_saturation.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.oxygen_saturation.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.reproductive_health.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.reproductive_health.write"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.sleep.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.sleep.write"
             ]
           }
         ],
         "tags": [
           "users"
-        ]
+        ],
+        "description": "Creates a new data source that is unique across all data sources belonging to this user. A data source is a unique source of sensor data. Data sources can expose raw data coming from hardware sensors on local or companion devices. They can also expose derived data, created by transforming or merging other data sources. Multiple data sources can exist for the same data type. Every data point in every dataset inserted into or read from the Fitness API has an associated data source. Each data source produces a unique stream of dataset updates, with a unique data source identifier. Not all changes to data source affect the data stream ID, so that data collected by updated versions of the same application/device can still be considered to belong to the same data source. Data sources are identified using a string generated by the server, based on the contents of the source being created. The dataStreamId field should not be set when invoking this method. It will be automatically generated by the server with the correct format. If a dataStreamId is set, it must match the format that the server would generate. This format is a combination of some fields from the data source, and has a specific order. If it doesn't match, the request will fail with an error. Specifying a DataType which is not a known type (beginning with \"com.google.\") will create a DataSource with a *custom data type*. Custom data types are only readable by the application that created them. Custom data types are *deprecated*; use standard data types instead. In addition to the data source fields included in the data source ID, the developer project number that is authenticated when creating the data source is included. This developer project number is obfuscated when read by any other developer reading public data types.",
+        "operationId": "fitness.users.dataSources.create"
       }
     },
     "/{userId}/dataSources/{dataSourceId}": {
+      "parameters": [
+        {
+          "description": "V1 error format.",
+          "enum": [
+            "1",
+            "2"
+          ],
+          "in": "query",
+          "name": "$.xgafv",
+          "type": "string"
+        },
+        {
+          "description": "OAuth access token.",
+          "in": "query",
+          "name": "access_token",
+          "type": "string"
+        },
+        {
+          "description": "Data format for response.",
+          "enum": [
+            "json",
+            "media",
+            "proto"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
+        },
+        {
+          "description": "JSONP",
+          "in": "query",
+          "name": "callback",
+          "type": "string"
+        },
+        {
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
+        },
+        {
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
+        },
+        {
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
+        },
+        {
+          "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
+        },
+        {
+          "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+          "in": "query",
+          "name": "upload_protocol",
+          "type": "string"
+        },
+        {
+          "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+          "in": "query",
+          "name": "uploadType",
+          "type": "string"
+        }
+      ],
       "delete": {
-        "description": "Deletes the specified data source. The request will fail if the data source contains any data points.",
-        "operationId": "users.dataSources.delete",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "description": "Retrieve a data source for the person identified. Use me to indicate the authenticated user. Only me is supported at this time.",
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "string"
+          },
           {
             "description": "The data stream ID of the data source to delete.",
             "in": "path",
             "name": "dataSourceId",
             "required": true,
             "type": "string"
-          },
-          {
-            "description": "Retrieve a data source for the person identified. Use me to indicate the authenticated user. Only me is supported at this time.",
-            "in": "path",
-            "name": "userId",
-            "required": true,
-            "type": "string"
           }
         ],
         "responses": {
@@ -412,68 +576,114 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.activity.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.activity.write"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.blood_glucose.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.blood_glucose.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.blood_pressure.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.blood_pressure.write"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.body.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.body.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.body_temperature.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.body_temperature.write"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.heart_rate.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.heart_rate.write"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.location.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.location.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.nutrition.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.nutrition.write"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.oxygen_saturation.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.oxygen_saturation.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.reproductive_health.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.reproductive_health.write"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.sleep.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.sleep.write"
             ]
           }
         ],
         "tags": [
           "users"
-        ]
+        ],
+        "description": "Deletes the specified data source. The request will fail if the data source contains any data points.",
+        "operationId": "fitness.users.dataSources.delete"
       },
       "get": {
-        "description": "Returns the specified data source.",
-        "operationId": "users.dataSources.get",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
-          {
-            "description": "The data stream ID of the data source to retrieve.",
-            "in": "path",
-            "name": "dataSourceId",
-            "required": true,
-            "type": "string"
-          },
           {
             "description": "Retrieve a data source for the person identified. Use me to indicate the authenticated user. Only me is supported at this time.",
             "in": "path",
             "name": "userId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The data stream ID of the data source to retrieve.",
+            "in": "path",
+            "name": "dataSourceId",
             "required": true,
             "type": "string"
           }
@@ -490,216 +700,200 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.activity.read"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.activity.read"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.activity.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.activity.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.blood_glucose.read"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.blood_glucose.read"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.blood_glucose.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.blood_glucose.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.blood_pressure.read"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.blood_pressure.read"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.blood_pressure.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.blood_pressure.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.body.read"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.body.read"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.body.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.body.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.body_temperature.read"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.body_temperature.read"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.body_temperature.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.body_temperature.write"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.heart_rate.read"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.heart_rate.read"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.heart_rate.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.heart_rate.write"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.location.read"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.location.read"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.location.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.location.write"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.nutrition.read"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.nutrition.read"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.nutrition.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.nutrition.write"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.oxygen_saturation.read"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.oxygen_saturation.read"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.oxygen_saturation.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.oxygen_saturation.write"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.reproductive_health.read"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.reproductive_health.read"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.reproductive_health.write"
-            ]
-          }
-        ],
-        "tags": [
-          "users"
-        ]
-      },
-      "parameters": [
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/userIp"
-        }
-      ],
-      "patch": {
-        "description": "Updates the specified data source. The dataStreamId, dataType, type, dataStreamName, and device properties with the exception of version, cannot be modified.\n\nData sources are identified by their dataStreamId. This method supports patch semantics.",
-        "operationId": "users.dataSources.patch",
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/DataSource"
-            }
-          },
-          {
-            "description": "The data stream ID of the data source to update.",
-            "in": "path",
-            "name": "dataSourceId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "Update the data source for the person identified. Use me to indicate the authenticated user. Only me is supported at this time.",
-            "in": "path",
-            "name": "userId",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful response",
-            "schema": {
-              "$ref": "#/definitions/DataSource"
-            }
-          }
-        },
-        "security": [
-          {
-            "Oauth2": [
-              "https://www.googleapis.com/auth/fitness.activity.write"
-            ]
-          },
-          {
-            "Oauth2": [
-              "https://www.googleapis.com/auth/fitness.blood_glucose.write"
-            ]
-          },
-          {
-            "Oauth2": [
-              "https://www.googleapis.com/auth/fitness.blood_pressure.write"
-            ]
-          },
-          {
-            "Oauth2": [
-              "https://www.googleapis.com/auth/fitness.body.write"
-            ]
-          },
-          {
-            "Oauth2": [
-              "https://www.googleapis.com/auth/fitness.body_temperature.write"
-            ]
-          },
-          {
-            "Oauth2": [
-              "https://www.googleapis.com/auth/fitness.location.write"
-            ]
-          },
-          {
-            "Oauth2": [
-              "https://www.googleapis.com/auth/fitness.nutrition.write"
-            ]
-          },
-          {
-            "Oauth2": [
-              "https://www.googleapis.com/auth/fitness.oxygen_saturation.write"
-            ]
-          },
-          {
-            "Oauth2": [
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.reproductive_health.write"
             ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.sleep.read"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.sleep.read"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.sleep.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.sleep.write"
+            ]
           }
         ],
         "tags": [
           "users"
-        ]
+        ],
+        "description": "Returns the specified data source.",
+        "operationId": "fitness.users.dataSources.get"
       },
       "put": {
-        "description": "Updates the specified data source. The dataStreamId, dataType, type, dataStreamName, and device properties with the exception of version, cannot be modified.\n\nData sources are identified by their dataStreamId.",
-        "operationId": "users.dataSources.update",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/DataSource"
-            }
+            "description": "Update the data source for the person identified. Use me to indicate the authenticated user. Only me is supported at this time.",
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "string"
           },
           {
             "description": "The data stream ID of the data source to update.",
@@ -709,11 +903,11 @@
             "type": "string"
           },
           {
-            "description": "Update the data source for the person identified. Use me to indicate the authenticated user. Only me is supported at this time.",
-            "in": "path",
-            "name": "userId",
-            "required": true,
-            "type": "string"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/DataSource"
+            }
           }
         ],
         "responses": {
@@ -728,59 +922,189 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.activity.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.activity.write"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.blood_glucose.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.blood_glucose.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.blood_pressure.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.blood_pressure.write"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.body.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.body.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.body_temperature.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.body_temperature.write"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.heart_rate.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.heart_rate.write"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.location.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.location.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.nutrition.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.nutrition.write"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.oxygen_saturation.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.oxygen_saturation.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.reproductive_health.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.reproductive_health.write"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.sleep.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.sleep.write"
             ]
           }
         ],
         "tags": [
           "users"
-        ]
+        ],
+        "description": "Updates the specified data source. The dataStreamId, dataType, type, dataStreamName, and device properties with the exception of version, cannot be modified. Data sources are identified by their dataStreamId.",
+        "operationId": "fitness.users.dataSources.update"
       }
     },
     "/{userId}/dataSources/{dataSourceId}/dataPointChanges": {
+      "parameters": [
+        {
+          "description": "V1 error format.",
+          "enum": [
+            "1",
+            "2"
+          ],
+          "in": "query",
+          "name": "$.xgafv",
+          "type": "string"
+        },
+        {
+          "description": "OAuth access token.",
+          "in": "query",
+          "name": "access_token",
+          "type": "string"
+        },
+        {
+          "description": "Data format for response.",
+          "enum": [
+            "json",
+            "media",
+            "proto"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
+        },
+        {
+          "description": "JSONP",
+          "in": "query",
+          "name": "callback",
+          "type": "string"
+        },
+        {
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
+        },
+        {
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
+        },
+        {
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
+        },
+        {
+          "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
+        },
+        {
+          "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+          "in": "query",
+          "name": "upload_protocol",
+          "type": "string"
+        },
+        {
+          "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+          "in": "query",
+          "name": "uploadType",
+          "type": "string"
+        }
+      ],
       "get": {
-        "description": "Queries for user's data point changes for a particular data source.",
-        "operationId": "users.dataSources.dataPointChanges.list",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "description": "List data points for the person identified. Use me to indicate the authenticated user. Only me is supported at this time.",
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "string"
+          },
           {
             "description": "The data stream ID of the data source that created the dataset.",
             "in": "path",
@@ -799,13 +1123,6 @@
             "in": "query",
             "name": "pageToken",
             "type": "string"
-          },
-          {
-            "description": "List data points for the person identified. Use me to indicate the authenticated user. Only me is supported at this time.",
-            "in": "path",
-            "name": "userId",
-            "required": true,
-            "type": "string"
           }
         ],
         "responses": {
@@ -820,131 +1137,272 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.activity.read"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.activity.read"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.activity.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.activity.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.blood_glucose.read"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.blood_glucose.read"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.blood_glucose.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.blood_glucose.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.blood_pressure.read"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.blood_pressure.read"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.blood_pressure.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.blood_pressure.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.body.read"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.body.read"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.body.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.body.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.body_temperature.read"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.body_temperature.read"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.body_temperature.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.body_temperature.write"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.heart_rate.read"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.heart_rate.read"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.heart_rate.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.heart_rate.write"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.location.read"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.location.read"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.location.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.location.write"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.nutrition.read"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.nutrition.read"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.nutrition.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.nutrition.write"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.oxygen_saturation.read"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.oxygen_saturation.read"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.oxygen_saturation.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.oxygen_saturation.write"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.reproductive_health.read"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.reproductive_health.read"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.reproductive_health.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.reproductive_health.write"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.sleep.read"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.sleep.read"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.sleep.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.sleep.write"
             ]
           }
         ],
         "tags": [
           "users"
-        ]
-      },
-      "parameters": [
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/userIp"
-        }
-      ]
+        ],
+        "description": "Queries for user's data point changes for a particular data source.",
+        "operationId": "fitness.users.dataSources.dataPointChanges.list"
+      }
     },
     "/{userId}/dataSources/{dataSourceId}/datasets/{datasetId}": {
+      "parameters": [
+        {
+          "description": "V1 error format.",
+          "enum": [
+            "1",
+            "2"
+          ],
+          "in": "query",
+          "name": "$.xgafv",
+          "type": "string"
+        },
+        {
+          "description": "OAuth access token.",
+          "in": "query",
+          "name": "access_token",
+          "type": "string"
+        },
+        {
+          "description": "Data format for response.",
+          "enum": [
+            "json",
+            "media",
+            "proto"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
+        },
+        {
+          "description": "JSONP",
+          "in": "query",
+          "name": "callback",
+          "type": "string"
+        },
+        {
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
+        },
+        {
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
+        },
+        {
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
+        },
+        {
+          "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
+        },
+        {
+          "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+          "in": "query",
+          "name": "upload_protocol",
+          "type": "string"
+        },
+        {
+          "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+          "in": "query",
+          "name": "uploadType",
+          "type": "string"
+        }
+      ],
       "delete": {
-        "description": "Performs an inclusive delete of all data points whose start and end times have any overlap with the time range specified by the dataset ID. For most data types, the entire data point will be deleted. For data types where the time span represents a consistent value (such as com.google.activity.segment), and a data point straddles either end point of the dataset, only the overlapping portion of the data point will be deleted.",
-        "operationId": "users.dataSources.datasets.delete",
         "parameters": [
           {
-            "description": "The client's current time in milliseconds since epoch.",
-            "in": "query",
-            "name": "currentTimeMillis",
+            "description": "Delete a dataset for the person identified. Use me to indicate the authenticated user. Only me is supported at this time.",
+            "in": "path",
+            "name": "userId",
+            "required": true,
             "type": "string"
           },
           {
@@ -962,16 +1420,15 @@
             "type": "string"
           },
           {
-            "description": "When the operation was performed on the client.",
+            "description": "The client's current time in milliseconds since epoch.",
             "in": "query",
-            "name": "modifiedTimeMillis",
+            "name": "currentTimeMillis",
             "type": "string"
           },
           {
-            "description": "Delete a dataset for the person identified. Use me to indicate the authenticated user. Only me is supported at this time.",
-            "in": "path",
-            "name": "userId",
-            "required": true,
+            "description": "When the operation was performed on the client.",
+            "in": "query",
+            "name": "modifiedTimeMillis",
             "type": "string"
           }
         ],
@@ -984,57 +1441,110 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.activity.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.activity.write"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.blood_glucose.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.blood_glucose.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.blood_pressure.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.blood_pressure.write"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.body.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.body.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.body_temperature.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.body_temperature.write"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.heart_rate.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.heart_rate.write"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.location.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.location.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.nutrition.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.nutrition.write"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.oxygen_saturation.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.oxygen_saturation.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.reproductive_health.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.reproductive_health.write"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.sleep.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.sleep.write"
             ]
           }
         ],
         "tags": [
           "users"
-        ]
+        ],
+        "description": "Performs an inclusive delete of all data points whose start and end times have any overlap with the time range specified by the dataset ID. For most data types, the entire data point will be deleted. For data types where the time span represents a consistent value (such as com.google.activity.segment), and a data point straddles either end point of the dataset, only the overlapping portion of the data point will be deleted.",
+        "operationId": "fitness.users.dataSources.datasets.delete"
       },
       "get": {
-        "description": "Returns a dataset containing all data points whose start and end times overlap with the specified range of the dataset minimum start time and maximum end time. Specifically, any data point whose start time is less than or equal to the dataset end time and whose end time is greater than or equal to the dataset start time.",
-        "operationId": "users.dataSources.datasets.get",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "description": "Retrieve a dataset for the person identified. Use me to indicate the authenticated user. Only me is supported at this time.",
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "string"
+          },
           {
             "description": "The data stream ID of the data source that created the dataset.",
             "in": "path",
@@ -1050,7 +1560,7 @@
             "type": "string"
           },
           {
-            "description": "If specified, no more than this many data points will be included in the dataset. If there are more data points in the dataset, nextPageToken will be set in the dataset response.",
+            "description": "If specified, no more than this many data points will be included in the dataset. If there are more data points in the dataset, nextPageToken will be set in the dataset response. The limit is applied from the end of the time range. That is, if pageToken is absent, the limit most recent data points will be returned.",
             "in": "query",
             "name": "limit",
             "type": "integer"
@@ -1059,13 +1569,6 @@
             "description": "The continuation token, which is used to page through large datasets. To get the next page of a dataset, set this parameter to the value of nextPageToken from the previous response. Each subsequent call will yield a partial dataset with data point end timestamps that are strictly smaller than those in the previous partial response.",
             "in": "query",
             "name": "pageToken",
-            "type": "string"
-          },
-          {
-            "description": "Retrieve a dataset for the person identified. Use me to indicate the authenticated user. Only me is supported at this time.",
-            "in": "path",
-            "name": "userId",
-            "required": true,
             "type": "string"
           }
         ],
@@ -1081,136 +1584,199 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.activity.read"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.activity.read"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.activity.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.activity.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.blood_glucose.read"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.blood_glucose.read"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.blood_glucose.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.blood_glucose.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.blood_pressure.read"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.blood_pressure.read"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.blood_pressure.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.blood_pressure.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.body.read"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.body.read"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.body.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.body.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.body_temperature.read"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.body_temperature.read"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.body_temperature.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.body_temperature.write"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.heart_rate.read"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.heart_rate.read"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.heart_rate.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.heart_rate.write"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.location.read"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.location.read"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.location.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.location.write"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.nutrition.read"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.nutrition.read"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.nutrition.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.nutrition.write"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.oxygen_saturation.read"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.oxygen_saturation.read"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.oxygen_saturation.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.oxygen_saturation.write"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.reproductive_health.read"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.reproductive_health.read"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.reproductive_health.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.reproductive_health.write"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.sleep.read"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.sleep.read"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.sleep.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.sleep.write"
             ]
           }
         ],
         "tags": [
           "users"
-        ]
+        ],
+        "description": "Returns a dataset containing all data points whose start and end times overlap with the specified range of the dataset minimum start time and maximum end time. Specifically, any data point whose start time is less than or equal to the dataset end time and whose end time is greater than or equal to the dataset start time.",
+        "operationId": "fitness.users.dataSources.datasets.get"
       },
-      "parameters": [
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/userIp"
-        }
-      ],
       "patch": {
-        "description": "Adds data points to a dataset. The dataset need not be previously created. All points within the given dataset will be returned with subsquent calls to retrieve this dataset. Data points can belong to more than one dataset. This method does not use patch semantics.",
-        "operationId": "users.dataSources.datasets.patch",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Dataset"
-            }
-          },
-          {
-            "description": "The client's current time in milliseconds since epoch. Note that the minStartTimeNs and maxEndTimeNs properties in the request body are in nanoseconds instead of milliseconds.",
-            "in": "query",
-            "name": "currentTimeMillis",
+            "description": "Patch a dataset for the person identified. Use me to indicate the authenticated user. Only me is supported at this time.",
+            "in": "path",
+            "name": "userId",
+            "required": true,
             "type": "string"
           },
           {
@@ -1228,11 +1794,17 @@
             "type": "string"
           },
           {
-            "description": "Patch a dataset for the person identified. Use me to indicate the authenticated user. Only me is supported at this time.",
-            "in": "path",
-            "name": "userId",
-            "required": true,
+            "description": "The client's current time in milliseconds since epoch. Note that the minStartTimeNs and maxEndTimeNs properties in the request body are in nanoseconds instead of milliseconds.",
+            "in": "query",
+            "name": "currentTimeMillis",
             "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Dataset"
+            }
           }
         ],
         "responses": {
@@ -1247,95 +1819,198 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.activity.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.activity.write"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.blood_glucose.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.blood_glucose.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.blood_pressure.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.blood_pressure.write"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.body.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.body.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.body_temperature.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.body_temperature.write"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.heart_rate.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.heart_rate.write"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.location.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.location.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.nutrition.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.nutrition.write"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.oxygen_saturation.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.oxygen_saturation.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.reproductive_health.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.reproductive_health.write"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.sleep.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.sleep.write"
             ]
           }
         ],
         "tags": [
           "users"
-        ]
+        ],
+        "description": "Adds data points to a dataset. The dataset need not be previously created. All points within the given dataset will be returned with subsquent calls to retrieve this dataset. Data points can belong to more than one dataset. This method does not use patch semantics.",
+        "operationId": "fitness.users.dataSources.datasets.patch"
       }
     },
     "/{userId}/dataset:aggregate": {
       "parameters": [
         {
-          "$ref": "#/parameters/alt"
+          "description": "V1 error format.",
+          "enum": [
+            "1",
+            "2"
+          ],
+          "in": "query",
+          "name": "$.xgafv",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/fields"
+          "description": "OAuth access token.",
+          "in": "query",
+          "name": "access_token",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/key"
+          "description": "Data format for response.",
+          "enum": [
+            "json",
+            "media",
+            "proto"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/oauth_token"
+          "description": "JSONP",
+          "in": "query",
+          "name": "callback",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/prettyPrint"
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/quotaUser"
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/userIp"
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
+        },
+        {
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
+        },
+        {
+          "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
+        },
+        {
+          "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+          "in": "query",
+          "name": "upload_protocol",
+          "type": "string"
+        },
+        {
+          "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+          "in": "query",
+          "name": "uploadType",
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Aggregates data of a certain type or stream into buckets divided by a given type of boundary. Multiple data sets of multiple types and from multiple sources can be aggreated into exactly one bucket type per request.",
-        "operationId": "users.dataset.aggregate",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/AggregateRequest"
-            }
-          },
           {
             "description": "Aggregate data for the person identified. Use me to indicate the authenticated user. Only me is supported at this time.",
             "in": "path",
             "name": "userId",
             "required": true,
             "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/AggregateRequest"
+            }
           }
         ],
         "responses": {
@@ -1350,133 +2025,309 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.activity.read"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.activity.read"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.activity.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.activity.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.blood_glucose.read"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.blood_glucose.read"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.blood_glucose.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.blood_glucose.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.blood_pressure.read"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.blood_pressure.read"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.blood_pressure.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.blood_pressure.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.body.read"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.body.read"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.body.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.body.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.body_temperature.read"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.body_temperature.read"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.body_temperature.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.body_temperature.write"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.heart_rate.read"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.heart_rate.read"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.heart_rate.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.heart_rate.write"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.location.read"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.location.read"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.location.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.location.write"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.nutrition.read"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.nutrition.read"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.nutrition.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.nutrition.write"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.oxygen_saturation.read"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.oxygen_saturation.read"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.oxygen_saturation.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.oxygen_saturation.write"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.reproductive_health.read"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.reproductive_health.read"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.reproductive_health.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.reproductive_health.write"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.sleep.read"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.sleep.read"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.sleep.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.sleep.write"
             ]
           }
         ],
         "tags": [
           "users"
-        ]
+        ],
+        "description": "Aggregates data of a certain type or stream into buckets divided by a given type of boundary. Multiple data sets of multiple types and from multiple sources can be aggregated into exactly one bucket type per request.",
+        "operationId": "fitness.users.dataset.aggregate"
       }
     },
     "/{userId}/sessions": {
+      "parameters": [
+        {
+          "description": "V1 error format.",
+          "enum": [
+            "1",
+            "2"
+          ],
+          "in": "query",
+          "name": "$.xgafv",
+          "type": "string"
+        },
+        {
+          "description": "OAuth access token.",
+          "in": "query",
+          "name": "access_token",
+          "type": "string"
+        },
+        {
+          "description": "Data format for response.",
+          "enum": [
+            "json",
+            "media",
+            "proto"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
+        },
+        {
+          "description": "JSONP",
+          "in": "query",
+          "name": "callback",
+          "type": "string"
+        },
+        {
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
+        },
+        {
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
+        },
+        {
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
+        },
+        {
+          "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
+        },
+        {
+          "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+          "in": "query",
+          "name": "upload_protocol",
+          "type": "string"
+        },
+        {
+          "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+          "in": "query",
+          "name": "uploadType",
+          "type": "string"
+        }
+      ],
       "get": {
-        "description": "Lists sessions previously created.",
-        "operationId": "users.sessions.list",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
-          {
-            "description": "An RFC3339 timestamp. Only sessions ending between the start and end times will be included in the response.",
-            "in": "query",
-            "name": "endTime",
-            "type": "string"
-          },
-          {
-            "description": "If true, deleted sessions will be returned. When set to true, sessions returned in this response will only have an ID and will not have any other fields.",
-            "in": "query",
-            "name": "includeDeleted",
-            "type": "boolean"
-          },
-          {
-            "description": "The continuation token, which is used to page through large result sets. To get the next page of results, set this parameter to the value of nextPageToken from the previous response.",
-            "in": "query",
-            "name": "pageToken",
-            "type": "string"
-          },
-          {
-            "description": "An RFC3339 timestamp. Only sessions ending between the start and end times will be included in the response.",
-            "in": "query",
-            "name": "startTime",
-            "type": "string"
-          },
           {
             "description": "List sessions for the person identified. Use me to indicate the authenticated user. Only me is supported at this time.",
             "in": "path",
             "name": "userId",
             "required": true,
+            "type": "string"
+          },
+          {
+            "collectionFormat": "multi",
+            "description": "If non-empty, only sessions with these activity types should be returned.",
+            "in": "query",
+            "items": {
+              "type": "integer"
+            },
+            "name": "activityType",
+            "type": "array"
+          },
+          {
+            "description": "An RFC3339 timestamp. Only sessions ending between the start and end times will be included in the response. If this time is omitted but startTime is specified, all sessions from startTime to the end of time will be returned.",
+            "in": "query",
+            "name": "endTime",
+            "type": "string"
+          },
+          {
+            "description": "If true, and if both startTime and endTime are omitted, session deletions will be returned.",
+            "in": "query",
+            "name": "includeDeleted",
+            "type": "boolean"
+          },
+          {
+            "description": "The continuation token, which is used for incremental syncing. To get the next batch of changes, set this parameter to the value of nextPageToken from the previous response. The page token is ignored if either start or end time is specified. If none of start time, end time, and the page token is specified, sessions modified in the last 30 days are returned.",
+            "in": "query",
+            "name": "pageToken",
+            "type": "string"
+          },
+          {
+            "description": "An RFC3339 timestamp. Only sessions ending between the start and end times will be included in the response. If this time is omitted but endTime is specified, all sessions from the start of time up to endTime will be returned.",
+            "in": "query",
+            "name": "startTime",
             "type": "string"
           }
         ],
@@ -1492,131 +2343,272 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.activity.read"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.activity.read"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.activity.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.activity.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.blood_glucose.read"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.blood_glucose.read"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.blood_glucose.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.blood_glucose.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.blood_pressure.read"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.blood_pressure.read"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.blood_pressure.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.blood_pressure.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.body.read"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.body.read"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.body.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.body.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.body_temperature.read"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.body_temperature.read"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.body_temperature.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.body_temperature.write"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.heart_rate.read"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.heart_rate.read"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.heart_rate.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.heart_rate.write"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.location.read"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.location.read"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.location.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.location.write"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.nutrition.read"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.nutrition.read"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.nutrition.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.nutrition.write"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.oxygen_saturation.read"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.oxygen_saturation.read"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.oxygen_saturation.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.oxygen_saturation.write"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.reproductive_health.read"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.reproductive_health.read"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.reproductive_health.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.reproductive_health.write"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.sleep.read"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.sleep.read"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.sleep.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.sleep.write"
             ]
           }
         ],
         "tags": [
           "users"
-        ]
-      },
-      "parameters": [
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/userIp"
-        }
-      ]
+        ],
+        "description": "Lists sessions previously created.",
+        "operationId": "fitness.users.sessions.list"
+      }
     },
     "/{userId}/sessions/{sessionId}": {
+      "parameters": [
+        {
+          "description": "V1 error format.",
+          "enum": [
+            "1",
+            "2"
+          ],
+          "in": "query",
+          "name": "$.xgafv",
+          "type": "string"
+        },
+        {
+          "description": "OAuth access token.",
+          "in": "query",
+          "name": "access_token",
+          "type": "string"
+        },
+        {
+          "description": "Data format for response.",
+          "enum": [
+            "json",
+            "media",
+            "proto"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
+        },
+        {
+          "description": "JSONP",
+          "in": "query",
+          "name": "callback",
+          "type": "string"
+        },
+        {
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
+        },
+        {
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
+        },
+        {
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
+        },
+        {
+          "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
+        },
+        {
+          "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+          "in": "query",
+          "name": "upload_protocol",
+          "type": "string"
+        },
+        {
+          "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+          "in": "query",
+          "name": "uploadType",
+          "type": "string"
+        }
+      ],
       "delete": {
-        "description": "Deletes a session specified by the given session ID.",
-        "operationId": "users.sessions.delete",
         "parameters": [
           {
-            "description": "The client's current time in milliseconds since epoch.",
-            "in": "query",
-            "name": "currentTimeMillis",
+            "description": "Delete a session for the person identified. Use me to indicate the authenticated user. Only me is supported at this time.",
+            "in": "path",
+            "name": "userId",
+            "required": true,
             "type": "string"
           },
           {
@@ -1627,10 +2619,9 @@
             "type": "string"
           },
           {
-            "description": "Delete a session for the person identified. Use me to indicate the authenticated user. Only me is supported at this time.",
-            "in": "path",
-            "name": "userId",
-            "required": true,
+            "description": "The client's current time in milliseconds since epoch.",
+            "in": "query",
+            "name": "currentTimeMillis",
             "type": "string"
           }
         ],
@@ -1643,51 +2634,39 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.activity.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.activity.write"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.sleep.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.sleep.write"
             ]
           }
         ],
         "tags": [
           "users"
-        ]
+        ],
+        "description": "Deletes a session specified by the given session ID.",
+        "operationId": "fitness.users.sessions.delete"
       },
-      "parameters": [
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/userIp"
-        }
-      ],
       "put": {
-        "description": "Updates or insert a given session.",
-        "operationId": "users.sessions.update",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Session"
-            }
-          },
-          {
-            "description": "The client's current time in milliseconds since epoch.",
-            "in": "query",
-            "name": "currentTimeMillis",
+            "description": "Create sessions for the person identified. Use me to indicate the authenticated user. Only me is supported at this time.",
+            "in": "path",
+            "name": "userId",
+            "required": true,
             "type": "string"
           },
           {
@@ -1698,11 +2677,17 @@
             "type": "string"
           },
           {
-            "description": "Create sessions for the person identified. Use me to indicate the authenticated user. Only me is supported at this time.",
-            "in": "path",
-            "name": "userId",
-            "required": true,
+            "description": "The client's current time in milliseconds since epoch.",
+            "in": "query",
+            "name": "currentTimeMillis",
             "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Session"
+            }
           }
         ],
         "responses": {
@@ -1717,12 +2702,25 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.activity.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.activity.write"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.sleep.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.sleep.write"
             ]
           }
         ],
         "tags": [
           "users"
-        ]
+        ],
+        "description": "Updates or insert a given session.",
+        "operationId": "fitness.users.sessions.update"
       }
     }
   },
@@ -1758,11 +2756,11 @@
         "type": {
           "description": "The type of a bucket signifies how the data aggregation is performed in the bucket.",
           "enum": [
-            "activitySegment",
-            "activityType",
-            "session",
+            "unknown",
             "time",
-            "unknown"
+            "session",
+            "activityType",
+            "activitySegment"
           ],
           "type": "string"
         }
@@ -1773,11 +2771,11 @@
       "description": "The specification of which data to aggregate.",
       "properties": {
         "dataSourceId": {
-          "description": "A data source ID to aggregate. Mutually exclusive of dataTypeName. Only data from the specified data source ID will be included in the aggregation. The dataset in the response will have the same data source ID.",
+          "description": "A data source ID to aggregate. Only data from the specified data source ID will be included in the aggregation. If specified, this data source must exist; the OAuth scopes in the supplied credentials must grant read access to this data type. The dataset in the response will have the same data source ID. Note: Data can be aggregated by either the dataTypeName or the dataSourceId, not both.",
           "type": "string"
         },
         "dataTypeName": {
-          "description": "The data type to aggregate. All data sources providing this data type will contribute data to the aggregation. The response will contain a single dataset for this data type name. The dataset will have a data source ID of derived:com.google.:com.google.android.gms:aggregated",
+          "description": "The data type to aggregate. All data sources providing this data type will contribute data to the aggregation. The response will contain a single dataset for this data type name. The dataset will have a data source ID of derived::com.google.android.gms:aggregated. If the user has no data for this data type, an empty data set will be returned. Note: Data can be aggregated by either the dataTypeName or the dataSourceId, not both.",
           "type": "string"
         }
       },
@@ -1795,11 +2793,11 @@
         },
         "bucketByActivitySegment": {
           "$ref": "#/definitions/BucketByActivity",
-          "description": "Specifies that data be aggregated each activity segment recored for a user. Similar to bucketByActivitySegment, but bucketing is done for each activity segment rather than all segments of the same type. Mutually exclusive of other bucketing specifications."
+          "description": "Specifies that data be aggregated each activity segment recorded for a user. Similar to bucketByActivitySegment, but bucketing is done for each activity segment rather than all segments of the same type. Mutually exclusive of other bucketing specifications."
         },
         "bucketByActivityType": {
           "$ref": "#/definitions/BucketByActivity",
-          "description": "Specifies that data be aggregated by the type of activity being performed when the data was recorded. All data that was recorded during a certain activity type (for the given time range) will be aggregated into the same bucket. Data that was recorded while the user was not active will not be included in the response. Mutually exclusive of other bucketing specifications."
+          "description": "Specifies that data be aggregated by the type of activity being performed when the data was recorded. All data that was recorded during a certain activity type (.for the given time range) will be aggregated into the same bucket. Data that was recorded while the user was not active will not be included in the response. Mutually exclusive of other bucketing specifications."
         },
         "bucketBySession": {
           "$ref": "#/definitions/BucketBySession",
@@ -1815,19 +2813,19 @@
           "type": "string"
         },
         "filteredDataQualityStandard": {
-          "description": "A list of acceptable data quality standards. Only data points which conform to at least one of the specified data quality standards will be returned. If the list is empty, all data points are returned.",
+          "description": "DO NOT POPULATE THIS FIELD. It is ignored.",
           "items": {
             "enum": [
-              "dataQualityBloodGlucoseIso151972003",
-              "dataQualityBloodGlucoseIso151972013",
+              "dataQualityUnknown",
+              "dataQualityBloodPressureEsh2002",
+              "dataQualityBloodPressureEsh2010",
               "dataQualityBloodPressureAami",
               "dataQualityBloodPressureBhsAA",
               "dataQualityBloodPressureBhsAB",
               "dataQualityBloodPressureBhsBA",
               "dataQualityBloodPressureBhsBB",
-              "dataQualityBloodPressureEsh2002",
-              "dataQualityBloodPressureEsh2010",
-              "dataQualityUnknown"
+              "dataQualityBloodGlucoseIso151972003",
+              "dataQualityBloodGlucoseIso151972013"
             ],
             "type": "string"
           },
@@ -1854,7 +2852,6 @@
       "type": "object"
     },
     "Application": {
-      "description": "",
       "properties": {
         "detailsUrl": {
           "description": "An optional URI that can be used to link back to the application.",
@@ -1921,8 +2918,8 @@
         "type": {
           "enum": [
             "day",
-            "month",
-            "week"
+            "week",
+            "month"
           ],
           "type": "string"
         },
@@ -1934,10 +2931,10 @@
       "type": "object"
     },
     "DataPoint": {
-      "description": "Represents a single data point, generated by a particular data source. A data point holds a value for each field, an end timestamp and an optional start time. The exact semantics of each of these attributes are specified in the documentation for the particular data type.\n\nA data point can represent an instantaneous measurement, reading or input observation, as well as averages or aggregates over a time interval. Check the data type documentation to determine which is the case for a particular data type.\n\nData points always contain one value for each field of the data type.",
+      "description": "Represents a single data point, generated by a particular data source. A data point holds a value for each field, an end timestamp and an optional start time. The exact semantics of each of these attributes are specified in the documentation for the particular data type. A data point can represent an instantaneous measurement, reading or input observation, as well as averages or aggregates over a time interval. Check the data type documentation to determine which is the case for a particular data type. Data points always contain one value for each field of the data type.",
       "properties": {
         "computationTimeMillis": {
-          "description": "Used for version checking during transformation; that is, a datapoint can only replace another datapoint that has an older computation time stamp.",
+          "description": "DO NOT USE THIS FIELD. It is ignored, and not stored.",
           "format": "int64",
           "type": "string"
         },
@@ -1956,7 +2953,7 @@
           "type": "string"
         },
         "originDataSourceId": {
-          "description": "If the data point is contained in a dataset for a derived data source, this field will be populated with the data source stream ID that created the data point originally.",
+          "description": "If the data point is contained in a dataset for a derived data source, this field will be populated with the data source stream ID that created the data point originally. WARNING: do not rely on this field for anything other than debugging. The value of this field, if it is set at all, is an implementation detail and is not guaranteed to remain consistent.",
           "type": "string"
         },
         "rawTimestampNanos": {
@@ -1970,7 +2967,7 @@
           "type": "string"
         },
         "value": {
-          "description": "Values of each data type field for the data point. It is expected that each value corresponding to a data type field will occur in the same order that the field is listed with in the data type specified in a data source.\n\nOnly one of integer and floating point fields will be populated, depending on the format enum value within data source's type field.",
+          "description": "Values of each data type field for the data point. It is expected that each value corresponding to a data type field will occur in the same order that the field is listed with in the data type specified in a data source. Only one of integer and floating point fields will be populated, depending on the format enum value within data source's type field.",
           "items": {
             "$ref": "#/definitions/Value"
           },
@@ -1980,33 +2977,33 @@
       "type": "object"
     },
     "DataSource": {
-      "description": "Definition of a unique source of sensor data. Data sources can expose raw data coming from hardware sensors on local or companion devices. They can also expose derived data, created by transforming or merging other data sources. Multiple data sources can exist for the same data type. Every data point inserted into or read from this service has an associated data source.\n\nThe data source contains enough information to uniquely identify its data, including the hardware device and the application that collected and/or transformed the data. It also holds useful metadata, such as the hardware and application versions, and the device type.\n\nEach data source produces a unique stream of data, with a unique identifier. Not all changes to data source affect the stream identifier, so that data collected by updated versions of the same application/device can still be considered to belong to the same data stream.",
+      "description": "Definition of a unique source of sensor data. Data sources can expose raw data coming from hardware sensors on local or companion devices. They can also expose derived data, created by transforming or merging other data sources. Multiple data sources can exist for the same data type. Every data point inserted into or read from this service has an associated data source. The data source contains enough information to uniquely identify its data, including the hardware device and the application that collected and/or transformed the data. It also holds useful metadata, such as the hardware and application versions, and the device type. Each data source produces a unique stream of data, with a unique identifier. Not all changes to data source affect the stream identifier, so that data collected by updated versions of the same application/device can still be considered to belong to the same data stream.",
       "properties": {
         "application": {
           "$ref": "#/definitions/Application",
           "description": "Information about an application which feeds sensor data into the platform."
         },
         "dataQualityStandard": {
-          "description": "",
+          "description": "DO NOT POPULATE THIS FIELD. It is never populated in responses from the platform, and is ignored in queries. It will be removed in a future version entirely.",
           "items": {
             "enum": [
-              "dataQualityBloodGlucoseIso151972003",
-              "dataQualityBloodGlucoseIso151972013",
+              "dataQualityUnknown",
+              "dataQualityBloodPressureEsh2002",
+              "dataQualityBloodPressureEsh2010",
               "dataQualityBloodPressureAami",
               "dataQualityBloodPressureBhsAA",
               "dataQualityBloodPressureBhsAB",
               "dataQualityBloodPressureBhsBA",
               "dataQualityBloodPressureBhsBB",
-              "dataQualityBloodPressureEsh2002",
-              "dataQualityBloodPressureEsh2010",
-              "dataQualityUnknown"
+              "dataQualityBloodGlucoseIso151972003",
+              "dataQualityBloodGlucoseIso151972013"
             ],
             "type": "string"
           },
           "type": "array"
         },
         "dataStreamId": {
-          "description": "A unique identifier for the data stream produced by this data source. The identifier includes:\n\n \n- The physical device's manufacturer, model, and serial number (UID). \n- The application's package name or name. Package name is used when the data source was created by an Android application. The developer project number is used when the data source was created by a REST client. \n- The data source's type. \n- The data source's stream name.  Note that not all attributes of the data source are used as part of the stream identifier. In particular, the version of the hardware/the application isn't used. This allows us to preserve the same stream through version updates. This also means that two DataSource objects may represent the same data stream even if they're not equal.\n\nThe exact format of the data stream ID created by an Android application is: type:dataType.name:application.packageName:device.manufacturer:device.model:device.uid:dataStreamName \n\nThe exact format of the data stream ID created by a REST client is: type:dataType.name:developer project number:device.manufacturer:device.model:device.uid:dataStreamName \n\nWhen any of the optional fields that comprise of the data stream ID are blank, they will be omitted from the data stream ID. The minimum viable data stream ID would be: type:dataType.name:developer project number\n\nFinally, the developer project number is obfuscated when read by any REST or Android client that did not create the data source. Only the data source creator will see the developer project number in clear and normal form.",
+          "description": "A unique identifier for the data stream produced by this data source. The identifier includes: - The physical device's manufacturer, model, and serial number (UID). - The application's package name or name. Package name is used when the data source was created by an Android application. The developer project number is used when the data source was created by a REST client. - The data source's type. - The data source's stream name. Note that not all attributes of the data source are used as part of the stream identifier. In particular, the version of the hardware/the application isn't used. This allows us to preserve the same stream through version updates. This also means that two DataSource objects may represent the same data stream even if they're not equal. The exact format of the data stream ID created by an Android application is: type:dataType.name:application.packageName:device.manufacturer:device.model:device.uid:dataStreamName The exact format of the data stream ID created by a REST client is: type:dataType.name:developer project number:device.manufacturer:device.model:device.uid:dataStreamName When any of the optional fields that make up the data stream ID are absent, they will be omitted from the data stream ID. The minimum viable data stream ID would be: type:dataType.name:developer project number Finally, the developer project number and device UID are obfuscated when read by any REST or Android client that did not create the data source. Only the data source creator will see the developer project number in clear and normal form. This means a client will see a different set of data_stream_ids than another client with different credentials.",
           "type": "string"
         },
         "dataStreamName": {
@@ -2028,8 +3025,8 @@
         "type": {
           "description": "A constant describing the type of this data source. Indicates whether this data source produces raw or derived data.",
           "enum": [
-            "derived",
-            "raw"
+            "raw",
+            "derived"
           ],
           "type": "string"
         }
@@ -2037,7 +3034,6 @@
       "type": "object"
     },
     "DataType": {
-      "description": "",
       "properties": {
         "field": {
           "description": "A field represents one dimension of a data type.",
@@ -2054,18 +3050,18 @@
       "type": "object"
     },
     "DataTypeField": {
-      "description": "In case of multi-dimensional data (such as an accelerometer with x, y, and z axes) each field represents one dimension. Each data type field has a unique name which identifies it. The field also defines the format of the data (int, float, etc.).\n\nThis message is only instantiated in code and not used for wire comms or stored in any way.",
+      "description": "In case of multi-dimensional data (such as an accelerometer with x, y, and z axes) each field represents one dimension. Each data type field has a unique name which identifies it. The field also defines the format of the data (int, float, etc.). This message is only instantiated in code and not used for wire comms or stored in any way.",
       "properties": {
         "format": {
           "description": "The different supported formats for each field in a data type.",
           "enum": [
-            "blob",
-            "floatList",
-            "floatPoint",
             "integer",
-            "integerList",
+            "floatPoint",
+            "string",
             "map",
-            "string"
+            "integerList",
+            "floatList",
+            "blob"
           ],
           "type": "string"
         },
@@ -2087,7 +3083,7 @@
           "type": "string"
         },
         "maxEndTimeNs": {
-          "description": "The largest end time of all data points in this possibly partial representation of the dataset. Time is in nanoseconds from epoch. This should also match the first part of the dataset identifier.",
+          "description": "The largest end time of all data points in this possibly partial representation of the dataset. Time is in nanoseconds from epoch. This should also match the second part of the dataset identifier.",
           "format": "int64",
           "type": "string"
         },
@@ -2101,7 +3097,7 @@
           "type": "string"
         },
         "point": {
-          "description": "A partial list of data points contained in the dataset, ordered by largest endTimeNanos first. This list is considered complete when retrieving a small dataset and partial when patching a dataset or retrieving a dataset that is too large to include in a single response.",
+          "description": "A partial list of data points contained in the dataset, ordered by endTimeNanos. This list is considered complete when retrieving a small dataset and partial when patching a dataset or retrieving a dataset that is too large to include in a single response.",
           "items": {
             "$ref": "#/definitions/DataPoint"
           },
@@ -2111,7 +3107,7 @@
       "type": "object"
     },
     "Device": {
-      "description": "Representation of an integrated device (such as a phone or a wearable) that can hold sensors. Each sensor is exposed as a data source.\n\nThe main purpose of the device information contained in this class is to identify the hardware of a particular data source. This can be useful in different ways, including:  \n- Distinguishing two similar sensors on different devices (the step counter on two nexus 5 phones, for instance)\n- Display the source of data to the user (by using the device make / model)\n- Treat data differently depending on sensor type (accelerometers on a watch may give different patterns than those on a phone)\n- Build different analysis models for each device/version.",
+      "description": "Representation of an integrated device (such as a phone or a wearable) that can hold sensors. Each sensor is exposed as a data source. The main purpose of the device information contained in this class is to identify the hardware of a particular data source. This can be useful in different ways, including: - Distinguishing two similar sensors on different devices (the step counter on two nexus 5 phones, for instance) - Display the source of data to the user (by using the device make / model) - Treat data differently depending on sensor type (accelerometers on a watch may give different patterns than those on a phone) - Build different analysis models for each device/version. ",
       "properties": {
         "manufacturer": {
           "description": "Manufacturer of the product/hardware.",
@@ -2124,18 +3120,19 @@
         "type": {
           "description": "A constant representing the type of the device.",
           "enum": [
-            "chestStrap",
-            "headMounted",
-            "phone",
-            "scale",
-            "tablet",
             "unknown",
-            "watch"
+            "phone",
+            "tablet",
+            "watch",
+            "chestStrap",
+            "scale",
+            "headMounted",
+            "smartDisplay"
           ],
           "type": "string"
         },
         "uid": {
-          "description": "The serial number or other unique ID for the hardware. This field is obfuscated when read by any REST or Android client that did not create the data source. Only the data source creator will see the uid field in clear and normal form.",
+          "description": "The serial number or other unique ID for the hardware. This field is obfuscated when read by any REST or Android client that did not create the data source. Only the data source creator will see the uid field in clear and normal form. The obfuscation preserves equality; that is, given two IDs, if id1 == id2, obfuscated(id1) == obfuscated(id2).",
           "type": "string"
         },
         "version": {
@@ -2187,18 +3184,18 @@
     "ListSessionsResponse": {
       "properties": {
         "deletedSession": {
-          "description": "If includeDeleted is set to true in the request, this list will contain sessions deleted with original end times that are within the startTime and endTime frame.",
+          "description": "If includeDeleted is set to true in the request, and startTime and endTime are omitted, this will include sessions which were deleted since the last sync.",
           "items": {
             "$ref": "#/definitions/Session"
           },
           "type": "array"
         },
         "hasMoreData": {
-          "description": "Flag to indicate server has more data to transfer",
+          "description": "Flag to indicate server has more data to transfer. DO NOT USE THIS FIELD. It is never populated in responses from the server.",
           "type": "boolean"
         },
         "nextPageToken": {
-          "description": "The continuation token, which is used to page through large result sets. Provide this value in a subsequent request to return the next page of results.",
+          "description": "The sync token which is used to sync further changes. This will only be provided if both startTime and endTime are omitted from the request.",
           "type": "string"
         },
         "session": {
@@ -2212,7 +3209,7 @@
       "type": "object"
     },
     "MapValue": {
-      "description": "Holder object for the value of an entry in a map field of a data point.\n\nA map value supports a subset of the formats that the regular Value supports.",
+      "description": "Holder object for the value of an entry in a map field of a data point. A map value supports a subset of the formats that the regular Value supports.",
       "properties": {
         "fpVal": {
           "description": "Floating point value.",
@@ -2270,7 +3267,7 @@
       "type": "object"
     },
     "Value": {
-      "description": "Holder object for the value of a single field in a data point.\n\nA field value has a particular format and is only ever set to one of an integer or a floating point value. LINT.IfChange",
+      "description": "Holder object for the value of a single field in a data point. A field value has a particular format and is only ever set to one of an integer or a floating point value.",
       "properties": {
         "fpVal": {
           "description": "Floating point value. When this is set, other values must not be set.",
@@ -2306,6 +3303,156 @@
         }
       },
       "type": "object"
+    }
+  },
+  "securityDefinitions": {
+    "Oauth2": {
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+      "description": "Oauth 2.0 implicit authentication",
+      "flow": "implicit",
+      "scopes": {
+        "https://www.googleapis.com/auth/fitness.activity.read": "Use Google Fit to see and store your physical activity data",
+        "https://www.googleapis.com/auth/fitness.activity.write": "See and add to your Google Fit physical activity data",
+        "https://www.googleapis.com/auth/fitness.blood_glucose.read": "See info about your blood glucose in Google Fit. I consent to Google sharing my blood glucose information with this app.",
+        "https://www.googleapis.com/auth/fitness.blood_glucose.write": "See and add info about your blood glucose to Google Fit. I consent to Google sharing my blood glucose information with this app.",
+        "https://www.googleapis.com/auth/fitness.blood_pressure.read": "See info about your blood pressure in Google Fit. I consent to Google sharing my blood pressure information with this app.",
+        "https://www.googleapis.com/auth/fitness.blood_pressure.write": "See and add info about your blood pressure in Google Fit. I consent to Google sharing my blood pressure information with this app.",
+        "https://www.googleapis.com/auth/fitness.body.read": "See info about your body measurements and heart rate in Google Fit",
+        "https://www.googleapis.com/auth/fitness.body.write": "See and add info about your body measurements and heart rate to Google Fit",
+        "https://www.googleapis.com/auth/fitness.body_temperature.read": "See info about your body temperature in Google Fit. I consent to Google sharing my body temperature information with this app.",
+        "https://www.googleapis.com/auth/fitness.body_temperature.write": "See and add to info about your body temperature in Google Fit. I consent to Google sharing my body temperature information with this app.",
+        "https://www.googleapis.com/auth/fitness.heart_rate.read": "See your heart rate data in Google Fit. I consent to Google sharing my heart rate information with this app.",
+        "https://www.googleapis.com/auth/fitness.heart_rate.write": "See and add to your heart rate data in Google Fit. I consent to Google sharing my heart rate information with this app.",
+        "https://www.googleapis.com/auth/fitness.location.read": "See your Google Fit speed and distance data",
+        "https://www.googleapis.com/auth/fitness.location.write": "See and add to your Google Fit location data",
+        "https://www.googleapis.com/auth/fitness.nutrition.read": "See info about your nutrition in Google Fit",
+        "https://www.googleapis.com/auth/fitness.nutrition.write": "See and add to info about your nutrition in Google Fit",
+        "https://www.googleapis.com/auth/fitness.oxygen_saturation.read": "See info about your oxygen saturation in Google Fit. I consent to Google sharing my oxygen saturation information with this app.",
+        "https://www.googleapis.com/auth/fitness.oxygen_saturation.write": "See and add info about your oxygen saturation in Google Fit. I consent to Google sharing my oxygen saturation information with this app.",
+        "https://www.googleapis.com/auth/fitness.reproductive_health.read": "See info about your reproductive health in Google Fit. I consent to Google sharing my reproductive health information with this app.",
+        "https://www.googleapis.com/auth/fitness.reproductive_health.write": "See and add info about your reproductive health in Google Fit. I consent to Google sharing my reproductive health information with this app.",
+        "https://www.googleapis.com/auth/fitness.sleep.read": "See your sleep data in Google Fit. I consent to Google sharing my sleep information with this app.",
+        "https://www.googleapis.com/auth/fitness.sleep.write": "See and add to your sleep data in Google Fit. I consent to Google sharing my sleep information with this app."
+      },
+      "type": "oauth2"
+    },
+    "Oauth2c": {
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+      "description": "Oauth 2.0 authorizationCode authentication",
+      "flow": "accessCode",
+      "scopes": {
+        "https://www.googleapis.com/auth/fitness.activity.read": "Use Google Fit to see and store your physical activity data",
+        "https://www.googleapis.com/auth/fitness.activity.write": "See and add to your Google Fit physical activity data",
+        "https://www.googleapis.com/auth/fitness.blood_glucose.read": "See info about your blood glucose in Google Fit. I consent to Google sharing my blood glucose information with this app.",
+        "https://www.googleapis.com/auth/fitness.blood_glucose.write": "See and add info about your blood glucose to Google Fit. I consent to Google sharing my blood glucose information with this app.",
+        "https://www.googleapis.com/auth/fitness.blood_pressure.read": "See info about your blood pressure in Google Fit. I consent to Google sharing my blood pressure information with this app.",
+        "https://www.googleapis.com/auth/fitness.blood_pressure.write": "See and add info about your blood pressure in Google Fit. I consent to Google sharing my blood pressure information with this app.",
+        "https://www.googleapis.com/auth/fitness.body.read": "See info about your body measurements and heart rate in Google Fit",
+        "https://www.googleapis.com/auth/fitness.body.write": "See and add info about your body measurements and heart rate to Google Fit",
+        "https://www.googleapis.com/auth/fitness.body_temperature.read": "See info about your body temperature in Google Fit. I consent to Google sharing my body temperature information with this app.",
+        "https://www.googleapis.com/auth/fitness.body_temperature.write": "See and add to info about your body temperature in Google Fit. I consent to Google sharing my body temperature information with this app.",
+        "https://www.googleapis.com/auth/fitness.heart_rate.read": "See your heart rate data in Google Fit. I consent to Google sharing my heart rate information with this app.",
+        "https://www.googleapis.com/auth/fitness.heart_rate.write": "See and add to your heart rate data in Google Fit. I consent to Google sharing my heart rate information with this app.",
+        "https://www.googleapis.com/auth/fitness.location.read": "See your Google Fit speed and distance data",
+        "https://www.googleapis.com/auth/fitness.location.write": "See and add to your Google Fit location data",
+        "https://www.googleapis.com/auth/fitness.nutrition.read": "See info about your nutrition in Google Fit",
+        "https://www.googleapis.com/auth/fitness.nutrition.write": "See and add to info about your nutrition in Google Fit",
+        "https://www.googleapis.com/auth/fitness.oxygen_saturation.read": "See info about your oxygen saturation in Google Fit. I consent to Google sharing my oxygen saturation information with this app.",
+        "https://www.googleapis.com/auth/fitness.oxygen_saturation.write": "See and add info about your oxygen saturation in Google Fit. I consent to Google sharing my oxygen saturation information with this app.",
+        "https://www.googleapis.com/auth/fitness.reproductive_health.read": "See info about your reproductive health in Google Fit. I consent to Google sharing my reproductive health information with this app.",
+        "https://www.googleapis.com/auth/fitness.reproductive_health.write": "See and add info about your reproductive health in Google Fit. I consent to Google sharing my reproductive health information with this app.",
+        "https://www.googleapis.com/auth/fitness.sleep.read": "See your sleep data in Google Fit. I consent to Google sharing my sleep information with this app.",
+        "https://www.googleapis.com/auth/fitness.sleep.write": "See and add to your sleep data in Google Fit. I consent to Google sharing my sleep information with this app."
+      },
+      "tokenUrl": "https://accounts.google.com/o/oauth2/token",
+      "type": "oauth2"
+    }
+  },
+  "tags": [
+    {
+      "name": "users"
+    }
+  ],
+  "externalDocs": {
+    "url": "https://developers.google.com/fit/rest/v1/get-started"
+  },
+  "x-components": {
+    "parameters": {
+      "_.xgafv": {
+        "description": "V1 error format.",
+        "enum": [
+          "1",
+          "2"
+        ],
+        "in": "query",
+        "name": "$.xgafv",
+        "type": "string"
+      },
+      "access_token": {
+        "description": "OAuth access token.",
+        "in": "query",
+        "name": "access_token",
+        "type": "string"
+      },
+      "alt": {
+        "description": "Data format for response.",
+        "enum": [
+          "json",
+          "media",
+          "proto"
+        ],
+        "in": "query",
+        "name": "alt",
+        "type": "string"
+      },
+      "callback": {
+        "description": "JSONP",
+        "in": "query",
+        "name": "callback",
+        "type": "string"
+      },
+      "fields": {
+        "description": "Selector specifying which fields to include in a partial response.",
+        "in": "query",
+        "name": "fields",
+        "type": "string"
+      },
+      "key": {
+        "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+        "in": "query",
+        "name": "key",
+        "type": "string"
+      },
+      "oauth_token": {
+        "description": "OAuth 2.0 token for the current user.",
+        "in": "query",
+        "name": "oauth_token",
+        "type": "string"
+      },
+      "prettyPrint": {
+        "description": "Returns response with indentations and line breaks.",
+        "in": "query",
+        "name": "prettyPrint",
+        "type": "boolean"
+      },
+      "quotaUser": {
+        "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+        "in": "query",
+        "name": "quotaUser",
+        "type": "string"
+      },
+      "uploadType": {
+        "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+        "in": "query",
+        "name": "uploadType",
+        "type": "string"
+      },
+      "upload_protocol": {
+        "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+        "in": "query",
+        "name": "upload_protocol",
+        "type": "string"
+      }
     }
   }
 }

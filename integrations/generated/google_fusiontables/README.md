@@ -15,7 +15,7 @@ let google_fusiontables = require('@datafire/google_fusiontables').create({
   redirect_uri: ""
 });
 
-google_fusiontables.table.insert({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -999,7 +999,6 @@ google_fusiontables.template.update({
 ### Geometry
 * Geometry `object`: Represents a Geometry object.
   * geometries `array`: The list of geometries in this geometry collection.
-
   * type `string`: Type: A collection of geometries.
 
 ### Import
@@ -1059,7 +1058,6 @@ google_fusiontables.template.update({
   * kind `string`: The kind of item this is. For responses to SQL queries, this is always fusiontables#sqlresponse.
   * rows `array`: The rows in the table. For each cell we print out whatever cell value (e.g., numeric, string) exists. Thus it is important that each cell contains only one value.
     * items `array`
-
 
 ### StyleFunction
 * StyleFunction `object`: Represents a StyleFunction within a StyleSetting

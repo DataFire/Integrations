@@ -7,7 +7,7 @@
   "info": {
     "description": "The Azure Analysis Services Web API provides a RESTful set of web services that enables users to create, retrieve, update, and delete Analysis Services servers",
     "title": "AzureAnalysisServices",
-    "version": "2017-07-14",
+    "version": "2017-08-01",
     "x-apisguru-categories": [
       "cloud"
     ],
@@ -20,7 +20,7 @@
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/analysisservices/resource-manager/Microsoft.AnalysisServices/stable/2017-07-14/analysisservices.json",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/analysisservices/resource-manager/Microsoft.AnalysisServices/stable/2017-08-01/analysisservices.json",
         "version": "2.0"
       }
     ],
@@ -88,6 +88,37 @@
     }
   },
   "paths": {
+    "/providers/Microsoft.AnalysisServices/operations": {
+      "get": {
+        "description": "Lists all of the available consumption REST API operations.",
+        "operationId": "Operations_List",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK. The request has succeeded.",
+            "schema": {
+              "$ref": "#/definitions/OperationListResult"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "tags": [
+          "Operations"
+        ],
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        }
+      }
+    },
     "/subscriptions/{subscriptionId}/providers/Microsoft.AnalysisServices/locations/{location}/checkNameAvailability": {
       "post": {
         "description": "Check the name availability in the target location.",
@@ -130,7 +161,7 @@
         "x-ms-examples": {
           "Get details of a server": {
             "parameters": {
-              "api-version": "2017-07-14",
+              "api-version": "2017-08-01",
               "location": "West US",
               "serverParameters": {
                 "name": "azsdktest",
@@ -190,7 +221,7 @@
         "x-ms-examples": {
           "Get details of a server": {
             "parameters": {
-              "api-version": "2017-07-14",
+              "api-version": "2017-08-01",
               "location": "West US",
               "operationId": "00000000000000000000000000000000",
               "subscriptionId": "613192d7-503f-477a-9cfe-4efc3ee2bd60"
@@ -249,7 +280,38 @@
         },
         "tags": [
           "Servers"
-        ]
+        ],
+        "x-ms-examples": {
+          "Get details of a server": {
+            "parameters": {
+              "api-version": "2017-08-01",
+              "location": "West US",
+              "operationId": "testoperationid",
+              "subscriptionId": "613192d7-503f-477a-9cfe-4efc3ee2bd60"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "endTime": "2017-01-01T16:13:13.933Z",
+                  "id": "/subscriptions/id/locations/westus/operationstatuses/testoperationid",
+                  "name": "testoperationid",
+                  "startTime": "2017-01-01T13:13:13.933Z",
+                  "status": "Succeeded"
+                },
+                "headers": {}
+              },
+              "202": {
+                "body": {
+                  "id": "/subscriptions/id/locations/westus/operationstatuses/testoperationid",
+                  "name": "testoperationid",
+                  "startTime": "2017-01-01T13:13:13.933Z",
+                  "status": "Running"
+                },
+                "headers": {}
+              }
+            }
+          }
+        }
       }
     },
     "/subscriptions/{subscriptionId}/providers/Microsoft.AnalysisServices/servers": {
@@ -275,7 +337,72 @@
         "tags": [
           "Servers"
         ],
-        "x-ms-pageable": {}
+        "x-ms-examples": {
+          "List existing servers under the subscription.": {
+            "parameters": {
+              "api-version": "2017-08-01",
+              "subscriptionId": "613192d7-503f-477a-9cfe-4efc3ee2bd60"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "value": [
+                    {
+                      "id": "/subscriptions/613192d7-503f-477a-9cfe-4efc3ee2bd60/resourceGroups/TestRG/providers/Microsoft.AnalysisServices/servers/azsdktest",
+                      "location": "West US",
+                      "name": "azsdktest",
+                      "properties": {
+                        "asAdministrators": {
+                          "members": [
+                            "azsdktest@microsoft.com"
+                          ]
+                        },
+                        "provisioningState": "Provisioning",
+                        "serverFullName": "asazure://nightly1.asazure-int.windows.net/azsdktest",
+                        "state": "Provisioning"
+                      },
+                      "sku": {
+                        "capacity": 1,
+                        "name": "S1",
+                        "tier": "Standard"
+                      },
+                      "tags": {
+                        "testKey": "testValue"
+                      }
+                    },
+                    {
+                      "id": "/subscriptions/613192d7-503f-477a-9cfe-4efc3ee2bd60/resourceGroups/TestRG2/providers/Microsoft.AnalysisServices/servers/azsdktest",
+                      "location": "West US",
+                      "name": "azsdktest2",
+                      "properties": {
+                        "asAdministrators": {
+                          "members": [
+                            "azsdktest@microsoft.com"
+                          ]
+                        },
+                        "provisioningState": "Provisioning",
+                        "serverFullName": "asazure://nightly1.asazure-int.windows.net/azsdktest",
+                        "state": "Provisioning"
+                      },
+                      "sku": {
+                        "capacity": 1,
+                        "name": "S0",
+                        "tier": "Standard"
+                      },
+                      "tags": {
+                        "testKey": "testValue"
+                      }
+                    }
+                  ]
+                },
+                "headers": {}
+              }
+            }
+          }
+        },
+        "x-ms-pageable": {
+          "nextLinkName": null
+        }
       }
     },
     "/subscriptions/{subscriptionId}/providers/Microsoft.AnalysisServices/skus": {
@@ -301,7 +428,7 @@
         "x-ms-examples": {
           "List eligible SKUs for a new server": {
             "parameters": {
-              "api-version": "2017-07-14",
+              "api-version": "2017-08-01",
               "subscriptionId": "613192d7-503f-477a-9cfe-4efc3ee2bd60"
             },
             "responses": {
@@ -367,7 +494,73 @@
         "tags": [
           "Servers"
         ],
-        "x-ms-pageable": {}
+        "x-ms-examples": {
+          "List existing servers in the resource group.": {
+            "parameters": {
+              "api-version": "2017-08-01",
+              "resourceGroupName": "TestRG",
+              "subscriptionId": "613192d7-503f-477a-9cfe-4efc3ee2bd60"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "value": [
+                    {
+                      "id": "/subscriptions/613192d7-503f-477a-9cfe-4efc3ee2bd60/resourceGroups/TestRG/providers/Microsoft.AnalysisServices/servers/azsdktest",
+                      "location": "West US",
+                      "name": "azsdktest",
+                      "properties": {
+                        "asAdministrators": {
+                          "members": [
+                            "azsdktest@microsoft.com"
+                          ]
+                        },
+                        "provisioningState": "Provisioning",
+                        "serverFullName": "asazure://nightly1.asazure-int.windows.net/azsdktest",
+                        "state": "Provisioning"
+                      },
+                      "sku": {
+                        "capacity": 1,
+                        "name": "S1",
+                        "tier": "Standard"
+                      },
+                      "tags": {
+                        "testKey": "testValue"
+                      }
+                    },
+                    {
+                      "id": "/subscriptions/613192d7-503f-477a-9cfe-4efc3ee2bd60/resourceGroups/TestRG/providers/Microsoft.AnalysisServices/servers/azsdktest",
+                      "location": "West US",
+                      "name": "azsdktest2",
+                      "properties": {
+                        "asAdministrators": {
+                          "members": [
+                            "azsdktest@microsoft.com"
+                          ]
+                        },
+                        "provisioningState": "Provisioning",
+                        "serverFullName": "asazure://nightly1.asazure-int.windows.net/azsdktest",
+                        "state": "Provisioning"
+                      },
+                      "sku": {
+                        "capacity": 1,
+                        "name": "S0",
+                        "tier": "Standard"
+                      },
+                      "tags": {
+                        "testKey": "testValue"
+                      }
+                    }
+                  ]
+                },
+                "headers": {}
+              }
+            }
+          }
+        },
+        "x-ms-pageable": {
+          "nextLinkName": null
+        }
       }
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AnalysisServices/servers/{serverName}": {
@@ -409,6 +602,29 @@
         "tags": [
           "Servers"
         ],
+        "x-ms-examples": {
+          "Delete a server.": {
+            "parameters": {
+              "api-version": "2017-08-01",
+              "resourceGroupName": "TestRG",
+              "serverName": "azsdktest",
+              "subscriptionId": "613192d7-503f-477a-9cfe-4efc3ee2bd60"
+            },
+            "responses": {
+              "200": {
+                "description": "OK.",
+                "headers": {}
+              },
+              "202": {
+                "description": "Accepted.",
+                "headers": {}
+              },
+              "204": {
+                "headers": {}
+              }
+            }
+          }
+        },
         "x-ms-long-running-operation": true
       },
       "get": {
@@ -445,7 +661,45 @@
         },
         "tags": [
           "Servers"
-        ]
+        ],
+        "x-ms-examples": {
+          "Get details of a server": {
+            "parameters": {
+              "api-version": "2017-08-01",
+              "resourceGroupName": "TestRG",
+              "serverName": "azsdktest",
+              "subscriptionId": "613192d7-503f-477a-9cfe-4efc3ee2bd60"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "id": "/subscriptions/613192d7-503f-477a-9cfe-4efc3ee2bd60/resourceGroups/TestRG/providers/Microsoft.AnalysisServices/servers/azsdktest",
+                  "location": "West US",
+                  "name": "azsdktest",
+                  "properties": {
+                    "asAdministrators": {
+                      "members": [
+                        "azsdktest@microsoft.com"
+                      ]
+                    },
+                    "provisioningState": "Provisioning",
+                    "serverFullName": "asazure://nightly1.asazure-int.windows.net/azsdktest",
+                    "state": "Provisioning"
+                  },
+                  "sku": {
+                    "capacity": 1,
+                    "name": "S1",
+                    "tier": "Standard"
+                  },
+                  "tags": {
+                    "testKey": "testValue"
+                  }
+                },
+                "headers": {}
+              }
+            }
+          }
+        }
       },
       "patch": {
         "description": "Updates the current state of the specified Analysis Services server.",
@@ -497,6 +751,90 @@
         "tags": [
           "Servers"
         ],
+        "x-ms-examples": {
+          "Update a server.": {
+            "parameters": {
+              "api-version": "2017-08-01",
+              "resourceGroupName": "TestRG",
+              "serverName": "azsdktest",
+              "serverUpdateParameters": {
+                "properties": {
+                  "asAdministrators": {
+                    "members": [
+                      "azsdktest@microsoft.com",
+                      "azsdktest2@microsoft.com"
+                    ]
+                  }
+                },
+                "sku": {
+                  "capacity": 1,
+                  "name": "S1",
+                  "tier": "Standard"
+                },
+                "tags": {
+                  "testKey": "testValue"
+                }
+              },
+              "subscriptionId": "613192d7-503f-477a-9cfe-4efc3ee2bd60"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "id": "/subscriptions/613192d7-503f-477a-9cfe-4efc3ee2bd60/resourceGroups/TestRG/providers/Microsoft.AnalysisServices/servers/azsdktest",
+                  "location": "West US",
+                  "name": "azsdktest",
+                  "properties": {
+                    "asAdministrators": {
+                      "members": [
+                        "azsdktest@microsoft.com",
+                        "azsdktest2@microsoft.com"
+                      ]
+                    },
+                    "provisioningState": "Provisioning",
+                    "serverFullName": "asazure://nightly1.asazure-int.windows.net/azsdktest",
+                    "state": "Provisioning"
+                  },
+                  "sku": {
+                    "capacity": 1,
+                    "name": "S1",
+                    "tier": "Standard"
+                  },
+                  "tags": {
+                    "testKey": "testValue"
+                  }
+                },
+                "headers": {}
+              },
+              "202": {
+                "body": {
+                  "id": "/subscriptions/613192d7-503f-477a-9cfe-4efc3ee2bd60/resourceGroups/TestRG/providers/Microsoft.AnalysisServices/servers/azsdktest",
+                  "location": "West US",
+                  "name": "azsdktest",
+                  "properties": {
+                    "asAdministrators": {
+                      "members": [
+                        "azsdktest@microsoft.com",
+                        "azsdktest2@microsoft.com"
+                      ]
+                    },
+                    "provisioningState": "Provisioning",
+                    "serverFullName": "asazure://nightly1.asazure-int.windows.net/azsdktest",
+                    "state": "Provisioning"
+                  },
+                  "sku": {
+                    "capacity": 1,
+                    "name": "S1",
+                    "tier": "Standard"
+                  },
+                  "tags": {
+                    "testKey": "testValue"
+                  }
+                },
+                "headers": {}
+              }
+            }
+          }
+        },
         "x-ms-long-running-operation": true
       },
       "put": {
@@ -549,6 +887,94 @@
         "tags": [
           "Servers"
         ],
+        "x-ms-examples": {
+          "Create a server.": {
+            "parameters": {
+              "api-version": "2017-08-01",
+              "resourceGroupName": "TestRG",
+              "serverName": "azsdktest",
+              "serverParameters": {
+                "location": "West US",
+                "properties": {
+                  "asAdministrators": {
+                    "members": [
+                      "azsdktest@microsoft.com",
+                      "azsdktest2@microsoft.com"
+                    ]
+                  },
+                  "provisioningState": "Preparing",
+                  "serverFullName": "asazure://nightly1.asazure-int.windows.net/azsdktest",
+                  "state": "Preparing"
+                },
+                "sku": {
+                  "capacity": 1,
+                  "name": "S1",
+                  "tier": "Standard"
+                },
+                "tags": {
+                  "testKey": "testValue"
+                }
+              },
+              "subscriptionId": "613192d7-503f-477a-9cfe-4efc3ee2bd60"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "id": "/subscriptions/613192d7-503f-477a-9cfe-4efc3ee2bd60/resourceGroups/TestRG/providers/Microsoft.AnalysisServices/servers/azsdktest",
+                  "location": "West US",
+                  "name": "azsdktest",
+                  "properties": {
+                    "asAdministrators": {
+                      "members": [
+                        "azsdktest@microsoft.com",
+                        "azsdktest2@microsoft.com"
+                      ]
+                    },
+                    "provisioningState": "Provisioning",
+                    "serverFullName": "asazure://nightly1.asazure-int.windows.net/azsdktest",
+                    "state": "Provisioning"
+                  },
+                  "sku": {
+                    "capacity": 1,
+                    "name": "S1",
+                    "tier": "Standard"
+                  },
+                  "tags": {
+                    "testKey": "testValue"
+                  }
+                },
+                "headers": {}
+              },
+              "201": {
+                "body": {
+                  "id": "/subscriptions/613192d7-503f-477a-9cfe-4efc3ee2bd60/resourceGroups/TestRG/providers/Microsoft.AnalysisServices/servers/azsdktest",
+                  "location": "West US",
+                  "name": "azsdktest",
+                  "properties": {
+                    "asAdministrators": {
+                      "members": [
+                        "azsdktest@microsoft.com",
+                        "azsdktest2@microsoft.com"
+                      ]
+                    },
+                    "provisioningState": "Provisioning",
+                    "serverFullName": "asazure://nightly1.asazure-int.windows.net/azsdktest",
+                    "state": "Provisioning"
+                  },
+                  "sku": {
+                    "capacity": 1,
+                    "name": "S1",
+                    "tier": "Standard"
+                  },
+                  "tags": {
+                    "testKey": "testValue"
+                  }
+                },
+                "headers": {}
+              }
+            }
+          }
+        },
         "x-ms-long-running-operation": true
       }
     },
@@ -584,7 +1010,22 @@
         },
         "tags": [
           "Servers"
-        ]
+        ],
+        "x-ms-examples": {
+          "Get details of a server": {
+            "parameters": {
+              "api-version": "2017-08-01",
+              "resourceGroupName": "TestRG",
+              "serverName": "azsdktest",
+              "subscriptionId": "613192d7-503f-477a-9cfe-4efc3ee2bd60"
+            },
+            "responses": {
+              "200": {
+                "headers": {}
+              }
+            }
+          }
+        }
       }
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AnalysisServices/servers/{serverName}/listGatewayStatus": {
@@ -596,7 +1037,7 @@
             "$ref": "#/parameters/ResourceGroupNameParameter"
           },
           {
-            "description": "The name of the Analysis Services server. It must be at least 3 characters in length, and no more than 63.",
+            "description": "The name of the Analysis Services server.",
             "in": "path",
             "maxLength": 63,
             "minLength": 3,
@@ -628,7 +1069,25 @@
         },
         "tags": [
           "Servers"
-        ]
+        ],
+        "x-ms-examples": {
+          "Get details of a server": {
+            "parameters": {
+              "api-version": "2017-08-01",
+              "resourceGroupName": "TestRG",
+              "serverName": "azsdktest",
+              "subscriptionId": "613192d7-503f-477a-9cfe-4efc3ee2bd60"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "status": "Live"
+                },
+                "headers": {}
+              }
+            }
+          }
+        }
       }
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AnalysisServices/servers/{serverName}/resume": {
@@ -667,6 +1126,26 @@
         "tags": [
           "Servers"
         ],
+        "x-ms-examples": {
+          "Resume a server.": {
+            "parameters": {
+              "api-version": "2017-08-01",
+              "resourceGroupName": "TestRG",
+              "serverName": "azsdktest",
+              "subscriptionId": "613192d7-503f-477a-9cfe-4efc3ee2bd60"
+            },
+            "responses": {
+              "200": {
+                "description": "OK.",
+                "headers": {}
+              },
+              "202": {
+                "description": "Accepted.",
+                "headers": {}
+              }
+            }
+          }
+        },
         "x-ms-long-running-operation": true
       }
     },
@@ -709,7 +1188,7 @@
         "x-ms-examples": {
           "List eligible SKUs for an existing server": {
             "parameters": {
-              "api-version": "2017-07-14",
+              "api-version": "2017-08-01",
               "resourceGroupName": "TestRG",
               "serverName": "azsdktest",
               "subscriptionId": "613192d7-503f-477a-9cfe-4efc3ee2bd60"
@@ -771,7 +1250,7 @@
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AnalysisServices/servers/{serverName}/suspend": {
       "post": {
-        "description": "Supends operation of the specified Analysis Services server instance.",
+        "description": "Suspends operation of the specified Analysis Services server instance.",
         "operationId": "Servers_Suspend",
         "parameters": [
           {
@@ -805,6 +1284,26 @@
         "tags": [
           "Servers"
         ],
+        "x-ms-examples": {
+          "Suspend a server.": {
+            "parameters": {
+              "api-version": "2017-08-01",
+              "resourceGroupName": "TestRG",
+              "serverName": "azsdktest",
+              "subscriptionId": "613192d7-503f-477a-9cfe-4efc3ee2bd60"
+            },
+            "responses": {
+              "200": {
+                "description": "OK.",
+                "headers": {}
+              },
+              "202": {
+                "description": "Accepted.",
+                "headers": {}
+              }
+            }
+          }
+        },
         "x-ms-long-running-operation": true
       }
     }
@@ -840,6 +1339,23 @@
         "gatewayDetails": {
           "$ref": "#/definitions/GatewayDetails",
           "description": "The gateway details configured for the AS server."
+        },
+        "ipV4FirewallSettings": {
+          "$ref": "#/definitions/IPv4FirewallSettings",
+          "description": "The firewall settings for the AS server."
+        },
+        "querypoolConnectionMode": {
+          "default": "All",
+          "description": "How the read-write server's participation in the query pool is controlled.<br/>It can have the following values: <ul><li>readOnly - indicates that the read-write server is intended not to participate in query operations</li><li>all - indicates that the read-write server can participate in query operations</li></ul>Specifying readOnly when capacity is 1 results in error.",
+          "enum": [
+            "All",
+            "ReadOnly"
+          ],
+          "type": "string",
+          "x-ms-enum": {
+            "modelAsString": false,
+            "name": "ConnectionMode"
+          }
         }
       },
       "type": "object"
@@ -963,7 +1479,7 @@
       "type": "object"
     },
     "CheckServerNameAvailabilityResult": {
-      "description": "The checking result of server name availibility.",
+      "description": "The checking result of server name availability.",
       "properties": {
         "message": {
           "description": "The detailed message of the request unavailability.",
@@ -1015,7 +1531,7 @@
       "type": "object"
     },
     "GatewayError": {
-      "description": "Detail of gateway errors",
+      "description": "Detail of gateway errors.",
       "properties": {
         "code": {
           "description": "Error code of list gateway.",
@@ -1029,7 +1545,7 @@
       "type": "object"
     },
     "GatewayListStatusError": {
-      "description": "Status of gateway is error",
+      "description": "Status of gateway is error.",
       "properties": {
         "error": {
           "$ref": "#/definitions/GatewayError",
@@ -1039,7 +1555,7 @@
       "type": "object"
     },
     "GatewayListStatusLive": {
-      "description": "Status of gateway is live",
+      "description": "Status of gateway is live.",
       "properties": {
         "status": {
           "description": "Live message of list gateway.",
@@ -1054,6 +1570,91 @@
         }
       },
       "type": "object"
+    },
+    "IPv4FirewallRule": {
+      "description": "The detail of firewall rule.",
+      "properties": {
+        "firewallRuleName": {
+          "description": "The rule name.",
+          "type": "string"
+        },
+        "rangeEnd": {
+          "description": "The end range of IPv4.",
+          "type": "string"
+        },
+        "rangeStart": {
+          "description": "The start range of IPv4.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "IPv4FirewallSettings": {
+      "description": "An array of firewall rules.",
+      "properties": {
+        "enablePowerBIService": {
+          "description": "The indicator of enabling PBI service.",
+          "type": "boolean"
+        },
+        "firewallRules": {
+          "description": "An array of firewall rules.",
+          "items": {
+            "$ref": "#/definitions/IPv4FirewallRule",
+            "description": "The content of firewall rule."
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "Operation": {
+      "description": "A Consumption REST API operation.",
+      "properties": {
+        "display": {
+          "description": "The object that represents the operation.",
+          "properties": {
+            "operation": {
+              "description": "Operation type: Read, write, delete, etc.",
+              "readOnly": true,
+              "type": "string"
+            },
+            "provider": {
+              "description": "Service provider: Microsoft.Consumption.",
+              "readOnly": true,
+              "type": "string"
+            },
+            "resource": {
+              "description": "Resource on which the operation is performed: UsageDetail, etc.",
+              "readOnly": true,
+              "type": "string"
+            }
+          }
+        },
+        "name": {
+          "description": "Operation name: {provider}/{resource}/{operation}.",
+          "readOnly": true,
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "OperationListResult": {
+      "description": "Result of listing consumption operations. It contains a list of operations and a URL link to get the next set of results.",
+      "properties": {
+        "nextLink": {
+          "description": "URL to get the next set of operation list results if there are any.",
+          "readOnly": true,
+          "type": "string"
+        },
+        "value": {
+          "description": "List of analysis services operations supported by the Microsoft.AnalysisServices resource provider.",
+          "items": {
+            "$ref": "#/definitions/Operation"
+          },
+          "readOnly": true,
+          "type": "array"
+        }
+      }
     },
     "OperationStatus": {
       "description": "The status of operation.",
@@ -1096,7 +1697,11 @@
         },
         "location": {
           "description": "Location of the Analysis Services resource.",
-          "type": "string"
+          "type": "string",
+          "x-ms-mutability": [
+            "create",
+            "read"
+          ]
         },
         "name": {
           "description": "The name of the Analysis Services resource.",
@@ -1130,6 +1735,13 @@
     "ResourceSku": {
       "description": "Represents the SKU name and Azure pricing tier for Analysis Services resource.",
       "properties": {
+        "capacity": {
+          "default": 1,
+          "description": "The number of instances in the read only query pool.",
+          "maximum": 8,
+          "minimum": 1,
+          "type": "integer"
+        },
         "name": {
           "description": "Name of the SKU level.",
           "type": "string"
@@ -1154,7 +1766,7 @@
       "type": "object"
     },
     "ServerAdministrators": {
-      "description": "An array of administrator user identities",
+      "description": "An array of administrator user identities.",
       "properties": {
         "members": {
           "description": "An array of administrator user identities.",
@@ -1168,7 +1780,7 @@
       "type": "object"
     },
     "SkuDetailsForExistingResource": {
-      "description": "An object that represents SKU details for existing resources",
+      "description": "An object that represents SKU details for existing resources.",
       "properties": {
         "sku": {
           "$ref": "#/definitions/ResourceSku",
@@ -1178,10 +1790,10 @@
       "type": "object"
     },
     "SkuEnumerationForExistingResourceResult": {
-      "description": "An object that represents enumerating SKUs for existing resources",
+      "description": "An object that represents enumerating SKUs for existing resources.",
       "properties": {
         "value": {
-          "description": "The collection of available SKUs for existing resources",
+          "description": "The collection of available SKUs for existing resources.",
           "items": {
             "$ref": "#/definitions/SkuDetailsForExistingResource"
           },
@@ -1191,10 +1803,10 @@
       "type": "object"
     },
     "SkuEnumerationForNewResourceResult": {
-      "description": "An object that represents enumerating SKUs for new resources",
+      "description": "An object that represents enumerating SKUs for new resources.",
       "properties": {
         "value": {
-          "description": "The collection of available SKUs for new resources",
+          "description": "The collection of available SKUs for new resources.",
           "items": {
             "$ref": "#/definitions/ResourceSku"
           },

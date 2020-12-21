@@ -1,8 +1,8 @@
 {
   "name": "@datafire/callfire",
-  "version": "5.0.0",
+  "version": "6.0.0",
   "main": "index.js",
-  "description": "DataFire integration for CallFire",
+  "description": "DataFire integration for CallFire API Documentation",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DataFire/integrations.git"

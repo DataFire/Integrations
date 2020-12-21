@@ -15,7 +15,7 @@ let salesforce = require('@datafire/salesforce').create({
   redirect_uri: ""
 });
 
-salesforce..get(null).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

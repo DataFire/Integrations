@@ -31,13 +31,10 @@
       "type": "openapi"
     }
   },
-  "consumes": [],
-  "produces": [
-    "application/json"
-  ],
   "paths": {
     "/v1/districts": {
       "get": {
+        "consumes": [],
         "description": "Search the SchoolDigger database for districts. You may use any combination of criteria as query parameters.",
         "operationId": "Districts_GetAllDistricts",
         "parameters": [
@@ -93,7 +90,7 @@
             "type": "string"
           },
           {
-            "description": "Search for districts within (distanceMiles) of (nearLatitude)/(nearLongitude) (Default 5 miles) (optional) (Pro, Enterprise API levels only)",
+            "description": "Search for districts within (distanceMiles) of (nearLatitude)/(nearLongitude) (Default 50 miles) (optional) (Pro, Enterprise API levels only)",
             "format": "int32",
             "in": "query",
             "name": "distanceMiles",
@@ -101,7 +98,7 @@
             "type": "integer"
           },
           {
-            "description": "Return only the districts that include given location (nearLatitdue/nearLongitude) or (nearAddress) in its attendance boundary (Enterprise API level only)",
+            "description": "Return only the districts that include given location (nearLatitude/nearLongitude) or (boundaryAddress) in its attendance boundary (Enterprise API level only)",
             "in": "query",
             "name": "isInBoundaryOnly",
             "required": false,
@@ -156,7 +153,7 @@
             "type": "integer"
           },
           {
-            "description": "Sort list. Values are: districtname, distance, rank. For descending order, preceed with '-' i.e. -districtname (optional, default: districtname)",
+            "description": "Sort list. Values are: districtname, distance, rank. For descending order, precede with '-' i.e. -districtname (optional, default: districtname)",
             "in": "query",
             "name": "sortBy",
             "required": false,
@@ -179,6 +176,9 @@
             "x-data-threescale-name": "app_keys"
           }
         ],
+        "produces": [
+          "application/json"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -195,6 +195,7 @@
     },
     "/v1/districts/{id}": {
       "get": {
+        "consumes": [],
         "description": "Retrieve a single district record from the SchoolDigger database",
         "operationId": "Districts_GetDistrict",
         "parameters": [
@@ -222,6 +223,9 @@
             "x-data-threescale-name": "app_keys"
           }
         ],
+        "produces": [
+          "application/json"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -238,6 +242,8 @@
     },
     "/v1/rankings/districts/{st}": {
       "get": {
+        "consumes": [],
+        "operationId": "Rankings_GetRank_District",
         "parameters": [
           {
             "description": "Two character state (e.g. 'CA')",
@@ -287,6 +293,9 @@
             "x-data-threescale-name": "app_keys"
           }
         ],
+        "produces": [
+          "application/json"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -298,12 +307,13 @@
         "summary": "Returns a SchoolDigger district ranking list",
         "tags": [
           "Rankings"
-        ],
-        "operationId": "v1.rankings.districts.st.get"
+        ]
       }
     },
     "/v1/rankings/schools/{st}": {
       "get": {
+        "consumes": [],
+        "operationId": "Rankings_GetRank",
         "parameters": [
           {
             "description": "Two character state (e.g. 'CA')",
@@ -360,6 +370,9 @@
             "x-data-threescale-name": "app_keys"
           }
         ],
+        "produces": [
+          "application/json"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -371,12 +384,12 @@
         "summary": "Returns a SchoolDigger school ranking list",
         "tags": [
           "Rankings"
-        ],
-        "operationId": "v1.rankings.schools.st.get"
+        ]
       }
     },
     "/v1/schools": {
       "get": {
+        "consumes": [],
         "description": "Search the SchoolDigger database for schools. You may use any combination of criteria as query parameters.",
         "operationId": "Schools_GetAllSchools",
         "parameters": [
@@ -393,6 +406,13 @@
             "name": "q",
             "required": false,
             "type": "string"
+          },
+          {
+            "description": "For parameter 'q', only search school names instead of school and city (optional)",
+            "in": "query",
+            "name": "qSearchSchoolNameOnly",
+            "required": false,
+            "type": "boolean"
           },
           {
             "description": "Search for schools within this district (7 digit district id) (optional)",
@@ -451,7 +471,7 @@
             "type": "boolean"
           },
           {
-            "description": "True = return only Title I schoolwide schools, False = return only non-Title I Schoolwide schools (optional) (Pro, Enterprise API levels only)",
+            "description": "True = return only Title I school-wide schools, False = return only non-Title I school-wide schools (optional) (Pro, Enterprise API levels only)",
             "in": "query",
             "name": "isTitleISchoolwide",
             "required": false,
@@ -474,7 +494,7 @@
             "type": "number"
           },
           {
-            "description": "Full U.S. address: flag returned schools that include this address in its attendance boundary. Example: '123 Main St. AnyTown CA 90001' (optional) (Enterprise API level only)",
+            "description": "Full U.S. address: flag returned schools that include this address in its attendance boundary. Example: '123 Main St. AnyTown CA 90001' (optional) (Enterprise API level only) IMPORTANT NOTE: If you have the lat/long of the address, use nearLatitude and nearLongitude instead for much faster response times",
             "in": "query",
             "name": "boundaryAddress",
             "required": false,
@@ -489,7 +509,7 @@
             "type": "integer"
           },
           {
-            "description": "Return only the schools that include given location (nearLatitdue/nearLongitude) or (nearAddress) in its attendance boundary (Enterprise API level only)",
+            "description": "Return only the schools that include given location (nearLatitude/nearLongitude) or (boundaryAddress) in its attendance boundary (Enterprise API level only)",
             "in": "query",
             "name": "isInBoundaryOnly",
             "required": false,
@@ -544,7 +564,7 @@
             "type": "integer"
           },
           {
-            "description": "Sort list. Values are: schoolname, distance, rank. For descending order, preceed with '-' i.e. -schoolname (optional, default: schoolname)",
+            "description": "Sort list. Values are: schoolname, distance, rank. For descending order, precede with '-' i.e. -schoolname (optional, default: schoolname)",
             "in": "query",
             "name": "sortBy",
             "required": false,
@@ -567,6 +587,9 @@
             "x-data-threescale-name": "app_keys"
           }
         ],
+        "produces": [
+          "application/json"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -583,6 +606,7 @@
     },
     "/v1/schools/{id}": {
       "get": {
+        "consumes": [],
         "description": "Retrieve a school record from the SchoolDigger database",
         "operationId": "Schools_GetSchool",
         "parameters": [
@@ -609,6 +633,9 @@
             "type": "string",
             "x-data-threescale-name": "app_keys"
           }
+        ],
+        "produces": [
+          "application/json"
         ],
         "responses": {
           "200": {
@@ -856,14 +883,6 @@
           "description": "SchoolDigger yearly rank history of the district",
           "items": {
             "$ref": "#/definitions/APILEARankHistory"
-          },
-          "readOnly": false,
-          "type": "array"
-        },
-        "testScores": {
-          "description": "Test scores (district and state) -- requires Pro or Enterprise level API subscription",
-          "items": {
-            "$ref": "#/definitions/APITestScoreWrapper"
           },
           "readOnly": false,
           "type": "array"
@@ -1730,7 +1749,7 @@
           "type": "string"
         },
         "test": {
-          "description": "The name of the state-administed test",
+          "description": "The name of the state-administered test",
           "readOnly": false,
           "type": "string"
         },
@@ -1867,7 +1886,7 @@
           "type": "number"
         },
         "teachersFulltime": {
-          "description": "Number of full-time equvalent teachers employed at the school",
+          "description": "Number of full-time equivalent teachers employed at the school",
           "format": "double",
           "type": "number"
         },

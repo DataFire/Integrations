@@ -4,7 +4,6 @@
     "https"
   ],
   "host": "azure.local",
-  "basePath": "/text/analytics",
   "info": {
     "contact": {
       "email": "mlapi@microsoft.com",
@@ -12,8 +11,8 @@
       "url": "https://azure.microsoft.com/en-us/services/cognitive-services/text-analytics/"
     },
     "description": "The Text Analytics API is a suite of text analytics web services built with best-in-class Microsoft machine learning algorithms. The API can be used to analyze unstructured text for tasks such as sentiment analysis, key phrase extraction and language detection. No training data is needed to use this API; just bring your text data. This API uses advanced natural language processing techniques to deliver best in class predictions. Further documentation can be found in https://docs.microsoft.com/en-us/azure/cognitive-services/text-analytics/overview",
-    "title": "Text Analytics",
-    "version": "v2.0",
+    "title": "Text Analytics Client",
+    "version": "v2.1-preview",
     "x-apisguru-categories": [
       "cloud"
     ],
@@ -23,7 +22,7 @@
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/cognitiveservices/data-plane/TextAnalytics/stable/v2.0/TextAnalytics.json",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/cognitiveservices/data-plane/TextAnalytics/preview/v2.1/TextAnalytics.json",
         "version": "2.0"
       }
     ],
@@ -57,11 +56,22 @@
       "apim_key": []
     }
   ],
+  "parameters": {
+    "Endpoint": {
+      "description": "Supported Cognitive Services endpoints (protocol and hostname, for example: https://westus.api.cognitive.microsoft.com).",
+      "in": "path",
+      "name": "Endpoint",
+      "required": true,
+      "type": "string",
+      "x-ms-parameter-location": "client",
+      "x-ms-skip-url-encoding": true
+    }
+  },
   "paths": {
-    "/v2.0/entities": {
+    "/entities": {
       "post": {
         "deprecated": false,
-        "description": "To get even more information on each recognized entity we recommend using the Bing Entity Search API by querying for the recognized entities names. See the <a href=\"https://docs.microsoft.com/en-us/azure/cognitive-services/text-analytics/text-analytics-supported-languages\">Supported languages in Text Analytics API</a> for the list of enabled languages.",
+        "description": "The API returns a list of recognized entities in a given document. To get even more information on each recognized entity we recommend using the Bing Entity Search API by querying for the recognized entities names. See the <a href=\"https://docs.microsoft.com/en-us/azure/cognitive-services/text-analytics/text-analytics-supported-languages\">Supported languages in Text Analytics API</a> for the list of enabled languages.The API returns a list of known entities and general named entities (\"Person\", \"Location\", \"Organization\" etc) in a given document. Known entities are returned with Wikipedia Id and Wikipedia link, and also Bing Id which can be used in Bing Entity Search API. General named entities are returned with entity types. If a general named entity is also a known entity, then all information regarding it (Wikipedia Id, Bing Id, entity type etc) will be returned. See the <a href=\"https://docs.microsoft.com/en-us/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking#supported-types-for-named-entity-recognition\">Supported Entity Types in Text Analytics API</a> for the list of supported Entity Types. See the <a href=\"https://docs.microsoft.com/en-us/azure/cognitive-services/text-analytics/text-analytics-supported-languages\">Supported languages in Text Analytics API</a> for the list of enabled languages.",
         "operationId": "Entities",
         "parameters": [
           {
@@ -78,7 +88,7 @@
           "200": {
             "description": "A successful call results in a list of recognized entities returned for each valid document",
             "schema": {
-              "$ref": "#/definitions/EntitiesBatchResult"
+              "$ref": "#/definitions/EntitiesBatchResultV2dot1"
             }
           },
           "default": {
@@ -95,7 +105,7 @@
         "x-ms-examples": {
           "Successful Entities request": {
             "parameters": {
-              "AzureRegion": "westus",
+              "Endpoint": "{Endpoint}",
               "Ocp-Apim-Subscription-Key": "{API key}",
               "input": {
                 "documents": [
@@ -119,6 +129,21 @@
                     {
                       "entities": [
                         {
+                          "bingId": "a093e9b9-90f5-a3d5-c4b8-5855e1b01f85",
+                          "matches": [
+                            {
+                              "length": 9,
+                              "offset": 0,
+                              "text": "Microsoft"
+                            }
+                          ],
+                          "name": "Microsoft",
+                          "type": "Organization",
+                          "wikipediaId": "Microsoft",
+                          "wikipediaLanguage": "en",
+                          "wikipediaUrl": "https://en.wikipedia.org/wiki/Microsoft"
+                        },
+                        {
                           "bingId": "5f9fbd03-49c4-39ef-cc95-de83ab897b94",
                           "matches": [
                             {
@@ -131,26 +156,24 @@
                           "wikipediaId": "Windows 10",
                           "wikipediaLanguage": "en",
                           "wikipediaUrl": "https://en.wikipedia.org/wiki/Windows_10"
-                        },
-                        {
-                          "bingId": "a093e9b9-90f5-a3d5-c4b8-5855e1b01f85",
-                          "matches": [
-                            {
-                              "length": 9,
-                              "offset": 0,
-                              "text": "Microsoft"
-                            }
-                          ],
-                          "name": "Microsoft",
-                          "wikipediaId": "Microsoft",
-                          "wikipediaLanguage": "en",
-                          "wikipediaUrl": "https://en.wikipedia.org/wiki/Microsoft"
                         }
                       ],
                       "id": "1"
                     },
                     {
                       "entities": [
+                        {
+                          "matches": [
+                            {
+                              "length": 4,
+                              "offset": 3,
+                              "text": "1975"
+                            }
+                          ],
+                          "name": "1975",
+                          "subType": "DateRange",
+                          "type": "DateTime"
+                        },
                         {
                           "bingId": "0d47c987-0042-5576-15e8-97af601614fa",
                           "matches": [
@@ -161,6 +184,7 @@
                             }
                           ],
                           "name": "Bill Gates",
+                          "type": "Person",
                           "wikipediaId": "Bill Gates",
                           "wikipediaLanguage": "en",
                           "wikipediaUrl": "https://en.wikipedia.org/wiki/Bill_Gates"
@@ -175,6 +199,7 @@
                             }
                           ],
                           "name": "Paul Allen",
+                          "type": "Person",
                           "wikipediaId": "Paul Allen",
                           "wikipediaLanguage": "en",
                           "wikipediaUrl": "https://en.wikipedia.org/wiki/Paul_Allen"
@@ -192,11 +217,11 @@
         }
       }
     },
-    "/v2.0/keyPhrases": {
+    "/keyPhrases": {
       "post": {
         "deprecated": false,
         "description": "See the <a href=\"https://docs.microsoft.com/en-us/azure/cognitive-services/text-analytics/overview#supported-languages\">Text Analytics Documentation</a> for details about the languages that are supported by key phrase extraction.",
-        "operationId": "v2.0.keyPhrases.post",
+        "operationId": "keyPhrases.post",
         "parameters": [
           {
             "description": "Collection of documents to analyze. Documents can now contain a language field to indicate the text language",
@@ -229,7 +254,7 @@
         "x-ms-examples": {
           "Successful Key Phrase request": {
             "parameters": {
-              "AzureRegion": "westus",
+              "Endpoint": "{Endpoint}",
               "Ocp-Apim-Subscription-Key": "{API key}",
               "input": {
                 "documents": [
@@ -294,11 +319,11 @@
         }
       }
     },
-    "/v2.0/languages": {
+    "/languages": {
       "post": {
         "deprecated": false,
         "description": "Scores close to 1 indicate 100% certainty that the identified language is true. A total of 120 languages are supported.",
-        "operationId": "v2.0.languages.post",
+        "operationId": "languages.post",
         "parameters": [
           {
             "description": "Collection of documents to analyze.",
@@ -331,7 +356,7 @@
         "x-ms-examples": {
           "Successful Detect Language request": {
             "parameters": {
-              "AzureRegion": "westus",
+              "Endpoint": "{Endpoint}",
               "Ocp-Apim-Subscription-Key": "{API key}",
               "input": {
                 "documents": [
@@ -408,7 +433,7 @@
         }
       }
     },
-    "/v2.0/sentiment": {
+    "/sentiment": {
       "post": {
         "deprecated": false,
         "description": "Scores close to 1 indicate positive sentiment, while scores close to 0 indicate negative sentiment. A score of 0.5 indicates the lack of sentiment (e.g. a factoid statement). See the <a href=\"https://docs.microsoft.com/en-us/azure/cognitive-services/text-analytics/overview#supported-languages\">Text Analytics Documentation</a> for details about the languages that are supported by sentiment analysis.",
@@ -445,7 +470,7 @@
         "x-ms-examples": {
           "Successful Sentiment request": {
             "parameters": {
-              "AzureRegion": "westus",
+              "Endpoint": "{Endpoint}",
               "Ocp-Apim-Subscription-Key": "{API key}",
               "input": {
                 "documents": [
@@ -553,11 +578,29 @@
       },
       "type": "object"
     },
-    "EntitiesBatchResult": {
+    "EntitiesBatchResultItemV2dot1": {
+      "properties": {
+        "entities": {
+          "description": "Recognized entities in the document.",
+          "items": {
+            "$ref": "#/definitions/EntityRecordV2dot1"
+          },
+          "readOnly": true,
+          "type": "array"
+        },
+        "id": {
+          "description": "Unique document identifier.",
+          "readOnly": true,
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "EntitiesBatchResultV2dot1": {
       "properties": {
         "documents": {
           "items": {
-            "$ref": "#/definitions/EntitiesBatchResultItem"
+            "$ref": "#/definitions/EntitiesBatchResultItemV2dot1"
           },
           "readOnly": true,
           "type": "array"
@@ -572,25 +615,7 @@
       },
       "type": "object"
     },
-    "EntitiesBatchResultItem": {
-      "properties": {
-        "entities": {
-          "description": "Recognized entities in the document.",
-          "items": {
-            "$ref": "#/definitions/EntityRecord"
-          },
-          "readOnly": true,
-          "type": "array"
-        },
-        "id": {
-          "description": "Unique document identifier.",
-          "readOnly": true,
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
-    "EntityRecord": {
+    "EntityRecordV2dot1": {
       "properties": {
         "bingId": {
           "description": "Bing unique identifier of the recognized entity. Use in conjunction with the Bing Entity Search API to fetch additional relevant information.",
@@ -599,13 +624,20 @@
         "matches": {
           "description": "List of instances this entity appears in the text.",
           "items": {
-            "$ref": "#/definitions/MatchRecord"
+            "$ref": "#/definitions/MatchRecordV2dot1"
           },
-          "readOnly": true,
           "type": "array"
         },
         "name": {
           "description": "Entity formal name.",
+          "type": "string"
+        },
+        "subType": {
+          "description": "Entity sub type from Named Entity Recognition model",
+          "type": "string"
+        },
+        "type": {
+          "description": "Entity type from Named Entity Recognition model",
           "type": "string"
         },
         "wikipediaId": {
@@ -754,7 +786,7 @@
       },
       "type": "object"
     },
-    "MatchRecord": {
+    "MatchRecordV2dot1": {
       "properties": {
         "length": {
           "description": "Length (in Unicode characters) for the entity match text.",
@@ -860,35 +892,12 @@
     }
   },
   "x-ms-parameterized-host": {
-    "hostTemplate": "{AzureRegion}.api.cognitive.microsoft.com",
+    "hostTemplate": "{Endpoint}/text/analytics/v2.1-preview",
     "parameters": [
       {
-        "description": "Supported Azure regions for Cognitive Services endpoints",
-        "enum": [
-          "westus",
-          "westeurope",
-          "southeastasia",
-          "eastus2",
-          "westcentralus",
-          "westus2",
-          "eastus",
-          "southcentralus",
-          "northeurope",
-          "eastasia",
-          "australiaeast",
-          "brazilsouth"
-        ],
-        "in": "path",
-        "name": "AzureRegion",
-        "required": true,
-        "type": "string",
-        "x-ms-enum": {
-          "modelAsString": false,
-          "name": "AzureRegions"
-        },
-        "x-ms-parameter-location": "client",
-        "x-ms-skip-url-encoding": true
+        "$ref": "#/parameters/Endpoint"
       }
-    ]
+    ],
+    "useSchemePrefix": false
   }
 }

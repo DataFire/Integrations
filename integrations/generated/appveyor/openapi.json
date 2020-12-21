@@ -17,8 +17,8 @@
       "url": "https://www.appveyor.com/eula/"
     },
     "termsOfService": "https://www.appveyor.com/terms-of-service/",
-    "title": "AppVeyor",
-    "version": "0.20180519.0",
+    "title": "AppVeyor REST API",
+    "version": "1.0.0",
     "x-apisguru-categories": [
       "developer_tools"
     ],
@@ -53,7 +53,7 @@
   ],
   "securityDefinitions": {
     "apiToken": {
-      "description": "API token can be acquired from https://ci.appveyor.com/api-token\nThis value must be passed to the server in the `Authorization` header as `\"Bearer <token>\"`.  Since [bearer token authentication support is not explicitly supported in OpenAPI 2.0](https://github.com/OAI/OpenAPI-Specification/issues/583), client code will vary.  Clients created with [swagger-codegen](https://github.com/swagger-api/swagger-codegen) should set `apiKeyPrefix` to `\"Bearer\"` and set `apiKey` to the token.  Other clients may need to set `apiKey` to the string `\"Bearer <token>\"`.\nNote that this should be [fixed in OpenAPI 3.0](https://github.com/OAI/OpenAPI-Specification/pull/807)), whenever that becomes available and supported.",
+      "description": "API token can be acquired from https://ci.appveyor.com/api-token\nThis value must be passed to the server in the `Authorization` header as `\"Bearer <token>\"`.  Since [bearer token authentication support is not explicitly supported in OpenAPI 2.0](https://github.com/OAI/OpenAPI-Specification/issues/583), client code will vary.  Clients created with [swagger-codegen](https://github.com/swagger-api/swagger-codegen) should set `apiKeyPrefix` to `\"Bearer\"` and set `apiKey` to the token.  Other clients may need to set `apiKey` to the string `\"Bearer <token>\"`.\nNote that this should be [fixed in OpenAPI 3.0](https://github.com/OAI/OpenAPI-Specification/pull/807)), whenever that becomes available and supported.\n#### User-Level API Keys\nTo use a user-level API key (prefixed with \"v2.\"), `basePath` must be changed to `/api/account/{accountName}` where `{accountName}` is the name of the account for which requests will be made.",
       "in": "header",
       "name": "Authorization",
       "type": "apiKey"
@@ -184,7 +184,7 @@
       "type": "string"
     },
     "recordsNumber": {
-      "description": "Number of results to include in the response.",
+      "description": "Number of results to include in the response. getProjectDeployments is documented to have a maximum of 20. It currently returns 500 Internal Server Error for recordsNumber <= 5. In the past it has returned 500 Internal Server Error for many different values which did not match the value used by the ci.appveyor.com web interface at the time.  As of 2018-09-08, the value used by the web interface is 10.",
       "in": "query",
       "minimum": 0,
       "name": "recordsNumber",
@@ -511,6 +511,57 @@
           }
         },
         "summary": "Start build of branch most recent commit",
+        "tags": [
+          "Build"
+        ]
+      },
+      "put": {
+        "description": "If `reRunIncomplete` is `true` and all jobs in the referenced build completed successfully, a 500 Internal Server Error is returned with the message \"No failed or cancelled jobs in build with ID {buildId}\".",
+        "externalDocs": {
+          "url": "https://www.appveyor.com/docs/api/projects-builds/#re-run-build"
+        },
+        "operationId": "reRunBuild",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ReRunBuildRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "examples": {
+              "application/json": {
+                "authorName": "Feodor Fitsner",
+                "authorUsername": "FeodorFitsner",
+                "branch": "master",
+                "buildId": 136709,
+                "buildNumber": 7,
+                "commitId": "c2892a70d60c96c1b65a7c665ab806b7731fea8a",
+                "committed": "2014-08-15T22:05:54+00:00",
+                "committerName": "Feodor Fitsner",
+                "committerUsername": "FeodorFitsner",
+                "created": "2014-08-16T00:40:38.1703914+00:00",
+                "jobs": [],
+                "message": "replaced with command [skip ci]",
+                "messages": [],
+                "status": "queued",
+                "version": "1.0.7"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/Build"
+            }
+          },
+          "default": {
+            "$ref": "#/responses/Error"
+          }
+        },
+        "summary": "Re-run build",
         "tags": [
           "Build"
         ]
@@ -2592,7 +2643,7 @@
                   "name": "api_key",
                   "value": {
                     "isEncrypted": true,
-                    "value": "very-secret-key-in-clear-text"
+                    "value": "very-secret-key-encrypted"
                   }
                 },
                 {
@@ -3239,6 +3290,10 @@
     },
     "ArtifactModel": {
       "properties": {
+        "created": {
+          "format": "date-time",
+          "type": "string"
+        },
         "fileName": {
           "type": "string"
         },
@@ -3332,6 +3387,10 @@
               },
               "type": "array"
             },
+            "projectId": {
+              "minimum": 0,
+              "type": "integer"
+            },
             "pullRequestId": {
               "minimum": 1,
               "type": "integer"
@@ -3353,7 +3412,10 @@
     },
     "BuildCloudName": {
       "enum": [
+        "azure-westus",
         "gce",
+        "pro-ubuntu",
+        "pro-ubuntu18",
         "pro-vs2013",
         "pro-win2016",
         "pro-vs2017",
@@ -3533,17 +3595,25 @@
       "type": "object"
     },
     "BuildWorkerImageName": {
+      "description": "Defines the available build worker image templates used to provision a virtual machine for a build.  Images are updated regularly.  \"Previous\" selects the previous version of an image, for use as a temporary workaround for regressions.\n`Ubuntu` is the same as `Ubuntu1604`. `Previous Ubuntu` is the same as `Previous Ubuntu1604`.\nSee https://www.appveyor.com/docs/build-environment/#build-worker-images for details.",
       "enum": [
         "Previous Ubuntu",
+        "Previous Ubuntu1604",
+        "Previous Ubuntu1804",
         "Previous Visual Studio 2013",
         "Previous Visual Studio 2015",
         "Previous Visual Studio 2017",
         "Ubuntu",
+        "Ubuntu1604",
+        "Ubuntu1804",
         "Visual Studio 2013",
         "Visual Studio 2015",
+        "Visual Studio 2015 2",
         "Visual Studio 2017",
         "Visual Studio 2017 Preview",
-        "WMF 5"
+        "Visual Studio 2019 Preview",
+        "WMF 5",
+        "Windows Server 2019"
       ],
       "type": "string"
     },
@@ -4058,6 +4128,7 @@
       ]
     },
     "Error": {
+      "description": "Schema of object returned in 4XX and 5XX responses.\nNote:  The name is unfortunate, since it conflicts with `java.lang.Error`\nand other generic error classes.  It is the name used in XML responses,\nso it is used for consistency and possible future XML deserialization\nsupport.\n",
       "properties": {
         "message": {
           "type": "string"
@@ -4323,6 +4394,9 @@
             "name": {
               "type": "string"
             },
+            "nuGetFeedId": {
+              "type": "integer"
+            },
             "projectId": {
               "minimum": 0,
               "type": "integer"
@@ -4436,6 +4510,16 @@
               "readOnly": true,
               "type": "array"
             },
+            "currentBuildId": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "disablePullRequestWebhooks": {
+              "type": "boolean"
+            },
+            "disablePushWebhooks": {
+              "type": "boolean"
+            },
             "enableDeploymentInPullRequests": {
               "type": "boolean"
             },
@@ -4443,6 +4527,9 @@
               "type": "boolean"
             },
             "enableSecureVariablesInPullRequestsFromSameRepo": {
+              "type": "boolean"
+            },
+            "isGitHubApp": {
               "type": "boolean"
             },
             "isPrivate": {
@@ -4689,6 +4776,9 @@
             "$ref": "#/definitions/DeploymentProvider"
           },
           "type": "array"
+        },
+        "disableNuGetPublishForOctopusPackages": {
+          "type": "boolean"
         },
         "disableNuGetPublishOnPullRequests": {
           "type": "boolean"
@@ -5308,6 +5398,26 @@
       ],
       "type": "object"
     },
+    "ReRunBuildRequest": {
+      "example": {
+        "buildId": 23864,
+        "reRunIncomplete": true
+      },
+      "properties": {
+        "buildId": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "reRunIncomplete": {
+          "description": "Set `reRunIncomplete` set to `false` (default value) for full build re-run. Set it set to `true` to rerun only failed or cancelled jobs in multijob build.",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "buildId"
+      ],
+      "type": "object"
+    },
     "RepositoryAuthenticationType": {
       "enum": [
         "credentials",
@@ -5561,7 +5671,8 @@
       "enum": [
         "cmd",
         "ps",
-        "pwsh"
+        "pwsh",
+        "sh"
       ],
       "type": "string"
     },
@@ -5589,6 +5700,7 @@
         "failed",
         "queued",
         "running",
+        "starting",
         "success"
       ],
       "type": "string"
@@ -5673,9 +5785,6 @@
           "$ref": "#/definitions/Timestamped"
         },
         {
-          "$ref": "#/definitions/UserAccountSettings"
-        },
-        {
           "properties": {
             "accountId": {
               "minimum": 0,
@@ -5718,6 +5827,9 @@
             "roleName": {
               "readOnly": true,
               "type": "string"
+            },
+            "twoFactorAuthEnabled": {
+              "type": "boolean"
             },
             "userId": {
               "minimum": 0,

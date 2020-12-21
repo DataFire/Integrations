@@ -1,0 +1,3702 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "contact": {
+      "email": "mike.ralphson@gmail.com",
+      "name": "Mike Ralphson",
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
+    },
+    "description": "AWS Compute Optimizer is a service that analyzes the configuration and utilization metrics of your AWS compute resources, such as EC2 instances, Auto Scaling groups, and Amazon EBS volumes. It reports whether your resources are optimal, and generates optimization recommendations to reduce the cost and improve the performance of your workloads. Compute Optimizer also provides recent utilization metric data, as well as projected utilization metric data for the recommendations, which you can use to evaluate which recommendation provides the best price-performance trade-off. The analysis of your usage patterns can help you decide when to move or resize your running resources, and still meet your performance and capacity requirements. For more information about Compute Optimizer, including the required permissions to use the service, see the <a href=\"https://docs.aws.amazon.com/compute-optimizer/latest/ug/\">AWS Compute Optimizer User Guide</a>.",
+    "license": {
+      "name": "Apache 2.0 License",
+      "url": "http://www.apache.org/licenses/"
+    },
+    "termsOfService": "https://aws.amazon.com/service-terms/",
+    "title": "AWS Compute Optimizer",
+    "version": "2019-11-01",
+    "x-apiClientRegistration": {
+      "url": "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"
+    },
+    "x-apisguru-categories": [
+      "cloud"
+    ],
+    "x-logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"
+    },
+    "x-origin": [
+      {
+        "contentType": "application/json",
+        "converter": {
+          "url": "https://github.com/mermade/aws2openapi",
+          "version": "1.0.0"
+        },
+        "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/compute-optimizer-2019-11-01.normal.json",
+        "x-apisguru-driver": "external"
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "amazonaws.com",
+    "x-release": "v4",
+    "x-serviceName": "compute-optimizer",
+    "x-datafire": {
+      "name": "amazonaws_compute_optimizer",
+      "type": "openapi"
+    }
+  },
+  "host": "compute-optimizer.us-east-1.amazonaws.com",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/#X-Amz-Target=ComputeOptimizerService.DescribeRecommendationExportJobs": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "ComputeOptimizerService.DescribeRecommendationExportJobs"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeRecommendationExportJobsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeRecommendationExportJobsResponse"
+            }
+          },
+          "480": {
+            "description": "OptInRequiredException",
+            "schema": {
+              "$ref": "#/definitions/OptInRequiredException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "483": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "484": {
+            "description": "InvalidParameterValueException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterValueException"
+            }
+          },
+          "485": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "486": {
+            "description": "MissingAuthenticationToken",
+            "schema": {
+              "$ref": "#/definitions/MissingAuthenticationToken"
+            }
+          },
+          "487": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          }
+        },
+        "description": "<p>Describes recommendation export jobs created in the last seven days.</p> <p>Use the <code>ExportAutoScalingGroupRecommendations</code> or <code>ExportEC2InstanceRecommendations</code> actions to request an export of your recommendations. Then use the <code>DescribeRecommendationExportJobs</code> action to view your export jobs.</p>",
+        "operationId": "DescribeRecommendationExportJobs"
+      }
+    },
+    "/#X-Amz-Target=ComputeOptimizerService.ExportAutoScalingGroupRecommendations": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "ComputeOptimizerService.ExportAutoScalingGroupRecommendations"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ExportAutoScalingGroupRecommendationsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ExportAutoScalingGroupRecommendationsResponse"
+            }
+          },
+          "480": {
+            "description": "OptInRequiredException",
+            "schema": {
+              "$ref": "#/definitions/OptInRequiredException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "483": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "484": {
+            "description": "InvalidParameterValueException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterValueException"
+            }
+          },
+          "485": {
+            "description": "MissingAuthenticationToken",
+            "schema": {
+              "$ref": "#/definitions/MissingAuthenticationToken"
+            }
+          },
+          "486": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "487": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          }
+        },
+        "description": "<p>Exports optimization recommendations for Auto Scaling groups.</p> <p>Recommendations are exported in a comma-separated values (.csv) file, and its metadata in a JavaScript Object Notation (.json) file, to an existing Amazon Simple Storage Service (Amazon S3) bucket that you specify. For more information, see <a href=\"https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html\">Exporting Recommendations</a> in the <i>Compute Optimizer User Guide</i>.</p> <p>You can have only one Auto Scaling group export job in progress per AWS Region.</p>",
+        "operationId": "ExportAutoScalingGroupRecommendations"
+      }
+    },
+    "/#X-Amz-Target=ComputeOptimizerService.ExportEC2InstanceRecommendations": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "ComputeOptimizerService.ExportEC2InstanceRecommendations"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ExportEC2InstanceRecommendationsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ExportEC2InstanceRecommendationsResponse"
+            }
+          },
+          "480": {
+            "description": "OptInRequiredException",
+            "schema": {
+              "$ref": "#/definitions/OptInRequiredException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "483": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "484": {
+            "description": "InvalidParameterValueException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterValueException"
+            }
+          },
+          "485": {
+            "description": "MissingAuthenticationToken",
+            "schema": {
+              "$ref": "#/definitions/MissingAuthenticationToken"
+            }
+          },
+          "486": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "487": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          }
+        },
+        "description": "<p>Exports optimization recommendations for Amazon EC2 instances.</p> <p>Recommendations are exported in a comma-separated values (.csv) file, and its metadata in a JavaScript Object Notation (.json) file, to an existing Amazon Simple Storage Service (Amazon S3) bucket that you specify. For more information, see <a href=\"https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html\">Exporting Recommendations</a> in the <i>Compute Optimizer User Guide</i>.</p> <p>You can have only one Amazon EC2 instance export job in progress per AWS Region.</p>",
+        "operationId": "ExportEC2InstanceRecommendations"
+      }
+    },
+    "/#X-Amz-Target=ComputeOptimizerService.GetAutoScalingGroupRecommendations": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "ComputeOptimizerService.GetAutoScalingGroupRecommendations"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetAutoScalingGroupRecommendationsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetAutoScalingGroupRecommendationsResponse"
+            }
+          },
+          "480": {
+            "description": "OptInRequiredException",
+            "schema": {
+              "$ref": "#/definitions/OptInRequiredException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "483": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "484": {
+            "description": "InvalidParameterValueException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterValueException"
+            }
+          },
+          "485": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "486": {
+            "description": "MissingAuthenticationToken",
+            "schema": {
+              "$ref": "#/definitions/MissingAuthenticationToken"
+            }
+          },
+          "487": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          }
+        },
+        "description": "<p>Returns Auto Scaling group recommendations.</p> <p>AWS Compute Optimizer generates recommendations for Amazon EC2 Auto Scaling groups that meet a specific set of requirements. For more information, see the <a href=\"https://docs.aws.amazon.com/compute-optimizer/latest/ug/requirements.html\">Supported resources and requirements</a> in the <i>AWS Compute Optimizer User Guide</i>.</p>",
+        "operationId": "GetAutoScalingGroupRecommendations"
+      }
+    },
+    "/#X-Amz-Target=ComputeOptimizerService.GetEBSVolumeRecommendations": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "ComputeOptimizerService.GetEBSVolumeRecommendations"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetEBSVolumeRecommendationsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetEBSVolumeRecommendationsResponse"
+            }
+          },
+          "480": {
+            "description": "OptInRequiredException",
+            "schema": {
+              "$ref": "#/definitions/OptInRequiredException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "483": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "484": {
+            "description": "InvalidParameterValueException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterValueException"
+            }
+          },
+          "485": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "486": {
+            "description": "MissingAuthenticationToken",
+            "schema": {
+              "$ref": "#/definitions/MissingAuthenticationToken"
+            }
+          },
+          "487": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          }
+        },
+        "description": "<p>Returns Amazon Elastic Block Store (Amazon EBS) volume recommendations.</p> <p>AWS Compute Optimizer generates recommendations for Amazon EBS volumes that meet a specific set of requirements. For more information, see the <a href=\"https://docs.aws.amazon.com/compute-optimizer/latest/ug/requirements.html\">Supported resources and requirements</a> in the <i>AWS Compute Optimizer User Guide</i>.</p>",
+        "operationId": "GetEBSVolumeRecommendations"
+      }
+    },
+    "/#X-Amz-Target=ComputeOptimizerService.GetEC2InstanceRecommendations": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "ComputeOptimizerService.GetEC2InstanceRecommendations"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetEC2InstanceRecommendationsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetEC2InstanceRecommendationsResponse"
+            }
+          },
+          "480": {
+            "description": "OptInRequiredException",
+            "schema": {
+              "$ref": "#/definitions/OptInRequiredException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "483": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "484": {
+            "description": "InvalidParameterValueException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterValueException"
+            }
+          },
+          "485": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "486": {
+            "description": "MissingAuthenticationToken",
+            "schema": {
+              "$ref": "#/definitions/MissingAuthenticationToken"
+            }
+          },
+          "487": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          }
+        },
+        "description": "<p>Returns Amazon EC2 instance recommendations.</p> <p>AWS Compute Optimizer generates recommendations for Amazon Elastic Compute Cloud (Amazon EC2) instances that meet a specific set of requirements. For more information, see the <a href=\"https://docs.aws.amazon.com/compute-optimizer/latest/ug/requirements.html\">Supported resources and requirements</a> in the <i>AWS Compute Optimizer User Guide</i>.</p>",
+        "operationId": "GetEC2InstanceRecommendations"
+      }
+    },
+    "/#X-Amz-Target=ComputeOptimizerService.GetEC2RecommendationProjectedMetrics": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "ComputeOptimizerService.GetEC2RecommendationProjectedMetrics"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetEC2RecommendationProjectedMetricsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetEC2RecommendationProjectedMetricsResponse"
+            }
+          },
+          "480": {
+            "description": "OptInRequiredException",
+            "schema": {
+              "$ref": "#/definitions/OptInRequiredException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "483": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "484": {
+            "description": "InvalidParameterValueException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterValueException"
+            }
+          },
+          "485": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "486": {
+            "description": "MissingAuthenticationToken",
+            "schema": {
+              "$ref": "#/definitions/MissingAuthenticationToken"
+            }
+          },
+          "487": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          }
+        },
+        "description": "<p>Returns the projected utilization metrics of Amazon EC2 instance recommendations.</p> <note> <p>The <code>Cpu</code> and <code>Memory</code> metrics are the only projected utilization metrics returned when you run this action. Additionally, the <code>Memory</code> metric is returned only for resources that have the unified CloudWatch agent installed on them. For more information, see <a href=\"https://docs.aws.amazon.com/compute-optimizer/latest/ug/metrics.html#cw-agent\">Enabling Memory Utilization with the CloudWatch Agent</a>.</p> </note>",
+        "operationId": "GetEC2RecommendationProjectedMetrics"
+      }
+    },
+    "/#X-Amz-Target=ComputeOptimizerService.GetEnrollmentStatus": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "ComputeOptimizerService.GetEnrollmentStatus"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetEnrollmentStatusRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetEnrollmentStatusResponse"
+            }
+          },
+          "480": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "481": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "482": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "483": {
+            "description": "InvalidParameterValueException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterValueException"
+            }
+          },
+          "484": {
+            "description": "MissingAuthenticationToken",
+            "schema": {
+              "$ref": "#/definitions/MissingAuthenticationToken"
+            }
+          },
+          "485": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          }
+        },
+        "description": "<p>Returns the enrollment (opt in) status of an account to the AWS Compute Optimizer service.</p> <p>If the account is the management account of an organization, this action also confirms the enrollment status of member accounts within the organization.</p>",
+        "operationId": "GetEnrollmentStatus"
+      }
+    },
+    "/#X-Amz-Target=ComputeOptimizerService.GetRecommendationSummaries": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "ComputeOptimizerService.GetRecommendationSummaries"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetRecommendationSummariesRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetRecommendationSummariesResponse"
+            }
+          },
+          "480": {
+            "description": "OptInRequiredException",
+            "schema": {
+              "$ref": "#/definitions/OptInRequiredException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "483": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "484": {
+            "description": "InvalidParameterValueException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterValueException"
+            }
+          },
+          "485": {
+            "description": "MissingAuthenticationToken",
+            "schema": {
+              "$ref": "#/definitions/MissingAuthenticationToken"
+            }
+          },
+          "486": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          }
+        },
+        "description": "<p>Returns the optimization findings for an account.</p> <p>For example, it returns the number of Amazon EC2 instances in an account that are under-provisioned, over-provisioned, or optimized. It also returns the number of Auto Scaling groups in an account that are not optimized, or optimized.</p>",
+        "operationId": "GetRecommendationSummaries"
+      }
+    },
+    "/#X-Amz-Target=ComputeOptimizerService.UpdateEnrollmentStatus": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "ComputeOptimizerService.UpdateEnrollmentStatus"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateEnrollmentStatusRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UpdateEnrollmentStatusResponse"
+            }
+          },
+          "480": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "481": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "482": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "483": {
+            "description": "InvalidParameterValueException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterValueException"
+            }
+          },
+          "484": {
+            "description": "MissingAuthenticationToken",
+            "schema": {
+              "$ref": "#/definitions/MissingAuthenticationToken"
+            }
+          },
+          "485": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          }
+        },
+        "description": "<p>Updates the enrollment (opt in) status of an account to the AWS Compute Optimizer service.</p> <p>If the account is a management account of an organization, this action can also be used to enroll member accounts within the organization.</p>",
+        "operationId": "UpdateEnrollmentStatus"
+      }
+    }
+  },
+  "definitions": {
+    "AccessDeniedException": {},
+    "AccountId": {
+      "type": "string"
+    },
+    "AccountIds": {
+      "items": {
+        "$ref": "#/definitions/AccountId"
+      },
+      "type": "array"
+    },
+    "AutoScalingGroupArn": {
+      "type": "string"
+    },
+    "AutoScalingGroupArns": {
+      "items": {
+        "$ref": "#/definitions/AutoScalingGroupArn"
+      },
+      "type": "array"
+    },
+    "AutoScalingGroupConfiguration": {
+      "description": "Describes the configuration of an Auto Scaling group.",
+      "properties": {
+        "desiredCapacity": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DesiredCapacity"
+            },
+            {
+              "description": "The desired capacity, or number of instances, for the Auto Scaling group."
+            }
+          ]
+        },
+        "instanceType": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InstanceType"
+            },
+            {
+              "description": "The instance type for the Auto Scaling group."
+            }
+          ]
+        },
+        "maxSize": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MaxSize"
+            },
+            {
+              "description": "The maximum size, or maximum number of instances, for the Auto Scaling group."
+            }
+          ]
+        },
+        "minSize": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MinSize"
+            },
+            {
+              "description": "The minimum size, or minimum number of instances, for the Auto Scaling group."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "AutoScalingGroupName": {
+      "type": "string"
+    },
+    "AutoScalingGroupRecommendation": {
+      "description": "Describes an Auto Scaling group recommendation.",
+      "properties": {
+        "accountId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AccountId"
+            },
+            {
+              "description": "The AWS account ID of the Auto Scaling group."
+            }
+          ]
+        },
+        "autoScalingGroupArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AutoScalingGroupArn"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the Auto Scaling group."
+            }
+          ]
+        },
+        "autoScalingGroupName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AutoScalingGroupName"
+            },
+            {
+              "description": "The name of the Auto Scaling group."
+            }
+          ]
+        },
+        "currentConfiguration": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AutoScalingGroupConfiguration"
+            },
+            {
+              "description": "An array of objects that describe the current configuration of the Auto Scaling group."
+            }
+          ]
+        },
+        "finding": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Finding"
+            },
+            {
+              "description": "<p>The finding classification for the Auto Scaling group.</p> <p>Findings for Auto Scaling groups include:</p> <ul> <li> <p> <b> <code>NotOptimized</code> </b>—An Auto Scaling group is considered not optimized when AWS Compute Optimizer identifies a recommendation that can provide better performance for your workload.</p> </li> <li> <p> <b> <code>Optimized</code> </b>—An Auto Scaling group is considered optimized when Compute Optimizer determines that the group is correctly provisioned to run your workload based on the chosen instance type. For optimized resources, Compute Optimizer might recommend a new generation instance type.</p> </li> </ul>"
+            }
+          ]
+        },
+        "lastRefreshTimestamp": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/LastRefreshTimestamp"
+            },
+            {
+              "description": "The time stamp of when the Auto Scaling group recommendation was last refreshed."
+            }
+          ]
+        },
+        "lookBackPeriodInDays": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/LookBackPeriodInDays"
+            },
+            {
+              "description": "The number of days for which utilization metrics were analyzed for the Auto Scaling group."
+            }
+          ]
+        },
+        "recommendationOptions": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AutoScalingGroupRecommendationOptions"
+            },
+            {
+              "description": "An array of objects that describe the recommendation options for the Auto Scaling group."
+            }
+          ]
+        },
+        "utilizationMetrics": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/UtilizationMetrics"
+            },
+            {
+              "description": "An array of objects that describe the utilization metrics of the Auto Scaling group."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "AutoScalingGroupRecommendationOption": {
+      "description": "Describes a recommendation option for an Auto Scaling group.",
+      "properties": {
+        "configuration": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AutoScalingGroupConfiguration"
+            },
+            {
+              "description": "An array of objects that describe an Auto Scaling group configuration."
+            }
+          ]
+        },
+        "performanceRisk": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PerformanceRisk"
+            },
+            {
+              "description": "<p>The performance risk of the Auto Scaling group configuration recommendation.</p> <p>Performance risk is the likelihood of the recommended instance type not meeting the performance requirement of your workload.</p> <p>The lowest performance risk is categorized as <code>0</code>, and the highest as <code>5</code>.</p>"
+            }
+          ]
+        },
+        "projectedUtilizationMetrics": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ProjectedUtilizationMetrics"
+            },
+            {
+              "description": "<p>An array of objects that describe the projected utilization metrics of the Auto Scaling group recommendation option.</p> <note> <p>The <code>Cpu</code> and <code>Memory</code> metrics are the only projected utilization metrics returned. Additionally, the <code>Memory</code> metric is returned only for resources that have the unified CloudWatch agent installed on them. For more information, see <a href=\"https://docs.aws.amazon.com/compute-optimizer/latest/ug/metrics.html#cw-agent\">Enabling Memory Utilization with the CloudWatch Agent</a>.</p> </note>"
+            }
+          ]
+        },
+        "rank": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Rank"
+            },
+            {
+              "description": "<p>The rank of the Auto Scaling group recommendation option.</p> <p>The top recommendation option is ranked as <code>1</code>.</p>"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "AutoScalingGroupRecommendationOptions": {
+      "items": {
+        "$ref": "#/definitions/AutoScalingGroupRecommendationOption"
+      },
+      "type": "array"
+    },
+    "AutoScalingGroupRecommendations": {
+      "items": {
+        "$ref": "#/definitions/AutoScalingGroupRecommendation"
+      },
+      "type": "array"
+    },
+    "Code": {
+      "type": "string"
+    },
+    "CreationTimestamp": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "CurrentInstanceType": {
+      "type": "string"
+    },
+    "DescribeRecommendationExportJobsRequest": {
+      "properties": {
+        "filters": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/JobFilters"
+            },
+            {
+              "description": "An array of objects that describe a filter to return a more specific list of export jobs."
+            }
+          ]
+        },
+        "jobIds": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/JobIds"
+            },
+            {
+              "description": "<p>The identification numbers of the export jobs to return.</p> <p>An export job ID is returned when you create an export using the <code>ExportAutoScalingGroupRecommendations</code> or <code>ExportEC2InstanceRecommendations</code> actions.</p> <p>All export jobs created in the last seven days are returned if this parameter is omitted.</p>"
+            }
+          ]
+        },
+        "maxResults": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MaxResults"
+            },
+            {
+              "description": "<p>The maximum number of export jobs to return with a single request.</p> <p>To retrieve the remaining results, make another request with the returned <code>NextToken</code> value.</p>"
+            }
+          ]
+        },
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NextToken"
+            },
+            {
+              "description": "The token to advance to the next page of export jobs."
+            }
+          ]
+        }
+      },
+      "title": "DescribeRecommendationExportJobsRequest",
+      "type": "object"
+    },
+    "DescribeRecommendationExportJobsResponse": {
+      "properties": {
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NextToken"
+            },
+            {
+              "description": "<p>The token to use to advance to the next page of export jobs.</p> <p>This value is null when there are no more pages of export jobs to return.</p>"
+            }
+          ]
+        },
+        "recommendationExportJobs": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RecommendationExportJobs"
+            },
+            {
+              "description": "An array of objects that describe recommendation export jobs."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DesiredCapacity": {
+      "type": "integer"
+    },
+    "DestinationBucket": {
+      "type": "string"
+    },
+    "DestinationKey": {
+      "type": "string"
+    },
+    "DestinationKeyPrefix": {
+      "type": "string"
+    },
+    "EBSFilter": {
+      "description": "<p>Describes a filter that returns a more specific list of Amazon Elastic Block Store (Amazon EBS) volume recommendations.</p> <p>This filter is used with the <code>GetEBSVolumeRecommendations</code> action.</p>",
+      "properties": {
+        "name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/EBSFilterName"
+            },
+            {
+              "description": "<p>The name of the filter.</p> <p>Specify <code>Finding</code> to return recommendations with a specific finding classification (e.g., <code>Optimized</code>).</p>"
+            }
+          ]
+        },
+        "values": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/FilterValues"
+            },
+            {
+              "description": "<p>The value of the filter.</p> <p>The valid values are <code>Optimized</code>, or <code>NotOptimized</code>.</p>"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "EBSFilterName": {
+      "enum": [
+        "Finding"
+      ],
+      "type": "string"
+    },
+    "EBSFilters": {
+      "items": {
+        "$ref": "#/definitions/EBSFilter"
+      },
+      "type": "array"
+    },
+    "EBSFinding": {
+      "enum": [
+        "Optimized",
+        "NotOptimized"
+      ],
+      "type": "string"
+    },
+    "EBSMetricName": {
+      "enum": [
+        "VolumeReadOpsPerSecond",
+        "VolumeWriteOpsPerSecond",
+        "VolumeReadBytesPerSecond",
+        "VolumeWriteBytesPerSecond"
+      ],
+      "type": "string"
+    },
+    "EBSUtilizationMetric": {
+      "description": "<p>Describes a utilization metric of an Amazon Elastic Block Store (Amazon EBS) volume.</p> <p>Compare the utilization metric data of your resource against its projected utilization metric data to determine the performance difference between your current resource and the recommended option.</p>",
+      "properties": {
+        "name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/EBSMetricName"
+            },
+            {
+              "description": "<p>The name of the utilization metric.</p> <p>The following utilization metrics are available:</p> <ul> <li> <p> <code>VolumeReadOpsPerSecond</code> - The completed read operations per second from the volume in a specified period of time.</p> <p>Unit: Count</p> </li> <li> <p> <code>VolumeWriteOpsPerSecond</code> - The completed write operations per second to the volume in a specified period of time.</p> <p>Unit: Count</p> </li> <li> <p> <code>VolumeReadBytesPerSecond</code> - The bytes read per second from the volume in a specified period of time.</p> <p>Unit: Bytes</p> </li> <li> <p> <code>VolumeWriteBytesPerSecond</code> - The bytes written to the volume in a specified period of time.</p> <p>Unit: Bytes</p> </li> </ul>"
+            }
+          ]
+        },
+        "statistic": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MetricStatistic"
+            },
+            {
+              "description": "<p>The statistic of the utilization metric.</p> <p>The following statistics are available:</p> <ul> <li> <p> <code>Average</code> - This is the value of Sum / SampleCount during the specified period, or the average value observed during the specified period.</p> </li> <li> <p> <code>Maximum</code> - The highest value observed during the specified period. Use this value to determine high volumes of activity for your application.</p> </li> </ul>"
+            }
+          ]
+        },
+        "value": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MetricValue"
+            },
+            {
+              "description": "The value of the utilization metric."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "EBSUtilizationMetrics": {
+      "items": {
+        "$ref": "#/definitions/EBSUtilizationMetric"
+      },
+      "type": "array"
+    },
+    "ExportAutoScalingGroupRecommendationsRequest": {
+      "properties": {
+        "accountIds": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AccountIds"
+            },
+            {
+              "description": "<p>The IDs of the AWS accounts for which to export Auto Scaling group recommendations.</p> <p>If your account is the management account of an organization, use this parameter to specify the member accounts for which you want to export recommendations.</p> <p>This parameter cannot be specified together with the include member accounts parameter. The parameters are mutually exclusive.</p> <p>Recommendations for member accounts are not included in the export if this parameter, or the include member accounts parameter, is omitted.</p> <p>You can specify multiple account IDs per request.</p>"
+            }
+          ]
+        },
+        "fieldsToExport": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ExportableAutoScalingGroupFields"
+            },
+            {
+              "description": "The recommendations data to include in the export file. For more information about the fields that can be exported, see <a href=\"https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html#exported-files\">Exported files</a> in the <i>Compute Optimizer User Guide</i>."
+            }
+          ]
+        },
+        "fileFormat": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/FileFormat"
+            },
+            {
+              "description": "<p>The format of the export file.</p> <p>The only export file format currently supported is <code>Csv</code>.</p>"
+            }
+          ]
+        },
+        "filters": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Filters"
+            },
+            {
+              "description": "An array of objects that describe a filter to export a more specific set of Auto Scaling group recommendations."
+            }
+          ]
+        },
+        "includeMemberAccounts": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/IncludeMemberAccounts"
+            },
+            {
+              "description": "<p>Indicates whether to include recommendations for resources in all member accounts of the organization if your account is the management account of an organization.</p> <p>The member accounts must also be opted in to Compute Optimizer.</p> <p>Recommendations for member accounts of the organization are not included in the export file if this parameter is omitted.</p> <p>This parameter cannot be specified together with the account IDs parameter. The parameters are mutually exclusive.</p> <p>Recommendations for member accounts are not included in the export if this parameter, or the account IDs parameter, is omitted.</p>"
+            }
+          ]
+        },
+        "s3DestinationConfig": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/S3DestinationConfig"
+            },
+            {
+              "description": "<p>An object to specify the destination Amazon Simple Storage Service (Amazon S3) bucket name and key prefix for the export job.</p> <p>You must create the destination Amazon S3 bucket for your recommendations export before you create the export job. Compute Optimizer does not create the S3 bucket for you. After you create the S3 bucket, ensure that it has the required permission policy to allow Compute Optimizer to write the export file to it. If you plan to specify an object prefix when you create the export job, you must include the object prefix in the policy that you add to the S3 bucket. For more information, see <a href=\"https://docs.aws.amazon.com/compute-optimizer/latest/ug/create-s3-bucket-policy-for-compute-optimizer.html\">Amazon S3 Bucket Policy for Compute Optimizer</a> in the <i>Compute Optimizer user guide</i>.</p>"
+            }
+          ]
+        }
+      },
+      "required": [
+        "s3DestinationConfig"
+      ],
+      "title": "ExportAutoScalingGroupRecommendationsRequest",
+      "type": "object"
+    },
+    "ExportAutoScalingGroupRecommendationsResponse": {
+      "properties": {
+        "jobId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/JobId"
+            },
+            {
+              "description": "<p>The identification number of the export job.</p> <p>Use the <code>DescribeRecommendationExportJobs</code> action, and specify the job ID to view the status of an export job.</p>"
+            }
+          ]
+        },
+        "s3Destination": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/S3Destination"
+            },
+            {
+              "description": "An object that describes the destination Amazon S3 bucket of a recommendations export file."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ExportDestination": {
+      "description": "Describes the destination of the recommendations export and metadata files.",
+      "properties": {
+        "s3": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/S3Destination"
+            },
+            {
+              "description": "An object that describes the destination Amazon Simple Storage Service (Amazon S3) bucket name and object keys of a recommendations export file, and its associated metadata file."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ExportEC2InstanceRecommendationsRequest": {
+      "properties": {
+        "accountIds": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AccountIds"
+            },
+            {
+              "description": "<p>The IDs of the AWS accounts for which to export instance recommendations.</p> <p>If your account is the management account of an organization, use this parameter to specify the member accounts for which you want to export recommendations.</p> <p>This parameter cannot be specified together with the include member accounts parameter. The parameters are mutually exclusive.</p> <p>Recommendations for member accounts are not included in the export if this parameter, or the include member accounts parameter, is omitted.</p> <p>You can specify multiple account IDs per request.</p>"
+            }
+          ]
+        },
+        "fieldsToExport": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ExportableInstanceFields"
+            },
+            {
+              "description": "The recommendations data to include in the export file. For more information about the fields that can be exported, see <a href=\"https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html#exported-files\">Exported files</a> in the <i>Compute Optimizer User Guide</i>."
+            }
+          ]
+        },
+        "fileFormat": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/FileFormat"
+            },
+            {
+              "description": "<p>The format of the export file.</p> <p>The only export file format currently supported is <code>Csv</code>.</p>"
+            }
+          ]
+        },
+        "filters": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Filters"
+            },
+            {
+              "description": "An array of objects that describe a filter to export a more specific set of instance recommendations."
+            }
+          ]
+        },
+        "includeMemberAccounts": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/IncludeMemberAccounts"
+            },
+            {
+              "description": "<p>Indicates whether to include recommendations for resources in all member accounts of the organization if your account is the management account of an organization.</p> <p>The member accounts must also be opted in to Compute Optimizer.</p> <p>Recommendations for member accounts of the organization are not included in the export file if this parameter is omitted.</p> <p>Recommendations for member accounts are not included in the export if this parameter, or the account IDs parameter, is omitted.</p>"
+            }
+          ]
+        },
+        "s3DestinationConfig": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/S3DestinationConfig"
+            },
+            {
+              "description": "<p>An object to specify the destination Amazon Simple Storage Service (Amazon S3) bucket name and key prefix for the export job.</p> <p>You must create the destination Amazon S3 bucket for your recommendations export before you create the export job. Compute Optimizer does not create the S3 bucket for you. After you create the S3 bucket, ensure that it has the required permission policy to allow Compute Optimizer to write the export file to it. If you plan to specify an object prefix when you create the export job, you must include the object prefix in the policy that you add to the S3 bucket. For more information, see <a href=\"https://docs.aws.amazon.com/compute-optimizer/latest/ug/create-s3-bucket-policy-for-compute-optimizer.html\">Amazon S3 Bucket Policy for Compute Optimizer</a> in the <i>Compute Optimizer user guide</i>.</p>"
+            }
+          ]
+        }
+      },
+      "required": [
+        "s3DestinationConfig"
+      ],
+      "title": "ExportEC2InstanceRecommendationsRequest",
+      "type": "object"
+    },
+    "ExportEC2InstanceRecommendationsResponse": {
+      "properties": {
+        "jobId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/JobId"
+            },
+            {
+              "description": "<p>The identification number of the export job.</p> <p>Use the <code>DescribeRecommendationExportJobs</code> action, and specify the job ID to view the status of an export job.</p>"
+            }
+          ]
+        },
+        "s3Destination": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/S3Destination"
+            },
+            {
+              "description": "An object that describes the destination Amazon S3 bucket of a recommendations export file."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ExportableAutoScalingGroupField": {
+      "enum": [
+        "AccountId",
+        "AutoScalingGroupArn",
+        "AutoScalingGroupName",
+        "Finding",
+        "UtilizationMetricsCpuMaximum",
+        "UtilizationMetricsMemoryMaximum",
+        "UtilizationMetricsEbsReadOpsPerSecondMaximum",
+        "UtilizationMetricsEbsWriteOpsPerSecondMaximum",
+        "UtilizationMetricsEbsReadBytesPerSecondMaximum",
+        "UtilizationMetricsEbsWriteBytesPerSecondMaximum",
+        "LookbackPeriodInDays",
+        "CurrentConfigurationInstanceType",
+        "CurrentConfigurationDesiredCapacity",
+        "CurrentConfigurationMinSize",
+        "CurrentConfigurationMaxSize",
+        "CurrentOnDemandPrice",
+        "CurrentStandardOneYearNoUpfrontReservedPrice",
+        "CurrentStandardThreeYearNoUpfrontReservedPrice",
+        "CurrentVCpus",
+        "CurrentMemory",
+        "CurrentStorage",
+        "CurrentNetwork",
+        "RecommendationOptionsConfigurationInstanceType",
+        "RecommendationOptionsConfigurationDesiredCapacity",
+        "RecommendationOptionsConfigurationMinSize",
+        "RecommendationOptionsConfigurationMaxSize",
+        "RecommendationOptionsProjectedUtilizationMetricsCpuMaximum",
+        "RecommendationOptionsProjectedUtilizationMetricsMemoryMaximum",
+        "RecommendationOptionsPerformanceRisk",
+        "RecommendationOptionsOnDemandPrice",
+        "RecommendationOptionsStandardOneYearNoUpfrontReservedPrice",
+        "RecommendationOptionsStandardThreeYearNoUpfrontReservedPrice",
+        "RecommendationOptionsVcpus",
+        "RecommendationOptionsMemory",
+        "RecommendationOptionsStorage",
+        "RecommendationOptionsNetwork",
+        "LastRefreshTimestamp"
+      ],
+      "type": "string"
+    },
+    "ExportableAutoScalingGroupFields": {
+      "items": {
+        "$ref": "#/definitions/ExportableAutoScalingGroupField"
+      },
+      "type": "array"
+    },
+    "ExportableInstanceField": {
+      "enum": [
+        "AccountId",
+        "InstanceArn",
+        "InstanceName",
+        "Finding",
+        "LookbackPeriodInDays",
+        "CurrentInstanceType",
+        "UtilizationMetricsCpuMaximum",
+        "UtilizationMetricsMemoryMaximum",
+        "UtilizationMetricsEbsReadOpsPerSecondMaximum",
+        "UtilizationMetricsEbsWriteOpsPerSecondMaximum",
+        "UtilizationMetricsEbsReadBytesPerSecondMaximum",
+        "UtilizationMetricsEbsWriteBytesPerSecondMaximum",
+        "CurrentOnDemandPrice",
+        "CurrentStandardOneYearNoUpfrontReservedPrice",
+        "CurrentStandardThreeYearNoUpfrontReservedPrice",
+        "CurrentVCpus",
+        "CurrentMemory",
+        "CurrentStorage",
+        "CurrentNetwork",
+        "RecommendationOptionsInstanceType",
+        "RecommendationOptionsProjectedUtilizationMetricsCpuMaximum",
+        "RecommendationOptionsProjectedUtilizationMetricsMemoryMaximum",
+        "RecommendationOptionsPerformanceRisk",
+        "RecommendationOptionsVcpus",
+        "RecommendationOptionsMemory",
+        "RecommendationOptionsStorage",
+        "RecommendationOptionsNetwork",
+        "RecommendationOptionsOnDemandPrice",
+        "RecommendationOptionsStandardOneYearNoUpfrontReservedPrice",
+        "RecommendationOptionsStandardThreeYearNoUpfrontReservedPrice",
+        "RecommendationsSourcesRecommendationSourceArn",
+        "RecommendationsSourcesRecommendationSourceType",
+        "LastRefreshTimestamp"
+      ],
+      "type": "string"
+    },
+    "ExportableInstanceFields": {
+      "items": {
+        "$ref": "#/definitions/ExportableInstanceField"
+      },
+      "type": "array"
+    },
+    "FailureReason": {
+      "type": "string"
+    },
+    "FileFormat": {
+      "enum": [
+        "Csv"
+      ],
+      "type": "string"
+    },
+    "Filter": {
+      "description": "<p>Describes a filter that returns a more specific list of recommendations.</p> <p>This filter is used with the <code>GetAutoScalingGroupRecommendations</code> and <code>GetEC2InstanceRecommendations</code> actions.</p>",
+      "properties": {
+        "name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/FilterName"
+            },
+            {
+              "description": "<p>The name of the filter.</p> <p>Specify <code>Finding</code> to return recommendations with a specific finding classification (e.g., <code>Overprovisioned</code>).</p> <p>Specify <code>RecommendationSourceType</code> to return recommendations of a specific resource type (e.g., <code>AutoScalingGroup</code>).</p>"
+            }
+          ]
+        },
+        "values": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/FilterValues"
+            },
+            {
+              "description": "<p>The value of the filter.</p> <p>The valid values for this parameter are as follows, depending on what you specify for the <code>name</code> parameter and the resource type that you wish to filter results for:</p> <ul> <li> <p>Specify <code>Optimized</code> or <code>NotOptimized</code> if you specified the <code>name</code> parameter as <code>Finding</code> and you want to filter results for Auto Scaling groups.</p> </li> <li> <p>Specify <code>Underprovisioned</code>, <code>Overprovisioned</code>, or <code>Optimized</code> if you specified the <code>name</code> parameter as <code>Finding</code> and you want to filter results for EC2 instances.</p> </li> <li> <p>Specify <code>Ec2Instance</code> or <code>AutoScalingGroup</code> if you specified the <code>name</code> parameter as <code>RecommendationSourceType</code>.</p> </li> </ul>"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "FilterName": {
+      "enum": [
+        "Finding",
+        "RecommendationSourceType"
+      ],
+      "type": "string"
+    },
+    "FilterValue": {
+      "type": "string"
+    },
+    "FilterValues": {
+      "items": {
+        "$ref": "#/definitions/FilterValue"
+      },
+      "type": "array"
+    },
+    "Filters": {
+      "items": {
+        "$ref": "#/definitions/Filter"
+      },
+      "type": "array"
+    },
+    "Finding": {
+      "enum": [
+        "Underprovisioned",
+        "Overprovisioned",
+        "Optimized",
+        "NotOptimized"
+      ],
+      "type": "string"
+    },
+    "GetAutoScalingGroupRecommendationsRequest": {
+      "properties": {
+        "accountIds": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AccountIds"
+            },
+            {
+              "description": "<p>The IDs of the AWS accounts for which to return Auto Scaling group recommendations.</p> <p>If your account is the management account of an organization, use this parameter to specify the member accounts for which you want to return Auto Scaling group recommendations.</p> <p>Only one account ID can be specified per request.</p>"
+            }
+          ]
+        },
+        "autoScalingGroupArns": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AutoScalingGroupArns"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the Auto Scaling groups for which to return recommendations."
+            }
+          ]
+        },
+        "filters": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Filters"
+            },
+            {
+              "description": "An array of objects that describe a filter that returns a more specific list of Auto Scaling group recommendations."
+            }
+          ]
+        },
+        "maxResults": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MaxResults"
+            },
+            {
+              "description": "<p>The maximum number of Auto Scaling group recommendations to return with a single request.</p> <p>To retrieve the remaining results, make another request with the returned <code>NextToken</code> value.</p>"
+            }
+          ]
+        },
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NextToken"
+            },
+            {
+              "description": "The token to advance to the next page of Auto Scaling group recommendations."
+            }
+          ]
+        }
+      },
+      "title": "GetAutoScalingGroupRecommendationsRequest",
+      "type": "object"
+    },
+    "GetAutoScalingGroupRecommendationsResponse": {
+      "properties": {
+        "autoScalingGroupRecommendations": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AutoScalingGroupRecommendations"
+            },
+            {
+              "description": "An array of objects that describe Auto Scaling group recommendations."
+            }
+          ]
+        },
+        "errors": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/GetRecommendationErrors"
+            },
+            {
+              "description": "<p>An array of objects that describe errors of the request.</p> <p>For example, an error is returned if you request recommendations for an unsupported Auto Scaling group.</p>"
+            }
+          ]
+        },
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NextToken"
+            },
+            {
+              "description": "<p>The token to use to advance to the next page of Auto Scaling group recommendations.</p> <p>This value is null when there are no more pages of Auto Scaling group recommendations to return.</p>"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "GetEBSVolumeRecommendationsRequest": {
+      "properties": {
+        "accountIds": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AccountIds"
+            },
+            {
+              "description": "<p>The IDs of the AWS accounts for which to return volume recommendations.</p> <p>If your account is the management account of an organization, use this parameter to specify the member accounts for which you want to return volume recommendations.</p> <p>Only one account ID can be specified per request.</p>"
+            }
+          ]
+        },
+        "filters": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/EBSFilters"
+            },
+            {
+              "description": "An array of objects that describe a filter that returns a more specific list of volume recommendations."
+            }
+          ]
+        },
+        "maxResults": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MaxResults"
+            },
+            {
+              "description": "<p>The maximum number of volume recommendations to return with a single request.</p> <p>To retrieve the remaining results, make another request with the returned <code>NextToken</code> value.</p>"
+            }
+          ]
+        },
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NextToken"
+            },
+            {
+              "description": "The token to advance to the next page of volume recommendations."
+            }
+          ]
+        },
+        "volumeArns": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/VolumeArns"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the volumes for which to return recommendations."
+            }
+          ]
+        }
+      },
+      "title": "GetEBSVolumeRecommendationsRequest",
+      "type": "object"
+    },
+    "GetEBSVolumeRecommendationsResponse": {
+      "properties": {
+        "errors": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/GetRecommendationErrors"
+            },
+            {
+              "description": "<p>An array of objects that describe errors of the request.</p> <p>For example, an error is returned if you request recommendations for an unsupported volume.</p>"
+            }
+          ]
+        },
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NextToken"
+            },
+            {
+              "description": "<p>The token to use to advance to the next page of volume recommendations.</p> <p>This value is null when there are no more pages of volume recommendations to return.</p>"
+            }
+          ]
+        },
+        "volumeRecommendations": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/VolumeRecommendations"
+            },
+            {
+              "description": "An array of objects that describe volume recommendations."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "GetEC2InstanceRecommendationsRequest": {
+      "properties": {
+        "accountIds": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AccountIds"
+            },
+            {
+              "description": "<p>The IDs of the AWS accounts for which to return instance recommendations.</p> <p>If your account is the management account of an organization, use this parameter to specify the member accounts for which you want to return instance recommendations.</p> <p>Only one account ID can be specified per request.</p>"
+            }
+          ]
+        },
+        "filters": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Filters"
+            },
+            {
+              "description": "An array of objects that describe a filter that returns a more specific list of instance recommendations."
+            }
+          ]
+        },
+        "instanceArns": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InstanceArns"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the instances for which to return recommendations."
+            }
+          ]
+        },
+        "maxResults": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MaxResults"
+            },
+            {
+              "description": "<p>The maximum number of instance recommendations to return with a single request.</p> <p>To retrieve the remaining results, make another request with the returned <code>NextToken</code> value.</p>"
+            }
+          ]
+        },
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NextToken"
+            },
+            {
+              "description": "The token to advance to the next page of instance recommendations."
+            }
+          ]
+        }
+      },
+      "title": "GetEC2InstanceRecommendationsRequest",
+      "type": "object"
+    },
+    "GetEC2InstanceRecommendationsResponse": {
+      "properties": {
+        "errors": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/GetRecommendationErrors"
+            },
+            {
+              "description": "<p>An array of objects that describe errors of the request.</p> <p>For example, an error is returned if you request recommendations for an instance of an unsupported instance family.</p>"
+            }
+          ]
+        },
+        "instanceRecommendations": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InstanceRecommendations"
+            },
+            {
+              "description": "An array of objects that describe instance recommendations."
+            }
+          ]
+        },
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NextToken"
+            },
+            {
+              "description": "<p>The token to use to advance to the next page of instance recommendations.</p> <p>This value is null when there are no more pages of instance recommendations to return.</p>"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "GetEC2RecommendationProjectedMetricsRequest": {
+      "properties": {
+        "endTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "The time stamp of the last projected metrics data point to return."
+            }
+          ]
+        },
+        "instanceArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InstanceArn"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the instances for which to return recommendation projected metrics."
+            }
+          ]
+        },
+        "period": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Period"
+            },
+            {
+              "description": "The granularity, in seconds, of the projected metrics data points."
+            }
+          ]
+        },
+        "startTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "The time stamp of the first projected metrics data point to return."
+            }
+          ]
+        },
+        "stat": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MetricStatistic"
+            },
+            {
+              "description": "The statistic of the projected metrics."
+            }
+          ]
+        }
+      },
+      "required": [
+        "instanceArn",
+        "stat",
+        "period",
+        "startTime",
+        "endTime"
+      ],
+      "title": "GetEC2RecommendationProjectedMetricsRequest",
+      "type": "object"
+    },
+    "GetEC2RecommendationProjectedMetricsResponse": {
+      "properties": {
+        "recommendedOptionProjectedMetrics": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RecommendedOptionProjectedMetrics"
+            },
+            {
+              "description": "An array of objects that describe a projected metrics."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "GetEnrollmentStatusRequest": {
+      "properties": {},
+      "title": "GetEnrollmentStatusRequest",
+      "type": "object"
+    },
+    "GetEnrollmentStatusResponse": {
+      "properties": {
+        "memberAccountsEnrolled": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MemberAccountsEnrolled"
+            },
+            {
+              "description": "Confirms the enrollment status of member accounts within the organization, if the account is a management account of an organization."
+            }
+          ]
+        },
+        "status": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Status"
+            },
+            {
+              "description": "The enrollment status of the account."
+            }
+          ]
+        },
+        "statusReason": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/StatusReason"
+            },
+            {
+              "description": "<p>The reason for the enrollment status of the account.</p> <p>For example, an account might show a status of <code>Pending</code> because member accounts of an organization require more time to be enrolled in the service.</p>"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "GetRecommendationError": {
+      "description": "<p>Describes an error experienced when getting recommendations.</p> <p>For example, an error is returned if you request recommendations for an unsupported Auto Scaling group, or if you request recommendations for an instance of an unsupported instance family.</p>",
+      "properties": {
+        "code": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Code"
+            },
+            {
+              "description": "The error code."
+            }
+          ]
+        },
+        "identifier": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Identifier"
+            },
+            {
+              "description": "The ID of the error."
+            }
+          ]
+        },
+        "message": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Message"
+            },
+            {
+              "description": "The message, or reason, for the error."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "GetRecommendationErrors": {
+      "items": {
+        "$ref": "#/definitions/GetRecommendationError"
+      },
+      "type": "array"
+    },
+    "GetRecommendationSummariesRequest": {
+      "properties": {
+        "accountIds": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AccountIds"
+            },
+            {
+              "description": "<p>The IDs of the AWS accounts for which to return recommendation summaries.</p> <p>If your account is the management account of an organization, use this parameter to specify the member accounts for which you want to return recommendation summaries.</p> <p>Only one account ID can be specified per request.</p>"
+            }
+          ]
+        },
+        "maxResults": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MaxResults"
+            },
+            {
+              "description": "<p>The maximum number of recommendation summaries to return with a single request.</p> <p>To retrieve the remaining results, make another request with the returned <code>NextToken</code> value.</p>"
+            }
+          ]
+        },
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NextToken"
+            },
+            {
+              "description": "The token to advance to the next page of recommendation summaries."
+            }
+          ]
+        }
+      },
+      "title": "GetRecommendationSummariesRequest",
+      "type": "object"
+    },
+    "GetRecommendationSummariesResponse": {
+      "properties": {
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NextToken"
+            },
+            {
+              "description": "<p>The token to use to advance to the next page of recommendation summaries.</p> <p>This value is null when there are no more pages of recommendation summaries to return.</p>"
+            }
+          ]
+        },
+        "recommendationSummaries": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RecommendationSummaries"
+            },
+            {
+              "description": "An array of objects that summarize a recommendation."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "Identifier": {
+      "type": "string"
+    },
+    "IncludeMemberAccounts": {
+      "type": "boolean"
+    },
+    "InstanceArn": {
+      "type": "string"
+    },
+    "InstanceArns": {
+      "items": {
+        "$ref": "#/definitions/InstanceArn"
+      },
+      "type": "array"
+    },
+    "InstanceName": {
+      "type": "string"
+    },
+    "InstanceRecommendation": {
+      "description": "Describes an Amazon EC2 instance recommendation.",
+      "properties": {
+        "accountId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AccountId"
+            },
+            {
+              "description": "The AWS account ID of the instance."
+            }
+          ]
+        },
+        "currentInstanceType": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CurrentInstanceType"
+            },
+            {
+              "description": "The instance type of the current instance."
+            }
+          ]
+        },
+        "finding": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Finding"
+            },
+            {
+              "description": "<p>The finding classification for the instance.</p> <p>Findings for instances include:</p> <ul> <li> <p> <b> <code>Underprovisioned</code> </b>—An instance is considered under-provisioned when at least one specification of your instance, such as CPU, memory, or network, does not meet the performance requirements of your workload. Under-provisioned instances may lead to poor application performance.</p> </li> <li> <p> <b> <code>Overprovisioned</code> </b>—An instance is considered over-provisioned when at least one specification of your instance, such as CPU, memory, or network, can be sized down while still meeting the performance requirements of your workload, and no specification is under-provisioned. Over-provisioned instances may lead to unnecessary infrastructure cost.</p> </li> <li> <p> <b> <code>Optimized</code> </b>—An instance is considered optimized when all specifications of your instance, such as CPU, memory, and network, meet the performance requirements of your workload and is not over provisioned. An optimized instance runs your workloads with optimal performance and infrastructure cost. For optimized resources, AWS Compute Optimizer might recommend a new generation instance type.</p> </li> </ul>"
+            }
+          ]
+        },
+        "instanceArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InstanceArn"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the current instance."
+            }
+          ]
+        },
+        "instanceName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InstanceName"
+            },
+            {
+              "description": "The name of the current instance."
+            }
+          ]
+        },
+        "lastRefreshTimestamp": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/LastRefreshTimestamp"
+            },
+            {
+              "description": "The time stamp of when the instance recommendation was last refreshed."
+            }
+          ]
+        },
+        "lookBackPeriodInDays": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/LookBackPeriodInDays"
+            },
+            {
+              "description": "The number of days for which utilization metrics were analyzed for the instance."
+            }
+          ]
+        },
+        "recommendationOptions": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RecommendationOptions"
+            },
+            {
+              "description": "An array of objects that describe the recommendation options for the instance."
+            }
+          ]
+        },
+        "recommendationSources": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RecommendationSources"
+            },
+            {
+              "description": "An array of objects that describe the source resource of the recommendation."
+            }
+          ]
+        },
+        "utilizationMetrics": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/UtilizationMetrics"
+            },
+            {
+              "description": "An array of objects that describe the utilization metrics of the instance."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "InstanceRecommendationOption": {
+      "description": "Describes a recommendation option for an Amazon EC2 instance.",
+      "properties": {
+        "instanceType": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InstanceType"
+            },
+            {
+              "description": "The instance type of the instance recommendation."
+            }
+          ]
+        },
+        "performanceRisk": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PerformanceRisk"
+            },
+            {
+              "description": "<p>The performance risk of the instance recommendation option.</p> <p>Performance risk is the likelihood of the recommended instance type not meeting the performance requirement of your workload.</p> <p>The lowest performance risk is categorized as <code>0</code>, and the highest as <code>5</code>.</p>"
+            }
+          ]
+        },
+        "projectedUtilizationMetrics": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ProjectedUtilizationMetrics"
+            },
+            {
+              "description": "<p>An array of objects that describe the projected utilization metrics of the instance recommendation option.</p> <note> <p>The <code>Cpu</code> and <code>Memory</code> metrics are the only projected utilization metrics returned. Additionally, the <code>Memory</code> metric is returned only for resources that have the unified CloudWatch agent installed on them. For more information, see <a href=\"https://docs.aws.amazon.com/compute-optimizer/latest/ug/metrics.html#cw-agent\">Enabling Memory Utilization with the CloudWatch Agent</a>.</p> </note>"
+            }
+          ]
+        },
+        "rank": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Rank"
+            },
+            {
+              "description": "<p>The rank of the instance recommendation option.</p> <p>The top recommendation option is ranked as <code>1</code>.</p>"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "InstanceRecommendations": {
+      "items": {
+        "$ref": "#/definitions/InstanceRecommendation"
+      },
+      "type": "array"
+    },
+    "InstanceType": {
+      "type": "string"
+    },
+    "InternalServerException": {},
+    "InvalidParameterValueException": {},
+    "JobFilter": {
+      "description": "<p>Describes a filter that returns a more specific list of recommendation export jobs.</p> <p>This filter is used with the <code>DescribeRecommendationExportJobs</code> action.</p>",
+      "properties": {
+        "name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/JobFilterName"
+            },
+            {
+              "description": "<p>The name of the filter.</p> <p>Specify <code>ResourceType</code> to return export jobs of a specific resource type (e.g., <code>Ec2Instance</code>).</p> <p>Specify <code>JobStatus</code> to return export jobs with a specific status (e.g, <code>Complete</code>).</p>"
+            }
+          ]
+        },
+        "values": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/FilterValues"
+            },
+            {
+              "description": "<p>The value of the filter.</p> <p>The valid values for this parameter are as follows, depending on what you specify for the <code>name</code> parameter:</p> <ul> <li> <p>Specify <code>Ec2Instance</code> or <code>AutoScalingGroup</code> if you specified the <code>name</code> parameter as <code>ResourceType</code>. There is no filter for EBS volumes because volume recommendations cannot be exported at this time.</p> </li> <li> <p>Specify <code>Queued</code>, <code>InProgress</code>, <code>Complete</code>, or <code>Failed</code> if you specified the <code>name</code> parameter as <code>JobStatus</code>.</p> </li> </ul>"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "JobFilterName": {
+      "enum": [
+        "ResourceType",
+        "JobStatus"
+      ],
+      "type": "string"
+    },
+    "JobFilters": {
+      "items": {
+        "$ref": "#/definitions/JobFilter"
+      },
+      "type": "array"
+    },
+    "JobId": {
+      "type": "string"
+    },
+    "JobIds": {
+      "items": {
+        "$ref": "#/definitions/JobId"
+      },
+      "type": "array"
+    },
+    "JobStatus": {
+      "enum": [
+        "Queued",
+        "InProgress",
+        "Complete",
+        "Failed"
+      ],
+      "type": "string"
+    },
+    "LastRefreshTimestamp": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "LastUpdatedTimestamp": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "LimitExceededException": {},
+    "LookBackPeriodInDays": {
+      "format": "double",
+      "type": "number"
+    },
+    "MaxResults": {
+      "type": "integer"
+    },
+    "MaxSize": {
+      "type": "integer"
+    },
+    "MemberAccountsEnrolled": {
+      "type": "boolean"
+    },
+    "Message": {
+      "type": "string"
+    },
+    "MetadataKey": {
+      "type": "string"
+    },
+    "MetricName": {
+      "enum": [
+        "Cpu",
+        "Memory",
+        "EBS_READ_OPS_PER_SECOND",
+        "EBS_WRITE_OPS_PER_SECOND",
+        "EBS_READ_BYTES_PER_SECOND",
+        "EBS_WRITE_BYTES_PER_SECOND"
+      ],
+      "type": "string"
+    },
+    "MetricStatistic": {
+      "enum": [
+        "Maximum",
+        "Average"
+      ],
+      "type": "string"
+    },
+    "MetricValue": {
+      "format": "double",
+      "type": "number"
+    },
+    "MetricValues": {
+      "items": {
+        "$ref": "#/definitions/MetricValue"
+      },
+      "type": "array"
+    },
+    "MinSize": {
+      "type": "integer"
+    },
+    "MissingAuthenticationToken": {},
+    "NextToken": {
+      "type": "string"
+    },
+    "OptInRequiredException": {},
+    "PerformanceRisk": {
+      "format": "double",
+      "maximum": 5,
+      "minimum": 0,
+      "type": "number"
+    },
+    "Period": {
+      "type": "integer"
+    },
+    "ProjectedMetric": {
+      "description": "<p>Describes a projected utilization metric of a recommendation option, such as an Amazon EC2 instance. This represents the projected utilization of a recommendation option had you used that resource during the analyzed period.</p> <p>Compare the utilization metric data of your resource against its projected utilization metric data to determine the performance difference between your current resource and the recommended option.</p> <note> <p>The <code>Cpu</code> and <code>Memory</code> metrics are the only projected utilization metrics returned when you run the <code>GetEC2RecommendationProjectedMetrics</code> action. Additionally, the <code>Memory</code> metric is returned only for resources that have the unified CloudWatch agent installed on them. For more information, see <a href=\"https://docs.aws.amazon.com/compute-optimizer/latest/ug/metrics.html#cw-agent\">Enabling Memory Utilization with the CloudWatch Agent</a>.</p> </note>",
+      "properties": {
+        "name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MetricName"
+            },
+            {
+              "description": "<p>The name of the projected utilization metric.</p> <p>The following projected utilization metrics are returned:</p> <ul> <li> <p> <code>Cpu</code> - The projected percentage of allocated EC2 compute units that would be in use on the recommendation option had you used that resource during the analyzed period. This metric identifies the processing power required to run an application on the recommendation option.</p> <p>Depending on the instance type, tools in your operating system can show a lower percentage than CloudWatch when the instance is not allocated a full processor core.</p> <p>Units: Percent</p> </li> <li> <p> <code>Memory</code> - The percentage of memory that would be in use on the recommendation option had you used that resource during the analyzed period. This metric identifies the amount of memory required to run an application on the recommendation option.</p> <p>Units: Percent</p> <note> <p>The <code>Memory</code> metric is returned only for resources that have the unified CloudWatch agent installed on them. For more information, see <a href=\"https://docs.aws.amazon.com/compute-optimizer/latest/ug/metrics.html#cw-agent\">Enabling Memory Utilization with the CloudWatch Agent</a>.</p> </note> </li> </ul>"
+            }
+          ]
+        },
+        "timestamps": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamps"
+            },
+            {
+              "description": "The time stamps of the projected utilization metric."
+            }
+          ]
+        },
+        "values": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MetricValues"
+            },
+            {
+              "description": "The values of the projected utilization metrics."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ProjectedMetrics": {
+      "items": {
+        "$ref": "#/definitions/ProjectedMetric"
+      },
+      "type": "array"
+    },
+    "ProjectedUtilizationMetrics": {
+      "items": {
+        "$ref": "#/definitions/UtilizationMetric"
+      },
+      "type": "array"
+    },
+    "Rank": {
+      "type": "integer"
+    },
+    "RecommendationExportJob": {
+      "description": "<p>Describes a recommendation export job.</p> <p>Use the <code>DescribeRecommendationExportJobs</code> action to view your recommendation export jobs.</p> <p>Use the <code>ExportAutoScalingGroupRecommendations</code> or <code>ExportEC2InstanceRecommendations</code> actions to request an export of your recommendations.</p>",
+      "properties": {
+        "creationTimestamp": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CreationTimestamp"
+            },
+            {
+              "description": "The timestamp of when the export job was created."
+            }
+          ]
+        },
+        "destination": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ExportDestination"
+            },
+            {
+              "description": "An object that describes the destination of the export file."
+            }
+          ]
+        },
+        "failureReason": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/FailureReason"
+            },
+            {
+              "description": "The reason for an export job failure."
+            }
+          ]
+        },
+        "jobId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/JobId"
+            },
+            {
+              "description": "The identification number of the export job."
+            }
+          ]
+        },
+        "lastUpdatedTimestamp": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/LastUpdatedTimestamp"
+            },
+            {
+              "description": "The timestamp of when the export job was last updated."
+            }
+          ]
+        },
+        "resourceType": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceType"
+            },
+            {
+              "description": "The resource type of the exported recommendations."
+            }
+          ]
+        },
+        "status": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/JobStatus"
+            },
+            {
+              "description": "The status of the export job."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "RecommendationExportJobs": {
+      "items": {
+        "$ref": "#/definitions/RecommendationExportJob"
+      },
+      "type": "array"
+    },
+    "RecommendationOptions": {
+      "items": {
+        "$ref": "#/definitions/InstanceRecommendationOption"
+      },
+      "type": "array"
+    },
+    "RecommendationSource": {
+      "description": "Describes the source of a recommendation, such as an Amazon EC2 instance or Auto Scaling group.",
+      "properties": {
+        "recommendationSourceArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RecommendationSourceArn"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the recommendation source."
+            }
+          ]
+        },
+        "recommendationSourceType": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RecommendationSourceType"
+            },
+            {
+              "description": "The resource type of the recommendation source."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "RecommendationSourceArn": {
+      "type": "string"
+    },
+    "RecommendationSourceType": {
+      "enum": [
+        "Ec2Instance",
+        "AutoScalingGroup",
+        "EbsVolume"
+      ],
+      "type": "string"
+    },
+    "RecommendationSources": {
+      "items": {
+        "$ref": "#/definitions/RecommendationSource"
+      },
+      "type": "array"
+    },
+    "RecommendationSummaries": {
+      "items": {
+        "$ref": "#/definitions/RecommendationSummary"
+      },
+      "type": "array"
+    },
+    "RecommendationSummary": {
+      "description": "A summary of a recommendation.",
+      "properties": {
+        "accountId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AccountId"
+            },
+            {
+              "description": "The AWS account ID of the recommendation summary."
+            }
+          ]
+        },
+        "recommendationResourceType": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RecommendationSourceType"
+            },
+            {
+              "description": "The resource type of the recommendation."
+            }
+          ]
+        },
+        "summaries": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Summaries"
+            },
+            {
+              "description": "An array of objects that describe a recommendation summary."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "RecommendedInstanceType": {
+      "type": "string"
+    },
+    "RecommendedOptionProjectedMetric": {
+      "description": "<p>Describes a projected utilization metric of a recommendation option.</p> <note> <p>The <code>Cpu</code> and <code>Memory</code> metrics are the only projected utilization metrics returned when you run the <code>GetEC2RecommendationProjectedMetrics</code> action. Additionally, the <code>Memory</code> metric is returned only for resources that have the unified CloudWatch agent installed on them. For more information, see <a href=\"https://docs.aws.amazon.com/compute-optimizer/latest/ug/metrics.html#cw-agent\">Enabling Memory Utilization with the CloudWatch Agent</a>.</p> </note>",
+      "properties": {
+        "projectedMetrics": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ProjectedMetrics"
+            },
+            {
+              "description": "An array of objects that describe a projected utilization metric."
+            }
+          ]
+        },
+        "rank": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Rank"
+            },
+            {
+              "description": "<p>The rank of the recommendation option projected metric.</p> <p>The top recommendation option is ranked as <code>1</code>.</p> <p>The projected metric rank correlates to the recommendation option rank. For example, the projected metric ranked as <code>1</code> is related to the recommendation option that is also ranked as <code>1</code> in the same response.</p>"
+            }
+          ]
+        },
+        "recommendedInstanceType": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RecommendedInstanceType"
+            },
+            {
+              "description": "The recommended instance type."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "RecommendedOptionProjectedMetrics": {
+      "items": {
+        "$ref": "#/definitions/RecommendedOptionProjectedMetric"
+      },
+      "type": "array"
+    },
+    "ResourceNotFoundException": {},
+    "ResourceType": {
+      "enum": [
+        "Ec2Instance",
+        "AutoScalingGroup"
+      ],
+      "type": "string"
+    },
+    "S3Destination": {
+      "description": "Describes the destination Amazon Simple Storage Service (Amazon S3) bucket name and object keys of a recommendations export file, and its associated metadata file.",
+      "properties": {
+        "bucket": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DestinationBucket"
+            },
+            {
+              "description": "The name of the Amazon S3 bucket used as the destination of an export file."
+            }
+          ]
+        },
+        "key": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DestinationKey"
+            },
+            {
+              "description": "<p>The Amazon S3 bucket key of an export file.</p> <p>The key uniquely identifies the object, or export file, in the S3 bucket.</p>"
+            }
+          ]
+        },
+        "metadataKey": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MetadataKey"
+            },
+            {
+              "description": "<p>The Amazon S3 bucket key of a metadata file.</p> <p>The key uniquely identifies the object, or metadata file, in the S3 bucket.</p>"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "S3DestinationConfig": {
+      "description": "<p>Describes the destination Amazon Simple Storage Service (Amazon S3) bucket name and key prefix for a recommendations export job.</p> <p>You must create the destination Amazon S3 bucket for your recommendations export before you create the export job. Compute Optimizer does not create the S3 bucket for you. After you create the S3 bucket, ensure that it has the required permission policy to allow Compute Optimizer to write the export file to it. If you plan to specify an object prefix when you create the export job, you must include the object prefix in the policy that you add to the S3 bucket. For more information, see <a href=\"https://docs.aws.amazon.com/compute-optimizer/latest/ug/create-s3-bucket-policy-for-compute-optimizer.html\">Amazon S3 Bucket Policy for Compute Optimizer</a> in the <i>Compute Optimizer user guide</i>.</p>",
+      "properties": {
+        "bucket": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DestinationBucket"
+            },
+            {
+              "description": "The name of the Amazon S3 bucket to use as the destination for an export job."
+            }
+          ]
+        },
+        "keyPrefix": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DestinationKeyPrefix"
+            },
+            {
+              "description": "The Amazon S3 bucket prefix for an export job."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ServiceUnavailableException": {},
+    "Status": {
+      "enum": [
+        "Active",
+        "Inactive",
+        "Pending",
+        "Failed"
+      ],
+      "type": "string"
+    },
+    "StatusReason": {
+      "type": "string"
+    },
+    "Summaries": {
+      "items": {
+        "$ref": "#/definitions/Summary"
+      },
+      "type": "array"
+    },
+    "Summary": {
+      "description": "The summary of a recommendation.",
+      "properties": {
+        "name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Finding"
+            },
+            {
+              "description": "The finding classification of the recommendation."
+            }
+          ]
+        },
+        "value": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SummaryValue"
+            },
+            {
+              "description": "The value of the recommendation summary."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "SummaryValue": {
+      "format": "double",
+      "type": "number"
+    },
+    "ThrottlingException": {},
+    "Timestamp": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "Timestamps": {
+      "items": {
+        "$ref": "#/definitions/Timestamp"
+      },
+      "type": "array"
+    },
+    "UpdateEnrollmentStatusRequest": {
+      "properties": {
+        "includeMemberAccounts": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/IncludeMemberAccounts"
+            },
+            {
+              "description": "Indicates whether to enroll member accounts of the organization if the your account is the management account of an organization."
+            }
+          ]
+        },
+        "status": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Status"
+            },
+            {
+              "description": "<p>The new enrollment status of the account.</p> <p>Accepted options are <code>Active</code> or <code>Inactive</code>. You will get an error if <code>Pending</code> or <code>Failed</code> are specified.</p>"
+            }
+          ]
+        }
+      },
+      "required": [
+        "status"
+      ],
+      "title": "UpdateEnrollmentStatusRequest",
+      "type": "object"
+    },
+    "UpdateEnrollmentStatusResponse": {
+      "properties": {
+        "status": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Status"
+            },
+            {
+              "description": "The enrollment status of the account."
+            }
+          ]
+        },
+        "statusReason": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/StatusReason"
+            },
+            {
+              "description": "The reason for the enrollment status of the account. For example, an account might show a status of <code>Pending</code> because member accounts of an organization require more time to be enrolled in the service."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "UtilizationMetric": {
+      "description": "<p>Describes a utilization metric of a resource, such as an Amazon EC2 instance.</p> <p>Compare the utilization metric data of your resource against its projected utilization metric data to determine the performance difference between your current resource and the recommended option.</p>",
+      "properties": {
+        "name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MetricName"
+            },
+            {
+              "description": "<p>The name of the utilization metric.</p> <p>The following utilization metrics are available:</p> <ul> <li> <p> <code>Cpu</code> - The percentage of allocated EC2 compute units that are currently in use on the instance. This metric identifies the processing power required to run an application on the instance.</p> <p>Depending on the instance type, tools in your operating system can show a lower percentage than CloudWatch when the instance is not allocated a full processor core.</p> <p>Units: Percent</p> </li> <li> <p> <code>Memory</code> - The percentage of memory that is currently in use on the instance. This metric identifies the amount of memory required to run an application on the instance.</p> <p>Units: Percent</p> <note> <p>The <code>Memory</code> metric is returned only for resources that have the unified CloudWatch agent installed on them. For more information, see <a href=\"https://docs.aws.amazon.com/compute-optimizer/latest/ug/metrics.html#cw-agent\">Enabling Memory Utilization with the CloudWatch Agent</a>.</p> </note> </li> <li> <p> <code>EBS_READ_OPS_PER_SECOND</code> - The completed read operations from all EBS volumes attached to the instance in a specified period of time.</p> <p>Unit: Count</p> </li> <li> <p> <code>EBS_WRITE_OPS_PER_SECOND</code> - The completed write operations to all EBS volumes attached to the instance in a specified period of time.</p> <p>Unit: Count</p> </li> <li> <p> <code>EBS_READ_BYTES_PER_SECOND</code> - The bytes read from all EBS volumes attached to the instance in a specified period of time.</p> <p>Unit: Bytes</p> </li> <li> <p> <code>EBS_WRITE_BYTES_PER_SECOND</code> - The bytes written to all EBS volumes attached to the instance in a specified period of time.</p> <p>Unit: Bytes</p> </li> </ul>"
+            }
+          ]
+        },
+        "statistic": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MetricStatistic"
+            },
+            {
+              "description": "<p>The statistic of the utilization metric.</p> <p>The following statistics are available:</p> <ul> <li> <p> <code>Average</code> - This is the value of Sum / SampleCount during the specified period, or the average value observed during the specified period.</p> </li> <li> <p> <code>Maximum</code> - The highest value observed during the specified period. Use this value to determine high volumes of activity for your application.</p> </li> </ul>"
+            }
+          ]
+        },
+        "value": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MetricValue"
+            },
+            {
+              "description": "The value of the utilization metric."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "UtilizationMetrics": {
+      "items": {
+        "$ref": "#/definitions/UtilizationMetric"
+      },
+      "type": "array"
+    },
+    "VolumeArn": {
+      "type": "string"
+    },
+    "VolumeArns": {
+      "items": {
+        "$ref": "#/definitions/VolumeArn"
+      },
+      "type": "array"
+    },
+    "VolumeBaselineIOPS": {
+      "type": "integer"
+    },
+    "VolumeBaselineThroughput": {
+      "type": "integer"
+    },
+    "VolumeBurstIOPS": {
+      "type": "integer"
+    },
+    "VolumeBurstThroughput": {
+      "type": "integer"
+    },
+    "VolumeConfiguration": {
+      "description": "Describes the configuration of an Amazon Elastic Block Store (Amazon EBS) volume.",
+      "properties": {
+        "volumeBaselineIOPS": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/VolumeBaselineIOPS"
+            },
+            {
+              "description": "The baseline IOPS of the volume."
+            }
+          ]
+        },
+        "volumeBaselineThroughput": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/VolumeBaselineThroughput"
+            },
+            {
+              "description": "The baseline throughput of the volume."
+            }
+          ]
+        },
+        "volumeBurstIOPS": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/VolumeBurstIOPS"
+            },
+            {
+              "description": "The burst IOPS of the volume."
+            }
+          ]
+        },
+        "volumeBurstThroughput": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/VolumeBurstThroughput"
+            },
+            {
+              "description": "The burst throughput of the volume."
+            }
+          ]
+        },
+        "volumeSize": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/VolumeSize"
+            },
+            {
+              "description": "The size of the volume, in GiB."
+            }
+          ]
+        },
+        "volumeType": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/VolumeType"
+            },
+            {
+              "description": "<p>The volume type.</p> <p>This can be <code>gp2</code> for General Purpose SSD, <code>io1</code> or <code>io2</code> for Provisioned IOPS SSD, <code>st1</code> for Throughput Optimized HDD, <code>sc1</code> for Cold HDD, or <code>standard</code> for Magnetic volumes.</p>"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "VolumeRecommendation": {
+      "description": "Describes an Amazon Elastic Block Store (Amazon EBS) volume recommendation.",
+      "properties": {
+        "accountId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AccountId"
+            },
+            {
+              "description": "The AWS account ID of the volume."
+            }
+          ]
+        },
+        "currentConfiguration": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/VolumeConfiguration"
+            },
+            {
+              "description": "An array of objects that describe the current configuration of the volume."
+            }
+          ]
+        },
+        "finding": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/EBSFinding"
+            },
+            {
+              "description": "<p>The finding classification for the volume.</p> <p>Findings for volumes include:</p> <ul> <li> <p> <b> <code>NotOptimized</code> </b>—A volume is considered not optimized when AWS Compute Optimizer identifies a recommendation that can provide better performance for your workload.</p> </li> <li> <p> <b> <code>Optimized</code> </b>—An volume is considered optimized when Compute Optimizer determines that the volume is correctly provisioned to run your workload based on the chosen volume type. For optimized resources, Compute Optimizer might recommend a new generation volume type.</p> </li> </ul>"
+            }
+          ]
+        },
+        "lastRefreshTimestamp": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/LastRefreshTimestamp"
+            },
+            {
+              "description": "The time stamp of when the volume recommendation was last refreshed."
+            }
+          ]
+        },
+        "lookBackPeriodInDays": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/LookBackPeriodInDays"
+            },
+            {
+              "description": "The number of days for which utilization metrics were analyzed for the volume."
+            }
+          ]
+        },
+        "utilizationMetrics": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/EBSUtilizationMetrics"
+            },
+            {
+              "description": "An array of objects that describe the utilization metrics of the volume."
+            }
+          ]
+        },
+        "volumeArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/VolumeArn"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the current volume."
+            }
+          ]
+        },
+        "volumeRecommendationOptions": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/VolumeRecommendationOptions"
+            },
+            {
+              "description": "An array of objects that describe the recommendation options for the volume."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "VolumeRecommendationOption": {
+      "description": "Describes a recommendation option for an Amazon Elastic Block Store (Amazon EBS) instance.",
+      "properties": {
+        "configuration": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/VolumeConfiguration"
+            },
+            {
+              "description": "An array of objects that describe a volume configuration."
+            }
+          ]
+        },
+        "performanceRisk": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PerformanceRisk"
+            },
+            {
+              "description": "<p>The performance risk of the volume recommendation option.</p> <p>Performance risk is the likelihood of the recommended volume type not meeting the performance requirement of your workload.</p> <p>The lowest performance risk is categorized as <code>0</code>, and the highest as <code>5</code>.</p>"
+            }
+          ]
+        },
+        "rank": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Rank"
+            },
+            {
+              "description": "<p>The rank of the volume recommendation option.</p> <p>The top recommendation option is ranked as <code>1</code>.</p>"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "VolumeRecommendationOptions": {
+      "items": {
+        "$ref": "#/definitions/VolumeRecommendationOption"
+      },
+      "type": "array"
+    },
+    "VolumeRecommendations": {
+      "items": {
+        "$ref": "#/definitions/VolumeRecommendation"
+      },
+      "type": "array"
+    },
+    "VolumeSize": {
+      "type": "integer"
+    },
+    "VolumeType": {
+      "type": "string"
+    }
+  },
+  "securityDefinitions": {
+    "hmac": {
+      "description": "Amazon Signature authorization v4",
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey",
+      "x-amazon-apigateway-authtype": "awsSigv4"
+    }
+  },
+  "security": [
+    {
+      "hmac": []
+    }
+  ],
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://docs.aws.amazon.com/compute-optimizer/"
+  },
+  "x-components": {
+    "parameters": {
+      "X-Amz-Algorithm": {
+        "in": "header",
+        "name": "X-Amz-Algorithm",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Content-Sha256": {
+        "in": "header",
+        "name": "X-Amz-Content-Sha256",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Credential": {
+        "in": "header",
+        "name": "X-Amz-Credential",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Date": {
+        "in": "header",
+        "name": "X-Amz-Date",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Security-Token": {
+        "in": "header",
+        "name": "X-Amz-Security-Token",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Signature": {
+        "in": "header",
+        "name": "X-Amz-Signature",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-SignedHeaders": {
+        "in": "header",
+        "name": "X-Amz-SignedHeaders",
+        "required": false,
+        "type": "string"
+      }
+    }
+  },
+  "x-hasEquivalentPaths": true
+}

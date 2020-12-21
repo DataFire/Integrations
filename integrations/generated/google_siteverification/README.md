@@ -1,6 +1,6 @@
 # @datafire/google_siteverification
 
-Client library for Google Site Verification
+Client library for Google Site Verification API
 
 ## Installation and Usage
 ```bash
@@ -15,7 +15,7 @@ let google_siteverification = require('@datafire/google_siteverification').creat
   redirect_uri: ""
 });
 
-google_siteverification.webResource.list({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -67,12 +67,12 @@ google_siteverification.oauthRefresh(null, context)
   * scope `string`
   * expiration `string`
 
-### webResource.getToken
+### siteVerification.webResource.getToken
 Get a verification token for placing on a website or domain.
 
 
 ```js
-google_siteverification.webResource.getToken({}, context)
+google_siteverification.siteVerification.webResource.getToken({}, context)
 ```
 
 #### Input
@@ -89,12 +89,12 @@ google_siteverification.webResource.getToken({}, context)
 #### Output
 * output [SiteVerificationWebResourceGettokenResponse](#siteverificationwebresourcegettokenresponse)
 
-### webResource.list
+### siteVerification.webResource.list
 Get the list of your verified websites and domains.
 
 
 ```js
-google_siteverification.webResource.list({}, context)
+google_siteverification.siteVerification.webResource.list({}, context)
 ```
 
 #### Input
@@ -110,20 +110,20 @@ google_siteverification.webResource.list({}, context)
 #### Output
 * output [SiteVerificationWebResourceListResponse](#siteverificationwebresourcelistresponse)
 
-### webResource.insert
+### siteVerification.webResource.insert
 Attempt verification of a website or domain.
 
 
 ```js
-google_siteverification.webResource.insert({
+google_siteverification.siteVerification.webResource.insert({
   "verificationMethod": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * body [SiteVerificationWebResourceResource](#siteverificationwebresourceresource)
   * verificationMethod **required** `string`: The method to use for verifying a site or domain.
+  * body [SiteVerificationWebResourceResource](#siteverificationwebresourceresource)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -135,12 +135,12 @@ google_siteverification.webResource.insert({
 #### Output
 * output [SiteVerificationWebResourceResource](#siteverificationwebresourceresource)
 
-### webResource.delete
+### siteVerification.webResource.delete
 Relinquish ownership of a website or domain.
 
 
 ```js
-google_siteverification.webResource.delete({
+google_siteverification.siteVerification.webResource.delete({
   "id": ""
 }, context)
 ```
@@ -159,12 +159,12 @@ google_siteverification.webResource.delete({
 #### Output
 *Output schema unknown*
 
-### webResource.get
+### siteVerification.webResource.get
 Get the most current data for a website or domain.
 
 
 ```js
-google_siteverification.webResource.get({
+google_siteverification.siteVerification.webResource.get({
   "id": ""
 }, context)
 ```
@@ -183,20 +183,20 @@ google_siteverification.webResource.get({
 #### Output
 * output [SiteVerificationWebResourceResource](#siteverificationwebresourceresource)
 
-### webResource.patch
+### siteVerification.webResource.patch
 Modify the list of owners for your website or domain. This method supports patch semantics.
 
 
 ```js
-google_siteverification.webResource.patch({
+google_siteverification.siteVerification.webResource.patch({
   "id": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * body [SiteVerificationWebResourceResource](#siteverificationwebresourceresource)
   * id **required** `string`: The id of a verified site or domain.
+  * body [SiteVerificationWebResourceResource](#siteverificationwebresourceresource)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -208,20 +208,20 @@ google_siteverification.webResource.patch({
 #### Output
 * output [SiteVerificationWebResourceResource](#siteverificationwebresourceresource)
 
-### webResource.update
+### siteVerification.webResource.update
 Modify the list of owners for your website or domain.
 
 
 ```js
-google_siteverification.webResource.update({
+google_siteverification.siteVerification.webResource.update({
   "id": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * body [SiteVerificationWebResourceResource](#siteverificationwebresourceresource)
   * id **required** `string`: The id of a verified site or domain.
+  * body [SiteVerificationWebResourceResource](#siteverificationwebresourceresource)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.

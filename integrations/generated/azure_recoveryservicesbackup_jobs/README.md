@@ -15,12 +15,7 @@ let azure_recoveryservicesbackup_jobs = require('@datafire/azure_recoveryservice
   redirect_uri: ""
 });
 
-azure_recoveryservicesbackup_jobs.BackupJobs_List({
-  "api-version": "",
-  "vaultName": "",
-  "resourceGroupName": "",
-  "subscriptionId": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

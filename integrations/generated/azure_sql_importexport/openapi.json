@@ -51,21 +51,6 @@
     }
   },
   "parameters": {
-    "ApiVersionParameter": {
-      "description": "The API version to use for the request.",
-      "in": "query",
-      "name": "api-version",
-      "required": true,
-      "type": "string"
-    },
-    "ResourceGroupParameter": {
-      "description": "The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.",
-      "in": "path",
-      "name": "resourceGroupName",
-      "required": true,
-      "type": "string",
-      "x-ms-parameter-location": "method"
-    },
     "ServerNameParameter": {
       "description": "The name of the server.",
       "in": "path",
@@ -73,13 +58,6 @@
       "required": true,
       "type": "string",
       "x-ms-parameter-location": "method"
-    },
-    "SubscriptionIdParameter": {
-      "description": "The subscription ID that identifies an Azure subscription.",
-      "in": "path",
-      "name": "subscriptionId",
-      "required": true,
-      "type": "string"
     }
   },
   "paths": {
@@ -89,13 +67,28 @@
         "operationId": "Databases_Export",
         "parameters": [
           {
-            "$ref": "#/parameters/ApiVersionParameter"
+            "description": "The API version to use for the request.",
+            "in": "query",
+            "name": "api-version",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "client"
           },
           {
-            "$ref": "#/parameters/SubscriptionIdParameter"
+            "description": "The subscription ID that identifies an Azure subscription.",
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "client"
           },
           {
-            "$ref": "#/parameters/ResourceGroupParameter"
+            "description": "The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.",
+            "in": "path",
+            "name": "resourceGroupName",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "$ref": "#/parameters/ServerNameParameter"
@@ -150,20 +143,22 @@
             },
             "responses": {
               "200": {
-                "id": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/sqlcrudtest-4799/providers/Microsoft.Sql/servers/sqlcrudtest-5961/importExportOperationResult/f01d7bfe-7162-44e7-9350-f1c85ce83e4c",
-                "name": "f01d7bfe-7162-44e7-9350-f1c85ce83e4c",
-                "properties": {
-                  "blobUri": "https://test.blob.core.windows.net/bacpacs/test.bacpac",
-                  "databaseName": "testdb",
-                  "errorMessage": null,
-                  "lastModifiedTime": "3/1/2017 12:16:33 AM",
-                  "queuedTime": "3/1/2017 12:14:25 AM",
-                  "requestId": "f01d7bfe-7162-44e7-9350-f1c85ce83e4c",
-                  "requestType": "Export",
-                  "serverName": "test",
-                  "status": "Completed"
-                },
-                "type": "Microsoft.Sql/servers/importExportOperationResults"
+                "body": {
+                  "id": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/sqlcrudtest-4799/providers/Microsoft.Sql/servers/sqlcrudtest-5961/importExportOperationResult/f01d7bfe-7162-44e7-9350-f1c85ce83e4c",
+                  "name": "f01d7bfe-7162-44e7-9350-f1c85ce83e4c",
+                  "properties": {
+                    "blobUri": "https://test.blob.core.windows.net/bacpacs/test.bacpac",
+                    "databaseName": "testdb",
+                    "errorMessage": null,
+                    "lastModifiedTime": "3/1/2017 12:16:33 AM",
+                    "queuedTime": "3/1/2017 12:14:25 AM",
+                    "requestId": "f01d7bfe-7162-44e7-9350-f1c85ce83e4c",
+                    "requestType": "Export",
+                    "serverName": "test",
+                    "status": "Completed"
+                  },
+                  "type": "Microsoft.Sql/servers/importExportOperationResults"
+                }
               },
               "202": {}
             }
@@ -186,20 +181,22 @@
             },
             "responses": {
               "200": {
-                "id": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/sqlcrudtest-4799/providers/Microsoft.Sql/servers/sqlcrudtest-5961/importExportOperationResult/f01d7bfe-7162-44e7-9350-f1c85ce83e4c",
-                "name": "f01d7bfe-7162-44e7-9350-f1c85ce83e4c",
-                "properties": {
-                  "blobUri": "https://test.blob.core.windows.net/bacpacs/test.bacpac",
-                  "databaseName": "testdb",
-                  "errorMessage": null,
-                  "lastModifiedTime": "3/1/2017 12:16:33 AM",
-                  "queuedTime": "3/1/2017 12:14:25 AM",
-                  "requestId": "f01d7bfe-7162-44e7-9350-f1c85ce83e4c",
-                  "requestType": "Export",
-                  "serverName": "test",
-                  "status": "Completed"
-                },
-                "type": "Microsoft.Sql/servers/importExportOperationResults"
+                "body": {
+                  "id": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/sqlcrudtest-4799/providers/Microsoft.Sql/servers/sqlcrudtest-5961/importExportOperationResult/f01d7bfe-7162-44e7-9350-f1c85ce83e4c",
+                  "name": "f01d7bfe-7162-44e7-9350-f1c85ce83e4c",
+                  "properties": {
+                    "blobUri": "https://test.blob.core.windows.net/bacpacs/test.bacpac",
+                    "databaseName": "testdb",
+                    "errorMessage": null,
+                    "lastModifiedTime": "3/1/2017 12:16:33 AM",
+                    "queuedTime": "3/1/2017 12:14:25 AM",
+                    "requestId": "f01d7bfe-7162-44e7-9350-f1c85ce83e4c",
+                    "requestType": "Export",
+                    "serverName": "test",
+                    "status": "Completed"
+                  },
+                  "type": "Microsoft.Sql/servers/importExportOperationResults"
+                }
               },
               "202": {}
             }
@@ -214,13 +211,28 @@
         "operationId": "Databases_CreateImportOperation",
         "parameters": [
           {
-            "$ref": "#/parameters/ApiVersionParameter"
+            "description": "The API version to use for the request.",
+            "in": "query",
+            "name": "api-version",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "client"
           },
           {
-            "$ref": "#/parameters/SubscriptionIdParameter"
+            "description": "The subscription ID that identifies an Azure subscription.",
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "client"
           },
           {
-            "$ref": "#/parameters/ResourceGroupParameter"
+            "description": "The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.",
+            "in": "path",
+            "name": "resourceGroupName",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "$ref": "#/parameters/ServerNameParameter"
@@ -451,13 +463,28 @@
         "operationId": "Databases_Import",
         "parameters": [
           {
-            "$ref": "#/parameters/ApiVersionParameter"
+            "description": "The API version to use for the request.",
+            "in": "query",
+            "name": "api-version",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "client"
           },
           {
-            "$ref": "#/parameters/SubscriptionIdParameter"
+            "description": "The subscription ID that identifies an Azure subscription.",
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "client"
           },
           {
-            "$ref": "#/parameters/ResourceGroupParameter"
+            "description": "The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.",
+            "in": "path",
+            "name": "resourceGroupName",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "$ref": "#/parameters/ServerNameParameter"
@@ -852,7 +879,7 @@
           "type": "string"
         },
         "edition": {
-          "description": "The edition for the database being created.",
+          "description": "The edition for the database being created.\r\n\r\nThe list of SKUs may vary by region and support offer. To determine the SKUs (including the SKU name, tier/edition, family, and capacity) that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API or one of the following commands:\r\n\r\n```azurecli\r\naz sql db list-editions -l <location> -o table\r\n````\r\n\r\n```powershell\r\nGet-AzSqlServerServiceObjective -Location <location>\r\n````\r\n",
           "enum": [
             "Web",
             "Business",
@@ -864,7 +891,10 @@
             "Stretch",
             "DataWarehouse",
             "System",
-            "System2"
+            "System2",
+            "GeneralPurpose",
+            "BusinessCritical",
+            "Hyperscale"
           ],
           "type": "string",
           "x-ms-enum": {

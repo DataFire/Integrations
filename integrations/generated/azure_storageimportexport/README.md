@@ -15,9 +15,7 @@ let azure_storageimportexport = require('@datafire/azure_storageimportexport').c
   redirect_uri: ""
 });
 
-azure_storageimportexport.Locations_List({
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

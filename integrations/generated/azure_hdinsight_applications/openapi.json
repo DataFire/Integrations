@@ -7,7 +7,7 @@
   "info": {
     "description": "The HDInsight Management Client.",
     "title": "HDInsightManagementClient",
-    "version": "2015-03-01-preview",
+    "version": "2018-06-01-preview",
     "x-apisguru-categories": [
       "cloud"
     ],
@@ -17,7 +17,7 @@
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/hdinsight/resource-manager/Microsoft.HDInsight/preview/2015-03-01-preview/applications.json",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/hdinsight/resource-manager/Microsoft.HDInsight/stable/2018-06-01-preview/applications.json",
         "version": "2.0"
       }
     ],
@@ -65,6 +65,30 @@
       "required": true,
       "type": "string"
     },
+    "ApplicationNameParameter": {
+      "description": "The constant value for the application name.",
+      "in": "path",
+      "name": "applicationName",
+      "required": true,
+      "type": "string",
+      "x-ms-parameter-location": "method"
+    },
+    "ClusterNameParameter": {
+      "description": "The name of the cluster.",
+      "in": "path",
+      "name": "clusterName",
+      "required": true,
+      "type": "string",
+      "x-ms-parameter-location": "method"
+    },
+    "ResourceGroupNameParameter": {
+      "description": "The name of the resource group.",
+      "in": "path",
+      "name": "resourceGroupName",
+      "required": true,
+      "type": "string",
+      "x-ms-parameter-location": "method"
+    },
     "SubscriptionIdParameter": {
       "description": "The subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
       "in": "path",
@@ -76,28 +100,20 @@
   "paths": {
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HDInsight/clusters/{clusterName}/applications": {
       "get": {
-        "description": "Lists all of the applications HDInsight cluster.",
-        "operationId": "Applications_List",
+        "description": "Lists all of the applications for the HDInsight cluster.",
+        "operationId": "Applications_ListByCluster",
         "parameters": [
           {
-            "description": "The name of the resource group.",
-            "in": "path",
-            "name": "resourceGroupName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/SubscriptionIdParameter"
           },
           {
-            "description": "The name of the cluster.",
-            "in": "path",
-            "name": "clusterName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ClusterNameParameter"
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
-          },
-          {
-            "$ref": "#/parameters/SubscriptionIdParameter"
           }
         ],
         "responses": {
@@ -105,6 +121,23 @@
             "description": "OK. The request has succeeded.",
             "schema": {
               "$ref": "#/definitions/ApplicationListResult"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "description": "Describes the format of Error response.",
+              "properties": {
+                "code": {
+                  "description": "Error code",
+                  "type": "string"
+                },
+                "message": {
+                  "description": "Error message indicating why the operation failed.",
+                  "type": "string"
+                }
+              },
+              "type": "object"
             }
           }
         },
@@ -114,7 +147,7 @@
         "x-ms-examples": {
           "Get All Applications for an HDInsight cluster": {
             "parameters": {
-              "api-version": "2015-03-01-preview",
+              "api-version": "2018-06-01-preview",
               "clusterName": "cluster1",
               "resourceGroupName": "rg1",
               "subscriptionId": "subid"
@@ -242,43 +275,44 @@
         "operationId": "Applications_Delete",
         "parameters": [
           {
-            "description": "The name of the resource group.",
-            "in": "path",
-            "name": "resourceGroupName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/SubscriptionIdParameter"
           },
           {
-            "description": "The name of the cluster.",
-            "in": "path",
-            "name": "clusterName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/ResourceGroupNameParameter"
           },
           {
-            "description": "The constant value for the application name.",
-            "enum": [
-              "hue"
-            ],
-            "in": "path",
-            "name": "applicationName",
-            "required": true,
-            "type": "string",
-            "x-ms-enum": {
-              "modelAsString": false,
-              "name": "ApplicationName"
-            }
+            "$ref": "#/parameters/ClusterNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ApplicationNameParameter"
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
-          },
-          {
-            "$ref": "#/parameters/SubscriptionIdParameter"
           }
         ],
         "responses": {
           "200": {
             "description": "OK. The request has succeeded."
+          },
+          "202": {
+            "description": "Accepted response definition."
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "description": "Describes the format of Error response.",
+              "properties": {
+                "code": {
+                  "description": "Error code",
+                  "type": "string"
+                },
+                "message": {
+                  "description": "Error message indicating why the operation failed.",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
           }
         },
         "tags": [
@@ -287,7 +321,7 @@
         "x-ms-examples": {
           "Delete Application from HDInsight cluster": {
             "parameters": {
-              "api-version": "2015-03-01-preview",
+              "api-version": "2018-06-01-preview",
               "applicationName": "hue",
               "clusterName": "cluster1",
               "resourceGroupName": "rg1",
@@ -298,42 +332,31 @@
                 "headers": {
                   "location": "https://management.azure.com/subscriptions/subid/providers/Microsoft.HDInsight/pathToOperationResult"
                 }
-              }
+              },
+              "202": {}
             }
           }
         },
         "x-ms-long-running-operation": true
       },
       "get": {
-        "description": "Lists properties of the specified application.",
+        "description": "Gets properties of the specified application.",
         "operationId": "Applications_Get",
         "parameters": [
-          {
-            "description": "The name of the resource group.",
-            "in": "path",
-            "name": "resourceGroupName",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The name of the cluster.",
-            "in": "path",
-            "name": "clusterName",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "$ref": "#/parameters/ApiVersionParameter"
-          },
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
           },
           {
-            "description": "The constant value for the application name.",
-            "in": "path",
-            "name": "applicationName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ClusterNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ApplicationNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
           }
         ],
         "responses": {
@@ -341,6 +364,23 @@
             "description": "OK. The request has succeeded.",
             "schema": {
               "$ref": "#/definitions/Application"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "description": "Describes the format of Error response.",
+              "properties": {
+                "code": {
+                  "description": "Error code",
+                  "type": "string"
+                },
+                "message": {
+                  "description": "Error message indicating why the operation failed.",
+                  "type": "string"
+                }
+              },
+              "type": "object"
             }
           }
         },
@@ -350,7 +390,7 @@
         "x-ms-examples": {
           "Get application on HDInsight cluster creation in progress": {
             "parameters": {
-              "api-version": "2015-03-01-preview",
+              "api-version": "2018-06-01-preview",
               "applicationName": "app",
               "clusterName": "cluster1",
               "resourceGroupName": "rg1",
@@ -411,7 +451,7 @@
           },
           "Get application on HDInsight cluster successfully created.": {
             "parameters": {
-              "api-version": "2015-03-01-preview",
+              "api-version": "2018-06-01-preview",
               "applicationName": "app",
               "clusterName": "cluster1",
               "resourceGroupName": "rg1",
@@ -483,32 +523,19 @@
         "operationId": "Applications_Create",
         "parameters": [
           {
-            "description": "The name of the resource group.",
-            "in": "path",
-            "name": "resourceGroupName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/SubscriptionIdParameter"
           },
           {
-            "description": "The name of the cluster.",
-            "in": "path",
-            "name": "clusterName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/ResourceGroupNameParameter"
           },
           {
-            "description": "The constant value for the application name.",
-            "enum": [
-              "hue"
-            ],
-            "in": "path",
-            "name": "applicationName",
-            "required": true,
-            "type": "string",
-            "x-ms-enum": {
-              "modelAsString": false,
-              "name": "ApplicationName"
-            }
+            "$ref": "#/parameters/ClusterNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ApplicationNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
           },
           {
             "description": "The application create request.",
@@ -516,14 +543,8 @@
             "name": "parameters",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/ApplicationGetProperties"
+              "$ref": "#/definitions/Application"
             }
-          },
-          {
-            "$ref": "#/parameters/ApiVersionParameter"
-          },
-          {
-            "$ref": "#/parameters/SubscriptionIdParameter"
           }
         ],
         "responses": {
@@ -531,6 +552,23 @@
             "description": "OK. The request has succeeded.",
             "schema": {
               "$ref": "#/definitions/Application"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "description": "Describes the format of Error response.",
+              "properties": {
+                "code": {
+                  "description": "Error code",
+                  "type": "string"
+                },
+                "message": {
+                  "description": "Error message indicating why the operation failed.",
+                  "type": "string"
+                }
+              },
+              "type": "object"
             }
           }
         },
@@ -540,44 +578,45 @@
         "x-ms-examples": {
           "Create Application": {
             "parameters": {
-              "api-version": "2015-03-01-preview",
+              "api-version": "2018-06-01-preview",
               "applicationName": "hue",
               "clusterName": "cluster1",
               "parameters": {
-                "applicationType": "CustomApplication",
-                "computeProfile": {
-                  "roles": [
-                    {
-                      "hardwareProfile": {
-                        "vmSize": "Standard_D12_v2"
-                      },
-                      "name": "edgenode",
-                      "targetInstanceCount": 1
-                    }
-                  ]
-                },
-                "errors": [],
-                "httpsEndpoints": [
-                  {
-                    "accessModes": [
-                      "WebPage"
-                    ],
-                    "destinationPort": 20000,
-                    "subDomainSuffix": "dss"
-                  }
-                ],
-                "installScriptActions": [
-                  {
-                    "name": "app-install-app1",
-                    "parameters": "-version latest -port 20000",
+                "properties": {
+                  "applicationType": "CustomApplication",
+                  "computeProfile": {
                     "roles": [
-                      "edgenode"
-                    ],
-                    "uri": "https://.../install.sh"
-                  }
-                ],
-                "provisioningState": "",
-                "uninstallScriptActions": []
+                      {
+                        "hardwareProfile": {
+                          "vmSize": "Standard_D12_v2"
+                        },
+                        "name": "edgenode",
+                        "targetInstanceCount": 1
+                      }
+                    ]
+                  },
+                  "errors": [],
+                  "httpsEndpoints": [
+                    {
+                      "accessModes": [
+                        "WebPage"
+                      ],
+                      "destinationPort": 20000,
+                      "subDomainSuffix": "dss"
+                    }
+                  ],
+                  "installScriptActions": [
+                    {
+                      "name": "app-install-app1",
+                      "parameters": "-version latest -port 20000",
+                      "roles": [
+                        "edgenode"
+                      ],
+                      "uri": "https://.../install.sh"
+                    }
+                  ],
+                  "uninstallScriptActions": []
+                }
               },
               "resourceGroupName": "rg1",
               "subscriptionId": "subid"
@@ -585,27 +624,56 @@
             "responses": {
               "200": {
                 "body": {
-                  "etag": "",
-                  "id": "",
-                  "name": "",
+                  "etag": "etag",
+                  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.HDInsight/clusters/cluster1/applications/hue",
+                  "name": "hue",
                   "properties": {
-                    "applicationState": "",
-                    "computeProfile": {},
+                    "applicationState": "ApplicationConfiguration",
+                    "applicationType": "CustomApplication",
+                    "computeProfile": {
+                      "roles": [
+                        {
+                          "hardwareProfile": {
+                            "vmSize": "Standard_D12_v2"
+                          },
+                          "name": "edgenode",
+                          "targetInstanceCount": 1
+                        }
+                      ]
+                    },
                     "createdDate": "2017-02-28",
                     "errors": [],
-                    "httpsEndpoints": [],
-                    "installScriptActions": [],
-                    "provisioningState": "",
+                    "httpsEndpoints": [
+                      {
+                        "accessModes": [
+                          "WebPage"
+                        ],
+                        "destinationPort": 20000,
+                        "subDomainSuffix": "dss"
+                      }
+                    ],
+                    "installScriptActions": [
+                      {
+                        "name": "app-install-app1",
+                        "parameters": "-version latest -port 20000",
+                        "roles": [
+                          "edgenode"
+                        ],
+                        "uri": "https://.../install.sh"
+                      }
+                    ],
+                    "provisioningState": "InProgress",
                     "sshEndpoints": [],
                     "uninstallScriptActions": []
                   },
                   "tags": {},
-                  "type": ""
+                  "type": "Microsoft.HDInsight/clusters/applications"
                 }
               }
             }
           }
-        }
+        },
+        "x-ms-long-running-operation": true
       }
     }
   },
@@ -646,7 +714,7 @@
           "type": "string"
         },
         "properties": {
-          "$ref": "#/definitions/ApplicationGetProperties",
+          "$ref": "#/definitions/ApplicationProperties",
           "description": "The properties of the application."
         },
         "tags": {
@@ -680,9 +748,6 @@
       "type": "object"
     },
     "ApplicationGetHttpsEndpoint": {
-      "additionalProperties": {
-        "type": "string"
-      },
       "description": "Gets the application HTTP endpoints.",
       "properties": {
         "accessModes": {
@@ -697,6 +762,10 @@
           "format": "int32",
           "type": "integer"
         },
+        "disableGatewayAuth": {
+          "description": "The value indicates whether to disable GatewayAuth.",
+          "type": "boolean"
+        },
         "location": {
           "description": "The location of the endpoint.",
           "type": "string"
@@ -705,17 +774,34 @@
           "description": "The public port to connect to.",
           "format": "int32",
           "type": "integer"
+        },
+        "subDomainSuffix": {
+          "description": "The subdomain suffix of the application.",
+          "type": "string"
         }
       },
       "type": "object"
     },
-    "ApplicationGetProperties": {
-      "description": "The HDInsight cluster application GET response.",
+    "ApplicationListResult": {
+      "description": "Result of the request to list cluster Applications. It contains a list of operations and a URL link to get the next set of results.",
       "properties": {
-        "additionalProperties": {
-          "description": "The additional properties for application.",
+        "nextLink": {
+          "description": "The URL to get the next set of operation list results if there are any.",
+          "readOnly": true,
           "type": "string"
         },
+        "value": {
+          "description": "The list of HDInsight applications installed on HDInsight cluster.",
+          "items": {
+            "$ref": "#/definitions/Application"
+          },
+          "type": "array"
+        }
+      }
+    },
+    "ApplicationProperties": {
+      "description": "The HDInsight cluster application GET response.",
+      "properties": {
         "applicationState": {
           "description": "The application state.",
           "readOnly": true,
@@ -733,6 +819,83 @@
               "items": {
                 "description": "Describes a role on the cluster.",
                 "properties": {
+                  "autoscale": {
+                    "description": "The autoscale request parameters",
+                    "properties": {
+                      "capacity": {
+                        "description": "The load-based autoscale request parameters",
+                        "properties": {
+                          "maxInstanceCount": {
+                            "description": "The maximum instance count of the cluster",
+                            "format": "int32",
+                            "type": "integer"
+                          },
+                          "minInstanceCount": {
+                            "description": "The minimum instance count of the cluster",
+                            "format": "int32",
+                            "type": "integer"
+                          }
+                        }
+                      },
+                      "recurrence": {
+                        "description": "Schedule-based autoscale request parameters",
+                        "properties": {
+                          "schedule": {
+                            "description": "Array of schedule-based autoscale rules",
+                            "items": {
+                              "description": "Parameters for a schedule-based autoscale rule, consisting of an array of days + a time and capacity",
+                              "properties": {
+                                "days": {
+                                  "description": "Days of the week for a schedule-based autoscale rule",
+                                  "items": {
+                                    "enum": [
+                                      "Monday",
+                                      "Tuesday",
+                                      "Wednesday",
+                                      "Thursday",
+                                      "Friday",
+                                      "Saturday",
+                                      "Sunday"
+                                    ],
+                                    "type": "string",
+                                    "x-ms-enum": {
+                                      "modelAsString": false,
+                                      "name": "DaysOfWeek"
+                                    }
+                                  },
+                                  "type": "array"
+                                },
+                                "timeAndCapacity": {
+                                  "description": "Time and capacity request parameters",
+                                  "properties": {
+                                    "maxInstanceCount": {
+                                      "description": "The maximum instance count of the cluster",
+                                      "format": "int32",
+                                      "type": "integer"
+                                    },
+                                    "minInstanceCount": {
+                                      "description": "The minimum instance count of the cluster",
+                                      "format": "int32",
+                                      "type": "integer"
+                                    },
+                                    "time": {
+                                      "description": "24-hour time in the form xx:xx",
+                                      "type": "string"
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "type": "array"
+                          },
+                          "timeZone": {
+                            "description": "The time zone for the autoscale schedule times",
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  },
                   "dataDisksGroups": {
                     "description": "The data disks groups for the role.",
                     "items": {
@@ -985,23 +1148,6 @@
         }
       },
       "type": "object"
-    },
-    "ApplicationListResult": {
-      "description": "Result of the request to list cluster Applications. It contains a list of operations and a URL link to get the next set of results.",
-      "properties": {
-        "nextLink": {
-          "description": "The URL to get the next set of operation list results if there are any.",
-          "readOnly": true,
-          "type": "string"
-        },
-        "value": {
-          "description": "The list of HDInsight applications installed on HDInsight cluster.",
-          "items": {
-            "$ref": "#/definitions/Application"
-          },
-          "type": "array"
-        }
-      }
     }
   }
 }

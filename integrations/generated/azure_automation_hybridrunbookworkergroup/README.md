@@ -15,12 +15,7 @@ let azure_automation_hybridrunbookworkergroup = require('@datafire/azure_automat
   redirect_uri: ""
 });
 
-azure_automation_hybridrunbookworkergroup.HybridRunbookWorkerGroup_ListByAutomationAccount({
-  "resourceGroupName": "",
-  "automationAccountName": "",
-  "subscriptionId": "",
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -47,26 +42,13 @@ azure_automation_hybridrunbookworkergroup.HybridRunbookWorkerGroup_ListByAutomat
 #### Input
 * input `object`
   * resourceGroupName **required** `string`: Name of an Azure Resource group.
-  * automationAccountName **required** `string`: The automation account name.
+  * automationAccountName **required** `string`: The name of the automation account.
   * $filter `string`: The filter to apply on the operation.
   * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
   * api-version **required** `string`: Client Api Version.
 
 #### Output
-* output `object`: The response model for the list hybrid runbook worker groups.
-  * nextLink `string`: Gets or sets the next link.
-  * value `array`: Gets or sets a list of hybrid runbook worker groups.
-    * items `object`: Definition of hybrid runbook worker group.
-      * credential `object`: Definition of runas credential to use for hybrid worker.
-        * name `string`: Gets or sets the name of the credential.
-      * hybridRunbookWorkers `array`: Gets or sets the list of hybrid runbook workers.
-        * items `object`: Definition of hybrid runbook worker.
-          * ip `string`: Gets or sets the assigned machine IP address.
-          * lastSeenDateTime `string`: Last Heartbeat from the Worker
-          * name `string`: Gets or sets the worker machine name.
-          * registrationTime `string`: Gets or sets the registration time of the worker machine.
-      * id `string`: Gets or sets the id of the resource.
-      * name `string`: Gets or sets the name of the group.
+* output [HybridRunbookWorkerGroupsListResult](#hybridrunbookworkergroupslistresult)
 
 ### HybridRunbookWorkerGroup_Delete
 Delete a hybrid runbook worker group.
@@ -85,7 +67,7 @@ azure_automation_hybridrunbookworkergroup.HybridRunbookWorkerGroup_Delete({
 #### Input
 * input `object`
   * resourceGroupName **required** `string`: Name of an Azure Resource group.
-  * automationAccountName **required** `string`: Automation account name.
+  * automationAccountName **required** `string`: The name of the automation account.
   * hybridRunbookWorkerGroupName **required** `string`: The hybrid runbook worker group name
   * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
   * api-version **required** `string`: Client Api Version.
@@ -110,23 +92,13 @@ azure_automation_hybridrunbookworkergroup.HybridRunbookWorkerGroup_Get({
 #### Input
 * input `object`
   * resourceGroupName **required** `string`: Name of an Azure Resource group.
-  * automationAccountName **required** `string`: The automation account name.
+  * automationAccountName **required** `string`: The name of the automation account.
   * hybridRunbookWorkerGroupName **required** `string`: The hybrid runbook worker group name
   * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
   * api-version **required** `string`: Client Api Version.
 
 #### Output
-* output `object`: Definition of hybrid runbook worker group.
-  * credential `object`: Definition of runas credential to use for hybrid worker.
-    * name `string`: Gets or sets the name of the credential.
-  * hybridRunbookWorkers `array`: Gets or sets the list of hybrid runbook workers.
-    * items `object`: Definition of hybrid runbook worker.
-      * ip `string`: Gets or sets the assigned machine IP address.
-      * lastSeenDateTime `string`: Last Heartbeat from the Worker
-      * name `string`: Gets or sets the worker machine name.
-      * registrationTime `string`: Gets or sets the registration time of the worker machine.
-  * id `string`: Gets or sets the id of the resource.
-  * name `string`: Gets or sets the name of the group.
+* output [HybridRunbookWorkerGroup](#hybridrunbookworkergroup)
 
 ### HybridRunbookWorkerGroup_Update
 Update a hybrid runbook worker group.
@@ -146,29 +118,47 @@ azure_automation_hybridrunbookworkergroup.HybridRunbookWorkerGroup_Update({
 #### Input
 * input `object`
   * resourceGroupName **required** `string`: Name of an Azure Resource group.
-  * automationAccountName **required** `string`: The automation account name.
+  * automationAccountName **required** `string`: The name of the automation account.
   * hybridRunbookWorkerGroupName **required** `string`: The hybrid runbook worker group name
-  * parameters **required** `object`: Parameters supplied to the update operation.
-    * credential `object`: Definition of runas credential to use for hybrid worker.
-      * name `string`: Gets or sets the name of the credential.
+  * parameters **required** [HybridRunbookWorkerGroupUpdateParameters](#hybridrunbookworkergroupupdateparameters)
   * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
   * api-version **required** `string`: Client Api Version.
 
 #### Output
-* output `object`: Definition of hybrid runbook worker group.
-  * credential `object`: Definition of runas credential to use for hybrid worker.
-    * name `string`: Gets or sets the name of the credential.
-  * hybridRunbookWorkers `array`: Gets or sets the list of hybrid runbook workers.
-    * items `object`: Definition of hybrid runbook worker.
-      * ip `string`: Gets or sets the assigned machine IP address.
-      * lastSeenDateTime `string`: Last Heartbeat from the Worker
-      * name `string`: Gets or sets the worker machine name.
-      * registrationTime `string`: Gets or sets the registration time of the worker machine.
-  * id `string`: Gets or sets the id of the resource.
-  * name `string`: Gets or sets the name of the group.
+* output [HybridRunbookWorkerGroup](#hybridrunbookworkergroup)
 
 
 
 ## Definitions
 
-*This integration has no definitions*
+### HybridRunbookWorker
+* HybridRunbookWorker `object`: Definition of hybrid runbook worker.
+  * ip `string`: Gets or sets the assigned machine IP address.
+  * lastSeenDateTime `string`: Last Heartbeat from the Worker
+  * name `string`: Gets or sets the worker machine name.
+  * registrationTime `string`: Gets or sets the registration time of the worker machine.
+
+### HybridRunbookWorkerGroup
+* HybridRunbookWorkerGroup `object`: Definition of hybrid runbook worker group.
+  * credential [RunAsCredentialAssociationProperty](#runascredentialassociationproperty)
+  * groupType `string` (values: User, System): Type of the HybridWorkerGroup.
+  * hybridRunbookWorkers `array`: Gets or sets the list of hybrid runbook workers.
+    * items [HybridRunbookWorker](#hybridrunbookworker)
+  * id `string`: Gets or sets the id of the resource.
+  * name `string`: Gets or sets the name of the group.
+
+### HybridRunbookWorkerGroupUpdateParameters
+* HybridRunbookWorkerGroupUpdateParameters `object`: Parameters supplied to the update operation.
+  * credential [RunAsCredentialAssociationProperty](#runascredentialassociationproperty)
+
+### HybridRunbookWorkerGroupsListResult
+* HybridRunbookWorkerGroupsListResult `object`: The response model for the list hybrid runbook worker groups.
+  * nextLink `string`: Gets or sets the next link.
+  * value `array`: Gets or sets a list of hybrid runbook worker groups.
+    * items [HybridRunbookWorkerGroup](#hybridrunbookworkergroup)
+
+### RunAsCredentialAssociationProperty
+* RunAsCredentialAssociationProperty `object`: Definition of RunAs credential to use for hybrid worker.
+  * name `string`: Gets or sets the name of the credential.
+
+

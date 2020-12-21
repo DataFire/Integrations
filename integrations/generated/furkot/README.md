@@ -15,7 +15,7 @@ let furkot = require('@datafire/furkot').create({
   redirect_uri: ""
 });
 
-furkot.trip.get(null).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

@@ -1,6 +1,6 @@
 # @datafire/gov_bc_ca_geocoder
 
-Client library for Geocoder
+Client library for Geocoder REST API
 
 ## Installation and Usage
 ```bash
@@ -11,20 +11,30 @@ let gov_bc_ca_geocoder = require('@datafire/gov_bc_ca_geocoder').create({
   apikey: ""
 });
 
-gov_bc_ca_geocoder.addresses.outputFormat.get({
-  "outputFormat": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
 
 ## Description
 
-This API represents address cleaning, correction, completion, geocoding, reverse geocoding, and proximity resources for intersection addresses, physical addresses and their occupants in British Columbia. Two endpoints are provided for this API: one is public (apps.gov.bc.ca/pub/geocoder), the other is restricted (geocoder.api.gov.bc.ca) and requires an API key. For the public endpoint CORS is only enabled for gov.bc.ca, whereas the restricted endpoint allows CORS for all domains. Please read our [data collection notice](https://github.com/bcgov/api-specs/blob/master/COLLECTION_NOTICE.md#collection-notice).  
+This API represents address cleaning, correction, completion, geocoding, reverse geocoding, and proximity resources for intersection addresses, physical addresses and their occupants in British Columbia. Please read our [data collection notice](https://github.com/bcgov/api-specs/blob/master/COLLECTION_NOTICE.md#collection-notice).  
 
 Please note that you may experience issues when submitting requests to the delivery or test environment if using this [OpenAPI specification](https://github.com/bcgov/api-specs) in other API console viewers. 
 
-[Developer API keys](https://github.com/bcgov/gwa/wiki/Developer-Guide#developer-api-keys) are unique and provide the ability to make up to 2 requests per second. Production government applications may use organization API keys which are further described in [the Developer guide](https://github.com/bcgov/gwa/wiki/Developer-Guide#developer-api-keys).
+[Developer API keys](https://github.com/bcgov/gwa/wiki/Developer-Guide#developer-api-keys) are unique and can be acquired with a GitHub account. Production government applications may use organization API keys acquired by [contacting DataBC](https://forms.gov.bc.ca/databc-contact-us/). API keys are further described in the [Developer guide](https://github.com/bcgov/ols-geocoder/blob/gh-pages/geocoder-developer-guide.md).
+
+ **Notification:** If you have applications or web pages that link to the BC Address Geocoder you must use the following URL. 
+
+ *https://geocoder.api.gov.bc.ca* 
+
+ Please note that the following URLs were deprecated in September 2018 [More Details](https://www2.gov.bc.ca/gov/content?id=103ADC5A956842828554238DEF28D6E5). 
+
+ - http://apps.gov.bc.ca/pub/geocoder 
+ - https://apps.gov.bc.ca/pub/geocoder
+\
+\
+ 
 
 ## Actions
 
@@ -180,7 +190,7 @@ gov_bc_ca_geocoder.occupants.addresses.outputFormat.get({
 #### Input
 * input `object`
   * outputFormat **required** `string` (values: json, geojson, xhtml, kml, gml, csv, shpz): Results format. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#outputFormat target="_blank">outputFormat</a>
-  * addressString `string`: Occupant name followed by a frontGate delimiter ('--') followed by an optional address
+  * addressString `string`: Occupant name OR Occupant name ** address
   * tags `string`: Example: schools;courts;employment<br>A list of tags separated by semicolons.
   * locationDescriptor `string` (values: any, accessPoint, frontDoorPoint, parcelPoint, rooftopPoint, routingPoint): Describes the nature of the address location. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#locationDescriptor target="_blank">locationDescriptor</a>
   * maxResults `integer`: The maximum number of search results to return.

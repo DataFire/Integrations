@@ -15,12 +15,7 @@ let azure_automation_linkedworkspace = require('@datafire/azure_automation_linke
   redirect_uri: ""
 });
 
-azure_automation_linkedworkspace.LinkedWorkspace_Get({
-  "resourceGroupName": "",
-  "automationAccountName": "",
-  "subscriptionId": "",
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -47,16 +42,19 @@ azure_automation_linkedworkspace.LinkedWorkspace_Get({
 #### Input
 * input `object`
   * resourceGroupName **required** `string`: Name of an Azure Resource group.
-  * automationAccountName **required** `string`: The automation account name.
+  * automationAccountName **required** `string`: The name of the automation account.
   * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
   * api-version **required** `string`: Client Api Version.
 
 #### Output
-* output `object`: Definition of the linked workspace.
-  * id `string`: Gets the id of the linked workspace.
+* output [LinkedWorkspace](#linkedworkspace)
 
 
 
 ## Definitions
 
-*This integration has no definitions*
+### LinkedWorkspace
+* LinkedWorkspace `object`: Definition of the linked workspace.
+  * id `string`: Gets the id of the linked workspace.
+
+

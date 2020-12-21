@@ -722,7 +722,7 @@
           "type": "string"
         },
         "fqdn": {
-          "description": "FDQN for the agent pool.",
+          "description": "FQDN for the agent pool.",
           "readOnly": true,
           "type": "string"
         },
@@ -871,7 +871,7 @@
           "type": "string"
         },
         "fqdn": {
-          "description": "FDQN for the master.",
+          "description": "FQDN for the master.",
           "readOnly": true,
           "type": "string"
         }

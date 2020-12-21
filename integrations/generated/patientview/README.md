@@ -9,7 +9,7 @@ npm install --save @datafire/patientview
 ```js
 let patientview = require('@datafire/patientview').create();
 
-patientview.validatePatientManagement({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -383,13 +383,13 @@ patientview.getPatientEnteredObservationHeadings({
   * password `string`
   * username `string`
 
-### Entry«long,Map«string,List«FhirObservation»»»
-* Entry«long,Map«string,List«FhirObservation»»» `object`
+### Entry_long_Map_string_List_FhirObservation_
+* Entry_long_Map_string_List_FhirObservation_ `object`
   * key `array`
-    * items [Entry«string,List«FhirObservation»»](#entry«string,list«fhirobservation»»)
+    * items [Entry_string_List_FhirObservation_](#entry_string_list_fhirobservation_)
 
-### Entry«string,List«FhirObservation»»
-* Entry«string,List«FhirObservation»» `object`
+### Entry_string_List_FhirObservation_
+* Entry_string_List_FhirObservation_ `object`
   * key `array`
     * items [FhirObservation](#fhirobservation)
 
@@ -484,7 +484,7 @@ patientview.getPatientEnteredObservationHeadings({
 ### FhirObservationPage
 * FhirObservationPage `object`
   * data `array`
-    * items [Entry«long,Map«string,List«FhirObservation»»»](#entry«long,map«string,list«fhirobservation»»»)
+    * items [Entry_long_Map_string_List_FhirObservation_](#entry_long_map_string_list_fhirobservation_)
   * totalElements `integer`
   * totalPages `integer`
 
@@ -767,6 +767,7 @@ patientview.getPatientEnteredObservationHeadings({
   * secretWordChoices `object`
   * secretWordIndexes `array`
     * items `string`
+  * secretWordSalt `string`
   * secretWordToken `string`
   * securityRoles `array`
     * items [Role](#role)

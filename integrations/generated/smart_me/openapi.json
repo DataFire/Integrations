@@ -77,6 +77,52 @@
         ]
       }
     },
+    "/api/Account/login": {
+      "get": {
+        "consumes": [],
+        "deprecated": false,
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Object"
+            }
+          }
+        },
+        "tags": [
+          "Account"
+        ],
+        "operationId": "api.Account.login.get"
+      },
+      "post": {
+        "consumes": [],
+        "deprecated": false,
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Object"
+            }
+          }
+        },
+        "tags": [
+          "Account"
+        ],
+        "operationId": "api.Account.login.post"
+      }
+    },
     "/api/Actions": {
       "post": {
         "consumes": [
@@ -147,6 +193,39 @@
         "summary": "Gets all available Actions of a Device",
         "tags": [
           "Actions"
+        ]
+      }
+    },
+    "/api/AdditionalDeviceInformation/{id}": {
+      "get": {
+        "consumes": [],
+        "deprecated": false,
+        "description": "Gets the additional information (e.g. Firmware Version) about a device.",
+        "operationId": "AdditionalDeviceInformation_Get",
+        "parameters": [
+          {
+            "description": "The ID of the device",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/AdditionalDeviceInformation"
+            }
+          }
+        },
+        "summary": "Gets the additional information (e.g. Firmware Version) about a device.",
+        "tags": [
+          "AdditionalDeviceInformation"
         ]
       }
     },
@@ -478,7 +557,8 @@
               "MeterTypeCustomDevice",
               "MeterTypeCompressedAir",
               "MeterTypeSolarLog",
-              "MeterTypeVirtualMeter"
+              "MeterTypeVirtualMeter",
+              "MeterTypeWMBusGateway"
             ],
             "in": "query",
             "name": "meterEnergyType",
@@ -526,7 +606,8 @@
               "MeterSubTypeWater",
               "MeterSubTypeGas",
               "MeterSubTypeElectricityHeat",
-              "MeterSubTypeTemperature"
+              "MeterSubTypeTemperature",
+              "MeterSubTypeVirtualBattery"
             ],
             "in": "query",
             "name": "meterSubType",
@@ -586,6 +667,63 @@
         "summary": "Gets the Values for a folder or a meter",
         "tags": [
           "Folder"
+        ]
+      }
+    },
+    "/api/FolderMenu": {
+      "get": {
+        "consumes": [],
+        "deprecated": false,
+        "operationId": "FolderMenu_Get",
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/FolderMenuConfiguration"
+            }
+          }
+        },
+        "summary": "Gets the folder menu items (each item might contain child items)",
+        "tags": [
+          "FolderMenu"
+        ]
+      },
+      "post": {
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml",
+          "application/x-www-form-urlencoded"
+        ],
+        "deprecated": false,
+        "operationId": "FolderMenu_Post",
+        "parameters": [
+          {
+            "description": "",
+            "in": "body",
+            "name": "folderMenuConfiguration",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/FolderMenuConfiguration"
+            }
+          }
+        ],
+        "produces": [],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "summary": "Creates and updates the folder menu items",
+        "tags": [
+          "FolderMenu"
         ]
       }
     },
@@ -747,7 +885,34 @@
         ]
       }
     },
-    "/api/SignUp": {
+    "/api/RegisterForRealtimeApi": {
+      "get": {
+        "consumes": [],
+        "deprecated": false,
+        "description": "Gets all registrations for the Realtime API.",
+        "operationId": "RegisterForRealtimeApi_Get",
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/RegisterRealtimeApiData"
+              },
+              "type": "array"
+            }
+          }
+        },
+        "summary": "Gets all registrations for the Realtime API.",
+        "tags": [
+          "RegisterForRealtimeApi"
+        ]
+      },
       "post": {
         "consumes": [
           "application/json",
@@ -757,17 +922,101 @@
           "application/x-www-form-urlencoded"
         ],
         "deprecated": false,
-        "description": "Sign up a new User.\r\n            The sign up is done on the smart-me Cloud.",
-        "operationId": "SignUp_Post",
+        "description": "Creates a new registration for the realtime API. The Realtime API sends you the data of the registred devices as soon as we have them on the cloud. More Information about the realtime API: https://www.smart-me.com/Description/api/realtimeapi.aspx",
+        "operationId": "RegisterForRealtimeApi_Post",
         "parameters": [
           {
-            "description": "The user data",
             "in": "body",
-            "name": "signUpData",
+            "name": "registration",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/SignUpData"
+              "$ref": "#/definitions/RegisterRealtimeApiData"
             }
+          }
+        ],
+        "produces": [],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "summary": "Creates a new registration for the realtime API. The Realtime API sends you the data of the registred devices as soon as we have them on the cloud.\r\n             More Information about the realtime API: https://www.smart-me.com/Description/api/realtimeapi.aspx",
+        "tags": [
+          "RegisterForRealtimeApi"
+        ]
+      }
+    },
+    "/api/RegisterForRealtimeApi/{id}": {
+      "delete": {
+        "consumes": [],
+        "deprecated": false,
+        "description": "Deletes a realtime API registration.",
+        "operationId": "RegisterForRealtimeApi_Delete",
+        "parameters": [
+          {
+            "description": "The ID of the realtime API registration",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "produces": [],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "summary": "Deletes a realtime API registration.",
+        "tags": [
+          "RegisterForRealtimeApi"
+        ]
+      }
+    },
+    "/api/SmartMeDeviceConfiguration": {
+      "post": {
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml",
+          "application/x-www-form-urlencoded"
+        ],
+        "deprecated": false,
+        "operationId": "SmartMeDeviceConfiguration_Post",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "configuration",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SmartMeDeviceConfigurationContainer"
+            }
+          }
+        ],
+        "produces": [],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "summary": "Sets the configuration of a smart-me device. The device needs to be online.",
+        "tags": [
+          "SmartMeDeviceConfiguration"
+        ]
+      }
+    },
+    "/api/SmartMeDeviceConfiguration/{id}": {
+      "get": {
+        "consumes": [],
+        "deprecated": false,
+        "operationId": "SmartMeDeviceConfiguration_Get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
           }
         ],
         "produces": [
@@ -780,19 +1029,13 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/User"
+              "$ref": "#/definitions/SmartMeDeviceConfigurationContainer"
             }
-          },
-          "400": {
-            "description": "BadRequest"
-          },
-          "500": {
-            "description": "InternalServerError"
           }
         },
-        "summary": "Sign up a new User.\r\n            The sign up is done on the smart-me Cloud.",
+        "summary": "Gets the configuration of a smart-me device.",
         "tags": [
-          "SignUp"
+          "SmartMeDeviceConfiguration"
         ]
       }
     },
@@ -1267,6 +1510,116 @@
           "VirtualTariffConsumption"
         ]
       }
+    },
+    "/api/oauth/authorize": {
+      "get": {
+        "consumes": [],
+        "deprecated": false,
+        "parameters": [
+          {
+            "in": "query",
+            "name": "client_id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "redirect_uri",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "state",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "scope",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "client_secret",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Object"
+            }
+          }
+        },
+        "tags": [
+          "OAuth"
+        ],
+        "operationId": "api.oauth.authorize.get"
+      },
+      "post": {
+        "consumes": [],
+        "deprecated": false,
+        "parameters": [
+          {
+            "in": "query",
+            "name": "client_id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "redirect_uri",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "state",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "scope",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "client_secret",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Object"
+            }
+          }
+        },
+        "tags": [
+          "OAuth"
+        ],
+        "operationId": "api.oauth.authorize.post"
+      }
     }
   },
   "definitions": {
@@ -1350,6 +1703,62 @@
       },
       "type": "object"
     },
+    "AdditionalDeviceInformation": {
+      "description": "Additional Information For a device",
+      "properties": {
+        "AdditionalMeterSerialNumber": {
+          "description": "An additional Meter serial number. e.g. the number of a meter a smart-me device is connected to.",
+          "type": "string"
+        },
+        "FirmwareVersion": {
+          "description": "The Firmware Version of a Meter",
+          "format": "int32",
+          "type": "integer"
+        },
+        "HardwareVersion": {
+          "description": "The Hardware Version of a Meter.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "ID": {
+          "description": "The ID of the device",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "AutoExportSettings": {
+      "description": "Settings for the auto export functionality of a meter",
+      "properties": {
+        "ExportFormat": {
+          "description": "The export format",
+          "type": "string"
+        },
+        "ExportInterval": {
+          "description": "The export interval of the auto export",
+          "enum": [
+            "NoExport",
+            "Hourly",
+            "Daily",
+            "Weekly",
+            "Monthly",
+            "QuaterYearly",
+            "HalfYearly",
+            "Yearly"
+          ],
+          "type": "string"
+        },
+        "MeterPointId": {
+          "description": "The meter point id set by the user",
+          "type": "string"
+        },
+        "UploadType": {
+          "description": "The upload type",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "CustomDeviceToPost": {
       "description": "Container Class for the Web API",
       "properties": {
@@ -1427,6 +1836,10 @@
           "description": "The Number of the Active Tariff",
           "format": "int32",
           "type": "integer"
+        },
+        "AdditionalMeterSerialNumber": {
+          "description": "An additional Meter serial number. e.g. the number of a meter a smart-me device is connected to.",
+          "type": "string"
         },
         "AnalogOutput1": {
           "description": "The analog output number 1 (PWM signal) (0 - 32183)",
@@ -1513,7 +1926,8 @@
             "MeterTypeCustomDevice",
             "MeterTypeCompressedAir",
             "MeterTypeSolarLog",
-            "MeterTypeVirtualMeter"
+            "MeterTypeVirtualMeter",
+            "MeterTypeWMBusGateway"
           ],
           "type": "string"
         },
@@ -1547,13 +1961,42 @@
             "MeterFamilyTypeSmartMe3PhaseMeter32A",
             "MeterFamilyTypeSmartMe3PhaseMeterTransformer",
             "MeterFamilyTypeLandisGyrModule",
+            "MeterFamilyTypeFnnOpticalModule",
+            "MeterFamilyTypeSmartMe3PhaseMeter80AV2WiFi",
+            "MeterFamilyTypeSmartMe3PhaseMeter80AGprs",
+            "MeterFamilyTypeSmartMe1PhaseMeter80AV2WiFi",
+            "MeterFamilyTypeSmartMe1PhaseMeter32AV2WiFi",
+            "MeterFamilyTypeSmartMe1PhaseMeter80AGprs",
+            "MeterFamilyTypeSmartMe1PhaseMeter32AGprs",
+            "MeterFamilyTypeWMBusGatewayV1",
             "MeterFamilyTypeRestApiMeter",
             "MeterFamilyTypeVirtualBillingMeter"
           ],
           "type": "string"
         },
+        "FlowRate": {
+          "description": "The current flow rate (e.g. m3/h)",
+          "format": "double",
+          "type": "number"
+        },
         "Id": {
           "description": "The ID of the device",
+          "type": "string"
+        },
+        "MeterSubType": {
+          "description": "The sub meter type (e.g. warmwater or coldwater)",
+          "enum": [
+            "MeterSubTypeUnknown",
+            "MeterSubTypeCold",
+            "MeterSubTypeHeat",
+            "MeterSubTypeChargingStation",
+            "MeterSubTypeElectricity",
+            "MeterSubTypeWater",
+            "MeterSubTypeGas",
+            "MeterSubTypeElectricityHeat",
+            "MeterSubTypeTemperature",
+            "MeterSubTypeVirtualBattery"
+          ],
           "type": "string"
         },
         "Name": {
@@ -1746,6 +2189,21 @@
           "format": "double",
           "type": "number"
         },
+        "CounterReadingExport": {
+          "description": "The Meter Counter Reading only export",
+          "format": "double",
+          "type": "number"
+        },
+        "CounterReadingExportT1": {
+          "description": "The Meter Counter Reading only export (Tariff 1)",
+          "format": "double",
+          "type": "number"
+        },
+        "CounterReadingExportT2": {
+          "description": "The Meter Counter Reading only export (Tariff 2)",
+          "format": "double",
+          "type": "number"
+        },
         "CounterReadingT1": {
           "description": "The Meter Counter Reading Tariff 1 in kWh or m3.",
           "format": "double",
@@ -1753,6 +2211,26 @@
         },
         "CounterReadingT2": {
           "description": "The Meter Counter Reading Tariff 2 in kWh or m3.",
+          "format": "double",
+          "type": "number"
+        },
+        "Current": {
+          "description": "The Current (in A)",
+          "format": "double",
+          "type": "number"
+        },
+        "CurrentL1": {
+          "description": "The Current Phase L1 (in A)",
+          "format": "double",
+          "type": "number"
+        },
+        "CurrentL2": {
+          "description": "The Current Phase L2 (in A)",
+          "format": "double",
+          "type": "number"
+        },
+        "CurrentL3": {
+          "description": "The Current Phase L3 (in A)",
           "format": "double",
           "type": "number"
         },
@@ -1772,9 +2250,14 @@
             "MeterTypeCustomDevice",
             "MeterTypeCompressedAir",
             "MeterTypeSolarLog",
-            "MeterTypeVirtualMeter"
+            "MeterTypeVirtualMeter",
+            "MeterTypeWMBusGateway"
           ],
           "type": "string"
+        },
+        "DigitalInput1": {
+          "description": "The digital input number 1",
+          "type": "boolean"
         },
         "Id": {
           "description": "The ID of the device",
@@ -1791,13 +2274,34 @@
             "MeterSubTypeWater",
             "MeterSubTypeGas",
             "MeterSubTypeElectricityHeat",
-            "MeterSubTypeTemperature"
+            "MeterSubTypeTemperature",
+            "MeterSubTypeVirtualBattery"
           ],
           "type": "string"
         },
         "Name": {
           "description": "The Name of the Device",
           "type": "string"
+        },
+        "PowerFactor": {
+          "description": "The Power Factor (cos phi). Range: 0 - 1",
+          "format": "double",
+          "type": "number"
+        },
+        "PowerFactorL1": {
+          "description": "The Power Factor (cos phi) Phase L1. Range: 0 - 1",
+          "format": "double",
+          "type": "number"
+        },
+        "PowerFactorL2": {
+          "description": "The Power Factor (cos phi) Phase L2. Range: 0 - 1",
+          "format": "double",
+          "type": "number"
+        },
+        "PowerFactorL3": {
+          "description": "The Power Factor (cos phi) Phase L3. Range: 0 - 1",
+          "format": "double",
+          "type": "number"
         },
         "Serial": {
           "description": "The Serial number",
@@ -1813,6 +2317,26 @@
           "description": "The Date of the Value (in UTC). If this is null the Server Time is used.",
           "format": "date-time",
           "type": "string"
+        },
+        "Voltage": {
+          "description": "The Voltage (in V)",
+          "format": "double",
+          "type": "number"
+        },
+        "VoltageL1": {
+          "description": "The Voltage Phase L1 (in V)",
+          "format": "double",
+          "type": "number"
+        },
+        "VoltageL2": {
+          "description": "The Voltage Phase L2 (in V)",
+          "format": "double",
+          "type": "number"
+        },
+        "VoltageL3": {
+          "description": "The Voltage Phase L3 (in V)",
+          "format": "double",
+          "type": "number"
         }
       },
       "type": "object"
@@ -1859,6 +2383,112 @@
           "description": "The Flow Rate for Water (m3/h)",
           "format": "double",
           "type": "number"
+        }
+      },
+      "type": "object"
+    },
+    "FolderMenuConfiguration": {
+      "description": "Container Class for the Web API representing a folder menu and it's items",
+      "properties": {
+        "Items": {
+          "items": {
+            "$ref": "#/definitions/FolderMenuItem"
+          },
+          "type": "array"
+        },
+        "TimeZoneName": {
+          "description": "The time zone name (usually taken from the browser)",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "FolderMenuItem": {
+      "description": "A folder menu item",
+      "properties": {
+        "AutoExportSettings": {
+          "$ref": "#/definitions/AutoExportSettings",
+          "description": "Optional auto export settings for meters."
+        },
+        "Children": {
+          "description": "Children folder menu items (sub folder menu items)",
+          "items": {
+            "$ref": "#/definitions/FolderMenuItem"
+          },
+          "type": "array"
+        },
+        "FolderType": {
+          "description": "The folder type of the item",
+          "enum": [
+            "Folder",
+            "Location",
+            "Factory",
+            "House",
+            "Office",
+            "Machine",
+            "VirtualMeter",
+            "ElecticityFolder",
+            "WaterFolder",
+            "HeatFolder",
+            "GasFolder",
+            "TemperatureFolder",
+            "Sun",
+            "Light",
+            "Ice",
+            "Sofa",
+            "Food",
+            "Coffee",
+            "Car",
+            "ChargingStation",
+            "Meter",
+            "User",
+            "Trash",
+            "GridPhotovoltaicPowerSystem"
+          ],
+          "type": "string"
+        },
+        "Id": {
+          "description": "The id of the folder menu item",
+          "type": "string"
+        },
+        "MeterSerialNumber": {
+          "description": "The serial number if the folder menu item is a meter. \r\n            Serial number is handled as a string, as javascript on client side cannot handle long integers properly.",
+          "type": "string"
+        },
+        "Name": {
+          "description": "The Name of the item",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "InputConfigurationContainer": {
+      "description": "Configuration for the input of a meter (digital inputs)",
+      "properties": {
+        "Name": {
+          "description": "The Name of the Input",
+          "type": "string"
+        },
+        "Number": {
+          "description": "The number of the Input. (1 for Input 1)",
+          "format": "int32",
+          "type": "integer"
+        },
+        "OffText": {
+          "description": "The visualization text for an OFF action",
+          "type": "string"
+        },
+        "OnText": {
+          "description": "The visualization text for an ON action",
+          "type": "string"
+        },
+        "Type": {
+          "description": "The Type of the output",
+          "enum": [
+            "TariffInput",
+            "DigitalInput"
+          ],
+          "type": "string"
         }
       },
       "type": "object"
@@ -1948,6 +2578,52 @@
       "properties": {},
       "type": "object"
     },
+    "OutputConfigurationContainer": {
+      "description": "Configuration for the outputs of a meter (analog/digital outputs)",
+      "properties": {
+        "DigitalOutputNoConnectionAction": {
+          "description": "The Action when the device has lost the connection",
+          "enum": [
+            "Nothing",
+            "TurnOff",
+            "TurnOn",
+            "SetPwmValue"
+          ],
+          "type": "string"
+        },
+        "Name": {
+          "description": "The Name of the Output",
+          "type": "string"
+        },
+        "Number": {
+          "description": "The number of the Output. (1 for Output 1, 2 for Output 2)",
+          "format": "int32",
+          "type": "integer"
+        },
+        "S0PulseValue": {
+          "description": "The S0 Pulse Value",
+          "enum": [
+            "PulseValue1000Kwh",
+            "PulseValue10000Kwh"
+          ],
+          "type": "string"
+        },
+        "Type": {
+          "description": "The Type of the output",
+          "enum": [
+            "ImpulseOutputActiveEnergy",
+            "ImpulseOutputActiveEnergyImport",
+            "ImpulseOutputActiveEnergyExport",
+            "ImpulseOutputReactiveEnergy",
+            "DigitalOutput",
+            "AnalogPwmSignalOutput",
+            "Disabled"
+          ],
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "OutputInformation": {
       "description": "Informations about the Outputs of a Meter or Folder",
       "properties": {
@@ -1975,16 +2651,126 @@
       },
       "type": "object"
     },
-    "SignUpData": {
-      "description": "Container for the Sign UP API",
+    "RegisterRealtimeApiData": {
+      "description": "Container class for the register realtime API API",
       "properties": {
-        "Email": {
-          "description": "The Email Address to register",
+        "ApiUrl": {
+          "description": "The URL of your endpoint. To this endpoint all the values are send to.",
           "type": "string"
         },
-        "Password": {
-          "description": "The Password to register",
+        "BasicAuthPassword": {
+          "description": "The Password (basic auth) of your endpoint. Leave empty of none.",
           "type": "string"
+        },
+        "BasicAuthUsername": {
+          "description": "The Username (basic auth) of your endpoint. Leave empty of none.",
+          "type": "string"
+        },
+        "Id": {
+          "description": "The ID of the registration",
+          "type": "string"
+        },
+        "MeterId": {
+          "description": "The ID of the Meter. Just used if the RegistrationType is \"SingleMeterRegistration\".",
+          "type": "string"
+        },
+        "RegistrationType": {
+          "description": "The Type of this registration (per meter, per user, ...)",
+          "enum": [
+            "Disabled",
+            "SingleMeterRegistration",
+            "UserRegistration"
+          ],
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "SmartMeDeviceConfigurationContainer": {
+      "description": "API Container class for the meter configuration",
+      "properties": {
+        "DeviceEncryptionKey": {
+          "description": "The encryption key used to decrypt messages received from an external meter (used only for the smart-me modules)",
+          "type": "string"
+        },
+        "DevicePinCode": {
+          "description": "PIN code to enter on a external meter (e.g. for the FNN meters)",
+          "type": "string"
+        },
+        "DnsUpdateState": {
+          "description": "Configuration of the dynamic DNS service. More information: http://wiki.smart-me.com/index.php/Dynamisches_DNS",
+          "enum": [
+            "NoUpdate",
+            "DnsUpdatePublicIp",
+            "DnsUpdateInternalIp"
+          ],
+          "type": "string"
+        },
+        "EnableModbusTcp": {
+          "description": "Enables or disables Modbus TCP (if the meter supports it).",
+          "type": "boolean"
+        },
+        "Id": {
+          "description": "The ID of the device",
+          "type": "string"
+        },
+        "InputConfiguration": {
+          "description": "The configuration for the intput outputs",
+          "items": {
+            "$ref": "#/definitions/InputConfigurationContainer"
+          },
+          "type": "array"
+        },
+        "OutputConfiguration": {
+          "description": "The configuration for the external outputs",
+          "items": {
+            "$ref": "#/definitions/OutputConfigurationContainer"
+          },
+          "type": "array"
+        },
+        "ShowReactiveEnergy": {
+          "description": "Shows the reactive energy values (if the meter supports it).",
+          "type": "boolean"
+        },
+        "SwitchConfiguration": {
+          "description": "The configuration for the phase switches",
+          "items": {
+            "$ref": "#/definitions/SwitchConfigurationContainer"
+          },
+          "type": "array"
+        },
+        "UploadInterval": {
+          "description": "Number of seconds the device will upload the data. For smaller values maybe a professional license is needed.",
+          "enum": [
+            "UploadInterval_1s",
+            "UploadInterval_5s",
+            "UploadInterval_10s",
+            "UploadInterval_30s",
+            "UploadInterval_60s",
+            "UploadInterval_5min",
+            "UploadInterval_15min",
+            "UploadInterval_30min",
+            "UploadInterval_60min",
+            "UploadInterval_6h",
+            "UploadInterval_12h",
+            "UploadInterval_24h"
+          ],
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "SwitchConfigurationContainer": {
+      "description": "The configuration for a phase switch",
+      "properties": {
+        "CanSwitchOff": {
+          "description": "Flag if the switch can be turned off or is always on.",
+          "type": "boolean"
+        },
+        "Number": {
+          "description": "The number of the phase. (e.g. 1 for Phase L1)",
+          "format": "int32",
+          "type": "integer"
         }
       },
       "type": "object"
@@ -2008,9 +2794,20 @@
           "format": "int64",
           "type": "integer"
         },
+        "IdAsString": {
+          "description": "The ID of the user as string",
+          "type": "string"
+        },
         "IsAdmin": {
           "description": "Flag if this User is an Admin User",
           "type": "boolean"
+        },
+        "Permissions": {
+          "description": "Additional Permissions",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
         },
         "Username": {
           "description": "The Username of the User",

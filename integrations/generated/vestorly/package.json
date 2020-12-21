@@ -1,8 +1,8 @@
 {
   "name": "@datafire/vestorly",
-  "version": "5.0.0",
+  "version": "6.0.0",
   "main": "index.js",
-  "description": "DataFire integration for Vestorly",
+  "description": "DataFire integration for Vestorly API",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DataFire/integrations.git"

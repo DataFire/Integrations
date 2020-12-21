@@ -1,8 +1,8 @@
 {
   "name": "@datafire/osisoft",
-  "version": "5.0.0",
+  "version": "6.0.0",
   "main": "index.js",
-  "description": "DataFire integration for PI Web API 2017 Swagger Spec",
+  "description": "DataFire integration for PI Web API 2018 SP1 Swagger Spec",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DataFire/integrations.git"
@@ -14,7 +14,7 @@
   },
   "homepage": "https://github.com/DataFire/integrations#readme",
   "datafire": {
-    "origin": "https://api.apis.guru/v2/specs/osisoft.com/1.9.0.266/swagger.json",
+    "origin": "https://api.apis.guru/v2/specs/osisoft.com/1.11.1.5383/swagger.json",
     "type": "openapi"
   },
   "peerDependencies": {

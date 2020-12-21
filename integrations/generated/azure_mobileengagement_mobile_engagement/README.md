@@ -15,10 +15,7 @@ let azure_mobileengagement_mobile_engagement = require('@datafire/azure_mobileen
   redirect_uri: ""
 });
 
-azure_mobileengagement_mobile_engagement.AppCollections_List({
-  "subscriptionId": "",
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

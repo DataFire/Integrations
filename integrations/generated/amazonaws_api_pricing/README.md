@@ -13,7 +13,7 @@ let amazonaws_api_pricing = require('@datafire/amazonaws_api_pricing').create({
   region: ""
 });
 
-amazonaws_api_pricing.DescribeServices({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -36,10 +36,10 @@ amazonaws_api_pricing.DescribeServices({}, context)
 * input `object`
   * MaxResults `string`
   * NextToken `string`
-  * FormatVersion [String](#string)
-  * MaxResults [BoxedInteger](#boxedinteger)
-  * NextToken [String](#string)
-  * ServiceCode [String](#string)
+  * FormatVersion
+  * MaxResults
+  * NextToken
+  * ServiceCode
 
 #### Output
 * output [DescribeServicesResponse](#describeservicesresponse)
@@ -50,8 +50,8 @@ amazonaws_api_pricing.DescribeServices({}, context)
 
 ```js
 amazonaws_api_pricing.GetAttributeValues({
-  "ServiceCode": "",
-  "AttributeName": ""
+  "ServiceCode": null,
+  "AttributeName": null
 }, context)
 ```
 
@@ -59,10 +59,10 @@ amazonaws_api_pricing.GetAttributeValues({
 * input `object`
   * MaxResults `string`
   * NextToken `string`
-  * AttributeName **required** [String](#string)
-  * MaxResults [BoxedInteger](#boxedinteger)
-  * NextToken [String](#string)
-  * ServiceCode **required** [String](#string)
+  * AttributeName **required**
+  * MaxResults
+  * NextToken
+  * ServiceCode **required**
 
 #### Output
 * output [GetAttributeValuesResponse](#getattributevaluesresponse)
@@ -79,11 +79,12 @@ amazonaws_api_pricing.GetProducts({}, context)
 * input `object`
   * MaxResults `string`
   * NextToken `string`
-  * Filters [Filters](#filters)
-  * FormatVersion [String](#string)
-  * MaxResults [BoxedInteger](#boxedinteger)
-  * NextToken [String](#string)
-  * ServiceCode [String](#string)
+  * Filters
+    * items [Filter](#filter)
+  * FormatVersion
+  * MaxResults
+  * NextToken
+  * ServiceCode
 
 #### Output
 * output [GetProductsResponse](#getproductsresponse)
@@ -98,7 +99,7 @@ amazonaws_api_pricing.GetProducts({}, context)
 
 ### AttributeValue
 * AttributeValue `object`: The values of a given attribute, such as <code>Throughput Optimized HDD</code> or <code>Provisioned IOPS</code> for the <code>Amazon EC2</code> <code>volumeType</code> attribute.
-  * Value [String](#string)
+  * Value
 
 ### AttributeValueList
 * AttributeValueList `array`
@@ -109,16 +110,17 @@ amazonaws_api_pricing.GetProducts({}, context)
 
 ### DescribeServicesRequest
 * DescribeServicesRequest `object`
-  * FormatVersion [String](#string)
-  * MaxResults [BoxedInteger](#boxedinteger)
-  * NextToken [String](#string)
-  * ServiceCode [String](#string)
+  * FormatVersion
+  * MaxResults
+  * NextToken
+  * ServiceCode
 
 ### DescribeServicesResponse
 * DescribeServicesResponse `object`
-  * FormatVersion [String](#string)
-  * NextToken [String](#string)
-  * Services [ServiceList](#servicelist)
+  * FormatVersion
+  * NextToken
+  * Services
+    * items [Service](#service)
 
 ### ExpiredNextTokenException
 * ExpiredNextTokenException `object`: The pagination token expired. Try again without a pagination token.
@@ -126,9 +128,9 @@ amazonaws_api_pricing.GetProducts({}, context)
 
 ### Filter
 * Filter `object`: The constraints that you want all returned products to match.
-  * Field **required** [String](#string)
-  * Type **required** [FilterType](#filtertype)
-  * Value **required** [String](#string)
+  * Field **required**
+  * Type **required**
+  * Value **required**
 
 ### FilterType
 * FilterType `string` (values: TERM_MATCH)
@@ -139,29 +141,32 @@ amazonaws_api_pricing.GetProducts({}, context)
 
 ### GetAttributeValuesRequest
 * GetAttributeValuesRequest `object`
-  * AttributeName **required** [String](#string)
-  * MaxResults [BoxedInteger](#boxedinteger)
-  * NextToken [String](#string)
-  * ServiceCode **required** [String](#string)
+  * AttributeName **required**
+  * MaxResults
+  * NextToken
+  * ServiceCode **required**
 
 ### GetAttributeValuesResponse
 * GetAttributeValuesResponse `object`
-  * AttributeValues [AttributeValueList](#attributevaluelist)
-  * NextToken [String](#string)
+  * AttributeValues
+    * items [AttributeValue](#attributevalue)
+  * NextToken
 
 ### GetProductsRequest
 * GetProductsRequest `object`
-  * Filters [Filters](#filters)
-  * FormatVersion [String](#string)
-  * MaxResults [BoxedInteger](#boxedinteger)
-  * NextToken [String](#string)
-  * ServiceCode [String](#string)
+  * Filters
+    * items [Filter](#filter)
+  * FormatVersion
+  * MaxResults
+  * NextToken
+  * ServiceCode
 
 ### GetProductsResponse
 * GetProductsResponse `object`
-  * FormatVersion [String](#string)
-  * NextToken [String](#string)
-  * PriceList [PriceList](#pricelist)
+  * FormatVersion
+  * NextToken
+  * PriceList
+    * items [PriceListItemJSON](#pricelistitemjson)
 
 ### InternalErrorException
 * InternalErrorException `object`: An error on the server occurred during the processing of your request. Try again later.
@@ -188,8 +193,9 @@ amazonaws_api_pricing.GetProducts({}, context)
 
 ### Service
 * Service `object`: The metadata for a service, such as the service code and available attribute names.
-  * AttributeNames [AttributeNameList](#attributenamelist)
-  * ServiceCode [String](#string)
+  * AttributeNames
+    * items [String](#string)
+  * ServiceCode
 
 ### ServiceList
 * ServiceList `array`

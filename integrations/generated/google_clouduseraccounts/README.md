@@ -15,9 +15,7 @@ let google_clouduseraccounts = require('@datafire/google_clouduseraccounts').cre
   redirect_uri: ""
 });
 
-google_clouduseraccounts.groups.list({
-  "project": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

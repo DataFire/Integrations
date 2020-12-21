@@ -15,10 +15,7 @@ let azure_web_appservicecertificateorders = require('@datafire/azure_web_appserv
   redirect_uri: ""
 });
 
-azure_web_appservicecertificateorders.AppServiceCertificateOrders_List({
-  "subscriptionId": "",
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -519,7 +516,7 @@ azure_web_appservicecertificateorders.AppServiceCertificateOrders_RetrieveCertif
   * provisioningState `string` (values: Initialized, WaitingOnCertificateOrder, Succeeded, CertificateOrderFailed, OperationNotPermittedOnKeyVault, AzureServiceUnauthorizedToAccessKeyVault, KeyVaultDoesNotExist, KeyVaultSecretDoesNotExist, UnknownError, ExternalPrivateKey, Unknown): Status of the Key Vault secret.
 
 ### AppServiceCertificateCollection
-* AppServiceCertificateCollection `object`: Collection of certitificateorder certificates.
+* AppServiceCertificateCollection `object`: Collection of certificate order certificates.
   * nextLink `string`: Link to next page of resources.
   * value **required** `array`: Collection of resources.
     * items [AppServiceCertificateResource](#appservicecertificateresource)
@@ -555,7 +552,7 @@ azure_web_appservicecertificateorders.AppServiceCertificateOrders_RetrieveCertif
   * type `string`: Resource type.
 
 ### AppServiceCertificateOrderCollection
-* AppServiceCertificateOrderCollection `object`: Collection of certitificate orders.
+* AppServiceCertificateOrderCollection `object`: Collection of certificate orders.
   * nextLink `string`: Link to next page of resources.
   * value **required** `array`: Collection of resources.
     * items [AppServiceCertificateOrder](#appservicecertificateorder)
@@ -631,8 +628,8 @@ azure_web_appservicecertificateorders.AppServiceCertificateOrders_RetrieveCertif
 ### CertificateOrderAction
 * CertificateOrderAction `object`: Certificate order action.
   * properties `object`: CertificateOrderAction resource specific properties
+    * actionType `string` (values: CertificateIssued, CertificateOrderCanceled, CertificateOrderCreated, CertificateRevoked, DomainValidationComplete, FraudDetected, OrgNameChange, OrgValidationComplete, SanDrop, FraudCleared, CertificateExpired, CertificateExpirationWarning, FraudDocumentationRequired, Unknown): Action type.
     * createdAt `string`: Time at which the certificate action was performed.
-    * type `string` (values: CertificateIssued, CertificateOrderCanceled, CertificateOrderCreated, CertificateRevoked, DomainValidationComplete, FraudDetected, OrgNameChange, OrgValidationComplete, SanDrop, FraudCleared, CertificateExpired, CertificateExpirationWarning, FraudDocumentationRequired, Unknown): Action type.
   * id `string`: Resource Id.
   * kind `string`: Kind of resource.
   * name `string`: Resource Name.

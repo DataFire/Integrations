@@ -13,10 +13,7 @@ let amazonaws_cognito_idp = require('@datafire/amazonaws_cognito_idp').create({
   region: ""
 });
 
-amazonaws_cognito_idp.AddCustomAttributes({
-  "UserPoolId": "",
-  "CustomAttributes": []
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -33,15 +30,16 @@ amazonaws_cognito_idp.AddCustomAttributes({
 
 ```js
 amazonaws_cognito_idp.AddCustomAttributes({
-  "UserPoolId": "",
-  "CustomAttributes": []
+  "UserPoolId": null,
+  "CustomAttributes": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * CustomAttributes **required** [CustomAttributesListType](#customattributeslisttype)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
+  * CustomAttributes **required**
+    * items [SchemaAttributeType](#schemaattributetype)
+  * UserPoolId **required**
 
 #### Output
 * output [AddCustomAttributesResponse](#addcustomattributesresponse)
@@ -52,17 +50,17 @@ amazonaws_cognito_idp.AddCustomAttributes({
 
 ```js
 amazonaws_cognito_idp.AdminAddUserToGroup({
-  "UserPoolId": "",
-  "Username": "",
-  "GroupName": ""
+  "UserPoolId": null,
+  "Username": null,
+  "GroupName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * GroupName **required** [GroupNameType](#groupnametype)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
-  * Username **required** [UsernameType](#usernametype)
+  * GroupName **required**
+  * UserPoolId **required**
+  * Username **required**
 
 #### Output
 *Output schema unknown*
@@ -73,15 +71,16 @@ amazonaws_cognito_idp.AdminAddUserToGroup({
 
 ```js
 amazonaws_cognito_idp.AdminConfirmSignUp({
-  "UserPoolId": "",
-  "Username": ""
+  "UserPoolId": null,
+  "Username": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
-  * Username **required** [UsernameType](#usernametype)
+  * ClientMetadata
+  * UserPoolId **required**
+  * Username **required**
 
 #### Output
 * output [AdminConfirmSignUpResponse](#adminconfirmsignupresponse)
@@ -92,21 +91,25 @@ amazonaws_cognito_idp.AdminConfirmSignUp({
 
 ```js
 amazonaws_cognito_idp.AdminCreateUser({
-  "UserPoolId": "",
-  "Username": ""
+  "UserPoolId": null,
+  "Username": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * DesiredDeliveryMediums [DeliveryMediumListType](#deliverymediumlisttype)
-  * ForceAliasCreation [ForceAliasCreation](#forcealiascreation)
-  * MessageAction [MessageActionType](#messageactiontype)
-  * TemporaryPassword [PasswordType](#passwordtype)
-  * UserAttributes [AttributeListType](#attributelisttype)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
-  * Username **required** [UsernameType](#usernametype)
-  * ValidationData [AttributeListType](#attributelisttype)
+  * ClientMetadata
+  * DesiredDeliveryMediums
+    * items [DeliveryMediumType](#deliverymediumtype)
+  * ForceAliasCreation
+  * MessageAction
+  * TemporaryPassword
+  * UserAttributes
+    * items [AttributeType](#attributetype)
+  * UserPoolId **required**
+  * Username **required**
+  * ValidationData
+    * items [AttributeType](#attributetype)
 
 #### Output
 * output [AdminCreateUserResponse](#admincreateuserresponse)
@@ -117,15 +120,15 @@ amazonaws_cognito_idp.AdminCreateUser({
 
 ```js
 amazonaws_cognito_idp.AdminDeleteUser({
-  "UserPoolId": "",
-  "Username": ""
+  "UserPoolId": null,
+  "Username": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
-  * Username **required** [UsernameType](#usernametype)
+  * UserPoolId **required**
+  * Username **required**
 
 #### Output
 *Output schema unknown*
@@ -136,17 +139,18 @@ amazonaws_cognito_idp.AdminDeleteUser({
 
 ```js
 amazonaws_cognito_idp.AdminDeleteUserAttributes({
-  "UserPoolId": "",
-  "Username": "",
-  "UserAttributeNames": []
+  "UserPoolId": null,
+  "Username": null,
+  "UserAttributeNames": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * UserAttributeNames **required** [AttributeNameListType](#attributenamelisttype)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
-  * Username **required** [UsernameType](#usernametype)
+  * UserAttributeNames **required**
+    * items [AttributeNameType](#attributenametype)
+  * UserPoolId **required**
+  * Username **required**
 
 #### Output
 * output [AdminDeleteUserAttributesResponse](#admindeleteuserattributesresponse)
@@ -157,15 +161,18 @@ amazonaws_cognito_idp.AdminDeleteUserAttributes({
 
 ```js
 amazonaws_cognito_idp.AdminDisableProviderForUser({
-  "UserPoolId": "",
-  "User": {}
+  "UserPoolId": null,
+  "User": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * User **required** [ProviderUserIdentifierType](#provideruseridentifiertype)
-  * UserPoolId **required** [StringType](#stringtype)
+  * User **required**
+    * ProviderAttributeName
+    * ProviderAttributeValue
+    * ProviderName
+  * UserPoolId **required**
 
 #### Output
 * output [AdminDisableProviderForUserResponse](#admindisableproviderforuserresponse)
@@ -176,15 +183,15 @@ amazonaws_cognito_idp.AdminDisableProviderForUser({
 
 ```js
 amazonaws_cognito_idp.AdminDisableUser({
-  "UserPoolId": "",
-  "Username": ""
+  "UserPoolId": null,
+  "Username": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
-  * Username **required** [UsernameType](#usernametype)
+  * UserPoolId **required**
+  * Username **required**
 
 #### Output
 * output [AdminDisableUserResponse](#admindisableuserresponse)
@@ -195,15 +202,15 @@ amazonaws_cognito_idp.AdminDisableUser({
 
 ```js
 amazonaws_cognito_idp.AdminEnableUser({
-  "UserPoolId": "",
-  "Username": ""
+  "UserPoolId": null,
+  "Username": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
-  * Username **required** [UsernameType](#usernametype)
+  * UserPoolId **required**
+  * Username **required**
 
 #### Output
 * output [AdminEnableUserResponse](#adminenableuserresponse)
@@ -214,17 +221,17 @@ amazonaws_cognito_idp.AdminEnableUser({
 
 ```js
 amazonaws_cognito_idp.AdminForgetDevice({
-  "UserPoolId": "",
-  "Username": "",
-  "DeviceKey": ""
+  "UserPoolId": null,
+  "Username": null,
+  "DeviceKey": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * DeviceKey **required** [DeviceKeyType](#devicekeytype)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
-  * Username **required** [UsernameType](#usernametype)
+  * DeviceKey **required**
+  * UserPoolId **required**
+  * Username **required**
 
 #### Output
 *Output schema unknown*
@@ -235,17 +242,17 @@ amazonaws_cognito_idp.AdminForgetDevice({
 
 ```js
 amazonaws_cognito_idp.AdminGetDevice({
-  "DeviceKey": "",
-  "UserPoolId": "",
-  "Username": ""
+  "DeviceKey": null,
+  "UserPoolId": null,
+  "Username": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * DeviceKey **required** [DeviceKeyType](#devicekeytype)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
-  * Username **required** [UsernameType](#usernametype)
+  * DeviceKey **required**
+  * UserPoolId **required**
+  * Username **required**
 
 #### Output
 * output [AdminGetDeviceResponse](#admingetdeviceresponse)
@@ -256,15 +263,15 @@ amazonaws_cognito_idp.AdminGetDevice({
 
 ```js
 amazonaws_cognito_idp.AdminGetUser({
-  "UserPoolId": "",
-  "Username": ""
+  "UserPoolId": null,
+  "Username": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
-  * Username **required** [UsernameType](#usernametype)
+  * UserPoolId **required**
+  * Username **required**
 
 #### Output
 * output [AdminGetUserResponse](#admingetuserresponse)
@@ -275,21 +282,28 @@ amazonaws_cognito_idp.AdminGetUser({
 
 ```js
 amazonaws_cognito_idp.AdminInitiateAuth({
-  "UserPoolId": "",
-  "ClientId": "",
-  "AuthFlow": ""
+  "UserPoolId": null,
+  "ClientId": null,
+  "AuthFlow": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * AnalyticsMetadata [AnalyticsMetadataType](#analyticsmetadatatype)
-  * AuthFlow **required** [AuthFlowType](#authflowtype)
-  * AuthParameters [AuthParametersType](#authparameterstype)
-  * ClientId **required** [ClientIdType](#clientidtype)
-  * ClientMetadata [ClientMetadataType](#clientmetadatatype)
-  * ContextData [ContextDataType](#contextdatatype)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
+  * AnalyticsMetadata
+    * AnalyticsEndpointId
+  * AuthFlow **required**
+  * AuthParameters
+  * ClientId **required**
+  * ClientMetadata
+  * ContextData
+    * EncodedData
+    * HttpHeaders **required**
+      * items [HttpHeader](#httpheader)
+    * IpAddress **required**
+    * ServerName **required**
+    * ServerPath **required**
+  * UserPoolId **required**
 
 #### Output
 * output [AdminInitiateAuthResponse](#admininitiateauthresponse)
@@ -300,17 +314,23 @@ amazonaws_cognito_idp.AdminInitiateAuth({
 
 ```js
 amazonaws_cognito_idp.AdminLinkProviderForUser({
-  "UserPoolId": "",
-  "DestinationUser": {},
-  "SourceUser": {}
+  "UserPoolId": null,
+  "DestinationUser": null,
+  "SourceUser": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * DestinationUser **required** [ProviderUserIdentifierType](#provideruseridentifiertype)
-  * SourceUser **required** [ProviderUserIdentifierType](#provideruseridentifiertype)
-  * UserPoolId **required** [StringType](#stringtype)
+  * DestinationUser **required**
+    * ProviderAttributeName
+    * ProviderAttributeValue
+    * ProviderName
+  * SourceUser **required**
+    * ProviderAttributeName
+    * ProviderAttributeValue
+    * ProviderName
+  * UserPoolId **required**
 
 #### Output
 * output [AdminLinkProviderForUserResponse](#adminlinkproviderforuserresponse)
@@ -321,17 +341,17 @@ amazonaws_cognito_idp.AdminLinkProviderForUser({
 
 ```js
 amazonaws_cognito_idp.AdminListDevices({
-  "UserPoolId": "",
-  "Username": ""
+  "UserPoolId": null,
+  "Username": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Limit [QueryLimitType](#querylimittype)
-  * PaginationToken [SearchPaginationTokenType](#searchpaginationtokentype)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
-  * Username **required** [UsernameType](#usernametype)
+  * Limit
+  * PaginationToken
+  * UserPoolId **required**
+  * Username **required**
 
 #### Output
 * output [AdminListDevicesResponse](#adminlistdevicesresponse)
@@ -342,17 +362,19 @@ amazonaws_cognito_idp.AdminListDevices({
 
 ```js
 amazonaws_cognito_idp.AdminListGroupsForUser({
-  "Username": "",
-  "UserPoolId": ""
+  "Username": null,
+  "UserPoolId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Limit [QueryLimitType](#querylimittype)
-  * NextToken [PaginationKey](#paginationkey)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
-  * Username **required** [UsernameType](#usernametype)
+  * Limit `string`
+  * NextToken `string`
+  * Limit
+  * NextToken
+  * UserPoolId **required**
+  * Username **required**
 
 #### Output
 * output [AdminListGroupsForUserResponse](#adminlistgroupsforuserresponse)
@@ -363,17 +385,19 @@ amazonaws_cognito_idp.AdminListGroupsForUser({
 
 ```js
 amazonaws_cognito_idp.AdminListUserAuthEvents({
-  "UserPoolId": "",
-  "Username": ""
+  "UserPoolId": null,
+  "Username": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * MaxResults [QueryLimitType](#querylimittype)
-  * NextToken [PaginationKey](#paginationkey)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
-  * Username **required** [UsernameType](#usernametype)
+  * MaxResults `string`
+  * NextToken `string`
+  * MaxResults
+  * NextToken
+  * UserPoolId **required**
+  * Username **required**
 
 #### Output
 * output [AdminListUserAuthEventsResponse](#adminlistuserautheventsresponse)
@@ -384,17 +408,17 @@ amazonaws_cognito_idp.AdminListUserAuthEvents({
 
 ```js
 amazonaws_cognito_idp.AdminRemoveUserFromGroup({
-  "UserPoolId": "",
-  "Username": "",
-  "GroupName": ""
+  "UserPoolId": null,
+  "Username": null,
+  "GroupName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * GroupName **required** [GroupNameType](#groupnametype)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
-  * Username **required** [UsernameType](#usernametype)
+  * GroupName **required**
+  * UserPoolId **required**
+  * Username **required**
 
 #### Output
 *Output schema unknown*
@@ -405,15 +429,16 @@ amazonaws_cognito_idp.AdminRemoveUserFromGroup({
 
 ```js
 amazonaws_cognito_idp.AdminResetUserPassword({
-  "UserPoolId": "",
-  "Username": ""
+  "UserPoolId": null,
+  "Username": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
-  * Username **required** [UsernameType](#usernametype)
+  * ClientMetadata
+  * UserPoolId **required**
+  * Username **required**
 
 #### Output
 * output [AdminResetUserPasswordResponse](#adminresetuserpasswordresponse)
@@ -424,21 +449,29 @@ amazonaws_cognito_idp.AdminResetUserPassword({
 
 ```js
 amazonaws_cognito_idp.AdminRespondToAuthChallenge({
-  "UserPoolId": "",
-  "ClientId": "",
-  "ChallengeName": ""
+  "UserPoolId": null,
+  "ClientId": null,
+  "ChallengeName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * AnalyticsMetadata [AnalyticsMetadataType](#analyticsmetadatatype)
-  * ChallengeName **required** [ChallengeNameType](#challengenametype)
-  * ChallengeResponses [ChallengeResponsesType](#challengeresponsestype)
-  * ClientId **required** [ClientIdType](#clientidtype)
-  * ContextData [ContextDataType](#contextdatatype)
-  * Session [SessionType](#sessiontype)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
+  * AnalyticsMetadata
+    * AnalyticsEndpointId
+  * ChallengeName **required**
+  * ChallengeResponses
+  * ClientId **required**
+  * ClientMetadata
+  * ContextData
+    * EncodedData
+    * HttpHeaders **required**
+      * items [HttpHeader](#httpheader)
+    * IpAddress **required**
+    * ServerName **required**
+    * ServerPath **required**
+  * Session
+  * UserPoolId **required**
 
 #### Output
 * output [AdminRespondToAuthChallengeResponse](#adminrespondtoauthchallengeresponse)
@@ -449,20 +482,46 @@ amazonaws_cognito_idp.AdminRespondToAuthChallenge({
 
 ```js
 amazonaws_cognito_idp.AdminSetUserMFAPreference({
-  "Username": "",
-  "UserPoolId": ""
+  "Username": null,
+  "UserPoolId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * SMSMfaSettings [SMSMfaSettingsType](#smsmfasettingstype)
-  * SoftwareTokenMfaSettings [SoftwareTokenMfaSettingsType](#softwaretokenmfasettingstype)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
-  * Username **required** [UsernameType](#usernametype)
+  * SMSMfaSettings
+    * Enabled
+    * PreferredMfa
+  * SoftwareTokenMfaSettings
+    * Enabled
+    * PreferredMfa
+  * UserPoolId **required**
+  * Username **required**
 
 #### Output
 * output [AdminSetUserMFAPreferenceResponse](#adminsetusermfapreferenceresponse)
+
+### AdminSetUserPassword
+
+
+
+```js
+amazonaws_cognito_idp.AdminSetUserPassword({
+  "UserPoolId": null,
+  "Username": null,
+  "Password": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * Password **required**
+  * Permanent
+  * UserPoolId **required**
+  * Username **required**
+
+#### Output
+* output [AdminSetUserPasswordResponse](#adminsetuserpasswordresponse)
 
 ### AdminSetUserSettings
 
@@ -470,17 +529,18 @@ amazonaws_cognito_idp.AdminSetUserMFAPreference({
 
 ```js
 amazonaws_cognito_idp.AdminSetUserSettings({
-  "UserPoolId": "",
-  "Username": "",
-  "MFAOptions": []
+  "UserPoolId": null,
+  "Username": null,
+  "MFAOptions": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * MFAOptions **required** [MFAOptionListType](#mfaoptionlisttype)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
-  * Username **required** [UsernameType](#usernametype)
+  * MFAOptions **required**
+    * items [MFAOptionType](#mfaoptiontype)
+  * UserPoolId **required**
+  * Username **required**
 
 #### Output
 * output [AdminSetUserSettingsResponse](#adminsetusersettingsresponse)
@@ -491,19 +551,19 @@ amazonaws_cognito_idp.AdminSetUserSettings({
 
 ```js
 amazonaws_cognito_idp.AdminUpdateAuthEventFeedback({
-  "UserPoolId": "",
-  "Username": "",
-  "EventId": "",
-  "FeedbackValue": ""
+  "UserPoolId": null,
+  "Username": null,
+  "EventId": null,
+  "FeedbackValue": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * EventId **required** [EventIdType](#eventidtype)
-  * FeedbackValue **required** [FeedbackValueType](#feedbackvaluetype)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
-  * Username **required** [UsernameType](#usernametype)
+  * EventId **required**
+  * FeedbackValue **required**
+  * UserPoolId **required**
+  * Username **required**
 
 #### Output
 * output [AdminUpdateAuthEventFeedbackResponse](#adminupdateautheventfeedbackresponse)
@@ -514,18 +574,18 @@ amazonaws_cognito_idp.AdminUpdateAuthEventFeedback({
 
 ```js
 amazonaws_cognito_idp.AdminUpdateDeviceStatus({
-  "UserPoolId": "",
-  "Username": "",
-  "DeviceKey": ""
+  "UserPoolId": null,
+  "Username": null,
+  "DeviceKey": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * DeviceKey **required** [DeviceKeyType](#devicekeytype)
-  * DeviceRememberedStatus [DeviceRememberedStatusType](#devicerememberedstatustype)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
-  * Username **required** [UsernameType](#usernametype)
+  * DeviceKey **required**
+  * DeviceRememberedStatus
+  * UserPoolId **required**
+  * Username **required**
 
 #### Output
 * output [AdminUpdateDeviceStatusResponse](#adminupdatedevicestatusresponse)
@@ -536,17 +596,19 @@ amazonaws_cognito_idp.AdminUpdateDeviceStatus({
 
 ```js
 amazonaws_cognito_idp.AdminUpdateUserAttributes({
-  "UserPoolId": "",
-  "Username": "",
-  "UserAttributes": []
+  "UserPoolId": null,
+  "Username": null,
+  "UserAttributes": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * UserAttributes **required** [AttributeListType](#attributelisttype)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
-  * Username **required** [UsernameType](#usernametype)
+  * ClientMetadata
+  * UserAttributes **required**
+    * items [AttributeType](#attributetype)
+  * UserPoolId **required**
+  * Username **required**
 
 #### Output
 * output [AdminUpdateUserAttributesResponse](#adminupdateuserattributesresponse)
@@ -557,15 +619,15 @@ amazonaws_cognito_idp.AdminUpdateUserAttributes({
 
 ```js
 amazonaws_cognito_idp.AdminUserGlobalSignOut({
-  "UserPoolId": "",
-  "Username": ""
+  "UserPoolId": null,
+  "Username": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
-  * Username **required** [UsernameType](#usernametype)
+  * UserPoolId **required**
+  * Username **required**
 
 #### Output
 * output [AdminUserGlobalSignOutResponse](#adminuserglobalsignoutresponse)
@@ -580,8 +642,8 @@ amazonaws_cognito_idp.AssociateSoftwareToken({}, context)
 
 #### Input
 * input `object`
-  * AccessToken [TokenModelType](#tokenmodeltype)
-  * Session [SessionType](#sessiontype)
+  * AccessToken
+  * Session
 
 #### Output
 * output [AssociateSoftwareTokenResponse](#associatesoftwaretokenresponse)
@@ -592,17 +654,17 @@ amazonaws_cognito_idp.AssociateSoftwareToken({}, context)
 
 ```js
 amazonaws_cognito_idp.ChangePassword({
-  "PreviousPassword": "",
-  "ProposedPassword": "",
-  "AccessToken": ""
+  "PreviousPassword": null,
+  "ProposedPassword": null,
+  "AccessToken": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * AccessToken **required** [TokenModelType](#tokenmodeltype)
-  * PreviousPassword **required** [PasswordType](#passwordtype)
-  * ProposedPassword **required** [PasswordType](#passwordtype)
+  * AccessToken **required**
+  * PreviousPassword **required**
+  * ProposedPassword **required**
 
 #### Output
 * output [ChangePasswordResponse](#changepasswordresponse)
@@ -613,17 +675,19 @@ amazonaws_cognito_idp.ChangePassword({
 
 ```js
 amazonaws_cognito_idp.ConfirmDevice({
-  "AccessToken": "",
-  "DeviceKey": ""
+  "AccessToken": null,
+  "DeviceKey": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * AccessToken **required** [TokenModelType](#tokenmodeltype)
-  * DeviceKey **required** [DeviceKeyType](#devicekeytype)
-  * DeviceName [DeviceNameType](#devicenametype)
-  * DeviceSecretVerifierConfig [DeviceSecretVerifierConfigType](#devicesecretverifierconfigtype)
+  * AccessToken **required**
+  * DeviceKey **required**
+  * DeviceName
+  * DeviceSecretVerifierConfig
+    * PasswordVerifier
+    * Salt
 
 #### Output
 * output [ConfirmDeviceResponse](#confirmdeviceresponse)
@@ -634,22 +698,25 @@ amazonaws_cognito_idp.ConfirmDevice({
 
 ```js
 amazonaws_cognito_idp.ConfirmForgotPassword({
-  "ClientId": "",
-  "Username": "",
-  "ConfirmationCode": "",
-  "Password": ""
+  "ClientId": null,
+  "Username": null,
+  "ConfirmationCode": null,
+  "Password": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * AnalyticsMetadata [AnalyticsMetadataType](#analyticsmetadatatype)
-  * ClientId **required** [ClientIdType](#clientidtype)
-  * ConfirmationCode **required** [ConfirmationCodeType](#confirmationcodetype)
-  * Password **required** [PasswordType](#passwordtype)
-  * SecretHash [SecretHashType](#secrethashtype)
-  * UserContextData [UserContextDataType](#usercontextdatatype)
-  * Username **required** [UsernameType](#usernametype)
+  * AnalyticsMetadata
+    * AnalyticsEndpointId
+  * ClientId **required**
+  * ClientMetadata
+  * ConfirmationCode **required**
+  * Password **required**
+  * SecretHash
+  * UserContextData
+    * EncodedData
+  * Username **required**
 
 #### Output
 * output [ConfirmForgotPasswordResponse](#confirmforgotpasswordresponse)
@@ -660,21 +727,24 @@ amazonaws_cognito_idp.ConfirmForgotPassword({
 
 ```js
 amazonaws_cognito_idp.ConfirmSignUp({
-  "ClientId": "",
-  "Username": "",
-  "ConfirmationCode": ""
+  "ClientId": null,
+  "Username": null,
+  "ConfirmationCode": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * AnalyticsMetadata [AnalyticsMetadataType](#analyticsmetadatatype)
-  * ClientId **required** [ClientIdType](#clientidtype)
-  * ConfirmationCode **required** [ConfirmationCodeType](#confirmationcodetype)
-  * ForceAliasCreation [ForceAliasCreation](#forcealiascreation)
-  * SecretHash [SecretHashType](#secrethashtype)
-  * UserContextData [UserContextDataType](#usercontextdatatype)
-  * Username **required** [UsernameType](#usernametype)
+  * AnalyticsMetadata
+    * AnalyticsEndpointId
+  * ClientId **required**
+  * ClientMetadata
+  * ConfirmationCode **required**
+  * ForceAliasCreation
+  * SecretHash
+  * UserContextData
+    * EncodedData
+  * Username **required**
 
 #### Output
 * output [ConfirmSignUpResponse](#confirmsignupresponse)
@@ -685,18 +755,18 @@ amazonaws_cognito_idp.ConfirmSignUp({
 
 ```js
 amazonaws_cognito_idp.CreateGroup({
-  "GroupName": "",
-  "UserPoolId": ""
+  "GroupName": null,
+  "UserPoolId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Description [DescriptionType](#descriptiontype)
-  * GroupName **required** [GroupNameType](#groupnametype)
-  * Precedence [PrecedenceType](#precedencetype)
-  * RoleArn [ArnType](#arntype)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
+  * Description
+  * GroupName **required**
+  * Precedence
+  * RoleArn
+  * UserPoolId **required**
 
 #### Output
 * output [CreateGroupResponse](#creategroupresponse)
@@ -707,21 +777,22 @@ amazonaws_cognito_idp.CreateGroup({
 
 ```js
 amazonaws_cognito_idp.CreateIdentityProvider({
-  "UserPoolId": "",
-  "ProviderName": "",
-  "ProviderType": "",
-  "ProviderDetails": []
+  "UserPoolId": null,
+  "ProviderName": null,
+  "ProviderType": null,
+  "ProviderDetails": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * AttributeMapping [AttributeMappingType](#attributemappingtype)
-  * IdpIdentifiers [IdpIdentifiersListType](#idpidentifierslisttype)
-  * ProviderDetails **required** [ProviderDetailsType](#providerdetailstype)
-  * ProviderName **required** [ProviderNameTypeV1](#providernametypev1)
-  * ProviderType **required** [IdentityProviderTypeType](#identityprovidertypetype)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
+  * AttributeMapping
+  * IdpIdentifiers
+    * items [IdpIdentifierType](#idpidentifiertype)
+  * ProviderDetails **required**
+  * ProviderName **required**
+  * ProviderType **required**
+  * UserPoolId **required**
 
 #### Output
 * output [CreateIdentityProviderResponse](#createidentityproviderresponse)
@@ -732,18 +803,19 @@ amazonaws_cognito_idp.CreateIdentityProvider({
 
 ```js
 amazonaws_cognito_idp.CreateResourceServer({
-  "UserPoolId": "",
-  "Identifier": "",
-  "Name": ""
+  "UserPoolId": null,
+  "Identifier": null,
+  "Name": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Identifier **required** [ResourceServerIdentifierType](#resourceserveridentifiertype)
-  * Name **required** [ResourceServerNameType](#resourceservernametype)
-  * Scopes [ResourceServerScopeListType](#resourceserverscopelisttype)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
+  * Identifier **required**
+  * Name **required**
+  * Scopes
+    * items [ResourceServerScopeType](#resourceserverscopetype)
+  * UserPoolId **required**
 
 #### Output
 * output [CreateResourceServerResponse](#createresourceserverresponse)
@@ -754,17 +826,17 @@ amazonaws_cognito_idp.CreateResourceServer({
 
 ```js
 amazonaws_cognito_idp.CreateUserImportJob({
-  "JobName": "",
-  "UserPoolId": "",
-  "CloudWatchLogsRoleArn": ""
+  "JobName": null,
+  "UserPoolId": null,
+  "CloudWatchLogsRoleArn": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * CloudWatchLogsRoleArn **required** [ArnType](#arntype)
-  * JobName **required** [UserImportJobNameType](#userimportjobnametype)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
+  * CloudWatchLogsRoleArn **required**
+  * JobName **required**
+  * UserPoolId **required**
 
 #### Output
 * output [CreateUserImportJobResponse](#createuserimportjobresponse)
@@ -775,31 +847,86 @@ amazonaws_cognito_idp.CreateUserImportJob({
 
 ```js
 amazonaws_cognito_idp.CreateUserPool({
-  "PoolName": ""
+  "PoolName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * AdminCreateUserConfig [AdminCreateUserConfigType](#admincreateuserconfigtype)
-  * AliasAttributes [AliasAttributesListType](#aliasattributeslisttype)
-  * AutoVerifiedAttributes [VerifiedAttributesListType](#verifiedattributeslisttype)
-  * DeviceConfiguration [DeviceConfigurationType](#deviceconfigurationtype)
-  * EmailConfiguration [EmailConfigurationType](#emailconfigurationtype)
-  * EmailVerificationMessage [EmailVerificationMessageType](#emailverificationmessagetype)
-  * EmailVerificationSubject [EmailVerificationSubjectType](#emailverificationsubjecttype)
-  * LambdaConfig [LambdaConfigType](#lambdaconfigtype)
-  * MfaConfiguration [UserPoolMfaType](#userpoolmfatype)
-  * Policies [UserPoolPolicyType](#userpoolpolicytype)
-  * PoolName **required** [UserPoolNameType](#userpoolnametype)
-  * Schema [SchemaAttributesListType](#schemaattributeslisttype)
-  * SmsAuthenticationMessage [SmsVerificationMessageType](#smsverificationmessagetype)
-  * SmsConfiguration [SmsConfigurationType](#smsconfigurationtype)
-  * SmsVerificationMessage [SmsVerificationMessageType](#smsverificationmessagetype)
-  * UserPoolAddOns [UserPoolAddOnsType](#userpooladdonstype)
-  * UserPoolTags [UserPoolTagsType](#userpooltagstype)
-  * UsernameAttributes [UsernameAttributesListType](#usernameattributeslisttype)
-  * VerificationMessageTemplate [VerificationMessageTemplateType](#verificationmessagetemplatetype)
+  * AccountRecoverySetting
+    * RecoveryMechanisms
+      * items [RecoveryOptionType](#recoveryoptiontype)
+  * AdminCreateUserConfig
+    * AllowAdminCreateUserOnly
+    * InviteMessageTemplate
+      * EmailMessage
+      * EmailSubject
+      * SMSMessage
+    * UnusedAccountValidityDays
+  * AliasAttributes
+    * items [AliasAttributeType](#aliasattributetype)
+  * AutoVerifiedAttributes
+    * items [VerifiedAttributeType](#verifiedattributetype)
+  * DeviceConfiguration
+    * ChallengeRequiredOnNewDevice
+    * DeviceOnlyRememberedOnUserPrompt
+  * EmailConfiguration
+    * ConfigurationSet
+    * EmailSendingAccount
+    * From
+    * ReplyToEmailAddress
+    * SourceArn
+  * EmailVerificationMessage
+  * EmailVerificationSubject
+  * LambdaConfig
+    * CreateAuthChallenge
+    * CustomEmailSender
+      * LambdaArn **required**
+      * LambdaVersion **required**
+    * CustomMessage
+    * CustomSMSSender
+      * LambdaArn **required**
+      * LambdaVersion **required**
+    * DefineAuthChallenge
+    * KMSKeyID
+    * PostAuthentication
+    * PostConfirmation
+    * PreAuthentication
+    * PreSignUp
+    * PreTokenGeneration
+    * UserMigration
+    * VerifyAuthChallengeResponse
+  * MfaConfiguration
+  * Policies
+    * PasswordPolicy
+      * MinimumLength
+      * RequireLowercase
+      * RequireNumbers
+      * RequireSymbols
+      * RequireUppercase
+      * TemporaryPasswordValidityDays
+  * PoolName **required**
+  * Schema
+    * items [SchemaAttributeType](#schemaattributetype)
+  * SmsAuthenticationMessage
+  * SmsConfiguration
+    * ExternalId
+    * SnsCallerArn **required**
+  * SmsVerificationMessage
+  * UserPoolAddOns
+    * AdvancedSecurityMode **required**
+  * UserPoolTags
+  * UsernameAttributes
+    * items [UsernameAttributeType](#usernameattributetype)
+  * UsernameConfiguration
+    * CaseSensitive **required**
+  * VerificationMessageTemplate
+    * DefaultEmailOption
+    * EmailMessage
+    * EmailMessageByLink
+    * EmailSubject
+    * EmailSubjectByLink
+    * SmsMessage
 
 #### Output
 * output [CreateUserPoolResponse](#createuserpoolresponse)
@@ -810,28 +937,48 @@ amazonaws_cognito_idp.CreateUserPool({
 
 ```js
 amazonaws_cognito_idp.CreateUserPoolClient({
-  "UserPoolId": "",
-  "ClientName": ""
+  "UserPoolId": null,
+  "ClientName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * AllowedOAuthFlows [OAuthFlowsType](#oauthflowstype)
-  * AllowedOAuthFlowsUserPoolClient [BooleanType](#booleantype)
-  * AllowedOAuthScopes [ScopeListType](#scopelisttype)
-  * AnalyticsConfiguration [AnalyticsConfigurationType](#analyticsconfigurationtype)
-  * CallbackURLs [CallbackURLsListType](#callbackurlslisttype)
-  * ClientName **required** [ClientNameType](#clientnametype)
-  * DefaultRedirectURI [RedirectUrlType](#redirecturltype)
-  * ExplicitAuthFlows [ExplicitAuthFlowsListType](#explicitauthflowslisttype)
-  * GenerateSecret [GenerateSecret](#generatesecret)
-  * LogoutURLs [LogoutURLsListType](#logouturlslisttype)
-  * ReadAttributes [ClientPermissionListType](#clientpermissionlisttype)
-  * RefreshTokenValidity [RefreshTokenValidityType](#refreshtokenvaliditytype)
-  * SupportedIdentityProviders [SupportedIdentityProvidersListType](#supportedidentityproviderslisttype)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
-  * WriteAttributes [ClientPermissionListType](#clientpermissionlisttype)
+  * AccessTokenValidity
+  * AllowedOAuthFlows
+    * items [OAuthFlowType](#oauthflowtype)
+  * AllowedOAuthFlowsUserPoolClient
+  * AllowedOAuthScopes
+    * items [ScopeType](#scopetype)
+  * AnalyticsConfiguration
+    * ApplicationArn
+    * ApplicationId
+    * ExternalId
+    * RoleArn
+    * UserDataShared
+  * CallbackURLs
+    * items [RedirectUrlType](#redirecturltype)
+  * ClientName **required**
+  * DefaultRedirectURI
+  * ExplicitAuthFlows
+    * items [ExplicitAuthFlowsType](#explicitauthflowstype)
+  * GenerateSecret
+  * IdTokenValidity
+  * LogoutURLs
+    * items [RedirectUrlType](#redirecturltype)
+  * PreventUserExistenceErrors
+  * ReadAttributes
+    * items [ClientPermissionType](#clientpermissiontype)
+  * RefreshTokenValidity
+  * SupportedIdentityProviders
+    * items [ProviderNameType](#providernametype)
+  * TokenValidityUnits
+    * AccessToken
+    * IdToken
+    * RefreshToken
+  * UserPoolId **required**
+  * WriteAttributes
+    * items [ClientPermissionType](#clientpermissiontype)
 
 #### Output
 * output [CreateUserPoolClientResponse](#createuserpoolclientresponse)
@@ -842,15 +989,17 @@ amazonaws_cognito_idp.CreateUserPoolClient({
 
 ```js
 amazonaws_cognito_idp.CreateUserPoolDomain({
-  "Domain": "",
-  "UserPoolId": ""
+  "Domain": null,
+  "UserPoolId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Domain **required** [DomainType](#domaintype)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
+  * CustomDomainConfig
+    * CertificateArn **required**
+  * Domain **required**
+  * UserPoolId **required**
 
 #### Output
 * output [CreateUserPoolDomainResponse](#createuserpooldomainresponse)
@@ -861,15 +1010,15 @@ amazonaws_cognito_idp.CreateUserPoolDomain({
 
 ```js
 amazonaws_cognito_idp.DeleteGroup({
-  "GroupName": "",
-  "UserPoolId": ""
+  "GroupName": null,
+  "UserPoolId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * GroupName **required** [GroupNameType](#groupnametype)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
+  * GroupName **required**
+  * UserPoolId **required**
 
 #### Output
 *Output schema unknown*
@@ -880,15 +1029,15 @@ amazonaws_cognito_idp.DeleteGroup({
 
 ```js
 amazonaws_cognito_idp.DeleteIdentityProvider({
-  "UserPoolId": "",
-  "ProviderName": ""
+  "UserPoolId": null,
+  "ProviderName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ProviderName **required** [ProviderNameType](#providernametype)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
+  * ProviderName **required**
+  * UserPoolId **required**
 
 #### Output
 *Output schema unknown*
@@ -899,15 +1048,15 @@ amazonaws_cognito_idp.DeleteIdentityProvider({
 
 ```js
 amazonaws_cognito_idp.DeleteResourceServer({
-  "UserPoolId": "",
-  "Identifier": ""
+  "UserPoolId": null,
+  "Identifier": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Identifier **required** [ResourceServerIdentifierType](#resourceserveridentifiertype)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
+  * Identifier **required**
+  * UserPoolId **required**
 
 #### Output
 *Output schema unknown*
@@ -918,13 +1067,13 @@ amazonaws_cognito_idp.DeleteResourceServer({
 
 ```js
 amazonaws_cognito_idp.DeleteUser({
-  "AccessToken": ""
+  "AccessToken": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * AccessToken **required** [TokenModelType](#tokenmodeltype)
+  * AccessToken **required**
 
 #### Output
 *Output schema unknown*
@@ -935,15 +1084,16 @@ amazonaws_cognito_idp.DeleteUser({
 
 ```js
 amazonaws_cognito_idp.DeleteUserAttributes({
-  "UserAttributeNames": [],
-  "AccessToken": ""
+  "UserAttributeNames": null,
+  "AccessToken": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * AccessToken **required** [TokenModelType](#tokenmodeltype)
-  * UserAttributeNames **required** [AttributeNameListType](#attributenamelisttype)
+  * AccessToken **required**
+  * UserAttributeNames **required**
+    * items [AttributeNameType](#attributenametype)
 
 #### Output
 * output [DeleteUserAttributesResponse](#deleteuserattributesresponse)
@@ -954,13 +1104,13 @@ amazonaws_cognito_idp.DeleteUserAttributes({
 
 ```js
 amazonaws_cognito_idp.DeleteUserPool({
-  "UserPoolId": ""
+  "UserPoolId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
+  * UserPoolId **required**
 
 #### Output
 *Output schema unknown*
@@ -971,15 +1121,15 @@ amazonaws_cognito_idp.DeleteUserPool({
 
 ```js
 amazonaws_cognito_idp.DeleteUserPoolClient({
-  "UserPoolId": "",
-  "ClientId": ""
+  "UserPoolId": null,
+  "ClientId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ClientId **required** [ClientIdType](#clientidtype)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
+  * ClientId **required**
+  * UserPoolId **required**
 
 #### Output
 *Output schema unknown*
@@ -990,15 +1140,15 @@ amazonaws_cognito_idp.DeleteUserPoolClient({
 
 ```js
 amazonaws_cognito_idp.DeleteUserPoolDomain({
-  "Domain": "",
-  "UserPoolId": ""
+  "Domain": null,
+  "UserPoolId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Domain **required** [DomainType](#domaintype)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
+  * Domain **required**
+  * UserPoolId **required**
 
 #### Output
 * output [DeleteUserPoolDomainResponse](#deleteuserpooldomainresponse)
@@ -1009,15 +1159,15 @@ amazonaws_cognito_idp.DeleteUserPoolDomain({
 
 ```js
 amazonaws_cognito_idp.DescribeIdentityProvider({
-  "UserPoolId": "",
-  "ProviderName": ""
+  "UserPoolId": null,
+  "ProviderName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ProviderName **required** [ProviderNameType](#providernametype)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
+  * ProviderName **required**
+  * UserPoolId **required**
 
 #### Output
 * output [DescribeIdentityProviderResponse](#describeidentityproviderresponse)
@@ -1028,15 +1178,15 @@ amazonaws_cognito_idp.DescribeIdentityProvider({
 
 ```js
 amazonaws_cognito_idp.DescribeResourceServer({
-  "UserPoolId": "",
-  "Identifier": ""
+  "UserPoolId": null,
+  "Identifier": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Identifier **required** [ResourceServerIdentifierType](#resourceserveridentifiertype)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
+  * Identifier **required**
+  * UserPoolId **required**
 
 #### Output
 * output [DescribeResourceServerResponse](#describeresourceserverresponse)
@@ -1047,14 +1197,14 @@ amazonaws_cognito_idp.DescribeResourceServer({
 
 ```js
 amazonaws_cognito_idp.DescribeRiskConfiguration({
-  "UserPoolId": ""
+  "UserPoolId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ClientId [ClientIdType](#clientidtype)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
+  * ClientId
+  * UserPoolId **required**
 
 #### Output
 * output [DescribeRiskConfigurationResponse](#describeriskconfigurationresponse)
@@ -1065,15 +1215,15 @@ amazonaws_cognito_idp.DescribeRiskConfiguration({
 
 ```js
 amazonaws_cognito_idp.DescribeUserImportJob({
-  "UserPoolId": "",
-  "JobId": ""
+  "UserPoolId": null,
+  "JobId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * JobId **required** [UserImportJobIdType](#userimportjobidtype)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
+  * JobId **required**
+  * UserPoolId **required**
 
 #### Output
 * output [DescribeUserImportJobResponse](#describeuserimportjobresponse)
@@ -1084,13 +1234,13 @@ amazonaws_cognito_idp.DescribeUserImportJob({
 
 ```js
 amazonaws_cognito_idp.DescribeUserPool({
-  "UserPoolId": ""
+  "UserPoolId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
+  * UserPoolId **required**
 
 #### Output
 * output [DescribeUserPoolResponse](#describeuserpoolresponse)
@@ -1101,15 +1251,15 @@ amazonaws_cognito_idp.DescribeUserPool({
 
 ```js
 amazonaws_cognito_idp.DescribeUserPoolClient({
-  "UserPoolId": "",
-  "ClientId": ""
+  "UserPoolId": null,
+  "ClientId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ClientId **required** [ClientIdType](#clientidtype)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
+  * ClientId **required**
+  * UserPoolId **required**
 
 #### Output
 * output [DescribeUserPoolClientResponse](#describeuserpoolclientresponse)
@@ -1120,13 +1270,13 @@ amazonaws_cognito_idp.DescribeUserPoolClient({
 
 ```js
 amazonaws_cognito_idp.DescribeUserPoolDomain({
-  "Domain": ""
+  "Domain": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Domain **required** [DomainType](#domaintype)
+  * Domain **required**
 
 #### Output
 * output [DescribeUserPoolDomainResponse](#describeuserpooldomainresponse)
@@ -1137,14 +1287,14 @@ amazonaws_cognito_idp.DescribeUserPoolDomain({
 
 ```js
 amazonaws_cognito_idp.ForgetDevice({
-  "DeviceKey": ""
+  "DeviceKey": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * AccessToken [TokenModelType](#tokenmodeltype)
-  * DeviceKey **required** [DeviceKeyType](#devicekeytype)
+  * AccessToken
+  * DeviceKey **required**
 
 #### Output
 *Output schema unknown*
@@ -1155,18 +1305,21 @@ amazonaws_cognito_idp.ForgetDevice({
 
 ```js
 amazonaws_cognito_idp.ForgotPassword({
-  "ClientId": "",
-  "Username": ""
+  "ClientId": null,
+  "Username": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * AnalyticsMetadata [AnalyticsMetadataType](#analyticsmetadatatype)
-  * ClientId **required** [ClientIdType](#clientidtype)
-  * SecretHash [SecretHashType](#secrethashtype)
-  * UserContextData [UserContextDataType](#usercontextdatatype)
-  * Username **required** [UsernameType](#usernametype)
+  * AnalyticsMetadata
+    * AnalyticsEndpointId
+  * ClientId **required**
+  * ClientMetadata
+  * SecretHash
+  * UserContextData
+    * EncodedData
+  * Username **required**
 
 #### Output
 * output [ForgotPasswordResponse](#forgotpasswordresponse)
@@ -1177,13 +1330,13 @@ amazonaws_cognito_idp.ForgotPassword({
 
 ```js
 amazonaws_cognito_idp.GetCSVHeader({
-  "UserPoolId": ""
+  "UserPoolId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
+  * UserPoolId **required**
 
 #### Output
 * output [GetCSVHeaderResponse](#getcsvheaderresponse)
@@ -1194,14 +1347,14 @@ amazonaws_cognito_idp.GetCSVHeader({
 
 ```js
 amazonaws_cognito_idp.GetDevice({
-  "DeviceKey": ""
+  "DeviceKey": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * AccessToken [TokenModelType](#tokenmodeltype)
-  * DeviceKey **required** [DeviceKeyType](#devicekeytype)
+  * AccessToken
+  * DeviceKey **required**
 
 #### Output
 * output [GetDeviceResponse](#getdeviceresponse)
@@ -1212,15 +1365,15 @@ amazonaws_cognito_idp.GetDevice({
 
 ```js
 amazonaws_cognito_idp.GetGroup({
-  "GroupName": "",
-  "UserPoolId": ""
+  "GroupName": null,
+  "UserPoolId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * GroupName **required** [GroupNameType](#groupnametype)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
+  * GroupName **required**
+  * UserPoolId **required**
 
 #### Output
 * output [GetGroupResponse](#getgroupresponse)
@@ -1231,15 +1384,15 @@ amazonaws_cognito_idp.GetGroup({
 
 ```js
 amazonaws_cognito_idp.GetIdentityProviderByIdentifier({
-  "UserPoolId": "",
-  "IdpIdentifier": ""
+  "UserPoolId": null,
+  "IdpIdentifier": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * IdpIdentifier **required** [IdpIdentifierType](#idpidentifiertype)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
+  * IdpIdentifier **required**
+  * UserPoolId **required**
 
 #### Output
 * output [GetIdentityProviderByIdentifierResponse](#getidentityproviderbyidentifierresponse)
@@ -1250,13 +1403,13 @@ amazonaws_cognito_idp.GetIdentityProviderByIdentifier({
 
 ```js
 amazonaws_cognito_idp.GetSigningCertificate({
-  "UserPoolId": ""
+  "UserPoolId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
+  * UserPoolId **required**
 
 #### Output
 * output [GetSigningCertificateResponse](#getsigningcertificateresponse)
@@ -1267,14 +1420,14 @@ amazonaws_cognito_idp.GetSigningCertificate({
 
 ```js
 amazonaws_cognito_idp.GetUICustomization({
-  "UserPoolId": ""
+  "UserPoolId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ClientId [ClientIdType](#clientidtype)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
+  * ClientId
+  * UserPoolId **required**
 
 #### Output
 * output [GetUICustomizationResponse](#getuicustomizationresponse)
@@ -1285,13 +1438,13 @@ amazonaws_cognito_idp.GetUICustomization({
 
 ```js
 amazonaws_cognito_idp.GetUser({
-  "AccessToken": ""
+  "AccessToken": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * AccessToken **required** [TokenModelType](#tokenmodeltype)
+  * AccessToken **required**
 
 #### Output
 * output [GetUserResponse](#getuserresponse)
@@ -1302,15 +1455,16 @@ amazonaws_cognito_idp.GetUser({
 
 ```js
 amazonaws_cognito_idp.GetUserAttributeVerificationCode({
-  "AccessToken": "",
-  "AttributeName": ""
+  "AccessToken": null,
+  "AttributeName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * AccessToken **required** [TokenModelType](#tokenmodeltype)
-  * AttributeName **required** [AttributeNameType](#attributenametype)
+  * AccessToken **required**
+  * AttributeName **required**
+  * ClientMetadata
 
 #### Output
 * output [GetUserAttributeVerificationCodeResponse](#getuserattributeverificationcoderesponse)
@@ -1321,13 +1475,13 @@ amazonaws_cognito_idp.GetUserAttributeVerificationCode({
 
 ```js
 amazonaws_cognito_idp.GetUserPoolMfaConfig({
-  "UserPoolId": ""
+  "UserPoolId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
+  * UserPoolId **required**
 
 #### Output
 * output [GetUserPoolMfaConfigResponse](#getuserpoolmfaconfigresponse)
@@ -1338,13 +1492,13 @@ amazonaws_cognito_idp.GetUserPoolMfaConfig({
 
 ```js
 amazonaws_cognito_idp.GlobalSignOut({
-  "AccessToken": ""
+  "AccessToken": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * AccessToken **required** [TokenModelType](#tokenmodeltype)
+  * AccessToken **required**
 
 #### Output
 * output [GlobalSignOutResponse](#globalsignoutresponse)
@@ -1355,19 +1509,21 @@ amazonaws_cognito_idp.GlobalSignOut({
 
 ```js
 amazonaws_cognito_idp.InitiateAuth({
-  "AuthFlow": "",
-  "ClientId": ""
+  "AuthFlow": null,
+  "ClientId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * AnalyticsMetadata [AnalyticsMetadataType](#analyticsmetadatatype)
-  * AuthFlow **required** [AuthFlowType](#authflowtype)
-  * AuthParameters [AuthParametersType](#authparameterstype)
-  * ClientId **required** [ClientIdType](#clientidtype)
-  * ClientMetadata [ClientMetadataType](#clientmetadatatype)
-  * UserContextData [UserContextDataType](#usercontextdatatype)
+  * AnalyticsMetadata
+    * AnalyticsEndpointId
+  * AuthFlow **required**
+  * AuthParameters
+  * ClientId **required**
+  * ClientMetadata
+  * UserContextData
+    * EncodedData
 
 #### Output
 * output [InitiateAuthResponse](#initiateauthresponse)
@@ -1378,15 +1534,15 @@ amazonaws_cognito_idp.InitiateAuth({
 
 ```js
 amazonaws_cognito_idp.ListDevices({
-  "AccessToken": ""
+  "AccessToken": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * AccessToken **required** [TokenModelType](#tokenmodeltype)
-  * Limit [QueryLimitType](#querylimittype)
-  * PaginationToken [SearchPaginationTokenType](#searchpaginationtokentype)
+  * AccessToken **required**
+  * Limit
+  * PaginationToken
 
 #### Output
 * output [ListDevicesResponse](#listdevicesresponse)
@@ -1397,15 +1553,17 @@ amazonaws_cognito_idp.ListDevices({
 
 ```js
 amazonaws_cognito_idp.ListGroups({
-  "UserPoolId": ""
+  "UserPoolId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Limit [QueryLimitType](#querylimittype)
-  * NextToken [PaginationKey](#paginationkey)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
+  * Limit `string`
+  * NextToken `string`
+  * Limit
+  * NextToken
+  * UserPoolId **required**
 
 #### Output
 * output [ListGroupsResponse](#listgroupsresponse)
@@ -1416,15 +1574,17 @@ amazonaws_cognito_idp.ListGroups({
 
 ```js
 amazonaws_cognito_idp.ListIdentityProviders({
-  "UserPoolId": ""
+  "UserPoolId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * MaxResults [ListProvidersLimitType](#listproviderslimittype)
-  * NextToken [PaginationKeyType](#paginationkeytype)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
+  * MaxResults `string`
+  * NextToken `string`
+  * MaxResults
+  * NextToken
+  * UserPoolId **required**
 
 #### Output
 * output [ListIdentityProvidersResponse](#listidentityprovidersresponse)
@@ -1435,18 +1595,37 @@ amazonaws_cognito_idp.ListIdentityProviders({
 
 ```js
 amazonaws_cognito_idp.ListResourceServers({
-  "UserPoolId": ""
+  "UserPoolId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * MaxResults [ListResourceServersLimitType](#listresourceserverslimittype)
-  * NextToken [PaginationKeyType](#paginationkeytype)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
+  * MaxResults `string`
+  * NextToken `string`
+  * MaxResults
+  * NextToken
+  * UserPoolId **required**
 
 #### Output
 * output [ListResourceServersResponse](#listresourceserversresponse)
+
+### ListTagsForResource
+
+
+
+```js
+amazonaws_cognito_idp.ListTagsForResource({
+  "ResourceArn": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * ResourceArn **required**
+
+#### Output
+* output [ListTagsForResourceResponse](#listtagsforresourceresponse)
 
 ### ListUserImportJobs
 
@@ -1454,16 +1633,16 @@ amazonaws_cognito_idp.ListResourceServers({
 
 ```js
 amazonaws_cognito_idp.ListUserImportJobs({
-  "UserPoolId": "",
-  "MaxResults": 0
+  "UserPoolId": null,
+  "MaxResults": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * MaxResults **required** [PoolQueryLimitType](#poolquerylimittype)
-  * PaginationToken [PaginationKeyType](#paginationkeytype)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
+  * MaxResults **required**
+  * PaginationToken
+  * UserPoolId **required**
 
 #### Output
 * output [ListUserImportJobsResponse](#listuserimportjobsresponse)
@@ -1474,15 +1653,17 @@ amazonaws_cognito_idp.ListUserImportJobs({
 
 ```js
 amazonaws_cognito_idp.ListUserPoolClients({
-  "UserPoolId": ""
+  "UserPoolId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * MaxResults [QueryLimit](#querylimit)
-  * NextToken [PaginationKey](#paginationkey)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
+  * MaxResults `string`
+  * NextToken `string`
+  * MaxResults
+  * NextToken
+  * UserPoolId **required**
 
 #### Output
 * output [ListUserPoolClientsResponse](#listuserpoolclientsresponse)
@@ -1493,14 +1674,16 @@ amazonaws_cognito_idp.ListUserPoolClients({
 
 ```js
 amazonaws_cognito_idp.ListUserPools({
-  "MaxResults": 0
+  "MaxResults": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * MaxResults **required** [PoolQueryLimitType](#poolquerylimittype)
-  * NextToken [PaginationKeyType](#paginationkeytype)
+  * MaxResults `string`
+  * NextToken `string`
+  * MaxResults **required**
+  * NextToken
 
 #### Output
 * output [ListUserPoolsResponse](#listuserpoolsresponse)
@@ -1511,17 +1694,20 @@ amazonaws_cognito_idp.ListUserPools({
 
 ```js
 amazonaws_cognito_idp.ListUsers({
-  "UserPoolId": ""
+  "UserPoolId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * AttributesToGet [SearchedAttributeNamesListType](#searchedattributenameslisttype)
-  * Filter [UserFilterType](#userfiltertype)
-  * Limit [QueryLimitType](#querylimittype)
-  * PaginationToken [SearchPaginationTokenType](#searchpaginationtokentype)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
+  * Limit `string`
+  * PaginationToken `string`
+  * AttributesToGet
+    * items [AttributeNameType](#attributenametype)
+  * Filter
+  * Limit
+  * PaginationToken
+  * UserPoolId **required**
 
 #### Output
 * output [ListUsersResponse](#listusersresponse)
@@ -1532,17 +1718,19 @@ amazonaws_cognito_idp.ListUsers({
 
 ```js
 amazonaws_cognito_idp.ListUsersInGroup({
-  "UserPoolId": "",
-  "GroupName": ""
+  "UserPoolId": null,
+  "GroupName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * GroupName **required** [GroupNameType](#groupnametype)
-  * Limit [QueryLimitType](#querylimittype)
-  * NextToken [PaginationKey](#paginationkey)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
+  * Limit `string`
+  * NextToken `string`
+  * GroupName **required**
+  * Limit
+  * NextToken
+  * UserPoolId **required**
 
 #### Output
 * output [ListUsersInGroupResponse](#listusersingroupresponse)
@@ -1553,18 +1741,21 @@ amazonaws_cognito_idp.ListUsersInGroup({
 
 ```js
 amazonaws_cognito_idp.ResendConfirmationCode({
-  "ClientId": "",
-  "Username": ""
+  "ClientId": null,
+  "Username": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * AnalyticsMetadata [AnalyticsMetadataType](#analyticsmetadatatype)
-  * ClientId **required** [ClientIdType](#clientidtype)
-  * SecretHash [SecretHashType](#secrethashtype)
-  * UserContextData [UserContextDataType](#usercontextdatatype)
-  * Username **required** [UsernameType](#usernametype)
+  * AnalyticsMetadata
+    * AnalyticsEndpointId
+  * ClientId **required**
+  * ClientMetadata
+  * SecretHash
+  * UserContextData
+    * EncodedData
+  * Username **required**
 
 #### Output
 * output [ResendConfirmationCodeResponse](#resendconfirmationcoderesponse)
@@ -1575,19 +1766,22 @@ amazonaws_cognito_idp.ResendConfirmationCode({
 
 ```js
 amazonaws_cognito_idp.RespondToAuthChallenge({
-  "ClientId": "",
-  "ChallengeName": ""
+  "ClientId": null,
+  "ChallengeName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * AnalyticsMetadata [AnalyticsMetadataType](#analyticsmetadatatype)
-  * ChallengeName **required** [ChallengeNameType](#challengenametype)
-  * ChallengeResponses [ChallengeResponsesType](#challengeresponsestype)
-  * ClientId **required** [ClientIdType](#clientidtype)
-  * Session [SessionType](#sessiontype)
-  * UserContextData [UserContextDataType](#usercontextdatatype)
+  * AnalyticsMetadata
+    * AnalyticsEndpointId
+  * ChallengeName **required**
+  * ChallengeResponses
+  * ClientId **required**
+  * ClientMetadata
+  * Session
+  * UserContextData
+    * EncodedData
 
 #### Output
 * output [RespondToAuthChallengeResponse](#respondtoauthchallengeresponse)
@@ -1598,17 +1792,51 @@ amazonaws_cognito_idp.RespondToAuthChallenge({
 
 ```js
 amazonaws_cognito_idp.SetRiskConfiguration({
-  "UserPoolId": ""
+  "UserPoolId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * AccountTakeoverRiskConfiguration [AccountTakeoverRiskConfigurationType](#accounttakeoverriskconfigurationtype)
-  * ClientId [ClientIdType](#clientidtype)
-  * CompromisedCredentialsRiskConfiguration [CompromisedCredentialsRiskConfigurationType](#compromisedcredentialsriskconfigurationtype)
-  * RiskExceptionConfiguration [RiskExceptionConfigurationType](#riskexceptionconfigurationtype)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
+  * AccountTakeoverRiskConfiguration
+    * Actions **required**
+      * HighAction
+        * EventAction **required**
+        * Notify **required**
+      * LowAction
+        * EventAction **required**
+        * Notify **required**
+      * MediumAction
+        * EventAction **required**
+        * Notify **required**
+    * NotifyConfiguration
+      * BlockEmail
+        * HtmlBody
+        * Subject **required**
+        * TextBody
+      * From
+      * MfaEmail
+        * HtmlBody
+        * Subject **required**
+        * TextBody
+      * NoActionEmail
+        * HtmlBody
+        * Subject **required**
+        * TextBody
+      * ReplyTo
+      * SourceArn **required**
+  * ClientId
+  * CompromisedCredentialsRiskConfiguration
+    * Actions **required**
+      * EventAction **required**
+    * EventFilter
+      * items [EventFilterType](#eventfiltertype)
+  * RiskExceptionConfiguration
+    * BlockedIPRangeList
+      * items [StringType](#stringtype)
+    * SkippedIPRangeList
+      * items [StringType](#stringtype)
+  * UserPoolId **required**
 
 #### Output
 * output [SetRiskConfigurationResponse](#setriskconfigurationresponse)
@@ -1619,16 +1847,16 @@ amazonaws_cognito_idp.SetRiskConfiguration({
 
 ```js
 amazonaws_cognito_idp.SetUICustomization({
-  "UserPoolId": ""
+  "UserPoolId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * CSS [CSSType](#csstype)
-  * ClientId [ClientIdType](#clientidtype)
-  * ImageFile [ImageFileType](#imagefiletype)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
+  * CSS
+  * ClientId
+  * ImageFile
+  * UserPoolId **required**
 
 #### Output
 * output [SetUICustomizationResponse](#setuicustomizationresponse)
@@ -1639,15 +1867,19 @@ amazonaws_cognito_idp.SetUICustomization({
 
 ```js
 amazonaws_cognito_idp.SetUserMFAPreference({
-  "AccessToken": ""
+  "AccessToken": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * AccessToken **required** [TokenModelType](#tokenmodeltype)
-  * SMSMfaSettings [SMSMfaSettingsType](#smsmfasettingstype)
-  * SoftwareTokenMfaSettings [SoftwareTokenMfaSettingsType](#softwaretokenmfasettingstype)
+  * AccessToken **required**
+  * SMSMfaSettings
+    * Enabled
+    * PreferredMfa
+  * SoftwareTokenMfaSettings
+    * Enabled
+    * PreferredMfa
 
 #### Output
 * output [SetUserMFAPreferenceResponse](#setusermfapreferenceresponse)
@@ -1658,16 +1890,21 @@ amazonaws_cognito_idp.SetUserMFAPreference({
 
 ```js
 amazonaws_cognito_idp.SetUserPoolMfaConfig({
-  "UserPoolId": ""
+  "UserPoolId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * MfaConfiguration [UserPoolMfaType](#userpoolmfatype)
-  * SmsMfaConfiguration [SmsMfaConfigType](#smsmfaconfigtype)
-  * SoftwareTokenMfaConfiguration [SoftwareTokenMfaConfigType](#softwaretokenmfaconfigtype)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
+  * MfaConfiguration
+  * SmsMfaConfiguration
+    * SmsAuthenticationMessage
+    * SmsConfiguration
+      * ExternalId
+      * SnsCallerArn **required**
+  * SoftwareTokenMfaConfiguration
+    * Enabled
+  * UserPoolId **required**
 
 #### Output
 * output [SetUserPoolMfaConfigResponse](#setuserpoolmfaconfigresponse)
@@ -1678,15 +1915,16 @@ amazonaws_cognito_idp.SetUserPoolMfaConfig({
 
 ```js
 amazonaws_cognito_idp.SetUserSettings({
-  "AccessToken": "",
-  "MFAOptions": []
+  "AccessToken": null,
+  "MFAOptions": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * AccessToken **required** [TokenModelType](#tokenmodeltype)
-  * MFAOptions **required** [MFAOptionListType](#mfaoptionlisttype)
+  * AccessToken **required**
+  * MFAOptions **required**
+    * items [MFAOptionType](#mfaoptiontype)
 
 #### Output
 * output [SetUserSettingsResponse](#setusersettingsresponse)
@@ -1697,22 +1935,27 @@ amazonaws_cognito_idp.SetUserSettings({
 
 ```js
 amazonaws_cognito_idp.SignUp({
-  "ClientId": "",
-  "Username": "",
-  "Password": ""
+  "ClientId": null,
+  "Username": null,
+  "Password": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * AnalyticsMetadata [AnalyticsMetadataType](#analyticsmetadatatype)
-  * ClientId **required** [ClientIdType](#clientidtype)
-  * Password **required** [PasswordType](#passwordtype)
-  * SecretHash [SecretHashType](#secrethashtype)
-  * UserAttributes [AttributeListType](#attributelisttype)
-  * UserContextData [UserContextDataType](#usercontextdatatype)
-  * Username **required** [UsernameType](#usernametype)
-  * ValidationData [AttributeListType](#attributelisttype)
+  * AnalyticsMetadata
+    * AnalyticsEndpointId
+  * ClientId **required**
+  * ClientMetadata
+  * Password **required**
+  * SecretHash
+  * UserAttributes
+    * items [AttributeType](#attributetype)
+  * UserContextData
+    * EncodedData
+  * Username **required**
+  * ValidationData
+    * items [AttributeType](#attributetype)
 
 #### Output
 * output [SignUpResponse](#signupresponse)
@@ -1723,15 +1966,15 @@ amazonaws_cognito_idp.SignUp({
 
 ```js
 amazonaws_cognito_idp.StartUserImportJob({
-  "UserPoolId": "",
-  "JobId": ""
+  "UserPoolId": null,
+  "JobId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * JobId **required** [UserImportJobIdType](#userimportjobidtype)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
+  * JobId **required**
+  * UserPoolId **required**
 
 #### Output
 * output [StartUserImportJobResponse](#startuserimportjobresponse)
@@ -1742,18 +1985,57 @@ amazonaws_cognito_idp.StartUserImportJob({
 
 ```js
 amazonaws_cognito_idp.StopUserImportJob({
-  "UserPoolId": "",
-  "JobId": ""
+  "UserPoolId": null,
+  "JobId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * JobId **required** [UserImportJobIdType](#userimportjobidtype)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
+  * JobId **required**
+  * UserPoolId **required**
 
 #### Output
 * output [StopUserImportJobResponse](#stopuserimportjobresponse)
+
+### TagResource
+
+
+
+```js
+amazonaws_cognito_idp.TagResource({
+  "ResourceArn": null,
+  "Tags": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * ResourceArn **required**
+  * Tags **required**
+
+#### Output
+* output [TagResourceResponse](#tagresourceresponse)
+
+### UntagResource
+
+
+
+```js
+amazonaws_cognito_idp.UntagResource({
+  "ResourceArn": null,
+  "TagKeys": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * ResourceArn **required**
+  * TagKeys **required**
+    * items [TagKeysType](#tagkeystype)
+
+#### Output
+* output [UntagResourceResponse](#untagresourceresponse)
 
 ### UpdateAuthEventFeedback
 
@@ -1761,21 +2043,21 @@ amazonaws_cognito_idp.StopUserImportJob({
 
 ```js
 amazonaws_cognito_idp.UpdateAuthEventFeedback({
-  "UserPoolId": "",
-  "Username": "",
-  "EventId": "",
-  "FeedbackToken": "",
-  "FeedbackValue": ""
+  "UserPoolId": null,
+  "Username": null,
+  "EventId": null,
+  "FeedbackToken": null,
+  "FeedbackValue": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * EventId **required** [EventIdType](#eventidtype)
-  * FeedbackToken **required** [TokenModelType](#tokenmodeltype)
-  * FeedbackValue **required** [FeedbackValueType](#feedbackvaluetype)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
-  * Username **required** [UsernameType](#usernametype)
+  * EventId **required**
+  * FeedbackToken **required**
+  * FeedbackValue **required**
+  * UserPoolId **required**
+  * Username **required**
 
 #### Output
 * output [UpdateAuthEventFeedbackResponse](#updateautheventfeedbackresponse)
@@ -1786,16 +2068,16 @@ amazonaws_cognito_idp.UpdateAuthEventFeedback({
 
 ```js
 amazonaws_cognito_idp.UpdateDeviceStatus({
-  "AccessToken": "",
-  "DeviceKey": ""
+  "AccessToken": null,
+  "DeviceKey": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * AccessToken **required** [TokenModelType](#tokenmodeltype)
-  * DeviceKey **required** [DeviceKeyType](#devicekeytype)
-  * DeviceRememberedStatus [DeviceRememberedStatusType](#devicerememberedstatustype)
+  * AccessToken **required**
+  * DeviceKey **required**
+  * DeviceRememberedStatus
 
 #### Output
 * output [UpdateDeviceStatusResponse](#updatedevicestatusresponse)
@@ -1806,18 +2088,18 @@ amazonaws_cognito_idp.UpdateDeviceStatus({
 
 ```js
 amazonaws_cognito_idp.UpdateGroup({
-  "GroupName": "",
-  "UserPoolId": ""
+  "GroupName": null,
+  "UserPoolId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Description [DescriptionType](#descriptiontype)
-  * GroupName **required** [GroupNameType](#groupnametype)
-  * Precedence [PrecedenceType](#precedencetype)
-  * RoleArn [ArnType](#arntype)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
+  * Description
+  * GroupName **required**
+  * Precedence
+  * RoleArn
+  * UserPoolId **required**
 
 #### Output
 * output [UpdateGroupResponse](#updategroupresponse)
@@ -1828,18 +2110,19 @@ amazonaws_cognito_idp.UpdateGroup({
 
 ```js
 amazonaws_cognito_idp.UpdateIdentityProvider({
-  "UserPoolId": "",
-  "ProviderName": ""
+  "UserPoolId": null,
+  "ProviderName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * AttributeMapping [AttributeMappingType](#attributemappingtype)
-  * IdpIdentifiers [IdpIdentifiersListType](#idpidentifierslisttype)
-  * ProviderDetails [ProviderDetailsType](#providerdetailstype)
-  * ProviderName **required** [ProviderNameType](#providernametype)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
+  * AttributeMapping
+  * IdpIdentifiers
+    * items [IdpIdentifierType](#idpidentifiertype)
+  * ProviderDetails
+  * ProviderName **required**
+  * UserPoolId **required**
 
 #### Output
 * output [UpdateIdentityProviderResponse](#updateidentityproviderresponse)
@@ -1850,18 +2133,19 @@ amazonaws_cognito_idp.UpdateIdentityProvider({
 
 ```js
 amazonaws_cognito_idp.UpdateResourceServer({
-  "UserPoolId": "",
-  "Identifier": "",
-  "Name": ""
+  "UserPoolId": null,
+  "Identifier": null,
+  "Name": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Identifier **required** [ResourceServerIdentifierType](#resourceserveridentifiertype)
-  * Name **required** [ResourceServerNameType](#resourceservernametype)
-  * Scopes [ResourceServerScopeListType](#resourceserverscopelisttype)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
+  * Identifier **required**
+  * Name **required**
+  * Scopes
+    * items [ResourceServerScopeType](#resourceserverscopetype)
+  * UserPoolId **required**
 
 #### Output
 * output [UpdateResourceServerResponse](#updateresourceserverresponse)
@@ -1872,15 +2156,17 @@ amazonaws_cognito_idp.UpdateResourceServer({
 
 ```js
 amazonaws_cognito_idp.UpdateUserAttributes({
-  "UserAttributes": [],
-  "AccessToken": ""
+  "UserAttributes": null,
+  "AccessToken": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * AccessToken **required** [TokenModelType](#tokenmodeltype)
-  * UserAttributes **required** [AttributeListType](#attributelisttype)
+  * AccessToken **required**
+  * ClientMetadata
+  * UserAttributes **required**
+    * items [AttributeType](#attributetype)
 
 #### Output
 * output [UpdateUserAttributesResponse](#updateuserattributesresponse)
@@ -1891,28 +2177,78 @@ amazonaws_cognito_idp.UpdateUserAttributes({
 
 ```js
 amazonaws_cognito_idp.UpdateUserPool({
-  "UserPoolId": ""
+  "UserPoolId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * AdminCreateUserConfig [AdminCreateUserConfigType](#admincreateuserconfigtype)
-  * AutoVerifiedAttributes [VerifiedAttributesListType](#verifiedattributeslisttype)
-  * DeviceConfiguration [DeviceConfigurationType](#deviceconfigurationtype)
-  * EmailConfiguration [EmailConfigurationType](#emailconfigurationtype)
-  * EmailVerificationMessage [EmailVerificationMessageType](#emailverificationmessagetype)
-  * EmailVerificationSubject [EmailVerificationSubjectType](#emailverificationsubjecttype)
-  * LambdaConfig [LambdaConfigType](#lambdaconfigtype)
-  * MfaConfiguration [UserPoolMfaType](#userpoolmfatype)
-  * Policies [UserPoolPolicyType](#userpoolpolicytype)
-  * SmsAuthenticationMessage [SmsVerificationMessageType](#smsverificationmessagetype)
-  * SmsConfiguration [SmsConfigurationType](#smsconfigurationtype)
-  * SmsVerificationMessage [SmsVerificationMessageType](#smsverificationmessagetype)
-  * UserPoolAddOns [UserPoolAddOnsType](#userpooladdonstype)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
-  * UserPoolTags [UserPoolTagsType](#userpooltagstype)
-  * VerificationMessageTemplate [VerificationMessageTemplateType](#verificationmessagetemplatetype)
+  * AccountRecoverySetting
+    * RecoveryMechanisms
+      * items [RecoveryOptionType](#recoveryoptiontype)
+  * AdminCreateUserConfig
+    * AllowAdminCreateUserOnly
+    * InviteMessageTemplate
+      * EmailMessage
+      * EmailSubject
+      * SMSMessage
+    * UnusedAccountValidityDays
+  * AutoVerifiedAttributes
+    * items [VerifiedAttributeType](#verifiedattributetype)
+  * DeviceConfiguration
+    * ChallengeRequiredOnNewDevice
+    * DeviceOnlyRememberedOnUserPrompt
+  * EmailConfiguration
+    * ConfigurationSet
+    * EmailSendingAccount
+    * From
+    * ReplyToEmailAddress
+    * SourceArn
+  * EmailVerificationMessage
+  * EmailVerificationSubject
+  * LambdaConfig
+    * CreateAuthChallenge
+    * CustomEmailSender
+      * LambdaArn **required**
+      * LambdaVersion **required**
+    * CustomMessage
+    * CustomSMSSender
+      * LambdaArn **required**
+      * LambdaVersion **required**
+    * DefineAuthChallenge
+    * KMSKeyID
+    * PostAuthentication
+    * PostConfirmation
+    * PreAuthentication
+    * PreSignUp
+    * PreTokenGeneration
+    * UserMigration
+    * VerifyAuthChallengeResponse
+  * MfaConfiguration
+  * Policies
+    * PasswordPolicy
+      * MinimumLength
+      * RequireLowercase
+      * RequireNumbers
+      * RequireSymbols
+      * RequireUppercase
+      * TemporaryPasswordValidityDays
+  * SmsAuthenticationMessage
+  * SmsConfiguration
+    * ExternalId
+    * SnsCallerArn **required**
+  * SmsVerificationMessage
+  * UserPoolAddOns
+    * AdvancedSecurityMode **required**
+  * UserPoolId **required**
+  * UserPoolTags
+  * VerificationMessageTemplate
+    * DefaultEmailOption
+    * EmailMessage
+    * EmailMessageByLink
+    * EmailSubject
+    * EmailSubjectByLink
+    * SmsMessage
 
 #### Output
 * output [UpdateUserPoolResponse](#updateuserpoolresponse)
@@ -1923,31 +2259,73 @@ amazonaws_cognito_idp.UpdateUserPool({
 
 ```js
 amazonaws_cognito_idp.UpdateUserPoolClient({
-  "UserPoolId": "",
-  "ClientId": ""
+  "UserPoolId": null,
+  "ClientId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * AllowedOAuthFlows [OAuthFlowsType](#oauthflowstype)
-  * AllowedOAuthFlowsUserPoolClient [BooleanType](#booleantype)
-  * AllowedOAuthScopes [ScopeListType](#scopelisttype)
-  * AnalyticsConfiguration [AnalyticsConfigurationType](#analyticsconfigurationtype)
-  * CallbackURLs [CallbackURLsListType](#callbackurlslisttype)
-  * ClientId **required** [ClientIdType](#clientidtype)
-  * ClientName [ClientNameType](#clientnametype)
-  * DefaultRedirectURI [RedirectUrlType](#redirecturltype)
-  * ExplicitAuthFlows [ExplicitAuthFlowsListType](#explicitauthflowslisttype)
-  * LogoutURLs [LogoutURLsListType](#logouturlslisttype)
-  * ReadAttributes [ClientPermissionListType](#clientpermissionlisttype)
-  * RefreshTokenValidity [RefreshTokenValidityType](#refreshtokenvaliditytype)
-  * SupportedIdentityProviders [SupportedIdentityProvidersListType](#supportedidentityproviderslisttype)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
-  * WriteAttributes [ClientPermissionListType](#clientpermissionlisttype)
+  * AccessTokenValidity
+  * AllowedOAuthFlows
+    * items [OAuthFlowType](#oauthflowtype)
+  * AllowedOAuthFlowsUserPoolClient
+  * AllowedOAuthScopes
+    * items [ScopeType](#scopetype)
+  * AnalyticsConfiguration
+    * ApplicationArn
+    * ApplicationId
+    * ExternalId
+    * RoleArn
+    * UserDataShared
+  * CallbackURLs
+    * items [RedirectUrlType](#redirecturltype)
+  * ClientId **required**
+  * ClientName
+  * DefaultRedirectURI
+  * ExplicitAuthFlows
+    * items [ExplicitAuthFlowsType](#explicitauthflowstype)
+  * IdTokenValidity
+  * LogoutURLs
+    * items [RedirectUrlType](#redirecturltype)
+  * PreventUserExistenceErrors
+  * ReadAttributes
+    * items [ClientPermissionType](#clientpermissiontype)
+  * RefreshTokenValidity
+  * SupportedIdentityProviders
+    * items [ProviderNameType](#providernametype)
+  * TokenValidityUnits
+    * AccessToken
+    * IdToken
+    * RefreshToken
+  * UserPoolId **required**
+  * WriteAttributes
+    * items [ClientPermissionType](#clientpermissiontype)
 
 #### Output
 * output [UpdateUserPoolClientResponse](#updateuserpoolclientresponse)
+
+### UpdateUserPoolDomain
+
+
+
+```js
+amazonaws_cognito_idp.UpdateUserPoolDomain({
+  "Domain": null,
+  "UserPoolId": null,
+  "CustomDomainConfig": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * CustomDomainConfig **required**
+    * CertificateArn **required**
+  * Domain **required**
+  * UserPoolId **required**
+
+#### Output
+* output [UpdateUserPoolDomainResponse](#updateuserpooldomainresponse)
 
 ### VerifySoftwareToken
 
@@ -1955,16 +2333,16 @@ amazonaws_cognito_idp.UpdateUserPoolClient({
 
 ```js
 amazonaws_cognito_idp.VerifySoftwareToken({
-  "UserCode": ""
+  "UserCode": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * AccessToken [TokenModelType](#tokenmodeltype)
-  * FriendlyDeviceName [StringType](#stringtype)
-  * Session [SessionType](#sessiontype)
-  * UserCode **required** [SoftwareTokenMFAUserCodeType](#softwaretokenmfausercodetype)
+  * AccessToken
+  * FriendlyDeviceName
+  * Session
+  * UserCode **required**
 
 #### Output
 * output [VerifySoftwareTokenResponse](#verifysoftwaretokenresponse)
@@ -1975,17 +2353,17 @@ amazonaws_cognito_idp.VerifySoftwareToken({
 
 ```js
 amazonaws_cognito_idp.VerifyUserAttribute({
-  "AccessToken": "",
-  "AttributeName": "",
-  "Code": ""
+  "AccessToken": null,
+  "AttributeName": null,
+  "Code": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * AccessToken **required** [TokenModelType](#tokenmodeltype)
-  * AttributeName **required** [AttributeNameType](#attributenametype)
-  * Code **required** [ConfirmationCodeType](#confirmationcodetype)
+  * AccessToken **required**
+  * AttributeName **required**
+  * Code **required**
 
 #### Output
 * output [VerifyUserAttributeResponse](#verifyuserattributeresponse)
@@ -1997,290 +2375,417 @@ amazonaws_cognito_idp.VerifyUserAttribute({
 ### AWSAccountIdType
 * AWSAccountIdType `string`
 
+### AccessTokenValidityType
+* AccessTokenValidityType `integer`
+
+### AccountRecoverySettingType
+* AccountRecoverySettingType `object`: The data type for <code>AccountRecoverySetting</code>.
+  * RecoveryMechanisms
+    * items [RecoveryOptionType](#recoveryoptiontype)
+
 ### AccountTakeoverActionNotifyType
 * AccountTakeoverActionNotifyType `boolean`
 
 ### AccountTakeoverActionType
 * AccountTakeoverActionType `object`: Account takeover action type.
-  * EventAction **required** [AccountTakeoverEventActionType](#accounttakeovereventactiontype)
-  * Notify **required** [AccountTakeoverActionNotifyType](#accounttakeoveractionnotifytype)
+  * EventAction **required**
+  * Notify **required**
 
 ### AccountTakeoverActionsType
 * AccountTakeoverActionsType `object`: Account takeover actions type.
-  * HighAction [AccountTakeoverActionType](#accounttakeoveractiontype)
-  * LowAction [AccountTakeoverActionType](#accounttakeoveractiontype)
-  * MediumAction [AccountTakeoverActionType](#accounttakeoveractiontype)
+  * HighAction
+    * EventAction **required**
+    * Notify **required**
+  * LowAction
+    * EventAction **required**
+    * Notify **required**
+  * MediumAction
+    * EventAction **required**
+    * Notify **required**
 
 ### AccountTakeoverEventActionType
 * AccountTakeoverEventActionType `string` (values: BLOCK, MFA_IF_CONFIGURED, MFA_REQUIRED, NO_ACTION)
 
 ### AccountTakeoverRiskConfigurationType
 * AccountTakeoverRiskConfigurationType `object`: Configuration for mitigation actions and notification for different levels of risk detected for a potential account takeover.
-  * Actions **required** [AccountTakeoverActionsType](#accounttakeoveractionstype)
-  * NotifyConfiguration [NotifyConfigurationType](#notifyconfigurationtype)
+  * Actions **required**
+    * HighAction
+      * EventAction **required**
+      * Notify **required**
+    * LowAction
+      * EventAction **required**
+      * Notify **required**
+    * MediumAction
+      * EventAction **required**
+      * Notify **required**
+  * NotifyConfiguration
+    * BlockEmail
+      * HtmlBody
+      * Subject **required**
+      * TextBody
+    * From
+    * MfaEmail
+      * HtmlBody
+      * Subject **required**
+      * TextBody
+    * NoActionEmail
+      * HtmlBody
+      * Subject **required**
+      * TextBody
+    * ReplyTo
+    * SourceArn **required**
 
 ### AddCustomAttributesRequest
 * AddCustomAttributesRequest `object`: Represents the request to add custom attributes.
-  * CustomAttributes **required** [CustomAttributesListType](#customattributeslisttype)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
+  * CustomAttributes **required**
+    * items [SchemaAttributeType](#schemaattributetype)
+  * UserPoolId **required**
 
 ### AddCustomAttributesResponse
 * AddCustomAttributesResponse `object`: Represents the response from the server for the request to add custom attributes.
 
 ### AdminAddUserToGroupRequest
 * AdminAddUserToGroupRequest `object`
-  * GroupName **required** [GroupNameType](#groupnametype)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
-  * Username **required** [UsernameType](#usernametype)
+  * GroupName **required**
+  * UserPoolId **required**
+  * Username **required**
 
 ### AdminConfirmSignUpRequest
 * AdminConfirmSignUpRequest `object`: Represents the request to confirm user registration.
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
-  * Username **required** [UsernameType](#usernametype)
+  * ClientMetadata
+  * UserPoolId **required**
+  * Username **required**
 
 ### AdminConfirmSignUpResponse
 * AdminConfirmSignUpResponse `object`: Represents the response from the server for the request to confirm registration.
 
 ### AdminCreateUserConfigType
 * AdminCreateUserConfigType `object`: The configuration for creating a new user profile.
-  * AllowAdminCreateUserOnly [BooleanType](#booleantype)
-  * InviteMessageTemplate [MessageTemplateType](#messagetemplatetype)
-  * UnusedAccountValidityDays [AdminCreateUserUnusedAccountValidityDaysType](#admincreateuserunusedaccountvaliditydaystype)
+  * AllowAdminCreateUserOnly
+  * InviteMessageTemplate
+    * EmailMessage
+    * EmailSubject
+    * SMSMessage
+  * UnusedAccountValidityDays
 
 ### AdminCreateUserRequest
 * AdminCreateUserRequest `object`: Represents the request to create a user in the specified user pool.
-  * DesiredDeliveryMediums [DeliveryMediumListType](#deliverymediumlisttype)
-  * ForceAliasCreation [ForceAliasCreation](#forcealiascreation)
-  * MessageAction [MessageActionType](#messageactiontype)
-  * TemporaryPassword [PasswordType](#passwordtype)
-  * UserAttributes [AttributeListType](#attributelisttype)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
-  * Username **required** [UsernameType](#usernametype)
-  * ValidationData [AttributeListType](#attributelisttype)
+  * ClientMetadata
+  * DesiredDeliveryMediums
+    * items [DeliveryMediumType](#deliverymediumtype)
+  * ForceAliasCreation
+  * MessageAction
+  * TemporaryPassword
+  * UserAttributes
+    * items [AttributeType](#attributetype)
+  * UserPoolId **required**
+  * Username **required**
+  * ValidationData
+    * items [AttributeType](#attributetype)
 
 ### AdminCreateUserResponse
 * AdminCreateUserResponse `object`: Represents the response from the server to the request to create the user.
-  * User [UserType](#usertype)
+  * User
+    * Attributes
+      * items [AttributeType](#attributetype)
+    * Enabled
+    * MFAOptions
+      * items [MFAOptionType](#mfaoptiontype)
+    * UserCreateDate
+    * UserLastModifiedDate
+    * UserStatus
+    * Username
 
 ### AdminCreateUserUnusedAccountValidityDaysType
 * AdminCreateUserUnusedAccountValidityDaysType `integer`
 
 ### AdminDeleteUserAttributesRequest
 * AdminDeleteUserAttributesRequest `object`: Represents the request to delete user attributes as an administrator.
-  * UserAttributeNames **required** [AttributeNameListType](#attributenamelisttype)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
-  * Username **required** [UsernameType](#usernametype)
+  * UserAttributeNames **required**
+    * items [AttributeNameType](#attributenametype)
+  * UserPoolId **required**
+  * Username **required**
 
 ### AdminDeleteUserAttributesResponse
 * AdminDeleteUserAttributesResponse `object`: Represents the response received from the server for a request to delete user attributes.
 
 ### AdminDeleteUserRequest
 * AdminDeleteUserRequest `object`: Represents the request to delete a user as an administrator.
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
-  * Username **required** [UsernameType](#usernametype)
+  * UserPoolId **required**
+  * Username **required**
 
 ### AdminDisableProviderForUserRequest
 * AdminDisableProviderForUserRequest `object`
-  * User **required** [ProviderUserIdentifierType](#provideruseridentifiertype)
-  * UserPoolId **required** [StringType](#stringtype)
+  * User **required**
+    * ProviderAttributeName
+    * ProviderAttributeValue
+    * ProviderName
+  * UserPoolId **required**
 
 ### AdminDisableProviderForUserResponse
 * AdminDisableProviderForUserResponse `object`
 
 ### AdminDisableUserRequest
 * AdminDisableUserRequest `object`: Represents the request to disable any user as an administrator.
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
-  * Username **required** [UsernameType](#usernametype)
+  * UserPoolId **required**
+  * Username **required**
 
 ### AdminDisableUserResponse
 * AdminDisableUserResponse `object`: Represents the response received from the server to disable the user as an administrator.
 
 ### AdminEnableUserRequest
 * AdminEnableUserRequest `object`: Represents the request that enables the user as an administrator.
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
-  * Username **required** [UsernameType](#usernametype)
+  * UserPoolId **required**
+  * Username **required**
 
 ### AdminEnableUserResponse
 * AdminEnableUserResponse `object`: Represents the response from the server for the request to enable a user as an administrator.
 
 ### AdminForgetDeviceRequest
 * AdminForgetDeviceRequest `object`: Sends the forgot device request, as an administrator.
-  * DeviceKey **required** [DeviceKeyType](#devicekeytype)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
-  * Username **required** [UsernameType](#usernametype)
+  * DeviceKey **required**
+  * UserPoolId **required**
+  * Username **required**
 
 ### AdminGetDeviceRequest
 * AdminGetDeviceRequest `object`: Represents the request to get the device, as an administrator.
-  * DeviceKey **required** [DeviceKeyType](#devicekeytype)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
-  * Username **required** [UsernameType](#usernametype)
+  * DeviceKey **required**
+  * UserPoolId **required**
+  * Username **required**
 
 ### AdminGetDeviceResponse
 * AdminGetDeviceResponse `object`: Gets the device response, as an administrator.
-  * Device **required** [DeviceType](#devicetype)
+  * Device **required**
+    * DeviceAttributes
+      * items [AttributeType](#attributetype)
+    * DeviceCreateDate
+    * DeviceKey
+    * DeviceLastAuthenticatedDate
+    * DeviceLastModifiedDate
 
 ### AdminGetUserRequest
 * AdminGetUserRequest `object`: Represents the request to get the specified user as an administrator.
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
-  * Username **required** [UsernameType](#usernametype)
+  * UserPoolId **required**
+  * Username **required**
 
 ### AdminGetUserResponse
 * AdminGetUserResponse `object`: Represents the response from the server from the request to get the specified user as an administrator.
-  * Enabled [BooleanType](#booleantype)
-  * MFAOptions [MFAOptionListType](#mfaoptionlisttype)
-  * PreferredMfaSetting [StringType](#stringtype)
-  * UserAttributes [AttributeListType](#attributelisttype)
-  * UserCreateDate [DateType](#datetype)
-  * UserLastModifiedDate [DateType](#datetype)
-  * UserMFASettingList [UserMFASettingListType](#usermfasettinglisttype)
-  * UserStatus [UserStatusType](#userstatustype)
-  * Username **required** [UsernameType](#usernametype)
+  * Enabled
+  * MFAOptions
+    * items [MFAOptionType](#mfaoptiontype)
+  * PreferredMfaSetting
+  * UserAttributes
+    * items [AttributeType](#attributetype)
+  * UserCreateDate
+  * UserLastModifiedDate
+  * UserMFASettingList
+    * items [StringType](#stringtype)
+  * UserStatus
+  * Username **required**
 
 ### AdminInitiateAuthRequest
 * AdminInitiateAuthRequest `object`: Initiates the authorization request, as an administrator.
-  * AnalyticsMetadata [AnalyticsMetadataType](#analyticsmetadatatype)
-  * AuthFlow **required** [AuthFlowType](#authflowtype)
-  * AuthParameters [AuthParametersType](#authparameterstype)
-  * ClientId **required** [ClientIdType](#clientidtype)
-  * ClientMetadata [ClientMetadataType](#clientmetadatatype)
-  * ContextData [ContextDataType](#contextdatatype)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
+  * AnalyticsMetadata
+    * AnalyticsEndpointId
+  * AuthFlow **required**
+  * AuthParameters
+  * ClientId **required**
+  * ClientMetadata
+  * ContextData
+    * EncodedData
+    * HttpHeaders **required**
+      * items [HttpHeader](#httpheader)
+    * IpAddress **required**
+    * ServerName **required**
+    * ServerPath **required**
+  * UserPoolId **required**
 
 ### AdminInitiateAuthResponse
 * AdminInitiateAuthResponse `object`: Initiates the authentication response, as an administrator.
-  * AuthenticationResult [AuthenticationResultType](#authenticationresulttype)
-  * ChallengeName [ChallengeNameType](#challengenametype)
-  * ChallengeParameters [ChallengeParametersType](#challengeparameterstype)
-  * Session [SessionType](#sessiontype)
+  * AuthenticationResult
+    * AccessToken
+    * ExpiresIn
+    * IdToken
+    * NewDeviceMetadata
+      * DeviceGroupKey
+      * DeviceKey
+    * RefreshToken
+    * TokenType
+  * ChallengeName
+  * ChallengeParameters
+  * Session
 
 ### AdminLinkProviderForUserRequest
 * AdminLinkProviderForUserRequest `object`
-  * DestinationUser **required** [ProviderUserIdentifierType](#provideruseridentifiertype)
-  * SourceUser **required** [ProviderUserIdentifierType](#provideruseridentifiertype)
-  * UserPoolId **required** [StringType](#stringtype)
+  * DestinationUser **required**
+    * ProviderAttributeName
+    * ProviderAttributeValue
+    * ProviderName
+  * SourceUser **required**
+    * ProviderAttributeName
+    * ProviderAttributeValue
+    * ProviderName
+  * UserPoolId **required**
 
 ### AdminLinkProviderForUserResponse
 * AdminLinkProviderForUserResponse `object`
 
 ### AdminListDevicesRequest
 * AdminListDevicesRequest `object`: Represents the request to list devices, as an administrator.
-  * Limit [QueryLimitType](#querylimittype)
-  * PaginationToken [SearchPaginationTokenType](#searchpaginationtokentype)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
-  * Username **required** [UsernameType](#usernametype)
+  * Limit
+  * PaginationToken
+  * UserPoolId **required**
+  * Username **required**
 
 ### AdminListDevicesResponse
 * AdminListDevicesResponse `object`: Lists the device's response, as an administrator.
-  * Devices [DeviceListType](#devicelisttype)
-  * PaginationToken [SearchPaginationTokenType](#searchpaginationtokentype)
+  * Devices
+    * items [DeviceType](#devicetype)
+  * PaginationToken
 
 ### AdminListGroupsForUserRequest
 * AdminListGroupsForUserRequest `object`
-  * Limit [QueryLimitType](#querylimittype)
-  * NextToken [PaginationKey](#paginationkey)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
-  * Username **required** [UsernameType](#usernametype)
+  * Limit
+  * NextToken
+  * UserPoolId **required**
+  * Username **required**
 
 ### AdminListGroupsForUserResponse
 * AdminListGroupsForUserResponse `object`
-  * Groups [GroupListType](#grouplisttype)
-  * NextToken [PaginationKey](#paginationkey)
+  * Groups
+    * items [GroupType](#grouptype)
+  * NextToken
 
 ### AdminListUserAuthEventsRequest
 * AdminListUserAuthEventsRequest `object`
-  * MaxResults [QueryLimitType](#querylimittype)
-  * NextToken [PaginationKey](#paginationkey)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
-  * Username **required** [UsernameType](#usernametype)
+  * MaxResults
+  * NextToken
+  * UserPoolId **required**
+  * Username **required**
 
 ### AdminListUserAuthEventsResponse
 * AdminListUserAuthEventsResponse `object`
-  * AuthEvents [AuthEventsType](#autheventstype)
-  * NextToken [PaginationKey](#paginationkey)
+  * AuthEvents
+    * items [AuthEventType](#autheventtype)
+  * NextToken
 
 ### AdminRemoveUserFromGroupRequest
 * AdminRemoveUserFromGroupRequest `object`
-  * GroupName **required** [GroupNameType](#groupnametype)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
-  * Username **required** [UsernameType](#usernametype)
+  * GroupName **required**
+  * UserPoolId **required**
+  * Username **required**
 
 ### AdminResetUserPasswordRequest
 * AdminResetUserPasswordRequest `object`: Represents the request to reset a user's password as an administrator.
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
-  * Username **required** [UsernameType](#usernametype)
+  * ClientMetadata
+  * UserPoolId **required**
+  * Username **required**
 
 ### AdminResetUserPasswordResponse
 * AdminResetUserPasswordResponse `object`: Represents the response from the server to reset a user password as an administrator.
 
 ### AdminRespondToAuthChallengeRequest
 * AdminRespondToAuthChallengeRequest `object`: The request to respond to the authentication challenge, as an administrator.
-  * AnalyticsMetadata [AnalyticsMetadataType](#analyticsmetadatatype)
-  * ChallengeName **required** [ChallengeNameType](#challengenametype)
-  * ChallengeResponses [ChallengeResponsesType](#challengeresponsestype)
-  * ClientId **required** [ClientIdType](#clientidtype)
-  * ContextData [ContextDataType](#contextdatatype)
-  * Session [SessionType](#sessiontype)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
+  * AnalyticsMetadata
+    * AnalyticsEndpointId
+  * ChallengeName **required**
+  * ChallengeResponses
+  * ClientId **required**
+  * ClientMetadata
+  * ContextData
+    * EncodedData
+    * HttpHeaders **required**
+      * items [HttpHeader](#httpheader)
+    * IpAddress **required**
+    * ServerName **required**
+    * ServerPath **required**
+  * Session
+  * UserPoolId **required**
 
 ### AdminRespondToAuthChallengeResponse
 * AdminRespondToAuthChallengeResponse `object`: Responds to the authentication challenge, as an administrator.
-  * AuthenticationResult [AuthenticationResultType](#authenticationresulttype)
-  * ChallengeName [ChallengeNameType](#challengenametype)
-  * ChallengeParameters [ChallengeParametersType](#challengeparameterstype)
-  * Session [SessionType](#sessiontype)
+  * AuthenticationResult
+    * AccessToken
+    * ExpiresIn
+    * IdToken
+    * NewDeviceMetadata
+      * DeviceGroupKey
+      * DeviceKey
+    * RefreshToken
+    * TokenType
+  * ChallengeName
+  * ChallengeParameters
+  * Session
 
 ### AdminSetUserMFAPreferenceRequest
 * AdminSetUserMFAPreferenceRequest `object`
-  * SMSMfaSettings [SMSMfaSettingsType](#smsmfasettingstype)
-  * SoftwareTokenMfaSettings [SoftwareTokenMfaSettingsType](#softwaretokenmfasettingstype)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
-  * Username **required** [UsernameType](#usernametype)
+  * SMSMfaSettings
+    * Enabled
+    * PreferredMfa
+  * SoftwareTokenMfaSettings
+    * Enabled
+    * PreferredMfa
+  * UserPoolId **required**
+  * Username **required**
 
 ### AdminSetUserMFAPreferenceResponse
 * AdminSetUserMFAPreferenceResponse `object`
 
+### AdminSetUserPasswordRequest
+* AdminSetUserPasswordRequest `object`
+  * Password **required**
+  * Permanent
+  * UserPoolId **required**
+  * Username **required**
+
+### AdminSetUserPasswordResponse
+* AdminSetUserPasswordResponse `object`
+
 ### AdminSetUserSettingsRequest
-* AdminSetUserSettingsRequest `object`: Represents the request to set user settings as an administrator.
-  * MFAOptions **required** [MFAOptionListType](#mfaoptionlisttype)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
-  * Username **required** [UsernameType](#usernametype)
+* AdminSetUserSettingsRequest `object`: You can use this parameter to set an MFA configuration that uses the SMS delivery medium.
+  * MFAOptions **required**
+    * items [MFAOptionType](#mfaoptiontype)
+  * UserPoolId **required**
+  * Username **required**
 
 ### AdminSetUserSettingsResponse
 * AdminSetUserSettingsResponse `object`: Represents the response from the server to set user settings as an administrator.
 
 ### AdminUpdateAuthEventFeedbackRequest
 * AdminUpdateAuthEventFeedbackRequest `object`
-  * EventId **required** [EventIdType](#eventidtype)
-  * FeedbackValue **required** [FeedbackValueType](#feedbackvaluetype)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
-  * Username **required** [UsernameType](#usernametype)
+  * EventId **required**
+  * FeedbackValue **required**
+  * UserPoolId **required**
+  * Username **required**
 
 ### AdminUpdateAuthEventFeedbackResponse
 * AdminUpdateAuthEventFeedbackResponse `object`
 
 ### AdminUpdateDeviceStatusRequest
 * AdminUpdateDeviceStatusRequest `object`: The request to update the device status, as an administrator.
-  * DeviceKey **required** [DeviceKeyType](#devicekeytype)
-  * DeviceRememberedStatus [DeviceRememberedStatusType](#devicerememberedstatustype)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
-  * Username **required** [UsernameType](#usernametype)
+  * DeviceKey **required**
+  * DeviceRememberedStatus
+  * UserPoolId **required**
+  * Username **required**
 
 ### AdminUpdateDeviceStatusResponse
 * AdminUpdateDeviceStatusResponse `object`: The status response from the request to update the device, as an administrator.
 
 ### AdminUpdateUserAttributesRequest
 * AdminUpdateUserAttributesRequest `object`: Represents the request to update the user's attributes as an administrator.
-  * UserAttributes **required** [AttributeListType](#attributelisttype)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
-  * Username **required** [UsernameType](#usernametype)
+  * ClientMetadata
+  * UserAttributes **required**
+    * items [AttributeType](#attributetype)
+  * UserPoolId **required**
+  * Username **required**
 
 ### AdminUpdateUserAttributesResponse
 * AdminUpdateUserAttributesResponse `object`: Represents the response from the server for the request to update user attributes as an administrator.
 
 ### AdminUserGlobalSignOutRequest
 * AdminUserGlobalSignOutRequest `object`: The request to sign out of all devices, as an administrator.
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
-  * Username **required** [UsernameType](#usernametype)
+  * UserPoolId **required**
+  * Username **required**
 
 ### AdminUserGlobalSignOutResponse
 * AdminUserGlobalSignOutResponse `object`: The global sign-out response, as an administrator.
@@ -2296,32 +2801,32 @@ amazonaws_cognito_idp.VerifyUserAttribute({
   * items [AliasAttributeType](#aliasattributetype)
 
 ### AliasExistsException
-* AliasExistsException `object`: This exception is thrown when a user tries to confirm the account with an email or phone number that has already been supplied as an alias from a different account. This exception tells user that an account with this email or phone already exists.
-  * message [MessageType](#messagetype)
+
 
 ### AnalyticsConfigurationType
-* AnalyticsConfigurationType `object`: The Amazon Pinpoint analytics configuration for collecting metrics for a user pool.
-  * ApplicationId **required** [HexStringType](#hexstringtype)
-  * ExternalId **required** [StringType](#stringtype)
-  * RoleArn **required** [ArnType](#arntype)
-  * UserDataShared [BooleanType](#booleantype)
+* AnalyticsConfigurationType `object`: <p>The Amazon Pinpoint analytics configuration for collecting metrics for a user pool.</p> <note> <p>In regions where Pinpoint is not available, Cognito User Pools only supports sending events to Amazon Pinpoint projects in us-east-1. In regions where Pinpoint is available, Cognito User Pools will support sending events to Amazon Pinpoint projects within that same region. </p> </note>
+  * ApplicationArn
+  * ApplicationId
+  * ExternalId
+  * RoleArn
+  * UserDataShared
 
 ### AnalyticsMetadataType
-* AnalyticsMetadataType `object`: <p>An Amazon Pinpoint analytics endpoint.</p> <p>An endpoint uniquely identifies a mobile device, email address, or phone number that can receive messages from Amazon Pinpoint analytics.</p>
-  * AnalyticsEndpointId [StringType](#stringtype)
+* AnalyticsMetadataType `object`: <p>An Amazon Pinpoint analytics endpoint.</p> <p>An endpoint uniquely identifies a mobile device, email address, or phone number that can receive messages from Amazon Pinpoint analytics.</p> <note> <p>Cognito User Pools only supports sending events to Amazon Pinpoint projects in the US East (N. Virginia) us-east-1 Region, regardless of the region in which the user pool resides.</p> </note>
+  * AnalyticsEndpointId
 
 ### ArnType
 * ArnType `string`
 
 ### AssociateSoftwareTokenRequest
 * AssociateSoftwareTokenRequest `object`
-  * AccessToken [TokenModelType](#tokenmodeltype)
-  * Session [SessionType](#sessiontype)
+  * AccessToken
+  * Session
 
 ### AssociateSoftwareTokenResponse
 * AssociateSoftwareTokenResponse `object`
-  * SecretCode [SecretCodeType](#secretcodetype)
-  * Session [SessionType](#sessiontype)
+  * SecretCode
+  * Session
 
 ### AttributeDataType
 * AttributeDataType `string` (values: String, Number, DateTime, Boolean)
@@ -2334,10 +2839,7 @@ amazonaws_cognito_idp.VerifyUserAttribute({
 * AttributeMappingKeyType `string`
 
 ### AttributeMappingType
-* AttributeMappingType `array`
-  * items `object`
-    * key [AttributeMappingKeyType](#attributemappingkeytype)
-    * value [StringType](#stringtype)
+* AttributeMappingType `object`
 
 ### AttributeNameListType
 * AttributeNameListType `array`
@@ -2348,44 +2850,55 @@ amazonaws_cognito_idp.VerifyUserAttribute({
 
 ### AttributeType
 * AttributeType `object`: Specifies whether the attribute is standard or custom.
-  * Name **required** [AttributeNameType](#attributenametype)
-  * Value [AttributeValueType](#attributevaluetype)
+  * Name **required**
+  * Value
 
 ### AttributeValueType
 * AttributeValueType `string`
 
 ### AuthEventType
 * AuthEventType `object`: The authentication event type.
-  * ChallengeResponses [ChallengeResponseListType](#challengeresponselisttype)
-  * CreationDate [DateType](#datetype)
-  * EventContextData [EventContextDataType](#eventcontextdatatype)
-  * EventFeedback [EventFeedbackType](#eventfeedbacktype)
-  * EventId [StringType](#stringtype)
-  * EventResponse [EventResponseType](#eventresponsetype)
-  * EventRisk [EventRiskType](#eventrisktype)
-  * EventType [EventType](#eventtype)
+  * ChallengeResponses
+    * items [ChallengeResponseType](#challengeresponsetype)
+  * CreationDate
+  * EventContextData
+    * City
+    * Country
+    * DeviceName
+    * IpAddress
+    * Timezone
+  * EventFeedback
+    * FeedbackDate
+    * FeedbackValue **required**
+    * Provider **required**
+  * EventId
+  * EventResponse
+  * EventRisk
+    * CompromisedCredentialsDetected
+    * RiskDecision
+    * RiskLevel
+  * EventType
 
 ### AuthEventsType
 * AuthEventsType `array`
   * items [AuthEventType](#autheventtype)
 
 ### AuthFlowType
-* AuthFlowType `string` (values: USER_SRP_AUTH, REFRESH_TOKEN_AUTH, REFRESH_TOKEN, CUSTOM_AUTH, ADMIN_NO_SRP_AUTH, USER_PASSWORD_AUTH)
+* AuthFlowType `string` (values: USER_SRP_AUTH, REFRESH_TOKEN_AUTH, REFRESH_TOKEN, CUSTOM_AUTH, ADMIN_NO_SRP_AUTH, USER_PASSWORD_AUTH, ADMIN_USER_PASSWORD_AUTH)
 
 ### AuthParametersType
-* AuthParametersType `array`
-  * items `object`
-    * key [StringType](#stringtype)
-    * value [StringType](#stringtype)
+* AuthParametersType `object`
 
 ### AuthenticationResultType
 * AuthenticationResultType `object`: The authentication result.
-  * AccessToken [TokenModelType](#tokenmodeltype)
-  * ExpiresIn [IntegerType](#integertype)
-  * IdToken [TokenModelType](#tokenmodeltype)
-  * NewDeviceMetadata [NewDeviceMetadataType](#newdevicemetadatatype)
-  * RefreshToken [TokenModelType](#tokenmodeltype)
-  * TokenType [StringType](#stringtype)
+  * AccessToken
+  * ExpiresIn
+  * IdToken
+  * NewDeviceMetadata
+    * DeviceGroupKey
+    * DeviceKey
+  * RefreshToken
+  * TokenType
 
 ### BlockedIPRangeListType
 * BlockedIPRangeListType `array`
@@ -2411,10 +2924,7 @@ amazonaws_cognito_idp.VerifyUserAttribute({
 * ChallengeNameType `string` (values: SMS_MFA, SOFTWARE_TOKEN_MFA, SELECT_MFA_TYPE, MFA_SETUP, PASSWORD_VERIFIER, CUSTOM_CHALLENGE, DEVICE_SRP_AUTH, DEVICE_PASSWORD_VERIFIER, ADMIN_NO_SRP_AUTH, NEW_PASSWORD_REQUIRED)
 
 ### ChallengeParametersType
-* ChallengeParametersType `array`
-  * items `object`
-    * key [StringType](#stringtype)
-    * value [StringType](#stringtype)
+* ChallengeParametersType `object`
 
 ### ChallengeResponse
 * ChallengeResponse `string` (values: Success, Failure)
@@ -2425,20 +2935,17 @@ amazonaws_cognito_idp.VerifyUserAttribute({
 
 ### ChallengeResponseType
 * ChallengeResponseType `object`: The challenge response type.
-  * ChallengeName [ChallengeName](#challengename)
-  * ChallengeResponse [ChallengeResponse](#challengeresponse)
+  * ChallengeName
+  * ChallengeResponse
 
 ### ChallengeResponsesType
-* ChallengeResponsesType `array`
-  * items `object`
-    * key [StringType](#stringtype)
-    * value [StringType](#stringtype)
+* ChallengeResponsesType `object`
 
 ### ChangePasswordRequest
 * ChangePasswordRequest `object`: Represents the request to change a user password.
-  * AccessToken **required** [TokenModelType](#tokenmodeltype)
-  * PreviousPassword **required** [PasswordType](#passwordtype)
-  * ProposedPassword **required** [PasswordType](#passwordtype)
+  * AccessToken **required**
+  * PreviousPassword **required**
+  * ProposedPassword **required**
 
 ### ChangePasswordResponse
 * ChangePasswordResponse `object`: The response from the server to the change password request.
@@ -2447,10 +2954,7 @@ amazonaws_cognito_idp.VerifyUserAttribute({
 * ClientIdType `string`
 
 ### ClientMetadataType
-* ClientMetadataType `array`
-  * items `object`
-    * key [StringType](#stringtype)
-    * value [StringType](#stringtype)
+* ClientMetadataType `object`
 
 ### ClientNameType
 * ClientNameType `string`
@@ -2471,70 +2975,77 @@ amazonaws_cognito_idp.VerifyUserAttribute({
 
 ### CodeDeliveryDetailsType
 * CodeDeliveryDetailsType `object`: The code delivery details being returned from the server.
-  * AttributeName [AttributeNameType](#attributenametype)
-  * DeliveryMedium [DeliveryMediumType](#deliverymediumtype)
-  * Destination [StringType](#stringtype)
+  * AttributeName
+  * DeliveryMedium
+  * Destination
 
 ### CodeDeliveryFailureException
-* CodeDeliveryFailureException `object`: This exception is thrown when a verification code fails to deliver successfully.
-  * message [MessageType](#messagetype)
+
 
 ### CodeMismatchException
-* CodeMismatchException `object`: This exception is thrown if the provided code does not match what the server was expecting.
-  * message [MessageType](#messagetype)
+
 
 ### CompletionMessageType
 * CompletionMessageType `string`
 
 ### CompromisedCredentialsActionsType
 * CompromisedCredentialsActionsType `object`: The compromised credentials actions type
-  * EventAction **required** [CompromisedCredentialsEventActionType](#compromisedcredentialseventactiontype)
+  * EventAction **required**
 
 ### CompromisedCredentialsEventActionType
 * CompromisedCredentialsEventActionType `string` (values: BLOCK, NO_ACTION)
 
 ### CompromisedCredentialsRiskConfigurationType
 * CompromisedCredentialsRiskConfigurationType `object`: The compromised credentials risk configuration type.
-  * Actions **required** [CompromisedCredentialsActionsType](#compromisedcredentialsactionstype)
-  * EventFilter [EventFiltersType](#eventfilterstype)
+  * Actions **required**
+    * EventAction **required**
+  * EventFilter
+    * items [EventFilterType](#eventfiltertype)
 
 ### ConcurrentModificationException
-* ConcurrentModificationException `object`: This exception is thrown if two or more modifications are happening concurrently.
-  * message [MessageType](#messagetype)
+
 
 ### ConfirmDeviceRequest
 * ConfirmDeviceRequest `object`: Confirms the device request.
-  * AccessToken **required** [TokenModelType](#tokenmodeltype)
-  * DeviceKey **required** [DeviceKeyType](#devicekeytype)
-  * DeviceName [DeviceNameType](#devicenametype)
-  * DeviceSecretVerifierConfig [DeviceSecretVerifierConfigType](#devicesecretverifierconfigtype)
+  * AccessToken **required**
+  * DeviceKey **required**
+  * DeviceName
+  * DeviceSecretVerifierConfig
+    * PasswordVerifier
+    * Salt
 
 ### ConfirmDeviceResponse
 * ConfirmDeviceResponse `object`: Confirms the device response.
-  * UserConfirmationNecessary [BooleanType](#booleantype)
+  * UserConfirmationNecessary
 
 ### ConfirmForgotPasswordRequest
 * ConfirmForgotPasswordRequest `object`: The request representing the confirmation for a password reset.
-  * AnalyticsMetadata [AnalyticsMetadataType](#analyticsmetadatatype)
-  * ClientId **required** [ClientIdType](#clientidtype)
-  * ConfirmationCode **required** [ConfirmationCodeType](#confirmationcodetype)
-  * Password **required** [PasswordType](#passwordtype)
-  * SecretHash [SecretHashType](#secrethashtype)
-  * UserContextData [UserContextDataType](#usercontextdatatype)
-  * Username **required** [UsernameType](#usernametype)
+  * AnalyticsMetadata
+    * AnalyticsEndpointId
+  * ClientId **required**
+  * ClientMetadata
+  * ConfirmationCode **required**
+  * Password **required**
+  * SecretHash
+  * UserContextData
+    * EncodedData
+  * Username **required**
 
 ### ConfirmForgotPasswordResponse
 * ConfirmForgotPasswordResponse `object`: The response from the server that results from a user's request to retrieve a forgotten password.
 
 ### ConfirmSignUpRequest
 * ConfirmSignUpRequest `object`: Represents the request to confirm registration of a user.
-  * AnalyticsMetadata [AnalyticsMetadataType](#analyticsmetadatatype)
-  * ClientId **required** [ClientIdType](#clientidtype)
-  * ConfirmationCode **required** [ConfirmationCodeType](#confirmationcodetype)
-  * ForceAliasCreation [ForceAliasCreation](#forcealiascreation)
-  * SecretHash [SecretHashType](#secrethashtype)
-  * UserContextData [UserContextDataType](#usercontextdatatype)
-  * Username **required** [UsernameType](#usernametype)
+  * AnalyticsMetadata
+    * AnalyticsEndpointId
+  * ClientId **required**
+  * ClientMetadata
+  * ConfirmationCode **required**
+  * ForceAliasCreation
+  * SecretHash
+  * UserContextData
+    * EncodedData
+  * Username **required**
 
 ### ConfirmSignUpResponse
 * ConfirmSignUpResponse `object`: Represents the response from the server for the registration confirmation.
@@ -2544,113 +3055,350 @@ amazonaws_cognito_idp.VerifyUserAttribute({
 
 ### ContextDataType
 * ContextDataType `object`: Contextual user data type used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.
-  * EncodedData [StringType](#stringtype)
-  * HttpHeaders **required** [HttpHeaderList](#httpheaderlist)
-  * IpAddress **required** [StringType](#stringtype)
-  * ServerName **required** [StringType](#stringtype)
-  * ServerPath **required** [StringType](#stringtype)
+  * EncodedData
+  * HttpHeaders **required**
+    * items [HttpHeader](#httpheader)
+  * IpAddress **required**
+  * ServerName **required**
+  * ServerPath **required**
 
 ### CreateGroupRequest
 * CreateGroupRequest `object`
-  * Description [DescriptionType](#descriptiontype)
-  * GroupName **required** [GroupNameType](#groupnametype)
-  * Precedence [PrecedenceType](#precedencetype)
-  * RoleArn [ArnType](#arntype)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
+  * Description
+  * GroupName **required**
+  * Precedence
+  * RoleArn
+  * UserPoolId **required**
 
 ### CreateGroupResponse
 * CreateGroupResponse `object`
-  * Group [GroupType](#grouptype)
+  * Group
+    * CreationDate
+    * Description
+    * GroupName
+    * LastModifiedDate
+    * Precedence
+    * RoleArn
+    * UserPoolId
 
 ### CreateIdentityProviderRequest
 * CreateIdentityProviderRequest `object`
-  * AttributeMapping [AttributeMappingType](#attributemappingtype)
-  * IdpIdentifiers [IdpIdentifiersListType](#idpidentifierslisttype)
-  * ProviderDetails **required** [ProviderDetailsType](#providerdetailstype)
-  * ProviderName **required** [ProviderNameTypeV1](#providernametypev1)
-  * ProviderType **required** [IdentityProviderTypeType](#identityprovidertypetype)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
+  * AttributeMapping
+  * IdpIdentifiers
+    * items [IdpIdentifierType](#idpidentifiertype)
+  * ProviderDetails **required**
+  * ProviderName **required**
+  * ProviderType **required**
+  * UserPoolId **required**
 
 ### CreateIdentityProviderResponse
 * CreateIdentityProviderResponse `object`
-  * IdentityProvider **required** [IdentityProviderType](#identityprovidertype)
+  * IdentityProvider **required**
+    * AttributeMapping
+    * CreationDate
+    * IdpIdentifiers
+      * items [IdpIdentifierType](#idpidentifiertype)
+    * LastModifiedDate
+    * ProviderDetails
+    * ProviderName
+    * ProviderType
+    * UserPoolId
 
 ### CreateResourceServerRequest
 * CreateResourceServerRequest `object`
-  * Identifier **required** [ResourceServerIdentifierType](#resourceserveridentifiertype)
-  * Name **required** [ResourceServerNameType](#resourceservernametype)
-  * Scopes [ResourceServerScopeListType](#resourceserverscopelisttype)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
+  * Identifier **required**
+  * Name **required**
+  * Scopes
+    * items [ResourceServerScopeType](#resourceserverscopetype)
+  * UserPoolId **required**
 
 ### CreateResourceServerResponse
 * CreateResourceServerResponse `object`
-  * ResourceServer **required** [ResourceServerType](#resourceservertype)
+  * ResourceServer **required**
+    * Identifier
+    * Name
+    * Scopes
+      * items [ResourceServerScopeType](#resourceserverscopetype)
+    * UserPoolId
 
 ### CreateUserImportJobRequest
 * CreateUserImportJobRequest `object`: Represents the request to create the user import job.
-  * CloudWatchLogsRoleArn **required** [ArnType](#arntype)
-  * JobName **required** [UserImportJobNameType](#userimportjobnametype)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
+  * CloudWatchLogsRoleArn **required**
+  * JobName **required**
+  * UserPoolId **required**
 
 ### CreateUserImportJobResponse
 * CreateUserImportJobResponse `object`: Represents the response from the server to the request to create the user import job.
-  * UserImportJob [UserImportJobType](#userimportjobtype)
+  * UserImportJob
+    * CloudWatchLogsRoleArn
+    * CompletionDate
+    * CompletionMessage
+    * CreationDate
+    * FailedUsers
+    * ImportedUsers
+    * JobId
+    * JobName
+    * PreSignedUrl
+    * SkippedUsers
+    * StartDate
+    * Status
+    * UserPoolId
 
 ### CreateUserPoolClientRequest
 * CreateUserPoolClientRequest `object`: Represents the request to create a user pool client.
-  * AllowedOAuthFlows [OAuthFlowsType](#oauthflowstype)
-  * AllowedOAuthFlowsUserPoolClient [BooleanType](#booleantype)
-  * AllowedOAuthScopes [ScopeListType](#scopelisttype)
-  * AnalyticsConfiguration [AnalyticsConfigurationType](#analyticsconfigurationtype)
-  * CallbackURLs [CallbackURLsListType](#callbackurlslisttype)
-  * ClientName **required** [ClientNameType](#clientnametype)
-  * DefaultRedirectURI [RedirectUrlType](#redirecturltype)
-  * ExplicitAuthFlows [ExplicitAuthFlowsListType](#explicitauthflowslisttype)
-  * GenerateSecret [GenerateSecret](#generatesecret)
-  * LogoutURLs [LogoutURLsListType](#logouturlslisttype)
-  * ReadAttributes [ClientPermissionListType](#clientpermissionlisttype)
-  * RefreshTokenValidity [RefreshTokenValidityType](#refreshtokenvaliditytype)
-  * SupportedIdentityProviders [SupportedIdentityProvidersListType](#supportedidentityproviderslisttype)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
-  * WriteAttributes [ClientPermissionListType](#clientpermissionlisttype)
+  * AccessTokenValidity
+  * AllowedOAuthFlows
+    * items [OAuthFlowType](#oauthflowtype)
+  * AllowedOAuthFlowsUserPoolClient
+  * AllowedOAuthScopes
+    * items [ScopeType](#scopetype)
+  * AnalyticsConfiguration
+    * ApplicationArn
+    * ApplicationId
+    * ExternalId
+    * RoleArn
+    * UserDataShared
+  * CallbackURLs
+    * items [RedirectUrlType](#redirecturltype)
+  * ClientName **required**
+  * DefaultRedirectURI
+  * ExplicitAuthFlows
+    * items [ExplicitAuthFlowsType](#explicitauthflowstype)
+  * GenerateSecret
+  * IdTokenValidity
+  * LogoutURLs
+    * items [RedirectUrlType](#redirecturltype)
+  * PreventUserExistenceErrors
+  * ReadAttributes
+    * items [ClientPermissionType](#clientpermissiontype)
+  * RefreshTokenValidity
+  * SupportedIdentityProviders
+    * items [ProviderNameType](#providernametype)
+  * TokenValidityUnits
+    * AccessToken
+    * IdToken
+    * RefreshToken
+  * UserPoolId **required**
+  * WriteAttributes
+    * items [ClientPermissionType](#clientpermissiontype)
 
 ### CreateUserPoolClientResponse
 * CreateUserPoolClientResponse `object`: Represents the response from the server to create a user pool client.
-  * UserPoolClient [UserPoolClientType](#userpoolclienttype)
+  * UserPoolClient
+    * AccessTokenValidity
+    * AllowedOAuthFlows
+      * items [OAuthFlowType](#oauthflowtype)
+    * AllowedOAuthFlowsUserPoolClient
+    * AllowedOAuthScopes
+      * items [ScopeType](#scopetype)
+    * AnalyticsConfiguration
+      * ApplicationArn
+      * ApplicationId
+      * ExternalId
+      * RoleArn
+      * UserDataShared
+    * CallbackURLs
+      * items [RedirectUrlType](#redirecturltype)
+    * ClientId
+    * ClientName
+    * ClientSecret
+    * CreationDate
+    * DefaultRedirectURI
+    * ExplicitAuthFlows
+      * items [ExplicitAuthFlowsType](#explicitauthflowstype)
+    * IdTokenValidity
+    * LastModifiedDate
+    * LogoutURLs
+      * items [RedirectUrlType](#redirecturltype)
+    * PreventUserExistenceErrors
+    * ReadAttributes
+      * items [ClientPermissionType](#clientpermissiontype)
+    * RefreshTokenValidity
+    * SupportedIdentityProviders
+      * items [ProviderNameType](#providernametype)
+    * TokenValidityUnits
+      * AccessToken
+      * IdToken
+      * RefreshToken
+    * UserPoolId
+    * WriteAttributes
+      * items [ClientPermissionType](#clientpermissiontype)
 
 ### CreateUserPoolDomainRequest
 * CreateUserPoolDomainRequest `object`
-  * Domain **required** [DomainType](#domaintype)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
+  * CustomDomainConfig
+    * CertificateArn **required**
+  * Domain **required**
+  * UserPoolId **required**
 
 ### CreateUserPoolDomainResponse
 * CreateUserPoolDomainResponse `object`
+  * CloudFrontDomain
 
 ### CreateUserPoolRequest
 * CreateUserPoolRequest `object`: Represents the request to create a user pool.
-  * AdminCreateUserConfig [AdminCreateUserConfigType](#admincreateuserconfigtype)
-  * AliasAttributes [AliasAttributesListType](#aliasattributeslisttype)
-  * AutoVerifiedAttributes [VerifiedAttributesListType](#verifiedattributeslisttype)
-  * DeviceConfiguration [DeviceConfigurationType](#deviceconfigurationtype)
-  * EmailConfiguration [EmailConfigurationType](#emailconfigurationtype)
-  * EmailVerificationMessage [EmailVerificationMessageType](#emailverificationmessagetype)
-  * EmailVerificationSubject [EmailVerificationSubjectType](#emailverificationsubjecttype)
-  * LambdaConfig [LambdaConfigType](#lambdaconfigtype)
-  * MfaConfiguration [UserPoolMfaType](#userpoolmfatype)
-  * Policies [UserPoolPolicyType](#userpoolpolicytype)
-  * PoolName **required** [UserPoolNameType](#userpoolnametype)
-  * Schema [SchemaAttributesListType](#schemaattributeslisttype)
-  * SmsAuthenticationMessage [SmsVerificationMessageType](#smsverificationmessagetype)
-  * SmsConfiguration [SmsConfigurationType](#smsconfigurationtype)
-  * SmsVerificationMessage [SmsVerificationMessageType](#smsverificationmessagetype)
-  * UserPoolAddOns [UserPoolAddOnsType](#userpooladdonstype)
-  * UserPoolTags [UserPoolTagsType](#userpooltagstype)
-  * UsernameAttributes [UsernameAttributesListType](#usernameattributeslisttype)
-  * VerificationMessageTemplate [VerificationMessageTemplateType](#verificationmessagetemplatetype)
+  * AccountRecoverySetting
+    * RecoveryMechanisms
+      * items [RecoveryOptionType](#recoveryoptiontype)
+  * AdminCreateUserConfig
+    * AllowAdminCreateUserOnly
+    * InviteMessageTemplate
+      * EmailMessage
+      * EmailSubject
+      * SMSMessage
+    * UnusedAccountValidityDays
+  * AliasAttributes
+    * items [AliasAttributeType](#aliasattributetype)
+  * AutoVerifiedAttributes
+    * items [VerifiedAttributeType](#verifiedattributetype)
+  * DeviceConfiguration
+    * ChallengeRequiredOnNewDevice
+    * DeviceOnlyRememberedOnUserPrompt
+  * EmailConfiguration
+    * ConfigurationSet
+    * EmailSendingAccount
+    * From
+    * ReplyToEmailAddress
+    * SourceArn
+  * EmailVerificationMessage
+  * EmailVerificationSubject
+  * LambdaConfig
+    * CreateAuthChallenge
+    * CustomEmailSender
+      * LambdaArn **required**
+      * LambdaVersion **required**
+    * CustomMessage
+    * CustomSMSSender
+      * LambdaArn **required**
+      * LambdaVersion **required**
+    * DefineAuthChallenge
+    * KMSKeyID
+    * PostAuthentication
+    * PostConfirmation
+    * PreAuthentication
+    * PreSignUp
+    * PreTokenGeneration
+    * UserMigration
+    * VerifyAuthChallengeResponse
+  * MfaConfiguration
+  * Policies
+    * PasswordPolicy
+      * MinimumLength
+      * RequireLowercase
+      * RequireNumbers
+      * RequireSymbols
+      * RequireUppercase
+      * TemporaryPasswordValidityDays
+  * PoolName **required**
+  * Schema
+    * items [SchemaAttributeType](#schemaattributetype)
+  * SmsAuthenticationMessage
+  * SmsConfiguration
+    * ExternalId
+    * SnsCallerArn **required**
+  * SmsVerificationMessage
+  * UserPoolAddOns
+    * AdvancedSecurityMode **required**
+  * UserPoolTags
+  * UsernameAttributes
+    * items [UsernameAttributeType](#usernameattributetype)
+  * UsernameConfiguration
+    * CaseSensitive **required**
+  * VerificationMessageTemplate
+    * DefaultEmailOption
+    * EmailMessage
+    * EmailMessageByLink
+    * EmailSubject
+    * EmailSubjectByLink
+    * SmsMessage
 
 ### CreateUserPoolResponse
 * CreateUserPoolResponse `object`: Represents the response from the server for the request to create a user pool.
-  * UserPool [UserPoolType](#userpooltype)
+  * UserPool
+    * AccountRecoverySetting
+      * RecoveryMechanisms
+        * items [RecoveryOptionType](#recoveryoptiontype)
+    * AdminCreateUserConfig
+      * AllowAdminCreateUserOnly
+      * InviteMessageTemplate
+        * EmailMessage
+        * EmailSubject
+        * SMSMessage
+      * UnusedAccountValidityDays
+    * AliasAttributes
+      * items [AliasAttributeType](#aliasattributetype)
+    * Arn
+    * AutoVerifiedAttributes
+      * items [VerifiedAttributeType](#verifiedattributetype)
+    * CreationDate
+    * CustomDomain
+    * DeviceConfiguration
+      * ChallengeRequiredOnNewDevice
+      * DeviceOnlyRememberedOnUserPrompt
+    * Domain
+    * EmailConfiguration
+      * ConfigurationSet
+      * EmailSendingAccount
+      * From
+      * ReplyToEmailAddress
+      * SourceArn
+    * EmailConfigurationFailure
+    * EmailVerificationMessage
+    * EmailVerificationSubject
+    * EstimatedNumberOfUsers
+    * Id
+    * LambdaConfig
+      * CreateAuthChallenge
+      * CustomEmailSender
+        * LambdaArn **required**
+        * LambdaVersion **required**
+      * CustomMessage
+      * CustomSMSSender
+        * LambdaArn **required**
+        * LambdaVersion **required**
+      * DefineAuthChallenge
+      * KMSKeyID
+      * PostAuthentication
+      * PostConfirmation
+      * PreAuthentication
+      * PreSignUp
+      * PreTokenGeneration
+      * UserMigration
+      * VerifyAuthChallengeResponse
+    * LastModifiedDate
+    * MfaConfiguration
+    * Name
+    * Policies
+      * PasswordPolicy
+        * MinimumLength
+        * RequireLowercase
+        * RequireNumbers
+        * RequireSymbols
+        * RequireUppercase
+        * TemporaryPasswordValidityDays
+    * SchemaAttributes
+      * items [SchemaAttributeType](#schemaattributetype)
+    * SmsAuthenticationMessage
+    * SmsConfiguration
+      * ExternalId
+      * SnsCallerArn **required**
+    * SmsConfigurationFailure
+    * SmsVerificationMessage
+    * Status
+    * UserPoolAddOns
+      * AdvancedSecurityMode **required**
+    * UserPoolTags
+    * UsernameAttributes
+      * items [UsernameAttributeType](#usernameattributetype)
+    * UsernameConfiguration
+      * CaseSensitive **required**
+    * VerificationMessageTemplate
+      * DefaultEmailOption
+      * EmailMessage
+      * EmailMessageByLink
+      * EmailSubject
+      * EmailSubjectByLink
+      * SmsMessage
 
 ### CustomAttributeNameType
 * CustomAttributeNameType `string`
@@ -2658,6 +3406,26 @@ amazonaws_cognito_idp.VerifyUserAttribute({
 ### CustomAttributesListType
 * CustomAttributesListType `array`
   * items [SchemaAttributeType](#schemaattributetype)
+
+### CustomDomainConfigType
+* CustomDomainConfigType `object`: The configuration for a custom domain that hosts the sign-up and sign-in webpages for your application.
+  * CertificateArn **required**
+
+### CustomEmailLambdaVersionConfigType
+* CustomEmailLambdaVersionConfigType `object`: A custom email sender Lambda configuration type.
+  * LambdaArn **required**
+  * LambdaVersion **required**
+
+### CustomEmailSenderLambdaVersionType
+* CustomEmailSenderLambdaVersionType `string` (values: V1_0)
+
+### CustomSMSLambdaVersionConfigType
+* CustomSMSLambdaVersionConfigType `object`: A custom SMS sender Lambda configuration type.
+  * LambdaArn **required**
+  * LambdaVersion **required**
+
+### CustomSMSSenderLambdaVersionType
+* CustomSMSSenderLambdaVersionType `string` (values: V1_0)
 
 ### DateType
 * DateType `string`
@@ -2667,47 +3435,48 @@ amazonaws_cognito_idp.VerifyUserAttribute({
 
 ### DeleteGroupRequest
 * DeleteGroupRequest `object`
-  * GroupName **required** [GroupNameType](#groupnametype)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
+  * GroupName **required**
+  * UserPoolId **required**
 
 ### DeleteIdentityProviderRequest
 * DeleteIdentityProviderRequest `object`
-  * ProviderName **required** [ProviderNameType](#providernametype)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
+  * ProviderName **required**
+  * UserPoolId **required**
 
 ### DeleteResourceServerRequest
 * DeleteResourceServerRequest `object`
-  * Identifier **required** [ResourceServerIdentifierType](#resourceserveridentifiertype)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
+  * Identifier **required**
+  * UserPoolId **required**
 
 ### DeleteUserAttributesRequest
 * DeleteUserAttributesRequest `object`: Represents the request to delete user attributes.
-  * AccessToken **required** [TokenModelType](#tokenmodeltype)
-  * UserAttributeNames **required** [AttributeNameListType](#attributenamelisttype)
+  * AccessToken **required**
+  * UserAttributeNames **required**
+    * items [AttributeNameType](#attributenametype)
 
 ### DeleteUserAttributesResponse
 * DeleteUserAttributesResponse `object`: Represents the response from the server to delete user attributes.
 
 ### DeleteUserPoolClientRequest
 * DeleteUserPoolClientRequest `object`: Represents the request to delete a user pool client.
-  * ClientId **required** [ClientIdType](#clientidtype)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
+  * ClientId **required**
+  * UserPoolId **required**
 
 ### DeleteUserPoolDomainRequest
 * DeleteUserPoolDomainRequest `object`
-  * Domain **required** [DomainType](#domaintype)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
+  * Domain **required**
+  * UserPoolId **required**
 
 ### DeleteUserPoolDomainResponse
 * DeleteUserPoolDomainResponse `object`
 
 ### DeleteUserPoolRequest
 * DeleteUserPoolRequest `object`: Represents the request to delete a user pool.
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
+  * UserPoolId **required**
 
 ### DeleteUserRequest
 * DeleteUserRequest `object`: Represents the request to delete a user.
-  * AccessToken **required** [TokenModelType](#tokenmodeltype)
+  * AccessToken **required**
 
 ### DeliveryMediumListType
 * DeliveryMediumListType `array`
@@ -2718,72 +3487,270 @@ amazonaws_cognito_idp.VerifyUserAttribute({
 
 ### DescribeIdentityProviderRequest
 * DescribeIdentityProviderRequest `object`
-  * ProviderName **required** [ProviderNameType](#providernametype)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
+  * ProviderName **required**
+  * UserPoolId **required**
 
 ### DescribeIdentityProviderResponse
 * DescribeIdentityProviderResponse `object`
-  * IdentityProvider **required** [IdentityProviderType](#identityprovidertype)
+  * IdentityProvider **required**
+    * AttributeMapping
+    * CreationDate
+    * IdpIdentifiers
+      * items [IdpIdentifierType](#idpidentifiertype)
+    * LastModifiedDate
+    * ProviderDetails
+    * ProviderName
+    * ProviderType
+    * UserPoolId
 
 ### DescribeResourceServerRequest
 * DescribeResourceServerRequest `object`
-  * Identifier **required** [ResourceServerIdentifierType](#resourceserveridentifiertype)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
+  * Identifier **required**
+  * UserPoolId **required**
 
 ### DescribeResourceServerResponse
 * DescribeResourceServerResponse `object`
-  * ResourceServer **required** [ResourceServerType](#resourceservertype)
+  * ResourceServer **required**
+    * Identifier
+    * Name
+    * Scopes
+      * items [ResourceServerScopeType](#resourceserverscopetype)
+    * UserPoolId
 
 ### DescribeRiskConfigurationRequest
 * DescribeRiskConfigurationRequest `object`
-  * ClientId [ClientIdType](#clientidtype)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
+  * ClientId
+  * UserPoolId **required**
 
 ### DescribeRiskConfigurationResponse
 * DescribeRiskConfigurationResponse `object`
-  * RiskConfiguration **required** [RiskConfigurationType](#riskconfigurationtype)
+  * RiskConfiguration **required**
+    * AccountTakeoverRiskConfiguration
+      * Actions **required**
+        * HighAction
+          * EventAction **required**
+          * Notify **required**
+        * LowAction
+          * EventAction **required**
+          * Notify **required**
+        * MediumAction
+          * EventAction **required**
+          * Notify **required**
+      * NotifyConfiguration
+        * BlockEmail
+          * HtmlBody
+          * Subject **required**
+          * TextBody
+        * From
+        * MfaEmail
+          * HtmlBody
+          * Subject **required**
+          * TextBody
+        * NoActionEmail
+          * HtmlBody
+          * Subject **required**
+          * TextBody
+        * ReplyTo
+        * SourceArn **required**
+    * ClientId
+    * CompromisedCredentialsRiskConfiguration
+      * Actions **required**
+        * EventAction **required**
+      * EventFilter
+        * items [EventFilterType](#eventfiltertype)
+    * LastModifiedDate
+    * RiskExceptionConfiguration
+      * BlockedIPRangeList
+        * items [StringType](#stringtype)
+      * SkippedIPRangeList
+        * items [StringType](#stringtype)
+    * UserPoolId
 
 ### DescribeUserImportJobRequest
 * DescribeUserImportJobRequest `object`: Represents the request to describe the user import job.
-  * JobId **required** [UserImportJobIdType](#userimportjobidtype)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
+  * JobId **required**
+  * UserPoolId **required**
 
 ### DescribeUserImportJobResponse
 * DescribeUserImportJobResponse `object`: Represents the response from the server to the request to describe the user import job.
-  * UserImportJob [UserImportJobType](#userimportjobtype)
+  * UserImportJob
+    * CloudWatchLogsRoleArn
+    * CompletionDate
+    * CompletionMessage
+    * CreationDate
+    * FailedUsers
+    * ImportedUsers
+    * JobId
+    * JobName
+    * PreSignedUrl
+    * SkippedUsers
+    * StartDate
+    * Status
+    * UserPoolId
 
 ### DescribeUserPoolClientRequest
 * DescribeUserPoolClientRequest `object`: Represents the request to describe a user pool client.
-  * ClientId **required** [ClientIdType](#clientidtype)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
+  * ClientId **required**
+  * UserPoolId **required**
 
 ### DescribeUserPoolClientResponse
 * DescribeUserPoolClientResponse `object`: Represents the response from the server from a request to describe the user pool client.
-  * UserPoolClient [UserPoolClientType](#userpoolclienttype)
+  * UserPoolClient
+    * AccessTokenValidity
+    * AllowedOAuthFlows
+      * items [OAuthFlowType](#oauthflowtype)
+    * AllowedOAuthFlowsUserPoolClient
+    * AllowedOAuthScopes
+      * items [ScopeType](#scopetype)
+    * AnalyticsConfiguration
+      * ApplicationArn
+      * ApplicationId
+      * ExternalId
+      * RoleArn
+      * UserDataShared
+    * CallbackURLs
+      * items [RedirectUrlType](#redirecturltype)
+    * ClientId
+    * ClientName
+    * ClientSecret
+    * CreationDate
+    * DefaultRedirectURI
+    * ExplicitAuthFlows
+      * items [ExplicitAuthFlowsType](#explicitauthflowstype)
+    * IdTokenValidity
+    * LastModifiedDate
+    * LogoutURLs
+      * items [RedirectUrlType](#redirecturltype)
+    * PreventUserExistenceErrors
+    * ReadAttributes
+      * items [ClientPermissionType](#clientpermissiontype)
+    * RefreshTokenValidity
+    * SupportedIdentityProviders
+      * items [ProviderNameType](#providernametype)
+    * TokenValidityUnits
+      * AccessToken
+      * IdToken
+      * RefreshToken
+    * UserPoolId
+    * WriteAttributes
+      * items [ClientPermissionType](#clientpermissiontype)
 
 ### DescribeUserPoolDomainRequest
 * DescribeUserPoolDomainRequest `object`
-  * Domain **required** [DomainType](#domaintype)
+  * Domain **required**
 
 ### DescribeUserPoolDomainResponse
 * DescribeUserPoolDomainResponse `object`
-  * DomainDescription [DomainDescriptionType](#domaindescriptiontype)
+  * DomainDescription
+    * AWSAccountId
+    * CloudFrontDistribution
+    * CustomDomainConfig
+      * CertificateArn **required**
+    * Domain
+    * S3Bucket
+    * Status
+    * UserPoolId
+    * Version
 
 ### DescribeUserPoolRequest
 * DescribeUserPoolRequest `object`: Represents the request to describe the user pool.
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
+  * UserPoolId **required**
 
 ### DescribeUserPoolResponse
 * DescribeUserPoolResponse `object`: Represents the response to describe the user pool.
-  * UserPool [UserPoolType](#userpooltype)
+  * UserPool
+    * AccountRecoverySetting
+      * RecoveryMechanisms
+        * items [RecoveryOptionType](#recoveryoptiontype)
+    * AdminCreateUserConfig
+      * AllowAdminCreateUserOnly
+      * InviteMessageTemplate
+        * EmailMessage
+        * EmailSubject
+        * SMSMessage
+      * UnusedAccountValidityDays
+    * AliasAttributes
+      * items [AliasAttributeType](#aliasattributetype)
+    * Arn
+    * AutoVerifiedAttributes
+      * items [VerifiedAttributeType](#verifiedattributetype)
+    * CreationDate
+    * CustomDomain
+    * DeviceConfiguration
+      * ChallengeRequiredOnNewDevice
+      * DeviceOnlyRememberedOnUserPrompt
+    * Domain
+    * EmailConfiguration
+      * ConfigurationSet
+      * EmailSendingAccount
+      * From
+      * ReplyToEmailAddress
+      * SourceArn
+    * EmailConfigurationFailure
+    * EmailVerificationMessage
+    * EmailVerificationSubject
+    * EstimatedNumberOfUsers
+    * Id
+    * LambdaConfig
+      * CreateAuthChallenge
+      * CustomEmailSender
+        * LambdaArn **required**
+        * LambdaVersion **required**
+      * CustomMessage
+      * CustomSMSSender
+        * LambdaArn **required**
+        * LambdaVersion **required**
+      * DefineAuthChallenge
+      * KMSKeyID
+      * PostAuthentication
+      * PostConfirmation
+      * PreAuthentication
+      * PreSignUp
+      * PreTokenGeneration
+      * UserMigration
+      * VerifyAuthChallengeResponse
+    * LastModifiedDate
+    * MfaConfiguration
+    * Name
+    * Policies
+      * PasswordPolicy
+        * MinimumLength
+        * RequireLowercase
+        * RequireNumbers
+        * RequireSymbols
+        * RequireUppercase
+        * TemporaryPasswordValidityDays
+    * SchemaAttributes
+      * items [SchemaAttributeType](#schemaattributetype)
+    * SmsAuthenticationMessage
+    * SmsConfiguration
+      * ExternalId
+      * SnsCallerArn **required**
+    * SmsConfigurationFailure
+    * SmsVerificationMessage
+    * Status
+    * UserPoolAddOns
+      * AdvancedSecurityMode **required**
+    * UserPoolTags
+    * UsernameAttributes
+      * items [UsernameAttributeType](#usernameattributetype)
+    * UsernameConfiguration
+      * CaseSensitive **required**
+    * VerificationMessageTemplate
+      * DefaultEmailOption
+      * EmailMessage
+      * EmailMessageByLink
+      * EmailSubject
+      * EmailSubjectByLink
+      * SmsMessage
 
 ### DescriptionType
 * DescriptionType `string`
 
 ### DeviceConfigurationType
 * DeviceConfigurationType `object`: The configuration for the user pool's device tracking.
-  * ChallengeRequiredOnNewDevice [BooleanType](#booleantype)
-  * DeviceOnlyRememberedOnUserPrompt [BooleanType](#booleantype)
+  * ChallengeRequiredOnNewDevice
+  * DeviceOnlyRememberedOnUserPrompt
 
 ### DeviceKeyType
 * DeviceKeyType `string`
@@ -2800,26 +3767,29 @@ amazonaws_cognito_idp.VerifyUserAttribute({
 
 ### DeviceSecretVerifierConfigType
 * DeviceSecretVerifierConfigType `object`: The device verifier against which it will be authenticated.
-  * PasswordVerifier [StringType](#stringtype)
-  * Salt [StringType](#stringtype)
+  * PasswordVerifier
+  * Salt
 
 ### DeviceType
 * DeviceType `object`: The device type.
-  * DeviceAttributes [AttributeListType](#attributelisttype)
-  * DeviceCreateDate [DateType](#datetype)
-  * DeviceKey [DeviceKeyType](#devicekeytype)
-  * DeviceLastAuthenticatedDate [DateType](#datetype)
-  * DeviceLastModifiedDate [DateType](#datetype)
+  * DeviceAttributes
+    * items [AttributeType](#attributetype)
+  * DeviceCreateDate
+  * DeviceKey
+  * DeviceLastAuthenticatedDate
+  * DeviceLastModifiedDate
 
 ### DomainDescriptionType
 * DomainDescriptionType `object`: A container for information about a domain.
-  * AWSAccountId [AWSAccountIdType](#awsaccountidtype)
-  * CloudFrontDistribution [ArnType](#arntype)
-  * Domain [DomainType](#domaintype)
-  * S3Bucket [S3BucketType](#s3buckettype)
-  * Status [DomainStatusType](#domainstatustype)
-  * UserPoolId [UserPoolIdType](#userpoolidtype)
-  * Version [DomainVersionType](#domainversiontype)
+  * AWSAccountId
+  * CloudFrontDistribution
+  * CustomDomainConfig
+    * CertificateArn **required**
+  * Domain
+  * S3Bucket
+  * Status
+  * UserPoolId
+  * Version
 
 ### DomainStatusType
 * DomainStatusType `string` (values: CREATING, DELETING, UPDATING, ACTIVE, FAILED)
@@ -2831,22 +3801,27 @@ amazonaws_cognito_idp.VerifyUserAttribute({
 * DomainVersionType `string`
 
 ### DuplicateProviderException
-* DuplicateProviderException `object`: This exception is thrown when the provider is already supported by the user pool.
-  * message [MessageType](#messagetype)
+
 
 ### EmailAddressType
 * EmailAddressType `string`
 
 ### EmailConfigurationType
-* EmailConfigurationType `object`: The email configuration type.
-  * ReplyToEmailAddress [EmailAddressType](#emailaddresstype)
-  * SourceArn [ArnType](#arntype)
+* EmailConfigurationType `object`: <p>The email configuration type. </p> <note> <p>Amazon Cognito has specific regions for use with Amazon SES. For more information on the supported regions, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-email.html">Email Settings for Amazon Cognito User Pools</a>.</p> </note>
+  * ConfigurationSet
+  * EmailSendingAccount
+  * From
+  * ReplyToEmailAddress
+  * SourceArn
 
 ### EmailNotificationBodyType
 * EmailNotificationBodyType `string`
 
 ### EmailNotificationSubjectType
 * EmailNotificationSubjectType `string`
+
+### EmailSendingAccountType
+* EmailSendingAccountType `string` (values: COGNITO_DEFAULT, DEVELOPER)
 
 ### EmailVerificationMessageByLinkType
 * EmailVerificationMessageByLinkType `string`
@@ -2861,22 +3836,21 @@ amazonaws_cognito_idp.VerifyUserAttribute({
 * EmailVerificationSubjectType `string`
 
 ### EnableSoftwareTokenMFAException
-* EnableSoftwareTokenMFAException `object`: This exception is thrown when there is a code mismatch and the service fails to configure the software token TOTP multi-factor authentication (MFA).
-  * message [MessageType](#messagetype)
+
 
 ### EventContextDataType
 * EventContextDataType `object`: Specifies the user context data captured at the time of an event request.
-  * City [StringType](#stringtype)
-  * Country [StringType](#stringtype)
-  * DeviceName [StringType](#stringtype)
-  * IpAddress [StringType](#stringtype)
-  * Timezone [StringType](#stringtype)
+  * City
+  * Country
+  * DeviceName
+  * IpAddress
+  * Timezone
 
 ### EventFeedbackType
 * EventFeedbackType `object`: Specifies the event feedback type.
-  * FeedbackDate [DateType](#datetype)
-  * FeedbackValue **required** [FeedbackValueType](#feedbackvaluetype)
-  * Provider **required** [StringType](#stringtype)
+  * FeedbackDate
+  * FeedbackValue **required**
+  * Provider **required**
 
 ### EventFilterType
 * EventFilterType `string` (values: SIGN_IN, PASSWORD_CHANGE, SIGN_UP)
@@ -2893,22 +3867,22 @@ amazonaws_cognito_idp.VerifyUserAttribute({
 
 ### EventRiskType
 * EventRiskType `object`: The event risk type.
-  * RiskDecision [RiskDecisionType](#riskdecisiontype)
-  * RiskLevel [RiskLevelType](#riskleveltype)
+  * CompromisedCredentialsDetected
+  * RiskDecision
+  * RiskLevel
 
 ### EventType
 * EventType `string` (values: SignIn, SignUp, ForgotPassword)
 
 ### ExpiredCodeException
-* ExpiredCodeException `object`: This exception is thrown if a code has expired.
-  * message [MessageType](#messagetype)
+
 
 ### ExplicitAuthFlowsListType
 * ExplicitAuthFlowsListType `array`
   * items [ExplicitAuthFlowsType](#explicitauthflowstype)
 
 ### ExplicitAuthFlowsType
-* ExplicitAuthFlowsType `string` (values: ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH)
+* ExplicitAuthFlowsType `string` (values: ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, ALLOW_REFRESH_TOKEN_AUTH)
 
 ### FeedbackValueType
 * FeedbackValueType `string` (values: Valid, Invalid)
@@ -2918,118 +3892,165 @@ amazonaws_cognito_idp.VerifyUserAttribute({
 
 ### ForgetDeviceRequest
 * ForgetDeviceRequest `object`: Represents the request to forget the device.
-  * AccessToken [TokenModelType](#tokenmodeltype)
-  * DeviceKey **required** [DeviceKeyType](#devicekeytype)
+  * AccessToken
+  * DeviceKey **required**
 
 ### ForgotPasswordRequest
 * ForgotPasswordRequest `object`: Represents the request to reset a user's password.
-  * AnalyticsMetadata [AnalyticsMetadataType](#analyticsmetadatatype)
-  * ClientId **required** [ClientIdType](#clientidtype)
-  * SecretHash [SecretHashType](#secrethashtype)
-  * UserContextData [UserContextDataType](#usercontextdatatype)
-  * Username **required** [UsernameType](#usernametype)
+  * AnalyticsMetadata
+    * AnalyticsEndpointId
+  * ClientId **required**
+  * ClientMetadata
+  * SecretHash
+  * UserContextData
+    * EncodedData
+  * Username **required**
 
 ### ForgotPasswordResponse
 * ForgotPasswordResponse `object`: Respresents the response from the server regarding the request to reset a password.
-  * CodeDeliveryDetails [CodeDeliveryDetailsType](#codedeliverydetailstype)
+  * CodeDeliveryDetails
+    * AttributeName
+    * DeliveryMedium
+    * Destination
 
 ### GenerateSecret
 * GenerateSecret `boolean`
 
 ### GetCSVHeaderRequest
 * GetCSVHeaderRequest `object`: Represents the request to get the header information for the .csv file for the user import job.
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
+  * UserPoolId **required**
 
 ### GetCSVHeaderResponse
 * GetCSVHeaderResponse `object`: Represents the response from the server to the request to get the header information for the .csv file for the user import job.
-  * CSVHeader [ListOfStringTypes](#listofstringtypes)
-  * UserPoolId [UserPoolIdType](#userpoolidtype)
+  * CSVHeader
+    * items [StringType](#stringtype)
+  * UserPoolId
 
 ### GetDeviceRequest
 * GetDeviceRequest `object`: Represents the request to get the device.
-  * AccessToken [TokenModelType](#tokenmodeltype)
-  * DeviceKey **required** [DeviceKeyType](#devicekeytype)
+  * AccessToken
+  * DeviceKey **required**
 
 ### GetDeviceResponse
 * GetDeviceResponse `object`: Gets the device response.
-  * Device **required** [DeviceType](#devicetype)
+  * Device **required**
+    * DeviceAttributes
+      * items [AttributeType](#attributetype)
+    * DeviceCreateDate
+    * DeviceKey
+    * DeviceLastAuthenticatedDate
+    * DeviceLastModifiedDate
 
 ### GetGroupRequest
 * GetGroupRequest `object`
-  * GroupName **required** [GroupNameType](#groupnametype)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
+  * GroupName **required**
+  * UserPoolId **required**
 
 ### GetGroupResponse
 * GetGroupResponse `object`
-  * Group [GroupType](#grouptype)
+  * Group
+    * CreationDate
+    * Description
+    * GroupName
+    * LastModifiedDate
+    * Precedence
+    * RoleArn
+    * UserPoolId
 
 ### GetIdentityProviderByIdentifierRequest
 * GetIdentityProviderByIdentifierRequest `object`
-  * IdpIdentifier **required** [IdpIdentifierType](#idpidentifiertype)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
+  * IdpIdentifier **required**
+  * UserPoolId **required**
 
 ### GetIdentityProviderByIdentifierResponse
 * GetIdentityProviderByIdentifierResponse `object`
-  * IdentityProvider **required** [IdentityProviderType](#identityprovidertype)
+  * IdentityProvider **required**
+    * AttributeMapping
+    * CreationDate
+    * IdpIdentifiers
+      * items [IdpIdentifierType](#idpidentifiertype)
+    * LastModifiedDate
+    * ProviderDetails
+    * ProviderName
+    * ProviderType
+    * UserPoolId
 
 ### GetSigningCertificateRequest
 * GetSigningCertificateRequest `object`: Request to get a signing certificate from Cognito.
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
+  * UserPoolId **required**
 
 ### GetSigningCertificateResponse
 * GetSigningCertificateResponse `object`: Response from Cognito for a signing certificate request.
-  * Certificate [StringType](#stringtype)
+  * Certificate
 
 ### GetUICustomizationRequest
 * GetUICustomizationRequest `object`
-  * ClientId [ClientIdType](#clientidtype)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
+  * ClientId
+  * UserPoolId **required**
 
 ### GetUICustomizationResponse
 * GetUICustomizationResponse `object`
-  * UICustomization **required** [UICustomizationType](#uicustomizationtype)
+  * UICustomization **required**
+    * CSS
+    * CSSVersion
+    * ClientId
+    * CreationDate
+    * ImageUrl
+    * LastModifiedDate
+    * UserPoolId
 
 ### GetUserAttributeVerificationCodeRequest
 * GetUserAttributeVerificationCodeRequest `object`: Represents the request to get user attribute verification.
-  * AccessToken **required** [TokenModelType](#tokenmodeltype)
-  * AttributeName **required** [AttributeNameType](#attributenametype)
+  * AccessToken **required**
+  * AttributeName **required**
+  * ClientMetadata
 
 ### GetUserAttributeVerificationCodeResponse
 * GetUserAttributeVerificationCodeResponse `object`: The verification code response returned by the server response to get the user attribute verification code.
-  * CodeDeliveryDetails [CodeDeliveryDetailsType](#codedeliverydetailstype)
+  * CodeDeliveryDetails
+    * AttributeName
+    * DeliveryMedium
+    * Destination
 
 ### GetUserPoolMfaConfigRequest
 * GetUserPoolMfaConfigRequest `object`
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
+  * UserPoolId **required**
 
 ### GetUserPoolMfaConfigResponse
 * GetUserPoolMfaConfigResponse `object`
-  * MfaConfiguration [UserPoolMfaType](#userpoolmfatype)
-  * SmsMfaConfiguration [SmsMfaConfigType](#smsmfaconfigtype)
-  * SoftwareTokenMfaConfiguration [SoftwareTokenMfaConfigType](#softwaretokenmfaconfigtype)
+  * MfaConfiguration
+  * SmsMfaConfiguration
+    * SmsAuthenticationMessage
+    * SmsConfiguration
+      * ExternalId
+      * SnsCallerArn **required**
+  * SoftwareTokenMfaConfiguration
+    * Enabled
 
 ### GetUserRequest
 * GetUserRequest `object`: Represents the request to get information about the user.
-  * AccessToken **required** [TokenModelType](#tokenmodeltype)
+  * AccessToken **required**
 
 ### GetUserResponse
 * GetUserResponse `object`: Represents the response from the server from the request to get information about the user.
-  * MFAOptions [MFAOptionListType](#mfaoptionlisttype)
-  * PreferredMfaSetting [StringType](#stringtype)
-  * UserAttributes **required** [AttributeListType](#attributelisttype)
-  * UserMFASettingList [UserMFASettingListType](#usermfasettinglisttype)
-  * Username **required** [UsernameType](#usernametype)
+  * MFAOptions
+    * items [MFAOptionType](#mfaoptiontype)
+  * PreferredMfaSetting
+  * UserAttributes **required**
+    * items [AttributeType](#attributetype)
+  * UserMFASettingList
+    * items [StringType](#stringtype)
+  * Username **required**
 
 ### GlobalSignOutRequest
 * GlobalSignOutRequest `object`: Represents the request to sign out all devices.
-  * AccessToken **required** [TokenModelType](#tokenmodeltype)
+  * AccessToken **required**
 
 ### GlobalSignOutResponse
 * GlobalSignOutResponse `object`: The response to the request to sign out all devices.
 
 ### GroupExistsException
-* GroupExistsException `object`: This exception is thrown when Amazon Cognito encounters a group that already exists in the user pool.
-  * message [MessageType](#messagetype)
+
 
 ### GroupListType
 * GroupListType `array`
@@ -3040,39 +4061,43 @@ amazonaws_cognito_idp.VerifyUserAttribute({
 
 ### GroupType
 * GroupType `object`: The group type.
-  * CreationDate [DateType](#datetype)
-  * Description [DescriptionType](#descriptiontype)
-  * GroupName [GroupNameType](#groupnametype)
-  * LastModifiedDate [DateType](#datetype)
-  * Precedence [PrecedenceType](#precedencetype)
-  * RoleArn [ArnType](#arntype)
-  * UserPoolId [UserPoolIdType](#userpoolidtype)
+  * CreationDate
+  * Description
+  * GroupName
+  * LastModifiedDate
+  * Precedence
+  * RoleArn
+  * UserPoolId
 
 ### HexStringType
 * HexStringType `string`
 
 ### HttpHeader
 * HttpHeader `object`: The HTTP header.
-  * headerName [StringType](#stringtype)
-  * headerValue [StringType](#stringtype)
+  * headerName
+  * headerValue
 
 ### HttpHeaderList
 * HttpHeaderList `array`
   * items [HttpHeader](#httpheader)
 
+### IdTokenValidityType
+* IdTokenValidityType `integer`
+
 ### IdentityProviderType
 * IdentityProviderType `object`: A container for information about an identity provider.
-  * AttributeMapping [AttributeMappingType](#attributemappingtype)
-  * CreationDate [DateType](#datetype)
-  * IdpIdentifiers [IdpIdentifiersListType](#idpidentifierslisttype)
-  * LastModifiedDate [DateType](#datetype)
-  * ProviderDetails [ProviderDetailsType](#providerdetailstype)
-  * ProviderName [ProviderNameType](#providernametype)
-  * ProviderType [IdentityProviderTypeType](#identityprovidertypetype)
-  * UserPoolId [UserPoolIdType](#userpoolidtype)
+  * AttributeMapping
+  * CreationDate
+  * IdpIdentifiers
+    * items [IdpIdentifierType](#idpidentifiertype)
+  * LastModifiedDate
+  * ProviderDetails
+  * ProviderName
+  * ProviderType
+  * UserPoolId
 
 ### IdentityProviderTypeType
-* IdentityProviderTypeType `string` (values: SAML, Facebook, Google, LoginWithAmazon, OIDC)
+* IdentityProviderTypeType `string` (values: SAML, Facebook, Google, LoginWithAmazon, SignInWithApple, OIDC)
 
 ### IdpIdentifierType
 * IdpIdentifierType `string`
@@ -3089,108 +4114,118 @@ amazonaws_cognito_idp.VerifyUserAttribute({
 
 ### InitiateAuthRequest
 * InitiateAuthRequest `object`: Initiates the authentication request.
-  * AnalyticsMetadata [AnalyticsMetadataType](#analyticsmetadatatype)
-  * AuthFlow **required** [AuthFlowType](#authflowtype)
-  * AuthParameters [AuthParametersType](#authparameterstype)
-  * ClientId **required** [ClientIdType](#clientidtype)
-  * ClientMetadata [ClientMetadataType](#clientmetadatatype)
-  * UserContextData [UserContextDataType](#usercontextdatatype)
+  * AnalyticsMetadata
+    * AnalyticsEndpointId
+  * AuthFlow **required**
+  * AuthParameters
+  * ClientId **required**
+  * ClientMetadata
+  * UserContextData
+    * EncodedData
 
 ### InitiateAuthResponse
 * InitiateAuthResponse `object`: Initiates the authentication response.
-  * AuthenticationResult [AuthenticationResultType](#authenticationresulttype)
-  * ChallengeName [ChallengeNameType](#challengenametype)
-  * ChallengeParameters [ChallengeParametersType](#challengeparameterstype)
-  * Session [SessionType](#sessiontype)
+  * AuthenticationResult
+    * AccessToken
+    * ExpiresIn
+    * IdToken
+    * NewDeviceMetadata
+      * DeviceGroupKey
+      * DeviceKey
+    * RefreshToken
+    * TokenType
+  * ChallengeName
+  * ChallengeParameters
+  * Session
 
 ### IntegerType
 * IntegerType `integer`
 
 ### InternalErrorException
-* InternalErrorException `object`: This exception is thrown when Amazon Cognito encounters an internal error.
-  * message [MessageType](#messagetype)
+
 
 ### InvalidEmailRoleAccessPolicyException
-* InvalidEmailRoleAccessPolicyException `object`: This exception is thrown when Amazon Cognito is not allowed to use your email identity. HTTP status code: 400.
-  * message [MessageType](#messagetype)
+
 
 ### InvalidLambdaResponseException
-* InvalidLambdaResponseException `object`: This exception is thrown when the Amazon Cognito service encounters an invalid AWS Lambda response.
-  * message [MessageType](#messagetype)
+
 
 ### InvalidOAuthFlowException
-* InvalidOAuthFlowException `object`: This exception is thrown when the specified OAuth flow is invalid.
-  * message [MessageType](#messagetype)
+
 
 ### InvalidParameterException
-* InvalidParameterException `object`: This exception is thrown when the Amazon Cognito service encounters an invalid parameter.
-  * message [MessageType](#messagetype)
+
 
 ### InvalidPasswordException
-* InvalidPasswordException `object`: This exception is thrown when the Amazon Cognito service encounters an invalid password.
-  * message [MessageType](#messagetype)
+
 
 ### InvalidSmsRoleAccessPolicyException
-* InvalidSmsRoleAccessPolicyException `object`: This exception is returned when the role provided for SMS configuration does not have permission to publish using Amazon SNS.
-  * message [MessageType](#messagetype)
+
 
 ### InvalidSmsRoleTrustRelationshipException
-* InvalidSmsRoleTrustRelationshipException `object`: This exception is thrown when the trust relationship is invalid for the role provided for SMS configuration. This can happen if you do not trust <b>cognito-idp.amazonaws.com</b> or the external ID provided in the role does not match what is provided in the SMS configuration for the user pool.
-  * message [MessageType](#messagetype)
+
 
 ### InvalidUserPoolConfigurationException
-* InvalidUserPoolConfigurationException `object`: This exception is thrown when the user pool configuration is invalid.
-  * message [MessageType](#messagetype)
+
 
 ### LambdaConfigType
 * LambdaConfigType `object`: Specifies the configuration for AWS Lambda triggers.
-  * CreateAuthChallenge [ArnType](#arntype)
-  * CustomMessage [ArnType](#arntype)
-  * DefineAuthChallenge [ArnType](#arntype)
-  * PostAuthentication [ArnType](#arntype)
-  * PostConfirmation [ArnType](#arntype)
-  * PreAuthentication [ArnType](#arntype)
-  * PreSignUp [ArnType](#arntype)
-  * PreTokenGeneration [ArnType](#arntype)
-  * UserMigration [ArnType](#arntype)
-  * VerifyAuthChallengeResponse [ArnType](#arntype)
+  * CreateAuthChallenge
+  * CustomEmailSender
+    * LambdaArn **required**
+    * LambdaVersion **required**
+  * CustomMessage
+  * CustomSMSSender
+    * LambdaArn **required**
+    * LambdaVersion **required**
+  * DefineAuthChallenge
+  * KMSKeyID
+  * PostAuthentication
+  * PostConfirmation
+  * PreAuthentication
+  * PreSignUp
+  * PreTokenGeneration
+  * UserMigration
+  * VerifyAuthChallengeResponse
 
 ### LimitExceededException
-* LimitExceededException `object`: This exception is thrown when a user exceeds the limit for a requested AWS resource.
-  * message [MessageType](#messagetype)
+
 
 ### ListDevicesRequest
 * ListDevicesRequest `object`: Represents the request to list the devices.
-  * AccessToken **required** [TokenModelType](#tokenmodeltype)
-  * Limit [QueryLimitType](#querylimittype)
-  * PaginationToken [SearchPaginationTokenType](#searchpaginationtokentype)
+  * AccessToken **required**
+  * Limit
+  * PaginationToken
 
 ### ListDevicesResponse
 * ListDevicesResponse `object`: Represents the response to list devices.
-  * Devices [DeviceListType](#devicelisttype)
-  * PaginationToken [SearchPaginationTokenType](#searchpaginationtokentype)
+  * Devices
+    * items [DeviceType](#devicetype)
+  * PaginationToken
 
 ### ListGroupsRequest
 * ListGroupsRequest `object`
-  * Limit [QueryLimitType](#querylimittype)
-  * NextToken [PaginationKey](#paginationkey)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
+  * Limit
+  * NextToken
+  * UserPoolId **required**
 
 ### ListGroupsResponse
 * ListGroupsResponse `object`
-  * Groups [GroupListType](#grouplisttype)
-  * NextToken [PaginationKey](#paginationkey)
+  * Groups
+    * items [GroupType](#grouptype)
+  * NextToken
 
 ### ListIdentityProvidersRequest
 * ListIdentityProvidersRequest `object`
-  * MaxResults [ListProvidersLimitType](#listproviderslimittype)
-  * NextToken [PaginationKeyType](#paginationkeytype)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
+  * MaxResults
+  * NextToken
+  * UserPoolId **required**
 
 ### ListIdentityProvidersResponse
 * ListIdentityProvidersResponse `object`
-  * NextToken [PaginationKeyType](#paginationkeytype)
-  * Providers **required** [ProvidersListType](#providerslisttype)
+  * NextToken
+  * Providers **required**
+    * items [ProviderDescription](#providerdescription)
 
 ### ListOfStringTypes
 * ListOfStringTypes `array`
@@ -3204,71 +4239,86 @@ amazonaws_cognito_idp.VerifyUserAttribute({
 
 ### ListResourceServersRequest
 * ListResourceServersRequest `object`
-  * MaxResults [ListResourceServersLimitType](#listresourceserverslimittype)
-  * NextToken [PaginationKeyType](#paginationkeytype)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
+  * MaxResults
+  * NextToken
+  * UserPoolId **required**
 
 ### ListResourceServersResponse
 * ListResourceServersResponse `object`
-  * NextToken [PaginationKeyType](#paginationkeytype)
-  * ResourceServers **required** [ResourceServersListType](#resourceserverslisttype)
+  * NextToken
+  * ResourceServers **required**
+    * items [ResourceServerType](#resourceservertype)
+
+### ListTagsForResourceRequest
+* ListTagsForResourceRequest `object`
+  * ResourceArn **required**
+
+### ListTagsForResourceResponse
+* ListTagsForResourceResponse `object`
+  * Tags
 
 ### ListUserImportJobsRequest
 * ListUserImportJobsRequest `object`: Represents the request to list the user import jobs.
-  * MaxResults **required** [PoolQueryLimitType](#poolquerylimittype)
-  * PaginationToken [PaginationKeyType](#paginationkeytype)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
+  * MaxResults **required**
+  * PaginationToken
+  * UserPoolId **required**
 
 ### ListUserImportJobsResponse
 * ListUserImportJobsResponse `object`: Represents the response from the server to the request to list the user import jobs.
-  * PaginationToken [PaginationKeyType](#paginationkeytype)
-  * UserImportJobs [UserImportJobsListType](#userimportjobslisttype)
+  * PaginationToken
+  * UserImportJobs
+    * items [UserImportJobType](#userimportjobtype)
 
 ### ListUserPoolClientsRequest
 * ListUserPoolClientsRequest `object`: Represents the request to list the user pool clients.
-  * MaxResults [QueryLimit](#querylimit)
-  * NextToken [PaginationKey](#paginationkey)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
+  * MaxResults
+  * NextToken
+  * UserPoolId **required**
 
 ### ListUserPoolClientsResponse
 * ListUserPoolClientsResponse `object`: Represents the response from the server that lists user pool clients.
-  * NextToken [PaginationKey](#paginationkey)
-  * UserPoolClients [UserPoolClientListType](#userpoolclientlisttype)
+  * NextToken
+  * UserPoolClients
+    * items [UserPoolClientDescription](#userpoolclientdescription)
 
 ### ListUserPoolsRequest
 * ListUserPoolsRequest `object`: Represents the request to list user pools.
-  * MaxResults **required** [PoolQueryLimitType](#poolquerylimittype)
-  * NextToken [PaginationKeyType](#paginationkeytype)
+  * MaxResults **required**
+  * NextToken
 
 ### ListUserPoolsResponse
 * ListUserPoolsResponse `object`: Represents the response to list user pools.
-  * NextToken [PaginationKeyType](#paginationkeytype)
-  * UserPools [UserPoolListType](#userpoollisttype)
+  * NextToken
+  * UserPools
+    * items [UserPoolDescriptionType](#userpooldescriptiontype)
 
 ### ListUsersInGroupRequest
 * ListUsersInGroupRequest `object`
-  * GroupName **required** [GroupNameType](#groupnametype)
-  * Limit [QueryLimitType](#querylimittype)
-  * NextToken [PaginationKey](#paginationkey)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
+  * GroupName **required**
+  * Limit
+  * NextToken
+  * UserPoolId **required**
 
 ### ListUsersInGroupResponse
 * ListUsersInGroupResponse `object`
-  * NextToken [PaginationKey](#paginationkey)
-  * Users [UsersListType](#userslisttype)
+  * NextToken
+  * Users
+    * items [UserType](#usertype)
 
 ### ListUsersRequest
 * ListUsersRequest `object`: Represents the request to list users.
-  * AttributesToGet [SearchedAttributeNamesListType](#searchedattributenameslisttype)
-  * Filter [UserFilterType](#userfiltertype)
-  * Limit [QueryLimitType](#querylimittype)
-  * PaginationToken [SearchPaginationTokenType](#searchpaginationtokentype)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
+  * AttributesToGet
+    * items [AttributeNameType](#attributenametype)
+  * Filter
+  * Limit
+  * PaginationToken
+  * UserPoolId **required**
 
 ### ListUsersResponse
 * ListUsersResponse `object`: The response from the request to list users.
-  * PaginationToken [SearchPaginationTokenType](#searchpaginationtokentype)
-  * Users [UsersListType](#userslisttype)
+  * PaginationToken
+  * Users
+    * items [UserType](#usertype)
 
 ### LogoutURLsListType
 * LogoutURLsListType `array`
@@ -3278,58 +4328,62 @@ amazonaws_cognito_idp.VerifyUserAttribute({
 * LongType `integer`
 
 ### MFAMethodNotFoundException
-* MFAMethodNotFoundException `object`: This exception is thrown when Amazon Cognito cannot find a multi-factor authentication (MFA) method.
-  * message [MessageType](#messagetype)
+
 
 ### MFAOptionListType
 * MFAOptionListType `array`
   * items [MFAOptionType](#mfaoptiontype)
 
 ### MFAOptionType
-* MFAOptionType `object`: Specifies the different settings for multi-factor authentication (MFA).
-  * AttributeName [AttributeNameType](#attributenametype)
-  * DeliveryMedium [DeliveryMediumType](#deliverymediumtype)
+* MFAOptionType `object`:  <i>This data type is no longer supported.</i> You can use it only for SMS MFA configurations. You can't use it for TOTP software token MFA configurations.
+  * AttributeName
+  * DeliveryMedium
 
 ### MessageActionType
 * MessageActionType `string` (values: RESEND, SUPPRESS)
 
 ### MessageTemplateType
 * MessageTemplateType `object`: The message template structure.
-  * EmailMessage [EmailVerificationMessageType](#emailverificationmessagetype)
-  * EmailSubject [EmailVerificationSubjectType](#emailverificationsubjecttype)
-  * SMSMessage [SmsVerificationMessageType](#smsverificationmessagetype)
-
-### MessageType
-* MessageType `string`
+  * EmailMessage
+  * EmailSubject
+  * SMSMessage
 
 ### NewDeviceMetadataType
 * NewDeviceMetadataType `object`: The new device metadata type.
-  * DeviceGroupKey [StringType](#stringtype)
-  * DeviceKey [DeviceKeyType](#devicekeytype)
+  * DeviceGroupKey
+  * DeviceKey
 
 ### NotAuthorizedException
-* NotAuthorizedException `object`: This exception is thrown when a user is not authorized.
-  * message [MessageType](#messagetype)
+
 
 ### NotifyConfigurationType
 * NotifyConfigurationType `object`: The notify configuration type.
-  * BlockEmail [NotifyEmailType](#notifyemailtype)
-  * From [StringType](#stringtype)
-  * MfaEmail [NotifyEmailType](#notifyemailtype)
-  * NoActionEmail [NotifyEmailType](#notifyemailtype)
-  * ReplyTo [StringType](#stringtype)
-  * SourceArn **required** [ArnType](#arntype)
+  * BlockEmail
+    * HtmlBody
+    * Subject **required**
+    * TextBody
+  * From
+  * MfaEmail
+    * HtmlBody
+    * Subject **required**
+    * TextBody
+  * NoActionEmail
+    * HtmlBody
+    * Subject **required**
+    * TextBody
+  * ReplyTo
+  * SourceArn **required**
 
 ### NotifyEmailType
 * NotifyEmailType `object`: The notify email type.
-  * HtmlBody [EmailNotificationBodyType](#emailnotificationbodytype)
-  * Subject **required** [EmailNotificationSubjectType](#emailnotificationsubjecttype)
-  * TextBody [EmailNotificationBodyType](#emailnotificationbodytype)
+  * HtmlBody
+  * Subject **required**
+  * TextBody
 
 ### NumberAttributeConstraintsType
 * NumberAttributeConstraintsType `object`: The minimum and maximum value of an attribute that is of the number data type.
-  * MaxValue [StringType](#stringtype)
-  * MinValue [StringType](#stringtype)
+  * MaxValue
+  * MinValue
 
 ### OAuthFlowType
 * OAuthFlowType `string` (values: code, implicit, client_credentials)
@@ -3349,15 +4403,15 @@ amazonaws_cognito_idp.VerifyUserAttribute({
 
 ### PasswordPolicyType
 * PasswordPolicyType `object`: The password policy type.
-  * MinimumLength [PasswordPolicyMinLengthType](#passwordpolicyminlengthtype)
-  * RequireLowercase [BooleanType](#booleantype)
-  * RequireNumbers [BooleanType](#booleantype)
-  * RequireSymbols [BooleanType](#booleantype)
-  * RequireUppercase [BooleanType](#booleantype)
+  * MinimumLength
+  * RequireLowercase
+  * RequireNumbers
+  * RequireSymbols
+  * RequireUppercase
+  * TemporaryPasswordValidityDays
 
 ### PasswordResetRequiredException
-* PasswordResetRequiredException `object`: This exception is thrown when a password reset is required.
-  * message [MessageType](#messagetype)
+
 
 ### PasswordType
 * PasswordType `string`
@@ -3372,21 +4426,23 @@ amazonaws_cognito_idp.VerifyUserAttribute({
 * PrecedenceType `integer`
 
 ### PreconditionNotMetException
-* PreconditionNotMetException `object`: This exception is thrown when a precondition is not met.
-  * message [MessageType](#messagetype)
+
+
+### PreventUserExistenceErrorTypes
+* PreventUserExistenceErrorTypes `string` (values: LEGACY, ENABLED)
+
+### PriorityType
+* PriorityType `integer`
 
 ### ProviderDescription
 * ProviderDescription `object`: A container for identity provider details.
-  * CreationDate [DateType](#datetype)
-  * LastModifiedDate [DateType](#datetype)
-  * ProviderName [ProviderNameType](#providernametype)
-  * ProviderType [IdentityProviderTypeType](#identityprovidertypetype)
+  * CreationDate
+  * LastModifiedDate
+  * ProviderName
+  * ProviderType
 
 ### ProviderDetailsType
-* ProviderDetailsType `array`
-  * items `object`
-    * key [StringType](#stringtype)
-    * value [StringType](#stringtype)
+* ProviderDetailsType `object`
 
 ### ProviderNameType
 * ProviderNameType `string`
@@ -3396,9 +4452,9 @@ amazonaws_cognito_idp.VerifyUserAttribute({
 
 ### ProviderUserIdentifierType
 * ProviderUserIdentifierType `object`: A container for information about an identity provider for a user pool.
-  * ProviderAttributeName [StringType](#stringtype)
-  * ProviderAttributeValue [StringType](#stringtype)
-  * ProviderName [ProviderNameType](#providernametype)
+  * ProviderAttributeName
+  * ProviderAttributeValue
+  * ProviderName
 
 ### ProvidersListType
 * ProvidersListType `array`
@@ -3410,6 +4466,18 @@ amazonaws_cognito_idp.VerifyUserAttribute({
 ### QueryLimitType
 * QueryLimitType `integer`
 
+### RecoveryMechanismsType
+* RecoveryMechanismsType `array`
+  * items [RecoveryOptionType](#recoveryoptiontype)
+
+### RecoveryOptionNameType
+* RecoveryOptionNameType `string` (values: verified_email, verified_phone_number, admin_only)
+
+### RecoveryOptionType
+* RecoveryOptionType `object`: A map containing a priority as a key, and recovery method name as a value.
+  * Name **required**
+  * Priority **required**
+
 ### RedirectUrlType
 * RedirectUrlType `string`
 
@@ -3418,19 +4486,24 @@ amazonaws_cognito_idp.VerifyUserAttribute({
 
 ### ResendConfirmationCodeRequest
 * ResendConfirmationCodeRequest `object`: Represents the request to resend the confirmation code.
-  * AnalyticsMetadata [AnalyticsMetadataType](#analyticsmetadatatype)
-  * ClientId **required** [ClientIdType](#clientidtype)
-  * SecretHash [SecretHashType](#secrethashtype)
-  * UserContextData [UserContextDataType](#usercontextdatatype)
-  * Username **required** [UsernameType](#usernametype)
+  * AnalyticsMetadata
+    * AnalyticsEndpointId
+  * ClientId **required**
+  * ClientMetadata
+  * SecretHash
+  * UserContextData
+    * EncodedData
+  * Username **required**
 
 ### ResendConfirmationCodeResponse
 * ResendConfirmationCodeResponse `object`: The response from the server when the Amazon Cognito Your User Pools service makes the request to resend a confirmation code.
-  * CodeDeliveryDetails [CodeDeliveryDetailsType](#codedeliverydetailstype)
+  * CodeDeliveryDetails
+    * AttributeName
+    * DeliveryMedium
+    * Destination
 
 ### ResourceNotFoundException
-* ResourceNotFoundException `object`: This exception is thrown when the Amazon Cognito service cannot find the requested resource.
-  * message [MessageType](#messagetype)
+
 
 ### ResourceServerIdentifierType
 * ResourceServerIdentifierType `string`
@@ -3450,15 +4523,16 @@ amazonaws_cognito_idp.VerifyUserAttribute({
 
 ### ResourceServerScopeType
 * ResourceServerScopeType `object`: A resource server scope.
-  * ScopeDescription **required** [ResourceServerScopeDescriptionType](#resourceserverscopedescriptiontype)
-  * ScopeName **required** [ResourceServerScopeNameType](#resourceserverscopenametype)
+  * ScopeDescription **required**
+  * ScopeName **required**
 
 ### ResourceServerType
 * ResourceServerType `object`: A container for information about a resource server for a user pool.
-  * Identifier [ResourceServerIdentifierType](#resourceserveridentifiertype)
-  * Name [ResourceServerNameType](#resourceservernametype)
-  * Scopes [ResourceServerScopeListType](#resourceserverscopelisttype)
-  * UserPoolId [UserPoolIdType](#userpoolidtype)
+  * Identifier
+  * Name
+  * Scopes
+    * items [ResourceServerScopeType](#resourceserverscopetype)
+  * UserPoolId
 
 ### ResourceServersListType
 * ResourceServersListType `array`
@@ -3466,36 +4540,83 @@ amazonaws_cognito_idp.VerifyUserAttribute({
 
 ### RespondToAuthChallengeRequest
 * RespondToAuthChallengeRequest `object`: The request to respond to an authentication challenge.
-  * AnalyticsMetadata [AnalyticsMetadataType](#analyticsmetadatatype)
-  * ChallengeName **required** [ChallengeNameType](#challengenametype)
-  * ChallengeResponses [ChallengeResponsesType](#challengeresponsestype)
-  * ClientId **required** [ClientIdType](#clientidtype)
-  * Session [SessionType](#sessiontype)
-  * UserContextData [UserContextDataType](#usercontextdatatype)
+  * AnalyticsMetadata
+    * AnalyticsEndpointId
+  * ChallengeName **required**
+  * ChallengeResponses
+  * ClientId **required**
+  * ClientMetadata
+  * Session
+  * UserContextData
+    * EncodedData
 
 ### RespondToAuthChallengeResponse
 * RespondToAuthChallengeResponse `object`: The response to respond to the authentication challenge.
-  * AuthenticationResult [AuthenticationResultType](#authenticationresulttype)
-  * ChallengeName [ChallengeNameType](#challengenametype)
-  * ChallengeParameters [ChallengeParametersType](#challengeparameterstype)
-  * Session [SessionType](#sessiontype)
+  * AuthenticationResult
+    * AccessToken
+    * ExpiresIn
+    * IdToken
+    * NewDeviceMetadata
+      * DeviceGroupKey
+      * DeviceKey
+    * RefreshToken
+    * TokenType
+  * ChallengeName
+  * ChallengeParameters
+  * Session
 
 ### RiskConfigurationType
 * RiskConfigurationType `object`: The risk configuration type.
-  * AccountTakeoverRiskConfiguration [AccountTakeoverRiskConfigurationType](#accounttakeoverriskconfigurationtype)
-  * ClientId [ClientIdType](#clientidtype)
-  * CompromisedCredentialsRiskConfiguration [CompromisedCredentialsRiskConfigurationType](#compromisedcredentialsriskconfigurationtype)
-  * LastModifiedDate [DateType](#datetype)
-  * RiskExceptionConfiguration [RiskExceptionConfigurationType](#riskexceptionconfigurationtype)
-  * UserPoolId [UserPoolIdType](#userpoolidtype)
+  * AccountTakeoverRiskConfiguration
+    * Actions **required**
+      * HighAction
+        * EventAction **required**
+        * Notify **required**
+      * LowAction
+        * EventAction **required**
+        * Notify **required**
+      * MediumAction
+        * EventAction **required**
+        * Notify **required**
+    * NotifyConfiguration
+      * BlockEmail
+        * HtmlBody
+        * Subject **required**
+        * TextBody
+      * From
+      * MfaEmail
+        * HtmlBody
+        * Subject **required**
+        * TextBody
+      * NoActionEmail
+        * HtmlBody
+        * Subject **required**
+        * TextBody
+      * ReplyTo
+      * SourceArn **required**
+  * ClientId
+  * CompromisedCredentialsRiskConfiguration
+    * Actions **required**
+      * EventAction **required**
+    * EventFilter
+      * items [EventFilterType](#eventfiltertype)
+  * LastModifiedDate
+  * RiskExceptionConfiguration
+    * BlockedIPRangeList
+      * items [StringType](#stringtype)
+    * SkippedIPRangeList
+      * items [StringType](#stringtype)
+  * UserPoolId
 
 ### RiskDecisionType
 * RiskDecisionType `string` (values: NoRisk, AccountTakeover, Block)
 
 ### RiskExceptionConfigurationType
 * RiskExceptionConfigurationType `object`: The type of the configuration to override the risk decision.
-  * BlockedIPRangeList [BlockedIPRangeListType](#blockediprangelisttype)
-  * SkippedIPRangeList [SkippedIPRangeListType](#skippediprangelisttype)
+  * BlockedIPRangeList
+    * items [StringType](#stringtype)
+  * SkippedIPRangeList
+    * items [StringType](#stringtype)
 
 ### RiskLevelType
 * RiskLevelType `string` (values: Low, Medium, High)
@@ -3503,28 +4624,34 @@ amazonaws_cognito_idp.VerifyUserAttribute({
 ### S3BucketType
 * S3BucketType `string`
 
+### SESConfigurationSet
+* SESConfigurationSet `string`
+
 ### SMSMfaSettingsType
-* SMSMfaSettingsType `object`: The SMS multi-factor authentication (MFA) settings type.
-  * Enabled [BooleanType](#booleantype)
-  * PreferredMfa [BooleanType](#booleantype)
+* SMSMfaSettingsType `object`: The type used for enabling SMS MFA at the user level. Phone numbers don't need to be verified to be used for SMS MFA. If an MFA type is enabled for a user, the user will be prompted for MFA during all sign in attempts, unless device tracking is turned on and the device has been trusted. If you would like MFA to be applied selectively based on the assessed risk level of sign in attempts, disable MFA for users and turn on Adaptive Authentication for the user pool.
+  * Enabled
+  * PreferredMfa
 
 ### SchemaAttributeType
 * SchemaAttributeType `object`: Contains information about the schema attribute.
-  * AttributeDataType [AttributeDataType](#attributedatatype)
-  * DeveloperOnlyAttribute [BooleanType](#booleantype)
-  * Mutable [BooleanType](#booleantype)
-  * Name [CustomAttributeNameType](#customattributenametype)
-  * NumberAttributeConstraints [NumberAttributeConstraintsType](#numberattributeconstraintstype)
-  * Required [BooleanType](#booleantype)
-  * StringAttributeConstraints [StringAttributeConstraintsType](#stringattributeconstraintstype)
+  * AttributeDataType
+  * DeveloperOnlyAttribute
+  * Mutable
+  * Name
+  * NumberAttributeConstraints
+    * MaxValue
+    * MinValue
+  * Required
+  * StringAttributeConstraints
+    * MaxLength
+    * MinLength
 
 ### SchemaAttributesListType
 * SchemaAttributesListType `array`
   * items [SchemaAttributeType](#schemaattributetype)
 
 ### ScopeDoesNotExistException
-* ScopeDoesNotExistException `object`: This exception is thrown when the specified scope does not exist.
-  * message [MessageType](#messagetype)
+
 
 ### ScopeListType
 * ScopeListType `array`
@@ -3551,132 +4678,263 @@ amazonaws_cognito_idp.VerifyUserAttribute({
 
 ### SetRiskConfigurationRequest
 * SetRiskConfigurationRequest `object`
-  * AccountTakeoverRiskConfiguration [AccountTakeoverRiskConfigurationType](#accounttakeoverriskconfigurationtype)
-  * ClientId [ClientIdType](#clientidtype)
-  * CompromisedCredentialsRiskConfiguration [CompromisedCredentialsRiskConfigurationType](#compromisedcredentialsriskconfigurationtype)
-  * RiskExceptionConfiguration [RiskExceptionConfigurationType](#riskexceptionconfigurationtype)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
+  * AccountTakeoverRiskConfiguration
+    * Actions **required**
+      * HighAction
+        * EventAction **required**
+        * Notify **required**
+      * LowAction
+        * EventAction **required**
+        * Notify **required**
+      * MediumAction
+        * EventAction **required**
+        * Notify **required**
+    * NotifyConfiguration
+      * BlockEmail
+        * HtmlBody
+        * Subject **required**
+        * TextBody
+      * From
+      * MfaEmail
+        * HtmlBody
+        * Subject **required**
+        * TextBody
+      * NoActionEmail
+        * HtmlBody
+        * Subject **required**
+        * TextBody
+      * ReplyTo
+      * SourceArn **required**
+  * ClientId
+  * CompromisedCredentialsRiskConfiguration
+    * Actions **required**
+      * EventAction **required**
+    * EventFilter
+      * items [EventFilterType](#eventfiltertype)
+  * RiskExceptionConfiguration
+    * BlockedIPRangeList
+      * items [StringType](#stringtype)
+    * SkippedIPRangeList
+      * items [StringType](#stringtype)
+  * UserPoolId **required**
 
 ### SetRiskConfigurationResponse
 * SetRiskConfigurationResponse `object`
-  * RiskConfiguration **required** [RiskConfigurationType](#riskconfigurationtype)
+  * RiskConfiguration **required**
+    * AccountTakeoverRiskConfiguration
+      * Actions **required**
+        * HighAction
+          * EventAction **required**
+          * Notify **required**
+        * LowAction
+          * EventAction **required**
+          * Notify **required**
+        * MediumAction
+          * EventAction **required**
+          * Notify **required**
+      * NotifyConfiguration
+        * BlockEmail
+          * HtmlBody
+          * Subject **required**
+          * TextBody
+        * From
+        * MfaEmail
+          * HtmlBody
+          * Subject **required**
+          * TextBody
+        * NoActionEmail
+          * HtmlBody
+          * Subject **required**
+          * TextBody
+        * ReplyTo
+        * SourceArn **required**
+    * ClientId
+    * CompromisedCredentialsRiskConfiguration
+      * Actions **required**
+        * EventAction **required**
+      * EventFilter
+        * items [EventFilterType](#eventfiltertype)
+    * LastModifiedDate
+    * RiskExceptionConfiguration
+      * BlockedIPRangeList
+        * items [StringType](#stringtype)
+      * SkippedIPRangeList
+        * items [StringType](#stringtype)
+    * UserPoolId
 
 ### SetUICustomizationRequest
 * SetUICustomizationRequest `object`
-  * CSS [CSSType](#csstype)
-  * ClientId [ClientIdType](#clientidtype)
-  * ImageFile [ImageFileType](#imagefiletype)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
+  * CSS
+  * ClientId
+  * ImageFile
+  * UserPoolId **required**
 
 ### SetUICustomizationResponse
 * SetUICustomizationResponse `object`
-  * UICustomization **required** [UICustomizationType](#uicustomizationtype)
+  * UICustomization **required**
+    * CSS
+    * CSSVersion
+    * ClientId
+    * CreationDate
+    * ImageUrl
+    * LastModifiedDate
+    * UserPoolId
 
 ### SetUserMFAPreferenceRequest
 * SetUserMFAPreferenceRequest `object`
-  * AccessToken **required** [TokenModelType](#tokenmodeltype)
-  * SMSMfaSettings [SMSMfaSettingsType](#smsmfasettingstype)
-  * SoftwareTokenMfaSettings [SoftwareTokenMfaSettingsType](#softwaretokenmfasettingstype)
+  * AccessToken **required**
+  * SMSMfaSettings
+    * Enabled
+    * PreferredMfa
+  * SoftwareTokenMfaSettings
+    * Enabled
+    * PreferredMfa
 
 ### SetUserMFAPreferenceResponse
 * SetUserMFAPreferenceResponse `object`
 
 ### SetUserPoolMfaConfigRequest
 * SetUserPoolMfaConfigRequest `object`
-  * MfaConfiguration [UserPoolMfaType](#userpoolmfatype)
-  * SmsMfaConfiguration [SmsMfaConfigType](#smsmfaconfigtype)
-  * SoftwareTokenMfaConfiguration [SoftwareTokenMfaConfigType](#softwaretokenmfaconfigtype)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
+  * MfaConfiguration
+  * SmsMfaConfiguration
+    * SmsAuthenticationMessage
+    * SmsConfiguration
+      * ExternalId
+      * SnsCallerArn **required**
+  * SoftwareTokenMfaConfiguration
+    * Enabled
+  * UserPoolId **required**
 
 ### SetUserPoolMfaConfigResponse
 * SetUserPoolMfaConfigResponse `object`
-  * MfaConfiguration [UserPoolMfaType](#userpoolmfatype)
-  * SmsMfaConfiguration [SmsMfaConfigType](#smsmfaconfigtype)
-  * SoftwareTokenMfaConfiguration [SoftwareTokenMfaConfigType](#softwaretokenmfaconfigtype)
+  * MfaConfiguration
+  * SmsMfaConfiguration
+    * SmsAuthenticationMessage
+    * SmsConfiguration
+      * ExternalId
+      * SnsCallerArn **required**
+  * SoftwareTokenMfaConfiguration
+    * Enabled
 
 ### SetUserSettingsRequest
 * SetUserSettingsRequest `object`: Represents the request to set user settings.
-  * AccessToken **required** [TokenModelType](#tokenmodeltype)
-  * MFAOptions **required** [MFAOptionListType](#mfaoptionlisttype)
+  * AccessToken **required**
+  * MFAOptions **required**
+    * items [MFAOptionType](#mfaoptiontype)
 
 ### SetUserSettingsResponse
 * SetUserSettingsResponse `object`: The response from the server for a set user settings request.
 
 ### SignUpRequest
 * SignUpRequest `object`: Represents the request to register a user.
-  * AnalyticsMetadata [AnalyticsMetadataType](#analyticsmetadatatype)
-  * ClientId **required** [ClientIdType](#clientidtype)
-  * Password **required** [PasswordType](#passwordtype)
-  * SecretHash [SecretHashType](#secrethashtype)
-  * UserAttributes [AttributeListType](#attributelisttype)
-  * UserContextData [UserContextDataType](#usercontextdatatype)
-  * Username **required** [UsernameType](#usernametype)
-  * ValidationData [AttributeListType](#attributelisttype)
+  * AnalyticsMetadata
+    * AnalyticsEndpointId
+  * ClientId **required**
+  * ClientMetadata
+  * Password **required**
+  * SecretHash
+  * UserAttributes
+    * items [AttributeType](#attributetype)
+  * UserContextData
+    * EncodedData
+  * Username **required**
+  * ValidationData
+    * items [AttributeType](#attributetype)
 
 ### SignUpResponse
 * SignUpResponse `object`: The response from the server for a registration request.
-  * CodeDeliveryDetails [CodeDeliveryDetailsType](#codedeliverydetailstype)
-  * UserConfirmed **required** [BooleanType](#booleantype)
-  * UserSub **required** [StringType](#stringtype)
+  * CodeDeliveryDetails
+    * AttributeName
+    * DeliveryMedium
+    * Destination
+  * UserConfirmed **required**
+  * UserSub **required**
 
 ### SkippedIPRangeListType
 * SkippedIPRangeListType `array`
   * items [StringType](#stringtype)
 
 ### SmsConfigurationType
-* SmsConfigurationType `object`: The SMS configuration type.
-  * ExternalId [StringType](#stringtype)
-  * SnsCallerArn **required** [ArnType](#arntype)
+* SmsConfigurationType `object`: The SMS configuration type that includes the settings the Cognito User Pool needs to call for the Amazon SNS service to send an SMS message from your AWS account. The Cognito User Pool makes the request to the Amazon SNS Service by using an AWS IAM role that you provide for your AWS account.
+  * ExternalId
+  * SnsCallerArn **required**
 
 ### SmsMfaConfigType
 * SmsMfaConfigType `object`: The SMS text message multi-factor authentication (MFA) configuration type.
-  * SmsAuthenticationMessage [SmsVerificationMessageType](#smsverificationmessagetype)
-  * SmsConfiguration [SmsConfigurationType](#smsconfigurationtype)
+  * SmsAuthenticationMessage
+  * SmsConfiguration
+    * ExternalId
+    * SnsCallerArn **required**
 
 ### SmsVerificationMessageType
 * SmsVerificationMessageType `string`
 
 ### SoftwareTokenMFANotFoundException
-* SoftwareTokenMFANotFoundException `object`: This exception is thrown when the software token TOTP multi-factor authentication (MFA) is not enabled for the user pool.
-  * message [MessageType](#messagetype)
+
 
 ### SoftwareTokenMFAUserCodeType
 * SoftwareTokenMFAUserCodeType `string`
 
 ### SoftwareTokenMfaConfigType
 * SoftwareTokenMfaConfigType `object`: The type used for enabling software token MFA at the user pool level.
-  * Enabled [BooleanType](#booleantype)
+  * Enabled
 
 ### SoftwareTokenMfaSettingsType
-* SoftwareTokenMfaSettingsType `object`: The type used for enabling software token MFA at the user level.
-  * Enabled [BooleanType](#booleantype)
-  * PreferredMfa [BooleanType](#booleantype)
+* SoftwareTokenMfaSettingsType `object`: The type used for enabling software token MFA at the user level. If an MFA type is enabled for a user, the user will be prompted for MFA during all sign in attempts, unless device tracking is turned on and the device has been trusted. If you would like MFA to be applied selectively based on the assessed risk level of sign in attempts, disable MFA for users and turn on Adaptive Authentication for the user pool.
+  * Enabled
+  * PreferredMfa
 
 ### StartUserImportJobRequest
 * StartUserImportJobRequest `object`: Represents the request to start the user import job.
-  * JobId **required** [UserImportJobIdType](#userimportjobidtype)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
+  * JobId **required**
+  * UserPoolId **required**
 
 ### StartUserImportJobResponse
 * StartUserImportJobResponse `object`: Represents the response from the server to the request to start the user import job.
-  * UserImportJob [UserImportJobType](#userimportjobtype)
+  * UserImportJob
+    * CloudWatchLogsRoleArn
+    * CompletionDate
+    * CompletionMessage
+    * CreationDate
+    * FailedUsers
+    * ImportedUsers
+    * JobId
+    * JobName
+    * PreSignedUrl
+    * SkippedUsers
+    * StartDate
+    * Status
+    * UserPoolId
 
 ### StatusType
 * StatusType `string` (values: Enabled, Disabled)
 
 ### StopUserImportJobRequest
 * StopUserImportJobRequest `object`: Represents the request to stop the user import job.
-  * JobId **required** [UserImportJobIdType](#userimportjobidtype)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
+  * JobId **required**
+  * UserPoolId **required**
 
 ### StopUserImportJobResponse
 * StopUserImportJobResponse `object`: Represents the response from the server to the request to stop the user import job.
-  * UserImportJob [UserImportJobType](#userimportjobtype)
+  * UserImportJob
+    * CloudWatchLogsRoleArn
+    * CompletionDate
+    * CompletionMessage
+    * CreationDate
+    * FailedUsers
+    * ImportedUsers
+    * JobId
+    * JobName
+    * PreSignedUrl
+    * SkippedUsers
+    * StartDate
+    * Status
+    * UserPoolId
 
 ### StringAttributeConstraintsType
 * StringAttributeConstraintsType `object`: The constraints associated with a string attribute.
-  * MaxLength [StringType](#stringtype)
-  * MinLength [StringType](#stringtype)
+  * MaxLength
+  * MinLength
 
 ### StringType
 * StringType `string`
@@ -3685,157 +4943,331 @@ amazonaws_cognito_idp.VerifyUserAttribute({
 * SupportedIdentityProvidersListType `array`
   * items [ProviderNameType](#providernametype)
 
+### TagKeysType
+* TagKeysType `string`
+
+### TagResourceRequest
+* TagResourceRequest `object`
+  * ResourceArn **required**
+  * Tags **required**
+
+### TagResourceResponse
+* TagResourceResponse `object`
+
+### TagValueType
+* TagValueType `string`
+
+### TemporaryPasswordValidityDaysType
+* TemporaryPasswordValidityDaysType `integer`
+
+### TimeUnitsType
+* TimeUnitsType `string` (values: seconds, minutes, hours, days)
+
 ### TokenModelType
 * TokenModelType `string`
 
+### TokenValidityUnitsType
+* TokenValidityUnitsType `object`: The data type for TokenValidityUnits that specifics the time measurements for token validity.
+  * AccessToken
+  * IdToken
+  * RefreshToken
+
 ### TooManyFailedAttemptsException
-* TooManyFailedAttemptsException `object`: This exception is thrown when the user has made too many failed attempts for a given action (e.g., sign in).
-  * message [MessageType](#messagetype)
+
 
 ### TooManyRequestsException
-* TooManyRequestsException `object`: This exception is thrown when the user has made too many requests for a given operation.
-  * message [MessageType](#messagetype)
+
 
 ### UICustomizationType
 * UICustomizationType `object`: A container for the UI customization information for a user pool's built-in app UI.
-  * CSS [CSSType](#csstype)
-  * CSSVersion [CSSVersionType](#cssversiontype)
-  * ClientId [ClientIdType](#clientidtype)
-  * CreationDate [DateType](#datetype)
-  * ImageUrl [ImageUrlType](#imageurltype)
-  * LastModifiedDate [DateType](#datetype)
-  * UserPoolId [UserPoolIdType](#userpoolidtype)
+  * CSS
+  * CSSVersion
+  * ClientId
+  * CreationDate
+  * ImageUrl
+  * LastModifiedDate
+  * UserPoolId
 
 ### UnexpectedLambdaException
-* UnexpectedLambdaException `object`: This exception is thrown when the Amazon Cognito service encounters an unexpected exception with the AWS Lambda service.
-  * message [MessageType](#messagetype)
+
 
 ### UnsupportedIdentityProviderException
-* UnsupportedIdentityProviderException `object`: This exception is thrown when the specified identifier is not supported.
-  * message [MessageType](#messagetype)
+
 
 ### UnsupportedUserStateException
-* UnsupportedUserStateException `object`: The request failed because the user is in an unsupported state.
-  * message [MessageType](#messagetype)
+
+
+### UntagResourceRequest
+* UntagResourceRequest `object`
+  * ResourceArn **required**
+  * TagKeys **required**
+    * items [TagKeysType](#tagkeystype)
+
+### UntagResourceResponse
+* UntagResourceResponse `object`
 
 ### UpdateAuthEventFeedbackRequest
 * UpdateAuthEventFeedbackRequest `object`
-  * EventId **required** [EventIdType](#eventidtype)
-  * FeedbackToken **required** [TokenModelType](#tokenmodeltype)
-  * FeedbackValue **required** [FeedbackValueType](#feedbackvaluetype)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
-  * Username **required** [UsernameType](#usernametype)
+  * EventId **required**
+  * FeedbackToken **required**
+  * FeedbackValue **required**
+  * UserPoolId **required**
+  * Username **required**
 
 ### UpdateAuthEventFeedbackResponse
 * UpdateAuthEventFeedbackResponse `object`
 
 ### UpdateDeviceStatusRequest
 * UpdateDeviceStatusRequest `object`: Represents the request to update the device status.
-  * AccessToken **required** [TokenModelType](#tokenmodeltype)
-  * DeviceKey **required** [DeviceKeyType](#devicekeytype)
-  * DeviceRememberedStatus [DeviceRememberedStatusType](#devicerememberedstatustype)
+  * AccessToken **required**
+  * DeviceKey **required**
+  * DeviceRememberedStatus
 
 ### UpdateDeviceStatusResponse
 * UpdateDeviceStatusResponse `object`: The response to the request to update the device status.
 
 ### UpdateGroupRequest
 * UpdateGroupRequest `object`
-  * Description [DescriptionType](#descriptiontype)
-  * GroupName **required** [GroupNameType](#groupnametype)
-  * Precedence [PrecedenceType](#precedencetype)
-  * RoleArn [ArnType](#arntype)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
+  * Description
+  * GroupName **required**
+  * Precedence
+  * RoleArn
+  * UserPoolId **required**
 
 ### UpdateGroupResponse
 * UpdateGroupResponse `object`
-  * Group [GroupType](#grouptype)
+  * Group
+    * CreationDate
+    * Description
+    * GroupName
+    * LastModifiedDate
+    * Precedence
+    * RoleArn
+    * UserPoolId
 
 ### UpdateIdentityProviderRequest
 * UpdateIdentityProviderRequest `object`
-  * AttributeMapping [AttributeMappingType](#attributemappingtype)
-  * IdpIdentifiers [IdpIdentifiersListType](#idpidentifierslisttype)
-  * ProviderDetails [ProviderDetailsType](#providerdetailstype)
-  * ProviderName **required** [ProviderNameType](#providernametype)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
+  * AttributeMapping
+  * IdpIdentifiers
+    * items [IdpIdentifierType](#idpidentifiertype)
+  * ProviderDetails
+  * ProviderName **required**
+  * UserPoolId **required**
 
 ### UpdateIdentityProviderResponse
 * UpdateIdentityProviderResponse `object`
-  * IdentityProvider **required** [IdentityProviderType](#identityprovidertype)
+  * IdentityProvider **required**
+    * AttributeMapping
+    * CreationDate
+    * IdpIdentifiers
+      * items [IdpIdentifierType](#idpidentifiertype)
+    * LastModifiedDate
+    * ProviderDetails
+    * ProviderName
+    * ProviderType
+    * UserPoolId
 
 ### UpdateResourceServerRequest
 * UpdateResourceServerRequest `object`
-  * Identifier **required** [ResourceServerIdentifierType](#resourceserveridentifiertype)
-  * Name **required** [ResourceServerNameType](#resourceservernametype)
-  * Scopes [ResourceServerScopeListType](#resourceserverscopelisttype)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
+  * Identifier **required**
+  * Name **required**
+  * Scopes
+    * items [ResourceServerScopeType](#resourceserverscopetype)
+  * UserPoolId **required**
 
 ### UpdateResourceServerResponse
 * UpdateResourceServerResponse `object`
-  * ResourceServer **required** [ResourceServerType](#resourceservertype)
+  * ResourceServer **required**
+    * Identifier
+    * Name
+    * Scopes
+      * items [ResourceServerScopeType](#resourceserverscopetype)
+    * UserPoolId
 
 ### UpdateUserAttributesRequest
 * UpdateUserAttributesRequest `object`: Represents the request to update user attributes.
-  * AccessToken **required** [TokenModelType](#tokenmodeltype)
-  * UserAttributes **required** [AttributeListType](#attributelisttype)
+  * AccessToken **required**
+  * ClientMetadata
+  * UserAttributes **required**
+    * items [AttributeType](#attributetype)
 
 ### UpdateUserAttributesResponse
 * UpdateUserAttributesResponse `object`: Represents the response from the server for the request to update user attributes.
-  * CodeDeliveryDetailsList [CodeDeliveryDetailsListType](#codedeliverydetailslisttype)
+  * CodeDeliveryDetailsList
+    * items [CodeDeliveryDetailsType](#codedeliverydetailstype)
 
 ### UpdateUserPoolClientRequest
 * UpdateUserPoolClientRequest `object`: Represents the request to update the user pool client.
-  * AllowedOAuthFlows [OAuthFlowsType](#oauthflowstype)
-  * AllowedOAuthFlowsUserPoolClient [BooleanType](#booleantype)
-  * AllowedOAuthScopes [ScopeListType](#scopelisttype)
-  * AnalyticsConfiguration [AnalyticsConfigurationType](#analyticsconfigurationtype)
-  * CallbackURLs [CallbackURLsListType](#callbackurlslisttype)
-  * ClientId **required** [ClientIdType](#clientidtype)
-  * ClientName [ClientNameType](#clientnametype)
-  * DefaultRedirectURI [RedirectUrlType](#redirecturltype)
-  * ExplicitAuthFlows [ExplicitAuthFlowsListType](#explicitauthflowslisttype)
-  * LogoutURLs [LogoutURLsListType](#logouturlslisttype)
-  * ReadAttributes [ClientPermissionListType](#clientpermissionlisttype)
-  * RefreshTokenValidity [RefreshTokenValidityType](#refreshtokenvaliditytype)
-  * SupportedIdentityProviders [SupportedIdentityProvidersListType](#supportedidentityproviderslisttype)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
-  * WriteAttributes [ClientPermissionListType](#clientpermissionlisttype)
+  * AccessTokenValidity
+  * AllowedOAuthFlows
+    * items [OAuthFlowType](#oauthflowtype)
+  * AllowedOAuthFlowsUserPoolClient
+  * AllowedOAuthScopes
+    * items [ScopeType](#scopetype)
+  * AnalyticsConfiguration
+    * ApplicationArn
+    * ApplicationId
+    * ExternalId
+    * RoleArn
+    * UserDataShared
+  * CallbackURLs
+    * items [RedirectUrlType](#redirecturltype)
+  * ClientId **required**
+  * ClientName
+  * DefaultRedirectURI
+  * ExplicitAuthFlows
+    * items [ExplicitAuthFlowsType](#explicitauthflowstype)
+  * IdTokenValidity
+  * LogoutURLs
+    * items [RedirectUrlType](#redirecturltype)
+  * PreventUserExistenceErrors
+  * ReadAttributes
+    * items [ClientPermissionType](#clientpermissiontype)
+  * RefreshTokenValidity
+  * SupportedIdentityProviders
+    * items [ProviderNameType](#providernametype)
+  * TokenValidityUnits
+    * AccessToken
+    * IdToken
+    * RefreshToken
+  * UserPoolId **required**
+  * WriteAttributes
+    * items [ClientPermissionType](#clientpermissiontype)
 
 ### UpdateUserPoolClientResponse
 * UpdateUserPoolClientResponse `object`: Represents the response from the server to the request to update the user pool client.
-  * UserPoolClient [UserPoolClientType](#userpoolclienttype)
+  * UserPoolClient
+    * AccessTokenValidity
+    * AllowedOAuthFlows
+      * items [OAuthFlowType](#oauthflowtype)
+    * AllowedOAuthFlowsUserPoolClient
+    * AllowedOAuthScopes
+      * items [ScopeType](#scopetype)
+    * AnalyticsConfiguration
+      * ApplicationArn
+      * ApplicationId
+      * ExternalId
+      * RoleArn
+      * UserDataShared
+    * CallbackURLs
+      * items [RedirectUrlType](#redirecturltype)
+    * ClientId
+    * ClientName
+    * ClientSecret
+    * CreationDate
+    * DefaultRedirectURI
+    * ExplicitAuthFlows
+      * items [ExplicitAuthFlowsType](#explicitauthflowstype)
+    * IdTokenValidity
+    * LastModifiedDate
+    * LogoutURLs
+      * items [RedirectUrlType](#redirecturltype)
+    * PreventUserExistenceErrors
+    * ReadAttributes
+      * items [ClientPermissionType](#clientpermissiontype)
+    * RefreshTokenValidity
+    * SupportedIdentityProviders
+      * items [ProviderNameType](#providernametype)
+    * TokenValidityUnits
+      * AccessToken
+      * IdToken
+      * RefreshToken
+    * UserPoolId
+    * WriteAttributes
+      * items [ClientPermissionType](#clientpermissiontype)
+
+### UpdateUserPoolDomainRequest
+* UpdateUserPoolDomainRequest `object`: The UpdateUserPoolDomain request input.
+  * CustomDomainConfig **required**
+    * CertificateArn **required**
+  * Domain **required**
+  * UserPoolId **required**
+
+### UpdateUserPoolDomainResponse
+* UpdateUserPoolDomainResponse `object`: The UpdateUserPoolDomain response output.
+  * CloudFrontDomain
 
 ### UpdateUserPoolRequest
 * UpdateUserPoolRequest `object`: Represents the request to update the user pool.
-  * AdminCreateUserConfig [AdminCreateUserConfigType](#admincreateuserconfigtype)
-  * AutoVerifiedAttributes [VerifiedAttributesListType](#verifiedattributeslisttype)
-  * DeviceConfiguration [DeviceConfigurationType](#deviceconfigurationtype)
-  * EmailConfiguration [EmailConfigurationType](#emailconfigurationtype)
-  * EmailVerificationMessage [EmailVerificationMessageType](#emailverificationmessagetype)
-  * EmailVerificationSubject [EmailVerificationSubjectType](#emailverificationsubjecttype)
-  * LambdaConfig [LambdaConfigType](#lambdaconfigtype)
-  * MfaConfiguration [UserPoolMfaType](#userpoolmfatype)
-  * Policies [UserPoolPolicyType](#userpoolpolicytype)
-  * SmsAuthenticationMessage [SmsVerificationMessageType](#smsverificationmessagetype)
-  * SmsConfiguration [SmsConfigurationType](#smsconfigurationtype)
-  * SmsVerificationMessage [SmsVerificationMessageType](#smsverificationmessagetype)
-  * UserPoolAddOns [UserPoolAddOnsType](#userpooladdonstype)
-  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
-  * UserPoolTags [UserPoolTagsType](#userpooltagstype)
-  * VerificationMessageTemplate [VerificationMessageTemplateType](#verificationmessagetemplatetype)
+  * AccountRecoverySetting
+    * RecoveryMechanisms
+      * items [RecoveryOptionType](#recoveryoptiontype)
+  * AdminCreateUserConfig
+    * AllowAdminCreateUserOnly
+    * InviteMessageTemplate
+      * EmailMessage
+      * EmailSubject
+      * SMSMessage
+    * UnusedAccountValidityDays
+  * AutoVerifiedAttributes
+    * items [VerifiedAttributeType](#verifiedattributetype)
+  * DeviceConfiguration
+    * ChallengeRequiredOnNewDevice
+    * DeviceOnlyRememberedOnUserPrompt
+  * EmailConfiguration
+    * ConfigurationSet
+    * EmailSendingAccount
+    * From
+    * ReplyToEmailAddress
+    * SourceArn
+  * EmailVerificationMessage
+  * EmailVerificationSubject
+  * LambdaConfig
+    * CreateAuthChallenge
+    * CustomEmailSender
+      * LambdaArn **required**
+      * LambdaVersion **required**
+    * CustomMessage
+    * CustomSMSSender
+      * LambdaArn **required**
+      * LambdaVersion **required**
+    * DefineAuthChallenge
+    * KMSKeyID
+    * PostAuthentication
+    * PostConfirmation
+    * PreAuthentication
+    * PreSignUp
+    * PreTokenGeneration
+    * UserMigration
+    * VerifyAuthChallengeResponse
+  * MfaConfiguration
+  * Policies
+    * PasswordPolicy
+      * MinimumLength
+      * RequireLowercase
+      * RequireNumbers
+      * RequireSymbols
+      * RequireUppercase
+      * TemporaryPasswordValidityDays
+  * SmsAuthenticationMessage
+  * SmsConfiguration
+    * ExternalId
+    * SnsCallerArn **required**
+  * SmsVerificationMessage
+  * UserPoolAddOns
+    * AdvancedSecurityMode **required**
+  * UserPoolId **required**
+  * UserPoolTags
+  * VerificationMessageTemplate
+    * DefaultEmailOption
+    * EmailMessage
+    * EmailMessageByLink
+    * EmailSubject
+    * EmailSubjectByLink
+    * SmsMessage
 
 ### UpdateUserPoolResponse
 * UpdateUserPoolResponse `object`: Represents the response from the server when you make a request to update the user pool.
 
 ### UserContextDataType
 * UserContextDataType `object`: Contextual data such as the user's device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.
-  * EncodedData [StringType](#stringtype)
+  * EncodedData
 
 ### UserFilterType
 * UserFilterType `string`
 
 ### UserImportInProgressException
-* UserImportInProgressException `object`: This exception is thrown when you are trying to modify a user pool while a user import job is in progress for that pool.
-  * message [MessageType](#messagetype)
+
 
 ### UserImportJobIdType
 * UserImportJobIdType `string`
@@ -3848,53 +5280,49 @@ amazonaws_cognito_idp.VerifyUserAttribute({
 
 ### UserImportJobType
 * UserImportJobType `object`: The user import job type.
-  * CloudWatchLogsRoleArn [ArnType](#arntype)
-  * CompletionDate [DateType](#datetype)
-  * CompletionMessage [CompletionMessageType](#completionmessagetype)
-  * CreationDate [DateType](#datetype)
-  * FailedUsers [LongType](#longtype)
-  * ImportedUsers [LongType](#longtype)
-  * JobId [UserImportJobIdType](#userimportjobidtype)
-  * JobName [UserImportJobNameType](#userimportjobnametype)
-  * PreSignedUrl [PreSignedUrlType](#presignedurltype)
-  * SkippedUsers [LongType](#longtype)
-  * StartDate [DateType](#datetype)
-  * Status [UserImportJobStatusType](#userimportjobstatustype)
-  * UserPoolId [UserPoolIdType](#userpoolidtype)
+  * CloudWatchLogsRoleArn
+  * CompletionDate
+  * CompletionMessage
+  * CreationDate
+  * FailedUsers
+  * ImportedUsers
+  * JobId
+  * JobName
+  * PreSignedUrl
+  * SkippedUsers
+  * StartDate
+  * Status
+  * UserPoolId
 
 ### UserImportJobsListType
 * UserImportJobsListType `array`
   * items [UserImportJobType](#userimportjobtype)
 
 ### UserLambdaValidationException
-* UserLambdaValidationException `object`: This exception is thrown when the Amazon Cognito service encounters a user validation exception with the AWS Lambda service.
-  * message [MessageType](#messagetype)
+
 
 ### UserMFASettingListType
 * UserMFASettingListType `array`
   * items [StringType](#stringtype)
 
 ### UserNotConfirmedException
-* UserNotConfirmedException `object`: This exception is thrown when a user is not confirmed successfully.
-  * message [MessageType](#messagetype)
+
 
 ### UserNotFoundException
-* UserNotFoundException `object`: This exception is thrown when a user is not found.
-  * message [MessageType](#messagetype)
+
 
 ### UserPoolAddOnNotEnabledException
-* UserPoolAddOnNotEnabledException `object`: This exception is thrown when user pool add-ons are not enabled.
-  * message [MessageType](#messagetype)
+
 
 ### UserPoolAddOnsType
 * UserPoolAddOnsType `object`: The user pool add-ons type.
-  * AdvancedSecurityMode **required** [AdvancedSecurityModeType](#advancedsecuritymodetype)
+  * AdvancedSecurityMode **required**
 
 ### UserPoolClientDescription
 * UserPoolClientDescription `object`: The description of the user pool client.
-  * ClientId [ClientIdType](#clientidtype)
-  * ClientName [ClientNameType](#clientnametype)
-  * UserPoolId [UserPoolIdType](#userpoolidtype)
+  * ClientId
+  * ClientName
+  * UserPoolId
 
 ### UserPoolClientListType
 * UserPoolClientListType `array`
@@ -3902,33 +5330,70 @@ amazonaws_cognito_idp.VerifyUserAttribute({
 
 ### UserPoolClientType
 * UserPoolClientType `object`: Contains information about a user pool client.
-  * AllowedOAuthFlows [OAuthFlowsType](#oauthflowstype)
-  * AllowedOAuthFlowsUserPoolClient [BooleanType](#booleantype)
-  * AllowedOAuthScopes [ScopeListType](#scopelisttype)
-  * AnalyticsConfiguration [AnalyticsConfigurationType](#analyticsconfigurationtype)
-  * CallbackURLs [CallbackURLsListType](#callbackurlslisttype)
-  * ClientId [ClientIdType](#clientidtype)
-  * ClientName [ClientNameType](#clientnametype)
-  * ClientSecret [ClientSecretType](#clientsecrettype)
-  * CreationDate [DateType](#datetype)
-  * DefaultRedirectURI [RedirectUrlType](#redirecturltype)
-  * ExplicitAuthFlows [ExplicitAuthFlowsListType](#explicitauthflowslisttype)
-  * LastModifiedDate [DateType](#datetype)
-  * LogoutURLs [LogoutURLsListType](#logouturlslisttype)
-  * ReadAttributes [ClientPermissionListType](#clientpermissionlisttype)
-  * RefreshTokenValidity [RefreshTokenValidityType](#refreshtokenvaliditytype)
-  * SupportedIdentityProviders [SupportedIdentityProvidersListType](#supportedidentityproviderslisttype)
-  * UserPoolId [UserPoolIdType](#userpoolidtype)
-  * WriteAttributes [ClientPermissionListType](#clientpermissionlisttype)
+  * AccessTokenValidity
+  * AllowedOAuthFlows
+    * items [OAuthFlowType](#oauthflowtype)
+  * AllowedOAuthFlowsUserPoolClient
+  * AllowedOAuthScopes
+    * items [ScopeType](#scopetype)
+  * AnalyticsConfiguration
+    * ApplicationArn
+    * ApplicationId
+    * ExternalId
+    * RoleArn
+    * UserDataShared
+  * CallbackURLs
+    * items [RedirectUrlType](#redirecturltype)
+  * ClientId
+  * ClientName
+  * ClientSecret
+  * CreationDate
+  * DefaultRedirectURI
+  * ExplicitAuthFlows
+    * items [ExplicitAuthFlowsType](#explicitauthflowstype)
+  * IdTokenValidity
+  * LastModifiedDate
+  * LogoutURLs
+    * items [RedirectUrlType](#redirecturltype)
+  * PreventUserExistenceErrors
+  * ReadAttributes
+    * items [ClientPermissionType](#clientpermissiontype)
+  * RefreshTokenValidity
+  * SupportedIdentityProviders
+    * items [ProviderNameType](#providernametype)
+  * TokenValidityUnits
+    * AccessToken
+    * IdToken
+    * RefreshToken
+  * UserPoolId
+  * WriteAttributes
+    * items [ClientPermissionType](#clientpermissiontype)
 
 ### UserPoolDescriptionType
 * UserPoolDescriptionType `object`: A user pool description.
-  * CreationDate [DateType](#datetype)
-  * Id [UserPoolIdType](#userpoolidtype)
-  * LambdaConfig [LambdaConfigType](#lambdaconfigtype)
-  * LastModifiedDate [DateType](#datetype)
-  * Name [UserPoolNameType](#userpoolnametype)
-  * Status [StatusType](#statustype)
+  * CreationDate
+  * Id
+  * LambdaConfig
+    * CreateAuthChallenge
+    * CustomEmailSender
+      * LambdaArn **required**
+      * LambdaVersion **required**
+    * CustomMessage
+    * CustomSMSSender
+      * LambdaArn **required**
+      * LambdaVersion **required**
+    * DefineAuthChallenge
+    * KMSKeyID
+    * PostAuthentication
+    * PostConfirmation
+    * PreAuthentication
+    * PreSignUp
+    * PreTokenGeneration
+    * UserMigration
+    * VerifyAuthChallengeResponse
+  * LastModifiedDate
+  * Name
+  * Status
 
 ### UserPoolIdType
 * UserPoolIdType `string`
@@ -3945,61 +5410,125 @@ amazonaws_cognito_idp.VerifyUserAttribute({
 
 ### UserPoolPolicyType
 * UserPoolPolicyType `object`: The policy associated with a user pool.
-  * PasswordPolicy [PasswordPolicyType](#passwordpolicytype)
+  * PasswordPolicy
+    * MinimumLength
+    * RequireLowercase
+    * RequireNumbers
+    * RequireSymbols
+    * RequireUppercase
+    * TemporaryPasswordValidityDays
 
 ### UserPoolTaggingException
-* UserPoolTaggingException `object`: This exception is thrown when a user pool tag cannot be set or updated.
-  * message [MessageType](#messagetype)
+
+
+### UserPoolTagsListType
+* UserPoolTagsListType `array`
+  * items [TagKeysType](#tagkeystype)
 
 ### UserPoolTagsType
-* UserPoolTagsType `array`
-  * items `object`
-    * key [StringType](#stringtype)
-    * value [StringType](#stringtype)
+* UserPoolTagsType `object`
 
 ### UserPoolType
 * UserPoolType `object`: A container for information about the user pool.
-  * AdminCreateUserConfig [AdminCreateUserConfigType](#admincreateuserconfigtype)
-  * AliasAttributes [AliasAttributesListType](#aliasattributeslisttype)
-  * Arn [ArnType](#arntype)
-  * AutoVerifiedAttributes [VerifiedAttributesListType](#verifiedattributeslisttype)
-  * CreationDate [DateType](#datetype)
-  * DeviceConfiguration [DeviceConfigurationType](#deviceconfigurationtype)
-  * Domain [DomainType](#domaintype)
-  * EmailConfiguration [EmailConfigurationType](#emailconfigurationtype)
-  * EmailConfigurationFailure [StringType](#stringtype)
-  * EmailVerificationMessage [EmailVerificationMessageType](#emailverificationmessagetype)
-  * EmailVerificationSubject [EmailVerificationSubjectType](#emailverificationsubjecttype)
-  * EstimatedNumberOfUsers [IntegerType](#integertype)
-  * Id [UserPoolIdType](#userpoolidtype)
-  * LambdaConfig [LambdaConfigType](#lambdaconfigtype)
-  * LastModifiedDate [DateType](#datetype)
-  * MfaConfiguration [UserPoolMfaType](#userpoolmfatype)
-  * Name [UserPoolNameType](#userpoolnametype)
-  * Policies [UserPoolPolicyType](#userpoolpolicytype)
-  * SchemaAttributes [SchemaAttributesListType](#schemaattributeslisttype)
-  * SmsAuthenticationMessage [SmsVerificationMessageType](#smsverificationmessagetype)
-  * SmsConfiguration [SmsConfigurationType](#smsconfigurationtype)
-  * SmsConfigurationFailure [StringType](#stringtype)
-  * SmsVerificationMessage [SmsVerificationMessageType](#smsverificationmessagetype)
-  * Status [StatusType](#statustype)
-  * UserPoolAddOns [UserPoolAddOnsType](#userpooladdonstype)
-  * UserPoolTags [UserPoolTagsType](#userpooltagstype)
-  * UsernameAttributes [UsernameAttributesListType](#usernameattributeslisttype)
-  * VerificationMessageTemplate [VerificationMessageTemplateType](#verificationmessagetemplatetype)
+  * AccountRecoverySetting
+    * RecoveryMechanisms
+      * items [RecoveryOptionType](#recoveryoptiontype)
+  * AdminCreateUserConfig
+    * AllowAdminCreateUserOnly
+    * InviteMessageTemplate
+      * EmailMessage
+      * EmailSubject
+      * SMSMessage
+    * UnusedAccountValidityDays
+  * AliasAttributes
+    * items [AliasAttributeType](#aliasattributetype)
+  * Arn
+  * AutoVerifiedAttributes
+    * items [VerifiedAttributeType](#verifiedattributetype)
+  * CreationDate
+  * CustomDomain
+  * DeviceConfiguration
+    * ChallengeRequiredOnNewDevice
+    * DeviceOnlyRememberedOnUserPrompt
+  * Domain
+  * EmailConfiguration
+    * ConfigurationSet
+    * EmailSendingAccount
+    * From
+    * ReplyToEmailAddress
+    * SourceArn
+  * EmailConfigurationFailure
+  * EmailVerificationMessage
+  * EmailVerificationSubject
+  * EstimatedNumberOfUsers
+  * Id
+  * LambdaConfig
+    * CreateAuthChallenge
+    * CustomEmailSender
+      * LambdaArn **required**
+      * LambdaVersion **required**
+    * CustomMessage
+    * CustomSMSSender
+      * LambdaArn **required**
+      * LambdaVersion **required**
+    * DefineAuthChallenge
+    * KMSKeyID
+    * PostAuthentication
+    * PostConfirmation
+    * PreAuthentication
+    * PreSignUp
+    * PreTokenGeneration
+    * UserMigration
+    * VerifyAuthChallengeResponse
+  * LastModifiedDate
+  * MfaConfiguration
+  * Name
+  * Policies
+    * PasswordPolicy
+      * MinimumLength
+      * RequireLowercase
+      * RequireNumbers
+      * RequireSymbols
+      * RequireUppercase
+      * TemporaryPasswordValidityDays
+  * SchemaAttributes
+    * items [SchemaAttributeType](#schemaattributetype)
+  * SmsAuthenticationMessage
+  * SmsConfiguration
+    * ExternalId
+    * SnsCallerArn **required**
+  * SmsConfigurationFailure
+  * SmsVerificationMessage
+  * Status
+  * UserPoolAddOns
+    * AdvancedSecurityMode **required**
+  * UserPoolTags
+  * UsernameAttributes
+    * items [UsernameAttributeType](#usernameattributetype)
+  * UsernameConfiguration
+    * CaseSensitive **required**
+  * VerificationMessageTemplate
+    * DefaultEmailOption
+    * EmailMessage
+    * EmailMessageByLink
+    * EmailSubject
+    * EmailSubjectByLink
+    * SmsMessage
 
 ### UserStatusType
 * UserStatusType `string` (values: UNCONFIRMED, CONFIRMED, ARCHIVED, COMPROMISED, UNKNOWN, RESET_REQUIRED, FORCE_CHANGE_PASSWORD)
 
 ### UserType
 * UserType `object`: The user type.
-  * Attributes [AttributeListType](#attributelisttype)
-  * Enabled [BooleanType](#booleantype)
-  * MFAOptions [MFAOptionListType](#mfaoptionlisttype)
-  * UserCreateDate [DateType](#datetype)
-  * UserLastModifiedDate [DateType](#datetype)
-  * UserStatus [UserStatusType](#userstatustype)
-  * Username [UsernameType](#usernametype)
+  * Attributes
+    * items [AttributeType](#attributetype)
+  * Enabled
+  * MFAOptions
+    * items [MFAOptionType](#mfaoptiontype)
+  * UserCreateDate
+  * UserLastModifiedDate
+  * UserStatus
+  * Username
 
 ### UsernameAttributeType
 * UsernameAttributeType `string` (values: phone_number, email)
@@ -4008,9 +5537,12 @@ amazonaws_cognito_idp.VerifyUserAttribute({
 * UsernameAttributesListType `array`
   * items [UsernameAttributeType](#usernameattributetype)
 
+### UsernameConfigurationType
+* UsernameConfigurationType `object`: The username configuration type. 
+  * CaseSensitive **required**
+
 ### UsernameExistsException
-* UsernameExistsException `object`: This exception is thrown when Amazon Cognito encounters a user name that already exists in the user pool.
-  * message [MessageType](#messagetype)
+
 
 ### UsernameType
 * UsernameType `string`
@@ -4021,12 +5553,12 @@ amazonaws_cognito_idp.VerifyUserAttribute({
 
 ### VerificationMessageTemplateType
 * VerificationMessageTemplateType `object`: The template for verification messages.
-  * DefaultEmailOption [DefaultEmailOptionType](#defaultemailoptiontype)
-  * EmailMessage [EmailVerificationMessageType](#emailverificationmessagetype)
-  * EmailMessageByLink [EmailVerificationMessageByLinkType](#emailverificationmessagebylinktype)
-  * EmailSubject [EmailVerificationSubjectType](#emailverificationsubjecttype)
-  * EmailSubjectByLink [EmailVerificationSubjectByLinkType](#emailverificationsubjectbylinktype)
-  * SmsMessage [SmsVerificationMessageType](#smsverificationmessagetype)
+  * DefaultEmailOption
+  * EmailMessage
+  * EmailMessageByLink
+  * EmailSubject
+  * EmailSubjectByLink
+  * SmsMessage
 
 ### VerifiedAttributeType
 * VerifiedAttributeType `string` (values: phone_number, email)
@@ -4037,26 +5569,29 @@ amazonaws_cognito_idp.VerifyUserAttribute({
 
 ### VerifySoftwareTokenRequest
 * VerifySoftwareTokenRequest `object`
-  * AccessToken [TokenModelType](#tokenmodeltype)
-  * FriendlyDeviceName [StringType](#stringtype)
-  * Session [SessionType](#sessiontype)
-  * UserCode **required** [SoftwareTokenMFAUserCodeType](#softwaretokenmfausercodetype)
+  * AccessToken
+  * FriendlyDeviceName
+  * Session
+  * UserCode **required**
 
 ### VerifySoftwareTokenResponse
 * VerifySoftwareTokenResponse `object`
-  * Session [SessionType](#sessiontype)
-  * Status [VerifySoftwareTokenResponseType](#verifysoftwaretokenresponsetype)
+  * Session
+  * Status
 
 ### VerifySoftwareTokenResponseType
 * VerifySoftwareTokenResponseType `string` (values: SUCCESS, ERROR)
 
 ### VerifyUserAttributeRequest
 * VerifyUserAttributeRequest `object`: Represents the request to verify user attributes.
-  * AccessToken **required** [TokenModelType](#tokenmodeltype)
-  * AttributeName **required** [AttributeNameType](#attributenametype)
-  * Code **required** [ConfirmationCodeType](#confirmationcodetype)
+  * AccessToken **required**
+  * AttributeName **required**
+  * Code **required**
 
 ### VerifyUserAttributeResponse
 * VerifyUserAttributeResponse `object`: A container representing the response from the server from the request to verify user attributes.
+
+### WrappedBooleanType
+* WrappedBooleanType `boolean`
 
 

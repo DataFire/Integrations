@@ -12,9 +12,7 @@ let fantasydata_mlb_v3_scores = require('@datafire/fantasydata_mlb_v3_scores').c
   apiKeyQuery: ""
 });
 
-fantasydata_mlb_v3_scores.TeamsAll({
-  "format": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

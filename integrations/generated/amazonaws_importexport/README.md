@@ -13,9 +13,7 @@ let amazonaws_importexport = require('@datafire/amazonaws_importexport').create(
   region: ""
 });
 
-amazonaws_importexport.CancelJob({
-  "JobId": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -32,12 +30,34 @@ amazonaws_importexport.CancelJob({
 
 ```js
 amazonaws_importexport.CancelJob({
+  "JobId": "",
+  "Operation": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * JobId **required** `string`
+  * APIVersion `string`
+  * Operation **required** `string`
+
+#### Output
+* output [CancelJobOutput](#canceljoboutput)
+
+### CancelJob
+
+
+
+```js
+amazonaws_importexport.CancelJob({
+  "Operation": "",
   "JobId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
+  * Operation **required** `string`
   * APIVersion [APIVersion](#apiversion)
   * JobId **required** [JobId](#jobid)
 
@@ -52,12 +72,39 @@ amazonaws_importexport.CancelJob({
 amazonaws_importexport.CreateJob({
   "JobType": "",
   "Manifest": "",
+  "ValidateOnly": true,
+  "Operation": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * JobType **required** `string`
+  * Manifest **required** `string`
+  * ManifestAddendum `string`
+  * ValidateOnly **required** `boolean`
+  * APIVersion `string`
+  * Operation **required** `string`
+
+#### Output
+* output [CreateJobOutput](#createjoboutput)
+
+### CreateJob
+
+
+
+```js
+amazonaws_importexport.CreateJob({
+  "Operation": "",
+  "JobType": "",
+  "Manifest": "",
   "ValidateOnly": true
 }, context)
 ```
 
 #### Input
 * input `object`
+  * Operation **required** `string`
   * APIVersion [APIVersion](#apiversion)
   * JobType **required** [JobType](#jobtype)
   * Manifest **required** [Manifest](#manifest)
@@ -73,12 +120,44 @@ amazonaws_importexport.CreateJob({
 
 ```js
 amazonaws_importexport.GetShippingLabel({
+  "jobIds": [],
+  "Operation": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * jobIds **required** `array`
+  * name `string`
+  * company `string`
+  * phoneNumber `string`
+  * country `string`
+  * stateOrProvince `string`
+  * city `string`
+  * postalCode `string`
+  * street1 `string`
+  * street2 `string`
+  * street3 `string`
+  * APIVersion `string`
+  * Operation **required** `string`
+
+#### Output
+* output [GetShippingLabelOutput](#getshippinglabeloutput)
+
+### GetShippingLabel
+
+
+
+```js
+amazonaws_importexport.GetShippingLabel({
+  "Operation": "",
   "jobIds": []
 }, context)
 ```
 
 #### Input
 * input `object`
+  * Operation **required** `string`
   * APIVersion [APIVersion](#apiversion)
   * city [city](#city)
   * company [company](#company)
@@ -101,12 +180,34 @@ amazonaws_importexport.GetShippingLabel({
 
 ```js
 amazonaws_importexport.GetStatus({
+  "JobId": "",
+  "Operation": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * JobId **required** `string`
+  * APIVersion `string`
+  * Operation **required** `string`
+
+#### Output
+* output [GetStatusOutput](#getstatusoutput)
+
+### GetStatus
+
+
+
+```js
+amazonaws_importexport.GetStatus({
+  "Operation": "",
   "JobId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
+  * Operation **required** `string`
   * APIVersion [APIVersion](#apiversion)
   * JobId **required** [JobId](#jobid)
 
@@ -118,13 +219,36 @@ amazonaws_importexport.GetStatus({
 
 
 ```js
-amazonaws_importexport.ListJobs({}, context)
+amazonaws_importexport.ListJobs({
+  "Operation": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * MaxJobs `integer`
+  * Marker `string`
+  * APIVersion `string`
+  * Operation **required** `string`
+
+#### Output
+* output [ListJobsOutput](#listjobsoutput)
+
+### ListJobs
+
+
+
+```js
+amazonaws_importexport.ListJobs({
+  "Operation": ""
+}, context)
 ```
 
 #### Input
 * input `object`
   * MaxJobs `string`
   * Marker `string`
+  * Operation **required** `string`
   * APIVersion [APIVersion](#apiversion)
   * Marker [Marker](#marker)
   * MaxJobs [MaxJobs](#maxjobs)
@@ -141,12 +265,40 @@ amazonaws_importexport.UpdateJob({
   "JobId": "",
   "Manifest": "",
   "JobType": "",
+  "ValidateOnly": true,
+  "Operation": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * JobId **required** `string`
+  * Manifest **required** `string`
+  * JobType **required** `string`
+  * ValidateOnly **required** `boolean`
+  * APIVersion `string`
+  * Operation **required** `string`
+
+#### Output
+* output [UpdateJobOutput](#updatejoboutput)
+
+### UpdateJob
+
+
+
+```js
+amazonaws_importexport.UpdateJob({
+  "Operation": "",
+  "JobId": "",
+  "Manifest": "",
+  "JobType": "",
   "ValidateOnly": true
 }, context)
 ```
 
 #### Input
 * input `object`
+  * Operation **required** `string`
   * APIVersion [APIVersion](#apiversion)
   * JobId **required** [JobId](#jobid)
   * JobType **required** [JobType](#jobtype)

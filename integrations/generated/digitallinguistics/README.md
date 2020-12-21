@@ -11,7 +11,7 @@ let digitallinguistics = require('@datafire/digitallinguistics').create({
   Authorization: ""
 });
 
-digitallinguistics.upsertLexeme({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

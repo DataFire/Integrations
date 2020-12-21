@@ -1,8 +1,8 @@
 {
   "name": "@datafire/n_auth",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "main": "index.js",
-  "description": "DataFire integration for n-Auth",
+  "description": "DataFire integration for nextAuth API",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DataFire/integrations.git"
@@ -14,7 +14,7 @@
   },
   "homepage": "https://github.com/DataFire/integrations#readme",
   "datafire": {
-    "origin": "https://api.apis.guru/v2/specs/n-auth.com/0.0.3/swagger.json",
+    "origin": "https://api.apis.guru/v2/specs/n-auth.com/2.2/swagger.json",
     "type": "openapi"
   },
   "peerDependencies": {

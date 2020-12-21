@@ -15,10 +15,7 @@ let azure_network_routetable = require('@datafire/azure_network_routetable').cre
   redirect_uri: ""
 });
 
-azure_network_routetable.RouteTables_ListAll({
-  "api-version": "",
-  "subscriptionId": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -272,32 +269,35 @@ azure_network_routetable.Routes_CreateOrUpdate({
 ## Definitions
 
 ### Route
-* Route `object`: Route resource
+* Route `object`: Route resource.
   * etag `string`: A unique read-only string that changes whenever the resource is updated.
   * name `string`: The name of the resource that is unique within a resource group. This name can be used to access the resource.
-  * properties `object`: Route resource
+  * properties `object`: Route resource.
     * addressPrefix `string`: The destination CIDR to which the route applies.
     * nextHopIpAddress `string`: The IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is VirtualAppliance.
-    * nextHopType **required** `string` (values: VirtualNetworkGateway, VnetLocal, Internet, VirtualAppliance, None): The type of Azure hop the packet should be sent to. Possible values are: 'VirtualNetworkGateway', 'VnetLocal', 'Internet', 'VirtualAppliance', and 'None'
-    * provisioningState `string`: The provisioning state of the resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+    * nextHopType **required** `string` (values: VirtualNetworkGateway, VnetLocal, Internet, VirtualAppliance, None): The type of Azure hop the packet should be sent to.
+    * provisioningState `string` (values: Succeeded, Updating, Deleting, Failed): The current provisioning state.
   * id `string`: Resource ID.
 
 ### RouteListResult
-* RouteListResult `object`: Response for the ListRoute API service call
+* RouteListResult `object`: Response for the ListRoute API service call.
   * nextLink `string`: The URL to get the next set of results.
-  * value `array`: Gets a list of routes in a resource group.
+  * value `array`: A list of routes in a resource group.
     * items [Route](#route)
 
+### RouteNextHopType
+* RouteNextHopType `string` (values: VirtualNetworkGateway, VnetLocal, Internet, VirtualAppliance, None): The type of Azure hop the packet should be sent to.
+
 ### RoutePropertiesFormat
-* RoutePropertiesFormat `object`: Route resource
+* RoutePropertiesFormat `object`: Route resource.
   * addressPrefix `string`: The destination CIDR to which the route applies.
   * nextHopIpAddress `string`: The IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is VirtualAppliance.
-  * nextHopType **required** `string` (values: VirtualNetworkGateway, VnetLocal, Internet, VirtualAppliance, None): The type of Azure hop the packet should be sent to. Possible values are: 'VirtualNetworkGateway', 'VnetLocal', 'Internet', 'VirtualAppliance', and 'None'
-  * provisioningState `string`: The provisioning state of the resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+  * nextHopType **required** `string` (values: VirtualNetworkGateway, VnetLocal, Internet, VirtualAppliance, None): The type of Azure hop the packet should be sent to.
+  * provisioningState `string` (values: Succeeded, Updating, Deleting, Failed): The current provisioning state.
 
 ### RouteTable
 * RouteTable `object`: Route table resource.
-  * etag `string`: Gets a unique read-only string that changes whenever the resource is updated.
+  * etag `string`: A unique read-only string that changes whenever the resource is updated.
   * properties [RouteTablePropertiesFormat](#routetablepropertiesformat)
   * id `string`: Resource ID.
   * location `string`: Resource location.
@@ -308,22 +308,22 @@ azure_network_routetable.Routes_CreateOrUpdate({
 ### RouteTableListResult
 * RouteTableListResult `object`: Response for the ListRouteTable API service call.
   * nextLink `string`: The URL to get the next set of results.
-  * value `array`: Gets a list of route tables in a resource group.
+  * value `array`: A list of route tables in a resource group.
     * items [RouteTable](#routetable)
 
 ### RouteTablePropertiesFormat
-* RouteTablePropertiesFormat `object`: Route Table resource
-  * disableBgpRoutePropagation `boolean`: Gets or sets whether to disable the routes learned by BGP on that route table. True means disable.
-  * provisioningState `string`: The provisioning state of the resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+* RouteTablePropertiesFormat `object`: Route Table resource.
+  * disableBgpRoutePropagation `boolean`: Whether to disable the routes learned by BGP on that route table. True means disable.
+  * provisioningState `string` (values: Succeeded, Updating, Deleting, Failed): The current provisioning state.
   * routes `array`: Collection of routes contained within a route table.
-    * items `object`: Route resource
+    * items `object`: Route resource.
       * etag `string`: A unique read-only string that changes whenever the resource is updated.
       * name `string`: The name of the resource that is unique within a resource group. This name can be used to access the resource.
-      * properties `object`: Route resource
+      * properties `object`: Route resource.
         * addressPrefix `string`: The destination CIDR to which the route applies.
         * nextHopIpAddress `string`: The IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is VirtualAppliance.
-        * nextHopType **required** `string` (values: VirtualNetworkGateway, VnetLocal, Internet, VirtualAppliance, None): The type of Azure hop the packet should be sent to. Possible values are: 'VirtualNetworkGateway', 'VnetLocal', 'Internet', 'VirtualAppliance', and 'None'
-        * provisioningState `string`: The provisioning state of the resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+        * nextHopType **required** `string` (values: VirtualNetworkGateway, VnetLocal, Internet, VirtualAppliance, None): The type of Azure hop the packet should be sent to.
+        * provisioningState `string` (values: Succeeded, Updating, Deleting, Failed): The current provisioning state.
       * id `string`: Resource ID.
   * subnets `array`: A collection of references to subnets.
     * items [./virtualNetwork.jsonSubnet](#./virtualnetwork.jsonsubnet)

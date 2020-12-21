@@ -11,7 +11,7 @@
       "url": "http://www.dataatwork.org"
     },
     "description": "A complete and standard data store for canonical and emerging skills, knowledge, abilities, tools, technolgies, and how they relate to jobs.",
-    "title": "Open Skills",
+    "title": "Open Skills API",
     "version": "1.0",
     "x-apisguru-categories": [
       "open_data"

@@ -15,12 +15,7 @@ let azure_recoveryservicesbackup = require('@datafire/azure_recoveryservicesback
   redirect_uri: ""
 });
 
-azure_recoveryservicesbackup.BackupEngines_Get({
-  "api-version": "",
-  "vaultName": "",
-  "resourceGroupName": "",
-  "subscriptionId": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -193,7 +188,7 @@ azure_recoveryservicesbackup.ProtectedItems_Get({
   * fabricName **required** `string`: The fabric name associated with the backup item.
   * containerName **required** `string`: The container name associated with the backup item.
   * protectedItemName **required** `string`: The backup item name used in this GET operation.
-  * $filter `string`: expand eq {extendedinfo}. This filter enables you to choose (or filter) specific items in the list of backup items.
+  * $filter `string`: expand eq {extendedInfo}. This filter enables you to choose (or filter) specific items in the list of backup items.
 
 #### Output
 * output [ProtectedItemResource](#protecteditemresource)
@@ -905,7 +900,7 @@ azure_recoveryservicesbackup.ProtectedItems_List({
   * vaultName **required** `string`: The name of the Recovery Services vault.
   * resourceGroupName **required** `string`: The name of the resource group associated with the Recovery Services vault.
   * subscriptionId **required** `string`: The subscription ID.
-  * $filter `string`:  itemType eq { VM , FileFolder , AzureSqlDb , SQLDB , Exchange , Sharepoint , DPMUnknown } and providerType eq { AzureIaasVM, MAB, DPM, AzureBackupServer, AzureSql } and policyName eq {policyname} and containerName eq {containername} and backupManagementType eq { AzureIaasVM, MAB, DPM, AzureBackupServer, AzureSql }.
+  * $filter `string`:  itemType eq { VM , FileFolder , AzureSqlDb , SQLDB , Exchange , Sharepoint , DPMUnknown } and providerType eq { AzureIaasVM, MAB, DPM, AzureBackupServer, AzureSql } and policyName eq {policyName} and containerName eq {containername} and backupManagementType eq { AzureIaasVM, MAB, DPM, AzureBackupServer, AzureSql }.
   * $skipToken `string`:  The Skip Token filter.
 
 #### Output
@@ -954,8 +949,8 @@ azure_recoveryservicesbackup.ProtectionContainers_List({
   * resourceGroup `string`: The resource group name associated with the Recovery Services vault.
   * virtualMachineId `string`: The fully qualified Resource Manager URL of the virtual machine represented by this Azure IaaS VM container.
   * virtualMachineVersion `string`: Specifies whether the container represents a classic or a Resource Manager-deployed virtual machine.
-  * backupManagementType `string` (values: Invalid, AzureIaasVM, MAB, DPM, AzureBackupServer, AzureSql): The backup managemenent type for the container.
-  * containerType `string`: The type assigned to the container. The values to use for each of these propertes are:<br/> 1. Compute Azure VM is Microsoft.Compute/virtualMachines<br/> 2. Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines<br/> 3. Windows machines (like Azure Backup Server and DPM) is Windows<br/> 4. Azure SQL instance is AzureSqlContainer.
+  * backupManagementType `string` (values: Invalid, AzureIaasVM, MAB, DPM, AzureBackupServer, AzureSql): The backup management type for the container.
+  * containerType `string`: The type assigned to the container. The values to use for each of these properties are:<br/> 1. Compute Azure VM is Microsoft.Compute/virtualMachines<br/> 2. Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines<br/> 3. Windows machines (like Azure Backup Server and DPM) is Windows<br/> 4. Azure SQL instance is AzureSqlContainer.
   * friendlyName `string`: Friendly name of the container.
   * healthStatus `string`: The status of the container's health.
   * protectableObjectType `string`: The protectable object type associated with the container.
@@ -964,7 +959,7 @@ azure_recoveryservicesbackup.ProtectionContainers_List({
 ### AzureIaaSClassicComputeVMProtectableItem
 * AzureIaaSClassicComputeVMProtectableItem `object`: IaaS VM workload-specific backup item representing a classic VM.
   * virtualMachineId `string`: The fully qualified Resource Manager ID of the virtual machine.
-  * backupManagementType `string`: The backup managemenent type.
+  * backupManagementType `string`: The backup management type.
   * friendlyName `string`: The friendly name of the backup item.
   * protectableItemType `string`: The type of the backup item.
   * protectionState `string` (values: Invalid, NotProtected, Protecting, Protected): The state of the back up item.
@@ -978,7 +973,7 @@ azure_recoveryservicesbackup.ProtectionContainers_List({
   * protectionState `string` (values: Invalid, IRPending, Protected, ProtectionError, ProtectionStopped, ProtectionPaused): The backup state of this backup item.
   * protectionStatus `string`: The backup status of this backup item.
   * virtualMachineId `string`: The fully qualified Resource Manager ID of the virtual machine represented by this item.
-  * backupManagementType `string` (values: Invalid, AzureIaasVM, MAB, DPM, AzureBackupServer, AzureSql): The backup managemenent type associated with the backup item.
+  * backupManagementType `string` (values: Invalid, AzureIaasVM, MAB, DPM, AzureBackupServer, AzureSql): The backup management type associated with the backup item.
   * lastRecoveryPoint `string`: The timestamp when the most recent backup copy was created for this backup item.
   * policyId `string`: The ID of the backup policy associated with this backup item.
   * protectedItemType `string`: The backup item type.
@@ -990,8 +985,8 @@ azure_recoveryservicesbackup.ProtectionContainers_List({
   * resourceGroup `string`: The resource group name associated with the Recovery Services vault.
   * virtualMachineId `string`: The fully qualified Resource Manager URL of the virtual machine represented by this Azure IaaS VM container.
   * virtualMachineVersion `string`: Specifies whether the container represents a classic or a Resource Manager-deployed virtual machine.
-  * backupManagementType `string` (values: Invalid, AzureIaasVM, MAB, DPM, AzureBackupServer, AzureSql): The backup managemenent type for the container.
-  * containerType `string`: The type assigned to the container. The values to use for each of these propertes are:<br/> 1. Compute Azure VM is Microsoft.Compute/virtualMachines<br/> 2. Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines<br/> 3. Windows machines (like Azure Backup Server and DPM) is Windows<br/> 4. Azure SQL instance is AzureSqlContainer.
+  * backupManagementType `string` (values: Invalid, AzureIaasVM, MAB, DPM, AzureBackupServer, AzureSql): The backup management type for the container.
+  * containerType `string`: The type assigned to the container. The values to use for each of these properties are:<br/> 1. Compute Azure VM is Microsoft.Compute/virtualMachines<br/> 2. Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines<br/> 3. Windows machines (like Azure Backup Server and DPM) is Windows<br/> 4. Azure SQL instance is AzureSqlContainer.
   * friendlyName `string`: Friendly name of the container.
   * healthStatus `string`: The status of the container's health.
   * protectableObjectType `string`: The protectable object type associated with the container.
@@ -1000,7 +995,7 @@ azure_recoveryservicesbackup.ProtectionContainers_List({
 ### AzureIaaSComputeVMProtectableItem
 * AzureIaaSComputeVMProtectableItem `object`: IaaS VM workload-specific backup item representing a Resource Manager VM.
   * virtualMachineId `string`: The fully qualified Resource Manager ID of the virtual machine.
-  * backupManagementType `string`: The backup managemenent type.
+  * backupManagementType `string`: The backup management type.
   * friendlyName `string`: The friendly name of the backup item.
   * protectableItemType `string`: The type of the backup item.
   * protectionState `string` (values: Invalid, NotProtected, Protecting, Protected): The state of the back up item.
@@ -1014,7 +1009,7 @@ azure_recoveryservicesbackup.ProtectionContainers_List({
   * protectionState `string` (values: Invalid, IRPending, Protected, ProtectionError, ProtectionStopped, ProtectionPaused): The backup state of this backup item.
   * protectionStatus `string`: The backup status of this backup item.
   * virtualMachineId `string`: The fully qualified Resource Manager ID of the virtual machine represented by this item.
-  * backupManagementType `string` (values: Invalid, AzureIaasVM, MAB, DPM, AzureBackupServer, AzureSql): The backup managemenent type associated with the backup item.
+  * backupManagementType `string` (values: Invalid, AzureIaasVM, MAB, DPM, AzureBackupServer, AzureSql): The backup management type associated with the backup item.
   * lastRecoveryPoint `string`: The timestamp when the most recent backup copy was created for this backup item.
   * policyId `string`: The ID of the backup policy associated with this backup item.
   * protectedItemType `string`: The backup item type.
@@ -1030,7 +1025,7 @@ azure_recoveryservicesbackup.ProtectionContainers_List({
     * items `string`
 
 ### AzureIaaSVMJob
-* AzureIaaSVMJob `object`: The Azure IaaS VM workload-specifc job object.
+* AzureIaaSVMJob `object`: The Azure IaaS VM workload-specific job object.
   * actionsInfo `array`: Gets or sets the state, or actions, applicable on this job. Examples of the actions are: Cancel or Retry.
     * items `string` (values: Invalid, Cancellable, Retriable)
   * duration `string`: The time that elapsed during the execution of this job.
@@ -1042,7 +1037,7 @@ azure_recoveryservicesbackup.ProtectionContainers_List({
   * backupManagementType `string` (values: Invalid, AzureIaasVM, MAB, DPM, AzureBackupServer, AzureSql): The backup management type for the current job.
   * endTime `string`: The end time.
   * entityFriendlyName `string`: The friendly name of the entity on which the current job is executing.
-  * jobType `string`: This property is the discriminator for deciding between the specific types in the polymorhpic chain of types.
+  * jobType `string`: This property is the discriminator for deciding between the specific types in the polymorphic chain of types.
   * operation `string`: The operation name.
   * startTime `string`: The start time.
   * status `string`: The job status.
@@ -1074,7 +1069,7 @@ azure_recoveryservicesbackup.ProtectionContainers_List({
   * protectionState `string` (values: Invalid, IRPending, Protected, ProtectionError, ProtectionStopped, ProtectionPaused): The backup state of this backup item.
   * protectionStatus `string`: The backup status of this backup item.
   * virtualMachineId `string`: The fully qualified Resource Manager ID of the virtual machine represented by this item.
-  * backupManagementType `string` (values: Invalid, AzureIaasVM, MAB, DPM, AzureBackupServer, AzureSql): The backup managemenent type associated with the backup item.
+  * backupManagementType `string` (values: Invalid, AzureIaasVM, MAB, DPM, AzureBackupServer, AzureSql): The backup management type associated with the backup item.
   * lastRecoveryPoint `string`: The timestamp when the most recent backup copy was created for this backup item.
   * policyId `string`: The ID of the backup policy associated with this backup item.
   * protectedItemType `string`: The backup item type.
@@ -1091,13 +1086,13 @@ azure_recoveryservicesbackup.ProtectionContainers_List({
 * AzureIaaSVMProtectionPolicy `object`: Azure VM (also known as IaaS VM) workload-specific backup policy.
   * retentionPolicy [RetentionPolicy](#retentionpolicy)
   * schedulePolicy [SchedulePolicy](#schedulepolicy)
-  * backupManagementType `string`: This property is used as the discriminator for deciding the specific types in the polymorhpic chain of types.
+  * backupManagementType `string`: This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
   * protectedItemsCount `integer`: The number of items associated with this policy.
 
 ### AzureSqlContainer
 * AzureSqlContainer `object`: Azure SQL workload-specific container.
-  * backupManagementType `string` (values: Invalid, AzureIaasVM, MAB, DPM, AzureBackupServer, AzureSql): The backup managemenent type for the container.
-  * containerType `string`: The type assigned to the container. The values to use for each of these propertes are:<br/> 1. Compute Azure VM is Microsoft.Compute/virtualMachines<br/> 2. Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines<br/> 3. Windows machines (like Azure Backup Server and DPM) is Windows<br/> 4. Azure SQL instance is AzureSqlContainer.
+  * backupManagementType `string` (values: Invalid, AzureIaasVM, MAB, DPM, AzureBackupServer, AzureSql): The backup management type for the container.
+  * containerType `string`: The type assigned to the container. The values to use for each of these properties are:<br/> 1. Compute Azure VM is Microsoft.Compute/virtualMachines<br/> 2. Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines<br/> 3. Windows machines (like Azure Backup Server and DPM) is Windows<br/> 4. Azure SQL instance is AzureSqlContainer.
   * friendlyName `string`: Friendly name of the container.
   * healthStatus `string`: The status of the container's health.
   * protectableObjectType `string`: The protectable object type associated with the container.
@@ -1108,7 +1103,7 @@ azure_recoveryservicesbackup.ProtectionContainers_List({
   * extendedInfo [AzureSqlProtectedItemExtendedInfo](#azuresqlprotecteditemextendedinfo)
   * protectedItemDataId `string`: The internal ID of a backup item. The internal ID is used by the Azure SQL Backup engine to contact Recovery Services.
   * protectionState `string` (values: Invalid, IRPending, Protected, ProtectionError, ProtectionStopped, ProtectionPaused): The backup state of the backup item.
-  * backupManagementType `string` (values: Invalid, AzureIaasVM, MAB, DPM, AzureBackupServer, AzureSql): The backup managemenent type associated with the backup item.
+  * backupManagementType `string` (values: Invalid, AzureIaasVM, MAB, DPM, AzureBackupServer, AzureSql): The backup management type associated with the backup item.
   * lastRecoveryPoint `string`: The timestamp when the most recent backup copy was created for this backup item.
   * policyId `string`: The ID of the backup policy associated with this backup item.
   * protectedItemType `string`: The backup item type.
@@ -1124,11 +1119,11 @@ azure_recoveryservicesbackup.ProtectionContainers_List({
 ### AzureSqlProtectionPolicy
 * AzureSqlProtectionPolicy `object`:  The Azure SQL workload-specific backup policy.
   * retentionPolicy [RetentionPolicy](#retentionpolicy)
-  * backupManagementType `string`: This property is used as the discriminator for deciding the specific types in the polymorhpic chain of types.
+  * backupManagementType `string`: This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
   * protectedItemsCount `integer`: The number of items associated with this policy.
 
 ### BEKDetails
-* BEKDetails `object`: BEK is Bitlocker Encrpytion Key.
+* BEKDetails `object`: BEK is Bitlocker Encryption Key.
   * secretData `string`: Bitlocker Encryption Key (BEK) data.
   * secretUrl `string`: Secret refers to Bitlocker Encryption Key (BEK). The Secret can be unlocked by the key (or KEK).
   * secretVaultId `string`: ID of the Key Vault where this Secret is stored.
@@ -1182,7 +1177,7 @@ azure_recoveryservicesbackup.ProtectionContainers_List({
 
 ### BackupRequest
 * BackupRequest `object`: The base class for a backup request. Workload-specific backup requests are derived from this class.
-  * objectType `string`: This property is used as the discriminator for deciding the specific types in the polymorhpic chain of types.
+  * objectType `string`: This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
 
 ### BackupRequestResource
 * BackupRequestResource `object`: Base class for the backup request. Workload-specific backup requests are derived from this class.
@@ -1233,7 +1228,7 @@ azure_recoveryservicesbackup.ProtectionContainers_List({
     * items `string`
 
 ### DpmJob
-* DpmJob `object`: The DPM workload-specifc job object.
+* DpmJob `object`: The DPM workload-specific job object.
   * actionsInfo `array`: The state or actions applicable on this job, such as Cancel or Retry.
     * items `string` (values: Invalid, Cancellable, Retriable)
   * containerName `string`: The name of the cluster or server protecting the current backup item, if any.
@@ -1248,7 +1243,7 @@ azure_recoveryservicesbackup.ProtectionContainers_List({
   * backupManagementType `string` (values: Invalid, AzureIaasVM, MAB, DPM, AzureBackupServer, AzureSql): The backup management type for the current job.
   * endTime `string`: The end time.
   * entityFriendlyName `string`: The friendly name of the entity on which the current job is executing.
-  * jobType `string`: This property is the discriminator for deciding between the specific types in the polymorhpic chain of types.
+  * jobType `string`: This property is the discriminator for deciding between the specific types in the polymorphic chain of types.
   * operation `string`: The operation name.
   * startTime `string`: The start time.
   * status `string`: The job status.
@@ -1280,7 +1275,7 @@ azure_recoveryservicesbackup.ProtectionContainers_List({
 * ExportJobsOperationResultInfo `object`: This class is used to send blob details after exporting jobs.
   * blobSasKey `string`: The Shared Access Signatures (SAS) key used to access the blob. The key expires after 15 minutes.
   * blobUrl `string`: The URL of the blob. The serialized string, which is the list of jobs, is exported to this URL.
-  * objectType `string`: This property is the discriminator for deciding between the specific types in the polymorhpic chain of types.
+  * objectType `string`: This property is the discriminator for deciding between the specific types in the polymorphic chain of types.
 
 ### GenericRecoveryPoint
 * GenericRecoveryPoint `object`: Generic backup copy.
@@ -1288,7 +1283,7 @@ azure_recoveryservicesbackup.ProtectionContainers_List({
   * recoveryPointAdditionalInfo `string`: Additional information associated with this backup copy.
   * recoveryPointTime `string`: The time when this backup copy was created.
   * recoveryPointType `string`: Type of the backup copy.
-  * objectType `string`: This property is used as the discriminator for deciding the specific types in the polymorhpic chain of types.
+  * objectType `string`: This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
 
 ### GetProtectedItemQueryObject
 * GetProtectedItemQueryObject `object`: This object filters the list of backup items.
@@ -1296,7 +1291,7 @@ azure_recoveryservicesbackup.ProtectionContainers_List({
 
 ### ILRRequest
 * ILRRequest `object`: Parameters to restore file or folders API.
-  * objectType `string`: This property is used as the discriminator for deciding the specific types in the polymorhpic chain of types.
+  * objectType `string`: This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
 
 ### ILRRequestResource
 * ILRRequestResource `object`: The parameters to restore files or folders.
@@ -1313,8 +1308,8 @@ azure_recoveryservicesbackup.ProtectionContainers_List({
   * resourceGroup `string`: The resource group name associated with the Recovery Services vault.
   * virtualMachineId `string`: The fully qualified Resource Manager URL of the virtual machine represented by this Azure IaaS VM container.
   * virtualMachineVersion `string`: Specifies whether the container represents a classic or a Resource Manager-deployed virtual machine.
-  * backupManagementType `string` (values: Invalid, AzureIaasVM, MAB, DPM, AzureBackupServer, AzureSql): The backup managemenent type for the container.
-  * containerType `string`: The type assigned to the container. The values to use for each of these propertes are:<br/> 1. Compute Azure VM is Microsoft.Compute/virtualMachines<br/> 2. Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines<br/> 3. Windows machines (like Azure Backup Server and DPM) is Windows<br/> 4. Azure SQL instance is AzureSqlContainer.
+  * backupManagementType `string` (values: Invalid, AzureIaasVM, MAB, DPM, AzureBackupServer, AzureSql): The backup management type for the container.
+  * containerType `string`: The type assigned to the container. The values to use for each of these properties are:<br/> 1. Compute Azure VM is Microsoft.Compute/virtualMachines<br/> 2. Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines<br/> 3. Windows machines (like Azure Backup Server and DPM) is Windows<br/> 4. Azure SQL instance is AzureSqlContainer.
   * friendlyName `string`: Friendly name of the container.
   * healthStatus `string`: The status of the container's health.
   * protectableObjectType `string`: The protectable object type associated with the container.
@@ -1323,7 +1318,7 @@ azure_recoveryservicesbackup.ProtectionContainers_List({
 ### IaaSVMProtectableItem
 * IaaSVMProtectableItem `object`: This Azure VM workload-specific (also known as IaaS VM workload-specific) backup item can be backed up.
   * virtualMachineId `string`: The fully qualified Resource Manager ID of the virtual machine.
-  * backupManagementType `string`: The backup managemenent type.
+  * backupManagementType `string`: The backup management type.
   * friendlyName `string`: The friendly name of the backup item.
   * protectableItemType `string`: The type of the backup item.
   * protectionState `string` (values: Invalid, NotProtected, Protecting, Protected): The state of the back up item.
@@ -1331,7 +1326,7 @@ azure_recoveryservicesbackup.ProtectionContainers_List({
 ### IaasVMBackupRequest
 * IaasVMBackupRequest `object`: This is an Azure VM (also known as IaaS VM) workload-specific backup request.
   * recoveryPointExpiryTimeInUTC `string`: The backup copy will expire after the time specified. The time is in UTC format.
-  * objectType `string`: This property is used as the discriminator for deciding the specific types in the polymorhpic chain of types.
+  * objectType `string`: This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
 
 ### IaasVMILRRegistrationRequest
 * IaasVMILRRegistrationRequest `object`: Restore files or folders from a backup copy, or recovery point, of an IaaS (or Azure) VM.
@@ -1339,7 +1334,7 @@ azure_recoveryservicesbackup.ProtectionContainers_List({
   * recoveryPointId `string`: The ID of the IaaS VM recovery point used to restore the files or folders.
   * renewExistingRegistration `boolean`: Whether to renew the existing registration with the iSCSI server.
   * virtualMachineId `string`: The fully qualified Resource Manager ID of the VM used to restore the files or folders.
-  * objectType `string`: This property is used as the discriminator for deciding the specific types in the polymorhpic chain of types.
+  * objectType `string`: This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
 
 ### IaasVMRecoveryPoint
 * IaasVMRecoveryPoint `object`: Azure VM (also known as IaaS VM) workload-specific backup copy.
@@ -1350,7 +1345,7 @@ azure_recoveryservicesbackup.ProtectionContainers_List({
   * recoveryPointTime `string`: The date and time when the backup copy was created.
   * recoveryPointType `string`: Type of the backup copy.
   * sourceVMStorageType `string`: The storage type for the VM whose backup copy was created.
-  * objectType `string`: This property is used as the discriminator for deciding the specific types in the polymorhpic chain of types.
+  * objectType `string`: This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
 
 ### IaasVMRestoreRequest
 * IaasVMRestoreRequest `object`: IaaS VM workload-specific restore.
@@ -1367,7 +1362,7 @@ azure_recoveryservicesbackup.ProtectionContainers_List({
   * targetResourceGroupId `string`: The Resource Manager ID of the resource group you're creating for this VM and other artifacts.
   * targetVirtualMachineId `string`: The complete Resource Manager ID of the VM that will be created.
   * virtualNetworkId `string`: This is the virtual network ID of the vnet that is attached to the virtual machine.
-  * objectType `string`: This property is used as the discriminator for deciding the specific types in the polymorhpic chain of types.
+  * objectType `string`: This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
 
 ### InstantItemRecoveryTarget
 * InstantItemRecoveryTarget `object`: Target details for the file or folder restore.
@@ -1380,14 +1375,14 @@ azure_recoveryservicesbackup.ProtectionContainers_List({
   * backupManagementType `string` (values: Invalid, AzureIaasVM, MAB, DPM, AzureBackupServer, AzureSql): The backup management type for the current job.
   * endTime `string`: The end time.
   * entityFriendlyName `string`: The friendly name of the entity on which the current job is executing.
-  * jobType `string`: This property is the discriminator for deciding between the specific types in the polymorhpic chain of types.
+  * jobType `string`: This property is the discriminator for deciding between the specific types in the polymorphic chain of types.
   * operation `string`: The operation name.
   * startTime `string`: The start time.
   * status `string`: The job status.
 
 ### JobQueryObject
 * JobQueryObject `object`: The filters to list the jobs.
-  * backupManagementType `string` (values: Invalid, AzureIaasVM, MAB, DPM, AzureBackupServer, AzureSql): Type of backup managmenent for the job.
+  * backupManagementType `string` (values: Invalid, AzureIaasVM, MAB, DPM, AzureBackupServer, AzureSql): Type of backup management for the job.
   * endTime `string`: The time when the job ends. The value is in UTC.
   * jobId `string`: The ID of the job. Each jobID is unique.
   * operation `string` (values: Invalid, ConfigureBackup, Backup, Restore, DisableBackup, DeleteBackupData): The type of operation.
@@ -1427,11 +1422,11 @@ azure_recoveryservicesbackup.ProtectionContainers_List({
   * monthlySchedule [MonthlyRetentionSchedule](#monthlyretentionschedule)
   * weeklySchedule [WeeklyRetentionSchedule](#weeklyretentionschedule)
   * yearlySchedule [YearlyRetentionSchedule](#yearlyretentionschedule)
-  * retentionPolicyType `string`: This property is used as the discriminator for deciding the specific types in the polymorhpic chain of types.
+  * retentionPolicyType `string`: This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
 
 ### LongTermSchedulePolicy
 * LongTermSchedulePolicy `object`: Long-term policy schedule.
-  * schedulePolicyType `string`: This property is used as the discriminator for deciding the specific types in the polymorhpic chain of types.
+  * schedulePolicyType `string`: This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
 
 ### MabContainer
 * MabContainer `object`: The container associated with items backed up using Azure Backup Server.
@@ -1440,8 +1435,8 @@ azure_recoveryservicesbackup.ProtectionContainers_List({
   * containerId `integer`: The ID for the container.
   * extendedInfo [MabContainerExtendedInfo](#mabcontainerextendedinfo)
   * protectedItemCount `integer`: The number of backup items in the container.
-  * backupManagementType `string` (values: Invalid, AzureIaasVM, MAB, DPM, AzureBackupServer, AzureSql): The backup managemenent type for the container.
-  * containerType `string`: The type assigned to the container. The values to use for each of these propertes are:<br/> 1. Compute Azure VM is Microsoft.Compute/virtualMachines<br/> 2. Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines<br/> 3. Windows machines (like Azure Backup Server and DPM) is Windows<br/> 4. Azure SQL instance is AzureSqlContainer.
+  * backupManagementType `string` (values: Invalid, AzureIaasVM, MAB, DPM, AzureBackupServer, AzureSql): The backup management type for the container.
+  * containerType `string`: The type assigned to the container. The values to use for each of these properties are:<br/> 1. Compute Azure VM is Microsoft.Compute/virtualMachines<br/> 2. Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines<br/> 3. Windows machines (like Azure Backup Server and DPM) is Windows<br/> 4. Azure SQL instance is AzureSqlContainer.
   * friendlyName `string`: Friendly name of the container.
   * healthStatus `string`: The status of the container's health.
   * protectableObjectType `string`: The protectable object type associated with the container.
@@ -1470,7 +1465,7 @@ azure_recoveryservicesbackup.ProtectionContainers_List({
   * isScheduledForDeferredDelete `boolean`
   * lastBackupStatus `string`: The status of last backup operation.
   * protectionState `string`: The states for this property are: Protected, ProtectionStopped, IRPending, or ProtectionError.
-  * backupManagementType `string` (values: Invalid, AzureIaasVM, MAB, DPM, AzureBackupServer, AzureSql): The backup managemenent type associated with the backup item.
+  * backupManagementType `string` (values: Invalid, AzureIaasVM, MAB, DPM, AzureBackupServer, AzureSql): The backup management type associated with the backup item.
   * lastRecoveryPoint `string`: The timestamp when the most recent backup copy was created for this backup item.
   * policyId `string`: The ID of the backup policy associated with this backup item.
   * protectedItemType `string`: The backup item type.
@@ -1498,7 +1493,7 @@ azure_recoveryservicesbackup.ProtectionContainers_List({
   * backupManagementType `string` (values: Invalid, AzureIaasVM, MAB, DPM, AzureBackupServer, AzureSql): The backup management type for the current job.
   * endTime `string`: The end time.
   * entityFriendlyName `string`: The friendly name of the entity on which the current job is executing.
-  * jobType `string`: This property is the discriminator for deciding between the specific types in the polymorhpic chain of types.
+  * jobType `string`: This property is the discriminator for deciding between the specific types in the polymorphic chain of types.
   * operation `string`: The operation name.
   * startTime `string`: The start time.
   * status `string`: The job status.
@@ -1522,7 +1517,7 @@ azure_recoveryservicesbackup.ProtectionContainers_List({
 * MabProtectionPolicy `object`: The backup policy for the file or folder container.
   * retentionPolicy [RetentionPolicy](#retentionpolicy)
   * schedulePolicy [SchedulePolicy](#schedulepolicy)
-  * backupManagementType `string`: This property is used as the discriminator for deciding the specific types in the polymorhpic chain of types.
+  * backupManagementType `string`: This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
   * protectedItemsCount `integer`: The number of items associated with this policy.
 
 ### MonthlyRetentionSchedule
@@ -1541,11 +1536,11 @@ azure_recoveryservicesbackup.ProtectionContainers_List({
 * OperationResultInfo `object`: Information about the result of the operation.
   * jobList `array`: List of jobs created by this operation.
     * items `string`
-  * objectType `string`: This property is the discriminator for deciding between the specific types in the polymorhpic chain of types.
+  * objectType `string`: This property is the discriminator for deciding between the specific types in the polymorphic chain of types.
 
 ### OperationResultInfoBase
 * OperationResultInfoBase `object`: The base class for operation result information.
-  * objectType `string`: This property is the discriminator for deciding between the specific types in the polymorhpic chain of types.
+  * objectType `string`: This property is the discriminator for deciding between the specific types in the polymorphic chain of types.
 
 ### OperationResultInfoBaseResource
 * OperationResultInfoBaseResource `object`: Base class for operation result information.
@@ -1570,24 +1565,24 @@ azure_recoveryservicesbackup.ProtectionContainers_List({
 
 ### OperationStatusExtendedInfo
 * OperationStatusExtendedInfo `object`: The base class for additional information about the operation status.
-  * objectType `string`: This property is used as the discriminator for deciding between types, in the polymorhpic chain of types.
+  * objectType `string`: This property is used as the discriminator for deciding between types, in the polymorphic chain of types.
 
 ### OperationStatusJobExtendedInfo
 * OperationStatusJobExtendedInfo `object`: Extended information about the operation status job.
   * jobId `string`: ID of the job created for this backup item.
-  * objectType `string`: This property is used as the discriminator for deciding between types, in the polymorhpic chain of types.
+  * objectType `string`: This property is used as the discriminator for deciding between types, in the polymorphic chain of types.
 
 ### OperationStatusJobsExtendedInfo
 * OperationStatusJobsExtendedInfo `object`: Operation status extended info for the job list.
   * failedJobsError `object`: Stores all the failed jobs along with the corresponding error codes.
   * jobIds `array`: IDs of the jobs created for the backup item.
     * items `string`
-  * objectType `string`: This property is used as the discriminator for deciding between types, in the polymorhpic chain of types.
+  * objectType `string`: This property is used as the discriminator for deciding between types, in the polymorphic chain of types.
 
 ### OperationStatusProvisionILRExtendedInfo
 * OperationStatusProvisionILRExtendedInfo `object`: Extended information about the Item Level Recovery (ILR) provision action, operation status.
   * recoveryTarget [InstantItemRecoveryTarget](#instantitemrecoverytarget)
-  * objectType `string`: This property is used as the discriminator for deciding between types, in the polymorhpic chain of types.
+  * objectType `string`: This property is used as the discriminator for deciding between types, in the polymorphic chain of types.
 
 ### OperationWorkerResponse
 * OperationWorkerResponse `object`: The base class for operation result responses.
@@ -1596,7 +1591,7 @@ azure_recoveryservicesbackup.ProtectionContainers_List({
 
 ### ProtectedItem
 * ProtectedItem `object`: The base class for backup items.
-  * backupManagementType `string` (values: Invalid, AzureIaasVM, MAB, DPM, AzureBackupServer, AzureSql): The backup managemenent type associated with the backup item.
+  * backupManagementType `string` (values: Invalid, AzureIaasVM, MAB, DPM, AzureBackupServer, AzureSql): The backup management type associated with the backup item.
   * lastRecoveryPoint `string`: The timestamp when the most recent backup copy was created for this backup item.
   * policyId `string`: The ID of the backup policy associated with this backup item.
   * protectedItemType `string`: The backup item type.
@@ -1628,8 +1623,8 @@ azure_recoveryservicesbackup.ProtectionContainers_List({
 
 ### ProtectionContainer
 * ProtectionContainer `object`: The base class for a container with backup items. Containers with specific workloads are derived from this class.
-  * backupManagementType `string` (values: Invalid, AzureIaasVM, MAB, DPM, AzureBackupServer, AzureSql): The backup managemenent type for the container.
-  * containerType `string`: The type assigned to the container. The values to use for each of these propertes are:<br/> 1. Compute Azure VM is Microsoft.Compute/virtualMachines<br/> 2. Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines<br/> 3. Windows machines (like Azure Backup Server and DPM) is Windows<br/> 4. Azure SQL instance is AzureSqlContainer.
+  * backupManagementType `string` (values: Invalid, AzureIaasVM, MAB, DPM, AzureBackupServer, AzureSql): The backup management type for the container.
+  * containerType `string`: The type assigned to the container. The values to use for each of these properties are:<br/> 1. Compute Azure VM is Microsoft.Compute/virtualMachines<br/> 2. Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines<br/> 3. Windows machines (like Azure Backup Server and DPM) is Windows<br/> 4. Azure SQL instance is AzureSqlContainer.
   * friendlyName `string`: Friendly name of the container.
   * healthStatus `string`: The status of the container's health.
   * protectableObjectType `string`: The protectable object type associated with the container.
@@ -1653,7 +1648,7 @@ azure_recoveryservicesbackup.ProtectionContainers_List({
 
 ### ProtectionPolicy
 * ProtectionPolicy `object`: The base class for a backup policy. Workload-specific backup policies are derived from this class.
-  * backupManagementType `string`: This property is used as the discriminator for deciding the specific types in the polymorhpic chain of types.
+  * backupManagementType `string`: This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
   * protectedItemsCount `integer`: The number of items associated with this policy.
 
 ### ProtectionPolicyQueryObject
@@ -1678,7 +1673,7 @@ azure_recoveryservicesbackup.ProtectionContainers_List({
 
 ### RecoveryPoint
 * RecoveryPoint `object`: The base class for backup copies. Workload-specific backup copies are derived from this class.
-  * objectType `string`: This property is used as the discriminator for deciding the specific types in the polymorhpic chain of types.
+  * objectType `string`: This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
 
 ### RecoveryPointResource
 * RecoveryPointResource `object`: The base class for backup copies. Workload-specific backup copies are derived from this class.
@@ -1711,7 +1706,7 @@ azure_recoveryservicesbackup.ProtectionContainers_List({
 
 ### RestoreRequest
 * RestoreRequest `object`: The base class for restore requests. Workload-specific restore requests are derived from this class.
-  * objectType `string`: This property is used as the discriminator for deciding the specific types in the polymorhpic chain of types.
+  * objectType `string`: This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
 
 ### RestoreRequestResource
 * RestoreRequestResource `object`: The base class for a restore request. Workload-specific restore requests are derived from this class.
@@ -1730,16 +1725,16 @@ azure_recoveryservicesbackup.ProtectionContainers_List({
 
 ### RetentionPolicy
 * RetentionPolicy `object`: The base class for retention policy.
-  * retentionPolicyType `string`: This property is used as the discriminator for deciding the specific types in the polymorhpic chain of types.
+  * retentionPolicyType `string`: This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
 
 ### SchedulePolicy
 * SchedulePolicy `object`: The base class for backup schedules.
-  * schedulePolicyType `string`: This property is used as the discriminator for deciding the specific types in the polymorhpic chain of types.
+  * schedulePolicyType `string`: This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
 
 ### SimpleRetentionPolicy
 * SimpleRetentionPolicy `object`: Simple policy retention.
   * retentionDuration [RetentionDuration](#retentionduration)
-  * retentionPolicyType `string`: This property is used as the discriminator for deciding the specific types in the polymorhpic chain of types.
+  * retentionPolicyType `string`: This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
 
 ### SimpleSchedulePolicy
 * SimpleSchedulePolicy `object`: Simple policy schedule.
@@ -1749,7 +1744,7 @@ azure_recoveryservicesbackup.ProtectionContainers_List({
   * scheduleRunTimes `array`: List of times, during a day, when the schedule runs.
     * items `string`
   * scheduleWeeklyFrequency `integer`: The number of times per week the schedule runs.
-  * schedulePolicyType `string`: This property is used as the discriminator for deciding the specific types in the polymorhpic chain of types.
+  * schedulePolicyType `string`: This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
 
 ### WeeklyRetentionFormat
 * WeeklyRetentionFormat `object`: Weekly retention format.
@@ -1768,7 +1763,7 @@ azure_recoveryservicesbackup.ProtectionContainers_List({
 
 ### WorkloadProtectableItem
 * WorkloadProtectableItem `object`: The base class for backup item. Workload-specific backup items are derived from this class.
-  * backupManagementType `string`: The backup managemenent type.
+  * backupManagementType `string`: The backup management type.
   * friendlyName `string`: The friendly name of the backup item.
   * protectableItemType `string`: The type of the backup item.
   * protectionState `string` (values: Invalid, NotProtected, Protecting, Protected): The state of the back up item.

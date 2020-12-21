@@ -1,32 +1,33 @@
 {
   "swagger": "2.0",
-  "schemes": [
-    "https"
-  ],
-  "host": "www.googleapis.com",
-  "basePath": "/adsensehost/v4.1",
   "info": {
     "contact": {
       "name": "Google",
-      "url": "https://google.com"
+      "url": "https://google.com",
+      "x-twitter": "youtube"
     },
     "description": "Generates performance reports, generates ad codes, and provides publisher management capabilities for AdSense Hosts.",
-    "title": "AdSense Host",
+    "license": {
+      "name": "Creative Commons Attribution 3.0",
+      "url": "http://creativecommons.org/licenses/by/3.0/"
+    },
+    "termsOfService": "https://developers.google.com/terms/",
+    "title": "AdSense Host API",
     "version": "v4.1",
     "x-apiClientRegistration": {
       "url": "https://console.developers.google.com"
     },
+    "x-apisguru-categories": [
+      "analytics",
+      "media"
+    ],
     "x-logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
     },
     "x-origin": [
       {
-        "converter": {
-          "url": "https://github.com/lucybot/api-spec-converter",
-          "version": "2.6.2"
-        },
         "format": "google",
-        "url": "https://www.googleapis.com/discovery/v1/apis/adsensehost/v4.1/rest",
+        "url": "https://adsensehost.googleapis.com/$discovery/rest?version=v4.1",
         "version": "v1"
       }
     ],
@@ -38,105 +39,65 @@
       "type": "openapi"
     }
   },
-  "externalDocs": {
-    "url": "https://developers.google.com/adsense/host/"
-  },
-  "securityDefinitions": {
-    "Oauth2": {
-      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 authentication",
-      "flow": "implicit",
-      "scopes": {
-        "https://www.googleapis.com/auth/adsensehost": "View and manage your AdSense host data and associated accounts"
-      },
-      "type": "oauth2"
-    },
-    "offline": {
-      "type": "oauth2",
-      "flow": "accessCode",
-      "scopes": {
-        "https://www.googleapis.com/auth/adsensehost": "View and manage your AdSense host data and associated accounts"
-      },
-      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "tokenUrl": "https://www.googleapis.com/oauth2/v4/token",
-      "description": "Allows offline access using a refresh_token"
-    }
-  },
-  "parameters": {
-    "alt": {
-      "default": "json",
-      "description": "Data format for the response.",
-      "enum": [
-        "csv",
-        "json"
-      ],
-      "in": "query",
-      "name": "alt",
-      "type": "string"
-    },
-    "fields": {
-      "description": "Selector specifying which fields to include in a partial response.",
-      "in": "query",
-      "name": "fields",
-      "type": "string"
-    },
-    "key": {
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
-      "in": "query",
-      "name": "key",
-      "type": "string"
-    },
-    "oauth_token": {
-      "description": "OAuth 2.0 token for the current user.",
-      "in": "query",
-      "name": "oauth_token",
-      "type": "string"
-    },
-    "prettyPrint": {
-      "default": true,
-      "description": "Returns response with indentations and line breaks.",
-      "in": "query",
-      "name": "prettyPrint",
-      "type": "boolean"
-    },
-    "quotaUser": {
-      "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
-      "in": "query",
-      "name": "quotaUser",
-      "type": "string"
-    },
-    "userIp": {
-      "description": "Deprecated. Please use quotaUser instead.",
-      "in": "query",
-      "name": "userIp",
-      "type": "string"
-    }
-  },
-  "tags": [
-    {
-      "name": "accounts"
-    },
-    {
-      "name": "adclients"
-    },
-    {
-      "name": "associationsessions"
-    },
-    {
-      "name": "customchannels"
-    },
-    {
-      "name": "reports"
-    },
-    {
-      "name": "urlchannels"
-    }
+  "host": "www.googleapis.com",
+  "basePath": "/adsensehost/v4.1",
+  "schemes": [
+    "https"
   ],
   "paths": {
     "/accounts": {
+      "parameters": [
+        {
+          "description": "Data format for the response.",
+          "enum": [
+            "csv",
+            "json"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
+        },
+        {
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
+        },
+        {
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
+        },
+        {
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
+        },
+        {
+          "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
+        },
+        {
+          "description": "Deprecated. Please use quotaUser instead.",
+          "in": "query",
+          "name": "userIp",
+          "type": "string"
+        }
+      ],
       "get": {
-        "description": "List hosted accounts associated with this AdSense account by ad client id.",
-        "operationId": "accounts.list",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "collectionFormat": "multi",
@@ -162,41 +123,72 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adsensehost"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/adsensehost"
             ]
           }
         ],
         "tags": [
           "accounts"
-        ]
-      },
-      "parameters": [
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/userIp"
-        }
-      ]
+        ],
+        "description": "List hosted accounts associated with this AdSense account by ad client id.",
+        "operationId": "adsensehost.accounts.list"
+      }
     },
     "/accounts/{accountId}": {
+      "parameters": [
+        {
+          "description": "Data format for the response.",
+          "enum": [
+            "csv",
+            "json"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
+        },
+        {
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
+        },
+        {
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
+        },
+        {
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
+        },
+        {
+          "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
+        },
+        {
+          "description": "Deprecated. Please use quotaUser instead.",
+          "in": "query",
+          "name": "userIp",
+          "type": "string"
+        }
+      ],
       "get": {
-        "description": "Get information about the selected associated AdSense account.",
-        "operationId": "accounts.get",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Account to get information about.",
@@ -218,41 +210,72 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adsensehost"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/adsensehost"
             ]
           }
         ],
         "tags": [
           "accounts"
-        ]
-      },
-      "parameters": [
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/userIp"
-        }
-      ]
+        ],
+        "description": "Get information about the selected associated AdSense account.",
+        "operationId": "adsensehost.accounts.get"
+      }
     },
     "/accounts/{accountId}/adclients": {
+      "parameters": [
+        {
+          "description": "Data format for the response.",
+          "enum": [
+            "csv",
+            "json"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
+        },
+        {
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
+        },
+        {
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
+        },
+        {
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
+        },
+        {
+          "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
+        },
+        {
+          "description": "Deprecated. Please use quotaUser instead.",
+          "in": "query",
+          "name": "userIp",
+          "type": "string"
+        }
+      ],
       "get": {
-        "description": "List all hosted ad clients in the specified hosted account.",
-        "operationId": "accounts.adclients.list",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Account for which to list ad clients.",
@@ -288,41 +311,72 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adsensehost"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/adsensehost"
             ]
           }
         ],
         "tags": [
           "accounts"
-        ]
-      },
-      "parameters": [
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/userIp"
-        }
-      ]
+        ],
+        "description": "List all hosted ad clients in the specified hosted account.",
+        "operationId": "adsensehost.accounts.adclients.list"
+      }
     },
     "/accounts/{accountId}/adclients/{adClientId}": {
+      "parameters": [
+        {
+          "description": "Data format for the response.",
+          "enum": [
+            "csv",
+            "json"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
+        },
+        {
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
+        },
+        {
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
+        },
+        {
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
+        },
+        {
+          "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
+        },
+        {
+          "description": "Deprecated. Please use quotaUser instead.",
+          "in": "query",
+          "name": "userIp",
+          "type": "string"
+        }
+      ],
       "get": {
-        "description": "Get information about one of the ad clients in the specified publisher's AdSense account.",
-        "operationId": "accounts.adclients.get",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Account which contains the ad client.",
@@ -351,41 +405,72 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adsensehost"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/adsensehost"
             ]
           }
         ],
         "tags": [
           "accounts"
-        ]
-      },
-      "parameters": [
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/userIp"
-        }
-      ]
+        ],
+        "description": "Get information about one of the ad clients in the specified publisher's AdSense account.",
+        "operationId": "adsensehost.accounts.adclients.get"
+      }
     },
     "/accounts/{accountId}/adclients/{adClientId}/adunits": {
+      "parameters": [
+        {
+          "description": "Data format for the response.",
+          "enum": [
+            "csv",
+            "json"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
+        },
+        {
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
+        },
+        {
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
+        },
+        {
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
+        },
+        {
+          "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
+        },
+        {
+          "description": "Deprecated. Please use quotaUser instead.",
+          "in": "query",
+          "name": "userIp",
+          "type": "string"
+        }
+      ],
       "get": {
-        "description": "List all ad units in the specified publisher's AdSense account.",
-        "operationId": "accounts.adunits.list",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Account which contains the ad client.",
@@ -434,39 +519,25 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adsensehost"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/adsensehost"
             ]
           }
         ],
         "tags": [
           "accounts"
-        ]
+        ],
+        "description": "List all ad units in the specified publisher's AdSense account.",
+        "operationId": "adsensehost.accounts.adunits.list"
       },
-      "parameters": [
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/userIp"
-        }
-      ],
       "patch": {
-        "description": "Update the supplied ad unit in the specified publisher AdSense account. This method supports patch semantics.",
-        "operationId": "accounts.adunits.patch",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Account which contains the ad client.",
@@ -509,16 +580,25 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adsensehost"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/adsensehost"
             ]
           }
         ],
         "tags": [
           "accounts"
-        ]
+        ],
+        "description": "Update the supplied ad unit in the specified publisher AdSense account. This method supports patch semantics.",
+        "operationId": "adsensehost.accounts.adunits.patch"
       },
       "post": {
-        "description": "Insert the supplied ad unit into the specified publisher AdSense account.",
-        "operationId": "accounts.adunits.insert",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Account which will contain the ad unit.",
@@ -554,16 +634,25 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adsensehost"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/adsensehost"
             ]
           }
         ],
         "tags": [
           "accounts"
-        ]
+        ],
+        "description": "Insert the supplied ad unit into the specified publisher AdSense account.",
+        "operationId": "adsensehost.accounts.adunits.insert"
       },
       "put": {
-        "description": "Update the supplied ad unit in the specified publisher AdSense account.",
-        "operationId": "accounts.adunits.update",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Account which contains the ad client.",
@@ -599,18 +688,72 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adsensehost"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/adsensehost"
             ]
           }
         ],
         "tags": [
           "accounts"
-        ]
+        ],
+        "description": "Update the supplied ad unit in the specified publisher AdSense account.",
+        "operationId": "adsensehost.accounts.adunits.update"
       }
     },
     "/accounts/{accountId}/adclients/{adClientId}/adunits/{adUnitId}": {
+      "parameters": [
+        {
+          "description": "Data format for the response.",
+          "enum": [
+            "csv",
+            "json"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
+        },
+        {
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
+        },
+        {
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
+        },
+        {
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
+        },
+        {
+          "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
+        },
+        {
+          "description": "Deprecated. Please use quotaUser instead.",
+          "in": "query",
+          "name": "userIp",
+          "type": "string"
+        }
+      ],
       "delete": {
-        "description": "Delete the specified ad unit from the specified publisher AdSense account.",
-        "operationId": "accounts.adunits.delete",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Account which contains the ad unit.",
@@ -646,16 +789,22 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adsensehost"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/adsensehost"
             ]
           }
         ],
         "tags": [
           "accounts"
-        ]
+        ],
+        "description": "Delete the specified ad unit from the specified publisher AdSense account.",
+        "operationId": "adsensehost.accounts.adunits.delete"
       },
       "get": {
-        "description": "Get the specified host ad unit in this AdSense account.",
-        "operationId": "accounts.adunits.get",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Account which contains the ad unit.",
@@ -691,41 +840,72 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adsensehost"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/adsensehost"
             ]
           }
         ],
         "tags": [
           "accounts"
-        ]
-      },
-      "parameters": [
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/userIp"
-        }
-      ]
+        ],
+        "description": "Get the specified host ad unit in this AdSense account.",
+        "operationId": "adsensehost.accounts.adunits.get"
+      }
     },
     "/accounts/{accountId}/adclients/{adClientId}/adunits/{adUnitId}/adcode": {
+      "parameters": [
+        {
+          "description": "Data format for the response.",
+          "enum": [
+            "csv",
+            "json"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
+        },
+        {
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
+        },
+        {
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
+        },
+        {
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
+        },
+        {
+          "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
+        },
+        {
+          "description": "Deprecated. Please use quotaUser instead.",
+          "in": "query",
+          "name": "userIp",
+          "type": "string"
+        }
+      ],
       "get": {
-        "description": "Get ad code for the specified ad unit, attaching the specified host custom channels.",
-        "operationId": "accounts.adunits.getAdCode",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Account which contains the ad client.",
@@ -771,46 +951,91 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adsensehost"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/adsensehost"
             ]
           }
         ],
         "tags": [
           "accounts"
-        ]
-      },
-      "parameters": [
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/userIp"
-        }
-      ]
+        ],
+        "description": "Get ad code for the specified ad unit, attaching the specified host custom channels.",
+        "operationId": "adsensehost.accounts.adunits.getAdCode"
+      }
     },
     "/accounts/{accountId}/reports": {
+      "parameters": [
+        {
+          "description": "Data format for the response.",
+          "enum": [
+            "csv",
+            "json"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
+        },
+        {
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
+        },
+        {
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
+        },
+        {
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
+        },
+        {
+          "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
+        },
+        {
+          "description": "Deprecated. Please use quotaUser instead.",
+          "in": "query",
+          "name": "userIp",
+          "type": "string"
+        }
+      ],
       "get": {
-        "description": "Generate an AdSense report based on the report request sent in the query parameters. Returns the result as JSON; to retrieve output in CSV format specify \"alt=csv\" as a query parameter.",
-        "operationId": "accounts.reports.generate",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Hosted account upon which to report.",
             "in": "path",
             "name": "accountId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Start of the date range to report on in \"YYYY-MM-DD\" format, inclusive.",
+            "in": "query",
+            "name": "startDate",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "End of the date range to report on in \"YYYY-MM-DD\" format, inclusive.",
+            "in": "query",
+            "name": "endDate",
             "required": true,
             "type": "string"
           },
@@ -823,13 +1048,6 @@
             },
             "name": "dimension",
             "type": "array"
-          },
-          {
-            "description": "End of the date range to report on in \"YYYY-MM-DD\" format, inclusive.",
-            "in": "query",
-            "name": "endDate",
-            "required": true,
-            "type": "string"
           },
           {
             "collectionFormat": "multi",
@@ -876,13 +1094,6 @@
             "type": "array"
           },
           {
-            "description": "Start of the date range to report on in \"YYYY-MM-DD\" format, inclusive.",
-            "in": "query",
-            "name": "startDate",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "Index of the first row of report data to return.",
             "in": "query",
             "maximum": 5000,
@@ -903,41 +1114,72 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adsensehost"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/adsensehost"
             ]
           }
         ],
         "tags": [
           "accounts"
-        ]
-      },
-      "parameters": [
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/userIp"
-        }
-      ]
+        ],
+        "description": "Generate an AdSense report based on the report request sent in the query parameters. Returns the result as JSON; to retrieve output in CSV format specify \"alt=csv\" as a query parameter.",
+        "operationId": "adsensehost.accounts.reports.generate"
+      }
     },
     "/adclients": {
+      "parameters": [
+        {
+          "description": "Data format for the response.",
+          "enum": [
+            "csv",
+            "json"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
+        },
+        {
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
+        },
+        {
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
+        },
+        {
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
+        },
+        {
+          "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
+        },
+        {
+          "description": "Deprecated. Please use quotaUser instead.",
+          "in": "query",
+          "name": "userIp",
+          "type": "string"
+        }
+      ],
       "get": {
-        "description": "List all host ad clients in this AdSense account.",
-        "operationId": "adclients.list",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "The maximum number of ad clients to include in the response, used for paging.",
@@ -966,41 +1208,72 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adsensehost"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/adsensehost"
             ]
           }
         ],
         "tags": [
           "adclients"
-        ]
-      },
-      "parameters": [
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/userIp"
-        }
-      ]
+        ],
+        "description": "List all host ad clients in this AdSense account.",
+        "operationId": "adsensehost.adclients.list"
+      }
     },
     "/adclients/{adClientId}": {
+      "parameters": [
+        {
+          "description": "Data format for the response.",
+          "enum": [
+            "csv",
+            "json"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
+        },
+        {
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
+        },
+        {
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
+        },
+        {
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
+        },
+        {
+          "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
+        },
+        {
+          "description": "Deprecated. Please use quotaUser instead.",
+          "in": "query",
+          "name": "userIp",
+          "type": "string"
+        }
+      ],
       "get": {
-        "description": "Get information about one of the ad clients in the Host AdSense account.",
-        "operationId": "adclients.get",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Ad client to get.",
@@ -1022,41 +1295,72 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adsensehost"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/adsensehost"
             ]
           }
         ],
         "tags": [
           "adclients"
-        ]
-      },
-      "parameters": [
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/userIp"
-        }
-      ]
+        ],
+        "description": "Get information about one of the ad clients in the Host AdSense account.",
+        "operationId": "adsensehost.adclients.get"
+      }
     },
     "/adclients/{adClientId}/customchannels": {
+      "parameters": [
+        {
+          "description": "Data format for the response.",
+          "enum": [
+            "csv",
+            "json"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
+        },
+        {
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
+        },
+        {
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
+        },
+        {
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
+        },
+        {
+          "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
+        },
+        {
+          "description": "Deprecated. Please use quotaUser instead.",
+          "in": "query",
+          "name": "userIp",
+          "type": "string"
+        }
+      ],
       "get": {
-        "description": "List all host custom channels in this AdSense account.",
-        "operationId": "customchannels.list",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Ad client for which to list custom channels.",
@@ -1092,39 +1396,25 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adsensehost"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/adsensehost"
             ]
           }
         ],
         "tags": [
           "customchannels"
-        ]
+        ],
+        "description": "List all host custom channels in this AdSense account.",
+        "operationId": "adsensehost.customchannels.list"
       },
-      "parameters": [
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/userIp"
-        }
-      ],
       "patch": {
-        "description": "Update a custom channel in the host AdSense account. This method supports patch semantics.",
-        "operationId": "customchannels.patch",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Ad client in which the custom channel will be updated.",
@@ -1134,18 +1424,18 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/CustomChannel"
-            }
-          },
-          {
             "description": "Custom channel to get.",
             "in": "query",
             "name": "customChannelId",
             "required": true,
             "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/CustomChannel"
+            }
           }
         ],
         "responses": {
@@ -1160,16 +1450,25 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adsensehost"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/adsensehost"
             ]
           }
         ],
         "tags": [
           "customchannels"
-        ]
+        ],
+        "description": "Update a custom channel in the host AdSense account. This method supports patch semantics.",
+        "operationId": "adsensehost.customchannels.patch"
       },
       "post": {
-        "description": "Add a new custom channel to the host AdSense account.",
-        "operationId": "customchannels.insert",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Ad client to which the new custom channel will be added.",
@@ -1198,16 +1497,25 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adsensehost"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/adsensehost"
             ]
           }
         ],
         "tags": [
           "customchannels"
-        ]
+        ],
+        "description": "Add a new custom channel to the host AdSense account.",
+        "operationId": "adsensehost.customchannels.insert"
       },
       "put": {
-        "description": "Update a custom channel in the host AdSense account.",
-        "operationId": "customchannels.update",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Ad client in which the custom channel will be updated.",
@@ -1236,18 +1544,72 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adsensehost"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/adsensehost"
             ]
           }
         ],
         "tags": [
           "customchannels"
-        ]
+        ],
+        "description": "Update a custom channel in the host AdSense account.",
+        "operationId": "adsensehost.customchannels.update"
       }
     },
     "/adclients/{adClientId}/customchannels/{customChannelId}": {
+      "parameters": [
+        {
+          "description": "Data format for the response.",
+          "enum": [
+            "csv",
+            "json"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
+        },
+        {
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
+        },
+        {
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
+        },
+        {
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
+        },
+        {
+          "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
+        },
+        {
+          "description": "Deprecated. Please use quotaUser instead.",
+          "in": "query",
+          "name": "userIp",
+          "type": "string"
+        }
+      ],
       "delete": {
-        "description": "Delete a specific custom channel from the host AdSense account.",
-        "operationId": "customchannels.delete",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Ad client from which to delete the custom channel.",
@@ -1276,16 +1638,22 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adsensehost"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/adsensehost"
             ]
           }
         ],
         "tags": [
           "customchannels"
-        ]
+        ],
+        "description": "Delete a specific custom channel from the host AdSense account.",
+        "operationId": "adsensehost.customchannels.delete"
       },
       "get": {
-        "description": "Get a specific custom channel from the host AdSense account.",
-        "operationId": "customchannels.get",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Ad client from which to get the custom channel.",
@@ -1314,41 +1682,72 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adsensehost"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/adsensehost"
             ]
           }
         ],
         "tags": [
           "customchannels"
-        ]
-      },
-      "parameters": [
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/userIp"
-        }
-      ]
+        ],
+        "description": "Get a specific custom channel from the host AdSense account.",
+        "operationId": "adsensehost.customchannels.get"
+      }
     },
     "/adclients/{adClientId}/urlchannels": {
+      "parameters": [
+        {
+          "description": "Data format for the response.",
+          "enum": [
+            "csv",
+            "json"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
+        },
+        {
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
+        },
+        {
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
+        },
+        {
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
+        },
+        {
+          "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
+        },
+        {
+          "description": "Deprecated. Please use quotaUser instead.",
+          "in": "query",
+          "name": "userIp",
+          "type": "string"
+        }
+      ],
       "get": {
-        "description": "List all host URL channels in the host AdSense account.",
-        "operationId": "urlchannels.list",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Ad client for which to list URL channels.",
@@ -1384,39 +1783,25 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adsensehost"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/adsensehost"
             ]
           }
         ],
         "tags": [
           "urlchannels"
-        ]
+        ],
+        "description": "List all host URL channels in the host AdSense account.",
+        "operationId": "adsensehost.urlchannels.list"
       },
-      "parameters": [
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/userIp"
-        }
-      ],
       "post": {
-        "description": "Add a new URL channel to the host AdSense account.",
-        "operationId": "urlchannels.insert",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Ad client to which the new URL channel will be added.",
@@ -1445,18 +1830,72 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adsensehost"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/adsensehost"
             ]
           }
         ],
         "tags": [
           "urlchannels"
-        ]
+        ],
+        "description": "Add a new URL channel to the host AdSense account.",
+        "operationId": "adsensehost.urlchannels.insert"
       }
     },
     "/adclients/{adClientId}/urlchannels/{urlChannelId}": {
+      "parameters": [
+        {
+          "description": "Data format for the response.",
+          "enum": [
+            "csv",
+            "json"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
+        },
+        {
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
+        },
+        {
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
+        },
+        {
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
+        },
+        {
+          "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
+        },
+        {
+          "description": "Deprecated. Please use quotaUser instead.",
+          "in": "query",
+          "name": "userIp",
+          "type": "string"
+        }
+      ],
       "delete": {
-        "description": "Delete a URL channel from the host AdSense account.",
-        "operationId": "urlchannels.delete",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Ad client from which to delete the URL channel.",
@@ -1485,41 +1924,72 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adsensehost"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/adsensehost"
             ]
           }
         ],
         "tags": [
           "urlchannels"
-        ]
-      },
-      "parameters": [
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/userIp"
-        }
-      ]
+        ],
+        "description": "Delete a URL channel from the host AdSense account.",
+        "operationId": "adsensehost.urlchannels.delete"
+      }
     },
     "/associationsessions/start": {
+      "parameters": [
+        {
+          "description": "Data format for the response.",
+          "enum": [
+            "csv",
+            "json"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
+        },
+        {
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
+        },
+        {
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
+        },
+        {
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
+        },
+        {
+          "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
+        },
+        {
+          "description": "Deprecated. Please use quotaUser instead.",
+          "in": "query",
+          "name": "userIp",
+          "type": "string"
+        }
+      ],
       "get": {
-        "description": "Create an association session for initiating an association with an AdSense user.",
-        "operationId": "associationsessions.start",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "collectionFormat": "multi",
@@ -1540,6 +2010,19 @@
             "type": "array"
           },
           {
+            "description": "The URL of the user's hosted website.",
+            "in": "query",
+            "name": "websiteUrl",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The URL to redirect the user to once association is completed. It receives a token parameter that can then be used to retrieve the associated account.",
+            "in": "query",
+            "name": "callbackUrl",
+            "type": "string"
+          },
+          {
             "description": "The preferred locale of the user.",
             "in": "query",
             "name": "userLocale",
@@ -1549,13 +2032,6 @@
             "description": "The locale of the user's hosted website.",
             "in": "query",
             "name": "websiteLocale",
-            "type": "string"
-          },
-          {
-            "description": "The URL of the user's hosted website.",
-            "in": "query",
-            "name": "websiteUrl",
-            "required": true,
             "type": "string"
           }
         ],
@@ -1571,41 +2047,72 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adsensehost"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/adsensehost"
             ]
           }
         ],
         "tags": [
           "associationsessions"
-        ]
-      },
-      "parameters": [
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/userIp"
-        }
-      ]
+        ],
+        "description": "Create an association session for initiating an association with an AdSense user.",
+        "operationId": "adsensehost.associationsessions.start"
+      }
     },
     "/associationsessions/verify": {
+      "parameters": [
+        {
+          "description": "Data format for the response.",
+          "enum": [
+            "csv",
+            "json"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
+        },
+        {
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
+        },
+        {
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
+        },
+        {
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
+        },
+        {
+          "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
+        },
+        {
+          "description": "Deprecated. Please use quotaUser instead.",
+          "in": "query",
+          "name": "userIp",
+          "type": "string"
+        }
+      ],
       "get": {
-        "description": "Verify an association session after the association callback returns from AdSense signup.",
-        "operationId": "associationsessions.verify",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "The token returned to the association callback URL.",
@@ -1627,42 +2134,87 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adsensehost"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/adsensehost"
             ]
           }
         ],
         "tags": [
           "associationsessions"
-        ]
-      },
-      "parameters": [
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/userIp"
-        }
-      ]
+        ],
+        "description": "Verify an association session after the association callback returns from AdSense signup.",
+        "operationId": "adsensehost.associationsessions.verify"
+      }
     },
     "/reports": {
+      "parameters": [
+        {
+          "description": "Data format for the response.",
+          "enum": [
+            "csv",
+            "json"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
+        },
+        {
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
+        },
+        {
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
+        },
+        {
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
+        },
+        {
+          "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
+        },
+        {
+          "description": "Deprecated. Please use quotaUser instead.",
+          "in": "query",
+          "name": "userIp",
+          "type": "string"
+        }
+      ],
       "get": {
-        "description": "Generate an AdSense report based on the report request sent in the query parameters. Returns the result as JSON; to retrieve output in CSV format specify \"alt=csv\" as a query parameter.",
-        "operationId": "reports.generate",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "description": "Start of the date range to report on in \"YYYY-MM-DD\" format, inclusive.",
+            "in": "query",
+            "name": "startDate",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "End of the date range to report on in \"YYYY-MM-DD\" format, inclusive.",
+            "in": "query",
+            "name": "endDate",
+            "required": true,
+            "type": "string"
+          },
           {
             "collectionFormat": "multi",
             "description": "Dimensions to base the report on.",
@@ -1672,13 +2224,6 @@
             },
             "name": "dimension",
             "type": "array"
-          },
-          {
-            "description": "End of the date range to report on in \"YYYY-MM-DD\" format, inclusive.",
-            "in": "query",
-            "name": "endDate",
-            "required": true,
-            "type": "string"
           },
           {
             "collectionFormat": "multi",
@@ -1725,13 +2270,6 @@
             "type": "array"
           },
           {
-            "description": "Start of the date range to report on in \"YYYY-MM-DD\" format, inclusive.",
-            "in": "query",
-            "name": "startDate",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "Index of the first row of report data to return.",
             "in": "query",
             "maximum": 5000,
@@ -1752,36 +2290,18 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adsensehost"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/adsensehost"
             ]
           }
         ],
         "tags": [
           "reports"
-        ]
-      },
-      "parameters": [
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/userIp"
-        }
-      ]
+        ],
+        "description": "Generate an AdSense report based on the report request sent in the query parameters. Returns the result as JSON; to retrieve output in CSV format specify \"alt=csv\" as a query parameter.",
+        "operationId": "adsensehost.reports.generate"
+      }
     }
   },
   "definitions": {
@@ -2257,6 +2777,100 @@
         }
       },
       "type": "object"
+    }
+  },
+  "securityDefinitions": {
+    "Oauth2": {
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+      "description": "Oauth 2.0 implicit authentication",
+      "flow": "implicit",
+      "scopes": {
+        "https://www.googleapis.com/auth/adsensehost": "View and manage your AdSense host data and associated accounts"
+      },
+      "type": "oauth2"
+    },
+    "Oauth2c": {
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+      "description": "Oauth 2.0 authorizationCode authentication",
+      "flow": "accessCode",
+      "scopes": {
+        "https://www.googleapis.com/auth/adsensehost": "View and manage your AdSense host data and associated accounts"
+      },
+      "tokenUrl": "https://accounts.google.com/o/oauth2/token",
+      "type": "oauth2"
+    }
+  },
+  "tags": [
+    {
+      "name": "accounts"
+    },
+    {
+      "name": "adclients"
+    },
+    {
+      "name": "associationsessions"
+    },
+    {
+      "name": "customchannels"
+    },
+    {
+      "name": "reports"
+    },
+    {
+      "name": "urlchannels"
+    }
+  ],
+  "externalDocs": {
+    "url": "https://developers.google.com/adsense/host/"
+  },
+  "x-components": {
+    "parameters": {
+      "alt": {
+        "description": "Data format for the response.",
+        "enum": [
+          "csv",
+          "json"
+        ],
+        "in": "query",
+        "name": "alt",
+        "type": "string"
+      },
+      "fields": {
+        "description": "Selector specifying which fields to include in a partial response.",
+        "in": "query",
+        "name": "fields",
+        "type": "string"
+      },
+      "key": {
+        "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+        "in": "query",
+        "name": "key",
+        "type": "string"
+      },
+      "oauth_token": {
+        "description": "OAuth 2.0 token for the current user.",
+        "in": "query",
+        "name": "oauth_token",
+        "type": "string"
+      },
+      "prettyPrint": {
+        "description": "Returns response with indentations and line breaks.",
+        "in": "query",
+        "name": "prettyPrint",
+        "type": "boolean"
+      },
+      "quotaUser": {
+        "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
+        "in": "query",
+        "name": "quotaUser",
+        "type": "string"
+      },
+      "userIp": {
+        "description": "Deprecated. Please use quotaUser instead.",
+        "in": "query",
+        "name": "userIp",
+        "type": "string"
+      }
     }
   }
 }

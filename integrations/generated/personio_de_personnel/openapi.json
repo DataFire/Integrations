@@ -1,10 +1,5 @@
 {
   "swagger": "2.0",
-  "schemes": [
-    "https"
-  ],
-  "host": "api.personio.de",
-  "basePath": "/v1",
   "info": {
     "contact": {
       "x-twitter": "PersonioHR"
@@ -20,9 +15,9 @@
     },
     "x-origin": [
       {
-        "format": "swagger",
+        "format": "openapi",
         "url": "https://raw.githubusercontent.com/personio/api-docs/master/personio-personnel-data-api.yaml",
-        "version": "2.0"
+        "version": "3.0"
       }
     ],
     "x-preferred": true,
@@ -33,413 +28,84 @@
       "type": "openapi"
     }
   },
-  "consumes": [
-    "application/json"
+  "host": "api.personio.de",
+  "basePath": "/v1",
+  "schemes": [
+    "https"
   ],
-  "produces": [
-    "application/json"
-  ],
-  "securityDefinitions": {
-    "auth": {
-      "in": "header",
-      "name": "Authorization",
-      "type": "apiKey"
-    }
-  },
   "paths": {
-    "/company/attendance-periods": {
+    "/company/attendances": {
       "get": {
-        "description": "List Attendance Periods",
-        "parameters": [],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "First day of the period to be queried. It is inclusive, so the day specified as start_date will also be considered on the results",
+            "format": "date",
+            "in": "query",
+            "name": "start_date",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Last day of the period to be queried. It is inclusive, so the day specified as end_date will also be considered on the results.",
+            "format": "date",
+            "in": "query",
+            "name": "end_date",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "collectionFormat": "multi",
+            "description": "A list of Personio employee identifiers to filter the results. Only those employees specified here will be returned.",
+            "in": "query",
+            "items": {
+              "type": "integer"
+            },
+            "name": "employees",
+            "required": false,
+            "type": "array"
+          },
+          {
+            "default": 200,
+            "description": "Pagination attribute to limit how many attendances will be returned per page",
+            "in": "query",
+            "minimum": 1,
+            "name": "limit",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "default": 0,
+            "description": "Pagination attribute to identify which page you are requesting, by the form of telling an offset from the first record that would be returned.",
+            "in": "query",
+            "minimum": 0,
+            "name": "offset",
+            "required": false,
+            "type": "integer"
+          }
+        ],
         "responses": {
           "200": {
             "description": "",
-            "examples": {
-              "application/json": {
-                "data": [
-                  {
-                    "attributes": {
-                      "break": 35,
-                      "comment": "I was productive as hell",
-                      "created_at": "2017-01-17T10:32:18+0100",
-                      "employee": {
-                        "attributes": {
-                          "email": {
-                            "label": "Email",
-                            "value": "michael.miller@demo.com"
-                          },
-                          "first_name": {
-                            "label": "First name",
-                            "value": "Michael"
-                          },
-                          "id": 325659,
-                          "last_name": {
-                            "label": "Last name",
-                            "value": "Miller"
-                          }
-                        },
-                        "type": "Employee"
-                      },
-                      "end_time": "2017-01-17T18:00:00+0100",
-                      "id": 325659,
-                      "start_time": "2017-01-17T10:00:00+0100",
-                      "status": "confirmed",
-                      "updated_at": "2017-01-17T10:32:18+0100"
-                    },
-                    "type": "AttendancePeriod"
-                  }
-                ],
-                "success": true
-              }
-            },
             "schema": {
               "$ref": "#/definitions/AttendancePeriodsResponse"
             }
           }
         },
-        "operationId": "company.attendance_periods.get"
-      }
-    },
-    "/company/employees": {
-      "get": {
-        "description": "List Employees",
-        "parameters": [
-          {
-            "description": "[In development] Query string to perform search on. Returns all employees if not present. Can also be used with custom attributes, e.g. `dynamic_9382=abcd`",
-            "in": "query",
-            "name": "query",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "[In development] Attributes to be returend for employees found. Returns all available attributes if not present. Pass `attributes` multiple times of needed.",
-            "in": "query",
-            "items": {},
-            "name": "attributes",
-            "required": false,
-            "type": "array"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "",
-            "examples": {
-              "application/json": {
-                "data": [
-                  {
-                    "attributes": {
-                      "contract_end_date": {
-                        "label": "Contract ends"
-                      },
-                      "cost_centers": {
-                        "label": "Cost center",
-                        "value": [
-                          {
-                            "attributes": {
-                              "id": 320,
-                              "name": "Cost Center One",
-                              "percentage": 50
-                            },
-                            "type": "CostCenter"
-                          },
-                          {
-                            "attributes": {
-                              "id": 321,
-                              "name": "Cost Center Two",
-                              "percentage": 50
-                            },
-                            "type": "CostCenter"
-                          }
-                        ]
-                      },
-                      "created_at": {
-                        "label": "created_at",
-                        "value": "2016-10-20T16:15:55+0200"
-                      },
-                      "department": {
-                        "label": "Department",
-                        "value": {
-                          "attributes": {
-                            "name": "Marketing"
-                          },
-                          "type": "Department"
-                        }
-                      },
-                      "dynamic_21827": {
-                        "label": "IBAN",
-                        "value": "DE98 8989 9898 0000 8989 00"
-                      },
-                      "dynamic_24407": {
-                        "label": "Titel",
-                        "value": "Dr"
-                      },
-                      "email": {
-                        "label": "Email",
-                        "value": "andreas.anderson@demo.com"
-                      },
-                      "employment_type": {
-                        "label": "Employment type",
-                        "value": "internal"
-                      },
-                      "first_name": {
-                        "label": "First name",
-                        "value": "Andreas"
-                      },
-                      "fix_salary": {
-                        "label": "Fix salary",
-                        "value": 4000
-                      },
-                      "gender": {
-                        "label": "Gender",
-                        "value": "male"
-                      },
-                      "hire_date": {
-                        "label": "Hire date",
-                        "value": "2012-02-01T00:00:00+0100"
-                      },
-                      "hourly_salary": {
-                        "label": "Hourly salary",
-                        "value": 0
-                      },
-                      "id": {
-                        "label": "id",
-                        "value": 83752
-                      },
-                      "last_name": {
-                        "label": "Last name",
-                        "value": "Anderson"
-                      },
-                      "last_working_day": {
-                        "label": "Last working day",
-                        "value": "2017-02-28T00:00:00+0200"
-                      },
-                      "office": {
-                        "label": "Office",
-                        "value": {
-                          "attributes": {
-                            "name": "Munich"
-                          },
-                          "type": "Office"
-                        }
-                      },
-                      "position": {
-                        "label": "Position",
-                        "value": "Online Marketing Specialist"
-                      },
-                      "probation_period_end": {
-                        "label": "Probation period end",
-                        "value": "2012-07-31T00:00:00+0200"
-                      },
-                      "status": {
-                        "label": "Status",
-                        "value": "active"
-                      },
-                      "termination_date": {
-                        "label": "Termination date"
-                      },
-                      "termination_reason": {
-                        "label": "Termination reason",
-                        "value": ""
-                      },
-                      "termination_type": {
-                        "label": "Termination type",
-                        "value": ""
-                      },
-                      "vacation_day_balance": {
-                        "label": "Vacation day balance",
-                        "value": 28.5
-                      },
-                      "weekly_working_hours": {
-                        "label": "Weekly hours",
-                        "value": "40"
-                      }
-                    },
-                    "type": "Employee"
-                  }
-                ],
-                "success": true
-              }
-            },
-            "schema": {
-              "$ref": "#/definitions/EmployeesResponse"
-            }
-          }
-        },
-        "operationId": "company.employees.get"
-      }
-    },
-    "/company/employees/{employee_id}": {
-      "get": {
-        "description": "Employee",
-        "parameters": [
-          {
-            "description": "Numeric `id` of the employee",
-            "format": "integer",
-            "in": "path",
-            "name": "employee_id",
-            "required": true,
-            "type": "number"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "",
-            "examples": {
-              "application/json": {
-                "data": {
-                  "attributes": {
-                    "contract_end_date": {
-                      "label": "Contract ends"
-                    },
-                    "cost_centers": {
-                      "label": "Cost center",
-                      "value": [
-                        {
-                          "attributes": {
-                            "id": 320,
-                            "name": "Cost Center One",
-                            "percentage": 50
-                          },
-                          "type": "CostCenter"
-                        },
-                        {
-                          "attributes": {
-                            "id": 321,
-                            "name": "Cost Center Two",
-                            "percentage": 50
-                          },
-                          "type": "CostCenter"
-                        }
-                      ]
-                    },
-                    "created_at": {
-                      "label": "created_at",
-                      "value": "2016-10-20T16:15:55+0200"
-                    },
-                    "department": {
-                      "label": "Department",
-                      "value": {
-                        "attributes": {
-                          "name": "Marketing"
-                        },
-                        "type": "Department"
-                      }
-                    },
-                    "dynamic_21827": {
-                      "label": "IBAN",
-                      "value": "DE98 8989 9898 0000 8989 00"
-                    },
-                    "dynamic_24407": {
-                      "label": "Titel",
-                      "value": "Dr"
-                    },
-                    "email": {
-                      "label": "Email",
-                      "value": "andreas.anderson@demo.com"
-                    },
-                    "employment_type": {
-                      "label": "Employment type",
-                      "value": "internal"
-                    },
-                    "first_name": {
-                      "label": "First name",
-                      "value": "Andreas"
-                    },
-                    "fix_salary": {
-                      "label": "Fix salary",
-                      "value": 4000
-                    },
-                    "gender": {
-                      "label": "Gender",
-                      "value": "male"
-                    },
-                    "hire_date": {
-                      "label": "Hire date",
-                      "value": "2012-02-01T00:00:00+0100"
-                    },
-                    "hourly_salary": {
-                      "label": "Hourly salary",
-                      "value": 0
-                    },
-                    "id": {
-                      "label": "id",
-                      "value": 83752
-                    },
-                    "last_name": {
-                      "label": "Last name",
-                      "value": "Anderson"
-                    },
-                    "last_working_day": {
-                      "label": "Last working day",
-                      "value": "2017-02-28T00:00:00+0200"
-                    },
-                    "office": {
-                      "label": "Office",
-                      "value": {
-                        "attributes": {
-                          "name": "Munich"
-                        },
-                        "type": "Office"
-                      }
-                    },
-                    "position": {
-                      "label": "Position",
-                      "value": "Online Marketing Specialist"
-                    },
-                    "probation_period_end": {
-                      "label": "Probation period end",
-                      "value": "2012-07-31T00:00:00+0200"
-                    },
-                    "status": {
-                      "label": "Status",
-                      "value": "active"
-                    },
-                    "termination_date": {
-                      "label": "Termination date"
-                    },
-                    "termination_reason": {
-                      "label": "Termination reason",
-                      "value": ""
-                    },
-                    "termination_type": {
-                      "label": "Termination type",
-                      "value": ""
-                    },
-                    "vacation_day_balance": {
-                      "label": "Vacation day balance",
-                      "value": 28.5
-                    },
-                    "weekly_working_hours": {
-                      "label": "Weekly hours",
-                      "value": "40"
-                    }
-                  },
-                  "type": "Employee"
-                },
-                "success": true
-              }
-            },
-            "schema": {
-              "$ref": "#/definitions/EmployeeResponse"
-            }
-          }
-        },
-        "operationId": "company.employees.employee_id.get"
-      }
-    },
-    "/company/employees/{employee_id}/attendance-periods": {
+        "description": "This endpoint is responsible for fetching attendance data for the company employees. It is possible to paginate results, filter by period and/or specific employees. The result will contain a list of attendance periods, structured as defined here."
+      },
       "post": {
-        "description": "Create new attendance period",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "description": "Numeric `id` of the User to perform action with.",
-            "format": "double",
-            "in": "path",
-            "name": "employee_id",
-            "required": true,
-            "type": "number"
-          },
-          {
+            "description": "List of attendance periods to create",
             "in": "body",
             "name": "body",
             "required": true,
@@ -450,180 +116,513 @@
         ],
         "responses": {
           "200": {
-            "description": "",
-            "examples": {
-              "application/json": {
-                "data": {
-                  "attributes": {
-                    "break": 35,
-                    "comment": "I was productive as hell",
-                    "created_at": "2017-01-17T10:32:18+0100",
-                    "employee": {
-                      "attributes": {
-                        "email": {
-                          "label": "Email",
-                          "value": "michael.miller@demo.com"
-                        },
-                        "first_name": {
-                          "label": "First name",
-                          "value": "Michael"
-                        },
-                        "id": 325659,
-                        "last_name": {
-                          "label": "Last name",
-                          "value": "Miller"
-                        }
-                      },
-                      "type": "Employee"
-                    },
-                    "end_time": "2017-01-17T18:00:00+0100",
-                    "id": 325659,
-                    "start_time": "2017-01-17T10:00:00+0100",
-                    "status": "confirmed",
-                    "updated_at": "2017-01-17T10:32:18+0100"
-                  },
-                  "type": "AttendancePeriod"
-                },
-                "success": true
-              }
-            },
+            "description": "The attendance periods were created successfully",
             "schema": {
               "$ref": "#/definitions/NewAttendancePeriodResponse"
             }
+          },
+          "400": {
+            "description": "Invalid request",
+            "schema": {
+              "$ref": "#/definitions/DetailedErrorResponse"
+            }
           }
         },
-        "operationId": "company.employees.employee_id.attendance_periods.post"
+        "description": "This endpoint is responsible for adding attendance data for the company employees. It is possible to add attendances for one or many employees at the same time. The payload sent on the request should be a list of attendance periods, in the form of an array containing attendance period objects."
       }
     },
-    "/company/time-off/{time_off_id}": {
-      "get": {
-        "description": "Absence Period",
+    "/company/attendances/{id}": {
+      "delete": {
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "description": "Numeric `id` of the absence period",
-            "format": "integer",
+            "description": "ID of the attendance period to delete",
+            "format": "int32",
             "in": "path",
-            "name": "time_off_id",
+            "name": "id",
             "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success response",
+            "schema": {
+              "$ref": "#/definitions/Response"
+            }
+          },
+          "404": {
+            "description": "Not found response",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "description": "This endpoint is responsible for deleting attendance data for the company employees."
+      },
+      "patch": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "ID of the attendance period to update",
+            "format": "int32",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "attendance period data to update",
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateAttendancePeriodRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success response",
+            "schema": {
+              "$ref": "#/definitions/Response"
+            }
+          },
+          "404": {
+            "description": "Not found response",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "description": "This endpoint is responsible for updating attendance data for the company employees. Attributes are not required and if not specified, the current value will be used. It is not possible to change the employee id."
+      }
+    },
+    "/company/employees": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/EmployeesResponse"
+            }
+          }
+        },
+        "description": "List Employees"
+      },
+      "post": {
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Employee department",
+            "in": "formData",
+            "name": "employee[department]",
+            "type": "string"
+          },
+          {
+            "description": "Employee email",
+            "in": "formData",
+            "name": "employee[email]",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Employee first name",
+            "in": "formData",
+            "name": "employee[first_name]",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Employee gender",
+            "enum": [
+              "male",
+              "female",
+              "diverse"
+            ],
+            "in": "formData",
+            "name": "employee[gender]",
+            "type": "string"
+          },
+          {
+            "description": "Employee hire date",
+            "format": "date",
+            "in": "formData",
+            "name": "employee[hire_date]",
+            "type": "string"
+          },
+          {
+            "description": "Employee last name",
+            "in": "formData",
+            "name": "employee[last_name]",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Employee position",
+            "in": "formData",
+            "name": "employee[position]",
+            "type": "string"
+          },
+          {
+            "description": "Employee weekly working hours",
+            "in": "formData",
+            "name": "employee[weekly_hours]",
             "type": "number"
           }
         ],
         "responses": {
           "200": {
-            "description": "",
-            "examples": {
-              "application/json": {
-                "data": {
-                  "attributes": {
-                    "certificate": {
-                      "status": "not-required"
-                    },
-                    "created_at": "2017-01-17T10:32:18+0100",
-                    "days_count": 3,
-                    "employee": {
-                      "attributes": {
-                        "email": {
-                          "label": "Email",
-                          "value": "michael.miller@demo.com"
-                        },
-                        "first_name": {
-                          "label": "First name",
-                          "value": "Michael"
-                        },
-                        "last_name": {
-                          "label": "Last name",
-                          "value": "Miller"
-                        }
-                      },
-                      "type": "Employee"
-                    },
-                    "end_date": "2017-12-29T00:00:00+0100",
-                    "half_day_end": 0,
-                    "half_day_start": 0,
-                    "start_date": "2017-12-27T00:00:00+0100",
-                    "status": "approved",
-                    "time_off_type": {
-                      "attributes": {
-                        "name": "Vacation"
-                      },
-                      "type": "TimeOffType"
-                    }
-                  },
-                  "type": "TimeOffPeriod"
-                },
-                "success": true
-              }
-            },
+            "description": "Successful creation of a employee",
             "schema": {
-              "$ref": "#/definitions/AbsencePeriodResponse"
+              "allOf": [
+                {
+                  "$ref": "#/definitions/Response"
+                }
+              ]
             }
           }
         },
-        "operationId": "company.time_off.time_off_id.get"
+        "description": "Creates new employee. Status of the employee will be set to `active` if `hire_date` provided is in past. Otherwise status will be set to `onboarding`. This endpoint will respond with `id` of created employee in case of success.\n",
+        "summary": "Create an employee"
+      }
+    },
+    "/company/employees/{employee_id}": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Numeric `id` of the employee",
+            "format": "int32",
+            "in": "path",
+            "name": "employee_id",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/EmployeeResponse"
+            }
+          }
+        },
+        "description": "Show employee by ID"
+      }
+    },
+    "/company/employees/{employee_id}/profile-picture/{width}": {
+      "get": {
+        "produces": [
+          "image/png"
+        ],
+        "parameters": [
+          {
+            "description": "Numeric `id` of the employee",
+            "format": "int32",
+            "in": "path",
+            "name": "employee_id",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Width of the image. Default 75x75",
+            "format": "int32",
+            "in": "path",
+            "name": "width",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "format": "binary",
+              "type": "string"
+            }
+          }
+        },
+        "description": "Show employee profile picture"
+      }
+    },
+    "/company/time-off-types": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "default": 200,
+            "description": "Pagination attribute to limit how many records will be returned per page",
+            "in": "query",
+            "minimum": 1,
+            "name": "limit",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "default": 0,
+            "description": "Pagination attribute to identify which page you are requesting, by the form of telling an offset from the first record that would be returned.",
+            "in": "query",
+            "minimum": 0,
+            "name": "offset",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "properties": {
+                "data": {
+                  "items": {
+                    "$ref": "#/definitions/TimeOffTypeResource"
+                  },
+                  "type": "array"
+                },
+                "success": {
+                  "type": "boolean"
+                }
+              },
+              "type": "object"
+            }
+          }
+        },
+        "description": "Provides a list of available time-off types, for example 'Paid vacation', 'Parental leave' or 'Home office'"
       }
     },
     "/company/time-offs": {
       "get": {
-        "description": "List All Absence Periods",
-        "parameters": [],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "First day of the period to be queried. It is inclusive, so the day specified as start_date will also be considered on the results",
+            "format": "date",
+            "in": "query",
+            "name": "start_date",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Last day of the period to be queried. It is inclusive, so the day specified as end_date will also be considered on the results.",
+            "format": "date",
+            "in": "query",
+            "name": "end_date",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "collectionFormat": "multi",
+            "description": "A list of Personio employee identifiers to filter the results. Only those employees specified here will be returned.",
+            "in": "query",
+            "items": {
+              "type": "integer"
+            },
+            "name": "employees",
+            "required": false,
+            "type": "array"
+          },
+          {
+            "default": 200,
+            "description": "Pagination attribute to limit how many attendances will be returned per page",
+            "in": "query",
+            "minimum": 1,
+            "name": "limit",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "default": 0,
+            "description": "Pagination attribute to identify which page you are requesting, by the form of telling an offset from the first record that would be returned.",
+            "in": "query",
+            "minimum": 0,
+            "name": "offset",
+            "required": false,
+            "type": "integer"
+          }
+        ],
         "responses": {
           "200": {
             "description": "",
-            "examples": {
-              "application/json": {
-                "data": [
-                  {
-                    "attributes": {
-                      "certificate": {
-                        "status": "not-required"
-                      },
-                      "created_at": "2017-01-17T10:32:18+0100",
-                      "days_count": 3,
-                      "employee": {
-                        "attributes": {
-                          "email": {
-                            "label": "Email",
-                            "value": "michael.miller@demo.com"
-                          },
-                          "first_name": {
-                            "label": "First name",
-                            "value": "Michael"
-                          },
-                          "last_name": {
-                            "label": "Last name",
-                            "value": "Miller"
-                          }
-                        },
-                        "type": "Employee"
-                      },
-                      "end_date": "2017-12-29T00:00:00+0100",
-                      "half_day_end": 0,
-                      "half_day_start": 0,
-                      "start_date": "2017-12-27T00:00:00+0100",
-                      "status": "approved",
-                      "time_off_type": {
-                        "attributes": {
-                          "name": "Vacation"
-                        },
-                        "type": "TimeOffType"
-                      }
-                    },
-                    "type": "TimeOffPeriod"
-                  }
-                ],
-                "success": true
-              }
-            },
             "schema": {
               "$ref": "#/definitions/AbsencePeriodsResponse"
             }
           }
         },
-        "operationId": "company.time_offs.get"
+        "description": "This endpoint is responsible for fetching absence data for the company employees. It is possible to paginate results, filter by period and/or specific employees. The result will contain a list of absence periods, structured as defined here."
+      },
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Absence period to create",
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateTimeOffPeriodRequest"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "The absence period was created successfully",
+            "schema": {
+              "properties": {
+                "data": {
+                  "$ref": "#/definitions/CreateTimeOffPeriodResponse"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "400": {
+            "description": "Invalid request",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "404": {
+            "description": "Employee or Absence type not found",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "422": {
+            "description": "Validation error",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "description": "This endpoint is responsible for adding absence data for the company employees."
+      }
+    },
+    "/company/time-offs/{id}": {
+      "delete": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "ID of the absence period to delete",
+            "format": "int32",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success response",
+            "schema": {
+              "$ref": "#/definitions/Response"
+            }
+          },
+          "404": {
+            "description": "Not found response",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "description": "This endpoint is responsible for deleting absence period data for the company employees."
+      },
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Numeric `id` of the absence period",
+            "format": "int32",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/AbsencePeriodResponse"
+            }
+          }
+        },
+        "description": "Absence Period"
       }
     }
   },
   "definitions": {
+    "AbsenceEntitlement": {
+      "properties": {
+        "label": {
+          "type": "string"
+        },
+        "value": {
+          "items": {
+            "properties": {
+              "attributes": {
+                "properties": {
+                  "entitlement": {
+                    "type": "number"
+                  },
+                  "id": {
+                    "type": "integer"
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "type": {
+                "enum": [
+                  "TimeOffType"
+                ],
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "label",
+        "value"
+      ],
+      "type": "object"
+    },
     "AbsencePeriodResponse": {
       "type": "object"
     },
@@ -664,6 +663,9 @@
                                 "first_name": {
                                   "type": "string"
                                 },
+                                "id": {
+                                  "type": "integer"
+                                },
                                 "last_name": {
                                   "type": "string"
                                 }
@@ -687,6 +689,9 @@
                       "half_day_start": {
                         "type": "number"
                       },
+                      "id": {
+                        "type": "integer"
+                      },
                       "start_date": {
                         "type": "string"
                       },
@@ -698,6 +703,9 @@
                           "attributes": {
                             "items": {
                               "properties": {
+                                "id": {
+                                  "type": "integer"
+                                },
                                 "name": {
                                   "type": "string"
                                 }
@@ -735,6 +743,87 @@
       "type": "object"
     },
     "AttendancePeriodsResponse": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Response"
+        },
+        {
+          "properties": {
+            "data": {
+              "items": {
+                "properties": {
+                  "attributes": {
+                    "items": {
+                      "properties": {
+                        "break": {
+                          "type": "integer"
+                        },
+                        "comment": {
+                          "type": "string"
+                        },
+                        "date": {
+                          "format": "date",
+                          "type": "string"
+                        },
+                        "employee": {
+                          "type": "integer"
+                        },
+                        "end_time": {
+                          "pattern": "^\\d\\d:\\d\\d$",
+                          "type": "string"
+                        },
+                        "is_holiday": {
+                          "type": "boolean"
+                        },
+                        "is_on_time_off": {
+                          "type": "boolean"
+                        },
+                        "start_time": {
+                          "pattern": "^\\d\\d:\\d\\d$",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "employee",
+                        "date",
+                        "start_time",
+                        "end_time",
+                        "break",
+                        "comment",
+                        "is_holiday",
+                        "is_on_time_off"
+                      ],
+                      "type": "object"
+                    },
+                    "type": "array"
+                  },
+                  "id": {
+                    "type": "integer"
+                  },
+                  "type": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "type",
+                  "attributes"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "limit": {
+              "type": "integer"
+            },
+            "offset": {
+              "type": "integer"
+            }
+          },
+          "type": "object"
+        }
+      ],
+      "title": "List All Attenance Periods response",
       "type": "object"
     },
     "Attribute": {
@@ -790,6 +879,161 @@
       },
       "type": "object"
     },
+    "CreateTimeOffPeriodRequest": {
+      "properties": {
+        "comment": {
+          "description": "Optional comment",
+          "type": "string"
+        },
+        "employee_id": {
+          "description": "Employee identifier",
+          "type": "integer"
+        },
+        "end_date": {
+          "description": "Absence end date as YYYY-MM-DD",
+          "format": "date",
+          "type": "string"
+        },
+        "half_day_end": {
+          "description": "Weather the end date is a half-day off",
+          "type": "boolean"
+        },
+        "half_day_start": {
+          "description": "Weather the start date is a half-day off",
+          "type": "boolean"
+        },
+        "start_date": {
+          "description": "Absence start date as YYYY-MM-DD",
+          "format": "date",
+          "type": "string"
+        },
+        "time_off_type_id": {
+          "description": "Time-off type identifier",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "employee_id",
+        "time_off_type_id",
+        "start_date",
+        "end_date",
+        "half_day_start",
+        "half_day_end"
+      ],
+      "title": "Create time-off periods",
+      "type": "object"
+    },
+    "CreateTimeOffPeriodResponse": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Response"
+        },
+        {
+          "properties": {
+            "data": {
+              "properties": {
+                "attributes": {
+                  "properties": {
+                    "certificate": {
+                      "properties": {
+                        "status": {
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "created_at": {
+                      "type": "string"
+                    },
+                    "days_count": {
+                      "type": "number"
+                    },
+                    "employee": {
+                      "properties": {
+                        "attributes": {
+                          "items": {
+                            "properties": {
+                              "email": {
+                                "type": "string"
+                              },
+                              "first_name": {
+                                "type": "string"
+                              },
+                              "id": {
+                                "type": "integer"
+                              },
+                              "last_name": {
+                                "type": "string"
+                              }
+                            },
+                            "type": "object"
+                          },
+                          "type": "array"
+                        },
+                        "type": {
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "end_date": {
+                      "type": "string"
+                    },
+                    "half_day_end": {
+                      "type": "number"
+                    },
+                    "half_day_start": {
+                      "type": "number"
+                    },
+                    "id": {
+                      "type": "integer"
+                    },
+                    "start_date": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "time_off_type": {
+                      "properties": {
+                        "attributes": {
+                          "items": {
+                            "properties": {
+                              "id": {
+                                "type": "integer"
+                              },
+                              "name": {
+                                "type": "string"
+                              }
+                            },
+                            "type": "object"
+                          },
+                          "type": "array"
+                        },
+                        "type": {
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    }
+                  }
+                },
+                "type": {
+                  "description": "Time-off period resource name",
+                  "enum": [
+                    "TimeOffPeriod"
+                  ],
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "type": "object"
+        }
+      ],
+      "title": "Time period when an employee is not available."
+    },
     "Department": {
       "allOf": [
         {
@@ -800,15 +1044,12 @@
         "value": {
           "properties": {
             "attributes": {
-              "items": {
-                "properties": {
-                  "name": {
-                    "type": "string"
-                  }
-                },
-                "type": "object"
+              "properties": {
+                "name": {
+                  "type": "string"
+                }
               },
-              "type": "array"
+              "type": "object"
             },
             "type": {
               "type": "string"
@@ -819,11 +1060,73 @@
       },
       "type": "object"
     },
+    "DetailedErrorResponse": {
+      "properties": {
+        "error": {
+          "properties": {
+            "code": {
+              "type": "integer"
+            },
+            "detailed_message": {
+              "items": {
+                "properties": {
+                  "break": {
+                    "type": "integer"
+                  },
+                  "comment": {
+                    "type": "string"
+                  },
+                  "date": {
+                    "type": "string"
+                  },
+                  "employee": {
+                    "type": "integer"
+                  },
+                  "end_time": {
+                    "type": "string"
+                  },
+                  "error_msg": {
+                    "type": "string"
+                  },
+                  "id": {
+                    "type": "integer"
+                  },
+                  "start_time": {
+                    "type": "string"
+                  },
+                  "success": {
+                    "type": "boolean"
+                  }
+                },
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "message": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "success",
+        "error"
+      ],
+      "title": "Default error response",
+      "type": "object"
+    },
     "Employee": {
       "properties": {
         "attributes": {
           "items": {
             "properties": {
+              "absence_entitlement": {
+                "$ref": "#/definitions/AbsenceEntitlement"
+              },
               "contract_end_date": {
                 "$ref": "#/definitions/Attribute"
               },
@@ -854,6 +1157,9 @@
               "hire_date": {
                 "$ref": "#/definitions/Attribute"
               },
+              "holiday_calendar": {
+                "$ref": "#/definitions/HolidayCalendar"
+              },
               "hourly_salary": {
                 "$ref": "#/definitions/Attribute"
               },
@@ -875,6 +1181,9 @@
               "status": {
                 "$ref": "#/definitions/Attribute"
               },
+              "supervisor": {
+                "$ref": "#/definitions/Supervisor"
+              },
               "termination_date": {
                 "$ref": "#/definitions/Attribute"
               },
@@ -889,6 +1198,9 @@
               },
               "weekly_working_hours": {
                 "$ref": "#/definitions/Attribute"
+              },
+              "work_schedule": {
+                "$ref": "#/definitions/WorkSchedule"
               }
             },
             "type": "object"
@@ -950,38 +1262,160 @@
       ],
       "title": "List of Employees"
     },
-    "NewAttendancePeriodRequest": {
-      "example": {
-        "break": 35,
-        "comment": "I was productive as hell",
-        "end_time": "2017-01-17T18:00:00+0100",
-        "start_time": "2017-01-17T10:00:00+0100"
-      },
+    "ErrorResponse": {
       "properties": {
-        "break": {
-          "format": "int32",
-          "type": "integer"
+        "error": {
+          "properties": {
+            "code": {
+              "type": "integer"
+            },
+            "message": {
+              "type": "string"
+            }
+          },
+          "type": "object"
         },
-        "comment": {
-          "type": "string"
-        },
-        "end_time": {
-          "type": "string"
-        },
-        "start_time": {
-          "type": "string"
+        "success": {
+          "type": "boolean"
         }
       },
       "required": [
-        "start_time",
-        "end_time",
-        "break",
-        "comment"
+        "success",
+        "error"
       ],
+      "title": "Default error response",
+      "type": "object"
+    },
+    "HolidayCalendar": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Attribute"
+        }
+      ],
+      "properties": {
+        "value": {
+          "properties": {
+            "attributes": {
+              "properties": {
+                "country": {
+                  "type": "string"
+                },
+                "id": {
+                  "type": "number"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "state": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "type": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "NewAttendancePeriodRequest": {
+      "example": {
+        "attendances": [
+          {
+            "break": 120,
+            "comment": null,
+            "date": "2017-01-18",
+            "employee": 1234,
+            "end_time": 1080,
+            "start_time": "08:00"
+          },
+          {
+            "break": 35,
+            "comment": "I was productive as hell",
+            "date": "2017-01-17",
+            "employee": 1235,
+            "end_time": 720,
+            "start_time": "09:00"
+          }
+        ]
+      },
+      "properties": {
+        "attendances": {
+          "items": {
+            "properties": {
+              "break": {
+                "description": "Break in minutes",
+                "format": "int32",
+                "type": "integer"
+              },
+              "comment": {
+                "description": "Optional comment",
+                "type": "string"
+              },
+              "date": {
+                "description": "Attendance date as YYYY-MM-DD",
+                "format": "date",
+                "type": "string"
+              },
+              "employee": {
+                "description": "Employee identifier",
+                "type": "integer"
+              },
+              "end_time": {
+                "description": "End time as HH:MM",
+                "pattern": "^\\d\\d:\\d\\d$",
+                "type": "string"
+              },
+              "start_time": {
+                "description": "Start time as HH:MM",
+                "pattern": "^\\d\\d:\\d\\d$",
+                "type": "string"
+              }
+            },
+            "required": [
+              "employee",
+              "date",
+              "start_time",
+              "end_time",
+              "break",
+              "comment"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
       "title": "Create a New Attendance Period request",
       "type": "object"
     },
     "NewAttendancePeriodResponse": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Response"
+        },
+        {
+          "properties": {
+            "data": {
+              "properties": {
+                "id": {
+                  "items": {
+                    "type": "integer"
+                  },
+                  "type": "array"
+                },
+                "message": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "type": "object"
+        }
+      ],
       "type": "object"
     },
     "Office": {
@@ -994,15 +1428,12 @@
         "value": {
           "properties": {
             "attributes": {
-              "items": {
-                "properties": {
-                  "name": {
-                    "type": "string"
-                  }
-                },
-                "type": "object"
+              "properties": {
+                "name": {
+                  "type": "string"
+                }
               },
-              "type": "array"
+              "type": "object"
             },
             "type": {
               "type": "string"
@@ -1028,6 +1459,146 @@
       ],
       "title": "Default response object",
       "type": "object"
+    },
+    "Supervisor": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Attribute"
+        }
+      ],
+      "properties": {
+        "value": {
+          "$ref": "#/definitions/Employee"
+        }
+      },
+      "type": "object"
+    },
+    "TimeOffTypeResource": {
+      "properties": {
+        "attributes": {
+          "properties": {
+            "name": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "id": {
+          "description": "identifier",
+          "type": "integer"
+        },
+        "type": {
+          "description": "Time-off type resource name",
+          "enum": [
+            "TimeOffType"
+          ],
+          "type": "string"
+        }
+      },
+      "title": "Type of time-off resource",
+      "type": "object"
+    },
+    "UpdateAttendancePeriodRequest": {
+      "example": {
+        "break": 35,
+        "comment": null,
+        "date": "2019-03-17",
+        "end_time": 720,
+        "start_time": 540
+      },
+      "properties": {
+        "break": {
+          "description": "Break in minutes",
+          "format": "int32",
+          "type": "integer"
+        },
+        "comment": {
+          "description": "Optional comment",
+          "type": "string"
+        },
+        "date": {
+          "description": "Attendance date as YYYY-MM-DD",
+          "format": "date",
+          "type": "string"
+        },
+        "end_time": {
+          "description": "End time as HH:MM",
+          "pattern": "^\\d\\d:\\d\\d$",
+          "type": "string"
+        },
+        "start_time": {
+          "description": "Start time as HH:MM",
+          "pattern": "^\\d\\d:\\d\\d$",
+          "type": "string"
+        }
+      },
+      "title": "Update an existing attendance period",
+      "type": "object"
+    },
+    "WorkSchedule": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Attribute"
+        }
+      ],
+      "properties": {
+        "value": {
+          "properties": {
+            "attributes": {
+              "properties": {
+                "friday": {
+                  "pattern": "^\\d\\d:\\d\\d$",
+                  "type": "string"
+                },
+                "id": {
+                  "type": "number"
+                },
+                "monday": {
+                  "pattern": "^\\d\\d:\\d\\d$",
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "saturday": {
+                  "pattern": "^\\d\\d:\\d\\d$",
+                  "type": "string"
+                },
+                "sunday": {
+                  "pattern": "^\\d\\d:\\d\\d$",
+                  "type": "string"
+                },
+                "thursday": {
+                  "pattern": "^\\d\\d:\\d\\d$",
+                  "type": "string"
+                },
+                "tuesday": {
+                  "pattern": "^\\d\\d:\\d\\d$",
+                  "type": "string"
+                },
+                "wednesday": {
+                  "pattern": "^\\d\\d:\\d\\d$",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "type": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "object"
     }
-  }
+  },
+  "securityDefinitions": {
+    "auth": {
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey"
+    }
+  },
+  "x-components": {}
 }

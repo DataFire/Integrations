@@ -7,7 +7,7 @@
   "info": {
     "description": "The Microsoft Azure Network management API provides a RESTful set of web services that interact with Microsoft Azure Networks service to manage your network resources. The API has entities that capture the relationship between an end user and the Microsoft Azure Networks service.",
     "title": "NetworkManagementClient",
-    "version": "2017-10-01",
+    "version": "2019-07-01",
     "x-apisguru-categories": [
       "cloud"
     ],
@@ -17,7 +17,7 @@
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/network/resource-manager/Microsoft.Network/stable/2017-10-01/usage.json",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/network/resource-manager/Microsoft.Network/stable/2019-07-01/usage.json",
         "version": "2.0"
       }
     ],
@@ -34,17 +34,15 @@
     }
   },
   "consumes": [
-    "application/json",
-    "text/json"
+    "application/json"
   ],
   "produces": [
-    "application/json",
-    "text/json"
+    "application/json"
   ],
   "securityDefinitions": {
     "azure_auth": {
       "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
-      "description": "Azure Active Directory OAuth2 Flow",
+      "description": "Azure Active Directory OAuth2 Flow.",
       "flow": "implicit",
       "scopes": {
         "user_impersonation": "impersonate your user account"
@@ -59,22 +57,6 @@
       ]
     }
   ],
-  "parameters": {
-    "ApiVersionParameter": {
-      "description": "Client API version.",
-      "in": "query",
-      "name": "api-version",
-      "required": true,
-      "type": "string"
-    },
-    "SubscriptionIdParameter": {
-      "description": "The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
-      "in": "path",
-      "name": "subscriptionId",
-      "required": true,
-      "type": "string"
-    }
-  },
   "paths": {
     "/subscriptions/{subscriptionId}/providers/Microsoft.Network/locations/{location}/usages": {
       "get": {
@@ -85,15 +67,23 @@
             "description": "The location where resource usage is queried.",
             "in": "path",
             "name": "location",
-            "pattern": "^[-\\w\\._]+$",
+            "pattern": "^[-\\w\\._ ]+$",
             "required": true,
             "type": "string"
           },
           {
-            "$ref": "#/parameters/ApiVersionParameter"
+            "description": "Client API version.",
+            "in": "query",
+            "name": "api-version",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/SubscriptionIdParameter"
+            "description": "The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -110,7 +100,7 @@
         "x-ms-examples": {
           "List usages": {
             "parameters": {
-              "api-version": "2017-10-01",
+              "api-version": "2019-07-01",
               "location": "westus",
               "subscriptionId": "subid"
             },
@@ -310,11 +300,11 @@
                     },
                     {
                       "currentValue": 0,
-                      "id": "/subscriptions/subid/providers/Microsoft.Network/locations/westus/usages/OutboundNatRulesPerLoadBalancer",
+                      "id": "/subscriptions/subid/providers/Microsoft.Network/locations/westus/usages/outboundRulesPerLoadBalancer",
                       "limit": 5,
                       "name": {
-                        "localizedValue": "Outbound NAT Rules per Load Balancer",
-                        "value": "OutboundNatRulesPerLoadBalancer"
+                        "localizedValue": "Outbound Rules per Load Balancer",
+                        "value": "outboundRulesPerLoadBalancer"
                       },
                       "unit": "Count"
                     },
@@ -361,6 +351,341 @@
                     {
                       "currentValue": 0,
                       "id": "/subscriptions/subid/providers/Microsoft.Network/locations/westus/usages/RouteFiltersPerExpressRouteBgpPeering",
+                      "limit": 1,
+                      "name": {
+                        "localizedValue": "Route filters per Express route BGP Peering",
+                        "value": "RouteFiltersPerExpressRouteBgpPeering"
+                      },
+                      "unit": "Count"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "List usages spaced location": {
+            "parameters": {
+              "api-version": "2019-07-01",
+              "location": "West US",
+              "subscriptionId": "subid"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "value": [
+                    {
+                      "currentValue": 12,
+                      "id": "/subscriptions/subid/providers/Microsoft.Network/locations/West US/usages/VirtualNetworks",
+                      "limit": 50,
+                      "name": {
+                        "localizedValue": "Virtual Networks",
+                        "value": "VirtualNetworks"
+                      },
+                      "unit": "Count"
+                    },
+                    {
+                      "currentValue": 1,
+                      "id": "/subscriptions/subid/providers/Microsoft.Network/locations/West US/usages/StaticPublicIPAddresses",
+                      "limit": 20,
+                      "name": {
+                        "localizedValue": "Static Public IP Addresses",
+                        "value": "StaticPublicIPAddresses"
+                      },
+                      "unit": "Count"
+                    },
+                    {
+                      "currentValue": 3,
+                      "id": "/subscriptions/subid/providers/Microsoft.Network/locations/West US/usages/NetworkSecurityGroups",
+                      "limit": 100,
+                      "name": {
+                        "localizedValue": "Network Security Groups",
+                        "value": "NetworkSecurityGroups"
+                      },
+                      "unit": "Count"
+                    },
+                    {
+                      "currentValue": 12,
+                      "id": "/subscriptions/subid/providers/Microsoft.Network/locations/West US/usages/PublicIPAddresses",
+                      "limit": 60,
+                      "name": {
+                        "localizedValue": "Public IP Addresses",
+                        "value": "PublicIPAddresses"
+                      },
+                      "unit": "Count"
+                    },
+                    {
+                      "currentValue": 0,
+                      "id": "/subscriptions/subid/providers/Microsoft.Network/locations/West US/usages/PublicIpPrefixes",
+                      "limit": 2147483647,
+                      "name": {
+                        "localizedValue": "Public Ip Prefixes",
+                        "value": "PublicIpPrefixes"
+                      },
+                      "unit": "Count"
+                    },
+                    {
+                      "currentValue": 2,
+                      "id": "/subscriptions/subid/providers/Microsoft.Network/locations/West US/usages/NetworkInterfaces",
+                      "limit": 24000,
+                      "name": {
+                        "localizedValue": "Network Interfaces",
+                        "value": "NetworkInterfaces"
+                      },
+                      "unit": "Count"
+                    },
+                    {
+                      "currentValue": 0,
+                      "id": "/subscriptions/subid/providers/Microsoft.Network/locations/West US/usages/LoadBalancers",
+                      "limit": 100,
+                      "name": {
+                        "localizedValue": "Load Balancers",
+                        "value": "LoadBalancers"
+                      },
+                      "unit": "Count"
+                    },
+                    {
+                      "currentValue": 3,
+                      "id": "/subscriptions/subid/providers/Microsoft.Network/locations/West US/usages/ApplicationGateways",
+                      "limit": 50,
+                      "name": {
+                        "localizedValue": "Application Gateways",
+                        "value": "ApplicationGateways"
+                      },
+                      "unit": "Count"
+                    },
+                    {
+                      "currentValue": 5,
+                      "id": "/subscriptions/subid/providers/Microsoft.Network/locations/West US/usages/RouteTables",
+                      "limit": 100,
+                      "name": {
+                        "localizedValue": "Route Tables",
+                        "value": "RouteTables"
+                      },
+                      "unit": "Count"
+                    },
+                    {
+                      "currentValue": 0,
+                      "id": "/subscriptions/subid/providers/Microsoft.Network/locations/West US/usages/RouteFilters",
+                      "limit": 1000,
+                      "name": {
+                        "localizedValue": "Route Filters",
+                        "value": "RouteFilters"
+                      },
+                      "unit": "Count"
+                    },
+                    {
+                      "currentValue": 0,
+                      "id": "/subscriptions/subid/providers/Microsoft.Network/locations/West US/usages/NetworkWatchers",
+                      "limit": 1,
+                      "name": {
+                        "localizedValue": "Network Watchers",
+                        "value": "NetworkWatchers"
+                      },
+                      "unit": "Count"
+                    },
+                    {
+                      "currentValue": 0,
+                      "id": "/subscriptions/subid/providers/Microsoft.Network/locations/West US/usages/PacketCaptures",
+                      "limit": 100,
+                      "name": {
+                        "localizedValue": "Packet Captures",
+                        "value": "PacketCaptures"
+                      },
+                      "unit": "Count"
+                    },
+                    {
+                      "currentValue": 0,
+                      "id": "/subscriptions/subid/providers/Microsoft.Network/locations/West US/usages/ApplicationSecurityGroups",
+                      "limit": 500,
+                      "name": {
+                        "localizedValue": "Application Security Groups.",
+                        "value": "ApplicationSecurityGroups"
+                      },
+                      "unit": "Count"
+                    },
+                    {
+                      "currentValue": 0,
+                      "id": "/subscriptions/subid/providers/Microsoft.Network/locations/West US/usages/DdosProtectionPlans",
+                      "limit": 1,
+                      "name": {
+                        "localizedValue": "DDoS Protection Plans.",
+                        "value": "DdosProtectionPlans"
+                      },
+                      "unit": "Count"
+                    },
+                    {
+                      "currentValue": 0,
+                      "id": "/subscriptions/subid/providers/Microsoft.Network/locations/West US/usages/ServiceEndpointPolicies",
+                      "limit": 200,
+                      "name": {
+                        "localizedValue": "Service Endpoint Policies",
+                        "value": "ServiceEndpointPolicies"
+                      },
+                      "unit": "Count"
+                    },
+                    {
+                      "currentValue": 0,
+                      "id": "/subscriptions/subid/providers/Microsoft.Network/locations/West US/usages/NetworkIntentPolicies",
+                      "limit": 200,
+                      "name": {
+                        "localizedValue": "Network Intent Policies",
+                        "value": "NetworkIntentPolicies"
+                      },
+                      "unit": "Count"
+                    },
+                    {
+                      "currentValue": 0,
+                      "id": "/subscriptions/subid/providers/Microsoft.Network/locations/West US/usages/DnsServersPerVirtualNetwork",
+                      "limit": 9,
+                      "name": {
+                        "localizedValue": "DNS servers per Virtual Network",
+                        "value": "DnsServersPerVirtualNetwork"
+                      },
+                      "unit": "Count"
+                    },
+                    {
+                      "currentValue": 0,
+                      "id": "/subscriptions/subid/providers/Microsoft.Network/locations/West US/usages/SubnetsPerVirtualNetwork",
+                      "limit": 1000,
+                      "name": {
+                        "localizedValue": "Subnets per Virtual Network",
+                        "value": "SubnetsPerVirtualNetwork"
+                      },
+                      "unit": "Count"
+                    },
+                    {
+                      "currentValue": 0,
+                      "id": "/subscriptions/subid/providers/Microsoft.Network/locations/West US/usages/IPConfigurationsPerVirtualNetwork",
+                      "limit": 16384,
+                      "name": {
+                        "localizedValue": "IP Configurations per Virtual Network",
+                        "value": "IPConfigurationsPerVirtualNetwork"
+                      },
+                      "unit": "Count"
+                    },
+                    {
+                      "currentValue": 0,
+                      "id": "/subscriptions/subid/providers/Microsoft.Network/locations/West US/usages/PeeringsPerVirtualNetwork",
+                      "limit": 50,
+                      "name": {
+                        "localizedValue": "Peerings per Virtual Network",
+                        "value": "PeeringsPerVirtualNetwork"
+                      },
+                      "unit": "Count"
+                    },
+                    {
+                      "currentValue": 0,
+                      "id": "/subscriptions/subid/providers/Microsoft.Network/locations/West US/usages/SecurityRulesPerNetworkSecurityGroup",
+                      "limit": 1000,
+                      "name": {
+                        "localizedValue": "Security rules per Network Security Group",
+                        "value": "SecurityRulesPerNetworkSecurityGroup"
+                      },
+                      "unit": "Count"
+                    },
+                    {
+                      "currentValue": 0,
+                      "id": "/subscriptions/subid/providers/Microsoft.Network/locations/West US/usages/SecurityRulesPerNetworkIntentPolicy",
+                      "limit": 100,
+                      "name": {
+                        "localizedValue": "Security rules per Network Intent Policy",
+                        "value": "SecurityRulesPerNetworkIntentPolicy"
+                      },
+                      "unit": "Count"
+                    },
+                    {
+                      "currentValue": 0,
+                      "id": "/subscriptions/subid/providers/Microsoft.Network/locations/West US/usages/RoutesPerNetworkIntentPolicy",
+                      "limit": 100,
+                      "name": {
+                        "localizedValue": "Routes per Network Intent Policy",
+                        "value": "RoutesPerNetworkIntentPolicy"
+                      },
+                      "unit": "Count"
+                    },
+                    {
+                      "currentValue": 0,
+                      "id": "/subscriptions/subid/providers/Microsoft.Network/locations/West US/usages/SecurityRuleAddressesOrPortsPerNetworkSecurityGroup",
+                      "limit": 2000,
+                      "name": {
+                        "localizedValue": "Security rules addresses or ports per Network Security Group",
+                        "value": "SecurityRuleAddressesOrPortsPerNetworkSecurityGroup"
+                      },
+                      "unit": "Count"
+                    },
+                    {
+                      "currentValue": 0,
+                      "id": "/subscriptions/subid/providers/Microsoft.Network/locations/West US/usages/InboundRulesPerLoadBalancer",
+                      "limit": 150,
+                      "name": {
+                        "localizedValue": "Inbound Rules per Load Balancer",
+                        "value": "InboundRulesPerLoadBalancer"
+                      },
+                      "unit": "Count"
+                    },
+                    {
+                      "currentValue": 0,
+                      "id": "/subscriptions/subid/providers/Microsoft.Network/locations/West US/usages/FrontendIPConfigurationPerLoadBalancer",
+                      "limit": 10,
+                      "name": {
+                        "localizedValue": "Frontend IP Configurations per Load Balancer",
+                        "value": "FrontendIPConfigurationPerLoadBalancer"
+                      },
+                      "unit": "Count"
+                    },
+                    {
+                      "currentValue": 0,
+                      "id": "/subscriptions/subid/providers/Microsoft.Network/locations/West US/usages/OutboundRulesPerLoadBalancer",
+                      "limit": 5,
+                      "name": {
+                        "localizedValue": "Outbound Rules per Load Balancer",
+                        "value": "OutboundRulesPerLoadBalancer"
+                      },
+                      "unit": "Count"
+                    },
+                    {
+                      "currentValue": 0,
+                      "id": "/subscriptions/subid/providers/Microsoft.Network/locations/West US/usages/RoutesPerRouteTable",
+                      "limit": 400,
+                      "name": {
+                        "localizedValue": "Routes per Route Table",
+                        "value": "RoutesPerRouteTable"
+                      },
+                      "unit": "Count"
+                    },
+                    {
+                      "currentValue": 0,
+                      "id": "/subscriptions/subid/providers/Microsoft.Network/locations/West US/usages/SecondaryIPConfigurationsPerNetworkInterface",
+                      "limit": 256,
+                      "name": {
+                        "localizedValue": "Secondary IP Configurations per Network Interface",
+                        "value": "SecondaryIPConfigurationsPerNetworkInterface"
+                      },
+                      "unit": "Count"
+                    },
+                    {
+                      "currentValue": 0,
+                      "id": "/subscriptions/subid/providers/Microsoft.Network/locations/West US/usages/InboundRulesPerNetworkInterface",
+                      "limit": 500,
+                      "name": {
+                        "localizedValue": "Inbound rules per Network Interface",
+                        "value": "InboundRulesPerNetworkInterface"
+                      },
+                      "unit": "Count"
+                    },
+                    {
+                      "currentValue": 0,
+                      "id": "/subscriptions/subid/providers/Microsoft.Network/locations/West US/usages/RouteFilterRulesPerRouteFilter",
+                      "limit": 1,
+                      "name": {
+                        "localizedValue": "Route filter rules per Route Filter",
+                        "value": "RouteFilterRulesPerRouteFilter"
+                      },
+                      "unit": "Count"
+                    },
+                    {
+                      "currentValue": 0,
+                      "id": "/subscriptions/subid/providers/Microsoft.Network/locations/West US/usages/RouteFiltersPerExpressRouteBgpPeering",
                       "limit": 1,
                       "name": {
                         "localizedValue": "Route filters per Express route BGP Peering",

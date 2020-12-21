@@ -6,13 +6,13 @@
       "name": "DataBC",
       "url": "https://data.gov.bc.ca/"
     },
-    "description": "This API represents address cleaning, correction, completion, geocoding, reverse geocoding, and proximity resources for intersection addresses, physical addresses and their occupants in British Columbia. Two endpoints are provided for this API: one is public (apps.gov.bc.ca/pub/geocoder), the other is restricted (geocoder.api.gov.bc.ca) and requires an API key. For the public endpoint CORS is only enabled for gov.bc.ca, whereas the restricted endpoint allows CORS for all domains. Please read our [data collection notice](https://github.com/bcgov/api-specs/blob/master/COLLECTION_NOTICE.md#collection-notice).  \n\nPlease note that you may experience issues when submitting requests to the delivery or test environment if using this [OpenAPI specification](https://github.com/bcgov/api-specs) in other API console viewers. \n\n[Developer API keys](https://github.com/bcgov/gwa/wiki/Developer-Guide#developer-api-keys) are unique and provide the ability to make up to 2 requests per second. Production government applications may use organization API keys which are further described in [the Developer guide](https://github.com/bcgov/gwa/wiki/Developer-Guide#developer-api-keys).",
+    "description": "This API represents address cleaning, correction, completion, geocoding, reverse geocoding, and proximity resources for intersection addresses, physical addresses and their occupants in British Columbia. Please read our [data collection notice](https://github.com/bcgov/api-specs/blob/master/COLLECTION_NOTICE.md#collection-notice).  \n\nPlease note that you may experience issues when submitting requests to the delivery or test environment if using this [OpenAPI specification](https://github.com/bcgov/api-specs) in other API console viewers. \n\n[Developer API keys](https://github.com/bcgov/gwa/wiki/Developer-Guide#developer-api-keys) are unique and can be acquired with a GitHub account. Production government applications may use organization API keys acquired by [contacting DataBC](https://forms.gov.bc.ca/databc-contact-us/). API keys are further described in the [Developer guide](https://github.com/bcgov/ols-geocoder/blob/gh-pages/geocoder-developer-guide.md).\n\n **Notification:** If you have applications or web pages that link to the BC Address Geocoder you must use the following URL. \n\n *https://geocoder.api.gov.bc.ca* \n\n Please note that the following URLs were deprecated in September 2018 [More Details](https://www2.gov.bc.ca/gov/content?id=103ADC5A956842828554238DEF28D6E5). \n\n - http://apps.gov.bc.ca/pub/geocoder \n - https://apps.gov.bc.ca/pub/geocoder\n\\\n\\\n ",
     "license": {
       "name": "Open Government License - British Columbia",
       "url": "https://www2.gov.bc.ca/gov/content?id=A519A56BC2BF44E4A008B33FCF527F61"
     },
     "termsOfService": "https://www2.gov.bc.ca/gov/content?id=D1EE0A405E584363B205CD4353E02C88",
-    "title": "Geocoder",
+    "title": "Geocoder REST API",
     "version": "2.0.0",
     "x-apisguru-categories": [
       "open_data"
@@ -24,7 +24,7 @@
       {
         "converter": {
           "url": "https://github.com/lucybot/api-spec-converter",
-          "version": "2.6.2"
+          "version": "2.7.31"
         },
         "format": "openapi",
         "url": "https://raw.githubusercontent.com/bcgov/api-specs/master/geocoder/geocoder-combined.json",
@@ -60,19 +60,19 @@
               "csv",
               "shpz"
             ],
-            "example": "json",
             "in": "path",
             "name": "outputFormat",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-example": "json"
           },
           {
             "description": "Civic or intersection address as a single string. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#addressString target=\"_blank\">addressString</a>",
-            "example": "525 Superior Street, Victoria, BC",
             "in": "query",
             "name": "addressString",
             "required": false,
-            "type": "string"
+            "type": "string",
+            "x-example": "525 Superior Street, Victoria, BC"
           },
           {
             "default": "any",
@@ -120,6 +120,7 @@
             "type": "boolean"
           },
           {
+            "default": false,
             "description": "If true, include only basic match and address details in results. Not supported for shp, csv, and gml formats.",
             "in": "query",
             "name": "brief",
@@ -127,6 +128,7 @@
             "type": "boolean"
           },
           {
+            "default": false,
             "description": "If true, addressString is expected to contain a partial address that requires completion. Not supported for shp, csv, gml formats.",
             "in": "query",
             "name": "autoComplete",
@@ -134,6 +136,7 @@
             "type": "boolean"
           },
           {
+            "default": 0,
             "description": "The distance to move the accessPoint away from the curb and towards the inside of the parcel (in metres). Ignored if locationDescriptor not set to accessPoint.",
             "in": "query",
             "name": "setBack",
@@ -374,19 +377,19 @@
               "csv",
               "shpz"
             ],
-            "example": "json",
             "in": "path",
             "name": "outputFormat",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-example": "json"
           },
           {
             "description": "The point (x,y) from which the nearest site will be identified. The coordinates must be specified in the same SRS as given by the 'outputSRS' parameter.",
-            "example": "-122.377,50.121",
             "in": "query",
             "name": "point",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-example": "-122.377,50.121"
           },
           {
             "description": "The maximum distance (in metres) to search from the given point.  If not specified, the search distance is unlimited.",
@@ -465,19 +468,19 @@
               "csv",
               "shpz"
             ],
-            "example": "json",
             "in": "path",
             "name": "outputFormat",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-example": "json"
           },
           {
             "description": "Example: -122.377,50.121  The point (x,y) from which the nearest site will be identified. The coordinates must be specified in the same SRS as given by the 'outputSRS' parameter.",
-            "example": "-122.377,50.121",
             "in": "query",
             "name": "point",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-example": "-122.377,50.121"
           },
           {
             "description": "The maximum distance (in metres) to search from the given point.  If not specified, the search distance is unlimited.",
@@ -548,19 +551,19 @@
               "csv",
               "shpz"
             ],
-            "example": "json",
             "in": "path",
             "name": "outputFormat",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-example": "json"
           },
           {
             "description": "A bounding box (xmin,ymin,xmax,ymax) used to limit the search area. See <a href=https://github.com/bcgovapi-specs/blob/master/geocoder/glossary.md#bbox target=\"_blank\">bbox</a>",
-            "example": "-119.51,49.48,-119.53,49.50",
             "in": "query",
             "name": "bbox",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-example": "-119.51,49.48,-119.53,49.50"
           },
           {
             "default": 4326,
@@ -639,11 +642,11 @@
               "csv",
               "shpz"
             ],
-            "example": "json",
             "in": "path",
             "name": "outputFormat",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-example": "json"
           },
           {
             "default": 4326,
@@ -691,19 +694,19 @@
               "csv",
               "shpz"
             ],
-            "example": "json",
             "in": "path",
             "name": "outputFormat",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-example": "json"
           },
           {
-            "description": "Occupant name followed by a frontGate delimiter ('--') followed by an optional address",
-            "example": "Redfish Elementary --",
+            "description": "Occupant name OR Occupant name ** address",
             "in": "query",
             "name": "addressString",
             "required": false,
-            "type": "string"
+            "type": "string",
+            "x-example": "Sir James Douglas Elementary"
           },
           {
             "description": "Example: schools;courts;employment<br>A list of tags separated by semicolons.",
@@ -750,12 +753,14 @@
             "type": "string"
           },
           {
+            "default": false,
             "description": "If true, include unmatched address details such as site name in results.",
             "in": "query",
             "name": "echo",
             "type": "boolean"
           },
           {
+            "default": false,
             "description": "If true, include only basic match and address details in results. Not supported for shp, csv, and gml formats.",
             "in": "query",
             "name": "brief",
@@ -763,6 +768,7 @@
             "type": "boolean"
           },
           {
+            "default": false,
             "description": "If true, addressString is expected to contain a partial address that requires completion. Not supported for shp, csv, gml formats.",
             "in": "query",
             "name": "autoComplete",
@@ -770,6 +776,7 @@
             "type": "boolean"
           },
           {
+            "default": 0,
             "description": "The distance to move the accessPoint away from the curb and towards the inside of the parcel (in metres). Ignored if locationDescriptor not set to accessPoint.",
             "in": "query",
             "name": "setBack",
@@ -1010,19 +1017,19 @@
               "csv",
               "shpz"
             ],
-            "example": "json",
             "in": "path",
             "name": "outputFormat",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-example": "json"
           },
           {
             "description": "The point (x,y) from which the nearest site will be identified. The coordinates must be specified in the same SRS as given by the 'outputSRS' parameter.",
-            "example": "-122.377,50.121",
             "in": "query",
             "name": "point",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-example": "-122.377,50.121"
           },
           {
             "description": "Example: schools;courts;employment<br>A list of tags separated by semicolons.",
@@ -1081,6 +1088,7 @@
             "type": "string"
           },
           {
+            "default": false,
             "description": "If true, include only basic match and address details in results. Not supported for shp, csv, and gml formats.",
             "in": "query",
             "name": "brief",
@@ -1088,6 +1096,7 @@
             "type": "boolean"
           },
           {
+            "default": 0,
             "description": "The distance to move the accessPoint away from the curb and towards the inside of the parcel (in metres). Ignored if locationDescriptor not set to accessPoint.",
             "in": "query",
             "name": "setBack",
@@ -1122,19 +1131,19 @@
               "csv",
               "shpz"
             ],
-            "example": "json",
             "in": "path",
             "name": "outputFormat",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-example": "json"
           },
           {
             "description": "The point (x,y) from which the nearest site will be identified. The coordinates must be specified in the same SRS as given by the 'outputSRS' parameter.",
-            "example": "-122.377,50.121",
             "in": "query",
             "name": "point",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-example": "-122.377,50.121"
           },
           {
             "description": "The maximum distance (in metres) to search from the given point.  If not specified, the search distance is unlimited.",
@@ -1185,6 +1194,7 @@
             "type": "string"
           },
           {
+            "default": false,
             "description": "If true, include only basic match and address details in results. Not supported for shp, csv, and gml formats.",
             "in": "query",
             "name": "brief",
@@ -1192,6 +1202,7 @@
             "type": "boolean"
           },
           {
+            "default": 0,
             "description": "The distance to move the accessPoint away from the curb and towards the inside of the parcel (in metres). Ignored if locationDescriptor not set to accessPoint.",
             "in": "query",
             "name": "setBack",
@@ -1226,19 +1237,19 @@
               "csv",
               "shpz"
             ],
-            "example": "json",
             "in": "path",
             "name": "outputFormat",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-example": "json"
           },
           {
             "description": "A bounding box (xmin,ymin,xmax,ymax) used to limit the search area. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#bbox target=\"_blank\">bbox</a>",
-            "example": "-123.14,49.28,-123.13,49.29",
             "in": "query",
             "name": "bbox",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-example": "-123.14,49.28,-123.13,49.29"
           },
           {
             "description": "Example: schools;courts;employment<br>A list of tags separated by semicolons.",
@@ -1290,6 +1301,7 @@
             "type": "string"
           },
           {
+            "default": false,
             "description": "If true, include only basic match and address details in results. Not supported for shp, csv, and gml formats.",
             "in": "query",
             "name": "brief",
@@ -1297,6 +1309,7 @@
             "type": "boolean"
           },
           {
+            "default": 0,
             "description": "The distance to move the accessPoint away from the curb and towards the inside of the parcel (in metres). Ignored if locationDescriptor not set to accessPoint.",
             "in": "query",
             "name": "setBack",
@@ -1338,11 +1351,11 @@
               "csv",
               "shpz"
             ],
-            "example": "json",
             "in": "path",
             "name": "outputFormat",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-example": "json"
           },
           {
             "default": 4326,
@@ -1379,6 +1392,7 @@
             "type": "string"
           },
           {
+            "default": false,
             "description": "If true, include only basic match and address details in results. Not supported for shp, csv, and gml formats.",
             "in": "query",
             "name": "brief",
@@ -1386,6 +1400,7 @@
             "type": "boolean"
           },
           {
+            "default": 0,
             "description": "The distance to move the accessPoint away from the curb and towards the inside of the parcel (in metres). Ignored if locationDescriptor not set to accessPoint.",
             "in": "query",
             "name": "setBack",
@@ -1427,11 +1442,11 @@
               "csv",
               "shpz"
             ],
-            "example": "json",
             "in": "path",
             "name": "outputFormat",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-example": "json"
           }
         ],
         "responses": {
@@ -1461,19 +1476,19 @@
               "csv",
               "shpz"
             ],
-            "example": "json",
             "in": "path",
             "name": "outputFormat",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-example": "json"
           },
           {
             "description": "The point (x,y) from which the nearby sites will be identified. The coordinates must be specified in the same SRS as given by the 'outputSRS' parameter.",
-            "example": "-122.377,50.121",
             "in": "query",
             "name": "point",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-example": "-122.377,50.121"
           },
           {
             "description": "The maximum distance (in metres) to search from the given point.  If not specified, the search distance is unlimited.",
@@ -1525,6 +1540,7 @@
             "type": "string"
           },
           {
+            "default": 0,
             "description": "The distance to move the accessPoint away from the curb and towards the inside of the parcel (in metres). Ignored if locationDescriptor not set to accessPoint.",
             "in": "query",
             "name": "setBack",
@@ -1532,6 +1548,7 @@
             "type": "integer"
           },
           {
+            "default": false,
             "description": "If true, include only basic match and address details in results. Not supported for shp, csv, and gml formats.",
             "in": "query",
             "name": "brief",
@@ -1539,6 +1556,7 @@
             "type": "boolean"
           },
           {
+            "default": false,
             "description": "If true, excludes sites that are units of a parent site",
             "in": "query",
             "name": "excludeUnits",
@@ -1546,6 +1564,7 @@
             "type": "boolean"
           },
           {
+            "default": false,
             "description": "If true, excludes sites without a civic address",
             "in": "query",
             "name": "onlyCivic",
@@ -1580,19 +1599,19 @@
               "csv",
               "shpz"
             ],
-            "example": "json",
             "in": "path",
             "name": "outputFormat",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-example": "json"
           },
           {
             "description": "Centre point of search. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#point target=\"_blank\">point</a>",
-            "example": "-122.377,50.121",
             "in": "query",
             "name": "point",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-example": "-122.377,50.121"
           },
           {
             "description": "The maximum distance (in metres) to search from the given point.  If not specified, the search distance is unlimited.",
@@ -1636,6 +1655,7 @@
             "type": "string"
           },
           {
+            "default": 0,
             "description": "The distance to move the accessPoint away from the curb and towards the inside of the parcel (in metres). Ignored if locationDescriptor not set to accessPoint.",
             "in": "query",
             "name": "setBack",
@@ -1643,6 +1663,7 @@
             "type": "integer"
           },
           {
+            "default": false,
             "description": "If true, include only basic match and address details in results. Not supported for shp, csv, and gml formats.",
             "in": "query",
             "name": "brief",
@@ -1650,6 +1671,7 @@
             "type": "boolean"
           },
           {
+            "default": false,
             "description": "If true, excludes sites that are units of a parent site",
             "in": "query",
             "name": "excludeUnits",
@@ -1657,6 +1679,7 @@
             "type": "boolean"
           },
           {
+            "default": false,
             "description": "If true, excludes sites without a civic address",
             "in": "query",
             "name": "onlyCivic",
@@ -1691,19 +1714,19 @@
               "csv",
               "shpz"
             ],
-            "example": "json",
             "in": "path",
             "name": "outputFormat",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-example": "json"
           },
           {
             "description": "A bounding box (xmin,ymin,xmax,ymax) used to limit the search area. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#bbox target=\"_blank\">bbox</a>",
-            "example": "-119.51,49.48,-119.53,49.50",
             "in": "query",
             "name": "bbox",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-example": "-119.51,49.48,-119.53,49.50"
           },
           {
             "default": 4326,
@@ -1748,6 +1771,7 @@
             "type": "string"
           },
           {
+            "default": 0,
             "description": "The distance to move the accessPoint away from the curb and towards the inside of the parcel (in metres). Ignored if locationDescriptor not set to accessPoint.",
             "in": "query",
             "name": "setBack",
@@ -1755,6 +1779,7 @@
             "type": "integer"
           },
           {
+            "default": false,
             "description": "If true, include only basic match and address details in results. Not supported for shp, csv, and gml formats.",
             "in": "query",
             "name": "brief",
@@ -1762,6 +1787,7 @@
             "type": "boolean"
           },
           {
+            "default": false,
             "description": "If true, excludes sites that are units of a parent site",
             "in": "query",
             "name": "excludeUnits",
@@ -1769,6 +1795,7 @@
             "type": "boolean"
           },
           {
+            "default": false,
             "description": "If true, excludes sites without a civic address",
             "in": "query",
             "name": "onlyCivic",
@@ -1810,11 +1837,11 @@
               "csv",
               "shpz"
             ],
-            "example": "json",
             "in": "path",
             "name": "outputFormat",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-example": "json"
           },
           {
             "default": 4326,
@@ -1851,6 +1878,7 @@
             "type": "string"
           },
           {
+            "default": false,
             "description": "If true, include only basic match and address details in results. Not supported for shp, csv, and gml formats.",
             "in": "query",
             "name": "brief",
@@ -1858,6 +1886,7 @@
             "type": "boolean"
           },
           {
+            "default": 0,
             "description": "The distance to move the accessPoint away from the curb and towards the inside of the parcel (in metres). Ignored if locationDescriptor not set to accessPoint.",
             "in": "query",
             "name": "setBack",
@@ -1939,6 +1968,7 @@
             "type": "string"
           },
           {
+            "default": false,
             "description": "If true, include only basic match and address details in results. Not supported for shp, csv, and gml formats.",
             "in": "query",
             "name": "brief",
@@ -1946,6 +1976,7 @@
             "type": "boolean"
           },
           {
+            "default": 0,
             "description": "The distance to move the accessPoint away from the curb and towards the inside of the parcel (in metres). Ignored if locationDescriptor not set to accessPoint.",
             "in": "query",
             "name": "setBack",

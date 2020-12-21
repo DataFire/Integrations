@@ -1,6 +1,6 @@
 # @datafire/o2_cz_mobility
 
-Client library for Mobility
+Client library for Mobility API
 
 ## Installation and Usage
 ```bash
@@ -9,14 +9,14 @@ npm install --save @datafire/o2_cz_mobility
 ```js
 let o2_cz_mobility = require('@datafire/o2_cz_mobility').create();
 
-o2_cz_mobility.getInfo(null).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
 
 ## Description
 
-Transit API can be used to obtain time-aggregated data representing moving the people between various spatial points within the Czech republic. Having A - 'from' and B - 'to' points, the API can return count of people traveling from A to B or people that are from A and traveling to B, etc. The mobility data is based on moving mobile stations in O2 mobile network.
+Transit API can be used to obtain time-aggregated data representing moving the people between various spatial points within the Czech Republic. Having A - 'from' and B - 'to' points, the API can return count of people traveling from A to B or people that are from A and traveling to B, etc. The mobility data is based on moving mobile stations in O2 mobile network.
 
 ## Actions
 

@@ -15,9 +15,7 @@ let azure_applicationinsights_aioperations_api = require('@datafire/azure_applic
   redirect_uri: ""
 });
 
-azure_applicationinsights_aioperations_api.Operations_List({
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -40,7 +38,7 @@ azure_applicationinsights_aioperations_api.Operations_List({
 
 #### Input
 * input `object`
-  * api-version **required** `string`: Client Api Version.
+  * api-version **required** `string`: The API version to use for this operation.
 
 #### Output
 * output [OperationListResult](#operationlistresult)
@@ -50,7 +48,7 @@ azure_applicationinsights_aioperations_api.Operations_List({
 ## Definitions
 
 ### ErrorResponse
-* ErrorResponse `object`: Error reponse indicates Insights service is not able to process the incoming request. The reason is provided in the error message.
+* ErrorResponse `object`: Error response indicates Insights service is not able to process the incoming request. The reason is provided in the error message.
   * code `string`: Error code.
   * message `string`: Error message indicating why the operation failed.
 

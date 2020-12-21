@@ -9,18 +9,7 @@ npm install --save @datafire/hetras_certification_booking
 ```js
 let hetras_certification_booking = require('@datafire/hetras_certification_booking').create();
 
-hetras_certification_booking.Addons_Get({
-  "App-Id": "",
-  "App-Key": "",
-  "hotelId": 0,
-  "arrivalDate": "",
-  "departureDate": "",
-  "channelCode": "",
-  "adults": "",
-  "rooms": "",
-  "roomType": "",
-  "ratePlanCode": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -222,6 +211,7 @@ hetras_certification_booking.Bookings_GetBookings({
   * from `string`: Start date for the selected date filter. If you select arrival date as date filter the bookings returned will have at least
   * to `string`: End date for the selected date filter. If you select arrival date as date filter the bookings returned will have at least
   * dateFilter `string` (values: ArrivalDate, DepartureDate, StayDate, CreationDate, ModificationDate): Select a date field you want to filter bookings by. Only one filter at a time can be applied. The to and from dates
+  * exclude `string` (values: Customers): To be able to request reservations without personal data based on GDPR.
   * skip `integer`: Amount of items to skip.
   * top `integer`: Amount of items to select.
   * inlinecount `string` (values: None, AllPages): Return total number of items for a given filter criteria.
@@ -296,6 +286,7 @@ hetras_certification_booking.Bookings_GetBookingsCount({
   * from `string`: Start date for the selected date filter. If you select arrival date as date filter the bookings returned will have at least
   * to `string`: End date for the selected date filter. If you select arrival date as date filter the bookings returned will have at least
   * dateFilter `string` (values: ArrivalDate, DepartureDate, StayDate, CreationDate, ModificationDate): Select a date field you want to filter bookings by. Only one filter at a time can be applied. The to and from dates
+  * exclude `string` (values: Customers): To be able to request reservations without personal data based on GDPR.
 
 #### Output
 * output [TotalCountResponse](#totalcountresponse)
@@ -320,6 +311,7 @@ hetras_certification_booking.Bookings_GetBooking({
   * App-Key **required** `string`: Application key.
   * confirmationId **required** `string`: The confirmation id for the booking to load.
   * expand `string` (values: None, RoomRates): Specifies the expand type.
+  * exclude `string` (values: None, Customers): Specifies the exclude type.
 
 #### Output
 * output [ReservationsResponse](#reservationsresponse)
@@ -344,6 +336,7 @@ hetras_certification_booking.Bookings_GetReservation({
   * confirmationId **required** `string`: The confirmation id for the booking the reservation was made.
   * reservationNumber **required** `integer`: Specifies the reservation number for the reservation to load.
   * expand `string` (values: None, RoomRates): Specifies the expand type.
+  * exclude `string` (values: None, Customers): Specifies the exclude type.
 
 #### Output
 * output [ReservationResponse](#reservationresponse)
@@ -530,6 +523,33 @@ hetras_certification_booking.Bookings_PaymentToken({
   * confirmationId **required** `string`: The confirmation id for the booking the reservation was made.
   * reservationNumber **required** `integer`: Specifies the reservation number for the reservation to be checked in.
   * authorizationRequest **required** [AuthorizationRequest](#authorizationrequest)
+
+#### Output
+* output [BaseResponse](#baseresponse)
+
+### Bookings_TerminalAuthorization
+With this call you can trigger a terminal authorization prompt for a reservation guest. 
+            For more details on how the API responds to errors please check our documentation on 
+            <a href="https://developer.hetras.com/docs/errors/" onfocus="this.blur()">Error Handling</a>.
+
+
+```js
+hetras_certification_booking.Bookings_TerminalAuthorization({
+  "App-Id": "",
+  "App-Key": "",
+  "confirmationId": "",
+  "reservationNumber": 0,
+  "authorizationRequest": {}
+}, context)
+```
+
+#### Input
+* input `object`
+  * App-Id **required** `string`: Application identifier
+  * App-Key **required** `string`: Application key.
+  * confirmationId **required** `string`: The confirmation id for the booking the reservation was made.
+  * reservationNumber **required** `integer`: Specifies the reservation number for the reservation to be checked in.
+  * authorizationRequest **required** [TerminalAuthorizationRequest](#terminalauthorizationrequest)
 
 #### Output
 * output [BaseResponse](#baseresponse)
@@ -763,6 +783,7 @@ hetras_certification_booking.Rates_Get({
   * customerId `string`: Return all bookings the id of one of the guests or the contact matches the specified value.
   * customerName `string`: Return all bookings where the first or lastname of one of the guests or the contact contains the specified value. The search is executed case insensitive
   * dateFilter `string` (values: ArrivalDate, DepartureDate, StayDate, CreationDate, ModificationDate): Select a date field you want to filter bookings by. Only one filter at a time can be applied. The to and from dates
+  * exclude `string` (values: Customers): To be able to request reservations without personal data based on GDPR.
   * externalId `string`: Return all bookings exactly matching the specified external id. This filter is case sensitive.
   * from `string`: Start date for the selected date filter. If you select arrival date as date filter the bookings returned will have at least
   * hotelId `integer`: Only return bookings for this specific hotel.
@@ -863,6 +884,10 @@ hetras_certification_booking.Rates_Get({
 
 ### Customer
 * Customer `object`
+  * consent_subscribe `array`: The list of consents which the customer is subscribing
+    * items `string`
+  * consent_unsubscribe `array`: The list of consents which the customer is unsubscribing
+    * items `string`
   * customer_id `string`: The id of a customer profile. The id is build out of the Supplier Code a dash and the profile id
   * email `string`: The primary email address of the guest
   * first_name `string`: First name of the guest
@@ -886,6 +911,8 @@ hetras_certification_booking.Rates_Get({
   * nationality `string`: The nationality of the guest in ISO 3166-1 alpha-2 format
   * phone `string`: The primary phone number of the guest
   * primary `boolean`: Defines if the guest is the primary guest of the reservation
+  * subscribed_consents `array`: Gets or sets the list of consents subscribed by customer
+    * items `string`
   * title `string`: Title of the guest. Needs to be taken from the available titles defined in the codes
 
 ### CustomersInfo
@@ -1393,6 +1420,11 @@ hetras_certification_booking.Rates_Get({
   * code `string`: The code of the service
   * included_tax `number`: The included taxes in the gross rate of the service calculated for all rooms and all persons
   * rate `number`: The gross rate of the service calculated for all rooms and all persons
+
+### TerminalAuthorizationRequest
+* TerminalAuthorizationRequest `object`
+  * amount_to_authorize `number`: The amount to authorize
+  * client_identity `string`: Client identity
 
 ### Token
 * Token `object`

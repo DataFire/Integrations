@@ -11,10 +11,7 @@ let nytimes_top_stories = require('@datafire/nytimes_top_stories').create({
   apikey: ""
 });
 
-nytimes_top_stories.section.format.get({
-  "section": "",
-  "format": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

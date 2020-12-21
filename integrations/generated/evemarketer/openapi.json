@@ -10,7 +10,7 @@
       "x-twitter": "EVEMarketer"
     },
     "description": "EVEMarketer Marketstat API is almost compatible with EVE-Central's Marketstat API.",
-    "title": "EVEMarketer Marketstat",
+    "title": "EVEMarketer Marketstat API",
     "version": "1.0.1",
     "x-apisguru-categories": [
       "entertainment"

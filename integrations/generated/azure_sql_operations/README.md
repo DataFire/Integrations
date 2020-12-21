@@ -15,9 +15,7 @@ let azure_sql_operations = require('@datafire/azure_sql_operations').create({
   redirect_uri: ""
 });
 
-azure_sql_operations.Operations_List({
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

@@ -13,9 +13,7 @@ let amazonaws_cloudsearchdomain = require('@datafire/amazonaws_cloudsearchdomain
   region: ""
 });
 
-amazonaws_cloudsearchdomain.UploadDocuments({
-  "documents": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -32,13 +30,17 @@ amazonaws_cloudsearchdomain.UploadDocuments({
 
 ```js
 amazonaws_cloudsearchdomain.UploadDocuments({
+  "Content-Type": "",
+  "format": "",
   "documents": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * documents **required** [Blob](#blob)
+  * Content-Type **required** `string`
+  * format **required** `string`
+  * documents **required** `string`: A batch of documents formatted in JSON or HTML.
 
 #### Output
 * output [UploadDocumentsResponse](#uploaddocumentsresponse)
@@ -48,11 +50,31 @@ amazonaws_cloudsearchdomain.UploadDocuments({
 
 
 ```js
-amazonaws_cloudsearchdomain.Search({}, context)
+amazonaws_cloudsearchdomain.Search({
+  "q": "",
+  "format": "",
+  "pretty": ""
+}, context)
 ```
 
 #### Input
 * input `object`
+  * cursor `string`
+  * expr `string`
+  * facet `string`
+  * fq `string`
+  * highlight `string`
+  * partial `boolean`
+  * q **required** `string`
+  * q.options `string`
+  * q.parser `string`
+  * return `string`
+  * size `integer`
+  * sort `string`
+  * start `integer`
+  * stats `string`
+  * format **required** `string`
+  * pretty **required** `string`
 
 #### Output
 * output [SearchResponse](#searchresponse)
@@ -62,11 +84,21 @@ amazonaws_cloudsearchdomain.Search({}, context)
 
 
 ```js
-amazonaws_cloudsearchdomain.Suggest({}, context)
+amazonaws_cloudsearchdomain.Suggest({
+  "q": "",
+  "suggester": "",
+  "format": "",
+  "pretty": ""
+}, context)
 ```
 
 #### Input
 * input `object`
+  * q **required** `string`
+  * suggester **required** `string`
+  * size `integer`
+  * format **required** `string`
+  * pretty **required** `string`
 
 #### Output
 * output [SuggestResponse](#suggestresponse)
@@ -83,12 +115,13 @@ amazonaws_cloudsearchdomain.Suggest({}, context)
 
 ### Bucket
 * Bucket `object`: A container for facet information. 
-  * count [Long](#long)
-  * value [String](#string)
+  * count
+  * value
 
 ### BucketInfo
 * BucketInfo `object`: A container for the calculated facet values and counts.
-  * buckets [BucketList](#bucketlist)
+  * buckets
+    * items [Bucket](#bucket)
 
 ### BucketList
 * BucketList `array`
@@ -105,12 +138,12 @@ amazonaws_cloudsearchdomain.Suggest({}, context)
 
 ### DocumentServiceException
 * DocumentServiceException `object`: Information about any problems encountered while processing an upload request.
-  * message [String](#string)
-  * status [String](#string)
+  * message
+  * status
 
 ### DocumentServiceWarning
 * DocumentServiceWarning `object`: A warning returned by the document service when an issue is discovered while processing an upload request.
-  * message [String](#string)
+  * message
 
 ### DocumentServiceWarnings
 * DocumentServiceWarnings `array`
@@ -123,40 +156,31 @@ amazonaws_cloudsearchdomain.Suggest({}, context)
 * Expr `string`
 
 ### Exprs
-* Exprs `array`
-  * items `object`
-    * key [String](#string)
-    * value [String](#string)
+* Exprs `object`
 
 ### Facet
 * Facet `string`
 
 ### Facets
-* Facets `array`
-  * items `object`
-    * key [String](#string)
-    * value [BucketInfo](#bucketinfo)
+* Facets `object`
 
 ### FieldStats
 * FieldStats `object`: The statistics for a field calculated in the request.
-  * count [Long](#long)
-  * max [String](#string)
-  * mean [String](#string)
-  * min [String](#string)
-  * missing [Long](#long)
-  * stddev [Double](#double)
-  * sum [Double](#double)
-  * sumOfSquares [Double](#double)
+  * count
+  * max
+  * mean
+  * min
+  * missing
+  * stddev
+  * sum
+  * sumOfSquares
 
 ### FieldValue
 * FieldValue `array`
   * items [String](#string)
 
 ### Fields
-* Fields `array`
-  * items `object`
-    * key [String](#string)
-    * value [FieldValue](#fieldvalue)
+* Fields `object`
 
 ### FilterQuery
 * FilterQuery `string`
@@ -165,17 +189,14 @@ amazonaws_cloudsearchdomain.Suggest({}, context)
 * Highlight `string`
 
 ### Highlights
-* Highlights `array`
-  * items `object`
-    * key [String](#string)
-    * value [String](#string)
+* Highlights `object`
 
 ### Hit
 * Hit `object`: Information about a document that matches the search request.
-  * exprs [Exprs](#exprs)
-  * fields [Fields](#fields)
-  * highlights [Highlights](#highlights)
-  * id [String](#string)
+  * exprs
+  * fields
+  * highlights
+  * id
 
 ### HitList
 * HitList `array`
@@ -183,10 +204,11 @@ amazonaws_cloudsearchdomain.Suggest({}, context)
 
 ### Hits
 * Hits `object`: The collection of documents that match the search request.
-  * cursor [String](#string)
-  * found [Long](#long)
-  * hit [HitList](#hitlist)
-  * start [Long](#long)
+  * cursor
+  * found
+  * hit
+    * items [Hit](#hit)
+  * start
 
 ### Long
 * Long `integer`
@@ -208,22 +230,29 @@ amazonaws_cloudsearchdomain.Suggest({}, context)
 
 ### SearchException
 * SearchException `object`: Information about any problems encountered while processing a search request.
-  * message [String](#string)
+  * message
 
 ### SearchRequest
 * SearchRequest `object`: Container for the parameters to the <code>Search</code> request.
 
 ### SearchResponse
 * SearchResponse `object`: The result of a <code>Search</code> request. Contains the documents that match the specified search criteria and any requested fields, highlights, and facet information.
-  * facets [Facets](#facets)
-  * hits [Hits](#hits)
-  * stats [Stats](#stats)
-  * status [SearchStatus](#searchstatus)
+  * facets
+  * hits
+    * cursor
+    * found
+    * hit
+      * items [Hit](#hit)
+    * start
+  * stats
+  * status
+    * rid
+    * timems
 
 ### SearchStatus
 * SearchStatus `object`: Contains the resource id (<code>rid</code>) and the time it took to process the request (<code>timems</code>).
-  * rid [String](#string)
-  * timems [Long](#long)
+  * rid
+  * timems
 
 ### Size
 * Size `integer`
@@ -238,41 +267,45 @@ amazonaws_cloudsearchdomain.Suggest({}, context)
 * Stat `string`
 
 ### Stats
-* Stats `array`: The statistics calculated in the request.
-  * items `object`
-    * key [String](#string)
-    * value [FieldStats](#fieldstats)
+* Stats `object`: The statistics calculated in the request.
 
 ### String
 * String `string`
 
 ### SuggestModel
 * SuggestModel `object`: Container for the suggestion information returned in a <code>SuggestResponse</code>.
-  * found [Long](#long)
-  * query [String](#string)
-  * suggestions [Suggestions](#suggestions)
+  * found
+  * query
+  * suggestions
+    * items [SuggestionMatch](#suggestionmatch)
 
 ### SuggestRequest
 * SuggestRequest `object`: Container for the parameters to the <code>Suggest</code> request.
 
 ### SuggestResponse
 * SuggestResponse `object`: Contains the response to a <code>Suggest</code> request.
-  * status [SuggestStatus](#suggeststatus)
-  * suggest [SuggestModel](#suggestmodel)
+  * status
+    * rid
+    * timems
+  * suggest
+    * found
+    * query
+    * suggestions
+      * items [SuggestionMatch](#suggestionmatch)
 
 ### SuggestStatus
 * SuggestStatus `object`: Contains the resource id (<code>rid</code>) and the time it took to process the request (<code>timems</code>).
-  * rid [String](#string)
-  * timems [Long](#long)
+  * rid
+  * timems
 
 ### Suggester
 * Suggester `string`
 
 ### SuggestionMatch
 * SuggestionMatch `object`: An autocomplete suggestion that matches the query string specified in a <code>SuggestRequest</code>. 
-  * id [String](#string)
-  * score [Long](#long)
-  * suggestion [String](#string)
+  * id
+  * score
+  * suggestion
 
 ### Suggestions
 * Suggestions `array`
@@ -283,13 +316,14 @@ amazonaws_cloudsearchdomain.Suggest({}, context)
 
 ### UploadDocumentsRequest
 * UploadDocumentsRequest `object`: Container for the parameters to the <code>UploadDocuments</code> request.
-  * documents **required** [Blob](#blob)
+  * documents **required**
 
 ### UploadDocumentsResponse
 * UploadDocumentsResponse `object`: Contains the response to an <code>UploadDocuments</code> request.
-  * adds [Adds](#adds)
-  * deletes [Deletes](#deletes)
-  * status [String](#string)
-  * warnings [DocumentServiceWarnings](#documentservicewarnings)
+  * adds
+  * deletes
+  * status
+  * warnings
+    * items [DocumentServiceWarning](#documentservicewarning)
 
 

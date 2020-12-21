@@ -15,28 +15,25 @@ let azure_azsadmin_servicehealth = require('@datafire/azure_azsadmin_serviceheal
   redirect_uri: ""
 });
 
-azure_azsadmin_servicehealth.ServiceHealths_List({
-  "subscriptionId": "",
-  "location": "",
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
 
 ## Description
 
-Service health operation endpoints and objects.
+Resource provider health operation endpoints and objects.
 
 ## Actions
 
 ### ServiceHealths_List
-Get a list of all services health
+Returns the list of all resource provider health states.
 
 
 ```js
 azure_azsadmin_servicehealth.ServiceHealths_List({
   "subscriptionId": "",
+  "resourceGroupName": "",
   "location": "",
   "api-version": ""
 }, context)
@@ -44,21 +41,23 @@ azure_azsadmin_servicehealth.ServiceHealths_List({
 
 #### Input
 * input `object`
-  * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription.The subscription ID forms part of the URI for every service call.
-  * location **required** `string`: Location name.
-  * api-version **required** `string`: Client Api Version.
+  * subscriptionId **required** `string`: Subscription credentials that uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+  * resourceGroupName **required** `string`: The name of the resource group.
+  * location **required** `string`: Name of the region
+  * api-version **required** `string`: Client API Version.
   * $filter `string`: OData filter parameter.
 
 #### Output
 * output [ServiceHealthList](#servicehealthlist)
 
 ### ServiceHealths_Get
-Get a services health
+Returns the requested service health object.
 
 
 ```js
 azure_azsadmin_servicehealth.ServiceHealths_Get({
   "subscriptionId": "",
+  "resourceGroupName": "",
   "location": "",
   "serviceHealth": "",
   "api-version": ""
@@ -67,10 +66,11 @@ azure_azsadmin_servicehealth.ServiceHealths_Get({
 
 #### Input
 * input `object`
-  * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription.The subscription ID forms part of the URI for every service call.
-  * location **required** `string`: Location name.
+  * subscriptionId **required** `string`: Subscription credentials that uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+  * resourceGroupName **required** `string`: The name of the resource group.
+  * location **required** `string`: Name of the region
   * serviceHealth **required** `string`: Service Health name.
-  * api-version **required** `string`: Client Api Version.
+  * api-version **required** `string`: Client API Version.
 
 #### Output
 * output [ServiceHealth](#servicehealth)
@@ -80,31 +80,31 @@ azure_azsadmin_servicehealth.ServiceHealths_Get({
 ## Definitions
 
 ### ServiceHealth
-* ServiceHealth `object`: Holds information about a services health.
+* ServiceHealth `object`: Holds information about the health of a service.
   * properties [ServiceHealthModel](#servicehealthmodel)
-  * id `string`: URI of the resource.
-  * location `string`: Location where resource is location.
-  * name `string`: Name of the resource.
-  * tags `object`: List of key value pairs.
-  * type `string`: Type of resource.
+  * location `string`: The Azure Region where the resource lives
+  * tags `object`: Resource tags.
+  * id `string`: Fully qualified resource Id for the resource
+  * name `string`: The name of the resource
+  * type `string`: The type of the resource.
 
 ### ServiceHealthList
-* ServiceHealthList `object`: Pageable list of service health instances.
+* ServiceHealthList `object`: Pageable list of service health objects.
   * nextLink `string`: URI of the next page.
-  * value `array`: Array of service health instances.
+  * value `array`: List of service health objects.
     * items [ServiceHealth](#servicehealth)
 
 ### ServiceHealthModel
-* ServiceHealthModel `object`: Holds information about a services health.
-  * displayName `string`: Name of the alert.
-  * infraURI `string`: The route prefix to the alert.
+* ServiceHealthModel `object`: Holds information about the health of a service.
+  * displayName `string`: Name of the service.
+  * infraURI `string`: The route prefix to the service.
   * serviceLocation `string`: Location of the service.
   * alertSummary `object`: Summary of the alerts.
-    * criticalAlertCount `integer`: How many critical alerts this service has.
-    * warningAlertCount `integer`: How many warning alerts this service has.
-  * healthState `string`: Gets or sets the health status.
-  * namespace `string`: Gets or sets the name space.
-  * registrationId `string`: Gets or sets the registration id.
-  * routePrefix `string`: Gets or sets the route prefix.
+    * criticalAlertCount `integer`: The number of critical alerts for the service.
+    * warningAlertCount `integer`: The number of warning alerts for the service.
+  * healthState `string`: Health state.
+  * namespace `string`: Namespace of the health resource.
+  * registrationId `string`: Registration ID.
+  * routePrefix `string`: Route prefix.
 
 

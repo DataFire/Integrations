@@ -9,20 +9,22 @@
     "contact": {
       "x-twitter": "jumpseller"
     },
-    "description": "Explore all our endpoints with your own set of of access tokens. All changes affect your production Jumpseller store.",
+    "description": "# Endpoint Structure\n\nAll URLs are in the format: \n\n```text\nhttps://api.jumpseller.com/v1/path.json?login=XXXXXX&authtoken=storetoken  \n```\n\nThe path is prefixed by the API version and the URL takes as parameters the login (your store specific API login) and your authentication token.\n<br/><br/>\n***\n\n# Version\n\nThe current version of the API is **v1**.  \nIf we change the API in backward-incompatible ways, we'll increase the version number and maintain stable support for the old urls.\n<br/><br/>\n***\n\n# Authentication\n\nThe API uses a token-based authentication with a combination of a login key and an auth token. **Both parameters can be found on the left sidebar of the Account section, accessed from the main menu of your Admin Panel**. The auth token of the user can be reset on the same page.\n\n![Store Login](/images/support/api/apilogin.png)\n\nThe auth token is a **32 characters** string.\n\nIf you are developing a Jumpseller App, the authentication should be done using [OAuth-2](/support/oauth-2). Please read the article [Build an App](/support/apps) for more information.\n<br/><br/>\n***\n\n# Curl Examples\n\nTo request all the products at your store, you would append the products index path to the base url to create an URL with the format:  \n\n```text\nhttps://api.jumpseller.com/v1/products.json?login=XXXXXX&authtoken=XXXXX\n```\n\nIn curl, you can invoque that URL with:  \n\n```text\ncurl -X GET \"https://api.jumpseller.com/v1/products.json?login=XXXXXX&authtoken=XXXXX\"\n```\n\nTo create a product, you will include the JSON data and specify the MIME Type:  \n\n```text\ncurl -X POST -d '{ \"product\" : {\"name\": \"My new Product!\", \"price\": 100} }' \"https://api.jumpseller.com/v1/products.json?login=XXXXXX&authtoken=XXXXX\" -H \"Content-Type:application/json\"\n```\n\nand to update the product identified with 123:  \n\n```text\ncurl -X PUT -d '{ \"product\" : {\"name\": \"My updated Product!\", \"price\": 99} }' \"https://api.jumpseller.com/v1/products/123.json?login=XXXXXX&authtoken=XXXXX\" -H \"Content-Type:application/json\"\n```\n\nor delete it:  \n\n```text\ncurl -X DELETE \"https://api.jumpseller.com/v1/products/123.json?login=XXXXXX&authtoken=XXXXX\" -H \"Content-Type:application/json\"\n```\n<br/><br/>\n***\n\n# PHP Examples\n\nCreate a new Product (POST method)\n\n```php\n$url = 'https://api.jumpseller.com/v1/products.json?login=XXXXX&authtoken=XXXXX;\n$ch = curl_init($url);\ncurl_setopt($ch, CURLOPT_RETURNTRANSFER, true);\ncurl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));\n\ncurl_setopt($ch, CURLOPT_CUSTOMREQUEST, \"POST\"); //post method\ncurl_setopt($ch, CURLOPT_POSTFIELDS, '{ \"product\" : {\"name\": \"My updated Product!\", \"price\": 99} }');\n\n$result = curl_exec($ch);\nprint_r($result);\ncurl_close($ch);\n```\n<br/><br/>\n***\n\n# Plain JSON only. No XML.\n\n* We only support JSON for data serialization.\n* Our node format has no root element.  \n* We use snake_case to describe attribute keys (like \"created_at\").  \n* All empty value are replaced with **null** strings.\n* All API URLs end in .json to indicate that they accept and return JSON.\n* POST and PUT methods require you to explicitly state the MIME type of your request's body content as **\"application/json\"**.\n<br/><br/>\n***\n\n# Rate Limit\nYou can perform a maximum of:\n\n+ 240 (two hundred forty) requests per minute and\n+ 8 (eight) requests per second \n\nIf you exceed this limit, you'll get a 403 Forbidden (Rate Limit Exceeded) response for subsequent requests.  \n\nThe rate limits apply by IP address and by store. This means that multiple requests on different stores are not counted towards the same rate limit.\n\nThis limits are necessary to ensure resources are correctly used. Your application should be aware of this limits and retry any unsuccessful request, check the following Ruby stub:\n\n```ruby\ntries = 0; max_tries = 3;\nbegin\n  HTTParty.send(method, uri) # perform an API call.\n  sleep 0.5\n  tries += 1\nrescue\n  unless tries >= max_tries\n    sleep 1.0 # wait the necessary time before retrying the call again.\n    retry\n  end\nend\n```\n\nFinally, you can review the Response Headers of each request:\n\n```text\nJumpseller-PerMinuteRateLimit-Limit: 60  \nJumpseller-PerMinuteRateLimit-Remaining: 59 # requests available on the per-second interval  \nJumpseller-PerSecondRateLimit-Limit: 2  \nJumpseller-PerSecondRateLimit-Remaining: 1 # requests available on the per-second interval\n``` \n\nto better model your application requests intervals.\n\nIn the event of getting your IP banned, the Response Header `Jumpseller-BannedByRateLimit-Reset` informs you the time when will your ban be reseted.\n<br/><br/>\n***\n\n# Pagination\n\nBy default we will return 50 objects (products, orders, etc) per page. There is a maximum of 100, using a query string `&limit=100`.\nIf the result set gets paginated it is your responsibility to check the next page for more objects -- you do this by using query strings `&page=2`, `&page=3` and so on.\n\n```text\nhttps://api.jumpseller.com/v1/products.json?login=XXXXXX&authtoken=XXXXX&page=3&limit=100\n```\n<br/><br/>\n***\n\n# More\n* [Jumpseller API wrapper](https://gitlab.com/jumpseller-api/ruby) provides a public Ruby abstraction over our API;\n* [Apps Page](/apps) showcases external integrations with Jumpseller done by technical experts;\n* [Imgbb API](https://api.imgbb.com/) provides an easy way to upload and temporaly host for images and files.\n<br/><br/>\n***\n<br/><br/>\n",
     "title": "Jumpseller API",
-    "version": "1",
+    "version": "1.0.0",
     "x-apisguru-categories": [
       "ecommerce"
     ],
     "x-logo": {
+      "altText": "Jumpseller logo",
+      "href": "/",
       "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_jumpseller_profile_image.png"
     },
     "x-origin": [
       {
-        "format": "swagger",
+        "format": "openapi",
         "url": "https://api.jumpseller.com/swagger.json",
-        "version": "2.0"
+        "version": "3.0"
       }
     ],
     "x-preferred": true,
@@ -47,6 +49,14 @@
       "required": true,
       "type": "string"
     },
+    "CustomerIDParam": {
+      "description": "Id of the Customer",
+      "format": "int32",
+      "in": "path",
+      "name": "id",
+      "required": true,
+      "type": "integer"
+    },
     "LimitParam": {
       "default": 50,
       "description": "List restriction",
@@ -56,6 +66,14 @@
       "name": "limit",
       "required": false,
       "type": "integer"
+    },
+    "LocaleParam": {
+      "description": "Locale code of the translation",
+      "format": "string",
+      "in": "query",
+      "name": "locale",
+      "required": false,
+      "type": "string"
     },
     "LoginParam": {
       "description": "API OAuth login.",
@@ -84,31 +102,6 @@
     }
   },
   "paths": {
-    "/apps.json": {
-      "get": {
-        "parameters": [
-          {
-            "$ref": "#/parameters/LoginParam"
-          },
-          {
-            "$ref": "#/parameters/AuthtokenParam"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/App"
-            }
-          }
-        },
-        "summary": "Retrieve all Jumpseller Apps.",
-        "tags": [
-          "Apps"
-        ],
-        "operationId": "apps.json.get"
-      }
-    },
     "/categories.json": {
       "get": {
         "parameters": [
@@ -148,7 +141,7 @@
             "name": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/Category"
+              "$ref": "#/definitions/CategoryEdit"
             }
           }
         ],
@@ -156,7 +149,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/CategoryEdit"
+              "$ref": "#/definitions/Category"
             }
           }
         },
@@ -165,6 +158,31 @@
           "Categories"
         ],
         "operationId": "categories.json.post"
+      }
+    },
+    "/categories/count.json": {
+      "get": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/LoginParam"
+          },
+          {
+            "$ref": "#/parameters/AuthtokenParam"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Count"
+            }
+          }
+        },
+        "summary": "Count all Categories.",
+        "tags": [
+          "Categories"
+        ],
+        "operationId": "categories.count.json.get"
       }
     },
     "/categories/{id}.json": {
@@ -323,6 +341,7 @@
         "operationId": "checkout_custom_fields.json.get"
       },
       "post": {
+        "description": "Type values can be: input, selection, checkbox, date or text. Area values can be: contact, billing_shipping or other.",
         "parameters": [
           {
             "$ref": "#/parameters/LoginParam"
@@ -344,10 +363,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "items": {
-                "$ref": "#/definitions/CheckoutCustomField"
-              },
-              "type": "array"
+              "$ref": "#/definitions/CheckoutCustomField"
             }
           },
           "404": {
@@ -469,10 +485,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "items": {
-                "$ref": "#/definitions/CheckoutCustomField"
-              },
-              "type": "array"
+              "$ref": "#/definitions/CheckoutCustomField"
             }
           },
           "404": {
@@ -647,6 +660,188 @@
         "operationId": "countries.country_code.regions.region_code.json.get"
       }
     },
+    "/custom_fields.json": {
+      "get": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/LoginParam"
+          },
+          {
+            "$ref": "#/parameters/AuthtokenParam"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "An array of Custom Fields",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/CustomField"
+              },
+              "type": "array"
+            }
+          }
+        },
+        "summary": "Retrieve all Store's Custom Fields.",
+        "tags": [
+          "Custom Fields"
+        ],
+        "operationId": "custom_fields.json.get"
+      },
+      "post": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/LoginParam"
+          },
+          {
+            "$ref": "#/parameters/AuthtokenParam"
+          },
+          {
+            "description": "Custom Field parameters.",
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CustomFieldEdit"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/CustomField"
+            }
+          }
+        },
+        "summary": "Create a new Custom Field.",
+        "tags": [
+          "Custom Fields"
+        ],
+        "operationId": "custom_fields.json.post"
+      }
+    },
+    "/custom_fields/{id}.json": {
+      "delete": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/LoginParam"
+          },
+          {
+            "$ref": "#/parameters/AuthtokenParam"
+          },
+          {
+            "description": "Id of the CustomField",
+            "format": "int32",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "404": {
+            "description": "CustomField Not Found.",
+            "schema": {
+              "$ref": "#/definitions/NotFound"
+            }
+          }
+        },
+        "summary": "Delete an existing CustomField.",
+        "tags": [
+          "Custom Fields"
+        ],
+        "operationId": "custom_fields.id.json.delete"
+      },
+      "get": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/LoginParam"
+          },
+          {
+            "$ref": "#/parameters/AuthtokenParam"
+          },
+          {
+            "description": "Id of the CustomField",
+            "format": "int32",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/CustomField"
+            }
+          },
+          "404": {
+            "description": "CustomField Not Found.",
+            "schema": {
+              "$ref": "#/definitions/NotFound"
+            }
+          }
+        },
+        "summary": "Retrieve a single CustomField.",
+        "tags": [
+          "Custom Fields"
+        ],
+        "operationId": "custom_fields.id.json.get"
+      },
+      "put": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/LoginParam"
+          },
+          {
+            "$ref": "#/parameters/AuthtokenParam"
+          },
+          {
+            "description": "Id of the CustomField",
+            "format": "int32",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "CustomField parameters.",
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CustomFieldEdit"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/CustomField"
+            }
+          },
+          "404": {
+            "description": "CustomField Not Found.",
+            "schema": {
+              "$ref": "#/definitions/NotFound"
+            }
+          }
+        },
+        "summary": "Update a CustomField.",
+        "tags": [
+          "Custom Fields"
+        ],
+        "operationId": "custom_fields.id.json.put"
+      }
+    },
     "/customer_categories.json": {
       "get": {
         "parameters": [
@@ -702,10 +897,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "items": {
-                "$ref": "#/definitions/CustomerCategory"
-              },
-              "type": "array"
+              "$ref": "#/definitions/CustomerCategory"
             }
           },
           "404": {
@@ -827,10 +1019,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "items": {
-                "$ref": "#/definitions/CustomerCategory"
-              },
-              "type": "array"
+              "$ref": "#/definitions/CustomerCategory"
             }
           },
           "404": {
@@ -863,6 +1052,15 @@
             "name": "id",
             "required": true,
             "type": "integer"
+          },
+          {
+            "description": "Customer parameters.",
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CustomersToCustomerCategory"
+            }
           }
         ],
         "responses": {
@@ -947,13 +1145,13 @@
             "name": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/Customer"
+              "$ref": "#/definitions/CustomersToCustomerCategory"
             }
           }
         ],
         "responses": {
           "200": {
-            "description": "OK",
+            "description": "Array of Customers in the Customer Category",
             "schema": {
               "items": {
                 "$ref": "#/definitions/Customer"
@@ -1030,10 +1228,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "items": {
-                "$ref": "#/definitions/Customer"
-              },
-              "type": "array"
+              "$ref": "#/definitions/Customer"
             }
           },
           "404": {
@@ -1048,6 +1243,31 @@
           "Customers"
         ],
         "operationId": "customers.json.post"
+      }
+    },
+    "/customers/count.json": {
+      "get": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/LoginParam"
+          },
+          {
+            "$ref": "#/parameters/AuthtokenParam"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Count"
+            }
+          }
+        },
+        "summary": "Count all Customers.",
+        "tags": [
+          "Customers"
+        ],
+        "operationId": "customers.count.json.get"
       }
     },
     "/customers/email/{email}.json": {
@@ -1081,7 +1301,7 @@
             }
           }
         },
-        "summary": "Retrieve a single Customer.",
+        "summary": "Retrieve a single Customer by email.",
         "tags": [
           "Customers"
         ],
@@ -1120,7 +1340,7 @@
             }
           }
         },
-        "summary": "Delete an existing Category.",
+        "summary": "Delete an existing Customer.",
         "tags": [
           "Customers"
         ],
@@ -1157,7 +1377,7 @@
             }
           }
         },
-        "summary": "Retrieve a single Customer.",
+        "summary": "Retrieve a single Customer by id.",
         "tags": [
           "Customers"
         ],
@@ -1185,7 +1405,7 @@
             "name": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/CustomerWithPassword"
+              "$ref": "#/definitions/CustomerWithPasswordNoID"
             }
           }
         ],
@@ -1193,10 +1413,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "items": {
-                "$ref": "#/definitions/Customer"
-              },
-              "type": "array"
+              "$ref": "#/definitions/Customer"
             }
           },
           "404": {
@@ -1213,7 +1430,7 @@
         "operationId": "customers.id.json.put"
       }
     },
-    "/fields.json": {
+    "/customers/{id}/fields": {
       "get": {
         "parameters": [
           {
@@ -1221,24 +1438,38 @@
           },
           {
             "$ref": "#/parameters/AuthtokenParam"
+          },
+          {
+            "description": "Id of the Customer",
+            "format": "int32",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
           }
         ],
         "responses": {
           "200": {
-            "description": "An array of Custom Fields",
+            "description": "OK",
             "schema": {
               "items": {
-                "$ref": "#/definitions/Field"
+                "$ref": "#/definitions/CustomerAdditionalField"
               },
               "type": "array"
             }
+          },
+          "404": {
+            "description": "Customer Not Found.",
+            "schema": {
+              "$ref": "#/definitions/NotFound"
+            }
           }
         },
-        "summary": "Retrieve all Store's Custom Fields.",
+        "summary": "Retrieves the Customer Additional Field of a Customer.",
         "tags": [
-          "Custom Fields"
+          "Customer Additional Fields"
         ],
-        "operationId": "fields.json.get"
+        "operationId": "customers.id.fields.get"
       },
       "post": {
         "parameters": [
@@ -1249,12 +1480,20 @@
             "$ref": "#/parameters/AuthtokenParam"
           },
           {
-            "description": "Custom Field parameters.",
+            "description": "Id of the Customer",
+            "format": "int32",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Customer Additional Field parameters.",
             "in": "body",
             "name": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/Field"
+              "$ref": "#/definitions/CustomerAdditionalFieldEdit"
             }
           }
         ],
@@ -1262,18 +1501,163 @@
           "200": {
             "description": "OK",
             "schema": {
-              "items": {
-                "$ref": "#/definitions/Field"
-              },
-              "type": "array"
+              "$ref": "#/definitions/CustomerAdditionalField"
+            }
+          },
+          "404": {
+            "description": "Customer Additional Field Not Found.",
+            "schema": {
+              "$ref": "#/definitions/NotFound"
             }
           }
         },
-        "summary": "Create a new Custom Field.",
+        "summary": "Adds Customer Additional Fields to a Customer.",
         "tags": [
-          "Custom Fields"
+          "Customer Additional Fields"
         ],
-        "operationId": "fields.json.post"
+        "operationId": "customers.id.fields.post"
+      }
+    },
+    "/customers/{id}/fields/{field_id}": {
+      "delete": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/LoginParam"
+          },
+          {
+            "$ref": "#/parameters/AuthtokenParam"
+          },
+          {
+            "$ref": "#/parameters/CustomerIDParam"
+          },
+          {
+            "description": "Id of the Customer Additional Field",
+            "format": "int32",
+            "in": "path",
+            "name": "field_id",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "404": {
+            "description": "Customer Not Found.",
+            "schema": {
+              "$ref": "#/definitions/NotFound"
+            }
+          }
+        },
+        "summary": "Delete a Customer Additional Field.",
+        "tags": [
+          "Customer Additional Fields"
+        ],
+        "operationId": "customers.id.fields.field_id.delete"
+      },
+      "get": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/LoginParam"
+          },
+          {
+            "$ref": "#/parameters/AuthtokenParam"
+          },
+          {
+            "description": "Id of the Customer",
+            "format": "int32",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Id of the Customer Additional Field",
+            "format": "int32",
+            "in": "path",
+            "name": "field_id",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/CustomerAdditionalField"
+            }
+          },
+          "404": {
+            "description": "Customer Not Found.",
+            "schema": {
+              "$ref": "#/definitions/NotFound"
+            }
+          }
+        },
+        "summary": "Retrieve a single Customer Additional Field.",
+        "tags": [
+          "Customer Additional Fields"
+        ],
+        "operationId": "customers.id.fields.field_id.get"
+      },
+      "put": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/LoginParam"
+          },
+          {
+            "$ref": "#/parameters/AuthtokenParam"
+          },
+          {
+            "$ref": "#/parameters/CustomerIDParam"
+          },
+          {
+            "description": "Id of the Customer Additional Field",
+            "format": "int32",
+            "in": "path",
+            "name": "field_id",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Customer Additional Field parameters.",
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CustomerAdditionalFieldEdit"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/CustomerAdditionalField"
+            }
+          },
+          "400": {
+            "description": "Customer Additional Field Bad Parameters.",
+            "schema": {
+              "$ref": "#/definitions/BadParams"
+            }
+          },
+          "404": {
+            "description": "Customer Additional Field Not Found.",
+            "schema": {
+              "$ref": "#/definitions/NotFound"
+            }
+          }
+        },
+        "summary": "Update a Customer Additional Field.",
+        "tags": [
+          "Customer Additional Fields"
+        ],
+        "operationId": "customers.id.fields.field_id.put"
       }
     },
     "/hooks.json": {
@@ -1453,10 +1837,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "items": {
-                "$ref": "#/definitions/Hook"
-              },
-              "type": "array"
+              "$ref": "#/definitions/Hook"
             }
           },
           "404": {
@@ -1474,6 +1855,29 @@
       }
     },
     "/jsapps.json": {
+      "get": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/LoginParam"
+          },
+          {
+            "$ref": "#/parameters/AuthtokenParam"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/App"
+            }
+          }
+        },
+        "summary": "Retrieve all the Store's JSApps",
+        "tags": [
+          "Apps"
+        ],
+        "operationId": "jsapps.json.get"
+      },
       "post": {
         "parameters": [
           {
@@ -1488,7 +1892,7 @@
             "name": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/JSApp"
+              "$ref": "#/definitions/JSAppEdit"
             }
           }
         ],
@@ -1496,10 +1900,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "items": {
-                "$ref": "#/definitions/JSApp"
-              },
-              "type": "array"
+              "$ref": "#/definitions/JSApp"
             }
           }
         },
@@ -1586,6 +1987,12 @@
           },
           {
             "$ref": "#/parameters/AuthtokenParam"
+          },
+          {
+            "$ref": "#/parameters/LimitParam"
+          },
+          {
+            "$ref": "#/parameters/PageParam"
           }
         ],
         "responses": {
@@ -1606,7 +2013,6 @@
         "operationId": "orders.json.get"
       },
       "post": {
-        "description": "Use the JSON format:<br/>'{ \"order\": {\"status\": \"Paid\", \"shipping_method_id\": 123, \"products\": [{ \"id\": 123, \"qty\": 1}], \"customer\": {\"id\": 123}}}'<br/>or in CURL:<br/>curl -X POST -d '{ \"order\": {\"status\": \"Paid\", \"shipping_method_id\": 123, \"products\": [{ \"id\": 123, \"qty\": 1}], \"customer\": {\"id\": 123}}}' \"https://api.jumpseller.com/v1/orders.json?login=storecode&authtoken=XXXXX\" -H \"Content-Type:application/json\" ",
         "parameters": [
           {
             "$ref": "#/parameters/LoginParam"
@@ -1620,7 +2026,7 @@
             "name": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/OrderEdit"
+              "$ref": "#/definitions/OrderCreate"
             }
           }
         ],
@@ -1628,10 +2034,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "items": {
-                "$ref": "#/definitions/Order"
-              },
-              "type": "array"
+              "$ref": "#/definitions/Order"
             }
           }
         },
@@ -1640,6 +2043,71 @@
           "Orders"
         ],
         "operationId": "orders.json.post"
+      }
+    },
+    "/orders/after/{id}.json": {
+      "get": {
+        "description": "For example the GET /orders/after/5000 will return Order 5001, 5002, 5003, etc.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/LoginParam"
+          },
+          {
+            "$ref": "#/parameters/AuthtokenParam"
+          },
+          {
+            "description": "Id of the Order",
+            "format": "int32",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Order"
+            }
+          },
+          "404": {
+            "description": "Order Not Found.",
+            "schema": {
+              "$ref": "#/definitions/NotFound"
+            }
+          }
+        },
+        "summary": "Retrieve orders filtered by Order Id.",
+        "tags": [
+          "Orders"
+        ],
+        "operationId": "orders.after.id.json.get"
+      }
+    },
+    "/orders/count.json": {
+      "get": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/LoginParam"
+          },
+          {
+            "$ref": "#/parameters/AuthtokenParam"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Count"
+            }
+          }
+        },
+        "summary": "Count all Orders.",
+        "tags": [
+          "Orders"
+        ],
+        "operationId": "orders.count.json.get"
       }
     },
     "/orders/status/{status}.json": {
@@ -1682,7 +2150,7 @@
             }
           }
         },
-        "summary": "Retrieve orders filter by status.",
+        "summary": "Retrieve orders filtered by status.",
         "tags": [
           "Orders"
         ],
@@ -1728,7 +2196,7 @@
         "operationId": "orders.id.json.get"
       },
       "put": {
-        "description": "Only 'status', 'tracking_number', 'tracking_company', 'additional_information' and 'additional_fields' are available for update.<br/>Use the JSON format:<br/>'{ \"order\": {\"status\": \"Paid\", \"tracking_company\": \"other\", \"tracking_number\": \"123456789\", \"additional_information\": \"My custom message.\", \"additional_fields\": [{\"label\": \"Gift Name\", \"value\": \"Duarte\"}, {\"label\": \"Gift Wrapping Color\", \"value\": \"Green\"}]} }}'<br/>or in CURL:<br/>curl -X PUT -d '{ \"order\": {\"status\": \"Paid\", \"additional_information\": \"My custom message.\"}}' \"https://api.jumpseller.com/v1/orders/{id}.json?login=storecode&authtoken=XXXXX\" -H \"Content-Type:application/json\" ",
+        "description": "Only `status`, `shipment_status`, `tracking_number`, `tracking_company`, `additional_information` and `additional_fields` are available for update.",
         "parameters": [
           {
             "$ref": "#/parameters/LoginParam"
@@ -1758,10 +2226,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "items": {
-                "$ref": "#/definitions/Order"
-              },
-              "type": "array"
+              "$ref": "#/definitions/Order"
             }
           },
           "404": {
@@ -1843,10 +2308,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "items": {
-                "$ref": "#/definitions/OrderHistory"
-              },
-              "type": "array"
+              "$ref": "#/definitions/OrderHistory"
             }
           }
         },
@@ -1938,6 +2400,9 @@
           },
           {
             "$ref": "#/parameters/PageParam"
+          },
+          {
+            "$ref": "#/parameters/LocaleParam"
           }
         ],
         "responses": {
@@ -1966,6 +2431,9 @@
             "$ref": "#/parameters/AuthtokenParam"
           },
           {
+            "$ref": "#/parameters/LocaleParam"
+          },
+          {
             "description": "Product parameters.",
             "in": "body",
             "name": "body",
@@ -1979,10 +2447,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "items": {
-                "$ref": "#/definitions/Product"
-              },
-              "type": "array"
+              "$ref": "#/definitions/Product"
             }
           }
         },
@@ -2004,6 +2469,9 @@
           },
           {
             "$ref": "#/parameters/ProductIDParam"
+          },
+          {
+            "$ref": "#/parameters/LocaleParam"
           }
         ],
         "responses": {
@@ -2038,6 +2506,9 @@
           },
           {
             "$ref": "#/parameters/AuthtokenParam"
+          },
+          {
+            "$ref": "#/parameters/LocaleParam"
           },
           {
             "description": "Category ID of the Product used as filter",
@@ -2080,6 +2551,9 @@
           },
           {
             "$ref": "#/parameters/AuthtokenParam"
+          },
+          {
+            "$ref": "#/parameters/LocaleParam"
           },
           {
             "description": "Category ID of the Product used as filter",
@@ -2138,6 +2612,7 @@
     },
     "/products/search.json": {
       "get": {
+        "description": "Endpoint example: \n\n```text\nhttps://api.jumpseller.com/v1/products/search.json?login=XXXXXX&authtoken=XXXXX&query=test&fields=name,description \n```",
         "parameters": [
           {
             "$ref": "#/parameters/LoginParam"
@@ -2146,11 +2621,33 @@
             "$ref": "#/parameters/AuthtokenParam"
           },
           {
-            "description": "Query for the Product",
+            "$ref": "#/parameters/LocaleParam"
+          },
+          {
+            "description": "Text to query for the Product",
             "format": "string",
             "in": "query",
             "name": "query",
             "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Comma separated values of the fields to query for the Product",
+            "enum": [
+              "sku",
+              "barcode",
+              "brand",
+              "name",
+              "description",
+              "variants",
+              "option_name",
+              "custom_fields",
+              "custom_fields_selects"
+            ],
+            "format": "string",
+            "in": "query",
+            "name": "fields",
+            "required": false,
             "type": "string"
           }
         ],
@@ -2178,41 +2675,6 @@
         "operationId": "products.search.json.get"
       }
     },
-    "/products/sku/{sku}.json": {
-      "get": {
-        "parameters": [
-          {
-            "$ref": "#/parameters/LoginParam"
-          },
-          {
-            "$ref": "#/parameters/AuthtokenParam"
-          },
-          {
-            "description": "SKU of the Product",
-            "in": "path",
-            "name": "sku",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "An array of products",
-            "schema": {
-              "items": {
-                "$ref": "#/definitions/Product"
-              },
-              "type": "array"
-            }
-          }
-        },
-        "summary": "Retrieve a single Product by SKU.",
-        "tags": [
-          "Products"
-        ],
-        "operationId": "products.sku.sku.json.get"
-      }
-    },
     "/products/status/{status}.json": {
       "get": {
         "parameters": [
@@ -2221,6 +2683,9 @@
           },
           {
             "$ref": "#/parameters/AuthtokenParam"
+          },
+          {
+            "$ref": "#/parameters/LocaleParam"
           },
           {
             "description": "Status of the Product used as filter",
@@ -2267,6 +2732,9 @@
           },
           {
             "$ref": "#/parameters/AuthtokenParam"
+          },
+          {
+            "$ref": "#/parameters/LocaleParam"
           },
           {
             "description": "Status of the Product used as filter",
@@ -2344,6 +2812,9 @@
             "$ref": "#/parameters/AuthtokenParam"
           },
           {
+            "$ref": "#/parameters/LocaleParam"
+          },
+          {
             "description": "ID of the Product",
             "format": "int32",
             "in": "path",
@@ -2384,6 +2855,9 @@
             "$ref": "#/parameters/ProductIDParam"
           },
           {
+            "$ref": "#/parameters/LocaleParam"
+          },
+          {
             "description": "Product parameters to change",
             "in": "body",
             "name": "body",
@@ -2397,10 +2871,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "items": {
-                "$ref": "#/definitions/Product"
-              },
-              "type": "array"
+              "$ref": "#/definitions/Product"
             }
           },
           "404": {
@@ -2415,6 +2886,402 @@
           "Products"
         ],
         "operationId": "products.id.json.put"
+      }
+    },
+    "/products/{id}/attachments.json": {
+      "get": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/LoginParam"
+          },
+          {
+            "$ref": "#/parameters/AuthtokenParam"
+          },
+          {
+            "description": "ID of the Product",
+            "format": "int32",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/Attachment"
+              },
+              "type": "array"
+            }
+          },
+          "404": {
+            "description": "Product Not Found.",
+            "schema": {
+              "$ref": "#/definitions/NotFound"
+            }
+          }
+        },
+        "summary": "Retrieve all Product Attachments.",
+        "tags": [
+          "Product Attachments"
+        ],
+        "operationId": "products.id.attachments.json.get"
+      },
+      "post": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/LoginParam"
+          },
+          {
+            "$ref": "#/parameters/AuthtokenParam"
+          },
+          {
+            "$ref": "#/parameters/ProductIDParam"
+          },
+          {
+            "description": "Product Attachment parameters.",
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AttachmentEdit"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Attachment"
+            }
+          }
+        },
+        "summary": "Create a new Product Attachment.",
+        "tags": [
+          "Product Attachments"
+        ],
+        "operationId": "products.id.attachments.json.post"
+      }
+    },
+    "/products/{id}/attachments/count.json": {
+      "get": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/LoginParam"
+          },
+          {
+            "$ref": "#/parameters/AuthtokenParam"
+          },
+          {
+            "description": "ID of the Product",
+            "format": "int32",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Count"
+            }
+          },
+          "404": {
+            "description": "Product Not Found.",
+            "schema": {
+              "$ref": "#/definitions/NotFound"
+            }
+          }
+        },
+        "summary": "Count all Product Attachments.",
+        "tags": [
+          "Product Attachments"
+        ],
+        "operationId": "products.id.attachments.count.json.get"
+      }
+    },
+    "/products/{id}/attachments/{attachment_id}.json": {
+      "delete": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/LoginParam"
+          },
+          {
+            "$ref": "#/parameters/AuthtokenParam"
+          },
+          {
+            "$ref": "#/parameters/ProductIDParam"
+          },
+          {
+            "description": "Id of the Product Attachment",
+            "format": "int32",
+            "in": "path",
+            "name": "attachment_id",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "404": {
+            "description": "Product Not Found.",
+            "schema": {
+              "$ref": "#/definitions/NotFound"
+            }
+          }
+        },
+        "summary": "Delete a Product Attachment.",
+        "tags": [
+          "Product Attachments"
+        ],
+        "operationId": "products.id.attachments.attachment_id.json.delete"
+      },
+      "get": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/LoginParam"
+          },
+          {
+            "$ref": "#/parameters/AuthtokenParam"
+          },
+          {
+            "$ref": "#/parameters/ProductIDParam"
+          },
+          {
+            "description": "Id of the Product Attachment",
+            "format": "int32",
+            "in": "path",
+            "name": "attachment_id",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Attachment"
+            }
+          },
+          "404": {
+            "description": "Product Not Found.",
+            "schema": {
+              "$ref": "#/definitions/NotFound"
+            }
+          }
+        },
+        "summary": "Retrieve a single Product Attachment.",
+        "tags": [
+          "Product Attachments"
+        ],
+        "operationId": "products.id.attachments.attachment_id.json.get"
+      }
+    },
+    "/products/{id}/digital_products.json": {
+      "get": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/LoginParam"
+          },
+          {
+            "$ref": "#/parameters/AuthtokenParam"
+          },
+          {
+            "description": "ID of the Product",
+            "format": "int32",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/DigitalProduct"
+              },
+              "type": "array"
+            }
+          },
+          "404": {
+            "description": "Product Not Found.",
+            "schema": {
+              "$ref": "#/definitions/NotFound"
+            }
+          }
+        },
+        "summary": "Retrieve all Product DigitalProducts.",
+        "tags": [
+          "Product DigitalProducts"
+        ],
+        "operationId": "products.id.digital_products.json.get"
+      },
+      "post": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/LoginParam"
+          },
+          {
+            "$ref": "#/parameters/AuthtokenParam"
+          },
+          {
+            "$ref": "#/parameters/ProductIDParam"
+          },
+          {
+            "description": "Product DigitalProduct parameters.",
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DigitalProductEdit"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DigitalProduct"
+            }
+          }
+        },
+        "summary": "Create a new Product DigitalProduct.",
+        "tags": [
+          "Product DigitalProducts"
+        ],
+        "operationId": "products.id.digital_products.json.post"
+      }
+    },
+    "/products/{id}/digital_products/count.json": {
+      "get": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/LoginParam"
+          },
+          {
+            "$ref": "#/parameters/AuthtokenParam"
+          },
+          {
+            "description": "ID of the Product",
+            "format": "int32",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Count"
+            }
+          },
+          "404": {
+            "description": "Product Not Found.",
+            "schema": {
+              "$ref": "#/definitions/NotFound"
+            }
+          }
+        },
+        "summary": "Count all Product DigitalProducts.",
+        "tags": [
+          "Product DigitalProducts"
+        ],
+        "operationId": "products.id.digital_products.count.json.get"
+      }
+    },
+    "/products/{id}/digital_products/{digital_product_id}.json": {
+      "delete": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/LoginParam"
+          },
+          {
+            "$ref": "#/parameters/AuthtokenParam"
+          },
+          {
+            "$ref": "#/parameters/ProductIDParam"
+          },
+          {
+            "description": "Id of the Product DigitalProduct",
+            "format": "int32",
+            "in": "path",
+            "name": "digital_product_id",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "404": {
+            "description": "Product Not Found.",
+            "schema": {
+              "$ref": "#/definitions/NotFound"
+            }
+          }
+        },
+        "summary": "Delete a Product DigitalProduct.",
+        "tags": [
+          "Product DigitalProducts"
+        ],
+        "operationId": "products.id.digital_products.digital_product_id.json.delete"
+      },
+      "get": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/LoginParam"
+          },
+          {
+            "$ref": "#/parameters/AuthtokenParam"
+          },
+          {
+            "$ref": "#/parameters/ProductIDParam"
+          },
+          {
+            "description": "Id of the Product DigitalProduct",
+            "format": "int32",
+            "in": "path",
+            "name": "digital_product_id",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DigitalProduct"
+            }
+          },
+          "404": {
+            "description": "Product Not Found.",
+            "schema": {
+              "$ref": "#/definitions/NotFound"
+            }
+          }
+        },
+        "summary": "Retrieve a single Product DigitalProduct.",
+        "tags": [
+          "Product DigitalProducts"
+        ],
+        "operationId": "products.id.digital_products.digital_product_id.json.get"
       }
     },
     "/products/{id}/fields.json": {
@@ -2435,7 +3302,7 @@
             "description": "OK",
             "schema": {
               "items": {
-                "$ref": "#/definitions/Field"
+                "$ref": "#/definitions/ProductCustomField"
               },
               "type": "array"
             }
@@ -2478,10 +3345,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "items": {
-                "$ref": "#/definitions/Product"
-              },
-              "type": "array"
+              "$ref": "#/definitions/Product"
             }
           },
           "404": {
@@ -2603,10 +3467,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "items": {
-                "$ref": "#/definitions/Image"
-              },
-              "type": "array"
+              "$ref": "#/definitions/Image"
             }
           }
         },
@@ -2721,10 +3582,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "items": {
-                "$ref": "#/definitions/Image"
-              },
-              "type": "array"
+              "$ref": "#/definitions/Image"
             }
           },
           "404": {
@@ -2734,7 +3592,7 @@
             }
           }
         },
-        "summary": "Create a new Product Image.",
+        "summary": "Retrieve a single Product Image.",
         "tags": [
           "Product Images"
         ],
@@ -2807,10 +3665,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "items": {
-                "$ref": "#/definitions/ProductOption"
-              },
-              "type": "array"
+              "$ref": "#/definitions/ProductOption"
             }
           }
         },
@@ -2925,10 +3780,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "items": {
-                "$ref": "#/definitions/ProductOption"
-              },
-              "type": "array"
+              "$ref": "#/definitions/ProductOption"
             }
           },
           "404": {
@@ -2938,7 +3790,7 @@
             }
           }
         },
-        "summary": "Create a new Product Option.",
+        "summary": "Retrieve a single Product Option.",
         "tags": [
           "Product Options"
         ],
@@ -2977,10 +3829,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "items": {
-                "$ref": "#/definitions/ProductOption"
-              },
-              "type": "array"
+              "$ref": "#/definitions/ProductOption"
             }
           },
           "404": {
@@ -3079,10 +3928,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "items": {
-                "$ref": "#/definitions/ProductOptionValue"
-              },
-              "type": "array"
+              "$ref": "#/definitions/ProductOptionValue"
             }
           }
         },
@@ -3221,10 +4067,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "items": {
-                "$ref": "#/definitions/ProductOptionValue"
-              },
-              "type": "array"
+              "$ref": "#/definitions/ProductOptionValue"
             }
           },
           "404": {
@@ -3234,7 +4077,7 @@
             }
           }
         },
-        "summary": "Create a new Product Option Value.",
+        "summary": "Retrieve a single Product Option Value.",
         "tags": [
           "Product Option Values"
         ],
@@ -3576,10 +4419,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "items": {
-                "$ref": "#/definitions/Promotion"
-              },
-              "type": "array"
+              "$ref": "#/definitions/Promotion"
             }
           },
           "404": {
@@ -3701,10 +4541,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "items": {
-                "$ref": "#/definitions/Promotion"
-              },
-              "type": "array"
+              "$ref": "#/definitions/Promotion"
             }
           },
           "404": {
@@ -3719,6 +4556,194 @@
           "Promotions"
         ],
         "operationId": "promotions.id.json.put"
+      }
+    },
+    "/shipping_methods.json": {
+      "get": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/LoginParam"
+          },
+          {
+            "$ref": "#/parameters/AuthtokenParam"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "An array of Shipping Methods",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/ShippingMethod"
+              },
+              "type": "array"
+            }
+          }
+        },
+        "summary": "Retrieve all Store's Shipping Methods.",
+        "tags": [
+          "Shipping Methods"
+        ],
+        "operationId": "shipping_methods.json.get"
+      },
+      "post": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/LoginParam"
+          },
+          {
+            "$ref": "#/parameters/AuthtokenParam"
+          },
+          {
+            "description": "Shipping Method parameters.",
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ShippingMethodCreate"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ShippingMethod"
+            }
+          },
+          "404": {
+            "description": "ShippingMethod Not Found.",
+            "schema": {
+              "$ref": "#/definitions/NotFound"
+            }
+          }
+        },
+        "summary": "Creates a Shipping Method.",
+        "tags": [
+          "Shipping Methods"
+        ],
+        "operationId": "shipping_methods.json.post"
+      }
+    },
+    "/shipping_methods/{id}.json": {
+      "delete": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/LoginParam"
+          },
+          {
+            "$ref": "#/parameters/AuthtokenParam"
+          },
+          {
+            "description": "Id of the Shipping Method",
+            "format": "int32",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "404": {
+            "description": "Shipping Method Not Found.",
+            "schema": {
+              "$ref": "#/definitions/NotFound"
+            }
+          }
+        },
+        "summary": "Delete an existing Shipping Method.",
+        "tags": [
+          "Shipping Methods"
+        ],
+        "operationId": "shipping_methods.id.json.delete"
+      },
+      "get": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/LoginParam"
+          },
+          {
+            "$ref": "#/parameters/AuthtokenParam"
+          },
+          {
+            "description": "Id of the Shipping Method",
+            "format": "int32",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ShippingMethod"
+            }
+          },
+          "404": {
+            "description": "ShippingMethod Not Found.",
+            "schema": {
+              "$ref": "#/definitions/NotFound"
+            }
+          }
+        },
+        "summary": "Retrieve a single Shipping Method.",
+        "tags": [
+          "Shipping Methods"
+        ],
+        "operationId": "shipping_methods.id.json.get"
+      },
+      "put": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/LoginParam"
+          },
+          {
+            "$ref": "#/parameters/AuthtokenParam"
+          },
+          {
+            "description": "Id of the Shipping Method",
+            "format": "int32",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Shipping Method parameters.",
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ShippingMethodCreate"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ShippingMethod"
+            }
+          },
+          "404": {
+            "description": "Shipping Method Not Found.",
+            "schema": {
+              "$ref": "#/definitions/NotFound"
+            }
+          }
+        },
+        "summary": "Update a Shipping Method.",
+        "tags": [
+          "Shipping Methods"
+        ],
+        "operationId": "shipping_methods.id.json.put"
       }
     },
     "/store/info.json": {
@@ -3824,10 +4849,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "items": {
-                "$ref": "#/definitions/Tax"
-              },
-              "type": "array"
+              "$ref": "#/definitions/Tax"
             }
           },
           "404": {
@@ -3926,6 +4948,56 @@
       },
       "type": "object"
     },
+    "Attachment": {
+      "properties": {
+        "attachment": {
+          "$ref": "#/definitions/AttachmentFields"
+        }
+      },
+      "type": "object"
+    },
+    "AttachmentEdit": {
+      "properties": {
+        "attachment": {
+          "$ref": "#/definitions/AttachmentEditFields"
+        }
+      },
+      "type": "object"
+    },
+    "AttachmentEditFields": {
+      "properties": {
+        "filename": {
+          "description": "Filename of the attachment (with file extensison)",
+          "type": "string"
+        },
+        "url": {
+          "description": "Public accessible URL with the desired file contents. (LIMIT: 100MB)",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "AttachmentFields": {
+      "properties": {
+        "id": {
+          "description": "Unique identifier of the attachment",
+          "format": "int32",
+          "type": "integer"
+        },
+        "url": {
+          "description": "Private URL of the attachment",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "BadParams": {
+      "properties": {
+        "message": {
+          "type": "string"
+        }
+      }
+    },
     "BillingAddress": {
       "properties": {
         "address": {
@@ -3937,7 +5009,7 @@
           "type": "string"
         },
         "country": {
-          "description": "Country of the Customer's Billing Address",
+          "description": "Country code of the Customer's Billing Address (ISO 3166-1 alpha-2)",
           "type": "string"
         },
         "municipality": {
@@ -3953,7 +5025,7 @@
           "type": "string"
         },
         "region": {
-          "description": "Region of the Customer's Billing Address",
+          "description": "Region code of the Customer's Billing Address (Use the FIPS standard - http://www.geonames.org/countries/)",
           "type": "string"
         },
         "surname": {
@@ -4078,7 +5150,8 @@
             "text",
             "select",
             "input",
-            "checkbox"
+            "checkbox",
+            "date"
           ],
           "type": "string"
         }
@@ -4158,10 +5231,143 @@
         }
       }
     },
+    "CustomField": {
+      "properties": {
+        "custom_field": {
+          "$ref": "#/definitions/CustomFieldFields"
+        }
+      },
+      "type": "object"
+    },
+    "CustomFieldEdit": {
+      "properties": {
+        "custom_field": {
+          "$ref": "#/definitions/CustomFieldEditFields"
+        }
+      },
+      "type": "object"
+    },
+    "CustomFieldEditFields": {
+      "properties": {
+        "label": {
+          "description": "Label given to the Custom Field",
+          "type": "string"
+        },
+        "type": {
+          "description": "Type of the Custom Field",
+          "enum": [
+            "text",
+            "selection",
+            "input"
+          ],
+          "type": "string"
+        },
+        "values": {
+          "description": "All the possible Values of the Custom Field (for type 'selection')",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "CustomFieldFields": {
+      "properties": {
+        "id": {
+          "description": "Unique identifier of the Custom Field",
+          "format": "int32",
+          "type": "integer"
+        },
+        "label": {
+          "description": "Label given to the Custom Field",
+          "type": "string"
+        },
+        "type": {
+          "description": "Type of the Custom Field",
+          "enum": [
+            "text",
+            "selection",
+            "input"
+          ],
+          "type": "string"
+        },
+        "values": {
+          "description": "All the possible Values of the Custom Field (for type 'selection')",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
     "Customer": {
       "properties": {
         "customer": {
           "$ref": "#/definitions/CustomerFields"
+        }
+      },
+      "type": "object"
+    },
+    "CustomerAdditionalField": {
+      "properties": {
+        "customer_additional_field": {
+          "$ref": "#/definitions/CustomerAdditionalFieldFields"
+        }
+      },
+      "type": "object"
+    },
+    "CustomerAdditionalFieldEdit": {
+      "properties": {
+        "customer_additional_field": {
+          "$ref": "#/definitions/CustomerAdditionalFieldEditFields"
+        }
+      },
+      "type": "object"
+    },
+    "CustomerAdditionalFieldEditFields": {
+      "properties": {
+        "checkout_custom_field_id": {
+          "description": "Unique identifier of the Checkout Custom Field",
+          "format": "int32",
+          "type": "integer"
+        },
+        "value": {
+          "description": "Value of the Customer Additional Field",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "CustomerAdditionalFieldFields": {
+      "properties": {
+        "area": {
+          "description": "Area of the Customer Additional Field",
+          "type": "string"
+        },
+        "checkout_custom_field_id": {
+          "description": "Unique identifier of the Checkout Custom Field",
+          "format": "int32",
+          "type": "integer"
+        },
+        "customer_id": {
+          "description": "Unique identifier of the Customer",
+          "format": "int32",
+          "type": "integer"
+        },
+        "id": {
+          "description": "Unique identifier of the Customer Additional Field",
+          "format": "int32",
+          "type": "integer"
+        },
+        "label": {
+          "description": "Label of the Customer Additional Field",
+          "type": "string"
+        },
+        "value": {
+          "description": "Value of the Customer Additional Field",
+          "type": "string"
         }
       },
       "type": "object"
@@ -4214,6 +5420,18 @@
         "billing_address": {
           "$ref": "#/definitions/BillingAddress"
         },
+        "customer_additional_fields": {
+          "items": {
+            "$ref": "#/definitions/CustomerAdditionalField"
+          },
+          "type": "array"
+        },
+        "customer_categories": {
+          "items": {
+            "$ref": "#/definitions/CustomerCategory"
+          },
+          "type": "array"
+        },
         "email": {
           "description": "Email of the Customer",
           "type": "string"
@@ -4260,10 +5478,6 @@
           "description": "Password",
           "type": "string"
         },
-        "password_confirmation": {
-          "description": "Password Confirmation",
-          "type": "string"
-        },
         "phone": {
           "description": "Phone of the Customer",
           "type": "string"
@@ -4288,16 +5502,18 @@
         "billing_address": {
           "$ref": "#/definitions/BillingAddress"
         },
+        "customer_category": {
+          "items": {
+            "type": "integer"
+          },
+          "type": "array"
+        },
         "email": {
           "description": "Email of the Customer",
           "type": "string"
         },
         "password": {
           "description": "Password",
-          "type": "string"
-        },
-        "password_confirmation": {
-          "description": "Password Confirmation",
           "type": "string"
         },
         "phone": {
@@ -4319,6 +5535,20 @@
       },
       "type": "object"
     },
+    "CustomerToCustomerCategory": {
+      "properties": {
+        "email": {
+          "description": "Email of the Customer",
+          "type": "string"
+        },
+        "id": {
+          "description": "Unique identifier of the Customer",
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
     "CustomerWithPassword": {
       "properties": {
         "customer": {
@@ -4335,40 +5565,61 @@
       },
       "type": "object"
     },
-    "Field": {
+    "CustomersToCustomerCategory": {
       "properties": {
-        "field": {
-          "$ref": "#/definitions/FieldFields"
+        "customers": {
+          "items": {
+            "$ref": "#/definitions/CustomerToCustomerCategory"
+          },
+          "type": "array"
         }
       },
       "type": "object"
     },
-    "FieldFields": {
+    "DigitalProduct": {
       "properties": {
-        "id": {
-          "description": "Unique identifier of the Field",
+        "digital_product": {
+          "$ref": "#/definitions/DigitalProductFields"
+        }
+      },
+      "type": "object"
+    },
+    "DigitalProductEdit": {
+      "properties": {
+        "digital_product": {
+          "$ref": "#/definitions/DigitalProductEditFields"
+        }
+      },
+      "type": "object"
+    },
+    "DigitalProductEditFields": {
+      "properties": {
+        "filename": {
+          "description": "Filename of the digital product (with file extensison)",
+          "type": "string"
+        },
+        "url": {
+          "description": "Public accessible URL with the desired file contents. (LIMIT: 100MB)",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "DigitalProductFields": {
+      "properties": {
+        "expiration_seconds": {
+          "description": "Time left in seconds before the current private URL expires",
           "format": "int32",
           "type": "integer"
         },
-        "label": {
-          "description": "Label given to the Field",
-          "type": "string"
+        "id": {
+          "description": "Unique identifier of the digital product",
+          "format": "int32",
+          "type": "integer"
         },
-        "type": {
-          "description": "Type of the Field",
-          "enum": [
-            "text",
-            "selection",
-            "input"
-          ],
+        "url": {
+          "description": "Private URL of the digital product",
           "type": "string"
-        },
-        "values": {
-          "description": "All the possible Values of the Field (for type 'selection')",
-          "items": {
-            "type": "string"
-          },
-          "type": "array"
         }
       },
       "type": "object"
@@ -4434,6 +5685,10 @@
           "description": "Unique identifier of the Hook",
           "format": "int32",
           "type": "integer"
+        },
+        "name": {
+          "description": "Hook name",
+          "type": "string"
         },
         "url": {
           "description": "Hook URL to be notified",
@@ -4511,6 +5766,14 @@
       },
       "type": "object"
     },
+    "JSAppEdit": {
+      "properties": {
+        "app": {
+          "$ref": "#/definitions/JSApp"
+        }
+      },
+      "type": "object"
+    },
     "Language": {
       "properties": {
         "code": {
@@ -4536,34 +5799,54 @@
       },
       "type": "object"
     },
-    "OrderEdit": {
+    "OrderAdditionalFields": {
+      "description": "Additional field of an order",
       "properties": {
-        "order": {
-          "$ref": "#/definitions/OrderEditFields"
+        "label": {
+          "description": "Label of the additional field",
+          "format": "string",
+          "type": "string"
+        },
+        "value": {
+          "description": "Value of the additional field",
+          "format": "string",
+          "type": "string"
         }
       },
       "type": "object"
     },
-    "OrderEditFields": {
+    "OrderCreate": {
+      "properties": {
+        "order": {
+          "$ref": "#/definitions/OrderCreateFields"
+        }
+      },
+      "type": "object"
+    },
+    "OrderCreateFields": {
       "properties": {
         "additional_information": {
           "description": "Additional information for the given Order",
           "type": "string"
         },
         "customer": {
-          "properties": {
-            "email": {
-              "description": "Email of the customer for the given Order",
-              "type": "string"
-            }
-          },
-          "type": "object"
+          "$ref": "#/definitions/CustomerFields"
         },
         "products": {
           "items": {
             "$ref": "#/definitions/OrderProduct"
           },
           "type": "array"
+        },
+        "shipment_status": {
+          "description": "Status of the Order Shipping",
+          "enum": [
+            "requested",
+            "in_transit",
+            "delivered",
+            "failed"
+          ],
+          "type": "string"
         },
         "shipping_method_id": {
           "description": "Shipping method e.g. Royal Mail",
@@ -4590,14 +5873,80 @@
         }
       }
     },
+    "OrderEdit": {
+      "properties": {
+        "order": {
+          "$ref": "#/definitions/OrderEditFields"
+        }
+      },
+      "type": "object"
+    },
+    "OrderEditFields": {
+      "properties": {
+        "additional_fields": {
+          "description": "Array of additional fields for the given Order",
+          "items": {
+            "$ref": "#/definitions/OrderAdditionalFields"
+          },
+          "type": "array"
+        },
+        "additional_information": {
+          "description": "Additional information for the given Order",
+          "type": "string"
+        },
+        "shipment_status": {
+          "description": "Status of the Order Shipping",
+          "enum": [
+            "requested",
+            "in_transit",
+            "delivered",
+            "failed"
+          ],
+          "type": "string"
+        },
+        "status": {
+          "description": "Status of the Order",
+          "enum": [
+            "Abandoned",
+            "Canceled",
+            "Pending Payment",
+            "Paid"
+          ],
+          "type": "string"
+        },
+        "tracking_company": {
+          "description": "Shipping Company used for the given Order",
+          "type": "string"
+        },
+        "tracking_number": {
+          "description": "Shipping Tracking Number used for the given Order",
+          "type": "string"
+        }
+      }
+    },
     "OrderFields": {
       "properties": {
+        "additional_fields": {
+          "description": "Array of additional fields for the given Order",
+          "items": {
+            "$ref": "#/definitions/OrderAdditionalFields"
+          },
+          "type": "array"
+        },
         "additional_information": {
           "description": "Additional information for the given Order",
           "type": "string"
         },
         "billing_address": {
           "$ref": "#/definitions/BillingAddress"
+        },
+        "checkout_url": {
+          "description": "Store Checkout Order URL for the given Order",
+          "type": "string"
+        },
+        "coupons": {
+          "description": "Promotion Coupons used on the given Order",
+          "type": "string"
         },
         "created_at": {
           "description": "Order date",
@@ -4614,6 +5963,10 @@
           "description": "Discount value for the given Order",
           "format": "float",
           "type": "number"
+        },
+        "duplicate_url": {
+          "description": "Duplicate Order URL for the given Order",
+          "type": "string"
         },
         "id": {
           "description": "Unique identifier of the Order",
@@ -4634,6 +5987,10 @@
           },
           "type": "array"
         },
+        "recovery_url": {
+          "description": "Recovery Order URL for the given Order",
+          "type": "string"
+        },
         "shipment_status": {
           "description": "Shipment Status for Order Fulfillment.",
           "enum": [
@@ -4652,6 +6009,11 @@
         "shipping_address": {
           "$ref": "#/definitions/ShippingAddress"
         },
+        "shipping_discount": {
+          "description": "Shipping Discount value for the given order",
+          "format": "float",
+          "type": "number"
+        },
         "shipping_method_id": {
           "description": "Shipping method e.g. Royal Mail",
           "format": "int32",
@@ -4665,6 +6027,15 @@
           "description": "Shipping Tax value for the given order",
           "format": "float",
           "type": "number"
+        },
+        "shipping_taxes": {
+          "items": {
+            "$ref": "#/definitions/OrderShippingTax"
+          },
+          "type": "array"
+        },
+        "source": {
+          "$ref": "#/definitions/TrafficSource"
         },
         "status": {
           "description": "Status of the Order",
@@ -4782,6 +6153,12 @@
           "description": "Stock Keeping Unit of the Order Product",
           "type": "string"
         },
+        "taxes": {
+          "items": {
+            "$ref": "#/definitions/OrderProductTax"
+          },
+          "type": "array"
+        },
         "variant_id": {
           "description": "Unique identifier of the original Product Variant",
           "format": "int32",
@@ -4792,6 +6169,72 @@
           "description": "Weight of the Order Product",
           "format": "float",
           "type": "number"
+        }
+      },
+      "type": "object"
+    },
+    "OrderProductTax": {
+      "properties": {
+        "fixed": {
+          "default": false,
+          "description": "False if rate is a percentage and true if rate is monetary",
+          "type": "boolean"
+        },
+        "id": {
+          "description": "Unique identifier of the Order Product Tax",
+          "format": "int32",
+          "type": "integer"
+        },
+        "name": {
+          "description": "Name of the category that the tax is associated with or the tax name",
+          "type": "string"
+        },
+        "rate": {
+          "description": "Tax rate",
+          "format": "float",
+          "type": "number"
+        },
+        "tax_on_product_price": {
+          "default": false,
+          "description": "False if tax is not included on product price",
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "OrderShippingTax": {
+      "properties": {
+        "country": {
+          "description": "Code of the associated country",
+          "type": "string"
+        },
+        "fixed": {
+          "default": false,
+          "description": "False if rate is a percentage and true if rate is monetary",
+          "type": "boolean"
+        },
+        "id": {
+          "description": "Unique identifier of the Order Shipping Tax",
+          "format": "int32",
+          "type": "integer"
+        },
+        "name": {
+          "description": "Tax name",
+          "type": "string"
+        },
+        "rate": {
+          "description": "Tax rate",
+          "format": "float",
+          "type": "number"
+        },
+        "region": {
+          "description": "Code of the associated region",
+          "type": "string"
+        },
+        "tax_on_shipping_price": {
+          "default": false,
+          "description": "False if shipping tax is not included on shipping price",
+          "type": "boolean"
         }
       },
       "type": "object"
@@ -4818,13 +6261,10 @@
         "type": {
           "description": "Type of the Payment Method",
           "enum": [
-            "dineromail",
             "manual",
             "paypal",
             "pagseguro",
-            "interpagos",
             "moneybookers",
-            "webpay",
             "webpay_cl",
             "easypay",
             "easypaycc",
@@ -4854,7 +6294,7 @@
     },
     "ProductCustomField": {
       "properties": {
-        "field_value": {
+        "field": {
           "$ref": "#/definitions/ProductCustomFieldFields"
         }
       },
@@ -4869,10 +6309,7 @@
         },
         "value": {
           "description": "The value for the ProductCustomField",
-          "items": {
-            "type": "string"
-          },
-          "type": "array"
+          "type": "string"
         }
       },
       "type": "object"
@@ -4887,6 +6324,10 @@
     },
     "ProductEditFields": {
       "properties": {
+        "barcode": {
+          "description": "Barcode of the product",
+          "type": "string"
+        },
         "categories": {
           "items": {
             "$ref": "#/definitions/CategoryFields"
@@ -4906,6 +6347,10 @@
           "default": false,
           "description": "True if the product is featured",
           "type": "boolean"
+        },
+        "google_product_category": {
+          "description": "Category of a Product based on the Google product taxonomy",
+          "type": "string"
         },
         "height": {
           "description": "Height of the product",
@@ -4947,6 +6392,11 @@
           "format": "float",
           "type": "number"
         },
+        "shipping_required": {
+          "default": true,
+          "description": "False if the product is digital",
+          "type": "boolean"
+        },
         "sku": {
           "description": "Stock Keeping Unit of the product",
           "type": "string"
@@ -4983,10 +6433,18 @@
           "type": "number"
         }
       },
+      "required": [
+        "name",
+        "price"
+      ],
       "type": "object"
     },
     "ProductFields": {
       "properties": {
+        "barcode": {
+          "description": "Barcode of the product",
+          "type": "string"
+        },
         "categories": {
           "items": {
             "$ref": "#/definitions/CategoryFields"
@@ -5015,6 +6473,10 @@
           "default": false,
           "description": "True if the product is featured",
           "type": "boolean"
+        },
+        "google_product_category": {
+          "description": "Category of a Product based on the Google product taxonomy",
+          "type": "string"
         },
         "height": {
           "description": "Height of the product",
@@ -5226,6 +6688,25 @@
         },
         "product_option": {
           "$ref": "#/definitions/ProductOption"
+        },
+        "variants": {
+          "items": {
+            "$ref": "#/definitions/Variant"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "ProductOptionVariantEdit": {
+      "properties": {
+        "name": {
+          "description": "Name of the product option",
+          "type": "string"
+        },
+        "value": {
+          "description": "Value of the product option",
+          "type": "string"
         }
       },
       "type": "object"
@@ -5290,7 +6771,7 @@
           "type": "array"
         },
         "customers": {
-          "description": "Controls to which customers the promotion will be applied ('all', 'loggedin', 'categories')",
+          "description": "Controls to which customers the promotion will be applied ('all', 'loggedin', 'categories', 'guests')",
           "type": "string"
         },
         "discount_amount_fix": {
@@ -5304,8 +6785,13 @@
           "type": "number"
         },
         "discount_target": {
-          "description": "Where the promotion will be applied ('order', 'shipping', 'categories')",
+          "description": "Where the promotion will be applied ('order', 'shipping', 'categories', 'buy_x_get_y)",
           "type": "string"
+        },
+        "enabled": {
+          "default": true,
+          "description": "If the promotion is to be temporarily disabled",
+          "type": "boolean"
         },
         "expires_at": {
           "description": "Expiration date of the promotion (requires 'lasts' param - 'date')",
@@ -5325,14 +6811,26 @@
           "type": "string"
         },
         "products": {
-          "description": "Products where the promotion will be applied (requires 'discount_target' param - 'categories')",
+          "description": "Products where the promotion will be applied (requires 'discount_target' param - 'categories' or 'buy_x_get_y')",
           "items": {
             "$ref": "#/definitions/Id"
           },
           "type": "array"
         },
+        "products_x": {
+          "description": "Products required to apply the promotion (requires 'discount_target' param - 'buy_x_get_y')",
+          "items": {
+            "$ref": "#/definitions/Id"
+          },
+          "type": "array"
+        },
+        "quantity_x": {
+          "description": "Number of sets of products_x needed to be able to apply the promotion (requires 'discount_target' param - 'buy_x_get_y')",
+          "format": "int32",
+          "type": "integer"
+        },
         "type": {
-          "description": "Controls if the discount will be a fixed value ('fix', 'percentage')",
+          "description": "Controls if the discount will be a fixed area ('fix', 'percentage')",
           "type": "string"
         }
       },
@@ -5341,10 +6839,11 @@
     "PromotionFields": {
       "properties": {
         "begins_at": {
-          "description": "Creation date of the promotion",
+          "description": "Creation date of the promotion (requires 'lasts' param - 'date')",
           "type": "string"
         },
         "categories": {
+          "description": "Products Categories where the promotion will be applied (requires 'discount_target' param - 'categories')",
           "items": {
             "$ref": "#/definitions/Id"
           },
@@ -5370,6 +6869,7 @@
           "type": "boolean"
         },
         "customer_categories": {
+          "description": "Customer Categories to whom the promotion will be applied (requires 'customers' param - 'categories')",
           "items": {
             "$ref": "#/definitions/Id"
           },
@@ -5386,11 +6886,16 @@
           "type": "number"
         },
         "discount_target": {
-          "description": "Where the promotion will be applied ('order', 'shipping', 'categories')",
+          "description": "Where the promotion will be applied ('order', 'shipping', 'categories', 'buy_x_get_y)",
           "type": "string"
         },
+        "enabled": {
+          "default": true,
+          "description": "If the promotion is currently enabled",
+          "type": "boolean"
+        },
         "expires_at": {
-          "description": "Expiration date of the promotion",
+          "description": "Expiration date of the promotion (requires 'lasts' param - 'date')",
           "type": "string"
         },
         "id": {
@@ -5398,8 +6903,12 @@
           "format": "int32",
           "type": "integer"
         },
+        "lasts": {
+          "description": "Controls when the promotion will expire ('none', 'date', 'max_times_used')",
+          "type": "string"
+        },
         "max_times_used": {
-          "description": "Maximum amount a promotion can be used",
+          "description": "Maximum amount a promotion can be used (requires 'lasts' param - 'max_times_used')",
           "format": "int32",
           "type": "integer"
         },
@@ -5408,10 +6917,23 @@
           "type": "string"
         },
         "products": {
+          "description": "Products where the promotion will be applied (requires 'discount_target' param - 'categories' or 'buy_x_get_y')",
           "items": {
             "$ref": "#/definitions/Id"
           },
           "type": "array"
+        },
+        "products_x": {
+          "description": "Products required to apply the promotion (requires 'discount_target' param - 'buy_x_get_y')",
+          "items": {
+            "$ref": "#/definitions/Id"
+          },
+          "type": "array"
+        },
+        "quantity_x": {
+          "description": "Number of sets of products_x needed to be able to apply the promotion (requires 'discount_target' param - 'buy_x_get_y')",
+          "format": "int32",
+          "type": "integer"
         },
         "status": {
           "description": "Status of the promotion ('active', 'expired')",
@@ -5446,7 +6968,7 @@
           "type": "string"
         },
         "country": {
-          "description": "Country of the Customer's Shipping Address",
+          "description": "Country code of the Customer's Shipping Address (ISO 3166-1 alpha-2)",
           "type": "string"
         },
         "municipality": {
@@ -5462,7 +6984,7 @@
           "type": "string"
         },
         "region": {
-          "description": "Region of the Customer's Shipping Address",
+          "description": "Region code of the Customer's Shipping Address (Use the FIPS standard - http://www.geonames.org/countries/)",
           "type": "string"
         },
         "surname": {
@@ -5470,6 +6992,115 @@
           "type": "string"
         }
       }
+    },
+    "ShippingMethod": {
+      "properties": {
+        "shipping_method": {
+          "$ref": "#/definitions/ShippingMethodFields"
+        }
+      },
+      "type": "object"
+    },
+    "ShippingMethodCreate": {
+      "properties": {
+        "callback_url": {
+          "description": "URL that receives the shipping data and returns rates",
+          "type": "string"
+        },
+        "city": {
+          "description": "City/Municipality name of origin",
+          "type": "string"
+        },
+        "fetch_services_url": {
+          "description": "URL that returns available shipping services",
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of the Shipping Method",
+          "type": "string"
+        },
+        "postal": {
+          "description": "Postal/Zipcode of origin",
+          "type": "string"
+        },
+        "state": {
+          "description": "State/Region code of origin",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "ShippingMethodFields": {
+      "properties": {
+        "callback_url": {
+          "description": "URL that receives the shipping data and returns rates",
+          "type": "string"
+        },
+        "city": {
+          "description": "City/Municipality name of origin",
+          "type": "string"
+        },
+        "fetch_services_url": {
+          "description": "URL that returns available shipping services",
+          "type": "string"
+        },
+        "id": {
+          "description": "Unique identifier of the Shipping Method",
+          "format": "int32",
+          "type": "integer"
+        },
+        "name": {
+          "description": "Name of the Shipping Method",
+          "type": "string"
+        },
+        "postal": {
+          "description": "Postal/Zipcode of origin",
+          "type": "string"
+        },
+        "services": {
+          "items": {
+            "$ref": "#/definitions/ShippingService"
+          },
+          "type": "array"
+        },
+        "state": {
+          "description": "State/Region code of origin",
+          "type": "string"
+        },
+        "type": {
+          "description": "Type of the Shipping Method",
+          "enum": [
+            "free",
+            "tables",
+            "correiosbr",
+            "correos_chile",
+            "chilexpress",
+            "flat",
+            "ups",
+            "external"
+          ],
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "ShippingService": {
+      "properties": {
+        "id": {
+          "description": "Unique identifier of the Shipping Service",
+          "format": "int32",
+          "type": "integer"
+        },
+        "name": {
+          "description": "Name of the Shipping Service",
+          "type": "string"
+        },
+        "service_code": {
+          "description": "Code of the Shipping Service",
+          "type": "string"
+        }
+      },
+      "type": "object"
     },
     "StatusInvalid": {
       "properties": {
@@ -5480,6 +7111,9 @@
     },
     "Store": {
       "properties": {
+        "address": {
+          "$ref": "#/definitions/StoreAddress"
+        },
         "code": {
           "description": "Store Code",
           "type": "string"
@@ -5515,13 +7149,49 @@
         "url": {
           "description": "Store URL",
           "type": "string"
+        },
+        "weight_unit": {
+          "description": "Store Weight Unit",
+          "type": "string"
         }
       },
       "type": "object"
     },
+    "StoreAddress": {
+      "properties": {
+        "address": {
+          "description": "Address of the Store's Address",
+          "type": "string"
+        },
+        "city": {
+          "description": "City of the Store's Address",
+          "type": "string"
+        },
+        "country": {
+          "description": "Country of the Store's Address (ISO 3166-1 alpha-2)",
+          "type": "string"
+        },
+        "country_code": {
+          "description": "Country code of the Store's Address",
+          "type": "string"
+        },
+        "postal": {
+          "description": "Postal code of the Store's Address",
+          "type": "string"
+        },
+        "region": {
+          "description": "Region of the Store's Address",
+          "type": "string"
+        },
+        "region_code": {
+          "description": "Region code of the Store's Address",
+          "type": "string"
+        }
+      }
+    },
     "Tax": {
       "properties": {
-        "field": {
+        "tax": {
           "$ref": "#/definitions/TaxFields"
         }
       },
@@ -5529,7 +7199,7 @@
     },
     "TaxEdit": {
       "properties": {
-        "field": {
+        "tax": {
           "$ref": "#/definitions/TaxEditFields"
         }
       },
@@ -5551,6 +7221,10 @@
           "description": "True if the tax has a fixed valued amount",
           "type": "boolean"
         },
+        "name": {
+          "description": "Name that identifies tax",
+          "type": "string"
+        },
         "region": {
           "description": "Region where the Tax applies",
           "type": "string"
@@ -5560,7 +7234,7 @@
           "description": "True if the tax should be applied to shipping costs",
           "type": "boolean"
         },
-        "tax_amount": {
+        "tax": {
           "description": "Tax value for the given Tax",
           "format": "float",
           "type": "number"
@@ -5589,6 +7263,10 @@
           "format": "int32",
           "type": "integer"
         },
+        "name": {
+          "description": "Name that identifies tax",
+          "type": "string"
+        },
         "region": {
           "description": "Region name where the Tax applies",
           "type": "string"
@@ -5605,6 +7283,34 @@
         }
       },
       "type": "object"
+    },
+    "TrafficSource": {
+      "properties": {
+        "campaign": {
+          "description": "The campaign that referred the customer to the checkout",
+          "type": "string"
+        },
+        "medium": {
+          "description": "The medium that referred the customer to the checkout",
+          "type": "string"
+        },
+        "referral_code": {
+          "description": "The code that referred the customer to the checkout",
+          "type": "string"
+        },
+        "referral_url": {
+          "description": "The website that referred the customer to the checkout",
+          "type": "string"
+        },
+        "source_name": {
+          "description": "Where the checkout originated",
+          "type": "string"
+        },
+        "user_agent": {
+          "description": "User agent of the referred request to checkout",
+          "type": "string"
+        }
+      }
     },
     "Variant": {
       "properties": {
@@ -5624,15 +7330,16 @@
     },
     "VariantEditFields": {
       "properties": {
-        "id": {
-          "description": "Unique identifier of the product",
-          "format": "int32",
-          "type": "integer"
-        },
         "image_id": {
           "description": "Unique identifier of the product image to associate with this variant",
           "format": "int32",
           "type": "integer"
+        },
+        "options": {
+          "items": {
+            "$ref": "#/definitions/ProductOptionVariantEdit"
+          },
+          "type": "array"
         },
         "price": {
           "description": "Price of the product",
@@ -5662,6 +7369,15 @@
           "description": "Unique identifier of the product",
           "format": "int32",
           "type": "integer"
+        },
+        "image": {
+          "$ref": "#/definitions/ImageFields"
+        },
+        "options": {
+          "items": {
+            "$ref": "#/definitions/ProductOptionVariantEdit"
+          },
+          "type": "array"
         },
         "price": {
           "description": "Price of the product",

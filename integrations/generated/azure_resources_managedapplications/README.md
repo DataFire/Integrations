@@ -15,10 +15,7 @@ let azure_resources_managedapplications = require('@datafire/azure_resources_man
   redirect_uri: ""
 });
 
-azure_resources_managedapplications.Applications_ListBySubscription({
-  "api-version": "",
-  "subscriptionId": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -256,65 +253,6 @@ azure_resources_managedapplications.Applications_CreateOrUpdate({
 #### Output
 * output [Application](#application)
 
-### ApplicationDefinitions_DeleteById
-Deletes the managed application definition.
-
-
-```js
-azure_resources_managedapplications.ApplicationDefinitions_DeleteById({
-  "applicationDefinitionId": "",
-  "api-version": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * applicationDefinitionId **required** `string`: The fully qualified ID of the managed application definition, including the managed application name and the managed application definition resource type. Use the format, /subscriptions/{guid}/resourceGroups/{resource-group-name}/Microsoft.Solutions/applicationDefinitions/{applicationDefinition-name}
-  * api-version **required** `string`: The API version to use for this operation.
-
-#### Output
-*Output schema unknown*
-
-### ApplicationDefinitions_GetById
-Gets the managed application definition.
-
-
-```js
-azure_resources_managedapplications.ApplicationDefinitions_GetById({
-  "applicationDefinitionId": "",
-  "api-version": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * applicationDefinitionId **required** `string`: The fully qualified ID of the managed application definition, including the managed application name and the managed application definition resource type. Use the format, /subscriptions/{guid}/resourceGroups/{resource-group-name}/Microsoft.Solutions/applicationDefinitions/{applicationDefinition-name}
-  * api-version **required** `string`: The API version to use for this operation.
-
-#### Output
-* output [ApplicationDefinition](#applicationdefinition)
-
-### ApplicationDefinitions_CreateOrUpdateById
-Creates a new managed application definition.
-
-
-```js
-azure_resources_managedapplications.ApplicationDefinitions_CreateOrUpdateById({
-  "applicationDefinitionId": "",
-  "parameters": null,
-  "api-version": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * applicationDefinitionId **required** `string`: The fully qualified ID of the managed application definition, including the managed application name and the managed application definition resource type. Use the format, /subscriptions/{guid}/resourceGroups/{resource-group-name}/Microsoft.Solutions/applicationDefinitions/{applicationDefinition-name}
-  * parameters **required** [ApplicationDefinition](#applicationdefinition)
-  * api-version **required** `string`: The API version to use for this operation.
-
-#### Output
-* output [ApplicationDefinition](#applicationdefinition)
-
 ### Applications_DeleteById
 Deletes the managed application.
 
@@ -483,7 +421,6 @@ azure_resources_managedapplications.Applications_CreateOrUpdateById({
   * outputs `object`: Name and value pairs that define the managed application outputs.
   * parameters `object`: Name and value pairs that define the managed application parameters. It can be a JObject or a well formed JSON string.
   * provisioningState [ProvisioningState](#provisioningstate)
-  * uiDefinitionUri `string`: The blob URI where the UI definition file is located.
 
 ### ApplicationPropertiesPatchable
 * ApplicationPropertiesPatchable `object`: The managed application properties.
@@ -492,7 +429,6 @@ azure_resources_managedapplications.Applications_CreateOrUpdateById({
   * outputs `object`: Name and value pairs that define the managed application outputs.
   * parameters `object`: Name and value pairs that define the managed application parameters. It can be a JObject or a well formed JSON string.
   * provisioningState [ProvisioningState](#provisioningstate)
-  * uiDefinitionUri `string`: The blob URI where the UI definition file is located.
 
 ### ApplicationProviderAuthorization
 * ApplicationProviderAuthorization `object`: The managed application provider authorization.
@@ -500,7 +436,7 @@ azure_resources_managedapplications.Applications_CreateOrUpdateById({
   * roleDefinitionId **required** `string`: The provider's role definition identifier. This role will define all the permissions that the provider must have on the managed application's container resource group. This role definition cannot have permission to delete the resource group.
 
 ### ErrorResponse
-* ErrorResponse `object`: Error reponse indicates managed application is not able to process the incoming request. The reason is provided in the error message.
+* ErrorResponse `object`: Error response indicates managed application is not able to process the incoming request. The reason is provided in the error message.
   * errorCode `string`: Error code.
   * errorMessage `string`: Error message indicating why the operation failed.
   * httpStatus `string`: Http status code.

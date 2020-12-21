@@ -1,6 +1,6 @@
 # @datafire/google_gamesmanagement
 
-Client library for Google Play Game Services Management
+Client library for Google Play Game Management
 
 ## Installation and Usage
 ```bash
@@ -15,14 +15,14 @@ let google_gamesmanagement = require('@datafire/google_gamesmanagement').create(
   redirect_uri: ""
 });
 
-google_gamesmanagement.turnBasedMatches.resetForAllPlayers({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
 
 ## Description
 
-The Management API for Google Play Game Services.
+The Google Play Game Management API allows developers to manage resources from the Google Play Game service.
 
 ## Actions
 
@@ -67,76 +67,88 @@ google_gamesmanagement.oauthRefresh(null, context)
   * scope `string`
   * expiration `string`
 
-### achievements.resetAll
+### gamesManagement.achievements.resetAll
 Resets all achievements for the currently authenticated player for your application. This method is only accessible to whitelisted tester accounts for your application.
 
 
 ```js
-google_gamesmanagement.achievements.resetAll({}, context)
+google_gamesmanagement.gamesManagement.achievements.resetAll({}, context)
 ```
 
 #### Input
 * input `object`
-  * alt `string` (values: json): Data format for the response.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [AchievementResetAllResponse](#achievementresetallresponse)
 
-### achievements.resetAllForAllPlayers
+### gamesManagement.achievements.resetAllForAllPlayers
 Resets all draft achievements for all players. This method is only available to user accounts for your developer console.
 
 
 ```js
-google_gamesmanagement.achievements.resetAllForAllPlayers({}, context)
+google_gamesmanagement.gamesManagement.achievements.resetAllForAllPlayers({}, context)
 ```
 
 #### Input
 * input `object`
-  * alt `string` (values: json): Data format for the response.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 *Output schema unknown*
 
-### achievements.resetMultipleForAllPlayers
+### gamesManagement.achievements.resetMultipleForAllPlayers
 Resets achievements with the given IDs for all players. This method is only available to user accounts for your developer console. Only draft achievements may be reset.
 
 
 ```js
-google_gamesmanagement.achievements.resetMultipleForAllPlayers({}, context)
+google_gamesmanagement.gamesManagement.achievements.resetMultipleForAllPlayers({}, context)
 ```
 
 #### Input
 * input `object`
   * body [AchievementResetMultipleForAllRequest](#achievementresetmultipleforallrequest)
-  * alt `string` (values: json): Data format for the response.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 *Output schema unknown*
 
-### achievements.reset
+### gamesManagement.achievements.reset
 Resets the achievement with the given ID for the currently authenticated player. This method is only accessible to whitelisted tester accounts for your application.
 
 
 ```js
-google_gamesmanagement.achievements.reset({
+google_gamesmanagement.gamesManagement.achievements.reset({
   "achievementId": ""
 }, context)
 ```
@@ -144,23 +156,27 @@ google_gamesmanagement.achievements.reset({
 #### Input
 * input `object`
   * achievementId **required** `string`: The ID of the achievement used by this method.
-  * alt `string` (values: json): Data format for the response.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [AchievementResetResponse](#achievementresetresponse)
 
-### achievements.resetForAllPlayers
+### gamesManagement.achievements.resetForAllPlayers
 Resets the achievement with the given ID for all players. This method is only available to user accounts for your developer console. Only draft achievements can be reset.
 
 
 ```js
-google_gamesmanagement.achievements.resetForAllPlayers({
+google_gamesmanagement.gamesManagement.achievements.resetForAllPlayers({
   "achievementId": ""
 }, context)
 ```
@@ -168,23 +184,27 @@ google_gamesmanagement.achievements.resetForAllPlayers({
 #### Input
 * input `object`
   * achievementId **required** `string`: The ID of the achievement used by this method.
-  * alt `string` (values: json): Data format for the response.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 *Output schema unknown*
 
-### applications.listHidden
+### gamesManagement.applications.listHidden
 Get the list of players hidden from the given application. This method is only available to user accounts for your developer console.
 
 
 ```js
-google_gamesmanagement.applications.listHidden({
+google_gamesmanagement.gamesManagement.applications.listHidden({
   "applicationId": ""
 }, context)
 ```
@@ -192,25 +212,29 @@ google_gamesmanagement.applications.listHidden({
 #### Input
 * input `object`
   * applicationId **required** `string`: The application ID from the Google Play developer console.
-  * maxResults `integer`: The maximum number of player resources to return in the response, used for paging. For any response, the actual number of player resources returned may be less than the specified maxResults.
+  * maxResults `integer`: The maximum number of player resources to return in the response, used for paging. For any response, the actual number of player resources returned may be less than the specified `maxResults`.
   * pageToken `string`: The token returned by the previous request.
-  * alt `string` (values: json): Data format for the response.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [HiddenPlayerList](#hiddenplayerlist)
 
-### players.unhide
+### gamesManagement.players.unhide
 Unhide the given player's leaderboard scores from the given application. This method is only available to user accounts for your developer console.
 
 
 ```js
-google_gamesmanagement.players.unhide({
+google_gamesmanagement.gamesManagement.players.unhide({
   "applicationId": "",
   "playerId": ""
 }, context)
@@ -219,24 +243,28 @@ google_gamesmanagement.players.unhide({
 #### Input
 * input `object`
   * applicationId **required** `string`: The application ID from the Google Play developer console.
-  * playerId **required** `string`: A player ID. A value of me may be used in place of the authenticated player's ID.
-  * alt `string` (values: json): Data format for the response.
+  * playerId **required** `string`: A player ID. A value of `me` may be used in place of the authenticated player's ID.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 *Output schema unknown*
 
-### players.hide
+### gamesManagement.players.hide
 Hide the given player's leaderboard scores from the given application. This method is only available to user accounts for your developer console.
 
 
 ```js
-google_gamesmanagement.players.hide({
+google_gamesmanagement.gamesManagement.players.hide({
   "applicationId": "",
   "playerId": ""
 }, context)
@@ -245,88 +273,104 @@ google_gamesmanagement.players.hide({
 #### Input
 * input `object`
   * applicationId **required** `string`: The application ID from the Google Play developer console.
-  * playerId **required** `string`: A player ID. A value of me may be used in place of the authenticated player's ID.
-  * alt `string` (values: json): Data format for the response.
+  * playerId **required** `string`: A player ID. A value of `me` may be used in place of the authenticated player's ID.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 *Output schema unknown*
 
-### events.resetAll
-Resets all player progress on all events for the currently authenticated player. This method is only accessible to whitelisted tester accounts for your application. All quests for this player will also be reset.
+### gamesManagement.events.resetAll
+Resets all player progress on all events for the currently authenticated player. This method is only accessible to whitelisted tester accounts for your application.
 
 
 ```js
-google_gamesmanagement.events.resetAll({}, context)
+google_gamesmanagement.gamesManagement.events.resetAll({}, context)
 ```
 
 #### Input
 * input `object`
-  * alt `string` (values: json): Data format for the response.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 *Output schema unknown*
 
-### events.resetAllForAllPlayers
-Resets all draft events for all players. This method is only available to user accounts for your developer console. All quests that use any of these events will also be reset.
+### gamesManagement.events.resetAllForAllPlayers
+Resets all draft events for all players. This method is only available to user accounts for your developer console.
 
 
 ```js
-google_gamesmanagement.events.resetAllForAllPlayers({}, context)
+google_gamesmanagement.gamesManagement.events.resetAllForAllPlayers({}, context)
 ```
 
 #### Input
 * input `object`
-  * alt `string` (values: json): Data format for the response.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 *Output schema unknown*
 
-### events.resetMultipleForAllPlayers
-Resets events with the given IDs for all players. This method is only available to user accounts for your developer console. Only draft events may be reset. All quests that use any of the events will also be reset.
+### gamesManagement.events.resetMultipleForAllPlayers
+Resets events with the given IDs for all players. This method is only available to user accounts for your developer console. Only draft events may be reset.
 
 
 ```js
-google_gamesmanagement.events.resetMultipleForAllPlayers({}, context)
+google_gamesmanagement.gamesManagement.events.resetMultipleForAllPlayers({}, context)
 ```
 
 #### Input
 * input `object`
   * body [EventsResetMultipleForAllRequest](#eventsresetmultipleforallrequest)
-  * alt `string` (values: json): Data format for the response.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 *Output schema unknown*
 
-### events.reset
-Resets all player progress on the event with the given ID for the currently authenticated player. This method is only accessible to whitelisted tester accounts for your application. All quests for this player that use the event will also be reset.
+### gamesManagement.events.reset
+Resets all player progress on the event with the given ID for the currently authenticated player. This method is only accessible to whitelisted tester accounts for your application.
 
 
 ```js
-google_gamesmanagement.events.reset({
+google_gamesmanagement.gamesManagement.events.reset({
   "eventId": ""
 }, context)
 ```
@@ -334,23 +378,27 @@ google_gamesmanagement.events.reset({
 #### Input
 * input `object`
   * eventId **required** `string`: The ID of the event.
-  * alt `string` (values: json): Data format for the response.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 *Output schema unknown*
 
-### events.resetForAllPlayers
-Resets the event with the given ID for all players. This method is only available to user accounts for your developer console. Only draft events can be reset. All quests that use the event will also be reset.
+### gamesManagement.events.resetForAllPlayers
+Resets the event with the given ID for all players. This method is only available to user accounts for your developer console. Only draft events can be reset.
 
 
 ```js
-google_gamesmanagement.events.resetForAllPlayers({
+google_gamesmanagement.gamesManagement.events.resetForAllPlayers({
   "eventId": ""
 }, context)
 ```
@@ -358,23 +406,27 @@ google_gamesmanagement.events.resetForAllPlayers({
 #### Input
 * input `object`
   * eventId **required** `string`: The ID of the event.
-  * alt `string` (values: json): Data format for the response.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 *Output schema unknown*
 
-### scores.reset
+### gamesManagement.scores.reset
 Resets scores for the leaderboard with the given ID for the currently authenticated player. This method is only accessible to whitelisted tester accounts for your application.
 
 
 ```js
-google_gamesmanagement.scores.reset({
+google_gamesmanagement.gamesManagement.scores.reset({
   "leaderboardId": ""
 }, context)
 ```
@@ -382,23 +434,27 @@ google_gamesmanagement.scores.reset({
 #### Input
 * input `object`
   * leaderboardId **required** `string`: The ID of the leaderboard.
-  * alt `string` (values: json): Data format for the response.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [PlayerScoreResetResponse](#playerscoreresetresponse)
 
-### scores.resetForAllPlayers
+### gamesManagement.scores.resetForAllPlayers
 Resets scores for the leaderboard with the given ID for all players. This method is only available to user accounts for your developer console. Only draft leaderboards can be reset.
 
 
 ```js
-google_gamesmanagement.scores.resetForAllPlayers({
+google_gamesmanagement.gamesManagement.scores.resetForAllPlayers({
   "leaderboardId": ""
 }, context)
 ```
@@ -406,273 +462,93 @@ google_gamesmanagement.scores.resetForAllPlayers({
 #### Input
 * input `object`
   * leaderboardId **required** `string`: The ID of the leaderboard.
-  * alt `string` (values: json): Data format for the response.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 *Output schema unknown*
 
-### quests.resetAll
-Resets all player progress on all quests for the currently authenticated player. This method is only accessible to whitelisted tester accounts for your application.
-
-
-```js
-google_gamesmanagement.quests.resetAll({}, context)
-```
-
-#### Input
-* input `object`
-  * alt `string` (values: json): Data format for the response.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
-
-#### Output
-*Output schema unknown*
-
-### quests.resetAllForAllPlayers
-Resets all draft quests for all players. This method is only available to user accounts for your developer console.
-
-
-```js
-google_gamesmanagement.quests.resetAllForAllPlayers({}, context)
-```
-
-#### Input
-* input `object`
-  * alt `string` (values: json): Data format for the response.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
-
-#### Output
-*Output schema unknown*
-
-### quests.resetMultipleForAllPlayers
-Resets quests with the given IDs for all players. This method is only available to user accounts for your developer console. Only draft quests may be reset.
-
-
-```js
-google_gamesmanagement.quests.resetMultipleForAllPlayers({}, context)
-```
-
-#### Input
-* input `object`
-  * body [QuestsResetMultipleForAllRequest](#questsresetmultipleforallrequest)
-  * alt `string` (values: json): Data format for the response.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
-
-#### Output
-*Output schema unknown*
-
-### quests.reset
-Resets all player progress on the quest with the given ID for the currently authenticated player. This method is only accessible to whitelisted tester accounts for your application.
-
-
-```js
-google_gamesmanagement.quests.reset({
-  "questId": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * questId **required** `string`: The ID of the quest.
-  * alt `string` (values: json): Data format for the response.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
-
-#### Output
-*Output schema unknown*
-
-### quests.resetForAllPlayers
-Resets all player progress on the quest with the given ID for all players. This method is only available to user accounts for your developer console. Only draft quests can be reset.
-
-
-```js
-google_gamesmanagement.quests.resetForAllPlayers({
-  "questId": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * questId **required** `string`: The ID of the quest.
-  * alt `string` (values: json): Data format for the response.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
-
-#### Output
-*Output schema unknown*
-
-### rooms.reset
-Reset all rooms for the currently authenticated player for your application. This method is only accessible to whitelisted tester accounts for your application.
-
-
-```js
-google_gamesmanagement.rooms.reset({}, context)
-```
-
-#### Input
-* input `object`
-  * alt `string` (values: json): Data format for the response.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
-
-#### Output
-*Output schema unknown*
-
-### rooms.resetForAllPlayers
-Deletes rooms where the only room participants are from whitelisted tester accounts for your application. This method is only available to user accounts for your developer console.
-
-
-```js
-google_gamesmanagement.rooms.resetForAllPlayers({}, context)
-```
-
-#### Input
-* input `object`
-  * alt `string` (values: json): Data format for the response.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
-
-#### Output
-*Output schema unknown*
-
-### scores.resetAll
+### gamesManagement.scores.resetAll
 Resets all scores for all leaderboards for the currently authenticated players. This method is only accessible to whitelisted tester accounts for your application.
 
 
 ```js
-google_gamesmanagement.scores.resetAll({}, context)
+google_gamesmanagement.gamesManagement.scores.resetAll({}, context)
 ```
 
 #### Input
 * input `object`
-  * alt `string` (values: json): Data format for the response.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [PlayerScoreResetAllResponse](#playerscoreresetallresponse)
 
-### scores.resetAllForAllPlayers
+### gamesManagement.scores.resetAllForAllPlayers
 Resets scores for all draft leaderboards for all players. This method is only available to user accounts for your developer console.
 
 
 ```js
-google_gamesmanagement.scores.resetAllForAllPlayers({}, context)
+google_gamesmanagement.gamesManagement.scores.resetAllForAllPlayers({}, context)
 ```
 
 #### Input
 * input `object`
-  * alt `string` (values: json): Data format for the response.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 *Output schema unknown*
 
-### scores.resetMultipleForAllPlayers
+### gamesManagement.scores.resetMultipleForAllPlayers
 Resets scores for the leaderboards with the given IDs for all players. This method is only available to user accounts for your developer console. Only draft leaderboards may be reset.
 
 
 ```js
-google_gamesmanagement.scores.resetMultipleForAllPlayers({}, context)
+google_gamesmanagement.gamesManagement.scores.resetMultipleForAllPlayers({}, context)
 ```
 
 #### Input
 * input `object`
   * body [ScoresResetMultipleForAllRequest](#scoresresetmultipleforallrequest)
-  * alt `string` (values: json): Data format for the response.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
-
-#### Output
-*Output schema unknown*
-
-### turnBasedMatches.reset
-Reset all turn-based match data for a user. This method is only accessible to whitelisted tester accounts for your application.
-
-
-```js
-google_gamesmanagement.turnBasedMatches.reset({}, context)
-```
-
-#### Input
-* input `object`
-  * alt `string` (values: json): Data format for the response.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
-
-#### Output
-*Output schema unknown*
-
-### turnBasedMatches.resetForAllPlayers
-Deletes turn-based matches where the only match participants are from whitelisted tester accounts for your application. This method is only available to user accounts for your developer console.
-
-
-```js
-google_gamesmanagement.turnBasedMatches.resetForAllPlayers({}, context)
-```
-
-#### Input
-* input `object`
-  * alt `string` (values: json): Data format for the response.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 *Output schema unknown*
@@ -682,70 +558,64 @@ google_gamesmanagement.turnBasedMatches.resetForAllPlayers({}, context)
 ## Definitions
 
 ### AchievementResetAllResponse
-* AchievementResetAllResponse `object`: This is a JSON template for achievement reset all response.
-  * kind `string`: Uniquely identifies the type of this resource. Value is always the fixed string gamesManagement#achievementResetAllResponse.
+* AchievementResetAllResponse `object`: Achievement reset all response.
+  * kind `string`: Uniquely identifies the type of this resource. Value is always the fixed string `gamesManagement#achievementResetAllResponse`.
   * results `array`: The achievement reset results.
     * items [AchievementResetResponse](#achievementresetresponse)
 
 ### AchievementResetMultipleForAllRequest
-* AchievementResetMultipleForAllRequest `object`: This is a JSON template for multiple achievements reset all request.
+* AchievementResetMultipleForAllRequest `object`
   * achievement_ids `array`: The IDs of achievements to reset.
     * items `string`
-  * kind `string`: Uniquely identifies the type of this resource. Value is always the fixed string gamesManagement#achievementResetMultipleForAllRequest.
+  * kind `string`: Uniquely identifies the type of this resource. Value is always the fixed string `gamesManagement#achievementResetMultipleForAllRequest`.
 
 ### AchievementResetResponse
-* AchievementResetResponse `object`: This is a JSON template for an achievement reset response.
-  * currentState `string`: The current state of the achievement. This is the same as the initial state of the achievement.
+* AchievementResetResponse `object`: An achievement reset response.
+  * currentState `string`: The current state of the achievement. This is the same as the initial state of the achievement. Possible values are: - "`HIDDEN`"- Achievement is hidden. - "`REVEALED`" - Achievement is revealed. - "`UNLOCKED`" - Achievement is unlocked. 
   * definitionId `string`: The ID of an achievement for which player state has been updated.
-  * kind `string`: Uniquely identifies the type of this resource. Value is always the fixed string gamesManagement#achievementResetResponse.
+  * kind `string`: Uniquely identifies the type of this resource. Value is always the fixed string `gamesManagement#achievementResetResponse`.
   * updateOccurred `boolean`: Flag to indicate if the requested update actually occurred.
 
 ### EventsResetMultipleForAllRequest
-* EventsResetMultipleForAllRequest `object`: This is a JSON template for multiple events reset all request.
+* EventsResetMultipleForAllRequest `object`: Multiple events reset all request.
   * event_ids `array`: The IDs of events to reset.
     * items `string`
-  * kind `string`: Uniquely identifies the type of this resource. Value is always the fixed string gamesManagement#eventsResetMultipleForAllRequest.
-
-### GamesPlayedResource
-* GamesPlayedResource `object`: This is a JSON template for metadata about a player playing a game with the currently authenticated user.
-  * autoMatched `boolean`: True if the player was auto-matched with the currently authenticated user.
-  * timeMillis `string`: The last time the player played the game in milliseconds since the epoch in UTC.
+  * kind `string`: Uniquely identifies the type of this resource. Value is always the fixed string `gamesManagement#eventsResetMultipleForAllRequest`.
 
 ### GamesPlayerExperienceInfoResource
-* GamesPlayerExperienceInfoResource `object`: This is a JSON template for 1P/3P metadata about the player's experience.
+* GamesPlayerExperienceInfoResource `object`: 1P/3P metadata about the player's experience.
   * currentExperiencePoints `string`: The current number of experience points for the player.
   * currentLevel [GamesPlayerLevelResource](#gamesplayerlevelresource)
   * lastLevelUpTimestampMillis `string`: The timestamp when the player was leveled up, in millis since Unix epoch UTC.
   * nextLevel [GamesPlayerLevelResource](#gamesplayerlevelresource)
 
 ### GamesPlayerLevelResource
-* GamesPlayerLevelResource `object`: This is a JSON template for 1P/3P metadata about a user's level.
+* GamesPlayerLevelResource `object`: 1P/3P metadata about a user's level.
   * level `integer`: The level for the user.
   * maxExperiencePoints `string`: The maximum experience points for this level.
   * minExperiencePoints `string`: The minimum experience points for this level.
 
 ### HiddenPlayer
-* HiddenPlayer `object`: This is a JSON template for the HiddenPlayer resource.
-  * hiddenTimeMillis `string`: The time this player was hidden.
-  * kind `string`: Uniquely identifies the type of this resource. Value is always the fixed string gamesManagement#hiddenPlayer.
+* HiddenPlayer `object`: The HiddenPlayer resource.
+  * hiddenTimeMillis `string`: Output only. The time this player was hidden.
+  * kind `string`: Output only. Uniquely identifies the type of this resource. Value is always the fixed string `gamesManagement#hiddenPlayer`.
   * player [Player](#player)
 
 ### HiddenPlayerList
-* HiddenPlayerList `object`: This is a JSON template for a list of hidden players.
+* HiddenPlayerList `object`: A list of hidden players.
   * items `array`: The players.
     * items [HiddenPlayer](#hiddenplayer)
-  * kind `string`: Uniquely identifies the type of this resource. Value is always the fixed string gamesManagement#hiddenPlayerList.
+  * kind `string`: Uniquely identifies the type of this resource. Value is always the fixed string `gamesManagement#hiddenPlayerList`.
   * nextPageToken `string`: The pagination token for the next page of results.
 
 ### Player
-* Player `object`: This is a JSON template for a Player resource.
+* Player `object`: A Player resource.
   * avatarImageUrl `string`: The base URL for the image that represents the player.
   * bannerUrlLandscape `string`: The url to the landscape mode player banner image.
   * bannerUrlPortrait `string`: The url to the portrait mode player banner image.
   * displayName `string`: The name to display for the player.
   * experienceInfo [GamesPlayerExperienceInfoResource](#gamesplayerexperienceinforesource)
-  * kind `string`: Uniquely identifies the type of this resource. Value is always the fixed string gamesManagement#player.
-  * lastPlayedWith [GamesPlayedResource](#gamesplayedresource)
+  * kind `string`: Uniquely identifies the type of this resource. Value is always the fixed string `gamesManagement#player`.
   * name `object`: An object representation of the individual components of the player's name. For some players, these fields may not be present.
     * familyName `string`: The family name of this player. In some places, this is known as the last name.
     * givenName `string`: The given name of this player. In some places, this is known as the first name.
@@ -755,32 +625,26 @@ google_gamesmanagement.turnBasedMatches.resetForAllPlayers({}, context)
   * title `string`: The player's title rewarded for their game activities.
 
 ### PlayerScoreResetAllResponse
-* PlayerScoreResetAllResponse `object`: This is a JSON template for a list of leaderboard reset resources.
-  * kind `string`: Uniquely identifies the type of this resource. Value is always the fixed string gamesManagement#playerScoreResetResponse.
+* PlayerScoreResetAllResponse `object`: A list of leaderboard reset resources.
+  * kind `string`: Uniquely identifies the type of this resource. Value is always the fixed string `gamesManagement#playerScoreResetAllResponse`.
   * results `array`: The leaderboard reset results.
     * items [PlayerScoreResetResponse](#playerscoreresetresponse)
 
 ### PlayerScoreResetResponse
-* PlayerScoreResetResponse `object`: This is a JSON template for a list of reset leaderboard entry resources.
+* PlayerScoreResetResponse `object`: A list of reset leaderboard entry resources.
   * definitionId `string`: The ID of an leaderboard for which player state has been updated.
-  * kind `string`: Uniquely identifies the type of this resource. Value is always the fixed string gamesManagement#playerScoreResetResponse.
-  * resetScoreTimeSpans `array`: The time spans of the updated score.
+  * kind `string`: Uniquely identifies the type of this resource. Value is always the fixed string `gamesManagement#playerScoreResetResponse`.
+  * resetScoreTimeSpans `array`: The time spans of the updated score. Possible values are: - "`ALL_TIME`" - The score is an all-time score. - "`WEEKLY`" - The score is a weekly score. - "`DAILY`" - The score is a daily score. 
     * items `string`
 
 ### ProfileSettings
-* ProfileSettings `object`: This is a JSON template for profile settings
-  * kind `string`: Uniquely identifies the type of this resource. Value is always the fixed string gamesManagement#profileSettings.
-  * profileVisible `boolean`: The player's current profile visibility. This field is visible to both 1P and 3P APIs.
-
-### QuestsResetMultipleForAllRequest
-* QuestsResetMultipleForAllRequest `object`: This is a JSON template for multiple quests reset all request.
-  * kind `string`: Uniquely identifies the type of this resource. Value is always the fixed string gamesManagement#questsResetMultipleForAllRequest.
-  * quest_ids `array`: The IDs of quests to reset.
-    * items `string`
+* ProfileSettings `object`: Profile settings
+  * kind `string`: Uniquely identifies the type of this resource. Value is always the fixed string `gamesManagement#profileSettings`.
+  * profileVisible `boolean`
 
 ### ScoresResetMultipleForAllRequest
-* ScoresResetMultipleForAllRequest `object`: This is a JSON template for multiple scores reset all request.
-  * kind `string`: Uniquely identifies the type of this resource. Value is always the fixed string gamesManagement#scoresResetMultipleForAllRequest.
+* ScoresResetMultipleForAllRequest `object`
+  * kind `string`: Uniquely identifies the type of this resource. Value is always the fixed string `gamesManagement#scoresResetMultipleForAllRequest`.
   * leaderboard_ids `array`: The IDs of leaderboards to reset.
     * items `string`
 

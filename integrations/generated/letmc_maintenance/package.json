@@ -1,8 +1,8 @@
 {
   "name": "@datafire/letmc_maintenance",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "main": "index.js",
-  "description": "DataFire integration for LetMC Api V3, maintenance",
+  "description": "DataFire integration for AgentOS Api V3, maintenance",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DataFire/integrations.git"

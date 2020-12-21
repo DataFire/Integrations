@@ -15,12 +15,7 @@ let azure_sql_advisors = require('@datafire/azure_sql_advisors').create({
   redirect_uri: ""
 });
 
-azure_sql_advisors.ServerAdvisors_ListByServer({
-  "resourceGroupName": "",
-  "serverName": "",
-  "subscriptionId": "",
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -282,7 +277,7 @@ azure_sql_advisors.DatabaseRecommendedActions_Update({
 ## Definitions
 
 ### Advisor
-* Advisor `object`: Database, Server or Elatic Pool Advisor.
+* Advisor `object`: Database, Server or Elastic Pool Advisor.
   * kind `string`: Resource kind.
   * location `string`: Resource location.
   * properties [AdvisorProperties](#advisorproperties)
@@ -294,7 +289,7 @@ azure_sql_advisors.DatabaseRecommendedActions_Update({
 * AdvisorProperties `object`: Properties for a Database, Server or Elastic Pool Advisor.
   * advisorStatus `string` (values: GA, PublicPreview, LimitedPublicPreview, PrivatePreview): Gets the status of availability of this advisor to customers. Possible values are 'GA', 'PublicPreview', 'LimitedPublicPreview' and 'PrivatePreview'.
   * autoExecuteStatus **required** `string` (values: Enabled, Disabled, Default): Gets the auto-execute status (whether to let the system execute the recommendations) of this advisor. Possible values are 'Enabled' and 'Disabled'
-  * autoExecuteStatusInheritedFrom `string` (values: Default, Subscription, Server, ElasticPool, Database): Gets the resource from which current value of auto-execute status is inherited. Auto-execute status can be set on (and inhertied from) different levels in the resource heirarchy. Possible values are 'Subscription', 'Server', 'ElasticPool', 'Database' and 'Default' (when status is not explicitly set on any level).
+  * autoExecuteStatusInheritedFrom `string` (values: Default, Subscription, Server, ElasticPool, Database): Gets the resource from which current value of auto-execute status is inherited. Auto-execute status can be set on (and inherited from) different levels in the resource hierarchy. Possible values are 'Subscription', 'Server', 'ElasticPool', 'Database' and 'Default' (when status is not explicitly set on any level).
   * lastChecked `string`: Gets the time when the current resource was analyzed for recommendations by this advisor.
   * recommendationsStatus `string`: Gets that status of recommendations for this advisor and reason for not having any recommendations. Possible values include, but are not limited to, 'Ok' (Recommendations available),LowActivity (not enough workload to analyze), 'DbSeemsTuned' (Database is doing well), etc.
   * recommendedActions `array`: Gets the recommended actions for this advisor.
@@ -367,8 +362,8 @@ azure_sql_advisors.DatabaseRecommendedActions_Update({
 
 ### RecommendedActionStateInfo
 * RecommendedActionStateInfo `object`: Contains information of current state for an Azure SQL Database, Server or Elastic Pool Recommended Action.
-  * actionInitiatedBy `string` (values: User, System): Gets who initiated the execution of this recommended action. Possible Value are: User    -> When user explicity notified system to apply the recommended action. System  -> When auto-execute status of this advisor was set to 'Enabled', in which case the system applied it.
-  * currentValue **required** `string` (values: Active, Pending, Executing, Verifying, PendingRevert, RevertCancelled, Reverting, Reverted, Ignored, Expired, Monitoring, Resolved, Success, Error): Current state the recommended action is in. Some commonly used states are: Active      -> recommended action is active and no action has been taken yet. Pending     -> recommended action is approved for and is awaiting execution. Executing   -> recommended action is being applied on the user database. Verifying   -> recommended action was applied and is being verified of its usefulness by the system. Success     -> recommended action was applied and improvement found during verification. Pending Revert  -> verification found little or no improvement so recommended action is queued for revert or user has manually reverted. Reverting   -> changes made while applying recommended action are being reverted on the user database. Reverted    -> succesfully reverted the changes made by recommended action on user database. Ignored     -> user explicitly ignored/discarded the recommended action. 
+  * actionInitiatedBy `string` (values: User, System): Gets who initiated the execution of this recommended action. Possible Value are: User    -> When user explicitly notified system to apply the recommended action. System  -> When auto-execute status of this advisor was set to 'Enabled', in which case the system applied it.
+  * currentValue **required** `string` (values: Active, Pending, Executing, Verifying, PendingRevert, RevertCancelled, Reverting, Reverted, Ignored, Expired, Monitoring, Resolved, Success, Error): Current state the recommended action is in. Some commonly used states are: Active      -> recommended action is active and no action has been taken yet. Pending     -> recommended action is approved for and is awaiting execution. Executing   -> recommended action is being applied on the user database. Verifying   -> recommended action was applied and is being verified of its usefulness by the system. Success     -> recommended action was applied and improvement found during verification. Pending Revert  -> verification found little or no improvement so recommended action is queued for revert or user has manually reverted. Reverting   -> changes made while applying recommended action are being reverted on the user database. Reverted    -> successfully reverted the changes made by recommended action on user database. Ignored     -> user explicitly ignored/discarded the recommended action. 
   * lastModified `string`: Gets the time when the state was last modified
 
 

@@ -15,9 +15,7 @@ let wso2apistore_transform = require('@datafire/wso2apistore_transform').create(
   redirect_uri: ""
 });
 
-wso2apistore_transform.jsontoxml.post({
-  "Payload": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -34,13 +32,13 @@ This API provides XML to JSON, JSON to XML transformations.
 
 ```js
 wso2apistore_transform.jsontoxml.post({
-  "Payload": ""
+  "body": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Payload **required** `string`
+  * body **required** `string`
 
 #### Output
 *Output schema unknown*
@@ -51,13 +49,13 @@ wso2apistore_transform.jsontoxml.post({
 
 ```js
 wso2apistore_transform.xmltojson.post({
-  "Payload": ""
+  "body": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Payload **required** `string`
+  * body **required** `string`
 
 #### Output
 *Output schema unknown*

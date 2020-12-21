@@ -15,11 +15,7 @@ let azure_azsadmin_storagesystem = require('@datafire/azure_azsadmin_storagesyst
   redirect_uri: ""
 });
 
-azure_azsadmin_storagesystem.StorageSystems_List({
-  "subscriptionId": "",
-  "location": "",
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -31,12 +27,13 @@ Storage system operation endpoints and objects.
 ## Actions
 
 ### StorageSystems_List
-Get a list of all storage subsystems for a location.
+Returns a list of all storage subsystems for a location.
 
 
 ```js
 azure_azsadmin_storagesystem.StorageSystems_List({
   "subscriptionId": "",
+  "resourceGroupName": "",
   "location": "",
   "api-version": ""
 }, context)
@@ -44,21 +41,23 @@ azure_azsadmin_storagesystem.StorageSystems_List({
 
 #### Input
 * input `object`
-  * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription.The subscription ID forms part of the URI for every service call.
+  * subscriptionId **required** `string`: Subscription credentials that uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+  * resourceGroupName **required** `string`: Name of the resource group.
   * location **required** `string`: Location of the resource.
-  * api-version **required** `string`: Client Api Version.
+  * api-version **required** `string`: Client API Version.
   * $filter `string`: OData filter parameter.
 
 #### Output
 * output [StorageSystemList](#storagesystemlist)
 
 ### StorageSystems_Get
-Get a storage subsystem.
+Return the requested storage subsystem.
 
 
 ```js
 azure_azsadmin_storagesystem.StorageSystems_Get({
   "subscriptionId": "",
+  "resourceGroupName": "",
   "location": "",
   "storageSubSystem": "",
   "api-version": ""
@@ -67,10 +66,11 @@ azure_azsadmin_storagesystem.StorageSystems_Get({
 
 #### Input
 * input `object`
-  * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription.The subscription ID forms part of the URI for every service call.
+  * subscriptionId **required** `string`: Subscription credentials that uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+  * resourceGroupName **required** `string`: Name of the resource group.
   * location **required** `string`: Location of the resource.
   * storageSubSystem **required** `string`: Name of the storage system.
-  * api-version **required** `string`: Client Api Version.
+  * api-version **required** `string`: Client API Version.
 
 #### Output
 * output [StorageSystem](#storagesystem)
@@ -83,15 +83,15 @@ azure_azsadmin_storagesystem.StorageSystems_Get({
 * StorageSystem `object`: Representation of a storage system resource.
   * properties [StorageSystemModel](#storagesystemmodel)
   * id `string`: URI of the resource.
-  * location `string`: Region Location of resource.
+  * location `string`: The region where the resource is located.
   * name `string`: Name of the resource.
-  * tags `object`: List of key value pairs.
+  * tags `object`: List of key-value pairs.
   * type `string`: Type of resource.
 
 ### StorageSystemList
 * StorageSystemList `object`: Pageable list of storage systems.
   * nextLink `string`: URI to the next page.
-  * value `array`: List of storage systems on this page.
+  * value `array`: List of storage systems.
     * items [StorageSystem](#storagesystem)
 
 ### StorageSystemModel

@@ -15,13 +15,7 @@ let azure_automation_sourcecontrolsyncjob = require('@datafire/azure_automation_
   redirect_uri: ""
 });
 
-azure_automation_sourcecontrolsyncjob.SourceControlSyncJob_ListByAutomationAccount({
-  "resourceGroupName": "",
-  "automationAccountName": "",
-  "sourceControlName": "",
-  "subscriptionId": "",
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -56,20 +50,7 @@ azure_automation_sourcecontrolsyncjob.SourceControlSyncJob_ListByAutomationAccou
   * api-version **required** `string`: Client Api Version.
 
 #### Output
-* output `object`: The response model for the list source control sync jobs operation.
-  * nextLink `string`: Gets or sets the next link.
-  * value `array`: Gets a list of source control sync jobs.
-    * items `object`: Definition of the source control sync job.
-      * id `string`: Resource id.
-      * name `string`: Resource name.
-      * properties `object`: Definition of source control sync job properties.
-        * creationTime `string`: Gets the creation time of the job.
-        * endTime `string`: Gets the end time of the job.
-        * provisioningState `string` (values: Completed, Failed, Running): Gets the provisioning state of the job.
-        * startTime `string`: Gets the start time of the job.
-        * startType `string` (values: AutoSync, ManualSync): Gets the type of start for the sync job.
-        * syncJobId `string`: Gets the source control sync job id.
-      * type `string`: Resource type.
+* output [SourceControlSyncJobListResult](#sourcecontrolsyncjoblistresult)
 
 ### SourceControlSyncJob_Get
 Retrieve the source control sync job identified by job id.
@@ -96,16 +77,7 @@ azure_automation_sourcecontrolsyncjob.SourceControlSyncJob_Get({
   * api-version **required** `string`: Client Api Version.
 
 #### Output
-* output `object`: Definition of the source control sync job.
-  * id `string`: Gets the id of the job.
-  * properties `object`: Definition of source control sync job properties.
-    * creationTime `string`: Gets the creation time of the job.
-    * endTime `string`: Gets the end time of the job.
-    * exception `string`: Gets the exceptions that occured while running the sync job.
-    * provisioningState `string` (values: Completed, Failed, Running): Gets the provisioning state of the job.
-    * startTime `string`: Gets the start time of the job.
-    * startType `string` (values: AutoSync, ManualSync): Gets the type of start for the sync job.
-    * syncJobId `string`: Gets the source control sync job id.
+* output [SourceControlSyncJobById](#sourcecontrolsyncjobbyid)
 
 ### SourceControlSyncJob_Create
 Creates the sync job for a source control.
@@ -129,27 +101,60 @@ azure_automation_sourcecontrolsyncjob.SourceControlSyncJob_Create({
   * automationAccountName **required** `string`: The name of the automation account.
   * sourceControlName **required** `string`: The source control name.
   * sourceControlSyncJobId **required** `string`: The source control sync job id.
-  * parameters **required** `object`: The parameters supplied to the create source control sync job operation.
-    * properties **required** `object`: Definition of create source control sync job properties.
-      * commitId `string`: Sets the commit id of the source control sync job.
+  * parameters **required** [SourceControlSyncJobCreateParameters](#sourcecontrolsyncjobcreateparameters)
   * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
   * api-version **required** `string`: Client Api Version.
 
 #### Output
-* output `object`: Definition of the source control sync job.
-  * id `string`: Resource id.
-  * name `string`: Resource name.
-  * properties `object`: Definition of source control sync job properties.
-    * creationTime `string`: Gets the creation time of the job.
-    * endTime `string`: Gets the end time of the job.
-    * provisioningState `string` (values: Completed, Failed, Running): Gets the provisioning state of the job.
-    * startTime `string`: Gets the start time of the job.
-    * startType `string` (values: AutoSync, ManualSync): Gets the type of start for the sync job.
-    * syncJobId `string`: Gets the source control sync job id.
-  * type `string`: Resource type.
+* output [SourceControlSyncJob](#sourcecontrolsyncjob)
 
 
 
 ## Definitions
 
-*This integration has no definitions*
+### SourceControlSyncJob
+* SourceControlSyncJob `object`: Definition of the source control sync job.
+  * id `string`: Resource id.
+  * name `string`: Resource name.
+  * properties [SourceControlSyncJobProperties](#sourcecontrolsyncjobproperties)
+  * type `string`: Resource type.
+
+### SourceControlSyncJobById
+* SourceControlSyncJobById `object`: Definition of the source control sync job.
+  * id `string`: The id of the job.
+  * properties [SourceControlSyncJobByIdProperties](#sourcecontrolsyncjobbyidproperties)
+
+### SourceControlSyncJobByIdProperties
+* SourceControlSyncJobByIdProperties `object`: Definition of source control sync job properties.
+  * creationTime `string`: The creation time of the job.
+  * endTime `string`: The end time of the job.
+  * exception `string`: The exceptions that occurred while running the sync job.
+  * provisioningState `string` (values: Completed, Failed, Running): The provisioning state of the job.
+  * sourceControlSyncJobId `string`: The source control sync job id.
+  * startTime `string`: The start time of the job.
+  * syncType `string` (values: PartialSync, FullSync): The sync type.
+
+### SourceControlSyncJobCreateParameters
+* SourceControlSyncJobCreateParameters `object`: The parameters supplied to the create source control sync job operation.
+  * properties **required** [SourceControlSyncJobCreateProperties](#sourcecontrolsyncjobcreateproperties)
+
+### SourceControlSyncJobCreateProperties
+* SourceControlSyncJobCreateProperties `object`: Definition of create source control sync job properties.
+  * commitId **required** `string`: The commit id of the source control sync job. If not syncing to a commitId, enter an empty string.
+
+### SourceControlSyncJobListResult
+* SourceControlSyncJobListResult `object`: The response model for the list source control sync jobs operation.
+  * nextLink `string`: The next link.
+  * value `array`: The list of source control sync jobs.
+    * items [SourceControlSyncJob](#sourcecontrolsyncjob)
+
+### SourceControlSyncJobProperties
+* SourceControlSyncJobProperties `object`: Definition of source control sync job properties.
+  * creationTime `string`: The creation time of the job.
+  * endTime `string`: The end time of the job.
+  * provisioningState `string` (values: Completed, Failed, Running): The provisioning state of the job.
+  * sourceControlSyncJobId `string`: The source control sync job id.
+  * startTime `string`: The start time of the job.
+  * syncType `string` (values: PartialSync, FullSync): The sync type.
+
+

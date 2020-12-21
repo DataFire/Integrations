@@ -15,9 +15,7 @@ let azure_domainservices = require('@datafire/azure_domainservices').create({
   redirect_uri: ""
 });
 
-azure_domainservices.DomainServiceOperations_List({
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -103,10 +101,10 @@ azure_domainservices.DomainServices_Delete({
   * api-version **required** `string`: Client Api Version.
   * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
   * resourceGroupName **required** `string`: The name of the resource group within the user's subscription. The name is case insensitive.
-  * domainServiceName **required** `string`: The name of the domain service in the specified subscription and resource group.
+  * domainServiceName **required** `string`: The name of the domain service.
 
 #### Output
-* output [DomainService](#domainservice)
+*Output schema unknown*
 
 ### DomainServices_Get
 The Get Domain Service operation retrieves a json representation of the Domain Service.
@@ -126,7 +124,7 @@ azure_domainservices.DomainServices_Get({
   * api-version **required** `string`: Client Api Version.
   * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
   * resourceGroupName **required** `string`: The name of the resource group within the user's subscription. The name is case insensitive.
-  * domainServiceName **required** `string`: The name of the domain service in the specified subscription and resource group.
+  * domainServiceName **required** `string`: The name of the domain service.
 
 #### Output
 * output [DomainService](#domainservice)
@@ -141,7 +139,7 @@ azure_domainservices.DomainServices_Update({
   "subscriptionId": "",
   "resourceGroupName": "",
   "domainServiceName": "",
-  "properties": null
+  "domainService": null
 }, context)
 ```
 
@@ -150,8 +148,8 @@ azure_domainservices.DomainServices_Update({
   * api-version **required** `string`: Client Api Version.
   * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
   * resourceGroupName **required** `string`: The name of the resource group within the user's subscription. The name is case insensitive.
-  * domainServiceName **required** `string`: The name of the domain service in the specified subscription and resource group.
-  * properties **required** [DomainServicePatchProperties](#domainservicepatchproperties)
+  * domainServiceName **required** `string`: The name of the domain service.
+  * domainService **required** [DomainService](#domainservice)
 
 #### Output
 * output [DomainService](#domainservice)
@@ -166,7 +164,7 @@ azure_domainservices.DomainServices_CreateOrUpdate({
   "subscriptionId": "",
   "resourceGroupName": "",
   "domainServiceName": "",
-  "properties": null
+  "domainService": null
 }, context)
 ```
 
@@ -175,8 +173,8 @@ azure_domainservices.DomainServices_CreateOrUpdate({
   * api-version **required** `string`: Client Api Version.
   * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
   * resourceGroupName **required** `string`: The name of the resource group within the user's subscription. The name is case insensitive.
-  * domainServiceName **required** `string`: The name of the domain service in the specified subscription and resource group.
-  * properties **required** [DomainServiceProperties](#domainserviceproperties)
+  * domainServiceName **required** `string`: The name of the domain service.
+  * domainService **required** [DomainService](#domainservice)
 
 #### Output
 * output [DomainService](#domainservice)
@@ -185,36 +183,63 @@ azure_domainservices.DomainServices_CreateOrUpdate({
 
 ## Definitions
 
+### DomainSecuritySettings
+* DomainSecuritySettings `object`: Domain Security Settings
+  * ntlmV1 `string` (values: Enabled, Disabled): A flag to determine whether or not NtlmV1 is enabled or disabled.
+  * syncNtlmPasswords `string` (values: Enabled, Disabled): A flag to determine whether or not SyncNtlmPasswords is enabled or disabled.
+  * tlsV1 `string` (values: Enabled, Disabled): A flag to determine whether or not TlsV1 is enabled or disabled.
+
 ### DomainService
 * DomainService `object`: Domain service.
   * properties [DomainServiceProperties](#domainserviceproperties)
   * etag `string`: Resource etag
   * id `string`: Resource Id
-  * location **required** `string`: Resource location
+  * location `string`: Resource location
   * name `string`: Resource name
   * tags `object`: Resource tags
   * type `string`: Resource type
 
 ### DomainServiceListResult
 * DomainServiceListResult `object`: The response from the List Domain Services operation.
+  * nextLink `string`: The continuation token for the next page of results.
   * value `array`: the list of domain services.
     * items [DomainService](#domainservice)
-
-### DomainServicePatchProperties
-* DomainServicePatchProperties `object`: Update Properties of the Domain Service.
-  * ldapsSettings [LdapsSettings](#ldapssettings)
 
 ### DomainServiceProperties
 * DomainServiceProperties `object`: Properties of the Domain Service.
   * domainControllerIpAddress `array`: List of Domain Controller IP Address
     * items `string`: Domain Controller IP Address
   * domainName `string`: The name of the Azure domain that the user would like to deploy Domain Services to.
+  * domainSecuritySettings [DomainSecuritySettings](#domainsecuritysettings)
+  * filteredSync `string` (values: Enabled, Disabled): Enabled or Disabled flag to turn on Group-based filtered sync
+  * healthAlerts `array`: List of Domain Health Alerts
+    * items [HealthAlert](#healthalert)
+  * healthLastEvaluated `string`: Last domain evaluation run DateTime
+  * healthMonitors `array`: List of Domain Health Monitors
+    * items [HealthMonitor](#healthmonitor)
   * ldapsSettings [LdapsSettings](#ldapssettings)
+  * notificationSettings [NotificationSettings](#notificationsettings)
   * provisioningState `string`: the current deployment or provisioning state, which only appears in the response.
   * serviceStatus `string`: Status of Domain Service instance
   * subnetId `string`: The name of the virtual network that Domain Services will be deployed on. The id of the subnet that Domain Services will be deployed on. /virtualNetwork/vnetName/subnets/subnetName.
   * tenantId `string`: Azure Active Directory tenant id
   * vnetSiteId `string`: Virtual network site id
+
+### HealthAlert
+* HealthAlert `object`: Health Alert Description
+  * id `string`: Health Alert Id
+  * issue `string`: Health Alert Issue
+  * lastDetected `string`: Health Alert Last Detected DateTime
+  * name `string`: Health Alert Name
+  * raised `string`: Health Alert Raised DateTime
+  * resolutionUri `string`: Health Alert TSG Link
+  * severity `string`: Health Alert Severity
+
+### HealthMonitor
+* HealthMonitor `object`: Health Monitor Description
+  * details `string`: Health Monitor Details
+  * id `string`: Health Monitor Id
+  * name `string`: Health Monitor Name
 
 ### LdapsSettings
 * LdapsSettings `object`: Secure LDAP Settings
@@ -226,6 +251,13 @@ azure_domainservices.DomainServices_CreateOrUpdate({
   * pfxCertificate `string`: The certificate required to configure Secure LDAP. The parameter passed here should be a base64encoded representation of the certificate pfx file.
   * pfxCertificatePassword `string`: The password to decrypt the provided Secure LDAP certificate pfx file.
   * publicCertificate `string`: Public certificate used to configure secure ldap.
+
+### NotificationSettings
+* NotificationSettings `object`: Settings for notification
+  * additionalRecipients `array`: The list of additional recipients
+    * items `string`: Email address for additional recipient
+  * notifyDcAdmins `string` (values: Enabled, Disabled): Should domain controller admins be notified
+  * notifyGlobalAdmins `string` (values: Enabled, Disabled): Should global admins be notified
 
 ### OperationDisplayInfo
 * OperationDisplayInfo `object`: The operation supported by Domain Services.
@@ -242,6 +274,7 @@ azure_domainservices.DomainServices_CreateOrUpdate({
 
 ### OperationEntityListResult
 * OperationEntityListResult `object`: The list of domain service operation response.
+  * nextLink `string`: The continuation token for the next page of results.
   * value `array`: The list of operations.
     * items [OperationEntity](#operationentity)
 
@@ -249,7 +282,7 @@ azure_domainservices.DomainServices_CreateOrUpdate({
 * Resource `object`: The Resource model definition.
   * etag `string`: Resource etag
   * id `string`: Resource Id
-  * location **required** `string`: Resource location
+  * location `string`: Resource location
   * name `string`: Resource name
   * tags `object`: Resource tags
   * type `string`: Resource type

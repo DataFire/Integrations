@@ -15,9 +15,7 @@ let azure_search = require('@datafire/azure_search').create({
   redirect_uri: ""
 });
 
-azure_search.Operations_List({
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -69,6 +67,26 @@ azure_search.Services_CheckNameAvailability({
 
 #### Output
 * output [CheckNameAvailabilityOutput](#checknameavailabilityoutput)
+
+### Services_ListBySubscription
+Gets a list of all Search services in the given subscription.
+
+
+```js
+azure_search.Services_ListBySubscription({
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * x-ms-client-request-id `string`: A client-generated GUID value that identifies this request. If specified, this will be included in response information as a way to track the request.
+  * api-version **required** `string`: The API version to use for each request. The current version is 2015-08-19.
+  * subscriptionId **required** `string`: The unique identifier for a Microsoft Azure subscription. You can obtain this value from the Azure Resource Manager API or the portal.
+
+#### Output
+* output [SearchServiceListResult](#searchservicelistresult)
 
 ### Services_ListByResourceGroup
 Gets a list of all Search services in the given resource group.
@@ -344,11 +362,17 @@ azure_search.AdminKeys_Regenerate({
 
 ### CloudErrorBody
 * CloudErrorBody `object`: Describes a particular API error with an error code and a message.
-  * code `string`: An error code that describes the error condition more precisely than an HTTP status code. Can be used to programatically handle specific error cases.
+  * code `string`: An error code that describes the error condition more precisely than an HTTP status code. Can be used to programmatically handle specific error cases.
   * details `array`: Contains nested errors that are related to this error.
     * items [CloudErrorBody](#clouderrorbody)
   * message `string`: A message that describes the error in detail and provides debugging information.
   * target `string`: The target of the particular error (for example, the name of the property in error).
+
+### Identity
+* Identity `object`: Identity for the resource.
+  * principalId `string`: The principal ID of resource identity.
+  * tenantId `string`: The tenant ID of resource.
+  * type **required** `string` (values: None, SystemAssigned): The identity type.
 
 ### ListQueryKeysResult
 * ListQueryKeysResult `object`: Response containing the query API keys for a given Azure Search service.
@@ -378,6 +402,7 @@ azure_search.AdminKeys_Regenerate({
 ### Resource
 * Resource `object`: Base type for all Azure resources.
   * id `string`: The ID of the resource. This can be used with the Azure Resource Manager to link resources together.
+  * identity [Identity](#identity)
   * location `string`: The geographic location of the resource. This must be one of the supported and registered Azure Geo Regions (for example, West US, East US, Southeast Asia, and so forth). This property is required when creating a new resource.
   * name `string`: The name of the resource.
   * tags `object`: Tags to help categorize the resource in the Azure portal.
@@ -388,6 +413,7 @@ azure_search.AdminKeys_Regenerate({
   * properties [SearchServiceProperties](#searchserviceproperties)
   * sku [Sku](#sku)
   * id `string`: The ID of the resource. This can be used with the Azure Resource Manager to link resources together.
+  * identity [Identity](#identity)
   * location `string`: The geographic location of the resource. This must be one of the supported and registered Azure Geo Regions (for example, West US, East US, Southeast Asia, and so forth). This property is required when creating a new resource.
   * name `string`: The name of the resource.
   * tags `object`: Tags to help categorize the resource in the Azure portal.
@@ -409,6 +435,6 @@ azure_search.AdminKeys_Regenerate({
 
 ### Sku
 * Sku `object`: Defines the SKU of an Azure Search Service, which determines price tier and capacity limits.
-  * name `string` (values: free, basic, standard, standard2, standard3): The SKU of the Search service. Valid values include: 'free': Shared service. 'basic': Dedicated service with up to 3 replicas. 'standard': Dedicated service with up to 12 partitions and 12 replicas. 'standard2': Similar to standard, but with more capacity per search unit. 'standard3': Offers maximum capacity per search unit with up to 12 partitions and 12 replicas (or up to 3 partitions with more indexes if you also set the hostingMode property to 'highDensity').
+  * name `string` (values: free, basic, standard, standard2, standard3, storage_optimized_l1, storage_optimized_l2): The SKU of the Search service. Valid values include: 'free': Shared service. 'basic': Dedicated service with up to 3 replicas. 'standard': Dedicated service with up to 12 partitions and 12 replicas. 'standard2': Similar to standard, but with more capacity per search unit. 'standard3': The largest Standard offering with up to 12 partitions and 12 replicas (or up to 3 partitions with more indexes if you also set the hostingMode property to 'highDensity'). 'storage_optimized_l1': Supports 1TB per partition, up to 12 partitions. 'storage_optimized_l2': Supports 2TB per partition, up to 12 partitions.'
 
 

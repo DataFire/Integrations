@@ -1,6 +1,6 @@
 # @datafire/musixmatch
 
-Client library for Musixmatch
+Client library for Musixmatch API
 
 ## Installation and Usage
 ```bash
@@ -11,7 +11,7 @@ let musixmatch = require('@datafire/musixmatch').create({
   key: ""
 });
 
-musixmatch.track.search.get({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

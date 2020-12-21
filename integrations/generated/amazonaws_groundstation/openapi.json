@@ -1,0 +1,5071 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "contact": {
+      "email": "mike.ralphson@gmail.com",
+      "name": "Mike Ralphson",
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
+    },
+    "description": "Welcome to the AWS Ground Station API Reference. AWS Ground Station is a fully managed service that enables you to control satellite communications, downlink and process satellite data, and scale your satellite operations efficiently and cost-effectively without having to build or manage your own ground station infrastructure.",
+    "license": {
+      "name": "Apache 2.0 License",
+      "url": "http://www.apache.org/licenses/"
+    },
+    "termsOfService": "https://aws.amazon.com/service-terms/",
+    "title": "AWS Ground Station",
+    "version": "2019-05-23",
+    "x-apiClientRegistration": {
+      "url": "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"
+    },
+    "x-apisguru-categories": [
+      "cloud"
+    ],
+    "x-logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"
+    },
+    "x-origin": [
+      {
+        "contentType": "application/json",
+        "converter": {
+          "url": "https://github.com/mermade/aws2openapi",
+          "version": "1.0.0"
+        },
+        "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/groundstation-2019-05-23.normal.json",
+        "x-apisguru-driver": "external"
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "amazonaws.com",
+    "x-release": "v4",
+    "x-serviceName": "groundstation",
+    "x-datafire": {
+      "name": "amazonaws_groundstation",
+      "type": "openapi"
+    }
+  },
+  "host": "groundstation.us-east-1.amazonaws.com",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/config": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Maximum number of <code>Configs</code> returned.",
+            "in": "query",
+            "name": "maxResults",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Next token returned in the request of a previous <code>ListConfigs</code> call. Used to get the next page of results.",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListConfigsResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "481": {
+            "description": "DependencyException",
+            "schema": {
+              "$ref": "#/definitions/DependencyException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        },
+        "description": "Returns a list of <code>Config</code> objects.",
+        "operationId": "ListConfigs"
+      },
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "tags": {
+                  "additionalProperties": {
+                    "$ref": "#/definitions/String"
+                  },
+                  "description": "Tags assigned to a <code>Config</code>.",
+                  "type": "object"
+                },
+                "configData": {
+                  "description": "<p>Object containing the parameters of a <code>Config</code>.</p> <p>See the subtype definitions for what each type of <code>Config</code> contains.</p>",
+                  "properties": {
+                    "antennaDownlinkConfig": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/AntennaDownlinkConfig"
+                        },
+                        {
+                          "description": "Information about how AWS Ground Station should configure an antenna for downlink during a contact."
+                        }
+                      ]
+                    },
+                    "antennaDownlinkDemodDecodeConfig": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/AntennaDownlinkDemodDecodeConfig"
+                        },
+                        {
+                          "description": "Information about how AWS Ground Station should conﬁgure an antenna for downlink demod decode during a contact."
+                        }
+                      ]
+                    },
+                    "antennaUplinkConfig": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/AntennaUplinkConfig"
+                        },
+                        {
+                          "description": "Information about how AWS Ground Station should conﬁgure an antenna for uplink during a contact."
+                        }
+                      ]
+                    },
+                    "dataflowEndpointConfig": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/DataflowEndpointConfig"
+                        },
+                        {
+                          "description": "Information about the dataflow endpoint <code>Config</code>."
+                        }
+                      ]
+                    },
+                    "trackingConfig": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/TrackingConfig"
+                        },
+                        {
+                          "description": "Object that determines whether tracking should be used during a contact executed with this <code>Config</code> in the mission profile. "
+                        }
+                      ]
+                    },
+                    "uplinkEchoConfig": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/UplinkEchoConfig"
+                        },
+                        {
+                          "description": "<p>Information about an uplink echo <code>Config</code>.</p> <p>Parameters from the <code>AntennaUplinkConfig</code>, corresponding to the specified <code>AntennaUplinkConfigArn</code>, are used when this <code>UplinkEchoConfig</code> is used in a contact.</p>"
+                        }
+                      ]
+                    }
+                  },
+                  "type": "object"
+                },
+                "name": {
+                  "description": "Name of a <code>Config</code>.",
+                  "maxLength": 256,
+                  "minLength": 1,
+                  "pattern": "^[ a-zA-Z0-9_:-]{1,256}$",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "configData",
+                "name"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ConfigIdResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "481": {
+            "description": "DependencyException",
+            "schema": {
+              "$ref": "#/definitions/DependencyException"
+            }
+          },
+          "482": {
+            "description": "ResourceLimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/ResourceLimitExceededException"
+            }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        },
+        "description": "<p>Creates a <code>Config</code> with the specified <code>configData</code> parameters.</p> <p>Only one type of <code>configData</code> can be specified.</p>",
+        "operationId": "CreateConfig"
+      }
+    },
+    "/config/{configType}/{configId}": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "delete": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "UUID of a <code>Config</code>.",
+            "in": "path",
+            "name": "configId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Type of a <code>Config</code>.",
+            "enum": [
+              "antenna-downlink",
+              "antenna-downlink-demod-decode",
+              "antenna-uplink",
+              "dataflow-endpoint",
+              "tracking",
+              "uplink-echo"
+            ],
+            "in": "path",
+            "name": "configType",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ConfigIdResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "481": {
+            "description": "DependencyException",
+            "schema": {
+              "$ref": "#/definitions/DependencyException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        },
+        "description": "Deletes a <code>Config</code>.",
+        "operationId": "DeleteConfig"
+      },
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "UUID of a <code>Config</code>.",
+            "in": "path",
+            "name": "configId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Type of a <code>Config</code>.",
+            "enum": [
+              "antenna-downlink",
+              "antenna-downlink-demod-decode",
+              "antenna-uplink",
+              "dataflow-endpoint",
+              "tracking",
+              "uplink-echo"
+            ],
+            "in": "path",
+            "name": "configType",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetConfigResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "481": {
+            "description": "DependencyException",
+            "schema": {
+              "$ref": "#/definitions/DependencyException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        },
+        "description": "<p>Returns <code>Config</code> information.</p> <p>Only one <code>Config</code> response can be returned.</p>",
+        "operationId": "GetConfig"
+      },
+      "put": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "UUID of a <code>Config</code>.",
+            "in": "path",
+            "name": "configId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Type of a <code>Config</code>.",
+            "enum": [
+              "antenna-downlink",
+              "antenna-downlink-demod-decode",
+              "antenna-uplink",
+              "dataflow-endpoint",
+              "tracking",
+              "uplink-echo"
+            ],
+            "in": "path",
+            "name": "configType",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "configData": {
+                  "description": "<p>Object containing the parameters of a <code>Config</code>.</p> <p>See the subtype definitions for what each type of <code>Config</code> contains.</p>",
+                  "properties": {
+                    "antennaDownlinkConfig": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/AntennaDownlinkConfig"
+                        },
+                        {
+                          "description": "Information about how AWS Ground Station should configure an antenna for downlink during a contact."
+                        }
+                      ]
+                    },
+                    "antennaDownlinkDemodDecodeConfig": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/AntennaDownlinkDemodDecodeConfig"
+                        },
+                        {
+                          "description": "Information about how AWS Ground Station should conﬁgure an antenna for downlink demod decode during a contact."
+                        }
+                      ]
+                    },
+                    "antennaUplinkConfig": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/AntennaUplinkConfig"
+                        },
+                        {
+                          "description": "Information about how AWS Ground Station should conﬁgure an antenna for uplink during a contact."
+                        }
+                      ]
+                    },
+                    "dataflowEndpointConfig": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/DataflowEndpointConfig"
+                        },
+                        {
+                          "description": "Information about the dataflow endpoint <code>Config</code>."
+                        }
+                      ]
+                    },
+                    "trackingConfig": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/TrackingConfig"
+                        },
+                        {
+                          "description": "Object that determines whether tracking should be used during a contact executed with this <code>Config</code> in the mission profile. "
+                        }
+                      ]
+                    },
+                    "uplinkEchoConfig": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/UplinkEchoConfig"
+                        },
+                        {
+                          "description": "<p>Information about an uplink echo <code>Config</code>.</p> <p>Parameters from the <code>AntennaUplinkConfig</code>, corresponding to the specified <code>AntennaUplinkConfigArn</code>, are used when this <code>UplinkEchoConfig</code> is used in a contact.</p>"
+                        }
+                      ]
+                    }
+                  },
+                  "type": "object"
+                },
+                "name": {
+                  "description": "Name of a <code>Config</code>.",
+                  "maxLength": 256,
+                  "minLength": 1,
+                  "pattern": "^[ a-zA-Z0-9_:-]{1,256}$",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "configData",
+                "name"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ConfigIdResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "481": {
+            "description": "DependencyException",
+            "schema": {
+              "$ref": "#/definitions/DependencyException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        },
+        "description": "<p>Updates the <code>Config</code> used when scheduling contacts.</p> <p>Updating a <code>Config</code> will not update the execution parameters for existing future contacts scheduled with this <code>Config</code>.</p>",
+        "operationId": "UpdateConfig"
+      }
+    },
+    "/contact": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "tags": {
+                  "additionalProperties": {
+                    "$ref": "#/definitions/String"
+                  },
+                  "description": "Tags assigned to a contact.",
+                  "type": "object"
+                },
+                "endTime": {
+                  "description": "End time of a contact.",
+                  "format": "date-time",
+                  "type": "string"
+                },
+                "groundStation": {
+                  "description": "Name of a ground station.",
+                  "type": "string"
+                },
+                "missionProfileArn": {
+                  "description": "ARN of a mission profile.",
+                  "type": "string"
+                },
+                "satelliteArn": {
+                  "description": "ARN of a satellite",
+                  "type": "string"
+                },
+                "startTime": {
+                  "description": "Start time of a contact.",
+                  "format": "date-time",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "endTime",
+                "groundStation",
+                "missionProfileArn",
+                "satelliteArn",
+                "startTime"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ContactIdResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "481": {
+            "description": "DependencyException",
+            "schema": {
+              "$ref": "#/definitions/DependencyException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        },
+        "description": "Reserves a contact using specified parameters.",
+        "operationId": "ReserveContact"
+      }
+    },
+    "/contact/{contactId}": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "delete": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "UUID of a contact.",
+            "in": "path",
+            "name": "contactId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ContactIdResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "481": {
+            "description": "DependencyException",
+            "schema": {
+              "$ref": "#/definitions/DependencyException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        },
+        "description": "Cancels a contact with a specified contact ID.",
+        "operationId": "CancelContact"
+      },
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "UUID of a contact.",
+            "in": "path",
+            "name": "contactId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeContactResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "481": {
+            "description": "DependencyException",
+            "schema": {
+              "$ref": "#/definitions/DependencyException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        },
+        "description": "Describes an existing contact.",
+        "operationId": "DescribeContact"
+      }
+    },
+    "/contacts": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "maxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "endTime": {
+                  "description": "End time of a contact.",
+                  "format": "date-time",
+                  "type": "string"
+                },
+                "groundStation": {
+                  "description": "Name of a ground station.",
+                  "type": "string"
+                },
+                "maxResults": {
+                  "description": "Maximum number of contacts returned.",
+                  "type": "integer"
+                },
+                "missionProfileArn": {
+                  "description": "ARN of a mission profile.",
+                  "type": "string"
+                },
+                "nextToken": {
+                  "description": "Next token returned in the request of a previous <code>ListContacts</code> call. Used to get the next page of results.",
+                  "type": "string"
+                },
+                "satelliteArn": {
+                  "description": "ARN of a satellite.",
+                  "type": "string"
+                },
+                "startTime": {
+                  "description": "Start time of a contact.",
+                  "format": "date-time",
+                  "type": "string"
+                },
+                "statusList": {
+                  "description": "Status of a contact reservation.",
+                  "items": {
+                    "$ref": "#/definitions/ContactStatus"
+                  },
+                  "type": "array"
+                }
+              },
+              "required": [
+                "endTime",
+                "startTime",
+                "statusList"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListContactsResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "481": {
+            "description": "DependencyException",
+            "schema": {
+              "$ref": "#/definitions/DependencyException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        },
+        "description": "<p>Returns a list of contacts.</p> <p>If <code>statusList</code> contains AVAILABLE, the request must include <code>groundStation</code>, <code>missionprofileArn</code>, and <code>satelliteArn</code>. </p>",
+        "operationId": "ListContacts"
+      }
+    },
+    "/dataflowEndpointGroup": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Maximum number of dataflow endpoint groups returned.",
+            "in": "query",
+            "name": "maxResults",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Next token returned in the request of a previous <code>ListDataflowEndpointGroups</code> call. Used to get the next page of results.",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListDataflowEndpointGroupsResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "481": {
+            "description": "DependencyException",
+            "schema": {
+              "$ref": "#/definitions/DependencyException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        },
+        "description": "Returns a list of <code>DataflowEndpoint</code> groups.",
+        "operationId": "ListDataflowEndpointGroups"
+      },
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "tags": {
+                  "additionalProperties": {
+                    "$ref": "#/definitions/String"
+                  },
+                  "description": "Tags of a dataflow endpoint group.",
+                  "type": "object"
+                },
+                "endpointDetails": {
+                  "description": "Endpoint details of each endpoint in the dataflow endpoint group.",
+                  "items": {
+                    "$ref": "#/definitions/EndpointDetails"
+                  },
+                  "type": "array"
+                }
+              },
+              "required": [
+                "endpointDetails"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DataflowEndpointGroupIdResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "481": {
+            "description": "DependencyException",
+            "schema": {
+              "$ref": "#/definitions/DependencyException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        },
+        "description": "<p>Creates a <code>DataflowEndpoint</code> group containing the specified list of <code>DataflowEndpoint</code> objects.</p> <p>The <code>name</code> field in each endpoint is used in your mission profile <code>DataflowEndpointConfig</code> to specify which endpoints to use during a contact.</p> <p>When a contact uses multiple <code>DataflowEndpointConfig</code> objects, each <code>Config</code> must match a <code>DataflowEndpoint</code> in the same group.</p>",
+        "operationId": "CreateDataflowEndpointGroup"
+      }
+    },
+    "/dataflowEndpointGroup/{dataflowEndpointGroupId}": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "delete": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "UUID of a dataflow endpoint group.",
+            "in": "path",
+            "name": "dataflowEndpointGroupId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DataflowEndpointGroupIdResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "481": {
+            "description": "DependencyException",
+            "schema": {
+              "$ref": "#/definitions/DependencyException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        },
+        "description": "Deletes a dataflow endpoint group.",
+        "operationId": "DeleteDataflowEndpointGroup"
+      },
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "UUID of a dataflow endpoint group.",
+            "in": "path",
+            "name": "dataflowEndpointGroupId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetDataflowEndpointGroupResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "481": {
+            "description": "DependencyException",
+            "schema": {
+              "$ref": "#/definitions/DependencyException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        },
+        "description": "Returns the dataflow endpoint group.",
+        "operationId": "GetDataflowEndpointGroup"
+      }
+    },
+    "/groundstation": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Maximum number of ground stations returned.",
+            "in": "query",
+            "name": "maxResults",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Next token that can be supplied in the next call to get the next page of ground stations.",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Satellite ID to retrieve on-boarded ground stations.",
+            "in": "query",
+            "name": "satelliteId",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListGroundStationsResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "481": {
+            "description": "DependencyException",
+            "schema": {
+              "$ref": "#/definitions/DependencyException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        },
+        "description": "Returns a list of ground stations. ",
+        "operationId": "ListGroundStations"
+      }
+    },
+    "/minute-usage": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "month": {
+                  "description": "The month being requested, with a value of 1-12.",
+                  "type": "integer"
+                },
+                "year": {
+                  "description": "The year being requested, in the format of YYYY.",
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "month",
+                "year"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetMinuteUsageResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "481": {
+            "description": "DependencyException",
+            "schema": {
+              "$ref": "#/definitions/DependencyException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        },
+        "description": "Returns the number of minutes used by account.",
+        "operationId": "GetMinuteUsage"
+      }
+    },
+    "/missionprofile": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Maximum number of mission profiles returned.",
+            "in": "query",
+            "name": "maxResults",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Next token returned in the request of a previous <code>ListMissionProfiles</code> call. Used to get the next page of results.",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListMissionProfilesResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "481": {
+            "description": "DependencyException",
+            "schema": {
+              "$ref": "#/definitions/DependencyException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        },
+        "description": "Returns a list of mission profiles.",
+        "operationId": "ListMissionProfiles"
+      },
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "tags": {
+                  "additionalProperties": {
+                    "$ref": "#/definitions/String"
+                  },
+                  "description": "Tags assigned to a mission profile.",
+                  "type": "object"
+                },
+                "contactPostPassDurationSeconds": {
+                  "description": "Amount of time after a contact ends that you’d like to receive a CloudWatch event indicating the pass has finished.",
+                  "maximum": 21600,
+                  "minimum": 1,
+                  "type": "integer"
+                },
+                "contactPrePassDurationSeconds": {
+                  "description": "Amount of time prior to contact start you’d like to receive a CloudWatch event indicating an upcoming pass.",
+                  "maximum": 21600,
+                  "minimum": 1,
+                  "type": "integer"
+                },
+                "dataflowEdges": {
+                  "description": "A list of lists of ARNs. Each list of ARNs is an edge, with a <i>from</i> <code>Config</code> and a <i>to</i> <code>Config</code>.",
+                  "items": {
+                    "$ref": "#/definitions/DataflowEdge"
+                  },
+                  "type": "array"
+                },
+                "minimumViableContactDurationSeconds": {
+                  "description": "Smallest amount of time in seconds that you’d like to see for an available contact. AWS Ground Station will not present you with contacts shorter than this duration.",
+                  "maximum": 21600,
+                  "minimum": 1,
+                  "type": "integer"
+                },
+                "name": {
+                  "description": "Name of a mission profile.",
+                  "maxLength": 256,
+                  "minLength": 1,
+                  "pattern": "^[ a-zA-Z0-9_:-]{1,256}$",
+                  "type": "string"
+                },
+                "trackingConfigArn": {
+                  "description": "ARN of a tracking <code>Config</code>.",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "dataflowEdges",
+                "minimumViableContactDurationSeconds",
+                "name",
+                "trackingConfigArn"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/MissionProfileIdResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "481": {
+            "description": "DependencyException",
+            "schema": {
+              "$ref": "#/definitions/DependencyException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        },
+        "description": "<p>Creates a mission profile.</p> <p> <code>dataflowEdges</code> is a list of lists of strings. Each lower level list of strings has two elements: a <i>from</i> ARN and a <i>to</i> ARN.</p>",
+        "operationId": "CreateMissionProfile"
+      }
+    },
+    "/missionprofile/{missionProfileId}": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "delete": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "UUID of a mission profile.",
+            "in": "path",
+            "name": "missionProfileId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/MissionProfileIdResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "481": {
+            "description": "DependencyException",
+            "schema": {
+              "$ref": "#/definitions/DependencyException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        },
+        "description": "Deletes a mission profile.",
+        "operationId": "DeleteMissionProfile"
+      },
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "UUID of a mission profile.",
+            "in": "path",
+            "name": "missionProfileId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetMissionProfileResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "481": {
+            "description": "DependencyException",
+            "schema": {
+              "$ref": "#/definitions/DependencyException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        },
+        "description": "Returns a mission profile.",
+        "operationId": "GetMissionProfile"
+      },
+      "put": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "UUID of a mission profile.",
+            "in": "path",
+            "name": "missionProfileId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "contactPostPassDurationSeconds": {
+                  "description": "Amount of time after a contact ends that you’d like to receive a CloudWatch event indicating the pass has finished.",
+                  "maximum": 21600,
+                  "minimum": 1,
+                  "type": "integer"
+                },
+                "contactPrePassDurationSeconds": {
+                  "description": "Amount of time after a contact ends that you’d like to receive a CloudWatch event indicating the pass has finished.",
+                  "maximum": 21600,
+                  "minimum": 1,
+                  "type": "integer"
+                },
+                "dataflowEdges": {
+                  "description": "A list of lists of ARNs. Each list of ARNs is an edge, with a <i>from</i> <code>Config</code> and a <i>to</i> <code>Config</code>.",
+                  "items": {
+                    "$ref": "#/definitions/DataflowEdge"
+                  },
+                  "type": "array"
+                },
+                "minimumViableContactDurationSeconds": {
+                  "description": "Smallest amount of time in seconds that you’d like to see for an available contact. AWS Ground Station will not present you with contacts shorter than this duration.",
+                  "maximum": 21600,
+                  "minimum": 1,
+                  "type": "integer"
+                },
+                "name": {
+                  "description": "Name of a mission profile.",
+                  "maxLength": 256,
+                  "minLength": 1,
+                  "pattern": "^[ a-zA-Z0-9_:-]{1,256}$",
+                  "type": "string"
+                },
+                "trackingConfigArn": {
+                  "description": "ARN of a tracking <code>Config</code>.",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/MissionProfileIdResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "481": {
+            "description": "DependencyException",
+            "schema": {
+              "$ref": "#/definitions/DependencyException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        },
+        "description": "<p>Updates a mission profile.</p> <p>Updating a mission profile will not update the execution parameters for existing future contacts.</p>",
+        "operationId": "UpdateMissionProfile"
+      }
+    },
+    "/satellite": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Maximum number of satellites returned.",
+            "in": "query",
+            "name": "maxResults",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Next token that can be supplied in the next call to get the next page of satellites.",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListSatellitesResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "481": {
+            "description": "DependencyException",
+            "schema": {
+              "$ref": "#/definitions/DependencyException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        },
+        "description": "Returns a list of satellites.",
+        "operationId": "ListSatellites"
+      }
+    },
+    "/satellite/{satelliteId}": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "UUID of a satellite.",
+            "in": "path",
+            "name": "satelliteId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetSatelliteResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "481": {
+            "description": "DependencyException",
+            "schema": {
+              "$ref": "#/definitions/DependencyException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        },
+        "description": "Returns a satellite.",
+        "operationId": "GetSatellite"
+      }
+    },
+    "/tags/{resourceArn}": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "ARN of a resource.",
+            "in": "path",
+            "name": "resourceArn",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListTagsForResourceResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "481": {
+            "description": "DependencyException",
+            "schema": {
+              "$ref": "#/definitions/DependencyException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        },
+        "description": "Returns a list of tags for a specified resource.",
+        "operationId": "ListTagsForResource"
+      },
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "ARN of a resource tag.",
+            "in": "path",
+            "name": "resourceArn",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "tags": {
+                  "additionalProperties": {
+                    "$ref": "#/definitions/String"
+                  },
+                  "description": "Tags assigned to a resource.",
+                  "type": "object"
+                }
+              },
+              "required": [
+                "tags"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/TagResourceResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "481": {
+            "description": "DependencyException",
+            "schema": {
+              "$ref": "#/definitions/DependencyException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        },
+        "description": "Assigns a tag to a resource.",
+        "operationId": "TagResource"
+      }
+    },
+    "/tags/{resourceArn}#tagKeys": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "delete": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "ARN of a resource.",
+            "in": "path",
+            "name": "resourceArn",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "collectionFormat": "multi",
+            "description": "Keys of a resource tag.",
+            "in": "query",
+            "items": {
+              "$ref": "#/definitions/String"
+            },
+            "name": "tagKeys",
+            "required": true,
+            "type": "array"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UntagResourceResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "481": {
+            "description": "DependencyException",
+            "schema": {
+              "$ref": "#/definitions/DependencyException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        },
+        "description": "Deassigns a resource tag.",
+        "operationId": "UntagResource"
+      }
+    }
+  },
+  "definitions": {
+    "AngleUnits": {
+      "enum": [
+        "DEGREE_ANGLE",
+        "RADIAN"
+      ],
+      "type": "string"
+    },
+    "AntennaDemodDecodeDetails": {
+      "description": "Details about an antenna demod decode <code>Config</code> used in a contact.",
+      "properties": {
+        "outputNode": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "Name of an antenna demod decode output node used in a contact."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "AntennaDownlinkConfig": {
+      "description": "Information about how AWS Ground Station should configure an antenna for downlink during a contact.",
+      "properties": {
+        "spectrumConfig": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SpectrumConfig"
+            },
+            {
+              "description": "Object that describes a spectral <code>Config</code>."
+            }
+          ]
+        }
+      },
+      "required": [
+        "spectrumConfig"
+      ],
+      "type": "object"
+    },
+    "AntennaDownlinkDemodDecodeConfig": {
+      "description": "Information about how AWS Ground Station should conﬁgure an antenna for downlink demod decode during a contact.",
+      "properties": {
+        "decodeConfig": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DecodeConfig"
+            },
+            {
+              "description": "Information about the decode <code>Config</code>."
+            }
+          ]
+        },
+        "demodulationConfig": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DemodulationConfig"
+            },
+            {
+              "description": "Information about the demodulation <code>Config</code>."
+            }
+          ]
+        },
+        "spectrumConfig": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SpectrumConfig"
+            },
+            {
+              "description": "Information about the spectral <code>Config</code>."
+            }
+          ]
+        }
+      },
+      "required": [
+        "decodeConfig",
+        "demodulationConfig",
+        "spectrumConfig"
+      ],
+      "type": "object"
+    },
+    "AntennaUplinkConfig": {
+      "description": "Information about the uplink <code>Config</code> of an antenna.",
+      "properties": {
+        "spectrumConfig": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/UplinkSpectrumConfig"
+            },
+            {
+              "description": "Information about the uplink spectral <code>Config</code>."
+            }
+          ]
+        },
+        "targetEirp": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Eirp"
+            },
+            {
+              "description": "EIRP of the target."
+            }
+          ]
+        },
+        "transmitDisabled": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Boolean"
+            },
+            {
+              "description": "Whether or not uplink transmit is disabled."
+            }
+          ]
+        }
+      },
+      "required": [
+        "spectrumConfig",
+        "targetEirp"
+      ],
+      "type": "object"
+    },
+    "BandwidthUnits": {
+      "enum": [
+        "GHz",
+        "MHz",
+        "kHz"
+      ],
+      "type": "string"
+    },
+    "Boolean": {
+      "type": "boolean"
+    },
+    "CancelContactRequest": {
+      "description": "<p/>",
+      "properties": {},
+      "title": "CancelContactRequest",
+      "type": "object"
+    },
+    "ConfigArn": {
+      "type": "string"
+    },
+    "ConfigCapabilityType": {
+      "enum": [
+        "antenna-downlink",
+        "antenna-downlink-demod-decode",
+        "antenna-uplink",
+        "dataflow-endpoint",
+        "tracking",
+        "uplink-echo"
+      ],
+      "type": "string"
+    },
+    "ConfigDetails": {
+      "description": "Details for certain <code>Config</code> object types in a contact.",
+      "properties": {
+        "antennaDemodDecodeDetails": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AntennaDemodDecodeDetails"
+            },
+            {
+              "description": "Details for antenna demod decode <code>Config</code> in a contact."
+            }
+          ]
+        },
+        "endpointDetails": {
+          "$ref": "#/definitions/EndpointDetails"
+        }
+      },
+      "type": "object"
+    },
+    "ConfigIdResponse": {
+      "description": "<p/>",
+      "properties": {
+        "configArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ConfigArn"
+            },
+            {
+              "description": "ARN of a <code>Config</code>."
+            }
+          ]
+        },
+        "configId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "UUID of a <code>Config</code>."
+            }
+          ]
+        },
+        "configType": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ConfigCapabilityType"
+            },
+            {
+              "description": "Type of a <code>Config</code>."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ConfigList": {
+      "items": {
+        "$ref": "#/definitions/ConfigListItem"
+      },
+      "type": "array"
+    },
+    "ConfigListItem": {
+      "description": "An item in a list of <code>Config</code> objects.",
+      "properties": {
+        "configArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ConfigArn"
+            },
+            {
+              "description": "ARN of a <code>Config</code>."
+            }
+          ]
+        },
+        "configId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "UUID of a <code>Config</code>."
+            }
+          ]
+        },
+        "configType": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ConfigCapabilityType"
+            },
+            {
+              "description": "Type of a <code>Config</code>."
+            }
+          ]
+        },
+        "name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "Name of a <code>Config</code>."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ConfigTypeData": {
+      "description": "<p>Object containing the parameters of a <code>Config</code>.</p> <p>See the subtype definitions for what each type of <code>Config</code> contains.</p>",
+      "properties": {
+        "antennaDownlinkConfig": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AntennaDownlinkConfig"
+            },
+            {
+              "description": "Information about how AWS Ground Station should configure an antenna for downlink during a contact."
+            }
+          ]
+        },
+        "antennaDownlinkDemodDecodeConfig": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AntennaDownlinkDemodDecodeConfig"
+            },
+            {
+              "description": "Information about how AWS Ground Station should conﬁgure an antenna for downlink demod decode during a contact."
+            }
+          ]
+        },
+        "antennaUplinkConfig": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AntennaUplinkConfig"
+            },
+            {
+              "description": "Information about how AWS Ground Station should conﬁgure an antenna for uplink during a contact."
+            }
+          ]
+        },
+        "dataflowEndpointConfig": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DataflowEndpointConfig"
+            },
+            {
+              "description": "Information about the dataflow endpoint <code>Config</code>."
+            }
+          ]
+        },
+        "trackingConfig": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TrackingConfig"
+            },
+            {
+              "description": "Object that determines whether tracking should be used during a contact executed with this <code>Config</code> in the mission profile. "
+            }
+          ]
+        },
+        "uplinkEchoConfig": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/UplinkEchoConfig"
+            },
+            {
+              "description": "<p>Information about an uplink echo <code>Config</code>.</p> <p>Parameters from the <code>AntennaUplinkConfig</code>, corresponding to the specified <code>AntennaUplinkConfigArn</code>, are used when this <code>UplinkEchoConfig</code> is used in a contact.</p>"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ContactData": {
+      "description": "Data describing a contact.",
+      "properties": {
+        "tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagsMap"
+            },
+            {
+              "description": "Tags assigned to a contact."
+            }
+          ]
+        },
+        "contactId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "UUID of a contact."
+            }
+          ]
+        },
+        "contactStatus": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ContactStatus"
+            },
+            {
+              "description": "Status of a contact."
+            }
+          ]
+        },
+        "endTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "End time of a contact."
+            }
+          ]
+        },
+        "errorMessage": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "Error message of a contact."
+            }
+          ]
+        },
+        "groundStation": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "Name of a ground station."
+            }
+          ]
+        },
+        "maximumElevation": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Elevation"
+            },
+            {
+              "description": "Maximum elevation angle of a contact."
+            }
+          ]
+        },
+        "missionProfileArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MissionProfileArn"
+            },
+            {
+              "description": "ARN of a mission profile."
+            }
+          ]
+        },
+        "postPassEndTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "Amount of time after a contact ends that you’d like to receive a CloudWatch event indicating the pass has finished."
+            }
+          ]
+        },
+        "prePassStartTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "Amount of time prior to contact start you’d like to receive a CloudWatch event indicating an upcoming pass."
+            }
+          ]
+        },
+        "region": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "Region of a contact."
+            }
+          ]
+        },
+        "satelliteArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/satelliteArn"
+            },
+            {
+              "description": "ARN of a satellite."
+            }
+          ]
+        },
+        "startTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "Start time of a contact."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ContactIdResponse": {
+      "description": "<p/>",
+      "properties": {
+        "contactId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "UUID of a contact."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ContactList": {
+      "items": {
+        "$ref": "#/definitions/ContactData"
+      },
+      "type": "array"
+    },
+    "ContactStatus": {
+      "enum": [
+        "AVAILABLE",
+        "AWS_CANCELLED",
+        "AWS_FAILED",
+        "CANCELLED",
+        "CANCELLING",
+        "COMPLETED",
+        "FAILED",
+        "FAILED_TO_SCHEDULE",
+        "PASS",
+        "POSTPASS",
+        "PREPASS",
+        "SCHEDULED",
+        "SCHEDULING"
+      ],
+      "type": "string"
+    },
+    "CreateConfigRequest": {
+      "description": "<p/>",
+      "properties": {
+        "tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagsMap"
+            },
+            {
+              "description": "Tags assigned to a <code>Config</code>."
+            }
+          ]
+        },
+        "configData": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ConfigTypeData"
+            },
+            {
+              "description": "Parameters of a <code>Config</code>."
+            }
+          ]
+        },
+        "name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SafeName"
+            },
+            {
+              "description": "Name of a <code>Config</code>."
+            }
+          ]
+        }
+      },
+      "required": [
+        "configData",
+        "name"
+      ],
+      "title": "CreateConfigRequest",
+      "type": "object"
+    },
+    "CreateDataflowEndpointGroupRequest": {
+      "description": "<p/>",
+      "properties": {
+        "tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagsMap"
+            },
+            {
+              "description": "Tags of a dataflow endpoint group."
+            }
+          ]
+        },
+        "endpointDetails": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/EndpointDetailsList"
+            },
+            {
+              "description": "Endpoint details of each endpoint in the dataflow endpoint group."
+            }
+          ]
+        }
+      },
+      "required": [
+        "endpointDetails"
+      ],
+      "title": "CreateDataflowEndpointGroupRequest",
+      "type": "object"
+    },
+    "CreateMissionProfileRequest": {
+      "description": "<p/>",
+      "properties": {
+        "tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagsMap"
+            },
+            {
+              "description": "Tags assigned to a mission profile."
+            }
+          ]
+        },
+        "contactPostPassDurationSeconds": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DurationInSeconds"
+            },
+            {
+              "description": "Amount of time after a contact ends that you’d like to receive a CloudWatch event indicating the pass has finished."
+            }
+          ]
+        },
+        "contactPrePassDurationSeconds": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DurationInSeconds"
+            },
+            {
+              "description": "Amount of time prior to contact start you’d like to receive a CloudWatch event indicating an upcoming pass."
+            }
+          ]
+        },
+        "dataflowEdges": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DataflowEdgeList"
+            },
+            {
+              "description": "A list of lists of ARNs. Each list of ARNs is an edge, with a <i>from</i> <code>Config</code> and a <i>to</i> <code>Config</code>."
+            }
+          ]
+        },
+        "minimumViableContactDurationSeconds": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DurationInSeconds"
+            },
+            {
+              "description": "Smallest amount of time in seconds that you’d like to see for an available contact. AWS Ground Station will not present you with contacts shorter than this duration."
+            }
+          ]
+        },
+        "name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SafeName"
+            },
+            {
+              "description": "Name of a mission profile."
+            }
+          ]
+        },
+        "trackingConfigArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ConfigArn"
+            },
+            {
+              "description": "ARN of a tracking <code>Config</code>."
+            }
+          ]
+        }
+      },
+      "required": [
+        "dataflowEdges",
+        "minimumViableContactDurationSeconds",
+        "name",
+        "trackingConfigArn"
+      ],
+      "title": "CreateMissionProfileRequest",
+      "type": "object"
+    },
+    "Criticality": {
+      "enum": [
+        "PREFERRED",
+        "REMOVED",
+        "REQUIRED"
+      ],
+      "type": "string"
+    },
+    "DataflowDetail": {
+      "description": "Information about a dataflow edge used in a contact.",
+      "properties": {
+        "destination": {
+          "$ref": "#/definitions/Destination"
+        },
+        "errorMessage": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "Error message for a dataflow."
+            }
+          ]
+        },
+        "source": {
+          "$ref": "#/definitions/Source"
+        }
+      },
+      "type": "object"
+    },
+    "DataflowEdge": {
+      "items": {
+        "$ref": "#/definitions/ConfigArn"
+      },
+      "maxItems": 2,
+      "minItems": 2,
+      "type": "array"
+    },
+    "DataflowEdgeList": {
+      "items": {
+        "$ref": "#/definitions/DataflowEdge"
+      },
+      "type": "array"
+    },
+    "DataflowEndpoint": {
+      "description": "Information about a dataflow endpoint.",
+      "properties": {
+        "address": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SocketAddress"
+            },
+            {
+              "description": "Socket address of a dataflow endpoint."
+            }
+          ]
+        },
+        "mtu": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DataflowEndpointmtuInteger"
+            },
+            {
+              "description": "Maximum transmission unit (MTU) size in bytes of a dataflow endpoint."
+            }
+          ]
+        },
+        "name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SafeName"
+            },
+            {
+              "description": "Name of a dataflow endpoint."
+            }
+          ]
+        },
+        "status": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/EndpointStatus"
+            },
+            {
+              "description": "Status of a dataflow endpoint."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DataflowEndpointConfig": {
+      "description": "Information about the dataflow endpoint <code>Config</code>.",
+      "properties": {
+        "dataflowEndpointName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "Name of a dataflow endpoint."
+            }
+          ]
+        },
+        "dataflowEndpointRegion": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "Region of a dataflow endpoint."
+            }
+          ]
+        }
+      },
+      "required": [
+        "dataflowEndpointName"
+      ],
+      "type": "object"
+    },
+    "DataflowEndpointGroupArn": {
+      "type": "string"
+    },
+    "DataflowEndpointGroupIdResponse": {
+      "description": "<p/>",
+      "properties": {
+        "dataflowEndpointGroupId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "UUID of a dataflow endpoint group."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DataflowEndpointGroupList": {
+      "items": {
+        "$ref": "#/definitions/DataflowEndpointListItem"
+      },
+      "type": "array"
+    },
+    "DataflowEndpointListItem": {
+      "description": "Item in a list of <code>DataflowEndpoint</code> groups.",
+      "properties": {
+        "dataflowEndpointGroupArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DataflowEndpointGroupArn"
+            },
+            {
+              "description": "ARN of a dataflow endpoint group."
+            }
+          ]
+        },
+        "dataflowEndpointGroupId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "UUID of a dataflow endpoint group."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DataflowEndpointmtuInteger": {
+      "maximum": 1500,
+      "minimum": 1400,
+      "type": "integer"
+    },
+    "DataflowList": {
+      "items": {
+        "$ref": "#/definitions/DataflowDetail"
+      },
+      "type": "array"
+    },
+    "DecodeConfig": {
+      "description": "Information about the decode <code>Config</code>.",
+      "properties": {
+        "unvalidatedJSON": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/JsonString"
+            },
+            {
+              "description": "Unvalidated JSON of a decode <code>Config</code>."
+            }
+          ]
+        }
+      },
+      "required": [
+        "unvalidatedJSON"
+      ],
+      "type": "object"
+    },
+    "DeleteConfigRequest": {
+      "description": "<p/>",
+      "properties": {},
+      "title": "DeleteConfigRequest",
+      "type": "object"
+    },
+    "DeleteDataflowEndpointGroupRequest": {
+      "description": "<p/>",
+      "properties": {},
+      "title": "DeleteDataflowEndpointGroupRequest",
+      "type": "object"
+    },
+    "DeleteMissionProfileRequest": {
+      "description": "<p/>",
+      "properties": {},
+      "title": "DeleteMissionProfileRequest",
+      "type": "object"
+    },
+    "DemodulationConfig": {
+      "description": "Information about the demodulation <code>Config</code>.",
+      "properties": {
+        "unvalidatedJSON": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/JsonString"
+            },
+            {
+              "description": "Unvalidated JSON of a demodulation <code>Config</code>."
+            }
+          ]
+        }
+      },
+      "required": [
+        "unvalidatedJSON"
+      ],
+      "type": "object"
+    },
+    "DependencyException": {},
+    "DescribeContactRequest": {
+      "description": "<p/>",
+      "properties": {},
+      "title": "DescribeContactRequest",
+      "type": "object"
+    },
+    "DescribeContactResponse": {
+      "description": "<p/>",
+      "properties": {
+        "tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagsMap"
+            },
+            {
+              "description": "Tags assigned to a contact."
+            }
+          ]
+        },
+        "contactId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "UUID of a contact."
+            }
+          ]
+        },
+        "contactStatus": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ContactStatus"
+            },
+            {
+              "description": "Status of a contact."
+            }
+          ]
+        },
+        "dataflowList": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DataflowList"
+            },
+            {
+              "description": "List describing source and destination details for each dataflow edge."
+            }
+          ]
+        },
+        "endTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "End time of a contact."
+            }
+          ]
+        },
+        "errorMessage": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "Error message for a contact."
+            }
+          ]
+        },
+        "groundStation": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "Ground station for a contact."
+            }
+          ]
+        },
+        "maximumElevation": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Elevation"
+            },
+            {
+              "description": "Maximum elevation angle of a contact."
+            }
+          ]
+        },
+        "missionProfileArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MissionProfileArn"
+            },
+            {
+              "description": "ARN of a mission profile."
+            }
+          ]
+        },
+        "postPassEndTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "Amount of time after a contact ends that you’d like to receive a CloudWatch event indicating the pass has finished."
+            }
+          ]
+        },
+        "prePassStartTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "Amount of time prior to contact start you’d like to receive a CloudWatch event indicating an upcoming pass."
+            }
+          ]
+        },
+        "region": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "Region of a contact."
+            }
+          ]
+        },
+        "satelliteArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/satelliteArn"
+            },
+            {
+              "description": "ARN of a satellite."
+            }
+          ]
+        },
+        "startTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "Start time of a contact."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "Destination": {
+      "description": "Dataflow details for the destination side.",
+      "properties": {
+        "configDetails": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ConfigDetails"
+            },
+            {
+              "description": "Additional details for a <code>Config</code>, if type is dataflow endpoint or antenna demod decode."
+            }
+          ]
+        },
+        "configId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "UUID of a <code>Config</code>."
+            }
+          ]
+        },
+        "configType": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ConfigCapabilityType"
+            },
+            {
+              "description": "Type of a <code>Config</code>."
+            }
+          ]
+        },
+        "dataflowDestinationRegion": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "Region of a dataflow destination."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "Double": {
+      "format": "double",
+      "type": "number"
+    },
+    "DurationInSeconds": {
+      "maximum": 21600,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "Eirp": {
+      "description": "Object that represents EIRP.",
+      "properties": {
+        "units": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/EirpUnits"
+            },
+            {
+              "description": "Units of an EIRP."
+            }
+          ]
+        },
+        "value": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Double"
+            },
+            {
+              "description": "Value of an EIRP. Valid values are between 20.0 to 50.0 dBW."
+            }
+          ]
+        }
+      },
+      "required": [
+        "units",
+        "value"
+      ],
+      "type": "object"
+    },
+    "EirpUnits": {
+      "enum": [
+        "dBW"
+      ],
+      "type": "string"
+    },
+    "Elevation": {
+      "description": "Elevation angle of the satellite in the sky during a contact.",
+      "properties": {
+        "unit": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AngleUnits"
+            },
+            {
+              "description": "Elevation angle units."
+            }
+          ]
+        },
+        "value": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Double"
+            },
+            {
+              "description": "Elevation angle value."
+            }
+          ]
+        }
+      },
+      "required": [
+        "unit",
+        "value"
+      ],
+      "type": "object"
+    },
+    "EndpointDetails": {
+      "description": "Information about the endpoint details.",
+      "properties": {
+        "endpoint": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DataflowEndpoint"
+            },
+            {
+              "description": "A dataflow endpoint."
+            }
+          ]
+        },
+        "securityDetails": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SecurityDetails"
+            },
+            {
+              "description": "Endpoint security details."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "EndpointDetailsList": {
+      "items": {
+        "$ref": "#/definitions/EndpointDetails"
+      },
+      "type": "array"
+    },
+    "EndpointStatus": {
+      "enum": [
+        "created",
+        "creating",
+        "deleted",
+        "deleting",
+        "failed"
+      ],
+      "type": "string"
+    },
+    "Frequency": {
+      "description": "Object that describes the frequency.",
+      "properties": {
+        "units": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/FrequencyUnits"
+            },
+            {
+              "description": "Frequency units."
+            }
+          ]
+        },
+        "value": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Double"
+            },
+            {
+              "description": "Frequency value. Valid values are between 2200 to 2300 MHz and 7750 to 8400 MHz for downlink and 2025 to 2120 MHz for uplink."
+            }
+          ]
+        }
+      },
+      "required": [
+        "units",
+        "value"
+      ],
+      "type": "object"
+    },
+    "FrequencyBandwidth": {
+      "description": "Object that describes the frequency bandwidth. ",
+      "properties": {
+        "units": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/BandwidthUnits"
+            },
+            {
+              "description": "Frequency bandwidth units."
+            }
+          ]
+        },
+        "value": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Double"
+            },
+            {
+              "description": "<p>Frequency bandwidth value. AWS Ground Station currently has the following bandwidth limitations:</p> <ul> <li> <p>For <code>AntennaDownlinkDemodDecodeconfig</code>, valid values are between 125 kHz to 650 MHz.</p> </li> <li> <p>For <code>AntennaDownlinkconfig</code>, valid values are between 10 kHz to 54 MHz.</p> </li> <li> <p>For <code>AntennaUplinkConfig</code>, valid values are between 10 kHz to 54 MHz.</p> </li> </ul>"
+            }
+          ]
+        }
+      },
+      "required": [
+        "units",
+        "value"
+      ],
+      "type": "object"
+    },
+    "FrequencyUnits": {
+      "enum": [
+        "GHz",
+        "MHz",
+        "kHz"
+      ],
+      "type": "string"
+    },
+    "GetConfigRequest": {
+      "description": "<p/>",
+      "properties": {},
+      "title": "GetConfigRequest",
+      "type": "object"
+    },
+    "GetConfigResponse": {
+      "description": "<p/>",
+      "properties": {
+        "tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagsMap"
+            },
+            {
+              "description": "Tags assigned to a <code>Config</code>."
+            }
+          ]
+        },
+        "configArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ConfigArn"
+            },
+            {
+              "description": "ARN of a <code>Config</code> "
+            }
+          ]
+        },
+        "configData": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ConfigTypeData"
+            },
+            {
+              "description": "Data elements in a <code>Config</code>."
+            }
+          ]
+        },
+        "configId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "UUID of a <code>Config</code>."
+            }
+          ]
+        },
+        "configType": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ConfigCapabilityType"
+            },
+            {
+              "description": "Type of a <code>Config</code>."
+            }
+          ]
+        },
+        "name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "Name of a <code>Config</code>."
+            }
+          ]
+        }
+      },
+      "required": [
+        "configArn",
+        "configData",
+        "configId",
+        "name"
+      ],
+      "type": "object"
+    },
+    "GetDataflowEndpointGroupRequest": {
+      "description": "<p/>",
+      "properties": {},
+      "title": "GetDataflowEndpointGroupRequest",
+      "type": "object"
+    },
+    "GetDataflowEndpointGroupResponse": {
+      "description": "<p/>",
+      "properties": {
+        "tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagsMap"
+            },
+            {
+              "description": "Tags assigned to a dataflow endpoint group."
+            }
+          ]
+        },
+        "dataflowEndpointGroupArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DataflowEndpointGroupArn"
+            },
+            {
+              "description": "ARN of a dataflow endpoint group."
+            }
+          ]
+        },
+        "dataflowEndpointGroupId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "UUID of a dataflow endpoint group."
+            }
+          ]
+        },
+        "endpointsDetails": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/EndpointDetailsList"
+            },
+            {
+              "description": "Details of a dataflow endpoint."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "GetMinuteUsageRequest": {
+      "description": "<p/>",
+      "properties": {
+        "month": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Integer"
+            },
+            {
+              "description": "The month being requested, with a value of 1-12."
+            }
+          ]
+        },
+        "year": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Integer"
+            },
+            {
+              "description": "The year being requested, in the format of YYYY."
+            }
+          ]
+        }
+      },
+      "required": [
+        "month",
+        "year"
+      ],
+      "title": "GetMinuteUsageRequest",
+      "type": "object"
+    },
+    "GetMinuteUsageResponse": {
+      "description": "<p/>",
+      "properties": {
+        "estimatedMinutesRemaining": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Integer"
+            },
+            {
+              "description": "Estimated number of minutes remaining for an account, specific to the month being requested."
+            }
+          ]
+        },
+        "isReservedMinutesCustomer": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Boolean"
+            },
+            {
+              "description": "Returns whether or not an account has signed up for the reserved minutes pricing plan, specific to the month being requested."
+            }
+          ]
+        },
+        "totalReservedMinuteAllocation": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Integer"
+            },
+            {
+              "description": "Total number of reserved minutes allocated, specific to the month being requested."
+            }
+          ]
+        },
+        "totalScheduledMinutes": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Integer"
+            },
+            {
+              "description": "Total scheduled minutes for an account, specific to the month being requested."
+            }
+          ]
+        },
+        "upcomingMinutesScheduled": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Integer"
+            },
+            {
+              "description": "Upcoming minutes scheduled for an account, specific to the month being requested."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "GetMissionProfileRequest": {
+      "description": "<p/>",
+      "properties": {},
+      "title": "GetMissionProfileRequest",
+      "type": "object"
+    },
+    "GetMissionProfileResponse": {
+      "description": "<p/>",
+      "properties": {
+        "tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagsMap"
+            },
+            {
+              "description": "Tags assigned to a mission profile."
+            }
+          ]
+        },
+        "contactPostPassDurationSeconds": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DurationInSeconds"
+            },
+            {
+              "description": "Amount of time after a contact ends that you’d like to receive a CloudWatch event indicating the pass has finished."
+            }
+          ]
+        },
+        "contactPrePassDurationSeconds": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DurationInSeconds"
+            },
+            {
+              "description": "Amount of time prior to contact start you’d like to receive a CloudWatch event indicating an upcoming pass."
+            }
+          ]
+        },
+        "dataflowEdges": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DataflowEdgeList"
+            },
+            {
+              "description": "A list of lists of ARNs. Each list of ARNs is an edge, with a <i>from</i> <code>Config</code> and a <i>to</i> <code>Config</code>."
+            }
+          ]
+        },
+        "minimumViableContactDurationSeconds": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DurationInSeconds"
+            },
+            {
+              "description": "Smallest amount of time in seconds that you’d like to see for an available contact. AWS Ground Station will not present you with contacts shorter than this duration."
+            }
+          ]
+        },
+        "missionProfileArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MissionProfileArn"
+            },
+            {
+              "description": "ARN of a mission profile."
+            }
+          ]
+        },
+        "missionProfileId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "UUID of a mission profile."
+            }
+          ]
+        },
+        "name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "Name of a mission profile."
+            }
+          ]
+        },
+        "region": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "Region of a mission profile."
+            }
+          ]
+        },
+        "trackingConfigArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ConfigArn"
+            },
+            {
+              "description": "ARN of a tracking <code>Config</code>."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "GetSatelliteRequest": {
+      "description": "<p/>",
+      "properties": {},
+      "title": "GetSatelliteRequest",
+      "type": "object"
+    },
+    "GetSatelliteResponse": {
+      "description": "<p/>",
+      "properties": {
+        "groundStations": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/GroundStationIdList"
+            },
+            {
+              "description": "A list of ground stations to which the satellite is on-boarded."
+            }
+          ]
+        },
+        "noradSatelliteID": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/noradSatelliteID"
+            },
+            {
+              "description": "NORAD satellite ID number."
+            }
+          ]
+        },
+        "satelliteArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/satelliteArn"
+            },
+            {
+              "description": "ARN of a satellite."
+            }
+          ]
+        },
+        "satelliteId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Uuid"
+            },
+            {
+              "description": "UUID of a satellite."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "GroundStationData": {
+      "description": "Information about the ground station data.",
+      "properties": {
+        "groundStationId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "UUID of a ground station."
+            }
+          ]
+        },
+        "groundStationName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "Name of a ground station."
+            }
+          ]
+        },
+        "region": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "Ground station Region."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "GroundStationIdList": {
+      "items": {
+        "$ref": "#/definitions/String"
+      },
+      "type": "array"
+    },
+    "GroundStationList": {
+      "items": {
+        "$ref": "#/definitions/GroundStationData"
+      },
+      "type": "array"
+    },
+    "Integer": {
+      "type": "integer"
+    },
+    "InvalidParameterException": {},
+    "JsonString": {
+      "maxLength": 8192,
+      "minLength": 2,
+      "pattern": "^[{}\\[\\]:.,\"0-9A-z\\-_\\s]{2,8192}$",
+      "type": "string"
+    },
+    "ListConfigsRequest": {
+      "description": "<p/>",
+      "properties": {},
+      "title": "ListConfigsRequest",
+      "type": "object"
+    },
+    "ListConfigsResponse": {
+      "description": "<p/>",
+      "properties": {
+        "configList": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ConfigList"
+            },
+            {
+              "description": "List of <code>Config</code> items."
+            }
+          ]
+        },
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "Next token returned in the response of a previous <code>ListConfigs</code> call. Used to get the next page of results."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ListContactsRequest": {
+      "description": "<p/>",
+      "properties": {
+        "endTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "End time of a contact."
+            }
+          ]
+        },
+        "groundStation": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "Name of a ground station."
+            }
+          ]
+        },
+        "maxResults": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Integer"
+            },
+            {
+              "description": "Maximum number of contacts returned."
+            }
+          ]
+        },
+        "missionProfileArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MissionProfileArn"
+            },
+            {
+              "description": "ARN of a mission profile."
+            }
+          ]
+        },
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "Next token returned in the request of a previous <code>ListContacts</code> call. Used to get the next page of results."
+            }
+          ]
+        },
+        "satelliteArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/satelliteArn"
+            },
+            {
+              "description": "ARN of a satellite."
+            }
+          ]
+        },
+        "startTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "Start time of a contact."
+            }
+          ]
+        },
+        "statusList": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/StatusList"
+            },
+            {
+              "description": "Status of a contact reservation."
+            }
+          ]
+        }
+      },
+      "required": [
+        "endTime",
+        "startTime",
+        "statusList"
+      ],
+      "title": "ListContactsRequest",
+      "type": "object"
+    },
+    "ListContactsResponse": {
+      "description": "<p/>",
+      "properties": {
+        "contactList": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ContactList"
+            },
+            {
+              "description": "List of contacts."
+            }
+          ]
+        },
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "Next token returned in the response of a previous <code>ListContacts</code> call. Used to get the next page of results."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ListDataflowEndpointGroupsRequest": {
+      "description": "<p/>",
+      "properties": {},
+      "title": "ListDataflowEndpointGroupsRequest",
+      "type": "object"
+    },
+    "ListDataflowEndpointGroupsResponse": {
+      "description": "<p/>",
+      "properties": {
+        "dataflowEndpointGroupList": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DataflowEndpointGroupList"
+            },
+            {
+              "description": "A list of dataflow endpoint groups."
+            }
+          ]
+        },
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "Next token returned in the response of a previous <code>ListDataflowEndpointGroups</code> call. Used to get the next page of results."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ListGroundStationsRequest": {
+      "description": "<p/>",
+      "properties": {},
+      "title": "ListGroundStationsRequest",
+      "type": "object"
+    },
+    "ListGroundStationsResponse": {
+      "description": "<p/>",
+      "properties": {
+        "groundStationList": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/GroundStationList"
+            },
+            {
+              "description": "List of ground stations."
+            }
+          ]
+        },
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "Next token that can be supplied in the next call to get the next page of ground stations."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ListMissionProfilesRequest": {
+      "description": "<p/>",
+      "properties": {},
+      "title": "ListMissionProfilesRequest",
+      "type": "object"
+    },
+    "ListMissionProfilesResponse": {
+      "description": "<p/>",
+      "properties": {
+        "missionProfileList": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MissionProfileList"
+            },
+            {
+              "description": "List of mission profiles."
+            }
+          ]
+        },
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "Next token returned in the response of a previous <code>ListMissionProfiles</code> call. Used to get the next page of results."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ListSatellitesRequest": {
+      "description": "<p/>",
+      "properties": {},
+      "title": "ListSatellitesRequest",
+      "type": "object"
+    },
+    "ListSatellitesResponse": {
+      "description": "<p/>",
+      "properties": {
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "Next token that can be supplied in the next call to get the next page of satellites."
+            }
+          ]
+        },
+        "satellites": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SatelliteList"
+            },
+            {
+              "description": "List of satellites."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ListTagsForResourceRequest": {
+      "description": "<p/>",
+      "properties": {},
+      "title": "ListTagsForResourceRequest",
+      "type": "object"
+    },
+    "ListTagsForResourceResponse": {
+      "description": "<p/>",
+      "properties": {
+        "tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagsMap"
+            },
+            {
+              "description": "Tags assigned to a resource."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "MissionProfileArn": {
+      "type": "string"
+    },
+    "MissionProfileIdResponse": {
+      "description": "<p/>",
+      "properties": {
+        "missionProfileId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "UUID of a mission profile."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "MissionProfileList": {
+      "items": {
+        "$ref": "#/definitions/MissionProfileListItem"
+      },
+      "type": "array"
+    },
+    "MissionProfileListItem": {
+      "description": "Item in a list of mission profiles.",
+      "properties": {
+        "missionProfileArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MissionProfileArn"
+            },
+            {
+              "description": "ARN of a mission profile."
+            }
+          ]
+        },
+        "missionProfileId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "UUID of a mission profile."
+            }
+          ]
+        },
+        "name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "Name of a mission profile."
+            }
+          ]
+        },
+        "region": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "Region of a mission profile."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "Polarization": {
+      "enum": [
+        "LEFT_HAND",
+        "NONE",
+        "RIGHT_HAND"
+      ],
+      "type": "string"
+    },
+    "ReserveContactRequest": {
+      "description": "<p/>",
+      "properties": {
+        "tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagsMap"
+            },
+            {
+              "description": "Tags assigned to a contact."
+            }
+          ]
+        },
+        "endTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "End time of a contact."
+            }
+          ]
+        },
+        "groundStation": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "Name of a ground station."
+            }
+          ]
+        },
+        "missionProfileArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MissionProfileArn"
+            },
+            {
+              "description": "ARN of a mission profile."
+            }
+          ]
+        },
+        "satelliteArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/satelliteArn"
+            },
+            {
+              "description": "ARN of a satellite"
+            }
+          ]
+        },
+        "startTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "Start time of a contact."
+            }
+          ]
+        }
+      },
+      "required": [
+        "endTime",
+        "groundStation",
+        "missionProfileArn",
+        "satelliteArn",
+        "startTime"
+      ],
+      "title": "ReserveContactRequest",
+      "type": "object"
+    },
+    "ResourceLimitExceededException": {},
+    "ResourceNotFoundException": {},
+    "RoleArn": {
+      "type": "string"
+    },
+    "SafeName": {
+      "maxLength": 256,
+      "minLength": 1,
+      "pattern": "^[ a-zA-Z0-9_:-]{1,256}$",
+      "type": "string"
+    },
+    "SatelliteList": {
+      "items": {
+        "$ref": "#/definitions/SatelliteListItem"
+      },
+      "type": "array"
+    },
+    "SatelliteListItem": {
+      "description": "Item in a list of satellites.",
+      "properties": {
+        "groundStations": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/GroundStationIdList"
+            },
+            {
+              "description": "A list of ground stations to which the satellite is on-boarded."
+            }
+          ]
+        },
+        "noradSatelliteID": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/noradSatelliteID"
+            },
+            {
+              "description": "NORAD satellite ID number."
+            }
+          ]
+        },
+        "satelliteArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/satelliteArn"
+            },
+            {
+              "description": "ARN of a satellite."
+            }
+          ]
+        },
+        "satelliteId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Uuid"
+            },
+            {
+              "description": "UUID of a satellite."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "SecurityDetails": {
+      "description": "Information about endpoints.",
+      "properties": {
+        "roleArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RoleArn"
+            },
+            {
+              "description": "ARN to a role needed for connecting streams to your instances. "
+            }
+          ]
+        },
+        "securityGroupIds": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SecurityGroupIdList"
+            },
+            {
+              "description": "The security groups to attach to the elastic network interfaces."
+            }
+          ]
+        },
+        "subnetIds": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SubnetList"
+            },
+            {
+              "description": "A list of subnets where AWS Ground Station places elastic network interfaces to send streams to your instances."
+            }
+          ]
+        }
+      },
+      "required": [
+        "roleArn",
+        "securityGroupIds",
+        "subnetIds"
+      ],
+      "type": "object"
+    },
+    "SecurityGroupIdList": {
+      "items": {
+        "$ref": "#/definitions/String"
+      },
+      "type": "array"
+    },
+    "SocketAddress": {
+      "description": "Information about the socket address.",
+      "properties": {
+        "name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "Name of a socket address."
+            }
+          ]
+        },
+        "port": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Integer"
+            },
+            {
+              "description": "Port of a socket address."
+            }
+          ]
+        }
+      },
+      "required": [
+        "name",
+        "port"
+      ],
+      "type": "object"
+    },
+    "Source": {
+      "description": "Dataflow details for the source side.",
+      "properties": {
+        "configDetails": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ConfigDetails"
+            },
+            {
+              "description": "Additional details for a <code>Config</code>, if type is dataflow endpoint or antenna demod decode."
+            }
+          ]
+        },
+        "configId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "UUID of a <code>Config</code>."
+            }
+          ]
+        },
+        "configType": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ConfigCapabilityType"
+            },
+            {
+              "description": "Type of a <code>Config</code>."
+            }
+          ]
+        },
+        "dataflowSourceRegion": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "Region of a dataflow source."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "SpectrumConfig": {
+      "description": "Object that describes a spectral <code>Config</code>.",
+      "properties": {
+        "bandwidth": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/FrequencyBandwidth"
+            },
+            {
+              "description": "<p>Bandwidth of a spectral <code>Config</code>. AWS Ground Station currently has the following bandwidth limitations:</p> <ul> <li> <p>For <code>AntennaDownlinkDemodDecodeconfig</code>, valid values are between 125 kHz to 650 MHz.</p> </li> <li> <p>For <code>AntennaDownlinkconfig</code> valid values are between 10 kHz to 54 MHz.</p> </li> <li> <p>For <code>AntennaUplinkConfig</code>, valid values are between 10 kHz to 54 MHz.</p> </li> </ul>"
+            }
+          ]
+        },
+        "centerFrequency": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Frequency"
+            },
+            {
+              "description": "Center frequency of a spectral <code>Config</code>. Valid values are between 2200 to 2300 MHz and 7750 to 8400 MHz for downlink and 2025 to 2120 MHz for uplink."
+            }
+          ]
+        },
+        "polarization": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Polarization"
+            },
+            {
+              "description": "Polarization of a spectral <code>Config</code>. Capturing both <code>\"RIGHT_HAND\"</code> and <code>\"LEFT_HAND\"</code> polarization requires two separate configs."
+            }
+          ]
+        }
+      },
+      "required": [
+        "bandwidth",
+        "centerFrequency"
+      ],
+      "type": "object"
+    },
+    "StatusList": {
+      "items": {
+        "$ref": "#/definitions/ContactStatus"
+      },
+      "type": "array"
+    },
+    "String": {
+      "type": "string"
+    },
+    "SubnetList": {
+      "items": {
+        "$ref": "#/definitions/String"
+      },
+      "type": "array"
+    },
+    "TagKeys": {
+      "items": {
+        "$ref": "#/definitions/String"
+      },
+      "type": "array"
+    },
+    "TagResourceRequest": {
+      "description": "<p/>",
+      "properties": {
+        "tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagsMap"
+            },
+            {
+              "description": "Tags assigned to a resource."
+            }
+          ]
+        }
+      },
+      "required": [
+        "tags"
+      ],
+      "title": "TagResourceRequest",
+      "type": "object"
+    },
+    "TagResourceResponse": {
+      "description": "<p/>",
+      "properties": {},
+      "type": "object"
+    },
+    "TagsMap": {
+      "additionalProperties": {
+        "$ref": "#/definitions/String"
+      },
+      "type": "object"
+    },
+    "Timestamp": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "TrackingConfig": {
+      "description": "Object that determines whether tracking should be used during a contact executed with this <code>Config</code> in the mission profile.",
+      "properties": {
+        "autotrack": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Criticality"
+            },
+            {
+              "description": "Current setting for autotrack."
+            }
+          ]
+        }
+      },
+      "required": [
+        "autotrack"
+      ],
+      "type": "object"
+    },
+    "UntagResourceRequest": {
+      "description": "<p/>",
+      "properties": {},
+      "title": "UntagResourceRequest",
+      "type": "object"
+    },
+    "UntagResourceResponse": {
+      "description": "<p/>",
+      "properties": {},
+      "type": "object"
+    },
+    "UpdateConfigRequest": {
+      "description": "<p/>",
+      "properties": {
+        "configData": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ConfigTypeData"
+            },
+            {
+              "description": "Parameters of a <code>Config</code>."
+            }
+          ]
+        },
+        "name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SafeName"
+            },
+            {
+              "description": "Name of a <code>Config</code>."
+            }
+          ]
+        }
+      },
+      "required": [
+        "configData",
+        "name"
+      ],
+      "title": "UpdateConfigRequest",
+      "type": "object"
+    },
+    "UpdateMissionProfileRequest": {
+      "description": "<p/>",
+      "properties": {
+        "contactPostPassDurationSeconds": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DurationInSeconds"
+            },
+            {
+              "description": "Amount of time after a contact ends that you’d like to receive a CloudWatch event indicating the pass has finished."
+            }
+          ]
+        },
+        "contactPrePassDurationSeconds": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DurationInSeconds"
+            },
+            {
+              "description": "Amount of time after a contact ends that you’d like to receive a CloudWatch event indicating the pass has finished."
+            }
+          ]
+        },
+        "dataflowEdges": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DataflowEdgeList"
+            },
+            {
+              "description": "A list of lists of ARNs. Each list of ARNs is an edge, with a <i>from</i> <code>Config</code> and a <i>to</i> <code>Config</code>."
+            }
+          ]
+        },
+        "minimumViableContactDurationSeconds": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DurationInSeconds"
+            },
+            {
+              "description": "Smallest amount of time in seconds that you’d like to see for an available contact. AWS Ground Station will not present you with contacts shorter than this duration."
+            }
+          ]
+        },
+        "name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SafeName"
+            },
+            {
+              "description": "Name of a mission profile."
+            }
+          ]
+        },
+        "trackingConfigArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ConfigArn"
+            },
+            {
+              "description": "ARN of a tracking <code>Config</code>."
+            }
+          ]
+        }
+      },
+      "title": "UpdateMissionProfileRequest",
+      "type": "object"
+    },
+    "UplinkEchoConfig": {
+      "description": "<p>Information about an uplink echo <code>Config</code>.</p> <p>Parameters from the <code>AntennaUplinkConfig</code>, corresponding to the specified <code>AntennaUplinkConfigArn</code>, are used when this <code>UplinkEchoConfig</code> is used in a contact.</p>",
+      "properties": {
+        "antennaUplinkConfigArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ConfigArn"
+            },
+            {
+              "description": "ARN of an uplink <code>Config</code>."
+            }
+          ]
+        },
+        "enabled": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Boolean"
+            },
+            {
+              "description": "Whether or not an uplink <code>Config</code> is enabled."
+            }
+          ]
+        }
+      },
+      "required": [
+        "antennaUplinkConfigArn",
+        "enabled"
+      ],
+      "type": "object"
+    },
+    "UplinkSpectrumConfig": {
+      "description": "Information about the uplink spectral <code>Config</code>.",
+      "properties": {
+        "centerFrequency": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Frequency"
+            },
+            {
+              "description": "Center frequency of an uplink spectral <code>Config</code>. Valid values are between 2025 to 2120 MHz."
+            }
+          ]
+        },
+        "polarization": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Polarization"
+            },
+            {
+              "description": "Polarization of an uplink spectral <code>Config</code>. Capturing both <code>\"RIGHT_HAND\"</code> and <code>\"LEFT_HAND\"</code> polarization requires two separate configs."
+            }
+          ]
+        }
+      },
+      "required": [
+        "centerFrequency"
+      ],
+      "type": "object"
+    },
+    "Uuid": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}",
+      "type": "string"
+    },
+    "noradSatelliteID": {
+      "maximum": 99999,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "satelliteArn": {
+      "type": "string"
+    }
+  },
+  "securityDefinitions": {
+    "hmac": {
+      "description": "Amazon Signature authorization v4",
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey",
+      "x-amazon-apigateway-authtype": "awsSigv4"
+    }
+  },
+  "security": [
+    {
+      "hmac": []
+    }
+  ],
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://docs.aws.amazon.com/groundstation/"
+  },
+  "x-components": {
+    "parameters": {
+      "X-Amz-Algorithm": {
+        "in": "header",
+        "name": "X-Amz-Algorithm",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Content-Sha256": {
+        "in": "header",
+        "name": "X-Amz-Content-Sha256",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Credential": {
+        "in": "header",
+        "name": "X-Amz-Credential",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Date": {
+        "in": "header",
+        "name": "X-Amz-Date",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Security-Token": {
+        "in": "header",
+        "name": "X-Amz-Security-Token",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Signature": {
+        "in": "header",
+        "name": "X-Amz-Signature",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-SignedHeaders": {
+        "in": "header",
+        "name": "X-Amz-SignedHeaders",
+        "required": false,
+        "type": "string"
+      }
+    }
+  },
+  "x-hasEquivalentPaths": true
+}

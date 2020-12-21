@@ -1,0 +1,248 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "contact": {
+      "name": "Fun Generators",
+      "url": "http://fungenerators.com/api/shakespeare/"
+    },
+    "description": "Shakespeare API. Generate random Shakespeare quotes, names, insults, lorem ipsum etc. Translate normal English to Shakespeare English.  [Click here to subscribe](http://fungenerators.com/api/shakespeare/) \n",
+    "termsOfService": "https://fungenerators.com/terms",
+    "title": "Shakespeare API",
+    "version": "1.5",
+    "x-apisguru-categories": [
+      "text"
+    ],
+    "x-origin": [
+      {
+        "format": "openapi",
+        "url": "https://fungenerators.com/yaml/shakespeare.yaml",
+        "version": "3.0"
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "fungenerators.com",
+    "x-serviceName": "shakespeare",
+    "x-datafire": {
+      "name": "fungenerators_shakespeare",
+      "type": "openapi"
+    }
+  },
+  "host": "api.fungenerators.com",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/shakespeare/generate/insult": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "No of insults to generate",
+            "format": "integer",
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200  response"
+          },
+          "401": {
+            "description": "401  response"
+          }
+        },
+        "security": [
+          {
+            "X-Fungenerators-Api-Secret": []
+          }
+        ],
+        "tags": [
+          "Generation"
+        ],
+        "description": "Generate random Shakespeare style insults."
+      }
+    },
+    "/shakespeare/generate/lorem-ipsum": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Type of element to generate `paragraphs/sentences/words`.",
+            "format": "string",
+            "in": "query",
+            "name": "type",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "No of elements to generate",
+            "format": "integer",
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200  response"
+          },
+          "401": {
+            "description": "401  response"
+          }
+        },
+        "security": [
+          {
+            "X-Fungenerators-Api-Secret": []
+          }
+        ],
+        "tags": [
+          "Generation"
+        ],
+        "description": "Generate Shakespeare lorem ipsum."
+      }
+    },
+    "/shakespeare/generate/name": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Variation to generate `male/female`.",
+            "format": "string",
+            "in": "query",
+            "name": "variation",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "No of names to generate",
+            "format": "integer",
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200  response"
+          },
+          "401": {
+            "description": "401  response"
+          }
+        },
+        "security": [
+          {
+            "X-Fungenerators-Api-Secret": []
+          }
+        ],
+        "tags": [
+          "Generation"
+        ],
+        "description": "Generate random Shakespearen names."
+      }
+    },
+    "/shakespeare/quote": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "200  response"
+          },
+          "401": {
+            "description": "401  response"
+          }
+        },
+        "security": [
+          {
+            "X-Fungenerators-Api-Secret": []
+          }
+        ],
+        "tags": [
+          "Works"
+        ],
+        "description": "Get a random Shakespeare quote."
+      }
+    },
+    "/shakespeare/translate": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Text to translate to Shakespeare English.",
+            "format": "string",
+            "in": "query",
+            "name": "text",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200  response"
+          },
+          "401": {
+            "description": "401  response"
+          }
+        },
+        "security": [
+          {
+            "X-Fungenerators-Api-Secret": []
+          }
+        ],
+        "tags": [
+          "Translation"
+        ],
+        "description": "Translate from English to Shakespeare English."
+      }
+    }
+  },
+  "securityDefinitions": {
+    "X-Fungenerators-Api-Secret": {
+      "in": "header",
+      "name": "X-Fungenerators-Api-Secret",
+      "type": "apiKey"
+    }
+  },
+  "tags": [
+    {
+      "externalDocs": {
+        "description": "Find out more",
+        "url": "http://fungenerators.com/api/shakespeare/"
+      },
+      "description": "Generate random quotes, names, insults, lorem ipsum etc",
+      "name": "Generation"
+    },
+    {
+      "externalDocs": {
+        "description": "Find out more",
+        "url": "http://fungenerators.com/api/shakespeare/"
+      },
+      "description": "Get Shakespeare Works via API",
+      "name": "Works"
+    },
+    {
+      "externalDocs": {
+        "description": "Find out more",
+        "url": "http://fungenerators.com/api/shakespeare/"
+      },
+      "description": "Translate to Shakespeare English",
+      "name": "Translation"
+    }
+  ],
+  "x-components": {}
+}

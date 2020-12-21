@@ -1,13 +1,10 @@
 {
   "swagger": "2.0",
-  "schemes": [
-    "https"
-  ],
   "host": "api.postmarkapp.com",
   "basePath": "/",
   "info": {
     "description": "Postmark makes sending and receiving email\nincredibly easy.\n",
-    "title": "Postmark",
+    "title": "Postmark API",
     "version": "1.0.0",
     "x-apisguru-categories": [
       "email"
@@ -1927,58 +1924,6 @@
         ]
       }
     },
-    "/stats/outbound/opens/readtimes": {
-      "get": {
-        "operationId": "getOutboundOpenCountsByReadingTime",
-        "parameters": [
-          {
-            "description": "The token associated with the Server on which this request will operate.",
-            "in": "header",
-            "name": "X-Postmark-Server-Token",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "Filter by tag",
-            "in": "query",
-            "name": "tag",
-            "type": "string"
-          },
-          {
-            "description": "Filter stats starting from the date specified. e.g. `2014-01-01`",
-            "format": "date",
-            "in": "query",
-            "name": "fromdate",
-            "type": "string"
-          },
-          {
-            "description": "Filter stats up to the date specified. e.g. `2014-02-01`",
-            "format": "date",
-            "in": "query",
-            "name": "todate",
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/DynamicResponse"
-            }
-          },
-          "422": {
-            "$ref": "#/responses/422"
-          },
-          "500": {
-            "$ref": "#/responses/500"
-          }
-        },
-        "summary": "Get email read times",
-        "tags": [
-          "Stats API"
-        ]
-      }
-    },
     "/stats/outbound/sends": {
       "get": {
         "operationId": "getSentCounts",
@@ -2561,265 +2506,6 @@
           "Inbound Rules API"
         ]
       }
-    },
-    "/triggers/tags": {
-      "get": {
-        "operationId": "searcgTagTriggers",
-        "parameters": [
-          {
-            "description": "The token associated with the Server on which this request will operate.",
-            "in": "header",
-            "name": "X-Postmark-Server-Token",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "Number of records to return per request.",
-            "in": "query",
-            "name": "count",
-            "required": true,
-            "type": "integer"
-          },
-          {
-            "description": "Number of records to skip.",
-            "in": "query",
-            "name": "offset",
-            "required": true,
-            "type": "integer"
-          },
-          {
-            "description": "Filter by delivery tag",
-            "in": "query",
-            "name": "match_name",
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "properties": {
-                "Tags": {
-                  "items": {
-                    "properties": {
-                      "ID": {
-                        "type": "integer"
-                      },
-                      "MatchName": {
-                        "type": "string"
-                      },
-                      "TrackOpens": {
-                        "type": "boolean"
-                      }
-                    }
-                  },
-                  "type": "array"
-                },
-                "TotalCount": {
-                  "type": "integer"
-                }
-              }
-            }
-          },
-          "422": {
-            "$ref": "#/responses/422"
-          },
-          "500": {
-            "$ref": "#/responses/500"
-          }
-        },
-        "summary": "Search triggers",
-        "tags": [
-          "Tag Triggers API"
-        ]
-      },
-      "post": {
-        "operationId": "createTagTrigger",
-        "parameters": [
-          {
-            "description": "The token associated with the Server on which this request will operate.",
-            "in": "header",
-            "name": "X-Postmark-Server-Token",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/EditTagTriggerRequest"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "properties": {
-                "ID": {
-                  "type": "integer"
-                },
-                "MatchName": {
-                  "type": "string"
-                },
-                "TrackOpens": {
-                  "type": "boolean"
-                }
-              }
-            }
-          },
-          "422": {
-            "$ref": "#/responses/422"
-          },
-          "500": {
-            "$ref": "#/responses/500"
-          }
-        },
-        "summary": "Create a trigger for a tag",
-        "tags": [
-          "Tag Triggers API"
-        ]
-      }
-    },
-    "/triggers/tags/{triggerid}": {
-      "delete": {
-        "operationId": "deleteTagTrigger",
-        "parameters": [
-          {
-            "description": "The token associated with the Server on which this request will operate.",
-            "in": "header",
-            "name": "X-Postmark-Server-Token",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The ID for the Tag Trigger that should be deleted.",
-            "in": "path",
-            "name": "triggerid",
-            "required": true,
-            "type": "integer"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/StandardPostmarkResponse"
-            }
-          },
-          "422": {
-            "$ref": "#/responses/422"
-          },
-          "500": {
-            "$ref": "#/responses/500"
-          }
-        },
-        "summary": "Delete a single trigger",
-        "tags": [
-          "Tag Triggers API"
-        ]
-      },
-      "get": {
-        "operationId": "getSingleTagTrigger",
-        "parameters": [
-          {
-            "description": "The token associated with the Server on which this request will operate.",
-            "in": "header",
-            "name": "X-Postmark-Server-Token",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The ID for the Tag Trigger for which data should be retrieved.",
-            "in": "path",
-            "name": "triggerid",
-            "required": true,
-            "type": "integer"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "properties": {
-                "ID": {
-                  "type": "integer"
-                },
-                "MatchName": {
-                  "type": "string"
-                },
-                "TrackOpens": {
-                  "type": "boolean"
-                }
-              }
-            }
-          },
-          "422": {
-            "$ref": "#/responses/422"
-          },
-          "500": {
-            "$ref": "#/responses/500"
-          }
-        },
-        "summary": "Get a single trigger",
-        "tags": [
-          "Tag Triggers API"
-        ]
-      },
-      "put": {
-        "operationId": "editTagTrigger",
-        "parameters": [
-          {
-            "description": "The token associated with the Server on which this request will operate.",
-            "in": "header",
-            "name": "X-Postmark-Server-Token",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The ID of the Tag Trigger that should be modified by this request.",
-            "in": "path",
-            "name": "triggerid",
-            "required": true,
-            "type": "integer"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/EditTagTriggerRequest"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "properties": {
-                "ID": {
-                  "type": "integer"
-                },
-                "MatchName": {
-                  "type": "string"
-                },
-                "TrackOpens": {
-                  "type": "boolean"
-                }
-              }
-            }
-          },
-          "422": {
-            "$ref": "#/responses/422"
-          },
-          "500": {
-            "$ref": "#/responses/500"
-          }
-        },
-        "summary": "Edit a single trigger",
-        "tags": [
-          "Tag Triggers API"
-        ]
-      }
     }
   },
   "definitions": {
@@ -3059,17 +2745,6 @@
         }
       }
     },
-    "EditTagTriggerRequest": {
-      "description": "",
-      "properties": {
-        "MatchName": {
-          "type": "string"
-        },
-        "TrackOpens": {
-          "type": "boolean"
-        }
-      }
-    },
     "EditTemplateRequest": {
       "description": "The contents required for creating a new template.",
       "properties": {
@@ -3093,7 +2768,10 @@
           "description": "The Text template definition for this Template.",
           "type": "string"
         }
-      }
+      },
+      "required": [
+        "TemplateId"
+      ]
     },
     "EmailNameAddressPair": {
       "description": "",
@@ -3325,9 +3003,6 @@
           }
         },
         "Platform": {
-          "type": "string"
-        },
-        "ReadSeconds": {
           "type": "string"
         },
         "ReceivedAt": {
@@ -3782,9 +3457,6 @@
         },
         "WithPlatformRecorded": {
           "type": "integer"
-        },
-        "WithReadTimeRecorded": {
-          "type": "integer"
         }
       }
     },
@@ -4117,13 +3789,13 @@
           "description": "The subject content to validate. Must be specified if HtmlBody or\nTextBody are not. See our template language documentation for more\ninformation on the syntax for this field.\n",
           "type": "string"
         },
+        "TestRenderModel": {
+          "description": "The model to be used when rendering test content.",
+          "type": "object"
+        },
         "TextBody": {
           "description": "The text body content to validate. Must be specified if HtmlBody or\nSubject are not. See our template language documentation for more\ninformation on the syntax for this field.\n",
           "type": "string"
-        },
-        "TextRenderModel": {
-          "description": "The model to be used when rendering test content.",
-          "type": "object"
         }
       }
     },

@@ -1,6 +1,6 @@
 {
   "name": "@datafire/fantasydata_nfl_v3_play_by_play",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "main": "index.js",
   "description": "DataFire integration for NFL v3 Play-by-Play",
   "repository": {

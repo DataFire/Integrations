@@ -15,12 +15,7 @@ let azure_sql_virtualnetworkrules = require('@datafire/azure_sql_virtualnetworkr
   redirect_uri: ""
 });
 
-azure_sql_virtualnetworkrules.VirtualNetworkRules_ListByServer({
-  "resourceGroupName": "",
-  "serverName": "",
-  "subscriptionId": "",
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

@@ -11,7 +11,7 @@ let receptive = require('@datafire/receptive').create({
   userApiKey: ""
 });
 
-receptive.votes.get({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

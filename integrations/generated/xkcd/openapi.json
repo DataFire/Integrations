@@ -1,10 +1,5 @@
 {
   "swagger": "2.0",
-  "schemes": [
-    "http"
-  ],
-  "host": "xkcd.com",
-  "basePath": "/",
   "info": {
     "description": "Webcomic of romance, sarcasm, math, and language.",
     "title": "XKCD",
@@ -17,9 +12,9 @@
     },
     "x-origin": [
       {
-        "format": "swagger",
-        "url": "https://raw.githubusercontent.com/APIs-guru/unofficial_openapi_specs/master/xkcd.com/1.0.0/swagger.yaml",
-        "version": "2.0"
+        "format": "openapi",
+        "url": "https://raw.githubusercontent.com/APIs-guru/unofficial_openapi_specs/master/xkcd.com/1.0.0/openapi.yaml",
+        "version": "3.0"
       }
     ],
     "x-preferred": true,
@@ -34,14 +29,18 @@
       "type": "openapi"
     }
   },
-  "externalDocs": {
-    "url": "https://xkcd.com/json.html"
-  },
-  "securityDefinitions": {},
+  "host": "xkcd.com",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
   "paths": {
     "/info.0.json": {
       "get": {
-        "description": "Fetch current comic and metadata.\n",
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": "OK",
@@ -50,12 +49,14 @@
             }
           }
         },
-        "operationId": "getLatestComic"
+        "description": "Fetch current comic and metadata.\n"
       }
     },
     "/{comicId}/info.0.json": {
       "get": {
-        "description": "Fetch comics and metadata  by comic id.\n",
+        "produces": [
+          "application/octet-stream"
+        ],
         "parameters": [
           {
             "in": "path",
@@ -72,7 +73,7 @@
             }
           }
         },
-        "operationId": "getComic"
+        "description": "Fetch comics and metadata  by comic id.\n"
       }
     }
   },
@@ -115,5 +116,9 @@
       },
       "type": "object"
     }
-  }
+  },
+  "externalDocs": {
+    "url": "https://xkcd.com/json.html"
+  },
+  "x-components": {}
 }

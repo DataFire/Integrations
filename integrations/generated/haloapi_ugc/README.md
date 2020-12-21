@@ -12,9 +12,7 @@ let haloapi_ugc = require('@datafire/haloapi_ugc').create({
   apiKeyQuery: ""
 });
 
-haloapi_ugc.58acde292109180bdcacc40d({
-  "player": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

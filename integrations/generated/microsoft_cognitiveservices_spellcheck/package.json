@@ -1,8 +1,8 @@
 {
   "name": "@datafire/microsoft_cognitiveservices_spellcheck",
-  "version": "4.0.0",
+  "version": "5.0.0",
   "main": "index.js",
-  "description": "DataFire integration for Spell Check",
+  "description": "DataFire integration for Spell Check Client",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DataFire/integrations.git"

@@ -1,6 +1,6 @@
 # @datafire/google_youtubereporting
 
-Client library for YouTube Reporting
+Client library for YouTube Reporting API
 
 ## Installation and Usage
 ```bash
@@ -15,7 +15,7 @@ let google_youtubereporting = require('@datafire/google_youtubereporting').creat
   redirect_uri: ""
 });
 
-google_youtubereporting.reportTypes.list({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -67,72 +67,68 @@ google_youtubereporting.oauthRefresh(null, context)
   * scope `string`
   * expiration `string`
 
-### jobs.list
+### youtubereporting.jobs.list
 Lists jobs.
 
 
 ```js
-google_youtubereporting.jobs.list({}, context)
+google_youtubereporting.youtubereporting.jobs.list({}, context)
 ```
 
 #### Input
 * input `object`
-  * includeSystemManaged `boolean`: If set to true, also system-managed jobs will be returned; otherwise only
-  * onBehalfOfContentOwner `string`: The content owner's external ID on which behalf the user is acting on. If
-  * pageSize `integer`: Requested page size. Server may return fewer jobs than requested.
-  * pageToken `string`: A token identifying a page of results the server should return. Typically,
+  * includeSystemManaged `boolean`: If set to true, also system-managed jobs will be returned; otherwise only user-created jobs will be returned. System-managed jobs can neither be modified nor deleted.
+  * onBehalfOfContentOwner `string`: The content owner's external ID on which behalf the user is acting on. If not set, the user is acting for himself (his own channel).
+  * pageSize `integer`: Requested page size. Server may return fewer jobs than requested. If unspecified, server will pick an appropriate default.
+  * pageToken `string`: A token identifying a page of results the server should return. Typically, this is the value of ListReportTypesResponse.next_page_token returned in response to the previous call to the `ListJobs` method.
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
-  * bearer_token `string`: OAuth bearer token.
   * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
-  * pp `boolean`: Pretty-print response.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
   * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [ListJobsResponse](#listjobsresponse)
 
-### jobs.create
+### youtubereporting.jobs.create
 Creates a job and returns it.
 
 
 ```js
-google_youtubereporting.jobs.create({}, context)
+google_youtubereporting.youtubereporting.jobs.create({}, context)
 ```
 
 #### Input
 * input `object`
+  * onBehalfOfContentOwner `string`: The content owner's external ID on which behalf the user is acting on. If not set, the user is acting for himself (his own channel).
   * body [Job](#job)
-  * onBehalfOfContentOwner `string`: The content owner's external ID on which behalf the user is acting on. If
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
-  * bearer_token `string`: OAuth bearer token.
   * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
-  * pp `boolean`: Pretty-print response.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
   * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [Job](#job)
 
-### jobs.delete
+### youtubereporting.jobs.delete
 Deletes a job.
 
 
 ```js
-google_youtubereporting.jobs.delete({
+google_youtubereporting.youtubereporting.jobs.delete({
   "jobId": ""
 }, context)
 ```
@@ -140,30 +136,28 @@ google_youtubereporting.jobs.delete({
 #### Input
 * input `object`
   * jobId **required** `string`: The ID of the job to delete.
-  * onBehalfOfContentOwner `string`: The content owner's external ID on which behalf the user is acting on. If
+  * onBehalfOfContentOwner `string`: The content owner's external ID on which behalf the user is acting on. If not set, the user is acting for himself (his own channel).
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
-  * bearer_token `string`: OAuth bearer token.
   * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
-  * pp `boolean`: Pretty-print response.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
   * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [Empty](#empty)
 
-### jobs.get
+### youtubereporting.jobs.get
 Gets a job.
 
 
 ```js
-google_youtubereporting.jobs.get({
+google_youtubereporting.youtubereporting.jobs.get({
   "jobId": ""
 }, context)
 ```
@@ -171,67 +165,62 @@ google_youtubereporting.jobs.get({
 #### Input
 * input `object`
   * jobId **required** `string`: The ID of the job to retrieve.
-  * onBehalfOfContentOwner `string`: The content owner's external ID on which behalf the user is acting on. If
+  * onBehalfOfContentOwner `string`: The content owner's external ID on which behalf the user is acting on. If not set, the user is acting for himself (his own channel).
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
-  * bearer_token `string`: OAuth bearer token.
   * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
-  * pp `boolean`: Pretty-print response.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
   * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [Job](#job)
 
-### jobs.reports.list
-Lists reports created by a specific job.
-Returns NOT_FOUND if the job does not exist.
+### youtubereporting.jobs.reports.list
+Lists reports created by a specific job. Returns NOT_FOUND if the job does not exist.
 
 
 ```js
-google_youtubereporting.jobs.reports.list({
+google_youtubereporting.youtubereporting.jobs.reports.list({
   "jobId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * createdAfter `string`: If set, only reports created after the specified date/time are returned.
   * jobId **required** `string`: The ID of the job.
-  * onBehalfOfContentOwner `string`: The content owner's external ID on which behalf the user is acting on. If
-  * pageSize `integer`: Requested page size. Server may return fewer report types than requested.
-  * pageToken `string`: A token identifying a page of results the server should return. Typically,
-  * startTimeAtOrAfter `string`: If set, only reports whose start time is greater than or equal the
-  * startTimeBefore `string`: If set, only reports whose start time is smaller than the specified
+  * createdAfter `string`: If set, only reports created after the specified date/time are returned.
+  * onBehalfOfContentOwner `string`: The content owner's external ID on which behalf the user is acting on. If not set, the user is acting for himself (his own channel).
+  * pageSize `integer`: Requested page size. Server may return fewer report types than requested. If unspecified, server will pick an appropriate default.
+  * pageToken `string`: A token identifying a page of results the server should return. Typically, this is the value of ListReportsResponse.next_page_token returned in response to the previous call to the `ListReports` method.
+  * startTimeAtOrAfter `string`: If set, only reports whose start time is greater than or equal the specified date/time are returned.
+  * startTimeBefore `string`: If set, only reports whose start time is smaller than the specified date/time are returned.
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
-  * bearer_token `string`: OAuth bearer token.
   * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
-  * pp `boolean`: Pretty-print response.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
   * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [ListReportsResponse](#listreportsresponse)
 
-### jobs.reports.get
+### youtubereporting.jobs.reports.get
 Gets the metadata of a specific report.
 
 
 ```js
-google_youtubereporting.jobs.reports.get({
+google_youtubereporting.youtubereporting.jobs.reports.get({
   "jobId": "",
   "reportId": ""
 }, context)
@@ -240,32 +229,29 @@ google_youtubereporting.jobs.reports.get({
 #### Input
 * input `object`
   * jobId **required** `string`: The ID of the job.
-  * onBehalfOfContentOwner `string`: The content owner's external ID on which behalf the user is acting on. If
   * reportId **required** `string`: The ID of the report to retrieve.
+  * onBehalfOfContentOwner `string`: The content owner's external ID on which behalf the user is acting on. If not set, the user is acting for himself (his own channel).
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
-  * bearer_token `string`: OAuth bearer token.
   * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
-  * pp `boolean`: Pretty-print response.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
   * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [Report](#report)
 
-### media.download
-Method for media download. Download is supported
-on the URI `/v1/media/{+name}?alt=media`.
+### youtubereporting.media.download
+Method for media download. Download is supported on the URI `/v1/media/{+name}?alt=media`.
 
 
 ```js
-google_youtubereporting.media.download({
+google_youtubereporting.youtubereporting.media.download({
   "resourceName": ""
 }, context)
 ```
@@ -276,47 +262,43 @@ google_youtubereporting.media.download({
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
-  * bearer_token `string`: OAuth bearer token.
   * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
-  * pp `boolean`: Pretty-print response.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
   * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [GdataMedia](#gdatamedia)
 
-### reportTypes.list
+### youtubereporting.reportTypes.list
 Lists report types.
 
 
 ```js
-google_youtubereporting.reportTypes.list({}, context)
+google_youtubereporting.youtubereporting.reportTypes.list({}, context)
 ```
 
 #### Input
 * input `object`
-  * includeSystemManaged `boolean`: If set to true, also system-managed report types will be returned;
-  * onBehalfOfContentOwner `string`: The content owner's external ID on which behalf the user is acting on. If
-  * pageSize `integer`: Requested page size. Server may return fewer report types than requested.
-  * pageToken `string`: A token identifying a page of results the server should return. Typically,
+  * includeSystemManaged `boolean`: If set to true, also system-managed report types will be returned; otherwise only the report types that can be used to create new reporting jobs will be returned.
+  * onBehalfOfContentOwner `string`: The content owner's external ID on which behalf the user is acting on. If not set, the user is acting for himself (his own channel).
+  * pageSize `integer`: Requested page size. Server may return fewer report types than requested. If unspecified, server will pick an appropriate default.
+  * pageToken `string`: A token identifying a page of results the server should return. Typically, this is the value of ListReportTypesResponse.next_page_token returned in response to the previous call to the `ListReportTypes` method.
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
-  * bearer_token `string`: OAuth bearer token.
   * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
-  * pp `boolean`: Pretty-print response.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
   * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [ListReportTypesResponse](#listreporttypesresponse)
@@ -326,7 +308,7 @@ google_youtubereporting.reportTypes.list({}, context)
 ## Definitions
 
 ### Empty
-* Empty `object`: A generic empty message that you can re-use to avoid defining duplicated
+* Empty `object`: A generic empty message that you can re-use to avoid defining duplicated empty messages in your APIs. A typical example is to use it as the request or the response type of an API method. For instance: service Foo { rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON representation for `Empty` is empty JSON object `{}`.
 
 ### GdataBlobstore2Info
 * GdataBlobstore2Info `object`: gdata
@@ -434,45 +416,45 @@ google_youtubereporting.reportTypes.list({}, context)
 ### Job
 * Job `object`: A job creating reports of a specific type.
   * createTime `string`: The creation date/time of the job.
-  * expireTime `string`: The date/time when this job will expire/expired. After a job expired, no
+  * expireTime `string`: The date/time when this job will expire/expired. After a job expired, no new reports are generated.
   * id `string`: The server-generated ID of the job (max. 40 characters).
   * name `string`: The name of the job (max. 100 characters).
-  * reportTypeId `string`: The type of reports this job creates. Corresponds to the ID of a
-  * systemManaged `boolean`: True if this a system-managed job that cannot be modified by the user;
+  * reportTypeId `string`: The type of reports this job creates. Corresponds to the ID of a ReportType.
+  * systemManaged `boolean`: True if this a system-managed job that cannot be modified by the user; otherwise false.
 
 ### ListJobsResponse
 * ListJobsResponse `object`: Response message for ReportingService.ListJobs.
   * jobs `array`: The list of jobs.
     * items [Job](#job)
-  * nextPageToken `string`: A token to retrieve next page of results.
+  * nextPageToken `string`: A token to retrieve next page of results. Pass this value in the ListJobsRequest.page_token field in the subsequent call to `ListJobs` method to retrieve the next page of results.
 
 ### ListReportTypesResponse
 * ListReportTypesResponse `object`: Response message for ReportingService.ListReportTypes.
-  * nextPageToken `string`: A token to retrieve next page of results.
+  * nextPageToken `string`: A token to retrieve next page of results. Pass this value in the ListReportTypesRequest.page_token field in the subsequent call to `ListReportTypes` method to retrieve the next page of results.
   * reportTypes `array`: The list of report types.
     * items [ReportType](#reporttype)
 
 ### ListReportsResponse
 * ListReportsResponse `object`: Response message for ReportingService.ListReports.
-  * nextPageToken `string`: A token to retrieve next page of results.
+  * nextPageToken `string`: A token to retrieve next page of results. Pass this value in the ListReportsRequest.page_token field in the subsequent call to `ListReports` method to retrieve the next page of results.
   * reports `array`: The list of report types.
     * items [Report](#report)
 
 ### Report
-* Report `object`: A report's metadata including the URL from which the report itself can be
+* Report `object`: A report's metadata including the URL from which the report itself can be downloaded.
   * createTime `string`: The date/time when this report was created.
   * downloadUrl `string`: The URL from which the report can be downloaded (max. 1000 characters).
-  * endTime `string`: The end of the time period that the report instance covers. The value is
+  * endTime `string`: The end of the time period that the report instance covers. The value is exclusive.
   * id `string`: The server-generated ID of the report.
   * jobExpireTime `string`: The date/time when the job this report belongs to will expire/expired.
   * jobId `string`: The ID of the job that created this report.
-  * startTime `string`: The start of the time period that the report instance covers. The value is
+  * startTime `string`: The start of the time period that the report instance covers. The value is inclusive.
 
 ### ReportType
 * ReportType `object`: A report type.
   * deprecateTime `string`: The date/time when this report type was/will be deprecated.
   * id `string`: The ID of the report type (max. 100 characters).
   * name `string`: The name of the report type (max. 100 characters).
-  * systemManaged `boolean`: True if this a system-managed report type; otherwise false. Reporting jobs
+  * systemManaged `boolean`: True if this a system-managed report type; otherwise false. Reporting jobs for system-managed report types are created automatically and can thus not be used in the `CreateJob` method.
 
 

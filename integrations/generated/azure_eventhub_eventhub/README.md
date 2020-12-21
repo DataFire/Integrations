@@ -15,9 +15,7 @@ let azure_eventhub_eventhub = require('@datafire/azure_eventhub_eventhub').creat
   redirect_uri: ""
 });
 
-azure_eventhub_eventhub.Operations_List({
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -605,7 +603,7 @@ azure_eventhub_eventhub.DisasterRecoveryConfigs_BreakPairing({
 *Output schema unknown*
 
 ### DisasterRecoveryConfigs_FailOver
-envokes GEO DR failover and reconfigure the alias to point to the secondary namespace
+Invokes GEO DR failover and reconfigure the alias to point to the secondary namespace
 
 
 ```js
@@ -1028,6 +1026,77 @@ azure_eventhub_eventhub.Namespaces_GetMessagingPlan({
 #### Output
 * output [MessagingPlan](#messagingplan)
 
+### Namespaces_ListNetworkRuleSets
+Gets list of NetworkRuleSet for a Namespace.
+
+
+```js
+azure_eventhub_eventhub.Namespaces_ListNetworkRuleSets({
+  "resourceGroupName": "",
+  "namespaceName": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * resourceGroupName **required** `string`: Name of the resource group within the azure subscription.
+  * namespaceName **required** `string`: The Namespace name
+  * api-version **required** `string`: Client API Version.
+  * subscriptionId **required** `string`: Subscription credentials that uniquely identify a Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+#### Output
+* output [NetworkRuleSetListResult](#networkrulesetlistresult)
+
+### Namespaces_GetNetworkRuleSet
+Gets NetworkRuleSet for a Namespace.
+
+
+```js
+azure_eventhub_eventhub.Namespaces_GetNetworkRuleSet({
+  "resourceGroupName": "",
+  "namespaceName": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * resourceGroupName **required** `string`: Name of the resource group within the azure subscription.
+  * namespaceName **required** `string`: The Namespace name
+  * api-version **required** `string`: Client API Version.
+  * subscriptionId **required** `string`: Subscription credentials that uniquely identify a Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+#### Output
+* output [NetworkRuleSet](#networkruleset)
+
+### Namespaces_CreateOrUpdateNetworkRuleSet
+Create or update NetworkRuleSet for a Namespace.
+
+
+```js
+azure_eventhub_eventhub.Namespaces_CreateOrUpdateNetworkRuleSet({
+  "resourceGroupName": "",
+  "namespaceName": "",
+  "api-version": "",
+  "subscriptionId": "",
+  "parameters": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * resourceGroupName **required** `string`: Name of the resource group within the azure subscription.
+  * namespaceName **required** `string`: The Namespace name
+  * api-version **required** `string`: Client API Version.
+  * subscriptionId **required** `string`: Subscription credentials that uniquely identify a Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+  * parameters **required** [NetworkRuleSet](#networkruleset)
+
+#### Output
+* output [NetworkRuleSet](#networkruleset)
+
 
 
 ## Definitions
@@ -1046,7 +1115,8 @@ azure_eventhub_eventhub.Namespaces_GetMessagingPlan({
 * ArmDisasterRecovery `object`: Single item in List or Get Alias(Disaster Recovery configuration) operation
   * properties `object`: Properties required to the Create Or Update Alias(Disaster Recovery configurations)
     * alternateName `string`: Alternate name specified when alias and namespace names are same.
-    * partnerNamespace `string`: ARM Id of the Primary/Secondary eventhub namespace name, which is part of GEO DR pairning
+    * partnerNamespace `string`: ARM Id of the Primary/Secondary eventhub namespace name, which is part of GEO DR pairing
+    * pendingReplicationOperationsCount `integer`: Number of entities pending to be replicated.
     * provisioningState `string` (values: Accepted, Succeeded, Failed): Provisioning state of the Alias(Disaster Recovery configuration) - possible values 'Accepted' or 'Succeeded' or 'Failed'
     * role `string` (values: Primary, PrimaryNotReplicating, Secondary): role of namespace in GEO DR - possible values 'Primary' or 'PrimaryNotReplicating' or 'Secondary'
   * id `string`: Resource Id
@@ -1081,6 +1151,7 @@ azure_eventhub_eventhub.Namespaces_GetMessagingPlan({
   * encoding `string` (values: Avro, AvroDeflate): Enumerates the possible values for the encoding format of capture description. Note: 'AvroDeflate' will be deprecated in New API Version
   * intervalInSeconds `integer`: The time window allows you to set the frequency with which the capture to Azure Blobs will happen, value should between 60 to 900 seconds
   * sizeLimitInBytes `integer`: The size window defines the amount of data built up in your Event Hub before an capture operation, value should be between 10485760 to 524288000 bytes
+  * skipEmptyArchives `boolean`: A value that indicates whether to Skip Empty Archives
 
 ### CheckNameAvailabilityParameter
 * CheckNameAvailabilityParameter `object`: Parameter supplied to check Namespace name availability operation 
@@ -1097,7 +1168,7 @@ azure_eventhub_eventhub.Namespaces_GetMessagingPlan({
   * properties `object`: Single item in List or Get Consumer group operation
     * createdAt `string`: Exact time the message was created.
     * updatedAt `string`: The exact time the message was updated.
-    * userMetadata `string`: Usermetadata is a placeholder to store user-defined string data with maximum length 1024. e.g. it can be used to store descriptive data, such as list of teams and their contact information also user-defined configuration settings can be stored.
+    * userMetadata `string`: User Metadata is a placeholder to store user-defined string data with maximum length 1024. e.g. it can be used to store descriptive data, such as list of teams and their contact information also user-defined configuration settings can be stored.
   * id `string`: Resource Id
   * name `string`: Resource name
   * type `string`: Resource type
@@ -1111,7 +1182,7 @@ azure_eventhub_eventhub.Namespaces_GetMessagingPlan({
 ### Destination
 * Destination `object`: Capture storage details for capture description
   * name `string`: Name for capture destination
-  * properties `object`: Properties describing the storage account, blob container and acrchive anme format for capture destination
+  * properties `object`: Properties describing the storage account, blob container and archive name format for capture destination
     * archiveNameFormat `string`: Blob naming convention for archive, e.g. {Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}. Here all the parameters (Namespace,EventHub .. etc) are mandatory irrespective of order
     * blobContainer `string`: Blob container Name
     * storageAccountResourceId `string`: Resource id of the storage account to be used to create the blobs
@@ -1121,7 +1192,8 @@ azure_eventhub_eventhub.Namespaces_GetMessagingPlan({
   * properties `object`: Namespace properties supplied for create namespace operation.
     * createdAt `string`: The time the Namespace was created.
     * isAutoInflateEnabled `boolean`: Value that indicates whether AutoInflate is enabled for eventhub namespace.
-    * maximumThroughputUnits `integer`: Upper limit of throughput units when AutoInflate is enabled, vaule should be within 0 to 20 throughput units. ( '0' if AutoInflateEnabled = true)
+    * kafkaEnabled `boolean`: Value that indicates whether Kafka is enabled for eventhub namespace.
+    * maximumThroughputUnits `integer`: Upper limit of throughput units when AutoInflate is enabled, value should be within 0 to 20 throughput units. ( '0' if AutoInflateEnabled = true)
     * metricId `string`: Identifier for Azure Insights metrics.
     * provisioningState `string`: Provisioning state of the Namespace.
     * serviceBusEndpoint `string`: Endpoint you can use to perform Service Bus operations.
@@ -1140,7 +1212,7 @@ azure_eventhub_eventhub.Namespaces_GetMessagingPlan({
     * items [EHNamespace](#ehnamespace)
 
 ### ErrorResponse
-* ErrorResponse `object`: Error reponse indicates EventHub service is not able to process the incoming request. The reason is provided in the error message.
+* ErrorResponse `object`: Error response indicates EventHub service is not able to process the incoming request. The reason is provided in the error message.
   * code `string`: Error code.
   * message `string`: Error message indicating why the operation failed.
 
@@ -1195,6 +1267,34 @@ azure_eventhub_eventhub.Namespaces_GetMessagingPlan({
   * value `array`: Result of the List MessagingRegions type.
     * items [MessagingRegions](#messagingregions)
 
+### NWRuleSetIpRules
+* NWRuleSetIpRules `object`: Description of NetWorkRuleSet - IpRules resource.
+  * action `string` (values: Allow): The IP Filter Action
+  * ipMask `string`: IP Mask
+
+### NWRuleSetVirtualNetworkRules
+* NWRuleSetVirtualNetworkRules `object`: Description of VirtualNetworkRules - NetworkRules resource.
+  * ignoreMissingVnetServiceEndpoint `boolean`: Value that indicates whether to ignore missing VNet Service Endpoint
+  * subnet [Subnet](#subnet)
+
+### NetworkRuleSet
+* NetworkRuleSet `object`: Description of NetworkRuleSet resource.
+  * properties `object`: NetworkRuleSet properties
+    * defaultAction `string` (values: Allow, Deny): Default Action for Network Rule Set
+    * ipRules `array`: List of IpRules
+      * items [NWRuleSetIpRules](#nwrulesetiprules)
+    * virtualNetworkRules `array`: List VirtualNetwork Rules
+      * items [NWRuleSetVirtualNetworkRules](#nwrulesetvirtualnetworkrules)
+  * id `string`: Resource Id
+  * name `string`: Resource name
+  * type `string`: Resource type
+
+### NetworkRuleSetListResult
+* NetworkRuleSetListResult `object`: The response of the List NetworkRuleSet operation
+  * nextLink `string`: Link to the next set of results. Not empty if Value contains incomplete list of NetworkRuleSet.
+  * value `array`: Result of the List NetworkRuleSet operation.
+    * items [NetworkRuleSet](#networkruleset)
+
 ### Operation
 * Operation `object`: A Event Hub REST API operation
   * display `object`: The object that represents the operation.
@@ -1210,7 +1310,7 @@ azure_eventhub_eventhub.Namespaces_GetMessagingPlan({
     * items [Operation](#operation)
 
 ### RegenerateAccessKeyParameters
-* RegenerateAccessKeyParameters `object`: Parameters supplied to the Regenerate Authorization Rule operation, specifies which key neeeds to be reset.
+* RegenerateAccessKeyParameters `object`: Parameters supplied to the Regenerate Authorization Rule operation, specifies which key needs to be reset.
   * key `string`: Optional, if the key value provided, is set for KeyType or autogenerated Key value set for keyType
   * keyType **required** `string` (values: PrimaryKey, SecondaryKey): The access key to regenerate.
 
@@ -1222,9 +1322,13 @@ azure_eventhub_eventhub.Namespaces_GetMessagingPlan({
 
 ### Sku
 * Sku `object`: SKU parameters supplied to the create namespace operation
-  * capacity `integer`: The Event Hubs throughput units, vaule should be 0 to 20 throughput units.
+  * capacity `integer`: The Event Hubs throughput units, value should be 0 to 20 throughput units.
   * name **required** `string` (values: Basic, Standard): Name of this SKU.
   * tier `string` (values: Basic, Standard): The billing tier of this particular SKU.
+
+### Subnet
+* Subnet `object`: Properties supplied for Subnet
+  * id **required** `string`: Resource ID of Virtual Network Subnet
 
 ### TrackedResource
 * TrackedResource `object`: Definition of Resource

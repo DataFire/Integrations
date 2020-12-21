@@ -111,7 +111,6 @@
                   "value": [
                     {
                       "display": {
-                        "description": "Registers the subscription for the NotifciationHubs resource provider and enables the creation of Namespaces and NotificationHubs",
                         "operation": "Registers the NotificationHubs Provider",
                         "provider": "Microsoft Azure Notification Hub",
                         "resource": "Microsoft Azure Notification Hub"
@@ -120,7 +119,6 @@
                     },
                     {
                       "display": {
-                        "description": "Unregisters the subscription for the NotifciationHubs resource provider and enables the creation of Namespaces and NotificationHubs",
                         "operation": "Unregisters the NotificationHubs Provider",
                         "provider": "Microsoft Azure Notification Hub",
                         "resource": "Microsoft Azure Notification Hub"
@@ -129,7 +127,6 @@
                     },
                     {
                       "display": {
-                        "description": "Returns operation results for Notification Hubs provider",
                         "operation": "Operation results for Notification Hubs provider",
                         "provider": "Microsoft Azure Notification Hub",
                         "resource": "Microsoft Azure Notification Hub"
@@ -138,7 +135,6 @@
                     },
                     {
                       "display": {
-                        "description": "Checks availability of namespace under given subscription.",
                         "operation": "Get namespace availability.",
                         "provider": "Microsoft Azure Notification Hub",
                         "resource": "Microsoft Azure Notification Hub"
@@ -147,7 +143,6 @@
                     },
                     {
                       "display": {
-                        "description": "Create a Namespace Resource and Update its properties. Tags and status of the Namespace are the properties which can be updated.",
                         "operation": "Create Or Update Namespace ",
                         "provider": "Microsoft Azure Notification Hub",
                         "resource": "Namespace"
@@ -156,7 +151,6 @@
                     },
                     {
                       "display": {
-                        "description": "Get the list of Namespace Resource Description",
                         "operation": "Get Namespace Resource",
                         "provider": "Microsoft Azure NotificationHubs",
                         "resource": "Namespace"
@@ -165,7 +159,6 @@
                     },
                     {
                       "display": {
-                        "description": "Delete Namespace Resource",
                         "operation": "Delete Namespace",
                         "provider": "Microsoft Azure NotificationHubs",
                         "resource": "Namespace"
@@ -174,7 +167,6 @@
                     },
                     {
                       "display": {
-                        "description": "Create a Namespace level Authorization Rules and update its properties. The Authorization Rules Access Rights, the Primary and Secondary Keys can be updated.",
                         "operation": "Create or Update Namespace Authorization Rules",
                         "provider": "Microsoft Azure NotificationHubs",
                         "resource": "AuthorizationRules"
@@ -183,7 +175,6 @@
                     },
                     {
                       "display": {
-                        "description": "Get the list of Namespaces Authorization Rules description.",
                         "operation": "Get Namespace Authorization Rules",
                         "provider": "Microsoft Azure NotificationHubs",
                         "resource": "AuthorizationRules"
@@ -192,7 +183,6 @@
                     },
                     {
                       "display": {
-                        "description": "Get the list of Namespaces Authorization Rules description.",
                         "operation": "Get Namespace Authorization Rules",
                         "provider": "Microsoft Azure NotificationHubs",
                         "resource": "AuthorizationRules"
@@ -201,7 +191,6 @@
                     },
                     {
                       "display": {
-                        "description": "Delete Namespace Authorization Rule. The Default Namespace Authorization Rule cannot be deleted. ",
                         "operation": "Delete Namespace Authorization Rule",
                         "provider": "Microsoft Azure NotificationHubs",
                         "resource": "AuthorizationRules"
@@ -210,7 +199,6 @@
                     },
                     {
                       "display": {
-                        "description": "Get the Connection String to the Namespace",
                         "operation": "Get Namespace Listkeys",
                         "provider": "Microsoft Azure NotificationHubs",
                         "resource": "AuthorizationRules"
@@ -219,7 +207,6 @@
                     },
                     {
                       "display": {
-                        "description": "Regenerate the Primary or Secondary key to the Resource",
                         "operation": "Resource Regeneratekeys",
                         "provider": "Microsoft Azure NotificationHubs",
                         "resource": "AuthorizationRules"
@@ -228,7 +215,6 @@
                     },
                     {
                       "display": {
-                        "description": "Checks whether or not a given NotificationHub name is available inside a Namespace",
                         "operation": "CheckNotificationHubAvailability",
                         "provider": "Microsoft Azure NotificationHubs",
                         "resource": "AuthorizationRules"
@@ -237,7 +223,6 @@
                     },
                     {
                       "display": {
-                        "description": "Create or Update notificationHub properties.",
                         "operation": "Create or Update notification hub",
                         "provider": "Microsoft Azure NotificationHubs",
                         "resource": "NotificationHub"
@@ -246,7 +231,6 @@
                     },
                     {
                       "display": {
-                        "description": "Get notification hub resource",
                         "operation": "Get notification hub",
                         "provider": "Microsoft Azure NotificationHubs",
                         "resource": "NotificationHub"
@@ -255,7 +239,6 @@
                     },
                     {
                       "display": {
-                        "description": "Operation to delete notification hub resource",
                         "operation": "Delete notification hub",
                         "provider": "Microsoft Azure NotificationHubs",
                         "resource": "NotificationHub"
@@ -264,7 +247,6 @@
                     },
                     {
                       "display": {
-                        "description": "Create NotificationHub Authorization Rules and Update its properties. The Authorization Rules Access Rights, the Primary and Secondary Keys can be updated.",
                         "operation": "Create or Update NotificationHub Authorization Rule",
                         "provider": "Microsoft Azure NotificationHubs",
                         "resource": "NotificationHub Authorization Rule"
@@ -273,7 +255,6 @@
                     },
                     {
                       "display": {
-                        "description": " Get the list of NotificationHub Authorization Rules",
                         "operation": " Get NotificationHub Authorization Rules",
                         "provider": "Microsoft Azure NotificationHubs",
                         "resource": "NotificationHub AuthorizationRules"
@@ -282,7 +263,6 @@
                     },
                     {
                       "display": {
-                        "description": " Get the list of NotificationHub Authorization Rules",
                         "operation": " Get NotificationHub Authorization Rules",
                         "provider": "Microsoft Azure NotificationHubs",
                         "resource": "NotificationHub AuthorizationRules"
@@ -291,7 +271,6 @@
                     },
                     {
                       "display": {
-                        "description": "Operation to delete NotificationHub Authorization Rules",
                         "operation": "Delete NotificationHub Authorization Rules",
                         "provider": "Microsoft Azure NotificationHubs",
                         "resource": "NotificationHub AuthorizationRules"
@@ -300,7 +279,6 @@
                     },
                     {
                       "display": {
-                        "description": "Get the Connection String to NotificationHub",
                         "operation": "List NotificationHub keys",
                         "provider": "Microsoft Azure NotificationHubs",
                         "resource": "NotificationHub AuthorizationRules"
@@ -309,7 +287,6 @@
                     },
                     {
                       "display": {
-                        "description": "Regenerate the Primary or Secondary key to the Resource",
                         "operation": "Resource Regeneratekeys",
                         "provider": "Microsoft Azure NotificationHubs",
                         "resource": "NotificationHub AuthorizationRules"
@@ -318,7 +295,6 @@
                     },
                     {
                       "display": {
-                        "description": "Get All Notification Hub PNS Credentials. This includes, WNS, MPNS, APNS, GCM and Baidu credentials",
                         "operation": "Resource Get Notification Hub PNS Credentials",
                         "provider": "Microsoft Azure NotificationHubs",
                         "resource": "NotificationHub PnsCredential"
@@ -327,7 +303,6 @@
                     },
                     {
                       "display": {
-                        "description": "Send a test push notification",
                         "operation": "Send a test push notification",
                         "provider": "Microsoft Azure NotificationHubs",
                         "resource": "NotificationHub resource"
@@ -336,7 +311,6 @@
                     },
                     {
                       "display": {
-                        "description": "Get list of Namespace metrics Resource Descriptions",
                         "operation": "Get NotificationHub metrics",
                         "provider": "Microsoft Azure NotificationHubs",
                         "resource": "NotificationHub metrics"
@@ -377,7 +351,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Checks if the Namespace name is a valid availabile name",
+            "description": "Checks if the Namespace name is a valid available name",
             "schema": {
               "$ref": "#/definitions/CheckAvailabilityResult"
             }
@@ -391,7 +365,6 @@
             "parameters": {
               "api-version": "2017-04-01",
               "parameters": {
-                "location": "West Europe",
                 "name": "sdk-Namespace-2924"
               },
               "subscriptionId": "29cfa613-cbbc-4512-b1d6-1b3a92c7fa40"
@@ -1878,7 +1851,7 @@
             "type": "string"
           },
           {
-            "description": "Aauthorization Rule Name.",
+            "description": "Authorization Rule Name.",
             "in": "path",
             "name": "authorizationRuleName",
             "required": true,
@@ -2088,7 +2061,7 @@
           "Namespaces"
         ],
         "x-ms-examples": {
-          "NameSpaceAuthorizationRuleRegenrateKey": {
+          "NameSpaceAuthorizationRuleRegenerateKey": {
             "parameters": {
               "api-version": "2017-04-01",
               "authorizationRuleName": "RootManageSharedAccessKey",
@@ -2151,7 +2124,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Checks if the NotificationHub name is a valid availabile name",
+            "description": "Checks if the NotificationHub name is a valid available name",
             "schema": {
               "$ref": "#/definitions/CheckAvailabilityResult"
             }
@@ -2226,7 +2199,7 @@
           "NotificationHubs"
         ],
         "x-ms-examples": {
-          "notificationhubListByNameSpace": {
+          "NotificationHubListByNameSpace": {
             "parameters": {
               "api-version": "2017-04-01",
               "namespaceName": "nh-sdk-ns",
@@ -2302,7 +2275,7 @@
           "NotificationHubs"
         ],
         "x-ms-examples": {
-          "notificationhubDelete": {
+          "NotificationHubDelete": {
             "parameters": {
               "api-version": "2017-04-01",
               "namespaceName": "nh-sdk-ns",
@@ -2360,12 +2333,92 @@
           "NotificationHubs"
         ],
         "x-ms-examples": {
-          "notificationhubGet": {
+          "NotificationHubGet": {
             "parameters": {
               "api-version": "2017-04-01",
               "namespaceName": "nh-sdk-ns",
               "notificationHubName": "nh-sdk-hub",
               "resourceGroupName": "5ktrial",
+              "subscriptionId": "29cfa613-cbbc-4512-b1d6-1b3a92c7fa40"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "id": "/subscriptions/29cfa613-cbbc-4512-b1d6-1b3a92c7fa40/resourceGroups/sdkresourceGroup/providers/Microsoft.NotificationHubs/namespaces/nh-sdk-ns/notificationHubs/nh-sdk-hub",
+                  "location": "South Central US",
+                  "name": "nh-sdk-hub",
+                  "properties": {
+                    "authorizationRules": [],
+                    "registrationTtl": "10675199.02:48:05.4775807"
+                  },
+                  "tags": null,
+                  "type": "Microsoft.NotificationHubs/namespaces/notificationHubs"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "description": "Patch a NotificationHub in a namespace.",
+        "operationId": "NotificationHubs_Patch",
+        "parameters": [
+          {
+            "description": "The name of the resource group.",
+            "in": "path",
+            "name": "resourceGroupName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The namespace name.",
+            "in": "path",
+            "name": "namespaceName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The notification hub name.",
+            "in": "path",
+            "name": "notificationHubName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Parameters supplied to patch a NotificationHub Resource.",
+            "in": "body",
+            "name": "parameters",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/NotificationHubPatchParameters"
+            }
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "NotificationHub is patched",
+            "schema": {
+              "$ref": "#/definitions/NotificationHubResource"
+            }
+          }
+        },
+        "tags": [
+          "NotificationHubs"
+        ],
+        "x-ms-examples": {
+          "NotificationHubPatch": {
+            "parameters": {
+              "api-version": "2017-04-01",
+              "namespaceName": "nh-sdk-ns",
+              "notificationHubName": "sdk-notificationHubs-8708",
+              "parameters": {},
+              "resourceGroupName": "sdkresourceGroup",
               "subscriptionId": "29cfa613-cbbc-4512-b1d6-1b3a92c7fa40"
             },
             "responses": {
@@ -2445,12 +2498,13 @@
           "NotificationHubs"
         ],
         "x-ms-examples": {
-          "notificationhubCreate": {
+          "NotificationHubCreate": {
             "parameters": {
               "api-version": "2017-04-01",
               "namespaceName": "nh-sdk-ns",
               "notificationHubName": "nh-sdk-hub",
               "parameters": {
+                "location": "eastus",
                 "properties": {}
               },
               "resourceGroupName": "5ktrial",
@@ -2460,7 +2514,7 @@
               "200": {
                 "body": {
                   "id": "/subscriptions/29cfa613-cbbc-4512-b1d6-1b3a92c7fa40/resourceGroups/sdkresourceGroup/providers/Microsoft.NotificationHubs/namespaces/nh-sdk-ns/notificationHubs/nh-sdk-hub",
-                  "location": "South Central US",
+                  "location": "eastus",
                   "name": "nh-sdk-hub",
                   "properties": {
                     "authorizationRules": [],
@@ -2473,7 +2527,7 @@
               "201": {
                 "body": {
                   "id": "/subscriptions/29cfa613-cbbc-4512-b1d6-1b3a92c7fa40/resourceGroups/sdkresourceGroup/providers/Microsoft.NotificationHubs/namespaces/nh-sdk-ns/notificationHubs/nh-sdk-hub",
-                  "location": "South Central US",
+                  "location": "eastus",
                   "name": "nh-sdk-hub",
                   "properties": {
                     "authorizationRules": [],
@@ -2533,7 +2587,7 @@
           "NotificationHubs"
         ],
         "x-ms-examples": {
-          "notificationhubAuthorizationRuleListAll": {
+          "NotificationHubAuthorizationRuleListAll": {
             "parameters": {
               "api-version": "2017-04-01",
               "namespaceName": "nh-sdk-ns",
@@ -2648,7 +2702,7 @@
           "NotificationHubs"
         ],
         "x-ms-examples": {
-          "notificationhubAuthorizationRuleDelete": {
+          "NotificationHubAuthorizationRuleDelete": {
             "parameters": {
               "api-version": "2017-04-01",
               "authorizationRuleName": "DefaultListenSharedAccessSignature",
@@ -2715,7 +2769,7 @@
           "NotificationHubs"
         ],
         "x-ms-examples": {
-          "notificationhubAuthorizationRuleGet": {
+          "NotificationHubAuthorizationRuleGet": {
             "parameters": {
               "api-version": "2017-04-01",
               "authorizationRuleName": "DefaultListenSharedAccessSignature",
@@ -2810,7 +2864,7 @@
           "NotificationHubs"
         ],
         "x-ms-examples": {
-          "notificationhubAuthorizationRuleCreate": {
+          "NotificationHubAuthorizationRuleCreate": {
             "parameters": {
               "api-version": "2017-04-01",
               "authorizationRuleName": "DefaultListenSharedAccessSignature",
@@ -2906,7 +2960,7 @@
           "NotificationHubs"
         ],
         "x-ms-examples": {
-          "notificationhubAuthorizationRuleListKey": {
+          "NotificationHubAuthorizationRuleListKey": {
             "parameters": {
               "api-version": "2017-04-01",
               "authorizationRuleName": "sdk-AuthRules-5800",
@@ -2991,7 +3045,7 @@
           "NotificationHubs"
         ],
         "x-ms-examples": {
-          "notificationhubAuthorizationRuleRegenrateKey": {
+          "NotificationHubAuthorizationRuleRegenrateKey": {
             "parameters": {
               "api-version": "2017-04-01",
               "authorizationRuleName": "DefaultListenSharedAccessSignature",
@@ -3011,6 +3065,93 @@
                   "primaryKey": "#################################",
                   "secondaryConnectionString": "Endpoint=sb://nh-sdk-ns.servicebus.windows.net/;SharedAccessKeyName=DefaultListenSharedAccessSignature;SharedAccessKey=#################################",
                   "secondaryKey": "#################################"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NotificationHubs/namespaces/{namespaceName}/notificationHubs/{notificationHubName}/debugsend": {
+      "post": {
+        "description": "test send a push notification",
+        "operationId": "NotificationHubs_DebugSend",
+        "parameters": [
+          {
+            "description": "The name of the resource group.",
+            "in": "path",
+            "name": "resourceGroupName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The namespace name.",
+            "in": "path",
+            "name": "namespaceName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The notification hub name.",
+            "in": "path",
+            "name": "notificationHubName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Debug send parameters",
+            "in": "body",
+            "name": "parameters",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/DebugSendParameters"
+            }
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "push send status",
+            "schema": {
+              "$ref": "#/definitions/DebugSendResponse"
+            }
+          }
+        },
+        "tags": [
+          "NotificationHubs"
+        ],
+        "x-ms-examples": {
+          "debugsend": {
+            "parameters": {
+              "api-version": "2017-04-01",
+              "namespaceName": "nh-sdk-ns",
+              "notificationHubName": "nh-sdk-hub",
+              "parameters": {
+                "data": {
+                  "message": "Hello"
+                }
+              },
+              "resourceGroupName": "5ktrial",
+              "subscriptionId": "29cfa613-cbbc-4512-b1d6-1b3a92c7fa40"
+            },
+            "responses": {
+              "201": {
+                "body": {
+                  "id": "/subscriptions/29cfa613-cbbc-4512-b1d6-1b3a92c7fa40/resourceGroups/sdkresourceGroup/providers/Microsoft.NotificationHubs/namespaces/nh-sdk-ns/notificationHubs/nh-sdk-hub",
+                  "location": "South Central US",
+                  "name": "nh-sdk-hub",
+                  "properties": {
+                    "failure": 0,
+                    "results": null,
+                    "success": 1
+                  },
+                  "tags": null,
+                  "type": "Microsoft.NotificationHubs/namespaces/notificationHubs"
                 }
               }
             }
@@ -3160,7 +3301,7 @@
           "type": "string"
         },
         "thumbprint": {
-          "description": "The Apns certificate Thumbprint",
+          "description": "The APNS certificate Thumbprint",
           "type": "string"
         },
         "token": {
@@ -3234,8 +3375,7 @@
         }
       },
       "required": [
-        "name",
-        "location"
+        "name"
       ]
     },
     "CheckAvailabilityResult": {
@@ -3244,7 +3384,7 @@
           "$ref": "#/definitions/Resource"
         }
       ],
-      "description": "Description of a CheckAvailibility resource.",
+      "description": "Description of a CheckAvailability resource.",
       "properties": {
         "isAvailiable": {
           "description": "True if the name is available and can be used to create new Namespace/NotificationHub. Otherwise false.",
@@ -3252,8 +3392,44 @@
         }
       }
     },
+    "DebugSendParameters": {
+      "description": "Debug Send payload",
+      "type": "object"
+    },
+    "DebugSendResponse": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Resource"
+        }
+      ],
+      "description": "Description of a NotificationHub Resource.",
+      "properties": {
+        "properties": {
+          "$ref": "#/definitions/DebugSendResult",
+          "description": "Properties of the NotificationHub.",
+          "x-ms-client-flatten": true
+        }
+      }
+    },
+    "DebugSendResult": {
+      "properties": {
+        "failure": {
+          "description": "send failure",
+          "type": "number"
+        },
+        "results": {
+          "description": "actual failure description",
+          "type": "object"
+        },
+        "success": {
+          "description": "successful send",
+          "type": "number"
+        }
+      },
+      "x-ms-azure-resource": true
+    },
     "ErrorResponse": {
-      "description": "Error reponse indicates NotificationHubs service is not able to process the incoming request. The reason is provided in the error message.",
+      "description": "Error response indicates NotificationHubs service is not able to process the incoming request. The reason is provided in the error message.",
       "properties": {
         "code": {
           "description": "Error code.",
@@ -3311,7 +3487,7 @@
           "type": "string"
         },
         "thumbprint": {
-          "description": "The Mpns certificate Thumbprint",
+          "description": "The MPNS certificate Thumbprint",
           "type": "string"
         }
       }
@@ -3412,7 +3588,7 @@
           "type": "string"
         },
         "region": {
-          "description": "Specifies the targeted region in which the namespace should be created. It can be any of the following values: Australia EastAustralia SoutheastCentral USEast USEast US 2West USNorth Central USSouth Central USEast AsiaSoutheast AsiaBrazil SouthJapan EastJapan WestNorth EuropeWest Europe",
+          "description": "Specifies the targeted region in which the namespace should be created. It can be any of the following values: Australia East, Australia Southeast, Central US, East US, East US 2, West US, North Central US, South Central US, East Asia, Southeast Asia, Brazil South, Japan East, Japan West, North Europe, West Europe",
           "externalDocs": {
             "url": "http://msdn.microsoft.com/en-us/library/windowsazure/jj873988.aspx"
           },
@@ -3493,6 +3669,21 @@
             "$ref": "#/definitions/NotificationHubResource"
           },
           "type": "array"
+        }
+      }
+    },
+    "NotificationHubPatchParameters": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Resource"
+        }
+      ],
+      "description": "Parameters supplied to the patch NotificationHub operation.",
+      "properties": {
+        "properties": {
+          "$ref": "#/definitions/NotificationHubProperties",
+          "description": "Properties of the NotificationHub.",
+          "x-ms-client-flatten": true
         }
       }
     },
@@ -3816,7 +4007,7 @@
       "properties": {
         "properties": {
           "$ref": "#/definitions/SharedAccessAuthorizationRuleProperties",
-          "description": "Pproperties of the Namespace AuthorizationRule.",
+          "description": "Properties of the Namespace AuthorizationRule.",
           "x-ms-client-flatten": true
         }
       }

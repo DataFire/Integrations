@@ -9,12 +9,7 @@ npm install --save @datafire/opencagedata
 ```js
 let opencagedata = require('@datafire/opencagedata').create();
 
-opencagedata.vversion.format.get({
-  "version": 0,
-  "format": "",
-  "q": "",
-  "key": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -56,6 +51,8 @@ opencagedata.vversion.format.get({
   * no_dedupe `boolean`: when true results are not deduplicated.
   * no_record `boolean`: when true query content is not logged.
   * pretty `boolean`: when true results are pretty printed. Useful for debugging.
+  * proximity `string`: lat,lng to bias results.
+  * roadinfo `boolean`: match nearest road, include roadinfo annotation
 
 #### Output
 * output [Response](#response)

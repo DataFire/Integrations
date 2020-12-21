@@ -13,7 +13,7 @@ let amazonaws_mediatailor = require('@datafire/amazonaws_mediatailor').create({
   region: ""
 });
 
-amazonaws_mediatailor.PutPlaybackConfiguration({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -34,11 +34,30 @@ amazonaws_mediatailor.PutPlaybackConfiguration({}, context)
 
 #### Input
 * input `object`
-  * AdDecisionServerUrl [__string](#__string)
-  * CdnConfiguration [CdnConfiguration](#cdnconfiguration)
-  * Name [__string](#__string)
-  * SlateAdUrl [__string](#__string)
-  * VideoContentSourceUrl [__string](#__string)
+  * tags `object`: The tags to assign to the playback configuration. 
+  * AdDecisionServerUrl `string`: The URL for the ad decision server (ADS). This includes the specification of static parameters and placeholders for dynamic parameters. AWS Elemental MediaTailor substitutes player-specific and session-specific parameters as needed when calling the ADS. Alternately, for testing you can provide a static VAST URL. The maximum length is 25,000 characters.
+  * AvailSuppression `object`: The configuration for Avail Suppression. Ad suppression can be used to turn off ad personalization in a long manifest, or if a viewer joins mid-break.
+    * Mode
+    * Value
+  * Bumper `object`: The configuration for bumpers. Bumpers are short audio or video clips that play at the start or before the end of an ad break. 
+    * EndUrl
+    * StartUrl
+  * CdnConfiguration `object`: The configuration for using a content delivery network (CDN), like Amazon CloudFront, for content and ad segment management. 
+    * AdSegmentUrlPrefix
+    * ContentSegmentUrlPrefix
+  * DashConfiguration `object`: The configuration for DASH PUT operations. 
+    * MpdLocation
+    * OriginManifestType
+  * LivePreRollConfiguration `object`: The configuration for pre-roll ad insertion.
+    * AdDecisionServerUrl
+    * MaxDurationSeconds
+  * ManifestProcessingRules `object`: The configuration for manifest processing rules. Manifest processing rules enable customization of the personalized manifests created by MediaTailor.
+    * AdMarkerPassthrough [AdMarkerPassthrough](#admarkerpassthrough)
+  * Name `string`: The identifier for the playback configuration.
+  * PersonalizationThresholdSeconds `integer`: The maximum duration of underfilled ad time (in seconds) allowed in an ad break.
+  * SlateAdUrl `string`: The URL for a high-quality video asset to transcode and use to fill in time that's not used by ads. AWS Elemental MediaTailor shows the slate to fill in gaps in media content. Configuring the slate is optional for non-VPAID configurations. For VPAID, the slate is required because MediaTailor provides it in the slots that are designated for dynamic ad content. The slate must be a high-quality asset that contains both audio and video. 
+  * TranscodeProfileName `string`: The name that is used to associate this playback configuration with a custom transcode profile. This overrides the dynamic transcoding defaults of MediaTailor. Use this only if you have already set up custom profiles with the help of AWS Support.
+  * VideoContentSourceUrl `string`: The URL prefix for the master playlist for the stream, minus the asset ID. The maximum length is 512 characters.
 
 #### Output
 * output [PutPlaybackConfigurationResponse](#putplaybackconfigurationresponse)
@@ -87,18 +106,103 @@ amazonaws_mediatailor.ListPlaybackConfigurations({}, context)
 
 #### Input
 * input `object`
+  * MaxResults `integer`
+  * NextToken `string`
 
 #### Output
 * output [ListPlaybackConfigurationsResponse](#listplaybackconfigurationsresponse)
+
+### ListTagsForResource
+
+
+
+```js
+amazonaws_mediatailor.ListTagsForResource({
+  "ResourceArn": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * ResourceArn **required** `string`
+
+#### Output
+* output [ListTagsForResourceResponse](#listtagsforresourceresponse)
+
+### TagResource
+
+
+
+```js
+amazonaws_mediatailor.TagResource({
+  "ResourceArn": "",
+  "tags": {}
+}, context)
+```
+
+#### Input
+* input `object`
+  * ResourceArn **required** `string`
+  * tags **required** `object`: A comma-separated list of tag key:value pairs. For example: 
+
+#### Output
+*Output schema unknown*
+
+### UntagResource
+
+
+
+```js
+amazonaws_mediatailor.UntagResource({
+  "ResourceArn": "",
+  "tagKeys": []
+}, context)
+```
+
+#### Input
+* input `object`
+  * ResourceArn **required** `string`
+  * tagKeys **required** `array`
+
+#### Output
+*Output schema unknown*
 
 
 
 ## Definitions
 
+### AdMarkerPassthrough
+* AdMarkerPassthrough `object`: The configuration for Ad Marker Passthrough. Ad marker passthrough can be used to pass ad markers from the origin to the customized manifest.
+  * Enabled
+
+### AvailSuppression
+* AvailSuppression `object`: The configuration for Avail Suppression. Ad suppression can be used to turn off ad personalization in a long manifest, or if a viewer joins mid-break.
+  * Mode
+  * Value
+
+### BadRequestException
+
+
+### Bumper
+* Bumper `object`: The configuration for bumpers. Bumpers are short audio or video clips that play at the start or before the end of an ad break. 
+  * EndUrl
+  * StartUrl
+
 ### CdnConfiguration
 * CdnConfiguration `object`: The configuration for using a content delivery network (CDN), like Amazon CloudFront, for content and ad segment management. 
-  * AdSegmentUrlPrefix [__string](#__string)
-  * ContentSegmentUrlPrefix [__string](#__string)
+  * AdSegmentUrlPrefix
+  * ContentSegmentUrlPrefix
+
+### DashConfiguration
+* DashConfiguration `object`: The configuration for DASH content. 
+  * ManifestEndpointPrefix
+  * MpdLocation
+  * OriginManifestType
+
+### DashConfigurationForPut
+* DashConfigurationForPut `object`: The configuration for DASH PUT operations. 
+  * MpdLocation
+  * OriginManifestType
 
 ### DeletePlaybackConfigurationRequest
 * DeletePlaybackConfigurationRequest `object`
@@ -106,70 +210,182 @@ amazonaws_mediatailor.ListPlaybackConfigurations({}, context)
 ### DeletePlaybackConfigurationResponse
 * DeletePlaybackConfigurationResponse `object`
 
-### Empty
-* Empty `object`
-
 ### GetPlaybackConfigurationRequest
 * GetPlaybackConfigurationRequest `object`
 
 ### GetPlaybackConfigurationResponse
 * GetPlaybackConfigurationResponse `object`
-  * AdDecisionServerUrl [__string](#__string)
-  * CdnConfiguration [CdnConfiguration](#cdnconfiguration)
-  * HlsConfiguration [HlsConfiguration](#hlsconfiguration)
-  * Name [__string](#__string)
-  * PlaybackEndpointPrefix [__string](#__string)
-  * SessionInitializationEndpointPrefix [__string](#__string)
-  * SlateAdUrl [__string](#__string)
-  * VideoContentSourceUrl [__string](#__string)
+  * AdDecisionServerUrl
+  * AvailSuppression
+    * Mode
+    * Value
+  * Bumper
+    * EndUrl
+    * StartUrl
+  * CdnConfiguration
+    * AdSegmentUrlPrefix
+    * ContentSegmentUrlPrefix
+  * DashConfiguration
+    * ManifestEndpointPrefix
+    * MpdLocation
+    * OriginManifestType
+  * HlsConfiguration
+    * ManifestEndpointPrefix
+  * LivePreRollConfiguration
+    * AdDecisionServerUrl
+    * MaxDurationSeconds
+  * ManifestProcessingRules
+    * AdMarkerPassthrough [AdMarkerPassthrough](#admarkerpassthrough)
+  * Name
+  * PersonalizationThresholdSeconds
+  * PlaybackConfigurationArn
+  * PlaybackEndpointPrefix
+  * SessionInitializationEndpointPrefix
+  * SlateAdUrl
+  * Tags
+  * TranscodeProfileName
+  * VideoContentSourceUrl
 
 ### HlsConfiguration
 * HlsConfiguration `object`: The configuration for HLS content. 
-  * ManifestEndpointPrefix [__string](#__string)
+  * ManifestEndpointPrefix
 
 ### ListPlaybackConfigurationsRequest
 * ListPlaybackConfigurationsRequest `object`
 
 ### ListPlaybackConfigurationsResponse
 * ListPlaybackConfigurationsResponse `object`
-  * Items [__listOfPlaybackConfigurations](#__listofplaybackconfigurations)
-  * NextToken [__string](#__string)
+  * Items
+    * items [PlaybackConfiguration](#playbackconfiguration)
+  * NextToken
+
+### ListTagsForResourceRequest
+* ListTagsForResourceRequest `object`
+
+### ListTagsForResourceResponse
+* ListTagsForResourceResponse `object`
+  * Tags
+
+### LivePreRollConfiguration
+* LivePreRollConfiguration `object`: The configuration for pre-roll ad insertion.
+  * AdDecisionServerUrl
+  * MaxDurationSeconds
+
+### ManifestProcessingRules
+* ManifestProcessingRules `object`: The configuration for manifest processing rules. Manifest processing rules enable customization of the personalized manifests created by MediaTailor.
+  * AdMarkerPassthrough [AdMarkerPassthrough](#admarkerpassthrough)
+
+### Mode
+* Mode `string` (values: OFF, BEHIND_LIVE_EDGE)
+
+### OriginManifestType
+* OriginManifestType `string` (values: SINGLE_PERIOD, MULTI_PERIOD)
 
 ### PlaybackConfiguration
 * PlaybackConfiguration `object`: The AWSMediaTailor configuration.
-  * AdDecisionServerUrl [__string](#__string)
-  * CdnConfiguration [CdnConfiguration](#cdnconfiguration)
-  * Name [__string](#__string)
-  * SlateAdUrl [__string](#__string)
-  * VideoContentSourceUrl [__string](#__string)
+  * AdDecisionServerUrl
+  * AvailSuppression
+    * Mode
+    * Value
+  * Bumper
+    * EndUrl
+    * StartUrl
+  * CdnConfiguration
+    * AdSegmentUrlPrefix
+    * ContentSegmentUrlPrefix
+  * DashConfiguration
+    * ManifestEndpointPrefix
+    * MpdLocation
+    * OriginManifestType
+  * HlsConfiguration
+    * ManifestEndpointPrefix
+  * ManifestProcessingRules
+    * AdMarkerPassthrough [AdMarkerPassthrough](#admarkerpassthrough)
+  * Name
+  * PersonalizationThresholdSeconds
+  * PlaybackConfigurationArn
+  * PlaybackEndpointPrefix
+  * SessionInitializationEndpointPrefix
+  * SlateAdUrl
+  * Tags
+  * TranscodeProfileName
+  * VideoContentSourceUrl
 
 ### PutPlaybackConfigurationRequest
 * PutPlaybackConfigurationRequest `object`
-  * AdDecisionServerUrl [__string](#__string)
-  * CdnConfiguration [CdnConfiguration](#cdnconfiguration)
-  * Name [__string](#__string)
-  * SlateAdUrl [__string](#__string)
-  * VideoContentSourceUrl [__string](#__string)
+  * AdDecisionServerUrl
+  * AvailSuppression
+    * Mode
+    * Value
+  * Bumper
+    * EndUrl
+    * StartUrl
+  * CdnConfiguration
+    * AdSegmentUrlPrefix
+    * ContentSegmentUrlPrefix
+  * DashConfiguration
+    * MpdLocation
+    * OriginManifestType
+  * LivePreRollConfiguration
+    * AdDecisionServerUrl
+    * MaxDurationSeconds
+  * ManifestProcessingRules
+    * AdMarkerPassthrough [AdMarkerPassthrough](#admarkerpassthrough)
+  * Name
+  * PersonalizationThresholdSeconds
+  * SlateAdUrl
+  * Tags
+  * TranscodeProfileName
+  * VideoContentSourceUrl
 
 ### PutPlaybackConfigurationResponse
 * PutPlaybackConfigurationResponse `object`
-  * AdDecisionServerUrl [__string](#__string)
-  * CdnConfiguration [CdnConfiguration](#cdnconfiguration)
-  * HlsConfiguration [HlsConfiguration](#hlsconfiguration)
-  * Name [__string](#__string)
-  * PlaybackEndpointPrefix [__string](#__string)
-  * SessionInitializationEndpointPrefix [__string](#__string)
-  * SlateAdUrl [__string](#__string)
-  * VideoContentSourceUrl [__string](#__string)
+  * AdDecisionServerUrl
+  * AvailSuppression
+    * Mode
+    * Value
+  * Bumper
+    * EndUrl
+    * StartUrl
+  * CdnConfiguration
+    * AdSegmentUrlPrefix
+    * ContentSegmentUrlPrefix
+  * DashConfiguration
+    * ManifestEndpointPrefix
+    * MpdLocation
+    * OriginManifestType
+  * HlsConfiguration
+    * ManifestEndpointPrefix
+  * LivePreRollConfiguration
+    * AdDecisionServerUrl
+    * MaxDurationSeconds
+  * ManifestProcessingRules
+    * AdMarkerPassthrough [AdMarkerPassthrough](#admarkerpassthrough)
+  * Name
+  * PersonalizationThresholdSeconds
+  * PlaybackConfigurationArn
+  * PlaybackEndpointPrefix
+  * SessionInitializationEndpointPrefix
+  * SlateAdUrl
+  * Tags
+  * TranscodeProfileName
+  * VideoContentSourceUrl
+
+### TagResourceRequest
+* TagResourceRequest `object`
+  * Tags **required**
+
+### UntagResourceRequest
+* UntagResourceRequest `object`
 
 ### __boolean
 * __boolean `boolean`
 
-### __double
-* __double `number`
-
 ### __integer
 * __integer `integer`
+
+### __integerMin1
+* __integerMin1 `integer`
 
 ### __integerMin1Max100
 * __integerMin1Max100 `integer`
@@ -178,8 +394,12 @@ amazonaws_mediatailor.ListPlaybackConfigurations({}, context)
 * __listOfPlaybackConfigurations `array`
   * items [PlaybackConfiguration](#playbackconfiguration)
 
-### __long
-* __long `integer`
+### __listOf__string
+* __listOf__string `array`
+  * items [__string](#__string)
+
+### __mapOf__string
+* __mapOf__string `object`
 
 ### __string
 * __string `string`

@@ -19,7 +19,7 @@
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/monitor/resource-manager/microsoft.insights/stable/2016-03-01/logProfiles_API.json",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/monitor/resource-manager/Microsoft.Insights/stable/2016-03-01/logProfiles_API.json",
         "version": "2.0"
       }
     ],
@@ -137,6 +137,7 @@
                         "serviceBusRuleId": "",
                         "storageAccountId": "/subscriptions/df602c9c-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/JohnKemTest/providers/Microsoft.Storage/storageAccounts/johnkemtest8162"
                       },
+                      "tags": null,
                       "type": ""
                     },
                     {
@@ -159,6 +160,7 @@
                         "serviceBusRuleId": "",
                         "storageAccountId": "/subscriptions/df602c9c-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/JohnKemTest/providers/Microsoft.Storage/storageAccounts/johnkemtest8165"
                       },
+                      "tags": null,
                       "type": ""
                     }
                   ]
@@ -168,7 +170,9 @@
             }
           }
         },
-        "x-ms-pageable": {}
+        "x-ms-pageable": {
+          "nextLinkName": null
+        }
       }
     },
     "/subscriptions/{subscriptionId}/providers/microsoft.insights/logprofiles/{logProfileName}": {
@@ -202,9 +206,7 @@
               "subscriptionId": "b67f7fec-69fc-4974-9099-a26bd6ffeda3"
             },
             "responses": {
-              "200": {
-                "headers": {}
-              }
+              "200": {}
             }
           }
         }
@@ -226,30 +228,6 @@
         "responses": {
           "200": {
             "description": "Successful request to get more information about a log profile.",
-            "examples": {
-              "application/json": {
-                "id": "/subscriptions/df602c9c-7aa0-407d-a6fb-eb20c8bd1192/providers/microsoft.insights/logprofiles/default",
-                "location": "",
-                "name": "default",
-                "properties": {
-                  "categories": [
-                    "Delete",
-                    "Write",
-                    "Action"
-                  ],
-                  "locations": [
-                    "global"
-                  ],
-                  "retentionPolicy": {
-                    "days": 3,
-                    "enabled": true
-                  },
-                  "serviceBusRuleId": "",
-                  "storageAccountId": "/subscriptions/df602c9c-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/JohnKemTest/providers/Microsoft.Storage/storageAccounts/johnkemtest8162"
-                },
-                "type": ""
-              }
-            },
             "schema": {
               "$ref": "#/definitions/LogProfileResource"
             }
@@ -293,6 +271,7 @@
                     "serviceBusRuleId": "",
                     "storageAccountId": "/subscriptions/df602c9c-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/JohnKemTest/providers/Microsoft.Storage/storageAccounts/johnkemtest8162"
                   },
+                  "tags": null,
                   "type": ""
                 },
                 "headers": {}
@@ -425,30 +404,6 @@
         "responses": {
           "200": {
             "description": "Successful request to create or update a log profile",
-            "examples": {
-              "application/json": {
-                "id": "/subscriptions/df602c9c-7aa0-407d-a6fb-eb20c8bd1192/providers/microsoft.insights/logprofiles/default",
-                "location": "",
-                "name": "default",
-                "properties": {
-                  "categories": [
-                    "Delete",
-                    "Write",
-                    "Action"
-                  ],
-                  "locations": [
-                    "global"
-                  ],
-                  "retentionPolicy": {
-                    "days": 3,
-                    "enabled": true
-                  },
-                  "serviceBusRuleId": "",
-                  "storageAccountId": "/subscriptions/df602c9c-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/JohnKemTest/providers/Microsoft.Storage/storageAccounts/johnkemtest8162"
-                },
-                "type": ""
-              }
-            },
             "schema": {
               "$ref": "#/definitions/LogProfileResource"
             }
@@ -506,6 +461,7 @@
                     "serviceBusRuleId": "",
                     "storageAccountId": "/subscriptions/df602c9c-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/JohnKemTest/providers/Microsoft.Storage/storageAccounts/johnkemtest8162"
                   },
+                  "tags": null,
                   "type": ""
                 },
                 "headers": {}

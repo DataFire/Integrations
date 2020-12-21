@@ -9,10 +9,7 @@ npm install --save @datafire/exavault
 ```js
 let exavault = require('@datafire/exavault').create();
 
-exavault.authenticateUser({
-  "username": "",
-  "password": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

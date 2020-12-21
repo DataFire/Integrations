@@ -1,0 +1,1944 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "contact": {
+      "email": "mike.ralphson@gmail.com",
+      "name": "Mike Ralphson",
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
+    },
+    "description": "<p>Catalog API actions allow you to manage your entities through list, describe, and update capabilities. An entity can be a product or an offer on AWS Marketplace. </p> <p>You can automate your entity update process by integrating the AWS Marketplace Catalog API with your AWS Marketplace product build or deployment pipelines. You can also create your own applications on top of the Catalog API to manage your products on AWS Marketplace.</p>",
+    "license": {
+      "name": "Apache 2.0 License",
+      "url": "http://www.apache.org/licenses/"
+    },
+    "termsOfService": "https://aws.amazon.com/service-terms/",
+    "title": "AWS Marketplace Catalog Service",
+    "version": "2018-09-17",
+    "x-apiClientRegistration": {
+      "url": "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"
+    },
+    "x-apisguru-categories": [
+      "cloud"
+    ],
+    "x-logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"
+    },
+    "x-origin": [
+      {
+        "contentType": "application/json",
+        "converter": {
+          "url": "https://github.com/mermade/aws2openapi",
+          "version": "1.0.0"
+        },
+        "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/marketplace-catalog-2018-09-17.normal.json",
+        "x-apisguru-driver": "external"
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "amazonaws.com",
+    "x-release": "v4",
+    "x-serviceName": "marketplace-catalog",
+    "x-datafire": {
+      "name": "amazonaws_marketplace_catalog",
+      "type": "openapi"
+    }
+  },
+  "host": "catalog.marketplace.us-east-1.amazonaws.com",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/CancelChangeSet#catalog&changeSetId": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "patch": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Required. The catalog related to the request. Fixed value: <code>AWSMarketplace</code>.",
+            "in": "query",
+            "maxLength": 64,
+            "minLength": 1,
+            "name": "catalog",
+            "pattern": "^[a-zA-Z]+$",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Required. The unique identifier of the <code>StartChangeSet</code> request that you want to cancel.",
+            "in": "query",
+            "maxLength": 255,
+            "minLength": 1,
+            "name": "changeSetId",
+            "pattern": "^[\\w\\-]+$",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CancelChangeSetResponse"
+            }
+          },
+          "480": {
+            "description": "InternalServiceException",
+            "schema": {
+              "$ref": "#/definitions/InternalServiceException"
+            }
+          },
+          "481": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "482": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "484": {
+            "description": "ResourceInUseException",
+            "schema": {
+              "$ref": "#/definitions/ResourceInUseException"
+            }
+          },
+          "485": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          }
+        },
+        "description": "Used to cancel an open change request. Must be sent before the status of the request changes to <code>APPLYING</code>, the final stage of completing your change request. You can describe a change during the 60-day request history retention period for API calls.",
+        "operationId": "CancelChangeSet"
+      }
+    },
+    "/DescribeChangeSet#catalog&changeSetId": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Required. The catalog related to the request. Fixed value: <code>AWSMarketplace</code> ",
+            "in": "query",
+            "maxLength": 64,
+            "minLength": 1,
+            "name": "catalog",
+            "pattern": "^[a-zA-Z]+$",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Required. The unique identifier for the <code>StartChangeSet</code> request that you want to describe the details for.",
+            "in": "query",
+            "maxLength": 255,
+            "minLength": 1,
+            "name": "changeSetId",
+            "pattern": "^[\\w\\-]+$",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeChangeSetResponse"
+            }
+          },
+          "480": {
+            "description": "InternalServiceException",
+            "schema": {
+              "$ref": "#/definitions/InternalServiceException"
+            }
+          },
+          "481": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "482": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "484": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          }
+        },
+        "description": "Provides information about a given change set.",
+        "operationId": "DescribeChangeSet"
+      }
+    },
+    "/DescribeEntity#catalog&entityId": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Required. The catalog related to the request. Fixed value: <code>AWSMarketplace</code> ",
+            "in": "query",
+            "maxLength": 64,
+            "minLength": 1,
+            "name": "catalog",
+            "pattern": "^[a-zA-Z]+$",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Required. The unique ID of the entity to describe.",
+            "in": "query",
+            "maxLength": 255,
+            "minLength": 1,
+            "name": "entityId",
+            "pattern": "^[\\w\\-]+$",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeEntityResponse"
+            }
+          },
+          "480": {
+            "description": "InternalServiceException",
+            "schema": {
+              "$ref": "#/definitions/InternalServiceException"
+            }
+          },
+          "481": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "482": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "483": {
+            "description": "ResourceNotSupportedException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotSupportedException"
+            }
+          },
+          "484": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "485": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          }
+        },
+        "description": "Returns the metadata and content of the entity.",
+        "operationId": "DescribeEntity"
+      }
+    },
+    "/ListChangeSets": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "Catalog": {
+                  "description": "The catalog related to the request. Fixed value: <code>AWSMarketplace</code> ",
+                  "maxLength": 64,
+                  "minLength": 1,
+                  "pattern": "^[a-zA-Z]+$",
+                  "type": "string"
+                },
+                "FilterList": {
+                  "description": "An array of filter objects.",
+                  "items": {
+                    "$ref": "#/definitions/Filter"
+                  },
+                  "maxItems": 8,
+                  "minItems": 1,
+                  "type": "array"
+                },
+                "MaxResults": {
+                  "description": "The maximum number of results returned by a single call. This value must be provided in the next call to retrieve the next set of results. By default, this value is 20.",
+                  "maximum": 20,
+                  "minimum": 1,
+                  "type": "integer"
+                },
+                "NextToken": {
+                  "description": "The token value retrieved from a previous call to access the next page of results.",
+                  "maxLength": 2048,
+                  "minLength": 1,
+                  "pattern": "^[\\w+=.:@\\-\\/]$",
+                  "type": "string"
+                },
+                "Sort": {
+                  "description": "An object that contains two attributes, <code>SortBy</code> and <code>SortOrder</code>.",
+                  "properties": {
+                    "SortBy": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/SortBy"
+                        },
+                        {
+                          "description": "<p>For <code>ListEntities</code>, supported attributes include <code>LastModifiedDate</code> (default), <code>Visibility</code>, <code>EntityId</code>, and <code>Name</code>.</p> <p>For <code>ListChangeSets</code>, supported attributes include <code>StartTime</code> and <code>EndTime</code>.</p>"
+                        }
+                      ]
+                    },
+                    "SortOrder": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/SortOrder"
+                        },
+                        {
+                          "description": "The sorting order. Can be <code>ASCENDING</code> or <code>DESCENDING</code>. The default value is <code>DESCENDING</code>."
+                        }
+                      ]
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "required": [
+                "Catalog"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListChangeSetsResponse"
+            }
+          },
+          "480": {
+            "description": "InternalServiceException",
+            "schema": {
+              "$ref": "#/definitions/InternalServiceException"
+            }
+          },
+          "481": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "482": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          }
+        },
+        "description": "<p>Returns the list of change sets owned by the account being used to make the call. You can filter this list by providing any combination of <code>entityId</code>, <code>ChangeSetName</code>, and status. If you provide more than one filter, the API operation applies a logical AND between the filters.</p> <p>You can describe a change during the 60-day request history retention period for API calls.</p>",
+        "operationId": "ListChangeSets"
+      }
+    },
+    "/ListEntities": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "Catalog": {
+                  "description": "The catalog related to the request. Fixed value: <code>AWSMarketplace</code> ",
+                  "maxLength": 64,
+                  "minLength": 1,
+                  "pattern": "^[a-zA-Z]+$",
+                  "type": "string"
+                },
+                "EntityType": {
+                  "description": "The type of entities to retrieve.",
+                  "maxLength": 255,
+                  "minLength": 1,
+                  "pattern": "^[a-zA-Z]+$",
+                  "type": "string"
+                },
+                "FilterList": {
+                  "description": "An array of filter objects. Each filter object contains two attributes, <code>filterName</code> and <code>filterValues</code>.",
+                  "items": {
+                    "$ref": "#/definitions/Filter"
+                  },
+                  "maxItems": 8,
+                  "minItems": 1,
+                  "type": "array"
+                },
+                "MaxResults": {
+                  "description": "Specifies the upper limit of the elements on a single page. If a value isn't provided, the default value is 20.",
+                  "maximum": 20,
+                  "minimum": 1,
+                  "type": "integer"
+                },
+                "NextToken": {
+                  "description": "The value of the next token, if it exists. Null if there are no more results.",
+                  "maxLength": 2048,
+                  "minLength": 1,
+                  "pattern": "^[\\w+=.:@\\-\\/]$",
+                  "type": "string"
+                },
+                "Sort": {
+                  "description": "An object that contains two attributes, <code>SortBy</code> and <code>SortOrder</code>.",
+                  "properties": {
+                    "SortBy": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/SortBy"
+                        },
+                        {
+                          "description": "<p>For <code>ListEntities</code>, supported attributes include <code>LastModifiedDate</code> (default), <code>Visibility</code>, <code>EntityId</code>, and <code>Name</code>.</p> <p>For <code>ListChangeSets</code>, supported attributes include <code>StartTime</code> and <code>EndTime</code>.</p>"
+                        }
+                      ]
+                    },
+                    "SortOrder": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/SortOrder"
+                        },
+                        {
+                          "description": "The sorting order. Can be <code>ASCENDING</code> or <code>DESCENDING</code>. The default value is <code>DESCENDING</code>."
+                        }
+                      ]
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "required": [
+                "Catalog",
+                "EntityType"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListEntitiesResponse"
+            }
+          },
+          "480": {
+            "description": "InternalServiceException",
+            "schema": {
+              "$ref": "#/definitions/InternalServiceException"
+            }
+          },
+          "481": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "482": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "484": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          }
+        },
+        "description": "Provides the list of entities of a given type.",
+        "operationId": "ListEntities"
+      }
+    },
+    "/StartChangeSet": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "Catalog": {
+                  "description": "The catalog related to the request. Fixed value: <code>AWSMarketplace</code> ",
+                  "maxLength": 64,
+                  "minLength": 1,
+                  "pattern": "^[a-zA-Z]+$",
+                  "type": "string"
+                },
+                "ChangeSet": {
+                  "description": "Array of <code>change</code> object.",
+                  "items": {
+                    "$ref": "#/definitions/Change"
+                  },
+                  "maxItems": 20,
+                  "minItems": 1,
+                  "type": "array"
+                },
+                "ChangeSetName": {
+                  "description": "Optional case sensitive string of up to 100 ASCII characters. The change set name can be used to filter the list of change sets. ",
+                  "maxLength": 100,
+                  "minLength": 1,
+                  "pattern": "^[\\w\\s+=.:@-]+$",
+                  "type": "string"
+                },
+                "ClientRequestToken": {
+                  "description": "A unique token to identify the request to ensure idempotency.",
+                  "maxLength": 36,
+                  "minLength": 1,
+                  "pattern": "^[\\w\\-]+$",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "Catalog",
+                "ChangeSet"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/StartChangeSetResponse"
+            }
+          },
+          "480": {
+            "description": "InternalServiceException",
+            "schema": {
+              "$ref": "#/definitions/InternalServiceException"
+            }
+          },
+          "481": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "482": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "484": {
+            "description": "ResourceInUseException",
+            "schema": {
+              "$ref": "#/definitions/ResourceInUseException"
+            }
+          },
+          "485": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "486": {
+            "description": "ServiceQuotaExceededException",
+            "schema": {
+              "$ref": "#/definitions/ServiceQuotaExceededException"
+            }
+          }
+        },
+        "description": "<p>This operation allows you to request changes for your entities. Within a single ChangeSet, you cannot start the same change type against the same entity multiple times. Additionally, when a ChangeSet is running, all the entities targeted by the different changes are locked until the ChangeSet has completed (either succeeded, cancelled, or failed). If you try to start a ChangeSet containing a change against an entity that is already locked, you will receive a <code>ResourceInUseException</code>.</p> <p>For example, you cannot start the ChangeSet described in the <a href=\"https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_StartChangeSet.html#API_StartChangeSet_Examples\">example</a> below because it contains two changes to execute the same change type (<code>AddRevisions</code>) against the same entity (<code>entity-id@1)</code>.</p>",
+        "operationId": "StartChangeSet"
+      }
+    }
+  },
+  "definitions": {
+    "ARN": {
+      "maxLength": 2048,
+      "minLength": 1,
+      "pattern": "^[a-zA-Z0-9:*/-]+$",
+      "type": "string"
+    },
+    "AccessDeniedException": {},
+    "CancelChangeSetRequest": {
+      "properties": {},
+      "title": "CancelChangeSetRequest",
+      "type": "object"
+    },
+    "CancelChangeSetResponse": {
+      "properties": {
+        "ChangeSetArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ARN"
+            },
+            {
+              "description": "The ARN associated with the change set referenced in this request."
+            }
+          ]
+        },
+        "ChangeSetId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceId"
+            },
+            {
+              "description": "The unique identifier for the change set referenced in this request."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "Catalog": {
+      "maxLength": 64,
+      "minLength": 1,
+      "pattern": "^[a-zA-Z]+$",
+      "type": "string"
+    },
+    "Change": {
+      "description": "An object that contains the <code>ChangeType</code>, <code>Details</code>, and <code>Entity</code>.",
+      "properties": {
+        "ChangeType": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ChangeType"
+            },
+            {
+              "description": "Change types are single string values that describe your intention for the change. Each change type is unique for each <code>EntityType</code> provided in the change's scope."
+            }
+          ]
+        },
+        "Details": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Json"
+            },
+            {
+              "description": "This object contains details specific to the change type of the requested change."
+            }
+          ]
+        },
+        "Entity": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Entity"
+            },
+            {
+              "description": "The entity to be changed."
+            }
+          ]
+        }
+      },
+      "required": [
+        "ChangeType",
+        "Entity",
+        "Details"
+      ],
+      "type": "object"
+    },
+    "ChangeSetDescription": {
+      "items": {
+        "$ref": "#/definitions/ChangeSummary"
+      },
+      "type": "array"
+    },
+    "ChangeSetName": {
+      "maxLength": 100,
+      "minLength": 1,
+      "pattern": "^[\\w\\s+=.:@-]+$",
+      "type": "string"
+    },
+    "ChangeSetSummaryList": {
+      "items": {
+        "$ref": "#/definitions/ChangeSetSummaryListItem"
+      },
+      "type": "array"
+    },
+    "ChangeSetSummaryListItem": {
+      "description": "A summary of a change set returned in a list of change sets when the <code>ListChangeSets</code> action is called.",
+      "properties": {
+        "ChangeSetArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ARN"
+            },
+            {
+              "description": "The ARN associated with the unique identifier for the change set referenced in this request."
+            }
+          ]
+        },
+        "ChangeSetId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceId"
+            },
+            {
+              "description": "The unique identifier for a change set."
+            }
+          ]
+        },
+        "ChangeSetName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ChangeSetName"
+            },
+            {
+              "description": "The non-unique name for the change set."
+            }
+          ]
+        },
+        "EndTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DateTimeISO8601"
+            },
+            {
+              "description": "The time, in ISO 8601 format (2018-02-27T13:45:22Z), when the change set was finished."
+            }
+          ]
+        },
+        "EntityIdList": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceIdList"
+            },
+            {
+              "description": "This object is a list of entity IDs (string) that are a part of a change set. The entity ID list is a maximum of 20 entities. It must contain at least one entity."
+            }
+          ]
+        },
+        "FailureCode": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/FailureCode"
+            },
+            {
+              "description": "Returned if the change set is in <code>FAILED</code> status. Can be either <code>CLIENT_ERROR</code>, which means that there are issues with the request (see the <code>ErrorDetailList</code> of <code>DescribeChangeSet</code>), or <code>SERVER_FAULT</code>, which means that there is a problem in the system, and you should retry your request."
+            }
+          ]
+        },
+        "StartTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DateTimeISO8601"
+            },
+            {
+              "description": "The time, in ISO 8601 format (2018-02-27T13:45:22Z), when the change set was started."
+            }
+          ]
+        },
+        "Status": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ChangeStatus"
+            },
+            {
+              "description": "The current status of the change set."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ChangeStatus": {
+      "enum": [
+        "PREPARING",
+        "APPLYING",
+        "SUCCEEDED",
+        "CANCELLED",
+        "FAILED"
+      ],
+      "type": "string"
+    },
+    "ChangeSummary": {
+      "description": "This object is a container for common summary information about the change. The summary doesn't contain the whole change structure.",
+      "properties": {
+        "ChangeType": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ChangeType"
+            },
+            {
+              "description": "The type of the change."
+            }
+          ]
+        },
+        "Details": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Json"
+            },
+            {
+              "description": "This object contains details specific to the change type of the requested change."
+            }
+          ]
+        },
+        "Entity": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Entity"
+            },
+            {
+              "description": "The entity to be changed."
+            }
+          ]
+        },
+        "ErrorDetailList": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ErrorDetailList"
+            },
+            {
+              "description": "An array of <code>ErrorDetail</code> objects associated with the change."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ChangeType": {
+      "maxLength": 255,
+      "minLength": 1,
+      "pattern": "^[A-Z][\\w]*$",
+      "type": "string"
+    },
+    "ClientRequestToken": {
+      "maxLength": 36,
+      "minLength": 1,
+      "pattern": "^[\\w\\-]+$",
+      "type": "string"
+    },
+    "DateTimeISO8601": {
+      "maxLength": 20,
+      "minLength": 20,
+      "pattern": "^([\\d]{4})\\-(1[0-2]|0[1-9])\\-(3[01]|0[1-9]|[12][\\d])T(2[0-3]|[01][\\d]):([0-5][\\d]):([0-5][\\d])Z$",
+      "type": "string"
+    },
+    "DescribeChangeSetRequest": {
+      "properties": {},
+      "title": "DescribeChangeSetRequest",
+      "type": "object"
+    },
+    "DescribeChangeSetResponse": {
+      "properties": {
+        "ChangeSet": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ChangeSetDescription"
+            },
+            {
+              "description": "An array of <code>ChangeSummary</code> objects."
+            }
+          ]
+        },
+        "ChangeSetArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ARN"
+            },
+            {
+              "description": "The ARN associated with the unique identifier for the change set referenced in this request."
+            }
+          ]
+        },
+        "ChangeSetId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceId"
+            },
+            {
+              "description": "Required. The unique identifier for the change set referenced in this request."
+            }
+          ]
+        },
+        "ChangeSetName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ChangeSetName"
+            },
+            {
+              "description": "The optional name provided in the <code>StartChangeSet</code> request. If you do not provide a name, one is set by default."
+            }
+          ]
+        },
+        "EndTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DateTimeISO8601"
+            },
+            {
+              "description": "The date and time, in ISO 8601 format (2018-02-27T13:45:22Z), the request transitioned to a terminal state. The change cannot transition to a different state. Null if the request is not in a terminal state. "
+            }
+          ]
+        },
+        "FailureCode": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/FailureCode"
+            },
+            {
+              "description": "Returned if the change set is in <code>FAILED</code> status. Can be either <code>CLIENT_ERROR</code>, which means that there are issues with the request (see the <code>ErrorDetailList</code>), or <code>SERVER_FAULT</code>, which means that there is a problem in the system, and you should retry your request."
+            }
+          ]
+        },
+        "FailureDescription": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/StringValue"
+            },
+            {
+              "description": "Returned if there is a failure on the change set, but that failure is not related to any of the changes in the request."
+            }
+          ]
+        },
+        "StartTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DateTimeISO8601"
+            },
+            {
+              "description": "The date and time, in ISO 8601 format (2018-02-27T13:45:22Z), the request started. "
+            }
+          ]
+        },
+        "Status": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ChangeStatus"
+            },
+            {
+              "description": "The status of the change request."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DescribeEntityRequest": {
+      "properties": {},
+      "title": "DescribeEntityRequest",
+      "type": "object"
+    },
+    "DescribeEntityResponse": {
+      "properties": {
+        "Details": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Json"
+            },
+            {
+              "description": "This stringified JSON object includes the details of the entity."
+            }
+          ]
+        },
+        "EntityArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ARN"
+            },
+            {
+              "description": "The ARN associated to the unique identifier for the change set referenced in this request."
+            }
+          ]
+        },
+        "EntityIdentifier": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Identifier"
+            },
+            {
+              "description": "The identifier of the entity, in the format of <code>EntityId@RevisionId</code>."
+            }
+          ]
+        },
+        "EntityType": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/EntityType"
+            },
+            {
+              "description": "The named type of the entity, in the format of <code>EntityType@Version</code>."
+            }
+          ]
+        },
+        "LastModifiedDate": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/StringValue"
+            },
+            {
+              "description": "The last modified date of the entity, in ISO 8601 format (2018-02-27T13:45:22Z)."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "Entity": {
+      "description": "A product entity contains data that describes your product, its supported features, and how it can be used or launched by your customer. ",
+      "properties": {
+        "Identifier": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Identifier"
+            },
+            {
+              "description": "The identifier for the entity."
+            }
+          ]
+        },
+        "Type": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/EntityType"
+            },
+            {
+              "description": "The type of entity."
+            }
+          ]
+        }
+      },
+      "required": [
+        "Type"
+      ],
+      "type": "object"
+    },
+    "EntitySummary": {
+      "description": "This object is a container for common summary information about the entity. The summary doesn't contain the whole entity structure, but it does contain information common across all entities.",
+      "properties": {
+        "EntityArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ARN"
+            },
+            {
+              "description": "The ARN associated with the unique identifier for the entity."
+            }
+          ]
+        },
+        "EntityId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceId"
+            },
+            {
+              "description": "The unique identifier for the entity."
+            }
+          ]
+        },
+        "EntityType": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/EntityType"
+            },
+            {
+              "description": "The type of the entity."
+            }
+          ]
+        },
+        "LastModifiedDate": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/StringValue"
+            },
+            {
+              "description": "The last time the entity was published, using ISO 8601 format (2018-02-27T13:45:22Z)."
+            }
+          ]
+        },
+        "Name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/StringValue"
+            },
+            {
+              "description": "The name for the entity. This value is not unique. It is defined by the seller."
+            }
+          ]
+        },
+        "Visibility": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/StringValue"
+            },
+            {
+              "description": "The visibility status of the entity to buyers. This value can be <code>Public</code> (everyone can view the entity), <code>Limited</code> (the entity is visible to limited accounts only), or <code>Restricted</code> (the entity was published and then unpublished and only existing buyers can view it). "
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "EntitySummaryList": {
+      "items": {
+        "$ref": "#/definitions/EntitySummary"
+      },
+      "type": "array"
+    },
+    "EntityType": {
+      "maxLength": 255,
+      "minLength": 1,
+      "pattern": "^[a-zA-Z]+$",
+      "type": "string"
+    },
+    "ErrorDetail": {
+      "description": "Details about the error.",
+      "properties": {
+        "ErrorCode": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/StringValue"
+            },
+            {
+              "description": "The error code that identifies the type of error."
+            }
+          ]
+        },
+        "ErrorMessage": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/StringValue"
+            },
+            {
+              "description": "The message for the error."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ErrorDetailList": {
+      "items": {
+        "$ref": "#/definitions/ErrorDetail"
+      },
+      "type": "array"
+    },
+    "FailureCode": {
+      "enum": [
+        "CLIENT_ERROR",
+        "SERVER_FAULT"
+      ],
+      "type": "string"
+    },
+    "Filter": {
+      "description": "A filter object, used to optionally filter results from calls to the <code>ListEntities</code> and <code>ListChangeSets</code> actions.",
+      "properties": {
+        "Name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/FilterName"
+            },
+            {
+              "description": "<p>For <code>ListEntities</code>, the supported value for this is an <code>EntityId</code>.</p> <p>For <code>ListChangeSets</code>, the supported values are as follows:</p>"
+            }
+          ]
+        },
+        "ValueList": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ValueList"
+            },
+            {
+              "description": "<p> <code>ListEntities</code> - This is a list of unique <code>EntityId</code>s.</p> <p> <code>ListChangeSets</code> - The supported filter names and associated <code>ValueList</code>s is as follows:</p> <ul> <li> <p> <code>ChangeSetName</code> - The supported <code>ValueList</code> is a list of non-unique <code>ChangeSetName</code>s. These are defined when you call the <code>StartChangeSet</code> action.</p> </li> <li> <p> <code>Status</code> - The supported <code>ValueList</code> is a list of statuses for all change set requests.</p> </li> <li> <p> <code>EntityId</code> - The supported <code>ValueList</code> is a list of unique <code>EntityId</code>s.</p> </li> <li> <p> <code>BeforeStartTime</code> - The supported <code>ValueList</code> is a list of all change sets that started before the filter value.</p> </li> <li> <p> <code>AfterStartTime</code> - The supported <code>ValueList</code> is a list of all change sets that started after the filter value.</p> </li> <li> <p> <code>BeforeEndTime</code> - The supported <code>ValueList</code> is a list of all change sets that ended before the filter value.</p> </li> <li> <p> <code>AfterEndTime</code> - The supported <code>ValueList</code> is a list of all change sets that ended after the filter value.</p> </li> </ul>"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "FilterList": {
+      "items": {
+        "$ref": "#/definitions/Filter"
+      },
+      "maxItems": 8,
+      "minItems": 1,
+      "type": "array"
+    },
+    "FilterName": {
+      "maxLength": 255,
+      "minLength": 1,
+      "pattern": "^[a-zA-Z]+$",
+      "type": "string"
+    },
+    "Identifier": {
+      "maxLength": 255,
+      "minLength": 1,
+      "pattern": "^[\\w\\-@]+$",
+      "type": "string"
+    },
+    "InternalServiceException": {},
+    "Json": {
+      "maxLength": 16384,
+      "minLength": 2,
+      "pattern": "^[\\s]*\\{[\\s\\S]*\\}[\\s]*$",
+      "type": "string"
+    },
+    "ListChangeSetsRequest": {
+      "properties": {
+        "Catalog": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Catalog"
+            },
+            {
+              "description": "The catalog related to the request. Fixed value: <code>AWSMarketplace</code> "
+            }
+          ]
+        },
+        "FilterList": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/FilterList"
+            },
+            {
+              "description": "An array of filter objects."
+            }
+          ]
+        },
+        "MaxResults": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MaxResultInteger"
+            },
+            {
+              "description": "The maximum number of results returned by a single call. This value must be provided in the next call to retrieve the next set of results. By default, this value is 20."
+            }
+          ]
+        },
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NextToken"
+            },
+            {
+              "description": "The token value retrieved from a previous call to access the next page of results."
+            }
+          ]
+        },
+        "Sort": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Sort"
+            },
+            {
+              "description": "An object that contains two attributes, <code>SortBy</code> and <code>SortOrder</code>."
+            }
+          ]
+        }
+      },
+      "required": [
+        "Catalog"
+      ],
+      "title": "ListChangeSetsRequest",
+      "type": "object"
+    },
+    "ListChangeSetsResponse": {
+      "properties": {
+        "ChangeSetSummaryList": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ChangeSetSummaryList"
+            },
+            {
+              "description": " Array of <code>ChangeSetSummaryListItem</code> objects."
+            }
+          ]
+        },
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NextToken"
+            },
+            {
+              "description": "The value of the next token, if it exists. Null if there are no more results."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ListEntitiesRequest": {
+      "properties": {
+        "Catalog": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Catalog"
+            },
+            {
+              "description": "The catalog related to the request. Fixed value: <code>AWSMarketplace</code> "
+            }
+          ]
+        },
+        "EntityType": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/EntityType"
+            },
+            {
+              "description": "The type of entities to retrieve."
+            }
+          ]
+        },
+        "FilterList": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/FilterList"
+            },
+            {
+              "description": "An array of filter objects. Each filter object contains two attributes, <code>filterName</code> and <code>filterValues</code>."
+            }
+          ]
+        },
+        "MaxResults": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MaxResultInteger"
+            },
+            {
+              "description": "Specifies the upper limit of the elements on a single page. If a value isn't provided, the default value is 20."
+            }
+          ]
+        },
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NextToken"
+            },
+            {
+              "description": "The value of the next token, if it exists. Null if there are no more results."
+            }
+          ]
+        },
+        "Sort": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Sort"
+            },
+            {
+              "description": "An object that contains two attributes, <code>SortBy</code> and <code>SortOrder</code>."
+            }
+          ]
+        }
+      },
+      "required": [
+        "Catalog",
+        "EntityType"
+      ],
+      "title": "ListEntitiesRequest",
+      "type": "object"
+    },
+    "ListEntitiesResponse": {
+      "properties": {
+        "EntitySummaryList": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/EntitySummaryList"
+            },
+            {
+              "description": " Array of <code>EntitySummary</code> object."
+            }
+          ]
+        },
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NextToken"
+            },
+            {
+              "description": "The value of the next token if it exists. Null if there is no more result."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "MaxResultInteger": {
+      "maximum": 20,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "NextToken": {
+      "maxLength": 2048,
+      "minLength": 1,
+      "pattern": "^[\\w+=.:@\\-\\/]$",
+      "type": "string"
+    },
+    "RequestedChangeList": {
+      "items": {
+        "$ref": "#/definitions/Change"
+      },
+      "maxItems": 20,
+      "minItems": 1,
+      "type": "array"
+    },
+    "ResourceId": {
+      "maxLength": 255,
+      "minLength": 1,
+      "pattern": "^[\\w\\-]+$",
+      "type": "string"
+    },
+    "ResourceIdList": {
+      "items": {
+        "$ref": "#/definitions/ResourceId"
+      },
+      "type": "array"
+    },
+    "ResourceInUseException": {},
+    "ResourceNotFoundException": {},
+    "ResourceNotSupportedException": {},
+    "ServiceQuotaExceededException": {},
+    "Sort": {
+      "description": "An object that contains two attributes, <code>SortBy</code> and <code>SortOrder</code>.",
+      "properties": {
+        "SortBy": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SortBy"
+            },
+            {
+              "description": "<p>For <code>ListEntities</code>, supported attributes include <code>LastModifiedDate</code> (default), <code>Visibility</code>, <code>EntityId</code>, and <code>Name</code>.</p> <p>For <code>ListChangeSets</code>, supported attributes include <code>StartTime</code> and <code>EndTime</code>.</p>"
+            }
+          ]
+        },
+        "SortOrder": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SortOrder"
+            },
+            {
+              "description": "The sorting order. Can be <code>ASCENDING</code> or <code>DESCENDING</code>. The default value is <code>DESCENDING</code>."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "SortBy": {
+      "maxLength": 255,
+      "minLength": 1,
+      "pattern": "^[a-zA-Z]+$",
+      "type": "string"
+    },
+    "SortOrder": {
+      "enum": [
+        "ASCENDING",
+        "DESCENDING"
+      ],
+      "type": "string"
+    },
+    "StartChangeSetRequest": {
+      "properties": {
+        "Catalog": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Catalog"
+            },
+            {
+              "description": "The catalog related to the request. Fixed value: <code>AWSMarketplace</code> "
+            }
+          ]
+        },
+        "ChangeSet": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RequestedChangeList"
+            },
+            {
+              "description": "Array of <code>change</code> object."
+            }
+          ]
+        },
+        "ChangeSetName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ChangeSetName"
+            },
+            {
+              "description": "Optional case sensitive string of up to 100 ASCII characters. The change set name can be used to filter the list of change sets. "
+            }
+          ]
+        },
+        "ClientRequestToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ClientRequestToken"
+            },
+            {
+              "description": "A unique token to identify the request to ensure idempotency."
+            }
+          ]
+        }
+      },
+      "required": [
+        "Catalog",
+        "ChangeSet"
+      ],
+      "title": "StartChangeSetRequest",
+      "type": "object"
+    },
+    "StartChangeSetResponse": {
+      "properties": {
+        "ChangeSetArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ARN"
+            },
+            {
+              "description": "The ARN associated to the unique identifier generated for the request."
+            }
+          ]
+        },
+        "ChangeSetId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceId"
+            },
+            {
+              "description": "Unique identifier generated for the request."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "StringValue": {
+      "type": "string"
+    },
+    "ThrottlingException": {},
+    "ValidationException": {},
+    "ValueList": {
+      "items": {
+        "$ref": "#/definitions/StringValue"
+      },
+      "maxItems": 10,
+      "minItems": 1,
+      "type": "array"
+    }
+  },
+  "securityDefinitions": {
+    "hmac": {
+      "description": "Amazon Signature authorization v4",
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey",
+      "x-amazon-apigateway-authtype": "awsSigv4"
+    }
+  },
+  "security": [
+    {
+      "hmac": []
+    }
+  ],
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://docs.aws.amazon.com/marketplace/"
+  },
+  "x-components": {
+    "parameters": {
+      "X-Amz-Algorithm": {
+        "in": "header",
+        "name": "X-Amz-Algorithm",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Content-Sha256": {
+        "in": "header",
+        "name": "X-Amz-Content-Sha256",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Credential": {
+        "in": "header",
+        "name": "X-Amz-Credential",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Date": {
+        "in": "header",
+        "name": "X-Amz-Date",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Security-Token": {
+        "in": "header",
+        "name": "X-Amz-Security-Token",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Signature": {
+        "in": "header",
+        "name": "X-Amz-Signature",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-SignedHeaders": {
+        "in": "header",
+        "name": "X-Amz-SignedHeaders",
+        "required": false,
+        "type": "string"
+      }
+    }
+  }
+}

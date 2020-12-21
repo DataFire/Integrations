@@ -15,13 +15,7 @@ let azure_hdinsight_scriptactions = require('@datafire/azure_hdinsight_scriptact
   redirect_uri: ""
 });
 
-azure_hdinsight_scriptactions.Clusters_ExecuteScriptActions({
-  "resourceGroupName": "",
-  "clusterName": "",
-  "parameters": null,
-  "api-version": "",
-  "subscriptionId": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -38,18 +32,20 @@ Executes script actions on the specified HDInsight cluster.
 
 ```js
 azure_hdinsight_scriptactions.Clusters_ExecuteScriptActions({
+  "subscriptionId": "",
   "resourceGroupName": "",
   "clusterName": "",
-  "parameters": null,
   "api-version": "",
-  "subscriptionId": ""
+  "parameters": null
 }, context)
 ```
 
 #### Input
 * input `object`
+  * subscriptionId **required** `string`: The subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
   * resourceGroupName **required** `string`: The name of the resource group.
   * clusterName **required** `string`: The name of the cluster.
+  * api-version **required** `string`: The HDInsight client API Version.
   * parameters **required** `object`: The parameters for the script actions to execute on a running cluster.
     * persistOnSuccess **required** `boolean`: Gets or sets if the scripts needs to be persisted.
     * scriptActions `array`: The list of run time script actions.
@@ -60,31 +56,29 @@ azure_hdinsight_scriptactions.Clusters_ExecuteScriptActions({
         * roles **required** `array`: The list of roles where script will be executed.
           * items `string`
         * uri **required** `string`: The URI to the script.
-  * api-version **required** `string`: The HDInsight client API Version.
-  * subscriptionId **required** `string`: The subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
 #### Output
 *Output schema unknown*
 
-### ScriptActions_ListPersistedScripts
+### ScriptActions_ListByCluster
 Lists all the persisted script actions for the specified cluster.
 
 
 ```js
-azure_hdinsight_scriptactions.ScriptActions_ListPersistedScripts({
+azure_hdinsight_scriptactions.ScriptActions_ListByCluster({
+  "subscriptionId": "",
   "resourceGroupName": "",
   "clusterName": "",
-  "api-version": "",
-  "subscriptionId": ""
+  "api-version": ""
 }, context)
 ```
 
 #### Input
 * input `object`
+  * subscriptionId **required** `string`: The subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
   * resourceGroupName **required** `string`: The name of the resource group.
   * clusterName **required** `string`: The name of the cluster.
   * api-version **required** `string`: The HDInsight client API Version.
-  * subscriptionId **required** `string`: The subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
 #### Output
 * output [ScriptActionsList](#scriptactionslist)
@@ -95,44 +89,44 @@ Deletes a specified persisted script action of the cluster.
 
 ```js
 azure_hdinsight_scriptactions.ScriptActions_Delete({
+  "subscriptionId": "",
   "resourceGroupName": "",
   "clusterName": "",
   "scriptName": "",
-  "api-version": "",
-  "subscriptionId": ""
+  "api-version": ""
 }, context)
 ```
 
 #### Input
 * input `object`
+  * subscriptionId **required** `string`: The subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
   * resourceGroupName **required** `string`: The name of the resource group.
   * clusterName **required** `string`: The name of the cluster.
   * scriptName **required** `string`: The name of the script.
   * api-version **required** `string`: The HDInsight client API Version.
-  * subscriptionId **required** `string`: The subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
 #### Output
 *Output schema unknown*
 
-### ScriptExecutionHistory_List
+### ScriptExecutionHistory_ListByCluster
 Lists all scripts' execution history for the specified cluster.
 
 
 ```js
-azure_hdinsight_scriptactions.ScriptExecutionHistory_List({
+azure_hdinsight_scriptactions.ScriptExecutionHistory_ListByCluster({
+  "subscriptionId": "",
   "resourceGroupName": "",
   "clusterName": "",
-  "api-version": "",
-  "subscriptionId": ""
+  "api-version": ""
 }, context)
 ```
 
 #### Input
 * input `object`
+  * subscriptionId **required** `string`: The subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
   * resourceGroupName **required** `string`: The name of the resource group.
   * clusterName **required** `string`: The name of the cluster.
   * api-version **required** `string`: The HDInsight client API Version.
-  * subscriptionId **required** `string`: The subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
 #### Output
 * output [ScriptActionExecutionHistoryList](#scriptactionexecutionhistorylist)
@@ -143,21 +137,21 @@ Gets the script execution detail for the given script execution ID.
 
 ```js
 azure_hdinsight_scriptactions.ScriptActions_GetExecutionDetail({
+  "subscriptionId": "",
   "resourceGroupName": "",
   "clusterName": "",
   "scriptExecutionId": "",
-  "api-version": "",
-  "subscriptionId": ""
+  "api-version": ""
 }, context)
 ```
 
 #### Input
 * input `object`
+  * subscriptionId **required** `string`: The subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
   * resourceGroupName **required** `string`: The name of the resource group.
   * clusterName **required** `string`: The name of the cluster.
   * scriptExecutionId **required** `string`: The script execution Id
   * api-version **required** `string`: The HDInsight client API Version.
-  * subscriptionId **required** `string`: The subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
 #### Output
 * output: The execution details of a script action.
@@ -184,21 +178,21 @@ Promotes the specified ad-hoc script execution to a persisted script.
 
 ```js
 azure_hdinsight_scriptactions.ScriptExecutionHistory_Promote({
+  "subscriptionId": "",
   "resourceGroupName": "",
   "clusterName": "",
-  "scriptExecutionId": 0,
-  "api-version": "",
-  "subscriptionId": ""
+  "scriptExecutionId": "",
+  "api-version": ""
 }, context)
 ```
 
 #### Input
 * input `object`
+  * subscriptionId **required** `string`: The subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
   * resourceGroupName **required** `string`: The name of the resource group.
   * clusterName **required** `string`: The name of the cluster.
-  * scriptExecutionId **required** `integer`: The script execution ID.
+  * scriptExecutionId **required** `string`: The script execution Id
   * api-version **required** `string`: The HDInsight client API Version.
-  * subscriptionId **required** `string`: The subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
 #### Output
 *Output schema unknown*

@@ -15,7 +15,7 @@ let azure_visualstudio_csm = require('@datafire/azure_visualstudio_csm').create(
   redirect_uri: ""
 });
 
-azure_visualstudio_csm.Operations_List(null).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

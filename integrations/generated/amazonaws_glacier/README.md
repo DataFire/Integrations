@@ -13,16 +13,14 @@ let amazonaws_glacier = require('@datafire/amazonaws_glacier').create({
   region: ""
 });
 
-amazonaws_glacier.GetDataRetrievalPolicy({
-  "accountId": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
 
 ## Description
 
-<p>Amazon Glacier is a storage solution for "cold data."</p> <p>Amazon Glacier is an extremely low-cost storage service that provides secure, durable, and easy-to-use storage for data backup and archival. With Amazon Glacier, customers can store their data cost effectively for months, years, or decades. Amazon Glacier also enables customers to offload the administrative burdens of operating and scaling storage to AWS, so they don't have to worry about capacity planning, hardware provisioning, data replication, hardware failure and recovery, or time-consuming hardware migrations.</p> <p>Amazon Glacier is a great storage choice when low storage cost is paramount, your data is rarely retrieved, and retrieval latency of several hours is acceptable. If your application requires fast or frequent access to your data, consider using Amazon S3. For more information, see <a href="http://aws.amazon.com/s3/">Amazon Simple Storage Service (Amazon S3)</a>.</p> <p>You can store any kind of data in any format. There is no maximum limit on the total amount of data you can store in Amazon Glacier.</p> <p>If you are a first-time user of Amazon Glacier, we recommend that you begin by reading the following sections in the <i>Amazon Glacier Developer Guide</i>:</p> <ul> <li> <p> <a href="http://docs.aws.amazon.com/amazonglacier/latest/dev/introduction.html">What is Amazon Glacier</a> - This section of the Developer Guide describes the underlying data model, the operations it supports, and the AWS SDKs that you can use to interact with the service.</p> </li> <li> <p> <a href="http://docs.aws.amazon.com/amazonglacier/latest/dev/amazon-glacier-getting-started.html">Getting Started with Amazon Glacier</a> - The Getting Started section walks you through the process of creating a vault, uploading archives, creating jobs to download archives, retrieving the job output, and deleting archives.</p> </li> </ul>
+<p> Amazon S3 Glacier (Glacier) is a storage solution for "cold data."</p> <p>Glacier is an extremely low-cost storage service that provides secure, durable, and easy-to-use storage for data backup and archival. With Glacier, customers can store their data cost effectively for months, years, or decades. Glacier also enables customers to offload the administrative burdens of operating and scaling storage to AWS, so they don't have to worry about capacity planning, hardware provisioning, data replication, hardware failure and recovery, or time-consuming hardware migrations.</p> <p>Glacier is a great storage choice when low storage cost is paramount and your data is rarely retrieved. If your application requires fast or frequent access to your data, consider using Amazon S3. For more information, see <a href="http://aws.amazon.com/s3/">Amazon Simple Storage Service (Amazon S3)</a>.</p> <p>You can store any kind of data in any format. There is no maximum limit on the total amount of data you can store in Glacier.</p> <p>If you are a first-time user of Glacier, we recommend that you begin by reading the following sections in the <i>Amazon S3 Glacier Developer Guide</i>:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/introduction.html">What is Amazon S3 Glacier</a> - This section of the Developer Guide describes the underlying data model, the operations it supports, and the AWS SDKs that you can use to interact with the service.</p> </li> <li> <p> <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/amazon-glacier-getting-started.html">Getting Started with Amazon S3 Glacier</a> - The Getting Started section walks you through the process of creating a vault, uploading archives, creating jobs to download archives, retrieving the job output, and deleting archives.</p> </li> </ul>
 
 ## Actions
 
@@ -56,7 +54,9 @@ amazonaws_glacier.SetDataRetrievalPolicy({
 #### Input
 * input `object`
   * accountId **required** `string`
-  * Policy [DataRetrievalPolicy](#dataretrievalpolicy)
+  * Policy `object`: Data retrieval policy.
+    * Rules
+      * items [DataRetrievalRule](#dataretrievalrule)
 
 #### Output
 *Output schema unknown*
@@ -107,9 +107,9 @@ amazonaws_glacier.ListVaults({
 
 #### Input
 * input `object`
-  * limit `string`
-  * marker `string`
   * accountId **required** `string`
+  * marker `string`
+  * limit `string`
 
 #### Output
 * output [ListVaultsOutput](#listvaultsoutput)
@@ -224,7 +224,8 @@ amazonaws_glacier.SetVaultAccessPolicy({
 * input `object`
   * accountId **required** `string`
   * vaultName **required** `string`
-  * policy [VaultAccessPolicy](#vaultaccesspolicy)
+  * policy `object`: Contains the vault access policy.
+    * Policy
 
 #### Output
 *Output schema unknown*
@@ -235,16 +236,18 @@ amazonaws_glacier.SetVaultAccessPolicy({
 
 ```js
 amazonaws_glacier.UploadArchive({
-  "accountId": "",
-  "vaultName": ""
+  "vaultName": "",
+  "accountId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * accountId **required** `string`
   * vaultName **required** `string`
-  * body [Stream](#stream)
+  * accountId **required** `string`
+  * x-amz-archive-description `string`
+  * x-amz-sha256-tree-hash `string`
+  * body `string`: The data to upload.
 
 #### Output
 *Output schema unknown*
@@ -283,10 +286,12 @@ amazonaws_glacier.ListJobs({
 
 #### Input
 * input `object`
-  * limit `string`
-  * marker `string`
   * accountId **required** `string`
   * vaultName **required** `string`
+  * limit `string`
+  * marker `string`
+  * statuscode `string`
+  * completed `string`
 
 #### Output
 * output [ListJobsOutput](#listjobsoutput)
@@ -306,7 +311,51 @@ amazonaws_glacier.InitiateJob({
 * input `object`
   * accountId **required** `string`
   * vaultName **required** `string`
-  * jobParameters [JobParameters](#jobparameters)
+  * jobParameters `object`: Provides options for defining a job.
+    * ArchiveId
+    * Description
+    * Format
+    * InventoryRetrievalParameters
+      * EndDate
+      * Limit
+      * Marker
+      * StartDate
+    * OutputLocation
+      * S3
+        * AccessControlList
+          * items [Grant](#grant)
+        * BucketName
+        * CannedACL
+        * Encryption
+          * EncryptionType
+          * KMSContext
+          * KMSKeyId
+        * Prefix
+        * StorageClass
+        * Tagging
+        * UserMetadata
+    * RetrievalByteRange
+    * SNSTopic
+    * SelectParameters
+      * Expression
+      * ExpressionType
+      * InputSerialization
+        * csv
+          * Comments
+          * FieldDelimiter
+          * FileHeaderInfo
+          * QuoteCharacter
+          * QuoteEscapeCharacter
+          * RecordDelimiter
+      * OutputSerialization
+        * csv
+          * FieldDelimiter
+          * QuoteCharacter
+          * QuoteEscapeCharacter
+          * QuoteFields
+          * RecordDelimiter
+    * Tier
+    * Type
 
 #### Output
 *Output schema unknown*
@@ -349,6 +398,7 @@ amazonaws_glacier.GetJobOutput({
   * accountId **required** `string`
   * vaultName **required** `string`
   * jobId **required** `string`
+  * Range `string`
 
 #### Output
 * output [GetJobOutputOutput](#getjoboutputoutput)
@@ -406,7 +456,8 @@ amazonaws_glacier.InitiateVaultLock({
 * input `object`
   * accountId **required** `string`
   * vaultName **required** `string`
-  * policy [VaultLockPolicy](#vaultlockpolicy)
+  * policy `object`: Contains the vault lock policy.
+    * Policy
 
 #### Output
 *Output schema unknown*
@@ -445,10 +496,10 @@ amazonaws_glacier.ListMultipartUploads({
 
 #### Input
 * input `object`
-  * limit `string`
-  * marker `string`
   * accountId **required** `string`
   * vaultName **required** `string`
+  * marker `string`
+  * limit `string`
 
 #### Output
 * output [ListMultipartUploadsOutput](#listmultipartuploadsoutput)
@@ -468,6 +519,8 @@ amazonaws_glacier.InitiateMultipartUpload({
 * input `object`
   * accountId **required** `string`
   * vaultName **required** `string`
+  * x-amz-archive-description `string`
+  * x-amz-part-size `string`
 
 #### Output
 *Output schema unknown*
@@ -507,11 +560,11 @@ amazonaws_glacier.ListParts({
 
 #### Input
 * input `object`
-  * limit `string`
-  * marker `string`
   * accountId **required** `string`
   * vaultName **required** `string`
   * uploadId **required** `string`
+  * marker `string`
+  * limit `string`
 
 #### Output
 * output [ListPartsOutput](#listpartsoutput)
@@ -533,6 +586,8 @@ amazonaws_glacier.CompleteMultipartUpload({
   * accountId **required** `string`
   * vaultName **required** `string`
   * uploadId **required** `string`
+  * x-amz-archive-size `string`
+  * x-amz-sha256-tree-hash `string`
 
 #### Output
 *Output schema unknown*
@@ -554,7 +609,9 @@ amazonaws_glacier.UploadMultipartPart({
   * accountId **required** `string`
   * vaultName **required** `string`
   * uploadId **required** `string`
-  * body [Stream](#stream)
+  * x-amz-sha256-tree-hash `string`
+  * Content-Range `string`
+  * body `string`: The data to upload.
 
 #### Output
 *Output schema unknown*
@@ -612,7 +669,10 @@ amazonaws_glacier.SetVaultNotifications({
 * input `object`
   * accountId **required** `string`
   * vaultName **required** `string`
-  * vaultNotificationConfig [VaultNotificationConfig](#vaultnotificationconfig)
+  * vaultNotificationConfig `object`: Represents a vault's notification configuration.
+    * Events
+      * items [string](#string)
+    * SNSTopic
 
 #### Output
 *Output schema unknown*
@@ -643,7 +703,8 @@ amazonaws_glacier.ListTagsForVault({
 ```js
 amazonaws_glacier.AddTagsToVault({
   "accountId": "",
-  "vaultName": ""
+  "vaultName": "",
+  "operation": ""
 }, context)
 ```
 
@@ -651,7 +712,8 @@ amazonaws_glacier.AddTagsToVault({
 * input `object`
   * accountId **required** `string`
   * vaultName **required** `string`
-  * Tags [TagMap](#tagmap)
+  * operation **required** `string`
+  * Tags `object`: The tags to add to the vault. Each tag is composed of a key and a value. The value can be an empty string.
 
 #### Output
 *Output schema unknown*
@@ -663,7 +725,8 @@ amazonaws_glacier.AddTagsToVault({
 ```js
 amazonaws_glacier.RemoveTagsFromVault({
   "accountId": "",
-  "vaultName": ""
+  "vaultName": "",
+  "operation": ""
 }, context)
 ```
 
@@ -671,7 +734,9 @@ amazonaws_glacier.RemoveTagsFromVault({
 * input `object`
   * accountId **required** `string`
   * vaultName **required** `string`
-  * TagKeys [TagKeyList](#tagkeylist)
+  * operation **required** `string`
+  * TagKeys `array`: A list of tag keys. Each corresponding tag is removed from the vault.
+    * items [string](#string)
 
 #### Output
 *Output schema unknown*
@@ -681,7 +746,7 @@ amazonaws_glacier.RemoveTagsFromVault({
 ## Definitions
 
 ### AbortMultipartUploadInput
-* AbortMultipartUploadInput `object`: <p>Provides options to abort a multipart upload identified by the upload ID.</p> <p>For information about the underlying REST API, see <a href="http://docs.aws.amazon.com/amazonglacier/latest/dev/api-multipart-abort-upload.html">Abort Multipart Upload</a>. For conceptual information, see <a href="http://docs.aws.amazon.com/amazonglacier/latest/dev/working-with-archives.html">Working with Archives in Amazon Glacier</a>.</p>
+* AbortMultipartUploadInput `object`: <p>Provides options to abort a multipart upload identified by the upload ID.</p> <p>For information about the underlying REST API, see <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/api-multipart-abort-upload.html">Abort Multipart Upload</a>. For conceptual information, see <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/working-with-archives.html">Working with Archives in Amazon S3 Glacier</a>.</p>
 
 ### AbortVaultLockInput
 * AbortVaultLockInput `object`: The input values for <code>AbortVaultLock</code>.
@@ -695,33 +760,33 @@ amazonaws_glacier.RemoveTagsFromVault({
 
 ### AddTagsToVaultInput
 * AddTagsToVaultInput `object`: The input values for <code>AddTagsToVault</code>.
-  * Tags [TagMap](#tagmap)
+  * Tags
 
 ### ArchiveCreationOutput
-* ArchiveCreationOutput `object`: <p>Contains the Amazon Glacier response to your request.</p> <p>For information about the underlying REST API, see <a href="http://docs.aws.amazon.com/amazonglacier/latest/dev/api-archive-post.html">Upload Archive</a>. For conceptual information, see <a href="http://docs.aws.amazon.com/amazonglacier/latest/dev/working-with-archives.html">Working with Archives in Amazon Glacier</a>.</p>
+* ArchiveCreationOutput `object`: <p>Contains the Amazon S3 Glacier response to your request.</p> <p>For information about the underlying REST API, see <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/api-archive-post.html">Upload Archive</a>. For conceptual information, see <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/working-with-archives.html">Working with Archives in Amazon S3 Glacier</a>.</p>
 
 ### CSVInput
 * CSVInput `object`: Contains information about the comma-separated value (CSV) file to select from.
-  * Comments [string](#string)
-  * FieldDelimiter [string](#string)
-  * FileHeaderInfo [FileHeaderInfo](#fileheaderinfo)
-  * QuoteCharacter [string](#string)
-  * QuoteEscapeCharacter [string](#string)
-  * RecordDelimiter [string](#string)
+  * Comments
+  * FieldDelimiter
+  * FileHeaderInfo
+  * QuoteCharacter
+  * QuoteEscapeCharacter
+  * RecordDelimiter
 
 ### CSVOutput
 * CSVOutput `object`: Contains information about the comma-separated value (CSV) file that the job results are stored in.
-  * FieldDelimiter [string](#string)
-  * QuoteCharacter [string](#string)
-  * QuoteEscapeCharacter [string](#string)
-  * QuoteFields [QuoteFields](#quotefields)
-  * RecordDelimiter [string](#string)
+  * FieldDelimiter
+  * QuoteCharacter
+  * QuoteEscapeCharacter
+  * QuoteFields
+  * RecordDelimiter
 
 ### CannedACL
 * CannedACL `string` (values: private, public-read, public-read-write, aws-exec-read, authenticated-read, bucket-owner-read, bucket-owner-full-control)
 
 ### CompleteMultipartUploadInput
-* CompleteMultipartUploadInput `object`: Provides options to complete a multipart upload operation. This informs Amazon Glacier that all the archive parts have been uploaded and Amazon Glacier can now assemble the archive from the uploaded parts. After assembling and saving the archive to the vault, Amazon Glacier returns the URI path of the newly created archive resource.
+* CompleteMultipartUploadInput `object`: Provides options to complete a multipart upload operation. This informs Amazon Glacier that all the archive parts have been uploaded and Amazon S3 Glacier (Glacier) can now assemble the archive from the uploaded parts. After assembling and saving the archive to the vault, Glacier returns the URI path of the newly created archive resource.
 
 ### CompleteVaultLockInput
 * CompleteVaultLockInput `object`: The input values for <code>CompleteVaultLock</code>.
@@ -730,16 +795,17 @@ amazonaws_glacier.RemoveTagsFromVault({
 * CreateVaultInput `object`: Provides options to create a vault.
 
 ### CreateVaultOutput
-* CreateVaultOutput `object`: Contains the Amazon Glacier response to your request.
+* CreateVaultOutput `object`: Contains the Amazon S3 Glacier response to your request.
 
 ### DataRetrievalPolicy
 * DataRetrievalPolicy `object`: Data retrieval policy.
-  * Rules [DataRetrievalRulesList](#dataretrievalruleslist)
+  * Rules
+    * items [DataRetrievalRule](#dataretrievalrule)
 
 ### DataRetrievalRule
 * DataRetrievalRule `object`: Data retrieval policy rule.
-  * BytesPerHour [NullableLong](#nullablelong)
-  * Strategy [string](#string)
+  * BytesPerHour
+  * Strategy
 
 ### DataRetrievalRulesList
 * DataRetrievalRulesList `array`
@@ -749,13 +815,13 @@ amazonaws_glacier.RemoveTagsFromVault({
 * DateTime `string`
 
 ### DeleteArchiveInput
-* DeleteArchiveInput `object`: Provides options for deleting an archive from an Amazon Glacier vault.
+* DeleteArchiveInput `object`: Provides options for deleting an archive from an Amazon S3 Glacier vault.
 
 ### DeleteVaultAccessPolicyInput
 * DeleteVaultAccessPolicyInput `object`: DeleteVaultAccessPolicy input.
 
 ### DeleteVaultInput
-* DeleteVaultInput `object`: Provides options for deleting a vault from Amazon Glacier.
+* DeleteVaultInput `object`: Provides options for deleting a vault from Amazon S3 Glacier.
 
 ### DeleteVaultNotificationsInput
 * DeleteVaultNotificationsInput `object`: Provides options for deleting a vault notification configuration from an Amazon Glacier vault.
@@ -767,19 +833,19 @@ amazonaws_glacier.RemoveTagsFromVault({
 * DescribeVaultInput `object`: Provides options for retrieving metadata for a specific vault in Amazon Glacier.
 
 ### DescribeVaultOutput
-* DescribeVaultOutput `object`: Contains the Amazon Glacier response to your request.
-  * CreationDate [string](#string)
-  * LastInventoryDate [string](#string)
-  * NumberOfArchives [long](#long)
-  * SizeInBytes [long](#long)
-  * VaultARN [string](#string)
-  * VaultName [string](#string)
+* DescribeVaultOutput `object`: Contains the Amazon S3 Glacier response to your request.
+  * CreationDate
+  * LastInventoryDate
+  * NumberOfArchives
+  * SizeInBytes
+  * VaultARN
+  * VaultName
 
 ### Encryption
 * Encryption `object`: Contains information about the encryption used to store the job results in Amazon S3. 
-  * EncryptionType [EncryptionType](#encryptiontype)
-  * KMSContext [string](#string)
-  * KMSKeyId [string](#string)
+  * EncryptionType
+  * KMSContext
+  * KMSKeyId
 
 ### EncryptionType
 * EncryptionType `string` (values: aws:kms, AES256)
@@ -794,127 +860,219 @@ amazonaws_glacier.RemoveTagsFromVault({
 * GetDataRetrievalPolicyInput `object`: Input for GetDataRetrievalPolicy.
 
 ### GetDataRetrievalPolicyOutput
-* GetDataRetrievalPolicyOutput `object`: Contains the Amazon Glacier response to the <code>GetDataRetrievalPolicy</code> request.
-  * Policy [DataRetrievalPolicy](#dataretrievalpolicy)
+* GetDataRetrievalPolicyOutput `object`: Contains the Amazon S3 Glacier response to the <code>GetDataRetrievalPolicy</code> request.
+  * Policy
+    * Rules
+      * items [DataRetrievalRule](#dataretrievalrule)
 
 ### GetJobOutputInput
-* GetJobOutputInput `object`: Provides options for downloading output of an Amazon Glacier job.
+* GetJobOutputInput `object`: Provides options for downloading output of an Amazon S3 Glacier job.
 
 ### GetJobOutputOutput
-* GetJobOutputOutput `object`: Contains the Amazon Glacier response to your request.
-  * body [Stream](#stream)
+* GetJobOutputOutput `object`: Contains the Amazon S3 Glacier response to your request.
+  * body
+  * status
 
 ### GetVaultAccessPolicyInput
 * GetVaultAccessPolicyInput `object`: Input for GetVaultAccessPolicy.
 
 ### GetVaultAccessPolicyOutput
 * GetVaultAccessPolicyOutput `object`: Output for GetVaultAccessPolicy.
-  * policy [VaultAccessPolicy](#vaultaccesspolicy)
+  * policy
+    * Policy
 
 ### GetVaultLockInput
 * GetVaultLockInput `object`: The input values for <code>GetVaultLock</code>.
 
 ### GetVaultLockOutput
-* GetVaultLockOutput `object`: Contains the Amazon Glacier response to your request.
-  * CreationDate [string](#string)
-  * ExpirationDate [string](#string)
-  * Policy [string](#string)
-  * State [string](#string)
+* GetVaultLockOutput `object`: Contains the Amazon S3 Glacier response to your request.
+  * CreationDate
+  * ExpirationDate
+  * Policy
+  * State
 
 ### GetVaultNotificationsInput
 * GetVaultNotificationsInput `object`: Provides options for retrieving the notification configuration set on an Amazon Glacier vault.
 
 ### GetVaultNotificationsOutput
-* GetVaultNotificationsOutput `object`: Contains the Amazon Glacier response to your request.
-  * vaultNotificationConfig [VaultNotificationConfig](#vaultnotificationconfig)
+* GetVaultNotificationsOutput `object`: Contains the Amazon S3 Glacier response to your request.
+  * vaultNotificationConfig
+    * Events
+      * items [string](#string)
+    * SNSTopic
 
 ### GlacierJobDescription
-* GlacierJobDescription `object`: Contains the description of an Amazon Glacier job.
-  * Action [ActionCode](#actioncode)
-  * ArchiveId [string](#string)
-  * ArchiveSHA256TreeHash [string](#string)
-  * ArchiveSizeInBytes [Size](#size)
-  * Completed [boolean](#boolean)
-  * CompletionDate [string](#string)
-  * CreationDate [string](#string)
-  * InventoryRetrievalParameters [InventoryRetrievalJobDescription](#inventoryretrievaljobdescription)
-  * InventorySizeInBytes [Size](#size)
-  * JobDescription [string](#string)
-  * JobId [string](#string)
-  * JobOutputPath [string](#string)
-  * OutputLocation [OutputLocation](#outputlocation)
-  * RetrievalByteRange [string](#string)
-  * SHA256TreeHash [string](#string)
-  * SNSTopic [string](#string)
-  * SelectParameters [SelectParameters](#selectparameters)
-  * StatusCode [StatusCode](#statuscode)
-  * StatusMessage [string](#string)
-  * Tier [string](#string)
-  * VaultARN [string](#string)
+* GlacierJobDescription `object`: Contains the description of an Amazon S3 Glacier job.
+  * Action
+  * ArchiveId
+  * ArchiveSHA256TreeHash
+  * ArchiveSizeInBytes
+  * Completed
+  * CompletionDate
+  * CreationDate
+  * InventoryRetrievalParameters
+    * EndDate
+    * Format
+    * Limit
+    * Marker
+    * StartDate
+  * InventorySizeInBytes
+  * JobDescription
+  * JobId
+  * JobOutputPath
+  * OutputLocation
+    * S3
+      * AccessControlList
+        * items [Grant](#grant)
+      * BucketName
+      * CannedACL
+      * Encryption
+        * EncryptionType
+        * KMSContext
+        * KMSKeyId
+      * Prefix
+      * StorageClass
+      * Tagging
+      * UserMetadata
+  * RetrievalByteRange
+  * SHA256TreeHash
+  * SNSTopic
+  * SelectParameters
+    * Expression
+    * ExpressionType
+    * InputSerialization
+      * csv
+        * Comments
+        * FieldDelimiter
+        * FileHeaderInfo
+        * QuoteCharacter
+        * QuoteEscapeCharacter
+        * RecordDelimiter
+    * OutputSerialization
+      * csv
+        * FieldDelimiter
+        * QuoteCharacter
+        * QuoteEscapeCharacter
+        * QuoteFields
+        * RecordDelimiter
+  * StatusCode
+  * StatusMessage
+  * Tier
+  * VaultARN
 
 ### Grant
 * Grant `object`: Contains information about a grant.
-  * Grantee [Grantee](#grantee)
-  * Permission [Permission](#permission)
+  * Grantee
+    * DisplayName
+    * EmailAddress
+    * ID
+    * Type **required**
+    * URI
+  * Permission
 
 ### Grantee
 * Grantee `object`: Contains information about the grantee.
-  * DisplayName [string](#string)
-  * EmailAddress [string](#string)
-  * ID [string](#string)
-  * Type **required** [Type](#type)
-  * URI [string](#string)
+  * DisplayName
+  * EmailAddress
+  * ID
+  * Type **required**
+  * URI
 
 ### InitiateJobInput
-* InitiateJobInput `object`: Provides options for initiating an Amazon Glacier job.
-  * jobParameters [JobParameters](#jobparameters)
+* InitiateJobInput `object`: Provides options for initiating an Amazon S3 Glacier job.
+  * jobParameters
+    * ArchiveId
+    * Description
+    * Format
+    * InventoryRetrievalParameters
+      * EndDate
+      * Limit
+      * Marker
+      * StartDate
+    * OutputLocation
+      * S3
+        * AccessControlList
+          * items [Grant](#grant)
+        * BucketName
+        * CannedACL
+        * Encryption
+          * EncryptionType
+          * KMSContext
+          * KMSKeyId
+        * Prefix
+        * StorageClass
+        * Tagging
+        * UserMetadata
+    * RetrievalByteRange
+    * SNSTopic
+    * SelectParameters
+      * Expression
+      * ExpressionType
+      * InputSerialization
+        * csv
+          * Comments
+          * FieldDelimiter
+          * FileHeaderInfo
+          * QuoteCharacter
+          * QuoteEscapeCharacter
+          * RecordDelimiter
+      * OutputSerialization
+        * csv
+          * FieldDelimiter
+          * QuoteCharacter
+          * QuoteEscapeCharacter
+          * QuoteFields
+          * RecordDelimiter
+    * Tier
+    * Type
 
 ### InitiateJobOutput
-* InitiateJobOutput `object`: Contains the Amazon Glacier response to your request.
+* InitiateJobOutput `object`: Contains the Amazon S3 Glacier response to your request.
 
 ### InitiateMultipartUploadInput
-* InitiateMultipartUploadInput `object`: Provides options for initiating a multipart upload to an Amazon Glacier vault.
+* InitiateMultipartUploadInput `object`: Provides options for initiating a multipart upload to an Amazon S3 Glacier vault.
 
 ### InitiateMultipartUploadOutput
-* InitiateMultipartUploadOutput `object`: The Amazon Glacier response to your request.
+* InitiateMultipartUploadOutput `object`: The Amazon S3 Glacier response to your request.
 
 ### InitiateVaultLockInput
 * InitiateVaultLockInput `object`: The input values for <code>InitiateVaultLock</code>.
-  * policy [VaultLockPolicy](#vaultlockpolicy)
+  * policy
+    * Policy
 
 ### InitiateVaultLockOutput
-* InitiateVaultLockOutput `object`: Contains the Amazon Glacier response to your request.
+* InitiateVaultLockOutput `object`: Contains the Amazon S3 Glacier response to your request.
 
 ### InputSerialization
 * InputSerialization `object`: Describes how the archive is serialized.
-  * csv [CSVInput](#csvinput)
+  * csv
+    * Comments
+    * FieldDelimiter
+    * FileHeaderInfo
+    * QuoteCharacter
+    * QuoteEscapeCharacter
+    * RecordDelimiter
 
 ### InsufficientCapacityException
-* InsufficientCapacityException `object`: Returned if there is insufficient capacity to process this expedited request. This error only applies to expedited retrievals and not to standard or bulk retrievals.
-  * code [string](#string)
-  * message [string](#string)
-  * type [string](#string)
+
 
 ### InvalidParameterValueException
-* InvalidParameterValueException `object`: Returned if a parameter of the request is incorrectly specified.
-  * code [string](#string)
-  * message [string](#string)
-  * type [string](#string)
+
 
 ### InventoryRetrievalJobDescription
 * InventoryRetrievalJobDescription `object`: Describes the options for a range inventory retrieval job.
-  * EndDate [DateTime](#datetime)
-  * Format [string](#string)
-  * Limit [string](#string)
-  * Marker [string](#string)
-  * StartDate [DateTime](#datetime)
+  * EndDate
+  * Format
+  * Limit
+  * Marker
+  * StartDate
 
 ### InventoryRetrievalJobInput
 * InventoryRetrievalJobInput `object`: Provides options for specifying a range inventory retrieval job.
-  * EndDate [string](#string)
-  * Limit [string](#string)
-  * Marker [string](#string)
-  * StartDate [string](#string)
+  * EndDate
+  * Limit
+  * Marker
+  * StartDate
 
 ### JobList
 * JobList `array`
@@ -922,79 +1080,112 @@ amazonaws_glacier.RemoveTagsFromVault({
 
 ### JobParameters
 * JobParameters `object`: Provides options for defining a job.
-  * ArchiveId [string](#string)
-  * Description [string](#string)
-  * Format [string](#string)
-  * InventoryRetrievalParameters [InventoryRetrievalJobInput](#inventoryretrievaljobinput)
-  * OutputLocation [OutputLocation](#outputlocation)
-  * RetrievalByteRange [string](#string)
-  * SNSTopic [string](#string)
-  * SelectParameters [SelectParameters](#selectparameters)
-  * Tier [string](#string)
-  * Type [string](#string)
+  * ArchiveId
+  * Description
+  * Format
+  * InventoryRetrievalParameters
+    * EndDate
+    * Limit
+    * Marker
+    * StartDate
+  * OutputLocation
+    * S3
+      * AccessControlList
+        * items [Grant](#grant)
+      * BucketName
+      * CannedACL
+      * Encryption
+        * EncryptionType
+        * KMSContext
+        * KMSKeyId
+      * Prefix
+      * StorageClass
+      * Tagging
+      * UserMetadata
+  * RetrievalByteRange
+  * SNSTopic
+  * SelectParameters
+    * Expression
+    * ExpressionType
+    * InputSerialization
+      * csv
+        * Comments
+        * FieldDelimiter
+        * FileHeaderInfo
+        * QuoteCharacter
+        * QuoteEscapeCharacter
+        * RecordDelimiter
+    * OutputSerialization
+      * csv
+        * FieldDelimiter
+        * QuoteCharacter
+        * QuoteEscapeCharacter
+        * QuoteFields
+        * RecordDelimiter
+  * Tier
+  * Type
 
 ### LimitExceededException
-* LimitExceededException `object`: Returned if the request results in a vault or account limit being exceeded.
-  * code [string](#string)
-  * message [string](#string)
-  * type [string](#string)
+
 
 ### ListJobsInput
-* ListJobsInput `object`: Provides options for retrieving a job list for an Amazon Glacier vault.
+* ListJobsInput `object`: Provides options for retrieving a job list for an Amazon S3 Glacier vault.
 
 ### ListJobsOutput
-* ListJobsOutput `object`: Contains the Amazon Glacier response to your request.
-  * JobList [JobList](#joblist)
-  * Marker [string](#string)
+* ListJobsOutput `object`: Contains the Amazon S3 Glacier response to your request.
+  * JobList
+    * items [GlacierJobDescription](#glacierjobdescription)
+  * Marker
 
 ### ListMultipartUploadsInput
 * ListMultipartUploadsInput `object`: Provides options for retrieving list of in-progress multipart uploads for an Amazon Glacier vault.
 
 ### ListMultipartUploadsOutput
-* ListMultipartUploadsOutput `object`: Contains the Amazon Glacier response to your request.
-  * Marker [string](#string)
-  * UploadsList [UploadsList](#uploadslist)
+* ListMultipartUploadsOutput `object`: Contains the Amazon S3 Glacier response to your request.
+  * Marker
+  * UploadsList
+    * items [UploadListElement](#uploadlistelement)
 
 ### ListPartsInput
 * ListPartsInput `object`: Provides options for retrieving a list of parts of an archive that have been uploaded in a specific multipart upload.
 
 ### ListPartsOutput
-* ListPartsOutput `object`: Contains the Amazon Glacier response to your request.
-  * ArchiveDescription [string](#string)
-  * CreationDate [string](#string)
-  * Marker [string](#string)
-  * MultipartUploadId [string](#string)
-  * PartSizeInBytes [long](#long)
-  * Parts [PartList](#partlist)
-  * VaultARN [string](#string)
+* ListPartsOutput `object`: Contains the Amazon S3 Glacier response to your request.
+  * ArchiveDescription
+  * CreationDate
+  * Marker
+  * MultipartUploadId
+  * PartSizeInBytes
+  * Parts
+    * items [PartListElement](#partlistelement)
+  * VaultARN
 
 ### ListProvisionedCapacityInput
 * ListProvisionedCapacityInput `object`
 
 ### ListProvisionedCapacityOutput
 * ListProvisionedCapacityOutput `object`
-  * ProvisionedCapacityList [ProvisionedCapacityList](#provisionedcapacitylist)
+  * ProvisionedCapacityList
+    * items [ProvisionedCapacityDescription](#provisionedcapacitydescription)
 
 ### ListTagsForVaultInput
 * ListTagsForVaultInput `object`: The input value for <code>ListTagsForVaultInput</code>.
 
 ### ListTagsForVaultOutput
-* ListTagsForVaultOutput `object`: Contains the Amazon Glacier response to your request.
-  * Tags [TagMap](#tagmap)
+* ListTagsForVaultOutput `object`: Contains the Amazon S3 Glacier response to your request.
+  * Tags
 
 ### ListVaultsInput
 * ListVaultsInput `object`: Provides options to retrieve the vault list owned by the calling user's account. The list provides metadata information for each vault.
 
 ### ListVaultsOutput
-* ListVaultsOutput `object`: Contains the Amazon Glacier response to your request.
-  * Marker [string](#string)
-  * VaultList [VaultList](#vaultlist)
+* ListVaultsOutput `object`: Contains the Amazon S3 Glacier response to your request.
+  * Marker
+  * VaultList
+    * items [DescribeVaultOutput](#describevaultoutput)
 
 ### MissingParameterValueException
-* MissingParameterValueException `object`: Returned if a required header or parameter is missing from the request.
-  * code [string](#string)
-  * message [string](#string)
-  * type [string](#string)
+
 
 ### NotificationEventList
 * NotificationEventList `array`
@@ -1005,11 +1196,28 @@ amazonaws_glacier.RemoveTagsFromVault({
 
 ### OutputLocation
 * OutputLocation `object`: Contains information about the location where the select job results are stored.
-  * S3 [S3Location](#s3location)
+  * S3
+    * AccessControlList
+      * items [Grant](#grant)
+    * BucketName
+    * CannedACL
+    * Encryption
+      * EncryptionType
+      * KMSContext
+      * KMSKeyId
+    * Prefix
+    * StorageClass
+    * Tagging
+    * UserMetadata
 
 ### OutputSerialization
 * OutputSerialization `object`: Describes how the select output is serialized.
-  * csv [CSVOutput](#csvoutput)
+  * csv
+    * FieldDelimiter
+    * QuoteCharacter
+    * QuoteEscapeCharacter
+    * QuoteFields
+    * RecordDelimiter
 
 ### PartList
 * PartList `array`
@@ -1017,23 +1225,20 @@ amazonaws_glacier.RemoveTagsFromVault({
 
 ### PartListElement
 * PartListElement `object`: A list of the part sizes of the multipart upload.
-  * RangeInBytes [string](#string)
-  * SHA256TreeHash [string](#string)
+  * RangeInBytes
+  * SHA256TreeHash
 
 ### Permission
 * Permission `string` (values: FULL_CONTROL, WRITE, WRITE_ACP, READ, READ_ACP)
 
 ### PolicyEnforcedException
-* PolicyEnforcedException `object`: Returned if a retrieval job would exceed the current data policy's retrieval rate limit. For more information about data retrieval policies,
-  * code [string](#string)
-  * message [string](#string)
-  * type [string](#string)
+
 
 ### ProvisionedCapacityDescription
 * ProvisionedCapacityDescription `object`: The definition for a provisioned capacity unit.
-  * CapacityId [string](#string)
-  * ExpirationDate [string](#string)
-  * StartDate [string](#string)
+  * CapacityId
+  * ExpirationDate
+  * StartDate
 
 ### ProvisionedCapacityList
 * ProvisionedCapacityList `array`
@@ -1050,55 +1255,70 @@ amazonaws_glacier.RemoveTagsFromVault({
 
 ### RemoveTagsFromVaultInput
 * RemoveTagsFromVaultInput `object`: The input value for <code>RemoveTagsFromVaultInput</code>.
-  * TagKeys [TagKeyList](#tagkeylist)
+  * TagKeys
+    * items [string](#string)
 
 ### RequestTimeoutException
-* RequestTimeoutException `object`: Returned if, when uploading an archive, Amazon Glacier times out while receiving the upload.
-  * code [string](#string)
-  * message [string](#string)
-  * type [string](#string)
+
 
 ### ResourceNotFoundException
-* ResourceNotFoundException `object`: Returned if the specified resource (such as a vault, upload ID, or job ID) doesn't exist.
-  * code [string](#string)
-  * message [string](#string)
-  * type [string](#string)
+
 
 ### S3Location
 * S3Location `object`: Contains information about the location in Amazon S3 where the select job results are stored.
-  * AccessControlList [AccessControlPolicyList](#accesscontrolpolicylist)
-  * BucketName [string](#string)
-  * CannedACL [CannedACL](#cannedacl)
-  * Encryption [Encryption](#encryption)
-  * Prefix [string](#string)
-  * StorageClass [StorageClass](#storageclass)
-  * Tagging [hashmap](#hashmap)
-  * UserMetadata [hashmap](#hashmap)
+  * AccessControlList
+    * items [Grant](#grant)
+  * BucketName
+  * CannedACL
+  * Encryption
+    * EncryptionType
+    * KMSContext
+    * KMSKeyId
+  * Prefix
+  * StorageClass
+  * Tagging
+  * UserMetadata
 
 ### SelectParameters
 * SelectParameters `object`: Contains information about the parameters used for a select.
-  * Expression [string](#string)
-  * ExpressionType [ExpressionType](#expressiontype)
-  * InputSerialization [InputSerialization](#inputserialization)
-  * OutputSerialization [OutputSerialization](#outputserialization)
+  * Expression
+  * ExpressionType
+  * InputSerialization
+    * csv
+      * Comments
+      * FieldDelimiter
+      * FileHeaderInfo
+      * QuoteCharacter
+      * QuoteEscapeCharacter
+      * RecordDelimiter
+  * OutputSerialization
+    * csv
+      * FieldDelimiter
+      * QuoteCharacter
+      * QuoteEscapeCharacter
+      * QuoteFields
+      * RecordDelimiter
 
 ### ServiceUnavailableException
-* ServiceUnavailableException `object`: Returned if the service cannot complete the request.
-  * code [string](#string)
-  * message [string](#string)
-  * type [string](#string)
+
 
 ### SetDataRetrievalPolicyInput
 * SetDataRetrievalPolicyInput `object`: SetDataRetrievalPolicy input.
-  * Policy [DataRetrievalPolicy](#dataretrievalpolicy)
+  * Policy
+    * Rules
+      * items [DataRetrievalRule](#dataretrievalrule)
 
 ### SetVaultAccessPolicyInput
 * SetVaultAccessPolicyInput `object`: SetVaultAccessPolicy input.
-  * policy [VaultAccessPolicy](#vaultaccesspolicy)
+  * policy
+    * Policy
 
 ### SetVaultNotificationsInput
 * SetVaultNotificationsInput `object`: Provides options to configure notifications that will be sent when specific events happen to a vault.
-  * vaultNotificationConfig [VaultNotificationConfig](#vaultnotificationconfig)
+  * vaultNotificationConfig
+    * Events
+      * items [string](#string)
+    * SNSTopic
 
 ### Size
 * Size `integer`
@@ -1120,10 +1340,7 @@ amazonaws_glacier.RemoveTagsFromVault({
   * items [string](#string)
 
 ### TagMap
-* TagMap `array`
-  * items `object`
-    * key [TagKey](#tagkey)
-    * value [TagValue](#tagvalue)
+* TagMap `object`
 
 ### TagValue
 * TagValue `string`
@@ -1133,22 +1350,22 @@ amazonaws_glacier.RemoveTagsFromVault({
 
 ### UploadArchiveInput
 * UploadArchiveInput `object`: Provides options to add an archive to a vault.
-  * body [Stream](#stream)
+  * body
 
 ### UploadListElement
 * UploadListElement `object`: A list of in-progress multipart uploads for a vault.
-  * ArchiveDescription [string](#string)
-  * CreationDate [string](#string)
-  * MultipartUploadId [string](#string)
-  * PartSizeInBytes [long](#long)
-  * VaultARN [string](#string)
+  * ArchiveDescription
+  * CreationDate
+  * MultipartUploadId
+  * PartSizeInBytes
+  * VaultARN
 
 ### UploadMultipartPartInput
 * UploadMultipartPartInput `object`: Provides options to upload a part of an archive in a multipart upload operation.
-  * body [Stream](#stream)
+  * body
 
 ### UploadMultipartPartOutput
-* UploadMultipartPartOutput `object`: Contains the Amazon Glacier response to your request.
+* UploadMultipartPartOutput `object`: Contains the Amazon S3 Glacier response to your request.
 
 ### UploadsList
 * UploadsList `array`
@@ -1156,7 +1373,7 @@ amazonaws_glacier.RemoveTagsFromVault({
 
 ### VaultAccessPolicy
 * VaultAccessPolicy `object`: Contains the vault access policy.
-  * Policy [string](#string)
+  * Policy
 
 ### VaultList
 * VaultList `array`
@@ -1164,21 +1381,19 @@ amazonaws_glacier.RemoveTagsFromVault({
 
 ### VaultLockPolicy
 * VaultLockPolicy `object`: Contains the vault lock policy.
-  * Policy [string](#string)
+  * Policy
 
 ### VaultNotificationConfig
 * VaultNotificationConfig `object`: Represents a vault's notification configuration.
-  * Events [NotificationEventList](#notificationeventlist)
-  * SNSTopic [string](#string)
+  * Events
+    * items [string](#string)
+  * SNSTopic
 
 ### boolean
 * boolean `boolean`
 
 ### hashmap
-* hashmap `array`
-  * items `object`
-    * key [string](#string)
-    * value [string](#string)
+* hashmap `object`
 
 ### httpstatus
 * httpstatus `integer`

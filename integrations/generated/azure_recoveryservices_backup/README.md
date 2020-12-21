@@ -15,12 +15,7 @@ let azure_recoveryservices_backup = require('@datafire/azure_recoveryservices_ba
   redirect_uri: ""
 });
 
-azure_recoveryservices_backup.BackupVaultConfigs_Get({
-  "subscriptionId": "",
-  "api-version": "",
-  "resourceGroupName": "",
-  "vaultName": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

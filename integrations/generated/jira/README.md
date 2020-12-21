@@ -17,7 +17,7 @@ let jira = require('@datafire/jira').create({
   redirect_uri: ""
 });
 
-jira.worklog.updated.get({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -509,11 +509,6 @@ jira.comment.list.post({}, context)
       * body `object`
         * content **required** `array`
           * items `object`
-            * content `array`
-              * items `object`
-                * text **required** `string`
-                * type **required** `string`
-            * type **required** `string`
         * type **required** `string`
         * version **required** `number`
       * created **required** `string`
@@ -914,8 +909,6 @@ jira.dashboard.get({}, context)
       * sharePermissions `array`
         * items `object`
           * group `object`
-            * name **required** `string`
-            * self **required** `string`
           * id **required** `number`
           * type **required** `string`
       * view **required** `string`
@@ -1164,12 +1157,7 @@ jira.field.fieldKey.option.get({
         * scope **required** `object`
           * global **required** `object`
           * projects **required** `array`
-            * items `object`
           * projects2 **required** `array`
-            * items `object`
-              * attributes `array`
-                * items `object`
-              * id **required** `number`
       * id **required** `number`
       * properties `object`
         * description **required** `string`
@@ -1210,7 +1198,6 @@ jira.field.fieldKey.option.post({
       * projects2 **required** `array`
         * items `object`
           * attributes `array`
-            * items `object`
           * id **required** `number`
   * properties **required** `object`
     * description **required** `string`
@@ -1268,7 +1255,6 @@ jira.field.fieldKey.option.optionId.get({
       * projects2 **required** `array`
         * items `object`
           * attributes `array`
-            * items `object`
           * id **required** `number`
   * id **required** `number`
   * properties **required** `object`
@@ -1312,7 +1298,6 @@ jira.field.fieldKey.option.optionId.put({
       * projects2 **required** `array`
         * items `object`
           * attributes `array`
-            * items `object`
           * id **required** `number`
   * id **required** `number`
   * properties **required** `object`
@@ -1841,8 +1826,6 @@ jira.filter.id.permission.get({
       * actors **required** `array`
         * items `object`
           * actorGroup `object`
-            * displayName **required** `string`
-            * name **required** `string`
           * displayName **required** `string`
           * id **required** `number`
           * name **required** `string`
@@ -1901,8 +1884,6 @@ jira.filter.id.permission.post({
       * actors **required** `array`
         * items `object`
           * actorGroup `object`
-            * displayName **required** `string`
-            * name **required** `string`
           * displayName **required** `string`
           * id **required** `number`
           * name **required** `string`
@@ -2406,10 +2387,6 @@ jira.issue.issueIdOrKey.get({
           * accountId **required** `string`
           * active **required** `boolean`
           * avatarUrls **required** `object`
-            * 16x16 **required** `string`
-            * 24x24 **required** `string`
-            * 32x32 **required** `string`
-            * 48x48 **required** `string`
           * displayName **required** `string`
           * key **required** `string`
           * name **required** `string`
@@ -2431,12 +2408,6 @@ jira.issue.issueIdOrKey.get({
           * self **required** `string`
         * body `object`
           * content **required** `array`
-            * items `object`
-              * content `array`
-                * items `object`
-                  * text **required** `string`
-                  * type **required** `string`
-              * type **required** `string`
           * type **required** `string`
           * version **required** `number`
         * created **required** `string`
@@ -2455,9 +2426,6 @@ jira.issue.issueIdOrKey.get({
       * content **required** `array`
         * items `object`
           * content `array`
-            * items `object`
-              * text **required** `string`
-              * type **required** `string`
           * type **required** `string`
       * type **required** `string`
       * version **required** `number`
@@ -2466,9 +2434,6 @@ jira.issue.issueIdOrKey.get({
         * id **required** `string`
         * outwardIssue `object`
           * fields **required** `object`
-            * status **required** `object`
-              * iconUrl **required** `string`
-              * name **required** `string`
           * id **required** `string`
           * key **required** `string`
           * self **required** `string`
@@ -2499,9 +2464,6 @@ jira.issue.issueIdOrKey.get({
         * id **required** `string`
         * outwardIssue `object`
           * fields **required** `object`
-            * status **required** `object`
-              * iconUrl **required** `string`
-              * name **required** `string`
           * id **required** `string`
           * key **required** `string`
           * self **required** `string`
@@ -2537,12 +2499,6 @@ jira.issue.issueIdOrKey.get({
           * self **required** `string`
         * comment `object`
           * content **required** `array`
-            * items `object`
-              * content `array`
-                * items `object`
-                  * text **required** `string`
-                  * type **required** `string`
-              * type **required** `string`
           * type **required** `string`
           * version **required** `number`
         * id **required** `string`
@@ -2740,11 +2696,6 @@ jira.issue.issueIdOrKey.comment.get({
       * body `object`
         * content **required** `array`
           * items `object`
-            * content `array`
-              * items `object`
-                * text **required** `string`
-                * type **required** `string`
-            * type **required** `string`
         * type **required** `string`
         * version **required** `number`
       * created **required** `string`
@@ -2796,8 +2747,6 @@ jira.issue.issueIdOrKey.comment.post({
       * items `object`
         * content `array`
           * items `object`
-            * text **required** `string`
-            * type **required** `string`
         * type **required** `string`
     * type **required** `string`
     * version **required** `number`
@@ -2862,8 +2811,6 @@ jira.issue.issueIdOrKey.comment.id.get({
       * items `object`
         * content `array`
           * items `object`
-            * text **required** `string`
-            * type **required** `string`
         * type **required** `string`
     * type **required** `string`
     * version **required** `number`
@@ -2915,8 +2862,6 @@ jira.issue.issueIdOrKey.comment.id.put({
       * items `object`
         * content `array`
           * items `object`
-            * text **required** `string`
-            * type **required** `string`
         * type **required** `string`
     * type **required** `string`
     * version **required** `number`
@@ -3260,19 +3205,13 @@ jira.issue.issueIdOrKey.transitions.get({
       * fields `object`
         * summary **required** `object`
           * allowedValues **required** `array`
-            * items `object`
           * defaultValue **required** `string`
           * hasDefaultValue **required** `boolean`
           * key **required** `string`
           * name **required** `string`
           * operations **required** `array`
-            * items `object`
           * required **required** `boolean`
           * schema **required** `object`
-            * custom **required** `string`
-            * customId **required** `number`
-            * items **required** `string`
-            * type **required** `string`
       * hasScreen **required** `boolean`
       * id **required** `string`
       * isConditional **required** `boolean`
@@ -3477,11 +3416,6 @@ jira.issue.issueIdOrKey.worklog.get({
       * comment `object`
         * content **required** `array`
           * items `object`
-            * content `array`
-              * items `object`
-                * text **required** `string`
-                * type **required** `string`
-            * type **required** `string`
         * type **required** `string`
         * version **required** `number`
       * id **required** `string`
@@ -3586,8 +3520,6 @@ jira.issue.issueIdOrKey.worklog.id.get({
       * items `object`
         * content `array`
           * items `object`
-            * text **required** `string`
-            * type **required** `string`
         * type **required** `string`
     * type **required** `string`
     * version **required** `number`
@@ -3650,8 +3582,6 @@ jira.issue.issueIdOrKey.worklog.id.put({
       * items `object`
         * content `array`
           * items `object`
-            * text **required** `string`
-            * type **required** `string`
         * type **required** `string`
     * type **required** `string`
     * version **required** `number`
@@ -3815,13 +3745,6 @@ jira.issue.createmeta.get({}, context)
         * items `object`
           * description **required** `string`
           * fields `object`
-            * issuetype **required** `object`
-              * hasDefaultValue **required** `boolean`
-              * key **required** `string`
-              * name **required** `string`
-              * operations **required** `array`
-                * items `object`
-              * required **required** `boolean`
           * iconUrl **required** `string`
           * id **required** `string`
           * name **required** `string`
@@ -3955,7 +3878,6 @@ jira.issueLink.linkId.get({
         * name **required** `string`
         * scope **required** `object`
           * project **required** `object`
-            * id **required** `string`
           * type **required** `string`
         * self **required** `string`
         * subtask **required** `boolean`
@@ -4684,18 +4606,7 @@ jira.notificationscheme.get({}, context)
       * notificationSchemeEvents `array`
         * items `object`
           * event `object`
-            * description **required** `string`
-            * id **required** `number`
-            * name **required** `string`
           * notifications `array`
-            * items `object`
-              * expand **required** `string`
-              * group `object`
-                * name **required** `string`
-                * self **required** `string`
-              * id **required** `number`
-              * notificationType **required** `string`
-              * parameter **required** `string`
       * self **required** `string`
 
 ### notificationscheme.id.get
@@ -4729,8 +4640,6 @@ jira.notificationscheme.id.get({
         * items `object`
           * expand **required** `string`
           * group `object`
-            * name **required** `string`
-            * self **required** `string`
           * id **required** `number`
           * notificationType **required** `string`
           * parameter **required** `string`
@@ -6157,8 +6066,6 @@ jira.project.projectKeyOrId.notificationscheme.get({
         * items `object`
           * expand **required** `string`
           * group `object`
-            * name **required** `string`
-            * self **required** `string`
           * id **required** `number`
           * notificationType **required** `string`
           * parameter **required** `string`
@@ -9384,9 +9291,6 @@ jira.worklog.list.post({}, context)
       * content **required** `array`
         * items `object`
           * content `array`
-            * items `object`
-              * text **required** `string`
-              * type **required** `string`
           * type **required** `string`
       * type **required** `string`
       * version **required** `number`

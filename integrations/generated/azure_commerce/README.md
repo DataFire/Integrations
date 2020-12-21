@@ -9,11 +9,7 @@ npm install --save @datafire/azure_commerce
 ```js
 let azure_commerce = require('@datafire/azure_commerce').create();
 
-azure_commerce.RateCard_Get({
-  "$filter": "",
-  "api-version": "",
-  "subscriptionId": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

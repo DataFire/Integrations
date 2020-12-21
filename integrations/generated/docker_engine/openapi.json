@@ -3106,7 +3106,7 @@
                     "13642",
                     "882",
                     "0",
-                    "17:03",
+                    1023,
                     "pts/0",
                     "00:00:00",
                     "/bin/bash"
@@ -3116,7 +3116,7 @@
                     "13735",
                     "13642",
                     "0",
-                    "17:06",
+                    1026,
                     "pts/0",
                     "00:00:00",
                     "sleep 10"
@@ -7377,13 +7377,16 @@
                     "NetworkSettings": {
                       "Networks": {
                         "bridge": {
+                          "Aliases": null,
                           "EndpointID": "8ed5115aeaad9abb174f68dcf135b49f11daf597678315231a32ca28441dec6a",
                           "Gateway": "172.18.0.1",
                           "GlobalIPv6Address": "",
                           "GlobalIPv6PrefixLen": 0,
+                          "IPAMConfig": null,
                           "IPAddress": "172.18.0.2",
                           "IPPrefixLen": 16,
                           "IPv6Gateway": "",
+                          "Links": null,
                           "MacAddress": "02:42:ac:12:00:02",
                           "NetworkID": "d687bc59335f0e5c9ee8193e5612e8aee000c8c62ea170cfb99c098f95899d92"
                         }
@@ -7417,8 +7420,10 @@
                 "Volumes": [
                   {
                     "Driver": "local",
+                    "Labels": null,
                     "Mountpoint": "/var/lib/docker/volumes/my-volume/_data",
                     "Name": "my-volume",
+                    "Options": null,
                     "Scope": "local",
                     "UsageData": {
                       "RefCount": 2,
@@ -10223,6 +10228,7 @@
                 {
                   "Description": "If set, prints debug messages",
                   "Name": "DEBUG",
+                  "Settable": null,
                   "Value": "0"
                 }
               ],
@@ -10713,6 +10719,7 @@
       },
       "description": "PortMap describes the mapping of container ports to host ports, using the\ncontainer's port-number and protocol as key in the format `<port>/<protocol>`,\nfor example, `80/udp`.\n\nIf a container's port is mapped for both `tcp` and `udp`, two separate\nentries are added to the mapping table.\n",
       "example": {
+        "2377/tcp": null,
         "443/tcp": [
           {
             "HostIp": "127.0.0.1",

@@ -1,0 +1,411 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "contact": {
+      "x-twitter": "Rapid_API"
+    },
+    "description": "The Football Prediction API allows developers to get predictions for upcoming football (soccer) matches, results for past matches, and performance monitoring for statistical models.",
+    "title": "Football Prediction API",
+    "version": "2",
+    "x-apisguru-categories": [
+      "text"
+    ],
+    "x-logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_Rapid_API_profile_image.jpeg"
+    },
+    "x-origin": [
+      {
+        "converter": {
+          "url": "https://github.com/lucybot/api-spec-converter",
+          "version": "2.7.31"
+        },
+        "format": "openapi",
+        "url": "https://boggio-analytics.com/fp-api/schema/football-prediction-openapi.yaml",
+        "version": "3.0"
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "rapidapi.com",
+    "x-serviceName": "football-prediction",
+    "x-datafire": {
+      "name": "rapidapi_football_prediction",
+      "type": "openapi"
+    }
+  },
+  "host": "football-prediction-api.p.rapidapi.com",
+  "basePath": "/",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/api/v2/list-federations": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Your key obtained from https://boggio-analytics.com/fp-api/",
+            "format": "uuid",
+            "in": "header",
+            "name": "X-RapidApi-Key",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Static response, shows available federations.",
+            "schema": {
+              "properties": {
+                "data": {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "404": {
+            "description": "Bad request, check response for detailed errors.",
+            "schema": {
+              "properties": {
+                "errors": {
+                  "items": {
+                    "properties": {
+                      "column-with-errors": {
+                        "description": "detailed information about the issue encountered",
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
+          }
+        },
+        "description": "Returns an array of all the available federations."
+      }
+    },
+    "/api/v2/list-markets": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Your key obtained from https://boggio-analytics.com/fp-api/",
+            "format": "uuid",
+            "in": "header",
+            "name": "X-RapidApi-Key",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Static response, shows available markets for the current subscription and all available markets in general.",
+            "schema": {
+              "properties": {
+                "data": {
+                  "properties": {
+                    "all": {
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    },
+                    "allowed_for_your_subscription": {
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "404": {
+            "description": "Bad request, check response for detailed errors.",
+            "schema": {
+              "properties": {
+                "errors": {
+                  "items": {
+                    "properties": {
+                      "column-with-errors": {
+                        "description": "detailed information about the issue encountered",
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
+          }
+        },
+        "description": "Returns an array of all the supported prediction markets"
+      }
+    },
+    "/api/v2/performance-stats": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Your key obtained from https://boggio-analytics.com/fp-api/",
+            "format": "uuid",
+            "in": "header",
+            "name": "X-RapidApi-Key",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Good request, returns object that contains accuracy and other datails about predictions.",
+            "schema": {
+              "properties": {
+                "data": {
+                  "properties": {
+                    "accuracy": {
+                      "properties": {
+                        "last_14_days": {
+                          "type": "number"
+                        },
+                        "last_30_days": {
+                          "type": "number"
+                        },
+                        "last_7_days": {
+                          "type": "number"
+                        },
+                        "yesterday": {
+                          "type": "number"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "details": {
+                      "properties": {
+                        "last_14_days": {
+                          "properties": {
+                            "lost": {
+                              "type": "integer"
+                            },
+                            "pending": {
+                              "type": "integer"
+                            },
+                            "postponed": {
+                              "type": "integer"
+                            },
+                            "total": {
+                              "type": "integer"
+                            },
+                            "won": {
+                              "type": "integer"
+                            }
+                          },
+                          "type": "object"
+                        },
+                        "last_30_days": {
+                          "properties": {
+                            "lost": {
+                              "type": "integer"
+                            },
+                            "pending": {
+                              "type": "integer"
+                            },
+                            "postponed": {
+                              "type": "integer"
+                            },
+                            "total": {
+                              "type": "integer"
+                            },
+                            "won": {
+                              "type": "integer"
+                            }
+                          },
+                          "type": "object"
+                        },
+                        "last_7_days": {
+                          "properties": {
+                            "lost": {
+                              "type": "integer"
+                            },
+                            "pending": {
+                              "type": "integer"
+                            },
+                            "postponed": {
+                              "type": "integer"
+                            },
+                            "total": {
+                              "type": "integer"
+                            },
+                            "won": {
+                              "type": "integer"
+                            }
+                          },
+                          "type": "object"
+                        },
+                        "yesterday": {
+                          "properties": {
+                            "lost": {
+                              "type": "integer"
+                            },
+                            "pending": {
+                              "type": "integer"
+                            },
+                            "postponed": {
+                              "type": "integer"
+                            },
+                            "total": {
+                              "type": "integer"
+                            },
+                            "won": {
+                              "type": "integer"
+                            }
+                          },
+                          "type": "object"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "market": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "404": {
+            "description": "Bad request, check response for detailed errors.",
+            "schema": {
+              "properties": {
+                "errors": {
+                  "items": {
+                    "properties": {
+                      "column-with-errors": {
+                        "description": "detailed information about the issue encountered",
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
+          }
+        },
+        "description": "Returns predictions accuracy in the last 1, 7, 14, 30 days."
+      }
+    },
+    "/api/v2/predictions": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Your key obtained from https://boggio-analytics.com/fp-api/",
+            "format": "uuid",
+            "in": "header",
+            "name": "X-RapidApi-Key",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Good request, returns object that contains data array with all predictions."
+          },
+          "404": {
+            "description": "Bad request, check response for detailed errors.",
+            "schema": {
+              "properties": {
+                "errors": {
+                  "items": {
+                    "properties": {
+                      "column-with-errors": {
+                        "description": "detailed information about the issue encountered",
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
+          }
+        },
+        "description": "This endpoint returns by default the next non-expired football predictions. URL parameters can be specified to show specific date in the past or future or to filter by federation and prediction market name."
+      }
+    },
+    "/api/v2/predictions/{id}": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "ID of match",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Good request, returns object that contains all the predictions for a certain event.",
+            "schema": {
+              "properties": {
+                "data": {
+                  "items": {
+                    "type": "object"
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "404": {
+            "description": "Bad request, check response for detailed errors.",
+            "schema": {
+              "properties": {
+                "errors": {
+                  "items": {
+                    "properties": {
+                      "column-with-errors": {
+                        "description": "detailed information about the issue encountered",
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
+          }
+        },
+        "description": "Returns all predictions available for a match id."
+      }
+    }
+  }
+}

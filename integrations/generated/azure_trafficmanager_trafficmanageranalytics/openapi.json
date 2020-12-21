@@ -660,7 +660,7 @@
           "type": "string"
         },
         "type": {
-          "description": "The type of the resource. Ex- Microsoft.Network/trafficmanagerProfiles.",
+          "description": "The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.",
           "readOnly": true,
           "type": "string"
         }

@@ -9,11 +9,7 @@ npm install --save @datafire/fraudlabspro
 ```js
 let fraudlabspro = require('@datafire/fraudlabspro').create();
 
-fraudlabspro.v1.order.feedback.post({
-  "id": "",
-  "key": "",
-  "action": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

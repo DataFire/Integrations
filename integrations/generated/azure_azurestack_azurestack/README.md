@@ -15,9 +15,7 @@ let azure_azurestack_azurestack = require('@datafire/azure_azurestack_azurestack
   redirect_uri: ""
 });
 
-azure_azurestack_azurestack.Operations_List({
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -56,6 +54,16 @@ azure_azurestack_azurestack.Operations_List({
   * provider `string`: The localized, friendly version of the resource provider name.
   * resource `string`: The localized, friendly version of the resource type related to this action or operation; the resource type should match the public documentation for the resource provider.
 
+### ErrorDetails
+* ErrorDetails `object`: The details of the error.
+  * code `string`: Error code.
+  * message `string`: Error message indicating why the operation failed.
+  * target `string`: The target of the particular error.
+
+### ErrorResponse
+* ErrorResponse `object`: Error response indicates that the service is not able to process the incoming request. The reason is provided in the error message.
+  * error [ErrorDetails](#errordetails)
+
 ### Operation
 * Operation `object`: Describes the supported REST operation.
   * display [Display](#display)
@@ -73,7 +81,14 @@ azure_azurestack_azurestack.Operations_List({
 
 ### Resource
 * Resource `object`: Base resource object.
-  * etag `string`: The entity tag used for optimistic concurency when modifying the resource.
+  * etag `string`: The entity tag used for optimistic concurrency when modifying the resource.
+  * id `string`: ID of the resource.
+  * name `string`: Name of the resource.
+  * type `string`: Type of Resource.
+
+### TrackedResource
+* TrackedResource `object`: Base resource object.
+  * etag `string`: The entity tag used for optimistic concurrency when modifying the resource.
   * id `string`: ID of the resource.
   * location **required** `string` (values: global): Location of the resource.
   * name `string`: Name of the resource.

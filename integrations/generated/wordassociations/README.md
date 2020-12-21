@@ -1,6 +1,6 @@
 # @datafire/wordassociations
 
-Client library for Word Associations
+Client library for Word Associations API
 
 ## Installation and Usage
 ```bash
@@ -11,10 +11,7 @@ let wordassociations = require('@datafire/wordassociations').create({
   internalApiKey: ""
 });
 
-wordassociations.json.search.get({
-  "text": [],
-  "lang": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

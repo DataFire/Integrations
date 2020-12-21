@@ -1,8 +1,8 @@
 {
   "name": "@datafire/spinbot",
-  "version": "4.0.0",
+  "version": "5.0.0",
   "main": "index.js",
-  "description": "DataFire integration for Article Rewriter and Article Extractor",
+  "description": "DataFire integration for Article Rewriter and Article Extractor API",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DataFire/integrations.git"

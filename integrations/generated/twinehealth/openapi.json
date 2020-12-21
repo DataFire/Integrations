@@ -9,14 +9,14 @@
     "contact": {
       "email": "apiteam@twinehealth.com"
     },
-    "description": "# Overview\nThe Twine Health API is RESTful API. The requests and responses are formated according to the [JSON API](http://jsonapi.org/format/1.0/) specification.\n\nIn addition to this documentation, we also provide an [OpenAPI](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md) \"yaml\" file describing the API: [Twine API Specification](swagger.yaml).\n\n# Authentication\nAuthentication for the Twine API is based on the [OAuth 2.0 Authorization Framework](https://tools.ietf.org/html/rfc6749). Twine currently supports grant types of **client_credentials** and **refresh_token**.\n\nSee [POST /oauth/token](#operation/createToken) for details on the request and response formats.\n<!-- ReDoc-Inject: <security-definitions> -->\n\n# Paging\nThe Twine API supports two different pagination strategies for GET collection endpoints. \n\n#### Skip-based paging\n\nSkip-based paging uses the query parameters `page[size]` and `page[number]` to specify the max number of resources returned and the page number. We default to skip-based paging if there are no page parameters. The response will include a `links` object containing links to the first, last, prev, and next pages of data.\n\nIf the contents of the collection change while you are iterating through the collection, you will see duplicate or missing documents. For example, if you are iterating through the `calender_event` resource via `GET /pub/calendar_event?sort=start_at&page[size]=50&page[number]=1`, and a new `calendar_event` is created that has a `start_at` value before the first `calendar_event`, when you fetch the next page at `GET /pub/calendar_event?sort=start_at&page[size]=50&page[number]=2`, the first entry in the second response will be a duplicate of the last entry in the first response.\n\n#### Cursor-based paging\nCursor-based paging uses the query parameters `page[limit]` and `page[after]` to specify the max number of entries returned and identify where to begin the next page. Add `page[limit]` to the parameters to use cursor-based paging. The response will include a `links` object containing a link to the next page of data, if the next page exists. \n\nCursor-based paging is not subject to duplication if new resources are added to the collection. For example, if you are iterating through the `calender_event` resource via `GET /pub/calendar_event?sort=start_at&page[limit]=50`, and a new `calendar_event` is created that has a `start_at` value before the first `calendar_event`, you will not see a duplicate entry when you fetch the next page at `GET /pub/calendar_event?sort=start_at&page[limit]=50&page[after]=<cursor>`. \n\nWe encourage the use of cursor-based paging for performance reasons. \n\nIn either form of paging, you can determine whether any resources were missed by comparing the number of fetched resources against `meta.count`. Set `page[size]` or `page[limit]` to 0 to get only the count.\n\nIt is not valid to mix the two strategies.\n",
-    "title": "Twine",
-    "version": "7.18.0",
+    "description": "# Overview\nThe Fitbit Plus API is a RESTful API. The requests and responses are formated according to the\n[JSON API](http://jsonapi.org/format/1.0/) specification.\n\nIn addition to this documentation, we also provide an\n[OpenAPI](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md) \"yaml\" file describing the API:\n[Fitbit Plus API Specification](swagger.yaml).\n\n# Authentication\nAuthentication for the Fitbit Plus API is based on the\n[OAuth 2.0 Authorization Framework](https://tools.ietf.org/html/rfc6749). Fitbit Plus currently supports grant\ntypes of **client_credentials** and **refresh_token**.\n\nSee [POST /oauth/token](#operation/createToken) for details on the request and response formats.\n<!-- ReDoc-Inject: <security-definitions> -->\n\n## Building Integrations\nWe will provide customers with unique client credentials for each application/integration they build, allowing us\nto enforce appropriate access controls and monitor API usage.\nThe client credentials will be scoped to the organization, and allow full access to all patients and related data\nwithin that organization.\n\nThese credentials are appropriate for creating an integration that does one of the following:\n - background reporting/analysis\n - synchronizing data with another system (such as an EMR)\n\nThe API credentials and oauth flows we currently support are **not** well suited for creating a user-facing\napplication that allows a user (patient, coach, or admin) to login and have access to data which is appropriate to\nthat specific user. It is possible to build such an application, but it is not possible to use Fitbit Plus as a\nfederated identity provider. You would need to have a separate means of verifying a user's identity. We do not\ncurrently support the required password-based oauth flow to make this possible.\n\n# Paging\nThe Fitbit Plus API supports two different pagination strategies for GET collection endpoints.\n\n#### Skip-based paging\n\nSkip-based paging uses the query parameters `page[size]` and `page[number]` to specify the max number of resources returned and the page number. We default to skip-based paging if there are no page parameters. The response will include a `links` object containing links to the first, last, prev, and next pages of data.\n\nIf the contents of the collection change while you are iterating through the collection, you will see duplicate or missing documents. For example, if you are iterating through the `calender_event` resource via `GET /pub/calendar_event?sort=start_at&page[size]=50&page[number]=1`, and a new `calendar_event` is created that has a `start_at` value before the first `calendar_event`, when you fetch the next page at `GET /pub/calendar_event?sort=start_at&page[size]=50&page[number]=2`, the first entry in the second response will be a duplicate of the last entry in the first response.\n\n#### Cursor-based paging\nCursor-based paging uses the query parameters `page[limit]` and `page[after]` to specify the max number of entries returned and identify where to begin the next page. Add `page[limit]` to the parameters to use cursor-based paging. The response will include a `links` object containing a link to the next page of data, if the next page exists.\n\nCursor-based paging is not subject to duplication if new resources are added to the collection. For example, if you are iterating through the `calender_event` resource via `GET /pub/calendar_event?sort=start_at&page[limit]=50`, and a new `calendar_event` is created that has a `start_at` value before the first `calendar_event`, you will not see a duplicate entry when you fetch the next page at `GET /pub/calendar_event?sort=start_at&page[limit]=50&page[after]=<cursor>`.\n\nWe encourage the use of cursor-based paging for performance reasons.\n\nIn either form of paging, you can determine whether any resources were missed by comparing the number of fetched resources against `meta.count`. Set `page[size]` or `page[limit]` to 0 to get only the count.\n\nIt is not valid to mix the two strategies.\n",
+    "title": "Fitbit Plus API",
+    "version": "v7.78.1",
     "x-apisguru-categories": [
       "support"
     ],
     "x-logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/http_developer.twinehealth.com_images_twinehealth_hz_4color.png"
+      "url": "https://api.apis.guru/v2/cache/logo/http_developer.twinehealth.com_images_Fitbit_Plus_lockup_2C_RGB-32.png"
     },
     "x-origin": [
       {
@@ -39,14 +39,14 @@
     "application/vnd.api+json"
   ],
   "securityDefinitions": {
-    "twine_auth": {
-      "authorizationUrl": "https://api.twinehealth.com/pub/oauth/dialog",
-      "description": "Get access to data while protecting your account credentials.\nOAuth2 is also a safer and more secure way to give you access.\n",
-      "flow": "implicit",
+    "OAuth2": {
+      "description": "Fitbit Plus allows customers to access data for their organization using client credentials.\nOAuth2 is a safe and secure way to give you access.\n",
+      "flow": "application",
       "scopes": {
         "group": "access patients and data within a group",
         "organization": "access patients and data within an organization"
       },
+      "tokenUrl": "/oauth/token",
       "type": "oauth2"
     }
   },
@@ -56,7 +56,7 @@
       "name": "oauth"
     },
     {
-      "description": "An organization is a Twine customer. No data is accessible across organizations.",
+      "description": "An organization is a Fitbit Plus customer. No data is accessible across organizations.",
       "name": "organization"
     },
     {
@@ -88,7 +88,7 @@
       "name": "calendar event response"
     },
     {
-      "description": "Email history represents a single email that was sent using twine.",
+      "description": "Email history represents a single email that was sent using Fitbit Plus.",
       "name": "email history"
     },
     {
@@ -112,12 +112,16 @@
       "name": "metric"
     },
     {
-      "description": "A patient is the core user of Twine.",
+      "description": "A patient is the core user of Fitbit Plus.",
       "name": "patient"
     },
     {
       "description": "A plan is the set of actions and associated goals for a patient.",
       "name": "plan"
+    },
+    {
+      "description": "A patient health result is a quantitative result for a patient.",
+      "name": "result"
     },
     {
       "description": "A reward allocates a portion of the budget from the reward program activation for achieving a particular goal and sets a target date.",
@@ -427,7 +431,7 @@
             "type": "string"
           },
           {
-            "description": "Twine organization id. Note that one of the following filters must be specified: `filter[patient]`, `filter[group]`, `filter[organization]`, or `filter[attendees]`.\n",
+            "description": "Fitbit Plus organization id. Note that one of the following filters must be specified: `filter[patient]`, `filter[group]`, `filter[organization]`, or `filter[attendees]`.\n",
             "in": "query",
             "name": "filter[organization]",
             "type": "string"
@@ -778,6 +782,50 @@
         ]
       }
     },
+    "/coach": {
+      "get": {
+        "description": "Get a list of coaches matching the specified filters.",
+        "operationId": "fetchCoaches",
+        "parameters": [
+          {
+            "description": "Comma-separated list of group ids. Note that one of the following filters must be specified: `filter[groups]`, `filter[organization]`.\n",
+            "in": "query",
+            "name": "filter[groups]",
+            "type": "string"
+          },
+          {
+            "description": "Fitbit Plus organization id. Note that one of the following filters must be specified: `filter[groups]`, `filter[organization]`.\n",
+            "in": "query",
+            "name": "filter[organization]",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/FetchCoachesResponse"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/FetchErrorResponse"
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "schema": {
+              "$ref": "#/definitions/FetchErrorResponse"
+            }
+          }
+        },
+        "summary": "List coaches",
+        "tags": [
+          "coach"
+        ]
+      }
+    },
     "/coach/{id}": {
       "get": {
         "description": "Get a coach record by id.",
@@ -823,13 +871,13 @@
         "operationId": "fetchEmailHistories",
         "parameters": [
           {
-            "description": "Twine user id of email recipient. Required if filter[sender] is not defined.",
+            "description": "Fitbit Plus user id of email recipient. Required if filter[sender] is not defined.",
             "in": "query",
             "name": "filter[receiver]",
             "type": "string"
           },
           {
-            "description": "Twine user id of email sender. Required if filter[receiver] is not defined.",
+            "description": "Fitbit Plus user id of email sender. Required if filter[receiver] is not defined.",
             "in": "query",
             "name": "filter[sender]",
             "type": "string"
@@ -1069,7 +1117,7 @@
             "type": "string"
           },
           {
-            "description": "Twine organization id. Note that one of the following filters must be specified: `filter[patient]`, `filter[group]`, or `filter[organization]`.\n",
+            "description": "Fitbit Plus organization id. Note that one of the following filters must be specified: `filter[patient]`, `filter[group]`, or `filter[organization]`.\n",
             "in": "query",
             "name": "filter[organization]",
             "type": "string"
@@ -1220,7 +1268,7 @@
             "type": "string"
           },
           {
-            "description": "Twine organization id. Note that one of the following filters must be specified: `filter[patient]`, `filter[group]`, or `filter[organization]`.\n",
+            "description": "Fitbit Plus organization id. Note that one of the following filters must be specified: `filter[patient]`, `filter[group]`, or `filter[organization]`.\n",
             "in": "query",
             "name": "filter[organization]",
             "type": "string"
@@ -1348,6 +1396,73 @@
         "summary": "Get a health profile answer",
         "tags": [
           "health profile answer"
+        ]
+      }
+    },
+    "/health_profile_question": {
+      "get": {
+        "description": "Get a list of health profile questions",
+        "operationId": "fetchHealthProfileQuestions",
+        "parameters": [
+          {
+            "description": "Patient id to fetch healt profile questions. Note that one of the following filters must be specified: `filter[patient]`, `filter[group]`, or `filter[organization]`.\n",
+            "in": "query",
+            "name": "filter[patient]",
+            "type": "string"
+          },
+          {
+            "description": "Comma-separated list of group ids. Note that one of the following filters must be specified: `filter[patient]`, `filter[group]`, or `filter[organization]`.\n",
+            "in": "query",
+            "name": "filter[groups]",
+            "type": "string"
+          },
+          {
+            "description": "Fitbit Plus organization id. Note that one of the following filters must be specified: `filter[patient]`, `filter[group]`, or `filter[organization]`.\n",
+            "in": "query",
+            "name": "filter[organization]",
+            "type": "string"
+          },
+          {
+            "description": "List of related resources to include in the response",
+            "enum": [
+              "question_definition",
+              "answer"
+            ],
+            "in": "query",
+            "name": "include",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/FetchHealthProfileQuestionsResponse"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/FetchErrorResponse"
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "schema": {
+              "$ref": "#/definitions/FetchErrorResponse"
+            }
+          },
+          "409": {
+            "description": "Invalid Request",
+            "schema": {
+              "$ref": "#/definitions/FetchErrorResponse"
+            }
+          }
+        },
+        "summary": "List health profile questions",
+        "tags": [
+          "health profile question"
         ]
       }
     },
@@ -1533,7 +1648,7 @@
         },
         "security": [
           {
-            "twine_auth": [
+            "OAuth2": [
               "group",
               "organization"
             ]
@@ -1580,7 +1695,7 @@
         },
         "security": [
           {
-            "twine_auth": [
+            "OAuth2": [
               "group",
               "organization"
             ]
@@ -1682,7 +1797,7 @@
             "type": "string"
           },
           {
-            "description": "Twine organization id. Note that either `filter[group]` or `filter[organization]` must be specified.",
+            "description": "Fitbit Plus organization id. Note that either `filter[group]` or `filter[organization]` must be specified.",
             "in": "query",
             "name": "filter[organization]",
             "type": "string"
@@ -1823,6 +1938,50 @@
           }
         },
         "summary": "Create a patient",
+        "tags": [
+          "patient"
+        ]
+      },
+      "put": {
+        "description": "Create a new patient or update an existing patient",
+        "operationId": "upsertPatient",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpsertPatientRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/CreatePatientResponse"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/CreateOrUpdateErrorResponse"
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "schema": {
+              "$ref": "#/definitions/CreateOrUpdateErrorResponse"
+            }
+          },
+          "409": {
+            "description": "Invalid Request",
+            "schema": {
+              "$ref": "#/definitions/CreateOrUpdateErrorResponse"
+            }
+          }
+        },
+        "summary": "Upsert patient",
         "tags": [
           "patient"
         ]
@@ -2002,10 +2161,21 @@
         "operationId": "fetchPatientHealthMetrics",
         "parameters": [
           {
-            "description": "Filter the patient health metrics for a specified patient",
+            "description": "Filter the patient health metrics for a specified patient. Note that one of the following filters must be specified: `filter[patient]`, `filter[groups]`, `filter[organization]`.\n",
             "in": "query",
             "name": "filter[patient]",
-            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Comma-separated list of group ids. Note that one of the following filters must be specified: `filter[patient]`, `filter[groups]`, `filter[organization]`.\n",
+            "in": "query",
+            "name": "filter[groups]",
+            "type": "string"
+          },
+          {
+            "description": "Fitbit Plus organization id. Note that one of the following filters must be specified: `filter[patient]`, `filter[groups]`, `filter[organization]`.\n",
+            "in": "query",
+            "name": "filter[organization]",
             "type": "string"
           },
           {
@@ -2075,7 +2245,7 @@
         ]
       },
       "post": {
-        "description": "Create one or more patient health metrics.\n\nExample for creating a patient health result with a patient specified using `meta.query` instead of `id`:\n\n```JSON\n  {\n    \"data\": {\n      \"type\": \"patient_health_metric\",\n       \"attributes\": {\n         \"code\": {\n           \"system\": \"LOINC\",\n           \"value\": \"13457-7\"\n         },\n         \"type\": \"ldl_cholesterol\",\n         \"occurred_at\": \"2017-03-14T11:00:57.000Z\",\n         \"value\": \"121\",\n         \"unit\": \"mg/dl\"\n      },\n      \"relationships\": {\n        \"patient\": {\n          \"data\": {\n            \"type\": \"patient\",\n            \"meta\": {\n              \"query\": {\n                \"identifier\": {\n                  \"system\": \"medical-record-number\",\n                  \"value\": \"121212\"\n                },\n                \"organization\": \"58c4554710123c5c40dbab81\"\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n```\n",
+        "description": "Create one or more patient health metrics.\n\nExample for creating a patient health result with a patient specified using `meta.query` instead of `id`:\n\n```JSON\n  {\n    \"data\": {\n      \"type\": \"patient_health_metric\",\n       \"attributes\": {\n         \"code\": {\n           \"system\": \"LOINC\",\n           \"value\": \"13457-7\"\n         },\n         \"type\": \"ldl_cholesterol\",\n         \"occurred_at\": \"2017-03-14T11:00:57.000Z\",\n         \"value\": 121,\n         \"unit\": \"mg/dl\"\n      },\n      \"relationships\": {\n        \"patient\": {\n          \"data\": {\n            \"type\": \"patient\",\n            \"meta\": {\n              \"query\": {\n                \"identifier\": {\n                  \"system\": \"medical-record-number\",\n                  \"value\": \"121212\"\n                },\n                \"organization\": \"58c4554710123c5c40dbab81\"\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n```\n",
         "operationId": "createPatientHealthMetric",
         "parameters": [
           {
@@ -2164,10 +2334,21 @@
         "operationId": "fetchPatientPlanSummaries",
         "parameters": [
           {
-            "description": "Patient id to fetch plan summary for",
+            "description": "Patient id to fetch plan summary for. Note that one of the following filters must be specified: `filter[patient]`, `filter[groups]`, `filter[organization]`.\n",
             "in": "query",
             "name": "filter[patient]",
-            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Comma-separated list of group ids. Note that one of the following filters must be specified: `filter[patient]`, `filter[groups]`, `filter[organization]`.\n",
+            "in": "query",
+            "name": "filter[groups]",
+            "type": "string"
+          },
+          {
+            "description": "Fitbit Plus organization id. Note that one of the following filters must be specified: `filter[patient]`, `filter[groups]`, `filter[organization]`.\n",
+            "in": "query",
+            "name": "filter[organization]",
             "type": "string"
           },
           {
@@ -2313,16 +2494,171 @@
         ]
       }
     },
+    "/result": {
+      "get": {
+        "description": "Get a list of patient health results.",
+        "operationId": "fetchPatientHealthResults",
+        "parameters": [
+          {
+            "description": "Filter the patient health results for a specified patient",
+            "in": "query",
+            "name": "filter[patient]",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "A comma-separated list of action identifiers",
+            "in": "query",
+            "name": "filter[actions]",
+            "type": "string"
+          },
+          {
+            "description": "Filter results that occurred after the passed ISO date and time string",
+            "format": "dateTime",
+            "in": "query",
+            "name": "filter[start_at]",
+            "type": "string"
+          },
+          {
+            "description": "Filter results that occurred before the passed ISO date and time string",
+            "format": "dateTime",
+            "in": "query",
+            "name": "filter[end_at]",
+            "type": "string"
+          },
+          {
+            "description": "A comma-separated list of thread identifiers",
+            "in": "query",
+            "name": "filter[threads]",
+            "type": "string"
+          },
+          {
+            "description": "The start (inclusive) and end (exclusive) dates are ISO date and time strings separated by `..`. Example for results created in November 2017 (America/New_York): `filter[created_at]=2017-11-01T00:00:00-04:00..2017-12-01T00:00:00-05:00`\n",
+            "in": "query",
+            "name": "filter[created_at]",
+            "type": "string"
+          },
+          {
+            "description": "The start (inclusive) and end (exclusive) dates are ISO date and time strings separated by `..`. Example for results updated in November 2017 (America/New_York): `filter[updated_at]=2017-11-01T00:00:00-04:00..2017-12-01T00:00:00-05:00`\n",
+            "in": "query",
+            "name": "filter[updated_at]",
+            "type": "string"
+          },
+          {
+            "default": 1,
+            "description": "Page number",
+            "in": "query",
+            "name": "page[number]",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "default": 10,
+            "description": "Page size",
+            "in": "query",
+            "maximum": 50,
+            "minimum": 0,
+            "name": "page[size]",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "default": 50,
+            "description": "Page limit",
+            "in": "query",
+            "minimum": 0,
+            "name": "page[limit]",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Page cursor",
+            "in": "query",
+            "name": "page[after]",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/FetchPatientHealthResultResponse"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/FetchErrorResponse"
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "schema": {
+              "$ref": "#/definitions/FetchErrorResponse"
+            }
+          },
+          "409": {
+            "description": "Invalid Request",
+            "schema": {
+              "$ref": "#/definitions/FetchErrorResponse"
+            }
+          }
+        },
+        "summary": "List patient health results",
+        "tags": [
+          "result"
+        ]
+      }
+    },
+    "/result/{id}": {
+      "get": {
+        "description": "Get patient health result by id.",
+        "operationId": "fetchPatientHealthResult",
+        "parameters": [
+          {
+            "description": "Patient health result identifier",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/FetchPatientHealthResultResponse"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/FetchErrorResponse"
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "schema": {
+              "$ref": "#/definitions/FetchErrorResponse"
+            }
+          }
+        },
+        "summary": "Get a patient health result",
+        "tags": [
+          "result"
+        ]
+      }
+    },
     "/reward": {
       "get": {
         "description": "Get a list of rewards matching the specified filters.",
         "operationId": "fetchRewards",
         "parameters": [
           {
-            "description": "Patient identifier",
+            "description": "Patient identifier. Note that one of the following filters must be specified: `filter[patient]`, `filter[groups]`, `filter[organization]`.\n",
             "in": "query",
             "name": "filter[patient]",
-            "required": true,
             "type": "string"
           },
           {
@@ -2335,6 +2671,18 @@
             "description": "Thread identifier",
             "in": "query",
             "name": "filter[thread]",
+            "type": "string"
+          },
+          {
+            "description": "Comma-separated list of group ids. Note that one of the following filters must be specified: `filter[patient]`, `filter[groups]`, `filter[organization]`.\n",
+            "in": "query",
+            "name": "filter[groups]",
+            "type": "string"
+          },
+          {
+            "description": "Fitbit Plus organization id. Note that one of the following filters must be specified: `filter[patient]`, `filter[groups]`, `filter[organization]`.\n",
+            "in": "query",
+            "name": "filter[organization]",
             "type": "string"
           }
         ],
@@ -2710,10 +3058,15 @@
         "operationId": "fetchRewardPrograms",
         "parameters": [
           {
-            "description": "Comma-separated list of group identifiers",
+            "description": "Comma-separated list of group identifiers. Note that one of the following filters must be specified: `filter[groups]`, `filter[organization]`.\n",
             "in": "query",
             "name": "filter[groups]",
-            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Fitbit Plus organization id. Note that one of the following filters must be specified: `filter[groups]`, `filter[organization]`.\n",
+            "in": "query",
+            "name": "filter[organization]",
             "type": "string"
           }
         ],
@@ -2871,10 +3224,21 @@
         "operationId": "fetchRewardProgramActivations",
         "parameters": [
           {
-            "description": "Patient identifier",
+            "description": "Patient identifier. Note that one of the following filters must be specified: `filter[patient]`, `filter[groups]`, `filter[organization]`.\n",
             "in": "query",
             "name": "filter[patient]",
-            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Comma-separated list of group ids. Note that one of the following filters must be specified: `filter[patient]`, `filter[groups]`, `filter[organization]`.\n",
+            "in": "query",
+            "name": "filter[groups]",
+            "type": "string"
+          },
+          {
+            "description": "Fitbit Plus organization id. Note that one of the following filters must be specified: `filter[patient]`, `filter[groups]`, `filter[organization]`.\n",
+            "in": "query",
+            "name": "filter[organization]",
             "type": "string"
           }
         ],
@@ -4451,12 +4815,12 @@
             "attributes": {
               "properties": {
                 "client_id": {
-                  "description": "Contact Twine to get a client id and secret.",
+                  "description": "Contact Fitbit Plus API Support to get a client id and secret.",
                   "example": "19391dc5-8af8-4152-93e8-74ff9361607e",
                   "type": "string"
                 },
                 "client_secret": {
-                  "description": "Contact Twine to get a client id and secret. Secret is required if grant_type is \"client_credentials\"",
+                  "description": "Contact Fitbit Plus API Support to get a client id and secret. Secret is required if grant_type is \"client_credentials\"",
                   "example": "63eca384-7a65-42e2-872b-afd3e8659d0a",
                   "type": "string"
                 },
@@ -5212,6 +5576,33 @@
       ],
       "type": "object"
     },
+    "FetchHealthProfileQuestionsResponse": {
+      "properties": {
+        "data": {
+          "items": {
+            "$ref": "#/definitions/HealthProfileQuestionResource"
+          },
+          "type": "array"
+        },
+        "included": {
+          "description": "Related resources which are included in the response based on the `include` param.\nAttributes of each resource will vary depending on the type.\nSee [question_definition](#operation/fetchHealthQuestionDefinition), [answer](#operation/fetchHealthProfileAnswer)\n",
+          "items": {
+            "$ref": "#/definitions/Resource"
+          },
+          "type": "array"
+        },
+        "links": {
+          "$ref": "#/definitions/CollectionResponseLinks"
+        },
+        "meta": {
+          "$ref": "#/definitions/FetchMetaResponse"
+        }
+      },
+      "required": [
+        "data"
+      ],
+      "type": "object"
+    },
     "FetchHealthProfileResponse": {
       "properties": {
         "data": {
@@ -5354,6 +5745,26 @@
       ],
       "type": "object"
     },
+    "FetchPatientHealthResultResponse": {
+      "properties": {
+        "data": {
+          "items": {
+            "$ref": "#/definitions/PatientHealthResultResource"
+          },
+          "type": "array"
+        },
+        "links": {
+          "$ref": "#/definitions/CollectionResponseLinks"
+        },
+        "meta": {
+          "$ref": "#/definitions/FetchMetaResponse"
+        }
+      },
+      "required": [
+        "data"
+      ],
+      "type": "object"
+    },
     "FetchPatientPlanSummariesResponse": {
       "properties": {
         "data": {
@@ -5388,6 +5799,21 @@
               "streak": {
                 "count": 0
               }
+            },
+            "critical": {
+              "blood_glucose": {
+                "data": {
+                  "maximum": {
+                    "unit": "mg/dL",
+                    "value": 300
+                  },
+                  "minimum": {
+                    "unit": "mg/dL",
+                    "value": 70
+                  }
+                }
+              },
+              "effective_from": "2017-07-01T04:00:00.000Z"
             },
             "effective_from": "2017-07-01T04:00:00.000Z",
             "window_notification_times": {
@@ -5547,7 +5973,7 @@
             "first_name": "Lucy",
             "identifiers": [
               {
-                "label": "Twine Sample Data Filler Patient",
+                "label": "Fitbit Plus Sample Data Filler Patient",
                 "system": "twine-filler-patient",
                 "value": "filler-92"
               }
@@ -5563,6 +5989,11 @@
                 "value": "919.814.3552 x40123"
               }
             ],
+            "statement": {
+              "updated_at": "2016-03-16T13:32:57.000Z",
+              "updated_by": "5c509cc2f60e34018180b57c",
+              "value": "Enjoying nature."
+            },
             "updated_at": "2016-03-16T13:32:57.000Z"
           },
           "id": "58163112237d84a94035f78b",
@@ -5629,7 +6060,7 @@
               "first_name": "Lucy",
               "identifiers": [
                 {
-                  "label": "Twine Sample Data Filler Patient",
+                  "label": "Fitbit Plus Sample Data Filler Patient",
                   "system": "twine-filler-patient",
                   "value": "filler-92"
                 }
@@ -5645,6 +6076,11 @@
                   "value": "919.814.3552 x40123"
                 }
               ],
+              "statement": {
+                "updated_at": "2016-03-16T13:32:57.000Z",
+                "updated_by": "5c509cc2f60e34018180b57c",
+                "value": "Enjoying nature."
+              },
               "updated_at": "2016-03-16T13:32:57.000Z"
             },
             "id": "58163112237d84a94035f78b",
@@ -5689,7 +6125,7 @@
               "first_name": "Annette",
               "identifiers": [
                 {
-                  "label": "Twine Sample Data Filler Patient",
+                  "label": "Fitbit Plus Sample Data Filler Patient",
                   "system": "twine-filler-patient",
                   "value": "filler-5"
                 }
@@ -5745,7 +6181,7 @@
               "first_name": "Lexi",
               "identifiers": [
                 {
-                  "label": "Twine Sample Data Filler Patient",
+                  "label": "Fitbit Plus Sample Data Filler Patient",
                   "system": "twine-filler-patient",
                   "value": "filler-3"
                 }
@@ -6852,7 +7288,7 @@
             "occurred_at": "2017-03-14T11:00:57.000Z",
             "type": "ldl_cholesterol",
             "unit": "mg/dl",
-            "value": "121"
+            "value": 121
           },
           "relationships": {
             "patient": {
@@ -6944,7 +7380,7 @@
               "type": "string"
             },
             "value": {
-              "type": "number"
+              "description": "Can be any value (number, boolean, string, object) depending on the metric type. Most values are of type number."
             }
           },
           "type": "object"
@@ -7030,6 +7466,289 @@
       ],
       "type": "object"
     },
+    "PatientHealthResultResource": {
+      "example": {
+        "data": {
+          "attributes": {
+            "_thread": "569c631f4b378f51306324f2d69fd29aa0c034ac",
+            "annotations": [],
+            "created_at": "2018-09-18T12:24:37.000Z",
+            "created_by": "5c0fc0d02d02421ed70ca1d1",
+            "data": {
+              "value": 1
+            },
+            "occurred_at": "2018-09-18T12:24:37.000Z",
+            "occurred_at_time_zone": "America/New_York",
+            "source": {},
+            "type": "medication",
+            "updated_at": "2018-09-18T12:24:37.000Z",
+            "updated_by": "5c0fc0d02d02421ed70ca1d1",
+            "window": "5c0fc0d42d02421ed70cae01"
+          },
+          "id": "5c0fc0d42d02421ed70cae16",
+          "relationships": {
+            "action": {
+              "data": {
+                "id": "5ada648779672451a6c1b095",
+                "type": "action"
+              }
+            },
+            "metric": {
+              "data": {
+                "id": "5c0fc0d42d02421ed70cae16",
+                "type": "patient_health_metric"
+              }
+            },
+            "patient": {
+              "data": {
+                "id": "5c0fc0d02d02421ed70ca1d1",
+                "type": "patient"
+              }
+            }
+          },
+          "type": "result"
+        }
+      },
+      "properties": {
+        "attributes": {
+          "properties": {
+            "_thread": {
+              "description": "Links together results. This should be the same as the thread of _action, if it is defined",
+              "type": "string"
+            },
+            "aggregation": {
+              "type": "string"
+            },
+            "annotations": {
+              "items": {
+                "properties": {
+                  "text": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "channel": {
+              "type": "string"
+            },
+            "data": {
+              "properties": {
+                "value": {
+                  "description": "Can be any value (number, boolean, string, object) depending on the metric type. Most values are of type number"
+                }
+              },
+              "type": "object"
+            },
+            "external_id": {
+              "type": "string"
+            },
+            "metric_type": {
+              "enum": [
+                "blood_pressure_systolic",
+                "blood_pressure_diastolic",
+                "hemoglobin_a1c",
+                "hdl_cholesterol",
+                "ldl_cholesterol",
+                "total_cholesterol",
+                "triglycerides",
+                "blood_urea_nitrogen",
+                "creatinine",
+                "hemoglobin",
+                "hematocrit",
+                "total_serum_iron",
+                "thyroid_stimulating_hormone",
+                "free_thyroxine",
+                "free_triiodothyronine",
+                "total_triiodothyronine",
+                "cd4_cell_count",
+                "hiv_viral_load",
+                "inr",
+                "free_testosterone",
+                "total_testosterone",
+                "c_reactive_protein",
+                "prostate_specific_antigen",
+                "cotinine",
+                "c_peptide",
+                "blood_pressure",
+                "blood_glucose",
+                "weight",
+                "heart_rate",
+                "body_fat_percentage",
+                "body_mass_index",
+                "body_temperature",
+                "forced_expiratory_volume1",
+                "forced_vital_capacity",
+                "lean_body_mass",
+                "nausea_level",
+                "oxygen_saturation",
+                "pain_level",
+                "peak_expiratory_flow_rate",
+                "peripheral_perfusion_index",
+                "respiratory_rate",
+                "inhaler_usage"
+              ],
+              "type": "string"
+            },
+            "occurred_at": {
+              "example": "2018-09-18T12:24:37.000Z",
+              "format": "dateTime",
+              "type": "string"
+            },
+            "occurred_at_time_zone": {
+              "example": "America/New_York",
+              "type": "string"
+            },
+            "skipped": {
+              "type": "boolean"
+            },
+            "source": {
+              "properties": {
+                "metadata": {
+                  "description": "Can be any value"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "source_id": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "type": {
+              "description": "Type of result. Usually the same as metric_type except for lifestyle actions",
+              "type": "string"
+            },
+            "window": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "id": {
+          "type": "string"
+        },
+        "relationships": {
+          "properties": {
+            "action": {
+              "properties": {
+                "data": {
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "links": {
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            },
+            "metric": {
+              "properties": {
+                "data": {
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "links": {
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            },
+            "patient": {
+              "properties": {
+                "data": {
+                  "properties": {
+                    "id": {
+                      "description": "Required if the `meta.query` is not defined.",
+                      "example": "5c0fc0d02d02421ed70ca1d1",
+                      "type": "string"
+                    },
+                    "meta": {
+                      "description": "Allows the specification of a query for a patient rather than providing a patient id directly",
+                      "properties": {
+                        "query": {
+                          "description": "The query must return one and only one patient.",
+                          "properties": {
+                            "groups": {
+                              "items": {
+                                "type": "string"
+                              },
+                              "type": "array"
+                            },
+                            "identifier": {
+                              "properties": {
+                                "system": {
+                                  "type": "string"
+                                },
+                                "value": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "system",
+                                "value"
+                              ],
+                              "type": "object"
+                            },
+                            "organization": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "identifier"
+                          ],
+                          "type": "object"
+                        }
+                      },
+                      "required": [
+                        "query"
+                      ],
+                      "type": "object"
+                    },
+                    "type": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "links": {
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "type": "object"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "id"
+      ],
+      "type": "object"
+    },
     "PatientIdentifier": {
       "properties": {
         "label": {
@@ -7040,7 +7759,7 @@
         },
         "unique": {
           "default": true,
-          "description": "If `true`, the combination of system and value must be global unique among all patients and coaches in Twine.",
+          "description": "If `true`, the combination of system and value must be global unique among all patients and coaches in Fitbit Plus.",
           "type": "boolean"
         },
         "value": {
@@ -7062,10 +7781,8 @@
               "type": "object"
             },
             "critical": {
-              "items": {
-                "type": "object"
-              },
-              "type": "array"
+              "additionalProperties": true,
+              "type": "object"
             },
             "effective_from": {
               "format": "dateTime",
@@ -7134,9 +7851,9 @@
         "relationships": {
           "properties": {
             "actions": {
-              "items": {
-                "properties": {
-                  "data": {
+              "properties": {
+                "data": {
+                  "items": {
                     "properties": {
                       "id": {
                         "type": "string"
@@ -7151,23 +7868,23 @@
                     ],
                     "type": "object"
                   },
-                  "links": {
-                    "properties": {
-                      "related": {
-                        "type": "string"
-                      }
-                    },
-                    "type": "object"
-                  }
+                  "type": "array"
                 },
-                "type": "object"
+                "links": {
+                  "properties": {
+                    "related": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
               },
-              "type": "array"
+              "type": "object"
             },
             "bundles": {
-              "items": {
-                "properties": {
-                  "data": {
+              "properties": {
+                "data": {
+                  "items": {
                     "properties": {
                       "id": {
                         "type": "string"
@@ -7182,23 +7899,23 @@
                     ],
                     "type": "object"
                   },
-                  "links": {
-                    "properties": {
-                      "related": {
-                        "type": "string"
-                      }
-                    },
-                    "type": "object"
-                  }
+                  "type": "array"
                 },
-                "type": "object"
+                "links": {
+                  "properties": {
+                    "related": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
               },
-              "type": "array"
+              "type": "object"
             },
             "current_results": {
-              "items": {
-                "properties": {
-                  "data": {
+              "properties": {
+                "data": {
+                  "items": {
                     "properties": {
                       "id": {
                         "type": "string"
@@ -7212,11 +7929,19 @@
                       "id"
                     ],
                     "type": "object"
-                  }
+                  },
+                  "type": "array"
                 },
-                "type": "object"
+                "links": {
+                  "properties": {
+                    "related": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
               },
-              "type": "array"
+              "type": "object"
             },
             "patient": {
               "properties": {
@@ -7226,6 +7951,14 @@
                       "type": "string"
                     },
                     "type": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "links": {
+                  "properties": {
+                    "related": {
                       "type": "string"
                     }
                   },
@@ -7344,6 +8077,26 @@
               },
               "type": "array"
             },
+            "statement": {
+              "description": "A patient's motivation statement.",
+              "properties": {
+                "updated_at": {
+                  "example": "2016-06-03T13:15:22.000Z",
+                  "format": "dateTime",
+                  "type": "string"
+                },
+                "updated_by": {
+                  "example": "5c509cc2f60e34018180b57c",
+                  "type": "string"
+                },
+                "value": {
+                  "example": "Enjoying nature.",
+                  "type": "string"
+                }
+              },
+              "readOnly": true,
+              "type": "object"
+            },
             "updated_at": {
               "example": "2016-07-11T17:13:57.027Z",
               "format": "dateTime",
@@ -7365,8 +8118,8 @@
               "type": "string"
             },
             "twine_web_app": {
-              "description": "A link to the patient record in the Twine web application.",
-              "example": "https://app.twinehealth.com/#/coach/patient/5367c6300b7bb6e94188c02c/overview",
+              "description": "A link to the patient record in the Fitbit Plus web application.",
+              "example": "https://app.plus.fitbit.com/#/coach/patient/5367c6300b7bb6e94188c02c/overview",
               "type": "string"
             }
           },
@@ -8427,6 +9180,87 @@
         "data"
       ],
       "type": "object"
+    },
+    "UpsertPatientRequest": {
+      "example": {
+        "data": {
+          "attributes": {
+            "first_name": "Jack",
+            "last_name": "Frost"
+          },
+          "relationships": {
+            "groups": {
+              "data": [
+                {
+                  "id": "5755db2a3db4179179999acf",
+                  "type": "group"
+                }
+              ]
+            }
+          },
+          "type": "patient"
+        },
+        "meta": {
+          "query": {
+            "groups": [
+              "5755db2a3db4179179999acf"
+            ],
+            "identifier": {
+              "system": "OtherPlace",
+              "value": "123456"
+            }
+          }
+        }
+      },
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/PatientResource"
+        },
+        "meta": {
+          "properties": {
+            "query": {
+              "properties": {
+                "groups": {
+                  "description": "Group to create/update patient in.",
+                  "items": {
+                    "description": "ID of group",
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                "identifier": {
+                  "description": "Identifier to match patient",
+                  "properties": {
+                    "system": {
+                      "description": "Name of system",
+                      "type": "string"
+                    },
+                    "value": {
+                      "description": "Value in system",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "required": [
+                "identifier",
+                "groups"
+              ],
+              "type": "object"
+            }
+          },
+          "required": [
+            "query"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "meta",
+        "data"
+      ],
+      "type": "object"
     }
   },
   "x-tagGroups": [
@@ -8460,6 +9294,7 @@
         "metric",
         "patient",
         "plan",
+        "result",
         "reward",
         "reward earning",
         "reward earning fulfillment",

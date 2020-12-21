@@ -1,6 +1,6 @@
 {
   "name": "@datafire/azure_apimanagement_apimemailtemplate",
-  "version": "4.0.0",
+  "version": "5.0.0",
   "main": "index.js",
   "description": "DataFire integration for ApiManagementClient",
   "repository": {
@@ -14,7 +14,7 @@
   },
   "homepage": "https://github.com/DataFire/integrations#readme",
   "datafire": {
-    "origin": "https://api.apis.guru/v2/specs/azure.com/apimanagement-apimemailtemplate/2018-01-01/swagger.json",
+    "origin": "https://api.apis.guru/v2/specs/azure.com/apimanagement-apimemailtemplate/2018-06-01-preview/swagger.json",
     "type": "openapi"
   },
   "peerDependencies": {

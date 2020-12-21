@@ -1,0 +1,6029 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "contact": {
+      "email": "mike.ralphson@gmail.com",
+      "name": "Mike Ralphson",
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
+    },
+    "description": "<p>Use AWS Resource Access Manager to share AWS resources between AWS accounts. To share a resource, you create a resource share, associate the resource with the resource share, and specify the principals that can access the resources associated with the resource share. The following principals are supported: AWS accounts, organizational units (OU) from AWS Organizations, and organizations from AWS Organizations.</p> <p>For more information, see the <a href=\"https://docs.aws.amazon.com/ram/latest/userguide/\">AWS Resource Access Manager User Guide</a>.</p>",
+    "license": {
+      "name": "Apache 2.0 License",
+      "url": "http://www.apache.org/licenses/"
+    },
+    "termsOfService": "https://aws.amazon.com/service-terms/",
+    "title": "AWS Resource Access Manager",
+    "version": "2018-01-04",
+    "x-apiClientRegistration": {
+      "url": "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"
+    },
+    "x-apisguru-categories": [
+      "cloud"
+    ],
+    "x-logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"
+    },
+    "x-origin": [
+      {
+        "contentType": "application/json",
+        "converter": {
+          "url": "https://github.com/mermade/aws2openapi",
+          "version": "1.0.0"
+        },
+        "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/ram-2018-01-04.normal.json",
+        "x-apisguru-driver": "external"
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "amazonaws.com",
+    "x-release": "v4",
+    "x-serviceName": "ram",
+    "x-datafire": {
+      "name": "amazonaws_ram",
+      "type": "openapi"
+    }
+  },
+  "host": "ram.us-east-1.amazonaws.com",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/acceptresourceshareinvitation": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "clientToken": {
+                  "description": "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.",
+                  "type": "string"
+                },
+                "resourceShareInvitationArn": {
+                  "description": "The Amazon Resource Name (ARN) of the invitation.",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "resourceShareInvitationArn"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/AcceptResourceShareInvitationResponse"
+            }
+          },
+          "480": {
+            "description": "MalformedArnException",
+            "schema": {
+              "$ref": "#/definitions/MalformedArnException"
+            }
+          },
+          "481": {
+            "description": "OperationNotPermittedException",
+            "schema": {
+              "$ref": "#/definitions/OperationNotPermittedException"
+            }
+          },
+          "482": {
+            "description": "ResourceShareInvitationArnNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceShareInvitationArnNotFoundException"
+            }
+          },
+          "483": {
+            "description": "ResourceShareInvitationAlreadyAcceptedException",
+            "schema": {
+              "$ref": "#/definitions/ResourceShareInvitationAlreadyAcceptedException"
+            }
+          },
+          "484": {
+            "description": "ResourceShareInvitationAlreadyRejectedException",
+            "schema": {
+              "$ref": "#/definitions/ResourceShareInvitationAlreadyRejectedException"
+            }
+          },
+          "485": {
+            "description": "ResourceShareInvitationExpiredException",
+            "schema": {
+              "$ref": "#/definitions/ResourceShareInvitationExpiredException"
+            }
+          },
+          "486": {
+            "description": "ServerInternalException",
+            "schema": {
+              "$ref": "#/definitions/ServerInternalException"
+            }
+          },
+          "487": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "488": {
+            "description": "InvalidClientTokenException",
+            "schema": {
+              "$ref": "#/definitions/InvalidClientTokenException"
+            }
+          },
+          "489": {
+            "description": "IdempotentParameterMismatchException",
+            "schema": {
+              "$ref": "#/definitions/IdempotentParameterMismatchException"
+            }
+          }
+        },
+        "description": "Accepts an invitation to a resource share from another AWS account.",
+        "operationId": "AcceptResourceShareInvitation"
+      }
+    },
+    "/associateresourceshare": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "clientToken": {
+                  "description": "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.",
+                  "type": "string"
+                },
+                "principals": {
+                  "description": "The principals.",
+                  "items": {
+                    "$ref": "#/definitions/String"
+                  },
+                  "type": "array"
+                },
+                "resourceArns": {
+                  "description": "The Amazon Resource Names (ARN) of the resources.",
+                  "items": {
+                    "$ref": "#/definitions/String"
+                  },
+                  "type": "array"
+                },
+                "resourceShareArn": {
+                  "description": "The Amazon Resource Name (ARN) of the resource share.",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "resourceShareArn"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/AssociateResourceShareResponse"
+            }
+          },
+          "480": {
+            "description": "IdempotentParameterMismatchException",
+            "schema": {
+              "$ref": "#/definitions/IdempotentParameterMismatchException"
+            }
+          },
+          "481": {
+            "description": "UnknownResourceException",
+            "schema": {
+              "$ref": "#/definitions/UnknownResourceException"
+            }
+          },
+          "482": {
+            "description": "InvalidStateTransitionException",
+            "schema": {
+              "$ref": "#/definitions/InvalidStateTransitionException"
+            }
+          },
+          "483": {
+            "description": "ResourceShareLimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/ResourceShareLimitExceededException"
+            }
+          },
+          "484": {
+            "description": "MalformedArnException",
+            "schema": {
+              "$ref": "#/definitions/MalformedArnException"
+            }
+          },
+          "485": {
+            "description": "InvalidStateTransitionException",
+            "schema": {
+              "$ref": "#/definitions/InvalidStateTransitionException"
+            }
+          },
+          "486": {
+            "description": "InvalidClientTokenException",
+            "schema": {
+              "$ref": "#/definitions/InvalidClientTokenException"
+            }
+          },
+          "487": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "488": {
+            "description": "OperationNotPermittedException",
+            "schema": {
+              "$ref": "#/definitions/OperationNotPermittedException"
+            }
+          },
+          "489": {
+            "description": "ServerInternalException",
+            "schema": {
+              "$ref": "#/definitions/ServerInternalException"
+            }
+          },
+          "490": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "491": {
+            "description": "UnknownResourceException",
+            "schema": {
+              "$ref": "#/definitions/UnknownResourceException"
+            }
+          }
+        },
+        "description": "Associates the specified resource share with the specified principals and resources.",
+        "operationId": "AssociateResourceShare"
+      }
+    },
+    "/associateresourcesharepermission": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "clientToken": {
+                  "description": "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.",
+                  "type": "string"
+                },
+                "permissionArn": {
+                  "description": "The ARN of the AWS RAM permission to associate with the resource share.",
+                  "type": "string"
+                },
+                "replace": {
+                  "description": "Indicates whether the permission should replace the permissions that are currently associated with the resource share. Use <code>true</code> to replace the current permissions. Use <code>false</code> to add the permission to the current permission.",
+                  "type": "boolean"
+                },
+                "resourceShareArn": {
+                  "description": "The Amazon Resource Name (ARN) of the resource share.",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "resourceShareArn",
+                "permissionArn"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/AssociateResourceSharePermissionResponse"
+            }
+          },
+          "480": {
+            "description": "MalformedArnException",
+            "schema": {
+              "$ref": "#/definitions/MalformedArnException"
+            }
+          },
+          "481": {
+            "description": "UnknownResourceException",
+            "schema": {
+              "$ref": "#/definitions/UnknownResourceException"
+            }
+          },
+          "482": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "483": {
+            "description": "InvalidClientTokenException",
+            "schema": {
+              "$ref": "#/definitions/InvalidClientTokenException"
+            }
+          },
+          "484": {
+            "description": "ServerInternalException",
+            "schema": {
+              "$ref": "#/definitions/ServerInternalException"
+            }
+          },
+          "485": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "486": {
+            "description": "OperationNotPermittedException",
+            "schema": {
+              "$ref": "#/definitions/OperationNotPermittedException"
+            }
+          }
+        },
+        "description": "Associates a permission with a resource share.",
+        "operationId": "AssociateResourceSharePermission"
+      }
+    },
+    "/createresourceshare": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "tags": {
+                  "description": "One or more tags.",
+                  "items": {
+                    "$ref": "#/definitions/Tag"
+                  },
+                  "type": "array"
+                },
+                "allowExternalPrincipals": {
+                  "description": "Indicates whether principals outside your AWS organization can be associated with a resource share.",
+                  "type": "boolean"
+                },
+                "clientToken": {
+                  "description": "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.",
+                  "type": "string"
+                },
+                "name": {
+                  "description": "The name of the resource share.",
+                  "type": "string"
+                },
+                "permissionArns": {
+                  "description": "The ARNs of the permissions to associate with the resource share. If you do not specify an ARN for the permission, AWS RAM automatically attaches the default version of the permission for each resource type.",
+                  "items": {
+                    "$ref": "#/definitions/String"
+                  },
+                  "type": "array"
+                },
+                "principals": {
+                  "description": "The principals to associate with the resource share. The possible values are IDs of AWS accounts, the ARN of an OU or organization from AWS Organizations.",
+                  "items": {
+                    "$ref": "#/definitions/String"
+                  },
+                  "type": "array"
+                },
+                "resourceArns": {
+                  "description": "The Amazon Resource Names (ARN) of the resources to associate with the resource share.",
+                  "items": {
+                    "$ref": "#/definitions/String"
+                  },
+                  "type": "array"
+                }
+              },
+              "required": [
+                "name"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateResourceShareResponse"
+            }
+          },
+          "480": {
+            "description": "IdempotentParameterMismatchException",
+            "schema": {
+              "$ref": "#/definitions/IdempotentParameterMismatchException"
+            }
+          },
+          "481": {
+            "description": "InvalidStateTransitionException",
+            "schema": {
+              "$ref": "#/definitions/InvalidStateTransitionException"
+            }
+          },
+          "482": {
+            "description": "UnknownResourceException",
+            "schema": {
+              "$ref": "#/definitions/UnknownResourceException"
+            }
+          },
+          "483": {
+            "description": "MalformedArnException",
+            "schema": {
+              "$ref": "#/definitions/MalformedArnException"
+            }
+          },
+          "484": {
+            "description": "InvalidClientTokenException",
+            "schema": {
+              "$ref": "#/definitions/InvalidClientTokenException"
+            }
+          },
+          "485": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "486": {
+            "description": "OperationNotPermittedException",
+            "schema": {
+              "$ref": "#/definitions/OperationNotPermittedException"
+            }
+          },
+          "487": {
+            "description": "ResourceShareLimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/ResourceShareLimitExceededException"
+            }
+          },
+          "488": {
+            "description": "TagPolicyViolationException",
+            "schema": {
+              "$ref": "#/definitions/TagPolicyViolationException"
+            }
+          },
+          "489": {
+            "description": "ServerInternalException",
+            "schema": {
+              "$ref": "#/definitions/ServerInternalException"
+            }
+          },
+          "490": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          }
+        },
+        "description": "Creates a resource share.",
+        "operationId": "CreateResourceShare"
+      }
+    },
+    "/deleteresourceshare#resourceShareArn": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "delete": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The Amazon Resource Name (ARN) of the resource share.",
+            "in": "query",
+            "name": "resourceShareArn",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.",
+            "in": "query",
+            "name": "clientToken",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteResourceShareResponse"
+            }
+          },
+          "480": {
+            "description": "OperationNotPermittedException",
+            "schema": {
+              "$ref": "#/definitions/OperationNotPermittedException"
+            }
+          },
+          "481": {
+            "description": "IdempotentParameterMismatchException",
+            "schema": {
+              "$ref": "#/definitions/IdempotentParameterMismatchException"
+            }
+          },
+          "482": {
+            "description": "InvalidStateTransitionException",
+            "schema": {
+              "$ref": "#/definitions/InvalidStateTransitionException"
+            }
+          },
+          "483": {
+            "description": "UnknownResourceException",
+            "schema": {
+              "$ref": "#/definitions/UnknownResourceException"
+            }
+          },
+          "484": {
+            "description": "MalformedArnException",
+            "schema": {
+              "$ref": "#/definitions/MalformedArnException"
+            }
+          },
+          "485": {
+            "description": "InvalidClientTokenException",
+            "schema": {
+              "$ref": "#/definitions/InvalidClientTokenException"
+            }
+          },
+          "486": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "487": {
+            "description": "ServerInternalException",
+            "schema": {
+              "$ref": "#/definitions/ServerInternalException"
+            }
+          },
+          "488": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          }
+        },
+        "description": "Deletes the specified resource share.",
+        "operationId": "DeleteResourceShare"
+      }
+    },
+    "/disassociateresourceshare": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "clientToken": {
+                  "description": "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.",
+                  "type": "string"
+                },
+                "principals": {
+                  "description": "The principals.",
+                  "items": {
+                    "$ref": "#/definitions/String"
+                  },
+                  "type": "array"
+                },
+                "resourceArns": {
+                  "description": "The Amazon Resource Names (ARNs) of the resources.",
+                  "items": {
+                    "$ref": "#/definitions/String"
+                  },
+                  "type": "array"
+                },
+                "resourceShareArn": {
+                  "description": "The Amazon Resource Name (ARN) of the resource share.",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "resourceShareArn"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DisassociateResourceShareResponse"
+            }
+          },
+          "480": {
+            "description": "IdempotentParameterMismatchException",
+            "schema": {
+              "$ref": "#/definitions/IdempotentParameterMismatchException"
+            }
+          },
+          "481": {
+            "description": "ResourceShareLimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/ResourceShareLimitExceededException"
+            }
+          },
+          "482": {
+            "description": "MalformedArnException",
+            "schema": {
+              "$ref": "#/definitions/MalformedArnException"
+            }
+          },
+          "483": {
+            "description": "InvalidStateTransitionException",
+            "schema": {
+              "$ref": "#/definitions/InvalidStateTransitionException"
+            }
+          },
+          "484": {
+            "description": "InvalidClientTokenException",
+            "schema": {
+              "$ref": "#/definitions/InvalidClientTokenException"
+            }
+          },
+          "485": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "486": {
+            "description": "OperationNotPermittedException",
+            "schema": {
+              "$ref": "#/definitions/OperationNotPermittedException"
+            }
+          },
+          "487": {
+            "description": "ServerInternalException",
+            "schema": {
+              "$ref": "#/definitions/ServerInternalException"
+            }
+          },
+          "488": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "489": {
+            "description": "UnknownResourceException",
+            "schema": {
+              "$ref": "#/definitions/UnknownResourceException"
+            }
+          }
+        },
+        "description": "Disassociates the specified principals or resources from the specified resource share.",
+        "operationId": "DisassociateResourceShare"
+      }
+    },
+    "/disassociateresourcesharepermission": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "clientToken": {
+                  "description": "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.",
+                  "type": "string"
+                },
+                "permissionArn": {
+                  "description": "The ARN of the permission to disassociate from the resource share.",
+                  "type": "string"
+                },
+                "resourceShareArn": {
+                  "description": "The Amazon Resource Name (ARN) of the resource share.",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "resourceShareArn",
+                "permissionArn"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DisassociateResourceSharePermissionResponse"
+            }
+          },
+          "480": {
+            "description": "MalformedArnException",
+            "schema": {
+              "$ref": "#/definitions/MalformedArnException"
+            }
+          },
+          "481": {
+            "description": "UnknownResourceException",
+            "schema": {
+              "$ref": "#/definitions/UnknownResourceException"
+            }
+          },
+          "482": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "483": {
+            "description": "InvalidClientTokenException",
+            "schema": {
+              "$ref": "#/definitions/InvalidClientTokenException"
+            }
+          },
+          "484": {
+            "description": "ServerInternalException",
+            "schema": {
+              "$ref": "#/definitions/ServerInternalException"
+            }
+          },
+          "485": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "486": {
+            "description": "OperationNotPermittedException",
+            "schema": {
+              "$ref": "#/definitions/OperationNotPermittedException"
+            }
+          }
+        },
+        "description": "Disassociates an AWS RAM permission from a resource share.",
+        "operationId": "DisassociateResourceSharePermission"
+      }
+    },
+    "/enablesharingwithawsorganization": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/EnableSharingWithAwsOrganizationResponse"
+            }
+          },
+          "480": {
+            "description": "OperationNotPermittedException",
+            "schema": {
+              "$ref": "#/definitions/OperationNotPermittedException"
+            }
+          },
+          "481": {
+            "description": "ServerInternalException",
+            "schema": {
+              "$ref": "#/definitions/ServerInternalException"
+            }
+          },
+          "482": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          }
+        },
+        "description": "<p>Enables resource sharing within your AWS Organization.</p> <p>The caller must be the master account for the AWS Organization.</p>",
+        "operationId": "EnableSharingWithAwsOrganization"
+      }
+    },
+    "/getpermission": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "permissionArn": {
+                  "description": "The ARN of the permission.",
+                  "type": "string"
+                },
+                "permissionVersion": {
+                  "description": "The identifier for the version of the permission.",
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "permissionArn"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetPermissionResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "481": {
+            "description": "MalformedArnException",
+            "schema": {
+              "$ref": "#/definitions/MalformedArnException"
+            }
+          },
+          "482": {
+            "description": "UnknownResourceException",
+            "schema": {
+              "$ref": "#/definitions/UnknownResourceException"
+            }
+          },
+          "483": {
+            "description": "ServerInternalException",
+            "schema": {
+              "$ref": "#/definitions/ServerInternalException"
+            }
+          },
+          "484": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "485": {
+            "description": "OperationNotPermittedException",
+            "schema": {
+              "$ref": "#/definitions/OperationNotPermittedException"
+            }
+          }
+        },
+        "description": "Gets the contents of an AWS RAM permission in JSON format.",
+        "operationId": "GetPermission"
+      }
+    },
+    "/getresourcepolicies": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "maxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "maxResults": {
+                  "description": "The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.",
+                  "maximum": 500,
+                  "minimum": 1,
+                  "type": "integer"
+                },
+                "nextToken": {
+                  "description": "The token for the next page of results.",
+                  "type": "string"
+                },
+                "principal": {
+                  "description": "The principal.",
+                  "type": "string"
+                },
+                "resourceArns": {
+                  "description": "The Amazon Resource Names (ARN) of the resources.",
+                  "items": {
+                    "$ref": "#/definitions/String"
+                  },
+                  "type": "array"
+                }
+              },
+              "required": [
+                "resourceArns"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetResourcePoliciesResponse"
+            }
+          },
+          "480": {
+            "description": "MalformedArnException",
+            "schema": {
+              "$ref": "#/definitions/MalformedArnException"
+            }
+          },
+          "481": {
+            "description": "InvalidNextTokenException",
+            "schema": {
+              "$ref": "#/definitions/InvalidNextTokenException"
+            }
+          },
+          "482": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "483": {
+            "description": "ResourceArnNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceArnNotFoundException"
+            }
+          },
+          "484": {
+            "description": "ServerInternalException",
+            "schema": {
+              "$ref": "#/definitions/ServerInternalException"
+            }
+          },
+          "485": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          }
+        },
+        "description": "Gets the policies for the specified resources that you own and have shared.",
+        "operationId": "GetResourcePolicies"
+      }
+    },
+    "/getresourceshareassociations": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "maxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "associationStatus": {
+                  "description": "The association status.",
+                  "enum": [
+                    "ASSOCIATING",
+                    "ASSOCIATED",
+                    "FAILED",
+                    "DISASSOCIATING",
+                    "DISASSOCIATED"
+                  ],
+                  "type": "string"
+                },
+                "associationType": {
+                  "description": "The association type. Specify <code>PRINCIPAL</code> to list the principals that are associated with the specified resource share. Specify <code>RESOURCE</code> to list the resources that are associated with the specified resource share.",
+                  "enum": [
+                    "PRINCIPAL",
+                    "RESOURCE"
+                  ],
+                  "type": "string"
+                },
+                "maxResults": {
+                  "description": "The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.",
+                  "maximum": 500,
+                  "minimum": 1,
+                  "type": "integer"
+                },
+                "nextToken": {
+                  "description": "The token for the next page of results.",
+                  "type": "string"
+                },
+                "principal": {
+                  "description": "The principal. You cannot specify this parameter if the association type is <code>RESOURCE</code>.",
+                  "type": "string"
+                },
+                "resourceArn": {
+                  "description": "The Amazon Resource Name (ARN) of the resource. You cannot specify this parameter if the association type is <code>PRINCIPAL</code>.",
+                  "type": "string"
+                },
+                "resourceShareArns": {
+                  "description": "The Amazon Resource Names (ARN) of the resource shares.",
+                  "items": {
+                    "$ref": "#/definitions/String"
+                  },
+                  "type": "array"
+                }
+              },
+              "required": [
+                "associationType"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetResourceShareAssociationsResponse"
+            }
+          },
+          "480": {
+            "description": "UnknownResourceException",
+            "schema": {
+              "$ref": "#/definitions/UnknownResourceException"
+            }
+          },
+          "481": {
+            "description": "MalformedArnException",
+            "schema": {
+              "$ref": "#/definitions/MalformedArnException"
+            }
+          },
+          "482": {
+            "description": "InvalidNextTokenException",
+            "schema": {
+              "$ref": "#/definitions/InvalidNextTokenException"
+            }
+          },
+          "483": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "484": {
+            "description": "OperationNotPermittedException",
+            "schema": {
+              "$ref": "#/definitions/OperationNotPermittedException"
+            }
+          },
+          "485": {
+            "description": "ServerInternalException",
+            "schema": {
+              "$ref": "#/definitions/ServerInternalException"
+            }
+          },
+          "486": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          }
+        },
+        "description": "Gets the resources or principals for the resource shares that you own.",
+        "operationId": "GetResourceShareAssociations"
+      }
+    },
+    "/getresourceshareinvitations": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "maxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "maxResults": {
+                  "description": "The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.",
+                  "maximum": 500,
+                  "minimum": 1,
+                  "type": "integer"
+                },
+                "nextToken": {
+                  "description": "The token for the next page of results.",
+                  "type": "string"
+                },
+                "resourceShareArns": {
+                  "description": "The Amazon Resource Names (ARN) of the resource shares.",
+                  "items": {
+                    "$ref": "#/definitions/String"
+                  },
+                  "type": "array"
+                },
+                "resourceShareInvitationArns": {
+                  "description": "The Amazon Resource Names (ARN) of the invitations.",
+                  "items": {
+                    "$ref": "#/definitions/String"
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetResourceShareInvitationsResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceShareInvitationArnNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceShareInvitationArnNotFoundException"
+            }
+          },
+          "481": {
+            "description": "InvalidMaxResultsException",
+            "schema": {
+              "$ref": "#/definitions/InvalidMaxResultsException"
+            }
+          },
+          "482": {
+            "description": "MalformedArnException",
+            "schema": {
+              "$ref": "#/definitions/MalformedArnException"
+            }
+          },
+          "483": {
+            "description": "UnknownResourceException",
+            "schema": {
+              "$ref": "#/definitions/UnknownResourceException"
+            }
+          },
+          "484": {
+            "description": "InvalidNextTokenException",
+            "schema": {
+              "$ref": "#/definitions/InvalidNextTokenException"
+            }
+          },
+          "485": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "486": {
+            "description": "ServerInternalException",
+            "schema": {
+              "$ref": "#/definitions/ServerInternalException"
+            }
+          },
+          "487": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          }
+        },
+        "description": "Gets the invitations for resource sharing that you've received.",
+        "operationId": "GetResourceShareInvitations"
+      }
+    },
+    "/getresourceshares": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "maxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "maxResults": {
+                  "description": "The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.",
+                  "maximum": 500,
+                  "minimum": 1,
+                  "type": "integer"
+                },
+                "name": {
+                  "description": "The name of the resource share.",
+                  "type": "string"
+                },
+                "nextToken": {
+                  "description": "The token for the next page of results.",
+                  "type": "string"
+                },
+                "resourceOwner": {
+                  "description": "The type of owner.",
+                  "enum": [
+                    "SELF",
+                    "OTHER-ACCOUNTS"
+                  ],
+                  "type": "string"
+                },
+                "resourceShareArns": {
+                  "description": "The Amazon Resource Names (ARN) of the resource shares.",
+                  "items": {
+                    "$ref": "#/definitions/String"
+                  },
+                  "type": "array"
+                },
+                "resourceShareStatus": {
+                  "description": "The status of the resource share.",
+                  "enum": [
+                    "PENDING",
+                    "ACTIVE",
+                    "FAILED",
+                    "DELETING",
+                    "DELETED"
+                  ],
+                  "type": "string"
+                },
+                "tagFilters": {
+                  "description": "One or more tag filters.",
+                  "items": {
+                    "$ref": "#/definitions/TagFilter"
+                  },
+                  "type": "array"
+                }
+              },
+              "required": [
+                "resourceOwner"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetResourceSharesResponse"
+            }
+          },
+          "480": {
+            "description": "UnknownResourceException",
+            "schema": {
+              "$ref": "#/definitions/UnknownResourceException"
+            }
+          },
+          "481": {
+            "description": "MalformedArnException",
+            "schema": {
+              "$ref": "#/definitions/MalformedArnException"
+            }
+          },
+          "482": {
+            "description": "InvalidNextTokenException",
+            "schema": {
+              "$ref": "#/definitions/InvalidNextTokenException"
+            }
+          },
+          "483": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "484": {
+            "description": "ServerInternalException",
+            "schema": {
+              "$ref": "#/definitions/ServerInternalException"
+            }
+          },
+          "485": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          }
+        },
+        "description": "Gets the resource shares that you own or the resource shares that are shared with you.",
+        "operationId": "GetResourceShares"
+      }
+    },
+    "/listpendinginvitationresources": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "maxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "maxResults": {
+                  "description": "The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.",
+                  "maximum": 500,
+                  "minimum": 1,
+                  "type": "integer"
+                },
+                "nextToken": {
+                  "description": "The token for the next page of results.",
+                  "type": "string"
+                },
+                "resourceShareInvitationArn": {
+                  "description": "The Amazon Resource Name (ARN) of the invitation.",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "resourceShareInvitationArn"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListPendingInvitationResourcesResponse"
+            }
+          },
+          "480": {
+            "description": "MalformedArnException",
+            "schema": {
+              "$ref": "#/definitions/MalformedArnException"
+            }
+          },
+          "481": {
+            "description": "InvalidNextTokenException",
+            "schema": {
+              "$ref": "#/definitions/InvalidNextTokenException"
+            }
+          },
+          "482": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "483": {
+            "description": "ServerInternalException",
+            "schema": {
+              "$ref": "#/definitions/ServerInternalException"
+            }
+          },
+          "484": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "485": {
+            "description": "ResourceShareInvitationArnNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceShareInvitationArnNotFoundException"
+            }
+          },
+          "486": {
+            "description": "MissingRequiredParameterException",
+            "schema": {
+              "$ref": "#/definitions/MissingRequiredParameterException"
+            }
+          },
+          "487": {
+            "description": "ResourceShareInvitationAlreadyRejectedException",
+            "schema": {
+              "$ref": "#/definitions/ResourceShareInvitationAlreadyRejectedException"
+            }
+          },
+          "488": {
+            "description": "ResourceShareInvitationExpiredException",
+            "schema": {
+              "$ref": "#/definitions/ResourceShareInvitationExpiredException"
+            }
+          }
+        },
+        "description": "Lists the resources in a resource share that is shared with you but that the invitation is still pending for.",
+        "operationId": "ListPendingInvitationResources"
+      }
+    },
+    "/listpermissions": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "maxResults": {
+                  "description": "The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.",
+                  "maximum": 500,
+                  "minimum": 1,
+                  "type": "integer"
+                },
+                "nextToken": {
+                  "description": "The token for the next page of results.",
+                  "type": "string"
+                },
+                "resourceType": {
+                  "description": "Specifies the resource type for which to list permissions. For example, to list only permissions that apply to EC2 subnets, specify <code>ec2:Subnet</code>.",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListPermissionsResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "481": {
+            "description": "InvalidNextTokenException",
+            "schema": {
+              "$ref": "#/definitions/InvalidNextTokenException"
+            }
+          },
+          "482": {
+            "description": "ServerInternalException",
+            "schema": {
+              "$ref": "#/definitions/ServerInternalException"
+            }
+          },
+          "483": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "484": {
+            "description": "OperationNotPermittedException",
+            "schema": {
+              "$ref": "#/definitions/OperationNotPermittedException"
+            }
+          }
+        },
+        "description": "Lists the AWS RAM permissions.",
+        "operationId": "ListPermissions"
+      }
+    },
+    "/listprincipals": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "maxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "maxResults": {
+                  "description": "The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.",
+                  "maximum": 500,
+                  "minimum": 1,
+                  "type": "integer"
+                },
+                "nextToken": {
+                  "description": "The token for the next page of results.",
+                  "type": "string"
+                },
+                "principals": {
+                  "description": "The principals.",
+                  "items": {
+                    "$ref": "#/definitions/String"
+                  },
+                  "type": "array"
+                },
+                "resourceArn": {
+                  "description": "The Amazon Resource Name (ARN) of the resource.",
+                  "type": "string"
+                },
+                "resourceOwner": {
+                  "description": "The type of owner.",
+                  "enum": [
+                    "SELF",
+                    "OTHER-ACCOUNTS"
+                  ],
+                  "type": "string"
+                },
+                "resourceShareArns": {
+                  "description": "The Amazon Resource Names (ARN) of the resource shares.",
+                  "items": {
+                    "$ref": "#/definitions/String"
+                  },
+                  "type": "array"
+                },
+                "resourceType": {
+                  "description": "<p>The resource type.</p> <p>Valid values: <code>codebuild:Project</code> | <code>codebuild:ReportGroup</code> | <code>ec2:CapacityReservation</code> | <code>ec2:DedicatedHost</code> | <code>ec2:Subnet</code> | <code>ec2:TrafficMirrorTarget</code> | <code>ec2:TransitGateway</code> | <code>imagebuilder:Component</code> | <code>imagebuilder:Image</code> | <code>imagebuilder:ImageRecipe</code> | <code>license-manager:LicenseConfiguration</code> I <code>resource-groups:Group</code> | <code>rds:Cluster</code> | <code>route53resolver:ResolverRule</code> </p>",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "resourceOwner"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListPrincipalsResponse"
+            }
+          },
+          "480": {
+            "description": "MalformedArnException",
+            "schema": {
+              "$ref": "#/definitions/MalformedArnException"
+            }
+          },
+          "481": {
+            "description": "UnknownResourceException",
+            "schema": {
+              "$ref": "#/definitions/UnknownResourceException"
+            }
+          },
+          "482": {
+            "description": "InvalidNextTokenException",
+            "schema": {
+              "$ref": "#/definitions/InvalidNextTokenException"
+            }
+          },
+          "483": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "484": {
+            "description": "ServerInternalException",
+            "schema": {
+              "$ref": "#/definitions/ServerInternalException"
+            }
+          },
+          "485": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          }
+        },
+        "description": "Lists the principals that you have shared resources with or that have shared resources with you.",
+        "operationId": "ListPrincipals"
+      }
+    },
+    "/listresources": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "maxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "maxResults": {
+                  "description": "The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.",
+                  "maximum": 500,
+                  "minimum": 1,
+                  "type": "integer"
+                },
+                "nextToken": {
+                  "description": "The token for the next page of results.",
+                  "type": "string"
+                },
+                "principal": {
+                  "description": "The principal.",
+                  "type": "string"
+                },
+                "resourceArns": {
+                  "description": "The Amazon Resource Names (ARN) of the resources.",
+                  "items": {
+                    "$ref": "#/definitions/String"
+                  },
+                  "type": "array"
+                },
+                "resourceOwner": {
+                  "description": "The type of owner.",
+                  "enum": [
+                    "SELF",
+                    "OTHER-ACCOUNTS"
+                  ],
+                  "type": "string"
+                },
+                "resourceShareArns": {
+                  "description": "The Amazon Resource Names (ARN) of the resource shares.",
+                  "items": {
+                    "$ref": "#/definitions/String"
+                  },
+                  "type": "array"
+                },
+                "resourceType": {
+                  "description": "<p>The resource type.</p> <p>Valid values: <code>codebuild:Project</code> | <code>codebuild:ReportGroup</code> | <code>ec2:CapacityReservation</code> | <code>ec2:DedicatedHost</code> | <code>ec2:Subnet</code> | <code>ec2:TrafficMirrorTarget</code> | <code>ec2:TransitGateway</code> | <code>imagebuilder:Component</code> | <code>imagebuilder:Image</code> | <code>imagebuilder:ImageRecipe</code> | <code>license-manager:LicenseConfiguration</code> I <code>resource-groups:Group</code> | <code>rds:Cluster</code> | <code>route53resolver:ResolverRule</code> </p>",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "resourceOwner"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListResourcesResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidResourceTypeException",
+            "schema": {
+              "$ref": "#/definitions/InvalidResourceTypeException"
+            }
+          },
+          "481": {
+            "description": "UnknownResourceException",
+            "schema": {
+              "$ref": "#/definitions/UnknownResourceException"
+            }
+          },
+          "482": {
+            "description": "MalformedArnException",
+            "schema": {
+              "$ref": "#/definitions/MalformedArnException"
+            }
+          },
+          "483": {
+            "description": "InvalidNextTokenException",
+            "schema": {
+              "$ref": "#/definitions/InvalidNextTokenException"
+            }
+          },
+          "484": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "485": {
+            "description": "ServerInternalException",
+            "schema": {
+              "$ref": "#/definitions/ServerInternalException"
+            }
+          },
+          "486": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          }
+        },
+        "description": "Lists the resources that you added to a resource shares or the resources that are shared with you.",
+        "operationId": "ListResources"
+      }
+    },
+    "/listresourcesharepermissions": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "maxResults": {
+                  "description": "The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.",
+                  "maximum": 500,
+                  "minimum": 1,
+                  "type": "integer"
+                },
+                "nextToken": {
+                  "description": "The token for the next page of results.",
+                  "type": "string"
+                },
+                "resourceShareArn": {
+                  "description": "The Amazon Resource Name (ARN) of the resource share.",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "resourceShareArn"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListResourceSharePermissionsResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "481": {
+            "description": "MalformedArnException",
+            "schema": {
+              "$ref": "#/definitions/MalformedArnException"
+            }
+          },
+          "482": {
+            "description": "UnknownResourceException",
+            "schema": {
+              "$ref": "#/definitions/UnknownResourceException"
+            }
+          },
+          "483": {
+            "description": "InvalidNextTokenException",
+            "schema": {
+              "$ref": "#/definitions/InvalidNextTokenException"
+            }
+          },
+          "484": {
+            "description": "ServerInternalException",
+            "schema": {
+              "$ref": "#/definitions/ServerInternalException"
+            }
+          },
+          "485": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "486": {
+            "description": "OperationNotPermittedException",
+            "schema": {
+              "$ref": "#/definitions/OperationNotPermittedException"
+            }
+          }
+        },
+        "description": "Lists the AWS RAM permissions that are associated with a resource share.",
+        "operationId": "ListResourceSharePermissions"
+      }
+    },
+    "/listresourcetypes": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "maxResults": {
+                  "description": "The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.",
+                  "maximum": 500,
+                  "minimum": 1,
+                  "type": "integer"
+                },
+                "nextToken": {
+                  "description": "The token for the next page of results.",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListResourceTypesResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidNextTokenException",
+            "schema": {
+              "$ref": "#/definitions/InvalidNextTokenException"
+            }
+          },
+          "481": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "482": {
+            "description": "ServerInternalException",
+            "schema": {
+              "$ref": "#/definitions/ServerInternalException"
+            }
+          },
+          "483": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          }
+        },
+        "description": "Lists the shareable resource types supported by AWS RAM.",
+        "operationId": "ListResourceTypes"
+      }
+    },
+    "/promoteresourcesharecreatedfrompolicy#resourceShareArn": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The ARN of the resource share to promote.",
+            "in": "query",
+            "name": "resourceShareArn",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/PromoteResourceShareCreatedFromPolicyResponse"
+            }
+          },
+          "480": {
+            "description": "MalformedArnException",
+            "schema": {
+              "$ref": "#/definitions/MalformedArnException"
+            }
+          },
+          "481": {
+            "description": "OperationNotPermittedException",
+            "schema": {
+              "$ref": "#/definitions/OperationNotPermittedException"
+            }
+          },
+          "482": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "483": {
+            "description": "MissingRequiredParameterException",
+            "schema": {
+              "$ref": "#/definitions/MissingRequiredParameterException"
+            }
+          },
+          "484": {
+            "description": "ServerInternalException",
+            "schema": {
+              "$ref": "#/definitions/ServerInternalException"
+            }
+          },
+          "485": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "486": {
+            "description": "UnknownResourceException",
+            "schema": {
+              "$ref": "#/definitions/UnknownResourceException"
+            }
+          }
+        },
+        "description": "<p>Resource shares that were created by attaching a policy to a resource are visible only to the resource share owner, and the resource share cannot be modified in AWS RAM.</p> <p>Use this API action to promote the resource share. When you promote the resource share, it becomes:</p> <ul> <li> <p>Visible to all principals that it is shared with.</p> </li> <li> <p>Modifiable in AWS RAM.</p> </li> </ul>",
+        "operationId": "PromoteResourceShareCreatedFromPolicy"
+      }
+    },
+    "/rejectresourceshareinvitation": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "clientToken": {
+                  "description": "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.",
+                  "type": "string"
+                },
+                "resourceShareInvitationArn": {
+                  "description": "The Amazon Resource Name (ARN) of the invitation.",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "resourceShareInvitationArn"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/RejectResourceShareInvitationResponse"
+            }
+          },
+          "480": {
+            "description": "MalformedArnException",
+            "schema": {
+              "$ref": "#/definitions/MalformedArnException"
+            }
+          },
+          "481": {
+            "description": "OperationNotPermittedException",
+            "schema": {
+              "$ref": "#/definitions/OperationNotPermittedException"
+            }
+          },
+          "482": {
+            "description": "ResourceShareInvitationArnNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceShareInvitationArnNotFoundException"
+            }
+          },
+          "483": {
+            "description": "ResourceShareInvitationAlreadyAcceptedException",
+            "schema": {
+              "$ref": "#/definitions/ResourceShareInvitationAlreadyAcceptedException"
+            }
+          },
+          "484": {
+            "description": "ResourceShareInvitationAlreadyRejectedException",
+            "schema": {
+              "$ref": "#/definitions/ResourceShareInvitationAlreadyRejectedException"
+            }
+          },
+          "485": {
+            "description": "ResourceShareInvitationExpiredException",
+            "schema": {
+              "$ref": "#/definitions/ResourceShareInvitationExpiredException"
+            }
+          },
+          "486": {
+            "description": "ServerInternalException",
+            "schema": {
+              "$ref": "#/definitions/ServerInternalException"
+            }
+          },
+          "487": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "488": {
+            "description": "InvalidClientTokenException",
+            "schema": {
+              "$ref": "#/definitions/InvalidClientTokenException"
+            }
+          },
+          "489": {
+            "description": "IdempotentParameterMismatchException",
+            "schema": {
+              "$ref": "#/definitions/IdempotentParameterMismatchException"
+            }
+          }
+        },
+        "description": "Rejects an invitation to a resource share from another AWS account.",
+        "operationId": "RejectResourceShareInvitation"
+      }
+    },
+    "/tagresource": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "tags": {
+                  "description": "One or more tags.",
+                  "items": {
+                    "$ref": "#/definitions/Tag"
+                  },
+                  "type": "array"
+                },
+                "resourceShareArn": {
+                  "description": "The Amazon Resource Name (ARN) of the resource share.",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "resourceShareArn",
+                "tags"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/TagResourceResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "481": {
+            "description": "MalformedArnException",
+            "schema": {
+              "$ref": "#/definitions/MalformedArnException"
+            }
+          },
+          "482": {
+            "description": "TagLimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/TagLimitExceededException"
+            }
+          },
+          "483": {
+            "description": "ResourceArnNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceArnNotFoundException"
+            }
+          },
+          "484": {
+            "description": "TagPolicyViolationException",
+            "schema": {
+              "$ref": "#/definitions/TagPolicyViolationException"
+            }
+          },
+          "485": {
+            "description": "ServerInternalException",
+            "schema": {
+              "$ref": "#/definitions/ServerInternalException"
+            }
+          },
+          "486": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          }
+        },
+        "description": "Adds the specified tags to the specified resource share that you own.",
+        "operationId": "TagResource"
+      }
+    },
+    "/untagresource": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "resourceShareArn": {
+                  "description": "The Amazon Resource Name (ARN) of the resource share.",
+                  "type": "string"
+                },
+                "tagKeys": {
+                  "description": "The tag keys of the tags to remove.",
+                  "items": {
+                    "$ref": "#/definitions/TagKey"
+                  },
+                  "type": "array"
+                }
+              },
+              "required": [
+                "resourceShareArn",
+                "tagKeys"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UntagResourceResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "481": {
+            "description": "ServerInternalException",
+            "schema": {
+              "$ref": "#/definitions/ServerInternalException"
+            }
+          },
+          "482": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          }
+        },
+        "description": "Removes the specified tags from the specified resource share that you own.",
+        "operationId": "UntagResource"
+      }
+    },
+    "/updateresourceshare": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "allowExternalPrincipals": {
+                  "description": "Indicates whether principals outside your AWS organization can be associated with a resource share.",
+                  "type": "boolean"
+                },
+                "clientToken": {
+                  "description": "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.",
+                  "type": "string"
+                },
+                "name": {
+                  "description": "The name of the resource share.",
+                  "type": "string"
+                },
+                "resourceShareArn": {
+                  "description": "The Amazon Resource Name (ARN) of the resource share.",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "resourceShareArn"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UpdateResourceShareResponse"
+            }
+          },
+          "480": {
+            "description": "IdempotentParameterMismatchException",
+            "schema": {
+              "$ref": "#/definitions/IdempotentParameterMismatchException"
+            }
+          },
+          "481": {
+            "description": "MissingRequiredParameterException",
+            "schema": {
+              "$ref": "#/definitions/MissingRequiredParameterException"
+            }
+          },
+          "482": {
+            "description": "UnknownResourceException",
+            "schema": {
+              "$ref": "#/definitions/UnknownResourceException"
+            }
+          },
+          "483": {
+            "description": "MalformedArnException",
+            "schema": {
+              "$ref": "#/definitions/MalformedArnException"
+            }
+          },
+          "484": {
+            "description": "InvalidClientTokenException",
+            "schema": {
+              "$ref": "#/definitions/InvalidClientTokenException"
+            }
+          },
+          "485": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "486": {
+            "description": "OperationNotPermittedException",
+            "schema": {
+              "$ref": "#/definitions/OperationNotPermittedException"
+            }
+          },
+          "487": {
+            "description": "ServerInternalException",
+            "schema": {
+              "$ref": "#/definitions/ServerInternalException"
+            }
+          },
+          "488": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          }
+        },
+        "description": "Updates the specified resource share that you own.",
+        "operationId": "UpdateResourceShare"
+      }
+    }
+  },
+  "definitions": {
+    "AcceptResourceShareInvitationRequest": {
+      "properties": {
+        "clientToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request."
+            }
+          ]
+        },
+        "resourceShareInvitationArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the invitation."
+            }
+          ]
+        }
+      },
+      "required": [
+        "resourceShareInvitationArn"
+      ],
+      "title": "AcceptResourceShareInvitationRequest",
+      "type": "object"
+    },
+    "AcceptResourceShareInvitationResponse": {
+      "properties": {
+        "clientToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request."
+            }
+          ]
+        },
+        "resourceShareInvitation": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceShareInvitation"
+            },
+            {
+              "description": "Information about the invitation."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "AssociateResourceSharePermissionRequest": {
+      "properties": {
+        "clientToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request."
+            }
+          ]
+        },
+        "permissionArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The ARN of the AWS RAM permission to associate with the resource share."
+            }
+          ]
+        },
+        "replace": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Boolean"
+            },
+            {
+              "description": "Indicates whether the permission should replace the permissions that are currently associated with the resource share. Use <code>true</code> to replace the current permissions. Use <code>false</code> to add the permission to the current permission."
+            }
+          ]
+        },
+        "resourceShareArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the resource share."
+            }
+          ]
+        }
+      },
+      "required": [
+        "resourceShareArn",
+        "permissionArn"
+      ],
+      "title": "AssociateResourceSharePermissionRequest",
+      "type": "object"
+    },
+    "AssociateResourceSharePermissionResponse": {
+      "properties": {
+        "clientToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request."
+            }
+          ]
+        },
+        "returnValue": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Boolean"
+            },
+            {
+              "description": "Indicates whether the request succeeded."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "AssociateResourceShareRequest": {
+      "properties": {
+        "clientToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request."
+            }
+          ]
+        },
+        "principals": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PrincipalArnOrIdList"
+            },
+            {
+              "description": "The principals."
+            }
+          ]
+        },
+        "resourceArns": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceArnList"
+            },
+            {
+              "description": "The Amazon Resource Names (ARN) of the resources."
+            }
+          ]
+        },
+        "resourceShareArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the resource share."
+            }
+          ]
+        }
+      },
+      "required": [
+        "resourceShareArn"
+      ],
+      "title": "AssociateResourceShareRequest",
+      "type": "object"
+    },
+    "AssociateResourceShareResponse": {
+      "properties": {
+        "clientToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request."
+            }
+          ]
+        },
+        "resourceShareAssociations": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceShareAssociationList"
+            },
+            {
+              "description": "Information about the associations."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "Boolean": {
+      "type": "boolean"
+    },
+    "CreateResourceShareRequest": {
+      "properties": {
+        "tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagList"
+            },
+            {
+              "description": "One or more tags."
+            }
+          ]
+        },
+        "allowExternalPrincipals": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Boolean"
+            },
+            {
+              "description": "Indicates whether principals outside your AWS organization can be associated with a resource share."
+            }
+          ]
+        },
+        "clientToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request."
+            }
+          ]
+        },
+        "name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The name of the resource share."
+            }
+          ]
+        },
+        "permissionArns": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PermissionArnList"
+            },
+            {
+              "description": "The ARNs of the permissions to associate with the resource share. If you do not specify an ARN for the permission, AWS RAM automatically attaches the default version of the permission for each resource type."
+            }
+          ]
+        },
+        "principals": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PrincipalArnOrIdList"
+            },
+            {
+              "description": "The principals to associate with the resource share. The possible values are IDs of AWS accounts, the ARN of an OU or organization from AWS Organizations."
+            }
+          ]
+        },
+        "resourceArns": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceArnList"
+            },
+            {
+              "description": "The Amazon Resource Names (ARN) of the resources to associate with the resource share."
+            }
+          ]
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "title": "CreateResourceShareRequest",
+      "type": "object"
+    },
+    "CreateResourceShareResponse": {
+      "properties": {
+        "clientToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request."
+            }
+          ]
+        },
+        "resourceShare": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceShare"
+            },
+            {
+              "description": "Information about the resource share."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DateTime": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "DeleteResourceShareRequest": {
+      "properties": {},
+      "title": "DeleteResourceShareRequest",
+      "type": "object"
+    },
+    "DeleteResourceShareResponse": {
+      "properties": {
+        "clientToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request."
+            }
+          ]
+        },
+        "returnValue": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Boolean"
+            },
+            {
+              "description": "Indicates whether the request succeeded."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DisassociateResourceSharePermissionRequest": {
+      "properties": {
+        "clientToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request."
+            }
+          ]
+        },
+        "permissionArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The ARN of the permission to disassociate from the resource share."
+            }
+          ]
+        },
+        "resourceShareArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the resource share."
+            }
+          ]
+        }
+      },
+      "required": [
+        "resourceShareArn",
+        "permissionArn"
+      ],
+      "title": "DisassociateResourceSharePermissionRequest",
+      "type": "object"
+    },
+    "DisassociateResourceSharePermissionResponse": {
+      "properties": {
+        "clientToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request."
+            }
+          ]
+        },
+        "returnValue": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Boolean"
+            },
+            {
+              "description": "Indicates whether the request succeeded."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DisassociateResourceShareRequest": {
+      "properties": {
+        "clientToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request."
+            }
+          ]
+        },
+        "principals": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PrincipalArnOrIdList"
+            },
+            {
+              "description": "The principals."
+            }
+          ]
+        },
+        "resourceArns": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceArnList"
+            },
+            {
+              "description": "The Amazon Resource Names (ARNs) of the resources."
+            }
+          ]
+        },
+        "resourceShareArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the resource share."
+            }
+          ]
+        }
+      },
+      "required": [
+        "resourceShareArn"
+      ],
+      "title": "DisassociateResourceShareRequest",
+      "type": "object"
+    },
+    "DisassociateResourceShareResponse": {
+      "properties": {
+        "clientToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request."
+            }
+          ]
+        },
+        "resourceShareAssociations": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceShareAssociationList"
+            },
+            {
+              "description": "Information about the associations."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "EnableSharingWithAwsOrganizationRequest": {
+      "properties": {},
+      "title": "EnableSharingWithAwsOrganizationRequest",
+      "type": "object"
+    },
+    "EnableSharingWithAwsOrganizationResponse": {
+      "properties": {
+        "returnValue": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Boolean"
+            },
+            {
+              "description": "Indicates whether the request succeeded."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "GetPermissionRequest": {
+      "properties": {
+        "permissionArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The ARN of the permission."
+            }
+          ]
+        },
+        "permissionVersion": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Integer"
+            },
+            {
+              "description": "The identifier for the version of the permission."
+            }
+          ]
+        }
+      },
+      "required": [
+        "permissionArn"
+      ],
+      "title": "GetPermissionRequest",
+      "type": "object"
+    },
+    "GetPermissionResponse": {
+      "properties": {
+        "permission": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceSharePermissionDetail"
+            },
+            {
+              "description": "Information about the permission."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "GetResourcePoliciesRequest": {
+      "properties": {
+        "maxResults": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MaxResults"
+            },
+            {
+              "description": "The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value."
+            }
+          ]
+        },
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The token for the next page of results."
+            }
+          ]
+        },
+        "principal": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The principal."
+            }
+          ]
+        },
+        "resourceArns": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceArnList"
+            },
+            {
+              "description": "The Amazon Resource Names (ARN) of the resources."
+            }
+          ]
+        }
+      },
+      "required": [
+        "resourceArns"
+      ],
+      "title": "GetResourcePoliciesRequest",
+      "type": "object"
+    },
+    "GetResourcePoliciesResponse": {
+      "properties": {
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return."
+            }
+          ]
+        },
+        "policies": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PolicyList"
+            },
+            {
+              "description": "A key policy document, in JSON format."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "GetResourceShareAssociationsRequest": {
+      "properties": {
+        "associationStatus": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceShareAssociationStatus"
+            },
+            {
+              "description": "The association status."
+            }
+          ]
+        },
+        "associationType": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceShareAssociationType"
+            },
+            {
+              "description": "The association type. Specify <code>PRINCIPAL</code> to list the principals that are associated with the specified resource share. Specify <code>RESOURCE</code> to list the resources that are associated with the specified resource share."
+            }
+          ]
+        },
+        "maxResults": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MaxResults"
+            },
+            {
+              "description": "The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value."
+            }
+          ]
+        },
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The token for the next page of results."
+            }
+          ]
+        },
+        "principal": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The principal. You cannot specify this parameter if the association type is <code>RESOURCE</code>."
+            }
+          ]
+        },
+        "resourceArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the resource. You cannot specify this parameter if the association type is <code>PRINCIPAL</code>."
+            }
+          ]
+        },
+        "resourceShareArns": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceShareArnList"
+            },
+            {
+              "description": "The Amazon Resource Names (ARN) of the resource shares."
+            }
+          ]
+        }
+      },
+      "required": [
+        "associationType"
+      ],
+      "title": "GetResourceShareAssociationsRequest",
+      "type": "object"
+    },
+    "GetResourceShareAssociationsResponse": {
+      "properties": {
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return."
+            }
+          ]
+        },
+        "resourceShareAssociations": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceShareAssociationList"
+            },
+            {
+              "description": "Information about the associations."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "GetResourceShareInvitationsRequest": {
+      "properties": {
+        "maxResults": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MaxResults"
+            },
+            {
+              "description": "The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value."
+            }
+          ]
+        },
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The token for the next page of results."
+            }
+          ]
+        },
+        "resourceShareArns": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceShareArnList"
+            },
+            {
+              "description": "The Amazon Resource Names (ARN) of the resource shares."
+            }
+          ]
+        },
+        "resourceShareInvitationArns": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceShareInvitationArnList"
+            },
+            {
+              "description": "The Amazon Resource Names (ARN) of the invitations."
+            }
+          ]
+        }
+      },
+      "title": "GetResourceShareInvitationsRequest",
+      "type": "object"
+    },
+    "GetResourceShareInvitationsResponse": {
+      "properties": {
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return."
+            }
+          ]
+        },
+        "resourceShareInvitations": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceShareInvitationList"
+            },
+            {
+              "description": "Information about the invitations."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "GetResourceSharesRequest": {
+      "properties": {
+        "maxResults": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MaxResults"
+            },
+            {
+              "description": "The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value."
+            }
+          ]
+        },
+        "name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The name of the resource share."
+            }
+          ]
+        },
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The token for the next page of results."
+            }
+          ]
+        },
+        "resourceOwner": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceOwner"
+            },
+            {
+              "description": "The type of owner."
+            }
+          ]
+        },
+        "resourceShareArns": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceShareArnList"
+            },
+            {
+              "description": "The Amazon Resource Names (ARN) of the resource shares."
+            }
+          ]
+        },
+        "resourceShareStatus": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceShareStatus"
+            },
+            {
+              "description": "The status of the resource share."
+            }
+          ]
+        },
+        "tagFilters": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagFilters"
+            },
+            {
+              "description": "One or more tag filters."
+            }
+          ]
+        }
+      },
+      "required": [
+        "resourceOwner"
+      ],
+      "title": "GetResourceSharesRequest",
+      "type": "object"
+    },
+    "GetResourceSharesResponse": {
+      "properties": {
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return."
+            }
+          ]
+        },
+        "resourceShares": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceShareList"
+            },
+            {
+              "description": "Information about the resource shares."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "IdempotentParameterMismatchException": {},
+    "Integer": {
+      "type": "integer"
+    },
+    "InvalidClientTokenException": {},
+    "InvalidMaxResultsException": {},
+    "InvalidNextTokenException": {},
+    "InvalidParameterException": {},
+    "InvalidResourceTypeException": {},
+    "InvalidStateTransitionException": {},
+    "ListPendingInvitationResourcesRequest": {
+      "properties": {
+        "maxResults": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MaxResults"
+            },
+            {
+              "description": "The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value."
+            }
+          ]
+        },
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The token for the next page of results."
+            }
+          ]
+        },
+        "resourceShareInvitationArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the invitation."
+            }
+          ]
+        }
+      },
+      "required": [
+        "resourceShareInvitationArn"
+      ],
+      "title": "ListPendingInvitationResourcesRequest",
+      "type": "object"
+    },
+    "ListPendingInvitationResourcesResponse": {
+      "properties": {
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return."
+            }
+          ]
+        },
+        "resources": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceList"
+            },
+            {
+              "description": "Information about the resources included the resource share."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ListPermissionsRequest": {
+      "properties": {
+        "maxResults": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MaxResults"
+            },
+            {
+              "description": "The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value."
+            }
+          ]
+        },
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The token for the next page of results."
+            }
+          ]
+        },
+        "resourceType": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "Specifies the resource type for which to list permissions. For example, to list only permissions that apply to EC2 subnets, specify <code>ec2:Subnet</code>."
+            }
+          ]
+        }
+      },
+      "title": "ListPermissionsRequest",
+      "type": "object"
+    },
+    "ListPermissionsResponse": {
+      "properties": {
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return."
+            }
+          ]
+        },
+        "permissions": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceSharePermissionList"
+            },
+            {
+              "description": "Information about the permissions."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ListPrincipalsRequest": {
+      "properties": {
+        "maxResults": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MaxResults"
+            },
+            {
+              "description": "The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value."
+            }
+          ]
+        },
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The token for the next page of results."
+            }
+          ]
+        },
+        "principals": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PrincipalArnOrIdList"
+            },
+            {
+              "description": "The principals."
+            }
+          ]
+        },
+        "resourceArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the resource."
+            }
+          ]
+        },
+        "resourceOwner": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceOwner"
+            },
+            {
+              "description": "The type of owner."
+            }
+          ]
+        },
+        "resourceShareArns": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceShareArnList"
+            },
+            {
+              "description": "The Amazon Resource Names (ARN) of the resource shares."
+            }
+          ]
+        },
+        "resourceType": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "<p>The resource type.</p> <p>Valid values: <code>codebuild:Project</code> | <code>codebuild:ReportGroup</code> | <code>ec2:CapacityReservation</code> | <code>ec2:DedicatedHost</code> | <code>ec2:Subnet</code> | <code>ec2:TrafficMirrorTarget</code> | <code>ec2:TransitGateway</code> | <code>imagebuilder:Component</code> | <code>imagebuilder:Image</code> | <code>imagebuilder:ImageRecipe</code> | <code>license-manager:LicenseConfiguration</code> I <code>resource-groups:Group</code> | <code>rds:Cluster</code> | <code>route53resolver:ResolverRule</code> </p>"
+            }
+          ]
+        }
+      },
+      "required": [
+        "resourceOwner"
+      ],
+      "title": "ListPrincipalsRequest",
+      "type": "object"
+    },
+    "ListPrincipalsResponse": {
+      "properties": {
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return."
+            }
+          ]
+        },
+        "principals": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PrincipalList"
+            },
+            {
+              "description": "The principals."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ListResourceSharePermissionsRequest": {
+      "properties": {
+        "maxResults": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MaxResults"
+            },
+            {
+              "description": "The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value."
+            }
+          ]
+        },
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The token for the next page of results."
+            }
+          ]
+        },
+        "resourceShareArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the resource share."
+            }
+          ]
+        }
+      },
+      "required": [
+        "resourceShareArn"
+      ],
+      "title": "ListResourceSharePermissionsRequest",
+      "type": "object"
+    },
+    "ListResourceSharePermissionsResponse": {
+      "properties": {
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return."
+            }
+          ]
+        },
+        "permissions": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceSharePermissionList"
+            },
+            {
+              "description": "The permissions associated with the resource share."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ListResourceTypesRequest": {
+      "properties": {
+        "maxResults": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MaxResults"
+            },
+            {
+              "description": "The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value."
+            }
+          ]
+        },
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The token for the next page of results."
+            }
+          ]
+        }
+      },
+      "title": "ListResourceTypesRequest",
+      "type": "object"
+    },
+    "ListResourceTypesResponse": {
+      "properties": {
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return."
+            }
+          ]
+        },
+        "resourceTypes": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ServiceNameAndResourceTypeList"
+            },
+            {
+              "description": "The shareable resource types supported by AWS RAM."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ListResourcesRequest": {
+      "properties": {
+        "maxResults": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MaxResults"
+            },
+            {
+              "description": "The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value."
+            }
+          ]
+        },
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The token for the next page of results."
+            }
+          ]
+        },
+        "principal": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The principal."
+            }
+          ]
+        },
+        "resourceArns": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceArnList"
+            },
+            {
+              "description": "The Amazon Resource Names (ARN) of the resources."
+            }
+          ]
+        },
+        "resourceOwner": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceOwner"
+            },
+            {
+              "description": "The type of owner."
+            }
+          ]
+        },
+        "resourceShareArns": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceShareArnList"
+            },
+            {
+              "description": "The Amazon Resource Names (ARN) of the resource shares."
+            }
+          ]
+        },
+        "resourceType": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "<p>The resource type.</p> <p>Valid values: <code>codebuild:Project</code> | <code>codebuild:ReportGroup</code> | <code>ec2:CapacityReservation</code> | <code>ec2:DedicatedHost</code> | <code>ec2:Subnet</code> | <code>ec2:TrafficMirrorTarget</code> | <code>ec2:TransitGateway</code> | <code>imagebuilder:Component</code> | <code>imagebuilder:Image</code> | <code>imagebuilder:ImageRecipe</code> | <code>license-manager:LicenseConfiguration</code> I <code>resource-groups:Group</code> | <code>rds:Cluster</code> | <code>route53resolver:ResolverRule</code> </p>"
+            }
+          ]
+        }
+      },
+      "required": [
+        "resourceOwner"
+      ],
+      "title": "ListResourcesRequest",
+      "type": "object"
+    },
+    "ListResourcesResponse": {
+      "properties": {
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return."
+            }
+          ]
+        },
+        "resources": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceList"
+            },
+            {
+              "description": "Information about the resources."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "MalformedArnException": {},
+    "MaxResults": {
+      "maximum": 500,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "MissingRequiredParameterException": {},
+    "OperationNotPermittedException": {},
+    "PermissionArnList": {
+      "items": {
+        "$ref": "#/definitions/String"
+      },
+      "type": "array"
+    },
+    "Policy": {
+      "type": "string"
+    },
+    "PolicyList": {
+      "items": {
+        "$ref": "#/definitions/Policy"
+      },
+      "type": "array"
+    },
+    "Principal": {
+      "description": "Describes a principal for use with AWS Resource Access Manager.",
+      "properties": {
+        "creationTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DateTime"
+            },
+            {
+              "description": "The time when the principal was associated with the resource share."
+            }
+          ]
+        },
+        "external": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Boolean"
+            },
+            {
+              "description": "Indicates whether the principal belongs to the same AWS organization as the AWS account that owns the resource share."
+            }
+          ]
+        },
+        "id": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The ID of the principal."
+            }
+          ]
+        },
+        "lastUpdatedTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DateTime"
+            },
+            {
+              "description": "The time when the association was last updated."
+            }
+          ]
+        },
+        "resourceShareArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the resource share."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "PrincipalArnOrIdList": {
+      "items": {
+        "$ref": "#/definitions/String"
+      },
+      "type": "array"
+    },
+    "PrincipalList": {
+      "items": {
+        "$ref": "#/definitions/Principal"
+      },
+      "type": "array"
+    },
+    "PromoteResourceShareCreatedFromPolicyRequest": {
+      "properties": {},
+      "title": "PromoteResourceShareCreatedFromPolicyRequest",
+      "type": "object"
+    },
+    "PromoteResourceShareCreatedFromPolicyResponse": {
+      "properties": {
+        "returnValue": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Boolean"
+            },
+            {
+              "description": "Indicates whether the request succeeded."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "RejectResourceShareInvitationRequest": {
+      "properties": {
+        "clientToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request."
+            }
+          ]
+        },
+        "resourceShareInvitationArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the invitation."
+            }
+          ]
+        }
+      },
+      "required": [
+        "resourceShareInvitationArn"
+      ],
+      "title": "RejectResourceShareInvitationRequest",
+      "type": "object"
+    },
+    "RejectResourceShareInvitationResponse": {
+      "properties": {
+        "clientToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request."
+            }
+          ]
+        },
+        "resourceShareInvitation": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceShareInvitation"
+            },
+            {
+              "description": "Information about the invitation."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "Resource": {
+      "description": "Describes a resource associated with a resource share.",
+      "properties": {
+        "arn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the resource."
+            }
+          ]
+        },
+        "creationTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DateTime"
+            },
+            {
+              "description": "The time when the resource was associated with the resource share."
+            }
+          ]
+        },
+        "lastUpdatedTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DateTime"
+            },
+            {
+              "description": "The time when the association was last updated."
+            }
+          ]
+        },
+        "resourceGroupArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The ARN of the resource group. This value is returned only if the resource is a resource group."
+            }
+          ]
+        },
+        "resourceShareArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the resource share."
+            }
+          ]
+        },
+        "status": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceStatus"
+            },
+            {
+              "description": "The status of the resource."
+            }
+          ]
+        },
+        "statusMessage": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "A message about the status of the resource."
+            }
+          ]
+        },
+        "type": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The resource type."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ResourceArnList": {
+      "items": {
+        "$ref": "#/definitions/String"
+      },
+      "type": "array"
+    },
+    "ResourceArnNotFoundException": {},
+    "ResourceList": {
+      "items": {
+        "$ref": "#/definitions/Resource"
+      },
+      "type": "array"
+    },
+    "ResourceOwner": {
+      "enum": [
+        "SELF",
+        "OTHER-ACCOUNTS"
+      ],
+      "type": "string"
+    },
+    "ResourceShare": {
+      "description": "Describes a resource share.",
+      "properties": {
+        "tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagList"
+            },
+            {
+              "description": "The tags for the resource share."
+            }
+          ]
+        },
+        "allowExternalPrincipals": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Boolean"
+            },
+            {
+              "description": "Indicates whether principals outside your AWS organization can be associated with a resource share."
+            }
+          ]
+        },
+        "creationTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DateTime"
+            },
+            {
+              "description": "The time when the resource share was created."
+            }
+          ]
+        },
+        "featureSet": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceShareFeatureSet"
+            },
+            {
+              "description": "<p>Indicates how the resource share was created. Possible values include:</p> <ul> <li> <p> <code>CREATED_FROM_POLICY</code> - Indicates that the resource share was created from an AWS Identity and Access Management (AWS IAM) policy attached to a resource. These resource shares are visible only to the AWS account that created it. They cannot be modified in AWS RAM.</p> </li> <li> <p> <code>PROMOTING_TO_STANDARD</code> - The resource share is in the process of being promoted. For more information, see <a>PromoteResourceShareCreatedFromPolicy</a>.</p> </li> <li> <p> <code>STANDARD</code> - Indicates that the resource share was created in AWS RAM using the console or APIs. These resource shares are visible to all principals. They can be modified in AWS RAM.</p> </li> </ul>"
+            }
+          ]
+        },
+        "lastUpdatedTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DateTime"
+            },
+            {
+              "description": "The time when the resource share was last updated."
+            }
+          ]
+        },
+        "name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The name of the resource share."
+            }
+          ]
+        },
+        "owningAccountId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The ID of the AWS account that owns the resource share."
+            }
+          ]
+        },
+        "resourceShareArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the resource share."
+            }
+          ]
+        },
+        "status": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceShareStatus"
+            },
+            {
+              "description": "The status of the resource share."
+            }
+          ]
+        },
+        "statusMessage": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "A message about the status of the resource share."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ResourceShareArnList": {
+      "items": {
+        "$ref": "#/definitions/String"
+      },
+      "type": "array"
+    },
+    "ResourceShareAssociation": {
+      "description": "Describes an association with a resource share.",
+      "properties": {
+        "associatedEntity": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The associated entity. For resource associations, this is the ARN of the resource. For principal associations, this is the ID of an AWS account or the ARN of an OU or organization from AWS Organizations."
+            }
+          ]
+        },
+        "associationType": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceShareAssociationType"
+            },
+            {
+              "description": "The association type."
+            }
+          ]
+        },
+        "creationTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DateTime"
+            },
+            {
+              "description": "The time when the association was created."
+            }
+          ]
+        },
+        "external": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Boolean"
+            },
+            {
+              "description": "Indicates whether the principal belongs to the same AWS organization as the AWS account that owns the resource share."
+            }
+          ]
+        },
+        "lastUpdatedTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DateTime"
+            },
+            {
+              "description": "The time when the association was last updated."
+            }
+          ]
+        },
+        "resourceShareArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the resource share."
+            }
+          ]
+        },
+        "resourceShareName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The name of the resource share."
+            }
+          ]
+        },
+        "status": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceShareAssociationStatus"
+            },
+            {
+              "description": "The status of the association."
+            }
+          ]
+        },
+        "statusMessage": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "A message about the status of the association."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ResourceShareAssociationList": {
+      "items": {
+        "$ref": "#/definitions/ResourceShareAssociation"
+      },
+      "type": "array"
+    },
+    "ResourceShareAssociationStatus": {
+      "enum": [
+        "ASSOCIATING",
+        "ASSOCIATED",
+        "FAILED",
+        "DISASSOCIATING",
+        "DISASSOCIATED"
+      ],
+      "type": "string"
+    },
+    "ResourceShareAssociationType": {
+      "enum": [
+        "PRINCIPAL",
+        "RESOURCE"
+      ],
+      "type": "string"
+    },
+    "ResourceShareFeatureSet": {
+      "enum": [
+        "CREATED_FROM_POLICY",
+        "PROMOTING_TO_STANDARD",
+        "STANDARD"
+      ],
+      "type": "string"
+    },
+    "ResourceShareInvitation": {
+      "description": "Describes an invitation to join a resource share.",
+      "properties": {
+        "invitationTimestamp": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DateTime"
+            },
+            {
+              "description": "The date and time when the invitation was sent."
+            }
+          ]
+        },
+        "receiverAccountId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The ID of the AWS account that received the invitation."
+            }
+          ]
+        },
+        "resourceShareArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the resource share."
+            }
+          ]
+        },
+        "resourceShareAssociations": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceShareAssociationList"
+            },
+            {
+              "description": "To view the resources associated with a pending resource share invitation, use <a href=\"https://docs.aws.amazon.com/ram/latest/APIReference/API_ListPendingInvitationResources.html\"> ListPendingInvitationResources</a>.This member has been deprecated. Use ListPendingInvitationResources.",
+              "x-deprecated": true
+            }
+          ]
+        },
+        "resourceShareInvitationArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the invitation."
+            }
+          ]
+        },
+        "resourceShareName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The name of the resource share."
+            }
+          ]
+        },
+        "senderAccountId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The ID of the AWS account that sent the invitation."
+            }
+          ]
+        },
+        "status": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceShareInvitationStatus"
+            },
+            {
+              "description": "The status of the invitation."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ResourceShareInvitationAlreadyAcceptedException": {},
+    "ResourceShareInvitationAlreadyRejectedException": {},
+    "ResourceShareInvitationArnList": {
+      "items": {
+        "$ref": "#/definitions/String"
+      },
+      "type": "array"
+    },
+    "ResourceShareInvitationArnNotFoundException": {},
+    "ResourceShareInvitationExpiredException": {},
+    "ResourceShareInvitationList": {
+      "items": {
+        "$ref": "#/definitions/ResourceShareInvitation"
+      },
+      "type": "array"
+    },
+    "ResourceShareInvitationStatus": {
+      "enum": [
+        "PENDING",
+        "ACCEPTED",
+        "REJECTED",
+        "EXPIRED"
+      ],
+      "type": "string"
+    },
+    "ResourceShareLimitExceededException": {},
+    "ResourceShareList": {
+      "items": {
+        "$ref": "#/definitions/ResourceShare"
+      },
+      "type": "array"
+    },
+    "ResourceSharePermissionDetail": {
+      "description": "Information about an AWS RAM permission.",
+      "properties": {
+        "arn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The ARN of the permission."
+            }
+          ]
+        },
+        "creationTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DateTime"
+            },
+            {
+              "description": "The date and time when the permission was created."
+            }
+          ]
+        },
+        "defaultVersion": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Boolean"
+            },
+            {
+              "description": "The identifier for the version of the permission that is set as the default version."
+            }
+          ]
+        },
+        "lastUpdatedTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DateTime"
+            },
+            {
+              "description": "The date and time when the permission was last updated."
+            }
+          ]
+        },
+        "name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The name of the permission."
+            }
+          ]
+        },
+        "permission": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The permission's effect and actions in JSON format. The <code>effect</code> indicates whether the actions are allowed or denied. The <code>actions</code> list the API actions to which the principal is granted or denied access."
+            }
+          ]
+        },
+        "resourceType": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The resource type to which the permission applies."
+            }
+          ]
+        },
+        "version": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The identifier for the version of the permission."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ResourceSharePermissionList": {
+      "items": {
+        "$ref": "#/definitions/ResourceSharePermissionSummary"
+      },
+      "type": "array"
+    },
+    "ResourceSharePermissionSummary": {
+      "description": "Information about a permission that is associated with a resource share.",
+      "properties": {
+        "arn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The ARN of the permission."
+            }
+          ]
+        },
+        "creationTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DateTime"
+            },
+            {
+              "description": "The date and time when the permission was created."
+            }
+          ]
+        },
+        "defaultVersion": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Boolean"
+            },
+            {
+              "description": "The identifier for the version of the permission that is set as the default version."
+            }
+          ]
+        },
+        "lastUpdatedTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DateTime"
+            },
+            {
+              "description": "The date and time when the permission was last updated."
+            }
+          ]
+        },
+        "name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The name of the permission."
+            }
+          ]
+        },
+        "resourceType": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The type of resource to which the permission applies."
+            }
+          ]
+        },
+        "status": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The current status of the permission."
+            }
+          ]
+        },
+        "version": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The identifier for the version of the permission."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ResourceShareStatus": {
+      "enum": [
+        "PENDING",
+        "ACTIVE",
+        "FAILED",
+        "DELETING",
+        "DELETED"
+      ],
+      "type": "string"
+    },
+    "ResourceStatus": {
+      "enum": [
+        "AVAILABLE",
+        "ZONAL_RESOURCE_INACCESSIBLE",
+        "LIMIT_EXCEEDED",
+        "UNAVAILABLE",
+        "PENDING"
+      ],
+      "type": "string"
+    },
+    "ServerInternalException": {},
+    "ServiceNameAndResourceType": {
+      "description": "Information about the shareable resource types and the AWS services to which they belong.",
+      "properties": {
+        "resourceType": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The shareable resource types."
+            }
+          ]
+        },
+        "serviceName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The name of the AWS services to which the resources belong."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ServiceNameAndResourceTypeList": {
+      "items": {
+        "$ref": "#/definitions/ServiceNameAndResourceType"
+      },
+      "type": "array"
+    },
+    "ServiceUnavailableException": {},
+    "String": {
+      "type": "string"
+    },
+    "Tag": {
+      "description": "Information about a tag.",
+      "properties": {
+        "key": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagKey"
+            },
+            {
+              "description": "The key of the tag."
+            }
+          ]
+        },
+        "value": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagValue"
+            },
+            {
+              "description": "The value of the tag."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "TagFilter": {
+      "description": "Used to filter information based on tags.",
+      "properties": {
+        "tagKey": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagKey"
+            },
+            {
+              "description": "The tag key."
+            }
+          ]
+        },
+        "tagValues": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagValueList"
+            },
+            {
+              "description": "The tag values."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "TagFilters": {
+      "items": {
+        "$ref": "#/definitions/TagFilter"
+      },
+      "type": "array"
+    },
+    "TagKey": {
+      "type": "string"
+    },
+    "TagKeyList": {
+      "items": {
+        "$ref": "#/definitions/TagKey"
+      },
+      "type": "array"
+    },
+    "TagLimitExceededException": {},
+    "TagList": {
+      "items": {
+        "$ref": "#/definitions/Tag"
+      },
+      "type": "array"
+    },
+    "TagPolicyViolationException": {},
+    "TagResourceRequest": {
+      "properties": {
+        "tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagList"
+            },
+            {
+              "description": "One or more tags."
+            }
+          ]
+        },
+        "resourceShareArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the resource share."
+            }
+          ]
+        }
+      },
+      "required": [
+        "resourceShareArn",
+        "tags"
+      ],
+      "title": "TagResourceRequest",
+      "type": "object"
+    },
+    "TagResourceResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "TagValue": {
+      "type": "string"
+    },
+    "TagValueList": {
+      "items": {
+        "$ref": "#/definitions/TagValue"
+      },
+      "type": "array"
+    },
+    "UnknownResourceException": {},
+    "UntagResourceRequest": {
+      "properties": {
+        "resourceShareArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the resource share."
+            }
+          ]
+        },
+        "tagKeys": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagKeyList"
+            },
+            {
+              "description": "The tag keys of the tags to remove."
+            }
+          ]
+        }
+      },
+      "required": [
+        "resourceShareArn",
+        "tagKeys"
+      ],
+      "title": "UntagResourceRequest",
+      "type": "object"
+    },
+    "UntagResourceResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "UpdateResourceShareRequest": {
+      "properties": {
+        "allowExternalPrincipals": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Boolean"
+            },
+            {
+              "description": "Indicates whether principals outside your AWS organization can be associated with a resource share."
+            }
+          ]
+        },
+        "clientToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request."
+            }
+          ]
+        },
+        "name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The name of the resource share."
+            }
+          ]
+        },
+        "resourceShareArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the resource share."
+            }
+          ]
+        }
+      },
+      "required": [
+        "resourceShareArn"
+      ],
+      "title": "UpdateResourceShareRequest",
+      "type": "object"
+    },
+    "UpdateResourceShareResponse": {
+      "properties": {
+        "clientToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request."
+            }
+          ]
+        },
+        "resourceShare": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceShare"
+            },
+            {
+              "description": "Information about the resource share."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    }
+  },
+  "securityDefinitions": {
+    "hmac": {
+      "description": "Amazon Signature authorization v4",
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey",
+      "x-amazon-apigateway-authtype": "awsSigv4"
+    }
+  },
+  "security": [
+    {
+      "hmac": []
+    }
+  ],
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://docs.aws.amazon.com/ram/"
+  },
+  "x-components": {
+    "parameters": {
+      "X-Amz-Algorithm": {
+        "in": "header",
+        "name": "X-Amz-Algorithm",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Content-Sha256": {
+        "in": "header",
+        "name": "X-Amz-Content-Sha256",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Credential": {
+        "in": "header",
+        "name": "X-Amz-Credential",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Date": {
+        "in": "header",
+        "name": "X-Amz-Date",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Security-Token": {
+        "in": "header",
+        "name": "X-Amz-Security-Token",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Signature": {
+        "in": "header",
+        "name": "X-Amz-Signature",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-SignedHeaders": {
+        "in": "header",
+        "name": "X-Amz-SignedHeaders",
+        "required": false,
+        "type": "string"
+      }
+    }
+  }
+}

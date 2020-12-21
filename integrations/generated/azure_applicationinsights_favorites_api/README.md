@@ -15,12 +15,7 @@ let azure_applicationinsights_favorites_api = require('@datafire/azure_applicati
   redirect_uri: ""
 });
 
-azure_applicationinsights_favorites_api.Favorites_List({
-  "resourceGroupName": "",
-  "api-version": "",
-  "subscriptionId": "",
-  "resourceName": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -46,9 +41,9 @@ azure_applicationinsights_favorites_api.Favorites_List({
 
 #### Input
 * input `object`
-  * resourceGroupName **required** `string`: The name of the resource group.
-  * api-version **required** `string`: Client Api Version.
-  * subscriptionId **required** `string`: The Azure subscription ID.
+  * resourceGroupName **required** `string`: The name of the resource group. The name is case insensitive.
+  * api-version **required** `string`: The API version to use for this operation.
+  * subscriptionId **required** `string`: The ID of the target subscription.
   * resourceName **required** `string`: The name of the Application Insights component resource.
   * favoriteType `string` (values: shared, user): The type of favorite. Value can be either shared or user.
   * sourceType `string` (values: retention, notebook, sessions, events, userflows, funnel, impact, segmentation): Source type of favorite to return. When left out, the source type defaults to 'other' (not present in this enum).
@@ -59,12 +54,12 @@ azure_applicationinsights_favorites_api.Favorites_List({
 * output `array`
   * items [ApplicationInsightsComponentFavorite](#applicationinsightscomponentfavorite)
 
-### Favorite_Delete
+### Favorites_Delete
 Remove a favorite that is associated to an Application Insights component.
 
 
 ```js
-azure_applicationinsights_favorites_api.Favorite_Delete({
+azure_applicationinsights_favorites_api.Favorites_Delete({
   "resourceGroupName": "",
   "api-version": "",
   "subscriptionId": "",
@@ -75,21 +70,21 @@ azure_applicationinsights_favorites_api.Favorite_Delete({
 
 #### Input
 * input `object`
-  * resourceGroupName **required** `string`: The name of the resource group.
-  * api-version **required** `string`: Client Api Version.
-  * subscriptionId **required** `string`: The Azure subscription ID.
+  * resourceGroupName **required** `string`: The name of the resource group. The name is case insensitive.
+  * api-version **required** `string`: The API version to use for this operation.
+  * subscriptionId **required** `string`: The ID of the target subscription.
   * resourceName **required** `string`: The name of the Application Insights component resource.
   * favoriteId **required** `string`: The Id of a specific favorite defined in the Application Insights component
 
 #### Output
 *Output schema unknown*
 
-### Favorite_Get
+### Favorites_Get
 Get a single favorite by its FavoriteId, defined within an Application Insights component.
 
 
 ```js
-azure_applicationinsights_favorites_api.Favorite_Get({
+azure_applicationinsights_favorites_api.Favorites_Get({
   "resourceGroupName": "",
   "api-version": "",
   "subscriptionId": "",
@@ -100,21 +95,21 @@ azure_applicationinsights_favorites_api.Favorite_Get({
 
 #### Input
 * input `object`
-  * resourceGroupName **required** `string`: The name of the resource group.
-  * api-version **required** `string`: Client Api Version.
-  * subscriptionId **required** `string`: The Azure subscription ID.
+  * resourceGroupName **required** `string`: The name of the resource group. The name is case insensitive.
+  * api-version **required** `string`: The API version to use for this operation.
+  * subscriptionId **required** `string`: The ID of the target subscription.
   * resourceName **required** `string`: The name of the Application Insights component resource.
   * favoriteId **required** `string`: The Id of a specific favorite defined in the Application Insights component
 
 #### Output
 * output [ApplicationInsightsComponentFavorite](#applicationinsightscomponentfavorite)
 
-### Favorite_Update
+### Favorites_Update
 Updates a favorite that has already been added to an Application Insights component.
 
 
 ```js
-azure_applicationinsights_favorites_api.Favorite_Update({
+azure_applicationinsights_favorites_api.Favorites_Update({
   "resourceGroupName": "",
   "api-version": "",
   "subscriptionId": "",
@@ -126,9 +121,9 @@ azure_applicationinsights_favorites_api.Favorite_Update({
 
 #### Input
 * input `object`
-  * resourceGroupName **required** `string`: The name of the resource group.
-  * api-version **required** `string`: Client Api Version.
-  * subscriptionId **required** `string`: The Azure subscription ID.
+  * resourceGroupName **required** `string`: The name of the resource group. The name is case insensitive.
+  * api-version **required** `string`: The API version to use for this operation.
+  * subscriptionId **required** `string`: The ID of the target subscription.
   * resourceName **required** `string`: The name of the Application Insights component resource.
   * favoriteId **required** `string`: The Id of a specific favorite defined in the Application Insights component
   * favoriteProperties **required** [ApplicationInsightsComponentFavorite](#applicationinsightscomponentfavorite)
@@ -136,12 +131,12 @@ azure_applicationinsights_favorites_api.Favorite_Update({
 #### Output
 * output [ApplicationInsightsComponentFavorite](#applicationinsightscomponentfavorite)
 
-### Favorite_Add
+### Favorites_Add
 Adds a new favorites to an Application Insights component.
 
 
 ```js
-azure_applicationinsights_favorites_api.Favorite_Add({
+azure_applicationinsights_favorites_api.Favorites_Add({
   "resourceGroupName": "",
   "api-version": "",
   "subscriptionId": "",
@@ -153,9 +148,9 @@ azure_applicationinsights_favorites_api.Favorite_Add({
 
 #### Input
 * input `object`
-  * resourceGroupName **required** `string`: The name of the resource group.
-  * api-version **required** `string`: Client Api Version.
-  * subscriptionId **required** `string`: The Azure subscription ID.
+  * resourceGroupName **required** `string`: The name of the resource group. The name is case insensitive.
+  * api-version **required** `string`: The API version to use for this operation.
+  * subscriptionId **required** `string`: The ID of the target subscription.
   * resourceName **required** `string`: The name of the Application Insights component resource.
   * favoriteId **required** `string`: The Id of a specific favorite defined in the Application Insights component
   * favoriteProperties **required** [ApplicationInsightsComponentFavorite](#applicationinsightscomponentfavorite)

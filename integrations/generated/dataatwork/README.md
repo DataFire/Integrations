@@ -1,6 +1,6 @@
 # @datafire/dataatwork
 
-Client library for Open Skills
+Client library for Open Skills API
 
 ## Installation and Usage
 ```bash
@@ -9,7 +9,7 @@ npm install --save @datafire/dataatwork
 ```js
 let dataatwork = require('@datafire/dataatwork').create();
 
-dataatwork.skills.autocomplete.get({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

@@ -11,7 +11,7 @@ let statsocial = require('@datafire/statsocial').create({
   api_key: ""
 });
 
-statsocial.reports.twitter.create.post({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -359,8 +359,8 @@ statsocial.reports.twitter.create.post({}, context)
 
 ## Definitions
 
-### 18_24
-* 18_24 `object`
+### 1824
+* 1824 `object`
   * average `integer`
   * multiplicity `integer`
   * percentile `integer`
@@ -368,8 +368,8 @@ statsocial.reports.twitter.create.post({}, context)
   * stdev `integer`
   * value `integer`
 
-### 25_34
-* 25_34 `object`
+### 2534
+* 2534 `object`
   * average `integer`
   * multiplicity `integer`
   * percentile `integer`
@@ -377,8 +377,8 @@ statsocial.reports.twitter.create.post({}, context)
   * stdev `integer`
   * value `integer`
 
-### 35_44
-* 35_44 `object`
+### 3544
+* 3544 `object`
   * average `integer`
   * multiplicity `integer`
   * percentile `integer`

@@ -9,7 +9,7 @@ npm install --save @datafire/freesound
 ```js
 let freesound = require('@datafire/freesound').create();
 
-freesound.searchText({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

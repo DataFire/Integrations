@@ -1,6 +1,6 @@
 # @datafire/visiblethread
 
-Client library for VisibleThread
+Client library for VisibleThread API
 
 ## Installation and Usage
 ```bash
@@ -11,7 +11,7 @@ let visiblethread = require('@datafire/visiblethread').create({
   api_key: ""
 });
 
-visiblethread.dictionaries.get(null).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

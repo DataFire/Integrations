@@ -9,7 +9,7 @@ npm install --save @datafire/opentargets
 ```js
 let opentargets = require('@datafire/opentargets').create();
 
-opentargets.getEvidenceFilter({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -18,58 +18,45 @@ opentargets.getEvidenceFilter({}).then(data => {
 
 ### The Open Targets Platform REST API
 
-The Open Targets Platform API ('Application Programming Interface')
-allows programmatic retrieval of our data via a set of
-[REST](https://en.wikipedia.org/wiki/Representational_state_transfer)
-services.
+The Open Targets Platform API ('Application Programming Interface') allows programmatic retrieval of the Open Targets Platform data via a set of [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) services.
 
-You can make calls to the latest version of our API using the base URL
- `https://api.opentargets.io/v3/platform`. Please make sure you use `https` instead of the unencrypted
- `http` calls, which we do not accept. Note that we only serve the latest version of the API. If you are interested in querying
- an old version, please [get in touch](mailto:support@targetvalidation.org) so that we can help.
+You can make calls to the latest version of our API using the base URL `https://platform-api.opentargets.io/v3/platform`. Please make sure you use `https` instead of the unencrypted `http` calls, which we do not accept.
 
-We list below the methods available for you to query our data directly from the API. These methods will be
-automatically generated from our Swagger UI. For every request you create, the interface will display a [curl](https://curl.haxx.se/) command
-that you can copy and paste directly to a shell to obtain the same results without using an internet browser.
+We list below the methods available to query our data directly from the API, followed by an interactive interface that you can use to try out the parameters and execute the REST-API calls.
 
-Check our [API blog posts](https://blog.opentargets.org/tag/api), for tutorials and additional
-information on how to access of our data programmatically.
+For every request you create, the interactive interface will display both a [curl](https://curl.haxx.se/) command and a request URL that you can use to ensure you get the expected response before using your application or workflow. 
+
+Check our documentation for some [API tutorials](https://docs.targetvalidation.org/tutorials/api-tutorials) and [get in touch](mailto:support@targetvalidation.org) if you have any questions.
 
 ### Available Methods
 
-The available methods can be grouped in four types:
+The available methods can be grouped in three types:
 
 * __public__ - Methods that serve the core set of our data. These are stable and we fully supported them.
 * __private__ - Methods used by the web app to serve additional data not specific to our platform. These methods
 may change without notice and should be used with caution.
 * __utils__ - Methods to get statistics and technical data about our API.
-* __auth__ - Methods used for authentication. These are only relevant if you have an API key (see the 'Fair Usage
-and API keys' section below for more details).
 
 ### Supported formats
 
-The four methods above are all available via a `GET` request, and will serve outputs as `JSON`.
-Alternative output formats such `xml`, `csv` and `tab` are also available for some of the methods.
-Please note that alternative output formats are not supported in this interactive page. The response here will always be in `json` format.
+The methods above are all available via a `GET` request, and will serve outputs as `JSON`.
 
-If you have complex queries with large number of parameters, you should
-use a `POST` request instead of  `GET`. `POST` methods require a body encoded as `json`.
-When querying for a specific disease using the latest version of the API, your call would look like the example below:
+Alternative output formats, such `xml`, `csv` and `tab`, are also available for some of the methods. However alternative output formats are not supported in interactive interface below where the response will be always in `JSON.
+
+If you have complex queries with large number of parameters, you should use a `POST` request instead of  `GET`. 
+`POST` methods require a body encoded as `json`. When querying for a specific disease using the latest version of the API, your call would look like the example below:
 
 ```sh
-curl -X POST -d '{"disease":["EFO_0000253"]}' --header 'Content-Type: application/json' https://api.opentargets.io/v3/platform/public/evidence/filter
+curl -X POST -d '{"disease":["EFO_0000253"]}' --header 'Content-Type: application/json' https://platform-api.opentargets.io/v3/platform/public/evidence/filter
 ```
 ### How to interpret a response
 
-Each HTTP response will serve data in headers and body.
-The headers will give you details about your query, such as how long it took to run, and how much usage you have left (See the 'Fair Usage
-and API keys' section below for more details).
+Each HTTPS response will serve data in headers and body. The headers will give you details about your query, such as how long it took to run.
 
-In the body of the response, you will find the data you have requested for in a `json` format. The
-[jq](https://stedolan.github.io/jq/) program is a useful tool to parse the json response while on the command line.
+In the body of the response, you will find the data you have requested for in `JSON` format. The [jq](https://stedolan.github.io/jq/) program is a useful tool to parse the json response while on the command line.
 
 ```sh
-curl https://api.opentargets.io/v3/platform/public/association/filter\?target\=ENSG00000157764 | jq
+curl https://platform-api.opentargets.io/v3/platform/public/association/filter\?target\=ENSG00000157764 | jq
 ```
 
 We do not analyse the nature of any specific API queries except for the purposes of improving the performance of our API.
@@ -78,15 +65,11 @@ Read more in our [privacy section](https://www.targetvalidation.org/terms_of_use
 How can we make the Open Targets Platform API more useful to you? Would you like additional methods to be implemented?
 Please [get in touch](mailto:support@targetvalidation.org) and send your suggestions.
 
-### More examples
-Check our [Getting started tutorial](https://blog.opentargets.org/api-getting-started-1) for more
-examples on how to use the API and for some code snippets, which can be used to construct more complex queries.
-
 
 ## Actions
 
 ### getApiDocs
-Get api-description.md for the API
+Access api docs as served by Redoc
 
 
 ```js
@@ -99,8 +82,22 @@ opentargets.getApiDocs(null, context)
 #### Output
 *Output schema unknown*
 
+### getApiSwaggerUI
+Interactive API docs using swagger-ui
+
+
+```js
+opentargets.getApiSwaggerUI(null, context)
+```
+
+#### Input
+*This action has no parameters*
+
+#### Output
+*Output schema unknown*
+
 ### getAutocomplete
-Get `autocomplete` objects.
+Search for the closest term to autocomplete in the search box.
 
 
 
@@ -172,6 +169,24 @@ opentargets.getDiseaseById({
 #### Output
 *Output schema unknown*
 
+### getDrugByID
+Get `drug` objects.
+
+
+
+```js
+opentargets.getDrugByID({
+  "DRUG_ID": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * DRUG_ID **required** `string`
+
+#### Output
+*Output schema unknown*
+
 ### getECObyID
 Get `ECO` objects.
 
@@ -209,7 +224,7 @@ opentargets.postEnrichmentTarget({
 *Output schema unknown*
 
 ### getQuickSearch
-Get `search-result` objects.
+Get `search-result` objects. Enables search bar functionality.
 
 
 
@@ -282,7 +297,7 @@ opentargets.getRelationByENSGID({
 *Output schema unknown*
 
 ### postTargetByENSGID
-Get `target` objects.
+Get `target` objects. Used for the target profile page.
 
 
 
@@ -434,43 +449,6 @@ opentargets.postAssociationFilter({
 #### Output
 *Output schema unknown*
 
-### getAuthToken
-Get an authentication token in the form of [JWT](https://jwt.io/).
-
-
-
-```js
-opentargets.getAuthToken({
-  "app_name": "",
-  "secret": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * app_name **required** `string`: The name of the app you are using to request a token. You need to register the app before you will be able to request a token.
-  * secret **required** `string`: The secret you were given when registering your app.
-  * expiry `string`: Seconds before the token expires
-
-#### Output
-*Output schema unknown*
-
-### ValidateToken
-It succeeds if token is valid. You should test this call by passing the token in the header
-as 'Auth-Token'.
-
-
-
-```js
-opentargets.ValidateToken(null, context)
-```
-
-#### Input
-*This action has no parameters*
-
-#### Output
-*Output schema unknown*
-
 ### getEvidenceById
 We call **evidence** a unit of data that support a connection between a target and a disease.
 The Open Targets Platform integrates multiple types of evidence including genetic associations,
@@ -493,7 +471,7 @@ opentargets.getEvidenceById({
 
 #### Input
 * input `object`
-  * id **required** `string`: ID of the evidence string to retrieve.
+  * id **required** `string`: Internal unique ID of the evidence string to retrieve.
 
 #### Output
 *Output schema unknown*
@@ -592,8 +570,23 @@ opentargets.getSearch({
 #### Output
 *Output schema unknown*
 
+### getDataMetrics
+Returns the metrics about associations and evidences, divided by datasource, genes and so on.
+
+
+
+```js
+opentargets.getDataMetrics(null, context)
+```
+
+#### Input
+*This action has no parameters*
+
+#### Output
+*Output schema unknown*
+
 ### getPing
-Ping service
+Check if the API is up
 
 
 
@@ -608,7 +601,7 @@ opentargets.getPing(null, context)
 *Output schema unknown*
 
 ### getDataStats
-Get stats about available data.
+Returns the number of associations and evidences, divided by datasource.
 
 
 
@@ -622,8 +615,23 @@ opentargets.getDataStats(null, context)
 #### Output
 *Output schema unknown*
 
+### getTherapeuticAreas
+Returns the list of therapeutic areas for the current data release
+
+
+
+```js
+opentargets.getTherapeuticAreas(null, context)
+```
+
+#### Input
+*This action has no parameters*
+
+#### Output
+*Output schema unknown*
+
 ### getVersion
-Get current API version.
+Returns current API version.
 
 
 

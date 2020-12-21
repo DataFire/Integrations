@@ -1,17 +1,12 @@
 {
   "swagger": "2.0",
-  "schemes": [
-    "https"
-  ],
-  "host": "ntp1node.nebl.io",
-  "basePath": "/",
   "info": {
     "contact": {
       "x-twitter": "NeblioTeam"
     },
     "description": "APIs for Interacting with NTP1 Tokens & The Neblio Blockchain",
     "title": "Neblio REST API Suite",
-    "version": "1.2.0",
+    "version": "1.3.0",
     "x-apisguru-categories": [
       "enterprise"
     ],
@@ -20,9 +15,9 @@
     },
     "x-origin": [
       {
-        "format": "swagger",
+        "format": "openapi",
         "url": "https://raw.githubusercontent.com/NeblioTeam/neblio-api-swagger-docs/master/swagger.yaml",
-        "version": "2.0"
+        "version": "3.0"
       }
     ],
     "x-preferred": true,
@@ -32,17 +27,74 @@
       "type": "openapi"
     }
   },
-  "consumes": [
-    "application/json"
-  ],
-  "produces": [
-    "application/json"
+  "host": "ntp1node.nebl.io",
+  "basePath": "/",
+  "schemes": [
+    "https"
   ],
   "paths": {
+    "/": {
+      "post": {
+        "servers": [
+          {
+            "description": "Communicate with locally running Neblio node on Mainnet",
+            "url": "http://127.0.0.1:6326"
+          },
+          {
+            "description": "Communicate with locally running Neblio node on Testnet",
+            "url": "http://127.0.0.1:16326"
+          }
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/rpcRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Object containing the JSON response from the Neblio node.",
+            "schema": {
+              "$ref": "#/definitions/rpcResponse"
+            }
+          },
+          "401": {
+            "description": "Authentication information is missing or invalid",
+            "headers": {
+              "WWW_Authenticate": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "rpcAuth": []
+          }
+        ],
+        "tags": [
+          "JSON-RPC"
+        ],
+        "description": "Call any Neblio RPC command from the Neblio API libraries. Useful for signing transactions with a local node and other functions. Will not work from a browser due to CORS restrictions. Requires a node to be running locally at 127.0.0.1",
+        "operationId": "json_rpc",
+        "summary": "Send a JSON-RPC call to a localhost neblio-Qt or nebliod node"
+      }
+    },
     "/ins/addr/{address}": {
       "get": {
-        "description": "Returns NEBL address object containing information on a specific address",
-        "operationId": "getAddress",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Address",
@@ -60,16 +112,19 @@
             }
           }
         },
-        "summary": "Returns address object",
         "tags": [
           "Insight"
-        ]
+        ],
+        "description": "Returns NEBL address object containing information on a specific address",
+        "operationId": "getAddress",
+        "summary": "Returns address object"
       }
     },
     "/ins/addr/{address}/balance": {
       "get": {
-        "description": "Returns NEBL address balance in satoshis",
-        "operationId": "getAddressBalance",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Address",
@@ -87,16 +142,19 @@
             }
           }
         },
-        "summary": "Returns address balance in sats",
         "tags": [
           "Insight"
-        ]
+        ],
+        "description": "Returns NEBL address balance in satoshis",
+        "operationId": "getAddressBalance",
+        "summary": "Returns address balance in sats"
       }
     },
     "/ins/addr/{address}/totalReceived": {
       "get": {
-        "description": "Returns total NEBL received by address in satoshis",
-        "operationId": "getAddressTotalReceived",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Address",
@@ -114,16 +172,19 @@
             }
           }
         },
-        "summary": "Returns total received by address in sats",
         "tags": [
           "Insight"
-        ]
+        ],
+        "description": "Returns total NEBL received by address in satoshis",
+        "operationId": "getAddressTotalReceived",
+        "summary": "Returns total received by address in sats"
       }
     },
     "/ins/addr/{address}/totalSent": {
       "get": {
-        "description": "Returns total NEBL sent by address in satoshis",
-        "operationId": "getAddressTotalSent",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Address",
@@ -141,16 +202,19 @@
             }
           }
         },
-        "summary": "Returns total sent by address in sats",
         "tags": [
           "Insight"
-        ]
+        ],
+        "description": "Returns total NEBL sent by address in satoshis",
+        "operationId": "getAddressTotalSent",
+        "summary": "Returns total sent by address in sats"
       }
     },
     "/ins/addr/{address}/unconfirmedBalance": {
       "get": {
-        "description": "Returns NEBL address unconfirmed balance in satoshis",
-        "operationId": "getAddressUnconfirmedBalance",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Address",
@@ -168,16 +232,19 @@
             }
           }
         },
-        "summary": "Returns address unconfirmed balance in sats",
         "tags": [
           "Insight"
-        ]
+        ],
+        "description": "Returns NEBL address unconfirmed balance in satoshis",
+        "operationId": "getAddressUnconfirmedBalance",
+        "summary": "Returns address unconfirmed balance in sats"
       }
     },
     "/ins/addr/{address}/utxo": {
       "get": {
-        "description": "Returns information on each Unspent Transaction Output contained at an address",
-        "operationId": "getAddressUtxos",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Address",
@@ -195,16 +262,19 @@
             }
           }
         },
-        "summary": "Returns all UTXOs at a given address",
         "tags": [
           "Insight"
-        ]
+        ],
+        "description": "Returns information on each Unspent Transaction Output contained at an address",
+        "operationId": "getAddressUtxos",
+        "summary": "Returns all UTXOs at a given address"
       }
     },
     "/ins/block-index/{blockindex}": {
       "get": {
-        "description": "Returns the block hash of a block at a given block index",
-        "operationId": "getBlockIndex",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Block Index",
@@ -222,16 +292,19 @@
             }
           }
         },
-        "summary": "Returns block hash of block",
         "tags": [
           "Insight"
-        ]
+        ],
+        "description": "Returns the block hash of a block at a given block index",
+        "operationId": "getBlockIndex",
+        "summary": "Returns block hash of block"
       }
     },
     "/ins/block/{blockhash}": {
       "get": {
-        "description": "Returns blockchain data for a given block based upon the block hash",
-        "operationId": "getBlock",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Block Hash",
@@ -249,16 +322,19 @@
             }
           }
         },
-        "summary": "Returns information regarding a Neblio block",
         "tags": [
           "Insight"
-        ]
+        ],
+        "description": "Returns blockchain data for a given block based upon the block hash",
+        "operationId": "getBlock",
+        "summary": "Returns information regarding a Neblio block"
       }
     },
     "/ins/rawtx/{txid}": {
       "get": {
-        "description": "Returns raw transaction hex representing a NEBL transaction",
-        "operationId": "getRawTx",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Transaction ID",
@@ -276,16 +352,19 @@
             }
           }
         },
-        "summary": "Returns raw transaction hex",
         "tags": [
           "Insight"
-        ]
+        ],
+        "description": "Returns raw transaction hex representing a NEBL transaction",
+        "operationId": "getRawTx",
+        "summary": "Returns raw transaction hex"
       }
     },
     "/ins/status": {
       "get": {
-        "description": "Utility API for calling several blockchain node functions - getInfo, getDifficulty, getBestBlockHash, getLastBlockHash",
-        "operationId": "getStatus",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Function to call, getInfo, getDifficulty, getBestBlockHash, or getLastBlockHash",
@@ -303,16 +382,20 @@
             }
           }
         },
-        "summary": "Utility API for calling several blockchain node functions",
         "tags": [
           "Insight"
-        ]
+        ],
+        "description": "Utility API for calling several blockchain node functions - getInfo, getDifficulty, getBestBlockHash, getLastBlockHash",
+        "operationId": "getStatus",
+        "summary": "Utility API for calling several blockchain node functions"
       }
     },
     "/ins/sync": {
       "get": {
-        "description": "Returns information on the node's sync progress",
-        "operationId": "getSync",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": "Sync Info",
@@ -321,16 +404,22 @@
             }
           }
         },
-        "summary": "Get node sync status",
         "tags": [
           "Insight"
-        ]
+        ],
+        "description": "Returns information on the node's sync progress",
+        "operationId": "getSync",
+        "summary": "Get node sync status"
       }
     },
     "/ins/tx/send": {
       "post": {
-        "description": "Broadcasts a signed raw transaction to the network. If successful returns the txid of the broadcast trasnaction.\n",
-        "operationId": "sendTx",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Object representing a transaction to broadcast",
@@ -356,16 +445,19 @@
             }
           }
         },
-        "summary": "Broadcasts a signed raw transaction to the network (not NTP1 specific)",
         "tags": [
           "Insight"
-        ]
+        ],
+        "description": "Broadcasts a signed raw transaction to the network. If successful returns the txid of the broadcast trasnaction.\n",
+        "operationId": "sendTx",
+        "summary": "Broadcasts a signed raw transaction to the network (not NTP1 specific)"
       }
     },
     "/ins/tx/{txid}": {
       "get": {
-        "description": "Returns NEBL transaction object representing a NEBL transaction",
-        "operationId": "getTx",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Transaction ID",
@@ -383,16 +475,19 @@
             }
           }
         },
-        "summary": "Returns transaction object",
         "tags": [
           "Insight"
-        ]
+        ],
+        "description": "Returns NEBL transaction object representing a NEBL transaction",
+        "operationId": "getTx",
+        "summary": "Returns transaction object"
       }
     },
     "/ins/txs": {
       "get": {
-        "description": "Returns all transactions by block or address",
-        "operationId": "getTxs",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Address",
@@ -411,7 +506,7 @@
           {
             "description": "Page number to display",
             "in": "query",
-            "name": "page",
+            "name": "pageNum",
             "required": false,
             "type": "number"
           }
@@ -424,16 +519,19 @@
             }
           }
         },
-        "summary": "Get transactions by block or address",
         "tags": [
           "Insight"
-        ]
+        ],
+        "description": "Returns all transactions by block or address",
+        "operationId": "getTxs",
+        "summary": "Get transactions by block or address"
       }
     },
     "/ntp1/addressinfo/{address}": {
       "get": {
-        "description": "Returns both NEBL and NTP1 token UTXOs held at the given address.\n",
-        "operationId": "getAddressInfo",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Neblio Address to get information on.",
@@ -457,16 +555,22 @@
             }
           }
         },
-        "summary": "Information On a Neblio Address",
         "tags": [
           "NTP1"
-        ]
+        ],
+        "description": "Returns both NEBL and NTP1 token UTXOs held at the given address.\n",
+        "operationId": "getAddressInfo",
+        "summary": "Information On a Neblio Address"
       }
     },
     "/ntp1/broadcast": {
       "post": {
-        "description": "Broadcasts a signed raw transaction to the network. If successful returns the txid of the broadcast trasnaction.\n",
-        "operationId": "broadcastTx",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Object representing a transaction to broadcast",
@@ -492,16 +596,22 @@
             }
           }
         },
-        "summary": "Broadcasts a signed raw transaction to the network",
         "tags": [
           "NTP1"
-        ]
+        ],
+        "description": "Broadcasts a signed raw transaction to the network. If successful returns the txid of the broadcast trasnaction.\n",
+        "operationId": "broadcastTx",
+        "summary": "Broadcasts a signed raw transaction to the network"
       }
     },
     "/ntp1/burntoken": {
       "post": {
-        "description": "Builds an unsigned raw transaction that burns an NTP1 token on the Neblio blockchain.\n",
-        "operationId": "burnToken",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Object representing the token to be burned",
@@ -527,16 +637,22 @@
             }
           }
         },
-        "summary": "Builds a transaction that burns an NTP1 Token",
         "tags": [
           "NTP1"
-        ]
+        ],
+        "description": "Builds an unsigned raw transaction that burns an NTP1 token on the Neblio blockchain.\n",
+        "operationId": "burnToken",
+        "summary": "Builds a transaction that burns an NTP1 Token"
       }
     },
     "/ntp1/issue": {
       "post": {
-        "description": "Builds an unsigned raw transaction that issues a new NTP1 token on the Neblio blockchain.\n",
-        "operationId": "issueToken",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Object representing the token to be created",
@@ -562,16 +678,22 @@
             }
           }
         },
-        "summary": "Builds a transaction that issues a new NTP1 Token",
         "tags": [
           "NTP1"
-        ]
+        ],
+        "description": "Builds an unsigned raw transaction that issues a new NTP1 token on the Neblio blockchain.\n",
+        "operationId": "issueToken",
+        "summary": "Builds a transaction that issues a new NTP1 Token"
       }
     },
     "/ntp1/sendtoken": {
       "post": {
-        "description": "Builds an unsigned raw transaction that sends an NTP1 token on the Neblio blockchain.\n",
-        "operationId": "sendToken",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Object representing the token to be sent",
@@ -597,16 +719,19 @@
             }
           }
         },
-        "summary": "Builds a transaction that sends an NTP1 Token",
         "tags": [
           "NTP1"
-        ]
+        ],
+        "description": "Builds an unsigned raw transaction that sends an NTP1 token on the Neblio blockchain.\n",
+        "operationId": "sendToken",
+        "summary": "Builds a transaction that sends an NTP1 Token"
       }
     },
     "/ntp1/stakeholders/{tokenid}": {
       "get": {
-        "description": "Returns the the the addresses holding a token and how many tokens are held\n",
-        "operationId": "getTokenHolders",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "TokenId to request metadata for",
@@ -630,16 +755,19 @@
             }
           }
         },
-        "summary": "Get Addresses Holding a Token",
         "tags": [
           "NTP1"
-        ]
+        ],
+        "description": "Returns the the the addresses holding a token and how many tokens are held\n",
+        "operationId": "getTokenHolders",
+        "summary": "Get Addresses Holding a Token"
       }
     },
     "/ntp1/tokenid/{tokensymbol}": {
       "get": {
-        "description": "Translates a token symbol to a tokenId if a token exists with that symbol on the network\n",
-        "operationId": "getTokenId",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Token symbol",
@@ -657,16 +785,19 @@
             }
           }
         },
-        "summary": "Returns the tokenId representing a token",
         "tags": [
           "NTP1"
-        ]
+        ],
+        "description": "Translates a token symbol to a tokenId if a token exists with that symbol on the network\n",
+        "operationId": "getTokenId",
+        "summary": "Returns the tokenId representing a token"
       }
     },
     "/ntp1/tokenmetadata/{tokenid}": {
       "get": {
-        "description": "Returns the metadata associated with a token at time of issuance.\n",
-        "operationId": "getTokenMetadataOfIssuance",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "TokenId to request metadata for",
@@ -674,11 +805,17 @@
             "name": "tokenid",
             "required": true,
             "type": "string"
+          },
+          {
+            "description": "0 (Default) is fastest, 1 contains token stats, 2 contains token holding addresses",
+            "in": "query",
+            "name": "verbosity",
+            "type": "number"
           }
         ],
         "responses": {
           "200": {
-            "description": "An object containing the metadata of a token at issuance",
+            "description": "An object containing the metadata of a token",
             "schema": {
               "$ref": "#/definitions/getTokenMetadataResponse"
             }
@@ -690,16 +827,19 @@
             }
           }
         },
-        "summary": "Get Issuance Metadata of Token",
         "tags": [
           "NTP1"
-        ]
+        ],
+        "description": "Returns the metadata associated with a token.\n",
+        "operationId": "getTokenMetadata",
+        "summary": "Get Metadata of Token"
       }
     },
     "/ntp1/tokenmetadata/{tokenid}/{utxo}": {
       "get": {
-        "description": "Returns the metadata associated with a token for that specific utxo instead of the issuance transaction.\n",
-        "operationId": "getTokenMetadataOfUtxo",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "TokenId to request metadata for",
@@ -714,6 +854,12 @@
             "name": "utxo",
             "required": true,
             "type": "string"
+          },
+          {
+            "description": "0 (Default) is fastest, 1 contains token stats, 2 contains token holding addresses",
+            "in": "query",
+            "name": "verbosity",
+            "type": "number"
           }
         ],
         "responses": {
@@ -730,16 +876,19 @@
             }
           }
         },
-        "summary": "Get UTXO Metadata of Token",
         "tags": [
           "NTP1"
-        ]
+        ],
+        "description": "Returns the metadata associated with a token for that specific utxo instead of the issuance transaction.\n",
+        "operationId": "getTokenMetadataOfUtxo",
+        "summary": "Get UTXO Metadata of Token"
       }
     },
     "/ntp1/transactioninfo/{txid}": {
       "get": {
-        "description": "Returns detailed information regarding an NTP1 transaction.\n",
-        "operationId": "getTransactionInfo",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Neblio txid to get information on.",
@@ -763,16 +912,19 @@
             }
           }
         },
-        "summary": "Information On an NTP1 Transaction",
         "tags": [
           "NTP1"
-        ]
+        ],
+        "description": "Returns detailed information regarding an NTP1 transaction.\n",
+        "operationId": "getTransactionInfo",
+        "summary": "Information On an NTP1 Transaction"
       }
     },
     "/testnet/faucet": {
       "get": {
-        "description": "Withdraw testnet NEBL to your Neblio Testnet address. By default amount is 1500000000 or 15 NEBL and has a max of 50 NEBL. Only 2 withdrawals allowed per 24 hour period.\n",
-        "operationId": "testnet_getFaucet",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Your Neblio Testnet Address",
@@ -797,16 +949,19 @@
             }
           }
         },
-        "summary": "Withdraws testnet NEBL to the specified address",
         "tags": [
           "Testnet-Faucet"
-        ]
+        ],
+        "description": "Withdraw testnet NEBL to your Neblio Testnet address. By default amount is 1500000000 or 15 NEBL and has a max of 50 NEBL. Only 2 withdrawals allowed per 24 hour period.\n",
+        "operationId": "testnet_getFaucet",
+        "summary": "Withdraws testnet NEBL to the specified address"
       }
     },
     "/testnet/ins/addr/{address}": {
       "get": {
-        "description": "Returns NEBL address object containing information on a specific address",
-        "operationId": "testnet_getAddress",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Address",
@@ -824,16 +979,19 @@
             }
           }
         },
-        "summary": "Returns address object",
         "tags": [
           "Testnet-Insight"
-        ]
+        ],
+        "description": "Returns NEBL address object containing information on a specific address",
+        "operationId": "testnet_getAddress",
+        "summary": "Returns address object"
       }
     },
     "/testnet/ins/addr/{address}/balance": {
       "get": {
-        "description": "Returns NEBL address balance in satoshis",
-        "operationId": "testnet_getAddressBalance",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Address",
@@ -851,16 +1009,19 @@
             }
           }
         },
-        "summary": "Returns address balance in sats",
         "tags": [
           "Testnet-Insight"
-        ]
+        ],
+        "description": "Returns NEBL address balance in satoshis",
+        "operationId": "testnet_getAddressBalance",
+        "summary": "Returns address balance in sats"
       }
     },
     "/testnet/ins/addr/{address}/totalReceived": {
       "get": {
-        "description": "Returns total NEBL received by address in satoshis",
-        "operationId": "testnet_getAddressTotalReceived",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Address",
@@ -878,16 +1039,19 @@
             }
           }
         },
-        "summary": "Returns total received by address in sats",
         "tags": [
           "Testnet-Insight"
-        ]
+        ],
+        "description": "Returns total NEBL received by address in satoshis",
+        "operationId": "testnet_getAddressTotalReceived",
+        "summary": "Returns total received by address in sats"
       }
     },
     "/testnet/ins/addr/{address}/totalSent": {
       "get": {
-        "description": "Returns total NEBL sent by address in satoshis",
-        "operationId": "testnet_getAddressTotalSent",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Address",
@@ -905,16 +1069,19 @@
             }
           }
         },
-        "summary": "Returns total sent by address in sats",
         "tags": [
           "Testnet-Insight"
-        ]
+        ],
+        "description": "Returns total NEBL sent by address in satoshis",
+        "operationId": "testnet_getAddressTotalSent",
+        "summary": "Returns total sent by address in sats"
       }
     },
     "/testnet/ins/addr/{address}/unconfirmedBalance": {
       "get": {
-        "description": "Returns NEBL address unconfirmed balance in satoshis",
-        "operationId": "testnet_getAddressUnconfirmedBalance",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Address",
@@ -932,16 +1099,19 @@
             }
           }
         },
-        "summary": "Returns address unconfirmed balance in sats",
         "tags": [
           "Testnet-Insight"
-        ]
+        ],
+        "description": "Returns NEBL address unconfirmed balance in satoshis",
+        "operationId": "testnet_getAddressUnconfirmedBalance",
+        "summary": "Returns address unconfirmed balance in sats"
       }
     },
     "/testnet/ins/addr/{address}/utxo": {
       "get": {
-        "description": "Returns information on each Unspent Transaction Output contained at an address",
-        "operationId": "testnet_getAddressUtxos",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Address",
@@ -959,16 +1129,19 @@
             }
           }
         },
-        "summary": "Returns all UTXOs at a given address",
         "tags": [
           "Testnet-Insight"
-        ]
+        ],
+        "description": "Returns information on each Unspent Transaction Output contained at an address",
+        "operationId": "testnet_getAddressUtxos",
+        "summary": "Returns all UTXOs at a given address"
       }
     },
     "/testnet/ins/block-index/{blockindex}": {
       "get": {
-        "description": "Returns the block hash of a block at a given block index",
-        "operationId": "testnet_getBlockIndex",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Block Index",
@@ -986,16 +1159,19 @@
             }
           }
         },
-        "summary": "Returns block hash of block",
         "tags": [
           "Testnet-Insight"
-        ]
+        ],
+        "description": "Returns the block hash of a block at a given block index",
+        "operationId": "testnet_getBlockIndex",
+        "summary": "Returns block hash of block"
       }
     },
     "/testnet/ins/block/{blockhash}": {
       "get": {
-        "description": "Returns blockchain data for a given block based upon the block hash",
-        "operationId": "testnet_getBlock",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Block Hash",
@@ -1013,16 +1189,19 @@
             }
           }
         },
-        "summary": "Returns information regarding a Neblio block",
         "tags": [
           "Testnet-Insight"
-        ]
+        ],
+        "description": "Returns blockchain data for a given block based upon the block hash",
+        "operationId": "testnet_getBlock",
+        "summary": "Returns information regarding a Neblio block"
       }
     },
     "/testnet/ins/rawtx/{txid}": {
       "get": {
-        "description": "Returns raw transaction hex representing a NEBL transaction",
-        "operationId": "testnet_getRawTx",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Transaction ID",
@@ -1040,16 +1219,19 @@
             }
           }
         },
-        "summary": "Returns raw transaction hex",
         "tags": [
           "Testnet-Insight"
-        ]
+        ],
+        "description": "Returns raw transaction hex representing a NEBL transaction",
+        "operationId": "testnet_getRawTx",
+        "summary": "Returns raw transaction hex"
       }
     },
     "/testnet/ins/status": {
       "get": {
-        "description": "Utility API for calling several blockchain node functions - getInfo, getDifficulty, getBestBlockHash, getLastBlockHash",
-        "operationId": "testnet_getStatus",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Function to call, getInfo, getDifficulty, getBestBlockHash, or getLastBlockHash",
@@ -1067,16 +1249,20 @@
             }
           }
         },
-        "summary": "Utility API for calling several blockchain node functions",
         "tags": [
           "Testnet-Insight"
-        ]
+        ],
+        "description": "Utility API for calling several blockchain node functions - getInfo, getDifficulty, getBestBlockHash, getLastBlockHash",
+        "operationId": "testnet_getStatus",
+        "summary": "Utility API for calling several blockchain node functions"
       }
     },
     "/testnet/ins/sync": {
       "get": {
-        "description": "Returns information on the node's sync progress",
-        "operationId": "testnet_getSync",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": "Sync Info",
@@ -1085,16 +1271,22 @@
             }
           }
         },
-        "summary": "Get node sync status",
         "tags": [
           "Testnet-Insight"
-        ]
+        ],
+        "description": "Returns information on the node's sync progress",
+        "operationId": "testnet_getSync",
+        "summary": "Get node sync status"
       }
     },
     "/testnet/ins/tx/send": {
       "post": {
-        "description": "Broadcasts a signed raw transaction to the network. If successful returns the txid of the broadcast trasnaction.\n",
-        "operationId": "testnet_sendTx",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Object representing a transaction to broadcast",
@@ -1120,16 +1312,19 @@
             }
           }
         },
-        "summary": "Broadcasts a signed raw transaction to the network (not NTP1 specific)",
         "tags": [
           "Testnet-Insight"
-        ]
+        ],
+        "description": "Broadcasts a signed raw transaction to the network. If successful returns the txid of the broadcast trasnaction.\n",
+        "operationId": "testnet_sendTx",
+        "summary": "Broadcasts a signed raw transaction to the network (not NTP1 specific)"
       }
     },
     "/testnet/ins/tx/{txid}": {
       "get": {
-        "description": "Returns NEBL transaction object representing a NEBL transaction",
-        "operationId": "testnet_getTx",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Transaction ID",
@@ -1147,16 +1342,19 @@
             }
           }
         },
-        "summary": "Returns transaction object",
         "tags": [
           "Testnet-Insight"
-        ]
+        ],
+        "description": "Returns NEBL transaction object representing a NEBL transaction",
+        "operationId": "testnet_getTx",
+        "summary": "Returns transaction object"
       }
     },
     "/testnet/ins/txs": {
       "get": {
-        "description": "Returns all transactions by block or address",
-        "operationId": "testnet_getTxs",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Address",
@@ -1175,7 +1373,7 @@
           {
             "description": "Page number to display",
             "in": "query",
-            "name": "page",
+            "name": "pageNum",
             "required": false,
             "type": "number"
           }
@@ -1188,16 +1386,19 @@
             }
           }
         },
-        "summary": "Get transactions by block or address",
         "tags": [
           "Testnet-Insight"
-        ]
+        ],
+        "description": "Returns all transactions by block or address",
+        "operationId": "testnet_getTxs",
+        "summary": "Get transactions by block or address"
       }
     },
     "/testnet/ntp1/addressinfo/{address}": {
       "get": {
-        "description": "Returns both NEBL and NTP1 token UTXOs held at the given address.\n",
-        "operationId": "testnet_getAddressInfo",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Neblio Address to get information on.",
@@ -1221,16 +1422,22 @@
             }
           }
         },
-        "summary": "Information On a Neblio Address",
         "tags": [
           "Testnet-NTP1"
-        ]
+        ],
+        "description": "Returns both NEBL and NTP1 token UTXOs held at the given address.\n",
+        "operationId": "testnet_getAddressInfo",
+        "summary": "Information On a Neblio Address"
       }
     },
     "/testnet/ntp1/broadcast": {
       "post": {
-        "description": "Broadcasts a signed raw transaction to the network. If successful returns the txid of the broadcast trasnaction.\n",
-        "operationId": "testnet_broadcastTx",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Object representing a transaction to broadcast",
@@ -1256,16 +1463,22 @@
             }
           }
         },
-        "summary": "Broadcasts a signed raw transaction to the network",
         "tags": [
           "Testnet-NTP1"
-        ]
+        ],
+        "description": "Broadcasts a signed raw transaction to the network. If successful returns the txid of the broadcast trasnaction.\n",
+        "operationId": "testnet_broadcastTx",
+        "summary": "Broadcasts a signed raw transaction to the network"
       }
     },
     "/testnet/ntp1/burntoken": {
       "post": {
-        "description": "Builds an unsigned raw transaction that burns an NTP1 token on the Neblio blockchain.\n",
-        "operationId": "testnet_burnToken",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Object representing the token to be burned",
@@ -1291,16 +1504,22 @@
             }
           }
         },
-        "summary": "Builds a transaction that burns an NTP1 Token",
         "tags": [
           "Testnet-NTP1"
-        ]
+        ],
+        "description": "Builds an unsigned raw transaction that burns an NTP1 token on the Neblio blockchain.\n",
+        "operationId": "testnet_burnToken",
+        "summary": "Builds a transaction that burns an NTP1 Token"
       }
     },
     "/testnet/ntp1/issue": {
       "post": {
-        "description": "Builds an unsigned raw transaction that issues a new NTP1 token on the Neblio blockchain.\n",
-        "operationId": "testnet_issueToken",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Object representing the token to be created",
@@ -1326,16 +1545,22 @@
             }
           }
         },
-        "summary": "Builds a transaction that issues a new NTP1 Token",
         "tags": [
           "Testnet-NTP1"
-        ]
+        ],
+        "description": "Builds an unsigned raw transaction that issues a new NTP1 token on the Neblio blockchain.\n",
+        "operationId": "testnet_issueToken",
+        "summary": "Builds a transaction that issues a new NTP1 Token"
       }
     },
     "/testnet/ntp1/sendtoken": {
       "post": {
-        "description": "Builds an unsigned raw transaction that sends an NTP1 token on the Neblio blockchain.\n",
-        "operationId": "testnet_sendToken",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Object representing the token to be sent",
@@ -1361,16 +1586,19 @@
             }
           }
         },
-        "summary": "Builds a transaction that sends an NTP1 Token",
         "tags": [
           "Testnet-NTP1"
-        ]
+        ],
+        "description": "Builds an unsigned raw transaction that sends an NTP1 token on the Neblio blockchain.\n",
+        "operationId": "testnet_sendToken",
+        "summary": "Builds a transaction that sends an NTP1 Token"
       }
     },
     "/testnet/ntp1/stakeholders/{tokenid}": {
       "get": {
-        "description": "Returns the the the addresses holding a token and how many tokens are held\n",
-        "operationId": "testnet_getTokenHolders",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "TokenId to request metadata for",
@@ -1394,16 +1622,19 @@
             }
           }
         },
-        "summary": "Get Addresses Holding a Token",
         "tags": [
           "Testnet-NTP1"
-        ]
+        ],
+        "description": "Returns the the the addresses holding a token and how many tokens are held\n",
+        "operationId": "testnet_getTokenHolders",
+        "summary": "Get Addresses Holding a Token"
       }
     },
     "/testnet/ntp1/tokenid/{tokensymbol}": {
       "get": {
-        "description": "Translates a token symbol to a tokenId if a token exists with that symbol on the network\n",
-        "operationId": "testnet_getTokenId",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Token symbol",
@@ -1421,16 +1652,19 @@
             }
           }
         },
-        "summary": "Returns the tokenId representing a token",
         "tags": [
           "Testnet-NTP1"
-        ]
+        ],
+        "description": "Translates a token symbol to a tokenId if a token exists with that symbol on the network\n",
+        "operationId": "testnet_getTokenId",
+        "summary": "Returns the tokenId representing a token"
       }
     },
     "/testnet/ntp1/tokenmetadata/{tokenid}": {
       "get": {
-        "description": "Returns the metadata associated with a token at time of issuance.\n",
-        "operationId": "testnet_getTokenMetadataOfIssuance",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "TokenId to request metadata for",
@@ -1438,11 +1672,17 @@
             "name": "tokenid",
             "required": true,
             "type": "string"
+          },
+          {
+            "description": "0 (Default) is fastest, 1 contains token stats, 2 contains token holding addresses",
+            "in": "query",
+            "name": "verbosity",
+            "type": "number"
           }
         ],
         "responses": {
           "200": {
-            "description": "An object containing the metadata of a token at issuance",
+            "description": "An object containing the metadata of a token",
             "schema": {
               "$ref": "#/definitions/getTokenMetadataResponse"
             }
@@ -1454,16 +1694,19 @@
             }
           }
         },
-        "summary": "Get Issuance Metadata of Token",
         "tags": [
           "Testnet-NTP1"
-        ]
+        ],
+        "description": "Returns the metadata associated with a token.\n",
+        "operationId": "testnet_getTokenMetadata",
+        "summary": "Get Metadata of Token"
       }
     },
     "/testnet/ntp1/tokenmetadata/{tokenid}/{utxo}": {
       "get": {
-        "description": "Returns the metadata associated with a token for that specific utxo instead of the issuance transaction.\n",
-        "operationId": "testnet_getTokenMetadataOfUtxo",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "TokenId to request metadata for",
@@ -1478,6 +1721,12 @@
             "name": "utxo",
             "required": true,
             "type": "string"
+          },
+          {
+            "description": "0 (Default) is fastest, 1 contains token stats, 2 contains token holding addresses",
+            "in": "query",
+            "name": "verbosity",
+            "type": "number"
           }
         ],
         "responses": {
@@ -1494,16 +1743,19 @@
             }
           }
         },
-        "summary": "Get UTXO Metadata of Token",
         "tags": [
           "Testnet-NTP1"
-        ]
+        ],
+        "description": "Returns the metadata associated with a token for that specific utxo instead of the issuance transaction.\n",
+        "operationId": "testnet_getTokenMetadataOfUtxo",
+        "summary": "Get UTXO Metadata of Token"
       }
     },
     "/testnet/ntp1/transactioninfo/{txid}": {
       "get": {
-        "description": "Returns detailed information regarding an NTP1 transaction.\n",
-        "operationId": "testnet_getTransactionInfo",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Neblio txid to get information on.",
@@ -1527,10 +1779,12 @@
             }
           }
         },
-        "summary": "Information On an NTP1 Transaction",
         "tags": [
           "Testnet-NTP1"
-        ]
+        ],
+        "description": "Returns detailed information regarding an NTP1 transaction.\n",
+        "operationId": "testnet_getTransactionInfo",
+        "summary": "Information On an NTP1 Transaction"
       }
     }
   },
@@ -2039,6 +2293,10 @@
           "description": "Block number token was issued in",
           "type": "number"
         },
+        "initialIssuanceAmount": {
+          "description": "Total tokens issued in initial issuance",
+          "type": "number"
+        },
         "issuanceTxid": {
           "description": "TXID the token was issued with",
           "type": "string"
@@ -2095,41 +2353,16 @@
           "type": "object"
         },
         "metadataOfUtxo": {
-          "description": "Metadata set at issuance",
+          "description": "Metadata set for UTXO",
           "properties": {
-            "data": {
+            "userData": {
+              "description": "Metadata set by user on token for UTXO",
               "properties": {
-                "description": {
-                  "description": "Token description",
-                  "type": "string"
-                },
-                "issuer": {
-                  "description": "Name of token issuer",
-                  "type": "string"
-                },
-                "tokenName": {
-                  "description": "Token symbol",
-                  "type": "string"
-                },
-                "userData": {
-                  "description": "Metadata set by user on token",
-                  "properties": {
-                    "meta": {
-                      "items": {
-                        "properties": {
-                          "key": {
-                            "type": "string"
-                          },
-                          "value": {
-                            "type": "string"
-                          }
-                        },
-                        "type": "object"
-                      },
-                      "type": "array"
-                    }
+                "meta": {
+                  "items": {
+                    "type": "object"
                   },
-                  "type": "object"
+                  "type": "array"
                 }
               },
               "type": "object"
@@ -2145,13 +2378,17 @@
           "description": "Total number of addresses this token is held at",
           "type": "number"
         },
+        "numOfIssuance": {
+          "description": "Total number of times this token has been issued",
+          "type": "number"
+        },
         "numOfTransfers": {
           "description": "Total number of transactions of this token",
           "type": "number"
         },
-        "numofIssuance": {
-          "description": "Total number of times this token has been issued",
-          "type": "number"
+        "someUtxo": {
+          "description": "Example UTXO containing this token.",
+          "type": "string"
         },
         "tokenId": {
           "description": "ID of the token",
@@ -2753,6 +2990,21 @@
         "reissuable": {
           "description": "whether the token should be reissuable",
           "type": "boolean"
+        },
+        "transfer": {
+          "items": {
+            "properties": {
+              "address": {
+                "description": "Address to send the amount of issued tokens to",
+                "type": "string"
+              },
+              "amount": {
+                "type": "number"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
         }
       },
       "required": [
@@ -2760,7 +3012,8 @@
         "amount",
         "divisibility",
         "fee",
-        "reissuable"
+        "reissuable",
+        "transfer"
       ],
       "type": "object"
     },
@@ -2773,6 +3026,60 @@
         "txHex": {
           "description": "Unsigned, raw transaction hex of the transaction to issue the token",
           "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "rpcRequest": {
+      "properties": {
+        "id": {
+          "default": "neblio-apis",
+          "description": "Identifier of RCP caller",
+          "example": "neblio-apis",
+          "type": "string"
+        },
+        "jsonrpc": {
+          "default": "1.0",
+          "description": "JSON-RPC version",
+          "example": "1.0",
+          "type": "string"
+        },
+        "method": {
+          "description": "Name of the Neblio RPC method to call",
+          "example": "getstakinginfo",
+          "type": "string"
+        },
+        "params": {
+          "description": "Array of string params that should be passed to the RPC method.",
+          "example": [],
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "jsonrpc",
+        "id",
+        "method",
+        "params"
+      ],
+      "type": "object"
+    },
+    "rpcResponse": {
+      "description": "Object containing the JSON response from the Neblio node.",
+      "properties": {
+        "error": {
+          "description": "Object containing any error information.",
+          "type": "object"
+        },
+        "id": {
+          "description": "Identifier of RCP caller",
+          "type": "string"
+        },
+        "result": {
+          "description": "Object containing the response output.",
+          "type": "object"
         }
       },
       "type": "object"
@@ -3018,7 +3325,74 @@
           "type": "string"
         }
       },
+      "required": [
+        "rawtx"
+      ],
       "type": "object"
+    }
+  },
+  "securityDefinitions": {
+    "rpcAuth": {
+      "type": "basic"
+    }
+  },
+  "x-components": {
+    "requestBodies": {
+      "broadcastTxRequest": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/definitions/broadcastTxRequest"
+            }
+          }
+        },
+        "description": "Object representing a transaction to broadcast",
+        "required": true
+      },
+      "burnTokenRequest": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/definitions/burnTokenRequest"
+            }
+          }
+        },
+        "description": "Object representing the token to be burned",
+        "required": true
+      },
+      "issueTokenRequest": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/definitions/issueTokenRequest"
+            }
+          }
+        },
+        "description": "Object representing the token to be created",
+        "required": true
+      },
+      "sendTokenRequest": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/definitions/sendTokenRequest"
+            }
+          }
+        },
+        "description": "Object representing the token to be sent",
+        "required": true
+      },
+      "sendTxRequest": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/definitions/sendTxRequest"
+            }
+          }
+        },
+        "description": "Object representing a transaction to broadcast",
+        "required": true
+      }
     }
   }
 }

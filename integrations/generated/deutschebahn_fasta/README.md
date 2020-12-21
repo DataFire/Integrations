@@ -1,6 +1,6 @@
 # @datafire/deutschebahn_fasta
 
-Client library for FaSta-Station_Facilities_Status
+Client library for FaSta - Station Facilities Status
 
 ## Installation and Usage
 ```bash
@@ -11,52 +11,16 @@ let deutschebahn_fasta = require('@datafire/deutschebahn_fasta').create({
   UserSecurity: ""
 });
 
-deutschebahn_fasta.findFacilities({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
 
 ## Description
 
-A RESTful webservice to retrieve data about the operational state of public elevators and escalators in german railway stations operated by DB Station&Service AG. 
-Note: Production and sandbox environments use the same production backend server. 
+A RESTful webservice to retrieve data about the operational state of public elevators and escalators in german railway stations.
 
 ## Actions
-
-### findDisruptions
-Returns information about disruptions of facilities filtered by parameters.
-
-
-```js
-deutschebahn_fasta.findDisruptions({}, context)
-```
-
-#### Input
-* input `object`
-  * type `array`: type of the facility to filter by
-  * equipmentnumber `integer`: equipmentnumber of the facility to fetch
-  * stationnumber `integer`: stationnumber of the station to fetch
-
-#### Output
-* output `array`
-  * items [disruption](#disruption)
-
-### findDisruptionByDisruptionNumber
-Returns information about a specific disruption of a facility
-
-
-```js
-deutschebahn_fasta.findDisruptionByDisruptionNumber({
-  "disruptionnumber": 0
-}, context)
-```
-
-#### Input
-* input `object`
-  * disruptionnumber **required** `integer`: disruptionnumber of the disruption to fetch
-
-#### Output
-* output [disruption](#disruption)
 
 ### findFacilities
 Access to public facilities (escalators and elevators) in railway stations
@@ -68,18 +32,18 @@ deutschebahn_fasta.findFacilities({}, context)
 
 #### Input
 * input `object`
-  * type `array`: type of the facility to filter by
-  * state `array`: the state of the facility to filter by
-  * equipmentnumbers `array`: equipmentnumbers of the facility to filter by
-  * stationnumber `integer`: station number to filter by
-  * area `array`: Geo coordinate rectangle in WGS84-format to filter by. Parameters must be 4 numbers exactly as follows: longitudeWest, latitudeSouth, longitudeEast, latitudeNorth.
+  * type `array`: Type of the facility.
+  * state `array`: Operational state of the facility.
+  * equipmentnumbers `array`: List of equipmentnumbers to select.
+  * stationnumber `integer`: Number of the station the facilities belong to.
+  * area `array`: Geo coordinate rectangle in WGS84-format to filter facilities by geographical position. Parameters must be 4 numbers exactly as follows: longitudeWest, latitudeSouth, longitudeEast, latitudeNorth.
 
 #### Output
 * output `array`
   * items [facility](#facility)
 
 ### getFacilityByEquipmentNumber
-Returns the facility identified by its equipmentnumber
+Returns the facility identified by its equipmentnumber.
 
 
 ```js
@@ -90,13 +54,13 @@ deutschebahn_fasta.getFacilityByEquipmentNumber({
 
 #### Input
 * input `object`
-  * equipmentnumber **required** `integer`: equipmentnumber of the facility to fetch
+  * equipmentnumber **required** `integer`: Equipmentnumber of the facility to fetch.
 
 #### Output
 * output [facility](#facility)
 
 ### findStationByStationNumber
-Returns information about the station and its facilities identified by a stationnumber.
+Returns information about a station (and its corresponding facilities) identified by a stationnumber.
 
 
 ```js
@@ -107,7 +71,7 @@ deutschebahn_fasta.findStationByStationNumber({
 
 #### Input
 * input `object`
-  * stationnumber **required** `integer`: stationnumber of the station to fetch
+  * stationnumber **required** `integer`: Number of the station to fetch.
 
 #### Output
 * output [station](#station)
@@ -116,43 +80,23 @@ deutschebahn_fasta.findStationByStationNumber({
 
 ## Definitions
 
-### disruption
-* disruption `object`: A disruption contains information associated with a facility that is temporarily not available.
-  * description `string`: The local conditions of the related facility.
-  * disruptionnumber **required** `integer`: Unique identifier.
-  * equipmentnumber **required** `integer`: Identifier of the related facility.
-  * furtherDescription `string`: Further information of the cause if available.
-  * geographicCoordinates [point](#point)
-  * lastUpdate `string`: Last time this disruption has been updated (formatted in ISO-1806).
-  * outOfServiceOn `string`: Time specification when the facility will not be available for planned maintenance work (formatted in ISO-1806).
-  * outOfServiceReason `string`: Cause of the disruption.
-  * outOfServiceTo `string`: Time specification when the facility will be available again after planned maintenance work (formatted in ISO-1806).
-  * plannedCompletion `string`: Time specification when the repair is planned to be finished (formatted in ISO-1806).
-  * state `string` (values: INACTIVE): Actual operational status.
-  * stationnumber **required** `integer`: Station number of the related facility.
-  * type **required** `string` (values: ESCALATOR, ELEVATOR): The type of the related facility e.g. escalator or elevator.
-
 ### facility
-* facility `object`: Currently a facility provided by this API is either a public elevator or escalator in a german railway station operated by Station&Service AG.
-  * description `string`: The local conditions of the facility.
+* facility `object`: A facility provided by this API is either a public elevator or escalator located at a German railway station.
+  * description `string`: Textual description of the facility.
   * equipmentnumber **required** `integer`: Unique identifier of the facility.
-  * geocoordX `number`: longitude component of geocoordinate in WGS84 format
-  * geocoordY `number`: latitude component of geocoordinate in WGS84 format
-  * state **required** `string` (values: ACTIVE, INACTIVE): Actual operational status.
-  * stationnumber **required** `integer`: Number of the station where the facility is located.
-  * type **required** `string` (values: ESCALATOR, ELEVATOR): Facility type. Currently elevator or escalator.
-
-### point
-* point `object`: Representation of a geographical point in GeoJSON format
-  * coordinates **required** `array`: An array of numbers. First value is longitude, second latitude.
-    * items `number`
-  * type **required** `string`
+  * geocoordX `number`: Longitude component of geocoordinate in WGS84 format.
+  * geocoordY `number`: Latitude component of geocoordinate in WGS84 format.
+  * operatorname `string`: The name of the operator of the facility.
+  * state **required** `string` (values: ACTIVE, INACTIVE, UNKNOWN): Operational state of the facility.
+  * stateExplanation `string`: Detailed description of the state.
+  * stationnumber **required** `integer`: Number of the station the facility belongs to.
+  * type **required** `string` (values: ESCALATOR, ELEVATOR): Type of the facility.
 
 ### station
 * station `object`
   * facilities `array`
     * items [facility](#facility)
   * name **required** `string`: Name of the station.
-  * stationnumber **required** `integer`: Unique identifier of the railway station.
+  * stationnumber **required** `integer`: Unique identifier of the station.
 
 

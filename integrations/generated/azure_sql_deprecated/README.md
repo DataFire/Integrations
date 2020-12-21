@@ -15,13 +15,7 @@ let azure_sql_deprecated = require('@datafire/azure_sql_deprecated').create({
   redirect_uri: ""
 });
 
-azure_sql_deprecated.Extensions_ListByDatabase({
-  "api-version": "",
-  "subscriptionId": "",
-  "resourceGroupName": "",
-  "serverName": "",
-  "databaseName": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -33,7 +27,7 @@ Provides create, read, update and delete functionality for Azure SQL Database re
 ## Actions
 
 ### Extensions_ListByDatabase
-Gets database extensions.
+Gets database extensions. This API is deprecated and should not be used.
 
 
 ```js
@@ -56,6 +50,33 @@ azure_sql_deprecated.Extensions_ListByDatabase({
 
 #### Output
 * output [ExtensionListResult](#extensionlistresult)
+
+### Extensions_Get
+Gets a database extension. This API is deprecated and should not be used.
+
+
+```js
+azure_sql_deprecated.Extensions_Get({
+  "api-version": "",
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "serverName": "",
+  "databaseName": "",
+  "extensionName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * api-version **required** `string`: The API version to use for the request.
+  * subscriptionId **required** `string`: The subscription ID that identifies an Azure subscription.
+  * resourceGroupName **required** `string`: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+  * serverName **required** `string`: The name of the server.
+  * databaseName **required** `string`: The name of the database to import into
+  * extensionName **required** `string` (values: import): The name of the extension to get
+
+#### Output
+*Output schema unknown*
 
 ### TransparentDataEncryptionConfigurations_ListByDatabase
 Gets a list of a database's transparent data encryption configurations. There is only ever one element, named 'current', so GetTransparentDataEncryptionConfiguration should be used instead.

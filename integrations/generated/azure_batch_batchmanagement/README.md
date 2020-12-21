@@ -15,9 +15,7 @@ let azure_batch_batchmanagement = require('@datafire/azure_batch_batchmanagement
   redirect_uri: ""
 });
 
-azure_batch_batchmanagement.Operations_List({
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -257,7 +255,7 @@ Deletes an application.
 azure_batch_batchmanagement.Application_Delete({
   "resourceGroupName": "",
   "accountName": "",
-  "applicationId": "",
+  "applicationName": "",
   "api-version": "",
   "subscriptionId": ""
 }, context)
@@ -267,7 +265,7 @@ azure_batch_batchmanagement.Application_Delete({
 * input `object`
   * resourceGroupName **required** `string`: The name of the resource group that contains the Batch account.
   * accountName **required** `string`: The name of the Batch account.
-  * applicationId **required** `string`: The ID of the application.
+  * applicationName **required** `string`: The name of the application. This must be unique within the account.
   * api-version **required** `string`: The API version to be used with the HTTP request.
   * subscriptionId **required** `string`: The Azure subscription ID. This is a GUID-formatted string (e.g. 00000000-0000-0000-0000-000000000000)
 
@@ -282,7 +280,7 @@ Gets information about the specified application.
 azure_batch_batchmanagement.Application_Get({
   "resourceGroupName": "",
   "accountName": "",
-  "applicationId": "",
+  "applicationName": "",
   "api-version": "",
   "subscriptionId": ""
 }, context)
@@ -292,7 +290,7 @@ azure_batch_batchmanagement.Application_Get({
 * input `object`
   * resourceGroupName **required** `string`: The name of the resource group that contains the Batch account.
   * accountName **required** `string`: The name of the Batch account.
-  * applicationId **required** `string`: The ID of the application.
+  * applicationName **required** `string`: The name of the application. This must be unique within the account.
   * api-version **required** `string`: The API version to be used with the HTTP request.
   * subscriptionId **required** `string`: The Azure subscription ID. This is a GUID-formatted string (e.g. 00000000-0000-0000-0000-000000000000)
 
@@ -307,7 +305,7 @@ Updates settings for the specified application.
 azure_batch_batchmanagement.Application_Update({
   "resourceGroupName": "",
   "accountName": "",
-  "applicationId": "",
+  "applicationName": "",
   "parameters": null,
   "api-version": "",
   "subscriptionId": ""
@@ -318,13 +316,13 @@ azure_batch_batchmanagement.Application_Update({
 * input `object`
   * resourceGroupName **required** `string`: The name of the resource group that contains the Batch account.
   * accountName **required** `string`: The name of the Batch account.
-  * applicationId **required** `string`: The ID of the application.
-  * parameters **required** [ApplicationUpdateParameters](#applicationupdateparameters)
+  * applicationName **required** `string`: The name of the application. This must be unique within the account.
+  * parameters **required** [Application](#application)
   * api-version **required** `string`: The API version to be used with the HTTP request.
   * subscriptionId **required** `string`: The Azure subscription ID. This is a GUID-formatted string (e.g. 00000000-0000-0000-0000-000000000000)
 
 #### Output
-*Output schema unknown*
+* output [Application](#application)
 
 ### Application_Create
 Adds an application to the specified Batch account.
@@ -334,7 +332,7 @@ Adds an application to the specified Batch account.
 azure_batch_batchmanagement.Application_Create({
   "resourceGroupName": "",
   "accountName": "",
-  "applicationId": "",
+  "applicationName": "",
   "api-version": "",
   "subscriptionId": ""
 }, context)
@@ -344,13 +342,39 @@ azure_batch_batchmanagement.Application_Create({
 * input `object`
   * resourceGroupName **required** `string`: The name of the resource group that contains the Batch account.
   * accountName **required** `string`: The name of the Batch account.
-  * applicationId **required** `string`: The ID of the application.
-  * parameters [ApplicationCreateParameters](#applicationcreateparameters)
+  * applicationName **required** `string`: The name of the application. This must be unique within the account.
+  * parameters [Application](#application)
   * api-version **required** `string`: The API version to be used with the HTTP request.
   * subscriptionId **required** `string`: The Azure subscription ID. This is a GUID-formatted string (e.g. 00000000-0000-0000-0000-000000000000)
 
 #### Output
 * output [Application](#application)
+
+### ApplicationPackage_List
+Lists all of the application packages in the specified application.
+
+
+```js
+azure_batch_batchmanagement.ApplicationPackage_List({
+  "resourceGroupName": "",
+  "accountName": "",
+  "applicationName": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * resourceGroupName **required** `string`: The name of the resource group that contains the Batch account.
+  * accountName **required** `string`: The name of the Batch account.
+  * applicationName **required** `string`: The name of the application. This must be unique within the account.
+  * maxresults `integer`: The maximum number of items to return in the response.
+  * api-version **required** `string`: The API version to be used with the HTTP request.
+  * subscriptionId **required** `string`: The Azure subscription ID. This is a GUID-formatted string (e.g. 00000000-0000-0000-0000-000000000000)
+
+#### Output
+* output [ListApplicationPackagesResult](#listapplicationpackagesresult)
 
 ### ApplicationPackage_Delete
 Deletes an application package record and its associated binary file.
@@ -360,8 +384,8 @@ Deletes an application package record and its associated binary file.
 azure_batch_batchmanagement.ApplicationPackage_Delete({
   "resourceGroupName": "",
   "accountName": "",
-  "applicationId": "",
-  "version": "",
+  "applicationName": "",
+  "versionName": "",
   "api-version": "",
   "subscriptionId": ""
 }, context)
@@ -371,8 +395,8 @@ azure_batch_batchmanagement.ApplicationPackage_Delete({
 * input `object`
   * resourceGroupName **required** `string`: The name of the resource group that contains the Batch account.
   * accountName **required** `string`: The name of the Batch account.
-  * applicationId **required** `string`: The ID of the application.
-  * version **required** `string`: The version of the application to delete.
+  * applicationName **required** `string`: The name of the application. This must be unique within the account.
+  * versionName **required** `string`: The version of the application.
   * api-version **required** `string`: The API version to be used with the HTTP request.
   * subscriptionId **required** `string`: The Azure subscription ID. This is a GUID-formatted string (e.g. 00000000-0000-0000-0000-000000000000)
 
@@ -387,8 +411,8 @@ Gets information about the specified application package.
 azure_batch_batchmanagement.ApplicationPackage_Get({
   "resourceGroupName": "",
   "accountName": "",
-  "applicationId": "",
-  "version": "",
+  "applicationName": "",
+  "versionName": "",
   "api-version": "",
   "subscriptionId": ""
 }, context)
@@ -398,8 +422,8 @@ azure_batch_batchmanagement.ApplicationPackage_Get({
 * input `object`
   * resourceGroupName **required** `string`: The name of the resource group that contains the Batch account.
   * accountName **required** `string`: The name of the Batch account.
-  * applicationId **required** `string`: The ID of the application.
-  * version **required** `string`: The version of the application.
+  * applicationName **required** `string`: The name of the application. This must be unique within the account.
+  * versionName **required** `string`: The version of the application.
   * api-version **required** `string`: The API version to be used with the HTTP request.
   * subscriptionId **required** `string`: The Azure subscription ID. This is a GUID-formatted string (e.g. 00000000-0000-0000-0000-000000000000)
 
@@ -407,15 +431,15 @@ azure_batch_batchmanagement.ApplicationPackage_Get({
 * output [ApplicationPackage](#applicationpackage)
 
 ### ApplicationPackage_Create
-Creates an application package record.
+Creates an application package record. The record contains the SAS where the package should be uploaded to.  Once it is uploaded the `ApplicationPackage` needs to be activated using `ApplicationPackageActive` before it can be used.
 
 
 ```js
 azure_batch_batchmanagement.ApplicationPackage_Create({
   "resourceGroupName": "",
   "accountName": "",
-  "applicationId": "",
-  "version": "",
+  "applicationName": "",
+  "versionName": "",
   "api-version": "",
   "subscriptionId": ""
 }, context)
@@ -425,24 +449,25 @@ azure_batch_batchmanagement.ApplicationPackage_Create({
 * input `object`
   * resourceGroupName **required** `string`: The name of the resource group that contains the Batch account.
   * accountName **required** `string`: The name of the Batch account.
-  * applicationId **required** `string`: The ID of the application.
-  * version **required** `string`: The version of the application.
+  * applicationName **required** `string`: The name of the application. This must be unique within the account.
+  * versionName **required** `string`: The version of the application.
   * api-version **required** `string`: The API version to be used with the HTTP request.
   * subscriptionId **required** `string`: The Azure subscription ID. This is a GUID-formatted string (e.g. 00000000-0000-0000-0000-000000000000)
+  * parameters [ApplicationPackage](#applicationpackage)
 
 #### Output
 * output [ApplicationPackage](#applicationpackage)
 
 ### ApplicationPackage_Activate
-Activates the specified application package.
+Activates the specified application package. This should be done after the `ApplicationPackage` was created and uploaded. This needs to be done before an `ApplicationPackage` can be used on Pools or Tasks
 
 
 ```js
 azure_batch_batchmanagement.ApplicationPackage_Activate({
   "resourceGroupName": "",
   "accountName": "",
-  "applicationId": "",
-  "version": "",
+  "applicationName": "",
+  "versionName": "",
   "parameters": null,
   "api-version": "",
   "subscriptionId": ""
@@ -453,14 +478,14 @@ azure_batch_batchmanagement.ApplicationPackage_Activate({
 * input `object`
   * resourceGroupName **required** `string`: The name of the resource group that contains the Batch account.
   * accountName **required** `string`: The name of the Batch account.
-  * applicationId **required** `string`: The ID of the application.
-  * version **required** `string`: The version of the application to activate.
+  * applicationName **required** `string`: The name of the application. This must be unique within the account.
+  * versionName **required** `string`: The version of the application.
   * parameters **required** [ActivateApplicationPackageParameters](#activateapplicationpackageparameters)
   * api-version **required** `string`: The API version to be used with the HTTP request.
   * subscriptionId **required** `string`: The Azure subscription ID. This is a GUID-formatted string (e.g. 00000000-0000-0000-0000-000000000000)
 
 #### Output
-*Output schema unknown*
+* output [ApplicationPackage](#applicationpackage)
 
 ### Certificate_ListByBatchAccount
 Lists all of the certificates in the specified account.
@@ -884,37 +909,37 @@ azure_batch_batchmanagement.BatchAccount_SynchronizeAutoStorageKeys({
 
 ### Application
 * Application `object`: Contains information about an application in a Batch account.
-  * allowUpdates `boolean`: A value indicating whether packages within the application may be overwritten using the same version string.
-  * defaultVersion `string`: The package to use if a client requests the application but does not specify a version.
-  * displayName `string`: The display name for the application.
-  * id `string`: A string that uniquely identifies the application within the account.
-  * packages `array`: The list of packages under this application.
-    * items [ApplicationPackage](#applicationpackage)
-
-### ApplicationCreateParameters
-* ApplicationCreateParameters `object`: Parameters for adding an Application.
-  * allowUpdates `boolean`: A value indicating whether packages within the application may be overwritten using the same version string.
-  * displayName `string`: The display name for the application.
+  * properties [ApplicationProperties](#applicationproperties)
+  * etag `string`: The ETag of the resource, used for concurrency statements.
+  * id `string`: The ID of the resource.
+  * name `string`: The name of the resource.
+  * type `string`: The type of the resource.
 
 ### ApplicationPackage
 * ApplicationPackage `object`: An application package which represents a particular version of an application.
+  * properties [ApplicationPackageProperties](#applicationpackageproperties)
+  * etag `string`: The ETag of the resource, used for concurrency statements.
+  * id `string`: The ID of the resource.
+  * name `string`: The name of the resource.
+  * type `string`: The type of the resource.
+
+### ApplicationPackageProperties
+* ApplicationPackageProperties `object`: Properties of an application package
   * format `string`: The format of the application package, if the package is active.
-  * id `string`: The ID of the application.
   * lastActivationTime `string`: The time at which the package was last activated, if the package is active.
-  * state `string` (values: Pending, Active, Unmapped): The current state of the application package.
+  * state `string` (values: Pending, Active): The current state of the application package.
   * storageUrl `string`: The URL for the application package in Azure Storage.
   * storageUrlExpiry `string`: The UTC time at which the Azure Storage URL will expire.
-  * version `string`: The version of the application package.
 
 ### ApplicationPackageReference
 * Link to an application package inside the batch account `object`
   * id **required** `string`
   * version `string`: If this is omitted, and no default version is specified for this application, the request fails with the error code InvalidApplicationPackageReferences. If you are calling the REST API directly, the HTTP status code is 409.
 
-### ApplicationUpdateParameters
-* ApplicationUpdateParameters `object`: Parameters for an update application request.
+### ApplicationProperties
+* ApplicationProperties `object`: The properties associated with the Application.
   * allowUpdates `boolean`: A value indicating whether packages within the application may be overwritten using the same version string.
-  * defaultVersion `string`: The package to use if a client requests the application but does not specify a version.
+  * defaultVersion `string`: The package to use if a client requests the application but does not specify a version. This property can only be set to the name of an existing package.
   * displayName `string`: The display name for the application.
 
 ### AutoScaleRun
@@ -947,7 +972,24 @@ azure_batch_batchmanagement.BatchAccount_SynchronizeAutoStorageKeys({
 ### AutoUserSpecification
 * Specifies the parameters for the auto user that runs a task on the Batch service. `object`
   * elevationLevel [ElevationLevel](#elevationlevel)
-  * scope `string` (values: Task, Pool): pool - specifies that the task runs as the common auto user account which is created on every node in a pool. task - specifies that the service should create a new user for the task. The default value is task.
+  * scope `string` (values: Task, Pool): The default value is Pool. If the pool is running Windows a value of Task should be specified if stricter isolation between tasks is required. For example, if the task mutates the registry in a way which could impact other tasks, or if certificates have been specified on the pool which should not be accessible by normal tasks but should be accessible by start tasks.
+
+### AzureBlobFileSystemConfiguration
+* Information used to connect to an Azure Storage Container using Blobfuse. `object`
+  * accountKey `string`: This property is mutually exclusive with sasKey and one must be specified.
+  * accountName **required** `string`
+  * blobfuseOptions `string`: These are 'net use' options in Windows and 'mount' options in Linux.
+  * containerName **required** `string`
+  * relativeMountPath **required** `string`: All file systems are mounted relative to the Batch mounts directory, accessible via the AZ_BATCH_NODE_MOUNTS_DIR environment variable.
+  * sasKey `string`: This property is mutually exclusive with accountKey and one must be specified.
+
+### AzureFileShareConfiguration
+* Information used to connect to an Azure Fileshare. `object`
+  * accountKey **required** `string`
+  * accountName **required** `string`
+  * azureFileUrl **required** `string`: This is of the form 'https://{account}.file.core.windows.net/'.
+  * mountOptions `string`: These are 'net use' options in Windows and 'mount' options in Linux.
+  * relativeMountPath **required** `string`: All file systems are mounted relative to the Batch mounts directory, accessible via the AZ_BATCH_NODE_MOUNTS_DIR environment variable.
 
 ### BatchAccount
 * BatchAccount `object`: Contains information about an Azure Batch account.
@@ -987,9 +1029,12 @@ azure_batch_batchmanagement.BatchAccount_SynchronizeAutoStorageKeys({
   * accountEndpoint `string`: The account endpoint used to interact with the Batch service.
   * activeJobAndJobScheduleQuota `integer`
   * autoStorage [AutoStorageProperties](#autostorageproperties)
-  * dedicatedCoreQuota `integer`
+  * dedicatedCoreQuota `integer`: For accounts with PoolAllocationMode set to UserSubscription, quota is managed on the subscription so this value is not returned.
+  * dedicatedCoreQuotaPerVMFamily `array`: A list of the dedicated core quota per Virtual Machine family for the Batch account. For accounts with PoolAllocationMode set to UserSubscription, quota is managed on the subscription so this value is not returned.
+    * items [VirtualMachineFamilyCoreQuota](#virtualmachinefamilycorequota)
+  * dedicatedCoreQuotaPerVMFamilyEnforced `boolean`: Batch is transitioning its core quota system for dedicated cores to be enforced per Virtual Machine family. During this transitional phase, the dedicated core quota per Virtual Machine family may not yet be enforced. If this flag is false, dedicated core quota is enforced via the old dedicatedCoreQuota property on the account and does not consider Virtual Machine family. If this flag is true, dedicated core quota is enforced via the dedicatedCoreQuotaPerVMFamily property on the account, and the old dedicatedCoreQuota does not apply.
   * keyVaultReference [KeyVaultReference](#keyvaultreference)
-  * lowPriorityCoreQuota `integer`
+  * lowPriorityCoreQuota `integer`: For accounts with PoolAllocationMode set to UserSubscription, quota is managed on the subscription so this value is not returned.
   * poolAllocationMode [PoolAllocationMode](#poolallocationmode)
   * poolQuota `integer`
   * provisioningState `string` (values: Invalid, Creating, Deleting, Succeeded, Failed, Cancelled): The provisioned state of the resource
@@ -1011,8 +1056,16 @@ azure_batch_batchmanagement.BatchAccount_SynchronizeAutoStorageKeys({
 * BatchLocationQuota `object`: Quotas associated with a Batch region for a particular subscription.
   * accountQuota `integer`: The number of Batch accounts that may be created under the subscription in the specified region.
 
+### CIFSMountConfiguration
+* Information used to connect to a CIFS file system. `object`
+  * mountOptions `string`: These are 'net use' options in Windows and 'mount' options in Linux.
+  * password **required** `string`
+  * relativeMountPath **required** `string`: All file systems are mounted relative to the Batch mounts directory, accessible via the AZ_BATCH_NODE_MOUNTS_DIR environment variable.
+  * source **required** `string`
+  * username **required** `string`
+
 ### CachingType
-* The type of caching to enable for the disk. `string` (values: None, ReadOnly, ReadWrite): Values are:
+* The type of caching to enable for the disk. `string` (values: None, ReadOnly, ReadWrite)
 
 ### Certificate
 * Certificate `object`: Contains information about a certificate.
@@ -1049,7 +1102,7 @@ azure_batch_batchmanagement.BatchAccount_SynchronizeAutoStorageKeys({
   * deleteCertificateError [DeleteCertificateError](#deletecertificateerror)
   * previousProvisioningState `string` (values: Succeeded, Deleting, Failed): The previous provisioned state of the resource
   * previousProvisioningStateTransitionTime `string`
-  * provisioningState `string` (values: Succeeded, Deleting, Failed): Values are:
+  * provisioningState `string` (values: Succeeded, Deleting, Failed)
   * provisioningStateTransitionTime `string`
   * publicData `string`: The public key of the certificate.
   * format `string` (values: Pfx, Cer): The format of the certificate - either Pfx or Cer. If omitted, the default is Pfx.
@@ -1061,7 +1114,7 @@ azure_batch_batchmanagement.BatchAccount_SynchronizeAutoStorageKeys({
   * id **required** `string`
   * storeLocation `string` (values: CurrentUser, LocalMachine): The default value is currentUser. This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable AZ_BATCH_CERTIFICATES_DIR is supplied to the task to query for this location. For certificates with visibility of 'remoteUser', a 'certs' directory is created in the user's home directory (e.g., /home/{user-name}/certs) and certificates are placed in that directory.
   * storeName `string`: This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). Common store names include: My, Root, CA, Trust, Disallowed, TrustedPeople, TrustedPublisher, AuthRoot, AddressBook, but any custom store name can also be used. The default value is My.
-  * visibility `array`: Values are:
+  * visibility `array`
     * items `string` (values: StartTask, Task, RemoteUser)
 
 ### CheckNameAvailabilityParameters
@@ -1089,15 +1142,28 @@ azure_batch_batchmanagement.BatchAccount_SynchronizeAutoStorageKeys({
 
 ### CloudServiceConfiguration
 * The configuration for nodes in a pool based on the Azure Cloud Services platform. `object`
-  * currentOSVersion `string`: This may differ from targetOSVersion if the pool state is Upgrading. In this case some virtual machines may be on the targetOSVersion and some may be on the currentOSVersion during the upgrade process. Once all virtual machines have upgraded, currentOSVersion is updated to be the same as targetOSVersion.
-  * osFamily **required** `string`: Possible values are: 2 - OS Family 2, equivalent to Windows Server 2008 R2 SP1. 3 - OS Family 3, equivalent to Windows Server 2012. 4 - OS Family 4, equivalent to Windows Server 2012 R2. 5 - OS Family 5, equivalent to Windows Server 2016. For more information, see Azure Guest OS Releases (https://azure.microsoft.com/documentation/articles/cloud-services-guestos-update-matrix/#releases).
-  * targetOSVersion `string`: The default value is * which specifies the latest operating system version for the specified OS family.
+  * osFamily **required** `string`: Possible values are: 2 - OS Family 2, equivalent to Windows Server 2008 R2 SP1. 3 - OS Family 3, equivalent to Windows Server 2012. 4 - OS Family 4, equivalent to Windows Server 2012 R2. 5 - OS Family 5, equivalent to Windows Server 2016. 6 - OS Family 6, equivalent to Windows Server 2019. For more information, see Azure Guest OS Releases (https://azure.microsoft.com/documentation/articles/cloud-services-guestos-update-matrix/#releases).
+  * osVersion `string`: The default value is * which specifies the latest operating system version for the specified OS family.
 
 ### ComputeNodeDeallocationOption
-* Determines what to do with a node and its running task(s) after it has been selected for deallocation. `string` (values: Requeue, Terminate, TaskCompletion, RetainedData): Values are:
+* Determines what to do with a node and its running task(s) after it has been selected for deallocation. `string` (values: Requeue, Terminate, TaskCompletion, RetainedData)
+
+### ContainerConfiguration
+* The configuration for container-enabled pools. `object`
+  * containerImageNames `array`: This is the full image reference, as would be specified to "docker pull". An image will be sourced from the default Docker registry unless the image is fully qualified with an alternative registry.
+    * items `string`
+  * containerRegistries `array`: If any images must be downloaded from a private registry which requires credentials, then those credentials must be provided here.
+    * items [ContainerRegistry](#containerregistry)
+  * type **required** `string` (values: DockerCompatible)
+
+### ContainerRegistry
+* A private container registry. `object`
+  * password **required** `string`
+  * registryServer `string`: If omitted, the default is "docker.io".
+  * username **required** `string`
 
 ### DataDisk
-* DataDisk `object`: Data Disk settings which will be used by the data disks associated to Compute Nodes in the pool.
+* DataDisk `object`: Settings which will be used by the data disks associated to Compute Nodes in the Pool. When using attached data disks, you need to mount and format the disks from within a VM to use them.
   * caching [CachingType](#cachingtype)
   * diskSizeGB **required** `integer`
   * lun **required** `integer`: The lun is used to uniquely identify each data disk. If attaching multiple disks, each should have a distinct lun.
@@ -1117,7 +1183,7 @@ azure_batch_batchmanagement.BatchAccount_SynchronizeAutoStorageKeys({
   * virtualMachineConfiguration [VirtualMachineConfiguration](#virtualmachineconfiguration)
 
 ### ElevationLevel
-* The elevation level of the user. `string` (values: NonAdmin, Admin): Values are:
+* The elevation level of the user. `string` (values: NonAdmin, Admin)
 
 ### EnvironmentSetting
 * An environment variable to be set on a task process. `object`
@@ -1133,10 +1199,10 @@ azure_batch_batchmanagement.BatchAccount_SynchronizeAutoStorageKeys({
 
 ### ImageReference
 * A reference to an Azure Virtual Machines Marketplace image or the Azure Image resource of a custom Virtual Machine. To get the list of all imageReferences verified by Azure Batch, see the 'List supported node agent SKUs' operation. `object`
-  * id `string`: This property is mutually exclusive with other properties. The virtual machine image must be in the same region and subscription as the Azure Batch account. For information about the firewall settings for Batch node agent to communicate with Batch service see https://docs.microsoft.com/en-us/azure/batch/batch-api-basics#virtual-network-vnet-and-firewall-configuration .
+  * id `string`: This property is mutually exclusive with other properties. For Virtual Machine Image it must be in the same region and subscription as the Azure Batch account. For SIG image it must have replicas in the same region as the Azure Batch account. For information about the firewall settings for the Batch node agent to communicate with the Batch service see https://docs.microsoft.com/en-us/azure/batch/batch-api-basics#virtual-network-vnet-and-firewall-configuration.
   * offer `string`: For example, UbuntuServer or WindowsServer.
   * publisher `string`: For example, Canonical or MicrosoftWindowsServer.
-  * sku `string`: For example, 14.04.0-LTS or 2012-R2-Datacenter.
+  * sku `string`: For example, 18.04-LTS or 2019-Datacenter.
   * version `string`: A value of 'latest' can be specified to select the latest version of an image. If omitted, the default is 'latest'.
 
 ### InboundNatPool
@@ -1159,6 +1225,12 @@ azure_batch_batchmanagement.BatchAccount_SynchronizeAutoStorageKeys({
   * gid `integer`: The uid and gid properties must be specified together or not at all. If not specified the underlying operating system picks the gid.
   * sshPrivateKey `string`: The private key must not be password protected. The private key is used to automatically configure asymmetric-key based authentication for SSH between nodes in a Linux pool when the pool's enableInterNodeCommunication property is true (it is ignored if enableInterNodeCommunication is false). It does this by placing the key pair into the user's .ssh directory. If not specified, password-less SSH is not configured between nodes (no modification of the user's .ssh directory is done).
   * uid `integer`: The uid and gid properties must be specified together or not at all. If not specified the underlying operating system picks the uid.
+
+### ListApplicationPackagesResult
+* ListApplicationPackagesResult `object`: The result of performing list application packages.
+  * nextLink `string`: The URL to get the next set of results.
+  * value `array`: The list of application packages.
+    * items [ApplicationPackage](#applicationpackage)
 
 ### ListApplicationsResult
 * ListApplicationsResult `object`: The result of performing list applications.
@@ -1183,9 +1255,24 @@ azure_batch_batchmanagement.BatchAccount_SynchronizeAutoStorageKeys({
   * name **required** `string`
   * value **required** `string`
 
+### MountConfiguration
+* The file system to mount on each node. `object`
+  * azureBlobFileSystemConfiguration [AzureBlobFileSystemConfiguration](#azureblobfilesystemconfiguration)
+  * azureFileShareConfiguration [AzureFileShareConfiguration](#azurefileshareconfiguration)
+  * cifsMountConfiguration [CIFSMountConfiguration](#cifsmountconfiguration)
+  * nfsMountConfiguration [NFSMountConfiguration](#nfsmountconfiguration)
+
+### NFSMountConfiguration
+* Information used to connect to an NFS file system. `object`
+  * mountOptions `string`: These are 'net use' options in Windows and 'mount' options in Linux.
+  * relativeMountPath **required** `string`: All file systems are mounted relative to the Batch mounts directory, accessible via the AZ_BATCH_NODE_MOUNTS_DIR environment variable.
+  * source **required** `string`
+
 ### NetworkConfiguration
 * NetworkConfiguration `object`: The network configuration for a pool.
   * endpointConfiguration [PoolEndpointConfiguration](#poolendpointconfiguration)
+  * publicIPs `array`: The number of IPs specified here limits the maximum size of the Pool - 50 dedicated nodes or 20 low-priority nodes can be allocated for each public IP. For example, a pool needing 150 dedicated VMs would need at least 3 public IPs specified. Each element of this collection is of the form: /subscriptions/{subscription}/resourceGroups/{group}/providers/Microsoft.Network/publicIPAddresses/{ip}.
+    * items `string`
   * subnetId `string`: The virtual network must be in the same region and subscription as the Azure Batch account. The specified subnet should have enough free IP addresses to accommodate the number of nodes in the pool. If the subnet doesn't have enough free IP addresses, the pool will partially allocate compute nodes, and a resize error will occur. The 'MicrosoftAzureBatch' service principal must have the 'Classic Virtual Machine Contributor' Role-Based Access Control (RBAC) role for the specified VNet. The specified subnet must allow communication from the Azure Batch service to be able to schedule tasks on the compute nodes. This can be verified by checking if the specified VNet has any associated Network Security Groups (NSG). If communication to the compute nodes in the specified subnet is denied by an NSG, then the Batch service will set the state of the compute nodes to unusable. For pools created via virtualMachineConfiguration the Batch account must have poolAllocationMode userSubscription in order to use a VNet. If the specified VNet has any associated Network Security Groups (NSG), then a few reserved system ports must be enabled for inbound communication. For pools created with a virtual machine configuration, enable ports 29876 and 29877, as well as port 22 for Linux and port 3389 for Windows. For pools created with a cloud service configuration, enable ports 10100, 20100, and 30100. Also enable outbound connections to Azure Storage on port 443. For more details see: https://docs.microsoft.com/en-us/azure/batch/batch-api-basics#virtual-network-vnet-and-firewall-configuration
 
 ### NetworkSecurityGroupRule
@@ -1193,10 +1280,8 @@ azure_batch_batchmanagement.BatchAccount_SynchronizeAutoStorageKeys({
   * access **required** `string` (values: Allow, Deny)
   * priority **required** `integer`: Priorities within a pool must be unique and are evaluated in order of priority. The lower the number the higher the priority. For example, rules could be specified with order numbers of 150, 250, and 350. The rule with the order number of 150 takes precedence over the rule that has an order of 250. Allowed priorities are 150 to 3500. If any reserved or duplicate values are provided the request fails with HTTP status code 400.
   * sourceAddressPrefix **required** `string`: Valid values are a single IP address (i.e. 10.10.10.10), IP subnet (i.e. 192.168.1.0/24), default tag, or * (for all addresses).  If any other values are provided the request fails with HTTP status code 400.
-
-### OSDisk
-* Settings for the operating system disk of the virtual machine. `object`
-  * caching [CachingType](#cachingtype)
+  * sourcePortRanges `array`: Valid values are '*' (for all ports 0 - 65535) or arrays of ports or port ranges (i.e. 100-200). The ports should in the range of 0 to 65535 and the port ranges or ports can't overlap. If any other values are provided the request fails with HTTP status code 400. Default value will be *.
+    * items `string`
 
 ### Operation
 * A REST API operation `object`
@@ -1233,11 +1318,11 @@ azure_batch_batchmanagement.BatchAccount_SynchronizeAutoStorageKeys({
 
 ### PoolProperties
 * PoolProperties `object`: Pool properties.
-  * allocationState `string` (values: Steady, Resizing, Stopping): Values are:
+  * allocationState `string` (values: Steady, Resizing, Stopping)
   * allocationStateTransitionTime `string`
   * applicationLicenses `array`: The list of application licenses must be a subset of available Batch service application licenses. If a license is requested which is not supported, pool creation will fail.
     * items `string`
-  * applicationPackages `array`: Changes to application packages affect all new compute nodes joining the pool, but do not affect compute nodes that are already in the pool until they are rebooted or reimaged.
+  * applicationPackages `array`: Changes to application package references affect all new compute nodes joining the pool, but do not affect compute nodes that are already in the pool until they are rebooted or reimaged. There is a maximum of 10 application package references on any given pool.
     * items [ApplicationPackageReference](#applicationpackagereference)
   * autoScaleRun [AutoScaleRun](#autoscalerun)
   * certificates `array`: For Windows compute nodes, the Batch service installs the certificates to the specified certificate store and location. For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable AZ_BATCH_CERTIFICATES_DIR is supplied to the task to query for this location. For certificates with visibility of 'remoteUser', a 'certs' directory is created in the user's home directory (e.g., /home/{user-name}/certs) and certificates are placed in that directory.
@@ -1249,11 +1334,13 @@ azure_batch_batchmanagement.BatchAccount_SynchronizeAutoStorageKeys({
   * displayName `string`: The display name need not be unique and can contain any Unicode characters up to a maximum length of 1024.
   * interNodeCommunication `string` (values: Enabled, Disabled): This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. If not specified, this value defaults to 'Disabled'.
   * lastModified `string`: This is the last time at which the pool level data, such as the targetDedicatedNodes or autoScaleSettings, changed. It does not factor in node-level changes such as a compute node changing state.
-  * maxTasksPerNode `integer`
+  * maxTasksPerNode `integer`: The default value is 1. The maximum value is the smaller of 4 times the number of cores of the vmSize of the pool or 256.
   * metadata `array`: The Batch service does not assign any meaning to metadata; it is solely for the use of user code.
     * items [MetadataItem](#metadataitem)
+  * mountConfiguration `array`: This supports Azure Files, NFS, CIFS/SMB, and Blobfuse.
+    * items [MountConfiguration](#mountconfiguration)
   * networkConfiguration [NetworkConfiguration](#networkconfiguration)
-  * provisioningState `string` (values: Succeeded, Deleting): Values are:
+  * provisioningState `string` (values: Succeeded, Deleting)
   * provisioningStateTransitionTime `string`
   * resizeOperationStatus [ResizeOperationStatus](#resizeoperationstatus)
   * scaleSettings [ScaleSettings](#scalesettings)
@@ -1261,7 +1348,7 @@ azure_batch_batchmanagement.BatchAccount_SynchronizeAutoStorageKeys({
   * taskSchedulingPolicy [TaskSchedulingPolicy](#taskschedulingpolicy)
   * userAccounts `array`
     * items [UserAccount](#useraccount)
-  * vmSize `string`: For information about available sizes of virtual machines for Cloud Services pools (pools created with cloudServiceConfiguration), see Sizes for Cloud Services (http://azure.microsoft.com/documentation/articles/cloud-services-sizes-specs/). Batch supports all Cloud Services VM sizes except ExtraSmall. For information about available VM sizes for pools using images from the Virtual Machines Marketplace (pools created with virtualMachineConfiguration) see Sizes for Virtual Machines (Linux) (https://azure.microsoft.com/documentation/articles/virtual-machines-linux-sizes/) or Sizes for Virtual Machines (Windows) (https://azure.microsoft.com/documentation/articles/virtual-machines-windows-sizes/). Batch supports all Azure VM sizes except STANDARD_A0 and those with premium storage (STANDARD_GS, STANDARD_DS, and STANDARD_DSV2 series).
+  * vmSize `string`: For information about available sizes of virtual machines for Cloud Services pools (pools created with cloudServiceConfiguration), see Sizes for Cloud Services (https://azure.microsoft.com/documentation/articles/cloud-services-sizes-specs/). Batch supports all Cloud Services VM sizes except ExtraSmall. For information about available VM sizes for pools using images from the Virtual Machines Marketplace (pools created with virtualMachineConfiguration) see Sizes for Virtual Machines (Linux) (https://azure.microsoft.com/documentation/articles/virtual-machines-linux-sizes/) or Sizes for Virtual Machines (Windows) (https://azure.microsoft.com/documentation/articles/virtual-machines-windows-sizes/). Batch supports all Azure VM sizes except STANDARD_A0 and those with premium storage (STANDARD_GS, STANDARD_DS, and STANDARD_DSV2 series).
 
 ### ProxyResource
 * ProxyResource `object`: A definition of an Azure resource.
@@ -1296,10 +1383,13 @@ azure_batch_batchmanagement.BatchAccount_SynchronizeAutoStorageKeys({
   * type `string`: The type of the resource.
 
 ### ResourceFile
-* A file to be downloaded from Azure blob storage to a compute node. `object`
-  * blobSource **required** `string`: This URL must be readable using anonymous access; that is, the Batch service does not present any credentials when downloading the blob. There are two ways to get such a URL for a blob in Azure storage: include a Shared Access Signature (SAS) granting read permissions on the blob, or set the ACL for the blob or its container to allow public access.
+* A single file or multiple files to be downloaded to a compute node. `object`
+  * autoStorageContainerName `string`: The autoStorageContainerName, storageContainerUrl and httpUrl properties are mutually exclusive and one of them must be specified.
+  * blobPrefix `string`: The property is valid only when autoStorageContainerName or storageContainerUrl is used. This prefix can be a partial filename or a subdirectory. If a prefix is not specified, all the files in the container will be downloaded.
   * fileMode `string`: This property applies only to files being downloaded to Linux compute nodes. It will be ignored if it is specified for a resourceFile which will be downloaded to a Windows node. If this property is not specified for a Linux node, then a default value of 0770 is applied to the file.
-  * filePath **required** `string`
+  * filePath `string`: If the httpUrl property is specified, the filePath is required and describes the path which the file will be downloaded to, including the filename. Otherwise, if the autoStorageContainerName or storageContainerUrl property is specified, filePath is optional and is the directory to download the files to. In the case where filePath is used as a directory, any directory structure already associated with the input data will be retained in full and appended to the specified filePath directory. The specified relative path cannot break out of the task's working directory (for example by using '..').
+  * httpUrl `string`: The autoStorageContainerName, storageContainerUrl and httpUrl properties are mutually exclusive and one of them must be specified. If the URL is Azure Blob Storage, it must be readable using anonymous access; that is, the Batch service does not present any credentials when downloading the blob. There are two ways to get such a URL for a blob in Azure storage: include a Shared Access Signature (SAS) granting read permissions on the blob, or set the ACL for the blob or its container to allow public access.
+  * storageContainerUrl `string`: The autoStorageContainerName, storageContainerUrl and httpUrl properties are mutually exclusive and one of them must be specified. This URL must be readable and listable using anonymous access; that is, the Batch service does not present any credentials when downloading the blob. There are two ways to get such a URL for a blob in Azure storage: include a Shared Access Signature (SAS) granting read and list permissions on the blob, or set the ACL for the blob or its container to allow public access.
 
 ### ScaleSettings
 * Scale settings for the pool `object`: Defines the desired size of the pool. This can either be 'fixedScale' where the requested targetDedicatedNodes is specified, or 'autoScale' which defines a formula which is periodically reevaluated. If this property is not specified, the pool will have a fixed scale with 0 targetDedicatedNodes.
@@ -1307,18 +1397,26 @@ azure_batch_batchmanagement.BatchAccount_SynchronizeAutoStorageKeys({
   * fixedScale [FixedScaleSettings](#fixedscalesettings)
 
 ### StartTask
-* A task which is run when a compute node joins a pool in the Azure Batch service, or when the compute node is rebooted or reimaged. `object`
+* A task which is run when a compute node joins a pool in the Azure Batch service, or when the compute node is rebooted or reimaged. `object`: In some cases the start task may be re-run even though the node was not rebooted. Due to this, start tasks should be idempotent and exit gracefully if the setup they're performing has already been done. Special care should be taken to avoid start tasks which create breakaway process or install/launch services from the start task working directory, as this will block Batch from being able to re-run the start task.
   * commandLine `string`: The command line does not run under a shell, and therefore cannot take advantage of shell features such as environment variable expansion. If you want to take advantage of such features, you should invoke the shell in the command line, for example using "cmd /c MyCommand" in Windows or "/bin/sh -c MyCommand" in Linux. Required if any other properties of the startTask are specified.
+  * containerSettings [TaskContainerSettings](#taskcontainersettings)
   * environmentSettings `array`
     * items [EnvironmentSetting](#environmentsetting)
   * maxTaskRetryCount `integer`: The Batch service retries a task if its exit code is nonzero. Note that this value specifically controls the number of retries. The Batch service will try the task once, and may then retry up to this limit. For example, if the maximum retry count is 3, Batch tries the task up to 4 times (one initial try and 3 retries). If the maximum retry count is 0, the Batch service does not retry the task. If the maximum retry count is -1, the Batch service retries the task without limit.
   * resourceFiles `array`
     * items [ResourceFile](#resourcefile)
   * userIdentity [UserIdentity](#useridentity)
-  * waitForSuccess `boolean`: If true and the start task fails on a compute node, the Batch service retries the start task up to its maximum retry count (maxTaskRetryCount). If the task has still not completed successfully after all retries, then the Batch service marks the compute node unusable, and will not schedule tasks to it. This condition can be detected via the node state and scheduling error detail. If false, the Batch service will not wait for the start task to complete. In this case, other tasks can start executing on the compute node while the start task is still running; and even if the start task fails, new tasks will continue to be scheduled on the node. The default is false.
+  * waitForSuccess `boolean`: If true and the start task fails on a compute node, the Batch service retries the start task up to its maximum retry count (maxTaskRetryCount). If the task has still not completed successfully after all retries, then the Batch service marks the compute node unusable, and will not schedule tasks to it. This condition can be detected via the node state and scheduling error detail. If false, the Batch service will not wait for the start task to complete. In this case, other tasks can start executing on the compute node while the start task is still running; and even if the start task fails, new tasks will continue to be scheduled on the node. The default is true.
 
 ### StorageAccountType
 * The storage account type for use in creating data disks. `string` (values: Standard_LRS, Premium_LRS)
+
+### TaskContainerSettings
+* The container settings for a task. `object`
+  * containerRunOptions `string`: These additional options are supplied as arguments to the "docker create" command, in addition to those controlled by the Batch Service.
+  * imageName **required** `string`: This is the full image reference, as would be specified to "docker pull". If no tag is provided as part of the image name, the tag ":latest" is used as a default.
+  * registry [ContainerRegistry](#containerregistry)
+  * workingDirectory `string` (values: TaskWorkingDirectory, ContainerImageDefault)
 
 ### TaskSchedulingPolicy
 * Specifies how tasks should be distributed across compute nodes. `object`
@@ -1330,6 +1428,7 @@ azure_batch_batchmanagement.BatchAccount_SynchronizeAutoStorageKeys({
   * linuxUserConfiguration [LinuxUserConfiguration](#linuxuserconfiguration)
   * name **required** `string`
   * password **required** `string`
+  * windowsUserConfiguration [WindowsUserConfiguration](#windowsuserconfiguration)
 
 ### UserIdentity
 * The definition of the user identity under which the task is run. `object`: Specify either the userName or autoUser property, but not both.
@@ -1338,16 +1437,25 @@ azure_batch_batchmanagement.BatchAccount_SynchronizeAutoStorageKeys({
 
 ### VirtualMachineConfiguration
 * The configuration for compute nodes in a pool based on the Azure Virtual Machines infrastructure. `object`
+  * containerConfiguration [ContainerConfiguration](#containerconfiguration)
   * dataDisks `array`: This property must be specified if the compute nodes in the pool need to have empty data disks attached to them.
     * items [DataDisk](#datadisk)
   * imageReference **required** [ImageReference](#imagereference)
   * licenseType `string`: This only applies to images that contain the Windows operating system, and should only be used when you hold valid on-premises licenses for the nodes which will be deployed. If omitted, no on-premises licensing discount is applied. Values are:
   * nodeAgentSkuId **required** `string`: The Batch node agent is a program that runs on each node in the pool, and provides the command-and-control interface between the node and the Batch service. There are different implementations of the node agent, known as SKUs, for different operating systems. You must specify a node agent SKU which matches the selected image reference. To get the list of supported node agent SKUs along with their list of verified image references, see the 'List supported node agent SKUs' operation.
-  * osDisk [OSDisk](#osdisk)
   * windowsConfiguration [WindowsConfiguration](#windowsconfiguration)
+
+### VirtualMachineFamilyCoreQuota
+* VirtualMachineFamilyCoreQuota `object`: A VM Family and its associated core quota for the Batch account.
+  * coreQuota `integer`: The core quota for the VM family for the Batch account.
+  * name `string`: The Virtual Machine family name.
 
 ### WindowsConfiguration
 * Windows operating system settings to apply to the virtual machine. `object`
   * enableAutomaticUpdates `boolean`: If omitted, the default value is true.
+
+### WindowsUserConfiguration
+* Properties used to create a user account on a Windows node. `object`
+  * loginMode `string` (values: Batch, Interactive): Specifies login mode for the user. The default value for VirtualMachineConfiguration pools is interactive mode and for CloudServiceConfiguration pools is batch mode.
 
 

@@ -1,0 +1,541 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "contact": {
+      "email": "support@openfigi.com",
+      "name": "OpenFIGI API Support",
+      "url": "https://openfigi.com/api"
+    },
+    "description": "A free & open API for FIGI discovery.",
+    "license": {
+      "name": "Apache 2.0",
+      "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
+    },
+    "termsOfService": "https://openfigi.com/docs/terms-of-service",
+    "title": "OpenFIGI API",
+    "version": "1.4.0",
+    "x-apisguru-categories": [
+      "open_data"
+    ],
+    "x-origin": [
+      {
+        "format": "openapi",
+        "url": "https://api.openfigi.com/schema",
+        "version": "3.0"
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "openfigi.com",
+    "x-datafire": {
+      "name": "openfigi",
+      "type": "openapi"
+    }
+  },
+  "host": "api.openfigi.com",
+  "basePath": "/v1",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/mapping": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "description": "A list of third-party identifiers and extra filters.",
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/BulkMappingJob"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of FIGIs and their metadata.",
+            "schema": {
+              "$ref": "#/definitions/BulkMappingJobResult"
+            }
+          },
+          "400": {
+            "description": "Invalid request (body).",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "401": {
+            "description": "API Key is invalid.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "406": {
+            "description": "Unsupported 'Accept' type.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "413": {
+            "description": "Too many mapping jobs in request.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "description": "Allows mapping from third-party identifiers to FIGIs."
+      }
+    },
+    "/mapping/values/{key}": {
+      "get": {
+        "produces": [
+          "application/json",
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "description": "Key of MappingJob for which to get possible values.",
+            "enum": [
+              "idType",
+              "exchCode",
+              "micCode",
+              "currency",
+              "marketSecDes",
+              "securityType",
+              "securityType2"
+            ],
+            "in": "path",
+            "name": "key",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The list of values.",
+            "schema": {
+              "properties": {
+                "values": {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "400": {
+            "description": "Invalid request (key).",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "description": "Get values for enum-like fields."
+      }
+    }
+  },
+  "definitions": {
+    "BulkMappingJob": {
+      "items": {
+        "$ref": "#/definitions/MappingJob"
+      },
+      "type": "array"
+    },
+    "BulkMappingJobResult": {
+      "items": {
+        "$ref": "#/definitions/MappingJobResult"
+      },
+      "type": "array"
+    },
+    "FigiResult": {
+      "properties": {
+        "compositeFIGI": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "exchCode": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "figi": {
+          "type": "string"
+        },
+        "marketSector": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "metadata": {
+          "description": "Exists when API is unable to show non-FIGI fields.",
+          "type": "string",
+          "x-nullable": true
+        },
+        "name": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "securityDescription": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "securityType": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "securityType2": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "shareClassFIGI": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "ticker": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "uniqueID": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "uniqueIDFutOpt": {
+          "type": "string",
+          "x-nullable": true
+        }
+      },
+      "type": "object"
+    },
+    "MappingJob": {
+      "description": "For V2: securityType2 is required when idType is BASE_TICKER or ID_EXCH_SYMBOL.  expiration is required when securityType2 is Option or Warrant.  maturity is required when securityType2 is Pool.",
+      "properties": {
+        "contractSize": {
+          "$ref": "#/definitions/NullableNumberInterval"
+        },
+        "coupon": {
+          "$ref": "#/definitions/NullableNumberInterval"
+        },
+        "currency": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "exchCode": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "expiration": {
+          "$ref": "#/definitions/NullableDateInterval"
+        },
+        "idType": {
+          "enum": [
+            "ID_ISIN",
+            "ID_BB_UNIQUE",
+            "ID_SEDOL",
+            "ID_COMMON",
+            "ID_WERTPAPIER",
+            "ID_CUSIP",
+            "ID_BB",
+            "ID_ITALY",
+            "ID_EXCH_SYMBOL",
+            "ID_FULL_EXCHANGE_SYMBOL",
+            "COMPOSITE_ID_BB_GLOBAL",
+            "ID_BB_GLOBAL_SHARE_CLASS_LEVEL",
+            "ID_BB_SEC_NUM_DES",
+            "ID_BB_GLOBAL",
+            "TICKER",
+            "ID_CUSIP_8_CHR",
+            "OCC_SYMBOL",
+            "UNIQUE_ID_FUT_OPT",
+            "OPRA_SYMBOL",
+            "TRADING_SYSTEM_IDENTIFIER",
+            "ID_CINS",
+            "ID_SHORT_CODE",
+            "BASE_TICKER",
+            "VENDOR_INDEX_CODE"
+          ],
+          "type": "string"
+        },
+        "idValue": {
+          "default": "string"
+        },
+        "includeUnlistedEquities": {
+          "type": "boolean",
+          "x-nullable": true
+        },
+        "marketSecDes": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "maturity": {
+          "$ref": "#/definitions/NullableDateInterval"
+        },
+        "micCode": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "optionType": {
+          "enum": [
+            "Put",
+            "Call"
+          ],
+          "type": "string",
+          "x-nullable": true
+        },
+        "securityType": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "securityType2": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "stateCode": {
+          "enum": [
+            "AB",
+            "AC",
+            "AC",
+            "AH",
+            "AK",
+            "AL",
+            "AM",
+            "AR",
+            "AS",
+            "AT",
+            "AZ",
+            "BC",
+            "BJ",
+            "CA",
+            "CB",
+            "CO",
+            "CQ",
+            "CT",
+            "CZ",
+            "DC",
+            "DE",
+            "EH",
+            "FH",
+            "FI",
+            "FJ",
+            "FL",
+            "FO",
+            "FS",
+            "GA",
+            "GD",
+            "GF",
+            "GM",
+            "GS",
+            "GU",
+            "GX",
+            "GZ",
+            "HA",
+            "HB",
+            "HE",
+            "HG",
+            "HI",
+            "HI",
+            "HL",
+            "HN",
+            "HO",
+            "HS",
+            "IA",
+            "ID",
+            "IG",
+            "IK",
+            "IL",
+            "IN",
+            "IT",
+            "JL",
+            "JS",
+            "JX",
+            "KA",
+            "KC",
+            "KN",
+            "KO",
+            "KS",
+            "KT",
+            "KU",
+            "KY",
+            "LA",
+            "LN",
+            "MA",
+            "MB",
+            "MD",
+            "ME",
+            "ME",
+            "MG",
+            "MI",
+            "MN",
+            "MO",
+            "MS",
+            "MT",
+            "MZ",
+            "NB",
+            "NC",
+            "ND",
+            "NE",
+            "NG",
+            "NH",
+            "NJ",
+            "NL",
+            "NM",
+            "NM",
+            "NN",
+            "NR",
+            "NS",
+            "NS",
+            "NS",
+            "NT",
+            "NU",
+            "NV",
+            "NW",
+            "NX",
+            "NY",
+            "OH",
+            "OK",
+            "ON",
+            "ON",
+            "OR",
+            "OS",
+            "OT",
+            "OT",
+            "OY",
+            "PA",
+            "PE",
+            "PR",
+            "QC",
+            "QH",
+            "QL",
+            "RI",
+            "SA",
+            "SA",
+            "SC",
+            "SC",
+            "SD",
+            "SD",
+            "SH",
+            "SI",
+            "SK",
+            "SN",
+            "SN",
+            "ST",
+            "SX",
+            "SZ",
+            "TA",
+            "TG",
+            "TJ",
+            "TK",
+            "TN",
+            "TS",
+            "TT",
+            "TT",
+            "TX",
+            "TY",
+            "UT",
+            "VA",
+            "VI",
+            "VI",
+            "VT",
+            "WA",
+            "WA",
+            "WI",
+            "WK",
+            "WV",
+            "WY",
+            "XJ",
+            "XZ",
+            "YA",
+            "YN",
+            "YN",
+            "YT",
+            "YU",
+            "ZJ"
+          ],
+          "type": "string",
+          "x-nullable": true
+        },
+        "strike": {
+          "$ref": "#/definitions/NullableNumberInterval"
+        }
+      },
+      "required": [
+        "idType",
+        "idValue"
+      ],
+      "type": "object"
+    },
+    "MappingJobResult": {},
+    "MappingJobResultFigiList": {
+      "properties": {
+        "data": {
+          "items": {
+            "$ref": "#/definitions/FigiResult"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "MappingJobResultFigiNotFound": {
+      "properties": {
+        "error": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "NullableDateInterval": {
+      "description": "At least one entry should be non-null.",
+      "items": {
+        "format": "date",
+        "type": "string",
+        "x-nullable": true
+      },
+      "maxItems": 2,
+      "minItems": 2,
+      "type": "array",
+      "x-nullable": true
+    },
+    "NullableNumberInterval": {
+      "description": "At least one entry should be non-null.",
+      "items": {
+        "type": "number",
+        "x-nullable": true
+      },
+      "maxItems": 2,
+      "minItems": 2,
+      "type": "array",
+      "x-nullable": true
+    }
+  },
+  "securityDefinitions": {
+    "ApiKeyAuth": {
+      "in": "header",
+      "name": "X-OPENFIGI-APIKEY",
+      "type": "apiKey"
+    }
+  },
+  "security": [
+    {},
+    {
+      "ApiKeyAuth": []
+    }
+  ],
+  "x-components": {}
+}

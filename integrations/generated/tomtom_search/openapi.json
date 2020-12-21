@@ -1,0 +1,2884 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "contact": {
+      "name": "Contact Us",
+      "url": "https://developer.tomtom.com/contact-us",
+      "x-twitter": "TomTom"
+    },
+    "description": "Search API is a RESTful API that allows developers to run a single line fuzzy search for addresses and POIs. Search API returns the latitude/longitude of a specific address, cross street, geographic feature, or point of interest (POI).",
+    "title": "Search",
+    "version": "1.0.0",
+    "x-apisguru-categories": [
+      "location"
+    ],
+    "x-logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_TomTom_profile_image.jpeg"
+    },
+    "x-origin": [
+      {
+        "converter": {
+          "url": "https://github.com/lucybot/api-spec-converter",
+          "version": "2.7.31"
+        },
+        "format": "openapi",
+        "url": "https://developer.tomtom.com/system/files/swagger_models/search_api.yaml",
+        "version": "3.0"
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "tomtom.com",
+    "x-serviceName": "search",
+    "x-datafire": {
+      "name": "tomtom_search",
+      "type": "openapi"
+    }
+  },
+  "host": "api.tomtom.com",
+  "basePath": "/",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/search/{versionNumber}/additionalData.{ext}": {
+      "get": {
+        "parameters": [
+          {
+            "description": "Service version number. The current value is 2.",
+            "enum": [
+              2
+            ],
+            "in": "path",
+            "name": "versionNumber",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Expected response format.",
+            "enum": [
+              "json"
+            ],
+            "in": "path",
+            "name": "ext",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Comma separated list of geometry UUIDs, previously retrieved from an Search API request.",
+            "in": "query",
+            "name": "geometries",
+            "required": true,
+            "type": "string",
+            "x-example": "00004631-3400-3c00-0000-0000673c4d2e,00004631-3400-3c00-0000-0000673c42fe"
+          },
+          {
+            "description": "Defines the precision of the geometries.",
+            "enum": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22
+            ],
+            "in": "query",
+            "name": "geometriesZoom",
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK: additional data were retrieved and the body of the response contains requested data."
+          },
+          "400": {
+            "description": "Bad request: one or more parameters(i.e. geometries, ext) were incorrectly specified."
+          },
+          "403": {
+            "description": "Permission, capacity, or authentication issues:\n  - Forbidden\n  - Not authorized\n  - Account inactive\n  - Account over queries per second limit\n  - Account over rate limit\n  - Rate limit exceeded"
+          },
+          "404": {
+            "description": "Not Found: the requested resource could not be found, but it may be available again in the future."
+          },
+          "405": {
+            "description": "Method Not Allowed: the client used a HTTP method other than GET."
+          },
+          "408": {
+            "description": "Request timeout."
+          },
+          "414": {
+            "description": "Requested uri is too long."
+          },
+          "500": {
+            "description": "An error occurred while processing the request. Please try again later."
+          },
+          "502": {
+            "description": "Internal network connectivity issue."
+          },
+          "503": {
+            "description": "Service currently unavailable."
+          },
+          "504": {
+            "description": "Internal network connectivity issue or a request that has taken too long to complete."
+          },
+          "596": {
+            "description": "Service not found."
+          }
+        },
+        "tags": [
+          "Additional Data"
+        ],
+        "summary": "Additional Data"
+      }
+    },
+    "/search/{versionNumber}/cS/{category}.{ext}": {
+      "get": {
+        "parameters": [
+          {
+            "description": "Service version number. The current value is 2.",
+            "enum": [
+              2
+            ],
+            "in": "path",
+            "name": "versionNumber",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Query string. Must be properly URL encoded.",
+            "in": "path",
+            "name": "category",
+            "required": true,
+            "type": "string",
+            "x-example": "pizza"
+          },
+          {
+            "description": "Expected response format.",
+            "enum": [
+              "json",
+              "jsonp",
+              "js",
+              "xml"
+            ],
+            "in": "path",
+            "name": "ext",
+            "required": true,
+            "type": "string",
+            "x-example": "xml"
+          },
+          {
+            "default": false,
+            "description": "If the \"typeahead\" flag is set, the query will be interpreted as a partial input and the search will enter <b>predictive</b> mode.",
+            "in": "query",
+            "name": "typeahead",
+            "type": "boolean"
+          },
+          {
+            "default": 10,
+            "description": "Maximum number of search results that will be returned.",
+            "in": "query",
+            "maximum": 100,
+            "name": "limit",
+            "type": "integer"
+          },
+          {
+            "default": 0,
+            "description": "Starting offset of the returned results within the full result set.",
+            "in": "query",
+            "maximum": 1900,
+            "name": "ofs",
+            "type": "integer"
+          },
+          {
+            "description": "Comma separated string of country codes. This will limit the search to the specified countries.",
+            "in": "query",
+            "name": "countrySet",
+            "type": "string",
+            "x-example": "FR"
+          },
+          {
+            "description": "Latitude where results should be biased.\nNOTE: supplying a lat/lon without a radius will return search results biased to that point.",
+            "format": "float",
+            "in": "query",
+            "name": "lat",
+            "type": "number",
+            "x-example": 37.337
+          },
+          {
+            "description": "Longitude where results should be biased\nNOTE: supplying a lat/lon without a radius will return search results biased to that point.",
+            "format": "float",
+            "in": "query",
+            "name": "lon",
+            "type": "number",
+            "x-example": -121.89
+          },
+          {
+            "description": "If radius <b>and</b> position are set, the results will be constrained to the defined area. The radius parameter is specified in meters.",
+            "in": "query",
+            "name": "radius",
+            "type": "integer"
+          },
+          {
+            "description": "Top left position of the bounding box. This is specified as a comma separated string composed of lat., lon.",
+            "in": "query",
+            "name": "topLeft",
+            "type": "string",
+            "x-example": "37.553,-122.453"
+          },
+          {
+            "description": "Bottom right position of the bounding box. This is specified as a comma separated string composed of lat., lon.",
+            "in": "query",
+            "name": "btmRight",
+            "type": "string",
+            "x-example": "37.4,-122.55"
+          },
+          {
+            "description": "Language in which search results should be returned. Should be one of <a href=\"/search-api/search-api-documentation/supported-languages\">supported IETF language tags</a>, case insensitive.",
+            "in": "query",
+            "name": "language",
+            "type": "string"
+          },
+          {
+            "description": "A comma separated list of indexes which should be utilized for the search. Item order does not matter. Available indexes are:\n  - <b>Addr</b> = Address range interpolation (when there is no PAD)\n  - <b>Geo</b> = Geographies\n  - <b>PAD</b> = Point Addresses\n  - <b>POI</b> = Points of interest\n  - <b>Str</b> = Streets\n  - <b>Xstr</b> = Cross Streets (intersections)",
+            "in": "query",
+            "name": "idxSet",
+            "type": "string",
+            "x-example": "POI"
+          },
+          {
+            "default": "Unified",
+            "description": "Geopolitical View.",
+            "enum": [
+              "Unified",
+              "IN",
+              "PK",
+              "IL",
+              "MA"
+            ],
+            "in": "query",
+            "name": "view",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK: the search successfully returned zero or more results."
+          },
+          "400": {
+            "description": "Bad Request: one or more parameters were incorrectly specified."
+          },
+          "403": {
+            "description": "Forbidden: possible causes include:\n  - Service requires SSL\n  - Not authorized\n  - Rate or volume limit exceeded\n  - Unknown referer"
+          },
+          "405": {
+            "description": "Method Not Allowed: the HTTP method (GET, POST, etc) is not supported for this request."
+          },
+          "596": {
+            "description": "Not Found: the HTTP request method (GET, POST, etc) or path is incorrect."
+          },
+          "5XX": {
+            "description": "An error occurred while processing the request. Please try again later."
+          }
+        },
+        "tags": [
+          "Search"
+        ],
+        "deprecated": true,
+        "summary": "Low Bandwith Category Search"
+      }
+    },
+    "/search/{versionNumber}/categorySearch/{query}.{ext}": {
+      "get": {
+        "parameters": [
+          {
+            "description": "Service version number. The current value is 2.",
+            "enum": [
+              2
+            ],
+            "in": "path",
+            "name": "versionNumber",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Query string. Must be properly URL encoded.",
+            "in": "path",
+            "name": "query",
+            "required": true,
+            "type": "string",
+            "x-example": "pizza"
+          },
+          {
+            "description": "Expected response format.",
+            "enum": [
+              "json",
+              "jsonp",
+              "js",
+              "xml"
+            ],
+            "in": "path",
+            "name": "ext",
+            "required": true,
+            "type": "string",
+            "x-example": "xml"
+          },
+          {
+            "default": false,
+            "description": "If the \"typeahead\" flag is set, the query will be interpreted as a partial input and the search will enter <b>predictive</b> mode.",
+            "in": "query",
+            "name": "typeahead",
+            "type": "boolean"
+          },
+          {
+            "default": 10,
+            "description": "Maximum number of search results that will be returned.",
+            "in": "query",
+            "maximum": 100,
+            "name": "limit",
+            "type": "integer"
+          },
+          {
+            "default": 0,
+            "description": "Starting offset of the returned results within the full result set.",
+            "in": "query",
+            "maximum": 1900,
+            "name": "ofs",
+            "type": "integer"
+          },
+          {
+            "description": "Comma separated string of country codes. This will limit the search to the specified countries.",
+            "in": "query",
+            "name": "countrySet",
+            "type": "string",
+            "x-example": "FR"
+          },
+          {
+            "description": "Latitude where results should be biased.\nNOTE: supplying a lat/lon without a radius will return search results biased to that point.",
+            "format": "float",
+            "in": "query",
+            "name": "lat",
+            "type": "number",
+            "x-example": 37.337
+          },
+          {
+            "description": "Longitude where results should be biased\nNOTE: supplying a lat/lon without a radius will return search results biased to that point.",
+            "format": "float",
+            "in": "query",
+            "name": "lon",
+            "type": "number",
+            "x-example": -121.89
+          },
+          {
+            "description": "If radius <b>and</b> position are set, the results will be constrained to the defined area. The radius parameter is specified in meters.",
+            "in": "query",
+            "name": "radius",
+            "type": "integer"
+          },
+          {
+            "description": "Top left position of the bounding box. This is specified as a comma separated string composed of lat., lon.",
+            "in": "query",
+            "name": "topLeft",
+            "type": "string",
+            "x-example": "37.553,-122.453"
+          },
+          {
+            "description": "Bottom right position of the bounding box. This is specified as a comma separated string composed of lat., lon.",
+            "in": "query",
+            "name": "btmRight",
+            "type": "string",
+            "x-example": "37.4,-122.55"
+          },
+          {
+            "description": "Language in which search results should be returned. Should be one of <a href=\"/search-api/search-api-documentation/supported-languages\">supported IETF language tags</a>, case insensitive.",
+            "in": "query",
+            "name": "language",
+            "type": "string"
+          },
+          {
+            "description": "Indexes for which extended postal codes should be included in the results. Available indexes are:\n  - <b>Addr</b> = Address ranges\n  - <b>Geo</b> = Geographies\n  - <b>PAD</b> = Point Addresses\n  - <b>POI</b> = Points of Interest\n  - <b>Str</b> = Streets\n  - <b>XStr</b> = Cross Streets (intersections)",
+            "in": "query",
+            "name": "extendedPostalCodesFor",
+            "type": "string"
+          },
+          {
+            "default": "Unified",
+            "description": "Geopolitical View.",
+            "enum": [
+              "Unified",
+              "IN",
+              "PK",
+              "IL",
+              "MA"
+            ],
+            "in": "query",
+            "name": "view",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK: the search successfully returned zero or more results."
+          },
+          "400": {
+            "description": "Bad Request: one or more parameters were incorrectly specified."
+          },
+          "403": {
+            "description": "Forbidden: possible causes include:\n  - Service requires SSL\n  - Not authorized\n  - Rate or volume limit exceeded\n  - Unknown referer"
+          },
+          "405": {
+            "description": "Method Not Allowed: the HTTP method (GET, POST, etc) is not supported for this request."
+          },
+          "596": {
+            "description": "Not Found: the HTTP request method (GET, POST, etc) or path is incorrect."
+          },
+          "5XX": {
+            "description": "An error occurred while processing the request. Please try again later."
+          }
+        },
+        "tags": [
+          "Search"
+        ],
+        "summary": "Category Search"
+      }
+    },
+    "/search/{versionNumber}/geocode/{query}.{ext}": {
+      "get": {
+        "parameters": [
+          {
+            "description": "Service version number. The current value is 2.",
+            "enum": [
+              2
+            ],
+            "in": "path",
+            "name": "versionNumber",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Query string. Must be properly URL encoded.",
+            "in": "path",
+            "name": "query",
+            "required": true,
+            "type": "string",
+            "x-example": "4 north 2nd street san jose"
+          },
+          {
+            "description": "Expected response format.",
+            "enum": [
+              "json",
+              "jsonp",
+              "js",
+              "xml"
+            ],
+            "in": "path",
+            "name": "ext",
+            "required": true,
+            "type": "string",
+            "x-example": "xml"
+          },
+          {
+            "default": false,
+            "deprecated": true,
+            "description": "If the \"storeResult\" flag is set, the query will be interpreted as a stored geocode and will be billed according to the terms of use.",
+            "in": "query",
+            "name": "storeResult",
+            "type": "boolean"
+          },
+          {
+            "default": false,
+            "description": "If the \"typeahead\" flag is set, the query will be interpreted as a partial input and the search will enter <b>predictive</b> mode.",
+            "in": "query",
+            "name": "typeahead",
+            "type": "boolean"
+          },
+          {
+            "default": 10,
+            "description": "Maximum number of search results that will be returned.",
+            "in": "query",
+            "maximum": 100,
+            "name": "limit",
+            "type": "integer"
+          },
+          {
+            "default": 0,
+            "description": "Starting offset of the returned results within the full result set.",
+            "in": "query",
+            "maximum": 1900,
+            "name": "ofs",
+            "type": "integer"
+          },
+          {
+            "description": "Comma separated string of country codes. This will limit the search to the specified countries.",
+            "in": "query",
+            "name": "countrySet",
+            "type": "string",
+            "x-example": "FR"
+          },
+          {
+            "description": "Latitude where results should be biased.\nNOTE: supplying a lat/lon without a radius will return search results biased to that point.",
+            "format": "float",
+            "in": "query",
+            "name": "lat",
+            "type": "number",
+            "x-example": 37.337
+          },
+          {
+            "description": "Longitude where results should be biased\nNOTE: supplying a lat/lon without a radius will return search results biased to that point.",
+            "format": "float",
+            "in": "query",
+            "name": "lon",
+            "type": "number",
+            "x-example": -121.89
+          },
+          {
+            "description": "If radius <b>and</b> position are set, the results will be constrained to the defined area. The radius parameter is specified in meters.",
+            "in": "query",
+            "name": "radius",
+            "type": "integer"
+          },
+          {
+            "description": "Top left position of the bounding box. This is specified as a comma separated string composed of lat., lon.",
+            "in": "query",
+            "name": "topLeft",
+            "type": "string",
+            "x-example": "37.553,-122.453"
+          },
+          {
+            "description": "Bottom right position of the bounding box. This is specified as a comma separated string composed of lat., lon.",
+            "in": "query",
+            "name": "btmRight",
+            "type": "string",
+            "x-example": "37.4,-122.55"
+          },
+          {
+            "description": "Language in which search results should be returned. Should be one of <a href=\"/search-api/search-api-documentation/supported-languages\">supported IETF language tags</a>, case insensitive.",
+            "in": "query",
+            "name": "language",
+            "type": "string"
+          },
+          {
+            "description": "Indexes for which extended postal codes should be included in the results. Available indexes are:\n  - <b>Addr</b> = Address ranges\n  - <b>Geo</b> = Geographies\n  - <b>PAD</b> = Point Addresses\n  - <b>POI</b> = Points of Interest\n  - <b>Str</b> = Streets\n  - <b>XStr</b> = Cross Streets (intersections)",
+            "in": "query",
+            "name": "extendedPostalCodesFor",
+            "type": "string"
+          },
+          {
+            "default": "Unified",
+            "description": "Geopolitical View.",
+            "enum": [
+              "Unified",
+              "IN",
+              "PK",
+              "IL",
+              "MA"
+            ],
+            "in": "query",
+            "name": "view",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK: the search successfully returned zero or more results."
+          },
+          "400": {
+            "description": "Bad Request: one or more parameters were incorrectly specified."
+          },
+          "403": {
+            "description": "Forbidden: possible causes include:\n  - Service requires SSL\n  - Not authorized\n  - Rate or volume limit exceeded\n  - Unknown referer"
+          },
+          "405": {
+            "description": "Method Not Allowed: the HTTP method (GET, POST, etc) is not supported for this request."
+          },
+          "596": {
+            "description": "Not Found: the HTTP request method (GET, POST, etc) or path is incorrect."
+          },
+          "5XX": {
+            "description": "An error occurred while processing the request. Please try again later."
+          }
+        },
+        "tags": [
+          "Geocoding"
+        ],
+        "summary": "Geocode"
+      }
+    },
+    "/search/{versionNumber}/geometryFilter.{ext}": {
+      "get": {
+        "parameters": [
+          {
+            "description": "Service version number. The current value is 2.",
+            "enum": [
+              2
+            ],
+            "in": "path",
+            "name": "versionNumber",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Expected response format.",
+            "enum": [
+              "json",
+              "jsonp",
+              "js",
+              "xml"
+            ],
+            "in": "path",
+            "name": "ext",
+            "required": true,
+            "type": "string",
+            "x-example": "xml"
+          },
+          {
+            "description": "List of geometries to filter by. Available types are CIRCLE (with the radius expressed in meters) and POLYGON.",
+            "in": "query",
+            "name": "geometryList",
+            "required": true,
+            "type": "string",
+            "x-example": "[{\"type\":\"CIRCLE\", \"position\":\"40.80558, -73.96548\", \"radius\":100}, {\"type\":\"POLYGON\", \"vertices\":[\"37.7524152343544, -122.43576049804686\", \"37.70660472542312, -122.43301391601562\", \"37.712059855877314, -122.36434936523438\", \"37.75350561243041, -122.37396240234374\"]}]"
+          },
+          {
+            "description": "List of POIs to filter. The only required attribute of a POI is position, everything else is optional and will be echoed back when passed in.",
+            "in": "query",
+            "name": "poiList",
+            "required": true,
+            "type": "string",
+            "x-example": "[{\"poi\":{\"name\":\"S Restaurant Toms\"},\"address\":{\"freeformAddress\":\"2880 Broadway, New York, NY 10025\"},\"position\":{\"lat\":40.80558,\"lon\":-73.96548}},{\"poi\":{\"name\":\"Yasha Raman Corporation\"},\"address\":{\"freeformAddress\":\"940 Amsterdam Ave, New York, NY 10025\"},\"position\":{\"lat\":40.80076,\"lon\":-73.96556}}]"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK: the search successfully returned zero or more results."
+          },
+          "400": {
+            "description": "Bad Request: one or more parameters were incorrectly specified."
+          },
+          "403": {
+            "description": "Forbidden: possible causes include:\n  - Service requires SSL\n  - Not authorized\n  - Rate or volume limit exceeded\n  - Unknown referer"
+          },
+          "405": {
+            "description": "Method Not Allowed: the HTTP method (GET, POST, etc) is not supported for this request."
+          },
+          "596": {
+            "description": "Not Found: the HTTP request method (GET, POST, etc) or path is incorrect."
+          },
+          "5XX": {
+            "description": "An error occurred while processing the request. Please try again later."
+          }
+        },
+        "tags": [
+          "Filters"
+        ],
+        "summary": "Geometry Filter"
+      },
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Service version number. The current value is 2.",
+            "enum": [
+              2
+            ],
+            "in": "path",
+            "name": "versionNumber",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Expected response format.",
+            "enum": [
+              "json",
+              "jsonp",
+              "js",
+              "xml"
+            ],
+            "in": "path",
+            "name": "ext",
+            "required": true,
+            "type": "string",
+            "x-example": "xml"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "example": {
+                "geometryList": [
+                  {
+                    "position": "40.80558,-73.96548",
+                    "radius": 100,
+                    "type": "CIRCLE"
+                  },
+                  {
+                    "type": "POLYGON",
+                    "vertices": [
+                      "37.7524152343544,-122.43576049804686",
+                      "37.70660472542312,-122.43301391601562",
+                      "37.712059855877314,-122.36434936523438",
+                      "37.75350561243041,-122.37396240234374"
+                    ]
+                  }
+                ],
+                "poiList": [
+                  {
+                    "address": {
+                      "freeformAddress": "2880 Broadway, New York, NY 10025"
+                    },
+                    "poi": {
+                      "name": "S Restaurant Tom's"
+                    },
+                    "position": {
+                      "lat": 40.80558,
+                      "lon": -73.96548
+                    }
+                  }
+                ]
+              },
+              "properties": {
+                "geometryList": {
+                  "items": {
+                    "properties": {
+                      "position": {
+                        "type": "string"
+                      },
+                      "radius": {
+                        "type": "integer"
+                      },
+                      "type": {
+                        "type": "string"
+                      },
+                      "vertices": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "poiList": {
+                  "items": {
+                    "properties": {
+                      "address": {
+                        "properties": {
+                          "freeformAddress": {
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "poi": {
+                        "properties": {
+                          "name": {
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "position": {
+                        "properties": {
+                          "lat": {
+                            "format": "float",
+                            "type": "number"
+                          },
+                          "lon": {
+                            "format": "float",
+                            "type": "number"
+                          }
+                        },
+                        "type": "object"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK: the search successfully returned zero or more results."
+          },
+          "400": {
+            "description": "Bad Request: one or more parameters were incorrectly specified."
+          },
+          "403": {
+            "description": "Forbidden: possible causes include:\n  - Service requires SSL\n  - Not authorized\n  - Rate or volume limit exceeded\n  - Unknown referer"
+          },
+          "405": {
+            "description": "Method Not Allowed: the HTTP method (GET, POST, etc) is not supported for this request."
+          },
+          "596": {
+            "description": "Not Found: the HTTP request method (GET, POST, etc) or path is incorrect."
+          },
+          "5XX": {
+            "description": "An error occurred while processing the request. Please try again later."
+          }
+        },
+        "tags": [
+          "Filters"
+        ],
+        "summary": "Geometry Filter"
+      }
+    },
+    "/search/{versionNumber}/geometrySearch/{query}.{ext}": {
+      "get": {
+        "parameters": [
+          {
+            "description": "Service version number. The current value is 2.",
+            "enum": [
+              2
+            ],
+            "in": "path",
+            "name": "versionNumber",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Query string. Must be properly URL encoded.",
+            "in": "path",
+            "name": "query",
+            "required": true,
+            "type": "string",
+            "x-example": "pizza"
+          },
+          {
+            "description": "Expected response format.",
+            "enum": [
+              "json",
+              "jsonp",
+              "js",
+              "xml"
+            ],
+            "in": "path",
+            "name": "ext",
+            "required": true,
+            "type": "string",
+            "x-example": "xml"
+          },
+          {
+            "description": "List of geometries to filter by. Available types are CIRCLE (with the radius expressed in meters) and POLYGON.",
+            "in": "query",
+            "name": "geometryList",
+            "type": "string",
+            "x-example": "[{\"type\":\"POLYGON\", \"vertices\":[\"37.7524152343544, -122.43576049804686\", \"37.70660472542312, -122.43301391601562\", \"37.712059855877314, -122.36434936523438\", \"37.75350561243041, -122.37396240234374\"]}, {\"type\":\"CIRCLE\", \"position\":\"37.71205, -121.36434\", \"radius\":6000}, {\"type\":\"CIRCLE\", \"position\":\"37.31205, -121.36434\", \"radius\":1000}]"
+          },
+          {
+            "default": 10,
+            "description": "Maximum number of search results that will be returned.",
+            "in": "query",
+            "maximum": 100,
+            "name": "limit",
+            "type": "integer"
+          },
+          {
+            "description": "Language in which search results should be returned. Should be one of <a href=\"/search-api/search-api-documentation/supported-languages\">supported IETF language tags</a>, case insensitive.",
+            "in": "query",
+            "name": "language",
+            "type": "string"
+          },
+          {
+            "description": "Indexes for which extended postal codes should be included in the results. Available indexes are:\n  - <b>Addr</b> = Address ranges\n  - <b>Geo</b> = Geographies\n  - <b>PAD</b> = Point Addresses\n  - <b>POI</b> = Points of Interest\n  - <b>Str</b> = Streets\n  - <b>XStr</b> = Cross Streets (intersections)",
+            "in": "query",
+            "name": "extendedPostalCodesFor",
+            "type": "string"
+          },
+          {
+            "description": "A comma separated list of indexes which should be utilized for the search. Item order does not matter. Available indexes are:\n  - <b>Addr</b> = Address range interpolation (when there is no PAD)\n  - <b>Geo</b> = Geographies\n  - <b>PAD</b> = Point Addresses\n  - <b>POI</b> = Points of interest\n  - <b>Str</b> = Streets\n  - <b>Xstr</b> = Cross Streets (intersections)",
+            "in": "query",
+            "name": "idxSet",
+            "type": "string",
+            "x-example": "POI"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK: the search successfully returned zero or more results."
+          },
+          "400": {
+            "description": "Bad Request: one or more parameters were incorrectly specified."
+          },
+          "403": {
+            "description": "Forbidden: possible causes include:\n  - Service requires SSL\n  - Not authorized\n  - Rate or volume limit exceeded\n  - Unknown referer"
+          },
+          "405": {
+            "description": "Method Not Allowed: the HTTP method (GET, POST, etc) is not supported for this request."
+          },
+          "596": {
+            "description": "Not Found: the HTTP request method (GET, POST, etc) or path is incorrect."
+          },
+          "5XX": {
+            "description": "An error occurred while processing the request. Please try again later."
+          }
+        },
+        "tags": [
+          "Search"
+        ],
+        "summary": "Geometry Search"
+      },
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Service version number. The current value is 2.",
+            "enum": [
+              2
+            ],
+            "in": "path",
+            "name": "versionNumber",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Query string. Must be properly URL encoded.",
+            "in": "path",
+            "name": "query",
+            "required": true,
+            "type": "string",
+            "x-example": "pizza"
+          },
+          {
+            "description": "Expected response format.",
+            "enum": [
+              "json",
+              "jsonp",
+              "js",
+              "xml"
+            ],
+            "in": "path",
+            "name": "ext",
+            "required": true,
+            "type": "string",
+            "x-example": "xml"
+          },
+          {
+            "default": 10,
+            "description": "Maximum number of search results that will be returned.",
+            "in": "query",
+            "maximum": 100,
+            "name": "limit",
+            "type": "integer"
+          },
+          {
+            "description": "Language in which search results should be returned. Should be one of <a href=\"/search-api/search-api-documentation/supported-languages\">supported IETF language tags</a>, case insensitive.",
+            "in": "query",
+            "name": "language",
+            "type": "string"
+          },
+          {
+            "description": "Indexes for which extended postal codes should be included in the results. Available indexes are:\n  - <b>Addr</b> = Address ranges\n  - <b>Geo</b> = Geographies\n  - <b>PAD</b> = Point Addresses\n  - <b>POI</b> = Points of Interest\n  - <b>Str</b> = Streets\n  - <b>XStr</b> = Cross Streets (intersections)",
+            "in": "query",
+            "name": "extendedPostalCodesFor",
+            "type": "string"
+          },
+          {
+            "description": "A comma separated list of indexes which should be utilized for the search. Item order does not matter. Available indexes are:\n  - <b>Addr</b> = Address range interpolation (when there is no PAD)\n  - <b>Geo</b> = Geographies\n  - <b>PAD</b> = Point Addresses\n  - <b>POI</b> = Points of interest\n  - <b>Str</b> = Streets\n  - <b>Xstr</b> = Cross Streets (intersections)",
+            "in": "query",
+            "name": "idxSet",
+            "type": "string",
+            "x-example": "POI"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "example": {
+                "geometryList": [
+                  {
+                    "type": "POLYGON",
+                    "vertices": [
+                      "37.7524152343544,-122.43576049804686",
+                      "37.70660472542312,-122.43301391601562",
+                      "37.712059855877314,-122.36434936523438",
+                      "37.75350561243041,-122.37396240234374"
+                    ]
+                  },
+                  {
+                    "position": "37.71205,-121.36434",
+                    "radius": 6000,
+                    "type": "CIRCLE"
+                  },
+                  {
+                    "position": "37.31205,-121.36434",
+                    "radius": 1000,
+                    "type": "CIRCLE"
+                  }
+                ]
+              },
+              "properties": {
+                "geometryList": {
+                  "items": {
+                    "properties": {
+                      "position": {
+                        "type": "string"
+                      },
+                      "radius": {
+                        "type": "integer"
+                      },
+                      "type": {
+                        "type": "string"
+                      },
+                      "vertices": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK: the search successfully returned zero or more results."
+          },
+          "400": {
+            "description": "Bad Request: one or more parameters were incorrectly specified."
+          },
+          "403": {
+            "description": "Forbidden: possible causes include:\n  - Service requires SSL\n  - Not authorized\n  - Rate or volume limit exceeded\n  - Unknown referer"
+          },
+          "405": {
+            "description": "Method Not Allowed: the HTTP method (GET, POST, etc) is not supported for this request."
+          },
+          "596": {
+            "description": "Not Found: the HTTP request method (GET, POST, etc) or path is incorrect."
+          },
+          "5XX": {
+            "description": "An error occurred while processing the request. Please try again later."
+          }
+        },
+        "tags": [
+          "Search"
+        ],
+        "summary": "Geometry Search"
+      }
+    },
+    "/search/{versionNumber}/nearbySearch/.{ext}": {
+      "get": {
+        "parameters": [
+          {
+            "description": "Service version number. The current value is 2.",
+            "enum": [
+              2
+            ],
+            "in": "path",
+            "name": "versionNumber",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Expected response format.",
+            "enum": [
+              "json",
+              "jsonp",
+              "js",
+              "xml"
+            ],
+            "in": "path",
+            "name": "ext",
+            "required": true,
+            "type": "string",
+            "x-example": "xml"
+          },
+          {
+            "description": "Latitude where results should be biased.\nNOTE: supplying a lat/lon without a radius will return search results biased to that point.",
+            "format": "float",
+            "in": "query",
+            "name": "lat",
+            "required": true,
+            "type": "number",
+            "x-example": 37.337
+          },
+          {
+            "description": "Longitude where results should be biased\nNOTE: supplying a lat/lon without a radius will return search results biased to that point.",
+            "format": "float",
+            "in": "query",
+            "name": "lon",
+            "required": true,
+            "type": "number",
+            "x-example": -121.89
+          },
+          {
+            "default": 10,
+            "description": "Maximum number of search results that will be returned.",
+            "in": "query",
+            "maximum": 100,
+            "name": "limit",
+            "type": "integer"
+          },
+          {
+            "default": 0,
+            "description": "Starting offset of the returned results within the full result set.",
+            "in": "query",
+            "maximum": 1900,
+            "name": "ofs",
+            "type": "integer"
+          },
+          {
+            "description": "Comma separated string of country codes. This will limit the search to the specified countries.",
+            "in": "query",
+            "name": "countrySet",
+            "type": "string",
+            "x-example": "FR"
+          },
+          {
+            "default": 10000,
+            "description": "If radius and position are set, the results will be constrained to the defined area. The radius parameter is specified in meters.",
+            "in": "query",
+            "maximum": 50000,
+            "name": "radius",
+            "type": "integer"
+          },
+          {
+            "deprecated": true,
+            "description": "Top left position of the bounding box. This is specified as a comma separated string composed of lat., lon.",
+            "in": "query",
+            "name": "topLeft",
+            "type": "string",
+            "x-example": "37.553,-122.453"
+          },
+          {
+            "deprecated": true,
+            "description": "Bottom right position of the bounding box. This is specified as a comma separated string composed of lat., lon.",
+            "in": "query",
+            "name": "btmRight",
+            "type": "string",
+            "x-example": "37.4,-122.55"
+          },
+          {
+            "description": "Language in which search results should be returned. Should be one of <a href=\"/search-api/search-api-documentation/supported-languages\">supported IETF language tags</a>, case insensitive.",
+            "in": "query",
+            "name": "language",
+            "type": "string"
+          },
+          {
+            "description": "Indexes for which extended postal codes should be included in the results. Available indexes are:\n  - <b>Addr</b> = Address ranges\n  - <b>Geo</b> = Geographies\n  - <b>PAD</b> = Point Addresses\n  - <b>POI</b> = Points of Interest\n  - <b>Str</b> = Streets\n  - <b>XStr</b> = Cross Streets (intersections)",
+            "in": "query",
+            "name": "extendedPostalCodesFor",
+            "type": "string"
+          },
+          {
+            "default": 1,
+            "description": "Minimum fuzziness level to be used.",
+            "in": "query",
+            "maximum": 4,
+            "minimum": 1,
+            "name": "minFuzzyLevel",
+            "type": "integer"
+          },
+          {
+            "default": 2,
+            "description": "Maximum fuzziness level to be used.",
+            "in": "query",
+            "maximum": 4,
+            "minimum": 1,
+            "name": "maxFuzzyLevel",
+            "type": "integer"
+          },
+          {
+            "description": "A comma separated list of indexes which should be utilized for the search. Item order does not matter. Available indexes are:\n  - <b>Addr</b> = Address range interpolation (when there is no PAD)\n  - <b>Geo</b> = Geographies\n  - <b>PAD</b> = Point Addresses\n  - <b>POI</b> = Points of interest\n  - <b>Str</b> = Streets\n  - <b>Xstr</b> = Cross Streets (intersections)",
+            "in": "query",
+            "name": "idxSet",
+            "type": "string",
+            "x-example": "POI"
+          },
+          {
+            "default": "Unified",
+            "description": "Geopolitical View.",
+            "enum": [
+              "Unified",
+              "IN",
+              "PK",
+              "IL",
+              "MA"
+            ],
+            "in": "query",
+            "name": "view",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK: the search successfully returned zero or more results."
+          },
+          "400": {
+            "description": "Bad Request: one or more parameters were incorrectly specified."
+          },
+          "403": {
+            "description": "Forbidden: possible causes include:\n  - Service requires SSL\n  - Not authorized\n  - Rate or volume limit exceeded\n  - Unknown referer"
+          },
+          "405": {
+            "description": "Method Not Allowed: the HTTP method (GET, POST, etc) is not supported for this request."
+          },
+          "596": {
+            "description": "Not Found: the HTTP request method (GET, POST, etc) or path is incorrect."
+          },
+          "5XX": {
+            "description": "An error occurred while processing the request. Please try again later."
+          }
+        },
+        "tags": [
+          "Search"
+        ],
+        "summary": "Nearby Search"
+      }
+    },
+    "/search/{versionNumber}/poiSearch/{query}.{ext}": {
+      "get": {
+        "parameters": [
+          {
+            "description": "Service version number. The current value is 2.",
+            "enum": [
+              2
+            ],
+            "in": "path",
+            "name": "versionNumber",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Query string. Must be properly URL encoded.",
+            "in": "path",
+            "name": "query",
+            "required": true,
+            "type": "string",
+            "x-example": "pizza"
+          },
+          {
+            "description": "Expected response format.",
+            "enum": [
+              "json",
+              "jsonp",
+              "js",
+              "xml"
+            ],
+            "in": "path",
+            "name": "ext",
+            "required": true,
+            "type": "string",
+            "x-example": "xml"
+          },
+          {
+            "default": false,
+            "description": "If the \"typeahead\" flag is set, the query will be interpreted as a partial input and the search will enter <b>predictive</b> mode.",
+            "in": "query",
+            "name": "typeahead",
+            "type": "boolean"
+          },
+          {
+            "default": 10,
+            "description": "Maximum number of search results that will be returned.",
+            "in": "query",
+            "maximum": 100,
+            "name": "limit",
+            "type": "integer"
+          },
+          {
+            "default": 0,
+            "description": "Starting offset of the returned results within the full result set.",
+            "in": "query",
+            "maximum": 1900,
+            "name": "ofs",
+            "type": "integer"
+          },
+          {
+            "description": "Comma separated string of country codes. This will limit the search to the specified countries.",
+            "in": "query",
+            "name": "countrySet",
+            "type": "string",
+            "x-example": "FR"
+          },
+          {
+            "description": "Latitude where results should be biased.\nNOTE: supplying a lat/lon without a radius will return search results biased to that point.",
+            "format": "float",
+            "in": "query",
+            "name": "lat",
+            "type": "number",
+            "x-example": 37.337
+          },
+          {
+            "description": "Longitude where results should be biased\nNOTE: supplying a lat/lon without a radius will return search results biased to that point.",
+            "format": "float",
+            "in": "query",
+            "name": "lon",
+            "type": "number",
+            "x-example": -121.89
+          },
+          {
+            "description": "If radius <b>and</b> position are set, the results will be constrained to the defined area. The radius parameter is specified in meters.",
+            "in": "query",
+            "name": "radius",
+            "type": "integer"
+          },
+          {
+            "description": "Top left position of the bounding box. This is specified as a comma separated string composed of lat., lon.",
+            "in": "query",
+            "name": "topLeft",
+            "type": "string",
+            "x-example": "37.553,-122.453"
+          },
+          {
+            "description": "Bottom right position of the bounding box. This is specified as a comma separated string composed of lat., lon.",
+            "in": "query",
+            "name": "btmRight",
+            "type": "string",
+            "x-example": "37.4,-122.55"
+          },
+          {
+            "description": "Language in which search results should be returned. Should be one of <a href=\"/search-api/search-api-documentation/supported-languages\">supported IETF language tags</a>, case insensitive.",
+            "in": "query",
+            "name": "language",
+            "type": "string"
+          },
+          {
+            "description": "Indexes for which extended postal codes should be included in the results. Available indexes are:\n  - <b>Addr</b> = Address ranges\n  - <b>Geo</b> = Geographies\n  - <b>PAD</b> = Point Addresses\n  - <b>POI</b> = Points of Interest\n  - <b>Str</b> = Streets\n  - <b>XStr</b> = Cross Streets (intersections)",
+            "in": "query",
+            "name": "extendedPostalCodesFor",
+            "type": "string"
+          },
+          {
+            "default": "Unified",
+            "description": "Geopolitical View.",
+            "enum": [
+              "Unified",
+              "IN",
+              "PK",
+              "IL",
+              "MA"
+            ],
+            "in": "query",
+            "name": "view",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK: the search successfully returned zero or more results."
+          },
+          "400": {
+            "description": "Bad Request: one or more parameters were incorrectly specified."
+          },
+          "403": {
+            "description": "Forbidden: possible causes include:\n  - Service requires SSL\n  - Not authorized\n  - Rate or volume limit exceeded\n  - Unknown referer"
+          },
+          "405": {
+            "description": "Method Not Allowed: the HTTP method (GET, POST, etc) is not supported for this request."
+          },
+          "596": {
+            "description": "Not Found: the HTTP request method (GET, POST, etc) or path is incorrect."
+          },
+          "5XX": {
+            "description": "An error occurred while processing the request. Please try again later."
+          }
+        },
+        "tags": [
+          "Search"
+        ],
+        "summary": "Points of Interest Search"
+      }
+    },
+    "/search/{versionNumber}/reverseGeocode/crossStreet/{position}.{ext}": {
+      "get": {
+        "parameters": [
+          {
+            "description": "Service version number. The current value is 2.",
+            "enum": [
+              2
+            ],
+            "in": "path",
+            "name": "versionNumber",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "This is specified as a comma separated string composed of lat., lon.",
+            "in": "path",
+            "name": "position",
+            "required": true,
+            "type": "string",
+            "x-example": "37.8328,-122.27669"
+          },
+          {
+            "description": "Expected response format.",
+            "enum": [
+              "json",
+              "jsonp",
+              "js",
+              "xml"
+            ],
+            "in": "path",
+            "name": "ext",
+            "required": true,
+            "type": "string",
+            "x-example": "xml"
+          },
+          {
+            "default": 1,
+            "description": "Maximum number of cross-streets to return.",
+            "in": "query",
+            "maximum": 100,
+            "minimum": 0,
+            "name": "limit",
+            "type": "integer"
+          },
+          {
+            "default": false,
+            "deprecated": true,
+            "description": "If the \"spatialKeys\" flag is set, the response will also contain a proprietary geospatial keys for a specified location.",
+            "in": "query",
+            "name": "spatialKeys",
+            "type": "boolean"
+          },
+          {
+            "description": "The directional heading in degrees, usually similar to the course along a road segment. Entered in degrees, measured clockwise from north (so north is 0, east is 90, etc.)",
+            "format": "float",
+            "in": "query",
+            "name": "heading",
+            "type": "number"
+          },
+          {
+            "default": 10000,
+            "description": "The maximum distance in meters from the specified position for the reverse geocoder to consider.",
+            "in": "query",
+            "name": "radius",
+            "type": "integer"
+          },
+          {
+            "description": "Language in which search results should be returned. Should be one of <a href=\"/search-api/search-api-documentation/supported-languages\">supported IETF language tags</a>, case insensitive.",
+            "in": "query",
+            "name": "language",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK: the search successfully returned zero or more results."
+          },
+          "400": {
+            "description": "Bad Request: one or more parameters were incorrectly specified."
+          },
+          "403": {
+            "description": "Forbidden: possible causes include:\n  - Service requires SSL\n  - Not authorized\n  - Rate or volume limit exceeded\n  - Unknown referer"
+          },
+          "405": {
+            "description": "Method Not Allowed: the HTTP method (GET, POST, etc) is not supported for this request."
+          },
+          "596": {
+            "description": "Not Found: the HTTP request method (GET, POST, etc) or path is incorrect."
+          },
+          "5XX": {
+            "description": "An error occurred while processing the request. Please try again later."
+          }
+        },
+        "tags": [
+          "Reverse Geocoding"
+        ],
+        "summary": "Cross Street lookup"
+      }
+    },
+    "/search/{versionNumber}/reverseGeocode/{position}.{ext}": {
+      "get": {
+        "parameters": [
+          {
+            "description": "Service version number. The current value is 2.",
+            "enum": [
+              2
+            ],
+            "in": "path",
+            "name": "versionNumber",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "This is specified as a comma separated string composed of lat., lon.",
+            "in": "path",
+            "name": "position",
+            "required": true,
+            "type": "string",
+            "x-example": "37.8328,-122.27669"
+          },
+          {
+            "description": "Expected response format.",
+            "enum": [
+              "json",
+              "jsonp",
+              "js",
+              "xml"
+            ],
+            "in": "path",
+            "name": "ext",
+            "required": true,
+            "type": "string",
+            "x-example": "xml"
+          },
+          {
+            "default": false,
+            "deprecated": true,
+            "description": "If the \"spatialKeys\" flag is set, the response will also contain a proprietary geospatial keys for a specified location.",
+            "in": "query",
+            "name": "spatialKeys",
+            "type": "boolean"
+          },
+          {
+            "default": false,
+            "description": "To enable return of the posted speed limit (where available).",
+            "in": "query",
+            "name": "returnSpeedLimit",
+            "type": "boolean"
+          },
+          {
+            "description": "The directional heading in degrees, usually similar to the course along a road segment. Entered in degrees, measured clockwise from north (so north is 0, east is 90, etc.)",
+            "format": "float",
+            "in": "query",
+            "name": "heading",
+            "type": "number"
+          },
+          {
+            "default": 10000,
+            "description": "The maximum distance in meters from the specified position for the reverse geocoder to consider.",
+            "in": "query",
+            "name": "radius",
+            "type": "integer"
+          },
+          {
+            "description": "If a number is sent in along with the request, the response may include the side of the street (Left/Right) and an offset position for that number.",
+            "in": "query",
+            "name": "number",
+            "type": "string"
+          },
+          {
+            "default": false,
+            "description": "Enables return of the road use array for reverse geocodes at street level.",
+            "in": "query",
+            "name": "returnRoadUse",
+            "type": "boolean"
+          },
+          {
+            "description": "Restricts reverse geocodes to a certain type of road use. The road use array for reverse geocodes can be one or more of: [\"LimitedAccess\", \"Arterial\", \"Terminal\", \"Ramp\", \"Rotary\", \"LocalStreet\"].",
+            "in": "query",
+            "name": "roadUse",
+            "type": "string"
+          },
+          {
+            "default": "cb",
+            "description": "Specifies the jsonp callback method.",
+            "in": "query",
+            "name": "callback",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK: the search successfully returned zero or more results."
+          },
+          "400": {
+            "description": "Bad Request: one or more parameters were incorrectly specified."
+          },
+          "403": {
+            "description": "Forbidden: possible causes include:\n  - Service requires SSL\n  - Not authorized\n  - Rate or volume limit exceeded\n  - Unknown referer"
+          },
+          "405": {
+            "description": "Method Not Allowed: the HTTP method (GET, POST, etc) is not supported for this request."
+          },
+          "596": {
+            "description": "Not Found: the HTTP request method (GET, POST, etc) or path is incorrect."
+          },
+          "5XX": {
+            "description": "An error occurred while processing the request. Please try again later."
+          }
+        },
+        "tags": [
+          "Reverse Geocoding"
+        ],
+        "summary": "Reverse Geocode"
+      }
+    },
+    "/search/{versionNumber}/routedFilter/{position}/{heading}.{ext}": {
+      "get": {
+        "parameters": [
+          {
+            "description": "Service version number. The current value is 2.",
+            "enum": [
+              2
+            ],
+            "in": "path",
+            "name": "versionNumber",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "This is specified as a comma separated string composed of lat., lon.",
+            "in": "path",
+            "name": "position",
+            "required": true,
+            "type": "string",
+            "x-example": "37.8328,-122.27669"
+          },
+          {
+            "description": "The directional heading in degrees, usually similar to the course along a road segment. Entered in degrees, measured clockwise from north (so north is 0, east is 90, etc.)",
+            "format": "float",
+            "in": "path",
+            "name": "heading",
+            "required": true,
+            "type": "number",
+            "x-example": -15.6
+          },
+          {
+            "description": "Expected response format.",
+            "enum": [
+              "json",
+              "jsonp",
+              "js",
+              "xml"
+            ],
+            "in": "path",
+            "name": "ext",
+            "required": true,
+            "type": "string",
+            "x-example": "xml"
+          },
+          {
+            "description": "List of POIs to filter. The only required attribute of a POI is position, everything else is optional and will be echoed back when passed in.",
+            "in": "query",
+            "name": "poiList",
+            "required": true,
+            "type": "string",
+            "x-example": "[{\"poi\":{\"name\":\"Cleaire Advanced Emission Controls\"},\"address\":{\"freeformAddress\":\"7220 Trade St, San Diego, CA 92121\"},\"position\":{\"lat\":\"37.83274\",\"lon\":\"-122.27631\"}}]"
+          },
+          {
+            "default": 4000,
+            "description": "Only return results that arrive from routing engine within this time limit.",
+            "in": "query",
+            "name": "routingTimeout",
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK: the search successfully returned zero or more results."
+          },
+          "400": {
+            "description": "Bad Request: one or more parameters were incorrectly specified."
+          },
+          "403": {
+            "description": "Forbidden: possible causes include:\n  - Service requires SSL\n  - Not authorized\n  - Rate or volume limit exceeded\n  - Unknown referer"
+          },
+          "405": {
+            "description": "Method Not Allowed: the HTTP method (GET, POST, etc) is not supported for this request."
+          },
+          "596": {
+            "description": "Not Found: the HTTP request method (GET, POST, etc) or path is incorrect."
+          },
+          "5XX": {
+            "description": "An error occurred while processing the request. Please try again later."
+          }
+        },
+        "tags": [
+          "Filters"
+        ],
+        "deprecated": true,
+        "summary": "Routed Filter"
+      },
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Service version number. The current value is 2.",
+            "enum": [
+              2
+            ],
+            "in": "path",
+            "name": "versionNumber",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "This is specified as a comma separated string composed of lat., lon.",
+            "in": "path",
+            "name": "position",
+            "required": true,
+            "type": "string",
+            "x-example": "37.8328,-122.27669"
+          },
+          {
+            "description": "The directional heading in degrees, usually similar to the course along a road segment. Entered in degrees, measured clockwise from north (so north is 0, east is 90, etc.)",
+            "format": "float",
+            "in": "path",
+            "name": "heading",
+            "required": true,
+            "type": "number",
+            "x-example": 90
+          },
+          {
+            "description": "Expected response format.",
+            "enum": [
+              "json",
+              "jsonp",
+              "js",
+              "xml"
+            ],
+            "in": "path",
+            "name": "ext",
+            "required": true,
+            "type": "string",
+            "x-example": "xml"
+          },
+          {
+            "default": 4000,
+            "description": "Only return results that arrive from routing engine within this time limit.",
+            "in": "query",
+            "name": "routingTimeout",
+            "type": "integer"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "example": {
+                "poiList": [
+                  {
+                    "address": {
+                      "freeformAddress": "9500 Gilman Dr, San Diego, CA 92037"
+                    },
+                    "poi": {
+                      "name": "University of California San Diego"
+                    },
+                    "position": {
+                      "lat": 32.87349,
+                      "lon": -117.2378
+                    }
+                  },
+                  {
+                    "address": {
+                      "freeformAddress": "7220 Trade St, San Diego, CA 92121"
+                    },
+                    "poi": {
+                      "name": "Cleaire Advanced Emission Controls"
+                    },
+                    "position": {
+                      "lat": 37.83274,
+                      "lon": -122.27631
+                    }
+                  }
+                ]
+              },
+              "properties": {
+                "poiList": {
+                  "items": {
+                    "properties": {
+                      "address": {
+                        "properties": {
+                          "freeformAddress": {
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "poi": {
+                        "properties": {
+                          "name": {
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "position": {
+                        "properties": {
+                          "lat": {
+                            "format": "float",
+                            "type": "number"
+                          },
+                          "lon": {
+                            "format": "float",
+                            "type": "number"
+                          }
+                        },
+                        "type": "object"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK: the search successfully returned zero or more results."
+          },
+          "400": {
+            "description": "Bad Request: one or more parameters were incorrectly specified."
+          },
+          "403": {
+            "description": "Forbidden: possible causes include:\n  - Service requires SSL\n  - Not authorized\n  - Rate or volume limit exceeded\n  - Unknown referer"
+          },
+          "405": {
+            "description": "Method Not Allowed: the HTTP method (GET, POST, etc) is not supported for this request."
+          },
+          "596": {
+            "description": "Not Found: the HTTP request method (GET, POST, etc) or path is incorrect."
+          },
+          "5XX": {
+            "description": "An error occurred while processing the request. Please try again later."
+          }
+        },
+        "tags": [
+          "Filters"
+        ],
+        "deprecated": true,
+        "summary": "Routed Filter"
+      }
+    },
+    "/search/{versionNumber}/routedSearch/{query}/{position}/{heading}.{ext}": {
+      "get": {
+        "parameters": [
+          {
+            "description": "Service version number. The current value is 2.",
+            "enum": [
+              2
+            ],
+            "in": "path",
+            "name": "versionNumber",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Query string. Must be properly URL encoded.",
+            "in": "path",
+            "name": "query",
+            "required": true,
+            "type": "string",
+            "x-example": "gas"
+          },
+          {
+            "description": "This is specified as a comma separated string composed of lat., lon.",
+            "in": "path",
+            "name": "position",
+            "required": true,
+            "type": "string",
+            "x-example": "37.8328,-122.27669"
+          },
+          {
+            "description": "The directional heading in degrees, usually similar to the course along a road segment. Entered in degrees, measured clockwise from north (so north is 0, east is 90, etc.)",
+            "format": "float",
+            "in": "path",
+            "name": "heading",
+            "required": true,
+            "type": "number",
+            "x-example": 90
+          },
+          {
+            "description": "Expected response format.",
+            "enum": [
+              "json",
+              "jsonp",
+              "js",
+              "xml"
+            ],
+            "in": "path",
+            "name": "ext",
+            "required": true,
+            "type": "string",
+            "x-example": "xml"
+          },
+          {
+            "default": false,
+            "description": "If the \"typeahead\" flag is set, the query will be interpreted as a partial input and the search will enter <b>predictive</b> mode.",
+            "in": "query",
+            "name": "typeahead",
+            "type": "boolean"
+          },
+          {
+            "default": 10,
+            "description": "Maximum number of search results that will be returned.",
+            "in": "query",
+            "maximum": 100,
+            "name": "limit",
+            "type": "integer"
+          },
+          {
+            "default": 2,
+            "description": "Multiplies the limit by N to gather more candidate POIs, which will then be sorted by drive distance, returning only the top candidates according to the limit.",
+            "in": "query",
+            "name": "multiplier",
+            "type": "integer"
+          },
+          {
+            "default": 4000,
+            "description": "Only return results that arrive from routing engine within this time limit.",
+            "in": "query",
+            "name": "routingTimeout",
+            "type": "integer"
+          },
+          {
+            "description": "Language in which search results should be returned. Should be one of <a href=\"/search-api/search-api-documentation/supported-languages\">supported IETF language tags</a>, case insensitive.",
+            "in": "query",
+            "name": "language",
+            "type": "string"
+          },
+          {
+            "description": "Indexes for which extended postal codes should be included in the results. Available indexes are:\n  - <b>Addr</b> = Address ranges\n  - <b>Geo</b> = Geographies\n  - <b>PAD</b> = Point Addresses\n  - <b>POI</b> = Points of Interest\n  - <b>Str</b> = Streets\n  - <b>XStr</b> = Cross Streets (intersections)",
+            "in": "query",
+            "name": "extendedPostalCodesFor",
+            "type": "string"
+          },
+          {
+            "description": "A comma separated list of indexes which should be utilized for the search. Item order does not matter. Available indexes are:\n  - <b>Addr</b> = Address range interpolation (when there is no PAD)\n  - <b>Geo</b> = Geographies\n  - <b>PAD</b> = Point Addresses\n  - <b>POI</b> = Points of interest\n  - <b>Str</b> = Streets\n  - <b>Xstr</b> = Cross Streets (intersections)",
+            "in": "query",
+            "name": "idxSet",
+            "type": "string",
+            "x-example": "POI"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK: the search successfully returned zero or more results."
+          },
+          "400": {
+            "description": "Bad Request: one or more parameters were incorrectly specified."
+          },
+          "403": {
+            "description": "Forbidden: possible causes include:\n  - Service requires SSL\n  - Not authorized\n  - Rate or volume limit exceeded\n  - Unknown referer"
+          },
+          "405": {
+            "description": "Method Not Allowed: the HTTP method (GET, POST, etc) is not supported for this request."
+          },
+          "596": {
+            "description": "Not Found: the HTTP request method (GET, POST, etc) or path is incorrect."
+          },
+          "5XX": {
+            "description": "An error occurred while processing the request. Please try again later."
+          }
+        },
+        "tags": [
+          "Search"
+        ],
+        "deprecated": true,
+        "summary": "Routed Search"
+      }
+    },
+    "/search/{versionNumber}/s/{query}.{ext}": {
+      "get": {
+        "parameters": [
+          {
+            "description": "Service version number. The current value is 2.",
+            "enum": [
+              2
+            ],
+            "in": "path",
+            "name": "versionNumber",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Query string. Must be properly URL encoded.",
+            "in": "path",
+            "name": "query",
+            "required": true,
+            "type": "string",
+            "x-example": "pizza"
+          },
+          {
+            "description": "Expected response format.",
+            "enum": [
+              "json",
+              "jsonp",
+              "js",
+              "xml"
+            ],
+            "in": "path",
+            "name": "ext",
+            "required": true,
+            "type": "string",
+            "x-example": "xml"
+          },
+          {
+            "default": false,
+            "description": "If the \"typeahead\" flag is set, the query will be interpreted as a partial input and the search will enter <b>predictive</b> mode.",
+            "in": "query",
+            "name": "typeahead",
+            "type": "boolean"
+          },
+          {
+            "default": 10,
+            "description": "Maximum number of search results that will be returned.",
+            "in": "query",
+            "maximum": 100,
+            "name": "limit",
+            "type": "integer"
+          },
+          {
+            "default": 0,
+            "description": "Starting offset of the returned results within the full result set.",
+            "in": "query",
+            "maximum": 1900,
+            "name": "ofs",
+            "type": "integer"
+          },
+          {
+            "description": "Comma separated string of country codes. This will limit the search to the specified countries.",
+            "in": "query",
+            "name": "countrySet",
+            "type": "string",
+            "x-example": "FR"
+          },
+          {
+            "description": "Latitude where results should be biased.\nNOTE: supplying a lat/lon without a radius will return search results biased to that point.",
+            "format": "float",
+            "in": "query",
+            "name": "lat",
+            "type": "number",
+            "x-example": 37.337
+          },
+          {
+            "description": "Longitude where results should be biased\nNOTE: supplying a lat/lon without a radius will return search results biased to that point.",
+            "format": "float",
+            "in": "query",
+            "name": "lon",
+            "type": "number",
+            "x-example": -121.89
+          },
+          {
+            "description": "If radius <b>and</b> position are set, the results will be constrained to the defined area. The radius parameter is specified in meters.",
+            "in": "query",
+            "name": "radius",
+            "type": "integer"
+          },
+          {
+            "description": "Top left position of the bounding box. This is specified as a comma separated string composed of lat., lon.",
+            "in": "query",
+            "name": "topLeft",
+            "type": "string",
+            "x-example": "37.553,-122.453"
+          },
+          {
+            "description": "Bottom right position of the bounding box. This is specified as a comma separated string composed of lat., lon.",
+            "in": "query",
+            "name": "btmRight",
+            "type": "string",
+            "x-example": "37.4,-122.55"
+          },
+          {
+            "description": "Language in which search results should be returned. Should be one of <a href=\"/search-api/search-api-documentation/supported-languages\">supported IETF language tags</a>, case insensitive.",
+            "in": "query",
+            "name": "language",
+            "type": "string"
+          },
+          {
+            "description": "A comma separated list of indexes which should be utilized for the search. Item order does not matter. Available indexes are:\n  - <b>Addr</b> = Address range interpolation (when there is no PAD)\n  - <b>Geo</b> = Geographies\n  - <b>PAD</b> = Point Addresses\n  - <b>POI</b> = Points of interest\n  - <b>Str</b> = Streets\n  - <b>Xstr</b> = Cross Streets (intersections)",
+            "in": "query",
+            "name": "idxSet",
+            "type": "string",
+            "x-example": "POI"
+          },
+          {
+            "default": "Unified",
+            "description": "Geopolitical View.",
+            "enum": [
+              "Unified",
+              "IN",
+              "PK",
+              "IL",
+              "MA"
+            ],
+            "in": "query",
+            "name": "view",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK: the search successfully returned zero or more results."
+          },
+          "400": {
+            "description": "Bad Request: one or more parameters were incorrectly specified."
+          },
+          "403": {
+            "description": "Forbidden: possible causes include:\n  - Service requires SSL\n  - Not authorized\n  - Rate or volume limit exceeded\n  - Unknown referer"
+          },
+          "405": {
+            "description": "Method Not Allowed: the HTTP method (GET, POST, etc) is not supported for this request."
+          },
+          "596": {
+            "description": "Not Found: the HTTP request method (GET, POST, etc) or path is incorrect."
+          },
+          "5XX": {
+            "description": "An error occurred while processing the request. Please try again later."
+          }
+        },
+        "tags": [
+          "Search"
+        ],
+        "deprecated": true,
+        "summary": "Low bandwith Search"
+      }
+    },
+    "/search/{versionNumber}/search/{query}.{ext}": {
+      "get": {
+        "parameters": [
+          {
+            "description": "Service version number. The current value is 2.",
+            "enum": [
+              2
+            ],
+            "in": "path",
+            "name": "versionNumber",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Query string. Must be properly URL encoded.\n\nTo perform a reverse geocode, the user can provide latitude and longitude coordinates directly in the query. More information can be found <a href=\"/search-api/search-api-documentation-search/fuzzy-search#AdditionalInfo\">here</a>.",
+            "in": "path",
+            "name": "query",
+            "required": true,
+            "type": "string",
+            "x-example": "pizza"
+          },
+          {
+            "description": "Expected response format.",
+            "enum": [
+              "json",
+              "jsonp",
+              "js",
+              "xml"
+            ],
+            "in": "path",
+            "name": "ext",
+            "required": true,
+            "type": "string",
+            "x-example": "xml"
+          },
+          {
+            "default": false,
+            "description": "If the \"typeahead\" flag is set, the query will be interpreted as a partial input and the search will enter <b>predictive</b> mode.",
+            "in": "query",
+            "name": "typeahead",
+            "type": "boolean"
+          },
+          {
+            "default": 10,
+            "description": "Maximum number of search results that will be returned.",
+            "in": "query",
+            "maximum": 100,
+            "name": "limit",
+            "type": "integer"
+          },
+          {
+            "default": 0,
+            "description": "Starting offset of the returned results within the full result set.",
+            "in": "query",
+            "maximum": 1900,
+            "name": "ofs",
+            "type": "integer"
+          },
+          {
+            "description": "Comma separated string of country codes. This will limit the search to the specified countries.",
+            "in": "query",
+            "name": "countrySet",
+            "type": "string",
+            "x-example": "FR"
+          },
+          {
+            "description": "Latitude where results should be biased.\nNOTE: supplying a lat/lon without a radius will return search results biased to that point.",
+            "format": "float",
+            "in": "query",
+            "name": "lat",
+            "type": "number",
+            "x-example": 37.337
+          },
+          {
+            "description": "Longitude where results should be biased\nNOTE: supplying a lat/lon without a radius will return search results biased to that point.",
+            "format": "float",
+            "in": "query",
+            "name": "lon",
+            "type": "number",
+            "x-example": -121.89
+          },
+          {
+            "description": "If radius <b>and</b> position are set, the results will be constrained to the defined area. The radius parameter is specified in meters.",
+            "in": "query",
+            "name": "radius",
+            "type": "integer"
+          },
+          {
+            "description": "Top left position of the bounding box. This is specified as a comma separated string composed of lat., lon.",
+            "in": "query",
+            "name": "topLeft",
+            "type": "string",
+            "x-example": "37.553,-122.453"
+          },
+          {
+            "description": "Bottom right position of the bounding box. This is specified as a comma separated string composed of lat., lon.",
+            "in": "query",
+            "name": "btmRight",
+            "type": "string",
+            "x-example": "37.4,-122.55"
+          },
+          {
+            "description": "Language in which search results should be returned. Should be one of <a href=\"/search-api/search-api-documentation/supported-languages\">supported IETF language tags</a>, case insensitive.",
+            "in": "query",
+            "name": "language",
+            "type": "string"
+          },
+          {
+            "description": "Indexes for which extended postal codes should be included in the results. Available indexes are:\n  - <b>Addr</b> = Address ranges\n  - <b>Geo</b> = Geographies\n  - <b>PAD</b> = Point Addresses\n  - <b>POI</b> = Points of Interest\n  - <b>Str</b> = Streets\n  - <b>XStr</b> = Cross Streets (intersections)",
+            "in": "query",
+            "name": "extendedPostalCodesFor",
+            "type": "string"
+          },
+          {
+            "default": 1,
+            "description": "Minimum fuzziness level to be used.",
+            "in": "query",
+            "maximum": 4,
+            "minimum": 1,
+            "name": "minFuzzyLevel",
+            "type": "integer"
+          },
+          {
+            "default": 2,
+            "description": "Maximum fuzziness level to be used.",
+            "in": "query",
+            "maximum": 4,
+            "minimum": 1,
+            "name": "maxFuzzyLevel",
+            "type": "integer"
+          },
+          {
+            "description": "A comma separated list of indexes which should be utilized for the search. Item order does not matter. Available indexes are:\n  - <b>Addr</b> = Address range interpolation (when there is no PAD)\n  - <b>Geo</b> = Geographies\n  - <b>PAD</b> = Point Addresses\n  - <b>POI</b> = Points of interest\n  - <b>Str</b> = Streets\n  - <b>Xstr</b> = Cross Streets (intersections)",
+            "in": "query",
+            "name": "idxSet",
+            "type": "string",
+            "x-example": "POI"
+          },
+          {
+            "default": "Unified",
+            "description": "Geopolitical View.",
+            "enum": [
+              "Unified",
+              "IN",
+              "PK",
+              "IL",
+              "MA"
+            ],
+            "in": "query",
+            "name": "view",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK: the search successfully returned zero or more results."
+          },
+          "400": {
+            "description": "Bad Request: one or more parameters were incorrectly specified."
+          },
+          "403": {
+            "description": "Forbidden: possible causes include:\n  - Service requires SSL\n  - Not authorized\n  - Rate or volume limit exceeded\n  - Unknown referer"
+          },
+          "405": {
+            "description": "Method Not Allowed: the HTTP method (GET, POST, etc) is not supported for this request."
+          },
+          "596": {
+            "description": "Not Found: the HTTP request method (GET, POST, etc) or path is incorrect."
+          },
+          "5XX": {
+            "description": "An error occurred while processing the request. Please try again later."
+          }
+        },
+        "tags": [
+          "Search"
+        ],
+        "summary": "Fuzzy Search"
+      }
+    },
+    "/search/{versionNumber}/searchAlongRoute/{query}.{ext}": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Service version number. The current value is 2.",
+            "enum": [
+              2
+            ],
+            "in": "path",
+            "name": "versionNumber",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Query string. Must be properly URL encoded.",
+            "in": "path",
+            "name": "query",
+            "required": true,
+            "type": "string",
+            "x-example": "pizza"
+          },
+          {
+            "description": "Expected response format.",
+            "enum": [
+              "json",
+              "jsonp",
+              "js",
+              "xml"
+            ],
+            "in": "path",
+            "name": "ext",
+            "required": true,
+            "type": "string",
+            "x-example": "xml"
+          },
+          {
+            "description": "Maximum detour time",
+            "in": "query",
+            "maximum": 3600,
+            "name": "maxDetourTime",
+            "required": true,
+            "type": "integer",
+            "x-example": 1200
+          },
+          {
+            "default": 10,
+            "description": "Maximum number of search results that will be returned.",
+            "in": "query",
+            "maximum": 100,
+            "name": "limit",
+            "type": "integer"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "example": {
+                "route": {
+                  "points": [
+                    {
+                      "lat": 37.7524152343544,
+                      "lon": -122.43576049804686
+                    },
+                    {
+                      "lat": 37.70660472542312,
+                      "lon": -122.43301391601562
+                    },
+                    {
+                      "lat": 37.712059855877314,
+                      "lon": -122.36434936523438
+                    },
+                    {
+                      "lat": 37.75350561243041,
+                      "lon": -122.37396240234374
+                    }
+                  ]
+                }
+              },
+              "properties": {
+                "route": {
+                  "properties": {
+                    "points": {
+                      "items": {
+                        "properties": {
+                          "lat": {
+                            "format": "float",
+                            "type": "number"
+                          },
+                          "lon": {
+                            "format": "float",
+                            "type": "number"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "type": "array"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK: the search successfully returned zero or more results."
+          },
+          "400": {
+            "description": "Bad Request: one or more parameters were incorrectly specified."
+          },
+          "403": {
+            "description": "Forbidden: possible causes include:\n  - Service requires SSL\n  - Not authorized\n  - Rate or volume limit exceeded\n  - Unknown referer"
+          },
+          "405": {
+            "description": "Method Not Allowed: the HTTP method (GET, POST, etc) is not supported for this request."
+          },
+          "596": {
+            "description": "Not Found: the HTTP request method (GET, POST, etc) or path is incorrect."
+          },
+          "5XX": {
+            "description": "An error occurred while processing the request. Please try again later."
+          }
+        },
+        "tags": [
+          "Search"
+        ],
+        "summary": "Along Route Search"
+      }
+    },
+    "/search/{versionNumber}/structuredGeocode.{ext}": {
+      "get": {
+        "parameters": [
+          {
+            "description": "Service version number. The current value is 2.",
+            "enum": [
+              2
+            ],
+            "in": "path",
+            "name": "versionNumber",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Expected response format.",
+            "enum": [
+              "json",
+              "jsonp",
+              "js",
+              "xml"
+            ],
+            "in": "path",
+            "name": "ext",
+            "required": true,
+            "type": "string",
+            "x-example": "xml"
+          },
+          {
+            "description": "2 or 3 letter country code (e.g.: FR, ES).",
+            "in": "query",
+            "name": "countryCode",
+            "required": true,
+            "type": "string",
+            "x-example": "NL"
+          },
+          {
+            "default": 10,
+            "description": "Maximum number of search results that will be returned.",
+            "in": "query",
+            "maximum": 100,
+            "name": "limit",
+            "type": "integer"
+          },
+          {
+            "default": 0,
+            "description": "Starting offset of the returned results within the full result set.",
+            "in": "query",
+            "maximum": 1900,
+            "name": "ofs",
+            "type": "integer"
+          },
+          {
+            "description": "The street number for the structured address.",
+            "in": "query",
+            "name": "streetNumber",
+            "type": "string"
+          },
+          {
+            "description": "The street name for the structured address.",
+            "in": "query",
+            "name": "streetName",
+            "type": "string"
+          },
+          {
+            "description": "The cross street name for the structured address.",
+            "in": "query",
+            "name": "crossStreet",
+            "type": "string"
+          },
+          {
+            "description": "The municipality (city/town) for the structured address.",
+            "in": "query",
+            "name": "municipality",
+            "type": "string",
+            "x-example": "Amsterdam"
+          },
+          {
+            "description": "The municipality subdivision (sub/super city) for the structured address.",
+            "in": "query",
+            "name": "municipalitySubdivision",
+            "type": "string"
+          },
+          {
+            "description": "The named area for the structured address.",
+            "in": "query",
+            "name": "countryTertiarySubdivision",
+            "type": "string"
+          },
+          {
+            "description": "The county for the structured address.",
+            "in": "query",
+            "name": "countrySecondarySubdivision",
+            "type": "string"
+          },
+          {
+            "description": "The state or province for the structured address.",
+            "in": "query",
+            "name": "countrySubdivision",
+            "type": "string"
+          },
+          {
+            "description": "The zip code or postal code for the structured address.",
+            "in": "query",
+            "name": "postalCode",
+            "type": "string"
+          },
+          {
+            "description": "Language in which search results should be returned. Should be one of <a href=\"/search-api/search-api-documentation/supported-languages\">supported IETF language tags</a>, case insensitive.",
+            "in": "query",
+            "name": "language",
+            "type": "string"
+          },
+          {
+            "description": "Indexes for which extended postal codes should be included in the results. Available indexes are:\n  - <b>Addr</b> = Address ranges\n  - <b>Geo</b> = Geographies\n  - <b>PAD</b> = Point Addresses\n  - <b>POI</b> = Points of Interest\n  - <b>Str</b> = Streets\n  - <b>XStr</b> = Cross Streets (intersections)",
+            "in": "query",
+            "name": "extendedPostalCodesFor",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK: the search successfully returned zero or more results."
+          },
+          "400": {
+            "description": "Bad Request: one or more parameters were incorrectly specified."
+          },
+          "403": {
+            "description": "Forbidden: possible causes include:\n  - Service requires SSL\n  - Not authorized\n  - Rate or volume limit exceeded\n  - Unknown referer"
+          },
+          "405": {
+            "description": "Method Not Allowed: the HTTP method (GET, POST, etc) is not supported for this request."
+          },
+          "596": {
+            "description": "Not Found: the HTTP request method (GET, POST, etc) or path is incorrect."
+          },
+          "5XX": {
+            "description": "An error occurred while processing the request. Please try again later."
+          }
+        },
+        "tags": [
+          "Geocoding"
+        ],
+        "summary": "Structured Geocode"
+      }
+    }
+  },
+  "securityDefinitions": {
+    "api_key": {
+      "in": "query",
+      "name": "key",
+      "type": "apiKey"
+    }
+  },
+  "security": [
+    {
+      "api_key": []
+    }
+  ],
+  "x-components": {
+    "parameters": {
+      "btmRight": {
+        "description": "Bottom right position of the bounding box. This is specified as a comma separated string composed of lat., lon.",
+        "in": "query",
+        "name": "btmRight",
+        "type": "string",
+        "x-example": "37.4,-122.55"
+      },
+      "countryCode": {
+        "description": "2 or 3 letter country code (e.g.: FR, ES).",
+        "in": "query",
+        "name": "countryCode",
+        "required": true,
+        "type": "string",
+        "x-example": "NL"
+      },
+      "countrySecondarySubdivision": {
+        "description": "The county for the structured address.",
+        "in": "query",
+        "name": "countrySecondarySubdivision",
+        "type": "string"
+      },
+      "countrySet": {
+        "description": "Comma separated string of country codes. This will limit the search to the specified countries.",
+        "in": "query",
+        "name": "countrySet",
+        "type": "string",
+        "x-example": "FR"
+      },
+      "countrySubdivision": {
+        "description": "The state or province for the structured address.",
+        "in": "query",
+        "name": "countrySubdivision",
+        "type": "string"
+      },
+      "countryTertiarySubdivision": {
+        "description": "The named area for the structured address.",
+        "in": "query",
+        "name": "countryTertiarySubdivision",
+        "type": "string"
+      },
+      "crossStreet": {
+        "description": "The cross street name for the structured address.",
+        "in": "query",
+        "name": "crossStreet",
+        "type": "string"
+      },
+      "ext": {
+        "description": "Expected response format.",
+        "enum": [
+          "json",
+          "jsonp",
+          "js",
+          "xml"
+        ],
+        "in": "path",
+        "name": "ext",
+        "required": true,
+        "type": "string",
+        "x-example": "xml"
+      },
+      "extendedPostalCodesFor": {
+        "description": "Indexes for which extended postal codes should be included in the results. Available indexes are:\n  - <b>Addr</b> = Address ranges\n  - <b>Geo</b> = Geographies\n  - <b>PAD</b> = Point Addresses\n  - <b>POI</b> = Points of Interest\n  - <b>Str</b> = Streets\n  - <b>XStr</b> = Cross Streets (intersections)",
+        "in": "query",
+        "name": "extendedPostalCodesFor",
+        "type": "string"
+      },
+      "idxSet": {
+        "description": "A comma separated list of indexes which should be utilized for the search. Item order does not matter. Available indexes are:\n  - <b>Addr</b> = Address range interpolation (when there is no PAD)\n  - <b>Geo</b> = Geographies\n  - <b>PAD</b> = Point Addresses\n  - <b>POI</b> = Points of interest\n  - <b>Str</b> = Streets\n  - <b>Xstr</b> = Cross Streets (intersections)",
+        "in": "query",
+        "name": "idxSet",
+        "type": "string",
+        "x-example": "POI"
+      },
+      "language": {
+        "description": "Language in which search results should be returned. Should be one of <a href=\"/search-api/search-api-documentation/supported-languages\">supported IETF language tags</a>, case insensitive.",
+        "in": "query",
+        "name": "language",
+        "type": "string"
+      },
+      "lat": {
+        "description": "Latitude where results should be biased.\nNOTE: supplying a lat/lon without a radius will return search results biased to that point.",
+        "format": "float",
+        "in": "query",
+        "name": "lat",
+        "type": "number",
+        "x-example": 37.337
+      },
+      "limit": {
+        "default": 10,
+        "description": "Maximum number of search results that will be returned.",
+        "in": "query",
+        "maximum": 100,
+        "name": "limit",
+        "type": "integer"
+      },
+      "lon": {
+        "description": "Longitude where results should be biased\nNOTE: supplying a lat/lon without a radius will return search results biased to that point.",
+        "format": "float",
+        "in": "query",
+        "name": "lon",
+        "type": "number",
+        "x-example": -121.89
+      },
+      "maxFuzzyLevel": {
+        "default": 2,
+        "description": "Maximum fuzziness level to be used.",
+        "in": "query",
+        "maximum": 4,
+        "minimum": 1,
+        "name": "maxFuzzyLevel",
+        "type": "integer"
+      },
+      "minFuzzyLevel": {
+        "default": 1,
+        "description": "Minimum fuzziness level to be used.",
+        "in": "query",
+        "maximum": 4,
+        "minimum": 1,
+        "name": "minFuzzyLevel",
+        "type": "integer"
+      },
+      "municipality": {
+        "description": "The municipality (city/town) for the structured address.",
+        "in": "query",
+        "name": "municipality",
+        "type": "string",
+        "x-example": "Amsterdam"
+      },
+      "municipalitySubdivision": {
+        "description": "The municipality subdivision (sub/super city) for the structured address.",
+        "in": "query",
+        "name": "municipalitySubdivision",
+        "type": "string"
+      },
+      "ofs": {
+        "default": 0,
+        "description": "Starting offset of the returned results within the full result set.",
+        "in": "query",
+        "maximum": 1900,
+        "name": "ofs",
+        "type": "integer"
+      },
+      "position": {
+        "description": "This is specified as a comma separated string composed of lat., lon.",
+        "in": "path",
+        "name": "position",
+        "required": true,
+        "type": "string",
+        "x-example": "37.8328,-122.27669"
+      },
+      "postalCode": {
+        "description": "The zip code or postal code for the structured address.",
+        "in": "query",
+        "name": "postalCode",
+        "type": "string"
+      },
+      "radius": {
+        "description": "If radius <b>and</b> position are set, the results will be constrained to the defined area. The radius parameter is specified in meters.",
+        "in": "query",
+        "name": "radius",
+        "type": "integer"
+      },
+      "routingTimeout": {
+        "default": 4000,
+        "description": "Only return results that arrive from routing engine within this time limit.",
+        "in": "query",
+        "name": "routingTimeout",
+        "type": "integer"
+      },
+      "storeResult": {
+        "default": false,
+        "deprecated": true,
+        "description": "If the \"storeResult\" flag is set, the query will be interpreted as a stored geocode and will be billed according to the terms of use.",
+        "in": "query",
+        "name": "storeResult",
+        "type": "boolean"
+      },
+      "streetName": {
+        "description": "The street name for the structured address.",
+        "in": "query",
+        "name": "streetName",
+        "type": "string"
+      },
+      "streetNumber": {
+        "description": "The street number for the structured address.",
+        "in": "query",
+        "name": "streetNumber",
+        "type": "string"
+      },
+      "topLeft": {
+        "description": "Top left position of the bounding box. This is specified as a comma separated string composed of lat., lon.",
+        "in": "query",
+        "name": "topLeft",
+        "type": "string",
+        "x-example": "37.553,-122.453"
+      },
+      "typeahead": {
+        "default": false,
+        "description": "If the \"typeahead\" flag is set, the query will be interpreted as a partial input and the search will enter <b>predictive</b> mode.",
+        "in": "query",
+        "name": "typeahead",
+        "type": "boolean"
+      },
+      "versionNumber": {
+        "description": "Service version number. The current value is 2.",
+        "enum": [
+          2
+        ],
+        "in": "path",
+        "name": "versionNumber",
+        "required": true,
+        "type": "integer"
+      },
+      "view": {
+        "default": "Unified",
+        "description": "Geopolitical View.",
+        "enum": [
+          "Unified",
+          "IN",
+          "PK",
+          "IL",
+          "MA"
+        ],
+        "in": "query",
+        "name": "view",
+        "required": false,
+        "type": "string"
+      }
+    },
+    "responses": {
+      "200": {
+        "description": "OK: the search successfully returned zero or more results."
+      },
+      "400": {
+        "description": "Bad Request: one or more parameters were incorrectly specified."
+      },
+      "403": {
+        "description": "Forbidden: possible causes include:\n  - Service requires SSL\n  - Not authorized\n  - Rate or volume limit exceeded\n  - Unknown referer"
+      },
+      "405": {
+        "description": "Method Not Allowed: the HTTP method (GET, POST, etc) is not supported for this request."
+      },
+      "404596": {
+        "description": "Not Found: the HTTP request method (GET, POST, etc) or path is incorrect."
+      },
+      "5xx": {
+        "description": "An error occurred while processing the request. Please try again later."
+      }
+    }
+  }
+}

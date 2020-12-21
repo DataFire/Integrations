@@ -13,17 +13,14 @@ let amazonaws_inspector = require('@datafire/amazonaws_inspector').create({
   region: ""
 });
 
-amazonaws_inspector.AddAttributesToFindings({
-  "findingArns": [],
-  "attributes": []
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
 
 ## Description
 
-<fullname>Amazon Inspector</fullname> <p>Amazon Inspector enables you to analyze the behavior of your AWS resources and to identify potential security issues. For more information, see <a href="http://docs.aws.amazon.com/inspector/latest/userguide/inspector_introduction.html"> Amazon Inspector User Guide</a>.</p>
+<fullname>Amazon Inspector</fullname> <p>Amazon Inspector enables you to analyze the behavior of your AWS resources and to identify potential security issues. For more information, see <a href="https://docs.aws.amazon.com/inspector/latest/userguide/inspector_introduction.html"> Amazon Inspector User Guide</a>.</p>
 
 ## Actions
 
@@ -33,15 +30,17 @@ amazonaws_inspector.AddAttributesToFindings({
 
 ```js
 amazonaws_inspector.AddAttributesToFindings({
-  "findingArns": [],
-  "attributes": []
+  "findingArns": null,
+  "attributes": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * attributes **required** [UserAttributeList](#userattributelist)
-  * findingArns **required** [AddRemoveAttributesFindingArnList](#addremoveattributesfindingarnlist)
+  * attributes **required**
+    * items [Attribute](#attribute)
+  * findingArns **required**
+    * items [Arn](#arn)
 
 #### Output
 * output [AddAttributesToFindingsResponse](#addattributestofindingsresponse)
@@ -52,14 +51,14 @@ amazonaws_inspector.AddAttributesToFindings({
 
 ```js
 amazonaws_inspector.CreateAssessmentTarget({
-  "assessmentTargetName": ""
+  "assessmentTargetName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * assessmentTargetName **required** [AssessmentTargetName](#assessmenttargetname)
-  * resourceGroupArn [Arn](#arn)
+  * assessmentTargetName **required**
+  * resourceGroupArn
 
 #### Output
 * output [CreateAssessmentTargetResponse](#createassessmenttargetresponse)
@@ -70,23 +69,42 @@ amazonaws_inspector.CreateAssessmentTarget({
 
 ```js
 amazonaws_inspector.CreateAssessmentTemplate({
-  "assessmentTargetArn": "",
-  "assessmentTemplateName": "",
-  "durationInSeconds": 0,
-  "rulesPackageArns": []
+  "assessmentTargetArn": null,
+  "assessmentTemplateName": null,
+  "durationInSeconds": null,
+  "rulesPackageArns": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * assessmentTargetArn **required** [Arn](#arn)
-  * assessmentTemplateName **required** [AssessmentTemplateName](#assessmenttemplatename)
-  * durationInSeconds **required** [AssessmentRunDuration](#assessmentrunduration)
-  * rulesPackageArns **required** [AssessmentTemplateRulesPackageArnList](#assessmenttemplaterulespackagearnlist)
-  * userAttributesForFindings [UserAttributeList](#userattributelist)
+  * assessmentTargetArn **required**
+  * assessmentTemplateName **required**
+  * durationInSeconds **required**
+  * rulesPackageArns **required**
+    * items [Arn](#arn)
+  * userAttributesForFindings
+    * items [Attribute](#attribute)
 
 #### Output
 * output [CreateAssessmentTemplateResponse](#createassessmenttemplateresponse)
+
+### CreateExclusionsPreview
+
+
+
+```js
+amazonaws_inspector.CreateExclusionsPreview({
+  "assessmentTemplateArn": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * assessmentTemplateArn **required**
+
+#### Output
+* output [CreateExclusionsPreviewResponse](#createexclusionspreviewresponse)
 
 ### CreateResourceGroup
 
@@ -94,13 +112,14 @@ amazonaws_inspector.CreateAssessmentTemplate({
 
 ```js
 amazonaws_inspector.CreateResourceGroup({
-  "resourceGroupTags": []
+  "resourceGroupTags": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * resourceGroupTags **required** [ResourceGroupTags](#resourcegrouptags)
+  * resourceGroupTags **required**
+    * items [ResourceGroupTag](#resourcegrouptag)
 
 #### Output
 * output [CreateResourceGroupResponse](#createresourcegroupresponse)
@@ -111,13 +130,13 @@ amazonaws_inspector.CreateResourceGroup({
 
 ```js
 amazonaws_inspector.DeleteAssessmentRun({
-  "assessmentRunArn": ""
+  "assessmentRunArn": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * assessmentRunArn **required** [Arn](#arn)
+  * assessmentRunArn **required**
 
 #### Output
 *Output schema unknown*
@@ -128,13 +147,13 @@ amazonaws_inspector.DeleteAssessmentRun({
 
 ```js
 amazonaws_inspector.DeleteAssessmentTarget({
-  "assessmentTargetArn": ""
+  "assessmentTargetArn": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * assessmentTargetArn **required** [Arn](#arn)
+  * assessmentTargetArn **required**
 
 #### Output
 *Output schema unknown*
@@ -145,13 +164,13 @@ amazonaws_inspector.DeleteAssessmentTarget({
 
 ```js
 amazonaws_inspector.DeleteAssessmentTemplate({
-  "assessmentTemplateArn": ""
+  "assessmentTemplateArn": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * assessmentTemplateArn **required** [Arn](#arn)
+  * assessmentTemplateArn **required**
 
 #### Output
 *Output schema unknown*
@@ -162,13 +181,14 @@ amazonaws_inspector.DeleteAssessmentTemplate({
 
 ```js
 amazonaws_inspector.DescribeAssessmentRuns({
-  "assessmentRunArns": []
+  "assessmentRunArns": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * assessmentRunArns **required** [BatchDescribeArnList](#batchdescribearnlist)
+  * assessmentRunArns **required**
+    * items [Arn](#arn)
 
 #### Output
 * output [DescribeAssessmentRunsResponse](#describeassessmentrunsresponse)
@@ -179,13 +199,14 @@ amazonaws_inspector.DescribeAssessmentRuns({
 
 ```js
 amazonaws_inspector.DescribeAssessmentTargets({
-  "assessmentTargetArns": []
+  "assessmentTargetArns": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * assessmentTargetArns **required** [BatchDescribeArnList](#batchdescribearnlist)
+  * assessmentTargetArns **required**
+    * items [Arn](#arn)
 
 #### Output
 * output [DescribeAssessmentTargetsResponse](#describeassessmenttargetsresponse)
@@ -221,20 +242,40 @@ amazonaws_inspector.DescribeCrossAccountAccessRole({}, context)
 #### Output
 * output [DescribeCrossAccountAccessRoleResponse](#describecrossaccountaccessroleresponse)
 
+### DescribeExclusions
+
+
+
+```js
+amazonaws_inspector.DescribeExclusions({
+  "exclusionArns": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * exclusionArns **required**
+    * items [Arn](#arn)
+  * locale
+
+#### Output
+* output [DescribeExclusionsResponse](#describeexclusionsresponse)
+
 ### DescribeFindings
 
 
 
 ```js
 amazonaws_inspector.DescribeFindings({
-  "findingArns": []
+  "findingArns": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * findingArns **required** [BatchDescribeArnList](#batchdescribearnlist)
-  * locale [Locale](#locale)
+  * findingArns **required**
+    * items [Arn](#arn)
+  * locale
 
 #### Output
 * output [DescribeFindingsResponse](#describefindingsresponse)
@@ -245,13 +286,14 @@ amazonaws_inspector.DescribeFindings({
 
 ```js
 amazonaws_inspector.DescribeResourceGroups({
-  "resourceGroupArns": []
+  "resourceGroupArns": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * resourceGroupArns **required** [BatchDescribeArnList](#batchdescribearnlist)
+  * resourceGroupArns **required**
+    * items [Arn](#arn)
 
 #### Output
 * output [DescribeResourceGroupsResponse](#describeresourcegroupsresponse)
@@ -262,14 +304,15 @@ amazonaws_inspector.DescribeResourceGroups({
 
 ```js
 amazonaws_inspector.DescribeRulesPackages({
-  "rulesPackageArns": []
+  "rulesPackageArns": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * locale [Locale](#locale)
-  * rulesPackageArns **required** [BatchDescribeArnList](#batchdescribearnlist)
+  * locale
+  * rulesPackageArns **required**
+    * items [Arn](#arn)
 
 #### Output
 * output [DescribeRulesPackagesResponse](#describerulespackagesresponse)
@@ -280,20 +323,44 @@ amazonaws_inspector.DescribeRulesPackages({
 
 ```js
 amazonaws_inspector.GetAssessmentReport({
-  "assessmentRunArn": "",
-  "reportFileFormat": "",
-  "reportType": ""
+  "assessmentRunArn": null,
+  "reportFileFormat": null,
+  "reportType": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * assessmentRunArn **required** [Arn](#arn)
-  * reportFileFormat **required** [ReportFileFormat](#reportfileformat)
-  * reportType **required** [ReportType](#reporttype)
+  * assessmentRunArn **required**
+  * reportFileFormat **required**
+  * reportType **required**
 
 #### Output
 * output [GetAssessmentReportResponse](#getassessmentreportresponse)
+
+### GetExclusionsPreview
+
+
+
+```js
+amazonaws_inspector.GetExclusionsPreview({
+  "assessmentTemplateArn": null,
+  "previewToken": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * maxResults `string`
+  * nextToken `string`
+  * assessmentTemplateArn **required**
+  * locale
+  * maxResults
+  * nextToken
+  * previewToken **required**
+
+#### Output
+* output [GetExclusionsPreviewResponse](#getexclusionspreviewresponse)
 
 ### GetTelemetryMetadata
 
@@ -301,13 +368,13 @@ amazonaws_inspector.GetAssessmentReport({
 
 ```js
 amazonaws_inspector.GetTelemetryMetadata({
-  "assessmentRunArn": ""
+  "assessmentRunArn": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * assessmentRunArn **required** [Arn](#arn)
+  * assessmentRunArn **required**
 
 #### Output
 * output [GetTelemetryMetadataResponse](#gettelemetrymetadataresponse)
@@ -318,7 +385,7 @@ amazonaws_inspector.GetTelemetryMetadata({
 
 ```js
 amazonaws_inspector.ListAssessmentRunAgents({
-  "assessmentRunArn": ""
+  "assessmentRunArn": null
 }, context)
 ```
 
@@ -326,10 +393,14 @@ amazonaws_inspector.ListAssessmentRunAgents({
 * input `object`
   * maxResults `string`
   * nextToken `string`
-  * assessmentRunArn **required** [Arn](#arn)
-  * filter [AgentFilter](#agentfilter)
-  * maxResults [ListMaxResults](#listmaxresults)
-  * nextToken [PaginationToken](#paginationtoken)
+  * assessmentRunArn **required**
+  * filter
+    * agentHealthCodes **required**
+      * items [AgentHealthCode](#agenthealthcode)
+    * agentHealths **required**
+      * items [AgentHealth](#agenthealth)
+  * maxResults
+  * nextToken
 
 #### Output
 * output [ListAssessmentRunAgentsResponse](#listassessmentrunagentsresponse)
@@ -346,10 +417,28 @@ amazonaws_inspector.ListAssessmentRuns({}, context)
 * input `object`
   * maxResults `string`
   * nextToken `string`
-  * assessmentTemplateArns [ListParentArnList](#listparentarnlist)
-  * filter [AssessmentRunFilter](#assessmentrunfilter)
-  * maxResults [ListMaxResults](#listmaxresults)
-  * nextToken [PaginationToken](#paginationtoken)
+  * assessmentTemplateArns
+    * items [Arn](#arn)
+  * filter
+    * completionTimeRange
+      * beginDate
+      * endDate
+    * durationRange
+      * maxSeconds
+      * minSeconds
+    * namePattern
+    * rulesPackageArns
+      * items [Arn](#arn)
+    * startTimeRange
+      * beginDate
+      * endDate
+    * stateChangeTimeRange
+      * beginDate
+      * endDate
+    * states
+      * items [AssessmentRunState](#assessmentrunstate)
+  * maxResults
+  * nextToken
 
 #### Output
 * output [ListAssessmentRunsResponse](#listassessmentrunsresponse)
@@ -366,9 +455,10 @@ amazonaws_inspector.ListAssessmentTargets({}, context)
 * input `object`
   * maxResults `string`
   * nextToken `string`
-  * filter [AssessmentTargetFilter](#assessmenttargetfilter)
-  * maxResults [ListMaxResults](#listmaxresults)
-  * nextToken [PaginationToken](#paginationtoken)
+  * filter
+    * assessmentTargetNamePattern
+  * maxResults
+  * nextToken
 
 #### Output
 * output [ListAssessmentTargetsResponse](#listassessmenttargetsresponse)
@@ -385,10 +475,17 @@ amazonaws_inspector.ListAssessmentTemplates({}, context)
 * input `object`
   * maxResults `string`
   * nextToken `string`
-  * assessmentTargetArns [ListParentArnList](#listparentarnlist)
-  * filter [AssessmentTemplateFilter](#assessmenttemplatefilter)
-  * maxResults [ListMaxResults](#listmaxresults)
-  * nextToken [PaginationToken](#paginationtoken)
+  * assessmentTargetArns
+    * items [Arn](#arn)
+  * filter
+    * durationRange
+      * maxSeconds
+      * minSeconds
+    * namePattern
+    * rulesPackageArns
+      * items [Arn](#arn)
+  * maxResults
+  * nextToken
 
 #### Output
 * output [ListAssessmentTemplatesResponse](#listassessmenttemplatesresponse)
@@ -405,12 +502,33 @@ amazonaws_inspector.ListEventSubscriptions({}, context)
 * input `object`
   * maxResults `string`
   * nextToken `string`
-  * maxResults [ListEventSubscriptionsMaxResults](#listeventsubscriptionsmaxresults)
-  * nextToken [PaginationToken](#paginationtoken)
-  * resourceArn [Arn](#arn)
+  * maxResults
+  * nextToken
+  * resourceArn
 
 #### Output
 * output [ListEventSubscriptionsResponse](#listeventsubscriptionsresponse)
+
+### ListExclusions
+
+
+
+```js
+amazonaws_inspector.ListExclusions({
+  "assessmentRunArn": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * maxResults `string`
+  * nextToken `string`
+  * assessmentRunArn **required**
+  * maxResults
+  * nextToken
+
+#### Output
+* output [ListExclusionsResponse](#listexclusionsresponse)
 
 ### ListFindings
 
@@ -424,10 +542,28 @@ amazonaws_inspector.ListFindings({}, context)
 * input `object`
   * maxResults `string`
   * nextToken `string`
-  * assessmentRunArns [ListParentArnList](#listparentarnlist)
-  * filter [FindingFilter](#findingfilter)
-  * maxResults [ListMaxResults](#listmaxresults)
-  * nextToken [PaginationToken](#paginationtoken)
+  * assessmentRunArns
+    * items [Arn](#arn)
+  * filter
+    * agentIds
+      * items [AgentId](#agentid)
+    * attributes
+      * items [Attribute](#attribute)
+    * autoScalingGroups
+      * items [AutoScalingGroup](#autoscalinggroup)
+    * creationTimeRange
+      * beginDate
+      * endDate
+    * ruleNames
+      * items [RuleName](#rulename)
+    * rulesPackageArns
+      * items [Arn](#arn)
+    * severities
+      * items [Severity](#severity)
+    * userAttributes
+      * items [Attribute](#attribute)
+  * maxResults
+  * nextToken
 
 #### Output
 * output [ListFindingsResponse](#listfindingsresponse)
@@ -444,8 +580,8 @@ amazonaws_inspector.ListRulesPackages({}, context)
 * input `object`
   * maxResults `string`
   * nextToken `string`
-  * maxResults [ListMaxResults](#listmaxresults)
-  * nextToken [PaginationToken](#paginationtoken)
+  * maxResults
+  * nextToken
 
 #### Output
 * output [ListRulesPackagesResponse](#listrulespackagesresponse)
@@ -456,13 +592,13 @@ amazonaws_inspector.ListRulesPackages({}, context)
 
 ```js
 amazonaws_inspector.ListTagsForResource({
-  "resourceArn": ""
+  "resourceArn": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * resourceArn **required** [Arn](#arn)
+  * resourceArn **required**
 
 #### Output
 * output [ListTagsForResourceResponse](#listtagsforresourceresponse)
@@ -473,7 +609,7 @@ amazonaws_inspector.ListTagsForResource({
 
 ```js
 amazonaws_inspector.PreviewAgents({
-  "previewAgentsArn": ""
+  "previewAgentsArn": null
 }, context)
 ```
 
@@ -481,9 +617,9 @@ amazonaws_inspector.PreviewAgents({
 * input `object`
   * maxResults `string`
   * nextToken `string`
-  * maxResults [PreviewAgentsMaxResults](#previewagentsmaxresults)
-  * nextToken [PaginationToken](#paginationtoken)
-  * previewAgentsArn **required** [Arn](#arn)
+  * maxResults
+  * nextToken
+  * previewAgentsArn **required**
 
 #### Output
 * output [PreviewAgentsResponse](#previewagentsresponse)
@@ -494,13 +630,13 @@ amazonaws_inspector.PreviewAgents({
 
 ```js
 amazonaws_inspector.RegisterCrossAccountAccessRole({
-  "roleArn": ""
+  "roleArn": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * roleArn **required** [Arn](#arn)
+  * roleArn **required**
 
 #### Output
 *Output schema unknown*
@@ -511,15 +647,17 @@ amazonaws_inspector.RegisterCrossAccountAccessRole({
 
 ```js
 amazonaws_inspector.RemoveAttributesFromFindings({
-  "findingArns": [],
-  "attributeKeys": []
+  "findingArns": null,
+  "attributeKeys": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * attributeKeys **required** [UserAttributeKeyList](#userattributekeylist)
-  * findingArns **required** [AddRemoveAttributesFindingArnList](#addremoveattributesfindingarnlist)
+  * attributeKeys **required**
+    * items [AttributeKey](#attributekey)
+  * findingArns **required**
+    * items [Arn](#arn)
 
 #### Output
 * output [RemoveAttributesFromFindingsResponse](#removeattributesfromfindingsresponse)
@@ -530,14 +668,15 @@ amazonaws_inspector.RemoveAttributesFromFindings({
 
 ```js
 amazonaws_inspector.SetTagsForResource({
-  "resourceArn": ""
+  "resourceArn": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * resourceArn **required** [Arn](#arn)
-  * tags [TagList](#taglist)
+  * tags
+    * items [Tag](#tag)
+  * resourceArn **required**
 
 #### Output
 *Output schema unknown*
@@ -548,14 +687,14 @@ amazonaws_inspector.SetTagsForResource({
 
 ```js
 amazonaws_inspector.StartAssessmentRun({
-  "assessmentTemplateArn": ""
+  "assessmentTemplateArn": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * assessmentRunName [AssessmentRunName](#assessmentrunname)
-  * assessmentTemplateArn **required** [Arn](#arn)
+  * assessmentRunName
+  * assessmentTemplateArn **required**
 
 #### Output
 * output [StartAssessmentRunResponse](#startassessmentrunresponse)
@@ -566,14 +705,14 @@ amazonaws_inspector.StartAssessmentRun({
 
 ```js
 amazonaws_inspector.StopAssessmentRun({
-  "assessmentRunArn": ""
+  "assessmentRunArn": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * assessmentRunArn **required** [Arn](#arn)
-  * stopAction [StopAction](#stopaction)
+  * assessmentRunArn **required**
+  * stopAction
 
 #### Output
 *Output schema unknown*
@@ -584,17 +723,17 @@ amazonaws_inspector.StopAssessmentRun({
 
 ```js
 amazonaws_inspector.SubscribeToEvent({
-  "resourceArn": "",
-  "event": "",
-  "topicArn": ""
+  "resourceArn": null,
+  "event": null,
+  "topicArn": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * event **required** [InspectorEvent](#inspectorevent)
-  * resourceArn **required** [Arn](#arn)
-  * topicArn **required** [Arn](#arn)
+  * event **required**
+  * resourceArn **required**
+  * topicArn **required**
 
 #### Output
 *Output schema unknown*
@@ -605,17 +744,17 @@ amazonaws_inspector.SubscribeToEvent({
 
 ```js
 amazonaws_inspector.UnsubscribeFromEvent({
-  "resourceArn": "",
-  "event": "",
-  "topicArn": ""
+  "resourceArn": null,
+  "event": null,
+  "topicArn": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * event **required** [InspectorEvent](#inspectorevent)
-  * resourceArn **required** [Arn](#arn)
-  * topicArn **required** [Arn](#arn)
+  * event **required**
+  * resourceArn **required**
+  * topicArn **required**
 
 #### Output
 *Output schema unknown*
@@ -626,16 +765,16 @@ amazonaws_inspector.UnsubscribeFromEvent({
 
 ```js
 amazonaws_inspector.UpdateAssessmentTarget({
-  "assessmentTargetArn": "",
-  "assessmentTargetName": ""
+  "assessmentTargetArn": null,
+  "assessmentTargetName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * assessmentTargetArn **required** [Arn](#arn)
-  * assessmentTargetName **required** [AssessmentTargetName](#assessmenttargetname)
-  * resourceGroupArn [Arn](#arn)
+  * assessmentTargetArn **required**
+  * assessmentTargetName **required**
+  * resourceGroupArn
 
 #### Output
 *Output schema unknown*
@@ -644,41 +783,30 @@ amazonaws_inspector.UpdateAssessmentTarget({
 
 ## Definitions
 
-### AccessDeniedErrorCode
-* AccessDeniedErrorCode `string` (values: ACCESS_DENIED_TO_ASSESSMENT_TARGET, ACCESS_DENIED_TO_ASSESSMENT_TEMPLATE, ACCESS_DENIED_TO_ASSESSMENT_RUN, ACCESS_DENIED_TO_FINDING, ACCESS_DENIED_TO_RESOURCE_GROUP, ACCESS_DENIED_TO_RULES_PACKAGE, ACCESS_DENIED_TO_SNS_TOPIC, ACCESS_DENIED_TO_IAM_ROLE)
-
 ### AccessDeniedException
-* AccessDeniedException `object`: You do not have required permissions to access the requested resource.
-  * canRetry **required** [Bool](#bool)
-  * errorCode **required** [AccessDeniedErrorCode](#accessdeniederrorcode)
-  * message **required** [ErrorMessage](#errormessage)
+
 
 ### AddAttributesToFindingsRequest
 * AddAttributesToFindingsRequest `object`
-  * attributes **required** [UserAttributeList](#userattributelist)
-  * findingArns **required** [AddRemoveAttributesFindingArnList](#addremoveattributesfindingarnlist)
+  * attributes **required**
+    * items [Attribute](#attribute)
+  * findingArns **required**
+    * items [Arn](#arn)
 
 ### AddAttributesToFindingsResponse
 * AddAttributesToFindingsResponse `object`
-  * failedItems **required** [FailedItems](#faileditems)
+  * failedItems **required**
 
 ### AddRemoveAttributesFindingArnList
 * AddRemoveAttributesFindingArnList `array`
   * items [Arn](#arn)
 
-### AgentAlreadyRunningAssessment
-* AgentAlreadyRunningAssessment `object`: Used in the exception error that is thrown if you start an assessment run for an assessment target that includes an EC2 instance that is already participating in another started assessment run.
-  * agentId **required** [AgentId](#agentid)
-  * assessmentRunArn **required** [Arn](#arn)
-
-### AgentAlreadyRunningAssessmentList
-* AgentAlreadyRunningAssessmentList `array`
-  * items [AgentAlreadyRunningAssessment](#agentalreadyrunningassessment)
-
 ### AgentFilter
 * AgentFilter `object`: Contains information about an Amazon Inspector agent. This data type is used as a request parameter in the <a>ListAssessmentRunAgents</a> action.
-  * agentHealthCodes **required** [AgentHealthCodeList](#agenthealthcodelist)
-  * agentHealths **required** [AgentHealthList](#agenthealthlist)
+  * agentHealthCodes **required**
+    * items [AgentHealthCode](#agenthealthcode)
+  * agentHealths **required**
+    * items [AgentHealth](#agenthealth)
 
 ### AgentHealth
 * AgentHealth `string` (values: HEALTHY, UNHEALTHY, UNKNOWN)
@@ -703,14 +831,14 @@ amazonaws_inspector.UpdateAssessmentTarget({
 
 ### AgentPreview
 * AgentPreview `object`: Used as a response element in the <a>PreviewAgents</a> action.
-  * agentHealth [AgentHealth](#agenthealth)
-  * agentId **required** [AgentId](#agentid)
-  * agentVersion [AgentVersion](#agentversion)
-  * autoScalingGroup [AutoScalingGroup](#autoscalinggroup)
-  * hostname [Hostname](#hostname)
-  * ipv4Address [Ipv4Address](#ipv4address)
-  * kernelVersion [KernelVersion](#kernelversion)
-  * operatingSystem [OperatingSystem](#operatingsystem)
+  * agentHealth
+  * agentId **required**
+  * agentVersion
+  * autoScalingGroup
+  * hostname
+  * ipv4Address
+  * kernelVersion
+  * operatingSystem
 
 ### AgentPreviewList
 * AgentPreviewList `array`
@@ -720,11 +848,7 @@ amazonaws_inspector.UpdateAssessmentTarget({
 * AgentVersion `string`
 
 ### AgentsAlreadyRunningAssessmentException
-* AgentsAlreadyRunningAssessmentException `object`: You started an assessment run, but one of the instances is already participating in another assessment run.
-  * agents **required** [AgentAlreadyRunningAssessmentList](#agentalreadyrunningassessmentlist)
-  * agentsTruncated **required** [Bool](#bool)
-  * canRetry **required** [Bool](#bool)
-  * message **required** [ErrorMessage](#errormessage)
+
 
 ### AmiId
 * AmiId `string`
@@ -741,31 +865,36 @@ amazonaws_inspector.UpdateAssessmentTarget({
 
 ### AssessmentRun
 * AssessmentRun `object`: <p>A snapshot of an Amazon Inspector assessment run that contains the findings of the assessment run .</p> <p>Used as the response element in the <a>DescribeAssessmentRuns</a> action.</p>
-  * arn **required** [Arn](#arn)
-  * assessmentTemplateArn **required** [Arn](#arn)
-  * completedAt [Timestamp](#timestamp)
-  * createdAt **required** [Timestamp](#timestamp)
-  * dataCollected **required** [Bool](#bool)
-  * durationInSeconds **required** [AssessmentRunDuration](#assessmentrunduration)
-  * findingCounts **required** [AssessmentRunFindingCounts](#assessmentrunfindingcounts)
-  * name **required** [AssessmentRunName](#assessmentrunname)
-  * notifications **required** [AssessmentRunNotificationList](#assessmentrunnotificationlist)
-  * rulesPackageArns **required** [AssessmentRulesPackageArnList](#assessmentrulespackagearnlist)
-  * startedAt [Timestamp](#timestamp)
-  * state **required** [AssessmentRunState](#assessmentrunstate)
-  * stateChangedAt **required** [Timestamp](#timestamp)
-  * stateChanges **required** [AssessmentRunStateChangeList](#assessmentrunstatechangelist)
-  * userAttributesForFindings **required** [UserAttributeList](#userattributelist)
+  * arn **required**
+  * assessmentTemplateArn **required**
+  * completedAt
+  * createdAt **required**
+  * dataCollected **required**
+  * durationInSeconds **required**
+  * findingCounts **required**
+  * name **required**
+  * notifications **required**
+    * items [AssessmentRunNotification](#assessmentrunnotification)
+  * rulesPackageArns **required**
+    * items [Arn](#arn)
+  * startedAt
+  * state **required**
+  * stateChangedAt **required**
+  * stateChanges **required**
+    * items [AssessmentRunStateChange](#assessmentrunstatechange)
+  * userAttributesForFindings **required**
+    * items [Attribute](#attribute)
 
 ### AssessmentRunAgent
 * AssessmentRunAgent `object`: Contains information about an Amazon Inspector agent. This data type is used as a response element in the <a>ListAssessmentRunAgents</a> action.
-  * agentHealth **required** [AgentHealth](#agenthealth)
-  * agentHealthCode **required** [AgentHealthCode](#agenthealthcode)
-  * agentHealthDetails [Message](#message)
-  * agentId **required** [AgentId](#agentid)
-  * assessmentRunArn **required** [Arn](#arn)
-  * autoScalingGroup [AutoScalingGroup](#autoscalinggroup)
-  * telemetryMetadata **required** [TelemetryMetadataList](#telemetrymetadatalist)
+  * agentHealth **required**
+  * agentHealthCode **required**
+  * agentHealthDetails
+  * agentId **required**
+  * assessmentRunArn **required**
+  * autoScalingGroup
+  * telemetryMetadata **required**
+    * items [TelemetryMetadata](#telemetrymetadata)
 
 ### AssessmentRunAgentList
 * AssessmentRunAgentList `array`
@@ -776,30 +905,29 @@ amazonaws_inspector.UpdateAssessmentTarget({
 
 ### AssessmentRunFilter
 * AssessmentRunFilter `object`: Used as the request parameter in the <a>ListAssessmentRuns</a> action.
-  * completionTimeRange [TimestampRange](#timestamprange)
-  * durationRange [DurationRange](#durationrange)
-  * namePattern [NamePattern](#namepattern)
-  * rulesPackageArns [FilterRulesPackageArnList](#filterrulespackagearnlist)
-  * startTimeRange [TimestampRange](#timestamprange)
-  * stateChangeTimeRange [TimestampRange](#timestamprange)
-  * states [AssessmentRunStateList](#assessmentrunstatelist)
+  * completionTimeRange
+    * beginDate
+    * endDate
+  * durationRange
+    * maxSeconds
+    * minSeconds
+  * namePattern
+  * rulesPackageArns
+    * items [Arn](#arn)
+  * startTimeRange
+    * beginDate
+    * endDate
+  * stateChangeTimeRange
+    * beginDate
+    * endDate
+  * states
+    * items [AssessmentRunState](#assessmentrunstate)
 
 ### AssessmentRunFindingCounts
-* AssessmentRunFindingCounts `array`
-  * items `object`
-    * key [Severity](#severity)
-    * value [FindingCount](#findingcount)
-
-### AssessmentRunInProgressArnList
-* AssessmentRunInProgressArnList `array`
-  * items [Arn](#arn)
+* AssessmentRunFindingCounts `object`
 
 ### AssessmentRunInProgressException
-* AssessmentRunInProgressException `object`: You cannot perform a specified action if an assessment run is currently in progress.
-  * assessmentRunArns **required** [AssessmentRunInProgressArnList](#assessmentruninprogressarnlist)
-  * assessmentRunArnsTruncated **required** [Bool](#bool)
-  * canRetry **required** [Bool](#bool)
-  * message **required** [ErrorMessage](#errormessage)
+
 
 ### AssessmentRunList
 * AssessmentRunList `array`
@@ -810,12 +938,12 @@ amazonaws_inspector.UpdateAssessmentTarget({
 
 ### AssessmentRunNotification
 * AssessmentRunNotification `object`: Used as one of the elements of the <a>AssessmentRun</a> data type.
-  * date **required** [Timestamp](#timestamp)
-  * error **required** [Bool](#bool)
-  * event **required** [InspectorEvent](#inspectorevent)
-  * message [Message](#message)
-  * snsPublishStatusCode [AssessmentRunNotificationSnsStatusCode](#assessmentrunnotificationsnsstatuscode)
-  * snsTopicArn [Arn](#arn)
+  * date **required**
+  * error **required**
+  * event **required**
+  * message
+  * snsPublishStatusCode
+  * snsTopicArn
 
 ### AssessmentRunNotificationList
 * AssessmentRunNotificationList `array`
@@ -829,8 +957,8 @@ amazonaws_inspector.UpdateAssessmentTarget({
 
 ### AssessmentRunStateChange
 * AssessmentRunStateChange `object`: Used as one of the elements of the <a>AssessmentRun</a> data type.
-  * state **required** [AssessmentRunState](#assessmentrunstate)
-  * stateChangedAt **required** [Timestamp](#timestamp)
+  * state **required**
+  * stateChangedAt **required**
 
 ### AssessmentRunStateChangeList
 * AssessmentRunStateChangeList `array`
@@ -842,15 +970,15 @@ amazonaws_inspector.UpdateAssessmentTarget({
 
 ### AssessmentTarget
 * AssessmentTarget `object`: Contains information about an Amazon Inspector application. This data type is used as the response element in the <a>DescribeAssessmentTargets</a> action.
-  * arn **required** [Arn](#arn)
-  * createdAt **required** [Timestamp](#timestamp)
-  * name **required** [AssessmentTargetName](#assessmenttargetname)
-  * resourceGroupArn [Arn](#arn)
-  * updatedAt **required** [Timestamp](#timestamp)
+  * arn **required**
+  * createdAt **required**
+  * name **required**
+  * resourceGroupArn
+  * updatedAt **required**
 
 ### AssessmentTargetFilter
 * AssessmentTargetFilter `object`: Used as the request parameter in the <a>ListAssessmentTargets</a> action.
-  * assessmentTargetNamePattern [NamePattern](#namepattern)
+  * assessmentTargetNamePattern
 
 ### AssessmentTargetList
 * AssessmentTargetList `array`
@@ -861,21 +989,26 @@ amazonaws_inspector.UpdateAssessmentTarget({
 
 ### AssessmentTemplate
 * AssessmentTemplate `object`: Contains information about an Amazon Inspector assessment template. This data type is used as the response element in the <a>DescribeAssessmentTemplates</a> action.
-  * arn **required** [Arn](#arn)
-  * assessmentRunCount **required** [ArnCount](#arncount)
-  * assessmentTargetArn **required** [Arn](#arn)
-  * createdAt **required** [Timestamp](#timestamp)
-  * durationInSeconds **required** [AssessmentRunDuration](#assessmentrunduration)
-  * lastAssessmentRunArn [Arn](#arn)
-  * name **required** [AssessmentTemplateName](#assessmenttemplatename)
-  * rulesPackageArns **required** [AssessmentTemplateRulesPackageArnList](#assessmenttemplaterulespackagearnlist)
-  * userAttributesForFindings **required** [UserAttributeList](#userattributelist)
+  * arn **required**
+  * assessmentRunCount **required**
+  * assessmentTargetArn **required**
+  * createdAt **required**
+  * durationInSeconds **required**
+  * lastAssessmentRunArn
+  * name **required**
+  * rulesPackageArns **required**
+    * items [Arn](#arn)
+  * userAttributesForFindings **required**
+    * items [Attribute](#attribute)
 
 ### AssessmentTemplateFilter
 * AssessmentTemplateFilter `object`: Used as the request parameter in the <a>ListAssessmentTemplates</a> action.
-  * durationRange [DurationRange](#durationrange)
-  * namePattern [NamePattern](#namepattern)
-  * rulesPackageArns [FilterRulesPackageArnList](#filterrulespackagearnlist)
+  * durationRange
+    * maxSeconds
+    * minSeconds
+  * namePattern
+  * rulesPackageArns
+    * items [Arn](#arn)
 
 ### AssessmentTemplateList
 * AssessmentTemplateList `array`
@@ -890,20 +1023,25 @@ amazonaws_inspector.UpdateAssessmentTarget({
 
 ### AssetAttributes
 * AssetAttributes `object`: A collection of attributes of the host from which the finding is generated.
-  * agentId [AgentId](#agentid)
-  * amiId [AmiId](#amiid)
-  * autoScalingGroup [AutoScalingGroup](#autoscalinggroup)
-  * hostname [Hostname](#hostname)
-  * ipv4Addresses [Ipv4AddressList](#ipv4addresslist)
-  * schemaVersion **required** [NumericVersion](#numericversion)
+  * tags
+    * items [Tag](#tag)
+  * agentId
+  * amiId
+  * autoScalingGroup
+  * hostname
+  * ipv4Addresses
+    * items [Ipv4Address](#ipv4address)
+  * networkInterfaces
+    * items [NetworkInterface](#networkinterface)
+  * schemaVersion **required**
 
 ### AssetType
 * AssetType `string` (values: ec2-instance)
 
 ### Attribute
 * Attribute `object`: This data type is used as a request parameter in the <a>AddAttributesToFindings</a> and <a>CreateAssessmentTemplate</a> actions.
-  * key **required** [AttributeKey](#attributekey)
-  * value [AttributeValue](#attributevalue)
+  * key **required**
+  * value
 
 ### AttributeKey
 * AttributeKey `string`
@@ -926,67 +1064,86 @@ amazonaws_inspector.UpdateAssessmentTarget({
 * BatchDescribeArnList `array`
   * items [Arn](#arn)
 
+### BatchDescribeExclusionsArnList
+* BatchDescribeExclusionsArnList `array`
+  * items [Arn](#arn)
+
 ### Bool
 * Bool `boolean`
 
 ### CreateAssessmentTargetRequest
 * CreateAssessmentTargetRequest `object`
-  * assessmentTargetName **required** [AssessmentTargetName](#assessmenttargetname)
-  * resourceGroupArn [Arn](#arn)
+  * assessmentTargetName **required**
+  * resourceGroupArn
 
 ### CreateAssessmentTargetResponse
 * CreateAssessmentTargetResponse `object`
-  * assessmentTargetArn **required** [Arn](#arn)
+  * assessmentTargetArn **required**
 
 ### CreateAssessmentTemplateRequest
 * CreateAssessmentTemplateRequest `object`
-  * assessmentTargetArn **required** [Arn](#arn)
-  * assessmentTemplateName **required** [AssessmentTemplateName](#assessmenttemplatename)
-  * durationInSeconds **required** [AssessmentRunDuration](#assessmentrunduration)
-  * rulesPackageArns **required** [AssessmentTemplateRulesPackageArnList](#assessmenttemplaterulespackagearnlist)
-  * userAttributesForFindings [UserAttributeList](#userattributelist)
+  * assessmentTargetArn **required**
+  * assessmentTemplateName **required**
+  * durationInSeconds **required**
+  * rulesPackageArns **required**
+    * items [Arn](#arn)
+  * userAttributesForFindings
+    * items [Attribute](#attribute)
 
 ### CreateAssessmentTemplateResponse
 * CreateAssessmentTemplateResponse `object`
-  * assessmentTemplateArn **required** [Arn](#arn)
+  * assessmentTemplateArn **required**
+
+### CreateExclusionsPreviewRequest
+* CreateExclusionsPreviewRequest `object`
+  * assessmentTemplateArn **required**
+
+### CreateExclusionsPreviewResponse
+* CreateExclusionsPreviewResponse `object`
+  * previewToken **required**
 
 ### CreateResourceGroupRequest
 * CreateResourceGroupRequest `object`
-  * resourceGroupTags **required** [ResourceGroupTags](#resourcegrouptags)
+  * resourceGroupTags **required**
+    * items [ResourceGroupTag](#resourcegrouptag)
 
 ### CreateResourceGroupResponse
 * CreateResourceGroupResponse `object`
-  * resourceGroupArn **required** [Arn](#arn)
+  * resourceGroupArn **required**
 
 ### DeleteAssessmentRunRequest
 * DeleteAssessmentRunRequest `object`
-  * assessmentRunArn **required** [Arn](#arn)
+  * assessmentRunArn **required**
 
 ### DeleteAssessmentTargetRequest
 * DeleteAssessmentTargetRequest `object`
-  * assessmentTargetArn **required** [Arn](#arn)
+  * assessmentTargetArn **required**
 
 ### DeleteAssessmentTemplateRequest
 * DeleteAssessmentTemplateRequest `object`
-  * assessmentTemplateArn **required** [Arn](#arn)
+  * assessmentTemplateArn **required**
 
 ### DescribeAssessmentRunsRequest
 * DescribeAssessmentRunsRequest `object`
-  * assessmentRunArns **required** [BatchDescribeArnList](#batchdescribearnlist)
+  * assessmentRunArns **required**
+    * items [Arn](#arn)
 
 ### DescribeAssessmentRunsResponse
 * DescribeAssessmentRunsResponse `object`
-  * assessmentRuns **required** [AssessmentRunList](#assessmentrunlist)
-  * failedItems **required** [FailedItems](#faileditems)
+  * assessmentRuns **required**
+    * items [AssessmentRun](#assessmentrun)
+  * failedItems **required**
 
 ### DescribeAssessmentTargetsRequest
 * DescribeAssessmentTargetsRequest `object`
-  * assessmentTargetArns **required** [BatchDescribeArnList](#batchdescribearnlist)
+  * assessmentTargetArns **required**
+    * items [Arn](#arn)
 
 ### DescribeAssessmentTargetsResponse
 * DescribeAssessmentTargetsResponse `object`
-  * assessmentTargets **required** [AssessmentTargetList](#assessmenttargetlist)
-  * failedItems **required** [FailedItems](#faileditems)
+  * assessmentTargets **required**
+    * items [AssessmentTarget](#assessmenttarget)
+  * failedItems **required**
 
 ### DescribeAssessmentTemplatesRequest
 * DescribeAssessmentTemplatesRequest `object`
@@ -994,74 +1151,114 @@ amazonaws_inspector.UpdateAssessmentTarget({
 
 ### DescribeAssessmentTemplatesResponse
 * DescribeAssessmentTemplatesResponse `object`
-  * assessmentTemplates **required** [AssessmentTemplateList](#assessmenttemplatelist)
-  * failedItems **required** [FailedItems](#faileditems)
+  * assessmentTemplates **required**
+    * items [AssessmentTemplate](#assessmenttemplate)
+  * failedItems **required**
 
 ### DescribeCrossAccountAccessRoleResponse
 * DescribeCrossAccountAccessRoleResponse `object`
-  * registeredAt **required** [Timestamp](#timestamp)
-  * roleArn **required** [Arn](#arn)
-  * valid **required** [Bool](#bool)
+  * registeredAt **required**
+  * roleArn **required**
+  * valid **required**
+
+### DescribeExclusionsRequest
+* DescribeExclusionsRequest `object`
+  * exclusionArns **required**
+    * items [Arn](#arn)
+  * locale
+
+### DescribeExclusionsResponse
+* DescribeExclusionsResponse `object`
+  * exclusions **required**
+  * failedItems **required**
 
 ### DescribeFindingsRequest
 * DescribeFindingsRequest `object`
-  * findingArns **required** [BatchDescribeArnList](#batchdescribearnlist)
-  * locale [Locale](#locale)
+  * findingArns **required**
+    * items [Arn](#arn)
+  * locale
 
 ### DescribeFindingsResponse
 * DescribeFindingsResponse `object`
-  * failedItems **required** [FailedItems](#faileditems)
-  * findings **required** [FindingList](#findinglist)
+  * failedItems **required**
+  * findings **required**
+    * items [Finding](#finding)
 
 ### DescribeResourceGroupsRequest
 * DescribeResourceGroupsRequest `object`
-  * resourceGroupArns **required** [BatchDescribeArnList](#batchdescribearnlist)
+  * resourceGroupArns **required**
+    * items [Arn](#arn)
 
 ### DescribeResourceGroupsResponse
 * DescribeResourceGroupsResponse `object`
-  * failedItems **required** [FailedItems](#faileditems)
-  * resourceGroups **required** [ResourceGroupList](#resourcegrouplist)
+  * failedItems **required**
+  * resourceGroups **required**
+    * items [ResourceGroup](#resourcegroup)
 
 ### DescribeRulesPackagesRequest
 * DescribeRulesPackagesRequest `object`
-  * locale [Locale](#locale)
-  * rulesPackageArns **required** [BatchDescribeArnList](#batchdescribearnlist)
+  * locale
+  * rulesPackageArns **required**
+    * items [Arn](#arn)
 
 ### DescribeRulesPackagesResponse
 * DescribeRulesPackagesResponse `object`
-  * failedItems **required** [FailedItems](#faileditems)
-  * rulesPackages **required** [RulesPackageList](#rulespackagelist)
+  * failedItems **required**
+  * rulesPackages **required**
+    * items [RulesPackage](#rulespackage)
 
 ### DurationRange
 * DurationRange `object`: This data type is used in the <a>AssessmentTemplateFilter</a> data type.
-  * maxSeconds [AssessmentRunDuration](#assessmentrunduration)
-  * minSeconds [AssessmentRunDuration](#assessmentrunduration)
-
-### ErrorMessage
-* ErrorMessage `string`
+  * maxSeconds
+  * minSeconds
 
 ### EventSubscription
 * EventSubscription `object`: This data type is used in the <a>Subscription</a> data type.
-  * event **required** [InspectorEvent](#inspectorevent)
-  * subscribedAt **required** [Timestamp](#timestamp)
+  * event **required**
+  * subscribedAt **required**
 
 ### EventSubscriptionList
 * EventSubscriptionList `array`
   * items [EventSubscription](#eventsubscription)
 
+### Exclusion
+* Exclusion `object`: Contains information about what was excluded from an assessment run.
+  * arn **required**
+  * attributes
+    * items [Attribute](#attribute)
+  * description **required**
+  * recommendation **required**
+  * scopes **required**
+    * items [Scope](#scope)
+  * title **required**
+
+### ExclusionMap
+* ExclusionMap `object`
+
+### ExclusionPreview
+* ExclusionPreview `object`: Contains information about what is excluded from an assessment run given the current state of the assessment template.
+  * attributes
+    * items [Attribute](#attribute)
+  * description **required**
+  * recommendation **required**
+  * scopes **required**
+    * items [Scope](#scope)
+  * title **required**
+
+### ExclusionPreviewList
+* ExclusionPreviewList `array`
+  * items [ExclusionPreview](#exclusionpreview)
+
 ### FailedItemDetails
 * FailedItemDetails `object`: Includes details about the failed items.
-  * failureCode **required** [FailedItemErrorCode](#faileditemerrorcode)
-  * retryable **required** [Bool](#bool)
+  * failureCode **required**
+  * retryable **required**
 
 ### FailedItemErrorCode
 * FailedItemErrorCode `string` (values: INVALID_ARN, DUPLICATE_ARN, ITEM_DOES_NOT_EXIST, ACCESS_DENIED, LIMIT_EXCEEDED, INTERNAL_ERROR)
 
 ### FailedItems
-* FailedItems `array`
-  * items `object`
-    * key [Arn](#arn)
-    * value [FailedItemDetails](#faileditemdetails)
+* FailedItems `object`
 
 ### FilterRulesPackageArnList
 * FilterRulesPackageArnList `array`
@@ -1069,38 +1266,63 @@ amazonaws_inspector.UpdateAssessmentTarget({
 
 ### Finding
 * Finding `object`: Contains information about an Amazon Inspector finding. This data type is used as the response element in the <a>DescribeFindings</a> action.
-  * arn **required** [Arn](#arn)
-  * assetAttributes [AssetAttributes](#assetattributes)
-  * assetType [AssetType](#assettype)
-  * attributes **required** [AttributeList](#attributelist)
-  * confidence [IocConfidence](#iocconfidence)
-  * createdAt **required** [Timestamp](#timestamp)
-  * description [Text](#text)
-  * id [FindingId](#findingid)
-  * indicatorOfCompromise [Bool](#bool)
-  * numericSeverity [NumericSeverity](#numericseverity)
-  * recommendation [Text](#text)
-  * schemaVersion [NumericVersion](#numericversion)
-  * service [ServiceName](#servicename)
-  * serviceAttributes [InspectorServiceAttributes](#inspectorserviceattributes)
-  * severity [Severity](#severity)
-  * title [Text](#text)
-  * updatedAt **required** [Timestamp](#timestamp)
-  * userAttributes **required** [UserAttributeList](#userattributelist)
+  * arn **required**
+  * assetAttributes
+    * tags
+      * items [Tag](#tag)
+    * agentId
+    * amiId
+    * autoScalingGroup
+    * hostname
+    * ipv4Addresses
+      * items [Ipv4Address](#ipv4address)
+    * networkInterfaces
+      * items [NetworkInterface](#networkinterface)
+    * schemaVersion **required**
+  * assetType
+  * attributes **required**
+    * items [Attribute](#attribute)
+  * confidence
+  * createdAt **required**
+  * description
+  * id
+  * indicatorOfCompromise
+  * numericSeverity
+  * recommendation
+  * schemaVersion
+  * service
+  * serviceAttributes
+    * assessmentRunArn
+    * rulesPackageArn
+    * schemaVersion **required**
+  * severity
+  * title
+  * updatedAt **required**
+  * userAttributes **required**
+    * items [Attribute](#attribute)
 
 ### FindingCount
 * FindingCount `integer`
 
 ### FindingFilter
 * FindingFilter `object`: This data type is used as a request parameter in the <a>ListFindings</a> action.
-  * agentIds [AgentIdList](#agentidlist)
-  * attributes [AttributeList](#attributelist)
-  * autoScalingGroups [AutoScalingGroupList](#autoscalinggrouplist)
-  * creationTimeRange [TimestampRange](#timestamprange)
-  * ruleNames [RuleNameList](#rulenamelist)
-  * rulesPackageArns [FilterRulesPackageArnList](#filterrulespackagearnlist)
-  * severities [SeverityList](#severitylist)
-  * userAttributes [AttributeList](#attributelist)
+  * agentIds
+    * items [AgentId](#agentid)
+  * attributes
+    * items [Attribute](#attribute)
+  * autoScalingGroups
+    * items [AutoScalingGroup](#autoscalinggroup)
+  * creationTimeRange
+    * beginDate
+    * endDate
+  * ruleNames
+    * items [RuleName](#rulename)
+  * rulesPackageArns
+    * items [Arn](#arn)
+  * severities
+    * items [Severity](#severity)
+  * userAttributes
+    * items [Attribute](#attribute)
 
 ### FindingId
 * FindingId `string`
@@ -1111,22 +1333,38 @@ amazonaws_inspector.UpdateAssessmentTarget({
 
 ### GetAssessmentReportRequest
 * GetAssessmentReportRequest `object`
-  * assessmentRunArn **required** [Arn](#arn)
-  * reportFileFormat **required** [ReportFileFormat](#reportfileformat)
-  * reportType **required** [ReportType](#reporttype)
+  * assessmentRunArn **required**
+  * reportFileFormat **required**
+  * reportType **required**
 
 ### GetAssessmentReportResponse
 * GetAssessmentReportResponse `object`
-  * status **required** [ReportStatus](#reportstatus)
-  * url [Url](#url)
+  * status **required**
+  * url
+
+### GetExclusionsPreviewRequest
+* GetExclusionsPreviewRequest `object`
+  * assessmentTemplateArn **required**
+  * locale
+  * maxResults
+  * nextToken
+  * previewToken **required**
+
+### GetExclusionsPreviewResponse
+* GetExclusionsPreviewResponse `object`
+  * exclusionPreviews
+    * items [ExclusionPreview](#exclusionpreview)
+  * nextToken
+  * previewStatus **required**
 
 ### GetTelemetryMetadataRequest
 * GetTelemetryMetadataRequest `object`
-  * assessmentRunArn **required** [Arn](#arn)
+  * assessmentRunArn **required**
 
 ### GetTelemetryMetadataResponse
 * GetTelemetryMetadataResponse `object`
-  * telemetryMetadata **required** [TelemetryMetadataList](#telemetrymetadatalist)
+  * telemetryMetadata **required**
+    * items [TelemetryMetadata](#telemetrymetadata)
 
 ### Hostname
 * Hostname `string`
@@ -1136,32 +1374,18 @@ amazonaws_inspector.UpdateAssessmentTarget({
 
 ### InspectorServiceAttributes
 * InspectorServiceAttributes `object`: This data type is used in the <a>Finding</a> data type.
-  * assessmentRunArn [Arn](#arn)
-  * rulesPackageArn [Arn](#arn)
-  * schemaVersion **required** [NumericVersion](#numericversion)
+  * assessmentRunArn
+  * rulesPackageArn
+  * schemaVersion **required**
 
 ### InternalException
-* InternalException `object`: Internal server error.
-  * canRetry **required** [Bool](#bool)
-  * message **required** [ErrorMessage](#errormessage)
 
-### InvalidCrossAccountRoleErrorCode
-* InvalidCrossAccountRoleErrorCode `string` (values: ROLE_DOES_NOT_EXIST_OR_INVALID_TRUST_RELATIONSHIP, ROLE_DOES_NOT_HAVE_CORRECT_POLICY)
 
 ### InvalidCrossAccountRoleException
-* InvalidCrossAccountRoleException `object`: Amazon Inspector cannot assume the cross-account role that it needs to list your EC2 instances during the assessment run.
-  * canRetry **required** [Bool](#bool)
-  * errorCode **required** [InvalidCrossAccountRoleErrorCode](#invalidcrossaccountroleerrorcode)
-  * message **required** [ErrorMessage](#errormessage)
 
-### InvalidInputErrorCode
-* InvalidInputErrorCode `string` (values: INVALID_ASSESSMENT_TARGET_ARN, INVALID_ASSESSMENT_TEMPLATE_ARN, INVALID_ASSESSMENT_RUN_ARN, INVALID_FINDING_ARN, INVALID_RESOURCE_GROUP_ARN, INVALID_RULES_PACKAGE_ARN, INVALID_RESOURCE_ARN, INVALID_SNS_TOPIC_ARN, INVALID_IAM_ROLE_ARN, INVALID_ASSESSMENT_TARGET_NAME, INVALID_ASSESSMENT_TARGET_NAME_PATTERN, INVALID_ASSESSMENT_TEMPLATE_NAME, INVALID_ASSESSMENT_TEMPLATE_NAME_PATTERN, INVALID_ASSESSMENT_TEMPLATE_DURATION, INVALID_ASSESSMENT_TEMPLATE_DURATION_RANGE, INVALID_ASSESSMENT_RUN_DURATION_RANGE, INVALID_ASSESSMENT_RUN_START_TIME_RANGE, INVALID_ASSESSMENT_RUN_COMPLETION_TIME_RANGE, INVALID_ASSESSMENT_RUN_STATE_CHANGE_TIME_RANGE, INVALID_ASSESSMENT_RUN_STATE, INVALID_TAG, INVALID_TAG_KEY, INVALID_TAG_VALUE, INVALID_RESOURCE_GROUP_TAG_KEY, INVALID_RESOURCE_GROUP_TAG_VALUE, INVALID_ATTRIBUTE, INVALID_USER_ATTRIBUTE, INVALID_USER_ATTRIBUTE_KEY, INVALID_USER_ATTRIBUTE_VALUE, INVALID_PAGINATION_TOKEN, INVALID_MAX_RESULTS, INVALID_AGENT_ID, INVALID_AUTO_SCALING_GROUP, INVALID_RULE_NAME, INVALID_SEVERITY, INVALID_LOCALE, INVALID_EVENT, ASSESSMENT_TARGET_NAME_ALREADY_TAKEN, ASSESSMENT_TEMPLATE_NAME_ALREADY_TAKEN, INVALID_NUMBER_OF_ASSESSMENT_TARGET_ARNS, INVALID_NUMBER_OF_ASSESSMENT_TEMPLATE_ARNS, INVALID_NUMBER_OF_ASSESSMENT_RUN_ARNS, INVALID_NUMBER_OF_FINDING_ARNS, INVALID_NUMBER_OF_RESOURCE_GROUP_ARNS, INVALID_NUMBER_OF_RULES_PACKAGE_ARNS, INVALID_NUMBER_OF_ASSESSMENT_RUN_STATES, INVALID_NUMBER_OF_TAGS, INVALID_NUMBER_OF_RESOURCE_GROUP_TAGS, INVALID_NUMBER_OF_ATTRIBUTES, INVALID_NUMBER_OF_USER_ATTRIBUTES, INVALID_NUMBER_OF_AGENT_IDS, INVALID_NUMBER_OF_AUTO_SCALING_GROUPS, INVALID_NUMBER_OF_RULE_NAMES, INVALID_NUMBER_OF_SEVERITIES)
 
 ### InvalidInputException
-* InvalidInputException `object`: The request was rejected because an invalid or out-of-range value was supplied for an input parameter.
-  * canRetry **required** [Bool](#bool)
-  * errorCode **required** [InvalidInputErrorCode](#invalidinputerrorcode)
-  * message **required** [ErrorMessage](#errormessage)
+
 
 ### IocConfidence
 * IocConfidence `integer`
@@ -1173,90 +1397,154 @@ amazonaws_inspector.UpdateAssessmentTarget({
 * Ipv4AddressList `array`
   * items [Ipv4Address](#ipv4address)
 
+### Ipv6Addresses
+* Ipv6Addresses `array`
+  * items [Text](#text)
+
 ### KernelVersion
 * KernelVersion `string`
 
-### LimitExceededErrorCode
-* LimitExceededErrorCode `string` (values: ASSESSMENT_TARGET_LIMIT_EXCEEDED, ASSESSMENT_TEMPLATE_LIMIT_EXCEEDED, ASSESSMENT_RUN_LIMIT_EXCEEDED, RESOURCE_GROUP_LIMIT_EXCEEDED, EVENT_SUBSCRIPTION_LIMIT_EXCEEDED)
-
 ### LimitExceededException
-* LimitExceededException `object`: The request was rejected because it attempted to create resources beyond the current AWS account limits. The error code describes the limit exceeded.
-  * canRetry **required** [Bool](#bool)
-  * errorCode **required** [LimitExceededErrorCode](#limitexceedederrorcode)
-  * message **required** [ErrorMessage](#errormessage)
+
 
 ### ListAssessmentRunAgentsRequest
 * ListAssessmentRunAgentsRequest `object`
-  * assessmentRunArn **required** [Arn](#arn)
-  * filter [AgentFilter](#agentfilter)
-  * maxResults [ListMaxResults](#listmaxresults)
-  * nextToken [PaginationToken](#paginationtoken)
+  * assessmentRunArn **required**
+  * filter
+    * agentHealthCodes **required**
+      * items [AgentHealthCode](#agenthealthcode)
+    * agentHealths **required**
+      * items [AgentHealth](#agenthealth)
+  * maxResults
+  * nextToken
 
 ### ListAssessmentRunAgentsResponse
 * ListAssessmentRunAgentsResponse `object`
-  * assessmentRunAgents **required** [AssessmentRunAgentList](#assessmentrunagentlist)
-  * nextToken [PaginationToken](#paginationtoken)
+  * assessmentRunAgents **required**
+    * items [AssessmentRunAgent](#assessmentrunagent)
+  * nextToken
 
 ### ListAssessmentRunsRequest
 * ListAssessmentRunsRequest `object`
-  * assessmentTemplateArns [ListParentArnList](#listparentarnlist)
-  * filter [AssessmentRunFilter](#assessmentrunfilter)
-  * maxResults [ListMaxResults](#listmaxresults)
-  * nextToken [PaginationToken](#paginationtoken)
+  * assessmentTemplateArns
+    * items [Arn](#arn)
+  * filter
+    * completionTimeRange
+      * beginDate
+      * endDate
+    * durationRange
+      * maxSeconds
+      * minSeconds
+    * namePattern
+    * rulesPackageArns
+      * items [Arn](#arn)
+    * startTimeRange
+      * beginDate
+      * endDate
+    * stateChangeTimeRange
+      * beginDate
+      * endDate
+    * states
+      * items [AssessmentRunState](#assessmentrunstate)
+  * maxResults
+  * nextToken
 
 ### ListAssessmentRunsResponse
 * ListAssessmentRunsResponse `object`
-  * assessmentRunArns **required** [ListReturnedArnList](#listreturnedarnlist)
-  * nextToken [PaginationToken](#paginationtoken)
+  * assessmentRunArns **required**
+    * items [Arn](#arn)
+  * nextToken
 
 ### ListAssessmentTargetsRequest
 * ListAssessmentTargetsRequest `object`
-  * filter [AssessmentTargetFilter](#assessmenttargetfilter)
-  * maxResults [ListMaxResults](#listmaxresults)
-  * nextToken [PaginationToken](#paginationtoken)
+  * filter
+    * assessmentTargetNamePattern
+  * maxResults
+  * nextToken
 
 ### ListAssessmentTargetsResponse
 * ListAssessmentTargetsResponse `object`
-  * assessmentTargetArns **required** [ListReturnedArnList](#listreturnedarnlist)
-  * nextToken [PaginationToken](#paginationtoken)
+  * assessmentTargetArns **required**
+    * items [Arn](#arn)
+  * nextToken
 
 ### ListAssessmentTemplatesRequest
 * ListAssessmentTemplatesRequest `object`
-  * assessmentTargetArns [ListParentArnList](#listparentarnlist)
-  * filter [AssessmentTemplateFilter](#assessmenttemplatefilter)
-  * maxResults [ListMaxResults](#listmaxresults)
-  * nextToken [PaginationToken](#paginationtoken)
+  * assessmentTargetArns
+    * items [Arn](#arn)
+  * filter
+    * durationRange
+      * maxSeconds
+      * minSeconds
+    * namePattern
+    * rulesPackageArns
+      * items [Arn](#arn)
+  * maxResults
+  * nextToken
 
 ### ListAssessmentTemplatesResponse
 * ListAssessmentTemplatesResponse `object`
-  * assessmentTemplateArns **required** [ListReturnedArnList](#listreturnedarnlist)
-  * nextToken [PaginationToken](#paginationtoken)
+  * assessmentTemplateArns **required**
+    * items [Arn](#arn)
+  * nextToken
 
 ### ListEventSubscriptionsMaxResults
 * ListEventSubscriptionsMaxResults `integer`
 
 ### ListEventSubscriptionsRequest
 * ListEventSubscriptionsRequest `object`
-  * maxResults [ListEventSubscriptionsMaxResults](#listeventsubscriptionsmaxresults)
-  * nextToken [PaginationToken](#paginationtoken)
-  * resourceArn [Arn](#arn)
+  * maxResults
+  * nextToken
+  * resourceArn
 
 ### ListEventSubscriptionsResponse
 * ListEventSubscriptionsResponse `object`
-  * nextToken [PaginationToken](#paginationtoken)
-  * subscriptions **required** [SubscriptionList](#subscriptionlist)
+  * nextToken
+  * subscriptions **required**
+    * items [Subscription](#subscription)
+
+### ListExclusionsRequest
+* ListExclusionsRequest `object`
+  * assessmentRunArn **required**
+  * maxResults
+  * nextToken
+
+### ListExclusionsResponse
+* ListExclusionsResponse `object`
+  * exclusionArns **required**
+    * items [Arn](#arn)
+  * nextToken
 
 ### ListFindingsRequest
 * ListFindingsRequest `object`
-  * assessmentRunArns [ListParentArnList](#listparentarnlist)
-  * filter [FindingFilter](#findingfilter)
-  * maxResults [ListMaxResults](#listmaxresults)
-  * nextToken [PaginationToken](#paginationtoken)
+  * assessmentRunArns
+    * items [Arn](#arn)
+  * filter
+    * agentIds
+      * items [AgentId](#agentid)
+    * attributes
+      * items [Attribute](#attribute)
+    * autoScalingGroups
+      * items [AutoScalingGroup](#autoscalinggroup)
+    * creationTimeRange
+      * beginDate
+      * endDate
+    * ruleNames
+      * items [RuleName](#rulename)
+    * rulesPackageArns
+      * items [Arn](#arn)
+    * severities
+      * items [Severity](#severity)
+    * userAttributes
+      * items [Attribute](#attribute)
+  * maxResults
+  * nextToken
 
 ### ListFindingsResponse
 * ListFindingsResponse `object`
-  * findingArns **required** [ListReturnedArnList](#listreturnedarnlist)
-  * nextToken [PaginationToken](#paginationtoken)
+  * findingArns **required**
+    * items [Arn](#arn)
+  * nextToken
 
 ### ListMaxResults
 * ListMaxResults `integer`
@@ -1271,21 +1559,23 @@ amazonaws_inspector.UpdateAssessmentTarget({
 
 ### ListRulesPackagesRequest
 * ListRulesPackagesRequest `object`
-  * maxResults [ListMaxResults](#listmaxresults)
-  * nextToken [PaginationToken](#paginationtoken)
+  * maxResults
+  * nextToken
 
 ### ListRulesPackagesResponse
 * ListRulesPackagesResponse `object`
-  * nextToken [PaginationToken](#paginationtoken)
-  * rulesPackageArns **required** [ListReturnedArnList](#listreturnedarnlist)
+  * nextToken
+  * rulesPackageArns **required**
+    * items [Arn](#arn)
 
 ### ListTagsForResourceRequest
 * ListTagsForResourceRequest `object`
-  * resourceArn **required** [Arn](#arn)
+  * resourceArn **required**
 
 ### ListTagsForResourceResponse
 * ListTagsForResourceResponse `object`
-  * tags **required** [TagList](#taglist)
+  * tags **required**
+    * items [Tag](#tag)
 
 ### Locale
 * Locale `string` (values: EN_US)
@@ -1302,14 +1592,28 @@ amazonaws_inspector.UpdateAssessmentTarget({
 ### NamePattern
 * NamePattern `string`
 
-### NoSuchEntityErrorCode
-* NoSuchEntityErrorCode `string` (values: ASSESSMENT_TARGET_DOES_NOT_EXIST, ASSESSMENT_TEMPLATE_DOES_NOT_EXIST, ASSESSMENT_RUN_DOES_NOT_EXIST, FINDING_DOES_NOT_EXIST, RESOURCE_GROUP_DOES_NOT_EXIST, RULES_PACKAGE_DOES_NOT_EXIST, SNS_TOPIC_DOES_NOT_EXIST, IAM_ROLE_DOES_NOT_EXIST)
+### NetworkInterface
+* NetworkInterface `object`: Contains information about the network interfaces interacting with an EC2 instance. This data type is used as one of the elements of the <a>AssetAttributes</a> data type.
+  * ipv6Addresses
+    * items [Text](#text)
+  * networkInterfaceId
+  * privateDnsName
+  * privateIpAddress
+  * privateIpAddresses
+    * items [PrivateIp](#privateip)
+  * publicDnsName
+  * publicIp
+  * securityGroups
+    * items [SecurityGroup](#securitygroup)
+  * subnetId
+  * vpcId
+
+### NetworkInterfaces
+* NetworkInterfaces `array`
+  * items [NetworkInterface](#networkinterface)
 
 ### NoSuchEntityException
-* NoSuchEntityException `object`: The request was rejected because it referenced an entity that does not exist. The error code describes the entity.
-  * canRetry **required** [Bool](#bool)
-  * errorCode **required** [NoSuchEntityErrorCode](#nosuchentityerrorcode)
-  * message **required** [ErrorMessage](#errormessage)
+
 
 ### NumericSeverity
 * NumericSeverity `number`
@@ -1328,30 +1632,48 @@ amazonaws_inspector.UpdateAssessmentTarget({
 
 ### PreviewAgentsRequest
 * PreviewAgentsRequest `object`
-  * maxResults [PreviewAgentsMaxResults](#previewagentsmaxresults)
-  * nextToken [PaginationToken](#paginationtoken)
-  * previewAgentsArn **required** [Arn](#arn)
+  * maxResults
+  * nextToken
+  * previewAgentsArn **required**
 
 ### PreviewAgentsResponse
 * PreviewAgentsResponse `object`
-  * agentPreviews **required** [AgentPreviewList](#agentpreviewlist)
-  * nextToken [PaginationToken](#paginationtoken)
+  * agentPreviews **required**
+    * items [AgentPreview](#agentpreview)
+  * nextToken
+
+### PreviewGenerationInProgressException
+
+
+### PreviewStatus
+* PreviewStatus `string` (values: WORK_IN_PROGRESS, COMPLETED)
+
+### PrivateIp
+* PrivateIp `object`: Contains information about a private IP address associated with a network interface. This data type is used as a response element in the <a>DescribeFindings</a> action.
+  * privateDnsName
+  * privateIpAddress
+
+### PrivateIpAddresses
+* PrivateIpAddresses `array`
+  * items [PrivateIp](#privateip)
 
 ### ProviderName
 * ProviderName `string`
 
 ### RegisterCrossAccountAccessRoleRequest
 * RegisterCrossAccountAccessRoleRequest `object`
-  * roleArn **required** [Arn](#arn)
+  * roleArn **required**
 
 ### RemoveAttributesFromFindingsRequest
 * RemoveAttributesFromFindingsRequest `object`
-  * attributeKeys **required** [UserAttributeKeyList](#userattributekeylist)
-  * findingArns **required** [AddRemoveAttributesFindingArnList](#addremoveattributesfindingarnlist)
+  * attributeKeys **required**
+    * items [AttributeKey](#attributekey)
+  * findingArns **required**
+    * items [Arn](#arn)
 
 ### RemoveAttributesFromFindingsResponse
 * RemoveAttributesFromFindingsResponse `object`
-  * failedItems **required** [FailedItems](#faileditems)
+  * failedItems **required**
 
 ### ReportFileFormat
 * ReportFileFormat `string` (values: HTML, PDF)
@@ -1364,9 +1686,10 @@ amazonaws_inspector.UpdateAssessmentTarget({
 
 ### ResourceGroup
 * ResourceGroup `object`: Contains information about a resource group. The resource group defines a set of tags that, when queried, identify the AWS resources that make up the assessment target. This data type is used as the response element in the <a>DescribeResourceGroups</a> action.
-  * arn **required** [Arn](#arn)
-  * createdAt **required** [Timestamp](#timestamp)
-  * tags **required** [ResourceGroupTags](#resourcegrouptags)
+  * tags **required**
+    * items [ResourceGroupTag](#resourcegrouptag)
+  * arn **required**
+  * createdAt **required**
 
 ### ResourceGroupList
 * ResourceGroupList `array`
@@ -1374,8 +1697,8 @@ amazonaws_inspector.UpdateAssessmentTarget({
 
 ### ResourceGroupTag
 * ResourceGroupTag `object`: This data type is used as one of the elements of the <a>ResourceGroup</a> data type.
-  * key **required** [TagKey](#tagkey)
-  * value [TagValue](#tagvalue)
+  * key **required**
+  * value
 
 ### ResourceGroupTags
 * ResourceGroupTags `array`
@@ -1390,11 +1713,11 @@ amazonaws_inspector.UpdateAssessmentTarget({
 
 ### RulesPackage
 * RulesPackage `object`: Contains information about an Amazon Inspector rules package. This data type is used as the response element in the <a>DescribeRulesPackages</a> action.
-  * arn **required** [Arn](#arn)
-  * description [Text](#text)
-  * name **required** [RulesPackageName](#rulespackagename)
-  * provider **required** [ProviderName](#providername)
-  * version **required** [Version](#version)
+  * arn **required**
+  * description
+  * name **required**
+  * provider **required**
+  * version **required**
 
 ### RulesPackageList
 * RulesPackageList `array`
@@ -1403,13 +1726,41 @@ amazonaws_inspector.UpdateAssessmentTarget({
 ### RulesPackageName
 * RulesPackageName `string`
 
+### Scope
+* Scope `object`: This data type contains key-value pairs that identify various Amazon resources.
+  * key
+  * value
+
+### ScopeList
+* ScopeList `array`
+  * items [Scope](#scope)
+
+### ScopeType
+* ScopeType `string` (values: INSTANCE_ID, RULES_PACKAGE_ARN)
+
+### ScopeValue
+* ScopeValue `string`
+
+### SecurityGroup
+* SecurityGroup `object`: Contains information about a security group associated with a network interface. This data type is used as one of the elements of the <a>NetworkInterface</a> data type.
+  * groupId
+  * groupName
+
+### SecurityGroups
+* SecurityGroups `array`
+  * items [SecurityGroup](#securitygroup)
+
 ### ServiceName
 * ServiceName `string`
 
+### ServiceTemporarilyUnavailableException
+
+
 ### SetTagsForResourceRequest
 * SetTagsForResourceRequest `object`
-  * resourceArn **required** [Arn](#arn)
-  * tags [TagList](#taglist)
+  * tags
+    * items [Tag](#tag)
+  * resourceArn **required**
 
 ### Severity
 * Severity `string` (values: Low, Medium, High, Informational, Undefined)
@@ -1420,32 +1771,33 @@ amazonaws_inspector.UpdateAssessmentTarget({
 
 ### StartAssessmentRunRequest
 * StartAssessmentRunRequest `object`
-  * assessmentRunName [AssessmentRunName](#assessmentrunname)
-  * assessmentTemplateArn **required** [Arn](#arn)
+  * assessmentRunName
+  * assessmentTemplateArn **required**
 
 ### StartAssessmentRunResponse
 * StartAssessmentRunResponse `object`
-  * assessmentRunArn **required** [Arn](#arn)
+  * assessmentRunArn **required**
 
 ### StopAction
 * StopAction `string` (values: START_EVALUATION, SKIP_EVALUATION)
 
 ### StopAssessmentRunRequest
 * StopAssessmentRunRequest `object`
-  * assessmentRunArn **required** [Arn](#arn)
-  * stopAction [StopAction](#stopaction)
+  * assessmentRunArn **required**
+  * stopAction
 
 ### SubscribeToEventRequest
 * SubscribeToEventRequest `object`
-  * event **required** [InspectorEvent](#inspectorevent)
-  * resourceArn **required** [Arn](#arn)
-  * topicArn **required** [Arn](#arn)
+  * event **required**
+  * resourceArn **required**
+  * topicArn **required**
 
 ### Subscription
 * Subscription `object`: This data type is used as a response element in the <a>ListEventSubscriptions</a> action.
-  * eventSubscriptions **required** [EventSubscriptionList](#eventsubscriptionlist)
-  * resourceArn **required** [Arn](#arn)
-  * topicArn **required** [Arn](#arn)
+  * eventSubscriptions **required**
+    * items [EventSubscription](#eventsubscription)
+  * resourceArn **required**
+  * topicArn **required**
 
 ### SubscriptionList
 * SubscriptionList `array`
@@ -1453,8 +1805,8 @@ amazonaws_inspector.UpdateAssessmentTarget({
 
 ### Tag
 * Tag `object`: A key and value pair. This data type is used as a request parameter in the <a>SetTagsForResource</a> action and a response element in the <a>ListTagsForResource</a> action.
-  * key **required** [TagKey](#tagkey)
-  * value [TagValue](#tagvalue)
+  * key **required**
+  * value
 
 ### TagKey
 * TagKey `string`
@@ -1466,11 +1818,15 @@ amazonaws_inspector.UpdateAssessmentTarget({
 ### TagValue
 * TagValue `string`
 
+### Tags
+* Tags `array`
+  * items [Tag](#tag)
+
 ### TelemetryMetadata
 * TelemetryMetadata `object`: The metadata about the Amazon Inspector application data metrics collected by the agent. This data type is used as the response element in the <a>GetTelemetryMetadata</a> action.
-  * count **required** [Long](#long)
-  * dataSize [Long](#long)
-  * messageType **required** [MessageType](#messagetype)
+  * count **required**
+  * dataSize
+  * messageType **required**
 
 ### TelemetryMetadataList
 * TelemetryMetadataList `array`
@@ -1484,25 +1840,26 @@ amazonaws_inspector.UpdateAssessmentTarget({
 
 ### TimestampRange
 * TimestampRange `object`: This data type is used in the <a>AssessmentRunFilter</a> data type.
-  * beginDate [Timestamp](#timestamp)
-  * endDate [Timestamp](#timestamp)
+  * beginDate
+  * endDate
+
+### UUID
+* UUID `string`
 
 ### UnsubscribeFromEventRequest
 * UnsubscribeFromEventRequest `object`
-  * event **required** [InspectorEvent](#inspectorevent)
-  * resourceArn **required** [Arn](#arn)
-  * topicArn **required** [Arn](#arn)
+  * event **required**
+  * resourceArn **required**
+  * topicArn **required**
 
 ### UnsupportedFeatureException
-* UnsupportedFeatureException `object`: Used by the <a>GetAssessmentReport</a> API. The request was rejected because you tried to generate a report for an assessment run that existed before reporting was supported in Amazon Inspector. You can only generate reports for assessment runs that took place or will take place after generating reports in Amazon Inspector became available.
-  * canRetry **required** [Bool](#bool)
-  * message **required** [ErrorMessage](#errormessage)
+
 
 ### UpdateAssessmentTargetRequest
 * UpdateAssessmentTargetRequest `object`
-  * assessmentTargetArn **required** [Arn](#arn)
-  * assessmentTargetName **required** [AssessmentTargetName](#assessmenttargetname)
-  * resourceGroupArn [Arn](#arn)
+  * assessmentTargetArn **required**
+  * assessmentTargetName **required**
+  * resourceGroupArn
 
 ### Url
 * Url `string`

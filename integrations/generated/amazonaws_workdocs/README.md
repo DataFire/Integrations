@@ -13,7 +13,7 @@ let amazonaws_workdocs = require('@datafire/amazonaws_workdocs').create({
   region: ""
 });
 
-amazonaws_workdocs.DescribeActivities({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -34,6 +34,16 @@ amazonaws_workdocs.DescribeActivities({}, context)
 
 #### Input
 * input `object`
+  * Authentication `string`
+  * startTime `string`
+  * endTime `string`
+  * organizationId `string`
+  * activityTypes `string`
+  * resourceId `string`
+  * userId `string`
+  * includeIndirectActivities `boolean`
+  * limit `integer`
+  * marker `string`
 
 #### Output
 * output [DescribeActivitiesResponse](#describeactivitiesresponse)
@@ -50,13 +60,14 @@ amazonaws_workdocs.InitiateDocumentVersionUpload({
 
 #### Input
 * input `object`
-  * ContentCreatedTimestamp [TimestampType](#timestamptype)
-  * ContentModifiedTimestamp [TimestampType](#timestamptype)
-  * ContentType [DocumentContentType](#documentcontenttype)
-  * DocumentSizeInBytes [SizeType](#sizetype)
-  * Id [ResourceIdType](#resourceidtype)
-  * Name [ResourceNameType](#resourcenametype)
-  * ParentFolderId **required** [ResourceIdType](#resourceidtype)
+  * Authentication `string`
+  * ContentCreatedTimestamp `string`: The timestamp when the content of the document was originally created.
+  * ContentModifiedTimestamp `string`: The timestamp when the content of the document was modified.
+  * ContentType `string`: The content type of the document.
+  * DocumentSizeInBytes `integer`: The size of the document, in bytes.
+  * Id `string`: The ID of the document.
+  * Name `string`: The name of the document.
+  * ParentFolderId **required** `string`: The ID of the parent folder.
 
 #### Output
 *Output schema unknown*
@@ -73,6 +84,7 @@ amazonaws_workdocs.DeleteDocument({
 
 #### Input
 * input `object`
+  * Authentication `string`
   * DocumentId **required** `string`
 
 #### Output
@@ -90,7 +102,9 @@ amazonaws_workdocs.GetDocument({
 
 #### Input
 * input `object`
+  * Authentication `string`
   * DocumentId **required** `string`
+  * includeCustomMetadata `boolean`
 
 #### Output
 * output [GetDocumentResponse](#getdocumentresponse)
@@ -107,10 +121,11 @@ amazonaws_workdocs.UpdateDocument({
 
 #### Input
 * input `object`
+  * Authentication `string`
   * DocumentId **required** `string`
-  * Name [ResourceNameType](#resourcenametype)
-  * ParentFolderId [ResourceIdType](#resourceidtype)
-  * ResourceState [ResourceStateType](#resourcestatetype)
+  * Name `string`: The name of the document.
+  * ParentFolderId `string`: The ID of the parent folder.
+  * ResourceState `string` (values: ACTIVE, RESTORING, RECYCLING, RECYCLED): The resource state of the document. Only ACTIVE and RECYCLED are supported.
 
 #### Output
 *Output schema unknown*
@@ -127,7 +142,11 @@ amazonaws_workdocs.GetDocumentPath({
 
 #### Input
 * input `object`
+  * Authentication `string`
   * DocumentId **required** `string`
+  * limit `integer`
+  * fields `string`
+  * marker `string`
 
 #### Output
 * output [GetDocumentPathResponse](#getdocumentpathresponse)
@@ -144,9 +163,14 @@ amazonaws_workdocs.DescribeDocumentVersions({
 
 #### Input
 * input `object`
+  * Authentication `string`
+  * DocumentId **required** `string`
+  * marker `string`
+  * limit `integer`
+  * include `string`
+  * fields `string`
   * Limit `string`
   * Marker `string`
-  * DocumentId **required** `string`
 
 #### Output
 * output [DescribeDocumentVersionsResponse](#describedocumentversionsresponse)
@@ -164,6 +188,7 @@ amazonaws_workdocs.AbortDocumentVersionUpload({
 
 #### Input
 * input `object`
+  * Authentication `string`
   * DocumentId **required** `string`
   * VersionId **required** `string`
 
@@ -183,8 +208,11 @@ amazonaws_workdocs.GetDocumentVersion({
 
 #### Input
 * input `object`
+  * Authentication `string`
   * DocumentId **required** `string`
   * VersionId **required** `string`
+  * fields `string`
+  * includeCustomMetadata `boolean`
 
 #### Output
 * output [GetDocumentVersionResponse](#getdocumentversionresponse)
@@ -202,9 +230,10 @@ amazonaws_workdocs.UpdateDocumentVersion({
 
 #### Input
 * input `object`
+  * Authentication `string`
   * DocumentId **required** `string`
   * VersionId **required** `string`
-  * VersionStatus [DocumentVersionStatus](#documentversionstatus)
+  * VersionStatus `string` (values: ACTIVE): The status of the version.
 
 #### Output
 *Output schema unknown*
@@ -223,13 +252,14 @@ amazonaws_workdocs.CreateComment({
 
 #### Input
 * input `object`
+  * Authentication `string`
   * DocumentId **required** `string`
   * VersionId **required** `string`
-  * NotifyCollaborators [BooleanType](#booleantype)
-  * ParentId [CommentIdType](#commentidtype)
-  * Text **required** [CommentTextType](#commenttexttype)
-  * ThreadId [CommentIdType](#commentidtype)
-  * Visibility [CommentVisibilityType](#commentvisibilitytype)
+  * NotifyCollaborators `boolean`: Set this parameter to TRUE to send an email out to the document collaborators after the comment is created.
+  * ParentId `string`: The ID of the parent comment.
+  * Text **required** `string`: The text of the comment.
+  * ThreadId `string`: The ID of the root comment in the thread.
+  * Visibility `string` (values: PUBLIC, PRIVATE): The visibility of the comment. Options are either PRIVATE, where the comment is visible only to the comment author and document owner and co-owners, or PUBLIC, where the comment is visible to document owners, co-owners, and contributors.
 
 #### Output
 *Output schema unknown*
@@ -248,6 +278,7 @@ amazonaws_workdocs.DeleteComment({
 
 #### Input
 * input `object`
+  * Authentication `string`
   * DocumentId **required** `string`
   * VersionId **required** `string`
   * CommentId **required** `string`
@@ -268,8 +299,11 @@ amazonaws_workdocs.DescribeComments({
 
 #### Input
 * input `object`
+  * Authentication `string`
   * DocumentId **required** `string`
   * VersionId **required** `string`
+  * limit `integer`
+  * marker `string`
 
 #### Output
 * output [DescribeCommentsResponse](#describecommentsresponse)
@@ -286,8 +320,9 @@ amazonaws_workdocs.CreateFolder({
 
 #### Input
 * input `object`
-  * Name [ResourceNameType](#resourcenametype)
-  * ParentFolderId **required** [ResourceIdType](#resourceidtype)
+  * Authentication `string`
+  * Name `string`: The name of the new folder.
+  * ParentFolderId **required** `string`: The ID of the parent folder.
 
 #### Output
 *Output schema unknown*
@@ -304,6 +339,7 @@ amazonaws_workdocs.DeleteFolder({
 
 #### Input
 * input `object`
+  * Authentication `string`
   * FolderId **required** `string`
 
 #### Output
@@ -321,7 +357,9 @@ amazonaws_workdocs.GetFolder({
 
 #### Input
 * input `object`
+  * Authentication `string`
   * FolderId **required** `string`
+  * includeCustomMetadata `boolean`
 
 #### Output
 * output [GetFolderResponse](#getfolderresponse)
@@ -338,10 +376,11 @@ amazonaws_workdocs.UpdateFolder({
 
 #### Input
 * input `object`
+  * Authentication `string`
   * FolderId **required** `string`
-  * Name [ResourceNameType](#resourcenametype)
-  * ParentFolderId [ResourceIdType](#resourceidtype)
-  * ResourceState [ResourceStateType](#resourcestatetype)
+  * Name `string`: The name of the folder.
+  * ParentFolderId `string`: The ID of the parent folder.
+  * ResourceState `string` (values: ACTIVE, RESTORING, RECYCLING, RECYCLED): The resource state of the folder. Only ACTIVE and RECYCLED are accepted values from the API.
 
 #### Output
 *Output schema unknown*
@@ -358,6 +397,7 @@ amazonaws_workdocs.DeleteFolderContents({
 
 #### Input
 * input `object`
+  * Authentication `string`
   * FolderId **required** `string`
 
 #### Output
@@ -375,9 +415,16 @@ amazonaws_workdocs.DescribeFolderContents({
 
 #### Input
 * input `object`
+  * Authentication `string`
+  * FolderId **required** `string`
+  * sort `string`
+  * order `string`
+  * limit `integer`
+  * marker `string`
+  * type `string`
+  * include `string`
   * Limit `string`
   * Marker `string`
-  * FolderId **required** `string`
 
 #### Output
 * output [DescribeFolderContentsResponse](#describefoldercontentsresponse)
@@ -394,7 +441,11 @@ amazonaws_workdocs.GetFolderPath({
 
 #### Input
 * input `object`
+  * Authentication `string`
   * FolderId **required** `string`
+  * limit `integer`
+  * fields `string`
+  * marker `string`
 
 #### Output
 * output [GetFolderPathResponse](#getfolderpathresponse)
@@ -404,11 +455,18 @@ amazonaws_workdocs.GetFolderPath({
 
 
 ```js
-amazonaws_workdocs.DescribeGroups({}, context)
+amazonaws_workdocs.DescribeGroups({
+  "searchQuery": ""
+}, context)
 ```
 
 #### Input
 * input `object`
+  * Authentication `string`
+  * searchQuery **required** `string`
+  * organizationId `string`
+  * marker `string`
+  * limit `integer`
 
 #### Output
 * output [DescribeGroupsResponse](#describegroupsresponse)
@@ -418,11 +476,14 @@ amazonaws_workdocs.DescribeGroups({}, context)
 
 
 ```js
-amazonaws_workdocs.GetCurrentUser({}, context)
+amazonaws_workdocs.GetCurrentUser({
+  "Authentication": ""
+}, context)
 ```
 
 #### Input
 * input `object`
+  * Authentication **required** `string`
 
 #### Output
 * output [GetCurrentUserResponse](#getcurrentuserresponse)
@@ -432,11 +493,16 @@ amazonaws_workdocs.GetCurrentUser({}, context)
 
 
 ```js
-amazonaws_workdocs.DescribeRootFolders({}, context)
+amazonaws_workdocs.DescribeRootFolders({
+  "Authentication": ""
+}, context)
 ```
 
 #### Input
 * input `object`
+  * Authentication **required** `string`
+  * limit `integer`
+  * marker `string`
 
 #### Output
 * output [DescribeRootFoldersResponse](#describerootfoldersresponse)
@@ -454,6 +520,8 @@ amazonaws_workdocs.DescribeNotificationSubscriptions({
 #### Input
 * input `object`
   * OrganizationId **required** `string`
+  * marker `string`
+  * limit `integer`
 
 #### Output
 * output [DescribeNotificationSubscriptionsResponse](#describenotificationsubscriptionsresponse)
@@ -474,9 +542,9 @@ amazonaws_workdocs.CreateNotificationSubscription({
 #### Input
 * input `object`
   * OrganizationId **required** `string`
-  * Endpoint **required** [SubscriptionEndPointType](#subscriptionendpointtype)
-  * Protocol **required** [SubscriptionProtocolType](#subscriptionprotocoltype)
-  * SubscriptionType **required** [SubscriptionType](#subscriptiontype)
+  * Endpoint **required** `string`: The endpoint to receive the notifications. If the protocol is HTTPS, the endpoint is a URL that begins with <code>https</code>.
+  * Protocol **required** `string` (values: HTTPS): The protocol to use. The supported value is https, which delivers JSON-encoded messages using HTTPS POST.
+  * SubscriptionType **required** `string` (values: ALL): The notification type.
 
 #### Output
 * output [CreateNotificationSubscriptionResponse](#createnotificationsubscriptionresponse)
@@ -487,18 +555,37 @@ amazonaws_workdocs.CreateNotificationSubscription({
 
 ```js
 amazonaws_workdocs.DeleteNotificationSubscription({
-  "OrganizationId": "",
-  "SubscriptionId": ""
+  "SubscriptionId": "",
+  "OrganizationId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * OrganizationId **required** `string`
   * SubscriptionId **required** `string`
+  * OrganizationId **required** `string`
 
 #### Output
 *Output schema unknown*
+
+### GetResources
+
+
+
+```js
+amazonaws_workdocs.GetResources({}, context)
+```
+
+#### Input
+* input `object`
+  * Authentication `string`
+  * userId `string`
+  * collectionType `string`
+  * limit `integer`
+  * marker `string`
+
+#### Output
+* output [GetResourcesResponse](#getresourcesresponse)
 
 ### DeleteCustomMetadata
 
@@ -512,7 +599,11 @@ amazonaws_workdocs.DeleteCustomMetadata({
 
 #### Input
 * input `object`
+  * Authentication `string`
   * ResourceId **required** `string`
+  * versionId `string`
+  * keys `array`
+  * deleteAll `boolean`
 
 #### Output
 * output [DeleteCustomMetadataResponse](#deletecustommetadataresponse)
@@ -524,14 +615,16 @@ amazonaws_workdocs.DeleteCustomMetadata({
 ```js
 amazonaws_workdocs.CreateCustomMetadata({
   "ResourceId": "",
-  "CustomMetadata": []
+  "CustomMetadata": {}
 }, context)
 ```
 
 #### Input
 * input `object`
+  * Authentication `string`
   * ResourceId **required** `string`
-  * CustomMetadata **required** [CustomMetadataMap](#custommetadatamap)
+  * versionid `string`
+  * CustomMetadata **required** `object`: Custom metadata in the form of name-value pairs.
 
 #### Output
 * output [CreateCustomMetadataResponse](#createcustommetadataresponse)
@@ -549,6 +642,9 @@ amazonaws_workdocs.DeleteLabels({
 #### Input
 * input `object`
   * ResourceId **required** `string`
+  * Authentication `string`
+  * labels `array`
+  * deleteAll `boolean`
 
 #### Output
 * output [DeleteLabelsResponse](#deletelabelsresponse)
@@ -567,7 +663,9 @@ amazonaws_workdocs.CreateLabels({
 #### Input
 * input `object`
   * ResourceId **required** `string`
-  * Labels **required** [SharedLabels](#sharedlabels)
+  * Authentication `string`
+  * Labels **required** `array`: List of labels to add to the resource.
+    * items [SharedLabel](#sharedlabel)
 
 #### Output
 * output [CreateLabelsResponse](#createlabelsresponse)
@@ -584,6 +682,7 @@ amazonaws_workdocs.RemoveAllResourcePermissions({
 
 #### Input
 * input `object`
+  * Authentication `string`
   * ResourceId **required** `string`
 
 #### Output
@@ -601,7 +700,11 @@ amazonaws_workdocs.DescribeResourcePermissions({
 
 #### Input
 * input `object`
+  * Authentication `string`
   * ResourceId **required** `string`
+  * principalId `string`
+  * limit `integer`
+  * marker `string`
 
 #### Output
 * output [DescribeResourcePermissionsResponse](#describeresourcepermissionsresponse)
@@ -619,9 +722,13 @@ amazonaws_workdocs.AddResourcePermissions({
 
 #### Input
 * input `object`
+  * Authentication `string`
   * ResourceId **required** `string`
-  * NotificationOptions [NotificationOptions](#notificationoptions)
-  * Principals **required** [SharePrincipalList](#shareprincipallist)
+  * NotificationOptions `object`: Set of options which defines notification preferences of given action.
+    * EmailMessage
+    * SendEmail
+  * Principals **required** `array`: The users, groups, or organization being granted permission.
+    * items [SharePrincipal](#shareprincipal)
 
 #### Output
 *Output schema unknown*
@@ -639,8 +746,10 @@ amazonaws_workdocs.RemoveResourcePermission({
 
 #### Input
 * input `object`
+  * Authentication `string`
   * ResourceId **required** `string`
   * PrincipalId **required** `string`
+  * type `string`
 
 #### Output
 *Output schema unknown*
@@ -655,6 +764,16 @@ amazonaws_workdocs.DescribeUsers({}, context)
 
 #### Input
 * input `object`
+  * Authentication `string`
+  * organizationId `string`
+  * userIds `string`
+  * query `string`
+  * include `string`
+  * order `string`
+  * sort `string`
+  * marker `string`
+  * limit `integer`
+  * fields `string`
   * Limit `string`
   * Marker `string`
 
@@ -676,14 +795,17 @@ amazonaws_workdocs.CreateUser({
 
 #### Input
 * input `object`
-  * EmailAddress [EmailAddressType](#emailaddresstype)
-  * GivenName **required** [UserAttributeValueType](#userattributevaluetype)
-  * OrganizationId [IdType](#idtype)
-  * Password **required** [PasswordType](#passwordtype)
-  * StorageRule [StorageRuleType](#storageruletype)
-  * Surname **required** [UserAttributeValueType](#userattributevaluetype)
-  * TimeZoneId [TimeZoneIdType](#timezoneidtype)
-  * Username **required** [UsernameType](#usernametype)
+  * Authentication `string`
+  * EmailAddress `string`: The email address of the user.
+  * GivenName **required** `string`: The given name of the user.
+  * OrganizationId `string`: The ID of the organization.
+  * Password **required** `string`: The password of the user.
+  * StorageRule `object`: Describes the storage for a user.
+    * StorageAllocatedInBytes
+    * StorageType
+  * Surname **required** `string`: The surname of the user.
+  * TimeZoneId `string`: The time zone ID of the user.
+  * Username **required** `string`: The login name of the user.
 
 #### Output
 *Output schema unknown*
@@ -700,6 +822,7 @@ amazonaws_workdocs.DeleteUser({
 
 #### Input
 * input `object`
+  * Authentication `string`
   * UserId **required** `string`
 
 #### Output
@@ -717,14 +840,17 @@ amazonaws_workdocs.UpdateUser({
 
 #### Input
 * input `object`
+  * Authentication `string`
   * UserId **required** `string`
-  * GivenName [UserAttributeValueType](#userattributevaluetype)
-  * GrantPoweruserPrivileges [BooleanEnumType](#booleanenumtype)
-  * Locale [LocaleType](#localetype)
-  * StorageRule [StorageRuleType](#storageruletype)
-  * Surname [UserAttributeValueType](#userattributevaluetype)
-  * TimeZoneId [TimeZoneIdType](#timezoneidtype)
-  * Type [UserType](#usertype)
+  * GivenName `string`: The given name of the user.
+  * GrantPoweruserPrivileges `string` (values: TRUE, FALSE): Boolean value to determine whether the user is granted Poweruser privileges.
+  * Locale `string` (values: en, fr, ko, de, es, ja, ru, zh_CN, zh_TW, pt_BR, default): The locale of the user.
+  * StorageRule `object`: Describes the storage for a user.
+    * StorageAllocatedInBytes
+    * StorageType
+  * Surname `string`: The surname of the user.
+  * TimeZoneId `string`: The time zone ID of the user.
+  * Type `string` (values: USER, ADMIN, POWERUSER, MINIMALUSER, WORKSPACESUSER): The type of the user.
 
 #### Output
 * output [UpdateUserResponse](#updateuserresponse)
@@ -742,6 +868,7 @@ amazonaws_workdocs.DeactivateUser({
 #### Input
 * input `object`
   * UserId **required** `string`
+  * Authentication `string`
 
 #### Output
 *Output schema unknown*
@@ -759,6 +886,7 @@ amazonaws_workdocs.ActivateUser({
 #### Input
 * input `object`
   * UserId **required** `string`
+  * Authentication `string`
 
 #### Output
 * output [ActivateUserResponse](#activateuserresponse)
@@ -775,30 +903,114 @@ amazonaws_workdocs.ActivateUser({
 
 ### ActivateUserResponse
 * ActivateUserResponse `object`
-  * User [User](#user)
+  * User
+    * CreatedTimestamp
+    * EmailAddress
+    * GivenName
+    * Id
+    * Locale
+    * ModifiedTimestamp
+    * OrganizationId
+    * RecycleBinFolderId
+    * RootFolderId
+    * Status
+    * Storage
+      * StorageRule
+        * StorageAllocatedInBytes
+        * StorageType
+      * StorageUtilizedInBytes
+    * Surname
+    * TimeZoneId
+    * Type
+    * Username
 
 ### Activity
 * Activity `object`: Describes the activity information.
-  * CommentMetadata [CommentMetadata](#commentmetadata)
-  * Initiator [UserMetadata](#usermetadata)
-  * OrganizationId [IdType](#idtype)
-  * OriginalParent [ResourceMetadata](#resourcemetadata)
-  * Participants [Participants](#participants)
-  * ResourceMetadata [ResourceMetadata](#resourcemetadata)
-  * TimeStamp [TimestampType](#timestamptype)
-  * Type [ActivityType](#activitytype)
+  * CommentMetadata
+    * CommentId
+    * CommentStatus
+    * Contributor
+      * CreatedTimestamp
+      * EmailAddress
+      * GivenName
+      * Id
+      * Locale
+      * ModifiedTimestamp
+      * OrganizationId
+      * RecycleBinFolderId
+      * RootFolderId
+      * Status
+      * Storage
+        * StorageRule
+          * StorageAllocatedInBytes
+          * StorageType
+        * StorageUtilizedInBytes
+      * Surname
+      * TimeZoneId
+      * Type
+      * Username
+    * CreatedTimestamp
+    * RecipientId
+  * Initiator
+    * EmailAddress
+    * GivenName
+    * Id
+    * Surname
+    * Username
+  * IsIndirectActivity
+  * OrganizationId
+  * OriginalParent
+    * Id
+    * Name
+    * OriginalName
+    * Owner
+      * EmailAddress
+      * GivenName
+      * Id
+      * Surname
+      * Username
+    * ParentId
+    * Type
+    * VersionId
+  * Participants
+    * Groups
+      * items [GroupMetadata](#groupmetadata)
+    * Users
+      * items [UserMetadata](#usermetadata)
+  * ResourceMetadata
+    * Id
+    * Name
+    * OriginalName
+    * Owner
+      * EmailAddress
+      * GivenName
+      * Id
+      * Surname
+      * Username
+    * ParentId
+    * Type
+    * VersionId
+  * TimeStamp
+  * Type
+
+### ActivityNamesFilterType
+* ActivityNamesFilterType `string`
 
 ### ActivityType
-* ActivityType `string` (values: DOCUMENT_CHECKED_IN, DOCUMENT_CHECKED_OUT, DOCUMENT_RENAMED, DOCUMENT_VERSION_UPLOADED, DOCUMENT_VERSION_DELETED, DOCUMENT_RECYCLED, DOCUMENT_RESTORED, DOCUMENT_REVERTED, DOCUMENT_SHARED, DOCUMENT_UNSHARED, DOCUMENT_SHARE_PERMISSION_CHANGED, DOCUMENT_SHAREABLE_LINK_CREATED, DOCUMENT_SHAREABLE_LINK_REMOVED, DOCUMENT_SHAREABLE_LINK_PERMISSION_CHANGED, DOCUMENT_MOVED, DOCUMENT_COMMENT_ADDED, DOCUMENT_COMMENT_DELETED, DOCUMENT_ANNOTATION_ADDED, DOCUMENT_ANNOTATION_DELETED, FOLDER_CREATED, FOLDER_DELETED, FOLDER_RENAMED, FOLDER_RECYCLED, FOLDER_RESTORED, FOLDER_SHARED, FOLDER_UNSHARED, FOLDER_SHARE_PERMISSION_CHANGED, FOLDER_SHAREABLE_LINK_CREATED, FOLDER_SHAREABLE_LINK_REMOVED, FOLDER_SHAREABLE_LINK_PERMISSION_CHANGED, FOLDER_MOVED)
+* ActivityType `string` (values: DOCUMENT_CHECKED_IN, DOCUMENT_CHECKED_OUT, DOCUMENT_RENAMED, DOCUMENT_VERSION_UPLOADED, DOCUMENT_VERSION_DELETED, DOCUMENT_VERSION_VIEWED, DOCUMENT_VERSION_DOWNLOADED, DOCUMENT_RECYCLED, DOCUMENT_RESTORED, DOCUMENT_REVERTED, DOCUMENT_SHARED, DOCUMENT_UNSHARED, DOCUMENT_SHARE_PERMISSION_CHANGED, DOCUMENT_SHAREABLE_LINK_CREATED, DOCUMENT_SHAREABLE_LINK_REMOVED, DOCUMENT_SHAREABLE_LINK_PERMISSION_CHANGED, DOCUMENT_MOVED, DOCUMENT_COMMENT_ADDED, DOCUMENT_COMMENT_DELETED, DOCUMENT_ANNOTATION_ADDED, DOCUMENT_ANNOTATION_DELETED, FOLDER_CREATED, FOLDER_DELETED, FOLDER_RENAMED, FOLDER_RECYCLED, FOLDER_RESTORED, FOLDER_SHARED, FOLDER_UNSHARED, FOLDER_SHARE_PERMISSION_CHANGED, FOLDER_SHAREABLE_LINK_CREATED, FOLDER_SHAREABLE_LINK_REMOVED, FOLDER_SHAREABLE_LINK_PERMISSION_CHANGED, FOLDER_MOVED)
 
 ### AddResourcePermissionsRequest
 * AddResourcePermissionsRequest `object`
-  * NotificationOptions [NotificationOptions](#notificationoptions)
-  * Principals **required** [SharePrincipalList](#shareprincipallist)
+  * NotificationOptions
+    * EmailMessage
+    * SendEmail
+  * Principals **required**
+    * items [SharePrincipal](#shareprincipal)
 
 ### AddResourcePermissionsResponse
 * AddResourcePermissionsResponse `object`
-  * ShareResults [ShareResultsList](#shareresultslist)
+  * ShareResults
+    * items [ShareResult](#shareresult)
 
 ### AuthenticationHeaderType
 * AuthenticationHeaderType `string`
@@ -811,15 +1023,34 @@ amazonaws_workdocs.ActivateUser({
 
 ### Comment
 * Comment `object`: Describes a comment.
-  * CommentId **required** [CommentIdType](#commentidtype)
-  * Contributor [User](#user)
-  * CreatedTimestamp [TimestampType](#timestamptype)
-  * ParentId [CommentIdType](#commentidtype)
-  * RecipientId [IdType](#idtype)
-  * Status [CommentStatusType](#commentstatustype)
-  * Text [CommentTextType](#commenttexttype)
-  * ThreadId [CommentIdType](#commentidtype)
-  * Visibility [CommentVisibilityType](#commentvisibilitytype)
+  * CommentId **required**
+  * Contributor
+    * CreatedTimestamp
+    * EmailAddress
+    * GivenName
+    * Id
+    * Locale
+    * ModifiedTimestamp
+    * OrganizationId
+    * RecycleBinFolderId
+    * RootFolderId
+    * Status
+    * Storage
+      * StorageRule
+        * StorageAllocatedInBytes
+        * StorageType
+      * StorageUtilizedInBytes
+    * Surname
+    * TimeZoneId
+    * Type
+    * Username
+  * CreatedTimestamp
+  * ParentId
+  * RecipientId
+  * Status
+  * Text
+  * ThreadId
+  * Visibility
 
 ### CommentIdType
 * CommentIdType `string`
@@ -830,11 +1061,30 @@ amazonaws_workdocs.ActivateUser({
 
 ### CommentMetadata
 * CommentMetadata `object`: Describes the metadata of a comment.
-  * CommentId [CommentIdType](#commentidtype)
-  * CommentStatus [CommentStatusType](#commentstatustype)
-  * Contributor [User](#user)
-  * CreatedTimestamp [TimestampType](#timestamptype)
-  * RecipientId [IdType](#idtype)
+  * CommentId
+  * CommentStatus
+  * Contributor
+    * CreatedTimestamp
+    * EmailAddress
+    * GivenName
+    * Id
+    * Locale
+    * ModifiedTimestamp
+    * OrganizationId
+    * RecycleBinFolderId
+    * RootFolderId
+    * Status
+    * Storage
+      * StorageRule
+        * StorageAllocatedInBytes
+        * StorageType
+      * StorageUtilizedInBytes
+    * Surname
+    * TimeZoneId
+    * Type
+    * Username
+  * CreatedTimestamp
+  * RecipientId
 
 ### CommentStatusType
 * CommentStatusType `string` (values: DRAFT, PUBLISHED, DELETED)
@@ -846,68 +1096,135 @@ amazonaws_workdocs.ActivateUser({
 * CommentVisibilityType `string` (values: PUBLIC, PRIVATE)
 
 ### ConcurrentModificationException
-* ConcurrentModificationException `object`: The resource hierarchy is changing.
-  * Message [ErrorMessageType](#errormessagetype)
+
+
+### ConflictingOperationException
+
 
 ### CreateCommentRequest
 * CreateCommentRequest `object`
-  * NotifyCollaborators [BooleanType](#booleantype)
-  * ParentId [CommentIdType](#commentidtype)
-  * Text **required** [CommentTextType](#commenttexttype)
-  * ThreadId [CommentIdType](#commentidtype)
-  * Visibility [CommentVisibilityType](#commentvisibilitytype)
+  * NotifyCollaborators
+  * ParentId
+  * Text **required**
+  * ThreadId
+  * Visibility
 
 ### CreateCommentResponse
 * CreateCommentResponse `object`
-  * Comment [Comment](#comment)
+  * Comment
+    * CommentId **required**
+    * Contributor
+      * CreatedTimestamp
+      * EmailAddress
+      * GivenName
+      * Id
+      * Locale
+      * ModifiedTimestamp
+      * OrganizationId
+      * RecycleBinFolderId
+      * RootFolderId
+      * Status
+      * Storage
+        * StorageRule
+          * StorageAllocatedInBytes
+          * StorageType
+        * StorageUtilizedInBytes
+      * Surname
+      * TimeZoneId
+      * Type
+      * Username
+    * CreatedTimestamp
+    * ParentId
+    * RecipientId
+    * Status
+    * Text
+    * ThreadId
+    * Visibility
 
 ### CreateCustomMetadataRequest
 * CreateCustomMetadataRequest `object`
-  * CustomMetadata **required** [CustomMetadataMap](#custommetadatamap)
+  * CustomMetadata **required**
 
 ### CreateCustomMetadataResponse
 * CreateCustomMetadataResponse `object`
 
 ### CreateFolderRequest
 * CreateFolderRequest `object`
-  * Name [ResourceNameType](#resourcenametype)
-  * ParentFolderId **required** [ResourceIdType](#resourceidtype)
+  * Name
+  * ParentFolderId **required**
 
 ### CreateFolderResponse
 * CreateFolderResponse `object`
-  * Metadata [FolderMetadata](#foldermetadata)
+  * Metadata
+    * CreatedTimestamp
+    * CreatorId
+    * Id
+    * Labels
+      * items [SharedLabel](#sharedlabel)
+    * LatestVersionSize
+    * ModifiedTimestamp
+    * Name
+    * ParentFolderId
+    * ResourceState
+    * Signature
+    * Size
 
 ### CreateLabelsRequest
 * CreateLabelsRequest `object`
-  * Labels **required** [SharedLabels](#sharedlabels)
+  * Labels **required**
+    * items [SharedLabel](#sharedlabel)
 
 ### CreateLabelsResponse
 * CreateLabelsResponse `object`
 
 ### CreateNotificationSubscriptionRequest
 * CreateNotificationSubscriptionRequest `object`
-  * Endpoint **required** [SubscriptionEndPointType](#subscriptionendpointtype)
-  * Protocol **required** [SubscriptionProtocolType](#subscriptionprotocoltype)
-  * SubscriptionType **required** [SubscriptionType](#subscriptiontype)
+  * Endpoint **required**
+  * Protocol **required**
+  * SubscriptionType **required**
 
 ### CreateNotificationSubscriptionResponse
 * CreateNotificationSubscriptionResponse `object`
-  * Subscription [Subscription](#subscription)
+  * Subscription
+    * EndPoint
+    * Protocol
+    * SubscriptionId
 
 ### CreateUserRequest
 * CreateUserRequest `object`
-  * EmailAddress [EmailAddressType](#emailaddresstype)
-  * GivenName **required** [UserAttributeValueType](#userattributevaluetype)
-  * OrganizationId [IdType](#idtype)
-  * Password **required** [PasswordType](#passwordtype)
-  * StorageRule [StorageRuleType](#storageruletype)
-  * Surname **required** [UserAttributeValueType](#userattributevaluetype)
-  * TimeZoneId [TimeZoneIdType](#timezoneidtype)
-  * Username **required** [UsernameType](#usernametype)
+  * EmailAddress
+  * GivenName **required**
+  * OrganizationId
+  * Password **required**
+  * StorageRule
+    * StorageAllocatedInBytes
+    * StorageType
+  * Surname **required**
+  * TimeZoneId
+  * Username **required**
 
 ### CreateUserResponse
 * CreateUserResponse `object`
-  * User [User](#user)
+  * User
+    * CreatedTimestamp
+    * EmailAddress
+    * GivenName
+    * Id
+    * Locale
+    * ModifiedTimestamp
+    * OrganizationId
+    * RecycleBinFolderId
+    * RootFolderId
+    * Status
+    * Storage
+      * StorageRule
+        * StorageAllocatedInBytes
+        * StorageType
+      * StorageUtilizedInBytes
+    * Surname
+    * TimeZoneId
+    * Type
+    * Username
 
 ### CustomMetadataKeyList
 * CustomMetadataKeyList `array`
@@ -917,14 +1234,10 @@ amazonaws_workdocs.ActivateUser({
 * CustomMetadataKeyType `string`
 
 ### CustomMetadataLimitExceededException
-* CustomMetadataLimitExceededException `object`: The limit has been reached on the number of custom properties for the specified resource.
-  * Message [ErrorMessageType](#errormessagetype)
+
 
 ### CustomMetadataMap
-* CustomMetadataMap `array`
-  * items `object`
-    * key [CustomMetadataKeyType](#custommetadatakeytype)
-    * value [CustomMetadataValueType](#custommetadatavaluetype)
+* CustomMetadataMap `object`
 
 ### CustomMetadataValueType
 * CustomMetadataValueType `string`
@@ -933,7 +1246,7 @@ amazonaws_workdocs.ActivateUser({
 * DeactivateUserRequest `object`
 
 ### DeactivatingLastSystemUserException
-* DeactivatingLastSystemUserException `object`: The last user in the organization is being deactivated.
+
 
 ### DeleteCommentRequest
 * DeleteCommentRequest `object`
@@ -970,92 +1283,115 @@ amazonaws_workdocs.ActivateUser({
 
 ### DescribeActivitiesResponse
 * DescribeActivitiesResponse `object`
-  * Marker [MarkerType](#markertype)
-  * UserActivities [UserActivities](#useractivities)
+  * Marker
+  * UserActivities
+    * items [Activity](#activity)
 
 ### DescribeCommentsRequest
 * DescribeCommentsRequest `object`
 
 ### DescribeCommentsResponse
 * DescribeCommentsResponse `object`
-  * Comments [CommentList](#commentlist)
-  * Marker [MarkerType](#markertype)
+  * Comments
+    * items [Comment](#comment)
+  * Marker
 
 ### DescribeDocumentVersionsRequest
 * DescribeDocumentVersionsRequest `object`
 
 ### DescribeDocumentVersionsResponse
 * DescribeDocumentVersionsResponse `object`
-  * DocumentVersions [DocumentVersionMetadataList](#documentversionmetadatalist)
-  * Marker [PageMarkerType](#pagemarkertype)
+  * DocumentVersions
+    * items [DocumentVersionMetadata](#documentversionmetadata)
+  * Marker
 
 ### DescribeFolderContentsRequest
 * DescribeFolderContentsRequest `object`
 
 ### DescribeFolderContentsResponse
 * DescribeFolderContentsResponse `object`
-  * Documents [DocumentMetadataList](#documentmetadatalist)
-  * Folders [FolderMetadataList](#foldermetadatalist)
-  * Marker [PageMarkerType](#pagemarkertype)
+  * Documents
+    * items [DocumentMetadata](#documentmetadata)
+  * Folders
+    * items [FolderMetadata](#foldermetadata)
+  * Marker
 
 ### DescribeGroupsRequest
 * DescribeGroupsRequest `object`
 
 ### DescribeGroupsResponse
 * DescribeGroupsResponse `object`
-  * Groups [GroupMetadataList](#groupmetadatalist)
-  * Marker [MarkerType](#markertype)
+  * Groups
+    * items [GroupMetadata](#groupmetadata)
+  * Marker
 
 ### DescribeNotificationSubscriptionsRequest
 * DescribeNotificationSubscriptionsRequest `object`
 
 ### DescribeNotificationSubscriptionsResponse
 * DescribeNotificationSubscriptionsResponse `object`
-  * Marker [PageMarkerType](#pagemarkertype)
-  * Subscriptions [SubscriptionList](#subscriptionlist)
+  * Marker
+  * Subscriptions
+    * items [Subscription](#subscription)
 
 ### DescribeResourcePermissionsRequest
 * DescribeResourcePermissionsRequest `object`
 
 ### DescribeResourcePermissionsResponse
 * DescribeResourcePermissionsResponse `object`
-  * Marker [PageMarkerType](#pagemarkertype)
-  * Principals [PrincipalList](#principallist)
+  * Marker
+  * Principals
+    * items [Principal](#principal)
 
 ### DescribeRootFoldersRequest
 * DescribeRootFoldersRequest `object`
 
 ### DescribeRootFoldersResponse
 * DescribeRootFoldersResponse `object`
-  * Folders [FolderMetadataList](#foldermetadatalist)
-  * Marker [PageMarkerType](#pagemarkertype)
+  * Folders
+    * items [FolderMetadata](#foldermetadata)
+  * Marker
 
 ### DescribeUsersRequest
 * DescribeUsersRequest `object`
 
 ### DescribeUsersResponse
 * DescribeUsersResponse `object`
-  * Marker [PageMarkerType](#pagemarkertype)
-  * TotalNumberOfUsers [SizeType](#sizetype)
-  * Users [OrganizationUserList](#organizationuserlist)
+  * Marker
+  * TotalNumberOfUsers
+  * Users
+    * items [User](#user)
 
 ### DocumentContentType
 * DocumentContentType `string`
 
 ### DocumentLockedForCommentsException
-* DocumentLockedForCommentsException `object`: This exception is thrown when the document is locked for comments and user tries to create or delete a comment on that document.
-  * Message [ErrorMessageType](#errormessagetype)
+
 
 ### DocumentMetadata
 * DocumentMetadata `object`: Describes the document.
-  * CreatedTimestamp [TimestampType](#timestamptype)
-  * CreatorId [IdType](#idtype)
-  * Id [ResourceIdType](#resourceidtype)
-  * Labels [SharedLabels](#sharedlabels)
-  * LatestVersionMetadata [DocumentVersionMetadata](#documentversionmetadata)
-  * ModifiedTimestamp [TimestampType](#timestamptype)
-  * ParentFolderId [ResourceIdType](#resourceidtype)
-  * ResourceState [ResourceStateType](#resourcestatetype)
+  * CreatedTimestamp
+  * CreatorId
+  * Id
+  * Labels
+    * items [SharedLabel](#sharedlabel)
+  * LatestVersionMetadata
+    * ContentCreatedTimestamp
+    * ContentModifiedTimestamp
+    * ContentType
+    * CreatedTimestamp
+    * CreatorId
+    * Id
+    * ModifiedTimestamp
+    * Name
+    * Signature
+    * Size
+    * Source
+    * Status
+    * Thumbnail
+  * ModifiedTimestamp
+  * ParentFolderId
+  * ResourceState
 
 ### DocumentMetadataList
 * DocumentMetadataList `array`
@@ -1065,10 +1401,7 @@ amazonaws_workdocs.ActivateUser({
 * DocumentSourceType `string` (values: ORIGINAL, WITH_COMMENTS)
 
 ### DocumentSourceUrlMap
-* DocumentSourceUrlMap `array`
-  * items `object`
-    * key [DocumentSourceType](#documentsourcetype)
-    * value [UrlType](#urltype)
+* DocumentSourceUrlMap `object`
 
 ### DocumentStatusType
 * DocumentStatusType `string` (values: INITIALIZED, ACTIVE)
@@ -1077,29 +1410,26 @@ amazonaws_workdocs.ActivateUser({
 * DocumentThumbnailType `string` (values: SMALL, SMALL_HQ, LARGE)
 
 ### DocumentThumbnailUrlMap
-* DocumentThumbnailUrlMap `array`
-  * items `object`
-    * key [DocumentThumbnailType](#documentthumbnailtype)
-    * value [UrlType](#urltype)
+* DocumentThumbnailUrlMap `object`
 
 ### DocumentVersionIdType
 * DocumentVersionIdType `string`
 
 ### DocumentVersionMetadata
 * DocumentVersionMetadata `object`: Describes a version of a document.
-  * ContentCreatedTimestamp [TimestampType](#timestamptype)
-  * ContentModifiedTimestamp [TimestampType](#timestamptype)
-  * ContentType [DocumentContentType](#documentcontenttype)
-  * CreatedTimestamp [TimestampType](#timestamptype)
-  * CreatorId [IdType](#idtype)
-  * Id [DocumentVersionIdType](#documentversionidtype)
-  * ModifiedTimestamp [TimestampType](#timestamptype)
-  * Name [ResourceNameType](#resourcenametype)
-  * Signature [HashType](#hashtype)
-  * Size [SizeType](#sizetype)
-  * Source [DocumentSourceUrlMap](#documentsourceurlmap)
-  * Status [DocumentStatusType](#documentstatustype)
-  * Thumbnail [DocumentThumbnailUrlMap](#documentthumbnailurlmap)
+  * ContentCreatedTimestamp
+  * ContentModifiedTimestamp
+  * ContentType
+  * CreatedTimestamp
+  * CreatorId
+  * Id
+  * ModifiedTimestamp
+  * Name
+  * Signature
+  * Size
+  * Source
+  * Status
+  * Thumbnail
 
 ### DocumentVersionMetadataList
 * DocumentVersionMetadataList `array`
@@ -1109,31 +1439,19 @@ amazonaws_workdocs.ActivateUser({
 * DocumentVersionStatus `string` (values: ACTIVE)
 
 ### DraftUploadOutOfSyncException
-* DraftUploadOutOfSyncException `object`: This exception is thrown when a valid checkout ID is not presented on document version upload calls for a document that has been checked out from Web client.
-  * Message [ErrorMessageType](#errormessagetype)
+
 
 ### EmailAddressType
 * EmailAddressType `string`
 
 ### EntityAlreadyExistsException
-* EntityAlreadyExistsException `object`: The resource already exists.
-  * Message [ErrorMessageType](#errormessagetype)
 
-### EntityIdList
-* EntityIdList `array`
-  * items [IdType](#idtype)
 
 ### EntityNotExistsException
-* EntityNotExistsException `object`: The resource does not exist.
-  * EntityIds [EntityIdList](#entityidlist)
-  * Message [ErrorMessageType](#errormessagetype)
 
-### ErrorMessageType
-* ErrorMessageType `string`
 
 ### FailedDependencyException
-* FailedDependencyException `object`: The AWS Directory Service cannot reach an on-premises instance. Or a dependency under the control of the organization is failing, such as a connected Active Directory.
-  * Message [ErrorMessageType](#errormessagetype)
+
 
 ### FieldNamesType
 * FieldNamesType `string`
@@ -1143,17 +1461,18 @@ amazonaws_workdocs.ActivateUser({
 
 ### FolderMetadata
 * FolderMetadata `object`: Describes a folder.
-  * CreatedTimestamp [TimestampType](#timestamptype)
-  * CreatorId [IdType](#idtype)
-  * Id [ResourceIdType](#resourceidtype)
-  * Labels [SharedLabels](#sharedlabels)
-  * LatestVersionSize [SizeType](#sizetype)
-  * ModifiedTimestamp [TimestampType](#timestamptype)
-  * Name [ResourceNameType](#resourcenametype)
-  * ParentFolderId [ResourceIdType](#resourceidtype)
-  * ResourceState [ResourceStateType](#resourcestatetype)
-  * Signature [HashType](#hashtype)
-  * Size [SizeType](#sizetype)
+  * CreatedTimestamp
+  * CreatorId
+  * Id
+  * Labels
+    * items [SharedLabel](#sharedlabel)
+  * LatestVersionSize
+  * ModifiedTimestamp
+  * Name
+  * ParentFolderId
+  * ResourceState
+  * Signature
+  * Size
 
 ### FolderMetadataList
 * FolderMetadataList `array`
@@ -1164,50 +1483,131 @@ amazonaws_workdocs.ActivateUser({
 
 ### GetCurrentUserResponse
 * GetCurrentUserResponse `object`
-  * User [User](#user)
+  * User
+    * CreatedTimestamp
+    * EmailAddress
+    * GivenName
+    * Id
+    * Locale
+    * ModifiedTimestamp
+    * OrganizationId
+    * RecycleBinFolderId
+    * RootFolderId
+    * Status
+    * Storage
+      * StorageRule
+        * StorageAllocatedInBytes
+        * StorageType
+      * StorageUtilizedInBytes
+    * Surname
+    * TimeZoneId
+    * Type
+    * Username
 
 ### GetDocumentPathRequest
 * GetDocumentPathRequest `object`
 
 ### GetDocumentPathResponse
 * GetDocumentPathResponse `object`
-  * Path [ResourcePath](#resourcepath)
+  * Path
+    * Components
+      * items [ResourcePathComponent](#resourcepathcomponent)
 
 ### GetDocumentRequest
 * GetDocumentRequest `object`
 
 ### GetDocumentResponse
 * GetDocumentResponse `object`
-  * CustomMetadata [CustomMetadataMap](#custommetadatamap)
-  * Metadata [DocumentMetadata](#documentmetadata)
+  * CustomMetadata
+  * Metadata
+    * CreatedTimestamp
+    * CreatorId
+    * Id
+    * Labels
+      * items [SharedLabel](#sharedlabel)
+    * LatestVersionMetadata
+      * ContentCreatedTimestamp
+      * ContentModifiedTimestamp
+      * ContentType
+      * CreatedTimestamp
+      * CreatorId
+      * Id
+      * ModifiedTimestamp
+      * Name
+      * Signature
+      * Size
+      * Source
+      * Status
+      * Thumbnail
+    * ModifiedTimestamp
+    * ParentFolderId
+    * ResourceState
 
 ### GetDocumentVersionRequest
 * GetDocumentVersionRequest `object`
 
 ### GetDocumentVersionResponse
 * GetDocumentVersionResponse `object`
-  * CustomMetadata [CustomMetadataMap](#custommetadatamap)
-  * Metadata [DocumentVersionMetadata](#documentversionmetadata)
+  * CustomMetadata
+  * Metadata
+    * ContentCreatedTimestamp
+    * ContentModifiedTimestamp
+    * ContentType
+    * CreatedTimestamp
+    * CreatorId
+    * Id
+    * ModifiedTimestamp
+    * Name
+    * Signature
+    * Size
+    * Source
+    * Status
+    * Thumbnail
 
 ### GetFolderPathRequest
 * GetFolderPathRequest `object`
 
 ### GetFolderPathResponse
 * GetFolderPathResponse `object`
-  * Path [ResourcePath](#resourcepath)
+  * Path
+    * Components
+      * items [ResourcePathComponent](#resourcepathcomponent)
 
 ### GetFolderRequest
 * GetFolderRequest `object`
 
 ### GetFolderResponse
 * GetFolderResponse `object`
-  * CustomMetadata [CustomMetadataMap](#custommetadatamap)
-  * Metadata [FolderMetadata](#foldermetadata)
+  * CustomMetadata
+  * Metadata
+    * CreatedTimestamp
+    * CreatorId
+    * Id
+    * Labels
+      * items [SharedLabel](#sharedlabel)
+    * LatestVersionSize
+    * ModifiedTimestamp
+    * Name
+    * ParentFolderId
+    * ResourceState
+    * Signature
+    * Size
+
+### GetResourcesRequest
+* GetResourcesRequest `object`
+
+### GetResourcesResponse
+* GetResourcesResponse `object`
+  * Documents
+    * items [DocumentMetadata](#documentmetadata)
+  * Folders
+    * items [FolderMetadata](#foldermetadata)
+  * Marker
 
 ### GroupMetadata
 * GroupMetadata `object`: Describes the metadata of a user group.
-  * Id [IdType](#idtype)
-  * Name [GroupNameType](#groupnametype)
+  * Id
+  * Name
 
 ### GroupMetadataList
 * GroupMetadataList `array`
@@ -1229,39 +1629,61 @@ amazonaws_workdocs.ActivateUser({
 * IdType `string`
 
 ### IllegalUserStateException
-* IllegalUserStateException `object`: The user is undergoing transfer of ownership.
-  * Message [ErrorMessageType](#errormessagetype)
+
 
 ### InitiateDocumentVersionUploadRequest
 * InitiateDocumentVersionUploadRequest `object`
-  * ContentCreatedTimestamp [TimestampType](#timestamptype)
-  * ContentModifiedTimestamp [TimestampType](#timestamptype)
-  * ContentType [DocumentContentType](#documentcontenttype)
-  * DocumentSizeInBytes [SizeType](#sizetype)
-  * Id [ResourceIdType](#resourceidtype)
-  * Name [ResourceNameType](#resourcenametype)
-  * ParentFolderId **required** [ResourceIdType](#resourceidtype)
+  * ContentCreatedTimestamp
+  * ContentModifiedTimestamp
+  * ContentType
+  * DocumentSizeInBytes
+  * Id
+  * Name
+  * ParentFolderId **required**
 
 ### InitiateDocumentVersionUploadResponse
 * InitiateDocumentVersionUploadResponse `object`
-  * Metadata [DocumentMetadata](#documentmetadata)
-  * UploadMetadata [UploadMetadata](#uploadmetadata)
+  * Metadata
+    * CreatedTimestamp
+    * CreatorId
+    * Id
+    * Labels
+      * items [SharedLabel](#sharedlabel)
+    * LatestVersionMetadata
+      * ContentCreatedTimestamp
+      * ContentModifiedTimestamp
+      * ContentType
+      * CreatedTimestamp
+      * CreatorId
+      * Id
+      * ModifiedTimestamp
+      * Name
+      * Signature
+      * Size
+      * Source
+      * Status
+      * Thumbnail
+    * ModifiedTimestamp
+    * ParentFolderId
+    * ResourceState
+  * UploadMetadata
+    * SignedHeaders
+    * UploadUrl
 
 ### InvalidArgumentException
-* InvalidArgumentException `object`: The pagination marker or limit fields are not valid.
-  * Message [ErrorMessageType](#errormessagetype)
+
+
+### InvalidCommentOperationException
+
 
 ### InvalidOperationException
-* InvalidOperationException `object`: The operation is invalid.
-  * Message [ErrorMessageType](#errormessagetype)
+
 
 ### InvalidPasswordException
-* InvalidPasswordException `object`: The password is invalid.
-  * Message [ErrorMessageType](#errormessagetype)
+
 
 ### LimitExceededException
-* LimitExceededException `object`: The maximum of 100,000 folders under the parent folder has been exceeded.
-  * Message [ErrorMessageType](#errormessagetype)
+
 
 ### LimitType
 * LimitType `integer`
@@ -1277,8 +1699,8 @@ amazonaws_workdocs.ActivateUser({
 
 ### NotificationOptions
 * NotificationOptions `object`: Set of options which defines notification preferences of given action.
-  * EmailMessage [MessageType](#messagetype)
-  * SendEmail [BooleanType](#booleantype)
+  * EmailMessage
+  * SendEmail
 
 ### OrderType
 * OrderType `string` (values: ASCENDING, DESCENDING)
@@ -1292,16 +1714,18 @@ amazonaws_workdocs.ActivateUser({
 
 ### Participants
 * Participants `object`: Describes the users or user groups.
-  * Groups [GroupMetadataList](#groupmetadatalist)
-  * Users [UserMetadataList](#usermetadatalist)
+  * Groups
+    * items [GroupMetadata](#groupmetadata)
+  * Users
+    * items [UserMetadata](#usermetadata)
 
 ### PasswordType
 * PasswordType `string`
 
 ### PermissionInfo
 * PermissionInfo `object`: Describes the permissions.
-  * Role [RoleType](#roletype)
-  * Type [RolePermissionType](#rolepermissiontype)
+  * Role
+  * Type
 
 ### PermissionInfoList
 * PermissionInfoList `array`
@@ -1315,9 +1739,10 @@ amazonaws_workdocs.ActivateUser({
 
 ### Principal
 * Principal `object`: Describes a resource.
-  * Id [IdType](#idtype)
-  * Roles [PermissionInfoList](#permissioninfolist)
-  * Type [PrincipalType](#principaltype)
+  * Id
+  * Roles
+    * items [PermissionInfo](#permissioninfo)
+  * Type
 
 ### PrincipalList
 * PrincipalList `array`
@@ -1327,8 +1752,7 @@ amazonaws_workdocs.ActivateUser({
 * PrincipalType `string` (values: USER, GROUP, INVITE, ANONYMOUS, ORGANIZATION)
 
 ### ProhibitedStateException
-* ProhibitedStateException `object`: The specified document version is not in the INITIALIZED state.
-  * Message [ErrorMessageType](#errormessagetype)
+
 
 ### RemoveAllResourcePermissionsRequest
 * RemoveAllResourcePermissionsRequest `object`
@@ -1336,34 +1760,45 @@ amazonaws_workdocs.ActivateUser({
 ### RemoveResourcePermissionRequest
 * RemoveResourcePermissionRequest `object`
 
+### RequestedEntityTooLargeException
+
+
 ### ResourceAlreadyCheckedOutException
-* ResourceAlreadyCheckedOutException `object`: The resource is already checked out.
-  * Message [ErrorMessageType](#errormessagetype)
+
+
+### ResourceCollectionType
+* ResourceCollectionType `string` (values: SHARED_WITH_ME)
 
 ### ResourceIdType
 * ResourceIdType `string`
 
 ### ResourceMetadata
 * ResourceMetadata `object`: Describes the metadata of a resource.
-  * Id [ResourceIdType](#resourceidtype)
-  * Name [ResourceNameType](#resourcenametype)
-  * OriginalName [ResourceNameType](#resourcenametype)
-  * Owner [UserMetadata](#usermetadata)
-  * ParentId [ResourceIdType](#resourceidtype)
-  * Type [ResourceType](#resourcetype)
-  * VersionId [DocumentVersionIdType](#documentversionidtype)
+  * Id
+  * Name
+  * OriginalName
+  * Owner
+    * EmailAddress
+    * GivenName
+    * Id
+    * Surname
+    * Username
+  * ParentId
+  * Type
+  * VersionId
 
 ### ResourceNameType
 * ResourceNameType `string`
 
 ### ResourcePath
 * ResourcePath `object`: Describes the path information of a resource.
-  * Components [ResourcePathComponentList](#resourcepathcomponentlist)
+  * Components
+    * items [ResourcePathComponent](#resourcepathcomponent)
 
 ### ResourcePathComponent
 * ResourcePathComponent `object`: Describes the resource path.
-  * Id [IdType](#idtype)
-  * Name [ResourceNameType](#resourcenametype)
+  * Id
+  * Name
 
 ### ResourcePathComponentList
 * ResourcePathComponentList `array`
@@ -1388,14 +1823,13 @@ amazonaws_workdocs.ActivateUser({
 * SearchQueryType `string`
 
 ### ServiceUnavailableException
-* ServiceUnavailableException `object`: One or more of the dependencies is unavailable.
-  * Message [ErrorMessageType](#errormessagetype)
+
 
 ### SharePrincipal
 * SharePrincipal `object`: Describes the recipient type and ID, if available.
-  * Id **required** [IdType](#idtype)
-  * Role **required** [RoleType](#roletype)
-  * Type **required** [PrincipalType](#principaltype)
+  * Id **required**
+  * Role **required**
+  * Type **required**
 
 ### SharePrincipalList
 * SharePrincipalList `array`
@@ -1403,11 +1837,12 @@ amazonaws_workdocs.ActivateUser({
 
 ### ShareResult
 * ShareResult `object`: Describes the share results of a resource.
-  * PrincipalId [IdType](#idtype)
-  * Role [RoleType](#roletype)
-  * ShareId [ResourceIdType](#resourceidtype)
-  * Status [ShareStatusType](#sharestatustype)
-  * StatusMessage [MessageType](#messagetype)
+  * InviteePrincipalId
+  * PrincipalId
+  * Role
+  * ShareId
+  * Status
+  * StatusMessage
 
 ### ShareResultsList
 * ShareResultsList `array`
@@ -1424,35 +1859,30 @@ amazonaws_workdocs.ActivateUser({
   * items [SharedLabel](#sharedlabel)
 
 ### SignedHeaderMap
-* SignedHeaderMap `array`
-  * items `object`
-    * key [HeaderNameType](#headernametype)
-    * value [HeaderValueType](#headervaluetype)
+* SignedHeaderMap `object`
 
 ### SizeType
 * SizeType `integer`
 
 ### StorageLimitExceededException
-* StorageLimitExceededException `object`: The storage limit has been exceeded.
-  * Message [ErrorMessageType](#errormessagetype)
+
 
 ### StorageLimitWillExceedException
-* StorageLimitWillExceedException `object`: The storage limit will be exceeded.
-  * Message [ErrorMessageType](#errormessagetype)
+
 
 ### StorageRuleType
 * StorageRuleType `object`: Describes the storage for a user.
-  * StorageAllocatedInBytes [PositiveSizeType](#positivesizetype)
-  * StorageType [StorageType](#storagetype)
+  * StorageAllocatedInBytes
+  * StorageType
 
 ### StorageType
 * StorageType `string` (values: UNLIMITED, QUOTA)
 
 ### Subscription
 * Subscription `object`: Describes a subscription.
-  * EndPoint [SubscriptionEndPointType](#subscriptionendpointtype)
-  * Protocol [SubscriptionProtocolType](#subscriptionprotocoltype)
-  * SubscriptionId [IdType](#idtype)
+  * EndPoint
+  * Protocol
+  * SubscriptionId
 
 ### SubscriptionEndPointType
 * SubscriptionEndPointType `string`
@@ -1474,75 +1904,97 @@ amazonaws_workdocs.ActivateUser({
 * TimestampType `string`
 
 ### TooManyLabelsException
-* TooManyLabelsException `object`: The limit has been reached on the number of labels for the specified resource.
-  * Message [ErrorMessageType](#errormessagetype)
+
 
 ### TooManySubscriptionsException
-* TooManySubscriptionsException `object`: You've reached the limit on the number of subscriptions for the WorkDocs instance.
-  * Message [ErrorMessageType](#errormessagetype)
+
 
 ### UnauthorizedOperationException
-* UnauthorizedOperationException `object`: The operation is not permitted.
+
 
 ### UnauthorizedResourceAccessException
-* UnauthorizedResourceAccessException `object`: The caller does not have access to perform the action on the resource.
-  * Message [ErrorMessageType](#errormessagetype)
+
 
 ### UpdateDocumentRequest
 * UpdateDocumentRequest `object`
-  * Name [ResourceNameType](#resourcenametype)
-  * ParentFolderId [ResourceIdType](#resourceidtype)
-  * ResourceState [ResourceStateType](#resourcestatetype)
+  * Name
+  * ParentFolderId
+  * ResourceState
 
 ### UpdateDocumentVersionRequest
 * UpdateDocumentVersionRequest `object`
-  * VersionStatus [DocumentVersionStatus](#documentversionstatus)
+  * VersionStatus
 
 ### UpdateFolderRequest
 * UpdateFolderRequest `object`
-  * Name [ResourceNameType](#resourcenametype)
-  * ParentFolderId [ResourceIdType](#resourceidtype)
-  * ResourceState [ResourceStateType](#resourcestatetype)
+  * Name
+  * ParentFolderId
+  * ResourceState
 
 ### UpdateUserRequest
 * UpdateUserRequest `object`
-  * GivenName [UserAttributeValueType](#userattributevaluetype)
-  * GrantPoweruserPrivileges [BooleanEnumType](#booleanenumtype)
-  * Locale [LocaleType](#localetype)
-  * StorageRule [StorageRuleType](#storageruletype)
-  * Surname [UserAttributeValueType](#userattributevaluetype)
-  * TimeZoneId [TimeZoneIdType](#timezoneidtype)
-  * Type [UserType](#usertype)
+  * GivenName
+  * GrantPoweruserPrivileges
+  * Locale
+  * StorageRule
+    * StorageAllocatedInBytes
+    * StorageType
+  * Surname
+  * TimeZoneId
+  * Type
 
 ### UpdateUserResponse
 * UpdateUserResponse `object`
-  * User [User](#user)
+  * User
+    * CreatedTimestamp
+    * EmailAddress
+    * GivenName
+    * Id
+    * Locale
+    * ModifiedTimestamp
+    * OrganizationId
+    * RecycleBinFolderId
+    * RootFolderId
+    * Status
+    * Storage
+      * StorageRule
+        * StorageAllocatedInBytes
+        * StorageType
+      * StorageUtilizedInBytes
+    * Surname
+    * TimeZoneId
+    * Type
+    * Username
 
 ### UploadMetadata
 * UploadMetadata `object`: Describes the upload.
-  * SignedHeaders [SignedHeaderMap](#signedheadermap)
-  * UploadUrl [UrlType](#urltype)
+  * SignedHeaders
+  * UploadUrl
 
 ### UrlType
 * UrlType `string`
 
 ### User
 * User `object`: Describes a user.
-  * CreatedTimestamp [TimestampType](#timestamptype)
-  * EmailAddress [EmailAddressType](#emailaddresstype)
-  * GivenName [UserAttributeValueType](#userattributevaluetype)
-  * Id [IdType](#idtype)
-  * Locale [LocaleType](#localetype)
-  * ModifiedTimestamp [TimestampType](#timestamptype)
-  * OrganizationId [IdType](#idtype)
-  * RecycleBinFolderId [ResourceIdType](#resourceidtype)
-  * RootFolderId [ResourceIdType](#resourceidtype)
-  * Status [UserStatusType](#userstatustype)
-  * Storage [UserStorageMetadata](#userstoragemetadata)
-  * Surname [UserAttributeValueType](#userattributevaluetype)
-  * TimeZoneId [TimeZoneIdType](#timezoneidtype)
-  * Type [UserType](#usertype)
-  * Username [UsernameType](#usernametype)
+  * CreatedTimestamp
+  * EmailAddress
+  * GivenName
+  * Id
+  * Locale
+  * ModifiedTimestamp
+  * OrganizationId
+  * RecycleBinFolderId
+  * RootFolderId
+  * Status
+  * Storage
+    * StorageRule
+      * StorageAllocatedInBytes
+      * StorageType
+    * StorageUtilizedInBytes
+  * Surname
+  * TimeZoneId
+  * Type
+  * Username
 
 ### UserActivities
 * UserActivities `array`
@@ -1559,11 +2011,11 @@ amazonaws_workdocs.ActivateUser({
 
 ### UserMetadata
 * UserMetadata `object`: Describes the metadata of the user.
-  * EmailAddress [EmailAddressType](#emailaddresstype)
-  * GivenName [UserAttributeValueType](#userattributevaluetype)
-  * Id [IdType](#idtype)
-  * Surname [UserAttributeValueType](#userattributevaluetype)
-  * Username [UsernameType](#usernametype)
+  * EmailAddress
+  * GivenName
+  * Id
+  * Surname
+  * Username
 
 ### UserMetadataList
 * UserMetadataList `array`
@@ -1577,8 +2029,10 @@ amazonaws_workdocs.ActivateUser({
 
 ### UserStorageMetadata
 * UserStorageMetadata `object`: Describes the storage for a user.
-  * StorageRule [StorageRuleType](#storageruletype)
-  * StorageUtilizedInBytes [SizeType](#sizetype)
+  * StorageRule
+    * StorageAllocatedInBytes
+    * StorageType
+  * StorageUtilizedInBytes
 
 ### UserType
 * UserType `string` (values: USER, ADMIN, POWERUSER, MINIMALUSER, WORKSPACESUSER)

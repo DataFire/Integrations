@@ -1,8 +1,8 @@
 {
   "name": "@datafire/whapi_sportsdata",
-  "version": "4.0.0",
+  "version": "5.0.0",
   "main": "index.js",
-  "description": "DataFire integration for SportsData",
+  "description": "DataFire integration for SportsData API",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DataFire/integrations.git"

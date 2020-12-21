@@ -12,10 +12,7 @@ let aviationdata_systems = require('@datafire/aviationdata_systems').create({
   password: ""
 });
 
-aviationdata_systems.AutoCompleteAirportName_AirportNameSearch({
-  "airport_name": "",
-  "airport_service_type": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

@@ -9,7 +9,7 @@ npm install --save @datafire/openapi_converter_herokuapp
 ```js
 let openapi_converter_herokuapp = require('@datafire/openapi_converter_herokuapp').create();
 
-openapi_converter_herokuapp.validate({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -100,7 +100,7 @@ openapi_converter_herokuapp.validateUrl({
   * url **required** `string`: The URL to retrieve the OpenAPI 3.0.x definition from
 
 #### Output
-*Output schema unknown*
+* output [validationResult](#validationresult)
 
 ### validate
 Validate an OpenAPI 3.0.x definition supplied in the body of the request
@@ -116,10 +116,14 @@ openapi_converter_herokuapp.validate({}, context)
   * source `string`: The text of an OpenAPI 3.0.x definition to validate
 
 #### Output
-*Output schema unknown*
+* output [validationResult](#validationresult)
 
 
 
 ## Definitions
 
-*This integration has no definitions*
+### validationResult
+* validationResult `object`
+  * openapi **required** `string`
+
+

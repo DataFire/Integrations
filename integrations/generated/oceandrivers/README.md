@@ -9,9 +9,7 @@ npm install --save @datafire/oceandrivers
 ```js
 let oceandrivers = require('@datafire/oceandrivers').create();
 
-oceandrivers.compareStation({
-  "stationName": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -34,7 +32,7 @@ oceandrivers.compareStation({
 
 #### Input
 * input `object`
-  * stationName **required** `string`: Weather station to compare, values: cnareanl|rcnp | cmsap|boyaenderrocat|areopuertopalma
+  * stationName **required** `string`: Weather station to compare, values: cnareanl|rcnp | cmsap|boyaenderrocat|areopuertopalma | EWXXX
 
 #### Output
 *Output schema unknown*
@@ -89,7 +87,7 @@ oceandrivers.getEventStations({
 
 #### Input
 * input `object`
-  * eventId **required** `string`: currently: 'trofeoprincesasofia'
+  * eventId **required** `string`: currently: 'trofeoprincesasofia|palmavela'
 
 #### Output
 *Output schema unknown*

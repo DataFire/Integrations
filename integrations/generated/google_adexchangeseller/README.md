@@ -15,7 +15,7 @@ let google_adexchangeseller = require('@datafire/google_adexchangeseller').creat
   redirect_uri: ""
 });
 
-google_adexchangeseller.accounts.list({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

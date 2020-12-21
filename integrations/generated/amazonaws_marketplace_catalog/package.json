@@ -1,0 +1,27 @@
+{
+  "name": "@datafire/amazonaws_marketplace_catalog",
+  "version": "5.0.0",
+  "main": "index.js",
+  "description": "DataFire integration for AWS Marketplace Catalog Service",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DataFire/integrations.git"
+  },
+  "author": "DataFire",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DataFire/integrations/issues"
+  },
+  "homepage": "https://github.com/DataFire/integrations#readme",
+  "datafire": {
+    "origin": "https://api.apis.guru/v2/specs/amazonaws.com/marketplace-catalog/2018-09-17/openapi.json",
+    "type": "openapi_3"
+  },
+  "peerDependencies": {
+    "datafire": "^2.0.0"
+  },
+  "dependencies": {
+    "datafire": "^2.0.0",
+    "aws-sdk": "^2.112.0"
+  }
+}

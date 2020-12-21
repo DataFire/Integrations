@@ -1,0 +1,26 @@
+{
+  "name": "@datafire/tomtom_routing",
+  "version": "3.0.0",
+  "main": "index.js",
+  "description": "DataFire integration for Routing",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DataFire/integrations.git"
+  },
+  "author": "DataFire",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DataFire/integrations/issues"
+  },
+  "homepage": "https://github.com/DataFire/integrations#readme",
+  "datafire": {
+    "origin": "https://api.apis.guru/v2/specs/tomtom.com/routing/1.0.0/openapi.json",
+    "type": "openapi_3"
+  },
+  "peerDependencies": {
+    "datafire": "^2.0.0"
+  },
+  "dependencies": {
+    "datafire": "^2.0.0"
+  }
+}

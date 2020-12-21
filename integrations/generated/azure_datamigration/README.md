@@ -15,9 +15,7 @@ let azure_datamigration = require('@datafire/azure_datamigration').create({
   redirect_uri: ""
 });
 
-azure_datamigration.Operations_List({
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -200,7 +198,6 @@ azure_datamigration.ResourceSkus_ListSkus({
           * reasonCode `string` (values: QuotaId, NotAvailableForSubscription): The reason code for restriction.
           * type `string` (values: location): The type of restrictions.
           * values `array`: The value of restrictions. If the restriction type is set to location. This would be different locations where the SKU is restricted.
-            * items `string`
       * size `string`: The Size of the SKU.
       * tier `string`: Specifies the tier of DMS in a scale set.
 
@@ -514,7 +511,6 @@ azure_datamigration.Projects_List({
         * creationTime `string`: UTC Date and time when project was created
         * databasesInfo `array`: List of DatabaseInfo
           * items `object`: Project Database Details
-            * sourceDatabaseName **required** `string`: Name of the database
         * provisioningState `string` (values: Deleting, Succeeded): The project's provisioning state
         * sourceConnectionInfo `object`: Defines the connection properties of a server
           * password `string`: Password credential.
@@ -774,10 +770,6 @@ azure_datamigration.Tasks_List({
       * properties `object`: Base class for all types of DMS task properties. If task is not supported by current client, this object is returned.
         * errors `array`: Array of errors. This is ignored if submitted.
           * items `object`: Error information in OData format.
-            * code `string`: The machine-readable description of the error, such as 'InvalidRequest' or 'InternalServerError'
-            * details `array`: Inner errors that caused this error
-              * items [ODataError](#odataerror)
-            * message `string`: The human-readable description of the error
         * state `string` (values: Unknown, Queued, Running, Canceled, Succeeded, Failed, FailedInputValidation, Faulted): The state of the task. This is ignored if submitted.
         * taskType **required** `string`: Task type.
       * id `string`: Resource ID.
@@ -878,7 +870,6 @@ azure_datamigration.Tasks_Update({
         * items `object`: Error information in OData format.
           * code `string`: The machine-readable description of the error, such as 'InvalidRequest' or 'InternalServerError'
           * details `array`: Inner errors that caused this error
-            * items [ODataError](#odataerror)
           * message `string`: The human-readable description of the error
       * state `string` (values: Unknown, Queued, Running, Canceled, Succeeded, Failed, FailedInputValidation, Faulted): The state of the task. This is ignored if submitted.
       * taskType **required** `string`: Task type.
@@ -933,7 +924,6 @@ azure_datamigration.Tasks_CreateOrUpdate({
         * items `object`: Error information in OData format.
           * code `string`: The machine-readable description of the error, such as 'InvalidRequest' or 'InternalServerError'
           * details `array`: Inner errors that caused this error
-            * items [ODataError](#odataerror)
           * message `string`: The human-readable description of the error
       * state `string` (values: Unknown, Queued, Running, Canceled, Succeeded, Failed, FailedInputValidation, Faulted): The state of the task. This is ignored if submitted.
       * taskType **required** `string`: Task type.

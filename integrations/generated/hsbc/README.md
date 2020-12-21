@@ -9,7 +9,7 @@ npm install --save @datafire/hsbc
 ```js
 let hsbc = require('@datafire/hsbc').create();
 
-hsbc.open_banking.v1.2.atms.get(null).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -400,20 +400,6 @@ hsbc.x_open_banking.v1.2.unsecured_sme_loans.segment.segment.get({
       * items `object`: Benefit Interest Group
         * BenefitItem **required** `object`: Benefit Item
           * BenefitDetail `array`
-            * items `object`: Benefit detail
-              * BenefitDescription `string`: A textual explanation of what the benefit is
-              * BenefitID `string`: Unique benefit identifier per organisation
-              * BenefitName `string`: The name of the benefit
-              * BenefitType `string`: Type that represents the nature of the benefit
-              * BenefitValue `string`: The value or values permissible for a specific benefit for an individual product representing a product characteristic
-              * Counter `integer`: Counter for the criteria (e.g. number of DD)
-              * CriteriaType `array`
-                * items `string` (values: CashDeposit, Deposit, DirectDebit, InitialDeposit, InternetLogon, MobileLogon, RegularDeposit): Criteria that is required in order to be eligible for the Benefit
-              * DefaultToAccounts `boolean`: Is the benefit part of the default account
-              * MaximumCriteria `string`: Maximum amount for the criteria
-              * MinimumCriteria `string`: Minimum amount for the criteria
-              * PromotionEndDate `string`: If the benefit is temporal the end date is when the benefit is no longer applicable
-              * PromotionStartDate `string`: If the benefit is temporal the start date is when the benefit comes into effect
           * DateOfChange `string`: Date of the change if it refers to future terms
           * LengthPromotionalInDays `integer`: Describes the length if only a duration is given instead of a date in days
           * StartPromotionOrFutureTerms `string`: Describes the start date
@@ -447,15 +433,6 @@ hsbc.x_open_banking.v1.2.unsecured_sme_loans.segment.segment.get({
           * InterestNotes `string`: Additional notes to supplement the interest details
           * InterestRateType `string` (values: Fixed, Variable): Credit Interest Payment Rate Type
           * InterestTiers `array`
-            * items `object`: Credit Interest Tiers
-              * APRAERRate `string`: AER or APR Rate for comparison
-              * DailyChargeForMaximum `string`: Special charge on tiered overdraft
-              * DailyChargeForMinimum `string`: Special charge on tiered overdraft
-              * InterestTier `string`: Identifier for the tier
-              * Rate `string`: Rate being paid by the bank (gross)
-              * RateComparisonType `string` (values: APR, AER, Gross, Net, RepApr): Rate Comparison Type
-              * TierValueMaximum `string`: Max Value of interst tier
-              * TierValueMinimum `string`: Lower value of interest tier
           * LengthPromotionalInDays `integer`: Describes the length if only a duration is given instead of a date
           * PaymentMethod `string` (values: Compound, PayAway, SelfCredit, SimpleInterest): Credit Interest Payment Method Code
           * StartDate `string`: If interest is charged on a specific date range as start date (often used for promotion)
@@ -534,25 +511,6 @@ hsbc.x_open_banking.v1.2.unsecured_sme_loans.segment.segment.get({
         * DateOfChange `string`: Date of the change if it refers to future terms
         * FeeDetails **required** `array`
           * items `object`: Fee Details
-            * FeeDetail **required** `object`: Fee Detail
-              * DateOfChange `string`: Date of the change if it refers to future terms
-              * FeeSubDetails **required** `object`: Fee Sub Details
-                * FeeAmount `string`: Fee in GBP
-                * FeeFrequency **required** `string` (values: AcademicTerm, AccountClosing, AccountOpening, AtTimeOfLoanRepayment, ChargingPeriod, Daily, EveryFiveBusinessDays, Item, Monthly, OnAccountAnniversary, PerHour, PerOccurrence, PerSheet, PerTransactionAmount, PerTransactionPercentage, Quarterly, SixMonthly, StartOfLoan, StatementMonthly, Weekly, Yearly): Triggering frequency of the fee
-                * FeeHigherTier `integer`: Higher occurrence / range boundary e.g. For returned cheques this could be 10, which means the first 10 returned cheque fits into this range
-                * FeeLowerTier `integer`: Lower occurrence / range boundary e.g. For returned cheques this could be 0, which means the first returned cheque fits into this range
-                * FeeMax `string`: Fee in GBP
-                * FeeMin `string`: Fee in GBP
-                * FeeRate `string`: % Rate
-                * FeesAndChargesNotes `string`: Supplementary information for fees and charges
-                * Negotiable **required** `boolean`: Indicates that this Fee Rate or Fee Amount is negotiable based on risk or other factor
-                * RepresentativeRate `string`: Representative Rate
-              * FeeType **required** `string` (values: ATMDonation, ATMDeposATMPaidIn, ReportCertBalance, ATMAbroadConVisaCredit, ATMAbroadConVisaDebit, ATMCardnetEnvIn, ATMCashGroupATMCreditCard, ATMCashNonGroupATMCredittcard, ATMCashGroupATMDebitCard, ATMCashNonGroupATMDebitcard, ATMConGroupATM, ATMAbroad, ATMForeignCashDebCard, ATMAbroadGoldVisaDebit, ATMSpainCashCard, ATMSpainDebitCard, ATMSpainConversionDebitCard, ATMSpainConversionCashCard, ATMNonSterlingWithdrawal, ATMAbroadVisaCredit, ATMAbroadVisaDebit, ATMAbroadConVisaGoldDebit, ATMWidthdrawCash, BACSOnLineAncilliary, BACSBatch, BACSOnLineFile, BACSFileItem, BACSOnLineSetup , BACSItem, BACSItemInterbranch, BACSBulkBatch, BACSOnLineOverlimit, BACSOnLinePayment, BACSRecallItem, BACSOnLineService, BACSBulkInternet, BACSTELDirDebSmartCard, BACSTELDirDebWebInit, BACSTELirDebWebInit, BACSTELDirDebOverlimit, BACSTELDirDebPayment, BACSTELDirDebService, BACSTELDirDebAncilliary, BACSDirectItemProfile, BACSTELAncilliary, BACSTELSmartCard, BACSTELFile, BACSTELSetup , BACSTELOverlimit, BACSTELPayment, BACSTELService, CHAPSOutBranch, CHAPSCancellation, CHAPSOutOnlineDepositAcc, CHAPSIn, CHAPSOutInterBank, CHAPSInterBank, CHAPSOutPost, CHAPSOutInterBranch, CHAPSOut, CHAPSOutOnline, CHAPSandForeignPay, CHAPSOutManual, CardCardReplacement, DraftsCounter, DraftsBankers, DraftsIntlPayableAbroad, DraftsLostStolen, CardPersonalisedCard, DraftsIntlStoppedCancelled, EuroChqXLess, EuroChqXPlus, FPSOutFutureDated, FPSOutImmediate, FPSOut, FPSOutOwn, FPSInBranch, FPSUKPayUrgent, LegalArticlesReport, LegalSealing, LegalBondAndGuarantee, LegalCourtOrder, LegalCoSearch, LegalDepositAssignment, LegalGuaranteePrep, LegalLifePolicyPrepCo, LegalLifePolicyPrepPersonal, LegalPriorityPariPassu, LegalSubordinationAgreement, DirDebDirectDebitAdmin, DirDebDirectDebitCancel, IntlPayBIBForeignLimit, IntlPayCreditTransCust, IntlPayCreditTransNonCust, IntlPayUrgentPaymentForeign, IntlPayExpressMoneyMover, IntlPayEEAPayUrgent, IntlPayIrishPayUrgent, IntlPayEEAPay, IntlPayForeignIn1CPlus, IntlPayForeignPaymentInUKAcc, IntlPayForeignCharge, IntlPayForeignCancellation, IntlPayForeignStandardEUEuroBIC, IntlPayFXFeeRate, IntlPayForeignInternet, IntlPayForeign, IntlPayForeignInbound, IntlPayFXPaymentOut, IntlPayForeignInSub1C, IntlPayFXRate, IntlPayForeignStandardEUEuroNoBIC, IntlPayFXPaymentOutIR, IntlPayFXFee, IntlPayPurchaseNonSterling, IntlPayPostPaymentForeign, IntlPayPurchaseRateNonSterling, IntlPayPaymentTracing, IntlPayStandardMoneyMover, IntlPayMT101Transaction, IntlPayTransNonSterling, IntlPayTransRateNonSterling, IntlPayForeignUrgentEUEuroBIC, IntlPayForeignUrgentEUEuroNoBIC, IntlPayUrgentPaymentGroup, IntlPayUrgentPaymentUK, IntlPayUSAPayUrgent, IntlPayCurrencyPurchase, IntlPayWorldpayPayment, IntlPayCurrencyWithdraw, InvPayBankDetailsWrong, InvPayForeignBCNR, InvPayForeignRecall, InvGeneralInq, InvOldInstruction, InvPayPaymentRecall, InvPayReturnDebitXVLess, InvPayReturnDebitXVPlus, InvPayStopPayment, InvPayStandingOrdUnpaid, SafeKeepAccess, SafeKeepDeedMedium, SafeKeepingEnvelope, SafeKeepingInspection, SafeKeepingLargeItem, SafeKeepMultipleItems, SafeKeepingParcel, SafeKeepDeedSmall, SafeKeepOneItem, SafeKeepSafeCustody, LoanArrangementFeePC, LoanArrangement, LoanEarlyRepayment, LoanLatePayment, LoanSMEUnsecuredLoan, LoanTieredArrangement, NightSafeNightSafeBankOpen, NightSafeCreditSub5K, NightSafeNightSafe, NightSafeNightSafePaidIn, OverdraftAnnualReview, OverdraftTempOverdraft, OverdraftUnauthorisedBorrowing, POPostOfficeCounterCredit, POPostOfficeCashCredit, POPostOfficeCashOut, POPostOfficeWithdrawal, ChqBookTheftLossAllStopped, ChqIssuedCurrencyAcc, ChqCopy, ChqDraft, ChqIn, ChqDraftSterling, ChqOutIssued, ChqSpecialChqPresentation, ChqCounterCheque, ChqChequeswithStatement, ChqStopped, ChqTrans, ChqDraftFX, ChqForeignCourier, ChqForeignNegTenThou, ChqForeignNegHundred, ChequeForeignBankDivi, ChqForeignNegFiftyThou, ChqPensionCheque, ChequeForeignOtherDivi, ChqForeignNegFiveThou, ChqForeignNegMax, ChqForeignGBPMMDPlus, ChqGiftCheque, ChqCounterLodgement, ChqCashDropLodgement, ChqChequePhotocopy, ChqPostOfficeCredit, ChqPostOfficeChequeCollected, ChqChequeRetrieval, ChqReconcilliationPerTrans, ChqSpecialPresentationCount, ChqSpecialPresentationPTT, ChqUnpaidCharge, ChqUnpaidTransIn, ChqUnpaidTransOut, ChqUnpaidCheque, ReportAuditLetter, ReportFAXAdviceAdditional, ReportTelAdviceAdditional, ReportCreditHistory, ReportCertInterestDuplicate, ReportCertInterest, ReportCreditHistoryAdditionalInYear, ReportForeignStatusEnqElec, ReportForeignStatusEnq, ReportCashBackorInterestAnal, ReportStatementChqDaily, ReportStatementChqFortnightly, ReportStatementChqMonthly, ReportStatementChqWeekly, ReportStatementAndDiviChq, ReportReference, ReportReferralItem, ReportStatementByATM, ReportStatementByBranch, ReportStatementCopyRegular, ReportStatusEnquiry, ReportStatementFrequent, ReportStatementMonthly, ReportStatementCopy1, ReportStatementToBranch, ReportSMSTextMiniStatementorAlert, ReportStatementFortnightly, ReportSMSTextMiniStatementWoM, ReportSMSTextAlertBalance, ReportSMSTextAlert, ReportTaxCert, ReportWeeklyStatement, ReportTextMessageBanking, SEPACancellation, SEPABranch, SEPACredit, SEPADirectDebit, SEPAIn, SEPAEuro, SEPAOut, SEPAUnpaid, SEPAWinbitsAnnual Service, SEPAWinbitsTransaction, TransBillPaymentBranch, TransBillCollect, TransTelephoneBillPayment, TransBankPayment, TransBillPaymentTelephone, TransCorrespondentBankFee, TransCreditTransferUKDifferent, TransCreditTransferUKSame, TransCredit, TransCreditTransfer, TransBranchCredit, TransDebit, TransDebCardDeb, TransUKDirDeb, TransManualDeb, TransBuyForeignWithGBP, TransGoodValueReq, TransSWIFTOutUKForeign, TransInconpleteInstruction, TransManualEntries, TransManualTrans, TransNonSterling, TransPOSSaleForeign, TransPriPaymentPost, TransPOSSaleUK, TransReturnPayment, TransReconciliationPerTrans, TransStandingOrdAdmin, TransStandingOrd, TransStandingOrdManPay, TransTravellersChqOtherBank, TransTelBusiPriPaymentForeignToUKAcc, TransTeleItem, TransTelBusiPriPaymentToGrpAcc, TransTravellersChqRate, TransTransferExGroup, TransUnauthorisedPaidTrans, TransUrgentPaymentPostal, TransUnpaidTrans, TransTelBusiPriPaymentToNonGrpAcc, TransSWIFTOutNonEEASterling, AutoAutoCredit, AutoAutomatedEntries, AutoAutoCreditPhoneInet, AutoAutomatedTrans, AutoDebitCardCommercial, AutoFPSAutoCredit, VisaConvertAbroadForeign, VisaBureauDeChange, VisaTravellersChqorCurrency, OnlineInternetBillPayment, OnlineBusinessOnlineEuroPayment, OnlineBusinessOnlineUrgentEuroPayment, OnlineBusinessOnlineForeignPayment, OnlineInterbankTransfer, OnlineInterbankPerTransfer, OnlineInterbranchTransfer, OnlineInterbranchPerTransfer, OnlineSubscriptionMonthly, OnlineBankingPayment, OnlineBankingSubscription, OnlinePOSSale, OnlinePersonalCustAncillarys, OnlinePersonalCustService, OnlinePersonalCustOverlimits, OnlineReplacementCardReader, OnlinePersonalCustSetUp, OnlinePersonalCustTransaction, OnlinePaymentinGBPtoUK, OnlineUrgentPayment, OnlinePaymentinUSDtoUS, OnlineBulkDirectDebSterling, ForeignChqSent, ForeignChqSelf, ForeignChqEncashment, ForeignFXInwardsCust, ForeignFXTransfersROI, ForeignFXForwardTrans, ForeignFXTransfersBOI, ForeignExMaintenance, ForeignFXInwardsNonCust, ForeignFXOutwards, ForeignPurchase, ForeignStatusRep, ForeignChqDraft, ForeignChqCLess, ForeignChqMLess, ForeignChqOther, ForeignChqMPlus, ForeignChqCCC, ServiceCAccountFee, ServiceCAccountFeeMonthly, ServiceCAccountFeeQuarterly, ServiceCBalanceHandling, ServiceCFixedTariff, ServiceCBusiDepAccBreakage, ServiceCMonitorDaily, ServiceCManagementFee, ServiceCMinimumMonthlyFee, ServiceCMonitorMonthly, ServiceCMonitorWeekly, ServiceCSecurityFee, ServiceCMT940AccountFirst, ServiceCMT940AccountSubsequent, ServiceCOther, CounterCoinHandling, CounterCashIn, CounterCashInNotUs, CounterCashOut, CounterCashX, CounterForeignCashMax, CounterForeignNoteHandling, CounterForeignCashOut, CounterCashFeeRate, CounterForeignCashOutTx, CounterCounterLodgement, CounterCashDropLodgement, CounterNotesLodged, CounterNotesOut, CounterCashInOwn, CounterPaidTrans, CounterCashFeePercent): A description of the Fee type
-              * LengthPromotionalInDays `integer`: Describes the length if only a duration is given instead of a date
-              * Other `string`: Describe other fee type
-              * StartPromotionOrFutureTerms `string`: Describes the start date
-              * StopPromotionOrFutureTerms `string`: Describes the end date
-            * FeeSubType **required** `string` (values: FutureMultipleTerms, Promotional, Regular): Fee Sub Type code
         * FeeHigherTier `integer`: Higher occurrence / range boundary e.g. For returned cheques this could be 10, which means the first 10 returned cheque fits into this range
         * FeeLowerTier `integer`: Lower occurrence / range boundary e.g.. For returned cheques this could be 0, which means the first returned cheque fits into this range
         * LengthPromotionalInDays `integer`: Describes the length if only a duration is given instead of a date
@@ -605,11 +563,6 @@ hsbc.x_open_banking.v1.2.unsecured_sme_loans.segment.segment.get({
         * RepresentativeRate `string`: Interest rate at AER
         * Tiers **required** `array`
           * items `object`: Tiers
-            * TierType `object`: Tier Type
-              * ArrangedOverdraftInterestTier `string`: Arranged overdraft interest tier
-              * UnarrangedOverdraftInterestTier `string`: Unarranged overdraft interest tier
-            * TierValueMaximum `string`: Max Value of interest tier
-            * TierValueMinimum `string`: Lower value of interest tier
         * TotalOverdraftChargeAmount `string` (values: Banded, Tiered, Whole): All charges that a customer could incur as a result of exceeding or attempting to exceed a Pre-agreed credit limit
       * OverdraftType `string` (values: Committed, OnDemand): Opposite of repayable on demand
       * RenewalRate `string`: Rate to renew overdraft
@@ -718,20 +671,6 @@ hsbc.x_open_banking.v1.2.unsecured_sme_loans.segment.segment.get({
       * items `object`: Benefit Interest Group
         * BenefitItem **required** `object`: Benefit Item
           * BenefitDetail `array`
-            * items `object`: Benefit detail
-              * BenefitDescription `string`: A textual explanation of what the benefit is
-              * BenefitID `string`: Unique benefit identifier per organisation
-              * BenefitName `string`: The name of the benefit
-              * BenefitType `string`: Type that represents the nature of the benefit
-              * BenefitValue `string`: The value or values permissible for a specific benefit for an individual product representing a product characteristic
-              * Counter `integer`: Counter for the criteria (e.g. number of DD)
-              * CriteriaType `array`
-                * items `string` (values: CashDeposit, Deposit, DirectDebit, InitialDeposit, InternetLogon, MobileLogon, RegularDeposit): Criteria that is required in order to be eligible for the Benefit
-              * DefaultToAccounts `boolean`: Is the benefit part of the default account
-              * MaximumCriteria `string`: Maximum amount for the criteria
-              * MinimumCriteria `string`: Minimum amount for the criteria
-              * PromotionEndDate `string`: If the benefit is temporal the end date is when the benefit is no longer applicable
-              * PromotionStartDate `string`: If the benefit is temporal the start date is when the benefit comes into effect
           * DateOfChange `string`: Date of the change if it refers to future terms
           * LengthPromotionalInDays `integer`: Describes the length if only a duration is given instead of a date in days
           * StartPromotionOrFutureTerms `string`: Describes the start date
@@ -900,20 +839,6 @@ hsbc.x_open_banking.v1.2.unsecured_sme_loans.segment.segment.get({
       * items `object`: Benefit Interest Group
         * BenefitItem **required** `object`: Benefit Item
           * BenefitDetail `array`
-            * items `object`: Benefit detail
-              * BenefitDescription `string`: A textual explanation of what the benefit is
-              * BenefitID `string`: Unique benefit identifier per organisation
-              * BenefitName `string`: The name of the benefit
-              * BenefitType `string`: Type that represents the nature of the benefit
-              * BenefitValue `string`: The value or values permissible for a specific benefit for an individual product representing a product characteristic
-              * Counter `integer`: Counter for the criteria (e.g. number of DD)
-              * CriteriaType `array`
-                * items `string` (values: CashDeposit, Deposit, DirectDebit, InitialDeposit, InternetLogon, MobileLogon, RegularDeposit): Criteria that is required in order to be eligible for the Benefit
-              * DefaultToAccounts `boolean`: Is the benefit part of the default account
-              * MaximumCriteria `string`: Maximum amount for the criteria
-              * MinimumCriteria `string`: Minimum amount for the criteria
-              * PromotionEndDate `string`: If the benefit is temporal the end date is when the benefit is no longer applicable
-              * PromotionStartDate `string`: If the benefit is temporal the start date is when the benefit comes into effect
           * DateOfChange `string`: Date of the change if it refers to future terms
           * LengthPromotionalInDays `integer`: Describes the length if only a duration is given instead of a date in days
           * StartPromotionOrFutureTerms `string`: Describes the start date
@@ -947,15 +872,6 @@ hsbc.x_open_banking.v1.2.unsecured_sme_loans.segment.segment.get({
           * InterestNotes `string`: Additional notes to supplement the interest details
           * InterestRateType `string` (values: Fixed, Variable): Credit Interest Payment Rate Type
           * InterestTiers `array`
-            * items `object`: Credit Interest Tiers
-              * APRAERRate `string`: AER or APR Rate for comparison
-              * DailyChargeForMaximum `string`: Special charge on tiered overdraft
-              * DailyChargeForMinimum `string`: Special charge on tiered overdraft
-              * InterestTier `string`: Identifier for the tier
-              * Rate `string`: Rate being paid by the bank (gross)
-              * RateComparisonType `string` (values: APR, AER, Gross, Net, RepApr): Rate Comparison Type
-              * TierValueMaximum `string`: Max Value of interst tier
-              * TierValueMinimum `string`: Lower value of interest tier
           * LengthPromotionalInDays `integer`: Describes the length if only a duration is given instead of a date
           * PaymentMethod `string` (values: Compound, PayAway, SelfCredit, SimpleInterest): Credit Interest Payment Method Code
           * StartDate `string`: If interest is charged on a specific date range as start date (often used for promotion)
@@ -1034,25 +950,6 @@ hsbc.x_open_banking.v1.2.unsecured_sme_loans.segment.segment.get({
         * DateOfChange `string`: Date of the change if it refers to future terms
         * FeeDetails **required** `array`
           * items `object`: Fee Details
-            * FeeDetail **required** `object`: Fee Detail
-              * DateOfChange `string`: Date of the change if it refers to future terms
-              * FeeSubDetails **required** `object`: Fee Sub Details
-                * FeeAmount `string`: Fee in GBP
-                * FeeFrequency **required** `string` (values: AcademicTerm, AccountClosing, AccountOpening, AtTimeOfLoanRepayment, ChargingPeriod, Daily, EveryFiveBusinessDays, Item, Monthly, OnAccountAnniversary, PerHour, PerOccurrence, PerSheet, PerTransactionAmount, PerTransactionPercentage, Quarterly, SixMonthly, StartOfLoan, StatementMonthly, Weekly, Yearly): Triggering frequency of the fee
-                * FeeHigherTier `integer`: Higher occurrence / range boundary e.g. For returned cheques this could be 10, which means the first 10 returned cheque fits into this range
-                * FeeLowerTier `integer`: Lower occurrence / range boundary e.g. For returned cheques this could be 0, which means the first returned cheque fits into this range
-                * FeeMax `string`: Fee in GBP
-                * FeeMin `string`: Fee in GBP
-                * FeeRate `string`: % Rate
-                * FeesAndChargesNotes `string`: Supplementary information for fees and charges
-                * Negotiable **required** `boolean`: Indicates that this Fee Rate or Fee Amount is negotiable based on risk or other factor
-                * RepresentativeRate `string`: Representative Rate
-              * FeeType **required** `string` (values: ATMDonation, ATMDeposATMPaidIn, ReportCertBalance, ATMAbroadConVisaCredit, ATMAbroadConVisaDebit, ATMCardnetEnvIn, ATMCashGroupATMCreditCard, ATMCashNonGroupATMCredittcard, ATMCashGroupATMDebitCard, ATMCashNonGroupATMDebitcard, ATMConGroupATM, ATMAbroad, ATMForeignCashDebCard, ATMAbroadGoldVisaDebit, ATMSpainCashCard, ATMSpainDebitCard, ATMSpainConversionDebitCard, ATMSpainConversionCashCard, ATMNonSterlingWithdrawal, ATMAbroadVisaCredit, ATMAbroadVisaDebit, ATMAbroadConVisaGoldDebit, ATMWidthdrawCash, BACSOnLineAncilliary, BACSBatch, BACSOnLineFile, BACSFileItem, BACSOnLineSetup , BACSItem, BACSItemInterbranch, BACSBulkBatch, BACSOnLineOverlimit, BACSOnLinePayment, BACSRecallItem, BACSOnLineService, BACSBulkInternet, BACSTELDirDebSmartCard, BACSTELDirDebWebInit, BACSTELirDebWebInit, BACSTELDirDebOverlimit, BACSTELDirDebPayment, BACSTELDirDebService, BACSTELDirDebAncilliary, BACSDirectItemProfile, BACSTELAncilliary, BACSTELSmartCard, BACSTELFile, BACSTELSetup , BACSTELOverlimit, BACSTELPayment, BACSTELService, CHAPSOutBranch, CHAPSCancellation, CHAPSOutOnlineDepositAcc, CHAPSIn, CHAPSOutInterBank, CHAPSInterBank, CHAPSOutPost, CHAPSOutInterBranch, CHAPSOut, CHAPSOutOnline, CHAPSandForeignPay, CHAPSOutManual, CardCardReplacement, DraftsCounter, DraftsBankers, DraftsIntlPayableAbroad, DraftsLostStolen, CardPersonalisedCard, DraftsIntlStoppedCancelled, EuroChqXLess, EuroChqXPlus, FPSOutFutureDated, FPSOutImmediate, FPSOut, FPSOutOwn, FPSInBranch, FPSUKPayUrgent, LegalArticlesReport, LegalSealing, LegalBondAndGuarantee, LegalCourtOrder, LegalCoSearch, LegalDepositAssignment, LegalGuaranteePrep, LegalLifePolicyPrepCo, LegalLifePolicyPrepPersonal, LegalPriorityPariPassu, LegalSubordinationAgreement, DirDebDirectDebitAdmin, DirDebDirectDebitCancel, IntlPayBIBForeignLimit, IntlPayCreditTransCust, IntlPayCreditTransNonCust, IntlPayUrgentPaymentForeign, IntlPayExpressMoneyMover, IntlPayEEAPayUrgent, IntlPayIrishPayUrgent, IntlPayEEAPay, IntlPayForeignIn1CPlus, IntlPayForeignPaymentInUKAcc, IntlPayForeignCharge, IntlPayForeignCancellation, IntlPayForeignStandardEUEuroBIC, IntlPayFXFeeRate, IntlPayForeignInternet, IntlPayForeign, IntlPayForeignInbound, IntlPayFXPaymentOut, IntlPayForeignInSub1C, IntlPayFXRate, IntlPayForeignStandardEUEuroNoBIC, IntlPayFXPaymentOutIR, IntlPayFXFee, IntlPayPurchaseNonSterling, IntlPayPostPaymentForeign, IntlPayPurchaseRateNonSterling, IntlPayPaymentTracing, IntlPayStandardMoneyMover, IntlPayMT101Transaction, IntlPayTransNonSterling, IntlPayTransRateNonSterling, IntlPayForeignUrgentEUEuroBIC, IntlPayForeignUrgentEUEuroNoBIC, IntlPayUrgentPaymentGroup, IntlPayUrgentPaymentUK, IntlPayUSAPayUrgent, IntlPayCurrencyPurchase, IntlPayWorldpayPayment, IntlPayCurrencyWithdraw, InvPayBankDetailsWrong, InvPayForeignBCNR, InvPayForeignRecall, InvGeneralInq, InvOldInstruction, InvPayPaymentRecall, InvPayReturnDebitXVLess, InvPayReturnDebitXVPlus, InvPayStopPayment, InvPayStandingOrdUnpaid, SafeKeepAccess, SafeKeepDeedMedium, SafeKeepingEnvelope, SafeKeepingInspection, SafeKeepingLargeItem, SafeKeepMultipleItems, SafeKeepingParcel, SafeKeepDeedSmall, SafeKeepOneItem, SafeKeepSafeCustody, LoanArrangementFeePC, LoanArrangement, LoanEarlyRepayment, LoanLatePayment, LoanSMEUnsecuredLoan, LoanTieredArrangement, NightSafeNightSafeBankOpen, NightSafeCreditSub5K, NightSafeNightSafe, NightSafeNightSafePaidIn, OverdraftAnnualReview, OverdraftTempOverdraft, OverdraftUnauthorisedBorrowing, POPostOfficeCounterCredit, POPostOfficeCashCredit, POPostOfficeCashOut, POPostOfficeWithdrawal, ChqBookTheftLossAllStopped, ChqIssuedCurrencyAcc, ChqCopy, ChqDraft, ChqIn, ChqDraftSterling, ChqOutIssued, ChqSpecialChqPresentation, ChqCounterCheque, ChqChequeswithStatement, ChqStopped, ChqTrans, ChqDraftFX, ChqForeignCourier, ChqForeignNegTenThou, ChqForeignNegHundred, ChequeForeignBankDivi, ChqForeignNegFiftyThou, ChqPensionCheque, ChequeForeignOtherDivi, ChqForeignNegFiveThou, ChqForeignNegMax, ChqForeignGBPMMDPlus, ChqGiftCheque, ChqCounterLodgement, ChqCashDropLodgement, ChqChequePhotocopy, ChqPostOfficeCredit, ChqPostOfficeChequeCollected, ChqChequeRetrieval, ChqReconcilliationPerTrans, ChqSpecialPresentationCount, ChqSpecialPresentationPTT, ChqUnpaidCharge, ChqUnpaidTransIn, ChqUnpaidTransOut, ChqUnpaidCheque, ReportAuditLetter, ReportFAXAdviceAdditional, ReportTelAdviceAdditional, ReportCreditHistory, ReportCertInterestDuplicate, ReportCertInterest, ReportCreditHistoryAdditionalInYear, ReportForeignStatusEnqElec, ReportForeignStatusEnq, ReportCashBackorInterestAnal, ReportStatementChqDaily, ReportStatementChqFortnightly, ReportStatementChqMonthly, ReportStatementChqWeekly, ReportStatementAndDiviChq, ReportReference, ReportReferralItem, ReportStatementByATM, ReportStatementByBranch, ReportStatementCopyRegular, ReportStatusEnquiry, ReportStatementFrequent, ReportStatementMonthly, ReportStatementCopy1, ReportStatementToBranch, ReportSMSTextMiniStatementorAlert, ReportStatementFortnightly, ReportSMSTextMiniStatementWoM, ReportSMSTextAlertBalance, ReportSMSTextAlert, ReportTaxCert, ReportWeeklyStatement, ReportTextMessageBanking, SEPACancellation, SEPABranch, SEPACredit, SEPADirectDebit, SEPAIn, SEPAEuro, SEPAOut, SEPAUnpaid, SEPAWinbitsAnnual Service, SEPAWinbitsTransaction, TransBillPaymentBranch, TransBillCollect, TransTelephoneBillPayment, TransBankPayment, TransBillPaymentTelephone, TransCorrespondentBankFee, TransCreditTransferUKDifferent, TransCreditTransferUKSame, TransCredit, TransCreditTransfer, TransBranchCredit, TransDebit, TransDebCardDeb, TransUKDirDeb, TransManualDeb, TransBuyForeignWithGBP, TransGoodValueReq, TransSWIFTOutUKForeign, TransInconpleteInstruction, TransManualEntries, TransManualTrans, TransNonSterling, TransPOSSaleForeign, TransPriPaymentPost, TransPOSSaleUK, TransReturnPayment, TransReconciliationPerTrans, TransStandingOrdAdmin, TransStandingOrd, TransStandingOrdManPay, TransTravellersChqOtherBank, TransTelBusiPriPaymentForeignToUKAcc, TransTeleItem, TransTelBusiPriPaymentToGrpAcc, TransTravellersChqRate, TransTransferExGroup, TransUnauthorisedPaidTrans, TransUrgentPaymentPostal, TransUnpaidTrans, TransTelBusiPriPaymentToNonGrpAcc, TransSWIFTOutNonEEASterling, AutoAutoCredit, AutoAutomatedEntries, AutoAutoCreditPhoneInet, AutoAutomatedTrans, AutoDebitCardCommercial, AutoFPSAutoCredit, VisaConvertAbroadForeign, VisaBureauDeChange, VisaTravellersChqorCurrency, OnlineInternetBillPayment, OnlineBusinessOnlineEuroPayment, OnlineBusinessOnlineUrgentEuroPayment, OnlineBusinessOnlineForeignPayment, OnlineInterbankTransfer, OnlineInterbankPerTransfer, OnlineInterbranchTransfer, OnlineInterbranchPerTransfer, OnlineSubscriptionMonthly, OnlineBankingPayment, OnlineBankingSubscription, OnlinePOSSale, OnlinePersonalCustAncillarys, OnlinePersonalCustService, OnlinePersonalCustOverlimits, OnlineReplacementCardReader, OnlinePersonalCustSetUp, OnlinePersonalCustTransaction, OnlinePaymentinGBPtoUK, OnlineUrgentPayment, OnlinePaymentinUSDtoUS, OnlineBulkDirectDebSterling, ForeignChqSent, ForeignChqSelf, ForeignChqEncashment, ForeignFXInwardsCust, ForeignFXTransfersROI, ForeignFXForwardTrans, ForeignFXTransfersBOI, ForeignExMaintenance, ForeignFXInwardsNonCust, ForeignFXOutwards, ForeignPurchase, ForeignStatusRep, ForeignChqDraft, ForeignChqCLess, ForeignChqMLess, ForeignChqOther, ForeignChqMPlus, ForeignChqCCC, ServiceCAccountFee, ServiceCAccountFeeMonthly, ServiceCAccountFeeQuarterly, ServiceCBalanceHandling, ServiceCFixedTariff, ServiceCBusiDepAccBreakage, ServiceCMonitorDaily, ServiceCManagementFee, ServiceCMinimumMonthlyFee, ServiceCMonitorMonthly, ServiceCMonitorWeekly, ServiceCSecurityFee, ServiceCMT940AccountFirst, ServiceCMT940AccountSubsequent, ServiceCOther, CounterCoinHandling, CounterCashIn, CounterCashInNotUs, CounterCashOut, CounterCashX, CounterForeignCashMax, CounterForeignNoteHandling, CounterForeignCashOut, CounterCashFeeRate, CounterForeignCashOutTx, CounterCounterLodgement, CounterCashDropLodgement, CounterNotesLodged, CounterNotesOut, CounterCashInOwn, CounterPaidTrans, CounterCashFeePercent): A description of the Fee type
-              * LengthPromotionalInDays `integer`: Describes the length if only a duration is given instead of a date
-              * Other `string`: Describe other fee type
-              * StartPromotionOrFutureTerms `string`: Describes the start date
-              * StopPromotionOrFutureTerms `string`: Describes the end date
-            * FeeSubType **required** `string` (values: FutureMultipleTerms, Promotional, Regular): Fee Sub Type code
         * FeeHigherTier `integer`: Higher occurrence / range boundary e.g. For returned cheques this could be 10, which means the first 10 returned cheque fits into this range
         * FeeLowerTier `integer`: Lower occurrence / range boundary e.g.. For returned cheques this could be 0, which means the first returned cheque fits into this range
         * LengthPromotionalInDays `integer`: Describes the length if only a duration is given instead of a date
@@ -1105,11 +1002,6 @@ hsbc.x_open_banking.v1.2.unsecured_sme_loans.segment.segment.get({
         * RepresentativeRate `string`: Interest rate at AER
         * Tiers **required** `array`
           * items `object`: Tiers
-            * TierType `object`: Tier Type
-              * ArrangedOverdraftInterestTier `string`: Arranged overdraft interest tier
-              * UnarrangedOverdraftInterestTier `string`: Unarranged overdraft interest tier
-            * TierValueMaximum `string`: Max Value of interest tier
-            * TierValueMinimum `string`: Lower value of interest tier
         * TotalOverdraftChargeAmount `string` (values: Banded, Tiered, Whole): All charges that a customer could incur as a result of exceeding or attempting to exceed a Pre-agreed credit limit
       * OverdraftType `string` (values: Committed, OnDemand): Opposite of repayable on demand
       * RenewalRate `string`: Rate to renew overdraft
@@ -1146,20 +1038,6 @@ hsbc.x_open_banking.v1.2.unsecured_sme_loans.segment.segment.get({
       * items `object`: Benefit Interest Group
         * BenefitItem **required** `object`: Benefit Item
           * BenefitDetail `array`
-            * items `object`: Benefit detail
-              * BenefitDescription `string`: A textual explanation of what the benefit is
-              * BenefitID `string`: Unique benefit identifier per organisation
-              * BenefitName `string`: The name of the benefit
-              * BenefitType `string`: Type that represents the nature of the benefit
-              * BenefitValue `string`: The value or values permissible for a specific benefit for an individual product representing a product characteristic
-              * Counter `integer`: Counter for the criteria (e.g. number of DD)
-              * CriteriaType `array`
-                * items `string` (values: CashDeposit, Deposit, DirectDebit, InitialDeposit, InternetLogon, MobileLogon, RegularDeposit): Criteria that is required in order to be eligible for the Benefit
-              * DefaultToAccounts `boolean`: Is the benefit part of the default account
-              * MaximumCriteria `string`: Maximum amount for the criteria
-              * MinimumCriteria `string`: Minimum amount for the criteria
-              * PromotionEndDate `string`: If the benefit is temporal the end date is when the benefit is no longer applicable
-              * PromotionStartDate `string`: If the benefit is temporal the start date is when the benefit comes into effect
           * DateOfChange `string`: Date of the change if it refers to future terms
           * LengthPromotionalInDays `integer`: Describes the length if only a duration is given instead of a date in days
           * StartPromotionOrFutureTerms `string`: Describes the start date
@@ -1210,25 +1088,6 @@ hsbc.x_open_banking.v1.2.unsecured_sme_loans.segment.segment.get({
         * DateOfChange `string`: Date of the change if it refers to future terms
         * FeeDetails **required** `array`
           * items `object`: Fee Details
-            * FeeDetail **required** `object`: Fee Detail
-              * DateOfChange `string`: Date of the change if it refers to future terms
-              * FeeSubDetails **required** `object`: Fee Sub Details
-                * FeeAmount `string`: Fee in GBP
-                * FeeFrequency **required** `string` (values: AcademicTerm, AccountClosing, AccountOpening, AtTimeOfLoanRepayment, ChargingPeriod, Daily, EveryFiveBusinessDays, Item, Monthly, OnAccountAnniversary, PerHour, PerOccurrence, PerSheet, PerTransactionAmount, PerTransactionPercentage, Quarterly, SixMonthly, StartOfLoan, StatementMonthly, Weekly, Yearly): Triggering frequency of the fee
-                * FeeHigherTier `integer`: Higher occurrence / range boundary e.g. For returned cheques this could be 10, which means the first 10 returned cheque fits into this range
-                * FeeLowerTier `integer`: Lower occurrence / range boundary e.g. For returned cheques this could be 0, which means the first returned cheque fits into this range
-                * FeeMax `string`: Fee in GBP
-                * FeeMin `string`: Fee in GBP
-                * FeeRate `string`: % Rate
-                * FeesAndChargesNotes `string`: Supplementary information for fees and charges
-                * Negotiable **required** `boolean`: Indicates that this Fee Rate or Fee Amount is negotiable based on risk or other factor
-                * RepresentativeRate `string`: Representative Rate
-              * FeeType **required** `string` (values: ATMDonation, ATMDeposATMPaidIn, ReportCertBalance, ATMAbroadConVisaCredit, ATMAbroadConVisaDebit, ATMCardnetEnvIn, ATMCashGroupATMCreditCard, ATMCashNonGroupATMCredittcard, ATMCashGroupATMDebitCard, ATMCashNonGroupATMDebitcard, ATMConGroupATM, ATMAbroad, ATMForeignCashDebCard, ATMAbroadGoldVisaDebit, ATMSpainCashCard, ATMSpainDebitCard, ATMSpainConversionDebitCard, ATMSpainConversionCashCard, ATMNonSterlingWithdrawal, ATMAbroadVisaCredit, ATMAbroadVisaDebit, ATMAbroadConVisaGoldDebit, ATMWidthdrawCash, BACSOnLineAncilliary, BACSBatch, BACSOnLineFile, BACSFileItem, BACSOnLineSetup , BACSItem, BACSItemInterbranch, BACSBulkBatch, BACSOnLineOverlimit, BACSOnLinePayment, BACSRecallItem, BACSOnLineService, BACSBulkInternet, BACSTELDirDebSmartCard, BACSTELDirDebWebInit, BACSTELirDebWebInit, BACSTELDirDebOverlimit, BACSTELDirDebPayment, BACSTELDirDebService, BACSTELDirDebAncilliary, BACSDirectItemProfile, BACSTELAncilliary, BACSTELSmartCard, BACSTELFile, BACSTELSetup , BACSTELOverlimit, BACSTELPayment, BACSTELService, CHAPSOutBranch, CHAPSCancellation, CHAPSOutOnlineDepositAcc, CHAPSIn, CHAPSOutInterBank, CHAPSInterBank, CHAPSOutPost, CHAPSOutInterBranch, CHAPSOut, CHAPSOutOnline, CHAPSandForeignPay, CHAPSOutManual, CardCardReplacement, DraftsCounter, DraftsBankers, DraftsIntlPayableAbroad, DraftsLostStolen, CardPersonalisedCard, DraftsIntlStoppedCancelled, EuroChqXLess, EuroChqXPlus, FPSOutFutureDated, FPSOutImmediate, FPSOut, FPSOutOwn, FPSInBranch, FPSUKPayUrgent, LegalArticlesReport, LegalSealing, LegalBondAndGuarantee, LegalCourtOrder, LegalCoSearch, LegalDepositAssignment, LegalGuaranteePrep, LegalLifePolicyPrepCo, LegalLifePolicyPrepPersonal, LegalPriorityPariPassu, LegalSubordinationAgreement, DirDebDirectDebitAdmin, DirDebDirectDebitCancel, IntlPayBIBForeignLimit, IntlPayCreditTransCust, IntlPayCreditTransNonCust, IntlPayUrgentPaymentForeign, IntlPayExpressMoneyMover, IntlPayEEAPayUrgent, IntlPayIrishPayUrgent, IntlPayEEAPay, IntlPayForeignIn1CPlus, IntlPayForeignPaymentInUKAcc, IntlPayForeignCharge, IntlPayForeignCancellation, IntlPayForeignStandardEUEuroBIC, IntlPayFXFeeRate, IntlPayForeignInternet, IntlPayForeign, IntlPayForeignInbound, IntlPayFXPaymentOut, IntlPayForeignInSub1C, IntlPayFXRate, IntlPayForeignStandardEUEuroNoBIC, IntlPayFXPaymentOutIR, IntlPayFXFee, IntlPayPurchaseNonSterling, IntlPayPostPaymentForeign, IntlPayPurchaseRateNonSterling, IntlPayPaymentTracing, IntlPayStandardMoneyMover, IntlPayMT101Transaction, IntlPayTransNonSterling, IntlPayTransRateNonSterling, IntlPayForeignUrgentEUEuroBIC, IntlPayForeignUrgentEUEuroNoBIC, IntlPayUrgentPaymentGroup, IntlPayUrgentPaymentUK, IntlPayUSAPayUrgent, IntlPayCurrencyPurchase, IntlPayWorldpayPayment, IntlPayCurrencyWithdraw, InvPayBankDetailsWrong, InvPayForeignBCNR, InvPayForeignRecall, InvGeneralInq, InvOldInstruction, InvPayPaymentRecall, InvPayReturnDebitXVLess, InvPayReturnDebitXVPlus, InvPayStopPayment, InvPayStandingOrdUnpaid, SafeKeepAccess, SafeKeepDeedMedium, SafeKeepingEnvelope, SafeKeepingInspection, SafeKeepingLargeItem, SafeKeepMultipleItems, SafeKeepingParcel, SafeKeepDeedSmall, SafeKeepOneItem, SafeKeepSafeCustody, LoanArrangementFeePC, LoanArrangement, LoanEarlyRepayment, LoanLatePayment, LoanSMEUnsecuredLoan, LoanTieredArrangement, NightSafeNightSafeBankOpen, NightSafeCreditSub5K, NightSafeNightSafe, NightSafeNightSafePaidIn, OverdraftAnnualReview, OverdraftTempOverdraft, OverdraftUnauthorisedBorrowing, POPostOfficeCounterCredit, POPostOfficeCashCredit, POPostOfficeCashOut, POPostOfficeWithdrawal, ChqBookTheftLossAllStopped, ChqIssuedCurrencyAcc, ChqCopy, ChqDraft, ChqIn, ChqDraftSterling, ChqOutIssued, ChqSpecialChqPresentation, ChqCounterCheque, ChqChequeswithStatement, ChqStopped, ChqTrans, ChqDraftFX, ChqForeignCourier, ChqForeignNegTenThou, ChqForeignNegHundred, ChequeForeignBankDivi, ChqForeignNegFiftyThou, ChqPensionCheque, ChequeForeignOtherDivi, ChqForeignNegFiveThou, ChqForeignNegMax, ChqForeignGBPMMDPlus, ChqGiftCheque, ChqCounterLodgement, ChqCashDropLodgement, ChqChequePhotocopy, ChqPostOfficeCredit, ChqPostOfficeChequeCollected, ChqChequeRetrieval, ChqReconcilliationPerTrans, ChqSpecialPresentationCount, ChqSpecialPresentationPTT, ChqUnpaidCharge, ChqUnpaidTransIn, ChqUnpaidTransOut, ChqUnpaidCheque, ReportAuditLetter, ReportFAXAdviceAdditional, ReportTelAdviceAdditional, ReportCreditHistory, ReportCertInterestDuplicate, ReportCertInterest, ReportCreditHistoryAdditionalInYear, ReportForeignStatusEnqElec, ReportForeignStatusEnq, ReportCashBackorInterestAnal, ReportStatementChqDaily, ReportStatementChqFortnightly, ReportStatementChqMonthly, ReportStatementChqWeekly, ReportStatementAndDiviChq, ReportReference, ReportReferralItem, ReportStatementByATM, ReportStatementByBranch, ReportStatementCopyRegular, ReportStatusEnquiry, ReportStatementFrequent, ReportStatementMonthly, ReportStatementCopy1, ReportStatementToBranch, ReportSMSTextMiniStatementorAlert, ReportStatementFortnightly, ReportSMSTextMiniStatementWoM, ReportSMSTextAlertBalance, ReportSMSTextAlert, ReportTaxCert, ReportWeeklyStatement, ReportTextMessageBanking, SEPACancellation, SEPABranch, SEPACredit, SEPADirectDebit, SEPAIn, SEPAEuro, SEPAOut, SEPAUnpaid, SEPAWinbitsAnnual Service, SEPAWinbitsTransaction, TransBillPaymentBranch, TransBillCollect, TransTelephoneBillPayment, TransBankPayment, TransBillPaymentTelephone, TransCorrespondentBankFee, TransCreditTransferUKDifferent, TransCreditTransferUKSame, TransCredit, TransCreditTransfer, TransBranchCredit, TransDebit, TransDebCardDeb, TransUKDirDeb, TransManualDeb, TransBuyForeignWithGBP, TransGoodValueReq, TransSWIFTOutUKForeign, TransInconpleteInstruction, TransManualEntries, TransManualTrans, TransNonSterling, TransPOSSaleForeign, TransPriPaymentPost, TransPOSSaleUK, TransReturnPayment, TransReconciliationPerTrans, TransStandingOrdAdmin, TransStandingOrd, TransStandingOrdManPay, TransTravellersChqOtherBank, TransTelBusiPriPaymentForeignToUKAcc, TransTeleItem, TransTelBusiPriPaymentToGrpAcc, TransTravellersChqRate, TransTransferExGroup, TransUnauthorisedPaidTrans, TransUrgentPaymentPostal, TransUnpaidTrans, TransTelBusiPriPaymentToNonGrpAcc, TransSWIFTOutNonEEASterling, AutoAutoCredit, AutoAutomatedEntries, AutoAutoCreditPhoneInet, AutoAutomatedTrans, AutoDebitCardCommercial, AutoFPSAutoCredit, VisaConvertAbroadForeign, VisaBureauDeChange, VisaTravellersChqorCurrency, OnlineInternetBillPayment, OnlineBusinessOnlineEuroPayment, OnlineBusinessOnlineUrgentEuroPayment, OnlineBusinessOnlineForeignPayment, OnlineInterbankTransfer, OnlineInterbankPerTransfer, OnlineInterbranchTransfer, OnlineInterbranchPerTransfer, OnlineSubscriptionMonthly, OnlineBankingPayment, OnlineBankingSubscription, OnlinePOSSale, OnlinePersonalCustAncillarys, OnlinePersonalCustService, OnlinePersonalCustOverlimits, OnlineReplacementCardReader, OnlinePersonalCustSetUp, OnlinePersonalCustTransaction, OnlinePaymentinGBPtoUK, OnlineUrgentPayment, OnlinePaymentinUSDtoUS, OnlineBulkDirectDebSterling, ForeignChqSent, ForeignChqSelf, ForeignChqEncashment, ForeignFXInwardsCust, ForeignFXTransfersROI, ForeignFXForwardTrans, ForeignFXTransfersBOI, ForeignExMaintenance, ForeignFXInwardsNonCust, ForeignFXOutwards, ForeignPurchase, ForeignStatusRep, ForeignChqDraft, ForeignChqCLess, ForeignChqMLess, ForeignChqOther, ForeignChqMPlus, ForeignChqCCC, ServiceCAccountFee, ServiceCAccountFeeMonthly, ServiceCAccountFeeQuarterly, ServiceCBalanceHandling, ServiceCFixedTariff, ServiceCBusiDepAccBreakage, ServiceCMonitorDaily, ServiceCManagementFee, ServiceCMinimumMonthlyFee, ServiceCMonitorMonthly, ServiceCMonitorWeekly, ServiceCSecurityFee, ServiceCMT940AccountFirst, ServiceCMT940AccountSubsequent, ServiceCOther, CounterCoinHandling, CounterCashIn, CounterCashInNotUs, CounterCashOut, CounterCashX, CounterForeignCashMax, CounterForeignNoteHandling, CounterForeignCashOut, CounterCashFeeRate, CounterForeignCashOutTx, CounterCounterLodgement, CounterCashDropLodgement, CounterNotesLodged, CounterNotesOut, CounterCashInOwn, CounterPaidTrans, CounterCashFeePercent): A description of the Fee type
-              * LengthPromotionalInDays `integer`: Describes the length if only a duration is given instead of a date
-              * Other `string`: Describe other fee type
-              * StartPromotionOrFutureTerms `string`: Describes the start date
-              * StopPromotionOrFutureTerms `string`: Describes the end date
-            * FeeSubType **required** `string` (values: FutureMultipleTerms, Promotional, Regular): Fee Sub Type code
         * FeeHigherTier `integer`: Higher occurrence / range boundary e.g. For returned cheques this could be 10, which means the first 10 returned cheque fits into this range
         * FeeLowerTier `integer`: Lower occurrence / range boundary e.g.. For returned cheques this could be 0, which means the first returned cheque fits into this range
         * LengthPromotionalInDays `integer`: Describes the length if only a duration is given instead of a date
@@ -1253,7 +1112,6 @@ hsbc.x_open_banking.v1.2.unsecured_sme_loans.segment.segment.get({
           * Negotiable **required** `boolean`
           * RateComparisonType `string` (values: APR, AER, Gross, Net, RepApr): Rate Comparison Type
           * RepaymentFrequency **required** `array`
-            * items `string` (values: Daily, Flexible, Fortnightly, HalfYearly, Monthly, Quarterly, Weekly, Yearly): Repayment Frequency Code
           * SizeIncrement **required** `string` (values: £5000, £10000, £15000, £20000, £25000, Other, TierMaximum, TierMinimum): Identifier for tier only where it has been supplied under Part 8 (article 32 or the CMA order), value reflects upper tier value
       * ProductSubType **required** `string` (values: FutureMultipleTerms, Promotional, Regular): Describes if the offering is promotional, regular or a description of a future state
       * StartPromotionOrFutureTerms `string`: Describes the start date

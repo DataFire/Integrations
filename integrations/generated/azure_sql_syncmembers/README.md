@@ -15,14 +15,7 @@ let azure_sql_syncmembers = require('@datafire/azure_sql_syncmembers').create({
   redirect_uri: ""
 });
 
-azure_sql_syncmembers.SyncMembers_ListBySyncGroup({
-  "resourceGroupName": "",
-  "serverName": "",
-  "databaseName": "",
-  "syncGroupName": "",
-  "subscriptionId": "",
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

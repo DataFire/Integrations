@@ -1,6 +1,6 @@
 # @datafire/google_playcustomapp
 
-Client library for Google Play Custom App Publishing
+Client library for Google Play Custom App Publishing API
 
 ## Installation and Usage
 ```bash
@@ -15,16 +15,14 @@ let google_playcustomapp = require('@datafire/google_playcustomapp').create({
   redirect_uri: ""
 });
 
-google_playcustomapp.accounts.customApps.create({
-  "account": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
 
 ## Description
 
-An API to publish custom Android apps.
+API to create and publish custom Android apps
 
 ## Actions
 
@@ -69,12 +67,12 @@ google_playcustomapp.oauthRefresh(null, context)
   * scope `string`
   * expiration `string`
 
-### accounts.customApps.create
-Create and publish a new custom app.
+### playcustomapp.accounts.customApps.create
+Creates a new custom app.
 
 
 ```js
-google_playcustomapp.accounts.customApps.create({
+google_playcustomapp.playcustomapp.accounts.customApps.create({
   "account": ""
 }, context)
 ```
@@ -83,13 +81,17 @@ google_playcustomapp.accounts.customApps.create({
 * input `object`
   * account **required** `string`: Developer account ID.
   * body [CustomApp](#customapp)
-  * alt `string` (values: json): Data format for the response.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [CustomApp](#customapp)
@@ -101,6 +103,7 @@ google_playcustomapp.accounts.customApps.create({
 ### CustomApp
 * CustomApp `object`: This resource represents a custom app.
   * languageCode `string`: Default listing language in BCP 47 format.
+  * packageName `string`: Output only. Package name of the created Android app. Only present in the API response.
   * title `string`: Title for the Android app.
 
 

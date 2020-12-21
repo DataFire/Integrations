@@ -12,12 +12,7 @@ let fantasydata_nfl_v3_play_by_play = require('@datafire/fantasydata_nfl_v3_play
   apiKeyQuery: ""
 });
 
-fantasydata_nfl_v3_play_by_play.PlayByPlay({
-  "format": "",
-  "season": "",
-  "week": "",
-  "hometeam": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

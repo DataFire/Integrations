@@ -1,10 +1,5 @@
 {
   "swagger": "2.0",
-  "schemes": [
-    "https"
-  ],
-  "host": "api.personio.de",
-  "basePath": "/v1",
   "info": {
     "contact": {
       "x-twitter": "PersonioHR"
@@ -20,9 +15,9 @@
     },
     "x-origin": [
       {
-        "format": "swagger",
+        "format": "openapi",
         "url": "https://raw.githubusercontent.com/personio/api-docs/master/personio-auth-api.yaml",
-        "version": "2.0"
+        "version": "3.0"
       }
     ],
     "x-preferred": true,
@@ -33,16 +28,17 @@
       "type": "openapi"
     }
   },
-  "consumes": [
-    "application/json"
-  ],
-  "produces": [
-    "application/json"
+  "host": "api.personio.de",
+  "basePath": "/v1",
+  "schemes": [
+    "https"
   ],
   "paths": {
     "/auth": {
       "post": {
-        "description": "Request Authentication Token",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Client id of the downloaded credentials file",
@@ -62,20 +58,12 @@
         "responses": {
           "200": {
             "description": "",
-            "examples": {
-              "application/json": {
-                "data": {
-                  "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vYXBpLmRldi5wZXJzb25pby5kZTozMDAwMS92MS9hdXRoIiwiaWF0IjoxNDg5MDkxMzA2LCJleHAiOjE0ODkxNzc3MDYsIm5iZiI6MTQ4OTA5MTMwNiwianRpIjoiZmU1ZjkxOGY2MDZjOWI4OGMwMzM0ZmJkZjkyYzkwMzgiLCJzdWIiOiJPR014TVdRd1kySmxZbVF6Tm1RNVpqQmxOell6WmpsaSJ9.QZZCdlDjmL-LYdoDx2XLUfhwTdcjDgm9h4t-6JoACiM"
-                },
-                "success": true
-              }
-            },
             "schema": {
               "$ref": "#/definitions/AuthenticationTokenResponse"
             }
           }
         },
-        "operationId": "auth.post"
+        "description": "Request Authentication Token"
       }
     }
   },
@@ -120,5 +108,6 @@
       "title": "Default response object",
       "type": "object"
     }
-  }
+  },
+  "x-components": {}
 }

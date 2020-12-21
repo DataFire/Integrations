@@ -15,9 +15,7 @@ let google_tracing = require('@datafire/google_tracing').create({
   redirect_uri: ""
 });
 
-google_tracing.projects.traces.spans.create({
-  "name": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

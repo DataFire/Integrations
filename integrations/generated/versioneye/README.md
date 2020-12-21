@@ -9,7 +9,7 @@ npm install --save @datafire/versioneye
 ```js
 let versioneye = require('@datafire/versioneye').create();
 
-versioneye.getProjects({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -30,7 +30,6 @@ to update your GitHub credentials.
 
 If it shows no or old data, then you can use the `github/sync` endpoint
 to update your account with the current meta data from GitHub.
-        
 
 
 ```js
@@ -74,7 +73,6 @@ supported project files.
 
 This endpoint works asynchronously and returns a status code. The status code is either
 **running** or **done**.
-        
 
 
 ```js
@@ -97,7 +95,6 @@ colons ':' and '.' has to be replaced with '~'.
 
 For example,  repository with fullname `versioneye/veye` has to transformed
 to `versioneye:veye`.
-        
 
 
 ```js
@@ -124,7 +121,6 @@ colons ':' and '.' has to be replaced with '~'.
 
 For example,  repository with fullname `versioneye/veye` has to transformed
 to `versioneye:veye`.
-        
 
 
 ```js
@@ -150,7 +146,6 @@ colons ':' and '.' has to be replaced with '~'.
 
 For example,  repository with fullname `versioneye/veye` has to transformed
 to `versioneye:veye`.
-        
 
 
 ```js
@@ -218,7 +213,6 @@ This Endpoint returns the 30 latest notifications.
 
 If there are new versions out there for software packages you follow directly on VersionEye, then
 each new version is a new **notification** for your account.
-        
 
 
 ```js
@@ -235,7 +229,6 @@ versioneye.getMeNotifications({}, context)
 ### getOrganisations
 
 This endpoint requires the API key from a user. The result is a set of organisations and their API keys.
-              
 
 
 ```js
@@ -251,7 +244,6 @@ versioneye.getOrganisations(null, context)
 ### getOrganisationsOrgaNameInventory
 
 Find a detailed description here: https://github.com/versioneye/versioneye-api/blob/master/docs/api/v2/organisation.md
-              
 
 
 ```js
@@ -294,7 +286,6 @@ versioneye.getOrganisationsOrgaNameInventoryDiff({
 This Endpoint takes 2 inventory filters and calculates the difference between them.
 The diff object contains wich items have been removed and/or added compared to the inventory1 filter.
 The response of this Endpoint is the ID of the diff object, which is calculated async in the background.
-              
 
 
 ```js
@@ -358,7 +349,6 @@ This resource returns same results as our web application. But you get it as JSO
 the result is an JSON array of product objects.
 
 When there's no match for the query, the result array will be empty.
-              
 
 
 ```js
@@ -380,7 +370,6 @@ versioneye.getProductsSearchQ({
 ### getProductsShaSha
 
 This Endpoint expects a SHA value and returns the corresponding product to it, if available.
-              
 
 
 ```js
@@ -407,7 +396,6 @@ Example: The clojure package `yummy.json/json` has to be transformed to  `yummy~
   * API returns 404, when the product with given product key doesnt exists.
 
   * Response 302 means that you didnt encode prod_key correctly.* (Replace all dots & slashes ) *
-              
 
 
 ```js
@@ -437,7 +425,6 @@ Example: The clojure package `yummy.json/json` has to be transformed to  `yummy~
   * 400 - bad request; you used wrong product key;
   * 401 - unauthorized - please append api_key
   * 403 - forbidden; you are not authorized; or just missed api_key;
-        
 
 
 ```js
@@ -465,7 +452,6 @@ Example: The clojure package `yummy.json/json` has to be transformed to  `yummy~
 
 This resource will returns the status code 404 if there is no product
 for the given prod_key.
-              
 
 
 ```js
@@ -492,7 +478,6 @@ Example: The clojure package `yummy.json/json` has to be transformed to  `yummy~
 #### Notes about status codes
 
 It will respond 404, when you are using wrong product key or encode it uncorrectly.
-              
 
 
 ```js
@@ -522,7 +507,6 @@ Example: The clojure package `yummy.json/json` has to be transformed to  `yummy~
 
 This resource will return the status code 404 if there is no product for
 the given prod_key or the product has 0 references.
-              
 
 
 ```js
@@ -552,7 +536,6 @@ Example: The clojure package `yummy.json/json` has to be transformed to  `yummy~
   * API returns 404, when the product with given product key doesnt exists.
 
   * Response 302 means that you didnt encode prod_key correctly.* (Replace all dots & slashes ) *
-              
 
 
 ```js
@@ -608,7 +591,6 @@ Example: The clojure package `yummy.json/json` has to be transformed to  `yummy~
 #### Notes about status codes
 
 It will respond 404, when you are using wrong product key or encode it uncorrectly.
-              
 
 
 ```js
@@ -632,7 +614,6 @@ versioneye.postProductsLangProdKeyProdVersionScmChanges({
 
 To use this resource you need either an active session or you have to append
 your API Key to the URL as parameter. For example: "?api_key=666_your_api_key_666"
-            
 
 
 ```js
@@ -651,7 +632,6 @@ versioneye.getProjects({}, context)
 
 To use this resource you need either an active session or you have to append
 your API Key to the URL as parameter. For example: "?api_key=666_your_api_key_666"
-            
 
 
 ```js
@@ -682,7 +662,6 @@ This endpoint merges a project (child_id) into another project (group_id/artifac
 This endpoint is specially for Maven based projects!
 To use this resource you need either an active session or you have to append
 your API Key to the URL as parameter. For example: "?api_key=666_your_api_key_666"
-            
 
 
 ```js
@@ -707,7 +686,6 @@ versioneye.getProjectsGroupIdArtifactIdMergeGaChildId({
 This endpoint merges a project (child_id) into another project (parent_id).
 To use this resource you need either an active session or you have to append
 your API Key to the URL as parameter. For example: "?api_key=666_your_api_key_666"
-            
 
 
 ```js
@@ -731,7 +709,6 @@ This endpoint unmerges a project (child_id) from another project (parent_id). It
 chilld again a separate project!
 To use this resource you need either an active session or you have to append
 your API Key to the URL as parameter. For example: "?api_key=666_your_api_key_666"
-            
 
 
 ```js
@@ -753,7 +730,6 @@ versioneye.getProjectsParentIdUnmergeChildId({
 
 To use this resource you need either an active session or you have to append
 your API Key to the URL as parameter. For example: "?api_key=666_your_api_key_666"
-            
 
 
 ```js
@@ -790,7 +766,6 @@ versioneye.getProjectsProjectKey({
 
 To use this resource you need either an active session or you have to append
 your API Key to the URL as parameter. For example: "?api_key=666_your_api_key_666"
-            
 
 
 ```js
@@ -829,7 +804,6 @@ can be updated:
   version: "Versionio"
 }
 ```
-            
 
 
 ```js
@@ -852,7 +826,6 @@ dependencies of child projects as well.
 
 To use this resource you need either an active session or you have to append
 your API Key to the URL as parameter. For example: "?api_key=666_your_api_key_666"
-            
 
 
 ```js
@@ -872,7 +845,6 @@ versioneye.getProjectsProjectKeyDependencies({
 
 To use this resource you need either an active session or you have to append
 your API Key to the URL as parameter. For example: "?api_key=666_your_api_key_666"
-            
 
 
 ```js
@@ -942,7 +914,6 @@ versioneye.deleteSessions(null, context)
 If current user has active session, then this
 method will return 200 with short user profile.
 For othercase, it will return error message with status code 401.
-              
 
 
 ```js

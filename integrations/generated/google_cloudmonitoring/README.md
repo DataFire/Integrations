@@ -15,9 +15,7 @@ let google_cloudmonitoring = require('@datafire/google_cloudmonitoring').create(
   redirect_uri: ""
 });
 
-google_cloudmonitoring.metricDescriptors.list({
-  "project": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

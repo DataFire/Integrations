@@ -6,13 +6,13 @@
       "name": "DataBC",
       "url": "http://data.gov.bc.ca/"
     },
-    "description": "The Geomark Web Service allows you to create and share geographic areas of interest over the web in a variety of formats and coordinate systems. This service is especially helpful when you need to share an area of interest with people who require that the data be in a different format, or they use different mapping software. \n\nPlease note that you may experience issues when submitting requests to the delivery or test environment if using this [OpenAPI specification](https://github.com/bcgov/api-specs) in other API console viewers.",
+    "description": "The Geomark Web Service allows you to create and share geographic areas of interest over the web in a variety of formats and coordinate systems. This service is especially helpful when you need to share an area of interest with people who require that the data be in a different format, or they use different mapping software. \n\nPlease note that you may experience issues when submitting requests to the delivery or test environment if using this [OpenAPI specification](https://github.com/bcgov/api-specs/tree/master/geomark) in other API console viewers.",
     "license": {
       "name": "Open Government License - British Columbia",
       "url": "https://www2.gov.bc.ca/gov/content?id=A519A56BC2BF44E4A008B33FCF527F61"
     },
     "termsOfService": "https://www2.gov.bc.ca/gov/content?id=D1EE0A405E584363B205CD4353E02C88",
-    "title": "GeoMark Web Service",
+    "title": "GeoMark Web Service REST API",
     "version": "4.1.2",
     "x-apisguru-categories": [
       "open_data"
@@ -24,7 +24,7 @@
       {
         "converter": {
           "url": "https://github.com/lucybot/api-spec-converter",
-          "version": "2.6.2"
+          "version": "2.7.31"
         },
         "format": "openapi",
         "url": "https://raw.githubusercontent.com/bcgov/api-specs/master/geomark/geomark.json",
@@ -50,11 +50,11 @@
         "parameters": [
           {
             "description": "One or more geomark URLs or identifiers to create the new geomark from.",
-            "example": "https://apps.gov.bc.ca/pub/geomark/geomarks/gm-abcdefghijklmnopqrstuv0bcislands",
             "in": "query",
             "name": "geomarkUrl",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-example": "https://apps.gov.bc.ca/pub/geomark/geomarks/gm-abcdefghijklmnopqrstuv0bcislands"
           },
           {
             "description": "The file format the geomark info resource should be returned using.",
@@ -69,13 +69,14 @@
               "gml",
               "wkt"
             ],
-            "example": "json",
             "in": "query",
             "name": "resultFormat",
             "required": false,
-            "type": "string"
+            "type": "string",
+            "x-example": "json"
           },
           {
+            "default": false,
             "description": "Select this option to allow overlapping geometries",
             "enum": [
               false,
@@ -308,6 +309,7 @@
             "enum": [
               4326,
               3005,
+              3857,
               26907,
               26908,
               26909,
@@ -342,11 +344,11 @@
         "parameters": [
           {
             "description": "The unique identifier for the geomark.",
-            "example": "gm-abcdefghijklmnopqrstuv0bcislands",
             "in": "path",
             "name": "geomarkId",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-example": "gm-abcdefghijklmnopqrstuv0bcislands"
           },
           {
             "description": "The file format name extension used to represent the geomark download.",
@@ -361,11 +363,11 @@
               "gml",
               "wkt"
             ],
-            "example": "json",
             "in": "path",
             "name": "fileFormatExtension",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-example": "json"
           },
           {
             "default": 4326,
@@ -373,6 +375,7 @@
             "enum": [
               4326,
               3005,
+              3857,
               26907,
               26908,
               26909,
@@ -411,11 +414,11 @@
         "parameters": [
           {
             "description": "The unique identifier for the geomark",
-            "example": "gm-abcdefghijklmnopqrstuv0bcislands",
             "in": "path",
             "name": "geomarkId",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-example": "gm-abcdefghijklmnopqrstuv0bcislands"
           },
           {
             "description": "The file format name extension used to represent the geomark download.",
@@ -430,11 +433,11 @@
               "gml",
               "wkt"
             ],
-            "example": "json",
             "in": "path",
             "name": "fileFormatExtension",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-example": "json"
           },
           {
             "default": 4326,
@@ -442,6 +445,7 @@
             "enum": [
               4326,
               3005,
+              3857,
               26907,
               26908,
               26909,
@@ -480,11 +484,11 @@
         "parameters": [
           {
             "description": "The unique identifier for the geomark",
-            "example": "gm-abcdefghijklmnopqrstuv0bcislands",
             "in": "path",
             "name": "geomarkId",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-example": "gm-abcdefghijklmnopqrstuv0bcislands"
           },
           {
             "description": "The file format name extension used to represent the geomark download.",
@@ -499,11 +503,11 @@
               "gml",
               "wkt"
             ],
-            "example": "json",
             "in": "path",
             "name": "fileFormatExtension",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-example": "json"
           },
           {
             "default": 4326,
@@ -511,6 +515,7 @@
             "enum": [
               4326,
               3005,
+              3857,
               26907,
               26908,
               26909,
@@ -549,11 +554,11 @@
         "parameters": [
           {
             "description": "The unique identifier for the geomark",
-            "example": "gm-abcdefghijklmnopqrstuv0bcislands",
             "in": "path",
             "name": "geomarkId",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-example": "gm-abcdefghijklmnopqrstuv0bcislands"
           },
           {
             "description": "The file format name extension used to represent the geomark download.",
@@ -568,11 +573,11 @@
               "gml",
               "wkt"
             ],
-            "example": "json",
             "in": "path",
             "name": "fileFormatExtension",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-example": "json"
           },
           {
             "default": 4326,
@@ -580,6 +585,7 @@
             "enum": [
               4326,
               3005,
+              3857,
               26907,
               26908,
               26909,
@@ -618,11 +624,11 @@
         "parameters": [
           {
             "description": "The unique identifier for the geomark.",
-            "example": "gm-abcdefghijklmnopqrstuv0bcislands",
             "in": "path",
             "name": "geomarkId",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-example": "gm-abcdefghijklmnopqrstuv0bcislands"
           },
           {
             "description": "The file format name extension used to represent the geomark download.",
@@ -637,11 +643,11 @@
               "gml",
               "wkt"
             ],
-            "example": "json",
             "in": "path",
             "name": "fileFormatExtension",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-example": "json"
           },
           {
             "default": 4326,
@@ -649,6 +655,7 @@
             "enum": [
               4326,
               3005,
+              3857,
               26907,
               26908,
               26909,

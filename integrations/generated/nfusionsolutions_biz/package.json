@@ -1,6 +1,6 @@
 {
   "name": "@datafire/nfusionsolutions_biz",
-  "version": "4.0.0",
+  "version": "5.0.0",
   "main": "index.js",
   "description": "DataFire integration for nFusion Solutions Market Data API v1",
   "repository": {
@@ -14,8 +14,8 @@
   },
   "homepage": "https://github.com/DataFire/integrations#readme",
   "datafire": {
-    "origin": "https://api.apis.guru/v2/specs/nfusionsolutions.biz/1/swagger.json",
-    "type": "openapi"
+    "origin": "https://api.apis.guru/v2/specs/nfusionsolutions.biz/1/openapi.json",
+    "type": "openapi_3"
   },
   "peerDependencies": {
     "datafire": "^2.0.0"

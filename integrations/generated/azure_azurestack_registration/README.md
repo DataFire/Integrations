@@ -15,11 +15,7 @@ let azure_azurestack_registration = require('@datafire/azure_azurestack_registra
   redirect_uri: ""
 });
 
-azure_azurestack_registration.Registrations_List({
-  "subscriptionId": "",
-  "resourceGroup": "",
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -97,6 +93,31 @@ azure_azurestack_registration.Registrations_Get({
 #### Output
 * output [Registration](#registration)
 
+### Registrations_Update
+Patch an Azure Stack registration.
+
+
+```js
+azure_azurestack_registration.Registrations_Update({
+  "subscriptionId": "",
+  "resourceGroup": "",
+  "registrationName": "",
+  "api-version": "",
+  "token": {}
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: Subscription credentials that uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+  * resourceGroup **required** `string`: Name of the resource group.
+  * registrationName **required** `string`: Name of the Azure Stack registration.
+  * api-version **required** `string`: Client API Version.
+  * token **required** [RegistrationParameter](#registrationparameter)
+
+#### Output
+* output [Registration](#registration)
+
 ### Registrations_CreateOrUpdate
 Create or update an Azure Stack registration.
 
@@ -107,9 +128,7 @@ azure_azurestack_registration.Registrations_CreateOrUpdate({
   "resourceGroup": "",
   "registrationName": "",
   "api-version": "",
-  "token": {
-    "location": ""
-  }
+  "token": {}
 }, context)
 ```
 
@@ -158,7 +177,7 @@ azure_azurestack_registration.Registrations_GetActivationKey({
 ### Registration
 * Registration `object`: Registration information.
   * properties [RegistrationProperties](#registrationproperties)
-  * etag `string`: The entity tag used for optimistic concurency when modifying the resource.
+  * etag `string`: The entity tag used for optimistic concurrency when modifying the resource.
   * id `string`: ID of the resource.
   * location **required** `string` (values: global): Location of the resource.
   * name `string`: Name of the resource.
@@ -173,16 +192,11 @@ azure_azurestack_registration.Registrations_GetActivationKey({
 
 ### RegistrationParameter
 * RegistrationParameter `object`: Registration resource
+  * location `string` (values: global): Location of the resource.
   * properties [RegistrationParameterProperties](#registrationparameterproperties)
-  * etag `string`: The entity tag used for optimistic concurency when modifying the resource.
-  * id `string`: ID of the resource.
-  * location **required** `string` (values: global): Location of the resource.
-  * name `string`: Name of the resource.
-  * tags `object`: Custom tags for the resource.
-  * type `string`: Type of Resource.
 
 ### RegistrationParameterProperties
-* RegistrationParameterProperties `object`: Properties of the Azure Stack regstration resource
+* RegistrationParameterProperties `object`: Properties of the Azure Stack registration resource
   * registrationToken **required** `string`: The token identifying registered Azure Stack
 
 ### RegistrationProperties

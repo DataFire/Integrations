@@ -15,12 +15,7 @@ let azure_apimanagement_apimnotifications = require('@datafire/azure_apimanageme
   redirect_uri: ""
 });
 
-azure_apimanagement_apimnotifications.Notification_ListByService({
-  "resourceGroupName": "",
-  "serviceName": "",
-  "api-version": "",
-  "subscriptionId": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -54,7 +49,19 @@ azure_apimanagement_apimnotifications.Notification_ListByService({
   * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
 #### Output
-* output [NotificationCollection](#notificationcollection)
+* output `object`: Paged Notification list representation.
+  * nextLink `string`: Next page link if any.
+  * value `array`: Page values.
+    * items `object`: Notification details.
+      * properties `object`: Notification Contract properties.
+        * description `string`: Description of the Notification.
+        * recipients `object`: Notification Parameter contract.
+          * emails `array`: List of Emails subscribed for the notification.
+          * users `array`: List of Users subscribed for the notification.
+        * title **required** `string`: Title of the Notification.
+      * id `string`: Resource ID.
+      * name `string`: Resource name.
+      * type `string`: Resource type for API Management resource.
 
 ### Notification_Get
 Gets the details of the Notification specified by its identifier.
@@ -79,10 +86,21 @@ azure_apimanagement_apimnotifications.Notification_Get({
   * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
 #### Output
-* output [NotificationContract](#notificationcontract)
+* output `object`: Notification details.
+  * properties `object`: Notification Contract properties.
+    * description `string`: Description of the Notification.
+    * recipients `object`: Notification Parameter contract.
+      * emails `array`: List of Emails subscribed for the notification.
+        * items `string`
+      * users `array`: List of Users subscribed for the notification.
+        * items `string`
+    * title **required** `string`: Title of the Notification.
+  * id `string`: Resource ID.
+  * name `string`: Resource name.
+  * type `string`: Resource type for API Management resource.
 
 ### Notification_CreateOrUpdate
-Updates an Notification.
+Create or Update API Management publisher notification.
 
 
 ```js
@@ -105,7 +123,18 @@ azure_apimanagement_apimnotifications.Notification_CreateOrUpdate({
   * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
 #### Output
-* output [NotificationContract](#notificationcontract)
+* output `object`: Notification details.
+  * properties `object`: Notification Contract properties.
+    * description `string`: Description of the Notification.
+    * recipients `object`: Notification Parameter contract.
+      * emails `array`: List of Emails subscribed for the notification.
+        * items `string`
+      * users `array`: List of Users subscribed for the notification.
+        * items `string`
+    * title **required** `string`: Title of the Notification.
+  * id `string`: Resource ID.
+  * name `string`: Resource name.
+  * type `string`: Resource type for API Management resource.
 
 ### NotificationRecipientEmail_ListByNotification
 Gets the list of the Notification Recipient Emails subscribed to a notification.
@@ -130,7 +159,15 @@ azure_apimanagement_apimnotifications.NotificationRecipientEmail_ListByNotificat
   * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
 #### Output
-* output [RecipientEmailCollection](#recipientemailcollection)
+* output `object`: Paged Recipient User list representation.
+  * nextLink `string`: Next page link if any.
+  * value `array`: Page values.
+    * items `object`: Recipient Email details.
+      * properties `object`: Recipient Email Contract Properties.
+        * email `string`: User Email subscribed to notification.
+      * id `string`: Resource ID.
+      * name `string`: Resource name.
+      * type `string`: Resource type for API Management resource.
 
 ### NotificationRecipientEmail_Delete
 Removes the email from the list of Notification.
@@ -211,7 +248,12 @@ azure_apimanagement_apimnotifications.NotificationRecipientEmail_CreateOrUpdate(
   * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
 #### Output
-* output [RecipientEmailContract](#recipientemailcontract)
+* output `object`: Recipient Email details.
+  * properties `object`: Recipient Email Contract Properties.
+    * email `string`: User Email subscribed to notification.
+  * id `string`: Resource ID.
+  * name `string`: Resource name.
+  * type `string`: Resource type for API Management resource.
 
 ### NotificationRecipientUser_ListByNotification
 Gets the list of the Notification Recipient User subscribed to the notification.
@@ -236,7 +278,15 @@ azure_apimanagement_apimnotifications.NotificationRecipientUser_ListByNotificati
   * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
 #### Output
-* output [RecipientUserCollection](#recipientusercollection)
+* output `object`: Paged Recipient User list representation.
+  * nextLink `string`: Next page link if any.
+  * value `array`: Page values.
+    * items `object`: Recipient User details.
+      * properties `object`: Recipient User Contract Properties.
+        * userId `string`: API Management UserId subscribed to notification.
+      * id `string`: Resource ID.
+      * name `string`: Resource name.
+      * type `string`: Resource type for API Management resource.
 
 ### NotificationRecipientUser_Delete
 Removes the API Management user from the list of Notification.
@@ -247,7 +297,7 @@ azure_apimanagement_apimnotifications.NotificationRecipientUser_Delete({
   "resourceGroupName": "",
   "serviceName": "",
   "notificationName": "",
-  "uid": "",
+  "userId": "",
   "api-version": "",
   "subscriptionId": ""
 }, context)
@@ -258,7 +308,7 @@ azure_apimanagement_apimnotifications.NotificationRecipientUser_Delete({
   * resourceGroupName **required** `string`: The name of the resource group.
   * serviceName **required** `string`: The name of the API Management service.
   * notificationName **required** `string` (values: RequestPublisherNotificationMessage, PurchasePublisherNotificationMessage, NewApplicationNotificationMessage, BCC, NewIssuePublisherNotificationMessage, AccountClosedPublisher, QuotaLimitApproachingPublisherNotificationMessage): Notification Name Identifier.
-  * uid **required** `string`: User identifier. Must be unique in the current API Management service instance.
+  * userId **required** `string`: User identifier. Must be unique in the current API Management service instance.
   * api-version **required** `string`: Version of the API to be used with the client request.
   * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
@@ -274,7 +324,7 @@ azure_apimanagement_apimnotifications.NotificationRecipientUser_CheckEntityExist
   "resourceGroupName": "",
   "serviceName": "",
   "notificationName": "",
-  "uid": "",
+  "userId": "",
   "api-version": "",
   "subscriptionId": ""
 }, context)
@@ -285,7 +335,7 @@ azure_apimanagement_apimnotifications.NotificationRecipientUser_CheckEntityExist
   * resourceGroupName **required** `string`: The name of the resource group.
   * serviceName **required** `string`: The name of the API Management service.
   * notificationName **required** `string` (values: RequestPublisherNotificationMessage, PurchasePublisherNotificationMessage, NewApplicationNotificationMessage, BCC, NewIssuePublisherNotificationMessage, AccountClosedPublisher, QuotaLimitApproachingPublisherNotificationMessage): Notification Name Identifier.
-  * uid **required** `string`: User identifier. Must be unique in the current API Management service instance.
+  * userId **required** `string`: User identifier. Must be unique in the current API Management service instance.
   * api-version **required** `string`: Version of the API to be used with the client request.
   * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
@@ -301,7 +351,7 @@ azure_apimanagement_apimnotifications.NotificationRecipientUser_CreateOrUpdate({
   "resourceGroupName": "",
   "serviceName": "",
   "notificationName": "",
-  "uid": "",
+  "userId": "",
   "api-version": "",
   "subscriptionId": ""
 }, context)
@@ -312,75 +362,20 @@ azure_apimanagement_apimnotifications.NotificationRecipientUser_CreateOrUpdate({
   * resourceGroupName **required** `string`: The name of the resource group.
   * serviceName **required** `string`: The name of the API Management service.
   * notificationName **required** `string` (values: RequestPublisherNotificationMessage, PurchasePublisherNotificationMessage, NewApplicationNotificationMessage, BCC, NewIssuePublisherNotificationMessage, AccountClosedPublisher, QuotaLimitApproachingPublisherNotificationMessage): Notification Name Identifier.
-  * uid **required** `string`: User identifier. Must be unique in the current API Management service instance.
+  * userId **required** `string`: User identifier. Must be unique in the current API Management service instance.
   * api-version **required** `string`: Version of the API to be used with the client request.
   * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
 #### Output
-* output [RecipientUserContract](#recipientusercontract)
+* output `object`: Recipient User details.
+  * properties `object`: Recipient User Contract Properties.
+    * userId `string`: API Management UserId subscribed to notification.
+  * id `string`: Resource ID.
+  * name `string`: Resource name.
+  * type `string`: Resource type for API Management resource.
 
 
 
 ## Definitions
 
-### NotificationCollection
-* NotificationCollection `object`: Paged Notification list representation.
-  * nextLink `string`: Next page link if any.
-  * value `array`: Page values.
-    * items [NotificationContract](#notificationcontract)
-
-### NotificationContract
-* NotificationContract `object`: Notification details.
-  * properties [NotificationContractProperties](#notificationcontractproperties)
-  * id `string`: Resource ID.
-  * name `string`: Resource name.
-  * type `string`: Resource type for API Management resource.
-
-### NotificationContractProperties
-* NotificationContractProperties `object`: Notification Contract properties.
-  * description `string`: Description of the Notification.
-  * recipients [RecipientsContractProperties](#recipientscontractproperties)
-  * title **required** `string`: Title of the Notification.
-
-### RecipientEmailCollection
-* RecipientEmailCollection `object`: Paged Recipient User list representation.
-  * nextLink `string`: Next page link if any.
-  * value `array`: Page values.
-    * items [RecipientEmailContract](#recipientemailcontract)
-
-### RecipientEmailContract
-* RecipientEmailContract `object`: Recipient Email details.
-  * properties [RecipientEmailContractProperties](#recipientemailcontractproperties)
-  * id `string`: Resource ID.
-  * name `string`: Resource name.
-  * type `string`: Resource type for API Management resource.
-
-### RecipientEmailContractProperties
-* RecipientEmailContractProperties `object`: Recipient Email Contract Properties.
-  * email `string`: User Email subscribed to notification.
-
-### RecipientUserCollection
-* RecipientUserCollection `object`: Paged Recipient User list representation.
-  * nextLink `string`: Next page link if any.
-  * value `array`: Page values.
-    * items [RecipientUserContract](#recipientusercontract)
-
-### RecipientUserContract
-* RecipientUserContract `object`: Recipient User details.
-  * properties [RecipientUsersContractProperties](#recipientuserscontractproperties)
-  * id `string`: Resource ID.
-  * name `string`: Resource name.
-  * type `string`: Resource type for API Management resource.
-
-### RecipientUsersContractProperties
-* RecipientUsersContractProperties `object`: Recipient User Contract Properties.
-  * userId `string`: API Management UserId subscribed to notification.
-
-### RecipientsContractProperties
-* RecipientsContractProperties `object`: Notification Parameter contract.
-  * emails `array`: List of Emails subscribed for the notification.
-    * items `string`
-  * users `array`: List of Users subscribed for the notification.
-    * items `string`
-
-
+*This integration has no definitions*

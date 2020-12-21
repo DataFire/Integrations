@@ -15,9 +15,7 @@ let azure_powerbidedicated = require('@datafire/azure_powerbidedicated').create(
   redirect_uri: ""
 });
 
-azure_powerbidedicated.Operations_List({
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -63,6 +61,29 @@ azure_powerbidedicated.Capacities_List({
 
 #### Output
 * output [DedicatedCapacities](#dedicatedcapacities)
+
+### Capacities_CheckNameAvailability
+Check the name availability in the target location.
+
+
+```js
+azure_powerbidedicated.Capacities_CheckNameAvailability({
+  "location": "",
+  "capacityParameters": {},
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * location **required** `string`: The region name which the operation will lookup into.
+  * capacityParameters **required** [CheckCapacityNameAvailabilityParameters](#checkcapacitynameavailabilityparameters)
+  * api-version **required** `string`: The client API version.
+  * subscriptionId **required** `string`: A unique identifier for a Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+#### Output
+* output [CheckCapacityNameAvailabilityResult](#checkcapacitynameavailabilityresult)
 
 ### Capacities_ListSkus
 Lists eligible SKUs for PowerBI Dedicated resource provider.
@@ -278,6 +299,17 @@ azure_powerbidedicated.Capacities_Suspend({
 
 ## Definitions
 
+### CheckCapacityNameAvailabilityParameters
+* CheckCapacityNameAvailabilityParameters `object`: Details of capacity name request body.
+  * name `string`: Name for checking availability.
+  * type `string`: The resource type of PowerBI dedicated.
+
+### CheckCapacityNameAvailabilityResult
+* CheckCapacityNameAvailabilityResult `object`: The checking result of capacity name availability.
+  * message `string`: The detailed message of the request unavailability.
+  * nameAvailable `boolean`: Indicator of availability of the capacity name.
+  * reason `string`: The reason of unavailability.
+
 ### DedicatedCapacities
 * DedicatedCapacities `object`: An array of Dedicated capacities resources.
   * value **required** `array`: An array of Dedicated capacities resources.
@@ -304,7 +336,7 @@ azure_powerbidedicated.Capacities_Suspend({
 
 ### DedicatedCapacityProperties
 * DedicatedCapacityProperties `object`: Properties of Dedicated Capacity resource.
-  * provisioningState `string` (values: Deleting, Succeeded, Failed, Paused, Suspended, Provisioning, Updating, Suspending, Pausing, Resuming, Preparing, Scaling): The current deployment state of PowerBI Dedicatedresource. The provisioningState is to indicate states for resource provisioning.
+  * provisioningState `string` (values: Deleting, Succeeded, Failed, Paused, Suspended, Provisioning, Updating, Suspending, Pausing, Resuming, Preparing, Scaling): The current deployment state of PowerBI Dedicated resource. The provisioningState is to indicate states for resource provisioning.
   * state `string` (values: Deleting, Succeeded, Failed, Paused, Suspended, Provisioning, Updating, Suspending, Pausing, Resuming, Preparing, Scaling): The current state of PowerBI Dedicated resource. The state is to indicate more states outside of resource provisioning.
   * administration [DedicatedCapacityAdministrators](#dedicatedcapacityadministrators)
 

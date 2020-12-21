@@ -15,12 +15,7 @@ let azure_applicationinsights_webtestlocations_api = require('@datafire/azure_ap
   redirect_uri: ""
 });
 
-azure_applicationinsights_webtestlocations_api.webTestLocations_List({
-  "resourceGroupName": "",
-  "api-version": "",
-  "subscriptionId": "",
-  "resourceName": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -46,9 +41,9 @@ azure_applicationinsights_webtestlocations_api.webTestLocations_List({
 
 #### Input
 * input `object`
-  * resourceGroupName **required** `string`: The name of the resource group.
-  * api-version **required** `string`: Client Api Version.
-  * subscriptionId **required** `string`: The Azure subscription ID.
+  * resourceGroupName **required** `string`: The name of the resource group. The name is case insensitive.
+  * api-version **required** `string`: The API version to use for this operation.
+  * subscriptionId **required** `string`: The ID of the target subscription.
   * resourceName **required** `string`: The name of the Application Insights component resource.
 
 #### Output

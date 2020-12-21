@@ -18,7 +18,7 @@
       "url": "http://opensource.org/licenses/MIT"
     },
     "termsOfService": "http://musixmatch.com/apiterms/",
-    "title": "Musixmatch",
+    "title": "Musixmatch API",
     "version": "1.1.0",
     "x-apisguru-categories": [
       "media"

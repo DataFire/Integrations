@@ -1,10 +1,5 @@
 {
   "swagger": "2.0",
-  "schemes": [
-    "http"
-  ],
-  "host": "www.hackathonwatch.com",
-  "basePath": "/api/",
   "info": {
     "contact": {
       "x-twitter": "Hackathonwatch"
@@ -21,7 +16,7 @@
       {
         "converter": {
           "url": "https://github.com/lucybot/api-spec-converter",
-          "version": "2.6.2"
+          "version": "2.7.31"
         },
         "format": "swagger",
         "url": "http://www.hackathonwatch.com/api/swagger_doc",
@@ -35,23 +30,14 @@
       "type": "openapi"
     }
   },
-  "produces": [
-    "application/json"
-  ],
-  "tags": [
-    {
-      "description": "Operations about hackathons",
-      "name": "hackathons"
-    },
-    {
-      "description": "Operations about swagger_docs",
-      "name": "swagger_doc"
-    }
+  "host": "www.hackathonwatch.com",
+  "basePath": "/api/",
+  "schemes": [
+    "http"
   ],
   "paths": {
     "/hackathons/coming.json": {
       "get": {
-        "operationId": "hackathons.coming.json.get",
         "parameters": [
           {
             "default": 1,
@@ -68,15 +54,15 @@
             "description": "No response was specified"
           }
         },
-        "summary": "Return a list of coming hackathons",
         "tags": [
           "hackathons"
-        ]
+        ],
+        "operationId": "GET-hackathons-coming---format-",
+        "summary": "Return a list of coming hackathons"
       }
     },
     "/hackathons/{id}.json": {
       "get": {
-        "operationId": "hackathons.id.json.get",
         "parameters": [
           {
             "description": "ID of the hackathon for detail information",
@@ -92,29 +78,30 @@
             "description": "No response was specified"
           }
         },
-        "summary": "Return the detail of a given hackathon",
         "tags": [
           "hackathons"
-        ]
+        ],
+        "operationId": "GET-hackathons--id---format-",
+        "summary": "Return the detail of a given hackathon"
       }
     },
     "/swagger_doc.json": {
       "get": {
-        "operationId": "swagger_doc.json.get",
+        "parameters": [],
         "responses": {
           "200": {
             "description": "No response was specified"
           }
         },
-        "summary": "Swagger compatible API description",
         "tags": [
           "swagger_doc"
-        ]
+        ],
+        "operationId": "GET-swagger_doc---format-",
+        "summary": "Swagger compatible API description"
       }
     },
     "/swagger_doc/{name}.json": {
       "get": {
-        "operationId": "swagger_doc.name.json.get",
         "parameters": [
           {
             "description": "Resource name of mounted API",
@@ -129,11 +116,22 @@
             "description": "No response was specified"
           }
         },
-        "summary": "Swagger compatible API description for specific API",
         "tags": [
           "swagger_doc"
-        ]
+        ],
+        "operationId": "GET-swagger_doc--name---format-",
+        "summary": "Swagger compatible API description for specific API"
       }
     }
-  }
+  },
+  "tags": [
+    {
+      "description": "Operations about hackathons",
+      "name": "hackathons"
+    },
+    {
+      "description": "Operations about swagger_docs",
+      "name": "swagger_doc"
+    }
+  ]
 }

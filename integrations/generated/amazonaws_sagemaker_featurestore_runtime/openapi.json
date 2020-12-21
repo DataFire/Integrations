@@ -1,0 +1,586 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "contact": {
+      "email": "mike.ralphson@gmail.com",
+      "name": "Mike Ralphson",
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
+    },
+    "description": "<p>Contains all data plane API operations and data types for the Amazon SageMaker Feature Store. Use this API to put, delete, and retrieve (get) features from a feature store.</p> <p>Use the following operations to configure your <code>OnlineStore</code> and <code>OfflineStore</code> features, and to create and manage feature groups:</p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateFeatureGroup.html\">CreateFeatureGroup</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteFeatureGroup.html\">DeleteFeatureGroup</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeFeatureGroup.html\">DescribeFeatureGroup</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListFeatureGroups.html\">ListFeatureGroups</a> </p> </li> </ul>",
+    "license": {
+      "name": "Apache 2.0 License",
+      "url": "http://www.apache.org/licenses/"
+    },
+    "termsOfService": "https://aws.amazon.com/service-terms/",
+    "title": "Amazon SageMaker Feature Store Runtime",
+    "version": "2020-07-01",
+    "x-apiClientRegistration": {
+      "url": "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"
+    },
+    "x-apisguru-categories": [
+      "cloud"
+    ],
+    "x-logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"
+    },
+    "x-origin": [
+      {
+        "contentType": "application/json",
+        "converter": {
+          "url": "https://github.com/mermade/aws2openapi",
+          "version": "1.0.0"
+        },
+        "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/sagemaker-featurestore-runtime-2020-07-01.normal.json",
+        "x-apisguru-driver": "external"
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "amazonaws.com",
+    "x-release": "v4",
+    "x-serviceName": "sagemaker-featurestore-runtime",
+    "x-datafire": {
+      "name": "amazonaws_sagemaker_featurestore_runtime",
+      "type": "openapi"
+    }
+  },
+  "host": "featurestore-runtime.sagemaker.us-east-1.amazonaws.com",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/FeatureGroup/{FeatureGroupName}": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "put": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The name of the feature group that you want to insert the record into.",
+            "in": "path",
+            "maxLength": 64,
+            "minLength": 1,
+            "name": "FeatureGroupName",
+            "pattern": "^[a-zA-Z0-9](-*[a-zA-Z0-9])*",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "Record": {
+                  "description": "<p>List of FeatureValues to be inserted. This will be a full over-write. If you only want to update few of the feature values, do the following:</p> <ul> <li> <p>Use <code>GetRecord</code> to retrieve the latest record.</p> </li> <li> <p>Update the record returned from <code>GetRecord</code>. </p> </li> <li> <p>Use <code>PutRecord</code> to update feature values.</p> </li> </ul>",
+                  "items": {
+                    "$ref": "#/definitions/FeatureValue"
+                  },
+                  "minItems": 1,
+                  "type": "array"
+                }
+              },
+              "required": [
+                "Record"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "480": {
+            "description": "ValidationError",
+            "schema": {
+              "$ref": "#/definitions/ValidationError"
+            }
+          },
+          "481": {
+            "description": "InternalFailure",
+            "schema": {
+              "$ref": "#/definitions/InternalFailure"
+            }
+          },
+          "482": {
+            "description": "ServiceUnavailable",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailable"
+            }
+          },
+          "483": {
+            "description": "AccessForbidden",
+            "schema": {
+              "$ref": "#/definitions/AccessForbidden"
+            }
+          }
+        },
+        "description": "Used for data ingestion into the <code>FeatureStore</code>. The <code>PutRecord</code> API writes to both the <code>OnlineStore</code> and <code>OfflineStore</code>. If the record is the latest record for the <code>recordIdentifier</code>, the record is written to both the <code>OnlineStore</code> and <code>OfflineStore</code>. If the record is a historic record, it is written only to the <code>OfflineStore</code>.",
+        "operationId": "PutRecord"
+      }
+    },
+    "/FeatureGroup/{FeatureGroupName}#RecordIdentifierValueAsString": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The name of the feature group in which you want to put the records.",
+            "in": "path",
+            "maxLength": 64,
+            "minLength": 1,
+            "name": "FeatureGroupName",
+            "pattern": "^[a-zA-Z0-9](-*[a-zA-Z0-9])*",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The value that corresponds to <code>RecordIdentifier</code> type and uniquely identifies the record in the <code>FeatureGroup</code>. ",
+            "in": "query",
+            "maxLength": 358400,
+            "name": "RecordIdentifierValueAsString",
+            "pattern": ".*",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "collectionFormat": "multi",
+            "description": "List of names of Features to be retrieved. If not specified, the latest value for all the Features are returned.",
+            "in": "query",
+            "items": {
+              "$ref": "#/definitions/FeatureName"
+            },
+            "minItems": 1,
+            "name": "FeatureName",
+            "required": false,
+            "type": "array"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetRecordResponse"
+            }
+          },
+          "480": {
+            "description": "ValidationError",
+            "schema": {
+              "$ref": "#/definitions/ValidationError"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFound",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFound"
+            }
+          },
+          "482": {
+            "description": "InternalFailure",
+            "schema": {
+              "$ref": "#/definitions/InternalFailure"
+            }
+          },
+          "483": {
+            "description": "ServiceUnavailable",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailable"
+            }
+          },
+          "484": {
+            "description": "AccessForbidden",
+            "schema": {
+              "$ref": "#/definitions/AccessForbidden"
+            }
+          }
+        },
+        "description": "Use for <code>OnlineStore</code> serving from a <code>FeatureStore</code>. Only the latest records stored in the <code>OnlineStore</code> can be retrieved. If no Record with <code>RecordIdentifierValue</code> is found, then an empty result is returned. ",
+        "operationId": "GetRecord"
+      }
+    },
+    "/FeatureGroup/{FeatureGroupName}#RecordIdentifierValueAsString&EventTime": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "delete": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The name of the feature group to delete the record from. ",
+            "in": "path",
+            "maxLength": 64,
+            "minLength": 1,
+            "name": "FeatureGroupName",
+            "pattern": "^[a-zA-Z0-9](-*[a-zA-Z0-9])*",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The value for the <code>RecordIdentifier</code> that uniquely identifies the record, in string format. ",
+            "in": "query",
+            "maxLength": 358400,
+            "name": "RecordIdentifierValueAsString",
+            "pattern": ".*",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Timestamp indicating when the deletion event occurred. <code>EventTime</code> can be used to query data at a certain point in time.",
+            "in": "query",
+            "maxLength": 358400,
+            "name": "EventTime",
+            "pattern": ".*",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "480": {
+            "description": "ValidationError",
+            "schema": {
+              "$ref": "#/definitions/ValidationError"
+            }
+          },
+          "481": {
+            "description": "InternalFailure",
+            "schema": {
+              "$ref": "#/definitions/InternalFailure"
+            }
+          },
+          "482": {
+            "description": "ServiceUnavailable",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailable"
+            }
+          },
+          "483": {
+            "description": "AccessForbidden",
+            "schema": {
+              "$ref": "#/definitions/AccessForbidden"
+            }
+          }
+        },
+        "description": "Deletes a <code>Record</code> from a <code>FeatureGroup</code>. A new record will show up in the <code>OfflineStore</code> when the <code>DeleteRecord</code> API is called. This record will have a value of <code>True</code> in the <code>is_deleted</code> column.",
+        "operationId": "DeleteRecord"
+      }
+    }
+  },
+  "definitions": {
+    "AccessForbidden": {},
+    "DeleteRecordRequest": {
+      "properties": {},
+      "title": "DeleteRecordRequest",
+      "type": "object"
+    },
+    "FeatureGroupName": {
+      "maxLength": 64,
+      "minLength": 1,
+      "pattern": "^[a-zA-Z0-9](-*[a-zA-Z0-9])*",
+      "type": "string"
+    },
+    "FeatureName": {
+      "maxLength": 64,
+      "minLength": 1,
+      "pattern": "^[a-zA-Z0-9]([-_]*[a-zA-Z0-9])*",
+      "type": "string"
+    },
+    "FeatureNames": {
+      "items": {
+        "$ref": "#/definitions/FeatureName"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "FeatureValue": {
+      "description": "The value associated with a feature.",
+      "properties": {
+        "FeatureName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/FeatureName"
+            },
+            {
+              "description": "The name of a feature that a feature value corresponds to."
+            }
+          ]
+        },
+        "ValueAsString": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ValueAsString"
+            },
+            {
+              "description": "The value associated with a feature, in string format. Note that features types can be String, Integral, or Fractional. This value represents all three types as a string."
+            }
+          ]
+        }
+      },
+      "required": [
+        "FeatureName",
+        "ValueAsString"
+      ],
+      "type": "object"
+    },
+    "GetRecordRequest": {
+      "properties": {},
+      "title": "GetRecordRequest",
+      "type": "object"
+    },
+    "GetRecordResponse": {
+      "properties": {
+        "Record": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Record"
+            },
+            {
+              "description": "The record you requested. A list of <code>FeatureValues</code>."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "InternalFailure": {},
+    "PutRecordRequest": {
+      "properties": {
+        "Record": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Record"
+            },
+            {
+              "description": "<p>List of FeatureValues to be inserted. This will be a full over-write. If you only want to update few of the feature values, do the following:</p> <ul> <li> <p>Use <code>GetRecord</code> to retrieve the latest record.</p> </li> <li> <p>Update the record returned from <code>GetRecord</code>. </p> </li> <li> <p>Use <code>PutRecord</code> to update feature values.</p> </li> </ul>"
+            }
+          ]
+        }
+      },
+      "required": [
+        "Record"
+      ],
+      "title": "PutRecordRequest",
+      "type": "object"
+    },
+    "Record": {
+      "items": {
+        "$ref": "#/definitions/FeatureValue"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "ResourceNotFound": {},
+    "ServiceUnavailable": {},
+    "ValidationError": {},
+    "ValueAsString": {
+      "maxLength": 358400,
+      "pattern": ".*",
+      "type": "string"
+    }
+  },
+  "securityDefinitions": {
+    "hmac": {
+      "description": "Amazon Signature authorization v4",
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey",
+      "x-amazon-apigateway-authtype": "awsSigv4"
+    }
+  },
+  "security": [
+    {
+      "hmac": []
+    }
+  ],
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://docs.aws.amazon.com/sagemaker/"
+  },
+  "x-components": {
+    "parameters": {
+      "X-Amz-Algorithm": {
+        "in": "header",
+        "name": "X-Amz-Algorithm",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Content-Sha256": {
+        "in": "header",
+        "name": "X-Amz-Content-Sha256",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Credential": {
+        "in": "header",
+        "name": "X-Amz-Credential",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Date": {
+        "in": "header",
+        "name": "X-Amz-Date",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Security-Token": {
+        "in": "header",
+        "name": "X-Amz-Security-Token",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Signature": {
+        "in": "header",
+        "name": "X-Amz-Signature",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-SignedHeaders": {
+        "in": "header",
+        "name": "X-Amz-SignedHeaders",
+        "required": false,
+        "type": "string"
+      }
+    }
+  },
+  "x-hasEquivalentPaths": true
+}

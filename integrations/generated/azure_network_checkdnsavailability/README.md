@@ -15,12 +15,7 @@ let azure_network_checkdnsavailability = require('@datafire/azure_network_checkd
   redirect_uri: ""
 });
 
-azure_network_checkdnsavailability.CheckDnsNameAvailability({
-  "location": "",
-  "domainNameLabel": "",
-  "api-version": "",
-  "subscriptionId": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

@@ -15,9 +15,7 @@ let azure_recoveryservicesbackup_operations = require('@datafire/azure_recoverys
   redirect_uri: ""
 });
 
-azure_recoveryservicesbackup_operations.Operations_List({
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -74,7 +72,7 @@ azure_recoveryservicesbackup_operations.Operations_List({
 ### ClientDiscoveryResponse
 * ClientDiscoveryResponse `object`: Operations List response which contains list of available APIs.
   * nextLink `string`: Link to the next chunk of Response.
-  * value `array`: List of available operationss.
+  * value `array`: List of available operations.
     * items [ClientDiscoveryValueForSingleApi](#clientdiscoveryvalueforsingleapi)
 
 ### ClientDiscoveryValueForSingleApi

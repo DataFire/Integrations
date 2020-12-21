@@ -9,7 +9,7 @@ npm install --save @datafire/zalando
 ```js
 let zalando = require('@datafire/zalando').create();
 
-zalando.filters.get({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -582,7 +582,6 @@ zalando.recommendations.articleIds.get({
 ### Article-Reviews
 * Article-Reviews `object`: Zalando API Paged Article Reviews Schema
   * content **required** `array`: page content
-
   * page **required** `integer`: page number
   * size **required** `integer`: total number of elements in a page
   * totalElements **required** `integer`: total elements in the response
@@ -593,7 +592,6 @@ zalando.recommendations.articleIds.get({
 ### Article-Reviews-Summaries
 * Article-Reviews-Summaries `object`: Zalando API Paged Article Reviews Summaries Schema
   * content **required** `array`: page content
-
   * page **required** `integer`: page number
   * size **required** `integer`: total number of elements in a page
   * totalElements **required** `integer`: total elements in the response
@@ -645,7 +643,6 @@ zalando.recommendations.articleIds.get({
 ### Articles
 * Articles `object`: A simple container object that carries paging information as well as a list of articles on the `content` property.
   * content **required** `array`: page content
-
   * page **required** `integer`: page number
   * size **required** `integer`: total number of elements in a page
   * totalElements **required** `integer`: total elements in the response
@@ -671,7 +668,6 @@ zalando.recommendations.articleIds.get({
 ### Brands
 * Brands `object`: Zalando API Paged Brands Schema
   * content **required** `array`: page content
-
   * page **required** `integer`: page number
   * size **required** `integer`: total number of elements in a page
   * totalElements **required** `integer`: total elements in the response
@@ -682,7 +678,6 @@ zalando.recommendations.articleIds.get({
 ### Categories
 * Categories `object`: Zalando API Paged Categories Schema
   * content **required** `array`: page content
-
   * page **required** `integer`: page number
   * size **required** `integer`: total number of elements in a page
   * totalElements **required** `integer`: total elements in the response
@@ -766,7 +761,6 @@ zalando.recommendations.articleIds.get({
 ### Page
 * Page `object`: wrapper object for paged responses
   * content **required** `array`: page content
-
   * page **required** `integer`: page number
   * size **required** `integer`: total number of elements in a page
   * totalElements **required** `integer`: total elements in the response

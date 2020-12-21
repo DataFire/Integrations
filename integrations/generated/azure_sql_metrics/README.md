@@ -15,13 +15,7 @@ let azure_sql_metrics = require('@datafire/azure_sql_metrics').create({
   redirect_uri: ""
 });
 
-azure_sql_metrics.Databases_ListMetricDefinitions({
-  "api-version": "",
-  "subscriptionId": "",
-  "resourceGroupName": "",
-  "serverName": "",
-  "databaseName": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -157,7 +151,7 @@ azure_sql_metrics.ElasticPools_ListMetrics({
 
 ### MetricDefinition
 * MetricDefinition `object`: A database metric definition.
-  * metricAvailabilities `array`: The list of database metric availabities for the metric.
+  * metricAvailabilities `array`: The list of database metric availabilities for the metric.
     * items [MetricAvailability](#metricavailability)
   * name [MetricName](#metricname)
   * primaryAggregationType `string` (values: None, Average, Count, Minimum, Maximum, Total): The primary aggregation type defining how metric values are displayed.

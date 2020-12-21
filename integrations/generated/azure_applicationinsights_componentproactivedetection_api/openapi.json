@@ -7,7 +7,7 @@
   "info": {
     "description": "Azure Application Insights client for ProactiveDetection configurations of a component.",
     "title": "ApplicationInsightsManagementClient",
-    "version": "2015-05-01",
+    "version": "2018-05-01-preview",
     "x-apisguru-categories": [
       "cloud"
     ],
@@ -17,7 +17,7 @@
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/applicationinsights/resource-manager/microsoft.insights/stable/2015-05-01/componentProactiveDetection_API.json",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/applicationinsights/resource-manager/Microsoft.Insights/preview/2018-05-01/componentProactiveDetection_API.json",
         "version": "2.0"
       }
     ],
@@ -98,7 +98,7 @@
     }
   },
   "paths": {
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.insights/components/{resourceName}/ProactiveDetectionConfigs": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/components/{resourceName}/ProactiveDetectionConfigs": {
       "get": {
         "description": "Gets a list of ProactiveDetection configurations of an Application Insights component.",
         "operationId": "ProactiveDetectionConfigurations_List",
@@ -127,7 +127,7 @@
         "x-ms-examples": {
           "ProactiveDetectionConfigurationsList": {
             "parameters": {
-              "api-version": "2015-05-01",
+              "api-version": "2018-05-01-preview",
               "resourceGroupName": "my-resource-group",
               "resourceName": "my-component",
               "subscriptionId": "subid"
@@ -136,39 +136,53 @@
               "200": {
                 "body": [
                   {
-                    "CustomEmails": [
-                      "foo@microsoft.com",
-                      "foo2@microsoft.com"
-                    ],
-                    "Enabled": true,
-                    "Name": "slowpageloadtime",
-                    "RuleDefinitions": {
-                      "Description": "Smart Detection rules notify you of performance anomaly issues.",
-                      "DisplayName": "Slow page load time",
-                      "HelpUrl": "https://docs.microsoft.com/en-us/azure/application-insights/app-insights-proactive-performance-diagnostics",
-                      "IsEnabledByDefault": true,
-                      "IsHidden": false,
-                      "IsInPreview": false,
+                    "id": "/subscriptions/subid/resourceGroups/my-resource-group/providers/microsoft.insights/components/my-component/ProactiveDetectionConfigs/slowpageloadtime",
+                    "location": "South Central US",
+                    "name": "slowpageloadtime",
+                    "properties": {
+                      "CustomEmails": [
+                        "foo@microsoft.com",
+                        "foo2@microsoft.com"
+                      ],
+                      "Enabled": true,
+                      "LastUpdatedTime": null,
                       "Name": "slowpageloadtime",
-                      "SupportsEmailNotifications": true
+                      "RuleDefinitions": {
+                        "Description": "Smart Detection rules notify you of performance anomaly issues.",
+                        "DisplayName": "Slow page load time",
+                        "HelpUrl": "https://docs.microsoft.com/en-us/azure/application-insights/app-insights-proactive-performance-diagnostics",
+                        "IsEnabledByDefault": true,
+                        "IsHidden": false,
+                        "IsInPreview": false,
+                        "Name": "slowpageloadtime",
+                        "SupportsEmailNotifications": true
+                      },
+                      "SendEmailsToSubscriptionOwners": true
                     },
-                    "SendEmailsToSubscriptionOwners": true
+                    "type": "Microsoft.Insights/components/ProactiveDetectionConfigs"
                   },
                   {
-                    "CustomEmails": [],
-                    "Enabled": true,
-                    "Name": "slowpageloadtime",
-                    "RuleDefinitions": {
-                      "Description": "Smart Detection rules notify you of performance anomaly issues.",
-                      "DisplayName": "Slow server response time",
-                      "HelpUrl": "https://docs.microsoft.com/en-us/azure/application-insights/app-insights-proactive-performance-diagnostics",
-                      "IsEnabledByDefault": true,
-                      "IsHidden": false,
-                      "IsInPreview": false,
+                    "id": "/subscriptions/subid/resourceGroups/my-resource-group/providers/microsoft.insights/components/my-component/ProactiveDetectionConfigs/slowserverresponsetime",
+                    "location": "South Central US",
+                    "name": "slowserverresponsetime",
+                    "properties": {
+                      "CustomEmails": [],
+                      "Enabled": true,
+                      "LastUpdatedTime": null,
                       "Name": "slowserverresponsetime",
-                      "SupportsEmailNotifications": true
+                      "RuleDefinitions": {
+                        "Description": "Smart Detection rules notify you of performance anomaly issues.",
+                        "DisplayName": "Slow server response time",
+                        "HelpUrl": "https://docs.microsoft.com/en-us/azure/application-insights/app-insights-proactive-performance-diagnostics",
+                        "IsEnabledByDefault": true,
+                        "IsHidden": false,
+                        "IsInPreview": false,
+                        "Name": "slowserverresponsetime",
+                        "SupportsEmailNotifications": true
+                      },
+                      "SendEmailsToSubscriptionOwners": true
                     },
-                    "SendEmailsToSubscriptionOwners": true
+                    "type": "Microsoft.Insights/components/ProactiveDetectionConfigs"
                   }
                 ]
               }
@@ -177,7 +191,7 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.insights/components/{resourceName}/ProactiveDetectionConfigs/{ConfigurationId}": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/components/{resourceName}/ProactiveDetectionConfigs/{ConfigurationId}": {
       "get": {
         "description": "Get the ProactiveDetection configuration for this configuration id.",
         "operationId": "ProactiveDetectionConfigurations_Get",
@@ -210,7 +224,7 @@
           "ProactiveDetectionConfigurationGet": {
             "parameters": {
               "ConfigurationId": "slowpageloadtime",
-              "api-version": "2015-05-01",
+              "api-version": "2018-05-01-preview",
               "resourceGroupName": "my-resource-group",
               "resourceName": "my-component",
               "subscriptionId": "subid"
@@ -218,23 +232,30 @@
             "responses": {
               "200": {
                 "body": {
-                  "CustomEmails": [
-                    "foo@microsoft.com",
-                    "foo2@microsoft.com"
-                  ],
-                  "Enabled": true,
-                  "Name": "slowpageloadtime",
-                  "RuleDefinitions": {
-                    "Description": "Smart Detection rules notify you of performance anomaly issues.",
-                    "DisplayName": "Slow page load time",
-                    "HelpUrl": "https://docs.microsoft.com/en-us/azure/application-insights/app-insights-proactive-performance-diagnostics",
-                    "IsEnabledByDefault": true,
-                    "IsHidden": false,
-                    "IsInPreview": false,
+                  "id": "/subscriptions/subid/resourceGroups/my-resource-group/providers/microsoft.insights/components/my-component/ProactiveDetectionConfigs/slowpageloadtime",
+                  "location": "South Central US",
+                  "name": "slowpageloadtime",
+                  "properties": {
+                    "CustomEmails": [
+                      "foo@microsoft.com",
+                      "foo2@microsoft.com"
+                    ],
+                    "Enabled": true,
+                    "LastUpdatedTime": null,
                     "Name": "slowpageloadtime",
-                    "SupportsEmailNotifications": true
+                    "RuleDefinitions": {
+                      "Description": "Smart Detection rules notify you of performance anomaly issues.",
+                      "DisplayName": "Slow page load time",
+                      "HelpUrl": "https://docs.microsoft.com/en-us/azure/application-insights/app-insights-proactive-performance-diagnostics",
+                      "IsEnabledByDefault": true,
+                      "IsHidden": false,
+                      "IsInPreview": false,
+                      "Name": "slowpageloadtime",
+                      "SupportsEmailNotifications": true
+                    },
+                    "SendEmailsToSubscriptionOwners": true
                   },
-                  "SendEmailsToSubscriptionOwners": true
+                  "type": "Microsoft.Insights/components/ProactiveDetectionConfigs"
                 }
               }
             }
@@ -283,37 +304,15 @@
             "parameters": {
               "ConfigurationId": "slowpageloadtime",
               "ProactiveDetectionProperties": {
-                "CustomEmails": [
-                  "foo@microsoft.com",
-                  "foo2@microsoft.com"
-                ],
-                "Enabled": true,
-                "Name": "slowpageloadtime",
-                "RuleDefinitions": {
-                  "Description": "Smart Detection rules notify you of performance anomaly issues.",
-                  "DisplayName": "Slow page load time",
-                  "HelpUrl": "https://docs.microsoft.com/en-us/azure/application-insights/app-insights-proactive-performance-diagnostics",
-                  "IsEnabledByDefault": true,
-                  "IsHidden": false,
-                  "IsInPreview": false,
-                  "Name": "slowpageloadtime",
-                  "SupportsEmailNotifications": true
-                },
-                "SendEmailsToSubscriptionOwners": true
-              },
-              "api-version": "2015-05-01",
-              "resourceGroupName": "my-resource-group",
-              "resourceName": "my-component",
-              "subscriptionId": "subid"
-            },
-            "responses": {
-              "200": {
-                "body": {
+                "location": "South Central US",
+                "name": "slowpageloadtime",
+                "properties": {
                   "CustomEmails": [
                     "foo@microsoft.com",
                     "foo2@microsoft.com"
                   ],
                   "Enabled": true,
+                  "LastUpdatedTime": null,
                   "Name": "slowpageloadtime",
                   "RuleDefinitions": {
                     "Description": "Smart Detection rules notify you of performance anomaly issues.",
@@ -327,6 +326,40 @@
                   },
                   "SendEmailsToSubscriptionOwners": true
                 }
+              },
+              "api-version": "2018-05-01-preview",
+              "resourceGroupName": "my-resource-group",
+              "resourceName": "my-component",
+              "subscriptionId": "subid"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "id": "/subscriptions/subid/resourceGroups/my-resource-group/providers/microsoft.insights/components/my-component/ProactiveDetectionConfigs/slowpageloadtime",
+                  "location": "South Central US",
+                  "name": "slowpageloadtime",
+                  "properties": {
+                    "CustomEmails": [
+                      "foo@microsoft.com",
+                      "foo2@microsoft.com"
+                    ],
+                    "Enabled": true,
+                    "LastUpdatedTime": null,
+                    "Name": "slowpageloadtime",
+                    "RuleDefinitions": {
+                      "Description": "Smart Detection rules notify you of performance anomaly issues.",
+                      "DisplayName": "Slow page load time",
+                      "HelpUrl": "https://docs.microsoft.com/en-us/azure/application-insights/app-insights-proactive-performance-diagnostics",
+                      "IsEnabledByDefault": true,
+                      "IsHidden": false,
+                      "IsInPreview": false,
+                      "Name": "slowpageloadtime",
+                      "SupportsEmailNotifications": true
+                    },
+                    "SendEmailsToSubscriptionOwners": true
+                  },
+                  "type": "Microsoft.Insights/components/ProactiveDetectionConfigs"
+                }
               }
             }
           }
@@ -336,6 +369,43 @@
   },
   "definitions": {
     "ApplicationInsightsComponentProactiveDetectionConfiguration": {
+      "description": "A ProactiveDetection configuration definition.",
+      "properties": {
+        "id": {
+          "description": "Azure resource Id",
+          "readOnly": true,
+          "type": "string"
+        },
+        "location": {
+          "description": "Resource location",
+          "type": "string"
+        },
+        "name": {
+          "description": "Azure resource name",
+          "type": "string"
+        },
+        "properties": {
+          "$ref": "#/definitions/ApplicationInsightsComponentProactiveDetectionConfigurationProperties",
+          "description": "Properties that define a ProactiveDetection configuration.",
+          "x-ms-client-flatten": true
+        },
+        "type": {
+          "description": "Azure resource type",
+          "readOnly": true,
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "x-ms-azure-resource": true
+    },
+    "ApplicationInsightsComponentProactiveDetectionConfigurationListResult": {
+      "description": "A list of ProactiveDetection configurations.",
+      "items": {
+        "$ref": "#/definitions/ApplicationInsightsComponentProactiveDetectionConfiguration"
+      },
+      "type": "array"
+    },
+    "ApplicationInsightsComponentProactiveDetectionConfigurationProperties": {
       "description": "Properties that define a ProactiveDetection configuration.",
       "properties": {
         "CustomEmails": {
@@ -353,12 +423,12 @@
         },
         "LastUpdatedTime": {
           "description": "The last time this rule was updated",
-          "readOnly": false,
+          "readOnly": true,
           "type": "string"
         },
         "Name": {
           "description": "The rule name",
-          "readOnly": false,
+          "readOnly": true,
           "type": "string"
         },
         "RuleDefinitions": {
@@ -375,7 +445,7 @@
               "type": "string"
             },
             "HelpUrl": {
-              "description": "URL which displays aditional info about the proactive detection rule",
+              "description": "URL which displays additional info about the proactive detection rule",
               "readOnly": false,
               "type": "string"
             },
@@ -414,15 +484,7 @@
           "type": "boolean"
         }
       },
-      "type": "object",
-      "x-ms-azure-resource": true
-    },
-    "ApplicationInsightsComponentProactiveDetectionConfigurationListResult": {
-      "description": "A list of ProactiveDetection configurations.",
-      "items": {
-        "$ref": "#/definitions/ApplicationInsightsComponentProactiveDetectionConfiguration"
-      },
-      "type": "array"
+      "type": "object"
     }
   }
 }

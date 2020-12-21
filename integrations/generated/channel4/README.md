@@ -1,6 +1,6 @@
 # @datafire/channel4
 
-Client library for Channel 4
+Client library for Channel 4 API
 
 ## Installation and Usage
 ```bash
@@ -11,7 +11,7 @@ let channel4 = require('@datafire/channel4').create({
   apikey: ""
 });
 
-channel4.Coming_Soon_feed({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

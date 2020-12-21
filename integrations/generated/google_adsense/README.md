@@ -1,6 +1,6 @@
 # @datafire/google_adsense
 
-Client library for AdSense Management
+Client library for AdSense Management API
 
 ## Installation and Usage
 ```bash
@@ -15,7 +15,7 @@ let google_adsense = require('@datafire/google_adsense').create({
   redirect_uri: ""
 });
 
-google_adsense.savedadstyles.list({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -67,12 +67,12 @@ google_adsense.oauthRefresh(null, context)
   * scope `string`
   * expiration `string`
 
-### accounts.list
+### adsense.accounts.list
 List all accounts available to this AdSense account.
 
 
 ```js
-google_adsense.accounts.list({}, context)
+google_adsense.adsense.accounts.list({}, context)
 ```
 
 #### Input
@@ -90,12 +90,12 @@ google_adsense.accounts.list({}, context)
 #### Output
 * output [Accounts](#accounts)
 
-### accounts.get
+### adsense.accounts.get
 Get information about the selected AdSense account.
 
 
 ```js
-google_adsense.accounts.get({
+google_adsense.adsense.accounts.get({
   "accountId": ""
 }, context)
 ```
@@ -115,12 +115,12 @@ google_adsense.accounts.get({
 #### Output
 * output [Account](#account)
 
-### accounts.adclients.list
+### adsense.accounts.adclients.list
 List all ad clients in the specified account.
 
 
 ```js
-google_adsense.accounts.adclients.list({
+google_adsense.adsense.accounts.adclients.list({
   "accountId": ""
 }, context)
 ```
@@ -141,12 +141,39 @@ google_adsense.accounts.adclients.list({
 #### Output
 * output [AdClients](#adclients)
 
-### accounts.adunits.list
+### adsense.accounts.adclients.getAdCode
+Get Auto ad code for a given ad client.
+
+
+```js
+google_adsense.adsense.accounts.adclients.getAdCode({
+  "accountId": "",
+  "adClientId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * accountId **required** `string`: Account which contains the ad client.
+  * adClientId **required** `string`: Ad client to get the code for.
+  * tagPartner `string`: Tag partner to include in the ad code snippet.
+  * alt `string` (values: csv, json): Data format for the response.
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
+
+#### Output
+* output [AdCode](#adcode)
+
+### adsense.accounts.adunits.list
 List all ad units in the specified ad client for the specified account.
 
 
 ```js
-google_adsense.accounts.adunits.list({
+google_adsense.adsense.accounts.adunits.list({
   "accountId": "",
   "adClientId": ""
 }, context)
@@ -170,12 +197,12 @@ google_adsense.accounts.adunits.list({
 #### Output
 * output [AdUnits](#adunits)
 
-### accounts.adunits.get
+### adsense.accounts.adunits.get
 Gets the specified ad unit in the specified ad client for the specified account.
 
 
 ```js
-google_adsense.accounts.adunits.get({
+google_adsense.adsense.accounts.adunits.get({
   "accountId": "",
   "adClientId": "",
   "adUnitId": ""
@@ -198,12 +225,12 @@ google_adsense.accounts.adunits.get({
 #### Output
 * output [AdUnit](#adunit)
 
-### accounts.adunits.getAdCode
+### adsense.accounts.adunits.getAdCode
 Get ad code for the specified ad unit.
 
 
 ```js
-google_adsense.accounts.adunits.getAdCode({
+google_adsense.adsense.accounts.adunits.getAdCode({
   "accountId": "",
   "adClientId": "",
   "adUnitId": ""
@@ -226,12 +253,12 @@ google_adsense.accounts.adunits.getAdCode({
 #### Output
 * output [AdCode](#adcode)
 
-### accounts.adunits.customchannels.list
+### adsense.accounts.adunits.customchannels.list
 List all custom channels which the specified ad unit belongs to.
 
 
 ```js
-google_adsense.accounts.adunits.customchannels.list({
+google_adsense.adsense.accounts.adunits.customchannels.list({
   "accountId": "",
   "adClientId": "",
   "adUnitId": ""
@@ -256,12 +283,12 @@ google_adsense.accounts.adunits.customchannels.list({
 #### Output
 * output [CustomChannels](#customchannels)
 
-### accounts.customchannels.list
+### adsense.accounts.customchannels.list
 List all custom channels in the specified ad client for the specified account.
 
 
 ```js
-google_adsense.accounts.customchannels.list({
+google_adsense.adsense.accounts.customchannels.list({
   "accountId": "",
   "adClientId": ""
 }, context)
@@ -284,12 +311,12 @@ google_adsense.accounts.customchannels.list({
 #### Output
 * output [CustomChannels](#customchannels)
 
-### accounts.customchannels.get
+### adsense.accounts.customchannels.get
 Get the specified custom channel from the specified ad client for the specified account.
 
 
 ```js
-google_adsense.accounts.customchannels.get({
+google_adsense.adsense.accounts.customchannels.get({
   "accountId": "",
   "adClientId": "",
   "customChannelId": ""
@@ -312,12 +339,12 @@ google_adsense.accounts.customchannels.get({
 #### Output
 * output [CustomChannel](#customchannel)
 
-### accounts.customchannels.adunits.list
+### adsense.accounts.customchannels.adunits.list
 List all ad units in the specified custom channel.
 
 
 ```js
-google_adsense.accounts.customchannels.adunits.list({
+google_adsense.adsense.accounts.customchannels.adunits.list({
   "accountId": "",
   "adClientId": "",
   "customChannelId": ""
@@ -343,12 +370,12 @@ google_adsense.accounts.customchannels.adunits.list({
 #### Output
 * output [AdUnits](#adunits)
 
-### accounts.urlchannels.list
+### adsense.accounts.urlchannels.list
 List all URL channels in the specified ad client for the specified account.
 
 
 ```js
-google_adsense.accounts.urlchannels.list({
+google_adsense.adsense.accounts.urlchannels.list({
   "accountId": "",
   "adClientId": ""
 }, context)
@@ -371,12 +398,12 @@ google_adsense.accounts.urlchannels.list({
 #### Output
 * output [UrlChannels](#urlchannels)
 
-### accounts.alerts.list
+### adsense.accounts.alerts.list
 List the alerts for the specified AdSense account.
 
 
 ```js
-google_adsense.accounts.alerts.list({
+google_adsense.adsense.accounts.alerts.list({
   "accountId": ""
 }, context)
 ```
@@ -396,12 +423,12 @@ google_adsense.accounts.alerts.list({
 #### Output
 * output [Alerts](#alerts)
 
-### accounts.alerts.delete
+### adsense.accounts.alerts.delete
 Dismiss (delete) the specified alert from the specified publisher AdSense account.
 
 
 ```js
-google_adsense.accounts.alerts.delete({
+google_adsense.adsense.accounts.alerts.delete({
   "accountId": "",
   "alertId": ""
 }, context)
@@ -422,12 +449,12 @@ google_adsense.accounts.alerts.delete({
 #### Output
 *Output schema unknown*
 
-### accounts.payments.list
+### adsense.accounts.payments.list
 List the payments for the specified AdSense account.
 
 
 ```js
-google_adsense.accounts.payments.list({
+google_adsense.adsense.accounts.payments.list({
   "accountId": ""
 }, context)
 ```
@@ -446,30 +473,30 @@ google_adsense.accounts.payments.list({
 #### Output
 * output [Payments](#payments)
 
-### accounts.reports.generate
+### adsense.accounts.reports.generate
 Generate an AdSense report based on the report request sent in the query parameters. Returns the result as JSON; to retrieve output in CSV format specify "alt=csv" as a query parameter.
 
 
 ```js
-google_adsense.accounts.reports.generate({
+google_adsense.adsense.accounts.reports.generate({
   "accountId": "",
-  "endDate": "",
-  "startDate": ""
+  "startDate": "",
+  "endDate": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * accountId **required** `string`: Account upon which to report.
+  * startDate **required** `string`: Start of the date range to report on in "YYYY-MM-DD" format, inclusive.
+  * endDate **required** `string`: End of the date range to report on in "YYYY-MM-DD" format, inclusive.
   * currency `string`: Optional currency to use when reporting on monetary metrics. Defaults to the account's currency if not set.
   * dimension `array`: Dimensions to base the report on.
-  * endDate **required** `string`: End of the date range to report on in "YYYY-MM-DD" format, inclusive.
   * filter `array`: Filters to be run on the report.
   * locale `string`: Optional locale to use for translating report output to a local language. Defaults to "en_US" if not specified.
   * maxResults `integer`: The maximum number of rows of report data to return.
   * metric `array`: Numeric columns to include in the report.
   * sort `array`: The name of a dimension or metric to sort the resulting report on, optionally prefixed with "+" to sort ascending or "-" to sort descending. If no prefix is specified, the column is sorted ascending.
-  * startDate **required** `string`: Start of the date range to report on in "YYYY-MM-DD" format, inclusive.
   * startIndex `integer`: Index of the first row of report data to return.
   * useTimezoneReporting `boolean`: Whether the report should be generated in the AdSense account's local timezone. If false default PST/PDT timezone will be used.
   * alt `string` (values: csv, json): Data format for the response.
@@ -483,12 +510,12 @@ google_adsense.accounts.reports.generate({
 #### Output
 * output [AdsenseReportsGenerateResponse](#adsensereportsgenerateresponse)
 
-### accounts.reports.saved.list
+### adsense.accounts.reports.saved.list
 List all saved reports in the specified AdSense account.
 
 
 ```js
-google_adsense.accounts.reports.saved.list({
+google_adsense.adsense.accounts.reports.saved.list({
   "accountId": ""
 }, context)
 ```
@@ -509,12 +536,12 @@ google_adsense.accounts.reports.saved.list({
 #### Output
 * output [SavedReports](#savedreports)
 
-### accounts.reports.saved.generate
+### adsense.accounts.reports.saved.generate
 Generate an AdSense report based on the saved report ID sent in the query parameters.
 
 
 ```js
-google_adsense.accounts.reports.saved.generate({
+google_adsense.adsense.accounts.reports.saved.generate({
   "accountId": "",
   "savedReportId": ""
 }, context)
@@ -523,9 +550,9 @@ google_adsense.accounts.reports.saved.generate({
 #### Input
 * input `object`
   * accountId **required** `string`: Account to which the saved reports belong.
+  * savedReportId **required** `string`: The saved report to retrieve.
   * locale `string`: Optional locale to use for translating report output to a local language. Defaults to "en_US" if not specified.
   * maxResults `integer`: The maximum number of rows of report data to return.
-  * savedReportId **required** `string`: The saved report to retrieve.
   * startIndex `integer`: Index of the first row of report data to return.
   * alt `string` (values: csv, json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
@@ -538,12 +565,12 @@ google_adsense.accounts.reports.saved.generate({
 #### Output
 * output [AdsenseReportsGenerateResponse](#adsensereportsgenerateresponse)
 
-### accounts.savedadstyles.list
+### adsense.accounts.savedadstyles.list
 List all saved ad styles in the specified account.
 
 
 ```js
-google_adsense.accounts.savedadstyles.list({
+google_adsense.adsense.accounts.savedadstyles.list({
   "accountId": ""
 }, context)
 ```
@@ -564,12 +591,12 @@ google_adsense.accounts.savedadstyles.list({
 #### Output
 * output [SavedAdStyles](#savedadstyles)
 
-### accounts.savedadstyles.get
+### adsense.accounts.savedadstyles.get
 List a specific saved ad style for the specified account.
 
 
 ```js
-google_adsense.accounts.savedadstyles.get({
+google_adsense.adsense.accounts.savedadstyles.get({
   "accountId": "",
   "savedAdStyleId": ""
 }, context)
@@ -590,12 +617,12 @@ google_adsense.accounts.savedadstyles.get({
 #### Output
 * output [SavedAdStyle](#savedadstyle)
 
-### adclients.list
+### adsense.adclients.list
 List all ad clients in this AdSense account.
 
 
 ```js
-google_adsense.adclients.list({}, context)
+google_adsense.adsense.adclients.list({}, context)
 ```
 
 #### Input
@@ -613,12 +640,12 @@ google_adsense.adclients.list({}, context)
 #### Output
 * output [AdClients](#adclients)
 
-### adunits.list
+### adsense.adunits.list
 List all ad units in the specified ad client for this AdSense account.
 
 
 ```js
-google_adsense.adunits.list({
+google_adsense.adsense.adunits.list({
   "adClientId": ""
 }, context)
 ```
@@ -640,12 +667,12 @@ google_adsense.adunits.list({
 #### Output
 * output [AdUnits](#adunits)
 
-### adunits.get
+### adsense.adunits.get
 Gets the specified ad unit in the specified ad client.
 
 
 ```js
-google_adsense.adunits.get({
+google_adsense.adsense.adunits.get({
   "adClientId": "",
   "adUnitId": ""
 }, context)
@@ -666,12 +693,12 @@ google_adsense.adunits.get({
 #### Output
 * output [AdUnit](#adunit)
 
-### adunits.getAdCode
+### adsense.adunits.getAdCode
 Get ad code for the specified ad unit.
 
 
 ```js
-google_adsense.adunits.getAdCode({
+google_adsense.adsense.adunits.getAdCode({
   "adClientId": "",
   "adUnitId": ""
 }, context)
@@ -692,12 +719,12 @@ google_adsense.adunits.getAdCode({
 #### Output
 * output [AdCode](#adcode)
 
-### adunits.customchannels.list
+### adsense.adunits.customchannels.list
 List all custom channels which the specified ad unit belongs to.
 
 
 ```js
-google_adsense.adunits.customchannels.list({
+google_adsense.adsense.adunits.customchannels.list({
   "adClientId": "",
   "adUnitId": ""
 }, context)
@@ -720,12 +747,12 @@ google_adsense.adunits.customchannels.list({
 #### Output
 * output [CustomChannels](#customchannels)
 
-### customchannels.list
+### adsense.customchannels.list
 List all custom channels in the specified ad client for this AdSense account.
 
 
 ```js
-google_adsense.customchannels.list({
+google_adsense.adsense.customchannels.list({
   "adClientId": ""
 }, context)
 ```
@@ -746,12 +773,12 @@ google_adsense.customchannels.list({
 #### Output
 * output [CustomChannels](#customchannels)
 
-### customchannels.get
+### adsense.customchannels.get
 Get the specified custom channel from the specified ad client.
 
 
 ```js
-google_adsense.customchannels.get({
+google_adsense.adsense.customchannels.get({
   "adClientId": "",
   "customChannelId": ""
 }, context)
@@ -772,12 +799,12 @@ google_adsense.customchannels.get({
 #### Output
 * output [CustomChannel](#customchannel)
 
-### customchannels.adunits.list
+### adsense.customchannels.adunits.list
 List all ad units in the specified custom channel.
 
 
 ```js
-google_adsense.customchannels.adunits.list({
+google_adsense.adsense.customchannels.adunits.list({
   "adClientId": "",
   "customChannelId": ""
 }, context)
@@ -801,12 +828,12 @@ google_adsense.customchannels.adunits.list({
 #### Output
 * output [AdUnits](#adunits)
 
-### urlchannels.list
+### adsense.urlchannels.list
 List all URL channels in the specified ad client for this AdSense account.
 
 
 ```js
-google_adsense.urlchannels.list({
+google_adsense.adsense.urlchannels.list({
   "adClientId": ""
 }, context)
 ```
@@ -827,12 +854,12 @@ google_adsense.urlchannels.list({
 #### Output
 * output [UrlChannels](#urlchannels)
 
-### alerts.list
+### adsense.alerts.list
 List the alerts for this AdSense account.
 
 
 ```js
-google_adsense.alerts.list({}, context)
+google_adsense.adsense.alerts.list({}, context)
 ```
 
 #### Input
@@ -849,12 +876,12 @@ google_adsense.alerts.list({}, context)
 #### Output
 * output [Alerts](#alerts)
 
-### alerts.delete
+### adsense.alerts.delete
 Dismiss (delete) the specified alert from the publisher's AdSense account.
 
 
 ```js
-google_adsense.alerts.delete({
+google_adsense.adsense.alerts.delete({
   "alertId": ""
 }, context)
 ```
@@ -873,12 +900,12 @@ google_adsense.alerts.delete({
 #### Output
 *Output schema unknown*
 
-### metadata.dimensions.list
+### adsense.metadata.dimensions.list
 List the metadata for the dimensions available to this AdSense account.
 
 
 ```js
-google_adsense.metadata.dimensions.list({}, context)
+google_adsense.adsense.metadata.dimensions.list({}, context)
 ```
 
 #### Input
@@ -894,12 +921,12 @@ google_adsense.metadata.dimensions.list({}, context)
 #### Output
 * output [Metadata](#metadata)
 
-### metadata.metrics.list
+### adsense.metadata.metrics.list
 List the metadata for the metrics available to this AdSense account.
 
 
 ```js
-google_adsense.metadata.metrics.list({}, context)
+google_adsense.adsense.metadata.metrics.list({}, context)
 ```
 
 #### Input
@@ -915,12 +942,12 @@ google_adsense.metadata.metrics.list({}, context)
 #### Output
 * output [Metadata](#metadata)
 
-### payments.list
+### adsense.payments.list
 List the payments for this AdSense account.
 
 
 ```js
-google_adsense.payments.list({}, context)
+google_adsense.adsense.payments.list({}, context)
 ```
 
 #### Input
@@ -936,29 +963,29 @@ google_adsense.payments.list({}, context)
 #### Output
 * output [Payments](#payments)
 
-### reports.generate
+### adsense.reports.generate
 Generate an AdSense report based on the report request sent in the query parameters. Returns the result as JSON; to retrieve output in CSV format specify "alt=csv" as a query parameter.
 
 
 ```js
-google_adsense.reports.generate({
-  "endDate": "",
-  "startDate": ""
+google_adsense.adsense.reports.generate({
+  "startDate": "",
+  "endDate": ""
 }, context)
 ```
 
 #### Input
 * input `object`
+  * startDate **required** `string`: Start of the date range to report on in "YYYY-MM-DD" format, inclusive.
+  * endDate **required** `string`: End of the date range to report on in "YYYY-MM-DD" format, inclusive.
   * accountId `array`: Accounts upon which to report.
   * currency `string`: Optional currency to use when reporting on monetary metrics. Defaults to the account's currency if not set.
   * dimension `array`: Dimensions to base the report on.
-  * endDate **required** `string`: End of the date range to report on in "YYYY-MM-DD" format, inclusive.
   * filter `array`: Filters to be run on the report.
   * locale `string`: Optional locale to use for translating report output to a local language. Defaults to "en_US" if not specified.
   * maxResults `integer`: The maximum number of rows of report data to return.
   * metric `array`: Numeric columns to include in the report.
   * sort `array`: The name of a dimension or metric to sort the resulting report on, optionally prefixed with "+" to sort ascending or "-" to sort descending. If no prefix is specified, the column is sorted ascending.
-  * startDate **required** `string`: Start of the date range to report on in "YYYY-MM-DD" format, inclusive.
   * startIndex `integer`: Index of the first row of report data to return.
   * useTimezoneReporting `boolean`: Whether the report should be generated in the AdSense account's local timezone. If false default PST/PDT timezone will be used.
   * alt `string` (values: csv, json): Data format for the response.
@@ -972,12 +999,12 @@ google_adsense.reports.generate({
 #### Output
 * output [AdsenseReportsGenerateResponse](#adsensereportsgenerateresponse)
 
-### reports.saved.list
+### adsense.reports.saved.list
 List all saved reports in this AdSense account.
 
 
 ```js
-google_adsense.reports.saved.list({}, context)
+google_adsense.adsense.reports.saved.list({}, context)
 ```
 
 #### Input
@@ -995,21 +1022,21 @@ google_adsense.reports.saved.list({}, context)
 #### Output
 * output [SavedReports](#savedreports)
 
-### reports.saved.generate
+### adsense.reports.saved.generate
 Generate an AdSense report based on the saved report ID sent in the query parameters.
 
 
 ```js
-google_adsense.reports.saved.generate({
+google_adsense.adsense.reports.saved.generate({
   "savedReportId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
+  * savedReportId **required** `string`: The saved report to retrieve.
   * locale `string`: Optional locale to use for translating report output to a local language. Defaults to "en_US" if not specified.
   * maxResults `integer`: The maximum number of rows of report data to return.
-  * savedReportId **required** `string`: The saved report to retrieve.
   * startIndex `integer`: Index of the first row of report data to return.
   * alt `string` (values: csv, json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
@@ -1022,12 +1049,12 @@ google_adsense.reports.saved.generate({
 #### Output
 * output [AdsenseReportsGenerateResponse](#adsensereportsgenerateresponse)
 
-### savedadstyles.list
+### adsense.savedadstyles.list
 List all saved ad styles in the user's account.
 
 
 ```js
-google_adsense.savedadstyles.list({}, context)
+google_adsense.adsense.savedadstyles.list({}, context)
 ```
 
 #### Input
@@ -1045,12 +1072,12 @@ google_adsense.savedadstyles.list({}, context)
 #### Output
 * output [SavedAdStyles](#savedadstyles)
 
-### savedadstyles.get
+### adsense.savedadstyles.get
 Get a specific saved ad style from the user's account.
 
 
 ```js
-google_adsense.savedadstyles.get({
+google_adsense.adsense.savedadstyles.get({
   "savedAdStyleId": ""
 }, context)
 ```
@@ -1110,7 +1137,9 @@ google_adsense.savedadstyles.get({
 
 ### AdCode
 * AdCode `object`
-  * adCode `string`: The ad code snippet.
+  * adCode `string`: The Auto ad code snippet. The ad code snippet.
+  * ampBody `string`: The AMP Auto ad code snippet that goes in the body of an AMP page.
+  * ampHead `string`: The AMP Auto ad code snippet that goes in the head of an AMP page.
   * kind `string`: Kind this is, in this case adsense#adCode.
 
 ### AdStyle

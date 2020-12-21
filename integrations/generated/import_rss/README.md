@@ -11,9 +11,7 @@ let import_rss = require('@datafire/import_rss').create({
   api_key: ""
 });
 
-import_rss.extractor.extractorId.runs.get({
-  "extractorId": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

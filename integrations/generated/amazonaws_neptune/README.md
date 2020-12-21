@@ -13,17 +13,14 @@ let amazonaws_neptune = require('@datafire/amazonaws_neptune').create({
   region: ""
 });
 
-amazonaws_neptune.AddRoleToDBCluster({
-  "DBClusterIdentifier": "",
-  "RoleArn": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
 
 ## Description
 
-<fullname>Amazon Neptune</fullname> <p> </p> <p> Amazon Neptune is a fast, reliable, fully-managed graph database service that makes it easy to build and run applications that work with highly connected datasets. The core of Amazon Neptune is a purpose-built, high-performance graph database engine optimized for storing billions of relationships and querying the graph with milliseconds latency. Amazon Neptune supports popular graph models Property Graph and W3C's RDF, and their respective query languages Apache TinkerPop Gremlin and SPARQL, allowing you to easily build queries that efficiently navigate highly connected datasets. Neptune powers graph use cases such as recommendation engines, fraud detection, knowledge graphs, drug discovery, and network security. </p> <p>This interface reference for Amazon Neptune contains documentation for a programming or command line interface you can use to manage Amazon Neptune. Note that Amazon Neptune is asynchronous, which means that some interfaces might require techniques such as polling or callback functions to determine when a command has been applied. In this reference, the parameter descriptions indicate whether a command is applied immediately, on the next instance reboot, or during the maintenance window. The reference structure is as follows, and we list following some related topics from the user guide.</p> <p> <b>Amazon Neptune API Reference</b> </p>
+<fullname>Amazon Neptune</fullname> <p>Amazon Neptune is a fast, reliable, fully-managed graph database service that makes it easy to build and run applications that work with highly connected datasets. The core of Amazon Neptune is a purpose-built, high-performance graph database engine optimized for storing billions of relationships and querying the graph with milliseconds latency. Amazon Neptune supports popular graph models Property Graph and W3C's RDF, and their respective query languages Apache TinkerPop Gremlin and SPARQL, allowing you to easily build queries that efficiently navigate highly connected datasets. Neptune powers graph use cases such as recommendation engines, fraud detection, knowledge graphs, drug discovery, and network security.</p> <p>This interface reference for Amazon Neptune contains documentation for a programming or command line interface you can use to manage Amazon Neptune. Note that Amazon Neptune is asynchronous, which means that some interfaces might require techniques such as polling or callback functions to determine when a command has been applied. In this reference, the parameter descriptions indicate whether a command is applied immediately, on the next instance reboot, or during the maintenance window. The reference structure is as follows, and we list following some related topics from the user guide.</p>
 
 ## Actions
 
@@ -40,8 +37,29 @@ amazonaws_neptune.AddRoleToDBCluster({
 
 #### Input
 * input `object`
-  * DBClusterIdentifier **required** [String](#string)
-  * RoleArn **required** [String](#string)
+  * DBClusterIdentifier **required** `string`
+  * RoleArn **required** `string`
+  * FeatureName `string`
+
+#### Output
+*Output schema unknown*
+
+### AddRoleToDBCluster
+
+
+
+```js
+amazonaws_neptune.AddRoleToDBCluster({
+  "DBClusterIdentifier": null,
+  "RoleArn": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * DBClusterIdentifier **required**
+  * FeatureName
+  * RoleArn **required**
 
 #### Output
 *Output schema unknown*
@@ -59,8 +77,27 @@ amazonaws_neptune.AddSourceIdentifierToSubscription({
 
 #### Input
 * input `object`
-  * SourceIdentifier **required** [String](#string)
-  * SubscriptionName **required** [String](#string)
+  * SubscriptionName **required** `string`
+  * SourceIdentifier **required** `string`
+
+#### Output
+* output [AddSourceIdentifierToSubscriptionResult](#addsourceidentifiertosubscriptionresult)
+
+### AddSourceIdentifierToSubscription
+
+
+
+```js
+amazonaws_neptune.AddSourceIdentifierToSubscription({
+  "SubscriptionName": null,
+  "SourceIdentifier": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * SourceIdentifier **required**
+  * SubscriptionName **required**
 
 #### Output
 * output [AddSourceIdentifierToSubscriptionResult](#addsourceidentifiertosubscriptionresult)
@@ -78,8 +115,30 @@ amazonaws_neptune.AddTagsToResource({
 
 #### Input
 * input `object`
-  * ResourceName **required** [String](#string)
-  * Tags **required** [TagList](#taglist)
+  * ResourceName **required** `string`
+  * Tags **required** `array`
+
+#### Output
+*Output schema unknown*
+
+### AddTagsToResource
+
+
+
+```js
+amazonaws_neptune.AddTagsToResource({
+  "ResourceName": null,
+  "Tags": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * ResourceName **required**
+  * Tags **required**
+    * items
+      * Key
+      * Value
 
 #### Output
 *Output schema unknown*
@@ -98,9 +157,30 @@ amazonaws_neptune.ApplyPendingMaintenanceAction({
 
 #### Input
 * input `object`
-  * ApplyAction **required** [String](#string)
-  * OptInType **required** [String](#string)
-  * ResourceIdentifier **required** [String](#string)
+  * ResourceIdentifier **required** `string`
+  * ApplyAction **required** `string`
+  * OptInType **required** `string`
+
+#### Output
+* output [ApplyPendingMaintenanceActionResult](#applypendingmaintenanceactionresult)
+
+### ApplyPendingMaintenanceAction
+
+
+
+```js
+amazonaws_neptune.ApplyPendingMaintenanceAction({
+  "ResourceIdentifier": null,
+  "ApplyAction": null,
+  "OptInType": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * ApplyAction **required**
+  * OptInType **required**
+  * ResourceIdentifier **required**
 
 #### Output
 * output [ApplyPendingMaintenanceActionResult](#applypendingmaintenanceactionresult)
@@ -119,10 +199,35 @@ amazonaws_neptune.CopyDBClusterParameterGroup({
 
 #### Input
 * input `object`
-  * SourceDBClusterParameterGroupIdentifier **required** [String](#string)
-  * Tags [TagList](#taglist)
-  * TargetDBClusterParameterGroupDescription **required** [String](#string)
-  * TargetDBClusterParameterGroupIdentifier **required** [String](#string)
+  * SourceDBClusterParameterGroupIdentifier **required** `string`
+  * TargetDBClusterParameterGroupIdentifier **required** `string`
+  * TargetDBClusterParameterGroupDescription **required** `string`
+  * Tags `array`
+
+#### Output
+* output [CopyDBClusterParameterGroupResult](#copydbclusterparametergroupresult)
+
+### CopyDBClusterParameterGroup
+
+
+
+```js
+amazonaws_neptune.CopyDBClusterParameterGroup({
+  "SourceDBClusterParameterGroupIdentifier": null,
+  "TargetDBClusterParameterGroupIdentifier": null,
+  "TargetDBClusterParameterGroupDescription": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * SourceDBClusterParameterGroupIdentifier **required**
+  * Tags
+    * items
+      * Key
+      * Value
+  * TargetDBClusterParameterGroupDescription **required**
+  * TargetDBClusterParameterGroupIdentifier **required**
 
 #### Output
 * output [CopyDBClusterParameterGroupResult](#copydbclusterparametergroupresult)
@@ -140,12 +245,38 @@ amazonaws_neptune.CopyDBClusterSnapshot({
 
 #### Input
 * input `object`
-  * CopyTags [BooleanOptional](#booleanoptional)
-  * KmsKeyId [String](#string)
-  * PreSignedUrl [String](#string)
-  * SourceDBClusterSnapshotIdentifier **required** [String](#string)
-  * Tags [TagList](#taglist)
-  * TargetDBClusterSnapshotIdentifier **required** [String](#string)
+  * SourceDBClusterSnapshotIdentifier **required** `string`
+  * TargetDBClusterSnapshotIdentifier **required** `string`
+  * KmsKeyId `string`
+  * PreSignedUrl `string`
+  * CopyTags `boolean`
+  * Tags `array`
+
+#### Output
+* output [CopyDBClusterSnapshotResult](#copydbclustersnapshotresult)
+
+### CopyDBClusterSnapshot
+
+
+
+```js
+amazonaws_neptune.CopyDBClusterSnapshot({
+  "SourceDBClusterSnapshotIdentifier": null,
+  "TargetDBClusterSnapshotIdentifier": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * CopyTags
+  * KmsKeyId
+  * PreSignedUrl
+  * SourceDBClusterSnapshotIdentifier **required**
+  * Tags
+    * items
+      * Key
+      * Value
+  * TargetDBClusterSnapshotIdentifier **required**
 
 #### Output
 * output [CopyDBClusterSnapshotResult](#copydbclustersnapshotresult)
@@ -164,10 +295,35 @@ amazonaws_neptune.CopyDBParameterGroup({
 
 #### Input
 * input `object`
-  * SourceDBParameterGroupIdentifier **required** [String](#string)
-  * Tags [TagList](#taglist)
-  * TargetDBParameterGroupDescription **required** [String](#string)
-  * TargetDBParameterGroupIdentifier **required** [String](#string)
+  * SourceDBParameterGroupIdentifier **required** `string`
+  * TargetDBParameterGroupIdentifier **required** `string`
+  * TargetDBParameterGroupDescription **required** `string`
+  * Tags `array`
+
+#### Output
+* output [CopyDBParameterGroupResult](#copydbparametergroupresult)
+
+### CopyDBParameterGroup
+
+
+
+```js
+amazonaws_neptune.CopyDBParameterGroup({
+  "SourceDBParameterGroupIdentifier": null,
+  "TargetDBParameterGroupIdentifier": null,
+  "TargetDBParameterGroupDescription": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * SourceDBParameterGroupIdentifier **required**
+  * Tags
+    * items
+      * Key
+      * Value
+  * TargetDBParameterGroupDescription **required**
+  * TargetDBParameterGroupIdentifier **required**
 
 #### Output
 * output [CopyDBParameterGroupResult](#copydbparametergroupresult)
@@ -185,31 +341,133 @@ amazonaws_neptune.CreateDBCluster({
 
 #### Input
 * input `object`
-  * AvailabilityZones [AvailabilityZones](#availabilityzones)
-  * BackupRetentionPeriod [IntegerOptional](#integeroptional)
-  * CharacterSetName [String](#string)
-  * DBClusterIdentifier **required** [String](#string)
-  * DBClusterParameterGroupName [String](#string)
-  * DBSubnetGroupName [String](#string)
-  * DatabaseName [String](#string)
-  * EnableIAMDatabaseAuthentication [BooleanOptional](#booleanoptional)
-  * Engine **required** [String](#string)
-  * EngineVersion [String](#string)
-  * KmsKeyId [String](#string)
-  * MasterUserPassword [String](#string)
-  * MasterUsername [String](#string)
-  * OptionGroupName [String](#string)
-  * Port [IntegerOptional](#integeroptional)
-  * PreSignedUrl [String](#string)
-  * PreferredBackupWindow [String](#string)
-  * PreferredMaintenanceWindow [String](#string)
-  * ReplicationSourceIdentifier [String](#string)
-  * StorageEncrypted [BooleanOptional](#booleanoptional)
-  * Tags [TagList](#taglist)
-  * VpcSecurityGroupIds [VpcSecurityGroupIdList](#vpcsecuritygroupidlist)
+  * AvailabilityZones `array`
+  * BackupRetentionPeriod `integer`
+  * CharacterSetName `string`
+  * DatabaseName `string`
+  * DBClusterIdentifier **required** `string`
+  * DBClusterParameterGroupName `string`
+  * VpcSecurityGroupIds `array`
+  * DBSubnetGroupName `string`
+  * Engine **required** `string`
+  * EngineVersion `string`
+  * Port `integer`
+  * MasterUsername `string`
+  * MasterUserPassword `string`
+  * OptionGroupName `string`
+  * PreferredBackupWindow `string`
+  * PreferredMaintenanceWindow `string`
+  * ReplicationSourceIdentifier `string`
+  * Tags `array`
+  * StorageEncrypted `boolean`
+  * KmsKeyId `string`
+  * PreSignedUrl `string`
+  * EnableIAMDatabaseAuthentication `boolean`
+  * EnableCloudwatchLogsExports `array`
+  * DeletionProtection `boolean`
 
 #### Output
 * output [CreateDBClusterResult](#createdbclusterresult)
+
+### CreateDBCluster
+
+
+
+```js
+amazonaws_neptune.CreateDBCluster({
+  "DBClusterIdentifier": null,
+  "Engine": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * AvailabilityZones
+    * items
+  * BackupRetentionPeriod
+  * CharacterSetName
+  * DBClusterIdentifier **required**
+  * DBClusterParameterGroupName
+  * DBSubnetGroupName
+  * DatabaseName
+  * DeletionProtection
+  * EnableCloudwatchLogsExports
+    * items [String](#string)
+  * EnableIAMDatabaseAuthentication
+  * Engine **required**
+  * EngineVersion
+  * KmsKeyId
+  * MasterUserPassword
+  * MasterUsername
+  * OptionGroupName
+  * Port
+  * PreSignedUrl
+  * PreferredBackupWindow
+  * PreferredMaintenanceWindow
+  * ReplicationSourceIdentifier
+  * StorageEncrypted
+  * Tags
+    * items
+      * Key
+      * Value
+  * VpcSecurityGroupIds
+    * items
+
+#### Output
+* output [CreateDBClusterResult](#createdbclusterresult)
+
+### CreateDBClusterEndpoint
+
+
+
+```js
+amazonaws_neptune.CreateDBClusterEndpoint({
+  "DBClusterIdentifier": "",
+  "DBClusterEndpointIdentifier": "",
+  "EndpointType": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * DBClusterIdentifier **required** `string`
+  * DBClusterEndpointIdentifier **required** `string`
+  * EndpointType **required** `string`
+  * StaticMembers `array`
+  * ExcludedMembers `array`
+  * Tags `array`
+
+#### Output
+* output [CreateDBClusterEndpointOutput](#createdbclusterendpointoutput)
+
+### CreateDBClusterEndpoint
+
+
+
+```js
+amazonaws_neptune.CreateDBClusterEndpoint({
+  "DBClusterIdentifier": null,
+  "DBClusterEndpointIdentifier": null,
+  "EndpointType": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * DBClusterEndpointIdentifier **required**
+  * DBClusterIdentifier **required**
+  * EndpointType **required**
+  * ExcludedMembers
+    * items [String](#string)
+  * StaticMembers
+    * items [String](#string)
+  * Tags
+    * items
+      * Key
+      * Value
+
+#### Output
+* output [CreateDBClusterEndpointOutput](#createdbclusterendpointoutput)
 
 ### CreateDBClusterParameterGroup
 
@@ -225,10 +483,35 @@ amazonaws_neptune.CreateDBClusterParameterGroup({
 
 #### Input
 * input `object`
-  * DBClusterParameterGroupName **required** [String](#string)
-  * DBParameterGroupFamily **required** [String](#string)
-  * Description **required** [String](#string)
-  * Tags [TagList](#taglist)
+  * DBClusterParameterGroupName **required** `string`
+  * DBParameterGroupFamily **required** `string`
+  * Description **required** `string`
+  * Tags `array`
+
+#### Output
+* output [CreateDBClusterParameterGroupResult](#createdbclusterparametergroupresult)
+
+### CreateDBClusterParameterGroup
+
+
+
+```js
+amazonaws_neptune.CreateDBClusterParameterGroup({
+  "DBClusterParameterGroupName": null,
+  "DBParameterGroupFamily": null,
+  "Description": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * DBClusterParameterGroupName **required**
+  * DBParameterGroupFamily **required**
+  * Description **required**
+  * Tags
+    * items
+      * Key
+      * Value
 
 #### Output
 * output [CreateDBClusterParameterGroupResult](#createdbclusterparametergroupresult)
@@ -246,9 +529,32 @@ amazonaws_neptune.CreateDBClusterSnapshot({
 
 #### Input
 * input `object`
-  * DBClusterIdentifier **required** [String](#string)
-  * DBClusterSnapshotIdentifier **required** [String](#string)
-  * Tags [TagList](#taglist)
+  * DBClusterSnapshotIdentifier **required** `string`
+  * DBClusterIdentifier **required** `string`
+  * Tags `array`
+
+#### Output
+* output [CreateDBClusterSnapshotResult](#createdbclustersnapshotresult)
+
+### CreateDBClusterSnapshot
+
+
+
+```js
+amazonaws_neptune.CreateDBClusterSnapshot({
+  "DBClusterSnapshotIdentifier": null,
+  "DBClusterIdentifier": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * DBClusterIdentifier **required**
+  * DBClusterSnapshotIdentifier **required**
+  * Tags
+    * items
+      * Key
+      * Value
 
 #### Output
 * output [CreateDBClusterSnapshotResult](#createdbclustersnapshotresult)
@@ -267,48 +573,116 @@ amazonaws_neptune.CreateDBInstance({
 
 #### Input
 * input `object`
-  * AllocatedStorage [IntegerOptional](#integeroptional)
-  * AutoMinorVersionUpgrade [BooleanOptional](#booleanoptional)
-  * AvailabilityZone [String](#string)
-  * BackupRetentionPeriod [IntegerOptional](#integeroptional)
-  * CharacterSetName [String](#string)
-  * CopyTagsToSnapshot [BooleanOptional](#booleanoptional)
-  * DBClusterIdentifier [String](#string)
-  * DBInstanceClass **required** [String](#string)
-  * DBInstanceIdentifier **required** [String](#string)
-  * DBName [String](#string)
-  * DBParameterGroupName [String](#string)
-  * DBSecurityGroups [DBSecurityGroupNameList](#dbsecuritygroupnamelist)
-  * DBSubnetGroupName [String](#string)
-  * Domain [String](#string)
-  * DomainIAMRoleName [String](#string)
-  * EnableCloudwatchLogsExports [LogTypeList](#logtypelist)
-  * EnableIAMDatabaseAuthentication [BooleanOptional](#booleanoptional)
-  * EnablePerformanceInsights [BooleanOptional](#booleanoptional)
-  * Engine **required** [String](#string)
-  * EngineVersion [String](#string)
-  * Iops [IntegerOptional](#integeroptional)
-  * KmsKeyId [String](#string)
-  * LicenseModel [String](#string)
-  * MasterUserPassword [String](#string)
-  * MasterUsername [String](#string)
-  * MonitoringInterval [IntegerOptional](#integeroptional)
-  * MonitoringRoleArn [String](#string)
-  * MultiAZ [BooleanOptional](#booleanoptional)
-  * OptionGroupName [String](#string)
-  * PerformanceInsightsKMSKeyId [String](#string)
-  * Port [IntegerOptional](#integeroptional)
-  * PreferredBackupWindow [String](#string)
-  * PreferredMaintenanceWindow [String](#string)
-  * PromotionTier [IntegerOptional](#integeroptional)
-  * PubliclyAccessible [BooleanOptional](#booleanoptional)
-  * StorageEncrypted [BooleanOptional](#booleanoptional)
-  * StorageType [String](#string)
-  * Tags [TagList](#taglist)
-  * TdeCredentialArn [String](#string)
-  * TdeCredentialPassword [String](#string)
-  * Timezone [String](#string)
-  * VpcSecurityGroupIds [VpcSecurityGroupIdList](#vpcsecuritygroupidlist)
+  * DBName `string`
+  * DBInstanceIdentifier **required** `string`
+  * AllocatedStorage `integer`
+  * DBInstanceClass **required** `string`
+  * Engine **required** `string`
+  * MasterUsername `string`
+  * MasterUserPassword `string`
+  * DBSecurityGroups `array`
+  * VpcSecurityGroupIds `array`
+  * AvailabilityZone `string`
+  * DBSubnetGroupName `string`
+  * PreferredMaintenanceWindow `string`
+  * DBParameterGroupName `string`
+  * BackupRetentionPeriod `integer`
+  * PreferredBackupWindow `string`
+  * Port `integer`
+  * MultiAZ `boolean`
+  * EngineVersion `string`
+  * AutoMinorVersionUpgrade `boolean`
+  * LicenseModel `string`
+  * Iops `integer`
+  * OptionGroupName `string`
+  * CharacterSetName `string`
+  * PubliclyAccessible `boolean`
+  * Tags `array`
+  * DBClusterIdentifier `string`
+  * StorageType `string`
+  * TdeCredentialArn `string`
+  * TdeCredentialPassword `string`
+  * StorageEncrypted `boolean`
+  * KmsKeyId `string`
+  * Domain `string`
+  * CopyTagsToSnapshot `boolean`
+  * MonitoringInterval `integer`
+  * MonitoringRoleArn `string`
+  * DomainIAMRoleName `string`
+  * PromotionTier `integer`
+  * Timezone `string`
+  * EnableIAMDatabaseAuthentication `boolean`
+  * EnablePerformanceInsights `boolean`
+  * PerformanceInsightsKMSKeyId `string`
+  * EnableCloudwatchLogsExports `array`
+  * DeletionProtection `boolean`
+
+#### Output
+* output [CreateDBInstanceResult](#createdbinstanceresult)
+
+### CreateDBInstance
+
+
+
+```js
+amazonaws_neptune.CreateDBInstance({
+  "DBInstanceIdentifier": null,
+  "DBInstanceClass": null,
+  "Engine": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * AllocatedStorage
+  * AutoMinorVersionUpgrade
+  * AvailabilityZone
+  * BackupRetentionPeriod
+  * CharacterSetName
+  * CopyTagsToSnapshot
+  * DBClusterIdentifier
+  * DBInstanceClass **required**
+  * DBInstanceIdentifier **required**
+  * DBName
+  * DBParameterGroupName
+  * DBSecurityGroups
+    * items
+  * DBSubnetGroupName
+  * DeletionProtection
+  * Domain
+  * DomainIAMRoleName
+  * EnableCloudwatchLogsExports
+    * items [String](#string)
+  * EnableIAMDatabaseAuthentication
+  * EnablePerformanceInsights
+  * Engine **required**
+  * EngineVersion
+  * Iops
+  * KmsKeyId
+  * LicenseModel
+  * MasterUserPassword
+  * MasterUsername
+  * MonitoringInterval
+  * MonitoringRoleArn
+  * MultiAZ
+  * OptionGroupName
+  * PerformanceInsightsKMSKeyId
+  * Port
+  * PreferredBackupWindow
+  * PreferredMaintenanceWindow
+  * PromotionTier
+  * PubliclyAccessible
+  * StorageEncrypted
+  * StorageType
+  * Tags
+    * items
+      * Key
+      * Value
+  * TdeCredentialArn
+  * TdeCredentialPassword
+  * Timezone
+  * VpcSecurityGroupIds
+    * items
 
 #### Output
 * output [CreateDBInstanceResult](#createdbinstanceresult)
@@ -327,10 +701,35 @@ amazonaws_neptune.CreateDBParameterGroup({
 
 #### Input
 * input `object`
-  * DBParameterGroupFamily **required** [String](#string)
-  * DBParameterGroupName **required** [String](#string)
-  * Description **required** [String](#string)
-  * Tags [TagList](#taglist)
+  * DBParameterGroupName **required** `string`
+  * DBParameterGroupFamily **required** `string`
+  * Description **required** `string`
+  * Tags `array`
+
+#### Output
+* output [CreateDBParameterGroupResult](#createdbparametergroupresult)
+
+### CreateDBParameterGroup
+
+
+
+```js
+amazonaws_neptune.CreateDBParameterGroup({
+  "DBParameterGroupName": null,
+  "DBParameterGroupFamily": null,
+  "Description": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * DBParameterGroupFamily **required**
+  * DBParameterGroupName **required**
+  * Description **required**
+  * Tags
+    * items
+      * Key
+      * Value
 
 #### Output
 * output [CreateDBParameterGroupResult](#createdbparametergroupresult)
@@ -349,10 +748,36 @@ amazonaws_neptune.CreateDBSubnetGroup({
 
 #### Input
 * input `object`
-  * DBSubnetGroupDescription **required** [String](#string)
-  * DBSubnetGroupName **required** [String](#string)
-  * SubnetIds **required** [SubnetIdentifierList](#subnetidentifierlist)
-  * Tags [TagList](#taglist)
+  * DBSubnetGroupName **required** `string`
+  * DBSubnetGroupDescription **required** `string`
+  * SubnetIds **required** `array`
+  * Tags `array`
+
+#### Output
+* output [CreateDBSubnetGroupResult](#createdbsubnetgroupresult)
+
+### CreateDBSubnetGroup
+
+
+
+```js
+amazonaws_neptune.CreateDBSubnetGroup({
+  "DBSubnetGroupName": null,
+  "DBSubnetGroupDescription": null,
+  "SubnetIds": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * DBSubnetGroupDescription **required**
+  * DBSubnetGroupName **required**
+  * SubnetIds **required**
+    * items
+  * Tags
+    * items
+      * Key
+      * Value
 
 #### Output
 * output [CreateDBSubnetGroupResult](#createdbsubnetgroupresult)
@@ -370,13 +795,42 @@ amazonaws_neptune.CreateEventSubscription({
 
 #### Input
 * input `object`
-  * Enabled [BooleanOptional](#booleanoptional)
-  * EventCategories [EventCategoriesList](#eventcategorieslist)
-  * SnsTopicArn **required** [String](#string)
-  * SourceIds [SourceIdsList](#sourceidslist)
-  * SourceType [String](#string)
-  * SubscriptionName **required** [String](#string)
-  * Tags [TagList](#taglist)
+  * SubscriptionName **required** `string`
+  * SnsTopicArn **required** `string`
+  * SourceType `string`
+  * EventCategories `array`
+  * SourceIds `array`
+  * Enabled `boolean`
+  * Tags `array`
+
+#### Output
+* output [CreateEventSubscriptionResult](#createeventsubscriptionresult)
+
+### CreateEventSubscription
+
+
+
+```js
+amazonaws_neptune.CreateEventSubscription({
+  "SubscriptionName": null,
+  "SnsTopicArn": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * Enabled
+  * EventCategories
+    * items
+  * SnsTopicArn **required**
+  * SourceIds
+    * items
+  * SourceType
+  * SubscriptionName **required**
+  * Tags
+    * items
+      * Key
+      * Value
 
 #### Output
 * output [CreateEventSubscriptionResult](#createeventsubscriptionresult)
@@ -393,12 +847,65 @@ amazonaws_neptune.DeleteDBCluster({
 
 #### Input
 * input `object`
-  * DBClusterIdentifier **required** [String](#string)
-  * FinalDBSnapshotIdentifier [String](#string)
-  * SkipFinalSnapshot [Boolean](#boolean)
+  * DBClusterIdentifier **required** `string`
+  * SkipFinalSnapshot `boolean`
+  * FinalDBSnapshotIdentifier `string`
 
 #### Output
 * output [DeleteDBClusterResult](#deletedbclusterresult)
+
+### DeleteDBCluster
+
+
+
+```js
+amazonaws_neptune.DeleteDBCluster({
+  "DBClusterIdentifier": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * DBClusterIdentifier **required**
+  * FinalDBSnapshotIdentifier
+  * SkipFinalSnapshot
+
+#### Output
+* output [DeleteDBClusterResult](#deletedbclusterresult)
+
+### DeleteDBClusterEndpoint
+
+
+
+```js
+amazonaws_neptune.DeleteDBClusterEndpoint({
+  "DBClusterEndpointIdentifier": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * DBClusterEndpointIdentifier **required** `string`
+
+#### Output
+* output [DeleteDBClusterEndpointOutput](#deletedbclusterendpointoutput)
+
+### DeleteDBClusterEndpoint
+
+
+
+```js
+amazonaws_neptune.DeleteDBClusterEndpoint({
+  "DBClusterEndpointIdentifier": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * DBClusterEndpointIdentifier **required**
+
+#### Output
+* output [DeleteDBClusterEndpointOutput](#deletedbclusterendpointoutput)
 
 ### DeleteDBClusterParameterGroup
 
@@ -412,7 +919,24 @@ amazonaws_neptune.DeleteDBClusterParameterGroup({
 
 #### Input
 * input `object`
-  * DBClusterParameterGroupName **required** [String](#string)
+  * DBClusterParameterGroupName **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### DeleteDBClusterParameterGroup
+
+
+
+```js
+amazonaws_neptune.DeleteDBClusterParameterGroup({
+  "DBClusterParameterGroupName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * DBClusterParameterGroupName **required**
 
 #### Output
 *Output schema unknown*
@@ -429,7 +953,24 @@ amazonaws_neptune.DeleteDBClusterSnapshot({
 
 #### Input
 * input `object`
-  * DBClusterSnapshotIdentifier **required** [String](#string)
+  * DBClusterSnapshotIdentifier **required** `string`
+
+#### Output
+* output [DeleteDBClusterSnapshotResult](#deletedbclustersnapshotresult)
+
+### DeleteDBClusterSnapshot
+
+
+
+```js
+amazonaws_neptune.DeleteDBClusterSnapshot({
+  "DBClusterSnapshotIdentifier": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * DBClusterSnapshotIdentifier **required**
 
 #### Output
 * output [DeleteDBClusterSnapshotResult](#deletedbclustersnapshotresult)
@@ -446,9 +987,28 @@ amazonaws_neptune.DeleteDBInstance({
 
 #### Input
 * input `object`
-  * DBInstanceIdentifier **required** [String](#string)
-  * FinalDBSnapshotIdentifier [String](#string)
-  * SkipFinalSnapshot [Boolean](#boolean)
+  * DBInstanceIdentifier **required** `string`
+  * SkipFinalSnapshot `boolean`
+  * FinalDBSnapshotIdentifier `string`
+
+#### Output
+* output [DeleteDBInstanceResult](#deletedbinstanceresult)
+
+### DeleteDBInstance
+
+
+
+```js
+amazonaws_neptune.DeleteDBInstance({
+  "DBInstanceIdentifier": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * DBInstanceIdentifier **required**
+  * FinalDBSnapshotIdentifier
+  * SkipFinalSnapshot
 
 #### Output
 * output [DeleteDBInstanceResult](#deletedbinstanceresult)
@@ -465,7 +1025,24 @@ amazonaws_neptune.DeleteDBParameterGroup({
 
 #### Input
 * input `object`
-  * DBParameterGroupName **required** [String](#string)
+  * DBParameterGroupName **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### DeleteDBParameterGroup
+
+
+
+```js
+amazonaws_neptune.DeleteDBParameterGroup({
+  "DBParameterGroupName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * DBParameterGroupName **required**
 
 #### Output
 *Output schema unknown*
@@ -482,7 +1059,24 @@ amazonaws_neptune.DeleteDBSubnetGroup({
 
 #### Input
 * input `object`
-  * DBSubnetGroupName **required** [String](#string)
+  * DBSubnetGroupName **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### DeleteDBSubnetGroup
+
+
+
+```js
+amazonaws_neptune.DeleteDBSubnetGroup({
+  "DBSubnetGroupName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * DBSubnetGroupName **required**
 
 #### Output
 *Output schema unknown*
@@ -499,10 +1093,71 @@ amazonaws_neptune.DeleteEventSubscription({
 
 #### Input
 * input `object`
-  * SubscriptionName **required** [String](#string)
+  * SubscriptionName **required** `string`
 
 #### Output
 * output [DeleteEventSubscriptionResult](#deleteeventsubscriptionresult)
+
+### DeleteEventSubscription
+
+
+
+```js
+amazonaws_neptune.DeleteEventSubscription({
+  "SubscriptionName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * SubscriptionName **required**
+
+#### Output
+* output [DeleteEventSubscriptionResult](#deleteeventsubscriptionresult)
+
+### DescribeDBClusterEndpoints
+
+
+
+```js
+amazonaws_neptune.DescribeDBClusterEndpoints({}, context)
+```
+
+#### Input
+* input `object`
+  * DBClusterIdentifier `string`
+  * DBClusterEndpointIdentifier `string`
+  * Filters `array`
+  * MaxRecords `integer`
+  * Marker `string`
+
+#### Output
+* output [DBClusterEndpointMessage](#dbclusterendpointmessage)
+
+### DescribeDBClusterEndpoints
+
+
+
+```js
+amazonaws_neptune.DescribeDBClusterEndpoints({}, context)
+```
+
+#### Input
+* input `object`
+  * MaxRecords `string`
+  * Marker `string`
+  * DBClusterEndpointIdentifier
+  * DBClusterIdentifier
+  * Filters
+    * items
+      * Name **required**
+      * Values **required**
+        * items
+  * Marker
+  * MaxRecords
+
+#### Output
+* output [DBClusterEndpointMessage](#dbclusterendpointmessage)
 
 ### DescribeDBClusterParameterGroups
 
@@ -514,10 +1169,32 @@ amazonaws_neptune.DescribeDBClusterParameterGroups({}, context)
 
 #### Input
 * input `object`
-  * DBClusterParameterGroupName [String](#string)
-  * Filters [FilterList](#filterlist)
-  * Marker [String](#string)
-  * MaxRecords [IntegerOptional](#integeroptional)
+  * DBClusterParameterGroupName `string`
+  * Filters `array`
+  * MaxRecords `integer`
+  * Marker `string`
+
+#### Output
+* output [DBClusterParameterGroupsMessage](#dbclusterparametergroupsmessage)
+
+### DescribeDBClusterParameterGroups
+
+
+
+```js
+amazonaws_neptune.DescribeDBClusterParameterGroups({}, context)
+```
+
+#### Input
+* input `object`
+  * DBClusterParameterGroupName
+  * Filters
+    * items
+      * Name **required**
+      * Values **required**
+        * items
+  * Marker
+  * MaxRecords
 
 #### Output
 * output [DBClusterParameterGroupsMessage](#dbclusterparametergroupsmessage)
@@ -534,11 +1211,36 @@ amazonaws_neptune.DescribeDBClusterParameters({
 
 #### Input
 * input `object`
-  * DBClusterParameterGroupName **required** [String](#string)
-  * Filters [FilterList](#filterlist)
-  * Marker [String](#string)
-  * MaxRecords [IntegerOptional](#integeroptional)
-  * Source [String](#string)
+  * DBClusterParameterGroupName **required** `string`
+  * Source `string`
+  * Filters `array`
+  * MaxRecords `integer`
+  * Marker `string`
+
+#### Output
+* output [DBClusterParameterGroupDetails](#dbclusterparametergroupdetails)
+
+### DescribeDBClusterParameters
+
+
+
+```js
+amazonaws_neptune.DescribeDBClusterParameters({
+  "DBClusterParameterGroupName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * DBClusterParameterGroupName **required**
+  * Filters
+    * items
+      * Name **required**
+      * Values **required**
+        * items
+  * Marker
+  * MaxRecords
+  * Source
 
 #### Output
 * output [DBClusterParameterGroupDetails](#dbclusterparametergroupdetails)
@@ -555,7 +1257,24 @@ amazonaws_neptune.DescribeDBClusterSnapshotAttributes({
 
 #### Input
 * input `object`
-  * DBClusterSnapshotIdentifier **required** [String](#string)
+  * DBClusterSnapshotIdentifier **required** `string`
+
+#### Output
+* output [DescribeDBClusterSnapshotAttributesResult](#describedbclustersnapshotattributesresult)
+
+### DescribeDBClusterSnapshotAttributes
+
+
+
+```js
+amazonaws_neptune.DescribeDBClusterSnapshotAttributes({
+  "DBClusterSnapshotIdentifier": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * DBClusterSnapshotIdentifier **required**
 
 #### Output
 * output [DescribeDBClusterSnapshotAttributesResult](#describedbclustersnapshotattributesresult)
@@ -570,14 +1289,40 @@ amazonaws_neptune.DescribeDBClusterSnapshots({}, context)
 
 #### Input
 * input `object`
-  * DBClusterIdentifier [String](#string)
-  * DBClusterSnapshotIdentifier [String](#string)
-  * Filters [FilterList](#filterlist)
-  * IncludePublic [Boolean](#boolean)
-  * IncludeShared [Boolean](#boolean)
-  * Marker [String](#string)
-  * MaxRecords [IntegerOptional](#integeroptional)
-  * SnapshotType [String](#string)
+  * DBClusterIdentifier `string`
+  * DBClusterSnapshotIdentifier `string`
+  * SnapshotType `string`
+  * Filters `array`
+  * MaxRecords `integer`
+  * Marker `string`
+  * IncludeShared `boolean`
+  * IncludePublic `boolean`
+
+#### Output
+* output [DBClusterSnapshotMessage](#dbclustersnapshotmessage)
+
+### DescribeDBClusterSnapshots
+
+
+
+```js
+amazonaws_neptune.DescribeDBClusterSnapshots({}, context)
+```
+
+#### Input
+* input `object`
+  * DBClusterIdentifier
+  * DBClusterSnapshotIdentifier
+  * Filters
+    * items
+      * Name **required**
+      * Values **required**
+        * items
+  * IncludePublic
+  * IncludeShared
+  * Marker
+  * MaxRecords
+  * SnapshotType
 
 #### Output
 * output [DBClusterSnapshotMessage](#dbclustersnapshotmessage)
@@ -592,10 +1337,32 @@ amazonaws_neptune.DescribeDBClusters({}, context)
 
 #### Input
 * input `object`
-  * DBClusterIdentifier [String](#string)
-  * Filters [FilterList](#filterlist)
-  * Marker [String](#string)
-  * MaxRecords [IntegerOptional](#integeroptional)
+  * DBClusterIdentifier `string`
+  * Filters `array`
+  * MaxRecords `integer`
+  * Marker `string`
+
+#### Output
+* output [DBClusterMessage](#dbclustermessage)
+
+### DescribeDBClusters
+
+
+
+```js
+amazonaws_neptune.DescribeDBClusters({}, context)
+```
+
+#### Input
+* input `object`
+  * DBClusterIdentifier
+  * Filters
+    * items
+      * Name **required**
+      * Values **required**
+        * items
+  * Marker
+  * MaxRecords
 
 #### Output
 * output [DBClusterMessage](#dbclustermessage)
@@ -610,17 +1377,44 @@ amazonaws_neptune.DescribeDBEngineVersions({}, context)
 
 #### Input
 * input `object`
+  * Engine `string`
+  * EngineVersion `string`
+  * DBParameterGroupFamily `string`
+  * Filters `array`
+  * MaxRecords `integer`
+  * Marker `string`
+  * DefaultOnly `boolean`
+  * ListSupportedCharacterSets `boolean`
+  * ListSupportedTimezones `boolean`
+
+#### Output
+* output [DBEngineVersionMessage](#dbengineversionmessage)
+
+### DescribeDBEngineVersions
+
+
+
+```js
+amazonaws_neptune.DescribeDBEngineVersions({}, context)
+```
+
+#### Input
+* input `object`
   * MaxRecords `string`
   * Marker `string`
-  * DBParameterGroupFamily [String](#string)
-  * DefaultOnly [Boolean](#boolean)
-  * Engine [String](#string)
-  * EngineVersion [String](#string)
-  * Filters [FilterList](#filterlist)
-  * ListSupportedCharacterSets [BooleanOptional](#booleanoptional)
-  * ListSupportedTimezones [BooleanOptional](#booleanoptional)
-  * Marker [String](#string)
-  * MaxRecords [IntegerOptional](#integeroptional)
+  * DBParameterGroupFamily
+  * DefaultOnly
+  * Engine
+  * EngineVersion
+  * Filters
+    * items
+      * Name **required**
+      * Values **required**
+        * items
+  * ListSupportedCharacterSets
+  * ListSupportedTimezones
+  * Marker
+  * MaxRecords
 
 #### Output
 * output [DBEngineVersionMessage](#dbengineversionmessage)
@@ -635,12 +1429,34 @@ amazonaws_neptune.DescribeDBInstances({}, context)
 
 #### Input
 * input `object`
+  * DBInstanceIdentifier `string`
+  * Filters `array`
+  * MaxRecords `integer`
+  * Marker `string`
+
+#### Output
+* output [DBInstanceMessage](#dbinstancemessage)
+
+### DescribeDBInstances
+
+
+
+```js
+amazonaws_neptune.DescribeDBInstances({}, context)
+```
+
+#### Input
+* input `object`
   * MaxRecords `string`
   * Marker `string`
-  * DBInstanceIdentifier [String](#string)
-  * Filters [FilterList](#filterlist)
-  * Marker [String](#string)
-  * MaxRecords [IntegerOptional](#integeroptional)
+  * DBInstanceIdentifier
+  * Filters
+    * items
+      * Name **required**
+      * Values **required**
+        * items
+  * Marker
+  * MaxRecords
 
 #### Output
 * output [DBInstanceMessage](#dbinstancemessage)
@@ -655,12 +1471,34 @@ amazonaws_neptune.DescribeDBParameterGroups({}, context)
 
 #### Input
 * input `object`
+  * DBParameterGroupName `string`
+  * Filters `array`
+  * MaxRecords `integer`
+  * Marker `string`
+
+#### Output
+* output [DBParameterGroupsMessage](#dbparametergroupsmessage)
+
+### DescribeDBParameterGroups
+
+
+
+```js
+amazonaws_neptune.DescribeDBParameterGroups({}, context)
+```
+
+#### Input
+* input `object`
   * MaxRecords `string`
   * Marker `string`
-  * DBParameterGroupName [String](#string)
-  * Filters [FilterList](#filterlist)
-  * Marker [String](#string)
-  * MaxRecords [IntegerOptional](#integeroptional)
+  * DBParameterGroupName
+  * Filters
+    * items
+      * Name **required**
+      * Values **required**
+        * items
+  * Marker
+  * MaxRecords
 
 #### Output
 * output [DBParameterGroupsMessage](#dbparametergroupsmessage)
@@ -677,13 +1515,38 @@ amazonaws_neptune.DescribeDBParameters({
 
 #### Input
 * input `object`
+  * DBParameterGroupName **required** `string`
+  * Source `string`
+  * Filters `array`
+  * MaxRecords `integer`
+  * Marker `string`
+
+#### Output
+* output [DBParameterGroupDetails](#dbparametergroupdetails)
+
+### DescribeDBParameters
+
+
+
+```js
+amazonaws_neptune.DescribeDBParameters({
+  "DBParameterGroupName": null
+}, context)
+```
+
+#### Input
+* input `object`
   * MaxRecords `string`
   * Marker `string`
-  * DBParameterGroupName **required** [String](#string)
-  * Filters [FilterList](#filterlist)
-  * Marker [String](#string)
-  * MaxRecords [IntegerOptional](#integeroptional)
-  * Source [String](#string)
+  * DBParameterGroupName **required**
+  * Filters
+    * items
+      * Name **required**
+      * Values **required**
+        * items
+  * Marker
+  * MaxRecords
+  * Source
 
 #### Output
 * output [DBParameterGroupDetails](#dbparametergroupdetails)
@@ -698,12 +1561,34 @@ amazonaws_neptune.DescribeDBSubnetGroups({}, context)
 
 #### Input
 * input `object`
+  * DBSubnetGroupName `string`
+  * Filters `array`
+  * MaxRecords `integer`
+  * Marker `string`
+
+#### Output
+* output [DBSubnetGroupMessage](#dbsubnetgroupmessage)
+
+### DescribeDBSubnetGroups
+
+
+
+```js
+amazonaws_neptune.DescribeDBSubnetGroups({}, context)
+```
+
+#### Input
+* input `object`
   * MaxRecords `string`
   * Marker `string`
-  * DBSubnetGroupName [String](#string)
-  * Filters [FilterList](#filterlist)
-  * Marker [String](#string)
-  * MaxRecords [IntegerOptional](#integeroptional)
+  * DBSubnetGroupName
+  * Filters
+    * items
+      * Name **required**
+      * Values **required**
+        * items
+  * Marker
+  * MaxRecords
 
 #### Output
 * output [DBSubnetGroupMessage](#dbsubnetgroupmessage)
@@ -720,10 +1605,34 @@ amazonaws_neptune.DescribeEngineDefaultClusterParameters({
 
 #### Input
 * input `object`
-  * DBParameterGroupFamily **required** [String](#string)
-  * Filters [FilterList](#filterlist)
-  * Marker [String](#string)
-  * MaxRecords [IntegerOptional](#integeroptional)
+  * DBParameterGroupFamily **required** `string`
+  * Filters `array`
+  * MaxRecords `integer`
+  * Marker `string`
+
+#### Output
+* output [DescribeEngineDefaultClusterParametersResult](#describeenginedefaultclusterparametersresult)
+
+### DescribeEngineDefaultClusterParameters
+
+
+
+```js
+amazonaws_neptune.DescribeEngineDefaultClusterParameters({
+  "DBParameterGroupFamily": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * DBParameterGroupFamily **required**
+  * Filters
+    * items
+      * Name **required**
+      * Values **required**
+        * items
+  * Marker
+  * MaxRecords
 
 #### Output
 * output [DescribeEngineDefaultClusterParametersResult](#describeenginedefaultclusterparametersresult)
@@ -740,12 +1649,36 @@ amazonaws_neptune.DescribeEngineDefaultParameters({
 
 #### Input
 * input `object`
+  * DBParameterGroupFamily **required** `string`
+  * Filters `array`
+  * MaxRecords `integer`
+  * Marker `string`
+
+#### Output
+* output [DescribeEngineDefaultParametersResult](#describeenginedefaultparametersresult)
+
+### DescribeEngineDefaultParameters
+
+
+
+```js
+amazonaws_neptune.DescribeEngineDefaultParameters({
+  "DBParameterGroupFamily": null
+}, context)
+```
+
+#### Input
+* input `object`
   * MaxRecords `string`
   * Marker `string`
-  * DBParameterGroupFamily **required** [String](#string)
-  * Filters [FilterList](#filterlist)
-  * Marker [String](#string)
-  * MaxRecords [IntegerOptional](#integeroptional)
+  * DBParameterGroupFamily **required**
+  * Filters
+    * items
+      * Name **required**
+      * Values **required**
+        * items
+  * Marker
+  * MaxRecords
 
 #### Output
 * output [DescribeEngineDefaultParametersResult](#describeenginedefaultparametersresult)
@@ -760,8 +1693,28 @@ amazonaws_neptune.DescribeEventCategories({}, context)
 
 #### Input
 * input `object`
-  * Filters [FilterList](#filterlist)
-  * SourceType [String](#string)
+  * SourceType `string`
+  * Filters `array`
+
+#### Output
+* output [EventCategoriesMessage](#eventcategoriesmessage)
+
+### DescribeEventCategories
+
+
+
+```js
+amazonaws_neptune.DescribeEventCategories({}, context)
+```
+
+#### Input
+* input `object`
+  * Filters
+    * items
+      * Name **required**
+      * Values **required**
+        * items
+  * SourceType
 
 #### Output
 * output [EventCategoriesMessage](#eventcategoriesmessage)
@@ -776,12 +1729,34 @@ amazonaws_neptune.DescribeEventSubscriptions({}, context)
 
 #### Input
 * input `object`
+  * SubscriptionName `string`
+  * Filters `array`
+  * MaxRecords `integer`
+  * Marker `string`
+
+#### Output
+* output [EventSubscriptionsMessage](#eventsubscriptionsmessage)
+
+### DescribeEventSubscriptions
+
+
+
+```js
+amazonaws_neptune.DescribeEventSubscriptions({}, context)
+```
+
+#### Input
+* input `object`
   * MaxRecords `string`
   * Marker `string`
-  * Filters [FilterList](#filterlist)
-  * Marker [String](#string)
-  * MaxRecords [IntegerOptional](#integeroptional)
-  * SubscriptionName [String](#string)
+  * Filters
+    * items
+      * Name **required**
+      * Values **required**
+        * items
+  * Marker
+  * MaxRecords
+  * SubscriptionName
 
 #### Output
 * output [EventSubscriptionsMessage](#eventsubscriptionsmessage)
@@ -796,17 +1771,45 @@ amazonaws_neptune.DescribeEvents({}, context)
 
 #### Input
 * input `object`
+  * SourceIdentifier `string`
+  * SourceType `string`
+  * StartTime `string`
+  * EndTime `string`
+  * Duration `integer`
+  * EventCategories `array`
+  * Filters `array`
+  * MaxRecords `integer`
+  * Marker `string`
+
+#### Output
+* output [EventsMessage](#eventsmessage)
+
+### DescribeEvents
+
+
+
+```js
+amazonaws_neptune.DescribeEvents({}, context)
+```
+
+#### Input
+* input `object`
   * MaxRecords `string`
   * Marker `string`
-  * Duration [IntegerOptional](#integeroptional)
-  * EndTime [TStamp](#tstamp)
-  * EventCategories [EventCategoriesList](#eventcategorieslist)
-  * Filters [FilterList](#filterlist)
-  * Marker [String](#string)
-  * MaxRecords [IntegerOptional](#integeroptional)
-  * SourceIdentifier [String](#string)
-  * SourceType [SourceType](#sourcetype)
-  * StartTime [TStamp](#tstamp)
+  * Duration
+  * EndTime
+  * EventCategories
+    * items
+  * Filters
+    * items
+      * Name **required**
+      * Values **required**
+        * items
+  * Marker
+  * MaxRecords
+  * SourceIdentifier
+  * SourceType
+  * StartTime
 
 #### Output
 * output [EventsMessage](#eventsmessage)
@@ -823,16 +1826,44 @@ amazonaws_neptune.DescribeOrderableDBInstanceOptions({
 
 #### Input
 * input `object`
+  * Engine **required** `string`
+  * EngineVersion `string`
+  * DBInstanceClass `string`
+  * LicenseModel `string`
+  * Vpc `boolean`
+  * Filters `array`
+  * MaxRecords `integer`
+  * Marker `string`
+
+#### Output
+* output [OrderableDBInstanceOptionsMessage](#orderabledbinstanceoptionsmessage)
+
+### DescribeOrderableDBInstanceOptions
+
+
+
+```js
+amazonaws_neptune.DescribeOrderableDBInstanceOptions({
+  "Engine": null
+}, context)
+```
+
+#### Input
+* input `object`
   * MaxRecords `string`
   * Marker `string`
-  * DBInstanceClass [String](#string)
-  * Engine **required** [String](#string)
-  * EngineVersion [String](#string)
-  * Filters [FilterList](#filterlist)
-  * LicenseModel [String](#string)
-  * Marker [String](#string)
-  * MaxRecords [IntegerOptional](#integeroptional)
-  * Vpc [BooleanOptional](#booleanoptional)
+  * DBInstanceClass
+  * Engine **required**
+  * EngineVersion
+  * Filters
+    * items
+      * Name **required**
+      * Values **required**
+        * items
+  * LicenseModel
+  * Marker
+  * MaxRecords
+  * Vpc
 
 #### Output
 * output [OrderableDBInstanceOptionsMessage](#orderabledbinstanceoptionsmessage)
@@ -847,10 +1878,32 @@ amazonaws_neptune.DescribePendingMaintenanceActions({}, context)
 
 #### Input
 * input `object`
-  * Filters [FilterList](#filterlist)
-  * Marker [String](#string)
-  * MaxRecords [IntegerOptional](#integeroptional)
-  * ResourceIdentifier [String](#string)
+  * ResourceIdentifier `string`
+  * Filters `array`
+  * Marker `string`
+  * MaxRecords `integer`
+
+#### Output
+* output [PendingMaintenanceActionsMessage](#pendingmaintenanceactionsmessage)
+
+### DescribePendingMaintenanceActions
+
+
+
+```js
+amazonaws_neptune.DescribePendingMaintenanceActions({}, context)
+```
+
+#### Input
+* input `object`
+  * Filters
+    * items
+      * Name **required**
+      * Values **required**
+        * items
+  * Marker
+  * MaxRecords
+  * ResourceIdentifier
 
 #### Output
 * output [PendingMaintenanceActionsMessage](#pendingmaintenanceactionsmessage)
@@ -867,7 +1920,24 @@ amazonaws_neptune.DescribeValidDBInstanceModifications({
 
 #### Input
 * input `object`
-  * DBInstanceIdentifier **required** [String](#string)
+  * DBInstanceIdentifier **required** `string`
+
+#### Output
+* output [DescribeValidDBInstanceModificationsResult](#describevaliddbinstancemodificationsresult)
+
+### DescribeValidDBInstanceModifications
+
+
+
+```js
+amazonaws_neptune.DescribeValidDBInstanceModifications({
+  "DBInstanceIdentifier": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * DBInstanceIdentifier **required**
 
 #### Output
 * output [DescribeValidDBInstanceModificationsResult](#describevaliddbinstancemodificationsresult)
@@ -882,8 +1952,24 @@ amazonaws_neptune.FailoverDBCluster({}, context)
 
 #### Input
 * input `object`
-  * DBClusterIdentifier [String](#string)
-  * TargetDBInstanceIdentifier [String](#string)
+  * DBClusterIdentifier `string`
+  * TargetDBInstanceIdentifier `string`
+
+#### Output
+* output [FailoverDBClusterResult](#failoverdbclusterresult)
+
+### FailoverDBCluster
+
+
+
+```js
+amazonaws_neptune.FailoverDBCluster({}, context)
+```
+
+#### Input
+* input `object`
+  * DBClusterIdentifier
+  * TargetDBInstanceIdentifier
 
 #### Output
 * output [FailoverDBClusterResult](#failoverdbclusterresult)
@@ -900,8 +1986,30 @@ amazonaws_neptune.ListTagsForResource({
 
 #### Input
 * input `object`
-  * Filters [FilterList](#filterlist)
-  * ResourceName **required** [String](#string)
+  * ResourceName **required** `string`
+  * Filters `array`
+
+#### Output
+* output [TagListMessage](#taglistmessage)
+
+### ListTagsForResource
+
+
+
+```js
+amazonaws_neptune.ListTagsForResource({
+  "ResourceName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * Filters
+    * items
+      * Name **required**
+      * Values **required**
+        * items
+  * ResourceName **required**
 
 #### Output
 * output [TagListMessage](#taglistmessage)
@@ -918,22 +2026,102 @@ amazonaws_neptune.ModifyDBCluster({
 
 #### Input
 * input `object`
-  * ApplyImmediately [Boolean](#boolean)
-  * BackupRetentionPeriod [IntegerOptional](#integeroptional)
-  * DBClusterIdentifier **required** [String](#string)
-  * DBClusterParameterGroupName [String](#string)
-  * EnableIAMDatabaseAuthentication [BooleanOptional](#booleanoptional)
-  * EngineVersion [String](#string)
-  * MasterUserPassword [String](#string)
-  * NewDBClusterIdentifier [String](#string)
-  * OptionGroupName [String](#string)
-  * Port [IntegerOptional](#integeroptional)
-  * PreferredBackupWindow [String](#string)
-  * PreferredMaintenanceWindow [String](#string)
-  * VpcSecurityGroupIds [VpcSecurityGroupIdList](#vpcsecuritygroupidlist)
+  * DBClusterIdentifier **required** `string`
+  * NewDBClusterIdentifier `string`
+  * ApplyImmediately `boolean`
+  * BackupRetentionPeriod `integer`
+  * DBClusterParameterGroupName `string`
+  * VpcSecurityGroupIds `array`
+  * Port `integer`
+  * MasterUserPassword `string`
+  * OptionGroupName `string`
+  * PreferredBackupWindow `string`
+  * PreferredMaintenanceWindow `string`
+  * EnableIAMDatabaseAuthentication `boolean`
+  * CloudwatchLogsExportConfiguration `object`
+  * EngineVersion `string`
+  * DeletionProtection `boolean`
 
 #### Output
 * output [ModifyDBClusterResult](#modifydbclusterresult)
+
+### ModifyDBCluster
+
+
+
+```js
+amazonaws_neptune.ModifyDBCluster({
+  "DBClusterIdentifier": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * ApplyImmediately
+  * BackupRetentionPeriod
+  * CloudwatchLogsExportConfiguration
+    * DisableLogTypes
+      * items [String](#string)
+    * EnableLogTypes
+      * items [String](#string)
+  * DBClusterIdentifier **required**
+  * DBClusterParameterGroupName
+  * DeletionProtection
+  * EnableIAMDatabaseAuthentication
+  * EngineVersion
+  * MasterUserPassword
+  * NewDBClusterIdentifier
+  * OptionGroupName
+  * Port
+  * PreferredBackupWindow
+  * PreferredMaintenanceWindow
+  * VpcSecurityGroupIds
+    * items
+
+#### Output
+* output [ModifyDBClusterResult](#modifydbclusterresult)
+
+### ModifyDBClusterEndpoint
+
+
+
+```js
+amazonaws_neptune.ModifyDBClusterEndpoint({
+  "DBClusterEndpointIdentifier": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * DBClusterEndpointIdentifier **required** `string`
+  * EndpointType `string`
+  * StaticMembers `array`
+  * ExcludedMembers `array`
+
+#### Output
+* output [ModifyDBClusterEndpointOutput](#modifydbclusterendpointoutput)
+
+### ModifyDBClusterEndpoint
+
+
+
+```js
+amazonaws_neptune.ModifyDBClusterEndpoint({
+  "DBClusterEndpointIdentifier": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * DBClusterEndpointIdentifier **required**
+  * EndpointType
+  * ExcludedMembers
+    * items [String](#string)
+  * StaticMembers
+    * items [String](#string)
+
+#### Output
+* output [ModifyDBClusterEndpointOutput](#modifydbclusterendpointoutput)
 
 ### ModifyDBClusterParameterGroup
 
@@ -948,8 +2136,38 @@ amazonaws_neptune.ModifyDBClusterParameterGroup({
 
 #### Input
 * input `object`
-  * DBClusterParameterGroupName **required** [String](#string)
-  * Parameters **required** [ParametersList](#parameterslist)
+  * DBClusterParameterGroupName **required** `string`
+  * Parameters **required** `array`
+
+#### Output
+* output [DBClusterParameterGroupNameMessage](#dbclusterparametergroupnamemessage)
+
+### ModifyDBClusterParameterGroup
+
+
+
+```js
+amazonaws_neptune.ModifyDBClusterParameterGroup({
+  "DBClusterParameterGroupName": null,
+  "Parameters": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * DBClusterParameterGroupName **required**
+  * Parameters **required**
+    * items
+      * AllowedValues
+      * ApplyMethod
+      * ApplyType
+      * DataType
+      * Description
+      * IsModifiable
+      * MinimumEngineVersion
+      * ParameterName
+      * ParameterValue
+      * Source
 
 #### Output
 * output [DBClusterParameterGroupNameMessage](#dbclusterparametergroupnamemessage)
@@ -967,10 +2185,33 @@ amazonaws_neptune.ModifyDBClusterSnapshotAttribute({
 
 #### Input
 * input `object`
-  * AttributeName **required** [String](#string)
-  * DBClusterSnapshotIdentifier **required** [String](#string)
-  * ValuesToAdd [AttributeValueList](#attributevaluelist)
-  * ValuesToRemove [AttributeValueList](#attributevaluelist)
+  * DBClusterSnapshotIdentifier **required** `string`
+  * AttributeName **required** `string`
+  * ValuesToAdd `array`
+  * ValuesToRemove `array`
+
+#### Output
+* output [ModifyDBClusterSnapshotAttributeResult](#modifydbclustersnapshotattributeresult)
+
+### ModifyDBClusterSnapshotAttribute
+
+
+
+```js
+amazonaws_neptune.ModifyDBClusterSnapshotAttribute({
+  "DBClusterSnapshotIdentifier": null,
+  "AttributeName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * AttributeName **required**
+  * DBClusterSnapshotIdentifier **required**
+  * ValuesToAdd
+    * items
+  * ValuesToRemove
+    * items
 
 #### Output
 * output [ModifyDBClusterSnapshotAttributeResult](#modifydbclustersnapshotattributeresult)
@@ -987,42 +2228,102 @@ amazonaws_neptune.ModifyDBInstance({
 
 #### Input
 * input `object`
-  * AllocatedStorage [IntegerOptional](#integeroptional)
-  * AllowMajorVersionUpgrade [Boolean](#boolean)
-  * ApplyImmediately [Boolean](#boolean)
-  * AutoMinorVersionUpgrade [BooleanOptional](#booleanoptional)
-  * BackupRetentionPeriod [IntegerOptional](#integeroptional)
-  * CACertificateIdentifier [String](#string)
-  * CloudwatchLogsExportConfiguration [CloudwatchLogsExportConfiguration](#cloudwatchlogsexportconfiguration)
-  * CopyTagsToSnapshot [BooleanOptional](#booleanoptional)
-  * DBInstanceClass [String](#string)
-  * DBInstanceIdentifier **required** [String](#string)
-  * DBParameterGroupName [String](#string)
-  * DBPortNumber [IntegerOptional](#integeroptional)
-  * DBSecurityGroups [DBSecurityGroupNameList](#dbsecuritygroupnamelist)
-  * DBSubnetGroupName [String](#string)
-  * Domain [String](#string)
-  * DomainIAMRoleName [String](#string)
-  * EnableIAMDatabaseAuthentication [BooleanOptional](#booleanoptional)
-  * EnablePerformanceInsights [BooleanOptional](#booleanoptional)
-  * EngineVersion [String](#string)
-  * Iops [IntegerOptional](#integeroptional)
-  * LicenseModel [String](#string)
-  * MasterUserPassword [String](#string)
-  * MonitoringInterval [IntegerOptional](#integeroptional)
-  * MonitoringRoleArn [String](#string)
-  * MultiAZ [BooleanOptional](#booleanoptional)
-  * NewDBInstanceIdentifier [String](#string)
-  * OptionGroupName [String](#string)
-  * PerformanceInsightsKMSKeyId [String](#string)
-  * PreferredBackupWindow [String](#string)
-  * PreferredMaintenanceWindow [String](#string)
-  * PromotionTier [IntegerOptional](#integeroptional)
-  * PubliclyAccessible [BooleanOptional](#booleanoptional)
-  * StorageType [String](#string)
-  * TdeCredentialArn [String](#string)
-  * TdeCredentialPassword [String](#string)
-  * VpcSecurityGroupIds [VpcSecurityGroupIdList](#vpcsecuritygroupidlist)
+  * DBInstanceIdentifier **required** `string`
+  * AllocatedStorage `integer`
+  * DBInstanceClass `string`
+  * DBSubnetGroupName `string`
+  * DBSecurityGroups `array`
+  * VpcSecurityGroupIds `array`
+  * ApplyImmediately `boolean`
+  * MasterUserPassword `string`
+  * DBParameterGroupName `string`
+  * BackupRetentionPeriod `integer`
+  * PreferredBackupWindow `string`
+  * PreferredMaintenanceWindow `string`
+  * MultiAZ `boolean`
+  * EngineVersion `string`
+  * AllowMajorVersionUpgrade `boolean`
+  * AutoMinorVersionUpgrade `boolean`
+  * LicenseModel `string`
+  * Iops `integer`
+  * OptionGroupName `string`
+  * NewDBInstanceIdentifier `string`
+  * StorageType `string`
+  * TdeCredentialArn `string`
+  * TdeCredentialPassword `string`
+  * CACertificateIdentifier `string`
+  * Domain `string`
+  * CopyTagsToSnapshot `boolean`
+  * MonitoringInterval `integer`
+  * DBPortNumber `integer`
+  * PubliclyAccessible `boolean`
+  * MonitoringRoleArn `string`
+  * DomainIAMRoleName `string`
+  * PromotionTier `integer`
+  * EnableIAMDatabaseAuthentication `boolean`
+  * EnablePerformanceInsights `boolean`
+  * PerformanceInsightsKMSKeyId `string`
+  * CloudwatchLogsExportConfiguration `object`
+  * DeletionProtection `boolean`
+
+#### Output
+* output [ModifyDBInstanceResult](#modifydbinstanceresult)
+
+### ModifyDBInstance
+
+
+
+```js
+amazonaws_neptune.ModifyDBInstance({
+  "DBInstanceIdentifier": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * AllocatedStorage
+  * AllowMajorVersionUpgrade
+  * ApplyImmediately
+  * AutoMinorVersionUpgrade
+  * BackupRetentionPeriod
+  * CACertificateIdentifier
+  * CloudwatchLogsExportConfiguration
+    * DisableLogTypes
+      * items [String](#string)
+    * EnableLogTypes
+      * items [String](#string)
+  * CopyTagsToSnapshot
+  * DBInstanceClass
+  * DBInstanceIdentifier **required**
+  * DBParameterGroupName
+  * DBPortNumber
+  * DBSecurityGroups
+    * items
+  * DBSubnetGroupName
+  * DeletionProtection
+  * Domain
+  * DomainIAMRoleName
+  * EnableIAMDatabaseAuthentication
+  * EnablePerformanceInsights
+  * EngineVersion
+  * Iops
+  * LicenseModel
+  * MasterUserPassword
+  * MonitoringInterval
+  * MonitoringRoleArn
+  * MultiAZ
+  * NewDBInstanceIdentifier
+  * OptionGroupName
+  * PerformanceInsightsKMSKeyId
+  * PreferredBackupWindow
+  * PreferredMaintenanceWindow
+  * PromotionTier
+  * PubliclyAccessible
+  * StorageType
+  * TdeCredentialArn
+  * TdeCredentialPassword
+  * VpcSecurityGroupIds
+    * items
 
 #### Output
 * output [ModifyDBInstanceResult](#modifydbinstanceresult)
@@ -1040,8 +2341,38 @@ amazonaws_neptune.ModifyDBParameterGroup({
 
 #### Input
 * input `object`
-  * DBParameterGroupName **required** [String](#string)
-  * Parameters **required** [ParametersList](#parameterslist)
+  * DBParameterGroupName **required** `string`
+  * Parameters **required** `array`
+
+#### Output
+* output [DBParameterGroupNameMessage](#dbparametergroupnamemessage)
+
+### ModifyDBParameterGroup
+
+
+
+```js
+amazonaws_neptune.ModifyDBParameterGroup({
+  "DBParameterGroupName": null,
+  "Parameters": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * DBParameterGroupName **required**
+  * Parameters **required**
+    * items
+      * AllowedValues
+      * ApplyMethod
+      * ApplyType
+      * DataType
+      * Description
+      * IsModifiable
+      * MinimumEngineVersion
+      * ParameterName
+      * ParameterValue
+      * Source
 
 #### Output
 * output [DBParameterGroupNameMessage](#dbparametergroupnamemessage)
@@ -1059,9 +2390,30 @@ amazonaws_neptune.ModifyDBSubnetGroup({
 
 #### Input
 * input `object`
-  * DBSubnetGroupDescription [String](#string)
-  * DBSubnetGroupName **required** [String](#string)
-  * SubnetIds **required** [SubnetIdentifierList](#subnetidentifierlist)
+  * DBSubnetGroupName **required** `string`
+  * DBSubnetGroupDescription `string`
+  * SubnetIds **required** `array`
+
+#### Output
+* output [ModifyDBSubnetGroupResult](#modifydbsubnetgroupresult)
+
+### ModifyDBSubnetGroup
+
+
+
+```js
+amazonaws_neptune.ModifyDBSubnetGroup({
+  "DBSubnetGroupName": null,
+  "SubnetIds": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * DBSubnetGroupDescription
+  * DBSubnetGroupName **required**
+  * SubnetIds **required**
+    * items
 
 #### Output
 * output [ModifyDBSubnetGroupResult](#modifydbsubnetgroupresult)
@@ -1078,11 +2430,33 @@ amazonaws_neptune.ModifyEventSubscription({
 
 #### Input
 * input `object`
-  * Enabled [BooleanOptional](#booleanoptional)
-  * EventCategories [EventCategoriesList](#eventcategorieslist)
-  * SnsTopicArn [String](#string)
-  * SourceType [String](#string)
-  * SubscriptionName **required** [String](#string)
+  * SubscriptionName **required** `string`
+  * SnsTopicArn `string`
+  * SourceType `string`
+  * EventCategories `array`
+  * Enabled `boolean`
+
+#### Output
+* output [ModifyEventSubscriptionResult](#modifyeventsubscriptionresult)
+
+### ModifyEventSubscription
+
+
+
+```js
+amazonaws_neptune.ModifyEventSubscription({
+  "SubscriptionName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * Enabled
+  * EventCategories
+    * items
+  * SnsTopicArn
+  * SourceType
+  * SubscriptionName **required**
 
 #### Output
 * output [ModifyEventSubscriptionResult](#modifyeventsubscriptionresult)
@@ -1099,7 +2473,24 @@ amazonaws_neptune.PromoteReadReplicaDBCluster({
 
 #### Input
 * input `object`
-  * DBClusterIdentifier **required** [String](#string)
+  * DBClusterIdentifier **required** `string`
+
+#### Output
+* output [PromoteReadReplicaDBClusterResult](#promotereadreplicadbclusterresult)
+
+### PromoteReadReplicaDBCluster
+
+
+
+```js
+amazonaws_neptune.PromoteReadReplicaDBCluster({
+  "DBClusterIdentifier": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * DBClusterIdentifier **required**
 
 #### Output
 * output [PromoteReadReplicaDBClusterResult](#promotereadreplicadbclusterresult)
@@ -1116,8 +2507,26 @@ amazonaws_neptune.RebootDBInstance({
 
 #### Input
 * input `object`
-  * DBInstanceIdentifier **required** [String](#string)
-  * ForceFailover [BooleanOptional](#booleanoptional)
+  * DBInstanceIdentifier **required** `string`
+  * ForceFailover `boolean`
+
+#### Output
+* output [RebootDBInstanceResult](#rebootdbinstanceresult)
+
+### RebootDBInstance
+
+
+
+```js
+amazonaws_neptune.RebootDBInstance({
+  "DBInstanceIdentifier": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * DBInstanceIdentifier **required**
+  * ForceFailover
 
 #### Output
 * output [RebootDBInstanceResult](#rebootdbinstanceresult)
@@ -1135,8 +2544,29 @@ amazonaws_neptune.RemoveRoleFromDBCluster({
 
 #### Input
 * input `object`
-  * DBClusterIdentifier **required** [String](#string)
-  * RoleArn **required** [String](#string)
+  * DBClusterIdentifier **required** `string`
+  * RoleArn **required** `string`
+  * FeatureName `string`
+
+#### Output
+*Output schema unknown*
+
+### RemoveRoleFromDBCluster
+
+
+
+```js
+amazonaws_neptune.RemoveRoleFromDBCluster({
+  "DBClusterIdentifier": null,
+  "RoleArn": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * DBClusterIdentifier **required**
+  * FeatureName
+  * RoleArn **required**
 
 #### Output
 *Output schema unknown*
@@ -1154,8 +2584,27 @@ amazonaws_neptune.RemoveSourceIdentifierFromSubscription({
 
 #### Input
 * input `object`
-  * SourceIdentifier **required** [String](#string)
-  * SubscriptionName **required** [String](#string)
+  * SubscriptionName **required** `string`
+  * SourceIdentifier **required** `string`
+
+#### Output
+* output [RemoveSourceIdentifierFromSubscriptionResult](#removesourceidentifierfromsubscriptionresult)
+
+### RemoveSourceIdentifierFromSubscription
+
+
+
+```js
+amazonaws_neptune.RemoveSourceIdentifierFromSubscription({
+  "SubscriptionName": null,
+  "SourceIdentifier": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * SourceIdentifier **required**
+  * SubscriptionName **required**
 
 #### Output
 * output [RemoveSourceIdentifierFromSubscriptionResult](#removesourceidentifierfromsubscriptionresult)
@@ -1173,8 +2622,28 @@ amazonaws_neptune.RemoveTagsFromResource({
 
 #### Input
 * input `object`
-  * ResourceName **required** [String](#string)
-  * TagKeys **required** [KeyList](#keylist)
+  * ResourceName **required** `string`
+  * TagKeys **required** `array`
+
+#### Output
+*Output schema unknown*
+
+### RemoveTagsFromResource
+
+
+
+```js
+amazonaws_neptune.RemoveTagsFromResource({
+  "ResourceName": null,
+  "TagKeys": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * ResourceName **required**
+  * TagKeys **required**
+    * items [String](#string)
 
 #### Output
 *Output schema unknown*
@@ -1191,9 +2660,39 @@ amazonaws_neptune.ResetDBClusterParameterGroup({
 
 #### Input
 * input `object`
-  * DBClusterParameterGroupName **required** [String](#string)
-  * Parameters [ParametersList](#parameterslist)
-  * ResetAllParameters [Boolean](#boolean)
+  * DBClusterParameterGroupName **required** `string`
+  * ResetAllParameters `boolean`
+  * Parameters `array`
+
+#### Output
+* output [DBClusterParameterGroupNameMessage](#dbclusterparametergroupnamemessage)
+
+### ResetDBClusterParameterGroup
+
+
+
+```js
+amazonaws_neptune.ResetDBClusterParameterGroup({
+  "DBClusterParameterGroupName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * DBClusterParameterGroupName **required**
+  * Parameters
+    * items
+      * AllowedValues
+      * ApplyMethod
+      * ApplyType
+      * DataType
+      * Description
+      * IsModifiable
+      * MinimumEngineVersion
+      * ParameterName
+      * ParameterValue
+      * Source
+  * ResetAllParameters
 
 #### Output
 * output [DBClusterParameterGroupNameMessage](#dbclusterparametergroupnamemessage)
@@ -1210,9 +2709,39 @@ amazonaws_neptune.ResetDBParameterGroup({
 
 #### Input
 * input `object`
-  * DBParameterGroupName **required** [String](#string)
-  * Parameters [ParametersList](#parameterslist)
-  * ResetAllParameters [Boolean](#boolean)
+  * DBParameterGroupName **required** `string`
+  * ResetAllParameters `boolean`
+  * Parameters `array`
+
+#### Output
+* output [DBParameterGroupNameMessage](#dbparametergroupnamemessage)
+
+### ResetDBParameterGroup
+
+
+
+```js
+amazonaws_neptune.ResetDBParameterGroup({
+  "DBParameterGroupName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * DBParameterGroupName **required**
+  * Parameters
+    * items
+      * AllowedValues
+      * ApplyMethod
+      * ApplyType
+      * DataType
+      * Description
+      * IsModifiable
+      * MinimumEngineVersion
+      * ParameterName
+      * ParameterValue
+      * Source
+  * ResetAllParameters
 
 #### Output
 * output [DBParameterGroupNameMessage](#dbparametergroupnamemessage)
@@ -1231,19 +2760,62 @@ amazonaws_neptune.RestoreDBClusterFromSnapshot({
 
 #### Input
 * input `object`
-  * AvailabilityZones [AvailabilityZones](#availabilityzones)
-  * DBClusterIdentifier **required** [String](#string)
-  * DBSubnetGroupName [String](#string)
-  * DatabaseName [String](#string)
-  * EnableIAMDatabaseAuthentication [BooleanOptional](#booleanoptional)
-  * Engine **required** [String](#string)
-  * EngineVersion [String](#string)
-  * KmsKeyId [String](#string)
-  * OptionGroupName [String](#string)
-  * Port [IntegerOptional](#integeroptional)
-  * SnapshotIdentifier **required** [String](#string)
-  * Tags [TagList](#taglist)
-  * VpcSecurityGroupIds [VpcSecurityGroupIdList](#vpcsecuritygroupidlist)
+  * AvailabilityZones `array`
+  * DBClusterIdentifier **required** `string`
+  * SnapshotIdentifier **required** `string`
+  * Engine **required** `string`
+  * EngineVersion `string`
+  * Port `integer`
+  * DBSubnetGroupName `string`
+  * DatabaseName `string`
+  * OptionGroupName `string`
+  * VpcSecurityGroupIds `array`
+  * Tags `array`
+  * KmsKeyId `string`
+  * EnableIAMDatabaseAuthentication `boolean`
+  * EnableCloudwatchLogsExports `array`
+  * DBClusterParameterGroupName `string`
+  * DeletionProtection `boolean`
+
+#### Output
+* output [RestoreDBClusterFromSnapshotResult](#restoredbclusterfromsnapshotresult)
+
+### RestoreDBClusterFromSnapshot
+
+
+
+```js
+amazonaws_neptune.RestoreDBClusterFromSnapshot({
+  "DBClusterIdentifier": null,
+  "SnapshotIdentifier": null,
+  "Engine": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * AvailabilityZones
+    * items
+  * DBClusterIdentifier **required**
+  * DBClusterParameterGroupName
+  * DBSubnetGroupName
+  * DatabaseName
+  * DeletionProtection
+  * EnableCloudwatchLogsExports
+    * items [String](#string)
+  * EnableIAMDatabaseAuthentication
+  * Engine **required**
+  * EngineVersion
+  * KmsKeyId
+  * OptionGroupName
+  * Port
+  * SnapshotIdentifier **required**
+  * Tags
+    * items
+      * Key
+      * Value
+  * VpcSecurityGroupIds
+    * items
 
 #### Output
 * output [RestoreDBClusterFromSnapshotResult](#restoredbclusterfromsnapshotresult)
@@ -1261,21 +2833,129 @@ amazonaws_neptune.RestoreDBClusterToPointInTime({
 
 #### Input
 * input `object`
-  * DBClusterIdentifier **required** [String](#string)
-  * DBSubnetGroupName [String](#string)
-  * EnableIAMDatabaseAuthentication [BooleanOptional](#booleanoptional)
-  * KmsKeyId [String](#string)
-  * OptionGroupName [String](#string)
-  * Port [IntegerOptional](#integeroptional)
-  * RestoreToTime [TStamp](#tstamp)
-  * RestoreType [String](#string)
-  * SourceDBClusterIdentifier **required** [String](#string)
-  * Tags [TagList](#taglist)
-  * UseLatestRestorableTime [Boolean](#boolean)
-  * VpcSecurityGroupIds [VpcSecurityGroupIdList](#vpcsecuritygroupidlist)
+  * DBClusterIdentifier **required** `string`
+  * RestoreType `string`
+  * SourceDBClusterIdentifier **required** `string`
+  * RestoreToTime `string`
+  * UseLatestRestorableTime `boolean`
+  * Port `integer`
+  * DBSubnetGroupName `string`
+  * OptionGroupName `string`
+  * VpcSecurityGroupIds `array`
+  * Tags `array`
+  * KmsKeyId `string`
+  * EnableIAMDatabaseAuthentication `boolean`
+  * EnableCloudwatchLogsExports `array`
+  * DBClusterParameterGroupName `string`
+  * DeletionProtection `boolean`
 
 #### Output
 * output [RestoreDBClusterToPointInTimeResult](#restoredbclustertopointintimeresult)
+
+### RestoreDBClusterToPointInTime
+
+
+
+```js
+amazonaws_neptune.RestoreDBClusterToPointInTime({
+  "DBClusterIdentifier": null,
+  "SourceDBClusterIdentifier": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * DBClusterIdentifier **required**
+  * DBClusterParameterGroupName
+  * DBSubnetGroupName
+  * DeletionProtection
+  * EnableCloudwatchLogsExports
+    * items [String](#string)
+  * EnableIAMDatabaseAuthentication
+  * KmsKeyId
+  * OptionGroupName
+  * Port
+  * RestoreToTime
+  * RestoreType
+  * SourceDBClusterIdentifier **required**
+  * Tags
+    * items
+      * Key
+      * Value
+  * UseLatestRestorableTime
+  * VpcSecurityGroupIds
+    * items
+
+#### Output
+* output [RestoreDBClusterToPointInTimeResult](#restoredbclustertopointintimeresult)
+
+### StartDBCluster
+
+
+
+```js
+amazonaws_neptune.StartDBCluster({
+  "DBClusterIdentifier": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * DBClusterIdentifier **required** `string`
+
+#### Output
+* output [StartDBClusterResult](#startdbclusterresult)
+
+### StartDBCluster
+
+
+
+```js
+amazonaws_neptune.StartDBCluster({
+  "DBClusterIdentifier": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * DBClusterIdentifier **required**
+
+#### Output
+* output [StartDBClusterResult](#startdbclusterresult)
+
+### StopDBCluster
+
+
+
+```js
+amazonaws_neptune.StopDBCluster({
+  "DBClusterIdentifier": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * DBClusterIdentifier **required** `string`
+
+#### Output
+* output [StopDBClusterResult](#stopdbclusterresult)
+
+### StopDBCluster
+
+
+
+```js
+amazonaws_neptune.StopDBCluster({
+  "DBClusterIdentifier": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * DBClusterIdentifier **required**
+
+#### Output
+* output [StopDBClusterResult](#stopdbclusterresult)
 
 
 
@@ -1283,31 +2963,35 @@ amazonaws_neptune.RestoreDBClusterToPointInTime({
 
 ### AddRoleToDBClusterMessage
 * AddRoleToDBClusterMessage `object`
-  * DBClusterIdentifier **required** [String](#string)
-  * RoleArn **required** [String](#string)
+  * DBClusterIdentifier **required**
+  * FeatureName
+  * RoleArn **required**
 
 ### AddSourceIdentifierToSubscriptionMessage
-* AddSourceIdentifierToSubscriptionMessage `object`: <p/>
-  * SourceIdentifier **required** [String](#string)
-  * SubscriptionName **required** [String](#string)
+* AddSourceIdentifierToSubscriptionMessage `object`
+  * SourceIdentifier **required**
+  * SubscriptionName **required**
 
 ### AddSourceIdentifierToSubscriptionResult
 * AddSourceIdentifierToSubscriptionResult `object`
   * EventSubscription [EventSubscription](#eventsubscription)
 
 ### AddTagsToResourceMessage
-* AddTagsToResourceMessage `object`: <p/>
-  * ResourceName **required** [String](#string)
-  * Tags **required** [TagList](#taglist)
+* AddTagsToResourceMessage `object`
+  * ResourceName **required**
+  * Tags **required**
+    * items
+      * Key
+      * Value
 
 ### ApplyMethod
 * ApplyMethod `string` (values: immediate, pending-reboot)
 
 ### ApplyPendingMaintenanceActionMessage
-* ApplyPendingMaintenanceActionMessage `object`: <p/>
-  * ApplyAction **required** [String](#string)
-  * OptInType **required** [String](#string)
-  * ResourceIdentifier **required** [String](#string)
+* ApplyPendingMaintenanceActionMessage `object`
+  * ApplyAction **required**
+  * OptInType **required**
+  * ResourceIdentifier **required**
 
 ### ApplyPendingMaintenanceActionResult
 * ApplyPendingMaintenanceActionResult `object`
@@ -1315,22 +2999,23 @@ amazonaws_neptune.RestoreDBClusterToPointInTime({
 
 ### AttributeValueList
 * AttributeValueList `array`
-  * items [String](#string)
+  * items
 
 ### AuthorizationNotFoundFault
-* AuthorizationNotFoundFault `object`: <p>Specified CIDRIP or EC2 security group is not authorized for the specified DB security group.</p> <p>Neptune may not also be authorized via IAM to perform necessary actions on your behalf.</p>
+
 
 ### AvailabilityZone
-* AvailabilityZone `object`: <p>Contains Availability Zone information.</p> <p> This data type is used as an element in the following data type:</p> <ul> <li> <p> <a>OrderableDBInstanceOption</a> </p> </li> </ul>
-  * Name [String](#string)
+* AvailabilityZone `object`: Specifies an Availability Zone.
+  * Name
 
 ### AvailabilityZoneList
 * AvailabilityZoneList `array`
-  * items [AvailabilityZone](#availabilityzone)
+  * items
+    * Name
 
 ### AvailabilityZones
 * AvailabilityZones `array`
-  * items [String](#string)
+  * items
 
 ### Boolean
 * Boolean `boolean`
@@ -1339,84 +3024,135 @@ amazonaws_neptune.RestoreDBClusterToPointInTime({
 * BooleanOptional `boolean`
 
 ### CertificateNotFoundFault
-* CertificateNotFoundFault `object`:  <i>CertificateIdentifier</i> does not refer to an existing certificate. 
+
 
 ### CharacterSet
-* CharacterSet `object`:  This data type is used as a response element in the action <a>DescribeDBEngineVersions</a>. 
-  * CharacterSetDescription [String](#string)
-  * CharacterSetName [String](#string)
+* CharacterSet `object`: Specifies a character set.
+  * CharacterSetDescription
+  * CharacterSetName
 
 ### CloudwatchLogsExportConfiguration
-* CloudwatchLogsExportConfiguration `object`: The configuration setting for the log types to be enabled for export to CloudWatch Logs for a specific DB instance or DB cluster.
-  * DisableLogTypes [LogTypeList](#logtypelist)
-  * EnableLogTypes [LogTypeList](#logtypelist)
+* CloudwatchLogsExportConfiguration `object`: <p>The configuration setting for the log types to be enabled for export to CloudWatch Logs for a specific DB instance or DB cluster.</p> <p>The <code>EnableLogTypes</code> and <code>DisableLogTypes</code> arrays determine which logs will be exported (or not exported) to CloudWatch Logs.</p>
+  * DisableLogTypes
+    * items [String](#string)
+  * EnableLogTypes
+    * items [String](#string)
 
 ### CopyDBClusterParameterGroupMessage
 * CopyDBClusterParameterGroupMessage `object`
-  * SourceDBClusterParameterGroupIdentifier **required** [String](#string)
-  * Tags [TagList](#taglist)
-  * TargetDBClusterParameterGroupDescription **required** [String](#string)
-  * TargetDBClusterParameterGroupIdentifier **required** [String](#string)
+  * SourceDBClusterParameterGroupIdentifier **required**
+  * Tags
+    * items
+      * Key
+      * Value
+  * TargetDBClusterParameterGroupDescription **required**
+  * TargetDBClusterParameterGroupIdentifier **required**
 
 ### CopyDBClusterParameterGroupResult
 * CopyDBClusterParameterGroupResult `object`
   * DBClusterParameterGroup [DBClusterParameterGroup](#dbclusterparametergroup)
 
 ### CopyDBClusterSnapshotMessage
-* CopyDBClusterSnapshotMessage `object`: <p/>
-  * CopyTags [BooleanOptional](#booleanoptional)
-  * KmsKeyId [String](#string)
-  * PreSignedUrl [String](#string)
-  * SourceDBClusterSnapshotIdentifier **required** [String](#string)
-  * Tags [TagList](#taglist)
-  * TargetDBClusterSnapshotIdentifier **required** [String](#string)
+* CopyDBClusterSnapshotMessage `object`
+  * CopyTags
+  * KmsKeyId
+  * PreSignedUrl
+  * SourceDBClusterSnapshotIdentifier **required**
+  * Tags
+    * items
+      * Key
+      * Value
+  * TargetDBClusterSnapshotIdentifier **required**
 
 ### CopyDBClusterSnapshotResult
 * CopyDBClusterSnapshotResult `object`
   * DBClusterSnapshot [DBClusterSnapshot](#dbclustersnapshot)
 
 ### CopyDBParameterGroupMessage
-* CopyDBParameterGroupMessage `object`: <p/>
-  * SourceDBParameterGroupIdentifier **required** [String](#string)
-  * Tags [TagList](#taglist)
-  * TargetDBParameterGroupDescription **required** [String](#string)
-  * TargetDBParameterGroupIdentifier **required** [String](#string)
+* CopyDBParameterGroupMessage `object`
+  * SourceDBParameterGroupIdentifier **required**
+  * Tags
+    * items
+      * Key
+      * Value
+  * TargetDBParameterGroupDescription **required**
+  * TargetDBParameterGroupIdentifier **required**
 
 ### CopyDBParameterGroupResult
 * CopyDBParameterGroupResult `object`
   * DBParameterGroup [DBParameterGroup](#dbparametergroup)
 
+### CreateDBClusterEndpointMessage
+* CreateDBClusterEndpointMessage `object`
+  * DBClusterEndpointIdentifier **required**
+  * DBClusterIdentifier **required**
+  * EndpointType **required**
+  * ExcludedMembers
+    * items [String](#string)
+  * StaticMembers
+    * items [String](#string)
+  * Tags
+    * items
+      * Key
+      * Value
+
+### CreateDBClusterEndpointOutput
+* CreateDBClusterEndpointOutput `object`: <p>This data type represents the information you need to connect to an Amazon Neptune DB cluster. This data type is used as a response element in the following actions:</p> <ul> <li> <p> <code>CreateDBClusterEndpoint</code> </p> </li> <li> <p> <code>DescribeDBClusterEndpoints</code> </p> </li> <li> <p> <code>ModifyDBClusterEndpoint</code> </p> </li> <li> <p> <code>DeleteDBClusterEndpoint</code> </p> </li> </ul> <p>For the data structure that represents Amazon Neptune DB instance endpoints, see <code>Endpoint</code>.</p>
+  * CustomEndpointType
+  * DBClusterEndpointArn
+  * DBClusterEndpointIdentifier
+  * DBClusterEndpointResourceIdentifier
+  * DBClusterIdentifier
+  * Endpoint
+  * EndpointType
+  * ExcludedMembers
+    * items [String](#string)
+  * StaticMembers
+    * items [String](#string)
+  * Status
+
 ### CreateDBClusterMessage
-* CreateDBClusterMessage `object`: <p/>
-  * AvailabilityZones [AvailabilityZones](#availabilityzones)
-  * BackupRetentionPeriod [IntegerOptional](#integeroptional)
-  * CharacterSetName [String](#string)
-  * DBClusterIdentifier **required** [String](#string)
-  * DBClusterParameterGroupName [String](#string)
-  * DBSubnetGroupName [String](#string)
-  * DatabaseName [String](#string)
-  * EnableIAMDatabaseAuthentication [BooleanOptional](#booleanoptional)
-  * Engine **required** [String](#string)
-  * EngineVersion [String](#string)
-  * KmsKeyId [String](#string)
-  * MasterUserPassword [String](#string)
-  * MasterUsername [String](#string)
-  * OptionGroupName [String](#string)
-  * Port [IntegerOptional](#integeroptional)
-  * PreSignedUrl [String](#string)
-  * PreferredBackupWindow [String](#string)
-  * PreferredMaintenanceWindow [String](#string)
-  * ReplicationSourceIdentifier [String](#string)
-  * StorageEncrypted [BooleanOptional](#booleanoptional)
-  * Tags [TagList](#taglist)
-  * VpcSecurityGroupIds [VpcSecurityGroupIdList](#vpcsecuritygroupidlist)
+* CreateDBClusterMessage `object`
+  * AvailabilityZones
+    * items
+  * BackupRetentionPeriod
+  * CharacterSetName
+  * DBClusterIdentifier **required**
+  * DBClusterParameterGroupName
+  * DBSubnetGroupName
+  * DatabaseName
+  * DeletionProtection
+  * EnableCloudwatchLogsExports
+    * items [String](#string)
+  * EnableIAMDatabaseAuthentication
+  * Engine **required**
+  * EngineVersion
+  * KmsKeyId
+  * MasterUserPassword
+  * MasterUsername
+  * OptionGroupName
+  * Port
+  * PreSignedUrl
+  * PreferredBackupWindow
+  * PreferredMaintenanceWindow
+  * ReplicationSourceIdentifier
+  * StorageEncrypted
+  * Tags
+    * items
+      * Key
+      * Value
+  * VpcSecurityGroupIds
+    * items
 
 ### CreateDBClusterParameterGroupMessage
-* CreateDBClusterParameterGroupMessage `object`: <p/>
-  * DBClusterParameterGroupName **required** [String](#string)
-  * DBParameterGroupFamily **required** [String](#string)
-  * Description **required** [String](#string)
-  * Tags [TagList](#taglist)
+* CreateDBClusterParameterGroupMessage `object`
+  * DBClusterParameterGroupName **required**
+  * DBParameterGroupFamily **required**
+  * Description **required**
+  * Tags
+    * items
+      * Key
+      * Value
 
 ### CreateDBClusterParameterGroupResult
 * CreateDBClusterParameterGroupResult `object`
@@ -1427,695 +3163,1482 @@ amazonaws_neptune.RestoreDBClusterToPointInTime({
   * DBCluster [DBCluster](#dbcluster)
 
 ### CreateDBClusterSnapshotMessage
-* CreateDBClusterSnapshotMessage `object`: <p/>
-  * DBClusterIdentifier **required** [String](#string)
-  * DBClusterSnapshotIdentifier **required** [String](#string)
-  * Tags [TagList](#taglist)
+* CreateDBClusterSnapshotMessage `object`
+  * DBClusterIdentifier **required**
+  * DBClusterSnapshotIdentifier **required**
+  * Tags
+    * items
+      * Key
+      * Value
 
 ### CreateDBClusterSnapshotResult
 * CreateDBClusterSnapshotResult `object`
   * DBClusterSnapshot [DBClusterSnapshot](#dbclustersnapshot)
 
 ### CreateDBInstanceMessage
-* CreateDBInstanceMessage `object`: <p/>
-  * AllocatedStorage [IntegerOptional](#integeroptional)
-  * AutoMinorVersionUpgrade [BooleanOptional](#booleanoptional)
-  * AvailabilityZone [String](#string)
-  * BackupRetentionPeriod [IntegerOptional](#integeroptional)
-  * CharacterSetName [String](#string)
-  * CopyTagsToSnapshot [BooleanOptional](#booleanoptional)
-  * DBClusterIdentifier [String](#string)
-  * DBInstanceClass **required** [String](#string)
-  * DBInstanceIdentifier **required** [String](#string)
-  * DBName [String](#string)
-  * DBParameterGroupName [String](#string)
-  * DBSecurityGroups [DBSecurityGroupNameList](#dbsecuritygroupnamelist)
-  * DBSubnetGroupName [String](#string)
-  * Domain [String](#string)
-  * DomainIAMRoleName [String](#string)
-  * EnableCloudwatchLogsExports [LogTypeList](#logtypelist)
-  * EnableIAMDatabaseAuthentication [BooleanOptional](#booleanoptional)
-  * EnablePerformanceInsights [BooleanOptional](#booleanoptional)
-  * Engine **required** [String](#string)
-  * EngineVersion [String](#string)
-  * Iops [IntegerOptional](#integeroptional)
-  * KmsKeyId [String](#string)
-  * LicenseModel [String](#string)
-  * MasterUserPassword [String](#string)
-  * MasterUsername [String](#string)
-  * MonitoringInterval [IntegerOptional](#integeroptional)
-  * MonitoringRoleArn [String](#string)
-  * MultiAZ [BooleanOptional](#booleanoptional)
-  * OptionGroupName [String](#string)
-  * PerformanceInsightsKMSKeyId [String](#string)
-  * Port [IntegerOptional](#integeroptional)
-  * PreferredBackupWindow [String](#string)
-  * PreferredMaintenanceWindow [String](#string)
-  * PromotionTier [IntegerOptional](#integeroptional)
-  * PubliclyAccessible [BooleanOptional](#booleanoptional)
-  * StorageEncrypted [BooleanOptional](#booleanoptional)
-  * StorageType [String](#string)
-  * Tags [TagList](#taglist)
-  * TdeCredentialArn [String](#string)
-  * TdeCredentialPassword [String](#string)
-  * Timezone [String](#string)
-  * VpcSecurityGroupIds [VpcSecurityGroupIdList](#vpcsecuritygroupidlist)
+* CreateDBInstanceMessage `object`
+  * AllocatedStorage
+  * AutoMinorVersionUpgrade
+  * AvailabilityZone
+  * BackupRetentionPeriod
+  * CharacterSetName
+  * CopyTagsToSnapshot
+  * DBClusterIdentifier
+  * DBInstanceClass **required**
+  * DBInstanceIdentifier **required**
+  * DBName
+  * DBParameterGroupName
+  * DBSecurityGroups
+    * items
+  * DBSubnetGroupName
+  * DeletionProtection
+  * Domain
+  * DomainIAMRoleName
+  * EnableCloudwatchLogsExports
+    * items [String](#string)
+  * EnableIAMDatabaseAuthentication
+  * EnablePerformanceInsights
+  * Engine **required**
+  * EngineVersion
+  * Iops
+  * KmsKeyId
+  * LicenseModel
+  * MasterUserPassword
+  * MasterUsername
+  * MonitoringInterval
+  * MonitoringRoleArn
+  * MultiAZ
+  * OptionGroupName
+  * PerformanceInsightsKMSKeyId
+  * Port
+  * PreferredBackupWindow
+  * PreferredMaintenanceWindow
+  * PromotionTier
+  * PubliclyAccessible
+  * StorageEncrypted
+  * StorageType
+  * Tags
+    * items
+      * Key
+      * Value
+  * TdeCredentialArn
+  * TdeCredentialPassword
+  * Timezone
+  * VpcSecurityGroupIds
+    * items
 
 ### CreateDBInstanceResult
 * CreateDBInstanceResult `object`
   * DBInstance [DBInstance](#dbinstance)
 
 ### CreateDBParameterGroupMessage
-* CreateDBParameterGroupMessage `object`: <p/>
-  * DBParameterGroupFamily **required** [String](#string)
-  * DBParameterGroupName **required** [String](#string)
-  * Description **required** [String](#string)
-  * Tags [TagList](#taglist)
+* CreateDBParameterGroupMessage `object`
+  * DBParameterGroupFamily **required**
+  * DBParameterGroupName **required**
+  * Description **required**
+  * Tags
+    * items
+      * Key
+      * Value
 
 ### CreateDBParameterGroupResult
 * CreateDBParameterGroupResult `object`
   * DBParameterGroup [DBParameterGroup](#dbparametergroup)
 
 ### CreateDBSubnetGroupMessage
-* CreateDBSubnetGroupMessage `object`: <p/>
-  * DBSubnetGroupDescription **required** [String](#string)
-  * DBSubnetGroupName **required** [String](#string)
-  * SubnetIds **required** [SubnetIdentifierList](#subnetidentifierlist)
-  * Tags [TagList](#taglist)
+* CreateDBSubnetGroupMessage `object`
+  * DBSubnetGroupDescription **required**
+  * DBSubnetGroupName **required**
+  * SubnetIds **required**
+    * items
+  * Tags
+    * items
+      * Key
+      * Value
 
 ### CreateDBSubnetGroupResult
 * CreateDBSubnetGroupResult `object`
   * DBSubnetGroup [DBSubnetGroup](#dbsubnetgroup)
 
 ### CreateEventSubscriptionMessage
-* CreateEventSubscriptionMessage `object`: <p/>
-  * Enabled [BooleanOptional](#booleanoptional)
-  * EventCategories [EventCategoriesList](#eventcategorieslist)
-  * SnsTopicArn **required** [String](#string)
-  * SourceIds [SourceIdsList](#sourceidslist)
-  * SourceType [String](#string)
-  * SubscriptionName **required** [String](#string)
-  * Tags [TagList](#taglist)
+* CreateEventSubscriptionMessage `object`
+  * Enabled
+  * EventCategories
+    * items
+  * SnsTopicArn **required**
+  * SourceIds
+    * items
+  * SourceType
+  * SubscriptionName **required**
+  * Tags
+    * items
+      * Key
+      * Value
 
 ### CreateEventSubscriptionResult
 * CreateEventSubscriptionResult `object`
   * EventSubscription [EventSubscription](#eventsubscription)
 
 ### DBCluster
-* DBCluster `object`: <p>Contains the details of an Amazon Neptune DB cluster. </p> <p>This data type is used as a response element in the <a>DescribeDBClusters</a> action. </p>
-  * AllocatedStorage [IntegerOptional](#integeroptional)
-  * AssociatedRoles [DBClusterRoles](#dbclusterroles)
-  * AvailabilityZones [AvailabilityZones](#availabilityzones)
-  * BackupRetentionPeriod [IntegerOptional](#integeroptional)
-  * CharacterSetName [String](#string)
-  * CloneGroupId [String](#string)
-  * ClusterCreateTime [TStamp](#tstamp)
-  * DBClusterArn [String](#string)
-  * DBClusterIdentifier [String](#string)
-  * DBClusterMembers [DBClusterMemberList](#dbclustermemberlist)
-  * DBClusterOptionGroupMemberships [DBClusterOptionGroupMemberships](#dbclusteroptiongroupmemberships)
-  * DBClusterParameterGroup [String](#string)
-  * DBSubnetGroup [String](#string)
-  * DatabaseName [String](#string)
-  * DbClusterResourceId [String](#string)
-  * EarliestRestorableTime [TStamp](#tstamp)
-  * Endpoint [String](#string)
-  * Engine [String](#string)
-  * EngineVersion [String](#string)
-  * HostedZoneId [String](#string)
-  * IAMDatabaseAuthenticationEnabled [Boolean](#boolean)
-  * KmsKeyId [String](#string)
-  * LatestRestorableTime [TStamp](#tstamp)
-  * MasterUsername [String](#string)
-  * MultiAZ [Boolean](#boolean)
-  * PercentProgress [String](#string)
-  * Port [IntegerOptional](#integeroptional)
-  * PreferredBackupWindow [String](#string)
-  * PreferredMaintenanceWindow [String](#string)
-  * ReadReplicaIdentifiers [ReadReplicaIdentifierList](#readreplicaidentifierlist)
-  * ReaderEndpoint [String](#string)
-  * ReplicationSourceIdentifier [String](#string)
-  * Status [String](#string)
-  * StorageEncrypted [Boolean](#boolean)
-  * VpcSecurityGroups [VpcSecurityGroupMembershipList](#vpcsecuritygroupmembershiplist)
+* DBCluster `object`: <p>Contains the details of an Amazon Neptune DB cluster.</p> <p>This data type is used as a response element in the <a>DescribeDBClusters</a> action.</p>
+  * AllocatedStorage
+  * AssociatedRoles
+    * items
+      * FeatureName
+      * RoleArn
+      * Status
+  * AvailabilityZones
+    * items
+  * BackupRetentionPeriod
+  * CharacterSetName
+  * CloneGroupId
+  * ClusterCreateTime
+  * DBClusterArn
+  * DBClusterIdentifier
+  * DBClusterMembers
+    * items
+      * DBClusterParameterGroupStatus
+      * DBInstanceIdentifier
+      * IsClusterWriter
+      * PromotionTier
+  * DBClusterOptionGroupMemberships
+    * items
+      * DBClusterOptionGroupName
+      * Status
+  * DBClusterParameterGroup
+  * DBSubnetGroup
+  * DatabaseName
+  * DbClusterResourceId
+  * DeletionProtection
+  * EarliestRestorableTime
+  * EnabledCloudwatchLogsExports
+    * items [String](#string)
+  * Endpoint
+  * Engine
+  * EngineVersion
+  * HostedZoneId
+  * IAMDatabaseAuthenticationEnabled
+  * KmsKeyId
+  * LatestRestorableTime
+  * MasterUsername
+  * MultiAZ
+  * PercentProgress
+  * Port
+  * PreferredBackupWindow
+  * PreferredMaintenanceWindow
+  * ReadReplicaIdentifiers
+    * items
+  * ReaderEndpoint
+  * ReplicationSourceIdentifier
+  * Status
+  * StorageEncrypted
+  * VpcSecurityGroups
+    * items
+      * Status
+      * VpcSecurityGroupId
 
 ### DBClusterAlreadyExistsFault
-* DBClusterAlreadyExistsFault `object`: User already has a DB cluster with the given identifier.
+
+
+### DBClusterEndpoint
+* DBClusterEndpoint `object`: <p>This data type represents the information you need to connect to an Amazon Neptune DB cluster. This data type is used as a response element in the following actions:</p> <ul> <li> <p> <code>CreateDBClusterEndpoint</code> </p> </li> <li> <p> <code>DescribeDBClusterEndpoints</code> </p> </li> <li> <p> <code>ModifyDBClusterEndpoint</code> </p> </li> <li> <p> <code>DeleteDBClusterEndpoint</code> </p> </li> </ul> <p>For the data structure that represents Amazon Neptune DB instance endpoints, see <code>Endpoint</code>.</p>
+  * CustomEndpointType
+  * DBClusterEndpointArn
+  * DBClusterEndpointIdentifier
+  * DBClusterEndpointResourceIdentifier
+  * DBClusterIdentifier
+  * Endpoint
+  * EndpointType
+  * ExcludedMembers
+    * items [String](#string)
+  * StaticMembers
+    * items [String](#string)
+  * Status
+
+### DBClusterEndpointAlreadyExistsFault
+
+
+### DBClusterEndpointList
+* DBClusterEndpointList `array`
+  * items
+    * CustomEndpointType
+    * DBClusterEndpointArn
+    * DBClusterEndpointIdentifier
+    * DBClusterEndpointResourceIdentifier
+    * DBClusterIdentifier
+    * Endpoint
+    * EndpointType
+    * ExcludedMembers
+      * items [String](#string)
+    * StaticMembers
+      * items [String](#string)
+    * Status
+
+### DBClusterEndpointMessage
+* DBClusterEndpointMessage `object`
+  * DBClusterEndpoints
+    * items
+      * CustomEndpointType
+      * DBClusterEndpointArn
+      * DBClusterEndpointIdentifier
+      * DBClusterEndpointResourceIdentifier
+      * DBClusterIdentifier
+      * Endpoint
+      * EndpointType
+      * ExcludedMembers
+        * items [String](#string)
+      * StaticMembers
+        * items [String](#string)
+      * Status
+  * Marker
+
+### DBClusterEndpointNotFoundFault
+
+
+### DBClusterEndpointQuotaExceededFault
+
 
 ### DBClusterList
 * DBClusterList `array`
-  * items [DBCluster](#dbcluster)
+  * items
+    * AllocatedStorage
+    * AssociatedRoles
+      * items
+        * FeatureName
+        * RoleArn
+        * Status
+    * AvailabilityZones
+      * items
+    * BackupRetentionPeriod
+    * CharacterSetName
+    * CloneGroupId
+    * ClusterCreateTime
+    * DBClusterArn
+    * DBClusterIdentifier
+    * DBClusterMembers
+      * items
+        * DBClusterParameterGroupStatus
+        * DBInstanceIdentifier
+        * IsClusterWriter
+        * PromotionTier
+    * DBClusterOptionGroupMemberships
+      * items
+        * DBClusterOptionGroupName
+        * Status
+    * DBClusterParameterGroup
+    * DBSubnetGroup
+    * DatabaseName
+    * DbClusterResourceId
+    * DeletionProtection
+    * EarliestRestorableTime
+    * EnabledCloudwatchLogsExports
+      * items [String](#string)
+    * Endpoint
+    * Engine
+    * EngineVersion
+    * HostedZoneId
+    * IAMDatabaseAuthenticationEnabled
+    * KmsKeyId
+    * LatestRestorableTime
+    * MasterUsername
+    * MultiAZ
+    * PercentProgress
+    * Port
+    * PreferredBackupWindow
+    * PreferredMaintenanceWindow
+    * ReadReplicaIdentifiers
+      * items
+    * ReaderEndpoint
+    * ReplicationSourceIdentifier
+    * Status
+    * StorageEncrypted
+    * VpcSecurityGroups
+      * items
+        * Status
+        * VpcSecurityGroupId
 
 ### DBClusterMember
 * DBClusterMember `object`: Contains information about an instance that is part of a DB cluster.
-  * DBClusterParameterGroupStatus [String](#string)
-  * DBInstanceIdentifier [String](#string)
-  * IsClusterWriter [Boolean](#boolean)
-  * PromotionTier [IntegerOptional](#integeroptional)
+  * DBClusterParameterGroupStatus
+  * DBInstanceIdentifier
+  * IsClusterWriter
+  * PromotionTier
 
 ### DBClusterMemberList
 * DBClusterMemberList `array`
-  * items [DBClusterMember](#dbclustermember)
+  * items
+    * DBClusterParameterGroupStatus
+    * DBInstanceIdentifier
+    * IsClusterWriter
+    * PromotionTier
 
 ### DBClusterMessage
-* DBClusterMessage `object`: Contains the result of a successful invocation of the <a>DescribeDBClusters</a> action.
-  * DBClusters [DBClusterList](#dbclusterlist)
-  * Marker [String](#string)
+* DBClusterMessage `object`
+  * DBClusters
+    * items
+      * AllocatedStorage
+      * AssociatedRoles
+        * items
+          * FeatureName
+          * RoleArn
+          * Status
+      * AvailabilityZones
+        * items
+      * BackupRetentionPeriod
+      * CharacterSetName
+      * CloneGroupId
+      * ClusterCreateTime
+      * DBClusterArn
+      * DBClusterIdentifier
+      * DBClusterMembers
+        * items
+          * DBClusterParameterGroupStatus
+          * DBInstanceIdentifier
+          * IsClusterWriter
+          * PromotionTier
+      * DBClusterOptionGroupMemberships
+        * items
+          * DBClusterOptionGroupName
+          * Status
+      * DBClusterParameterGroup
+      * DBSubnetGroup
+      * DatabaseName
+      * DbClusterResourceId
+      * DeletionProtection
+      * EarliestRestorableTime
+      * EnabledCloudwatchLogsExports
+        * items [String](#string)
+      * Endpoint
+      * Engine
+      * EngineVersion
+      * HostedZoneId
+      * IAMDatabaseAuthenticationEnabled
+      * KmsKeyId
+      * LatestRestorableTime
+      * MasterUsername
+      * MultiAZ
+      * PercentProgress
+      * Port
+      * PreferredBackupWindow
+      * PreferredMaintenanceWindow
+      * ReadReplicaIdentifiers
+        * items
+      * ReaderEndpoint
+      * ReplicationSourceIdentifier
+      * Status
+      * StorageEncrypted
+      * VpcSecurityGroups
+        * items
+          * Status
+          * VpcSecurityGroupId
+  * Marker
 
 ### DBClusterNotFoundFault
-* DBClusterNotFoundFault `object`:  <i>DBClusterIdentifier</i> does not refer to an existing DB cluster. 
+
 
 ### DBClusterOptionGroupMemberships
 * DBClusterOptionGroupMemberships `array`
-  * items [DBClusterOptionGroupStatus](#dbclusteroptiongroupstatus)
+  * items
+    * DBClusterOptionGroupName
+    * Status
 
 ### DBClusterOptionGroupStatus
 * DBClusterOptionGroupStatus `object`: Contains status information for a DB cluster option group.
-  * DBClusterOptionGroupName [String](#string)
-  * Status [String](#string)
+  * DBClusterOptionGroupName
+  * Status
 
 ### DBClusterParameterGroup
-* DBClusterParameterGroup `object`: <p>Contains the details of an Amazon Neptune DB cluster parameter group. </p> <p>This data type is used as a response element in the <a>DescribeDBClusterParameterGroups</a> action. </p>
-  * DBClusterParameterGroupArn [String](#string)
-  * DBClusterParameterGroupName [String](#string)
-  * DBParameterGroupFamily [String](#string)
-  * Description [String](#string)
+* DBClusterParameterGroup `object`: <p>Contains the details of an Amazon Neptune DB cluster parameter group.</p> <p>This data type is used as a response element in the <a>DescribeDBClusterParameterGroups</a> action.</p>
+  * DBClusterParameterGroupArn
+  * DBClusterParameterGroupName
+  * DBParameterGroupFamily
+  * Description
 
 ### DBClusterParameterGroupDetails
-* DBClusterParameterGroupDetails `object`: Provides details about a DB cluster parameter group including the parameters in the DB cluster parameter group.
-  * Marker [String](#string)
-  * Parameters [ParametersList](#parameterslist)
+* DBClusterParameterGroupDetails `object`
+  * Marker
+  * Parameters
+    * items
+      * AllowedValues
+      * ApplyMethod
+      * ApplyType
+      * DataType
+      * Description
+      * IsModifiable
+      * MinimumEngineVersion
+      * ParameterName
+      * ParameterValue
+      * Source
 
 ### DBClusterParameterGroupList
 * DBClusterParameterGroupList `array`
-  * items [DBClusterParameterGroup](#dbclusterparametergroup)
+  * items
+    * DBClusterParameterGroupArn
+    * DBClusterParameterGroupName
+    * DBParameterGroupFamily
+    * Description
 
 ### DBClusterParameterGroupNameMessage
-* DBClusterParameterGroupNameMessage `object`: <p/>
-  * DBClusterParameterGroupName [String](#string)
+* DBClusterParameterGroupNameMessage `object`
+  * DBClusterParameterGroupName
 
 ### DBClusterParameterGroupNotFoundFault
-* DBClusterParameterGroupNotFoundFault `object`:  <i>DBClusterParameterGroupName</i> does not refer to an existing DB Cluster parameter group. 
+
 
 ### DBClusterParameterGroupsMessage
-* DBClusterParameterGroupsMessage `object`: <p/>
-  * DBClusterParameterGroups [DBClusterParameterGroupList](#dbclusterparametergrouplist)
-  * Marker [String](#string)
+* DBClusterParameterGroupsMessage `object`
+  * DBClusterParameterGroups
+    * items
+      * DBClusterParameterGroupArn
+      * DBClusterParameterGroupName
+      * DBParameterGroupFamily
+      * Description
+  * Marker
 
 ### DBClusterQuotaExceededFault
-* DBClusterQuotaExceededFault `object`: User attempted to create a new DB cluster and the user has already reached the maximum allowed DB cluster quota.
+
 
 ### DBClusterRole
 * DBClusterRole `object`: Describes an AWS Identity and Access Management (IAM) role that is associated with a DB cluster.
-  * RoleArn [String](#string)
-  * Status [String](#string)
+  * FeatureName
+  * RoleArn
+  * Status
 
 ### DBClusterRoleAlreadyExistsFault
-* DBClusterRoleAlreadyExistsFault `object`: The specified IAM role Amazon Resource Name (ARN) is already associated with the specified DB cluster.
+
 
 ### DBClusterRoleNotFoundFault
-* DBClusterRoleNotFoundFault `object`: The specified IAM role Amazon Resource Name (ARN) is not associated with the specified DB cluster.
+
 
 ### DBClusterRoleQuotaExceededFault
-* DBClusterRoleQuotaExceededFault `object`: You have exceeded the maximum number of IAM roles that can be associated with the specified DB cluster.
+
 
 ### DBClusterRoles
 * DBClusterRoles `array`
-  * items [DBClusterRole](#dbclusterrole)
+  * items
+    * FeatureName
+    * RoleArn
+    * Status
 
 ### DBClusterSnapshot
-* DBClusterSnapshot `object`: <p>Contains the details for an Amazon Neptune DB cluster snapshot </p> <p>This data type is used as a response element in the <a>DescribeDBClusterSnapshots</a> action. </p>
-  * AllocatedStorage [Integer](#integer)
-  * AvailabilityZones [AvailabilityZones](#availabilityzones)
-  * ClusterCreateTime [TStamp](#tstamp)
-  * DBClusterIdentifier [String](#string)
-  * DBClusterSnapshotArn [String](#string)
-  * DBClusterSnapshotIdentifier [String](#string)
-  * Engine [String](#string)
-  * EngineVersion [String](#string)
-  * IAMDatabaseAuthenticationEnabled [Boolean](#boolean)
-  * KmsKeyId [String](#string)
-  * LicenseModel [String](#string)
-  * MasterUsername [String](#string)
-  * PercentProgress [Integer](#integer)
-  * Port [Integer](#integer)
-  * SnapshotCreateTime [TStamp](#tstamp)
-  * SnapshotType [String](#string)
-  * SourceDBClusterSnapshotArn [String](#string)
-  * Status [String](#string)
-  * StorageEncrypted [Boolean](#boolean)
-  * VpcId [String](#string)
+* DBClusterSnapshot `object`: <p>Contains the details for an Amazon Neptune DB cluster snapshot</p> <p>This data type is used as a response element in the <a>DescribeDBClusterSnapshots</a> action.</p>
+  * AllocatedStorage
+  * AvailabilityZones
+    * items
+  * ClusterCreateTime
+  * DBClusterIdentifier
+  * DBClusterSnapshotArn
+  * DBClusterSnapshotIdentifier
+  * Engine
+  * EngineVersion
+  * IAMDatabaseAuthenticationEnabled
+  * KmsKeyId
+  * LicenseModel
+  * MasterUsername
+  * PercentProgress
+  * Port
+  * SnapshotCreateTime
+  * SnapshotType
+  * SourceDBClusterSnapshotArn
+  * Status
+  * StorageEncrypted
+  * VpcId
 
 ### DBClusterSnapshotAlreadyExistsFault
-* DBClusterSnapshotAlreadyExistsFault `object`: User already has a DB cluster snapshot with the given identifier.
+
 
 ### DBClusterSnapshotAttribute
 * DBClusterSnapshotAttribute `object`: <p>Contains the name and values of a manual DB cluster snapshot attribute.</p> <p>Manual DB cluster snapshot attributes are used to authorize other AWS accounts to restore a manual DB cluster snapshot. For more information, see the <a>ModifyDBClusterSnapshotAttribute</a> API action.</p>
-  * AttributeName [String](#string)
-  * AttributeValues [AttributeValueList](#attributevaluelist)
+  * AttributeName
+  * AttributeValues
+    * items
 
 ### DBClusterSnapshotAttributeList
 * DBClusterSnapshotAttributeList `array`
-  * items [DBClusterSnapshotAttribute](#dbclustersnapshotattribute)
+  * items
+    * AttributeName
+    * AttributeValues
+      * items
 
 ### DBClusterSnapshotAttributesResult
 * DBClusterSnapshotAttributesResult `object`: <p>Contains the results of a successful call to the <a>DescribeDBClusterSnapshotAttributes</a> API action.</p> <p>Manual DB cluster snapshot attributes are used to authorize other AWS accounts to copy or restore a manual DB cluster snapshot. For more information, see the <a>ModifyDBClusterSnapshotAttribute</a> API action.</p>
-  * DBClusterSnapshotAttributes [DBClusterSnapshotAttributeList](#dbclustersnapshotattributelist)
-  * DBClusterSnapshotIdentifier [String](#string)
+  * DBClusterSnapshotAttributes
+    * items
+      * AttributeName
+      * AttributeValues
+        * items
+  * DBClusterSnapshotIdentifier
 
 ### DBClusterSnapshotList
 * DBClusterSnapshotList `array`
-  * items [DBClusterSnapshot](#dbclustersnapshot)
+  * items
+    * AllocatedStorage
+    * AvailabilityZones
+      * items
+    * ClusterCreateTime
+    * DBClusterIdentifier
+    * DBClusterSnapshotArn
+    * DBClusterSnapshotIdentifier
+    * Engine
+    * EngineVersion
+    * IAMDatabaseAuthenticationEnabled
+    * KmsKeyId
+    * LicenseModel
+    * MasterUsername
+    * PercentProgress
+    * Port
+    * SnapshotCreateTime
+    * SnapshotType
+    * SourceDBClusterSnapshotArn
+    * Status
+    * StorageEncrypted
+    * VpcId
 
 ### DBClusterSnapshotMessage
-* DBClusterSnapshotMessage `object`:  Provides a list of DB cluster snapshots for the user as the result of a call to the <a>DescribeDBClusterSnapshots</a> action. 
-  * DBClusterSnapshots [DBClusterSnapshotList](#dbclustersnapshotlist)
-  * Marker [String](#string)
+* DBClusterSnapshotMessage `object`
+  * DBClusterSnapshots
+    * items
+      * AllocatedStorage
+      * AvailabilityZones
+        * items
+      * ClusterCreateTime
+      * DBClusterIdentifier
+      * DBClusterSnapshotArn
+      * DBClusterSnapshotIdentifier
+      * Engine
+      * EngineVersion
+      * IAMDatabaseAuthenticationEnabled
+      * KmsKeyId
+      * LicenseModel
+      * MasterUsername
+      * PercentProgress
+      * Port
+      * SnapshotCreateTime
+      * SnapshotType
+      * SourceDBClusterSnapshotArn
+      * Status
+      * StorageEncrypted
+      * VpcId
+  * Marker
 
 ### DBClusterSnapshotNotFoundFault
-* DBClusterSnapshotNotFoundFault `object`:  <i>DBClusterSnapshotIdentifier</i> does not refer to an existing DB cluster snapshot. 
+
 
 ### DBEngineVersion
-* DBEngineVersion `object`:  This data type is used as a response element in the action <a>DescribeDBEngineVersions</a>. 
-  * DBEngineDescription [String](#string)
-  * DBEngineVersionDescription [String](#string)
-  * DBParameterGroupFamily [String](#string)
-  * DefaultCharacterSet [CharacterSet](#characterset)
-  * Engine [String](#string)
-  * EngineVersion [String](#string)
-  * ExportableLogTypes [LogTypeList](#logtypelist)
-  * SupportedCharacterSets [SupportedCharacterSetsList](#supportedcharactersetslist)
-  * SupportedTimezones [SupportedTimezonesList](#supportedtimezoneslist)
-  * SupportsLogExportsToCloudwatchLogs [Boolean](#boolean)
-  * SupportsReadReplica [Boolean](#boolean)
-  * ValidUpgradeTarget [ValidUpgradeTargetList](#validupgradetargetlist)
+* DBEngineVersion `object`:  This data type is used as a response element in the action <a>DescribeDBEngineVersions</a>.
+  * DBEngineDescription
+  * DBEngineVersionDescription
+  * DBParameterGroupFamily
+  * DefaultCharacterSet
+    * CharacterSetDescription
+    * CharacterSetName
+  * Engine
+  * EngineVersion
+  * ExportableLogTypes
+    * items [String](#string)
+  * SupportedCharacterSets
+    * items
+      * CharacterSetDescription
+      * CharacterSetName
+  * SupportedTimezones
+    * items
+      * TimezoneName
+  * SupportsLogExportsToCloudwatchLogs
+  * SupportsReadReplica
+  * ValidUpgradeTarget
+    * items
+      * AutoUpgrade
+      * Description
+      * Engine
+      * EngineVersion
+      * IsMajorVersionUpgrade
 
 ### DBEngineVersionList
 * DBEngineVersionList `array`
-  * items [DBEngineVersion](#dbengineversion)
+  * items
+    * DBEngineDescription
+    * DBEngineVersionDescription
+    * DBParameterGroupFamily
+    * DefaultCharacterSet
+      * CharacterSetDescription
+      * CharacterSetName
+    * Engine
+    * EngineVersion
+    * ExportableLogTypes
+      * items [String](#string)
+    * SupportedCharacterSets
+      * items
+        * CharacterSetDescription
+        * CharacterSetName
+    * SupportedTimezones
+      * items
+        * TimezoneName
+    * SupportsLogExportsToCloudwatchLogs
+    * SupportsReadReplica
+    * ValidUpgradeTarget
+      * items
+        * AutoUpgrade
+        * Description
+        * Engine
+        * EngineVersion
+        * IsMajorVersionUpgrade
 
 ### DBEngineVersionMessage
-* DBEngineVersionMessage `object`:  Contains the result of a successful invocation of the <a>DescribeDBEngineVersions</a> action. 
-  * DBEngineVersions [DBEngineVersionList](#dbengineversionlist)
-  * Marker [String](#string)
+* DBEngineVersionMessage `object`
+  * DBEngineVersions
+    * items
+      * DBEngineDescription
+      * DBEngineVersionDescription
+      * DBParameterGroupFamily
+      * DefaultCharacterSet
+        * CharacterSetDescription
+        * CharacterSetName
+      * Engine
+      * EngineVersion
+      * ExportableLogTypes
+        * items [String](#string)
+      * SupportedCharacterSets
+        * items
+          * CharacterSetDescription
+          * CharacterSetName
+      * SupportedTimezones
+        * items
+          * TimezoneName
+      * SupportsLogExportsToCloudwatchLogs
+      * SupportsReadReplica
+      * ValidUpgradeTarget
+        * items
+          * AutoUpgrade
+          * Description
+          * Engine
+          * EngineVersion
+          * IsMajorVersionUpgrade
+  * Marker
 
 ### DBInstance
-* DBInstance `object`: <p>Contains the details of an Amazon Neptune DB instance. </p> <p>This data type is used as a response element in the <a>DescribeDBInstances</a> action. </p>
-  * AllocatedStorage [Integer](#integer)
-  * AutoMinorVersionUpgrade [Boolean](#boolean)
-  * AvailabilityZone [String](#string)
-  * BackupRetentionPeriod [Integer](#integer)
-  * CACertificateIdentifier [String](#string)
-  * CharacterSetName [String](#string)
-  * CopyTagsToSnapshot [Boolean](#boolean)
-  * DBClusterIdentifier [String](#string)
-  * DBInstanceArn [String](#string)
-  * DBInstanceClass [String](#string)
-  * DBInstanceIdentifier [String](#string)
-  * DBInstanceStatus [String](#string)
-  * DBName [String](#string)
-  * DBParameterGroups [DBParameterGroupStatusList](#dbparametergroupstatuslist)
-  * DBSecurityGroups [DBSecurityGroupMembershipList](#dbsecuritygroupmembershiplist)
-  * DBSubnetGroup [DBSubnetGroup](#dbsubnetgroup)
-  * DbInstancePort [Integer](#integer)
-  * DbiResourceId [String](#string)
-  * DomainMemberships [DomainMembershipList](#domainmembershiplist)
-  * EnabledCloudwatchLogsExports [LogTypeList](#logtypelist)
-  * Endpoint [Endpoint](#endpoint)
-  * Engine [String](#string)
-  * EngineVersion [String](#string)
-  * EnhancedMonitoringResourceArn [String](#string)
-  * IAMDatabaseAuthenticationEnabled [Boolean](#boolean)
-  * InstanceCreateTime [TStamp](#tstamp)
-  * Iops [IntegerOptional](#integeroptional)
-  * KmsKeyId [String](#string)
-  * LatestRestorableTime [TStamp](#tstamp)
-  * LicenseModel [String](#string)
-  * MasterUsername [String](#string)
-  * MonitoringInterval [IntegerOptional](#integeroptional)
-  * MonitoringRoleArn [String](#string)
-  * MultiAZ [Boolean](#boolean)
-  * OptionGroupMemberships [OptionGroupMembershipList](#optiongroupmembershiplist)
-  * PendingModifiedValues [PendingModifiedValues](#pendingmodifiedvalues)
-  * PerformanceInsightsEnabled [BooleanOptional](#booleanoptional)
-  * PerformanceInsightsKMSKeyId [String](#string)
-  * PreferredBackupWindow [String](#string)
-  * PreferredMaintenanceWindow [String](#string)
-  * PromotionTier [IntegerOptional](#integeroptional)
-  * PubliclyAccessible [Boolean](#boolean)
-  * ReadReplicaDBClusterIdentifiers [ReadReplicaDBClusterIdentifierList](#readreplicadbclusteridentifierlist)
-  * ReadReplicaDBInstanceIdentifiers [ReadReplicaDBInstanceIdentifierList](#readreplicadbinstanceidentifierlist)
-  * ReadReplicaSourceDBInstanceIdentifier [String](#string)
-  * SecondaryAvailabilityZone [String](#string)
-  * StatusInfos [DBInstanceStatusInfoList](#dbinstancestatusinfolist)
-  * StorageEncrypted [Boolean](#boolean)
-  * StorageType [String](#string)
-  * TdeCredentialArn [String](#string)
-  * Timezone [String](#string)
-  * VpcSecurityGroups [VpcSecurityGroupMembershipList](#vpcsecuritygroupmembershiplist)
+* DBInstance `object`: <p>Contains the details of an Amazon Neptune DB instance.</p> <p>This data type is used as a response element in the <a>DescribeDBInstances</a> action.</p>
+  * AllocatedStorage
+  * AutoMinorVersionUpgrade
+  * AvailabilityZone
+  * BackupRetentionPeriod
+  * CACertificateIdentifier
+  * CharacterSetName
+  * CopyTagsToSnapshot
+  * DBClusterIdentifier
+  * DBInstanceArn
+  * DBInstanceClass
+  * DBInstanceIdentifier
+  * DBInstanceStatus
+  * DBName
+  * DBParameterGroups
+    * items
+      * DBParameterGroupName
+      * ParameterApplyStatus
+  * DBSecurityGroups
+    * items
+      * DBSecurityGroupName
+      * Status
+  * DBSubnetGroup
+    * DBSubnetGroupArn
+    * DBSubnetGroupDescription
+    * DBSubnetGroupName
+    * SubnetGroupStatus
+    * Subnets
+      * items
+        * SubnetAvailabilityZone
+          * Name
+        * SubnetIdentifier
+        * SubnetStatus
+    * VpcId
+  * DbInstancePort
+  * DbiResourceId
+  * DeletionProtection
+  * DomainMemberships
+    * items
+      * Domain
+      * FQDN
+      * IAMRoleName
+      * Status
+  * EnabledCloudwatchLogsExports
+    * items [String](#string)
+  * Endpoint
+    * Address
+    * HostedZoneId
+    * Port
+  * Engine
+  * EngineVersion
+  * EnhancedMonitoringResourceArn
+  * IAMDatabaseAuthenticationEnabled
+  * InstanceCreateTime
+  * Iops
+  * KmsKeyId
+  * LatestRestorableTime
+  * LicenseModel
+  * MasterUsername
+  * MonitoringInterval
+  * MonitoringRoleArn
+  * MultiAZ
+  * OptionGroupMemberships
+    * items
+      * OptionGroupName
+      * Status
+  * PendingModifiedValues
+    * AllocatedStorage
+    * BackupRetentionPeriod
+    * CACertificateIdentifier
+    * DBInstanceClass
+    * DBInstanceIdentifier
+    * DBSubnetGroupName
+    * EngineVersion
+    * Iops
+    * LicenseModel
+    * MasterUserPassword
+    * MultiAZ
+    * PendingCloudwatchLogsExports
+      * LogTypesToDisable
+        * items [String](#string)
+      * LogTypesToEnable
+        * items [String](#string)
+    * Port
+    * StorageType
+  * PerformanceInsightsEnabled
+  * PerformanceInsightsKMSKeyId
+  * PreferredBackupWindow
+  * PreferredMaintenanceWindow
+  * PromotionTier
+  * PubliclyAccessible
+  * ReadReplicaDBClusterIdentifiers
+    * items
+  * ReadReplicaDBInstanceIdentifiers
+    * items
+  * ReadReplicaSourceDBInstanceIdentifier
+  * SecondaryAvailabilityZone
+  * StatusInfos
+    * items
+      * Message
+      * Normal
+      * Status
+      * StatusType
+  * StorageEncrypted
+  * StorageType
+  * TdeCredentialArn
+  * Timezone
+  * VpcSecurityGroups
+    * items
+      * Status
+      * VpcSecurityGroupId
 
 ### DBInstanceAlreadyExistsFault
-* DBInstanceAlreadyExistsFault `object`: User already has a DB instance with the given identifier.
+
 
 ### DBInstanceList
 * DBInstanceList `array`
-  * items [DBInstance](#dbinstance)
+  * items
+    * AllocatedStorage
+    * AutoMinorVersionUpgrade
+    * AvailabilityZone
+    * BackupRetentionPeriod
+    * CACertificateIdentifier
+    * CharacterSetName
+    * CopyTagsToSnapshot
+    * DBClusterIdentifier
+    * DBInstanceArn
+    * DBInstanceClass
+    * DBInstanceIdentifier
+    * DBInstanceStatus
+    * DBName
+    * DBParameterGroups
+      * items
+        * DBParameterGroupName
+        * ParameterApplyStatus
+    * DBSecurityGroups
+      * items
+        * DBSecurityGroupName
+        * Status
+    * DBSubnetGroup
+      * DBSubnetGroupArn
+      * DBSubnetGroupDescription
+      * DBSubnetGroupName
+      * SubnetGroupStatus
+      * Subnets
+        * items
+          * SubnetAvailabilityZone
+          * SubnetIdentifier
+          * SubnetStatus
+      * VpcId
+    * DbInstancePort
+    * DbiResourceId
+    * DeletionProtection
+    * DomainMemberships
+      * items
+        * Domain
+        * FQDN
+        * IAMRoleName
+        * Status
+    * EnabledCloudwatchLogsExports
+      * items [String](#string)
+    * Endpoint
+      * Address
+      * HostedZoneId
+      * Port
+    * Engine
+    * EngineVersion
+    * EnhancedMonitoringResourceArn
+    * IAMDatabaseAuthenticationEnabled
+    * InstanceCreateTime
+    * Iops
+    * KmsKeyId
+    * LatestRestorableTime
+    * LicenseModel
+    * MasterUsername
+    * MonitoringInterval
+    * MonitoringRoleArn
+    * MultiAZ
+    * OptionGroupMemberships
+      * items
+        * OptionGroupName
+        * Status
+    * PendingModifiedValues
+      * AllocatedStorage
+      * BackupRetentionPeriod
+      * CACertificateIdentifier
+      * DBInstanceClass
+      * DBInstanceIdentifier
+      * DBSubnetGroupName
+      * EngineVersion
+      * Iops
+      * LicenseModel
+      * MasterUserPassword
+      * MultiAZ
+      * PendingCloudwatchLogsExports
+        * LogTypesToDisable
+          * items [String](#string)
+        * LogTypesToEnable
+          * items [String](#string)
+      * Port
+      * StorageType
+    * PerformanceInsightsEnabled
+    * PerformanceInsightsKMSKeyId
+    * PreferredBackupWindow
+    * PreferredMaintenanceWindow
+    * PromotionTier
+    * PubliclyAccessible
+    * ReadReplicaDBClusterIdentifiers
+      * items
+    * ReadReplicaDBInstanceIdentifiers
+      * items
+    * ReadReplicaSourceDBInstanceIdentifier
+    * SecondaryAvailabilityZone
+    * StatusInfos
+      * items
+        * Message
+        * Normal
+        * Status
+        * StatusType
+    * StorageEncrypted
+    * StorageType
+    * TdeCredentialArn
+    * Timezone
+    * VpcSecurityGroups
+      * items
+        * Status
+        * VpcSecurityGroupId
 
 ### DBInstanceMessage
-* DBInstanceMessage `object`:  Contains the result of a successful invocation of the <a>DescribeDBInstances</a> action. 
-  * DBInstances [DBInstanceList](#dbinstancelist)
-  * Marker [String](#string)
+* DBInstanceMessage `object`
+  * DBInstances
+    * items
+      * AllocatedStorage
+      * AutoMinorVersionUpgrade
+      * AvailabilityZone
+      * BackupRetentionPeriod
+      * CACertificateIdentifier
+      * CharacterSetName
+      * CopyTagsToSnapshot
+      * DBClusterIdentifier
+      * DBInstanceArn
+      * DBInstanceClass
+      * DBInstanceIdentifier
+      * DBInstanceStatus
+      * DBName
+      * DBParameterGroups
+        * items
+          * DBParameterGroupName
+          * ParameterApplyStatus
+      * DBSecurityGroups
+        * items
+          * DBSecurityGroupName
+          * Status
+      * DBSubnetGroup
+        * DBSubnetGroupArn
+        * DBSubnetGroupDescription
+        * DBSubnetGroupName
+        * SubnetGroupStatus
+        * Subnets
+          * items
+        * VpcId
+      * DbInstancePort
+      * DbiResourceId
+      * DeletionProtection
+      * DomainMemberships
+        * items
+          * Domain
+          * FQDN
+          * IAMRoleName
+          * Status
+      * EnabledCloudwatchLogsExports
+        * items [String](#string)
+      * Endpoint
+        * Address
+        * HostedZoneId
+        * Port
+      * Engine
+      * EngineVersion
+      * EnhancedMonitoringResourceArn
+      * IAMDatabaseAuthenticationEnabled
+      * InstanceCreateTime
+      * Iops
+      * KmsKeyId
+      * LatestRestorableTime
+      * LicenseModel
+      * MasterUsername
+      * MonitoringInterval
+      * MonitoringRoleArn
+      * MultiAZ
+      * OptionGroupMemberships
+        * items
+          * OptionGroupName
+          * Status
+      * PendingModifiedValues
+        * AllocatedStorage
+        * BackupRetentionPeriod
+        * CACertificateIdentifier
+        * DBInstanceClass
+        * DBInstanceIdentifier
+        * DBSubnetGroupName
+        * EngineVersion
+        * Iops
+        * LicenseModel
+        * MasterUserPassword
+        * MultiAZ
+        * PendingCloudwatchLogsExports
+          * LogTypesToDisable
+          * LogTypesToEnable
+        * Port
+        * StorageType
+      * PerformanceInsightsEnabled
+      * PerformanceInsightsKMSKeyId
+      * PreferredBackupWindow
+      * PreferredMaintenanceWindow
+      * PromotionTier
+      * PubliclyAccessible
+      * ReadReplicaDBClusterIdentifiers
+        * items
+      * ReadReplicaDBInstanceIdentifiers
+        * items
+      * ReadReplicaSourceDBInstanceIdentifier
+      * SecondaryAvailabilityZone
+      * StatusInfos
+        * items
+          * Message
+          * Normal
+          * Status
+          * StatusType
+      * StorageEncrypted
+      * StorageType
+      * TdeCredentialArn
+      * Timezone
+      * VpcSecurityGroups
+        * items
+          * Status
+          * VpcSecurityGroupId
+  * Marker
 
 ### DBInstanceNotFoundFault
-* DBInstanceNotFoundFault `object`:  <i>DBInstanceIdentifier</i> does not refer to an existing DB instance. 
+
 
 ### DBInstanceStatusInfo
 * DBInstanceStatusInfo `object`: Provides a list of status information for a DB instance.
-  * Message [String](#string)
-  * Normal [Boolean](#boolean)
-  * Status [String](#string)
-  * StatusType [String](#string)
+  * Message
+  * Normal
+  * Status
+  * StatusType
 
 ### DBInstanceStatusInfoList
 * DBInstanceStatusInfoList `array`
-  * items [DBInstanceStatusInfo](#dbinstancestatusinfo)
+  * items
+    * Message
+    * Normal
+    * Status
+    * StatusType
 
 ### DBParameterGroup
-* DBParameterGroup `object`: <p>Contains the details of an Amazon Neptune DB parameter group. </p> <p>This data type is used as a response element in the <a>DescribeDBParameterGroups</a> action. </p>
-  * DBParameterGroupArn [String](#string)
-  * DBParameterGroupFamily [String](#string)
-  * DBParameterGroupName [String](#string)
-  * Description [String](#string)
+* DBParameterGroup `object`: <p>Contains the details of an Amazon Neptune DB parameter group.</p> <p>This data type is used as a response element in the <a>DescribeDBParameterGroups</a> action.</p>
+  * DBParameterGroupArn
+  * DBParameterGroupFamily
+  * DBParameterGroupName
+  * Description
 
 ### DBParameterGroupAlreadyExistsFault
-* DBParameterGroupAlreadyExistsFault `object`: A DB parameter group with the same name exists.
+
 
 ### DBParameterGroupDetails
-* DBParameterGroupDetails `object`:  Contains the result of a successful invocation of the <a>DescribeDBParameters</a> action. 
-  * Marker [String](#string)
-  * Parameters [ParametersList](#parameterslist)
+* DBParameterGroupDetails `object`
+  * Marker
+  * Parameters
+    * items
+      * AllowedValues
+      * ApplyMethod
+      * ApplyType
+      * DataType
+      * Description
+      * IsModifiable
+      * MinimumEngineVersion
+      * ParameterName
+      * ParameterValue
+      * Source
 
 ### DBParameterGroupList
 * DBParameterGroupList `array`
-  * items [DBParameterGroup](#dbparametergroup)
+  * items
+    * DBParameterGroupArn
+    * DBParameterGroupFamily
+    * DBParameterGroupName
+    * Description
 
 ### DBParameterGroupNameMessage
-* DBParameterGroupNameMessage `object`:  Contains the result of a successful invocation of the <a>ModifyDBParameterGroup</a> or <a>ResetDBParameterGroup</a> action. 
-  * DBParameterGroupName [String](#string)
+* DBParameterGroupNameMessage `object`
+  * DBParameterGroupName
 
 ### DBParameterGroupNotFoundFault
-* DBParameterGroupNotFoundFault `object`:  <i>DBParameterGroupName</i> does not refer to an existing DB parameter group. 
+
 
 ### DBParameterGroupQuotaExceededFault
-* DBParameterGroupQuotaExceededFault `object`: Request would result in user exceeding the allowed number of DB parameter groups.
+
 
 ### DBParameterGroupStatus
 * DBParameterGroupStatus `object`: <p>The status of the DB parameter group.</p> <p>This data type is used as a response element in the following actions:</p> <ul> <li> <p> <a>CreateDBInstance</a> </p> </li> <li> <p> <a>DeleteDBInstance</a> </p> </li> <li> <p> <a>ModifyDBInstance</a> </p> </li> <li> <p> <a>RebootDBInstance</a> </p> </li> </ul>
-  * DBParameterGroupName [String](#string)
-  * ParameterApplyStatus [String](#string)
+  * DBParameterGroupName
+  * ParameterApplyStatus
 
 ### DBParameterGroupStatusList
 * DBParameterGroupStatusList `array`
-  * items [DBParameterGroupStatus](#dbparametergroupstatus)
+  * items
+    * DBParameterGroupName
+    * ParameterApplyStatus
 
 ### DBParameterGroupsMessage
-* DBParameterGroupsMessage `object`:  Contains the result of a successful invocation of the <a>DescribeDBParameterGroups</a> action. 
-  * DBParameterGroups [DBParameterGroupList](#dbparametergrouplist)
-  * Marker [String](#string)
+* DBParameterGroupsMessage `object`
+  * DBParameterGroups
+    * items
+      * DBParameterGroupArn
+      * DBParameterGroupFamily
+      * DBParameterGroupName
+      * Description
+  * Marker
 
 ### DBSecurityGroupMembership
-* DBSecurityGroupMembership `object`: <p>This data type is used as a response element in the following actions:</p> <ul> <li> <p> <a>ModifyDBInstance</a> </p> </li> <li> <p> <a>RebootDBInstance</a> </p> </li> </ul>
-  * DBSecurityGroupName [String](#string)
-  * Status [String](#string)
+* DBSecurityGroupMembership `object`: Specifies membership in a designated DB security group.
+  * DBSecurityGroupName
+  * Status
 
 ### DBSecurityGroupMembershipList
 * DBSecurityGroupMembershipList `array`
-  * items [DBSecurityGroupMembership](#dbsecuritygroupmembership)
+  * items
+    * DBSecurityGroupName
+    * Status
 
 ### DBSecurityGroupNameList
 * DBSecurityGroupNameList `array`
-  * items [String](#string)
+  * items
 
 ### DBSecurityGroupNotFoundFault
-* DBSecurityGroupNotFoundFault `object`:  <i>DBSecurityGroupName</i> does not refer to an existing DB security group. 
+
 
 ### DBSnapshotAlreadyExistsFault
-* DBSnapshotAlreadyExistsFault `object`:  <i>DBSnapshotIdentifier</i> is already used by an existing snapshot. 
+
 
 ### DBSnapshotNotFoundFault
-* DBSnapshotNotFoundFault `object`:  <i>DBSnapshotIdentifier</i> does not refer to an existing DB snapshot. 
+
 
 ### DBSubnetGroup
-* DBSubnetGroup `object`: <p>Contains the details of an Amazon Neptune DB subnet group. </p> <p>This data type is used as a response element in the <a>DescribeDBSubnetGroups</a> action. </p>
-  * DBSubnetGroupArn [String](#string)
-  * DBSubnetGroupDescription [String](#string)
-  * DBSubnetGroupName [String](#string)
-  * SubnetGroupStatus [String](#string)
-  * Subnets [SubnetList](#subnetlist)
-  * VpcId [String](#string)
+* DBSubnetGroup `object`: <p>Contains the details of an Amazon Neptune DB subnet group.</p> <p>This data type is used as a response element in the <a>DescribeDBSubnetGroups</a> action.</p>
+  * DBSubnetGroupArn
+  * DBSubnetGroupDescription
+  * DBSubnetGroupName
+  * SubnetGroupStatus
+  * Subnets
+    * items
+      * SubnetAvailabilityZone
+        * Name
+      * SubnetIdentifier
+      * SubnetStatus
+  * VpcId
 
 ### DBSubnetGroupAlreadyExistsFault
-* DBSubnetGroupAlreadyExistsFault `object`:  <i>DBSubnetGroupName</i> is already used by an existing DB subnet group. 
+
 
 ### DBSubnetGroupDoesNotCoverEnoughAZs
-* DBSubnetGroupDoesNotCoverEnoughAZs `object`: Subnets in the DB subnet group should cover at least two Availability Zones unless there is only one Availability Zone.
+
 
 ### DBSubnetGroupMessage
-* DBSubnetGroupMessage `object`:  Contains the result of a successful invocation of the <a>DescribeDBSubnetGroups</a> action. 
-  * DBSubnetGroups [DBSubnetGroups](#dbsubnetgroups)
-  * Marker [String](#string)
+* DBSubnetGroupMessage `object`
+  * DBSubnetGroups
+    * items
+      * DBSubnetGroupArn
+      * DBSubnetGroupDescription
+      * DBSubnetGroupName
+      * SubnetGroupStatus
+      * Subnets
+        * items
+          * SubnetAvailabilityZone
+          * SubnetIdentifier
+          * SubnetStatus
+      * VpcId
+  * Marker
 
 ### DBSubnetGroupNotFoundFault
-* DBSubnetGroupNotFoundFault `object`:  <i>DBSubnetGroupName</i> does not refer to an existing DB subnet group. 
+
 
 ### DBSubnetGroupQuotaExceededFault
-* DBSubnetGroupQuotaExceededFault `object`: Request would result in user exceeding the allowed number of DB subnet groups.
+
 
 ### DBSubnetGroups
 * DBSubnetGroups `array`
-  * items [DBSubnetGroup](#dbsubnetgroup)
+  * items
+    * DBSubnetGroupArn
+    * DBSubnetGroupDescription
+    * DBSubnetGroupName
+    * SubnetGroupStatus
+    * Subnets
+      * items
+        * SubnetAvailabilityZone
+          * Name
+        * SubnetIdentifier
+        * SubnetStatus
+    * VpcId
 
 ### DBSubnetQuotaExceededFault
-* DBSubnetQuotaExceededFault `object`: Request would result in user exceeding the allowed number of subnets in a DB subnet groups.
+
 
 ### DBUpgradeDependencyFailureFault
-* DBUpgradeDependencyFailureFault `object`: The DB upgrade failed because a resource the DB depends on could not be modified.
+
+
+### DeleteDBClusterEndpointMessage
+* DeleteDBClusterEndpointMessage `object`
+  * DBClusterEndpointIdentifier **required**
+
+### DeleteDBClusterEndpointOutput
+* DeleteDBClusterEndpointOutput `object`: <p>This data type represents the information you need to connect to an Amazon Neptune DB cluster. This data type is used as a response element in the following actions:</p> <ul> <li> <p> <code>CreateDBClusterEndpoint</code> </p> </li> <li> <p> <code>DescribeDBClusterEndpoints</code> </p> </li> <li> <p> <code>ModifyDBClusterEndpoint</code> </p> </li> <li> <p> <code>DeleteDBClusterEndpoint</code> </p> </li> </ul> <p>For the data structure that represents Amazon RDS DB instance endpoints, see <code>Endpoint</code>.</p>
+  * CustomEndpointType
+  * DBClusterEndpointArn
+  * DBClusterEndpointIdentifier
+  * DBClusterEndpointResourceIdentifier
+  * DBClusterIdentifier
+  * Endpoint
+  * EndpointType
+  * ExcludedMembers
+    * items [String](#string)
+  * StaticMembers
+    * items [String](#string)
+  * Status
 
 ### DeleteDBClusterMessage
-* DeleteDBClusterMessage `object`: <p/>
-  * DBClusterIdentifier **required** [String](#string)
-  * FinalDBSnapshotIdentifier [String](#string)
-  * SkipFinalSnapshot [Boolean](#boolean)
+* DeleteDBClusterMessage `object`
+  * DBClusterIdentifier **required**
+  * FinalDBSnapshotIdentifier
+  * SkipFinalSnapshot
 
 ### DeleteDBClusterParameterGroupMessage
-* DeleteDBClusterParameterGroupMessage `object`: <p/>
-  * DBClusterParameterGroupName **required** [String](#string)
+* DeleteDBClusterParameterGroupMessage `object`
+  * DBClusterParameterGroupName **required**
 
 ### DeleteDBClusterResult
 * DeleteDBClusterResult `object`
   * DBCluster [DBCluster](#dbcluster)
 
 ### DeleteDBClusterSnapshotMessage
-* DeleteDBClusterSnapshotMessage `object`: <p/>
-  * DBClusterSnapshotIdentifier **required** [String](#string)
+* DeleteDBClusterSnapshotMessage `object`
+  * DBClusterSnapshotIdentifier **required**
 
 ### DeleteDBClusterSnapshotResult
 * DeleteDBClusterSnapshotResult `object`
   * DBClusterSnapshot [DBClusterSnapshot](#dbclustersnapshot)
 
 ### DeleteDBInstanceMessage
-* DeleteDBInstanceMessage `object`: <p/>
-  * DBInstanceIdentifier **required** [String](#string)
-  * FinalDBSnapshotIdentifier [String](#string)
-  * SkipFinalSnapshot [Boolean](#boolean)
+* DeleteDBInstanceMessage `object`
+  * DBInstanceIdentifier **required**
+  * FinalDBSnapshotIdentifier
+  * SkipFinalSnapshot
 
 ### DeleteDBInstanceResult
 * DeleteDBInstanceResult `object`
   * DBInstance [DBInstance](#dbinstance)
 
 ### DeleteDBParameterGroupMessage
-* DeleteDBParameterGroupMessage `object`: <p/>
-  * DBParameterGroupName **required** [String](#string)
+* DeleteDBParameterGroupMessage `object`
+  * DBParameterGroupName **required**
 
 ### DeleteDBSubnetGroupMessage
-* DeleteDBSubnetGroupMessage `object`: <p/>
-  * DBSubnetGroupName **required** [String](#string)
+* DeleteDBSubnetGroupMessage `object`
+  * DBSubnetGroupName **required**
 
 ### DeleteEventSubscriptionMessage
-* DeleteEventSubscriptionMessage `object`: <p/>
-  * SubscriptionName **required** [String](#string)
+* DeleteEventSubscriptionMessage `object`
+  * SubscriptionName **required**
 
 ### DeleteEventSubscriptionResult
 * DeleteEventSubscriptionResult `object`
   * EventSubscription [EventSubscription](#eventsubscription)
 
+### DescribeDBClusterEndpointsMessage
+* DescribeDBClusterEndpointsMessage `object`
+  * DBClusterEndpointIdentifier
+  * DBClusterIdentifier
+  * Filters
+    * items
+      * Name **required**
+      * Values **required**
+        * items
+  * Marker
+  * MaxRecords
+
 ### DescribeDBClusterParameterGroupsMessage
-* DescribeDBClusterParameterGroupsMessage `object`: <p/>
-  * DBClusterParameterGroupName [String](#string)
-  * Filters [FilterList](#filterlist)
-  * Marker [String](#string)
-  * MaxRecords [IntegerOptional](#integeroptional)
+* DescribeDBClusterParameterGroupsMessage `object`
+  * DBClusterParameterGroupName
+  * Filters
+    * items
+      * Name **required**
+      * Values **required**
+        * items
+  * Marker
+  * MaxRecords
 
 ### DescribeDBClusterParametersMessage
-* DescribeDBClusterParametersMessage `object`: <p/>
-  * DBClusterParameterGroupName **required** [String](#string)
-  * Filters [FilterList](#filterlist)
-  * Marker [String](#string)
-  * MaxRecords [IntegerOptional](#integeroptional)
-  * Source [String](#string)
+* DescribeDBClusterParametersMessage `object`
+  * DBClusterParameterGroupName **required**
+  * Filters
+    * items
+      * Name **required**
+      * Values **required**
+        * items
+  * Marker
+  * MaxRecords
+  * Source
 
 ### DescribeDBClusterSnapshotAttributesMessage
-* DescribeDBClusterSnapshotAttributesMessage `object`: <p/>
-  * DBClusterSnapshotIdentifier **required** [String](#string)
+* DescribeDBClusterSnapshotAttributesMessage `object`
+  * DBClusterSnapshotIdentifier **required**
 
 ### DescribeDBClusterSnapshotAttributesResult
 * DescribeDBClusterSnapshotAttributesResult `object`
   * DBClusterSnapshotAttributesResult [DBClusterSnapshotAttributesResult](#dbclustersnapshotattributesresult)
 
 ### DescribeDBClusterSnapshotsMessage
-* DescribeDBClusterSnapshotsMessage `object`: <p/>
-  * DBClusterIdentifier [String](#string)
-  * DBClusterSnapshotIdentifier [String](#string)
-  * Filters [FilterList](#filterlist)
-  * IncludePublic [Boolean](#boolean)
-  * IncludeShared [Boolean](#boolean)
-  * Marker [String](#string)
-  * MaxRecords [IntegerOptional](#integeroptional)
-  * SnapshotType [String](#string)
+* DescribeDBClusterSnapshotsMessage `object`
+  * DBClusterIdentifier
+  * DBClusterSnapshotIdentifier
+  * Filters
+    * items
+      * Name **required**
+      * Values **required**
+        * items
+  * IncludePublic
+  * IncludeShared
+  * Marker
+  * MaxRecords
+  * SnapshotType
 
 ### DescribeDBClustersMessage
-* DescribeDBClustersMessage `object`: <p/>
-  * DBClusterIdentifier [String](#string)
-  * Filters [FilterList](#filterlist)
-  * Marker [String](#string)
-  * MaxRecords [IntegerOptional](#integeroptional)
+* DescribeDBClustersMessage `object`
+  * DBClusterIdentifier
+  * Filters
+    * items
+      * Name **required**
+      * Values **required**
+        * items
+  * Marker
+  * MaxRecords
 
 ### DescribeDBEngineVersionsMessage
 * DescribeDBEngineVersionsMessage `object`
-  * DBParameterGroupFamily [String](#string)
-  * DefaultOnly [Boolean](#boolean)
-  * Engine [String](#string)
-  * EngineVersion [String](#string)
-  * Filters [FilterList](#filterlist)
-  * ListSupportedCharacterSets [BooleanOptional](#booleanoptional)
-  * ListSupportedTimezones [BooleanOptional](#booleanoptional)
-  * Marker [String](#string)
-  * MaxRecords [IntegerOptional](#integeroptional)
+  * DBParameterGroupFamily
+  * DefaultOnly
+  * Engine
+  * EngineVersion
+  * Filters
+    * items
+      * Name **required**
+      * Values **required**
+        * items
+  * ListSupportedCharacterSets
+  * ListSupportedTimezones
+  * Marker
+  * MaxRecords
 
 ### DescribeDBInstancesMessage
-* DescribeDBInstancesMessage `object`: <p/>
-  * DBInstanceIdentifier [String](#string)
-  * Filters [FilterList](#filterlist)
-  * Marker [String](#string)
-  * MaxRecords [IntegerOptional](#integeroptional)
+* DescribeDBInstancesMessage `object`
+  * DBInstanceIdentifier
+  * Filters
+    * items
+      * Name **required**
+      * Values **required**
+        * items
+  * Marker
+  * MaxRecords
 
 ### DescribeDBParameterGroupsMessage
-* DescribeDBParameterGroupsMessage `object`: <p/>
-  * DBParameterGroupName [String](#string)
-  * Filters [FilterList](#filterlist)
-  * Marker [String](#string)
-  * MaxRecords [IntegerOptional](#integeroptional)
+* DescribeDBParameterGroupsMessage `object`
+  * DBParameterGroupName
+  * Filters
+    * items
+      * Name **required**
+      * Values **required**
+        * items
+  * Marker
+  * MaxRecords
 
 ### DescribeDBParametersMessage
 * DescribeDBParametersMessage `object`
-  * DBParameterGroupName **required** [String](#string)
-  * Filters [FilterList](#filterlist)
-  * Marker [String](#string)
-  * MaxRecords [IntegerOptional](#integeroptional)
-  * Source [String](#string)
+  * DBParameterGroupName **required**
+  * Filters
+    * items
+      * Name **required**
+      * Values **required**
+        * items
+  * Marker
+  * MaxRecords
+  * Source
 
 ### DescribeDBSubnetGroupsMessage
-* DescribeDBSubnetGroupsMessage `object`: <p/>
-  * DBSubnetGroupName [String](#string)
-  * Filters [FilterList](#filterlist)
-  * Marker [String](#string)
-  * MaxRecords [IntegerOptional](#integeroptional)
+* DescribeDBSubnetGroupsMessage `object`
+  * DBSubnetGroupName
+  * Filters
+    * items
+      * Name **required**
+      * Values **required**
+        * items
+  * Marker
+  * MaxRecords
 
 ### DescribeEngineDefaultClusterParametersMessage
-* DescribeEngineDefaultClusterParametersMessage `object`: <p/>
-  * DBParameterGroupFamily **required** [String](#string)
-  * Filters [FilterList](#filterlist)
-  * Marker [String](#string)
-  * MaxRecords [IntegerOptional](#integeroptional)
+* DescribeEngineDefaultClusterParametersMessage `object`
+  * DBParameterGroupFamily **required**
+  * Filters
+    * items
+      * Name **required**
+      * Values **required**
+        * items
+  * Marker
+  * MaxRecords
 
 ### DescribeEngineDefaultClusterParametersResult
 * DescribeEngineDefaultClusterParametersResult `object`
   * EngineDefaults [EngineDefaults](#enginedefaults)
 
 ### DescribeEngineDefaultParametersMessage
-* DescribeEngineDefaultParametersMessage `object`: <p/>
-  * DBParameterGroupFamily **required** [String](#string)
-  * Filters [FilterList](#filterlist)
-  * Marker [String](#string)
-  * MaxRecords [IntegerOptional](#integeroptional)
+* DescribeEngineDefaultParametersMessage `object`
+  * DBParameterGroupFamily **required**
+  * Filters
+    * items
+      * Name **required**
+      * Values **required**
+        * items
+  * Marker
+  * MaxRecords
 
 ### DescribeEngineDefaultParametersResult
 * DescribeEngineDefaultParametersResult `object`
   * EngineDefaults [EngineDefaults](#enginedefaults)
 
 ### DescribeEventCategoriesMessage
-* DescribeEventCategoriesMessage `object`: <p/>
-  * Filters [FilterList](#filterlist)
-  * SourceType [String](#string)
+* DescribeEventCategoriesMessage `object`
+  * Filters
+    * items
+      * Name **required**
+      * Values **required**
+        * items
+  * SourceType
 
 ### DescribeEventSubscriptionsMessage
-* DescribeEventSubscriptionsMessage `object`: <p/>
-  * Filters [FilterList](#filterlist)
-  * Marker [String](#string)
-  * MaxRecords [IntegerOptional](#integeroptional)
-  * SubscriptionName [String](#string)
+* DescribeEventSubscriptionsMessage `object`
+  * Filters
+    * items
+      * Name **required**
+      * Values **required**
+        * items
+  * Marker
+  * MaxRecords
+  * SubscriptionName
 
 ### DescribeEventsMessage
-* DescribeEventsMessage `object`: <p/>
-  * Duration [IntegerOptional](#integeroptional)
-  * EndTime [TStamp](#tstamp)
-  * EventCategories [EventCategoriesList](#eventcategorieslist)
-  * Filters [FilterList](#filterlist)
-  * Marker [String](#string)
-  * MaxRecords [IntegerOptional](#integeroptional)
-  * SourceIdentifier [String](#string)
-  * SourceType [SourceType](#sourcetype)
-  * StartTime [TStamp](#tstamp)
+* DescribeEventsMessage `object`
+  * Duration
+  * EndTime
+  * EventCategories
+    * items
+  * Filters
+    * items
+      * Name **required**
+      * Values **required**
+        * items
+  * Marker
+  * MaxRecords
+  * SourceIdentifier
+  * SourceType
+  * StartTime
 
 ### DescribeOrderableDBInstanceOptionsMessage
-* DescribeOrderableDBInstanceOptionsMessage `object`: <p/>
-  * DBInstanceClass [String](#string)
-  * Engine **required** [String](#string)
-  * EngineVersion [String](#string)
-  * Filters [FilterList](#filterlist)
-  * LicenseModel [String](#string)
-  * Marker [String](#string)
-  * MaxRecords [IntegerOptional](#integeroptional)
-  * Vpc [BooleanOptional](#booleanoptional)
+* DescribeOrderableDBInstanceOptionsMessage `object`
+  * DBInstanceClass
+  * Engine **required**
+  * EngineVersion
+  * Filters
+    * items
+      * Name **required**
+      * Values **required**
+        * items
+  * LicenseModel
+  * Marker
+  * MaxRecords
+  * Vpc
 
 ### DescribePendingMaintenanceActionsMessage
-* DescribePendingMaintenanceActionsMessage `object`: <p/>
-  * Filters [FilterList](#filterlist)
-  * Marker [String](#string)
-  * MaxRecords [IntegerOptional](#integeroptional)
-  * ResourceIdentifier [String](#string)
+* DescribePendingMaintenanceActionsMessage `object`
+  * Filters
+    * items
+      * Name **required**
+      * Values **required**
+        * items
+  * Marker
+  * MaxRecords
+  * ResourceIdentifier
 
 ### DescribeValidDBInstanceModificationsMessage
-* DescribeValidDBInstanceModificationsMessage `object`: <p/>
-  * DBInstanceIdentifier **required** [String](#string)
+* DescribeValidDBInstanceModificationsMessage `object`
+  * DBInstanceIdentifier **required**
 
 ### DescribeValidDBInstanceModificationsResult
 * DescribeValidDBInstanceModificationsResult `object`
   * ValidDBInstanceModificationsMessage [ValidDBInstanceModificationsMessage](#validdbinstancemodificationsmessage)
 
 ### DomainMembership
-* DomainMembership `object`: An Active Directory Domain membership record associated with the DB instance.
-  * Domain [String](#string)
-  * FQDN [String](#string)
-  * IAMRoleName [String](#string)
-  * Status [String](#string)
+* DomainMembership `object`: An Active Directory Domain membership record associated with a DB instance.
+  * Domain
+  * FQDN
+  * IAMRoleName
+  * Status
 
 ### DomainMembershipList
-* DomainMembershipList `array`: List of Active Directory Domain membership records associated with a DB instance.
-  * items [DomainMembership](#domainmembership)
+* DomainMembershipList `array`
+  * items
+    * Domain
+    * FQDN
+    * IAMRoleName
+    * Status
 
 ### DomainNotFoundFault
-* DomainNotFoundFault `object`:  <i>Domain</i> does not refer to an existing Active Directory Domain. 
+
 
 ### Double
 * Double `number`
@@ -2125,89 +4648,153 @@ amazonaws_neptune.RestoreDBClusterToPointInTime({
 
 ### DoubleRange
 * DoubleRange `object`: A range of double values.
-  * From [Double](#double)
-  * To [Double](#double)
+  * From
+  * To
 
 ### DoubleRangeList
 * DoubleRangeList `array`
-  * items [DoubleRange](#doublerange)
+  * items
+    * From
+    * To
 
 ### Endpoint
-* Endpoint `object`: <p>This data type is used as a response element in the following actions:</p> <ul> <li> <p> <a>CreateDBInstance</a> </p> </li> <li> <p> <a>DescribeDBInstances</a> </p> </li> <li> <p> <a>DeleteDBInstance</a> </p> </li> </ul>
-  * Address [String](#string)
-  * HostedZoneId [String](#string)
-  * Port [Integer](#integer)
+* Endpoint `object`: <p>Specifies a connection endpoint.</p> <p>For the data structure that represents Amazon Neptune DB cluster endpoints, see <code>DBClusterEndpoint</code>.</p>
+  * Address
+  * HostedZoneId
+  * Port
 
 ### EngineDefaults
-* EngineDefaults `object`:  Contains the result of a successful invocation of the <a>DescribeEngineDefaultParameters</a> action. 
-  * DBParameterGroupFamily [String](#string)
-  * Marker [String](#string)
-  * Parameters [ParametersList](#parameterslist)
+* EngineDefaults `object`:  Contains the result of a successful invocation of the <a>DescribeEngineDefaultParameters</a> action.
+  * DBParameterGroupFamily
+  * Marker
+  * Parameters
+    * items
+      * AllowedValues
+      * ApplyMethod
+      * ApplyType
+      * DataType
+      * Description
+      * IsModifiable
+      * MinimumEngineVersion
+      * ParameterName
+      * ParameterValue
+      * Source
 
 ### Event
-* Event `object`:  This data type is used as a response element in the <a>DescribeEvents</a> action. 
-  * Date [TStamp](#tstamp)
-  * EventCategories [EventCategoriesList](#eventcategorieslist)
-  * Message [String](#string)
-  * SourceArn [String](#string)
-  * SourceIdentifier [String](#string)
-  * SourceType [SourceType](#sourcetype)
+* Event `object`:  This data type is used as a response element in the <a>DescribeEvents</a> action.
+  * Date
+  * EventCategories
+    * items
+  * Message
+  * SourceArn
+  * SourceIdentifier
+  * SourceType
 
 ### EventCategoriesList
 * EventCategoriesList `array`
-  * items [String](#string)
+  * items
 
 ### EventCategoriesMap
 * EventCategoriesMap `object`: Contains the results of a successful invocation of the <a>DescribeEventCategories</a> action.
-  * EventCategories [EventCategoriesList](#eventcategorieslist)
-  * SourceType [String](#string)
+  * EventCategories
+    * items
+  * SourceType
 
 ### EventCategoriesMapList
 * EventCategoriesMapList `array`
-  * items [EventCategoriesMap](#eventcategoriesmap)
+  * items
+    * EventCategories
+      * items
+    * SourceType
 
 ### EventCategoriesMessage
-* EventCategoriesMessage `object`: Data returned from the <b>DescribeEventCategories</b> action.
-  * EventCategoriesMapList [EventCategoriesMapList](#eventcategoriesmaplist)
+* EventCategoriesMessage `object`
+  * EventCategoriesMapList
+    * items
+      * EventCategories
+        * items
+      * SourceType
 
 ### EventList
 * EventList `array`
-  * items [Event](#event)
+  * items
+    * Date
+    * EventCategories
+      * items
+    * Message
+    * SourceArn
+    * SourceIdentifier
+    * SourceType
 
 ### EventSubscription
 * EventSubscription `object`: Contains the results of a successful invocation of the <a>DescribeEventSubscriptions</a> action.
-  * CustSubscriptionId [String](#string)
-  * CustomerAwsId [String](#string)
-  * Enabled [Boolean](#boolean)
-  * EventCategoriesList [EventCategoriesList](#eventcategorieslist)
-  * EventSubscriptionArn [String](#string)
-  * SnsTopicArn [String](#string)
-  * SourceIdsList [SourceIdsList](#sourceidslist)
-  * SourceType [String](#string)
-  * Status [String](#string)
-  * SubscriptionCreationTime [String](#string)
+  * CustSubscriptionId
+  * CustomerAwsId
+  * Enabled
+  * EventCategoriesList
+    * items
+  * EventSubscriptionArn
+  * SnsTopicArn
+  * SourceIdsList
+    * items
+  * SourceType
+  * Status
+  * SubscriptionCreationTime
 
 ### EventSubscriptionQuotaExceededFault
-* EventSubscriptionQuotaExceededFault `object`
+
 
 ### EventSubscriptionsList
 * EventSubscriptionsList `array`
-  * items [EventSubscription](#eventsubscription)
+  * items
+    * CustSubscriptionId
+    * CustomerAwsId
+    * Enabled
+    * EventCategoriesList
+      * items
+    * EventSubscriptionArn
+    * SnsTopicArn
+    * SourceIdsList
+      * items
+    * SourceType
+    * Status
+    * SubscriptionCreationTime
 
 ### EventSubscriptionsMessage
-* EventSubscriptionsMessage `object`: Data returned by the <b>DescribeEventSubscriptions</b> action.
-  * EventSubscriptionsList [EventSubscriptionsList](#eventsubscriptionslist)
-  * Marker [String](#string)
+* EventSubscriptionsMessage `object`
+  * EventSubscriptionsList
+    * items
+      * CustSubscriptionId
+      * CustomerAwsId
+      * Enabled
+      * EventCategoriesList
+        * items
+      * EventSubscriptionArn
+      * SnsTopicArn
+      * SourceIdsList
+        * items
+      * SourceType
+      * Status
+      * SubscriptionCreationTime
+  * Marker
 
 ### EventsMessage
-* EventsMessage `object`:  Contains the result of a successful invocation of the <a>DescribeEvents</a> action. 
-  * Events [EventList](#eventlist)
-  * Marker [String](#string)
+* EventsMessage `object`
+  * Events
+    * items
+      * Date
+      * EventCategories
+        * items
+      * Message
+      * SourceArn
+      * SourceIdentifier
+      * SourceType
+  * Marker
 
 ### FailoverDBClusterMessage
-* FailoverDBClusterMessage `object`: <p/>
-  * DBClusterIdentifier [String](#string)
-  * TargetDBInstanceIdentifier [String](#string)
+* FailoverDBClusterMessage `object`
+  * DBClusterIdentifier
+  * TargetDBInstanceIdentifier
 
 ### FailoverDBClusterResult
 * FailoverDBClusterResult `object`
@@ -2215,28 +4802,32 @@ amazonaws_neptune.RestoreDBClusterToPointInTime({
 
 ### Filter
 * Filter `object`: This type is not currently supported.
-  * Name **required** [String](#string)
-  * Values **required** [FilterValueList](#filtervaluelist)
+  * Name **required**
+  * Values **required**
+    * items
 
 ### FilterList
 * FilterList `array`
-  * items [Filter](#filter)
+  * items
+    * Name **required**
+    * Values **required**
+      * items
 
 ### FilterValueList
 * FilterValueList `array`
-  * items [String](#string)
+  * items
 
 ### InstanceQuotaExceededFault
-* InstanceQuotaExceededFault `object`: Request would result in user exceeding the allowed number of DB instances.
+
 
 ### InsufficientDBClusterCapacityFault
-* InsufficientDBClusterCapacityFault `object`: The DB cluster does not have enough capacity for the current operation.
+
 
 ### InsufficientDBInstanceCapacityFault
-* InsufficientDBInstanceCapacityFault `object`: Specified DB instance class is not available in the specified Availability Zone.
+
 
 ### InsufficientStorageClusterCapacityFault
-* InsufficientStorageClusterCapacityFault `object`: There is insufficient storage available for the current action. You may be able to resolve this error by updating your subnet group to use different Availability Zones that have more storage available.
+
 
 ### Integer
 * Integer `integer`
@@ -2244,159 +4835,230 @@ amazonaws_neptune.RestoreDBClusterToPointInTime({
 ### IntegerOptional
 * IntegerOptional `integer`
 
+### InvalidDBClusterEndpointStateFault
+
+
 ### InvalidDBClusterSnapshotStateFault
-* InvalidDBClusterSnapshotStateFault `object`: The supplied value is not a valid DB cluster snapshot state.
+
 
 ### InvalidDBClusterStateFault
-* InvalidDBClusterStateFault `object`: The DB cluster is not in a valid state.
+
 
 ### InvalidDBInstanceStateFault
-* InvalidDBInstanceStateFault `object`:  The specified DB instance is not in the <i>available</i> state. 
+
 
 ### InvalidDBParameterGroupStateFault
-* InvalidDBParameterGroupStateFault `object`: The DB parameter group is in use or is in an invalid state. If you are attempting to delete the parameter group, you cannot delete it when the parameter group is in this state.
+
 
 ### InvalidDBSecurityGroupStateFault
-* InvalidDBSecurityGroupStateFault `object`: The state of the DB security group does not allow deletion.
+
 
 ### InvalidDBSnapshotStateFault
-* InvalidDBSnapshotStateFault `object`: The state of the DB snapshot does not allow deletion.
+
 
 ### InvalidDBSubnetGroupStateFault
-* InvalidDBSubnetGroupStateFault `object`: The DB subnet group cannot be deleted because it is in use.
+
 
 ### InvalidDBSubnetStateFault
-* InvalidDBSubnetStateFault `object`:  The DB subnet is not in the <i>available</i> state. 
+
 
 ### InvalidEventSubscriptionStateFault
-* InvalidEventSubscriptionStateFault `object`
+
 
 ### InvalidRestoreFault
-* InvalidRestoreFault `object`: Cannot restore from vpc backup to non-vpc DB instance.
+
 
 ### InvalidSubnet
-* InvalidSubnet `object`: The requested subnet is invalid, or multiple subnets were requested that are not all in a common VPC.
+
 
 ### InvalidVPCNetworkStateFault
-* InvalidVPCNetworkStateFault `object`: DB subnet group does not cover all Availability Zones after it is created because users' change.
+
 
 ### KMSKeyNotAccessibleFault
-* KMSKeyNotAccessibleFault `object`: Error accessing KMS key.
+
 
 ### KeyList
 * KeyList `array`
   * items [String](#string)
 
 ### ListTagsForResourceMessage
-* ListTagsForResourceMessage `object`: <p/>
-  * Filters [FilterList](#filterlist)
-  * ResourceName **required** [String](#string)
+* ListTagsForResourceMessage `object`
+  * Filters
+    * items
+      * Name **required**
+      * Values **required**
+        * items
+  * ResourceName **required**
 
 ### LogTypeList
 * LogTypeList `array`
   * items [String](#string)
 
+### ModifyDBClusterEndpointMessage
+* ModifyDBClusterEndpointMessage `object`
+  * DBClusterEndpointIdentifier **required**
+  * EndpointType
+  * ExcludedMembers
+    * items [String](#string)
+  * StaticMembers
+    * items [String](#string)
+
+### ModifyDBClusterEndpointOutput
+* ModifyDBClusterEndpointOutput `object`: <p>This data type represents the information you need to connect to an Amazon Aurora DB cluster. This data type is used as a response element in the following actions:</p> <ul> <li> <p> <code>CreateDBClusterEndpoint</code> </p> </li> <li> <p> <code>DescribeDBClusterEndpoints</code> </p> </li> <li> <p> <code>ModifyDBClusterEndpoint</code> </p> </li> <li> <p> <code>DeleteDBClusterEndpoint</code> </p> </li> </ul> <p>For the data structure that represents Amazon RDS DB instance endpoints, see <code>Endpoint</code>.</p>
+  * CustomEndpointType
+  * DBClusterEndpointArn
+  * DBClusterEndpointIdentifier
+  * DBClusterEndpointResourceIdentifier
+  * DBClusterIdentifier
+  * Endpoint
+  * EndpointType
+  * ExcludedMembers
+    * items [String](#string)
+  * StaticMembers
+    * items [String](#string)
+  * Status
+
 ### ModifyDBClusterMessage
-* ModifyDBClusterMessage `object`: <p/>
-  * ApplyImmediately [Boolean](#boolean)
-  * BackupRetentionPeriod [IntegerOptional](#integeroptional)
-  * DBClusterIdentifier **required** [String](#string)
-  * DBClusterParameterGroupName [String](#string)
-  * EnableIAMDatabaseAuthentication [BooleanOptional](#booleanoptional)
-  * EngineVersion [String](#string)
-  * MasterUserPassword [String](#string)
-  * NewDBClusterIdentifier [String](#string)
-  * OptionGroupName [String](#string)
-  * Port [IntegerOptional](#integeroptional)
-  * PreferredBackupWindow [String](#string)
-  * PreferredMaintenanceWindow [String](#string)
-  * VpcSecurityGroupIds [VpcSecurityGroupIdList](#vpcsecuritygroupidlist)
+* ModifyDBClusterMessage `object`
+  * ApplyImmediately
+  * BackupRetentionPeriod
+  * CloudwatchLogsExportConfiguration
+    * DisableLogTypes
+      * items [String](#string)
+    * EnableLogTypes
+      * items [String](#string)
+  * DBClusterIdentifier **required**
+  * DBClusterParameterGroupName
+  * DeletionProtection
+  * EnableIAMDatabaseAuthentication
+  * EngineVersion
+  * MasterUserPassword
+  * NewDBClusterIdentifier
+  * OptionGroupName
+  * Port
+  * PreferredBackupWindow
+  * PreferredMaintenanceWindow
+  * VpcSecurityGroupIds
+    * items
 
 ### ModifyDBClusterParameterGroupMessage
-* ModifyDBClusterParameterGroupMessage `object`: <p/>
-  * DBClusterParameterGroupName **required** [String](#string)
-  * Parameters **required** [ParametersList](#parameterslist)
+* ModifyDBClusterParameterGroupMessage `object`
+  * DBClusterParameterGroupName **required**
+  * Parameters **required**
+    * items
+      * AllowedValues
+      * ApplyMethod
+      * ApplyType
+      * DataType
+      * Description
+      * IsModifiable
+      * MinimumEngineVersion
+      * ParameterName
+      * ParameterValue
+      * Source
 
 ### ModifyDBClusterResult
 * ModifyDBClusterResult `object`
   * DBCluster [DBCluster](#dbcluster)
 
 ### ModifyDBClusterSnapshotAttributeMessage
-* ModifyDBClusterSnapshotAttributeMessage `object`: <p/>
-  * AttributeName **required** [String](#string)
-  * DBClusterSnapshotIdentifier **required** [String](#string)
-  * ValuesToAdd [AttributeValueList](#attributevaluelist)
-  * ValuesToRemove [AttributeValueList](#attributevaluelist)
+* ModifyDBClusterSnapshotAttributeMessage `object`
+  * AttributeName **required**
+  * DBClusterSnapshotIdentifier **required**
+  * ValuesToAdd
+    * items
+  * ValuesToRemove
+    * items
 
 ### ModifyDBClusterSnapshotAttributeResult
 * ModifyDBClusterSnapshotAttributeResult `object`
   * DBClusterSnapshotAttributesResult [DBClusterSnapshotAttributesResult](#dbclustersnapshotattributesresult)
 
 ### ModifyDBInstanceMessage
-* ModifyDBInstanceMessage `object`: <p/>
-  * AllocatedStorage [IntegerOptional](#integeroptional)
-  * AllowMajorVersionUpgrade [Boolean](#boolean)
-  * ApplyImmediately [Boolean](#boolean)
-  * AutoMinorVersionUpgrade [BooleanOptional](#booleanoptional)
-  * BackupRetentionPeriod [IntegerOptional](#integeroptional)
-  * CACertificateIdentifier [String](#string)
-  * CloudwatchLogsExportConfiguration [CloudwatchLogsExportConfiguration](#cloudwatchlogsexportconfiguration)
-  * CopyTagsToSnapshot [BooleanOptional](#booleanoptional)
-  * DBInstanceClass [String](#string)
-  * DBInstanceIdentifier **required** [String](#string)
-  * DBParameterGroupName [String](#string)
-  * DBPortNumber [IntegerOptional](#integeroptional)
-  * DBSecurityGroups [DBSecurityGroupNameList](#dbsecuritygroupnamelist)
-  * DBSubnetGroupName [String](#string)
-  * Domain [String](#string)
-  * DomainIAMRoleName [String](#string)
-  * EnableIAMDatabaseAuthentication [BooleanOptional](#booleanoptional)
-  * EnablePerformanceInsights [BooleanOptional](#booleanoptional)
-  * EngineVersion [String](#string)
-  * Iops [IntegerOptional](#integeroptional)
-  * LicenseModel [String](#string)
-  * MasterUserPassword [String](#string)
-  * MonitoringInterval [IntegerOptional](#integeroptional)
-  * MonitoringRoleArn [String](#string)
-  * MultiAZ [BooleanOptional](#booleanoptional)
-  * NewDBInstanceIdentifier [String](#string)
-  * OptionGroupName [String](#string)
-  * PerformanceInsightsKMSKeyId [String](#string)
-  * PreferredBackupWindow [String](#string)
-  * PreferredMaintenanceWindow [String](#string)
-  * PromotionTier [IntegerOptional](#integeroptional)
-  * PubliclyAccessible [BooleanOptional](#booleanoptional)
-  * StorageType [String](#string)
-  * TdeCredentialArn [String](#string)
-  * TdeCredentialPassword [String](#string)
-  * VpcSecurityGroupIds [VpcSecurityGroupIdList](#vpcsecuritygroupidlist)
+* ModifyDBInstanceMessage `object`
+  * AllocatedStorage
+  * AllowMajorVersionUpgrade
+  * ApplyImmediately
+  * AutoMinorVersionUpgrade
+  * BackupRetentionPeriod
+  * CACertificateIdentifier
+  * CloudwatchLogsExportConfiguration
+    * DisableLogTypes
+      * items [String](#string)
+    * EnableLogTypes
+      * items [String](#string)
+  * CopyTagsToSnapshot
+  * DBInstanceClass
+  * DBInstanceIdentifier **required**
+  * DBParameterGroupName
+  * DBPortNumber
+  * DBSecurityGroups
+    * items
+  * DBSubnetGroupName
+  * DeletionProtection
+  * Domain
+  * DomainIAMRoleName
+  * EnableIAMDatabaseAuthentication
+  * EnablePerformanceInsights
+  * EngineVersion
+  * Iops
+  * LicenseModel
+  * MasterUserPassword
+  * MonitoringInterval
+  * MonitoringRoleArn
+  * MultiAZ
+  * NewDBInstanceIdentifier
+  * OptionGroupName
+  * PerformanceInsightsKMSKeyId
+  * PreferredBackupWindow
+  * PreferredMaintenanceWindow
+  * PromotionTier
+  * PubliclyAccessible
+  * StorageType
+  * TdeCredentialArn
+  * TdeCredentialPassword
+  * VpcSecurityGroupIds
+    * items
 
 ### ModifyDBInstanceResult
 * ModifyDBInstanceResult `object`
   * DBInstance [DBInstance](#dbinstance)
 
 ### ModifyDBParameterGroupMessage
-* ModifyDBParameterGroupMessage `object`: <p/>
-  * DBParameterGroupName **required** [String](#string)
-  * Parameters **required** [ParametersList](#parameterslist)
+* ModifyDBParameterGroupMessage `object`
+  * DBParameterGroupName **required**
+  * Parameters **required**
+    * items
+      * AllowedValues
+      * ApplyMethod
+      * ApplyType
+      * DataType
+      * Description
+      * IsModifiable
+      * MinimumEngineVersion
+      * ParameterName
+      * ParameterValue
+      * Source
 
 ### ModifyDBSubnetGroupMessage
-* ModifyDBSubnetGroupMessage `object`: <p/>
-  * DBSubnetGroupDescription [String](#string)
-  * DBSubnetGroupName **required** [String](#string)
-  * SubnetIds **required** [SubnetIdentifierList](#subnetidentifierlist)
+* ModifyDBSubnetGroupMessage `object`
+  * DBSubnetGroupDescription
+  * DBSubnetGroupName **required**
+  * SubnetIds **required**
+    * items
 
 ### ModifyDBSubnetGroupResult
 * ModifyDBSubnetGroupResult `object`
   * DBSubnetGroup [DBSubnetGroup](#dbsubnetgroup)
 
 ### ModifyEventSubscriptionMessage
-* ModifyEventSubscriptionMessage `object`: <p/>
-  * Enabled [BooleanOptional](#booleanoptional)
-  * EventCategories [EventCategoriesList](#eventcategorieslist)
-  * SnsTopicArn [String](#string)
-  * SourceType [String](#string)
-  * SubscriptionName **required** [String](#string)
+* ModifyEventSubscriptionMessage `object`
+  * Enabled
+  * EventCategories
+    * items
+  * SnsTopicArn
+  * SourceType
+  * SubscriptionName **required**
 
 ### ModifyEventSubscriptionResult
 * ModifyEventSubscriptionResult `object`
@@ -2404,146 +5066,239 @@ amazonaws_neptune.RestoreDBClusterToPointInTime({
 
 ### OptionGroupMembership
 * OptionGroupMembership `object`: Provides information on the option groups the DB instance is a member of.
-  * OptionGroupName [String](#string)
-  * Status [String](#string)
+  * OptionGroupName
+  * Status
 
 ### OptionGroupMembershipList
 * OptionGroupMembershipList `array`
-  * items [OptionGroupMembership](#optiongroupmembership)
+  * items
+    * OptionGroupName
+    * Status
 
 ### OptionGroupNotFoundFault
-* OptionGroupNotFoundFault `object`
+
 
 ### OrderableDBInstanceOption
-* OrderableDBInstanceOption `object`: <p>Contains a list of available options for a DB instance.</p> <p> This data type is used as a response element in the <a>DescribeOrderableDBInstanceOptions</a> action. </p>
-  * AvailabilityZones [AvailabilityZoneList](#availabilityzonelist)
-  * DBInstanceClass [String](#string)
-  * Engine [String](#string)
-  * EngineVersion [String](#string)
-  * LicenseModel [String](#string)
-  * MaxIopsPerDbInstance [IntegerOptional](#integeroptional)
-  * MaxIopsPerGib [DoubleOptional](#doubleoptional)
-  * MaxStorageSize [IntegerOptional](#integeroptional)
-  * MinIopsPerDbInstance [IntegerOptional](#integeroptional)
-  * MinIopsPerGib [DoubleOptional](#doubleoptional)
-  * MinStorageSize [IntegerOptional](#integeroptional)
-  * MultiAZCapable [Boolean](#boolean)
-  * ReadReplicaCapable [Boolean](#boolean)
-  * StorageType [String](#string)
-  * SupportsEnhancedMonitoring [Boolean](#boolean)
-  * SupportsIAMDatabaseAuthentication [Boolean](#boolean)
-  * SupportsIops [Boolean](#boolean)
-  * SupportsPerformanceInsights [Boolean](#boolean)
-  * SupportsStorageEncryption [Boolean](#boolean)
-  * Vpc [Boolean](#boolean)
+* OrderableDBInstanceOption `object`: <p>Contains a list of available options for a DB instance.</p> <p> This data type is used as a response element in the <a>DescribeOrderableDBInstanceOptions</a> action.</p>
+  * AvailabilityZones
+    * items
+      * Name
+  * DBInstanceClass
+  * Engine
+  * EngineVersion
+  * LicenseModel
+  * MaxIopsPerDbInstance
+  * MaxIopsPerGib
+  * MaxStorageSize
+  * MinIopsPerDbInstance
+  * MinIopsPerGib
+  * MinStorageSize
+  * MultiAZCapable
+  * ReadReplicaCapable
+  * StorageType
+  * SupportsEnhancedMonitoring
+  * SupportsIAMDatabaseAuthentication
+  * SupportsIops
+  * SupportsPerformanceInsights
+  * SupportsStorageEncryption
+  * Vpc
 
 ### OrderableDBInstanceOptionsList
 * OrderableDBInstanceOptionsList `array`
-  * items [OrderableDBInstanceOption](#orderabledbinstanceoption)
+  * items
+    * AvailabilityZones
+      * items
+        * Name
+    * DBInstanceClass
+    * Engine
+    * EngineVersion
+    * LicenseModel
+    * MaxIopsPerDbInstance
+    * MaxIopsPerGib
+    * MaxStorageSize
+    * MinIopsPerDbInstance
+    * MinIopsPerGib
+    * MinStorageSize
+    * MultiAZCapable
+    * ReadReplicaCapable
+    * StorageType
+    * SupportsEnhancedMonitoring
+    * SupportsIAMDatabaseAuthentication
+    * SupportsIops
+    * SupportsPerformanceInsights
+    * SupportsStorageEncryption
+    * Vpc
 
 ### OrderableDBInstanceOptionsMessage
-* OrderableDBInstanceOptionsMessage `object`:  Contains the result of a successful invocation of the <a>DescribeOrderableDBInstanceOptions</a> action. 
-  * Marker [String](#string)
-  * OrderableDBInstanceOptions [OrderableDBInstanceOptionsList](#orderabledbinstanceoptionslist)
+* OrderableDBInstanceOptionsMessage `object`
+  * Marker
+  * OrderableDBInstanceOptions
+    * items
+      * AvailabilityZones
+        * items
+          * Name
+      * DBInstanceClass
+      * Engine
+      * EngineVersion
+      * LicenseModel
+      * MaxIopsPerDbInstance
+      * MaxIopsPerGib
+      * MaxStorageSize
+      * MinIopsPerDbInstance
+      * MinIopsPerGib
+      * MinStorageSize
+      * MultiAZCapable
+      * ReadReplicaCapable
+      * StorageType
+      * SupportsEnhancedMonitoring
+      * SupportsIAMDatabaseAuthentication
+      * SupportsIops
+      * SupportsPerformanceInsights
+      * SupportsStorageEncryption
+      * Vpc
 
 ### Parameter
-* Parameter `object`: <p> This data type is used as a request parameter in the <a>ModifyDBParameterGroup</a> and <a>ResetDBParameterGroup</a> actions. </p> <p>This data type is used as a response element in the <a>DescribeEngineDefaultParameters</a> and <a>DescribeDBParameters</a> actions.</p>
-  * AllowedValues [String](#string)
-  * ApplyMethod [ApplyMethod](#applymethod)
-  * ApplyType [String](#string)
-  * DataType [String](#string)
-  * Description [String](#string)
-  * IsModifiable [Boolean](#boolean)
-  * MinimumEngineVersion [String](#string)
-  * ParameterName [String](#string)
-  * ParameterValue [String](#string)
-  * Source [String](#string)
+* Parameter `object`: Specifies a parameter.
+  * AllowedValues
+  * ApplyMethod
+  * ApplyType
+  * DataType
+  * Description
+  * IsModifiable
+  * MinimumEngineVersion
+  * ParameterName
+  * ParameterValue
+  * Source
 
 ### ParametersList
 * ParametersList `array`
-  * items [Parameter](#parameter)
+  * items
+    * AllowedValues
+    * ApplyMethod
+    * ApplyType
+    * DataType
+    * Description
+    * IsModifiable
+    * MinimumEngineVersion
+    * ParameterName
+    * ParameterValue
+    * Source
 
 ### PendingCloudwatchLogsExports
 * PendingCloudwatchLogsExports `object`: A list of the log types whose configuration is still pending. In other words, these log types are in the process of being activated or deactivated.
-  * LogTypesToDisable [LogTypeList](#logtypelist)
-  * LogTypesToEnable [LogTypeList](#logtypelist)
+  * LogTypesToDisable
+    * items [String](#string)
+  * LogTypesToEnable
+    * items [String](#string)
 
 ### PendingMaintenanceAction
 * PendingMaintenanceAction `object`: Provides information about a pending maintenance action for a resource.
-  * Action [String](#string)
-  * AutoAppliedAfterDate [TStamp](#tstamp)
-  * CurrentApplyDate [TStamp](#tstamp)
-  * Description [String](#string)
-  * ForcedApplyDate [TStamp](#tstamp)
-  * OptInStatus [String](#string)
+  * Action
+  * AutoAppliedAfterDate
+  * CurrentApplyDate
+  * Description
+  * ForcedApplyDate
+  * OptInStatus
 
 ### PendingMaintenanceActionDetails
 * PendingMaintenanceActionDetails `array`
-  * items [PendingMaintenanceAction](#pendingmaintenanceaction)
+  * items
+    * Action
+    * AutoAppliedAfterDate
+    * CurrentApplyDate
+    * Description
+    * ForcedApplyDate
+    * OptInStatus
 
 ### PendingMaintenanceActions
 * PendingMaintenanceActions `array`
-  * items [ResourcePendingMaintenanceActions](#resourcependingmaintenanceactions)
+  * items
+    * PendingMaintenanceActionDetails
+      * items
+        * Action
+        * AutoAppliedAfterDate
+        * CurrentApplyDate
+        * Description
+        * ForcedApplyDate
+        * OptInStatus
+    * ResourceIdentifier
 
 ### PendingMaintenanceActionsMessage
-* PendingMaintenanceActionsMessage `object`: Data returned from the <b>DescribePendingMaintenanceActions</b> action.
-  * Marker [String](#string)
-  * PendingMaintenanceActions [PendingMaintenanceActions](#pendingmaintenanceactions)
+* PendingMaintenanceActionsMessage `object`
+  * Marker
+  * PendingMaintenanceActions
+    * items
+      * PendingMaintenanceActionDetails
+        * items
+          * Action
+          * AutoAppliedAfterDate
+          * CurrentApplyDate
+          * Description
+          * ForcedApplyDate
+          * OptInStatus
+      * ResourceIdentifier
 
 ### PendingModifiedValues
-* PendingModifiedValues `object`:  This data type is used as a response element in the <a>ModifyDBInstance</a> action. 
-  * AllocatedStorage [IntegerOptional](#integeroptional)
-  * BackupRetentionPeriod [IntegerOptional](#integeroptional)
-  * CACertificateIdentifier [String](#string)
-  * DBInstanceClass [String](#string)
-  * DBInstanceIdentifier [String](#string)
-  * DBSubnetGroupName [String](#string)
-  * EngineVersion [String](#string)
-  * Iops [IntegerOptional](#integeroptional)
-  * LicenseModel [String](#string)
-  * MasterUserPassword [String](#string)
-  * MultiAZ [BooleanOptional](#booleanoptional)
-  * PendingCloudwatchLogsExports [PendingCloudwatchLogsExports](#pendingcloudwatchlogsexports)
-  * Port [IntegerOptional](#integeroptional)
-  * StorageType [String](#string)
+* PendingModifiedValues `object`:  This data type is used as a response element in the <a>ModifyDBInstance</a> action.
+  * AllocatedStorage
+  * BackupRetentionPeriod
+  * CACertificateIdentifier
+  * DBInstanceClass
+  * DBInstanceIdentifier
+  * DBSubnetGroupName
+  * EngineVersion
+  * Iops
+  * LicenseModel
+  * MasterUserPassword
+  * MultiAZ
+  * PendingCloudwatchLogsExports
+    * LogTypesToDisable
+      * items [String](#string)
+    * LogTypesToEnable
+      * items [String](#string)
+  * Port
+  * StorageType
 
 ### PromoteReadReplicaDBClusterMessage
-* PromoteReadReplicaDBClusterMessage `object`: <p/>
-  * DBClusterIdentifier **required** [String](#string)
+* PromoteReadReplicaDBClusterMessage `object`
+  * DBClusterIdentifier **required**
 
 ### PromoteReadReplicaDBClusterResult
 * PromoteReadReplicaDBClusterResult `object`
   * DBCluster [DBCluster](#dbcluster)
 
 ### ProvisionedIopsNotAvailableInAZFault
-* ProvisionedIopsNotAvailableInAZFault `object`: Provisioned IOPS not available in the specified Availability Zone.
+
 
 ### Range
 * Range `object`: A range of integer values.
-  * From [Integer](#integer)
-  * Step [IntegerOptional](#integeroptional)
-  * To [Integer](#integer)
+  * From
+  * Step
+  * To
 
 ### RangeList
 * RangeList `array`
-  * items [Range](#range)
+  * items
+    * From
+    * Step
+    * To
 
 ### ReadReplicaDBClusterIdentifierList
 * ReadReplicaDBClusterIdentifierList `array`
-  * items [String](#string)
+  * items
 
 ### ReadReplicaDBInstanceIdentifierList
 * ReadReplicaDBInstanceIdentifierList `array`
-  * items [String](#string)
+  * items
 
 ### ReadReplicaIdentifierList
 * ReadReplicaIdentifierList `array`
-  * items [String](#string)
+  * items
 
 ### RebootDBInstanceMessage
-* RebootDBInstanceMessage `object`: <p/>
-  * DBInstanceIdentifier **required** [String](#string)
-  * ForceFailover [BooleanOptional](#booleanoptional)
+* RebootDBInstanceMessage `object`
+  * DBInstanceIdentifier **required**
+  * ForceFailover
 
 ### RebootDBInstanceResult
 * RebootDBInstanceResult `object`
@@ -2551,208 +5306,338 @@ amazonaws_neptune.RestoreDBClusterToPointInTime({
 
 ### RemoveRoleFromDBClusterMessage
 * RemoveRoleFromDBClusterMessage `object`
-  * DBClusterIdentifier **required** [String](#string)
-  * RoleArn **required** [String](#string)
+  * DBClusterIdentifier **required**
+  * FeatureName
+  * RoleArn **required**
 
 ### RemoveSourceIdentifierFromSubscriptionMessage
-* RemoveSourceIdentifierFromSubscriptionMessage `object`: <p/>
-  * SourceIdentifier **required** [String](#string)
-  * SubscriptionName **required** [String](#string)
+* RemoveSourceIdentifierFromSubscriptionMessage `object`
+  * SourceIdentifier **required**
+  * SubscriptionName **required**
 
 ### RemoveSourceIdentifierFromSubscriptionResult
 * RemoveSourceIdentifierFromSubscriptionResult `object`
   * EventSubscription [EventSubscription](#eventsubscription)
 
 ### RemoveTagsFromResourceMessage
-* RemoveTagsFromResourceMessage `object`: <p/>
-  * ResourceName **required** [String](#string)
-  * TagKeys **required** [KeyList](#keylist)
+* RemoveTagsFromResourceMessage `object`
+  * ResourceName **required**
+  * TagKeys **required**
+    * items [String](#string)
 
 ### ResetDBClusterParameterGroupMessage
-* ResetDBClusterParameterGroupMessage `object`: <p/>
-  * DBClusterParameterGroupName **required** [String](#string)
-  * Parameters [ParametersList](#parameterslist)
-  * ResetAllParameters [Boolean](#boolean)
+* ResetDBClusterParameterGroupMessage `object`
+  * DBClusterParameterGroupName **required**
+  * Parameters
+    * items
+      * AllowedValues
+      * ApplyMethod
+      * ApplyType
+      * DataType
+      * Description
+      * IsModifiable
+      * MinimumEngineVersion
+      * ParameterName
+      * ParameterValue
+      * Source
+  * ResetAllParameters
 
 ### ResetDBParameterGroupMessage
-* ResetDBParameterGroupMessage `object`: <p/>
-  * DBParameterGroupName **required** [String](#string)
-  * Parameters [ParametersList](#parameterslist)
-  * ResetAllParameters [Boolean](#boolean)
+* ResetDBParameterGroupMessage `object`
+  * DBParameterGroupName **required**
+  * Parameters
+    * items
+      * AllowedValues
+      * ApplyMethod
+      * ApplyType
+      * DataType
+      * Description
+      * IsModifiable
+      * MinimumEngineVersion
+      * ParameterName
+      * ParameterValue
+      * Source
+  * ResetAllParameters
 
 ### ResourceNotFoundFault
-* ResourceNotFoundFault `object`: The specified resource ID was not found.
+
 
 ### ResourcePendingMaintenanceActions
 * ResourcePendingMaintenanceActions `object`: Describes the pending maintenance actions for a resource.
-  * PendingMaintenanceActionDetails [PendingMaintenanceActionDetails](#pendingmaintenanceactiondetails)
-  * ResourceIdentifier [String](#string)
+  * PendingMaintenanceActionDetails
+    * items
+      * Action
+      * AutoAppliedAfterDate
+      * CurrentApplyDate
+      * Description
+      * ForcedApplyDate
+      * OptInStatus
+  * ResourceIdentifier
 
 ### RestoreDBClusterFromSnapshotMessage
-* RestoreDBClusterFromSnapshotMessage `object`: <p/>
-  * AvailabilityZones [AvailabilityZones](#availabilityzones)
-  * DBClusterIdentifier **required** [String](#string)
-  * DBSubnetGroupName [String](#string)
-  * DatabaseName [String](#string)
-  * EnableIAMDatabaseAuthentication [BooleanOptional](#booleanoptional)
-  * Engine **required** [String](#string)
-  * EngineVersion [String](#string)
-  * KmsKeyId [String](#string)
-  * OptionGroupName [String](#string)
-  * Port [IntegerOptional](#integeroptional)
-  * SnapshotIdentifier **required** [String](#string)
-  * Tags [TagList](#taglist)
-  * VpcSecurityGroupIds [VpcSecurityGroupIdList](#vpcsecuritygroupidlist)
+* RestoreDBClusterFromSnapshotMessage `object`
+  * AvailabilityZones
+    * items
+  * DBClusterIdentifier **required**
+  * DBClusterParameterGroupName
+  * DBSubnetGroupName
+  * DatabaseName
+  * DeletionProtection
+  * EnableCloudwatchLogsExports
+    * items [String](#string)
+  * EnableIAMDatabaseAuthentication
+  * Engine **required**
+  * EngineVersion
+  * KmsKeyId
+  * OptionGroupName
+  * Port
+  * SnapshotIdentifier **required**
+  * Tags
+    * items
+      * Key
+      * Value
+  * VpcSecurityGroupIds
+    * items
 
 ### RestoreDBClusterFromSnapshotResult
 * RestoreDBClusterFromSnapshotResult `object`
   * DBCluster [DBCluster](#dbcluster)
 
 ### RestoreDBClusterToPointInTimeMessage
-* RestoreDBClusterToPointInTimeMessage `object`: <p/>
-  * DBClusterIdentifier **required** [String](#string)
-  * DBSubnetGroupName [String](#string)
-  * EnableIAMDatabaseAuthentication [BooleanOptional](#booleanoptional)
-  * KmsKeyId [String](#string)
-  * OptionGroupName [String](#string)
-  * Port [IntegerOptional](#integeroptional)
-  * RestoreToTime [TStamp](#tstamp)
-  * RestoreType [String](#string)
-  * SourceDBClusterIdentifier **required** [String](#string)
-  * Tags [TagList](#taglist)
-  * UseLatestRestorableTime [Boolean](#boolean)
-  * VpcSecurityGroupIds [VpcSecurityGroupIdList](#vpcsecuritygroupidlist)
+* RestoreDBClusterToPointInTimeMessage `object`
+  * DBClusterIdentifier **required**
+  * DBClusterParameterGroupName
+  * DBSubnetGroupName
+  * DeletionProtection
+  * EnableCloudwatchLogsExports
+    * items [String](#string)
+  * EnableIAMDatabaseAuthentication
+  * KmsKeyId
+  * OptionGroupName
+  * Port
+  * RestoreToTime
+  * RestoreType
+  * SourceDBClusterIdentifier **required**
+  * Tags
+    * items
+      * Key
+      * Value
+  * UseLatestRestorableTime
+  * VpcSecurityGroupIds
+    * items
 
 ### RestoreDBClusterToPointInTimeResult
 * RestoreDBClusterToPointInTimeResult `object`
   * DBCluster [DBCluster](#dbcluster)
 
 ### SNSInvalidTopicFault
-* SNSInvalidTopicFault `object`
+
 
 ### SNSNoAuthorizationFault
-* SNSNoAuthorizationFault `object`
+
 
 ### SNSTopicArnNotFoundFault
-* SNSTopicArnNotFoundFault `object`
+
 
 ### SharedSnapshotQuotaExceededFault
-* SharedSnapshotQuotaExceededFault `object`: You have exceeded the maximum number of accounts that you can share a manual DB snapshot with.
+
 
 ### SnapshotQuotaExceededFault
-* SnapshotQuotaExceededFault `object`: Request would result in user exceeding the allowed number of DB snapshots.
+
 
 ### SourceIdsList
 * SourceIdsList `array`
-  * items [String](#string)
+  * items
 
 ### SourceNotFoundFault
-* SourceNotFoundFault `object`
+
 
 ### SourceType
 * SourceType `string` (values: db-instance, db-parameter-group, db-security-group, db-snapshot, db-cluster, db-cluster-snapshot)
 
+### StartDBClusterMessage
+* StartDBClusterMessage `object`
+  * DBClusterIdentifier **required**
+
+### StartDBClusterResult
+* StartDBClusterResult `object`
+  * DBCluster [DBCluster](#dbcluster)
+
+### StopDBClusterMessage
+* StopDBClusterMessage `object`
+  * DBClusterIdentifier **required**
+
+### StopDBClusterResult
+* StopDBClusterResult `object`
+  * DBCluster [DBCluster](#dbcluster)
+
 ### StorageQuotaExceededFault
-* StorageQuotaExceededFault `object`: Request would result in user exceeding the allowed amount of storage available across all DB instances.
+
 
 ### StorageTypeNotSupportedFault
-* StorageTypeNotSupportedFault `object`:  <i>StorageType</i> specified cannot be associated with the DB Instance. 
+
 
 ### String
 * String `string`
 
+### StringList
+* StringList `array`
+  * items [String](#string)
+
 ### Subnet
-* Subnet `object`:  This data type is used as a response element in the <a>DescribeDBSubnetGroups</a> action. 
-  * SubnetAvailabilityZone [AvailabilityZone](#availabilityzone)
-  * SubnetIdentifier [String](#string)
-  * SubnetStatus [String](#string)
+* Subnet `object`: <p>Specifies a subnet.</p> <p> This data type is used as a response element in the <a>DescribeDBSubnetGroups</a> action.</p>
+  * SubnetAvailabilityZone
+    * Name
+  * SubnetIdentifier
+  * SubnetStatus
 
 ### SubnetAlreadyInUse
-* SubnetAlreadyInUse `object`: The DB subnet is already in use in the Availability Zone.
+
 
 ### SubnetIdentifierList
 * SubnetIdentifierList `array`
-  * items [String](#string)
+  * items
 
 ### SubnetList
 * SubnetList `array`
-  * items [Subnet](#subnet)
+  * items
+    * SubnetAvailabilityZone
+      * Name
+    * SubnetIdentifier
+    * SubnetStatus
 
 ### SubscriptionAlreadyExistFault
-* SubscriptionAlreadyExistFault `object`
+
 
 ### SubscriptionCategoryNotFoundFault
-* SubscriptionCategoryNotFoundFault `object`
+
 
 ### SubscriptionNotFoundFault
-* SubscriptionNotFoundFault `object`
+
 
 ### SupportedCharacterSetsList
 * SupportedCharacterSetsList `array`
-  * items [CharacterSet](#characterset)
+  * items
+    * CharacterSetDescription
+    * CharacterSetName
 
 ### SupportedTimezonesList
 * SupportedTimezonesList `array`
-  * items [Timezone](#timezone)
+  * items
+    * TimezoneName
 
 ### TStamp
 * TStamp `string`
 
 ### Tag
 * Tag `object`: Metadata assigned to an Amazon Neptune resource consisting of a key-value pair.
-  * Key [String](#string)
-  * Value [String](#string)
+  * Key
+  * Value
 
 ### TagList
-* TagList `array`: A list of tags. For more information, see <a href="http://docs.aws.amazon.com/neptune/latest/UserGuide/tagging.ARN.html">Tagging Amazon Neptune Resources</a>. 
-  * items [Tag](#tag)
+* TagList `array`
+  * items
+    * Key
+    * Value
 
 ### TagListMessage
-* TagListMessage `object`: <p/>
-  * TagList [TagList](#taglist)
+* TagListMessage `object`
+  * TagList
+    * items
+      * Key
+      * Value
 
 ### Timezone
-* Timezone `object`: A time zone associated with a <a>DBInstance</a>. This data type is an element in the response to the <a>DescribeDBInstances</a>, and the <a>DescribeDBEngineVersions</a> actions. 
-  * TimezoneName [String](#string)
+* Timezone `object`: A time zone associated with a <a>DBInstance</a>.
+  * TimezoneName
 
 ### UpgradeTarget
 * UpgradeTarget `object`: The version of the database engine that a DB instance can be upgraded to.
-  * AutoUpgrade [Boolean](#boolean)
-  * Description [String](#string)
-  * Engine [String](#string)
-  * EngineVersion [String](#string)
-  * IsMajorVersionUpgrade [Boolean](#boolean)
+  * AutoUpgrade
+  * Description
+  * Engine
+  * EngineVersion
+  * IsMajorVersionUpgrade
 
 ### ValidDBInstanceModificationsMessage
 * ValidDBInstanceModificationsMessage `object`: Information about valid modifications that you can make to your DB instance. Contains the result of a successful call to the <a>DescribeValidDBInstanceModifications</a> action. You can use this information when you call <a>ModifyDBInstance</a>. 
-  * Storage [ValidStorageOptionsList](#validstorageoptionslist)
+  * Storage
+    * items
+      * IopsToStorageRatio
+        * items
+          * From
+          * To
+      * ProvisionedIops
+        * items
+          * From
+          * Step
+          * To
+      * StorageSize
+        * items
+          * From
+          * Step
+          * To
+      * StorageType
 
 ### ValidStorageOptions
-* ValidStorageOptions `object`: Information about valid modifications that you can make to your DB instance. Contains the result of a successful call to the <a>DescribeValidDBInstanceModifications</a> action. 
-  * IopsToStorageRatio [DoubleRangeList](#doublerangelist)
-  * ProvisionedIops [RangeList](#rangelist)
-  * StorageSize [RangeList](#rangelist)
-  * StorageType [String](#string)
+* ValidStorageOptions `object`: <p>Information about valid modifications that you can make to your DB instance.</p> <p>Contains the result of a successful call to the <a>DescribeValidDBInstanceModifications</a> action.</p>
+  * IopsToStorageRatio
+    * items
+      * From
+      * To
+  * ProvisionedIops
+    * items
+      * From
+      * Step
+      * To
+  * StorageSize
+    * items
+      * From
+      * Step
+      * To
+  * StorageType
 
 ### ValidStorageOptionsList
 * ValidStorageOptionsList `array`
-  * items [ValidStorageOptions](#validstorageoptions)
+  * items
+    * IopsToStorageRatio
+      * items
+        * From
+        * To
+    * ProvisionedIops
+      * items
+        * From
+        * Step
+        * To
+    * StorageSize
+      * items
+        * From
+        * Step
+        * To
+    * StorageType
 
 ### ValidUpgradeTargetList
 * ValidUpgradeTargetList `array`
-  * items [UpgradeTarget](#upgradetarget)
+  * items
+    * AutoUpgrade
+    * Description
+    * Engine
+    * EngineVersion
+    * IsMajorVersionUpgrade
 
 ### VpcSecurityGroupIdList
 * VpcSecurityGroupIdList `array`
-  * items [String](#string)
+  * items
 
 ### VpcSecurityGroupMembership
 * VpcSecurityGroupMembership `object`: This data type is used as a response element for queries on VPC security group membership.
-  * Status [String](#string)
-  * VpcSecurityGroupId [String](#string)
+  * Status
+  * VpcSecurityGroupId
 
 ### VpcSecurityGroupMembershipList
 * VpcSecurityGroupMembershipList `array`
-  * items [VpcSecurityGroupMembership](#vpcsecuritygroupmembership)
+  * items
+    * Status
+    * VpcSecurityGroupId
 
 

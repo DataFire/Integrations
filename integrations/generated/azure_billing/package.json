@@ -1,6 +1,6 @@
 {
   "name": "@datafire/azure_billing",
-  "version": "4.0.0",
+  "version": "5.0.0",
   "main": "index.js",
   "description": "DataFire integration for BillingManagementClient",
   "repository": {
@@ -14,7 +14,7 @@
   },
   "homepage": "https://github.com/DataFire/integrations#readme",
   "datafire": {
-    "origin": "https://api.apis.guru/v2/specs/azure.com/billing/2017-04-24-preview/swagger.json",
+    "origin": "https://api.apis.guru/v2/specs/azure.com/billing/2019-10-01-preview/swagger.json",
     "type": "openapi"
   },
   "peerDependencies": {

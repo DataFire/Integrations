@@ -1,10 +1,5 @@
 {
   "swagger": "2.0",
-  "schemes": [
-    "http"
-  ],
-  "host": "api.oceandrivers.com",
-  "basePath": "/",
   "info": {
     "contact": {
       "email": "matiasbonet@oceandrivers.com"
@@ -19,7 +14,7 @@
       {
         "converter": {
           "url": "https://github.com/lucybot/api-spec-converter",
-          "version": "2.6.2"
+          "version": "2.7.31"
         },
         "format": "swagger",
         "url": "http://api.oceandrivers.com/static/resources.json",
@@ -33,25 +28,18 @@
       "type": "openapi"
     }
   },
-  "produces": [
-    "application/json",
-    "text/html"
-  ],
-  "tags": [
-    {
-      "description": "ODWeather API service",
-      "name": "ODWeather"
-    }
+  "host": "api.oceandrivers.com",
+  "basePath": "/",
+  "schemes": [
+    "https"
   ],
   "paths": {
     "/v1.0/compareStation/{stationName}/": {
       "get": {
-        "description": "Get forecast and realtime information for known points<br/>None",
-        "operationId": "compareStation",
         "parameters": [
           {
             "default": "cnarenal",
-            "description": "Weather station to compare, values: cnareanl|rcnp | cmsap|boyaenderrocat|areopuertopalma",
+            "description": "Weather station to compare, values: cnareanl|rcnp | cmsap|boyaenderrocat|areopuertopalma | EWXXX",
             "in": "path",
             "name": "stationName",
             "required": true,
@@ -65,13 +53,13 @@
         },
         "tags": [
           "ODWeather"
-        ]
+        ],
+        "description": "Get forecast and realtime information for known points<br/>None",
+        "operationId": "compareStation"
       }
     },
     "/v1.0/getAemetStation/{stationName}/{period}/": {
       "get": {
-        "description": "Get data from the aemet stations<br/>None",
-        "operationId": "getAemetStation",
         "parameters": [
           {
             "default": "aeropuertopalma",
@@ -97,13 +85,13 @@
         },
         "tags": [
           "ODWeather"
-        ]
+        ],
+        "description": "Get data from the aemet stations<br/>None",
+        "operationId": "getAemetStation"
       }
     },
     "/v1.0/getEasyWind/{easywindId}/": {
       "get": {
-        "description": "Get data from the easywind weather stations<br/>None",
-        "operationId": "getEasywind",
         "parameters": [
           {
             "default": "EW013",
@@ -129,17 +117,17 @@
         },
         "tags": [
           "ODWeather"
-        ]
+        ],
+        "description": "Get data from the easywind weather stations<br/>None",
+        "operationId": "getEasywind"
       }
     },
     "/v1.0/getEventStations/{eventId}/": {
       "get": {
-        "description": "Get stations in an event<br/>None",
-        "operationId": "getEventStations",
         "parameters": [
           {
             "default": "trofeoprincesasofia",
-            "description": "currently: 'trofeoprincesasofia'",
+            "description": "currently: 'trofeoprincesasofia|palmavela'",
             "in": "path",
             "name": "eventId",
             "required": true,
@@ -153,13 +141,13 @@
         },
         "tags": [
           "ODWeather"
-        ]
+        ],
+        "description": "Get stations in an event<br/>None",
+        "operationId": "getEventStations"
       }
     },
     "/v1.0/getForecastPoints/{yatchclubid}/language/{language}": {
       "get": {
-        "description": "Get forecast points of a yatchclub<br/>None",
-        "operationId": "getForecastPoints",
         "parameters": [
           {
             "default": "cnarenal",
@@ -183,13 +171,13 @@
         },
         "tags": [
           "ODWeather"
-        ]
+        ],
+        "description": "Get forecast points of a yatchclub<br/>None",
+        "operationId": "getForecastPoints"
       }
     },
     "/v1.0/getForecastTimeSeries/{latitude}/{longitude}/": {
       "get": {
-        "description": "Get timeseries forecast information<br/>None",
-        "operationId": "getForecastTimeSeries",
         "parameters": [
           {
             "default": 39.49,
@@ -268,13 +256,13 @@
         },
         "tags": [
           "ODWeather"
-        ]
+        ],
+        "description": "Get timeseries forecast information<br/>None",
+        "operationId": "getForecastTimeSeries"
       }
     },
     "/v1.0/getForecastTimeSeriesWrf/{latitude}/{longitude}/": {
       "get": {
-        "description": "Get timeseries forecast information<br/>None",
-        "operationId": "getForecastTimeSeriesWrf",
         "parameters": [
           {
             "default": 39.49,
@@ -353,13 +341,13 @@
         },
         "tags": [
           "ODWeather"
-        ]
+        ],
+        "description": "Get timeseries forecast information<br/>None",
+        "operationId": "getForecastTimeSeriesWrf"
       }
     },
     "/v1.0/getSocibWeatherStation/{stationName}/{period}/": {
       "get": {
-        "description": "Get data from the socib bahia de palma buoy<br/>None",
-        "operationId": "getSocibWeatherStation",
         "parameters": [
           {
             "default": "boyaenderrocat",
@@ -385,13 +373,13 @@
         },
         "tags": [
           "ODWeather"
-        ]
+        ],
+        "description": "Get data from the socib bahia de palma buoy<br/>None",
+        "operationId": "getSocibWeatherStation"
       }
     },
     "/v1.0/getWeatherDisplay/{stationName}/": {
       "get": {
-        "description": "Get data from the weather display software<br/>None",
-        "operationId": "getWeatherDisplay",
         "parameters": [
           {
             "default": "cnarenal",
@@ -417,13 +405,14 @@
         },
         "tags": [
           "ODWeather"
-        ]
+        ],
+        "description": "Get data from the weather display software<br/>None",
+        "operationId": "getWeatherDisplay"
       }
     },
     "/v1.0/getWebCams/": {
       "get": {
-        "description": "Get forecast and realtime information for known points<br/>None",
-        "operationId": "getWebCams",
+        "parameters": [],
         "responses": {
           "200": {
             "description": "No response was specified"
@@ -431,8 +420,16 @@
         },
         "tags": [
           "ODWeather"
-        ]
+        ],
+        "description": "Get forecast and realtime information for known points<br/>None",
+        "operationId": "getWebCams"
       }
     }
-  }
+  },
+  "tags": [
+    {
+      "description": "ODWeather API service",
+      "name": "ODWeather"
+    }
+  ]
 }

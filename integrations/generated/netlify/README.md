@@ -1,6 +1,6 @@
 # @datafire/netlify
 
-Client library for Netlify's API definition
+Client library for Netlify's API documentation
 
 ## Installation and Usage
 ```bash
@@ -15,14 +15,20 @@ let netlify = require('@datafire/netlify').create({
   redirect_uri: ""
 });
 
-netlify.listSites({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
 
 ## Description
 
+Netlify is a hosting service for the programmable web. It understands your documents and provides an API to handle atomic deploys of websites, manage form submissions, inject JavaScript snippets, and much more. This is a REST-style API that uses JSON for serialization and OAuth 2 for authentication.
 
+This document is an OpenAPI reference for the Netlify API that you can explore. For more detailed instructions for common uses, please visit the [online documentation](https://www.netlify.com/docs/api/). Visit our Community forum to join the conversation about [understanding and using Netlify’s API](https://community.netlify.com/t/common-issue-understanding-and-using-netlifys-api/160).
+
+Additionally, we have two API clients for your convenience:
+- [Go Client](https://github.com/netlify/open-api#go-client)
+- [JS Client](https://github.com/netlify/js-client)
 
 ## Actions
 
@@ -92,6 +98,24 @@ netlify.cancelAccount({
 
 #### Output
 *Output schema unknown*
+
+### getAccount
+
+
+
+```js
+netlify.getAccount({
+  "account_id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * account_id **required** `string`
+
+#### Output
+* output `array`
+  * items [accountMembership](#accountmembership)
 
 ### updateAccount
 
@@ -279,6 +303,23 @@ netlify.getDeploy({
 #### Output
 * output [deploy](#deploy)
 
+### cancelSiteDeploy
+
+
+
+```js
+netlify.cancelSiteDeploy({
+  "deploy_id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * deploy_id **required** `string`
+
+#### Output
+* output [deploy](#deploy)
+
 ### uploadDeployFile
 
 
@@ -295,6 +336,7 @@ netlify.uploadDeployFile({
 * input `object`
   * deploy_id **required** `string`
   * path **required** `string`
+  * size `integer`
   * file_body **required** `string`
 
 #### Output
@@ -317,6 +359,7 @@ netlify.uploadDeployFunction({
   * deploy_id **required** `string`
   * name **required** `string`
   * runtime `string`
+  * size `integer`
   * file_body **required** `string`
 
 #### Output
@@ -339,6 +382,24 @@ netlify.lockDeploy({
 #### Output
 * output [deploy](#deploy)
 
+### createPluginRun
+This is an internal-only endpoint.
+
+
+```js
+netlify.createPluginRun({
+  "deploy_id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * deploy_id **required** `string`
+  * plugin_run [pluginRunData](#pluginrundata)
+
+#### Output
+* output [pluginRun](#pluginrun)
+
 ### unlockDeploy
 
 
@@ -356,21 +417,168 @@ netlify.unlockDeploy({
 #### Output
 * output [deploy](#deploy)
 
-### listForms
+### getDnsZones
 
 
 
 ```js
-netlify.listForms({}, context)
+netlify.getDnsZones({}, context)
 ```
 
 #### Input
 * input `object`
-  * site_id `string`
+  * account_slug `string`
 
 #### Output
-* output `array`
-  * items [form](#form)
+* output [dnsZones](#dnszones)
+
+### createDnsZone
+
+
+
+```js
+netlify.createDnsZone({
+  "DnsZoneParams": {}
+}, context)
+```
+
+#### Input
+* input `object`
+  * DnsZoneParams **required** [dnsZoneSetup](#dnszonesetup)
+
+#### Output
+* output [dnsZone](#dnszone)
+
+### deleteDnsZone
+
+
+
+```js
+netlify.deleteDnsZone({
+  "zone_id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * zone_id **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### getDnsZone
+
+
+
+```js
+netlify.getDnsZone({
+  "zone_id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * zone_id **required** `string`
+
+#### Output
+* output [dnsZone](#dnszone)
+
+### getDnsRecords
+
+
+
+```js
+netlify.getDnsRecords({
+  "zone_id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * zone_id **required** `string`
+
+#### Output
+* output [dnsRecords](#dnsrecords)
+
+### createDnsRecord
+
+
+
+```js
+netlify.createDnsRecord({
+  "dns_record": {},
+  "zone_id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * dns_record **required** [dnsRecordCreate](#dnsrecordcreate)
+  * zone_id **required** `string`
+
+#### Output
+* output [dnsRecord](#dnsrecord)
+
+### deleteDnsRecord
+
+
+
+```js
+netlify.deleteDnsRecord({
+  "zone_id": "",
+  "dns_record_id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * zone_id **required** `string`
+  * dns_record_id **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### getIndividualDnsRecord
+
+
+
+```js
+netlify.getIndividualDnsRecord({
+  "zone_id": "",
+  "dns_record_id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * zone_id **required** `string`
+  * dns_record_id **required** `string`
+
+#### Output
+* output [dnsRecord](#dnsrecord)
+
+### transferDnsZone
+
+
+
+```js
+netlify.transferDnsZone({
+  "zone_id": "",
+  "account_id": "",
+  "transfer_account_id": "",
+  "transfer_user_id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * zone_id **required** `string`
+  * account_id **required** `string`: the account of the dns zone
+  * transfer_account_id **required** `string`: the account you want to transfer the dns zone to
+  * transfer_user_id **required** `string`: the user you want to transfer the dns zone to
+
+#### Output
+* output [dnsZone](#dnszone)
 
 ### listFormSubmissions
 
@@ -442,12 +650,12 @@ netlify.listHookTypes(null, context)
 * output `array`
   * items [hookType](#hooktype)
 
-### deleteHookBySiteId
+### deleteHook
 
 
 
 ```js
-netlify.deleteHookBySiteId({
+netlify.deleteHook({
   "hook_id": ""
 }, context)
 ```
@@ -562,6 +770,56 @@ netlify.exchangeTicket({
 
 #### Output
 * output [accessToken](#accesstoken)
+
+### getServices
+
+
+
+```js
+netlify.getServices({}, context)
+```
+
+#### Input
+* input `object`
+  * search `string`
+
+#### Output
+* output `array`
+  * items [service](#service)
+
+### showService
+
+
+
+```js
+netlify.showService({
+  "addonName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * addonName **required** `string`
+
+#### Output
+* output [service](#service)
+
+### showServiceManifest
+
+
+
+```js
+netlify.showServiceManifest({
+  "addonName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * addonName **required** `string`
+
+#### Output
+* output `object`
 
 ### listSites
 
@@ -885,6 +1143,23 @@ netlify.listSiteBuilds({
 * output `array`
   * items [build](#build)
 
+### createSiteBuild
+
+
+
+```js
+netlify.createSiteBuild({
+  "site_id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * site_id **required** `string`
+
+#### Output
+* output [build](#build)
+
 ### listSiteDeployedBranches
 
 
@@ -1091,6 +1366,25 @@ netlify.listSiteForms({
 * output `array`
   * items [form](#form)
 
+### deleteSiteForm
+
+
+
+```js
+netlify.deleteSiteForm({
+  "site_id": "",
+  "form_id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * site_id **required** `string`
+  * form_id **required** `string`
+
+#### Output
+*Output schema unknown*
+
 ### getSiteMetadata
 
 
@@ -1123,6 +1417,127 @@ netlify.updateSiteMetadata({
 * input `object`
   * metadata **required** [metadata](#metadata)
   * site_id **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### rollbackSiteDeploy
+
+
+
+```js
+netlify.rollbackSiteDeploy({
+  "site_id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * site_id **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### listServiceInstancesForSite
+
+
+
+```js
+netlify.listServiceInstancesForSite({
+  "site_id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * site_id **required** `string`
+
+#### Output
+* output `array`
+  * items [serviceInstance](#serviceinstance)
+
+### createServiceInstance
+
+
+
+```js
+netlify.createServiceInstance({
+  "config": {},
+  "site_id": "",
+  "addon": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * config **required** `object`
+  * site_id **required** `string`
+  * addon **required** `string`
+
+#### Output
+* output [serviceInstance](#serviceinstance)
+
+### deleteServiceInstance
+
+
+
+```js
+netlify.deleteServiceInstance({
+  "site_id": "",
+  "addon": "",
+  "instance_id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * site_id **required** `string`
+  * addon **required** `string`
+  * instance_id **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### showServiceInstance
+
+
+
+```js
+netlify.showServiceInstance({
+  "site_id": "",
+  "addon": "",
+  "instance_id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * site_id **required** `string`
+  * addon **required** `string`
+  * instance_id **required** `string`
+
+#### Output
+* output [serviceInstance](#serviceinstance)
+
+### updateServiceInstance
+
+
+
+```js
+netlify.updateServiceInstance({
+  "config": {},
+  "site_id": "",
+  "addon": "",
+  "instance_id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * config **required** `object`
+  * site_id **required** `string`
+  * addon **required** `string`
+  * instance_id **required** `string`
 
 #### Output
 *Output schema unknown*
@@ -1278,6 +1693,142 @@ netlify.listSiteSubmissions({
 * output `array`
   * items [submission](#submission)
 
+### getSplitTests
+
+
+
+```js
+netlify.getSplitTests({
+  "site_id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * site_id **required** `string`
+
+#### Output
+* output [splitTests](#splittests)
+
+### createSplitTest
+
+
+
+```js
+netlify.createSplitTest({
+  "branch_tests": {},
+  "site_id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * branch_tests **required** [splitTestSetup](#splittestsetup)
+  * site_id **required** `string`
+
+#### Output
+* output [splitTest](#splittest)
+
+### getSplitTest
+
+
+
+```js
+netlify.getSplitTest({
+  "site_id": "",
+  "split_test_id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * site_id **required** `string`
+  * split_test_id **required** `string`
+
+#### Output
+* output [splitTest](#splittest)
+
+### updateSplitTest
+
+
+
+```js
+netlify.updateSplitTest({
+  "branch_tests": {},
+  "site_id": "",
+  "split_test_id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * branch_tests **required** [splitTestSetup](#splittestsetup)
+  * site_id **required** `string`
+  * split_test_id **required** `string`
+
+#### Output
+* output [splitTest](#splittest)
+
+### enableSplitTest
+
+
+
+```js
+netlify.enableSplitTest({
+  "site_id": "",
+  "split_test_id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * site_id **required** `string`
+  * split_test_id **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### disableSplitTest
+
+
+
+```js
+netlify.disableSplitTest({
+  "site_id": "",
+  "split_test_id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * site_id **required** `string`
+  * split_test_id **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### unlinkSiteRepo
+[Beta] Unlinks the repo from the site.
+
+This action will also:
+- Delete associated deploy keys
+- Delete outgoing webhooks for the repo
+- Delete the site's build hooks
+
+
+```js
+netlify.unlinkSiteRepo({
+  "site_id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * site_id **required** `string`
+
+#### Output
+* output [site](#site)
+
 ### deleteSubmission
 
 
@@ -1313,6 +1864,21 @@ netlify.listFormSubmission({
 #### Output
 * output `array`
   * items [submission](#submission)
+
+### getCurrentUser
+
+
+
+```js
+netlify.getCurrentUser(null, context)
+```
+
+#### Input
+*This action has no parameters*
+
+#### Output
+* output `array`
+  * items [user](#user)
 
 ### listMembersForAccount
 
@@ -1371,6 +1937,25 @@ netlify.listSitesForAccount({
 #### Output
 * output `array`
   * items [site](#site)
+
+### createSiteInTeam
+
+
+
+```js
+netlify.createSiteInTeam({
+  "account_slug": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * site [siteSetup](#sitesetup)
+  * configure_dns `boolean`
+  * account_slug **required** `string`
+
+#### Output
+* output [site](#site)
 
 
 
@@ -1433,7 +2018,6 @@ netlify.listSitesForAccount({
   * billing_name `string`
   * extra_seats_block `integer`
   * name `string`
-  * payment_method_id `string`
   * slug `string`
   * type_id `string`
 
@@ -1530,6 +2114,8 @@ netlify.listSitesForAccount({
   * review_id `number`
   * review_url `string`
   * screenshot_url `string`
+  * site_capabilities `object`
+    * large_media_enabled `boolean`
   * site_id `string`
   * skipped `boolean`
   * ssl_url `string`
@@ -1542,6 +2128,7 @@ netlify.listSitesForAccount({
 ### deployFiles
 * deployFiles `object`
   * async `boolean`
+  * branch `string`
   * draft `boolean`
   * files `object`
   * functions `object`
@@ -1563,19 +2150,66 @@ netlify.listSitesForAccount({
 
 ### dnsRecord
 * dnsRecord `object`
+  * dns_zone_id `string`
+  * flag `integer`
   * hostname `string`
   * id `string`
+  * managed `boolean`
   * priority `integer`
+  * site_id `string`
+  * tag `string`
   * ttl `integer`
   * type `string`
   * value `string`
 
+### dnsRecordCreate
+* dnsRecordCreate `object`
+  * flag `integer`
+  * hostname `string`
+  * port `integer`
+  * priority `integer`
+  * tag `string`
+  * ttl `integer`
+  * type `string`
+  * value `string`
+  * weight `integer`
+
+### dnsRecords
+* dnsRecords `array`
+  * items [dnsRecord](#dnsrecord)
+
 ### dnsZone
 * dnsZone `object`
+  * account_id `string`
+  * account_name `string`
+  * account_slug `string`
+  * created_at `string`
+  * dedicated `boolean`
+  * dns_servers `array`
+    * items `string`
+  * domain `string`
+  * errors `array`
+    * items `string`
   * id `string`
+  * ipv6_enabled `boolean`
   * name `string`
   * records `array`
     * items [dnsRecord](#dnsrecord)
+  * site_id `string`
+  * supported_record_types `array`
+    * items `string`
+  * updated_at `string`
+  * user_id `string`
+
+### dnsZoneSetup
+* dnsZoneSetup `object`
+  * account_slug `string`
+  * name `string`
+  * site_id `string`
+
+### dnsZones
+* dnsZones `array`
+  * items [dnsZone](#dnszone)
 
 ### error
 * error `object`
@@ -1656,6 +2290,27 @@ netlify.listSitesForAccount({
   * type `string`
   * updated_at `string`
 
+### pluginRun
+* pluginRun
+  * package `string`
+  * reporting_event `string`
+  * state `string`
+  * summary `string`
+  * text `string`
+  * title `string`
+  * version `string`
+  * deploy_id `string`
+
+### pluginRunData
+* pluginRunData `object`
+  * package `string`
+  * reporting_event `string`
+  * state `string`
+  * summary `string`
+  * text `string`
+  * title `string`
+  * version `string`
+
 ### repoInfo
 * repoInfo `object`
   * allowed_branches `array`
@@ -1665,22 +2320,62 @@ netlify.listSitesForAccount({
   * dir `string`
   * env `object`
   * id `integer`
+  * installation_id `integer`
   * private_logs `boolean`
   * provider `string`
   * public_repo `boolean`
   * repo_branch `string`
   * repo_path `string`
   * repo_url `string`
+  * stop_builds `boolean`
+
+### service
+* service `object`
+  * created_at `string`
+  * description `string`
+  * environments `array`
+    * items `string`
+  * events `array`
+    * items `object`
+  * icon `string`
+  * id `string`
+  * long_description `string`
+  * manifest_url `string`
+  * name `string`
+  * service_path `string`
+  * slug `string`
+  * tags `array`
+    * items `string`
+  * updated_at `string`
+
+### serviceInstance
+* serviceInstance `object`
+  * auth_url `string`
+  * config `object`
+  * created_at `string`
+  * env `object`
+  * external_attributes `object`
+  * id `string`
+  * service_name `string`
+  * service_path `string`
+  * service_slug `string`
+  * snippets `array`
+    * items `object`
+  * updated_at `string`
+  * url `string`
 
 ### site
 * site `object`
   * account_name `string`
   * account_slug `string`
   * admin_url `string`
+  * build_image `string`
   * build_settings [repoInfo](#repoinfo)
   * capabilities `object`
   * created_at `string`
   * custom_domain `string`
+  * default_hooks_data `object`
+    * access_token `string`
   * deploy_hook `string`
   * deploy_url `string`
   * domain_aliases `array`
@@ -1688,6 +2383,7 @@ netlify.listSitesForAccount({
   * force_ssl `boolean`
   * git_provider `string`
   * id `string`
+  * id_domain `string`
   * managed_dns `boolean`
   * name `string`
   * notification_email `string`
@@ -1716,10 +2412,13 @@ netlify.listSitesForAccount({
   * account_name `string`
   * account_slug `string`
   * admin_url `string`
+  * build_image `string`
   * build_settings [repoInfo](#repoinfo)
   * capabilities `object`
   * created_at `string`
   * custom_domain `string`
+  * default_hooks_data `object`
+    * access_token `string`
   * deploy_hook `string`
   * deploy_url `string`
   * domain_aliases `array`
@@ -1727,6 +2426,7 @@ netlify.listSitesForAccount({
   * force_ssl `boolean`
   * git_provider `string`
   * id `string`
+  * id_domain `string`
   * managed_dns `boolean`
   * name `string`
   * notification_email `string`
@@ -1770,6 +2470,27 @@ netlify.listSitesForAccount({
   * site_id `string`
   * title `string`
 
+### splitTest
+* splitTest `object`
+  * active `boolean`
+  * branches `array`
+    * items `object`
+  * created_at `string`
+  * id `string`
+  * name `string`
+  * path `string`
+  * site_id `string`
+  * unpublished_at `string`
+  * updated_at `string`
+
+### splitTestSetup
+* splitTestSetup `object`
+  * branch_tests `object`
+
+### splitTests
+* splitTests `array`
+  * items [splitTest](#splittest)
+
 ### submission
 * submission `object`
   * body `string`
@@ -1791,5 +2512,21 @@ netlify.listSitesForAccount({
   * client_id `string`
   * created_at `string`
   * id `string`
+
+### user
+* user `object`
+  * affiliate_id `string`
+  * avatar_url `string`
+  * created_at `string`
+  * email `string`
+  * full_name `string`
+  * id `string`
+  * last_login `string`
+  * login_providers `array`
+    * items `string`
+  * onboarding_progress `object`
+    * slides `string`
+  * site_count `integer`
+  * uid `string`
 
 

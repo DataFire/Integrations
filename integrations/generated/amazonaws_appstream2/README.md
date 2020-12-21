@@ -13,17 +13,14 @@ let amazonaws_appstream2 = require('@datafire/amazonaws_appstream2').create({
   region: ""
 });
 
-amazonaws_appstream2.AssociateFleet({
-  "FleetName": "",
-  "StackName": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
 
 ## Description
 
-<fullname>Amazon AppStream 2.0</fullname> <p>You can use Amazon AppStream 2.0 to stream desktop applications to any device running a web browser, without rewriting them.</p>
+<fullname>Amazon AppStream 2.0</fullname> <p>This is the <i>Amazon AppStream 2.0 API Reference</i>. This documentation provides descriptions and syntax for each of the actions and data types in AppStream 2.0. AppStream 2.0 is a fully managed, secure application streaming service that lets you stream desktop applications to users without rewriting applications. AppStream 2.0 manages the AWS resources that are required to host and run your applications, scales automatically, and provides access to your users on demand. </p> <note> <p>You can call the AppStream 2.0 API operations by using an interface VPC endpoint (interface endpoint). For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/access-api-cli-through-interface-vpc-endpoint.html">Access AppStream 2.0 API Operations and CLI Commands Through an Interface VPC Endpoint</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p> </note> <p>To learn more about AppStream 2.0, see the following resources:</p> <ul> <li> <p> <a href="http://aws.amazon.com/appstream2">Amazon AppStream 2.0 product page</a> </p> </li> <li> <p> <a href="http://aws.amazon.com/documentation/appstream2">Amazon AppStream 2.0 documentation</a> </p> </li> </ul>
 
 ## Actions
 
@@ -33,18 +30,54 @@ amazonaws_appstream2.AssociateFleet({
 
 ```js
 amazonaws_appstream2.AssociateFleet({
-  "FleetName": "",
-  "StackName": ""
+  "FleetName": null,
+  "StackName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * FleetName **required** [String](#string)
-  * StackName **required** [String](#string)
+  * FleetName **required**
+  * StackName **required**
 
 #### Output
 * output [AssociateFleetResult](#associatefleetresult)
+
+### BatchAssociateUserStack
+
+
+
+```js
+amazonaws_appstream2.BatchAssociateUserStack({
+  "UserStackAssociations": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * UserStackAssociations **required**
+    * items [UserStackAssociation](#userstackassociation)
+
+#### Output
+* output [BatchAssociateUserStackResult](#batchassociateuserstackresult)
+
+### BatchDisassociateUserStack
+
+
+
+```js
+amazonaws_appstream2.BatchDisassociateUserStack({
+  "UserStackAssociations": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * UserStackAssociations **required**
+    * items [UserStackAssociation](#userstackassociation)
+
+#### Output
+* output [BatchDisassociateUserStackResult](#batchdisassociateuserstackresult)
 
 ### CopyImage
 
@@ -52,18 +85,18 @@ amazonaws_appstream2.AssociateFleet({
 
 ```js
 amazonaws_appstream2.CopyImage({
-  "SourceImageName": "",
-  "DestinationImageName": "",
-  "DestinationRegion": ""
+  "SourceImageName": null,
+  "DestinationImageName": null,
+  "DestinationRegion": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * DestinationImageDescription [Description](#description)
-  * DestinationImageName **required** [Name](#name)
-  * DestinationRegion **required** [RegionName](#regionname)
-  * SourceImageName **required** [Name](#name)
+  * DestinationImageDescription
+  * DestinationImageName **required**
+  * DestinationRegion **required**
+  * SourceImageName **required**
 
 #### Output
 * output [CopyImageResponse](#copyimageresponse)
@@ -74,20 +107,19 @@ amazonaws_appstream2.CopyImage({
 
 ```js
 amazonaws_appstream2.CreateDirectoryConfig({
-  "DirectoryName": "",
-  "OrganizationalUnitDistinguishedNames": [],
-  "ServiceAccountCredentials": {
-    "AccountName": "",
-    "AccountPassword": ""
-  }
+  "DirectoryName": null,
+  "OrganizationalUnitDistinguishedNames": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * DirectoryName **required** [DirectoryName](#directoryname)
-  * OrganizationalUnitDistinguishedNames **required** [OrganizationalUnitDistinguishedNamesList](#organizationalunitdistinguishednameslist)
-  * ServiceAccountCredentials **required** [ServiceAccountCredentials](#serviceaccountcredentials)
+  * DirectoryName **required**
+  * OrganizationalUnitDistinguishedNames **required**
+    * items [OrganizationalUnitDistinguishedName](#organizationalunitdistinguishedname)
+  * ServiceAccountCredentials
+    * AccountName **required**
+    * AccountPassword **required**
 
 #### Output
 * output [CreateDirectoryConfigResult](#createdirectoryconfigresult)
@@ -98,29 +130,38 @@ amazonaws_appstream2.CreateDirectoryConfig({
 
 ```js
 amazonaws_appstream2.CreateFleet({
-  "Name": "",
-  "ImageName": "",
-  "InstanceType": "",
-  "ComputeCapacity": {
-    "DesiredInstances": 0
-  }
+  "Name": null,
+  "InstanceType": null,
+  "ComputeCapacity": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ComputeCapacity **required** [ComputeCapacity](#computecapacity)
-  * Description [Description](#description)
-  * DisconnectTimeoutInSeconds [Integer](#integer)
-  * DisplayName [DisplayName](#displayname)
-  * DomainJoinInfo [DomainJoinInfo](#domainjoininfo)
-  * EnableDefaultInternetAccess [BooleanObject](#booleanobject)
-  * FleetType [FleetType](#fleettype)
-  * ImageName **required** [String](#string)
-  * InstanceType **required** [String](#string)
-  * MaxUserDurationInSeconds [Integer](#integer)
-  * Name **required** [Name](#name)
-  * VpcConfig [VpcConfig](#vpcconfig)
+  * ComputeCapacity **required**
+    * DesiredInstances **required**
+  * Description
+  * DisconnectTimeoutInSeconds
+  * DisplayName
+  * DomainJoinInfo
+    * DirectoryName
+    * OrganizationalUnitDistinguishedName
+  * EnableDefaultInternetAccess
+  * FleetType
+  * IamRoleArn
+  * IdleDisconnectTimeoutInSeconds
+  * ImageArn
+  * ImageName
+  * InstanceType **required**
+  * MaxUserDurationInSeconds
+  * Name **required**
+  * StreamView
+  * Tags
+  * VpcConfig
+    * SecurityGroupIds
+      * items [String](#string)
+    * SubnetIds
+      * items [String](#string)
 
 #### Output
 * output [CreateFleetResult](#createfleetresult)
@@ -131,23 +172,33 @@ amazonaws_appstream2.CreateFleet({
 
 ```js
 amazonaws_appstream2.CreateImageBuilder({
-  "Name": "",
-  "ImageName": "",
-  "InstanceType": ""
+  "Name": null,
+  "InstanceType": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * AppstreamAgentVersion [AppstreamAgentVersion](#appstreamagentversion)
-  * Description [Description](#description)
-  * DisplayName [DisplayName](#displayname)
-  * DomainJoinInfo [DomainJoinInfo](#domainjoininfo)
-  * EnableDefaultInternetAccess [BooleanObject](#booleanobject)
-  * ImageName **required** [String](#string)
-  * InstanceType **required** [String](#string)
-  * Name **required** [Name](#name)
-  * VpcConfig [VpcConfig](#vpcconfig)
+  * AccessEndpoints
+    * items [AccessEndpoint](#accessendpoint)
+  * AppstreamAgentVersion
+  * Description
+  * DisplayName
+  * DomainJoinInfo
+    * DirectoryName
+    * OrganizationalUnitDistinguishedName
+  * EnableDefaultInternetAccess
+  * IamRoleArn
+  * ImageArn
+  * ImageName
+  * InstanceType **required**
+  * Name **required**
+  * Tags
+  * VpcConfig
+    * SecurityGroupIds
+      * items [String](#string)
+    * SubnetIds
+      * items [String](#string)
 
 #### Output
 * output [CreateImageBuilderResult](#createimagebuilderresult)
@@ -158,14 +209,14 @@ amazonaws_appstream2.CreateImageBuilder({
 
 ```js
 amazonaws_appstream2.CreateImageBuilderStreamingURL({
-  "Name": ""
+  "Name": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Name **required** [String](#string)
-  * Validity [Long](#long)
+  * Name **required**
+  * Validity
 
 #### Output
 * output [CreateImageBuilderStreamingURLResult](#createimagebuilderstreamingurlresult)
@@ -176,19 +227,29 @@ amazonaws_appstream2.CreateImageBuilderStreamingURL({
 
 ```js
 amazonaws_appstream2.CreateStack({
-  "Name": ""
+  "Name": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Description [Description](#description)
-  * DisplayName [DisplayName](#displayname)
-  * FeedbackURL [FeedbackURL](#feedbackurl)
-  * Name **required** [String](#string)
-  * RedirectURL [RedirectURL](#redirecturl)
-  * StorageConnectors [StorageConnectorList](#storageconnectorlist)
-  * UserSettings [UserSettingList](#usersettinglist)
+  * AccessEndpoints
+    * items [AccessEndpoint](#accessendpoint)
+  * ApplicationSettings
+    * Enabled **required**
+    * SettingsGroup
+  * Description
+  * DisplayName
+  * EmbedHostDomains
+    * items [EmbedHostDomain](#embedhostdomain)
+  * FeedbackURL
+  * Name **required**
+  * RedirectURL
+  * StorageConnectors
+    * items [StorageConnector](#storageconnector)
+  * Tags
+  * UserSettings
+    * items [UserSetting](#usersetting)
 
 #### Output
 * output [CreateStackResult](#createstackresult)
@@ -199,23 +260,59 @@ amazonaws_appstream2.CreateStack({
 
 ```js
 amazonaws_appstream2.CreateStreamingURL({
-  "StackName": "",
-  "FleetName": "",
-  "UserId": ""
+  "StackName": null,
+  "FleetName": null,
+  "UserId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ApplicationId [String](#string)
-  * FleetName **required** [String](#string)
-  * SessionContext [String](#string)
-  * StackName **required** [String](#string)
-  * UserId **required** [StreamingUrlUserId](#streamingurluserid)
-  * Validity [Long](#long)
+  * ApplicationId
+  * FleetName **required**
+  * SessionContext
+  * StackName **required**
+  * UserId **required**
+  * Validity
 
 #### Output
 * output [CreateStreamingURLResult](#createstreamingurlresult)
+
+### CreateUsageReportSubscription
+
+
+
+```js
+amazonaws_appstream2.CreateUsageReportSubscription({}, context)
+```
+
+#### Input
+* input `object`
+
+#### Output
+* output [CreateUsageReportSubscriptionResult](#createusagereportsubscriptionresult)
+
+### CreateUser
+
+
+
+```js
+amazonaws_appstream2.CreateUser({
+  "UserName": null,
+  "AuthenticationType": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * AuthenticationType **required**
+  * FirstName
+  * LastName
+  * MessageAction
+  * UserName **required**
+
+#### Output
+* output [CreateUserResult](#createuserresult)
 
 ### DeleteDirectoryConfig
 
@@ -223,13 +320,13 @@ amazonaws_appstream2.CreateStreamingURL({
 
 ```js
 amazonaws_appstream2.DeleteDirectoryConfig({
-  "DirectoryName": ""
+  "DirectoryName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * DirectoryName **required** [DirectoryName](#directoryname)
+  * DirectoryName **required**
 
 #### Output
 * output [DeleteDirectoryConfigResult](#deletedirectoryconfigresult)
@@ -240,13 +337,13 @@ amazonaws_appstream2.DeleteDirectoryConfig({
 
 ```js
 amazonaws_appstream2.DeleteFleet({
-  "Name": ""
+  "Name": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Name **required** [String](#string)
+  * Name **required**
 
 #### Output
 * output [DeleteFleetResult](#deletefleetresult)
@@ -257,13 +354,13 @@ amazonaws_appstream2.DeleteFleet({
 
 ```js
 amazonaws_appstream2.DeleteImage({
-  "Name": ""
+  "Name": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Name **required** [Name](#name)
+  * Name **required**
 
 #### Output
 * output [DeleteImageResult](#deleteimageresult)
@@ -274,16 +371,35 @@ amazonaws_appstream2.DeleteImage({
 
 ```js
 amazonaws_appstream2.DeleteImageBuilder({
-  "Name": ""
+  "Name": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Name **required** [Name](#name)
+  * Name **required**
 
 #### Output
 * output [DeleteImageBuilderResult](#deleteimagebuilderresult)
+
+### DeleteImagePermissions
+
+
+
+```js
+amazonaws_appstream2.DeleteImagePermissions({
+  "Name": null,
+  "SharedAccountId": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * Name **required**
+  * SharedAccountId **required**
+
+#### Output
+* output [DeleteImagePermissionsResult](#deleteimagepermissionsresult)
 
 ### DeleteStack
 
@@ -291,16 +407,49 @@ amazonaws_appstream2.DeleteImageBuilder({
 
 ```js
 amazonaws_appstream2.DeleteStack({
-  "Name": ""
+  "Name": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Name **required** [String](#string)
+  * Name **required**
 
 #### Output
 * output [DeleteStackResult](#deletestackresult)
+
+### DeleteUsageReportSubscription
+
+
+
+```js
+amazonaws_appstream2.DeleteUsageReportSubscription({}, context)
+```
+
+#### Input
+* input `object`
+
+#### Output
+* output [DeleteUsageReportSubscriptionResult](#deleteusagereportsubscriptionresult)
+
+### DeleteUser
+
+
+
+```js
+amazonaws_appstream2.DeleteUser({
+  "UserName": null,
+  "AuthenticationType": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * AuthenticationType **required**
+  * UserName **required**
+
+#### Output
+* output [DeleteUserResult](#deleteuserresult)
 
 ### DescribeDirectoryConfigs
 
@@ -312,9 +461,10 @@ amazonaws_appstream2.DescribeDirectoryConfigs({}, context)
 
 #### Input
 * input `object`
-  * DirectoryNames [DirectoryNameList](#directorynamelist)
-  * MaxResults [Integer](#integer)
-  * NextToken [String](#string)
+  * DirectoryNames
+    * items [DirectoryName](#directoryname)
+  * MaxResults
+  * NextToken
 
 #### Output
 * output [DescribeDirectoryConfigsResult](#describedirectoryconfigsresult)
@@ -329,8 +479,9 @@ amazonaws_appstream2.DescribeFleets({}, context)
 
 #### Input
 * input `object`
-  * Names [StringList](#stringlist)
-  * NextToken [String](#string)
+  * Names
+    * items [String](#string)
+  * NextToken
 
 #### Output
 * output [DescribeFleetsResult](#describefleetsresult)
@@ -345,12 +496,36 @@ amazonaws_appstream2.DescribeImageBuilders({}, context)
 
 #### Input
 * input `object`
-  * MaxResults [Integer](#integer)
-  * Names [StringList](#stringlist)
-  * NextToken [String](#string)
+  * MaxResults
+  * Names
+    * items [String](#string)
+  * NextToken
 
 #### Output
 * output [DescribeImageBuildersResult](#describeimagebuildersresult)
+
+### DescribeImagePermissions
+
+
+
+```js
+amazonaws_appstream2.DescribeImagePermissions({
+  "Name": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * MaxResults `string`
+  * NextToken `string`
+  * MaxResults
+  * Name **required**
+  * NextToken
+  * SharedAwsAccountIds
+    * items [AwsAccountId](#awsaccountid)
+
+#### Output
+* output [DescribeImagePermissionsResult](#describeimagepermissionsresult)
 
 ### DescribeImages
 
@@ -362,7 +537,15 @@ amazonaws_appstream2.DescribeImages({}, context)
 
 #### Input
 * input `object`
-  * Names [StringList](#stringlist)
+  * MaxResults `string`
+  * NextToken `string`
+  * Arns
+    * items [Arn](#arn)
+  * MaxResults
+  * Names
+    * items [String](#string)
+  * NextToken
+  * Type
 
 #### Output
 * output [DescribeImagesResult](#describeimagesresult)
@@ -373,19 +556,19 @@ amazonaws_appstream2.DescribeImages({}, context)
 
 ```js
 amazonaws_appstream2.DescribeSessions({
-  "StackName": "",
-  "FleetName": ""
+  "StackName": null,
+  "FleetName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * AuthenticationType [AuthenticationType](#authenticationtype)
-  * FleetName **required** [String](#string)
-  * Limit [Integer](#integer)
-  * NextToken [String](#string)
-  * StackName **required** [String](#string)
-  * UserId [UserId](#userid)
+  * AuthenticationType
+  * FleetName **required**
+  * Limit
+  * NextToken
+  * StackName **required**
+  * UserId
 
 #### Output
 * output [DescribeSessionsResult](#describesessionsresult)
@@ -400,11 +583,85 @@ amazonaws_appstream2.DescribeStacks({}, context)
 
 #### Input
 * input `object`
-  * Names [StringList](#stringlist)
-  * NextToken [String](#string)
+  * Names
+    * items [String](#string)
+  * NextToken
 
 #### Output
 * output [DescribeStacksResult](#describestacksresult)
+
+### DescribeUsageReportSubscriptions
+
+
+
+```js
+amazonaws_appstream2.DescribeUsageReportSubscriptions({}, context)
+```
+
+#### Input
+* input `object`
+  * MaxResults
+  * NextToken
+
+#### Output
+* output [DescribeUsageReportSubscriptionsResult](#describeusagereportsubscriptionsresult)
+
+### DescribeUserStackAssociations
+
+
+
+```js
+amazonaws_appstream2.DescribeUserStackAssociations({}, context)
+```
+
+#### Input
+* input `object`
+  * AuthenticationType
+  * MaxResults
+  * NextToken
+  * StackName
+  * UserName
+
+#### Output
+* output [DescribeUserStackAssociationsResult](#describeuserstackassociationsresult)
+
+### DescribeUsers
+
+
+
+```js
+amazonaws_appstream2.DescribeUsers({
+  "AuthenticationType": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * AuthenticationType **required**
+  * MaxResults
+  * NextToken
+
+#### Output
+* output [DescribeUsersResult](#describeusersresult)
+
+### DisableUser
+
+
+
+```js
+amazonaws_appstream2.DisableUser({
+  "UserName": null,
+  "AuthenticationType": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * AuthenticationType **required**
+  * UserName **required**
+
+#### Output
+* output [DisableUserResult](#disableuserresult)
 
 ### DisassociateFleet
 
@@ -412,18 +669,37 @@ amazonaws_appstream2.DescribeStacks({}, context)
 
 ```js
 amazonaws_appstream2.DisassociateFleet({
-  "FleetName": "",
-  "StackName": ""
+  "FleetName": null,
+  "StackName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * FleetName **required** [String](#string)
-  * StackName **required** [String](#string)
+  * FleetName **required**
+  * StackName **required**
 
 #### Output
 * output [DisassociateFleetResult](#disassociatefleetresult)
+
+### EnableUser
+
+
+
+```js
+amazonaws_appstream2.EnableUser({
+  "UserName": null,
+  "AuthenticationType": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * AuthenticationType **required**
+  * UserName **required**
+
+#### Output
+* output [EnableUserResult](#enableuserresult)
 
 ### ExpireSession
 
@@ -431,13 +707,13 @@ amazonaws_appstream2.DisassociateFleet({
 
 ```js
 amazonaws_appstream2.ExpireSession({
-  "SessionId": ""
+  "SessionId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * SessionId **required** [String](#string)
+  * SessionId **required**
 
 #### Output
 * output [ExpireSessionResult](#expiresessionresult)
@@ -448,14 +724,14 @@ amazonaws_appstream2.ExpireSession({
 
 ```js
 amazonaws_appstream2.ListAssociatedFleets({
-  "StackName": ""
+  "StackName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * NextToken [String](#string)
-  * StackName **required** [String](#string)
+  * NextToken
+  * StackName **required**
 
 #### Output
 * output [ListAssociatedFleetsResult](#listassociatedfleetsresult)
@@ -466,14 +742,14 @@ amazonaws_appstream2.ListAssociatedFleets({
 
 ```js
 amazonaws_appstream2.ListAssociatedStacks({
-  "FleetName": ""
+  "FleetName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * FleetName **required** [String](#string)
-  * NextToken [String](#string)
+  * FleetName **required**
+  * NextToken
 
 #### Output
 * output [ListAssociatedStacksResult](#listassociatedstacksresult)
@@ -484,13 +760,13 @@ amazonaws_appstream2.ListAssociatedStacks({
 
 ```js
 amazonaws_appstream2.ListTagsForResource({
-  "ResourceArn": ""
+  "ResourceArn": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ResourceArn **required** [Arn](#arn)
+  * ResourceArn **required**
 
 #### Output
 * output [ListTagsForResourceResponse](#listtagsforresourceresponse)
@@ -501,13 +777,13 @@ amazonaws_appstream2.ListTagsForResource({
 
 ```js
 amazonaws_appstream2.StartFleet({
-  "Name": ""
+  "Name": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Name **required** [String](#string)
+  * Name **required**
 
 #### Output
 * output [StartFleetResult](#startfleetresult)
@@ -518,14 +794,14 @@ amazonaws_appstream2.StartFleet({
 
 ```js
 amazonaws_appstream2.StartImageBuilder({
-  "Name": ""
+  "Name": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * AppstreamAgentVersion [AppstreamAgentVersion](#appstreamagentversion)
-  * Name **required** [String](#string)
+  * AppstreamAgentVersion
+  * Name **required**
 
 #### Output
 * output [StartImageBuilderResult](#startimagebuilderresult)
@@ -536,13 +812,13 @@ amazonaws_appstream2.StartImageBuilder({
 
 ```js
 amazonaws_appstream2.StopFleet({
-  "Name": ""
+  "Name": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Name **required** [String](#string)
+  * Name **required**
 
 #### Output
 * output [StopFleetResult](#stopfleetresult)
@@ -553,13 +829,13 @@ amazonaws_appstream2.StopFleet({
 
 ```js
 amazonaws_appstream2.StopImageBuilder({
-  "Name": ""
+  "Name": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Name **required** [String](#string)
+  * Name **required**
 
 #### Output
 * output [StopImageBuilderResult](#stopimagebuilderresult)
@@ -570,15 +846,15 @@ amazonaws_appstream2.StopImageBuilder({
 
 ```js
 amazonaws_appstream2.TagResource({
-  "ResourceArn": "",
-  "Tags": []
+  "ResourceArn": null,
+  "Tags": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ResourceArn **required** [Arn](#arn)
-  * Tags **required** [Tags](#tags)
+  * ResourceArn **required**
+  * Tags **required**
 
 #### Output
 * output [TagResourceResponse](#tagresourceresponse)
@@ -589,15 +865,16 @@ amazonaws_appstream2.TagResource({
 
 ```js
 amazonaws_appstream2.UntagResource({
-  "ResourceArn": "",
-  "TagKeys": []
+  "ResourceArn": null,
+  "TagKeys": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ResourceArn **required** [Arn](#arn)
-  * TagKeys **required** [TagKeyList](#tagkeylist)
+  * ResourceArn **required**
+  * TagKeys **required**
+    * items [TagKey](#tagkey)
 
 #### Output
 * output [UntagResourceResponse](#untagresourceresponse)
@@ -608,15 +885,18 @@ amazonaws_appstream2.UntagResource({
 
 ```js
 amazonaws_appstream2.UpdateDirectoryConfig({
-  "DirectoryName": ""
+  "DirectoryName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * DirectoryName **required** [DirectoryName](#directoryname)
-  * OrganizationalUnitDistinguishedNames [OrganizationalUnitDistinguishedNamesList](#organizationalunitdistinguishednameslist)
-  * ServiceAccountCredentials [ServiceAccountCredentials](#serviceaccountcredentials)
+  * DirectoryName **required**
+  * OrganizationalUnitDistinguishedNames
+    * items [OrganizationalUnitDistinguishedName](#organizationalunitdistinguishedname)
+  * ServiceAccountCredentials
+    * AccountName **required**
+    * AccountPassword **required**
 
 #### Output
 * output [UpdateDirectoryConfigResult](#updatedirectoryconfigresult)
@@ -626,29 +906,62 @@ amazonaws_appstream2.UpdateDirectoryConfig({
 
 
 ```js
-amazonaws_appstream2.UpdateFleet({
-  "Name": ""
+amazonaws_appstream2.UpdateFleet({}, context)
+```
+
+#### Input
+* input `object`
+  * AttributesToDelete
+    * items [FleetAttribute](#fleetattribute)
+  * ComputeCapacity
+    * DesiredInstances **required**
+  * DeleteVpcConfig
+  * Description
+  * DisconnectTimeoutInSeconds
+  * DisplayName
+  * DomainJoinInfo
+    * DirectoryName
+    * OrganizationalUnitDistinguishedName
+  * EnableDefaultInternetAccess
+  * IamRoleArn
+  * IdleDisconnectTimeoutInSeconds
+  * ImageArn
+  * ImageName
+  * InstanceType
+  * MaxUserDurationInSeconds
+  * Name
+  * StreamView
+  * VpcConfig
+    * SecurityGroupIds
+      * items [String](#string)
+    * SubnetIds
+      * items [String](#string)
+
+#### Output
+* output [UpdateFleetResult](#updatefleetresult)
+
+### UpdateImagePermissions
+
+
+
+```js
+amazonaws_appstream2.UpdateImagePermissions({
+  "Name": null,
+  "SharedAccountId": null,
+  "ImagePermissions": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * AttributesToDelete [FleetAttributes](#fleetattributes)
-  * ComputeCapacity [ComputeCapacity](#computecapacity)
-  * DeleteVpcConfig [Boolean](#boolean)
-  * Description [Description](#description)
-  * DisconnectTimeoutInSeconds [Integer](#integer)
-  * DisplayName [DisplayName](#displayname)
-  * DomainJoinInfo [DomainJoinInfo](#domainjoininfo)
-  * EnableDefaultInternetAccess [BooleanObject](#booleanobject)
-  * ImageName [String](#string)
-  * InstanceType [String](#string)
-  * MaxUserDurationInSeconds [Integer](#integer)
-  * Name **required** [String](#string)
-  * VpcConfig [VpcConfig](#vpcconfig)
+  * ImagePermissions **required**
+    * allowFleet
+    * allowImageBuilder
+  * Name **required**
+  * SharedAccountId **required**
 
 #### Output
-* output [UpdateFleetResult](#updatefleetresult)
+* output [UpdateImagePermissionsResult](#updateimagepermissionsresult)
 
 ### UpdateStack
 
@@ -656,21 +969,31 @@ amazonaws_appstream2.UpdateFleet({
 
 ```js
 amazonaws_appstream2.UpdateStack({
-  "Name": ""
+  "Name": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * AttributesToDelete [StackAttributes](#stackattributes)
-  * DeleteStorageConnectors [Boolean](#boolean)
-  * Description [Description](#description)
-  * DisplayName [DisplayName](#displayname)
-  * FeedbackURL [FeedbackURL](#feedbackurl)
-  * Name **required** [String](#string)
-  * RedirectURL [RedirectURL](#redirecturl)
-  * StorageConnectors [StorageConnectorList](#storageconnectorlist)
-  * UserSettings [UserSettingList](#usersettinglist)
+  * AccessEndpoints
+    * items [AccessEndpoint](#accessendpoint)
+  * ApplicationSettings
+    * Enabled **required**
+    * SettingsGroup
+  * AttributesToDelete
+    * items [StackAttribute](#stackattribute)
+  * DeleteStorageConnectors
+  * Description
+  * DisplayName
+  * EmbedHostDomains
+    * items [EmbedHostDomain](#embedhostdomain)
+  * FeedbackURL
+  * Name **required**
+  * RedirectURL
+  * StorageConnectors
+    * items [StorageConnector](#storageconnector)
+  * UserSettings
+    * items [UserSetting](#usersetting)
 
 #### Output
 * output [UpdateStackResult](#updatestackresult)
@@ -678,6 +1001,18 @@ amazonaws_appstream2.UpdateStack({
 
 
 ## Definitions
+
+### AccessEndpoint
+* AccessEndpoint `object`: Describes an interface VPC endpoint (interface endpoint) that lets you create a private connection between the virtual private cloud (VPC) that you specify and AppStream 2.0. When you specify an interface endpoint for a stack, users of the stack can connect to AppStream 2.0 only through that endpoint. When you specify an interface endpoint for an image builder, administrators can connect to the image builder only through that endpoint.
+  * EndpointType **required**
+  * VpceId
+
+### AccessEndpointList
+* AccessEndpointList `array`
+  * items [AccessEndpoint](#accessendpoint)
+
+### AccessEndpointType
+* AccessEndpointType `string` (values: STREAMING)
 
 ### AccountName
 * AccountName `string`
@@ -690,13 +1025,24 @@ amazonaws_appstream2.UpdateStack({
 
 ### Application
 * Application `object`: Describes an application in the application catalog.
-  * DisplayName [String](#string)
-  * Enabled [Boolean](#boolean)
-  * IconURL [String](#string)
-  * LaunchParameters [String](#string)
-  * LaunchPath [String](#string)
-  * Metadata [Metadata](#metadata)
-  * Name [String](#string)
+  * DisplayName
+  * Enabled
+  * IconURL
+  * LaunchParameters
+  * LaunchPath
+  * Metadata
+  * Name
+
+### ApplicationSettings
+* ApplicationSettings `object`: The persistent application settings for users of a stack.
+  * Enabled **required**
+  * SettingsGroup
+
+### ApplicationSettingsResponse
+* ApplicationSettingsResponse `object`: Describes the persistent application settings for users of a stack.
+  * Enabled
+  * S3BucketName
+  * SettingsGroup
 
 ### Applications
 * Applications `array`
@@ -708,16 +1054,47 @@ amazonaws_appstream2.UpdateStack({
 ### Arn
 * Arn `string`
 
+### ArnList
+* ArnList `array`
+  * items [Arn](#arn)
+
 ### AssociateFleetRequest
 * AssociateFleetRequest `object`
-  * FleetName **required** [String](#string)
-  * StackName **required** [String](#string)
+  * FleetName **required**
+  * StackName **required**
 
 ### AssociateFleetResult
 * AssociateFleetResult `object`
 
 ### AuthenticationType
 * AuthenticationType `string` (values: API, SAML, USERPOOL)
+
+### AwsAccountId
+* AwsAccountId `string`
+
+### AwsAccountIdList
+* AwsAccountIdList `array`
+  * items [AwsAccountId](#awsaccountid)
+
+### BatchAssociateUserStackRequest
+* BatchAssociateUserStackRequest `object`
+  * UserStackAssociations **required**
+    * items [UserStackAssociation](#userstackassociation)
+
+### BatchAssociateUserStackResult
+* BatchAssociateUserStackResult `object`
+  * errors
+    * items [UserStackAssociationError](#userstackassociationerror)
+
+### BatchDisassociateUserStackRequest
+* BatchDisassociateUserStackRequest `object`
+  * UserStackAssociations **required**
+    * items [UserStackAssociation](#userstackassociation)
+
+### BatchDisassociateUserStackResult
+* BatchDisassociateUserStackResult `object`
+  * errors
+    * items [UserStackAssociationError](#userstackassociationerror)
 
 ### Boolean
 * Boolean `boolean`
@@ -727,223 +1104,510 @@ amazonaws_appstream2.UpdateStack({
 
 ### ComputeCapacity
 * ComputeCapacity `object`: Describes the capacity for a fleet.
-  * DesiredInstances **required** [Integer](#integer)
+  * DesiredInstances **required**
 
 ### ComputeCapacityStatus
 * ComputeCapacityStatus `object`: Describes the capacity status for a fleet.
-  * Available [Integer](#integer)
-  * Desired **required** [Integer](#integer)
-  * InUse [Integer](#integer)
-  * Running [Integer](#integer)
+  * Available
+  * Desired **required**
+  * InUse
+  * Running
 
 ### ConcurrentModificationException
-* ConcurrentModificationException `object`: An API error occurred. Wait a few minutes and try again.
-  * Message [ErrorMessage](#errormessage)
+
 
 ### CopyImageRequest
 * CopyImageRequest `object`
-  * DestinationImageDescription [Description](#description)
-  * DestinationImageName **required** [Name](#name)
-  * DestinationRegion **required** [RegionName](#regionname)
-  * SourceImageName **required** [Name](#name)
+  * DestinationImageDescription
+  * DestinationImageName **required**
+  * DestinationRegion **required**
+  * SourceImageName **required**
 
 ### CopyImageResponse
 * CopyImageResponse `object`
-  * DestinationImageName [Name](#name)
+  * DestinationImageName
 
 ### CreateDirectoryConfigRequest
 * CreateDirectoryConfigRequest `object`
-  * DirectoryName **required** [DirectoryName](#directoryname)
-  * OrganizationalUnitDistinguishedNames **required** [OrganizationalUnitDistinguishedNamesList](#organizationalunitdistinguishednameslist)
-  * ServiceAccountCredentials **required** [ServiceAccountCredentials](#serviceaccountcredentials)
+  * DirectoryName **required**
+  * OrganizationalUnitDistinguishedNames **required**
+    * items [OrganizationalUnitDistinguishedName](#organizationalunitdistinguishedname)
+  * ServiceAccountCredentials
+    * AccountName **required**
+    * AccountPassword **required**
 
 ### CreateDirectoryConfigResult
 * CreateDirectoryConfigResult `object`
-  * DirectoryConfig [DirectoryConfig](#directoryconfig)
+  * DirectoryConfig
+    * CreatedTime
+    * DirectoryName **required**
+    * OrganizationalUnitDistinguishedNames
+      * items [OrganizationalUnitDistinguishedName](#organizationalunitdistinguishedname)
+    * ServiceAccountCredentials
+      * AccountName **required**
+      * AccountPassword **required**
 
 ### CreateFleetRequest
 * CreateFleetRequest `object`
-  * ComputeCapacity **required** [ComputeCapacity](#computecapacity)
-  * Description [Description](#description)
-  * DisconnectTimeoutInSeconds [Integer](#integer)
-  * DisplayName [DisplayName](#displayname)
-  * DomainJoinInfo [DomainJoinInfo](#domainjoininfo)
-  * EnableDefaultInternetAccess [BooleanObject](#booleanobject)
-  * FleetType [FleetType](#fleettype)
-  * ImageName **required** [String](#string)
-  * InstanceType **required** [String](#string)
-  * MaxUserDurationInSeconds [Integer](#integer)
-  * Name **required** [Name](#name)
-  * VpcConfig [VpcConfig](#vpcconfig)
+  * ComputeCapacity **required**
+    * DesiredInstances **required**
+  * Description
+  * DisconnectTimeoutInSeconds
+  * DisplayName
+  * DomainJoinInfo
+    * DirectoryName
+    * OrganizationalUnitDistinguishedName
+  * EnableDefaultInternetAccess
+  * FleetType
+  * IamRoleArn
+  * IdleDisconnectTimeoutInSeconds
+  * ImageArn
+  * ImageName
+  * InstanceType **required**
+  * MaxUserDurationInSeconds
+  * Name **required**
+  * StreamView
+  * Tags
+  * VpcConfig
+    * SecurityGroupIds
+      * items [String](#string)
+    * SubnetIds
+      * items [String](#string)
 
 ### CreateFleetResult
 * CreateFleetResult `object`
-  * Fleet [Fleet](#fleet)
+  * Fleet
+    * Arn **required**
+    * ComputeCapacityStatus **required**
+      * Available
+      * Desired **required**
+      * InUse
+      * Running
+    * CreatedTime
+    * Description
+    * DisconnectTimeoutInSeconds
+    * DisplayName
+    * DomainJoinInfo
+      * DirectoryName
+      * OrganizationalUnitDistinguishedName
+    * EnableDefaultInternetAccess
+    * FleetErrors
+      * items [FleetError](#fleeterror)
+    * FleetType
+    * IamRoleArn
+    * IdleDisconnectTimeoutInSeconds
+    * ImageArn
+    * ImageName
+    * InstanceType **required**
+    * MaxUserDurationInSeconds
+    * Name **required**
+    * State **required**
+    * StreamView
+    * VpcConfig
+      * SecurityGroupIds
+        * items [String](#string)
+      * SubnetIds
+        * items [String](#string)
 
 ### CreateImageBuilderRequest
 * CreateImageBuilderRequest `object`
-  * AppstreamAgentVersion [AppstreamAgentVersion](#appstreamagentversion)
-  * Description [Description](#description)
-  * DisplayName [DisplayName](#displayname)
-  * DomainJoinInfo [DomainJoinInfo](#domainjoininfo)
-  * EnableDefaultInternetAccess [BooleanObject](#booleanobject)
-  * ImageName **required** [String](#string)
-  * InstanceType **required** [String](#string)
-  * Name **required** [Name](#name)
-  * VpcConfig [VpcConfig](#vpcconfig)
+  * AccessEndpoints
+    * items [AccessEndpoint](#accessendpoint)
+  * AppstreamAgentVersion
+  * Description
+  * DisplayName
+  * DomainJoinInfo
+    * DirectoryName
+    * OrganizationalUnitDistinguishedName
+  * EnableDefaultInternetAccess
+  * IamRoleArn
+  * ImageArn
+  * ImageName
+  * InstanceType **required**
+  * Name **required**
+  * Tags
+  * VpcConfig
+    * SecurityGroupIds
+      * items [String](#string)
+    * SubnetIds
+      * items [String](#string)
 
 ### CreateImageBuilderResult
 * CreateImageBuilderResult `object`
-  * ImageBuilder [ImageBuilder](#imagebuilder)
+  * ImageBuilder
+    * AccessEndpoints
+      * items [AccessEndpoint](#accessendpoint)
+    * AppstreamAgentVersion
+    * Arn
+    * CreatedTime
+    * Description
+    * DisplayName
+    * DomainJoinInfo
+      * DirectoryName
+      * OrganizationalUnitDistinguishedName
+    * EnableDefaultInternetAccess
+    * IamRoleArn
+    * ImageArn
+    * ImageBuilderErrors
+      * items [ResourceError](#resourceerror)
+    * InstanceType
+    * Name **required**
+    * NetworkAccessConfiguration [NetworkAccessConfiguration](#networkaccessconfiguration)
+    * Platform
+    * State
+    * StateChangeReason
+      * Code
+      * Message
+    * VpcConfig
+      * SecurityGroupIds
+        * items [String](#string)
+      * SubnetIds
+        * items [String](#string)
 
 ### CreateImageBuilderStreamingURLRequest
 * CreateImageBuilderStreamingURLRequest `object`
-  * Name **required** [String](#string)
-  * Validity [Long](#long)
+  * Name **required**
+  * Validity
 
 ### CreateImageBuilderStreamingURLResult
 * CreateImageBuilderStreamingURLResult `object`
-  * Expires [Timestamp](#timestamp)
-  * StreamingURL [String](#string)
+  * Expires
+  * StreamingURL
 
 ### CreateStackRequest
 * CreateStackRequest `object`
-  * Description [Description](#description)
-  * DisplayName [DisplayName](#displayname)
-  * FeedbackURL [FeedbackURL](#feedbackurl)
-  * Name **required** [String](#string)
-  * RedirectURL [RedirectURL](#redirecturl)
-  * StorageConnectors [StorageConnectorList](#storageconnectorlist)
-  * UserSettings [UserSettingList](#usersettinglist)
+  * AccessEndpoints
+    * items [AccessEndpoint](#accessendpoint)
+  * ApplicationSettings
+    * Enabled **required**
+    * SettingsGroup
+  * Description
+  * DisplayName
+  * EmbedHostDomains
+    * items [EmbedHostDomain](#embedhostdomain)
+  * FeedbackURL
+  * Name **required**
+  * RedirectURL
+  * StorageConnectors
+    * items [StorageConnector](#storageconnector)
+  * Tags
+  * UserSettings
+    * items [UserSetting](#usersetting)
 
 ### CreateStackResult
 * CreateStackResult `object`
-  * Stack [Stack](#stack)
+  * Stack
+    * AccessEndpoints
+      * items [AccessEndpoint](#accessendpoint)
+    * ApplicationSettings
+      * Enabled
+      * S3BucketName
+      * SettingsGroup
+    * Arn
+    * CreatedTime
+    * Description
+    * DisplayName
+    * EmbedHostDomains
+      * items [EmbedHostDomain](#embedhostdomain)
+    * FeedbackURL
+    * Name **required**
+    * RedirectURL
+    * StackErrors
+      * items [StackError](#stackerror)
+    * StorageConnectors
+      * items [StorageConnector](#storageconnector)
+    * UserSettings
+      * items [UserSetting](#usersetting)
 
 ### CreateStreamingURLRequest
 * CreateStreamingURLRequest `object`
-  * ApplicationId [String](#string)
-  * FleetName **required** [String](#string)
-  * SessionContext [String](#string)
-  * StackName **required** [String](#string)
-  * UserId **required** [StreamingUrlUserId](#streamingurluserid)
-  * Validity [Long](#long)
+  * ApplicationId
+  * FleetName **required**
+  * SessionContext
+  * StackName **required**
+  * UserId **required**
+  * Validity
 
 ### CreateStreamingURLResult
 * CreateStreamingURLResult `object`
-  * Expires [Timestamp](#timestamp)
-  * StreamingURL [String](#string)
+  * Expires
+  * StreamingURL
+
+### CreateUsageReportSubscriptionRequest
+* CreateUsageReportSubscriptionRequest `object`
+
+### CreateUsageReportSubscriptionResult
+* CreateUsageReportSubscriptionResult `object`
+  * S3BucketName
+  * Schedule
+
+### CreateUserRequest
+* CreateUserRequest `object`
+  * AuthenticationType **required**
+  * FirstName
+  * LastName
+  * MessageAction
+  * UserName **required**
+
+### CreateUserResult
+* CreateUserResult `object`
 
 ### DeleteDirectoryConfigRequest
 * DeleteDirectoryConfigRequest `object`
-  * DirectoryName **required** [DirectoryName](#directoryname)
+  * DirectoryName **required**
 
 ### DeleteDirectoryConfigResult
 * DeleteDirectoryConfigResult `object`
 
 ### DeleteFleetRequest
 * DeleteFleetRequest `object`
-  * Name **required** [String](#string)
+  * Name **required**
 
 ### DeleteFleetResult
 * DeleteFleetResult `object`
 
 ### DeleteImageBuilderRequest
 * DeleteImageBuilderRequest `object`
-  * Name **required** [Name](#name)
+  * Name **required**
 
 ### DeleteImageBuilderResult
 * DeleteImageBuilderResult `object`
-  * ImageBuilder [ImageBuilder](#imagebuilder)
+  * ImageBuilder
+    * AccessEndpoints
+      * items [AccessEndpoint](#accessendpoint)
+    * AppstreamAgentVersion
+    * Arn
+    * CreatedTime
+    * Description
+    * DisplayName
+    * DomainJoinInfo
+      * DirectoryName
+      * OrganizationalUnitDistinguishedName
+    * EnableDefaultInternetAccess
+    * IamRoleArn
+    * ImageArn
+    * ImageBuilderErrors
+      * items [ResourceError](#resourceerror)
+    * InstanceType
+    * Name **required**
+    * NetworkAccessConfiguration [NetworkAccessConfiguration](#networkaccessconfiguration)
+    * Platform
+    * State
+    * StateChangeReason
+      * Code
+      * Message
+    * VpcConfig
+      * SecurityGroupIds
+        * items [String](#string)
+      * SubnetIds
+        * items [String](#string)
+
+### DeleteImagePermissionsRequest
+* DeleteImagePermissionsRequest `object`
+  * Name **required**
+  * SharedAccountId **required**
+
+### DeleteImagePermissionsResult
+* DeleteImagePermissionsResult `object`
 
 ### DeleteImageRequest
 * DeleteImageRequest `object`
-  * Name **required** [Name](#name)
+  * Name **required**
 
 ### DeleteImageResult
 * DeleteImageResult `object`
-  * Image [Image](#image)
+  * Image
+    * Applications
+      * items [Application](#application)
+    * AppstreamAgentVersion
+    * Arn
+    * BaseImageArn
+    * CreatedTime
+    * Description
+    * DisplayName
+    * ImageBuilderName
+    * ImageBuilderSupported
+    * ImagePermissions
+      * allowFleet
+      * allowImageBuilder
+    * Name **required**
+    * Platform
+    * PublicBaseImageReleasedDate
+    * State
+    * StateChangeReason
+      * Code
+      * Message
+    * Visibility
 
 ### DeleteStackRequest
 * DeleteStackRequest `object`
-  * Name **required** [String](#string)
+  * Name **required**
 
 ### DeleteStackResult
 * DeleteStackResult `object`
 
+### DeleteUsageReportSubscriptionRequest
+* DeleteUsageReportSubscriptionRequest `object`
+
+### DeleteUsageReportSubscriptionResult
+* DeleteUsageReportSubscriptionResult `object`
+
+### DeleteUserRequest
+* DeleteUserRequest `object`
+  * AuthenticationType **required**
+  * UserName **required**
+
+### DeleteUserResult
+* DeleteUserResult `object`
+
 ### DescribeDirectoryConfigsRequest
 * DescribeDirectoryConfigsRequest `object`
-  * DirectoryNames [DirectoryNameList](#directorynamelist)
-  * MaxResults [Integer](#integer)
-  * NextToken [String](#string)
+  * DirectoryNames
+    * items [DirectoryName](#directoryname)
+  * MaxResults
+  * NextToken
 
 ### DescribeDirectoryConfigsResult
 * DescribeDirectoryConfigsResult `object`
-  * DirectoryConfigs [DirectoryConfigList](#directoryconfiglist)
-  * NextToken [String](#string)
+  * DirectoryConfigs
+    * items [DirectoryConfig](#directoryconfig)
+  * NextToken
 
 ### DescribeFleetsRequest
 * DescribeFleetsRequest `object`
-  * Names [StringList](#stringlist)
-  * NextToken [String](#string)
+  * Names
+    * items [String](#string)
+  * NextToken
 
 ### DescribeFleetsResult
 * DescribeFleetsResult `object`
-  * Fleets [FleetList](#fleetlist)
-  * NextToken [String](#string)
+  * Fleets
+    * items [Fleet](#fleet)
+  * NextToken
 
 ### DescribeImageBuildersRequest
 * DescribeImageBuildersRequest `object`
-  * MaxResults [Integer](#integer)
-  * Names [StringList](#stringlist)
-  * NextToken [String](#string)
+  * MaxResults
+  * Names
+    * items [String](#string)
+  * NextToken
 
 ### DescribeImageBuildersResult
 * DescribeImageBuildersResult `object`
-  * ImageBuilders [ImageBuilderList](#imagebuilderlist)
-  * NextToken [String](#string)
+  * ImageBuilders
+    * items [ImageBuilder](#imagebuilder)
+  * NextToken
+
+### DescribeImagePermissionsRequest
+* DescribeImagePermissionsRequest `object`
+  * MaxResults
+  * Name **required**
+  * NextToken
+  * SharedAwsAccountIds
+    * items [AwsAccountId](#awsaccountid)
+
+### DescribeImagePermissionsResult
+* DescribeImagePermissionsResult `object`
+  * Name
+  * NextToken
+  * SharedImagePermissionsList
+    * items [SharedImagePermissions](#sharedimagepermissions)
+
+### DescribeImagesMaxResults
+* DescribeImagesMaxResults `integer`
 
 ### DescribeImagesRequest
 * DescribeImagesRequest `object`
-  * Names [StringList](#stringlist)
+  * Arns
+    * items [Arn](#arn)
+  * MaxResults
+  * Names
+    * items [String](#string)
+  * NextToken
+  * Type
 
 ### DescribeImagesResult
 * DescribeImagesResult `object`
-  * Images [ImageList](#imagelist)
+  * Images
+    * items [Image](#image)
+  * NextToken
 
 ### DescribeSessionsRequest
 * DescribeSessionsRequest `object`
-  * AuthenticationType [AuthenticationType](#authenticationtype)
-  * FleetName **required** [String](#string)
-  * Limit [Integer](#integer)
-  * NextToken [String](#string)
-  * StackName **required** [String](#string)
-  * UserId [UserId](#userid)
+  * AuthenticationType
+  * FleetName **required**
+  * Limit
+  * NextToken
+  * StackName **required**
+  * UserId
 
 ### DescribeSessionsResult
 * DescribeSessionsResult `object`
-  * NextToken [String](#string)
-  * Sessions [SessionList](#sessionlist)
+  * NextToken
+  * Sessions
+    * items [Session](#session)
 
 ### DescribeStacksRequest
 * DescribeStacksRequest `object`
-  * Names [StringList](#stringlist)
-  * NextToken [String](#string)
+  * Names
+    * items [String](#string)
+  * NextToken
 
 ### DescribeStacksResult
 * DescribeStacksResult `object`
-  * NextToken [String](#string)
-  * Stacks [StackList](#stacklist)
+  * NextToken
+  * Stacks
+    * items [Stack](#stack)
+
+### DescribeUsageReportSubscriptionsRequest
+* DescribeUsageReportSubscriptionsRequest `object`
+  * MaxResults
+  * NextToken
+
+### DescribeUsageReportSubscriptionsResult
+* DescribeUsageReportSubscriptionsResult `object`
+  * NextToken
+  * UsageReportSubscriptions
+    * items [UsageReportSubscription](#usagereportsubscription)
+
+### DescribeUserStackAssociationsRequest
+* DescribeUserStackAssociationsRequest `object`
+  * AuthenticationType
+  * MaxResults
+  * NextToken
+  * StackName
+  * UserName
+
+### DescribeUserStackAssociationsResult
+* DescribeUserStackAssociationsResult `object`
+  * NextToken
+  * UserStackAssociations
+    * items [UserStackAssociation](#userstackassociation)
+
+### DescribeUsersRequest
+* DescribeUsersRequest `object`
+  * AuthenticationType **required**
+  * MaxResults
+  * NextToken
+
+### DescribeUsersResult
+* DescribeUsersResult `object`
+  * NextToken
+  * Users
+    * items [User](#user)
 
 ### Description
 * Description `string`
 
 ### DirectoryConfig
-* DirectoryConfig `object`: Configuration information for the directory used to join domains.
-  * CreatedTime [Timestamp](#timestamp)
-  * DirectoryName **required** [DirectoryName](#directoryname)
-  * OrganizationalUnitDistinguishedNames [OrganizationalUnitDistinguishedNamesList](#organizationalunitdistinguishednameslist)
-  * ServiceAccountCredentials [ServiceAccountCredentials](#serviceaccountcredentials)
+* DirectoryConfig `object`: Describes the configuration information required to join fleets and image builders to Microsoft Active Directory domains.
+  * CreatedTime
+  * DirectoryName **required**
+  * OrganizationalUnitDistinguishedNames
+    * items [OrganizationalUnitDistinguishedName](#organizationalunitdistinguishedname)
+  * ServiceAccountCredentials
+    * AccountName **required**
+    * AccountPassword **required**
 
 ### DirectoryConfigList
 * DirectoryConfigList `array`
@@ -956,10 +1620,18 @@ amazonaws_appstream2.UpdateStack({
 * DirectoryNameList `array`
   * items [DirectoryName](#directoryname)
 
+### DisableUserRequest
+* DisableUserRequest `object`
+  * AuthenticationType **required**
+  * UserName **required**
+
+### DisableUserResult
+* DisableUserResult `object`
+
 ### DisassociateFleetRequest
 * DisassociateFleetRequest `object`
-  * FleetName **required** [String](#string)
-  * StackName **required** [String](#string)
+  * FleetName **required**
+  * StackName **required**
 
 ### DisassociateFleetResult
 * DisassociateFleetResult `object`
@@ -971,20 +1643,32 @@ amazonaws_appstream2.UpdateStack({
 * Domain `string`: GSuite domain for GDrive integration.
 
 ### DomainJoinInfo
-* DomainJoinInfo `object`: Contains the information needed to join a Microsoft Active Directory domain.
-  * DirectoryName [DirectoryName](#directoryname)
-  * OrganizationalUnitDistinguishedName [OrganizationalUnitDistinguishedName](#organizationalunitdistinguishedname)
+* DomainJoinInfo `object`: Describes the configuration information required to join fleets and image builders to Microsoft Active Directory domains.
+  * DirectoryName
+  * OrganizationalUnitDistinguishedName
 
 ### DomainList
 * DomainList `array`
   * items [Domain](#domain)
 
-### ErrorMessage
-* ErrorMessage `string`: The error message in the exception.
+### EmbedHostDomain
+* EmbedHostDomain `string`: Specifies a valid domain that can embed AppStream. Valid examples include: ["testorigin.tt--com", "testingorigin.com.us", "test.com.us"] Invalid examples include: ["test,com", ".com", "h*llo.com". ""]
+
+### EmbedHostDomains
+* EmbedHostDomains `array`
+  * items [EmbedHostDomain](#embedhostdomain)
+
+### EnableUserRequest
+* EnableUserRequest `object`
+  * AuthenticationType **required**
+  * UserName **required**
+
+### EnableUserResult
+* EnableUserResult `object`
 
 ### ExpireSessionRequest
 * ExpireSessionRequest `object`
-  * SessionId **required** [String](#string)
+  * SessionId **required**
 
 ### ExpireSessionResult
 * ExpireSessionResult `object`
@@ -993,26 +1677,41 @@ amazonaws_appstream2.UpdateStack({
 * FeedbackURL `string`
 
 ### Fleet
-* Fleet `object`: Contains the parameters for a fleet.
-  * Arn **required** [Arn](#arn)
-  * ComputeCapacityStatus **required** [ComputeCapacityStatus](#computecapacitystatus)
-  * CreatedTime [Timestamp](#timestamp)
-  * Description [String](#string)
-  * DisconnectTimeoutInSeconds [Integer](#integer)
-  * DisplayName [String](#string)
-  * DomainJoinInfo [DomainJoinInfo](#domainjoininfo)
-  * EnableDefaultInternetAccess [BooleanObject](#booleanobject)
-  * FleetErrors [FleetErrors](#fleeterrors)
-  * FleetType [FleetType](#fleettype)
-  * ImageName **required** [String](#string)
-  * InstanceType **required** [String](#string)
-  * MaxUserDurationInSeconds [Integer](#integer)
-  * Name **required** [String](#string)
-  * State **required** [FleetState](#fleetstate)
-  * VpcConfig [VpcConfig](#vpcconfig)
+* Fleet `object`: Describes a fleet.
+  * Arn **required**
+  * ComputeCapacityStatus **required**
+    * Available
+    * Desired **required**
+    * InUse
+    * Running
+  * CreatedTime
+  * Description
+  * DisconnectTimeoutInSeconds
+  * DisplayName
+  * DomainJoinInfo
+    * DirectoryName
+    * OrganizationalUnitDistinguishedName
+  * EnableDefaultInternetAccess
+  * FleetErrors
+    * items [FleetError](#fleeterror)
+  * FleetType
+  * IamRoleArn
+  * IdleDisconnectTimeoutInSeconds
+  * ImageArn
+  * ImageName
+  * InstanceType **required**
+  * MaxUserDurationInSeconds
+  * Name **required**
+  * State **required**
+  * StreamView
+  * VpcConfig
+    * SecurityGroupIds
+      * items [String](#string)
+    * SubnetIds
+      * items [String](#string)
 
 ### FleetAttribute
-* FleetAttribute `string` (values: VPC_CONFIGURATION, VPC_CONFIGURATION_SECURITY_GROUP_IDS, DOMAIN_JOIN_INFO): The fleet attribute.
+* FleetAttribute `string` (values: VPC_CONFIGURATION, VPC_CONFIGURATION_SECURITY_GROUP_IDS, DOMAIN_JOIN_INFO, IAM_ROLE_ARN): The fleet attribute.
 
 ### FleetAttributes
 * FleetAttributes `array`: The fleet attributes.
@@ -1020,11 +1719,11 @@ amazonaws_appstream2.UpdateStack({
 
 ### FleetError
 * FleetError `object`: Describes a fleet error.
-  * ErrorCode [FleetErrorCode](#fleeterrorcode)
-  * ErrorMessage [String](#string)
+  * ErrorCode
+  * ErrorMessage
 
 ### FleetErrorCode
-* FleetErrorCode `string` (values: IAM_SERVICE_ROLE_MISSING_ENI_DESCRIBE_ACTION, IAM_SERVICE_ROLE_MISSING_ENI_CREATE_ACTION, IAM_SERVICE_ROLE_MISSING_ENI_DELETE_ACTION, NETWORK_INTERFACE_LIMIT_EXCEEDED, INTERNAL_SERVICE_ERROR, IAM_SERVICE_ROLE_IS_MISSING, SUBNET_HAS_INSUFFICIENT_IP_ADDRESSES, IAM_SERVICE_ROLE_MISSING_DESCRIBE_SUBNET_ACTION, SUBNET_NOT_FOUND, IMAGE_NOT_FOUND, INVALID_SUBNET_CONFIGURATION, SECURITY_GROUPS_NOT_FOUND, IGW_NOT_ATTACHED, IAM_SERVICE_ROLE_MISSING_DESCRIBE_SECURITY_GROUPS_ACTION, DOMAIN_JOIN_ERROR_FILE_NOT_FOUND, DOMAIN_JOIN_ERROR_ACCESS_DENIED, DOMAIN_JOIN_ERROR_LOGON_FAILURE, DOMAIN_JOIN_ERROR_INVALID_PARAMETER, DOMAIN_JOIN_ERROR_MORE_DATA, DOMAIN_JOIN_ERROR_NO_SUCH_DOMAIN, DOMAIN_JOIN_ERROR_NOT_SUPPORTED, DOMAIN_JOIN_NERR_INVALID_WORKGROUP_NAME, DOMAIN_JOIN_NERR_WORKSTATION_NOT_STARTED, DOMAIN_JOIN_ERROR_DS_MACHINE_ACCOUNT_QUOTA_EXCEEDED, DOMAIN_JOIN_NERR_PASSWORD_EXPIRED, DOMAIN_JOIN_INTERNAL_SERVICE_ERROR)
+* FleetErrorCode `string` (values: IAM_SERVICE_ROLE_MISSING_ENI_DESCRIBE_ACTION, IAM_SERVICE_ROLE_MISSING_ENI_CREATE_ACTION, IAM_SERVICE_ROLE_MISSING_ENI_DELETE_ACTION, NETWORK_INTERFACE_LIMIT_EXCEEDED, INTERNAL_SERVICE_ERROR, IAM_SERVICE_ROLE_IS_MISSING, MACHINE_ROLE_IS_MISSING, STS_DISABLED_IN_REGION, SUBNET_HAS_INSUFFICIENT_IP_ADDRESSES, IAM_SERVICE_ROLE_MISSING_DESCRIBE_SUBNET_ACTION, SUBNET_NOT_FOUND, IMAGE_NOT_FOUND, INVALID_SUBNET_CONFIGURATION, SECURITY_GROUPS_NOT_FOUND, IGW_NOT_ATTACHED, IAM_SERVICE_ROLE_MISSING_DESCRIBE_SECURITY_GROUPS_ACTION, DOMAIN_JOIN_ERROR_FILE_NOT_FOUND, DOMAIN_JOIN_ERROR_ACCESS_DENIED, DOMAIN_JOIN_ERROR_LOGON_FAILURE, DOMAIN_JOIN_ERROR_INVALID_PARAMETER, DOMAIN_JOIN_ERROR_MORE_DATA, DOMAIN_JOIN_ERROR_NO_SUCH_DOMAIN, DOMAIN_JOIN_ERROR_NOT_SUPPORTED, DOMAIN_JOIN_NERR_INVALID_WORKGROUP_NAME, DOMAIN_JOIN_NERR_WORKSTATION_NOT_STARTED, DOMAIN_JOIN_ERROR_DS_MACHINE_ACCOUNT_QUOTA_EXCEEDED, DOMAIN_JOIN_NERR_PASSWORD_EXPIRED, DOMAIN_JOIN_INTERNAL_SERVICE_ERROR)
 
 ### FleetErrors
 * FleetErrors `array`
@@ -1042,38 +1741,58 @@ amazonaws_appstream2.UpdateStack({
 
 ### Image
 * Image `object`: Describes an image.
-  * Applications [Applications](#applications)
-  * AppstreamAgentVersion [AppstreamAgentVersion](#appstreamagentversion)
-  * Arn [Arn](#arn)
-  * BaseImageArn [Arn](#arn)
-  * CreatedTime [Timestamp](#timestamp)
-  * Description [String](#string)
-  * DisplayName [String](#string)
-  * ImageBuilderSupported [Boolean](#boolean)
-  * Name **required** [String](#string)
-  * Platform [PlatformType](#platformtype)
-  * PublicBaseImageReleasedDate [Timestamp](#timestamp)
-  * State [ImageState](#imagestate)
-  * StateChangeReason [ImageStateChangeReason](#imagestatechangereason)
-  * Visibility [VisibilityType](#visibilitytype)
+  * Applications
+    * items [Application](#application)
+  * AppstreamAgentVersion
+  * Arn
+  * BaseImageArn
+  * CreatedTime
+  * Description
+  * DisplayName
+  * ImageBuilderName
+  * ImageBuilderSupported
+  * ImagePermissions
+    * allowFleet
+    * allowImageBuilder
+  * Name **required**
+  * Platform
+  * PublicBaseImageReleasedDate
+  * State
+  * StateChangeReason
+    * Code
+    * Message
+  * Visibility
 
 ### ImageBuilder
-* ImageBuilder `object`: Describes a streaming instance used for editing an image. New images are created from a snapshot through an image builder.
-  * AppstreamAgentVersion [AppstreamAgentVersion](#appstreamagentversion)
-  * Arn [Arn](#arn)
-  * CreatedTime [Timestamp](#timestamp)
-  * Description [String](#string)
-  * DisplayName [String](#string)
-  * DomainJoinInfo [DomainJoinInfo](#domainjoininfo)
-  * EnableDefaultInternetAccess [BooleanObject](#booleanobject)
-  * ImageArn [Arn](#arn)
-  * ImageBuilderErrors [ResourceErrors](#resourceerrors)
-  * InstanceType [String](#string)
-  * Name **required** [String](#string)
-  * Platform [PlatformType](#platformtype)
-  * State [ImageBuilderState](#imagebuilderstate)
-  * StateChangeReason [ImageBuilderStateChangeReason](#imagebuilderstatechangereason)
-  * VpcConfig [VpcConfig](#vpcconfig)
+* ImageBuilder `object`: Describes a virtual machine that is used to create an image. 
+  * AccessEndpoints
+    * items [AccessEndpoint](#accessendpoint)
+  * AppstreamAgentVersion
+  * Arn
+  * CreatedTime
+  * Description
+  * DisplayName
+  * DomainJoinInfo
+    * DirectoryName
+    * OrganizationalUnitDistinguishedName
+  * EnableDefaultInternetAccess
+  * IamRoleArn
+  * ImageArn
+  * ImageBuilderErrors
+    * items [ResourceError](#resourceerror)
+  * InstanceType
+  * Name **required**
+  * NetworkAccessConfiguration [NetworkAccessConfiguration](#networkaccessconfiguration)
+  * Platform
+  * State
+  * StateChangeReason
+    * Code
+    * Message
+  * VpcConfig
+    * SecurityGroupIds
+      * items [String](#string)
+    * SubnetIds
+      * items [String](#string)
 
 ### ImageBuilderList
 * ImageBuilderList `array`
@@ -1084,8 +1803,8 @@ amazonaws_appstream2.UpdateStack({
 
 ### ImageBuilderStateChangeReason
 * ImageBuilderStateChangeReason `object`: Describes the reason why the last image builder state change occurred.
-  * Code [ImageBuilderStateChangeReasonCode](#imagebuilderstatechangereasoncode)
-  * Message [String](#string)
+  * Code
+  * Message
 
 ### ImageBuilderStateChangeReasonCode
 * ImageBuilderStateChangeReasonCode `string` (values: INTERNAL_ERROR, IMAGE_UNAVAILABLE)
@@ -1094,83 +1813,101 @@ amazonaws_appstream2.UpdateStack({
 * ImageList `array`
   * items [Image](#image)
 
+### ImagePermissions
+* ImagePermissions `object`: Describes the permissions for an image. 
+  * allowFleet
+  * allowImageBuilder
+
 ### ImageState
 * ImageState `string` (values: PENDING, AVAILABLE, FAILED, COPYING, DELETING)
 
 ### ImageStateChangeReason
 * ImageStateChangeReason `object`: Describes the reason why the last image state change occurred.
-  * Code [ImageStateChangeReasonCode](#imagestatechangereasoncode)
-  * Message [String](#string)
+  * Code
+  * Message
 
 ### ImageStateChangeReasonCode
 * ImageStateChangeReasonCode `string` (values: INTERNAL_ERROR, IMAGE_BUILDER_NOT_AVAILABLE, IMAGE_COPY_FAILURE)
 
 ### IncompatibleImageException
-* IncompatibleImageException `object`: The image does not support storage connectors.
-  * Message [ErrorMessage](#errormessage)
+
 
 ### Integer
 * Integer `integer`
 
 ### InvalidAccountStatusException
-* InvalidAccountStatusException `object`: The resource cannot be created because your AWS account is suspended. For assistance, contact AWS Support. 
-  * Message [ErrorMessage](#errormessage)
+
 
 ### InvalidParameterCombinationException
-* InvalidParameterCombinationException `object`: Indicates an incorrect combination of parameters, or a missing parameter.
-  * Message [ErrorMessage](#errormessage)
+
 
 ### InvalidRoleException
-* InvalidRoleException `object`: The specified role is invalid.
-  * Message [ErrorMessage](#errormessage)
+
+
+### LastReportGenerationExecutionError
+* LastReportGenerationExecutionError `object`: Describes the error that is returned when a usage report can't be generated.
+  * ErrorCode
+  * ErrorMessage
+
+### LastReportGenerationExecutionErrors
+* LastReportGenerationExecutionErrors `array`
+  * items [LastReportGenerationExecutionError](#lastreportgenerationexecutionerror)
 
 ### LimitExceededException
-* LimitExceededException `object`: The requested limit exceeds the permitted limit for an account.
-  * Message [ErrorMessage](#errormessage)
+
 
 ### ListAssociatedFleetsRequest
 * ListAssociatedFleetsRequest `object`
-  * NextToken [String](#string)
-  * StackName **required** [String](#string)
+  * NextToken
+  * StackName **required**
 
 ### ListAssociatedFleetsResult
 * ListAssociatedFleetsResult `object`
-  * Names [StringList](#stringlist)
-  * NextToken [String](#string)
+  * Names
+    * items [String](#string)
+  * NextToken
 
 ### ListAssociatedStacksRequest
 * ListAssociatedStacksRequest `object`
-  * FleetName **required** [String](#string)
-  * NextToken [String](#string)
+  * FleetName **required**
+  * NextToken
 
 ### ListAssociatedStacksResult
 * ListAssociatedStacksResult `object`
-  * Names [StringList](#stringlist)
-  * NextToken [String](#string)
+  * Names
+    * items [String](#string)
+  * NextToken
 
 ### ListTagsForResourceRequest
 * ListTagsForResourceRequest `object`
-  * ResourceArn **required** [Arn](#arn)
+  * ResourceArn **required**
 
 ### ListTagsForResourceResponse
 * ListTagsForResourceResponse `object`
-  * Tags [Tags](#tags)
+  * Tags
 
 ### Long
 * Long `integer`
 
+### MaxResults
+* MaxResults `integer`
+
+### MessageAction
+* MessageAction `string` (values: SUPPRESS, RESEND)
+
 ### Metadata
-* Metadata `array`
-  * items `object`
-    * key [String](#string)
-    * value [String](#string)
+* Metadata `object`
 
 ### Name
 * Name `string`
 
+### NetworkAccessConfiguration
+* NetworkAccessConfiguration `object`: Describes the network details of the fleet or image builder instance.
+  * EniId
+  * EniPrivateIpAddress
+
 ### OperationNotPermittedException
-* OperationNotPermittedException `object`: The attempted operation is not permitted.
-  * Message [ErrorMessage](#errormessage)
+
 
 ### OrganizationalUnitDistinguishedName
 * OrganizationalUnitDistinguishedName `string`
@@ -1183,7 +1920,7 @@ amazonaws_appstream2.UpdateStack({
 * Permission `string` (values: ENABLED, DISABLED)
 
 ### PlatformType
-* PlatformType `string` (values: WINDOWS)
+* PlatformType `string` (values: WINDOWS, WINDOWS_SERVER_2016, WINDOWS_SERVER_2019)
 
 ### RedirectURL
 * RedirectURL `string`
@@ -1191,15 +1928,17 @@ amazonaws_appstream2.UpdateStack({
 ### RegionName
 * RegionName `string`
 
+### RequestLimitExceededException
+
+
 ### ResourceAlreadyExistsException
-* ResourceAlreadyExistsException `object`: The specified resource already exists.
-  * Message [ErrorMessage](#errormessage)
+
 
 ### ResourceError
 * ResourceError `object`: Describes a resource error.
-  * ErrorCode [FleetErrorCode](#fleeterrorcode)
-  * ErrorMessage [String](#string)
-  * ErrorTimestamp [Timestamp](#timestamp)
+  * ErrorCode
+  * ErrorMessage
+  * ErrorTimestamp
 
 ### ResourceErrors
 * ResourceErrors `array`
@@ -1209,34 +1948,40 @@ amazonaws_appstream2.UpdateStack({
 * ResourceIdentifier `string`: The ARN of the resource.
 
 ### ResourceInUseException
-* ResourceInUseException `object`: The specified resource is in use.
-  * Message [ErrorMessage](#errormessage)
+
 
 ### ResourceNotAvailableException
-* ResourceNotAvailableException `object`: The specified resource exists and is not in use, but isn't available.
-  * Message [ErrorMessage](#errormessage)
+
 
 ### ResourceNotFoundException
-* ResourceNotFoundException `object`: The specified resource was not found.
-  * Message [ErrorMessage](#errormessage)
+
 
 ### SecurityGroupIdList
-* SecurityGroupIdList `array`: The security group IDs.
+* SecurityGroupIdList `array`: The security group identifiers.
   * items [String](#string)
 
 ### ServiceAccountCredentials
-* ServiceAccountCredentials `object`: Describes the credentials for the service account used by the streaming instance to connect to the directory.
-  * AccountName **required** [AccountName](#accountname)
-  * AccountPassword **required** [AccountPassword](#accountpassword)
+* ServiceAccountCredentials `object`: Describes the credentials for the service account used by the fleet or image builder to connect to the directory.
+  * AccountName **required**
+  * AccountPassword **required**
 
 ### Session
 * Session `object`: Describes a streaming session.
-  * AuthenticationType [AuthenticationType](#authenticationtype)
-  * FleetName **required** [String](#string)
-  * Id **required** [String](#string)
-  * StackName **required** [String](#string)
-  * State **required** [SessionState](#sessionstate)
-  * UserId **required** [UserId](#userid)
+  * AuthenticationType
+  * ConnectionState
+  * FleetName **required**
+  * Id **required**
+  * MaxExpirationTime
+  * NetworkAccessConfiguration
+    * EniId
+    * EniPrivateIpAddress
+  * StackName **required**
+  * StartTime
+  * State **required**
+  * UserId **required**
+
+### SessionConnectionState
+* SessionConnectionState `string` (values: CONNECTED, NOT_CONNECTED)
 
 ### SessionList
 * SessionList `array`: List of sessions.
@@ -1245,21 +1990,46 @@ amazonaws_appstream2.UpdateStack({
 ### SessionState
 * SessionState `string` (values: ACTIVE, PENDING, EXPIRED): Possible values for the state of a streaming session.
 
+### SettingsGroup
+* SettingsGroup `string`
+
+### SharedImagePermissions
+* SharedImagePermissions `object`: Describes the permissions that are available to the specified AWS account for a shared image.
+  * imagePermissions **required**
+    * allowFleet
+    * allowImageBuilder
+  * sharedAccountId **required**
+
+### SharedImagePermissionsList
+* SharedImagePermissionsList `array`
+  * items [SharedImagePermissions](#sharedimagepermissions)
+
 ### Stack
 * Stack `object`: Describes a stack.
-  * Arn [Arn](#arn)
-  * CreatedTime [Timestamp](#timestamp)
-  * Description [String](#string)
-  * DisplayName [String](#string)
-  * FeedbackURL [FeedbackURL](#feedbackurl)
-  * Name **required** [String](#string)
-  * RedirectURL [RedirectURL](#redirecturl)
-  * StackErrors [StackErrors](#stackerrors)
-  * StorageConnectors [StorageConnectorList](#storageconnectorlist)
-  * UserSettings [UserSettingList](#usersettinglist)
+  * AccessEndpoints
+    * items [AccessEndpoint](#accessendpoint)
+  * ApplicationSettings
+    * Enabled
+    * S3BucketName
+    * SettingsGroup
+  * Arn
+  * CreatedTime
+  * Description
+  * DisplayName
+  * EmbedHostDomains
+    * items [EmbedHostDomain](#embedhostdomain)
+  * FeedbackURL
+  * Name **required**
+  * RedirectURL
+  * StackErrors
+    * items [StackError](#stackerror)
+  * StorageConnectors
+    * items [StorageConnector](#storageconnector)
+  * UserSettings
+    * items [UserSetting](#usersetting)
 
 ### StackAttribute
-* StackAttribute `string` (values: STORAGE_CONNECTORS, STORAGE_CONNECTOR_HOMEFOLDERS, STORAGE_CONNECTOR_GOOGLE_DRIVE, REDIRECT_URL, FEEDBACK_URL, THEME_NAME, USER_SETTINGS)
+* StackAttribute `string` (values: STORAGE_CONNECTORS, STORAGE_CONNECTOR_HOMEFOLDERS, STORAGE_CONNECTOR_GOOGLE_DRIVE, STORAGE_CONNECTOR_ONE_DRIVE, REDIRECT_URL, FEEDBACK_URL, THEME_NAME, USER_SETTINGS, EMBED_HOST_DOMAINS, IAM_ROLE_ARN, ACCESS_ENDPOINTS)
 
 ### StackAttributes
 * StackAttributes `array`
@@ -1267,8 +2037,8 @@ amazonaws_appstream2.UpdateStack({
 
 ### StackError
 * StackError `object`: Describes a stack error.
-  * ErrorCode [StackErrorCode](#stackerrorcode)
-  * ErrorMessage [String](#string)
+  * ErrorCode
+  * ErrorMessage
 
 ### StackErrorCode
 * StackErrorCode `string` (values: STORAGE_CONNECTOR_ERROR, INTERNAL_SERVICE_ERROR)
@@ -1283,47 +2053,107 @@ amazonaws_appstream2.UpdateStack({
 
 ### StartFleetRequest
 * StartFleetRequest `object`
-  * Name **required** [String](#string)
+  * Name **required**
 
 ### StartFleetResult
 * StartFleetResult `object`
 
 ### StartImageBuilderRequest
 * StartImageBuilderRequest `object`
-  * AppstreamAgentVersion [AppstreamAgentVersion](#appstreamagentversion)
-  * Name **required** [String](#string)
+  * AppstreamAgentVersion
+  * Name **required**
 
 ### StartImageBuilderResult
 * StartImageBuilderResult `object`
-  * ImageBuilder [ImageBuilder](#imagebuilder)
+  * ImageBuilder
+    * AccessEndpoints
+      * items [AccessEndpoint](#accessendpoint)
+    * AppstreamAgentVersion
+    * Arn
+    * CreatedTime
+    * Description
+    * DisplayName
+    * DomainJoinInfo
+      * DirectoryName
+      * OrganizationalUnitDistinguishedName
+    * EnableDefaultInternetAccess
+    * IamRoleArn
+    * ImageArn
+    * ImageBuilderErrors
+      * items [ResourceError](#resourceerror)
+    * InstanceType
+    * Name **required**
+    * NetworkAccessConfiguration [NetworkAccessConfiguration](#networkaccessconfiguration)
+    * Platform
+    * State
+    * StateChangeReason
+      * Code
+      * Message
+    * VpcConfig
+      * SecurityGroupIds
+        * items [String](#string)
+      * SubnetIds
+        * items [String](#string)
 
 ### StopFleetRequest
 * StopFleetRequest `object`
-  * Name **required** [String](#string)
+  * Name **required**
 
 ### StopFleetResult
 * StopFleetResult `object`
 
 ### StopImageBuilderRequest
 * StopImageBuilderRequest `object`
-  * Name **required** [String](#string)
+  * Name **required**
 
 ### StopImageBuilderResult
 * StopImageBuilderResult `object`
-  * ImageBuilder [ImageBuilder](#imagebuilder)
+  * ImageBuilder
+    * AccessEndpoints
+      * items [AccessEndpoint](#accessendpoint)
+    * AppstreamAgentVersion
+    * Arn
+    * CreatedTime
+    * Description
+    * DisplayName
+    * DomainJoinInfo
+      * DirectoryName
+      * OrganizationalUnitDistinguishedName
+    * EnableDefaultInternetAccess
+    * IamRoleArn
+    * ImageArn
+    * ImageBuilderErrors
+      * items [ResourceError](#resourceerror)
+    * InstanceType
+    * Name **required**
+    * NetworkAccessConfiguration [NetworkAccessConfiguration](#networkaccessconfiguration)
+    * Platform
+    * State
+    * StateChangeReason
+      * Code
+      * Message
+    * VpcConfig
+      * SecurityGroupIds
+        * items [String](#string)
+      * SubnetIds
+        * items [String](#string)
 
 ### StorageConnector
-* StorageConnector `object`: Describes a connector to enable persistent storage for users.
-  * ConnectorType **required** [StorageConnectorType](#storageconnectortype)
-  * Domains [DomainList](#domainlist)
-  * ResourceIdentifier [ResourceIdentifier](#resourceidentifier)
+* StorageConnector `object`: Describes a connector that enables persistent storage for users.
+  * ConnectorType **required**
+  * Domains
+    * items [Domain](#domain)
+  * ResourceIdentifier
 
 ### StorageConnectorList
 * StorageConnectorList `array`: The storage connectors.
   * items [StorageConnector](#storageconnector)
 
 ### StorageConnectorType
-* StorageConnectorType `string` (values: HOMEFOLDERS, GOOGLE_DRIVE): The type of storage connector.
+* StorageConnectorType `string` (values: HOMEFOLDERS, GOOGLE_DRIVE, ONE_DRIVE): The type of storage connector.
+
+### StreamView
+* StreamView `string` (values: APP, DESKTOP)
 
 ### StreamingUrlUserId
 * StreamingUrlUserId `string`
@@ -1336,7 +2166,7 @@ amazonaws_appstream2.UpdateStack({
   * items [String](#string)
 
 ### SubnetIdList
-* SubnetIdList `array`: The subnet IDs.
+* SubnetIdList `array`: The subnet identifiers.
   * items [String](#string)
 
 ### TagKey
@@ -1348,8 +2178,8 @@ amazonaws_appstream2.UpdateStack({
 
 ### TagResourceRequest
 * TagResourceRequest `object`
-  * ResourceArn **required** [Arn](#arn)
-  * Tags **required** [Tags](#tags)
+  * ResourceArn **required**
+  * Tags **required**
 
 ### TagResourceResponse
 * TagResourceResponse `object`
@@ -1358,86 +2188,248 @@ amazonaws_appstream2.UpdateStack({
 * TagValue `string`
 
 ### Tags
-* Tags `array`
-  * items `object`
-    * key [TagKey](#tagkey)
-    * value [TagValue](#tagvalue)
+* Tags `object`
 
 ### Timestamp
 * Timestamp `string`
 
 ### UntagResourceRequest
 * UntagResourceRequest `object`
-  * ResourceArn **required** [Arn](#arn)
-  * TagKeys **required** [TagKeyList](#tagkeylist)
+  * ResourceArn **required**
+  * TagKeys **required**
+    * items [TagKey](#tagkey)
 
 ### UntagResourceResponse
 * UntagResourceResponse `object`
 
 ### UpdateDirectoryConfigRequest
 * UpdateDirectoryConfigRequest `object`
-  * DirectoryName **required** [DirectoryName](#directoryname)
-  * OrganizationalUnitDistinguishedNames [OrganizationalUnitDistinguishedNamesList](#organizationalunitdistinguishednameslist)
-  * ServiceAccountCredentials [ServiceAccountCredentials](#serviceaccountcredentials)
+  * DirectoryName **required**
+  * OrganizationalUnitDistinguishedNames
+    * items [OrganizationalUnitDistinguishedName](#organizationalunitdistinguishedname)
+  * ServiceAccountCredentials
+    * AccountName **required**
+    * AccountPassword **required**
 
 ### UpdateDirectoryConfigResult
 * UpdateDirectoryConfigResult `object`
-  * DirectoryConfig [DirectoryConfig](#directoryconfig)
+  * DirectoryConfig
+    * CreatedTime
+    * DirectoryName **required**
+    * OrganizationalUnitDistinguishedNames
+      * items [OrganizationalUnitDistinguishedName](#organizationalunitdistinguishedname)
+    * ServiceAccountCredentials
+      * AccountName **required**
+      * AccountPassword **required**
 
 ### UpdateFleetRequest
 * UpdateFleetRequest `object`
-  * AttributesToDelete [FleetAttributes](#fleetattributes)
-  * ComputeCapacity [ComputeCapacity](#computecapacity)
-  * DeleteVpcConfig [Boolean](#boolean)
-  * Description [Description](#description)
-  * DisconnectTimeoutInSeconds [Integer](#integer)
-  * DisplayName [DisplayName](#displayname)
-  * DomainJoinInfo [DomainJoinInfo](#domainjoininfo)
-  * EnableDefaultInternetAccess [BooleanObject](#booleanobject)
-  * ImageName [String](#string)
-  * InstanceType [String](#string)
-  * MaxUserDurationInSeconds [Integer](#integer)
-  * Name **required** [String](#string)
-  * VpcConfig [VpcConfig](#vpcconfig)
+  * AttributesToDelete
+    * items [FleetAttribute](#fleetattribute)
+  * ComputeCapacity
+    * DesiredInstances **required**
+  * DeleteVpcConfig
+  * Description
+  * DisconnectTimeoutInSeconds
+  * DisplayName
+  * DomainJoinInfo
+    * DirectoryName
+    * OrganizationalUnitDistinguishedName
+  * EnableDefaultInternetAccess
+  * IamRoleArn
+  * IdleDisconnectTimeoutInSeconds
+  * ImageArn
+  * ImageName
+  * InstanceType
+  * MaxUserDurationInSeconds
+  * Name
+  * StreamView
+  * VpcConfig
+    * SecurityGroupIds
+      * items [String](#string)
+    * SubnetIds
+      * items [String](#string)
 
 ### UpdateFleetResult
 * UpdateFleetResult `object`
-  * Fleet [Fleet](#fleet)
+  * Fleet
+    * Arn **required**
+    * ComputeCapacityStatus **required**
+      * Available
+      * Desired **required**
+      * InUse
+      * Running
+    * CreatedTime
+    * Description
+    * DisconnectTimeoutInSeconds
+    * DisplayName
+    * DomainJoinInfo
+      * DirectoryName
+      * OrganizationalUnitDistinguishedName
+    * EnableDefaultInternetAccess
+    * FleetErrors
+      * items [FleetError](#fleeterror)
+    * FleetType
+    * IamRoleArn
+    * IdleDisconnectTimeoutInSeconds
+    * ImageArn
+    * ImageName
+    * InstanceType **required**
+    * MaxUserDurationInSeconds
+    * Name **required**
+    * State **required**
+    * StreamView
+    * VpcConfig
+      * SecurityGroupIds
+        * items [String](#string)
+      * SubnetIds
+        * items [String](#string)
+
+### UpdateImagePermissionsRequest
+* UpdateImagePermissionsRequest `object`
+  * ImagePermissions **required**
+    * allowFleet
+    * allowImageBuilder
+  * Name **required**
+  * SharedAccountId **required**
+
+### UpdateImagePermissionsResult
+* UpdateImagePermissionsResult `object`
 
 ### UpdateStackRequest
 * UpdateStackRequest `object`
-  * AttributesToDelete [StackAttributes](#stackattributes)
-  * DeleteStorageConnectors [Boolean](#boolean)
-  * Description [Description](#description)
-  * DisplayName [DisplayName](#displayname)
-  * FeedbackURL [FeedbackURL](#feedbackurl)
-  * Name **required** [String](#string)
-  * RedirectURL [RedirectURL](#redirecturl)
-  * StorageConnectors [StorageConnectorList](#storageconnectorlist)
-  * UserSettings [UserSettingList](#usersettinglist)
+  * AccessEndpoints
+    * items [AccessEndpoint](#accessendpoint)
+  * ApplicationSettings
+    * Enabled **required**
+    * SettingsGroup
+  * AttributesToDelete
+    * items [StackAttribute](#stackattribute)
+  * DeleteStorageConnectors
+  * Description
+  * DisplayName
+  * EmbedHostDomains
+    * items [EmbedHostDomain](#embedhostdomain)
+  * FeedbackURL
+  * Name **required**
+  * RedirectURL
+  * StorageConnectors
+    * items [StorageConnector](#storageconnector)
+  * UserSettings
+    * items [UserSetting](#usersetting)
 
 ### UpdateStackResult
 * UpdateStackResult `object`
-  * Stack [Stack](#stack)
+  * Stack
+    * AccessEndpoints
+      * items [AccessEndpoint](#accessendpoint)
+    * ApplicationSettings
+      * Enabled
+      * S3BucketName
+      * SettingsGroup
+    * Arn
+    * CreatedTime
+    * Description
+    * DisplayName
+    * EmbedHostDomains
+      * items [EmbedHostDomain](#embedhostdomain)
+    * FeedbackURL
+    * Name **required**
+    * RedirectURL
+    * StackErrors
+      * items [StackError](#stackerror)
+    * StorageConnectors
+      * items [StorageConnector](#storageconnector)
+    * UserSettings
+      * items [UserSetting](#usersetting)
+
+### UsageReportExecutionErrorCode
+* UsageReportExecutionErrorCode `string` (values: RESOURCE_NOT_FOUND, ACCESS_DENIED, INTERNAL_SERVICE_ERROR)
+
+### UsageReportSchedule
+* UsageReportSchedule `string` (values: DAILY)
+
+### UsageReportSubscription
+* UsageReportSubscription `object`: Describes information about the usage report subscription.
+  * LastGeneratedReportDate
+  * S3BucketName
+  * Schedule
+  * SubscriptionErrors
+    * items [LastReportGenerationExecutionError](#lastreportgenerationexecutionerror)
+
+### UsageReportSubscriptionList
+* UsageReportSubscriptionList `array`
+  * items [UsageReportSubscription](#usagereportsubscription)
+
+### User
+* User `object`: Describes a user in the user pool.
+  * Arn
+  * AuthenticationType **required**
+  * CreatedTime
+  * Enabled
+  * FirstName
+  * LastName
+  * Status
+  * UserName
+
+### UserAttributeValue
+* UserAttributeValue `string`
 
 ### UserId
 * UserId `string`
 
+### UserList
+* UserList `array`
+  * items [User](#user)
+
 ### UserSetting
 * UserSetting `object`: Describes an action and whether the action is enabled or disabled for users during their streaming sessions.
-  * Action **required** [Action](#action)
-  * Permission **required** [Permission](#permission)
+  * Action **required**
+  * Permission **required**
 
 ### UserSettingList
 * UserSettingList `array`
   * items [UserSetting](#usersetting)
 
+### UserStackAssociation
+* UserStackAssociation `object`: Describes a user in the user pool and the associated stack.
+  * AuthenticationType **required**
+  * SendEmailNotification
+  * StackName **required**
+  * UserName **required**
+
+### UserStackAssociationError
+* UserStackAssociationError `object`: Describes the error that is returned when a user can’t be associated with or disassociated from a stack. 
+  * ErrorCode
+  * ErrorMessage
+  * UserStackAssociation
+    * AuthenticationType **required**
+    * SendEmailNotification
+    * StackName **required**
+    * UserName **required**
+
+### UserStackAssociationErrorCode
+* UserStackAssociationErrorCode `string` (values: STACK_NOT_FOUND, USER_NAME_NOT_FOUND, DIRECTORY_NOT_FOUND, INTERNAL_ERROR)
+
+### UserStackAssociationErrorList
+* UserStackAssociationErrorList `array`
+  * items [UserStackAssociationError](#userstackassociationerror)
+
+### UserStackAssociationList
+* UserStackAssociationList `array`
+  * items [UserStackAssociation](#userstackassociation)
+
+### Username
+* Username `string`
+
 ### VisibilityType
-* VisibilityType `string` (values: PUBLIC, PRIVATE)
+* VisibilityType `string` (values: PUBLIC, PRIVATE, SHARED)
 
 ### VpcConfig
-* VpcConfig `object`: Describes VPC configuration information.
-  * SecurityGroupIds [SecurityGroupIdList](#securitygroupidlist)
-  * SubnetIds [SubnetIdList](#subnetidlist)
+* VpcConfig `object`: Describes VPC configuration information for fleets and image builders.
+  * SecurityGroupIds
+    * items [String](#string)
+  * SubnetIds
+    * items [String](#string)
 
 

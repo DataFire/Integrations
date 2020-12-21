@@ -15,10 +15,7 @@ let azure_network = require('@datafire/azure_network').create({
   redirect_uri: ""
 });
 
-azure_network.ApplicationGateways_ListAll({
-  "api-version": "",
-  "subscriptionId": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -402,29 +399,6 @@ azure_network.VirtualNetworkGatewayConnections_List({
 #### Output
 * output [VirtualNetworkGatewayConnectionListResult](#virtualnetworkgatewayconnectionlistresult)
 
-### VirtualNetworkGatewayConnections_GetSharedKey
-The Get VirtualNetworkGatewayConnectionSharedKey operation retrieves information about the specified virtual network gateway connection shared key through Network resource provider.
-
-
-```js
-azure_network.VirtualNetworkGatewayConnections_GetSharedKey({
-  "resourceGroupName": "",
-  "connectionSharedKeyName": "",
-  "api-version": "",
-  "subscriptionId": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * resourceGroupName **required** `string`: The name of the resource group.
-  * connectionSharedKeyName **required** `string`: The virtual network gateway connection shared key name.
-  * api-version **required** `string`: Client Api Version.
-  * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
-
-#### Output
-* output [ConnectionSharedKeyResult](#connectionsharedkeyresult)
-
 ### VirtualNetworkGatewayConnections_Delete
 The Delete VirtualNetworkGatewayConnection operation deletes the specified virtual network Gateway connection through Network resource provider.
 
@@ -495,6 +469,29 @@ azure_network.VirtualNetworkGatewayConnections_CreateOrUpdate({
 
 #### Output
 * output [VirtualNetworkGatewayConnection](#virtualnetworkgatewayconnection)
+
+### VirtualNetworkGatewayConnections_GetSharedKey
+The Get VirtualNetworkGatewayConnectionSharedKey operation retrieves information about the specified virtual network gateway connection shared key through Network resource provider.
+
+
+```js
+azure_network.VirtualNetworkGatewayConnections_GetSharedKey({
+  "resourceGroupName": "",
+  "virtualNetworkGatewayConnectionName": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * resourceGroupName **required** `string`: The name of the resource group.
+  * virtualNetworkGatewayConnectionName **required** `string`: The virtual network gateway connection shared key name.
+  * api-version **required** `string`: Client Api Version.
+  * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+#### Output
+* output [ConnectionSharedKeyResult](#connectionsharedkeyresult)
 
 ### VirtualNetworkGatewayConnections_SetSharedKey
 The Put VirtualNetworkGatewayConnectionSharedKey operation sets the virtual network gateway connection shared key for passed virtual network gateway connection in the specified resource group through Network resource provider.
@@ -1174,7 +1171,7 @@ azure_network.NetworkInterfaces_List({
 * output [NetworkInterfaceListResult](#networkinterfacelistresult)
 
 ### NetworkInterfaces_Delete
-The delete netwokInterface operation deletes the specified netwokInterface.
+The delete networkInterface operation deletes the specified networkInterface.
 
 
 ```js
@@ -1269,7 +1266,7 @@ azure_network.NetworkInterfaces_ListEffectiveNetworkSecurityGroups({
 * output [EffectiveNetworkSecurityGroupListResult](#effectivenetworksecuritygrouplistresult)
 
 ### NetworkInterfaces_GetEffectiveRouteTable
-The get effective routetable operation retrieves all the route tables applied on a networkInterface.
+Retrieves all the route tables applied on a networkInterface.
 
 
 ```js
@@ -2570,7 +2567,7 @@ azure_network.NetworkInterfaces_GetVirtualMachineScaleSetNetworkInterface({
 ### AzureAsyncOperationResult
 * AzureAsyncOperationResult `object`: The response body contains the status of the specified asynchronous operation, indicating whether it has succeeded, is in progress, or has failed. Note that this status is distinct from the HTTP status code returned for the Get Operation Status operation itself. If the asynchronous operation succeeded, the response body includes the HTTP status code for the successful request. If the asynchronous operation failed, the response body includes the HTTP status code for the failed request and error information regarding the failure.
   * error [Error](#error)
-  * status `string` (values: InProgress, Succeeded, Failed): Status of the AzureAsuncOperation
+  * status `string` (values: InProgress, Succeeded, Failed): Status of the AzureAsyncOperation
 
 ### BackendAddressPool
 * BackendAddressPool `object`: Pool of backend IP addresses
@@ -3153,7 +3150,7 @@ azure_network.NetworkInterfaces_GetVirtualMachineScaleSetNetworkInterface({
 ### PublicIPAddressPropertiesFormat
 * PublicIPAddressPropertiesFormat `object`: PublicIpAddress properties
   * dnsSettings [PublicIPAddressDnsSettings](#publicipaddressdnssettings)
-  * idleTimeoutInMinutes `integer`: Gets or sets the Idletimeout of the public IP address
+  * idleTimeoutInMinutes `integer`: Gets or sets the idle timeout of the public IP address
   * ipAddress `string`
   * ipConfiguration [IPConfiguration](#ipconfiguration)
   * provisioningState `string`: Gets provisioning state of the PublicIP resource Updating/Deleting/Failed
@@ -3243,21 +3240,21 @@ azure_network.NetworkInterfaces_GetVirtualMachineScaleSetNetworkInterface({
 * SecurityRulePropertiesFormat `object`
   * access **required** `string` (values: Allow, Deny): Gets or sets network traffic is allowed or denied. Possible values are 'Allow' and 'Deny'
   * description `string`: Gets or sets a description for this rule. Restricted to 140 chars.
-  * destinationAddressPrefix **required** `string`: Gets or sets destination address prefix. CIDR or source IP range. Asterix '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used. 
-  * destinationPortRange `string`: Gets or sets Destination Port or Range. Integer or range between 0 and 65535. Asterix '*' can also be used to match all ports.
-  * direction **required** `string` (values: Inbound, Outbound): Gets or sets the direction of the rule.InBound or Outbound. The direction specifies if rule will be evaluated on incoming or outcoming traffic.
+  * destinationAddressPrefix **required** `string`: Gets or sets destination address prefix. CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used. 
+  * destinationPortRange `string`: Gets or sets Destination Port or Range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
+  * direction **required** `string` (values: Inbound, Outbound): Gets or sets the direction of the rule.InBound or Outbound. The direction specifies if rule will be evaluated on incoming or outgoing traffic.
   * priority `integer`: Gets or sets the priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
   * protocol **required** `string` (values: Tcp, Udp, *): Gets or sets Network protocol this rule applies to. Can be Tcp, Udp or All(*).
   * provisioningState `string`: Gets provisioning state of the PublicIP resource Updating/Deleting/Failed
-  * sourceAddressPrefix **required** `string`: Gets or sets source address prefix. CIDR or source IP range. Asterix '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used. If this is an ingress rule, specifies where network traffic originates from. 
-  * sourcePortRange `string`: Gets or sets Source Port or Range. Integer or range between 0 and 65535. Asterix '*' can also be used to match all ports.
+  * sourceAddressPrefix **required** `string`: Gets or sets source address prefix. CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used. If this is an ingress rule, specifies where network traffic originates from. 
+  * sourcePortRange `string`: Gets or sets Source Port or Range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
 
 ### SubResource
 * SubResource `object`
   * id `string`: Resource Id
 
 ### Subnet
-* Subnet `object`: Subnet in a VirtualNework resource
+* Subnet `object`: Subnet in a VirtualNetwork resource
   * etag `string`: A unique read-only string that changes whenever the resource is updated
   * name `string`: Gets or sets the name of the resource that is unique within a resource group. This name can be used to access the resource
   * properties [SubnetPropertiesFormat](#subnetpropertiesformat)
@@ -3338,7 +3335,7 @@ azure_network.NetworkInterfaces_GetVirtualMachineScaleSetNetworkInterface({
 * VirtualNetworkGatewayConnectionPropertiesFormat `object`: VirtualNetworkGatewayConnection properties
   * authorizationKey `string`: The authorizationKey.
   * connectionStatus `string` (values: Unknown, Connecting, Connected, NotConnected): Virtual network Gateway connection status
-  * connectionType `string` (values: IPsec, Vnet2Vnet, ExpressRoute, VPNClient): Gateway connection type -Ipsec/Dedicated/VpnClient/Vnet2Vnet
+  * connectionType `string` (values: IPsec, Vnet2Vnet, ExpressRoute, VPNClient): Gateway connection type IPsec/Dedicated/VpnClient/Vnet2Vnet
   * egressBytesTransferred `integer`: The Egress Bytes Transferred in this connection
   * enableBgp `boolean`: EnableBgp Flag
   * ingressBytesTransferred `integer`: The Ingress Bytes Transferred in this connection
@@ -3347,7 +3344,7 @@ azure_network.NetworkInterfaces_GetVirtualMachineScaleSetNetworkInterface({
   * provisioningState `string`: Gets provisioning state of the VirtualNetworkGatewayConnection resource Updating/Deleting/Failed
   * resourceGuid `string`: Gets or sets resource guid property of the VirtualNetworkGatewayConnection resource
   * routingWeight `integer`: The Routing weight.
-  * sharedKey `string`: The Ipsec share key.
+  * sharedKey `string`: The IPsec share key.
   * virtualNetworkGateway1 [VirtualNetworkGateway](#virtualnetworkgateway)
   * virtualNetworkGateway2 [VirtualNetworkGateway](#virtualnetworkgateway)
 
@@ -3399,7 +3396,7 @@ azure_network.NetworkInterfaces_GetVirtualMachineScaleSetNetworkInterface({
     * items [VirtualNetwork](#virtualnetwork)
 
 ### VirtualNetworkPeering
-* VirtualNetworkPeering `object`: Peerings in a VirtualNework resource
+* VirtualNetworkPeering `object`: Peerings in a VirtualNetwork resource
   * etag `string`: A unique read-only string that changes whenever the resource is updated
   * name `string`: Gets or sets the name of the resource that is unique within a resource group. This name can be used to access the resource
   * properties [VirtualNetworkPeeringPropertiesFormat](#virtualnetworkpeeringpropertiesformat)

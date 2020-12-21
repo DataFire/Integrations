@@ -78,11 +78,12 @@
             "x-ms-parameter-location": "method"
           },
           {
-            "description": "The automation account name.",
+            "description": "The name of the automation account.",
             "in": "path",
             "name": "automationAccountName",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
@@ -103,91 +104,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "description": "The response model for the list certificate operation.",
-              "properties": {
-                "nextLink": {
-                  "description": "Gets or sets the next link.",
-                  "type": "string"
-                },
-                "value": {
-                  "description": "Gets or sets a list of certificates.",
-                  "items": {
-                    "allOf": [
-                      {
-                        "allOf": [
-                          {
-                            "description": "The core properties of ARM resources",
-                            "properties": {
-                              "id": {
-                                "description": "Fully qualified resource Id for the resource",
-                                "readOnly": true,
-                                "type": "string"
-                              },
-                              "name": {
-                                "description": "The name of the resource",
-                                "readOnly": true,
-                                "type": "string"
-                              },
-                              "type": {
-                                "description": "The type of the resource.",
-                                "readOnly": true,
-                                "type": "string"
-                              }
-                            },
-                            "x-ms-azure-resource": true
-                          }
-                        ],
-                        "description": "The resource model definition for a ARM proxy resource. It will have everything other than required location and tags"
-                      }
-                    ],
-                    "description": "Definition of the certificate.",
-                    "properties": {
-                      "properties": {
-                        "description": "Properties of the certificate.",
-                        "properties": {
-                          "creationTime": {
-                            "description": "Gets the creation time.",
-                            "format": "date-time",
-                            "readOnly": true,
-                            "type": "string",
-                            "x-nullable": false
-                          },
-                          "description": {
-                            "description": "Gets or sets the description.",
-                            "type": "string"
-                          },
-                          "expiryTime": {
-                            "description": "Gets the expiry time of the certificate.",
-                            "format": "date-time",
-                            "readOnly": true,
-                            "type": "string",
-                            "x-nullable": false
-                          },
-                          "isExportable": {
-                            "description": "Gets the is exportable flag of the certificate.",
-                            "readOnly": true,
-                            "type": "boolean",
-                            "x-nullable": false
-                          },
-                          "lastModifiedTime": {
-                            "description": "Gets the last modified time.",
-                            "format": "date-time",
-                            "readOnly": true,
-                            "type": "string",
-                            "x-nullable": false
-                          },
-                          "thumbprint": {
-                            "description": "Gets the thumbprint of the certificate.",
-                            "readOnly": true,
-                            "type": "string"
-                          }
-                        }
-                      }
-                    }
-                  },
-                  "type": "array"
-                }
-              }
+              "$ref": "#/definitions/CertificateListResult"
             }
           },
           "default": {
@@ -267,11 +184,12 @@
             "x-ms-parameter-location": "method"
           },
           {
-            "description": "The automation account name.",
+            "description": "The name of the automation account.",
             "in": "path",
             "name": "automationAccountName",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "The name of certificate.",
@@ -354,11 +272,12 @@
             "x-ms-parameter-location": "method"
           },
           {
-            "description": "The automation account name.",
+            "description": "The name of the automation account.",
             "in": "path",
             "name": "automationAccountName",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "The name of certificate.",
@@ -386,78 +305,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "allOf": [
-                {
-                  "allOf": [
-                    {
-                      "description": "The core properties of ARM resources",
-                      "properties": {
-                        "id": {
-                          "description": "Fully qualified resource Id for the resource",
-                          "readOnly": true,
-                          "type": "string"
-                        },
-                        "name": {
-                          "description": "The name of the resource",
-                          "readOnly": true,
-                          "type": "string"
-                        },
-                        "type": {
-                          "description": "The type of the resource.",
-                          "readOnly": true,
-                          "type": "string"
-                        }
-                      },
-                      "x-ms-azure-resource": true
-                    }
-                  ],
-                  "description": "The resource model definition for a ARM proxy resource. It will have everything other than required location and tags"
-                }
-              ],
-              "description": "Definition of the certificate.",
-              "properties": {
-                "properties": {
-                  "description": "Properties of the certificate.",
-                  "properties": {
-                    "creationTime": {
-                      "description": "Gets the creation time.",
-                      "format": "date-time",
-                      "readOnly": true,
-                      "type": "string",
-                      "x-nullable": false
-                    },
-                    "description": {
-                      "description": "Gets or sets the description.",
-                      "type": "string"
-                    },
-                    "expiryTime": {
-                      "description": "Gets the expiry time of the certificate.",
-                      "format": "date-time",
-                      "readOnly": true,
-                      "type": "string",
-                      "x-nullable": false
-                    },
-                    "isExportable": {
-                      "description": "Gets the is exportable flag of the certificate.",
-                      "readOnly": true,
-                      "type": "boolean",
-                      "x-nullable": false
-                    },
-                    "lastModifiedTime": {
-                      "description": "Gets the last modified time.",
-                      "format": "date-time",
-                      "readOnly": true,
-                      "type": "string",
-                      "x-nullable": false
-                    },
-                    "thumbprint": {
-                      "description": "Gets the thumbprint of the certificate.",
-                      "readOnly": true,
-                      "type": "string"
-                    }
-                  }
-                }
-              }
+              "$ref": "#/definitions/Certificate"
             }
           },
           "default": {
@@ -529,11 +377,12 @@
             "x-ms-parameter-location": "method"
           },
           {
-            "description": "The automation account name.",
+            "description": "The name of the automation account.",
             "in": "path",
             "name": "automationAccountName",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "The parameters supplied to the update certificate operation.",
@@ -548,22 +397,7 @@
             "name": "parameters",
             "required": true,
             "schema": {
-              "description": "The parameters supplied to the update certificate operation.",
-              "properties": {
-                "name": {
-                  "description": "Gets or sets the name of the certificate.",
-                  "type": "string"
-                },
-                "properties": {
-                  "description": "The properties of the update certificate operation",
-                  "properties": {
-                    "description": {
-                      "description": "Gets or sets the description of the certificate.",
-                      "type": "string"
-                    }
-                  }
-                }
-              }
+              "$ref": "#/definitions/CertificateUpdateParameters"
             }
           },
           {
@@ -585,78 +419,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "allOf": [
-                {
-                  "allOf": [
-                    {
-                      "description": "The core properties of ARM resources",
-                      "properties": {
-                        "id": {
-                          "description": "Fully qualified resource Id for the resource",
-                          "readOnly": true,
-                          "type": "string"
-                        },
-                        "name": {
-                          "description": "The name of the resource",
-                          "readOnly": true,
-                          "type": "string"
-                        },
-                        "type": {
-                          "description": "The type of the resource.",
-                          "readOnly": true,
-                          "type": "string"
-                        }
-                      },
-                      "x-ms-azure-resource": true
-                    }
-                  ],
-                  "description": "The resource model definition for a ARM proxy resource. It will have everything other than required location and tags"
-                }
-              ],
-              "description": "Definition of the certificate.",
-              "properties": {
-                "properties": {
-                  "description": "Properties of the certificate.",
-                  "properties": {
-                    "creationTime": {
-                      "description": "Gets the creation time.",
-                      "format": "date-time",
-                      "readOnly": true,
-                      "type": "string",
-                      "x-nullable": false
-                    },
-                    "description": {
-                      "description": "Gets or sets the description.",
-                      "type": "string"
-                    },
-                    "expiryTime": {
-                      "description": "Gets the expiry time of the certificate.",
-                      "format": "date-time",
-                      "readOnly": true,
-                      "type": "string",
-                      "x-nullable": false
-                    },
-                    "isExportable": {
-                      "description": "Gets the is exportable flag of the certificate.",
-                      "readOnly": true,
-                      "type": "boolean",
-                      "x-nullable": false
-                    },
-                    "lastModifiedTime": {
-                      "description": "Gets the last modified time.",
-                      "format": "date-time",
-                      "readOnly": true,
-                      "type": "string",
-                      "x-nullable": false
-                    },
-                    "thumbprint": {
-                      "description": "Gets the thumbprint of the certificate.",
-                      "readOnly": true,
-                      "type": "string"
-                    }
-                  }
-                }
-              }
+              "$ref": "#/definitions/Certificate"
             }
           },
           "default": {
@@ -734,11 +497,12 @@
             "x-ms-parameter-location": "method"
           },
           {
-            "description": "The automation account name.",
+            "description": "The name of the automation account.",
             "in": "path",
             "name": "automationAccountName",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "The parameters supplied to the create or update certificate operation.",
@@ -753,42 +517,7 @@
             "name": "parameters",
             "required": true,
             "schema": {
-              "description": "The parameters supplied to the create or update or replace certificate operation.",
-              "properties": {
-                "name": {
-                  "description": "Gets or sets the name of the certificate.",
-                  "type": "string"
-                },
-                "properties": {
-                  "description": "The properties of the create certificate operation.",
-                  "properties": {
-                    "base64Value": {
-                      "description": "Gets or sets the base64 encoded value of the certificate.",
-                      "type": "string"
-                    },
-                    "description": {
-                      "description": "Gets or sets the description of the certificate.",
-                      "type": "string"
-                    },
-                    "isExportable": {
-                      "description": "Gets or sets the is exportable flag of the certificate.",
-                      "type": "boolean",
-                      "x-nullable": false
-                    },
-                    "thumbprint": {
-                      "description": "Gets or sets the thumbprint of the certificate.",
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "base64Value"
-                  ]
-                }
-              },
-              "required": [
-                "name",
-                "properties"
-              ]
+              "$ref": "#/definitions/CertificateCreateOrUpdateParameters"
             }
           },
           {
@@ -810,155 +539,13 @@
           "200": {
             "description": "OK",
             "schema": {
-              "allOf": [
-                {
-                  "allOf": [
-                    {
-                      "description": "The core properties of ARM resources",
-                      "properties": {
-                        "id": {
-                          "description": "Fully qualified resource Id for the resource",
-                          "readOnly": true,
-                          "type": "string"
-                        },
-                        "name": {
-                          "description": "The name of the resource",
-                          "readOnly": true,
-                          "type": "string"
-                        },
-                        "type": {
-                          "description": "The type of the resource.",
-                          "readOnly": true,
-                          "type": "string"
-                        }
-                      },
-                      "x-ms-azure-resource": true
-                    }
-                  ],
-                  "description": "The resource model definition for a ARM proxy resource. It will have everything other than required location and tags"
-                }
-              ],
-              "description": "Definition of the certificate.",
-              "properties": {
-                "properties": {
-                  "description": "Properties of the certificate.",
-                  "properties": {
-                    "creationTime": {
-                      "description": "Gets the creation time.",
-                      "format": "date-time",
-                      "readOnly": true,
-                      "type": "string",
-                      "x-nullable": false
-                    },
-                    "description": {
-                      "description": "Gets or sets the description.",
-                      "type": "string"
-                    },
-                    "expiryTime": {
-                      "description": "Gets the expiry time of the certificate.",
-                      "format": "date-time",
-                      "readOnly": true,
-                      "type": "string",
-                      "x-nullable": false
-                    },
-                    "isExportable": {
-                      "description": "Gets the is exportable flag of the certificate.",
-                      "readOnly": true,
-                      "type": "boolean",
-                      "x-nullable": false
-                    },
-                    "lastModifiedTime": {
-                      "description": "Gets the last modified time.",
-                      "format": "date-time",
-                      "readOnly": true,
-                      "type": "string",
-                      "x-nullable": false
-                    },
-                    "thumbprint": {
-                      "description": "Gets the thumbprint of the certificate.",
-                      "readOnly": true,
-                      "type": "string"
-                    }
-                  }
-                }
-              }
+              "$ref": "#/definitions/Certificate"
             }
           },
           "201": {
             "description": "Created",
             "schema": {
-              "allOf": [
-                {
-                  "allOf": [
-                    {
-                      "description": "The core properties of ARM resources",
-                      "properties": {
-                        "id": {
-                          "description": "Fully qualified resource Id for the resource",
-                          "readOnly": true,
-                          "type": "string"
-                        },
-                        "name": {
-                          "description": "The name of the resource",
-                          "readOnly": true,
-                          "type": "string"
-                        },
-                        "type": {
-                          "description": "The type of the resource.",
-                          "readOnly": true,
-                          "type": "string"
-                        }
-                      },
-                      "x-ms-azure-resource": true
-                    }
-                  ],
-                  "description": "The resource model definition for a ARM proxy resource. It will have everything other than required location and tags"
-                }
-              ],
-              "description": "Definition of the certificate.",
-              "properties": {
-                "properties": {
-                  "description": "Properties of the certificate.",
-                  "properties": {
-                    "creationTime": {
-                      "description": "Gets the creation time.",
-                      "format": "date-time",
-                      "readOnly": true,
-                      "type": "string",
-                      "x-nullable": false
-                    },
-                    "description": {
-                      "description": "Gets or sets the description.",
-                      "type": "string"
-                    },
-                    "expiryTime": {
-                      "description": "Gets the expiry time of the certificate.",
-                      "format": "date-time",
-                      "readOnly": true,
-                      "type": "string",
-                      "x-nullable": false
-                    },
-                    "isExportable": {
-                      "description": "Gets the is exportable flag of the certificate.",
-                      "readOnly": true,
-                      "type": "boolean",
-                      "x-nullable": false
-                    },
-                    "lastModifiedTime": {
-                      "description": "Gets the last modified time.",
-                      "format": "date-time",
-                      "readOnly": true,
-                      "type": "string",
-                      "x-nullable": false
-                    },
-                    "thumbprint": {
-                      "description": "Gets the thumbprint of the certificate.",
-                      "readOnly": true,
-                      "type": "string"
-                    }
-                  }
-                }
-              }
+              "$ref": "#/definitions/Certificate"
             }
           },
           "default": {
@@ -1037,5 +624,170 @@
       }
     }
   },
-  "definitions": {}
+  "definitions": {
+    "Certificate": {
+      "allOf": [
+        {
+          "allOf": [
+            {
+              "description": "The core properties of ARM resources",
+              "properties": {
+                "id": {
+                  "description": "Fully qualified resource Id for the resource",
+                  "readOnly": true,
+                  "type": "string"
+                },
+                "name": {
+                  "description": "The name of the resource",
+                  "readOnly": true,
+                  "type": "string"
+                },
+                "type": {
+                  "description": "The type of the resource.",
+                  "readOnly": true,
+                  "type": "string"
+                }
+              },
+              "type": "object",
+              "x-ms-azure-resource": true
+            }
+          ],
+          "description": "ARM proxy resource.",
+          "properties": {},
+          "type": "object"
+        }
+      ],
+      "description": "Definition of the certificate.",
+      "properties": {
+        "properties": {
+          "$ref": "#/definitions/CertificateProperties",
+          "description": "Gets or sets the properties of the certificate.",
+          "x-ms-client-flatten": true
+        }
+      }
+    },
+    "CertificateCreateOrUpdateParameters": {
+      "description": "The parameters supplied to the create or update or replace certificate operation.",
+      "properties": {
+        "name": {
+          "description": "Gets or sets the name of the certificate.",
+          "type": "string"
+        },
+        "properties": {
+          "$ref": "#/definitions/CertificateCreateOrUpdateProperties",
+          "description": "Gets or sets the properties of the certificate.",
+          "x-ms-client-flatten": true
+        }
+      },
+      "required": [
+        "name",
+        "properties"
+      ]
+    },
+    "CertificateCreateOrUpdateProperties": {
+      "description": "The properties of the create certificate operation.",
+      "properties": {
+        "base64Value": {
+          "description": "Gets or sets the base64 encoded value of the certificate.",
+          "type": "string"
+        },
+        "description": {
+          "description": "Gets or sets the description of the certificate.",
+          "type": "string"
+        },
+        "isExportable": {
+          "description": "Gets or sets the is exportable flag of the certificate.",
+          "type": "boolean",
+          "x-nullable": false
+        },
+        "thumbprint": {
+          "description": "Gets or sets the thumbprint of the certificate.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "base64Value"
+      ]
+    },
+    "CertificateListResult": {
+      "description": "The response model for the list certificate operation.",
+      "properties": {
+        "nextLink": {
+          "description": "Gets or sets the next link.",
+          "type": "string"
+        },
+        "value": {
+          "description": "Gets or sets a list of certificates.",
+          "items": {
+            "$ref": "#/definitions/Certificate"
+          },
+          "type": "array"
+        }
+      }
+    },
+    "CertificateProperties": {
+      "description": "Properties of the certificate.",
+      "properties": {
+        "creationTime": {
+          "description": "Gets the creation time.",
+          "format": "date-time",
+          "readOnly": true,
+          "type": "string",
+          "x-nullable": false
+        },
+        "description": {
+          "description": "Gets or sets the description.",
+          "type": "string"
+        },
+        "expiryTime": {
+          "description": "Gets the expiry time of the certificate.",
+          "format": "date-time",
+          "readOnly": true,
+          "type": "string",
+          "x-nullable": false
+        },
+        "isExportable": {
+          "description": "Gets the is exportable flag of the certificate.",
+          "readOnly": true,
+          "type": "boolean",
+          "x-nullable": false
+        },
+        "lastModifiedTime": {
+          "description": "Gets the last modified time.",
+          "format": "date-time",
+          "readOnly": true,
+          "type": "string",
+          "x-nullable": false
+        },
+        "thumbprint": {
+          "description": "Gets the thumbprint of the certificate.",
+          "readOnly": true,
+          "type": "string"
+        }
+      }
+    },
+    "CertificateUpdateParameters": {
+      "description": "The parameters supplied to the update certificate operation.",
+      "properties": {
+        "name": {
+          "description": "Gets or sets the name of the certificate.",
+          "type": "string"
+        },
+        "properties": {
+          "$ref": "#/definitions/CertificateUpdateProperties",
+          "description": "Gets or sets the properties of the certificate.",
+          "x-ms-client-flatten": true
+        }
+      }
+    },
+    "CertificateUpdateProperties": {
+      "description": "The properties of the update certificate operation",
+      "properties": {
+        "description": {
+          "description": "Gets or sets the description of the certificate.",
+          "type": "string"
+        }
+      }
+    }
+  }
 }

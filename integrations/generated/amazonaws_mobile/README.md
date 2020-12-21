@@ -13,7 +13,7 @@ let amazonaws_mobile = require('@datafire/amazonaws_mobile').create({
   region: ""
 });
 
-amazonaws_mobile.ListBundles({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -34,7 +34,7 @@ amazonaws_mobile.ListBundles({}, context)
 
 #### Input
 * input `object`
-  * maxResults `string`
+  * maxResults `integer`
   * nextToken `string`
 
 #### Output
@@ -70,6 +70,8 @@ amazonaws_mobile.ExportBundle({
 #### Input
 * input `object`
   * bundleId **required** `string`
+  * projectId `string`
+  * platform `string`
 
 #### Output
 * output [ExportBundleResult](#exportbundleresult)
@@ -96,11 +98,15 @@ amazonaws_mobile.ExportProject({
 
 
 ```js
-amazonaws_mobile.DescribeProject({}, context)
+amazonaws_mobile.DescribeProject({
+  "projectId": ""
+}, context)
 ```
 
 #### Input
 * input `object`
+  * projectId **required** `string`
+  * syncFromResources `boolean`
 
 #### Output
 * output [DescribeProjectResult](#describeprojectresult)
@@ -115,7 +121,7 @@ amazonaws_mobile.ListProjects({}, context)
 
 #### Input
 * input `object`
-  * maxResults `string`
+  * maxResults `integer`
   * nextToken `string`
 
 #### Output
@@ -131,7 +137,10 @@ amazonaws_mobile.CreateProject({}, context)
 
 #### Input
 * input `object`
-  * contents [Contents](#contents)
+  * name `string`
+  * region `string`
+  * snapshotId `string`
+  * contents `string`:  Binary file data. 
 
 #### Output
 * output [CreateProjectResult](#createprojectresult)
@@ -158,12 +167,15 @@ amazonaws_mobile.DeleteProject({
 
 
 ```js
-amazonaws_mobile.UpdateProject({}, context)
+amazonaws_mobile.UpdateProject({
+  "projectId": ""
+}, context)
 ```
 
 #### Input
 * input `object`
-  * contents [Contents](#contents)
+  * projectId **required** `string`
+  * contents `string`:  Binary file data. 
 
 #### Output
 * output [UpdateProjectResult](#updateprojectresult)
@@ -183,10 +195,7 @@ amazonaws_mobile.UpdateProject({}, context)
 * AttributeValue `string`:  Value part of key-value attribute pairs. 
 
 ### Attributes
-* Attributes `array`:  Key-value attribute pairs. 
-  * items `object`
-    * key [AttributeKey](#attributekey)
-    * value [AttributeValue](#attributevalue)
+* Attributes `object`:  Key-value attribute pairs. 
 
 ### BadRequestException
 * BadRequestException `object`:  The request cannot be processed because some parameter is not valid or the project state prevents the operation from being performed. 
@@ -228,11 +237,19 @@ amazonaws_mobile.UpdateProject({}, context)
 
 ### CreateProjectRequest
 * CreateProjectRequest `object`:  Request structure used to request a project be created. 
-  * contents [Contents](#contents)
+  * contents
 
 ### CreateProjectResult
 * CreateProjectResult `object`:  Result structure used in response to a request to create a project. 
-  * details [ProjectDetails](#projectdetails)
+  * details
+    * consoleUrl
+    * createdDate
+    * lastUpdatedDate
+    * name [ProjectName](#projectname)
+    * projectId [ProjectId](#projectid)
+    * region [ProjectRegion](#projectregion)
+    * resources [Resources](#resources)
+    * state [ProjectState](#projectstate)
 
 ### Date
 * Date `string`
@@ -242,15 +259,23 @@ amazonaws_mobile.UpdateProject({}, context)
 
 ### DeleteProjectResult
 * DeleteProjectResult `object`:  Result structure used in response to request to delete a project. 
-  * deletedResources [Resources](#resources)
-  * orphanedResources [Resources](#resources)
+  * deletedResources
+    * items [Resource](#resource)
+  * orphanedResources
+    * items [Resource](#resource)
 
 ### DescribeBundleRequest
 * DescribeBundleRequest `object`:  Request structure to request the details of a specific bundle. 
 
 ### DescribeBundleResult
 * DescribeBundleResult `object`:  Result structure contains the details of the bundle. 
-  * details [BundleDetails](#bundledetails)
+  * details
+    * availablePlatforms [Platforms](#platforms)
+    * bundleId [BundleId](#bundleid)
+    * description [BundleDescription](#bundledescription)
+    * iconUrl [IconUrl](#iconurl)
+    * title [BundleTitle](#bundletitle)
+    * version [BundleVersion](#bundleversion)
 
 ### DescribeProjectRequest
 * DescribeProjectRequest `object`:  Request structure used to request details about a project. 
@@ -270,16 +295,16 @@ amazonaws_mobile.UpdateProject({}, context)
 
 ### ExportBundleResult
 * ExportBundleResult `object`:  Result structure which contains link to download custom-generated SDK and tool packages used to integrate mobile web or app clients with backed AWS resources. 
-  * downloadUrl [DownloadUrl](#downloadurl)
+  * downloadUrl
 
 ### ExportProjectRequest
 * ExportProjectRequest `object`:  Request structure used in requests to export project configuration details. 
 
 ### ExportProjectResult
 * ExportProjectResult `object`:  Result structure used for requests to export project configuration details. 
-  * downloadUrl [DownloadUrl](#downloadurl)
-  * shareUrl [ShareUrl](#shareurl)
-  * snapshotId [SnapshotId](#snapshotid)
+  * downloadUrl
+  * shareUrl
+  * snapshotId
 
 ### Feature
 * Feature `string`:  Identifies which feature in AWS Mobile Hub is associated with this AWS resource. 
@@ -300,8 +325,9 @@ amazonaws_mobile.UpdateProject({}, context)
 
 ### ListBundlesResult
 * ListBundlesResult `object`:  Result structure contains a list of all available bundles with details. 
-  * bundleList [BundleList](#bundlelist)
-  * nextToken [NextToken](#nexttoken)
+  * bundleList
+    * items [BundleDetails](#bundledetails)
+  * nextToken
 
 ### ListProjectsRequest
 * ListProjectsRequest `object`:  Request structure used to request projects list in AWS Mobile Hub. 
@@ -330,9 +356,9 @@ amazonaws_mobile.UpdateProject({}, context)
 
 ### ProjectDetails
 * ProjectDetails `object`:  Detailed information about an AWS Mobile Hub project. 
-  * consoleUrl [ConsoleUrl](#consoleurl)
-  * createdDate [Date](#date)
-  * lastUpdatedDate [Date](#date)
+  * consoleUrl
+  * createdDate
+  * lastUpdatedDate
   * name [ProjectName](#projectname)
   * projectId [ProjectId](#projectid)
   * region [ProjectRegion](#projectregion)
@@ -357,8 +383,8 @@ amazonaws_mobile.UpdateProject({}, context)
 
 ### ProjectSummary
 * ProjectSummary `object`:  Summary information about an AWS Mobile Hub project. 
-  * name [ProjectName](#projectname)
-  * projectId [ProjectId](#projectid)
+  * name
+  * projectId
 
 ### Resource
 * Resource `object`:  Information about an instance of an AWS resource associated with a project. 
@@ -401,10 +427,18 @@ amazonaws_mobile.UpdateProject({}, context)
 
 ### UpdateProjectRequest
 * UpdateProjectRequest `object`:  Request structure used for requests to update project configuration. 
-  * contents [Contents](#contents)
+  * contents
 
 ### UpdateProjectResult
 * UpdateProjectResult `object`:  Result structure used for requests to updated project configuration. 
-  * details [ProjectDetails](#projectdetails)
+  * details
+    * consoleUrl
+    * createdDate
+    * lastUpdatedDate
+    * name [ProjectName](#projectname)
+    * projectId [ProjectId](#projectid)
+    * region [ProjectRegion](#projectregion)
+    * resources [Resources](#resources)
+    * state [ProjectState](#projectstate)
 
 

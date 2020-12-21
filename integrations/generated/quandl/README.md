@@ -11,7 +11,7 @@ let quandl = require('@datafire/quandl').create({
   apiKey: ""
 });
 
-quandl.databases.get({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

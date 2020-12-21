@@ -1,0 +1,2114 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "contact": {
+      "email": "mike.ralphson@gmail.com",
+      "name": "Mike Ralphson",
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
+    },
+    "description": "The Amazon Braket API Reference provides information about the operations and structures supported in Amazon Braket.",
+    "license": {
+      "name": "Apache 2.0 License",
+      "url": "http://www.apache.org/licenses/"
+    },
+    "termsOfService": "https://aws.amazon.com/service-terms/",
+    "title": "Braket",
+    "version": "2019-09-01",
+    "x-apiClientRegistration": {
+      "url": "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"
+    },
+    "x-apisguru-categories": [
+      "cloud"
+    ],
+    "x-logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"
+    },
+    "x-origin": [
+      {
+        "contentType": "application/json",
+        "converter": {
+          "url": "https://github.com/mermade/aws2openapi",
+          "version": "1.0.0"
+        },
+        "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/braket-2019-09-01.normal.json",
+        "x-apisguru-driver": "external"
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "amazonaws.com",
+    "x-release": "v4",
+    "x-serviceName": "braket",
+    "x-datafire": {
+      "name": "amazonaws_braket",
+      "type": "openapi"
+    }
+  },
+  "host": "braket.us-east-1.amazonaws.com",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/device/{deviceArn}": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The ARN of the device to retrieve.",
+            "in": "path",
+            "maxLength": 256,
+            "minLength": 1,
+            "name": "deviceArn",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetDeviceResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "482": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "483": {
+            "description": "InternalServiceException",
+            "schema": {
+              "$ref": "#/definitions/InternalServiceException"
+            }
+          },
+          "484": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          }
+        },
+        "description": "Retrieves the devices available in Amazon Braket.",
+        "operationId": "GetDevice"
+      }
+    },
+    "/devices": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "maxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "filters": {
+                  "description": "The filter values to use to search for a device.",
+                  "items": {
+                    "$ref": "#/definitions/SearchDevicesFilter"
+                  },
+                  "maxItems": 10,
+                  "minItems": 0,
+                  "type": "array"
+                },
+                "maxResults": {
+                  "description": "The maximum number of results to return in the response.",
+                  "maximum": 100,
+                  "minimum": 1,
+                  "type": "integer"
+                },
+                "nextToken": {
+                  "description": "A token used for pagination of results returned in the response. Use the token returned from the previous request continue results where the previous request ended.",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "filters"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/SearchDevicesResponse"
+            }
+          },
+          "480": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "481": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "482": {
+            "description": "InternalServiceException",
+            "schema": {
+              "$ref": "#/definitions/InternalServiceException"
+            }
+          },
+          "483": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          }
+        },
+        "description": "Searches for devices using the specified filters.",
+        "operationId": "SearchDevices"
+      }
+    },
+    "/quantum-task": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "tags": {
+                  "additionalProperties": {
+                    "$ref": "#/definitions/String"
+                  },
+                  "description": "Tags to be added to the quantum task you're creating.",
+                  "type": "object"
+                },
+                "action": {
+                  "description": "The action associated with the task.",
+                  "type": "string"
+                },
+                "clientToken": {
+                  "description": "The client token associated with the request.",
+                  "maxLength": 64,
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "deviceArn": {
+                  "description": "The ARN of the device to run the task on.",
+                  "maxLength": 256,
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "deviceParameters": {
+                  "description": "The parameters for the device to run the task on.",
+                  "maxLength": 2048,
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "outputS3Bucket": {
+                  "description": "The S3 bucket to store task result files in.",
+                  "maxLength": 63,
+                  "minLength": 3,
+                  "type": "string"
+                },
+                "outputS3KeyPrefix": {
+                  "description": "The key prefix for the location in the S3 bucket to store task results in.",
+                  "maxLength": 1024,
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "shots": {
+                  "description": "The number of shots to use for the task.",
+                  "minimum": 0,
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "action",
+                "clientToken",
+                "deviceArn",
+                "outputS3Bucket",
+                "outputS3KeyPrefix",
+                "shots"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateQuantumTaskResponse"
+            }
+          },
+          "480": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "481": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "482": {
+            "description": "DeviceOfflineException",
+            "schema": {
+              "$ref": "#/definitions/DeviceOfflineException"
+            }
+          },
+          "483": {
+            "description": "InternalServiceException",
+            "schema": {
+              "$ref": "#/definitions/InternalServiceException"
+            }
+          },
+          "484": {
+            "description": "ServiceQuotaExceededException",
+            "schema": {
+              "$ref": "#/definitions/ServiceQuotaExceededException"
+            }
+          },
+          "485": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          }
+        },
+        "description": "Creates a quantum task.",
+        "operationId": "CreateQuantumTask"
+      }
+    },
+    "/quantum-task/{quantumTaskArn}": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "the ARN of the task to retrieve.",
+            "in": "path",
+            "maxLength": 256,
+            "minLength": 1,
+            "name": "quantumTaskArn",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetQuantumTaskResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "482": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "483": {
+            "description": "InternalServiceException",
+            "schema": {
+              "$ref": "#/definitions/InternalServiceException"
+            }
+          },
+          "484": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          }
+        },
+        "description": "Retrieves the specified quantum task.",
+        "operationId": "GetQuantumTask"
+      }
+    },
+    "/quantum-task/{quantumTaskArn}/cancel": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "put": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The ARN of the task to cancel.",
+            "in": "path",
+            "maxLength": 256,
+            "minLength": 1,
+            "name": "quantumTaskArn",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "clientToken": {
+                  "description": "The client token associated with the request.",
+                  "maxLength": 64,
+                  "minLength": 1,
+                  "type": "string"
+                }
+              },
+              "required": [
+                "clientToken"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CancelQuantumTaskResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "482": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "484": {
+            "description": "InternalServiceException",
+            "schema": {
+              "$ref": "#/definitions/InternalServiceException"
+            }
+          },
+          "485": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          }
+        },
+        "description": "Cancels the specified task.",
+        "operationId": "CancelQuantumTask"
+      }
+    },
+    "/quantum-tasks": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "maxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "filters": {
+                  "description": "Array of <code>SearchQuantumTasksFilter</code> objects.",
+                  "items": {
+                    "$ref": "#/definitions/SearchQuantumTasksFilter"
+                  },
+                  "maxItems": 10,
+                  "minItems": 0,
+                  "type": "array"
+                },
+                "maxResults": {
+                  "description": "Maximum number of results to return in the response.",
+                  "maximum": 100,
+                  "minimum": 1,
+                  "type": "integer"
+                },
+                "nextToken": {
+                  "description": "A token used for pagination of results returned in the response. Use the token returned from the previous request continue results where the previous request ended.",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "filters"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/SearchQuantumTasksResponse"
+            }
+          },
+          "480": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "481": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "482": {
+            "description": "InternalServiceException",
+            "schema": {
+              "$ref": "#/definitions/InternalServiceException"
+            }
+          },
+          "483": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          }
+        },
+        "description": "Searches for tasks that match the specified filter values.",
+        "operationId": "SearchQuantumTasks"
+      }
+    },
+    "/tags/{resourceArn}": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Specify the <code>resourceArn</code> for the resource whose tags to display.",
+            "in": "path",
+            "name": "resourceArn",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListTagsForResourceResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "InternalServiceException",
+            "schema": {
+              "$ref": "#/definitions/InternalServiceException"
+            }
+          },
+          "482": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          }
+        },
+        "description": "Shows the tags associated with this resource.",
+        "operationId": "ListTagsForResource"
+      },
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Specify the <code>resourceArn</code> of the resource to which a tag will be added.",
+            "in": "path",
+            "name": "resourceArn",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "tags": {
+                  "additionalProperties": {
+                    "$ref": "#/definitions/String"
+                  },
+                  "description": "Specify the tags to add to the resource.",
+                  "type": "object"
+                }
+              },
+              "required": [
+                "tags"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/TagResourceResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "InternalServiceException",
+            "schema": {
+              "$ref": "#/definitions/InternalServiceException"
+            }
+          },
+          "482": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          }
+        },
+        "description": "Add a tag to the specified resource.",
+        "operationId": "TagResource"
+      }
+    },
+    "/tags/{resourceArn}#tagKeys": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "delete": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Specify the <code>resourceArn</code> for the resource from which to remove the tags.",
+            "in": "path",
+            "name": "resourceArn",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "collectionFormat": "multi",
+            "description": "pecify the keys for the tags to remove from the resource.",
+            "in": "query",
+            "items": {
+              "$ref": "#/definitions/String"
+            },
+            "name": "tagKeys",
+            "required": true,
+            "type": "array"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UntagResourceResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "InternalServiceException",
+            "schema": {
+              "$ref": "#/definitions/InternalServiceException"
+            }
+          },
+          "482": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          }
+        },
+        "description": "Remove tags from a resource.",
+        "operationId": "UntagResource"
+      }
+    }
+  },
+  "definitions": {
+    "AccessDeniedException": {},
+    "CancelQuantumTaskRequest": {
+      "properties": {
+        "clientToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String64"
+            },
+            {
+              "description": "The client token associated with the request."
+            }
+          ]
+        }
+      },
+      "required": [
+        "clientToken"
+      ],
+      "title": "CancelQuantumTaskRequest",
+      "type": "object"
+    },
+    "CancelQuantumTaskResponse": {
+      "properties": {
+        "cancellationStatus": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CancellationStatus"
+            },
+            {
+              "description": "The status of the cancellation request."
+            }
+          ]
+        },
+        "quantumTaskArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/QuantumTaskArn"
+            },
+            {
+              "description": "The ARN of the task."
+            }
+          ]
+        }
+      },
+      "required": [
+        "cancellationStatus",
+        "quantumTaskArn"
+      ],
+      "type": "object"
+    },
+    "CancellationStatus": {
+      "enum": [
+        "CANCELLING",
+        "CANCELLED"
+      ],
+      "type": "string"
+    },
+    "ConflictException": {},
+    "CreateQuantumTaskRequest": {
+      "properties": {
+        "tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagsMap"
+            },
+            {
+              "description": "Tags to be added to the quantum task you're creating."
+            }
+          ]
+        },
+        "action": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/JsonValue"
+            },
+            {
+              "description": "The action associated with the task."
+            }
+          ]
+        },
+        "clientToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String64"
+            },
+            {
+              "description": "The client token associated with the request."
+            }
+          ]
+        },
+        "deviceArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DeviceArn"
+            },
+            {
+              "description": "The ARN of the device to run the task on."
+            }
+          ]
+        },
+        "deviceParameters": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CreateQuantumTaskRequestDeviceParametersString"
+            },
+            {
+              "description": "The parameters for the device to run the task on."
+            }
+          ]
+        },
+        "outputS3Bucket": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CreateQuantumTaskRequestOutputS3BucketString"
+            },
+            {
+              "description": "The S3 bucket to store task result files in."
+            }
+          ]
+        },
+        "outputS3KeyPrefix": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CreateQuantumTaskRequestOutputS3KeyPrefixString"
+            },
+            {
+              "description": "The key prefix for the location in the S3 bucket to store task results in."
+            }
+          ]
+        },
+        "shots": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CreateQuantumTaskRequestShotsLong"
+            },
+            {
+              "description": "The number of shots to use for the task."
+            }
+          ]
+        }
+      },
+      "required": [
+        "action",
+        "clientToken",
+        "deviceArn",
+        "outputS3Bucket",
+        "outputS3KeyPrefix",
+        "shots"
+      ],
+      "title": "CreateQuantumTaskRequest",
+      "type": "object"
+    },
+    "CreateQuantumTaskRequestDeviceParametersString": {
+      "maxLength": 2048,
+      "minLength": 1,
+      "type": "string"
+    },
+    "CreateQuantumTaskRequestOutputS3BucketString": {
+      "maxLength": 63,
+      "minLength": 3,
+      "type": "string"
+    },
+    "CreateQuantumTaskRequestOutputS3KeyPrefixString": {
+      "maxLength": 1024,
+      "minLength": 1,
+      "type": "string"
+    },
+    "CreateQuantumTaskRequestShotsLong": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "CreateQuantumTaskResponse": {
+      "properties": {
+        "quantumTaskArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/QuantumTaskArn"
+            },
+            {
+              "description": "The ARN of the task created by the request."
+            }
+          ]
+        }
+      },
+      "required": [
+        "quantumTaskArn"
+      ],
+      "type": "object"
+    },
+    "DeviceArn": {
+      "maxLength": 256,
+      "minLength": 1,
+      "type": "string"
+    },
+    "DeviceOfflineException": {},
+    "DeviceStatus": {
+      "enum": [
+        "ONLINE",
+        "OFFLINE"
+      ],
+      "type": "string"
+    },
+    "DeviceSummary": {
+      "description": "Includes information about the device.",
+      "properties": {
+        "deviceArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DeviceArn"
+            },
+            {
+              "description": "The ARN of the device."
+            }
+          ]
+        },
+        "deviceName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The name of the device."
+            }
+          ]
+        },
+        "deviceStatus": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DeviceStatus"
+            },
+            {
+              "description": "The status of the device."
+            }
+          ]
+        },
+        "deviceType": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DeviceType"
+            },
+            {
+              "description": "The type of the device."
+            }
+          ]
+        },
+        "providerName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The provider of the device."
+            }
+          ]
+        }
+      },
+      "required": [
+        "deviceArn",
+        "deviceName",
+        "deviceStatus",
+        "deviceType",
+        "providerName"
+      ],
+      "type": "object"
+    },
+    "DeviceSummaryList": {
+      "items": {
+        "$ref": "#/definitions/DeviceSummary"
+      },
+      "type": "array"
+    },
+    "DeviceType": {
+      "enum": [
+        "QPU",
+        "SIMULATOR"
+      ],
+      "type": "string"
+    },
+    "GetDeviceRequest": {
+      "properties": {},
+      "title": "GetDeviceRequest",
+      "type": "object"
+    },
+    "GetDeviceResponse": {
+      "properties": {
+        "deviceArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DeviceArn"
+            },
+            {
+              "description": "The ARN of the device."
+            }
+          ]
+        },
+        "deviceCapabilities": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/JsonValue"
+            },
+            {
+              "description": "Details about the capabilities of the device."
+            }
+          ]
+        },
+        "deviceName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The name of the device."
+            }
+          ]
+        },
+        "deviceStatus": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DeviceStatus"
+            },
+            {
+              "description": "The status of the device."
+            }
+          ]
+        },
+        "deviceType": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DeviceType"
+            },
+            {
+              "description": "The type of the device."
+            }
+          ]
+        },
+        "providerName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The name of the partner company for the device."
+            }
+          ]
+        }
+      },
+      "required": [
+        "deviceArn",
+        "deviceCapabilities",
+        "deviceName",
+        "deviceStatus",
+        "deviceType",
+        "providerName"
+      ],
+      "type": "object"
+    },
+    "GetQuantumTaskRequest": {
+      "properties": {},
+      "title": "GetQuantumTaskRequest",
+      "type": "object"
+    },
+    "GetQuantumTaskResponse": {
+      "properties": {
+        "tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagsMap"
+            },
+            {
+              "description": "The tags that belong to this task."
+            }
+          ]
+        },
+        "createdAt": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SyntheticTimestamp_date_time"
+            },
+            {
+              "description": "The time at which the task was created."
+            }
+          ]
+        },
+        "deviceArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DeviceArn"
+            },
+            {
+              "description": "The ARN of the device the task was run on."
+            }
+          ]
+        },
+        "deviceParameters": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/JsonValue"
+            },
+            {
+              "description": "The parameters for the device on which the task ran."
+            }
+          ]
+        },
+        "endedAt": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SyntheticTimestamp_date_time"
+            },
+            {
+              "description": "The time at which the task ended."
+            }
+          ]
+        },
+        "failureReason": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The reason that a task failed."
+            }
+          ]
+        },
+        "outputS3Bucket": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The S3 bucket where task results are stored."
+            }
+          ]
+        },
+        "outputS3Directory": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The folder in the S3 bucket where task results are stored."
+            }
+          ]
+        },
+        "quantumTaskArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/QuantumTaskArn"
+            },
+            {
+              "description": "The ARN of the task."
+            }
+          ]
+        },
+        "shots": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Long"
+            },
+            {
+              "description": "The number of shots used in the task."
+            }
+          ]
+        },
+        "status": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/QuantumTaskStatus"
+            },
+            {
+              "description": "The status of the task."
+            }
+          ]
+        }
+      },
+      "required": [
+        "createdAt",
+        "deviceArn",
+        "deviceParameters",
+        "outputS3Bucket",
+        "outputS3Directory",
+        "quantumTaskArn",
+        "shots",
+        "status"
+      ],
+      "type": "object"
+    },
+    "InternalServiceException": {},
+    "JsonValue": {
+      "type": "string"
+    },
+    "ListTagsForResourceRequest": {
+      "properties": {},
+      "title": "ListTagsForResourceRequest",
+      "type": "object"
+    },
+    "ListTagsForResourceResponse": {
+      "properties": {
+        "tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagsMap"
+            },
+            {
+              "description": "Displays the key, value pairs of tags associated with this resource."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "Long": {
+      "type": "integer"
+    },
+    "QuantumTaskArn": {
+      "maxLength": 256,
+      "minLength": 1,
+      "type": "string"
+    },
+    "QuantumTaskStatus": {
+      "enum": [
+        "CREATED",
+        "QUEUED",
+        "RUNNING",
+        "COMPLETED",
+        "FAILED",
+        "CANCELLING",
+        "CANCELLED"
+      ],
+      "type": "string"
+    },
+    "QuantumTaskSummary": {
+      "description": "Includes information about a quantum task.",
+      "properties": {
+        "tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagsMap"
+            },
+            {
+              "description": "Displays the key, value pairs of tags associated with this quantum task."
+            }
+          ]
+        },
+        "createdAt": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SyntheticTimestamp_date_time"
+            },
+            {
+              "description": "The time at which the task was created."
+            }
+          ]
+        },
+        "deviceArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DeviceArn"
+            },
+            {
+              "description": "The ARN of the device the task ran on."
+            }
+          ]
+        },
+        "endedAt": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SyntheticTimestamp_date_time"
+            },
+            {
+              "description": "The time at which the task finished."
+            }
+          ]
+        },
+        "outputS3Bucket": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The S3 bucket where the task result file is stored.."
+            }
+          ]
+        },
+        "outputS3Directory": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The folder in the S3 bucket where the task result file is stored."
+            }
+          ]
+        },
+        "quantumTaskArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/QuantumTaskArn"
+            },
+            {
+              "description": "The ARN of the task."
+            }
+          ]
+        },
+        "shots": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Long"
+            },
+            {
+              "description": "The shots used for the task."
+            }
+          ]
+        },
+        "status": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/QuantumTaskStatus"
+            },
+            {
+              "description": "The status of the task."
+            }
+          ]
+        }
+      },
+      "required": [
+        "createdAt",
+        "deviceArn",
+        "outputS3Bucket",
+        "outputS3Directory",
+        "quantumTaskArn",
+        "shots",
+        "status"
+      ],
+      "type": "object"
+    },
+    "QuantumTaskSummaryList": {
+      "items": {
+        "$ref": "#/definitions/QuantumTaskSummary"
+      },
+      "type": "array"
+    },
+    "ResourceNotFoundException": {},
+    "SearchDevicesFilter": {
+      "description": "The filter to use for searching devices.",
+      "properties": {
+        "name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SearchDevicesFilterNameString"
+            },
+            {
+              "description": "The name to use to filter results."
+            }
+          ]
+        },
+        "values": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SearchDevicesFilterValuesList"
+            },
+            {
+              "description": "The values to use to filter results."
+            }
+          ]
+        }
+      },
+      "required": [
+        "name",
+        "values"
+      ],
+      "type": "object"
+    },
+    "SearchDevicesFilterNameString": {
+      "maxLength": 64,
+      "minLength": 1,
+      "type": "string"
+    },
+    "SearchDevicesFilterValuesList": {
+      "items": {
+        "$ref": "#/definitions/String256"
+      },
+      "maxItems": 10,
+      "minItems": 1,
+      "type": "array"
+    },
+    "SearchDevicesRequest": {
+      "properties": {
+        "filters": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SearchDevicesRequestFiltersList"
+            },
+            {
+              "description": "The filter values to use to search for a device."
+            }
+          ]
+        },
+        "maxResults": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SearchDevicesRequestMaxResultsInteger"
+            },
+            {
+              "description": "The maximum number of results to return in the response."
+            }
+          ]
+        },
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "A token used for pagination of results returned in the response. Use the token returned from the previous request continue results where the previous request ended."
+            }
+          ]
+        }
+      },
+      "required": [
+        "filters"
+      ],
+      "title": "SearchDevicesRequest",
+      "type": "object"
+    },
+    "SearchDevicesRequestFiltersList": {
+      "items": {
+        "$ref": "#/definitions/SearchDevicesFilter"
+      },
+      "maxItems": 10,
+      "minItems": 0,
+      "type": "array"
+    },
+    "SearchDevicesRequestMaxResultsInteger": {
+      "maximum": 100,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "SearchDevicesResponse": {
+      "properties": {
+        "devices": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DeviceSummaryList"
+            },
+            {
+              "description": "An array of <code>DeviceSummary</code> objects for devices that match the specified filter values."
+            }
+          ]
+        },
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "A token used for pagination of results, or null if there are no additional results. Use the token value in a subsequent request to continue results where the previous request ended."
+            }
+          ]
+        }
+      },
+      "required": [
+        "devices"
+      ],
+      "type": "object"
+    },
+    "SearchQuantumTasksFilter": {
+      "description": "A filter to use to search for tasks.",
+      "properties": {
+        "name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String64"
+            },
+            {
+              "description": "The name of the device used for the task."
+            }
+          ]
+        },
+        "operator": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SearchQuantumTasksFilterOperator"
+            },
+            {
+              "description": "An operator to use in the filter."
+            }
+          ]
+        },
+        "values": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SearchQuantumTasksFilterValuesList"
+            },
+            {
+              "description": "The values to use for the filter."
+            }
+          ]
+        }
+      },
+      "required": [
+        "name",
+        "operator",
+        "values"
+      ],
+      "type": "object"
+    },
+    "SearchQuantumTasksFilterOperator": {
+      "enum": [
+        "LT",
+        "LTE",
+        "EQUAL",
+        "GT",
+        "GTE",
+        "BETWEEN"
+      ],
+      "type": "string"
+    },
+    "SearchQuantumTasksFilterValuesList": {
+      "items": {
+        "$ref": "#/definitions/String256"
+      },
+      "maxItems": 10,
+      "minItems": 1,
+      "type": "array"
+    },
+    "SearchQuantumTasksRequest": {
+      "properties": {
+        "filters": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SearchQuantumTasksRequestFiltersList"
+            },
+            {
+              "description": "Array of <code>SearchQuantumTasksFilter</code> objects."
+            }
+          ]
+        },
+        "maxResults": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SearchQuantumTasksRequestMaxResultsInteger"
+            },
+            {
+              "description": "Maximum number of results to return in the response."
+            }
+          ]
+        },
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "A token used for pagination of results returned in the response. Use the token returned from the previous request continue results where the previous request ended."
+            }
+          ]
+        }
+      },
+      "required": [
+        "filters"
+      ],
+      "title": "SearchQuantumTasksRequest",
+      "type": "object"
+    },
+    "SearchQuantumTasksRequestFiltersList": {
+      "items": {
+        "$ref": "#/definitions/SearchQuantumTasksFilter"
+      },
+      "maxItems": 10,
+      "minItems": 0,
+      "type": "array"
+    },
+    "SearchQuantumTasksRequestMaxResultsInteger": {
+      "maximum": 100,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "SearchQuantumTasksResponse": {
+      "properties": {
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "A token used for pagination of results, or null if there are no additional results. Use the token value in a subsequent request to continue results where the previous request ended."
+            }
+          ]
+        },
+        "quantumTasks": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/QuantumTaskSummaryList"
+            },
+            {
+              "description": "An array of <code>QuantumTaskSummary</code> objects for tasks that match the specified filters."
+            }
+          ]
+        }
+      },
+      "required": [
+        "quantumTasks"
+      ],
+      "type": "object"
+    },
+    "ServiceQuotaExceededException": {},
+    "String": {
+      "type": "string"
+    },
+    "String256": {
+      "maxLength": 256,
+      "minLength": 1,
+      "type": "string"
+    },
+    "String64": {
+      "maxLength": 64,
+      "minLength": 1,
+      "type": "string"
+    },
+    "SyntheticTimestamp_date_time": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "TagKeys": {
+      "items": {
+        "$ref": "#/definitions/String"
+      },
+      "type": "array"
+    },
+    "TagResourceRequest": {
+      "properties": {
+        "tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagsMap"
+            },
+            {
+              "description": "Specify the tags to add to the resource."
+            }
+          ]
+        }
+      },
+      "required": [
+        "tags"
+      ],
+      "title": "TagResourceRequest",
+      "type": "object"
+    },
+    "TagResourceResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "TagsMap": {
+      "additionalProperties": {
+        "$ref": "#/definitions/String"
+      },
+      "type": "object"
+    },
+    "ThrottlingException": {},
+    "UntagResourceRequest": {
+      "properties": {},
+      "title": "UntagResourceRequest",
+      "type": "object"
+    },
+    "UntagResourceResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "ValidationException": {}
+  },
+  "securityDefinitions": {
+    "hmac": {
+      "description": "Amazon Signature authorization v4",
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey",
+      "x-amazon-apigateway-authtype": "awsSigv4"
+    }
+  },
+  "security": [
+    {
+      "hmac": []
+    }
+  ],
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://docs.aws.amazon.com/braket/"
+  },
+  "x-components": {
+    "parameters": {
+      "X-Amz-Algorithm": {
+        "in": "header",
+        "name": "X-Amz-Algorithm",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Content-Sha256": {
+        "in": "header",
+        "name": "X-Amz-Content-Sha256",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Credential": {
+        "in": "header",
+        "name": "X-Amz-Credential",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Date": {
+        "in": "header",
+        "name": "X-Amz-Date",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Security-Token": {
+        "in": "header",
+        "name": "X-Amz-Security-Token",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Signature": {
+        "in": "header",
+        "name": "X-Amz-Signature",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-SignedHeaders": {
+        "in": "header",
+        "name": "X-Amz-SignedHeaders",
+        "required": false,
+        "type": "string"
+      }
+    }
+  },
+  "x-hasEquivalentPaths": true
+}

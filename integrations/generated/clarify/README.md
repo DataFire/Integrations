@@ -1,6 +1,6 @@
 # @datafire/clarify
 
-Client library for Clarify
+Client library for api.clarify.io
 
 ## Installation and Usage
 ```bash
@@ -9,7 +9,7 @@ npm install --save @datafire/clarify
 ```js
 let clarify = require('@datafire/clarify').create();
 
-clarify.v1search({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

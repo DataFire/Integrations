@@ -1,8 +1,8 @@
 {
   "name": "@datafire/setlist_fm",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "main": "index.js",
-  "description": "DataFire integration for setlist.fm",
+  "description": "DataFire integration for setlist.fm API",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DataFire/integrations.git"

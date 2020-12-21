@@ -1,6 +1,6 @@
 # @datafire/spinbot
 
-Client library for Article Rewriter and Article Extractor
+Client library for Article Rewriter and Article Extractor API
 
 ## Installation and Usage
 ```bash
@@ -11,9 +11,7 @@ let spinbot = require('@datafire/spinbot').create({
   key: ""
 });
 
-spinbot.getInfo({
-  "key": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

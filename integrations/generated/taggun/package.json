@@ -1,8 +1,8 @@
 {
   "name": "@datafire/taggun",
-  "version": "4.0.0",
+  "version": "5.0.0",
   "main": "index.js",
-  "description": "DataFire integration for taggun.io",
+  "description": "DataFire integration for TAGGUN Receipt OCR Scanning API",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DataFire/integrations.git"
@@ -14,7 +14,7 @@
   },
   "homepage": "https://github.com/DataFire/integrations#readme",
   "datafire": {
-    "origin": "https://api.apis.guru/v2/specs/taggun.io/1.1.30/swagger.json",
+    "origin": "https://api.apis.guru/v2/specs/taggun.io/1.4.73/swagger.json",
     "type": "openapi"
   },
   "peerDependencies": {

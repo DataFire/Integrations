@@ -1,0 +1,89 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "contact": {
+      "x-twitter": "ip2location"
+    },
+    "description": "IP2Proxy allows instant detection of anonymous proxy, VPN, TOR exit nodes, search engine robots (SES) and residential (RES, available in PX10) by IP address. It also returns the threat type of the proxy (PX9 or higher). Visit https://www.ip2location.com/web-service/ip2proxy for further information.",
+    "title": "IP2Proxy Proxy Detection",
+    "version": "1.0",
+    "x-apisguru-categories": [
+      "location"
+    ],
+    "x-logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_ip2location_profile_image.png"
+    },
+    "x-origin": [
+      {
+        "converter": {
+          "url": "https://github.com/lucybot/api-spec-converter",
+          "version": "2.7.31"
+        },
+        "format": "openapi",
+        "url": "https://api.swaggerhub.com/apis/ip2location/ip2proxy-proxy-detection/1.0",
+        "version": "3.0"
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "ip2proxy.com",
+    "x-datafire": {
+      "name": "ip2proxy",
+      "type": "openapi"
+    }
+  },
+  "host": "api.ip2proxy.com",
+  "basePath": "/",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "produces": [
+          "text/html; charset=UTF-8"
+        ],
+        "parameters": [
+          {
+            "description": "If not present, the web service will assume the PX1 package query.",
+            "in": "query",
+            "name": "package",
+            "type": "string"
+          },
+          {
+            "description": "IP address (IPv4) for lookup purpose. If not present, the server IP address will be used for the lookup.",
+            "in": "query",
+            "name": "ip",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "If not present, json format will be returned as the search result.",
+            "enum": [
+              "json",
+              "xml"
+            ],
+            "in": "query",
+            "name": "format",
+            "type": "string"
+          },
+          {
+            "description": "API key.",
+            "in": "query",
+            "name": "key",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get response from IP2Proxy",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "description": "Check if an IP address is proxy"
+      }
+    }
+  }
+}

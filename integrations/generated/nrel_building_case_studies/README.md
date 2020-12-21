@@ -7,13 +7,9 @@ Client library for High Performance Building Database
 npm install --save @datafire/nrel_building_case_studies
 ```
 ```js
-let nrel_building_case_studies = require('@datafire/nrel_building_case_studies').create({
-  api_key: ""
-});
+let nrel_building_case_studies = require('@datafire/nrel_building_case_studies').create();
 
-nrel_building_case_studies.project({
-  "output_format": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -30,13 +26,15 @@ A filterable list of projects.
 
 ```js
 nrel_building_case_studies.project({
-  "output_format": ""
+  "output_format": "",
+  "api_key": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * output_format **required** `string` (values: json, xml): Response Format
+  * api_key **required** `string`: API Key
   * search `string`: Search Text
   * portal `string`: Portal ID
   * page `integer`: Page Number
@@ -48,12 +46,13 @@ nrel_building_case_studies.project({
 *Output schema unknown*
 
 ### document
-This API allows users to request metadata associated with the specific Document.
+Project Details
 
 
 ```js
 nrel_building_case_studies.document({
   "output_format": "",
+  "api_key": "",
   "project_id": 0
 }, context)
 ```
@@ -61,6 +60,7 @@ nrel_building_case_studies.document({
 #### Input
 * input `object`
   * output_format **required** `string` (values: json, xml): Response Format
+  * api_key **required** `string`: API Key
   * project_id **required** `integer`: Project ID
 
 #### Output

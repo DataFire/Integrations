@@ -9,7 +9,7 @@ npm install --save @datafire/hhs_gov
 ```js
 let hhs_gov = require('@datafire/hhs_gov').create();
 
-hhs_gov.getTags({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

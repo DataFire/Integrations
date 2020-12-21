@@ -1,25 +1,22 @@
 {
   "swagger": "2.0",
-  "schemes": [
-    "https"
-  ],
   "host": "kubernetes.local",
   "info": {
     "contact": {
       "x-twitter": "kubernetesio"
     },
     "title": "Kubernetes",
-    "version": "v1.12.0",
+    "version": "v1.10.0",
     "x-apisguru-categories": [
       "developer_tools"
     ],
     "x-logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_kubernetesio_profile_image.png"
+      "url": "https://api.apis.guru/v2/cache/logo/https_upload.wikimedia.org_wikipedia_commons_3_39_Kubernetes_logo_without_workmark.svg"
     },
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/kubernetes/kubernetes/master/api/openapi-spec/swagger.json",
+        "url": "https://raw.githubusercontent.com/kubernetes/kubernetes/v1.10.0/api/openapi-spec/swagger.json",
         "version": "2.0"
       }
     ],
@@ -20099,41 +20096,6 @@
       }
     },
     "/apis/apiextensions.k8s.io/v1beta1/customresourcedefinitions/{name}/status": {
-      "get": {
-        "consumes": [
-          "*/*"
-        ],
-        "description": "read status of the specified CustomResourceDefinition",
-        "operationId": "readApiextensionsV1beta1CustomResourceDefinitionStatus",
-        "produces": [
-          "application/json",
-          "application/yaml",
-          "application/vnd.kubernetes.protobuf"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinition"
-            }
-          },
-          "401": {
-            "description": "Unauthorized"
-          }
-        },
-        "schemes": [
-          "https"
-        ],
-        "tags": [
-          "apiextensions_v1beta1"
-        ],
-        "x-kubernetes-action": "get",
-        "x-kubernetes-group-version-kind": {
-          "group": "apiextensions.k8s.io",
-          "kind": "CustomResourceDefinition",
-          "version": "v1beta1"
-        }
-      },
       "parameters": [
         {
           "description": "name of the CustomResourceDefinition",
@@ -20151,53 +20113,6 @@
           "uniqueItems": true
         }
       ],
-      "patch": {
-        "consumes": [
-          "application/json-patch+json",
-          "application/merge-patch+json",
-          "application/strategic-merge-patch+json"
-        ],
-        "description": "partially update status of the specified CustomResourceDefinition",
-        "operationId": "patchApiextensionsV1beta1CustomResourceDefinitionStatus",
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Patch"
-            }
-          }
-        ],
-        "produces": [
-          "application/json",
-          "application/yaml",
-          "application/vnd.kubernetes.protobuf"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinition"
-            }
-          },
-          "401": {
-            "description": "Unauthorized"
-          }
-        },
-        "schemes": [
-          "https"
-        ],
-        "tags": [
-          "apiextensions_v1beta1"
-        ],
-        "x-kubernetes-action": "patch",
-        "x-kubernetes-group-version-kind": {
-          "group": "apiextensions.k8s.io",
-          "kind": "CustomResourceDefinition",
-          "version": "v1beta1"
-        }
-      },
       "put": {
         "consumes": [
           "*/*"
@@ -21023,41 +20938,6 @@
       }
     },
     "/apis/apiregistration.k8s.io/v1/apiservices/{name}/status": {
-      "get": {
-        "consumes": [
-          "*/*"
-        ],
-        "description": "read status of the specified APIService",
-        "operationId": "readApiregistrationV1APIServiceStatus",
-        "produces": [
-          "application/json",
-          "application/yaml",
-          "application/vnd.kubernetes.protobuf"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/io.k8s.kube-aggregator.pkg.apis.apiregistration.v1.APIService"
-            }
-          },
-          "401": {
-            "description": "Unauthorized"
-          }
-        },
-        "schemes": [
-          "https"
-        ],
-        "tags": [
-          "apiregistration_v1"
-        ],
-        "x-kubernetes-action": "get",
-        "x-kubernetes-group-version-kind": {
-          "group": "apiregistration.k8s.io",
-          "kind": "APIService",
-          "version": "v1"
-        }
-      },
       "parameters": [
         {
           "description": "name of the APIService",
@@ -21075,53 +20955,6 @@
           "uniqueItems": true
         }
       ],
-      "patch": {
-        "consumes": [
-          "application/json-patch+json",
-          "application/merge-patch+json",
-          "application/strategic-merge-patch+json"
-        ],
-        "description": "partially update status of the specified APIService",
-        "operationId": "patchApiregistrationV1APIServiceStatus",
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Patch"
-            }
-          }
-        ],
-        "produces": [
-          "application/json",
-          "application/yaml",
-          "application/vnd.kubernetes.protobuf"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/io.k8s.kube-aggregator.pkg.apis.apiregistration.v1.APIService"
-            }
-          },
-          "401": {
-            "description": "Unauthorized"
-          }
-        },
-        "schemes": [
-          "https"
-        ],
-        "tags": [
-          "apiregistration_v1"
-        ],
-        "x-kubernetes-action": "patch",
-        "x-kubernetes-group-version-kind": {
-          "group": "apiregistration.k8s.io",
-          "kind": "APIService",
-          "version": "v1"
-        }
-      },
       "put": {
         "consumes": [
           "*/*"
@@ -21914,41 +21747,6 @@
       }
     },
     "/apis/apiregistration.k8s.io/v1beta1/apiservices/{name}/status": {
-      "get": {
-        "consumes": [
-          "*/*"
-        ],
-        "description": "read status of the specified APIService",
-        "operationId": "readApiregistrationV1beta1APIServiceStatus",
-        "produces": [
-          "application/json",
-          "application/yaml",
-          "application/vnd.kubernetes.protobuf"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/io.k8s.kube-aggregator.pkg.apis.apiregistration.v1beta1.APIService"
-            }
-          },
-          "401": {
-            "description": "Unauthorized"
-          }
-        },
-        "schemes": [
-          "https"
-        ],
-        "tags": [
-          "apiregistration_v1beta1"
-        ],
-        "x-kubernetes-action": "get",
-        "x-kubernetes-group-version-kind": {
-          "group": "apiregistration.k8s.io",
-          "kind": "APIService",
-          "version": "v1beta1"
-        }
-      },
       "parameters": [
         {
           "description": "name of the APIService",
@@ -21966,53 +21764,6 @@
           "uniqueItems": true
         }
       ],
-      "patch": {
-        "consumes": [
-          "application/json-patch+json",
-          "application/merge-patch+json",
-          "application/strategic-merge-patch+json"
-        ],
-        "description": "partially update status of the specified APIService",
-        "operationId": "patchApiregistrationV1beta1APIServiceStatus",
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Patch"
-            }
-          }
-        ],
-        "produces": [
-          "application/json",
-          "application/yaml",
-          "application/vnd.kubernetes.protobuf"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/io.k8s.kube-aggregator.pkg.apis.apiregistration.v1beta1.APIService"
-            }
-          },
-          "401": {
-            "description": "Unauthorized"
-          }
-        },
-        "schemes": [
-          "https"
-        ],
-        "tags": [
-          "apiregistration_v1beta1"
-        ],
-        "x-kubernetes-action": "patch",
-        "x-kubernetes-group-version-kind": {
-          "group": "apiregistration.k8s.io",
-          "kind": "APIService",
-          "version": "v1beta1"
-        }
-      },
       "put": {
         "consumes": [
           "*/*"
@@ -44957,41 +44708,6 @@
       }
     },
     "/apis/certificates.k8s.io/v1beta1/certificatesigningrequests/{name}/status": {
-      "get": {
-        "consumes": [
-          "*/*"
-        ],
-        "description": "read status of the specified CertificateSigningRequest",
-        "operationId": "readCertificatesV1beta1CertificateSigningRequestStatus",
-        "produces": [
-          "application/json",
-          "application/yaml",
-          "application/vnd.kubernetes.protobuf"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/io.k8s.api.certificates.v1beta1.CertificateSigningRequest"
-            }
-          },
-          "401": {
-            "description": "Unauthorized"
-          }
-        },
-        "schemes": [
-          "https"
-        ],
-        "tags": [
-          "certificates_v1beta1"
-        ],
-        "x-kubernetes-action": "get",
-        "x-kubernetes-group-version-kind": {
-          "group": "certificates.k8s.io",
-          "kind": "CertificateSigningRequest",
-          "version": "v1beta1"
-        }
-      },
       "parameters": [
         {
           "description": "name of the CertificateSigningRequest",
@@ -45009,53 +44725,6 @@
           "uniqueItems": true
         }
       ],
-      "patch": {
-        "consumes": [
-          "application/json-patch+json",
-          "application/merge-patch+json",
-          "application/strategic-merge-patch+json"
-        ],
-        "description": "partially update status of the specified CertificateSigningRequest",
-        "operationId": "patchCertificatesV1beta1CertificateSigningRequestStatus",
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Patch"
-            }
-          }
-        ],
-        "produces": [
-          "application/json",
-          "application/yaml",
-          "application/vnd.kubernetes.protobuf"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/io.k8s.api.certificates.v1beta1.CertificateSigningRequest"
-            }
-          },
-          "401": {
-            "description": "Unauthorized"
-          }
-        },
-        "schemes": [
-          "https"
-        ],
-        "tags": [
-          "certificates_v1beta1"
-        ],
-        "x-kubernetes-action": "patch",
-        "x-kubernetes-group-version-kind": {
-          "group": "certificates.k8s.io",
-          "kind": "CertificateSigningRequest",
-          "version": "v1beta1"
-        }
-      },
       "put": {
         "consumes": [
           "*/*"
@@ -66556,745 +66225,6 @@
         }
       ]
     },
-    "/apis/scheduling.k8s.io/v1beta1/": {
-      "get": {
-        "consumes": [
-          "application/json",
-          "application/yaml",
-          "application/vnd.kubernetes.protobuf"
-        ],
-        "description": "get available resources",
-        "operationId": "getSchedulingV1beta1APIResources",
-        "produces": [
-          "application/json",
-          "application/yaml",
-          "application/vnd.kubernetes.protobuf"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.APIResourceList"
-            }
-          },
-          "401": {
-            "description": "Unauthorized"
-          }
-        },
-        "schemes": [
-          "https"
-        ],
-        "tags": [
-          "scheduling_v1beta1"
-        ]
-      }
-    },
-    "/apis/scheduling.k8s.io/v1beta1/priorityclasses": {
-      "delete": {
-        "consumes": [
-          "*/*"
-        ],
-        "description": "delete collection of PriorityClass",
-        "operationId": "deleteSchedulingV1beta1CollectionPriorityClass",
-        "parameters": [
-          {
-            "description": "The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server the server will respond with a 410 ResourceExpired error indicating the client must restart their list without the continue field. This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications.",
-            "in": "query",
-            "name": "continue",
-            "type": "string",
-            "uniqueItems": true
-          },
-          {
-            "description": "A selector to restrict the list of returned objects by their fields. Defaults to everything.",
-            "in": "query",
-            "name": "fieldSelector",
-            "type": "string",
-            "uniqueItems": true
-          },
-          {
-            "description": "If true, partially initialized resources are included in the response.",
-            "in": "query",
-            "name": "includeUninitialized",
-            "type": "boolean",
-            "uniqueItems": true
-          },
-          {
-            "description": "A selector to restrict the list of returned objects by their labels. Defaults to everything.",
-            "in": "query",
-            "name": "labelSelector",
-            "type": "string",
-            "uniqueItems": true
-          },
-          {
-            "description": "limit is a maximum number of responses to return for a list call. If more items exist, the server will set the `continue` field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.\n\nThe server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned.",
-            "in": "query",
-            "name": "limit",
-            "type": "integer",
-            "uniqueItems": true
-          },
-          {
-            "description": "When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.",
-            "in": "query",
-            "name": "resourceVersion",
-            "type": "string",
-            "uniqueItems": true
-          },
-          {
-            "description": "Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity.",
-            "in": "query",
-            "name": "timeoutSeconds",
-            "type": "integer",
-            "uniqueItems": true
-          },
-          {
-            "description": "Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.",
-            "in": "query",
-            "name": "watch",
-            "type": "boolean",
-            "uniqueItems": true
-          }
-        ],
-        "produces": [
-          "application/json",
-          "application/yaml",
-          "application/vnd.kubernetes.protobuf"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Status"
-            }
-          },
-          "401": {
-            "description": "Unauthorized"
-          }
-        },
-        "schemes": [
-          "https"
-        ],
-        "tags": [
-          "scheduling_v1beta1"
-        ],
-        "x-kubernetes-action": "deletecollection",
-        "x-kubernetes-group-version-kind": {
-          "group": "scheduling.k8s.io",
-          "kind": "PriorityClass",
-          "version": "v1beta1"
-        }
-      },
-      "get": {
-        "consumes": [
-          "*/*"
-        ],
-        "description": "list or watch objects of kind PriorityClass",
-        "operationId": "listSchedulingV1beta1PriorityClass",
-        "parameters": [
-          {
-            "description": "The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server the server will respond with a 410 ResourceExpired error indicating the client must restart their list without the continue field. This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications.",
-            "in": "query",
-            "name": "continue",
-            "type": "string",
-            "uniqueItems": true
-          },
-          {
-            "description": "A selector to restrict the list of returned objects by their fields. Defaults to everything.",
-            "in": "query",
-            "name": "fieldSelector",
-            "type": "string",
-            "uniqueItems": true
-          },
-          {
-            "description": "If true, partially initialized resources are included in the response.",
-            "in": "query",
-            "name": "includeUninitialized",
-            "type": "boolean",
-            "uniqueItems": true
-          },
-          {
-            "description": "A selector to restrict the list of returned objects by their labels. Defaults to everything.",
-            "in": "query",
-            "name": "labelSelector",
-            "type": "string",
-            "uniqueItems": true
-          },
-          {
-            "description": "limit is a maximum number of responses to return for a list call. If more items exist, the server will set the `continue` field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.\n\nThe server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned.",
-            "in": "query",
-            "name": "limit",
-            "type": "integer",
-            "uniqueItems": true
-          },
-          {
-            "description": "When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.",
-            "in": "query",
-            "name": "resourceVersion",
-            "type": "string",
-            "uniqueItems": true
-          },
-          {
-            "description": "Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity.",
-            "in": "query",
-            "name": "timeoutSeconds",
-            "type": "integer",
-            "uniqueItems": true
-          },
-          {
-            "description": "Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.",
-            "in": "query",
-            "name": "watch",
-            "type": "boolean",
-            "uniqueItems": true
-          }
-        ],
-        "produces": [
-          "application/json",
-          "application/yaml",
-          "application/vnd.kubernetes.protobuf",
-          "application/json;stream=watch",
-          "application/vnd.kubernetes.protobuf;stream=watch"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/io.k8s.api.scheduling.v1beta1.PriorityClassList"
-            }
-          },
-          "401": {
-            "description": "Unauthorized"
-          }
-        },
-        "schemes": [
-          "https"
-        ],
-        "tags": [
-          "scheduling_v1beta1"
-        ],
-        "x-kubernetes-action": "list",
-        "x-kubernetes-group-version-kind": {
-          "group": "scheduling.k8s.io",
-          "kind": "PriorityClass",
-          "version": "v1beta1"
-        }
-      },
-      "parameters": [
-        {
-          "description": "If 'true', then the output is pretty printed.",
-          "in": "query",
-          "name": "pretty",
-          "type": "string",
-          "uniqueItems": true
-        }
-      ],
-      "post": {
-        "consumes": [
-          "*/*"
-        ],
-        "description": "create a PriorityClass",
-        "operationId": "createSchedulingV1beta1PriorityClass",
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/io.k8s.api.scheduling.v1beta1.PriorityClass"
-            }
-          }
-        ],
-        "produces": [
-          "application/json",
-          "application/yaml",
-          "application/vnd.kubernetes.protobuf"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/io.k8s.api.scheduling.v1beta1.PriorityClass"
-            }
-          },
-          "201": {
-            "description": "Created",
-            "schema": {
-              "$ref": "#/definitions/io.k8s.api.scheduling.v1beta1.PriorityClass"
-            }
-          },
-          "202": {
-            "description": "Accepted",
-            "schema": {
-              "$ref": "#/definitions/io.k8s.api.scheduling.v1beta1.PriorityClass"
-            }
-          },
-          "401": {
-            "description": "Unauthorized"
-          }
-        },
-        "schemes": [
-          "https"
-        ],
-        "tags": [
-          "scheduling_v1beta1"
-        ],
-        "x-kubernetes-action": "post",
-        "x-kubernetes-group-version-kind": {
-          "group": "scheduling.k8s.io",
-          "kind": "PriorityClass",
-          "version": "v1beta1"
-        }
-      }
-    },
-    "/apis/scheduling.k8s.io/v1beta1/priorityclasses/{name}": {
-      "delete": {
-        "consumes": [
-          "*/*"
-        ],
-        "description": "delete a PriorityClass",
-        "operationId": "deleteSchedulingV1beta1PriorityClass",
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.DeleteOptions"
-            }
-          },
-          {
-            "description": "The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately.",
-            "in": "query",
-            "name": "gracePeriodSeconds",
-            "type": "integer",
-            "uniqueItems": true
-          },
-          {
-            "description": "Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \"orphan\" finalizer will be added to/removed from the object's finalizers list. Either this field or PropagationPolicy may be set, but not both.",
-            "in": "query",
-            "name": "orphanDependents",
-            "type": "boolean",
-            "uniqueItems": true
-          },
-          {
-            "description": "Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: 'Orphan' - orphan the dependents; 'Background' - allow the garbage collector to delete the dependents in the background; 'Foreground' - a cascading policy that deletes all dependents in the foreground.",
-            "in": "query",
-            "name": "propagationPolicy",
-            "type": "string",
-            "uniqueItems": true
-          }
-        ],
-        "produces": [
-          "application/json",
-          "application/yaml",
-          "application/vnd.kubernetes.protobuf"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Status"
-            }
-          },
-          "401": {
-            "description": "Unauthorized"
-          }
-        },
-        "schemes": [
-          "https"
-        ],
-        "tags": [
-          "scheduling_v1beta1"
-        ],
-        "x-kubernetes-action": "delete",
-        "x-kubernetes-group-version-kind": {
-          "group": "scheduling.k8s.io",
-          "kind": "PriorityClass",
-          "version": "v1beta1"
-        }
-      },
-      "get": {
-        "consumes": [
-          "*/*"
-        ],
-        "description": "read the specified PriorityClass",
-        "operationId": "readSchedulingV1beta1PriorityClass",
-        "parameters": [
-          {
-            "description": "Should the export be exact.  Exact export maintains cluster-specific fields like 'Namespace'.",
-            "in": "query",
-            "name": "exact",
-            "type": "boolean",
-            "uniqueItems": true
-          },
-          {
-            "description": "Should this value be exported.  Export strips fields that a user can not specify.",
-            "in": "query",
-            "name": "export",
-            "type": "boolean",
-            "uniqueItems": true
-          }
-        ],
-        "produces": [
-          "application/json",
-          "application/yaml",
-          "application/vnd.kubernetes.protobuf"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/io.k8s.api.scheduling.v1beta1.PriorityClass"
-            }
-          },
-          "401": {
-            "description": "Unauthorized"
-          }
-        },
-        "schemes": [
-          "https"
-        ],
-        "tags": [
-          "scheduling_v1beta1"
-        ],
-        "x-kubernetes-action": "get",
-        "x-kubernetes-group-version-kind": {
-          "group": "scheduling.k8s.io",
-          "kind": "PriorityClass",
-          "version": "v1beta1"
-        }
-      },
-      "parameters": [
-        {
-          "description": "name of the PriorityClass",
-          "in": "path",
-          "name": "name",
-          "required": true,
-          "type": "string",
-          "uniqueItems": true
-        },
-        {
-          "description": "If 'true', then the output is pretty printed.",
-          "in": "query",
-          "name": "pretty",
-          "type": "string",
-          "uniqueItems": true
-        }
-      ],
-      "patch": {
-        "consumes": [
-          "application/json-patch+json",
-          "application/merge-patch+json",
-          "application/strategic-merge-patch+json"
-        ],
-        "description": "partially update the specified PriorityClass",
-        "operationId": "patchSchedulingV1beta1PriorityClass",
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Patch"
-            }
-          }
-        ],
-        "produces": [
-          "application/json",
-          "application/yaml",
-          "application/vnd.kubernetes.protobuf"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/io.k8s.api.scheduling.v1beta1.PriorityClass"
-            }
-          },
-          "401": {
-            "description": "Unauthorized"
-          }
-        },
-        "schemes": [
-          "https"
-        ],
-        "tags": [
-          "scheduling_v1beta1"
-        ],
-        "x-kubernetes-action": "patch",
-        "x-kubernetes-group-version-kind": {
-          "group": "scheduling.k8s.io",
-          "kind": "PriorityClass",
-          "version": "v1beta1"
-        }
-      },
-      "put": {
-        "consumes": [
-          "*/*"
-        ],
-        "description": "replace the specified PriorityClass",
-        "operationId": "replaceSchedulingV1beta1PriorityClass",
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/io.k8s.api.scheduling.v1beta1.PriorityClass"
-            }
-          }
-        ],
-        "produces": [
-          "application/json",
-          "application/yaml",
-          "application/vnd.kubernetes.protobuf"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/io.k8s.api.scheduling.v1beta1.PriorityClass"
-            }
-          },
-          "201": {
-            "description": "Created",
-            "schema": {
-              "$ref": "#/definitions/io.k8s.api.scheduling.v1beta1.PriorityClass"
-            }
-          },
-          "401": {
-            "description": "Unauthorized"
-          }
-        },
-        "schemes": [
-          "https"
-        ],
-        "tags": [
-          "scheduling_v1beta1"
-        ],
-        "x-kubernetes-action": "put",
-        "x-kubernetes-group-version-kind": {
-          "group": "scheduling.k8s.io",
-          "kind": "PriorityClass",
-          "version": "v1beta1"
-        }
-      }
-    },
-    "/apis/scheduling.k8s.io/v1beta1/watch/priorityclasses": {
-      "get": {
-        "consumes": [
-          "*/*"
-        ],
-        "description": "watch individual changes to a list of PriorityClass",
-        "operationId": "watchSchedulingV1beta1PriorityClassList",
-        "produces": [
-          "application/json",
-          "application/yaml",
-          "application/vnd.kubernetes.protobuf",
-          "application/json;stream=watch",
-          "application/vnd.kubernetes.protobuf;stream=watch"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.WatchEvent"
-            }
-          },
-          "401": {
-            "description": "Unauthorized"
-          }
-        },
-        "schemes": [
-          "https"
-        ],
-        "tags": [
-          "scheduling_v1beta1"
-        ],
-        "x-kubernetes-action": "watchlist",
-        "x-kubernetes-group-version-kind": {
-          "group": "scheduling.k8s.io",
-          "kind": "PriorityClass",
-          "version": "v1beta1"
-        }
-      },
-      "parameters": [
-        {
-          "description": "The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server the server will respond with a 410 ResourceExpired error indicating the client must restart their list without the continue field. This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications.",
-          "in": "query",
-          "name": "continue",
-          "type": "string",
-          "uniqueItems": true
-        },
-        {
-          "description": "A selector to restrict the list of returned objects by their fields. Defaults to everything.",
-          "in": "query",
-          "name": "fieldSelector",
-          "type": "string",
-          "uniqueItems": true
-        },
-        {
-          "description": "If true, partially initialized resources are included in the response.",
-          "in": "query",
-          "name": "includeUninitialized",
-          "type": "boolean",
-          "uniqueItems": true
-        },
-        {
-          "description": "A selector to restrict the list of returned objects by their labels. Defaults to everything.",
-          "in": "query",
-          "name": "labelSelector",
-          "type": "string",
-          "uniqueItems": true
-        },
-        {
-          "description": "limit is a maximum number of responses to return for a list call. If more items exist, the server will set the `continue` field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.\n\nThe server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned.",
-          "in": "query",
-          "name": "limit",
-          "type": "integer",
-          "uniqueItems": true
-        },
-        {
-          "description": "If 'true', then the output is pretty printed.",
-          "in": "query",
-          "name": "pretty",
-          "type": "string",
-          "uniqueItems": true
-        },
-        {
-          "description": "When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.",
-          "in": "query",
-          "name": "resourceVersion",
-          "type": "string",
-          "uniqueItems": true
-        },
-        {
-          "description": "Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity.",
-          "in": "query",
-          "name": "timeoutSeconds",
-          "type": "integer",
-          "uniqueItems": true
-        },
-        {
-          "description": "Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.",
-          "in": "query",
-          "name": "watch",
-          "type": "boolean",
-          "uniqueItems": true
-        }
-      ]
-    },
-    "/apis/scheduling.k8s.io/v1beta1/watch/priorityclasses/{name}": {
-      "get": {
-        "consumes": [
-          "*/*"
-        ],
-        "description": "watch changes to an object of kind PriorityClass",
-        "operationId": "watchSchedulingV1beta1PriorityClass",
-        "produces": [
-          "application/json",
-          "application/yaml",
-          "application/vnd.kubernetes.protobuf",
-          "application/json;stream=watch",
-          "application/vnd.kubernetes.protobuf;stream=watch"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.WatchEvent"
-            }
-          },
-          "401": {
-            "description": "Unauthorized"
-          }
-        },
-        "schemes": [
-          "https"
-        ],
-        "tags": [
-          "scheduling_v1beta1"
-        ],
-        "x-kubernetes-action": "watch",
-        "x-kubernetes-group-version-kind": {
-          "group": "scheduling.k8s.io",
-          "kind": "PriorityClass",
-          "version": "v1beta1"
-        }
-      },
-      "parameters": [
-        {
-          "description": "The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server the server will respond with a 410 ResourceExpired error indicating the client must restart their list without the continue field. This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications.",
-          "in": "query",
-          "name": "continue",
-          "type": "string",
-          "uniqueItems": true
-        },
-        {
-          "description": "A selector to restrict the list of returned objects by their fields. Defaults to everything.",
-          "in": "query",
-          "name": "fieldSelector",
-          "type": "string",
-          "uniqueItems": true
-        },
-        {
-          "description": "If true, partially initialized resources are included in the response.",
-          "in": "query",
-          "name": "includeUninitialized",
-          "type": "boolean",
-          "uniqueItems": true
-        },
-        {
-          "description": "A selector to restrict the list of returned objects by their labels. Defaults to everything.",
-          "in": "query",
-          "name": "labelSelector",
-          "type": "string",
-          "uniqueItems": true
-        },
-        {
-          "description": "limit is a maximum number of responses to return for a list call. If more items exist, the server will set the `continue` field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.\n\nThe server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned.",
-          "in": "query",
-          "name": "limit",
-          "type": "integer",
-          "uniqueItems": true
-        },
-        {
-          "description": "name of the PriorityClass",
-          "in": "path",
-          "name": "name",
-          "required": true,
-          "type": "string",
-          "uniqueItems": true
-        },
-        {
-          "description": "If 'true', then the output is pretty printed.",
-          "in": "query",
-          "name": "pretty",
-          "type": "string",
-          "uniqueItems": true
-        },
-        {
-          "description": "When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.",
-          "in": "query",
-          "name": "resourceVersion",
-          "type": "string",
-          "uniqueItems": true
-        },
-        {
-          "description": "Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity.",
-          "in": "query",
-          "name": "timeoutSeconds",
-          "type": "integer",
-          "uniqueItems": true
-        },
-        {
-          "description": "Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.",
-          "in": "query",
-          "name": "watch",
-          "type": "boolean",
-          "uniqueItems": true
-        }
-      ]
-    },
     "/apis/settings.k8s.io/": {
       "get": {
         "consumes": [
@@ -71678,7 +70608,7 @@
         },
         "service": {
           "$ref": "#/definitions/io.k8s.api.admissionregistration.v1beta1.ServiceReference",
-          "description": "`service` is a reference to the service for this webhook. Either `service` or `url` must be specified.\n\nIf the webhook is running within the cluster, then you should use `service`.\n\nPort 443 will be used if it is open, otherwise it is an error."
+          "description": "`service` is a reference to the service for this webhook. Either `service` or `url` must be specified.\n\nIf the webhook is running within the cluster, then you should use `service`.\n\nIf there is only one port open for the service, that port will be used. If there are multiple ports open, port 443 will be used if it is open, otherwise it is an error."
         },
         "url": {
           "description": "`url` gives the location of the webhook, in standard URL form (`[scheme://]host:port/path`). Exactly one of `url` or `service` must be specified.\n\nThe `host` should not refer to a service running in the cluster; use the `service` field instead. The host might be resolved via external DNS in some apiservers (e.g., `kube-apiserver` cannot resolve in-cluster DNS as that would be a layering violation). `host` may also be an IP address.\n\nPlease note that using `localhost` or `127.0.0.1` as a `host` is risky unless you take great care to run this webhook on all hosts which run an apiserver which might need to make calls to this webhook. Such installs are likely to be non-portable, i.e., not easy to turn up in a new cluster.\n\nThe scheme must be \"https\"; the URL must begin with \"https://\".\n\nA path is optional, and if present may be any string permissible in a URL. You may use the path to pass an arbitrary string to the webhook, for example, a cluster identifier.\n\nAttempting to use a user or basic auth e.g. \"user:password@\" is not allowed. Fragments (\"#...\") and query parameters (\"?...\") are not allowed, either.",
@@ -72346,11 +71276,11 @@
       "properties": {
         "maxSurge": {
           "$ref": "#/definitions/io.k8s.apimachinery.pkg.util.intstr.IntOrString",
-          "description": "The maximum number of pods that can be scheduled above the desired number of pods. Value can be an absolute number (ex: 5) or a percentage of desired pods (ex: 10%). This can not be 0 if MaxUnavailable is 0. Absolute number is calculated from percentage by rounding up. Defaults to 25%. Example: when this is set to 30%, the new ReplicaSet can be scaled up immediately when the rolling update starts, such that the total number of old and new pods do not exceed 130% of desired pods. Once old pods have been killed, new ReplicaSet can be scaled up further, ensuring that total number of pods running at any time during the update is at most 130% of desired pods."
+          "description": "The maximum number of pods that can be scheduled above the desired number of pods. Value can be an absolute number (ex: 5) or a percentage of desired pods (ex: 10%). This can not be 0 if MaxUnavailable is 0. Absolute number is calculated from percentage by rounding up. Defaults to 25%. Example: when this is set to 30%, the new RC can be scaled up immediately when the rolling update starts, such that the total number of old and new pods do not exceed 130% of desired pods. Once old pods have been killed, new RC can be scaled up further, ensuring that total number of pods running at any time during the update is at most 130% of desired pods."
         },
         "maxUnavailable": {
           "$ref": "#/definitions/io.k8s.apimachinery.pkg.util.intstr.IntOrString",
-          "description": "The maximum number of pods that can be unavailable during the update. Value can be an absolute number (ex: 5) or a percentage of desired pods (ex: 10%). Absolute number is calculated from percentage by rounding down. This can not be 0 if MaxSurge is 0. Defaults to 25%. Example: when this is set to 30%, the old ReplicaSet can be scaled down to 70% of desired pods immediately when the rolling update starts. Once new pods are ready, old ReplicaSet can be scaled down further, followed by scaling up the new ReplicaSet, ensuring that the total number of pods available at all times during the update is at least 70% of desired pods."
+          "description": "The maximum number of pods that can be unavailable during the update. Value can be an absolute number (ex: 5) or a percentage of desired pods (ex: 10%). Absolute number is calculated from percentage by rounding down. This can not be 0 if MaxSurge is 0. Defaults to 25%. Example: when this is set to 30%, the old RC can be scaled down to 70% of desired pods immediately when the rolling update starts. Once new pods are ready, old RC can be scaled down further, followed by scaling up the new RC, ensuring that the total number of pods available at all times during the update is at least 70% of desired pods."
         }
       }
     },
@@ -72904,11 +71834,11 @@
       "properties": {
         "maxSurge": {
           "$ref": "#/definitions/io.k8s.apimachinery.pkg.util.intstr.IntOrString",
-          "description": "The maximum number of pods that can be scheduled above the desired number of pods. Value can be an absolute number (ex: 5) or a percentage of desired pods (ex: 10%). This can not be 0 if MaxUnavailable is 0. Absolute number is calculated from percentage by rounding up. Defaults to 25%. Example: when this is set to 30%, the new ReplicaSet can be scaled up immediately when the rolling update starts, such that the total number of old and new pods do not exceed 130% of desired pods. Once old pods have been killed, new ReplicaSet can be scaled up further, ensuring that total number of pods running at any time during the update is atmost 130% of desired pods."
+          "description": "The maximum number of pods that can be scheduled above the desired number of pods. Value can be an absolute number (ex: 5) or a percentage of desired pods (ex: 10%). This can not be 0 if MaxUnavailable is 0. Absolute number is calculated from percentage by rounding up. Defaults to 25%. Example: when this is set to 30%, the new RC can be scaled up immediately when the rolling update starts, such that the total number of old and new pods do not exceed 130% of desired pods. Once old pods have been killed, new RC can be scaled up further, ensuring that total number of pods running at any time during the update is atmost 130% of desired pods."
         },
         "maxUnavailable": {
           "$ref": "#/definitions/io.k8s.apimachinery.pkg.util.intstr.IntOrString",
-          "description": "The maximum number of pods that can be unavailable during the update. Value can be an absolute number (ex: 5) or a percentage of desired pods (ex: 10%). Absolute number is calculated from percentage by rounding down. This can not be 0 if MaxSurge is 0. Defaults to 25%. Example: when this is set to 30%, the old ReplicaSet can be scaled down to 70% of desired pods immediately when the rolling update starts. Once new pods are ready, old ReplicaSet can be scaled down further, followed by scaling up the new ReplicaSet, ensuring that the total number of pods available at all times during the update is at least 70% of desired pods."
+          "description": "The maximum number of pods that can be unavailable during the update. Value can be an absolute number (ex: 5) or a percentage of desired pods (ex: 10%). Absolute number is calculated from percentage by rounding down. This can not be 0 if MaxSurge is 0. Defaults to 25%. Example: when this is set to 30%, the old RC can be scaled down to 70% of desired pods immediately when the rolling update starts. Once new pods are ready, old RC can be scaled down further, followed by scaling up the new RC, ensuring that the total number of pods available at all times during the update is at least 70% of desired pods."
         }
       }
     },
@@ -73851,11 +72781,11 @@
       "properties": {
         "maxSurge": {
           "$ref": "#/definitions/io.k8s.apimachinery.pkg.util.intstr.IntOrString",
-          "description": "The maximum number of pods that can be scheduled above the desired number of pods. Value can be an absolute number (ex: 5) or a percentage of desired pods (ex: 10%). This can not be 0 if MaxUnavailable is 0. Absolute number is calculated from percentage by rounding up. Defaults to 25%. Example: when this is set to 30%, the new ReplicaSet can be scaled up immediately when the rolling update starts, such that the total number of old and new pods do not exceed 130% of desired pods. Once old pods have been killed, new ReplicaSet can be scaled up further, ensuring that total number of pods running at any time during the update is atmost 130% of desired pods."
+          "description": "The maximum number of pods that can be scheduled above the desired number of pods. Value can be an absolute number (ex: 5) or a percentage of desired pods (ex: 10%). This can not be 0 if MaxUnavailable is 0. Absolute number is calculated from percentage by rounding up. Defaults to 25%. Example: when this is set to 30%, the new RC can be scaled up immediately when the rolling update starts, such that the total number of old and new pods do not exceed 130% of desired pods. Once old pods have been killed, new RC can be scaled up further, ensuring that total number of pods running at any time during the update is atmost 130% of desired pods."
         },
         "maxUnavailable": {
           "$ref": "#/definitions/io.k8s.apimachinery.pkg.util.intstr.IntOrString",
-          "description": "The maximum number of pods that can be unavailable during the update. Value can be an absolute number (ex: 5) or a percentage of desired pods (ex: 10%). Absolute number is calculated from percentage by rounding down. This can not be 0 if MaxSurge is 0. Defaults to 25%. Example: when this is set to 30%, the old ReplicaSet can be scaled down to 70% of desired pods immediately when the rolling update starts. Once new pods are ready, old ReplicaSet can be scaled down further, followed by scaling up the new ReplicaSet, ensuring that the total number of pods available at all times during the update is at least 70% of desired pods."
+          "description": "The maximum number of pods that can be unavailable during the update. Value can be an absolute number (ex: 5) or a percentage of desired pods (ex: 10%). Absolute number is calculated from percentage by rounding down. This can not be 0 if MaxSurge is 0. Defaults to 25%. Example: when this is set to 30%, the old RC can be scaled down to 70% of desired pods immediately when the rolling update starts. Once new pods are ready, old RC can be scaled down further, followed by scaling up the new RC, ensuring that the total number of pods available at all times during the update is at least 70% of desired pods."
         }
       }
     },
@@ -76777,36 +75707,6 @@
         }
       ]
     },
-    "io.k8s.api.core.v1.ConfigMapNodeConfigSource": {
-      "description": "ConfigMapNodeConfigSource contains the information to reference a ConfigMap as a config source for the Node.",
-      "properties": {
-        "kubeletConfigKey": {
-          "description": "KubeletConfigKey declares which key of the referenced ConfigMap corresponds to the KubeletConfiguration structure This field is required in all cases.",
-          "type": "string"
-        },
-        "name": {
-          "description": "Name is the metadata.name of the referenced ConfigMap. This field is required in all cases.",
-          "type": "string"
-        },
-        "namespace": {
-          "description": "Namespace is the metadata.namespace of the referenced ConfigMap. This field is required in all cases.",
-          "type": "string"
-        },
-        "resourceVersion": {
-          "description": "ResourceVersion is the metadata.ResourceVersion of the referenced ConfigMap. This field is forbidden in Node.Spec, and required in Node.Status.",
-          "type": "string"
-        },
-        "uid": {
-          "description": "UID is the metadata.UID of the referenced ConfigMap. This field is forbidden in Node.Spec, and required in Node.Status.",
-          "type": "string"
-        }
-      },
-      "required": [
-        "namespace",
-        "name",
-        "kubeletConfigKey"
-      ]
-    },
     "io.k8s.api.core.v1.ConfigMapProjection": {
       "description": "Adapts a ConfigMap into a projected volume.\n\nThe contents of the target ConfigMap's Data field will be presented in a projected volume as files using the keys in the Data field as the file names, unless the items element is populated with specific mappings of keys to paths. Note that this is identical to a configmap volume source without the default mode.",
       "properties": {
@@ -78158,10 +77058,10 @@
       }
     },
     "io.k8s.api.core.v1.LocalVolumeSource": {
-      "description": "Local represents directly-attached storage with node affinity (Beta feature)",
+      "description": "Local represents directly-attached storage with node affinity",
       "properties": {
         "path": {
-          "description": "The full path to the volume on the node. It can be either a directory or block device (disk, partition, ...). Directories can be represented only by PersistentVolume with VolumeMode=Filesystem. Block devices can be represented only by VolumeMode=Block, which also requires the BlockVolume alpha feature gate to be enabled.",
+          "description": "The full path to the volume on the node For alpha, this path must be a directory Once block as a source is supported, then this path can point to a block device",
           "type": "string"
         }
       },
@@ -78378,32 +77278,25 @@
     "io.k8s.api.core.v1.NodeConfigSource": {
       "description": "NodeConfigSource specifies a source of node configuration. Exactly one subfield (excluding metadata) must be non-nil.",
       "properties": {
-        "configMap": {
-          "$ref": "#/definitions/io.k8s.api.core.v1.ConfigMapNodeConfigSource",
-          "description": "ConfigMap is a reference to a Node's ConfigMap"
-        }
-      }
-    },
-    "io.k8s.api.core.v1.NodeConfigStatus": {
-      "description": "NodeConfigStatus describes the status of the config assigned by Node.Spec.ConfigSource.",
-      "properties": {
-        "active": {
-          "$ref": "#/definitions/io.k8s.api.core.v1.NodeConfigSource",
-          "description": "Active reports the checkpointed config the node is actively using. Active will represent either the current version of the Assigned config, or the current LastKnownGood config, depending on whether attempting to use the Assigned config results in an error."
-        },
-        "assigned": {
-          "$ref": "#/definitions/io.k8s.api.core.v1.NodeConfigSource",
-          "description": "Assigned reports the checkpointed config the node will try to use. When Node.Spec.ConfigSource is updated, the node checkpoints the associated config payload to local disk, along with a record indicating intended config. The node refers to this record to choose its config checkpoint, and reports this record in Assigned. Assigned only updates in the status after the record has been checkpointed to disk. When the Kubelet is restarted, it tries to make the Assigned config the Active config by loading and validating the checkpointed payload identified by Assigned."
-        },
-        "error": {
-          "description": "Error describes any problems reconciling the Spec.ConfigSource to the Active config. Errors may occur, for example, attempting to checkpoint Spec.ConfigSource to the local Assigned record, attempting to checkpoint the payload associated with Spec.ConfigSource, attempting to load or validate the Assigned config, etc. Errors may occur at different points while syncing config. Earlier errors (e.g. download or checkpointing errors) will not result in a rollback to LastKnownGood, and may resolve across Kubelet retries. Later errors (e.g. loading or validating a checkpointed config) will result in a rollback to LastKnownGood. In the latter case, it is usually possible to resolve the error by fixing the config assigned in Spec.ConfigSource. You can find additional information for debugging by searching the error message in the Kubelet log. Error is a human-readable description of the error state; machines can check whether or not Error is empty, but should not rely on the stability of the Error text across Kubelet versions.",
+        "apiVersion": {
+          "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#resources",
           "type": "string"
         },
-        "lastKnownGood": {
-          "$ref": "#/definitions/io.k8s.api.core.v1.NodeConfigSource",
-          "description": "LastKnownGood reports the checkpointed config the node will fall back to when it encounters an error attempting to use the Assigned config. The Assigned config becomes the LastKnownGood config when the node determines that the Assigned config is stable and correct. This is currently implemented as a 10-minute soak period starting when the local record of Assigned config is updated. If the Assigned config is Active at the end of this period, it becomes the LastKnownGood. Note that if Spec.ConfigSource is reset to nil (use local defaults), the LastKnownGood is also immediately reset to nil, because the local default config is always assumed good. You should not make assumptions about the node's method of determining config stability and correctness, as this may change or become configurable in the future."
+        "configMapRef": {
+          "$ref": "#/definitions/io.k8s.api.core.v1.ObjectReference"
+        },
+        "kind": {
+          "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds",
+          "type": "string"
         }
-      }
+      },
+      "x-kubernetes-group-version-kind": [
+        {
+          "group": "",
+          "kind": "NodeConfigSource",
+          "version": "v1"
+        }
+      ]
     },
     "io.k8s.api.core.v1.NodeDaemonEndpoints": {
       "description": "NodeDaemonEndpoints lists ports opened by daemons running on the Node.",
@@ -78488,23 +77381,19 @@
       ]
     },
     "io.k8s.api.core.v1.NodeSelectorTerm": {
-      "description": "A null or empty node selector term matches no objects. The requirements of them are ANDed.",
+      "description": "A null or empty node selector term matches no objects.",
       "properties": {
         "matchExpressions": {
-          "description": "A list of node selector requirements by node's labels.",
-          "items": {
-            "$ref": "#/definitions/io.k8s.api.core.v1.NodeSelectorRequirement"
-          },
-          "type": "array"
-        },
-        "matchFields": {
-          "description": "A list of node selector requirements by node's fields.",
+          "description": "Required. A list of node selector requirements. The requirements are ANDed.",
           "items": {
             "$ref": "#/definitions/io.k8s.api.core.v1.NodeSelectorRequirement"
           },
           "type": "array"
         }
-      }
+      },
+      "required": [
+        "matchExpressions"
+      ]
     },
     "io.k8s.api.core.v1.NodeSpec": {
       "description": "NodeSpec describes the attributes that a node is created with.",
@@ -78514,7 +77403,7 @@
           "description": "If specified, the source to get node configuration from The DynamicKubeletConfig feature gate must be enabled for the Kubelet to use this field"
         },
         "externalID": {
-          "description": "Deprecated. Not all kubelets will set this field. Remove field after 1.13. see: https://issues.k8s.io/61966",
+          "description": "External ID of the node assigned by some machine database (e.g. a cloud provider). Deprecated.",
           "type": "string"
         },
         "podCIDR": {
@@ -78572,10 +77461,6 @@
           "type": "array",
           "x-kubernetes-patch-merge-key": "type",
           "x-kubernetes-patch-strategy": "merge"
-        },
-        "config": {
-          "$ref": "#/definitions/io.k8s.api.core.v1.NodeConfigStatus",
-          "description": "Status of the config assigned to the node via the dynamic Kubelet config feature."
         },
         "daemonEndpoints": {
           "$ref": "#/definitions/io.k8s.api.core.v1.NodeDaemonEndpoints",
@@ -80720,7 +79605,7 @@
           "x-kubernetes-patch-strategy": "merge"
         },
         "publishNotReadyAddresses": {
-          "description": "publishNotReadyAddresses, when set to true, indicates that DNS implementations must publish the notReadyAddresses of subsets for the Endpoints associated with the Service. The default value is false. The primary use case for setting this field is to use a StatefulSet's Headless Service to propagate SRV records for its Pods without respect to their readiness for purpose of peer discovery.",
+          "description": "publishNotReadyAddresses, when set to true, indicates that DNS implementations must publish the notReadyAddresses of subsets for the Endpoints associated with the Service. The default value is false. The primary use case for setting this field is to use a StatefulSet's Headless Service to propagate SRV records for its Pods without respect to their readiness for purpose of peer discovery. This field will replace the service.alpha.kubernetes.io/tolerate-unready-endpoints when that annotation is deprecated and all clients have been converted to use this field.",
           "type": "boolean"
         },
         "selector": {
@@ -81254,10 +80139,10 @@
       ]
     },
     "io.k8s.api.extensions.v1beta1.AllowedFlexVolume": {
-      "description": "AllowedFlexVolume represents a single Flexvolume that is allowed to be used. Deprecated: use AllowedFlexVolume from policy API Group instead.",
+      "description": "AllowedFlexVolume represents a single Flexvolume that is allowed to be used.",
       "properties": {
         "driver": {
-          "description": "driver is the name of the Flexvolume driver.",
+          "description": "Driver is the name of the Flexvolume driver.",
           "type": "string"
         }
       },
@@ -81266,10 +80151,10 @@
       ]
     },
     "io.k8s.api.extensions.v1beta1.AllowedHostPath": {
-      "description": "AllowedHostPath defines the host volume conditions that will be enabled by a policy for pods to use. It requires the path prefix to be defined. Deprecated: use AllowedHostPath from policy API Group instead.",
+      "description": "defines the host volume conditions that will be enabled by a policy for pods to use. It requires the path prefix to be defined.",
       "properties": {
         "pathPrefix": {
-          "description": "pathPrefix is the path prefix that the host volume must match. It does not support `*`. Trailing slashes are trimmed when validating the path prefix with a host path.\n\nExamples: `/foo` would allow `/foo`, `/foo/` and `/foo/bar` `/foo` would not allow `/food` or `/etc/foo`",
+          "description": "is the path prefix that the host volume must match. It does not support `*`. Trailing slashes are trimmed when validating the path prefix with a host path.\n\nExamples: `/foo` would allow `/foo`, `/foo/` and `/foo/bar` `/foo` would not allow `/food` or `/etc/foo`",
           "type": "string"
         }
       }
@@ -81731,17 +80616,17 @@
       }
     },
     "io.k8s.api.extensions.v1beta1.FSGroupStrategyOptions": {
-      "description": "FSGroupStrategyOptions defines the strategy type and options used to create the strategy. Deprecated: use FSGroupStrategyOptions from policy API Group instead.",
+      "description": "FSGroupStrategyOptions defines the strategy type and options used to create the strategy.",
       "properties": {
         "ranges": {
-          "description": "ranges are the allowed ranges of fs groups.  If you would like to force a single fs group then supply a single range with the same start and end. Required for MustRunAs.",
+          "description": "Ranges are the allowed ranges of fs groups.  If you would like to force a single fs group then supply a single range with the same start and end.",
           "items": {
             "$ref": "#/definitions/io.k8s.api.extensions.v1beta1.IDRange"
           },
           "type": "array"
         },
         "rule": {
-          "description": "rule is the strategy that will dictate what FSGroup is used in the SecurityContext.",
+          "description": "Rule is the strategy that will dictate what FSGroup is used in the SecurityContext.",
           "type": "string"
         }
       }
@@ -81778,7 +80663,7 @@
       ]
     },
     "io.k8s.api.extensions.v1beta1.HostPortRange": {
-      "description": "HostPortRange defines a range of host ports that will be enabled by a policy for pods to use.  It requires both the start and end to be defined. Deprecated: use HostPortRange from policy API Group instead.",
+      "description": "Host Port Range defines a range of host ports that will be enabled by a policy for pods to use.  It requires both the start and end to be defined.",
       "properties": {
         "max": {
           "description": "max is the end of the range, inclusive.",
@@ -81797,15 +80682,15 @@
       ]
     },
     "io.k8s.api.extensions.v1beta1.IDRange": {
-      "description": "IDRange provides a min/max of an allowed range of IDs. Deprecated: use IDRange from policy API Group instead.",
+      "description": "ID Range provides a min/max of an allowed range of IDs.",
       "properties": {
         "max": {
-          "description": "max is the end of the range, inclusive.",
+          "description": "Max is the end of the range, inclusive.",
           "format": "int64",
           "type": "integer"
         },
         "min": {
-          "description": "min is the start of the range, inclusive.",
+          "description": "Min is the start of the range, inclusive.",
           "format": "int64",
           "type": "integer"
         }
@@ -82082,15 +80967,15 @@
       "properties": {
         "ipBlock": {
           "$ref": "#/definitions/io.k8s.api.extensions.v1beta1.IPBlock",
-          "description": "IPBlock defines policy on a particular IPBlock. If this field is set then neither of the other fields can be."
+          "description": "IPBlock defines policy on a particular IPBlock"
         },
         "namespaceSelector": {
           "$ref": "#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.LabelSelector",
-          "description": "Selects Namespaces using cluster-scoped labels. This field follows standard label selector semantics; if present but empty, it selects all namespaces.\n\nIf PodSelector is also set, then the NetworkPolicyPeer as a whole selects the Pods matching PodSelector in the Namespaces selected by NamespaceSelector. Otherwise it selects all Pods in the Namespaces selected by NamespaceSelector."
+          "description": "Selects Namespaces using cluster scoped-labels.  This matches all pods in all namespaces selected by this label selector. This field follows standard label selector semantics. If present but empty, this selector selects all namespaces."
         },
         "podSelector": {
           "$ref": "#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.LabelSelector",
-          "description": "This is a label selector which selects Pods. This field follows standard label selector semantics; if present but empty, it selects all pods.\n\nIf NamespaceSelector is also set, then the NetworkPolicyPeer as a whole selects the Pods matching PodSelector in the Namespaces selected by NamespaceSelector. Otherwise it selects the Pods matching PodSelector in the policy's own Namespace."
+          "description": "This is a label selector which selects Pods in this namespace. This field follows standard label selector semantics. If present but empty, this selector selects all pods in this namespace."
         }
       }
     },
@@ -82141,7 +81026,7 @@
       ]
     },
     "io.k8s.api.extensions.v1beta1.PodSecurityPolicy": {
-      "description": "PodSecurityPolicy governs the ability to make requests that affect the Security Context that will be applied to a pod and container. Deprecated: use PodSecurityPolicy from policy API Group instead.",
+      "description": "Pod Security Policy governs the ability to make requests that affect the Security Context that will be applied to a pod and container.",
       "properties": {
         "apiVersion": {
           "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#resources",
@@ -82169,14 +81054,14 @@
       ]
     },
     "io.k8s.api.extensions.v1beta1.PodSecurityPolicyList": {
-      "description": "PodSecurityPolicyList is a list of PodSecurityPolicy objects. Deprecated: use PodSecurityPolicyList from policy API Group instead.",
+      "description": "Pod Security Policy List is a list of PodSecurityPolicy objects.",
       "properties": {
         "apiVersion": {
           "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#resources",
           "type": "string"
         },
         "items": {
-          "description": "items is a list of schema objects.",
+          "description": "Items is a list of schema objects.",
           "items": {
             "$ref": "#/definitions/io.k8s.api.extensions.v1beta1.PodSecurityPolicy"
           },
@@ -82203,47 +81088,47 @@
       ]
     },
     "io.k8s.api.extensions.v1beta1.PodSecurityPolicySpec": {
-      "description": "PodSecurityPolicySpec defines the policy enforced. Deprecated: use PodSecurityPolicySpec from policy API Group instead.",
+      "description": "Pod Security Policy Spec defines the policy enforced.",
       "properties": {
         "allowPrivilegeEscalation": {
-          "description": "allowPrivilegeEscalation determines if a pod can request to allow privilege escalation. If unspecified, defaults to true.",
+          "description": "AllowPrivilegeEscalation determines if a pod can request to allow privilege escalation. If unspecified, defaults to true.",
           "type": "boolean"
         },
         "allowedCapabilities": {
-          "description": "allowedCapabilities is a list of capabilities that can be requested to add to the container. Capabilities in this field may be added at the pod author's discretion. You must not list a capability in both allowedCapabilities and requiredDropCapabilities.",
+          "description": "AllowedCapabilities is a list of capabilities that can be requested to add to the container. Capabilities in this field may be added at the pod author's discretion. You must not list a capability in both AllowedCapabilities and RequiredDropCapabilities.",
           "items": {
             "type": "string"
           },
           "type": "array"
         },
         "allowedFlexVolumes": {
-          "description": "allowedFlexVolumes is a whitelist of allowed Flexvolumes.  Empty or nil indicates that all Flexvolumes may be used.  This parameter is effective only when the usage of the Flexvolumes is allowed in the \"volumes\" field.",
+          "description": "AllowedFlexVolumes is a whitelist of allowed Flexvolumes.  Empty or nil indicates that all Flexvolumes may be used.  This parameter is effective only when the usage of the Flexvolumes is allowed in the \"Volumes\" field.",
           "items": {
             "$ref": "#/definitions/io.k8s.api.extensions.v1beta1.AllowedFlexVolume"
           },
           "type": "array"
         },
         "allowedHostPaths": {
-          "description": "allowedHostPaths is a white list of allowed host paths. Empty indicates that all host paths may be used.",
+          "description": "is a white list of allowed host paths. Empty indicates that all host paths may be used.",
           "items": {
             "$ref": "#/definitions/io.k8s.api.extensions.v1beta1.AllowedHostPath"
           },
           "type": "array"
         },
         "defaultAddCapabilities": {
-          "description": "defaultAddCapabilities is the default set of capabilities that will be added to the container unless the pod spec specifically drops the capability.  You may not list a capability in both defaultAddCapabilities and requiredDropCapabilities. Capabilities added here are implicitly allowed, and need not be included in the allowedCapabilities list.",
+          "description": "DefaultAddCapabilities is the default set of capabilities that will be added to the container unless the pod spec specifically drops the capability.  You may not list a capability in both DefaultAddCapabilities and RequiredDropCapabilities. Capabilities added here are implicitly allowed, and need not be included in the AllowedCapabilities list.",
           "items": {
             "type": "string"
           },
           "type": "array"
         },
         "defaultAllowPrivilegeEscalation": {
-          "description": "defaultAllowPrivilegeEscalation controls the default setting for whether a process can gain more privileges than its parent process.",
+          "description": "DefaultAllowPrivilegeEscalation controls the default setting for whether a process can gain more privileges than its parent process.",
           "type": "boolean"
         },
         "fsGroup": {
           "$ref": "#/definitions/io.k8s.api.extensions.v1beta1.FSGroupStrategyOptions",
-          "description": "fsGroup is the strategy that will dictate what fs group is used by the SecurityContext."
+          "description": "FSGroup is the strategy that will dictate what fs group is used by the SecurityContext."
         },
         "hostIPC": {
           "description": "hostIPC determines if the policy allows the use of HostIPC in the pod spec.",
@@ -82269,11 +81154,11 @@
           "type": "boolean"
         },
         "readOnlyRootFilesystem": {
-          "description": "readOnlyRootFilesystem when set to true will force containers to run with a read only root file system.  If the container specifically requests to run with a non-read only root file system the PSP should deny the pod. If set to false the container may run with a read only root file system if it wishes but it will not be forced to.",
+          "description": "ReadOnlyRootFilesystem when set to true will force containers to run with a read only root file system.  If the container specifically requests to run with a non-read only root file system the PSP should deny the pod. If set to false the container may run with a read only root file system if it wishes but it will not be forced to.",
           "type": "boolean"
         },
         "requiredDropCapabilities": {
-          "description": "requiredDropCapabilities are the capabilities that will be dropped from the container.  These are required to be dropped and cannot be added.",
+          "description": "RequiredDropCapabilities are the capabilities that will be dropped from the container.  These are required to be dropped and cannot be added.",
           "items": {
             "type": "string"
           },
@@ -82289,10 +81174,10 @@
         },
         "supplementalGroups": {
           "$ref": "#/definitions/io.k8s.api.extensions.v1beta1.SupplementalGroupsStrategyOptions",
-          "description": "supplementalGroups is the strategy that will dictate what supplemental groups are used by the SecurityContext."
+          "description": "SupplementalGroups is the strategy that will dictate what supplemental groups are used by the SecurityContext."
         },
         "volumes": {
-          "description": "volumes is a white list of allowed volume plugins. Empty indicates that no volumes may be used. To allow all volumes you may use '*'.",
+          "description": "volumes is a white list of allowed volume plugins.  Empty indicates that all plugins may be used.",
           "items": {
             "type": "string"
           },
@@ -82499,17 +81384,17 @@
       }
     },
     "io.k8s.api.extensions.v1beta1.RunAsUserStrategyOptions": {
-      "description": "RunAsUserStrategyOptions defines the strategy type and any options used to create the strategy. Deprecated: use RunAsUserStrategyOptions from policy API Group instead.",
+      "description": "Run A sUser Strategy Options defines the strategy type and any options used to create the strategy.",
       "properties": {
         "ranges": {
-          "description": "ranges are the allowed ranges of uids that may be used. If you would like to force a single uid then supply a single range with the same start and end. Required for MustRunAs.",
+          "description": "Ranges are the allowed ranges of uids that may be used.",
           "items": {
             "$ref": "#/definitions/io.k8s.api.extensions.v1beta1.IDRange"
           },
           "type": "array"
         },
         "rule": {
-          "description": "rule is the strategy that will dictate the allowable RunAsUser values that may be set.",
+          "description": "Rule is the strategy that will dictate the allowable RunAsUser values that may be set.",
           "type": "string"
         }
       },
@@ -82518,10 +81403,10 @@
       ]
     },
     "io.k8s.api.extensions.v1beta1.SELinuxStrategyOptions": {
-      "description": "SELinuxStrategyOptions defines the strategy type and any options used to create the strategy. Deprecated: use SELinuxStrategyOptions from policy API Group instead.",
+      "description": "SELinux  Strategy Options defines the strategy type and any options used to create the strategy.",
       "properties": {
         "rule": {
-          "description": "rule is the strategy that will dictate the allowable labels that may be set.",
+          "description": "type is the strategy that will dictate the allowable labels that may be set.",
           "type": "string"
         },
         "seLinuxOptions": {
@@ -82600,17 +81485,17 @@
       ]
     },
     "io.k8s.api.extensions.v1beta1.SupplementalGroupsStrategyOptions": {
-      "description": "SupplementalGroupsStrategyOptions defines the strategy type and options used to create the strategy. Deprecated: use SupplementalGroupsStrategyOptions from policy API Group instead.",
+      "description": "SupplementalGroupsStrategyOptions defines the strategy type and options used to create the strategy.",
       "properties": {
         "ranges": {
-          "description": "ranges are the allowed ranges of supplemental groups.  If you would like to force a single supplemental group then supply a single range with the same start and end. Required for MustRunAs.",
+          "description": "Ranges are the allowed ranges of supplemental groups.  If you would like to force a single supplemental group then supply a single range with the same start and end.",
           "items": {
             "$ref": "#/definitions/io.k8s.api.extensions.v1beta1.IDRange"
           },
           "type": "array"
         },
         "rule": {
-          "description": "rule is the strategy that will dictate what supplemental groups is used in the SecurityContext.",
+          "description": "Rule is the strategy that will dictate what supplemental groups is used in the SecurityContext.",
           "type": "string"
         }
       }
@@ -82735,19 +81620,19 @@
       ]
     },
     "io.k8s.api.networking.v1.NetworkPolicyPeer": {
-      "description": "NetworkPolicyPeer describes a peer to allow traffic from. Only certain combinations of fields are allowed",
+      "description": "NetworkPolicyPeer describes a peer to allow traffic from. Exactly one of its fields must be specified.",
       "properties": {
         "ipBlock": {
           "$ref": "#/definitions/io.k8s.api.networking.v1.IPBlock",
-          "description": "IPBlock defines policy on a particular IPBlock. If this field is set then neither of the other fields can be."
+          "description": "IPBlock defines policy on a particular IPBlock"
         },
         "namespaceSelector": {
           "$ref": "#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.LabelSelector",
-          "description": "Selects Namespaces using cluster-scoped labels. This field follows standard label selector semantics; if present but empty, it selects all namespaces.\n\nIf PodSelector is also set, then the NetworkPolicyPeer as a whole selects the Pods matching PodSelector in the Namespaces selected by NamespaceSelector. Otherwise it selects all Pods in the Namespaces selected by NamespaceSelector."
+          "description": "Selects Namespaces using cluster scoped-labels. This matches all pods in all namespaces selected by this label selector. This field follows standard label selector semantics. If present but empty, this selector selects all namespaces."
         },
         "podSelector": {
           "$ref": "#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.LabelSelector",
-          "description": "This is a label selector which selects Pods. This field follows standard label selector semantics; if present but empty, it selects all pods.\n\nIf NamespaceSelector is also set, then the NetworkPolicyPeer as a whole selects the Pods matching PodSelector in the Namespaces selected by NamespaceSelector. Otherwise it selects the Pods matching PodSelector in the policy's own Namespace."
+          "description": "This is a label selector which selects Pods in this namespace. This field follows standard label selector semantics. If present but empty, this selector selects all pods in this namespace."
         }
       }
     },
@@ -82801,7 +81686,7 @@
       "description": "AllowedFlexVolume represents a single Flexvolume that is allowed to be used.",
       "properties": {
         "driver": {
-          "description": "driver is the name of the Flexvolume driver.",
+          "description": "Driver is the name of the Flexvolume driver.",
           "type": "string"
         }
       },
@@ -82810,10 +81695,10 @@
       ]
     },
     "io.k8s.api.policy.v1beta1.AllowedHostPath": {
-      "description": "AllowedHostPath defines the host volume conditions that will be enabled by a policy for pods to use. It requires the path prefix to be defined.",
+      "description": "defines the host volume conditions that will be enabled by a policy for pods to use. It requires the path prefix to be defined.",
       "properties": {
         "pathPrefix": {
-          "description": "pathPrefix is the path prefix that the host volume must match. It does not support `*`. Trailing slashes are trimmed when validating the path prefix with a host path.\n\nExamples: `/foo` would allow `/foo`, `/foo/` and `/foo/bar` `/foo` would not allow `/food` or `/etc/foo`",
+          "description": "is the path prefix that the host volume must match. It does not support `*`. Trailing slashes are trimmed when validating the path prefix with a host path.\n\nExamples: `/foo` would allow `/foo`, `/foo/` and `/foo/bar` `/foo` would not allow `/food` or `/etc/foo`",
           "type": "string"
         }
       }
@@ -82850,20 +81735,20 @@
       "description": "FSGroupStrategyOptions defines the strategy type and options used to create the strategy.",
       "properties": {
         "ranges": {
-          "description": "ranges are the allowed ranges of fs groups.  If you would like to force a single fs group then supply a single range with the same start and end. Required for MustRunAs.",
+          "description": "Ranges are the allowed ranges of fs groups.  If you would like to force a single fs group then supply a single range with the same start and end.",
           "items": {
             "$ref": "#/definitions/io.k8s.api.policy.v1beta1.IDRange"
           },
           "type": "array"
         },
         "rule": {
-          "description": "rule is the strategy that will dictate what FSGroup is used in the SecurityContext.",
+          "description": "Rule is the strategy that will dictate what FSGroup is used in the SecurityContext.",
           "type": "string"
         }
       }
     },
     "io.k8s.api.policy.v1beta1.HostPortRange": {
-      "description": "HostPortRange defines a range of host ports that will be enabled by a policy for pods to use.  It requires both the start and end to be defined.",
+      "description": "Host Port Range defines a range of host ports that will be enabled by a policy for pods to use.  It requires both the start and end to be defined.",
       "properties": {
         "max": {
           "description": "max is the end of the range, inclusive.",
@@ -82882,15 +81767,15 @@
       ]
     },
     "io.k8s.api.policy.v1beta1.IDRange": {
-      "description": "IDRange provides a min/max of an allowed range of IDs.",
+      "description": "ID Range provides a min/max of an allowed range of IDs.",
       "properties": {
         "max": {
-          "description": "max is the end of the range, inclusive.",
+          "description": "Max is the end of the range, inclusive.",
           "format": "int64",
           "type": "integer"
         },
         "min": {
-          "description": "min is the start of the range, inclusive.",
+          "description": "Min is the start of the range, inclusive.",
           "format": "int64",
           "type": "integer"
         }
@@ -83025,7 +81910,7 @@
       ]
     },
     "io.k8s.api.policy.v1beta1.PodSecurityPolicy": {
-      "description": "PodSecurityPolicy governs the ability to make requests that affect the Security Context that will be applied to a pod and container.",
+      "description": "Pod Security Policy governs the ability to make requests that affect the Security Context that will be applied to a pod and container.",
       "properties": {
         "apiVersion": {
           "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#resources",
@@ -83053,14 +81938,14 @@
       ]
     },
     "io.k8s.api.policy.v1beta1.PodSecurityPolicyList": {
-      "description": "PodSecurityPolicyList is a list of PodSecurityPolicy objects.",
+      "description": "Pod Security Policy List is a list of PodSecurityPolicy objects.",
       "properties": {
         "apiVersion": {
           "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#resources",
           "type": "string"
         },
         "items": {
-          "description": "items is a list of schema objects.",
+          "description": "Items is a list of schema objects.",
           "items": {
             "$ref": "#/definitions/io.k8s.api.policy.v1beta1.PodSecurityPolicy"
           },
@@ -83087,47 +81972,47 @@
       ]
     },
     "io.k8s.api.policy.v1beta1.PodSecurityPolicySpec": {
-      "description": "PodSecurityPolicySpec defines the policy enforced.",
+      "description": "Pod Security Policy Spec defines the policy enforced.",
       "properties": {
         "allowPrivilegeEscalation": {
-          "description": "allowPrivilegeEscalation determines if a pod can request to allow privilege escalation. If unspecified, defaults to true.",
+          "description": "AllowPrivilegeEscalation determines if a pod can request to allow privilege escalation. If unspecified, defaults to true.",
           "type": "boolean"
         },
         "allowedCapabilities": {
-          "description": "allowedCapabilities is a list of capabilities that can be requested to add to the container. Capabilities in this field may be added at the pod author's discretion. You must not list a capability in both allowedCapabilities and requiredDropCapabilities.",
+          "description": "AllowedCapabilities is a list of capabilities that can be requested to add to the container. Capabilities in this field may be added at the pod author's discretion. You must not list a capability in both AllowedCapabilities and RequiredDropCapabilities.",
           "items": {
             "type": "string"
           },
           "type": "array"
         },
         "allowedFlexVolumes": {
-          "description": "allowedFlexVolumes is a whitelist of allowed Flexvolumes.  Empty or nil indicates that all Flexvolumes may be used.  This parameter is effective only when the usage of the Flexvolumes is allowed in the \"volumes\" field.",
+          "description": "AllowedFlexVolumes is a whitelist of allowed Flexvolumes.  Empty or nil indicates that all Flexvolumes may be used.  This parameter is effective only when the usage of the Flexvolumes is allowed in the \"Volumes\" field.",
           "items": {
             "$ref": "#/definitions/io.k8s.api.policy.v1beta1.AllowedFlexVolume"
           },
           "type": "array"
         },
         "allowedHostPaths": {
-          "description": "allowedHostPaths is a white list of allowed host paths. Empty indicates that all host paths may be used.",
+          "description": "is a white list of allowed host paths. Empty indicates that all host paths may be used.",
           "items": {
             "$ref": "#/definitions/io.k8s.api.policy.v1beta1.AllowedHostPath"
           },
           "type": "array"
         },
         "defaultAddCapabilities": {
-          "description": "defaultAddCapabilities is the default set of capabilities that will be added to the container unless the pod spec specifically drops the capability.  You may not list a capability in both defaultAddCapabilities and requiredDropCapabilities. Capabilities added here are implicitly allowed, and need not be included in the allowedCapabilities list.",
+          "description": "DefaultAddCapabilities is the default set of capabilities that will be added to the container unless the pod spec specifically drops the capability.  You may not list a capability in both DefaultAddCapabilities and RequiredDropCapabilities. Capabilities added here are implicitly allowed, and need not be included in the AllowedCapabilities list.",
           "items": {
             "type": "string"
           },
           "type": "array"
         },
         "defaultAllowPrivilegeEscalation": {
-          "description": "defaultAllowPrivilegeEscalation controls the default setting for whether a process can gain more privileges than its parent process.",
+          "description": "DefaultAllowPrivilegeEscalation controls the default setting for whether a process can gain more privileges than its parent process.",
           "type": "boolean"
         },
         "fsGroup": {
           "$ref": "#/definitions/io.k8s.api.policy.v1beta1.FSGroupStrategyOptions",
-          "description": "fsGroup is the strategy that will dictate what fs group is used by the SecurityContext."
+          "description": "FSGroup is the strategy that will dictate what fs group is used by the SecurityContext."
         },
         "hostIPC": {
           "description": "hostIPC determines if the policy allows the use of HostIPC in the pod spec.",
@@ -83153,11 +82038,11 @@
           "type": "boolean"
         },
         "readOnlyRootFilesystem": {
-          "description": "readOnlyRootFilesystem when set to true will force containers to run with a read only root file system.  If the container specifically requests to run with a non-read only root file system the PSP should deny the pod. If set to false the container may run with a read only root file system if it wishes but it will not be forced to.",
+          "description": "ReadOnlyRootFilesystem when set to true will force containers to run with a read only root file system.  If the container specifically requests to run with a non-read only root file system the PSP should deny the pod. If set to false the container may run with a read only root file system if it wishes but it will not be forced to.",
           "type": "boolean"
         },
         "requiredDropCapabilities": {
-          "description": "requiredDropCapabilities are the capabilities that will be dropped from the container.  These are required to be dropped and cannot be added.",
+          "description": "RequiredDropCapabilities are the capabilities that will be dropped from the container.  These are required to be dropped and cannot be added.",
           "items": {
             "type": "string"
           },
@@ -83173,10 +82058,10 @@
         },
         "supplementalGroups": {
           "$ref": "#/definitions/io.k8s.api.policy.v1beta1.SupplementalGroupsStrategyOptions",
-          "description": "supplementalGroups is the strategy that will dictate what supplemental groups are used by the SecurityContext."
+          "description": "SupplementalGroups is the strategy that will dictate what supplemental groups are used by the SecurityContext."
         },
         "volumes": {
-          "description": "volumes is a white list of allowed volume plugins. Empty indicates that no volumes may be used. To allow all volumes you may use '*'.",
+          "description": "volumes is a white list of allowed volume plugins.  Empty indicates that all plugins may be used.",
           "items": {
             "type": "string"
           },
@@ -83191,17 +82076,17 @@
       ]
     },
     "io.k8s.api.policy.v1beta1.RunAsUserStrategyOptions": {
-      "description": "RunAsUserStrategyOptions defines the strategy type and any options used to create the strategy.",
+      "description": "Run A sUser Strategy Options defines the strategy type and any options used to create the strategy.",
       "properties": {
         "ranges": {
-          "description": "ranges are the allowed ranges of uids that may be used. If you would like to force a single uid then supply a single range with the same start and end. Required for MustRunAs.",
+          "description": "Ranges are the allowed ranges of uids that may be used.",
           "items": {
             "$ref": "#/definitions/io.k8s.api.policy.v1beta1.IDRange"
           },
           "type": "array"
         },
         "rule": {
-          "description": "rule is the strategy that will dictate the allowable RunAsUser values that may be set.",
+          "description": "Rule is the strategy that will dictate the allowable RunAsUser values that may be set.",
           "type": "string"
         }
       },
@@ -83210,10 +82095,10 @@
       ]
     },
     "io.k8s.api.policy.v1beta1.SELinuxStrategyOptions": {
-      "description": "SELinuxStrategyOptions defines the strategy type and any options used to create the strategy.",
+      "description": "SELinux  Strategy Options defines the strategy type and any options used to create the strategy.",
       "properties": {
         "rule": {
-          "description": "rule is the strategy that will dictate the allowable labels that may be set.",
+          "description": "type is the strategy that will dictate the allowable labels that may be set.",
           "type": "string"
         },
         "seLinuxOptions": {
@@ -83229,14 +82114,14 @@
       "description": "SupplementalGroupsStrategyOptions defines the strategy type and options used to create the strategy.",
       "properties": {
         "ranges": {
-          "description": "ranges are the allowed ranges of supplemental groups.  If you would like to force a single supplemental group then supply a single range with the same start and end. Required for MustRunAs.",
+          "description": "Ranges are the allowed ranges of supplemental groups.  If you would like to force a single supplemental group then supply a single range with the same start and end.",
           "items": {
             "$ref": "#/definitions/io.k8s.api.policy.v1beta1.IDRange"
           },
           "type": "array"
         },
         "rule": {
-          "description": "rule is the strategy that will dictate what supplemental groups is used in the SecurityContext.",
+          "description": "Rule is the strategy that will dictate what supplemental groups is used in the SecurityContext.",
           "type": "string"
         }
       }
@@ -83319,6 +82204,7 @@
         }
       },
       "required": [
+        "subjects",
         "roleRef"
       ],
       "x-kubernetes-group-version-kind": [
@@ -83502,6 +82388,7 @@
         }
       },
       "required": [
+        "subjects",
         "roleRef"
       ],
       "x-kubernetes-group-version-kind": [
@@ -83705,6 +82592,7 @@
         }
       },
       "required": [
+        "subjects",
         "roleRef"
       ],
       "x-kubernetes-group-version-kind": [
@@ -83888,6 +82776,7 @@
         }
       },
       "required": [
+        "subjects",
         "roleRef"
       ],
       "x-kubernetes-group-version-kind": [
@@ -84091,6 +82980,7 @@
         }
       },
       "required": [
+        "subjects",
         "roleRef"
       ],
       "x-kubernetes-group-version-kind": [
@@ -84274,6 +83164,7 @@
         }
       },
       "required": [
+        "subjects",
         "roleRef"
       ],
       "x-kubernetes-group-version-kind": [
@@ -84470,80 +83361,6 @@
           "group": "scheduling.k8s.io",
           "kind": "PriorityClassList",
           "version": "v1alpha1"
-        }
-      ]
-    },
-    "io.k8s.api.scheduling.v1beta1.PriorityClass": {
-      "description": "PriorityClass defines mapping from a priority class name to the priority integer value. The value can be any valid integer.",
-      "properties": {
-        "apiVersion": {
-          "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#resources",
-          "type": "string"
-        },
-        "description": {
-          "description": "description is an arbitrary string that usually provides guidelines on when this priority class should be used.",
-          "type": "string"
-        },
-        "globalDefault": {
-          "description": "globalDefault specifies whether this PriorityClass should be considered as the default priority for pods that do not have any priority class. Only one PriorityClass can be marked as `globalDefault`. However, if more than one PriorityClasses exists with their `globalDefault` field set to true, the smallest value of such global default PriorityClasses will be used as the default priority.",
-          "type": "boolean"
-        },
-        "kind": {
-          "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds",
-          "type": "string"
-        },
-        "metadata": {
-          "$ref": "#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta",
-          "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata"
-        },
-        "value": {
-          "description": "The value of this priority class. This is the actual priority that pods receive when they have the name of this class in their pod spec.",
-          "format": "int32",
-          "type": "integer"
-        }
-      },
-      "required": [
-        "value"
-      ],
-      "x-kubernetes-group-version-kind": [
-        {
-          "group": "scheduling.k8s.io",
-          "kind": "PriorityClass",
-          "version": "v1beta1"
-        }
-      ]
-    },
-    "io.k8s.api.scheduling.v1beta1.PriorityClassList": {
-      "description": "PriorityClassList is a collection of priority classes.",
-      "properties": {
-        "apiVersion": {
-          "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#resources",
-          "type": "string"
-        },
-        "items": {
-          "description": "items is the list of PriorityClasses",
-          "items": {
-            "$ref": "#/definitions/io.k8s.api.scheduling.v1beta1.PriorityClass"
-          },
-          "type": "array"
-        },
-        "kind": {
-          "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds",
-          "type": "string"
-        },
-        "metadata": {
-          "$ref": "#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ListMeta",
-          "description": "Standard list metadata More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata"
-        }
-      },
-      "required": [
-        "items"
-      ],
-      "x-kubernetes-group-version-kind": [
-        {
-          "group": "scheduling.k8s.io",
-          "kind": "PriorityClassList",
-          "version": "v1beta1"
         }
       ]
     },
@@ -85106,41 +83923,6 @@
         }
       }
     },
-    "io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceColumnDefinition": {
-      "description": "CustomResourceColumnDefinition specifies a column for server side printing.",
-      "properties": {
-        "JSONPath": {
-          "description": "JSONPath is a simple JSON path, i.e. with array notation.",
-          "type": "string"
-        },
-        "description": {
-          "description": "description is a human readable description of this column.",
-          "type": "string"
-        },
-        "format": {
-          "description": "format is an optional OpenAPI type definition for this column. The 'name' format is applied to the primary identifier column to assist in clients identifying column is the resource name. See https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#data-types for more.",
-          "type": "string"
-        },
-        "name": {
-          "description": "name is a human readable name for the column.",
-          "type": "string"
-        },
-        "priority": {
-          "description": "priority is an integer defining the relative importance of this column compared to others. Lower numbers are considered higher priority. Columns that may be omitted in limited space scenarios should be given a higher priority.",
-          "format": "int32",
-          "type": "integer"
-        },
-        "type": {
-          "description": "type is an OpenAPI type definition for this column. See https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#data-types for more.",
-          "type": "string"
-        }
-      },
-      "required": [
-        "name",
-        "type",
-        "JSONPath"
-      ]
-    },
     "io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinition": {
       "description": "CustomResourceDefinition represents a resource that should be exposed on the API server.  Its name MUST be in the format <.spec.name>.<.spec.group>.",
       "properties": {
@@ -85163,14 +83945,7 @@
           "$ref": "#/definitions/io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionStatus",
           "description": "Status indicates the actual state of the CustomResourceDefinition"
         }
-      },
-      "x-kubernetes-group-version-kind": [
-        {
-          "group": "apiextensions.k8s.io",
-          "kind": "CustomResourceDefinition",
-          "version": "v1beta1"
-        }
-      ]
+      }
     },
     "io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionCondition": {
       "description": "CustomResourceDefinitionCondition contains details for the current condition of this pod.",
@@ -85225,13 +84000,6 @@
       },
       "required": [
         "items"
-      ],
-      "x-kubernetes-group-version-kind": [
-        {
-          "group": "apiextensions.k8s.io",
-          "kind": "CustomResourceDefinitionList",
-          "version": "v1beta1"
-        }
       ]
     },
     "io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionNames": {
@@ -85276,13 +84044,6 @@
     "io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionSpec": {
       "description": "CustomResourceDefinitionSpec describes how a user wants their resource to appear",
       "properties": {
-        "additionalPrinterColumns": {
-          "description": "AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.",
-          "items": {
-            "$ref": "#/definitions/io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceColumnDefinition"
-          },
-          "type": "array"
-        },
         "group": {
           "description": "Group is the group this resource belongs in",
           "type": "string"
@@ -85297,26 +84058,20 @@
         },
         "subresources": {
           "$ref": "#/definitions/io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceSubresources",
-          "description": "Subresources describes the subresources for CustomResources"
+          "description": "Subresources describes the subresources for CustomResources This field is alpha-level and should only be sent to servers that enable subresources via the CustomResourceSubresources feature gate."
         },
         "validation": {
           "$ref": "#/definitions/io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceValidation",
           "description": "Validation describes the validation methods for CustomResources"
         },
         "version": {
-          "description": "Version is the version this resource belongs in Should be always first item in Versions field if provided. Optional, but at least one of Version or Versions must be set. Deprecated: Please use `Versions`.",
+          "description": "Version is the version this resource belongs in",
           "type": "string"
-        },
-        "versions": {
-          "description": "Versions is the list of all supported versions for this resource. If Version field is provided, this field is optional. Validation: All versions must use the same validation schema for now. i.e., top level Validation field is applied to all of these versions. Order: The version name will be used to compute the order. If the version string is \"kube-like\", it will sort above non \"kube-like\" version strings, which are ordered lexicographically. \"Kube-like\" versions start with a \"v\", then are followed by a number (the major version), then optionally the string \"alpha\" or \"beta\" and another number (the minor version). These are sorted first by GA > beta > alpha (where GA is a version with no suffix such as beta or alpha), and then by comparing major version, then minor version. An example sorted list of versions: v10, v2, v1, v11beta2, v10beta3, v3beta1, v12alpha1, v11alpha2, foo1, foo10.",
-          "items": {
-            "$ref": "#/definitions/io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionVersion"
-          },
-          "type": "array"
         }
       },
       "required": [
         "group",
+        "version",
         "names",
         "scope"
       ]
@@ -85334,40 +84089,11 @@
             "$ref": "#/definitions/io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionCondition"
           },
           "type": "array"
-        },
-        "storedVersions": {
-          "description": "StoredVersions are all versions of CustomResources that were ever persisted. Tracking these versions allows a migration path for stored versions in etcd. The field is mutable so the migration controller can first finish a migration to another version (i.e. that no old objects are left in the storage), and then remove the rest of the versions from this list. None of the versions in this list can be removed from the spec.Versions field.",
-          "items": {
-            "type": "string"
-          },
-          "type": "array"
         }
       },
       "required": [
         "conditions",
-        "acceptedNames",
-        "storedVersions"
-      ]
-    },
-    "io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionVersion": {
-      "properties": {
-        "name": {
-          "description": "Name is the version name, e.g. “v1”, “v2beta1”, etc.",
-          "type": "string"
-        },
-        "served": {
-          "description": "Served is a flag enabling/disabling this version from being served via REST APIs",
-          "type": "boolean"
-        },
-        "storage": {
-          "description": "Storage flags the version as storage version. There must be exactly one flagged as storage version.",
-          "type": "boolean"
-        }
-      },
-      "required": [
-        "name",
-        "served",
-        "storage"
+        "acceptedNames"
       ]
     },
     "io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceSubresourceScale": {
@@ -85678,7 +84404,8 @@
       },
       "required": [
         "name",
-        "versions"
+        "versions",
+        "serverAddressByClientCIDRs"
       ],
       "x-kubernetes-group-version-kind": [
         {
@@ -85899,21 +84626,6 @@
           "version": "v1beta1"
         },
         {
-          "group": "apiextensions.k8s.io",
-          "kind": "DeleteOptions",
-          "version": "v1beta1"
-        },
-        {
-          "group": "apiregistration.k8s.io",
-          "kind": "DeleteOptions",
-          "version": "v1"
-        },
-        {
-          "group": "apiregistration.k8s.io",
-          "kind": "DeleteOptions",
-          "version": "v1beta1"
-        },
-        {
           "group": "apps",
           "kind": "DeleteOptions",
           "version": "v1"
@@ -86022,11 +84734,6 @@
           "group": "scheduling.k8s.io",
           "kind": "DeleteOptions",
           "version": "v1alpha1"
-        },
-        {
-          "group": "scheduling.k8s.io",
-          "kind": "DeleteOptions",
-          "version": "v1beta1"
         },
         {
           "group": "settings.k8s.io",
@@ -86452,21 +85159,6 @@
           "version": "v1beta1"
         },
         {
-          "group": "apiextensions.k8s.io",
-          "kind": "WatchEvent",
-          "version": "v1beta1"
-        },
-        {
-          "group": "apiregistration.k8s.io",
-          "kind": "WatchEvent",
-          "version": "v1"
-        },
-        {
-          "group": "apiregistration.k8s.io",
-          "kind": "WatchEvent",
-          "version": "v1beta1"
-        },
-        {
           "group": "apps",
           "kind": "WatchEvent",
           "version": "v1"
@@ -86577,11 +85269,6 @@
           "version": "v1alpha1"
         },
         {
-          "group": "scheduling.k8s.io",
-          "kind": "WatchEvent",
-          "version": "v1beta1"
-        },
-        {
           "group": "settings.k8s.io",
           "kind": "WatchEvent",
           "version": "v1alpha1"
@@ -86685,14 +85372,7 @@
           "$ref": "#/definitions/io.k8s.kube-aggregator.pkg.apis.apiregistration.v1.APIServiceStatus",
           "description": "Status contains derived information about an API server"
         }
-      },
-      "x-kubernetes-group-version-kind": [
-        {
-          "group": "apiregistration.k8s.io",
-          "kind": "APIService",
-          "version": "v1"
-        }
-      ]
+      }
     },
     "io.k8s.kube-aggregator.pkg.apis.apiregistration.v1.APIServiceCondition": {
       "properties": {
@@ -86745,13 +85425,6 @@
       },
       "required": [
         "items"
-      ],
-      "x-kubernetes-group-version-kind": [
-        {
-          "group": "apiregistration.k8s.io",
-          "kind": "APIServiceList",
-          "version": "v1"
-        }
       ]
     },
     "io.k8s.kube-aggregator.pkg.apis.apiregistration.v1.APIServiceSpec": {
@@ -86784,13 +85457,14 @@
           "type": "string"
         },
         "versionPriority": {
-          "description": "VersionPriority controls the ordering of this API version inside of its group.  Must be greater than zero. The primary sort is based on VersionPriority, ordered highest to lowest (20 before 10). Since it's inside of a group, the number can be small, probably in the 10s. In case of equal version priorities, the version string will be used to compute the order inside a group. If the version string is \"kube-like\", it will sort above non \"kube-like\" version strings, which are ordered lexicographically. \"Kube-like\" versions start with a \"v\", then are followed by a number (the major version), then optionally the string \"alpha\" or \"beta\" and another number (the minor version). These are sorted first by GA > beta > alpha (where GA is a version with no suffix such as beta or alpha), and then by comparing major version, then minor version. An example sorted list of versions: v10, v2, v1, v11beta2, v10beta3, v3beta1, v12alpha1, v11alpha2, foo1, foo10.",
+          "description": "VersionPriority controls the ordering of this API version inside of its group.  Must be greater than zero. The primary sort is based on VersionPriority, ordered highest to lowest (20 before 10). The secondary sort is based on the alphabetical comparison of the name of the object.  (v1.bar before v1.foo) Since it's inside of a group, the number can be small, probably in the 10s.",
           "format": "int32",
           "type": "integer"
         }
       },
       "required": [
         "service",
+        "caBundle",
         "groupPriorityMinimum",
         "versionPriority"
       ]
@@ -86844,14 +85518,7 @@
           "$ref": "#/definitions/io.k8s.kube-aggregator.pkg.apis.apiregistration.v1beta1.APIServiceStatus",
           "description": "Status contains derived information about an API server"
         }
-      },
-      "x-kubernetes-group-version-kind": [
-        {
-          "group": "apiregistration.k8s.io",
-          "kind": "APIService",
-          "version": "v1beta1"
-        }
-      ]
+      }
     },
     "io.k8s.kube-aggregator.pkg.apis.apiregistration.v1beta1.APIServiceCondition": {
       "properties": {
@@ -86904,13 +85571,6 @@
       },
       "required": [
         "items"
-      ],
-      "x-kubernetes-group-version-kind": [
-        {
-          "group": "apiregistration.k8s.io",
-          "kind": "APIServiceList",
-          "version": "v1beta1"
-        }
       ]
     },
     "io.k8s.kube-aggregator.pkg.apis.apiregistration.v1beta1.APIServiceSpec": {
@@ -86943,13 +85603,14 @@
           "type": "string"
         },
         "versionPriority": {
-          "description": "VersionPriority controls the ordering of this API version inside of its group.  Must be greater than zero. The primary sort is based on VersionPriority, ordered highest to lowest (20 before 10). Since it's inside of a group, the number can be small, probably in the 10s. In case of equal version priorities, the version string will be used to compute the order inside a group. If the version string is \"kube-like\", it will sort above non \"kube-like\" version strings, which are ordered lexicographically. \"Kube-like\" versions start with a \"v\", then are followed by a number (the major version), then optionally the string \"alpha\" or \"beta\" and another number (the minor version). These are sorted first by GA > beta > alpha (where GA is a version with no suffix such as beta or alpha), and then by comparing major version, then minor version. An example sorted list of versions: v10, v2, v1, v11beta2, v10beta3, v3beta1, v12alpha1, v11alpha2, foo1, foo10.",
+          "description": "VersionPriority controls the ordering of this API version inside of its group.  Must be greater than zero. The primary sort is based on VersionPriority, ordered highest to lowest (20 before 10). The secondary sort is based on the alphabetical comparison of the name of the object.  (v1.bar before v1.foo) Since it's inside of a group, the number can be small, probably in the 10s.",
           "format": "int32",
           "type": "integer"
         }
       },
       "required": [
         "service",
+        "caBundle",
         "groupPriorityMinimum",
         "versionPriority"
       ]

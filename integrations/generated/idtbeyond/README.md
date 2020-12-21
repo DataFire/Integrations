@@ -9,10 +9,7 @@ npm install --save @datafire/idtbeyond
 ```js
 let idtbeyond = require('@datafire/idtbeyond').create();
 
-idtbeyond.iatu.balance.get({
-  "x-idt-beyond-app-id": "",
-  "x-idt-beyond-app-key": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

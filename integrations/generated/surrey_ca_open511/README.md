@@ -1,6 +1,6 @@
 # @datafire/surrey_ca_open511
 
-Client library for City of Surrey Open511
+Client library for City of Surrey Open511 API
 
 ## Installation and Usage
 ```bash
@@ -9,7 +9,7 @@ npm install --save @datafire/surrey_ca_open511
 ```js
 let surrey_ca_open511 = require('@datafire/surrey_ca_open511').create();
 
-surrey_ca_open511.jurisdictiongeography.get({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

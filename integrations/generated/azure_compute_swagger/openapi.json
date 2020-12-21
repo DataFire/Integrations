@@ -318,7 +318,7 @@
           }
         },
         "outputs": {
-          "description": "Gets or sets key/value pairs that represent deploymentoutput.",
+          "description": "Gets or sets key/value pairs that represent deployment output.",
           "type": "object"
         },
         "parameters": {
@@ -356,7 +356,7 @@
       }
     },
     "ParametersLink": {
-      "description": "Entity representing the reference to the deployment paramaters.",
+      "description": "Entity representing the reference to the deployment parameters.",
       "properties": {
         "contentVersion": {
           "description": "If included it must match the ContentVersion in the template.",

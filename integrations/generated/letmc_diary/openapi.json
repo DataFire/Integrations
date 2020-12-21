@@ -6,17 +6,22 @@
   "host": "live-api.letmc.com",
   "info": {
     "contact": {
-      "x-twitter": "LetMC"
+      "x-twitter": "agentOSSoftware"
     },
-    "title": "LetMC Api V3, diary",
+    "title": "AgentOS Api V3, diary",
     "version": "v3-diary",
     "x-apisguru-categories": [
       "ecommerce"
     ],
     "x-logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_LetMC_profile_image.jpeg"
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_agentOSSoftware_profile_image.jpeg"
     },
     "x-origin": [
+      {
+        "format": "swagger",
+        "url": "https://live-api.letmc.com/swagger/docs/v3-diary",
+        "version": "2.0"
+      },
       {
         "format": "swagger",
         "url": "https://live-api.letmc.com/swagger/docs/v3-diary",
@@ -31,12 +36,6 @@
       "type": "openapi"
     }
   },
-  "produces": [
-    "application/json",
-    "text/json",
-    "application/xml",
-    "text/xml"
-  ],
   "securityDefinitions": {
     "apiKey": {
       "description": "ApiKey Authentication",
@@ -93,12 +92,18 @@
             "type": "boolean"
           }
         ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
         "responses": {
           "200": {
             "description": "OK",
             "schema": {
               "items": {
-                "$ref": "#/definitions/ViewingBookingModel"
+                "$ref": "#/definitions/DiaryBookingModel"
               },
               "type": "array"
             }
@@ -131,6 +136,12 @@
             "type": "string"
           }
         ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -140,6 +151,43 @@
           }
         },
         "summary": "Update an existing appointment using its unique identifier",
+        "tags": [
+          "DiaryController"
+        ]
+      },
+      "get": {
+        "consumes": [],
+        "deprecated": false,
+        "operationId": "DiaryController_GetAppointment",
+        "parameters": [
+          {
+            "description": "Company short name",
+            "in": "path",
+            "name": "shortName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Appointment ID",
+            "in": "query",
+            "name": "appointmentID",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DiaryAppointmentModel"
+            }
+          }
+        },
+        "summary": "Get an appointment by ID",
         "tags": [
           "DiaryController"
         ]
@@ -163,11 +211,15 @@
             "type": "string"
           },
           {
+            "collectionFormat": "multi",
             "description": "The unique property identifier (Sales or Lettings)",
             "in": "query",
+            "items": {
+              "type": "string"
+            },
             "name": "propertyIdentifier",
             "required": true,
-            "type": "string"
+            "type": "array"
           },
           {
             "description": "The appointment details model",
@@ -175,7 +227,7 @@
             "name": "appointmentDetails",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/AppointmentDetails"
+              "$ref": "#/definitions/DiaryAppointmentDetails"
             }
           },
           {
@@ -185,6 +237,12 @@
             "required": false,
             "type": "boolean"
           }
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
         ],
         "responses": {
           "200": {
@@ -230,7 +288,7 @@
             "name": "appointmentDetails",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/AppointmentDetails"
+              "$ref": "#/definitions/DiaryAppointmentDetails"
             }
           },
           {
@@ -240,6 +298,12 @@
             "required": false,
             "type": "boolean"
           }
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
         ],
         "responses": {
           "200": {
@@ -319,6 +383,12 @@
             "type": "integer"
           }
         ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -363,6 +433,12 @@
             "type": "integer"
           }
         ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -376,14 +452,82 @@
           "DiaryController"
         ]
       }
+    },
+    "/v3/diary/{shortName}/recurringappointment": {
+      "get": {
+        "consumes": [],
+        "deprecated": false,
+        "operationId": "DiaryController_GetRecurringAppointments",
+        "parameters": [
+          {
+            "description": "The unique client short-name",
+            "in": "path",
+            "name": "shortName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The unique ID of the Branch",
+            "in": "query",
+            "name": "branchID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "collectionFormat": "multi",
+            "description": "The appointment IDs to search for",
+            "in": "query",
+            "items": {
+              "type": "string"
+            },
+            "name": "appointmentTypesToSearch",
+            "required": true,
+            "type": "array"
+          },
+          {
+            "description": "The index of the first item to return",
+            "format": "int32",
+            "in": "query",
+            "name": "offset",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "The maximum number of items to return (up to 1000 per request)",
+            "format": "int32",
+            "in": "query",
+            "name": "count",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DiaryAppointmentModelResults"
+            }
+          }
+        },
+        "summary": "Retrieves all recurring appointments:-",
+        "tags": [
+          "DiaryController"
+        ]
+      }
     }
   },
   "definitions": {
-    "AppointmentDetails": {
-      "description": "Helper Model - Structure to submit the appointment details",
+    "DiaryAppointmentDetails": {
+      "description": "Submission Model - Structure to submit the appointment details",
       "properties": {
         "AllocationDetails": {
-          "$ref": "#/definitions/ViewingBookingModel",
+          "$ref": "#/definitions/DiaryBookingModel",
           "description": "Allocation details to link the appointment too"
         },
         "AppointmentType": {
@@ -397,7 +541,7 @@
         "Guests": {
           "description": "A collection of guests linked to the appointment. If none leave empty",
           "items": {
-            "$ref": "#/definitions/GuestDetails"
+            "$ref": "#/definitions/DiaryGuestDetails"
           },
           "type": "array"
         },
@@ -448,8 +592,22 @@
           },
           "type": "array"
         },
+        "NextRecurringDate": {
+          "description": "Date appointment next repeats:-",
+          "format": "date-time",
+          "type": "string"
+        },
         "OID": {
           "description": "The unique Object ID (OID).",
+          "type": "string"
+        },
+        "Recurrence": {
+          "description": "The reccurrence interval for the appointment:-",
+          "format": "int32",
+          "type": "integer"
+        },
+        "RecurrenceType": {
+          "description": "The type of recurrence:-",
           "type": "string"
         },
         "RemindAt": {
@@ -563,8 +721,32 @@
       },
       "type": "object"
     },
-    "GuestDetails": {
-      "description": "Helper Model – Structure to submit appointment guest details",
+    "DiaryBookingModel": {
+      "description": "Represents a viewing booking slot",
+      "properties": {
+        "End": {
+          "description": "The end time of the booking",
+          "format": "date-time",
+          "type": "string"
+        },
+        "StaffID": {
+          "description": "The unique ID of the staff member this booking is with",
+          "type": "string"
+        },
+        "StaffName": {
+          "description": "The name of the staff member this booking is with",
+          "type": "string"
+        },
+        "Start": {
+          "description": "The start time of the booking",
+          "format": "date-time",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "DiaryGuestDetails": {
+      "description": "Submission Model - Structure to submit appointment guest details",
       "properties": {
         "EmailAddress": {
           "description": "Email address",
@@ -614,6 +796,14 @@
           "description": "Has the Tenancy ended?",
           "type": "boolean"
         },
+        "IsTenancyProposed": {
+          "description": "Is the tenancy Proposed?",
+          "type": "boolean"
+        },
+        "IsTenancySigned": {
+          "description": "Is the tenancy signed?",
+          "type": "boolean"
+        },
         "LinkedTenants": {
           "description": "A collection of tenants linked to the tenancy:-",
           "items": {
@@ -640,12 +830,20 @@
           "description": "ETag",
           "type": "string"
         },
+        "Email": {
+          "description": "Landlord's email address",
+          "type": "string"
+        },
         "Forename": {
           "description": "Forename",
           "type": "string"
         },
         "OID": {
           "description": "OID",
+          "type": "string"
+        },
+        "PhoneNumber": {
+          "description": "Landlord's phone number",
           "type": "string"
         },
         "Surname": {
@@ -716,6 +914,10 @@
           "description": "ETag",
           "type": "string"
         },
+        "Email": {
+          "description": "Tenant's email address",
+          "type": "string"
+        },
         "Forename": {
           "description": "Forename",
           "type": "string"
@@ -724,36 +926,16 @@
           "description": "OID",
           "type": "string"
         },
+        "PhoneNumber": {
+          "description": "Tenant's phone number",
+          "type": "string"
+        },
         "Surname": {
           "description": "Surname",
           "type": "string"
         },
         "Title": {
           "description": "Title",
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
-    "ViewingBookingModel": {
-      "description": "Represents a viewing booking slot",
-      "properties": {
-        "End": {
-          "description": "The end time of the booking",
-          "format": "date-time",
-          "type": "string"
-        },
-        "StaffID": {
-          "description": "The unique ID of the staff member this booking is with",
-          "type": "string"
-        },
-        "StaffName": {
-          "description": "The name of the staff member this booking is with",
-          "type": "string"
-        },
-        "Start": {
-          "description": "The start time of the booking",
-          "format": "date-time",
           "type": "string"
         }
       },

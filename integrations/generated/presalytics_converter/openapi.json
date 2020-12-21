@@ -1,0 +1,86 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "contact": {
+      "email": "kevin@presalytics.io",
+      "name": "Presalytics.io",
+      "url": "http://presalytics.io"
+    },
+    "description": "This api converts file formats of OpenXml and OpenOffice documents formats to vector files (e.g., svg)",
+    "license": {
+      "name": "AGPL"
+    },
+    "title": "Doc Converter",
+    "version": "0.1",
+    "x-apisguru-categories": [
+      "analytics"
+    ],
+    "x-logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_presalytics.io_static_img_Logo_Logos_Orange-White_navbar.png"
+    },
+    "x-origin": [
+      {
+        "format": "openapi",
+        "url": "https://api.presalytics.io/doc-converter/openapi.json",
+        "version": "3.0"
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "presalytics.io",
+    "x-serviceName": "converter",
+    "x-datafire": {
+      "name": "presalytics_converter",
+      "type": "openapi"
+    }
+  },
+  "host": "api.presalytics.io",
+  "basePath": "/doc-converter/",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/svgconvert": {
+      "post": {
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "format": "binary",
+            "in": "formData",
+            "name": "file",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Url of svg file",
+            "schema": {
+              "properties": {
+                "blob_name": {
+                  "type": "string"
+                },
+                "blob_url": {
+                  "type": "string"
+                }
+              },
+              "title": "File Url",
+              "type": "object"
+            }
+          },
+          "400": {
+            "description": "Bad Request."
+          },
+          "415": {
+            "description": "Invalid file type"
+          }
+        },
+        "operationId": "svgconvert",
+        "summary": "converts pptx file to svg image"
+      }
+    }
+  }
+}

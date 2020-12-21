@@ -9,7 +9,7 @@ npm install --save @datafire/thenounproject
 ```js
 let thenounproject = require('@datafire/thenounproject').create();
 
-thenounproject.getRecentIcons({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

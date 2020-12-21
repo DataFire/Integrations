@@ -1,16 +1,16 @@
 {
   "swagger": "2.0",
-  "schemes": [
-    "https"
-  ],
-  "host": "www.googleapis.com",
-  "basePath": "/mirror/v1",
   "info": {
     "contact": {
       "name": "Google",
       "url": "https://google.com"
     },
     "description": "Interacts with Glass users via the timeline.",
+    "license": {
+      "name": "Creative Commons Attribution 3.0",
+      "url": "http://creativecommons.org/licenses/by/3.0/"
+    },
+    "termsOfService": "https://developers.google.com/terms/",
     "title": "Google Mirror",
     "version": "v1",
     "x-apiClientRegistration": {
@@ -23,7 +23,7 @@
       {
         "converter": {
           "url": "https://github.com/lucybot/api-spec-converter",
-          "version": "2.6.2"
+          "version": "2.7.31"
         },
         "format": "google",
         "url": "https://www.googleapis.com/discovery/v1/apis/mirror/v1/rest",
@@ -38,134 +38,74 @@
       "type": "openapi"
     }
   },
-  "externalDocs": {
-    "url": "https://developers.google.com/glass"
-  },
-  "securityDefinitions": {
-    "Oauth2": {
-      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 authentication",
-      "flow": "implicit",
-      "scopes": {
-        "https://www.googleapis.com/auth/glass.location": "View your location",
-        "https://www.googleapis.com/auth/glass.timeline": "View and manage your Glass timeline"
-      },
-      "type": "oauth2"
-    },
-    "offline": {
-      "type": "oauth2",
-      "flow": "accessCode",
-      "scopes": {
-        "https://www.googleapis.com/auth/glass.location": "View your location",
-        "https://www.googleapis.com/auth/glass.timeline": "View and manage your Glass timeline"
-      },
-      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "tokenUrl": "https://www.googleapis.com/oauth2/v4/token",
-      "description": "Allows offline access using a refresh_token"
-    }
-  },
-  "parameters": {
-    "alt": {
-      "default": "json",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ],
-      "in": "query",
-      "name": "alt",
-      "type": "string"
-    },
-    "fields": {
-      "description": "Selector specifying which fields to include in a partial response.",
-      "in": "query",
-      "name": "fields",
-      "type": "string"
-    },
-    "key": {
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
-      "in": "query",
-      "name": "key",
-      "type": "string"
-    },
-    "oauth_token": {
-      "description": "OAuth 2.0 token for the current user.",
-      "in": "query",
-      "name": "oauth_token",
-      "type": "string"
-    },
-    "prettyPrint": {
-      "default": true,
-      "description": "Returns response with indentations and line breaks.",
-      "in": "query",
-      "name": "prettyPrint",
-      "type": "boolean"
-    },
-    "quotaUser": {
-      "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
-      "in": "query",
-      "name": "quotaUser",
-      "type": "string"
-    },
-    "userIp": {
-      "description": "Deprecated. Please use quotaUser instead.",
-      "in": "query",
-      "name": "userIp",
-      "type": "string"
-    }
-  },
-  "tags": [
-    {
-      "name": "accounts"
-    },
-    {
-      "name": "contacts"
-    },
-    {
-      "name": "locations"
-    },
-    {
-      "name": "settings"
-    },
-    {
-      "name": "subscriptions"
-    },
-    {
-      "name": "timeline"
-    }
+  "host": "www.googleapis.com",
+  "basePath": "/mirror/v1",
+  "schemes": [
+    "https"
   ],
   "paths": {
     "/accounts/{userToken}/{accountType}/{accountName}": {
       "parameters": [
         {
-          "$ref": "#/parameters/alt"
+          "default": "json",
+          "description": "Data format for the response.",
+          "enum": [
+            "json"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/fields"
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/key"
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/oauth_token"
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/prettyPrint"
+          "default": true,
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
         },
         {
-          "$ref": "#/parameters/quotaUser"
+          "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/userIp"
+          "description": "Deprecated. Please use quotaUser instead.",
+          "in": "query",
+          "name": "userIp",
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Inserts a new account for a user",
-        "operationId": "accounts.insert",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/octet-stream"
+        ],
         "parameters": [
           {
-            "description": "The name of the account to be passed to the Android Account Manager.",
+            "description": "The ID for the user.",
             "in": "path",
-            "name": "accountName",
+            "name": "userToken",
             "required": true,
             "type": "string"
           },
@@ -177,18 +117,18 @@
             "type": "string"
           },
           {
+            "description": "The name of the account to be passed to the Android Account Manager.",
+            "in": "path",
+            "name": "accountName",
+            "required": true,
+            "type": "string"
+          },
+          {
             "in": "body",
             "name": "body",
             "schema": {
               "$ref": "#/definitions/Account"
             }
-          },
-          {
-            "description": "The ID for the user.",
-            "in": "path",
-            "name": "userToken",
-            "required": true,
-            "type": "string"
           }
         ],
         "responses": {
@@ -201,13 +141,66 @@
         },
         "tags": [
           "accounts"
-        ]
+        ],
+        "description": "Inserts a new account for a user",
+        "operationId": "mirror.accounts.insert"
       }
     },
     "/contacts": {
+      "parameters": [
+        {
+          "default": "json",
+          "description": "Data format for the response.",
+          "enum": [
+            "json"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
+        },
+        {
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
+        },
+        {
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
+        },
+        {
+          "default": true,
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
+        },
+        {
+          "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
+        },
+        {
+          "description": "Deprecated. Please use quotaUser instead.",
+          "in": "query",
+          "name": "userIp",
+          "type": "string"
+        }
+      ],
       "get": {
-        "description": "Retrieves a list of contacts for the authenticated user.",
-        "operationId": "contacts.list",
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -220,39 +213,25 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/glass.timeline"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/glass.timeline"
             ]
           }
         ],
         "tags": [
           "contacts"
-        ]
+        ],
+        "description": "Retrieves a list of contacts for the authenticated user.",
+        "operationId": "mirror.contacts.list"
       },
-      "parameters": [
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/userIp"
-        }
-      ],
       "post": {
-        "description": "Inserts a new contact.",
-        "operationId": "contacts.insert",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/octet-stream"
+        ],
         "parameters": [
           {
             "in": "body",
@@ -274,18 +253,70 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/glass.timeline"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/glass.timeline"
             ]
           }
         ],
         "tags": [
           "contacts"
-        ]
+        ],
+        "description": "Inserts a new contact.",
+        "operationId": "mirror.contacts.insert"
       }
     },
     "/contacts/{id}": {
+      "parameters": [
+        {
+          "default": "json",
+          "description": "Data format for the response.",
+          "enum": [
+            "json"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
+        },
+        {
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
+        },
+        {
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
+        },
+        {
+          "default": true,
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
+        },
+        {
+          "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
+        },
+        {
+          "description": "Deprecated. Please use quotaUser instead.",
+          "in": "query",
+          "name": "userIp",
+          "type": "string"
+        }
+      ],
       "delete": {
-        "description": "Deletes a contact.",
-        "operationId": "contacts.delete",
         "parameters": [
           {
             "description": "The ID of the contact.",
@@ -304,16 +335,22 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/glass.timeline"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/glass.timeline"
             ]
           }
         ],
         "tags": [
           "contacts"
-        ]
+        ],
+        "description": "Deletes a contact.",
+        "operationId": "mirror.contacts.delete"
       },
       "get": {
-        "description": "Gets a single contact by ID.",
-        "operationId": "contacts.get",
+        "produces": [
+          "application/octet-stream"
+        ],
         "parameters": [
           {
             "description": "The ID of the contact.",
@@ -335,53 +372,39 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/glass.timeline"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/glass.timeline"
             ]
           }
         ],
         "tags": [
           "contacts"
-        ]
+        ],
+        "description": "Gets a single contact by ID.",
+        "operationId": "mirror.contacts.get"
       },
-      "parameters": [
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/userIp"
-        }
-      ],
       "patch": {
-        "description": "Updates a contact in place. This method supports patch semantics.",
-        "operationId": "contacts.patch",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/octet-stream"
+        ],
         "parameters": [
+          {
+            "description": "The ID of the contact.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
             "schema": {
               "$ref": "#/definitions/Contact"
             }
-          },
-          {
-            "description": "The ID of the contact.",
-            "in": "path",
-            "name": "id",
-            "required": true,
-            "type": "string"
           }
         ],
         "responses": {
@@ -396,30 +419,39 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/glass.timeline"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/glass.timeline"
             ]
           }
         ],
         "tags": [
           "contacts"
-        ]
+        ],
+        "description": "Updates a contact in place. This method supports patch semantics.",
+        "operationId": "mirror.contacts.patch"
       },
       "put": {
-        "description": "Updates a contact in place.",
-        "operationId": "contacts.update",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/octet-stream"
+        ],
         "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Contact"
-            }
-          },
           {
             "description": "The ID of the contact.",
             "in": "path",
             "name": "id",
             "required": true,
             "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Contact"
+            }
           }
         ],
         "responses": {
@@ -434,18 +466,74 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/glass.timeline"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/glass.timeline"
             ]
           }
         ],
         "tags": [
           "contacts"
-        ]
+        ],
+        "description": "Updates a contact in place.",
+        "operationId": "mirror.contacts.update"
       }
     },
     "/locations": {
+      "parameters": [
+        {
+          "default": "json",
+          "description": "Data format for the response.",
+          "enum": [
+            "json"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
+        },
+        {
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
+        },
+        {
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
+        },
+        {
+          "default": true,
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
+        },
+        {
+          "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
+        },
+        {
+          "description": "Deprecated. Please use quotaUser instead.",
+          "in": "query",
+          "name": "userIp",
+          "type": "string"
+        }
+      ],
       "get": {
-        "description": "Retrieves a list of locations for the user.",
-        "operationId": "locations.list",
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -458,46 +546,81 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/glass.location"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/glass.location"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/glass.timeline"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/glass.timeline"
             ]
           }
         ],
         "tags": [
           "locations"
-        ]
-      },
-      "parameters": [
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/userIp"
-        }
-      ]
+        ],
+        "description": "Retrieves a list of locations for the user.",
+        "operationId": "mirror.locations.list"
+      }
     },
     "/locations/{id}": {
+      "parameters": [
+        {
+          "default": "json",
+          "description": "Data format for the response.",
+          "enum": [
+            "json"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
+        },
+        {
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
+        },
+        {
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
+        },
+        {
+          "default": true,
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
+        },
+        {
+          "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
+        },
+        {
+          "description": "Deprecated. Please use quotaUser instead.",
+          "in": "query",
+          "name": "userIp",
+          "type": "string"
+        }
+      ],
       "get": {
-        "description": "Gets a single location by ID.",
-        "operationId": "locations.get",
+        "produces": [
+          "application/octet-stream"
+        ],
         "parameters": [
           {
             "description": "The ID of the location or latest for the last known location.",
@@ -519,46 +642,81 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/glass.location"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/glass.location"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/glass.timeline"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/glass.timeline"
             ]
           }
         ],
         "tags": [
           "locations"
-        ]
-      },
-      "parameters": [
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/userIp"
-        }
-      ]
+        ],
+        "description": "Gets a single location by ID.",
+        "operationId": "mirror.locations.get"
+      }
     },
     "/settings/{id}": {
+      "parameters": [
+        {
+          "default": "json",
+          "description": "Data format for the response.",
+          "enum": [
+            "json"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
+        },
+        {
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
+        },
+        {
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
+        },
+        {
+          "default": true,
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
+        },
+        {
+          "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
+        },
+        {
+          "description": "Deprecated. Please use quotaUser instead.",
+          "in": "query",
+          "name": "userIp",
+          "type": "string"
+        }
+      ],
       "get": {
-        "description": "Gets a single setting by ID.",
-        "operationId": "settings.get",
+        "produces": [
+          "application/octet-stream"
+        ],
         "parameters": [
           {
             "description": "The ID of the setting. The following IDs are valid: \n- locale - The key to the user’s language/locale (BCP 47 identifier) that Glassware should use to render localized content. \n- timezone - The key to the user’s current time zone region as defined in the tz database. Example: America/Los_Angeles.",
@@ -580,41 +738,74 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/glass.timeline"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/glass.timeline"
             ]
           }
         ],
         "tags": [
           "settings"
-        ]
-      },
-      "parameters": [
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/userIp"
-        }
-      ]
+        ],
+        "description": "Gets a single setting by ID.",
+        "operationId": "mirror.settings.get"
+      }
     },
     "/subscriptions": {
+      "parameters": [
+        {
+          "default": "json",
+          "description": "Data format for the response.",
+          "enum": [
+            "json"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
+        },
+        {
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
+        },
+        {
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
+        },
+        {
+          "default": true,
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
+        },
+        {
+          "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
+        },
+        {
+          "description": "Deprecated. Please use quotaUser instead.",
+          "in": "query",
+          "name": "userIp",
+          "type": "string"
+        }
+      ],
       "get": {
-        "description": "Retrieves a list of subscriptions for the authenticated user and service.",
-        "operationId": "subscriptions.list",
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -627,39 +818,25 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/glass.timeline"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/glass.timeline"
             ]
           }
         ],
         "tags": [
           "subscriptions"
-        ]
+        ],
+        "description": "Retrieves a list of subscriptions for the authenticated user and service.",
+        "operationId": "mirror.subscriptions.list"
       },
-      "parameters": [
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/userIp"
-        }
-      ],
       "post": {
-        "description": "Creates a new subscription.",
-        "operationId": "subscriptions.insert",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/octet-stream"
+        ],
         "parameters": [
           {
             "in": "body",
@@ -681,18 +858,70 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/glass.timeline"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/glass.timeline"
             ]
           }
         ],
         "tags": [
           "subscriptions"
-        ]
+        ],
+        "description": "Creates a new subscription.",
+        "operationId": "mirror.subscriptions.insert"
       }
     },
     "/subscriptions/{id}": {
+      "parameters": [
+        {
+          "default": "json",
+          "description": "Data format for the response.",
+          "enum": [
+            "json"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
+        },
+        {
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
+        },
+        {
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
+        },
+        {
+          "default": true,
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
+        },
+        {
+          "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
+        },
+        {
+          "description": "Deprecated. Please use quotaUser instead.",
+          "in": "query",
+          "name": "userIp",
+          "type": "string"
+        }
+      ],
       "delete": {
-        "description": "Deletes a subscription.",
-        "operationId": "subscriptions.delete",
         "parameters": [
           {
             "description": "The ID of the subscription.",
@@ -711,53 +940,39 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/glass.timeline"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/glass.timeline"
             ]
           }
         ],
         "tags": [
           "subscriptions"
-        ]
+        ],
+        "description": "Deletes a subscription.",
+        "operationId": "mirror.subscriptions.delete"
       },
-      "parameters": [
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/userIp"
-        }
-      ],
       "put": {
-        "description": "Updates an existing subscription in place.",
-        "operationId": "subscriptions.update",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/octet-stream"
+        ],
         "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Subscription"
-            }
-          },
           {
             "description": "The ID of the subscription.",
             "in": "path",
             "name": "id",
             "required": true,
             "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Subscription"
+            }
           }
         ],
         "responses": {
@@ -772,18 +987,73 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/glass.timeline"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/glass.timeline"
             ]
           }
         ],
         "tags": [
           "subscriptions"
-        ]
+        ],
+        "description": "Updates an existing subscription in place.",
+        "operationId": "mirror.subscriptions.update"
       }
     },
     "/timeline": {
+      "parameters": [
+        {
+          "default": "json",
+          "description": "Data format for the response.",
+          "enum": [
+            "json"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
+        },
+        {
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
+        },
+        {
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
+        },
+        {
+          "default": true,
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
+        },
+        {
+          "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
+        },
+        {
+          "description": "Deprecated. Please use quotaUser instead.",
+          "in": "query",
+          "name": "userIp",
+          "type": "string"
+        }
+      ],
       "get": {
-        "description": "Retrieves a list of timeline items for the authenticated user.",
-        "operationId": "timeline.list",
+        "produces": [
+          "application/octet-stream"
+        ],
         "parameters": [
           {
             "description": "If provided, only items with the given bundleId will be returned.",
@@ -844,47 +1114,33 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/glass.location"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/glass.location"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/glass.timeline"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/glass.timeline"
             ]
           }
         ],
         "tags": [
           "timeline"
-        ]
+        ],
+        "description": "Retrieves a list of timeline items for the authenticated user.",
+        "operationId": "mirror.timeline.list"
       },
-      "parameters": [
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/userIp"
-        }
-      ],
       "post": {
         "consumes": [
           "audio/1d-interleaved-parityfec",
           "audio/32kadpcm",
           "audio/3gpp",
           "audio/3gpp2",
+          "audio/aac",
           "audio/ac3",
           "audio/adpcm",
           "audio/amr",
@@ -989,9 +1245,11 @@
           "audio/t140c",
           "audio/t38",
           "audio/telephone-event",
+          "audio/tetra_acelp",
           "audio/tone",
           "audio/uemclip",
           "audio/ulpfec",
+          "audio/usac",
           "audio/vdvi",
           "audio/vmr-wb",
           "audio/vnd.3gpp.iufp",
@@ -1016,6 +1274,7 @@
           "audio/vnd.dra",
           "audio/vnd.dts",
           "audio/vnd.dts.hd",
+          "audio/vnd.dts.uhd",
           "audio/vnd.dvb.file",
           "audio/vnd.everad.plj",
           "audio/vnd.hns.audio",
@@ -1055,7 +1314,10 @@
           "audio/x-tta",
           "audio/x-wav",
           "audio/xm",
+          "image/aces",
           "image/apng",
+          "image/avci",
+          "image/avcs",
           "image/bmp",
           "image/cgm",
           "image/dicom-rle",
@@ -1063,6 +1325,10 @@
           "image/fits",
           "image/g3fax",
           "image/gif",
+          "image/heic",
+          "image/heic-sequence",
+          "image/heif",
+          "image/heif-sequence",
           "image/ief",
           "image/jls",
           "image/jp2",
@@ -1173,9 +1439,11 @@
           "video/rtp-enc-aescm128",
           "video/rtploopback",
           "video/rtx",
+          "video/smpte291",
           "video/smpte292m",
           "video/ulpfec",
           "video/vc1",
+          "video/vc2",
           "video/vnd.cctv",
           "video/vnd.dece.hd",
           "video/vnd.dece.mobile",
@@ -1200,6 +1468,7 @@
           "video/vnd.mpegurl",
           "video/vnd.ms-playready.media.pyv",
           "video/vnd.nokia.interleaved-multimedia",
+          "video/vnd.nokia.mp4vr",
           "video/vnd.nokia.videovoip",
           "video/vnd.objectvideo",
           "video/vnd.radgamettools.bink",
@@ -1228,8 +1497,9 @@
           "video/x-sgi-movie",
           "video/x-smv"
         ],
-        "description": "Inserts a new item into the timeline.",
-        "operationId": "timeline.insert",
+        "produces": [
+          "application/octet-stream"
+        ],
         "parameters": [
           {
             "in": "body",
@@ -1251,23 +1521,78 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/glass.location"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/glass.location"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/glass.timeline"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/glass.timeline"
             ]
           }
         ],
         "tags": [
           "timeline"
-        ]
+        ],
+        "description": "Inserts a new item into the timeline.",
+        "operationId": "mirror.timeline.insert"
       }
     },
     "/timeline/{id}": {
+      "parameters": [
+        {
+          "default": "json",
+          "description": "Data format for the response.",
+          "enum": [
+            "json"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
+        },
+        {
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
+        },
+        {
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
+        },
+        {
+          "default": true,
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
+        },
+        {
+          "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
+        },
+        {
+          "description": "Deprecated. Please use quotaUser instead.",
+          "in": "query",
+          "name": "userIp",
+          "type": "string"
+        }
+      ],
       "delete": {
-        "description": "Deletes a timeline item.",
-        "operationId": "timeline.delete",
         "parameters": [
           {
             "description": "The ID of the timeline item.",
@@ -1286,21 +1611,30 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/glass.location"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/glass.location"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/glass.timeline"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/glass.timeline"
             ]
           }
         ],
         "tags": [
           "timeline"
-        ]
+        ],
+        "description": "Deletes a timeline item.",
+        "operationId": "mirror.timeline.delete"
       },
       "get": {
-        "description": "Gets a single timeline item by ID.",
-        "operationId": "timeline.get",
+        "produces": [
+          "application/octet-stream"
+        ],
         "parameters": [
           {
             "description": "The ID of the timeline item.",
@@ -1322,58 +1656,47 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/glass.location"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/glass.location"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/glass.timeline"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/glass.timeline"
             ]
           }
         ],
         "tags": [
           "timeline"
-        ]
+        ],
+        "description": "Gets a single timeline item by ID.",
+        "operationId": "mirror.timeline.get"
       },
-      "parameters": [
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/userIp"
-        }
-      ],
       "patch": {
-        "description": "Updates a timeline item in place. This method supports patch semantics.",
-        "operationId": "timeline.patch",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/octet-stream"
+        ],
         "parameters": [
+          {
+            "description": "The ID of the timeline item.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
             "schema": {
               "$ref": "#/definitions/TimelineItem"
             }
-          },
-          {
-            "description": "The ID of the timeline item.",
-            "in": "path",
-            "name": "id",
-            "required": true,
-            "type": "string"
           }
         ],
         "responses": {
@@ -1388,17 +1711,25 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/glass.location"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/glass.location"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/glass.timeline"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/glass.timeline"
             ]
           }
         ],
         "tags": [
           "timeline"
-        ]
+        ],
+        "description": "Updates a timeline item in place. This method supports patch semantics.",
+        "operationId": "mirror.timeline.patch"
       },
       "put": {
         "consumes": [
@@ -1406,6 +1737,7 @@
           "audio/32kadpcm",
           "audio/3gpp",
           "audio/3gpp2",
+          "audio/aac",
           "audio/ac3",
           "audio/adpcm",
           "audio/amr",
@@ -1510,9 +1842,11 @@
           "audio/t140c",
           "audio/t38",
           "audio/telephone-event",
+          "audio/tetra_acelp",
           "audio/tone",
           "audio/uemclip",
           "audio/ulpfec",
+          "audio/usac",
           "audio/vdvi",
           "audio/vmr-wb",
           "audio/vnd.3gpp.iufp",
@@ -1537,6 +1871,7 @@
           "audio/vnd.dra",
           "audio/vnd.dts",
           "audio/vnd.dts.hd",
+          "audio/vnd.dts.uhd",
           "audio/vnd.dvb.file",
           "audio/vnd.everad.plj",
           "audio/vnd.hns.audio",
@@ -1576,7 +1911,10 @@
           "audio/x-tta",
           "audio/x-wav",
           "audio/xm",
+          "image/aces",
           "image/apng",
+          "image/avci",
+          "image/avcs",
           "image/bmp",
           "image/cgm",
           "image/dicom-rle",
@@ -1584,6 +1922,10 @@
           "image/fits",
           "image/g3fax",
           "image/gif",
+          "image/heic",
+          "image/heic-sequence",
+          "image/heif",
+          "image/heif-sequence",
           "image/ief",
           "image/jls",
           "image/jp2",
@@ -1694,9 +2036,11 @@
           "video/rtp-enc-aescm128",
           "video/rtploopback",
           "video/rtx",
+          "video/smpte291",
           "video/smpte292m",
           "video/ulpfec",
           "video/vc1",
+          "video/vc2",
           "video/vnd.cctv",
           "video/vnd.dece.hd",
           "video/vnd.dece.mobile",
@@ -1721,6 +2065,7 @@
           "video/vnd.mpegurl",
           "video/vnd.ms-playready.media.pyv",
           "video/vnd.nokia.interleaved-multimedia",
+          "video/vnd.nokia.mp4vr",
           "video/vnd.nokia.videovoip",
           "video/vnd.objectvideo",
           "video/vnd.radgamettools.bink",
@@ -1749,22 +2094,23 @@
           "video/x-sgi-movie",
           "video/x-smv"
         ],
-        "description": "Updates a timeline item in place.",
-        "operationId": "timeline.update",
+        "produces": [
+          "application/octet-stream"
+        ],
         "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/TimelineItem"
-            }
-          },
           {
             "description": "The ID of the timeline item.",
             "in": "path",
             "name": "id",
             "required": true,
             "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
           }
         ],
         "responses": {
@@ -1779,23 +2125,81 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/glass.location"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/glass.location"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/glass.timeline"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/glass.timeline"
             ]
           }
         ],
         "tags": [
           "timeline"
-        ]
+        ],
+        "description": "Updates a timeline item in place.",
+        "operationId": "mirror.timeline.update"
       }
     },
     "/timeline/{itemId}/attachments": {
+      "parameters": [
+        {
+          "default": "json",
+          "description": "Data format for the response.",
+          "enum": [
+            "json"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
+        },
+        {
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
+        },
+        {
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
+        },
+        {
+          "default": true,
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
+        },
+        {
+          "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
+        },
+        {
+          "description": "Deprecated. Please use quotaUser instead.",
+          "in": "query",
+          "name": "userIp",
+          "type": "string"
+        }
+      ],
       "get": {
-        "description": "Returns a list of attachments for a timeline item.",
-        "operationId": "timeline.attachments.list",
+        "produces": [
+          "application/octet-stream"
+        ],
         "parameters": [
           {
             "description": "The ID of the timeline item whose attachments should be listed.",
@@ -1817,387 +2221,22 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/glass.timeline"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/glass.timeline"
             ]
           }
         ],
         "tags": [
           "timeline"
-        ]
-      },
-      "parameters": [
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/userIp"
-        }
-      ],
-      "post": {
-        "consumes": [
-          "audio/1d-interleaved-parityfec",
-          "audio/32kadpcm",
-          "audio/3gpp",
-          "audio/3gpp2",
-          "audio/ac3",
-          "audio/adpcm",
-          "audio/amr",
-          "audio/amr-wb",
-          "audio/amr-wb+",
-          "audio/aptx",
-          "audio/asc",
-          "audio/atrac-advanced-lossless",
-          "audio/atrac-x",
-          "audio/atrac3",
-          "audio/basic",
-          "audio/bv16",
-          "audio/bv32",
-          "audio/clearmode",
-          "audio/cn",
-          "audio/dat12",
-          "audio/dls",
-          "audio/dsr-es201108",
-          "audio/dsr-es202050",
-          "audio/dsr-es202211",
-          "audio/dsr-es202212",
-          "audio/dv",
-          "audio/dvi4",
-          "audio/eac3",
-          "audio/encaprtp",
-          "audio/evrc",
-          "audio/evrc-qcp",
-          "audio/evrc0",
-          "audio/evrc1",
-          "audio/evrcb",
-          "audio/evrcb0",
-          "audio/evrcb1",
-          "audio/evrcnw",
-          "audio/evrcnw0",
-          "audio/evrcnw1",
-          "audio/evrcwb",
-          "audio/evrcwb0",
-          "audio/evrcwb1",
-          "audio/evs",
-          "audio/fwdred",
-          "audio/g711-0",
-          "audio/g719",
-          "audio/g722",
-          "audio/g7221",
-          "audio/g723",
-          "audio/g726-16",
-          "audio/g726-24",
-          "audio/g726-32",
-          "audio/g726-40",
-          "audio/g728",
-          "audio/g729",
-          "audio/g7291",
-          "audio/g729d",
-          "audio/g729e",
-          "audio/gsm",
-          "audio/gsm-efr",
-          "audio/gsm-hr-08",
-          "audio/ilbc",
-          "audio/ip-mr_v2.5",
-          "audio/isac",
-          "audio/l16",
-          "audio/l20",
-          "audio/l24",
-          "audio/l8",
-          "audio/lpc",
-          "audio/melp",
-          "audio/melp1200",
-          "audio/melp2400",
-          "audio/melp600",
-          "audio/midi",
-          "audio/mobile-xmf",
-          "audio/mp3",
-          "audio/mp4",
-          "audio/mp4a-latm",
-          "audio/mpa",
-          "audio/mpa-robust",
-          "audio/mpeg",
-          "audio/mpeg4-generic",
-          "audio/musepack",
-          "audio/ogg",
-          "audio/opus",
-          "audio/parityfec",
-          "audio/pcma",
-          "audio/pcma-wb",
-          "audio/pcmu",
-          "audio/pcmu-wb",
-          "audio/prs.sid",
-          "audio/qcelp",
-          "audio/raptorfec",
-          "audio/red",
-          "audio/rtp-enc-aescm128",
-          "audio/rtp-midi",
-          "audio/rtploopback",
-          "audio/rtx",
-          "audio/s3m",
-          "audio/silk",
-          "audio/smv",
-          "audio/smv-qcp",
-          "audio/smv0",
-          "audio/sp-midi",
-          "audio/speex",
-          "audio/t140c",
-          "audio/t38",
-          "audio/telephone-event",
-          "audio/tone",
-          "audio/uemclip",
-          "audio/ulpfec",
-          "audio/vdvi",
-          "audio/vmr-wb",
-          "audio/vnd.3gpp.iufp",
-          "audio/vnd.4sb",
-          "audio/vnd.audiokoz",
-          "audio/vnd.celp",
-          "audio/vnd.cisco.nse",
-          "audio/vnd.cmles.radio-events",
-          "audio/vnd.cns.anp1",
-          "audio/vnd.cns.inf1",
-          "audio/vnd.dece.audio",
-          "audio/vnd.digital-winds",
-          "audio/vnd.dlna.adts",
-          "audio/vnd.dolby.heaac.1",
-          "audio/vnd.dolby.heaac.2",
-          "audio/vnd.dolby.mlp",
-          "audio/vnd.dolby.mps",
-          "audio/vnd.dolby.pl2",
-          "audio/vnd.dolby.pl2x",
-          "audio/vnd.dolby.pl2z",
-          "audio/vnd.dolby.pulse.1",
-          "audio/vnd.dra",
-          "audio/vnd.dts",
-          "audio/vnd.dts.hd",
-          "audio/vnd.dvb.file",
-          "audio/vnd.everad.plj",
-          "audio/vnd.hns.audio",
-          "audio/vnd.lucent.voice",
-          "audio/vnd.ms-playready.media.pya",
-          "audio/vnd.nokia.mobile-xmf",
-          "audio/vnd.nortel.vbk",
-          "audio/vnd.nuera.ecelp4800",
-          "audio/vnd.nuera.ecelp7470",
-          "audio/vnd.nuera.ecelp9600",
-          "audio/vnd.octel.sbc",
-          "audio/vnd.presonus.multitrack",
-          "audio/vnd.qcelp",
-          "audio/vnd.rhetorex.32kadpcm",
-          "audio/vnd.rip",
-          "audio/vnd.rn-realaudio",
-          "audio/vnd.sealedmedia.softseal.mpeg",
-          "audio/vnd.vmx.cvsd",
-          "audio/vnd.wave",
-          "audio/vorbis",
-          "audio/vorbis-config",
-          "audio/wav",
-          "audio/wave",
-          "audio/webm",
-          "audio/x-aac",
-          "audio/x-aiff",
-          "audio/x-caf",
-          "audio/x-flac",
-          "audio/x-m4a",
-          "audio/x-matroska",
-          "audio/x-mpegurl",
-          "audio/x-ms-wax",
-          "audio/x-ms-wma",
-          "audio/x-pn-realaudio",
-          "audio/x-pn-realaudio-plugin",
-          "audio/x-realaudio",
-          "audio/x-tta",
-          "audio/x-wav",
-          "audio/xm",
-          "image/apng",
-          "image/bmp",
-          "image/cgm",
-          "image/dicom-rle",
-          "image/emf",
-          "image/fits",
-          "image/g3fax",
-          "image/gif",
-          "image/ief",
-          "image/jls",
-          "image/jp2",
-          "image/jpeg",
-          "image/jpm",
-          "image/jpx",
-          "image/ktx",
-          "image/naplps",
-          "image/pjpeg",
-          "image/png",
-          "image/prs.btif",
-          "image/prs.pti",
-          "image/pwg-raster",
-          "image/sgi",
-          "image/svg+xml",
-          "image/t38",
-          "image/tiff",
-          "image/tiff-fx",
-          "image/vnd.adobe.photoshop",
-          "image/vnd.airzip.accelerator.azv",
-          "image/vnd.cns.inf2",
-          "image/vnd.dece.graphic",
-          "image/vnd.djvu",
-          "image/vnd.dvb.subtitle",
-          "image/vnd.dwg",
-          "image/vnd.dxf",
-          "image/vnd.fastbidsheet",
-          "image/vnd.fpx",
-          "image/vnd.fst",
-          "image/vnd.fujixerox.edmics-mmr",
-          "image/vnd.fujixerox.edmics-rlc",
-          "image/vnd.globalgraphics.pgb",
-          "image/vnd.microsoft.icon",
-          "image/vnd.mix",
-          "image/vnd.mozilla.apng",
-          "image/vnd.ms-modi",
-          "image/vnd.ms-photo",
-          "image/vnd.net-fpx",
-          "image/vnd.radiance",
-          "image/vnd.sealed.png",
-          "image/vnd.sealedmedia.softseal.gif",
-          "image/vnd.sealedmedia.softseal.jpg",
-          "image/vnd.svf",
-          "image/vnd.tencent.tap",
-          "image/vnd.valve.source.texture",
-          "image/vnd.wap.wbmp",
-          "image/vnd.xiff",
-          "image/vnd.zbrush.pcx",
-          "image/webp",
-          "image/wmf",
-          "image/x-3ds",
-          "image/x-cmu-raster",
-          "image/x-cmx",
-          "image/x-freehand",
-          "image/x-icon",
-          "image/x-jng",
-          "image/x-mrsid-image",
-          "image/x-ms-bmp",
-          "image/x-pcx",
-          "image/x-pict",
-          "image/x-portable-anymap",
-          "image/x-portable-bitmap",
-          "image/x-portable-graymap",
-          "image/x-portable-pixmap",
-          "image/x-rgb",
-          "image/x-tga",
-          "image/x-xbitmap",
-          "image/x-xcf",
-          "image/x-xpixmap",
-          "image/x-xwindowdump",
-          "video/1d-interleaved-parityfec",
-          "video/3gpp",
-          "video/3gpp-tt",
-          "video/3gpp2",
-          "video/bmpeg",
-          "video/bt656",
-          "video/celb",
-          "video/dv",
-          "video/encaprtp",
-          "video/h261",
-          "video/h263",
-          "video/h263-1998",
-          "video/h263-2000",
-          "video/h264",
-          "video/h264-rcdo",
-          "video/h264-svc",
-          "video/h265",
-          "video/iso.segment",
-          "video/jpeg",
-          "video/jpeg2000",
-          "video/jpm",
-          "video/mj2",
-          "video/mp1s",
-          "video/mp2p",
-          "video/mp2t",
-          "video/mp4",
-          "video/mp4v-es",
-          "video/mpeg",
-          "video/mpeg4-generic",
-          "video/mpv",
-          "video/nv",
-          "video/ogg",
-          "video/parityfec",
-          "video/pointer",
-          "video/quicktime",
-          "video/raptorfec",
-          "video/raw",
-          "video/rtp-enc-aescm128",
-          "video/rtploopback",
-          "video/rtx",
-          "video/smpte292m",
-          "video/ulpfec",
-          "video/vc1",
-          "video/vnd.cctv",
-          "video/vnd.dece.hd",
-          "video/vnd.dece.mobile",
-          "video/vnd.dece.mp4",
-          "video/vnd.dece.pd",
-          "video/vnd.dece.sd",
-          "video/vnd.dece.video",
-          "video/vnd.directv.mpeg",
-          "video/vnd.directv.mpeg-tts",
-          "video/vnd.dlna.mpeg-tts",
-          "video/vnd.dvb.file",
-          "video/vnd.fvt",
-          "video/vnd.hns.video",
-          "video/vnd.iptvforum.1dparityfec-1010",
-          "video/vnd.iptvforum.1dparityfec-2005",
-          "video/vnd.iptvforum.2dparityfec-1010",
-          "video/vnd.iptvforum.2dparityfec-2005",
-          "video/vnd.iptvforum.ttsavc",
-          "video/vnd.iptvforum.ttsmpeg2",
-          "video/vnd.motorola.video",
-          "video/vnd.motorola.videop",
-          "video/vnd.mpegurl",
-          "video/vnd.ms-playready.media.pyv",
-          "video/vnd.nokia.interleaved-multimedia",
-          "video/vnd.nokia.videovoip",
-          "video/vnd.objectvideo",
-          "video/vnd.radgamettools.bink",
-          "video/vnd.radgamettools.smacker",
-          "video/vnd.sealed.mpeg1",
-          "video/vnd.sealed.mpeg4",
-          "video/vnd.sealed.swf",
-          "video/vnd.sealedmedia.softseal.mov",
-          "video/vnd.uvvu.mp4",
-          "video/vnd.vivo",
-          "video/vp8",
-          "video/webm",
-          "video/x-f4v",
-          "video/x-fli",
-          "video/x-flv",
-          "video/x-m4v",
-          "video/x-matroska",
-          "video/x-mng",
-          "video/x-ms-asf",
-          "video/x-ms-vob",
-          "video/x-ms-wm",
-          "video/x-ms-wmv",
-          "video/x-ms-wmx",
-          "video/x-ms-wvx",
-          "video/x-msvideo",
-          "video/x-sgi-movie",
-          "video/x-smv"
         ],
-        "description": "Adds a new attachment to a timeline item.",
-        "operationId": "timeline.attachments.insert",
+        "description": "Returns a list of attachments for a timeline item.",
+        "operationId": "mirror.timeline.attachments.list"
+      },
+      "post": {
+        "produces": [
+          "application/octet-stream"
+        ],
         "parameters": [
           {
             "description": "The ID of the timeline item the attachment belongs to.",
@@ -2219,30 +2258,82 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/glass.timeline"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/glass.timeline"
             ]
           }
         ],
         "tags": [
           "timeline"
-        ]
+        ],
+        "description": "Adds a new attachment to a timeline item.",
+        "operationId": "mirror.timeline.attachments.insert"
       }
     },
     "/timeline/{itemId}/attachments/{attachmentId}": {
+      "parameters": [
+        {
+          "default": "json",
+          "description": "Data format for the response.",
+          "enum": [
+            "json"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
+        },
+        {
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
+        },
+        {
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
+        },
+        {
+          "default": true,
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
+        },
+        {
+          "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
+        },
+        {
+          "description": "Deprecated. Please use quotaUser instead.",
+          "in": "query",
+          "name": "userIp",
+          "type": "string"
+        }
+      ],
       "delete": {
-        "description": "Deletes an attachment from a timeline item.",
-        "operationId": "timeline.attachments.delete",
         "parameters": [
-          {
-            "description": "The ID of the attachment.",
-            "in": "path",
-            "name": "attachmentId",
-            "required": true,
-            "type": "string"
-          },
           {
             "description": "The ID of the timeline item the attachment belongs to.",
             "in": "path",
             "name": "itemId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The ID of the attachment.",
+            "in": "path",
+            "name": "attachmentId",
             "required": true,
             "type": "string"
           }
@@ -2256,28 +2347,34 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/glass.timeline"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/glass.timeline"
             ]
           }
         ],
         "tags": [
           "timeline"
-        ]
+        ],
+        "description": "Deletes an attachment from a timeline item.",
+        "operationId": "mirror.timeline.attachments.delete"
       },
       "get": {
-        "description": "Retrieves an attachment on a timeline item by item ID and attachment ID.",
-        "operationId": "timeline.attachments.get",
+        "produces": [
+          "application/octet-stream"
+        ],
         "parameters": [
-          {
-            "description": "The ID of the attachment.",
-            "in": "path",
-            "name": "attachmentId",
-            "required": true,
-            "type": "string"
-          },
           {
             "description": "The ID of the timeline item the attachment belongs to.",
             "in": "path",
             "name": "itemId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The ID of the attachment.",
+            "in": "path",
+            "name": "attachmentId",
             "required": true,
             "type": "string"
           }
@@ -2294,36 +2391,18 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/glass.timeline"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/glass.timeline"
             ]
           }
         ],
         "tags": [
           "timeline"
-        ]
-      },
-      "parameters": [
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/userIp"
-        }
-      ]
+        ],
+        "description": "Retrieves an attachment on a timeline item by item ID and attachment ID.",
+        "operationId": "mirror.timeline.attachments.get"
+      }
     }
   },
   "definitions": {
@@ -2915,6 +2994,1927 @@
         }
       },
       "type": "object"
+    }
+  },
+  "securityDefinitions": {
+    "Oauth2": {
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+      "description": "Oauth 2.0 implicit authentication",
+      "flow": "implicit",
+      "scopes": {
+        "https://www.googleapis.com/auth/glass.location": "View your location",
+        "https://www.googleapis.com/auth/glass.timeline": "View and manage your Glass timeline"
+      },
+      "type": "oauth2"
+    },
+    "Oauth2c": {
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+      "description": "Oauth 2.0 accessCode authentication",
+      "flow": "accessCode",
+      "scopes": {
+        "https://www.googleapis.com/auth/glass.location": "View your location",
+        "https://www.googleapis.com/auth/glass.timeline": "View and manage your Glass timeline"
+      },
+      "tokenUrl": "https://accounts.google.com/o/oauth2/token",
+      "type": "oauth2"
+    }
+  },
+  "tags": [
+    {
+      "name": "accounts"
+    },
+    {
+      "name": "contacts"
+    },
+    {
+      "name": "locations"
+    },
+    {
+      "name": "settings"
+    },
+    {
+      "name": "subscriptions"
+    },
+    {
+      "name": "timeline"
+    }
+  ],
+  "externalDocs": {
+    "url": "https://developers.google.com/glass"
+  },
+  "x-components": {
+    "parameters": {
+      "alt": {
+        "default": "json",
+        "description": "Data format for the response.",
+        "enum": [
+          "json"
+        ],
+        "in": "query",
+        "name": "alt",
+        "type": "string"
+      },
+      "fields": {
+        "description": "Selector specifying which fields to include in a partial response.",
+        "in": "query",
+        "name": "fields",
+        "type": "string"
+      },
+      "key": {
+        "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+        "in": "query",
+        "name": "key",
+        "type": "string"
+      },
+      "oauth_token": {
+        "description": "OAuth 2.0 token for the current user.",
+        "in": "query",
+        "name": "oauth_token",
+        "type": "string"
+      },
+      "prettyPrint": {
+        "default": true,
+        "description": "Returns response with indentations and line breaks.",
+        "in": "query",
+        "name": "prettyPrint",
+        "type": "boolean"
+      },
+      "quotaUser": {
+        "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
+        "in": "query",
+        "name": "quotaUser",
+        "type": "string"
+      },
+      "userIp": {
+        "description": "Deprecated. Please use quotaUser instead.",
+        "in": "query",
+        "name": "userIp",
+        "type": "string"
+      }
+    },
+    "requestBodies": {
+      "Contact": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/definitions/Contact"
+            }
+          }
+        }
+      },
+      "Subscription": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/definitions/Subscription"
+            }
+          }
+        }
+      },
+      "TimelineItem": {
+        "content": {
+          "audio/1d-interleaved-parityfec": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/32kadpcm": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/3gpp": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/3gpp2": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/aac": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/ac3": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/adpcm": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/amr": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/amr-wb": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/amr-wb+": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/aptx": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/asc": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/atrac-advanced-lossless": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/atrac-x": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/atrac3": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/basic": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/bv16": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/bv32": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/clearmode": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/cn": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/dat12": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/dls": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/dsr-es201108": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/dsr-es202050": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/dsr-es202211": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/dsr-es202212": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/dv": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/dvi4": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/eac3": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/encaprtp": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/evrc": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/evrc-qcp": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/evrc0": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/evrc1": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/evrcb": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/evrcb0": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/evrcb1": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/evrcnw": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/evrcnw0": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/evrcnw1": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/evrcwb": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/evrcwb0": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/evrcwb1": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/evs": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/fwdred": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/g711-0": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/g719": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/g722": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/g7221": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/g723": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/g726-16": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/g726-24": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/g726-32": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/g726-40": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/g728": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/g729": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/g7291": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/g729d": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/g729e": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/gsm": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/gsm-efr": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/gsm-hr-08": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/ilbc": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/ip-mr_v2.5": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/isac": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/l16": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/l20": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/l24": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/l8": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/lpc": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/melp": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/melp1200": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/melp2400": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/melp600": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/midi": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/mobile-xmf": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/mp3": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/mp4": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/mp4a-latm": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/mpa": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/mpa-robust": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/mpeg": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/mpeg4-generic": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/musepack": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/ogg": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/opus": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/parityfec": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/pcma": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/pcma-wb": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/pcmu": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/pcmu-wb": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/prs.sid": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/qcelp": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/raptorfec": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/red": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/rtp-enc-aescm128": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/rtp-midi": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/rtploopback": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/rtx": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/s3m": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/silk": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/smv": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/smv-qcp": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/smv0": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/sp-midi": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/speex": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/t140c": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/t38": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/telephone-event": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/tetra_acelp": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/tone": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/uemclip": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/ulpfec": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/usac": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/vdvi": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/vmr-wb": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/vnd.3gpp.iufp": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/vnd.4sb": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/vnd.audiokoz": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/vnd.celp": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/vnd.cisco.nse": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/vnd.cmles.radio-events": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/vnd.cns.anp1": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/vnd.cns.inf1": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/vnd.dece.audio": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/vnd.digital-winds": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/vnd.dlna.adts": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/vnd.dolby.heaac.1": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/vnd.dolby.heaac.2": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/vnd.dolby.mlp": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/vnd.dolby.mps": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/vnd.dolby.pl2": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/vnd.dolby.pl2x": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/vnd.dolby.pl2z": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/vnd.dolby.pulse.1": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/vnd.dra": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/vnd.dts": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/vnd.dts.hd": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/vnd.dts.uhd": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/vnd.dvb.file": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/vnd.everad.plj": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/vnd.hns.audio": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/vnd.lucent.voice": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/vnd.ms-playready.media.pya": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/vnd.nokia.mobile-xmf": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/vnd.nortel.vbk": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/vnd.nuera.ecelp4800": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/vnd.nuera.ecelp7470": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/vnd.nuera.ecelp9600": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/vnd.octel.sbc": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/vnd.presonus.multitrack": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/vnd.qcelp": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/vnd.rhetorex.32kadpcm": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/vnd.rip": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/vnd.rn-realaudio": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/vnd.sealedmedia.softseal.mpeg": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/vnd.vmx.cvsd": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/vnd.wave": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/vorbis": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/vorbis-config": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/wav": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/wave": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/webm": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/x-aac": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/x-aiff": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/x-caf": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/x-flac": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/x-m4a": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/x-matroska": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/x-mpegurl": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/x-ms-wax": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/x-ms-wma": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/x-pn-realaudio": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/x-pn-realaudio-plugin": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/x-realaudio": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/x-tta": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/x-wav": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "audio/xm": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "image/aces": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "image/apng": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "image/avci": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "image/avcs": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "image/bmp": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "image/cgm": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "image/dicom-rle": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "image/emf": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "image/fits": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "image/g3fax": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "image/gif": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "image/heic": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "image/heic-sequence": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "image/heif": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "image/heif-sequence": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "image/ief": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "image/jls": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "image/jp2": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "image/jpeg": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "image/jpm": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "image/jpx": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "image/ktx": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "image/naplps": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "image/pjpeg": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "image/png": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "image/prs.btif": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "image/prs.pti": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "image/pwg-raster": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "image/sgi": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "image/svg+xml": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "image/t38": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "image/tiff": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "image/tiff-fx": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "image/vnd.adobe.photoshop": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "image/vnd.airzip.accelerator.azv": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "image/vnd.cns.inf2": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "image/vnd.dece.graphic": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "image/vnd.djvu": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "image/vnd.dvb.subtitle": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "image/vnd.dwg": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "image/vnd.dxf": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "image/vnd.fastbidsheet": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "image/vnd.fpx": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "image/vnd.fst": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "image/vnd.fujixerox.edmics-mmr": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "image/vnd.fujixerox.edmics-rlc": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "image/vnd.globalgraphics.pgb": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "image/vnd.microsoft.icon": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "image/vnd.mix": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "image/vnd.mozilla.apng": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "image/vnd.ms-modi": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "image/vnd.ms-photo": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "image/vnd.net-fpx": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "image/vnd.radiance": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "image/vnd.sealed.png": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "image/vnd.sealedmedia.softseal.gif": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "image/vnd.sealedmedia.softseal.jpg": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "image/vnd.svf": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "image/vnd.tencent.tap": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "image/vnd.valve.source.texture": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "image/vnd.wap.wbmp": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "image/vnd.xiff": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "image/vnd.zbrush.pcx": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "image/webp": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "image/wmf": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "image/x-3ds": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "image/x-cmu-raster": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "image/x-cmx": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "image/x-freehand": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "image/x-icon": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "image/x-jng": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "image/x-mrsid-image": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "image/x-ms-bmp": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "image/x-pcx": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "image/x-pict": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "image/x-portable-anymap": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "image/x-portable-bitmap": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "image/x-portable-graymap": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "image/x-portable-pixmap": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "image/x-rgb": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "image/x-tga": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "image/x-xbitmap": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "image/x-xcf": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "image/x-xpixmap": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "image/x-xwindowdump": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "video/1d-interleaved-parityfec": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "video/3gpp": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "video/3gpp-tt": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "video/3gpp2": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "video/bmpeg": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "video/bt656": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "video/celb": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "video/dv": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "video/encaprtp": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "video/h261": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "video/h263": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "video/h263-1998": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "video/h263-2000": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "video/h264": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "video/h264-rcdo": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "video/h264-svc": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "video/h265": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "video/iso.segment": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "video/jpeg": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "video/jpeg2000": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "video/jpm": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "video/mj2": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "video/mp1s": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "video/mp2p": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "video/mp2t": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "video/mp4": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "video/mp4v-es": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "video/mpeg": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "video/mpeg4-generic": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "video/mpv": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "video/nv": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "video/ogg": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "video/parityfec": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "video/pointer": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "video/quicktime": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "video/raptorfec": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "video/raw": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "video/rtp-enc-aescm128": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "video/rtploopback": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "video/rtx": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "video/smpte291": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "video/smpte292m": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "video/ulpfec": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "video/vc1": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "video/vc2": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "video/vnd.cctv": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "video/vnd.dece.hd": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "video/vnd.dece.mobile": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "video/vnd.dece.mp4": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "video/vnd.dece.pd": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "video/vnd.dece.sd": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "video/vnd.dece.video": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "video/vnd.directv.mpeg": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "video/vnd.directv.mpeg-tts": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "video/vnd.dlna.mpeg-tts": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "video/vnd.dvb.file": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "video/vnd.fvt": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "video/vnd.hns.video": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "video/vnd.iptvforum.1dparityfec-1010": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "video/vnd.iptvforum.1dparityfec-2005": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "video/vnd.iptvforum.2dparityfec-1010": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "video/vnd.iptvforum.2dparityfec-2005": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "video/vnd.iptvforum.ttsavc": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "video/vnd.iptvforum.ttsmpeg2": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "video/vnd.motorola.video": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "video/vnd.motorola.videop": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "video/vnd.mpegurl": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "video/vnd.ms-playready.media.pyv": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "video/vnd.nokia.interleaved-multimedia": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "video/vnd.nokia.mp4vr": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "video/vnd.nokia.videovoip": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "video/vnd.objectvideo": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "video/vnd.radgamettools.bink": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "video/vnd.radgamettools.smacker": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "video/vnd.sealed.mpeg1": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "video/vnd.sealed.mpeg4": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "video/vnd.sealed.swf": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "video/vnd.sealedmedia.softseal.mov": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "video/vnd.uvvu.mp4": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "video/vnd.vivo": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "video/vp8": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "video/webm": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "video/x-f4v": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "video/x-fli": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "video/x-flv": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "video/x-m4v": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "video/x-matroska": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "video/x-mng": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "video/x-ms-asf": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "video/x-ms-vob": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "video/x-ms-wm": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "video/x-ms-wmv": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "video/x-ms-wmx": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "video/x-ms-wvx": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "video/x-msvideo": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "video/x-sgi-movie": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          },
+          "video/x-smv": {
+            "schema": {
+              "$ref": "#/definitions/TimelineItem"
+            }
+          }
+        }
+      }
     }
   }
 }

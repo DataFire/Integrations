@@ -1,11 +1,5 @@
 {
   "swagger": "2.0",
-  "schemes": [
-    "https",
-    "http"
-  ],
-  "host": "gateway.wso2apistore.com",
-  "basePath": "/transform/1.0.0",
   "info": {
     "contact": {
       "x-twitter": "wso2"
@@ -21,9 +15,9 @@
     },
     "x-origin": [
       {
-        "format": "swagger",
+        "format": "openapi",
         "url": "https://developers.wso2apistore.com/api-docs/manjular-AT-wso2.com-AT-developer/Transform/1.0.0",
-        "version": "2.0"
+        "version": "3.0"
       }
     ],
     "x-preferred": true,
@@ -34,14 +28,11 @@
       "type": "openapi"
     }
   },
-  "securityDefinitions": {
-    "default": {
-      "authorizationUrl": "https://gateway.api.cloud.wso2.com:443/authorize",
-      "flow": "implicit",
-      "scopes": {},
-      "type": "oauth2"
-    }
-  },
+  "host": "gateway.wso2apistore.com",
+  "basePath": "/transform/1.0.0",
+  "schemes": [
+    "https"
+  ],
   "paths": {
     "/jsontoxml": {
       "post": {
@@ -52,7 +43,7 @@
           {
             "description": "JSON payload",
             "in": "body",
-            "name": "Payload",
+            "name": "body",
             "required": true,
             "schema": {
               "default": "{\"foo\":\"bar\"}",
@@ -60,17 +51,13 @@
             }
           }
         ],
-        "produces": [
-          "text/xml"
-        ],
         "responses": {
           "200": {
             "description": ""
           }
         },
         "x-auth-type": "None",
-        "x-throttling-tier": "Unlimited",
-        "operationId": "jsontoxml.post"
+        "x-throttling-tier": "Unlimited"
       }
     },
     "/xmltojson": {
@@ -82,7 +69,7 @@
           {
             "description": "XML payload",
             "in": "body",
-            "name": "Payload",
+            "name": "body",
             "required": true,
             "schema": {
               "default": "<foo>bar</foo>",
@@ -90,18 +77,23 @@
             }
           }
         ],
-        "produces": [
-          "application/json"
-        ],
         "responses": {
           "200": {
             "description": ""
           }
         },
         "x-auth-type": "None",
-        "x-throttling-tier": "Unlimited",
-        "operationId": "xmltojson.post"
+        "x-throttling-tier": "Unlimited"
       }
     }
-  }
+  },
+  "securityDefinitions": {
+    "default": {
+      "authorizationUrl": "https://gateway.api.cloud.wso2.com/authorize",
+      "flow": "implicit",
+      "scopes": {},
+      "type": "oauth2"
+    }
+  },
+  "x-components": {}
 }

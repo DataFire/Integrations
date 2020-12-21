@@ -12,7 +12,7 @@ let tfl_gov_uk = require('@datafire/tfl_gov_uk').create({
   appId: ""
 });
 
-tfl_gov_uk.Line_Route({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -703,30 +703,31 @@ tfl_gov_uk.Occupancy_GetChargeConnectorStatus({
 * output `array`
   * items [Tfl.Api.Presentation.Entities.ChargeConnectorOccupancy](#tfl.api.presentation.entities.chargeconnectoroccupancy)
 
-### Place_GetByGeoBox
-Gets the places that lie within the bounding box defined by the lat/lon of its north-west and south-east corners. Optionally filters
-            on type and can strip properties for a smaller payload.
+### Place_GetByGeo
+Gets the places that lie within a geographic region. The geographic region of interest can either be specified
+            by using a lat/lon geo-point and a radius in metres to return places within the locus defined by the lat/lon of
+            its centre or alternatively, by the use of a bounding box defined by the lat/lon of its north-west and south-east corners.
+            Optionally filters on type and can strip properties for a smaller payload.
 
 
 ```js
-tfl_gov_uk.Place_GetByGeoBox({
-  "bbBoxpoints.swLat": 0,
-  "bbBoxpoints.swLon": 0,
-  "bbBoxpoints.neLat": 0,
-  "bbBoxpoints.neLon": 0
-}, context)
+tfl_gov_uk.Place_GetByGeo({}, context)
 ```
 
 #### Input
 * input `object`
-  * categories `array`: an optional list of comma separated property categories to return in the Place's property bag. If null or empty, all categories of property are returned. Pass the keyword "none" to return no properties (a valid list of categories can be obtained from the /Place/Meta/categories endpoint)
+  * radius `number`: The radius of the bounding circle in metres when only lat/lon are specified.
+  * categories `array`: An optional list of comma separated property categories to return in the Place's property bag. If null or empty, all categories of property are returned. Pass the keyword "none" to return no properties (a valid list of categories can be obtained from the /Place/Meta/categories endpoint)
   * includeChildren `boolean`: Defaults to false. If true child places e.g. individual charging stations at a charge point while be included, otherwise just the URLs of any child places will be returned
-  * type `array`: place types to filter on, or null to return all types
+  * type `array`: Place types to filter on, or null to return all types
   * activeOnly `boolean`: An optional parameter to limit the results to active records only (Currently only the 'VariableMessageSign' place type is supported)
-  * bbBoxpoints.swLat **required** `number`
-  * bbBoxpoints.swLon **required** `number`
-  * bbBoxpoints.neLat **required** `number`
-  * bbBoxpoints.neLon **required** `number`
+  * numberOfPlacesToReturn `integer`: If specified, limits the number of returned places equal to the given value
+  * placeGeo.swLat `number`
+  * placeGeo.swLon `number`
+  * placeGeo.neLat `number`
+  * placeGeo.neLon `number`
+  * placeGeo.lat `number`
+  * placeGeo.lon `number`
 
 #### Output
 * output `array`
@@ -1396,6 +1397,26 @@ tfl_gov_uk.StopPoint_Disruption({
 * output `array`
   * items [Tfl.Api.Presentation.Entities.DisruptedPoint](#tfl.api.presentation.entities.disruptedpoint)
 
+### StopPoint_ArrivalDepartures
+Gets the list of arrival and departure predictions for the given stop point id (overground and tfl rail only)
+
+
+```js
+tfl_gov_uk.StopPoint_ArrivalDepartures({
+  "id": "",
+  "lineIds": []
+}, context)
+```
+
+#### Input
+* input `object`
+  * id **required** `string`: A StopPoint id (station naptan code e.g. 940GZZLUASL, you can use /StopPoint/Search/{query} endpoint to find a stop point id from a station name)
+  * lineIds **required** `array`: A comma-separated list of line ids e.g. tfl-rail, london-overground
+
+#### Output
+* output `array`
+  * items [Tfl.Api.Presentation.Entities.ArrivalDeparture](#tfl.api.presentation.entities.arrivaldeparture)
+
 ### StopPoint_Arrivals
 Gets the list of arrival predictions for the given stop point id
 
@@ -1726,13 +1747,6 @@ tfl_gov_uk.Vehicle_Get({
   * lat **required** `number`
   * lon **required** `number`
 
-### Tfl.Api.Common.GeoPointBBox
-* Tfl.Api.Common.GeoPointBBox `object`
-  * neLat **required** `number`
-  * neLon **required** `number`
-  * swLat **required** `number`
-  * swLon **required** `number`
-
 ### Tfl.Api.Common.JourneyPlanner.JpElevation
 * Tfl.Api.Common.JourneyPlanner.JpElevation `object`
   * distance `integer`
@@ -1742,6 +1756,15 @@ tfl_gov_uk.Vehicle_Get({
   * heightFromPreviousPoint `integer`
   * startLat `number`
   * startLon `number`
+
+### Tfl.Api.Common.PlaceGeo
+* Tfl.Api.Common.PlaceGeo `object`
+  * lat `number`
+  * lon `number`
+  * neLat `number`
+  * neLon `number`
+  * swLat `number`
+  * swLon `number`
 
 ### Tfl.Api.Common.PostcodeInput
 * Tfl.Api.Common.PostcodeInput `object`
@@ -1791,6 +1814,23 @@ tfl_gov_uk.Vehicle_Get({
   * modified `string`
   * sourceSystemKey `string`
   * value `string`
+
+### Tfl.Api.Presentation.Entities.ArrivalDeparture
+* Tfl.Api.Presentation.Entities.ArrivalDeparture `object`: DTO to capture the prediction details
+  * cause `string`: Reason for cancellation or delay
+  * departureStatus `string` (values: OnTime, Delayed, Cancelled, NotStoppingAtStation): Status of departure
+  * destinationName `string`: Name of the destination
+  * destinationNaptanId `string`: Naptan Identifier for the prediction's destination
+  * estimatedTimeOfArrival `string`: Estimated time of arrival
+  * estimatedTimeOfDeparture `string`: Estimated time of arrival
+  * minutesAndSecondsToArrival `string`: Estimated time of arrival
+  * minutesAndSecondsToDeparture `string`: Estimated time of arrival
+  * naptanId `string`: Identifier for the prediction
+  * platformName `string`: Platform name (for bus, this is the stop letter)
+  * scheduledTimeOfArrival `string`: Estimated time of arrival
+  * scheduledTimeOfDeparture `string`: Estimated time of arrival
+  * stationName `string`: Station name
+  * timing [Tfl.Api.Presentation.Entities.PredictionTiming](#tfl.api.presentation.entities.predictiontiming)
 
 ### Tfl.Api.Presentation.Entities.Bay
 * Tfl.Api.Presentation.Entities.Bay `object`
@@ -1844,7 +1884,9 @@ tfl_gov_uk.Vehicle_Get({
   * label `string`: The long label to show on maps when zoomed in
   * labelShort `string`: The short label to show on maps
   * modified `string`: When the data was last updated
+  * routeType `string` (values: Unknown, All, Cycle Superhighways, Quietways, Cycleways, Mini-Hollands, Central London Grid): Type of cycle route e.g CycleSuperhighways, Quietways, MiniHollands etc
   * segmented `boolean`: True if the route is split into segments
+  * status `string` (values: Unknown, All, Open, In Progress, Planned, Planned - Subject to feasibility and consultation., Not Open): Cycle route status i.e Proposed, Existing etc
 
 ### Tfl.Api.Presentation.Entities.DisruptedPoint
 * Tfl.Api.Presentation.Entities.DisruptedPoint `object`
@@ -1909,6 +1951,7 @@ tfl_gov_uk.Vehicle_Get({
 ### Tfl.Api.Presentation.Entities.Fares.FareDetails
 * Tfl.Api.Presentation.Entities.Fares.FareDetails `object`
   * boundsId `integer`
+  * contactlessPAYGOnlyFare `boolean`
   * displayName `string`
   * displayOrder `integer`
   * endDate `string`
@@ -1932,6 +1975,12 @@ tfl_gov_uk.Vehicle_Get({
   * validatorInformation `string`
   * via `string`
 
+### Tfl.Api.Presentation.Entities.Fares.FareStation
+* Tfl.Api.Presentation.Entities.Fares.FareStation `object`
+  * atcoCode `string`
+  * commonName `string`
+  * fareCategory `string` (values: Cash, Oyster, Contactless, ContactlessOnly, All)
+
 ### Tfl.Api.Presentation.Entities.Fares.FaresMode
 * Tfl.Api.Presentation.Entities.Fares.FaresMode `object`
   * description `string`
@@ -1950,10 +1999,16 @@ tfl_gov_uk.Vehicle_Get({
 * Tfl.Api.Presentation.Entities.Fares.FaresSection `object`
   * header `string`
   * index `integer`
+  * journey [Tfl.Api.Presentation.Entities.Fares.Journey](#tfl.api.presentation.entities.fares.journey)
   * messages `array`
     * items [Tfl.Api.Presentation.Entities.Message](#tfl.api.presentation.entities.message)
   * rows `array`
     * items [Tfl.Api.Presentation.Entities.Fares.FareDetails](#tfl.api.presentation.entities.fares.faredetails)
+
+### Tfl.Api.Presentation.Entities.Fares.Journey
+* Tfl.Api.Presentation.Entities.Fares.Journey `object`
+  * fromStation [Tfl.Api.Presentation.Entities.Fares.FareStation](#tfl.api.presentation.entities.fares.farestation)
+  * toStation [Tfl.Api.Presentation.Entities.Fares.FareStation](#tfl.api.presentation.entities.fares.farestation)
 
 ### Tfl.Api.Presentation.Entities.Fares.PassengerType
 * Tfl.Api.Presentation.Entities.Fares.PassengerType `object`
@@ -2030,6 +2085,8 @@ tfl_gov_uk.Vehicle_Get({
   * fullName `string`
   * id `string`
   * name `string`
+  * routeType `string` (values: Unknown, All, Cycle Superhighways, Quietways, Cycleways, Mini-Hollands, Central London Grid)
+  * status `string` (values: Unknown, All, Open, In Progress, Planned, Planned - Subject to feasibility and consultation., Not Open)
   * type `string`
   * uri `string`
 

@@ -1,12 +1,5 @@
 {
   "swagger": "2.0",
-  "schemes": [
-    "https",
-    "http"
-  ],
-  "host": "resource-groups.amazonaws.com",
-  "basePath": "/",
-  "x-hasEquivalentPaths": true,
   "info": {
     "contact": {
       "email": "mike.ralphson@gmail.com",
@@ -14,7 +7,7 @@
       "url": "https://github.com/mermade/aws2openapi",
       "x-twitter": "PermittedSoc"
     },
-    "description": "<fullname>AWS Resource Groups</fullname> <p>AWS Resource Groups lets you organize AWS resources such as Amazon EC2 instances, Amazon Relational Database Service databases, and Amazon S3 buckets into groups using criteria that you define as tags. A resource group is a collection of resources that match the resource types specified in a query, and share one or more tags or portions of tags. You can create a group of resources based on their roles in your cloud infrastructure, lifecycle stages, regions, application layers, or virtually any criteria. Resource groups enable you to automate management tasks, such as those in AWS Systems Manager Automation documents, on tag-related resources in AWS Systems Manager. Groups of tagged resources also let you quickly view a custom console in AWS Systems Manager that shows AWS Config compliance and other monitoring data about member resources.</p> <p>To create a resource group, build a resource query, and specify tags that identify the criteria that members of the group have in common. Tags are key-value pairs.</p> <p>For more information about Resource Groups, see the <a href=\"https://docs.aws.amazon.com/ARG/latest/userguide/welcome.html\">AWS Resource Groups User Guide</a>.</p> <p>AWS Resource Groups uses a REST-compliant API that you can use to perform the following types of operations.</p> <ul> <li> <p>Create, Read, Update, and Delete (CRUD) operations on resource groups and resource query entities</p> </li> <li> <p>Applying, editing, and removing tags from resource groups</p> </li> <li> <p>Resolving resource group member ARNs so they can be returned as search results</p> </li> <li> <p>Getting data about resources that are members of a group</p> </li> <li> <p>Searching AWS resources based on a resource query</p> </li> </ul>",
+    "description": "<fullname>AWS Resource Groups</fullname> <p>AWS Resource Groups lets you organize AWS resources such as Amazon EC2 instances, Amazon Relational Database Service databases, and Amazon S3 buckets into groups using criteria that you define as tags. A resource group is a collection of resources that match the resource types specified in a query, and share one or more tags or portions of tags. You can create a group of resources based on their roles in your cloud infrastructure, lifecycle stages, regions, application layers, or virtually any criteria. Resource Groups enable you to automate management tasks, such as those in AWS Systems Manager Automation documents, on tag-related resources in AWS Systems Manager. Groups of tagged resources also let you quickly view a custom console in AWS Systems Manager that shows AWS Config compliance and other monitoring data about member resources.</p> <p>To create a resource group, build a resource query, and specify tags that identify the criteria that members of the group have in common. Tags are key-value pairs.</p> <p>For more information about Resource Groups, see the <a href=\"https://docs.aws.amazon.com/ARG/latest/userguide/welcome.html\">AWS Resource Groups User Guide</a>.</p> <p>AWS Resource Groups uses a REST-compliant API that you can use to perform the following types of operations.</p> <ul> <li> <p>Create, Read, Update, and Delete (CRUD) operations on resource groups and resource query entities</p> </li> <li> <p>Applying, editing, and removing tags from resource groups</p> </li> <li> <p>Resolving resource group member ARNs so they can be returned as search results</p> </li> <li> <p>Getting data about resources that are members of a group</p> </li> <li> <p>Searching AWS resources based on a resource query</p> </li> </ul>",
     "license": {
       "name": "Apache 2.0 License",
       "url": "http://www.apache.org/licenses/"
@@ -30,7 +23,7 @@
     ],
     "x-logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.jpeg"
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"
     },
     "x-origin": [
       {
@@ -40,7 +33,7 @@
           "version": "1.0.0"
         },
         "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/resource-groups-2017-11-27.normal.json",
-        "x-apisguru-direct": true
+        "x-apisguru-driver": "external"
       }
     ],
     "x-preferred": true,
@@ -52,254 +45,88 @@
       "type": "openapi"
     }
   },
-  "externalDocs": {
-    "description": "Amazon Web Services documentation",
-    "url": "https://aws.amazon.com/resource-groups/"
-  },
-  "consumes": [
-    "application/json"
+  "host": "resource-groups.us-east-1.amazonaws.com",
+  "basePath": "/",
+  "schemes": [
+    "http"
   ],
-  "produces": [
-    "application/json"
-  ],
-  "securityDefinitions": {
-    "hmac": {
-      "description": "Amazon Signature authorization v4",
-      "in": "header",
-      "name": "Authorization",
-      "type": "apiKey",
-      "x-amazon-apigateway-authtype": "awsSigv4"
-    }
-  },
-  "security": [
-    {
-      "hmac": []
-    }
-  ],
-  "parameters": {
-    "Action": {
-      "in": "header",
-      "name": "Action",
-      "required": true,
-      "type": "string"
-    },
-    "Version": {
-      "in": "header",
-      "name": "Version",
-      "required": true,
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "in": "header",
-      "name": "X-Amz-Algorithm",
-      "required": false,
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "in": "header",
-      "name": "X-Amz-Content-Sha256",
-      "required": false,
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "in": "header",
-      "name": "X-Amz-Credential",
-      "required": false,
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "in": "header",
-      "name": "X-Amz-Date",
-      "required": false,
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "in": "header",
-      "name": "X-Amz-Security-Token",
-      "required": false,
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "in": "header",
-      "name": "X-Amz-Signature",
-      "required": false,
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "in": "header",
-      "name": "X-Amz-SignedHeaders",
-      "required": false,
-      "type": "string"
-    }
-  },
   "paths": {
-    "/groups": {
-      "get": {
-        "description": "Returns a list of existing resource groups in your account.",
-        "operationId": "ListGroups",
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/ListGroupsInput"
-            }
-          },
-          {
-            "description": "Pagination limit",
-            "in": "query",
-            "name": "MaxResults",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "Pagination token",
-            "in": "query",
-            "name": "NextToken",
-            "required": false,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "schema": {
-              "$ref": "#/definitions/ListGroupsOutput"
-            }
-          },
-          "480": {
-            "description": "BadRequestException",
-            "schema": {
-              "$ref": "#/definitions/BadRequestException"
-            }
-          },
-          "481": {
-            "description": "ForbiddenException",
-            "schema": {
-              "$ref": "#/definitions/ForbiddenException"
-            }
-          },
-          "482": {
-            "description": "MethodNotAllowedException",
-            "schema": {
-              "$ref": "#/definitions/MethodNotAllowedException"
-            }
-          },
-          "483": {
-            "description": "TooManyRequestsException",
-            "schema": {
-              "$ref": "#/definitions/TooManyRequestsException"
-            }
-          },
-          "484": {
-            "description": "InternalServerErrorException",
-            "schema": {
-              "$ref": "#/definitions/InternalServerErrorException"
-            }
-          }
-        }
-      },
+    "/delete-group": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Creates a group with a specified name, description, and resource query.",
-        "operationId": "CreateGroup",
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/CreateGroupInput"
-            }
-          }
+        "consumes": [
+          "application/json"
         ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "schema": {
-              "$ref": "#/definitions/CreateGroupOutput"
-            }
-          },
-          "480": {
-            "description": "BadRequestException",
-            "schema": {
-              "$ref": "#/definitions/BadRequestException"
-            }
-          },
-          "481": {
-            "description": "ForbiddenException",
-            "schema": {
-              "$ref": "#/definitions/ForbiddenException"
-            }
-          },
-          "482": {
-            "description": "MethodNotAllowedException",
-            "schema": {
-              "$ref": "#/definitions/MethodNotAllowedException"
-            }
-          },
-          "483": {
-            "description": "TooManyRequestsException",
-            "schema": {
-              "$ref": "#/definitions/TooManyRequestsException"
-            }
-          },
-          "484": {
-            "description": "InternalServerErrorException",
-            "schema": {
-              "$ref": "#/definitions/InternalServerErrorException"
-            }
-          }
-        }
-      }
-    },
-    "/groups/{GroupName}": {
-      "delete": {
-        "description": "Deletes a specified resource group. Deleting a resource group does not delete resources that are members of the group; it only deletes the group structure.",
-        "operationId": "DeleteGroup",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "in": "body",
             "name": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/DeleteGroupInput"
+              "properties": {
+                "Group": {
+                  "description": "The name or the ARN of the resource group to delete.",
+                  "maxLength": 1600,
+                  "minLength": 1,
+                  "pattern": "(arn:aws(-[a-z]+)*:resource-groups:[a-z]{2}(-[a-z]+)+-\\d{1}:[0-9]{12}:group/)?[a-zA-Z0-9_\\.-]{1,128}",
+                  "type": "string"
+                },
+                "GroupName": {
+                  "description": "Don't use this parameter. Use <code>Group</code> instead.",
+                  "maxLength": 128,
+                  "minLength": 1,
+                  "pattern": "[a-zA-Z0-9_\\.-]+",
+                  "type": "string"
+                }
+              },
+              "type": "object"
             }
-          },
-          {
-            "in": "path",
-            "name": "GroupName",
-            "required": true,
-            "type": "string"
           }
         ],
         "responses": {
@@ -345,25 +172,87 @@
               "$ref": "#/definitions/InternalServerErrorException"
             }
           }
+        },
+        "description": "Deletes the specified resource group. Deleting a resource group does not delete any resources that are members of the group; it only deletes the group structure.",
+        "operationId": "DeleteGroup"
+      }
+    },
+    "/get-group": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
-      },
-      "get": {
-        "description": "Returns information about a specified resource group.",
-        "operationId": "GetGroup",
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "in": "body",
             "name": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/GetGroupInput"
+              "properties": {
+                "Group": {
+                  "description": "The name or the ARN of the resource group to retrieve.",
+                  "maxLength": 1600,
+                  "minLength": 1,
+                  "pattern": "(arn:aws(-[a-z]+)*:resource-groups:[a-z]{2}(-[a-z]+)+-\\d{1}:[0-9]{12}:group/)?[a-zA-Z0-9_\\.-]{1,128}",
+                  "type": "string"
+                },
+                "GroupName": {
+                  "description": "Don't use this parameter. Use <code>Group</code> instead.",
+                  "maxLength": 128,
+                  "minLength": 1,
+                  "pattern": "[a-zA-Z0-9_\\.-]+",
+                  "type": "string"
+                }
+              },
+              "type": "object"
             }
-          },
-          {
-            "in": "path",
-            "name": "GroupName",
-            "required": true,
-            "type": "string"
           }
         ],
         "responses": {
@@ -409,61 +298,87 @@
               "$ref": "#/definitions/InternalServerErrorException"
             }
           }
-        }
-      },
+        },
+        "description": "Returns information about a specified resource group.",
+        "operationId": "GetGroup"
+      }
+    },
+    "/get-group-configuration": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
-      "put": {
-        "description": "Updates an existing group with a new or changed description. You cannot update the name of a resource group.",
-        "operationId": "UpdateGroup",
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "in": "body",
             "name": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/UpdateGroupInput"
+              "properties": {
+                "Group": {
+                  "description": "The name or the ARN of the resource group.",
+                  "maxLength": 1600,
+                  "minLength": 1,
+                  "pattern": "(arn:aws(-[a-z]+)*:resource-groups:[a-z]{2}(-[a-z]+)+-\\d{1}:[0-9]{12}:group/)?[a-zA-Z0-9_\\.-]{1,128}",
+                  "type": "string"
+                }
+              },
+              "type": "object"
             }
-          },
-          {
-            "in": "path",
-            "name": "GroupName",
-            "required": true,
-            "type": "string"
           }
         ],
         "responses": {
           "200": {
             "description": "Success",
             "schema": {
-              "$ref": "#/definitions/UpdateGroupOutput"
+              "$ref": "#/definitions/GetGroupConfigurationOutput"
             }
           },
           "480": {
@@ -502,27 +417,87 @@
               "$ref": "#/definitions/InternalServerErrorException"
             }
           }
-        }
+        },
+        "description": "<p>Returns the service configuration associated with the specified resource group. AWS Resource Groups supports configurations for the following resource group types:</p> <ul> <li> <p> <code>AWS::EC2::CapacityReservationPool</code> - Amazon EC2 capacity reservation pools. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/capacity-reservations-using.html#create-cr-group\">Working with capacity reservation groups</a> in the <i>EC2 Users Guide</i>.</p> </li> </ul>",
+        "operationId": "GetGroupConfiguration"
       }
     },
-    "/groups/{GroupName}/query": {
-      "get": {
-        "description": "Returns the resource query associated with the specified resource group.",
-        "operationId": "GetGroupQuery",
+    "/get-group-query": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "in": "body",
             "name": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/GetGroupQueryInput"
+              "properties": {
+                "Group": {
+                  "description": "The name or the ARN of the resource group to query.",
+                  "maxLength": 1600,
+                  "minLength": 1,
+                  "pattern": "(arn:aws(-[a-z]+)*:resource-groups:[a-z]{2}(-[a-z]+)+-\\d{1}:[0-9]{12}:group/)?[a-zA-Z0-9_\\.-]{1,128}",
+                  "type": "string"
+                },
+                "GroupName": {
+                  "description": "Don't use this parameter. Use <code>Group</code> instead.",
+                  "maxLength": 128,
+                  "minLength": 1,
+                  "pattern": "[a-zA-Z0-9_\\.-]+",
+                  "type": "string"
+                }
+              },
+              "type": "object"
             }
-          },
-          {
-            "in": "path",
-            "name": "GroupName",
-            "required": true,
-            "type": "string"
           }
         ],
         "responses": {
@@ -568,61 +543,100 @@
               "$ref": "#/definitions/InternalServerErrorException"
             }
           }
-        }
-      },
+        },
+        "description": "Retrieves the resource query associated with the specified resource group.",
+        "operationId": "GetGroupQuery"
+      }
+    },
+    "/group-resources": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
-      "put": {
-        "description": "Updates the resource query of a group.",
-        "operationId": "UpdateGroupQuery",
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "in": "body",
             "name": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/UpdateGroupQueryInput"
+              "properties": {
+                "Group": {
+                  "description": "The name or the ARN of the resource group to add resources to.",
+                  "maxLength": 1600,
+                  "minLength": 1,
+                  "pattern": "(arn:aws(-[a-z]+)*:resource-groups:[a-z]{2}(-[a-z]+)+-\\d{1}:[0-9]{12}:group/)?[a-zA-Z0-9_\\.-]{1,128}",
+                  "type": "string"
+                },
+                "ResourceArns": {
+                  "description": "The list of ARNs for resources to be added to the group. ",
+                  "items": {
+                    "$ref": "#/definitions/ResourceArn"
+                  },
+                  "maxItems": 10,
+                  "minItems": 1,
+                  "type": "array"
+                }
+              },
+              "required": [
+                "Group",
+                "ResourceArns"
+              ],
+              "type": "object"
             }
-          },
-          {
-            "in": "path",
-            "name": "GroupName",
-            "required": true,
-            "type": "string"
           }
         ],
         "responses": {
           "200": {
             "description": "Success",
             "schema": {
-              "$ref": "#/definitions/UpdateGroupQueryOutput"
+              "$ref": "#/definitions/GroupResourcesOutput"
             }
           },
           "480": {
@@ -661,21 +675,245 @@
               "$ref": "#/definitions/InternalServerErrorException"
             }
           }
-        }
+        },
+        "description": "Adds the specified resources to the specified group.",
+        "operationId": "GroupResources"
       }
     },
-    "/groups/{GroupName}/resource-identifiers": {
-      "get": {
-        "description": "Returns a list of ARNs of resources that are members of a specified resource group.",
-        "operationId": "ListGroupResources",
+    "/groups": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "in": "body",
             "name": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/ListGroupResourcesInput"
+              "properties": {
+                "Configuration": {
+                  "description": "<p>A configuration associates the resource group with an AWS service and specifies how the service can interact with the resources in the group. A configuration is an array of <a>GroupConfigurationItem</a> elements.</p> <note> <p>You can specify either a <code>Configuration</code> or a <code>ResourceQuery</code> in a group, but not both.</p> </note>",
+                  "items": {
+                    "$ref": "#/definitions/GroupConfigurationItem"
+                  },
+                  "maxItems": 2,
+                  "type": "array"
+                },
+                "Description": {
+                  "description": "The description of the resource group. Descriptions can consist of letters, numbers, hyphens, underscores, periods, and spaces.",
+                  "maxLength": 512,
+                  "pattern": "[\\sa-zA-Z0-9_\\.-]*",
+                  "type": "string"
+                },
+                "Name": {
+                  "description": "The name of the group, which is the identifier of the group in other operations. You can't change the name of a resource group after you create it. A resource group name can consist of letters, numbers, hyphens, periods, and underscores. The name cannot start with <code>AWS</code> or <code>aws</code>; these are reserved. A resource group name must be unique within each AWS Region in your AWS account.",
+                  "maxLength": 128,
+                  "minLength": 1,
+                  "pattern": "[a-zA-Z0-9_\\.-]+",
+                  "type": "string"
+                },
+                "ResourceQuery": {
+                  "description": "<p>The query that is used to define a resource group or a search for resources. A query specifies both a query type and a query string as a JSON object. See the examples section for example JSON strings.</p> <p>The examples that follow are shown as standard JSON strings. If you include such a string as a parameter to the AWS CLI or an SDK API, you might need to 'escape' the string into a single line. For example, see the <a href=\"https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters-quoting-strings.html\">Quoting strings</a> in the <i>AWS CLI User Guide</i>.</p> <p> <b>Example 1</b> </p> <p>The following generic example shows a resource query JSON string that includes only resources that meet the following criteria:</p> <ul> <li> <p>The resource type must be either <code>resource_type1</code> or <code>resource_type2</code>.</p> </li> <li> <p>The resource must have a tag <code>Key1</code> with a value of either <code>ValueA</code> or <code>ValueB</code>.</p> </li> <li> <p>The resource must have a tag <code>Key2</code> with a value of either <code>ValueC</code> or <code>ValueD</code>.</p> </li> </ul> <p> <code>{ \"Type\": \"TAG_FILTERS_1_0\", \"Query\": { \"ResourceTypeFilters\": [ \"resource_type1\", \"resource_type2\"], \"TagFilters\": [ { \"Key\": \"Key1\", \"Values\": [\"ValueA\",\"ValueB\"] }, { \"Key\":\"Key2\", \"Values\":[\"ValueC\",\"ValueD\"] } ] } }</code> </p> <p>This has the equivalent \"shortcut\" syntax of the following:</p> <p> <code>{ \"Type\": \"TAG_FILTERS_1_0\", \"Query\": { \"ResourceTypeFilters\": [ \"resource_type1\", \"resource_type2\"], \"TagFilters\": [ { \"Key1\": [\"ValueA\",\"ValueB\"] }, { \"Key2\": [\"ValueC\",\"ValueD\"] } ] } }</code> </p> <p> <b>Example 2</b> </p> <p>The following example shows a resource query JSON string that includes only Amazon EC2 instances that are tagged <code>Stage</code> with a value of <code>Test</code>.</p> <p> <code>{ \"Type\": \"TAG_FILTERS_1_0\", \"Query\": \"{ \"ResourceTypeFilters\": \"AWS::EC2::Instance\", \"TagFilters\": { \"Stage\": \"Test\" } } }</code> </p> <p> <b>Example 3</b> </p> <p>The following example shows a resource query JSON string that includes resource of any supported type as long as it is tagged <code>Stage</code> with a value of <code>Prod</code>.</p> <p> <code>{ \"Type\": \"TAG_FILTERS_1_0\", \"Query\": { \"ResourceTypeFilters\": \"AWS::AllSupported\", \"TagFilters\": { \"Stage\": \"Prod\" } } }</code> </p> <p> <b>Example 4</b> </p> <p>The following example shows a resource query JSON string that includes only Amazon EC2 instances and Amazon S3 buckets that are part of the specified AWS CloudFormation stack.</p> <p> <code>{ \"Type\": \"CLOUDFORMATION_STACK_1_0\", \"Query\": { \"ResourceTypeFilters\": [ \"AWS::EC2::Instance\", \"AWS::S3::Bucket\" ], \"StackIdentifier\": \"arn:aws:cloudformation:us-west-2:123456789012:stack/AWStestuseraccount/fb0d5000-aba8-00e8-aa9e-50d5cEXAMPLE\" } }</code> </p>",
+                  "properties": {
+                    "Query": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/Query"
+                        },
+                        {
+                          "description": "The query that defines a group or a search."
+                        }
+                      ]
+                    },
+                    "Type": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/QueryType"
+                        },
+                        {
+                          "description": "<p>The type of the query. You can use the following values:</p> <ul> <li> <p> <i> <code>CLOUDFORMATION_STACK_1_0:</code> </i>Specifies that the <code>Query</code> contains an ARN for a CloudFormation stack.</p> </li> <li> <p> <i> <code>TAG_FILTERS_1_0:</code> </i>Specifies that the <code>Query</code> parameter contains a JSON string that represents a collection of simple tag filters for resource types and tags. The JSON string uses a syntax similar to the <code> <a href=\"https://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/API_GetResources.html\">GetResources</a> </code> operation, but uses only the <code> <a href=\"https://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/API_GetResources.html#resourcegrouptagging-GetResources-request-ResourceTypeFilters\"> ResourceTypeFilters</a> </code> and <code> <a href=\"https://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/API_GetResources.html#resourcegrouptagging-GetResources-request-TagFiltersTagFilters\">TagFilters</a> </code> fields. If you specify more than one tag key, only resources that match all tag keys, and at least one value of each specified tag key, are returned in your query. If you specify more than one value for a tag key, a resource matches the filter if it has a tag key value that matches <i>any</i> of the specified values.</p> <p>For example, consider the following sample query for resources that have two tags, <code>Stage</code> and <code>Version</code>, with two values each:</p> <p> <code>[{\"Stage\":[\"Test\",\"Deploy\"]},{\"Version\":[\"1\",\"2\"]}]</code> </p> <p>The results of this query could include the following.</p> <ul> <li> <p>An EC2 instance that has the following two tags: <code>{\"Stage\":\"Deploy\"}</code>, and <code>{\"Version\":\"2\"}</code> </p> </li> <li> <p>An S3 bucket that has the following two tags: <code>{\"Stage\":\"Test\"}</code>, and <code>{\"Version\":\"1\"}</code> </p> </li> </ul> <p>The query would not include the following items in the results, however. </p> <ul> <li> <p>An EC2 instance that has only the following tag: <code>{\"Stage\":\"Deploy\"}</code>.</p> <p>The instance does not have <b>all</b> of the tag keys specified in the filter, so it is excluded from the results.</p> </li> <li> <p>An RDS database that has the following two tags: <code>{\"Stage\":\"Archived\"}</code> and <code>{\"Version\":\"4\"}</code> </p> <p>The database has all of the tag keys, but none of those keys has an associated value that matches at least one of the specified values in the filter.</p> </li> </ul> </li> </ul>"
+                        }
+                      ]
+                    }
+                  },
+                  "type": "object"
+                },
+                "Tags": {
+                  "additionalProperties": {
+                    "$ref": "#/definitions/TagValue"
+                  },
+                  "description": "The tags to add to the group. A tag is key-value pair string.",
+                  "type": "object"
+                }
+              },
+              "required": [
+                "Name"
+              ],
+              "type": "object"
             }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateGroupOutput"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "482": {
+            "description": "MethodNotAllowedException",
+            "schema": {
+              "$ref": "#/definitions/MethodNotAllowedException"
+            }
+          },
+          "483": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          },
+          "484": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          }
+        },
+        "description": "Creates a resource group with the specified name and description. You can optionally include a resource query, or a service configuration.",
+        "operationId": "CreateGroup"
+      }
+    },
+    "/groups-list": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The total number of results that you want included on each page of the response. If you do not include this parameter, it defaults to a value that is specific to the operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code> response element is present and has a value (is not null). Include that value as the <code>NextToken</code> request parameter in the next call to the operation to get the next part of the results. Note that the service might return fewer results than the maximum even when there are more results available. You should check <code>NextToken</code> after every operation to ensure that you receive all of the results.",
+            "in": "query",
+            "maximum": 50,
+            "minimum": 1,
+            "name": "maxResults",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "The parameter for receiving additional results if you receive a <code>NextToken</code> response in a previous request. A <code>NextToken</code> response indicates that more output is available. Set this parameter to the value provided by a previous call's <code>NextToken</code> response to indicate where the output should continue from.",
+            "in": "query",
+            "maxLength": 8192,
+            "minLength": 0,
+            "name": "nextToken",
+            "pattern": "^[a-zA-Z0-9+/]*={0,2}$",
+            "required": false,
+            "type": "string"
           },
           {
             "description": "Pagination limit",
@@ -692,10 +930,175 @@
             "type": "string"
           },
           {
-            "in": "path",
-            "name": "GroupName",
+            "in": "body",
+            "name": "body",
             "required": true,
+            "schema": {
+              "properties": {
+                "Filters": {
+                  "description": "<p>Filters, formatted as <a>GroupFilter</a> objects, that you want to apply to a <code>ListGroups</code> operation.</p> <ul> <li> <p> <code>resource-type</code> - Filter the results to include only those of the specified resource types. Specify up to five resource types in the format <code>AWS::<i>ServiceCode</i>::<i>ResourceType</i> </code>. For example, <code>AWS::EC2::Instance</code>, or <code>AWS::S3::Bucket</code>.</p> </li> <li> <p> <code>configuration-type</code> - Filter the results to include only those groups that have the specified configuration types attached. The current supported values are:</p> <ul> <li> <p>AWS:EC2::CapacityReservationPool</p> </li> </ul> </li> </ul>",
+                  "items": {
+                    "$ref": "#/definitions/GroupFilter"
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListGroupsOutput"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "482": {
+            "description": "MethodNotAllowedException",
+            "schema": {
+              "$ref": "#/definitions/MethodNotAllowedException"
+            }
+          },
+          "483": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          },
+          "484": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          }
+        },
+        "description": "Returns a list of existing resource groups in your account.",
+        "operationId": "ListGroups"
+      }
+    },
+    "/list-group-resources": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
             "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "Filters": {
+                  "description": "<p>Filters, formatted as <a>ResourceFilter</a> objects, that you want to apply to a <code>ListGroupResources</code> operation. Filters the results to include only those of the specified resource types.</p> <ul> <li> <p> <code>resource-type</code> - Filter resources by their type. Specify up to five resource types in the format <code>AWS::ServiceCode::ResourceType</code>. For example, <code>AWS::EC2::Instance</code>, or <code>AWS::S3::Bucket</code>. </p> </li> </ul> <p>When you specify a <code>resource-type</code> filter for <code>ListGroupResources</code>, AWS Resource Groups validates your filter resource types against the types that are defined in the query associated with the group. For example, if a group contains only S3 buckets because its query specifies only that resource type, but your <code>resource-type</code> filter includes EC2 instances, AWS Resource Groups does not filter for EC2 instances. In this case, a <code>ListGroupResources</code> request returns a <code>BadRequestException</code> error with a message similar to the following:</p> <p> <code>The resource types specified as filters in the request are not valid.</code> </p> <p>The error includes a list of resource types that failed the validation because they are not part of the query associated with the group. This validation doesn't occur when the group query specifies <code>AWS::AllSupported</code>, because a group based on such a query can contain any of the allowed resource types for the query type (tag-based or AWS CloudFormation stack-based queries).</p>",
+                  "items": {
+                    "$ref": "#/definitions/ResourceFilter"
+                  },
+                  "type": "array"
+                },
+                "Group": {
+                  "description": "The name or the ARN of the resource group",
+                  "maxLength": 1600,
+                  "minLength": 1,
+                  "pattern": "(arn:aws(-[a-z]+)*:resource-groups:[a-z]{2}(-[a-z]+)+-\\d{1}:[0-9]{12}:group/)?[a-zA-Z0-9_\\.-]{1,128}",
+                  "type": "string"
+                },
+                "GroupName": {
+                  "description": "Don't use this parameter. Use <code>Group</code> instead.",
+                  "maxLength": 128,
+                  "minLength": 1,
+                  "pattern": "[a-zA-Z0-9_\\.-]+",
+                  "type": "string"
+                },
+                "MaxResults": {
+                  "description": "The total number of results that you want included on each page of the response. If you do not include this parameter, it defaults to a value that is specific to the operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code> response element is present and has a value (is not null). Include that value as the <code>NextToken</code> request parameter in the next call to the operation to get the next part of the results. Note that the service might return fewer results than the maximum even when there are more results available. You should check <code>NextToken</code> after every operation to ensure that you receive all of the results.",
+                  "maximum": 50,
+                  "minimum": 1,
+                  "type": "integer"
+                },
+                "NextToken": {
+                  "description": "The parameter for receiving additional results if you receive a <code>NextToken</code> response in a previous request. A <code>NextToken</code> response indicates that more output is available. Set this parameter to the value provided by a previous call's <code>NextToken</code> response to indicate where the output should continue from.",
+                  "maxLength": 8192,
+                  "minLength": 0,
+                  "pattern": "^[a-zA-Z0-9+/]*={0,2}$",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
           }
         ],
         "responses": {
@@ -747,80 +1150,64 @@
               "$ref": "#/definitions/InternalServerErrorException"
             }
           }
-        }
-      },
-      "parameters": [
-        {
-          "$ref": "#/parameters/Action"
         },
-        {
-          "$ref": "#/parameters/Version"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Date"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Algorithm"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Credential"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
-        }
-      ]
+        "description": "Returns a list of ARNs of the resources that are members of a specified resource group.",
+        "operationId": "ListGroupResources"
+      }
     },
     "/resources/search": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Returns a list of AWS resource identifiers that matches a specified query. The query uses the same format as a resource query in a CreateGroup or UpdateGroupQuery operation.",
-        "operationId": "SearchResources",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/SearchResourcesInput"
-            }
-          },
           {
             "description": "Pagination limit",
             "in": "query",
@@ -834,6 +1221,58 @@
             "name": "NextToken",
             "required": false,
             "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "MaxResults": {
+                  "description": "The total number of results that you want included on each page of the response. If you do not include this parameter, it defaults to a value that is specific to the operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code> response element is present and has a value (is not null). Include that value as the <code>NextToken</code> request parameter in the next call to the operation to get the next part of the results. Note that the service might return fewer results than the maximum even when there are more results available. You should check <code>NextToken</code> after every operation to ensure that you receive all of the results.",
+                  "maximum": 50,
+                  "minimum": 1,
+                  "type": "integer"
+                },
+                "NextToken": {
+                  "description": "The parameter for receiving additional results if you receive a <code>NextToken</code> response in a previous request. A <code>NextToken</code> response indicates that more output is available. Set this parameter to the value provided by a previous call's <code>NextToken</code> response to indicate where the output should continue from.",
+                  "maxLength": 8192,
+                  "minLength": 0,
+                  "pattern": "^[a-zA-Z0-9+/]*={0,2}$",
+                  "type": "string"
+                },
+                "ResourceQuery": {
+                  "description": "<p>The query that is used to define a resource group or a search for resources. A query specifies both a query type and a query string as a JSON object. See the examples section for example JSON strings.</p> <p>The examples that follow are shown as standard JSON strings. If you include such a string as a parameter to the AWS CLI or an SDK API, you might need to 'escape' the string into a single line. For example, see the <a href=\"https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters-quoting-strings.html\">Quoting strings</a> in the <i>AWS CLI User Guide</i>.</p> <p> <b>Example 1</b> </p> <p>The following generic example shows a resource query JSON string that includes only resources that meet the following criteria:</p> <ul> <li> <p>The resource type must be either <code>resource_type1</code> or <code>resource_type2</code>.</p> </li> <li> <p>The resource must have a tag <code>Key1</code> with a value of either <code>ValueA</code> or <code>ValueB</code>.</p> </li> <li> <p>The resource must have a tag <code>Key2</code> with a value of either <code>ValueC</code> or <code>ValueD</code>.</p> </li> </ul> <p> <code>{ \"Type\": \"TAG_FILTERS_1_0\", \"Query\": { \"ResourceTypeFilters\": [ \"resource_type1\", \"resource_type2\"], \"TagFilters\": [ { \"Key\": \"Key1\", \"Values\": [\"ValueA\",\"ValueB\"] }, { \"Key\":\"Key2\", \"Values\":[\"ValueC\",\"ValueD\"] } ] } }</code> </p> <p>This has the equivalent \"shortcut\" syntax of the following:</p> <p> <code>{ \"Type\": \"TAG_FILTERS_1_0\", \"Query\": { \"ResourceTypeFilters\": [ \"resource_type1\", \"resource_type2\"], \"TagFilters\": [ { \"Key1\": [\"ValueA\",\"ValueB\"] }, { \"Key2\": [\"ValueC\",\"ValueD\"] } ] } }</code> </p> <p> <b>Example 2</b> </p> <p>The following example shows a resource query JSON string that includes only Amazon EC2 instances that are tagged <code>Stage</code> with a value of <code>Test</code>.</p> <p> <code>{ \"Type\": \"TAG_FILTERS_1_0\", \"Query\": \"{ \"ResourceTypeFilters\": \"AWS::EC2::Instance\", \"TagFilters\": { \"Stage\": \"Test\" } } }</code> </p> <p> <b>Example 3</b> </p> <p>The following example shows a resource query JSON string that includes resource of any supported type as long as it is tagged <code>Stage</code> with a value of <code>Prod</code>.</p> <p> <code>{ \"Type\": \"TAG_FILTERS_1_0\", \"Query\": { \"ResourceTypeFilters\": \"AWS::AllSupported\", \"TagFilters\": { \"Stage\": \"Prod\" } } }</code> </p> <p> <b>Example 4</b> </p> <p>The following example shows a resource query JSON string that includes only Amazon EC2 instances and Amazon S3 buckets that are part of the specified AWS CloudFormation stack.</p> <p> <code>{ \"Type\": \"CLOUDFORMATION_STACK_1_0\", \"Query\": { \"ResourceTypeFilters\": [ \"AWS::EC2::Instance\", \"AWS::S3::Bucket\" ], \"StackIdentifier\": \"arn:aws:cloudformation:us-west-2:123456789012:stack/AWStestuseraccount/fb0d5000-aba8-00e8-aa9e-50d5cEXAMPLE\" } }</code> </p>",
+                  "properties": {
+                    "Query": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/Query"
+                        },
+                        {
+                          "description": "The query that defines a group or a search."
+                        }
+                      ]
+                    },
+                    "Type": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/QueryType"
+                        },
+                        {
+                          "description": "<p>The type of the query. You can use the following values:</p> <ul> <li> <p> <i> <code>CLOUDFORMATION_STACK_1_0:</code> </i>Specifies that the <code>Query</code> contains an ARN for a CloudFormation stack.</p> </li> <li> <p> <i> <code>TAG_FILTERS_1_0:</code> </i>Specifies that the <code>Query</code> parameter contains a JSON string that represents a collection of simple tag filters for resource types and tags. The JSON string uses a syntax similar to the <code> <a href=\"https://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/API_GetResources.html\">GetResources</a> </code> operation, but uses only the <code> <a href=\"https://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/API_GetResources.html#resourcegrouptagging-GetResources-request-ResourceTypeFilters\"> ResourceTypeFilters</a> </code> and <code> <a href=\"https://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/API_GetResources.html#resourcegrouptagging-GetResources-request-TagFiltersTagFilters\">TagFilters</a> </code> fields. If you specify more than one tag key, only resources that match all tag keys, and at least one value of each specified tag key, are returned in your query. If you specify more than one value for a tag key, a resource matches the filter if it has a tag key value that matches <i>any</i> of the specified values.</p> <p>For example, consider the following sample query for resources that have two tags, <code>Stage</code> and <code>Version</code>, with two values each:</p> <p> <code>[{\"Stage\":[\"Test\",\"Deploy\"]},{\"Version\":[\"1\",\"2\"]}]</code> </p> <p>The results of this query could include the following.</p> <ul> <li> <p>An EC2 instance that has the following two tags: <code>{\"Stage\":\"Deploy\"}</code>, and <code>{\"Version\":\"2\"}</code> </p> </li> <li> <p>An S3 bucket that has the following two tags: <code>{\"Stage\":\"Test\"}</code>, and <code>{\"Version\":\"1\"}</code> </p> </li> </ul> <p>The query would not include the following items in the results, however. </p> <ul> <li> <p>An EC2 instance that has only the following tag: <code>{\"Stage\":\"Deploy\"}</code>.</p> <p>The instance does not have <b>all</b> of the tag keys specified in the filter, so it is excluded from the results.</p> </li> <li> <p>An RDS database that has the following two tags: <code>{\"Stage\":\"Archived\"}</code> and <code>{\"Version\":\"4\"}</code> </p> <p>The database has all of the tag keys, but none of those keys has an associated value that matches at least one of the specified values in the filter.</p> </li> </ul> </li> </ul>"
+                        }
+                      ]
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "required": [
+                "ResourceQuery"
+              ],
+              "type": "object"
+            }
           }
         ],
         "responses": {
@@ -879,25 +1318,68 @@
               "$ref": "#/definitions/InternalServerErrorException"
             }
           }
-        }
+        },
+        "description": "Returns a list of AWS resource identifiers that matches the specified query. The query uses the same format as a resource query in a CreateGroup or UpdateGroupQuery operation.",
+        "operationId": "SearchResources"
       }
     },
     "/resources/{Arn}/tags": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
       "get": {
-        "description": "Returns a list of tags that are associated with a resource, specified by an ARN.",
-        "operationId": "GetTags",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "in": "body",
-            "name": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/GetTagsInput"
-            }
-          },
-          {
+            "description": "The ARN of the resource group whose tags you want to retrieve.",
             "in": "path",
+            "maxLength": 1600,
+            "minLength": 12,
             "name": "Arn",
+            "pattern": "arn:aws(-[a-z]+)*:resource-groups:[a-z]{2}(-[a-z]+)+-\\d{1}:[0-9]{12}:group/[a-zA-Z0-9_\\.-]{1,128}",
             "required": true,
             "type": "string"
           }
@@ -945,54 +1427,47 @@
               "$ref": "#/definitions/InternalServerErrorException"
             }
           }
-        }
+        },
+        "description": "Returns a list of tags that are associated with a resource group, specified by an ARN.",
+        "operationId": "GetTags"
       },
-      "parameters": [
-        {
-          "$ref": "#/parameters/Action"
-        },
-        {
-          "$ref": "#/parameters/Version"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Date"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Algorithm"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Credential"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
-        }
-      ],
       "patch": {
-        "description": "Deletes specified tags from a specified resource.",
-        "operationId": "Untag",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "description": "The ARN of the resource group from which to remove tags. The command removed both the specified keys and any values associated with those keys.",
+            "in": "path",
+            "maxLength": 1600,
+            "minLength": 12,
+            "name": "Arn",
+            "pattern": "arn:aws(-[a-z]+)*:resource-groups:[a-z]{2}(-[a-z]+)+-\\d{1}:[0-9]{12}:group/[a-zA-Z0-9_\\.-]{1,128}",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/UntagInput"
+              "properties": {
+                "Keys": {
+                  "description": "The keys of the tags to be removed.",
+                  "items": {
+                    "$ref": "#/definitions/TagKey"
+                  },
+                  "type": "array"
+                }
+              },
+              "required": [
+                "Keys"
+              ],
+              "type": "object"
             }
-          },
-          {
-            "in": "path",
-            "name": "Arn",
-            "required": true,
-            "type": "string"
           }
         ],
         "responses": {
@@ -1038,25 +1513,47 @@
               "$ref": "#/definitions/InternalServerErrorException"
             }
           }
-        }
+        },
+        "description": "Deletes tags from a specified resource group.",
+        "operationId": "Untag"
       },
       "put": {
-        "description": "Adds specified tags to a resource with the specified ARN. Existing tags on a resource are not changed if they are not specified in the request parameters.",
-        "operationId": "Tag",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "description": "The ARN of the resource group to which to add tags.",
+            "in": "path",
+            "maxLength": 1600,
+            "minLength": 12,
+            "name": "Arn",
+            "pattern": "arn:aws(-[a-z]+)*:resource-groups:[a-z]{2}(-[a-z]+)+-\\d{1}:[0-9]{12}:group/[a-zA-Z0-9_\\.-]{1,128}",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/TagInput"
+              "properties": {
+                "Tags": {
+                  "additionalProperties": {
+                    "$ref": "#/definitions/TagValue"
+                  },
+                  "description": "The tags to add to the specified resource group. A tag is a string-to-string map of key-value pairs.",
+                  "type": "object"
+                }
+              },
+              "required": [
+                "Tags"
+              ],
+              "type": "object"
             }
-          },
-          {
-            "in": "path",
-            "name": "Arn",
-            "required": true,
-            "type": "string"
           }
         ],
         "responses": {
@@ -1102,146 +1599,814 @@
               "$ref": "#/definitions/InternalServerErrorException"
             }
           }
+        },
+        "description": "<p>Adds tags to a resource group with the specified ARN. Existing tags on a resource group are not changed if they are not specified in the request parameters.</p> <important> <p>Do not store personally identifiable information (PII) or other confidential or sensitive information in tags. We use tags to provide you with billing and administration services. Tags are not intended to be used for private or sensitive data.</p> </important>",
+        "operationId": "Tag"
+      }
+    },
+    "/ungroup-resources": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "Group": {
+                  "description": "The name or the ARN of the resource group from which to remove the resources.",
+                  "maxLength": 1600,
+                  "minLength": 1,
+                  "pattern": "(arn:aws(-[a-z]+)*:resource-groups:[a-z]{2}(-[a-z]+)+-\\d{1}:[0-9]{12}:group/)?[a-zA-Z0-9_\\.-]{1,128}",
+                  "type": "string"
+                },
+                "ResourceArns": {
+                  "description": "The ARNs of the resources to be removed from the group.",
+                  "items": {
+                    "$ref": "#/definitions/ResourceArn"
+                  },
+                  "maxItems": 10,
+                  "minItems": 1,
+                  "type": "array"
+                }
+              },
+              "required": [
+                "Group",
+                "ResourceArns"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UngroupResourcesOutput"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "482": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "483": {
+            "description": "MethodNotAllowedException",
+            "schema": {
+              "$ref": "#/definitions/MethodNotAllowedException"
+            }
+          },
+          "484": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          },
+          "485": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          }
+        },
+        "description": "Removes the specified resources from the specified group.",
+        "operationId": "UngroupResources"
+      }
+    },
+    "/update-group": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "Description": {
+                  "description": "The new description that you want to update the resource group with. Descriptions can contain letters, numbers, hyphens, underscores, periods, and spaces.",
+                  "maxLength": 512,
+                  "pattern": "[\\sa-zA-Z0-9_\\.-]*",
+                  "type": "string"
+                },
+                "Group": {
+                  "description": "The name or the ARN of the resource group to modify.",
+                  "maxLength": 1600,
+                  "minLength": 1,
+                  "pattern": "(arn:aws(-[a-z]+)*:resource-groups:[a-z]{2}(-[a-z]+)+-\\d{1}:[0-9]{12}:group/)?[a-zA-Z0-9_\\.-]{1,128}",
+                  "type": "string"
+                },
+                "GroupName": {
+                  "description": "Don't use this parameter. Use <code>Group</code> instead.",
+                  "maxLength": 128,
+                  "minLength": 1,
+                  "pattern": "[a-zA-Z0-9_\\.-]+",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UpdateGroupOutput"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "482": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "483": {
+            "description": "MethodNotAllowedException",
+            "schema": {
+              "$ref": "#/definitions/MethodNotAllowedException"
+            }
+          },
+          "484": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          },
+          "485": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          }
+        },
+        "description": "Updates the description for an existing group. You cannot update the name of a resource group.",
+        "operationId": "UpdateGroup"
+      }
+    },
+    "/update-group-query": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "Group": {
+                  "description": "The name or the ARN of the resource group to query.",
+                  "maxLength": 1600,
+                  "minLength": 1,
+                  "pattern": "(arn:aws(-[a-z]+)*:resource-groups:[a-z]{2}(-[a-z]+)+-\\d{1}:[0-9]{12}:group/)?[a-zA-Z0-9_\\.-]{1,128}",
+                  "type": "string"
+                },
+                "GroupName": {
+                  "description": "Don't use this parameter. Use <code>Group</code> instead.",
+                  "maxLength": 128,
+                  "minLength": 1,
+                  "pattern": "[a-zA-Z0-9_\\.-]+",
+                  "type": "string"
+                },
+                "ResourceQuery": {
+                  "description": "<p>The query that is used to define a resource group or a search for resources. A query specifies both a query type and a query string as a JSON object. See the examples section for example JSON strings.</p> <p>The examples that follow are shown as standard JSON strings. If you include such a string as a parameter to the AWS CLI or an SDK API, you might need to 'escape' the string into a single line. For example, see the <a href=\"https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters-quoting-strings.html\">Quoting strings</a> in the <i>AWS CLI User Guide</i>.</p> <p> <b>Example 1</b> </p> <p>The following generic example shows a resource query JSON string that includes only resources that meet the following criteria:</p> <ul> <li> <p>The resource type must be either <code>resource_type1</code> or <code>resource_type2</code>.</p> </li> <li> <p>The resource must have a tag <code>Key1</code> with a value of either <code>ValueA</code> or <code>ValueB</code>.</p> </li> <li> <p>The resource must have a tag <code>Key2</code> with a value of either <code>ValueC</code> or <code>ValueD</code>.</p> </li> </ul> <p> <code>{ \"Type\": \"TAG_FILTERS_1_0\", \"Query\": { \"ResourceTypeFilters\": [ \"resource_type1\", \"resource_type2\"], \"TagFilters\": [ { \"Key\": \"Key1\", \"Values\": [\"ValueA\",\"ValueB\"] }, { \"Key\":\"Key2\", \"Values\":[\"ValueC\",\"ValueD\"] } ] } }</code> </p> <p>This has the equivalent \"shortcut\" syntax of the following:</p> <p> <code>{ \"Type\": \"TAG_FILTERS_1_0\", \"Query\": { \"ResourceTypeFilters\": [ \"resource_type1\", \"resource_type2\"], \"TagFilters\": [ { \"Key1\": [\"ValueA\",\"ValueB\"] }, { \"Key2\": [\"ValueC\",\"ValueD\"] } ] } }</code> </p> <p> <b>Example 2</b> </p> <p>The following example shows a resource query JSON string that includes only Amazon EC2 instances that are tagged <code>Stage</code> with a value of <code>Test</code>.</p> <p> <code>{ \"Type\": \"TAG_FILTERS_1_0\", \"Query\": \"{ \"ResourceTypeFilters\": \"AWS::EC2::Instance\", \"TagFilters\": { \"Stage\": \"Test\" } } }</code> </p> <p> <b>Example 3</b> </p> <p>The following example shows a resource query JSON string that includes resource of any supported type as long as it is tagged <code>Stage</code> with a value of <code>Prod</code>.</p> <p> <code>{ \"Type\": \"TAG_FILTERS_1_0\", \"Query\": { \"ResourceTypeFilters\": \"AWS::AllSupported\", \"TagFilters\": { \"Stage\": \"Prod\" } } }</code> </p> <p> <b>Example 4</b> </p> <p>The following example shows a resource query JSON string that includes only Amazon EC2 instances and Amazon S3 buckets that are part of the specified AWS CloudFormation stack.</p> <p> <code>{ \"Type\": \"CLOUDFORMATION_STACK_1_0\", \"Query\": { \"ResourceTypeFilters\": [ \"AWS::EC2::Instance\", \"AWS::S3::Bucket\" ], \"StackIdentifier\": \"arn:aws:cloudformation:us-west-2:123456789012:stack/AWStestuseraccount/fb0d5000-aba8-00e8-aa9e-50d5cEXAMPLE\" } }</code> </p>",
+                  "properties": {
+                    "Query": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/Query"
+                        },
+                        {
+                          "description": "The query that defines a group or a search."
+                        }
+                      ]
+                    },
+                    "Type": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/QueryType"
+                        },
+                        {
+                          "description": "<p>The type of the query. You can use the following values:</p> <ul> <li> <p> <i> <code>CLOUDFORMATION_STACK_1_0:</code> </i>Specifies that the <code>Query</code> contains an ARN for a CloudFormation stack.</p> </li> <li> <p> <i> <code>TAG_FILTERS_1_0:</code> </i>Specifies that the <code>Query</code> parameter contains a JSON string that represents a collection of simple tag filters for resource types and tags. The JSON string uses a syntax similar to the <code> <a href=\"https://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/API_GetResources.html\">GetResources</a> </code> operation, but uses only the <code> <a href=\"https://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/API_GetResources.html#resourcegrouptagging-GetResources-request-ResourceTypeFilters\"> ResourceTypeFilters</a> </code> and <code> <a href=\"https://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/API_GetResources.html#resourcegrouptagging-GetResources-request-TagFiltersTagFilters\">TagFilters</a> </code> fields. If you specify more than one tag key, only resources that match all tag keys, and at least one value of each specified tag key, are returned in your query. If you specify more than one value for a tag key, a resource matches the filter if it has a tag key value that matches <i>any</i> of the specified values.</p> <p>For example, consider the following sample query for resources that have two tags, <code>Stage</code> and <code>Version</code>, with two values each:</p> <p> <code>[{\"Stage\":[\"Test\",\"Deploy\"]},{\"Version\":[\"1\",\"2\"]}]</code> </p> <p>The results of this query could include the following.</p> <ul> <li> <p>An EC2 instance that has the following two tags: <code>{\"Stage\":\"Deploy\"}</code>, and <code>{\"Version\":\"2\"}</code> </p> </li> <li> <p>An S3 bucket that has the following two tags: <code>{\"Stage\":\"Test\"}</code>, and <code>{\"Version\":\"1\"}</code> </p> </li> </ul> <p>The query would not include the following items in the results, however. </p> <ul> <li> <p>An EC2 instance that has only the following tag: <code>{\"Stage\":\"Deploy\"}</code>.</p> <p>The instance does not have <b>all</b> of the tag keys specified in the filter, so it is excluded from the results.</p> </li> <li> <p>An RDS database that has the following two tags: <code>{\"Stage\":\"Archived\"}</code> and <code>{\"Version\":\"4\"}</code> </p> <p>The database has all of the tag keys, but none of those keys has an associated value that matches at least one of the specified values in the filter.</p> </li> </ul> </li> </ul>"
+                        }
+                      ]
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "required": [
+                "ResourceQuery"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UpdateGroupQueryOutput"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "482": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "483": {
+            "description": "MethodNotAllowedException",
+            "schema": {
+              "$ref": "#/definitions/MethodNotAllowedException"
+            }
+          },
+          "484": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          },
+          "485": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          }
+        },
+        "description": "Updates the resource query of a group.",
+        "operationId": "UpdateGroupQuery"
       }
     }
   },
   "definitions": {
-    "BadRequestException": {
-      "description": "The request does not comply with validation rules that are defined for the request parameters.",
-      "properties": {
-        "Message": {
-          "$ref": "#/definitions/ErrorMessage"
-        }
-      },
-      "type": "object"
-    },
+    "BadRequestException": {},
     "CreateGroupInput": {
       "properties": {
+        "Configuration": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/GroupConfigurationList"
+            },
+            {
+              "description": "<p>A configuration associates the resource group with an AWS service and specifies how the service can interact with the resources in the group. A configuration is an array of <a>GroupConfigurationItem</a> elements.</p> <note> <p>You can specify either a <code>Configuration</code> or a <code>ResourceQuery</code> in a group, but not both.</p> </note>"
+            }
+          ]
+        },
         "Description": {
-          "$ref": "#/definitions/GroupDescription",
-          "description": "The description of the resource group. Descriptions can have a maximum of 511 characters, including letters, numbers, hyphens, underscores, punctuation, and spaces."
+          "allOf": [
+            {
+              "$ref": "#/definitions/Description"
+            },
+            {
+              "description": "The description of the resource group. Descriptions can consist of letters, numbers, hyphens, underscores, periods, and spaces."
+            }
+          ]
         },
         "Name": {
-          "$ref": "#/definitions/GroupName",
-          "description": "The name of the group, which is the identifier of the group in other operations. A resource group name cannot be updated after it is created. A resource group name can have a maximum of 127 characters, including letters, numbers, hyphens, dots, and underscores. The name cannot start with <code>AWS</code> or <code>aws</code>; these are reserved. A resource group name must be unique within your account."
+          "allOf": [
+            {
+              "$ref": "#/definitions/GroupName"
+            },
+            {
+              "description": "The name of the group, which is the identifier of the group in other operations. You can't change the name of a resource group after you create it. A resource group name can consist of letters, numbers, hyphens, periods, and underscores. The name cannot start with <code>AWS</code> or <code>aws</code>; these are reserved. A resource group name must be unique within each AWS Region in your AWS account."
+            }
+          ]
         },
         "ResourceQuery": {
-          "$ref": "#/definitions/ResourceQuery",
-          "description": "The resource query that determines which AWS resources are members of this group."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceQuery"
+            },
+            {
+              "description": "<p>The resource query that determines which AWS resources are members of this group.</p> <note> <p>You can specify either a <code>ResourceQuery</code> or a <code>Configuration</code>, but not both.</p> </note>"
+            }
+          ]
         },
         "Tags": {
-          "$ref": "#/definitions/Tags",
-          "description": "The tags to add to the group. A tag is a string-to-string map of key-value pairs. Tag keys can have a maximum character length of 127 characters, and tag values can have a maximum length of 255 characters."
+          "allOf": [
+            {
+              "$ref": "#/definitions/Tags"
+            },
+            {
+              "description": "The tags to add to the group. A tag is key-value pair string."
+            }
+          ]
         }
       },
       "required": [
-        "Name",
-        "ResourceQuery"
+        "Name"
       ],
+      "title": "CreateGroupInput",
       "type": "object"
     },
     "CreateGroupOutput": {
       "properties": {
         "Group": {
-          "$ref": "#/definitions/Group",
-          "description": "A full description of the resource group after it is created."
+          "allOf": [
+            {
+              "$ref": "#/definitions/Group"
+            },
+            {
+              "description": "The description of the resource group."
+            }
+          ]
+        },
+        "GroupConfiguration": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/GroupConfiguration"
+            },
+            {
+              "description": "<p>The service configuration associated with the resource group. AWS Resource Groups supports adding service configurations for the following resource group types:</p> <ul> <li> <p> <code>AWS::EC2::CapacityReservationPool</code> - Amazon EC2 capacity reservation pools. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/capacity-reservations-using.html#create-cr-group\">Working with capacity reservation groups</a> in the <i>EC2 Users Guide</i>.</p> </li> </ul>"
+            }
+          ]
         },
         "ResourceQuery": {
-          "$ref": "#/definitions/ResourceQuery",
-          "description": "The resource query associated with the group."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceQuery"
+            },
+            {
+              "description": "The resource query associated with the group."
+            }
+          ]
         },
         "Tags": {
-          "$ref": "#/definitions/Tags",
-          "description": "The tags associated with the group."
+          "allOf": [
+            {
+              "$ref": "#/definitions/Tags"
+            },
+            {
+              "description": "The tags associated with the group."
+            }
+          ]
         }
       },
       "type": "object"
     },
     "DeleteGroupInput": {
-      "properties": {},
+      "properties": {
+        "Group": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/GroupString"
+            },
+            {
+              "description": "The name or the ARN of the resource group to delete."
+            }
+          ]
+        },
+        "GroupName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/GroupName"
+            },
+            {
+              "description": "Don't use this parameter. Use <code>Group</code> instead.This field is deprecated, use Group instead.",
+              "x-deprecated": true
+            }
+          ]
+        }
+      },
+      "title": "DeleteGroupInput",
       "type": "object"
     },
     "DeleteGroupOutput": {
       "properties": {
         "Group": {
-          "$ref": "#/definitions/Group",
-          "description": "A full description of the deleted resource group."
+          "allOf": [
+            {
+              "$ref": "#/definitions/Group"
+            },
+            {
+              "description": "A full description of the deleted resource group."
+            }
+          ]
         }
       },
       "type": "object"
+    },
+    "Description": {
+      "maxLength": 512,
+      "pattern": "[\\sa-zA-Z0-9_\\.-]*",
+      "type": "string"
+    },
+    "ErrorCode": {
+      "maxLength": 128,
+      "minLength": 1,
+      "type": "string"
     },
     "ErrorMessage": {
       "maxLength": 1024,
       "minLength": 1,
       "type": "string"
     },
-    "ForbiddenException": {
-      "description": "The caller is not authorized to make the request.",
+    "FailedResource": {
+      "description": "A resource that failed to be added to or removed from a group.",
       "properties": {
-        "Message": {
-          "$ref": "#/definitions/ErrorMessage"
+        "ErrorCode": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ErrorCode"
+            },
+            {
+              "description": "The error code associated with the failure."
+            }
+          ]
+        },
+        "ErrorMessage": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ErrorMessage"
+            },
+            {
+              "description": "The error message text associated with the failure."
+            }
+          ]
+        },
+        "ResourceArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceArn"
+            },
+            {
+              "description": "The ARN of the resource that failed to be added or removed."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "FailedResourceList": {
+      "items": {
+        "$ref": "#/definitions/FailedResource"
+      },
+      "type": "array"
+    },
+    "ForbiddenException": {},
+    "GetGroupConfigurationInput": {
+      "properties": {
+        "Group": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/GroupString"
+            },
+            {
+              "description": "The name or the ARN of the resource group."
+            }
+          ]
+        }
+      },
+      "title": "GetGroupConfigurationInput",
+      "type": "object"
+    },
+    "GetGroupConfigurationOutput": {
+      "properties": {
+        "GroupConfiguration": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/GroupConfiguration"
+            },
+            {
+              "description": "The configuration associated with the specified group."
+            }
+          ]
         }
       },
       "type": "object"
     },
     "GetGroupInput": {
-      "properties": {},
+      "properties": {
+        "Group": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/GroupString"
+            },
+            {
+              "description": "The name or the ARN of the resource group to retrieve."
+            }
+          ]
+        },
+        "GroupName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/GroupName"
+            },
+            {
+              "description": "Don't use this parameter. Use <code>Group</code> instead.This field is deprecated, use Group instead.",
+              "x-deprecated": true
+            }
+          ]
+        }
+      },
+      "title": "GetGroupInput",
       "type": "object"
     },
     "GetGroupOutput": {
       "properties": {
         "Group": {
-          "$ref": "#/definitions/Group",
-          "description": "A full description of the resource group."
+          "allOf": [
+            {
+              "$ref": "#/definitions/Group"
+            },
+            {
+              "description": "A full description of the resource group."
+            }
+          ]
         }
       },
       "type": "object"
     },
     "GetGroupQueryInput": {
-      "properties": {},
+      "properties": {
+        "Group": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/GroupString"
+            },
+            {
+              "description": "The name or the ARN of the resource group to query."
+            }
+          ]
+        },
+        "GroupName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/GroupName"
+            },
+            {
+              "description": "Don't use this parameter. Use <code>Group</code> instead.This field is deprecated, use Group instead.",
+              "x-deprecated": true
+            }
+          ]
+        }
+      },
+      "title": "GetGroupQueryInput",
       "type": "object"
     },
     "GetGroupQueryOutput": {
       "properties": {
         "GroupQuery": {
-          "$ref": "#/definitions/GroupQuery",
-          "description": "The resource query associated with the specified group."
+          "allOf": [
+            {
+              "$ref": "#/definitions/GroupQuery"
+            },
+            {
+              "description": "The resource query associated with the specified group."
+            }
+          ]
         }
       },
       "type": "object"
     },
     "GetTagsInput": {
       "properties": {},
+      "title": "GetTagsInput",
       "type": "object"
     },
     "GetTagsOutput": {
       "properties": {
         "Arn": {
-          "$ref": "#/definitions/GroupArn",
-          "description": "The ARN of the tagged resource."
+          "allOf": [
+            {
+              "$ref": "#/definitions/GroupArn"
+            },
+            {
+              "description": "The ARN of the tagged resource group."
+            }
+          ]
         },
         "Tags": {
-          "$ref": "#/definitions/Tags",
-          "description": "The tags associated with the specified resource."
+          "allOf": [
+            {
+              "$ref": "#/definitions/Tags"
+            },
+            {
+              "description": "The tags associated with the specified resource group."
+            }
+          ]
         }
       },
       "type": "object"
     },
     "Group": {
-      "description": "A resource group.",
+      "description": "<p>A resource group that contains AWS resources. You can assign resources to the group by associating either of the following elements with the group:</p> <ul> <li> <p> <a>ResourceQuery</a> - Use a resource query to specify a set of tag keys and values. All resources in the same AWS Region and AWS account that have those keys with the same values are included in the group. You can add a resource query when you create the group.</p> </li> <li> <p> <a>GroupConfiguration</a> - Use a service configuration to associate the group with an AWS service. The configuration specifies which resource types can be included in the group.</p> </li> </ul>",
       "properties": {
         "Description": {
-          "$ref": "#/definitions/GroupDescription",
-          "description": "The description of the resource group."
+          "allOf": [
+            {
+              "$ref": "#/definitions/Description"
+            },
+            {
+              "description": "The description of the resource group."
+            }
+          ]
         },
         "GroupArn": {
-          "$ref": "#/definitions/GroupArn",
-          "description": "The ARN of a resource group."
+          "allOf": [
+            {
+              "$ref": "#/definitions/GroupArn"
+            },
+            {
+              "description": "The ARN of the resource group."
+            }
+          ]
         },
         "Name": {
-          "$ref": "#/definitions/GroupName",
-          "description": "The name of a resource group."
+          "allOf": [
+            {
+              "$ref": "#/definitions/GroupName"
+            },
+            {
+              "description": "The name of the resource group."
+            }
+          ]
         }
       },
       "required": [
@@ -1251,13 +2416,244 @@
       "type": "object"
     },
     "GroupArn": {
-      "pattern": "arn:aws:resource-groups:[a-z]{2}-[a-z]+-\\d{1}:[0-9]{12}:group/[a-zA-Z0-9_\\.-]{1,128}",
+      "maxLength": 1600,
+      "minLength": 12,
+      "pattern": "arn:aws(-[a-z]+)*:resource-groups:[a-z]{2}(-[a-z]+)+-\\d{1}:[0-9]{12}:group/[a-zA-Z0-9_\\.-]{1,128}",
       "type": "string"
     },
-    "GroupDescription": {
-      "maxLength": 512,
-      "pattern": "[\\sa-zA-Z0-9_\\.-]+",
+    "GroupConfiguration": {
+      "description": "A service configuration associated with a resource group. The configuration options are determined by the AWS service that defines the <code>Type</code>, and specifies which resources can be included in the group. You can add a service configuration when you create the group.",
+      "properties": {
+        "Configuration": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/GroupConfigurationList"
+            },
+            {
+              "description": "The configuration currently associated with the group and in effect."
+            }
+          ]
+        },
+        "FailureReason": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/GroupConfigurationFailureReason"
+            },
+            {
+              "description": "If present, the reason why a request to update the group configuration failed."
+            }
+          ]
+        },
+        "ProposedConfiguration": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/GroupConfigurationList"
+            },
+            {
+              "description": "If present, the new configuration that is in the process of being applied to the group."
+            }
+          ]
+        },
+        "Status": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/GroupConfigurationStatus"
+            },
+            {
+              "description": "The current status of an attempt to update the group configuration."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "GroupConfigurationFailureReason": {
       "type": "string"
+    },
+    "GroupConfigurationItem": {
+      "description": "An item in a group configuration. A group configuration can have one or more items.",
+      "properties": {
+        "Parameters": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/GroupParameterList"
+            },
+            {
+              "description": "A collection of parameters for this group configuration item."
+            }
+          ]
+        },
+        "Type": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/GroupConfigurationType"
+            },
+            {
+              "description": "<p>Specifies the type of group configuration item. Each item must have a unique value for <code>type</code>.</p> <p>You can specify the following string values:</p> <ul> <li> <p> <code>AWS::EC2::CapacityReservationPool</code> </p> <p>For more information about EC2 capacity reservation groups, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/capacity-reservations-using.html#create-cr-group\">Working with capacity reservation groups</a> in the <i>EC2 Users Guide</i>.</p> </li> <li> <p> <code>AWS::ResourceGroups::Generic</code> - Supports parameters that configure the behavior of resource groups of any type.</p> </li> </ul>"
+            }
+          ]
+        }
+      },
+      "required": [
+        "Type"
+      ],
+      "type": "object"
+    },
+    "GroupConfigurationList": {
+      "items": {
+        "$ref": "#/definitions/GroupConfigurationItem"
+      },
+      "maxItems": 2,
+      "type": "array"
+    },
+    "GroupConfigurationParameter": {
+      "description": "A parameter for a group configuration item.",
+      "properties": {
+        "Name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/GroupConfigurationParameterName"
+            },
+            {
+              "description": "<p>The name of the group configuration parameter.</p> <p>You can specify the following string values:</p> <ul> <li> <p>For configuration item type <code>AWS::ResourceGroups::Generic</code>:</p> <ul> <li> <p> <code>allowed-resource-types</code> </p> <p>Specifies the types of resources that you can add to this group by using the <a>GroupResources</a> operation.</p> </li> </ul> </li> <li> <p>For configuration item type <code>AWS::EC2::CapacityReservationPool</code>:</p> <ul> <li> <p>None - This configuration item type doesn't support any parameters.</p> </li> </ul> <p>For more information about EC2 capacity reservation groups, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/capacity-reservations-using.html#create-cr-group\">Working with capacity reservation groups</a> in the <i>EC2 Users Guide</i>.</p> </li> </ul>"
+            }
+          ]
+        },
+        "Values": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/GroupConfigurationParameterValueList"
+            },
+            {
+              "description": "<p>The values of for this parameter.</p> <p>You can specify the following string value:</p> <ul> <li> <p>For item type <code>allowed-resource-types</code>: the only supported parameter value is <code>AWS::EC2::CapacityReservation</code>.</p> </li> </ul>"
+            }
+          ]
+        }
+      },
+      "required": [
+        "Name"
+      ],
+      "type": "object"
+    },
+    "GroupConfigurationParameterName": {
+      "maxLength": 40,
+      "minLength": 1,
+      "pattern": "[a-z-]+",
+      "type": "string"
+    },
+    "GroupConfigurationParameterValue": {
+      "maxLength": 40,
+      "minLength": 1,
+      "pattern": "[a-zA-Z0-9:]+",
+      "type": "string"
+    },
+    "GroupConfigurationParameterValueList": {
+      "items": {
+        "$ref": "#/definitions/GroupConfigurationParameterValue"
+      },
+      "type": "array"
+    },
+    "GroupConfigurationStatus": {
+      "enum": [
+        "UPDATING",
+        "UPDATE_COMPLETE",
+        "UPDATE_FAILED"
+      ],
+      "type": "string"
+    },
+    "GroupConfigurationType": {
+      "maxLength": 40,
+      "pattern": "AWS::[a-zA-Z0-9]+::[a-zA-Z0-9]+",
+      "type": "string"
+    },
+    "GroupFilter": {
+      "description": "A filter collection that you can use to restrict the results from a <code>List</code> operation to only those you want to include.",
+      "properties": {
+        "Name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/GroupFilterName"
+            },
+            {
+              "description": "The name of the filter. Filter names are case-sensitive."
+            }
+          ]
+        },
+        "Values": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/GroupFilterValues"
+            },
+            {
+              "description": "One or more filter values. Allowed filter values vary by group filter name, and are case-sensitive."
+            }
+          ]
+        }
+      },
+      "required": [
+        "Name",
+        "Values"
+      ],
+      "type": "object"
+    },
+    "GroupFilterList": {
+      "items": {
+        "$ref": "#/definitions/GroupFilter"
+      },
+      "type": "array"
+    },
+    "GroupFilterName": {
+      "enum": [
+        "resource-type",
+        "configuration-type"
+      ],
+      "type": "string"
+    },
+    "GroupFilterValue": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "AWS::(AllSupported|[a-zA-Z0-9]+::[a-zA-Z0-9]+)",
+      "type": "string"
+    },
+    "GroupFilterValues": {
+      "items": {
+        "$ref": "#/definitions/GroupFilterValue"
+      },
+      "maxItems": 5,
+      "minItems": 1,
+      "type": "array"
+    },
+    "GroupIdentifier": {
+      "description": "The unique identifiers for a resource group.",
+      "properties": {
+        "GroupArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/GroupArn"
+            },
+            {
+              "description": "The ARN of the resource group."
+            }
+          ]
+        },
+        "GroupName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/GroupName"
+            },
+            {
+              "description": "The name of the resource group."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "GroupIdentifierList": {
+      "items": {
+        "$ref": "#/definitions/GroupIdentifier"
+      },
+      "type": "array"
     },
     "GroupList": {
       "items": {
@@ -1271,16 +2667,34 @@
       "pattern": "[a-zA-Z0-9_\\.-]+",
       "type": "string"
     },
+    "GroupParameterList": {
+      "items": {
+        "$ref": "#/definitions/GroupConfigurationParameter"
+      },
+      "type": "array"
+    },
     "GroupQuery": {
-      "description": "The underlying resource query of a resource group. Resources that match query results are part of the group.",
+      "description": "A mapping of a query attached to a resource group that determines the AWS resources that are members of the group.",
       "properties": {
         "GroupName": {
-          "$ref": "#/definitions/GroupName",
-          "description": "The name of a resource group that is associated with a specific resource query."
+          "allOf": [
+            {
+              "$ref": "#/definitions/GroupName"
+            },
+            {
+              "description": "The name of the resource group that is associated with the specified resource query."
+            }
+          ]
         },
         "ResourceQuery": {
-          "$ref": "#/definitions/ResourceQuery",
-          "description": "The resource query which determines which AWS resources are members of the associated resource group."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceQuery"
+            },
+            {
+              "description": "The resource query that determines which AWS resources are members of the associated resource group."
+            }
+          ]
         }
       },
       "required": [
@@ -1289,45 +2703,208 @@
       ],
       "type": "object"
     },
-    "InternalServerErrorException": {
-      "description": "An internal error occurred while processing the request.",
+    "GroupResourcesInput": {
       "properties": {
-        "Message": {
-          "$ref": "#/definitions/ErrorMessage"
+        "Group": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/GroupString"
+            },
+            {
+              "description": "The name or the ARN of the resource group to add resources to."
+            }
+          ]
+        },
+        "ResourceArns": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceArnList"
+            },
+            {
+              "description": "The list of ARNs for resources to be added to the group. "
+            }
+          ]
+        }
+      },
+      "required": [
+        "Group",
+        "ResourceArns"
+      ],
+      "title": "GroupResourcesInput",
+      "type": "object"
+    },
+    "GroupResourcesOutput": {
+      "properties": {
+        "Failed": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/FailedResourceList"
+            },
+            {
+              "description": "The ARNs of the resources that failed to be added to the group by this operation."
+            }
+          ]
+        },
+        "Succeeded": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceArnList"
+            },
+            {
+              "description": "The ARNs of the resources that were successfully added to the group by this operation."
+            }
+          ]
         }
       },
       "type": "object"
     },
+    "GroupString": {
+      "maxLength": 1600,
+      "minLength": 1,
+      "pattern": "(arn:aws(-[a-z]+)*:resource-groups:[a-z]{2}(-[a-z]+)+-\\d{1}:[0-9]{12}:group/)?[a-zA-Z0-9_\\.-]{1,128}",
+      "type": "string"
+    },
+    "InternalServerErrorException": {},
     "ListGroupResourcesInput": {
-      "properties": {},
+      "properties": {
+        "Filters": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceFilterList"
+            },
+            {
+              "description": "<p>Filters, formatted as <a>ResourceFilter</a> objects, that you want to apply to a <code>ListGroupResources</code> operation. Filters the results to include only those of the specified resource types.</p> <ul> <li> <p> <code>resource-type</code> - Filter resources by their type. Specify up to five resource types in the format <code>AWS::ServiceCode::ResourceType</code>. For example, <code>AWS::EC2::Instance</code>, or <code>AWS::S3::Bucket</code>. </p> </li> </ul> <p>When you specify a <code>resource-type</code> filter for <code>ListGroupResources</code>, AWS Resource Groups validates your filter resource types against the types that are defined in the query associated with the group. For example, if a group contains only S3 buckets because its query specifies only that resource type, but your <code>resource-type</code> filter includes EC2 instances, AWS Resource Groups does not filter for EC2 instances. In this case, a <code>ListGroupResources</code> request returns a <code>BadRequestException</code> error with a message similar to the following:</p> <p> <code>The resource types specified as filters in the request are not valid.</code> </p> <p>The error includes a list of resource types that failed the validation because they are not part of the query associated with the group. This validation doesn't occur when the group query specifies <code>AWS::AllSupported</code>, because a group based on such a query can contain any of the allowed resource types for the query type (tag-based or AWS CloudFormation stack-based queries).</p>"
+            }
+          ]
+        },
+        "Group": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/GroupString"
+            },
+            {
+              "description": "The name or the ARN of the resource group"
+            }
+          ]
+        },
+        "GroupName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/GroupName"
+            },
+            {
+              "description": "Don't use this parameter. Use <code>Group</code> instead.This field is deprecated, use Group instead.",
+              "x-deprecated": true
+            }
+          ]
+        },
+        "MaxResults": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MaxResults"
+            },
+            {
+              "description": "The total number of results that you want included on each page of the response. If you do not include this parameter, it defaults to a value that is specific to the operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code> response element is present and has a value (is not null). Include that value as the <code>NextToken</code> request parameter in the next call to the operation to get the next part of the results. Note that the service might return fewer results than the maximum even when there are more results available. You should check <code>NextToken</code> after every operation to ensure that you receive all of the results."
+            }
+          ]
+        },
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NextToken"
+            },
+            {
+              "description": "The parameter for receiving additional results if you receive a <code>NextToken</code> response in a previous request. A <code>NextToken</code> response indicates that more output is available. Set this parameter to the value provided by a previous call's <code>NextToken</code> response to indicate where the output should continue from."
+            }
+          ]
+        }
+      },
+      "title": "ListGroupResourcesInput",
       "type": "object"
     },
     "ListGroupResourcesOutput": {
       "properties": {
         "NextToken": {
-          "$ref": "#/definitions/NextToken",
-          "description": "The NextToken value to include in a subsequent <code>ListGroupResources</code> request, to get more results."
+          "allOf": [
+            {
+              "$ref": "#/definitions/NextToken"
+            },
+            {
+              "description": "If present, indicates that more output is available than is included in the current response. Use this value in the <code>NextToken</code> request parameter in a subsequent call to the operation to get the next part of the output. You should repeat this until the <code>NextToken</code> response element comes back as <code>null</code>."
+            }
+          ]
+        },
+        "QueryErrors": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/QueryErrorList"
+            },
+            {
+              "description": "A list of <code>QueryError</code> objects. Each error is an object that contains <code>ErrorCode</code> and <code>Message</code> structures. Possible values for <code>ErrorCode</code> are <code>CLOUDFORMATION_STACK_INACTIVE</code> and <code>CLOUDFORMATION_STACK_NOT_EXISTING</code>."
+            }
+          ]
         },
         "ResourceIdentifiers": {
-          "$ref": "#/definitions/ResourceIdentifierList",
-          "description": "The ARNs and resource types of resources that are members of the group that you specified."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceIdentifierList"
+            },
+            {
+              "description": "The ARNs and resource types of resources that are members of the group that you specified."
+            }
+          ]
         }
       },
       "type": "object"
     },
     "ListGroupsInput": {
-      "properties": {},
+      "properties": {
+        "Filters": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/GroupFilterList"
+            },
+            {
+              "description": "<p>Filters, formatted as <a>GroupFilter</a> objects, that you want to apply to a <code>ListGroups</code> operation.</p> <ul> <li> <p> <code>resource-type</code> - Filter the results to include only those of the specified resource types. Specify up to five resource types in the format <code>AWS::<i>ServiceCode</i>::<i>ResourceType</i> </code>. For example, <code>AWS::EC2::Instance</code>, or <code>AWS::S3::Bucket</code>.</p> </li> <li> <p> <code>configuration-type</code> - Filter the results to include only those groups that have the specified configuration types attached. The current supported values are:</p> <ul> <li> <p>AWS:EC2::CapacityReservationPool</p> </li> </ul> </li> </ul>"
+            }
+          ]
+        }
+      },
+      "title": "ListGroupsInput",
       "type": "object"
     },
     "ListGroupsOutput": {
       "properties": {
+        "GroupIdentifiers": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/GroupIdentifierList"
+            },
+            {
+              "description": "A list of <a>GroupIdentifier</a> objects. Each identifier is an object that contains both the <code>Name</code> and the <code>GroupArn</code>."
+            }
+          ]
+        },
         "Groups": {
-          "$ref": "#/definitions/GroupList",
-          "description": "A list of resource groups."
+          "allOf": [
+            {
+              "$ref": "#/definitions/GroupList"
+            },
+            {
+              "description": "This output element is deprecated and shouldn't be used. Refer to <code>GroupIdentifiers</code> instead.This field is deprecated, use GroupIdentifiers instead.",
+              "x-deprecated": true
+            }
+          ]
         },
         "NextToken": {
-          "$ref": "#/definitions/NextToken",
-          "description": "The NextToken value to include in a subsequent <code>ListGroups</code> request, to get more results."
+          "allOf": [
+            {
+              "$ref": "#/definitions/NextToken"
+            },
+            {
+              "description": "If present, indicates that more output is available than is included in the current response. Use this value in the <code>NextToken</code> request parameter in a subsequent call to the operation to get the next part of the output. You should repeat this until the <code>NextToken</code> response element comes back as <code>null</code>."
+            }
+          ]
         }
       },
       "type": "object"
@@ -1337,51 +2914,161 @@
       "minimum": 1,
       "type": "integer"
     },
-    "MethodNotAllowedException": {
-      "description": "The request uses an HTTP method which is not allowed for the specified resource.",
-      "properties": {
-        "Message": {
-          "$ref": "#/definitions/ErrorMessage"
-        }
-      },
-      "type": "object"
-    },
+    "MethodNotAllowedException": {},
     "NextToken": {
+      "maxLength": 8192,
+      "minLength": 0,
+      "pattern": "^[a-zA-Z0-9+/]*={0,2}$",
       "type": "string"
     },
-    "NotFoundException": {
-      "description": "One or more resources specified in the request do not exist.",
+    "NotFoundException": {},
+    "Query": {
+      "maxLength": 4096,
+      "pattern": "[\\s\\S]*",
+      "type": "string"
+    },
+    "QueryError": {
+      "description": "A two-part error structure that can occur in <code>ListGroupResources</code> or <code>SearchResources</code> operations on CloudFormation stack-based queries. The error occurs if the CloudFormation stack on which the query is based either does not exist, or has a status that renders the stack inactive. A <code>QueryError</code> occurrence does not necessarily mean that AWS Resource Groups could not complete the operation, but the resulting group might have no member resources.",
       "properties": {
+        "ErrorCode": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/QueryErrorCode"
+            },
+            {
+              "description": "Possible values are <code>CLOUDFORMATION_STACK_INACTIVE</code> and <code>CLOUDFORMATION_STACK_NOT_EXISTING</code>."
+            }
+          ]
+        },
         "Message": {
-          "$ref": "#/definitions/ErrorMessage"
+          "allOf": [
+            {
+              "$ref": "#/definitions/QueryErrorMessage"
+            },
+            {
+              "description": "A message that explains the <code>ErrorCode</code> value. Messages might state that the specified CloudFormation stack does not exist (or no longer exists). For <code>CLOUDFORMATION_STACK_INACTIVE</code>, the message typically states that the CloudFormation stack has a status that is not (or no longer) active, such as <code>CREATE_FAILED</code>."
+            }
+          ]
         }
       },
       "type": "object"
     },
-    "Query": {
-      "maxLength": 2048,
+    "QueryErrorCode": {
+      "enum": [
+        "CLOUDFORMATION_STACK_INACTIVE",
+        "CLOUDFORMATION_STACK_NOT_EXISTING"
+      ],
+      "type": "string"
+    },
+    "QueryErrorList": {
+      "items": {
+        "$ref": "#/definitions/QueryError"
+      },
+      "type": "array"
+    },
+    "QueryErrorMessage": {
       "type": "string"
     },
     "QueryType": {
       "enum": [
-        "TAG_FILTERS_1_0"
+        "TAG_FILTERS_1_0",
+        "CLOUDFORMATION_STACK_1_0"
       ],
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "^\\w+$",
       "type": "string"
     },
     "ResourceArn": {
-      "pattern": "arn:aws:[a-z0-9]*:([a-z]{2}-[a-z]+-\\d{1})?:([0-9]{12})?:.+",
+      "pattern": "arn:aws(-[a-z]+)*:[a-z0-9\\-]*:([a-z]{2}(-[a-z]+)+-\\d{1})?:([0-9]{12})?:.+",
       "type": "string"
+    },
+    "ResourceArnList": {
+      "items": {
+        "$ref": "#/definitions/ResourceArn"
+      },
+      "maxItems": 10,
+      "minItems": 1,
+      "type": "array"
+    },
+    "ResourceFilter": {
+      "description": "A filter name and value pair that is used to obtain more specific results from a list of resources.",
+      "properties": {
+        "Name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceFilterName"
+            },
+            {
+              "description": "The name of the filter. Filter names are case-sensitive."
+            }
+          ]
+        },
+        "Values": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceFilterValues"
+            },
+            {
+              "description": "One or more filter values. Allowed filter values vary by resource filter name, and are case-sensitive."
+            }
+          ]
+        }
+      },
+      "required": [
+        "Name",
+        "Values"
+      ],
+      "type": "object"
+    },
+    "ResourceFilterList": {
+      "items": {
+        "$ref": "#/definitions/ResourceFilter"
+      },
+      "type": "array"
+    },
+    "ResourceFilterName": {
+      "enum": [
+        "resource-type"
+      ],
+      "type": "string"
+    },
+    "ResourceFilterValue": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "AWS::[a-zA-Z0-9]+::[a-zA-Z0-9]+",
+      "type": "string"
+    },
+    "ResourceFilterValues": {
+      "items": {
+        "$ref": "#/definitions/ResourceFilterValue"
+      },
+      "maxItems": 5,
+      "minItems": 1,
+      "type": "array"
     },
     "ResourceIdentifier": {
       "description": "The ARN of a resource, and its resource type.",
       "properties": {
         "ResourceArn": {
-          "$ref": "#/definitions/ResourceArn",
-          "description": "The ARN of a resource."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceArn"
+            },
+            {
+              "description": "The ARN of a resource."
+            }
+          ]
         },
         "ResourceType": {
-          "$ref": "#/definitions/ResourceType",
-          "description": "The resource type of a resource, such as <code>AWS::EC2::Instance</code>."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceType"
+            },
+            {
+              "description": "The resource type of a resource, such as <code>AWS::EC2::Instance</code>."
+            }
+          ]
         }
       },
       "type": "object"
@@ -1393,15 +3080,27 @@
       "type": "array"
     },
     "ResourceQuery": {
-      "description": "The query that is used to define a resource group or a search for resources.",
+      "description": "<p>The query that is used to define a resource group or a search for resources. A query specifies both a query type and a query string as a JSON object. See the examples section for example JSON strings.</p> <p>The examples that follow are shown as standard JSON strings. If you include such a string as a parameter to the AWS CLI or an SDK API, you might need to 'escape' the string into a single line. For example, see the <a href=\"https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters-quoting-strings.html\">Quoting strings</a> in the <i>AWS CLI User Guide</i>.</p> <p> <b>Example 1</b> </p> <p>The following generic example shows a resource query JSON string that includes only resources that meet the following criteria:</p> <ul> <li> <p>The resource type must be either <code>resource_type1</code> or <code>resource_type2</code>.</p> </li> <li> <p>The resource must have a tag <code>Key1</code> with a value of either <code>ValueA</code> or <code>ValueB</code>.</p> </li> <li> <p>The resource must have a tag <code>Key2</code> with a value of either <code>ValueC</code> or <code>ValueD</code>.</p> </li> </ul> <p> <code>{ \"Type\": \"TAG_FILTERS_1_0\", \"Query\": { \"ResourceTypeFilters\": [ \"resource_type1\", \"resource_type2\"], \"TagFilters\": [ { \"Key\": \"Key1\", \"Values\": [\"ValueA\",\"ValueB\"] }, { \"Key\":\"Key2\", \"Values\":[\"ValueC\",\"ValueD\"] } ] } }</code> </p> <p>This has the equivalent \"shortcut\" syntax of the following:</p> <p> <code>{ \"Type\": \"TAG_FILTERS_1_0\", \"Query\": { \"ResourceTypeFilters\": [ \"resource_type1\", \"resource_type2\"], \"TagFilters\": [ { \"Key1\": [\"ValueA\",\"ValueB\"] }, { \"Key2\": [\"ValueC\",\"ValueD\"] } ] } }</code> </p> <p> <b>Example 2</b> </p> <p>The following example shows a resource query JSON string that includes only Amazon EC2 instances that are tagged <code>Stage</code> with a value of <code>Test</code>.</p> <p> <code>{ \"Type\": \"TAG_FILTERS_1_0\", \"Query\": \"{ \"ResourceTypeFilters\": \"AWS::EC2::Instance\", \"TagFilters\": { \"Stage\": \"Test\" } } }</code> </p> <p> <b>Example 3</b> </p> <p>The following example shows a resource query JSON string that includes resource of any supported type as long as it is tagged <code>Stage</code> with a value of <code>Prod</code>.</p> <p> <code>{ \"Type\": \"TAG_FILTERS_1_0\", \"Query\": { \"ResourceTypeFilters\": \"AWS::AllSupported\", \"TagFilters\": { \"Stage\": \"Prod\" } } }</code> </p> <p> <b>Example 4</b> </p> <p>The following example shows a resource query JSON string that includes only Amazon EC2 instances and Amazon S3 buckets that are part of the specified AWS CloudFormation stack.</p> <p> <code>{ \"Type\": \"CLOUDFORMATION_STACK_1_0\", \"Query\": { \"ResourceTypeFilters\": [ \"AWS::EC2::Instance\", \"AWS::S3::Bucket\" ], \"StackIdentifier\": \"arn:aws:cloudformation:us-west-2:123456789012:stack/AWStestuseraccount/fb0d5000-aba8-00e8-aa9e-50d5cEXAMPLE\" } }</code> </p>",
       "properties": {
         "Query": {
-          "$ref": "#/definitions/Query",
-          "description": "The query that defines a group or a search."
+          "allOf": [
+            {
+              "$ref": "#/definitions/Query"
+            },
+            {
+              "description": "The query that defines a group or a search."
+            }
+          ]
         },
         "Type": {
-          "$ref": "#/definitions/QueryType",
-          "description": "<p>The type of the query. The valid value in this release is <code>TAG_FILTERS_1_0</code>.</p> <p> <i> <code>TAG_FILTERS_1_0:</code> </i> A JSON syntax that lets you specify a collection of simple tag filters for resource types and tags, as supported by the AWS Tagging API GetResources operation. When more than one element is present, only resources that match all filters are part of the result. If a filter specifies more than one value for a key, a resource matches the filter if its tag value matches any of the specified values.</p>"
+          "allOf": [
+            {
+              "$ref": "#/definitions/QueryType"
+            },
+            {
+              "description": "<p>The type of the query. You can use the following values:</p> <ul> <li> <p> <i> <code>CLOUDFORMATION_STACK_1_0:</code> </i>Specifies that the <code>Query</code> contains an ARN for a CloudFormation stack.</p> </li> <li> <p> <i> <code>TAG_FILTERS_1_0:</code> </i>Specifies that the <code>Query</code> parameter contains a JSON string that represents a collection of simple tag filters for resource types and tags. The JSON string uses a syntax similar to the <code> <a href=\"https://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/API_GetResources.html\">GetResources</a> </code> operation, but uses only the <code> <a href=\"https://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/API_GetResources.html#resourcegrouptagging-GetResources-request-ResourceTypeFilters\"> ResourceTypeFilters</a> </code> and <code> <a href=\"https://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/API_GetResources.html#resourcegrouptagging-GetResources-request-TagFiltersTagFilters\">TagFilters</a> </code> fields. If you specify more than one tag key, only resources that match all tag keys, and at least one value of each specified tag key, are returned in your query. If you specify more than one value for a tag key, a resource matches the filter if it has a tag key value that matches <i>any</i> of the specified values.</p> <p>For example, consider the following sample query for resources that have two tags, <code>Stage</code> and <code>Version</code>, with two values each:</p> <p> <code>[{\"Stage\":[\"Test\",\"Deploy\"]},{\"Version\":[\"1\",\"2\"]}]</code> </p> <p>The results of this query could include the following.</p> <ul> <li> <p>An EC2 instance that has the following two tags: <code>{\"Stage\":\"Deploy\"}</code>, and <code>{\"Version\":\"2\"}</code> </p> </li> <li> <p>An S3 bucket that has the following two tags: <code>{\"Stage\":\"Test\"}</code>, and <code>{\"Version\":\"1\"}</code> </p> </li> </ul> <p>The query would not include the following items in the results, however. </p> <ul> <li> <p>An EC2 instance that has only the following tag: <code>{\"Stage\":\"Deploy\"}</code>.</p> <p>The instance does not have <b>all</b> of the tag keys specified in the filter, so it is excluded from the results.</p> </li> <li> <p>An RDS database that has the following two tags: <code>{\"Stage\":\"Archived\"}</code> and <code>{\"Version\":\"4\"}</code> </p> <p>The database has all of the tag keys, but none of those keys has an associated value that matches at least one of the specified values in the filter.</p> </li> </ul> </li> </ul>"
+            }
+          ]
         }
       },
       "required": [
@@ -1417,32 +3116,73 @@
     "SearchResourcesInput": {
       "properties": {
         "MaxResults": {
-          "$ref": "#/definitions/MaxResults",
-          "description": "The maximum number of group member ARNs returned by <code>SearchResources</code> in paginated output. By default, this number is 50."
+          "allOf": [
+            {
+              "$ref": "#/definitions/MaxResults"
+            },
+            {
+              "description": "The total number of results that you want included on each page of the response. If you do not include this parameter, it defaults to a value that is specific to the operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code> response element is present and has a value (is not null). Include that value as the <code>NextToken</code> request parameter in the next call to the operation to get the next part of the results. Note that the service might return fewer results than the maximum even when there are more results available. You should check <code>NextToken</code> after every operation to ensure that you receive all of the results."
+            }
+          ]
         },
         "NextToken": {
-          "$ref": "#/definitions/NextToken",
-          "description": "The NextToken value that is returned in a paginated <code>SearchResources</code> request. To get the next page of results, run the call again, add the NextToken parameter, and specify the NextToken value."
+          "allOf": [
+            {
+              "$ref": "#/definitions/NextToken"
+            },
+            {
+              "description": "The parameter for receiving additional results if you receive a <code>NextToken</code> response in a previous request. A <code>NextToken</code> response indicates that more output is available. Set this parameter to the value provided by a previous call's <code>NextToken</code> response to indicate where the output should continue from."
+            }
+          ]
         },
         "ResourceQuery": {
-          "$ref": "#/definitions/ResourceQuery",
-          "description": "The search query, using the same formats that are supported for resource group definition."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceQuery"
+            },
+            {
+              "description": "The search query, using the same formats that are supported for resource group definition. For more information, see <a>CreateGroup</a>."
+            }
+          ]
         }
       },
       "required": [
         "ResourceQuery"
       ],
+      "title": "SearchResourcesInput",
       "type": "object"
     },
     "SearchResourcesOutput": {
       "properties": {
         "NextToken": {
-          "$ref": "#/definitions/NextToken",
-          "description": "The NextToken value to include in a subsequent <code>SearchResources</code> request, to get more results."
+          "allOf": [
+            {
+              "$ref": "#/definitions/NextToken"
+            },
+            {
+              "description": "If present, indicates that more output is available than is included in the current response. Use this value in the <code>NextToken</code> request parameter in a subsequent call to the operation to get the next part of the output. You should repeat this until the <code>NextToken</code> response element comes back as <code>null</code>."
+            }
+          ]
+        },
+        "QueryErrors": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/QueryErrorList"
+            },
+            {
+              "description": "A list of <code>QueryError</code> objects. Each error is an object that contains <code>ErrorCode</code> and <code>Message</code> structures. Possible values for <code>ErrorCode</code> are <code>CLOUDFORMATION_STACK_INACTIVE</code> and <code>CLOUDFORMATION_STACK_NOT_EXISTING</code>."
+            }
+          ]
         },
         "ResourceIdentifiers": {
-          "$ref": "#/definitions/ResourceIdentifierList",
-          "description": "The ARNs and resource types of resources that are members of the group that you specified."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceIdentifierList"
+            },
+            {
+              "description": "The ARNs and resource types of resources that are members of the group that you specified."
+            }
+          ]
         }
       },
       "type": "object"
@@ -1450,13 +3190,20 @@
     "TagInput": {
       "properties": {
         "Tags": {
-          "$ref": "#/definitions/Tags",
-          "description": "The tags to add to the specified resource. A tag is a string-to-string map of key-value pairs. Tag keys can have a maximum character length of 127 characters, and tag values can have a maximum length of 255 characters."
+          "allOf": [
+            {
+              "$ref": "#/definitions/Tags"
+            },
+            {
+              "description": "The tags to add to the specified resource group. A tag is a string-to-string map of key-value pairs."
+            }
+          ]
         }
       },
       "required": [
         "Tags"
       ],
+      "title": "TagInput",
       "type": "object"
     },
     "TagKey": {
@@ -1474,12 +3221,24 @@
     "TagOutput": {
       "properties": {
         "Arn": {
-          "$ref": "#/definitions/GroupArn",
-          "description": "The ARN of the tagged resource."
+          "allOf": [
+            {
+              "$ref": "#/definitions/GroupArn"
+            },
+            {
+              "description": "The ARN of the tagged resource."
+            }
+          ]
         },
         "Tags": {
-          "$ref": "#/definitions/Tags",
-          "description": "The tags that have been added to the specified resource."
+          "allOf": [
+            {
+              "$ref": "#/definitions/Tags"
+            },
+            {
+              "description": "The tags that have been added to the specified resource group."
+            }
+          ]
         }
       },
       "type": "object"
@@ -1491,33 +3250,64 @@
       "type": "string"
     },
     "Tags": {
-      "items": {
-        "properties": {
-          "key": {
-            "$ref": "#/definitions/TagKey"
-          },
-          "value": {
-            "$ref": "#/definitions/TagValue"
-          }
-        },
-        "type": "object"
-      },
-      "type": "array"
-    },
-    "TooManyRequestsException": {
-      "description": "The caller has exceeded throttling limits.",
-      "properties": {
-        "Message": {
-          "$ref": "#/definitions/ErrorMessage"
-        }
+      "additionalProperties": {
+        "$ref": "#/definitions/TagValue"
       },
       "type": "object"
     },
-    "UnauthorizedException": {
-      "description": "The request has not been applied because it lacks valid authentication credentials for the target resource.",
+    "TooManyRequestsException": {},
+    "UnauthorizedException": {},
+    "UngroupResourcesInput": {
       "properties": {
-        "Message": {
-          "$ref": "#/definitions/ErrorMessage"
+        "Group": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/GroupString"
+            },
+            {
+              "description": "The name or the ARN of the resource group from which to remove the resources."
+            }
+          ]
+        },
+        "ResourceArns": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceArnList"
+            },
+            {
+              "description": "The ARNs of the resources to be removed from the group."
+            }
+          ]
+        }
+      },
+      "required": [
+        "Group",
+        "ResourceArns"
+      ],
+      "title": "UngroupResourcesInput",
+      "type": "object"
+    },
+    "UngroupResourcesOutput": {
+      "properties": {
+        "Failed": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/FailedResourceList"
+            },
+            {
+              "description": "The resources that failed to be removed from the group."
+            }
+          ]
+        },
+        "Succeeded": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceArnList"
+            },
+            {
+              "description": "The ARNs of the resources that were successfully removed from the group."
+            }
+          ]
         }
       },
       "type": "object"
@@ -1525,24 +3315,43 @@
     "UntagInput": {
       "properties": {
         "Keys": {
-          "$ref": "#/definitions/TagKeyList",
-          "description": "The keys of the tags to be removed."
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagKeyList"
+            },
+            {
+              "description": "The keys of the tags to be removed."
+            }
+          ]
         }
       },
       "required": [
         "Keys"
       ],
+      "title": "UntagInput",
       "type": "object"
     },
     "UntagOutput": {
       "properties": {
         "Arn": {
-          "$ref": "#/definitions/GroupArn",
-          "description": "The ARN of the resource from which tags have been removed."
+          "allOf": [
+            {
+              "$ref": "#/definitions/GroupArn"
+            },
+            {
+              "description": "The ARN of the resource group from which tags have been removed."
+            }
+          ]
         },
         "Keys": {
-          "$ref": "#/definitions/TagKeyList",
-          "description": "The keys of tags that have been removed."
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagKeyList"
+            },
+            {
+              "description": "The keys of the tags that were removed."
+            }
+          ]
         }
       },
       "type": "object"
@@ -1550,41 +3359,173 @@
     "UpdateGroupInput": {
       "properties": {
         "Description": {
-          "$ref": "#/definitions/GroupDescription",
-          "description": "The description of the resource group. Descriptions can have a maximum of 511 characters, including letters, numbers, hyphens, underscores, punctuation, and spaces."
+          "allOf": [
+            {
+              "$ref": "#/definitions/Description"
+            },
+            {
+              "description": "The new description that you want to update the resource group with. Descriptions can contain letters, numbers, hyphens, underscores, periods, and spaces."
+            }
+          ]
+        },
+        "Group": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/GroupString"
+            },
+            {
+              "description": "The name or the ARN of the resource group to modify."
+            }
+          ]
+        },
+        "GroupName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/GroupName"
+            },
+            {
+              "description": "Don't use this parameter. Use <code>Group</code> instead.This field is deprecated, use Group instead.",
+              "x-deprecated": true
+            }
+          ]
         }
       },
+      "title": "UpdateGroupInput",
       "type": "object"
     },
     "UpdateGroupOutput": {
       "properties": {
         "Group": {
-          "$ref": "#/definitions/Group",
-          "description": "The full description of the resource group after it has been updated."
+          "allOf": [
+            {
+              "$ref": "#/definitions/Group"
+            },
+            {
+              "description": "The update description of the resource group."
+            }
+          ]
         }
       },
       "type": "object"
     },
     "UpdateGroupQueryInput": {
       "properties": {
+        "Group": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/GroupString"
+            },
+            {
+              "description": "The name or the ARN of the resource group to query."
+            }
+          ]
+        },
+        "GroupName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/GroupName"
+            },
+            {
+              "description": "Don't use this parameter. Use <code>Group</code> instead.This field is deprecated, use Group instead.",
+              "x-deprecated": true
+            }
+          ]
+        },
         "ResourceQuery": {
-          "$ref": "#/definitions/ResourceQuery",
-          "description": "The resource query that determines which AWS resources are members of the resource group."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceQuery"
+            },
+            {
+              "description": "The resource query to determine which AWS resources are members of this resource group."
+            }
+          ]
         }
       },
       "required": [
         "ResourceQuery"
       ],
+      "title": "UpdateGroupQueryInput",
       "type": "object"
     },
     "UpdateGroupQueryOutput": {
       "properties": {
         "GroupQuery": {
-          "$ref": "#/definitions/GroupQuery",
-          "description": "The resource query associated with the resource group after the update."
+          "allOf": [
+            {
+              "$ref": "#/definitions/GroupQuery"
+            },
+            {
+              "description": "The updated resource query associated with the resource group after the update."
+            }
+          ]
         }
       },
       "type": "object"
+    }
+  },
+  "securityDefinitions": {
+    "hmac": {
+      "description": "Amazon Signature authorization v4",
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey",
+      "x-amazon-apigateway-authtype": "awsSigv4"
+    }
+  },
+  "security": [
+    {
+      "hmac": []
+    }
+  ],
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://docs.aws.amazon.com/resource-groups/"
+  },
+  "x-components": {
+    "parameters": {
+      "X-Amz-Algorithm": {
+        "in": "header",
+        "name": "X-Amz-Algorithm",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Content-Sha256": {
+        "in": "header",
+        "name": "X-Amz-Content-Sha256",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Credential": {
+        "in": "header",
+        "name": "X-Amz-Credential",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Date": {
+        "in": "header",
+        "name": "X-Amz-Date",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Security-Token": {
+        "in": "header",
+        "name": "X-Amz-Security-Token",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Signature": {
+        "in": "header",
+        "name": "X-Amz-Signature",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-SignedHeaders": {
+        "in": "header",
+        "name": "X-Amz-SignedHeaders",
+        "required": false,
+        "type": "string"
+      }
     }
   }
 }

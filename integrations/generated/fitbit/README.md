@@ -15,7 +15,7 @@ let fitbit = require('@datafire/fitbit').create({
   redirect_uri: ""
 });
 
-fitbit.user._.profile.json.post({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

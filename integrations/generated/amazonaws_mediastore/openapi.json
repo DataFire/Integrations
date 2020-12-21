@@ -1,12 +1,5 @@
 {
   "swagger": "2.0",
-  "schemes": [
-    "https",
-    "http"
-  ],
-  "host": "mediastore.amazonaws.com",
-  "basePath": "/",
-  "x-hasEquivalentPaths": true,
   "info": {
     "contact": {
       "email": "mike.ralphson@gmail.com",
@@ -30,7 +23,7 @@
     ],
     "x-logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.jpeg"
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"
     },
     "x-origin": [
       {
@@ -40,7 +33,7 @@
           "version": "1.0.0"
         },
         "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/mediastore-2017-09-01.normal.json",
-        "x-apisguru-direct": true
+        "x-apisguru-driver": "external"
       }
     ],
     "x-preferred": true,
@@ -52,121 +45,74 @@
       "type": "openapi"
     }
   },
-  "externalDocs": {
-    "description": "Amazon Web Services documentation",
-    "url": "https://aws.amazon.com/mediastore/"
-  },
-  "consumes": [
-    "application/json"
+  "host": "mediastore.us-east-1.amazonaws.com",
+  "basePath": "/",
+  "schemes": [
+    "http"
   ],
-  "produces": [
-    "application/json"
-  ],
-  "securityDefinitions": {
-    "hmac": {
-      "description": "Amazon Signature authorization v4",
-      "in": "header",
-      "name": "Authorization",
-      "type": "apiKey",
-      "x-amazon-apigateway-authtype": "awsSigv4"
-    }
-  },
-  "security": [
-    {
-      "hmac": []
-    }
-  ],
-  "parameters": {
-    "Action": {
-      "in": "header",
-      "name": "Action",
-      "required": true,
-      "type": "string"
-    },
-    "Version": {
-      "in": "header",
-      "name": "Version",
-      "required": true,
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "in": "header",
-      "name": "X-Amz-Algorithm",
-      "required": false,
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "in": "header",
-      "name": "X-Amz-Content-Sha256",
-      "required": false,
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "in": "header",
-      "name": "X-Amz-Credential",
-      "required": false,
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "in": "header",
-      "name": "X-Amz-Date",
-      "required": false,
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "in": "header",
-      "name": "X-Amz-Security-Token",
-      "required": false,
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "in": "header",
-      "name": "X-Amz-Signature",
-      "required": false,
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "in": "header",
-      "name": "X-Amz-SignedHeaders",
-      "required": false,
-      "type": "string"
-    }
-  },
   "paths": {
-    "/": {
+    "/#X-Amz-Target=MediaStore_20170901.CreateContainer": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Creates a storage container to hold objects. A container is similar to a bucket in the Amazon S3 service.",
-        "operationId": "CreateContainer",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "enum": [
+              "MediaStore_20170901.CreateContainer"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -201,43 +147,73 @@
               "$ref": "#/definitions/InternalServerError"
             }
           }
-        }
+        },
+        "description": "Creates a storage container to hold objects. A container is similar to a bucket in the Amazon S3 service.",
+        "operationId": "CreateContainer"
       }
     },
-    "/#DeleteContainer": {
+    "/#X-Amz-Target=MediaStore_20170901.DeleteContainer": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Deletes the specified container. Before you make a <code>DeleteContainer</code> request, delete any objects in the container or in any folders in the container. You can delete only empty containers. ",
-        "operationId": "DeleteContainer",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "enum": [
+              "MediaStore_20170901.DeleteContainer"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -272,43 +248,73 @@
               "$ref": "#/definitions/InternalServerError"
             }
           }
-        }
+        },
+        "description": "Deletes the specified container. Before you make a <code>DeleteContainer</code> request, delete any objects in the container or in any folders in the container. You can delete only empty containers. ",
+        "operationId": "DeleteContainer"
       }
     },
-    "/#DeleteContainerPolicy": {
+    "/#X-Amz-Target=MediaStore_20170901.DeleteContainerPolicy": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Deletes the access policy that is associated with the specified container.",
-        "operationId": "DeleteContainerPolicy",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "enum": [
+              "MediaStore_20170901.DeleteContainerPolicy"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -349,43 +355,73 @@
               "$ref": "#/definitions/InternalServerError"
             }
           }
-        }
+        },
+        "description": "Deletes the access policy that is associated with the specified container.",
+        "operationId": "DeleteContainerPolicy"
       }
     },
-    "/#DeleteCorsPolicy": {
+    "/#X-Amz-Target=MediaStore_20170901.DeleteCorsPolicy": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "<p>Deletes the cross-origin resource sharing (CORS) configuration information that is set for the container.</p> <p>To use this operation, you must have permission to perform the <code>MediaStore:DeleteCorsPolicy</code> action. The container owner has this permission by default and can grant this permission to others.</p>",
-        "operationId": "DeleteCorsPolicy",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "enum": [
+              "MediaStore_20170901.DeleteCorsPolicy"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -426,43 +462,287 @@
               "$ref": "#/definitions/InternalServerError"
             }
           }
-        }
+        },
+        "description": "<p>Deletes the cross-origin resource sharing (CORS) configuration information that is set for the container.</p> <p>To use this operation, you must have permission to perform the <code>MediaStore:DeleteCorsPolicy</code> action. The container owner has this permission by default and can grant this permission to others.</p>",
+        "operationId": "DeleteCorsPolicy"
       }
     },
-    "/#DescribeContainer": {
+    "/#X-Amz-Target=MediaStore_20170901.DeleteLifecyclePolicy": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Retrieves the properties of the requested container. This request is commonly used to retrieve the endpoint of a container. An endpoint is a value assigned by the service when a new container is created. A container's endpoint does not change after it has been assigned. The <code>DescribeContainer</code> request returns a single <code>Container</code> object based on <code>ContainerName</code>. To return all <code>Container</code> objects that are associated with a specified AWS account, use <a>ListContainers</a>.",
-        "operationId": "DescribeContainer",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "enum": [
+              "MediaStore_20170901.DeleteLifecyclePolicy"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteLifecyclePolicyInput"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteLifecyclePolicyOutput"
+            }
+          },
+          "480": {
+            "description": "ContainerInUseException",
+            "schema": {
+              "$ref": "#/definitions/ContainerInUseException"
+            }
+          },
+          "481": {
+            "description": "ContainerNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ContainerNotFoundException"
+            }
+          },
+          "482": {
+            "description": "PolicyNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/PolicyNotFoundException"
+            }
+          },
+          "483": {
+            "description": "InternalServerError",
+            "schema": {
+              "$ref": "#/definitions/InternalServerError"
+            }
+          }
+        },
+        "description": "Removes an object lifecycle policy from a container. It takes up to 20 minutes for the change to take effect.",
+        "operationId": "DeleteLifecyclePolicy"
+      }
+    },
+    "/#X-Amz-Target=MediaStore_20170901.DeleteMetricPolicy": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "MediaStore_20170901.DeleteMetricPolicy"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteMetricPolicyInput"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteMetricPolicyOutput"
+            }
+          },
+          "480": {
+            "description": "ContainerInUseException",
+            "schema": {
+              "$ref": "#/definitions/ContainerInUseException"
+            }
+          },
+          "481": {
+            "description": "ContainerNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ContainerNotFoundException"
+            }
+          },
+          "482": {
+            "description": "PolicyNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/PolicyNotFoundException"
+            }
+          },
+          "483": {
+            "description": "InternalServerError",
+            "schema": {
+              "$ref": "#/definitions/InternalServerError"
+            }
+          }
+        },
+        "description": "Deletes the metric policy that is associated with the specified container. If there is no metric policy associated with the container, MediaStore doesn't send metrics to CloudWatch.",
+        "operationId": "DeleteMetricPolicy"
+      }
+    },
+    "/#X-Amz-Target=MediaStore_20170901.DescribeContainer": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "MediaStore_20170901.DescribeContainer"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -491,43 +771,73 @@
               "$ref": "#/definitions/InternalServerError"
             }
           }
-        }
+        },
+        "description": "Retrieves the properties of the requested container. This request is commonly used to retrieve the endpoint of a container. An endpoint is a value assigned by the service when a new container is created. A container's endpoint does not change after it has been assigned. The <code>DescribeContainer</code> request returns a single <code>Container</code> object based on <code>ContainerName</code>. To return all <code>Container</code> objects that are associated with a specified AWS account, use <a>ListContainers</a>.",
+        "operationId": "DescribeContainer"
       }
     },
-    "/#GetContainerPolicy": {
+    "/#X-Amz-Target=MediaStore_20170901.GetContainerPolicy": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Retrieves the access policy for the specified container. For information about the data that is included in an access policy, see the <a href=\"https://aws.amazon.com/documentation/iam/\">AWS Identity and Access Management User Guide</a>.",
-        "operationId": "GetContainerPolicy",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "enum": [
+              "MediaStore_20170901.GetContainerPolicy"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -568,43 +878,73 @@
               "$ref": "#/definitions/InternalServerError"
             }
           }
-        }
+        },
+        "description": "Retrieves the access policy for the specified container. For information about the data that is included in an access policy, see the <a href=\"https://aws.amazon.com/documentation/iam/\">AWS Identity and Access Management User Guide</a>.",
+        "operationId": "GetContainerPolicy"
       }
     },
-    "/#GetCorsPolicy": {
+    "/#X-Amz-Target=MediaStore_20170901.GetCorsPolicy": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "<p>Returns the cross-origin resource sharing (CORS) configuration information that is set for the container.</p> <p>To use this operation, you must have permission to perform the <code>MediaStore:GetCorsPolicy</code> action. By default, the container owner has this permission and can grant it to others.</p>",
-        "operationId": "GetCorsPolicy",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "enum": [
+              "MediaStore_20170901.GetCorsPolicy"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -645,43 +985,301 @@
               "$ref": "#/definitions/InternalServerError"
             }
           }
-        }
+        },
+        "description": "<p>Returns the cross-origin resource sharing (CORS) configuration information that is set for the container.</p> <p>To use this operation, you must have permission to perform the <code>MediaStore:GetCorsPolicy</code> action. By default, the container owner has this permission and can grant it to others.</p>",
+        "operationId": "GetCorsPolicy"
       }
     },
-    "/#ListContainers": {
+    "/#X-Amz-Target=MediaStore_20170901.GetLifecyclePolicy": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "<p>Lists the properties of all containers in AWS Elemental MediaStore. </p> <p>You can query to receive all the containers in one response. Or you can include the <code>MaxResults</code> parameter to receive a limited number of containers in each response. In this case, the response includes a token. To get the next set of containers, send the command again, this time with the <code>NextToken</code> parameter (with the returned token as its value). The next set of responses appears, with a token if there are still more containers to receive. </p> <p>See also <a>DescribeContainer</a>, which gets the properties of one container. </p>",
-        "operationId": "ListContainers",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "enum": [
+              "MediaStore_20170901.GetLifecyclePolicy"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetLifecyclePolicyInput"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetLifecyclePolicyOutput"
+            }
+          },
+          "480": {
+            "description": "ContainerInUseException",
+            "schema": {
+              "$ref": "#/definitions/ContainerInUseException"
+            }
+          },
+          "481": {
+            "description": "ContainerNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ContainerNotFoundException"
+            }
+          },
+          "482": {
+            "description": "PolicyNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/PolicyNotFoundException"
+            }
+          },
+          "483": {
+            "description": "InternalServerError",
+            "schema": {
+              "$ref": "#/definitions/InternalServerError"
+            }
+          }
+        },
+        "description": "Retrieves the object lifecycle policy that is assigned to a container.",
+        "operationId": "GetLifecyclePolicy"
+      }
+    },
+    "/#X-Amz-Target=MediaStore_20170901.GetMetricPolicy": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "MediaStore_20170901.GetMetricPolicy"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetMetricPolicyInput"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetMetricPolicyOutput"
+            }
+          },
+          "480": {
+            "description": "ContainerNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ContainerNotFoundException"
+            }
+          },
+          "481": {
+            "description": "PolicyNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/PolicyNotFoundException"
+            }
+          },
+          "482": {
+            "description": "ContainerInUseException",
+            "schema": {
+              "$ref": "#/definitions/ContainerInUseException"
+            }
+          },
+          "483": {
+            "description": "InternalServerError",
+            "schema": {
+              "$ref": "#/definitions/InternalServerError"
+            }
+          }
+        },
+        "description": "Returns the metric policy for the specified container. ",
+        "operationId": "GetMetricPolicy"
+      }
+    },
+    "/#X-Amz-Target=MediaStore_20170901.ListContainers": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "MediaStore_20170901.ListContainers"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -704,43 +1302,174 @@
               "$ref": "#/definitions/InternalServerError"
             }
           }
-        }
+        },
+        "description": "<p>Lists the properties of all containers in AWS Elemental MediaStore. </p> <p>You can query to receive all the containers in one response. Or you can include the <code>MaxResults</code> parameter to receive a limited number of containers in each response. In this case, the response includes a token. To get the next set of containers, send the command again, this time with the <code>NextToken</code> parameter (with the returned token as its value). The next set of responses appears, with a token if there are still more containers to receive. </p> <p>See also <a>DescribeContainer</a>, which gets the properties of one container. </p>",
+        "operationId": "ListContainers"
       }
     },
-    "/#PutContainerPolicy": {
+    "/#X-Amz-Target=MediaStore_20170901.ListTagsForResource": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "<p>Creates an access policy for the specified container to restrict the users and clients that can access it. For information about the data that is included in an access policy, see the <a href=\"https://aws.amazon.com/documentation/iam/\">AWS Identity and Access Management User Guide</a>.</p> <p>For this release of the REST API, you can create only one policy for a container. If you enter <code>PutContainerPolicy</code> twice, the second command modifies the existing policy. </p>",
-        "operationId": "PutContainerPolicy",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "enum": [
+              "MediaStore_20170901.ListTagsForResource"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListTagsForResourceInput"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListTagsForResourceOutput"
+            }
+          },
+          "480": {
+            "description": "ContainerInUseException",
+            "schema": {
+              "$ref": "#/definitions/ContainerInUseException"
+            }
+          },
+          "481": {
+            "description": "ContainerNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ContainerNotFoundException"
+            }
+          },
+          "482": {
+            "description": "InternalServerError",
+            "schema": {
+              "$ref": "#/definitions/InternalServerError"
+            }
+          }
+        },
+        "description": "Returns a list of the tags assigned to the specified container. ",
+        "operationId": "ListTagsForResource"
+      }
+    },
+    "/#X-Amz-Target=MediaStore_20170901.PutContainerPolicy": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "MediaStore_20170901.PutContainerPolicy"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -775,43 +1504,73 @@
               "$ref": "#/definitions/InternalServerError"
             }
           }
-        }
+        },
+        "description": "<p>Creates an access policy for the specified container to restrict the users and clients that can access it. For information about the data that is included in an access policy, see the <a href=\"https://aws.amazon.com/documentation/iam/\">AWS Identity and Access Management User Guide</a>.</p> <p>For this release of the REST API, you can create only one policy for a container. If you enter <code>PutContainerPolicy</code> twice, the second command modifies the existing policy. </p>",
+        "operationId": "PutContainerPolicy"
       }
     },
-    "/#PutCorsPolicy": {
+    "/#X-Amz-Target=MediaStore_20170901.PutCorsPolicy": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "<p>Sets the cross-origin resource sharing (CORS) configuration on a container so that the container can service cross-origin requests. For example, you might want to enable a request whose origin is http://www.example.com to access your AWS Elemental MediaStore container at my.example.container.com by using the browser's XMLHttpRequest capability.</p> <p>To enable CORS on a container, you attach a CORS policy to the container. In the CORS policy, you configure rules that identify origins and the HTTP methods that can be executed on your container. The policy can contain up to 398,000 characters. You can add up to 100 rules to a CORS policy. If more than one rule applies, the service uses the first applicable rule listed.</p>",
-        "operationId": "PutCorsPolicy",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "enum": [
+              "MediaStore_20170901.PutCorsPolicy"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -846,7 +1605,615 @@
               "$ref": "#/definitions/InternalServerError"
             }
           }
+        },
+        "description": "<p>Sets the cross-origin resource sharing (CORS) configuration on a container so that the container can service cross-origin requests. For example, you might want to enable a request whose origin is http://www.example.com to access your AWS Elemental MediaStore container at my.example.container.com by using the browser's XMLHttpRequest capability.</p> <p>To enable CORS on a container, you attach a CORS policy to the container. In the CORS policy, you configure rules that identify origins and the HTTP methods that can be executed on your container. The policy can contain up to 398,000 characters. You can add up to 100 rules to a CORS policy. If more than one rule applies, the service uses the first applicable rule listed.</p> <p>To learn more about CORS, see <a href=\"https://docs.aws.amazon.com/mediastore/latest/ug/cors-policy.html\">Cross-Origin Resource Sharing (CORS) in AWS Elemental MediaStore</a>.</p>",
+        "operationId": "PutCorsPolicy"
+      }
+    },
+    "/#X-Amz-Target=MediaStore_20170901.PutLifecyclePolicy": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "MediaStore_20170901.PutLifecyclePolicy"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PutLifecyclePolicyInput"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/PutLifecyclePolicyOutput"
+            }
+          },
+          "480": {
+            "description": "ContainerInUseException",
+            "schema": {
+              "$ref": "#/definitions/ContainerInUseException"
+            }
+          },
+          "481": {
+            "description": "ContainerNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ContainerNotFoundException"
+            }
+          },
+          "482": {
+            "description": "InternalServerError",
+            "schema": {
+              "$ref": "#/definitions/InternalServerError"
+            }
+          }
+        },
+        "description": "<p>Writes an object lifecycle policy to a container. If the container already has an object lifecycle policy, the service replaces the existing policy with the new policy. It takes up to 20 minutes for the change to take effect.</p> <p>For information about how to construct an object lifecycle policy, see <a href=\"https://docs.aws.amazon.com/mediastore/latest/ug/policies-object-lifecycle-components.html\">Components of an Object Lifecycle Policy</a>.</p>",
+        "operationId": "PutLifecyclePolicy"
+      }
+    },
+    "/#X-Amz-Target=MediaStore_20170901.PutMetricPolicy": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "MediaStore_20170901.PutMetricPolicy"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PutMetricPolicyInput"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/PutMetricPolicyOutput"
+            }
+          },
+          "480": {
+            "description": "ContainerInUseException",
+            "schema": {
+              "$ref": "#/definitions/ContainerInUseException"
+            }
+          },
+          "481": {
+            "description": "ContainerNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ContainerNotFoundException"
+            }
+          },
+          "482": {
+            "description": "InternalServerError",
+            "schema": {
+              "$ref": "#/definitions/InternalServerError"
+            }
+          }
+        },
+        "description": "The metric policy that you want to add to the container. A metric policy allows AWS Elemental MediaStore to send metrics to Amazon CloudWatch. It takes up to 20 minutes for the new policy to take effect.",
+        "operationId": "PutMetricPolicy"
+      }
+    },
+    "/#X-Amz-Target=MediaStore_20170901.StartAccessLogging": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "MediaStore_20170901.StartAccessLogging"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/StartAccessLoggingInput"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/StartAccessLoggingOutput"
+            }
+          },
+          "480": {
+            "description": "ContainerInUseException",
+            "schema": {
+              "$ref": "#/definitions/ContainerInUseException"
+            }
+          },
+          "481": {
+            "description": "ContainerNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ContainerNotFoundException"
+            }
+          },
+          "482": {
+            "description": "InternalServerError",
+            "schema": {
+              "$ref": "#/definitions/InternalServerError"
+            }
+          }
+        },
+        "description": "Starts access logging on the specified container. When you enable access logging on a container, MediaStore delivers access logs for objects stored in that container to Amazon CloudWatch Logs.",
+        "operationId": "StartAccessLogging"
+      }
+    },
+    "/#X-Amz-Target=MediaStore_20170901.StopAccessLogging": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "MediaStore_20170901.StopAccessLogging"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/StopAccessLoggingInput"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/StopAccessLoggingOutput"
+            }
+          },
+          "480": {
+            "description": "ContainerInUseException",
+            "schema": {
+              "$ref": "#/definitions/ContainerInUseException"
+            }
+          },
+          "481": {
+            "description": "ContainerNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ContainerNotFoundException"
+            }
+          },
+          "482": {
+            "description": "InternalServerError",
+            "schema": {
+              "$ref": "#/definitions/InternalServerError"
+            }
+          }
+        },
+        "description": "Stops access logging on the specified container. When you stop access logging on a container, MediaStore stops sending access logs to Amazon CloudWatch Logs. These access logs are not saved and are not retrievable.",
+        "operationId": "StopAccessLogging"
+      }
+    },
+    "/#X-Amz-Target=MediaStore_20170901.TagResource": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "MediaStore_20170901.TagResource"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/TagResourceInput"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/TagResourceOutput"
+            }
+          },
+          "480": {
+            "description": "ContainerInUseException",
+            "schema": {
+              "$ref": "#/definitions/ContainerInUseException"
+            }
+          },
+          "481": {
+            "description": "ContainerNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ContainerNotFoundException"
+            }
+          },
+          "482": {
+            "description": "InternalServerError",
+            "schema": {
+              "$ref": "#/definitions/InternalServerError"
+            }
+          }
+        },
+        "description": "Adds tags to the specified AWS Elemental MediaStore container. Tags are key:value pairs that you can associate with AWS resources. For example, the tag key might be \"customer\" and the tag value might be \"companyA.\" You can specify one or more tags to add to each container. You can add up to 50 tags to each container. For more information about tagging, including naming and usage conventions, see <a href=\"https://docs.aws.amazon.com/mediastore/latest/ug/tagging.html\">Tagging Resources in MediaStore</a>.",
+        "operationId": "TagResource"
+      }
+    },
+    "/#X-Amz-Target=MediaStore_20170901.UntagResource": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "MediaStore_20170901.UntagResource"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UntagResourceInput"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UntagResourceOutput"
+            }
+          },
+          "480": {
+            "description": "ContainerInUseException",
+            "schema": {
+              "$ref": "#/definitions/ContainerInUseException"
+            }
+          },
+          "481": {
+            "description": "ContainerNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ContainerNotFoundException"
+            }
+          },
+          "482": {
+            "description": "InternalServerError",
+            "schema": {
+              "$ref": "#/definitions/InternalServerError"
+            }
+          }
+        },
+        "description": "Removes tags from the specified container. You can specify one or more tags to remove. ",
+        "operationId": "UntagResource"
       }
     }
   },
@@ -863,36 +2230,80 @@
       "items": {
         "$ref": "#/definitions/MethodName"
       },
+      "maxItems": 4,
+      "minItems": 1,
       "type": "array"
     },
     "AllowedOrigins": {
       "items": {
         "$ref": "#/definitions/Origin"
       },
+      "maxItems": 100,
+      "minItems": 1,
       "type": "array"
     },
     "Container": {
       "description": "This section describes operations that you can perform on an AWS Elemental MediaStore container.",
       "properties": {
         "ARN": {
-          "$ref": "#/definitions/ContainerARN",
-          "description": "<p>The Amazon Resource Name (ARN) of the container. The ARN has the following format:</p> <p>arn:aws:&lt;region&gt;:&lt;account that owns this container&gt;:container/&lt;name of container&gt; </p> <p>For example: arn:aws:mediastore:us-west-2:111122223333:container/movies </p>"
+          "allOf": [
+            {
+              "$ref": "#/definitions/ContainerARN"
+            },
+            {
+              "description": "<p>The Amazon Resource Name (ARN) of the container. The ARN has the following format:</p> <p>arn:aws:&lt;region&gt;:&lt;account that owns this container&gt;:container/&lt;name of container&gt; </p> <p>For example: arn:aws:mediastore:us-west-2:111122223333:container/movies </p>"
+            }
+          ]
+        },
+        "AccessLoggingEnabled": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ContainerAccessLoggingEnabled"
+            },
+            {
+              "description": "The state of access logging on the container. This value is <code>false</code> by default, indicating that AWS Elemental MediaStore does not send access logs to Amazon CloudWatch Logs. When you enable access logging on the container, MediaStore changes this value to <code>true</code>, indicating that the service delivers access logs for objects stored in that container to CloudWatch Logs."
+            }
+          ]
         },
         "CreationTime": {
-          "$ref": "#/definitions/TimeStamp",
-          "description": "Unix timestamp."
+          "allOf": [
+            {
+              "$ref": "#/definitions/TimeStamp"
+            },
+            {
+              "description": "Unix timestamp."
+            }
+          ]
         },
         "Endpoint": {
-          "$ref": "#/definitions/Endpoint",
-          "description": "The DNS endpoint of the container. Use the endpoint to identify the specific container when sending requests to the data plane. The service assigns this value when the container is created. Once the value has been assigned, it does not change."
+          "allOf": [
+            {
+              "$ref": "#/definitions/Endpoint"
+            },
+            {
+              "description": "The DNS endpoint of the container. Use the endpoint to identify the specific container when sending requests to the data plane. The service assigns this value when the container is created. Once the value has been assigned, it does not change."
+            }
+          ]
         },
         "Name": {
-          "$ref": "#/definitions/ContainerName",
-          "description": "The name of the container."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ContainerName"
+            },
+            {
+              "description": "The name of the container."
+            }
+          ]
         },
         "Status": {
-          "$ref": "#/definitions/ContainerStatus",
-          "description": "The status of container creation or deletion. The status is one of the following: <code>CREATING</code>, <code>ACTIVE</code>, or <code>DELETING</code>. While the service is creating the container, the status is <code>CREATING</code>. When the endpoint is available, the status changes to <code>ACTIVE</code>."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ContainerStatus"
+            },
+            {
+              "description": "The status of container creation or deletion. The status is one of the following: <code>CREATING</code>, <code>ACTIVE</code>, or <code>DELETING</code>. While the service is creating the container, the status is <code>CREATING</code>. When the endpoint is available, the status changes to <code>ACTIVE</code>."
+            }
+          ]
         }
       },
       "type": "object"
@@ -900,17 +2311,19 @@
     "ContainerARN": {
       "maxLength": 1024,
       "minLength": 1,
-      "pattern": "arn:aws:mediastore:[a-z]+-[a-z]+-\\d:\\d{12}:container/\\w{1,255}",
+      "pattern": "arn:aws:mediastore:[a-z]+-[a-z]+-\\d:\\d{12}:container/[\\w-]{1,255}",
       "type": "string"
     },
-    "ContainerInUseException": {
-      "description": "Resource already exists or is being updated.",
-      "properties": {
-        "Message": {
-          "$ref": "#/definitions/ErrorMessage"
-        }
-      },
-      "type": "object"
+    "ContainerAccessLoggingEnabled": {
+      "type": "boolean"
+    },
+    "ContainerInUseException": {},
+    "ContainerLevelMetrics": {
+      "enum": [
+        "ENABLED",
+        "DISABLED"
+      ],
+      "type": "string"
     },
     "ContainerList": {
       "items": {
@@ -926,22 +2339,14 @@
     "ContainerName": {
       "maxLength": 255,
       "minLength": 1,
-      "pattern": "\\w+",
+      "pattern": "[\\w-]+",
       "type": "string"
     },
-    "ContainerNotFoundException": {
-      "description": "Could not perform an operation on a container that does not exist.",
-      "properties": {
-        "Message": {
-          "$ref": "#/definitions/ErrorMessage"
-        }
-      },
-      "type": "object"
-    },
+    "ContainerNotFoundException": {},
     "ContainerPolicy": {
       "maxLength": 8192,
       "minLength": 1,
-      "pattern": "[\\u0009\\u000A\\u000D\\u0020-\\u00FF]+",
+      "pattern": "[\\x00-\\x7F]+",
       "type": "string"
     },
     "ContainerStatus": {
@@ -963,58 +2368,107 @@
       "minItems": 1,
       "type": "array"
     },
-    "CorsPolicyNotFoundException": {
-      "description": "Could not perform an operation on a policy that does not exist.",
-      "properties": {
-        "Message": {
-          "$ref": "#/definitions/ErrorMessage"
-        }
-      },
-      "type": "object"
-    },
+    "CorsPolicyNotFoundException": {},
     "CorsRule": {
       "description": "A rule for a CORS policy. You can add up to 100 rules to a CORS policy. If more than one rule applies, the service uses the first applicable rule listed.",
       "properties": {
         "AllowedHeaders": {
-          "$ref": "#/definitions/AllowedHeaders",
-          "description": "<p>Specifies which headers are allowed in a preflight <code>OPTIONS</code> request through the <code>Access-Control-Request-Headers</code> header. Each header name that is specified in <code>Access-Control-Request-Headers</code> must have a corresponding entry in the rule. Only the headers that were requested are sent back. </p> <p>This element can contain only one wildcard character (*).</p>"
+          "allOf": [
+            {
+              "$ref": "#/definitions/AllowedHeaders"
+            },
+            {
+              "description": "<p>Specifies which headers are allowed in a preflight <code>OPTIONS</code> request through the <code>Access-Control-Request-Headers</code> header. Each header name that is specified in <code>Access-Control-Request-Headers</code> must have a corresponding entry in the rule. Only the headers that were requested are sent back. </p> <p>This element can contain only one wildcard character (*).</p>"
+            }
+          ]
         },
         "AllowedMethods": {
-          "$ref": "#/definitions/AllowedMethods",
-          "description": "<p>Identifies an HTTP method that the origin that is specified in the rule is allowed to execute.</p> <p>Each CORS rule must contain at least one <code>AllowedMethod</code> and one <code>AllowedOrigin</code> element.</p>"
+          "allOf": [
+            {
+              "$ref": "#/definitions/AllowedMethods"
+            },
+            {
+              "description": "<p>Identifies an HTTP method that the origin that is specified in the rule is allowed to execute.</p> <p>Each CORS rule must contain at least one <code>AllowedMethods</code> and one <code>AllowedOrigins</code> element.</p>"
+            }
+          ]
         },
         "AllowedOrigins": {
-          "$ref": "#/definitions/AllowedOrigins",
-          "description": "<p>One or more response headers that you want users to be able to access from their applications (for example, from a JavaScript <code>XMLHttpRequest</code> object).</p> <p>Each CORS rule must have at least one <code>AllowedOrigin</code> element. The string value can include only one wildcard character (*), for example, http://*.example.com. Additionally, you can specify only one wildcard character to allow cross-origin access for all origins.</p>"
+          "allOf": [
+            {
+              "$ref": "#/definitions/AllowedOrigins"
+            },
+            {
+              "description": "<p>One or more response headers that you want users to be able to access from their applications (for example, from a JavaScript <code>XMLHttpRequest</code> object).</p> <p>Each CORS rule must have at least one <code>AllowedOrigins</code> element. The string value can include only one wildcard character (*), for example, http://*.example.com. Additionally, you can specify only one wildcard character to allow cross-origin access for all origins.</p>"
+            }
+          ]
         },
         "ExposeHeaders": {
-          "$ref": "#/definitions/ExposeHeaders",
-          "description": "<p>One or more headers in the response that you want users to be able to access from their applications (for example, from a JavaScript <code>XMLHttpRequest</code> object).</p> <p>This element is optional for each rule.</p>"
+          "allOf": [
+            {
+              "$ref": "#/definitions/ExposeHeaders"
+            },
+            {
+              "description": "<p>One or more headers in the response that you want users to be able to access from their applications (for example, from a JavaScript <code>XMLHttpRequest</code> object).</p> <p>This element is optional for each rule.</p>"
+            }
+          ]
         },
         "MaxAgeSeconds": {
-          "$ref": "#/definitions/MaxAgeSeconds",
-          "description": "<p>The time in seconds that your browser caches the preflight response for the specified resource.</p> <p>A CORS rule can have only one <code>MaxAgeSeconds</code> element.</p>"
+          "allOf": [
+            {
+              "$ref": "#/definitions/MaxAgeSeconds"
+            },
+            {
+              "description": "<p>The time in seconds that your browser caches the preflight response for the specified resource.</p> <p>A CORS rule can have only one <code>MaxAgeSeconds</code> element.</p>"
+            }
+          ]
         }
       },
+      "required": [
+        "AllowedOrigins",
+        "AllowedHeaders"
+      ],
       "type": "object"
     },
     "CreateContainerInput": {
       "properties": {
         "ContainerName": {
-          "$ref": "#/definitions/ContainerName",
-          "description": "The name for the container. The name must be from 1 to 255 characters. Container names must be unique to your AWS account within a specific region. As an example, you could create a container named <code>movies</code> in every region, as long as you don’t have an existing container with that name."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ContainerName"
+            },
+            {
+              "description": "The name for the container. The name must be from 1 to 255 characters. Container names must be unique to your AWS account within a specific region. As an example, you could create a container named <code>movies</code> in every region, as long as you don’t have an existing container with that name."
+            }
+          ]
+        },
+        "Tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagList"
+            },
+            {
+              "description": "An array of key:value pairs that you define. These values can be anything that you want. Typically, the tag key represents a category (such as \"environment\") and the tag value represents a specific value within that category (such as \"test,\" \"development,\" or \"production\"). You can add up to 50 tags to each container. For more information about tagging, including naming and usage conventions, see <a href=\"https://docs.aws.amazon.com/mediastore/latest/ug/tagging.html\">Tagging Resources in MediaStore</a>."
+            }
+          ]
         }
       },
       "required": [
         "ContainerName"
       ],
+      "title": "CreateContainerInput",
       "type": "object"
     },
     "CreateContainerOutput": {
       "properties": {
         "Container": {
-          "$ref": "#/definitions/Container",
-          "description": "<p>ContainerARN: The Amazon Resource Name (ARN) of the newly created container. The ARN has the following format: arn:aws:&lt;region&gt;:&lt;account that owns this container&gt;:container/&lt;name of container&gt;. For example: arn:aws:mediastore:us-west-2:111122223333:container/movies </p> <p>ContainerName: The container name as specified in the request.</p> <p>CreationTime: Unix time stamp.</p> <p>Status: The status of container creation or deletion. The status is one of the following: <code>CREATING</code>, <code>ACTIVE</code>, or <code>DELETING</code>. While the service is creating the container, the status is <code>CREATING</code>. When an endpoint is available, the status changes to <code>ACTIVE</code>.</p> <p>The return value does not include the container's endpoint. To make downstream requests, you must obtain this value by using <a>DescribeContainer</a> or <a>ListContainers</a>.</p>"
+          "allOf": [
+            {
+              "$ref": "#/definitions/Container"
+            },
+            {
+              "description": "<p>ContainerARN: The Amazon Resource Name (ARN) of the newly created container. The ARN has the following format: arn:aws:&lt;region&gt;:&lt;account that owns this container&gt;:container/&lt;name of container&gt;. For example: arn:aws:mediastore:us-west-2:111122223333:container/movies </p> <p>ContainerName: The container name as specified in the request.</p> <p>CreationTime: Unix time stamp.</p> <p>Status: The status of container creation or deletion. The status is one of the following: <code>CREATING</code>, <code>ACTIVE</code>, or <code>DELETING</code>. While the service is creating the container, the status is <code>CREATING</code>. When an endpoint is available, the status changes to <code>ACTIVE</code>.</p> <p>The return value does not include the container's endpoint. To make downstream requests, you must obtain this value by using <a>DescribeContainer</a> or <a>ListContainers</a>.</p>"
+            }
+          ]
         }
       },
       "required": [
@@ -1025,13 +2479,20 @@
     "DeleteContainerInput": {
       "properties": {
         "ContainerName": {
-          "$ref": "#/definitions/ContainerName",
-          "description": "The name of the container to delete. "
+          "allOf": [
+            {
+              "$ref": "#/definitions/ContainerName"
+            },
+            {
+              "description": "The name of the container to delete. "
+            }
+          ]
         }
       },
       "required": [
         "ContainerName"
       ],
+      "title": "DeleteContainerInput",
       "type": "object"
     },
     "DeleteContainerOutput": {
@@ -1041,13 +2502,20 @@
     "DeleteContainerPolicyInput": {
       "properties": {
         "ContainerName": {
-          "$ref": "#/definitions/ContainerName",
-          "description": "The name of the container that holds the policy."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ContainerName"
+            },
+            {
+              "description": "The name of the container that holds the policy."
+            }
+          ]
         }
       },
       "required": [
         "ContainerName"
       ],
+      "title": "DeleteContainerPolicyInput",
       "type": "object"
     },
     "DeleteContainerPolicyOutput": {
@@ -1057,33 +2525,99 @@
     "DeleteCorsPolicyInput": {
       "properties": {
         "ContainerName": {
-          "$ref": "#/definitions/ContainerName",
-          "description": "The name of the container to remove the policy from."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ContainerName"
+            },
+            {
+              "description": "The name of the container to remove the policy from."
+            }
+          ]
         }
       },
       "required": [
         "ContainerName"
       ],
+      "title": "DeleteCorsPolicyInput",
       "type": "object"
     },
     "DeleteCorsPolicyOutput": {
       "properties": {},
       "type": "object"
     },
+    "DeleteLifecyclePolicyInput": {
+      "properties": {
+        "ContainerName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ContainerName"
+            },
+            {
+              "description": "The name of the container that holds the object lifecycle policy."
+            }
+          ]
+        }
+      },
+      "required": [
+        "ContainerName"
+      ],
+      "title": "DeleteLifecyclePolicyInput",
+      "type": "object"
+    },
+    "DeleteLifecyclePolicyOutput": {
+      "properties": {},
+      "type": "object"
+    },
+    "DeleteMetricPolicyInput": {
+      "properties": {
+        "ContainerName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ContainerName"
+            },
+            {
+              "description": "The name of the container that is associated with the metric policy that you want to delete."
+            }
+          ]
+        }
+      },
+      "required": [
+        "ContainerName"
+      ],
+      "title": "DeleteMetricPolicyInput",
+      "type": "object"
+    },
+    "DeleteMetricPolicyOutput": {
+      "properties": {},
+      "type": "object"
+    },
     "DescribeContainerInput": {
       "properties": {
         "ContainerName": {
-          "$ref": "#/definitions/ContainerName",
-          "description": "The name of the container to query."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ContainerName"
+            },
+            {
+              "description": "The name of the container to query."
+            }
+          ]
         }
       },
+      "title": "DescribeContainerInput",
       "type": "object"
     },
     "DescribeContainerOutput": {
       "properties": {
         "Container": {
-          "$ref": "#/definitions/Container",
-          "description": "The name of the queried container."
+          "allOf": [
+            {
+              "$ref": "#/definitions/Container"
+            },
+            {
+              "description": "The name of the queried container."
+            }
+          ]
         }
       },
       "type": "object"
@@ -1091,12 +2625,7 @@
     "Endpoint": {
       "maxLength": 255,
       "minLength": 1,
-      "type": "string"
-    },
-    "ErrorMessage": {
-      "maxLength": 255,
-      "minLength": 1,
-      "pattern": "[ \\w:\\.\\?-]+",
+      "pattern": "[\\u0009\\u000A\\u000D\\u0020-\\u00FF]+",
       "type": "string"
     },
     "ExposeHeaders": {
@@ -1110,20 +2639,33 @@
     "GetContainerPolicyInput": {
       "properties": {
         "ContainerName": {
-          "$ref": "#/definitions/ContainerName",
-          "description": "The name of the container. "
+          "allOf": [
+            {
+              "$ref": "#/definitions/ContainerName"
+            },
+            {
+              "description": "The name of the container. "
+            }
+          ]
         }
       },
       "required": [
         "ContainerName"
       ],
+      "title": "GetContainerPolicyInput",
       "type": "object"
     },
     "GetContainerPolicyOutput": {
       "properties": {
         "Policy": {
-          "$ref": "#/definitions/ContainerPolicy",
-          "description": "The contents of the access policy."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ContainerPolicy"
+            },
+            {
+              "description": "The contents of the access policy."
+            }
+          ]
         }
       },
       "required": [
@@ -1134,23 +2676,111 @@
     "GetCorsPolicyInput": {
       "properties": {
         "ContainerName": {
-          "$ref": "#/definitions/ContainerName",
-          "description": "The name of the container that the policy is assigned to."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ContainerName"
+            },
+            {
+              "description": "The name of the container that the policy is assigned to."
+            }
+          ]
         }
       },
       "required": [
         "ContainerName"
       ],
+      "title": "GetCorsPolicyInput",
       "type": "object"
     },
     "GetCorsPolicyOutput": {
       "properties": {
         "CorsPolicy": {
-          "$ref": "#/definitions/CorsPolicy"
+          "allOf": [
+            {
+              "$ref": "#/definitions/CorsPolicy"
+            },
+            {
+              "description": "The CORS policy assigned to the container."
+            }
+          ]
         }
       },
       "required": [
         "CorsPolicy"
+      ],
+      "type": "object"
+    },
+    "GetLifecyclePolicyInput": {
+      "properties": {
+        "ContainerName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ContainerName"
+            },
+            {
+              "description": "The name of the container that the object lifecycle policy is assigned to."
+            }
+          ]
+        }
+      },
+      "required": [
+        "ContainerName"
+      ],
+      "title": "GetLifecyclePolicyInput",
+      "type": "object"
+    },
+    "GetLifecyclePolicyOutput": {
+      "properties": {
+        "LifecyclePolicy": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/LifecyclePolicy"
+            },
+            {
+              "description": "The object lifecycle policy that is assigned to the container."
+            }
+          ]
+        }
+      },
+      "required": [
+        "LifecyclePolicy"
+      ],
+      "type": "object"
+    },
+    "GetMetricPolicyInput": {
+      "properties": {
+        "ContainerName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ContainerName"
+            },
+            {
+              "description": "The name of the container that is associated with the metric policy."
+            }
+          ]
+        }
+      },
+      "required": [
+        "ContainerName"
+      ],
+      "title": "GetMetricPolicyInput",
+      "type": "object"
+    },
+    "GetMetricPolicyOutput": {
+      "properties": {
+        "MetricPolicy": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MetricPolicy"
+            },
+            {
+              "description": "The metric policy that is associated with the specific container."
+            }
+          ]
+        }
+      },
+      "required": [
+        "MetricPolicy"
       ],
       "type": "object"
     },
@@ -1160,51 +2790,100 @@
       "pattern": "[\\u0009\\u000A\\u000D\\u0020-\\u00FF]+",
       "type": "string"
     },
-    "InternalServerError": {
-      "description": "The service is temporarily unavailable.",
-      "properties": {
-        "Message": {
-          "$ref": "#/definitions/ErrorMessage"
-        }
-      },
-      "type": "object"
+    "InternalServerError": {},
+    "LifecyclePolicy": {
+      "maxLength": 8192,
+      "minLength": 0,
+      "pattern": "[\\u0009\\u000A\\u000D\\u0020-\\u00FF]+",
+      "type": "string"
     },
-    "LimitExceededException": {
-      "description": "A service limit has been exceeded.",
-      "properties": {
-        "Message": {
-          "$ref": "#/definitions/ErrorMessage"
-        }
-      },
-      "type": "object"
-    },
+    "LimitExceededException": {},
     "ListContainersInput": {
       "properties": {
         "MaxResults": {
-          "$ref": "#/definitions/ContainerListLimit",
-          "description": "Enter the maximum number of containers in the response. Use from 1 to 255 characters. "
+          "allOf": [
+            {
+              "$ref": "#/definitions/ContainerListLimit"
+            },
+            {
+              "description": "Enter the maximum number of containers in the response. Use from 1 to 255 characters. "
+            }
+          ]
         },
         "NextToken": {
-          "$ref": "#/definitions/PaginationToken",
-          "description": "Only if you used <code>MaxResults</code> in the first command, enter the token (which was included in the previous response) to obtain the next set of containers. This token is included in a response only if there actually are more containers to list."
+          "allOf": [
+            {
+              "$ref": "#/definitions/PaginationToken"
+            },
+            {
+              "description": "Only if you used <code>MaxResults</code> in the first command, enter the token (which was included in the previous response) to obtain the next set of containers. This token is included in a response only if there actually are more containers to list."
+            }
+          ]
         }
       },
+      "title": "ListContainersInput",
       "type": "object"
     },
     "ListContainersOutput": {
       "properties": {
         "Containers": {
-          "$ref": "#/definitions/ContainerList",
-          "description": "The names of the containers."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ContainerList"
+            },
+            {
+              "description": "The names of the containers."
+            }
+          ]
         },
         "NextToken": {
-          "$ref": "#/definitions/PaginationToken",
-          "description": " <code>NextToken</code> is the token to use in the next call to <code>ListContainers</code>. This token is returned only if you included the <code>MaxResults</code> tag in the original command, and only if there are still containers to return. "
+          "allOf": [
+            {
+              "$ref": "#/definitions/PaginationToken"
+            },
+            {
+              "description": " <code>NextToken</code> is the token to use in the next call to <code>ListContainers</code>. This token is returned only if you included the <code>MaxResults</code> tag in the original command, and only if there are still containers to return. "
+            }
+          ]
         }
       },
       "required": [
         "Containers"
       ],
+      "type": "object"
+    },
+    "ListTagsForResourceInput": {
+      "properties": {
+        "Resource": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ContainerARN"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) for the container."
+            }
+          ]
+        }
+      },
+      "required": [
+        "Resource"
+      ],
+      "title": "ListTagsForResourceInput",
+      "type": "object"
+    },
+    "ListTagsForResourceOutput": {
+      "properties": {
+        "Tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagList"
+            },
+            {
+              "description": "An array of key:value pairs that are assigned to the container."
+            }
+          ]
+        }
+      },
       "type": "object"
     },
     "MaxAgeSeconds": {
@@ -1221,40 +2900,126 @@
       ],
       "type": "string"
     },
+    "MetricPolicy": {
+      "description": "<p>The metric policy that is associated with the container. A metric policy allows AWS Elemental MediaStore to send metrics to Amazon CloudWatch. In the policy, you must indicate whether you want MediaStore to send container-level metrics. You can also include rules to define groups of objects that you want MediaStore to send object-level metrics for.</p> <p>To view examples of how to construct a metric policy for your use case, see <a href=\"https://docs.aws.amazon.com/mediastore/latest/ug/policies-metric-examples.html\">Example Metric Policies</a>.</p>",
+      "properties": {
+        "ContainerLevelMetrics": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ContainerLevelMetrics"
+            },
+            {
+              "description": "A setting to enable or disable metrics at the container level."
+            }
+          ]
+        },
+        "MetricPolicyRules": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MetricPolicyRules"
+            },
+            {
+              "description": "A parameter that holds an array of rules that enable metrics at the object level. This parameter is optional, but if you choose to include it, you must also include at least one rule. By default, you can include up to five rules. You can also <a href=\"https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/mediastore/quotas\">request a quota increase</a> to allow up to 300 rules per policy."
+            }
+          ]
+        }
+      },
+      "required": [
+        "ContainerLevelMetrics"
+      ],
+      "type": "object"
+    },
+    "MetricPolicyRule": {
+      "description": "A setting that enables metrics at the object level. Each rule contains an object group and an object group name. If the policy includes the MetricPolicyRules parameter, you must include at least one rule. Each metric policy can include up to five rules by default. You can also <a href=\"https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/mediastore/quotas\">request a quota increase</a> to allow up to 300 rules per policy.",
+      "properties": {
+        "ObjectGroup": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ObjectGroup"
+            },
+            {
+              "description": "A path or file name that defines which objects to include in the group. Wildcards (*) are acceptable."
+            }
+          ]
+        },
+        "ObjectGroupName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ObjectGroupName"
+            },
+            {
+              "description": "A name that allows you to refer to the object group."
+            }
+          ]
+        }
+      },
+      "required": [
+        "ObjectGroup",
+        "ObjectGroupName"
+      ],
+      "type": "object"
+    },
+    "MetricPolicyRules": {
+      "items": {
+        "$ref": "#/definitions/MetricPolicyRule"
+      },
+      "maxItems": 300,
+      "minItems": 1,
+      "type": "array"
+    },
+    "ObjectGroup": {
+      "maxLength": 900,
+      "minLength": 1,
+      "pattern": "/?(?:[A-Za-z0-9_=:\\.\\-\\~\\*]+/){0,10}(?:[A-Za-z0-9_=:\\.\\-\\~\\*]+)?/?",
+      "type": "string"
+    },
+    "ObjectGroupName": {
+      "maxLength": 30,
+      "minLength": 1,
+      "pattern": "[a-zA-Z0-9_]+",
+      "type": "string"
+    },
     "Origin": {
+      "maxLength": 2048,
+      "minLength": 1,
       "pattern": "[\\u0009\\u000A\\u000D\\u0020-\\u00FF]+",
       "type": "string"
     },
     "PaginationToken": {
-      "maxLength": 255,
+      "maxLength": 1024,
       "minLength": 1,
       "pattern": "[0-9A-Za-z=/+]+",
       "type": "string"
     },
-    "PolicyNotFoundException": {
-      "description": "Could not perform an operation on a policy that does not exist.",
-      "properties": {
-        "Message": {
-          "$ref": "#/definitions/ErrorMessage"
-        }
-      },
-      "type": "object"
-    },
+    "PolicyNotFoundException": {},
     "PutContainerPolicyInput": {
       "properties": {
         "ContainerName": {
-          "$ref": "#/definitions/ContainerName",
-          "description": "The name of the container."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ContainerName"
+            },
+            {
+              "description": "The name of the container."
+            }
+          ]
         },
         "Policy": {
-          "$ref": "#/definitions/ContainerPolicy",
-          "description": "<p>The contents of the policy, which includes the following: </p> <ul> <li> <p>One <code>Version</code> tag</p> </li> <li> <p>One <code>Statement</code> tag that contains the standard tags for the policy.</p> </li> </ul>"
+          "allOf": [
+            {
+              "$ref": "#/definitions/ContainerPolicy"
+            },
+            {
+              "description": "<p>The contents of the policy, which includes the following: </p> <ul> <li> <p>One <code>Version</code> tag</p> </li> <li> <p>One <code>Statement</code> tag that contains the standard tags for the policy.</p> </li> </ul>"
+            }
+          ]
         }
       },
       "required": [
         "ContainerName",
         "Policy"
       ],
+      "title": "PutContainerPolicyInput",
       "type": "object"
     },
     "PutContainerPolicyOutput": {
@@ -1264,27 +3029,342 @@
     "PutCorsPolicyInput": {
       "properties": {
         "ContainerName": {
-          "$ref": "#/definitions/ContainerName",
-          "description": "The name of the container that you want to assign the CORS policy to."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ContainerName"
+            },
+            {
+              "description": "The name of the container that you want to assign the CORS policy to."
+            }
+          ]
         },
         "CorsPolicy": {
-          "$ref": "#/definitions/CorsPolicy",
-          "description": "The CORS policy to apply to the container. "
+          "allOf": [
+            {
+              "$ref": "#/definitions/CorsPolicy"
+            },
+            {
+              "description": "The CORS policy to apply to the container. "
+            }
+          ]
         }
       },
       "required": [
         "ContainerName",
         "CorsPolicy"
       ],
+      "title": "PutCorsPolicyInput",
       "type": "object"
     },
     "PutCorsPolicyOutput": {
       "properties": {},
       "type": "object"
     },
+    "PutLifecyclePolicyInput": {
+      "properties": {
+        "ContainerName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ContainerName"
+            },
+            {
+              "description": "The name of the container that you want to assign the object lifecycle policy to."
+            }
+          ]
+        },
+        "LifecyclePolicy": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/LifecyclePolicy"
+            },
+            {
+              "description": "The object lifecycle policy to apply to the container."
+            }
+          ]
+        }
+      },
+      "required": [
+        "ContainerName",
+        "LifecyclePolicy"
+      ],
+      "title": "PutLifecyclePolicyInput",
+      "type": "object"
+    },
+    "PutLifecyclePolicyOutput": {
+      "properties": {},
+      "type": "object"
+    },
+    "PutMetricPolicyInput": {
+      "properties": {
+        "ContainerName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ContainerName"
+            },
+            {
+              "description": "The name of the container that you want to add the metric policy to."
+            }
+          ]
+        },
+        "MetricPolicy": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MetricPolicy"
+            },
+            {
+              "description": "<p>The metric policy that you want to associate with the container. In the policy, you must indicate whether you want MediaStore to send container-level metrics. You can also include up to five rules to define groups of objects that you want MediaStore to send object-level metrics for. If you include rules in the policy, construct each rule with both of the following:</p> <ul> <li> <p>An object group that defines which objects to include in the group. The definition can be a path or a file name, but it can't have more than 900 characters. Valid characters are: a-z, A-Z, 0-9, _ (underscore), = (equal), : (colon), . (period), - (hyphen), ~ (tilde), / (forward slash), and * (asterisk). Wildcards (*) are acceptable.</p> </li> <li> <p>An object group name that allows you to refer to the object group. The name can't have more than 30 characters. Valid characters are: a-z, A-Z, 0-9, and _ (underscore).</p> </li> </ul>"
+            }
+          ]
+        }
+      },
+      "required": [
+        "ContainerName",
+        "MetricPolicy"
+      ],
+      "title": "PutMetricPolicyInput",
+      "type": "object"
+    },
+    "PutMetricPolicyOutput": {
+      "properties": {},
+      "type": "object"
+    },
+    "StartAccessLoggingInput": {
+      "properties": {
+        "ContainerName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ContainerName"
+            },
+            {
+              "description": "The name of the container that you want to start access logging on."
+            }
+          ]
+        }
+      },
+      "required": [
+        "ContainerName"
+      ],
+      "title": "StartAccessLoggingInput",
+      "type": "object"
+    },
+    "StartAccessLoggingOutput": {
+      "properties": {},
+      "type": "object"
+    },
+    "StopAccessLoggingInput": {
+      "properties": {
+        "ContainerName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ContainerName"
+            },
+            {
+              "description": "The name of the container that you want to stop access logging on."
+            }
+          ]
+        }
+      },
+      "required": [
+        "ContainerName"
+      ],
+      "title": "StopAccessLoggingInput",
+      "type": "object"
+    },
+    "StopAccessLoggingOutput": {
+      "properties": {},
+      "type": "object"
+    },
+    "Tag": {
+      "description": "A collection of tags associated with a container. Each tag consists of a key:value pair, which can be anything you define. Typically, the tag key represents a category (such as \"environment\") and the tag value represents a specific value within that category (such as \"test,\" \"development,\" or \"production\"). You can add up to 50 tags to each container. For more information about tagging, including naming and usage conventions, see <a href=\"https://docs.aws.amazon.com/mediastore/latest/ug/tagging.html\">Tagging Resources in MediaStore</a>.",
+      "properties": {
+        "Key": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagKey"
+            },
+            {
+              "description": "Part of the key:value pair that defines a tag. You can use a tag key to describe a category of information, such as \"customer.\" Tag keys are case-sensitive."
+            }
+          ]
+        },
+        "Value": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagValue"
+            },
+            {
+              "description": "Part of the key:value pair that defines a tag. You can use a tag value to describe a specific value within a category, such as \"companyA\" or \"companyB.\" Tag values are case-sensitive."
+            }
+          ]
+        }
+      },
+      "required": [
+        "Key"
+      ],
+      "type": "object"
+    },
+    "TagKey": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "[\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*",
+      "type": "string"
+    },
+    "TagKeyList": {
+      "items": {
+        "$ref": "#/definitions/TagKey"
+      },
+      "type": "array"
+    },
+    "TagList": {
+      "items": {
+        "$ref": "#/definitions/Tag"
+      },
+      "maxItems": 200,
+      "minItems": 1,
+      "type": "array"
+    },
+    "TagResourceInput": {
+      "properties": {
+        "Resource": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ContainerARN"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) for the container. "
+            }
+          ]
+        },
+        "Tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagList"
+            },
+            {
+              "description": "An array of key:value pairs that you want to add to the container. You need to specify only the tags that you want to add or update. For example, suppose a container already has two tags (customer:CompanyA and priority:High). You want to change the priority tag and also add a third tag (type:Contract). For TagResource, you specify the following tags: priority:Medium, type:Contract. The result is that your container has three tags: customer:CompanyA, priority:Medium, and type:Contract."
+            }
+          ]
+        }
+      },
+      "required": [
+        "Resource",
+        "Tags"
+      ],
+      "title": "TagResourceInput",
+      "type": "object"
+    },
+    "TagResourceOutput": {
+      "properties": {},
+      "type": "object"
+    },
+    "TagValue": {
+      "maxLength": 256,
+      "minLength": 0,
+      "pattern": "[\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*",
+      "type": "string"
+    },
     "TimeStamp": {
       "format": "date-time",
       "type": "string"
+    },
+    "UntagResourceInput": {
+      "properties": {
+        "Resource": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ContainerARN"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) for the container."
+            }
+          ]
+        },
+        "TagKeys": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagKeyList"
+            },
+            {
+              "description": "A comma-separated list of keys for tags that you want to remove from the container. For example, if your container has two tags (customer:CompanyA and priority:High) and you want to remove one of the tags (priority:High), you specify the key for the tag that you want to remove (priority)."
+            }
+          ]
+        }
+      },
+      "required": [
+        "Resource",
+        "TagKeys"
+      ],
+      "title": "UntagResourceInput",
+      "type": "object"
+    },
+    "UntagResourceOutput": {
+      "properties": {},
+      "type": "object"
     }
-  }
+  },
+  "securityDefinitions": {
+    "hmac": {
+      "description": "Amazon Signature authorization v4",
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey",
+      "x-amazon-apigateway-authtype": "awsSigv4"
+    }
+  },
+  "security": [
+    {
+      "hmac": []
+    }
+  ],
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://docs.aws.amazon.com/mediastore/"
+  },
+  "x-components": {
+    "parameters": {
+      "X-Amz-Algorithm": {
+        "in": "header",
+        "name": "X-Amz-Algorithm",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Content-Sha256": {
+        "in": "header",
+        "name": "X-Amz-Content-Sha256",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Credential": {
+        "in": "header",
+        "name": "X-Amz-Credential",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Date": {
+        "in": "header",
+        "name": "X-Amz-Date",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Security-Token": {
+        "in": "header",
+        "name": "X-Amz-Security-Token",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Signature": {
+        "in": "header",
+        "name": "X-Amz-Signature",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-SignedHeaders": {
+        "in": "header",
+        "name": "X-Amz-SignedHeaders",
+        "required": false,
+        "type": "string"
+      }
+    }
+  },
+  "x-hasEquivalentPaths": true
 }

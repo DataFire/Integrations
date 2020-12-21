@@ -1,0 +1,3813 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "contact": {
+      "email": "mike.ralphson@gmail.com",
+      "name": "Mike Ralphson",
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
+    },
+    "description": "<p>AWS IAM Access Analyzer helps identify potential resource-access risks by enabling you to identify any policies that grant access to an external principal. It does this by using logic-based reasoning to analyze resource-based policies in your AWS environment. An external principal can be another AWS account, a root user, an IAM user or role, a federated user, an AWS service, or an anonymous user. This guide describes the AWS IAM Access Analyzer operations that you can call programmatically. For general information about Access Analyzer, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html\">AWS IAM Access Analyzer</a> in the <b>IAM User Guide</b>.</p> <p>To start using Access Analyzer, you first need to create an analyzer.</p>",
+    "license": {
+      "name": "Apache 2.0 License",
+      "url": "http://www.apache.org/licenses/"
+    },
+    "termsOfService": "https://aws.amazon.com/service-terms/",
+    "title": "Access Analyzer",
+    "version": "2019-11-01",
+    "x-apiClientRegistration": {
+      "url": "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"
+    },
+    "x-apisguru-categories": [
+      "cloud"
+    ],
+    "x-logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"
+    },
+    "x-origin": [
+      {
+        "contentType": "application/json",
+        "converter": {
+          "url": "https://github.com/mermade/aws2openapi",
+          "version": "1.0.0"
+        },
+        "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/accessanalyzer-2019-11-01.normal.json",
+        "x-apisguru-driver": "external"
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "amazonaws.com",
+    "x-release": "v4",
+    "x-serviceName": "accessanalyzer",
+    "x-datafire": {
+      "name": "amazonaws_accessanalyzer",
+      "type": "openapi"
+    }
+  },
+  "host": "access-analyzer.us-east-1.amazonaws.com",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/analyzed-resource": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "maxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "analyzerArn": {
+                  "description": "The ARN of the analyzer to retrieve a list of analyzed resources from.",
+                  "pattern": "^[^:]*:[^:]*:[^:]*:[^:]*:[^:]*:analyzer/.{1,255}$",
+                  "type": "string"
+                },
+                "maxResults": {
+                  "description": "The maximum number of results to return in the response.",
+                  "type": "integer"
+                },
+                "nextToken": {
+                  "description": "A token used for pagination of results returned.",
+                  "type": "string"
+                },
+                "resourceType": {
+                  "description": "The type of resource.",
+                  "enum": [
+                    "AWS::S3::Bucket",
+                    "AWS::IAM::Role",
+                    "AWS::SQS::Queue",
+                    "AWS::Lambda::Function",
+                    "AWS::Lambda::LayerVersion",
+                    "AWS::KMS::Key"
+                  ],
+                  "type": "string"
+                }
+              },
+              "required": [
+                "analyzerArn"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListAnalyzedResourcesResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "482": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "484": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          }
+        },
+        "description": "Retrieves a list of resources of the specified type that have been analyzed by the specified analyzer..",
+        "operationId": "ListAnalyzedResources"
+      }
+    },
+    "/analyzed-resource#analyzerArn&resourceArn": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The ARN of the analyzer to retrieve information from.",
+            "in": "query",
+            "name": "analyzerArn",
+            "pattern": "^[^:]*:[^:]*:[^:]*:[^:]*:[^:]*:analyzer/.{1,255}$",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The ARN of the resource to retrieve information about.",
+            "in": "query",
+            "name": "resourceArn",
+            "pattern": "arn:[^:]*:[^:]*:[^:]*:[^:]*:.*$",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetAnalyzedResourceResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "482": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "484": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          }
+        },
+        "description": "Retrieves information about a resource that was analyzed.",
+        "operationId": "GetAnalyzedResource"
+      }
+    },
+    "/analyzer": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The maximum number of results to return in the response.",
+            "in": "query",
+            "name": "maxResults",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "A token used for pagination of results returned.",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "The type of analyzer.",
+            "enum": [
+              "ACCOUNT",
+              "ORGANIZATION"
+            ],
+            "in": "query",
+            "name": "type",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListAnalyzersResponse"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "483": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          }
+        },
+        "description": "Retrieves a list of analyzers.",
+        "operationId": "ListAnalyzers"
+      },
+      "put": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "tags": {
+                  "additionalProperties": {
+                    "$ref": "#/definitions/String"
+                  },
+                  "description": "The tags to apply to the analyzer.",
+                  "type": "object"
+                },
+                "analyzerName": {
+                  "description": "The name of the analyzer to create.",
+                  "maxLength": 255,
+                  "minLength": 1,
+                  "pattern": "^[A-Za-z][A-Za-z0-9_.-]*$",
+                  "type": "string"
+                },
+                "archiveRules": {
+                  "description": "Specifies the archive rules to add for the analyzer. Archive rules automatically archive findings that meet the criteria you define for the rule.",
+                  "items": {
+                    "$ref": "#/definitions/InlineArchiveRule"
+                  },
+                  "type": "array"
+                },
+                "clientToken": {
+                  "description": "A client token.",
+                  "type": "string"
+                },
+                "type": {
+                  "description": "The type of analyzer to create. Only ACCOUNT analyzers are supported. You can create only one analyzer per account per Region.",
+                  "enum": [
+                    "ACCOUNT",
+                    "ORGANIZATION"
+                  ],
+                  "type": "string"
+                }
+              },
+              "required": [
+                "analyzerName",
+                "type"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateAnalyzerResponse"
+            }
+          },
+          "480": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          },
+          "481": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "482": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "483": {
+            "description": "ServiceQuotaExceededException",
+            "schema": {
+              "$ref": "#/definitions/ServiceQuotaExceededException"
+            }
+          },
+          "484": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "485": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          }
+        },
+        "description": "Creates an analyzer for your account.",
+        "operationId": "CreateAnalyzer"
+      }
+    },
+    "/analyzer/{analyzerName}": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "delete": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The name of the analyzer to delete.",
+            "in": "path",
+            "maxLength": 255,
+            "minLength": 1,
+            "name": "analyzerName",
+            "pattern": "^[A-Za-z][A-Za-z0-9_.-]*$",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "A client token.",
+            "in": "query",
+            "name": "clientToken",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "482": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "484": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          }
+        },
+        "description": "Deletes the specified analyzer. When you delete an analyzer, Access Analyzer is disabled for the account in the current or specific Region. All findings that were generated by the analyzer are deleted. You cannot undo this action.",
+        "operationId": "DeleteAnalyzer"
+      },
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The name of the analyzer retrieved.",
+            "in": "path",
+            "maxLength": 255,
+            "minLength": 1,
+            "name": "analyzerName",
+            "pattern": "^[A-Za-z][A-Za-z0-9_.-]*$",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetAnalyzerResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "482": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "484": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          }
+        },
+        "description": "Retrieves information about the specified analyzer.",
+        "operationId": "GetAnalyzer"
+      }
+    },
+    "/analyzer/{analyzerName}/archive-rule": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The name of the analyzer to retrieve rules from.",
+            "in": "path",
+            "maxLength": 255,
+            "minLength": 1,
+            "name": "analyzerName",
+            "pattern": "^[A-Za-z][A-Za-z0-9_.-]*$",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The maximum number of results to return in the request.",
+            "in": "query",
+            "name": "maxResults",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "A token used for pagination of results returned.",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListArchiveRulesResponse"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "483": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          }
+        },
+        "description": "Retrieves a list of archive rules created for the specified analyzer.",
+        "operationId": "ListArchiveRules"
+      },
+      "put": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The name of the created analyzer.",
+            "in": "path",
+            "maxLength": 255,
+            "minLength": 1,
+            "name": "analyzerName",
+            "pattern": "^[A-Za-z][A-Za-z0-9_.-]*$",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "clientToken": {
+                  "description": "A client token.",
+                  "type": "string"
+                },
+                "filter": {
+                  "additionalProperties": {
+                    "$ref": "#/definitions/Criterion"
+                  },
+                  "description": "The criteria for the rule.",
+                  "type": "object"
+                },
+                "ruleName": {
+                  "description": "The name of the rule to create.",
+                  "maxLength": 255,
+                  "minLength": 1,
+                  "pattern": "^[A-Za-z][A-Za-z0-9_.-]*$",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "filter",
+                "ruleName"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          },
+          "482": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "483": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "484": {
+            "description": "ServiceQuotaExceededException",
+            "schema": {
+              "$ref": "#/definitions/ServiceQuotaExceededException"
+            }
+          },
+          "485": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "486": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          }
+        },
+        "description": "Creates an archive rule for the specified analyzer. Archive rules automatically archive new findings that meet the criteria you define when you create the rule.",
+        "operationId": "CreateArchiveRule"
+      }
+    },
+    "/analyzer/{analyzerName}/archive-rule/{ruleName}": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "delete": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The name of the analyzer that associated with the archive rule to delete.",
+            "in": "path",
+            "maxLength": 255,
+            "minLength": 1,
+            "name": "analyzerName",
+            "pattern": "^[A-Za-z][A-Za-z0-9_.-]*$",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "A client token.",
+            "in": "query",
+            "name": "clientToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "The name of the rule to delete.",
+            "in": "path",
+            "maxLength": 255,
+            "minLength": 1,
+            "name": "ruleName",
+            "pattern": "^[A-Za-z][A-Za-z0-9_.-]*$",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "482": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "484": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          }
+        },
+        "description": "Deletes the specified archive rule.",
+        "operationId": "DeleteArchiveRule"
+      },
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The name of the analyzer to retrieve rules from.",
+            "in": "path",
+            "maxLength": 255,
+            "minLength": 1,
+            "name": "analyzerName",
+            "pattern": "^[A-Za-z][A-Za-z0-9_.-]*$",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The name of the rule to retrieve.",
+            "in": "path",
+            "maxLength": 255,
+            "minLength": 1,
+            "name": "ruleName",
+            "pattern": "^[A-Za-z][A-Za-z0-9_.-]*$",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetArchiveRuleResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "482": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "484": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          }
+        },
+        "description": "<p>Retrieves information about an archive rule.</p> <p>To learn about filter keys that you can use to create an archive rule, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-reference-filter-keys.html\">Access Analyzer filter keys</a> in the <b>IAM User Guide</b>.</p>",
+        "operationId": "GetArchiveRule"
+      },
+      "put": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The name of the analyzer to update the archive rules for.",
+            "in": "path",
+            "maxLength": 255,
+            "minLength": 1,
+            "name": "analyzerName",
+            "pattern": "^[A-Za-z][A-Za-z0-9_.-]*$",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The name of the rule to update.",
+            "in": "path",
+            "maxLength": 255,
+            "minLength": 1,
+            "name": "ruleName",
+            "pattern": "^[A-Za-z][A-Za-z0-9_.-]*$",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "clientToken": {
+                  "description": "A client token.",
+                  "type": "string"
+                },
+                "filter": {
+                  "additionalProperties": {
+                    "$ref": "#/definitions/Criterion"
+                  },
+                  "description": "A filter to match for the rules to update. Only rules that match the filter are updated.",
+                  "type": "object"
+                }
+              },
+              "required": [
+                "filter"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "482": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "484": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          }
+        },
+        "description": "Updates the criteria and values for the specified archive rule.",
+        "operationId": "UpdateArchiveRule"
+      }
+    },
+    "/archive-rule": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "put": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "analyzerArn": {
+                  "description": "The Amazon resource name (ARN) of the analyzer.",
+                  "pattern": "^[^:]*:[^:]*:[^:]*:[^:]*:[^:]*:analyzer/.{1,255}$",
+                  "type": "string"
+                },
+                "clientToken": {
+                  "description": "A client token.",
+                  "type": "string"
+                },
+                "ruleName": {
+                  "description": "The name of the rule to apply.",
+                  "maxLength": 255,
+                  "minLength": 1,
+                  "pattern": "^[A-Za-z][A-Za-z0-9_.-]*$",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "analyzerArn",
+                "ruleName"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "482": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "484": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          }
+        },
+        "description": "Retroactively applies the archive rule to existing findings that meet the archive rule criteria.",
+        "operationId": "ApplyArchiveRule"
+      }
+    },
+    "/finding": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "maxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "analyzerArn": {
+                  "description": "The ARN of the analyzer to retrieve findings from.",
+                  "pattern": "^[^:]*:[^:]*:[^:]*:[^:]*:[^:]*:analyzer/.{1,255}$",
+                  "type": "string"
+                },
+                "filter": {
+                  "additionalProperties": {
+                    "$ref": "#/definitions/Criterion"
+                  },
+                  "description": "A filter to match for the findings to return.",
+                  "type": "object"
+                },
+                "maxResults": {
+                  "description": "The maximum number of results to return in the response.",
+                  "type": "integer"
+                },
+                "nextToken": {
+                  "description": "A token used for pagination of results returned.",
+                  "type": "string"
+                },
+                "sort": {
+                  "description": "The criteria used to sort.",
+                  "properties": {
+                    "attributeName": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/String"
+                        },
+                        {
+                          "description": "The name of the attribute to sort on."
+                        }
+                      ]
+                    },
+                    "orderBy": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/OrderBy"
+                        },
+                        {
+                          "description": "The sort order, ascending or descending."
+                        }
+                      ]
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "required": [
+                "analyzerArn"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListFindingsResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "482": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "484": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          }
+        },
+        "description": "<p>Retrieves a list of findings generated by the specified analyzer.</p> <p>To learn about filter keys that you can use to create an archive rule, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-reference-filter-keys.html\">Access Analyzer filter keys</a> in the <b>IAM User Guide</b>.</p>",
+        "operationId": "ListFindings"
+      },
+      "put": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "analyzerArn": {
+                  "description": "The ARN of the analyzer that generated the findings to update.",
+                  "pattern": "^[^:]*:[^:]*:[^:]*:[^:]*:[^:]*:analyzer/.{1,255}$",
+                  "type": "string"
+                },
+                "clientToken": {
+                  "description": "A client token.",
+                  "type": "string"
+                },
+                "ids": {
+                  "description": "The IDs of the findings to update.",
+                  "items": {
+                    "$ref": "#/definitions/FindingId"
+                  },
+                  "type": "array"
+                },
+                "resourceArn": {
+                  "description": "The ARN of the resource identified in the finding.",
+                  "pattern": "arn:[^:]*:[^:]*:[^:]*:[^:]*:.*$",
+                  "type": "string"
+                },
+                "status": {
+                  "description": "The state represents the action to take to update the finding Status. Use <code>ARCHIVE</code> to change an Active finding to an Archived finding. Use <code>ACTIVE</code> to change an Archived finding to an Active finding.",
+                  "enum": [
+                    "ACTIVE",
+                    "ARCHIVED"
+                  ],
+                  "type": "string"
+                }
+              },
+              "required": [
+                "analyzerArn",
+                "status"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "482": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "484": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          }
+        },
+        "description": "Updates the status for the specified findings.",
+        "operationId": "UpdateFindings"
+      }
+    },
+    "/finding/{id}#analyzerArn": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The ARN of the analyzer that generated the finding.",
+            "in": "query",
+            "name": "analyzerArn",
+            "pattern": "^[^:]*:[^:]*:[^:]*:[^:]*:[^:]*:analyzer/.{1,255}$",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The ID of the finding to retrieve.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetFindingResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "482": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "484": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          }
+        },
+        "description": "Retrieves information about the specified finding.",
+        "operationId": "GetFinding"
+      }
+    },
+    "/resource/scan": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "analyzerArn": {
+                  "description": "The ARN of the analyzer to use to scan the policies applied to the specified resource.",
+                  "pattern": "^[^:]*:[^:]*:[^:]*:[^:]*:[^:]*:analyzer/.{1,255}$",
+                  "type": "string"
+                },
+                "resourceArn": {
+                  "description": "The ARN of the resource to scan.",
+                  "pattern": "arn:[^:]*:[^:]*:[^:]*:[^:]*:.*$",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "analyzerArn",
+                "resourceArn"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "482": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "484": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          }
+        },
+        "description": "Immediately starts a scan of the policies applied to the specified resource.",
+        "operationId": "StartResourceScan"
+      }
+    },
+    "/tags/{resourceArn}": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The ARN of the resource to retrieve tags from.",
+            "in": "path",
+            "name": "resourceArn",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListTagsForResourceResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "482": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "484": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          }
+        },
+        "description": "Retrieves a list of tags applied to the specified resource.",
+        "operationId": "ListTagsForResource"
+      },
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The ARN of the resource to add the tag to.",
+            "in": "path",
+            "name": "resourceArn",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "tags": {
+                  "additionalProperties": {
+                    "$ref": "#/definitions/String"
+                  },
+                  "description": "The tags to add to the resource.",
+                  "type": "object"
+                }
+              },
+              "required": [
+                "tags"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/TagResourceResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "482": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "484": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          }
+        },
+        "description": "Adds a tag to the specified resource.",
+        "operationId": "TagResource"
+      }
+    },
+    "/tags/{resourceArn}#tagKeys": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "delete": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The ARN of the resource to remove the tag from.",
+            "in": "path",
+            "name": "resourceArn",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "collectionFormat": "multi",
+            "description": "The key for the tag to add.",
+            "in": "query",
+            "items": {
+              "$ref": "#/definitions/String"
+            },
+            "name": "tagKeys",
+            "required": true,
+            "type": "array"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UntagResourceResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "482": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "484": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          }
+        },
+        "description": "Removes a tag from the specified resource.",
+        "operationId": "UntagResource"
+      }
+    }
+  },
+  "definitions": {
+    "AccessDeniedException": {},
+    "ActionList": {
+      "items": {
+        "$ref": "#/definitions/String"
+      },
+      "type": "array"
+    },
+    "AnalyzedResource": {
+      "description": "Contains details about the analyzed resource.",
+      "properties": {
+        "actions": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ActionList"
+            },
+            {
+              "description": "The actions that an external principal is granted permission to use by the policy that generated the finding."
+            }
+          ]
+        },
+        "analyzedAt": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "The time at which the resource was analyzed."
+            }
+          ]
+        },
+        "createdAt": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "The time at which the finding was created."
+            }
+          ]
+        },
+        "error": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "An error message."
+            }
+          ]
+        },
+        "isPublic": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Boolean"
+            },
+            {
+              "description": "Indicates whether the policy that generated the finding grants public access to the resource."
+            }
+          ]
+        },
+        "resourceArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceArn"
+            },
+            {
+              "description": "The ARN of the resource that was analyzed."
+            }
+          ]
+        },
+        "resourceOwnerAccount": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The AWS account ID that owns the resource."
+            }
+          ]
+        },
+        "resourceType": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceType"
+            },
+            {
+              "description": "The type of the resource that was analyzed."
+            }
+          ]
+        },
+        "sharedVia": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SharedViaList"
+            },
+            {
+              "description": "Indicates how the access that generated the finding is granted. This is populated for Amazon S3 bucket findings."
+            }
+          ]
+        },
+        "status": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/FindingStatus"
+            },
+            {
+              "description": "The current status of the finding generated from the analyzed resource."
+            }
+          ]
+        },
+        "updatedAt": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "The time at which the finding was updated."
+            }
+          ]
+        }
+      },
+      "required": [
+        "analyzedAt",
+        "createdAt",
+        "isPublic",
+        "resourceArn",
+        "resourceOwnerAccount",
+        "resourceType",
+        "updatedAt"
+      ],
+      "type": "object"
+    },
+    "AnalyzedResourceSummary": {
+      "description": "Contains the ARN of the analyzed resource.",
+      "properties": {
+        "resourceArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceArn"
+            },
+            {
+              "description": "The ARN of the analyzed resource."
+            }
+          ]
+        },
+        "resourceOwnerAccount": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The AWS account ID that owns the resource."
+            }
+          ]
+        },
+        "resourceType": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceType"
+            },
+            {
+              "description": "The type of resource that was analyzed."
+            }
+          ]
+        }
+      },
+      "required": [
+        "resourceArn",
+        "resourceOwnerAccount",
+        "resourceType"
+      ],
+      "type": "object"
+    },
+    "AnalyzedResourcesList": {
+      "items": {
+        "$ref": "#/definitions/AnalyzedResourceSummary"
+      },
+      "type": "array"
+    },
+    "AnalyzerArn": {
+      "pattern": "^[^:]*:[^:]*:[^:]*:[^:]*:[^:]*:analyzer/.{1,255}$",
+      "type": "string"
+    },
+    "AnalyzerStatus": {
+      "enum": [
+        "ACTIVE",
+        "CREATING",
+        "DISABLED",
+        "FAILED"
+      ],
+      "type": "string"
+    },
+    "AnalyzerSummary": {
+      "description": "Contains information about the analyzer.",
+      "properties": {
+        "tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagsMap"
+            },
+            {
+              "description": "The tags added to the analyzer."
+            }
+          ]
+        },
+        "arn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AnalyzerArn"
+            },
+            {
+              "description": "The ARN of the analyzer."
+            }
+          ]
+        },
+        "createdAt": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "A timestamp for the time at which the analyzer was created."
+            }
+          ]
+        },
+        "lastResourceAnalyzed": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The resource that was most recently analyzed by the analyzer."
+            }
+          ]
+        },
+        "lastResourceAnalyzedAt": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "The time at which the most recently analyzed resource was analyzed."
+            }
+          ]
+        },
+        "name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Name"
+            },
+            {
+              "description": "The name of the analyzer."
+            }
+          ]
+        },
+        "status": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AnalyzerStatus"
+            },
+            {
+              "description": "The status of the analyzer. An <code>Active</code> analyzer successfully monitors supported resources and generates new findings. The analyzer is <code>Disabled</code> when a user action, such as removing trusted access for IAM Access Analyzer from AWS Organizations, causes the analyzer to stop generating new findings. The status is <code>Creating</code> when the analyzer creation is in progress and <code>Failed</code> when the analyzer creation has failed. "
+            }
+          ]
+        },
+        "statusReason": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/StatusReason"
+            },
+            {
+              "description": "The <code>statusReason</code> provides more details about the current status of the analyzer. For example, if the creation for the analyzer fails, a <code>Failed</code> status is displayed. For an analyzer with organization as the type, this failure can be due to an issue with creating the service-linked roles required in the member accounts of the AWS organization."
+            }
+          ]
+        },
+        "type": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Type"
+            },
+            {
+              "description": "The type of analyzer, which corresponds to the zone of trust chosen for the analyzer."
+            }
+          ]
+        }
+      },
+      "required": [
+        "arn",
+        "createdAt",
+        "name",
+        "status",
+        "type"
+      ],
+      "type": "object"
+    },
+    "AnalyzersList": {
+      "items": {
+        "$ref": "#/definitions/AnalyzerSummary"
+      },
+      "type": "array"
+    },
+    "ApplyArchiveRuleRequest": {
+      "description": "Retroactively applies an archive rule.",
+      "properties": {
+        "analyzerArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AnalyzerArn"
+            },
+            {
+              "description": "The Amazon resource name (ARN) of the analyzer."
+            }
+          ]
+        },
+        "clientToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "A client token."
+            }
+          ]
+        },
+        "ruleName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Name"
+            },
+            {
+              "description": "The name of the rule to apply."
+            }
+          ]
+        }
+      },
+      "required": [
+        "analyzerArn",
+        "ruleName"
+      ],
+      "title": "ApplyArchiveRuleRequest",
+      "type": "object"
+    },
+    "ArchiveRuleSummary": {
+      "description": "Contains information about an archive rule.",
+      "properties": {
+        "createdAt": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "The time at which the archive rule was created."
+            }
+          ]
+        },
+        "filter": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/FilterCriteriaMap"
+            },
+            {
+              "description": "A filter used to define the archive rule."
+            }
+          ]
+        },
+        "ruleName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Name"
+            },
+            {
+              "description": "The name of the archive rule."
+            }
+          ]
+        },
+        "updatedAt": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "The time at which the archive rule was last updated."
+            }
+          ]
+        }
+      },
+      "required": [
+        "createdAt",
+        "filter",
+        "ruleName",
+        "updatedAt"
+      ],
+      "type": "object"
+    },
+    "ArchiveRulesList": {
+      "items": {
+        "$ref": "#/definitions/ArchiveRuleSummary"
+      },
+      "type": "array"
+    },
+    "Boolean": {
+      "type": "boolean"
+    },
+    "ConditionKeyMap": {
+      "additionalProperties": {
+        "$ref": "#/definitions/String"
+      },
+      "type": "object"
+    },
+    "ConflictException": {},
+    "CreateAnalyzerRequest": {
+      "description": "Creates an analyzer.",
+      "properties": {
+        "tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagsMap"
+            },
+            {
+              "description": "The tags to apply to the analyzer."
+            }
+          ]
+        },
+        "analyzerName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Name"
+            },
+            {
+              "description": "The name of the analyzer to create."
+            }
+          ]
+        },
+        "archiveRules": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InlineArchiveRulesList"
+            },
+            {
+              "description": "Specifies the archive rules to add for the analyzer. Archive rules automatically archive findings that meet the criteria you define for the rule."
+            }
+          ]
+        },
+        "clientToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "A client token."
+            }
+          ]
+        },
+        "type": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Type"
+            },
+            {
+              "description": "The type of analyzer to create. Only ACCOUNT analyzers are supported. You can create only one analyzer per account per Region."
+            }
+          ]
+        }
+      },
+      "required": [
+        "analyzerName",
+        "type"
+      ],
+      "title": "CreateAnalyzerRequest",
+      "type": "object"
+    },
+    "CreateAnalyzerResponse": {
+      "description": "The response to the request to create an analyzer.",
+      "properties": {
+        "arn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AnalyzerArn"
+            },
+            {
+              "description": "The ARN of the analyzer that was created by the request."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "CreateArchiveRuleRequest": {
+      "description": "Creates an archive rule.",
+      "properties": {
+        "clientToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "A client token."
+            }
+          ]
+        },
+        "filter": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/FilterCriteriaMap"
+            },
+            {
+              "description": "The criteria for the rule."
+            }
+          ]
+        },
+        "ruleName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Name"
+            },
+            {
+              "description": "The name of the rule to create."
+            }
+          ]
+        }
+      },
+      "required": [
+        "filter",
+        "ruleName"
+      ],
+      "title": "CreateArchiveRuleRequest",
+      "type": "object"
+    },
+    "Criterion": {
+      "description": "The criteria to use in the filter that defines the archive rule.",
+      "properties": {
+        "contains": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ValueList"
+            },
+            {
+              "description": "A \"contains\" operator to match for the filter used to create the rule."
+            }
+          ]
+        },
+        "eq": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ValueList"
+            },
+            {
+              "description": "An \"equals\" operator to match for the filter used to create the rule."
+            }
+          ]
+        },
+        "exists": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Boolean"
+            },
+            {
+              "description": "An \"exists\" operator to match for the filter used to create the rule. "
+            }
+          ]
+        },
+        "neq": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ValueList"
+            },
+            {
+              "description": "A \"not equals\" operator to match for the filter used to create the rule."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DeleteAnalyzerRequest": {
+      "description": "Deletes an analyzer.",
+      "properties": {},
+      "title": "DeleteAnalyzerRequest",
+      "type": "object"
+    },
+    "DeleteArchiveRuleRequest": {
+      "description": "Deletes an archive rule.",
+      "properties": {},
+      "title": "DeleteArchiveRuleRequest",
+      "type": "object"
+    },
+    "FilterCriteriaMap": {
+      "additionalProperties": {
+        "$ref": "#/definitions/Criterion"
+      },
+      "type": "object"
+    },
+    "Finding": {
+      "description": "Contains information about a finding.",
+      "properties": {
+        "action": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ActionList"
+            },
+            {
+              "description": "The action in the analyzed policy statement that an external principal has permission to use."
+            }
+          ]
+        },
+        "analyzedAt": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "The time at which the resource was analyzed."
+            }
+          ]
+        },
+        "condition": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ConditionKeyMap"
+            },
+            {
+              "description": "The condition in the analyzed policy statement that resulted in a finding."
+            }
+          ]
+        },
+        "createdAt": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "The time at which the finding was generated."
+            }
+          ]
+        },
+        "error": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "An error."
+            }
+          ]
+        },
+        "id": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/FindingId"
+            },
+            {
+              "description": "The ID of the finding."
+            }
+          ]
+        },
+        "isPublic": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Boolean"
+            },
+            {
+              "description": "Indicates whether the policy that generated the finding allows public access to the resource."
+            }
+          ]
+        },
+        "principal": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PrincipalMap"
+            },
+            {
+              "description": "The external principal that access to a resource within the zone of trust."
+            }
+          ]
+        },
+        "resource": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The resource that an external principal has access to."
+            }
+          ]
+        },
+        "resourceOwnerAccount": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The AWS account ID that owns the resource."
+            }
+          ]
+        },
+        "resourceType": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceType"
+            },
+            {
+              "description": "The type of the resource reported in the finding."
+            }
+          ]
+        },
+        "sources": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/FindingSourceList"
+            },
+            {
+              "description": "The sources of the finding. This indicates how the access that generated the finding is granted. It is populated for Amazon S3 bucket findings."
+            }
+          ]
+        },
+        "status": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/FindingStatus"
+            },
+            {
+              "description": "The current status of the finding."
+            }
+          ]
+        },
+        "updatedAt": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "The time at which the finding was updated."
+            }
+          ]
+        }
+      },
+      "required": [
+        "analyzedAt",
+        "condition",
+        "createdAt",
+        "id",
+        "resourceOwnerAccount",
+        "resourceType",
+        "status",
+        "updatedAt"
+      ],
+      "type": "object"
+    },
+    "FindingId": {
+      "type": "string"
+    },
+    "FindingIdList": {
+      "items": {
+        "$ref": "#/definitions/FindingId"
+      },
+      "type": "array"
+    },
+    "FindingSource": {
+      "description": "The source of the finding. This indicates how the access that generated the finding is granted. It is populated for Amazon S3 bucket findings.",
+      "properties": {
+        "detail": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/FindingSourceDetail"
+            },
+            {
+              "description": "Includes details about how the access that generated the finding is granted. This is populated for Amazon S3 bucket findings."
+            }
+          ]
+        },
+        "type": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/FindingSourceType"
+            },
+            {
+              "description": "Indicates the type of access that generated the finding."
+            }
+          ]
+        }
+      },
+      "required": [
+        "type"
+      ],
+      "type": "object"
+    },
+    "FindingSourceDetail": {
+      "description": "Includes details about how the access that generated the finding is granted. This is populated for Amazon S3 bucket findings.",
+      "properties": {
+        "accessPointArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The ARN of the access point that generated the finding."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "FindingSourceList": {
+      "items": {
+        "$ref": "#/definitions/FindingSource"
+      },
+      "type": "array"
+    },
+    "FindingSourceType": {
+      "enum": [
+        "POLICY",
+        "BUCKET_ACL",
+        "S3_ACCESS_POINT"
+      ],
+      "type": "string"
+    },
+    "FindingStatus": {
+      "enum": [
+        "ACTIVE",
+        "ARCHIVED",
+        "RESOLVED"
+      ],
+      "type": "string"
+    },
+    "FindingStatusUpdate": {
+      "enum": [
+        "ACTIVE",
+        "ARCHIVED"
+      ],
+      "type": "string"
+    },
+    "FindingSummary": {
+      "description": "Contains information about a finding.",
+      "properties": {
+        "action": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ActionList"
+            },
+            {
+              "description": "The action in the analyzed policy statement that an external principal has permission to use."
+            }
+          ]
+        },
+        "analyzedAt": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "The time at which the resource-based policy that generated the finding was analyzed."
+            }
+          ]
+        },
+        "condition": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ConditionKeyMap"
+            },
+            {
+              "description": "The condition in the analyzed policy statement that resulted in a finding."
+            }
+          ]
+        },
+        "createdAt": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "The time at which the finding was created."
+            }
+          ]
+        },
+        "error": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The error that resulted in an Error finding."
+            }
+          ]
+        },
+        "id": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/FindingId"
+            },
+            {
+              "description": "The ID of the finding."
+            }
+          ]
+        },
+        "isPublic": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Boolean"
+            },
+            {
+              "description": "Indicates whether the finding reports a resource that has a policy that allows public access."
+            }
+          ]
+        },
+        "principal": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PrincipalMap"
+            },
+            {
+              "description": "The external principal that has access to a resource within the zone of trust."
+            }
+          ]
+        },
+        "resource": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The resource that the external principal has access to."
+            }
+          ]
+        },
+        "resourceOwnerAccount": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The AWS account ID that owns the resource."
+            }
+          ]
+        },
+        "resourceType": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceType"
+            },
+            {
+              "description": "The type of the resource that the external principal has access to."
+            }
+          ]
+        },
+        "sources": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/FindingSourceList"
+            },
+            {
+              "description": "The sources of the finding. This indicates how the access that generated the finding is granted. It is populated for Amazon S3 bucket findings."
+            }
+          ]
+        },
+        "status": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/FindingStatus"
+            },
+            {
+              "description": "The status of the finding."
+            }
+          ]
+        },
+        "updatedAt": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "The time at which the finding was most recently updated."
+            }
+          ]
+        }
+      },
+      "required": [
+        "analyzedAt",
+        "condition",
+        "createdAt",
+        "id",
+        "resourceOwnerAccount",
+        "resourceType",
+        "status",
+        "updatedAt"
+      ],
+      "type": "object"
+    },
+    "FindingsList": {
+      "items": {
+        "$ref": "#/definitions/FindingSummary"
+      },
+      "type": "array"
+    },
+    "GetAnalyzedResourceRequest": {
+      "description": "Retrieves an analyzed resource.",
+      "properties": {},
+      "title": "GetAnalyzedResourceRequest",
+      "type": "object"
+    },
+    "GetAnalyzedResourceResponse": {
+      "description": "The response to the request.",
+      "properties": {
+        "resource": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AnalyzedResource"
+            },
+            {
+              "description": "An <code>AnalyedResource</code> object that contains information that Access Analyzer found when it analyzed the resource."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "GetAnalyzerRequest": {
+      "description": "Retrieves an analyzer.",
+      "properties": {},
+      "title": "GetAnalyzerRequest",
+      "type": "object"
+    },
+    "GetAnalyzerResponse": {
+      "description": "The response to the request.",
+      "properties": {
+        "analyzer": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AnalyzerSummary"
+            },
+            {
+              "description": "An <code>AnalyzerSummary</code> object that contains information about the analyzer."
+            }
+          ]
+        }
+      },
+      "required": [
+        "analyzer"
+      ],
+      "type": "object"
+    },
+    "GetArchiveRuleRequest": {
+      "description": "Retrieves an archive rule.",
+      "properties": {},
+      "title": "GetArchiveRuleRequest",
+      "type": "object"
+    },
+    "GetArchiveRuleResponse": {
+      "description": "The response to the request.",
+      "properties": {
+        "archiveRule": {
+          "$ref": "#/definitions/ArchiveRuleSummary"
+        }
+      },
+      "required": [
+        "archiveRule"
+      ],
+      "type": "object"
+    },
+    "GetFindingRequest": {
+      "description": "Retrieves a finding.",
+      "properties": {},
+      "title": "GetFindingRequest",
+      "type": "object"
+    },
+    "GetFindingResponse": {
+      "description": "The response to the request.",
+      "properties": {
+        "finding": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Finding"
+            },
+            {
+              "description": "A <code>finding</code> object that contains finding details."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "InlineArchiveRule": {
+      "description": "An criterion statement in an archive rule. Each archive rule may have multiple criteria.",
+      "properties": {
+        "filter": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/FilterCriteriaMap"
+            },
+            {
+              "description": "The condition and values for a criterion."
+            }
+          ]
+        },
+        "ruleName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Name"
+            },
+            {
+              "description": "The name of the rule."
+            }
+          ]
+        }
+      },
+      "required": [
+        "filter",
+        "ruleName"
+      ],
+      "type": "object"
+    },
+    "InlineArchiveRulesList": {
+      "items": {
+        "$ref": "#/definitions/InlineArchiveRule"
+      },
+      "type": "array"
+    },
+    "Integer": {
+      "type": "integer"
+    },
+    "InternalServerException": {},
+    "ListAnalyzedResourcesRequest": {
+      "description": "Retrieves a list of resources that have been analyzed.",
+      "properties": {
+        "analyzerArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AnalyzerArn"
+            },
+            {
+              "description": "The ARN of the analyzer to retrieve a list of analyzed resources from."
+            }
+          ]
+        },
+        "maxResults": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Integer"
+            },
+            {
+              "description": "The maximum number of results to return in the response."
+            }
+          ]
+        },
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Token"
+            },
+            {
+              "description": "A token used for pagination of results returned."
+            }
+          ]
+        },
+        "resourceType": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceType"
+            },
+            {
+              "description": "The type of resource."
+            }
+          ]
+        }
+      },
+      "required": [
+        "analyzerArn"
+      ],
+      "title": "ListAnalyzedResourcesRequest",
+      "type": "object"
+    },
+    "ListAnalyzedResourcesResponse": {
+      "description": "The response to the request.",
+      "properties": {
+        "analyzedResources": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AnalyzedResourcesList"
+            },
+            {
+              "description": "A list of resources that were analyzed."
+            }
+          ]
+        },
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Token"
+            },
+            {
+              "description": "A token used for pagination of results returned."
+            }
+          ]
+        }
+      },
+      "required": [
+        "analyzedResources"
+      ],
+      "type": "object"
+    },
+    "ListAnalyzersRequest": {
+      "description": "Retrieves a list of analyzers.",
+      "properties": {},
+      "title": "ListAnalyzersRequest",
+      "type": "object"
+    },
+    "ListAnalyzersResponse": {
+      "description": "The response to the request.",
+      "properties": {
+        "analyzers": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AnalyzersList"
+            },
+            {
+              "description": "The analyzers retrieved."
+            }
+          ]
+        },
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Token"
+            },
+            {
+              "description": "A token used for pagination of results returned."
+            }
+          ]
+        }
+      },
+      "required": [
+        "analyzers"
+      ],
+      "type": "object"
+    },
+    "ListArchiveRulesRequest": {
+      "description": "Retrieves a list of archive rules created for the specified analyzer.",
+      "properties": {},
+      "title": "ListArchiveRulesRequest",
+      "type": "object"
+    },
+    "ListArchiveRulesResponse": {
+      "description": "The response to the request.",
+      "properties": {
+        "archiveRules": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ArchiveRulesList"
+            },
+            {
+              "description": "A list of archive rules created for the specified analyzer."
+            }
+          ]
+        },
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Token"
+            },
+            {
+              "description": "A token used for pagination of results returned."
+            }
+          ]
+        }
+      },
+      "required": [
+        "archiveRules"
+      ],
+      "type": "object"
+    },
+    "ListFindingsRequest": {
+      "description": "Retrieves a list of findings generated by the specified analyzer.",
+      "properties": {
+        "analyzerArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AnalyzerArn"
+            },
+            {
+              "description": "The ARN of the analyzer to retrieve findings from."
+            }
+          ]
+        },
+        "filter": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/FilterCriteriaMap"
+            },
+            {
+              "description": "A filter to match for the findings to return."
+            }
+          ]
+        },
+        "maxResults": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Integer"
+            },
+            {
+              "description": "The maximum number of results to return in the response."
+            }
+          ]
+        },
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Token"
+            },
+            {
+              "description": "A token used for pagination of results returned."
+            }
+          ]
+        },
+        "sort": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SortCriteria"
+            },
+            {
+              "description": "The sort order for the findings returned."
+            }
+          ]
+        }
+      },
+      "required": [
+        "analyzerArn"
+      ],
+      "title": "ListFindingsRequest",
+      "type": "object"
+    },
+    "ListFindingsResponse": {
+      "description": "The response to the request.",
+      "properties": {
+        "findings": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/FindingsList"
+            },
+            {
+              "description": "A list of findings retrieved from the analyzer that match the filter criteria specified, if any."
+            }
+          ]
+        },
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Token"
+            },
+            {
+              "description": "A token used for pagination of results returned."
+            }
+          ]
+        }
+      },
+      "required": [
+        "findings"
+      ],
+      "type": "object"
+    },
+    "ListTagsForResourceRequest": {
+      "description": "Retrieves a list of tags applied to the specified resource.",
+      "properties": {},
+      "title": "ListTagsForResourceRequest",
+      "type": "object"
+    },
+    "ListTagsForResourceResponse": {
+      "description": "The response to the request.",
+      "properties": {
+        "tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagsMap"
+            },
+            {
+              "description": "The tags that are applied to the specified resource."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "Name": {
+      "maxLength": 255,
+      "minLength": 1,
+      "pattern": "^[A-Za-z][A-Za-z0-9_.-]*$",
+      "type": "string"
+    },
+    "OrderBy": {
+      "enum": [
+        "ASC",
+        "DESC"
+      ],
+      "type": "string"
+    },
+    "PrincipalMap": {
+      "additionalProperties": {
+        "$ref": "#/definitions/String"
+      },
+      "type": "object"
+    },
+    "ReasonCode": {
+      "enum": [
+        "AWS_SERVICE_ACCESS_DISABLED",
+        "DELEGATED_ADMINISTRATOR_DEREGISTERED",
+        "ORGANIZATION_DELETED",
+        "SERVICE_LINKED_ROLE_CREATION_FAILED"
+      ],
+      "type": "string"
+    },
+    "ResourceArn": {
+      "pattern": "arn:[^:]*:[^:]*:[^:]*:[^:]*:.*$",
+      "type": "string"
+    },
+    "ResourceNotFoundException": {},
+    "ResourceType": {
+      "enum": [
+        "AWS::S3::Bucket",
+        "AWS::IAM::Role",
+        "AWS::SQS::Queue",
+        "AWS::Lambda::Function",
+        "AWS::Lambda::LayerVersion",
+        "AWS::KMS::Key"
+      ],
+      "type": "string"
+    },
+    "ServiceQuotaExceededException": {},
+    "SharedViaList": {
+      "items": {
+        "$ref": "#/definitions/String"
+      },
+      "type": "array"
+    },
+    "SortCriteria": {
+      "description": "The criteria used to sort.",
+      "properties": {
+        "attributeName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The name of the attribute to sort on."
+            }
+          ]
+        },
+        "orderBy": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/OrderBy"
+            },
+            {
+              "description": "The sort order, ascending or descending."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "StartResourceScanRequest": {
+      "description": "Starts a scan of the policies applied to the specified resource.",
+      "properties": {
+        "analyzerArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AnalyzerArn"
+            },
+            {
+              "description": "The ARN of the analyzer to use to scan the policies applied to the specified resource."
+            }
+          ]
+        },
+        "resourceArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceArn"
+            },
+            {
+              "description": "The ARN of the resource to scan."
+            }
+          ]
+        }
+      },
+      "required": [
+        "analyzerArn",
+        "resourceArn"
+      ],
+      "title": "StartResourceScanRequest",
+      "type": "object"
+    },
+    "StatusReason": {
+      "description": "Provides more details about the current status of the analyzer. For example, if the creation for the analyzer fails, a <code>Failed</code> status is displayed. For an analyzer with organization as the type, this failure can be due to an issue with creating the service-linked roles required in the member accounts of the AWS organization.",
+      "properties": {
+        "code": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ReasonCode"
+            },
+            {
+              "description": "The reason code for the current status of the analyzer."
+            }
+          ]
+        }
+      },
+      "required": [
+        "code"
+      ],
+      "type": "object"
+    },
+    "String": {
+      "type": "string"
+    },
+    "TagKeys": {
+      "items": {
+        "$ref": "#/definitions/String"
+      },
+      "type": "array"
+    },
+    "TagResourceRequest": {
+      "description": "Adds a tag to the specified resource.",
+      "properties": {
+        "tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagsMap"
+            },
+            {
+              "description": "The tags to add to the resource."
+            }
+          ]
+        }
+      },
+      "required": [
+        "tags"
+      ],
+      "title": "TagResourceRequest",
+      "type": "object"
+    },
+    "TagResourceResponse": {
+      "description": "The response to the request.",
+      "properties": {},
+      "type": "object"
+    },
+    "TagsMap": {
+      "additionalProperties": {
+        "$ref": "#/definitions/String"
+      },
+      "type": "object"
+    },
+    "ThrottlingException": {},
+    "Timestamp": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "Token": {
+      "type": "string"
+    },
+    "Type": {
+      "enum": [
+        "ACCOUNT",
+        "ORGANIZATION"
+      ],
+      "type": "string"
+    },
+    "UntagResourceRequest": {
+      "description": "Removes a tag from the specified resource.",
+      "properties": {},
+      "title": "UntagResourceRequest",
+      "type": "object"
+    },
+    "UntagResourceResponse": {
+      "description": "The response to the request.",
+      "properties": {},
+      "type": "object"
+    },
+    "UpdateArchiveRuleRequest": {
+      "description": "Updates the specified archive rule.",
+      "properties": {
+        "clientToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "A client token."
+            }
+          ]
+        },
+        "filter": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/FilterCriteriaMap"
+            },
+            {
+              "description": "A filter to match for the rules to update. Only rules that match the filter are updated."
+            }
+          ]
+        }
+      },
+      "required": [
+        "filter"
+      ],
+      "title": "UpdateArchiveRuleRequest",
+      "type": "object"
+    },
+    "UpdateFindingsRequest": {
+      "description": "Updates findings with the new values provided in the request.",
+      "properties": {
+        "analyzerArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AnalyzerArn"
+            },
+            {
+              "description": "The ARN of the analyzer that generated the findings to update."
+            }
+          ]
+        },
+        "clientToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "A client token."
+            }
+          ]
+        },
+        "ids": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/FindingIdList"
+            },
+            {
+              "description": "The IDs of the findings to update."
+            }
+          ]
+        },
+        "resourceArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceArn"
+            },
+            {
+              "description": "The ARN of the resource identified in the finding."
+            }
+          ]
+        },
+        "status": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/FindingStatusUpdate"
+            },
+            {
+              "description": "The state represents the action to take to update the finding Status. Use <code>ARCHIVE</code> to change an Active finding to an Archived finding. Use <code>ACTIVE</code> to change an Archived finding to an Active finding."
+            }
+          ]
+        }
+      },
+      "required": [
+        "analyzerArn",
+        "status"
+      ],
+      "title": "UpdateFindingsRequest",
+      "type": "object"
+    },
+    "ValidationException": {},
+    "ValueList": {
+      "items": {
+        "$ref": "#/definitions/String"
+      },
+      "maxItems": 20,
+      "minItems": 1,
+      "type": "array"
+    }
+  },
+  "securityDefinitions": {
+    "hmac": {
+      "description": "Amazon Signature authorization v4",
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey",
+      "x-amazon-apigateway-authtype": "awsSigv4"
+    }
+  },
+  "security": [
+    {
+      "hmac": []
+    }
+  ],
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://docs.aws.amazon.com/access-analyzer/"
+  },
+  "x-components": {
+    "parameters": {
+      "X-Amz-Algorithm": {
+        "in": "header",
+        "name": "X-Amz-Algorithm",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Content-Sha256": {
+        "in": "header",
+        "name": "X-Amz-Content-Sha256",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Credential": {
+        "in": "header",
+        "name": "X-Amz-Credential",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Date": {
+        "in": "header",
+        "name": "X-Amz-Date",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Security-Token": {
+        "in": "header",
+        "name": "X-Amz-Security-Token",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Signature": {
+        "in": "header",
+        "name": "X-Amz-Signature",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-SignedHeaders": {
+        "in": "header",
+        "name": "X-Amz-SignedHeaders",
+        "required": false,
+        "type": "string"
+      }
+    }
+  },
+  "x-hasEquivalentPaths": true
+}

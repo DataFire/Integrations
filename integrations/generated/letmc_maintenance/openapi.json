@@ -6,15 +6,15 @@
   "host": "live-api.letmc.com",
   "info": {
     "contact": {
-      "x-twitter": "LetMC"
+      "x-twitter": "agentOSSoftware"
     },
-    "title": "LetMC Api V3, maintenance",
+    "title": "AgentOS Api V3, maintenance",
     "version": "v3-maintenance",
     "x-apisguru-categories": [
       "ecommerce"
     ],
     "x-logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_LetMC_profile_image.jpeg"
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_agentOSSoftware_profile_image.jpeg"
     },
     "x-origin": [
       {
@@ -31,19 +31,6 @@
       "type": "openapi"
     }
   },
-  "consumes": [
-    "application/json",
-    "text/json",
-    "application/xml",
-    "text/xml",
-    "application/x-www-form-urlencoded"
-  ],
-  "produces": [
-    "application/json",
-    "text/json",
-    "application/xml",
-    "text/xml"
-  ],
   "securityDefinitions": {
     "apiKey": {
       "description": "ApiKey Authentication",
@@ -59,6 +46,13 @@
   "paths": {
     "/v3/maintenance/{shortName}/maintenance/{branchID}/createmaintenancejob": {
       "post": {
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml",
+          "application/x-www-form-urlencoded"
+        ],
         "deprecated": false,
         "operationId": "MaintenanceController_CreateMaintenanceJob",
         "parameters": [
@@ -86,6 +80,12 @@
             }
           }
         ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -103,7 +103,7 @@
   },
   "definitions": {
     "MaintenanceDocumentModel": {
-      "description": "Maintenance Document Model\r\n            Handles all the fields required to attach documents to an online maintenance job",
+      "description": "Submission Model - Handles all the fields required to attach documents to an online maintenance job",
       "properties": {
         "MimeType": {
           "description": "The document Mime Type",
@@ -117,7 +117,7 @@
       "type": "object"
     },
     "MaintenanceIssueModel": {
-      "description": "Issue Model\r\n            Handles all fields required to submit an online maintenance job",
+      "description": "Submission Model - Handles all fields required to submit an online maintenance job",
       "properties": {
         "Documents": {
           "description": "Documents linked to a submitted maintenance job",

@@ -11,7 +11,7 @@ let redirection = require('@datafire/redirection').create({
   apiKey: ""
 });
 
-redirection.postForgotPasswordRequestCollection({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -152,19 +152,25 @@ redirection.getAggregateLogCollection({}, context)
   * page `integer`: The collection page number
   * projectId `string`
   * createdAt `string`
+  * source `string`
+  * target `string`
+  * statusCode `string`
+  * referrer `string`
+  * userAgent `string`
+  * userAgentType `string`
+  * simplifiedUserAgent `string`
+  * ruleId `string`
+  * instanceName `string`
+  * excludeUrls `string`
+  * excludeEmptyReferrer `string`
   * createdAt_gt `string`
   * createdAt_gte `string`
   * createdAt_lt `string`
   * createdAt_lte `string`
-  * source `string`
-  * target `string`
-  * statusCode `string`
-  * referer `string`
-  * simplifiedUserAgent `string`
-  * userAgent `string`
-  * ruleId `string`
-  * instanceName `string`
-  * excludeUrls `string`
+  * statusCode_gt `string`
+  * statusCode_gte `string`
+  * statusCode_lt `string`
+  * statusCode_lte `string`
 
 #### Output
 * output `array`
@@ -186,6 +192,110 @@ redirection.getAggregateLogItem({
 
 #### Output
 * output [AggregateLog-Read](#aggregatelog-read)
+
+### getCrawlUrlCollection
+Retrieves the collection of CrawlUrl resources.
+
+
+```js
+redirection.getCrawlUrlCollection({}, context)
+```
+
+#### Input
+* input `object`
+  * page `integer`: The collection page number
+
+#### Output
+* output `array`
+  * items [CrawlUrl-Read](#crawlurl-read)
+
+### getCrawlUrlItem
+Retrieves a CrawlUrl resource.
+
+
+```js
+redirection.getCrawlUrlItem({
+  "id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * id **required** `string`
+
+#### Output
+* output [CrawlUrl-Read](#crawlurl-read)
+
+### getCrawlCollection
+Retrieves the collection of Crawl resources.
+
+
+```js
+redirection.getCrawlCollection({
+  "projectId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * projectId **required** `string`
+  * firstUrl `string`
+  * sort[createdAt] `string`
+  * page `integer`: The collection page number
+
+#### Output
+* output `array`
+  * items [Crawl-Read](#crawl-read)
+
+### postCrawlCollection
+Creates a Crawl resource.
+
+
+```js
+redirection.postCrawlCollection({}, context)
+```
+
+#### Input
+* input `object`
+  * crawl [Crawl-Write](#crawl-write)
+
+#### Output
+* output [Crawl](#crawl)
+
+### getCrawlItem
+Retrieves a Crawl resource.
+
+
+```js
+redirection.getCrawlItem({
+  "id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * id **required** `string`
+
+#### Output
+* output [Crawl-ReadDetails](#crawl-readdetails)
+
+### cancelCrawlItem
+Creates a Crawl resource.
+
+
+```js
+redirection.cancelCrawlItem({
+  "id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * id **required** `string`
+  * crawl [Crawl](#crawl)
+
+#### Output
+* output [Crawl-ReadDetails](#crawl-readdetails)
 
 ### postExplainUrlCollection
 Creates a ExplainUrl resource.
@@ -232,62 +342,34 @@ redirection.exportRuleCollection({
 #### Input
 * input `object`
   * projectId **required** `string`
-  * redirectCode `integer`
-  * redirectCode[] `integer`
-  * source.input `string`
-  * isEnabled `boolean`
-  * isEnabled[] `boolean`
-  * target `string`
   * sort[id] `string`
-  * sort[target] `string`
   * sort[viewCount] `string`
-  * sort[source.input] `string`
-  * sort[redirectCode] `string`
-  * sort[isEnabled] `string`
 
 #### Output
 * output `array`
   * items [Rule-Read](#rule-read)
 
-### getExportCollection
-Retrieves the collection of Export resources.
+### postImpactRuleChangeCollection
+Creates a ImpactRuleChange resource.
 
 
 ```js
-redirection.getExportCollection({
-  "projectId": ""
-}, context)
+redirection.postImpactRuleChangeCollection({}, context)
 ```
 
 #### Input
 * input `object`
-  * projectId **required** `string`
+  * impactRuleChange [ImpactRuleChange-Write](#impactrulechange-write)
 
 #### Output
-* output `array`
-  * items [Export-Read](#export-read)
+* output [ImpactRuleChange-Read](#impactrulechange-read)
 
-### postExportCollection
-Creates a Export resource.
+### getImpactRuleChangeItem
+Retrieves a ImpactRuleChange resource.
 
 
 ```js
-redirection.postExportCollection({}, context)
-```
-
-#### Input
-* input `object`
-  * export [Export-Write](#export-write)
-
-#### Output
-* output [Export-Read](#export-read)
-
-### getExportItem
-Retrieves a Export resource.
-
-
-```js
-redirection.getExportItem({
+redirection.getImpactRuleChangeItem({
   "id": ""
 }, context)
 ```
@@ -297,29 +379,29 @@ redirection.getExportItem({
   * id **required** `string`
 
 #### Output
-* output [Export-Read](#export-read)
+* output [ImpactRuleChange-Read](#impactrulechange-read)
 
-### postImpactRuleActionCollection
-Creates a ImpactRuleAction resource.
+### postImpactSmartListCollection
+Creates a ImpactSmartList resource.
 
 
 ```js
-redirection.postImpactRuleActionCollection({}, context)
+redirection.postImpactSmartListCollection({}, context)
 ```
 
 #### Input
 * input `object`
-  * impactRuleAction [ImpactRuleAction-Write](#impactruleaction-write)
+  * impactSmartList [ImpactSmartList-Write](#impactsmartlist-write)
 
 #### Output
-* output [ImpactRuleAction-Read](#impactruleaction-read)
+* output [ImpactSmartList-Read](#impactsmartlist-read)
 
-### getImpactRuleActionItem
-Retrieves a ImpactRuleAction resource.
+### getImpactSmartListItem
+Retrieves a ImpactSmartList resource.
 
 
 ```js
-redirection.getImpactRuleActionItem({
+redirection.getImpactSmartListItem({
   "id": ""
 }, context)
 ```
@@ -329,7 +411,7 @@ redirection.getImpactRuleActionItem({
   * id **required** `string`
 
 #### Output
-* output [ImpactRuleAction](#impactruleaction)
+* output [ImpactSmartList-Read](#impactsmartlist-read)
 
 ### getImportCollection
 Retrieves the collection of Import resources.
@@ -344,6 +426,7 @@ redirection.getImportCollection({
 #### Input
 * input `object`
   * projectId **required** `string`
+  * page `integer`: The collection page number
 
 #### Output
 * output `array`
@@ -386,11 +469,14 @@ Retrieves the collection of Instance resources.
 
 
 ```js
-redirection.getInstanceCollection(null, context)
+redirection.getInstanceCollection({
+  "projectId": ""
+}, context)
 ```
 
 #### Input
-*This action has no parameters*
+* input `object`
+  * projectId **required** `string`
 
 #### Output
 * output `array`
@@ -409,6 +495,42 @@ redirection.getInstanceItem({
 #### Input
 * input `object`
   * id **required** `string`
+
+#### Output
+* output [Instance-Read](#instance-read)
+
+### loggingInstanceItem
+Replaces the Instance resource.
+
+
+```js
+redirection.loggingInstanceItem({
+  "id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * id **required** `string`
+  * instance [Instance-Write](#instance-write)
+
+#### Output
+* output [Instance-Read](#instance-read)
+
+### liveInstanceItem
+Replaces the Instance resource.
+
+
+```js
+redirection.liveInstanceItem({
+  "id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * id **required** `string`
+  * instance [Instance-Write](#instance-write)
 
 #### Output
 * output [Instance-Read](#instance-read)
@@ -465,7 +587,7 @@ redirection.acceptInvitationItem({
   * invitation **required** [Invitation](#invitation)
 
 #### Output
-* output [Invitation](#invitation)
+* output [Invitation-Read](#invitation-read)
 
 ### deleteInvitationItem
 Removes the Invitation resource.
@@ -514,19 +636,25 @@ redirection.getLogCollection({}, context)
   * page `integer`: The collection page number
   * projectId `string`
   * createdAt `string`
+  * source `string`
+  * target `string`
+  * statusCode `string`
+  * referrer `string`
+  * userAgent `string`
+  * userAgentType `string`
+  * simplifiedUserAgent `string`
+  * ruleId `string`
+  * instanceName `string`
+  * excludeUrls `string`
+  * excludeEmptyReferrer `string`
   * createdAt_gt `string`
   * createdAt_gte `string`
   * createdAt_lt `string`
   * createdAt_lte `string`
-  * source `string`
-  * target `string`
-  * statusCode `string`
-  * referer `string`
-  * simplifiedUserAgent `string`
-  * userAgent `string`
-  * ruleId `string`
-  * instanceName `string`
-  * excludeUrls `string`
+  * statusCode_gt `string`
+  * statusCode_gte `string`
+  * statusCode_lt `string`
+  * statusCode_lte `string`
 
 #### Output
 * output `array`
@@ -616,20 +744,70 @@ redirection.putMarkerItem({
 #### Output
 * output [Marker](#marker)
 
-### getOrganizationCollection
-Retrieves the collection of Organization resources.
+### postMatchingUrlCollection
+Creates a MatchingUrl resource.
 
 
 ```js
-redirection.getOrganizationCollection(null, context)
+redirection.postMatchingUrlCollection({}, context)
 ```
 
 #### Input
-*This action has no parameters*
+* input `object`
+  * matchingUrl [MatchingUrl-Write](#matchingurl-write)
+
+#### Output
+* output [MatchingUrl-Read](#matchingurl-read)
+
+### getMatchingUrlItem
+Retrieves a MatchingUrl resource.
+
+
+```js
+redirection.getMatchingUrlItem({
+  "id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * id **required** `string`
+
+#### Output
+* output [MatchingUrl-Read](#matchingurl-read)
+
+### getNotificationCollection
+Retrieves the collection of Notification resources.
+
+
+```js
+redirection.getNotificationCollection({}, context)
+```
+
+#### Input
+* input `object`
+  * page `integer`: The collection page number
 
 #### Output
 * output `array`
-  * items [Organization-List](#organization-list)
+  * items [Notification-Read](#notification-read)
+
+### getNotificationItem
+Retrieves a Notification resource.
+
+
+```js
+redirection.getNotificationItem({
+  "id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * id **required** `string`
+
+#### Output
+* output [Notification-Read](#notification-read)
 
 ### postOrganizationCollection
 Creates a Organization resource.
@@ -713,6 +891,21 @@ redirection.post_logs.post({}, context)
 #### Output
 * output [AgentFlushRequest](#agentflushrequest)
 
+### getProjectCollection
+Retrieves the collection of Project resources.
+
+
+```js
+redirection.getProjectCollection(null, context)
+```
+
+#### Input
+*This action has no parameters*
+
+#### Output
+* output `array`
+  * items [Project-List](#project-list)
+
 ### postProjectCollection
 Creates a Project resource.
 
@@ -793,6 +986,10 @@ redirection.getPublishHistoryCollection({
 #### Input
 * input `object`
   * projectId **required** `string`
+  * createdAt[before] `string`
+  * createdAt[strictly_before] `string`
+  * createdAt[after] `string`
+  * createdAt[strictly_after] `string`
   * page `integer`: The collection page number
 
 #### Output
@@ -814,14 +1011,14 @@ redirection.getPublishHistoryItem({
   * id **required** `string`
 
 #### Output
-* output [PublishHistory](#publishhistory)
+* output [PublishHistory-Read](#publishhistory-read)
 
-### getRuleActionCollection
-Retrieves the collection of RuleAction resources.
+### getRuleChangeCollection
+Retrieves the collection of RuleChange resources.
 
 
 ```js
-redirection.getRuleActionCollection({
+redirection.getRuleChangeCollection({
   "versionId": ""
 }, context)
 ```
@@ -833,29 +1030,29 @@ redirection.getRuleActionCollection({
 
 #### Output
 * output `array`
-  * items [RuleAction-Read](#ruleaction-read)
+  * items [RuleChange-Read](#rulechange-read)
 
-### postRuleActionCollection
-Creates a RuleAction resource.
+### postRuleChangeCollection
+Creates a RuleChange resource.
 
 
 ```js
-redirection.postRuleActionCollection({}, context)
+redirection.postRuleChangeCollection({}, context)
 ```
 
 #### Input
 * input `object`
-  * ruleAction [RuleAction-Write](#ruleaction-write)
+  * ruleChange [RuleChange-Write](#rulechange-write)
 
 #### Output
-* output [RuleAction-Read](#ruleaction-read)
+* output [RuleChange-Read](#rulechange-read)
 
-### deleteRuleActionItem
-Removes the RuleAction resource.
+### deleteRuleChangeItem
+Removes the RuleChange resource.
 
 
 ```js
-redirection.deleteRuleActionItem({
+redirection.deleteRuleChangeItem({
   "id": ""
 }, context)
 ```
@@ -867,12 +1064,12 @@ redirection.deleteRuleActionItem({
 #### Output
 *Output schema unknown*
 
-### getRuleActionItem
-Retrieves a RuleAction resource.
+### getRuleChangeItem
+Retrieves a RuleChange resource.
 
 
 ```js
-redirection.getRuleActionItem({
+redirection.getRuleChangeItem({
   "id": ""
 }, context)
 ```
@@ -882,7 +1079,7 @@ redirection.getRuleActionItem({
   * id **required** `string`
 
 #### Output
-* output [RuleAction-Read](#ruleaction-read)
+* output [RuleChange-Read](#rulechange-read)
 
 ### getRuleSetVersionCollection
 Retrieves the collection of RuleSetVersion resources.
@@ -938,7 +1135,7 @@ redirection.clearRuleSetVersionItem({
   * ruleSetVersion **required** [RuleSetVersion](#rulesetversion)
 
 #### Output
-* output [RuleSetVersion](#rulesetversion)
+* output [RuleSetVersion-Read](#rulesetversion-read)
 
 ### publishRuleSetVersionItem
 Publish a version
@@ -957,7 +1154,42 @@ redirection.publishRuleSetVersionItem({
   * ruleSetVersion **required** [RuleSetVersion](#rulesetversion)
 
 #### Output
-* output [RuleSetVersion](#rulesetversion)
+* output [RuleSetVersion-Read](#rulesetversion-read)
+
+### getRuleStatisticCollection
+Retrieves the collection of RuleStatistic resources.
+
+
+```js
+redirection.getRuleStatisticCollection({
+  "projectId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * projectId **required** `string`
+
+#### Output
+* output `array`
+  * items [RuleStatistic](#rulestatistic)
+
+### getRuleStatisticItem
+Retrieves a RuleStatistic resource.
+
+
+```js
+redirection.getRuleStatisticItem({
+  "id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * id **required** `string`
+
+#### Output
+* output [RuleStatistic](#rulestatistic)
 
 ### getRuleCollection
 Retrieves the collection of Rule resources.
@@ -972,18 +1204,8 @@ redirection.getRuleCollection({
 #### Input
 * input `object`
   * projectId **required** `string`
-  * redirectCode `integer`
-  * redirectCode[] `integer`
-  * source.input `string`
-  * isEnabled `boolean`
-  * isEnabled[] `boolean`
-  * target `string`
   * sort[id] `string`
-  * sort[target] `string`
   * sort[viewCount] `string`
-  * sort[source.input] `string`
-  * sort[redirectCode] `string`
-  * sort[isEnabled] `string`
   * page `integer`: The collection page number
 
 #### Output
@@ -1006,6 +1228,38 @@ redirection.getRuleItem({
 
 #### Output
 * output [Rule-Read](#rule-read)
+
+### getSmartListCollection
+Retrieves the collection of SmartList resources.
+
+
+```js
+redirection.getSmartListCollection(null, context)
+```
+
+#### Input
+*This action has no parameters*
+
+#### Output
+* output `array`
+  * items [SmartList](#smartlist)
+
+### getSmartListItem
+Retrieves a SmartList resource.
+
+
+```js
+redirection.getSmartListItem({
+  "id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * id **required** `string`
+
+#### Output
+* output [SmartList](#smartlist)
 
 ### postUserOrganizationCollection
 Creates a UserOrganization resource.
@@ -1225,6 +1479,23 @@ redirection.forgot_passwordUserItem({
 #### Output
 * output [User-Read](#user-read)
 
+### deleteUserItem
+Removes the User resource.
+
+
+```js
+redirection.deleteUserItem({
+  "id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * id **required** `string`
+
+#### Output
+*Output schema unknown*
+
 ### getUserItem
 Retrieves a User resource.
 
@@ -1330,12 +1601,78 @@ redirection.edit_passwordUserItem({
 
 ### AggregateLog-Read
 * AggregateLog-Read `object`
+  * fixed `boolean`
   * lastOccurrenceAt `string`
   * ruleId `string`
   * statusCode `integer`
+  * viewCount `integer`
+
+### Crawl
+* Crawl `object`
+  * archived `boolean`
+  * author [User](#user)
+  * createdAt `string`
+  * currentConcurrency `integer`
+  * error `string`
+  * finishedAt `string`
+  * firstUrl `string`
+  * id `string`
+  * marking `array`
+    * items `string`
+  * stats `array`
+    * items `string`
+  * trigger `string`
+  * updatedAt `string`
+
+### Crawl-Read
+* Crawl-Read `object`
+  * archived `boolean`
+  * author [User-Read](#user-read)
+  * createdAt `string`
+  * error `string`
+  * finishedAt `string`
+  * firstUrl `string`
+  * id `string`
+  * stats `array`
+    * items `string`
+  * trigger `string`
+  * updatedAt `string`
+
+### Crawl-ReadDetails
+* Crawl-ReadDetails `object`
+  * archived `boolean`
+  * author [User-ReadDetails](#user-readdetails)
+  * createdAt `string`
+  * error `string`
+  * finishedAt `string`
+  * firstUrl `string`
+  * id `string`
+  * stats `array`
+    * items `string`
+  * trigger `string`
+  * updatedAt `string`
+
+### Crawl-Write
+* Crawl-Write `object`
+  * concurrency **required** `integer`
+  * headers `array`
+    * items `string`
+  * maxDepth **required** `integer`
+  * maxDuration **required** `integer`
+  * maxUrls **required** `integer`
+  * otherDomains `array`
+    * items `string`
+  * project **required** `string`
+  * sslCheckingDisabled **required** `boolean`
+  * subdomainIncluded **required** `boolean`
+
+### CrawlUrl-Read
+* CrawlUrl-Read `object`
+  * urlsTo `string`
 
 ### ExplainUrl
 * ExplainUrl `object`
+  * id `string`
   * project **required** `string`
   * url **required** `string`
 
@@ -1344,114 +1681,85 @@ redirection.edit_passwordUserItem({
   * project **required** `string`
   * url **required** `string`
 
-### Export-Read
-* Export-Read `object`
-  * author **required** `string`
-  * completedAt `string`
-  * exportDuration `integer`
-  * filters `array`
-    * items `string`
-  * id `string`
-  * itemsCount `integer`
-  * location `string`
-  * message `string`
-  * project **required** `string`
-  * sort `array`
-    * items `string`
-  * startedAt `string`
-  * status `integer`
-  * statusAsText `string`
-  * typeAsText **required** `string`
-  * updatedAt `string`
-
-### Export-Write
-* Export-Write `object`
-  * filters `array`
-    * items `string`
-  * project **required** `string`
-  * sort `array`
-    * items `string`
-  * typeAsText **required** `string`
-
 ### ForgotPasswordRequest
 * ForgotPasswordRequest `object`
   * email **required** `string`
 
-### ImpactRuleAction
-* ImpactRuleAction `object`
-  * project **required** `string`
-  * ruleAction **required** `string`
+### ImpactRuleChange-Read
+* ImpactRuleChange-Read `object`
 
-### ImpactRuleAction-Read
-* ImpactRuleAction-Read `object`
-
-### ImpactRuleAction-Write
-* ImpactRuleAction-Write `object`
+### ImpactRuleChange-Write
+* ImpactRuleChange-Write `object`
   * project **required** `string`
-  * ruleAction **required** `string`
+  * ruleChange **required** `string`
+
+### ImpactSmartList-Read
+* ImpactSmartList-Read `object`
+
+### ImpactSmartList-Write
+* ImpactSmartList-Write `object`
+  * project **required** `string`
+  * smartListId **required** `string`
+  * smartListVersion `string`
 
 ### Import-Read
 * Import-Read `object`
-  * author **required** `string`
+  * author `string`
   * completedAt `string`
   * errorCount `integer`
   * id `string`
   * importDuration `integer`
   * message `string`
   * project **required** `string`
-  * shouldEnable `boolean`
   * startedAt `string`
   * successCount `integer`
-  * typeAsText **required** `string`
   * updatedAt `string`
 
 ### Import-Write
 * Import-Write `object`
   * project **required** `string`
-  * shouldEnable `boolean`
-  * typeAsText **required** `string`
 
 ### Instance-Read
 * Instance-Read `object`
   * agentDuration `integer`
   * agentVersion `string`
   * agentVersionStatus `string`
-  * aggregatedLogsLastFlushedAt `string`
+  * config `string`
   * createdAt `string`
   * gone `boolean`
   * id `string`
   * lastCompletedAt `string`
   * lastStartedAt `string`
+  * live `boolean`
   * logging `boolean`
   * logsLastFlushedAt `string`
   * message `string`
   * misconfigured `boolean`
   * name **required** `string`
   * rulesCount `integer`
+  * rulesHash `string`
   * stale `boolean`
   * status `integer`
   * updatedAt `string`
 
 ### Instance-Write
 * Instance-Write `object`
-  * agentVersion `string`
-  * misconfigured `boolean`
-  * name **required** `string`
+  * agentDuration `integer`
+  * message `string`
+  * rulesCount `integer`
+  * rulesHash `string`
 
 ### Invitation
 * Invitation `object`
-  * accepted `boolean`
   * createdAt `string`
   * email `string`
   * id `string`
-  * sender `string`
-  * target `string`
-  * targetId `string`
-  * targetType `string`
-  * token `string`
 
 ### Invitation-Read
 * Invitation-Read `object`
+  * createdAt `string`
+  * email `string`
+  * id `string`
 
 ### Invitation-Write
 * Invitation-Write `object`
@@ -1461,16 +1769,36 @@ redirection.edit_passwordUserItem({
 ### Log-Read
 * Log-Read `object`
   * createdAt `string`
+  * fixed `boolean`
+  * fixedByVersions `array`
+    * items `string`
+  * fromSmartList `boolean`
+  * notFixedByVersions `array`
+    * items `string`
+  * proxy `string`
   * ruleId `string`
+  * smartList `string`
 
 ### Marker
 * Marker `object`
+  * id `string`
   * maximumOccurrence `integer`
   * minimumOccurrence `integer`
   * name **required** `string`
   * options `array`
     * items `string`
   * regex `string`
+  * transformers `array`
+    * items `string`
+  * type **required** `string`
+
+### Marker-Read
+* Marker-Read `object`
+  * maximumOccurrence `integer`
+  * minimumOccurrence `integer`
+  * name **required** `string`
+  * options `array`
+    * items `string`
   * transformers `array`
     * items `string`
   * type **required** `string`
@@ -1486,157 +1814,207 @@ redirection.edit_passwordUserItem({
     * items `string`
   * type **required** `string`
 
-### Organization-List
-* Organization-List `object`
+### MatchingUrl-Read
+* MatchingUrl-Read `object`
+
+### MatchingUrl-Write
+* MatchingUrl-Write `object`
+  * project `string`
+  * ruleChange `string`
+
+### Notification-Read
+* Notification-Read `object`
   * createdAt `string`
   * id `string`
-  * name **required** `string`
-  * projects `array`
-    * items `string`
-  * slug `string`
+  * message `string`
   * updatedAt `string`
 
-### Organization-Read
-* Organization-Read `object`
+### Organization
+* Organization `object`
   * createdAt `string`
   * id `string`
   * name **required** `string`
   * projects `array`
-    * items `string`
+    * items [Project](#project)
   * slug `string`
   * updatedAt `string`
   * userOrganizations `array`
-    * items `string`
+    * items [UserOrganization](#userorganization)
+
+### Organization-CreationWrite
+* Organization-CreationWrite `object`
+
+### Organization-List
+* Organization-List `object`
+  * name **required** `string`
+  * slug `string`
+
+### Organization-Read
+* Organization-Read `object`
+  * id `string`
+  * name **required** `string`
+  * slug `string`
 
 ### Organization-Write
 * Organization-Write `object`
   * name **required** `string`
 
-### Project-CreationWrite
-* Project-CreationWrite `object`
-  * name **required** `string`
-  * onboardingCompletedDemos `array`
-    * items `string`
-  * organization **required** `string`
-
-### Project-Read
-* Project-Read `object`
+### Project
+* Project `object`
   * complexRulesCount `integer`
   * complexRulesUpdatedAt `string`
+  * configuration `array`
+    * items `string`
   * createdAt `string`
-  * currentVersion `string`
+  * currentVersion [RuleSetVersion](#rulesetversion)
   * id `string`
+  * ignoreProjectTypes `array`
+    * items `string`
+  * isPublishing `boolean`
   * name **required** `string`
   * onboardingCompletedDemos `array`
     * items `string`
-  * organization **required** `string`
-  * plan **required** `integer`
+  * organization [Organization](#organization)
+  * plan `integer`
+  * rulesHash `string`
   * slug `string`
   * straightRulesCount `integer`
   * straightRulesUpdatedAt `string`
   * token `string`
   * updatedAt `string`
   * userProjects `array`
-    * items `string`
+    * items [UserProject](#userproject)
   * usersFlattened `array`
+    * items [UserProjectFlattened](#userprojectflattened)
+  * workingVersion [RuleSetVersion](#rulesetversion)
+
+### Project-CreationWrite
+* Project-CreationWrite `object`
+  * ignoreProjectTypes `array`
     * items `string`
-  * workingVersion `string`
+  * name **required** `string`
+  * onboardingCompletedDemos `array`
+    * items `string`
+  * organization [Organization-CreationWrite](#organization-creationwrite)
+
+### Project-List
+* Project-List `object`
+  * id `string`
+  * name **required** `string`
+  * organization [Organization-List](#organization-list)
+  * slug `string`
+  * token `string`
+
+### Project-Read
+* Project-Read `object`
+  * complexRulesCount `integer`
+  * complexRulesUpdatedAt `string`
+  * configuration `array`
+    * items `string`
+  * createdAt `string`
+  * currentVersion [RuleSetVersion-Read](#rulesetversion-read)
+  * id `string`
+  * ignoreProjectTypes `array`
+    * items `string`
+  * isPublishing `boolean`
+  * name **required** `string`
+  * onboardingCompletedDemos `array`
+    * items `string`
+  * organization [Organization-Read](#organization-read)
+  * plan `integer`
+  * rulesHash `string`
+  * slug `string`
+  * straightRulesCount `integer`
+  * straightRulesUpdatedAt `string`
+  * token `string`
+  * updatedAt `string`
+  * userProjects `array`
+    * items [UserProject-Read](#userproject-read)
+  * usersFlattened `array`
+    * items [UserProjectFlattened-Read](#userprojectflattened-read)
+  * workingVersion [RuleSetVersion-Read](#rulesetversion-read)
 
 ### Project-Write
 * Project-Write `object`
+  * ignoreProjectTypes `array`
+    * items `string`
   * name **required** `string`
   * onboardingCompletedDemos `array`
     * items `string`
 
-### PublishHistory
-* PublishHistory `object`
-  * added `integer`
-  * author `string`
-  * createdAt `string`
-  * deleted `integer`
-  * id `string`
-  * project `string`
-  * summary `string`
-  * type `string`
-  * updated `integer`
-  * version `string`
-
 ### PublishHistory-Read
 * PublishHistory-Read `object`
   * added `integer`
-  * author `string`
+  * author [User-Read](#user-read)
   * createdAt `string`
   * deleted `integer`
   * id `string`
   * summary `string`
   * type `string`
   * updated `integer`
-  * version `string`
+  * version [RuleSetVersion-Read](#rulesetversion-read)
 
 ### Rule-Read
 * Rule-Read `object`
   * actions `array`
     * items `string`
-  * currentAction `string`
-  * id `string`
-  * isEnabled `boolean`
-  * markers `array`
+  * changes `array`
+    * items [RuleChange-Read](#rulechange-read)
+  * currentChange [RuleChange-Read](#rulechange-read)
+  * examples `array`
     * items `string`
+  * formattedSource `string`
+  * id `string`
+  * markers `array`
+    * items [Marker-Read](#marker-read)
+  * matchOnResponseStatus `integer`
   * rank `integer`
-  * redirectCode `integer`
   * source `string`
-  * target `string`
   * updatedAt `string`
   * viewCount `integer`
 
-### RuleAction-Read
-* RuleAction-Read `object`
+### RuleChange-Read
+* RuleChange-Read `object`
   * action **required** `string`
-  * author `string`
+  * actions `array`
+    * items `string`
+  * author [User-Read](#user-read)
   * createdAt `string`
+  * examples `array`
+    * items `string`
+  * formattedSource `string`
   * id `string`
-  * isEnabled **required** `boolean`
   * markers `array`
-    * items `string`
+    * items [Marker-Read](#marker-read)
+  * matchOnResponseStatus `integer`
   * rank **required** `integer`
   * ruleId `string`
   * source **required** `string`
-  * statusCode **required** `integer`
-  * target `string`
 
-### RuleAction-Write
-* RuleAction-Write `object`
+### RuleChange-Write
+* RuleChange-Write `object`
   * action **required** `string`
-  * isEnabled **required** `boolean`
-  * markers `array`
+  * actions `array`
     * items `string`
+  * examples `array`
+    * items `string`
+  * formattedSource `string`
+  * markers `array`
+    * items [Marker-Write](#marker-write)
+  * matchOnResponseStatus `integer`
   * rank **required** `integer`
   * ruleId `string`
   * source **required** `string`
-  * statusCode **required** `integer`
-  * target `string`
 
 ### RuleSetVersion
 * RuleSetVersion `object`
-  * actions `array`
-    * items `string`
-  * added `integer`
   * createdAt `string`
   * current `boolean`
-  * deleted `integer`
-  * histories `array`
-    * items `string`
   * id `string`
   * isSnapshot `boolean`
-  * lastAction `string`
+  * mergedRulesCount `integer`
   * name `string`
-  * nexts `array`
-    * items `string`
-  * previous `string`
-  * project `string`
   * publishedAt `string`
-  * snapshot `boolean`
-  * updated `integer`
   * working `boolean`
 
 ### RuleSetVersion-Read
@@ -1645,9 +2023,45 @@ redirection.edit_passwordUserItem({
   * current `boolean`
   * id `string`
   * isSnapshot `boolean`
+  * mergedRulesCount `integer`
   * name `string`
   * publishedAt `string`
   * working `boolean`
+
+### RuleStatistic
+* RuleStatistic `object`
+  * id `string`
+  * stats `string`
+
+### SmartList
+* SmartList `object`
+  * defaultVersion `string`
+  * description `string`
+  * id `string`
+  * name `string`
+  * rules `string`
+  * versions `array`
+    * items `string`
+
+### User
+* User `object`
+  * defaultOrganization [Organization](#organization)
+  * email **required** `string`
+  * id `string`
+  * name **required** `string`
+  * newEmail `string`
+  * newEmailToken `string`
+  * newEmailTokenExpiredAt `string`
+  * password `string`
+  * plainPassword `string`
+  * projectsFlattened `array`
+    * items `string`
+  * superAdmin `boolean`
+  * updatedAt `string`
+  * userOrganizations `array`
+    * items [UserOrganization](#userorganization)
+  * userProjects `array`
+    * items `string`
 
 ### User-CreationWrite
 * User-CreationWrite `object`
@@ -1670,32 +2084,47 @@ redirection.edit_passwordUserItem({
 
 ### User-Read
 * User-Read `object`
-  * defaultOrganization `string`
-  * email **required** `string`
-  * id `string`
   * name **required** `string`
-  * userOrganizations `array`
+
+### User-ReadDetails
+* User-ReadDetails `object`
+  * name **required** `string`
+
+### UserOrganization
+* UserOrganization `object`
+  * functionalRoles **required** `array`
     * items `string`
+  * id `string`
+  * organization `string`
+  * user `string`
 
 ### UserOrganization-CreationWrite
 * UserOrganization-CreationWrite `object`
   * functionalRoles **required** `array`
     * items `string`
-  * organization **required** `string`
-  * user **required** `string`
+  * organization `string`
+  * user `string`
 
 ### UserOrganization-Read
 * UserOrganization-Read `object`
   * functionalRoles **required** `array`
     * items `string`
   * id `string`
-  * organization **required** `string`
-  * user **required** `string`
+  * organization `string`
+  * user `string`
 
 ### UserOrganization-Write
 * UserOrganization-Write `object`
   * functionalRoles **required** `array`
     * items `string`
+
+### UserProject
+* UserProject `object`
+  * functionalRoles **required** `array`
+    * items `string`
+  * id `string`
+  * project **required** `string`
+  * user **required** `string`
 
 ### UserProject-CreationWrite
 * UserProject-CreationWrite `object`
@@ -1709,7 +2138,6 @@ redirection.edit_passwordUserItem({
   * functionalRoles **required** `array`
     * items `string`
   * id `string`
-  * project **required** `string`
   * user **required** `string`
 
 ### UserProject-Write
@@ -1717,7 +2145,17 @@ redirection.edit_passwordUserItem({
   * functionalRoles **required** `array`
     * items `string`
 
+### UserProjectFlattened
+* UserProjectFlattened `object`
+  * functionalRoles `array`
+    * items `string`
+  * project `string`
+  * user `string`
+
 ### UserProjectFlattened-Read
 * UserProjectFlattened-Read `object`
+  * functionalRoles `array`
+    * items `string`
+  * user `string`
 
 

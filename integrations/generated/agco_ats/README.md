@@ -9,7 +9,7 @@ npm install --save @datafire/agco_ats
 ```js
 let agco_ats = require('@datafire/agco_ats').create();
 
-agco_ats.Steps_GetSteps({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

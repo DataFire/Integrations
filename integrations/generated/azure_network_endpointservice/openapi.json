@@ -7,7 +7,7 @@
   "info": {
     "description": "The Microsoft Azure Network management API provides a RESTful set of web services that interact with Microsoft Azure Networks service to manage your network resources. The API has entities that capture the relationship between an end user and the Microsoft Azure Networks service.",
     "title": "NetworkManagementClient",
-    "version": "2017-10-01",
+    "version": "2019-07-01",
     "x-apisguru-categories": [
       "cloud"
     ],
@@ -17,7 +17,7 @@
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/network/resource-manager/Microsoft.Network/stable/2017-10-01/endpointService.json",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/network/resource-manager/Microsoft.Network/stable/2019-07-01/endpointService.json",
         "version": "2.0"
       }
     ],
@@ -42,7 +42,7 @@
   "securityDefinitions": {
     "azure_auth": {
       "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
-      "description": "Azure Active Directory OAuth2 Flow",
+      "description": "Azure Active Directory OAuth2 Flow.",
       "flow": "implicit",
       "scopes": {
         "user_impersonation": "impersonate your user account"
@@ -57,22 +57,6 @@
       ]
     }
   ],
-  "parameters": {
-    "ApiVersionParameter": {
-      "description": "Client API version.",
-      "in": "query",
-      "name": "api-version",
-      "required": true,
-      "type": "string"
-    },
-    "SubscriptionIdParameter": {
-      "description": "The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
-      "in": "path",
-      "name": "subscriptionId",
-      "required": true,
-      "type": "string"
-    }
-  },
   "paths": {
     "/subscriptions/{subscriptionId}/providers/Microsoft.Network/locations/{location}/virtualNetworkAvailableEndpointServices": {
       "get": {
@@ -87,10 +71,18 @@
             "type": "string"
           },
           {
-            "$ref": "#/parameters/ApiVersionParameter"
+            "description": "Client API version.",
+            "in": "query",
+            "name": "api-version",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/SubscriptionIdParameter"
+            "description": "The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -104,7 +96,7 @@
         "x-ms-examples": {
           "EndpointServicesList": {
             "parameters": {
-              "api-version": "2017-10-01",
+              "api-version": "2019-07-01",
               "location": "westus",
               "subscriptionId": "subid"
             },

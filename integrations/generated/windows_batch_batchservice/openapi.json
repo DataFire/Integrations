@@ -7,7 +7,7 @@
   "info": {
     "description": "A client for issuing REST requests to the Azure Batch service.",
     "title": "BatchService",
-    "version": "2017-09-01.6.0",
+    "version": "2018-08-01.7.0",
     "x-apisguru-categories": [
       "cloud"
     ],
@@ -20,7 +20,7 @@
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/batch/data-plane/Microsoft.Batch/stable/2017-09-01.6.0/BatchService.json",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/batch/data-plane/Microsoft.Batch/stable/2018-08-01.7.0/BatchService.json",
         "version": "2.0"
       }
     ],
@@ -157,6 +157,30 @@
         "tags": [
           "Applications"
         ],
+        "x-ms-examples": {
+          "List applications": {
+            "parameters": {
+              "api-version": "2018-08-01.7.0",
+              "client-request-id": "00000000-0000-0000-0000-000000000000",
+              "ocp-data": "Fri, 17 Feb 2017 00:00:00 GMT"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "value": [
+                    {
+                      "displayName": "my_display_name",
+                      "id": "my_application_id",
+                      "versions": [
+                        "v1.0"
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
         "x-ms-pageable": {
           "nextLinkName": "odata.nextLink"
         },
@@ -264,6 +288,27 @@
         "tags": [
           "Applications"
         ],
+        "x-ms-examples": {
+          "Get applications": {
+            "parameters": {
+              "api-version": "2018-08-01.7.0",
+              "applicationId": "my_application_id",
+              "client-request-id": "00000000-0000-0000-0000-000000000000",
+              "ocp-data": "Fri, 17 Feb 2017 00:00:00 GMT"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "displayName": "my_display_name",
+                  "id": "my_application_id",
+                  "versions": [
+                    "v1.0"
+                  ]
+                }
+              }
+            }
+          }
+        },
         "x-ms-request-id": "request-id"
       }
     },
@@ -398,7 +443,7 @@
         "x-ms-examples": {
           "Certificate list": {
             "parameters": {
-              "api-version": "2017-09-01.6.0",
+              "api-version": "2018-08-01.7.0",
               "client-request-id": "00000000-0000-0000-0000-000000000000",
               "ocp-data": "Fri, 17 Feb 2017 00:00:00 GMT"
             },
@@ -542,7 +587,7 @@
         "x-ms-examples": {
           "Certificate add": {
             "parameters": {
-              "api-version": "2017-09-01.6.0",
+              "api-version": "2018-08-01.7.0",
               "certificate": {
                 "certificateFormat": "pfx",
                 "data": "#####...",
@@ -554,9 +599,7 @@
               "ocp-data": "Fri, 17 Feb 2017 00:00:00 GMT"
             },
             "responses": {
-              "201": {
-                "body": ""
-              }
+              "201": {}
             }
           }
         },
@@ -671,16 +714,14 @@
         "x-ms-examples": {
           "Certificate delete": {
             "parameters": {
-              "api-version": "2017-09-01.6.0",
+              "api-version": "2018-08-01.7.0",
               "client-request-id": "00000000-0000-0000-0000-000000000000",
               "ocp-data": "Fri, 17 Feb 2017 00:00:00 GMT",
               "thumbprint": "0123456789abcdef0123456789abcdef01234567",
               "thumbprintAlgorithm": "sha1"
             },
             "responses": {
-              "202": {
-                "body": ""
-              }
+              "202": {}
             }
           }
         },
@@ -805,7 +846,7 @@
         "x-ms-examples": {
           "Certificate get": {
             "parameters": {
-              "api-version": "2017-09-01.6.0",
+              "api-version": "2018-08-01.7.0",
               "client-request-id": "00000000-0000-0000-0000-000000000000",
               "ocp-data": "Fri, 17 Feb 2017 00:00:00 GMT",
               "thumbprint": "0123456789abcdef0123456789abcdef01234567",
@@ -952,16 +993,14 @@
         "x-ms-examples": {
           "Certificate cancel delete": {
             "parameters": {
-              "api-version": "2017-09-01.6.0",
+              "api-version": "2018-08-01.7.0",
               "client-request-id": "00000000-0000-0000-0000-000000000000",
               "ocp-data": "Fri, 17 Feb 2017 00:00:00 GMT",
               "thumbprint": "0123456789abcdef0123456789abcdef01234567",
               "thumbprintAlgorithm": "sha1"
             },
             "responses": {
-              "204": {
-                "body": ""
-              }
+              "204": {}
             }
           }
         },
@@ -1109,7 +1148,7 @@
         "x-ms-examples": {
           "Job list": {
             "parameters": {
-              "api-version": "2017-09-01.6.0",
+              "api-version": "2018-08-01.7.0",
               "client-request-id": "00000000-0000-0000-0000-000000000000",
               "ocp-data": "Fri, 17 Feb 2017 00:00:00 GMT"
             },
@@ -1260,7 +1299,7 @@
         "x-ms-examples": {
           "Add a basic job": {
             "parameters": {
-              "api-version": "2017-09-01.6.0",
+              "api-version": "2018-08-01.7.0",
               "client-request-id": "00000000-0000-0000-0000-000000000000",
               "job": {
                 "id": "jobId",
@@ -1272,14 +1311,12 @@
               "ocp-data": "Fri, 17 Feb 2017 00:00:00 GMT"
             },
             "responses": {
-              "201": {
-                "body": ""
-              }
+              "201": {}
             }
           },
           "Add a complex job": {
             "parameters": {
-              "api-version": "2017-09-01.6.0",
+              "api-version": "2018-08-01.7.0",
               "client-request-id": "00000000-0000-0000-0000-000000000000",
               "job": {
                 "constraints": {
@@ -1393,9 +1430,7 @@
               "ocp-data": "Fri, 17 Feb 2017 00:00:00 GMT"
             },
             "responses": {
-              "201": {
-                "body": ""
-              }
+              "201": {}
             }
           }
         },
@@ -1531,6 +1566,19 @@
         "tags": [
           "Jobs"
         ],
+        "x-ms-examples": {
+          "Delete Job": {
+            "parameters": {
+              "api-version": "2018-08-01.7.0",
+              "client-request-id": "00000000-0000-0000-0000-000000000000",
+              "jobId": "jobId",
+              "ocp-data": "Fri, 17 Feb 2017 00:00:00 GMT"
+            },
+            "responses": {
+              "202": {}
+            }
+          }
+        },
         "x-ms-request-id": "request-id"
       },
       "get": {
@@ -1697,7 +1745,7 @@
         "x-ms-examples": {
           "Job get": {
             "parameters": {
-              "api-version": "2017-09-01.6.0",
+              "api-version": "2018-08-01.7.0",
               "client-request-id": "00000000-0000-0000-0000-000000000000",
               "jobId": "jobId",
               "ocp-data": "Fri, 17 Feb 2017 00:00:00 GMT"
@@ -1893,7 +1941,7 @@
         "x-ms-examples": {
           "Job patch": {
             "parameters": {
-              "api-version": "2017-09-01.6.0",
+              "api-version": "2018-08-01.7.0",
               "client-request-id": "00000000-0000-0000-0000-000000000000",
               "jobId": "jobId",
               "jobPatchParameter": {
@@ -1909,16 +1957,14 @@
               "ocp-data": "Fri, 17 Feb 2017 00:00:00 GMT"
             },
             "responses": {
-              "200": {
-                "body": ""
-              }
+              "200": {}
             }
           }
         },
         "x-ms-request-id": "request-id"
       },
       "put": {
-        "description": "This fully replaces all the updateable properties of the job. For example, if the job has constraints associated with it and if constraints is not specified with this request, then the Batch service will remove the existing constraints.",
+        "description": "This fully replaces all the updatable properties of the job. For example, if the job has constraints associated with it and if constraints is not specified with this request, then the Batch service will remove the existing constraints.",
         "operationId": "Job_Update",
         "parameters": [
           {
@@ -2072,7 +2118,7 @@
         "x-ms-examples": {
           "Job update": {
             "parameters": {
-              "api-version": "2017-09-01.6.0",
+              "api-version": "2018-08-01.7.0",
               "client-request-id": "00000000-0000-0000-0000-000000000000",
               "jobId": "jobId",
               "jobUpdateParameter": {
@@ -2088,9 +2134,7 @@
               "ocp-data": "Fri, 17 Feb 2017 00:00:00 GMT"
             },
             "responses": {
-              "200": {
-                "body": ""
-              }
+              "200": {}
             }
           }
         },
@@ -2199,7 +2243,7 @@
         "x-ms-examples": {
           "Add a basic collection of tasks": {
             "parameters": {
-              "api-version": "2017-09-01.6.0",
+              "api-version": "2018-08-01.7.0",
               "client-request-id": "00000000-0000-0000-0000-000000000000",
               "jobId": "jobId",
               "ocp-data": "Fri, 17 Feb 2017 00:00:00 GMT",
@@ -2241,7 +2285,7 @@
           },
           "Add a complex collection of tasks": {
             "parameters": {
-              "api-version": "2017-09-01.6.0",
+              "api-version": "2018-08-01.7.0",
               "client-request-id": "00000000-0000-0000-0000-000000000000",
               "jobId": "jobId",
               "ocp-data": "Fri, 17 Feb 2017 00:00:00 GMT",
@@ -2475,7 +2519,7 @@
         "x-ms-examples": {
           "Job disable": {
             "parameters": {
-              "api-version": "2017-09-01.6.0",
+              "api-version": "2018-08-01.7.0",
               "client-request-id": "00000000-0000-0000-0000-000000000000",
               "jobDisableParameter": {
                 "disableTasks": "terminate"
@@ -2484,9 +2528,7 @@
               "ocp-data": "Fri, 17 Feb 2017 00:00:00 GMT"
             },
             "responses": {
-              "202": {
-                "body": ""
-              }
+              "202": {}
             }
           }
         },
@@ -2640,15 +2682,13 @@
         "x-ms-examples": {
           "Job enable": {
             "parameters": {
-              "api-version": "2017-09-01.6.0",
+              "api-version": "2018-08-01.7.0",
               "client-request-id": "00000000-0000-0000-0000-000000000000",
               "jobId": "jobId",
               "ocp-data": "Fri, 17 Feb 2017 00:00:00 GMT"
             },
             "responses": {
-              "202": {
-                "body": ""
-              }
+              "202": {}
             }
           }
         },
@@ -2794,7 +2834,7 @@
         "x-ms-examples": {
           "Job list preparation and release task status": {
             "parameters": {
-              "api-version": "2017-09-01.6.0",
+              "api-version": "2018-08-01.7.0",
               "client-request-id": "00000000-0000-0000-0000-000000000000",
               "jobId": "jobId",
               "ocp-data": "Fri, 17 Feb 2017 00:00:00 GMT"
@@ -2802,7 +2842,7 @@
             "responses": {
               "200": {
                 "body": {
-                  "odata.nextLink": "https://account.region.batch.azure.com/jobs/myjob/jobpreparationandreleasestatus?$skipToken=tvm-2167304207_1-20140905t174658z&api-version=2017-09-01.6.0",
+                  "odata.nextLink": "https://account.region.batch.azure.com/jobs/myjob/jobpreparationandreleasestatus?$skipToken=tvm-2167304207_1-20140905t174658z&api-version=2018-08-01.7.0",
                   "value": [
                     {
                       "jobPreparationTaskExecutionInfo": {
@@ -2840,7 +2880,7 @@
     },
     "/jobs/{jobId}/taskcounts": {
       "get": {
-        "description": "Task counts provide a count of the tasks by active, running or completed task state, and a count of tasks which succeeded or failed. Tasks in the preparing state are counted as running. If the validationStatus is unvalidated, then the Batch service has not been able to check state counts against the task states as reported in the List Tasks API. The validationStatus may be unvalidated if the job contains more than 200,000 tasks.",
+        "description": "Task counts provide a count of the tasks by active, running or completed task state, and a count of tasks which succeeded or failed. Tasks in the preparing state are counted as running.",
         "operationId": "Job_GetTaskCounts",
         "parameters": [
           {
@@ -2933,7 +2973,7 @@
         "x-ms-examples": {
           "Job get task counts": {
             "parameters": {
-              "api-version": "2017-09-01.6.0",
+              "api-version": "2018-08-01.7.0",
               "client-request-id": "00000000-0000-0000-0000-000000000000",
               "jobId": "jobId",
               "ocp-data": "Fri, 17 Feb 2017 00:00:00 GMT"
@@ -2945,8 +2985,7 @@
                   "completed": 4,
                   "failed": 2,
                   "running": 7,
-                  "succeeded": 2,
-                  "validationStatus": "unvalidated"
+                  "succeeded": 2
                 }
               }
             }
@@ -3104,7 +3143,7 @@
         "x-ms-examples": {
           "Task list": {
             "parameters": {
-              "api-version": "2017-09-01.6.0",
+              "api-version": "2018-08-01.7.0",
               "client-request-id": "00000000-0000-0000-0000-000000000000",
               "jobId": "jobId",
               "ocp-data": "Fri, 17 Feb 2017 00:00:00 GMT"
@@ -3287,7 +3326,7 @@
         "x-ms-examples": {
           "Add a basic task": {
             "parameters": {
-              "api-version": "2017-09-01.6.0",
+              "api-version": "2018-08-01.7.0",
               "client-request-id": "00000000-0000-0000-0000-000000000000",
               "jobId": "jobId",
               "ocp-data": "Fri, 17 Feb 2017 00:00:00 GMT",
@@ -3297,14 +3336,12 @@
               }
             },
             "responses": {
-              "201": {
-                "body": ""
-              }
+              "201": {}
             }
           },
           "Add a task with container settings": {
             "parameters": {
-              "api-version": "2017-09-01.6.0",
+              "api-version": "2018-08-01.7.0",
               "client-request-id": "00000000-0000-0000-0000-000000000000",
               "jobId": "jobId",
               "ocp-data": "Fri, 17 Feb 2017 00:00:00 GMT",
@@ -3324,14 +3361,12 @@
               }
             },
             "responses": {
-              "201": {
-                "body": ""
-              }
+              "201": {}
             }
           },
           "Add a task with exit conditions": {
             "parameters": {
-              "api-version": "2017-09-01.6.0",
+              "api-version": "2018-08-01.7.0",
               "client-request-id": "00000000-0000-0000-0000-000000000000",
               "jobId": "jobId",
               "ocp-data": "Fri, 17 Feb 2017 00:00:00 GMT",
@@ -3358,9 +3393,7 @@
               }
             },
             "responses": {
-              "201": {
-                "body": ""
-              }
+              "201": {}
             }
           }
         },
@@ -3506,16 +3539,14 @@
         "x-ms-examples": {
           "Task delete": {
             "parameters": {
-              "api-version": "2017-09-01.6.0",
+              "api-version": "2018-08-01.7.0",
               "client-request-id": "00000000-0000-0000-0000-000000000000",
               "jobId": "jobId",
               "ocp-data": "Fri, 17 Feb 2017 00:00:00 GMT",
               "taskId": "taskId"
             },
             "responses": {
-              "200": {
-                "body": ""
-              }
+              "200": {}
             }
           }
         },
@@ -3697,7 +3728,7 @@
         "x-ms-examples": {
           "Task get": {
             "parameters": {
-              "api-version": "2017-09-01.6.0",
+              "api-version": "2018-08-01.7.0",
               "client-request-id": "00000000-0000-0000-0000-000000000000",
               "jobId": "jobId",
               "ocp-data": "Fri, 17 Feb 2017 00:00:00 GMT",
@@ -3901,7 +3932,7 @@
         "x-ms-examples": {
           "Task update": {
             "parameters": {
-              "api-version": "2017-09-01.6.0",
+              "api-version": "2018-08-01.7.0",
               "client-request-id": "00000000-0000-0000-0000-000000000000",
               "jobId": "jobId",
               "ocp-data": "Fri, 17 Feb 2017 00:00:00 GMT",
@@ -3915,9 +3946,7 @@
               }
             },
             "responses": {
-              "200": {
-                "body": ""
-              }
+              "200": {}
             }
           }
         },
@@ -4066,11 +4095,11 @@
         "x-ms-examples": {
           "File list from task": {
             "parameters": {
-              "api-version": "2017-09-01.6.0",
+              "api-version": "2018-08-01.7.0",
               "client-request-id": "00000000-0000-0000-0000-000000000000",
               "jobId": "jobId",
               "ocp-data": "Fri, 17 Feb 2017 00:00:00 GMT",
-              "recursive": "false",
+              "recursive": false,
               "taskId": "taskId"
             },
             "responses": {
@@ -4221,18 +4250,16 @@
         "x-ms-examples": {
           "File delete from task": {
             "parameters": {
-              "api-version": "2017-09-01.6.0",
+              "api-version": "2018-08-01.7.0",
               "client-request-id": "00000000-0000-0000-0000-000000000000",
               "filePath": "wd\\testFile.txt",
               "jobId": "jobId",
               "ocp-data": "Fri, 17 Feb 2017 00:00:00 GMT",
-              "recursive": "false",
+              "recursive": false,
               "taskId": "task1"
             },
             "responses": {
-              "200": {
-                "body": ""
-              }
+              "200": {}
             }
           }
         },
@@ -4345,6 +4372,10 @@
             "$ref": "#/parameters/ApiVersionParameter"
           }
         ],
+        "produces": [
+          "application/json",
+          "application/octet-stream"
+        ],
         "responses": {
           "200": {
             "description": "A response containing the file content.",
@@ -4396,7 +4427,8 @@
               }
             },
             "schema": {
-              "type": "file"
+              "format": "file",
+              "type": "object"
             }
           },
           "default": {
@@ -4409,6 +4441,28 @@
         "tags": [
           "Files"
         ],
+        "x-ms-examples": {
+          "Get File From Task": {
+            "parameters": {
+              "api-version": "2018-08-01.7.0",
+              "client-request-id": "00000000-0000-0000-0000-000000000000",
+              "filePath": "wd\\testFile.txt",
+              "jobId": "jobId",
+              "ocp-data": "Fri, 17 Feb 2017 00:00:00 GMT",
+              "taskId": "task1"
+            },
+            "responses": {
+              "200": {
+                "Content-Length": "17",
+                "Content-Type": "application/octet-stream",
+                "Last-Modified": "Fri, 17 Feb 2017 00:00:00 GMT",
+                "body": "This is actually a byte stream. This request/response is being presented as a string for readability in the example",
+                "ocp-batch-file-isdirectory": "false",
+                "ocp-creation-time": "Fri, 17 Feb 2017 00:00:00 GMT"
+              }
+            }
+          }
+        },
         "x-ms-request-id": "request-id"
       },
       "head": {
@@ -4572,7 +4626,7 @@
         "x-ms-examples": {
           "File get properties from task": {
             "parameters": {
-              "api-version": "2017-09-01.6.0",
+              "api-version": "2018-08-01.7.0",
               "client-request-id": "00000000-0000-0000-0000-000000000000",
               "filePath": "wd\\testFile.txt",
               "jobId": "jobId",
@@ -4581,12 +4635,13 @@
             },
             "responses": {
               "200": {
-                "Content-Length": "17",
-                "Content-Type": "application/octet-stream",
-                "Last-Modified": "Fri, 17 Feb 2017 00:00:00 GMT",
-                "body": "",
-                "ocp-batch-file-isdirectory": "false",
-                "ocp-creation-time": "Fri, 17 Feb 2017 00:00:00 GMT"
+                "headers": {
+                  "Content-Length": "17",
+                  "Content-Type": "application/octet-stream",
+                  "Last-Modified": "Fri, 17 Feb 2017 00:00:00 GMT",
+                  "ocp-batch-file-isdirectory": "false",
+                  "ocp-creation-time": "Fri, 17 Feb 2017 00:00:00 GMT"
+                }
               }
             }
           }
@@ -4748,16 +4803,14 @@
         "x-ms-examples": {
           "Task reactivate": {
             "parameters": {
-              "api-version": "2017-09-01.6.0",
+              "api-version": "2018-08-01.7.0",
               "client-request-id": "00000000-0000-0000-0000-000000000000",
               "jobId": "jobId",
               "ocp-data": "Fri, 17 Feb 2017 00:00:00 GMT",
               "taskId": "taskId"
             },
             "responses": {
-              "204": {
-                "body": ""
-              }
+              "204": {}
             }
           }
         },
@@ -4885,7 +4938,7 @@
         "x-ms-examples": {
           "Task list subtasks": {
             "parameters": {
-              "api-version": "2017-09-01.6.0",
+              "api-version": "2018-08-01.7.0",
               "client-request-id": "00000000-0000-0000-0000-000000000000",
               "jobId": "jobId",
               "ocp-data": "Fri, 17 Feb 2017 00:00:00 GMT",
@@ -5090,16 +5143,14 @@
         "x-ms-examples": {
           "Task terminate": {
             "parameters": {
-              "api-version": "2017-09-01.6.0",
+              "api-version": "2018-08-01.7.0",
               "client-request-id": "00000000-0000-0000-0000-000000000000",
               "jobId": "jobId",
               "ocp-data": "Fri, 17 Feb 2017 00:00:00 GMT",
               "taskId": "taskId"
             },
             "responses": {
-              "204": {
-                "body": ""
-              }
+              "204": {}
             }
           }
         },
@@ -5108,7 +5159,7 @@
     },
     "/jobs/{jobId}/terminate": {
       "post": {
-        "description": "When a Terminate Job request is received, the Batch service sets the job to the terminating state. The Batch service then terminates any active or running tasks associated with the job, and runs any required Job Release tasks. The job then moves into the completed state.",
+        "description": "When a Terminate Job request is received, the Batch service sets the job to the terminating state. The Batch service then terminates any running tasks associated with the job and runs any required job release tasks. Then the job moves into the completed state. If there are any tasks in the job in the active state, they will remain in the active state. Once a job is terminated, new tasks cannot be added and any remaining active tasks will not be scheduled.",
         "operationId": "Job_Terminate",
         "parameters": [
           {
@@ -5262,7 +5313,7 @@
         "x-ms-examples": {
           "Job terminate": {
             "parameters": {
-              "api-version": "2017-09-01.6.0",
+              "api-version": "2018-08-01.7.0",
               "client-request-id": "00000000-0000-0000-0000-000000000000",
               "jobId": "jobId",
               "jobTerminateParameter": {
@@ -5271,9 +5322,7 @@
               "ocp-data": "Fri, 17 Feb 2017 00:00:00 GMT"
             },
             "responses": {
-              "202": {
-                "body": ""
-              }
+              "202": {}
             }
           }
         },
@@ -5421,7 +5470,7 @@
         "x-ms-examples": {
           "JobSchedule list": {
             "parameters": {
-              "api-version": "2017-09-01.6.0",
+              "api-version": "2018-08-01.7.0",
               "client-request-id": "00000000-0000-0000-0000-000000000000",
               "ocp-data": "Fri, 17 Feb 2017 00:00:00 GMT"
             },
@@ -5603,7 +5652,7 @@
         "x-ms-examples": {
           "Add a basic JobSchedule": {
             "parameters": {
-              "api-version": "2017-09-01.6.0",
+              "api-version": "2018-08-01.7.0",
               "client-request-id": "00000000-0000-0000-0000-000000000000",
               "cloudJobSchedule": {
                 "id": "jobScheduleId",
@@ -5619,14 +5668,12 @@
               "ocp-data": "Fri, 17 Feb 2017 00:00:00 GMT"
             },
             "responses": {
-              "201": {
-                "body": ""
-              }
+              "201": {}
             }
           },
           "Add a complex JobScheduleAdd": {
             "parameters": {
-              "api-version": "2017-09-01.6.0",
+              "api-version": "2018-08-01.7.0",
               "client-request-id": "00000000-0000-0000-0000-000000000000",
               "cloudJobSchedule": {
                 "id": "jobScheduleId",
@@ -5748,9 +5795,7 @@
               "ocp-data": "Fri, 17 Feb 2017 00:00:00 GMT"
             },
             "responses": {
-              "201": {
-                "body": ""
-              }
+              "201": {}
             }
           }
         },
@@ -5889,15 +5934,13 @@
         "x-ms-examples": {
           "JobSchedule delete": {
             "parameters": {
-              "api-version": "2017-09-01.6.0",
+              "api-version": "2018-08-01.7.0",
               "client-request-id": "00000000-0000-0000-0000-000000000000",
               "jobScheduleId": "jobScheduleId",
               "ocp-data": "Fri, 17 Feb 2017 00:00:00 GMT"
             },
             "responses": {
-              "202": {
-                "body": ""
-              }
+              "202": {}
             }
           }
         },
@@ -6067,7 +6110,7 @@
         "x-ms-examples": {
           "JobSchedule get": {
             "parameters": {
-              "api-version": "2017-09-01.6.0",
+              "api-version": "2018-08-01.7.0",
               "client-request-id": "00000000-0000-0000-0000-000000000000",
               "jobScheduleId": "jobScheduleId",
               "ocp-data": "Fri, 17 Feb 2017 00:00:00 GMT"
@@ -6252,6 +6295,20 @@
         "tags": [
           "JobSchedules"
         ],
+        "x-ms-examples": {
+          "Check Job Schedule Exists": {
+            "parameters": {
+              "api-version": "2018-08-01.7.0",
+              "client-request-id": "00000000-0000-0000-0000-000000000000",
+              "jobScheduleId": "jobScheduleId",
+              "ocp-data": "Fri, 17 Feb 2017 00:00:00 GMT"
+            },
+            "responses": {
+              "200": {},
+              "404": {}
+            }
+          }
+        },
         "x-ms-request-id": "request-id"
       },
       "patch": {
@@ -6409,7 +6466,7 @@
         "x-ms-examples": {
           "JobSchedule patch": {
             "parameters": {
-              "api-version": "2017-09-01.6.0",
+              "api-version": "2018-08-01.7.0",
               "client-request-id": "00000000-0000-0000-0000-000000000000",
               "jobScheduleId": "jobScheduleId",
               "jobSchedulePatchParameter": {
@@ -6431,16 +6488,14 @@
               "ocp-data": "Fri, 17 Feb 2017 00:00:00 GMT"
             },
             "responses": {
-              "200": {
-                "body": ""
-              }
+              "200": {}
             }
           }
         },
         "x-ms-request-id": "request-id"
       },
       "put": {
-        "description": "This fully replaces all the updateable properties of the job schedule. For example, if the schedule property is not specified with this request, then the Batch service will remove the existing schedule. Changes to a job schedule only impact jobs created by the schedule after the update has taken place; currently running jobs are unaffected.",
+        "description": "This fully replaces all the updatable properties of the job schedule. For example, if the schedule property is not specified with this request, then the Batch service will remove the existing schedule. Changes to a job schedule only impact jobs created by the schedule after the update has taken place; currently running jobs are unaffected.",
         "operationId": "JobSchedule_Update",
         "parameters": [
           {
@@ -6594,7 +6649,7 @@
         "x-ms-examples": {
           "JobSchedule update": {
             "parameters": {
-              "api-version": "2017-09-01.6.0",
+              "api-version": "2018-08-01.7.0",
               "client-request-id": "00000000-0000-0000-0000-000000000000",
               "jobScheduleId": "jobScheduleId",
               "jobScheduleUpdateParameter": {
@@ -6616,9 +6671,7 @@
               "ocp-data": "Fri, 17 Feb 2017 00:00:00 GMT"
             },
             "responses": {
-              "200": {
-                "body": ""
-              }
+              "200": {}
             }
           }
         },
@@ -6772,15 +6825,13 @@
         "x-ms-examples": {
           "JobSchedule disable": {
             "parameters": {
-              "api-version": "2017-09-01.6.0",
+              "api-version": "2018-08-01.7.0",
               "client-request-id": "00000000-0000-0000-0000-000000000000",
               "jobScheduleId": "jobScheduleId",
               "ocp-data": "Fri, 17 Feb 2017 00:00:00 GMT"
             },
             "responses": {
-              "204": {
-                "body": ""
-              }
+              "204": {}
             }
           }
         },
@@ -6933,15 +6984,13 @@
         "x-ms-examples": {
           "JobSchedule enable": {
             "parameters": {
-              "api-version": "2017-09-01.6.0",
+              "api-version": "2018-08-01.7.0",
               "client-request-id": "00000000-0000-0000-0000-000000000000",
               "jobScheduleId": "jobScheduleId",
               "ocp-data": "Fri, 17 Feb 2017 00:00:00 GMT"
             },
             "responses": {
-              "204": {
-                "body": ""
-              }
+              "204": {}
             }
           }
         },
@@ -7093,6 +7142,50 @@
         "tags": [
           "Jobs"
         ],
+        "x-ms-examples": {
+          "List Job Under Job Schedule": {
+            "parameters": {
+              "api-version": "2018-08-01.7.0",
+              "client-request-id": "00000000-0000-0000-0000-000000000000",
+              "jobScheduleId": "jobScheduleId",
+              "ocp-data": "Fri, 17 Feb 2017 00:00:00 GMT"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "value": [
+                    {
+                      "constraints": {
+                        "maxTaskRetryCount": 0,
+                        "maxWallClockTime": "P10675199DT2H48M5.4775807S"
+                      },
+                      "creationTime": "2016-11-19T00:05:25.311915Z",
+                      "eTag": "0x8D4100FC46D5BF4",
+                      "executionInfo": {
+                        "poolId": "poolId",
+                        "startTime": "2016-11-19T00:05:25.3309105Z"
+                      },
+                      "id": "jobId",
+                      "lastModified": "2016-11-19T00:05:27.2137716Z",
+                      "onAllTasksComplete": "noaction",
+                      "onTaskFailure": "noaction",
+                      "poolInfo": {
+                        "poolId": "poolId"
+                      },
+                      "previousState": "disabled",
+                      "previousStateTransitionTime": "2016-11-19T00:05:26.88777Z",
+                      "priority": 0,
+                      "state": "active",
+                      "stateTransitionTime": "2016-11-19T00:05:27.2137716Z",
+                      "url": "https://account.region.batch.azure.com/jobs/jobId",
+                      "usesTaskDependencies": false
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
         "x-ms-pageable": {
           "nextLinkName": "odata.nextLink"
         },
@@ -7245,15 +7338,13 @@
         "x-ms-examples": {
           "JobSchedule terminate": {
             "parameters": {
-              "api-version": "2017-09-01.6.0",
+              "api-version": "2018-08-01.7.0",
               "client-request-id": "00000000-0000-0000-0000-000000000000",
               "jobScheduleId": "jobScheduleId",
               "ocp-data": "Fri, 17 Feb 2017 00:00:00 GMT"
             },
             "responses": {
-              "202": {
-                "body": ""
-              }
+              "202": {}
             }
           }
         },
@@ -7262,7 +7353,7 @@
     },
     "/lifetimejobstats": {
       "get": {
-        "description": "Statistics are aggregated across all jobs that have ever existed in the account, from account creation to the last update time of the statistics.",
+        "description": "Statistics are aggregated across all jobs that have ever existed in the account, from account creation to the last update time of the statistics. The statistics may not be immediately available. The Batch service performs periodic roll-up of statistics. The typical delay is about 30 minutes.",
         "operationId": "Job_GetAllLifetimeStatistics",
         "parameters": [
           {
@@ -7357,7 +7448,7 @@
         "x-ms-examples": {
           "Job get lifetime statistics": {
             "parameters": {
-              "api-version": "2017-09-01.6.0",
+              "api-version": "2018-08-01.7.0",
               "client-request-id": "00000000-0000-0000-0000-000000000000",
               "ocp-data": "Fri, 17 Feb 2017 00:00:00 GMT"
             },
@@ -7388,7 +7479,7 @@
     },
     "/lifetimepoolstats": {
       "get": {
-        "description": "Statistics are aggregated across all pools that have ever existed in the account, from account creation to the last update time of the statistics.",
+        "description": "Statistics are aggregated across all pools that have ever existed in the account, from account creation to the last update time of the statistics. The statistics may not be immediately available. The Batch service performs periodic roll-up of statistics. The typical delay is about 30 minutes.",
         "operationId": "Pool_GetAllLifetimeStatistics",
         "parameters": [
           {
@@ -7483,7 +7574,7 @@
         "x-ms-examples": {
           "Pool get lifetime statistics": {
             "parameters": {
-              "api-version": "2017-09-01.6.0",
+              "api-version": "2018-08-01.7.0",
               "client-request-id": "00000000-0000-0000-0000-000000000000",
               "ocp-data": "Fri, 17 Feb 2017 00:00:00 GMT"
             },
@@ -7642,7 +7733,7 @@
         "x-ms-examples": {
           "Account list node agent skus": {
             "parameters": {
-              "api-version": "2017-09-01.6.0",
+              "api-version": "2018-08-01.7.0",
               "client-request-id": "00000000-0000-0000-0000-000000000000",
               "ocp-data": "Fri, 17 Feb 2017 00:00:00 GMT"
             },
@@ -7708,6 +7799,242 @@
           "nextLinkName": "odata.nextLink"
         },
         "x-ms-request-id": "request-id"
+      }
+    },
+    "/nodecounts": {
+      "get": {
+        "description": "Gets the number of nodes in each state, grouped by pool.",
+        "operationId": "Account_ListPoolNodeCounts",
+        "parameters": [
+          {
+            "description": "An OData $filter clause. For more information on constructing this filter, see https://docs.microsoft.com/en-us/rest/api/batchservice/odata-filters-in-batch.",
+            "in": "query",
+            "name": "$filter",
+            "required": false,
+            "type": "string",
+            "x-ms-parameter-grouping": {
+              "postfix": "Options"
+            }
+          },
+          {
+            "default": 10,
+            "description": "The maximum number of items to return in the response.",
+            "format": "int32",
+            "in": "query",
+            "maximum": 10,
+            "minimum": 1,
+            "name": "maxresults",
+            "required": false,
+            "type": "integer",
+            "x-ms-client-name": "maxResults",
+            "x-ms-parameter-grouping": {
+              "postfix": "Options"
+            }
+          },
+          {
+            "default": 30,
+            "description": "The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds.",
+            "format": "int32",
+            "in": "query",
+            "name": "timeout",
+            "required": false,
+            "type": "integer",
+            "x-ms-parameter-grouping": {
+              "postfix": "Options"
+            }
+          },
+          {
+            "description": "The caller-generated request identity, in the form of a GUID with no decoration such as curly braces, e.g. 9C4D50EE-2D56-4CD3-8152-34347DC9F2B0.",
+            "format": "uuid",
+            "in": "header",
+            "name": "client-request-id",
+            "required": false,
+            "type": "string",
+            "x-ms-client-request-id": true,
+            "x-ms-parameter-grouping": {
+              "postfix": "Options"
+            }
+          },
+          {
+            "default": false,
+            "description": "Whether the server should return the client-request-id in the response.",
+            "in": "header",
+            "name": "return-client-request-id",
+            "required": false,
+            "type": "boolean",
+            "x-ms-parameter-grouping": {
+              "postfix": "Options"
+            }
+          },
+          {
+            "description": "The time the request was issued. Client libraries typically set this to the current system clock time; set it explicitly if you are calling the REST API directly.",
+            "format": "date-time-rfc1123",
+            "in": "header",
+            "name": "ocp-date",
+            "required": false,
+            "type": "string",
+            "x-ms-parameter-grouping": {
+              "postfix": "Options"
+            }
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The response contains the number of nodes in each node state, grouped by pool.",
+            "headers": {
+              "client-request-id": {
+                "description": "The client-request-id provided by the client during the request. This will be returned only if the return-client-request-id parameter was set to true.",
+                "format": "uuid",
+                "type": "string"
+              },
+              "request-id": {
+                "description": "A unique identifier for the request that was made to the Batch service. If a request is consistently failing and you have verified that the request is properly formulated, you may use this value to report the error to Microsoft. In your report, include the value of this request ID, the approximate time that the request was made, the Batch account against which the request was made, and the region that account resides in.",
+                "format": "uuid",
+                "type": "string"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/PoolNodeCountsListResult"
+            }
+          },
+          "default": {
+            "description": "The error from the Batch service.",
+            "schema": {
+              "$ref": "#/definitions/BatchError"
+            }
+          }
+        },
+        "tags": [
+          "Accounts"
+        ],
+        "x-ms-examples": {
+          "NodeCountsPayload": {
+            "parameters": {
+              "api-version": "2018-08-01.7.0",
+              "client-request-id": "00000000-0000-0000-0000-000000000000",
+              "ocp-data": "Fri, 17 Feb 2017 00:00:00 GMT"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "value": [
+                    {
+                      "dedicated": {
+                        "creating": 0,
+                        "idle": 0,
+                        "leavingPool": 0,
+                        "offline": 0,
+                        "preempted": 0,
+                        "rebooting": 0,
+                        "reimaging": 0,
+                        "running": 0,
+                        "startTaskFailed": 0,
+                        "starting": 0,
+                        "total": 0,
+                        "unknown": 0,
+                        "unusable": 0,
+                        "waitingForStartTask": 0
+                      },
+                      "lowPriority": {
+                        "creating": 0,
+                        "idle": 0,
+                        "leavingPool": 0,
+                        "offline": 0,
+                        "preempted": 0,
+                        "rebooting": 0,
+                        "reimaging": 0,
+                        "running": 2,
+                        "startTaskFailed": 0,
+                        "starting": 1,
+                        "total": 3,
+                        "unknown": 0,
+                        "unusable": 0,
+                        "waitingForStartTask": 0
+                      },
+                      "poolId": "pool1"
+                    },
+                    {
+                      "dedicated": {
+                        "creating": 0,
+                        "idle": 1,
+                        "leavingPool": 0,
+                        "offline": 3,
+                        "preempted": 0,
+                        "rebooting": 0,
+                        "reimaging": 0,
+                        "running": 0,
+                        "startTaskFailed": 0,
+                        "starting": 0,
+                        "total": 4,
+                        "unknown": 0,
+                        "unusable": 0,
+                        "waitingForStartTask": 0
+                      },
+                      "lowPriority": {
+                        "creating": 0,
+                        "idle": 0,
+                        "leavingPool": 0,
+                        "offline": 0,
+                        "preempted": 0,
+                        "rebooting": 0,
+                        "reimaging": 0,
+                        "running": 0,
+                        "startTaskFailed": 0,
+                        "starting": 0,
+                        "total": 0,
+                        "unknown": 0,
+                        "unusable": 0,
+                        "waitingForStartTask": 0
+                      },
+                      "poolId": "pool2"
+                    },
+                    {
+                      "dedicated": {
+                        "creating": 0,
+                        "idle": 5,
+                        "leavingPool": 0,
+                        "offline": 0,
+                        "preempted": 0,
+                        "rebooting": 0,
+                        "reimaging": 4,
+                        "running": 0,
+                        "startTaskFailed": 0,
+                        "starting": 0,
+                        "total": 9,
+                        "unknown": 0,
+                        "unusable": 0,
+                        "waitingForStartTask": 0
+                      },
+                      "lowPriority": {
+                        "creating": 7,
+                        "idle": 0,
+                        "leavingPool": 0,
+                        "offline": 0,
+                        "preempted": 0,
+                        "rebooting": 0,
+                        "reimaging": 0,
+                        "running": 4,
+                        "startTaskFailed": 0,
+                        "starting": 0,
+                        "total": 11,
+                        "unknown": 0,
+                        "unusable": 0,
+                        "waitingForStartTask": 0
+                      },
+                      "poolId": "pool3"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "x-ms-pageable": {
+          "nextLinkName": "odata.nextLink"
+        }
       }
     },
     "/pools": {
@@ -7851,7 +8178,7 @@
         "x-ms-examples": {
           "Pool list": {
             "parameters": {
-              "api-version": "2017-09-01.6.0",
+              "api-version": "2018-08-01.7.0",
               "client-request-id": "00000000-0000-0000-0000-000000000000",
               "ocp-data": "Fri, 17 Feb 2017 00:00:00 GMT"
             },
@@ -8015,7 +8342,7 @@
         "x-ms-examples": {
           "Add a CloudServiceConfiguration pool": {
             "parameters": {
-              "api-version": "2017-09-01.6.0",
+              "api-version": "2018-08-01.7.0",
               "client-request-id": "00000000-0000-0000-0000-000000000000",
               "ocp-data": "Fri, 17 Feb 2017 00:00:00 GMT",
               "pool": {
@@ -8051,7 +8378,7 @@
           },
           "Add a VirtualMachineConfiguration pool": {
             "parameters": {
-              "api-version": "2017-09-01.6.0",
+              "api-version": "2018-08-01.7.0",
               "client-request-id": "00000000-0000-0000-0000-000000000000",
               "ocp-data": "Fri, 17 Feb 2017 00:00:00 GMT",
               "pool": {
@@ -8092,7 +8419,7 @@
           },
           "Add a VirtualMachineConfiguration pool with containers": {
             "parameters": {
-              "api-version": "2017-09-01.6.0",
+              "api-version": "2018-08-01.7.0",
               "client-request-id": "00000000-0000-0000-0000-000000000000",
               "ocp-data": "Fri, 17 Feb 2017 00:00:00 GMT",
               "pool": {
@@ -8110,7 +8437,7 @@
                     "containerImageNames": [
                       "busybox"
                     ],
-                    "type": "docker"
+                    "type": "dockerCompatible"
                   },
                   "imageReference": {
                     "offer": "UbuntuServer",
@@ -8266,15 +8593,13 @@
         "x-ms-examples": {
           "Pool delete": {
             "parameters": {
-              "api-version": "2017-09-01.6.0",
+              "api-version": "2018-08-01.7.0",
               "client-request-id": "00000000-0000-0000-0000-000000000000",
               "ocp-data": "Fri, 17 Feb 2017 00:00:00 GMT",
               "poolId": "poolId"
             },
             "responses": {
-              "202": {
-                "body": ""
-              }
+              "202": {}
             }
           }
         },
@@ -8444,7 +8769,7 @@
         "x-ms-examples": {
           "Pool get": {
             "parameters": {
-              "api-version": "2017-09-01.6.0",
+              "api-version": "2018-08-01.7.0",
               "client-request-id": "00000000-0000-0000-0000-000000000000",
               "ocp-data": "Fri, 17 Feb 2017 00:00:00 GMT",
               "poolId": "pool"
@@ -8641,6 +8966,20 @@
         "tags": [
           "Pools"
         ],
+        "x-ms-examples": {
+          "Check Pool Exists": {
+            "parameters": {
+              "api-version": "2018-08-01.7.0",
+              "client-request-id": "00000000-0000-0000-0000-000000000000",
+              "ocp-data": "Fri, 17 Feb 2017 00:00:00 GMT",
+              "poolId": "poolId"
+            },
+            "responses": {
+              "200": {},
+              "404": {}
+            }
+          }
+        },
         "x-ms-request-id": "request-id"
       },
       "patch": {
@@ -8795,6 +9134,24 @@
         "tags": [
           "Pools"
         ],
+        "x-ms-examples": {
+          "Patch the Pool": {
+            "parameters": {
+              "api-version": "2018-08-01.7.0",
+              "client-request-id": "00000000-0000-0000-0000-000000000000",
+              "ocp-data": "Fri, 17 Feb 2017 00:00:00 GMT",
+              "poolId": "poolId",
+              "poolPatchParameter": {
+                "startTask": {
+                  "commandLine": "/bin/bash -c 'echo start task'"
+                }
+              }
+            },
+            "responses": {
+              "200": {}
+            }
+          }
+        },
         "x-ms-request-id": "request-id"
       }
     },
@@ -8899,6 +9256,19 @@
         "tags": [
           "Pools"
         ],
+        "x-ms-examples": {
+          "Disable pool autoscale": {
+            "parameters": {
+              "api-version": "2018-08-01.7.0",
+              "client-request-id": "00000000-0000-0000-0000-000000000000",
+              "ocp-data": "Fri, 17 Feb 2017 00:00:00 GMT",
+              "poolId": "poolId"
+            },
+            "responses": {
+              "200": {}
+            }
+          }
+        },
         "x-ms-request-id": "request-id"
       }
     },
@@ -9058,7 +9428,7 @@
         "x-ms-examples": {
           "Pool enable autoscale": {
             "parameters": {
-              "api-version": "2017-09-01.6.0",
+              "api-version": "2018-08-01.7.0",
               "client-request-id": "00000000-0000-0000-0000-000000000000",
               "ocp-data": "Fri, 17 Feb 2017 00:00:00 GMT",
               "poolEnableAutoScaleParameter": {
@@ -9068,9 +9438,7 @@
               "poolId": "poolId"
             },
             "responses": {
-              "200": {
-                "body": ""
-              }
+              "200": {}
             }
           }
         },
@@ -9194,7 +9562,7 @@
         "x-ms-examples": {
           "Pool evaluate autoscale": {
             "parameters": {
-              "api-version": "2017-09-01.6.0",
+              "api-version": "2018-08-01.7.0",
               "client-request-id": "00000000-0000-0000-0000-000000000000",
               "ocp-data": "Fri, 17 Feb 2017 00:00:00 GMT",
               "poolEvaluateAutoScaleParameter": {
@@ -9353,7 +9721,7 @@
         "x-ms-examples": {
           "Node list": {
             "parameters": {
-              "api-version": "2017-09-01.6.0",
+              "api-version": "2018-08-01.7.0",
               "client-request-id": "00000000-0000-0000-0000-000000000000",
               "ocp-data": "Fri, 17 Feb 2017 00:00:00 GMT",
               "poolId": "poolId"
@@ -9369,6 +9737,10 @@
                       "ipAddress": "1.1.1.1",
                       "isDedicated": true,
                       "lastBootTime": "2016-11-22T22:22:24.4634125Z",
+                      "nodeAgentInfo": {
+                        "lastUpdateTime": "2016-11-22T22:22:24.4634125Z",
+                        "version": "1.2.0.0"
+                      },
                       "runningTasksCount": 0,
                       "schedulingState": "enabled",
                       "startTask": {
@@ -9403,6 +9775,10 @@
                       "ipAddress": "1.1.1.1",
                       "isDedicated": true,
                       "lastBootTime": "2016-11-22T19:37:28.623369Z",
+                      "nodeAgentInfo": {
+                        "lastUpdateTime": "2016-11-22T22:22:24.4634125Z",
+                        "version": "1.2.0.0"
+                      },
                       "runningTasksCount": 0,
                       "schedulingState": "enabled",
                       "startTask": {
@@ -9437,6 +9813,10 @@
                       "ipAddress": "1.1.1.1",
                       "isDedicated": true,
                       "lastBootTime": "2016-11-22T19:36:48.21721Z",
+                      "nodeAgentInfo": {
+                        "lastUpdateTime": "2016-11-22T22:22:24.4634125Z",
+                        "version": "1.2.0.0"
+                      },
                       "runningTasksCount": 0,
                       "schedulingState": "enabled",
                       "startTask": {
@@ -9596,7 +9976,7 @@
         "x-ms-examples": {
           "Node get": {
             "parameters": {
-              "api-version": "2017-09-01.6.0",
+              "api-version": "2018-08-01.7.0",
               "client-request-id": "00000000-0000-0000-0000-000000000000",
               "nodeId": "tvm-1695681911_2-20161122t193202z",
               "ocp-data": "Fri, 17 Feb 2017 00:00:00 GMT",
@@ -9611,6 +9991,10 @@
                   "ipAddress": "1.1.1.1",
                   "isDedicated": true,
                   "lastBootTime": "2016-11-22T19:37:28.623369Z",
+                  "nodeAgentInfo": {
+                    "lastUpdateTime": "2016-11-22T19:37:28.623369Z",
+                    "version": "1.2.0.0"
+                  },
                   "runningTasksCount": 0,
                   "schedulingState": "enabled",
                   "startTask": {
@@ -9766,7 +10150,7 @@
         "x-ms-examples": {
           "Node disable scheduling": {
             "parameters": {
-              "api-version": "2017-09-01.6.0",
+              "api-version": "2018-08-01.7.0",
               "client-request-id": "00000000-0000-0000-0000-000000000000",
               "nodeDisableSchedulingParameter": {
                 "nodeDisableSchedulingOption": "terminate"
@@ -9776,9 +10160,7 @@
               "poolId": "poolId"
             },
             "responses": {
-              "200": {
-                "body": ""
-              }
+              "200": {}
             }
           }
         },
@@ -9897,16 +10279,14 @@
         "x-ms-examples": {
           "Node enable scheduling": {
             "parameters": {
-              "api-version": "2017-09-01.6.0",
+              "api-version": "2018-08-01.7.0",
               "client-request-id": "00000000-0000-0000-0000-000000000000",
               "nodeId": "tvm-1695681911_1-20161122t193202z",
               "ocp-data": "Fri, 17 Feb 2017 00:00:00 GMT",
               "poolId": "poolId"
             },
             "responses": {
-              "200": {
-                "body": ""
-              }
+              "200": {}
             }
           }
         },
@@ -10055,12 +10435,12 @@
         "x-ms-examples": {
           "File list from node": {
             "parameters": {
-              "api-version": "2017-09-01.6.0",
+              "api-version": "2018-08-01.7.0",
               "client-request-id": "00000000-0000-0000-0000-000000000000",
               "nodeId": "tvm-1695681911_1-20161122t193202z",
               "ocp-data": "Fri, 17 Feb 2017 00:00:00 GMT",
               "poolId": "poolId",
-              "recursive": "false"
+              "recursive": false
             },
             "responses": {
               "200": {
@@ -10215,18 +10595,16 @@
         "x-ms-examples": {
           "File delete from node": {
             "parameters": {
-              "api-version": "2017-09-01.6.0",
+              "api-version": "2018-08-01.7.0",
               "client-request-id": "00000000-0000-0000-0000-000000000000",
               "filePath": "workitems\\jobId\\job-1\\task1\\wd\\testFile.txt",
               "nodeId": "tvm-1695681911_1-20161122t193202z",
               "ocp-data": "Fri, 17 Feb 2017 00:00:00 GMT",
               "poolId": "poolId",
-              "recursive": "false"
+              "recursive": false
             },
             "responses": {
-              "200": {
-                "body": ""
-              }
+              "200": {}
             }
           }
         },
@@ -10339,6 +10717,10 @@
             "$ref": "#/parameters/ApiVersionParameter"
           }
         ],
+        "produces": [
+          "application/json",
+          "application/octet-stream"
+        ],
         "responses": {
           "200": {
             "description": "The file content.",
@@ -10390,7 +10772,8 @@
               }
             },
             "schema": {
-              "type": "file"
+              "format": "file",
+              "type": "object"
             }
           },
           "default": {
@@ -10403,6 +10786,28 @@
         "tags": [
           "Files"
         ],
+        "x-ms-examples": {
+          "Get File From Compute Node": {
+            "parameters": {
+              "api-version": "2018-08-01.7.0",
+              "client-request-id": "00000000-0000-0000-0000-000000000000",
+              "filePath": "workitems\\jobId\\job-1\\task1\\wd\\testFile.txt",
+              "nodeId": "nodeId",
+              "ocp-data": "Fri, 17 Feb 2017 00:00:00 GMT",
+              "poolId": "poolId"
+            },
+            "responses": {
+              "200": {
+                "Content-Length": "17",
+                "Content-Type": "application/octet-stream",
+                "Last-Modified": "Fri, 17 Feb 2017 00:00:00 GMT",
+                "body": "This is actually a byte stream. This request/response is being presented as a string for readability in the example",
+                "ocp-batch-file-isdirectory": "false",
+                "ocp-creation-time": "Fri, 17 Feb 2017 00:00:00 GMT"
+              }
+            }
+          }
+        },
         "x-ms-request-id": "request-id"
       },
       "head": {
@@ -10566,7 +10971,7 @@
         "x-ms-examples": {
           "File get properties from node": {
             "parameters": {
-              "api-version": "2017-09-01.6.0",
+              "api-version": "2018-08-01.7.0",
               "client-request-id": "00000000-0000-0000-0000-000000000000",
               "filePath": "workitems\\jobId\\job-1\\task1\\wd\\testFile.txt",
               "nodeId": "nodeId",
@@ -10575,12 +10980,13 @@
             },
             "responses": {
               "200": {
-                "Content-Length": "17",
-                "Content-Type": "application/octet-stream",
-                "Last-Modified": "Fri, 17 Feb 2017 00:00:00 GMT",
-                "body": "",
-                "ocp-batch-file-isdirectory": "false",
-                "ocp-creation-time": "Fri, 17 Feb 2017 00:00:00 GMT"
+                "headers": {
+                  "Content-Length": "17",
+                  "Content-Type": "application/octet-stream",
+                  "Last-Modified": "Fri, 17 Feb 2017 00:00:00 GMT",
+                  "ocp-batch-file-isdirectory": "false",
+                  "ocp-creation-time": "Fri, 17 Feb 2017 00:00:00 GMT"
+                }
               }
             }
           }
@@ -10657,6 +11063,10 @@
             "$ref": "#/parameters/ApiVersionParameter"
           }
         ],
+        "produces": [
+          "application/json",
+          "application/octet-stream"
+        ],
         "responses": {
           "200": {
             "description": "A response containing the RDP information.",
@@ -10682,7 +11092,8 @@
               }
             },
             "schema": {
-              "type": "file"
+              "format": "file",
+              "type": "object"
             }
           },
           "default": {
@@ -10696,6 +11107,22 @@
         "tags": [
           "ComputeNodes"
         ],
+        "x-ms-examples": {
+          "Get RDP file of the compute node": {
+            "parameters": {
+              "api-version": "2018-08-01.7.0",
+              "client-request-id": "00000000-0000-0000-0000-000000000000",
+              "nodeId": "tvm-1695681911_1-20161121t182739z",
+              "ocp-data": "Fri, 17 Feb 2017 00:00:00 GMT",
+              "poolId": "poolId"
+            },
+            "responses": {
+              "200": {
+                "body": "This is actually a byte stream. This request/response is being presented as a string for readability in the example"
+              }
+            }
+          }
+        },
         "x-ms-request-id": "request-id"
       }
     },
@@ -10820,7 +11247,7 @@
         "x-ms-examples": {
           "Node reboot": {
             "parameters": {
-              "api-version": "2017-09-01.6.0",
+              "api-version": "2018-08-01.7.0",
               "client-request-id": "00000000-0000-0000-0000-000000000000",
               "nodeId": "tvm-1695681911_1-20161122t193202z",
               "nodeRebootParameter": {
@@ -10830,9 +11257,7 @@
               "poolId": "poolId"
             },
             "responses": {
-              "202": {
-                "body": ""
-              }
+              "202": {}
             }
           }
         },
@@ -10960,7 +11385,7 @@
         "x-ms-examples": {
           "Node reimage": {
             "parameters": {
-              "api-version": "2017-09-01.6.0",
+              "api-version": "2018-08-01.7.0",
               "client-request-id": "00000000-0000-0000-0000-000000000000",
               "nodeId": "tvm-1695681911_1-20161122t193202z",
               "nodeReimageParameter": {
@@ -10970,9 +11395,7 @@
               "poolId": "poolId"
             },
             "responses": {
-              "202": {
-                "body": ""
-              }
+              "202": {}
             }
           }
         },
@@ -11090,7 +11513,7 @@
         "x-ms-examples": {
           "Node get remote login settings": {
             "parameters": {
-              "api-version": "2017-09-01.6.0",
+              "api-version": "2018-08-01.7.0",
               "client-request-id": "00000000-0000-0000-0000-000000000000",
               "nodeId": "tvm-1695681911_1-20161121t182739z",
               "ocp-data": "Fri, 17 Feb 2017 00:00:00 GMT",
@@ -11101,6 +11524,140 @@
                 "body": {
                   "remoteLoginIPAddress": "1.1.1.1",
                   "remoteLoginPort": 50000
+                }
+              }
+            }
+          }
+        },
+        "x-ms-request-id": "request-id"
+      }
+    },
+    "/pools/{poolId}/nodes/{nodeId}/uploadbatchservicelogs": {
+      "post": {
+        "description": "This is for gathering Azure Batch service log files in an automated fashion from nodes if you are experiencing an error and wish to escalate to Azure support. The Azure Batch service log files should be shared with Azure support to aid in debugging issues with the Batch service.",
+        "operationId": "ComputeNode_UploadBatchServiceLogs",
+        "parameters": [
+          {
+            "description": "The ID of the pool that contains the compute node.",
+            "in": "path",
+            "name": "poolId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The ID of the compute node from which you want to upload the Azure Batch service log files.",
+            "in": "path",
+            "name": "nodeId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": 30,
+            "description": "The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds.",
+            "format": "int32",
+            "in": "query",
+            "name": "timeout",
+            "required": false,
+            "type": "integer",
+            "x-ms-parameter-grouping": {
+              "postfix": "Options"
+            }
+          },
+          {
+            "description": "The caller-generated request identity, in the form of a GUID with no decoration such as curly braces, e.g. 9C4D50EE-2D56-4CD3-8152-34347DC9F2B0.",
+            "format": "uuid",
+            "in": "header",
+            "name": "client-request-id",
+            "required": false,
+            "type": "string",
+            "x-ms-client-request-id": true,
+            "x-ms-parameter-grouping": {
+              "postfix": "Options"
+            }
+          },
+          {
+            "default": false,
+            "description": "Whether the server should return the client-request-id in the response.",
+            "in": "header",
+            "name": "return-client-request-id",
+            "required": false,
+            "type": "boolean",
+            "x-ms-parameter-grouping": {
+              "postfix": "Options"
+            }
+          },
+          {
+            "description": "The time the request was issued. Client libraries typically set this to the current system clock time; set it explicitly if you are calling the REST API directly.",
+            "format": "date-time-rfc1123",
+            "in": "header",
+            "name": "ocp-date",
+            "required": false,
+            "type": "string",
+            "x-ms-parameter-grouping": {
+              "postfix": "Options"
+            }
+          },
+          {
+            "description": "The Azure Batch service log files upload configuration.",
+            "in": "body",
+            "name": "uploadBatchServiceLogsConfiguration",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UploadBatchServiceLogsConfiguration"
+            }
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The request to the Batch service was successful.",
+            "headers": {
+              "client-request-id": {
+                "description": "The client-request-id provided by the client during the request. This will be returned only if the return-client-request-id parameter was set to true.",
+                "format": "uuid",
+                "type": "string"
+              },
+              "request-id": {
+                "description": "A unique identifier for the request that was made to the Batch service. If a request is consistently failing and you have verified that the request is properly formulated, you may use this value to report the error to Microsoft. In your report, include the value of this request ID, the approximate time that the request was made, the Batch account against which the request was made, and the region that account resides in.",
+                "format": "uuid",
+                "type": "string"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/UploadBatchServiceLogsResult"
+            }
+          },
+          "default": {
+            "description": "The error from the Batch service.",
+            "schema": {
+              "$ref": "#/definitions/BatchError"
+            }
+          }
+        },
+        "summary": "Upload Azure Batch service log files from the specified compute node to Azure Blob Storage.",
+        "tags": [
+          "ComputeNodes"
+        ],
+        "x-ms-examples": {
+          "Upload BatchService Logs": {
+            "parameters": {
+              "api-version": "2018-08-01.7.0",
+              "client-request-id": "00000000-0000-0000-0000-000000000000",
+              "nodeId": "tvm-1695681911_1-20161121t182739z",
+              "ocp-data": "Fri, 17 Feb 2017 00:00:00 GMT",
+              "poolId": "poolId",
+              "uploadBatchServiceLogsConfiguration": {
+                "containerUrl": "https://somestorageacct.blob.core.windows.net/batch-compute-node-logs?se=2017-12-09T18%3A51%3A00Z&sp=w&sv=2016-05-31&sr=c&sig",
+                "startTime": "2017-11-27T00:00:00Z"
+              }
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "numberOfFilesUploaded": 8,
+                  "virtualDirectoryName": "poolId/tvm-1695681911-1-20161121t182739z/0795539d-82fe-48e3-bbff-2964905b6de0"
                 }
               }
             }
@@ -11230,7 +11787,7 @@
         "x-ms-examples": {
           "Node add user": {
             "parameters": {
-              "api-version": "2017-09-01.6.0",
+              "api-version": "2018-08-01.7.0",
               "client-request-id": "00000000-0000-0000-0000-000000000000",
               "nodeId": "tvm-1695681911_1-20161121t182739z",
               "ocp-data": "Fri, 17 Feb 2017 00:00:00 GMT",
@@ -11243,9 +11800,7 @@
               }
             },
             "responses": {
-              "201": {
-                "body": ""
-              }
+              "201": {}
             }
           }
         },
@@ -11356,7 +11911,7 @@
         "x-ms-examples": {
           "Node delete user": {
             "parameters": {
-              "api-version": "2017-09-01.6.0",
+              "api-version": "2018-08-01.7.0",
               "client-request-id": "00000000-0000-0000-0000-000000000000",
               "nodeId": "tvm-1695681911_1-20161121t182739z",
               "ocp-data": "Fri, 17 Feb 2017 00:00:00 GMT",
@@ -11364,16 +11919,14 @@
               "userName": "userName"
             },
             "responses": {
-              "200": {
-                "body": ""
-              }
+              "200": {}
             }
           }
         },
         "x-ms-request-id": "request-id"
       },
       "put": {
-        "description": "This operation replaces of all the updateable properties of the account. For example, if the expiryTime element is not specified, the current value is replaced with the default value, not left unmodified. You can update a user account on a node only when it is in the idle or running state.",
+        "description": "This operation replaces of all the updatable properties of the account. For example, if the expiryTime element is not specified, the current value is replaced with the default value, not left unmodified. You can update a user account on a node only when it is in the idle or running state.",
         "operationId": "ComputeNode_UpdateUser",
         "parameters": [
           {
@@ -11499,7 +12052,7 @@
         "x-ms-examples": {
           "Node update user": {
             "parameters": {
-              "api-version": "2017-09-01.6.0",
+              "api-version": "2018-08-01.7.0",
               "client-request-id": "00000000-0000-0000-0000-000000000000",
               "nodeId": "tvm-1695681911_1-20161121t182739z",
               "nodeUpdateUserParameter": {
@@ -11511,9 +12064,7 @@
               "userName": "userName"
             },
             "responses": {
-              "200": {
-                "body": ""
-              }
+              "200": {}
             }
           }
         },
@@ -11676,7 +12227,7 @@
         "x-ms-examples": {
           "Pool remove nodes": {
             "parameters": {
-              "api-version": "2017-09-01.6.0",
+              "api-version": "2018-08-01.7.0",
               "client-request-id": "00000000-0000-0000-0000-000000000000",
               "nodeRemoveParameter": {
                 "nodeList": [
@@ -11688,9 +12239,7 @@
               "poolId": "poolId"
             },
             "responses": {
-              "202": {
-                "body": ""
-              }
+              "202": {}
             }
           }
         },
@@ -11853,7 +12402,7 @@
         "x-ms-examples": {
           "Pool resize": {
             "parameters": {
-              "api-version": "2017-09-01.6.0",
+              "api-version": "2018-08-01.7.0",
               "client-request-id": "00000000-0000-0000-0000-000000000000",
               "ocp-data": "Fri, 17 Feb 2017 00:00:00 GMT",
               "poolId": "resizePool",
@@ -11863,9 +12412,7 @@
               }
             },
             "responses": {
-              "202": {
-                "body": ""
-              }
+              "202": {}
             }
           }
         },
@@ -12019,15 +12566,13 @@
         "x-ms-examples": {
           "Pool stop resize": {
             "parameters": {
-              "api-version": "2017-09-01.6.0",
+              "api-version": "2018-08-01.7.0",
               "client-request-id": "00000000-0000-0000-0000-000000000000",
               "ocp-data": "Fri, 17 Feb 2017 00:00:00 GMT",
               "poolId": "poolId"
             },
             "responses": {
-              "202": {
-                "body": ""
-              }
+              "202": {}
             }
           }
         },
@@ -12036,7 +12581,7 @@
     },
     "/pools/{poolId}/updateproperties": {
       "post": {
-        "description": "This fully replaces all the updateable properties of the pool. For example, if the pool has a start task associated with it and if start task is not specified with this request, then the Batch service will remove the existing start task.",
+        "description": "This fully replaces all the updatable properties of the pool. For example, if the pool has a start task associated with it and if start task is not specified with this request, then the Batch service will remove the existing start task.",
         "operationId": "Pool_UpdateProperties",
         "parameters": [
           {
@@ -12148,7 +12693,7 @@
         "x-ms-examples": {
           "Pool update": {
             "parameters": {
-              "api-version": "2017-09-01.6.0",
+              "api-version": "2018-08-01.7.0",
               "client-request-id": "00000000-0000-0000-0000-000000000000",
               "ocp-data": "Fri, 17 Feb 2017 00:00:00 GMT",
               "poolId": "poolId",
@@ -12162,9 +12707,7 @@
               }
             },
             "responses": {
-              "204": {
-                "body": ""
-              }
+              "204": {}
             }
           }
         },
@@ -12324,6 +12867,22 @@
         "tags": [
           "Pools"
         ],
+        "x-ms-examples": {
+          "Upgrade OS of the pool": {
+            "parameters": {
+              "api-version": "2018-08-01.7.0",
+              "client-request-id": "00000000-0000-0000-0000-000000000000",
+              "ocp-data": "Fri, 17 Feb 2017 00:00:00 GMT",
+              "poolId": "resizePool",
+              "poolUpgradeOSParameter": {
+                "targetOSVersion": "5"
+              }
+            },
+            "responses": {
+              "202": {}
+            }
+          }
+        },
         "x-ms-request-id": "request-id"
       }
     },
@@ -12473,7 +13032,7 @@
         "x-ms-examples": {
           "Pool list usage metrics": {
             "parameters": {
-              "api-version": "2017-09-01.6.0",
+              "api-version": "2018-08-01.7.0",
               "client-request-id": "00000000-0000-0000-0000-000000000000",
               "ocp-data": "Fri, 17 Feb 2017 00:00:00 GMT"
             },
@@ -12718,7 +13277,7 @@
       "properties": {
         "elevationLevel": {
           "$ref": "#/definitions/ElevationLevel",
-          "description": "nonAdmin - The auto user is a standard user without elevated access. admin - The auto user is a user with elevated access and operates with full Administrator permissions. The default value is nonAdmin.",
+          "description": "The default value is nonAdmin.",
           "title": "The elevation level of the auto user."
         },
         "scope": {
@@ -12980,11 +13539,11 @@
                   "value": "starttask"
                 },
                 {
-                  "description": "The certificate should be visibile to the user accounts under which job tasks are run.",
+                  "description": "The certificate should be visible to the user accounts under which job tasks are run.",
                   "value": "task"
                 },
                 {
-                  "description": "The certificate should be visibile to the user accounts under which users remotely access the node.",
+                  "description": "The certificate should be visible to the user accounts under which users remotely access the node.",
                   "name": "remoteUser",
                   "value": "remoteuser"
                 }
@@ -13137,7 +13696,7 @@
         },
         "stats": {
           "$ref": "#/definitions/JobStatistics",
-          "title": "Resource usage statistics for the entire lifetime of the job."
+          "title": "Resource usage statistics for the entire lifetime of the job. The statistics may not be immediately available. The Batch service performs periodic roll-up of statistics. The typical delay is about 30 minutes."
         },
         "url": {
           "title": "The URL of the job.",
@@ -13250,7 +13809,7 @@
         },
         "stats": {
           "$ref": "#/definitions/JobScheduleStatistics",
-          "title": "The lifetime resource usage statistics for the job schedule."
+          "title": "The lifetime resource usage statistics for the job schedule. The statistics may not be immediately available. The Batch service performs periodic roll-up of statistics. The typical delay is about 30 minutes."
         },
         "url": {
           "title": "The URL of the job schedule.",
@@ -13468,7 +14027,7 @@
         },
         "stats": {
           "$ref": "#/definitions/PoolStatistics",
-          "title": "Utilization and resource usage statistics for the entire lifetime of the pool."
+          "title": "Utilization and resource usage statistics for the entire lifetime of the pool. The statistics may not be immediately available. The Batch service performs periodic roll-up of statistics. The typical delay is about 30 minutes."
         },
         "targetDedicatedNodes": {
           "format": "int32",
@@ -13501,7 +14060,7 @@
           "title": "The virtual machine configuration for the pool."
         },
         "vmSize": {
-          "description": "For information about available sizes of virtual machines for Cloud Services pools (pools created with cloudServiceConfiguration), see Sizes for Cloud Services (http://azure.microsoft.com/documentation/articles/cloud-services-sizes-specs/). Batch supports all Cloud Services VM sizes except ExtraSmall, A1V2 and A2V2. For information about available VM sizes for pools using images from the Virtual Machines Marketplace (pools created with virtualMachineConfiguration) see Sizes for Virtual Machines (Linux) (https://azure.microsoft.com/documentation/articles/virtual-machines-linux-sizes/) or Sizes for Virtual Machines (Windows) (https://azure.microsoft.com/documentation/articles/virtual-machines-windows-sizes/). Batch supports all Azure VM sizes except STANDARD_A0 and those with premium storage (STANDARD_GS, STANDARD_DS, and STANDARD_DSV2 series).",
+          "description": "For information about available sizes of virtual machines in pools, see Choose a VM size for compute nodes in an Azure Batch pool (https://docs.microsoft.com/azure/batch/batch-pool-vm-sizes).",
           "title": "The size of virtual machines in the pool. All virtual machines in a pool are the same size.",
           "type": "string"
         }
@@ -13533,7 +14092,7 @@
           "type": "string"
         },
         "osFamily": {
-          "description": "Possible values are: 2 - OS Family 2, equivalent to Windows Server 2008 R2 SP1. 3 - OS Family 3, equivalent to Windows Server 2012. 4 - OS Family 4, equivalent to Windows Server 2012 R2. 5 - OS Family 5, equivalent to Windows Server 2016. For more information, see Azure Guest OS Releases (https://azure.microsoft.com/documentation/articles/cloud-services-guestos-update-matrix/#releases).",
+          "description": "Possible values are:\n2 - OS Family 2, equivalent to Windows Server 2008 R2 SP1.\n3 - OS Family 3, equivalent to Windows Server 2012.\n4 - OS Family 4, equivalent to Windows Server 2012 R2.\n5 - OS Family 5, equivalent to Windows Server 2016. For more information, see Azure Guest OS Releases (https://azure.microsoft.com/documentation/articles/cloud-services-guestos-update-matrix/#releases).",
           "title": "The Azure Guest OS family to be installed on the virtual machines in the pool.",
           "type": "string"
         },
@@ -13549,6 +14108,7 @@
       "title": "The configuration for nodes in a pool based on the Azure Cloud Services platform."
     },
     "CloudTask": {
+      "description": "Batch will retry tasks when a recovery operation is triggered on a compute node. Examples of recovery operations include (but are not limited to) when an unhealthy compute node is rebooted or a compute node disappeared due to host failure. Retries due to recovery operations are independent of and are not counted against the maxTaskRetryCount. Even if the maxTaskRetryCount is 0, an internal retry due to a recovery operation may occur. Because of this, all tasks should be idempotent. This means tasks need to tolerate being interrupted and restarted without causing any corruption or duplicate data. The best practice for long running tasks is to use some form of checkpointing.",
       "properties": {
         "affinityInfo": {
           "$ref": "#/definitions/AffinityInformation",
@@ -13568,7 +14128,7 @@
           "title": "The settings for an authentication token that the task can use to perform Batch service operations."
         },
         "commandLine": {
-          "description": "For multi-instance tasks, the command line is executed as the primary task, after the primary task and all subtasks have finished executing the coordination command line. The command line does not run under a shell, and therefore cannot take advantage of shell features such as environment variable expansion. If you want to take advantage of such features, you should invoke the shell in the command line, for example using \"cmd /c MyCommand\" in Windows or \"/bin/sh -c MyCommand\" in Linux.",
+          "description": "For multi-instance tasks, the command line is executed as the primary task, after the primary task and all subtasks have finished executing the coordination command line. The command line does not run under a shell, and therefore cannot take advantage of shell features such as environment variable expansion. If you want to take advantage of such features, you should invoke the shell in the command line, for example using \"cmd /c MyCommand\" in Windows or \"/bin/sh -c MyCommand\" in Linux. If the command line refers to file paths, it should use a relative path (relative to the task working directory), or use the Batch provided environment variable (https://docs.microsoft.com/en-us/azure/batch/batch-compute-node-environment-variables).",
           "title": "The command line of the task.",
           "type": "string"
         },
@@ -13654,7 +14214,7 @@
           "type": "string"
         },
         "resourceFiles": {
-          "description": "For multi-instance tasks, the resource files will only be downloaded to the compute node on which the primary task is executed.",
+          "description": "For multi-instance tasks, the resource files will only be downloaded to the compute node on which the primary task is executed. There is a maximum size for the list of resource files.  When the max size is exceeded, the request will fail and the response error code will be RequestEntityTooLarge. If this occurs, the collection of ResourceFiles must be reduced in size. This can be achieved using .zip files, Application Packages, or Docker Containers.",
           "items": {
             "$ref": "#/definitions/ResourceFile"
           },
@@ -13765,6 +14325,10 @@
           "title": "The time at which the compute node was started.",
           "type": "string"
         },
+        "nodeAgentInfo": {
+          "$ref": "#/definitions/NodeAgentInformation",
+          "title": "Information about the node agent version and the time the node upgraded to a new version."
+        },
         "recentTasks": {
           "description": "This property is present only if at least one task has run on this node since it was assigned to the pool.",
           "items": {
@@ -13809,7 +14373,7 @@
           "title": "Runtime information about the execution of the start task on the compute node."
         },
         "state": {
-          "description": "The low-priority node has been preempted. Tasks which were running on the node when it was pre-empted will be rescheduled when another node becomes available.",
+          "description": "The low-priority node has been preempted. Tasks which were running on the node when it was preempted will be rescheduled when another node becomes available.",
           "enum": [
             "idle",
             "rebooting",
@@ -13883,7 +14447,7 @@
                 "value": "offline"
               },
               {
-                "description": "The low-priority node has been preempted. Tasks which were running on the node when it was pre-empted will be rescheduled when another node becomes available.",
+                "description": "The low-priority node has been preempted. Tasks which were running on the node when it was preempted will be rescheduled when another node becomes available.",
                 "value": "preempted"
               }
             ]
@@ -13909,7 +14473,7 @@
           "type": "string"
         },
         "vmSize": {
-          "description": "For information about available sizes of virtual machines for Cloud Services pools (pools created with cloudServiceConfiguration), see Sizes for Cloud Services (http://azure.microsoft.com/documentation/articles/cloud-services-sizes-specs/). Batch supports all Cloud Services VM sizes except ExtraSmall, A1V2 and A2V2. For information about available VM sizes for pools using images from the Virtual Machines Marketplace (pools created with virtualMachineConfiguration) see Sizes for Virtual Machines (Linux) (https://azure.microsoft.com/documentation/articles/virtual-machines-linux-sizes/) or Sizes for Virtual Machines (Windows) (https://azure.microsoft.com/documentation/articles/virtual-machines-windows-sizes/). Batch supports all Azure VM sizes except STANDARD_A0 and those with premium storage (STANDARD_GS, STANDARD_DS, and STANDARD_DSV2 series).",
+          "description": "For information about available sizes of virtual machines in pools, see Choose a VM size for compute nodes in an Azure Batch pool (https://docs.microsoft.com/azure/batch/batch-pool-vm-sizes).",
           "title": "The size of the virtual machine hosting the compute node.",
           "type": "string"
         }
@@ -14102,7 +14666,7 @@
         },
         "type": {
           "enum": [
-            "docker"
+            "dockerCompatible"
           ],
           "title": "The container technology to be used.",
           "type": "string",
@@ -14111,8 +14675,8 @@
             "name": "ContainerType",
             "values": [
               {
-                "description": "Docker will be used to launch the containers.",
-                "value": "docker"
+                "description": "A Docker compatible container technology will be used to launch the containers.",
+                "value": "dockerCompatible"
               }
             ]
           }
@@ -14150,7 +14714,7 @@
       "properties": {
         "caching": {
           "$ref": "#/definitions/CachingType",
-          "description": "The default value for caching is none. For information about the caching options see: https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/27/exploring-windows-azure-drives-disks-and-images/.",
+          "description": "The default value for caching is readwrite. For information about the caching options see: https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/27/exploring-windows-azure-drives-disks-and-images/.",
           "title": "The type of caching to be enabled for the data disks."
         },
         "diskSizeGB": {
@@ -14319,7 +14883,7 @@
       "properties": {
         "default": {
           "$ref": "#/definitions/ExitOptions",
-          "description": "This value is used if the task exits with any nonzero exit code not listed in the exitCodes or exitCodeRanges collection, with a pre-processing error if the preProcessingError property is not present, or with a file upload error if the fileUploadError property is not present. If you want non-default behaviour on exit code 0, you must list it explicitly using the exitCodes or exitCodeRanges collection.",
+          "description": "This value is used if the task exits with any nonzero exit code not listed in the exitCodes or exitCodeRanges collection, with a pre-processing error if the preProcessingError property is not present, or with a file upload error if the fileUploadError property is not present. If you want non-default behavior on exit code 0, you must list it explicitly using the exitCodes or exitCodeRanges collection.",
           "title": "How the Batch service should respond if the task fails with an exit condition not covered by any of the other properties."
         },
         "exitCodeRanges": {
@@ -14374,7 +14938,7 @@
           }
         },
         "jobAction": {
-          "description": "The default is none for exit code 0 and terminate for all other exit conditions. If the job's onTaskFailed property is noaction, then specifying this property returns an error and the add task request fails with an invalid property value error; if you are calling the REST API directly, the HTTP status code is 400 (Bad Request).",
+          "description": "The default is none for exit code 0 and terminate for all other exit conditions. If the job's onTaskFailed property is noAction, then specifying this property returns an error and the add task request fails with an invalid property value error; if you are calling the REST API directly, the HTTP status code is 400 (Bad Request).",
           "enum": [
             "none",
             "disable",
@@ -14744,10 +15308,10 @@
       "title": "Contains information about the execution of a job in the Azure Batch service."
     },
     "JobManagerTask": {
-      "description": "The Job Manager task is automatically started when the job is created. The Batch service tries to schedule the Job Manager task before any other tasks in the job. When shrinking a pool, the Batch service tries to preserve compute nodes where Job Manager tasks are running for as long as possible (that is, nodes running 'normal' tasks are removed before nodes running Job Manager tasks). When a Job Manager task fails and needs to be restarted, the system tries to schedule it at the highest priority. If there are no idle nodes available, the system may terminate one of the running tasks in the pool and return it to the queue in order to make room for the Job Manager task to restart. Note that a Job Manager task in one job does not have priority over tasks in other jobs. Across jobs, only job level priorities are observed. For example, if a Job Manager in a priority 0 job needs to be restarted, it will not displace tasks of a priority 1 job.",
+      "description": "The Job Manager task is automatically started when the job is created. The Batch service tries to schedule the Job Manager task before any other tasks in the job. When shrinking a pool, the Batch service tries to preserve compute nodes where Job Manager tasks are running for as long as possible (that is, nodes running 'normal' tasks are removed before nodes running Job Manager tasks). When a Job Manager task fails and needs to be restarted, the system tries to schedule it at the highest priority. If there are no idle nodes available, the system may terminate one of the running tasks in the pool and return it to the queue in order to make room for the Job Manager task to restart. Note that a Job Manager task in one job does not have priority over tasks in other jobs. Across jobs, only job level priorities are observed. For example, if a Job Manager in a priority 0 job needs to be restarted, it will not displace tasks of a priority 1 job. Batch will retry tasks when a recovery operation is triggered on a compute node. Examples of recovery operations include (but are not limited to) when an unhealthy compute node is rebooted or a compute node disappeared due to host failure. Retries due to recovery operations are independent of and are not counted against the maxTaskRetryCount. Even if the maxTaskRetryCount is 0, an internal retry due to a recovery operation may occur. Because of this, all tasks should be idempotent. This means tasks need to tolerate being interrupted and restarted without causing any corruption or duplicate data. The best practice for long running tasks is to use some form of checkpointing.",
       "properties": {
         "allowLowPriorityNode": {
-          "description": "The default value is false.",
+          "description": "The default value is true.",
           "title": "Whether the Job Manager task may run on a low-priority compute node.",
           "type": "boolean"
         },
@@ -14765,7 +15329,7 @@
           "title": "The settings for an authentication token that the task can use to perform Batch service operations."
         },
         "commandLine": {
-          "description": "The command line does not run under a shell, and therefore cannot take advantage of shell features such as environment variable expansion. If you want to take advantage of such features, you should invoke the shell in the command line, for example using \"cmd /c MyCommand\" in Windows or \"/bin/sh -c MyCommand\" in Linux.",
+          "description": "The command line does not run under a shell, and therefore cannot take advantage of shell features such as environment variable expansion. If you want to take advantage of such features, you should invoke the shell in the command line, for example using \"cmd /c MyCommand\" in Windows or \"/bin/sh -c MyCommand\" in Linux. If the command line refers to file paths, it should use a relative path (relative to the task working directory), or use the Batch provided environment variable (https://docs.microsoft.com/en-us/azure/batch/batch-compute-node-environment-variables).",
           "title": "The command line of the Job Manager task.",
           "type": "string"
         },
@@ -14809,7 +15373,7 @@
           "type": "array"
         },
         "resourceFiles": {
-          "description": "Files listed under this element are located in the task's working directory.",
+          "description": "Files listed under this element are located in the task's working directory. There is a maximum size for the list of resource files.  When the max size is exceeded, the request will fail and the response error code will be RequestEntityTooLarge. If this occurs, the collection of ResourceFiles must be reduced in size. This can be achieved using .zip files, Application Packages, or Docker Containers.",
           "items": {
             "$ref": "#/definitions/ResourceFile"
           },
@@ -14894,10 +15458,10 @@
       "title": "The status of the Job Preparation and Job Release tasks on a compute node."
     },
     "JobPreparationTask": {
-      "description": "You can use Job Preparation to prepare a compute node to run tasks for the job. Activities commonly performed in Job Preparation include: Downloading common resource files used by all the tasks in the job. The Job Preparation task can download these common resource files to the shared location on the compute node. (AZ_BATCH_NODE_ROOT_DIR\\shared), or starting a local service on the compute node so that all tasks of that job can communicate with it. If the Job Preparation task fails (that is, exhausts its retry count before exiting with exit code 0), Batch will not run tasks of this job on the compute node. The node remains ineligible to run tasks of this job until it is reimaged. The node remains active and can be used for other jobs. The Job Preparation task can run multiple times on the same compute node. Therefore, you should write the Job Preparation task to handle re-execution. If the compute node is rebooted, the Job Preparation task is run again on the node before scheduling any other task of the job, if rerunOnNodeRebootAfterSuccess is true or if the Job Preparation task did not previously complete. If the compute node is reimaged, the Job Preparation task is run again before scheduling any task of the job.",
+      "description": "You can use Job Preparation to prepare a compute node to run tasks for the job. Activities commonly performed in Job Preparation include: Downloading common resource files used by all the tasks in the job. The Job Preparation task can download these common resource files to the shared location on the compute node. (AZ_BATCH_NODE_ROOT_DIR\\shared), or starting a local service on the compute node so that all tasks of that job can communicate with it. If the Job Preparation task fails (that is, exhausts its retry count before exiting with exit code 0), Batch will not run tasks of this job on the compute node. The node remains ineligible to run tasks of this job until it is reimaged. The node remains active and can be used for other jobs. The Job Preparation task can run multiple times on the same compute node. Therefore, you should write the Job Preparation task to handle re-execution. If the compute node is rebooted, the Job Preparation task is run again on the node before scheduling any other task of the job, if rerunOnNodeRebootAfterSuccess is true or if the Job Preparation task did not previously complete. If the compute node is reimaged, the Job Preparation task is run again before scheduling any task of the job. Batch will retry tasks when a recovery operation is triggered on a compute node. Examples of recovery operations include (but are not limited to) when an unhealthy compute node is rebooted or a compute node disappeared due to host failure. Retries due to recovery operations are independent of and are not counted against the maxTaskRetryCount. Even if the maxTaskRetryCount is 0, an internal retry due to a recovery operation may occur. Because of this, all tasks should be idempotent. This means tasks need to tolerate being interrupted and restarted without causing any corruption or duplicate data. The best practice for long running tasks is to use some form of checkpointing.",
       "properties": {
         "commandLine": {
-          "description": "The command line does not run under a shell, and therefore cannot take advantage of shell features such as environment variable expansion. If you want to take advantage of such features, you should invoke the shell in the command line, for example using \"cmd /c MyCommand\" in Windows or \"/bin/sh -c MyCommand\" in Linux.",
+          "description": "The command line does not run under a shell, and therefore cannot take advantage of shell features such as environment variable expansion. If you want to take advantage of such features, you should invoke the shell in the command line, for example using \"cmd /c MyCommand\" in Windows or \"/bin/sh -c MyCommand\" in Linux. If the command line refers to file paths, it should use a relative path (relative to the task working directory), or use the Batch provided environment variable (https://docs.microsoft.com/en-us/azure/batch/batch-compute-node-environment-variables).",
           "title": "The command line of the Job Preparation task.",
           "type": "string"
         },
@@ -14928,7 +15492,7 @@
           "type": "boolean"
         },
         "resourceFiles": {
-          "description": "Files listed under this element are located in the task's working directory.",
+          "description": "Files listed under this element are located in the task's working directory.  There is a maximum size for the list of resource files.  When the max size is exceeded, the request will fail and the response error code will be RequestEntityTooLarge. If this occurs, the collection of ResourceFiles must be reduced in size. This can be achieved using .zip files, Application Packages, or Docker Containers.",
           "items": {
             "$ref": "#/definitions/ResourceFile"
           },
@@ -14937,7 +15501,7 @@
         },
         "userIdentity": {
           "$ref": "#/definitions/UserIdentity",
-          "description": "If omitted, the task runs as a non-administrative user unique to the task on Windows nodes, or a a non-administrative user unique to the pool on Linux nodes.",
+          "description": "If omitted, the task runs as a non-administrative user unique to the task on Windows nodes, or a non-administrative user unique to the pool on Linux nodes.",
           "title": "The user identity under which the Job Preparation task runs."
         },
         "waitForSuccess": {
@@ -15040,7 +15604,7 @@
       "description": "The Job Release task runs when the job ends, because of one of the following: The user calls the Terminate Job API, or the Delete Job API while the job is still active, the job's maximum wall clock time constraint is reached, and the job is still active, or the job's Job Manager task completed, and the job is configured to terminate when the Job Manager completes. The Job Release task runs on each compute node where tasks of the job have run and the Job Preparation task ran and completed. If you reimage a compute node after it has run the Job Preparation task, and the job ends without any further tasks of the job running on that compute node (and hence the Job Preparation task does not re-run), then the Job Release task does not run on that node. If a compute node reboots while the Job Release task is still running, the Job Release task runs again when the compute node starts up. The job is not marked as complete until all Job Release tasks have completed. The Job Release task runs in the background. It does not occupy a scheduling slot; that is, it does not count towards the maxTasksPerNode limit specified on the pool.",
       "properties": {
         "commandLine": {
-          "description": "The command line does not run under a shell, and therefore cannot take advantage of shell features such as environment variable expansion. If you want to take advantage of such features, you should invoke the shell in the command line, for example using \"cmd /c MyCommand\" in Windows or \"/bin/sh -c MyCommand\" in Linux.",
+          "description": "The command line does not run under a shell, and therefore cannot take advantage of shell features such as environment variable expansion. If you want to take advantage of such features, you should invoke the shell in the command line, for example using \"cmd /c MyCommand\" in Windows or \"/bin/sh -c MyCommand\" in Linux. If the command line refers to file paths, it should use a relative path (relative to the task working directory), or use the Batch provided environment variable (https://docs.microsoft.com/en-us/azure/batch/batch-compute-node-environment-variables).",
           "title": "The command line of the Job Release task.",
           "type": "string"
         },
@@ -15071,7 +15635,7 @@
           "items": {
             "$ref": "#/definitions/ResourceFile"
           },
-          "title": "A list of files that the Batch service will download to the compute node before running the command line.",
+          "title": "A list of files that the Batch service will download to the compute node before running the command line.  There is a maximum size for the list of resource files.  When the max size is exceeded, the request will fail and the response error code will be RequestEntityTooLarge. If this occurs, the collection of ResourceFiles must be reduced in size. This can be achieved using .zip files, Application Packages, or Docker Containers.",
           "type": "array"
         },
         "retentionTime": {
@@ -15730,7 +16294,7 @@
       "description": "Multi-instance tasks are commonly used to support MPI tasks.",
       "properties": {
         "commonResourceFiles": {
-          "description": "The difference between common resource files and task resource files is that common resource files are downloaded for all subtasks including the primary, whereas task resource files are downloaded only for the primary. Also note that these resource files are not downloaded to the task working directory, but instead are downloaded to the task root directory (one directory above the working directory).",
+          "description": "The difference between common resource files and task resource files is that common resource files are downloaded for all subtasks including the primary, whereas task resource files are downloaded only for the primary. Also note that these resource files are not downloaded to the task working directory, but instead are downloaded to the task root directory (one directory above the working directory).  There is a maximum size for the list of resource files.  When the max size is exceeded, the request will fail and the response error code will be RequestEntityTooLarge. If this occurs, the collection of ResourceFiles must be reduced in size. This can be achieved using .zip files, Application Packages, or Docker Containers.",
           "items": {
             "$ref": "#/definitions/ResourceFile"
           },
@@ -15829,6 +16393,27 @@
       ],
       "title": "A network security group rule to apply to an inbound endpoint."
     },
+    "NodeAgentInformation": {
+      "description": "The Batch node agent is a program that runs on each node in the pool and provides Batch capability on the compute node.",
+      "properties": {
+        "lastUpdateTime": {
+          "description": "This is the most recent time that the node agent was updated to a new version.",
+          "format": "date-time",
+          "title": "The time when the node agent was updated on the compute node.",
+          "type": "string"
+        },
+        "version": {
+          "description": "This version number can be checked against the node agent release notes located at https://github.com/Azure/Batch/blob/master/changelogs/nodeagent/CHANGELOG.md.",
+          "title": "The version of the Batch node agent running on the compute node.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "version",
+        "lastUpdateTime"
+      ],
+      "title": "Information about the node agent."
+    },
     "NodeAgentSku": {
       "description": "The Batch node agent is a program that runs on each node in the pool, and provides the command-and-control interface between the node and the Batch service. There are different implementations of the node agent, known as SKUs, for different operating systems.",
       "properties": {
@@ -15868,6 +16453,97 @@
         }
       },
       "title": "A node agent SKU supported by the Batch service."
+    },
+    "NodeCounts": {
+      "properties": {
+        "creating": {
+          "format": "int32",
+          "title": "The number of nodes in the creating state.",
+          "type": "integer"
+        },
+        "idle": {
+          "format": "int32",
+          "title": "The number of nodes in the idle state.",
+          "type": "integer"
+        },
+        "leavingPool": {
+          "format": "int32",
+          "title": "The number of nodes in the leavingPool state.",
+          "type": "integer"
+        },
+        "offline": {
+          "format": "int32",
+          "title": "The number of nodes in the offline state.",
+          "type": "integer"
+        },
+        "preempted": {
+          "format": "int32",
+          "title": "The number of nodes in the preempted state.",
+          "type": "integer"
+        },
+        "rebooting": {
+          "format": "int32",
+          "title": "The count of nodes in the rebooting state.",
+          "type": "integer"
+        },
+        "reimaging": {
+          "format": "int32",
+          "title": "The number of nodes in the reimaging state.",
+          "type": "integer"
+        },
+        "running": {
+          "format": "int32",
+          "title": "The number of nodes in the running state.",
+          "type": "integer"
+        },
+        "startTaskFailed": {
+          "format": "int32",
+          "title": "The number of nodes in the startTaskFailed state.",
+          "type": "integer"
+        },
+        "starting": {
+          "format": "int32",
+          "title": "The number of nodes in the starting state.",
+          "type": "integer"
+        },
+        "total": {
+          "format": "int32",
+          "title": "The total number of nodes.",
+          "type": "integer"
+        },
+        "unknown": {
+          "format": "int32",
+          "title": "The number of nodes in the unknown state.",
+          "type": "integer"
+        },
+        "unusable": {
+          "format": "int32",
+          "title": "The number of nodes in the unusable state.",
+          "type": "integer"
+        },
+        "waitingForStartTask": {
+          "format": "int32",
+          "title": "The number of nodes in the waitingForStartTask state.",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "creating",
+        "idle",
+        "offline",
+        "preempted",
+        "rebooting",
+        "reimaging",
+        "running",
+        "starting",
+        "startTaskFailed",
+        "leavingPool",
+        "unknown",
+        "unusable",
+        "waitingForStartTask",
+        "total"
+      ],
+      "title": "The number of nodes in each node state."
     },
     "NodeDisableSchedulingParameter": {
       "properties": {
@@ -16072,7 +16748,7 @@
       "properties": {
         "caching": {
           "$ref": "#/definitions/CachingType",
-          "description": "The default value for caching is none. For information about the caching options see: https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/27/exploring-windows-azure-drives-disks-and-images/.",
+          "description": "The default value for caching is readwrite. For information about the caching options see: https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/27/exploring-windows-azure-drives-disks-and-images/.",
           "title": "The type of caching to enable for the OS disk."
         }
       },
@@ -16339,7 +17015,7 @@
           "title": "The virtual machine configuration for the pool."
         },
         "vmSize": {
-          "description": "For information about available sizes of virtual machines for Cloud Services pools (pools created with cloudServiceConfiguration), see Sizes for Cloud Services (http://azure.microsoft.com/documentation/articles/cloud-services-sizes-specs/). Batch supports all Cloud Services VM sizes except ExtraSmall, A1V2 and A2V2. For information about available VM sizes for pools using images from the Virtual Machines Marketplace (pools created with virtualMachineConfiguration) see Sizes for Virtual Machines (Linux) (https://azure.microsoft.com/documentation/articles/virtual-machines-linux-sizes/) or Sizes for Virtual Machines (Windows) (https://azure.microsoft.com/documentation/articles/virtual-machines-windows-sizes/). Batch supports all Azure VM sizes except STANDARD_A0 and those with premium storage (STANDARD_GS, STANDARD_DS, and STANDARD_DSV2 series).",
+          "description": "For information about available sizes of virtual machines for Cloud Services pools (pools created with cloudServiceConfiguration), see Sizes for Cloud Services (https://azure.microsoft.com/documentation/articles/cloud-services-sizes-specs/). Batch supports all Cloud Services VM sizes except ExtraSmall, A1V2 and A2V2. For information about available VM sizes for pools using images from the Virtual Machines Marketplace (pools created with virtualMachineConfiguration) see Sizes for Virtual Machines (Linux) (https://azure.microsoft.com/documentation/articles/virtual-machines-linux-sizes/) or Sizes for Virtual Machines (Windows) (https://azure.microsoft.com/documentation/articles/virtual-machines-windows-sizes/). Batch supports all Azure VM sizes except STANDARD_A0 and those with premium storage (STANDARD_GS, STANDARD_DS, and STANDARD_DSV2 series).",
           "title": "The size of virtual machines in the pool. All virtual machines in a pool are the same size.",
           "type": "string"
         }
@@ -16426,6 +17102,42 @@
       },
       "title": "The result of a listing the usage metrics for an account."
     },
+    "PoolNodeCounts": {
+      "properties": {
+        "dedicated": {
+          "$ref": "#/definitions/NodeCounts",
+          "title": "The number of dedicated nodes in each state."
+        },
+        "lowPriority": {
+          "$ref": "#/definitions/NodeCounts",
+          "title": "The number of low priority nodes in each state."
+        },
+        "poolId": {
+          "title": "The ID of the pool.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "poolId"
+      ],
+      "title": "The number of nodes in each state for a pool."
+    },
+    "PoolNodeCountsListResult": {
+      "properties": {
+        "odata.nextLink": {
+          "title": "The URL to get the next set of results.",
+          "type": "string"
+        },
+        "value": {
+          "description": "A list of node counts by pool.",
+          "items": {
+            "$ref": "#/definitions/PoolNodeCounts"
+          },
+          "type": "array"
+        }
+      },
+      "title": "The result of listing the node counts in the account."
+    },
     "PoolPatchParameter": {
       "properties": {
         "applicationPackageReferences": {
@@ -16489,7 +17201,7 @@
     "PoolSpecification": {
       "properties": {
         "applicationLicenses": {
-          "description": "The list of application licenses must be a subset of available Batch service application licenses. If a license is requested which is not supported, pool creation will fail.",
+          "description": "The list of application licenses must be a subset of available Batch service application licenses. If a license is requested which is not supported, pool creation will fail. The permitted licenses available on the pool are 'maya', 'vray', '3dsmax', 'arnold'. An additional charge applies for each application license added to the pool.",
           "items": {
             "type": "string"
           },
@@ -16599,7 +17311,7 @@
           "title": "The virtual machine configuration for the pool."
         },
         "vmSize": {
-          "description": "For information about available sizes of virtual machines for Cloud Services pools (pools created with cloudServiceConfiguration), see Sizes for Cloud Services (http://azure.microsoft.com/documentation/articles/cloud-services-sizes-specs/). Batch supports all Cloud Services VM sizes except ExtraSmall, A1V2 and A2V2. For information about available VM sizes for pools using images from the Virtual Machines Marketplace (pools created with virtualMachineConfiguration) see Sizes for Virtual Machines (Linux) (https://azure.microsoft.com/documentation/articles/virtual-machines-linux-sizes/) or Sizes for Virtual Machines (Windows) (https://azure.microsoft.com/documentation/articles/virtual-machines-windows-sizes/). Batch supports all Azure VM sizes except STANDARD_A0 and those with premium storage (STANDARD_GS, STANDARD_DS, and STANDARD_DSV2 series).",
+          "description": "For information about available sizes of virtual machines in pools, see Choose a VM size for compute nodes in an Azure Batch pool (https://docs.microsoft.com/azure/batch/batch-pool-vm-sizes).",
           "title": "The size of the virtual machines in the pool. All virtual machines in a pool are the same size.",
           "type": "string"
         }
@@ -16724,7 +17436,7 @@
           "type": "number"
         },
         "vmSize": {
-          "description": "For information about available sizes of virtual machines for Cloud Services pools (pools created with cloudServiceConfiguration), see Sizes for Cloud Services (http://azure.microsoft.com/documentation/articles/cloud-services-sizes-specs/). Batch supports all Cloud Services VM sizes except ExtraSmall, STANDARD_A1_V2 and STANDARD_A2_V2. For information about available VM sizes for pools using images from the Virtual Machines Marketplace (pools created with virtualMachineConfiguration) see Sizes for Virtual Machines (Linux) (https://azure.microsoft.com/documentation/articles/virtual-machines-linux-sizes/) or Sizes for Virtual Machines (Windows) (https://azure.microsoft.com/documentation/articles/virtual-machines-windows-sizes/). Batch supports all Azure VM sizes except STANDARD_A0 and those with premium storage (STANDARD_GS, STANDARD_DS, and STANDARD_DSV2 series).",
+          "description": "For information about available sizes of virtual machines in pools, see Choose a VM size for compute nodes in an Azure Batch pool (https://docs.microsoft.com/azure/batch/batch-pool-vm-sizes).",
           "title": "The size of virtual machines in the pool. All VMs in a pool are the same size.",
           "type": "string"
         }
@@ -16911,9 +17623,10 @@
       "title": "The schedule according to which jobs will be created"
     },
     "StartTask": {
+      "description": "Batch will retry tasks when a recovery operation is triggered on a compute node. Examples of recovery operations include (but are not limited to) when an unhealthy compute node is rebooted or a compute node disappeared due to host failure. Retries due to recovery operations are independent of and are not counted against the maxTaskRetryCount. Even if the maxTaskRetryCount is 0, an internal retry due to a recovery operation may occur. Because of this, all tasks should be idempotent. This means tasks need to tolerate being interrupted and restarted without causing any corruption or duplicate data. The best practice for long running tasks is to use some form of checkpointing.",
       "properties": {
         "commandLine": {
-          "description": "The command line does not run under a shell, and therefore cannot take advantage of shell features such as environment variable expansion. If you want to take advantage of such features, you should invoke the shell in the command line, for example using \"cmd /c MyCommand\" in Windows or \"/bin/sh -c MyCommand\" in Linux.",
+          "description": "The command line does not run under a shell, and therefore cannot take advantage of shell features such as environment variable expansion. If you want to take advantage of such features, you should invoke the shell in the command line, for example using \"cmd /c MyCommand\" in Windows or \"/bin/sh -c MyCommand\" in Linux. If the command line refers to file paths, it should use a relative path (relative to the task working directory), or use the Batch provided environment variable (https://docs.microsoft.com/en-us/azure/batch/batch-compute-node-environment-variables).",
           "title": "The command line of the start task.",
           "type": "string"
         },
@@ -16940,7 +17653,7 @@
           "items": {
             "$ref": "#/definitions/ResourceFile"
           },
-          "title": "A list of files that the Batch service will download to the compute node before running the command line.",
+          "title": "A list of files that the Batch service will download to the compute node before running the command line.  There is a maximum size for the list of resource files. When the max size is exceeded, the request will fail and the response error code will be RequestEntityTooLarge. If this occurs, the collection of ResourceFiles must be reduced in size. This can be achieved using .zip files, Application Packages, or Docker Containers.",
           "type": "array"
         },
         "userIdentity": {
@@ -17156,12 +17869,12 @@
     "TaskAddCollectionParameter": {
       "properties": {
         "value": {
-          "description": "The total serialized size of this collection must be less than 4MB. If it is greater than 4MB (for example if each task has 100's of resource files or environment variables), the request will fail with code 'RequestBodyTooLarge' and should be retried again with fewer tasks.",
+          "description": "The total serialized size of this collection must be less than 1MB. If it is greater than 1MB (for example if each task has 100's of resource files or environment variables), the request will fail with code 'RequestBodyTooLarge' and should be retried again with fewer tasks.",
           "items": {
             "$ref": "#/definitions/TaskAddParameter"
           },
           "maxItems": 100,
-          "title": "The collection of tasks to add.",
+          "title": "The collection of tasks to add. The maximum count of tasks is 100.",
           "type": "array"
         }
       },
@@ -17183,6 +17896,7 @@
       "title": "The result of adding a collection of tasks to a job."
     },
     "TaskAddParameter": {
+      "description": "Batch will retry tasks when a recovery operation is triggered on a compute node. Examples of recovery operations include (but are not limited to) when an unhealthy compute node is rebooted or a compute node disappeared due to host failure. Retries due to recovery operations are independent of and are not counted against the maxTaskRetryCount. Even if the maxTaskRetryCount is 0, an internal retry due to a recovery operation may occur. Because of this, all tasks should be idempotent. This means tasks need to tolerate being interrupted and restarted without causing any corruption or duplicate data. The best practice for long running tasks is to use some form of checkpointing.",
       "properties": {
         "affinityInfo": {
           "$ref": "#/definitions/AffinityInformation",
@@ -17202,7 +17916,7 @@
           "title": "The settings for an authentication token that the task can use to perform Batch service operations."
         },
         "commandLine": {
-          "description": "For multi-instance tasks, the command line is executed as the primary task, after the primary task and all subtasks have finished executing the coordination command line. The command line does not run under a shell, and therefore cannot take advantage of shell features such as environment variable expansion. If you want to take advantage of such features, you should invoke the shell in the command line, for example using \"cmd /c MyCommand\" in Windows or \"/bin/sh -c MyCommand\" in Linux.",
+          "description": "For multi-instance tasks, the command line is executed as the primary task, after the primary task and all subtasks have finished executing the coordination command line. The command line does not run under a shell, and therefore cannot take advantage of shell features such as environment variable expansion. If you want to take advantage of such features, you should invoke the shell in the command line, for example using \"cmd /c MyCommand\" in Windows or \"/bin/sh -c MyCommand\" in Linux. If the command line refers to file paths, it should use a relative path (relative to the task working directory), or use the Batch provided environment variable (https://docs.microsoft.com/en-us/azure/batch/batch-compute-node-environment-variables).",
           "title": "The command line of the task.",
           "type": "string"
         },
@@ -17255,7 +17969,7 @@
           "type": "array"
         },
         "resourceFiles": {
-          "description": "For multi-instance tasks, the resource files will only be downloaded to the compute node on which the primary task is executed.",
+          "description": "For multi-instance tasks, the resource files will only be downloaded to the compute node on which the primary task is executed. There is a maximum size for the list of resource files.  When the max size is exceeded, the request will fail and the response error code will be RequestEntityTooLarge. If this occurs, the collection of ResourceFiles must be reduced in size. This can be achieved using .zip files, Application Packages, or Docker Containers.",
           "items": {
             "$ref": "#/definitions/ResourceFile"
           },
@@ -17337,7 +18051,7 @@
     "TaskConstraints": {
       "properties": {
         "maxTaskRetryCount": {
-          "description": "Note that this value specifically controls the number of retries. The Batch service will try the task once, and may then retry up to this limit. For example, if the maximum retry count is 3, Batch tries the task up to 4 times (one initial try and 3 retries). If the maximum retry count is 0, the Batch service does not retry the task. If the maximum retry count is -1, the Batch service retries the task without limit.",
+          "description": "Note that this value specifically controls the number of retries for the task executable due to a nonzero exit code. The Batch service will try the task once, and may then retry up to this limit. For example, if the maximum retry count is 3, Batch tries the task up to 4 times (one initial try and 3 retries). If the maximum retry count is 0, the Batch service does not retry the task after the first attempt. If the maximum retry count is -1, the Batch service retries the task without limit. Resource files and application packages are only downloaded again if the task is retried on a new compute node.",
           "format": "int32",
           "title": "The maximum number of times the task may be retried. The Batch service retries a task if its exit code is nonzero.",
           "type": "integer"
@@ -17425,28 +18139,6 @@
           "format": "int32",
           "title": "The number of tasks which succeeded. A task succeeds if its result (found in the executionInfo property) is 'success'.",
           "type": "integer"
-        },
-        "validationStatus": {
-          "enum": [
-            "validated",
-            "unvalidated"
-          ],
-          "title": "Whether the task counts have been validated.",
-          "type": "string",
-          "x-ms-enum": {
-            "modelAsString": false,
-            "name": "TaskCountValidationStatus",
-            "values": [
-              {
-                "description": "The Batch service has validated the state counts against the task states as reported in the List Tasks API.",
-                "value": "validated"
-              },
-              {
-                "description": "The Batch service has not been able to check state counts against the task states as reported in the List Tasks API. The validationStatus may be unvalidated if the job contains more than 200,000 tasks.",
-                "value": "unvalidated"
-              }
-            ]
-          }
         }
       },
       "required": [
@@ -17454,8 +18146,7 @@
         "running",
         "completed",
         "succeeded",
-        "failed",
-        "validationStatus"
+        "failed"
       ],
       "title": "The task counts for a job."
     },
@@ -17794,6 +18485,51 @@
       },
       "title": "The set of changes to be made to a task."
     },
+    "UploadBatchServiceLogsConfiguration": {
+      "properties": {
+        "containerUrl": {
+          "description": "The URL must include a Shared Access Signature (SAS) granting write permissions to the container. The SAS duration must allow enough time for the upload to finish. The start time for SAS is optional and recommended to not be specified.",
+          "title": "The URL of the container within Azure Blob Storage to which to upload the Batch Service log file(s).",
+          "type": "string"
+        },
+        "endTime": {
+          "description": "Any log file containing a log message in the time range will be uploaded. This means that the operation might retrieve more logs than have been requested since the entire log file is always uploaded, but the operation should not retrieve fewer logs than have been requested. If omitted, the default is to upload all logs available after the startTime.",
+          "format": "date-time",
+          "title": "The end of the time range from which to upload Batch Service log file(s).",
+          "type": "string"
+        },
+        "startTime": {
+          "description": "Any log file containing a log message in the time range will be uploaded. This means that the operation might retrieve more logs than have been requested since the entire log file is always uploaded, but the operation should not retrieve fewer logs than have been requested.",
+          "format": "date-time",
+          "title": "The start of the time range from which to upload Batch Service log file(s).",
+          "type": "string"
+        }
+      },
+      "required": [
+        "containerUrl",
+        "startTime"
+      ],
+      "title": "The Azure Batch service log files upload configuration for a compute node."
+    },
+    "UploadBatchServiceLogsResult": {
+      "properties": {
+        "numberOfFilesUploaded": {
+          "format": "int32",
+          "title": "The number of log files which will be uploaded.",
+          "type": "integer"
+        },
+        "virtualDirectoryName": {
+          "description": "The virtual directory name is part of the blob name for each log file uploaded, and it is built based poolId, nodeId and a unique identifier.",
+          "title": "The virtual directory within Azure Blob Storage container to which the Batch Service log file(s) will be uploaded.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "virtualDirectoryName",
+        "numberOfFilesUploaded"
+      ],
+      "title": "The result of uploading Batch service log files from a specific compute node."
+    },
     "UsageStatistics": {
       "properties": {
         "dedicatedCoreTime": {
@@ -17823,7 +18559,7 @@
       "properties": {
         "elevationLevel": {
           "$ref": "#/definitions/ElevationLevel",
-          "description": "nonAdmin - The auto user is a standard user without elevated access. admin - The auto user is a user with elevated access and operates with full Administrator permissions. The default value is nonAdmin.",
+          "description": "The default value is nonAdmin.",
           "title": "The elevation level of the user account."
         },
         "linuxUserConfiguration": {
@@ -17847,7 +18583,7 @@
       "title": "Properties used to create a user used to execute tasks on an Azure Batch node."
     },
     "UserIdentity": {
-      "description": "Specify either the userName or autoUser property, but not both.",
+      "description": "Specify either the userName or autoUser property, but not both. On CloudServiceConfiguration pools, this user is logged in with the INTERACTIVE flag. On Windows VirtualMachineConfiguration pools, this user is logged in with the BATCH flag.",
       "properties": {
         "autoUser": {
           "$ref": "#/definitions/AutoUserSpecification",
@@ -17875,7 +18611,7 @@
           "items": {
             "$ref": "#/definitions/DataDisk"
           },
-          "title": "The configuration for data disks attached to the comptue nodes in the pool.",
+          "title": "The configuration for data disks attached to the compute nodes in the pool.",
           "type": "array"
         },
         "imageReference": {

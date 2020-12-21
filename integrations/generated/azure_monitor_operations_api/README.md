@@ -15,9 +15,7 @@ let azure_monitor_operations_api = require('@datafire/azure_monitor_operations_a
   redirect_uri: ""
 });
 
-azure_monitor_operations_api.Operations_List({
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

@@ -15,12 +15,7 @@ let azure_applicationinsights_componentworkitemconfigs_api = require('@datafire/
   redirect_uri: ""
 });
 
-azure_applicationinsights_componentworkitemconfigs_api.WorkItemConfigurations_GetDefault({
-  "resourceGroupName": "",
-  "api-version": "",
-  "subscriptionId": "",
-  "resourceName": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -46,9 +41,9 @@ azure_applicationinsights_componentworkitemconfigs_api.WorkItemConfigurations_Ge
 
 #### Input
 * input `object`
-  * resourceGroupName **required** `string`: The name of the resource group.
-  * api-version **required** `string`: Client Api Version.
-  * subscriptionId **required** `string`: The Azure subscription ID.
+  * resourceGroupName **required** `string`: The name of the resource group. The name is case insensitive.
+  * api-version **required** `string`: The API version to use for this operation.
+  * subscriptionId **required** `string`: The ID of the target subscription.
   * resourceName **required** `string`: The name of the Application Insights component resource.
 
 #### Output
@@ -69,14 +64,13 @@ azure_applicationinsights_componentworkitemconfigs_api.WorkItemConfigurations_Li
 
 #### Input
 * input `object`
-  * resourceGroupName **required** `string`: The name of the resource group.
-  * api-version **required** `string`: Client Api Version.
-  * subscriptionId **required** `string`: The Azure subscription ID.
+  * resourceGroupName **required** `string`: The name of the resource group. The name is case insensitive.
+  * api-version **required** `string`: The API version to use for this operation.
+  * subscriptionId **required** `string`: The ID of the target subscription.
   * resourceName **required** `string`: The name of the Application Insights component resource.
 
 #### Output
-* output `array`
-  * items [WorkItemConfiguration](#workitemconfiguration)
+* output [WorkItemConfigurationsListResult](#workitemconfigurationslistresult)
 
 ### WorkItemConfigurations_Create
 Create a work item configuration for an Application Insights component.
@@ -94,9 +88,9 @@ azure_applicationinsights_componentworkitemconfigs_api.WorkItemConfigurations_Cr
 
 #### Input
 * input `object`
-  * resourceGroupName **required** `string`: The name of the resource group.
-  * api-version **required** `string`: Client Api Version.
-  * subscriptionId **required** `string`: The Azure subscription ID.
+  * resourceGroupName **required** `string`: The name of the resource group. The name is case insensitive.
+  * api-version **required** `string`: The API version to use for this operation.
+  * subscriptionId **required** `string`: The ID of the target subscription.
   * resourceName **required** `string`: The name of the Application Insights component resource.
   * WorkItemConfigurationProperties **required** [WorkItemCreateConfiguration](#workitemcreateconfiguration)
 
@@ -104,7 +98,7 @@ azure_applicationinsights_componentworkitemconfigs_api.WorkItemConfigurations_Cr
 * output [WorkItemConfiguration](#workitemconfiguration)
 
 ### WorkItemConfigurations_Delete
-Delete an workitem configuration of an Application Insights component.
+Delete a work item configuration of an Application Insights component.
 
 
 ```js
@@ -119,14 +113,66 @@ azure_applicationinsights_componentworkitemconfigs_api.WorkItemConfigurations_De
 
 #### Input
 * input `object`
-  * resourceGroupName **required** `string`: The name of the resource group.
-  * api-version **required** `string`: Client Api Version.
-  * subscriptionId **required** `string`: The Azure subscription ID.
+  * resourceGroupName **required** `string`: The name of the resource group. The name is case insensitive.
+  * api-version **required** `string`: The API version to use for this operation.
+  * subscriptionId **required** `string`: The ID of the target subscription.
   * resourceName **required** `string`: The name of the Application Insights component resource.
   * workItemConfigId **required** `string`: The unique work item configuration Id. This can be either friendly name of connector as defined in connector configuration
 
 #### Output
 *Output schema unknown*
+
+### WorkItemConfigurations_GetItem
+Gets specified work item configuration for an Application Insights component.
+
+
+```js
+azure_applicationinsights_componentworkitemconfigs_api.WorkItemConfigurations_GetItem({
+  "resourceGroupName": "",
+  "api-version": "",
+  "subscriptionId": "",
+  "resourceName": "",
+  "workItemConfigId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * resourceGroupName **required** `string`: The name of the resource group. The name is case insensitive.
+  * api-version **required** `string`: The API version to use for this operation.
+  * subscriptionId **required** `string`: The ID of the target subscription.
+  * resourceName **required** `string`: The name of the Application Insights component resource.
+  * workItemConfigId **required** `string`: The unique work item configuration Id. This can be either friendly name of connector as defined in connector configuration
+
+#### Output
+* output [WorkItemConfiguration](#workitemconfiguration)
+
+### WorkItemConfigurations_UpdateItem
+Update a work item configuration for an Application Insights component.
+
+
+```js
+azure_applicationinsights_componentworkitemconfigs_api.WorkItemConfigurations_UpdateItem({
+  "resourceGroupName": "",
+  "api-version": "",
+  "subscriptionId": "",
+  "resourceName": "",
+  "workItemConfigId": "",
+  "WorkItemConfigurationProperties": {}
+}, context)
+```
+
+#### Input
+* input `object`
+  * resourceGroupName **required** `string`: The name of the resource group. The name is case insensitive.
+  * api-version **required** `string`: The API version to use for this operation.
+  * subscriptionId **required** `string`: The ID of the target subscription.
+  * resourceName **required** `string`: The name of the Application Insights component resource.
+  * workItemConfigId **required** `string`: The unique work item configuration Id. This can be either friendly name of connector as defined in connector configuration
+  * WorkItemConfigurationProperties **required** [WorkItemCreateConfiguration](#workitemcreateconfiguration)
+
+#### Output
+* output [WorkItemConfiguration](#workitemconfiguration)
 
 
 
@@ -151,11 +197,16 @@ azure_applicationinsights_componentworkitemconfigs_api.WorkItemConfigurations_De
   * innererror [InnerError](#innererror)
   * message `string`: Error message
 
+### WorkItemConfigurationsListResult
+* WorkItemConfigurationsListResult `object`: Work item configuration list result.
+  * value `array`: An array of work item configurations.
+    * items [WorkItemConfiguration](#workitemconfiguration)
+
 ### WorkItemCreateConfiguration
 * WorkItemCreateConfiguration `object`: Work item configuration creation payload
-  * ConnectorDataConfiguration `string`: Serialized JSON object for detaile d properties
+  * ConnectorDataConfiguration `string`: Serialized JSON object for detailed properties
   * ConnectorId `string`: Unique connector id
   * ValidateOnly `boolean`: Boolean indicating validate only
-  * WorkItemProperties `string`: Custom work item properties
+  * WorkItemProperties `object`: Custom work item properties
 
 

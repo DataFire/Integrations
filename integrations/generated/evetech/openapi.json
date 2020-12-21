@@ -8,13 +8,13 @@
   "info": {
     "description": "An OpenAPI for EVE Online",
     "title": "EVE Swagger Interface",
-    "version": "0.8.3",
+    "version": "0.8.6",
     "x-apisguru-categories": [
       "media"
     ],
     "x-logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_466597642978357248_zPDwJ1cv_400x400.jpeg"
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_Evetech_profile_image.jpeg"
     },
     "x-origin": [
       {
@@ -38,7 +38,7 @@
   ],
   "securityDefinitions": {
     "evesso": {
-      "authorizationUrl": "https://login.eveonline.com/oauth/authorize",
+      "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
       "flow": "implicit",
       "scopes": {
         "esi-alliances.read_contacts.v1": "EVE SSO scope esi-alliances.read_contacts.v1",
@@ -74,7 +74,6 @@
         "esi-corporations.read_facilities.v1": "EVE SSO scope esi-corporations.read_facilities.v1",
         "esi-corporations.read_fw_stats.v1": "EVE SSO scope esi-corporations.read_fw_stats.v1",
         "esi-corporations.read_medals.v1": "EVE SSO scope esi-corporations.read_medals.v1",
-        "esi-corporations.read_outposts.v1": "EVE SSO scope esi-corporations.read_outposts.v1",
         "esi-corporations.read_standings.v1": "EVE SSO scope esi-corporations.read_standings.v1",
         "esi-corporations.read_starbases.v1": "EVE SSO scope esi-corporations.read_starbases.v1",
         "esi-corporations.read_structures.v1": "EVE SSO scope esi-corporations.read_structures.v1",
@@ -348,177 +347,6 @@
         "x-cached-seconds": 3600
       }
     },
-    "/alliances/names/": {
-      "get": {
-        "description": "Resolve a set of alliance IDs to alliance names\n\n---\nAlternate route: `/dev/alliances/names/`\n\nAlternate route: `/v2/alliances/names/`\n\n---\nThis route is cached for up to 3600 seconds",
-        "operationId": "get_alliances_names",
-        "parameters": [
-          {
-            "description": "A comma separated list of alliance IDs",
-            "in": "query",
-            "items": {
-              "format": "int32",
-              "type": "integer"
-            },
-            "maxItems": 100,
-            "minItems": 1,
-            "name": "alliance_ids",
-            "required": true,
-            "type": "array"
-          },
-          {
-            "$ref": "#/parameters/datasource"
-          },
-          {
-            "$ref": "#/parameters/If-None-Match"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "List of id/name associations",
-            "examples": {
-              "application/json": [
-                {
-                  "alliance_id": 1000171,
-                  "alliance_name": "Republic University"
-                }
-              ]
-            },
-            "headers": {
-              "Cache-Control": {
-                "description": "The caching mechanism used",
-                "type": "string"
-              },
-              "ETag": {
-                "description": "RFC7232 compliant entity tag",
-                "type": "string"
-              },
-              "Expires": {
-                "description": "RFC7231 formatted datetime string",
-                "type": "string"
-              },
-              "Last-Modified": {
-                "description": "RFC7231 formatted datetime string",
-                "type": "string"
-              }
-            },
-            "schema": {
-              "description": "200 ok array",
-              "items": {
-                "description": "200 ok object",
-                "properties": {
-                  "alliance_id": {
-                    "description": "alliance_id integer",
-                    "format": "int32",
-                    "title": "get_alliances_names_alliance_id",
-                    "type": "integer"
-                  },
-                  "alliance_name": {
-                    "description": "alliance_name string",
-                    "title": "get_alliances_names_alliance_name",
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "alliance_id",
-                  "alliance_name"
-                ],
-                "title": "get_alliances_names_200_ok",
-                "type": "object"
-              },
-              "maxItems": 100,
-              "title": "get_alliances_names_ok",
-              "type": "array"
-            }
-          },
-          "304": {
-            "description": "Not modified",
-            "headers": {
-              "Cache-Control": {
-                "description": "The caching mechanism used",
-                "type": "string"
-              },
-              "ETag": {
-                "description": "RFC7232 compliant entity tag",
-                "type": "string"
-              },
-              "Expires": {
-                "description": "RFC7231 formatted datetime string",
-                "type": "string"
-              },
-              "Last-Modified": {
-                "description": "RFC7231 formatted datetime string",
-                "type": "string"
-              }
-            }
-          },
-          "400": {
-            "description": "Bad request",
-            "examples": {
-              "application/json": {
-                "error": "Bad request message"
-              }
-            },
-            "schema": {
-              "$ref": "#/definitions/bad_request"
-            }
-          },
-          "420": {
-            "description": "Error limited",
-            "examples": {
-              "application/json": {
-                "error": "Error limited message"
-              }
-            },
-            "schema": {
-              "$ref": "#/definitions/error_limited"
-            }
-          },
-          "500": {
-            "description": "Internal server error",
-            "examples": {
-              "application/json": {
-                "error": "Internal server error message"
-              }
-            },
-            "schema": {
-              "$ref": "#/definitions/internal_server_error"
-            }
-          },
-          "503": {
-            "description": "Service unavailable",
-            "examples": {
-              "application/json": {
-                "error": "Service unavailable message"
-              }
-            },
-            "schema": {
-              "$ref": "#/definitions/service_unavailable"
-            }
-          },
-          "504": {
-            "description": "Gateway timeout",
-            "examples": {
-              "application/json": {
-                "error": "Gateway timeout message"
-              }
-            },
-            "schema": {
-              "$ref": "#/definitions/gateway_timeout"
-            }
-          }
-        },
-        "summary": "Get alliance names",
-        "tags": [
-          "Alliance"
-        ],
-        "x-alternate-versions": [
-          "dev",
-          "v2"
-        ],
-        "x-cached-seconds": 3600
-      }
-    },
     "/alliances/{alliance_id}/": {
       "get": {
         "description": "Public information about an alliance\n\n---\nAlternate route: `/dev/alliances/{alliance_id}/`\n\nAlternate route: `/v3/alliances/{alliance_id}/`\n\n---\nThis route is cached for up to 3600 seconds",
@@ -730,7 +558,7 @@
     },
     "/alliances/{alliance_id}/contacts/": {
       "get": {
-        "description": "Return contacts of an alliance\n\n---\nAlternate route: `/legacy/alliances/{alliance_id}/contacts/`\n\nAlternate route: `/v1/alliances/{alliance_id}/contacts/`\n\n---\nThis route is cached for up to 300 seconds\n\n---\nWarning: This route has an upgrade available.\n\n---\n[Diff of the upcoming changes](https://esi.evetech.net/diff/latest/dev/#GET-/alliances/{alliance_id}/contacts/)",
+        "description": "Return contacts of an alliance\n\n---\nAlternate route: `/dev/alliances/{alliance_id}/contacts/`\n\nAlternate route: `/v2/alliances/{alliance_id}/contacts/`\n\n---\nThis route is cached for up to 300 seconds",
         "operationId": "get_alliances_alliance_id_contacts",
         "parameters": [
           {
@@ -807,11 +635,17 @@
                     "title": "get_alliances_alliance_id_contacts_contact_type",
                     "type": "string"
                   },
-                  "label_id": {
-                    "description": "Custom label of the contact",
-                    "format": "int64",
-                    "title": "get_alliances_alliance_id_contacts_label_id",
-                    "type": "integer"
+                  "label_ids": {
+                    "description": "label_ids array",
+                    "items": {
+                      "description": "Label IDs applied to the contact",
+                      "format": "int64",
+                      "title": "get_alliances_alliance_id_contacts_label_id",
+                      "type": "integer"
+                    },
+                    "maxItems": 63,
+                    "title": "get_alliances_alliance_id_contacts_label_ids",
+                    "type": "array"
                   },
                   "standing": {
                     "description": "Standing of the contact",
@@ -944,8 +778,8 @@
           "Contacts"
         ],
         "x-alternate-versions": [
-          "legacy",
-          "v1"
+          "dev",
+          "v2"
         ],
         "x-cached-seconds": 300
       }
@@ -1291,7 +1125,7 @@
     },
     "/alliances/{alliance_id}/icons/": {
       "get": {
-        "description": "Get the icon urls for a alliance\n\n---\nAlternate route: `/dev/alliances/{alliance_id}/icons/`\n\nAlternate route: `/legacy/alliances/{alliance_id}/icons/`\n\nAlternate route: `/v1/alliances/{alliance_id}/icons/`\n\n---\nThis route is cached for up to 3600 seconds",
+        "description": "Get the icon urls for a alliance\n\n---\nAlternate route: `/dev/alliances/{alliance_id}/icons/`\n\nAlternate route: `/legacy/alliances/{alliance_id}/icons/`\n\nAlternate route: `/v1/alliances/{alliance_id}/icons/`\n\n---\nThis route expires daily at 11:05",
         "operationId": "get_alliances_alliance_id_icons",
         "parameters": [
           {
@@ -1454,8 +1288,7 @@
           "dev",
           "legacy",
           "v1"
-        ],
-        "x-cached-seconds": 3600
+        ]
       }
     },
     "/characters/affiliation/": {
@@ -1464,7 +1297,7 @@
         "operationId": "post_characters_affiliation",
         "parameters": [
           {
-            "description": "The character IDs to fetch affiliations for. All characters must exist, or none will be returned.",
+            "description": "The character IDs to fetch affiliations for. All characters must exist, or none will be returned",
             "in": "body",
             "name": "characters",
             "required": true,
@@ -1485,9 +1318,6 @@
           },
           {
             "$ref": "#/parameters/datasource"
-          },
-          {
-            "$ref": "#/parameters/If-None-Match"
           }
         ],
         "responses": {
@@ -1501,24 +1331,6 @@
                   "corporation_id": 109299958
                 }
               ]
-            },
-            "headers": {
-              "Cache-Control": {
-                "description": "The caching mechanism used",
-                "type": "string"
-              },
-              "ETag": {
-                "description": "RFC7232 compliant entity tag",
-                "type": "string"
-              },
-              "Expires": {
-                "description": "RFC7231 formatted datetime string",
-                "type": "string"
-              },
-              "Last-Modified": {
-                "description": "RFC7231 formatted datetime string",
-                "type": "string"
-              }
             },
             "schema": {
               "description": "200 ok array",
@@ -1562,27 +1374,6 @@
               "type": "array"
             }
           },
-          "304": {
-            "description": "Not modified",
-            "headers": {
-              "Cache-Control": {
-                "description": "The caching mechanism used",
-                "type": "string"
-              },
-              "ETag": {
-                "description": "RFC7232 compliant entity tag",
-                "type": "string"
-              },
-              "Expires": {
-                "description": "RFC7231 formatted datetime string",
-                "type": "string"
-              },
-              "Last-Modified": {
-                "description": "RFC7231 formatted datetime string",
-                "type": "string"
-              }
-            }
-          },
           "400": {
             "description": "Bad request",
             "examples": {
@@ -1595,7 +1386,7 @@
             }
           },
           "404": {
-            "description": "No characters found!",
+            "description": "No characters found",
             "examples": {
               "application/json": {
                 "error": "Not found message"
@@ -1660,178 +1451,6 @@
           }
         },
         "summary": "Character affiliation",
-        "tags": [
-          "Character"
-        ],
-        "x-alternate-versions": [
-          "dev",
-          "legacy",
-          "v1"
-        ],
-        "x-cached-seconds": 3600
-      }
-    },
-    "/characters/names/": {
-      "get": {
-        "description": "Resolve a set of character IDs to character names\n\n---\nAlternate route: `/dev/characters/names/`\n\nAlternate route: `/legacy/characters/names/`\n\nAlternate route: `/v1/characters/names/`\n\n---\nThis route is cached for up to 3600 seconds",
-        "operationId": "get_characters_names",
-        "parameters": [
-          {
-            "description": "A comma separated list of character IDs",
-            "in": "query",
-            "items": {
-              "format": "int64",
-              "type": "integer"
-            },
-            "maxItems": 1000,
-            "minItems": 1,
-            "name": "character_ids",
-            "required": true,
-            "type": "array"
-          },
-          {
-            "$ref": "#/parameters/datasource"
-          },
-          {
-            "$ref": "#/parameters/If-None-Match"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "List of id/name associations",
-            "examples": {
-              "application/json": [
-                {
-                  "character_id": 95465499,
-                  "character_name": "CCP Bartender"
-                }
-              ]
-            },
-            "headers": {
-              "Cache-Control": {
-                "description": "The caching mechanism used",
-                "type": "string"
-              },
-              "ETag": {
-                "description": "RFC7232 compliant entity tag",
-                "type": "string"
-              },
-              "Expires": {
-                "description": "RFC7231 formatted datetime string",
-                "type": "string"
-              },
-              "Last-Modified": {
-                "description": "RFC7231 formatted datetime string",
-                "type": "string"
-              }
-            },
-            "schema": {
-              "description": "200 ok array",
-              "items": {
-                "description": "200 ok object",
-                "properties": {
-                  "character_id": {
-                    "description": "character_id integer",
-                    "format": "int64",
-                    "title": "get_characters_names_character_id",
-                    "type": "integer"
-                  },
-                  "character_name": {
-                    "description": "character_name string",
-                    "title": "get_characters_names_character_name",
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "character_id",
-                  "character_name"
-                ],
-                "title": "get_characters_names_200_ok",
-                "type": "object"
-              },
-              "maxItems": 1000,
-              "title": "get_characters_names_ok",
-              "type": "array"
-            }
-          },
-          "304": {
-            "description": "Not modified",
-            "headers": {
-              "Cache-Control": {
-                "description": "The caching mechanism used",
-                "type": "string"
-              },
-              "ETag": {
-                "description": "RFC7232 compliant entity tag",
-                "type": "string"
-              },
-              "Expires": {
-                "description": "RFC7231 formatted datetime string",
-                "type": "string"
-              },
-              "Last-Modified": {
-                "description": "RFC7231 formatted datetime string",
-                "type": "string"
-              }
-            }
-          },
-          "400": {
-            "description": "Bad request",
-            "examples": {
-              "application/json": {
-                "error": "Bad request message"
-              }
-            },
-            "schema": {
-              "$ref": "#/definitions/bad_request"
-            }
-          },
-          "420": {
-            "description": "Error limited",
-            "examples": {
-              "application/json": {
-                "error": "Error limited message"
-              }
-            },
-            "schema": {
-              "$ref": "#/definitions/error_limited"
-            }
-          },
-          "500": {
-            "description": "Internal server error",
-            "examples": {
-              "application/json": {
-                "error": "Internal server error message"
-              }
-            },
-            "schema": {
-              "$ref": "#/definitions/internal_server_error"
-            }
-          },
-          "503": {
-            "description": "Service unavailable",
-            "examples": {
-              "application/json": {
-                "error": "Service unavailable message"
-              }
-            },
-            "schema": {
-              "$ref": "#/definitions/service_unavailable"
-            }
-          },
-          "504": {
-            "description": "Gateway timeout",
-            "examples": {
-              "application/json": {
-                "error": "Gateway timeout message"
-              }
-            },
-            "schema": {
-              "$ref": "#/definitions/gateway_timeout"
-            }
-          }
-        },
-        "summary": "Get character names",
         "tags": [
           "Character"
         ],
@@ -2109,7 +1728,7 @@
               "application/json": [
                 {
                   "agent_id": 3009358,
-                  "points_per_day": 53.5346162147,
+                  "points_per_day": 53.5346162146776,
                   "remainder_points": 53604.0634303189,
                   "skill_type_id": 11450,
                   "started_at": "2017-03-23T14:47:00Z"
@@ -2330,6 +1949,7 @@
             "examples": {
               "application/json": [
                 {
+                  "is_blueprint_copy": true,
                   "is_singleton": true,
                   "item_id": 1000000016835,
                   "location_flag": "Hangar",
@@ -2369,6 +1989,11 @@
               "items": {
                 "description": "200 ok object",
                 "properties": {
+                  "is_blueprint_copy": {
+                    "description": "is_blueprint_copy boolean",
+                    "title": "get_characters_character_id_assets_is_blueprint_copy",
+                    "type": "boolean"
+                  },
                   "is_singleton": {
                     "description": "is_singleton boolean",
                     "title": "get_characters_character_id_assets_is_singleton",
@@ -2385,6 +2010,7 @@
                     "enum": [
                       "AssetSafety",
                       "AutoFit",
+                      "BoosterBay",
                       "Cargo",
                       "CorpseBay",
                       "Deliveries",
@@ -4076,7 +3702,7 @@
     },
     "/characters/{character_id}/calendar/": {
       "get": {
-        "description": "Get 50 event summaries from the calendar. If no from_event ID is given, the resource will return the next 50 chronological event summaries from now. If a from_event ID is specified, it will return the next 50 chronological event summaries from after that event.\n\n---\nAlternate route: `/dev/characters/{character_id}/calendar/`\n\nAlternate route: `/legacy/characters/{character_id}/calendar/`\n\nAlternate route: `/v1/characters/{character_id}/calendar/`\n\n---\nThis route is cached for up to 5 seconds",
+        "description": "Get 50 event summaries from the calendar. If no from_event ID is given, the resource will return the next 50 chronological event summaries from now. If a from_event ID is specified, it will return the next 50 chronological event summaries from after that event\n\n---\nAlternate route: `/dev/characters/{character_id}/calendar/`\n\nAlternate route: `/legacy/characters/{character_id}/calendar/`\n\nAlternate route: `/v1/characters/{character_id}/calendar/`\n\n---\nThis route is cached for up to 5 seconds",
         "operationId": "get_characters_character_id_calendar",
         "parameters": [
           {
@@ -4596,7 +4222,7 @@
             "type": "integer"
           },
           {
-            "description": "The response value to set, overriding current value.",
+            "description": "The response value to set, overriding current value",
             "in": "body",
             "name": "response",
             "required": true,
@@ -5355,7 +4981,7 @@
         ]
       },
       "get": {
-        "description": "Return contacts of a character\n\n---\nAlternate route: `/legacy/characters/{character_id}/contacts/`\n\nAlternate route: `/v1/characters/{character_id}/contacts/`\n\n---\nThis route is cached for up to 300 seconds\n\n---\nWarning: This route has an upgrade available.\n\n---\n[Diff of the upcoming changes](https://esi.evetech.net/diff/latest/dev/#GET-/characters/{character_id}/contacts/)",
+        "description": "Return contacts of a character\n\n---\nAlternate route: `/dev/characters/{character_id}/contacts/`\n\nAlternate route: `/v2/characters/{character_id}/contacts/`\n\n---\nThis route is cached for up to 300 seconds",
         "operationId": "get_characters_character_id_contacts",
         "parameters": [
           {
@@ -5444,11 +5070,17 @@
                     "title": "get_characters_character_id_contacts_is_watched",
                     "type": "boolean"
                   },
-                  "label_id": {
-                    "description": "Custom label of the contact",
-                    "format": "int64",
-                    "title": "get_characters_character_id_contacts_label_id",
-                    "type": "integer"
+                  "label_ids": {
+                    "description": "label_ids array",
+                    "items": {
+                      "description": "Label IDs applied to the contact",
+                      "format": "int64",
+                      "title": "get_characters_character_id_contacts_label_id",
+                      "type": "integer"
+                    },
+                    "maxItems": 63,
+                    "title": "get_characters_character_id_contacts_label_ids",
+                    "type": "array"
                   },
                   "standing": {
                     "description": "Standing of the contact",
@@ -5581,13 +5213,13 @@
           "Contacts"
         ],
         "x-alternate-versions": [
-          "legacy",
-          "v1"
+          "dev",
+          "v2"
         ],
         "x-cached-seconds": 300
       },
       "post": {
-        "description": "Bulk add contacts with same settings\n\n---\nAlternate route: `/legacy/characters/{character_id}/contacts/`\n\nAlternate route: `/v1/characters/{character_id}/contacts/`\n\n\n---\nWarning: This route has an upgrade available.\n\n---\n[Diff of the upcoming changes](https://esi.evetech.net/diff/latest/dev/#POST-/characters/{character_id}/contacts/)",
+        "description": "Bulk add contacts with same settings\n\n---\nAlternate route: `/dev/characters/{character_id}/contacts/`\n\nAlternate route: `/v2/characters/{character_id}/contacts/`\n",
         "operationId": "post_characters_character_id_contacts",
         "parameters": [
           {
@@ -5616,13 +5248,16 @@
             "$ref": "#/parameters/datasource"
           },
           {
-            "default": 0,
-            "description": "Add a custom label to the new contact",
-            "format": "int64",
+            "description": "Add custom labels to the new contact",
             "in": "query",
-            "name": "label_id",
+            "items": {
+              "format": "int64",
+              "type": "integer"
+            },
+            "maxItems": 63,
+            "name": "label_ids",
             "required": false,
-            "type": "integer"
+            "type": "array"
           },
           {
             "description": "Standing for the contact",
@@ -5744,6 +5379,26 @@
             "schema": {
               "$ref": "#/definitions/gateway_timeout"
             }
+          },
+          "520": {
+            "description": "Internal error thrown from the EVE server",
+            "examples": {
+              "application/json": {
+                "error": "Error 520 message"
+              }
+            },
+            "schema": {
+              "description": "Error 520",
+              "properties": {
+                "error": {
+                  "description": "Error 520 message",
+                  "title": "post_characters_character_id_contacts_520_error_520",
+                  "type": "string"
+                }
+              },
+              "title": "post_characters_character_id_contacts_error_520",
+              "type": "object"
+            }
           }
         },
         "security": [
@@ -5758,12 +5413,12 @@
           "Contacts"
         ],
         "x-alternate-versions": [
-          "legacy",
-          "v1"
+          "dev",
+          "v2"
         ]
       },
       "put": {
-        "description": "Bulk edit contacts with same settings\n\n---\nAlternate route: `/legacy/characters/{character_id}/contacts/`\n\nAlternate route: `/v1/characters/{character_id}/contacts/`\n\n\n---\nWarning: This route has an upgrade available.\n\n---\n[Diff of the upcoming changes](https://esi.evetech.net/diff/latest/dev/#PUT-/characters/{character_id}/contacts/)",
+        "description": "Bulk edit contacts with same settings\n\n---\nAlternate route: `/dev/characters/{character_id}/contacts/`\n\nAlternate route: `/v2/characters/{character_id}/contacts/`\n",
         "operationId": "put_characters_character_id_contacts",
         "parameters": [
           {
@@ -5792,13 +5447,16 @@
             "$ref": "#/parameters/datasource"
           },
           {
-            "default": 0,
-            "description": "Add a custom label to the contact, use 0 for clearing label",
-            "format": "int64",
+            "description": "Add custom labels to the contact",
             "in": "query",
-            "name": "label_id",
+            "items": {
+              "format": "int64",
+              "type": "integer"
+            },
+            "maxItems": 63,
+            "name": "label_ids",
             "required": false,
-            "type": "integer"
+            "type": "array"
           },
           {
             "description": "Standing for the contact",
@@ -5916,8 +5574,8 @@
           "Contacts"
         ],
         "x-alternate-versions": [
-          "legacy",
-          "v1"
+          "dev",
+          "v2"
         ]
       }
     },
@@ -6789,7 +6447,7 @@
                 "description": "200 ok object",
                 "properties": {
                   "is_included": {
-                    "description": "true if the contract issuer has submitted this item with the contract, false if the isser is asking for this item in the contract.",
+                    "description": "true if the contract issuer has submitted this item with the contract, false if the isser is asking for this item in the contract",
                     "title": "get_characters_character_id_contracts_contract_id_items_is_included",
                     "type": "boolean"
                   },
@@ -8769,7 +8427,7 @@
             "$ref": "#/parameters/If-None-Match"
           },
           {
-            "description": "Whether retrieve completed character industry jobs as well",
+            "description": "Whether to retrieve completed character industry jobs. Only includes jobs from the past 90 days",
             "in": "query",
             "name": "include_completed",
             "required": false,
@@ -9318,7 +8976,7 @@
     },
     "/characters/{character_id}/location/": {
       "get": {
-        "description": "Information about the characters current location. Returns the current solar system id, and also the current station or structure ID if applicable.\n\n---\nAlternate route: `/dev/characters/{character_id}/location/`\n\nAlternate route: `/legacy/characters/{character_id}/location/`\n\nAlternate route: `/v1/characters/{character_id}/location/`\n\n---\nThis route is cached for up to 5 seconds",
+        "description": "Information about the characters current location. Returns the current solar system id, and also the current station or structure ID if applicable\n\n---\nAlternate route: `/dev/characters/{character_id}/location/`\n\nAlternate route: `/legacy/characters/{character_id}/location/`\n\nAlternate route: `/v1/characters/{character_id}/location/`\n\n---\nThis route is cached for up to 5 seconds",
         "operationId": "get_characters_character_id_location",
         "parameters": [
           {
@@ -9336,7 +8994,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Information about the characters current location. Returns the current solar system id, and also the current station or structure ID if applicable.",
+            "description": "Information about the characters current location. Returns the current solar system id, and also the current station or structure ID if applicable",
             "examples": {
               "application/json": {
                 "solar_system_id": 30002505,
@@ -9705,7 +9363,7 @@
     },
     "/characters/{character_id}/mail/": {
       "get": {
-        "description": "Return the 50 most recent mail headers belonging to the character that match the query criteria. Queries can be filtered by label, and last_mail_id can be used to paginate backwards.\n\n---\nAlternate route: `/dev/characters/{character_id}/mail/`\n\nAlternate route: `/legacy/characters/{character_id}/mail/`\n\nAlternate route: `/v1/characters/{character_id}/mail/`\n\n---\nThis route is cached for up to 30 seconds",
+        "description": "Return the 50 most recent mail headers belonging to the character that match the query criteria. Queries can be filtered by label, and last_mail_id can be used to paginate backwards\n\n---\nAlternate route: `/dev/characters/{character_id}/mail/`\n\nAlternate route: `/legacy/characters/{character_id}/mail/`\n\nAlternate route: `/v1/characters/{character_id}/mail/`\n\n---\nThis route is cached for up to 30 seconds",
         "operationId": "get_characters_character_id_mail",
         "parameters": [
           {
@@ -10170,7 +9828,7 @@
             }
           },
           "520": {
-            "description": "Internal error thrown from the EVE server. Most of the time this means you have hit an EVE server rate limit.",
+            "description": "Internal error thrown from the EVE server. Most of the time this means you have hit an EVE server rate limit",
             "examples": {
               "application/json": {
                 "error": "Error 520 message"
@@ -12056,7 +11714,7 @@
     },
     "/characters/{character_id}/notifications/": {
       "get": {
-        "description": "Return character notifications\n\n---\nAlternate route: `/dev/characters/{character_id}/notifications/`\n\nAlternate route: `/v2/characters/{character_id}/notifications/`\n\n---\nThis route is cached for up to 600 seconds",
+        "description": "Return character notifications\n\n---\nAlternate route: `/dev/characters/{character_id}/notifications/`\n\nAlternate route: `/v4/characters/{character_id}/notifications/`\n\n---\nThis route is cached for up to 600 seconds",
         "operationId": "get_characters_character_id_notifications",
         "parameters": [
           {
@@ -12192,6 +11850,7 @@
                       "CloneMovedMsg",
                       "CloneRevokedMsg1",
                       "CloneRevokedMsg2",
+                      "CombatOperationFinished",
                       "ContactAdd",
                       "ContactEdit",
                       "ContainerPasswordMsg",
@@ -12249,6 +11908,7 @@
                       "GiftReceived",
                       "IHubDestroyedByBillFailure",
                       "IncursionCompletedMsg",
+                      "IndustryOperationFinished",
                       "IndustryTeamAuctionLost",
                       "IndustryTeamAuctionWon",
                       "InfrastructureHubBillAboutToExpire",
@@ -12317,6 +11977,7 @@
                       "StructureDestroyed",
                       "StructureFuelAlert",
                       "StructureItemsDelivered",
+                      "StructureItemsMovedToSafety",
                       "StructureLostArmor",
                       "StructureLostShields",
                       "StructureOnline",
@@ -12325,6 +11986,8 @@
                       "StructureUnderAttack",
                       "StructureWentHighPower",
                       "StructureWentLowPower",
+                      "StructuresJobsCancelled",
+                      "StructuresJobsPaused",
                       "StructuresReinforcementChanged",
                       "TowerAlertMsg",
                       "TowerResourceAlertMsg",
@@ -12465,7 +12128,7 @@
         ],
         "x-alternate-versions": [
           "dev",
-          "v2"
+          "v4"
         ],
         "x-cached-seconds": 600
       }
@@ -13994,14 +13657,14 @@
                 ],
                 "pins": [
                   {
-                    "latitude": 1.5508784497,
-                    "longitude": 0.7171459333,
+                    "latitude": 1.55087844973,
+                    "longitude": 0.717145933308,
                     "pin_id": 1000000017021,
                     "type_id": 2254
                   },
                   {
-                    "latitude": 1.5336063994,
-                    "longitude": 0.7097755844,
+                    "latitude": 1.53360639935,
+                    "longitude": 0.709775584394,
                     "pin_id": 1000000017022,
                     "type_id": 2256
                   }
@@ -14471,7 +14134,7 @@
     },
     "/characters/{character_id}/portrait/": {
       "get": {
-        "description": "Get portrait urls for a character\n\n---\nAlternate route: `/dev/characters/{character_id}/portrait/`\n\nAlternate route: `/v2/characters/{character_id}/portrait/`\n\n---\nThis route is cached for up to 3600 seconds",
+        "description": "Get portrait urls for a character\n\n---\nAlternate route: `/dev/characters/{character_id}/portrait/`\n\nAlternate route: `/v2/characters/{character_id}/portrait/`\n\n---\nThis route expires daily at 11:05",
         "operationId": "get_characters_character_id_portrait",
         "parameters": [
           {
@@ -14645,8 +14308,7 @@
         "x-alternate-versions": [
           "dev",
           "v2"
-        ],
-        "x-cached-seconds": 3600
+        ]
       }
     },
     "/characters/{character_id}/roles/": {
@@ -16217,8 +15879,6 @@
                   "standing": {
                     "description": "standing number",
                     "format": "float",
-                    "maximum": 10,
-                    "minimum": -10,
                     "title": "get_characters_character_id_standings_standing",
                     "type": "number"
                   }
@@ -18748,7 +18408,7 @@
     },
     "/characters/{character_id}/wallet/journal/": {
       "get": {
-        "description": "Retrieve the given character's wallet journal going 30 days back\n\n---\nAlternate route: `/dev/characters/{character_id}/wallet/journal/`\n\nAlternate route: `/v4/characters/{character_id}/wallet/journal/`\n\n---\nThis route is cached for up to 3600 seconds",
+        "description": "Retrieve the given character's wallet journal going 30 days back\n\n---\nAlternate route: `/legacy/characters/{character_id}/wallet/journal/`\n\nAlternate route: `/v4/characters/{character_id}/wallet/journal/`\n\n---\nThis route is cached for up to 3600 seconds\n\n---\nWarning: This route has an upgrade available\n\n---\n[Diff of the upcoming changes](https://esi.evetech.net/diff/latest/dev/#GET-/characters/{character_id}/wallet/journal/)",
         "operationId": "get_characters_character_id_wallet_journal",
         "parameters": [
           {
@@ -18881,7 +18541,7 @@
                     "type": "string"
                   },
                   "ref_type": {
-                    "description": "The transaction type for the given transaction. Different transaction types will populate different attributes. Note: If you have an existing XML API application that is using ref_types, you will need to know which string ESI ref_type maps to which integer. You can look at the following file to see string->int mappings: https://github.com/ccpgames/eve-glue/blob/master/eve_glue/wallet_journal_ref.py",
+                    "description": "\"The transaction type for the given. transaction. Different transaction types will populate different attributes. Note: If you have an existing XML API application that is using ref_types, you will need to know which string ESI ref_type maps to which integer. You can look at the following file to see string->int mappings: https://github.com/ccpgames/eve-glue/blob/master/eve_glue/wallet_journal_ref.py\"",
                     "enum": [
                       "acceleration_gate_fee",
                       "advertisement_listing_fee",
@@ -19148,7 +18808,7 @@
           "Wallet"
         ],
         "x-alternate-versions": [
-          "dev",
+          "legacy",
           "v4"
         ],
         "x-cached-seconds": 3600
@@ -19419,9 +19079,844 @@
         "x-cached-seconds": 3600
       }
     },
+    "/contracts/public/bids/{contract_id}/": {
+      "get": {
+        "description": "Lists bids on a public auction contract\n\n---\nAlternate route: `/dev/contracts/public/bids/{contract_id}/`\n\nAlternate route: `/legacy/contracts/public/bids/{contract_id}/`\n\nAlternate route: `/v1/contracts/public/bids/{contract_id}/`\n\n---\nThis route is cached for up to 300 seconds",
+        "operationId": "get_contracts_public_bids_contract_id",
+        "parameters": [
+          {
+            "description": "ID of a contract",
+            "format": "int32",
+            "in": "path",
+            "name": "contract_id",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "$ref": "#/parameters/datasource"
+          },
+          {
+            "$ref": "#/parameters/If-None-Match"
+          },
+          {
+            "$ref": "#/parameters/page"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of bids",
+            "examples": {
+              "application/json": [
+                {
+                  "amount": 1.23,
+                  "bid_id": 1,
+                  "date_bid": "2017-01-01T10:10:10Z"
+                }
+              ]
+            },
+            "headers": {
+              "Cache-Control": {
+                "description": "The caching mechanism used",
+                "type": "string"
+              },
+              "ETag": {
+                "description": "RFC7232 compliant entity tag",
+                "type": "string"
+              },
+              "Expires": {
+                "description": "RFC7231 formatted datetime string",
+                "type": "string"
+              },
+              "Last-Modified": {
+                "description": "RFC7231 formatted datetime string",
+                "type": "string"
+              },
+              "X-Pages": {
+                "default": 1,
+                "description": "Maximum page number",
+                "format": "int32",
+                "type": "integer"
+              }
+            },
+            "schema": {
+              "description": "200 ok array",
+              "items": {
+                "description": "200 ok object",
+                "properties": {
+                  "amount": {
+                    "description": "The amount bid, in ISK",
+                    "format": "float",
+                    "title": "get_contracts_public_bids_contract_id_amount",
+                    "type": "number"
+                  },
+                  "bid_id": {
+                    "description": "Unique ID for the bid",
+                    "format": "int32",
+                    "title": "get_contracts_public_bids_contract_id_bid_id",
+                    "type": "integer"
+                  },
+                  "date_bid": {
+                    "description": "Datetime when the bid was placed",
+                    "format": "date-time",
+                    "title": "get_contracts_public_bids_contract_id_date_bid",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "bid_id",
+                  "date_bid",
+                  "amount"
+                ],
+                "title": "get_contracts_public_bids_contract_id_200_ok",
+                "type": "object"
+              },
+              "maxItems": 1000,
+              "title": "get_contracts_public_bids_contract_id_ok",
+              "type": "array"
+            }
+          },
+          "204": {
+            "description": "Contract expired or recently accepted by player",
+            "headers": {
+              "Cache-Control": {
+                "description": "The caching mechanism used",
+                "type": "string"
+              },
+              "ETag": {
+                "description": "RFC7232 compliant entity tag",
+                "type": "string"
+              },
+              "Expires": {
+                "description": "RFC7231 formatted datetime string",
+                "type": "string"
+              },
+              "Last-Modified": {
+                "description": "RFC7231 formatted datetime string",
+                "type": "string"
+              }
+            }
+          },
+          "304": {
+            "description": "Not modified",
+            "headers": {
+              "Cache-Control": {
+                "description": "The caching mechanism used",
+                "type": "string"
+              },
+              "ETag": {
+                "description": "RFC7232 compliant entity tag",
+                "type": "string"
+              },
+              "Expires": {
+                "description": "RFC7231 formatted datetime string",
+                "type": "string"
+              },
+              "Last-Modified": {
+                "description": "RFC7231 formatted datetime string",
+                "type": "string"
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "examples": {
+              "application/json": {
+                "error": "Bad request message"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/bad_request"
+            }
+          },
+          "403": {
+            "description": "Not Authorized to see contract",
+            "examples": {
+              "application/json": {
+                "error": "Forbidden message"
+              }
+            },
+            "schema": {
+              "description": "Forbidden",
+              "properties": {
+                "error": {
+                  "description": "Forbidden message",
+                  "title": "get_contracts_public_bids_contract_id_403_forbidden",
+                  "type": "string"
+                }
+              },
+              "title": "get_contracts_public_bids_contract_id_forbidden",
+              "type": "object"
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "examples": {
+              "application/json": {
+                "error": "Not found message"
+              }
+            },
+            "schema": {
+              "description": "Not found",
+              "properties": {
+                "error": {
+                  "description": "Not found message",
+                  "title": "get_contracts_public_bids_contract_id_404_not_found",
+                  "type": "string"
+                }
+              },
+              "title": "get_contracts_public_bids_contract_id_not_found",
+              "type": "object"
+            }
+          },
+          "420": {
+            "description": "Error limited",
+            "examples": {
+              "application/json": {
+                "error": "Error limited message"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/error_limited"
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "examples": {
+              "application/json": {
+                "error": "Internal server error message"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/internal_server_error"
+            }
+          },
+          "503": {
+            "description": "Service unavailable",
+            "examples": {
+              "application/json": {
+                "error": "Service unavailable message"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/service_unavailable"
+            }
+          },
+          "504": {
+            "description": "Gateway timeout",
+            "examples": {
+              "application/json": {
+                "error": "Gateway timeout message"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/gateway_timeout"
+            }
+          }
+        },
+        "summary": "Get public contract bids",
+        "tags": [
+          "Contracts"
+        ],
+        "x-alternate-versions": [
+          "dev",
+          "legacy",
+          "v1"
+        ],
+        "x-cached-seconds": 300
+      }
+    },
+    "/contracts/public/items/{contract_id}/": {
+      "get": {
+        "description": "Lists items of a public contract\n\n---\nAlternate route: `/dev/contracts/public/items/{contract_id}/`\n\nAlternate route: `/legacy/contracts/public/items/{contract_id}/`\n\nAlternate route: `/v1/contracts/public/items/{contract_id}/`\n\n---\nThis route is cached for up to 3600 seconds",
+        "operationId": "get_contracts_public_items_contract_id",
+        "parameters": [
+          {
+            "description": "ID of a contract",
+            "format": "int32",
+            "in": "path",
+            "name": "contract_id",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "$ref": "#/parameters/datasource"
+          },
+          {
+            "$ref": "#/parameters/If-None-Match"
+          },
+          {
+            "$ref": "#/parameters/page"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of items in this contract",
+            "examples": {
+              "application/json": [
+                {
+                  "is_included": true,
+                  "item_id": 123456,
+                  "quantity": 1,
+                  "record_id": 123456,
+                  "type_id": 587
+                }
+              ]
+            },
+            "headers": {
+              "Cache-Control": {
+                "description": "The caching mechanism used",
+                "type": "string"
+              },
+              "ETag": {
+                "description": "RFC7232 compliant entity tag",
+                "type": "string"
+              },
+              "Expires": {
+                "description": "RFC7231 formatted datetime string",
+                "type": "string"
+              },
+              "Last-Modified": {
+                "description": "RFC7231 formatted datetime string",
+                "type": "string"
+              },
+              "X-Pages": {
+                "default": 1,
+                "description": "Maximum page number",
+                "format": "int32",
+                "type": "integer"
+              }
+            },
+            "schema": {
+              "description": "200 ok array",
+              "items": {
+                "description": "200 ok object",
+                "properties": {
+                  "is_blueprint_copy": {
+                    "description": "is_blueprint_copy boolean",
+                    "title": "get_contracts_public_items_contract_id_is_blueprint_copy",
+                    "type": "boolean"
+                  },
+                  "is_included": {
+                    "description": "true if the contract issuer has submitted this item with the contract, false if the isser is asking for this item in the contract",
+                    "title": "get_contracts_public_items_contract_id_is_included",
+                    "type": "boolean"
+                  },
+                  "item_id": {
+                    "description": "Unique ID for the item being sold. Not present if item is being requested by contract rather than sold with contract",
+                    "format": "int64",
+                    "title": "get_contracts_public_items_contract_id_item_id",
+                    "type": "integer"
+                  },
+                  "material_efficiency": {
+                    "description": "Material Efficiency Level of the blueprint",
+                    "format": "int32",
+                    "maximum": 25,
+                    "minimum": 0,
+                    "title": "get_contracts_public_items_contract_id_material_efficiency",
+                    "type": "integer"
+                  },
+                  "quantity": {
+                    "description": "Number of items in the stack",
+                    "format": "int32",
+                    "title": "get_contracts_public_items_contract_id_quantity",
+                    "type": "integer"
+                  },
+                  "record_id": {
+                    "description": "Unique ID for the item, used by the contract system",
+                    "format": "int64",
+                    "title": "get_contracts_public_items_contract_id_record_id",
+                    "type": "integer"
+                  },
+                  "runs": {
+                    "description": "Number of runs remaining if the blueprint is a copy, -1 if it is an original",
+                    "format": "int32",
+                    "minimum": -1,
+                    "title": "get_contracts_public_items_contract_id_runs",
+                    "type": "integer"
+                  },
+                  "time_efficiency": {
+                    "description": "Time Efficiency Level of the blueprint",
+                    "format": "int32",
+                    "maximum": 20,
+                    "minimum": 0,
+                    "title": "get_contracts_public_items_contract_id_time_efficiency",
+                    "type": "integer"
+                  },
+                  "type_id": {
+                    "description": "Type ID for item",
+                    "format": "int32",
+                    "title": "get_contracts_public_items_contract_id_type_id",
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "record_id",
+                  "type_id",
+                  "quantity",
+                  "is_included"
+                ],
+                "title": "get_contracts_public_items_contract_id_200_ok",
+                "type": "object"
+              },
+              "maxItems": 1000,
+              "title": "get_contracts_public_items_contract_id_ok",
+              "type": "array"
+            }
+          },
+          "204": {
+            "description": "Contract expired or recently accepted by player",
+            "headers": {
+              "Cache-Control": {
+                "description": "The caching mechanism used",
+                "type": "string"
+              },
+              "ETag": {
+                "description": "RFC7232 compliant entity tag",
+                "type": "string"
+              },
+              "Expires": {
+                "description": "RFC7231 formatted datetime string",
+                "type": "string"
+              },
+              "Last-Modified": {
+                "description": "RFC7231 formatted datetime string",
+                "type": "string"
+              }
+            }
+          },
+          "304": {
+            "description": "Not modified",
+            "headers": {
+              "Cache-Control": {
+                "description": "The caching mechanism used",
+                "type": "string"
+              },
+              "ETag": {
+                "description": "RFC7232 compliant entity tag",
+                "type": "string"
+              },
+              "Expires": {
+                "description": "RFC7231 formatted datetime string",
+                "type": "string"
+              },
+              "Last-Modified": {
+                "description": "RFC7231 formatted datetime string",
+                "type": "string"
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "examples": {
+              "application/json": {
+                "error": "Bad request message"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/bad_request"
+            }
+          },
+          "403": {
+            "description": "Not Authorized to see contract",
+            "examples": {
+              "application/json": {
+                "error": "Forbidden message"
+              }
+            },
+            "schema": {
+              "description": "Forbidden",
+              "properties": {
+                "error": {
+                  "description": "Forbidden message",
+                  "title": "get_contracts_public_items_contract_id_403_forbidden",
+                  "type": "string"
+                }
+              },
+              "title": "get_contracts_public_items_contract_id_forbidden",
+              "type": "object"
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "examples": {
+              "application/json": {
+                "error": "Not found message"
+              }
+            },
+            "schema": {
+              "description": "Not found",
+              "properties": {
+                "error": {
+                  "description": "Not found message",
+                  "title": "get_contracts_public_items_contract_id_404_not_found",
+                  "type": "string"
+                }
+              },
+              "title": "get_contracts_public_items_contract_id_not_found",
+              "type": "object"
+            }
+          },
+          "420": {
+            "description": "Error limited",
+            "examples": {
+              "application/json": {
+                "error": "Error limited message"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/error_limited"
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "examples": {
+              "application/json": {
+                "error": "Internal server error message"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/internal_server_error"
+            }
+          },
+          "503": {
+            "description": "Service unavailable",
+            "examples": {
+              "application/json": {
+                "error": "Service unavailable message"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/service_unavailable"
+            }
+          },
+          "504": {
+            "description": "Gateway timeout",
+            "examples": {
+              "application/json": {
+                "error": "Gateway timeout message"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/gateway_timeout"
+            }
+          }
+        },
+        "summary": "Get public contract items",
+        "tags": [
+          "Contracts"
+        ],
+        "x-alternate-versions": [
+          "dev",
+          "legacy",
+          "v1"
+        ],
+        "x-cached-seconds": 3600
+      }
+    },
+    "/contracts/public/{region_id}/": {
+      "get": {
+        "description": "Returns a paginated list of all public contracts in the given region\n\n---\nAlternate route: `/dev/contracts/public/{region_id}/`\n\nAlternate route: `/legacy/contracts/public/{region_id}/`\n\nAlternate route: `/v1/contracts/public/{region_id}/`\n\n---\nThis route is cached for up to 1800 seconds",
+        "operationId": "get_contracts_public_region_id",
+        "parameters": [
+          {
+            "$ref": "#/parameters/datasource"
+          },
+          {
+            "$ref": "#/parameters/If-None-Match"
+          },
+          {
+            "$ref": "#/parameters/page"
+          },
+          {
+            "description": "An EVE region id",
+            "format": "int32",
+            "in": "path",
+            "name": "region_id",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of contracts",
+            "examples": {
+              "application/json": [
+                {
+                  "buyout": 10000000000.01,
+                  "contract_id": 1,
+                  "date_expired": "2017-06-13T13:12:32Z",
+                  "date_issued": "2017-06-06T13:12:32Z",
+                  "days_to_complete": 0,
+                  "end_location_id": 60014719,
+                  "for_corporation": true,
+                  "issuer_corporation_id": 456,
+                  "issuer_id": 123,
+                  "price": 1000000.01,
+                  "reward": 0.01,
+                  "start_location_id": 60014719,
+                  "type": "auction",
+                  "volume": 0.01
+                }
+              ]
+            },
+            "headers": {
+              "Cache-Control": {
+                "description": "The caching mechanism used",
+                "type": "string"
+              },
+              "ETag": {
+                "description": "RFC7232 compliant entity tag",
+                "type": "string"
+              },
+              "Expires": {
+                "description": "RFC7231 formatted datetime string",
+                "type": "string"
+              },
+              "Last-Modified": {
+                "description": "RFC7231 formatted datetime string",
+                "type": "string"
+              },
+              "X-Pages": {
+                "default": 1,
+                "description": "Maximum page number",
+                "format": "int32",
+                "type": "integer"
+              }
+            },
+            "schema": {
+              "description": "200 ok array",
+              "items": {
+                "description": "200 ok object",
+                "properties": {
+                  "buyout": {
+                    "description": "Buyout price (for Auctions only)",
+                    "format": "double",
+                    "title": "get_contracts_public_region_id_buyout",
+                    "type": "number"
+                  },
+                  "collateral": {
+                    "description": "Collateral price (for Couriers only)",
+                    "format": "double",
+                    "title": "get_contracts_public_region_id_collateral",
+                    "type": "number"
+                  },
+                  "contract_id": {
+                    "description": "contract_id integer",
+                    "format": "int32",
+                    "title": "get_contracts_public_region_id_contract_id",
+                    "type": "integer"
+                  },
+                  "date_expired": {
+                    "description": "Expiration date of the contract",
+                    "format": "date-time",
+                    "title": "get_contracts_public_region_id_date_expired",
+                    "type": "string"
+                  },
+                  "date_issued": {
+                    "description": "Сreation date of the contract",
+                    "format": "date-time",
+                    "title": "get_contracts_public_region_id_date_issued",
+                    "type": "string"
+                  },
+                  "days_to_complete": {
+                    "description": "Number of days to perform the contract",
+                    "format": "int32",
+                    "title": "get_contracts_public_region_id_days_to_complete",
+                    "type": "integer"
+                  },
+                  "end_location_id": {
+                    "description": "End location ID (for Couriers contract)",
+                    "format": "int64",
+                    "title": "get_contracts_public_region_id_end_location_id",
+                    "type": "integer"
+                  },
+                  "for_corporation": {
+                    "description": "true if the contract was issued on behalf of the issuer's corporation",
+                    "title": "get_contracts_public_region_id_for_corporation",
+                    "type": "boolean"
+                  },
+                  "issuer_corporation_id": {
+                    "description": "Character's corporation ID for the issuer",
+                    "format": "int32",
+                    "title": "get_contracts_public_region_id_issuer_corporation_id",
+                    "type": "integer"
+                  },
+                  "issuer_id": {
+                    "description": "Character ID for the issuer",
+                    "format": "int32",
+                    "title": "get_contracts_public_region_id_issuer_id",
+                    "type": "integer"
+                  },
+                  "price": {
+                    "description": "Price of contract (for ItemsExchange and Auctions)",
+                    "format": "double",
+                    "title": "get_contracts_public_region_id_price",
+                    "type": "number"
+                  },
+                  "reward": {
+                    "description": "Remuneration for contract (for Couriers only)",
+                    "format": "double",
+                    "title": "get_contracts_public_region_id_reward",
+                    "type": "number"
+                  },
+                  "start_location_id": {
+                    "description": "Start location ID (for Couriers contract)",
+                    "format": "int64",
+                    "title": "get_contracts_public_region_id_start_location_id",
+                    "type": "integer"
+                  },
+                  "title": {
+                    "description": "Title of the contract",
+                    "title": "get_contracts_public_region_id_title",
+                    "type": "string"
+                  },
+                  "type": {
+                    "description": "Type of the contract",
+                    "enum": [
+                      "unknown",
+                      "item_exchange",
+                      "auction",
+                      "courier",
+                      "loan"
+                    ],
+                    "title": "get_contracts_public_region_id_type",
+                    "type": "string"
+                  },
+                  "volume": {
+                    "description": "Volume of items in the contract",
+                    "format": "double",
+                    "title": "get_contracts_public_region_id_volume",
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "contract_id",
+                  "issuer_id",
+                  "issuer_corporation_id",
+                  "type",
+                  "date_issued",
+                  "date_expired"
+                ],
+                "title": "get_contracts_public_region_id_200_ok",
+                "type": "object"
+              },
+              "maxItems": 1000,
+              "title": "get_contracts_public_region_id_ok",
+              "type": "array"
+            }
+          },
+          "304": {
+            "description": "Not modified",
+            "headers": {
+              "Cache-Control": {
+                "description": "The caching mechanism used",
+                "type": "string"
+              },
+              "ETag": {
+                "description": "RFC7232 compliant entity tag",
+                "type": "string"
+              },
+              "Expires": {
+                "description": "RFC7231 formatted datetime string",
+                "type": "string"
+              },
+              "Last-Modified": {
+                "description": "RFC7231 formatted datetime string",
+                "type": "string"
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "examples": {
+              "application/json": {
+                "error": "Bad request message"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/bad_request"
+            }
+          },
+          "404": {
+            "description": "Region not found",
+            "examples": {
+              "application/json": {
+                "error": "Not found message"
+              }
+            },
+            "schema": {
+              "description": "Not found",
+              "properties": {
+                "error": {
+                  "description": "Not found message",
+                  "title": "get_contracts_public_region_id_404_not_found",
+                  "type": "string"
+                }
+              },
+              "title": "get_contracts_public_region_id_not_found",
+              "type": "object"
+            }
+          },
+          "420": {
+            "description": "Error limited",
+            "examples": {
+              "application/json": {
+                "error": "Error limited message"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/error_limited"
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "examples": {
+              "application/json": {
+                "error": "Internal server error message"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/internal_server_error"
+            }
+          },
+          "503": {
+            "description": "Service unavailable",
+            "examples": {
+              "application/json": {
+                "error": "Service unavailable message"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/service_unavailable"
+            }
+          },
+          "504": {
+            "description": "Gateway timeout",
+            "examples": {
+              "application/json": {
+                "error": "Gateway timeout message"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/gateway_timeout"
+            }
+          }
+        },
+        "summary": "Get public contracts",
+        "tags": [
+          "Contracts"
+        ],
+        "x-alternate-versions": [
+          "dev",
+          "legacy",
+          "v1"
+        ],
+        "x-cached-seconds": 1800
+      }
+    },
     "/corporation/{corporation_id}/mining/extractions/": {
       "get": {
-        "description": "Extraction timers for all moon chunks being extracted by refineries belonging to a corporation.\n\n\n---\nAlternate route: `/dev/corporation/{corporation_id}/mining/extractions/`\n\nAlternate route: `/legacy/corporation/{corporation_id}/mining/extractions/`\n\nAlternate route: `/v1/corporation/{corporation_id}/mining/extractions/`\n\n---\nThis route is cached for up to 1800 seconds\n\n---\nRequires one of the following EVE corporation role(s): Structure_manager\n",
+        "description": "Extraction timers for all moon chunks being extracted by refineries belonging to a corporation.\n\n\n---\nAlternate route: `/dev/corporation/{corporation_id}/mining/extractions/`\n\nAlternate route: `/legacy/corporation/{corporation_id}/mining/extractions/`\n\nAlternate route: `/v1/corporation/{corporation_id}/mining/extractions/`\n\n---\nThis route is cached for up to 1800 seconds\n\n---\nRequires one of the following EVE corporation role(s): Station_Manager\n",
         "operationId": "get_corporation_corporation_id_mining_extractions",
         "parameters": [
           {
@@ -19646,7 +20141,7 @@
         ],
         "x-cached-seconds": 1800,
         "x-required-roles": [
-          "Structure_manager"
+          "Station_Manager"
         ]
       }
     },
@@ -20106,177 +20601,6 @@
         ]
       }
     },
-    "/corporations/names/": {
-      "get": {
-        "description": "Resolve a set of corporation IDs to corporation names\n\n---\nAlternate route: `/dev/corporations/names/`\n\nAlternate route: `/v2/corporations/names/`\n\n---\nThis route is cached for up to 3600 seconds",
-        "operationId": "get_corporations_names",
-        "parameters": [
-          {
-            "description": "A comma separated list of corporation IDs",
-            "in": "query",
-            "items": {
-              "format": "int32",
-              "type": "integer"
-            },
-            "maxItems": 100,
-            "minItems": 1,
-            "name": "corporation_ids",
-            "required": true,
-            "type": "array"
-          },
-          {
-            "$ref": "#/parameters/datasource"
-          },
-          {
-            "$ref": "#/parameters/If-None-Match"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "List of id/name associations",
-            "examples": {
-              "application/json": [
-                {
-                  "corporation_id": 1000171,
-                  "corporation_name": "Republic University"
-                }
-              ]
-            },
-            "headers": {
-              "Cache-Control": {
-                "description": "The caching mechanism used",
-                "type": "string"
-              },
-              "ETag": {
-                "description": "RFC7232 compliant entity tag",
-                "type": "string"
-              },
-              "Expires": {
-                "description": "RFC7231 formatted datetime string",
-                "type": "string"
-              },
-              "Last-Modified": {
-                "description": "RFC7231 formatted datetime string",
-                "type": "string"
-              }
-            },
-            "schema": {
-              "description": "200 ok array",
-              "items": {
-                "description": "200 ok object",
-                "properties": {
-                  "corporation_id": {
-                    "description": "corporation_id integer",
-                    "format": "int32",
-                    "title": "get_corporations_names_corporation_id",
-                    "type": "integer"
-                  },
-                  "corporation_name": {
-                    "description": "corporation_name string",
-                    "title": "get_corporations_names_corporation_name",
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "corporation_id",
-                  "corporation_name"
-                ],
-                "title": "get_corporations_names_200_ok",
-                "type": "object"
-              },
-              "maxItems": 100,
-              "title": "get_corporations_names_ok",
-              "type": "array"
-            }
-          },
-          "304": {
-            "description": "Not modified",
-            "headers": {
-              "Cache-Control": {
-                "description": "The caching mechanism used",
-                "type": "string"
-              },
-              "ETag": {
-                "description": "RFC7232 compliant entity tag",
-                "type": "string"
-              },
-              "Expires": {
-                "description": "RFC7231 formatted datetime string",
-                "type": "string"
-              },
-              "Last-Modified": {
-                "description": "RFC7231 formatted datetime string",
-                "type": "string"
-              }
-            }
-          },
-          "400": {
-            "description": "Bad request",
-            "examples": {
-              "application/json": {
-                "error": "Bad request message"
-              }
-            },
-            "schema": {
-              "$ref": "#/definitions/bad_request"
-            }
-          },
-          "420": {
-            "description": "Error limited",
-            "examples": {
-              "application/json": {
-                "error": "Error limited message"
-              }
-            },
-            "schema": {
-              "$ref": "#/definitions/error_limited"
-            }
-          },
-          "500": {
-            "description": "Internal server error",
-            "examples": {
-              "application/json": {
-                "error": "Internal server error message"
-              }
-            },
-            "schema": {
-              "$ref": "#/definitions/internal_server_error"
-            }
-          },
-          "503": {
-            "description": "Service unavailable",
-            "examples": {
-              "application/json": {
-                "error": "Service unavailable message"
-              }
-            },
-            "schema": {
-              "$ref": "#/definitions/service_unavailable"
-            }
-          },
-          "504": {
-            "description": "Gateway timeout",
-            "examples": {
-              "application/json": {
-                "error": "Gateway timeout message"
-              }
-            },
-            "schema": {
-              "$ref": "#/definitions/gateway_timeout"
-            }
-          }
-        },
-        "summary": "Get corporation names",
-        "tags": [
-          "Corporation"
-        ],
-        "x-alternate-versions": [
-          "dev",
-          "v2"
-        ],
-        "x-cached-seconds": 3600
-      }
-    },
     "/corporations/npccorps/": {
       "get": {
         "description": "Get a list of npc corporations\n\n---\nAlternate route: `/dev/corporations/npccorps/`\n\nAlternate route: `/legacy/corporations/npccorps/`\n\nAlternate route: `/v1/corporations/npccorps/`\n\n---\nThis route expires daily at 11:05",
@@ -20546,6 +20870,11 @@
                   "description": "url string",
                   "title": "get_corporations_corporation_id_url",
                   "type": "string"
+                },
+                "war_eligible": {
+                  "description": "war_eligible boolean",
+                  "title": "get_corporations_corporation_id_war_eligible",
+                  "type": "boolean"
                 }
               },
               "required": [
@@ -20874,6 +21203,7 @@
             "examples": {
               "application/json": [
                 {
+                  "is_blueprint_copy": true,
                   "is_singleton": true,
                   "item_id": 1000000016835,
                   "location_flag": "Hangar",
@@ -20913,6 +21243,11 @@
               "items": {
                 "description": "200 ok object",
                 "properties": {
+                  "is_blueprint_copy": {
+                    "description": "is_blueprint_copy boolean",
+                    "title": "get_corporations_corporation_id_assets_is_blueprint_copy",
+                    "type": "boolean"
+                  },
                   "is_singleton": {
                     "description": "is_singleton boolean",
                     "title": "get_corporations_corporation_id_assets_is_singleton",
@@ -21436,7 +21771,7 @@
     },
     "/corporations/{corporation_id}/assets/names/": {
       "post": {
-        "description": "Return names for a set of item ids, which you can get from corporation assets endpoint. Only valid for items that can customize names, like containers or ships.\n\n---\nAlternate route: `/dev/corporations/{corporation_id}/assets/names/`\n\nAlternate route: `/legacy/corporations/{corporation_id}/assets/names/`\n\nAlternate route: `/v1/corporations/{corporation_id}/assets/names/`\n\n\n---\nRequires one of the following EVE corporation role(s): Director\n",
+        "description": "Return names for a set of item ids, which you can get from corporation assets endpoint. Only valid for items that can customize names, like containers or ships\n\n---\nAlternate route: `/dev/corporations/{corporation_id}/assets/names/`\n\nAlternate route: `/legacy/corporations/{corporation_id}/assets/names/`\n\nAlternate route: `/v1/corporations/{corporation_id}/assets/names/`\n\n\n---\nRequires one of the following EVE corporation role(s): Director\n",
         "operationId": "post_corporations_corporation_id_assets_names",
         "parameters": [
           {
@@ -21614,7 +21949,7 @@
             ]
           }
         ],
-        "summary": "Get coporation asset names",
+        "summary": "Get corporation asset names",
         "tags": [
           "Assets"
         ],
@@ -22527,7 +22862,7 @@
     },
     "/corporations/{corporation_id}/contacts/": {
       "get": {
-        "description": "Return contacts of a corporation\n\n---\nAlternate route: `/legacy/corporations/{corporation_id}/contacts/`\n\nAlternate route: `/v1/corporations/{corporation_id}/contacts/`\n\n---\nThis route is cached for up to 300 seconds\n\n---\nWarning: This route has an upgrade available.\n\n---\n[Diff of the upcoming changes](https://esi.evetech.net/diff/latest/dev/#GET-/corporations/{corporation_id}/contacts/)",
+        "description": "Return contacts of a corporation\n\n---\nAlternate route: `/dev/corporations/{corporation_id}/contacts/`\n\nAlternate route: `/v2/corporations/{corporation_id}/contacts/`\n\n---\nThis route is cached for up to 300 seconds",
         "operationId": "get_corporations_corporation_id_contacts",
         "parameters": [
           {
@@ -22610,11 +22945,17 @@
                     "title": "get_corporations_corporation_id_contacts_is_watched",
                     "type": "boolean"
                   },
-                  "label_id": {
-                    "description": "Custom label of the contact",
-                    "format": "int64",
-                    "title": "get_corporations_corporation_id_contacts_label_id",
-                    "type": "integer"
+                  "label_ids": {
+                    "description": "label_ids array",
+                    "items": {
+                      "description": "Label IDs applied to the contact",
+                      "format": "int64",
+                      "title": "get_corporations_corporation_id_contacts_label_id",
+                      "type": "integer"
+                    },
+                    "maxItems": 63,
+                    "title": "get_corporations_corporation_id_contacts_label_ids",
+                    "type": "array"
                   },
                   "standing": {
                     "description": "Standing of the contact",
@@ -22747,8 +23088,8 @@
           "Contacts"
         ],
         "x-alternate-versions": [
-          "legacy",
-          "v1"
+          "dev",
+          "v2"
         ],
         "x-cached-seconds": 300,
         "x-required-roles": []
@@ -24061,7 +24402,7 @@
                 "description": "200 ok object",
                 "properties": {
                   "is_included": {
-                    "description": "true if the contract issuer has submitted this item with the contract, false if the isser is asking for this item in the contract.",
+                    "description": "true if the contract issuer has submitted this item with the contract, false if the isser is asking for this item in the contract",
                     "title": "get_corporations_corporation_id_contracts_contract_id_items_is_included",
                     "type": "boolean"
                   },
@@ -24229,7 +24570,7 @@
             }
           },
           "520": {
-            "description": "Internal error thrown from the EVE server. Most of the time this means you have hit an EVE server rate limit.",
+            "description": "Internal error thrown from the EVE server. Most of the time this means you have hit an EVE server rate limit",
             "examples": {
               "application/json": {
                 "error": "Error 520 message"
@@ -25455,7 +25796,7 @@
     },
     "/corporations/{corporation_id}/industry/jobs/": {
       "get": {
-        "description": "List industry jobs run by a corporation\n\n---\nAlternate route: `/dev/corporations/{corporation_id}/industry/jobs/`\n\nAlternate route: `/legacy/corporations/{corporation_id}/industry/jobs/`\n\nAlternate route: `/v1/corporations/{corporation_id}/industry/jobs/`\n\n---\nThis route is cached for up to 300 seconds\n\n---\nRequires one of the following EVE corporation role(s): FactoryManager\n",
+        "description": "List industry jobs run by a corporation\n\n---\nAlternate route: `/dev/corporations/{corporation_id}/industry/jobs/`\n\nAlternate route: `/legacy/corporations/{corporation_id}/industry/jobs/`\n\nAlternate route: `/v1/corporations/{corporation_id}/industry/jobs/`\n\n---\nThis route is cached for up to 300 seconds\n\n---\nRequires one of the following EVE corporation role(s): Factory_Manager\n",
         "operationId": "get_corporations_corporation_id_industry_jobs",
         "parameters": [
           {
@@ -25469,7 +25810,7 @@
           },
           {
             "default": false,
-            "description": "Whether retrieve completed industry jobs as well",
+            "description": "Whether to retrieve completed corporation industry jobs. Only includes jobs from the past 90 days",
             "in": "query",
             "name": "include_completed",
             "required": false,
@@ -25817,7 +26158,7 @@
         ],
         "x-cached-seconds": 300,
         "x-required-roles": [
-          "FactoryManager"
+          "Factory_Manager"
         ]
       }
     },
@@ -27292,7 +27633,7 @@
     },
     "/corporations/{corporation_id}/orders/": {
       "get": {
-        "description": "List open market orders placed on behalf of a corporation\n\n---\nAlternate route: `/dev/corporations/{corporation_id}/orders/`\n\nAlternate route: `/v2/corporations/{corporation_id}/orders/`\n\n---\nThis route is cached for up to 1200 seconds\n\n---\nRequires one of the following EVE corporation role(s): Accountant, Trader\n",
+        "description": "List open market orders placed on behalf of a corporation\n\n---\nAlternate route: `/dev/corporations/{corporation_id}/orders/`\n\nAlternate route: `/v3/corporations/{corporation_id}/orders/`\n\n---\nThis route is cached for up to 1200 seconds\n\n---\nRequires one of the following EVE corporation role(s): Accountant, Trader\n",
         "operationId": "get_corporations_corporation_id_orders",
         "parameters": [
           {
@@ -27321,6 +27662,7 @@
                   "escrow": 45.6,
                   "is_buy_order": true,
                   "issued": "2016-09-03T05:12:25Z",
+                  "issued_by": 2112625428,
                   "location_id": 456,
                   "min_volume": 1,
                   "order_id": 123,
@@ -27385,6 +27727,12 @@
                     "format": "date-time",
                     "title": "get_corporations_corporation_id_orders_issued",
                     "type": "string"
+                  },
+                  "issued_by": {
+                    "description": "The character who issued this order",
+                    "format": "int32",
+                    "title": "get_corporations_corporation_id_orders_issued_by",
+                    "type": "integer"
                   },
                   "location_id": {
                     "description": "ID of the location where order was placed",
@@ -27473,7 +27821,8 @@
                   "price",
                   "volume_total",
                   "volume_remain",
-                  "issued"
+                  "issued",
+                  "issued_by"
                 ],
                 "title": "get_corporations_corporation_id_orders_200_ok",
                 "type": "object"
@@ -27595,7 +27944,7 @@
         ],
         "x-alternate-versions": [
           "dev",
-          "v2"
+          "v3"
         ],
         "x-cached-seconds": 1200,
         "x-required-roles": [
@@ -27606,7 +27955,7 @@
     },
     "/corporations/{corporation_id}/orders/history/": {
       "get": {
-        "description": "List cancelled and expired market orders placed on behalf of a corporation up to 90 days in the past.\n\n---\nAlternate route: `/dev/corporations/{corporation_id}/orders/history/`\n\nAlternate route: `/legacy/corporations/{corporation_id}/orders/history/`\n\nAlternate route: `/v1/corporations/{corporation_id}/orders/history/`\n\n---\nThis route is cached for up to 3600 seconds\n\n---\nRequires one of the following EVE corporation role(s): Accountant, Trader\n",
+        "description": "List cancelled and expired market orders placed on behalf of a corporation up to 90 days in the past.\n\n---\nAlternate route: `/dev/corporations/{corporation_id}/orders/history/`\n\nAlternate route: `/v2/corporations/{corporation_id}/orders/history/`\n\n---\nThis route is cached for up to 3600 seconds\n\n---\nRequires one of the following EVE corporation role(s): Accountant, Trader\n",
         "operationId": "get_corporations_corporation_id_orders_history",
         "parameters": [
           {
@@ -27635,6 +27984,7 @@
                   "escrow": 45.6,
                   "is_buy_order": true,
                   "issued": "2016-09-03T05:12:25Z",
+                  "issued_by": 2112625428,
                   "location_id": 456,
                   "min_volume": 1,
                   "order_id": 123,
@@ -27700,6 +28050,12 @@
                     "format": "date-time",
                     "title": "get_corporations_corporation_id_orders_history_issued",
                     "type": "string"
+                  },
+                  "issued_by": {
+                    "description": "The character who issued this order",
+                    "format": "int32",
+                    "title": "get_corporations_corporation_id_orders_history_issued_by",
+                    "type": "integer"
                   },
                   "location_id": {
                     "description": "ID of the location where order was placed",
@@ -27778,7 +28134,7 @@
                     "type": "integer"
                   },
                   "wallet_division": {
-                    "description": "The corporation wallet division used for this order.",
+                    "description": "The corporation wallet division used for this order",
                     "format": "int32",
                     "maximum": 7,
                     "minimum": 1,
@@ -27920,565 +28276,12 @@
         ],
         "x-alternate-versions": [
           "dev",
-          "legacy",
-          "v1"
+          "v2"
         ],
         "x-cached-seconds": 3600,
         "x-required-roles": [
           "Accountant",
           "Trader"
-        ]
-      }
-    },
-    "/corporations/{corporation_id}/outposts/": {
-      "get": {
-        "description": "Get a list of corporation outpost IDs Note: This endpoint will be removed once outposts are migrated to Citadels as talked about in this blog: https://community.eveonline.com/news/dev-blogs/the-next-steps-in-structure-transition/\n\n---\nAlternate route: `/dev/corporations/{corporation_id}/outposts/`\n\nAlternate route: `/legacy/corporations/{corporation_id}/outposts/`\n\nAlternate route: `/v1/corporations/{corporation_id}/outposts/`\n\n---\nThis route is cached for up to 3600 seconds\n\n---\nRequires one of the following EVE corporation role(s): Director\n",
-        "operationId": "get_corporations_corporation_id_outposts",
-        "parameters": [
-          {
-            "$ref": "#/parameters/corporation_id"
-          },
-          {
-            "$ref": "#/parameters/datasource"
-          },
-          {
-            "$ref": "#/parameters/If-None-Match"
-          },
-          {
-            "$ref": "#/parameters/page"
-          },
-          {
-            "$ref": "#/parameters/token"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "List of corporation outpost IDs",
-            "examples": {
-              "application/json": [
-                61001146,
-                61001147,
-                61001148
-              ]
-            },
-            "headers": {
-              "Cache-Control": {
-                "description": "The caching mechanism used",
-                "type": "string"
-              },
-              "ETag": {
-                "description": "RFC7232 compliant entity tag",
-                "type": "string"
-              },
-              "Expires": {
-                "description": "RFC7231 formatted datetime string",
-                "type": "string"
-              },
-              "Last-Modified": {
-                "description": "RFC7231 formatted datetime string",
-                "type": "string"
-              },
-              "X-Pages": {
-                "default": 1,
-                "description": "Maximum page number",
-                "format": "int32",
-                "type": "integer"
-              }
-            },
-            "schema": {
-              "description": "200 ok array",
-              "items": {
-                "description": "200 ok integer",
-                "format": "int32",
-                "title": "get_corporations_corporation_id_outposts_200_ok",
-                "type": "integer"
-              },
-              "maxItems": 1000,
-              "title": "get_corporations_corporation_id_outposts_ok",
-              "type": "array",
-              "uniqueItems": true
-            }
-          },
-          "304": {
-            "description": "Not modified",
-            "headers": {
-              "Cache-Control": {
-                "description": "The caching mechanism used",
-                "type": "string"
-              },
-              "ETag": {
-                "description": "RFC7232 compliant entity tag",
-                "type": "string"
-              },
-              "Expires": {
-                "description": "RFC7231 formatted datetime string",
-                "type": "string"
-              },
-              "Last-Modified": {
-                "description": "RFC7231 formatted datetime string",
-                "type": "string"
-              }
-            }
-          },
-          "400": {
-            "description": "Bad request",
-            "examples": {
-              "application/json": {
-                "error": "Bad request message"
-              }
-            },
-            "schema": {
-              "$ref": "#/definitions/bad_request"
-            }
-          },
-          "401": {
-            "description": "Unauthorized",
-            "examples": {
-              "application/json": {
-                "error": "Unauthorized message"
-              }
-            },
-            "schema": {
-              "$ref": "#/definitions/unauthorized"
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "examples": {
-              "application/json": {
-                "error": "Forbidden message"
-              }
-            },
-            "schema": {
-              "$ref": "#/definitions/forbidden"
-            }
-          },
-          "420": {
-            "description": "Error limited",
-            "examples": {
-              "application/json": {
-                "error": "Error limited message"
-              }
-            },
-            "schema": {
-              "$ref": "#/definitions/error_limited"
-            }
-          },
-          "500": {
-            "description": "Internal server error",
-            "examples": {
-              "application/json": {
-                "error": "Internal server error message"
-              }
-            },
-            "schema": {
-              "$ref": "#/definitions/internal_server_error"
-            }
-          },
-          "503": {
-            "description": "Service unavailable",
-            "examples": {
-              "application/json": {
-                "error": "Service unavailable message"
-              }
-            },
-            "schema": {
-              "$ref": "#/definitions/service_unavailable"
-            }
-          },
-          "504": {
-            "description": "Gateway timeout",
-            "examples": {
-              "application/json": {
-                "error": "Gateway timeout message"
-              }
-            },
-            "schema": {
-              "$ref": "#/definitions/gateway_timeout"
-            }
-          }
-        },
-        "security": [
-          {
-            "evesso": [
-              "esi-corporations.read_outposts.v1"
-            ]
-          }
-        ],
-        "summary": "Get corporation outposts",
-        "tags": [
-          "Corporation"
-        ],
-        "x-alternate-versions": [
-          "dev",
-          "legacy",
-          "v1"
-        ],
-        "x-cached-seconds": 3600,
-        "x-required-roles": [
-          "Director"
-        ]
-      }
-    },
-    "/corporations/{corporation_id}/outposts/{outpost_id}/": {
-      "get": {
-        "description": "Get details about a given outpost. Note: This endpoint will be removed once outposts are migrated to Citadels as talked about in this blog: https://community.eveonline.com/news/dev-blogs/the-next-steps-in-structure-transition/\n\n---\nAlternate route: `/dev/corporations/{corporation_id}/outposts/{outpost_id}/`\n\nAlternate route: `/legacy/corporations/{corporation_id}/outposts/{outpost_id}/`\n\nAlternate route: `/v1/corporations/{corporation_id}/outposts/{outpost_id}/`\n\n---\nThis route is cached for up to 3600 seconds\n\n---\nRequires one of the following EVE corporation role(s): Director\n",
-        "operationId": "get_corporations_corporation_id_outposts_outpost_id",
-        "parameters": [
-          {
-            "$ref": "#/parameters/corporation_id"
-          },
-          {
-            "$ref": "#/parameters/datasource"
-          },
-          {
-            "$ref": "#/parameters/If-None-Match"
-          },
-          {
-            "description": "A station (outpost) ID",
-            "format": "int32",
-            "in": "path",
-            "name": "outpost_id",
-            "required": true,
-            "type": "integer"
-          },
-          {
-            "$ref": "#/parameters/token"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Details about the given outpost",
-            "examples": {
-              "application/json": {
-                "coordinates": {
-                  "x": -102478848000,
-                  "y": -18310963200,
-                  "z": -9660456960
-                },
-                "docking_cost_per_ship_volume": 0,
-                "office_rental_cost": 100,
-                "owner_id": 98000002,
-                "reprocessing_efficiency": 0.5,
-                "reprocessing_station_take": 0.01,
-                "services": [
-                  {
-                    "discount_per_good_standing": 10,
-                    "minimum_standing": 0,
-                    "service_name": "Reprocessing Plant",
-                    "surcharge_per_bad_standing": 0
-                  }
-                ],
-                "standing_owner_id": 99003581,
-                "system_id": 30000657,
-                "type_id": 21644
-              }
-            },
-            "headers": {
-              "Cache-Control": {
-                "description": "The caching mechanism used",
-                "type": "string"
-              },
-              "ETag": {
-                "description": "RFC7232 compliant entity tag",
-                "type": "string"
-              },
-              "Expires": {
-                "description": "RFC7231 formatted datetime string",
-                "type": "string"
-              },
-              "Last-Modified": {
-                "description": "RFC7231 formatted datetime string",
-                "type": "string"
-              }
-            },
-            "schema": {
-              "description": "200 ok object",
-              "properties": {
-                "coordinates": {
-                  "description": "coordinates object",
-                  "properties": {
-                    "x": {
-                      "description": "x number",
-                      "format": "double",
-                      "title": "get_corporations_corporation_id_outposts_outpost_id_x",
-                      "type": "number"
-                    },
-                    "y": {
-                      "description": "y number",
-                      "format": "double",
-                      "title": "get_corporations_corporation_id_outposts_outpost_id_y",
-                      "type": "number"
-                    },
-                    "z": {
-                      "description": "z number",
-                      "format": "double",
-                      "title": "get_corporations_corporation_id_outposts_outpost_id_z",
-                      "type": "number"
-                    }
-                  },
-                  "required": [
-                    "x",
-                    "y",
-                    "z"
-                  ],
-                  "title": "get_corporations_corporation_id_outposts_outpost_id_coordinates",
-                  "type": "object"
-                },
-                "docking_cost_per_ship_volume": {
-                  "description": "docking_cost_per_ship_volume number",
-                  "format": "float",
-                  "title": "get_corporations_corporation_id_outposts_outpost_id_docking_cost_per_ship_volume",
-                  "type": "number"
-                },
-                "office_rental_cost": {
-                  "description": "office_rental_cost integer",
-                  "format": "int64",
-                  "title": "get_corporations_corporation_id_outposts_outpost_id_office_rental_cost",
-                  "type": "integer"
-                },
-                "owner_id": {
-                  "description": "The entity that owns the station (e.g. the entity whose logo is on the station services bar)",
-                  "format": "int32",
-                  "title": "get_corporations_corporation_id_outposts_outpost_id_owner_id",
-                  "type": "integer"
-                },
-                "reprocessing_efficiency": {
-                  "description": "reprocessing_efficiency number",
-                  "format": "float",
-                  "title": "get_corporations_corporation_id_outposts_outpost_id_reprocessing_efficiency",
-                  "type": "number"
-                },
-                "reprocessing_station_take": {
-                  "description": "reprocessing_station_take number",
-                  "format": "float",
-                  "title": "get_corporations_corporation_id_outposts_outpost_id_reprocessing_station_take",
-                  "type": "number"
-                },
-                "services": {
-                  "description": "A list of services the given outpost provides",
-                  "items": {
-                    "description": "service object",
-                    "properties": {
-                      "discount_per_good_standing": {
-                        "description": "discount_per_good_standing number",
-                        "format": "double",
-                        "title": "get_corporations_corporation_id_outposts_outpost_id_discount_per_good_standing",
-                        "type": "number"
-                      },
-                      "minimum_standing": {
-                        "description": "minimum_standing number",
-                        "format": "double",
-                        "title": "get_corporations_corporation_id_outposts_outpost_id_minimum_standing",
-                        "type": "number"
-                      },
-                      "service_name": {
-                        "description": "service_name string",
-                        "enum": [
-                          "Bounty Missions",
-                          "Assassination Missions",
-                          "Courier Missions",
-                          "Interbus",
-                          "Reprocessing Plant",
-                          "Refinery",
-                          "Market",
-                          "Black Market",
-                          "Stock Exchange",
-                          "Cloning",
-                          "Surgery",
-                          "DNA Therapy",
-                          "Repair Facilities",
-                          "Factory",
-                          "Laboratory",
-                          "Gambling",
-                          "Fitting",
-                          "Paintshop",
-                          "News",
-                          "Storage",
-                          "Insurance",
-                          "Docking",
-                          "Office Rental",
-                          "Jump Clone Facility",
-                          "Loyalty Point Store",
-                          "Navy Offices",
-                          "Security Office"
-                        ],
-                        "title": "get_corporations_corporation_id_outposts_outpost_id_service_name",
-                        "type": "string"
-                      },
-                      "surcharge_per_bad_standing": {
-                        "description": "surcharge_per_bad_standing number",
-                        "format": "double",
-                        "title": "get_corporations_corporation_id_outposts_outpost_id_surcharge_per_bad_standing",
-                        "type": "number"
-                      }
-                    },
-                    "required": [
-                      "service_name",
-                      "minimum_standing",
-                      "surcharge_per_bad_standing",
-                      "discount_per_good_standing"
-                    ],
-                    "title": "get_corporations_corporation_id_outposts_outpost_id_service",
-                    "type": "object"
-                  },
-                  "maxItems": 27,
-                  "title": "get_corporations_corporation_id_outposts_outpost_id_services",
-                  "type": "array"
-                },
-                "standing_owner_id": {
-                  "description": "The owner ID that sets the ability for someone to dock based on standings.",
-                  "format": "int32",
-                  "title": "get_corporations_corporation_id_outposts_outpost_id_standing_owner_id",
-                  "type": "integer"
-                },
-                "system_id": {
-                  "description": "The ID of the solar system the outpost rests in",
-                  "format": "int32",
-                  "title": "get_corporations_corporation_id_outposts_outpost_id_system_id",
-                  "type": "integer"
-                },
-                "type_id": {
-                  "description": "The type ID of the given outpost",
-                  "format": "int32",
-                  "title": "get_corporations_corporation_id_outposts_outpost_id_type_id",
-                  "type": "integer"
-                }
-              },
-              "required": [
-                "owner_id",
-                "system_id",
-                "docking_cost_per_ship_volume",
-                "office_rental_cost",
-                "type_id",
-                "reprocessing_efficiency",
-                "reprocessing_station_take",
-                "standing_owner_id",
-                "coordinates",
-                "services"
-              ],
-              "title": "get_corporations_corporation_id_outposts_outpost_id_ok",
-              "type": "object"
-            }
-          },
-          "304": {
-            "description": "Not modified",
-            "headers": {
-              "Cache-Control": {
-                "description": "The caching mechanism used",
-                "type": "string"
-              },
-              "ETag": {
-                "description": "RFC7232 compliant entity tag",
-                "type": "string"
-              },
-              "Expires": {
-                "description": "RFC7231 formatted datetime string",
-                "type": "string"
-              },
-              "Last-Modified": {
-                "description": "RFC7231 formatted datetime string",
-                "type": "string"
-              }
-            }
-          },
-          "400": {
-            "description": "Bad request",
-            "examples": {
-              "application/json": {
-                "error": "Bad request message"
-              }
-            },
-            "schema": {
-              "$ref": "#/definitions/bad_request"
-            }
-          },
-          "401": {
-            "description": "Unauthorized",
-            "examples": {
-              "application/json": {
-                "error": "Unauthorized message"
-              }
-            },
-            "schema": {
-              "$ref": "#/definitions/unauthorized"
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "examples": {
-              "application/json": {
-                "error": "Forbidden message"
-              }
-            },
-            "schema": {
-              "$ref": "#/definitions/forbidden"
-            }
-          },
-          "420": {
-            "description": "Error limited",
-            "examples": {
-              "application/json": {
-                "error": "Error limited message"
-              }
-            },
-            "schema": {
-              "$ref": "#/definitions/error_limited"
-            }
-          },
-          "500": {
-            "description": "Internal server error",
-            "examples": {
-              "application/json": {
-                "error": "Internal server error message"
-              }
-            },
-            "schema": {
-              "$ref": "#/definitions/internal_server_error"
-            }
-          },
-          "503": {
-            "description": "Service unavailable",
-            "examples": {
-              "application/json": {
-                "error": "Service unavailable message"
-              }
-            },
-            "schema": {
-              "$ref": "#/definitions/service_unavailable"
-            }
-          },
-          "504": {
-            "description": "Gateway timeout",
-            "examples": {
-              "application/json": {
-                "error": "Gateway timeout message"
-              }
-            },
-            "schema": {
-              "$ref": "#/definitions/gateway_timeout"
-            }
-          }
-        },
-        "security": [
-          {
-            "evesso": [
-              "esi-corporations.read_outposts.v1"
-            ]
-          }
-        ],
-        "summary": "Get corporation outpost details",
-        "tags": [
-          "Corporation"
-        ],
-        "x-alternate-versions": [
-          "dev",
-          "legacy",
-          "v1"
-        ],
-        "x-cached-seconds": 3600,
-        "x-required-roles": [
-          "Director"
         ]
       }
     },
@@ -29877,8 +29680,6 @@
                   "standing": {
                     "description": "standing number",
                     "format": "float",
-                    "maximum": 10,
-                    "minimum": -10,
                     "title": "get_corporations_corporation_id_standings_standing",
                     "type": "number"
                   }
@@ -30612,7 +30413,7 @@
     },
     "/corporations/{corporation_id}/structures/": {
       "get": {
-        "description": "Get a list of corporation structures. This route's version includes the changes to structures detailed in this blog: https://www.eveonline.com/article/upwell-2.0-structures-changes-coming-on-february-13th\n\n---\nAlternate route: `/dev/corporations/{corporation_id}/structures/`\n\nAlternate route: `/v2/corporations/{corporation_id}/structures/`\n\n---\nThis route is cached for up to 3600 seconds\n\n---\nRequires one of the following EVE corporation role(s): StationManager\n",
+        "description": "Get a list of corporation structures. This route's version includes the changes to structures detailed in this blog: https://www.eveonline.com/article/upwell-2.0-structures-changes-coming-on-february-13th Note: this route will not return any flex structures owned by a corporation, use the v3 route to have those included in the response. A list of FLEX structures can be found here: https://support.eveonline.com/hc/en-us/articles/213021829-Upwell-Structures\n\n---\nAlternate route: `/v2/corporations/{corporation_id}/structures/`\n\n---\nThis route is cached for up to 3600 seconds\n\n---\nRequires one of the following EVE corporation role(s): Station_Manager\n\n\n---\nWarning: This route has an upgrade available\n\n---\n[Diff of the upcoming changes](https://esi.evetech.net/diff/latest/dev/#GET-/corporations/{corporation_id}/structures/)",
         "operationId": "get_corporations_corporation_id_structures",
         "parameters": [
           {
@@ -30708,13 +30509,13 @@
                     "type": "string"
                   },
                   "next_reinforce_apply": {
-                    "description": "The date and time when the structure's newly requested reinforcement times (e.g. next_reinforce_hour and next_reinforce_day) will take effect.",
+                    "description": "The date and time when the structure's newly requested reinforcement times (e.g. next_reinforce_hour and next_reinforce_day) will take effect",
                     "format": "date-time",
                     "title": "get_corporations_corporation_id_structures_next_reinforce_apply",
                     "type": "string"
                   },
                   "next_reinforce_hour": {
-                    "description": "The requested change to reinforce_hour that will take effect at the time shown by next_reinforce_apply.",
+                    "description": "The requested change to reinforce_hour that will take effect at the time shown by next_reinforce_apply",
                     "format": "int32",
                     "maximum": 23,
                     "minimum": 0,
@@ -30722,7 +30523,7 @@
                     "type": "integer"
                   },
                   "next_reinforce_weekday": {
-                    "description": "The requested change to reinforce_weekday that will take effect at the time shown by next_reinforce_apply.",
+                    "description": "The requested change to reinforce_weekday that will take effect at the time shown by next_reinforce_apply",
                     "format": "int32",
                     "maximum": 6,
                     "minimum": 0,
@@ -30736,7 +30537,7 @@
                     "type": "integer"
                   },
                   "reinforce_hour": {
-                    "description": "The hour of day that determines the four hour window when the structure will randomly exit its reinforcement periods and become vulnerable to attack against its armor and/or hull. The structure will become vulnerable at a random time that is +/- 2 hours centered on the value of this property.",
+                    "description": "The hour of day that determines the four hour window when the structure will randomly exit its reinforcement periods and become vulnerable to attack against its armor and/or hull. The structure will become vulnerable at a random time that is +/- 2 hours centered on the value of this property",
                     "format": "int32",
                     "maximum": 23,
                     "minimum": 0,
@@ -30744,7 +30545,7 @@
                     "type": "integer"
                   },
                   "reinforce_weekday": {
-                    "description": "The day of the week when the structure exits its final reinforcement period and becomes vulnerable to attack against its hull. Monday is 0 and Sunday is 6.",
+                    "description": "The day of the week when the structure exits its final reinforcement period and becomes vulnerable to attack against its hull. Monday is 0 and Sunday is 6",
                     "format": "int32",
                     "maximum": 6,
                     "minimum": 0,
@@ -30845,8 +30646,8 @@
                   "corporation_id",
                   "system_id",
                   "profile_id",
-                  "reinforce_weekday",
                   "reinforce_hour",
+                  "reinforce_weekday",
                   "state"
                 ],
                 "title": "get_corporations_corporation_id_structures_200_ok",
@@ -30968,12 +30769,11 @@
           "Corporation"
         ],
         "x-alternate-versions": [
-          "dev",
           "v2"
         ],
         "x-cached-seconds": 3600,
         "x-required-roles": [
-          "StationManager"
+          "Station_Manager"
         ]
       }
     },
@@ -31913,7 +31713,7 @@
     },
     "/corporations/{corporation_id}/wallets/{division}/journal/": {
       "get": {
-        "description": "Retrieve the given corporation's wallet journal for the given division going 30 days back\n\n---\nAlternate route: `/dev/corporations/{corporation_id}/wallets/{division}/journal/`\n\nAlternate route: `/v3/corporations/{corporation_id}/wallets/{division}/journal/`\n\n---\nThis route is cached for up to 3600 seconds\n\n---\nRequires one of the following EVE corporation role(s): Accountant, Junior_Accountant\n",
+        "description": "Retrieve the given corporation's wallet journal for the given division going 30 days back. Note: any journal records having to do with the new navigation structures from the release of Onslaught will not show up in this version. To see those, use the v4 version of this route.\n\n---\nAlternate route: `/legacy/corporations/{corporation_id}/wallets/{division}/journal/`\n\nAlternate route: `/v3/corporations/{corporation_id}/wallets/{division}/journal/`\n\n---\nThis route is cached for up to 3600 seconds\n\n---\nRequires one of the following EVE corporation role(s): Accountant, Junior_Accountant\n\n\n---\nWarning: This route has an upgrade available\n\n---\n[Diff of the upcoming changes](https://esi.evetech.net/diff/latest/dev/#GET-/corporations/{corporation_id}/wallets/{division}/journal/)",
         "operationId": "get_corporations_corporation_id_wallets_division_journal",
         "parameters": [
           {
@@ -32056,7 +31856,7 @@
                     "type": "string"
                   },
                   "ref_type": {
-                    "description": "The transaction type for the given transaction. Different transaction types will populate different attributes. Note: If you have an existing XML API application that is using ref_types, you will need to know which string ESI ref_type maps to which integer. You can look at the following file to see string->int mappings: https://github.com/ccpgames/eve-glue/blob/master/eve_glue/wallet_journal_ref.py",
+                    "description": "\"The transaction type for the given. transaction. Different transaction types will populate different attributes. Note: If you have an existing XML API application that is using ref_types, you will need to know which string ESI ref_type maps to which integer. You can look at the following file to see string->int mappings: https://github.com/ccpgames/eve-glue/blob/master/eve_glue/wallet_journal_ref.py\"",
                     "enum": [
                       "acceleration_gate_fee",
                       "advertisement_listing_fee",
@@ -32323,7 +32123,7 @@
           "Wallet"
         ],
         "x-alternate-versions": [
-          "dev",
+          "legacy",
           "v3"
         ],
         "x-cached-seconds": 3600,
@@ -32428,7 +32228,7 @@
                     "type": "boolean"
                   },
                   "journal_ref_id": {
-                    "description": "journal_ref_id integer",
+                    "description": "-1 if there is no corresponding wallet journal entry",
                     "format": "int64",
                     "title": "get_corporations_corporation_id_wallets_division_transactions_journal_ref_id",
                     "type": "integer"
@@ -32963,6 +32763,272 @@
           }
         },
         "summary": "Get attribute information",
+        "tags": [
+          "Dogma"
+        ],
+        "x-alternate-versions": [
+          "dev",
+          "legacy",
+          "v1"
+        ]
+      }
+    },
+    "/dogma/dynamic/items/{type_id}/{item_id}/": {
+      "get": {
+        "description": "Returns info about a dynamic item resulting from mutation with a mutaplasmid.\n\n---\nAlternate route: `/dev/dogma/dynamic/items/{type_id}/{item_id}/`\n\nAlternate route: `/legacy/dogma/dynamic/items/{type_id}/{item_id}/`\n\nAlternate route: `/v1/dogma/dynamic/items/{type_id}/{item_id}/`\n\n---\nThis route expires daily at 11:05",
+        "operationId": "get_dogma_dynamic_items_type_id_item_id",
+        "parameters": [
+          {
+            "$ref": "#/parameters/datasource"
+          },
+          {
+            "$ref": "#/parameters/If-None-Match"
+          },
+          {
+            "description": "item_id integer",
+            "format": "int64",
+            "in": "path",
+            "name": "item_id",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "type_id integer",
+            "format": "int32",
+            "in": "path",
+            "name": "type_id",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Details about a dynamic item",
+            "examples": {
+              "application/json": {
+                "created_by": 2112625428,
+                "dogma_attributes": [
+                  {
+                    "attribute_id": 9,
+                    "value": 350
+                  }
+                ],
+                "dogma_effects": [
+                  {
+                    "effect_id": 508,
+                    "is_default": false
+                  }
+                ],
+                "mutator_type_id": 47845,
+                "source_type_id": 33103
+              }
+            },
+            "headers": {
+              "Cache-Control": {
+                "description": "The caching mechanism used",
+                "type": "string"
+              },
+              "ETag": {
+                "description": "RFC7232 compliant entity tag",
+                "type": "string"
+              },
+              "Expires": {
+                "description": "RFC7231 formatted datetime string",
+                "type": "string"
+              },
+              "Last-Modified": {
+                "description": "RFC7231 formatted datetime string",
+                "type": "string"
+              }
+            },
+            "schema": {
+              "description": "200 ok object",
+              "properties": {
+                "created_by": {
+                  "description": "The ID of the character who created the item",
+                  "format": "int32",
+                  "title": "get_dogma_dynamic_items_type_id_item_id_created_by",
+                  "type": "integer"
+                },
+                "dogma_attributes": {
+                  "description": "dogma_attributes array",
+                  "items": {
+                    "description": "dogma_attribute object",
+                    "properties": {
+                      "attribute_id": {
+                        "description": "attribute_id integer",
+                        "format": "int32",
+                        "title": "get_dogma_dynamic_items_type_id_item_id_attribute_id",
+                        "type": "integer"
+                      },
+                      "value": {
+                        "description": "value number",
+                        "format": "float",
+                        "title": "get_dogma_dynamic_items_type_id_item_id_value",
+                        "type": "number"
+                      }
+                    },
+                    "required": [
+                      "attribute_id",
+                      "value"
+                    ],
+                    "title": "get_dogma_dynamic_items_type_id_item_id_dogma_attribute",
+                    "type": "object"
+                  },
+                  "maxItems": 1000,
+                  "title": "get_dogma_dynamic_items_type_id_item_id_dogma_attributes",
+                  "type": "array"
+                },
+                "dogma_effects": {
+                  "description": "dogma_effects array",
+                  "items": {
+                    "description": "dogma_effect object",
+                    "properties": {
+                      "effect_id": {
+                        "description": "effect_id integer",
+                        "format": "int32",
+                        "title": "get_dogma_dynamic_items_type_id_item_id_effect_id",
+                        "type": "integer"
+                      },
+                      "is_default": {
+                        "description": "is_default boolean",
+                        "title": "get_dogma_dynamic_items_type_id_item_id_is_default",
+                        "type": "boolean"
+                      }
+                    },
+                    "required": [
+                      "effect_id",
+                      "is_default"
+                    ],
+                    "title": "get_dogma_dynamic_items_type_id_item_id_dogma_effect",
+                    "type": "object"
+                  },
+                  "maxItems": 1000,
+                  "title": "get_dogma_dynamic_items_type_id_item_id_dogma_effects",
+                  "type": "array"
+                },
+                "mutator_type_id": {
+                  "description": "The type ID of the mutator used to generate the dynamic item.",
+                  "format": "int32",
+                  "title": "get_dogma_dynamic_items_type_id_item_id_mutator_type_id",
+                  "type": "integer"
+                },
+                "source_type_id": {
+                  "description": "The type ID of the source item the mutator was applied to create the dynamic item.",
+                  "format": "int32",
+                  "title": "get_dogma_dynamic_items_type_id_item_id_source_type_id",
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "dogma_attributes",
+                "dogma_effects",
+                "created_by",
+                "source_type_id",
+                "mutator_type_id"
+              ],
+              "title": "get_dogma_dynamic_items_type_id_item_id_ok",
+              "type": "object"
+            }
+          },
+          "304": {
+            "description": "Not modified",
+            "headers": {
+              "Cache-Control": {
+                "description": "The caching mechanism used",
+                "type": "string"
+              },
+              "ETag": {
+                "description": "RFC7232 compliant entity tag",
+                "type": "string"
+              },
+              "Expires": {
+                "description": "RFC7231 formatted datetime string",
+                "type": "string"
+              },
+              "Last-Modified": {
+                "description": "RFC7231 formatted datetime string",
+                "type": "string"
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "examples": {
+              "application/json": {
+                "error": "Bad request message"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/bad_request"
+            }
+          },
+          "404": {
+            "description": "Item not found",
+            "examples": {
+              "application/json": {
+                "error": "Not found message"
+              }
+            },
+            "schema": {
+              "description": "Not found",
+              "properties": {
+                "error": {
+                  "description": "Not found message",
+                  "title": "get_dogma_dynamic_items_type_id_item_id_404_not_found",
+                  "type": "string"
+                }
+              },
+              "title": "get_dogma_dynamic_items_type_id_item_id_not_found",
+              "type": "object"
+            }
+          },
+          "420": {
+            "description": "Error limited",
+            "examples": {
+              "application/json": {
+                "error": "Error limited message"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/error_limited"
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "examples": {
+              "application/json": {
+                "error": "Internal server error message"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/internal_server_error"
+            }
+          },
+          "503": {
+            "description": "Service unavailable",
+            "examples": {
+              "application/json": {
+                "error": "Service unavailable message"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/service_unavailable"
+            }
+          },
+          "504": {
+            "description": "Gateway timeout",
+            "examples": {
+              "application/json": {
+                "error": "Gateway timeout message"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/gateway_timeout"
+            }
+          }
+        },
+        "summary": "Get dynamic item information",
         "tags": [
           "Dogma"
         ],
@@ -35930,7 +35996,7 @@
     },
     "/fw/leaderboards/": {
       "get": {
-        "description": "Top 4 leaderboard of factions for kills and victory points separated by total, last week and yesterday.\n\n---\nAlternate route: `/dev/fw/leaderboards/`\n\nAlternate route: `/legacy/fw/leaderboards/`\n\nAlternate route: `/v1/fw/leaderboards/`\n\n---\nThis route expires daily at 11:05",
+        "description": "Top 4 leaderboard of factions for kills and victory points separated by total, last week and yesterday\n\n---\nAlternate route: `/dev/fw/leaderboards/`\n\nAlternate route: `/legacy/fw/leaderboards/`\n\nAlternate route: `/v1/fw/leaderboards/`\n\n---\nThis route expires daily at 11:05",
         "operationId": "get_fw_leaderboards",
         "parameters": [
           {
@@ -35942,7 +36008,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Corporation leaderboard of kills and victory points within faction warfare.",
+            "description": "Corporation leaderboard of kills and victory points within faction warfare",
             "examples": {
               "application/json": {
                 "kills": {
@@ -36033,10 +36099,10 @@
               "description": "200 ok object",
               "properties": {
                 "kills": {
-                  "description": "Top 4 rankings of factions by number of kills from yesterday, last week and in total.",
+                  "description": "Top 4 rankings of factions by number of kills from yesterday, last week and in total",
                   "properties": {
                     "active_total": {
-                      "description": "Top 4 ranking of factions active in faction warfare by total kills. A faction is considered \"active\" if they have participated in faction warfare in the past 14 days.",
+                      "description": "Top 4 ranking of factions active in faction warfare by total kills. A faction is considered \"active\" if they have participated in faction warfare in the past 14 days",
                       "items": {
                         "description": "active_total object",
                         "properties": {
@@ -36123,7 +36189,7 @@
                   "description": "Top 4 rankings of factions by victory points from yesterday, last week and in total",
                   "properties": {
                     "active_total": {
-                      "description": "Top 4 ranking of factions active in faction warfare by total victory points. A faction is considered \"active\" if they have participated in faction warfare in the past 14 days.",
+                      "description": "Top 4 ranking of factions active in faction warfare by total victory points. A faction is considered \"active\" if they have participated in faction warfare in the past 14 days",
                       "items": {
                         "description": "active_total object",
                         "properties": {
@@ -36305,7 +36371,7 @@
     },
     "/fw/leaderboards/characters/": {
       "get": {
-        "description": "Top 100 leaderboard of pilots for kills and victory points separated by total, last week and yesterday.\n\n---\nAlternate route: `/dev/fw/leaderboards/characters/`\n\nAlternate route: `/legacy/fw/leaderboards/characters/`\n\nAlternate route: `/v1/fw/leaderboards/characters/`\n\n---\nThis route expires daily at 11:05",
+        "description": "Top 100 leaderboard of pilots for kills and victory points separated by total, last week and yesterday\n\n---\nAlternate route: `/dev/fw/leaderboards/characters/`\n\nAlternate route: `/legacy/fw/leaderboards/characters/`\n\nAlternate route: `/v1/fw/leaderboards/characters/`\n\n---\nThis route expires daily at 11:05",
         "operationId": "get_fw_leaderboards_characters",
         "parameters": [
           {
@@ -36317,7 +36383,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Character leaderboard of kills and victory points within faction warfare.",
+            "description": "Character leaderboard of kills and victory points within faction warfare",
             "examples": {
               "application/json": {
                 "kills": {
@@ -36408,10 +36474,10 @@
               "description": "200 ok object",
               "properties": {
                 "kills": {
-                  "description": "Top 100 rankings of pilots by number of kills from yesterday, last week and in total.",
+                  "description": "Top 100 rankings of pilots by number of kills from yesterday, last week and in total",
                   "properties": {
                     "active_total": {
-                      "description": "Top 100 ranking of pilots active in faction warfare by total kills. A pilot is considered \"active\" if they have participated in faction warfare in the past 14 days.",
+                      "description": "Top 100 ranking of pilots active in faction warfare by total kills. A pilot is considered \"active\" if they have participated in faction warfare in the past 14 days",
                       "items": {
                         "description": "active_total object",
                         "properties": {
@@ -36498,7 +36564,7 @@
                   "description": "Top 100 rankings of pilots by victory points from yesterday, last week and in total",
                   "properties": {
                     "active_total": {
-                      "description": "Top 100 ranking of pilots active in faction warfare by total victory points. A pilot is considered \"active\" if they have participated in faction warfare in the past 14 days.",
+                      "description": "Top 100 ranking of pilots active in faction warfare by total victory points. A pilot is considered \"active\" if they have participated in faction warfare in the past 14 days",
                       "items": {
                         "description": "active_total object",
                         "properties": {
@@ -36680,7 +36746,7 @@
     },
     "/fw/leaderboards/corporations/": {
       "get": {
-        "description": "Top 10 leaderboard of corporations for kills and victory points separated by total, last week and yesterday.\n\n---\nAlternate route: `/dev/fw/leaderboards/corporations/`\n\nAlternate route: `/legacy/fw/leaderboards/corporations/`\n\nAlternate route: `/v1/fw/leaderboards/corporations/`\n\n---\nThis route expires daily at 11:05",
+        "description": "Top 10 leaderboard of corporations for kills and victory points separated by total, last week and yesterday\n\n---\nAlternate route: `/dev/fw/leaderboards/corporations/`\n\nAlternate route: `/legacy/fw/leaderboards/corporations/`\n\nAlternate route: `/v1/fw/leaderboards/corporations/`\n\n---\nThis route expires daily at 11:05",
         "operationId": "get_fw_leaderboards_corporations",
         "parameters": [
           {
@@ -36692,7 +36758,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Corporation leaderboard of kills and victory points within faction warfare.",
+            "description": "Corporation leaderboard of kills and victory points within faction warfare",
             "examples": {
               "application/json": {
                 "kills": {
@@ -36783,10 +36849,10 @@
               "description": "200 ok object",
               "properties": {
                 "kills": {
-                  "description": "Top 10 rankings of corporations by number of kills from yesterday, last week and in total.",
+                  "description": "Top 10 rankings of corporations by number of kills from yesterday, last week and in total",
                   "properties": {
                     "active_total": {
-                      "description": "Top 10 ranking of corporations active in faction warfare by total kills. A corporation is considered \"active\" if they have participated in faction warfare in the past 14 days.",
+                      "description": "Top 10 ranking of corporations active in faction warfare by total kills. A corporation is considered \"active\" if they have participated in faction warfare in the past 14 days",
                       "items": {
                         "description": "active_total object",
                         "properties": {
@@ -36873,7 +36939,7 @@
                   "description": "Top 10 rankings of corporations by victory points from yesterday, last week and in total",
                   "properties": {
                     "active_total": {
-                      "description": "Top 10 ranking of corporations active in faction warfare by total victory points. A corporation is considered \"active\" if they have participated in faction warfare in the past 14 days.",
+                      "description": "Top 10 ranking of corporations active in faction warfare by total victory points. A corporation is considered \"active\" if they have participated in faction warfare in the past 14 days",
                       "items": {
                         "description": "active_total object",
                         "properties": {
@@ -37294,7 +37360,7 @@
     },
     "/fw/systems/": {
       "get": {
-        "description": "An overview of the current ownership of faction warfare solar systems\n\n---\nAlternate route: `/legacy/fw/systems/`\n\nAlternate route: `/v1/fw/systems/`\n\n---\nThis route is cached for up to 1800 seconds\n\n---\nWarning: This route has an upgrade available.\n\n---\n[Diff of the upcoming changes](https://esi.evetech.net/diff/latest/dev/#GET-/fw/systems/)",
+        "description": "An overview of the current ownership of faction warfare solar systems\n\n---\nAlternate route: `/dev/fw/systems/`\n\nAlternate route: `/v2/fw/systems/`\n\n---\nThis route is cached for up to 1800 seconds",
         "operationId": "get_fw_systems",
         "parameters": [
           {
@@ -37310,7 +37376,7 @@
             "examples": {
               "application/json": [
                 {
-                  "contested": true,
+                  "contested": "uncontested",
                   "occupier_faction_id": 500001,
                   "owner_faction_id": 500001,
                   "solar_system_id": 30002096,
@@ -37343,9 +37409,15 @@
                 "description": "200 ok object",
                 "properties": {
                   "contested": {
-                    "description": "contested boolean",
+                    "description": "contested string",
+                    "enum": [
+                      "captured",
+                      "contested",
+                      "uncontested",
+                      "vulnerable"
+                    ],
                     "title": "get_fw_systems_contested",
-                    "type": "boolean"
+                    "type": "string"
                   },
                   "occupier_faction_id": {
                     "description": "occupier_faction_id integer",
@@ -37476,8 +37548,8 @@
           "Faction Warfare"
         ],
         "x-alternate-versions": [
-          "legacy",
-          "v1"
+          "dev",
+          "v2"
         ],
         "x-cached-seconds": 1800
       }
@@ -39914,7 +39986,7 @@
                 "title": "get_markets_structures_structure_id_200_ok",
                 "type": "object"
               },
-              "maxItems": 5000,
+              "maxItems": 1000,
               "title": "get_markets_structures_structure_id_ok",
               "type": "array"
             }
@@ -40273,7 +40345,7 @@
             }
           },
           "520": {
-            "description": "Internal error thrown from the EVE server.",
+            "description": "Internal error thrown from the EVE server",
             "examples": {
               "application/json": {
                 "error": "Error 520 message"
@@ -40317,7 +40389,7 @@
           },
           {
             "default": "all",
-            "description": "Filter buy/sell orders, return all orders by default. If you query without type_id, we always return both buy and sell orders.",
+            "description": "Filter buy/sell orders, return all orders by default. If you query without type_id, we always return both buy and sell orders",
             "enum": [
               "buy",
               "sell",
@@ -45860,7 +45932,7 @@
     },
     "/universe/ids/": {
       "post": {
-        "description": "Resolve a set of names to IDs in the following categories: agents, alliances, characters, constellations, corporations factions, inventory_types, regions, stations, and systems. Only exact matches will be returned. All names searched for are cached for 12 hours.\n\n---\nAlternate route: `/dev/universe/ids/`\n\nAlternate route: `/legacy/universe/ids/`\n\nAlternate route: `/v1/universe/ids/`\n",
+        "description": "Resolve a set of names to IDs in the following categories: agents, alliances, characters, constellations, corporations factions, inventory_types, regions, stations, and systems. Only exact matches will be returned. All names searched for are cached for 12 hours\n\n---\nAlternate route: `/dev/universe/ids/`\n\nAlternate route: `/legacy/universe/ids/`\n\nAlternate route: `/v1/universe/ids/`\n",
         "operationId": "post_universe_ids",
         "parameters": [
           {
@@ -45899,7 +45971,7 @@
         ],
         "responses": {
           "200": {
-            "description": "List of id/name associations for a set of names divided by category. Any name passed in that did not have a match will be ommitted.",
+            "description": "List of id/name associations for a set of names divided by category. Any name passed in that did not have a match will be ommitted",
             "examples": {
               "application/json": {
                 "characters": [
@@ -46473,7 +46545,7 @@
     },
     "/universe/names/": {
       "post": {
-        "description": "Resolve a set of IDs to names and categories. Supported ID's for resolving are: Characters, Corporations, Alliances, Stations, Solar Systems, Constellations, Regions, Types.\n\n---\nAlternate route: `/dev/universe/names/`\n\nAlternate route: `/v2/universe/names/`\n",
+        "description": "Resolve a set of IDs to names and categories. Supported ID's for resolving are: Characters, Corporations, Alliances, Stations, Solar Systems, Constellations, Regions, Types\n\n---\nAlternate route: `/dev/universe/names/`\n\nAlternate route: `/v2/universe/names/`\n",
         "operationId": "post_universe_names",
         "parameters": [
           {
@@ -46506,7 +46578,7 @@
         ],
         "responses": {
           "200": {
-            "description": "List of id/name associations for a set of ID's. All ID's must resolve to a name, or nothing will be returned.",
+            "description": "List of id/name associations for a set of ID's. All ID's must resolve to a name, or nothing will be returned",
             "examples": {
               "application/json": [
                 {
@@ -46578,7 +46650,7 @@
             }
           },
           "404": {
-            "description": "Ensure all IDs are valid before resolving.",
+            "description": "Ensure all IDs are valid before resolving",
             "examples": {
               "application/json": {
                 "error": "Not found message"
@@ -47895,7 +47967,7 @@
             "examples": {
               "application/json": {
                 "age": 9398686722,
-                "luminosity": 0.0661500022,
+                "luminosity": 0.06615000218153,
                 "name": "BKG-Q2 - Star",
                 "radius": 346600000,
                 "solar_system_id": 30004333,
@@ -48504,6 +48576,17 @@
             "$ref": "#/parameters/datasource"
           },
           {
+            "description": "Only list public structures that have this service online",
+            "enum": [
+              "market",
+              "manufacturing_basic"
+            ],
+            "in": "query",
+            "name": "filter",
+            "required": false,
+            "type": "string"
+          },
+          {
             "$ref": "#/parameters/If-None-Match"
           }
         ],
@@ -48640,7 +48723,7 @@
     },
     "/universe/structures/{structure_id}/": {
       "get": {
-        "description": "Returns information on requested structure, if you are on the ACL. Otherwise, returns \"Forbidden\" for all inputs.\n\n---\nAlternate route: `/dev/universe/structures/{structure_id}/`\n\nAlternate route: `/legacy/universe/structures/{structure_id}/`\n\nAlternate route: `/v1/universe/structures/{structure_id}/`\n\n---\nThis route is cached for up to 3600 seconds",
+        "description": "Returns information on requested structure if you are on the ACL. Otherwise, returns \"Forbidden\" for all inputs.\n\n---\nAlternate route: `/dev/universe/structures/{structure_id}/`\n\nAlternate route: `/v2/universe/structures/{structure_id}/`\n\n---\nThis route is cached for up to 3600 seconds",
         "operationId": "get_universe_structures_structure_id",
         "parameters": [
           {
@@ -48667,6 +48750,7 @@
             "examples": {
               "application/json": {
                 "name": "V-3YG7 VI - The Capital",
+                "owner_id": 109299958,
                 "solar_system_id": 30000142
               }
             },
@@ -48695,6 +48779,12 @@
                   "description": "The full name of the structure",
                   "title": "get_universe_structures_structure_id_name",
                   "type": "string"
+                },
+                "owner_id": {
+                  "description": "The ID of the corporation who owns this particular structure",
+                  "format": "int32",
+                  "title": "get_universe_structures_structure_id_owner_id",
+                  "type": "integer"
                 },
                 "position": {
                   "description": "Coordinates of the structure in Cartesian space relative to the Sun, in metres.\n",
@@ -48741,7 +48831,8 @@
               },
               "required": [
                 "name",
-                "solar_system_id"
+                "solar_system_id",
+                "owner_id"
               ],
               "title": "get_universe_structures_structure_id_ok",
               "type": "object"
@@ -48879,8 +48970,7 @@
         ],
         "x-alternate-versions": [
           "dev",
-          "legacy",
-          "v1"
+          "v2"
         ],
         "x-cached-seconds": 3600
       }
@@ -49362,7 +49452,7 @@
     },
     "/universe/systems/{system_id}/": {
       "get": {
-        "description": "Get information on a solar system\n\n---\nAlternate route: `/dev/universe/systems/{system_id}/`\n\nAlternate route: `/v3/universe/systems/{system_id}/`\n\n---\nThis route expires daily at 11:05",
+        "description": "Get information on a solar system.\n\n---\nAlternate route: `/dev/universe/systems/{system_id}/`\n\nAlternate route: `/v4/universe/systems/{system_id}/`\n\n---\nThis route expires daily at 11:05",
         "operationId": "get_universe_systems_system_id",
         "parameters": [
           {
@@ -49410,7 +49500,7 @@
                   "z": -56482824383339900
                 },
                 "security_class": "B",
-                "security_status": 0.8462923765,
+                "security_status": 0.8462923765182495,
                 "star_id": 40000040,
                 "stargates": [
                   50000342
@@ -49587,13 +49677,11 @@
                 }
               },
               "required": [
-                "star_id",
                 "system_id",
                 "name",
                 "position",
                 "security_status",
-                "constellation_id",
-                "planets"
+                "constellation_id"
               ],
               "title": "get_universe_systems_system_id_ok",
               "type": "object"
@@ -49702,7 +49790,7 @@
         ],
         "x-alternate-versions": [
           "dev",
-          "v3"
+          "v4"
         ]
       }
     },
@@ -50196,7 +50284,7 @@
             "$ref": "#/parameters/If-None-Match"
           },
           {
-            "description": "Only return wars with ID smaller than this.",
+            "description": "Only return wars with ID smaller than this",
             "format": "int32",
             "in": "query",
             "name": "max_war_id",
@@ -50206,7 +50294,7 @@
         ],
         "responses": {
           "200": {
-            "description": "A list of war IDs, in decending order by war_id.",
+            "description": "A list of war IDs, in descending order by war_id",
             "examples": {
               "application/json": [
                 3,

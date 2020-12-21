@@ -1,13 +1,8 @@
 {
   "swagger": "2.0",
-  "schemes": [
-    "https"
-  ],
-  "host": "developer.openbanking.org.uk",
-  "basePath": "/reference-implementation/open-banking/v1.3",
   "info": {
     "description": "Latest Swagger specification for OpenData",
-    "title": "Open Data",
+    "title": "Open Data API",
     "version": "v1.3",
     "x-apisguru-categories": [
       "financial"
@@ -18,9 +13,9 @@
     },
     "x-origin": [
       {
-        "format": "swagger",
+        "format": "openapi",
         "url": "https://raw.githubusercontent.com/OpenBankingUK/opendata-api-spec-compiled/master/opendata-swagger.json",
-        "version": "2.0"
+        "version": "3.0"
       }
     ],
     "x-preferred": true,
@@ -30,39 +25,17 @@
       "type": "openapi"
     }
   },
-  "produces": [
-    "application/prs.openbanking.opendata.v1.3+json"
-  ],
-  "tags": [
-    {
-      "description": "Endpoint for getting Branch data",
-      "name": "Branch"
-    },
-    {
-      "description": "Endpoint for getting ATM data",
-      "name": "ATM"
-    },
-    {
-      "description": "Endpoint for getting Personal Current Account data",
-      "name": "PCA"
-    },
-    {
-      "description": "Endpoint for getting Business Current Account data",
-      "name": "BCA"
-    },
-    {
-      "description": "Endpoint for getting Unsecured SME Loan data",
-      "name": "SME"
-    },
-    {
-      "description": "Endpoint for getting Commercial Credit Card data",
-      "name": "CCC"
-    }
+  "host": "developer.openbanking.org.uk",
+  "basePath": "/reference-implementation/open-banking/v1.3",
+  "schemes": [
+    "https"
   ],
   "paths": {
     "/atms": {
       "get": {
-        "description": "Gets a list of all `ATM` objects.",
+        "produces": [
+          "application/prs.openbanking.opendata.v1.3+json"
+        ],
         "parameters": [
           {
             "description": "Used for conditional request, to retrieve data only if modified since a given date",
@@ -84,7 +57,6 @@
             "description": "Successful response with a list of `ATM` data",
             "headers": {
               "Cache-Control": {
-                "default": "max-age=28800",
                 "description": "Describes how long this response can be cached",
                 "type": "string"
               },
@@ -93,17 +65,14 @@
                 "type": "string"
               },
               "Strict-Transport-Security": {
-                "default": "max-age=31536000",
                 "description": "HTTPS strict transport security header",
                 "type": "string"
               },
               "X-Content-Type-Options": {
-                "default": "nosniff",
                 "description": "Ensures each page has a content type and prevents browsers from doing MIME type sniffing",
                 "type": "string"
               },
               "X-Frame-Options": {
-                "default": "DENY",
                 "description": "Prevent this request from being loaded in any iframes",
                 "type": "string"
               }
@@ -482,22 +451,15 @@
           "400": {
             "description": "You have sent a request which could not be understood.",
             "headers": {
-              "Status Code": {
-                "default": 400,
-                "description": "The HTTP status code defining the error",
-                "type": "integer"
-              },
               "Strict-Transport-Security": {
                 "description": "HTTPS strict transport security header",
                 "type": "string"
               },
               "X-Content-Type-Options": {
-                "default": "nosniff",
                 "description": "Ensures each page has a content type and prevents browsers from doing MIME type sniffing",
                 "type": "string"
               },
               "X-Frame-Options": {
-                "default": "DENY",
                 "description": "Prevent this request from being loaded in any iframes",
                 "type": "string"
               }
@@ -536,22 +498,15 @@
           "408": {
             "description": "Your client has failed to submit a request, and a timeout has occurred.",
             "headers": {
-              "Status Code": {
-                "default": 400,
-                "description": "The HTTP status code defining the error",
-                "type": "integer"
-              },
               "Strict-Transport-Security": {
                 "description": "HTTPS strict transport security header",
                 "type": "string"
               },
               "X-Content-Type-Options": {
-                "default": "nosniff",
                 "description": "Ensures each page has a content type and prevents browsers from doing MIME type sniffing",
                 "type": "string"
               },
               "X-Frame-Options": {
-                "default": "DENY",
                 "description": "Prevent this request from being loaded in any iframes",
                 "type": "string"
               }
@@ -590,22 +545,15 @@
           "429": {
             "description": "You have requested this resource too often. Slow down.",
             "headers": {
-              "Status Code": {
-                "default": 400,
-                "description": "The HTTP status code defining the error",
-                "type": "integer"
-              },
               "Strict-Transport-Security": {
                 "description": "HTTPS strict transport security header",
                 "type": "string"
               },
               "X-Content-Type-Options": {
-                "default": "nosniff",
                 "description": "Ensures each page has a content type and prevents browsers from doing MIME type sniffing",
                 "type": "string"
               },
               "X-Frame-Options": {
-                "default": "DENY",
                 "description": "Prevent this request from being loaded in any iframes",
                 "type": "string"
               }
@@ -644,22 +592,15 @@
           "500": {
             "description": "An error occurred on the server. No further information is available.",
             "headers": {
-              "Status Code": {
-                "default": 400,
-                "description": "The HTTP status code defining the error",
-                "type": "integer"
-              },
               "Strict-Transport-Security": {
                 "description": "HTTPS strict transport security header",
                 "type": "string"
               },
               "X-Content-Type-Options": {
-                "default": "nosniff",
                 "description": "Ensures each page has a content type and prevents browsers from doing MIME type sniffing",
                 "type": "string"
               },
               "X-Frame-Options": {
-                "default": "DENY",
                 "description": "Prevent this request from being loaded in any iframes",
                 "type": "string"
               }
@@ -698,22 +639,15 @@
           "503": {
             "description": "The service is temporarily unavailable.",
             "headers": {
-              "Status Code": {
-                "default": 400,
-                "description": "The HTTP status code defining the error",
-                "type": "integer"
-              },
               "Strict-Transport-Security": {
                 "description": "HTTPS strict transport security header",
                 "type": "string"
               },
               "X-Content-Type-Options": {
-                "default": "nosniff",
                 "description": "Ensures each page has a content type and prevents browsers from doing MIME type sniffing",
                 "type": "string"
               },
               "X-Frame-Options": {
-                "default": "DENY",
                 "description": "Prevent this request from being loaded in any iframes",
                 "type": "string"
               }
@@ -752,22 +686,15 @@
           "default": {
             "description": "A standard error response.",
             "headers": {
-              "Status Code": {
-                "default": 400,
-                "description": "The HTTP status code defining the error",
-                "type": "integer"
-              },
               "Strict-Transport-Security": {
                 "description": "HTTPS strict transport security header",
                 "type": "string"
               },
               "X-Content-Type-Options": {
-                "default": "nosniff",
                 "description": "Ensures each page has a content type and prevents browsers from doing MIME type sniffing",
                 "type": "string"
               },
               "X-Frame-Options": {
-                "default": "DENY",
                 "description": "Prevent this request from being loaded in any iframes",
                 "type": "string"
               }
@@ -801,10 +728,12 @@
         "tags": [
           "ATM"
         ],
-        "operationId": "atms.get"
+        "description": "Gets a list of all `ATM` objects."
       },
       "head": {
-        "description": "Gets header information on the current set of `ATM` data",
+        "produces": [
+          "application/prs.openbanking.opendata.v1.3+json"
+        ],
         "parameters": [
           {
             "description": "Used for conditional request, to retrieve data only if modified since a given date",
@@ -834,12 +763,14 @@
         "tags": [
           "ATM"
         ],
-        "operationId": "atms.head"
+        "description": "Gets header information on the current set of `ATM` data"
       }
     },
     "/branches": {
       "get": {
-        "description": "Gets a list of all `Branch` objects.",
+        "produces": [
+          "application/prs.openbanking.opendata.v1.3+json"
+        ],
         "parameters": [
           {
             "description": "Used for conditional request, to retrieve data only if modified since a given date",
@@ -861,7 +792,6 @@
             "description": "Successful response with a list of `Branch` data",
             "headers": {
               "Cache-Control": {
-                "default": "max-age=28800",
                 "description": "Describes how long this response can be cached",
                 "type": "string"
               },
@@ -870,17 +800,14 @@
                 "type": "string"
               },
               "Strict-Transport-Security": {
-                "default": "max-age=31536000",
                 "description": "HTTPS strict transport security header",
                 "type": "string"
               },
               "X-Content-Type-Options": {
-                "default": "nosniff",
                 "description": "Ensures each page has a content type and prevents browsers from doing MIME type sniffing",
                 "type": "string"
               },
               "X-Frame-Options": {
-                "default": "DENY",
                 "description": "Prevent this request from being loaded in any iframes",
                 "type": "string"
               }
@@ -1406,22 +1333,15 @@
           "400": {
             "description": "You have sent a request which could not be understood.",
             "headers": {
-              "Status Code": {
-                "default": 400,
-                "description": "The HTTP status code defining the error",
-                "type": "integer"
-              },
               "Strict-Transport-Security": {
                 "description": "HTTPS strict transport security header",
                 "type": "string"
               },
               "X-Content-Type-Options": {
-                "default": "nosniff",
                 "description": "Ensures each page has a content type and prevents browsers from doing MIME type sniffing",
                 "type": "string"
               },
               "X-Frame-Options": {
-                "default": "DENY",
                 "description": "Prevent this request from being loaded in any iframes",
                 "type": "string"
               }
@@ -1460,22 +1380,15 @@
           "408": {
             "description": "Your client has failed to submit a request, and a timeout has occurred.",
             "headers": {
-              "Status Code": {
-                "default": 400,
-                "description": "The HTTP status code defining the error",
-                "type": "integer"
-              },
               "Strict-Transport-Security": {
                 "description": "HTTPS strict transport security header",
                 "type": "string"
               },
               "X-Content-Type-Options": {
-                "default": "nosniff",
                 "description": "Ensures each page has a content type and prevents browsers from doing MIME type sniffing",
                 "type": "string"
               },
               "X-Frame-Options": {
-                "default": "DENY",
                 "description": "Prevent this request from being loaded in any iframes",
                 "type": "string"
               }
@@ -1514,22 +1427,15 @@
           "429": {
             "description": "You have requested this resource too often. Slow down.",
             "headers": {
-              "Status Code": {
-                "default": 400,
-                "description": "The HTTP status code defining the error",
-                "type": "integer"
-              },
               "Strict-Transport-Security": {
                 "description": "HTTPS strict transport security header",
                 "type": "string"
               },
               "X-Content-Type-Options": {
-                "default": "nosniff",
                 "description": "Ensures each page has a content type and prevents browsers from doing MIME type sniffing",
                 "type": "string"
               },
               "X-Frame-Options": {
-                "default": "DENY",
                 "description": "Prevent this request from being loaded in any iframes",
                 "type": "string"
               }
@@ -1568,22 +1474,15 @@
           "500": {
             "description": "An error occurred on the server. No further information is available.",
             "headers": {
-              "Status Code": {
-                "default": 400,
-                "description": "The HTTP status code defining the error",
-                "type": "integer"
-              },
               "Strict-Transport-Security": {
                 "description": "HTTPS strict transport security header",
                 "type": "string"
               },
               "X-Content-Type-Options": {
-                "default": "nosniff",
                 "description": "Ensures each page has a content type and prevents browsers from doing MIME type sniffing",
                 "type": "string"
               },
               "X-Frame-Options": {
-                "default": "DENY",
                 "description": "Prevent this request from being loaded in any iframes",
                 "type": "string"
               }
@@ -1622,22 +1521,15 @@
           "503": {
             "description": "The service is temporarily unavailable.",
             "headers": {
-              "Status Code": {
-                "default": 400,
-                "description": "The HTTP status code defining the error",
-                "type": "integer"
-              },
               "Strict-Transport-Security": {
                 "description": "HTTPS strict transport security header",
                 "type": "string"
               },
               "X-Content-Type-Options": {
-                "default": "nosniff",
                 "description": "Ensures each page has a content type and prevents browsers from doing MIME type sniffing",
                 "type": "string"
               },
               "X-Frame-Options": {
-                "default": "DENY",
                 "description": "Prevent this request from being loaded in any iframes",
                 "type": "string"
               }
@@ -1676,22 +1568,15 @@
           "default": {
             "description": "A standard error response.",
             "headers": {
-              "Status Code": {
-                "default": 400,
-                "description": "The HTTP status code defining the error",
-                "type": "integer"
-              },
               "Strict-Transport-Security": {
                 "description": "HTTPS strict transport security header",
                 "type": "string"
               },
               "X-Content-Type-Options": {
-                "default": "nosniff",
                 "description": "Ensures each page has a content type and prevents browsers from doing MIME type sniffing",
                 "type": "string"
               },
               "X-Frame-Options": {
-                "default": "DENY",
                 "description": "Prevent this request from being loaded in any iframes",
                 "type": "string"
               }
@@ -1725,10 +1610,12 @@
         "tags": [
           "Branch"
         ],
-        "operationId": "branches.get"
+        "description": "Gets a list of all `Branch` objects."
       },
       "head": {
-        "description": "Gets header information on the current set of `Branch` data",
+        "produces": [
+          "application/prs.openbanking.opendata.v1.3+json"
+        ],
         "parameters": [
           {
             "description": "Used for conditional request, to retrieve data only if modified since a given date",
@@ -1758,12 +1645,14 @@
         "tags": [
           "Branch"
         ],
-        "operationId": "branches.head"
+        "description": "Gets header information on the current set of `Branch` data"
       }
     },
     "/business-current-accounts": {
       "get": {
-        "description": "Gets a list of all `Branch Current Account` objects.",
+        "produces": [
+          "application/prs.openbanking.opendata.v1.3+json"
+        ],
         "parameters": [
           {
             "description": "Used for conditional request, to retrieve data only if modified since a given date",
@@ -1785,7 +1674,6 @@
             "description": "Successful response with a list of `Branch Current Account` data",
             "headers": {
               "Cache-Control": {
-                "default": "max-age=28800",
                 "description": "Describes how long this response can be cached",
                 "type": "string"
               },
@@ -1794,17 +1682,14 @@
                 "type": "string"
               },
               "Strict-Transport-Security": {
-                "default": "max-age=31536000",
                 "description": "HTTPS strict transport security header",
                 "type": "string"
               },
               "X-Content-Type-Options": {
-                "default": "nosniff",
                 "description": "Ensures each page has a content type and prevents browsers from doing MIME type sniffing",
                 "type": "string"
               },
               "X-Frame-Options": {
-                "default": "DENY",
                 "description": "Prevent this request from being loaded in any iframes",
                 "type": "string"
               }
@@ -4124,22 +4009,15 @@
           "400": {
             "description": "You have sent a request which could not be understood.",
             "headers": {
-              "Status Code": {
-                "default": 400,
-                "description": "The HTTP status code defining the error",
-                "type": "integer"
-              },
               "Strict-Transport-Security": {
                 "description": "HTTPS strict transport security header",
                 "type": "string"
               },
               "X-Content-Type-Options": {
-                "default": "nosniff",
                 "description": "Ensures each page has a content type and prevents browsers from doing MIME type sniffing",
                 "type": "string"
               },
               "X-Frame-Options": {
-                "default": "DENY",
                 "description": "Prevent this request from being loaded in any iframes",
                 "type": "string"
               }
@@ -4178,22 +4056,15 @@
           "408": {
             "description": "Your client has failed to submit a request, and a timeout has occurred.",
             "headers": {
-              "Status Code": {
-                "default": 400,
-                "description": "The HTTP status code defining the error",
-                "type": "integer"
-              },
               "Strict-Transport-Security": {
                 "description": "HTTPS strict transport security header",
                 "type": "string"
               },
               "X-Content-Type-Options": {
-                "default": "nosniff",
                 "description": "Ensures each page has a content type and prevents browsers from doing MIME type sniffing",
                 "type": "string"
               },
               "X-Frame-Options": {
-                "default": "DENY",
                 "description": "Prevent this request from being loaded in any iframes",
                 "type": "string"
               }
@@ -4232,22 +4103,15 @@
           "429": {
             "description": "You have requested this resource too often. Slow down.",
             "headers": {
-              "Status Code": {
-                "default": 400,
-                "description": "The HTTP status code defining the error",
-                "type": "integer"
-              },
               "Strict-Transport-Security": {
                 "description": "HTTPS strict transport security header",
                 "type": "string"
               },
               "X-Content-Type-Options": {
-                "default": "nosniff",
                 "description": "Ensures each page has a content type and prevents browsers from doing MIME type sniffing",
                 "type": "string"
               },
               "X-Frame-Options": {
-                "default": "DENY",
                 "description": "Prevent this request from being loaded in any iframes",
                 "type": "string"
               }
@@ -4286,22 +4150,15 @@
           "500": {
             "description": "An error occurred on the server. No further information is available.",
             "headers": {
-              "Status Code": {
-                "default": 400,
-                "description": "The HTTP status code defining the error",
-                "type": "integer"
-              },
               "Strict-Transport-Security": {
                 "description": "HTTPS strict transport security header",
                 "type": "string"
               },
               "X-Content-Type-Options": {
-                "default": "nosniff",
                 "description": "Ensures each page has a content type and prevents browsers from doing MIME type sniffing",
                 "type": "string"
               },
               "X-Frame-Options": {
-                "default": "DENY",
                 "description": "Prevent this request from being loaded in any iframes",
                 "type": "string"
               }
@@ -4340,22 +4197,15 @@
           "503": {
             "description": "The service is temporarily unavailable.",
             "headers": {
-              "Status Code": {
-                "default": 400,
-                "description": "The HTTP status code defining the error",
-                "type": "integer"
-              },
               "Strict-Transport-Security": {
                 "description": "HTTPS strict transport security header",
                 "type": "string"
               },
               "X-Content-Type-Options": {
-                "default": "nosniff",
                 "description": "Ensures each page has a content type and prevents browsers from doing MIME type sniffing",
                 "type": "string"
               },
               "X-Frame-Options": {
-                "default": "DENY",
                 "description": "Prevent this request from being loaded in any iframes",
                 "type": "string"
               }
@@ -4394,22 +4244,15 @@
           "default": {
             "description": "A standard error response.",
             "headers": {
-              "Status Code": {
-                "default": 400,
-                "description": "The HTTP status code defining the error",
-                "type": "integer"
-              },
               "Strict-Transport-Security": {
                 "description": "HTTPS strict transport security header",
                 "type": "string"
               },
               "X-Content-Type-Options": {
-                "default": "nosniff",
                 "description": "Ensures each page has a content type and prevents browsers from doing MIME type sniffing",
                 "type": "string"
               },
               "X-Frame-Options": {
-                "default": "DENY",
                 "description": "Prevent this request from being loaded in any iframes",
                 "type": "string"
               }
@@ -4443,10 +4286,12 @@
         "tags": [
           "BCA"
         ],
-        "operationId": "business_current_accounts.get"
+        "description": "Gets a list of all `Branch Current Account` objects."
       },
       "head": {
-        "description": "Gets header information on the current set of `Business Current Account` data",
+        "produces": [
+          "application/prs.openbanking.opendata.v1.3+json"
+        ],
         "parameters": [
           {
             "description": "Used for conditional request, to retrieve data only if modified since a given date",
@@ -4476,12 +4321,14 @@
         "tags": [
           "BCA"
         ],
-        "operationId": "business_current_accounts.head"
+        "description": "Gets header information on the current set of `Business Current Account` data"
       }
     },
     "/commercial-credit-cards": {
       "get": {
-        "description": "Gets a list of all `Commerical Credit Card` objects.",
+        "produces": [
+          "application/prs.openbanking.opendata.v1.3+json"
+        ],
         "parameters": [
           {
             "description": "Used for conditional request, to retrieve data only if modified since a given date",
@@ -4503,7 +4350,6 @@
             "description": "Successful response with a list of `Commercial Credit Card` data",
             "headers": {
               "Cache-Control": {
-                "default": "max-age=28800",
                 "description": "Describes how long this response can be cached",
                 "type": "string"
               },
@@ -4512,17 +4358,14 @@
                 "type": "string"
               },
               "Strict-Transport-Security": {
-                "default": "max-age=31536000",
                 "description": "HTTPS strict transport security header",
                 "type": "string"
               },
               "X-Content-Type-Options": {
-                "default": "nosniff",
                 "description": "Ensures each page has a content type and prevents browsers from doing MIME type sniffing",
                 "type": "string"
               },
               "X-Frame-Options": {
-                "default": "DENY",
                 "description": "Prevent this request from being loaded in any iframes",
                 "type": "string"
               }
@@ -5380,22 +5223,15 @@
           "400": {
             "description": "You have sent a request which could not be understood.",
             "headers": {
-              "Status Code": {
-                "default": 400,
-                "description": "The HTTP status code defining the error",
-                "type": "integer"
-              },
               "Strict-Transport-Security": {
                 "description": "HTTPS strict transport security header",
                 "type": "string"
               },
               "X-Content-Type-Options": {
-                "default": "nosniff",
                 "description": "Ensures each page has a content type and prevents browsers from doing MIME type sniffing",
                 "type": "string"
               },
               "X-Frame-Options": {
-                "default": "DENY",
                 "description": "Prevent this request from being loaded in any iframes",
                 "type": "string"
               }
@@ -5434,22 +5270,15 @@
           "408": {
             "description": "Your client has failed to submit a request, and a timeout has occurred.",
             "headers": {
-              "Status Code": {
-                "default": 400,
-                "description": "The HTTP status code defining the error",
-                "type": "integer"
-              },
               "Strict-Transport-Security": {
                 "description": "HTTPS strict transport security header",
                 "type": "string"
               },
               "X-Content-Type-Options": {
-                "default": "nosniff",
                 "description": "Ensures each page has a content type and prevents browsers from doing MIME type sniffing",
                 "type": "string"
               },
               "X-Frame-Options": {
-                "default": "DENY",
                 "description": "Prevent this request from being loaded in any iframes",
                 "type": "string"
               }
@@ -5488,22 +5317,15 @@
           "429": {
             "description": "You have requested this resource too often. Slow down.",
             "headers": {
-              "Status Code": {
-                "default": 400,
-                "description": "The HTTP status code defining the error",
-                "type": "integer"
-              },
               "Strict-Transport-Security": {
                 "description": "HTTPS strict transport security header",
                 "type": "string"
               },
               "X-Content-Type-Options": {
-                "default": "nosniff",
                 "description": "Ensures each page has a content type and prevents browsers from doing MIME type sniffing",
                 "type": "string"
               },
               "X-Frame-Options": {
-                "default": "DENY",
                 "description": "Prevent this request from being loaded in any iframes",
                 "type": "string"
               }
@@ -5542,22 +5364,15 @@
           "500": {
             "description": "An error occurred on the server. No further information is available.",
             "headers": {
-              "Status Code": {
-                "default": 400,
-                "description": "The HTTP status code defining the error",
-                "type": "integer"
-              },
               "Strict-Transport-Security": {
                 "description": "HTTPS strict transport security header",
                 "type": "string"
               },
               "X-Content-Type-Options": {
-                "default": "nosniff",
                 "description": "Ensures each page has a content type and prevents browsers from doing MIME type sniffing",
                 "type": "string"
               },
               "X-Frame-Options": {
-                "default": "DENY",
                 "description": "Prevent this request from being loaded in any iframes",
                 "type": "string"
               }
@@ -5596,22 +5411,15 @@
           "503": {
             "description": "The service is temporarily unavailable.",
             "headers": {
-              "Status Code": {
-                "default": 400,
-                "description": "The HTTP status code defining the error",
-                "type": "integer"
-              },
               "Strict-Transport-Security": {
                 "description": "HTTPS strict transport security header",
                 "type": "string"
               },
               "X-Content-Type-Options": {
-                "default": "nosniff",
                 "description": "Ensures each page has a content type and prevents browsers from doing MIME type sniffing",
                 "type": "string"
               },
               "X-Frame-Options": {
-                "default": "DENY",
                 "description": "Prevent this request from being loaded in any iframes",
                 "type": "string"
               }
@@ -5650,22 +5458,15 @@
           "default": {
             "description": "A standard error response.",
             "headers": {
-              "Status Code": {
-                "default": 400,
-                "description": "The HTTP status code defining the error",
-                "type": "integer"
-              },
               "Strict-Transport-Security": {
                 "description": "HTTPS strict transport security header",
                 "type": "string"
               },
               "X-Content-Type-Options": {
-                "default": "nosniff",
                 "description": "Ensures each page has a content type and prevents browsers from doing MIME type sniffing",
                 "type": "string"
               },
               "X-Frame-Options": {
-                "default": "DENY",
                 "description": "Prevent this request from being loaded in any iframes",
                 "type": "string"
               }
@@ -5699,10 +5500,12 @@
         "tags": [
           "CCC"
         ],
-        "operationId": "commercial_credit_cards.get"
+        "description": "Gets a list of all `Commerical Credit Card` objects."
       },
       "head": {
-        "description": "Gets header information on the current set of `Commerical Credit Card` data",
+        "produces": [
+          "application/prs.openbanking.opendata.v1.3+json"
+        ],
         "parameters": [
           {
             "description": "Used for conditional request, to retrieve data only if modified since a given date",
@@ -5732,12 +5535,14 @@
         "tags": [
           "CCC"
         ],
-        "operationId": "commercial_credit_cards.head"
+        "description": "Gets header information on the current set of `Commerical Credit Card` data"
       }
     },
     "/personal-current-accounts": {
       "get": {
-        "description": "Gets a list of all `Personal Current Account` objects.",
+        "produces": [
+          "application/prs.openbanking.opendata.v1.3+json"
+        ],
         "parameters": [
           {
             "description": "Used for conditional request, to retrieve data only if modified since a given date",
@@ -5759,7 +5564,6 @@
             "description": "Successful response with a list of `Personal Current Account` data",
             "headers": {
               "Cache-Control": {
-                "default": "max-age=28800",
                 "description": "Describes how long this response can be cached",
                 "type": "string"
               },
@@ -5768,17 +5572,14 @@
                 "type": "string"
               },
               "Strict-Transport-Security": {
-                "default": "max-age=31536000",
                 "description": "HTTPS strict transport security header",
                 "type": "string"
               },
               "X-Content-Type-Options": {
-                "default": "nosniff",
                 "description": "Ensures each page has a content type and prevents browsers from doing MIME type sniffing",
                 "type": "string"
               },
               "X-Frame-Options": {
-                "default": "DENY",
                 "description": "Prevent this request from being loaded in any iframes",
                 "type": "string"
               }
@@ -8097,22 +7898,15 @@
           "400": {
             "description": "You have sent a request which could not be understood.",
             "headers": {
-              "Status Code": {
-                "default": 400,
-                "description": "The HTTP status code defining the error",
-                "type": "integer"
-              },
               "Strict-Transport-Security": {
                 "description": "HTTPS strict transport security header",
                 "type": "string"
               },
               "X-Content-Type-Options": {
-                "default": "nosniff",
                 "description": "Ensures each page has a content type and prevents browsers from doing MIME type sniffing",
                 "type": "string"
               },
               "X-Frame-Options": {
-                "default": "DENY",
                 "description": "Prevent this request from being loaded in any iframes",
                 "type": "string"
               }
@@ -8151,22 +7945,15 @@
           "408": {
             "description": "Your client has failed to submit a request, and a timeout has occurred.",
             "headers": {
-              "Status Code": {
-                "default": 400,
-                "description": "The HTTP status code defining the error",
-                "type": "integer"
-              },
               "Strict-Transport-Security": {
                 "description": "HTTPS strict transport security header",
                 "type": "string"
               },
               "X-Content-Type-Options": {
-                "default": "nosniff",
                 "description": "Ensures each page has a content type and prevents browsers from doing MIME type sniffing",
                 "type": "string"
               },
               "X-Frame-Options": {
-                "default": "DENY",
                 "description": "Prevent this request from being loaded in any iframes",
                 "type": "string"
               }
@@ -8205,22 +7992,15 @@
           "429": {
             "description": "You have requested this resource too often. Slow down.",
             "headers": {
-              "Status Code": {
-                "default": 400,
-                "description": "The HTTP status code defining the error",
-                "type": "integer"
-              },
               "Strict-Transport-Security": {
                 "description": "HTTPS strict transport security header",
                 "type": "string"
               },
               "X-Content-Type-Options": {
-                "default": "nosniff",
                 "description": "Ensures each page has a content type and prevents browsers from doing MIME type sniffing",
                 "type": "string"
               },
               "X-Frame-Options": {
-                "default": "DENY",
                 "description": "Prevent this request from being loaded in any iframes",
                 "type": "string"
               }
@@ -8259,22 +8039,15 @@
           "500": {
             "description": "An error occurred on the server. No further information is available.",
             "headers": {
-              "Status Code": {
-                "default": 400,
-                "description": "The HTTP status code defining the error",
-                "type": "integer"
-              },
               "Strict-Transport-Security": {
                 "description": "HTTPS strict transport security header",
                 "type": "string"
               },
               "X-Content-Type-Options": {
-                "default": "nosniff",
                 "description": "Ensures each page has a content type and prevents browsers from doing MIME type sniffing",
                 "type": "string"
               },
               "X-Frame-Options": {
-                "default": "DENY",
                 "description": "Prevent this request from being loaded in any iframes",
                 "type": "string"
               }
@@ -8313,22 +8086,15 @@
           "503": {
             "description": "The service is temporarily unavailable.",
             "headers": {
-              "Status Code": {
-                "default": 400,
-                "description": "The HTTP status code defining the error",
-                "type": "integer"
-              },
               "Strict-Transport-Security": {
                 "description": "HTTPS strict transport security header",
                 "type": "string"
               },
               "X-Content-Type-Options": {
-                "default": "nosniff",
                 "description": "Ensures each page has a content type and prevents browsers from doing MIME type sniffing",
                 "type": "string"
               },
               "X-Frame-Options": {
-                "default": "DENY",
                 "description": "Prevent this request from being loaded in any iframes",
                 "type": "string"
               }
@@ -8367,22 +8133,15 @@
           "default": {
             "description": "A standard error response.",
             "headers": {
-              "Status Code": {
-                "default": 400,
-                "description": "The HTTP status code defining the error",
-                "type": "integer"
-              },
               "Strict-Transport-Security": {
                 "description": "HTTPS strict transport security header",
                 "type": "string"
               },
               "X-Content-Type-Options": {
-                "default": "nosniff",
                 "description": "Ensures each page has a content type and prevents browsers from doing MIME type sniffing",
                 "type": "string"
               },
               "X-Frame-Options": {
-                "default": "DENY",
                 "description": "Prevent this request from being loaded in any iframes",
                 "type": "string"
               }
@@ -8416,10 +8175,12 @@
         "tags": [
           "PCA"
         ],
-        "operationId": "personal_current_accounts.get"
+        "description": "Gets a list of all `Personal Current Account` objects."
       },
       "head": {
-        "description": "Gets header information on the current set of `Personal Current Account` data",
+        "produces": [
+          "application/prs.openbanking.opendata.v1.3+json"
+        ],
         "parameters": [
           {
             "description": "Used for conditional request, to retrieve data only if modified since a given date",
@@ -8449,12 +8210,14 @@
         "tags": [
           "PCA"
         ],
-        "operationId": "personal_current_accounts.head"
+        "description": "Gets header information on the current set of `Personal Current Account` data"
       }
     },
     "/unsecured-sme-loans": {
       "get": {
-        "description": "Gets a list of all `Unsercured SME Lending` objects.",
+        "produces": [
+          "application/prs.openbanking.opendata.v1.3+json"
+        ],
         "parameters": [
           {
             "description": "Used for conditional request, to retrieve data only if modified since a given date",
@@ -8476,7 +8239,6 @@
             "description": "Successful response with a list of `Unsecured SME Lending` data",
             "headers": {
               "Cache-Control": {
-                "default": "max-age=28800",
                 "description": "Describes how long this response can be cached",
                 "type": "string"
               },
@@ -8485,17 +8247,14 @@
                 "type": "string"
               },
               "Strict-Transport-Security": {
-                "default": "max-age=31536000",
                 "description": "HTTPS strict transport security header",
                 "type": "string"
               },
               "X-Content-Type-Options": {
-                "default": "nosniff",
                 "description": "Ensures each page has a content type and prevents browsers from doing MIME type sniffing",
                 "type": "string"
               },
               "X-Frame-Options": {
-                "default": "DENY",
                 "description": "Prevent this request from being loaded in any iframes",
                 "type": "string"
               }
@@ -9850,22 +9609,15 @@
           "400": {
             "description": "You have sent a request which could not be understood.",
             "headers": {
-              "Status Code": {
-                "default": 400,
-                "description": "The HTTP status code defining the error",
-                "type": "integer"
-              },
               "Strict-Transport-Security": {
                 "description": "HTTPS strict transport security header",
                 "type": "string"
               },
               "X-Content-Type-Options": {
-                "default": "nosniff",
                 "description": "Ensures each page has a content type and prevents browsers from doing MIME type sniffing",
                 "type": "string"
               },
               "X-Frame-Options": {
-                "default": "DENY",
                 "description": "Prevent this request from being loaded in any iframes",
                 "type": "string"
               }
@@ -9904,22 +9656,15 @@
           "408": {
             "description": "Your client has failed to submit a request, and a timeout has occurred.",
             "headers": {
-              "Status Code": {
-                "default": 400,
-                "description": "The HTTP status code defining the error",
-                "type": "integer"
-              },
               "Strict-Transport-Security": {
                 "description": "HTTPS strict transport security header",
                 "type": "string"
               },
               "X-Content-Type-Options": {
-                "default": "nosniff",
                 "description": "Ensures each page has a content type and prevents browsers from doing MIME type sniffing",
                 "type": "string"
               },
               "X-Frame-Options": {
-                "default": "DENY",
                 "description": "Prevent this request from being loaded in any iframes",
                 "type": "string"
               }
@@ -9958,22 +9703,15 @@
           "429": {
             "description": "You have requested this resource too often. Slow down.",
             "headers": {
-              "Status Code": {
-                "default": 400,
-                "description": "The HTTP status code defining the error",
-                "type": "integer"
-              },
               "Strict-Transport-Security": {
                 "description": "HTTPS strict transport security header",
                 "type": "string"
               },
               "X-Content-Type-Options": {
-                "default": "nosniff",
                 "description": "Ensures each page has a content type and prevents browsers from doing MIME type sniffing",
                 "type": "string"
               },
               "X-Frame-Options": {
-                "default": "DENY",
                 "description": "Prevent this request from being loaded in any iframes",
                 "type": "string"
               }
@@ -10012,22 +9750,15 @@
           "500": {
             "description": "An error occurred on the server. No further information is available.",
             "headers": {
-              "Status Code": {
-                "default": 400,
-                "description": "The HTTP status code defining the error",
-                "type": "integer"
-              },
               "Strict-Transport-Security": {
                 "description": "HTTPS strict transport security header",
                 "type": "string"
               },
               "X-Content-Type-Options": {
-                "default": "nosniff",
                 "description": "Ensures each page has a content type and prevents browsers from doing MIME type sniffing",
                 "type": "string"
               },
               "X-Frame-Options": {
-                "default": "DENY",
                 "description": "Prevent this request from being loaded in any iframes",
                 "type": "string"
               }
@@ -10066,22 +9797,15 @@
           "503": {
             "description": "The service is temporarily unavailable.",
             "headers": {
-              "Status Code": {
-                "default": 400,
-                "description": "The HTTP status code defining the error",
-                "type": "integer"
-              },
               "Strict-Transport-Security": {
                 "description": "HTTPS strict transport security header",
                 "type": "string"
               },
               "X-Content-Type-Options": {
-                "default": "nosniff",
                 "description": "Ensures each page has a content type and prevents browsers from doing MIME type sniffing",
                 "type": "string"
               },
               "X-Frame-Options": {
-                "default": "DENY",
                 "description": "Prevent this request from being loaded in any iframes",
                 "type": "string"
               }
@@ -10120,22 +9844,15 @@
           "default": {
             "description": "A standard error response.",
             "headers": {
-              "Status Code": {
-                "default": 400,
-                "description": "The HTTP status code defining the error",
-                "type": "integer"
-              },
               "Strict-Transport-Security": {
                 "description": "HTTPS strict transport security header",
                 "type": "string"
               },
               "X-Content-Type-Options": {
-                "default": "nosniff",
                 "description": "Ensures each page has a content type and prevents browsers from doing MIME type sniffing",
                 "type": "string"
               },
               "X-Frame-Options": {
-                "default": "DENY",
                 "description": "Prevent this request from being loaded in any iframes",
                 "type": "string"
               }
@@ -10169,10 +9886,12 @@
         "tags": [
           "SME"
         ],
-        "operationId": "unsecured_sme_loans.get"
+        "description": "Gets a list of all `Unsercured SME Lending` objects."
       },
       "head": {
-        "description": "Gets header information on the current set of `Unsercured SME Lending` data",
+        "produces": [
+          "application/prs.openbanking.opendata.v1.3+json"
+        ],
         "parameters": [
           {
             "description": "Used for conditional request, to retrieve data only if modified since a given date",
@@ -10202,8 +9921,34 @@
         "tags": [
           "SME"
         ],
-        "operationId": "unsecured_sme_loans.head"
+        "description": "Gets header information on the current set of `Unsercured SME Lending` data"
       }
     }
-  }
+  },
+  "tags": [
+    {
+      "description": "Endpoint for getting Branch data",
+      "name": "Branch"
+    },
+    {
+      "description": "Endpoint for getting ATM data",
+      "name": "ATM"
+    },
+    {
+      "description": "Endpoint for getting Personal Current Account data",
+      "name": "PCA"
+    },
+    {
+      "description": "Endpoint for getting Business Current Account data",
+      "name": "BCA"
+    },
+    {
+      "description": "Endpoint for getting Unsecured SME Loan data",
+      "name": "SME"
+    },
+    {
+      "description": "Endpoint for getting Commercial Credit Card data",
+      "name": "CCC"
+    }
+  ]
 }

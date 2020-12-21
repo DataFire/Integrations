@@ -15,11 +15,7 @@ let azure_compute_runcommands = require('@datafire/azure_compute_runcommands').c
   redirect_uri: ""
 });
 
-azure_compute_runcommands.VirtualMachineRunCommands_List({
-  "location": "",
-  "api-version": "",
-  "subscriptionId": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -74,6 +70,33 @@ azure_compute_runcommands.VirtualMachineRunCommands_Get({
 #### Output
 * output [RunCommandDocument](#runcommanddocument)
 
+### VirtualMachineScaleSetVMs_RunCommand
+Run command on a virtual machine in a VM scale set.
+
+
+```js
+azure_compute_runcommands.VirtualMachineScaleSetVMs_RunCommand({
+  "resourceGroupName": "",
+  "vmScaleSetName": "",
+  "instanceId": "",
+  "parameters": null,
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * resourceGroupName **required** `string`: The name of the resource group.
+  * vmScaleSetName **required** `string`: The name of the VM scale set.
+  * instanceId **required** `string`: The instance ID of the virtual machine.
+  * parameters **required** [RunCommandInput](#runcommandinput)
+  * api-version **required** `string`: Client Api Version.
+  * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+#### Output
+* output [RunCommandResult](#runcommandresult)
+
 ### VirtualMachines_RunCommand
 Run command on the VM.
 
@@ -103,33 +126,13 @@ azure_compute_runcommands.VirtualMachines_RunCommand({
 
 ## Definitions
 
-### ApiError
-* ApiError `object`: Api error.
-  * code `string`: The error code.
-  * details `array`: The Api error details
-    * items [ApiErrorBase](#apierrorbase)
-  * innererror [InnerError](#innererror)
-  * message `string`: The error message.
-  * target `string`: The target of the particular error.
-
-### ApiErrorBase
-* ApiErrorBase `object`: Api error base.
-  * code `string`: The error code.
-  * message `string`: The error message.
-  * target `string`: The target of the particular error.
-
-### InnerError
-* InnerError `object`: Inner error details.
-  * errordetail `string`: The internal error message or exception dump.
-  * exceptiontype `string`: The exception type.
-
-### OperationStatusResponse
-* OperationStatusResponse `object`: Operation status response
-  * endTime `string`: End time of the operation
-  * error [ApiError](#apierror)
-  * name `string`: Operation ID
-  * startTime `string`: Start time of the operation
-  * status `string`: Operation status
+### InstanceViewStatus
+* InstanceViewStatus `object`: Instance view status.
+  * code `string`: The status code.
+  * displayStatus `string`: The short localizable label for the status.
+  * level `string` (values: Info, Warning, Error): The level code.
+  * message `string`: The detailed status message, including for alerts and error messages.
+  * time `string`: The time of the status.
 
 ### RunCommandDocument
 * RunCommandDocument `object`: Describes the properties of a Run Command.
@@ -178,16 +181,8 @@ azure_compute_runcommands.VirtualMachines_RunCommand({
   * type **required** `string`: The run command parameter type.
 
 ### RunCommandResult
-* RunCommandResult `object`: Run command operation response.
-  * properties [RunCommandResultProperties](#runcommandresultproperties)
-  * endTime `string`: End time of the operation
-  * error [ApiError](#apierror)
-  * name `string`: Operation ID
-  * startTime `string`: Start time of the operation
-  * status `string`: Operation status
-
-### RunCommandResultProperties
-* RunCommandResultProperties `object`: Compute-specific operation properties, including output
-  * output `object`: Operation output data (raw JSON)
+* RunCommandResult `object`
+  * value `array`: Run command operation response.
+    * items [InstanceViewStatus](#instanceviewstatus)
 
 

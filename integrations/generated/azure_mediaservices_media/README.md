@@ -15,9 +15,7 @@ let azure_mediaservices_media = require('@datafire/azure_mediaservices_media').c
   redirect_uri: ""
 });
 
-azure_mediaservices_media.Operations_List({
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

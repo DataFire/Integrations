@@ -9,14 +9,14 @@ npm install --save @datafire/deutschebahn_stada
 ```js
 let deutschebahn_stada = require('@datafire/deutschebahn_stada').create();
 
-deutschebahn_stada.szentralen.get({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
 
 ## Description
 
-An API providing master data for german railway stations by DB Station&Service AG.
+An API providing master data for German railway stations by DB Station&Service AG.
 
 ## Actions
 
@@ -28,6 +28,8 @@ QueryResult is a container providing the following information about the query r
   2. the maximum number of hits to be returned in that QueryResult object
   3. the offset of the first hit returned in that QueryResult object with respect to all hits returned by the query
   4. the result objects
+
+
   
 The parameters described below work as filters to reduce the number of hits returned. Some of these parameters must be used only once, others are allowed to be used multiple times. Valid parameters that are allowed to be used only once are _offset_, _limit_ and _logicaloperator_. 
 

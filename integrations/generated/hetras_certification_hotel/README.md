@@ -9,10 +9,7 @@ npm install --save @datafire/hetras_certification_hotel
 ```js
 let hetras_certification_hotel = require('@datafire/hetras_certification_hotel').create();
 
-hetras_certification_hotel.Hotels_GetHotels({
-  "App-Id": "",
-  "App-Key": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

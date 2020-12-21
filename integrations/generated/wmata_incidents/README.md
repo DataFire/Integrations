@@ -12,7 +12,7 @@ let wmata_incidents = require('@datafire/wmata_incidents').create({
   apiKeyQuery: ""
 });
 
-wmata_incidents.54763641281d830c946a3d76({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -176,6 +176,13 @@ updated. Will be in YYYY-MM-DDTHH:mm:ss format (e.g.:
 <td style="text-decoration: line-through">DisplayOrder</td>
 
 <td><span class="text-danger">Deprecated.</span></td>
+</tr>
+
+<tr>
+<td>EstimatedReturnToService</td>
+
+<td>Estimated date and time (Eastern Standard Time) by when unit is expected to return to normal service. May be NULL, otherwise will be in YYYY-MM-DDTHH:mm:ss format (e.g.:
+2014-10-27T23:59:59).</td>
 </tr>
 
 <tr>
@@ -532,6 +539,13 @@ updated. Will be in YYYY-MM-DDTHH:mm:ss format (e.g.:
 <td style="text-decoration: line-through">DisplayOrder</td>
 
 <td><span class="text-danger">Deprecated.</span></td>
+</tr>
+
+<tr>
+<td>EstimatedReturnToService</td>
+
+<td>Estimated date and time (Eastern Standard Time) by when unit is expected to return to normal service. May be NULL, otherwise will be in YYYY-MM-DDTHH:mm:ss format (e.g.:
+2014-10-27T23:59:59).</td>
 </tr>
 
 <tr>

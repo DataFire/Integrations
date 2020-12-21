@@ -9,9 +9,7 @@ npm install --save @datafire/gsa_gov
 ```js
 let gsa_gov = require('@datafire/gsa_gov').create();
 
-gsa_gov.List_Contracts_GET({
-  "duns": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

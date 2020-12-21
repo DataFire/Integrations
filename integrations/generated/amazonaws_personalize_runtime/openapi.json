@@ -1,0 +1,686 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "contact": {
+      "email": "mike.ralphson@gmail.com",
+      "name": "Mike Ralphson",
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
+    },
+    "description": "<p/>",
+    "license": {
+      "name": "Apache 2.0 License",
+      "url": "http://www.apache.org/licenses/"
+    },
+    "termsOfService": "https://aws.amazon.com/service-terms/",
+    "title": "Amazon Personalize Runtime",
+    "version": "2018-05-22",
+    "x-apiClientRegistration": {
+      "url": "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"
+    },
+    "x-apisguru-categories": [
+      "cloud"
+    ],
+    "x-logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"
+    },
+    "x-origin": [
+      {
+        "contentType": "application/json",
+        "converter": {
+          "url": "https://github.com/mermade/aws2openapi",
+          "version": "1.0.0"
+        },
+        "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/personalize-runtime-2018-05-22.normal.json",
+        "x-apisguru-driver": "external"
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "amazonaws.com",
+    "x-release": "v4",
+    "x-serviceName": "personalize-runtime",
+    "x-datafire": {
+      "name": "amazonaws_personalize_runtime",
+      "type": "openapi"
+    }
+  },
+  "host": "personalize-runtime.us-east-1.amazonaws.com",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/personalize-ranking": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "campaignArn": {
+                  "description": "The Amazon Resource Name (ARN) of the campaign to use for generating the personalized ranking.",
+                  "maxLength": 256,
+                  "pattern": "arn:([a-z\\d-]+):personalize:.*:.*:.+",
+                  "type": "string"
+                },
+                "context": {
+                  "additionalProperties": {
+                    "$ref": "#/definitions/AttributeValue"
+                  },
+                  "description": "The contextual metadata to use when getting recommendations. Contextual metadata includes any interaction information that might be relevant when getting a user's recommendations, such as the user's current location or device type.",
+                  "maxProperties": 150,
+                  "type": "object"
+                },
+                "filterArn": {
+                  "description": "The Amazon Resource Name (ARN) of a filter you created to include items or exclude items from recommendations for a given user. For more information, see <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/filter.html\">Filtering Recommendations</a>.",
+                  "maxLength": 256,
+                  "pattern": "arn:([a-z\\d-]+):personalize:.*:.*:.+",
+                  "type": "string"
+                },
+                "filterValues": {
+                  "additionalProperties": {
+                    "$ref": "#/definitions/FilterAttributeValue"
+                  },
+                  "description": "<p>The values to use when filtering recommendations. For each placeholder parameter in your filter expression, provide the parameter name (in matching case) as a key and the filter value(s) as the corresponding value. Separate multiple values for one parameter with a comma. </p> <p>For filter expressions that use an <code>INCLUDE</code> element to include items, you must provide values for all parameters that are defined in the expression. For filters with expressions that use an <code>EXCLUDE</code> element to exclude items, you can omit the <code>filter-values</code>.In this case, Amazon Personalize doesn't use that portion of the expression to filter recommendations.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/filter.html\">Filtering Recommendations</a>.</p>",
+                  "maxProperties": 25,
+                  "type": "object"
+                },
+                "inputList": {
+                  "description": "A list of items (by <code>itemId</code>) to rank. If an item was not included in the training dataset, the item is appended to the end of the reranked list. The maximum is 500.",
+                  "items": {
+                    "$ref": "#/definitions/ItemID"
+                  },
+                  "type": "array"
+                },
+                "userId": {
+                  "description": "The user for which you want the campaign to provide a personalized ranking.",
+                  "maxLength": 256,
+                  "type": "string"
+                }
+              },
+              "required": [
+                "campaignArn",
+                "inputList",
+                "userId"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetPersonalizedRankingResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidInputException",
+            "schema": {
+              "$ref": "#/definitions/InvalidInputException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        },
+        "description": "<p>Re-ranks a list of recommended items for the given user. The first item in the list is deemed the most likely item to be of interest to the user.</p> <note> <p>The solution backing the campaign must have been created using a recipe of type PERSONALIZED_RANKING.</p> </note>",
+        "operationId": "GetPersonalizedRanking"
+      }
+    },
+    "/recommendations": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "campaignArn": {
+                  "description": "The Amazon Resource Name (ARN) of the campaign to use for getting recommendations.",
+                  "maxLength": 256,
+                  "pattern": "arn:([a-z\\d-]+):personalize:.*:.*:.+",
+                  "type": "string"
+                },
+                "context": {
+                  "additionalProperties": {
+                    "$ref": "#/definitions/AttributeValue"
+                  },
+                  "description": "The contextual metadata to use when getting recommendations. Contextual metadata includes any interaction information that might be relevant when getting a user's recommendations, such as the user's current location or device type.",
+                  "maxProperties": 150,
+                  "type": "object"
+                },
+                "filterArn": {
+                  "description": "<p>The ARN of the filter to apply to the returned recommendations. For more information, see <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/filter.html\">Filtering Recommendations</a>.</p> <p>When using this parameter, be sure the filter resource is <code>ACTIVE</code>.</p>",
+                  "maxLength": 256,
+                  "pattern": "arn:([a-z\\d-]+):personalize:.*:.*:.+",
+                  "type": "string"
+                },
+                "filterValues": {
+                  "additionalProperties": {
+                    "$ref": "#/definitions/FilterAttributeValue"
+                  },
+                  "description": "<p>The values to use when filtering recommendations. For each placeholder parameter in your filter expression, provide the parameter name (in matching case) as a key and the filter value(s) as the corresponding value. Separate multiple values for one parameter with a comma. </p> <p>For filter expressions that use an <code>INCLUDE</code> element to include items, you must provide values for all parameters that are defined in the expression. For filters with expressions that use an <code>EXCLUDE</code> element to exclude items, you can omit the <code>filter-values</code>.In this case, Amazon Personalize doesn't use that portion of the expression to filter recommendations.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/filter.html\">Filtering Recommendations</a>.</p>",
+                  "maxProperties": 25,
+                  "type": "object"
+                },
+                "itemId": {
+                  "description": "<p>The item ID to provide recommendations for.</p> <p>Required for <code>RELATED_ITEMS</code> recipe type.</p>",
+                  "maxLength": 256,
+                  "type": "string"
+                },
+                "numResults": {
+                  "description": "The number of results to return. The default is 25. The maximum is 500.",
+                  "minimum": 0,
+                  "type": "integer"
+                },
+                "userId": {
+                  "description": "<p>The user ID to provide recommendations for.</p> <p>Required for <code>USER_PERSONALIZATION</code> recipe type.</p>",
+                  "maxLength": 256,
+                  "type": "string"
+                }
+              },
+              "required": [
+                "campaignArn"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetRecommendationsResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidInputException",
+            "schema": {
+              "$ref": "#/definitions/InvalidInputException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        },
+        "description": "<p>Returns a list of recommended items. The required input depends on the recipe type used to create the solution backing the campaign, as follows:</p> <ul> <li> <p>RELATED_ITEMS - <code>itemId</code> required, <code>userId</code> not used</p> </li> <li> <p>USER_PERSONALIZATION - <code>itemId</code> optional, <code>userId</code> required</p> </li> </ul> <note> <p>Campaigns that are backed by a solution created using a recipe of type PERSONALIZED_RANKING use the API.</p> </note>",
+        "operationId": "GetRecommendations"
+      }
+    }
+  },
+  "definitions": {
+    "Arn": {
+      "maxLength": 256,
+      "pattern": "arn:([a-z\\d-]+):personalize:.*:.*:.+",
+      "type": "string"
+    },
+    "AttributeName": {
+      "maxLength": 150,
+      "pattern": "[A-Za-z\\d_]+",
+      "type": "string"
+    },
+    "AttributeValue": {
+      "format": "password",
+      "maxLength": 1000,
+      "type": "string"
+    },
+    "Context": {
+      "additionalProperties": {
+        "$ref": "#/definitions/AttributeValue"
+      },
+      "maxProperties": 150,
+      "type": "object"
+    },
+    "FilterAttributeName": {
+      "maxLength": 50,
+      "pattern": "[A-Za-z0-9_]+",
+      "type": "string"
+    },
+    "FilterAttributeValue": {
+      "format": "password",
+      "maxLength": 1000,
+      "type": "string"
+    },
+    "FilterValues": {
+      "additionalProperties": {
+        "$ref": "#/definitions/FilterAttributeValue"
+      },
+      "maxProperties": 25,
+      "type": "object"
+    },
+    "GetPersonalizedRankingRequest": {
+      "properties": {
+        "campaignArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Arn"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the campaign to use for generating the personalized ranking."
+            }
+          ]
+        },
+        "context": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Context"
+            },
+            {
+              "description": "The contextual metadata to use when getting recommendations. Contextual metadata includes any interaction information that might be relevant when getting a user's recommendations, such as the user's current location or device type."
+            }
+          ]
+        },
+        "filterArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Arn"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of a filter you created to include items or exclude items from recommendations for a given user. For more information, see <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/filter.html\">Filtering Recommendations</a>."
+            }
+          ]
+        },
+        "filterValues": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/FilterValues"
+            },
+            {
+              "description": "<p>The values to use when filtering recommendations. For each placeholder parameter in your filter expression, provide the parameter name (in matching case) as a key and the filter value(s) as the corresponding value. Separate multiple values for one parameter with a comma. </p> <p>For filter expressions that use an <code>INCLUDE</code> element to include items, you must provide values for all parameters that are defined in the expression. For filters with expressions that use an <code>EXCLUDE</code> element to exclude items, you can omit the <code>filter-values</code>.In this case, Amazon Personalize doesn't use that portion of the expression to filter recommendations.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/filter.html\">Filtering Recommendations</a>.</p>"
+            }
+          ]
+        },
+        "inputList": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InputList"
+            },
+            {
+              "description": "A list of items (by <code>itemId</code>) to rank. If an item was not included in the training dataset, the item is appended to the end of the reranked list. The maximum is 500."
+            }
+          ]
+        },
+        "userId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/UserID"
+            },
+            {
+              "description": "The user for which you want the campaign to provide a personalized ranking."
+            }
+          ]
+        }
+      },
+      "required": [
+        "campaignArn",
+        "inputList",
+        "userId"
+      ],
+      "title": "GetPersonalizedRankingRequest",
+      "type": "object"
+    },
+    "GetPersonalizedRankingResponse": {
+      "properties": {
+        "personalizedRanking": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ItemList"
+            },
+            {
+              "description": "A list of items in order of most likely interest to the user. The maximum is 500."
+            }
+          ]
+        },
+        "recommendationId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RecommendationID"
+            },
+            {
+              "description": "The ID of the recommendation."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "GetRecommendationsRequest": {
+      "properties": {
+        "campaignArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Arn"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the campaign to use for getting recommendations."
+            }
+          ]
+        },
+        "context": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Context"
+            },
+            {
+              "description": "The contextual metadata to use when getting recommendations. Contextual metadata includes any interaction information that might be relevant when getting a user's recommendations, such as the user's current location or device type."
+            }
+          ]
+        },
+        "filterArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Arn"
+            },
+            {
+              "description": "<p>The ARN of the filter to apply to the returned recommendations. For more information, see <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/filter.html\">Filtering Recommendations</a>.</p> <p>When using this parameter, be sure the filter resource is <code>ACTIVE</code>.</p>"
+            }
+          ]
+        },
+        "filterValues": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/FilterValues"
+            },
+            {
+              "description": "<p>The values to use when filtering recommendations. For each placeholder parameter in your filter expression, provide the parameter name (in matching case) as a key and the filter value(s) as the corresponding value. Separate multiple values for one parameter with a comma. </p> <p>For filter expressions that use an <code>INCLUDE</code> element to include items, you must provide values for all parameters that are defined in the expression. For filters with expressions that use an <code>EXCLUDE</code> element to exclude items, you can omit the <code>filter-values</code>.In this case, Amazon Personalize doesn't use that portion of the expression to filter recommendations.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/filter.html\">Filtering Recommendations</a>.</p>"
+            }
+          ]
+        },
+        "itemId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ItemID"
+            },
+            {
+              "description": "<p>The item ID to provide recommendations for.</p> <p>Required for <code>RELATED_ITEMS</code> recipe type.</p>"
+            }
+          ]
+        },
+        "numResults": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NumResults"
+            },
+            {
+              "description": "The number of results to return. The default is 25. The maximum is 500."
+            }
+          ]
+        },
+        "userId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/UserID"
+            },
+            {
+              "description": "<p>The user ID to provide recommendations for.</p> <p>Required for <code>USER_PERSONALIZATION</code> recipe type.</p>"
+            }
+          ]
+        }
+      },
+      "required": [
+        "campaignArn"
+      ],
+      "title": "GetRecommendationsRequest",
+      "type": "object"
+    },
+    "GetRecommendationsResponse": {
+      "properties": {
+        "itemList": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ItemList"
+            },
+            {
+              "description": "A list of recommendations sorted in ascending order by prediction score. There can be a maximum of 500 items in the list."
+            }
+          ]
+        },
+        "recommendationId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RecommendationID"
+            },
+            {
+              "description": "The ID of the recommendation."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "InputList": {
+      "items": {
+        "$ref": "#/definitions/ItemID"
+      },
+      "type": "array"
+    },
+    "InvalidInputException": {},
+    "ItemID": {
+      "maxLength": 256,
+      "type": "string"
+    },
+    "ItemList": {
+      "items": {
+        "$ref": "#/definitions/PredictedItem"
+      },
+      "type": "array"
+    },
+    "NumResults": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "PredictedItem": {
+      "description": "<p>An object that identifies an item.</p> <p>The and APIs return a list of <code>PredictedItem</code>s.</p>",
+      "properties": {
+        "itemId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ItemID"
+            },
+            {
+              "description": "The recommended item ID."
+            }
+          ]
+        },
+        "score": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Score"
+            },
+            {
+              "description": "A numeric representation of the model's certainty that the item will be the next user selection. For more information on scoring logic, see <a>how-scores-work</a>."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "RecommendationID": {
+      "type": "string"
+    },
+    "ResourceNotFoundException": {},
+    "Score": {
+      "format": "double",
+      "type": "number"
+    },
+    "UserID": {
+      "maxLength": 256,
+      "type": "string"
+    }
+  },
+  "securityDefinitions": {
+    "hmac": {
+      "description": "Amazon Signature authorization v4",
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey",
+      "x-amazon-apigateway-authtype": "awsSigv4"
+    }
+  },
+  "security": [
+    {
+      "hmac": []
+    }
+  ],
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://docs.aws.amazon.com/personalize-runtime/"
+  },
+  "x-components": {
+    "parameters": {
+      "X-Amz-Algorithm": {
+        "in": "header",
+        "name": "X-Amz-Algorithm",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Content-Sha256": {
+        "in": "header",
+        "name": "X-Amz-Content-Sha256",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Credential": {
+        "in": "header",
+        "name": "X-Amz-Credential",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Date": {
+        "in": "header",
+        "name": "X-Amz-Date",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Security-Token": {
+        "in": "header",
+        "name": "X-Amz-Security-Token",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Signature": {
+        "in": "header",
+        "name": "X-Amz-Signature",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-SignedHeaders": {
+        "in": "header",
+        "name": "X-Amz-SignedHeaders",
+        "required": false,
+        "type": "string"
+      }
+    }
+  }
+}

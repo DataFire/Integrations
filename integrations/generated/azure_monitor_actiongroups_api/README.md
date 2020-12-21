@@ -15,10 +15,7 @@ let azure_monitor_actiongroups_api = require('@datafire/azure_monitor_actiongrou
   redirect_uri: ""
 });
 
-azure_monitor_actiongroups_api.ActionGroups_ListBySubscriptionId({
-  "subscriptionId": "",
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -196,6 +193,8 @@ azure_monitor_actiongroups_api.ActionGroups_EnableReceiver({
 
 ### ActionGroup
 * ActionGroup `object`: An Azure action group.
+  * armRoleReceivers `array`: The list of ARM role receivers that are part of this action group. Roles are Azure RBAC roles and only built-in roles are supported.
+    * items [ArmRoleReceiver](#armrolereceiver)
   * automationRunbookReceivers `array`: The list of AutomationRunbook receivers that are part of this action group.
     * items [AutomationRunbookReceiver](#automationrunbookreceiver)
   * azureAppPushReceivers `array`: The list of AzureAppPush receivers that are part of this action group.
@@ -239,6 +238,12 @@ azure_monitor_actiongroups_api.ActionGroups_EnableReceiver({
   * name `string`: Azure resource name
   * type `string`: Azure resource type
 
+### ArmRoleReceiver
+* ArmRoleReceiver `object`: An arm role receiver.
+  * name **required** `string`: The name of the arm role receiver. Names must be unique across all receivers within an action group.
+  * roleId **required** `string`: The arm role id.
+  * useCommonAlertSchema **required** `boolean`: Indicates whether to use common alert schema.
+
 ### AutomationRunbookReceiver
 * AutomationRunbookReceiver `object`: The Azure Automation Runbook notification receiver.
   * automationAccountId **required** `string`: The Azure automation account Id which holds this runbook and authenticate to Azure resource.
@@ -246,6 +251,7 @@ azure_monitor_actiongroups_api.ActionGroups_EnableReceiver({
   * name `string`: Indicates name of the webhook.
   * runbookName **required** `string`: The name for this runbook.
   * serviceUri `string`: The URI where webhooks should be sent.
+  * useCommonAlertSchema **required** `boolean`: Indicates whether to use common alert schema.
   * webhookResourceId **required** `string`: The resource id for webhook linked to this runbook.
 
 ### AzureAppPushReceiver
@@ -259,12 +265,14 @@ azure_monitor_actiongroups_api.ActionGroups_EnableReceiver({
   * functionName **required** `string`: The function name in the function app.
   * httpTriggerUrl **required** `string`: The http trigger url where http request sent to.
   * name **required** `string`: The name of the azure function receiver. Names must be unique across all receivers within an action group.
+  * useCommonAlertSchema **required** `boolean`: Indicates whether to use common alert schema.
 
 ### EmailReceiver
 * EmailReceiver `object`: An email receiver.
   * emailAddress **required** `string`: The email address of this receiver.
   * name **required** `string`: The name of the email receiver. Names must be unique across all receivers within an action group.
   * status [ReceiverStatus](#receiverstatus)
+  * useCommonAlertSchema **required** `boolean`: Indicates whether to use common alert schema.
 
 ### EnableRequest
 * EnableRequest `object`: Describes a receiver that should be resubscribed.
@@ -288,6 +296,7 @@ azure_monitor_actiongroups_api.ActionGroups_EnableReceiver({
   * callbackUrl **required** `string`: The callback url where http request sent to.
   * name **required** `string`: The name of the logic app receiver. Names must be unique across all receivers within an action group.
   * resourceId **required** `string`: The azure resource id of the logic app receiver.
+  * useCommonAlertSchema **required** `boolean`: Indicates whether to use common alert schema.
 
 ### ReceiverStatus
 * ReceiverStatus `string` (values: NotSpecified, Enabled, Disabled): Indicates the status of the receiver. Receivers that are not Enabled will not receive any communications.
@@ -314,7 +323,12 @@ azure_monitor_actiongroups_api.ActionGroups_EnableReceiver({
 
 ### WebhookReceiver
 * WebhookReceiver `object`: A webhook receiver.
+  * identifierUri `string`: Indicates the identifier uri for aad auth.
   * name **required** `string`: The name of the webhook receiver. Names must be unique across all receivers within an action group.
+  * objectId `string`: Indicates the webhook app object Id for aad auth.
   * serviceUri **required** `string`: The URI where webhooks should be sent.
+  * tenantId `string`: Indicates the tenant id for aad auth.
+  * useAadAuth `boolean`: Indicates whether or not use AAD authentication.
+  * useCommonAlertSchema **required** `boolean`: Indicates whether to use common alert schema.
 
 

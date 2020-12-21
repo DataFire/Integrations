@@ -7,7 +7,7 @@
   "basePath": "/",
   "info": {
     "description": "Move your app forward with the Zappiti Player API. Use http://your-player-ip:8990/ as base URL for your requests.",
-    "title": "Zappiti Player",
+    "title": "Zappiti Player API",
     "version": "4.15.174",
     "x-apisguru-categories": [
       "media"
@@ -30,15 +30,15 @@
       "type": "openapi"
     }
   },
-  "consumes": [
-    "application/json"
-  ],
   "produces": [
     "application/json"
   ],
   "paths": {
     "/CheckZappitiService": {
       "post": {
+        "consumes": [
+          "application/json"
+        ],
         "description": "ErrorCode.NotInstalled\nErrorCode.NotRunning\nErrorCode.Running\n",
         "parameters": [
           {
@@ -49,6 +49,9 @@
               "$ref": "#/definitions/CheckZappitiServiceRequest"
             }
           }
+        ],
+        "produces": [
+          "application/json"
         ],
         "responses": {
           "200": {
@@ -67,6 +70,9 @@
     },
     "/ConnectionDetails": {
       "post": {
+        "consumes": [
+          "application/json"
+        ],
         "parameters": [
           {
             "in": "body",
@@ -76,6 +82,9 @@
               "$ref": "#/definitions/ConnectionDetailsRequest"
             }
           }
+        ],
+        "produces": [
+          "application/json"
         ],
         "responses": {
           "200": {
@@ -94,6 +103,9 @@
     },
     "/InstallZappitiService": {
       "post": {
+        "consumes": [
+          "application/json"
+        ],
         "description": "",
         "parameters": [
           {
@@ -104,6 +116,9 @@
               "$ref": "#/definitions/InstallZappitiServiceRequest"
             }
           }
+        ],
+        "produces": [
+          "application/json"
         ],
         "responses": {
           "200": {
@@ -122,6 +137,9 @@
     },
     "/IsAlive": {
       "post": {
+        "consumes": [
+          "application/json"
+        ],
         "parameters": [
           {
             "in": "body",
@@ -131,6 +149,9 @@
               "$ref": "#/definitions/IsAliveRequest"
             }
           }
+        ],
+        "produces": [
+          "application/json"
         ],
         "responses": {
           "200": {
@@ -149,6 +170,9 @@
     },
     "/LastMedia": {
       "post": {
+        "consumes": [
+          "application/json"
+        ],
         "parameters": [
           {
             "in": "body",
@@ -158,6 +182,9 @@
               "$ref": "#/definitions/LastMediaRequest"
             }
           }
+        ],
+        "produces": [
+          "application/json"
         ],
         "responses": {
           "200": {
@@ -176,6 +203,9 @@
     },
     "/StartVideo": {
       "post": {
+        "consumes": [
+          "application/json"
+        ],
         "description": "Start the playback of the speficied video.\n",
         "parameters": [
           {
@@ -186,6 +216,9 @@
               "$ref": "#/definitions/StartVideoRequest"
             }
           }
+        ],
+        "produces": [
+          "application/json"
         ],
         "responses": {
           "200": {
@@ -204,6 +237,9 @@
     },
     "/StartZappitiService": {
       "post": {
+        "consumes": [
+          "application/json"
+        ],
         "description": "",
         "parameters": [
           {
@@ -214,6 +250,9 @@
               "$ref": "#/definitions/StartZappitiServiceRequest"
             }
           }
+        ],
+        "produces": [
+          "application/json"
         ],
         "responses": {
           "200": {
@@ -459,9 +498,9 @@
   },
   "x-servers": [
     {
-      "url": "http://{ip_address}:8990/",
+      "url": "http://{ip-address}:8990/",
       "variables": {
-        "ip_address": {
+        "ip-address": {
           "default": "192.168.1.5"
         }
       }

@@ -9,38 +9,171 @@ npm install --save @datafire/jumpseller
 ```js
 let jumpseller = require('@datafire/jumpseller').create();
 
-jumpseller.apps.json.get({
-  "login": "",
-  "authtoken": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
 
 ## Description
 
-Explore all our endpoints with your own set of of access tokens. All changes affect your production Jumpseller store.
+# Endpoint Structure
 
-## Actions
+All URLs are in the format: 
 
-### apps.json.get
-Retrieve all Jumpseller Apps.
-
-
-```js
-jumpseller.apps.json.get({
-  "login": "",
-  "authtoken": ""
-}, context)
+```text
+https://api.jumpseller.com/v1/path.json?login=XXXXXX&authtoken=storetoken  
 ```
 
-#### Input
-* input `object`
-  * login **required** `string`: API OAuth login.
-  * authtoken **required** `string`: API OAuth token.
+The path is prefixed by the API version and the URL takes as parameters the login (your store specific API login) and your authentication token.
+<br/><br/>
+***
 
-#### Output
-* output [App](#app)
+# Version
+
+The current version of the API is **v1**.  
+If we change the API in backward-incompatible ways, we'll increase the version number and maintain stable support for the old urls.
+<br/><br/>
+***
+
+# Authentication
+
+The API uses a token-based authentication with a combination of a login key and an auth token. **Both parameters can be found on the left sidebar of the Account section, accessed from the main menu of your Admin Panel**. The auth token of the user can be reset on the same page.
+
+![Store Login](/images/support/api/apilogin.png)
+
+The auth token is a **32 characters** string.
+
+If you are developing a Jumpseller App, the authentication should be done using [OAuth-2](/support/oauth-2). Please read the article [Build an App](/support/apps) for more information.
+<br/><br/>
+***
+
+# Curl Examples
+
+To request all the products at your store, you would append the products index path to the base url to create an URL with the format:  
+
+```text
+https://api.jumpseller.com/v1/products.json?login=XXXXXX&authtoken=XXXXX
+```
+
+In curl, you can invoque that URL with:  
+
+```text
+curl -X GET "https://api.jumpseller.com/v1/products.json?login=XXXXXX&authtoken=XXXXX"
+```
+
+To create a product, you will include the JSON data and specify the MIME Type:  
+
+```text
+curl -X POST -d '{ "product" : {"name": "My new Product!", "price": 100} }' "https://api.jumpseller.com/v1/products.json?login=XXXXXX&authtoken=XXXXX" -H "Content-Type:application/json"
+```
+
+and to update the product identified with 123:  
+
+```text
+curl -X PUT -d '{ "product" : {"name": "My updated Product!", "price": 99} }' "https://api.jumpseller.com/v1/products/123.json?login=XXXXXX&authtoken=XXXXX" -H "Content-Type:application/json"
+```
+
+or delete it:  
+
+```text
+curl -X DELETE "https://api.jumpseller.com/v1/products/123.json?login=XXXXXX&authtoken=XXXXX" -H "Content-Type:application/json"
+```
+<br/><br/>
+***
+
+# PHP Examples
+
+Create a new Product (POST method)
+
+```php
+$url = 'https://api.jumpseller.com/v1/products.json?login=XXXXX&authtoken=XXXXX;
+$ch = curl_init($url);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+
+curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST"); //post method
+curl_setopt($ch, CURLOPT_POSTFIELDS, '{ "product" : {"name": "My updated Product!", "price": 99} }');
+
+$result = curl_exec($ch);
+print_r($result);
+curl_close($ch);
+```
+<br/><br/>
+***
+
+# Plain JSON only. No XML.
+
+* We only support JSON for data serialization.
+* Our node format has no root element.  
+* We use snake_case to describe attribute keys (like "created_at").  
+* All empty value are replaced with **null** strings.
+* All API URLs end in .json to indicate that they accept and return JSON.
+* POST and PUT methods require you to explicitly state the MIME type of your request's body content as **"application/json"**.
+<br/><br/>
+***
+
+# Rate Limit
+You can perform a maximum of:
+
++ 240 (two hundred forty) requests per minute and
++ 8 (eight) requests per second 
+
+If you exceed this limit, you'll get a 403 Forbidden (Rate Limit Exceeded) response for subsequent requests.  
+
+The rate limits apply by IP address and by store. This means that multiple requests on different stores are not counted towards the same rate limit.
+
+This limits are necessary to ensure resources are correctly used. Your application should be aware of this limits and retry any unsuccessful request, check the following Ruby stub:
+
+```ruby
+tries = 0; max_tries = 3;
+begin
+  HTTParty.send(method, uri) # perform an API call.
+  sleep 0.5
+  tries += 1
+rescue
+  unless tries >= max_tries
+    sleep 1.0 # wait the necessary time before retrying the call again.
+    retry
+  end
+end
+```
+
+Finally, you can review the Response Headers of each request:
+
+```text
+Jumpseller-PerMinuteRateLimit-Limit: 60  
+Jumpseller-PerMinuteRateLimit-Remaining: 59 # requests available on the per-second interval  
+Jumpseller-PerSecondRateLimit-Limit: 2  
+Jumpseller-PerSecondRateLimit-Remaining: 1 # requests available on the per-second interval
+``` 
+
+to better model your application requests intervals.
+
+In the event of getting your IP banned, the Response Header `Jumpseller-BannedByRateLimit-Reset` informs you the time when will your ban be reseted.
+<br/><br/>
+***
+
+# Pagination
+
+By default we will return 50 objects (products, orders, etc) per page. There is a maximum of 100, using a query string `&limit=100`.
+If the result set gets paginated it is your responsibility to check the next page for more objects -- you do this by using query strings `&page=2`, `&page=3` and so on.
+
+```text
+https://api.jumpseller.com/v1/products.json?login=XXXXXX&authtoken=XXXXX&page=3&limit=100
+```
+<br/><br/>
+***
+
+# More
+* [Jumpseller API wrapper](https://gitlab.com/jumpseller-api/ruby) provides a public Ruby abstraction over our API;
+* [Apps Page](/apps) showcases external integrations with Jumpseller done by technical experts;
+* [Imgbb API](https://api.imgbb.com/) provides an easy way to upload and temporaly host for images and files.
+<br/><br/>
+***
+<br/><br/>
+
+
+## Actions
 
 ### categories.json.get
 Retrieve all Categories.
@@ -77,10 +210,29 @@ jumpseller.categories.json.post({
 * input `object`
   * login **required** `string`: API OAuth login.
   * authtoken **required** `string`: API OAuth token.
-  * body **required** [Category](#category)
+  * body **required** [CategoryEdit](#categoryedit)
 
 #### Output
-* output [CategoryEdit](#categoryedit)
+* output [Category](#category)
+
+### categories.count.json.get
+Count all Categories.
+
+
+```js
+jumpseller.categories.count.json.get({
+  "login": "",
+  "authtoken": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * login **required** `string`: API OAuth login.
+  * authtoken **required** `string`: API OAuth token.
+
+#### Output
+* output [Count](#count)
 
 ### categories.id.json.delete
 Delete an existing Category.
@@ -170,7 +322,7 @@ jumpseller.checkout_custom_fields.json.get({
   * items [CheckoutCustomField](#checkoutcustomfield)
 
 ### checkout_custom_fields.json.post
-Create a new CheckoutCustomField.
+Type values can be: input, selection, checkbox, date or text. Area values can be: contact, billing_shipping or other.
 
 
 ```js
@@ -188,8 +340,7 @@ jumpseller.checkout_custom_fields.json.post({
   * body **required** [CheckoutCustomFieldEdit](#checkoutcustomfieldedit)
 
 #### Output
-* output `array`
-  * items [CheckoutCustomField](#checkoutcustomfield)
+* output [CheckoutCustomField](#checkoutcustomfield)
 
 ### checkout_custom_fields.id.json.delete
 Delete an existing CheckoutCustomField.
@@ -254,8 +405,7 @@ jumpseller.checkout_custom_fields.id.json.put({
   * body **required** [CheckoutCustomFieldEdit](#checkoutcustomfieldedit)
 
 #### Output
-* output `array`
-  * items [CheckoutCustomField](#checkoutcustomfield)
+* output [CheckoutCustomField](#checkoutcustomfield)
 
 ### countries.json.get
 Retrieve all Countries.
@@ -343,6 +493,112 @@ jumpseller.countries.country_code.regions.region_code.json.get({
 #### Output
 * output [Region](#region)
 
+### custom_fields.json.get
+Retrieve all Store's Custom Fields.
+
+
+```js
+jumpseller.custom_fields.json.get({
+  "login": "",
+  "authtoken": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * login **required** `string`: API OAuth login.
+  * authtoken **required** `string`: API OAuth token.
+
+#### Output
+* output `array`
+  * items [CustomField](#customfield)
+
+### custom_fields.json.post
+Create a new Custom Field.
+
+
+```js
+jumpseller.custom_fields.json.post({
+  "login": "",
+  "authtoken": "",
+  "body": {}
+}, context)
+```
+
+#### Input
+* input `object`
+  * login **required** `string`: API OAuth login.
+  * authtoken **required** `string`: API OAuth token.
+  * body **required** [CustomFieldEdit](#customfieldedit)
+
+#### Output
+* output [CustomField](#customfield)
+
+### custom_fields.id.json.delete
+Delete an existing CustomField.
+
+
+```js
+jumpseller.custom_fields.id.json.delete({
+  "login": "",
+  "authtoken": "",
+  "id": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * login **required** `string`: API OAuth login.
+  * authtoken **required** `string`: API OAuth token.
+  * id **required** `integer`: Id of the CustomField
+
+#### Output
+* output `string`
+
+### custom_fields.id.json.get
+Retrieve a single CustomField.
+
+
+```js
+jumpseller.custom_fields.id.json.get({
+  "login": "",
+  "authtoken": "",
+  "id": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * login **required** `string`: API OAuth login.
+  * authtoken **required** `string`: API OAuth token.
+  * id **required** `integer`: Id of the CustomField
+
+#### Output
+* output [CustomField](#customfield)
+
+### custom_fields.id.json.put
+Update a CustomField.
+
+
+```js
+jumpseller.custom_fields.id.json.put({
+  "login": "",
+  "authtoken": "",
+  "id": 0,
+  "body": {}
+}, context)
+```
+
+#### Input
+* input `object`
+  * login **required** `string`: API OAuth login.
+  * authtoken **required** `string`: API OAuth token.
+  * id **required** `integer`: Id of the CustomField
+  * body **required** [CustomFieldEdit](#customfieldedit)
+
+#### Output
+* output [CustomField](#customfield)
+
 ### customer_categories.json.get
 Retrieve all Customer Categories.
 
@@ -384,8 +640,7 @@ jumpseller.customer_categories.json.post({
   * body **required** [CustomerCategoryEdit](#customercategoryedit)
 
 #### Output
-* output `array`
-  * items [CustomerCategory](#customercategory)
+* output [CustomerCategory](#customercategory)
 
 ### customer_categories.id.json.delete
 Delete an existing CustomerCategory.
@@ -450,8 +705,7 @@ jumpseller.customer_categories.id.json.put({
   * body **required** [CustomerCategoryEdit](#customercategoryedit)
 
 #### Output
-* output `array`
-  * items [CustomerCategory](#customercategory)
+* output [CustomerCategory](#customercategory)
 
 ### customer_categories.id.customers.json.delete
 Delete Customers from an existing CustomerCategory.
@@ -461,7 +715,8 @@ Delete Customers from an existing CustomerCategory.
 jumpseller.customer_categories.id.customers.json.delete({
   "login": "",
   "authtoken": "",
-  "id": 0
+  "id": 0,
+  "body": {}
 }, context)
 ```
 
@@ -470,6 +725,7 @@ jumpseller.customer_categories.id.customers.json.delete({
   * login **required** `string`: API OAuth login.
   * authtoken **required** `string`: API OAuth token.
   * id **required** `integer`: Id of the CustomerCategory
+  * body **required** [CustomersToCustomerCategory](#customerstocustomercategory)
 
 #### Output
 * output `string`
@@ -514,7 +770,7 @@ jumpseller.customer_categories.id.customers.json.post({
   * login **required** `string`: API OAuth login.
   * authtoken **required** `string`: API OAuth token.
   * id **required** `integer`: Id of the CustomerCategory
-  * body **required** [Customer](#customer)
+  * body **required** [CustomersToCustomerCategory](#customerstocustomercategory)
 
 #### Output
 * output `array`
@@ -561,11 +817,29 @@ jumpseller.customers.json.post({
   * body **required** [CustomerWithPasswordNoID](#customerwithpasswordnoid)
 
 #### Output
-* output `array`
-  * items [Customer](#customer)
+* output [Customer](#customer)
+
+### customers.count.json.get
+Count all Customers.
+
+
+```js
+jumpseller.customers.count.json.get({
+  "login": "",
+  "authtoken": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * login **required** `string`: API OAuth login.
+  * authtoken **required** `string`: API OAuth token.
+
+#### Output
+* output [Count](#count)
 
 ### customers.email.email.json.get
-Retrieve a single Customer.
+Retrieve a single Customer by email.
 
 
 ```js
@@ -586,7 +860,7 @@ jumpseller.customers.email.email.json.get({
 * output [Customer](#customer)
 
 ### customers.id.json.delete
-Delete an existing Category.
+Delete an existing Customer.
 
 
 ```js
@@ -607,7 +881,7 @@ jumpseller.customers.id.json.delete({
 * output `string`
 
 ### customers.id.json.get
-Retrieve a single Customer.
+Retrieve a single Customer by id.
 
 
 ```js
@@ -645,20 +919,20 @@ jumpseller.customers.id.json.put({
   * login **required** `string`: API OAuth login.
   * authtoken **required** `string`: API OAuth token.
   * id **required** `integer`: Id of the Customer
-  * body **required** [CustomerWithPassword](#customerwithpassword)
+  * body **required** [CustomerWithPasswordNoID](#customerwithpasswordnoid)
 
 #### Output
-* output `array`
-  * items [Customer](#customer)
+* output [Customer](#customer)
 
-### fields.json.get
-Retrieve all Store's Custom Fields.
+### customers.id.fields.get
+Retrieves the Customer Additional Field of a Customer.
 
 
 ```js
-jumpseller.fields.json.get({
+jumpseller.customers.id.fields.get({
   "login": "",
-  "authtoken": ""
+  "authtoken": "",
+  "id": 0
 }, context)
 ```
 
@@ -666,19 +940,21 @@ jumpseller.fields.json.get({
 * input `object`
   * login **required** `string`: API OAuth login.
   * authtoken **required** `string`: API OAuth token.
+  * id **required** `integer`: Id of the Customer
 
 #### Output
 * output `array`
-  * items [Field](#field)
+  * items [CustomerAdditionalField](#customeradditionalfield)
 
-### fields.json.post
-Create a new Custom Field.
+### customers.id.fields.post
+Adds Customer Additional Fields to a Customer.
 
 
 ```js
-jumpseller.fields.json.post({
+jumpseller.customers.id.fields.post({
   "login": "",
   "authtoken": "",
+  "id": 0,
   "body": {}
 }, context)
 ```
@@ -687,11 +963,82 @@ jumpseller.fields.json.post({
 * input `object`
   * login **required** `string`: API OAuth login.
   * authtoken **required** `string`: API OAuth token.
-  * body **required** [Field](#field)
+  * id **required** `integer`: Id of the Customer
+  * body **required** [CustomerAdditionalFieldEdit](#customeradditionalfieldedit)
 
 #### Output
-* output `array`
-  * items [Field](#field)
+* output [CustomerAdditionalField](#customeradditionalfield)
+
+### customers.id.fields.field_id.delete
+Delete a Customer Additional Field.
+
+
+```js
+jumpseller.customers.id.fields.field_id.delete({
+  "login": "",
+  "authtoken": "",
+  "id": 0,
+  "field_id": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * login **required** `string`: API OAuth login.
+  * authtoken **required** `string`: API OAuth token.
+  * id **required** `integer`: Id of the Customer
+  * field_id **required** `integer`: Id of the Customer Additional Field
+
+#### Output
+* output `string`
+
+### customers.id.fields.field_id.get
+Retrieve a single Customer Additional Field.
+
+
+```js
+jumpseller.customers.id.fields.field_id.get({
+  "login": "",
+  "authtoken": "",
+  "id": 0,
+  "field_id": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * login **required** `string`: API OAuth login.
+  * authtoken **required** `string`: API OAuth token.
+  * id **required** `integer`: Id of the Customer
+  * field_id **required** `integer`: Id of the Customer Additional Field
+
+#### Output
+* output [CustomerAdditionalField](#customeradditionalfield)
+
+### customers.id.fields.field_id.put
+Update a Customer Additional Field.
+
+
+```js
+jumpseller.customers.id.fields.field_id.put({
+  "login": "",
+  "authtoken": "",
+  "id": 0,
+  "field_id": 0,
+  "body": {}
+}, context)
+```
+
+#### Input
+* input `object`
+  * login **required** `string`: API OAuth login.
+  * authtoken **required** `string`: API OAuth token.
+  * id **required** `integer`: Id of the Customer
+  * field_id **required** `integer`: Id of the Customer Additional Field
+  * body **required** [CustomerAdditionalFieldEdit](#customeradditionalfieldedit)
+
+#### Output
+* output [CustomerAdditionalField](#customeradditionalfield)
 
 ### hooks.json.get
 Retrieve all Hooks.
@@ -799,8 +1146,26 @@ jumpseller.hooks.id.json.put({
   * body **required** [HookEdit](#hookedit)
 
 #### Output
-* output `array`
-  * items [Hook](#hook)
+* output [Hook](#hook)
+
+### jsapps.json.get
+Retrieve all the Store's JSApps
+
+
+```js
+jumpseller.jsapps.json.get({
+  "login": "",
+  "authtoken": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * login **required** `string`: API OAuth login.
+  * authtoken **required** `string`: API OAuth token.
+
+#### Output
+* output [App](#app)
 
 ### jsapps.json.post
 Create a Store JSApp
@@ -818,11 +1183,10 @@ jumpseller.jsapps.json.post({
 * input `object`
   * login **required** `string`: API OAuth login.
   * authtoken **required** `string`: API OAuth token.
-  * body **required** [JSApp](#jsapp)
+  * body **required** [JSAppEdit](#jsappedit)
 
 #### Output
-* output `array`
-  * items [JSApp](#jsapp)
+* output [JSApp](#jsapp)
 
 ### jsapps.code.json.delete
 Delete an existing JSApp.
@@ -881,13 +1245,15 @@ jumpseller.orders.json.get({
 * input `object`
   * login **required** `string`: API OAuth login.
   * authtoken **required** `string`: API OAuth token.
+  * limit `integer`: List restriction
+  * page `integer`: List page
 
 #### Output
 * output `array`
   * items [Order](#order)
 
 ### orders.json.post
-Use the JSON format:<br/>'{ "order": {"status": "Paid", "shipping_method_id": 123, "products": [{ "id": 123, "qty": 1}], "customer": {"id": 123}}}'<br/>or in CURL:<br/>curl -X POST -d '{ "order": {"status": "Paid", "shipping_method_id": 123, "products": [{ "id": 123, "qty": 1}], "customer": {"id": 123}}}' "https://api.jumpseller.com/v1/orders.json?login=storecode&authtoken=XXXXX" -H "Content-Type:application/json" 
+Create a new Order.
 
 
 ```js
@@ -902,14 +1268,53 @@ jumpseller.orders.json.post({
 * input `object`
   * login **required** `string`: API OAuth login.
   * authtoken **required** `string`: API OAuth token.
-  * body **required** [OrderEdit](#orderedit)
+  * body **required** [OrderCreate](#ordercreate)
 
 #### Output
-* output `array`
-  * items [Order](#order)
+* output [Order](#order)
+
+### orders.after.id.json.get
+For example the GET /orders/after/5000 will return Order 5001, 5002, 5003, etc.
+
+
+```js
+jumpseller.orders.after.id.json.get({
+  "login": "",
+  "authtoken": "",
+  "id": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * login **required** `string`: API OAuth login.
+  * authtoken **required** `string`: API OAuth token.
+  * id **required** `integer`: Id of the Order
+
+#### Output
+* output [Order](#order)
+
+### orders.count.json.get
+Count all Orders.
+
+
+```js
+jumpseller.orders.count.json.get({
+  "login": "",
+  "authtoken": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * login **required** `string`: API OAuth login.
+  * authtoken **required** `string`: API OAuth token.
+
+#### Output
+* output [Count](#count)
 
 ### orders.status.status.json.get
-Retrieve orders filter by status.
+Retrieve orders filtered by status.
 
 
 ```js
@@ -952,7 +1357,7 @@ jumpseller.orders.id.json.get({
 * output [Order](#order)
 
 ### orders.id.json.put
-Only 'status', 'tracking_number', 'tracking_company', 'additional_information' and 'additional_fields' are available for update.<br/>Use the JSON format:<br/>'{ "order": {"status": "Paid", "tracking_company": "other", "tracking_number": "123456789", "additional_information": "My custom message.", "additional_fields": [{"label": "Gift Name", "value": "Duarte"}, {"label": "Gift Wrapping Color", "value": "Green"}]} }}'<br/>or in CURL:<br/>curl -X PUT -d '{ "order": {"status": "Paid", "additional_information": "My custom message."}}' "https://api.jumpseller.com/v1/orders/{id}.json?login=storecode&authtoken=XXXXX" -H "Content-Type:application/json" 
+Only `status`, `shipment_status`, `tracking_number`, `tracking_company`, `additional_information` and `additional_fields` are available for update.
 
 
 ```js
@@ -972,8 +1377,7 @@ jumpseller.orders.id.json.put({
   * body **required** [OrderEdit](#orderedit)
 
 #### Output
-* output `array`
-  * items [Order](#order)
+* output [Order](#order)
 
 ### orders.id.history.json.get
 Retrieve all Order History.
@@ -1018,8 +1422,7 @@ jumpseller.orders.id.history.json.post({
   * body **required** [OrderHistoryEdit](#orderhistoryedit)
 
 #### Output
-* output `array`
-  * items [OrderHistory](#orderhistory)
+* output [OrderHistory](#orderhistory)
 
 ### payment_methods.json.get
 Retrieve all Store's Payment Methods.
@@ -1079,6 +1482,7 @@ jumpseller.products.json.get({
   * authtoken **required** `string`: API OAuth token.
   * limit `integer`: List restriction
   * page `integer`: List page
+  * locale `string`: Locale code of the translation
 
 #### Output
 * output `array`
@@ -1100,11 +1504,11 @@ jumpseller.products.json.post({
 * input `object`
   * login **required** `string`: API OAuth login.
   * authtoken **required** `string`: API OAuth token.
+  * locale `string`: Locale code of the translation
   * body **required** [ProductEdit](#productedit)
 
 #### Output
-* output `array`
-  * items [Product](#product)
+* output [Product](#product)
 
 ### products.after.id.json.get
 Retrieves Products after the given id.
@@ -1123,6 +1527,7 @@ jumpseller.products.after.id.json.get({
   * login **required** `string`: API OAuth login.
   * authtoken **required** `string`: API OAuth token.
   * id **required** `integer`: Id of the Product
+  * locale `string`: Locale code of the translation
 
 #### Output
 * output `array`
@@ -1144,6 +1549,7 @@ jumpseller.products.category.category_id.json.get({
 * input `object`
   * login **required** `string`: API OAuth login.
   * authtoken **required** `string`: API OAuth token.
+  * locale `string`: Locale code of the translation
   * category_id **required** `integer`: Category ID of the Product used as filter
 
 #### Output
@@ -1166,6 +1572,7 @@ jumpseller.products.category.category_id.count.json.get({
 * input `object`
   * login **required** `string`: API OAuth login.
   * authtoken **required** `string`: API OAuth token.
+  * locale `string`: Locale code of the translation
   * category_id **required** `integer`: Category ID of the Product used as filter
 
 #### Output
@@ -1191,7 +1598,11 @@ jumpseller.products.count.json.get({
 * output [Count](#count)
 
 ### products.search.json.get
-Retrieve a Product List from a query.
+Endpoint example: 
+
+```text
+https://api.jumpseller.com/v1/products/search.json?login=XXXXXX&authtoken=XXXXX&query=test&fields=name,description 
+```
 
 
 ```js
@@ -1206,29 +1617,9 @@ jumpseller.products.search.json.get({
 * input `object`
   * login **required** `string`: API OAuth login.
   * authtoken **required** `string`: API OAuth token.
-  * query **required** `string`: Query for the Product
-
-#### Output
-* output `array`
-  * items [Product](#product)
-
-### products.sku.sku.json.get
-Retrieve a single Product by SKU.
-
-
-```js
-jumpseller.products.sku.sku.json.get({
-  "login": "",
-  "authtoken": "",
-  "sku": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * login **required** `string`: API OAuth login.
-  * authtoken **required** `string`: API OAuth token.
-  * sku **required** `string`: SKU of the Product
+  * locale `string`: Locale code of the translation
+  * query **required** `string`: Text to query for the Product
+  * fields `string` (values: sku, barcode, brand, name, description, variants, option_name, custom_fields, custom_fields_selects): Comma separated values of the fields to query for the Product
 
 #### Output
 * output `array`
@@ -1250,6 +1641,7 @@ jumpseller.products.status.status.json.get({
 * input `object`
   * login **required** `string`: API OAuth login.
   * authtoken **required** `string`: API OAuth token.
+  * locale `string`: Locale code of the translation
   * status **required** `string` (values: available, not-available, disabled): Status of the Product used as filter
 
 #### Output
@@ -1272,6 +1664,7 @@ jumpseller.products.status.status.count.json.get({
 * input `object`
   * login **required** `string`: API OAuth login.
   * authtoken **required** `string`: API OAuth token.
+  * locale `string`: Locale code of the translation
   * status **required** `string` (values: available, not-available, disabled): Status of the Product used as filter
 
 #### Output
@@ -1314,6 +1707,7 @@ jumpseller.products.id.json.get({
 * input `object`
   * login **required** `string`: API OAuth login.
   * authtoken **required** `string`: API OAuth token.
+  * locale `string`: Locale code of the translation
   * id **required** `integer`: ID of the Product
 
 #### Output
@@ -1337,11 +1731,235 @@ jumpseller.products.id.json.put({
   * login **required** `string`: API OAuth login.
   * authtoken **required** `string`: API OAuth token.
   * id **required** `integer`: Id of the Product
+  * locale `string`: Locale code of the translation
   * body **required** [ProductEdit](#productedit)
 
 #### Output
+* output [Product](#product)
+
+### products.id.attachments.json.get
+Retrieve all Product Attachments.
+
+
+```js
+jumpseller.products.id.attachments.json.get({
+  "login": "",
+  "authtoken": "",
+  "id": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * login **required** `string`: API OAuth login.
+  * authtoken **required** `string`: API OAuth token.
+  * id **required** `integer`: ID of the Product
+
+#### Output
 * output `array`
-  * items [Product](#product)
+  * items [Attachment](#attachment)
+
+### products.id.attachments.json.post
+Create a new Product Attachment.
+
+
+```js
+jumpseller.products.id.attachments.json.post({
+  "login": "",
+  "authtoken": "",
+  "id": 0,
+  "body": {}
+}, context)
+```
+
+#### Input
+* input `object`
+  * login **required** `string`: API OAuth login.
+  * authtoken **required** `string`: API OAuth token.
+  * id **required** `integer`: Id of the Product
+  * body **required** [AttachmentEdit](#attachmentedit)
+
+#### Output
+* output [Attachment](#attachment)
+
+### products.id.attachments.count.json.get
+Count all Product Attachments.
+
+
+```js
+jumpseller.products.id.attachments.count.json.get({
+  "login": "",
+  "authtoken": "",
+  "id": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * login **required** `string`: API OAuth login.
+  * authtoken **required** `string`: API OAuth token.
+  * id **required** `integer`: ID of the Product
+
+#### Output
+* output [Count](#count)
+
+### products.id.attachments.attachment_id.json.delete
+Delete a Product Attachment.
+
+
+```js
+jumpseller.products.id.attachments.attachment_id.json.delete({
+  "login": "",
+  "authtoken": "",
+  "id": 0,
+  "attachment_id": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * login **required** `string`: API OAuth login.
+  * authtoken **required** `string`: API OAuth token.
+  * id **required** `integer`: Id of the Product
+  * attachment_id **required** `integer`: Id of the Product Attachment
+
+#### Output
+* output `string`
+
+### products.id.attachments.attachment_id.json.get
+Retrieve a single Product Attachment.
+
+
+```js
+jumpseller.products.id.attachments.attachment_id.json.get({
+  "login": "",
+  "authtoken": "",
+  "id": 0,
+  "attachment_id": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * login **required** `string`: API OAuth login.
+  * authtoken **required** `string`: API OAuth token.
+  * id **required** `integer`: Id of the Product
+  * attachment_id **required** `integer`: Id of the Product Attachment
+
+#### Output
+* output [Attachment](#attachment)
+
+### products.id.digital_products.json.get
+Retrieve all Product DigitalProducts.
+
+
+```js
+jumpseller.products.id.digital_products.json.get({
+  "login": "",
+  "authtoken": "",
+  "id": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * login **required** `string`: API OAuth login.
+  * authtoken **required** `string`: API OAuth token.
+  * id **required** `integer`: ID of the Product
+
+#### Output
+* output `array`
+  * items [DigitalProduct](#digitalproduct)
+
+### products.id.digital_products.json.post
+Create a new Product DigitalProduct.
+
+
+```js
+jumpseller.products.id.digital_products.json.post({
+  "login": "",
+  "authtoken": "",
+  "id": 0,
+  "body": {}
+}, context)
+```
+
+#### Input
+* input `object`
+  * login **required** `string`: API OAuth login.
+  * authtoken **required** `string`: API OAuth token.
+  * id **required** `integer`: Id of the Product
+  * body **required** [DigitalProductEdit](#digitalproductedit)
+
+#### Output
+* output [DigitalProduct](#digitalproduct)
+
+### products.id.digital_products.count.json.get
+Count all Product DigitalProducts.
+
+
+```js
+jumpseller.products.id.digital_products.count.json.get({
+  "login": "",
+  "authtoken": "",
+  "id": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * login **required** `string`: API OAuth login.
+  * authtoken **required** `string`: API OAuth token.
+  * id **required** `integer`: ID of the Product
+
+#### Output
+* output [Count](#count)
+
+### products.id.digital_products.digital_product_id.json.delete
+Delete a Product DigitalProduct.
+
+
+```js
+jumpseller.products.id.digital_products.digital_product_id.json.delete({
+  "login": "",
+  "authtoken": "",
+  "id": 0,
+  "digital_product_id": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * login **required** `string`: API OAuth login.
+  * authtoken **required** `string`: API OAuth token.
+  * id **required** `integer`: Id of the Product
+  * digital_product_id **required** `integer`: Id of the Product DigitalProduct
+
+#### Output
+* output `string`
+
+### products.id.digital_products.digital_product_id.json.get
+Retrieve a single Product DigitalProduct.
+
+
+```js
+jumpseller.products.id.digital_products.digital_product_id.json.get({
+  "login": "",
+  "authtoken": "",
+  "id": 0,
+  "digital_product_id": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * login **required** `string`: API OAuth login.
+  * authtoken **required** `string`: API OAuth token.
+  * id **required** `integer`: Id of the Product
+  * digital_product_id **required** `integer`: Id of the Product DigitalProduct
+
+#### Output
+* output [DigitalProduct](#digitalproduct)
 
 ### products.id.fields.json.get
 Retrieve all Product Custom Fields
@@ -1363,7 +1981,7 @@ jumpseller.products.id.fields.json.get({
 
 #### Output
 * output `array`
-  * items [Field](#field)
+  * items [ProductCustomField](#productcustomfield)
 
 ### products.id.fields.json.post
 Create a new Product Custom Field.
@@ -1386,8 +2004,7 @@ jumpseller.products.id.fields.json.post({
   * body **required** [ProductCustomField](#productcustomfield)
 
 #### Output
-* output `array`
-  * items [Product](#product)
+* output [Product](#product)
 
 ### products.id.fields.count.json.get
 Count all Product Custom Fields.
@@ -1453,8 +2070,7 @@ jumpseller.products.id.images.json.post({
   * body **required** [ImageEdit](#imageedit)
 
 #### Output
-* output `array`
-  * items [Image](#image)
+* output [Image](#image)
 
 ### products.id.images.count.json.get
 Count all Product Images.
@@ -1501,7 +2117,7 @@ jumpseller.products.id.images.image_id.json.delete({
 * output `string`
 
 ### products.id.images.image_id.json.get
-Create a new Product Image.
+Retrieve a single Product Image.
 
 
 ```js
@@ -1521,8 +2137,7 @@ jumpseller.products.id.images.image_id.json.get({
   * image_id **required** `integer`: Id of the Product Image
 
 #### Output
-* output `array`
-  * items [Image](#image)
+* output [Image](#image)
 
 ### products.id.options.json.get
 Retrieve all Product Options.
@@ -1567,8 +2182,7 @@ jumpseller.products.id.options.json.post({
   * body **required** [ProductOptionEdit](#productoptionedit)
 
 #### Output
-* output `array`
-  * items [ProductOption](#productoption)
+* output [ProductOption](#productoption)
 
 ### products.id.options.count.json.get
 Count all Product Options.
@@ -1615,7 +2229,7 @@ jumpseller.products.id.options.option_id.json.delete({
 * output `string`
 
 ### products.id.options.option_id.json.get
-Create a new Product Option.
+Retrieve a single Product Option.
 
 
 ```js
@@ -1635,8 +2249,7 @@ jumpseller.products.id.options.option_id.json.get({
   * option_id **required** `integer`: Id of the Product Option
 
 #### Output
-* output `array`
-  * items [ProductOption](#productoption)
+* output [ProductOption](#productoption)
 
 ### products.id.options.option_id.json.put
 Modify an existing Product Option.
@@ -1661,8 +2274,7 @@ jumpseller.products.id.options.option_id.json.put({
   * body **required** [ProductOptionEdit](#productoptionedit)
 
 #### Output
-* output `array`
-  * items [ProductOption](#productoption)
+* output [ProductOption](#productoption)
 
 ### products.id.options.option_id.values.json.get
 Retrieve all Product Option Values.
@@ -1711,8 +2323,7 @@ jumpseller.products.id.options.option_id.values.json.post({
   * body **required** [ProductOptionValueEdit](#productoptionvalueedit)
 
 #### Output
-* output `array`
-  * items [ProductOptionValue](#productoptionvalue)
+* output [ProductOptionValue](#productoptionvalue)
 
 ### products.id.options.option_id.values.count.json.get
 Count all Product Option Values.
@@ -1763,7 +2374,7 @@ jumpseller.products.id.options.option_id.values.value_id.json.delete({
 * output `string`
 
 ### products.id.options.option_id.values.value_id.json.get
-Create a new Product Option Value.
+Retrieve a single Product Option Value.
 
 
 ```js
@@ -1785,8 +2396,7 @@ jumpseller.products.id.options.option_id.values.value_id.json.get({
   * value_id **required** `integer`: ID of the Product Option Value
 
 #### Output
-* output `array`
-  * items [ProductOptionValue](#productoptionvalue)
+* output [ProductOptionValue](#productoptionvalue)
 
 ### products.id.options.option_id.values.value_id.json.put
 Modify an existing Product Option Value.
@@ -1970,8 +2580,7 @@ jumpseller.promotions.json.post({
   * body **required** [PromotionEdit](#promotionedit)
 
 #### Output
-* output `array`
-  * items [Promotion](#promotion)
+* output [Promotion](#promotion)
 
 ### promotions.id.json.delete
 Delete an existing Promotion.
@@ -2036,8 +2645,113 @@ jumpseller.promotions.id.json.put({
   * body **required** [PromotionEdit](#promotionedit)
 
 #### Output
+* output [Promotion](#promotion)
+
+### shipping_methods.json.get
+Retrieve all Store's Shipping Methods.
+
+
+```js
+jumpseller.shipping_methods.json.get({
+  "login": "",
+  "authtoken": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * login **required** `string`: API OAuth login.
+  * authtoken **required** `string`: API OAuth token.
+
+#### Output
 * output `array`
-  * items [Promotion](#promotion)
+  * items [ShippingMethod](#shippingmethod)
+
+### shipping_methods.json.post
+Creates a Shipping Method.
+
+
+```js
+jumpseller.shipping_methods.json.post({
+  "login": "",
+  "authtoken": "",
+  "body": {}
+}, context)
+```
+
+#### Input
+* input `object`
+  * login **required** `string`: API OAuth login.
+  * authtoken **required** `string`: API OAuth token.
+  * body **required** [ShippingMethodCreate](#shippingmethodcreate)
+
+#### Output
+* output [ShippingMethod](#shippingmethod)
+
+### shipping_methods.id.json.delete
+Delete an existing Shipping Method.
+
+
+```js
+jumpseller.shipping_methods.id.json.delete({
+  "login": "",
+  "authtoken": "",
+  "id": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * login **required** `string`: API OAuth login.
+  * authtoken **required** `string`: API OAuth token.
+  * id **required** `integer`: Id of the Shipping Method
+
+#### Output
+* output `string`
+
+### shipping_methods.id.json.get
+Retrieve a single Shipping Method.
+
+
+```js
+jumpseller.shipping_methods.id.json.get({
+  "login": "",
+  "authtoken": "",
+  "id": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * login **required** `string`: API OAuth login.
+  * authtoken **required** `string`: API OAuth token.
+  * id **required** `integer`: Id of the Shipping Method
+
+#### Output
+* output [ShippingMethod](#shippingmethod)
+
+### shipping_methods.id.json.put
+Update a Shipping Method.
+
+
+```js
+jumpseller.shipping_methods.id.json.put({
+  "login": "",
+  "authtoken": "",
+  "id": 0,
+  "body": {}
+}, context)
+```
+
+#### Input
+* input `object`
+  * login **required** `string`: API OAuth login.
+  * authtoken **required** `string`: API OAuth token.
+  * id **required** `integer`: Id of the Shipping Method
+  * body **required** [ShippingMethodCreate](#shippingmethodcreate)
+
+#### Output
+* output [ShippingMethod](#shippingmethod)
 
 ### store.info.json.get
 Retrieve Store Information
@@ -2117,8 +2831,7 @@ jumpseller.taxes.json.post({
   * body **required** [TaxEdit](#taxedit)
 
 #### Output
-* output `array`
-  * items [Tax](#tax)
+* output [Tax](#tax)
 
 ### taxes.id.json.get
 Retrieve a single Tax information.
@@ -2159,15 +2872,37 @@ jumpseller.taxes.id.json.get({
   * name `string`: Name of the app
   * page `string`: Page of the app
 
+### Attachment
+* Attachment `object`
+  * attachment [AttachmentFields](#attachmentfields)
+
+### AttachmentEdit
+* AttachmentEdit `object`
+  * attachment [AttachmentEditFields](#attachmenteditfields)
+
+### AttachmentEditFields
+* AttachmentEditFields `object`
+  * filename `string`: Filename of the attachment (with file extensison)
+  * url `string`: Public accessible URL with the desired file contents. (LIMIT: 100MB)
+
+### AttachmentFields
+* AttachmentFields `object`
+  * id `integer`: Unique identifier of the attachment
+  * url `string`: Private URL of the attachment
+
+### BadParams
+* BadParams `object`
+  * message `string`
+
 ### BillingAddress
 * BillingAddress `object`
   * address `string`: Address of the Customer's Billing Address
   * city `string`: City of the Customer's Billing Address
-  * country `string`: Country of the Customer's Billing Address
+  * country `string`: Country code of the Customer's Billing Address (ISO 3166-1 alpha-2)
   * municipality `string`: Municipality of the Customer's Billing Address
   * name `string`: Name of the Customer's Billing Address
   * postal `string`: Postal code of the Customer's Billing Address
-  * region `string`: Region of the Customer's Billing Address
+  * region `string`: Region code of the Customer's Billing Address (Use the FIPS standard - http://www.geonames.org/countries/)
   * surname `string`: Surname of the Customer's Billing Address
   * taxid `string`: Tax id of the Customer's Billing Address
 
@@ -2208,7 +2943,7 @@ jumpseller.taxes.id.json.get({
   * label `string`: Label given to the CheckoutCustomField
   * position `integer`: Position of the CheckoutCustomField
   * required `boolean`: True if the CheckoutCustomField is mandatory
-  * type `string` (values: text, select, input, checkbox): Type of the CheckoutCustomField
+  * type `string` (values: text, select, input, checkbox, date): Type of the CheckoutCustomField
 
 ### CheckoutCustomFieldFields
 * CheckoutCustomFieldFields `object`
@@ -2231,9 +2966,54 @@ jumpseller.taxes.id.json.get({
   * code `string`
   * name `string`
 
+### CustomField
+* CustomField `object`
+  * custom_field [CustomFieldFields](#customfieldfields)
+
+### CustomFieldEdit
+* CustomFieldEdit `object`
+  * custom_field [CustomFieldEditFields](#customfieldeditfields)
+
+### CustomFieldEditFields
+* CustomFieldEditFields `object`
+  * label `string`: Label given to the Custom Field
+  * type `string` (values: text, selection, input): Type of the Custom Field
+  * values `array`: All the possible Values of the Custom Field (for type 'selection')
+    * items `string`
+
+### CustomFieldFields
+* CustomFieldFields `object`
+  * id `integer`: Unique identifier of the Custom Field
+  * label `string`: Label given to the Custom Field
+  * type `string` (values: text, selection, input): Type of the Custom Field
+  * values `array`: All the possible Values of the Custom Field (for type 'selection')
+    * items `string`
+
 ### Customer
 * Customer `object`
   * customer [CustomerFields](#customerfields)
+
+### CustomerAdditionalField
+* CustomerAdditionalField `object`
+  * customer_additional_field [CustomerAdditionalFieldFields](#customeradditionalfieldfields)
+
+### CustomerAdditionalFieldEdit
+* CustomerAdditionalFieldEdit `object`
+  * customer_additional_field [CustomerAdditionalFieldEditFields](#customeradditionalfieldeditfields)
+
+### CustomerAdditionalFieldEditFields
+* CustomerAdditionalFieldEditFields `object`
+  * checkout_custom_field_id `integer`: Unique identifier of the Checkout Custom Field
+  * value `string`: Value of the Customer Additional Field
+
+### CustomerAdditionalFieldFields
+* CustomerAdditionalFieldFields `object`
+  * area `string`: Area of the Customer Additional Field
+  * checkout_custom_field_id `integer`: Unique identifier of the Checkout Custom Field
+  * customer_id `integer`: Unique identifier of the Customer
+  * id `integer`: Unique identifier of the Customer Additional Field
+  * label `string`: Label of the Customer Additional Field
+  * value `string`: Value of the Customer Additional Field
 
 ### CustomerCategory
 * CustomerCategory `object`
@@ -2256,6 +3036,10 @@ jumpseller.taxes.id.json.get({
 ### CustomerFields
 * CustomerFields `object`
   * billing_address [BillingAddress](#billingaddress)
+  * customer_additional_fields `array`
+    * items [CustomerAdditionalField](#customeradditionalfield)
+  * customer_categories `array`
+    * items [CustomerCategory](#customercategory)
   * email `string`: Email of the Customer
   * id `integer`: Unique identifier of the Customer
   * phone `string`: Phone of the Customer
@@ -2268,7 +3052,6 @@ jumpseller.taxes.id.json.get({
   * email `string`: Email of the Customer
   * id `integer`: Unique identifier of the Customer
   * password `string`: Password
-  * password_confirmation `string`: Password Confirmation
   * phone `string`: Phone of the Customer
   * shipping_address [ShippingAddress](#shippingaddress)
   * status `string` (values: approved, pending, disabled): Status of the Customer
@@ -2276,12 +3059,18 @@ jumpseller.taxes.id.json.get({
 ### CustomerFieldsWithPasswordNoID
 * CustomerFieldsWithPasswordNoID `object`
   * billing_address [BillingAddress](#billingaddress)
+  * customer_category `array`
+    * items `integer`
   * email `string`: Email of the Customer
   * password `string`: Password
-  * password_confirmation `string`: Password Confirmation
   * phone `string`: Phone of the Customer
   * shipping_address [ShippingAddress](#shippingaddress)
   * status `string` (values: approved, pending, disabled): Status of the Customer
+
+### CustomerToCustomerCategory
+* CustomerToCustomerCategory `object`
+  * email `string`: Email of the Customer
+  * id `integer`: Unique identifier of the Customer
 
 ### CustomerWithPassword
 * CustomerWithPassword `object`
@@ -2291,17 +3080,29 @@ jumpseller.taxes.id.json.get({
 * CustomerWithPasswordNoID `object`
   * customer [CustomerFieldsWithPasswordNoID](#customerfieldswithpasswordnoid)
 
-### Field
-* Field `object`
-  * field [FieldFields](#fieldfields)
+### CustomersToCustomerCategory
+* CustomersToCustomerCategory `object`
+  * customers `array`
+    * items [CustomerToCustomerCategory](#customertocustomercategory)
 
-### FieldFields
-* FieldFields `object`
-  * id `integer`: Unique identifier of the Field
-  * label `string`: Label given to the Field
-  * type `string` (values: text, selection, input): Type of the Field
-  * values `array`: All the possible Values of the Field (for type 'selection')
-    * items `string`
+### DigitalProduct
+* DigitalProduct `object`
+  * digital_product [DigitalProductFields](#digitalproductfields)
+
+### DigitalProductEdit
+* DigitalProductEdit `object`
+  * digital_product [DigitalProductEditFields](#digitalproducteditfields)
+
+### DigitalProductEditFields
+* DigitalProductEditFields `object`
+  * filename `string`: Filename of the digital product (with file extensison)
+  * url `string`: Public accessible URL with the desired file contents. (LIMIT: 100MB)
+
+### DigitalProductFields
+* DigitalProductFields `object`
+  * expiration_seconds `integer`: Time left in seconds before the current private URL expires
+  * id `integer`: Unique identifier of the digital product
+  * url `string`: Private URL of the digital product
 
 ### Hook
 * Hook `object`
@@ -2321,6 +3122,7 @@ jumpseller.taxes.id.json.get({
   * created_at `string`: Hook creation date
   * event `string`: Event associated with Hook
   * id `integer`: Unique identifier of the Hook
+  * name `string`: Hook name
   * url `string`: Hook URL to be notified
 
 ### Id
@@ -2351,6 +3153,10 @@ jumpseller.taxes.id.json.get({
   * template `string`: Template of Store Theme to inject HTML
   * url `string`: Url of the HTML to inject
 
+### JSAppEdit
+* JSAppEdit `object`
+  * app [JSApp](#jsapp)
+
 ### Language
 * Language `object`
   * code `string`
@@ -2364,41 +3170,70 @@ jumpseller.taxes.id.json.get({
 * Order `object`
   * order [OrderFields](#orderfields)
 
+### OrderAdditionalFields
+* OrderAdditionalFields `object`: Additional field of an order
+  * label `string`: Label of the additional field
+  * value `string`: Value of the additional field
+
+### OrderCreate
+* OrderCreate `object`
+  * order [OrderCreateFields](#ordercreatefields)
+
+### OrderCreateFields
+* OrderCreateFields `object`
+  * additional_information `string`: Additional information for the given Order
+  * customer [CustomerFields](#customerfields)
+  * products `array`
+    * items [OrderProduct](#orderproduct)
+  * shipment_status `string` (values: requested, in_transit, delivered, failed): Status of the Order Shipping
+  * shipping_method_id `integer`: Shipping method e.g. Royal Mail
+  * status `string` (values: Abandoned, Canceled, Pending Payment, Paid): Status of the Order
+  * tracking_company `string`: Shipping Company used for the given Order
+  * tracking_number `string`: Shipping Tracking Number used for the given Order
+
 ### OrderEdit
 * OrderEdit `object`
   * order [OrderEditFields](#ordereditfields)
 
 ### OrderEditFields
 * OrderEditFields `object`
+  * additional_fields `array`: Array of additional fields for the given Order
+    * items [OrderAdditionalFields](#orderadditionalfields)
   * additional_information `string`: Additional information for the given Order
-  * customer `object`
-    * email `string`: Email of the customer for the given Order
-  * products `array`
-    * items [OrderProduct](#orderproduct)
-  * shipping_method_id `integer`: Shipping method e.g. Royal Mail
+  * shipment_status `string` (values: requested, in_transit, delivered, failed): Status of the Order Shipping
   * status `string` (values: Abandoned, Canceled, Pending Payment, Paid): Status of the Order
   * tracking_company `string`: Shipping Company used for the given Order
   * tracking_number `string`: Shipping Tracking Number used for the given Order
 
 ### OrderFields
 * OrderFields `object`
+  * additional_fields `array`: Array of additional fields for the given Order
+    * items [OrderAdditionalFields](#orderadditionalfields)
   * additional_information `string`: Additional information for the given Order
   * billing_address [BillingAddress](#billingaddress)
+  * checkout_url `string`: Store Checkout Order URL for the given Order
+  * coupons `string`: Promotion Coupons used on the given Order
   * created_at `string`: Order date
   * currency `string`: Currency of the Order
   * customer [Customer](#customer)
   * discount `number`: Discount value for the given Order
+  * duplicate_url `string`: Duplicate Order URL for the given Order
   * id `integer`: Unique identifier of the Order
   * payment_information `string`: Payment information for the given Order
   * payment_method_name `string`: Payment Method name used e.g. PayPal
   * products `array`
     * items [OrderProduct](#orderproduct)
+  * recovery_url `string`: Recovery Order URL for the given Order
   * shipment_status `string` (values: delivered, requested, in_transit, failed): Shipment Status for Order Fulfillment.
   * shipping `number`: Shipping value for the given Order
   * shipping_address [ShippingAddress](#shippingaddress)
+  * shipping_discount `number`: Shipping Discount value for the given order
   * shipping_method_id `integer`: Shipping method e.g. Royal Mail
   * shipping_method_name `string`: Shipping method e.g. Royal Mail
   * shipping_tax `number`: Shipping Tax value for the given order
+  * shipping_taxes `array`
+    * items [OrderShippingTax](#ordershippingtax)
+  * source [TrafficSource](#trafficsource)
   * status `string` (values: Abandoned, Canceled, Pending Payment, Paid): Status of the Order
   * subtotal `number`: Subtotal value for the given Order. Excluding taxes, shipping and discounts
   * tax `number`: Tax value for the given order
@@ -2434,8 +3269,28 @@ jumpseller.taxes.id.json.get({
   * price `number`: Price of the Order Product
   * qty `integer`: Price of the Order Product
   * sku `string`: Stock Keeping Unit of the Order Product
+  * taxes `array`
+    * items [OrderProductTax](#orderproducttax)
   * variant_id `integer`: Unique identifier of the original Product Variant
   * weight `number`: Weight of the Order Product
+
+### OrderProductTax
+* OrderProductTax `object`
+  * fixed `boolean`: False if rate is a percentage and true if rate is monetary
+  * id `integer`: Unique identifier of the Order Product Tax
+  * name `string`: Name of the category that the tax is associated with or the tax name
+  * rate `number`: Tax rate
+  * tax_on_product_price `boolean`: False if tax is not included on product price
+
+### OrderShippingTax
+* OrderShippingTax `object`
+  * country `string`: Code of the associated country
+  * fixed `boolean`: False if rate is a percentage and true if rate is monetary
+  * id `integer`: Unique identifier of the Order Shipping Tax
+  * name `string`: Tax name
+  * rate `number`: Tax rate
+  * region `string`: Code of the associated region
+  * tax_on_shipping_price `boolean`: False if shipping tax is not included on shipping price
 
 ### PaymentMethod
 * PaymentMethod `object`
@@ -2445,7 +3300,7 @@ jumpseller.taxes.id.json.get({
 * PaymentMethodFields `object`
   * id `integer`: Unique identifier of the Payment Method
   * name `string`: Name of the Payment Method
-  * type `string` (values: dineromail, manual, paypal, pagseguro, interpagos, moneybookers, webpay, webpay_cl, easypay, easypaycc, easypayboleto, ideal_basic, hipay, khipu, mercado_pago, ifthenpay, eupago, stripe, payu, servipag): Type of the Payment Method
+  * type `string` (values: manual, paypal, pagseguro, moneybookers, webpay_cl, easypay, easypaycc, easypayboleto, ideal_basic, hipay, khipu, mercado_pago, ifthenpay, eupago, stripe, payu, servipag): Type of the Payment Method
 
 ### Product
 * Product `object`
@@ -2453,13 +3308,12 @@ jumpseller.taxes.id.json.get({
 
 ### ProductCustomField
 * ProductCustomField `object`
-  * field_value [ProductCustomFieldFields](#productcustomfieldfields)
+  * field [ProductCustomFieldFields](#productcustomfieldfields)
 
 ### ProductCustomFieldFields
 * ProductCustomFieldFields `object`
   * id `integer`: Unique identifier of the ProductCustomField
-  * value `array`: The value for the ProductCustomField
-    * items `string`
+  * value `string`: The value for the ProductCustomField
 
 ### ProductEdit
 * ProductEdit `object`
@@ -2467,19 +3321,22 @@ jumpseller.taxes.id.json.get({
 
 ### ProductEditFields
 * ProductEditFields `object`
+  * barcode `string`: Barcode of the product
   * categories `array`
     * items [CategoryFields](#categoryfields)
   * description `string`: Description of the product
   * diameter `number`: Diameter of the product
   * featured `boolean`: True if the product is featured
+  * google_product_category `string`: Category of a Product based on the Google product taxonomy
   * height `number`: Height of the product
   * length `number`: Length of the product
   * meta_description `string`: SEO meta description of the product
-  * name `string`: Name of the product
+  * name **required** `string`: Name of the product
   * package_format `string` (values: box, cylinder): Format the product package
   * page_title `string`: SEO title of the product
   * permalink `string`: Product unique URL path
-  * price `number`: Price of the product
+  * price **required** `number`: Price of the product
+  * shipping_required `boolean`: False if the product is digital
   * sku `string`: Stock Keeping Unit of the product
   * status `string` (values: available, not-available, disabled): Status of the product
   * stock `integer`: Quantity in stock for the product
@@ -2489,6 +3346,7 @@ jumpseller.taxes.id.json.get({
 
 ### ProductFields
 * ProductFields `object`
+  * barcode `string`: Barcode of the product
   * categories `array`
     * items [CategoryFields](#categoryfields)
   * created_at `string`: Date of product creation
@@ -2496,6 +3354,7 @@ jumpseller.taxes.id.json.get({
   * diameter `number`: Diameter of the product
   * discount `number`: Discount of the product
   * featured `boolean`: True if the product is featured
+  * google_product_category `string`: Category of a Product based on the Google product taxonomy
   * height `number`: Height of the product
   * id `integer`: Unique identifier of the product
   * images `array`
@@ -2556,6 +3415,13 @@ jumpseller.taxes.id.json.get({
   * name `string`: Name of the product option value
   * position `integer`: Position of the product option value
   * product_option [ProductOption](#productoption)
+  * variants `array`
+    * items [Variant](#variant)
+
+### ProductOptionVariantEdit
+* ProductOptionVariantEdit `object`
+  * name `string`: Name of the product option
+  * value `string`: Value of the product option
 
 ### Promotion
 * Promotion `object`
@@ -2577,38 +3443,47 @@ jumpseller.taxes.id.json.get({
   * cumulative `boolean`: True if the promotion can be acumulated with others
   * customer_categories `array`: Customer Categories to whom the promotion will be applied (requires 'customers' param - 'categories')
     * items [Id](#id)
-  * customers `string`: Controls to which customers the promotion will be applied ('all', 'loggedin', 'categories')
+  * customers `string`: Controls to which customers the promotion will be applied ('all', 'loggedin', 'categories', 'guests')
   * discount_amount_fix `number`: Fixed discount amount of the promotion (requires 'type' param - 'fix')
   * discount_amount_percent `number`: Percentual discount amount of the promotion (requires 'type' param - 'percentage')
-  * discount_target `string`: Where the promotion will be applied ('order', 'shipping', 'categories')
+  * discount_target `string`: Where the promotion will be applied ('order', 'shipping', 'categories', 'buy_x_get_y)
+  * enabled `boolean`: If the promotion is to be temporarily disabled
   * expires_at `string`: Expiration date of the promotion (requires 'lasts' param - 'date')
   * lasts `string`: Controls when the promotion will expire ('none', 'date', 'max_times_used')
   * max_times_used `integer`: Maximum amount a promotion can be used (requires 'lasts' param - 'max_times_used')
   * name `string`: Name of the product
-  * products `array`: Products where the promotion will be applied (requires 'discount_target' param - 'categories')
+  * products `array`: Products where the promotion will be applied (requires 'discount_target' param - 'categories' or 'buy_x_get_y')
     * items [Id](#id)
-  * type `string`: Controls if the discount will be a fixed value ('fix', 'percentage')
+  * products_x `array`: Products required to apply the promotion (requires 'discount_target' param - 'buy_x_get_y')
+    * items [Id](#id)
+  * quantity_x `integer`: Number of sets of products_x needed to be able to apply the promotion (requires 'discount_target' param - 'buy_x_get_y')
+  * type `string`: Controls if the discount will be a fixed area ('fix', 'percentage')
 
 ### PromotionFields
 * PromotionFields `object`
-  * begins_at `string`: Creation date of the promotion
-  * categories `array`
+  * begins_at `string`: Creation date of the promotion (requires 'lasts' param - 'date')
+  * categories `array`: Products Categories where the promotion will be applied (requires 'discount_target' param - 'categories')
     * items [Id](#id)
   * code `string`: Code of the promotion
   * condition_price `number`: Minimum order amount to validate the promotion
   * condition_qty `integer`: Minimum quantity of ordered itens to validate the promotion
   * cumulative `boolean`: True if the promotion can be acumulated with others
-  * customer_categories `array`
+  * customer_categories `array`: Customer Categories to whom the promotion will be applied (requires 'customers' param - 'categories')
     * items [Id](#id)
   * discount_amount_fix `number`: Fixed discount amount of the promotion
   * discount_amount_percent `number`: Percentual discount amount of the promotion
-  * discount_target `string`: Where the promotion will be applied ('order', 'shipping', 'categories')
-  * expires_at `string`: Expiration date of the promotion
+  * discount_target `string`: Where the promotion will be applied ('order', 'shipping', 'categories', 'buy_x_get_y)
+  * enabled `boolean`: If the promotion is currently enabled
+  * expires_at `string`: Expiration date of the promotion (requires 'lasts' param - 'date')
   * id `integer`: Unique identifier of the product
-  * max_times_used `integer`: Maximum amount a promotion can be used
+  * lasts `string`: Controls when the promotion will expire ('none', 'date', 'max_times_used')
+  * max_times_used `integer`: Maximum amount a promotion can be used (requires 'lasts' param - 'max_times_used')
   * name `string`: Name of the product
-  * products `array`
+  * products `array`: Products where the promotion will be applied (requires 'discount_target' param - 'categories' or 'buy_x_get_y')
     * items [Id](#id)
+  * products_x `array`: Products required to apply the promotion (requires 'discount_target' param - 'buy_x_get_y')
+    * items [Id](#id)
+  * quantity_x `integer`: Number of sets of products_x needed to be able to apply the promotion (requires 'discount_target' param - 'buy_x_get_y')
   * status `string`: Status of the promotion ('active', 'expired')
   * times_used `integer`: Amount of times the promotion was used
 
@@ -2621,12 +3496,44 @@ jumpseller.taxes.id.json.get({
 * ShippingAddress `object`
   * address `string`: Address of the Customer's Shipping Address
   * city `string`: City of the Customer's Shipping Address
-  * country `string`: Country of the Customer's Shipping Address
+  * country `string`: Country code of the Customer's Shipping Address (ISO 3166-1 alpha-2)
   * municipality `string`: Municipality of the Customer's Shipping Address
   * name `string`: Name of the Customer's Shipping Address
   * postal `string`: Postal code of the Customer's Shipping Address
-  * region `string`: Region of the Customer's Shipping Address
+  * region `string`: Region code of the Customer's Shipping Address (Use the FIPS standard - http://www.geonames.org/countries/)
   * surname `string`: Surname of the Customer's Shipping Address
+
+### ShippingMethod
+* ShippingMethod `object`
+  * shipping_method [ShippingMethodFields](#shippingmethodfields)
+
+### ShippingMethodCreate
+* ShippingMethodCreate `object`
+  * callback_url `string`: URL that receives the shipping data and returns rates
+  * city `string`: City/Municipality name of origin
+  * fetch_services_url `string`: URL that returns available shipping services
+  * name `string`: Name of the Shipping Method
+  * postal `string`: Postal/Zipcode of origin
+  * state `string`: State/Region code of origin
+
+### ShippingMethodFields
+* ShippingMethodFields `object`
+  * callback_url `string`: URL that receives the shipping data and returns rates
+  * city `string`: City/Municipality name of origin
+  * fetch_services_url `string`: URL that returns available shipping services
+  * id `integer`: Unique identifier of the Shipping Method
+  * name `string`: Name of the Shipping Method
+  * postal `string`: Postal/Zipcode of origin
+  * services `array`
+    * items [ShippingService](#shippingservice)
+  * state `string`: State/Region code of origin
+  * type `string` (values: free, tables, correiosbr, correos_chile, chilexpress, flat, ups, external): Type of the Shipping Method
+
+### ShippingService
+* ShippingService `object`
+  * id `integer`: Unique identifier of the Shipping Service
+  * name `string`: Name of the Shipping Service
+  * service_code `string`: Code of the Shipping Service
 
 ### StatusInvalid
 * StatusInvalid `object`
@@ -2634,6 +3541,7 @@ jumpseller.taxes.id.json.get({
 
 ### Store
 * Store `object`
+  * address [StoreAddress](#storeaddress)
   * code `string`: Store Code
   * country `string`: Store Country
   * currency `string`: Store Currency
@@ -2643,23 +3551,35 @@ jumpseller.taxes.id.json.get({
   * name `string`: Store Name
   * timezone `string`: Store Timezone
   * url `string`: Store URL
+  * weight_unit `string`: Store Weight Unit
+
+### StoreAddress
+* StoreAddress `object`
+  * address `string`: Address of the Store's Address
+  * city `string`: City of the Store's Address
+  * country `string`: Country of the Store's Address (ISO 3166-1 alpha-2)
+  * country_code `string`: Country code of the Store's Address
+  * postal `string`: Postal code of the Store's Address
+  * region `string`: Region of the Store's Address
+  * region_code `string`: Region code of the Store's Address
 
 ### Tax
 * Tax `object`
-  * field [TaxFields](#taxfields)
+  * tax [TaxFields](#taxfields)
 
 ### TaxEdit
 * TaxEdit `object`
-  * field [TaxEditFields](#taxeditfields)
+  * tax [TaxEditFields](#taxeditfields)
 
 ### TaxEditFields
 * TaxEditFields `object`
   * category_id `integer`: Unique identifier of the category of the Tax
   * country `string`: Country where the Tax applies
   * fixed `boolean`: True if the tax has a fixed valued amount
+  * name `string`: Name that identifies tax
   * region `string`: Region where the Tax applies
   * shipping `boolean`: True if the tax should be applied to shipping costs
-  * tax_amount `number`: Tax value for the given Tax
+  * tax `number`: Tax value for the given Tax
 
 ### TaxFields
 * TaxFields `object`
@@ -2667,9 +3587,19 @@ jumpseller.taxes.id.json.get({
   * country `string`: Country name where the Tax applies
   * fixed `boolean`: True if the tax has a fixed valued amount
   * id `integer`: Unique identifier of the Tax
+  * name `string`: Name that identifies tax
   * region `string`: Region name where the Tax applies
   * shipping `boolean`: True if the tax should be applied to shipping costs
   * tax_amount `number`: Tax value for the given Tax
+
+### TrafficSource
+* TrafficSource `object`
+  * campaign `string`: The campaign that referred the customer to the checkout
+  * medium `string`: The medium that referred the customer to the checkout
+  * referral_code `string`: The code that referred the customer to the checkout
+  * referral_url `string`: The website that referred the customer to the checkout
+  * source_name `string`: Where the checkout originated
+  * user_agent `string`: User agent of the referred request to checkout
 
 ### Variant
 * Variant `object`
@@ -2681,8 +3611,9 @@ jumpseller.taxes.id.json.get({
 
 ### VariantEditFields
 * VariantEditFields `object`
-  * id `integer`: Unique identifier of the product
   * image_id `integer`: Unique identifier of the product image to associate with this variant
+  * options `array`
+    * items [ProductOptionVariantEdit](#productoptionvariantedit)
   * price `number`: Price of the product
   * sku `string`: Stock Keeping Unit of the Product's Variant
   * stock `integer`: Quantity in stock for the Product's Variant
@@ -2691,6 +3622,9 @@ jumpseller.taxes.id.json.get({
 ### VariantFields
 * VariantFields `object`
   * id `integer`: Unique identifier of the product
+  * image [ImageFields](#imagefields)
+  * options `array`
+    * items [ProductOptionVariantEdit](#productoptionvariantedit)
   * price `number`: Price of the product
   * sku `string`: Stock Keeping Unit of the Product's Variant
   * stock `integer`: Quantity in stock for the Product's Variant

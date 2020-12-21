@@ -15,7 +15,7 @@ let stackexchange = require('@datafire/stackexchange').create({
   redirect_uri: ""
 });
 
-stackexchange.sites.get({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -89,6 +89,9 @@ The sorts accepted by this method operate on the follow fields of the answer obj
   activity is the default sort.
  
  It is possible to create moderately complex queries using sort, min, max, fromdate, and todate.
+
+
+
  
 This method returns a list of answers.
 
@@ -131,6 +134,9 @@ The sorts accepted by this method operate on the follow fields of the answer obj
   activity is the default sort.
  
  It is possible to create moderately complex queries using sort, min, max, fromdate, and todate.
+
+
+
  
 This method returns a list of answers.
 
@@ -174,6 +180,9 @@ The sorts accepted by this method operate on the follow fields of the comment ob
   creation is the default sort.
  
  It is possible to create moderately complex queries using sort, min, max, fromdate, and todate.
+
+
+
  
 This method returns a list of comments.
 
@@ -462,6 +471,9 @@ The sorts accepted by this method operate on the follow fields of the comment ob
   creation is the default sort.
  
  It is possible to create moderately complex queries using sort, min, max, fromdate, and todate.
+
+
+
  
 This method returns a list of comments.
 
@@ -503,6 +515,9 @@ The sorts accepted by this method operate on the follow fields of the comment ob
   creation is the default sort.
  
  It is possible to create moderately complex queries using sort, min, max, fromdate, and todate.
+
+
+
  
 This method returns a list of comments.
 
@@ -644,7 +659,13 @@ The API considers the following "events":
  - posting a comment
  - editing a post
  - creating a user
+
+
+
   
+
+
+
  
 Events are only accessible for 15 minutes after they occurred, and by default only events in the last 5 minutes are returned. You can specify the age of the oldest event returned by setting the since parameter.
  
@@ -1387,6 +1408,9 @@ stackexchange.me.reputation_history.get({
 Returns user's full reputation history, including private events.
  
  This method requires an access_token, with a scope containing "private_info".
+
+
+
  
 This method returns a list of reputation_history.
 
@@ -1695,6 +1719,9 @@ The sorts accepted by this method operate on the follow fields of the post objec
   activity is the default sort.
  
  It is possible to create moderately complex queries using sort, min, max, fromdate, and todate.
+
+
+
  
 This method returns a list of posts.
 
@@ -1737,6 +1764,9 @@ The sorts accepted by this method operate on the follow fields of the post objec
   activity is the default sort.
  
  It is possible to create moderately complex queries using sort, min, max, fromdate, and todate.
+
+
+
  
 This method returns a list of posts.
 
@@ -1780,6 +1810,9 @@ The sorts accepted by this method operate on the follow fields of the comment ob
   creation is the default sort.
  
  It is possible to create moderately complex queries using sort, min, max, fromdate, and todate.
+
+
+
  
 This method returns a list of comments.
 
@@ -1849,6 +1882,9 @@ Returns suggsted edits on the posts identified in ids.
   creation is the default sort.
  
  {ids} can contain up to 100 semicolon delimited ids, to find ids programatically look for post_id, answer_id, or question_id on post, answer, and question objects respectively.
+
+
+
  
 This method returns a list of suggested-edits.
 
@@ -1952,6 +1988,9 @@ The sorts accepted by this method operate on the follow fields of the question o
   activity is the default sort.
  
  It is possible to create moderately complex queries using sort, min, max, fromdate, and todate.
+
+
+
  
 This method returns a list of questions.
 
@@ -1991,6 +2030,9 @@ The sorts accepted by this method operate on the follow fields of the question o
   activity is the default sort.
  
  It is possible to create moderately complex queries using sort, min, max, fromdate, and todate.
+
+
+
  
 This method returns a list of questions.
 
@@ -2036,6 +2078,9 @@ The sorts accepted by this method operate on the follow fields of the question o
   activity is the default sort.
  
  It is possible to create moderately complex queries using sort, min, max, fromdate, and todate.
+
+
+
  
 This method returns a list of questions.
 
@@ -2083,6 +2128,9 @@ The sorts accepted by this method operate on the follow fields of the question o
   activity is the default sort.
  
  It is possible to create moderately complex queries using sort, min, max, fromdate, and todate.
+
+
+
  
 This method returns a list of questions.
 
@@ -2126,6 +2174,9 @@ The sorts accepted by this method operate on the follow fields of the question o
   activity is the default sort.
  
  It is possible to create moderately complex queries using sort, min, max, fromdate, and todate.
+
+
+
  
 This method returns a list of questions.
 
@@ -2170,6 +2221,9 @@ The sorts accepted by this method operate on the follow fields of the answer obj
   activity is the default sort.
  
  It is possible to create moderately complex queries using sort, min, max, fromdate, and todate.
+
+
+
  
 This method returns a list of answers.
 
@@ -2213,6 +2267,9 @@ The sorts accepted by this method operate on the follow fields of the comment ob
   creation is the default sort.
  
  It is possible to create moderately complex queries using sort, min, max, fromdate, and todate.
+
+
+
  
 This method returns a list of comments.
 
@@ -2260,6 +2317,9 @@ The sorts accepted by this method operate on the follow fields of the question o
   activity is the default sort.
  
  It is possible to create moderately complex queries using sort, min, max, fromdate, and todate.
+
+
+
  
 This method returns a list of questions.
 
@@ -2305,6 +2365,9 @@ The sorts accepted by this method operate on the follow fields of the question o
   activity is the default sort.
  
  It is possible to create moderately complex queries using sort, min, max, fromdate, and todate.
+
+
+
  
 This method returns a list of questions.
 
@@ -2416,6 +2479,9 @@ The sorts accepted by this method operate on the follow fields of the question o
   activity is the default sort.
  
  It is possible to create moderately complex queries using sort, min, max, fromdate, and todate.
+
+
+
  
 This method returns a list of questions.
 
@@ -2465,6 +2531,9 @@ Search criteria are expressed using the following parameters:
  - url - a url which must be contained in a post, may include a wildcard.
  - views - the minimum number of views returned questions must have.
  - wiki - true to return only community wiki questions, false to return only non-community wiki ones. Omit to elide constraint.
+
+
+
   
 At least one additional parameter must be set if nottagged is set, for performance reasons.
  
@@ -2476,6 +2545,9 @@ The sorts accepted by this method operate on the follow fields of the question o
   activity is the default sort.
  
  It is possible to create moderately complex queries using sort, min, max, fromdate, and todate.
+
+
+
  
 This method returns a list of questions.
 
@@ -2537,6 +2609,9 @@ The sorts accepted by this method operate on the follow fields of the question o
   activity is the default sort.
  
  It is possible to create moderately complex queries using sort, min, max, fromdate, and todate.
+
+
+
  
 This method returns a list of questions.
 
@@ -2643,6 +2718,9 @@ The sorts accepted by this method operate on the follow fields of the suggested_
   creation is the default sort.
  
  It is possible to create moderately complex queries using sort, min, max, fromdate, and todate.
+
+
+
  
 This method returns a list of suggested-edits.
 
@@ -2808,6 +2886,9 @@ The sorts accepted by this method operate on the follow fields of the tag_synony
   creation is the default sort.
  
  It is possible to create moderately complex queries using sort, min, max, fromdate, and todate.
+
+
+
  
 This method returns a list of tag_synonyms.
 
@@ -2952,6 +3033,9 @@ The sorts accepted by this method operate on the follow fields of the tag_synony
   creation is the default sort.
  
  It is possible to create moderately complex queries using sort, min, max, fromdate, and todate.
+
+
+
  
 This method returns a list of tag synonyms.
 
@@ -3085,6 +3169,9 @@ The sorts accepted by this method operate on the follow fields of the user objec
   reputation is the default sort.
  
  It is possible to create moderately complex queries using sort, min, max, fromdate, and todate.
+
+
+
  
 The inname parameter lets consumers filter the results down to just those users with a certain substring in their display name. For example, inname=kevin will return all users with both users named simply "Kevin" or those with Kevin as one of (or part of) their names; such as "Kevin Montrose".
 
@@ -3127,6 +3214,9 @@ The sorts accepted by this method operate on the follow fields of the user objec
   reputation is the default sort.
  
  It is possible to create moderately complex queries using sort, min, max, fromdate, and todate.
+
+
+
  
 This method returns a list of users.
 
@@ -3168,6 +3258,9 @@ The sorts accepted by this method operate on the follow fields of the user objec
   reputation is the default sort.
  
  It is possible to create moderately complex queries using sort, min, max, fromdate, and todate.
+
+
+
  
 This method returns a list of users.
 
@@ -3211,6 +3304,9 @@ The sorts accepted by this method operate on the follow fields of the user objec
   reputation is the default sort.
  
  It is possible to create moderately complex queries using sort, min, max, fromdate, and todate.
+
+
+
  
 This method returns a list of users.
 
@@ -3253,6 +3349,9 @@ The sorts accepted by this method operate on the follow fields of the answer obj
   activity is the default sort.
  
  It is possible to create moderately complex queries using sort, min, max, fromdate, and todate.
+
+
+
  
 This method returns a list of answers.
 
@@ -3362,6 +3461,9 @@ The sorts accepted by this method operate on the follow fields of the comment ob
   creation is the default sort.
  
  It is possible to create moderately complex queries using sort, min, max, fromdate, and todate.
+
+
+
  
 This method returns a list of comments.
 
@@ -3405,6 +3507,9 @@ The sorts accepted by this method operate on the follow fields of the comment ob
   creation is the default sort.
  
  It is possible to create moderately complex queries using sort, min, max, fromdate, and todate.
+
+
+
  
 This method returns a list of comments.
 
@@ -3452,6 +3557,9 @@ The sorts accepted by this method operate on the follow fields of the question o
   activity is the default sort.
  
  It is possible to create moderately complex queries using sort, min, max, fromdate, and todate.
+
+
+
  
 This method returns a list of questions.
 
@@ -3493,6 +3601,9 @@ The sorts accepted by this method operate on the follow fields of the comment ob
  - creation - creation_date
  - votes - score
   It is possible to create moderately complex queries using sort, min, max, fromdate, and todate.
+
+
+
  
 This method returns a list of comments.
 
@@ -3567,6 +3678,9 @@ The sorts accepted by this method operate on the follow fields of the question o
   activity is the default sort.
  
  It is possible to create moderately complex queries using sort, min, max, fromdate, and todate.
+
+
+
  
 This method returns a list of questions.
 
@@ -3609,6 +3723,9 @@ The sorts accepted by this method operate on the follow fields of the question o
   activity is the default sort.
  
  It is possible to create moderately complex queries using sort, min, max, fromdate, and todate.
+
+
+
  
 This method returns a list of questions.
 
@@ -3653,6 +3770,9 @@ The sorts accepted by this method operate on the follow fields of the question o
   activity is the default sort.
  
  It is possible to create moderately complex queries using sort, min, max, fromdate, and todate.
+
+
+
  
 This method returns a list of questions.
 
@@ -3697,6 +3817,9 @@ The sorts accepted by this method operate on the follow fields of the question o
   activity is the default sort.
  
  It is possible to create moderately complex queries using sort, min, max, fromdate, and todate.
+
+
+
  
 This method returns a list of questions.
 
@@ -3743,6 +3866,9 @@ The sorts accepted by this method operate on the follow fields of the question o
   activity is the default sort.
  
  It is possible to create moderately complex queries using sort, min, max, fromdate, and todate.
+
+
+
  
 This method returns a list of questions.
 
@@ -3843,6 +3969,9 @@ The sorts accepted by this method operate on the follow fields of the suggested_
   creation is the default sort.
  
  It is possible to create moderately complex queries using sort, min, max, fromdate, and todate.
+
+
+
  
 This method returns a list of suggested-edits.
 
@@ -3887,6 +4016,9 @@ The sorts accepted by this method operate on the follow fields of the tag object
   popular is the default sort.
  
  It is possible to create moderately complex queries using sort, min, max, fromdate, and todate.
+
+
+
  
 This method returns a list of tags.
 
@@ -4140,6 +4272,9 @@ The sorts accepted by this method operate on the follow fields of the answer obj
   activity is the default sort.
  
  It is possible to create moderately complex queries using sort, min, max, fromdate, and todate.
+
+
+
  
 This method returns a list of answers.
 
@@ -4184,6 +4319,9 @@ The sorts accepted by this method operate on the follow fields of the question o
   activity is the default sort.
  
  It is possible to create moderately complex queries using sort, min, max, fromdate, and todate.
+
+
+
  
 This method returns a list of questions.
 
@@ -4310,6 +4448,18 @@ stackexchange.users.id.write_permissions.get({
 
 ## Definitions
 
+### tags
+* tags `array`
+  * items `object`
+    * count `integer`
+    * has_synonyms `boolean`
+    * is_moderator_only `boolean`
+    * is_required `boolean`
+    * last_activity_date `integer`
+    * name `string`
+    * synonyms `array`
+    * user_id `integer`
+
 ### access_tokens
 * access_tokens `array`
   * items `object`
@@ -4317,7 +4467,6 @@ stackexchange.users.id.write_permissions.get({
     * account_id `integer`
     * expires_on_date `integer`
     * scope `array`
-
 
 ### account_merge
 * account_merge `array`
@@ -4329,17 +4478,16 @@ stackexchange.users.id.write_permissions.get({
 ### answers
 * answers `array`
   * items `object`
+    * tags `array`
     * accepted `boolean`
     * answer_id `integer`
     * awarded_bounty_amount `integer`
     * awarded_bounty_users `array`
-
     * body `string`
     * body_markdown `string`
     * can_flag `boolean`
     * comment_count `integer`
     * comments `array`
-
     * community_owned_date `integer`
     * creation_date `integer`
     * down_vote_count `integer`
@@ -4376,8 +4524,6 @@ stackexchange.users.id.write_permissions.get({
     * question_id `integer`
     * score `integer`
     * share_link `string`
-    * tags `array`
-
     * title `string`
     * up_vote_count `integer`
     * upvoted `boolean`
@@ -4511,7 +4657,6 @@ stackexchange.users.id.write_permissions.get({
     * filter_type `string`
     * included_fields `array`
 
-
 ### inbox_items
 * inbox_items `array`
   * items `object`
@@ -4525,7 +4670,6 @@ stackexchange.users.id.write_permissions.get({
     * question_id `integer`
     * site `object`
       * aliases `array`
-
       * api_site_parameter `string`
       * audience `string`
       * closed_beta_date `integer`
@@ -4535,11 +4679,9 @@ stackexchange.users.id.write_permissions.get({
       * launch_date `integer`
       * logo_url `string`
       * markdown_extensions `array`
-
       * name `string`
       * open_beta_date `integer`
       * related_sites `array`
-
       * site_state `string`
       * site_type `string`
       * site_url `string`
@@ -4559,7 +4701,6 @@ stackexchange.users.id.write_permissions.get({
   * questions_per_minute `number`
   * site `object`
     * aliases `array`
-
     * api_site_parameter `string`
     * audience `string`
     * closed_beta_date `integer`
@@ -4569,11 +4710,9 @@ stackexchange.users.id.write_permissions.get({
     * launch_date `integer`
     * logo_url `string`
     * markdown_extensions `array`
-
     * name `string`
     * open_beta_date `integer`
     * related_sites `array`
-
     * site_state `string`
     * site_type `string`
     * site_url `string`
@@ -4607,9 +4746,7 @@ stackexchange.users.id.write_permissions.get({
     * site_name `string`
     * site_url `string`
     * top_answers `array`
-
     * top_questions `array`
-
     * user_id `integer`
     * user_type `string`
 
@@ -4623,7 +4760,6 @@ stackexchange.users.id.write_permissions.get({
     * post_id `integer`
     * site `object`
       * aliases `array`
-
       * api_site_parameter `string`
       * audience `string`
       * closed_beta_date `integer`
@@ -4633,11 +4769,9 @@ stackexchange.users.id.write_permissions.get({
       * launch_date `integer`
       * logo_url `string`
       * markdown_extensions `array`
-
       * name `string`
       * open_beta_date `integer`
       * related_sites `array`
-
       * site_state `string`
       * site_type `string`
       * site_url `string`
@@ -4654,7 +4788,6 @@ stackexchange.users.id.write_permissions.get({
     * body_markdown `string`
     * comment_count `integer`
     * comments `array`
-
     * creation_date `integer`
     * down_vote_count `integer`
     * downvoted `boolean`
@@ -4739,10 +4872,10 @@ stackexchange.users.id.write_permissions.get({
 ### questions
 * questions `array`
   * items `object`
+    * tags `array`
     * accepted_answer_id `integer`
     * answer_count `integer`
     * answers `array`
-
     * body `string`
     * body_markdown `string`
     * bounty_amount `integer`
@@ -4765,16 +4898,13 @@ stackexchange.users.id.write_permissions.get({
     * closed_date `integer`
     * closed_details `object`
       * by_users `array`
-
       * description `string`
       * on_hold `boolean`
       * original_questions `array`
-
       * reason `string`
     * closed_reason `string`
     * comment_count `integer`
     * comments `array`
-
     * community_owned_date `integer`
     * creation_date `integer`
     * delete_vote_count `integer`
@@ -4803,7 +4933,6 @@ stackexchange.users.id.write_permissions.get({
       * on_date `integer`
       * other_site `object`
         * aliases `array`
-
         * api_site_parameter `string`
         * audience `string`
         * closed_beta_date `integer`
@@ -4813,11 +4942,9 @@ stackexchange.users.id.write_permissions.get({
         * launch_date `integer`
         * logo_url `string`
         * markdown_extensions `array`
-
         * name `string`
         * open_beta_date `integer`
         * related_sites `array`
-
         * site_state `string`
         * site_type `string`
         * site_url `string`
@@ -4831,7 +4958,6 @@ stackexchange.users.id.write_permissions.get({
       * on_date `integer`
       * other_site `object`
         * aliases `array`
-
         * api_site_parameter `string`
         * audience `string`
         * closed_beta_date `integer`
@@ -4841,11 +4967,9 @@ stackexchange.users.id.write_permissions.get({
         * launch_date `integer`
         * logo_url `string`
         * markdown_extensions `array`
-
         * name `string`
         * open_beta_date `integer`
         * related_sites `array`
-
         * site_state `string`
         * site_type `string`
         * site_url `string`
@@ -4876,8 +5000,6 @@ stackexchange.users.id.write_permissions.get({
     * reopen_vote_count `integer`
     * score `integer`
     * share_link `string`
-    * tags `array`
-
     * title `string`
     * up_vote_count `integer`
     * upvoted `boolean`
@@ -4919,13 +5041,13 @@ stackexchange.users.id.write_permissions.get({
 ### revisions
 * revisions `array`
   * items `object`
+    * tags `array`
     * body `string`
     * comment `string`
     * creation_date `integer`
     * is_rollback `boolean`
     * last_body `string`
     * last_tags `array`
-
     * last_title `string`
     * post_id `integer`
     * post_type `string`
@@ -4933,8 +5055,6 @@ stackexchange.users.id.write_permissions.get({
     * revision_number `integer`
     * revision_type `string`
     * set_community_wiki `boolean`
-    * tags `array`
-
     * title `string`
     * user `object`
       * accept_rate `integer`
@@ -4955,12 +5075,10 @@ stackexchange.users.id.write_permissions.get({
   * filter_type `string`
   * included_fields `array`
 
-
 ### sites
 * sites `array`
   * items `object`
     * aliases `array`
-
     * api_site_parameter `string`
     * audience `string`
     * closed_beta_date `integer`
@@ -4970,11 +5088,9 @@ stackexchange.users.id.write_permissions.get({
     * launch_date `integer`
     * logo_url `string`
     * markdown_extensions `array`
-
     * name `string`
     * open_beta_date `integer`
     * related_sites `array`
-
     * site_state `string`
     * site_type `string`
     * site_url `string`
@@ -4987,6 +5103,7 @@ stackexchange.users.id.write_permissions.get({
 ### suggested-edits
 * suggested-edits `array`
   * items `object`
+    * tags `array`
     * approval_date `integer`
     * body `string`
     * comment `string`
@@ -5007,8 +5124,6 @@ stackexchange.users.id.write_permissions.get({
       * user_type `string`
     * rejection_date `integer`
     * suggested_edit_id `integer`
-    * tags `array`
-
     * title `string`
 
 ### tag_score_objects
@@ -5070,19 +5185,6 @@ stackexchange.users.id.write_permissions.get({
       * user_id `integer`
       * user_type `string`
     * tag_name `string`
-
-### tags
-* tags `array`
-  * items `object`
-    * count `integer`
-    * has_synonyms `boolean`
-    * is_moderator_only `boolean`
-    * is_required `boolean`
-    * last_activity_date `integer`
-    * name `string`
-    * synonyms `array`
-
-    * user_id `integer`
 
 ### top_tag_objects
 * top_tag_objects `array`

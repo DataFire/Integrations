@@ -10,16 +10,16 @@
       "email": "support@transitfeeds.com",
       "name": "TransitFeeds.com",
       "url": "https://transitfeeds.com/issues",
-      "x-twitter": "TransitFeeds"
+      "x-twitter": "openmobilityorg"
     },
     "description": "API to view feed information and download feeds from TransitFeeds.com\n",
-    "title": "TransitFeeds",
+    "title": "TransitFeeds API",
     "version": "1.0.0",
     "x-apisguru-categories": [
       "location"
     ],
     "x-logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_TransitFeeds_profile_image.png"
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_openmobilityorg_profile_image.jpeg"
     },
     "x-origin": [
       {
@@ -262,7 +262,7 @@
   },
   "definitions": {
     "API401Response": {
-      "description": "This eleent contains information about a 401 Unauthorized error.",
+      "description": "This element contains information about a 401 Unauthorized error.",
       "properties": {
         "msg": {
           "description": "Description of the error.",
@@ -284,7 +284,7 @@
       "type": "object"
     },
     "API404Response": {
-      "description": "This eleent contains information about a 404 File Not Found error.",
+      "description": "This element contains information about a 404 File Not Found error.",
       "properties": {
         "msg": {
           "description": "Description of the error.",
@@ -484,9 +484,10 @@
           "type": "object"
         },
         "status": {
-          "description": "Indicates the success status of this request. The following values are possible:\n\n* `OK` - Request was valid.\n* `EMPTYKEY` - Request was missing API key.\n* `MISSINGINPUT` - A required request parameter was missing.\n* `INVALIDINPUT` - A request parameter was invalid.\n",
+          "description": "Indicates the success status of this request. The following values are possible:\n\n* `OK` - Request was valid.\n* `DEPRECATED` - Request resolved to a deprecated resource which will not be returned.\n* `EMPTYKEY` - Request was missing API key.\n* `MISSINGINPUT` - A required request parameter was missing.\n* `INVALIDINPUT` - A request parameter was invalid.\n",
           "enum": [
             "OK",
+            "DEPRECATED",
             "EMPTYKEY",
             "MISSINGINPUT",
             "INVALIDINPUT"
@@ -600,9 +601,10 @@
           "type": "object"
         },
         "status": {
-          "description": "Indicates the success status of this request. The following values are possible:\n\n* `OK` - Request was valid.\n* `EMPTYKEY` - Request was missing API key.\n* `MISSINGINPUT` - A required request parameter was missing.\n* `INVALIDINPUT` - A request parameter was invalid.\n* `OTHER` - Some other error occurred.\n",
+          "description": "Indicates the success status of this request. The following values are possible:\n\n* `OK` - Request was valid.\n* `DEPRECATED` - Request resolved to a deprecated resource which will not be returned.\n* `EMPTYKEY` - Request was missing API key.\n* `MISSINGINPUT` - A required request parameter was missing.\n* `INVALIDINPUT` - A request parameter was invalid.\n* `OTHER` - Some other error occurred.\n",
           "enum": [
             "OK",
+            "DEPRECATED",
             "EMPTYKEY",
             "MISSINGINPUT",
             "INVALIDINPUT",

@@ -7,7 +7,7 @@
   "info": {
     "description": "The HDInsight Management Client.",
     "title": "HDInsightManagementClient",
-    "version": "2015-03-01-preview",
+    "version": "2018-06-01-preview",
     "x-apisguru-categories": [
       "cloud"
     ],
@@ -17,7 +17,7 @@
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/hdinsight/resource-manager/Microsoft.HDInsight/preview/2015-03-01-preview/cluster.json",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/hdinsight/resource-manager/Microsoft.HDInsight/stable/2018-06-01-preview/cluster.json",
         "version": "2.0"
       }
     ],
@@ -65,6 +65,22 @@
       "required": true,
       "type": "string"
     },
+    "ClusterNameParameter": {
+      "description": "The name of the cluster.",
+      "in": "path",
+      "name": "clusterName",
+      "required": true,
+      "type": "string",
+      "x-ms-parameter-location": "method"
+    },
+    "ResourceGroupNameParameter": {
+      "description": "The name of the resource group.",
+      "in": "path",
+      "name": "resourceGroupName",
+      "required": true,
+      "type": "string",
+      "x-ms-parameter-location": "method"
+    },
     "SubscriptionIdParameter": {
       "description": "The subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
       "in": "path",
@@ -80,10 +96,10 @@
         "operationId": "Clusters_List",
         "parameters": [
           {
-            "$ref": "#/parameters/ApiVersionParameter"
+            "$ref": "#/parameters/SubscriptionIdParameter"
           },
           {
-            "$ref": "#/parameters/SubscriptionIdParameter"
+            "$ref": "#/parameters/ApiVersionParameter"
           }
         ],
         "responses": {
@@ -91,6 +107,23 @@
             "description": "OK response definition.",
             "schema": {
               "$ref": "#/definitions/ClusterListResult"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "description": "Describes the format of Error response.",
+              "properties": {
+                "code": {
+                  "description": "Error code",
+                  "type": "string"
+                },
+                "message": {
+                  "description": "Error message indicating why the operation failed.",
+                  "type": "string"
+                }
+              },
+              "type": "object"
             }
           }
         },
@@ -100,7 +133,7 @@
         "x-ms-examples": {
           "Get All Hadoop on Linux clusters": {
             "parameters": {
-              "api-version": "2015-03-01-preview",
+              "api-version": "2018-06-01-preview",
               "subscriptionId": "subid"
             },
             "responses": {
@@ -282,17 +315,13 @@
         "operationId": "Clusters_ListByResourceGroup",
         "parameters": [
           {
-            "description": "The name of the resource group.",
-            "in": "path",
-            "name": "resourceGroupName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/ResourceGroupNameParameter"
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
-          },
-          {
-            "$ref": "#/parameters/SubscriptionIdParameter"
           }
         ],
         "responses": {
@@ -300,6 +329,23 @@
             "description": "OK response definition.",
             "schema": {
               "$ref": "#/definitions/ClusterListResult"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "description": "Describes the format of Error response.",
+              "properties": {
+                "code": {
+                  "description": "Error code",
+                  "type": "string"
+                },
+                "message": {
+                  "description": "Error message indicating why the operation failed.",
+                  "type": "string"
+                }
+              },
+              "type": "object"
             }
           }
         },
@@ -309,7 +355,7 @@
         "x-ms-examples": {
           "Get All Hadoop on Linux clusters in a resource group": {
             "parameters": {
-              "api-version": "2015-03-01-preview",
+              "api-version": "2018-06-01-preview",
               "resourceGroupName": "rg1",
               "subscriptionId": "subid"
             },
@@ -492,24 +538,16 @@
         "operationId": "Clusters_Delete",
         "parameters": [
           {
-            "description": "The name of the resource group.",
-            "in": "path",
-            "name": "resourceGroupName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/SubscriptionIdParameter"
           },
           {
-            "description": "The name of the cluster.",
-            "in": "path",
-            "name": "clusterName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ClusterNameParameter"
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
-          },
-          {
-            "$ref": "#/parameters/SubscriptionIdParameter"
           }
         ],
         "responses": {
@@ -518,6 +556,23 @@
           },
           "202": {
             "description": "Accepted response definition."
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "description": "Describes the format of Error response.",
+              "properties": {
+                "code": {
+                  "description": "Error code",
+                  "type": "string"
+                },
+                "message": {
+                  "description": "Error message indicating why the operation failed.",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
           }
         },
         "tags": [
@@ -526,7 +581,7 @@
         "x-ms-examples": {
           "Delete Hadoop on Linux cluster": {
             "parameters": {
-              "api-version": "2015-03-01-preview",
+              "api-version": "2018-06-01-preview",
               "clusterName": "cluster1",
               "resourceGroupName": "rg1",
               "subscriptionId": "subid"
@@ -544,24 +599,16 @@
         "operationId": "Clusters_Get",
         "parameters": [
           {
-            "description": "The name of the resource group.",
-            "in": "path",
-            "name": "resourceGroupName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/SubscriptionIdParameter"
           },
           {
-            "description": "The name of the cluster.",
-            "in": "path",
-            "name": "clusterName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ClusterNameParameter"
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
-          },
-          {
-            "$ref": "#/parameters/SubscriptionIdParameter"
           }
         ],
         "responses": {
@@ -569,6 +616,23 @@
             "description": "OK response definition.",
             "schema": {
               "$ref": "#/definitions/Cluster"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "description": "Describes the format of Error response.",
+              "properties": {
+                "code": {
+                  "description": "Error code",
+                  "type": "string"
+                },
+                "message": {
+                  "description": "Error message indicating why the operation failed.",
+                  "type": "string"
+                }
+              },
+              "type": "object"
             }
           }
         },
@@ -578,7 +642,7 @@
         "x-ms-examples": {
           "Get Hadoop on Linux cluster": {
             "parameters": {
-              "api-version": "2015-03-01-preview",
+              "api-version": "2018-06-01-preview",
               "clusterName": "cluster1",
               "resourceGroupName": "rg1",
               "subscriptionId": "subid"
@@ -669,7 +733,7 @@
           },
           "Get Spark on Linux cluster": {
             "parameters": {
-              "api-version": "2015-03-01-preview",
+              "api-version": "2018-06-01-preview",
               "clusterName": "cluster1",
               "resourceGroupName": "rg1",
               "subscriptionId": "subid"
@@ -768,18 +832,16 @@
         "operationId": "Clusters_Update",
         "parameters": [
           {
-            "description": "The name of the resource group.",
-            "in": "path",
-            "name": "resourceGroupName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/SubscriptionIdParameter"
           },
           {
-            "description": "The name of the cluster.",
-            "in": "path",
-            "name": "clusterName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ClusterNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
           },
           {
             "description": "The cluster patch request.",
@@ -789,12 +851,6 @@
             "schema": {
               "$ref": "#/definitions/ClusterPatchParameters"
             }
-          },
-          {
-            "$ref": "#/parameters/ApiVersionParameter"
-          },
-          {
-            "$ref": "#/parameters/SubscriptionIdParameter"
           }
         ],
         "responses": {
@@ -802,6 +858,23 @@
             "description": "OK response definition.",
             "schema": {
               "$ref": "#/definitions/Cluster"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "description": "Describes the format of Error response.",
+              "properties": {
+                "code": {
+                  "description": "Error code",
+                  "type": "string"
+                },
+                "message": {
+                  "description": "Error message indicating why the operation failed.",
+                  "type": "string"
+                }
+              },
+              "type": "object"
             }
           }
         },
@@ -811,7 +884,7 @@
         "x-ms-examples": {
           "Patch HDInsight Linux clusters": {
             "parameters": {
-              "api-version": "2015-03-01-preview",
+              "api-version": "2018-06-01-preview",
               "clusterName": "cluster1",
               "parameters": {
                 "tags": {
@@ -914,18 +987,16 @@
         "operationId": "Clusters_Create",
         "parameters": [
           {
-            "description": "The name of the resource group.",
-            "in": "path",
-            "name": "resourceGroupName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/SubscriptionIdParameter"
           },
           {
-            "description": "The name of the cluster.",
-            "in": "path",
-            "name": "clusterName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ClusterNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
           },
           {
             "description": "The cluster create request.",
@@ -935,12 +1006,6 @@
             "schema": {
               "$ref": "#/definitions/ClusterCreateParametersExtended"
             }
-          },
-          {
-            "$ref": "#/parameters/ApiVersionParameter"
-          },
-          {
-            "$ref": "#/parameters/SubscriptionIdParameter"
           }
         ],
         "responses": {
@@ -949,15 +1014,404 @@
             "schema": {
               "$ref": "#/definitions/Cluster"
             }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "description": "Describes the format of Error response.",
+              "properties": {
+                "code": {
+                  "description": "Error code",
+                  "type": "string"
+                },
+                "message": {
+                  "description": "Error message indicating why the operation failed.",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
           }
         },
         "tags": [
           "Clusters"
         ],
         "x-ms-examples": {
+          "Create HDInsight cluster with Autoscale configuration": {
+            "parameters": {
+              "api-version": "2018-06-01-preview",
+              "clusterName": "cluster1",
+              "parameters": {
+                "properties": {
+                  "clusterDefinition": {
+                    "componentVersion": {
+                      "Hadoop": "2.7"
+                    },
+                    "configurations": {
+                      "gateway": {
+                        "restAuthCredential.isEnabled": true,
+                        "restAuthCredential.password": "**********",
+                        "restAuthCredential.username": "admin"
+                      }
+                    },
+                    "kind": "hadoop"
+                  },
+                  "clusterVersion": "3.6",
+                  "computeProfile": {
+                    "roles": [
+                      {
+                        "autoscale": {
+                          "capacity": null,
+                          "recurrence": {
+                            "schedule": [
+                              {
+                                "days": [
+                                  "Monday",
+                                  "Tuesday",
+                                  "Wednesday",
+                                  "Thursday",
+                                  "Friday"
+                                ],
+                                "timeAndCapacity": {
+                                  "maxInstanceCount": 3,
+                                  "minInstanceCount": 3,
+                                  "time": "09:00"
+                                }
+                              },
+                              {
+                                "days": [
+                                  "Monday",
+                                  "Tuesday",
+                                  "Wednesday",
+                                  "Thursday",
+                                  "Friday"
+                                ],
+                                "timeAndCapacity": {
+                                  "maxInstanceCount": 6,
+                                  "minInstanceCount": 6,
+                                  "time": "18:00"
+                                }
+                              },
+                              {
+                                "days": [
+                                  "Saturday",
+                                  "Sunday"
+                                ],
+                                "timeAndCapacity": {
+                                  "maxInstanceCount": 2,
+                                  "minInstanceCount": 2,
+                                  "time": "09:00"
+                                }
+                              },
+                              {
+                                "days": [
+                                  "Saturday",
+                                  "Sunday"
+                                ],
+                                "timeAndCapacity": {
+                                  "maxInstanceCount": 4,
+                                  "minInstanceCount": 4,
+                                  "time": "18:00"
+                                }
+                              }
+                            ],
+                            "timeZone": "China Standard Time"
+                          }
+                        },
+                        "dataDisksGroups": null,
+                        "hardwareProfile": {
+                          "vmSize": "Standard_D4_V2"
+                        },
+                        "name": "workernode",
+                        "osProfile": {
+                          "linuxOperatingSystemProfile": {
+                            "password": "**********",
+                            "username": "sshuser"
+                          }
+                        },
+                        "scriptActions": [],
+                        "targetInstanceCount": 4,
+                        "virtualNetworkProfile": null
+                      }
+                    ]
+                  },
+                  "osType": "Linux",
+                  "storageProfile": {
+                    "storageaccounts": [
+                      {
+                        "container": "hdinsight-autoscale-tes-2019-06-18t05-49-16-591z",
+                        "isDefault": true,
+                        "key": "storagekey",
+                        "name": "mystorage.blob.core.windows.net"
+                      }
+                    ]
+                  },
+                  "tier": "Standard"
+                }
+              },
+              "resourceGroupName": "rg1",
+              "subscriptionId": "subid"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "etag": "fdf2a6e8-ce83-42cc-8c2d-0ceb11a370ff",
+                  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/zzy-test-rg/providers/Microsoft.HDInsight/clusters/cluster1",
+                  "location": "East US",
+                  "name": "cluster1",
+                  "properties": {
+                    "clusterDefinition": {
+                      "blueprint": "https://blueprints.azurehdinsight.net/hadoop-4.0.1000.1.1910270459.json",
+                      "componentVersion": {
+                        "Hadoop": "3.1"
+                      },
+                      "kind": "HADOOP"
+                    },
+                    "clusterState": "Running",
+                    "clusterVersion": "4.0.1000.1",
+                    "computeProfile": {
+                      "roles": [
+                        {
+                          "hardwareProfile": {
+                            "vmSize": "standard_d12_v2"
+                          },
+                          "name": "headnode",
+                          "osProfile": {
+                            "linuxOperatingSystemProfile": {
+                              "username": "sshuser"
+                            }
+                          },
+                          "targetInstanceCount": 2
+                        },
+                        {
+                          "hardwareProfile": {
+                            "vmSize": "standard_d4_v2"
+                          },
+                          "name": "workernode",
+                          "osProfile": {
+                            "linuxOperatingSystemProfile": {
+                              "username": "sshuser"
+                            }
+                          },
+                          "targetInstanceCount": 4
+                        },
+                        {
+                          "hardwareProfile": {
+                            "vmSize": "standard_a2_v2"
+                          },
+                          "name": "zookeepernode",
+                          "osProfile": {
+                            "linuxOperatingSystemProfile": {
+                              "username": "sshuser"
+                            }
+                          },
+                          "targetInstanceCount": 3
+                        }
+                      ]
+                    },
+                    "connectivityEndpoints": [
+                      {
+                        "location": "cluster1-ssh.azurehdinsight.net",
+                        "name": "SSH",
+                        "port": 22,
+                        "protocol": "TCP"
+                      },
+                      {
+                        "location": "cluster1.azurehdinsight.net",
+                        "name": "HTTPS",
+                        "port": 443,
+                        "protocol": "TCP"
+                      }
+                    ],
+                    "createdDate": "2019-11-18T12:25:43.48",
+                    "osType": "Linux",
+                    "provisioningState": "Succeeded",
+                    "quotaInfo": {
+                      "coresUsed": 40
+                    },
+                    "tier": "Standard"
+                  },
+                  "type": "Microsoft.HDInsight/clusters"
+                },
+                "headers": {
+                  "location": "https://management.azure.com/subscriptions/subid/providers/Microsoft.HDInsight/pathToOperationResult"
+                }
+              }
+            }
+          },
+          "Create Hadoop cluster with Azure Data Lake Storage Gen 2": {
+            "parameters": {
+              "api-version": "2018-06-01-preview",
+              "clusterName": "cluster1",
+              "parameters": {
+                "properties": {
+                  "clusterDefinition": {
+                    "configurations": {
+                      "gateway": {
+                        "restAuthCredential.isEnabled": "true",
+                        "restAuthCredential.password": "**********",
+                        "restAuthCredential.username": "admin"
+                      }
+                    },
+                    "kind": "Hadoop"
+                  },
+                  "clusterVersion": "3.6",
+                  "computeProfile": {
+                    "roles": [
+                      {
+                        "hardwareProfile": {
+                          "vmSize": "Standard_D3_V2"
+                        },
+                        "minInstanceCount": 1,
+                        "name": "headnode",
+                        "osProfile": {
+                          "linuxOperatingSystemProfile": {
+                            "password": "**********",
+                            "username": "sshuser"
+                          }
+                        },
+                        "targetInstanceCount": 2
+                      },
+                      {
+                        "hardwareProfile": {
+                          "vmSize": "Standard_D3_V2"
+                        },
+                        "minInstanceCount": 1,
+                        "name": "workernode",
+                        "osProfile": {
+                          "linuxOperatingSystemProfile": {
+                            "password": "**********",
+                            "username": "sshuser"
+                          }
+                        },
+                        "targetInstanceCount": 4
+                      },
+                      {
+                        "hardwareProfile": {
+                          "vmSize": "Small"
+                        },
+                        "minInstanceCount": 1,
+                        "name": "zookeepernode",
+                        "osProfile": {
+                          "linuxOperatingSystemProfile": {
+                            "password": "**********",
+                            "username": "sshuser"
+                          }
+                        },
+                        "targetInstanceCount": 3
+                      }
+                    ]
+                  },
+                  "osType": "Linux",
+                  "storageProfile": {
+                    "storageaccounts": [
+                      {
+                        "fileSystem": "default",
+                        "isDefault": true,
+                        "key": "storagekey",
+                        "name": "mystorage.dfs.core.windows.net"
+                      }
+                    ]
+                  },
+                  "tier": "Standard"
+                },
+                "tags": {
+                  "key1": "val1"
+                }
+              },
+              "resourceGroupName": "rg1",
+              "subscriptionId": "subid"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "etag": "fdf2a6e8-ce83-42cc-8c2d-0ceb11a370ff",
+                  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/zzy-test-rg/providers/Microsoft.HDInsight/clusters/cluster1",
+                  "location": "East US",
+                  "name": "cluster1",
+                  "properties": {
+                    "clusterDefinition": {
+                      "blueprint": "https://blueprints.azurehdinsight.net/hadoop-4.0.1000.1.1910270459.json",
+                      "componentVersion": {
+                        "Hadoop": "3.1"
+                      },
+                      "kind": "HADOOP"
+                    },
+                    "clusterState": "Running",
+                    "clusterVersion": "4.0.1000.1",
+                    "computeProfile": {
+                      "roles": [
+                        {
+                          "hardwareProfile": {
+                            "vmSize": "standard_d12_v2"
+                          },
+                          "name": "headnode",
+                          "osProfile": {
+                            "linuxOperatingSystemProfile": {
+                              "username": "sshuser"
+                            }
+                          },
+                          "targetInstanceCount": 2
+                        },
+                        {
+                          "hardwareProfile": {
+                            "vmSize": "standard_d4_v2"
+                          },
+                          "name": "workernode",
+                          "osProfile": {
+                            "linuxOperatingSystemProfile": {
+                              "username": "sshuser"
+                            }
+                          },
+                          "targetInstanceCount": 4
+                        },
+                        {
+                          "hardwareProfile": {
+                            "vmSize": "standard_a2_v2"
+                          },
+                          "name": "zookeepernode",
+                          "osProfile": {
+                            "linuxOperatingSystemProfile": {
+                              "username": "sshuser"
+                            }
+                          },
+                          "targetInstanceCount": 3
+                        }
+                      ]
+                    },
+                    "connectivityEndpoints": [
+                      {
+                        "location": "cluster1-ssh.azurehdinsight.net",
+                        "name": "SSH",
+                        "port": 22,
+                        "protocol": "TCP"
+                      },
+                      {
+                        "location": "cluster1.azurehdinsight.net",
+                        "name": "HTTPS",
+                        "port": 443,
+                        "protocol": "TCP"
+                      }
+                    ],
+                    "createdDate": "2019-11-18T12:25:43.48",
+                    "osType": "Linux",
+                    "provisioningState": "Succeeded",
+                    "quotaInfo": {
+                      "coresUsed": 40
+                    },
+                    "tier": "Standard"
+                  },
+                  "type": "Microsoft.HDInsight/clusters"
+                },
+                "headers": {
+                  "location": "https://management.azure.com/subscriptions/subid/providers/Microsoft.HDInsight/pathToOperationResult"
+                }
+              }
+            }
+          },
           "Create Hadoop on Linux cluster with SSH password": {
             "parameters": {
-              "api-version": "2015-03-01-preview",
+              "api-version": "2018-06-01-preview",
               "clusterName": "cluster1",
               "parameters": {
                 "properties": {
@@ -1025,7 +1479,7 @@
                         "container": "containername",
                         "isDefault": true,
                         "key": "storagekey",
-                        "name": "mystorage"
+                        "name": "mystorage.blob.core.windows.net"
                       }
                     ]
                   },
@@ -1040,6 +1494,85 @@
             },
             "responses": {
               "200": {
+                "body": {
+                  "etag": "fdf2a6e8-ce83-42cc-8c2d-0ceb11a370ff",
+                  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/zzy-test-rg/providers/Microsoft.HDInsight/clusters/cluster1",
+                  "location": "East US",
+                  "name": "cluster1",
+                  "properties": {
+                    "clusterDefinition": {
+                      "blueprint": "https://blueprints.azurehdinsight.net/hadoop-4.0.1000.1.1910270459.json",
+                      "componentVersion": {
+                        "Hadoop": "3.1"
+                      },
+                      "kind": "HADOOP"
+                    },
+                    "clusterState": "Running",
+                    "clusterVersion": "4.0.1000.1",
+                    "computeProfile": {
+                      "roles": [
+                        {
+                          "hardwareProfile": {
+                            "vmSize": "standard_d12_v2"
+                          },
+                          "name": "headnode",
+                          "osProfile": {
+                            "linuxOperatingSystemProfile": {
+                              "username": "sshuser"
+                            }
+                          },
+                          "targetInstanceCount": 2
+                        },
+                        {
+                          "hardwareProfile": {
+                            "vmSize": "standard_d4_v2"
+                          },
+                          "name": "workernode",
+                          "osProfile": {
+                            "linuxOperatingSystemProfile": {
+                              "username": "sshuser"
+                            }
+                          },
+                          "targetInstanceCount": 4
+                        },
+                        {
+                          "hardwareProfile": {
+                            "vmSize": "standard_a2_v2"
+                          },
+                          "name": "zookeepernode",
+                          "osProfile": {
+                            "linuxOperatingSystemProfile": {
+                              "username": "sshuser"
+                            }
+                          },
+                          "targetInstanceCount": 3
+                        }
+                      ]
+                    },
+                    "connectivityEndpoints": [
+                      {
+                        "location": "cluster1-ssh.azurehdinsight.net",
+                        "name": "SSH",
+                        "port": 22,
+                        "protocol": "TCP"
+                      },
+                      {
+                        "location": "cluster1.azurehdinsight.net",
+                        "name": "HTTPS",
+                        "port": 443,
+                        "protocol": "TCP"
+                      }
+                    ],
+                    "createdDate": "2019-11-18T12:25:43.48",
+                    "osType": "Linux",
+                    "provisioningState": "Succeeded",
+                    "quotaInfo": {
+                      "coresUsed": 40
+                    },
+                    "tier": "Standard"
+                  },
+                  "type": "Microsoft.HDInsight/clusters"
+                },
                 "headers": {
                   "location": "https://management.azure.com/subscriptions/subid/providers/Microsoft.HDInsight/pathToOperationResult"
                 }
@@ -1048,7 +1581,7 @@
           },
           "Create Hadoop on Linux cluster with SSH public key": {
             "parameters": {
-              "api-version": "2015-03-01-preview",
+              "api-version": "2018-06-01-preview",
               "clusterName": "cluster1",
               "parameters": {
                 "properties": {
@@ -1122,7 +1655,7 @@
                         "container": "containername",
                         "isDefault": true,
                         "key": "storagekey",
-                        "name": "mystorage"
+                        "name": "mystorage.blob.core.windows.net"
                       }
                     ]
                   },
@@ -1137,6 +1670,308 @@
             },
             "responses": {
               "200": {
+                "body": {
+                  "etag": "fdf2a6e8-ce83-42cc-8c2d-0ceb11a370ff",
+                  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/zzy-test-rg/providers/Microsoft.HDInsight/clusters/cluster1",
+                  "location": "East US",
+                  "name": "cluster1",
+                  "properties": {
+                    "clusterDefinition": {
+                      "blueprint": "https://blueprints.azurehdinsight.net/hadoop-4.0.1000.1.1910270459.json",
+                      "componentVersion": {
+                        "Hadoop": "3.1"
+                      },
+                      "kind": "HADOOP"
+                    },
+                    "clusterState": "Running",
+                    "clusterVersion": "4.0.1000.1",
+                    "computeProfile": {
+                      "roles": [
+                        {
+                          "hardwareProfile": {
+                            "vmSize": "standard_d12_v2"
+                          },
+                          "name": "headnode",
+                          "osProfile": {
+                            "linuxOperatingSystemProfile": {
+                              "username": "sshuser"
+                            }
+                          },
+                          "targetInstanceCount": 2
+                        },
+                        {
+                          "hardwareProfile": {
+                            "vmSize": "standard_d4_v2"
+                          },
+                          "name": "workernode",
+                          "osProfile": {
+                            "linuxOperatingSystemProfile": {
+                              "username": "sshuser"
+                            }
+                          },
+                          "targetInstanceCount": 4
+                        },
+                        {
+                          "hardwareProfile": {
+                            "vmSize": "standard_a2_v2"
+                          },
+                          "name": "zookeepernode",
+                          "osProfile": {
+                            "linuxOperatingSystemProfile": {
+                              "username": "sshuser"
+                            }
+                          },
+                          "targetInstanceCount": 3
+                        }
+                      ]
+                    },
+                    "connectivityEndpoints": [
+                      {
+                        "location": "cluster1-ssh.azurehdinsight.net",
+                        "name": "SSH",
+                        "port": 22,
+                        "protocol": "TCP"
+                      },
+                      {
+                        "location": "cluster1.azurehdinsight.net",
+                        "name": "HTTPS",
+                        "port": 443,
+                        "protocol": "TCP"
+                      }
+                    ],
+                    "createdDate": "2019-11-18T12:25:43.48",
+                    "osType": "Linux",
+                    "provisioningState": "Succeeded",
+                    "quotaInfo": {
+                      "coresUsed": 40
+                    },
+                    "tier": "Standard"
+                  },
+                  "type": "Microsoft.HDInsight/clusters"
+                },
+                "headers": {
+                  "location": "https://management.azure.com/subscriptions/subid/providers/Microsoft.HDInsight/pathToOperationResult"
+                }
+              }
+            }
+          },
+          "Create Kafka cluster with Kafka Rest Proxy": {
+            "parameters": {
+              "api-version": "2018-06-01-preview",
+              "clusterName": "cluster1",
+              "parameters": {
+                "properties": {
+                  "clusterDefinition": {
+                    "componentVersion": {
+                      "Kafka": "2.1"
+                    },
+                    "configurations": {
+                      "gateway": {
+                        "restAuthCredential.isEnabled": true,
+                        "restAuthCredential.password": "**********",
+                        "restAuthCredential.username": "admin"
+                      }
+                    },
+                    "kind": "kafka"
+                  },
+                  "clusterVersion": "4.0",
+                  "computeProfile": {
+                    "roles": [
+                      {
+                        "hardwareProfile": {
+                          "vmSize": "Large"
+                        },
+                        "name": "headnode",
+                        "osProfile": {
+                          "linuxOperatingSystemProfile": {
+                            "password": "**********",
+                            "username": "sshuser"
+                          }
+                        },
+                        "targetInstanceCount": 2
+                      },
+                      {
+                        "dataDisksGroups": [
+                          {
+                            "disksPerNode": 8
+                          }
+                        ],
+                        "hardwareProfile": {
+                          "vmSize": "Large"
+                        },
+                        "name": "workernode",
+                        "osProfile": {
+                          "linuxOperatingSystemProfile": {
+                            "password": "**********",
+                            "username": "sshuser"
+                          }
+                        },
+                        "targetInstanceCount": 3
+                      },
+                      {
+                        "hardwareProfile": {
+                          "vmSize": "Small"
+                        },
+                        "name": "zookeepernode",
+                        "osProfile": {
+                          "linuxOperatingSystemProfile": {
+                            "password": "**********",
+                            "username": "sshuser"
+                          }
+                        },
+                        "targetInstanceCount": 3
+                      },
+                      {
+                        "hardwareProfile": {
+                          "vmSize": "Standard_D4_v2"
+                        },
+                        "name": "kafkamanagementnode",
+                        "osProfile": {
+                          "linuxOperatingSystemProfile": {
+                            "password": "**********",
+                            "username": "kafkauser"
+                          }
+                        },
+                        "targetInstanceCount": 2
+                      }
+                    ]
+                  },
+                  "kafkaRestProperties": {
+                    "clientGroupInfo": {
+                      "groupId": "00000000-0000-0000-0000-111111111111",
+                      "groupName": "Kafka security group name"
+                    }
+                  },
+                  "osType": "Linux",
+                  "storageProfile": {
+                    "storageaccounts": [
+                      {
+                        "container": "containername",
+                        "isDefault": true,
+                        "key": "storagekey",
+                        "name": "mystorage.blob.core.windows.net"
+                      }
+                    ]
+                  },
+                  "tier": "Standard"
+                }
+              },
+              "resourceGroupName": "rg1",
+              "subscriptionId": "subid"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "etag": "e1266b83-9bda-4797-a906-1bf82c8eb09a",
+                  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.HDInsight/clusters/cluster1",
+                  "location": "South Central US",
+                  "name": "cluster1",
+                  "properties": {
+                    "clusterDefinition": {
+                      "blueprint": "https://blueprints.azurehdinsight.net/kafka-4.0.1000.1.1911212244.json",
+                      "componentVersion": {
+                        "Kafka": "2.1"
+                      },
+                      "kind": "KAFKA"
+                    },
+                    "clusterState": "Running",
+                    "clusterVersion": "4.0.1000.1",
+                    "computeProfile": {
+                      "roles": [
+                        {
+                          "hardwareProfile": {
+                            "vmSize": "standard_d3_v2"
+                          },
+                          "name": "headnode",
+                          "osProfile": {
+                            "linuxOperatingSystemProfile": {
+                              "username": "sshuser"
+                            }
+                          },
+                          "targetInstanceCount": 2
+                        },
+                        {
+                          "dataDisksGroups": [
+                            {
+                              "diskSizeGB": 1023,
+                              "disksPerNode": 2,
+                              "storageAccountType": "Standard_LRS"
+                            }
+                          ],
+                          "hardwareProfile": {
+                            "vmSize": "standard_d3_v2"
+                          },
+                          "name": "workernode",
+                          "osProfile": {
+                            "linuxOperatingSystemProfile": {
+                              "username": "sshuser"
+                            }
+                          },
+                          "targetInstanceCount": 4
+                        },
+                        {
+                          "hardwareProfile": {
+                            "vmSize": "standard_d4_v2"
+                          },
+                          "name": "kafkamanagementnode",
+                          "osProfile": {
+                            "linuxOperatingSystemProfile": {
+                              "username": "sshuser"
+                            }
+                          },
+                          "targetInstanceCount": 2
+                        },
+                        {
+                          "hardwareProfile": {
+                            "vmSize": "standard_a4_v2"
+                          },
+                          "name": "zookeepernode",
+                          "osProfile": {
+                            "linuxOperatingSystemProfile": {
+                              "username": "sshuser"
+                            }
+                          },
+                          "targetInstanceCount": 3
+                        }
+                      ]
+                    },
+                    "connectivityEndpoints": [
+                      {
+                        "location": "cluster1-ssh.azurehdinsight.net",
+                        "name": "SSH",
+                        "port": 22,
+                        "protocol": "TCP"
+                      },
+                      {
+                        "location": "cluster1.azurehdinsight.net",
+                        "name": "HTTPS",
+                        "port": 443,
+                        "protocol": "TCP"
+                      },
+                      {
+                        "location": "cluster1-kafkarest.azurehdinsight.net",
+                        "name": "KafkaRestProxyPublicEndpoint",
+                        "port": 443,
+                        "protocol": "TCP"
+                      }
+                    ],
+                    "createdDate": "2019-11-25T03:43:23.663",
+                    "kafkaRestProperties": {
+                      "clientGroupInfo": {
+                        "groupId": "00000000-0000-0000-0000-000000000000",
+                        "groupName": "security group name"
+                      }
+                    },
+                    "osType": "Linux",
+                    "provisioningState": "Succeeded",
+                    "quotaInfo": {
+                      "coresUsed": 52
+                    },
+                    "tier": "Standard"
+                  },
+                  "tags": null,
+                  "type": "Microsoft.HDInsight/clusters"
+                },
                 "headers": {
                   "location": "https://management.azure.com/subscriptions/subid/providers/Microsoft.HDInsight/pathToOperationResult"
                 }
@@ -1145,7 +1980,7 @@
           },
           "Create Secure Hadoop cluster": {
             "parameters": {
-              "api-version": "2015-03-01-preview",
+              "api-version": "2018-06-01-preview",
               "clusterName": "cluster1",
               "parameters": {
                 "properties": {
@@ -1262,7 +2097,7 @@
                         "container": "containername",
                         "isDefault": true,
                         "key": "storage account key",
-                        "name": "mystorage"
+                        "name": "mystorage.blob.core.windows.net"
                       }
                     ]
                   },
@@ -1277,6 +2112,85 @@
             },
             "responses": {
               "200": {
+                "body": {
+                  "etag": "fdf2a6e8-ce83-42cc-8c2d-0ceb11a370ff",
+                  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/zzy-test-rg/providers/Microsoft.HDInsight/clusters/cluster1",
+                  "location": "East US",
+                  "name": "cluster1",
+                  "properties": {
+                    "clusterDefinition": {
+                      "blueprint": "https://blueprints.azurehdinsight.net/hadoop-4.0.1000.1.1910270459.json",
+                      "componentVersion": {
+                        "Hadoop": "3.1"
+                      },
+                      "kind": "HADOOP"
+                    },
+                    "clusterState": "Running",
+                    "clusterVersion": "4.0.1000.1",
+                    "computeProfile": {
+                      "roles": [
+                        {
+                          "hardwareProfile": {
+                            "vmSize": "standard_d12_v2"
+                          },
+                          "name": "headnode",
+                          "osProfile": {
+                            "linuxOperatingSystemProfile": {
+                              "username": "sshuser"
+                            }
+                          },
+                          "targetInstanceCount": 2
+                        },
+                        {
+                          "hardwareProfile": {
+                            "vmSize": "standard_d4_v2"
+                          },
+                          "name": "workernode",
+                          "osProfile": {
+                            "linuxOperatingSystemProfile": {
+                              "username": "sshuser"
+                            }
+                          },
+                          "targetInstanceCount": 4
+                        },
+                        {
+                          "hardwareProfile": {
+                            "vmSize": "standard_a2_v2"
+                          },
+                          "name": "zookeepernode",
+                          "osProfile": {
+                            "linuxOperatingSystemProfile": {
+                              "username": "sshuser"
+                            }
+                          },
+                          "targetInstanceCount": 3
+                        }
+                      ]
+                    },
+                    "connectivityEndpoints": [
+                      {
+                        "location": "cluster1-ssh.azurehdinsight.net",
+                        "name": "SSH",
+                        "port": 22,
+                        "protocol": "TCP"
+                      },
+                      {
+                        "location": "cluster1.azurehdinsight.net",
+                        "name": "HTTPS",
+                        "port": 443,
+                        "protocol": "TCP"
+                      }
+                    ],
+                    "createdDate": "2019-11-18T12:25:43.48",
+                    "osType": "Linux",
+                    "provisioningState": "Succeeded",
+                    "quotaInfo": {
+                      "coresUsed": 40
+                    },
+                    "tier": "Standard"
+                  },
+                  "type": "Microsoft.HDInsight/clusters"
+                },
                 "headers": {
                   "location": "https://management.azure.com/subscriptions/subid/providers/Microsoft.HDInsight/pathToOperationResult"
                 }
@@ -1285,7 +2199,7 @@
           },
           "Create Spark on Linux Cluster with SSH password": {
             "parameters": {
-              "api-version": "2015-03-01-preview",
+              "api-version": "2018-06-01-preview",
               "clusterName": "cluster1",
               "parameters": {
                 "properties": {
@@ -1342,7 +2256,7 @@
                         "container": "containername",
                         "isDefault": true,
                         "key": "storageapikey*",
-                        "name": "mystorage"
+                        "name": "mystorage.blob.core.windows.net"
                       }
                     ]
                   },
@@ -1357,6 +2271,85 @@
             },
             "responses": {
               "200": {
+                "body": {
+                  "etag": "fdf2a6e8-ce83-42cc-8c2d-0ceb11a370ff",
+                  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/zzy-test-rg/providers/Microsoft.HDInsight/clusters/cluster1",
+                  "location": "East US",
+                  "name": "cluster1",
+                  "properties": {
+                    "clusterDefinition": {
+                      "blueprint": "https://blueprints.azurehdinsight.net/hadoop-4.0.1000.1.1910270459.json",
+                      "componentVersion": {
+                        "Hadoop": "3.1"
+                      },
+                      "kind": "HADOOP"
+                    },
+                    "clusterState": "Running",
+                    "clusterVersion": "4.0.1000.1",
+                    "computeProfile": {
+                      "roles": [
+                        {
+                          "hardwareProfile": {
+                            "vmSize": "standard_d12_v2"
+                          },
+                          "name": "headnode",
+                          "osProfile": {
+                            "linuxOperatingSystemProfile": {
+                              "username": "sshuser"
+                            }
+                          },
+                          "targetInstanceCount": 2
+                        },
+                        {
+                          "hardwareProfile": {
+                            "vmSize": "standard_d4_v2"
+                          },
+                          "name": "workernode",
+                          "osProfile": {
+                            "linuxOperatingSystemProfile": {
+                              "username": "sshuser"
+                            }
+                          },
+                          "targetInstanceCount": 4
+                        },
+                        {
+                          "hardwareProfile": {
+                            "vmSize": "standard_a2_v2"
+                          },
+                          "name": "zookeepernode",
+                          "osProfile": {
+                            "linuxOperatingSystemProfile": {
+                              "username": "sshuser"
+                            }
+                          },
+                          "targetInstanceCount": 3
+                        }
+                      ]
+                    },
+                    "connectivityEndpoints": [
+                      {
+                        "location": "cluster1-ssh.azurehdinsight.net",
+                        "name": "SSH",
+                        "port": 22,
+                        "protocol": "TCP"
+                      },
+                      {
+                        "location": "cluster1.azurehdinsight.net",
+                        "name": "HTTPS",
+                        "port": 443,
+                        "protocol": "TCP"
+                      }
+                    ],
+                    "createdDate": "2019-11-18T12:25:43.48",
+                    "osType": "Linux",
+                    "provisioningState": "Succeeded",
+                    "quotaInfo": {
+                      "coresUsed": 40
+                    },
+                    "tier": "Standard"
+                  },
+                  "type": "Microsoft.HDInsight/clusters"
+                },
                 "headers": {
                   "location": "https://management.azure.com/subscriptions/subid/providers/Microsoft.HDInsight/pathToOperationResult"
                 }
@@ -1367,24 +2360,86 @@
         "x-ms-long-running-operation": true
       }
     },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HDInsight/clusters/{clusterName}/getGatewaySettings": {
+      "post": {
+        "description": "Gets the gateway settings for the specified cluster.",
+        "operationId": "Clusters_GetGatewaySettings",
+        "parameters": [
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ClusterNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK response definition.",
+            "schema": {
+              "$ref": "#/definitions/GatewaySettings"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "description": "Describes the format of Error response.",
+              "properties": {
+                "code": {
+                  "description": "Error code",
+                  "type": "string"
+                },
+                "message": {
+                  "description": "Error message indicating why the operation failed.",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          }
+        },
+        "tags": [
+          "Clusters"
+        ],
+        "x-ms-examples": {
+          "Get HTTP settings": {
+            "parameters": {
+              "api-version": "2018-06-01-preview",
+              "clusterName": "cluster1",
+              "resourceGroupName": "rg1",
+              "subscriptionId": "subid"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "restAuthCredential.isEnabled": "true",
+                  "restAuthCredential.password": "**********",
+                  "restAuthCredential.username": "hadoop"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HDInsight/clusters/{clusterName}/roles/{roleName}/resize": {
       "post": {
         "description": "Resizes the specified HDInsight cluster to the specified size.",
         "operationId": "Clusters_Resize",
         "parameters": [
           {
-            "description": "The name of the resource group.",
-            "in": "path",
-            "name": "resourceGroupName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/SubscriptionIdParameter"
           },
           {
-            "description": "The name of the cluster.",
-            "in": "path",
-            "name": "clusterName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ClusterNameParameter"
           },
           {
             "description": "The constant value for the roleName",
@@ -1401,6 +2456,9 @@
             }
           },
           {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
             "description": "The parameters for the resize operation.",
             "in": "body",
             "name": "parameters",
@@ -1408,12 +2466,6 @@
             "schema": {
               "$ref": "#/definitions/ClusterResizeParameters"
             }
-          },
-          {
-            "$ref": "#/parameters/ApiVersionParameter"
-          },
-          {
-            "$ref": "#/parameters/SubscriptionIdParameter"
           }
         ],
         "responses": {
@@ -1422,6 +2474,23 @@
           },
           "202": {
             "description": "Accepted response definition."
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "description": "Describes the format of Error response.",
+              "properties": {
+                "code": {
+                  "description": "Error code",
+                  "type": "string"
+                },
+                "message": {
+                  "description": "Error message indicating why the operation failed.",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
           }
         },
         "tags": [
@@ -1430,7 +2499,7 @@
         "x-ms-examples": {
           "Resize the worker nodes for a Hadoop on Linux cluster": {
             "parameters": {
-              "api-version": "2015-03-01-preview",
+              "api-version": "2018-06-01-preview",
               "clusterName": "cluster1",
               "parameters": {
                 "targetInstanceCount": 10
@@ -1447,9 +2516,276 @@
         },
         "x-ms-long-running-operation": true
       }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HDInsight/clusters/{clusterName}/rotatediskencryptionkey": {
+      "post": {
+        "description": "Rotate disk encryption key of the specified HDInsight cluster.",
+        "operationId": "Clusters_RotateDiskEncryptionKey",
+        "parameters": [
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ClusterNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "description": "The parameters for the disk encryption operation.",
+            "in": "body",
+            "name": "parameters",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ClusterDiskEncryptionParameters"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK response definition."
+          },
+          "202": {
+            "description": "Accepted response definition."
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "description": "Describes the format of Error response.",
+              "properties": {
+                "code": {
+                  "description": "Error code",
+                  "type": "string"
+                },
+                "message": {
+                  "description": "Error message indicating why the operation failed.",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          }
+        },
+        "tags": [
+          "Clusters"
+        ],
+        "x-ms-examples": {
+          "Rotate disk encryption key of the specified HDInsight cluster": {
+            "parameters": {
+              "api-version": "2018-06-01-preview",
+              "clusterName": "cluster1",
+              "parameters": {
+                "keyName": "newkeyname",
+                "keyVersion": "newkeyversion",
+                "vaultUri": "https://newkeyvault.vault.azure.net/"
+              },
+              "resourceGroupName": "rg1",
+              "subscriptionId": "subid"
+            },
+            "responses": {
+              "200": {},
+              "202": {}
+            }
+          }
+        },
+        "x-ms-long-running-operation": true
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HDInsight/clusters/{clusterName}/updateGatewaySettings": {
+      "post": {
+        "description": "Configures the gateway settings on the specified cluster.",
+        "operationId": "Clusters_UpdateGatewaySettings",
+        "parameters": [
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ClusterNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "description": "The cluster configurations.",
+            "in": "body",
+            "name": "parameters",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateGatewaySettingsParameters"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK response definition."
+          },
+          "202": {
+            "description": "Accepted response definition"
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "description": "Describes the format of Error response.",
+              "properties": {
+                "code": {
+                  "description": "Error code",
+                  "type": "string"
+                },
+                "message": {
+                  "description": "Error message indicating why the operation failed.",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          }
+        },
+        "tags": [
+          "Clusters"
+        ],
+        "x-ms-examples": {
+          "Enable HTTP connectivity": {
+            "parameters": {
+              "api-version": "2018-06-01-preview",
+              "clusterName": "cluster1",
+              "parameters": {
+                "restAuthCredential.isEnabled": true,
+                "restAuthCredential.password": "**********",
+                "restAuthCredential.username": "hadoop"
+              },
+              "resourceGroupName": "rg1",
+              "subscriptionId": "subid"
+            },
+            "responses": {
+              "200": {
+                "headers": {
+                  "location": "https://management.azure.com/subscriptions/subid/providers/Microsoft.HDInsight/pathToOperationResult"
+                }
+              },
+              "202": {
+                "headers": {
+                  "location": "https://management.azure.com/subscriptions/subid/providers/Microsoft.HDInsight/pathToOperationResult"
+                }
+              }
+            }
+          }
+        },
+        "x-ms-long-running-operation": true
+      }
     }
   },
   "definitions": {
+    "Autoscale": {
+      "description": "The autoscale request parameters",
+      "properties": {
+        "capacity": {
+          "$ref": "#/definitions/AutoscaleCapacity",
+          "description": "Parameters for load-based autoscale"
+        },
+        "recurrence": {
+          "$ref": "#/definitions/AutoscaleRecurrence",
+          "description": "Parameters for schedule-based autoscale"
+        }
+      }
+    },
+    "AutoscaleCapacity": {
+      "description": "The load-based autoscale request parameters",
+      "properties": {
+        "maxInstanceCount": {
+          "description": "The maximum instance count of the cluster",
+          "format": "int32",
+          "type": "integer"
+        },
+        "minInstanceCount": {
+          "description": "The minimum instance count of the cluster",
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "AutoscaleRecurrence": {
+      "description": "Schedule-based autoscale request parameters",
+      "properties": {
+        "schedule": {
+          "description": "Array of schedule-based autoscale rules",
+          "items": {
+            "$ref": "#/definitions/AutoscaleSchedule"
+          },
+          "type": "array"
+        },
+        "timeZone": {
+          "description": "The time zone for the autoscale schedule times",
+          "type": "string"
+        }
+      }
+    },
+    "AutoscaleSchedule": {
+      "description": "Parameters for a schedule-based autoscale rule, consisting of an array of days + a time and capacity",
+      "properties": {
+        "days": {
+          "description": "Days of the week for a schedule-based autoscale rule",
+          "items": {
+            "enum": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday",
+              "Sunday"
+            ],
+            "type": "string",
+            "x-ms-enum": {
+              "modelAsString": false,
+              "name": "DaysOfWeek"
+            }
+          },
+          "type": "array"
+        },
+        "timeAndCapacity": {
+          "$ref": "#/definitions/AutoscaleTimeAndCapacity",
+          "description": "Time and capacity for a schedule-based autoscale rule"
+        }
+      }
+    },
+    "AutoscaleTimeAndCapacity": {
+      "description": "Time and capacity request parameters",
+      "properties": {
+        "maxInstanceCount": {
+          "description": "The maximum instance count of the cluster",
+          "format": "int32",
+          "type": "integer"
+        },
+        "minInstanceCount": {
+          "description": "The minimum instance count of the cluster",
+          "format": "int32",
+          "type": "integer"
+        },
+        "time": {
+          "description": "24-hour time in the form xx:xx",
+          "type": "string"
+        }
+      }
+    },
+    "ClientGroupInfo": {
+      "description": "The information of AAD security group.",
+      "properties": {
+        "groupId": {
+          "description": "The AAD security group id.",
+          "type": "string"
+        },
+        "groupName": {
+          "description": "The AAD security group name.",
+          "type": "string"
+        }
+      }
+    },
     "Cluster": {
       "allOf": [
         {
@@ -1462,6 +2798,10 @@
           "description": "The ETag for the resource",
           "type": "string"
         },
+        "identity": {
+          "$ref": "#/definitions/ClusterIdentity",
+          "description": "The identity of the cluster, if configured."
+        },
         "properties": {
           "$ref": "#/definitions/ClusterGetProperties",
           "description": "The properties of the cluster."
@@ -1471,6 +2811,10 @@
     "ClusterCreateParametersExtended": {
       "description": "The CreateCluster request parameters.",
       "properties": {
+        "identity": {
+          "$ref": "#/definitions/ClusterIdentity",
+          "description": "The identity of the cluster, if configured."
+        },
         "location": {
           "description": "The location of the cluster.",
           "type": "string"
@@ -1502,6 +2846,14 @@
         "computeProfile": {
           "$ref": "#/definitions/ComputeProfile",
           "description": "The compute profile."
+        },
+        "diskEncryptionProperties": {
+          "$ref": "#/definitions/DiskEncryptionProperties",
+          "description": "The disk encryption properties."
+        },
+        "kafkaRestProperties": {
+          "$ref": "#/definitions/KafkaRestProperties",
+          "description": "The cluster kafka rest proxy configuration."
         },
         "osType": {
           "description": "The type of operating system.",
@@ -1561,6 +2913,23 @@
         }
       }
     },
+    "ClusterDiskEncryptionParameters": {
+      "description": "The Disk Encryption Cluster request parameters.",
+      "properties": {
+        "keyName": {
+          "description": "Key name that is used for enabling disk encryption.",
+          "type": "string"
+        },
+        "keyVersion": {
+          "description": "Specific key version that is used for enabling disk encryption.",
+          "type": "string"
+        },
+        "vaultUri": {
+          "description": "Base key vault URI where the customers key is located eg. https://myvault.vault.azure.net",
+          "type": "string"
+        }
+      }
+    },
     "ClusterGetProperties": {
       "description": "The properties of cluster.",
       "properties": {
@@ -1591,12 +2960,20 @@
           "description": "The date on which the cluster was created.",
           "type": "string"
         },
+        "diskEncryptionProperties": {
+          "$ref": "#/definitions/DiskEncryptionProperties",
+          "description": "The disk encryption properties."
+        },
         "errors": {
           "description": "The list of errors.",
           "items": {
-            "$ref": "#/definitions/errors"
+            "$ref": "#/definitions/Errors"
           },
           "type": "array"
+        },
+        "kafkaRestProperties": {
+          "$ref": "#/definitions/KafkaRestProperties",
+          "description": "The cluster kafka rest proxy configuration."
         },
         "osType": {
           "description": "The type of operating system.",
@@ -1649,6 +3026,54 @@
       "required": [
         "clusterDefinition"
       ]
+    },
+    "ClusterIdentity": {
+      "description": "Identity for the cluster.",
+      "properties": {
+        "principalId": {
+          "description": "The principal id of cluster identity. This property will only be provided for a system assigned identity.",
+          "readOnly": true,
+          "type": "string"
+        },
+        "tenantId": {
+          "description": "The tenant id associated with the cluster. This property will only be provided for a system assigned identity.",
+          "readOnly": true,
+          "type": "string"
+        },
+        "type": {
+          "description": "The type of identity used for the cluster. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities.",
+          "enum": [
+            "SystemAssigned",
+            "UserAssigned",
+            "SystemAssigned, UserAssigned",
+            "None"
+          ],
+          "type": "string",
+          "x-ms-enum": {
+            "modelAsString": false,
+            "name": "ResourceIdentityType"
+          }
+        },
+        "userAssignedIdentities": {
+          "additionalProperties": {
+            "properties": {
+              "clientId": {
+                "description": "The client id of user assigned identity.",
+                "readOnly": true,
+                "type": "string"
+              },
+              "principalId": {
+                "description": "The principal id of user assigned identity.",
+                "readOnly": true,
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "description": "The list of user identities associated with the cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.",
+          "type": "object"
+        }
+      }
     },
     "ClusterListPersistedScriptActionsResult": {
       "description": "The ListPersistedScriptActions operation response.",
@@ -1778,6 +3203,53 @@
         }
       }
     },
+    "DiskEncryptionProperties": {
+      "description": "The disk encryption properties",
+      "properties": {
+        "encryptionAlgorithm": {
+          "description": "Algorithm identifier for encryption, default RSA-OAEP.",
+          "enum": [
+            "RSA-OAEP",
+            "RSA-OAEP-256",
+            "RSA1_5"
+          ],
+          "type": "string",
+          "x-ms-enum": {
+            "modelAsString": true,
+            "name": "JsonWebKeyEncryptionAlgorithm"
+          }
+        },
+        "keyName": {
+          "description": "Key name that is used for enabling disk encryption.",
+          "type": "string"
+        },
+        "keyVersion": {
+          "description": "Specific key version that is used for enabling disk encryption.",
+          "type": "string"
+        },
+        "msiResourceId": {
+          "description": "Resource ID of Managed Identity that is used to access the key vault.",
+          "type": "string"
+        },
+        "vaultUri": {
+          "description": "Base key vault URI where the customers key is located eg. https://myvault.vault.azure.net",
+          "type": "string"
+        }
+      }
+    },
+    "Errors": {
+      "description": "The error message associated with the cluster creation.",
+      "properties": {
+        "code": {
+          "description": "The error code.",
+          "type": "string"
+        },
+        "message": {
+          "description": "The error message.",
+          "type": "string"
+        }
+      }
+    },
     "ExecuteScriptActionParameters": {
       "description": "The parameters for the script actions to execute on a running cluster.",
       "properties": {
@@ -1797,6 +3269,29 @@
         "persistOnSuccess"
       ]
     },
+    "GatewaySettings": {
+      "description": "Gateway settings.",
+      "properties": {
+        "restAuthCredential.isEnabled": {
+          "description": "Indicates whether or not the gateway settings based authorization is enabled.",
+          "readOnly": true,
+          "type": "string",
+          "x-ms-client-name": "isCredentialEnabled"
+        },
+        "restAuthCredential.password": {
+          "description": "The gateway settings user password.",
+          "readOnly": true,
+          "type": "string",
+          "x-ms-client-name": "password"
+        },
+        "restAuthCredential.username": {
+          "description": "The gateway settings user name.",
+          "readOnly": true,
+          "type": "string",
+          "x-ms-client-name": "userName"
+        }
+      }
+    },
     "HardwareProfile": {
       "description": "The hardware profile.",
       "properties": {
@@ -1806,46 +3301,29 @@
         }
       }
     },
-    "Operation": {
-      "description": "The HDInsight REST API operation.",
+    "KafkaRestProperties": {
+      "description": "The kafka rest proxy configuration which contains AAD security group information.",
       "properties": {
-        "display": {
-          "description": "The object that represents the operation.",
-          "properties": {
-            "operation": {
-              "description": "The operation type: read, write, delete, etc.",
-              "type": "string"
-            },
-            "provider": {
-              "description": "The service provider: Microsoft.HDInsight",
-              "type": "string"
-            },
-            "resource": {
-              "description": "The resource on which the operation is performed: Cluster, Capabilities, etc.",
-              "type": "string"
-            }
-          }
-        },
-        "name": {
-          "description": "The operation name: {provider}/{resource}/{operation}",
-          "type": "string"
+        "clientGroupInfo": {
+          "$ref": "#/definitions/ClientGroupInfo",
+          "description": "The information of AAD security group."
         }
-      },
-      "type": "object"
+      }
     },
-    "OperationListResult": {
-      "description": "Result of the request to list HDInsight operations. It contains a list of operations and a URL link to get the next set of results.",
+    "LinuxOperatingSystemProfile": {
+      "description": "The ssh username, password, and ssh public key.",
       "properties": {
-        "nextLink": {
-          "description": "The URL to get the next set of operation list results if there are any.",
+        "password": {
+          "description": "The password.",
           "type": "string"
         },
-        "value": {
-          "description": "The list of HDInsight operations supported by the HDInsight resource provider.",
-          "items": {
-            "$ref": "#/definitions/Operation"
-          },
-          "type": "array"
+        "sshProfile": {
+          "$ref": "#/definitions/SshProfile",
+          "description": "The SSH profile."
+        },
+        "username": {
+          "description": "The username.",
+          "type": "string"
         }
       }
     },
@@ -1853,7 +3331,7 @@
       "description": "The azure async operation response.",
       "properties": {
         "error": {
-          "$ref": "#/definitions/errors",
+          "$ref": "#/definitions/Errors",
           "description": "The operation error information."
         },
         "status": {
@@ -1868,6 +3346,15 @@
             "modelAsString": false,
             "name": "AsyncOperationState"
           }
+        }
+      }
+    },
+    "OsProfile": {
+      "description": "The Linux operation systems profile.",
+      "properties": {
+        "linuxOperatingSystemProfile": {
+          "$ref": "#/definitions/LinuxOperatingSystemProfile",
+          "description": "The Linux OS profile."
         }
       }
     },
@@ -1913,6 +3400,11 @@
     "Role": {
       "description": "Describes a role on the cluster.",
       "properties": {
+        "autoscale": {
+          "$ref": "#/definitions/Autoscale",
+          "description": "The autoscale configurations.",
+          "x-ms-client-name": "autoscaleConfiguration"
+        },
         "dataDisksGroups": {
           "description": "The data disks groups for the role.",
           "items": {
@@ -1934,40 +3426,8 @@
           "type": "string"
         },
         "osProfile": {
-          "description": "The Linux operation systems profile.",
-          "properties": {
-            "linuxOperatingSystemProfile": {
-              "description": "The ssh username, password, and ssh public key.",
-              "properties": {
-                "password": {
-                  "description": "The password.",
-                  "type": "string"
-                },
-                "sshProfile": {
-                  "description": "The list of SSH public keys.",
-                  "properties": {
-                    "publicKeys": {
-                      "description": "The list of SSH public keys.",
-                      "items": {
-                        "description": "The SSH public key for the cluster nodes.",
-                        "properties": {
-                          "certificateData": {
-                            "description": "The certificate for SSH.",
-                            "type": "string"
-                          }
-                        }
-                      },
-                      "type": "array"
-                    }
-                  }
-                },
-                "username": {
-                  "description": "The username.",
-                  "type": "string"
-                }
-              }
-            }
-          }
+          "$ref": "#/definitions/OsProfile",
+          "description": "The operating system profile."
         },
         "scriptActions": {
           "description": "The list of script actions on the role.",
@@ -2110,6 +3570,10 @@
     "SecurityProfile": {
       "description": "The security profile which contains Ssh public key for the HDInsight cluster.",
       "properties": {
+        "aaddsResourceId": {
+          "description": "The resource ID of the user's Azure Active Directory Domain Service.",
+          "type": "string"
+        },
         "clusterUsersGroupDNs": {
           "description": "Optional. The Distinguished Names for cluster user groups",
           "items": {
@@ -2148,8 +3612,33 @@
           },
           "type": "array"
         },
+        "msiResourceId": {
+          "description": "User assigned identity that has permissions to read and create cluster-related artifacts in the user's AADDS.",
+          "type": "string"
+        },
         "organizationalUnitDN": {
           "description": "The organizational unit within the Active Directory to place the cluster and service accounts.",
+          "type": "string"
+        }
+      }
+    },
+    "SshProfile": {
+      "description": "The list of SSH public keys.",
+      "properties": {
+        "publicKeys": {
+          "description": "The list of SSH public keys.",
+          "items": {
+            "$ref": "#/definitions/SshPublicKey"
+          },
+          "type": "array"
+        }
+      }
+    },
+    "SshPublicKey": {
+      "description": "The SSH public key for the cluster nodes.",
+      "properties": {
+        "certificateData": {
+          "description": "The certificate for SSH.",
           "type": "string"
         }
       }
@@ -2158,7 +3647,11 @@
       "description": "The storage Account.",
       "properties": {
         "container": {
-          "description": "The container in the storage account.",
+          "description": "The container in the storage account, only to be specified for WASB storage accounts.",
+          "type": "string"
+        },
+        "fileSystem": {
+          "description": "The filesystem, only to be specified for Azure Data Lake Storage Gen 2.",
           "type": "string"
         },
         "isDefault": {
@@ -2169,8 +3662,16 @@
           "description": "The storage account access key.",
           "type": "string"
         },
+        "msiResourceId": {
+          "description": "The managed identity (MSI) that is allowed to access the storage account, only to be specified for Azure Data Lake Storage Gen 2.",
+          "type": "string"
+        },
         "name": {
           "description": "The name of the storage account.",
+          "type": "string"
+        },
+        "resourceId": {
+          "description": "The resource ID of storage account, only to be specified for Azure Data Lake Storage Gen 2.",
           "type": "string"
         }
       }
@@ -2217,6 +3718,27 @@
         }
       }
     },
+    "UpdateGatewaySettingsParameters": {
+      "description": "The update gateway settings request parameters.",
+      "properties": {
+        "restAuthCredential.isEnabled": {
+          "default": true,
+          "description": "Indicates whether or not the gateway settings based authorization is enabled.",
+          "type": "boolean",
+          "x-ms-client-name": "isCredentialEnabled"
+        },
+        "restAuthCredential.password": {
+          "description": "The gateway settings user password.",
+          "type": "string",
+          "x-ms-client-name": "password"
+        },
+        "restAuthCredential.username": {
+          "description": "The gateway settings user name.",
+          "type": "string",
+          "x-ms-client-name": "userName"
+        }
+      }
+    },
     "VirtualNetworkProfile": {
       "description": "The virtual network properties.",
       "properties": {
@@ -2226,19 +3748,6 @@
         },
         "subnet": {
           "description": "The name of the subnet.",
-          "type": "string"
-        }
-      }
-    },
-    "errors": {
-      "description": "The error message associated with the cluster creation.",
-      "properties": {
-        "code": {
-          "description": "The error code.",
-          "type": "string"
-        },
-        "message": {
-          "description": "The error message.",
           "type": "string"
         }
       }

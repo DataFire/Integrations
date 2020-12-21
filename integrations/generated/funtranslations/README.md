@@ -11,9 +11,7 @@ let funtranslations = require('@datafire/funtranslations').create({
   "X-Funtranslations-Api-Secret": ""
 });
 
-funtranslations.translate.braille.get({
-  "text": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

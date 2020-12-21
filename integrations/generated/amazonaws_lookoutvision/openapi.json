@@ -1,0 +1,3562 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "contact": {
+      "email": "mike.ralphson@gmail.com",
+      "name": "Mike Ralphson",
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
+    },
+    "description": "<p>This is the Amazon Lookout for Vision API Reference. It provides descriptions of actions, data types, common parameters, and common errors.</p> <p>Amazon Lookout for Vision enables you to find visual defects in industrial products, accurately and at scale. It uses computer vision to identify missing components in an industrial product, damage to vehicles or structures, irregularities in production lines, and even minuscule defects in silicon wafers — or any other physical item where quality is important such as a missing capacitor on printed circuit boards.</p>",
+    "license": {
+      "name": "Apache 2.0 License",
+      "url": "http://www.apache.org/licenses/"
+    },
+    "termsOfService": "https://aws.amazon.com/service-terms/",
+    "title": "Amazon Lookout for Vision",
+    "version": "2020-11-20",
+    "x-apiClientRegistration": {
+      "url": "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"
+    },
+    "x-apisguru-categories": [
+      "cloud"
+    ],
+    "x-logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"
+    },
+    "x-origin": [
+      {
+        "contentType": "application/json",
+        "converter": {
+          "url": "https://github.com/mermade/aws2openapi",
+          "version": "1.0.0"
+        },
+        "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/lookoutvision-2020-11-20.normal.json",
+        "x-apisguru-driver": "external"
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "amazonaws.com",
+    "x-release": "v4",
+    "x-serviceName": "lookoutvision",
+    "x-datafire": {
+      "name": "amazonaws_lookoutvision",
+      "type": "openapi"
+    }
+  },
+  "host": "lookoutvision.us-east-1.amazonaws.com",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/2020-11-20/projects": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "If the previous response was incomplete (because there is more data to retrieve), Amazon Lookout for Vision returns a pagination token in the response. You can use this pagination token to retrieve the next set of projects.",
+            "in": "query",
+            "maxLength": 2048,
+            "name": "nextToken",
+            "pattern": "^[a-zA-Z0-9\\/\\+\\=]{0,2048}$",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "The maximum number of results to return per paginated call. The largest value you can specify is 100. If you specify a value greater than 100, a ValidationException error occurs. The default value is 100.",
+            "in": "query",
+            "maximum": 100,
+            "minimum": 1,
+            "name": "maxResults",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListProjectsResponse"
+            }
+          },
+          "480": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "483": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          },
+          "484": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "485": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          }
+        },
+        "description": "Lists the Amazon Lookout for Vision projects in your AWS account.",
+        "operationId": "ListProjects"
+      },
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "ClientToken is an idempotency token that ensures a call to <code>CreateProject</code> completes only once. You choose the value to pass. For example, An issue, such as an network outage, might prevent you from getting a response from <code>CreateProject</code>. In this case, safely retry your call to <code>CreateProject</code> by using the same <code>ClientToken</code> parameter value. An error occurs if the other input parameters are not the same as in the first request. Using a different value for <code>ClientToken</code> is considered a new call to <code>CreateProject</code>. An idempotency token is active for 8 hours.",
+            "in": "header",
+            "maxLength": 64,
+            "minLength": 1,
+            "name": "X-Amzn-Client-Token",
+            "pattern": "^[a-zA-Z0-9-]+$",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "ProjectName": {
+                  "description": "S nsme for the project.",
+                  "maxLength": 255,
+                  "minLength": 1,
+                  "pattern": "[a-zA-Z0-9][a-zA-Z0-9_\\-]*",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "ProjectName"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateProjectResponse"
+            }
+          },
+          "480": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "483": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          },
+          "484": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "485": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "486": {
+            "description": "ServiceQuotaExceededException",
+            "schema": {
+              "$ref": "#/definitions/ServiceQuotaExceededException"
+            }
+          }
+        },
+        "description": "Creates an empty Amazon Lookout for Vision project. After you create the project, add a dataset by calling <a>CreateDataset</a>.",
+        "operationId": "CreateProject"
+      }
+    },
+    "/2020-11-20/projects/{projectName}": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "delete": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The name of the project to delete.",
+            "in": "path",
+            "maxLength": 255,
+            "minLength": 1,
+            "name": "projectName",
+            "pattern": "[a-zA-Z0-9][a-zA-Z0-9_\\-]*",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "ClientToken is an idempotency token that ensures a call to <code>DeleteProject</code> completes only once. You choose the value to pass. For example, An issue, such as an network outage, might prevent you from getting a response from <code>DeleteProject</code>. In this case, safely retry your call to <code>DeleteProject</code> by using the same <code>ClientToken</code> parameter value. An error occurs if the other input parameters are not the same as in the first request. Using a different value for <code>ClientToken</code> is considered a new call to <code>DeleteProject</code>. An idempotency token is active for 8 hours.",
+            "in": "header",
+            "maxLength": 64,
+            "minLength": 1,
+            "name": "X-Amzn-Client-Token",
+            "pattern": "^[a-zA-Z0-9-]+$",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteProjectResponse"
+            }
+          },
+          "480": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "483": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          },
+          "484": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "485": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          }
+        },
+        "description": "<p>Deletes an Amazon Lookout for Vision project.</p> <p>To delete a project, you must first delete each version of the model associated with the project. To delete a model use the <a>DeleteModel</a> operation.</p> <p>The training and test datasets are deleted automatically for you. The images referenced by the training and test datasets aren't deleted. </p>",
+        "operationId": "DeleteProject"
+      },
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The name of the project that you want to describe.",
+            "in": "path",
+            "maxLength": 255,
+            "minLength": 1,
+            "name": "projectName",
+            "pattern": "[a-zA-Z0-9][a-zA-Z0-9_\\-]*",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeProjectResponse"
+            }
+          },
+          "480": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "483": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          },
+          "484": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "485": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          }
+        },
+        "description": "Describes an Amazon Lookout for Vision project.",
+        "operationId": "DescribeProject"
+      }
+    },
+    "/2020-11-20/projects/{projectName}/datasets": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The name of the project in which you want to create a dataset.",
+            "in": "path",
+            "maxLength": 255,
+            "minLength": 1,
+            "name": "projectName",
+            "pattern": "[a-zA-Z0-9][a-zA-Z0-9_\\-]*",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "ClientToken is an idempotency token that ensures a call to <code>CreateDataset</code> completes only once. You choose the value to pass. For example, An issue, such as an network outage, might prevent you from getting a response from <code>CreateDataset</code>. In this case, safely retry your call to <code>CreateDataset</code> by using the same <code>ClientToken</code> parameter value. An error occurs if the other input parameters are not the same as in the first request. Using a different value for <code>ClientToken</code> is considered a new call to <code>CreateDataset</code>. An idempotency token is active for 8 hours. ",
+            "in": "header",
+            "maxLength": 64,
+            "minLength": 1,
+            "name": "X-Amzn-Client-Token",
+            "pattern": "^[a-zA-Z0-9-]+$",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "DatasetSource": {
+                  "description": "Information about the location of a manifest file that Amazon Lookout for Vision uses to to create a dataset.",
+                  "properties": {
+                    "GroundTruthManifest": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/DatasetGroundTruthManifest"
+                        },
+                        {
+                          "description": "Location information for the manifest file."
+                        }
+                      ]
+                    }
+                  },
+                  "type": "object"
+                },
+                "DatasetType": {
+                  "description": "The type of the dataset. Specify <code>train</code> for a training dataset. Specify <code>test</code> for a test dataset.",
+                  "maxLength": 10,
+                  "minLength": 1,
+                  "pattern": "train|test",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "DatasetType"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateDatasetResponse"
+            }
+          },
+          "480": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "483": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          },
+          "484": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "485": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "486": {
+            "description": "ServiceQuotaExceededException",
+            "schema": {
+              "$ref": "#/definitions/ServiceQuotaExceededException"
+            }
+          }
+        },
+        "description": "<p>Creates a new dataset in an Amazon Lookout for Vision project. <code>CreateDataset</code> can create a training or a test dataset from a valid dataset source (<code>DatasetSource</code>).</p> <p>If you want a single dataset project, specify <code>train</code> for the value of <code>DatasetType</code>.</p> <p>To have a project with separate training and test datasets, call <code>CreateDataset</code> twice. On the first call, specify <code>train</code> for the value of <code>DatasetType</code>. On the second call, specify <code>test</code> for the value of <code>DatasetType</code>. of dataset with </p>",
+        "operationId": "CreateDataset"
+      }
+    },
+    "/2020-11-20/projects/{projectName}/datasets/{datasetType}": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "delete": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The name of the project that contains the dataset that you want to delete.",
+            "in": "path",
+            "maxLength": 255,
+            "minLength": 1,
+            "name": "projectName",
+            "pattern": "[a-zA-Z0-9][a-zA-Z0-9_\\-]*",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The type of the dataset to delete. Specify <code>train</code> to delete the training dataset. Specify <code>test</code> to delete the test dataset. To delete the dataset in a single dataset project, specify <code>train</code>.",
+            "in": "path",
+            "maxLength": 10,
+            "minLength": 1,
+            "name": "datasetType",
+            "pattern": "train|test",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "ClientToken is an idempotency token that ensures a call to <code>DeleteDataset</code> completes only once. You choose the value to pass. For example, An issue, such as an network outage, might prevent you from getting a response from <code>DeleteDataset</code>. In this case, safely retry your call to <code>DeleteDataset</code> by using the same <code>ClientToken</code> parameter value. An error occurs if the other input parameters are not the same as in the first request. Using a different value for <code>ClientToken</code> is considered a new call to <code>DeleteDataset</code>. An idempotency token is active for 8 hours.",
+            "in": "header",
+            "maxLength": 64,
+            "minLength": 1,
+            "name": "X-Amzn-Client-Token",
+            "pattern": "^[a-zA-Z0-9-]+$",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteDatasetResponse"
+            }
+          },
+          "480": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "483": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          },
+          "484": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "485": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          }
+        },
+        "description": "<p>Deletes an existing Amazon Lookout for Vision <code>dataset</code>. </p> <p>If your the project has a single dataset, you must create a new dataset before you can create a model.</p> <p>If you project has a training dataset and a test dataset consider the following. </p> <ul> <li> <p>If you delete the test dataset, your project reverts to a single dataset project. If you then train the model, Amazon Lookout for Vision internally splits the remaining dataset into a training and test dataset.</p> </li> <li> <p>If you delete the training dataset, you must create a training dataset before you can create a model.</p> </li> </ul> <p>It might take a while to delete the dataset. To check the current status, check the <code>Status</code> field in the response from a call to <a>DescribeDataset</a>. </p>",
+        "operationId": "DeleteDataset"
+      },
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The name of the project that contains the dataset that you want to describe.",
+            "in": "path",
+            "maxLength": 255,
+            "minLength": 1,
+            "name": "projectName",
+            "pattern": "[a-zA-Z0-9][a-zA-Z0-9_\\-]*",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The type of the dataset to describe. Specify <code>train</code> to describe the training dataset. Specify <code>test</code> to describe the test dataset. If you have a single dataset project, specify <code>train</code> ",
+            "in": "path",
+            "maxLength": 10,
+            "minLength": 1,
+            "name": "datasetType",
+            "pattern": "train|test",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeDatasetResponse"
+            }
+          },
+          "480": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "483": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          },
+          "484": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "485": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          }
+        },
+        "description": "Describe an Amazon Lookout for Vision dataset.",
+        "operationId": "DescribeDataset"
+      }
+    },
+    "/2020-11-20/projects/{projectName}/datasets/{datasetType}/entries": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The name of the project that contains the dataset that you want to list.",
+            "in": "path",
+            "maxLength": 255,
+            "minLength": 1,
+            "name": "projectName",
+            "pattern": "[a-zA-Z0-9][a-zA-Z0-9_\\-]*",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The type of the dataset that you want to list. Specify <code>train</code> to list the training dataset. Specify <code>test</code> to list the test dataset. If you have a single dataset project, specify <code>train</code>.",
+            "in": "path",
+            "maxLength": 10,
+            "minLength": 1,
+            "name": "datasetType",
+            "pattern": "train|test",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Specify <code>true</code> to include labeled entries, otherwise specify <code>false</code>. If you don't specify a value, Lookout for Vision returns all entries.",
+            "in": "query",
+            "name": "labeled",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "description": "Specify <code>normal</code> to include only normal images. Specify <code>anomaly</code> to only include anomalous entries. If you don't specify a value, Amazon Lookout for Vision returns normal and anomalous images.",
+            "in": "query",
+            "maxLength": 10,
+            "minLength": 1,
+            "name": "anomalyClass",
+            "pattern": "(normal|anomaly)",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Only includes entries before the specified date in the response. For example, <code>2020-06-23T00:00:00</code>.",
+            "format": "date-time",
+            "in": "query",
+            "name": "createdBefore",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Only includes entries after the specified date in the response. For example, <code>2020-06-23T00:00:00</code>.",
+            "format": "date-time",
+            "in": "query",
+            "name": "createdAfter",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "If the previous response was incomplete (because there is more data to retrieve), Amazon Lookout for Vision returns a pagination token in the response. You can use this pagination token to retrieve the next set of dataset entries.",
+            "in": "query",
+            "maxLength": 2048,
+            "name": "nextToken",
+            "pattern": "^[a-zA-Z0-9\\/\\+\\=]{0,2048}$",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "The maximum number of results to return per paginated call. The largest value you can specify is 100. If you specify a value greater than 100, a ValidationException error occurs. The default value is 100.",
+            "in": "query",
+            "maximum": 100,
+            "minimum": 1,
+            "name": "maxResults",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Perform a \"contains\" search on the values of the <code>source-ref</code> key within the dataset. For example a value of \"IMG_17\" returns all JSON Lines where the <code>source-ref</code> key value matches <i>*IMG_17*</i>.",
+            "in": "query",
+            "maxLength": 2048,
+            "minLength": 1,
+            "name": "sourceRefContains",
+            "pattern": ".*\\S.*",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListDatasetEntriesResponse"
+            }
+          },
+          "480": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "483": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          },
+          "484": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "485": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          }
+        },
+        "description": "Lists the JSON Lines within a dataset. An Amazon Lookout for Vision JSON Line contains the anomaly information for a single image, including the image location and the assigned label.",
+        "operationId": "ListDatasetEntries"
+      },
+      "patch": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The name of the project that contains the dataset that you want to update.",
+            "in": "path",
+            "maxLength": 255,
+            "minLength": 1,
+            "name": "projectName",
+            "pattern": "[a-zA-Z0-9][a-zA-Z0-9_\\-]*",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The type of the dataset that you want to update. Specify <code>train</code> to update the training dataset. Specify <code>test</code> to update the test dataset. If you have a single dataset project, specify <code>train</code>.",
+            "in": "path",
+            "maxLength": 10,
+            "minLength": 1,
+            "name": "datasetType",
+            "pattern": "train|test",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "ClientToken is an idempotency token that ensures a call to <code>UpdateDatasetEntries</code> completes only once. You choose the value to pass. For example, An issue, such as an network outage, might prevent you from getting a response from <code>UpdateDatasetEntries</code>. In this case, safely retry your call to <code>UpdateDatasetEntries</code> by using the same <code>ClientToken</code> parameter value. An error occurs if the other input parameters are not the same as in the first request. Using a different value for <code>ClientToken</code> is considered a new call to <code>UpdateDatasetEntries</code>. An idempotency token is active for 8 hours. ",
+            "in": "header",
+            "maxLength": 64,
+            "minLength": 1,
+            "name": "X-Amzn-Client-Token",
+            "pattern": "^[a-zA-Z0-9-]+$",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "Changes": {
+                  "description": "The entries to add to the dataset.",
+                  "maxLength": 10485760,
+                  "minLength": 1,
+                  "type": "string"
+                }
+              },
+              "required": [
+                "Changes"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UpdateDatasetEntriesResponse"
+            }
+          },
+          "480": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "483": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          },
+          "484": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "485": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          }
+        },
+        "description": "<p>Adds one or more JSON Line entries to a dataset. A JSON Line includes information about an image used for training or testing an Amazon Lookout for Vision model. The following is an example JSON Line.</p> <p>Updating a dataset might take a while to complete. To check the current status, call <a>DescribeDataset</a> and check the <code>Status</code> field in the response.</p>",
+        "operationId": "UpdateDatasetEntries"
+      }
+    },
+    "/2020-11-20/projects/{projectName}/models": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The name of the project that contains the model versions that you want to list.",
+            "in": "path",
+            "maxLength": 255,
+            "minLength": 1,
+            "name": "projectName",
+            "pattern": "[a-zA-Z0-9][a-zA-Z0-9_\\-]*",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "If the previous response was incomplete (because there is more data to retrieve), Amazon Lookout for Vision returns a pagination token in the response. You can use this pagination token to retrieve the next set of models.",
+            "in": "query",
+            "maxLength": 2048,
+            "name": "nextToken",
+            "pattern": "^[a-zA-Z0-9\\/\\+\\=]{0,2048}$",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "The maximum number of results to return per paginated call. The largest value you can specify is 100. If you specify a value greater than 100, a ValidationException error occurs. The default value is 100.",
+            "in": "query",
+            "maximum": 100,
+            "minimum": 1,
+            "name": "maxResults",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListModelsResponse"
+            }
+          },
+          "480": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "483": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          },
+          "484": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "485": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          }
+        },
+        "description": "Lists the versions of a model in an Amazon Lookout for Vision project.",
+        "operationId": "ListModels"
+      },
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The name of the project in which you want to create a model version.",
+            "in": "path",
+            "maxLength": 255,
+            "minLength": 1,
+            "name": "projectName",
+            "pattern": "[a-zA-Z0-9][a-zA-Z0-9_\\-]*",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "ClientToken is an idempotency token that ensures a call to <code>CreateModel</code> completes only once. You choose the value to pass. For example, An issue, such as an network outage, might prevent you from getting a response from <code>CreateModel</code>. In this case, safely retry your call to <code>CreateModel</code> by using the same <code>ClientToken</code> parameter value. An error occurs if the other input parameters are not the same as in the first request. Using a different value for <code>ClientToken</code> is considered a new call to <code>CreateModel</code>. An idempotency token is active for 8 hours.",
+            "in": "header",
+            "maxLength": 64,
+            "minLength": 1,
+            "name": "X-Amzn-Client-Token",
+            "pattern": "^[a-zA-Z0-9-]+$",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "Description": {
+                  "description": "Describes an Amazon Lookout for Vision model.",
+                  "properties": {
+                    "CreationTimestamp": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/DateTime"
+                        },
+                        {
+                          "description": "The unix timestamp for the date and time that the model was created. "
+                        }
+                      ]
+                    },
+                    "Description": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/ModelDescriptionMessage"
+                        },
+                        {
+                          "description": "The description for the model."
+                        }
+                      ]
+                    },
+                    "EvaluationEndTimestamp": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/DateTime"
+                        },
+                        {
+                          "description": "The unix timestamp for the date and time that the evaluation ended. "
+                        }
+                      ]
+                    },
+                    "EvaluationManifest": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/OutputS3Object"
+                        },
+                        {
+                          "description": "The S3 location where Amazon Lookout for Vision saves the manifest file that was used to test the trained model and generate the performance scores."
+                        }
+                      ]
+                    },
+                    "EvaluationResult": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/OutputS3Object"
+                        },
+                        {
+                          "description": "The S3 location where Amazon Lookout for Vision saves the performance metrics."
+                        }
+                      ]
+                    },
+                    "KmsKeyId": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/KmsKeyId"
+                        },
+                        {
+                          "description": "The identifer for the AWS Key Management Service (AWS KMS) key that was used to encrypt the model during training."
+                        }
+                      ]
+                    },
+                    "ModelArn": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/ModelArn"
+                        },
+                        {
+                          "description": "The Amazon Resource Name (ARN) of the model."
+                        }
+                      ]
+                    },
+                    "ModelVersion": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/ModelVersion"
+                        },
+                        {
+                          "description": "The version of the model"
+                        }
+                      ]
+                    },
+                    "OutputConfig": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/OutputConfig"
+                        },
+                        {
+                          "description": "The S3 location where Amazon Lookout for Vision saves model training files."
+                        }
+                      ]
+                    },
+                    "Performance": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/ModelPerformance"
+                        },
+                        {
+                          "description": "Performance metrics for the model. Created during training."
+                        }
+                      ]
+                    },
+                    "Status": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/ModelStatus"
+                        },
+                        {
+                          "description": "The status of the model."
+                        }
+                      ]
+                    },
+                    "StatusMessage": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/ModelStatusMessage"
+                        },
+                        {
+                          "description": "The status message for the model."
+                        }
+                      ]
+                    }
+                  },
+                  "type": "object"
+                },
+                "KmsKeyId": {
+                  "description": "The identifier of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use for encypting the model. If this parameter is not specified, the model is encrypted by a key that AWS owns and manages.",
+                  "maxLength": 2048,
+                  "minLength": 1,
+                  "pattern": "^[A-Za-z0-9][A-Za-z0-9:_/+=,@.-]{0,2048}$",
+                  "type": "string"
+                },
+                "OutputConfig": {
+                  "description": "The S3 location where Amazon Lookout for Vision saves model training files.",
+                  "properties": {
+                    "S3Location": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/S3Location"
+                        },
+                        {
+                          "description": "The S3 location for the output."
+                        }
+                      ]
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "required": [
+                "OutputConfig"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateModelResponse"
+            }
+          },
+          "480": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "483": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          },
+          "484": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "485": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "486": {
+            "description": "ServiceQuotaExceededException",
+            "schema": {
+              "$ref": "#/definitions/ServiceQuotaExceededException"
+            }
+          }
+        },
+        "description": "<p>Creates a new version of a model within an an Amazon Lookout for Vision project. <code>CreateModel</code> is an asynchronous operation in which Amazon Lookout for Vision trains, tests, and evaluates a new version of a model. </p> <p>To get the current status, check the <code>Status</code> field returned in the response from <a>DescribeModel</a>.</p> <p>If the project has a single dataset, Amazon Lookout for Vision internally splits the dataset to create a training and a test dataset. If the project has a training and a test dataset, Lookout for Vision uses the respective datasets to train and test the model. </p> <p>After training completes, the evaluation metrics are stored at the location specified in <code>OutputConfig</code>. </p>",
+        "operationId": "CreateModel"
+      }
+    },
+    "/2020-11-20/projects/{projectName}/models/{modelVersion}": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "delete": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The name of the project that contains the model that you want to delete.",
+            "in": "path",
+            "maxLength": 255,
+            "minLength": 1,
+            "name": "projectName",
+            "pattern": "[a-zA-Z0-9][a-zA-Z0-9_\\-]*",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The version of the model that you want to delete.",
+            "in": "path",
+            "maxLength": 10,
+            "minLength": 1,
+            "name": "modelVersion",
+            "pattern": "([1-9][0-9]*|latest)",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "ClientToken is an idempotency token that ensures a call to <code>DeleteModel</code> completes only once. You choose the value to pass. For example, An issue, such as an network outage, might prevent you from getting a response from <code>DeleteModel</code>. In this case, safely retry your call to <code>DeleteModel</code> by using the same <code>ClientToken</code> parameter value. An error occurs if the other input parameters are not the same as in the first request. Using a different value for <code>ClientToken</code> is considered a new call to <code>DeleteModel</code>. An idempotency token is active for 8 hours.",
+            "in": "header",
+            "maxLength": 64,
+            "minLength": 1,
+            "name": "X-Amzn-Client-Token",
+            "pattern": "^[a-zA-Z0-9-]+$",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteModelResponse"
+            }
+          },
+          "480": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "483": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          },
+          "484": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "485": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          }
+        },
+        "description": "Deletes an Amazon Lookout for Vision model. You can't delete a running model. To stop a running model, use the <a>StopModel</a> operation.",
+        "operationId": "DeleteModel"
+      },
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The project that contains the version of a model that you want to describe.",
+            "in": "path",
+            "maxLength": 255,
+            "minLength": 1,
+            "name": "projectName",
+            "pattern": "[a-zA-Z0-9][a-zA-Z0-9_\\-]*",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The version of the model that you want to describe.",
+            "in": "path",
+            "maxLength": 10,
+            "minLength": 1,
+            "name": "modelVersion",
+            "pattern": "([1-9][0-9]*|latest)",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeModelResponse"
+            }
+          },
+          "480": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "483": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          },
+          "484": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "485": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          }
+        },
+        "description": "Describes a version of an Amazon Lookout for Vision model.",
+        "operationId": "DescribeModel"
+      }
+    },
+    "/2020-11-20/projects/{projectName}/models/{modelVersion}/detect#content-type": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The name of the project that contains the model version that you want to use.",
+            "in": "path",
+            "maxLength": 255,
+            "minLength": 1,
+            "name": "projectName",
+            "pattern": "[a-zA-Z0-9][a-zA-Z0-9_\\-]*",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The version of the model that you want to use.",
+            "in": "path",
+            "maxLength": 10,
+            "minLength": 1,
+            "name": "modelVersion",
+            "pattern": "([1-9][0-9]*|latest)",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The type of the image passed in <code>Body</code>. Valid values are <code>image/png</code> (PNG format images) and <code>image/jpeg</code> (JPG format images). ",
+            "in": "header",
+            "maxLength": 255,
+            "minLength": 1,
+            "name": "content-type",
+            "pattern": ".*",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "Body": {
+                  "description": "The unencrypted image bytes that you want to analyze. ",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "Body"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DetectAnomaliesResponse"
+            }
+          },
+          "480": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "483": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          },
+          "484": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "485": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          }
+        },
+        "description": "<p>Detects anomalies in an image that you supply. </p> <p>The response from <code>DetectAnomalies</code> includes a boolean prediction that the image contains one or more anomalies and a confidence value for the prediction.</p> <note> <p>Before calling <code>DetectAnomalies</code>, you must first start your model with the <a>StartModel</a> operation. You are charged for the amount of time, in minutes, that a model runs and for the number of anomaly detection units that your model uses. If you are not using a model, use the <a>StopModel</a> operation to stop your model. </p> </note>",
+        "operationId": "DetectAnomalies"
+      }
+    },
+    "/2020-11-20/projects/{projectName}/models/{modelVersion}/start": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The name of the project that contains the model that you want to start.",
+            "in": "path",
+            "maxLength": 255,
+            "minLength": 1,
+            "name": "projectName",
+            "pattern": "[a-zA-Z0-9][a-zA-Z0-9_\\-]*",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The version of the model that you want to start.",
+            "in": "path",
+            "maxLength": 10,
+            "minLength": 1,
+            "name": "modelVersion",
+            "pattern": "([1-9][0-9]*|latest)",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "ClientToken is an idempotency token that ensures a call to <code>StartModel</code> completes only once. You choose the value to pass. For example, An issue, such as an network outage, might prevent you from getting a response from <code>StartModel</code>. In this case, safely retry your call to <code>StartModel</code> by using the same <code>ClientToken</code> parameter value. An error occurs if the other input parameters are not the same as in the first request. Using a different value for <code>ClientToken</code> is considered a new call to <code>StartModel</code>. An idempotency token is active for 8 hours. ",
+            "in": "header",
+            "maxLength": 64,
+            "minLength": 1,
+            "name": "X-Amzn-Client-Token",
+            "pattern": "^[a-zA-Z0-9-]+$",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "MinInferenceUnits": {
+                  "description": "The minimum number of inference units to use. A single inference unit represents 1 hour of processing and can support up to 5 Transaction Pers Second (TPS). Use a higher number to increase the TPS throughput of your model. You are charged for the number of inference units that you use. ",
+                  "minimum": 1,
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "MinInferenceUnits"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/StartModelResponse"
+            }
+          },
+          "480": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "483": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          },
+          "484": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "485": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "486": {
+            "description": "ServiceQuotaExceededException",
+            "schema": {
+              "$ref": "#/definitions/ServiceQuotaExceededException"
+            }
+          }
+        },
+        "description": "<p>Starts the running of the version of an Amazon Lookout for Vision model. Starting a model takes a while to complete. To check the current state of the model, use <a>DescribeModel</a>.</p> <p>Once the model is running, you can detect custom labels in new images by calling <a>DetectAnomalies</a>.</p> <note> <p>You are charged for the amount of time that the model is running. To stop a running model, call <a>StopModel</a>.</p> </note>",
+        "operationId": "StartModel"
+      }
+    },
+    "/2020-11-20/projects/{projectName}/models/{modelVersion}/stop": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The name of the project that contains the model that you want to stop.",
+            "in": "path",
+            "maxLength": 255,
+            "minLength": 1,
+            "name": "projectName",
+            "pattern": "[a-zA-Z0-9][a-zA-Z0-9_\\-]*",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The version of the model that you want to stop.",
+            "in": "path",
+            "maxLength": 10,
+            "minLength": 1,
+            "name": "modelVersion",
+            "pattern": "([1-9][0-9]*|latest)",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "ClientToken is an idempotency token that ensures a call to <code>StopModel</code> completes only once. You choose the value to pass. For example, An issue, such as an network outage, might prevent you from getting a response from <code>StopModel</code>. In this case, safely retry your call to <code>StopModel</code> by using the same <code>ClientToken</code> parameter value. An error occurs if the other input parameters are not the same as in the first request. Using a different value for <code>ClientToken</code> is considered a new call to <code>StopModel</code>. An idempotency token is active for 8 hours. ",
+            "in": "header",
+            "maxLength": 64,
+            "minLength": 1,
+            "name": "X-Amzn-Client-Token",
+            "pattern": "^[a-zA-Z0-9-]+$",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/StopModelResponse"
+            }
+          },
+          "480": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "483": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          },
+          "484": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "485": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          }
+        },
+        "description": "Stops a running model. The operation might take a while to complete. To check the current status, call <a>DescribeModel</a>. ",
+        "operationId": "StopModel"
+      }
+    }
+  },
+  "definitions": {
+    "AccessDeniedException": {},
+    "AnomalyClassFilter": {
+      "maxLength": 10,
+      "minLength": 1,
+      "pattern": "(normal|anomaly)",
+      "type": "string"
+    },
+    "Boolean": {
+      "type": "boolean"
+    },
+    "ClientToken": {
+      "maxLength": 64,
+      "minLength": 1,
+      "pattern": "^[a-zA-Z0-9-]+$",
+      "type": "string"
+    },
+    "ConflictException": {},
+    "ContentType": {
+      "maxLength": 255,
+      "minLength": 1,
+      "pattern": ".*",
+      "type": "string"
+    },
+    "CreateDatasetRequest": {
+      "properties": {
+        "DatasetSource": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DatasetSource"
+            },
+            {
+              "description": "<p>The location of the manifest file that Amazon Lookout for Vision uses to create the dataset.</p> <p>If you don't specify <code>DatasetSource</code>, an empty dataset is created and the operation synchronously returns. Later, you can add JSON Lines by calling <a>UpdateDatasetEntries</a>. </p> <p>If you specify a value for <code>DataSource</code>, the manifest at the S3 location is validated and used to create the dataset. The call to <code>CreateDataset</code> is asynchronous and might take a while to complete. To find out the current status, Check the value of <code>Status</code> returned in a call to <a>DescribeDataset</a>.</p>"
+            }
+          ]
+        },
+        "DatasetType": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DatasetType"
+            },
+            {
+              "description": "The type of the dataset. Specify <code>train</code> for a training dataset. Specify <code>test</code> for a test dataset."
+            }
+          ]
+        }
+      },
+      "required": [
+        "DatasetType"
+      ],
+      "title": "CreateDatasetRequest",
+      "type": "object"
+    },
+    "CreateDatasetResponse": {
+      "properties": {
+        "DatasetMetadata": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DatasetMetadata"
+            },
+            {
+              "description": "Information about the dataset."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "CreateModelRequest": {
+      "properties": {
+        "Description": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ModelDescription"
+            },
+            {
+              "description": "A description for the version of the model."
+            }
+          ]
+        },
+        "KmsKeyId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/KmsKeyId"
+            },
+            {
+              "description": "The identifier of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use for encypting the model. If this parameter is not specified, the model is encrypted by a key that AWS owns and manages."
+            }
+          ]
+        },
+        "OutputConfig": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/OutputConfig"
+            },
+            {
+              "description": "The location where Amazon Lookout for Vision saves the training results."
+            }
+          ]
+        }
+      },
+      "required": [
+        "OutputConfig"
+      ],
+      "title": "CreateModelRequest",
+      "type": "object"
+    },
+    "CreateModelResponse": {
+      "properties": {
+        "ModelMetadata": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ModelMetadata"
+            },
+            {
+              "description": "The response from a call to <code>CreateModel</code>."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "CreateProjectRequest": {
+      "properties": {
+        "ProjectName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ProjectName"
+            },
+            {
+              "description": "S nsme for the project."
+            }
+          ]
+        }
+      },
+      "required": [
+        "ProjectName"
+      ],
+      "title": "CreateProjectRequest",
+      "type": "object"
+    },
+    "CreateProjectResponse": {
+      "properties": {
+        "ProjectMetadata": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ProjectMetadata"
+            },
+            {
+              "description": "Information about the project."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DatasetChanges": {
+      "maxLength": 10485760,
+      "minLength": 1,
+      "type": "string"
+    },
+    "DatasetDescription": {
+      "description": "The description for a dataset. For more information, see <a>DescribeDataset</a>.",
+      "properties": {
+        "CreationTimestamp": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DateTime"
+            },
+            {
+              "description": "The Unix timestamp for the time and date that the dataset was created."
+            }
+          ]
+        },
+        "DatasetType": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DatasetType"
+            },
+            {
+              "description": "The type of the dataset. The value <code>train</code> represents a training dataset or single dataset project. The value <code>test</code> represents a test dataset."
+            }
+          ]
+        },
+        "ImageStats": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DatasetImageStats"
+            },
+            {
+              "description": "<p/>"
+            }
+          ]
+        },
+        "LastUpdatedTimestamp": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DateTime"
+            },
+            {
+              "description": "The Unix timestamp for the date and time that the dataset was last updated."
+            }
+          ]
+        },
+        "ProjectName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ProjectName"
+            },
+            {
+              "description": "The name of the project that contains the dataset."
+            }
+          ]
+        },
+        "Status": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DatasetStatus"
+            },
+            {
+              "description": "The status of the dataset."
+            }
+          ]
+        },
+        "StatusMessage": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DatasetStatusMessage"
+            },
+            {
+              "description": "The status message for the dataset. "
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DatasetEntry": {
+      "maxLength": 8192,
+      "minLength": 2,
+      "pattern": "^\\{.*\\}$",
+      "type": "string"
+    },
+    "DatasetEntryList": {
+      "items": {
+        "$ref": "#/definitions/DatasetEntry"
+      },
+      "type": "array"
+    },
+    "DatasetGroundTruthManifest": {
+      "description": "Location information about a manifest file. You can use a manifest file to create a dataset.",
+      "properties": {
+        "S3Object": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InputS3Object"
+            },
+            {
+              "description": "The S3 bucket location for the manifest file."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DatasetImageStats": {
+      "description": "Statistics about the images in a dataset.",
+      "properties": {
+        "Anomaly": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Integer"
+            },
+            {
+              "description": "the total number of images labeled as an anomaly."
+            }
+          ]
+        },
+        "Labeled": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Integer"
+            },
+            {
+              "description": "The total number of labeled images."
+            }
+          ]
+        },
+        "Normal": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Integer"
+            },
+            {
+              "description": "The total number of images labeled as normal."
+            }
+          ]
+        },
+        "Total": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Integer"
+            },
+            {
+              "description": "The total number of images in the dataset."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DatasetMetadata": {
+      "description": "Sumary information for an Amazon Lookout for Vision dataset.",
+      "properties": {
+        "CreationTimestamp": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DateTime"
+            },
+            {
+              "description": "The Unix timestamp for the date and time that the dataset was created. "
+            }
+          ]
+        },
+        "DatasetType": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DatasetType"
+            },
+            {
+              "description": "The type of the dataset."
+            }
+          ]
+        },
+        "Status": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DatasetStatus"
+            },
+            {
+              "description": "The status for the dataset."
+            }
+          ]
+        },
+        "StatusMessage": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DatasetStatusMessage"
+            },
+            {
+              "description": "The status message for the dataset."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DatasetMetadataList": {
+      "items": {
+        "$ref": "#/definitions/DatasetMetadata"
+      },
+      "type": "array"
+    },
+    "DatasetSource": {
+      "description": "Information about the location of a manifest file that Amazon Lookout for Vision uses to to create a dataset.",
+      "properties": {
+        "GroundTruthManifest": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DatasetGroundTruthManifest"
+            },
+            {
+              "description": "Location information for the manifest file."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DatasetStatus": {
+      "enum": [
+        "CREATE_IN_PROGRESS",
+        "CREATE_COMPLETE",
+        "CREATE_FAILED",
+        "UPDATE_IN_PROGRESS",
+        "UPDATE_COMPLETE",
+        "UPDATE_FAILED_ROLLBACK_IN_PROGRESS",
+        "UPDATE_FAILED_ROLLBACK_COMPLETE",
+        "DELETE_IN_PROGRESS",
+        "DELETE_COMPLETE",
+        "DELETE_FAILED"
+      ],
+      "type": "string"
+    },
+    "DatasetStatusMessage": {
+      "type": "string"
+    },
+    "DatasetType": {
+      "maxLength": 10,
+      "minLength": 1,
+      "pattern": "train|test",
+      "type": "string"
+    },
+    "DateTime": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "DeleteDatasetRequest": {
+      "properties": {},
+      "title": "DeleteDatasetRequest",
+      "type": "object"
+    },
+    "DeleteDatasetResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "DeleteModelRequest": {
+      "properties": {},
+      "title": "DeleteModelRequest",
+      "type": "object"
+    },
+    "DeleteModelResponse": {
+      "properties": {
+        "ModelArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ModelArn"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the model that was deleted."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DeleteProjectRequest": {
+      "properties": {},
+      "title": "DeleteProjectRequest",
+      "type": "object"
+    },
+    "DeleteProjectResponse": {
+      "properties": {
+        "ProjectArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ProjectArn"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the project that was deleted."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DescribeDatasetRequest": {
+      "properties": {},
+      "title": "DescribeDatasetRequest",
+      "type": "object"
+    },
+    "DescribeDatasetResponse": {
+      "properties": {
+        "DatasetDescription": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DatasetDescription"
+            },
+            {
+              "description": "The description of the requested dataset. "
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DescribeModelRequest": {
+      "properties": {},
+      "title": "DescribeModelRequest",
+      "type": "object"
+    },
+    "DescribeModelResponse": {
+      "properties": {
+        "ModelDescription": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ModelDescription"
+            },
+            {
+              "description": "Contains the description of the model."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DescribeProjectRequest": {
+      "properties": {},
+      "title": "DescribeProjectRequest",
+      "type": "object"
+    },
+    "DescribeProjectResponse": {
+      "properties": {
+        "ProjectDescription": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ProjectDescription"
+            },
+            {
+              "description": "The description of the project."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DetectAnomaliesRequest": {
+      "properties": {
+        "Body": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Stream"
+            },
+            {
+              "description": "The unencrypted image bytes that you want to analyze. "
+            }
+          ]
+        }
+      },
+      "required": [
+        "Body"
+      ],
+      "title": "DetectAnomaliesRequest",
+      "type": "object"
+    },
+    "DetectAnomaliesResponse": {
+      "properties": {
+        "DetectAnomalyResult": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DetectAnomalyResult"
+            },
+            {
+              "description": "The results of the <code>DetectAnomalies</code> operation."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DetectAnomalyResult": {
+      "description": "The prediction results from a call to <a>DetectAnomalies</a>.",
+      "properties": {
+        "Confidence": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Float"
+            },
+            {
+              "description": "The confidence that Amazon Lookout for Vision has in the accuracy of the prediction."
+            }
+          ]
+        },
+        "IsAnomalous": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Boolean"
+            },
+            {
+              "description": "True if the image contains an anomaly, otherwise false."
+            }
+          ]
+        },
+        "Source": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ImageSource"
+            },
+            {
+              "description": "The source of the image that was analyzed. <code>direct</code> means that the images was supplied from the local computer. No other values are supported."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "Float": {
+      "format": "float",
+      "type": "number"
+    },
+    "ImageSource": {
+      "description": "The source for an image.",
+      "properties": {
+        "Type": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ImageSourceType"
+            },
+            {
+              "description": "The type of the image."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ImageSourceType": {
+      "pattern": "direct",
+      "type": "string"
+    },
+    "InferenceUnits": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "InputS3Object": {
+      "description": "Amazon S3 Location information for an input manifest file. ",
+      "properties": {
+        "Bucket": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/S3BucketName"
+            },
+            {
+              "description": "The Amazon S3 bucket that contains the manifest."
+            }
+          ]
+        },
+        "Key": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/S3ObjectKey"
+            },
+            {
+              "description": "The name and location of the manifest file withiin the bucket."
+            }
+          ]
+        },
+        "VersionId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/S3ObjectVersion"
+            },
+            {
+              "description": "The version ID of the bucket."
+            }
+          ]
+        }
+      },
+      "required": [
+        "Bucket",
+        "Key"
+      ],
+      "type": "object"
+    },
+    "Integer": {
+      "type": "integer"
+    },
+    "InternalServerException": {},
+    "IsLabeled": {
+      "type": "boolean"
+    },
+    "KmsKeyId": {
+      "maxLength": 2048,
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9:_/+=,@.-]{0,2048}$",
+      "type": "string"
+    },
+    "ListDatasetEntriesRequest": {
+      "properties": {},
+      "title": "ListDatasetEntriesRequest",
+      "type": "object"
+    },
+    "ListDatasetEntriesResponse": {
+      "properties": {
+        "DatasetEntries": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DatasetEntryList"
+            },
+            {
+              "description": "A list of the entries (JSON Lines) within the dataset."
+            }
+          ]
+        },
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PaginationToken"
+            },
+            {
+              "description": "If the response is truncated, Amazon Lookout for Vision returns this token that you can use in the subsequent request to retrieve the next set ofdataset entries."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ListModelsRequest": {
+      "properties": {},
+      "title": "ListModelsRequest",
+      "type": "object"
+    },
+    "ListModelsResponse": {
+      "properties": {
+        "Models": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ModelMetadataList"
+            },
+            {
+              "description": "A list of model versions in the specified project. "
+            }
+          ]
+        },
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PaginationToken"
+            },
+            {
+              "description": "If the response is truncated, Amazon Lookout for Vision returns this token that you can use in the subsequent request to retrieve the next set of models. "
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ListProjectsRequest": {
+      "properties": {},
+      "title": "ListProjectsRequest",
+      "type": "object"
+    },
+    "ListProjectsResponse": {
+      "properties": {
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PaginationToken"
+            },
+            {
+              "description": "If the response is truncated, Amazon Lookout for Vision returns this token that you can use in the subsequent request to retrieve the next set of projects."
+            }
+          ]
+        },
+        "Projects": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ProjectMetadataList"
+            },
+            {
+              "description": "A list of projects in your AWS account."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ModelArn": {
+      "type": "string"
+    },
+    "ModelDescription": {
+      "description": "Describes an Amazon Lookout for Vision model.",
+      "properties": {
+        "CreationTimestamp": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DateTime"
+            },
+            {
+              "description": "The unix timestamp for the date and time that the model was created. "
+            }
+          ]
+        },
+        "Description": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ModelDescriptionMessage"
+            },
+            {
+              "description": "The description for the model."
+            }
+          ]
+        },
+        "EvaluationEndTimestamp": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DateTime"
+            },
+            {
+              "description": "The unix timestamp for the date and time that the evaluation ended. "
+            }
+          ]
+        },
+        "EvaluationManifest": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/OutputS3Object"
+            },
+            {
+              "description": "The S3 location where Amazon Lookout for Vision saves the manifest file that was used to test the trained model and generate the performance scores."
+            }
+          ]
+        },
+        "EvaluationResult": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/OutputS3Object"
+            },
+            {
+              "description": "The S3 location where Amazon Lookout for Vision saves the performance metrics."
+            }
+          ]
+        },
+        "KmsKeyId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/KmsKeyId"
+            },
+            {
+              "description": "The identifer for the AWS Key Management Service (AWS KMS) key that was used to encrypt the model during training."
+            }
+          ]
+        },
+        "ModelArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ModelArn"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the model."
+            }
+          ]
+        },
+        "ModelVersion": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ModelVersion"
+            },
+            {
+              "description": "The version of the model"
+            }
+          ]
+        },
+        "OutputConfig": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/OutputConfig"
+            },
+            {
+              "description": "The S3 location where Amazon Lookout for Vision saves model training files."
+            }
+          ]
+        },
+        "Performance": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ModelPerformance"
+            },
+            {
+              "description": "Performance metrics for the model. Created during training."
+            }
+          ]
+        },
+        "Status": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ModelStatus"
+            },
+            {
+              "description": "The status of the model."
+            }
+          ]
+        },
+        "StatusMessage": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ModelStatusMessage"
+            },
+            {
+              "description": "The status message for the model."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ModelDescriptionMessage": {
+      "maxLength": 500,
+      "minLength": 1,
+      "pattern": "[0-9A-Za-z\\.\\-_]*",
+      "type": "string"
+    },
+    "ModelHostingStatus": {
+      "enum": [
+        "RUNNING",
+        "STARTING",
+        "STOPPED",
+        "FAILED"
+      ],
+      "type": "string"
+    },
+    "ModelMetadata": {
+      "description": "Describes an Amazon Lookout for Vision model.",
+      "properties": {
+        "CreationTimestamp": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DateTime"
+            },
+            {
+              "description": "The unix timestamp for the date and time that the model was created. "
+            }
+          ]
+        },
+        "Description": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ModelDescriptionMessage"
+            },
+            {
+              "description": "The description for the model."
+            }
+          ]
+        },
+        "ModelArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ModelArn"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the model."
+            }
+          ]
+        },
+        "ModelVersion": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ModelVersion"
+            },
+            {
+              "description": "The version of the model."
+            }
+          ]
+        },
+        "Performance": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ModelPerformance"
+            },
+            {
+              "description": "Performance metrics for the model. Created during training."
+            }
+          ]
+        },
+        "Status": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ModelStatus"
+            },
+            {
+              "description": "The status of the model."
+            }
+          ]
+        },
+        "StatusMessage": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ModelStatusMessage"
+            },
+            {
+              "description": "The status message for the model."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ModelMetadataList": {
+      "items": {
+        "$ref": "#/definitions/ModelMetadata"
+      },
+      "type": "array"
+    },
+    "ModelPerformance": {
+      "description": "Information about the evaluation performance of a trained model. ",
+      "properties": {
+        "F1Score": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Float"
+            },
+            {
+              "description": "The overall F1 score metric for the trained model."
+            }
+          ]
+        },
+        "Precision": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Float"
+            },
+            {
+              "description": "The overall precision metric value for the trained model."
+            }
+          ]
+        },
+        "Recall": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Float"
+            },
+            {
+              "description": "The overall recall metric value for the trained model. "
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ModelStatus": {
+      "enum": [
+        "TRAINING",
+        "TRAINED",
+        "TRAINING_FAILED",
+        "STARTING_HOSTING",
+        "HOSTED",
+        "HOSTING_FAILED",
+        "STOPPING_HOSTING",
+        "SYSTEM_UPDATING",
+        "DELETING"
+      ],
+      "type": "string"
+    },
+    "ModelStatusMessage": {
+      "type": "string"
+    },
+    "ModelVersion": {
+      "maxLength": 10,
+      "minLength": 1,
+      "pattern": "([1-9][0-9]*|latest)",
+      "type": "string"
+    },
+    "OutputConfig": {
+      "description": "The S3 location where Amazon Lookout for Vision saves model training files.",
+      "properties": {
+        "S3Location": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/S3Location"
+            },
+            {
+              "description": "The S3 location for the output."
+            }
+          ]
+        }
+      },
+      "required": [
+        "S3Location"
+      ],
+      "type": "object"
+    },
+    "OutputS3Object": {
+      "description": "The S3 location where Amazon Lookout for Vision saves training output.",
+      "properties": {
+        "Bucket": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/S3BucketName"
+            },
+            {
+              "description": "The bucket that contains the training output."
+            }
+          ]
+        },
+        "Key": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/S3ObjectKey"
+            },
+            {
+              "description": "The location of the training output in the bucket."
+            }
+          ]
+        }
+      },
+      "required": [
+        "Bucket",
+        "Key"
+      ],
+      "type": "object"
+    },
+    "PageSize": {
+      "maximum": 100,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "PaginationToken": {
+      "maxLength": 2048,
+      "pattern": "^[a-zA-Z0-9\\/\\+\\=]{0,2048}$",
+      "type": "string"
+    },
+    "ProjectArn": {
+      "type": "string"
+    },
+    "ProjectDescription": {
+      "description": "Describe an Amazon Lookout for Vision project. For more information, see <a>DescribeProject</a>.",
+      "properties": {
+        "CreationTimestamp": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DateTime"
+            },
+            {
+              "description": "The unix timestamp for the date and time that the project was created. "
+            }
+          ]
+        },
+        "Datasets": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DatasetMetadataList"
+            },
+            {
+              "description": "A list of datasets in the project."
+            }
+          ]
+        },
+        "ProjectArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ProjectArn"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the project."
+            }
+          ]
+        },
+        "ProjectName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ProjectName"
+            },
+            {
+              "description": "The name of the project."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ProjectMetadata": {
+      "description": "Metadata about an Amazon Lookout for Vision project.",
+      "properties": {
+        "CreationTimestamp": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DateTime"
+            },
+            {
+              "description": "The unix timestamp for the date and time that the project was created. "
+            }
+          ]
+        },
+        "ProjectArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ProjectArn"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the project."
+            }
+          ]
+        },
+        "ProjectName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ProjectName"
+            },
+            {
+              "description": "The name of the project."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ProjectMetadataList": {
+      "items": {
+        "$ref": "#/definitions/ProjectMetadata"
+      },
+      "type": "array"
+    },
+    "ProjectName": {
+      "maxLength": 255,
+      "minLength": 1,
+      "pattern": "[a-zA-Z0-9][a-zA-Z0-9_\\-]*",
+      "type": "string"
+    },
+    "QueryString": {
+      "maxLength": 2048,
+      "minLength": 1,
+      "pattern": ".*\\S.*",
+      "type": "string"
+    },
+    "ResourceNotFoundException": {},
+    "S3BucketName": {
+      "maxLength": 63,
+      "minLength": 3,
+      "pattern": "[0-9A-Za-z\\.\\-_]*",
+      "type": "string"
+    },
+    "S3KeyPrefix": {
+      "maxLength": 1024,
+      "pattern": "^([a-zA-Z0-9!_.*'()-][/a-zA-Z0-9!_.*'()-]*)?$",
+      "type": "string"
+    },
+    "S3Location": {
+      "description": "Information about the location of a manifest file.",
+      "properties": {
+        "Bucket": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/S3BucketName"
+            },
+            {
+              "description": "The S3 bucket that contain the manifest file."
+            }
+          ]
+        },
+        "Prefix": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/S3KeyPrefix"
+            },
+            {
+              "description": "The path and name of the manifest file with the S3 bucket."
+            }
+          ]
+        }
+      },
+      "required": [
+        "Bucket"
+      ],
+      "type": "object"
+    },
+    "S3ObjectKey": {
+      "maxLength": 1024,
+      "minLength": 1,
+      "pattern": "^([a-zA-Z0-9!_.*'()-][/a-zA-Z0-9!_.*'()-]*)?$",
+      "type": "string"
+    },
+    "S3ObjectVersion": {
+      "maxLength": 1024,
+      "minLength": 1,
+      "pattern": ".*",
+      "type": "string"
+    },
+    "ServiceQuotaExceededException": {},
+    "StartModelRequest": {
+      "properties": {
+        "MinInferenceUnits": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InferenceUnits"
+            },
+            {
+              "description": "The minimum number of inference units to use. A single inference unit represents 1 hour of processing and can support up to 5 Transaction Pers Second (TPS). Use a higher number to increase the TPS throughput of your model. You are charged for the number of inference units that you use. "
+            }
+          ]
+        }
+      },
+      "required": [
+        "MinInferenceUnits"
+      ],
+      "title": "StartModelRequest",
+      "type": "object"
+    },
+    "StartModelResponse": {
+      "properties": {
+        "Status": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ModelHostingStatus"
+            },
+            {
+              "description": "The current running status of the model."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "StopModelRequest": {
+      "properties": {},
+      "title": "StopModelRequest",
+      "type": "object"
+    },
+    "StopModelResponse": {
+      "properties": {
+        "Status": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ModelHostingStatus"
+            },
+            {
+              "description": "The status of the model."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "Stream": {
+      "type": "string"
+    },
+    "ThrottlingException": {},
+    "UpdateDatasetEntriesRequest": {
+      "properties": {
+        "Changes": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DatasetChanges"
+            },
+            {
+              "description": "The entries to add to the dataset."
+            }
+          ]
+        }
+      },
+      "required": [
+        "Changes"
+      ],
+      "title": "UpdateDatasetEntriesRequest",
+      "type": "object"
+    },
+    "UpdateDatasetEntriesResponse": {
+      "properties": {
+        "Status": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DatasetStatus"
+            },
+            {
+              "description": "The status of the dataset update."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ValidationException": {}
+  },
+  "securityDefinitions": {
+    "hmac": {
+      "description": "Amazon Signature authorization v4",
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey",
+      "x-amazon-apigateway-authtype": "awsSigv4"
+    }
+  },
+  "security": [
+    {
+      "hmac": []
+    }
+  ],
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://docs.aws.amazon.com/lookoutvision/"
+  },
+  "x-components": {
+    "parameters": {
+      "X-Amz-Algorithm": {
+        "in": "header",
+        "name": "X-Amz-Algorithm",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Content-Sha256": {
+        "in": "header",
+        "name": "X-Amz-Content-Sha256",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Credential": {
+        "in": "header",
+        "name": "X-Amz-Credential",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Date": {
+        "in": "header",
+        "name": "X-Amz-Date",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Security-Token": {
+        "in": "header",
+        "name": "X-Amz-Security-Token",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Signature": {
+        "in": "header",
+        "name": "X-Amz-Signature",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-SignedHeaders": {
+        "in": "header",
+        "name": "X-Amz-SignedHeaders",
+        "required": false,
+        "type": "string"
+      }
+    }
+  }
+}

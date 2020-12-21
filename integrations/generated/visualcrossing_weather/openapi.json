@@ -1,0 +1,236 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "contact": {
+      "email": "info@visualcrossing.com",
+      "name": "Visual Crossing Corporation",
+      "url": "https://www.visualcrossing.com/weather-api",
+      "x-twitter": "visualcrossing"
+    },
+    "description": "Weather Forecast and Historical Weather Observation Data via an convenient, restful API.",
+    "license": {
+      "name": "Visual Crossing Weather API",
+      "url": "https://www.visualcrossing.com/weather-api"
+    },
+    "termsOfService": "https://www.visualcrossing.com/weather-services-terms.html",
+    "title": "Visual Crossing Weather API",
+    "version": "4.5",
+    "x-apisguru-categories": [
+      "location"
+    ],
+    "x-logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_visualcrossing_profile_image.jpeg"
+    },
+    "x-origin": [
+      {
+        "format": "openapi",
+        "url": "https://www.visualcrossing.com/weather/specs/visualcrossing-weather-api-openapi.json",
+        "version": "3.0"
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "visualcrossing.com",
+    "x-serviceName": "weather",
+    "x-datafire": {
+      "name": "visualcrossing_weather",
+      "type": "openapi"
+    }
+  },
+  "host": "weather.visualcrossing.com",
+  "basePath": "/",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/VisualCrossingWebServices/rest/services/weatherdata/forecast": {
+      "servers": [
+        {
+          "url": "https://weather.visualcrossing.com"
+        }
+      ],
+      "get": {
+        "servers": [
+          {
+            "url": "https://weather.visualcrossing.com"
+          }
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "sendAsDatasource",
+            "type": "boolean",
+            "x-example": "false"
+          },
+          {
+            "in": "query",
+            "name": "allowAsynch",
+            "type": "boolean",
+            "x-example": "false"
+          },
+          {
+            "in": "query",
+            "name": "shortColumnNames",
+            "type": "boolean",
+            "x-example": "false"
+          },
+          {
+            "in": "query",
+            "name": "locations",
+            "type": "string",
+            "x-example": "Sterling%2C%20VA%2C%20US"
+          },
+          {
+            "in": "query",
+            "name": "aggregateHours",
+            "type": "string",
+            "x-example": "24"
+          },
+          {
+            "in": "query",
+            "name": "contentType",
+            "type": "string",
+            "x-example": "json"
+          },
+          {
+            "in": "query",
+            "name": "unitGroup",
+            "type": "string",
+            "x-example": "us"
+          },
+          {
+            "in": "query",
+            "name": "key",
+            "type": "string",
+            "x-example": "INSERT_YOUR_KEY"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Auto generated using Swagger Inspector"
+          }
+        },
+        "tags": [
+          "Weather Forecast"
+        ],
+        "description": "Provides access to weather forecast information. The forecast is available for up to 15 days at the hourly, 12 hour and daily summary level.",
+        "summary": "Weather Forecast API"
+      }
+    },
+    "/VisualCrossingWebServices/rest/services/weatherdata/history": {
+      "servers": [
+        {
+          "url": "https://weather.visualcrossing.com"
+        }
+      ],
+      "get": {
+        "servers": [
+          {
+            "url": "https://weather.visualcrossing.com"
+          }
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "maxDistance",
+            "type": "string",
+            "x-example": "-1"
+          },
+          {
+            "in": "query",
+            "name": "shortColumnNames",
+            "type": "boolean",
+            "x-example": "false"
+          },
+          {
+            "in": "query",
+            "name": "endDateTime",
+            "type": "string",
+            "x-example": "2020-02-04T00%3A00%3A00"
+          },
+          {
+            "in": "query",
+            "name": "aggregateHours",
+            "type": "string",
+            "x-example": "24"
+          },
+          {
+            "in": "query",
+            "name": "collectStationContributions",
+            "type": "boolean",
+            "x-example": "false"
+          },
+          {
+            "in": "query",
+            "name": "startDateTime",
+            "type": "string",
+            "x-example": "2020-01-28T00%3A00%3A00"
+          },
+          {
+            "in": "query",
+            "name": "maxStations",
+            "type": "string",
+            "x-example": "-1"
+          },
+          {
+            "in": "query",
+            "name": "allowAsynch",
+            "type": "boolean",
+            "x-example": "false"
+          },
+          {
+            "in": "query",
+            "name": "locations",
+            "type": "string",
+            "x-example": "Sterling%2C%20VA%2C%20US"
+          },
+          {
+            "in": "query",
+            "name": "includeNormals",
+            "type": "boolean",
+            "x-example": "false"
+          },
+          {
+            "in": "query",
+            "name": "contentType",
+            "type": "string",
+            "x-example": "json"
+          },
+          {
+            "in": "query",
+            "name": "unitGroup",
+            "type": "string",
+            "x-example": "us"
+          },
+          {
+            "in": "query",
+            "name": "key",
+            "type": "string",
+            "x-example": "INSERT_YOUR_KEY"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Auto generated using Swagger Inspector"
+          }
+        },
+        "tags": [
+          "Historical Weather"
+        ],
+        "description": "The weather history data is suitable for retrieving hourly or daily historical weather records.",
+        "summary": "Retrieves hourly or daily historical weather records."
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Weather Forecast"
+    },
+    {
+      "name": "Historical Weather Data"
+    }
+  ],
+  "externalDocs": {
+    "description": "https://www.visualcrossing.com/weather-api-documentation",
+    "url": "https://www.visualcrossing.com/weather-api-documentation"
+  }
+}

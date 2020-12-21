@@ -1,0 +1,973 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "contact": {
+      "email": "mike.ralphson@gmail.com",
+      "name": "Mike Ralphson",
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
+    },
+    "description": "<p>AWS Single Sign-On (SSO) OpenID Connect (OIDC) is a web service that enables a client (such as AWS CLI or a native application) to register with AWS SSO. The service also enables the client to fetch the user’s access token upon successful authentication and authorization with AWS SSO. This service conforms with the OAuth 2.0 based implementation of the device authorization grant standard (<a href=\"https://tools.ietf.org/html/rfc8628\">https://tools.ietf.org/html/rfc8628</a>).</p> <p>For general information about AWS SSO, see <a href=\"https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html\">What is AWS Single Sign-On?</a> in the <i>AWS SSO User Guide</i>.</p> <p>This API reference guide describes the AWS SSO OIDC operations that you can call programatically and includes detailed information on data types and errors.</p> <note> <p>AWS provides SDKs that consist of libraries and sample code for various programming languages and platforms such as Java, Ruby, .Net, iOS, and Android. The SDKs provide a convenient way to create programmatic access to AWS SSO and other AWS services. For more information about the AWS SDKs, including how to download and install them, see <a href=\"http://aws.amazon.com/tools/\">Tools for Amazon Web Services</a>.</p> </note>",
+    "license": {
+      "name": "Apache 2.0 License",
+      "url": "http://www.apache.org/licenses/"
+    },
+    "termsOfService": "https://aws.amazon.com/service-terms/",
+    "title": "AWS SSO OIDC",
+    "version": "2019-06-10",
+    "x-apiClientRegistration": {
+      "url": "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"
+    },
+    "x-apisguru-categories": [
+      "cloud"
+    ],
+    "x-logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"
+    },
+    "x-origin": [
+      {
+        "contentType": "application/json",
+        "converter": {
+          "url": "https://github.com/mermade/aws2openapi",
+          "version": "1.0.0"
+        },
+        "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/sso-oidc-2019-06-10.normal.json",
+        "x-apisguru-driver": "external"
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "amazonaws.com",
+    "x-release": "v4",
+    "x-serviceName": "sso-oidc",
+    "x-datafire": {
+      "name": "amazonaws_sso_oidc",
+      "type": "openapi"
+    }
+  },
+  "host": "oidc.us-east-1.amazonaws.com",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/client/register": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "clientName": {
+                  "description": "The friendly name of the client.",
+                  "type": "string"
+                },
+                "clientType": {
+                  "description": "The type of client. The service supports only <code>public</code> as a client type. Anything other than public will be rejected by the service.",
+                  "type": "string"
+                },
+                "scopes": {
+                  "description": "The list of scopes that are defined by the client. Upon authorization, this list is used to restrict permissions when granting an access token.",
+                  "items": {
+                    "$ref": "#/definitions/Scope"
+                  },
+                  "type": "array"
+                }
+              },
+              "required": [
+                "clientName",
+                "clientType"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/RegisterClientResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "InvalidScopeException",
+            "schema": {
+              "$ref": "#/definitions/InvalidScopeException"
+            }
+          },
+          "482": {
+            "description": "InvalidClientMetadataException",
+            "schema": {
+              "$ref": "#/definitions/InvalidClientMetadataException"
+            }
+          },
+          "483": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Registers a client with AWS SSO. This allows clients to initiate device authorization. The output should be persisted for reuse through many authentication requests.",
+        "operationId": "RegisterClient"
+      }
+    },
+    "/device_authorization": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "clientId": {
+                  "description": "The unique identifier string for the client that is registered with AWS SSO. This value should come from the persisted result of the <a>RegisterClient</a> API operation.",
+                  "type": "string"
+                },
+                "clientSecret": {
+                  "description": "A secret string that is generated for the client. This value should come from the persisted result of the <a>RegisterClient</a> API operation.",
+                  "type": "string"
+                },
+                "startUrl": {
+                  "description": "The URL for the AWS SSO user portal. For more information, see <a href=\"https://docs.aws.amazon.com/singlesignon/latest/userguide/using-the-portal.html\">Using the User Portal</a> in the <i>AWS Single Sign-On User Guide</i>.",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "clientId",
+                "clientSecret",
+                "startUrl"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/StartDeviceAuthorizationResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "InvalidClientException",
+            "schema": {
+              "$ref": "#/definitions/InvalidClientException"
+            }
+          },
+          "482": {
+            "description": "UnauthorizedClientException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedClientException"
+            }
+          },
+          "483": {
+            "description": "SlowDownException",
+            "schema": {
+              "$ref": "#/definitions/SlowDownException"
+            }
+          },
+          "484": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Initiates device authorization by requesting a pair of verification codes from the authorization service.",
+        "operationId": "StartDeviceAuthorization"
+      }
+    },
+    "/token": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "clientId": {
+                  "description": "The unique identifier string for each client. This value should come from the persisted result of the <a>RegisterClient</a> API.",
+                  "type": "string"
+                },
+                "clientSecret": {
+                  "description": "A secret string generated for the client. This value should come from the persisted result of the <a>RegisterClient</a> API.",
+                  "type": "string"
+                },
+                "code": {
+                  "description": "The authorization code received from the authorization service. This parameter is required to perform an authorization grant request to get access to a token.",
+                  "type": "string"
+                },
+                "deviceCode": {
+                  "description": "Used only when calling this API for the device code grant type. This short-term code is used to identify this authentication attempt. This should come from an in-memory reference to the result of the <a>StartDeviceAuthorization</a> API.",
+                  "type": "string"
+                },
+                "grantType": {
+                  "description": "Supports grant types for authorization code, refresh token, and device code request.",
+                  "type": "string"
+                },
+                "redirectUri": {
+                  "description": "The location of the application that will receive the authorization code. Users authorize the service to send the request to this location.",
+                  "type": "string"
+                },
+                "refreshToken": {
+                  "description": "The token used to obtain an access token in the event that the access token is invalid or expired. This token is not issued by the service.",
+                  "type": "string"
+                },
+                "scope": {
+                  "description": "The list of scopes that is defined by the client. Upon authorization, this list is used to restrict permissions when granting an access token.",
+                  "items": {
+                    "$ref": "#/definitions/Scope"
+                  },
+                  "type": "array"
+                }
+              },
+              "required": [
+                "clientId",
+                "clientSecret",
+                "grantType",
+                "deviceCode"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateTokenResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "InvalidClientException",
+            "schema": {
+              "$ref": "#/definitions/InvalidClientException"
+            }
+          },
+          "482": {
+            "description": "InvalidGrantException",
+            "schema": {
+              "$ref": "#/definitions/InvalidGrantException"
+            }
+          },
+          "483": {
+            "description": "UnauthorizedClientException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedClientException"
+            }
+          },
+          "484": {
+            "description": "UnsupportedGrantTypeException",
+            "schema": {
+              "$ref": "#/definitions/UnsupportedGrantTypeException"
+            }
+          },
+          "485": {
+            "description": "InvalidScopeException",
+            "schema": {
+              "$ref": "#/definitions/InvalidScopeException"
+            }
+          },
+          "486": {
+            "description": "AuthorizationPendingException",
+            "schema": {
+              "$ref": "#/definitions/AuthorizationPendingException"
+            }
+          },
+          "487": {
+            "description": "SlowDownException",
+            "schema": {
+              "$ref": "#/definitions/SlowDownException"
+            }
+          },
+          "488": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "489": {
+            "description": "ExpiredTokenException",
+            "schema": {
+              "$ref": "#/definitions/ExpiredTokenException"
+            }
+          },
+          "490": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Creates and returns an access token for the authorized client. The access token issued will be used to fetch short-term credentials for the assigned roles in the AWS account.",
+        "operationId": "CreateToken"
+      }
+    }
+  },
+  "definitions": {
+    "AccessDeniedException": {},
+    "AccessToken": {
+      "type": "string"
+    },
+    "AuthCode": {
+      "type": "string"
+    },
+    "AuthorizationPendingException": {},
+    "ClientId": {
+      "type": "string"
+    },
+    "ClientName": {
+      "type": "string"
+    },
+    "ClientSecret": {
+      "type": "string"
+    },
+    "ClientType": {
+      "type": "string"
+    },
+    "CreateTokenRequest": {
+      "properties": {
+        "clientId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ClientId"
+            },
+            {
+              "description": "The unique identifier string for each client. This value should come from the persisted result of the <a>RegisterClient</a> API."
+            }
+          ]
+        },
+        "clientSecret": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ClientSecret"
+            },
+            {
+              "description": "A secret string generated for the client. This value should come from the persisted result of the <a>RegisterClient</a> API."
+            }
+          ]
+        },
+        "code": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AuthCode"
+            },
+            {
+              "description": "The authorization code received from the authorization service. This parameter is required to perform an authorization grant request to get access to a token."
+            }
+          ]
+        },
+        "deviceCode": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DeviceCode"
+            },
+            {
+              "description": "Used only when calling this API for the device code grant type. This short-term code is used to identify this authentication attempt. This should come from an in-memory reference to the result of the <a>StartDeviceAuthorization</a> API."
+            }
+          ]
+        },
+        "grantType": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/GrantType"
+            },
+            {
+              "description": "Supports grant types for authorization code, refresh token, and device code request."
+            }
+          ]
+        },
+        "redirectUri": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/URI"
+            },
+            {
+              "description": "The location of the application that will receive the authorization code. Users authorize the service to send the request to this location."
+            }
+          ]
+        },
+        "refreshToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RefreshToken"
+            },
+            {
+              "description": "The token used to obtain an access token in the event that the access token is invalid or expired. This token is not issued by the service."
+            }
+          ]
+        },
+        "scope": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Scopes"
+            },
+            {
+              "description": "The list of scopes that is defined by the client. Upon authorization, this list is used to restrict permissions when granting an access token."
+            }
+          ]
+        }
+      },
+      "required": [
+        "clientId",
+        "clientSecret",
+        "grantType",
+        "deviceCode"
+      ],
+      "title": "CreateTokenRequest",
+      "type": "object"
+    },
+    "CreateTokenResponse": {
+      "properties": {
+        "accessToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AccessToken"
+            },
+            {
+              "description": "An opaque token to access AWS SSO resources assigned to a user."
+            }
+          ]
+        },
+        "expiresIn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ExpirationInSeconds"
+            },
+            {
+              "description": "Indicates the time in seconds when an access token will expire."
+            }
+          ]
+        },
+        "idToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/IdToken"
+            },
+            {
+              "description": "The identifier of the user that associated with the access token, if present."
+            }
+          ]
+        },
+        "refreshToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RefreshToken"
+            },
+            {
+              "description": "A token that, if present, can be used to refresh a previously issued access token that might have expired."
+            }
+          ]
+        },
+        "tokenType": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TokenType"
+            },
+            {
+              "description": "Used to notify the client that the returned token is an access token. The supported type is <code>BearerToken</code>."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DeviceCode": {
+      "type": "string"
+    },
+    "ExpirationInSeconds": {
+      "type": "integer"
+    },
+    "ExpiredTokenException": {},
+    "GrantType": {
+      "type": "string"
+    },
+    "IdToken": {
+      "type": "string"
+    },
+    "InternalServerException": {},
+    "IntervalInSeconds": {
+      "type": "integer"
+    },
+    "InvalidClientException": {},
+    "InvalidClientMetadataException": {},
+    "InvalidGrantException": {},
+    "InvalidRequestException": {},
+    "InvalidScopeException": {},
+    "LongTimeStampType": {
+      "type": "integer"
+    },
+    "RefreshToken": {
+      "type": "string"
+    },
+    "RegisterClientRequest": {
+      "properties": {
+        "clientName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ClientName"
+            },
+            {
+              "description": "The friendly name of the client."
+            }
+          ]
+        },
+        "clientType": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ClientType"
+            },
+            {
+              "description": "The type of client. The service supports only <code>public</code> as a client type. Anything other than public will be rejected by the service."
+            }
+          ]
+        },
+        "scopes": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Scopes"
+            },
+            {
+              "description": "The list of scopes that are defined by the client. Upon authorization, this list is used to restrict permissions when granting an access token."
+            }
+          ]
+        }
+      },
+      "required": [
+        "clientName",
+        "clientType"
+      ],
+      "title": "RegisterClientRequest",
+      "type": "object"
+    },
+    "RegisterClientResponse": {
+      "properties": {
+        "authorizationEndpoint": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/URI"
+            },
+            {
+              "description": "The endpoint where the client can request authorization."
+            }
+          ]
+        },
+        "clientId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ClientId"
+            },
+            {
+              "description": "The unique identifier string for each client. This client uses this identifier to get authenticated by the service in subsequent calls."
+            }
+          ]
+        },
+        "clientIdIssuedAt": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/LongTimeStampType"
+            },
+            {
+              "description": "Indicates the time at which the <code>clientId</code> and <code>clientSecret</code> were issued."
+            }
+          ]
+        },
+        "clientSecret": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ClientSecret"
+            },
+            {
+              "description": "A secret string generated for the client. The client will use this string to get authenticated by the service in subsequent calls."
+            }
+          ]
+        },
+        "clientSecretExpiresAt": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/LongTimeStampType"
+            },
+            {
+              "description": "Indicates the time at which the <code>clientId</code> and <code>clientSecret</code> will become invalid."
+            }
+          ]
+        },
+        "tokenEndpoint": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/URI"
+            },
+            {
+              "description": "The endpoint where the client can get an access token."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "Scope": {
+      "type": "string"
+    },
+    "Scopes": {
+      "items": {
+        "$ref": "#/definitions/Scope"
+      },
+      "type": "array"
+    },
+    "SlowDownException": {},
+    "StartDeviceAuthorizationRequest": {
+      "properties": {
+        "clientId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ClientId"
+            },
+            {
+              "description": "The unique identifier string for the client that is registered with AWS SSO. This value should come from the persisted result of the <a>RegisterClient</a> API operation."
+            }
+          ]
+        },
+        "clientSecret": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ClientSecret"
+            },
+            {
+              "description": "A secret string that is generated for the client. This value should come from the persisted result of the <a>RegisterClient</a> API operation."
+            }
+          ]
+        },
+        "startUrl": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/URI"
+            },
+            {
+              "description": "The URL for the AWS SSO user portal. For more information, see <a href=\"https://docs.aws.amazon.com/singlesignon/latest/userguide/using-the-portal.html\">Using the User Portal</a> in the <i>AWS Single Sign-On User Guide</i>."
+            }
+          ]
+        }
+      },
+      "required": [
+        "clientId",
+        "clientSecret",
+        "startUrl"
+      ],
+      "title": "StartDeviceAuthorizationRequest",
+      "type": "object"
+    },
+    "StartDeviceAuthorizationResponse": {
+      "properties": {
+        "deviceCode": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DeviceCode"
+            },
+            {
+              "description": "The short-lived code that is used by the device when polling for a session token."
+            }
+          ]
+        },
+        "expiresIn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ExpirationInSeconds"
+            },
+            {
+              "description": "Indicates the number of seconds in which the verification code will become invalid."
+            }
+          ]
+        },
+        "interval": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/IntervalInSeconds"
+            },
+            {
+              "description": "Indicates the number of seconds the client must wait between attempts when polling for a session."
+            }
+          ]
+        },
+        "userCode": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/UserCode"
+            },
+            {
+              "description": "A one-time user verification code. This is needed to authorize an in-use device."
+            }
+          ]
+        },
+        "verificationUri": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/URI"
+            },
+            {
+              "description": "The URI of the verification page that takes the <code>userCode</code> to authorize the device."
+            }
+          ]
+        },
+        "verificationUriComplete": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/URI"
+            },
+            {
+              "description": "An alternate URL that the client can use to automatically launch a browser. This process skips the manual step in which the user visits the verification page and enters their code."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "TokenType": {
+      "type": "string"
+    },
+    "URI": {
+      "type": "string"
+    },
+    "UnauthorizedClientException": {},
+    "UnsupportedGrantTypeException": {},
+    "UserCode": {
+      "type": "string"
+    }
+  },
+  "securityDefinitions": {
+    "hmac": {
+      "description": "Amazon Signature authorization v4",
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey",
+      "x-amazon-apigateway-authtype": "awsSigv4"
+    }
+  },
+  "security": [
+    {
+      "hmac": []
+    }
+  ],
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://docs.aws.amazon.com/oidc/"
+  },
+  "x-components": {
+    "parameters": {
+      "X-Amz-Algorithm": {
+        "in": "header",
+        "name": "X-Amz-Algorithm",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Content-Sha256": {
+        "in": "header",
+        "name": "X-Amz-Content-Sha256",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Credential": {
+        "in": "header",
+        "name": "X-Amz-Credential",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Date": {
+        "in": "header",
+        "name": "X-Amz-Date",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Security-Token": {
+        "in": "header",
+        "name": "X-Amz-Security-Token",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Signature": {
+        "in": "header",
+        "name": "X-Amz-Signature",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-SignedHeaders": {
+        "in": "header",
+        "name": "X-Amz-SignedHeaders",
+        "required": false,
+        "type": "string"
+      }
+    }
+  }
+}

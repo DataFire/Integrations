@@ -12,7 +12,7 @@ let gitlab = require('@datafire/gitlab').create({
   private_token_query: ""
 });
 
-gitlab.getV3Users({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

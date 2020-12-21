@@ -15,12 +15,7 @@ let azure_sql_tableauditing = require('@datafire/azure_sql_tableauditing').creat
   redirect_uri: ""
 });
 
-azure_sql_tableauditing.ServerTableAuditingPolicies_ListByServer({
-  "resourceGroupName": "",
-  "serverName": "",
-  "subscriptionId": "",
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -32,7 +27,7 @@ The Azure SQL Database management API provides a RESTful set of web APIs that in
 ## Actions
 
 ### ServerTableAuditingPolicies_ListByServer
-Lists a servers's table auditing policies. Table auditing is deprecated, use blob auditing instead.
+Lists a server's table auditing policies. Table auditing is deprecated, use blob auditing instead.
 
 
 ```js
@@ -80,7 +75,7 @@ azure_sql_tableauditing.ServerTableAuditingPolicies_Get({
 * output [ServerTableAuditingPolicy](#servertableauditingpolicy)
 
 ### ServerTableAuditingPolicies_CreateOrUpdate
-Creates or updates a servers's table auditing policy. Table auditing is deprecated, use blob auditing instead.
+Creates or updates a server's table auditing policy. Table auditing is deprecated, use blob auditing instead.
 
 
 ```js

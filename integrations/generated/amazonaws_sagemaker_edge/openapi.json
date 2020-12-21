@@ -1,0 +1,625 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "contact": {
+      "email": "mike.ralphson@gmail.com",
+      "name": "Mike Ralphson",
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
+    },
+    "description": "SageMaker Edge Manager dataplane service for communicating with active agents.",
+    "license": {
+      "name": "Apache 2.0 License",
+      "url": "http://www.apache.org/licenses/"
+    },
+    "termsOfService": "https://aws.amazon.com/service-terms/",
+    "title": "Amazon Sagemaker Edge Manager",
+    "version": "2020-09-23",
+    "x-apiClientRegistration": {
+      "url": "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"
+    },
+    "x-apisguru-categories": [
+      "cloud"
+    ],
+    "x-logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"
+    },
+    "x-origin": [
+      {
+        "contentType": "application/json",
+        "converter": {
+          "url": "https://github.com/mermade/aws2openapi",
+          "version": "1.0.0"
+        },
+        "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/sagemaker-edge-2020-09-23.normal.json",
+        "x-apisguru-driver": "external"
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "amazonaws.com",
+    "x-release": "v4",
+    "x-serviceName": "sagemaker-edge",
+    "x-datafire": {
+      "name": "amazonaws_sagemaker_edge",
+      "type": "openapi"
+    }
+  },
+  "host": "edge.sagemaker.us-east-1.amazonaws.com",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/GetDeviceRegistration": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "DeviceFleetName": {
+                  "description": "The name of the fleet that the device belongs to.",
+                  "maxLength": 63,
+                  "minLength": 1,
+                  "pattern": "^[a-zA-Z0-9](-*_*[a-zA-Z0-9])*$",
+                  "type": "string"
+                },
+                "DeviceName": {
+                  "description": "The unique name of the device you want to get the registration status from.",
+                  "maxLength": 63,
+                  "minLength": 1,
+                  "pattern": "^[a-zA-Z0-9](-*_*[a-zA-Z0-9])*$",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "DeviceName",
+                "DeviceFleetName"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetDeviceRegistrationResult"
+            }
+          },
+          "480": {
+            "description": "InternalServiceException",
+            "schema": {
+              "$ref": "#/definitions/InternalServiceException"
+            }
+          }
+        },
+        "description": "Use to check if a device is registered with SageMaker Edge Manager.",
+        "operationId": "GetDeviceRegistration"
+      }
+    },
+    "/SendHeartbeat": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "AgentMetrics": {
+                  "description": "For internal use. Returns a list of SageMaker Edge Manager agent operating metrics.",
+                  "items": {
+                    "$ref": "#/definitions/EdgeMetric"
+                  },
+                  "type": "array"
+                },
+                "AgentVersion": {
+                  "description": "Returns the version of the agent.",
+                  "maxLength": 64,
+                  "minLength": 1,
+                  "pattern": "[a-zA-Z0-9\\ \\_\\.]+",
+                  "type": "string"
+                },
+                "DeviceFleetName": {
+                  "description": "The name of the fleet that the device belongs to.",
+                  "maxLength": 63,
+                  "minLength": 1,
+                  "pattern": "^[a-zA-Z0-9](-*_*[a-zA-Z0-9])*$",
+                  "type": "string"
+                },
+                "DeviceName": {
+                  "description": "The unique name of the device.",
+                  "maxLength": 63,
+                  "minLength": 1,
+                  "pattern": "^[a-zA-Z0-9](-*_*[a-zA-Z0-9])*$",
+                  "type": "string"
+                },
+                "Models": {
+                  "description": "Returns a list of models deployed on the the device.",
+                  "items": {
+                    "$ref": "#/definitions/Model"
+                  },
+                  "type": "array"
+                }
+              },
+              "required": [
+                "AgentVersion",
+                "DeviceName",
+                "DeviceFleetName"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "480": {
+            "description": "InternalServiceException",
+            "schema": {
+              "$ref": "#/definitions/InternalServiceException"
+            }
+          }
+        },
+        "description": "Use to get the current status of devices registered on SageMaker Edge Manager.",
+        "operationId": "SendHeartbeat"
+      }
+    }
+  },
+  "definitions": {
+    "CacheTTLSeconds": {
+      "maxLength": 1000,
+      "minLength": 1,
+      "type": "string"
+    },
+    "DeviceFleetName": {
+      "maxLength": 63,
+      "minLength": 1,
+      "pattern": "^[a-zA-Z0-9](-*_*[a-zA-Z0-9])*$",
+      "type": "string"
+    },
+    "DeviceName": {
+      "maxLength": 63,
+      "minLength": 1,
+      "pattern": "^[a-zA-Z0-9](-*_*[a-zA-Z0-9])*$",
+      "type": "string"
+    },
+    "DeviceRegistration": {
+      "maxLength": 1000,
+      "minLength": 1,
+      "type": "string"
+    },
+    "Dimension": {
+      "maxLength": 1000,
+      "minLength": 1,
+      "pattern": "^[a-zA-Z0-9](-*[a-zA-Z0-9\\/])*$",
+      "type": "string"
+    },
+    "EdgeMetric": {
+      "description": "Information required for edge device metrics.",
+      "properties": {
+        "Dimension": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Dimension"
+            },
+            {
+              "description": "The dimension of metrics published."
+            }
+          ]
+        },
+        "MetricName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Metric"
+            },
+            {
+              "description": "Returns the name of the metric."
+            }
+          ]
+        },
+        "Timestamp": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "Timestamp of when the metric was requested."
+            }
+          ]
+        },
+        "Value": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Value"
+            },
+            {
+              "description": "Returns the value of the metric."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "EdgeMetrics": {
+      "items": {
+        "$ref": "#/definitions/EdgeMetric"
+      },
+      "type": "array"
+    },
+    "GetDeviceRegistrationRequest": {
+      "properties": {
+        "DeviceFleetName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DeviceFleetName"
+            },
+            {
+              "description": "The name of the fleet that the device belongs to."
+            }
+          ]
+        },
+        "DeviceName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DeviceName"
+            },
+            {
+              "description": "The unique name of the device you want to get the registration status from."
+            }
+          ]
+        }
+      },
+      "required": [
+        "DeviceName",
+        "DeviceFleetName"
+      ],
+      "title": "GetDeviceRegistrationRequest",
+      "type": "object"
+    },
+    "GetDeviceRegistrationResult": {
+      "properties": {
+        "CacheTTL": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CacheTTLSeconds"
+            },
+            {
+              "description": "The amount of time, in seconds, that the registration status is stored on the device’s cache before it is refreshed."
+            }
+          ]
+        },
+        "DeviceRegistration": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DeviceRegistration"
+            },
+            {
+              "description": "Describes if the device is currently registered with SageMaker Edge Manager."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "InternalServiceException": {},
+    "Metric": {
+      "maxLength": 100,
+      "minLength": 4,
+      "pattern": "^[a-zA-Z0-9](-*[a-zA-Z0-9])*$",
+      "type": "string"
+    },
+    "Model": {
+      "description": "Information about a model deployed on an edge device that is registered with SageMaker Edge Manager.",
+      "properties": {
+        "LatestInference": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "The timestamp of the last inference that was made."
+            }
+          ]
+        },
+        "LatestSampleTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "The timestamp of the last data sample taken."
+            }
+          ]
+        },
+        "ModelMetrics": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/EdgeMetrics"
+            },
+            {
+              "description": "Information required for model metrics."
+            }
+          ]
+        },
+        "ModelName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ModelName"
+            },
+            {
+              "description": "The name of the model."
+            }
+          ]
+        },
+        "ModelVersion": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Version"
+            },
+            {
+              "description": "The version of the model."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ModelName": {
+      "maxLength": 255,
+      "minLength": 4,
+      "pattern": "^[a-zA-Z0-9](-*[a-zA-Z0-9])*$",
+      "type": "string"
+    },
+    "Models": {
+      "items": {
+        "$ref": "#/definitions/Model"
+      },
+      "type": "array"
+    },
+    "SendHeartbeatRequest": {
+      "properties": {
+        "AgentMetrics": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/EdgeMetrics"
+            },
+            {
+              "description": "For internal use. Returns a list of SageMaker Edge Manager agent operating metrics."
+            }
+          ]
+        },
+        "AgentVersion": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Version"
+            },
+            {
+              "description": "Returns the version of the agent."
+            }
+          ]
+        },
+        "DeviceFleetName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DeviceFleetName"
+            },
+            {
+              "description": "The name of the fleet that the device belongs to."
+            }
+          ]
+        },
+        "DeviceName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DeviceName"
+            },
+            {
+              "description": "The unique name of the device."
+            }
+          ]
+        },
+        "Models": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Models"
+            },
+            {
+              "description": "Returns a list of models deployed on the the device."
+            }
+          ]
+        }
+      },
+      "required": [
+        "AgentVersion",
+        "DeviceName",
+        "DeviceFleetName"
+      ],
+      "title": "SendHeartbeatRequest",
+      "type": "object"
+    },
+    "Timestamp": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "Value": {
+      "format": "double",
+      "type": "number"
+    },
+    "Version": {
+      "maxLength": 64,
+      "minLength": 1,
+      "pattern": "[a-zA-Z0-9\\ \\_\\.]+",
+      "type": "string"
+    }
+  },
+  "securityDefinitions": {
+    "hmac": {
+      "description": "Amazon Signature authorization v4",
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey",
+      "x-amazon-apigateway-authtype": "awsSigv4"
+    }
+  },
+  "security": [
+    {
+      "hmac": []
+    }
+  ],
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://docs.aws.amazon.com/sagemaker/"
+  },
+  "x-components": {
+    "parameters": {
+      "X-Amz-Algorithm": {
+        "in": "header",
+        "name": "X-Amz-Algorithm",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Content-Sha256": {
+        "in": "header",
+        "name": "X-Amz-Content-Sha256",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Credential": {
+        "in": "header",
+        "name": "X-Amz-Credential",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Date": {
+        "in": "header",
+        "name": "X-Amz-Date",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Security-Token": {
+        "in": "header",
+        "name": "X-Amz-Security-Token",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Signature": {
+        "in": "header",
+        "name": "X-Amz-Signature",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-SignedHeaders": {
+        "in": "header",
+        "name": "X-Amz-SignedHeaders",
+        "required": false,
+        "type": "string"
+      }
+    }
+  }
+}

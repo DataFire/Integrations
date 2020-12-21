@@ -95,7 +95,21 @@
             "type": "integer"
           },
           {
-            "description": "Filter by the date and time of the request (ISO 8601 UTC format)",
+            "description": "Indicates if filtering runs (and their departures) to those that arrive at destination before date_utc (default = false). Requires max_results &gt; 0.",
+            "in": "query",
+            "name": "look_backwards",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "description": "Indicates that stop_id parameter will accept \"GTFS stop_id\" data",
+            "in": "query",
+            "name": "gtfs",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "description": "Filter by the date and time of the request (ISO 8601 UTC format) (default = current date and time)",
             "format": "date-time",
             "in": "query",
             "name": "date_utc",
@@ -109,13 +123,6 @@
             "name": "max_results",
             "required": false,
             "type": "integer"
-          },
-          {
-            "description": "Indicates that stop_id parameter will accept \"GTFS stop_id\" data",
-            "in": "query",
-            "name": "gtfs",
-            "required": false,
-            "type": "boolean"
           },
           {
             "description": "Indicates if cancelled services (if they exist) are returned (default = false) - metropolitan train only",
@@ -235,7 +242,21 @@
             "type": "integer"
           },
           {
-            "description": "Filter by the date and time of the request (ISO 8601 UTC format)",
+            "description": "Indicates if filtering runs (and their departures) to those that arrive at destination before date_utc (default = false). Requires max_results &gt; 0.",
+            "in": "query",
+            "name": "look_backwards",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "description": "Indicates that stop_id parameter will accept \"GTFS stop_id\" data",
+            "in": "query",
+            "name": "gtfs",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "description": "Filter by the date and time of the request (ISO 8601 UTC format) (default = current date and time)",
             "format": "date-time",
             "in": "query",
             "name": "date_utc",
@@ -249,13 +270,6 @@
             "name": "max_results",
             "required": false,
             "type": "integer"
-          },
-          {
-            "description": "Indicates that stop_id parameter will accept \"GTFS stop_id\" data",
-            "in": "query",
-            "name": "gtfs",
-            "required": false,
-            "type": "boolean"
           },
           {
             "description": "Indicates if cancelled services (if they exist) are returned (default = false) - metropolitan train only",
@@ -554,6 +568,34 @@
             "type": "array"
           },
           {
+            "collectionFormat": "multi",
+            "description": "Filter by disruption_mode; values returned via v3/disruptions/modes API",
+            "in": "query",
+            "items": {
+              "enum": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                100
+              ],
+              "format": "int32",
+              "type": "integer"
+            },
+            "name": "disruption_modes",
+            "required": false,
+            "type": "array"
+          },
+          {
             "description": "Filter by status of disruption",
             "enum": [
               "current",
@@ -607,6 +649,59 @@
           }
         },
         "summary": "View all disruptions for all route types",
+        "tags": [
+          "Disruptions"
+        ]
+      }
+    },
+    "/v3/disruptions/modes": {
+      "get": {
+        "deprecated": false,
+        "operationId": "Disruptions_GetDisruptionModes",
+        "parameters": [
+          {
+            "description": "Please ignore",
+            "in": "query",
+            "name": "token",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Your developer id",
+            "in": "query",
+            "name": "devid",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Authentication signature for request",
+            "in": "query",
+            "name": "signature",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Disruption specific modes",
+            "schema": {
+              "$ref": "#/definitions/V3.DisruptionModesResponse"
+            }
+          },
+          "400": {
+            "description": "Invalid Request",
+            "schema": {
+              "$ref": "#/definitions/V3.ErrorResponse"
+            }
+          },
+          "403": {
+            "description": "Access Denied",
+            "schema": {
+              "$ref": "#/definitions/V3.ErrorResponse"
+            }
+          }
+        },
+        "summary": "Get all disruption modes",
         "tags": [
           "Disruptions"
         ]
@@ -684,6 +779,158 @@
         ]
       }
     },
+    "/v3/disruptions/route/{route_id}/stop/{stop_id}": {
+      "get": {
+        "deprecated": false,
+        "operationId": "Disruptions_GetDisruptionsByRouteAndStop",
+        "parameters": [
+          {
+            "description": "Identifier of route; values returned by Routes API - v3/routes",
+            "format": "int32",
+            "in": "path",
+            "name": "route_id",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Identifier of stop; values returned by Stops API - v3/stops",
+            "format": "int32",
+            "in": "path",
+            "name": "stop_id",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Filter by status of disruption",
+            "enum": [
+              "current",
+              "planned"
+            ],
+            "in": "query",
+            "name": "disruption_status",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Please ignore",
+            "in": "query",
+            "name": "token",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Your developer id",
+            "in": "query",
+            "name": "devid",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Authentication signature for request",
+            "in": "query",
+            "name": "signature",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "All disruption information (if any exists) for the specified route and stop.",
+            "schema": {
+              "$ref": "#/definitions/V3.DisruptionsResponse"
+            }
+          },
+          "400": {
+            "description": "Invalid Request",
+            "schema": {
+              "$ref": "#/definitions/V3.ErrorResponse"
+            }
+          },
+          "403": {
+            "description": "Access Denied",
+            "schema": {
+              "$ref": "#/definitions/V3.ErrorResponse"
+            }
+          }
+        },
+        "summary": "View all disruptions for a particular route and stop",
+        "tags": [
+          "Disruptions"
+        ]
+      }
+    },
+    "/v3/disruptions/stop/{stop_id}": {
+      "get": {
+        "deprecated": false,
+        "operationId": "Disruptions_GetDisruptionsByStop",
+        "parameters": [
+          {
+            "description": "Identifier of stop; values returned by Stops API - v3/stops",
+            "format": "int32",
+            "in": "path",
+            "name": "stop_id",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Filter by status of disruption",
+            "enum": [
+              "current",
+              "planned"
+            ],
+            "in": "query",
+            "name": "disruption_status",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Please ignore",
+            "in": "query",
+            "name": "token",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Your developer id",
+            "in": "query",
+            "name": "devid",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Authentication signature for request",
+            "in": "query",
+            "name": "signature",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "All disruption information (if any exists) for the specified stop.",
+            "schema": {
+              "$ref": "#/definitions/V3.DisruptionsResponse"
+            }
+          },
+          "400": {
+            "description": "Invalid Request",
+            "schema": {
+              "$ref": "#/definitions/V3.ErrorResponse"
+            }
+          },
+          "403": {
+            "description": "Access Denied",
+            "schema": {
+              "$ref": "#/definitions/V3.ErrorResponse"
+            }
+          }
+        },
+        "summary": "View all disruptions for a particular stop",
+        "tags": [
+          "Disruptions"
+        ]
+      }
+    },
     "/v3/disruptions/{disruption_id}": {
       "get": {
         "deprecated": false,
@@ -745,6 +992,152 @@
         ]
       }
     },
+    "/v3/outlets": {
+      "get": {
+        "deprecated": false,
+        "operationId": "Outlets_GetAllOutlets",
+        "parameters": [
+          {
+            "description": "Maximum number of results returned (default = 30)",
+            "format": "int32",
+            "in": "query",
+            "name": "max_results",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Please ignore",
+            "in": "query",
+            "name": "token",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Your developer id",
+            "in": "query",
+            "name": "devid",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Authentication signature for request",
+            "in": "query",
+            "name": "signature",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ticket outlets.",
+            "schema": {
+              "$ref": "#/definitions/V3.OutletResponse"
+            }
+          },
+          "400": {
+            "description": "Invalid Request",
+            "schema": {
+              "$ref": "#/definitions/V3.ErrorResponse"
+            }
+          },
+          "403": {
+            "description": "Access Denied",
+            "schema": {
+              "$ref": "#/definitions/V3.ErrorResponse"
+            }
+          }
+        },
+        "summary": "List all ticket outlets",
+        "tags": [
+          "Outlets"
+        ]
+      }
+    },
+    "/v3/outlets/location/{latitude},{longitude}": {
+      "get": {
+        "deprecated": false,
+        "operationId": "Outlets_GetOutletsByGeolocation",
+        "parameters": [
+          {
+            "description": "Geographic coordinate of latitude",
+            "format": "float",
+            "in": "path",
+            "name": "latitude",
+            "required": true,
+            "type": "number"
+          },
+          {
+            "description": "Geographic coordinate of longitude",
+            "format": "float",
+            "in": "path",
+            "name": "longitude",
+            "required": true,
+            "type": "number"
+          },
+          {
+            "description": "Filter by maximum distance (in metres) from location specified via latitude and longitude parameters (default = 300)",
+            "format": "double",
+            "in": "query",
+            "name": "max_distance",
+            "required": false,
+            "type": "number"
+          },
+          {
+            "description": "Maximum number of results returned (default = 30)",
+            "format": "int32",
+            "in": "query",
+            "name": "max_results",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Please ignore",
+            "in": "query",
+            "name": "token",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Your developer id",
+            "in": "query",
+            "name": "devid",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Authentication signature for request",
+            "in": "query",
+            "name": "signature",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ticket outlets near the specified location.",
+            "schema": {
+              "$ref": "#/definitions/V3.OutletGeolocationResponse"
+            }
+          },
+          "400": {
+            "description": "Invalid Request",
+            "schema": {
+              "$ref": "#/definitions/V3.ErrorResponse"
+            }
+          },
+          "403": {
+            "description": "Access Denied",
+            "schema": {
+              "$ref": "#/definitions/V3.ErrorResponse"
+            }
+          }
+        },
+        "summary": "List ticket outlets near a specific location",
+        "tags": [
+          "Outlets"
+        ]
+      }
+    },
     "/v3/pattern/run/{run_id}/route_type/{route_type}": {
       "get": {
         "deprecated": false,
@@ -772,6 +1165,25 @@
             "name": "route_type",
             "required": true,
             "type": "integer"
+          },
+          {
+            "collectionFormat": "multi",
+            "description": "Objects to be returned in full (i.e. expanded) - options include: all, stop, route, run, direction, disruption. By default disruptions are expanded.",
+            "in": "query",
+            "items": {
+              "enum": [
+                "All",
+                "Stop",
+                "Route",
+                "Run",
+                "Direction",
+                "Disruption"
+              ],
+              "type": "string"
+            },
+            "name": "expand",
+            "required": true,
+            "type": "array"
           },
           {
             "description": "Filter by stop_id; values returned by Stops API",
@@ -1374,6 +1786,27 @@
             "type": "boolean"
           },
           {
+            "description": "Indicates whether to find stops by suburbs in the search term (default = true)",
+            "in": "query",
+            "name": "match_stop_by_suburb",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "description": "Indicates whether to find routes by suburbs in the search term (default = true)",
+            "in": "query",
+            "name": "match_route_by_suburb",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "description": "Indicates whether to search for stops according to a metlink stop ID (default = false)",
+            "in": "query",
+            "name": "match_stop_by_gtfs_stop_id",
+            "required": false,
+            "type": "boolean"
+          },
+          {
             "description": "Please ignore",
             "in": "query",
             "name": "token",
@@ -1478,6 +1911,13 @@
             "type": "number"
           },
           {
+            "description": "Indicates if stop disruption information will be returned (default = false)",
+            "in": "query",
+            "name": "stop_disruptions",
+            "required": false,
+            "type": "boolean"
+          },
+          {
             "description": "Please ignore",
             "in": "query",
             "name": "token",
@@ -1552,6 +1992,21 @@
             "name": "route_type",
             "required": true,
             "type": "integer"
+          },
+          {
+            "description": "An optional direction; values returned by Directions API. When this is set, stop sequence information is returned in the response.",
+            "format": "int32",
+            "in": "query",
+            "name": "direction_id",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Indicates if stop disruption information will be returned (default = false)",
+            "in": "query",
+            "name": "stop_disruptions",
+            "required": false,
+            "type": "boolean"
           },
           {
             "description": "Please ignore",
@@ -1651,14 +2106,14 @@
             "type": "boolean"
           },
           {
-            "description": "Placeholder for future development; currently unavailable",
+            "description": "Indicates if stop contact information will be returned (default = false)",
             "in": "query",
             "name": "stop_contact",
             "required": false,
             "type": "boolean"
           },
           {
-            "description": "Placeholder for future development; currently unavailable",
+            "description": "Indicates if stop ticket information will be returned (default = false)",
             "in": "query",
             "name": "stop_ticket",
             "required": false,
@@ -1668,6 +2123,20 @@
             "description": "Incdicates whether the stop_id is a GTFS ID or not",
             "in": "query",
             "name": "gtfs",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "description": "Indicates if stop staffing information will be returned (default = false)",
+            "in": "query",
+            "name": "stop_staffing",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "description": "Indicates if stop disruption information will be returned (default = false)",
+            "in": "query",
+            "name": "stop_disruptions",
             "required": false,
             "type": "boolean"
           },
@@ -1725,11 +2194,195 @@
       "properties": {},
       "type": "object"
     },
+    "V3.BulkDeparturesRequest": {
+      "properties": {
+        "date_utc": {
+          "description": "Filter by the date and time of the request (ISO 8601 UTC format) (default = current date and time)",
+          "format": "date-time",
+          "type": "string"
+        },
+        "expand": {
+          "description": "List objects to be returned in full (i.e. expanded) - options include: all, stop, route, run, direction, disruption",
+          "items": {
+            "enum": [
+              "All",
+              "Stop",
+              "Route",
+              "Run",
+              "Direction",
+              "Disruption"
+            ],
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "include_cancelled": {
+          "description": "Indicates if cancelled services (if they exist) are returned (default = false) - metropolitan train only",
+          "type": "boolean"
+        },
+        "look_backwards": {
+          "description": "Indicates if filtering runs (and their departures) to those that arrive at destination before date_utc (default = false). Requires max_results &gt; 0.",
+          "type": "boolean"
+        },
+        "requests": {
+          "description": "Collection of departure requests",
+          "items": {
+            "$ref": "#/definitions/V3.StopDepartureRequest"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "requests"
+      ],
+      "type": "object"
+    },
+    "V3.BulkDeparturesResponse": {
+      "properties": {
+        "directions": {
+          "description": "Directions of travel of route",
+          "items": {
+            "$ref": "#/definitions/V3.Direction"
+          },
+          "type": "array"
+        },
+        "disruptions": {
+          "additionalProperties": {
+            "$ref": "#/definitions/V3.Disruption"
+          },
+          "description": "Disruption information applicable to relevant routes or stops",
+          "type": "object"
+        },
+        "responses": {
+          "description": "Contains departures for the requested stop and route(s). It includes details as to the route_direction and whether it is still valid.",
+          "items": {
+            "$ref": "#/definitions/V3.BulkDeparturesUpdateResponse"
+          },
+          "type": "array"
+        },
+        "routes": {
+          "description": "Train lines, tram routes, bus routes, regional coach routes, Night Bus routes",
+          "items": {
+            "$ref": "#/definitions/V3.Route"
+          },
+          "type": "array"
+        },
+        "runs": {
+          "description": "Individual trips/services of a route",
+          "items": {
+            "$ref": "#/definitions/V3.Run"
+          },
+          "type": "array"
+        },
+        "status": {
+          "$ref": "#/definitions/V3.Status",
+          "description": "API Status / Metadata"
+        },
+        "stops": {
+          "additionalProperties": {
+            "$ref": "#/definitions/V3.BulkDeparturesStopResponse"
+          },
+          "description": "A train station, tram stop, bus stop, regional coach stop or Night Bus stop",
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "V3.BulkDeparturesRouteDirectionResponse": {
+      "properties": {
+        "direction_id": {
+          "description": "Direction of travel identifier",
+          "format": "int32",
+          "type": "integer"
+        },
+        "direction_name": {
+          "description": "Name of direction of travel",
+          "type": "string"
+        },
+        "route_id": {
+          "description": "Route identifier",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "V3.BulkDeparturesStopResponse": {
+      "properties": {
+        "stop_id": {
+          "description": "Stop identifier",
+          "format": "int32",
+          "type": "integer"
+        },
+        "stop_latitude": {
+          "description": "Geographic coordinate of latitude at stop",
+          "format": "float",
+          "type": "number"
+        },
+        "stop_longitude": {
+          "description": "Geographic coordinate of longitude at stop",
+          "format": "float",
+          "type": "number"
+        },
+        "stop_name": {
+          "description": "Name of stop",
+          "type": "string"
+        },
+        "stop_suburb": {
+          "description": "suburb of stop",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "V3.BulkDeparturesUpdateResponse": {
+      "properties": {
+        "departures": {
+          "description": "Timetabled and real-time service departures",
+          "items": {
+            "$ref": "#/definitions/V3.Departure"
+          },
+          "type": "array"
+        },
+        "requested_route_direction": {
+          "$ref": "#/definitions/V3.BulkDeparturesRouteDirectionResponse",
+          "description": "The route direction that these departures are for. Will be one of the requested route directions"
+        },
+        "route_direction": {
+          "$ref": "#/definitions/V3.BulkDeparturesRouteDirectionResponse",
+          "description": "The route direction found matching the requested_route_direction"
+        },
+        "route_direction_status": {
+          "description": "The status of the route direction (changed | unchanged).\r\n            If changed, requests should change the requested_route_direction for the route_direction supplied.",
+          "enum": [
+            0,
+            1
+          ],
+          "format": "int32",
+          "type": "integer"
+        },
+        "route_type": {
+          "description": "Transport mode identifier",
+          "format": "int32",
+          "type": "integer"
+        },
+        "stop_id": {
+          "description": "Stop identifier",
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
     "V3.Departure": {
       "properties": {
         "at_platform": {
           "description": "Indicates if the metropolitan train service is at the platform at the time of query; returns false for other modes",
           "type": "boolean"
+        },
+        "departure_sequence": {
+          "description": "Chronological sequence of the departure for the run on the route. Order ascendingly by this field to get chronological order (earliest first) of departures with the same route_id and run_id.",
+          "format": "int32",
+          "type": "integer"
         },
         "direction_id": {
           "description": "Direction of travel identifier",
@@ -1739,7 +2392,7 @@
         "disruption_ids": {
           "description": "Disruption information identifier(s)",
           "items": {
-            "format": "int32",
+            "format": "int64",
             "type": "integer"
           },
           "type": "array"
@@ -1783,7 +2436,7 @@
     "V3.DeparturesBroadParameters": {
       "properties": {
         "date_utc": {
-          "description": "Filter by the date and time of the request (ISO 8601 UTC format)",
+          "description": "Filter by the date and time of the request (ISO 8601 UTC format) (default = current date and time)",
           "format": "date-time",
           "type": "string"
         },
@@ -1813,6 +2466,10 @@
         },
         "include_cancelled": {
           "description": "Indicates if cancelled services (if they exist) are returned (default = false) - metropolitan train only",
+          "type": "boolean"
+        },
+        "look_backwards": {
+          "description": "Indicates if filtering runs (and their departures) to those that arrive at destination before date_utc (default = false). Requires max_results &gt; 0.",
           "type": "boolean"
         },
         "max_results": {
@@ -1885,7 +2542,7 @@
     "V3.DeparturesSpecificParameters": {
       "properties": {
         "date_utc": {
-          "description": "Filter by the date and time of the request (ISO 8601 UTC format)",
+          "description": "Filter by the date and time of the request (ISO 8601 UTC format) (default = current date and time)",
           "format": "date-time",
           "type": "string"
         },
@@ -1915,6 +2572,10 @@
         },
         "include_cancelled": {
           "description": "Indicates if cancelled services (if they exist) are returned (default = false) - metropolitan train only",
+          "type": "boolean"
+        },
+        "look_backwards": {
+          "description": "Indicates if filtering runs (and their departures) to those that arrive at destination before date_utc (default = false). Requires max_results &gt; 0.",
           "type": "boolean"
         },
         "max_results": {
@@ -1949,12 +2610,39 @@
       },
       "type": "object"
     },
+    "V3.DirectionWithDescription": {
+      "properties": {
+        "direction_id": {
+          "description": "Direction of travel identifier",
+          "format": "int32",
+          "type": "integer"
+        },
+        "direction_name": {
+          "description": "Name of direction of travel",
+          "type": "string"
+        },
+        "route_direction_description": {
+          "type": "string"
+        },
+        "route_id": {
+          "description": "Route identifier",
+          "format": "int32",
+          "type": "integer"
+        },
+        "route_type": {
+          "description": "Transport mode identifier",
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
     "V3.DirectionsResponse": {
       "properties": {
         "directions": {
           "description": "Directions of travel of route",
           "items": {
-            "$ref": "#/definitions/V3.Direction"
+            "$ref": "#/definitions/V3.DirectionWithDescription"
           },
           "type": "array"
         },
@@ -1967,9 +2655,18 @@
     },
     "V3.Disruption": {
       "properties": {
+        "colour": {
+          "type": "string"
+        },
         "description": {
           "description": "Description of the disruption",
           "type": "string"
+        },
+        "display_on_board": {
+          "type": "boolean"
+        },
+        "display_status": {
+          "type": "boolean"
         },
         "disruption_id": {
           "description": "Disruption information identifier",
@@ -2003,6 +2700,13 @@
           "description": "Route relevant to a disruption (if applicable)",
           "items": {
             "$ref": "#/definitions/V3.DisruptionRoute"
+          },
+          "type": "array"
+        },
+        "stops": {
+          "description": "Stop relevant to a disruption (if applicable)",
+          "items": {
+            "$ref": "#/definitions/V3.DisruptionStop"
           },
           "type": "array"
         },
@@ -2045,6 +2749,36 @@
       },
       "type": "object"
     },
+    "V3.DisruptionMode": {
+      "properties": {
+        "disruption_mode": {
+          "description": "Disruption mode identifier",
+          "format": "int32",
+          "type": "integer"
+        },
+        "disruption_mode_name": {
+          "description": "Name of disruption mode",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "V3.DisruptionModesResponse": {
+      "properties": {
+        "disruption_modes": {
+          "description": "Transport mode identifiers",
+          "items": {
+            "$ref": "#/definitions/V3.DisruptionMode"
+          },
+          "type": "array"
+        },
+        "status": {
+          "$ref": "#/definitions/V3.Status",
+          "description": "API Status / Metadata"
+        }
+      },
+      "type": "object"
+    },
     "V3.DisruptionResponse": {
       "properties": {
         "disruption": {
@@ -2063,6 +2797,10 @@
         "direction": {
           "$ref": "#/definitions/V3.DisruptionDirection",
           "description": "Direction of travel relevant to a disruption (if applicable)"
+        },
+        "route_gtfs_id": {
+          "description": "GTFS Identifer of the route",
+          "type": "string"
         },
         "route_id": {
           "description": "Route identifier",
@@ -2085,10 +2823,38 @@
       },
       "type": "object"
     },
+    "V3.DisruptionStop": {
+      "properties": {
+        "stop_id": {
+          "description": "Stop identifier",
+          "format": "int32",
+          "type": "integer"
+        },
+        "stop_name": {
+          "description": "Name of stop",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "V3.Disruptions": {
       "properties": {
+        "ferry": {
+          "description": "Subset of disruption information applicable to ferry",
+          "items": {
+            "$ref": "#/definitions/V3.Disruption"
+          },
+          "type": "array"
+        },
         "general": {
           "description": "Subset of disruption information applicable to multiple route_types",
+          "items": {
+            "$ref": "#/definitions/V3.Disruption"
+          },
+          "type": "array"
+        },
+        "interstate_train": {
+          "description": "Subset of disruption information applicable to interstate train",
           "items": {
             "$ref": "#/definitions/V3.Disruption"
           },
@@ -2115,6 +2881,13 @@
           },
           "type": "array"
         },
+        "night_bus": {
+          "description": "Subset of disruption information applicable to night bus",
+          "items": {
+            "$ref": "#/definitions/V3.Disruption"
+          },
+          "type": "array"
+        },
         "regional_bus": {
           "description": "Subset of disruption information applicable to regional bus",
           "items": {
@@ -2131,6 +2904,34 @@
         },
         "regional_train": {
           "description": "Subset of disruption information applicable to V/Line train",
+          "items": {
+            "$ref": "#/definitions/V3.Disruption"
+          },
+          "type": "array"
+        },
+        "school_bus": {
+          "description": "Subset of disruption information applicable to school bus",
+          "items": {
+            "$ref": "#/definitions/V3.Disruption"
+          },
+          "type": "array"
+        },
+        "skybus": {
+          "description": "Subset of disruption information applicable to skybus",
+          "items": {
+            "$ref": "#/definitions/V3.Disruption"
+          },
+          "type": "array"
+        },
+        "taxi": {
+          "description": "Subset of disruption information applicable to taxi",
+          "items": {
+            "$ref": "#/definitions/V3.Disruption"
+          },
+          "type": "array"
+        },
+        "telebus": {
+          "description": "Subset of disruption information applicable to telebus services",
           "items": {
             "$ref": "#/definitions/V3.Disruption"
           },
@@ -2166,10 +2967,106 @@
       },
       "type": "object"
     },
-    "V3.ResultOutlet": {
+    "V3.Outlet": {
       "properties": {
         "outlet_business": {
           "description": "The business name of the outlet",
+          "type": "string"
+        },
+        "outlet_business_hour_fri": {
+          "description": "The business hours on Friday",
+          "type": "string"
+        },
+        "outlet_business_hour_mon": {
+          "description": "The business hours on Monday",
+          "type": "string"
+        },
+        "outlet_business_hour_sat": {
+          "description": "The business hours on Saturday",
+          "type": "string"
+        },
+        "outlet_business_hour_sun": {
+          "description": "The business hours on Sunday",
+          "type": "string"
+        },
+        "outlet_business_hour_thur": {
+          "description": "The business hours on Thursday",
+          "type": "string"
+        },
+        "outlet_business_hour_tue": {
+          "description": "The business hours on Tuesday",
+          "type": "string"
+        },
+        "outlet_business_hour_wed": {
+          "description": "The business hours on Wednesday",
+          "type": "string"
+        },
+        "outlet_latitude": {
+          "description": "Geographic coordinate of latitude at outlet",
+          "format": "float",
+          "type": "number"
+        },
+        "outlet_longitude": {
+          "description": "Geographic coordinate of longitude at outlet",
+          "format": "float",
+          "type": "number"
+        },
+        "outlet_name": {
+          "description": "The location name of the outlet",
+          "type": "string"
+        },
+        "outlet_notes": {
+          "description": "Any additional notes for the outlet such as 'Buy pre-loaded myki cards only'. May be null/empty.",
+          "type": "string"
+        },
+        "outlet_postcode": {
+          "description": "The postcode for the outlet",
+          "format": "int32",
+          "type": "integer"
+        },
+        "outlet_slid_spid": {
+          "description": "The SLID / SPID",
+          "type": "string"
+        },
+        "outlet_suburb": {
+          "description": "The city/municipality the outlet is in",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "V3.OutletGeolocation": {
+      "properties": {
+        "outlet_business": {
+          "description": "The business name of the outlet",
+          "type": "string"
+        },
+        "outlet_business_hour_fri": {
+          "description": "The business hours on Friday",
+          "type": "string"
+        },
+        "outlet_business_hour_mon": {
+          "description": "The business hours on Monday",
+          "type": "string"
+        },
+        "outlet_business_hour_sat": {
+          "description": "The business hours on Saturday",
+          "type": "string"
+        },
+        "outlet_business_hour_sun": {
+          "description": "The business hours on Sunday",
+          "type": "string"
+        },
+        "outlet_business_hour_thur": {
+          "description": "The business hours on Thursday",
+          "type": "string"
+        },
+        "outlet_business_hour_tue": {
+          "description": "The business hours on Tuesday",
+          "type": "string"
+        },
+        "outlet_business_hour_wed": {
+          "description": "The business hours on Wednesday",
           "type": "string"
         },
         "outlet_distance": {
@@ -2191,8 +3088,151 @@
           "description": "The location name of the outlet",
           "type": "string"
         },
+        "outlet_notes": {
+          "description": "Any additional notes for the outlet such as 'Buy pre-loaded myki cards only'. May be null/empty.",
+          "type": "string"
+        },
+        "outlet_postcode": {
+          "description": "The postcode for the outlet",
+          "format": "int32",
+          "type": "integer"
+        },
+        "outlet_slid_spid": {
+          "description": "The SLID / SPID",
+          "type": "string"
+        },
         "outlet_suburb": {
-          "description": "The suburb the outlet is in",
+          "description": "The city/municipality the outlet is in",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "V3.OutletGeolocationParameters": {
+      "properties": {
+        "max_distance": {
+          "description": "Filter by maximum distance (in metres) from location specified via latitude and longitude parameters (default = 300)",
+          "format": "double",
+          "type": "number"
+        },
+        "max_results": {
+          "description": "Maximum number of results returned (default = 30)",
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "V3.OutletGeolocationResponse": {
+      "properties": {
+        "outlets": {
+          "description": "myki ticket outlets",
+          "items": {
+            "$ref": "#/definitions/V3.OutletGeolocation"
+          },
+          "type": "array"
+        },
+        "status": {
+          "$ref": "#/definitions/V3.Status",
+          "description": "API Status / Metadata"
+        }
+      },
+      "type": "object"
+    },
+    "V3.OutletParameters": {
+      "properties": {
+        "max_results": {
+          "description": "Maximum number of results returned (default = 30)",
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "V3.OutletResponse": {
+      "properties": {
+        "outlets": {
+          "description": "myki ticket outlets",
+          "items": {
+            "$ref": "#/definitions/V3.Outlet"
+          },
+          "type": "array"
+        },
+        "status": {
+          "$ref": "#/definitions/V3.Status",
+          "description": "API Status / Metadata"
+        }
+      },
+      "type": "object"
+    },
+    "V3.ResultOutlet": {
+      "properties": {
+        "outlet_business": {
+          "description": "The business name of the outlet",
+          "type": "string"
+        },
+        "outlet_business_hour_fri": {
+          "description": "The business hours on Friday",
+          "type": "string"
+        },
+        "outlet_business_hour_mon": {
+          "description": "The business hours on Monday",
+          "type": "string"
+        },
+        "outlet_business_hour_sat": {
+          "description": "The business hours on Saturday",
+          "type": "string"
+        },
+        "outlet_business_hour_sun": {
+          "description": "The business hours on Sunday",
+          "type": "string"
+        },
+        "outlet_business_hour_thur": {
+          "description": "The business hours on Thursday",
+          "type": "string"
+        },
+        "outlet_business_hour_tue": {
+          "description": "The business hours on Tuesday",
+          "type": "string"
+        },
+        "outlet_business_hour_wed": {
+          "description": "The business hours on Wednesday",
+          "type": "string"
+        },
+        "outlet_distance": {
+          "description": "Distance of outlet from input location (in metres); returns 0 if no location is input",
+          "format": "float",
+          "type": "number"
+        },
+        "outlet_latitude": {
+          "description": "Geographic coordinate of latitude at outlet",
+          "format": "float",
+          "type": "number"
+        },
+        "outlet_longitude": {
+          "description": "Geographic coordinate of longitude at outlet",
+          "format": "float",
+          "type": "number"
+        },
+        "outlet_name": {
+          "description": "The location name of the outlet",
+          "type": "string"
+        },
+        "outlet_notes": {
+          "description": "Any additional notes for the outlet such as 'Buy pre-loaded myki cards only'. May be null/empty.",
+          "type": "string"
+        },
+        "outlet_postcode": {
+          "description": "The postcode for the outlet",
+          "format": "int32",
+          "type": "integer"
+        },
+        "outlet_slid_spid": {
+          "description": "The SLID / SPID",
+          "type": "string"
+        },
+        "outlet_suburb": {
+          "description": "The city/municipality the outlet is in",
           "type": "string"
         }
       },
@@ -2200,6 +3240,10 @@
     },
     "V3.ResultRoute": {
       "properties": {
+        "route_gtfs_id": {
+          "description": "GTFS Identifer of the route",
+          "type": "string"
+        },
         "route_id": {
           "description": "Route identifier",
           "format": "int32",
@@ -2212,6 +3256,10 @@
         "route_number": {
           "description": "Route number presented to public (nb. not route_id)",
           "type": "string"
+        },
+        "route_service_status": {
+          "$ref": "#/definitions/V3.RouteServiceStatus",
+          "description": "Service status for the route (indicates disruptions)"
         },
         "route_type": {
           "description": "Transport mode identifier",
@@ -2251,12 +3299,25 @@
         "stop_name": {
           "description": "Name of stop",
           "type": "string"
+        },
+        "stop_sequence": {
+          "description": "Sequence of the stop on the route/run; return 0 when route_id or run_id not specified. Order ascendingly by this field (when non zero) to get physical order (earliest first) of stops on the route_id/run_id.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "stop_suburb": {
+          "description": "suburb of stop",
+          "type": "string"
         }
       },
       "type": "object"
     },
     "V3.Route": {
       "properties": {
+        "route_gtfs_id": {
+          "description": "GTFS Identifer of the route",
+          "type": "string"
+        },
         "route_id": {
           "description": "Route identifier",
           "format": "int32",
@@ -2278,15 +3339,69 @@
       },
       "type": "object"
     },
+    "V3.RouteDeparturesSpecificParameters": {
+      "properties": {
+        "date_utc": {
+          "description": "Filter by the date and time of the request (ISO 8601 UTC format) (default = current date and time)",
+          "format": "date-time",
+          "type": "string"
+        },
+        "expand": {
+          "description": "List objects to be returned in full (i.e. expanded) - options include: all, stop, route, run, direction, disruption",
+          "items": {
+            "enum": [
+              "All",
+              "Stop",
+              "Route",
+              "Run",
+              "Direction",
+              "Disruption"
+            ],
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "include_cancelled": {
+          "description": "Indicates if cancelled services (if they exist) are returned (default = false) - metropolitan train only",
+          "type": "boolean"
+        },
+        "look_backwards": {
+          "description": "Indicates if filtering runs (and their departures) to those that arrive at destination before date_utc (default = false). Requires max_results &gt; 0.",
+          "type": "boolean"
+        },
+        "max_results": {
+          "description": "Maximum number of results returned",
+          "format": "int32",
+          "type": "integer"
+        },
+        "train_scheduled_timetables": {
+          "description": "When set to true, all timetable information returned by Chronos will be sourced from the Parser timetables,\r\n            while when set to false (default state), the real-time departure information and operational time from\r\n            Metro CIS will continue to be returned where available.",
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
     "V3.RouteResponse": {
       "properties": {
         "route": {
-          "$ref": "#/definitions/V3.Route",
+          "$ref": "#/definitions/V3.RouteWithStatus",
           "description": "Train lines, tram routes, bus routes, regional coach routes, Night Bus routes"
         },
         "status": {
           "$ref": "#/definitions/V3.Status",
           "description": "API Status / Metadata"
+        }
+      },
+      "type": "object"
+    },
+    "V3.RouteServiceStatus": {
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "timestamp": {
+          "format": "date-time",
+          "type": "string"
         }
       },
       "type": "object"
@@ -2321,11 +3436,52 @@
       },
       "type": "object"
     },
+    "V3.RouteWithStatus": {
+      "properties": {
+        "route_gtfs_id": {
+          "description": "GTFS Identifer of the route",
+          "type": "string"
+        },
+        "route_id": {
+          "description": "Route identifier",
+          "format": "int32",
+          "type": "integer"
+        },
+        "route_name": {
+          "description": "Name of route",
+          "type": "string"
+        },
+        "route_number": {
+          "description": "Route number presented to public (nb. not route_id)",
+          "type": "string"
+        },
+        "route_service_status": {
+          "$ref": "#/definitions/V3.RouteServiceStatus",
+          "description": "Service status for the route (indicates disruptions)"
+        },
+        "route_type": {
+          "description": "Transport mode identifier",
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
     "V3.Run": {
       "properties": {
         "destination_name": {
           "description": "Name of destination of run",
           "type": "string"
+        },
+        "direction_id": {
+          "description": "Direction of travel identifier",
+          "format": "int32",
+          "type": "integer"
+        },
+        "express_stop_count": {
+          "description": "The number of remaining skipped/express stations for the run/service from a stop",
+          "format": "int32",
+          "type": "integer"
         },
         "final_stop_id": {
           "description": "stop_id of final stop of run",
@@ -2347,9 +3503,22 @@
           "format": "int32",
           "type": "integer"
         },
+        "run_sequence": {
+          "description": "Chronological sequence of the trip/service run on the route in direction. Order ascendingly by this field to get chronological order (earliest first) of runs with the same route_id and direction_id.",
+          "format": "int32",
+          "type": "integer"
+        },
         "status": {
           "description": "Status of metropolitan train run; returns \"scheduled\" for other modes",
           "type": "string"
+        },
+        "vehicle_descriptor": {
+          "$ref": "#/definitions/V3.VehicleDescriptor",
+          "description": "Descriptor of the trip/service run. Only available for some runs. May be null."
+        },
+        "vehicle_position": {
+          "$ref": "#/definitions/V3.VehiclePosition",
+          "description": "Position of the trip/service run. Only available for some bus runs. May be null."
         }
       },
       "type": "object"
@@ -2402,6 +3571,18 @@
           "description": "Filter by geographic coordinate of longitude",
           "format": "float",
           "type": "number"
+        },
+        "match_route_by_suburb": {
+          "description": "Indicates whether to find routes by suburbs in the search term (default = true)",
+          "type": "boolean"
+        },
+        "match_stop_by_gtfs_stop_id": {
+          "description": "Indicates whether to search for stops according to a metlink stop ID (default = false)",
+          "type": "boolean"
+        },
+        "match_stop_by_suburb": {
+          "description": "Indicates whether to find stops by suburbs in the search term (default = true)",
+          "type": "boolean"
         },
         "max_distance": {
           "description": "Filter by maximum distance (in metres) from location specified via latitude and longitude parameters",
@@ -2476,28 +3657,45 @@
     },
     "V3.StopAccessibility": {
       "properties": {
+        "audio_customer_information": {
+          "description": "Indicates if there is at least one audio customer information at the stop/platform",
+          "type": "boolean"
+        },
         "escalator": {
-          "description": "Indicates if there is an escalator at the stop",
+          "description": "Indicates if there is at least one accessible escalator at the stop/platform that complies with the Disability Standards for Accessible Public Transport under the Disability Discrimination Act (1992)",
           "type": "boolean"
         },
         "hearing_loop": {
-          "description": "Indicates if there is a hearing loop facility at the stop",
+          "description": "Indicates if there is a hearing loop facility at the stop/platform",
           "type": "boolean"
         },
-        "lifts": {
-          "description": "Indicates if there is an elevator at the stop",
+        "lift": {
+          "description": "Indicates if there is an elevator at the stop/platform",
           "type": "boolean"
         },
         "lighting": {
           "description": "Indicates if there is lighting at the stop",
           "type": "boolean"
         },
+        "platform_number": {
+          "description": "Indicates the platform number for xivic information (Platform 0 indicates general stop facilities)",
+          "format": "int32",
+          "type": "integer"
+        },
         "stairs": {
-          "description": "Indicates if there are stairs at the stop",
+          "description": "Indicates if there are stairs available in the stop",
           "type": "boolean"
         },
-        "tactile_tiles": {
+        "stop_accessible": {
+          "description": "Indicates if the stop is accessible",
+          "type": "boolean"
+        },
+        "tactile_ground_surface_indicator": {
           "description": "Indicates if there are tactile tiles (also known as tactile ground surface indicators, or TGSIs) at the stop",
+          "type": "boolean"
+        },
+        "waiting_room": {
+          "description": "Indicates if there is a general waiting area at the stop",
           "type": "boolean"
         },
         "wheelchair": {
@@ -2509,20 +3707,47 @@
     },
     "V3.StopAccessibilityWheelchair": {
       "properties": {
-        "accessible_parking": {
+        "accessible_ramp": {
+          "type": "boolean"
+        },
+        "low_ticket_counter": {
+          "description": "Indicates if there is at least one low ticket counter at the stop that complies with the Disability Standards for Accessible Public Transport under the Disability Discrimination Act (1992)",
+          "type": "boolean"
+        },
+        "manouvering": {
+          "description": "Indicates if there is a space for mobility device to board on or off a transport mode",
+          "type": "boolean"
+        },
+        "parking": {
           "description": "Indicates if there is at least one accessible parking spot at the stop that complies with the Disability Standards for Accessible Public Transport under the Disability Discrimination Act (1992)",
           "type": "boolean"
         },
-        "accessible_phone": {
-          "description": "Indicates if there is an accessible public telephone at the stop that complies with the Disability Standards for Accessible Public Transport under the Disability Discrimination Act (1992)",
+        "raised_platform": {
+          "description": "Indicates if there is a raised platform to board a train",
           "type": "boolean"
         },
-        "accessible_ramp": {
-          "description": "Indicates if there is a ramp at the stop that complies with the Disability Standards for Accessible Public Transport under the Disability Discrimination Act (1992)",
+        "raised_platform_shelther": {
+          "description": "Indicates if there is shelter near the raised platform",
           "type": "boolean"
         },
-        "accessible_toilet": {
-          "description": "Indicates if there is an accessible public toilet at the stop that complies with the Disability Standards for Accessible Public Transport under the Disability Discrimination Act (1992)",
+        "ramp": {
+          "description": "Indicates if there are ramps (&lt;1:14) at the stop/platform",
+          "type": "boolean"
+        },
+        "secondary_path": {
+          "description": "Indicates if there is a path beyond the stop which is accessible",
+          "type": "boolean"
+        },
+        "steep_ramp": {
+          "description": "Indicates if there are ramps (&gt;1:14) at the stop/platform",
+          "type": "boolean"
+        },
+        "telephone": {
+          "description": "Indicates if there is at least one accessible telephone at the stop/platform that complies with the Disability Standards for Accessible Public Transport under the Disability Discrimination Act (1992)",
+          "type": "boolean"
+        },
+        "toilet": {
+          "description": "Indicates if there is at least one accessible toilet at the stop/platform that complies with the Disability Standards for Accessible Public Transport under the Disability Discrimination Act (1992)",
           "type": "boolean"
         }
       },
@@ -2563,8 +3788,84 @@
       },
       "type": "object"
     },
+    "V3.StopDepartureRequest": {
+      "properties": {
+        "gtfs": {
+          "description": "Indicates that stop_id parameter will accept \"GTFS stop_id\" data and route_directions[x].route_id parameters will accept route_gtfs_id data",
+          "type": "boolean"
+        },
+        "max_results": {
+          "description": "Maximum number of results returned",
+          "format": "int32",
+          "maximum": 2147483647,
+          "minimum": 0,
+          "type": "integer"
+        },
+        "route_directions": {
+          "description": "The route directions to find departures for at this stop.",
+          "items": {
+            "$ref": "#/definitions/V3.StopDepartureRequestRouteDirection"
+          },
+          "type": "array"
+        },
+        "route_type": {
+          "description": "Number identifying transport mode; values returned via RouteTypes API",
+          "enum": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "format": "int32",
+          "type": "integer"
+        },
+        "stop_id": {
+          "description": "Identifier of stop; values returned by Stops API",
+          "format": "int32",
+          "maximum": 2147483647,
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "route_directions"
+      ],
+      "type": "object"
+    },
+    "V3.StopDepartureRequestRouteDirection": {
+      "properties": {
+        "direction_id": {
+          "description": "Direction of travel identifier; values returned by Directions API - v3/directions",
+          "format": "int32",
+          "maximum": 2147483647,
+          "minimum": 0,
+          "type": "integer"
+        },
+        "direction_name": {
+          "description": "Name of direction of travel; values returned by Directions API - v3/directions",
+          "type": "string"
+        },
+        "route_id": {
+          "description": "Identifier of route; values returned by Routes API - v3/routes",
+          "type": "string"
+        }
+      },
+      "required": [
+        "direction_name"
+      ],
+      "type": "object"
+    },
     "V3.StopDetails": {
       "properties": {
+        "disruption_ids": {
+          "description": "Disruption information identifier(s)",
+          "items": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "type": "array"
+        },
         "route_type": {
           "description": "Transport mode identifier",
           "format": "int32",
@@ -2598,12 +3899,24 @@
         "stop_name": {
           "description": "Name of stop",
           "type": "string"
+        },
+        "stop_staffing": {
+          "$ref": "#/definitions/V3.StopStaffing",
+          "description": "Staffing details for the stop"
         }
       },
       "type": "object"
     },
     "V3.StopGeosearch": {
       "properties": {
+        "disruption_ids": {
+          "description": "Disruption information identifier(s)",
+          "items": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "type": "array"
+        },
         "route_type": {
           "description": "Transport mode identifier",
           "format": "int32",
@@ -2631,6 +3944,15 @@
         },
         "stop_name": {
           "description": "Name of stop",
+          "type": "string"
+        },
+        "stop_sequence": {
+          "description": "Sequence of the stop on the route/run; return 0 when route_id or run_id not specified. Order ascendingly by this field (when non zero) to get physical order (earliest first) of stops on the route_id/run_id.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "stop_suburb": {
+          "description": "suburb of stop",
           "type": "string"
         }
       },
@@ -2662,6 +3984,14 @@
     },
     "V3.StopOnRoute": {
       "properties": {
+        "disruption_ids": {
+          "description": "Disruption information identifier(s)",
+          "items": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "type": "array"
+        },
         "route_type": {
           "description": "Transport mode identifier",
           "format": "int32",
@@ -2685,12 +4015,28 @@
         "stop_name": {
           "description": "Name of stop",
           "type": "string"
+        },
+        "stop_sequence": {
+          "description": "Sequence of the stop on the route/run; return 0 when route_id or run_id not specified. Order ascendingly by this field (when non zero) to get physical order (earliest first) of stops on the route_id/run_id.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "stop_suburb": {
+          "description": "suburb of stop",
+          "type": "string"
         }
       },
       "type": "object"
     },
     "V3.StopResponse": {
       "properties": {
+        "disruptions": {
+          "additionalProperties": {
+            "$ref": "#/definitions/V3.Disruption"
+          },
+          "description": "Disruption information applicable to relevant routes or stops",
+          "type": "object"
+        },
         "status": {
           "$ref": "#/definitions/V3.Status",
           "description": "API Status / Metadata"
@@ -2698,6 +4044,135 @@
         "stop": {
           "$ref": "#/definitions/V3.StopDetails",
           "description": "A metropolitan or V/Line train station"
+        }
+      },
+      "type": "object"
+    },
+    "V3.StopStaffing": {
+      "properties": {
+        "fri_am_from": {
+          "description": "Stop staffing hours",
+          "type": "string"
+        },
+        "fri_am_to": {
+          "description": "Stop staffing hours",
+          "type": "string"
+        },
+        "fri_pm_from": {
+          "description": "Stop staffing hours",
+          "type": "string"
+        },
+        "fri_pm_to": {
+          "description": "Stop staffing hours",
+          "type": "string"
+        },
+        "mon_am_from": {
+          "description": "Stop staffing hours",
+          "type": "string"
+        },
+        "mon_am_to": {
+          "description": "Stop staffing hours",
+          "type": "string"
+        },
+        "mon_pm_from": {
+          "description": "Stop staffing hours",
+          "type": "string"
+        },
+        "mon_pm_to": {
+          "description": "Stop staffing hours",
+          "type": "string"
+        },
+        "ph_additional_text": {
+          "description": "Stop staffing hours",
+          "type": "string"
+        },
+        "ph_from": {
+          "description": "Stop staffing hours",
+          "type": "string"
+        },
+        "ph_to": {
+          "description": "Stop staffing hours",
+          "type": "string"
+        },
+        "sat_am_from": {
+          "description": "Stop staffing hours",
+          "type": "string"
+        },
+        "sat_am_to": {
+          "description": "Stop staffing hours",
+          "type": "string"
+        },
+        "sat_pm_from": {
+          "description": "Stop staffing hours",
+          "type": "string"
+        },
+        "sat_pm_to": {
+          "description": "Stop staffing hours",
+          "type": "string"
+        },
+        "sun_am_from": {
+          "description": "Stop staffing hours",
+          "type": "string"
+        },
+        "sun_am_to": {
+          "description": "Stop staffing hours",
+          "type": "string"
+        },
+        "sun_pm_from": {
+          "description": "Stop staffing hours",
+          "type": "string"
+        },
+        "sun_pm_to": {
+          "description": "Stop staffing hours",
+          "type": "string"
+        },
+        "thu_am_from": {
+          "description": "Stop staffing hours",
+          "type": "string"
+        },
+        "thu_am_to": {
+          "description": "Stop staffing hours",
+          "type": "string"
+        },
+        "thu_pm_from": {
+          "description": "Stop staffing hours",
+          "type": "string"
+        },
+        "thu_pm_to": {
+          "description": "Stop staffing hours",
+          "type": "string"
+        },
+        "tue_am_from": {
+          "description": "Stop staffing hours",
+          "type": "string"
+        },
+        "tue_am_to": {
+          "description": "Stop staffing hours",
+          "type": "string"
+        },
+        "tue_pm_from": {
+          "description": "Stop staffing hours",
+          "type": "string"
+        },
+        "tue_pm_to": {
+          "description": "Stop staffing hours",
+          "type": "string"
+        },
+        "wed_am_from": {
+          "description": "Stop staffing hours",
+          "type": "string"
+        },
+        "wed_am_to": {
+          "description": "Stop staffing hours",
+          "type": "string"
+        },
+        "wed_pm_To": {
+          "description": "Stop staffing hours",
+          "type": "string"
+        },
+        "wed_pm_from": {
+          "description": "Stop staffing hours",
+          "type": "string"
         }
       },
       "type": "object"
@@ -2711,6 +4186,13 @@
           },
           "type": "array"
         },
+        "directions": {
+          "additionalProperties": {
+            "$ref": "#/definitions/V3.Direction"
+          },
+          "description": "Directions of travel of route",
+          "type": "object"
+        },
         "disruptions": {
           "description": "Disruption information applicable to relevant routes or stops",
           "items": {
@@ -2718,15 +4200,43 @@
           },
           "type": "array"
         },
+        "routes": {
+          "additionalProperties": {
+            "$ref": "#/definitions/V3.Route"
+          },
+          "description": "Train lines, tram routes, bus routes, regional coach routes, Night Bus routes",
+          "type": "object"
+        },
+        "runs": {
+          "additionalProperties": {
+            "$ref": "#/definitions/V3.Run"
+          },
+          "description": "Individual trips/services of a route",
+          "type": "object"
+        },
         "status": {
           "$ref": "#/definitions/V3.Status",
           "description": "API Status / Metadata"
+        },
+        "stops": {
+          "additionalProperties": {
+            "$ref": "#/definitions/V3.ResultStop"
+          },
+          "description": "A train station, tram stop, bus stop, regional coach stop or Night Bus stop",
+          "type": "object"
         }
       },
       "type": "object"
     },
     "V3.StopsByDistanceResponse": {
       "properties": {
+        "disruptions": {
+          "additionalProperties": {
+            "$ref": "#/definitions/V3.Disruption"
+          },
+          "description": "Disruption information applicable to relevant routes or stops",
+          "type": "object"
+        },
         "status": {
           "$ref": "#/definitions/V3.Status",
           "description": "API Status / Metadata"
@@ -2743,6 +4253,13 @@
     },
     "V3.StopsOnRouteResponse": {
       "properties": {
+        "disruptions": {
+          "additionalProperties": {
+            "$ref": "#/definitions/V3.Disruption"
+          },
+          "description": "Disruption information applicable to relevant routes or stops",
+          "type": "object"
+        },
         "status": {
           "$ref": "#/definitions/V3.Status",
           "description": "API Status / Metadata"
@@ -2753,6 +4270,61 @@
             "$ref": "#/definitions/V3.StopOnRoute"
           },
           "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "V3.VehicleDescriptor": {
+      "properties": {
+        "air_conditioned": {
+          "description": "Indicator if vehicle is air conditioned. May be null. Only available for some tram runs.",
+          "type": "boolean"
+        },
+        "description": {
+          "description": "Vehicle description such as \"6 Car Comeng\", \"6 Car Xtrapolis\", \"3 Car Comeng\", \"6 Car Siemens\", \"3 Car Siemens\". May be null/empty.\r\n            Only available for some metropolitan train runs.",
+          "type": "string"
+        },
+        "id": {
+          "description": "Operator identifier of the vehicle such as \"26094\". May be null/empty. Only available for some tram and bus runs.",
+          "type": "string"
+        },
+        "low_floor": {
+          "description": "Indicator if vehicle has a low floor. May be null. Only available for some tram runs.",
+          "type": "boolean"
+        },
+        "operator": {
+          "description": "Operator name of the vehicle such as \"Metro Trains Melbourne\", \"Yarra Trams\", \"Ventura Bus Line\", \"CDC\" or \"Sita Bus Lines\" . May be null/empty.\r\n            Only available for train, tram, v/line and some bus runs.",
+          "type": "string"
+        },
+        "supplier": {
+          "description": "Supplier of vehicle descriptor data.",
+          "readOnly": true,
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "V3.VehiclePosition": {
+      "properties": {
+        "bearing": {
+          "description": "Compass bearing of the vehicle when known, clockwise from True North, i.e., 0 is North and 90 is East. May be null.\r\n            Only available for some bus runs.",
+          "format": "float",
+          "type": "number"
+        },
+        "latitude": {
+          "description": "Geographic coordinate of latitude of the vehicle when known. May be null.\r\n            Only available for some bus runs.",
+          "format": "float",
+          "type": "number"
+        },
+        "longitude": {
+          "description": "Geographic coordinate of longitude of the vehicle when known. \r\n            Only available for some bus runs.",
+          "format": "float",
+          "type": "number"
+        },
+        "supplier": {
+          "description": "Supplier of vehicle position data.",
+          "readOnly": true,
+          "type": "string"
         }
       },
       "type": "object"

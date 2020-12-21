@@ -15,7 +15,7 @@ let figshare = require('@datafire/figshare').create({
   redirect_uri: ""
 });
 
-figshare.projects_search({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -118,6 +118,36 @@ figshare.private_article_create({
 
 #### Output
 * output [Location](#location)
+
+### account_article_report
+Return status on all reports generated for the account from the oauth credentials
+
+
+```js
+figshare.account_article_report({}, context)
+```
+
+#### Input
+* input `object`
+  * group_id `integer`: A group ID to filter by
+
+#### Output
+* output `array`
+  * items [AccountReport](#accountreport)
+
+### account_article_report_generate
+Initiate a new Article Report for this Account
+
+
+```js
+figshare.account_article_report_generate(null, context)
+```
+
+#### Input
+*This action has no parameters*
+
+#### Output
+* output [AccountReport](#accountreport)
 
 ### private_articles_search
 Returns a list of private articles filtered by the search parameters
@@ -658,6 +688,23 @@ figshare.private_article_reserve_doi({
 #### Output
 * output [ArticleDOI](#articledoi)
 
+### private_article_reserve_handle
+Reserve Handle for article
+
+
+```js
+figshare.private_article_reserve_handle({
+  "article_id": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * article_id **required** `integer`: Article unique identifier
+
+#### Output
+* output [ArticleHandle](#articlehandle)
+
 ### private_authors_search
 Search for authors
 
@@ -720,7 +767,7 @@ figshare.private_collections_list({}, context)
   * page_size `integer`: The number of results included on a page. Used for pagination with page
   * limit `integer`: Number of results included on a page. Used for pagination with query
   * offset `integer`: Where to start the listing(the offset of the first result). Used for pagination with limit
-  * order `string` (values: published_date, modified_date, views, shares, downloads, cites): The field by which to order. Default varies by endpoint/resource.
+  * order `string` (values: published_date, modified_date, views, shares, cites): The field by which to order. Default varies by endpoint/resource.
   * order_direction `string` (values: asc, desc)
 
 #### Output
@@ -1161,7 +1208,40 @@ figshare.private_collection_reserve_doi({
   * collection_id **required** `integer`: Collection Unique identifier
 
 #### Output
-* output [ArticleDOI](#articledoi)
+* output [CollectionDOI](#collectiondoi)
+
+### private_collection_reserve_handle
+Reserve Handle for collection
+
+
+```js
+figshare.private_collection_reserve_handle({
+  "collection_id": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * collection_id **required** `integer`: Collection Unique identifier
+
+#### Output
+* output [CollectionHandle](#collectionhandle)
+
+### private_funding_search
+Search for fundings
+
+
+```js
+figshare.private_funding_search({}, context)
+```
+
+#### Input
+* input `object`
+  * search [FundingSearch](#fundingsearch)
+
+#### Output
+* output `array`
+  * items [FundingInformation](#fundinginformation)
 
 ### private_institution_details
 Account institution details
@@ -1207,7 +1287,6 @@ Create a new Account by sending account information
 figshare.private_institution_accounts_create({
   "Account": {
     "email": "",
-    "first_name": "",
     "last_name": ""
   }
 }, context)
@@ -1277,7 +1356,7 @@ figshare.private_institution_articles({}, context)
   * modified_since `string`: Filter by article modified date. Will only return articles published after the date. date(ISO 8601) YYYY-MM-DD
   * status `integer`: only return collections with this status
   * resource_doi `string`: only return collections with this resource_doi
-  * item_type `integer`: Only return collections with the respective type. Mapping for item_type is: 1 - Figure, 2 - Media, 3 - Dataset, 4 - Fileset, 5 - Poster, 6 - Paper, 7 - Presentation, 8 - Thesis, 9 - Code, 12 - Preprint
+  * item_type `integer`: Only return articles with the respective type. Mapping for item_type is: 1 - Figure, 2 - Media, 3 - Dataset, 5 - Poster, 6 - Journal contribution, 7 - Presentation, 8 - Thesis, 9 - Software, 11 - Online resource, 12 - Preprint, 13 - Book, 14 - Conference contribution, 15 - Chapter, 16 - Peer review, 17 - Educational resource, 18 - Report, 19 - Standard, 20 - Composition, 21 - Funding, 22 - Physical object, 23 - Data management plan, 24 - Workflow, 25 - Monograph, 26 - Performance, 27 - Event, 28 - Service, 29 - Model
 
 #### Output
 * output `array`
@@ -1297,6 +1376,82 @@ figshare.private_institution_groups_list(null, context)
 #### Output
 * output `array`
   * items [Group](#group)
+
+### account_institution_curation
+Retrieve a certain curation review by its ID
+
+
+```js
+figshare.account_institution_curation({
+  "curation_id": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * curation_id **required** `integer`: ID of the curation
+
+#### Output
+* output [CurationDetail](#curationdetail)
+
+### account.institution.review.curation_id.comments.get
+Retrieve a certain curation review's comments.
+
+
+```js
+figshare.account.institution.review.curation_id.comments.get({
+  "curation_id": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * limit `integer`: Number of results included on a page. Used for pagination with query
+  * offset `integer`: Where to start the listing(the offset of the first result). Used for pagination with limit
+  * curation_id **required** `integer`: ID of the curation
+
+#### Output
+* output [CurationComment](#curationcomment)
+
+### account.institution.review.curation_id.comments.post
+Add a new comment to the review.
+
+
+```js
+figshare.account.institution.review.curation_id.comments.post({
+  "CurationComment": {
+    "text": ""
+  },
+  "curation_id": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * CurationComment **required** [CurationCommentCreate](#curationcommentcreate)
+  * curation_id **required** `integer`: ID of the curation
+
+#### Output
+*Output schema unknown*
+
+### account_institution_curations
+Retrieve a list of curation reviews for this institution
+
+
+```js
+figshare.account_institution_curations({}, context)
+```
+
+#### Input
+* input `object`
+  * group_id `integer`: Filter by the group ID
+  * article_id `integer`: Retrieve the reviews for this article
+  * status `string` (values: pending, approved, rejected, closed): Filter by the status of the review
+  * limit `integer`: Number of results included on a page. Used for pagination with query
+  * offset `integer`: Where to start the listing(the offset of the first result). Used for pagination with limit
+
+#### Output
+* output [Curation](#curation)
 
 ### private_institution_roles_list
 Returns the roles available for groups and the institution group.
@@ -1416,7 +1571,7 @@ figshare.private_projects_list({}, context)
   * page_size `integer`: The number of results included on a page. Used for pagination with page
   * limit `integer`: Number of results included on a page. Used for pagination with query
   * offset `integer`: Where to start the listing(the offset of the first result). Used for pagination with limit
-  * order `string` (values: published_date, modified_date, views, shares, downloads, cites): The field by which to order. Default varies by endpoint/resource.
+  * order `string` (values: published_date, modified_date, views): The field by which to order.
   * order_direction `string` (values: asc, desc)
   * storage `string` (values: group, individual): only return collections from this institution
   * roles `string`: Any combination of owner, collaborator, viewer separated by comma. Examples: "owner" or "owner,collaborator".
@@ -1454,7 +1609,7 @@ figshare.private_projects_search({}, context)
 
 #### Input
 * input `object`
-  * search [CommonSearch](#commonsearch)
+  * search [ProjectsSearch](#projectssearch)
 
 #### Output
 * output `array`
@@ -1530,7 +1685,11 @@ figshare.private_project_articles_list({
 
 #### Input
 * input `object`
-  * project_id **required** `integer`: Proejct unique identifier
+  * project_id **required** `integer`: Project unique identifier
+  * page `integer`: Page number. Used for pagination with page_size
+  * page_size `integer`: The number of results included on a page. Used for pagination with page
+  * limit `integer`: Number of results included on a page. Used for pagination with query
+  * offset `integer`: Where to start the listing(the offset of the first result). Used for pagination with limit
 
 #### Output
 * output `array`
@@ -1552,7 +1711,11 @@ figshare.private_project_articles_create({
 #### Input
 * input `object`
   * Article **required** [ArticleCreate](#articlecreate)
-  * project_id **required** `integer`: Proejct unique identifier
+  * project_id **required** `integer`: Project unique identifier
+  * page `integer`: Page number. Used for pagination with page_size
+  * page_size `integer`: The number of results included on a page. Used for pagination with page
+  * limit `integer`: Number of results included on a page. Used for pagination with query
+  * offset `integer`: Where to start the listing(the offset of the first result). Used for pagination with limit
 
 #### Output
 * output [Location](#location)
@@ -1848,13 +2011,14 @@ figshare.articles_list({}, context)
   * offset `integer`: Where to start the listing(the offset of the first result). Used for pagination with limit
   * order `string` (values: published_date, modified_date, views, shares, downloads, cites): The field by which to order. Default varies by endpoint/resource.
   * order_direction `string` (values: asc, desc)
-  * institution `integer`: only return collections from this institution
+  * institution `integer`: only return articles from this institution
   * published_since `string`: Filter by article publishing date. Will only return articles published after the date. date(ISO 8601) YYYY-MM-DD
   * modified_since `string`: Filter by article modified date. Will only return articles published after the date. date(ISO 8601) YYYY-MM-DD
-  * group `integer`: only return collections from this group
-  * resource_doi `string`: only return collections with this resource_doi
-  * item_type `integer`: Only return collections with the respective type. Mapping for item_type is: 1 - Figure, 2 - Media, 3 - Dataset, 4 - Fileset, 5 - Poster, 6 - Paper, 7 - Presentation, 8 - Thesis, 9 - Code, 12 - Preprint
-  * doi `string`: only return collections with this doi
+  * group `integer`: only return articles from this group
+  * resource_doi `string`: only return articles with this resource_doi
+  * item_type `integer`: Only return articles with the respective type. Mapping for item_type is: 1 - Figure, 2 - Media, 3 - Dataset, 5 - Poster, 6 - Journal contribution, 7 - Presentation, 8 - Thesis, 9 - Software, 11 - Online resource, 12 - Preprint, 13 - Book, 14 - Conference contribution, 15 - Chapter, 16 - Peer review, 17 - Educational resource, 18 - Report, 19 - Standard, 20 - Composition, 21 - Funding, 22 - Physical object, 23 - Data management plan, 24 - Workflow, 25 - Monograph, 26 - Performance, 27 - Event, 28 - Service, 29 - Model
+  * doi `string`: only return articles with this doi
+  * handle `string`: only return articles with this handle
 
 #### Output
 * output `array`
@@ -1946,7 +2110,7 @@ figshare.article_versions({
 
 #### Output
 * output `array`
-  * items [Version](#version)
+  * items [ArticleVersions](#articleversions)
 
 ### article_version_details
 Article with specified version
@@ -2034,7 +2198,7 @@ figshare.collections_list({}, context)
   * page_size `integer`: The number of results included on a page. Used for pagination with page
   * limit `integer`: Number of results included on a page. Used for pagination with query
   * offset `integer`: Where to start the listing(the offset of the first result). Used for pagination with limit
-  * order `string` (values: published_date, modified_date, views, shares, downloads, cites): The field by which to order. Default varies by endpoint/resource.
+  * order `string` (values: published_date, modified_date, views, shares, cites): The field by which to order. Default varies by endpoint/resource.
   * order_direction `string` (values: asc, desc)
   * institution `integer`: only return collections from this institution
   * published_since `string`: Filter by collection publishing date. Will only return collections published after the date. date(ISO 8601) YYYY-MM-DD
@@ -2042,6 +2206,7 @@ figshare.collections_list({}, context)
   * group `integer`: only return collections from this group
   * resource_doi `string`: only return collections with this resource_doi
   * doi `string`: only return collections with this doi
+  * handle `string`: only return collections with this handle
 
 #### Output
 * output `array`
@@ -2118,7 +2283,7 @@ figshare.collection_versions({
 
 #### Output
 * output `array`
-  * items [Version](#version)
+  * items [CollectionVersions](#collectionversions)
 
 ### collection_version_details
 View details for a certain version of a collection
@@ -2226,7 +2391,7 @@ figshare.projects_list({}, context)
   * page_size `integer`: The number of results included on a page. Used for pagination with page
   * limit `integer`: Number of results included on a page. Used for pagination with query
   * offset `integer`: Where to start the listing(the offset of the first result). Used for pagination with limit
-  * order `string` (values: published_date, modified_date, views, shares, downloads, cites): The field by which to order. Default varies by endpoint/resource.
+  * order `string` (values: published_date, modified_date, views): The field by which to order. Default varies by endpoint/resource.
   * order_direction `string` (values: asc, desc)
   * institution `integer`: only return collections from this institution
   * published_since `string`: Filter by article publishing date. Will only return articles published after the date. date(ISO 8601) YYYY-MM-DD
@@ -2246,7 +2411,7 @@ figshare.projects_search({}, context)
 
 #### Input
 * input `object`
-  * search [CommonSearch](#commonsearch)
+  * search [ProjectsSearch](#projectssearch)
 
 #### Output
 * output `array`
@@ -2313,7 +2478,7 @@ figshare.project_articles({
 ### AccountCreate
 * AccountCreate `object`
   * email **required** `string`: Email of account
-  * first_name **required** `string`: First Name
+  * first_name `string`: First Name
   * group_id `integer`: Not applicable to regular users. This field is reserved to institutions/publishers with access to assign to specific groups
   * institution_user_id `string`: Institution user id
   * is_active `boolean`: Is account active
@@ -2327,6 +2492,15 @@ figshare.project_articles({
 ### AccountGroupRolesCreate
 * AccountGroupRolesCreate `object`
 
+### AccountReport
+* AccountReport `object`
+  * account_id `integer`: The ID of the account which generated this report.
+  * created_date `string`: Date when the AccountReport was requested
+  * download_url `string`: The download link for the generated XLSX
+  * group_id `integer`: The group ID that was used to filter the report, if any.
+  * id `integer`: A unique ID for the AccountRecord
+  * status `string` (values: missing, pending, done): Status of the report
+
 ### AccountUpdate
 * AccountUpdate `object`
   * group_id `integer`: Not applicable to regular users. This field is reserved to institutions/publishers with access to assign to specific groups
@@ -2335,11 +2509,14 @@ figshare.project_articles({
 ### Article
 * Article `object`
   * defined_type `integer`: Type of article identificator
+  * defined_type_name `string`: Name of the article type identificator
   * doi `string`: DOI
   * group_id `number`: Group ID
+  * handle `string`: Handle
   * id `integer`: Unique identifier for article
-  * published_date `string`: Publishing date
+  * published_date `string`: Posted date
   * thumb `string`: Thumbnail image
+  * timeline [Timeline](#timeline)
   * title `string`: Title of article
   * url `string`: Api endpoint for article
   * url_private_api `string`: Private Api endpoint for article
@@ -2368,6 +2545,8 @@ figshare.project_articles({
   * embargo_reason `string`: Reason for embargo
   * embargo_type `string`: Article embargo
   * funding `string`: Article funding
+  * funding_list `array`
+    * items `integer`
   * has_linked_file `boolean`: True if any files are linked to the article
   * is_active `boolean`: True if article is active
   * is_confidential `boolean`: Article Confidentiality
@@ -2385,11 +2564,14 @@ figshare.project_articles({
     * items `string`
   * version `integer`: Article version
   * defined_type `integer`: Type of article identificator
+  * defined_type_name `string`: Name of the article type identificator
   * doi `string`: DOI
   * group_id `number`: Group ID
+  * handle `string`: Handle
   * id `integer`: Unique identifier for article
-  * published_date `string`: Publishing date
+  * published_date `string`: Posted date
   * thumb `string`: Thumbnail image
+  * timeline [Timeline](#timeline)
   * title `string`: Title of article
   * url `string`: Api endpoint for article
   * url_private_api `string`: Private Api endpoint for article
@@ -2419,6 +2601,8 @@ figshare.project_articles({
   * embargo_reason `string`: Reason for embargo
   * embargo_type `string`: Article embargo
   * funding `string`: Article funding
+  * funding_list `array`
+    * items `integer`
   * has_linked_file `boolean`: True if any files are linked to the article
   * is_active `boolean`: True if article is active
   * is_confidential `boolean`: Article Confidentiality
@@ -2436,11 +2620,14 @@ figshare.project_articles({
     * items `string`
   * version `integer`: Article version
   * defined_type `integer`: Type of article identificator
+  * defined_type_name `string`: Name of the article type identificator
   * doi `string`: DOI
   * group_id `number`: Group ID
+  * handle `string`: Handle
   * id `integer`: Unique identifier for article
-  * published_date `string`: Publishing date
+  * published_date `string`: Posted date
   * thumb `string`: Thumbnail image
+  * timeline [Timeline](#timeline)
   * title `string`: Title of article
   * url `string`: Api endpoint for article
   * url_private_api `string`: Private Api endpoint for article
@@ -2455,25 +2642,29 @@ figshare.project_articles({
 
 ### ArticleCreate
 * ArticleCreate `object`
-  * authors `array`: List of authors to be assosciated with the article. The list can contain author ids or author names. No more than 10 authors. For adding more authors use the specific authors endpoint.
+  * authors `array`: List of authors to be associated with the article. The list can contain the following fields: id, name, first_name, last_name, email, orcid_id. If an id is supplied, it will take priority and everything else will be ignored. No more than 10 authors. For adding more authors use the specific authors endpoint.
     * items `object`
   * categories `array`: List of category ids to be associated with the article(e.g [1, 23, 33, 66])
     * items `integer`
   * custom_fields `object`: List of key, values pairs to be associated with the article
-  * defined_type `string` (values: figure, media, dataset, fileset, poster, paper, presentation, thesis, code, metadata, preprint): Article type
+  * defined_type `string`: <b>One of:</b> <code>figure</code> <code>online resource</code> <code>preprint</code> <code>book</code> <code>conference contribution</code> <code>media</code> <code>dataset</code> <code>poster</code> <code>journal contribution</code> <code>presentation</code> <code>thesis</code> <code>software</code>
   * description `string`: The article description. In a publisher case, usually this is the remote article description
   * doi `string`: Not applicable for regular users. In an institutional case, make sure your group supports setting DOIs. This setting is applied by figshare via opening a ticket through our support/helpdesk system.
   * funding `string`: Grant number or funding authority
+  * funding_list `array`: Funding creation / update items
+    * items [FundingCreate](#fundingcreate)
   * group_id `integer`: Not applicable to regular users. This field is reserved to institutions/publishers with access to assign to specific groups
+  * handle `string`: Not applicable for regular users. In an institutional case, make sure your group supports setting Handles. This setting is applied by figshare via opening a ticket through our support/helpdesk system.
   * keywords `array`: List of tags to be associated with the article. Tags can be used instead
     * items `string`
   * license `integer`: License id for this article.
   * references `array`: List of links to be associated with the article (e.g ["http://link1", "http://link2", "http://link3"])
     * items `string`
-  * resource_doi `string`: Not applicable to regular users. In a publisher case, this is the publisher article DOI. For linkback this needs to be used in combination with resource_title.
-  * resource_title `string`: Not applicable to regular users. In a publisher case, this is the publisher article title. For linkback this needs to be used in combination with resource_doi.
+  * resource_doi `string`: Not applicable to regular users. In a publisher case, this is the publisher article DOI.
+  * resource_title `string`: Not applicable to regular users. In a publisher case, this is the publisher article title.
   * tags `array`: List of tags to be associated with the article. Keywords can be used instead
     * items `string`
+  * timeline [TimelineUpdate](#timelineupdate)
   * title **required** `string`: Title of article
 
 ### ArticleDOI
@@ -2492,19 +2683,24 @@ figshare.project_articles({
   * embargo_date `string`: Date when the embargo expires and the article gets published
   * embargo_reason `string`: Reason for setting embargo
   * embargo_type `string` (values: article, file): Embargo can be enabled at the article or the file level. Possible values: article, file
-  * is_embargoed `boolean`: Confidentiality status
+  * is_embargoed `boolean`: Embargo status
+
+### ArticleHandle
+* ArticleHandle `object`
+  * handle `string`: Reserved Handle
 
 ### ArticleSearch
 * ArticleSearch `object`
-  * doi `string`: only return collections with this doi
-  * item_type `integer`: Only return collections with the respective type. Mapping for item_type is: 1 - Figure, 2 - Media, 3 - Dataset, 4 - Fileset, 5 - Poster, 6 - Paper, 7 - Presentation, 8 - Thesis, 9 - Code, 12 - Preprint
-  * resource_doi `string`: only return collections with this resource_doi
+  * doi `string`: Only return articles with this doi
+  * handle `string`: Only return articles with this handle
+  * item_type `integer`: Only return articles with the respective type. Mapping for item_type is: 1 - Figure, 2 - Media, 3 - Dataset, 5 - Poster, 6 - Journal contribution, 7 - Presentation, 8 - Thesis, 9 - Software, 11 - Online resource, 12 - Preprint, 13 - Book, 14 - Conference contribution, 15 - Chapter, 16 - Peer review, 17 - Educational resource, 18 - Report, 19 - Standard, 20 - Composition, 21 - Funding, 22 - Physical object, 23 - Data management plan, 24 - Workflow, 25 - Monograph, 26 - Performance, 27 - Event, 28 - Service, 29 - Model
+  * order `string` (values: published_date, modified_date, views, shares, downloads, cites): The field by which to order
+  * resource_doi `string`: Only return articles with this resource_doi
   * group `integer`: only return collections from this group
   * institution `integer`: only return collections from this institution
   * limit `integer`: Number of results included on a page. Used for pagination with query
   * modified_since `string`: Filter by article modified date. Will only return articles published after the date. date(ISO 8601) YYYY-MM-DD
   * offset `integer`: Where to start the listing(the offset of the first result). Used for pagination with limit
-  * order `string` (values: published_date, modified_date, views, shares, downloads, cites): The field by which to order. Default varies by endpoint/resource.
   * order_direction `string` (values: asc, desc): Direction of ordering
   * page `integer`: Page number. Used for pagination with page_size
   * page_size `integer`: The number of results included on a page. Used for pagination with page
@@ -2513,16 +2709,19 @@ figshare.project_articles({
 
 ### ArticleUpdate
 * ArticleUpdate `object`
-  * authors `array`: List of authors to be assosciated with the article. The list can contain author ids or author names. No more than 10 authors. For adding more authors use the specific authors endpoint.
+  * authors `array`: List of authors to be associated with the article. The list can contain the following fields: id, name, first_name, last_name, email, orcid_id. If an id is supplied, it will take priority and everything else will be ignored. No more than 10 authors. For adding more authors use the specific authors endpoint.
     * items `object`
   * categories `array`: List of category ids to be associated with the article(e.g [1, 23, 33, 66])
     * items `integer`
   * custom_fields `object`: List of key, values pairs to be associated with the article
-  * defined_type `string` (values: figure, media, dataset, fileset, poster, paper, presentation, thesis, code, metadata, preprint): Article type
+  * defined_type `string`: <b>One of:</b> <code>figure</code> <code>online resource</code> <code>preprint</code> <code>book</code> <code>conference contribution</code> <code>media</code> <code>dataset</code> <code>poster</code> <code>journal contribution</code> <code>presentation</code> <code>thesis</code> <code>software</code>
   * description `string`: The article description. In a publisher case, usually this is the remote article description
   * doi `string`: Not appliable for regular users. In an institutional case, make sure your group supports setting DOIs. This setting is applied by figshare via opening a ticket through our support/helpdesk system.
   * funding `string`: Grant number or funding authority
+  * funding_list `array`: Funding creation / update items
+    * items [FundingCreate](#fundingcreate)
   * group_id `integer`: Not applicable to regular users. This field is reserved to institutions/publishers with access to assign to specific groups
+  * handle `string`: Not appliable for regular users. In an institutional case, make sure your group supports setting Handles. This setting is applied by figshare via opening a ticket through our support/helpdesk system.
   * keywords `array`: List of tags to be associated with the article. Tags can be used instead
     * items `string`
   * license `integer`: License id for this article.
@@ -2532,7 +2731,13 @@ figshare.project_articles({
   * resource_title `string`: Not applicable to regular users. In a publisher case, this is the publisher article title.
   * tags `array`: List of tags to be associated with the article. Keywords can be used instead
     * items `string`
+  * timeline [TimelineUpdate](#timelineupdate)
   * title `string`: Title of article
+
+### ArticleVersions
+* ArticleVersions `object`
+  * url `string`: Api endpoint for the item version
+  * version `integer`: Version number
 
 ### ArticlesCreator
 * ArticlesCreator `object`
@@ -2563,7 +2768,7 @@ figshare.project_articles({
 
 ### AuthorsCreator
 * AuthorsCreator `object`
-  * authors **required** `array`: List of authors to be assosciated with the article. The list can contain author ids or author names [{"id": 12121}, {"id": 34345}, {"name": "John Doe"}]. No more than 10 authors. For adding more authors use the specific authors endpoint.
+  * authors **required** `array`: List of authors to be associated with the article. The list can contain the following fields: id, name, first_name, last_name, email, orcid_id. If an id is supplied, it will take priority and everything else will be ignored. No more than 10 authors. For adding more authors use the specific authors endpoint.
     * items `object`
 
 ### CategoriesCreator
@@ -2586,6 +2791,7 @@ figshare.project_articles({
 ### Collection
 * Collection `object`
   * doi `string`: Collection DOI
+  * handle `string`: Collection Handle
   * id `integer`: Collection id
   * published_date `string`: Date when collection was published 
   * title `string`: Collection title
@@ -2603,6 +2809,8 @@ figshare.project_articles({
   * custom_fields `array`: Collection custom fields
     * items [CustomArticleField](#customarticlefield)
   * description `string`: Collection description
+  * funding `array`: Full Collection funding information
+    * items [FundingInformation](#fundinginformation)
   * group_id `integer`: Collection group
   * group_resource_id `string`: Collection group resource id
   * institution_id `integer`: Collection institution
@@ -2617,8 +2825,10 @@ figshare.project_articles({
   * resource_version `integer`: Collection resource version
   * tags `array`: List of collection tags
     * items `string`
+  * timeline [Timeline](#timeline)
   * version `integer`: Collection version
   * doi `string`: Collection DOI
+  * handle `string`: Collection Handle
   * id `integer`: Collection id
   * published_date `string`: Date when collection was published 
   * title `string`: Collection title
@@ -2628,60 +2838,18 @@ figshare.project_articles({
 * CollectionCreate `object`
   * articles `array`: List of articles to be associated with the collection
     * items `integer`
-  * authors `array`: List of authors to be assosciated with the article. The list can contain author ids or author names. No more than 10 authors. For adding more authors use the specific authors endpoint.
+  * authors `array`: List of authors to be associated with the article. The list can contain the following fields: id, name, first_name, last_name, email, orcid_id. If an id is supplied, it will take priority and everything else will be ignored. No more than 10 authors. For adding more authors use the specific authors endpoint.
     * items `object`
   * categories `array`: List of category ids to be associated with the article(e.g [1, 23, 33, 66])
     * items `integer`
   * custom_fields `object`: List of key, values pairs to be associated with the article
   * description `string`: The article description. In a publisher case, usually this is the remote article description
   * doi `string`: Not applicable for regular users. In an institutional case, make sure your group supports setting DOIs. This setting is applied by figshare via opening a ticket through our support/helpdesk system.
+  * funding `string`: Grant number or funding authority
+  * funding_list `array`: Funding creation / update items
+    * items [FundingCreate](#fundingcreate)
   * group_id `integer`: Not applicable to regular users. This field is reserved to institutions/publishers with access to assign to specific groups
-  * keywords `array`: List of tags to be associated with the article. Tags can be used instead
-    * items `string`
-  * references `array`: List of links to be associated with the article (e.g ["http://link1", "http://link2", "http://link3"])
-    * items `string`
-  * resource_doi `string`: Not applicable to regular users. In a publisher case, this is the publisher article DOI. For linkback this needs to be used in combination with resource_title.
-  * resource_id `string`: Not applicable to regular users. In a publisher case, this is the publisher article id
-  * resource_link `string`: Not applicable to regular users. In a publisher case, this is the publisher article link
-  * resource_title `string`: Not applicable to regular users. In a publisher case, this is the publisher article title. For linkback this needs to be used in combination with resource_doi.
-  * resource_version `integer`: Not applicable to regular users. In a publisher case, this is the publisher article version
-  * tags `array`: List of tags to be associated with the article. Keywords can be used instead
-    * items `string`
-  * title **required** `string`: Title of article
-
-### CollectionPrivateLinkCreator
-* CollectionPrivateLinkCreator `object`
-  * expires_date `string`: Date when this private link should expire - optional. By default private links expire in 365 days.
-  * read_only `boolean`: Optional, default true. Set to false to give private link users editing rights for this collection.
-
-### CollectionSearch
-* CollectionSearch `object`
-  * doi `string`: only return collections with this doi
-  * resource_doi `string`: only return collections with this resource_doi
-  * group `integer`: only return collections from this group
-  * institution `integer`: only return collections from this institution
-  * limit `integer`: Number of results included on a page. Used for pagination with query
-  * modified_since `string`: Filter by article modified date. Will only return articles published after the date. date(ISO 8601) YYYY-MM-DD
-  * offset `integer`: Where to start the listing(the offset of the first result). Used for pagination with limit
-  * order `string` (values: published_date, modified_date, views, shares, downloads, cites): The field by which to order. Default varies by endpoint/resource.
-  * order_direction `string` (values: asc, desc): Direction of ordering
-  * page `integer`: Page number. Used for pagination with page_size
-  * page_size `integer`: The number of results included on a page. Used for pagination with page
-  * published_since `string`: Filter by article publishing date. Will only return articles published after the date. date(ISO 8601) YYYY-MM-DD
-  * search_for `string`: Search term
-
-### CollectionUpdate
-* CollectionUpdate `object`
-  * articles `array`: List of articles to be associated with the collection
-    * items `integer`
-  * authors `array`: List of authors to be assosciated with the article. The list can contain author ids or author names. No more than 10 authors. For adding more authors use the specific authors endpoint.
-    * items `object`
-  * categories `array`: List of category ids to be associated with the article(e.g [1, 23, 33, 66])
-    * items `integer`
-  * custom_fields `object`: List of key, values pairs to be associated with the article
-  * description `string`: The article description. In a publisher case, usually this is the remote article description
-  * doi `string`: Not applicable for regular users. In an institutional case, make sure your group supports setting DOIs. This setting is applied by figshare via opening a ticket through our support/helpdesk system.
-  * group_id `integer`: Not applicable to regular users. This field is reserved to institutions/publishers with access to assign to specific groups
+  * handle `string`: Not applicable for regular users. In an institutional case, make sure your group supports setting Handles. This setting is applied by figshare via opening a ticket through our support/helpdesk system.
   * keywords `array`: List of tags to be associated with the article. Tags can be used instead
     * items `string`
   * references `array`: List of links to be associated with the article (e.g ["http://link1", "http://link2", "http://link3"])
@@ -2693,7 +2861,73 @@ figshare.project_articles({
   * resource_version `integer`: Not applicable to regular users. In a publisher case, this is the publisher article version
   * tags `array`: List of tags to be associated with the article. Keywords can be used instead
     * items `string`
+  * timeline [TimelineUpdate](#timelineupdate)
+  * title **required** `string`: Title of article
+
+### CollectionDOI
+* CollectionDOI `object`
+  * doi `string`: Reserved DOI
+
+### CollectionHandle
+* CollectionHandle `object`
+  * handle `string`: Reserved Handle
+
+### CollectionPrivateLinkCreator
+* CollectionPrivateLinkCreator `object`
+  * expires_date `string`: Date when this private link should expire - optional. By default private links expire in 365 days.
+  * read_only `boolean`: Optional, default true. Set to false to give private link users editing rights for this collection.
+
+### CollectionSearch
+* CollectionSearch `object`
+  * doi `string`: Only return collections with this doi
+  * handle `string`: Only return collections with this handle
+  * order `string` (values: published_date, modified_date, views, shares, cites): The field by which to order.
+  * resource_doi `string`: Only return collections with this resource_doi
+  * group `integer`: only return collections from this group
+  * institution `integer`: only return collections from this institution
+  * limit `integer`: Number of results included on a page. Used for pagination with query
+  * modified_since `string`: Filter by article modified date. Will only return articles published after the date. date(ISO 8601) YYYY-MM-DD
+  * offset `integer`: Where to start the listing(the offset of the first result). Used for pagination with limit
+  * order_direction `string` (values: asc, desc): Direction of ordering
+  * page `integer`: Page number. Used for pagination with page_size
+  * page_size `integer`: The number of results included on a page. Used for pagination with page
+  * published_since `string`: Filter by article publishing date. Will only return articles published after the date. date(ISO 8601) YYYY-MM-DD
+  * search_for `string`: Search term
+
+### CollectionUpdate
+* CollectionUpdate `object`
+  * articles `array`: List of articles to be associated with the collection
+    * items `integer`
+  * authors `array`: List of authors to be associated with the article. The list can contain the following fields: id, name, first_name, last_name, email, orcid_id. If an id is supplied, it will take priority and everything else will be ignored. No more than 10 authors. For adding more authors use the specific authors endpoint.
+    * items `object`
+  * categories `array`: List of category ids to be associated with the article(e.g [1, 23, 33, 66])
+    * items `integer`
+  * custom_fields `object`: List of key, values pairs to be associated with the article
+  * description `string`: The article description. In a publisher case, usually this is the remote article description
+  * doi `string`: Not applicable for regular users. In an institutional case, make sure your group supports setting DOIs. This setting is applied by figshare via opening a ticket through our support/helpdesk system.
+  * funding `string`: Grant number or funding authority
+  * funding_list `array`: Funding creation / update items
+    * items [FundingCreate](#fundingcreate)
+  * group_id `integer`: Not applicable to regular users. This field is reserved to institutions/publishers with access to assign to specific groups
+  * handle `string`: Not applicable for regular users. In an institutional case, make sure your group supports setting Handles. This setting is applied by figshare via opening a ticket through our support/helpdesk system.
+  * keywords `array`: List of tags to be associated with the article. Tags can be used instead
+    * items `string`
+  * references `array`: List of links to be associated with the article (e.g ["http://link1", "http://link2", "http://link3"])
+    * items `string`
+  * resource_doi `string`: Not applicable to regular users. In a publisher case, this is the publisher article DOI.
+  * resource_id `string`: Not applicable to regular users. In a publisher case, this is the publisher article id
+  * resource_link `string`: Not applicable to regular users. In a publisher case, this is the publisher article link
+  * resource_title `string`: Not applicable to regular users. In a publisher case, this is the publisher article title.
+  * resource_version `integer`: Not applicable to regular users. In a publisher case, this is the publisher article version
+  * tags `array`: List of tags to be associated with the article. Keywords can be used instead
+    * items `string`
+  * timeline [TimelineUpdate](#timelineupdate)
   * title `string`: Title of article
+
+### CollectionVersions
+* CollectionVersions `object`
+  * id `integer`: Version number
+  * url `string`: Api endpoint for the collection version
 
 ### CommonSearch
 * CommonSearch `object`
@@ -2702,7 +2936,6 @@ figshare.project_articles({
   * limit `integer`: Number of results included on a page. Used for pagination with query
   * modified_since `string`: Filter by article modified date. Will only return articles published after the date. date(ISO 8601) YYYY-MM-DD
   * offset `integer`: Where to start the listing(the offset of the first result). Used for pagination with limit
-  * order `string` (values: published_date, modified_date, views, shares, downloads, cites): The field by which to order. Default varies by endpoint/resource.
   * order_direction `string` (values: asc, desc): Direction of ordering
   * page `integer`: Page number. Used for pagination with page_size
   * page_size `integer`: The number of results included on a page. Used for pagination with page
@@ -2712,6 +2945,46 @@ figshare.project_articles({
 ### ConfidentialityCreator
 * ConfidentialityCreator `object`
   * reason `string`: Reason for confidentiality
+
+### Curation
+* Curation `object`
+  * account_id `integer`: The ID of the account of the owner of the article of this review.
+  * article_id `integer`: The ID of the article of this review.
+  * assigned_to `integer`: The ID of the account to which this review is assigned.
+  * comments_count `integer`: The number of comments in the review.
+  * created_date `string`: The creation date of the review.
+  * group_id `integer`: The group in which the article is present.
+  * id `integer`: The review id
+  * modified_date `string`: The date the review has been modified.
+  * review_date `string`: The last time a comment has been added to the review.
+  * status `string` (values: pending, approved, rejected, closed): The status of the review.
+  * version `integer`: The Version number of the article in review.
+
+### CurationComment
+* CurationComment `object`
+  * account_id `integer`: The ID of the account which generated this comment.
+  * id `integer`: The ID of the comment.
+  * text `string`: The value/content of the comment.
+  * type `string` (values: comment, approved, rejected, closed): The ID of the account which generated this comment.
+
+### CurationCommentCreate
+* CurationCommentCreate `object`
+  * text **required** `string`: The contents/value of the comment
+
+### CurationDetail
+* CurationDetail `object`
+  * item [ArticleComplete](#articlecomplete)
+  * account_id `integer`: The ID of the account of the owner of the article of this review.
+  * article_id `integer`: The ID of the article of this review.
+  * assigned_to `integer`: The ID of the account to which this review is assigned.
+  * comments_count `integer`: The number of comments in the review.
+  * created_date `string`: The creation date of the review.
+  * group_id `integer`: The group in which the article is present.
+  * id `integer`: The review id
+  * modified_date `string`: The date the review has been modified.
+  * review_date `string`: The last time a comment has been added to the review.
+  * status `string` (values: pending, approved, rejected, closed): The status of the review.
+  * version `integer`: The Version number of the article in review.
 
 ### CustomArticleField
 * CustomArticleField `object`
@@ -2731,8 +3004,27 @@ figshare.project_articles({
   * name `string`: File name including the extension
   * size `integer`: File size in bytes
 
+### FundingCreate
+* FundingCreate `object`
+  * id `integer`: A funding ID as returned by the Funding Search endpoint
+  * title `string`: The title of the new user created funding
+
+### FundingInformation
+* FundingInformation `object`
+  * funder_name `string`: Funder's name
+  * grant_code `string`: The grant code
+  * id `integer`: Funding id
+  * is_user_defined `boolean`: Return whether the grant has been introduced manually
+  * title `string`: The funding name
+  * url `string`: The grant url
+
+### FundingSearch
+* FundingSearch `object`
+  * search_for `string`: Search term
+
 ### Group
 * Group `object`
+  * association_criteria `string`: HR code associated with group, if code exists
   * id `integer`: Group id
   * name `string`: Group name
   * parent_id `integer`: Parent group if any
@@ -2768,15 +3060,16 @@ figshare.project_articles({
 ### PrivateArticleSearch
 * PrivateArticleSearch `object`
   * resource_id `string`: only return collections with this resource_id
-  * doi `string`: only return collections with this doi
-  * item_type `integer`: Only return collections with the respective type. Mapping for item_type is: 1 - Figure, 2 - Media, 3 - Dataset, 4 - Fileset, 5 - Poster, 6 - Paper, 7 - Presentation, 8 - Thesis, 9 - Code, 12 - Preprint
-  * resource_doi `string`: only return collections with this resource_doi
+  * doi `string`: Only return articles with this doi
+  * handle `string`: Only return articles with this handle
+  * item_type `integer`: Only return articles with the respective type. Mapping for item_type is: 1 - Figure, 2 - Media, 3 - Dataset, 5 - Poster, 6 - Journal contribution, 7 - Presentation, 8 - Thesis, 9 - Software, 11 - Online resource, 12 - Preprint, 13 - Book, 14 - Conference contribution, 15 - Chapter, 16 - Peer review, 17 - Educational resource, 18 - Report, 19 - Standard, 20 - Composition, 21 - Funding, 22 - Physical object, 23 - Data management plan, 24 - Workflow, 25 - Monograph, 26 - Performance, 27 - Event, 28 - Service, 29 - Model
+  * order `string` (values: published_date, modified_date, views, shares, downloads, cites): The field by which to order
+  * resource_doi `string`: Only return articles with this resource_doi
   * group `integer`: only return collections from this group
   * institution `integer`: only return collections from this institution
   * limit `integer`: Number of results included on a page. Used for pagination with query
   * modified_since `string`: Filter by article modified date. Will only return articles published after the date. date(ISO 8601) YYYY-MM-DD
   * offset `integer`: Where to start the listing(the offset of the first result). Used for pagination with limit
-  * order `string` (values: published_date, modified_date, views, shares, downloads, cites): The field by which to order. Default varies by endpoint/resource.
   * order_direction `string` (values: asc, desc): Direction of ordering
   * page `integer`: Page number. Used for pagination with page_size
   * page_size `integer`: The number of results included on a page. Used for pagination with page
@@ -2801,14 +3094,15 @@ figshare.project_articles({
 ### PrivateCollectionSearch
 * PrivateCollectionSearch `object`
   * resource_id `string`: only return collections with this resource_id
-  * doi `string`: only return collections with this doi
-  * resource_doi `string`: only return collections with this resource_doi
+  * doi `string`: Only return collections with this doi
+  * handle `string`: Only return collections with this handle
+  * order `string` (values: published_date, modified_date, views, shares, cites): The field by which to order.
+  * resource_doi `string`: Only return collections with this resource_doi
   * group `integer`: only return collections from this group
   * institution `integer`: only return collections from this institution
   * limit `integer`: Number of results included on a page. Used for pagination with query
   * modified_since `string`: Filter by article modified date. Will only return articles published after the date. date(ISO 8601) YYYY-MM-DD
   * offset `integer`: Where to start the listing(the offset of the first result). Used for pagination with limit
-  * order `string` (values: published_date, modified_date, views, shares, downloads, cites): The field by which to order. Default varies by endpoint/resource.
   * order_direction `string` (values: asc, desc): Direction of ordering
   * page `integer`: Page number. Used for pagination with page_size
   * page_size `integer`: The number of results included on a page. Used for pagination with page
@@ -2859,6 +3153,8 @@ figshare.project_articles({
   * embargo_reason `string`: Reason for embargo
   * embargo_type `string`: Article embargo
   * funding `string`: Article funding
+  * funding_list `array`
+    * items `integer`
   * has_linked_file `boolean`: True if any files are linked to the article
   * is_active `boolean`: True if article is active
   * is_confidential `boolean`: Article Confidentiality
@@ -2876,11 +3172,14 @@ figshare.project_articles({
     * items `string`
   * version `integer`: Article version
   * defined_type `integer`: Type of article identificator
+  * defined_type_name `string`: Name of the article type identificator
   * doi `string`: DOI
   * group_id `number`: Group ID
+  * handle `string`: Handle
   * id `integer`: Unique identifier for article
-  * published_date `string`: Publishing date
+  * published_date `string`: Posted date
   * thumb `string`: Thumbnail image
+  * timeline [Timeline](#timeline)
   * title `string`: Title of article
   * url `string`: Api endpoint for article
   * url_private_api `string`: Private Api endpoint for article
@@ -2909,6 +3208,8 @@ figshare.project_articles({
   * description `string`: Project description
   * figshare_url `string`: Project public url
   * funding `string`: Project funding
+  * funding_list `array`: Full Project funding information
+    * items [FundingInformation](#fundinginformation)
   * id `integer`: Project id
   * published_date `string`: Date when project was published
   * title `string`: Project title
@@ -2922,6 +3223,8 @@ figshare.project_articles({
   * description `string`: Project description
   * figshare_url `string`: Project public url
   * funding `string`: Project funding
+  * funding_list `array`: Full Project funding information
+    * items [FundingInformation](#fundinginformation)
   * group_id `integer`: Group of project if any
   * modified_date `string`: Date when project was last modified
   * quota `integer`: Project quota
@@ -2939,6 +3242,8 @@ figshare.project_articles({
 * ProjectCreate `object`
   * description `string`: Project description
   * funding `string`: Grant number or organization(s) that funded this project. Up to 2000 characters permitted.
+  * funding_list `array`: Funding creation / update items
+    * items [FundingCreate](#fundingcreate)
   * group_id `integer`: Only if project type is group.
   * title **required** `string`: The title for this project - mandatory. 3 - 500 characters.
 
@@ -2978,7 +3283,23 @@ figshare.project_articles({
 * ProjectUpdate `object`
   * description `string`: Project description
   * funding `string`: Grant number or organization(s) that funded this project. Up to 2000 characters permitted.
+  * funding_list `array`: Funding creation / update items
+    * items [FundingCreate](#fundingcreate)
   * title `string`: The title for this project - mandatory. 3 - 500 characters.
+
+### ProjectsSearch
+* ProjectsSearch `object`
+  * order `string` (values: published_date, modified_date, views): The field by which to order.
+  * group `integer`: only return collections from this group
+  * institution `integer`: only return collections from this institution
+  * limit `integer`: Number of results included on a page. Used for pagination with query
+  * modified_since `string`: Filter by article modified date. Will only return articles published after the date. date(ISO 8601) YYYY-MM-DD
+  * offset `integer`: Where to start the listing(the offset of the first result). Used for pagination with limit
+  * order_direction `string` (values: asc, desc): Direction of ordering
+  * page `integer`: Page number. Used for pagination with page_size
+  * page_size `integer`: The number of results included on a page. Used for pagination with page
+  * published_since `string`: Filter by article publishing date. Will only return articles published after the date. date(ISO 8601) YYYY-MM-DD
+  * search_for `string`: Search term
 
 ### PublicFile
 * PublicFile `object`
@@ -3011,6 +3332,21 @@ figshare.project_articles({
   * institution_user_id `string`: Account institution user id
   * last_name `string`: Last Name
 
+### Timeline
+* Timeline `object`
+  * posted `string`: Posted date
+  * revision `string`: Revision date from curation (if curated)
+  * submission `string`: Submission date in curation (if curated)
+  * firstOnline `string`: Online posted date
+  * publisherAcceptance `string`: Date when the item was accepted for publication
+  * publisherPublication `string`: Publish date
+
+### TimelineUpdate
+* TimelineUpdate `object`
+  * firstOnline `string`: Online posted date
+  * publisherAcceptance `string`: Date when the item was accepted for publication
+  * publisherPublication `string`: Publish date
+
 ### UploadFilePart
 * UploadFilePart `object`
   * endOffset `integer`: Indexes on byte range. zero-based and inclusive
@@ -3040,10 +3376,5 @@ figshare.project_articles({
   * name `string`: Full Name
   * orcid_id `string`: Orcid associated to this User
   * url_name `string`: Name that appears in website url
-
-### Version
-* Version `object`
-  * id `integer`: Version number
-  * url `string`: Api endpoint for the item version
 
 

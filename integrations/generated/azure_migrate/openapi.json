@@ -21,7 +21,7 @@
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/migrate/resource-manager/Microsoft.Migrate/2018-02-02/migrate.json",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/migrate/resource-manager/Microsoft.Migrate/stable/2018-02-02/migrate.json",
         "version": "2.0"
       }
     ],
@@ -66,7 +66,8 @@
       "description": "Standard request header. Used by service to respond to client in appropriate language.",
       "in": "header",
       "name": "Accept-Language",
-      "type": "string"
+      "type": "string",
+      "x-ms-parameter-location": "client"
     },
     "api-version": {
       "description": "Standard request header. Used by service to identify API version used by client.",
@@ -98,6 +99,14 @@
       "description": "Unique name of a group within a project.",
       "in": "path",
       "name": "groupName",
+      "required": true,
+      "type": "string",
+      "x-ms-parameter-location": "method"
+    },
+    "locationName": {
+      "description": "Azure region in which the project is created.",
+      "in": "path",
+      "name": "locationName",
       "required": true,
       "type": "string",
       "x-ms-parameter-location": "method"
@@ -185,7 +194,913 @@
             }
           }
         },
-        "x-ms-pageable": {}
+        "x-ms-pageable": {
+          "nextLinkName": null
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/providers/Microsoft.Migrate/locations/{locationName}/assessmentOptions": {
+      "get": {
+        "description": "Get the available options for the properties of an assessment.",
+        "operationId": "AssessmentOptions_Get",
+        "parameters": [
+          {
+            "$ref": "#/parameters/subscriptionId"
+          },
+          {
+            "$ref": "#/parameters/locationName"
+          },
+          {
+            "$ref": "#/parameters/api-version"
+          },
+          {
+            "$ref": "#/parameters/acceptLanguage"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK. Returns assessment options.",
+            "schema": {
+              "$ref": "#/definitions/AssessmentOptionsResultList"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
+          }
+        },
+        "summary": "Get the assessment options.",
+        "x-ms-examples": {
+          "AssessmentOptions_Get": {
+            "parameters": {
+              "api-version": "2018-02-02",
+              "locationName": "SoutheastAsia",
+              "subscriptionId": "75dd7e42-4fd1-4512-af04-83ad9864335b"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "reservedInstanceVmFamilies": [
+                    "Dv2_series",
+                    "F_series",
+                    "Dv3_series",
+                    "DS_series",
+                    "DSv2_series",
+                    "Fs_series",
+                    "Dsv3_series",
+                    "Ev3_series",
+                    "Esv3_series",
+                    "D_series",
+                    "M_series",
+                    "Ls_series",
+                    "Fsv2_series",
+                    "H_series"
+                  ],
+                  "vmFamilies": [
+                    {
+                      "category": [
+                        "GeneralPurpose"
+                      ],
+                      "familyName": "Standard_A0_A7",
+                      "targetLocations": [
+                        "EastAsia",
+                        "SoutheastAsia",
+                        "AustraliaEast",
+                        "AustraliaSoutheast",
+                        "BrazilSouth",
+                        "CanadaCentral",
+                        "CanadaEast",
+                        "WestEurope",
+                        "NorthEurope",
+                        "CentralIndia",
+                        "SouthIndia",
+                        "WestIndia",
+                        "JapanEast",
+                        "JapanWest",
+                        "KoreaCentral",
+                        "KoreaSouth",
+                        "UkWest",
+                        "UkSouth",
+                        "NorthCentralUs",
+                        "EastUs",
+                        "WestUs2",
+                        "SouthCentralUs",
+                        "CentralUs",
+                        "EastUs2",
+                        "WestUs",
+                        "WestCentralUs",
+                        "ChinaNorth",
+                        "ChinaEast",
+                        "GermanyNortheast",
+                        "GermanyCentral",
+                        "USGovTexas",
+                        "USGovArizona",
+                        "USGovIowa",
+                        "USGovVirginia",
+                        "USDoDCentral",
+                        "USDoDEast"
+                      ]
+                    },
+                    {
+                      "category": [
+                        "GeneralPurpose"
+                      ],
+                      "familyName": "Basic_A0_A4",
+                      "targetLocations": [
+                        "EastAsia",
+                        "SoutheastAsia",
+                        "AustraliaEast",
+                        "AustraliaSoutheast",
+                        "BrazilSouth",
+                        "CanadaCentral",
+                        "CanadaEast",
+                        "WestEurope",
+                        "NorthEurope",
+                        "CentralIndia",
+                        "SouthIndia",
+                        "WestIndia",
+                        "JapanEast",
+                        "JapanWest",
+                        "KoreaCentral",
+                        "KoreaSouth",
+                        "UkWest",
+                        "UkSouth",
+                        "NorthCentralUs",
+                        "EastUs",
+                        "WestUs2",
+                        "SouthCentralUs",
+                        "CentralUs",
+                        "EastUs2",
+                        "WestUs",
+                        "WestCentralUs",
+                        "ChinaNorth",
+                        "ChinaEast",
+                        "GermanyNortheast",
+                        "GermanyCentral",
+                        "USGovTexas",
+                        "USGovArizona",
+                        "USGovIowa",
+                        "USGovVirginia",
+                        "USDoDCentral",
+                        "USDoDEast"
+                      ]
+                    },
+                    {
+                      "category": [
+                        "GeneralPurpose",
+                        "MemoryOptimized"
+                      ],
+                      "familyName": "Dv2_series",
+                      "targetLocations": [
+                        "EastAsia",
+                        "SoutheastAsia",
+                        "AustraliaEast",
+                        "AustraliaSoutheast",
+                        "BrazilSouth",
+                        "CanadaCentral",
+                        "CanadaEast",
+                        "WestEurope",
+                        "NorthEurope",
+                        "CentralIndia",
+                        "SouthIndia",
+                        "WestIndia",
+                        "JapanEast",
+                        "JapanWest",
+                        "KoreaCentral",
+                        "KoreaSouth",
+                        "UkWest",
+                        "UkSouth",
+                        "NorthCentralUs",
+                        "EastUs",
+                        "WestUs2",
+                        "SouthCentralUs",
+                        "CentralUs",
+                        "EastUs2",
+                        "WestUs",
+                        "WestCentralUs",
+                        "ChinaNorth",
+                        "ChinaEast",
+                        "GermanyNortheast",
+                        "GermanyCentral",
+                        "USGovTexas",
+                        "USGovArizona",
+                        "USGovIowa",
+                        "USGovVirginia",
+                        "USDoDCentral",
+                        "USDoDEast"
+                      ]
+                    },
+                    {
+                      "category": [
+                        "ComputeOptimized"
+                      ],
+                      "familyName": "F_series",
+                      "targetLocations": [
+                        "EastAsia",
+                        "SoutheastAsia",
+                        "AustraliaEast",
+                        "AustraliaSoutheast",
+                        "BrazilSouth",
+                        "CanadaCentral",
+                        "CanadaEast",
+                        "WestEurope",
+                        "NorthEurope",
+                        "CentralIndia",
+                        "SouthIndia",
+                        "WestIndia",
+                        "JapanEast",
+                        "JapanWest",
+                        "KoreaCentral",
+                        "KoreaSouth",
+                        "UkWest",
+                        "UkSouth",
+                        "NorthCentralUs",
+                        "EastUs",
+                        "WestUs2",
+                        "SouthCentralUs",
+                        "CentralUs",
+                        "EastUs2",
+                        "WestUs",
+                        "WestCentralUs",
+                        "ChinaNorth",
+                        "ChinaEast",
+                        "GermanyNortheast",
+                        "GermanyCentral",
+                        "USGovTexas",
+                        "USGovArizona",
+                        "USGovIowa",
+                        "USGovVirginia",
+                        "USDoDCentral",
+                        "USDoDEast"
+                      ]
+                    },
+                    {
+                      "category": [
+                        "GeneralPurpose"
+                      ],
+                      "familyName": "Av2_series",
+                      "targetLocations": [
+                        "EastAsia",
+                        "SoutheastAsia",
+                        "AustraliaEast",
+                        "AustraliaSoutheast",
+                        "BrazilSouth",
+                        "CanadaCentral",
+                        "CanadaEast",
+                        "WestEurope",
+                        "NorthEurope",
+                        "CentralIndia",
+                        "SouthIndia",
+                        "WestIndia",
+                        "JapanEast",
+                        "JapanWest",
+                        "KoreaCentral",
+                        "KoreaSouth",
+                        "UkWest",
+                        "UkSouth",
+                        "NorthCentralUs",
+                        "EastUs",
+                        "WestUs2",
+                        "SouthCentralUs",
+                        "CentralUs",
+                        "EastUs2",
+                        "WestUs",
+                        "WestCentralUs",
+                        "ChinaNorth",
+                        "ChinaEast",
+                        "GermanyNortheast",
+                        "GermanyCentral",
+                        "USGovTexas",
+                        "USGovArizona",
+                        "USGovIowa",
+                        "USGovVirginia",
+                        "USDoDCentral",
+                        "USDoDEast"
+                      ]
+                    },
+                    {
+                      "category": [
+                        "GeneralPurpose"
+                      ],
+                      "familyName": "Dv3_series",
+                      "targetLocations": [
+                        "EastAsia",
+                        "SoutheastAsia",
+                        "AustraliaEast",
+                        "AustraliaSoutheast",
+                        "BrazilSouth",
+                        "CanadaCentral",
+                        "CanadaEast",
+                        "WestEurope",
+                        "NorthEurope",
+                        "CentralIndia",
+                        "SouthIndia",
+                        "WestIndia",
+                        "JapanEast",
+                        "JapanWest",
+                        "KoreaCentral",
+                        "KoreaSouth",
+                        "UkWest",
+                        "UkSouth",
+                        "NorthCentralUs",
+                        "EastUs",
+                        "WestUs2",
+                        "SouthCentralUs",
+                        "CentralUs",
+                        "EastUs2",
+                        "WestUs",
+                        "WestCentralUs",
+                        "GermanyNortheast",
+                        "GermanyCentral",
+                        "USGovTexas",
+                        "USGovVirginia"
+                      ]
+                    },
+                    {
+                      "category": [
+                        "GeneralPurpose",
+                        "MemoryOptimized",
+                        "SupportsPremiumStorage"
+                      ],
+                      "familyName": "DS_series",
+                      "targetLocations": [
+                        "EastAsia",
+                        "SoutheastAsia",
+                        "AustraliaEast",
+                        "AustraliaSoutheast",
+                        "WestEurope",
+                        "NorthEurope",
+                        "JapanEast",
+                        "JapanWest",
+                        "EastUs",
+                        "SouthCentralUs",
+                        "CentralUs",
+                        "EastUs2",
+                        "WestUs",
+                        "ChinaNorth",
+                        "ChinaEast",
+                        "USGovVirginia"
+                      ]
+                    },
+                    {
+                      "category": [
+                        "GeneralPurpose",
+                        "MemoryOptimized",
+                        "SupportsPremiumStorage"
+                      ],
+                      "familyName": "DSv2_series",
+                      "targetLocations": [
+                        "EastAsia",
+                        "SoutheastAsia",
+                        "AustraliaEast",
+                        "AustraliaSoutheast",
+                        "BrazilSouth",
+                        "CanadaCentral",
+                        "CanadaEast",
+                        "WestEurope",
+                        "NorthEurope",
+                        "CentralIndia",
+                        "SouthIndia",
+                        "WestIndia",
+                        "JapanEast",
+                        "JapanWest",
+                        "KoreaCentral",
+                        "KoreaSouth",
+                        "UkWest",
+                        "UkSouth",
+                        "NorthCentralUs",
+                        "EastUs",
+                        "WestUs2",
+                        "SouthCentralUs",
+                        "CentralUs",
+                        "EastUs2",
+                        "WestUs",
+                        "WestCentralUs",
+                        "ChinaNorth",
+                        "ChinaEast",
+                        "GermanyNortheast",
+                        "GermanyCentral",
+                        "USGovTexas",
+                        "USGovArizona",
+                        "USGovVirginia",
+                        "USDoDCentral",
+                        "USDoDEast"
+                      ]
+                    },
+                    {
+                      "category": [
+                        "ComputeOptimized",
+                        "SupportsPremiumStorage"
+                      ],
+                      "familyName": "Fs_series",
+                      "targetLocations": [
+                        "EastAsia",
+                        "SoutheastAsia",
+                        "AustraliaEast",
+                        "AustraliaSoutheast",
+                        "BrazilSouth",
+                        "CanadaCentral",
+                        "CanadaEast",
+                        "WestEurope",
+                        "NorthEurope",
+                        "CentralIndia",
+                        "SouthIndia",
+                        "WestIndia",
+                        "JapanEast",
+                        "JapanWest",
+                        "KoreaCentral",
+                        "KoreaSouth",
+                        "UkWest",
+                        "UkSouth",
+                        "NorthCentralUs",
+                        "EastUs",
+                        "WestUs2",
+                        "SouthCentralUs",
+                        "CentralUs",
+                        "EastUs2",
+                        "WestUs",
+                        "WestCentralUs",
+                        "ChinaNorth",
+                        "ChinaEast",
+                        "GermanyNortheast",
+                        "GermanyCentral",
+                        "USGovTexas",
+                        "USGovArizona",
+                        "USGovVirginia",
+                        "USDoDCentral",
+                        "USDoDEast"
+                      ]
+                    },
+                    {
+                      "category": [
+                        "GeneralPurpose",
+                        "SupportsPremiumStorage"
+                      ],
+                      "familyName": "Dsv3_series",
+                      "targetLocations": [
+                        "EastAsia",
+                        "SoutheastAsia",
+                        "AustraliaEast",
+                        "AustraliaSoutheast",
+                        "BrazilSouth",
+                        "CanadaCentral",
+                        "CanadaEast",
+                        "WestEurope",
+                        "NorthEurope",
+                        "CentralIndia",
+                        "SouthIndia",
+                        "WestIndia",
+                        "JapanEast",
+                        "JapanWest",
+                        "KoreaCentral",
+                        "KoreaSouth",
+                        "UkWest",
+                        "UkSouth",
+                        "NorthCentralUs",
+                        "EastUs",
+                        "WestUs2",
+                        "SouthCentralUs",
+                        "CentralUs",
+                        "EastUs2",
+                        "WestUs",
+                        "WestCentralUs",
+                        "GermanyNortheast",
+                        "GermanyCentral",
+                        "USGovTexas",
+                        "USGovVirginia"
+                      ]
+                    },
+                    {
+                      "category": [
+                        "MemoryOptimized"
+                      ],
+                      "familyName": "Ev3_series",
+                      "targetLocations": [
+                        "EastAsia",
+                        "SoutheastAsia",
+                        "AustraliaEast",
+                        "AustraliaSoutheast",
+                        "BrazilSouth",
+                        "CanadaCentral",
+                        "CanadaEast",
+                        "WestEurope",
+                        "NorthEurope",
+                        "CentralIndia",
+                        "SouthIndia",
+                        "WestIndia",
+                        "JapanEast",
+                        "JapanWest",
+                        "KoreaCentral",
+                        "KoreaSouth",
+                        "UkWest",
+                        "UkSouth",
+                        "NorthCentralUs",
+                        "EastUs",
+                        "WestUs2",
+                        "SouthCentralUs",
+                        "CentralUs",
+                        "EastUs2",
+                        "WestUs",
+                        "GermanyNortheast",
+                        "GermanyCentral",
+                        "USGovTexas",
+                        "USGovVirginia"
+                      ]
+                    },
+                    {
+                      "category": [
+                        "MemoryOptimized",
+                        "SupportsPremiumStorage"
+                      ],
+                      "familyName": "Esv3_series",
+                      "targetLocations": [
+                        "EastAsia",
+                        "SoutheastAsia",
+                        "AustraliaEast",
+                        "AustraliaSoutheast",
+                        "BrazilSouth",
+                        "CanadaCentral",
+                        "CanadaEast",
+                        "WestEurope",
+                        "NorthEurope",
+                        "CentralIndia",
+                        "SouthIndia",
+                        "WestIndia",
+                        "JapanEast",
+                        "JapanWest",
+                        "KoreaCentral",
+                        "KoreaSouth",
+                        "UkWest",
+                        "UkSouth",
+                        "NorthCentralUs",
+                        "EastUs",
+                        "WestUs2",
+                        "SouthCentralUs",
+                        "CentralUs",
+                        "EastUs2",
+                        "WestUs",
+                        "GermanyNortheast",
+                        "GermanyCentral",
+                        "USGovTexas",
+                        "USGovVirginia"
+                      ]
+                    },
+                    {
+                      "category": [
+                        "GeneralPurpose"
+                      ],
+                      "familyName": "D_series",
+                      "targetLocations": [
+                        "EastAsia",
+                        "SoutheastAsia",
+                        "AustraliaEast",
+                        "AustraliaSoutheast",
+                        "BrazilSouth",
+                        "WestEurope",
+                        "NorthEurope",
+                        "JapanEast",
+                        "JapanWest",
+                        "NorthCentralUs",
+                        "EastUs",
+                        "SouthCentralUs",
+                        "CentralUs",
+                        "EastUs2",
+                        "WestUs",
+                        "ChinaNorth",
+                        "ChinaEast",
+                        "USGovVirginia"
+                      ]
+                    },
+                    {
+                      "category": [
+                        "MemoryOptimized"
+                      ],
+                      "familyName": "M_series",
+                      "targetLocations": [
+                        "SoutheastAsia",
+                        "AustraliaEast",
+                        "AustraliaSoutheast",
+                        "WestEurope",
+                        "JapanEast",
+                        "JapanWest",
+                        "UkSouth",
+                        "EastUs",
+                        "WestUs2",
+                        "EastUs2",
+                        "USGovVirginia"
+                      ]
+                    },
+                    {
+                      "category": [
+                        "MemoryOptimized"
+                      ],
+                      "familyName": "G_series",
+                      "targetLocations": [
+                        "SoutheastAsia",
+                        "AustraliaEast",
+                        "CanadaCentral",
+                        "CanadaEast",
+                        "WestEurope",
+                        "JapanEast",
+                        "UkSouth",
+                        "WestUs2",
+                        "EastUs2",
+                        "WestUs",
+                        "GermanyCentral",
+                        "USGovVirginia"
+                      ]
+                    },
+                    {
+                      "category": [
+                        "MemoryOptimized",
+                        "SupportsPremiumStorage"
+                      ],
+                      "familyName": "GS_series",
+                      "targetLocations": [
+                        "SoutheastAsia",
+                        "AustraliaEast",
+                        "CanadaCentral",
+                        "CanadaEast",
+                        "WestEurope",
+                        "JapanEast",
+                        "UkSouth",
+                        "WestUs2",
+                        "EastUs2",
+                        "WestUs",
+                        "GermanyCentral",
+                        "USGovVirginia"
+                      ]
+                    },
+                    {
+                      "category": [
+                        "StorageOptimized",
+                        "SupportsPremiumStorage"
+                      ],
+                      "familyName": "Ls_series",
+                      "targetLocations": [
+                        "SoutheastAsia",
+                        "AustraliaEast",
+                        "CanadaCentral",
+                        "CanadaEast",
+                        "WestEurope",
+                        "JapanEast",
+                        "UkSouth",
+                        "WestUs2",
+                        "EastUs2",
+                        "WestUs",
+                        "GermanyCentral",
+                        "USGovVirginia"
+                      ]
+                    },
+                    {
+                      "category": [
+                        "ComputeOptimized",
+                        "SupportsPremiumStorage"
+                      ],
+                      "familyName": "Fsv2_series",
+                      "targetLocations": [
+                        "SoutheastAsia",
+                        "CanadaEast",
+                        "WestEurope",
+                        "NorthEurope",
+                        "EastUs",
+                        "WestUs2",
+                        "SouthCentralUs",
+                        "CentralUs",
+                        "EastUs2",
+                        "WestUs"
+                      ]
+                    },
+                    {
+                      "category": [
+                        "HighPerformanceCompute"
+                      ],
+                      "familyName": "H_series",
+                      "targetLocations": [
+                        "SoutheastAsia",
+                        "AustraliaEast",
+                        "WestEurope",
+                        "NorthEurope",
+                        "JapanEast",
+                        "UkSouth",
+                        "NorthCentralUs",
+                        "EastUs",
+                        "WestUs2",
+                        "SouthCentralUs",
+                        "WestUs",
+                        "USGovArizona"
+                      ]
+                    },
+                    {
+                      "category": [
+                        "HighPerformanceCompute"
+                      ],
+                      "familyName": "Standard_A8_A11",
+                      "targetLocations": [
+                        "WestEurope",
+                        "NorthEurope",
+                        "JapanEast",
+                        "NorthCentralUs",
+                        "EastUs",
+                        "SouthCentralUs",
+                        "WestUs"
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/providers/Microsoft.Migrate/locations/{locationName}/checkNameAvailability": {
+      "post": {
+        "description": "Checks whether the project name is available in the specified region.",
+        "operationId": "Location_CheckNameAvailability",
+        "parameters": [
+          {
+            "description": "The desired region for the name check.",
+            "in": "path",
+            "name": "locationName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "$ref": "#/parameters/api-version"
+          },
+          {
+            "$ref": "#/parameters/subscriptionId"
+          },
+          {
+            "description": "Properties needed to check the availability of a name.",
+            "in": "body",
+            "name": "parameters",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CheckNameAvailabilityParameters"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success. Returns details about whether a project name is available.",
+            "schema": {
+              "$ref": "#/definitions/CheckNameAvailabilityResult"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "LocationCheckNameAvailability_AlreadyExists": {
+            "parameters": {
+              "api-version": "2018-02-02",
+              "locationName": "eastus",
+              "parameters": {
+                "name": "existingprojectname",
+                "type": "Microsoft.Migrate/projects"
+              },
+              "subscriptionId": "subid"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "message": "The Migration project name 'existingprojectname' already exists for the given subscription. Please choose another name.",
+                  "nameAvailable": false,
+                  "reason": "AlreadyExists"
+                }
+              }
+            }
+          },
+          "LocationCheckNameAvailability_Available": {
+            "parameters": {
+              "api-version": "2018-02-02",
+              "locationName": "eastus",
+              "parameters": {
+                "name": "newprojectname",
+                "type": "Microsoft.Migrate/projects"
+              },
+              "subscriptionId": "subid"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "message": "The Migration project name 'newprojectname' is available for the given subscription",
+                  "nameAvailable": true,
+                  "reason": "Available"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/providers/Microsoft.Migrate/projects": {
+      "get": {
+        "description": "Get all the projects in the subscription.",
+        "operationId": "Projects_ListBySubscription",
+        "parameters": [
+          {
+            "$ref": "#/parameters/subscriptionId"
+          },
+          {
+            "$ref": "#/parameters/api-version"
+          },
+          {
+            "$ref": "#/parameters/acceptLanguage"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK.",
+            "headers": {
+              "x-ms-request-id": {
+                "description": "Service generated Request ID.",
+                "type": "string"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/ProjectResultList"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
+          }
+        },
+        "summary": "Get all projects.",
+        "x-ms-examples": {
+          "Projects_List": {
+            "parameters": {
+              "api-version": "2018-02-02",
+              "subscriptionId": "75dd7e42-4fd1-4512-af04-83ad9864335b"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "value": [
+                    {
+                      "eTag": "\"b701c73a-0000-0000-0000-59c12ff00000\"",
+                      "id": "/subscriptions/75dd7e42-4fd1-4512-af04-83ad9864335b/resourceGroups/myResourceGroup/providers/Microsoft.Migrate/projects/project01",
+                      "location": "West Us",
+                      "name": "project01",
+                      "properties": {
+                        "createdTimestamp": "2018-02-02T13:11:30.8808917Z",
+                        "customerWorkspaceId": "url-to-customers-service-map",
+                        "customerWorkspaceLocation": "West Us",
+                        "discoveryStatus": "NotStarted",
+                        "lastAssessmentTimestamp": "2018-02-02T13:11:30.8808917Z",
+                        "lastDiscoverySessionId": "2c213c69-e2d3-4c3e-b871-83e5f42f3299",
+                        "lastDiscoveryTimestamp": "2018-02-02T13:11:30.8808917Z",
+                        "numberOfAssessments": 5,
+                        "numberOfGroups": 2,
+                        "numberOfMachines": 5,
+                        "provisioningState": "Succeeded",
+                        "updatedTimestamp": "2018-02-02T13:11:30.8848966Z"
+                      },
+                      "tags": {},
+                      "type": "Microsoft.Migrate/projects"
+                    },
+                    {
+                      "eTag": "\"b701c73a-0000-1111-0000-59c12ff02222\"",
+                      "id": "/subscriptions/75dd7e42-4fd1-4512-af04-83ad9864335b/resourceGroups/myResourceGroup/providers/Microsoft.Migrate/projects/project02",
+                      "location": "West Us",
+                      "name": "project02",
+                      "properties": {
+                        "createdTimestamp": "2018-02-02T10:50:05.3206647Z",
+                        "customerWorkspaceId": "url-to-customers-service-map",
+                        "customerWorkspaceLocation": "West Us",
+                        "discoveryStatus": "NotStarted",
+                        "lastAssessmentTimestamp": "2018-02-02T13:11:30.8808917Z",
+                        "lastDiscoverySessionId": "2c213c69-e2d3-4c3e-b871-83e5f42f3299",
+                        "lastDiscoveryTimestamp": "2018-02-02T13:11:30.8808917Z",
+                        "numberOfAssessments": 4,
+                        "numberOfGroups": 4,
+                        "numberOfMachines": 6,
+                        "provisioningState": "Succeeded",
+                        "updatedTimestamp": "2018-02-02T10:50:05.3236679Z"
+                      },
+                      "tags": {},
+                      "type": "Microsoft.Migrate/projects"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "x-ms-pageable": {
+          "nextLinkName": null
+        }
       }
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/projects/{projectName}/assessments": {
@@ -222,17 +1137,11 @@
               "$ref": "#/definitions/AssessmentResultList"
             }
           },
-          "401": {
-            "description": "Not authorized (No access to subscription, resource group, or project)."
-          },
-          "404": {
-            "description": "Not found (Invalid subscriptionId, resourceGroupName, assessmentName)."
-          },
-          "500": {
-            "description": "Internal Server Error."
-          },
-          "503": {
-            "description": "Service Unavailable."
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
           }
         },
         "summary": "Get all assessments created in the project.",
@@ -308,15 +1217,13 @@
                     }
                   ]
                 }
-              },
-              "401": {},
-              "404": {},
-              "500": {},
-              "503": {}
+              }
             }
           }
         },
-        "x-ms-pageable": {}
+        "x-ms-pageable": {
+          "nextLinkName": null
+        }
       }
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/projects/{projectName}/groups": {
@@ -353,17 +1260,11 @@
               "$ref": "#/definitions/GroupResultList"
             }
           },
-          "401": {
-            "description": "Not authorized (No access to subscription, resource group, or project)."
-          },
-          "404": {
-            "description": "Not found (Invalid subscriptionId, resourceGroupName, projectName)."
-          },
-          "500": {
-            "description": "Internal Server Error."
-          },
-          "503": {
-            "description": "Service Unavailable."
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
           }
         },
         "summary": "Get all groups",
@@ -415,15 +1316,13 @@
                     }
                   ]
                 }
-              },
-              "401": {},
-              "404": {},
-              "500": {},
-              "503": {}
+              }
             }
           }
         },
-        "x-ms-pageable": {}
+        "x-ms-pageable": {
+          "nextLinkName": null
+        }
       }
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/projects/{projectName}/groups/{groupName}": {
@@ -460,20 +1359,11 @@
               }
             }
           },
-          "204": {
-            "description": "No content. No group with specified name was found."
-          },
-          "401": {
-            "description": "Not authorized (No access to subscription, resource group, or project)"
-          },
-          "404": {
-            "description": "Not found (Invalid subscriptionId, resourceGroupName)"
-          },
-          "500": {
-            "description": "Internal Server Error."
-          },
-          "503": {
-            "description": "Service Unavailable."
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
           }
         },
         "summary": "Delete the group",
@@ -487,12 +1377,7 @@
               "subscriptionId": "75dd7e42-4fd1-4512-af04-83ad9864335b"
             },
             "responses": {
-              "200": {},
-              "204": {},
-              "401": {},
-              "404": {},
-              "500": {},
-              "503": {}
+              "200": {}
             }
           }
         }
@@ -533,17 +1418,11 @@
               "$ref": "#/definitions/Group"
             }
           },
-          "401": {
-            "description": "Not authorized (No access to subscription, resource group, or project)."
-          },
-          "404": {
-            "description": "Not found (Invalid subscriptionId, resourceGroupName, projectName, or groupName)."
-          },
-          "500": {
-            "description": "Internal Server Error."
-          },
-          "503": {
-            "description": "Service Unavailable."
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
           }
         },
         "summary": "Get a specific group.",
@@ -576,11 +1455,7 @@
                   },
                   "type": "Microsoft.Migrate/projects/groups"
                 }
-              },
-              "401": {},
-              "404": {},
-              "500": {},
-              "503": {}
+              }
             }
           }
         }
@@ -641,17 +1516,11 @@
               "$ref": "#/definitions/Group"
             }
           },
-          "400": {
-            "description": "Bad Request (Read only settings of an existing group cannot be changed)."
-          },
-          "401": {
-            "description": "Not authorized (No access to subscription, resource group, or project)."
-          },
-          "500": {
-            "description": "Internal Server Error."
-          },
-          "503": {
-            "description": "Service Unavailable."
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
           }
         },
         "summary": "Create a new group with specified settings. If group with the name provided already exists, then the existing group is updated.",
@@ -716,11 +1585,7 @@
                   },
                   "type": "Microsoft.Migrate/projects/groups"
                 }
-              },
-              "400": {},
-              "401": {},
-              "500": {},
-              "503": {}
+              }
             }
           }
         }
@@ -763,17 +1628,11 @@
               "$ref": "#/definitions/AssessmentResultList"
             }
           },
-          "401": {
-            "description": "Not authorized (No access to subscription, resource group, or project)."
-          },
-          "404": {
-            "description": "Not found (Invalid subscriptionId, resourceGroupName, assessmentName)."
-          },
-          "500": {
-            "description": "Internal Server Error."
-          },
-          "503": {
-            "description": "Service Unavailable."
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
           }
         },
         "summary": "Get all assessments created for the specified group.",
@@ -850,15 +1709,13 @@
                     }
                   ]
                 }
-              },
-              "401": {},
-              "404": {},
-              "500": {},
-              "503": {}
+              }
             }
           }
         },
-        "x-ms-pageable": {}
+        "x-ms-pageable": {
+          "nextLinkName": null
+        }
       }
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/projects/{projectName}/groups/{groupName}/assessments/{assessmentName}": {
@@ -898,20 +1755,11 @@
               }
             }
           },
-          "204": {
-            "description": "No content. No assessment with specified name was found."
-          },
-          "400": {
-            "description": "Bad Request. Assessment is under computation and cannot be deleted yet."
-          },
-          "401": {
-            "description": "Not authorized (No access to subscription, resource group, or project)"
-          },
-          "500": {
-            "description": "Internal Server Error."
-          },
-          "503": {
-            "description": "Service Unavailable."
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
           }
         },
         "summary": "Deletes an assessment from the project.",
@@ -926,12 +1774,7 @@
               "subscriptionId": "75dd7e42-4fd1-4512-af04-83ad9864335b"
             },
             "responses": {
-              "200": {},
-              "204": {},
-              "400": {},
-              "401": {},
-              "500": {},
-              "503": {}
+              "200": {}
             }
           }
         }
@@ -975,17 +1818,11 @@
               "$ref": "#/definitions/Assessment"
             }
           },
-          "401": {
-            "description": "Not authorized (No access to subscription, resource group, or project)."
-          },
-          "404": {
-            "description": "Not found (Invalid subscriptionId, resourceGroupName, projectName, or assesmentName)."
-          },
-          "500": {
-            "description": "Internal Server Error."
-          },
-          "503": {
-            "description": "Service Unavailable."
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
           }
         },
         "summary": "Get an assessment.",
@@ -1030,17 +1867,13 @@
                   },
                   "type": "Microsoft.Migrate/projects/groups/assessments"
                 }
-              },
-              "401": {},
-              "404": {},
-              "500": {},
-              "503": {}
+              }
             }
           }
         }
       },
       "put": {
-        "description": "Create a new assessment with the given name and the specified settings. Since name of an assessment in a project is a unique identiefier, if an assessment with the name provided already exists, then the existing assessment is updated.\n\nAny PUT operation, resulting in either create or update on an assessment, will cause the assessment to go in a \"InProgress\" state. This will be indicated by the field 'computationState' on the Assessment object. During this time no other PUT operation will be allowed on that assessment object, nor will a Delete operation. Once the computation for the assessment is complete, the field 'computationState' will be updated to 'Ready', and then other PUT or DELETE operations can happen on the assessment.\n\nWhen assessment is under computation, any PUT will lead to a 400 - Bad Request error.\n",
+        "description": "Create a new assessment with the given name and the specified settings. Since name of an assessment in a project is a unique identifier, if an assessment with the name provided already exists, then the existing assessment is updated.\n\nAny PUT operation, resulting in either create or update on an assessment, will cause the assessment to go in a \"InProgress\" state. This will be indicated by the field 'computationState' on the Assessment object. During this time no other PUT operation will be allowed on that assessment object, nor will a Delete operation. Once the computation for the assessment is complete, the field 'computationState' will be updated to 'Ready', and then other PUT or DELETE operations can happen on the assessment.\n\nWhen assessment is under computation, any PUT will lead to a 400 - Bad Request error.\n",
         "operationId": "Assessments_Create",
         "parameters": [
           {
@@ -1098,17 +1931,11 @@
               "$ref": "#/definitions/Assessment"
             }
           },
-          "400": {
-            "description": "Bad Request. Assessment is under computation and cannot be updated yet."
-          },
-          "401": {
-            "description": "Not authorized (No access to subscription, resource group, or project)."
-          },
-          "500": {
-            "description": "Internal Server Error."
-          },
-          "503": {
-            "description": "Service Unavailable."
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
           }
         },
         "summary": "Create or Update assessment.",
@@ -1201,11 +2028,7 @@
                   },
                   "type": "Microsoft.Migrate/projects/groups/assessments"
                 }
-              },
-              "400": {},
-              "401": {},
-              "500": {},
-              "503": {}
+              }
             }
           }
         }
@@ -1251,17 +2074,11 @@
               "$ref": "#/definitions/AssessedMachineResultList"
             }
           },
-          "401": {
-            "description": "Not authorized (No access to subscription, resource group, or project)."
-          },
-          "404": {
-            "description": "Not found (Invalid subscriptionId, resourceGroupName, projectName, or assessmentName)."
-          },
-          "500": {
-            "description": "Internal Server Error."
-          },
-          "503": {
-            "description": "Service Unavailable."
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
           }
         },
         "summary": "Get assessed machines for assessment.",
@@ -1451,20 +2268,18 @@
                     }
                   ]
                 }
-              },
-              "401": {},
-              "404": {},
-              "500": {},
-              "503": {}
+              }
             }
           }
         },
-        "x-ms-pageable": {}
+        "x-ms-pageable": {
+          "nextLinkName": null
+        }
       }
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/projects/{projectName}/groups/{groupName}/assessments/{assessmentName}/assessedMachines/{assessedMachineName}": {
       "get": {
-        "description": "Get an assessed machine with its size & cost estimnate that was evaluated in the specified assessment.",
+        "description": "Get an assessed machine with its size & cost estimate that was evaluated in the specified assessment.",
         "operationId": "AssessedMachines_Get",
         "parameters": [
           {
@@ -1505,17 +2320,11 @@
               "$ref": "#/definitions/AssessedMachine"
             }
           },
-          "401": {
-            "description": "Not authorized (No access to subscription, resource group, or project)."
-          },
-          "404": {
-            "description": "Not found (Invalid subscriptionId, resourceGroupName, projectName, groupName, assessmentName, or machineId)."
-          },
-          "500": {
-            "description": "Internal Server Error."
-          },
-          "503": {
-            "description": "Service Unavailable."
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
           }
         },
         "summary": "Get an assessed machine.",
@@ -1617,11 +2426,7 @@
                   },
                   "type": "Microsoft.Migrate/projects/groups/assessments/assessedMachines"
                 }
-              },
-              "401": {},
-              "404": {},
-              "500": {},
-              "503": {}
+              }
             }
           }
         }
@@ -1667,17 +2472,11 @@
               "$ref": "#/definitions/DownloadUrl"
             }
           },
-          "401": {
-            "description": "Not authorized (No access to subscription, resource group, or project)."
-          },
-          "404": {
-            "description": "Not found (Invalid subscriptionId, resourceGroupName, projectName)."
-          },
-          "500": {
-            "description": "Internal Server Error."
-          },
-          "503": {
-            "description": "Service Unavailable."
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
           }
         },
         "summary": "Get download URL for the assessment report.",
@@ -1697,11 +2496,7 @@
                   "assessmentReportUrl": "link-to-download-assessment-report",
                   "expirationTime": "2018-02-02T13:17:23.5437337Z"
                 }
-              },
-              "401": {},
-              "404": {},
-              "500": {},
-              "503": {}
+              }
             }
           }
         }
@@ -1741,17 +2536,11 @@
               "$ref": "#/definitions/MachineResultList"
             }
           },
-          "401": {
-            "description": "Not authorized (No access to subscription, resource group, or project)."
-          },
-          "404": {
-            "description": "Not found (Invalid subscriptionId, resourceGroupName, projectName)."
-          },
-          "500": {
-            "description": "Internal Server Error."
-          },
-          "503": {
-            "description": "Service Unavailable."
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
           }
         },
         "summary": "Get all machines in the project",
@@ -1852,15 +2641,13 @@
                     }
                   ]
                 }
-              },
-              "401": {},
-              "404": {},
-              "500": {},
-              "503": {}
+              }
             }
           }
         },
-        "x-ms-pageable": {}
+        "x-ms-pageable": {
+          "nextLinkName": null
+        }
       }
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/projects/{projectName}/machines/{machineName}": {
@@ -1900,17 +2687,11 @@
               "$ref": "#/definitions/Machine"
             }
           },
-          "401": {
-            "description": "Not authorized (No access to subscription, resource group, or project)."
-          },
-          "404": {
-            "description": "Not found (Invalid subscriptionId, resourceGroupName, projectName, or machineName)."
-          },
-          "500": {
-            "description": "Internal Server Error."
-          },
-          "503": {
-            "description": "Service Unavailable."
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
           }
         },
         "summary": "Get a specific machine.",
@@ -1967,11 +2748,7 @@
                   },
                   "type": "Microsoft.Migrate/projects/machines"
                 }
-              },
-              "401": {},
-              "404": {},
-              "500": {},
-              "503": {}
+              }
             }
           }
         }
@@ -1980,7 +2757,7 @@
     "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Migrate/projects": {
       "get": {
         "description": "Get all the projects in the resource group.",
-        "operationId": "Projects_List",
+        "operationId": "Projects_ListByResourceGroup",
         "parameters": [
           {
             "$ref": "#/parameters/subscriptionId"
@@ -2008,17 +2785,11 @@
               "$ref": "#/definitions/ProjectResultList"
             }
           },
-          "401": {
-            "description": "Not authorized (No access to subscription or resource group)."
-          },
-          "404": {
-            "description": "Not found (Invalid subscriptionId, resourceGroupName)."
-          },
-          "500": {
-            "description": "Internal Server Error."
-          },
-          "503": {
-            "description": "Service Unavailable."
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
           }
         },
         "summary": "Get all projects.",
@@ -2079,15 +2850,13 @@
                     }
                   ]
                 }
-              },
-              "401": {},
-              "404": {},
-              "500": {},
-              "503": {}
+              }
             }
           }
         },
-        "x-ms-pageable": {}
+        "x-ms-pageable": {
+          "nextLinkName": null
+        }
       }
     },
     "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Migrate/projects/{projectName}": {
@@ -2121,20 +2890,11 @@
               }
             }
           },
-          "204": {
-            "description": "No content. No project with specified name was found."
-          },
-          "400": {
-            "description": "Bad request. (Invalid subscriptionId or resourceGroupName)."
-          },
-          "401": {
-            "description": "Not authorized (No access to subscription, resource group, or project)"
-          },
-          "500": {
-            "description": "Internal Server Error."
-          },
-          "503": {
-            "description": "Service Unavailable."
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
           }
         },
         "summary": "Delete the project",
@@ -2147,12 +2907,7 @@
               "subscriptionId": "75dd7e42-4fd1-4512-af04-83ad9864335b"
             },
             "responses": {
-              "200": {},
-              "204": {},
-              "400": {},
-              "401": {},
-              "500": {},
-              "503": {}
+              "200": {}
             }
           }
         }
@@ -2190,17 +2945,11 @@
               "$ref": "#/definitions/Project"
             }
           },
-          "401": {
-            "description": "Not authorized (No access to subscription, resource group, or project)."
-          },
-          "404": {
-            "description": "Not found (Invalid subscriptionId, resourceGroupName, projectName)."
-          },
-          "500": {
-            "description": "Internal Server Error."
-          },
-          "503": {
-            "description": "Service Unavailable."
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
           }
         },
         "summary": "Get the specified project.",
@@ -2236,11 +2985,7 @@
                   "tags": {},
                   "type": "Microsoft.Migrate/projects"
                 }
-              },
-              "401": {},
-              "404": {},
-              "500": {},
-              "503": {}
+              }
             }
           }
         }
@@ -2286,20 +3031,11 @@
               "$ref": "#/definitions/Project"
             }
           },
-          "400": {
-            "description": "Bad Request (Read only settings of an existing project cannot be changed)."
-          },
-          "401": {
-            "description": "Not authorized (No access to subscription, resource group, or project)."
-          },
-          "404": {
-            "description": "Not found (Invalid subscriptionId, resourceGroupName, or nestName)."
-          },
-          "500": {
-            "description": "Internal Server Error."
-          },
-          "503": {
-            "description": "Service Unavailable."
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
           }
         },
         "summary": "Update project.",
@@ -2347,12 +3083,7 @@
                   "tags": {},
                   "type": "Microsoft.Migrate/projects"
                 }
-              },
-              "400": {},
-              "401": {},
-              "404": {},
-              "500": {},
-              "503": {}
+              }
             }
           }
         }
@@ -2410,17 +3141,11 @@
               "$ref": "#/definitions/Project"
             }
           },
-          "400": {
-            "description": "Bad Request (Read only settings of an existing project cannot be changed)."
-          },
-          "401": {
-            "description": "Not authorized (No access to subscription, resource group, or project)."
-          },
-          "500": {
-            "description": "Internal Server Error."
-          },
-          "503": {
-            "description": "Service Unavailable."
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
           }
         },
         "summary": "Create or update project.",
@@ -2492,11 +3217,7 @@
                   "tags": {},
                   "type": "Microsoft.Migrate/projects"
                 }
-              },
-              "400": {},
-              "401": {},
-              "500": {},
-              "503": {}
+              }
             }
           }
         }
@@ -2536,17 +3257,11 @@
               "$ref": "#/definitions/ProjectKey"
             }
           },
-          "401": {
-            "description": "Not authorized (No access to subscription, resource group, or project)."
-          },
-          "404": {
-            "description": "Not found (Invalid subscriptionId, resourceGroupName, projectName)."
-          },
-          "500": {
-            "description": "Internal Server Error."
-          },
-          "503": {
-            "description": "Service Unavailable."
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
           }
         },
         "summary": "Get shared keys for the project.",
@@ -2564,11 +3279,7 @@
                   "workspaceId": "migrationProjectId",
                   "workspaceKey": "migrationProjectKey"
                 }
-              },
-              "401": {},
-              "404": {},
-              "500": {},
-              "503": {}
+              }
             }
           }
         }
@@ -3292,6 +4003,30 @@
       "type": "object",
       "x-ms-azure-resource": true
     },
+    "AssessmentOptionsResultList": {
+      "description": "List of assessment options.",
+      "properties": {
+        "reservedInstanceVmFamilies": {
+          "description": "List of supported VM Families.",
+          "items": {
+            "description": "Azure VM family name.",
+            "readOnly": true,
+            "type": "string"
+          },
+          "readOnly": true,
+          "type": "array"
+        },
+        "vmFamilies": {
+          "description": "Dictionary of VM families grouped by vm family name describing the targeted azure locations of VM family and the category of the family.",
+          "items": {
+            "$ref": "#/definitions/VmFamily"
+          },
+          "readOnly": true,
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
     "AssessmentProperties": {
       "description": "Properties of an assessment.",
       "properties": {
@@ -3553,7 +4288,7 @@
           }
         },
         "status": {
-          "description": "Wheter the assessment has been created and is valid.",
+          "description": "Whether the assessment has been created and is valid.",
           "enum": [
             "Created",
             "Updated",
@@ -3616,6 +4351,93 @@
         }
       },
       "type": "object"
+    },
+    "CheckNameAvailabilityParameters": {
+      "description": "Parameters for a check name availability request.",
+      "properties": {
+        "name": {
+          "description": "The name to check for availability",
+          "type": "string"
+        },
+        "type": {
+          "description": "The resource type. Must be set to Microsoft.Migrate/projects",
+          "enum": [
+            "Microsoft.Migrate/projects"
+          ],
+          "type": "string",
+          "x-ms-enum": {
+            "modelAsString": false,
+            "name": "Type"
+          }
+        }
+      },
+      "required": [
+        "name",
+        "type"
+      ]
+    },
+    "CheckNameAvailabilityResult": {
+      "description": "The CheckNameAvailability operation response.",
+      "properties": {
+        "message": {
+          "description": "Gets an error message explaining the Reason value in more detail.",
+          "readOnly": true,
+          "type": "string"
+        },
+        "nameAvailable": {
+          "description": "Gets a boolean value that indicates whether the name is available for you to use. If true, the name is available. If false, the name has already been taken or invalid and cannot be used.",
+          "readOnly": true,
+          "type": "boolean"
+        },
+        "reason": {
+          "description": "Gets the reason that a project name could not be used. The Reason element is only returned if NameAvailable is false.",
+          "enum": [
+            "Available",
+            "Invalid",
+            "AlreadyExists"
+          ],
+          "readOnly": true,
+          "type": "string",
+          "x-ms-enum": {
+            "modelAsString": false,
+            "name": "NameAvailabilityReason"
+          }
+        }
+      }
+    },
+    "CloudError": {
+      "description": "An error response from the Azure Migrate service.",
+      "properties": {
+        "error": {
+          "$ref": "#/definitions/CloudErrorBody"
+        }
+      },
+      "x-ms-external": true
+    },
+    "CloudErrorBody": {
+      "description": "An error response from the Azure Migrate service.",
+      "properties": {
+        "code": {
+          "description": "An identifier for the error. Codes are invariant and are intended to be consumed programmatically.",
+          "type": "string"
+        },
+        "details": {
+          "description": "A list of additional details about the error.",
+          "items": {
+            "$ref": "#/definitions/CloudErrorBody"
+          },
+          "type": "array"
+        },
+        "message": {
+          "description": "A message describing the error, intended to be suitable for display in a user interface.",
+          "type": "string"
+        },
+        "target": {
+          "description": "The target of the particular error. For example, the name of the property in error.",
+          "type": "string"
+        }
+      },
+      "x-ms-external": true
     },
     "Disk": {
       "description": "A disk discovered on a machine.",
@@ -4130,6 +4952,37 @@
           "items": {
             "$ref": "#/definitions/Project"
           },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "VmFamily": {
+      "description": "VM family name, the list of targeted azure locations and the category of the family.",
+      "properties": {
+        "category": {
+          "description": "Category of the VM family.",
+          "items": {
+            "description": "VM family Category.",
+            "readOnly": true,
+            "type": "string"
+          },
+          "readOnly": true,
+          "type": "array"
+        },
+        "familyName": {
+          "description": "Name of the VM family.",
+          "readOnly": true,
+          "type": "string"
+        },
+        "targetLocations": {
+          "description": "List of Azure regions.",
+          "items": {
+            "description": "Azure region name.",
+            "readOnly": true,
+            "type": "string"
+          },
+          "readOnly": true,
           "type": "array"
         }
       },

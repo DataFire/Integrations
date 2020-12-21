@@ -11,7 +11,7 @@
       "x-twitter": "Walmart"
     },
     "description": "Please make sure you use the correct version of the APIs for your use case. To find out the appropriate version, go to the API Docs  drop down on the menu.",
-    "title": "Orders",
+    "title": "Orders API",
     "version": "3.0.1",
     "x-apisguru-categories": [
       "ecommerce"
@@ -34,12 +34,6 @@
       "type": "openapi"
     }
   },
-  "consumes": [
-    "application/xml"
-  ],
-  "produces": [
-    "application/xml"
-  ],
   "tags": [
     {
       "name": "Version 3"
@@ -48,9 +42,20 @@
   "paths": {
     "/v3/orders": {
       "get": {
+        "consumes": [
+          "application/xml",
+          "application/json"
+        ],
         "description": "You can display a list of all orders with the query parameter filter criteria.",
         "operationId": "getAllOrders",
         "parameters": [
+          {
+            "description": "Ship Node",
+            "in": "query",
+            "name": "shipNode",
+            "required": false,
+            "type": "string"
+          },
           {
             "description": "Retrieves all orders with the specified SKU.",
             "in": "query",
@@ -117,16 +122,24 @@
             "type": "integer"
           },
           {
-            "description": "Used for pagination when there are more than 200 orders to retrieve. The nextCursor value of the returned response includes a link to another GET call to retrieve the next page. Copy the link and paste it in the next call.",
-            "format": "int32",
-            "in": "query",
-            "name": "nextCursor",
-            "required": false,
-            "type": "integer"
+            "default": "application/xml",
+            "description": "application/xml,\napplication/json",
+            "enum": [
+              "application/xml",
+              "application/json"
+            ],
+            "in": "header",
+            "name": "Content-Type",
+            "required": true,
+            "type": "string"
           },
           {
             "default": "application/xml",
-            "description": "application/xml",
+            "description": "application/xml,\napplication/json",
+            "enum": [
+              "application/xml",
+              "application/json"
+            ],
             "in": "header",
             "name": "Accept",
             "required": true,
@@ -183,6 +196,10 @@
             "type": "string"
           }
         ],
+        "produces": [
+          "application/xml",
+          "application/json"
+        ],
         "responses": {
           "default": {
             "description": "successful operation"
@@ -196,9 +213,20 @@
     },
     "/v3/orders/released": {
       "get": {
+        "consumes": [
+          "application/xml",
+          "application/json"
+        ],
         "description": "You can display all released orders that have been created and are ready for fulfilment.",
         "operationId": "getReleasedOrders",
         "parameters": [
+          {
+            "description": "Ship Node",
+            "in": "query",
+            "name": "shipNode",
+            "required": false,
+            "type": "string"
+          },
           {
             "description": "Limit orders to those created after this date or a timestamp.",
             "in": "query",
@@ -215,90 +243,24 @@
             "type": "integer"
           },
           {
-            "description": "Used for pagination when there are more than 200 orders to retrieve. The nextCursor value of the returned response includes a link to another GET call to retrieve the next page. Copy the link and paste it in the next call.",
-            "format": "int32",
-            "in": "query",
-            "name": "nextCursor",
-            "required": false,
-            "type": "integer"
-          },
-          {
-            "default": "SWAGGER_CHANNEL_TYPE",
-            "description": "Channel Type",
+            "default": "application/xml",
+            "description": "application/xml,\napplication/json",
             "enum": [
-              "SWAGGER_CHANNEL_TYPE"
+              "application/xml",
+              "application/json"
             ],
             "in": "header",
-            "name": "WM_CONSUMER.CHANNEL.TYPE",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "Your Consumer ID",
-            "in": "header",
-            "name": "WM_CONSUMER.ID",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "default": "Auto populated",
-            "description": "Epoch timestamp",
-            "in": "header",
-            "name": "WM_SEC.TIMESTAMP",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "default": "Auto populated",
-            "description": "Authentication signature",
-            "in": "header",
-            "name": "WM_SEC.AUTH_SIGNATURE",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "default": "Walmart Marketplace",
-            "description": "The Service name",
-            "in": "header",
-            "name": "WM_SVC.NAME",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "default": "123456abcdef",
-            "description": "A Transaction ID",
-            "in": "header",
-            "name": "WM_QOS.CORRELATION_ID",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "default": {
-            "description": "successful operation"
-          }
-        },
-        "summary": "Get all released orders",
-        "tags": [
-          "Version 3"
-        ]
-      }
-    },
-    "/v3/orders/{purchaseOrderId}": {
-      "get": {
-        "description": "You can display details of a specific order based on the purchaseOrderId.",
-        "operationId": "getOrderByPurchaseOrderId",
-        "parameters": [
-          {
-            "description": "Purchase Order ID",
-            "in": "path",
-            "name": "purchaseOrderId",
+            "name": "Content-Type",
             "required": true,
             "type": "string"
           },
           {
             "default": "application/xml",
-            "description": "application/xml",
+            "description": "application/xml,\napplication/json",
+            "enum": [
+              "application/xml",
+              "application/json"
+            ],
             "in": "header",
             "name": "Accept",
             "required": true,
@@ -354,6 +316,229 @@
             "required": true,
             "type": "string"
           }
+        ],
+        "produces": [
+          "application/xml",
+          "application/json"
+        ],
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
+        },
+        "summary": "Get all released orders",
+        "tags": [
+          "Version 3"
+        ]
+      }
+    },
+    "/v3/orders/released{nextCursor}": {
+      "get": {
+        "consumes": [
+          "application/xml",
+          "application/json"
+        ],
+        "description": "You can display all released orders that have been created and are ready for fulfilment with nextCursor path parameter.",
+        "operationId": "getNextCursorReleasedOrders",
+        "parameters": [
+          {
+            "description": "Used for pagination when there are more than 200 orders to retrieve. The nextCursor value of the returned response includes a link to another GET call to retrieve the next page. Copy the link and paste it in the next call.",
+            "in": "path",
+            "name": "nextCursor",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": "application/xml",
+            "description": "application/xml,\napplication/json",
+            "enum": [
+              "application/xml",
+              "application/json"
+            ],
+            "in": "header",
+            "name": "Content-Type",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": "application/xml",
+            "description": "application/xml,\napplication/json",
+            "enum": [
+              "application/xml",
+              "application/json"
+            ],
+            "in": "header",
+            "name": "Accept",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": "SWAGGER_CHANNEL_TYPE",
+            "description": "Channel Type",
+            "enum": [
+              "SWAGGER_CHANNEL_TYPE"
+            ],
+            "in": "header",
+            "name": "WM_CONSUMER.CHANNEL.TYPE",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Your Consumer ID",
+            "in": "header",
+            "name": "WM_CONSUMER.ID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": "Auto populated",
+            "description": "Epoch timestamp",
+            "in": "header",
+            "name": "WM_SEC.TIMESTAMP",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": "Auto populated",
+            "description": "Authentication signature",
+            "in": "header",
+            "name": "WM_SEC.AUTH_SIGNATURE",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": "Walmart Marketplace",
+            "description": "The Service name",
+            "in": "header",
+            "name": "WM_SVC.NAME",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": "123456abcdef",
+            "description": "A Transaction ID",
+            "in": "header",
+            "name": "WM_QOS.CORRELATION_ID",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/xml",
+          "application/json"
+        ],
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
+        },
+        "summary": "Get released orders for next page",
+        "tags": [
+          "Version 3"
+        ]
+      }
+    },
+    "/v3/orders/{purchaseOrderId}": {
+      "get": {
+        "consumes": [
+          "application/xml",
+          "application/json"
+        ],
+        "description": "You can display details of a specific order based on the purchaseOrderId.",
+        "operationId": "getOrderByPurchaseOrderId",
+        "parameters": [
+          {
+            "description": "Purchase Order ID",
+            "in": "path",
+            "name": "purchaseOrderId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Ship Node",
+            "in": "query",
+            "name": "shipNode",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "default": "application/xml",
+            "description": "application/xml,\napplication/json",
+            "enum": [
+              "application/xml",
+              "application/json"
+            ],
+            "in": "header",
+            "name": "Content-Type",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": "application/xml",
+            "description": "application/xml,\napplication/json",
+            "enum": [
+              "application/xml",
+              "application/json"
+            ],
+            "in": "header",
+            "name": "Accept",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": "SWAGGER_CHANNEL_TYPE",
+            "description": "Channel Type",
+            "enum": [
+              "SWAGGER_CHANNEL_TYPE"
+            ],
+            "in": "header",
+            "name": "WM_CONSUMER.CHANNEL.TYPE",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Your Consumer ID",
+            "in": "header",
+            "name": "WM_CONSUMER.ID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": "Auto populated",
+            "description": "Epoch timestamp",
+            "in": "header",
+            "name": "WM_SEC.TIMESTAMP",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": "Auto populated",
+            "description": "Authentication signature",
+            "in": "header",
+            "name": "WM_SEC.AUTH_SIGNATURE",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": "Walmart Marketplace",
+            "description": "The Service name",
+            "in": "header",
+            "name": "WM_SVC.NAME",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": "123456abcdef",
+            "description": "A Transaction ID",
+            "in": "header",
+            "name": "WM_QOS.CORRELATION_ID",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/xml",
+          "application/json"
         ],
         "responses": {
           "default": {
@@ -368,6 +553,10 @@
     },
     "/v3/orders/{purchaseOrderId}/acknowledge": {
       "post": {
+        "consumes": [
+          "application/xml",
+          "application/json"
+        ],
         "description": "You can acknowledge an entire order, including all of its order lines. Walmart business rules require to acknowledge orders within four hour of receipt of the order, except in extenuating circumstances.",
         "operationId": "acknowledgeOrders",
         "parameters": [
@@ -379,18 +568,33 @@
             "type": "string"
           },
           {
+            "description": "Ship Node",
+            "in": "query",
+            "name": "shipNode",
+            "required": false,
+            "type": "string"
+          },
+          {
             "default": "application/xml",
-            "description": "application/xml",
+            "description": "application/xml,\napplication/json",
+            "enum": [
+              "application/xml",
+              "application/json"
+            ],
             "in": "header",
-            "name": "Accept",
+            "name": "Content-Type",
             "required": true,
             "type": "string"
           },
           {
             "default": "application/xml",
-            "description": "application/xml",
+            "description": "application/xml,\napplication/json",
+            "enum": [
+              "application/xml",
+              "application/json"
+            ],
             "in": "header",
-            "name": "Content-Type",
+            "name": "Accept",
             "required": true,
             "type": "string"
           },
@@ -444,6 +648,10 @@
             "required": true,
             "type": "string"
           }
+        ],
+        "produces": [
+          "application/xml",
+          "application/json"
         ],
         "responses": {
           "default": {
@@ -458,6 +666,10 @@
     },
     "/v3/orders/{purchaseOrderId}/cancel": {
       "post": {
+        "consumes": [
+          "application/xml",
+          "application/json"
+        ],
         "description": "You can cancel one or more order lines. You must include a purchaseOrderLineNumber when cancelling an order. After cancelling your order, update the inventory for the cancelled order and send it in the next inventory feed.",
         "operationId": "cancelOrder",
         "parameters": [
@@ -469,18 +681,33 @@
             "type": "string"
           },
           {
+            "description": "Ship Node",
+            "in": "query",
+            "name": "shipNode",
+            "required": false,
+            "type": "string"
+          },
+          {
             "default": "application/xml",
-            "description": "application/xml",
+            "description": "application/xml,\napplication/json",
+            "enum": [
+              "application/xml",
+              "application/json"
+            ],
             "in": "header",
-            "name": "Accept",
+            "name": "Content-Type",
             "required": true,
             "type": "string"
           },
           {
             "default": "application/xml",
-            "description": "application/xml",
+            "description": "application/xml,\napplication/json",
+            "enum": [
+              "application/xml",
+              "application/json"
+            ],
             "in": "header",
-            "name": "Content-Type",
+            "name": "Accept",
             "required": true,
             "type": "string"
           },
@@ -543,6 +770,10 @@
             "required": true,
             "type": "string"
           }
+        ],
+        "produces": [
+          "application/xml",
+          "application/json"
         ],
         "responses": {
           "default": {
@@ -557,6 +788,10 @@
     },
     "/v3/orders/{purchaseOrderId}/refund": {
       "post": {
+        "consumes": [
+          "application/xml",
+          "application/json"
+        ],
         "description": "You can refund one or more order lines that have been shipped. The response to a successful call contains the order with the refunded line item.",
         "operationId": "refundOrder",
         "parameters": [
@@ -568,18 +803,33 @@
             "type": "string"
           },
           {
+            "description": "Ship Node",
+            "in": "query",
+            "name": "shipNode",
+            "required": false,
+            "type": "string"
+          },
+          {
             "default": "application/xml",
-            "description": "application/xml",
+            "description": "application/xml,\napplication/json",
+            "enum": [
+              "application/xml",
+              "application/json"
+            ],
             "in": "header",
-            "name": "Accept",
+            "name": "Content-Type",
             "required": true,
             "type": "string"
           },
           {
             "default": "application/xml",
-            "description": "application/xml",
+            "description": "application/xml,\napplication/json",
+            "enum": [
+              "application/xml",
+              "application/json"
+            ],
             "in": "header",
-            "name": "Content-Type",
+            "name": "Accept",
             "required": true,
             "type": "string"
           },
@@ -642,6 +892,10 @@
             "required": true,
             "type": "string"
           }
+        ],
+        "produces": [
+          "application/xml",
+          "application/json"
         ],
         "responses": {
           "default": {
@@ -656,6 +910,10 @@
     },
     "/v3/orders/{purchaseOrderId}/shipping": {
       "post": {
+        "consumes": [
+          "application/xml",
+          "application/json"
+        ],
         "description": "You can change the status of order lines to \"Shipped\" and trigger the charge to a customer. You must acknowledge your orders before sending a shipping update to avoid underselling. An order line, once marked as shipped, cannot be updated.",
         "operationId": "shippingOrder",
         "parameters": [
@@ -667,18 +925,33 @@
             "type": "string"
           },
           {
+            "description": "Ship Node",
+            "in": "query",
+            "name": "shipNode",
+            "required": false,
+            "type": "string"
+          },
+          {
             "default": "application/xml",
-            "description": "application/xml",
+            "description": "application/xml,\napplication/json",
+            "enum": [
+              "application/xml",
+              "application/json"
+            ],
             "in": "header",
-            "name": "Accept",
+            "name": "Content-Type",
             "required": true,
             "type": "string"
           },
           {
             "default": "application/xml",
-            "description": "application/xml",
+            "description": "application/xml,\napplication/json",
+            "enum": [
+              "application/xml",
+              "application/json"
+            ],
             "in": "header",
-            "name": "Content-Type",
+            "name": "Accept",
             "required": true,
             "type": "string"
           },
@@ -742,12 +1015,122 @@
             "type": "string"
           }
         ],
+        "produces": [
+          "application/xml",
+          "application/json"
+        ],
         "responses": {
           "default": {
             "description": "successful operation"
           }
         },
         "summary": "Shipping updates",
+        "tags": [
+          "Version 3"
+        ]
+      }
+    },
+    "/v3/orders{nextCursor}": {
+      "get": {
+        "consumes": [
+          "application/xml",
+          "application/json"
+        ],
+        "description": "You can display a list of all orders with nextCursor path parameter pagination criteria.",
+        "operationId": "getAllOrdersNext",
+        "parameters": [
+          {
+            "description": "Used for pagination when there are more than 200 orders to retrieve. The nextCursor value of the returned response includes a link to another GET call to retrieve the next page. Copy the link and paste it in the next call.",
+            "in": "path",
+            "name": "nextCursor",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": "application/xml",
+            "description": "application/xml,\napplication/json",
+            "enum": [
+              "application/xml",
+              "application/json"
+            ],
+            "in": "header",
+            "name": "Content-Type",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": "application/xml",
+            "description": "application/xml,\napplication/json",
+            "enum": [
+              "application/xml",
+              "application/json"
+            ],
+            "in": "header",
+            "name": "Accept",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": "SWAGGER_CHANNEL_TYPE",
+            "description": "Channel Type",
+            "enum": [
+              "SWAGGER_CHANNEL_TYPE"
+            ],
+            "in": "header",
+            "name": "WM_CONSUMER.CHANNEL.TYPE",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Your Consumer ID",
+            "in": "header",
+            "name": "WM_CONSUMER.ID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": "Auto populated",
+            "description": "Epoch timestamp",
+            "in": "header",
+            "name": "WM_SEC.TIMESTAMP",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": "Auto populated",
+            "description": "Authentication signature",
+            "in": "header",
+            "name": "WM_SEC.AUTH_SIGNATURE",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": "Walmart Marketplace",
+            "description": "The Service name",
+            "in": "header",
+            "name": "WM_SVC.NAME",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": "123456abcdef",
+            "description": "A Transaction ID",
+            "in": "header",
+            "name": "WM_QOS.CORRELATION_ID",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/xml",
+          "application/json"
+        ],
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
+        },
+        "summary": "Get orders for next page",
         "tags": [
           "Version 3"
         ]

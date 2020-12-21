@@ -9,7 +9,7 @@ npm install --save @datafire/bikewise
 ```js
 let bikewise = require('@datafire/bikewise').create();
 
-bikewise.v2.locations.markers.get({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

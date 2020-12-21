@@ -1,6 +1,6 @@
 # @datafire/o2_cz_sociodemo
 
-Client library for Socio-demo
+Client library for Socio-demo API
 
 ## Installation and Usage
 ```bash
@@ -9,12 +9,7 @@ npm install --save @datafire/o2_cz_sociodemo
 ```js
 let o2_cz_sociodemo = require('@datafire/o2_cz_sociodemo').create();
 
-o2_cz_sociodemo.age({
-  "location": "",
-  "ageGroup": "",
-  "occurenceType": "",
-  "hour": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

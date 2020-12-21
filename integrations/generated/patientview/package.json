@@ -1,6 +1,6 @@
 {
   "name": "@datafire/patientview",
-  "version": "5.0.0",
+  "version": "6.0.0",
   "main": "index.js",
   "description": "DataFire integration for PatientView",
   "repository": {
@@ -14,8 +14,8 @@
   },
   "homepage": "https://github.com/DataFire/integrations#readme",
   "datafire": {
-    "origin": "https://api.apis.guru/v2/specs/patientview.org/1.0/swagger.json",
-    "type": "openapi"
+    "origin": "https://api.apis.guru/v2/specs/patientview.org/1.0/openapi.json",
+    "type": "openapi_3"
   },
   "dependencies": {
     "datafire": "^2.0.0"

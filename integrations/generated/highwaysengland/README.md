@@ -9,9 +9,7 @@ npm install --save @datafire/highwaysengland
 ```js
 let highwaysengland = require('@datafire/highwaysengland').create();
 
-highwaysengland.vversion.areas.get({
-  "version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

@@ -15,11 +15,7 @@ let azure_web_domains = require('@datafire/azure_web_domains').create({
   redirect_uri: ""
 });
 
-azure_web_domains.Domains_CheckAvailability({
-  "identifier": {},
-  "subscriptionId": "",
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -438,7 +434,7 @@ azure_web_domains.Domains_Renew({
   * type `string`: Resource type.
 
 ### DomainAvailablilityCheckResult
-* DomainAvailablilityCheckResult `object`: Domain availablility check result.
+* DomainAvailablilityCheckResult `object`: Domain availability check result.
   * available `boolean`: <code>true</code> if domain can be purchased using CreateDomain API; otherwise, <code>false</code>.
   * domainType `string` (values: Regular, SoftDeleted): Valid values are Regular domain: Azure will charge the full price of domain registration, SoftDeleted: Purchasing this domain will simply restore it and this operation will not cost anything.
   * name `string`: Name of the domain.
@@ -512,11 +508,6 @@ azure_web_domains.Domains_Renew({
 * DomainRecommendationSearchParameters `object`: Domain recommendation search parameters.
   * keywords `string`: Keywords to be used for generating domain recommendations.
   * maxDomainRecommendations `integer`: Maximum number of recommendations.
-
-### ErrorResponse
-* ErrorResponse `object`: Error Response.
-  * code `string`: Error code.
-  * message `string`: Error message indicating why the operation failed.
 
 ### HostName
 * HostName `object`: Details of a hostname derived from a domain.

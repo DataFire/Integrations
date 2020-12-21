@@ -1,6 +1,6 @@
 # @datafire/azure_storage
 
-Client library for StorageManagement
+Client library for StorageManagementClient
 
 ## Installation and Usage
 ```bash
@@ -15,9 +15,7 @@ let azure_storage = require('@datafire/azure_storage').create({
   redirect_uri: ""
 });
 
-azure_storage.Operations_List({
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -40,7 +38,7 @@ azure_storage.Operations_List({
 
 #### Input
 * input `object`
-  * api-version **required** `string`: Client Api Version.
+  * api-version **required** `string`: The API version to use for this operation.
 
 #### Output
 * output [OperationListResult](#operationlistresult)
@@ -60,11 +58,32 @@ azure_storage.StorageAccounts_CheckNameAvailability({
 #### Input
 * input `object`
   * accountName **required** [StorageAccountCheckNameAvailabilityParameters](#storageaccountchecknameavailabilityparameters)
-  * api-version **required** `string`: Client Api Version.
-  * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+  * api-version **required** `string`: The API version to use for this operation.
+  * subscriptionId **required** `string`: The ID of the target subscription.
 
 #### Output
 * output [CheckNameAvailabilityResult](#checknameavailabilityresult)
+
+### Usages_ListByLocation
+Gets the current usage count and the limit for the resources of the location under the subscription.
+
+
+```js
+azure_storage.Usages_ListByLocation({
+  "api-version": "",
+  "subscriptionId": "",
+  "location": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * api-version **required** `string`: The API version to use for this operation.
+  * subscriptionId **required** `string`: The ID of the target subscription.
+  * location **required** `string`: The location of the Azure Storage resource.
+
+#### Output
+* output [UsageListResult](#usagelistresult)
 
 ### Skus_List
 Lists the available SKUs supported by Microsoft.Storage for given subscription.
@@ -79,8 +98,8 @@ azure_storage.Skus_List({
 
 #### Input
 * input `object`
-  * api-version **required** `string`: Client Api Version.
-  * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+  * api-version **required** `string`: The API version to use for this operation.
+  * subscriptionId **required** `string`: The ID of the target subscription.
 
 #### Output
 * output [StorageSkuListResult](#storageskulistresult)
@@ -98,30 +117,11 @@ azure_storage.StorageAccounts_List({
 
 #### Input
 * input `object`
-  * api-version **required** `string`: Client Api Version.
-  * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+  * api-version **required** `string`: The API version to use for this operation.
+  * subscriptionId **required** `string`: The ID of the target subscription.
 
 #### Output
 * output [StorageAccountListResult](#storageaccountlistresult)
-
-### Usage_List
-Gets the current usage count and the limit for the resources under the subscription.
-
-
-```js
-azure_storage.Usage_List({
-  "api-version": "",
-  "subscriptionId": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * api-version **required** `string`: Client Api Version.
-  * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
-
-#### Output
-* output [UsageListResult](#usagelistresult)
 
 ### StorageAccounts_ListByResourceGroup
 Lists all the storage accounts available under the given resource group. Note that storage keys are not returned; use the ListKeys operation for this.
@@ -138,8 +138,8 @@ azure_storage.StorageAccounts_ListByResourceGroup({
 #### Input
 * input `object`
   * resourceGroupName **required** `string`: The name of the resource group within the user's subscription. The name is case insensitive.
-  * api-version **required** `string`: Client Api Version.
-  * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+  * api-version **required** `string`: The API version to use for this operation.
+  * subscriptionId **required** `string`: The ID of the target subscription.
 
 #### Output
 * output [StorageAccountListResult](#storageaccountlistresult)
@@ -161,8 +161,8 @@ azure_storage.StorageAccounts_Delete({
 * input `object`
   * resourceGroupName **required** `string`: The name of the resource group within the user's subscription. The name is case insensitive.
   * accountName **required** `string`: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
-  * api-version **required** `string`: Client Api Version.
-  * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+  * api-version **required** `string`: The API version to use for this operation.
+  * subscriptionId **required** `string`: The ID of the target subscription.
 
 #### Output
 *Output schema unknown*
@@ -183,9 +183,10 @@ azure_storage.StorageAccounts_GetProperties({
 #### Input
 * input `object`
   * resourceGroupName **required** `string`: The name of the resource group within the user's subscription. The name is case insensitive.
-  * accountName **required** `string`: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.  
-  * api-version **required** `string`: Client Api Version.
-  * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+  * accountName **required** `string`: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
+  * api-version **required** `string`: The API version to use for this operation.
+  * subscriptionId **required** `string`: The ID of the target subscription.
+  * $expand `string` (values: geoReplicationStats): May be used to expand the properties within account's properties. By default, data is not included when fetching properties. Currently we only support geoReplicationStats.
 
 #### Output
 * output [StorageAccount](#storageaccount)
@@ -209,8 +210,8 @@ azure_storage.StorageAccounts_Update({
   * resourceGroupName **required** `string`: The name of the resource group within the user's subscription. The name is case insensitive.
   * accountName **required** `string`: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
   * parameters **required** [StorageAccountUpdateParameters](#storageaccountupdateparameters)
-  * api-version **required** `string`: Client Api Version.
-  * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+  * api-version **required** `string`: The API version to use for this operation.
+  * subscriptionId **required** `string`: The ID of the target subscription.
 
 #### Output
 * output [StorageAccount](#storageaccount)
@@ -234,8 +235,8 @@ azure_storage.StorageAccounts_Create({
   * resourceGroupName **required** `string`: The name of the resource group within the user's subscription. The name is case insensitive.
   * accountName **required** `string`: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
   * parameters **required** [StorageAccountCreateParameters](#storageaccountcreateparameters)
-  * api-version **required** `string`: Client Api Version.
-  * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+  * api-version **required** `string`: The API version to use for this operation.
+  * subscriptionId **required** `string`: The ID of the target subscription.
 
 #### Output
 * output [StorageAccount](#storageaccount)
@@ -257,10 +258,10 @@ azure_storage.StorageAccounts_ListAccountSAS({
 #### Input
 * input `object`
   * resourceGroupName **required** `string`: The name of the resource group within the user's subscription. The name is case insensitive.
-  * accountName **required** `string`: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.  
+  * accountName **required** `string`: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
   * parameters **required** [AccountSasParameters](#accountsasparameters)
-  * api-version **required** `string`: Client Api Version.
-  * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+  * api-version **required** `string`: The API version to use for this operation.
+  * subscriptionId **required** `string`: The ID of the target subscription.
 
 #### Output
 * output [ListAccountSasResponse](#listaccountsasresponse)
@@ -284,14 +285,37 @@ azure_storage.StorageAccounts_ListServiceSAS({
   * resourceGroupName **required** `string`: The name of the resource group within the user's subscription. The name is case insensitive.
   * accountName **required** `string`: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
   * parameters **required** [ServiceSasParameters](#servicesasparameters)
-  * api-version **required** `string`: Client Api Version.
-  * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+  * api-version **required** `string`: The API version to use for this operation.
+  * subscriptionId **required** `string`: The ID of the target subscription.
 
 #### Output
 * output [ListServiceSasResponse](#listservicesasresponse)
 
+### StorageAccounts_Failover
+Failover request can be triggered for a storage account in case of availability issues. The failover occurs from the storage account's primary cluster to secondary cluster for RA-GRS accounts. The secondary cluster will become primary after failover.
+
+
+```js
+azure_storage.StorageAccounts_Failover({
+  "resourceGroupName": "",
+  "accountName": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * resourceGroupName **required** `string`: The name of the resource group within the user's subscription. The name is case insensitive.
+  * accountName **required** `string`: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
+  * api-version **required** `string`: The API version to use for this operation.
+  * subscriptionId **required** `string`: The ID of the target subscription.
+
+#### Output
+*Output schema unknown*
+
 ### StorageAccounts_ListKeys
-Lists the access keys for the specified storage account.
+Lists the access keys or Kerberos keys (if active directory enabled) for the specified storage account.
 
 
 ```js
@@ -307,14 +331,92 @@ azure_storage.StorageAccounts_ListKeys({
 * input `object`
   * resourceGroupName **required** `string`: The name of the resource group within the user's subscription. The name is case insensitive.
   * accountName **required** `string`: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
-  * api-version **required** `string`: Client Api Version.
-  * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+  * api-version **required** `string`: The API version to use for this operation.
+  * subscriptionId **required** `string`: The ID of the target subscription.
+  * $expand `string` (values: kerb): Specifies type of the key to be listed. Possible value is kerb.
 
 #### Output
 * output [StorageAccountListKeysResult](#storageaccountlistkeysresult)
 
+### ManagementPolicies_Delete
+Deletes the managementpolicy associated with the specified storage account.
+
+
+```js
+azure_storage.ManagementPolicies_Delete({
+  "resourceGroupName": "",
+  "accountName": "",
+  "api-version": "",
+  "subscriptionId": "",
+  "managementPolicyName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * resourceGroupName **required** `string`: The name of the resource group within the user's subscription. The name is case insensitive.
+  * accountName **required** `string`: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
+  * api-version **required** `string`: The API version to use for this operation.
+  * subscriptionId **required** `string`: The ID of the target subscription.
+  * managementPolicyName **required** `string` (values: default): The name of the Storage Account Management Policy. It should always be 'default'
+
+#### Output
+*Output schema unknown*
+
+### ManagementPolicies_Get
+Gets the managementpolicy associated with the specified storage account.
+
+
+```js
+azure_storage.ManagementPolicies_Get({
+  "resourceGroupName": "",
+  "accountName": "",
+  "api-version": "",
+  "subscriptionId": "",
+  "managementPolicyName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * resourceGroupName **required** `string`: The name of the resource group within the user's subscription. The name is case insensitive.
+  * accountName **required** `string`: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
+  * api-version **required** `string`: The API version to use for this operation.
+  * subscriptionId **required** `string`: The ID of the target subscription.
+  * managementPolicyName **required** `string` (values: default): The name of the Storage Account Management Policy. It should always be 'default'
+
+#### Output
+* output [ManagementPolicy](#managementpolicy)
+
+### ManagementPolicies_CreateOrUpdate
+Sets the managementpolicy to the specified storage account.
+
+
+```js
+azure_storage.ManagementPolicies_CreateOrUpdate({
+  "resourceGroupName": "",
+  "accountName": "",
+  "api-version": "",
+  "subscriptionId": "",
+  "managementPolicyName": "",
+  "properties": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * resourceGroupName **required** `string`: The name of the resource group within the user's subscription. The name is case insensitive.
+  * accountName **required** `string`: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
+  * api-version **required** `string`: The API version to use for this operation.
+  * subscriptionId **required** `string`: The ID of the target subscription.
+  * managementPolicyName **required** `string` (values: default): The name of the Storage Account Management Policy. It should always be 'default'
+  * properties **required** [ManagementPolicy](#managementpolicy)
+
+#### Output
+* output [ManagementPolicy](#managementpolicy)
+
 ### StorageAccounts_RegenerateKey
-Regenerates one of the access keys for the specified storage account.
+Regenerates one of the access keys or Kerberos keys for the specified storage account.
 
 
 ```js
@@ -332,11 +434,34 @@ azure_storage.StorageAccounts_RegenerateKey({
   * resourceGroupName **required** `string`: The name of the resource group within the user's subscription. The name is case insensitive.
   * accountName **required** `string`: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
   * regenerateKey **required** [StorageAccountRegenerateKeyParameters](#storageaccountregeneratekeyparameters)
-  * api-version **required** `string`: Client Api Version.
-  * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+  * api-version **required** `string`: The API version to use for this operation.
+  * subscriptionId **required** `string`: The ID of the target subscription.
 
 #### Output
 * output [StorageAccountListKeysResult](#storageaccountlistkeysresult)
+
+### StorageAccounts_RevokeUserDelegationKeys
+Revoke user delegation keys.
+
+
+```js
+azure_storage.StorageAccounts_RevokeUserDelegationKeys({
+  "resourceGroupName": "",
+  "accountName": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * resourceGroupName **required** `string`: The name of the resource group within the user's subscription. The name is case insensitive.
+  * accountName **required** `string`: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
+  * api-version **required** `string`: The API version to use for this operation.
+  * subscriptionId **required** `string`: The ID of the target subscription.
+
+#### Output
+*Output schema unknown*
 
 
 
@@ -353,6 +478,20 @@ azure_storage.StorageAccounts_RegenerateKey({
   * signedServices **required** `string` (values: b, q, t, f): The signed services accessible with the account SAS. Possible values include: Blob (b), Queue (q), Table (t), File (f).
   * signedStart `string`: The time at which the SAS becomes valid.
 
+### ActiveDirectoryProperties
+* ActiveDirectoryProperties `object`: Settings properties for Active Directory (AD).
+  * azureStorageSid **required** `string`: Specifies the security identifier (SID) for Azure Storage.
+  * domainGuid **required** `string`: Specifies the domain GUID.
+  * domainName **required** `string`: Specifies the primary domain that the AD DNS server is authoritative for.
+  * domainSid **required** `string`: Specifies the security identifier (SID).
+  * forestName **required** `string`: Specifies the Active Directory forest to get.
+  * netBiosDomainName **required** `string`: Specifies the NetBIOS domain name.
+
+### AzureFilesIdentityBasedAuthentication
+* AzureFilesIdentityBasedAuthentication `object`: Settings for Azure Files identity based authentication.
+  * activeDirectoryProperties [ActiveDirectoryProperties](#activedirectoryproperties)
+  * directoryServiceOptions **required** `string` (values: None, AADDS, AD): Indicates the directory service used.
+
 ### CheckNameAvailabilityResult
 * CheckNameAvailabilityResult `object`: The CheckNameAvailability operation response.
   * message `string`: Gets an error message explaining the Reason value in more detail.
@@ -362,10 +501,18 @@ azure_storage.StorageAccounts_RegenerateKey({
 ### CustomDomain
 * CustomDomain `object`: The custom domain assigned to this storage account. This can be set via Update.
   * name **required** `string`: Gets or sets the custom domain name assigned to the storage account. Name is the CNAME source.
-  * useSubDomain `boolean`: Indicates whether indirect CName validation is enabled. Default value is false. This should only be set on updates.
+  * useSubDomainName `boolean`: Indicates whether indirect CName validation is enabled. Default value is false. This should only be set on updates.
+
+### DateAfterCreation
+* DateAfterCreation `object`: Object to define the number of days after creation.
+  * daysAfterCreationGreaterThan **required** `number`: Value indicating the age in days after creation
+
+### DateAfterModification
+* DateAfterModification `object`: Object to define the number of days after last modification.
+  * daysAfterModificationGreaterThan **required** `number`: Value indicating the age in days after last modification
 
 ### Dimension
-* Dimension `object`: Dimension of blobs, possiblly be blob type or access tier.
+* Dimension `object`: Dimension of blobs, possibly be blob type or access tier.
   * displayName `string`: Display name of dimension.
   * name `string`: Display name of dimension.
 
@@ -388,11 +535,19 @@ azure_storage.StorageAccounts_RegenerateKey({
   * table [EncryptionService](#encryptionservice)
 
 ### Endpoints
-* Endpoints `object`: The URIs that are used to perform a retrieval of a public blob, queue, or table object.
+* Endpoints `object`: The URIs that are used to perform a retrieval of a public blob, queue, table, web or dfs object.
   * blob `string`: Gets the blob endpoint.
+  * dfs `string`: Gets the dfs endpoint.
   * file `string`: Gets the file endpoint.
   * queue `string`: Gets the queue endpoint.
   * table `string`: Gets the table endpoint.
+  * web `string`: Gets the web endpoint.
+
+### GeoReplicationStats
+* GeoReplicationStats `object`: Statistics related to replication for storage account's Blob, Table, Queue and File services. It is only available when geo-redundant replication is enabled for the storage account.
+  * canFailover `boolean`: A boolean flag which indicates whether or not account failover is supported for the account.
+  * lastSyncTime `string`: All primary writes preceding this UTC date/time value are guaranteed to be available for read operations. Primary writes following this point in time may or may not be available for reads. Element may be default value if value of LastSyncTime is not available, this can happen if secondary is offline or we are in bootstrap.
+  * status `string` (values: Live, Bootstrap, Unavailable): The status of the secondary location. Possible values are: - Live: Indicates that the secondary location is active and operational. - Bootstrap: Indicates initial synchronization from the primary location to the secondary location is in progress.This typically occurs when replication is first enabled. - Unavailable: Indicates that the secondary location is temporarily unavailable.
 
 ### IPRule
 * IPRule `object`: IP rule with specific IP or IP range in CIDR format.
@@ -417,7 +572,58 @@ azure_storage.StorageAccounts_RegenerateKey({
 
 ### ListServiceSasResponse
 * ListServiceSasResponse `object`: The List service SAS credentials operation response.
-  * serviceSasToken `string`: List service SAS credentials of speicific resource.
+  * serviceSasToken `string`: List service SAS credentials of specific resource.
+
+### ManagementPolicy
+* ManagementPolicy `object`: The Get Storage Account ManagementPolicies operation response.
+  * properties [ManagementPolicyProperties](#managementpolicyproperties)
+  * id `string`: Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+  * name `string`: The name of the resource
+  * type `string`: The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+
+### ManagementPolicyAction
+* ManagementPolicyAction `object`: Actions are applied to the filtered blobs when the execution condition is met.
+  * baseBlob [ManagementPolicyBaseBlob](#managementpolicybaseblob)
+  * snapshot [ManagementPolicySnapShot](#managementpolicysnapshot)
+
+### ManagementPolicyBaseBlob
+* ManagementPolicyBaseBlob `object`: Management policy action for base blob.
+  * delete [DateAfterModification](#dateaftermodification)
+  * tierToArchive [DateAfterModification](#dateaftermodification)
+  * tierToCool [DateAfterModification](#dateaftermodification)
+
+### ManagementPolicyDefinition
+* ManagementPolicyDefinition `object`: An object that defines the Lifecycle rule. Each definition is made up with a filters set and an actions set.
+  * actions **required** [ManagementPolicyAction](#managementpolicyaction)
+  * filters [ManagementPolicyFilter](#managementpolicyfilter)
+
+### ManagementPolicyFilter
+* ManagementPolicyFilter `object`: Filters limit rule actions to a subset of blobs within the storage account. If multiple filters are defined, a logical AND is performed on all filters. 
+  * blobTypes **required** `array`: An array of predefined enum values. Only blockBlob is supported.
+    * items `string`
+  * prefixMatch `array`: An array of strings for prefixes to be match.
+    * items `string`
+
+### ManagementPolicyProperties
+* ManagementPolicyProperties `object`: The Storage Account ManagementPolicy properties.
+  * lastModifiedTime `string`: Returns the date and time the ManagementPolicies was last modified.
+  * policy **required** [ManagementPolicySchema](#managementpolicyschema)
+
+### ManagementPolicyRule
+* ManagementPolicyRule `object`: An object that wraps the Lifecycle rule. Each rule is uniquely defined by name.
+  * definition **required** [ManagementPolicyDefinition](#managementpolicydefinition)
+  * enabled `boolean`: Rule is enabled if set to true.
+  * name **required** `string`: A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.
+  * type **required** `string` (values: Lifecycle): The valid value is Lifecycle
+
+### ManagementPolicySchema
+* ManagementPolicySchema `object`: The Storage Account ManagementPolicies Rules. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
+  * rules **required** `array`: The Storage Account ManagementPolicies Rules. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
+    * items [ManagementPolicyRule](#managementpolicyrule)
+
+### ManagementPolicySnapShot
+* ManagementPolicySnapShot `object`: Management policy action for snapshot.
+  * delete [DateAfterCreation](#dateaftercreation)
 
 ### MetricSpecification
 * MetricSpecification `object`: Metric specification of operation.
@@ -444,6 +650,7 @@ azure_storage.StorageAccounts_RegenerateKey({
 ### Operation
 * Operation `object`: Storage REST API operation definition.
   * display `object`: Display metadata associated with the operation.
+    * description `string`: Description of the operation.
     * operation `string`: Type of operation: get, read, delete, etc.
     * provider `string`: Service provider: Microsoft Storage.
     * resource `string`: Resource on which the operation is performed etc.
@@ -460,28 +667,20 @@ azure_storage.StorageAccounts_RegenerateKey({
 * OperationProperties `object`: Properties of operation, include metric specifications.
   * serviceSpecification [ServiceSpecification](#servicespecification)
 
-### Resource
-* Resource `object`: Describes a storage resource.
-  * id `string`: Resource Id
-  * location `string`: Resource location
-  * name `string`: Resource name
-  * tags `object`: Tags assigned to a resource; can be used for viewing and grouping a resource (across resource groups).
-  * type `string`: Resource type
-
 ### Restriction
 * Restriction `object`: The restriction because of which SKU cannot be used.
-  * reasonCode `string` (values: QuotaId, NotAvailableForSubscription): The reason for the restriction. As of now this can be “QuotaId” or “NotAvailableForSubscription”. Quota Id is set when the SKU has requiredQuotas parameter as the subscription does not belong to that quota. The “NotAvailableForSubscription” is related to capacity at DC.
+  * reasonCode `string` (values: QuotaId, NotAvailableForSubscription): The reason for the restriction. As of now this can be "QuotaId" or "NotAvailableForSubscription". Quota Id is set when the SKU has requiredQuotas parameter as the subscription does not belong to that quota. The "NotAvailableForSubscription" is related to capacity at DC.
   * type `string`: The type of restrictions. As of now only possible value for this is location.
   * values `array`: The value of restrictions. If the restriction type is set to location. This would be different locations where the SKU is restricted.
     * items `string`
 
 ### SKUCapability
-* SKUCapability `object`: The capability information in the specified sku, including file encryption, network acls, change notification, etc.
-  * name `string`: The name of capability, The capability information in the specified sku, including file encryption, network acls, change notification, etc.
+* SKUCapability `object`: The capability information in the specified SKU, including file encryption, network ACLs, change notification, etc.
+  * name `string`: The name of capability, The capability information in the specified SKU, including file encryption, network ACLs, change notification, etc.
   * value `string`: A string value to indicate states of given capability. Possibly 'true' or 'false'.
 
 ### ServiceSasParameters
-* ServiceSasParameters `object`: The parameters to list service SAS credentials of a speicific resource.
+* ServiceSasParameters `object`: The parameters to list service SAS credentials of a specific resource.
   * canonicalizedResource **required** `string`: The canonical path to the signed resource.
   * endPk `string`: The end of partition key.
   * endRk `string`: The end of row key.
@@ -496,7 +695,7 @@ azure_storage.StorageAccounts_RegenerateKey({
   * signedIp `string`: An IP address or a range of IP addresses from which to accept requests.
   * signedPermission `string` (values: r, d, w, l, a, c, u, p): The signed permissions for the service SAS. Possible values include: Read (r), Write (w), Delete (d), List (l), Add (a), Create (c), Update (u) and Process (p).
   * signedProtocol `string` (values: https,http, https): The protocol permitted for a request made with the account SAS.
-  * signedResource **required** `string` (values: b, c, f, s): The signed services accessible with the service SAS. Possible values include: Blob (b), Container (c), File (f), Share (s).
+  * signedResource `string` (values: b, c, f, s): The signed services accessible with the service SAS. Possible values include: Blob (b), Container (c), File (f), Share (s).
   * signedStart `string`: The time at which the SAS becomes valid.
   * startPk `string`: The start of partition key.
   * startRk `string`: The start of row key.
@@ -508,38 +707,38 @@ azure_storage.StorageAccounts_RegenerateKey({
 
 ### Sku
 * Sku `object`: The SKU of the storage account.
-  * capabilities `array`: The capability information in the specified sku, including file encryption, network acls, change notification, etc.
+  * capabilities `array`: The capability information in the specified SKU, including file encryption, network ACLs, change notification, etc.
     * items [SKUCapability](#skucapability)
-  * kind `string` (values: Storage, StorageV2, BlobStorage): Indicates the type of storage account.
+  * kind `string` (values: Storage, StorageV2, BlobStorage, FileStorage, BlockBlobStorage): Indicates the type of storage account.
   * locations `array`: The set of locations that the SKU is available. This will be supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.).
     * items `string`
-  * name **required** `string` (values: Standard_LRS, Standard_GRS, Standard_RAGRS, Standard_ZRS, Premium_LRS): Gets or sets the sku name. Required for account creation; optional for update. Note that in older versions, sku name was called accountType.
+  * name **required** `string` (values: Standard_LRS, Standard_GRS, Standard_RAGRS, Standard_ZRS, Premium_LRS, Premium_ZRS, Standard_GZRS, Standard_RAGZRS): Gets or sets the SKU name. Required for account creation; optional for update. Note that in older versions, SKU name was called accountType.
   * resourceType `string`: The type of the resource, usually it is 'storageAccounts'.
   * restrictions `array`: The restrictions because of which SKU cannot be used. This is empty if there are no restrictions.
     * items [Restriction](#restriction)
-  * tier `string` (values: Standard, Premium): Gets the sku tier. This is based on the SKU name.
+  * tier `string` (values: Standard, Premium): Gets the SKU tier. This is based on the SKU name.
 
 ### StorageAccount
 * StorageAccount `object`: The storage account.
   * identity [Identity](#identity)
-  * kind `string` (values: Storage, StorageV2, BlobStorage): Gets the Kind.
+  * kind `string` (values: Storage, StorageV2, BlobStorage, FileStorage, BlockBlobStorage): Gets the Kind.
   * properties [StorageAccountProperties](#storageaccountproperties)
   * sku [Sku](#sku)
-  * id `string`: Resource Id
-  * location `string`: Resource location
-  * name `string`: Resource name
-  * tags `object`: Tags assigned to a resource; can be used for viewing and grouping a resource (across resource groups).
-  * type `string`: Resource type
+  * location **required** `string`: The geo-location where the resource lives
+  * tags `object`: Resource tags.
+  * id `string`: Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+  * name `string`: The name of the resource
+  * type `string`: The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 
 ### StorageAccountCheckNameAvailabilityParameters
-* StorageAccountCheckNameAvailabilityParameters `object`: The parameters used to check the availabity of the storage account name.
+* StorageAccountCheckNameAvailabilityParameters `object`: The parameters used to check the availability of the storage account name.
   * name **required** `string`: The storage account name.
   * type **required** `string` (values: Microsoft.Storage/storageAccounts): The type of resource, Microsoft.Storage/storageAccounts
 
 ### StorageAccountCreateParameters
 * StorageAccountCreateParameters `object`: The parameters used when creating a storage account.
   * identity [Identity](#identity)
-  * kind **required** `string` (values: Storage, StorageV2, BlobStorage): Required. Indicates the type of storage account.
+  * kind **required** `string` (values: Storage, StorageV2, BlobStorage, FileStorage, BlockBlobStorage): Required. Indicates the type of storage account.
   * location **required** `string`: Required. Gets or sets the location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo region is specified on update, the request will succeed.
   * properties [StorageAccountPropertiesCreateParameters](#storageaccountpropertiescreateparameters)
   * sku **required** [Sku](#sku)
@@ -558,15 +757,21 @@ azure_storage.StorageAccounts_RegenerateKey({
 
 ### StorageAccountListResult
 * StorageAccountListResult `object`: The response from the List Storage Accounts operation.
+  * nextLink `string`: Request URL that can be used to query next page of storage accounts. Returned when total number of requested storage accounts exceed maximum page size.
   * value `array`: Gets the list of storage accounts and their properties.
     * items [StorageAccount](#storageaccount)
 
 ### StorageAccountProperties
 * StorageAccountProperties `object`: Properties of the storage account.
   * accessTier `string` (values: Hot, Cool): Required for storage accounts where kind = BlobStorage. The access tier used for billing.
+  * azureFilesIdentityBasedAuthentication [AzureFilesIdentityBasedAuthentication](#azurefilesidentitybasedauthentication)
   * creationTime `string`: Gets the creation date and time of the storage account in UTC.
   * customDomain [CustomDomain](#customdomain)
   * encryption [Encryption](#encryption)
+  * failoverInProgress `boolean`: If the failover is in progress, the value will be true, otherwise, it will be null.
+  * geoReplicationStats [GeoReplicationStats](#georeplicationstats)
+  * isHnsEnabled `boolean`: Account HierarchicalNamespace enabled if sets to true.
+  * largeFileSharesState `string` (values: Disabled, Enabled): Allow large file shares if sets to Enabled. It cannot be disabled once it is enabled.
   * lastGeoFailoverTime `string`: Gets the timestamp of the most recent instance of a failover to the secondary location. Only the most recent timestamp is retained. This element is not returned if there has never been a failover instance. Only available if the accountType is Standard_GRS or Standard_RAGRS.
   * networkAcls [NetworkRuleSet](#networkruleset)
   * primaryEndpoints [Endpoints](#endpoints)
@@ -581,27 +786,32 @@ azure_storage.StorageAccounts_RegenerateKey({
 ### StorageAccountPropertiesCreateParameters
 * StorageAccountPropertiesCreateParameters `object`: The parameters used to create the storage account.
   * accessTier `string` (values: Hot, Cool): Required for storage accounts where kind = BlobStorage. The access tier used for billing.
+  * azureFilesIdentityBasedAuthentication [AzureFilesIdentityBasedAuthentication](#azurefilesidentitybasedauthentication)
   * customDomain [CustomDomain](#customdomain)
   * encryption [Encryption](#encryption)
+  * isHnsEnabled `boolean`: Account HierarchicalNamespace enabled if sets to true.
+  * largeFileSharesState `string` (values: Disabled, Enabled): Allow large file shares if sets to Enabled. It cannot be disabled once it is enabled.
   * networkAcls [NetworkRuleSet](#networkruleset)
-  * supportsHttpsTrafficOnly `boolean`: Allows https traffic only to storage service if sets to true.
+  * supportsHttpsTrafficOnly `boolean`: Allows https traffic only to storage service if sets to true. The default value is true since API version 2019-04-01.
 
 ### StorageAccountPropertiesUpdateParameters
 * StorageAccountPropertiesUpdateParameters `object`: The parameters used when updating a storage account.
   * accessTier `string` (values: Hot, Cool): Required for storage accounts where kind = BlobStorage. The access tier used for billing.
+  * azureFilesIdentityBasedAuthentication [AzureFilesIdentityBasedAuthentication](#azurefilesidentitybasedauthentication)
   * customDomain [CustomDomain](#customdomain)
   * encryption [Encryption](#encryption)
+  * largeFileSharesState `string` (values: Disabled, Enabled): Allow large file shares if sets to Enabled. It cannot be disabled once it is enabled.
   * networkAcls [NetworkRuleSet](#networkruleset)
   * supportsHttpsTrafficOnly `boolean`: Allows https traffic only to storage service if sets to true.
 
 ### StorageAccountRegenerateKeyParameters
 * StorageAccountRegenerateKeyParameters `object`: The parameters used to regenerate the storage account key.
-  * keyName **required** `string`: The name of storage keys that want to be regenerated, possible vaules are key1, key2.
+  * keyName **required** `string`: The name of storage keys that want to be regenerated, possible values are key1, key2, kerb1, kerb2.
 
 ### StorageAccountUpdateParameters
 * StorageAccountUpdateParameters `object`: The parameters that can be provided when updating the storage account properties.
   * identity [Identity](#identity)
-  * kind `string` (values: Storage, StorageV2, BlobStorage): Optional. Indicates the type of storage account. Currently only StorageV2 value supported by server.
+  * kind `string` (values: Storage, StorageV2, BlobStorage, FileStorage, BlockBlobStorage): Optional. Indicates the type of storage account. Currently only StorageV2 value supported by server.
   * properties [StorageAccountPropertiesUpdateParameters](#storageaccountpropertiesupdateparameters)
   * sku [Sku](#sku)
   * tags `object`: Gets or sets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater in length than 128 characters and a value no greater in length than 256 characters.

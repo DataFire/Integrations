@@ -7,7 +7,7 @@
   "info": {
     "description": "The Microsoft Azure Network management API provides a RESTful set of web services that interact with Microsoft Azure Networks service to manage your network resources. The API has entities that capture the relationship between an end user and the Microsoft Azure Networks service.",
     "title": "NetworkManagementClient",
-    "version": "2018-01-01",
+    "version": "2019-08-01",
     "x-apisguru-categories": [
       "cloud"
     ],
@@ -17,7 +17,7 @@
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/network/resource-manager/Microsoft.Network/stable/2018-01-01/routeFilter.json",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/network/resource-manager/Microsoft.Network/stable/2019-08-01/routeFilter.json",
         "version": "2.0"
       }
     ],
@@ -42,7 +42,7 @@
   "securityDefinitions": {
     "azure_auth": {
       "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
-      "description": "Azure Active Directory OAuth2 Flow",
+      "description": "Azure Active Directory OAuth2 Flow.",
       "flow": "implicit",
       "scopes": {
         "user_impersonation": "impersonate your user account"
@@ -57,22 +57,6 @@
       ]
     }
   ],
-  "parameters": {
-    "ApiVersionParameter": {
-      "description": "Client API version.",
-      "in": "query",
-      "name": "api-version",
-      "required": true,
-      "type": "string"
-    },
-    "SubscriptionIdParameter": {
-      "description": "The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
-      "in": "path",
-      "name": "subscriptionId",
-      "required": true,
-      "type": "string"
-    }
-  },
   "paths": {
     "/subscriptions/{subscriptionId}/providers/Microsoft.Network/routeFilters": {
       "get": {
@@ -80,10 +64,18 @@
         "operationId": "RouteFilters_List",
         "parameters": [
           {
-            "$ref": "#/parameters/ApiVersionParameter"
+            "description": "Client API version.",
+            "in": "query",
+            "name": "api-version",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/SubscriptionIdParameter"
+            "description": "The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -100,7 +92,7 @@
         "x-ms-examples": {
           "RouteFilterList": {
             "parameters": {
-              "api-version": "2018-01-01",
+              "api-version": "2019-08-01",
               "subscriptionId": "subid"
             },
             "responses": {
@@ -109,7 +101,7 @@
                   "value": [
                     {
                       "etag": "w/\\00000000-0000-0000-0000-000000000000\\",
-                      "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsofot.Network/routeFilters/filterName",
+                      "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/routeFilters/filterName",
                       "location": "West US",
                       "name": "filterName",
                       "properties": {
@@ -118,7 +110,7 @@
                         "rules": [
                           {
                             "etag": "w/\\00000000-0000-0000-0000-000000000000\\",
-                            "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsofot.Network/routeFilters/filterName/routeFilterRules/ruleName",
+                            "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/routeFilters/filterName/routeFilterRules/ruleName",
                             "name": "ruleName",
                             "properties": {
                               "access": "Allow",
@@ -135,7 +127,7 @@
                       "tags": {
                         "key1": "value1"
                       },
-                      "type": "Microsofot.Network/routeFilters"
+                      "type": "Microsoft.Network/routeFilters"
                     }
                   ]
                 }
@@ -161,10 +153,18 @@
             "type": "string"
           },
           {
-            "$ref": "#/parameters/ApiVersionParameter"
+            "description": "Client API version.",
+            "in": "query",
+            "name": "api-version",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/SubscriptionIdParameter"
+            "description": "The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -181,7 +181,7 @@
         "x-ms-examples": {
           "RouteFilterListByResourceGroup": {
             "parameters": {
-              "api-version": "2018-01-01",
+              "api-version": "2019-08-01",
               "resourceGroupName": "rg1",
               "subscriptionId": "subid"
             },
@@ -191,7 +191,7 @@
                   "value": [
                     {
                       "etag": "w/\\00000000-0000-0000-0000-000000000000\\",
-                      "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsofot.Network/routeFilters/filterName",
+                      "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/routeFilters/filterName",
                       "location": "West US",
                       "name": "filterName",
                       "properties": {
@@ -200,7 +200,7 @@
                         "rules": [
                           {
                             "etag": "w/\\00000000-0000-0000-0000-000000000000\\",
-                            "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsofot.Network/routeFilters/filterName/routeFilterRules/ruleName",
+                            "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/routeFilters/filterName/routeFilterRules/ruleName",
                             "name": "ruleName",
                             "properties": {
                               "access": "Allow",
@@ -217,7 +217,7 @@
                       "tags": {
                         "key1": "value1"
                       },
-                      "type": "Microsofot.Network/routeFilters"
+                      "type": "Microsoft.Network/routeFilters"
                     }
                   ]
                 }
@@ -250,10 +250,18 @@
             "type": "string"
           },
           {
-            "$ref": "#/parameters/ApiVersionParameter"
+            "description": "Client API version.",
+            "in": "query",
+            "name": "api-version",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/SubscriptionIdParameter"
+            "description": "The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -273,7 +281,7 @@
         "x-ms-examples": {
           "RouteFilterDelete": {
             "parameters": {
-              "api-version": "2018-01-01",
+              "api-version": "2019-08-01",
               "resourceGroupName": "rg1",
               "routeFilterName": "filterName",
               "subscriptionId": "subid"
@@ -285,7 +293,10 @@
             }
           }
         },
-        "x-ms-long-running-operation": true
+        "x-ms-long-running-operation": true,
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "location"
+        }
       },
       "get": {
         "description": "Gets the specified route filter.",
@@ -306,10 +317,18 @@
             "type": "string"
           },
           {
-            "$ref": "#/parameters/ApiVersionParameter"
+            "description": "Client API version.",
+            "in": "query",
+            "name": "api-version",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/SubscriptionIdParameter"
+            "description": "The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string"
           },
           {
             "description": "Expands referenced express route bgp peering resources.",
@@ -333,7 +352,7 @@
         "x-ms-examples": {
           "RouteFilterGet": {
             "parameters": {
-              "api-version": "2018-01-01",
+              "api-version": "2019-08-01",
               "resourceGroupName": "rg1",
               "routeFilterName": "filterName",
               "subscriptionId": "subid"
@@ -342,7 +361,7 @@
               "200": {
                 "body": {
                   "etag": "w/\\00000000-0000-0000-0000-000000000000\\",
-                  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsofot.Network/routeFilters/filterName",
+                  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/routeFilters/filterName",
                   "location": "West US",
                   "name": "filterName",
                   "properties": {
@@ -351,7 +370,7 @@
                     "rules": [
                       {
                         "etag": "w/\\00000000-0000-0000-0000-000000000000\\",
-                        "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsofot.Network/routeFilters/filterName/routeFilterRules/ruleName",
+                        "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/routeFilters/filterName/routeFilterRules/ruleName",
                         "name": "ruleName",
                         "properties": {
                           "access": "Allow",
@@ -368,7 +387,7 @@
                   "tags": {
                     "key1": "value1"
                   },
-                  "type": "Microsofot.Network/routeFilters"
+                  "type": "Microsoft.Network/routeFilters"
                 }
               }
             }
@@ -403,10 +422,18 @@
             }
           },
           {
-            "$ref": "#/parameters/ApiVersionParameter"
+            "description": "Client API version.",
+            "in": "query",
+            "name": "api-version",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/SubscriptionIdParameter"
+            "description": "The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -423,7 +450,7 @@
         "x-ms-examples": {
           "RouteFilterUpdate": {
             "parameters": {
-              "api-version": "2018-01-01",
+              "api-version": "2019-08-01",
               "resourceGroupName": "rg1",
               "routeFilterName": "filterName",
               "routeFilterParameters": {
@@ -451,7 +478,7 @@
               "200": {
                 "body": {
                   "etag": "w/\\00000000-0000-0000-0000-000000000000\\",
-                  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsofot.Network/routeFilters/filterName",
+                  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/routeFilters/filterName",
                   "location": "West US",
                   "name": "filterName",
                   "properties": {
@@ -460,7 +487,7 @@
                     "rules": [
                       {
                         "etag": "w/\\00000000-0000-0000-0000-000000000000\\",
-                        "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsofot.Network/routeFilters/filterName/routeFilterRules/ruleName",
+                        "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/routeFilters/filterName/routeFilterRules/ruleName",
                         "name": "ruleName",
                         "properties": {
                           "access": "Allow",
@@ -476,7 +503,7 @@
                   "tags": {
                     "key1": "value1"
                   },
-                  "type": "Microsofot.Network/routeFilters"
+                  "type": "Microsoft.Network/routeFilters"
                 }
               }
             }
@@ -512,10 +539,18 @@
             }
           },
           {
-            "$ref": "#/parameters/ApiVersionParameter"
+            "description": "Client API version.",
+            "in": "query",
+            "name": "api-version",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/SubscriptionIdParameter"
+            "description": "The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -538,7 +573,7 @@
         "x-ms-examples": {
           "RouteFilterCreate": {
             "parameters": {
-              "api-version": "2018-01-01",
+              "api-version": "2019-08-01",
               "resourceGroupName": "rg1",
               "routeFilterName": "filterName",
               "routeFilterParameters": {
@@ -569,7 +604,7 @@
               "200": {
                 "body": {
                   "etag": "w/\\00000000-0000-0000-0000-000000000000\\",
-                  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsofot.Network/routeFilters/filterName",
+                  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/routeFilters/filterName",
                   "location": "West US",
                   "name": "filterName",
                   "properties": {
@@ -578,7 +613,7 @@
                     "rules": [
                       {
                         "etag": "w/\\00000000-0000-0000-0000-000000000000\\",
-                        "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsofot.Network/routeFilters/filterName/routeFilterRules/ruleName",
+                        "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/routeFilters/filterName/routeFilterRules/ruleName",
                         "name": "ruleName",
                         "properties": {
                           "access": "Allow",
@@ -595,13 +630,13 @@
                   "tags": {
                     "key1": "value1"
                   },
-                  "type": "Microsofot.Network/routeFilters"
+                  "type": "Microsoft.Network/routeFilters"
                 }
               },
               "201": {
                 "body": {
                   "etag": "w/\\00000000-0000-0000-0000-000000000000\\",
-                  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsofot.Network/routeFilters/filterName",
+                  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/routeFilters/filterName",
                   "location": "West US",
                   "name": "filterName",
                   "properties": {
@@ -610,7 +645,7 @@
                     "rules": [
                       {
                         "etag": "w/\\00000000-0000-0000-0000-000000000000\\",
-                        "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsofot.Network/routeFilters/filterName/routeFilterRules/ruleName",
+                        "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/routeFilters/filterName/routeFilterRules/ruleName",
                         "name": "ruleName",
                         "properties": {
                           "access": "Allow",
@@ -627,13 +662,16 @@
                   "tags": {
                     "key1": "value1"
                   },
-                  "type": "Microsofot.Network/routeFilters"
+                  "type": "Microsoft.Network/routeFilters"
                 }
               }
             }
           }
         },
-        "x-ms-long-running-operation": true
+        "x-ms-long-running-operation": true,
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "azure-async-operation"
+        }
       }
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/routeFilters/{routeFilterName}/routeFilterRules": {
@@ -656,10 +694,18 @@
             "type": "string"
           },
           {
-            "$ref": "#/parameters/ApiVersionParameter"
+            "description": "Client API version.",
+            "in": "query",
+            "name": "api-version",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/SubscriptionIdParameter"
+            "description": "The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -676,7 +722,7 @@
         "x-ms-examples": {
           "RouteFilterRuleListByRouteFilter": {
             "parameters": {
-              "api-version": "2018-01-01",
+              "api-version": "2019-08-01",
               "resourceGroupName": "rg1",
               "routeFilterName": "filterName",
               "subscriptionId": "subid"
@@ -687,7 +733,7 @@
                   "value": [
                     {
                       "etag": "w/\\00000000-0000-0000-0000-000000000000\\",
-                      "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsofot.Network/routeFilters/filterName/routeFilterRules/ruleName",
+                      "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/routeFilters/filterName/routeFilterRules/ruleName",
                       "name": "ruleName",
                       "properties": {
                         "access": "Allow",
@@ -737,10 +783,18 @@
             "type": "string"
           },
           {
-            "$ref": "#/parameters/ApiVersionParameter"
+            "description": "Client API version.",
+            "in": "query",
+            "name": "api-version",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/SubscriptionIdParameter"
+            "description": "The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -760,7 +814,7 @@
         "x-ms-examples": {
           "RouteFilterRuleDelete": {
             "parameters": {
-              "api-version": "2018-01-01",
+              "api-version": "2019-08-01",
               "resourceGroupName": "rg1",
               "routeFilterName": "filterName",
               "ruleName": "ruleName",
@@ -773,7 +827,10 @@
             }
           }
         },
-        "x-ms-long-running-operation": true
+        "x-ms-long-running-operation": true,
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "location"
+        }
       },
       "get": {
         "description": "Gets the specified rule from a route filter.",
@@ -801,10 +858,18 @@
             "type": "string"
           },
           {
-            "$ref": "#/parameters/ApiVersionParameter"
+            "description": "Client API version.",
+            "in": "query",
+            "name": "api-version",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/SubscriptionIdParameter"
+            "description": "The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -821,7 +886,7 @@
         "x-ms-examples": {
           "RouteFilterRuleGet": {
             "parameters": {
-              "api-version": "2018-01-01",
+              "api-version": "2019-08-01",
               "resourceGroupName": "rg1",
               "routeFilterName": "filterName",
               "ruleName": "filterName",
@@ -831,7 +896,7 @@
               "200": {
                 "body": {
                   "etag": "w/\\00000000-0000-0000-0000-000000000000\\",
-                  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsofot.Network/routeFilters/filterName/routeFilterRules/ruleName",
+                  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/routeFilters/filterName/routeFilterRules/ruleName",
                   "name": "ruleName",
                   "properties": {
                     "access": "Allow",
@@ -883,10 +948,18 @@
             }
           },
           {
-            "$ref": "#/parameters/ApiVersionParameter"
+            "description": "Client API version.",
+            "in": "query",
+            "name": "api-version",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/SubscriptionIdParameter"
+            "description": "The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -903,7 +976,7 @@
         "x-ms-examples": {
           "RouteFilterRuleUpdate": {
             "parameters": {
-              "api-version": "2018-01-01",
+              "api-version": "2019-08-01",
               "resourceGroupName": "rg1",
               "routeFilterName": "filterName",
               "routeFilterRuleParameters": {
@@ -923,7 +996,7 @@
               "200": {
                 "body": {
                   "etag": "w/\\00000000-0000-0000-0000-000000000000\\",
-                  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsofot.Network/routeFilters/filterName/routeFilterRules/ruleName",
+                  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/routeFilters/filterName/routeFilterRules/ruleName",
                   "name": "ruleName",
                   "properties": {
                     "access": "Allow",
@@ -976,10 +1049,18 @@
             }
           },
           {
-            "$ref": "#/parameters/ApiVersionParameter"
+            "description": "Client API version.",
+            "in": "query",
+            "name": "api-version",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/SubscriptionIdParameter"
+            "description": "The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -1002,7 +1083,7 @@
         "x-ms-examples": {
           "RouteFilterRuleCreate": {
             "parameters": {
-              "api-version": "2018-01-01",
+              "api-version": "2019-08-01",
               "resourceGroupName": "rg1",
               "routeFilterName": "filterName",
               "routeFilterRuleParameters": {
@@ -1022,7 +1103,7 @@
               "200": {
                 "body": {
                   "etag": "w/\\00000000-0000-0000-0000-000000000000\\",
-                  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsofot.Network/routeFilters/filterName/routeFilterRules/ruleName",
+                  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/routeFilters/filterName/routeFilterRules/ruleName",
                   "name": "ruleName",
                   "properties": {
                     "access": "Allow",
@@ -1038,7 +1119,7 @@
               "201": {
                 "body": {
                   "etag": "w/\\00000000-0000-0000-0000-000000000000\\",
-                  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsofot.Network/routeFilters/filterName/routeFilterRules/ruleName",
+                  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/routeFilters/filterName/routeFilterRules/ruleName",
                   "name": "ruleName",
                   "properties": {
                     "access": "Allow",
@@ -1054,7 +1135,10 @@
             }
           }
         },
-        "x-ms-long-running-operation": true
+        "x-ms-long-running-operation": true,
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "azure-async-operation"
+        }
       }
     }
   },
@@ -1086,6 +1170,7 @@
         },
         "properties": {
           "$ref": "#/definitions/RouteFilterPropertiesFormat",
+          "description": "Properties of the route filter.",
           "x-ms-client-flatten": true
         },
         "tags": {
@@ -1115,7 +1200,7 @@
           "x-ms-azure-resource": true
         }
       ],
-      "description": "Route Filter Rule Resource",
+      "description": "Route Filter Rule Resource.",
       "properties": {
         "etag": {
           "description": "A unique read-only string that changes whenever the resource is updated.",
@@ -1129,6 +1214,7 @@
         },
         "properties": {
           "$ref": "#/definitions/RouteFilterRulePropertiesFormat",
+          "description": "Properties of the route filter rule.",
           "x-ms-client-flatten": true
         }
       }
@@ -1170,12 +1256,13 @@
       "description": "Route Filter Resource.",
       "properties": {
         "etag": {
-          "description": "Gets a unique read-only string that changes whenever the resource is updated.",
+          "description": "A unique read-only string that changes whenever the resource is updated.",
           "readOnly": true,
           "type": "string"
         },
         "properties": {
           "$ref": "#/definitions/RouteFilterPropertiesFormat",
+          "description": "Properties of the route filter.",
           "x-ms-client-flatten": true
         }
       },
@@ -1191,7 +1278,7 @@
           "type": "string"
         },
         "value": {
-          "description": "Gets a list of route filters in a resource group.",
+          "description": "A list of route filters in a resource group.",
           "items": {
             "$ref": "#/definitions/RouteFilter"
           },
@@ -1200,22 +1287,10 @@
       }
     },
     "RouteFilterPropertiesFormat": {
-      "description": "Route Filter Resource",
+      "description": "Route Filter Resource.",
       "properties": {
-        "peerings": {
-          "description": "A collection of references to express route circuit peerings.",
-          "items": {
-            "$ref": "./expressRouteCircuit.json#/definitions/ExpressRouteCircuitPeering"
-          },
-          "type": "array"
-        },
-        "provisioningState": {
-          "description": "The provisioning state of the resource. Possible values are: 'Updating', 'Deleting', 'Succeeded' and 'Failed'.",
-          "readOnly": true,
-          "type": "string"
-        },
-        "rules": {
-          "description": "Collection of RouteFilterRules contained within a route filter.",
+        "ipv6Peerings": {
+          "description": "A collection of references to express route circuit ipv6 peerings.",
           "items": {
             "allOf": [
               {
@@ -1229,15 +1304,11 @@
                 "x-ms-azure-resource": true
               }
             ],
-            "description": "Route Filter Rule Resource",
+            "description": "Peering in an ExpressRouteCircuit resource.",
             "properties": {
               "etag": {
                 "description": "A unique read-only string that changes whenever the resource is updated.",
                 "readOnly": true,
-                "type": "string"
-              },
-              "location": {
-                "description": "Resource location.",
                 "type": "string"
               },
               "name": {
@@ -1245,51 +1316,994 @@
                 "type": "string"
               },
               "properties": {
-                "description": "Route Filter Rule Resource",
+                "description": "Properties of the express route circuit peering.",
                 "properties": {
-                  "access": {
-                    "description": "The access type of the rule. Valid values are: 'Allow', 'Deny'",
-                    "enum": [
-                      "Allow",
-                      "Deny"
-                    ],
-                    "type": "string",
-                    "x-ms-enum": {
-                      "modelAsString": true,
-                      "name": "Access"
-                    }
+                  "azureASN": {
+                    "description": "The Azure ASN.",
+                    "format": "int32",
+                    "type": "integer"
                   },
-                  "communities": {
-                    "description": "The collection for bgp community values to filter on. e.g. ['12076:5010','12076:5020']",
+                  "connections": {
+                    "description": "The list of circuit connections associated with Azure Private Peering for this circuit.",
                     "items": {
-                      "type": "string"
+                      "allOf": [
+                        {
+                          "description": "Reference to another subresource.",
+                          "properties": {
+                            "id": {
+                              "description": "Resource ID.",
+                              "type": "string"
+                            }
+                          },
+                          "x-ms-azure-resource": true
+                        }
+                      ],
+                      "description": "Express Route Circuit Connection in an ExpressRouteCircuitPeering resource.",
+                      "properties": {
+                        "etag": {
+                          "description": "A unique read-only string that changes whenever the resource is updated.",
+                          "readOnly": true,
+                          "type": "string"
+                        },
+                        "name": {
+                          "description": "The name of the resource that is unique within a resource group. This name can be used to access the resource.",
+                          "type": "string"
+                        },
+                        "properties": {
+                          "description": "Properties of the express route circuit connection.",
+                          "properties": {
+                            "addressPrefix": {
+                              "description": "/29 IP address space to carve out Customer addresses for tunnels.",
+                              "type": "string"
+                            },
+                            "authorizationKey": {
+                              "description": "The authorization key.",
+                              "type": "string"
+                            },
+                            "circuitConnectionStatus": {
+                              "description": "Express Route Circuit connection state.",
+                              "enum": [
+                                "Connected",
+                                "Connecting",
+                                "Disconnected"
+                              ],
+                              "readOnly": true,
+                              "type": "string",
+                              "x-ms-enum": {
+                                "modelAsString": true,
+                                "name": "CircuitConnectionStatus"
+                              }
+                            },
+                            "expressRouteCircuitPeering": {
+                              "description": "Reference to another subresource.",
+                              "properties": {
+                                "id": {
+                                  "description": "Resource ID.",
+                                  "type": "string"
+                                }
+                              },
+                              "x-ms-azure-resource": true
+                            },
+                            "peerExpressRouteCircuitPeering": {
+                              "description": "Reference to another subresource.",
+                              "properties": {
+                                "id": {
+                                  "description": "Resource ID.",
+                                  "type": "string"
+                                }
+                              },
+                              "x-ms-azure-resource": true
+                            },
+                            "provisioningState": {
+                              "description": "The current provisioning state.",
+                              "enum": [
+                                "Succeeded",
+                                "Updating",
+                                "Deleting",
+                                "Failed"
+                              ],
+                              "readOnly": true,
+                              "type": "string",
+                              "x-ms-enum": {
+                                "modelAsString": true,
+                                "name": "ProvisioningState"
+                              }
+                            }
+                          }
+                        },
+                        "type": {
+                          "description": "Type of the resource.",
+                          "readOnly": true,
+                          "type": "string"
+                        }
+                      }
                     },
                     "type": "array"
                   },
-                  "provisioningState": {
-                    "description": "The provisioning state of the resource. Possible values are: 'Updating', 'Deleting', 'Succeeded' and 'Failed'.",
-                    "readOnly": true,
+                  "expressRouteConnection": {
+                    "description": "The ID of the ExpressRouteConnection.",
+                    "properties": {
+                      "id": {
+                        "description": "The ID of the ExpressRouteConnection.",
+                        "readOnly": true,
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "gatewayManagerEtag": {
+                    "description": "The GatewayManager Etag.",
                     "type": "string"
                   },
-                  "routeFilterRuleType": {
-                    "description": "The rule type of the rule. Valid value is: 'Community'",
+                  "ipv6PeeringConfig": {
+                    "description": "Contains IPv6 peering config.",
+                    "properties": {
+                      "microsoftPeeringConfig": {
+                        "description": "Specifies the peering configuration.",
+                        "properties": {
+                          "advertisedCommunities": {
+                            "description": "The communities of bgp peering. Specified for microsoft peering.",
+                            "items": {
+                              "type": "string"
+                            },
+                            "type": "array"
+                          },
+                          "advertisedPublicPrefixes": {
+                            "description": "The reference of AdvertisedPublicPrefixes.",
+                            "items": {
+                              "type": "string"
+                            },
+                            "type": "array"
+                          },
+                          "advertisedPublicPrefixesState": {
+                            "description": "The advertised public prefix state of the Peering resource.",
+                            "enum": [
+                              "NotConfigured",
+                              "Configuring",
+                              "Configured",
+                              "ValidationNeeded"
+                            ],
+                            "type": "string",
+                            "x-ms-enum": {
+                              "modelAsString": true,
+                              "name": "ExpressRouteCircuitPeeringAdvertisedPublicPrefixState"
+                            }
+                          },
+                          "customerASN": {
+                            "description": "The CustomerASN of the peering.",
+                            "format": "int32",
+                            "type": "integer"
+                          },
+                          "legacyMode": {
+                            "description": "The legacy mode of the peering.",
+                            "format": "int32",
+                            "type": "integer"
+                          },
+                          "routingRegistryName": {
+                            "description": "The RoutingRegistryName of the configuration.",
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "primaryPeerAddressPrefix": {
+                        "description": "The primary address prefix.",
+                        "type": "string"
+                      },
+                      "routeFilter": {
+                        "description": "Reference to another subresource.",
+                        "properties": {
+                          "id": {
+                            "description": "Resource ID.",
+                            "type": "string"
+                          }
+                        },
+                        "x-ms-azure-resource": true
+                      },
+                      "secondaryPeerAddressPrefix": {
+                        "description": "The secondary address prefix.",
+                        "type": "string"
+                      },
+                      "state": {
+                        "description": "The state of peering.",
+                        "enum": [
+                          "Disabled",
+                          "Enabled"
+                        ],
+                        "type": "string",
+                        "x-ms-enum": {
+                          "modelAsString": true,
+                          "name": "ExpressRouteCircuitPeeringState"
+                        }
+                      }
+                    }
+                  },
+                  "lastModifiedBy": {
+                    "description": "Who was the last to modify the peering.",
+                    "type": "string"
+                  },
+                  "microsoftPeeringConfig": {
+                    "description": "Specifies the peering configuration.",
+                    "properties": {
+                      "advertisedCommunities": {
+                        "description": "The communities of bgp peering. Specified for microsoft peering.",
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "advertisedPublicPrefixes": {
+                        "description": "The reference of AdvertisedPublicPrefixes.",
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "advertisedPublicPrefixesState": {
+                        "description": "The advertised public prefix state of the Peering resource.",
+                        "enum": [
+                          "NotConfigured",
+                          "Configuring",
+                          "Configured",
+                          "ValidationNeeded"
+                        ],
+                        "type": "string",
+                        "x-ms-enum": {
+                          "modelAsString": true,
+                          "name": "ExpressRouteCircuitPeeringAdvertisedPublicPrefixState"
+                        }
+                      },
+                      "customerASN": {
+                        "description": "The CustomerASN of the peering.",
+                        "format": "int32",
+                        "type": "integer"
+                      },
+                      "legacyMode": {
+                        "description": "The legacy mode of the peering.",
+                        "format": "int32",
+                        "type": "integer"
+                      },
+                      "routingRegistryName": {
+                        "description": "The RoutingRegistryName of the configuration.",
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "peerASN": {
+                    "description": "The peer ASN.",
+                    "format": "int64",
+                    "maximum": 4294967295,
+                    "minimum": 1,
+                    "type": "integer"
+                  },
+                  "peeredConnections": {
+                    "description": "The list of peered circuit connections associated with Azure Private Peering for this circuit.",
+                    "items": {
+                      "allOf": [
+                        {
+                          "description": "Reference to another subresource.",
+                          "properties": {
+                            "id": {
+                              "description": "Resource ID.",
+                              "type": "string"
+                            }
+                          },
+                          "x-ms-azure-resource": true
+                        }
+                      ],
+                      "description": "Peer Express Route Circuit Connection in an ExpressRouteCircuitPeering resource.",
+                      "properties": {
+                        "etag": {
+                          "description": "A unique read-only string that changes whenever the resource is updated.",
+                          "readOnly": true,
+                          "type": "string"
+                        },
+                        "name": {
+                          "description": "The name of the resource that is unique within a resource group. This name can be used to access the resource.",
+                          "type": "string"
+                        },
+                        "properties": {
+                          "description": "Properties of the peer express route circuit connection.",
+                          "properties": {
+                            "addressPrefix": {
+                              "description": "/29 IP address space to carve out Customer addresses for tunnels.",
+                              "type": "string"
+                            },
+                            "authResourceGuid": {
+                              "description": "The resource guid of the authorization used for the express route circuit connection.",
+                              "type": "string"
+                            },
+                            "circuitConnectionStatus": {
+                              "description": "Express Route Circuit connection state.",
+                              "enum": [
+                                "Connected",
+                                "Connecting",
+                                "Disconnected"
+                              ],
+                              "readOnly": true,
+                              "type": "string",
+                              "x-ms-enum": {
+                                "modelAsString": true,
+                                "name": "CircuitConnectionStatus"
+                              }
+                            },
+                            "connectionName": {
+                              "description": "The name of the express route circuit connection resource.",
+                              "type": "string"
+                            },
+                            "expressRouteCircuitPeering": {
+                              "description": "Reference to another subresource.",
+                              "properties": {
+                                "id": {
+                                  "description": "Resource ID.",
+                                  "type": "string"
+                                }
+                              },
+                              "x-ms-azure-resource": true
+                            },
+                            "peerExpressRouteCircuitPeering": {
+                              "description": "Reference to another subresource.",
+                              "properties": {
+                                "id": {
+                                  "description": "Resource ID.",
+                                  "type": "string"
+                                }
+                              },
+                              "x-ms-azure-resource": true
+                            },
+                            "provisioningState": {
+                              "description": "The current provisioning state.",
+                              "enum": [
+                                "Succeeded",
+                                "Updating",
+                                "Deleting",
+                                "Failed"
+                              ],
+                              "readOnly": true,
+                              "type": "string",
+                              "x-ms-enum": {
+                                "modelAsString": true,
+                                "name": "ProvisioningState"
+                              }
+                            }
+                          }
+                        },
+                        "type": {
+                          "description": "Type of the resource.",
+                          "readOnly": true,
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "readOnly": true,
+                    "type": "array"
+                  },
+                  "peeringType": {
+                    "description": "The peering type.",
                     "enum": [
-                      "Community"
+                      "AzurePublicPeering",
+                      "AzurePrivatePeering",
+                      "MicrosoftPeering"
                     ],
                     "type": "string",
                     "x-ms-enum": {
                       "modelAsString": true,
-                      "name": "RouteFilterRuleType"
+                      "name": "ExpressRoutePeeringType"
                     }
+                  },
+                  "primaryAzurePort": {
+                    "description": "The primary port.",
+                    "type": "string"
+                  },
+                  "primaryPeerAddressPrefix": {
+                    "description": "The primary address prefix.",
+                    "type": "string"
+                  },
+                  "provisioningState": {
+                    "description": "The current provisioning state.",
+                    "enum": [
+                      "Succeeded",
+                      "Updating",
+                      "Deleting",
+                      "Failed"
+                    ],
+                    "readOnly": true,
+                    "type": "string",
+                    "x-ms-enum": {
+                      "modelAsString": true,
+                      "name": "ProvisioningState"
+                    }
+                  },
+                  "routeFilter": {
+                    "description": "Reference to another subresource.",
+                    "properties": {
+                      "id": {
+                        "description": "Resource ID.",
+                        "type": "string"
+                      }
+                    },
+                    "x-ms-azure-resource": true
+                  },
+                  "secondaryAzurePort": {
+                    "description": "The secondary port.",
+                    "type": "string"
+                  },
+                  "secondaryPeerAddressPrefix": {
+                    "description": "The secondary address prefix.",
+                    "type": "string"
+                  },
+                  "sharedKey": {
+                    "description": "The shared key.",
+                    "type": "string"
+                  },
+                  "state": {
+                    "description": "The state of peering.",
+                    "enum": [
+                      "Disabled",
+                      "Enabled"
+                    ],
+                    "type": "string",
+                    "x-ms-enum": {
+                      "modelAsString": true,
+                      "name": "ExpressRoutePeeringState"
+                    }
+                  },
+                  "stats": {
+                    "description": "Contains stats associated with the peering.",
+                    "properties": {
+                      "primarybytesIn": {
+                        "description": "The Primary BytesIn of the peering.",
+                        "format": "int64",
+                        "type": "integer"
+                      },
+                      "primarybytesOut": {
+                        "description": "The primary BytesOut of the peering.",
+                        "format": "int64",
+                        "type": "integer"
+                      },
+                      "secondarybytesIn": {
+                        "description": "The secondary BytesIn of the peering.",
+                        "format": "int64",
+                        "type": "integer"
+                      },
+                      "secondarybytesOut": {
+                        "description": "The secondary BytesOut of the peering.",
+                        "format": "int64",
+                        "type": "integer"
+                      }
+                    }
+                  },
+                  "vlanId": {
+                    "description": "The VLAN ID.",
+                    "format": "int32",
+                    "type": "integer"
                   }
-                },
-                "required": [
-                  "access",
-                  "routeFilterRuleType",
-                  "communities"
-                ]
+                }
+              },
+              "type": {
+                "description": "Type of the resource.",
+                "readOnly": true,
+                "type": "string"
               }
             }
+          },
+          "type": "array"
+        },
+        "peerings": {
+          "description": "A collection of references to express route circuit peerings.",
+          "items": {
+            "allOf": [
+              {
+                "description": "Reference to another subresource.",
+                "properties": {
+                  "id": {
+                    "description": "Resource ID.",
+                    "type": "string"
+                  }
+                },
+                "x-ms-azure-resource": true
+              }
+            ],
+            "description": "Peering in an ExpressRouteCircuit resource.",
+            "properties": {
+              "etag": {
+                "description": "A unique read-only string that changes whenever the resource is updated.",
+                "readOnly": true,
+                "type": "string"
+              },
+              "name": {
+                "description": "The name of the resource that is unique within a resource group. This name can be used to access the resource.",
+                "type": "string"
+              },
+              "properties": {
+                "description": "Properties of the express route circuit peering.",
+                "properties": {
+                  "azureASN": {
+                    "description": "The Azure ASN.",
+                    "format": "int32",
+                    "type": "integer"
+                  },
+                  "connections": {
+                    "description": "The list of circuit connections associated with Azure Private Peering for this circuit.",
+                    "items": {
+                      "allOf": [
+                        {
+                          "description": "Reference to another subresource.",
+                          "properties": {
+                            "id": {
+                              "description": "Resource ID.",
+                              "type": "string"
+                            }
+                          },
+                          "x-ms-azure-resource": true
+                        }
+                      ],
+                      "description": "Express Route Circuit Connection in an ExpressRouteCircuitPeering resource.",
+                      "properties": {
+                        "etag": {
+                          "description": "A unique read-only string that changes whenever the resource is updated.",
+                          "readOnly": true,
+                          "type": "string"
+                        },
+                        "name": {
+                          "description": "The name of the resource that is unique within a resource group. This name can be used to access the resource.",
+                          "type": "string"
+                        },
+                        "properties": {
+                          "description": "Properties of the express route circuit connection.",
+                          "properties": {
+                            "addressPrefix": {
+                              "description": "/29 IP address space to carve out Customer addresses for tunnels.",
+                              "type": "string"
+                            },
+                            "authorizationKey": {
+                              "description": "The authorization key.",
+                              "type": "string"
+                            },
+                            "circuitConnectionStatus": {
+                              "description": "Express Route Circuit connection state.",
+                              "enum": [
+                                "Connected",
+                                "Connecting",
+                                "Disconnected"
+                              ],
+                              "readOnly": true,
+                              "type": "string",
+                              "x-ms-enum": {
+                                "modelAsString": true,
+                                "name": "CircuitConnectionStatus"
+                              }
+                            },
+                            "expressRouteCircuitPeering": {
+                              "description": "Reference to another subresource.",
+                              "properties": {
+                                "id": {
+                                  "description": "Resource ID.",
+                                  "type": "string"
+                                }
+                              },
+                              "x-ms-azure-resource": true
+                            },
+                            "peerExpressRouteCircuitPeering": {
+                              "description": "Reference to another subresource.",
+                              "properties": {
+                                "id": {
+                                  "description": "Resource ID.",
+                                  "type": "string"
+                                }
+                              },
+                              "x-ms-azure-resource": true
+                            },
+                            "provisioningState": {
+                              "description": "The current provisioning state.",
+                              "enum": [
+                                "Succeeded",
+                                "Updating",
+                                "Deleting",
+                                "Failed"
+                              ],
+                              "readOnly": true,
+                              "type": "string",
+                              "x-ms-enum": {
+                                "modelAsString": true,
+                                "name": "ProvisioningState"
+                              }
+                            }
+                          }
+                        },
+                        "type": {
+                          "description": "Type of the resource.",
+                          "readOnly": true,
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "type": "array"
+                  },
+                  "expressRouteConnection": {
+                    "description": "The ID of the ExpressRouteConnection.",
+                    "properties": {
+                      "id": {
+                        "description": "The ID of the ExpressRouteConnection.",
+                        "readOnly": true,
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "gatewayManagerEtag": {
+                    "description": "The GatewayManager Etag.",
+                    "type": "string"
+                  },
+                  "ipv6PeeringConfig": {
+                    "description": "Contains IPv6 peering config.",
+                    "properties": {
+                      "microsoftPeeringConfig": {
+                        "description": "Specifies the peering configuration.",
+                        "properties": {
+                          "advertisedCommunities": {
+                            "description": "The communities of bgp peering. Specified for microsoft peering.",
+                            "items": {
+                              "type": "string"
+                            },
+                            "type": "array"
+                          },
+                          "advertisedPublicPrefixes": {
+                            "description": "The reference of AdvertisedPublicPrefixes.",
+                            "items": {
+                              "type": "string"
+                            },
+                            "type": "array"
+                          },
+                          "advertisedPublicPrefixesState": {
+                            "description": "The advertised public prefix state of the Peering resource.",
+                            "enum": [
+                              "NotConfigured",
+                              "Configuring",
+                              "Configured",
+                              "ValidationNeeded"
+                            ],
+                            "type": "string",
+                            "x-ms-enum": {
+                              "modelAsString": true,
+                              "name": "ExpressRouteCircuitPeeringAdvertisedPublicPrefixState"
+                            }
+                          },
+                          "customerASN": {
+                            "description": "The CustomerASN of the peering.",
+                            "format": "int32",
+                            "type": "integer"
+                          },
+                          "legacyMode": {
+                            "description": "The legacy mode of the peering.",
+                            "format": "int32",
+                            "type": "integer"
+                          },
+                          "routingRegistryName": {
+                            "description": "The RoutingRegistryName of the configuration.",
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "primaryPeerAddressPrefix": {
+                        "description": "The primary address prefix.",
+                        "type": "string"
+                      },
+                      "routeFilter": {
+                        "description": "Reference to another subresource.",
+                        "properties": {
+                          "id": {
+                            "description": "Resource ID.",
+                            "type": "string"
+                          }
+                        },
+                        "x-ms-azure-resource": true
+                      },
+                      "secondaryPeerAddressPrefix": {
+                        "description": "The secondary address prefix.",
+                        "type": "string"
+                      },
+                      "state": {
+                        "description": "The state of peering.",
+                        "enum": [
+                          "Disabled",
+                          "Enabled"
+                        ],
+                        "type": "string",
+                        "x-ms-enum": {
+                          "modelAsString": true,
+                          "name": "ExpressRouteCircuitPeeringState"
+                        }
+                      }
+                    }
+                  },
+                  "lastModifiedBy": {
+                    "description": "Who was the last to modify the peering.",
+                    "type": "string"
+                  },
+                  "microsoftPeeringConfig": {
+                    "description": "Specifies the peering configuration.",
+                    "properties": {
+                      "advertisedCommunities": {
+                        "description": "The communities of bgp peering. Specified for microsoft peering.",
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "advertisedPublicPrefixes": {
+                        "description": "The reference of AdvertisedPublicPrefixes.",
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "advertisedPublicPrefixesState": {
+                        "description": "The advertised public prefix state of the Peering resource.",
+                        "enum": [
+                          "NotConfigured",
+                          "Configuring",
+                          "Configured",
+                          "ValidationNeeded"
+                        ],
+                        "type": "string",
+                        "x-ms-enum": {
+                          "modelAsString": true,
+                          "name": "ExpressRouteCircuitPeeringAdvertisedPublicPrefixState"
+                        }
+                      },
+                      "customerASN": {
+                        "description": "The CustomerASN of the peering.",
+                        "format": "int32",
+                        "type": "integer"
+                      },
+                      "legacyMode": {
+                        "description": "The legacy mode of the peering.",
+                        "format": "int32",
+                        "type": "integer"
+                      },
+                      "routingRegistryName": {
+                        "description": "The RoutingRegistryName of the configuration.",
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "peerASN": {
+                    "description": "The peer ASN.",
+                    "format": "int64",
+                    "maximum": 4294967295,
+                    "minimum": 1,
+                    "type": "integer"
+                  },
+                  "peeredConnections": {
+                    "description": "The list of peered circuit connections associated with Azure Private Peering for this circuit.",
+                    "items": {
+                      "allOf": [
+                        {
+                          "description": "Reference to another subresource.",
+                          "properties": {
+                            "id": {
+                              "description": "Resource ID.",
+                              "type": "string"
+                            }
+                          },
+                          "x-ms-azure-resource": true
+                        }
+                      ],
+                      "description": "Peer Express Route Circuit Connection in an ExpressRouteCircuitPeering resource.",
+                      "properties": {
+                        "etag": {
+                          "description": "A unique read-only string that changes whenever the resource is updated.",
+                          "readOnly": true,
+                          "type": "string"
+                        },
+                        "name": {
+                          "description": "The name of the resource that is unique within a resource group. This name can be used to access the resource.",
+                          "type": "string"
+                        },
+                        "properties": {
+                          "description": "Properties of the peer express route circuit connection.",
+                          "properties": {
+                            "addressPrefix": {
+                              "description": "/29 IP address space to carve out Customer addresses for tunnels.",
+                              "type": "string"
+                            },
+                            "authResourceGuid": {
+                              "description": "The resource guid of the authorization used for the express route circuit connection.",
+                              "type": "string"
+                            },
+                            "circuitConnectionStatus": {
+                              "description": "Express Route Circuit connection state.",
+                              "enum": [
+                                "Connected",
+                                "Connecting",
+                                "Disconnected"
+                              ],
+                              "readOnly": true,
+                              "type": "string",
+                              "x-ms-enum": {
+                                "modelAsString": true,
+                                "name": "CircuitConnectionStatus"
+                              }
+                            },
+                            "connectionName": {
+                              "description": "The name of the express route circuit connection resource.",
+                              "type": "string"
+                            },
+                            "expressRouteCircuitPeering": {
+                              "description": "Reference to another subresource.",
+                              "properties": {
+                                "id": {
+                                  "description": "Resource ID.",
+                                  "type": "string"
+                                }
+                              },
+                              "x-ms-azure-resource": true
+                            },
+                            "peerExpressRouteCircuitPeering": {
+                              "description": "Reference to another subresource.",
+                              "properties": {
+                                "id": {
+                                  "description": "Resource ID.",
+                                  "type": "string"
+                                }
+                              },
+                              "x-ms-azure-resource": true
+                            },
+                            "provisioningState": {
+                              "description": "The current provisioning state.",
+                              "enum": [
+                                "Succeeded",
+                                "Updating",
+                                "Deleting",
+                                "Failed"
+                              ],
+                              "readOnly": true,
+                              "type": "string",
+                              "x-ms-enum": {
+                                "modelAsString": true,
+                                "name": "ProvisioningState"
+                              }
+                            }
+                          }
+                        },
+                        "type": {
+                          "description": "Type of the resource.",
+                          "readOnly": true,
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "readOnly": true,
+                    "type": "array"
+                  },
+                  "peeringType": {
+                    "description": "The peering type.",
+                    "enum": [
+                      "AzurePublicPeering",
+                      "AzurePrivatePeering",
+                      "MicrosoftPeering"
+                    ],
+                    "type": "string",
+                    "x-ms-enum": {
+                      "modelAsString": true,
+                      "name": "ExpressRoutePeeringType"
+                    }
+                  },
+                  "primaryAzurePort": {
+                    "description": "The primary port.",
+                    "type": "string"
+                  },
+                  "primaryPeerAddressPrefix": {
+                    "description": "The primary address prefix.",
+                    "type": "string"
+                  },
+                  "provisioningState": {
+                    "description": "The current provisioning state.",
+                    "enum": [
+                      "Succeeded",
+                      "Updating",
+                      "Deleting",
+                      "Failed"
+                    ],
+                    "readOnly": true,
+                    "type": "string",
+                    "x-ms-enum": {
+                      "modelAsString": true,
+                      "name": "ProvisioningState"
+                    }
+                  },
+                  "routeFilter": {
+                    "description": "Reference to another subresource.",
+                    "properties": {
+                      "id": {
+                        "description": "Resource ID.",
+                        "type": "string"
+                      }
+                    },
+                    "x-ms-azure-resource": true
+                  },
+                  "secondaryAzurePort": {
+                    "description": "The secondary port.",
+                    "type": "string"
+                  },
+                  "secondaryPeerAddressPrefix": {
+                    "description": "The secondary address prefix.",
+                    "type": "string"
+                  },
+                  "sharedKey": {
+                    "description": "The shared key.",
+                    "type": "string"
+                  },
+                  "state": {
+                    "description": "The state of peering.",
+                    "enum": [
+                      "Disabled",
+                      "Enabled"
+                    ],
+                    "type": "string",
+                    "x-ms-enum": {
+                      "modelAsString": true,
+                      "name": "ExpressRoutePeeringState"
+                    }
+                  },
+                  "stats": {
+                    "description": "Contains stats associated with the peering.",
+                    "properties": {
+                      "primarybytesIn": {
+                        "description": "The Primary BytesIn of the peering.",
+                        "format": "int64",
+                        "type": "integer"
+                      },
+                      "primarybytesOut": {
+                        "description": "The primary BytesOut of the peering.",
+                        "format": "int64",
+                        "type": "integer"
+                      },
+                      "secondarybytesIn": {
+                        "description": "The secondary BytesIn of the peering.",
+                        "format": "int64",
+                        "type": "integer"
+                      },
+                      "secondarybytesOut": {
+                        "description": "The secondary BytesOut of the peering.",
+                        "format": "int64",
+                        "type": "integer"
+                      }
+                    }
+                  },
+                  "vlanId": {
+                    "description": "The VLAN ID.",
+                    "format": "int32",
+                    "type": "integer"
+                  }
+                }
+              },
+              "type": {
+                "description": "Type of the resource.",
+                "readOnly": true,
+                "type": "string"
+              }
+            }
+          },
+          "type": "array"
+        },
+        "provisioningState": {
+          "description": "The current provisioning state.",
+          "enum": [
+            "Succeeded",
+            "Updating",
+            "Deleting",
+            "Failed"
+          ],
+          "readOnly": true,
+          "type": "string",
+          "x-ms-enum": {
+            "modelAsString": true,
+            "name": "ProvisioningState"
+          }
+        },
+        "rules": {
+          "description": "Collection of RouteFilterRules contained within a route filter.",
+          "items": {
+            "$ref": "#/definitions/RouteFilterRule"
           },
           "type": "array"
         }
@@ -1308,7 +2322,7 @@
           "x-ms-azure-resource": true
         }
       ],
-      "description": "Route Filter Rule Resource",
+      "description": "Route Filter Rule Resource.",
       "properties": {
         "etag": {
           "description": "A unique read-only string that changes whenever the resource is updated.",
@@ -1324,61 +2338,21 @@
           "type": "string"
         },
         "properties": {
-          "description": "Route Filter Rule Resource",
-          "properties": {
-            "access": {
-              "description": "The access type of the rule. Valid values are: 'Allow', 'Deny'",
-              "enum": [
-                "Allow",
-                "Deny"
-              ],
-              "type": "string",
-              "x-ms-enum": {
-                "modelAsString": true,
-                "name": "Access"
-              }
-            },
-            "communities": {
-              "description": "The collection for bgp community values to filter on. e.g. ['12076:5010','12076:5020']",
-              "items": {
-                "type": "string"
-              },
-              "type": "array"
-            },
-            "provisioningState": {
-              "description": "The provisioning state of the resource. Possible values are: 'Updating', 'Deleting', 'Succeeded' and 'Failed'.",
-              "readOnly": true,
-              "type": "string"
-            },
-            "routeFilterRuleType": {
-              "description": "The rule type of the rule. Valid value is: 'Community'",
-              "enum": [
-                "Community"
-              ],
-              "type": "string",
-              "x-ms-enum": {
-                "modelAsString": true,
-                "name": "RouteFilterRuleType"
-              }
-            }
-          },
-          "required": [
-            "access",
-            "routeFilterRuleType",
-            "communities"
-          ]
+          "$ref": "#/definitions/RouteFilterRulePropertiesFormat",
+          "description": "Properties of the route filter rule.",
+          "x-ms-client-flatten": true
         }
       }
     },
     "RouteFilterRuleListResult": {
-      "description": "Response for the ListRouteFilterRules API service call",
+      "description": "Response for the ListRouteFilterRules API service call.",
       "properties": {
         "nextLink": {
           "description": "The URL to get the next set of results.",
           "type": "string"
         },
         "value": {
-          "description": "Gets a list of RouteFilterRules in a resource group.",
+          "description": "A list of RouteFilterRules in a resource group.",
           "items": {
             "$ref": "#/definitions/RouteFilterRule"
           },
@@ -1387,10 +2361,10 @@
       }
     },
     "RouteFilterRulePropertiesFormat": {
-      "description": "Route Filter Rule Resource",
+      "description": "Route Filter Rule Resource.",
       "properties": {
         "access": {
-          "description": "The access type of the rule. Valid values are: 'Allow', 'Deny'",
+          "description": "Access to be allowed or denied.",
           "enum": [
             "Allow",
             "Deny"
@@ -1402,19 +2376,29 @@
           }
         },
         "communities": {
-          "description": "The collection for bgp community values to filter on. e.g. ['12076:5010','12076:5020']",
+          "description": "The collection for bgp community values to filter on. e.g. ['12076:5010','12076:5020'].",
           "items": {
             "type": "string"
           },
           "type": "array"
         },
         "provisioningState": {
-          "description": "The provisioning state of the resource. Possible values are: 'Updating', 'Deleting', 'Succeeded' and 'Failed'.",
+          "description": "The current provisioning state.",
+          "enum": [
+            "Succeeded",
+            "Updating",
+            "Deleting",
+            "Failed"
+          ],
           "readOnly": true,
-          "type": "string"
+          "type": "string",
+          "x-ms-enum": {
+            "modelAsString": true,
+            "name": "ProvisioningState"
+          }
         },
         "routeFilterRuleType": {
-          "description": "The rule type of the rule. Valid value is: 'Community'",
+          "description": "The rule type of the rule.",
           "enum": [
             "Community"
           ],

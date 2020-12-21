@@ -7,7 +7,7 @@
   "info": {
     "description": "Use these REST APIs for performing operations on the ApiVersionSet entity associated with your Azure API Management deployment. Using this entity you create and manage API Version Sets that are used to group APIs for consistent versioning.",
     "title": "ApiManagementClient",
-    "version": "2018-01-01",
+    "version": "2018-06-01-preview",
     "x-apisguru-categories": [
       "cloud"
     ],
@@ -17,7 +17,7 @@
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/apimanagement/resource-manager/Microsoft.ApiManagement/preview/2018-01-01/apimversionsets.json",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/apimanagement/resource-manager/Microsoft.ApiManagement/preview/2018-06-01-preview/apimversionsets.json",
         "version": "2.0"
       }
     ],
@@ -193,7 +193,7 @@
         "x-ms-examples": {
           "ApiManagementListApiVersionSets": {
             "parameters": {
-              "api-version": "2018-01-01",
+              "api-version": "2018-06-01-preview",
               "resourceGroupName": "rg1",
               "serviceName": "apimService1",
               "subscriptionId": "subid"
@@ -342,7 +342,7 @@
           "ApiManagementDeleteApiVersionSet": {
             "parameters": {
               "If-Match": "*",
-              "api-version": "2018-01-01",
+              "api-version": "2018-06-01-preview",
               "resourceGroupName": "rg1",
               "serviceName": "apimService1",
               "subscriptionId": "subid",
@@ -458,7 +458,7 @@
         "x-ms-examples": {
           "ApiManagementGetApiVersionSet": {
             "parameters": {
-              "api-version": "2018-01-01",
+              "api-version": "2018-06-01-preview",
               "resourceGroupName": "rg1",
               "serviceName": "apimService1",
               "subscriptionId": "subid",
@@ -581,7 +581,7 @@
         "x-ms-examples": {
           "ApiManagementHeadApiVersionSet": {
             "parameters": {
-              "api-version": "2018-01-01",
+              "api-version": "2018-06-01-preview",
               "resourceGroupName": "rg1",
               "serviceName": "apimService1",
               "subscriptionId": "subid",
@@ -709,7 +709,7 @@
           "ApiManagementUpdateApiVersionSet": {
             "parameters": {
               "If-Match": "*",
-              "api-version": "2018-01-01",
+              "api-version": "2018-06-01-preview",
               "parameters": {
                 "properties": {
                   "description": "Version configuration",
@@ -848,7 +848,7 @@
         "x-ms-examples": {
           "ApiManagementCreateApiVersionSet": {
             "parameters": {
-              "api-version": "2018-01-01",
+              "api-version": "2018-06-01-preview",
               "parameters": {
                 "properties": {
                   "description": "Version configuration",

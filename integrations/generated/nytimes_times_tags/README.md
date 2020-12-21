@@ -1,6 +1,6 @@
 # @datafire/nytimes_times_tags
 
-Client library for TimesTags
+Client library for TimesTags API
 
 ## Installation and Usage
 ```bash
@@ -11,9 +11,7 @@ let nytimes_times_tags = require('@datafire/nytimes_times_tags').create({
   apikey: ""
 });
 
-nytimes_times_tags.timestags.get({
-  "query": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

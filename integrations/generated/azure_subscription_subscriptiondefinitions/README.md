@@ -15,9 +15,7 @@ let azure_subscription_subscriptiondefinitions = require('@datafire/azure_subscr
   redirect_uri: ""
 });
 
-azure_subscription_subscriptiondefinitions.SubscriptionDefinitionsOperationMetadata_list({
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

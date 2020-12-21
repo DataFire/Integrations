@@ -12,7 +12,7 @@ let cenit = require('@datafire/cenit').create({
   "X-User-Access-Token": ""
 });
 
-cenit.setup.connection.get(null).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

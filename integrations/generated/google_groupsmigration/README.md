@@ -1,6 +1,6 @@
 # @datafire/google_groupsmigration
 
-Client library for Groups Migration
+Client library for Groups Migration API
 
 ## Installation and Usage
 ```bash
@@ -15,16 +15,14 @@ let google_groupsmigration = require('@datafire/google_groupsmigration').create(
   redirect_uri: ""
 });
 
-google_groupsmigration.archive.insert({
-  "groupId": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
 
 ## Description
 
-Groups Migration Api.
+The Groups Migration API allows domain administrators to archive emails into Google groups.
 
 ## Actions
 
@@ -69,12 +67,12 @@ google_groupsmigration.oauthRefresh(null, context)
   * scope `string`
   * expiration `string`
 
-### archive.insert
+### groupsmigration.archive.insert
 Inserts a new mail into the archive of the Google group.
 
 
 ```js
-google_groupsmigration.archive.insert({
+google_groupsmigration.groupsmigration.archive.insert({
   "groupId": ""
 }, context)
 ```
@@ -82,13 +80,17 @@ google_groupsmigration.archive.insert({
 #### Input
 * input `object`
   * groupId **required** `string`: The group ID
-  * alt `string` (values: json): Data format for the response.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-  * userIp `string`: Deprecated. Please use quotaUser instead.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [Groups](#groups)

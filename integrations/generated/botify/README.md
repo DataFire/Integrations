@@ -11,10 +11,7 @@ let botify = require('@datafire/botify').create({
   DjangoRestToken: ""
 });
 
-botify.getProjectAnalyses({
-  "username": "",
-  "project_slug": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -244,6 +241,27 @@ botify.getPageRankLost({
 #### Output
 * output [PageRankLost](#pageranklost)
 
+### getScoring
+Scoring summary
+
+
+```js
+botify.getScoring({
+  "username": "",
+  "project_slug": "",
+  "analysis_slug": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * username **required** `string`: User's identifier
+  * project_slug **required** `string`: Project's identifier
+  * analysis_slug **required** `string`: Analysis' identifier
+
+#### Output
+* output [ScoringSummary](#scoringsummary)
+
 ### getKeywordsStats
 List clicks and impressions per day
 
@@ -440,6 +458,36 @@ botify.getVisitsOrphanURLs({
     * items [CrawlOrphanURLs](#crawlorphanurls)
   * size `integer`
 
+### getAnalysisSegments
+Get the segments feature public metadata of an analysis.
+
+
+```js
+botify.getAnalysisSegments({
+  "username": "",
+  "project_slug": "",
+  "analysis_slug": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * page `integer`: Page Number
+  * size `integer`: Page Size
+  * username **required** `string`: User's identifier
+  * project_slug **required** `string`: Project's identifier
+  * analysis_slug **required** `string`: Analysis' identifier
+
+#### Output
+* output `object`
+  * count `integer`
+  * next `string`
+  * page `integer`
+  * previous `string`
+  * results `array`
+    * items [AnalysisSegments](#analysissegments)
+  * size `integer`
+
 ### getRobotsTxtIndexesView
 Return a list of all robots.txt files found on the project's domains.
 
@@ -575,6 +623,7 @@ botify.getUrlsDatamodel({
 #### Input
 * input `object`
   * area `string` (values: current, disappeared, new, search_engines_orphans, gsc_keywords, gsc_keywords_by_country): Analysis context
+  * previous_crawl `string`: Previous analysis identifier
   * username **required** `string`: User's identifier
   * project_slug **required** `string`: Project's identifier
   * analysis_slug **required** `string`: Analysis' identifier
@@ -597,6 +646,7 @@ botify.getUrlsDatasets({
 #### Input
 * input `object`
   * area `string` (values: current, disappeared, new, search_engines_orphans, gsc_keywords, gsc_keywords_by_country): Analysis context
+  * previous_crawl `string`: Previous analysis identifier
   * deprecated_fields `boolean`: Include deprecated fields
   * username **required** `string`: User's identifier
   * project_slug **required** `string`: Project's identifier
@@ -781,6 +831,107 @@ botify.getUserProjects({
     * items [Project](#project)
   * size `integer`
 
+### postJobAutomation
+Creates a new JobAutomation from data
+
+
+```js
+botify.postJobAutomation({
+  "username": "",
+  "project_slug": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * JobAutomation [JobAutomation](#jobautomation)
+  * username **required** `string`: user to which belongs the project
+  * project_slug **required** `string`: identifies the project
+
+#### Output
+* output [JobAutomation](#jobautomation)
+
+### postJobAutomationFromJob
+Creates a new JobAutomation from an existing job
+
+
+```js
+botify.postJobAutomationFromJob({
+  "username": "",
+  "project_slug": "",
+  "job_id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * JobAutomation [JobAutomation](#jobautomation)
+  * username **required** `string`: user to which belongs the project
+  * project_slug **required** `string`: identifies the project
+  * job_id **required** `string`: the id of the existing job
+
+#### Output
+* output [JobAutomation](#jobautomation)
+
+### getProjectCollections
+List all collections for a project
+
+
+```js
+botify.getProjectCollections({
+  "username": "",
+  "project_slug": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * username **required** `string`: User's identifier
+  * project_slug **required** `string`: Project's identifier
+
+#### Output
+* output [Collection](#collection)
+
+### getCollectionDetail
+Get the detail of a collection
+
+
+```js
+botify.getCollectionDetail({
+  "username": "",
+  "project_slug": "",
+  "collection": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * username **required** `string`: User's identifier
+  * project_slug **required** `string`: Project's identifier
+  * collection **required** `string`: The collection to query
+
+#### Output
+* output [CollectionDatasets](#collectiondatasets)
+
+### getDatasourcesDetails
+List all datasources for a project
+
+
+```js
+botify.getDatasourcesDetails({
+  "username": "",
+  "project_slug": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * username **required** `string`: User's identifier
+  * project_slug **required** `string`: Project's identifier
+
+#### Output
+* output [ProjectDatasource](#projectdatasource)
+
 ### getSavedFilters
 List all the project's saved filters (each filter's name, ID and filter value)
 
@@ -821,6 +972,25 @@ botify.getSavedFilter({
 #### Output
 * output [ProjectSavedFilter](#projectsavedfilter)
 
+### getSavedExplorers
+List all the project's Saved Explorers.
+
+
+```js
+botify.getSavedExplorers({
+  "username": "",
+  "project_slug": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * username **required** `string`: User's identifier
+  * project_slug **required** `string`: Project's identifier
+
+#### Output
+* output [SavedExplorer](#savedexplorer)
+
 ### getProjectUrlsAggs
 Project Query aggregator. It accepts multiple queries that will be executed on all completed analyses in the project
 
@@ -843,6 +1013,40 @@ botify.getProjectUrlsAggs({
 
 #### Output
 * output [Default](#default)
+
+### getDatasourcesSummaryByProjects
+Get the datasources details for all projects of a user
+
+
+```js
+botify.getDatasourcesSummaryByProjects({
+  "username": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * username **required** `string`: User's identifier
+
+#### Output
+* output [ProjectDatasourceSummary](#projectdatasourcesummary)
+
+### getAllUserProjects
+List all active projects for the user
+
+
+```js
+botify.getAllUserProjects({
+  "username": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * username **required** `string`: User's identifier
+
+#### Output
+* output [Project](#project)
 
 
 
@@ -909,11 +1113,12 @@ botify.getProjectUrlsAggs({
   * features `string`
   * friendly_name `string`
   * import_keywords_data `string`
-  * import_keywords_data_by_country `string`
+  * import_keywords_data_by_country `boolean`
   * name `string`
   * owner `string`
   * pinned `boolean`
   * pins_balance `string`
+  * pk `string`
   * red_button_domain `string`
   * slug `string`
   * status `string`
@@ -937,11 +1142,12 @@ botify.getProjectUrlsAggs({
   * features `string`
   * friendly_name `string`
   * import_keywords_data `string`
-  * import_keywords_data_by_country `string`
+  * import_keywords_data_by_country `boolean`
   * name `string`
   * owner `string`
   * pinned `boolean`
   * pins_balance `string`
+  * pk `string`
   * red_button_domain `string`
   * slug `string`
   * status `string`
@@ -950,6 +1156,10 @@ botify.getProjectUrlsAggs({
   * urls_done `string`
   * urls_in_queue `string`
   * user **required** [User](#user)
+
+### AnalysisSegments
+* AnalysisSegments `object`: Analysis Segments
+  * segments `string`
 
 ### AnalysisUpdate
 * AnalysisUpdate `object`: Analysis Update
@@ -975,6 +1185,28 @@ botify.getProjectUrlsAggs({
 ### CheckExternalStorageAccess
 * CheckExternalStorageAccess `object`
   * access_ok `string`
+
+### Collection
+* Collection `object`
+  * date `string`
+  * date_end `string`
+  * date_start `string`
+  * id **required** `string`
+  * name **required** `string`
+  * timestamped **required** `boolean`
+
+### CollectionDatasets
+* CollectionDatasets `object`
+  * datasets **required** `array`
+    * items [Dataset](#dataset)
+  * metadata [CollectionMetadata](#collectionmetadata)
+
+### CollectionMetadata
+* CollectionMetadata `object`
+  * config `object`
+  * date_end `string`
+  * date_last_modified `string`
+  * date_start `string`
 
 ### CrawlOrphanURLs
 * CrawlOrphanURLs `object`
@@ -1084,6 +1316,8 @@ botify.getProjectUrlsAggs({
   * id **required** `string`
   * multiple `boolean`
   * name **required** `string`
+  * suggested_operations `array`
+    * items [SuggestedOperations](#suggestedoperations)
 
 ### DatasetField
 * DatasetField `object`
@@ -1092,6 +1326,7 @@ botify.getProjectUrlsAggs({
   * deprecated `boolean`
   * group `string`
   * id **required** `string`
+  * kind **required** `string`
   * meta `object`
   * multiple **required** `boolean`
   * name **required** `string`
@@ -1114,6 +1349,9 @@ botify.getProjectUrlsAggs({
 * Datasets `object`
   * datasets **required** `array`
     * items [Dataset](#dataset)
+
+### Datasource
+* Datasource `object`
 
 ### Default
 * Default `object`
@@ -1146,6 +1384,12 @@ botify.getProjectUrlsAggs({
   * config `object`
   * extract_type `string`
   * id `string`
+
+### JobAutomation
+* JobAutomation `object`: Job automation creation
+  * description `string`
+  * job_type **required** `string`
+  * payload `object`
 
 ### KeywordsStat
 * KeywordsStat `object`
@@ -1208,6 +1452,13 @@ botify.getProjectUrlsAggs({
   * unique_links **required** `integer`
   * url **required** `string`
 
+### OrganizationUser
+* OrganizationUser `object`
+  * is_organization `string`
+  * name `string`
+  * owner **required** [User](#user)
+  * slug `string`
+
 ### PageRankLost
 * PageRankLost `object`
   * external **required** `number`
@@ -1216,20 +1467,41 @@ botify.getProjectUrlsAggs({
 
 ### Project
 * Project `object`
-  * active `boolean`
-  * auto_pin_first_analysis `boolean`
+  * account_id `string`
   * current_settings **required** [ProjectSettings](#projectsettings)
   * date_created `string`
-  * has_log_analysis `boolean`
-  * last_analysis `object`
+  * has_actionboard `string`
+  * has_crawl `string`
+  * has_keywords `string`
+  * has_logs `string`
+  * last_actionboard_revision `string`
+  * last_crawls_revisions `string`
+  * last_log_revision `string`
   * name **required** `string`
-  * pins_balance `integer`
-  * retention_period `integer`
-  * settings_url `string`
+  * organization **required** [OrganizationUser](#organizationuser)
+  * permissions `string`
+  * pk `string`
+  * public_id `integer`
+  * roles `string`
   * slug **required** `string`
-  * timezone `string`
   * url `string`
-  * user **required** [User](#user)
+
+### ProjectDatasource
+* ProjectDatasource `object`
+  * datasource **required** `string`
+  * has_data `string`
+  * last_revision_details `string`
+  * last_revision_status `string`
+  * webflow_url `string`
+
+### ProjectDatasourceSummary
+* ProjectDatasourceSummary `object`
+  * datasource **required** `string`
+  * date_last_successful_revision `string`
+  * last_revision_status `string`
+  * runnable `string`
+  * segments `string`
+  * stats `string`
 
 ### ProjectSavedFilter
 * ProjectSavedFilter `object`: Project's saved UrlFilter
@@ -1243,25 +1515,7 @@ botify.getProjectUrlsAggs({
     * items `string`
   * blacklisted_domains **required** `array`
     * items `string`
-  * compare_crawl `boolean`
-  * crawl_gzip `boolean`
-  * extra_headers `string`
-  * google_analytics_account_email `string`: Keep email in case user delete his social auth connection
-  * google_analytics_nb_days `integer`
-  * google_analytics_site_id `integer`
-  * google_social_auth_id `integer`
-  * has_robots_txt `string`
-  * header_settings **required** `array`
-    * items `string`
-  * max_depth `integer`
-  * max_nb_pages **required** `integer`
-  * max_pages_per_sec `integer`
-  * respect_nofollow `boolean`
-  * sitemaps **required** `array`
-    * items `string`
-  * start_urls **required** `array`
-    * items `string`
-  * user_agent `string`
+  * pk `string`
 
 ### ProjectsPaths
 * ProjectsPaths `object`: Projects paths
@@ -1274,6 +1528,11 @@ botify.getProjectUrlsAggs({
     * items `string`
   * filters `object`
   * sort `array`
+    * items `string`
+
+### QueryResponses
+* QueryResponses `object`: Query Responses
+  * results `array`
     * items `string`
 
 ### RegexConfig
@@ -1293,6 +1552,21 @@ botify.getProjectUrlsAggs({
   * ignore_case **required** `boolean`
   * regex **required** `string`
   * replace **required** `string`
+
+### SavedExplorer
+* SavedExplorer `object`: Project's saved explorer
+  * created_by [User](#user)
+  * created_date `string`
+  * description `string`
+  * modified_by [User](#user)
+  * modified_date `string`
+  * name **required** `string`
+  * query **required** `object`
+  * uuid `string`
+
+### ScoringSummary
+* ScoringSummary `object`
+  * results **required** `object`
 
 ### SitemapsReport
 * SitemapsReport `object`
@@ -1324,6 +1598,13 @@ botify.getProjectUrlsAggs({
 * SitemapsReportSitemapError `object`
   * message **required** `string`
   * type **required** `string`
+
+### SuggestedOperations
+* SuggestedOperations `object`
+  * group `string`
+  * meta **required** `object`
+  * name **required** `string`
+  * operation **required** `object`
 
 ### SuggestedUpdatesAddOnFeatures
 * SuggestedUpdatesAddOnFeatures `object`
@@ -1361,15 +1642,11 @@ botify.getProjectUrlsAggs({
 
 ### User
 * User `object`
-  * company_name `string`
-  * date_joined `string`
   * email `string`
   * first_name `string`
-  * is_organization `string`
+  * full_name `string`
   * last_name `string`
-  * login `string`
-  * status `string`
-  * url `string`
+  * username **required** `string`: Required. 30 characters or fewer. Letters, numbers and /-/_/. characters
 
 ### string
 * string `object`

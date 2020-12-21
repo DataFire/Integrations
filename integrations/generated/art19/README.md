@@ -11,7 +11,7 @@ let art19 = require('@datafire/art19').create({
   api_key: ""
 });
 
-art19.series.get({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

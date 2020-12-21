@@ -1,11 +1,5 @@
 {
   "swagger": "2.0",
-  "schemes": [
-    "http",
-    "https"
-  ],
-  "host": "adobe.local",
-  "basePath": "/",
   "info": {
     "contact": {
       "email": "opensource@shinesolutions.com",
@@ -14,8 +8,8 @@
       "x-twitter": "Adobe"
     },
     "description": "Swagger AEM is an OpenAPI specification for Adobe Experience Manager (AEM) API",
-    "title": "Adobe Experience Manager (AEM)",
-    "version": "1.3.0",
+    "title": "Adobe Experience Manager (AEM) API",
+    "version": "3.5.0-pre.0",
     "x-apisguru-categories": [
       "marketing"
     ],
@@ -24,9 +18,9 @@
     },
     "x-origin": [
       {
-        "format": "swagger",
+        "format": "openapi",
         "url": "https://raw.githubusercontent.com/shinesolutions/swagger-aem/master/conf/api.yml",
-        "version": "2.0"
+        "version": "3.0"
       }
     ],
     "x-preferred": true,
@@ -38,20 +32,10 @@
       "type": "openapi"
     }
   },
-  "securityDefinitions": {
-    "aemAuth": {
-      "type": "basic"
-    }
-  },
-  "security": [
-    {
-      "aemAuth": []
-    }
-  ],
+  "basePath": "/",
   "paths": {
     "/.cqactions.html": {
       "post": {
-        "operationId": "postCqActions",
         "parameters": [
           {
             "in": "query",
@@ -66,9 +50,6 @@
             "type": "string"
           }
         ],
-        "produces": [
-          "text/plain"
-        ],
         "responses": {
           "default": {
             "description": "Default response"
@@ -76,19 +57,328 @@
         },
         "tags": [
           "cq"
-        ]
+        ],
+        "operationId": "postCqActions"
       }
     },
-    "/apps/system/config.{runmode}/com.shinesolutions.aem.passwordreset.Activator": {
+    "/apps/system/config/com.adobe.granite.auth.saml.SamlAuthenticationHandler.config": {
       "post": {
-        "operationId": "postConfigAemPasswordReset",
         "parameters": [
           {
-            "in": "path",
-            "name": "runmode",
-            "required": true,
+            "in": "query",
+            "name": "keyStorePassword",
+            "required": false,
             "type": "string"
           },
+          {
+            "in": "query",
+            "name": "keyStorePassword@TypeHint",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "service.ranking",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "service.ranking@TypeHint",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "idpHttpRedirect",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "in": "query",
+            "name": "idpHttpRedirect@TypeHint",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "createUser",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "in": "query",
+            "name": "createUser@TypeHint",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "defaultRedirectUrl",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "defaultRedirectUrl@TypeHint",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "userIDAttribute",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "userIDAttribute@TypeHint",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "collectionFormat": "multi",
+            "in": "query",
+            "items": {
+              "type": "string"
+            },
+            "name": "defaultGroups",
+            "required": false,
+            "type": "array"
+          },
+          {
+            "in": "query",
+            "name": "defaultGroups@TypeHint",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "idpCertAlias",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "idpCertAlias@TypeHint",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "addGroupMemberships",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "in": "query",
+            "name": "addGroupMemberships@TypeHint",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "collectionFormat": "multi",
+            "in": "query",
+            "items": {
+              "type": "string"
+            },
+            "name": "path",
+            "required": false,
+            "type": "array"
+          },
+          {
+            "in": "query",
+            "name": "path@TypeHint",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "collectionFormat": "multi",
+            "in": "query",
+            "items": {
+              "type": "string"
+            },
+            "name": "synchronizeAttributes",
+            "required": false,
+            "type": "array"
+          },
+          {
+            "in": "query",
+            "name": "synchronizeAttributes@TypeHint",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "clockTolerance",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "clockTolerance@TypeHint",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "groupMembershipAttribute",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "groupMembershipAttribute@TypeHint",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "idpUrl",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "idpUrl@TypeHint",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "logoutUrl",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "logoutUrl@TypeHint",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "serviceProviderEntityId",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "serviceProviderEntityId@TypeHint",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "assertionConsumerServiceURL",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "assertionConsumerServiceURL@TypeHint",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "handleLogout",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "in": "query",
+            "name": "handleLogout@TypeHint",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "spPrivateKeyAlias",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "spPrivateKeyAlias@TypeHint",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "useEncryption",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "in": "query",
+            "name": "useEncryption@TypeHint",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "nameIdFormat",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "nameIdFormat@TypeHint",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "digestMethod",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "digestMethod@TypeHint",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "signatureMethod",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "signatureMethod@TypeHint",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "userIntermediatePath",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "userIntermediatePath@TypeHint",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "Default response"
+          }
+        },
+        "tags": [
+          "sling"
+        ],
+        "operationId": "postConfigAdobeGraniteSamlAuthenticationHandler"
+      }
+    },
+    "/apps/system/config/com.shinesolutions.aem.passwordreset.Activator": {
+      "post": {
+        "parameters": [
           {
             "collectionFormat": "multi",
             "in": "query",
@@ -106,9 +396,6 @@
             "type": "string"
           }
         ],
-        "produces": [
-          "text/plain"
-        ],
         "responses": {
           "default": {
             "description": "Default response"
@@ -116,19 +403,13 @@
         },
         "tags": [
           "custom"
-        ]
+        ],
+        "operationId": "postConfigAemPasswordReset"
       }
     },
-    "/apps/system/config.{runmode}/com.shinesolutions.healthcheck.hc.impl.ActiveBundleHealthCheck": {
+    "/apps/system/config/com.shinesolutions.healthcheck.hc.impl.ActiveBundleHealthCheck": {
       "post": {
-        "operationId": "postConfigAemHealthCheckServlet",
         "parameters": [
-          {
-            "in": "path",
-            "name": "runmode",
-            "required": true,
-            "type": "string"
-          },
           {
             "collectionFormat": "multi",
             "in": "query",
@@ -146,9 +427,6 @@
             "type": "string"
           }
         ],
-        "produces": [
-          "text/plain"
-        ],
         "responses": {
           "default": {
             "description": "Default response"
@@ -156,19 +434,13 @@
         },
         "tags": [
           "custom"
-        ]
+        ],
+        "operationId": "postConfigAemHealthCheckServlet"
       }
     },
-    "/apps/system/config.{runmode}/org.apache.felix.http": {
+    "/apps/system/config/org.apache.felix.http": {
       "post": {
-        "operationId": "postConfigApacheFelixJettyBasedHttpService",
         "parameters": [
-          {
-            "in": "path",
-            "name": "runmode",
-            "required": true,
-            "type": "string"
-          },
           {
             "in": "query",
             "name": "org.apache.felix.https.nio",
@@ -290,8 +562,96 @@
             "type": "string"
           }
         ],
-        "produces": [
-          "text/plain"
+        "responses": {
+          "default": {
+            "description": "Default response"
+          }
+        },
+        "tags": [
+          "sling"
+        ],
+        "operationId": "postConfigApacheFelixJettyBasedHttpService"
+      }
+    },
+    "/apps/system/config/org.apache.http.proxyconfigurator.config": {
+      "post": {
+        "parameters": [
+          {
+            "in": "query",
+            "name": "proxy.host",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "proxy.host@TypeHint",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "proxy.port",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "proxy.port@TypeHint",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "collectionFormat": "multi",
+            "in": "query",
+            "items": {
+              "type": "string"
+            },
+            "name": "proxy.exceptions",
+            "required": false,
+            "type": "array"
+          },
+          {
+            "in": "query",
+            "name": "proxy.exceptions@TypeHint",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "proxy.enabled",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "in": "query",
+            "name": "proxy.enabled@TypeHint",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "proxy.user",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "proxy.user@TypeHint",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "proxy.password",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "proxy.password@TypeHint",
+            "required": false,
+            "type": "string"
+          }
         ],
         "responses": {
           "default": {
@@ -300,19 +660,13 @@
         },
         "tags": [
           "sling"
-        ]
+        ],
+        "operationId": "postConfigApacheHttpComponentsProxyConfiguration"
       }
     },
-    "/apps/system/config.{runmode}/org.apache.sling.jcr.davex.impl.servlets.SlingDavExServlet": {
+    "/apps/system/config/org.apache.sling.jcr.davex.impl.servlets.SlingDavExServlet": {
       "post": {
-        "operationId": "postConfigApacheSlingDavExServlet",
         "parameters": [
-          {
-            "in": "path",
-            "name": "runmode",
-            "required": true,
-            "type": "string"
-          },
           {
             "in": "query",
             "name": "alias",
@@ -338,9 +692,6 @@
             "type": "string"
           }
         ],
-        "produces": [
-          "text/plain"
-        ],
         "responses": {
           "default": {
             "description": "Default response"
@@ -348,19 +699,13 @@
         },
         "tags": [
           "sling"
-        ]
+        ],
+        "operationId": "postConfigApacheSlingDavExServlet"
       }
     },
-    "/apps/system/config.{runmode}/org.apache.sling.security.impl.ReferrerFilter": {
+    "/apps/system/config/org.apache.sling.security.impl.ReferrerFilter": {
       "post": {
-        "operationId": "postConfigApacheSlingReferrerFilter",
         "parameters": [
-          {
-            "in": "path",
-            "name": "runmode",
-            "required": true,
-            "type": "string"
-          },
           {
             "in": "query",
             "name": "allow.empty",
@@ -396,10 +741,19 @@
             "name": "allow.hosts.regexp@TypeHint",
             "required": false,
             "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "filter.methods",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "filter.methods@TypeHint",
+            "required": false,
+            "type": "string"
           }
-        ],
-        "produces": [
-          "text/plain"
         ],
         "responses": {
           "default": {
@@ -408,19 +762,13 @@
         },
         "tags": [
           "sling"
-        ]
+        ],
+        "operationId": "postConfigApacheSlingReferrerFilter"
       }
     },
-    "/apps/system/config.{runmode}/org.apache.sling.servlets.get.DefaultGetServlet": {
+    "/apps/system/config/org.apache.sling.servlets.get.DefaultGetServlet": {
       "post": {
-        "operationId": "postConfigApacheSlingGetServlet",
         "parameters": [
-          {
-            "in": "path",
-            "name": "runmode",
-            "required": true,
-            "type": "string"
-          },
           {
             "in": "query",
             "name": "json.maximumresults",
@@ -470,8 +818,26 @@
             "type": "string"
           }
         ],
-        "produces": [
-          "text/plain"
+        "responses": {
+          "default": {
+            "description": "Default response"
+          }
+        },
+        "tags": [
+          "sling"
+        ],
+        "operationId": "postConfigApacheSlingGetServlet"
+      }
+    },
+    "/apps/system/config/{configNodeName}": {
+      "post": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "configNodeName",
+            "required": true,
+            "type": "string"
+          }
         ],
         "responses": {
           "default": {
@@ -480,12 +846,15 @@
         },
         "tags": [
           "sling"
-        ]
+        ],
+        "operationId": "postConfigProperty"
       }
     },
     "/bin/querybuilder.json": {
       "get": {
-        "operationId": "getQuery",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "in": "query",
@@ -512,9 +881,6 @@
             "type": "string"
           }
         ],
-        "produces": [
-          "application/json"
-        ],
         "responses": {
           "default": {
             "description": "Default response",
@@ -525,10 +891,13 @@
         },
         "tags": [
           "sling"
-        ]
+        ],
+        "operationId": "getQuery"
       },
       "post": {
-        "operationId": "postQuery",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "in": "query",
@@ -555,9 +924,6 @@
             "type": "string"
           }
         ],
-        "produces": [
-          "application/json"
-        ],
         "responses": {
           "default": {
             "description": "Default response",
@@ -568,12 +934,15 @@
         },
         "tags": [
           "sling"
-        ]
+        ],
+        "operationId": "postQuery"
       }
     },
     "/crx/explorer/ui/setpassword.jsp": {
       "post": {
-        "operationId": "postSetPassword",
+        "produces": [
+          "text/plain"
+        ],
         "parameters": [
           {
             "in": "query",
@@ -594,9 +963,6 @@
             "type": "string"
           }
         ],
-        "produces": [
-          "text/plain"
-        ],
         "responses": {
           "default": {
             "description": "Default response",
@@ -607,15 +973,16 @@
         },
         "tags": [
           "crx"
-        ]
+        ],
+        "operationId": "postSetPassword"
       }
     },
     "/crx/packmgr/installstatus.jsp": {
       "get": {
-        "operationId": "getInstallStatus",
         "produces": [
           "application/json"
         ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": "Retrieved CRX package manager install status",
@@ -632,12 +999,15 @@
         },
         "tags": [
           "crx"
-        ]
+        ],
+        "operationId": "getInstallStatus"
       }
     },
     "/crx/packmgr/service.jsp": {
       "post": {
-        "operationId": "postPackageService",
+        "produces": [
+          "text/xml"
+        ],
         "parameters": [
           {
             "in": "query",
@@ -645,9 +1015,6 @@
             "required": true,
             "type": "string"
           }
-        ],
-        "produces": [
-          "text/xml"
         ],
         "responses": {
           "default": {
@@ -659,7 +1026,8 @@
         },
         "tags": [
           "crx"
-        ]
+        ],
+        "operationId": "postPackageService"
       }
     },
     "/crx/packmgr/service/.json/{path}": {
@@ -667,7 +1035,9 @@
         "consumes": [
           "multipart/form-data"
         ],
-        "operationId": "postPackageServiceJson",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "in": "path",
@@ -718,14 +1088,11 @@
             "type": "boolean"
           },
           {
+            "format": "binary",
             "in": "formData",
             "name": "package",
-            "required": false,
-            "type": "file"
+            "type": "string"
           }
-        ],
-        "produces": [
-          "application/json"
         ],
         "responses": {
           "default": {
@@ -737,12 +1104,41 @@
         },
         "tags": [
           "crx"
-        ]
+        ],
+        "operationId": "postPackageServiceJson"
+      }
+    },
+    "/crx/packmgr/service/script.html": {
+      "get": {
+        "produces": [
+          "text/html"
+        ],
+        "parameters": [],
+        "responses": {
+          "404": {
+            "description": "Package Manager Servlet is disabled",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "405": {
+            "description": "Package Manager Servlet is active",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "tags": [
+          "crx"
+        ],
+        "operationId": "getPackageManagerServlet"
       }
     },
     "/crx/packmgr/update.jsp": {
       "post": {
-        "operationId": "postPackageUpdate",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "in": "query",
@@ -781,9 +1177,6 @@
             "type": "string"
           }
         ],
-        "produces": [
-          "application/json"
-        ],
         "responses": {
           "default": {
             "description": "Default response",
@@ -794,15 +1187,16 @@
         },
         "tags": [
           "crx"
-        ]
+        ],
+        "operationId": "postPackageUpdate"
       }
     },
     "/crx/server/crx.default/jcr:root/.1.json": {
       "get": {
-        "operationId": "getCrxdeStatus",
         "produces": [
           "plain/text"
         ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": "CRXDE is enabled",
@@ -819,12 +1213,15 @@
         },
         "tags": [
           "crx"
-        ]
+        ],
+        "operationId": "getCrxdeStatus"
       }
     },
     "/etc/packages/{group}/{name}-{version}.zip": {
       "get": {
-        "operationId": "getPackage",
+        "produces": [
+          "application/octet-stream"
+        ],
         "parameters": [
           {
             "in": "path",
@@ -845,25 +1242,26 @@
             "type": "string"
           }
         ],
-        "produces": [
-          "application/octet-stream"
-        ],
         "responses": {
           "default": {
             "description": "Default response",
             "schema": {
-              "type": "file"
+              "format": "binary",
+              "type": "string"
             }
           }
         },
         "tags": [
           "sling"
-        ]
+        ],
+        "operationId": "getPackage"
       }
     },
     "/etc/packages/{group}/{name}-{version}.zip/jcr:content/vlt:definition/filter.tidy.2.json": {
       "get": {
-        "operationId": "getPackageFilter",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "in": "path",
@@ -884,9 +1282,6 @@
             "type": "string"
           }
         ],
-        "produces": [
-          "application/json"
-        ],
         "responses": {
           "default": {
             "description": "Default response",
@@ -897,12 +1292,15 @@
         },
         "tags": [
           "sling"
-        ]
+        ],
+        "operationId": "getPackageFilter"
       }
     },
     "/etc/replication/agents.{runmode}.-1.json": {
       "get": {
-        "operationId": "getAgents",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "in": "path",
@@ -910,9 +1308,6 @@
             "required": true,
             "type": "string"
           }
-        ],
-        "produces": [
-          "application/json"
         ],
         "responses": {
           "default": {
@@ -924,12 +1319,12 @@
         },
         "tags": [
           "sling"
-        ]
+        ],
+        "operationId": "getAgents"
       }
     },
     "/etc/replication/agents.{runmode}/{name}": {
       "delete": {
-        "operationId": "deleteAgent",
         "parameters": [
           {
             "in": "path",
@@ -944,9 +1339,6 @@
             "type": "string"
           }
         ],
-        "produces": [
-          "text/plain"
-        ],
         "responses": {
           "default": {
             "description": "Default response"
@@ -954,10 +1346,10 @@
         },
         "tags": [
           "sling"
-        ]
+        ],
+        "operationId": "deleteAgent"
       },
       "get": {
-        "operationId": "getAgent",
         "parameters": [
           {
             "in": "path",
@@ -972,9 +1364,6 @@
             "type": "string"
           }
         ],
-        "produces": [
-          "text/plain"
-        ],
         "responses": {
           "default": {
             "description": "Default response"
@@ -982,10 +1371,10 @@
         },
         "tags": [
           "sling"
-        ]
+        ],
+        "operationId": "getAgent"
       },
       "post": {
-        "operationId": "postAgent",
         "parameters": [
           {
             "in": "path",
@@ -1304,9 +1693,6 @@
             "type": "string"
           }
         ],
-        "produces": [
-          "text/plain"
-        ],
         "responses": {
           "default": {
             "description": "Default response"
@@ -1314,12 +1700,12 @@
         },
         "tags": [
           "sling"
-        ]
+        ],
+        "operationId": "postAgent"
       }
     },
     "/etc/replication/treeactivation.html": {
       "post": {
-        "operationId": "postTreeActivation",
         "parameters": [
           {
             "in": "query",
@@ -1340,9 +1726,6 @@
             "type": "string"
           }
         ],
-        "produces": [
-          "text/plain"
-        ],
         "responses": {
           "default": {
             "description": "Default response"
@@ -1350,15 +1733,67 @@
         },
         "tags": [
           "sling"
-        ]
+        ],
+        "operationId": "postTreeActivation"
+      }
+    },
+    "/etc/truststore": {
+      "post": {
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "text/plain"
+        ],
+        "parameters": [
+          {
+            "format": "binary",
+            "in": "formData",
+            "name": "truststore.p12",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "Default response",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "tags": [
+          "sling"
+        ],
+        "operationId": "postTruststorePKCS12"
+      }
+    },
+    "/etc/truststore/truststore.p12": {
+      "get": {
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [],
+        "responses": {
+          "default": {
+            "description": "Default response",
+            "schema": {
+              "format": "binary",
+              "type": "string"
+            }
+          }
+        },
+        "tags": [
+          "sling"
+        ],
+        "operationId": "getTruststore"
       }
     },
     "/libs/granite/core/content/login.html": {
       "get": {
-        "operationId": "getLoginPage",
         "produces": [
           "text/html"
         ],
+        "parameters": [],
         "responses": {
           "default": {
             "description": "Default response",
@@ -1370,12 +1805,15 @@
         "security": [],
         "tags": [
           "cq"
-        ]
+        ],
+        "operationId": "getLoginPage"
       }
     },
     "/libs/granite/security/post/authorizables": {
       "post": {
-        "operationId": "postAuthorizables",
+        "produces": [
+          "text/html"
+        ],
         "parameters": [
           {
             "in": "query",
@@ -1414,8 +1852,137 @@
             "type": "string"
           }
         ],
+        "responses": {
+          "default": {
+            "description": "Default response",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "tags": [
+          "sling"
+        ],
+        "operationId": "postAuthorizables"
+      }
+    },
+    "/libs/granite/security/post/sslSetup.html": {
+      "post": {
+        "consumes": [
+          "multipart/form-data"
+        ],
         "produces": [
-          "text/html"
+          "text/plain"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "keystorePassword",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "keystorePasswordConfirm",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "truststorePassword",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "truststorePasswordConfirm",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "httpsHostname",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "httpsPort",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "format": "binary",
+            "in": "formData",
+            "name": "certificateFile",
+            "type": "string"
+          },
+          {
+            "format": "binary",
+            "in": "formData",
+            "name": "privatekeyFile",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "Default response",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "tags": [
+          "granite"
+        ],
+        "operationId": "sslSetup"
+      }
+    },
+    "/libs/granite/security/post/truststore": {
+      "post": {
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "text/plain"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": ":operation",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "newPassword",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "rePassword",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "keyStoreType",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "removeAlias",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "format": "binary",
+            "in": "formData",
+            "name": "certificate",
+            "type": "string"
+          }
         ],
         "responses": {
           "default": {
@@ -1427,12 +1994,38 @@
         },
         "tags": [
           "sling"
-        ]
+        ],
+        "operationId": "postTruststore"
+      }
+    },
+    "/libs/granite/security/truststore.json": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Retrieved AEM Truststore info",
+            "schema": {
+              "$ref": "#/definitions/TruststoreInfo"
+            }
+          },
+          "default": {
+            "description": "Default response",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "tags": [
+          "sling"
+        ],
+        "operationId": "getTruststoreInfo"
       }
     },
     "/system/console/bundles/{name}": {
       "post": {
-        "operationId": "postBundle",
         "parameters": [
           {
             "in": "path",
@@ -1447,9 +2040,6 @@
             "type": "string"
           }
         ],
-        "produces": [
-          "text/plain"
-        ],
         "responses": {
           "default": {
             "description": "Default response"
@@ -1457,12 +2047,264 @@
         },
         "tags": [
           "console"
-        ]
+        ],
+        "operationId": "postBundle"
+      }
+    },
+    "/system/console/configMgr": {
+      "get": {
+        "produces": [
+          "text/xml"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "5XX": {
+            "description": "Unexpected error."
+          }
+        },
+        "tags": [
+          "console"
+        ],
+        "operationId": "getConfigMgr"
+      }
+    },
+    "/system/console/configMgr/com.adobe.granite.auth.saml.SamlAuthenticationHandler": {
+      "post": {
+        "produces": [
+          "text/plain"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "post",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "in": "query",
+            "name": "apply",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "in": "query",
+            "name": "delete",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "in": "query",
+            "name": "action",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$location",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "collectionFormat": "multi",
+            "in": "query",
+            "items": {
+              "type": "string"
+            },
+            "name": "path",
+            "required": false,
+            "type": "array"
+          },
+          {
+            "in": "query",
+            "name": "service.ranking",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "idpUrl",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "idpCertAlias",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "idpHttpRedirect",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "in": "query",
+            "name": "serviceProviderEntityId",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "assertionConsumerServiceURL",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "spPrivateKeyAlias",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "keyStorePassword",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "defaultRedirectUrl",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "userIDAttribute",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "useEncryption",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "in": "query",
+            "name": "createUser",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "in": "query",
+            "name": "addGroupMemberships",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "in": "query",
+            "name": "groupMembershipAttribute",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "collectionFormat": "multi",
+            "in": "query",
+            "items": {
+              "type": "string"
+            },
+            "name": "defaultGroups",
+            "required": false,
+            "type": "array"
+          },
+          {
+            "in": "query",
+            "name": "nameIdFormat",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "collectionFormat": "multi",
+            "in": "query",
+            "items": {
+              "type": "string"
+            },
+            "name": "synchronizeAttributes",
+            "required": false,
+            "type": "array"
+          },
+          {
+            "in": "query",
+            "name": "handleLogout",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "in": "query",
+            "name": "logoutUrl",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "clockTolerance",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "digestMethod",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "signatureMethod",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "userIntermediatePath",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "collectionFormat": "csv",
+            "in": "query",
+            "items": {
+              "type": "string"
+            },
+            "name": "propertylist",
+            "required": false,
+            "type": "array"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retrieved AEM SAML Configuration",
+            "schema": {
+              "$ref": "#/definitions/SamlConfigurationInfo"
+            }
+          },
+          "302": {
+            "description": "Default response",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "default": {
+            "description": "Default response",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "tags": [
+          "console"
+        ],
+        "operationId": "postSamlConfiguration"
       }
     },
     "/system/console/jmx/com.adobe.granite:type=Repository/op/{action}": {
       "post": {
-        "operationId": "postJmxRepository",
         "parameters": [
           {
             "in": "path",
@@ -1471,9 +2313,6 @@
             "type": "string"
           }
         ],
-        "produces": [
-          "text/plain"
-        ],
         "responses": {
           "default": {
             "description": "Default response"
@@ -1481,12 +2320,38 @@
         },
         "tags": [
           "console"
-        ]
+        ],
+        "operationId": "postJmxRepository"
+      }
+    },
+    "/system/console/status-productinfo.json": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "default": {
+            "description": "Default response",
+            "schema": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          }
+        },
+        "tags": [
+          "console"
+        ],
+        "operationId": "getAemProductInfo"
       }
     },
     "/system/health": {
       "get": {
-        "operationId": "getAemHealthCheck",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "in": "query",
@@ -1501,9 +2366,6 @@
             "type": "boolean"
           }
         ],
-        "produces": [
-          "application/json"
-        ],
         "responses": {
           "default": {
             "description": "Default response",
@@ -1514,12 +2376,199 @@
         },
         "tags": [
           "custom"
-        ]
+        ],
+        "operationId": "getAemHealthCheck"
+      }
+    },
+    "/{intermediatePath}/{authorizableId}.ks.html": {
+      "post": {
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "text/plain"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "intermediatePath",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "authorizableId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": ":operation",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "currentPassword",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "newPassword",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "rePassword",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "keyPassword",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "keyStorePass",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "alias",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "newAlias",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "removeAlias",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "format": "binary",
+            "in": "formData",
+            "name": "cert-chain",
+            "type": "string"
+          },
+          {
+            "format": "binary",
+            "in": "formData",
+            "name": "keyStore",
+            "type": "string"
+          },
+          {
+            "format": "binary",
+            "in": "formData",
+            "name": "pk",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retrieved Authorizable Keystore info",
+            "schema": {
+              "$ref": "#/definitions/KeystoreInfo"
+            }
+          },
+          "default": {
+            "description": "Default response",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "tags": [
+          "sling"
+        ],
+        "operationId": "postAuthorizableKeystore"
+      }
+    },
+    "/{intermediatePath}/{authorizableId}.ks.json": {
+      "get": {
+        "produces": [
+          "text/plain"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "intermediatePath",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "authorizableId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retrieved Authorizable Keystore info",
+            "schema": {
+              "$ref": "#/definitions/KeystoreInfo"
+            }
+          },
+          "default": {
+            "description": "Default response",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "tags": [
+          "sling"
+        ],
+        "operationId": "getAuthorizableKeystore"
+      }
+    },
+    "/{intermediatePath}/{authorizableId}/keystore/store.p12": {
+      "get": {
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "intermediatePath",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "authorizableId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "Default response",
+            "schema": {
+              "format": "binary",
+              "type": "string"
+            }
+          }
+        },
+        "tags": [
+          "sling"
+        ],
+        "operationId": "getKeystore"
       }
     },
     "/{path}/": {
       "post": {
-        "operationId": "postPath",
         "parameters": [
           {
             "in": "path",
@@ -1540,9 +2589,6 @@
             "type": "string"
           }
         ],
-        "produces": [
-          "text/plain"
-        ],
         "responses": {
           "default": {
             "description": "Default response"
@@ -1550,12 +2596,12 @@
         },
         "tags": [
           "sling"
-        ]
+        ],
+        "operationId": "postPath"
       }
     },
     "/{path}/{name}": {
       "delete": {
-        "operationId": "deleteNode",
         "parameters": [
           {
             "in": "path",
@@ -1570,9 +2616,6 @@
             "type": "string"
           }
         ],
-        "produces": [
-          "text/plain"
-        ],
         "responses": {
           "default": {
             "description": "Default response"
@@ -1580,10 +2623,10 @@
         },
         "tags": [
           "sling"
-        ]
+        ],
+        "operationId": "deleteNode"
       },
       "get": {
-        "operationId": "getNode",
         "parameters": [
           {
             "in": "path",
@@ -1598,8 +2641,51 @@
             "type": "string"
           }
         ],
-        "produces": [
-          "text/plain"
+        "responses": {
+          "default": {
+            "description": "Default response"
+          }
+        },
+        "tags": [
+          "sling"
+        ],
+        "operationId": "getNode"
+      },
+      "post": {
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "name",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": ":operation",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "deleteAuthorizable",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "format": "binary",
+            "in": "formData",
+            "name": "file",
+            "type": "string"
+          }
         ],
         "responses": {
           "default": {
@@ -1608,12 +2694,12 @@
         },
         "tags": [
           "sling"
-        ]
+        ],
+        "operationId": "postNode"
       }
     },
     "/{path}/{name}.rw.html": {
       "post": {
-        "operationId": "postNodeRw",
         "parameters": [
           {
             "in": "path",
@@ -1634,9 +2720,6 @@
             "type": "string"
           }
         ],
-        "produces": [
-          "text/plain"
-        ],
         "responses": {
           "default": {
             "description": "Default response"
@@ -1644,7 +2727,8 @@
         },
         "tags": [
           "sling"
-        ]
+        ],
+        "operationId": "postNodeRw"
       }
     }
   },
@@ -1664,6 +2748,379 @@
         }
       },
       "type": "object"
+    },
+    "KeystoreChainItems": {
+      "properties": {
+        "issuer": {
+          "description": "e.g. \"CN=Admin\"",
+          "type": "string"
+        },
+        "notAfter": {
+          "description": "e.g. \"Sun Jun 30 23:59:50 AEST 2019\"",
+          "type": "string"
+        },
+        "notBefore": {
+          "description": "e.g. \"Sun Jul 01 12:00:00 AEST 2018\"",
+          "type": "string"
+        },
+        "serialNumber": {
+          "description": "18165099476682912368",
+          "type": "integer"
+        },
+        "subject": {
+          "description": "e.g. \"CN=localhost\"",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "KeystoreInfo": {
+      "properties": {
+        "aliases": {
+          "items": {
+            "$ref": "#/definitions/KeystoreItems"
+          },
+          "type": "array"
+        },
+        "exists": {
+          "description": "False if truststore don't exist",
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "KeystoreItems": {
+      "properties": {
+        "algorithm": {
+          "description": "e.g. \"RSA\"",
+          "type": "string"
+        },
+        "alias": {
+          "description": "Keystore alias name",
+          "type": "string"
+        },
+        "chain": {
+          "items": {
+            "$ref": "#/definitions/KeystoreChainItems"
+          },
+          "type": "array"
+        },
+        "entryType": {
+          "description": "e.g. \"privateKey\"",
+          "type": "string"
+        },
+        "format": {
+          "description": "e.g. \"PKCS#8\"",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "SamlConfigurationInfo": {
+      "properties": {
+        "bundle_location": {
+          "description": "needed for configuration binding",
+          "type": "string"
+        },
+        "description": {
+          "description": "Title",
+          "type": "string"
+        },
+        "pid": {
+          "description": "Persistent Identity (PID)",
+          "type": "string"
+        },
+        "properties": {
+          "$ref": "#/definitions/SamlConfigurationProperties"
+        },
+        "service_location": {
+          "description": "needed for configuraiton binding",
+          "type": "string"
+        },
+        "title": {
+          "description": "Title",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "SamlConfigurationProperties": {
+      "properties": {
+        "addGroupMemberships": {
+          "$ref": "#/definitions/SamlConfigurationPropertyItemsBoolean",
+          "description": "Whether or not a user should be automatically added to CRX groups after successful authentication."
+        },
+        "assertionConsumerServiceURL": {
+          "$ref": "#/definitions/SamlConfigurationPropertyItemsString",
+          "description": "The (optional) AssertionConsumerServiceURL attribute of an Authn request specifies the location to which a  message MUST be sent to the requester."
+        },
+        "clockTolerance": {
+          "$ref": "#/definitions/SamlConfigurationPropertyItemsLong",
+          "description": "Time tolerance in seconds to compensate clock skew between IDP and SP when validating Assertions."
+        },
+        "createUser": {
+          "$ref": "#/definitions/SamlConfigurationPropertyItemsBoolean",
+          "description": "Whether or not to autocreate nonexisting users in the repository."
+        },
+        "defaultGroups": {
+          "$ref": "#/definitions/SamlConfigurationPropertyItemsArray",
+          "description": "A list of default CRX groups users are added to after successful authentication."
+        },
+        "defaultRedirectUrl": {
+          "$ref": "#/definitions/SamlConfigurationPropertyItemsString",
+          "description": "The default location to redirect to after successful authentication."
+        },
+        "digestMethod": {
+          "$ref": "#/definitions/SamlConfigurationPropertyItemsString",
+          "description": "The digest algorithm to use when signing a SAML message."
+        },
+        "groupMembershipAttribute": {
+          "$ref": "#/definitions/SamlConfigurationPropertyItemsString",
+          "description": "The name of the attribute containing a list of CRX groups this user should be added to."
+        },
+        "handleLogout": {
+          "$ref": "#/definitions/SamlConfigurationPropertyItemsBoolean",
+          "description": "Whether or not logout (dropCredentials) requests will be processed by this handler."
+        },
+        "idpCertAlias": {
+          "$ref": "#/definitions/SamlConfigurationPropertyItemsString",
+          "description": "The alias of the IdP's certificate in the global truststore. If this property is empty the authentication handler is disabled."
+        },
+        "idpHttpRedirect": {
+          "$ref": "#/definitions/SamlConfigurationPropertyItemsBoolean",
+          "description": "Use an HTTP Redirect to the IDP URL instead of sending an AuthnRequest-message to request credentials. Use this for IDP initiated authentication."
+        },
+        "idpUrl": {
+          "$ref": "#/definitions/SamlConfigurationPropertyItemsString",
+          "description": "URL of the IDP where the SAML Authentication Request should be sent to. If this property is empty the authentication handler is disabled. (idpUrl)"
+        },
+        "keyStorePassword": {
+          "$ref": "#/definitions/SamlConfigurationPropertyItemsString",
+          "description": "The password of the key-store of the 'authentication-service' system user."
+        },
+        "logoutUrl": {
+          "$ref": "#/definitions/SamlConfigurationPropertyItemsString",
+          "description": "URL of the IDP where the SAML Logout Request should be sent to. If this property is empty the authentication handler won't handle logouts."
+        },
+        "nameIdFormat": {
+          "$ref": "#/definitions/SamlConfigurationPropertyItemsString",
+          "description": "The value of the NameIDPolicy format parameter to send in the AuthnRequest message."
+        },
+        "path": {
+          "$ref": "#/definitions/SamlConfigurationPropertyItemsArray",
+          "description": "Repository path for which this authentication handler should be used by Sling. If this is empty, the authentication handler will be disabled."
+        },
+        "service.ranking": {
+          "$ref": "#/definitions/SamlConfigurationPropertyItemsLong",
+          "description": "OSGi Framework Service Ranking value to indicate the order in which to call this service. This is an int value where higher values designate higher precedence. Default value is 0."
+        },
+        "serviceProviderEntityId": {
+          "$ref": "#/definitions/SamlConfigurationPropertyItemsString",
+          "description": "ID which uniquely identifies this service provider with the identity provider. If this property is empty the authentication handler is disabled."
+        },
+        "signatureMethod": {
+          "$ref": "#/definitions/SamlConfigurationPropertyItemsString",
+          "description": "The signature algorithm to use when signing a SAML message."
+        },
+        "spPrivateKeyAlias": {
+          "$ref": "#/definitions/SamlConfigurationPropertyItemsString",
+          "description": "The alias of the SP's private key in the key-store of the 'authentication-service' system user. If this property is empty the handler will not be able to sign or decrypt messages."
+        },
+        "synchronizeAttributes": {
+          "$ref": "#/definitions/SamlConfigurationPropertyItemsArray",
+          "description": "A list of attribute mappings (in the format \\attributename=path/relative/to/user/node\\) which should be stored in the repository on user-synchronization."
+        },
+        "useEncryption": {
+          "$ref": "#/definitions/SamlConfigurationPropertyItemsBoolean",
+          "description": "Whether or not this authentication handler expects encrypted SAML assertions. If this is enabled the SP's private key must be provided in the key-store of the 'authentication-service' system user (see SP Private Key Alias above)."
+        },
+        "userIDAttribute": {
+          "$ref": "#/definitions/SamlConfigurationPropertyItemsString",
+          "description": "The name of the attribute containing the user ID used to authenticate and create the user in the CRX repository. Leave empty to use the Subject:NameId."
+        },
+        "userIntermediatePath": {
+          "$ref": "#/definitions/SamlConfigurationPropertyItemsString",
+          "description": "User intermediate path to store created users."
+        }
+      },
+      "type": "object"
+    },
+    "SamlConfigurationPropertyItemsArray": {
+      "properties": {
+        "description": {
+          "description": "Property description",
+          "type": "string"
+        },
+        "is_set": {
+          "description": "True if property is set",
+          "type": "boolean"
+        },
+        "name": {
+          "description": "property name",
+          "type": "string"
+        },
+        "optional": {
+          "description": "True if optional",
+          "type": "boolean"
+        },
+        "type": {
+          "description": "Property type, 1=String, 3=long, 11=boolean, 12=Password",
+          "type": "integer"
+        },
+        "values": {
+          "description": "Property value",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "SamlConfigurationPropertyItemsBoolean": {
+      "properties": {
+        "description": {
+          "description": "Property description",
+          "type": "string"
+        },
+        "is_set": {
+          "description": "True if property is set",
+          "type": "boolean"
+        },
+        "name": {
+          "description": "property name",
+          "type": "string"
+        },
+        "optional": {
+          "description": "True if optional",
+          "type": "boolean"
+        },
+        "type": {
+          "description": "Property type, 1=String, 3=long, 11=boolean, 12=Password",
+          "type": "integer"
+        },
+        "value": {
+          "description": "Property value",
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "SamlConfigurationPropertyItemsLong": {
+      "properties": {
+        "description": {
+          "description": "Property description",
+          "type": "string"
+        },
+        "is_set": {
+          "description": "True if property is set",
+          "type": "boolean"
+        },
+        "name": {
+          "description": "property name",
+          "type": "string"
+        },
+        "optional": {
+          "description": "True if optional",
+          "type": "boolean"
+        },
+        "type": {
+          "description": "Property type, 1=String, 3=long, 11=boolean, 12=Password",
+          "type": "integer"
+        },
+        "value": {
+          "description": "Property value",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "SamlConfigurationPropertyItemsString": {
+      "properties": {
+        "description": {
+          "description": "Property description",
+          "type": "string"
+        },
+        "is_set": {
+          "description": "True if property is set",
+          "type": "boolean"
+        },
+        "name": {
+          "description": "property name",
+          "type": "string"
+        },
+        "optional": {
+          "description": "True if optional",
+          "type": "boolean"
+        },
+        "type": {
+          "description": "Property type, 1=String, 3=long, 11=boolean, 12=Password",
+          "type": "integer"
+        },
+        "value": {
+          "description": "Property value",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "TruststoreInfo": {
+      "properties": {
+        "aliases": {
+          "items": {
+            "$ref": "#/definitions/TruststoreItems"
+          },
+          "type": "array"
+        },
+        "exists": {
+          "description": "False if truststore don't exist",
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "TruststoreItems": {
+      "properties": {
+        "alias": {
+          "description": "Truststore alias name",
+          "type": "string"
+        },
+        "entryType": {
+          "type": "string"
+        },
+        "issuer": {
+          "description": "e.g. \"CN=Admin\"",
+          "type": "string"
+        },
+        "notAfter": {
+          "description": "e.g. \"Sun Jun 30 23:59:50 AEST 2019\"",
+          "type": "string"
+        },
+        "notBefore": {
+          "description": "e.g. \"Sun Jul 01 12:00:00 AEST 2018\"",
+          "type": "string"
+        },
+        "serialNumber": {
+          "description": "18165099476682912368",
+          "type": "integer"
+        },
+        "subject": {
+          "description": "e.g. \"CN=localhost\"",
+          "type": "string"
+        }
+      },
+      "type": "object"
     }
-  }
+  },
+  "securityDefinitions": {
+    "aemAuth": {
+      "type": "basic"
+    }
+  },
+  "security": [
+    {
+      "aemAuth": []
+    }
+  ],
+  "x-components": {}
 }

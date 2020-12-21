@@ -1,0 +1,5050 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "contact": {
+      "email": "mike.ralphson@gmail.com",
+      "name": "Mike Ralphson",
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
+    },
+    "description": "<p>AWS IoT Greengrass brings local compute, messaging, data management, sync, and ML inference capabilities to edge devices. This enables devices to collect and analyze data closer to the source of information, react autonomously to local events, and communicate securely with each other on local networks. Local devices can also communicate securely with AWS IoT Core and export IoT data to the AWS Cloud. AWS IoT Greengrass developers can use AWS Lambda functions and components to create and deploy applications to fleets of edge devices for local operation.</p> <p>AWS IoT Greengrass Version 2 provides a new major version of the AWS IoT Greengrass Core software, new APIs, and a new console. Use this API reference to learn how to use the AWS IoT Greengrass V2 API operations to manage components, manage deployments, and core devices.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/greengrass/v2/developerguide/what-is-iot-greengrass.html\">What is AWS IoT Greengrass?</a> in the <i>AWS IoT Greengrass V2 Developer Guide</i>.</p>",
+    "license": {
+      "name": "Apache 2.0 License",
+      "url": "http://www.apache.org/licenses/"
+    },
+    "termsOfService": "https://aws.amazon.com/service-terms/",
+    "title": "AWS IoT Greengrass V2",
+    "version": "2020-11-30",
+    "x-apiClientRegistration": {
+      "url": "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"
+    },
+    "x-apisguru-categories": [
+      "cloud"
+    ],
+    "x-logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"
+    },
+    "x-origin": [
+      {
+        "contentType": "application/json",
+        "converter": {
+          "url": "https://github.com/mermade/aws2openapi",
+          "version": "1.0.0"
+        },
+        "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/greengrassv2-2020-11-30.normal.json",
+        "x-apisguru-driver": "external"
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "amazonaws.com",
+    "x-release": "v4",
+    "x-serviceName": "greengrassv2",
+    "x-datafire": {
+      "name": "amazonaws_greengrassv2",
+      "type": "openapi"
+    }
+  },
+  "host": "greengrass.us-east-1.amazonaws.com",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/greengrass/v2/components": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "<p>The scope of the components to list.</p> <p>Default: <code>PRIVATE</code> </p>",
+            "enum": [
+              "PRIVATE",
+              "PUBLIC"
+            ],
+            "in": "query",
+            "name": "scope",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "The maximum number of results to be returned per paginated request.",
+            "in": "query",
+            "maximum": 100,
+            "minimum": 1,
+            "name": "maxResults",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "The token to be used for the next set of paginated results.",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListComponentsResponse"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "482": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "483": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Retrieves a paginated list of component summaries. This list includes components that you have permission to view.",
+        "operationId": "ListComponents"
+      }
+    },
+    "/greengrass/v2/components/{arn}": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "delete": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the component version.",
+            "in": "path",
+            "name": "arn",
+            "pattern": "arn:aws(-cn|-us-gov)?:greengrass:[^:]+:(aws|[0-9]+):components:[^:]+:versions:[^:]+",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Success"
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "482": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "484": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "485": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "<p>Deletes a version of a component from AWS IoT Greengrass.</p> <note> <p>This operation deletes the component's recipe and artifacts. As a result, deployments that refer to this component version will fail. If you have deployments that use this component version, you can remove the component from the deployment or update the deployment to use a valid version.</p> </note>",
+        "operationId": "DeleteComponent"
+      },
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The format of the recipe.",
+            "enum": [
+              "JSON",
+              "YAML"
+            ],
+            "in": "query",
+            "name": "recipeOutputFormat",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the component version.",
+            "in": "path",
+            "name": "arn",
+            "pattern": "arn:aws(-cn|-us-gov)?:greengrass:[^:]+:(aws|[0-9]+):components:[^:]+:versions:[^:]+",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetComponentResponse"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "484": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Gets the recipe for a version of a component. Core devices can call this operation to identify the artifacts and requirements to install a component.",
+        "operationId": "GetComponent"
+      }
+    },
+    "/greengrass/v2/components/{arn}/artifacts/{artifactName}": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the component version.",
+            "in": "path",
+            "name": "arn",
+            "pattern": "arn:aws(-cn|-us-gov)?:greengrass:[^:]+:(aws|[0-9]+):components:[^:]+:versions:[^:]+",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The name of the artifact.",
+            "in": "path",
+            "minLength": 1,
+            "name": "artifactName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetComponentVersionArtifactResponse"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "484": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Gets the pre-signed URL to a component artifact in an S3 bucket. Core devices can call this operation to identify the URL that they can use to download an artifact to install.",
+        "operationId": "GetComponentVersionArtifact"
+      }
+    },
+    "/greengrass/v2/components/{arn}/metadata": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the component version.",
+            "in": "path",
+            "name": "arn",
+            "pattern": "arn:aws(-cn|-us-gov)?:greengrass:[^:]+:(aws|[0-9]+):components:[^:]+:versions:[^:]+",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeComponentResponse"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "484": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Retrieves metadata for a version of a component.",
+        "operationId": "DescribeComponent"
+      }
+    },
+    "/greengrass/v2/components/{arn}/versions": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the component version.",
+            "in": "path",
+            "name": "arn",
+            "pattern": "arn:aws(-cn|-us-gov)?:greengrass:[^:]+:(aws|[0-9]+):components:[^:]+",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The maximum number of results to be returned per paginated request.",
+            "in": "query",
+            "maximum": 100,
+            "minimum": 1,
+            "name": "maxResults",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "The token to be used for the next set of paginated results.",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListComponentVersionsResponse"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "484": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Retrieves a paginated list of all versions for a component.",
+        "operationId": "ListComponentVersions"
+      }
+    },
+    "/greengrass/v2/coreDevices": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the AWS IoT thing group by which to filter. If you specify this parameter, the list includes only core devices that are members of this thing group.",
+            "in": "query",
+            "name": "thingGroupArn",
+            "pattern": "arn:aws(-cn|-us-gov)?:iot:[^:]+:[0-9]+:thinggroup/.+",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "<p>The core device status by which to filter. If you specify this parameter, the list includes only core devices that have this status. Choose one of the following options:</p> <ul> <li> <p> <code>HEALTHY</code> – The AWS IoT Greengrass Core software and all components run on the core device without issue.</p> </li> <li> <p> <code>UNHEALTHY</code> – The AWS IoT Greengrass Core software or a component is in a failed state on the core device.</p> </li> </ul>",
+            "enum": [
+              "HEALTHY",
+              "UNHEALTHY"
+            ],
+            "in": "query",
+            "name": "status",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "The maximum number of results to be returned per paginated request.",
+            "in": "query",
+            "maximum": 100,
+            "minimum": 1,
+            "name": "maxResults",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "The token to be used for the next set of paginated results.",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListCoreDevicesResponse"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "482": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          }
+        },
+        "description": "Retrieves a paginated list of AWS IoT Greengrass core devices.",
+        "operationId": "ListCoreDevices"
+      }
+    },
+    "/greengrass/v2/coreDevices/{coreDeviceThingName}": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "delete": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The name of the core device. This is also the name of the AWS IoT thing.",
+            "in": "path",
+            "maxLength": 128,
+            "minLength": 1,
+            "name": "coreDeviceThingName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Success"
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "483": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "484": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "485": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          }
+        },
+        "description": "Deletes a AWS IoT Greengrass core device, which is an AWS IoT thing. This operation removes the core device from the list of core devices. This operation doesn't delete the AWS IoT thing. For more information about how to delete the AWS IoT thing, see <a href=\"https://docs.aws.amazon.com/iot/latest/apireference/API_DeleteThing.html\">DeleteThing</a> in the <i>AWS IoT API Reference</i>.",
+        "operationId": "DeleteCoreDevice"
+      },
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The name of the core device. This is also the name of the AWS IoT thing.",
+            "in": "path",
+            "maxLength": 128,
+            "minLength": 1,
+            "name": "coreDeviceThingName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetCoreDeviceResponse"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "483": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "484": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          }
+        },
+        "description": "Retrieves metadata for a AWS IoT Greengrass core device.",
+        "operationId": "GetCoreDevice"
+      }
+    },
+    "/greengrass/v2/coreDevices/{coreDeviceThingName}/effectiveDeployments": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The name of the core device. This is also the name of the AWS IoT thing.",
+            "in": "path",
+            "maxLength": 128,
+            "minLength": 1,
+            "name": "coreDeviceThingName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The maximum number of results to be returned per paginated request.",
+            "in": "query",
+            "maximum": 100,
+            "minimum": 1,
+            "name": "maxResults",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "The token to be used for the next set of paginated results.",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListEffectiveDeploymentsResponse"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "483": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "484": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          }
+        },
+        "description": "Retrieves a paginated list of deployment jobs that AWS IoT Greengrass sends to AWS IoT Greengrass core devices.",
+        "operationId": "ListEffectiveDeployments"
+      }
+    },
+    "/greengrass/v2/coreDevices/{coreDeviceThingName}/installedComponents": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The name of the core device. This is also the name of the AWS IoT thing.",
+            "in": "path",
+            "maxLength": 128,
+            "minLength": 1,
+            "name": "coreDeviceThingName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The maximum number of results to be returned per paginated request.",
+            "in": "query",
+            "maximum": 100,
+            "minimum": 1,
+            "name": "maxResults",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "The token to be used for the next set of paginated results.",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListInstalledComponentsResponse"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "483": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "484": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          }
+        },
+        "description": "Retrieves a paginated list of the components that a AWS IoT Greengrass core device runs.",
+        "operationId": "ListInstalledComponents"
+      }
+    },
+    "/greengrass/v2/createComponentVersion": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "tags": {
+                  "additionalProperties": {
+                    "$ref": "#/definitions/TagValue"
+                  },
+                  "description": "A list of key-value pairs that contain metadata for the resource. For more information, see <a href=\"https://docs.aws.amazon.com/greengrass/v2/tag-resources.html\">Tag your resources</a> in the <i>AWS IoT Greengrass V2 Developer Guide</i>.",
+                  "maxProperties": 50,
+                  "minProperties": 1,
+                  "type": "object"
+                },
+                "inlineRecipe": {
+                  "description": "<p>The recipe to use to create the component. The recipe defines the component's metadata, parameters, dependencies, lifecycle, artifacts, and platform compatibility.</p> <p>You must specify either <code>inlineRecipe</code> or <code>lambdaFunction</code>.</p>",
+                  "type": "string"
+                },
+                "lambdaFunction": {
+                  "description": "Contains information about an AWS Lambda function to import to create a component.",
+                  "properties": {
+                    "componentDependencies": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/ComponentDependencyMap"
+                        },
+                        {
+                          "description": "The component versions on which this Lambda function component depends."
+                        }
+                      ]
+                    },
+                    "componentLambdaParameters": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/LambdaExecutionParameters"
+                        },
+                        {
+                          "description": "The system and runtime parameters for the Lambda function as it runs on the AWS IoT Greengrass core device."
+                        }
+                      ]
+                    },
+                    "componentName": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/ComponentNameString"
+                        },
+                        {
+                          "description": "<p>The name of the component.</p> <p>Defaults to the name of the Lambda function.</p>"
+                        }
+                      ]
+                    },
+                    "componentPlatforms": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/ComponentPlatformList"
+                        },
+                        {
+                          "description": "The platforms that the component version supports."
+                        }
+                      ]
+                    },
+                    "componentVersion": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/ComponentVersionString"
+                        },
+                        {
+                          "description": "<p>The version of the component.</p> <p>Defaults to the version of the Lambda function as a semantic version. For example, if your function version is <code>3</code>, the component version becomes <code>3.0.0</code>.</p>"
+                        }
+                      ]
+                    },
+                    "lambdaArn": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/LambdaFunctionARNWithVersionNumber"
+                        },
+                        {
+                          "description": "The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the Lambda function. The ARN must include the version of the function to import. You can't use version aliases like <code>$LATEST</code>."
+                        }
+                      ]
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateComponentVersionResponse"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "ServiceQuotaExceededException",
+            "schema": {
+              "$ref": "#/definitions/ServiceQuotaExceededException"
+            }
+          },
+          "482": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "483": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          },
+          "484": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "485": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "<p>Creates a component. Components are software that run on AWS IoT Greengrass core devices. After you develop and test a component on your core device, you can use this operation to upload your component to AWS IoT Greengrass. Then, you can deploy the component to other core devices.</p> <p>You can use this operation to do the following:</p> <ul> <li> <p> <b>Create components from recipes</b> </p> <p>Create a component from a recipe, which is a file that defines the component's metadata, parameters, dependencies, lifecycle, artifacts, and platform capability. For more information, see <a href=\"https://docs.aws.amazon.com/greengrass/v2/developerguide/component-recipe-reference.html\">AWS IoT Greengrass component recipe reference</a> in the <i>AWS IoT Greengrass V2 Developer Guide</i>.</p> <p>To create a component from a recipe, specify <code>inlineRecipe</code> when you call this operation.</p> </li> <li> <p> <b>Create components from Lambda functions</b> </p> <p>Create a component from an AWS Lambda function that runs on AWS IoT Greengrass. This creates a recipe and artifacts from the Lambda function's deployment package. You can use this operation to migrate Lambda functions from AWS IoT Greengrass V1 to AWS IoT Greengrass V2.</p> <p>This function only accepts Lambda functions that use the following runtimes:</p> <ul> <li> <p>Python 2.7 – <code>python2.7</code> </p> </li> <li> <p>Python 3.7 – <code>python3.7</code> </p> </li> <li> <p>Python 3.8 – <code>python3.8</code> </p> </li> <li> <p>Java 8 – <code>java8</code> </p> </li> <li> <p>Node.js 10 – <code>nodejs10.x</code> </p> </li> <li> <p>Node.js 12 – <code>nodejs12.x</code> </p> </li> </ul> <p>To create a component from a Lambda function, specify <code>lambdaFunction</code> when you call this operation.</p> </li> </ul>",
+        "operationId": "CreateComponentVersion"
+      }
+    },
+    "/greengrass/v2/deployments": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the target AWS IoT thing or thing group.",
+            "in": "query",
+            "name": "targetArn",
+            "pattern": "arn:aws(-cn|-us-gov)?:iot:[^:]+:[0-9]+:(thing|thinggroup)/.+",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "<p>The filter for the list of deployments. Choose one of the following options:</p> <ul> <li> <p> <code>ALL</code> – The list includes all deployments.</p> </li> <li> <p> <code>LATEST_ONLY</code> – The list includes only the latest revision of each deployment.</p> </li> </ul> <p>Default: <code>LATEST_ONLY</code> </p>",
+            "enum": [
+              "ALL",
+              "LATEST_ONLY"
+            ],
+            "in": "query",
+            "name": "historyFilter",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "The maximum number of results to be returned per paginated request.",
+            "in": "query",
+            "maximum": 100,
+            "minimum": 1,
+            "name": "maxResults",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "The token to be used for the next set of paginated results.",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListDeploymentsResponse"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "482": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          }
+        },
+        "description": "Retrieves a paginated list of deployments.",
+        "operationId": "ListDeployments"
+      },
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "components": {
+                  "additionalProperties": {
+                    "$ref": "#/definitions/ComponentDeploymentSpecification"
+                  },
+                  "description": "The components to deploy. This is a dictionary, where each key is the name of a component, and each key's value is the version and configuration to deploy for that component.",
+                  "type": "object"
+                },
+                "tags": {
+                  "additionalProperties": {
+                    "$ref": "#/definitions/TagValue"
+                  },
+                  "description": "A list of key-value pairs that contain metadata for the resource. For more information, see <a href=\"https://docs.aws.amazon.com/greengrass/v2/tag-resources.html\">Tag your resources</a> in the <i>AWS IoT Greengrass V2 Developer Guide</i>.",
+                  "maxProperties": 50,
+                  "minProperties": 1,
+                  "type": "object"
+                },
+                "deploymentName": {
+                  "description": "<p>The name of the deployment.</p> <p>You can create deployments without names. If you create a deployment without a name, the AWS IoT Greengrass V2 console shows the deployment name as <code>&lt;targetType&gt;:&lt;targetName&gt;</code>, where <code>targetType</code> and <code>targetName</code> are the type and name of the deployment target.</p>",
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "deploymentPolicies": {
+                  "description": "Contains information about policies that define how a deployment updates components and handles failure.",
+                  "properties": {
+                    "componentUpdatePolicy": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/DeploymentComponentUpdatePolicy"
+                        },
+                        {
+                          "description": "The component update policy for the configuration deployment. This policy defines when it's safe to deploy the configuration to devices."
+                        }
+                      ]
+                    },
+                    "configurationValidationPolicy": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/DeploymentConfigurationValidationPolicy"
+                        },
+                        {
+                          "description": "The configuration validation policy for the configuration deployment. This policy defines how long each component has to validate its configure updates."
+                        }
+                      ]
+                    },
+                    "failureHandlingPolicy": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/DeploymentFailureHandlingPolicy"
+                        },
+                        {
+                          "description": "<p>The failure handling policy for the configuration deployment. This policy defines what to do if the deployment fails.</p> <p>Default: <code>ROLLBACK</code> </p>"
+                        }
+                      ]
+                    }
+                  },
+                  "type": "object"
+                },
+                "iotJobConfiguration": {
+                  "description": "Contains information about an AWS IoT job configuration.",
+                  "properties": {
+                    "abortConfig": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/IoTJobAbortConfig"
+                        },
+                        {
+                          "description": "The stop configuration for the job. This configuration defines when and how to stop a job rollout."
+                        }
+                      ]
+                    },
+                    "jobExecutionsRolloutConfig": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/IoTJobExecutionsRolloutConfig"
+                        },
+                        {
+                          "description": "The rollout configuration for the job. This configuration defines the rate at which the job rolls out to the fleet of target devices."
+                        }
+                      ]
+                    },
+                    "timeoutConfig": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/IoTJobTimeoutConfig"
+                        },
+                        {
+                          "description": "The timeout configuration for the job. This configuration defines the amount of time each device has to complete the job."
+                        }
+                      ]
+                    }
+                  },
+                  "type": "object"
+                },
+                "targetArn": {
+                  "description": "The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the target AWS IoT thing or thing group.",
+                  "pattern": "arn:aws(-cn|-us-gov)?:iot:[^:]+:[0-9]+:(thing|thinggroup)/.+",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "targetArn"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateDeploymentResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "482": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "484": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "<p>Creates a continuous deployment for a target, which is a AWS IoT Greengrass core device or group of core devices. When you add a new core device to a group of core devices that has a deployment, AWS IoT Greengrass deploys that group's deployment to the new device.</p> <p>You can define one deployment for each target. When you create a new deployment for a target that has an existing deployment, you replace the previous deployment. AWS IoT Greengrass applies the new deployment to the target devices.</p> <p>Every deployment has a revision number that indicates how many deployment revisions you define for a target. Use this operation to create a new revision of an existing deployment. This operation returns the revision number of the new deployment when you create it.</p> <p>For more information, see the <a href=\"https://docs.aws.amazon.com/greengrass/v2/latest/developerguide/create-deployments.html\">Create deployments</a> in the <i>AWS IoT Greengrass V2 Developer Guide</i>.</p>",
+        "operationId": "CreateDeployment"
+      }
+    },
+    "/greengrass/v2/deployments/{deploymentId}": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The ID of the deployment.",
+            "in": "path",
+            "minLength": 1,
+            "name": "deploymentId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetDeploymentResponse"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "483": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "484": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          }
+        },
+        "description": "Gets a deployment. Deployments define the components that run on AWS IoT Greengrass core devices.",
+        "operationId": "GetDeployment"
+      }
+    },
+    "/greengrass/v2/deployments/{deploymentId}/cancel": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The ID of the deployment.",
+            "in": "path",
+            "minLength": 1,
+            "name": "deploymentId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CancelDeploymentResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "482": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "483": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "484": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          },
+          "485": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          }
+        },
+        "description": "Cancels a deployment. This operation cancels the deployment for devices that haven't yet received it. If a device already received the deployment, this operation doesn't change anything for that device.",
+        "operationId": "CancelDeployment"
+      }
+    },
+    "/greengrass/v2/resolveComponentCandidates": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "componentCandidates": {
+                  "description": "The list of components to resolve.",
+                  "items": {
+                    "$ref": "#/definitions/ComponentCandidate"
+                  },
+                  "type": "array"
+                },
+                "platform": {
+                  "description": "Contains information about a platform that a component supports.",
+                  "properties": {
+                    "attributes": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/PlatformAttributesMap"
+                        },
+                        {
+                          "description": "A dictionary of attributes for the platform. The AWS IoT Greengrass Core software defines the <code>os</code> and <code>platform</code> by default. You can specify additional platform attributes for a core device when you deploy the AWS IoT Greengrass nucleus component. For more information, see the <a href=\"https://docs.aws.amazon.com/greengrass/v2/developerguide/greengrass-nucleus-component.html\">AWS IoT Greengrass nucleus component</a> in the <i>AWS IoT Greengrass V2 Developer Guide</i>."
+                        }
+                      ]
+                    },
+                    "name": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/NonEmptyString"
+                        },
+                        {
+                          "description": "<p>The friendly name of the platform. This name helps you identify the platform.</p> <p>If you omit this parameter, AWS IoT Greengrass creates a friendly name from the <code>os</code> and <code>architecture</code> of the platform.</p>"
+                        }
+                      ]
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "required": [
+                "platform",
+                "componentCandidates"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ResolveComponentCandidatesResponse"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "484": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "485": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          }
+        },
+        "description": "<p>Retrieves a list of components that meet the component, version, and platform requirements of a deployment. AWS IoT Greengrass core devices call this operation when they receive a deployment to identify the components to install.</p> <p>This operation identifies components that meet all dependency requirements for a deployment. If the requirements conflict, then this operation returns an error and the deployment fails. For example, this occurs if component <code>A</code> requires version <code>&gt;2.0.0</code> and component <code>B</code> requires version <code>&lt;2.0.0</code> of a component dependency.</p> <p>When you specify the component candidates to resolve, AWS IoT Greengrass compares each component's digest from the core device with the component's digest in the AWS Cloud. If the digests don't match, then AWS IoT Greengrass specifies to use the version from the AWS Cloud.</p> <important> <p>To use this operation, you must use the data plane API endpoint and authenticate with an AWS IoT device certificate. For more information, see <a href=\"https://docs.aws.amazon.com/https:/docs.aws.amazon.com/general/latest/gr/greengrass.html\">AWS IoT Greengrass endpoints and quotas</a>.</p> </important>",
+        "operationId": "ResolveComponentCandidates"
+      }
+    },
+    "/tags/{resourceArn}": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the resource.",
+            "in": "path",
+            "name": "resourceArn",
+            "pattern": "arn:aws(-cn|-us-gov)?:greengrass:[^:]+:(aws|[0-9]+):(components|deployments|coreDevices):.+",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListTagsForResourceResponse"
+            }
+          },
+          "480": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "481": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        },
+        "description": "Retrieves the list of tags for an AWS IoT Greengrass resource.",
+        "operationId": "ListTagsForResource"
+      },
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the resource to tag.",
+            "in": "path",
+            "name": "resourceArn",
+            "pattern": "arn:aws(-cn|-us-gov)?:greengrass:[^:]+:(aws|[0-9]+):(components|deployments|coreDevices):.+",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "tags": {
+                  "additionalProperties": {
+                    "$ref": "#/definitions/TagValue"
+                  },
+                  "description": "A list of key-value pairs that contain metadata for the resource. For more information, see <a href=\"https://docs.aws.amazon.com/greengrass/v2/tag-resources.html\">Tag your resources</a> in the <i>AWS IoT Greengrass V2 Developer Guide</i>.",
+                  "maxProperties": 50,
+                  "minProperties": 1,
+                  "type": "object"
+                }
+              },
+              "required": [
+                "tags"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/TagResourceResponse"
+            }
+          },
+          "480": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "481": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        },
+        "description": "Adds tags to an AWS IoT Greengrass resource. If a tag already exists for the resource, this operation updates the tag's value.",
+        "operationId": "TagResource"
+      }
+    },
+    "/tags/{resourceArn}#tagKeys": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "delete": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the resource to untag.",
+            "in": "path",
+            "name": "resourceArn",
+            "pattern": "arn:aws(-cn|-us-gov)?:greengrass:[^:]+:(aws|[0-9]+):(components|deployments|coreDevices):.+",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "collectionFormat": "multi",
+            "description": "A list of keys for tags to remove from the resource.",
+            "in": "query",
+            "items": {
+              "$ref": "#/definitions/TagKey"
+            },
+            "maxItems": 50,
+            "minItems": 1,
+            "name": "tagKeys",
+            "required": true,
+            "type": "array"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UntagResourceResponse"
+            }
+          },
+          "480": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "481": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        },
+        "description": "Removes a tag from an AWS IoT Greengrass resource.",
+        "operationId": "UntagResource"
+      }
+    }
+  },
+  "definitions": {
+    "AccessDeniedException": {},
+    "CancelDeploymentRequest": {
+      "properties": {},
+      "title": "CancelDeploymentRequest",
+      "type": "object"
+    },
+    "CancelDeploymentResponse": {
+      "properties": {
+        "message": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NonEmptyString"
+            },
+            {
+              "description": "A message that communicates if the cancel was successful."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "CloudComponentState": {
+      "enum": [
+        "REQUESTED",
+        "INITIATED",
+        "DEPLOYABLE",
+        "FAILED",
+        "DEPRECATED"
+      ],
+      "type": "string"
+    },
+    "CloudComponentStatus": {
+      "description": "Contains the status of a component in the AWS IoT Greengrass service.",
+      "properties": {
+        "componentState": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CloudComponentState"
+            },
+            {
+              "description": "The state of the component."
+            }
+          ]
+        },
+        "errors": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/StringMap"
+            },
+            {
+              "description": "A dictionary of errors that communicate why the component is in an error state. For example, if AWS IoT Greengrass can't access an artifact for the component, then <code>errors</code> contains the artifact's URI as a key, and the error message as the value for that key."
+            }
+          ]
+        },
+        "message": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NonEmptyString"
+            },
+            {
+              "description": "A message that communicates details, such as errors, about the status of the component."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "Component": {
+      "description": "Contains information about a component.",
+      "properties": {
+        "arn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ComponentARN"
+            },
+            {
+              "description": "The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the component version."
+            }
+          ]
+        },
+        "componentName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ComponentNameString"
+            },
+            {
+              "description": "The name of the component."
+            }
+          ]
+        },
+        "latestVersion": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ComponentLatestVersion"
+            },
+            {
+              "description": "The latest version of the component and its details."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ComponentARN": {
+      "pattern": "arn:aws(-cn|-us-gov)?:greengrass:[^:]+:(aws|[0-9]+):components:[^:]+",
+      "type": "string"
+    },
+    "ComponentCandidate": {
+      "description": "Contains information about a component that is a candidate to deploy to a AWS IoT Greengrass core device.",
+      "properties": {
+        "componentName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ComponentNameString"
+            },
+            {
+              "description": "The name of the component."
+            }
+          ]
+        },
+        "componentVersion": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ComponentVersionString"
+            },
+            {
+              "description": "The version of the component."
+            }
+          ]
+        },
+        "versionRequirements": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ComponentVersionRequirementMap"
+            },
+            {
+              "description": "<p>The version requirements for the component's dependencies. AWS IoT Greengrass core devices get the version requirements from component recipes.</p> <p>AWS IoT Greengrass V2 uses semantic version constraints. For more information, see <a href=\"https://semver.org/\">Semantic Versioning</a>.</p>"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ComponentCandidateList": {
+      "items": {
+        "$ref": "#/definitions/ComponentCandidate"
+      },
+      "type": "array"
+    },
+    "ComponentConfigurationPath": {
+      "maxLength": 256,
+      "minLength": 0,
+      "type": "string"
+    },
+    "ComponentConfigurationPathList": {
+      "items": {
+        "$ref": "#/definitions/ComponentConfigurationPath"
+      },
+      "type": "array"
+    },
+    "ComponentConfigurationString": {
+      "maxLength": 65536,
+      "minLength": 1,
+      "type": "string"
+    },
+    "ComponentConfigurationUpdate": {
+      "description": "Contains information about a deployment's update to a component's configuration on Greengrass core devices. For more information, see <a href=\"https://docs.aws.amazon.com/greengrass/v2/developerguide/update-component-configurations.html\">Update component configurations</a> in the <i>AWS IoT Greengrass V2 Developer Guide</i>.",
+      "properties": {
+        "merge": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ComponentConfigurationString"
+            },
+            {
+              "description": "A serialized JSON string that contains the configuration object to merge to target devices. The core device merges this configuration with the component's existing configuration. If this is the first time a component deploys on a device, the core device merges this configuration with the component's default configuration. This means that the core device keeps it's existing configuration for keys and values that you don't specify in this object. For more information, see <a href=\"https://docs.aws.amazon.com/greengrass/v2/developerguide/update-component-configurations.html#merge-configuration-update\">Merge configuration updates</a> in the <i>AWS IoT Greengrass V2 Developer Guide</i>."
+            }
+          ]
+        },
+        "reset": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ComponentConfigurationPathList"
+            },
+            {
+              "description": "The list of configuration nodes to reset to default values on target devices. Use JSON pointers to specify each node to reset. JSON pointers start with a forward slash (<code>/</code>) and use forward slashes to separate the key for each level in the object. For more information, see the <a href=\"https://tools.ietf.org/html/rfc6901\">JSON pointer specification</a> and <a href=\"https://docs.aws.amazon.com/greengrass/v2/developerguide/update-component-configurations.html#reset-configuration-update\">Reset configuration updates</a> in the <i>AWS IoT Greengrass V2 Developer Guide</i>."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ComponentDependencyMap": {
+      "additionalProperties": {
+        "$ref": "#/definitions/ComponentDependencyRequirement"
+      },
+      "type": "object"
+    },
+    "ComponentDependencyRequirement": {
+      "description": "Contains information about a component dependency for a Lambda function component.",
+      "properties": {
+        "dependencyType": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ComponentDependencyType"
+            },
+            {
+              "description": "<p>The type of this dependency. Choose from the following options:</p> <ul> <li> <p> <code>SOFT</code> – The component doesn't restart if the dependency changes state.</p> </li> <li> <p> <code>HARD</code> – The component restarts if the dependency changes state.</p> </li> </ul> <p>Default: <code>HARD</code> </p>"
+            }
+          ]
+        },
+        "versionRequirement": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NonEmptyString"
+            },
+            {
+              "description": "<p>The component version requirement for the component dependency.</p> <p>AWS IoT Greengrass V2 uses semantic version constraints. For more information, see <a href=\"https://semver.org/\">Semantic Versioning</a>.</p>"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ComponentDependencyType": {
+      "enum": [
+        "HARD",
+        "SOFT"
+      ],
+      "type": "string"
+    },
+    "ComponentDeploymentSpecification": {
+      "description": "Contains information about a component to deploy.",
+      "properties": {
+        "componentVersion": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ComponentVersionString"
+            },
+            {
+              "description": "The version of the component."
+            }
+          ]
+        },
+        "configurationUpdate": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ComponentConfigurationUpdate"
+            },
+            {
+              "description": "The configuration updates to deploy for the component. You can define <i>reset</i> updates and <i>merge</i> updates. A reset updates the keys that you specify to the default configuration for the component. A merge updates the core device's component configuration with the keys and values that you specify. The AWS IoT Greengrass Core software applies reset updates before it applies merge updates. For more information, see <a href=\"https://docs.aws.amazon.com/greengrass/v2/developerguide/update-component-configurations.html\">Update component configurations</a> in the <i>AWS IoT Greengrass V2 Developer Guide</i>."
+            }
+          ]
+        },
+        "runWith": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ComponentRunWith"
+            },
+            {
+              "description": "The system user and group that the AWS IoT Greengrass Core software uses to run component processes on the core device. If you omit this parameter, the AWS IoT Greengrass Core software uses the system user and group that you configure for the core device. For more information, see <a href=\"https://docs.aws.amazon.com/greengrass/v2/developerguide/configure-greengrass-core-v2.html#configure-component-user\">Configure the user and group that run components</a> in the <i>AWS IoT Greengrass V2 Developer Guide</i>."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ComponentDeploymentSpecifications": {
+      "additionalProperties": {
+        "$ref": "#/definitions/ComponentDeploymentSpecification"
+      },
+      "type": "object"
+    },
+    "ComponentLatestVersion": {
+      "description": "Contains information about the latest version of a component.",
+      "properties": {
+        "arn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ComponentVersionARN"
+            },
+            {
+              "description": "The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the component version."
+            }
+          ]
+        },
+        "componentVersion": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ComponentVersionString"
+            },
+            {
+              "description": "The version of the component."
+            }
+          ]
+        },
+        "creationTimestamp": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "The time at which the component was created, expressed in ISO 8601 format."
+            }
+          ]
+        },
+        "description": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NonEmptyString"
+            },
+            {
+              "description": "The description of the component version."
+            }
+          ]
+        },
+        "platforms": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ComponentPlatformList"
+            },
+            {
+              "description": "The platforms that the component version supports."
+            }
+          ]
+        },
+        "publisher": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NonEmptyString"
+            },
+            {
+              "description": "The publisher of the component version."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ComponentList": {
+      "items": {
+        "$ref": "#/definitions/Component"
+      },
+      "type": "array"
+    },
+    "ComponentNameString": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "[a-zA-Z0-9-_.]+",
+      "type": "string"
+    },
+    "ComponentPlatform": {
+      "description": "Contains information about a platform that a component supports.",
+      "properties": {
+        "attributes": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PlatformAttributesMap"
+            },
+            {
+              "description": "A dictionary of attributes for the platform. The AWS IoT Greengrass Core software defines the <code>os</code> and <code>platform</code> by default. You can specify additional platform attributes for a core device when you deploy the AWS IoT Greengrass nucleus component. For more information, see the <a href=\"https://docs.aws.amazon.com/greengrass/v2/developerguide/greengrass-nucleus-component.html\">AWS IoT Greengrass nucleus component</a> in the <i>AWS IoT Greengrass V2 Developer Guide</i>."
+            }
+          ]
+        },
+        "name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NonEmptyString"
+            },
+            {
+              "description": "<p>The friendly name of the platform. This name helps you identify the platform.</p> <p>If you omit this parameter, AWS IoT Greengrass creates a friendly name from the <code>os</code> and <code>architecture</code> of the platform.</p>"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ComponentPlatformList": {
+      "items": {
+        "$ref": "#/definitions/ComponentPlatform"
+      },
+      "type": "array"
+    },
+    "ComponentRunWith": {
+      "description": "Contains information system user and group that the AWS IoT Greengrass Core software uses to run component processes on the core device. For more information, see <a href=\"https://docs.aws.amazon.com/greengrass/v2/developerguide/configure-greengrass-core-v2.html#configure-component-user\">Configure the user and group that run components</a> in the <i>AWS IoT Greengrass V2 Developer Guide</i>.",
+      "properties": {
+        "posixUser": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NonEmptyString"
+            },
+            {
+              "description": "The POSIX system user and (optional) group to use to run this component. Specify the user and group separated by a colon (<code>:</code>) in the following format: <code>user:group</code>. The group is optional. If you don't specify a group, the AWS IoT Greengrass Core software uses the primary user for the group."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ComponentVersionARN": {
+      "pattern": "arn:aws(-cn|-us-gov)?:greengrass:[^:]+:(aws|[0-9]+):components:[^:]+:versions:[^:]+",
+      "type": "string"
+    },
+    "ComponentVersionList": {
+      "items": {
+        "$ref": "#/definitions/ComponentVersionListItem"
+      },
+      "type": "array"
+    },
+    "ComponentVersionListItem": {
+      "description": "Contains information about a component version in a list.",
+      "properties": {
+        "arn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NonEmptyString"
+            },
+            {
+              "description": "The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the component version."
+            }
+          ]
+        },
+        "componentName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ComponentNameString"
+            },
+            {
+              "description": "The name of the component."
+            }
+          ]
+        },
+        "componentVersion": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ComponentVersionString"
+            },
+            {
+              "description": "The version of the component."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ComponentVersionRequirementMap": {
+      "additionalProperties": {
+        "$ref": "#/definitions/NonEmptyString"
+      },
+      "type": "object"
+    },
+    "ComponentVersionString": {
+      "maxLength": 64,
+      "minLength": 1,
+      "pattern": "[0-9a-zA-Z-.+]+",
+      "type": "string"
+    },
+    "ComponentVisibilityScope": {
+      "enum": [
+        "PRIVATE",
+        "PUBLIC"
+      ],
+      "type": "string"
+    },
+    "ConflictException": {},
+    "CoreDevice": {
+      "description": "Contains information about a AWS IoT Greengrass core device, which is an AWS IoT thing that runs the AWS IoT Greengrass Core software.",
+      "properties": {
+        "coreDeviceThingName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CoreDeviceThingName"
+            },
+            {
+              "description": "The name of the core device. This is also the name of the AWS IoT thing."
+            }
+          ]
+        },
+        "lastStatusUpdateTimestamp": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "The time at which the core device's status last updated, expressed in ISO 8601 format."
+            }
+          ]
+        },
+        "status": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CoreDeviceStatus"
+            },
+            {
+              "description": "<p>The status of the core device. Core devices can have the following statuses:</p> <ul> <li> <p> <code>HEALTHY</code> – The AWS IoT Greengrass Core software and all components run on the core device without issue.</p> </li> <li> <p> <code>UNHEALTHY</code> – The AWS IoT Greengrass Core software or a component is in a failed state on the core device.</p> </li> </ul>"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "CoreDeviceArchitectureString": {
+      "maxLength": 255,
+      "minLength": 1,
+      "type": "string"
+    },
+    "CoreDevicePlatformString": {
+      "maxLength": 255,
+      "minLength": 1,
+      "type": "string"
+    },
+    "CoreDeviceStatus": {
+      "enum": [
+        "HEALTHY",
+        "UNHEALTHY"
+      ],
+      "type": "string"
+    },
+    "CoreDeviceThingName": {
+      "maxLength": 128,
+      "minLength": 1,
+      "type": "string"
+    },
+    "CoreDevicesList": {
+      "items": {
+        "$ref": "#/definitions/CoreDevice"
+      },
+      "type": "array"
+    },
+    "CreateComponentVersionRequest": {
+      "properties": {
+        "tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagMap"
+            },
+            {
+              "description": "A list of key-value pairs that contain metadata for the resource. For more information, see <a href=\"https://docs.aws.amazon.com/greengrass/v2/tag-resources.html\">Tag your resources</a> in the <i>AWS IoT Greengrass V2 Developer Guide</i>."
+            }
+          ]
+        },
+        "inlineRecipe": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RecipeBlob"
+            },
+            {
+              "description": "<p>The recipe to use to create the component. The recipe defines the component's metadata, parameters, dependencies, lifecycle, artifacts, and platform compatibility.</p> <p>You must specify either <code>inlineRecipe</code> or <code>lambdaFunction</code>.</p>"
+            }
+          ]
+        },
+        "lambdaFunction": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/LambdaFunctionRecipeSource"
+            },
+            {
+              "description": "<p>The parameters to create a component from a Lambda function.</p> <p>You must specify either <code>inlineRecipe</code> or <code>lambdaFunction</code>.</p>"
+            }
+          ]
+        }
+      },
+      "title": "CreateComponentVersionRequest",
+      "type": "object"
+    },
+    "CreateComponentVersionResponse": {
+      "properties": {
+        "arn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ComponentVersionARN"
+            },
+            {
+              "description": "The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the component version."
+            }
+          ]
+        },
+        "componentName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ComponentNameString"
+            },
+            {
+              "description": "The name of the component."
+            }
+          ]
+        },
+        "componentVersion": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ComponentVersionString"
+            },
+            {
+              "description": "The version of the component."
+            }
+          ]
+        },
+        "creationTimestamp": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "The time at which the component was created, expressed in ISO 8601 format."
+            }
+          ]
+        },
+        "status": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CloudComponentStatus"
+            },
+            {
+              "description": "The status of the component version in AWS IoT Greengrass V2. This status is different from the status of the component on a core device."
+            }
+          ]
+        }
+      },
+      "required": [
+        "componentName",
+        "componentVersion",
+        "creationTimestamp",
+        "status"
+      ],
+      "type": "object"
+    },
+    "CreateDeploymentRequest": {
+      "properties": {
+        "components": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ComponentDeploymentSpecifications"
+            },
+            {
+              "description": "The components to deploy. This is a dictionary, where each key is the name of a component, and each key's value is the version and configuration to deploy for that component."
+            }
+          ]
+        },
+        "tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagMap"
+            },
+            {
+              "description": "A list of key-value pairs that contain metadata for the resource. For more information, see <a href=\"https://docs.aws.amazon.com/greengrass/v2/tag-resources.html\">Tag your resources</a> in the <i>AWS IoT Greengrass V2 Developer Guide</i>."
+            }
+          ]
+        },
+        "deploymentName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NonEmptyString"
+            },
+            {
+              "description": "<p>The name of the deployment.</p> <p>You can create deployments without names. If you create a deployment without a name, the AWS IoT Greengrass V2 console shows the deployment name as <code>&lt;targetType&gt;:&lt;targetName&gt;</code>, where <code>targetType</code> and <code>targetName</code> are the type and name of the deployment target.</p>"
+            }
+          ]
+        },
+        "deploymentPolicies": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DeploymentPolicies"
+            },
+            {
+              "description": "The deployment policies for the deployment. These policies define how the deployment updates components and handles failure."
+            }
+          ]
+        },
+        "iotJobConfiguration": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DeploymentIoTJobConfiguration"
+            },
+            {
+              "description": "The job configuration for the deployment configuration. The job configuration specifies the rollout, timeout, and stop configurations for the deployment configuration."
+            }
+          ]
+        },
+        "targetArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TargetARN"
+            },
+            {
+              "description": "The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the target AWS IoT thing or thing group."
+            }
+          ]
+        }
+      },
+      "required": [
+        "targetArn"
+      ],
+      "title": "CreateDeploymentRequest",
+      "type": "object"
+    },
+    "CreateDeploymentResponse": {
+      "properties": {
+        "deploymentId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NonEmptyString"
+            },
+            {
+              "description": "The ID of the deployment."
+            }
+          ]
+        },
+        "iotJobArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/IoTJobARN"
+            },
+            {
+              "description": "The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the AWS IoT job that applies the deployment to target devices."
+            }
+          ]
+        },
+        "iotJobId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NonEmptyString"
+            },
+            {
+              "description": "The ID of the AWS IoT job that applies the deployment to target devices."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DefaultMaxResults": {
+      "maximum": 100,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "DeleteComponentRequest": {
+      "properties": {},
+      "title": "DeleteComponentRequest",
+      "type": "object"
+    },
+    "DeleteCoreDeviceRequest": {
+      "properties": {},
+      "title": "DeleteCoreDeviceRequest",
+      "type": "object"
+    },
+    "Deployment": {
+      "description": "Contains information about a deployment.",
+      "properties": {
+        "creationTimestamp": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "The time at which the deployment was created, expressed in ISO 8601 format."
+            }
+          ]
+        },
+        "deploymentId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NonEmptyString"
+            },
+            {
+              "description": "The ID of the deployment."
+            }
+          ]
+        },
+        "deploymentName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NonEmptyString"
+            },
+            {
+              "description": "<p>The name of the deployment.</p> <p>You can create deployments without names. If you create a deployment without a name, the AWS IoT Greengrass V2 console shows the deployment name as <code>&lt;targetType&gt;:&lt;targetName&gt;</code>, where <code>targetType</code> and <code>targetName</code> are the type and name of the deployment target.</p>"
+            }
+          ]
+        },
+        "deploymentStatus": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DeploymentStatus"
+            },
+            {
+              "description": "The status of the deployment."
+            }
+          ]
+        },
+        "isLatestForTarget": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/IsLatestForTarget"
+            },
+            {
+              "description": "Whether or not the deployment is the latest revision for its target."
+            }
+          ]
+        },
+        "revisionId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NonEmptyString"
+            },
+            {
+              "description": "The revision number of the deployment."
+            }
+          ]
+        },
+        "targetArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TargetARN"
+            },
+            {
+              "description": "The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the target AWS IoT thing or thing group."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DeploymentComponentUpdatePolicy": {
+      "description": "<p>Contains information about a deployment's policy that defines when components are safe to update.</p> <p>Each component on a device can report whether or not it's ready to update. After a component and its dependencies are ready, they can apply the update in the deployment. You can configure whether or not the deployment notifies components of an update and waits for a response. You specify the amount of time each component has to respond to the update notification.</p>",
+      "properties": {
+        "action": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DeploymentComponentUpdatePolicyAction"
+            },
+            {
+              "description": "<p>Whether or not to notify components and wait for components to become safe to update. Choose from the following options:</p> <ul> <li> <p> <code>NOTIFY_COMPONENTS</code> – The deployment notifies each component before it stops and updates that component. Components can use the <a href=\"https://docs.aws.amazon.com/greengrass/v2/developerguide/interprocess-communication.html#ipc-operation-subscribetocomponentupdates\">SubscribeToComponentUpdates</a> IPC operation to receive these notifications. Then, components can respond with the <a href=\"https://docs.aws.amazon.com/greengrass/v2/developerguide/interprocess-communication.html#ipc-operation-defercomponentupdate\">DeferComponentUpdate</a> IPC operation. For more information, see the <a href=\"https://docs.aws.amazon.com/greengrass/v2/latest/developerguide/create-deployments.html\">Create deployments</a> in the <i>AWS IoT Greengrass V2 Developer Guide</i>.</p> </li> <li> <p> <code>SKIP_NOTIFY_COMPONENTS</code> – The deployment doesn't notify components or wait for them to be safe to update.</p> </li> </ul> <p>Default: <code>NOTIFY_COMPONENTS</code> </p>"
+            }
+          ]
+        },
+        "timeoutInSeconds": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/OptionalInteger"
+            },
+            {
+              "description": "<p>The amount of time in seconds that each component on a device has to report that it's safe to update. If the component waits for longer than this timeout, then the deployment proceeds on the device.</p> <p>Default: <code>60</code> </p>"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DeploymentComponentUpdatePolicyAction": {
+      "enum": [
+        "NOTIFY_COMPONENTS",
+        "SKIP_NOTIFY_COMPONENTS"
+      ],
+      "type": "string"
+    },
+    "DeploymentConfigurationValidationPolicy": {
+      "description": "Contains information about how long a component on a core device can validate its configuration updates before it times out. Components can use the <a href=\"https://docs.aws.amazon.com/greengrass/v2/developerguide/interprocess-communication.html#ipc-operation-subscribetovalidateconfigurationupdates\">SubscribeToValidateConfigurationUpdates</a> IPC operation to receive notifications when a deployment specifies a configuration update. Then, components can respond with the <a href=\"https://docs.aws.amazon.com/greengrass/v2/developerguide/interprocess-communication.html#ipc-operation-sendconfigurationvalidityreport\">SendConfigurationValidityReport</a> IPC operation. For more information, see the <a href=\"https://docs.aws.amazon.com/greengrass/v2/latest/developerguide/create-deployments.html\">Create deployments</a> in the <i>AWS IoT Greengrass V2 Developer Guide</i>.",
+      "properties": {
+        "timeoutInSeconds": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/OptionalInteger"
+            },
+            {
+              "description": "<p>The amount of time in seconds that a component can validate its configuration updates. If the validation time exceeds this timeout, then the deployment proceeds for the device.</p> <p>Default: <code>30</code> </p>"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DeploymentFailureHandlingPolicy": {
+      "enum": [
+        "ROLLBACK",
+        "DO_NOTHING"
+      ],
+      "type": "string"
+    },
+    "DeploymentHistoryFilter": {
+      "enum": [
+        "ALL",
+        "LATEST_ONLY"
+      ],
+      "type": "string"
+    },
+    "DeploymentID": {
+      "type": "string"
+    },
+    "DeploymentIoTJobConfiguration": {
+      "description": "Contains information about an AWS IoT job configuration.",
+      "properties": {
+        "abortConfig": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/IoTJobAbortConfig"
+            },
+            {
+              "description": "The stop configuration for the job. This configuration defines when and how to stop a job rollout."
+            }
+          ]
+        },
+        "jobExecutionsRolloutConfig": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/IoTJobExecutionsRolloutConfig"
+            },
+            {
+              "description": "The rollout configuration for the job. This configuration defines the rate at which the job rolls out to the fleet of target devices."
+            }
+          ]
+        },
+        "timeoutConfig": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/IoTJobTimeoutConfig"
+            },
+            {
+              "description": "The timeout configuration for the job. This configuration defines the amount of time each device has to complete the job."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DeploymentList": {
+      "items": {
+        "$ref": "#/definitions/Deployment"
+      },
+      "type": "array"
+    },
+    "DeploymentName": {
+      "type": "string"
+    },
+    "DeploymentPolicies": {
+      "description": "Contains information about policies that define how a deployment updates components and handles failure.",
+      "properties": {
+        "componentUpdatePolicy": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DeploymentComponentUpdatePolicy"
+            },
+            {
+              "description": "The component update policy for the configuration deployment. This policy defines when it's safe to deploy the configuration to devices."
+            }
+          ]
+        },
+        "configurationValidationPolicy": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DeploymentConfigurationValidationPolicy"
+            },
+            {
+              "description": "The configuration validation policy for the configuration deployment. This policy defines how long each component has to validate its configure updates."
+            }
+          ]
+        },
+        "failureHandlingPolicy": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DeploymentFailureHandlingPolicy"
+            },
+            {
+              "description": "<p>The failure handling policy for the configuration deployment. This policy defines what to do if the deployment fails.</p> <p>Default: <code>ROLLBACK</code> </p>"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DeploymentStatus": {
+      "enum": [
+        "ACTIVE",
+        "COMPLETED",
+        "CANCELED",
+        "FAILED",
+        "INACTIVE"
+      ],
+      "type": "string"
+    },
+    "DescribeComponentRequest": {
+      "properties": {},
+      "title": "DescribeComponentRequest",
+      "type": "object"
+    },
+    "DescribeComponentResponse": {
+      "properties": {
+        "tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagMap"
+            },
+            {
+              "description": "A list of key-value pairs that contain metadata for the resource. For more information, see <a href=\"https://docs.aws.amazon.com/greengrass/v2/tag-resources.html\">Tag your resources</a> in the <i>AWS IoT Greengrass V2 Developer Guide</i>."
+            }
+          ]
+        },
+        "arn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ComponentVersionARN"
+            },
+            {
+              "description": "The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the component version."
+            }
+          ]
+        },
+        "componentName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ComponentNameString"
+            },
+            {
+              "description": "The name of the component."
+            }
+          ]
+        },
+        "componentVersion": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ComponentVersionString"
+            },
+            {
+              "description": "The version of the component."
+            }
+          ]
+        },
+        "creationTimestamp": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "The time at which the component was created, expressed in ISO 8601 format."
+            }
+          ]
+        },
+        "description": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DescriptionString"
+            },
+            {
+              "description": "The description of the component version."
+            }
+          ]
+        },
+        "platforms": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ComponentPlatformList"
+            },
+            {
+              "description": "The platforms that the component version supports."
+            }
+          ]
+        },
+        "publisher": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PublisherString"
+            },
+            {
+              "description": "The publisher of the component version."
+            }
+          ]
+        },
+        "status": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CloudComponentStatus"
+            },
+            {
+              "description": "The status of the component version in AWS IoT Greengrass V2. This status is different from the status of the component on a core device."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "Description": {
+      "maxLength": 500,
+      "minLength": 1,
+      "type": "string"
+    },
+    "DescriptionString": {
+      "type": "string"
+    },
+    "EffectiveDeployment": {
+      "description": "Contains information about a deployment job that AWS IoT Greengrass sends to a AWS IoT Greengrass core device.",
+      "properties": {
+        "coreDeviceExecutionStatus": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/EffectiveDeploymentExecutionStatus"
+            },
+            {
+              "description": "The status of the deployment job on the AWS IoT Greengrass core device."
+            }
+          ]
+        },
+        "creationTimestamp": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "The time at which the deployment was created, expressed in ISO 8601 format."
+            }
+          ]
+        },
+        "deploymentId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DeploymentID"
+            },
+            {
+              "description": "The ID of the deployment."
+            }
+          ]
+        },
+        "deploymentName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DeploymentName"
+            },
+            {
+              "description": "<p>The name of the deployment.</p> <p>You can create deployments without names. If you create a deployment without a name, the AWS IoT Greengrass V2 console shows the deployment name as <code>&lt;targetType&gt;:&lt;targetName&gt;</code>, where <code>targetType</code> and <code>targetName</code> are the type and name of the deployment target.</p>"
+            }
+          ]
+        },
+        "description": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Description"
+            },
+            {
+              "description": "The description of the deployment job."
+            }
+          ]
+        },
+        "iotJobArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/IoTJobARN"
+            },
+            {
+              "description": "The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the AWS IoT job that applies the deployment to target devices."
+            }
+          ]
+        },
+        "iotJobId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/IoTJobId"
+            },
+            {
+              "description": "The ID of the AWS IoT job that applies the deployment to target devices."
+            }
+          ]
+        },
+        "modifiedTimestamp": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "The time at which the deployment job was last modified, expressed in ISO 8601 format."
+            }
+          ]
+        },
+        "reason": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Reason"
+            },
+            {
+              "description": "The reason code for the update, if the job was updated."
+            }
+          ]
+        },
+        "targetArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TargetARN"
+            },
+            {
+              "description": "The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the target AWS IoT thing or thing group."
+            }
+          ]
+        }
+      },
+      "required": [
+        "deploymentId",
+        "deploymentName",
+        "targetArn",
+        "coreDeviceExecutionStatus",
+        "creationTimestamp",
+        "modifiedTimestamp"
+      ],
+      "type": "object"
+    },
+    "EffectiveDeploymentExecutionStatus": {
+      "enum": [
+        "IN_PROGRESS",
+        "QUEUED",
+        "FAILED",
+        "COMPLETED",
+        "TIMED_OUT",
+        "CANCELED",
+        "REJECTED"
+      ],
+      "type": "string"
+    },
+    "EffectiveDeploymentsList": {
+      "items": {
+        "$ref": "#/definitions/EffectiveDeployment"
+      },
+      "type": "array"
+    },
+    "FileSystemPath": {
+      "type": "string"
+    },
+    "GGCVersion": {
+      "maxLength": 255,
+      "minLength": 1,
+      "type": "string"
+    },
+    "GenericV2ARN": {
+      "pattern": "arn:aws(-cn|-us-gov)?:greengrass:[^:]+:(aws|[0-9]+):(components|deployments|coreDevices):.+",
+      "type": "string"
+    },
+    "GetComponentRequest": {
+      "properties": {},
+      "title": "GetComponentRequest",
+      "type": "object"
+    },
+    "GetComponentResponse": {
+      "properties": {
+        "tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagMap"
+            },
+            {
+              "description": "A list of key-value pairs that contain metadata for the resource. For more information, see <a href=\"https://docs.aws.amazon.com/greengrass/v2/tag-resources.html\">Tag your resources</a> in the <i>AWS IoT Greengrass V2 Developer Guide</i>."
+            }
+          ]
+        },
+        "recipe": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RecipeBlob"
+            },
+            {
+              "description": "The recipe of the component version."
+            }
+          ]
+        },
+        "recipeOutputFormat": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RecipeOutputFormat"
+            },
+            {
+              "description": "The format of the recipe."
+            }
+          ]
+        }
+      },
+      "required": [
+        "recipeOutputFormat",
+        "recipe"
+      ],
+      "type": "object"
+    },
+    "GetComponentVersionArtifactRequest": {
+      "properties": {},
+      "title": "GetComponentVersionArtifactRequest",
+      "type": "object"
+    },
+    "GetComponentVersionArtifactResponse": {
+      "properties": {
+        "preSignedUrl": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NonEmptyString"
+            },
+            {
+              "description": "The URL to the artifact."
+            }
+          ]
+        }
+      },
+      "required": [
+        "preSignedUrl"
+      ],
+      "type": "object"
+    },
+    "GetCoreDeviceRequest": {
+      "properties": {},
+      "title": "GetCoreDeviceRequest",
+      "type": "object"
+    },
+    "GetCoreDeviceResponse": {
+      "properties": {
+        "tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagMap"
+            },
+            {
+              "description": "A list of key-value pairs that contain metadata for the resource. For more information, see <a href=\"https://docs.aws.amazon.com/greengrass/v2/tag-resources.html\">Tag your resources</a> in the <i>AWS IoT Greengrass V2 Developer Guide</i>."
+            }
+          ]
+        },
+        "architecture": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CoreDeviceArchitectureString"
+            },
+            {
+              "description": "The computer architecture of the core device."
+            }
+          ]
+        },
+        "coreDeviceThingName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CoreDeviceThingName"
+            },
+            {
+              "description": "The name of the core device. This is also the name of the AWS IoT thing."
+            }
+          ]
+        },
+        "coreVersion": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/GGCVersion"
+            },
+            {
+              "description": "The version of the AWS IoT Greengrass Core software that the core device runs. This version is equivalent to the version of the AWS IoT Greengrass nucleus component that runs on the core device. For more information, see the <a href=\"https://docs.aws.amazon.com/greengrass/v2/developerguide/greengrass-nucleus-component.html\">AWS IoT Greengrass nucleus component</a> in the <i>AWS IoT Greengrass V2 Developer Guide</i>."
+            }
+          ]
+        },
+        "lastStatusUpdateTimestamp": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "The time at which the core device's status last updated, expressed in ISO 8601 format."
+            }
+          ]
+        },
+        "platform": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CoreDevicePlatformString"
+            },
+            {
+              "description": "The operating system platform that the core device runs."
+            }
+          ]
+        },
+        "status": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CoreDeviceStatus"
+            },
+            {
+              "description": "<p>The status of the core device. The core device status can be:</p> <ul> <li> <p> <code>HEALTHY</code> – The AWS IoT Greengrass Core software and all components run on the core device without issue.</p> </li> <li> <p> <code>UNHEALTHY</code> – The AWS IoT Greengrass Core software or a component is in a failed state on the core device.</p> </li> </ul>"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "GetDeploymentRequest": {
+      "properties": {},
+      "title": "GetDeploymentRequest",
+      "type": "object"
+    },
+    "GetDeploymentResponse": {
+      "properties": {
+        "components": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ComponentDeploymentSpecifications"
+            },
+            {
+              "description": "The components to deploy. This is a dictionary, where each key is the name of a component, and each key's value is the version and configuration to deploy for that component."
+            }
+          ]
+        },
+        "tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagMap"
+            },
+            {
+              "description": "A list of key-value pairs that contain metadata for the resource. For more information, see <a href=\"https://docs.aws.amazon.com/greengrass/v2/tag-resources.html\">Tag your resources</a> in the <i>AWS IoT Greengrass V2 Developer Guide</i>."
+            }
+          ]
+        },
+        "creationTimestamp": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "The time at which the deployment was created, expressed in ISO 8601 format."
+            }
+          ]
+        },
+        "deploymentId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NonEmptyString"
+            },
+            {
+              "description": "The ID of the deployment."
+            }
+          ]
+        },
+        "deploymentName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NullableString"
+            },
+            {
+              "description": "<p>The name of the deployment.</p> <p>You can create deployments without names. If you create a deployment without a name, the AWS IoT Greengrass V2 console shows the deployment name as <code>&lt;targetType&gt;:&lt;targetName&gt;</code>, where <code>targetType</code> and <code>targetName</code> are the type and name of the deployment target.</p>"
+            }
+          ]
+        },
+        "deploymentPolicies": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DeploymentPolicies"
+            },
+            {
+              "description": "The deployment policies for the deployment. These policies define how the deployment updates components and handles failure."
+            }
+          ]
+        },
+        "deploymentStatus": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DeploymentStatus"
+            },
+            {
+              "description": "The status of the deployment."
+            }
+          ]
+        },
+        "iotJobArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/IoTJobARN"
+            },
+            {
+              "description": "The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the AWS IoT job that applies the deployment to target devices."
+            }
+          ]
+        },
+        "iotJobConfiguration": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DeploymentIoTJobConfiguration"
+            },
+            {
+              "description": "The job configuration for the deployment configuration. The job configuration specifies the rollout, timeout, and stop configurations for the deployment configuration."
+            }
+          ]
+        },
+        "iotJobId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NullableString"
+            },
+            {
+              "description": "The ID of the AWS IoT job that applies the deployment to target devices."
+            }
+          ]
+        },
+        "isLatestForTarget": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/IsLatestForTarget"
+            },
+            {
+              "description": "Whether or not the deployment is the latest revision for its target."
+            }
+          ]
+        },
+        "revisionId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NonEmptyString"
+            },
+            {
+              "description": "The revision number of the deployment."
+            }
+          ]
+        },
+        "targetArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TargetARN"
+            },
+            {
+              "description": "The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the target AWS IoT thing or thing group."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "InstalledComponent": {
+      "description": "Contains information about a component on a AWS IoT Greengrass core device.",
+      "properties": {
+        "componentName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ComponentNameString"
+            },
+            {
+              "description": "The name of the component."
+            }
+          ]
+        },
+        "componentVersion": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ComponentVersionString"
+            },
+            {
+              "description": "The version of the component."
+            }
+          ]
+        },
+        "isRoot": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/IsRoot"
+            },
+            {
+              "description": "Whether or not the component is a root component."
+            }
+          ]
+        },
+        "lifecycleState": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InstalledComponentLifecycleState"
+            },
+            {
+              "description": "The lifecycle state of the component."
+            }
+          ]
+        },
+        "lifecycleStateDetails": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/LifecycleStateDetails"
+            },
+            {
+              "description": "The details about the lifecycle state of the component."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "InstalledComponentLifecycleState": {
+      "enum": [
+        "NEW",
+        "INSTALLED",
+        "STARTING",
+        "RUNNING",
+        "STOPPING",
+        "ERRORED",
+        "BROKEN",
+        "FINISHED"
+      ],
+      "type": "string"
+    },
+    "InstalledComponentList": {
+      "items": {
+        "$ref": "#/definitions/InstalledComponent"
+      },
+      "type": "array"
+    },
+    "InternalServerException": {},
+    "IoTJobARN": {
+      "pattern": "arn:aws(-cn|-us-gov)?:iot:[^:]+:[0-9]+:job/.+",
+      "type": "string"
+    },
+    "IoTJobAbortAction": {
+      "enum": [
+        "CANCEL"
+      ],
+      "type": "string"
+    },
+    "IoTJobAbortConfig": {
+      "description": "Contains a list of criteria that define when and how to cancel a configuration deployment.",
+      "properties": {
+        "criteriaList": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/IoTJobAbortCriteriaList"
+            },
+            {
+              "description": "The list of criteria that define when and how to cancel the configuration deployment."
+            }
+          ]
+        }
+      },
+      "required": [
+        "criteriaList"
+      ],
+      "type": "object"
+    },
+    "IoTJobAbortCriteria": {
+      "description": "<p>Contains criteria that define when and how to cancel a job.</p> <p>The deployment stops if the following conditions are true:</p> <ol> <li> <p>The number of things that receive the deployment exceeds the <code>minNumberOfExecutedThings</code>.</p> </li> <li> <p>The percentage of failures with type <code>failureType</code> exceeds the <code>thresholdPercentage</code>.</p> </li> </ol>",
+      "properties": {
+        "action": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/IoTJobAbortAction"
+            },
+            {
+              "description": "The action to perform when the criteria are met."
+            }
+          ]
+        },
+        "failureType": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/IoTJobExecutionFailureType"
+            },
+            {
+              "description": "The type of job deployment failure that can cancel a job."
+            }
+          ]
+        },
+        "minNumberOfExecutedThings": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/IoTJobMinimumNumberOfExecutedThings"
+            },
+            {
+              "description": "The minimum number of things that receive the configuration before the job can cancel."
+            }
+          ]
+        },
+        "thresholdPercentage": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/IoTJobAbortThresholdPercentage"
+            },
+            {
+              "description": "<p>The minimum percentage of <code>failureType</code> failures that occur before the job can cancel.</p> <p>This parameter supports up to two digits after the decimal (for example, you can specify <code>10.9</code> or <code>10.99</code>, but not <code>10.999</code>).</p>"
+            }
+          ]
+        }
+      },
+      "required": [
+        "failureType",
+        "action",
+        "thresholdPercentage",
+        "minNumberOfExecutedThings"
+      ],
+      "type": "object"
+    },
+    "IoTJobAbortCriteriaList": {
+      "items": {
+        "$ref": "#/definitions/IoTJobAbortCriteria"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "IoTJobAbortThresholdPercentage": {
+      "format": "double",
+      "maximum": 100,
+      "type": "number"
+    },
+    "IoTJobExecutionFailureType": {
+      "enum": [
+        "FAILED",
+        "REJECTED",
+        "TIMED_OUT",
+        "ALL"
+      ],
+      "type": "string"
+    },
+    "IoTJobExecutionsRolloutConfig": {
+      "description": "Contains information about the rollout configuration for a job. This configuration defines the rate at which the job deploys a configuration to a fleet of target devices.",
+      "properties": {
+        "exponentialRate": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/IoTJobExponentialRolloutRate"
+            },
+            {
+              "description": "The exponential rate to increase the job rollout rate."
+            }
+          ]
+        },
+        "maximumPerMinute": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/IoTJobMaxExecutionsPerMin"
+            },
+            {
+              "description": "The maximum number of devices that receive a pending job notification, per minute."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "IoTJobExponentialRolloutRate": {
+      "description": "Contains information about an exponential rollout rate for a configuration deployment job.",
+      "properties": {
+        "baseRatePerMinute": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/IoTJobRolloutBaseRatePerMinute"
+            },
+            {
+              "description": "The minimum number of devices that receive a pending job notification, per minute, when the job starts. This parameter defines the initial rollout rate of the job."
+            }
+          ]
+        },
+        "incrementFactor": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/IoTJobRolloutIncrementFactor"
+            },
+            {
+              "description": "<p>The exponential factor to increase the rollout rate for the job.</p> <p>This parameter supports up to one digit after the decimal (for example, you can specify <code>1.5</code>, but not <code>1.55</code>).</p>"
+            }
+          ]
+        },
+        "rateIncreaseCriteria": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/IoTJobRateIncreaseCriteria"
+            },
+            {
+              "description": "The criteria to increase the rollout rate for the job."
+            }
+          ]
+        }
+      },
+      "required": [
+        "baseRatePerMinute",
+        "incrementFactor",
+        "rateIncreaseCriteria"
+      ],
+      "type": "object"
+    },
+    "IoTJobId": {
+      "maxLength": 255,
+      "minLength": 1,
+      "type": "string"
+    },
+    "IoTJobInProgressTimeoutInMinutes": {
+      "type": "integer"
+    },
+    "IoTJobMaxExecutionsPerMin": {
+      "maximum": 1000,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "IoTJobMinimumNumberOfExecutedThings": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "IoTJobNumberOfThings": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "IoTJobRateIncreaseCriteria": {
+      "description": "Contains information about criteria to meet before a job increases its rollout rate. Specify either <code>numberOfNotifiedThings</code> or <code>numberOfSucceededThings</code>.",
+      "properties": {
+        "numberOfNotifiedThings": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/IoTJobNumberOfThings"
+            },
+            {
+              "description": "The number of devices to receive the job notification before the rollout rate increases."
+            }
+          ]
+        },
+        "numberOfSucceededThings": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/IoTJobNumberOfThings"
+            },
+            {
+              "description": "The number of devices to successfully run the configuration job before the rollout rate increases."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "IoTJobRolloutBaseRatePerMinute": {
+      "maximum": 1000,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "IoTJobRolloutIncrementFactor": {
+      "format": "double",
+      "maximum": 5,
+      "minimum": 1,
+      "type": "number"
+    },
+    "IoTJobTimeoutConfig": {
+      "description": "Contains information about the timeout configuration for a job.",
+      "properties": {
+        "inProgressTimeoutInMinutes": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/IoTJobInProgressTimeoutInMinutes"
+            },
+            {
+              "description": "<p>The amount of time, in minutes, that devices have to complete the job. The timer starts when the job status is set to <code>IN_PROGRESS</code>. If the job status doesn't change to a terminal state before the time expires, then the job status is set to <code>TIMED_OUT</code>.</p> <p>The timeout interval must be between 1 minute and 7 days (10080 minutes).</p>"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "IsLatestForTarget": {
+      "type": "boolean"
+    },
+    "IsRoot": {
+      "type": "boolean"
+    },
+    "LambdaContainerParams": {
+      "description": "Contains information about a container in which AWS Lambda functions run on AWS IoT Greengrass core devices.",
+      "properties": {
+        "devices": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/LambdaDeviceList"
+            },
+            {
+              "description": "The list of system devices that the container can access."
+            }
+          ]
+        },
+        "memorySizeInKB": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/OptionalInteger"
+            },
+            {
+              "description": "<p>The memory size of the container, expressed in kilobytes.</p> <p>Default: <code>16384</code> (16 MB)</p>"
+            }
+          ]
+        },
+        "mountROSysfs": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/OptionalBoolean"
+            },
+            {
+              "description": "<p>Whether or not the container can read information from the device's <code>/sys</code> folder.</p> <p>Default: <code>false</code> </p>"
+            }
+          ]
+        },
+        "volumes": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/LambdaVolumeList"
+            },
+            {
+              "description": "The list of volumes that the container can access."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "LambdaDeviceList": {
+      "items": {
+        "$ref": "#/definitions/LambdaDeviceMount"
+      },
+      "type": "array"
+    },
+    "LambdaDeviceMount": {
+      "description": "Contains information about a device that Linux processes in a container can access.",
+      "properties": {
+        "addGroupOwner": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/OptionalBoolean"
+            },
+            {
+              "description": "<p>Whether or not to add the component's system user as an owner of the device.</p> <p>Default: <code>false</code> </p>"
+            }
+          ]
+        },
+        "path": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/FileSystemPath"
+            },
+            {
+              "description": "The mount path for the device in the file system."
+            }
+          ]
+        },
+        "permission": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/LambdaFilesystemPermission"
+            },
+            {
+              "description": "<p>The permission to access the device: read/only (<code>ro</code>) or read/write (<code>rw</code>).</p> <p>Default: <code>ro</code> </p>"
+            }
+          ]
+        }
+      },
+      "required": [
+        "path"
+      ],
+      "type": "object"
+    },
+    "LambdaEnvironmentVariables": {
+      "additionalProperties": {
+        "$ref": "#/definitions/String"
+      },
+      "type": "object"
+    },
+    "LambdaEventSource": {
+      "description": "Contains information about an event source for an AWS Lambda function. The event source defines the topics on which this Lambda function subscribes to receive messages that run the function.",
+      "properties": {
+        "topic": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TopicString"
+            },
+            {
+              "description": "The topic to which to subscribe to receive event messages."
+            }
+          ]
+        },
+        "type": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/LambdaEventSourceType"
+            },
+            {
+              "description": "<p>The type of event source. Choose from the following options:</p> <ul> <li> <p> <code>PUB_SUB</code> – Subscribe to local publish/subscribe messages. This event source type doesn't support MQTT wildcards (<code>+</code> and <code>#</code>) in the event source topic.</p> </li> <li> <p> <code>IOT_CORE</code> – Subscribe to AWS IoT Core MQTT messages. This event source type supports MQTT wildcards (<code>+</code> and <code>#</code>) in the event source topic.</p> </li> </ul>"
+            }
+          ]
+        }
+      },
+      "required": [
+        "topic",
+        "type"
+      ],
+      "type": "object"
+    },
+    "LambdaEventSourceList": {
+      "items": {
+        "$ref": "#/definitions/LambdaEventSource"
+      },
+      "type": "array"
+    },
+    "LambdaEventSourceType": {
+      "enum": [
+        "PUB_SUB",
+        "IOT_CORE"
+      ],
+      "type": "string"
+    },
+    "LambdaExecArg": {
+      "type": "string"
+    },
+    "LambdaExecArgsList": {
+      "items": {
+        "$ref": "#/definitions/LambdaExecArg"
+      },
+      "type": "array"
+    },
+    "LambdaExecutionParameters": {
+      "description": "Contains parameters for a Lambda function that runs on AWS IoT Greengrass.",
+      "properties": {
+        "environmentVariables": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/LambdaEnvironmentVariables"
+            },
+            {
+              "description": "The map of environment variables that are available to the Lambda function when it runs."
+            }
+          ]
+        },
+        "eventSources": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/LambdaEventSourceList"
+            },
+            {
+              "description": "The list of event sources to which to subscribe to receive work messages. The Lambda function runs when it receives a message from an event source. You can subscribe this function to local publish/subscribe messages and AWS IoT Core MQTT messages."
+            }
+          ]
+        },
+        "execArgs": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/LambdaExecArgsList"
+            },
+            {
+              "description": "The list of arguments to pass to the Lambda function when it runs."
+            }
+          ]
+        },
+        "inputPayloadEncodingType": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/LambdaInputPayloadEncodingType"
+            },
+            {
+              "description": "<p>The encoding type that the Lambda function supports.</p> <p>Default: <code>json</code> </p>"
+            }
+          ]
+        },
+        "linuxProcessParams": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/LambdaLinuxProcessParams"
+            },
+            {
+              "description": "The parameters for the Linux process that contains the Lambda function."
+            }
+          ]
+        },
+        "maxIdleTimeInSeconds": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/OptionalInteger"
+            },
+            {
+              "description": "The maximum amount of time in seconds that a non-pinned Lambda function can idle before the AWS IoT Greengrass Core software stops its process."
+            }
+          ]
+        },
+        "maxInstancesCount": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/OptionalInteger"
+            },
+            {
+              "description": "The maximum number of instances that a non-pinned Lambda function can run at the same time."
+            }
+          ]
+        },
+        "maxQueueSize": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/OptionalInteger"
+            },
+            {
+              "description": "The maximum size of the message queue for the Lambda function component. The AWS IoT Greengrass core stores messages in a FIFO (first-in-first-out) queue until it can run the Lambda function to consume each message."
+            }
+          ]
+        },
+        "pinned": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/OptionalBoolean"
+            },
+            {
+              "description": "<p>Whether or not the Lambda function is pinned, or long-lived.</p> <ul> <li> <p>A pinned Lambda function starts when AWS IoT Greengrass starts and keeps running in its own container.</p> </li> <li> <p>A non-pinned Lambda function starts only when it receives a work item and exists after it idles for <code>maxIdleTimeInSeconds</code>. If the function has multiple work items, the AWS IoT Greengrass Core software creates multiple instances of the function.</p> </li> </ul> <p>Default: <code>true</code> </p>"
+            }
+          ]
+        },
+        "statusTimeoutInSeconds": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/OptionalInteger"
+            },
+            {
+              "description": "The interval in seconds at which a pinned (also known as long-lived) Lambda function component sends status updates to the Lambda manager component."
+            }
+          ]
+        },
+        "timeoutInSeconds": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/OptionalInteger"
+            },
+            {
+              "description": "The maximum amount of time in seconds that the Lambda function can process a work item."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "LambdaFilesystemPermission": {
+      "enum": [
+        "ro",
+        "rw"
+      ],
+      "type": "string"
+    },
+    "LambdaFunctionARNWithVersionNumber": {
+      "pattern": "arn:aws(-cn|-us-gov)?:lambda:[^:]+:[0-9]+:function:[a-zA-Z0-9-_]+:[0-9]+",
+      "type": "string"
+    },
+    "LambdaFunctionRecipeSource": {
+      "description": "Contains information about an AWS Lambda function to import to create a component.",
+      "properties": {
+        "componentDependencies": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ComponentDependencyMap"
+            },
+            {
+              "description": "The component versions on which this Lambda function component depends."
+            }
+          ]
+        },
+        "componentLambdaParameters": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/LambdaExecutionParameters"
+            },
+            {
+              "description": "The system and runtime parameters for the Lambda function as it runs on the AWS IoT Greengrass core device."
+            }
+          ]
+        },
+        "componentName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ComponentNameString"
+            },
+            {
+              "description": "<p>The name of the component.</p> <p>Defaults to the name of the Lambda function.</p>"
+            }
+          ]
+        },
+        "componentPlatforms": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ComponentPlatformList"
+            },
+            {
+              "description": "The platforms that the component version supports."
+            }
+          ]
+        },
+        "componentVersion": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ComponentVersionString"
+            },
+            {
+              "description": "<p>The version of the component.</p> <p>Defaults to the version of the Lambda function as a semantic version. For example, if your function version is <code>3</code>, the component version becomes <code>3.0.0</code>.</p>"
+            }
+          ]
+        },
+        "lambdaArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/LambdaFunctionARNWithVersionNumber"
+            },
+            {
+              "description": "The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the Lambda function. The ARN must include the version of the function to import. You can't use version aliases like <code>$LATEST</code>."
+            }
+          ]
+        }
+      },
+      "required": [
+        "lambdaArn"
+      ],
+      "type": "object"
+    },
+    "LambdaInputPayloadEncodingType": {
+      "enum": [
+        "json",
+        "binary"
+      ],
+      "type": "string"
+    },
+    "LambdaIsolationMode": {
+      "enum": [
+        "GreengrassContainer",
+        "NoContainer"
+      ],
+      "type": "string"
+    },
+    "LambdaLinuxProcessParams": {
+      "description": "Contains parameters for a Linux process that contains an AWS Lambda function.",
+      "properties": {
+        "containerParams": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/LambdaContainerParams"
+            },
+            {
+              "description": "The parameters for the container in which the Lambda function runs."
+            }
+          ]
+        },
+        "isolationMode": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/LambdaIsolationMode"
+            },
+            {
+              "description": "<p>The isolation mode for the process that contains the Lambda function. The process can run in an isolated runtime environment inside the AWS IoT Greengrass container, or as a regular process outside any container.</p> <p>Default: <code>GreengrassContainer</code> </p>"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "LambdaVolumeList": {
+      "items": {
+        "$ref": "#/definitions/LambdaVolumeMount"
+      },
+      "type": "array"
+    },
+    "LambdaVolumeMount": {
+      "description": "Contains information about a volume that Linux processes in a container can access. When you define a volume, the AWS IoT Greengrass Core software mounts the source files to the destination inside the container.",
+      "properties": {
+        "addGroupOwner": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/OptionalBoolean"
+            },
+            {
+              "description": "<p>Whether or not to add the AWS IoT Greengrass user group as an owner of the volume.</p> <p>Default: <code>false</code> </p>"
+            }
+          ]
+        },
+        "destinationPath": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/FileSystemPath"
+            },
+            {
+              "description": "The path to the logical volume in the file system."
+            }
+          ]
+        },
+        "permission": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/LambdaFilesystemPermission"
+            },
+            {
+              "description": "<p>The permission to access the volume: read/only (<code>ro</code>) or read/write (<code>rw</code>).</p> <p>Default: <code>ro</code> </p>"
+            }
+          ]
+        },
+        "sourcePath": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/FileSystemPath"
+            },
+            {
+              "description": "The path to the physical volume in the file system."
+            }
+          ]
+        }
+      },
+      "required": [
+        "sourcePath",
+        "destinationPath"
+      ],
+      "type": "object"
+    },
+    "LifecycleStateDetails": {
+      "maxLength": 1000,
+      "minLength": 1,
+      "type": "string"
+    },
+    "ListComponentVersionsRequest": {
+      "properties": {},
+      "title": "ListComponentVersionsRequest",
+      "type": "object"
+    },
+    "ListComponentVersionsResponse": {
+      "properties": {
+        "componentVersions": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ComponentVersionList"
+            },
+            {
+              "description": "A list of versions that exist for the component."
+            }
+          ]
+        },
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NextTokenString"
+            },
+            {
+              "description": "The token for the next set of results, or null if there are no additional results."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ListComponentsRequest": {
+      "properties": {},
+      "title": "ListComponentsRequest",
+      "type": "object"
+    },
+    "ListComponentsResponse": {
+      "properties": {
+        "components": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ComponentList"
+            },
+            {
+              "description": "A list that summarizes each component."
+            }
+          ]
+        },
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NextTokenString"
+            },
+            {
+              "description": "The token for the next set of results, or null if there are no additional results."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ListCoreDevicesRequest": {
+      "properties": {},
+      "title": "ListCoreDevicesRequest",
+      "type": "object"
+    },
+    "ListCoreDevicesResponse": {
+      "properties": {
+        "coreDevices": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CoreDevicesList"
+            },
+            {
+              "description": "A list that summarizes each core device."
+            }
+          ]
+        },
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NextTokenString"
+            },
+            {
+              "description": "The token for the next set of results, or null if there are no additional results."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ListDeploymentsRequest": {
+      "properties": {},
+      "title": "ListDeploymentsRequest",
+      "type": "object"
+    },
+    "ListDeploymentsResponse": {
+      "properties": {
+        "deployments": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DeploymentList"
+            },
+            {
+              "description": "A list that summarizes each deployment."
+            }
+          ]
+        },
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NextTokenString"
+            },
+            {
+              "description": "The token for the next set of results, or null if there are no additional results."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ListEffectiveDeploymentsRequest": {
+      "properties": {},
+      "title": "ListEffectiveDeploymentsRequest",
+      "type": "object"
+    },
+    "ListEffectiveDeploymentsResponse": {
+      "properties": {
+        "effectiveDeployments": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/EffectiveDeploymentsList"
+            },
+            {
+              "description": "A list that summarizes each deployment on the core device."
+            }
+          ]
+        },
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NextTokenString"
+            },
+            {
+              "description": "The token for the next set of results, or null if there are no additional results."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ListInstalledComponentsRequest": {
+      "properties": {},
+      "title": "ListInstalledComponentsRequest",
+      "type": "object"
+    },
+    "ListInstalledComponentsResponse": {
+      "properties": {
+        "installedComponents": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InstalledComponentList"
+            },
+            {
+              "description": "A list that summarizes each component on the core device."
+            }
+          ]
+        },
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NextTokenString"
+            },
+            {
+              "description": "The token for the next set of results, or null if there are no additional results."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ListTagsForResourceRequest": {
+      "properties": {},
+      "title": "ListTagsForResourceRequest",
+      "type": "object"
+    },
+    "ListTagsForResourceResponse": {
+      "properties": {
+        "tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagMap"
+            },
+            {
+              "description": "A list of key-value pairs that contain metadata for the resource. For more information, see <a href=\"https://docs.aws.amazon.com/greengrass/v2/tag-resources.html\">Tag your resources</a> in the <i>AWS IoT Greengrass V2 Developer Guide</i>."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "NextTokenString": {
+      "type": "string"
+    },
+    "NonEmptyString": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "NullableString": {
+      "type": "string"
+    },
+    "OptionalBoolean": {
+      "type": "boolean"
+    },
+    "OptionalInteger": {
+      "type": "integer"
+    },
+    "PlatformAttributesMap": {
+      "additionalProperties": {
+        "$ref": "#/definitions/NonEmptyString"
+      },
+      "type": "object"
+    },
+    "PublisherString": {
+      "type": "string"
+    },
+    "Reason": {
+      "type": "string"
+    },
+    "RecipeBlob": {
+      "type": "string"
+    },
+    "RecipeOutputFormat": {
+      "enum": [
+        "JSON",
+        "YAML"
+      ],
+      "type": "string"
+    },
+    "ResolveComponentCandidatesRequest": {
+      "properties": {
+        "componentCandidates": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ComponentCandidateList"
+            },
+            {
+              "description": "The list of components to resolve."
+            }
+          ]
+        },
+        "platform": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ComponentPlatform"
+            },
+            {
+              "description": "The platform to use to resolve compatible components."
+            }
+          ]
+        }
+      },
+      "required": [
+        "platform",
+        "componentCandidates"
+      ],
+      "title": "ResolveComponentCandidatesRequest",
+      "type": "object"
+    },
+    "ResolveComponentCandidatesResponse": {
+      "properties": {
+        "resolvedComponentVersions": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResolvedComponentVersionsList"
+            },
+            {
+              "description": "A list of components that meet the requirements that you specify in the request. This list includes each component's recipe that you can use to install the component."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ResolvedComponentVersion": {
+      "description": "Contains information about a component version that is compatible to run on a AWS IoT Greengrass core device.",
+      "properties": {
+        "arn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ComponentVersionARN"
+            },
+            {
+              "description": "The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the component version."
+            }
+          ]
+        },
+        "componentName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ComponentNameString"
+            },
+            {
+              "description": "The name of the component."
+            }
+          ]
+        },
+        "componentVersion": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ComponentVersionString"
+            },
+            {
+              "description": "The version of the component."
+            }
+          ]
+        },
+        "recipe": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RecipeBlob"
+            },
+            {
+              "description": "The recipe of the component version."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ResolvedComponentVersionsList": {
+      "items": {
+        "$ref": "#/definitions/ResolvedComponentVersion"
+      },
+      "type": "array"
+    },
+    "ResourceNotFoundException": {},
+    "ServiceQuotaExceededException": {},
+    "String": {
+      "type": "string"
+    },
+    "StringMap": {
+      "additionalProperties": {
+        "$ref": "#/definitions/NonEmptyString"
+      },
+      "type": "object"
+    },
+    "TagKey": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "^(?!aws:)[a-zA-Z+-=._:/]+$",
+      "type": "string"
+    },
+    "TagKeyList": {
+      "items": {
+        "$ref": "#/definitions/TagKey"
+      },
+      "maxItems": 50,
+      "minItems": 1,
+      "type": "array"
+    },
+    "TagMap": {
+      "additionalProperties": {
+        "$ref": "#/definitions/TagValue"
+      },
+      "maxProperties": 50,
+      "minProperties": 1,
+      "type": "object"
+    },
+    "TagResourceRequest": {
+      "properties": {
+        "tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagMap"
+            },
+            {
+              "description": "A list of key-value pairs that contain metadata for the resource. For more information, see <a href=\"https://docs.aws.amazon.com/greengrass/v2/tag-resources.html\">Tag your resources</a> in the <i>AWS IoT Greengrass V2 Developer Guide</i>."
+            }
+          ]
+        }
+      },
+      "required": [
+        "tags"
+      ],
+      "title": "TagResourceRequest",
+      "type": "object"
+    },
+    "TagResourceResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "TagValue": {
+      "maxLength": 256,
+      "type": "string"
+    },
+    "TargetARN": {
+      "pattern": "arn:aws(-cn|-us-gov)?:iot:[^:]+:[0-9]+:(thing|thinggroup)/.+",
+      "type": "string"
+    },
+    "ThingGroupARN": {
+      "pattern": "arn:aws(-cn|-us-gov)?:iot:[^:]+:[0-9]+:thinggroup/.+",
+      "type": "string"
+    },
+    "ThrottlingException": {},
+    "Timestamp": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "TopicString": {
+      "type": "string"
+    },
+    "UntagResourceRequest": {
+      "properties": {},
+      "title": "UntagResourceRequest",
+      "type": "object"
+    },
+    "UntagResourceResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "ValidationException": {}
+  },
+  "securityDefinitions": {
+    "hmac": {
+      "description": "Amazon Signature authorization v4",
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey",
+      "x-amazon-apigateway-authtype": "awsSigv4"
+    }
+  },
+  "security": [
+    {
+      "hmac": []
+    }
+  ],
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://docs.aws.amazon.com/greengrass/"
+  },
+  "x-components": {
+    "parameters": {
+      "X-Amz-Algorithm": {
+        "in": "header",
+        "name": "X-Amz-Algorithm",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Content-Sha256": {
+        "in": "header",
+        "name": "X-Amz-Content-Sha256",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Credential": {
+        "in": "header",
+        "name": "X-Amz-Credential",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Date": {
+        "in": "header",
+        "name": "X-Amz-Date",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Security-Token": {
+        "in": "header",
+        "name": "X-Amz-Security-Token",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Signature": {
+        "in": "header",
+        "name": "X-Amz-Signature",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-SignedHeaders": {
+        "in": "header",
+        "name": "X-Amz-SignedHeaders",
+        "required": false,
+        "type": "string"
+      }
+    }
+  },
+  "x-hasEquivalentPaths": true
+}

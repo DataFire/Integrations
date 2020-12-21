@@ -1,15 +1,9 @@
 {
   "swagger": "2.0",
-  "schemes": [
-    "http",
-    "https"
-  ],
-  "host": "api.nytimes.com",
-  "basePath": "/svc/semantic/v2/concept",
   "info": {
     "description": "The Semantic API complements the Articles API. With the Semantic API, you get access to the long list of people, places, organizations and other locations, entities and descriptors that make up the controlled vocabulary used as metadata by The New York Times (sometimes referred to as Times Tags and used for Times Topics pages).\n\nThe Semantic API uses concepts which are, by definition, terms in The New York Times controlled vocabulary. Like the way facets are used in the Articles API, concepts are a good way to uncover articles of interest in The New York Times archive, and at the same time, limit the scope and number of those articles. The Semantic API maps to external semantic data resources, in a fashion consistent with the idea of linked data. The Semantic API also provides combination and relationship information to other, similar concepts in The New York Times controlled vocabulary.\n",
     "termsOfService": "http://developer.nytimes.com/tou",
-    "title": "Semantic",
+    "title": "Semantic API",
     "version": "2.0.0",
     "x-apiClientRegistration": {
       "url": "http://developer.nytimes.com/signup"
@@ -23,9 +17,9 @@
     },
     "x-origin": [
       {
-        "format": "swagger",
-        "url": "https://raw.githubusercontent.com/NYTimes/public_api_specs/master/semantic_api/semantic_api.json",
-        "version": "2.0"
+        "format": "openapi",
+        "url": "https://raw.githubusercontent.com/nytimes/public_api_specs/master/semantic_api/semantic_api.json",
+        "version": "3.0"
       }
     ],
     "x-preferred": true,
@@ -36,27 +30,17 @@
       "type": "openapi"
     }
   },
-  "externalDocs": {
-    "url": "http://developer.nytimes.com/"
-  },
-  "produces": [
-    "application/json"
-  ],
-  "securityDefinitions": {
-    "apikey": {
-      "in": "query",
-      "name": "api-key",
-      "type": "apiKey"
-    }
-  },
-  "security": [
-    {
-      "apikey": []
-    }
+  "host": "api.nytimes.com",
+  "basePath": "/svc/semantic/v2/concept",
+  "schemes": [
+    "http"
   ],
   "paths": {
     "/name/{concept-type}/{specific-concept}.json": {
       "get": {
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "The type of the concept, used for Constructing a Semantic API Request by Concept Type and Specific Concept Name. The parameter is defined as a name-value pair, as in \"concept_type=[nytd_geo|nytd_per|nytd_org|nytd_des]\".\n",
@@ -129,12 +113,14 @@
               "type": "object"
             }
           }
-        },
-        "operationId": "name.concept_type.specific_concept.json.get"
+        }
       }
     },
     "/search.json": {
       "get": {
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Precedes the search term string. Used in a Search Query. Except for &lt;specific_concept_name&gt;, Search Query will take the required parameters listed above (&lt;concept_type&gt;, &lt;concept_uri&gt;, &lt;article_uri&gt;) as an optional_parameter in addition to the query=&lt;query_term&gt;.",
@@ -195,8 +181,7 @@
               "type": "object"
             }
           }
-        },
-        "operationId": "search.json.get"
+        }
       }
     }
   },
@@ -456,5 +441,21 @@
       },
       "type": "object"
     }
-  }
+  },
+  "securityDefinitions": {
+    "apikey": {
+      "in": "query",
+      "name": "api-key",
+      "type": "apiKey"
+    }
+  },
+  "security": [
+    {
+      "apikey": []
+    }
+  ],
+  "externalDocs": {
+    "url": "http://developer.nytimes.com/"
+  },
+  "x-components": {}
 }

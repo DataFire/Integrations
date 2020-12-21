@@ -12,7 +12,7 @@ let transavia = require('@datafire/transavia').create({
   apiKeyQuery: ""
 });
 
-transavia.58d8bcb8a9e6240e200cff27({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

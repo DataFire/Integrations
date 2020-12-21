@@ -15,16 +15,7 @@ let azure_sql_renamedatabase = require('@datafire/azure_sql_renamedatabase').cre
   redirect_uri: ""
 });
 
-azure_sql_renamedatabase.Databases_Rename({
-  "resourceGroupName": "",
-  "serverName": "",
-  "databaseName": "",
-  "parameters": {
-    "id": ""
-  },
-  "subscriptionId": "",
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

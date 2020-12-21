@@ -15,12 +15,7 @@ let azure_apimanagement_apimemailtemplate = require('@datafire/azure_apimanageme
   redirect_uri: ""
 });
 
-azure_apimanagement_apimemailtemplate.EmailTemplate_ListByService({
-  "resourceGroupName": "",
-  "serviceName": "",
-  "api-version": "",
-  "subscriptionId": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
